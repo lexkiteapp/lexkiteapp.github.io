@@ -34,6 +34,7 @@
   "web/js/ideas.js": { "groups": ["ideas"] },
   "web/js/study.js": { "groups": ["words-uk", "words-us", "examples-uk", "examples-us"], "dynamic": "ngữ cảnh người học tự lưu (contexts)" },
   "web/js/study-modes.js": { "groups": ["words-uk", "words-us", "examples-uk", "examples-us"] },
+  "web/js/path-trail.js": { "groups": ["examples-us"] },
   "web/js/quick.js": { "groups": ["words-uk", "words-us"] },
   "web/js/listening.js": { "groups": ["listening", "words-uk", "words-us"] },
   "web/js/watch.js": { "groups": ["words-uk", "words-us"], "dynamic": "từ người học gõ khi xem video YouTube (#/watch) – từ ngoài kho đọc động" },
