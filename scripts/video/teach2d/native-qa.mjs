@@ -9,7 +9,7 @@ import { has } from '../../i18n-english.mjs';
 
 const ROOT = fileURLToPath(new URL('../../../', import.meta.url)), J = f => JSON.parse(fs.readFileSync(ROOT + f, 'utf8'));
 const A = process.argv.slice(2), ONLINE = A.includes('--online'), WRITE = A.includes('--write'), ONLY = A.filter(x => !x.startsWith('--'));
-const rows = J('content/video/teach2d/l1.json').rows.filter(r => !ONLY.length || ONLY.includes(r.id));
+const rows = [J('content/video/teach2d/l1.json'), ...(fs.existsSync(ROOT + 'content/video/teach2d/l1') ? fs.readdirSync(ROOT + 'content/video/teach2d/l1').filter(f => f.endsWith('.json')).sort().map(f => J('content/video/teach2d/l1/' + f)) : [])].flatMap(x => x.rows).filter(r => !ONLY.length || ONLY.includes(r.id));
 const WN = J('content/dict/wordnet.json').words, senses = s => String(s).split(/[;；]/).map(x => x.split(/[,、，]/)[0].trim()).filter(Boolean);
 let lex = null;
 async function gloss(L, w, n) {
