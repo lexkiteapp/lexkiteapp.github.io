@@ -172,6 +172,10 @@
           [
             "first time|hi|hello|new|events",
             "No, it's my third. What brings you here?"
+          ],
+          [
+            "nice to meet you|pleasure|good evening|good morning|name is|call me",
+            "Nice to meet you too."
           ]
         ]
       },
@@ -182,6 +186,10 @@
           [
             "working on|what do you do|job|work",
             "I'm building an app for small farms."
+          ],
+          [
+            "startup|business|freelanc\\w*|student|designer|developer|engineer|teacher|marketing",
+            "Cool. I'm building an app for farms."
           ]
         ]
       },
@@ -192,6 +200,10 @@
           [
             "get into|how did|interesting|why|tell me",
             "My family has a farm, so I saw the problems."
+          ],
+          [
+            "good luck|congratulations|congrats|amazing|awesome|impressive|cool",
+            "Thanks, I appreciate that."
           ]
         ]
       },
@@ -202,6 +214,10 @@
           [
             "great talking|feel free|email|card|nice",
             "Thanks, I will!"
+          ],
+          [
+            "goodbye|bye|take care|see you",
+            "Take care!"
           ]
         ]
       }
