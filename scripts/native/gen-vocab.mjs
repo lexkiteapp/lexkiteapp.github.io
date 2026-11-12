@@ -554,7 +554,7 @@ const SIMILARITY = vm.runInNewContext(`(function(){ ${slice(rd('web/js/ui.js'), 
 async function writingCases() {
   const out = { ideas: [], letters: [], paraphrase: {}, models: [], model: [], phrases: [], annotated: [] };
   // ---- the web content the page scripts read, plus the REDUCED copy the ports get in vocab.json (data.writing): the same real records, a few of them ----
-  const MODF = ['web/js/models.js', 'web/cpack/write/models2.js', 'web/cpack/write/models3.js', 'web/cpack/write/models4.js', 'web/cpack/write/models5.js', 'web/js/write/gt-letters.js', 'web/cpack/write/task2-more.js'];
+  const MODF = ['web/cpack/write/models.js', 'web/cpack/write/models2.js', 'web/cpack/write/models3.js', 'web/cpack/write/models4.js', 'web/cpack/write/models5.js', 'web/js/write/gt-letters.js', 'web/cpack/write/task2-more.js'];
   const applyMini = (P, W) => { const sb = P.E.sb; sb.MODELS = clone(W.models); sb.WRITE_PROMPTS = clone(W.prompts); const S = P.A.app.task1 && P.A.app.task1.SETS; if (S) S.splice(0, S.length, ...clone(W.task1)); };
   const base = async (hash, W) => { // the model pages on the MINI library (word index = data.catalog) with the real phrases.js lemmatizer
     const P = await pageEnv(hash, MODF, {}, true);

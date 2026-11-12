@@ -75,10 +75,10 @@ export const cta = (title, note, href, btn) => `<div class="cta"><p><strong>${es
 export const wPath = (l, e) => `/${l}/words/${slug.get(e)}`;
 const DX = loadSources(LANGS); // "Cách dùng từ", kho câu tự soạn, WordNet, bài blog đã đăng – cùng nguồn trang từ điển (scripts/dict/build.mjs)
 const VI_RE = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
-// Câu tiếng Anh tự soạn khác của app (bài mẫu IELTS Writing web/js/models.js, câu trả lời mẫu Speaking web/cpack/speak/samples.js – CONTENT-RULES) → ví dụ thật cho từ ít ví dụ
+// Câu tiếng Anh tự soạn khác của app (bài mẫu IELTS Writing web/cpack/write/models.js, câu trả lời mẫu Speaking web/cpack/speak/samples.js – CONTENT-RULES) → ví dụ thật cho từ ít ví dụ
 const MORE_EX = (() => {
   const ctx = {}; ctx.self = ctx; ctx.window = ctx; vm.createContext(ctx);
-  for (const f of ['web/js/models.js', 'web/cpack/speak/samples.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), ctx, { filename: f });
+  for (const f of ['web/cpack/write/models.js', 'web/cpack/speak/samples.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), ctx, { filename: f });
   const texts = [...(ctx.MODELS || []).map(m => String(m.text || '').replace(/<<[^>]*>>/g, '').replace(/\[\[([^|\]]+)\|[^\]]*\]\]/g, '$1').replace(/\{\{([^}]*)\}\}/g, '$1')), ...Object.values(ctx.SPEAK_SAMPLES || {}).map(x => String(x.a || ''))];
   const by = new Map();
   for (const tx0 of texts) for (const s0 of tx0.split(/(?<=[.!?])\s+/)) { const s = s0.replace(/\s+/g, ' ').trim(); if (s.length < 25 || s.length > 130 || VI_RE.test(s) || /[[\]{}<>_|]/.test(s) || !/^[A-Z“"']/.test(s)) continue; for (const t of new Set(s.toLowerCase().match(/[a-z]+/g) || [])) { const a = by.get(t) || by.set(t, []).get(t); if (a.length < 20 && !a.includes(s)) a.push(s); } }
