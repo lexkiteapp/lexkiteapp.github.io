@@ -4,7 +4,7 @@
 import fs from 'fs'; import path from 'path'; import { fileURLToPath } from 'url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const g = {};
-for (const d of ['listen', '../cpack/listen', 'readtest', 'toeic', '../cpack/toefl']) { const dir = path.join(ROOT, 'web/js', d); if (fs.existsSync(dir)) for (const f of fs.readdirSync(dir).sort()) if (f.endsWith('.js')) try { new Function('self', fs.readFileSync(path.join(dir, f), 'utf8'))(g); } catch (e) { /* bỏ tệp không phải dữ liệu */ } }
+for (const d of ['listen', '../cpack/listen', 'readtest', '../cpack/readtest', 'toeic', '../cpack/toefl']) { const dir = path.join(ROOT, 'web/js', d); if (fs.existsSync(dir)) for (const f of fs.readdirSync(dir).sort()) if (f.endsWith('.js')) try { new Function('self', fs.readFileSync(path.join(dir, f), 'utf8'))(g); } catch (e) { /* bỏ tệp không phải dữ liệu */ } }
 const src = new Set();
 JSON.stringify([g.LISTENING, g.READ_EXPLAIN, g.TOEIC, g.TOEFL], (k, v) => { if ((k === 'why' || k === 'explain') && typeof v === 'string' && v.trim()) src.add(v); return v; });
 export const hash = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0).toString(36); };
