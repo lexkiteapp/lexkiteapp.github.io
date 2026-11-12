@@ -386,3 +386,5 @@ node scripts/test/phrasebook.mjs
 node scripts/test/native-strings-locked.mjs
 node scripts/audit/score.mjs --self-test
 node scripts/test/suite-shards.mjs
+node scripts/build-go.mjs --check
+node scripts/test/go-landing.mjs
