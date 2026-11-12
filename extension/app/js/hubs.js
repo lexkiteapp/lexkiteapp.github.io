@@ -91,6 +91,7 @@
   const tiles = list => list.map(([h, ic, n, d]) => card(h, ic, esc(n), d)).join('');
 
   routes.skills = function () {
+    if (App.ux1On && App.ux1On() && App.skillsV2 && self.ST2 && ST2.skills) return App.skillsV2({ SK, itemsFor, cnt });
     const ex = App.exam(), g = state.game || {};
     const done = { listening: cnt(g.listenDone), reading: cnt(g.readDone), grammar: cnt(g.grammarDone), pron: cnt(g.pronDone), mediate: cnt(g.medBest) };
     const skillCard = k => { const list = itemsFor(k, ex); return list ? card('#/skill/' + k, UI.icon(SK[k].ic), SK[k].name(), list.map(x => esc(x[2])).slice(0, 3).join(' · '), done[k] ? t('{n} bài đã làm', { n: done[k] }) : '') : ''; };

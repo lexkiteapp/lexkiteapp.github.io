@@ -2,5 +2,5 @@
 .lg-hc { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--sp-3); }
 .lg-hc-tx { display: flex; flex-direction: column; gap: var(--sp-1); min-width: 0; }
 .lg-hc-t { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-1) var(--sp-2); }
-.lg-hc-cta { white-space: nowrap; min-height: 44px; } /* QA bot tap ≥ 44 px cả khi chuột ở bề rộng 768–1440 */
+.lg-hc-cta { white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; } /* vùng chạm ≥44px (QA bot: tap) */
 @container (max-width: 440px) { .lg-hc { grid-template-columns: auto minmax(0, 1fr); } .lg-hc-cta { grid-column: 1 / -1; justify-self: stretch; justify-content: center; } }

@@ -74,6 +74,7 @@ node scripts/test/next-step.mjs
 node scripts/confidence/build.mjs
 node scripts/test/confidence.mjs
 node scripts/test/lesson.mjs
+node scripts/test/mic-exclusive.mjs
 node scripts/factory/build-grammar-bank.mjs --check
 node scripts/test/content-factory.mjs
 node scripts/test/ux1.mjs
@@ -321,6 +322,7 @@ node scripts/test/i18n-native-score.mjs
 node scripts/test/cambridge.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/teach2d-rig.mjs
+node scripts/test/teach2d-l1.mjs
 node scripts/test/workflow-yaml.mjs
 node scripts/test/workflow-call-perms.mjs
 node scripts/test/push-main.mjs
@@ -375,6 +377,8 @@ node scripts/test/es-practice.mjs
 node scripts/test/es-pron.mjs
 node scripts/test/es-path.mjs
 node scripts/test/ext-version.mjs
+node scripts/test/skills-hub.mjs
 node scripts/test/phrasebook.mjs
 node scripts/test/native-strings-locked.mjs
 node scripts/audit/score.mjs --self-test
+node scripts/test/suite-shards.mjs
