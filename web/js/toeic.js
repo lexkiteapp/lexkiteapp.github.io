@@ -52,10 +52,10 @@
       </div>
       <a class="card hover" href="#/toeic-sw" style="display:block;margin-top:1rem;text-decoration:none;color:inherit"><div class="row between"><div><h3 style="margin:0">🎙️ TOEIC Speaking & Writing</h3><div class="small muted" style="margin-top:.2rem">${t('Nói và viết theo các dạng bài của ETS: bài mẫu, tiêu chí chấm, chấm đọc to tự động.')}</div></div><span class="btn sm primary">${t('Luyện tập')} →</span></div></a>
       <h2 style="margin-top:1.4rem">🎯 ${t('Luyện theo Part')}</h2>${tabs}
-      <h3 style="margin:.8rem 0 .4rem">🎧 Listening</h3>
+      <h3 style="margin:.8rem 0 .4rem">🎧 <span lang="en" translate="no">Listening</span></h3>
       <div class="grid auto">${T().listening.filter(p => p.test === cur).map(p => `<div class="card"><span class="chip">Part ${p.part} · ${L_PART()[p.part] || ''}</span><h3 style="margin:.5rem 0 .2rem">Test ${p.test} · ${esc(p.title)}</h3><div class="small muted">${App.listening ? t('{n} câu', { n: App.listening.qNums(p).length }) : ''}</div>
         <div class="card-acts"><a class="btn sm primary" href="#/listen/${p.id}">${UI.icon('target')} ${t('Luyện tập')}</a><a class="btn sm" href="#/listen/${p.id}?mode=exam">${UI.icon('timer')} ${t('Nghe 1 lần')}</a><a class="btn sm" href="#/dictation/${p.id}">${UI.icon('keyboard')} ${t('Chép chính tả')}</a></div></div>`).join('') || `<div class="card muted">${t('Đang cập nhật.')}</div>`}</div>
-      <h3 style="margin:1rem 0 .4rem">📖 Reading</h3>
+      <h3 style="margin:1rem 0 .4rem">📖 <span lang="en" translate="no">Reading</span></h3>
       <div class="grid auto">${T().reading.filter(rt => rt.test === cur).flatMap(rt => rt.parts.map(pt => `<div class="card"><span class="chip">Part ${pt.part} · ${R_PART()[pt.part] || ''}</span><h3 style="margin:.5rem 0 .2rem">Test ${rt.test} · ${esc(pt.title)}</h3><div class="small muted">${t('{n} câu', { n: countPart(pt) })}</div>
         <div class="row" style="margin-top:.6rem"><a class="btn sm primary" href="#/toeic-r/${rt.id}?part=${pt.part}">🎯 ${t('Luyện Part {n}', { n: pt.part })}</a></div></div>`)).join('') || `<div class="card muted">${t('Đang cập nhật.')}</div>`}</div>
       <div class="card" style="margin-top:1.2rem"><h3 style="margin-top:0">💡 ${t('Chiến lược TOEIC')}</h3><ul class="small" style="line-height:1.8;padding-left:1.1rem">

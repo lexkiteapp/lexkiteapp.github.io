@@ -63,13 +63,13 @@
         <div class="card">
           <h3 style="margin-top:0">🗂️ ${t('Cấu trúc đề')}</h3>
           <table class="tx-table"><thead><tr><th>${t('Phần')}</th><th>${t('Số câu')}</th><th>${t('Thời gian')}</th></tr></thead><tbody>
-            ${SECTIONS.map(s => `<tr><td>${s.ic} ${s.name}</td><td>~${s.items}</td><td class="muted">${t('khoảng {m} phút', { m: s.mins })}</td></tr>`).join('')}
+            ${SECTIONS.map(s => `<tr><td>${s.ic} <span lang="en" translate="no">${s.name}</span></td><td>~${s.items}</td><td class="muted">${t('khoảng {m} phút', { m: s.mins })}</td></tr>`).join('')}
           </tbody></table>
           <div class="tiny muted">${t('Số câu và thời gian là con số tham khảo do ETS công bố (tổng ~90 phút làm bài, nên dành khoảng 2 giờ cho cả buổi thi); vì Reading và Listening thích ứng nên có thể thay đổi.')}</div>
         </div>
       </div>
-      ${SECTIONS.map(s => `<h2 style="margin-top:1.4rem">${s.ic} ${s.name}</h2>
-        <div class="grid auto">${s.tasks.map(k => { const T = TASKS[k], n = countTask(k); return `<div class="card"><span class="chip">${T.ic} ${s.name}</span>${b[k] != null ? ` <span class="chip ok">🏆 ${b[k]}%</span>` : ''}
+      ${SECTIONS.map(s => `<h2 style="margin-top:1.4rem">${s.ic} <span lang="en" translate="no">${s.name}</span></h2>
+        <div class="grid auto">${s.tasks.map(k => { const T = TASKS[k], n = countTask(k); return `<div class="card"><span class="chip">${T.ic} <span lang="en" translate="no">${s.name}</span></span>${b[k] != null ? ` <span class="chip ok">🏆 ${b[k]}%</span>` : ''}
           <h3 style="margin:.5rem 0 .2rem">${esc(T.name)}</h3><div class="small muted">${T.desc}</div><div class="tiny muted" style="margin-top:.3rem">${n ? esc(unitWord(k, n)) : t('Đang cập nhật.')}</div>
           <div class="row" style="margin-top:.6rem"><a class="btn sm primary" href="#/toefl-p/${k}">🎯 ${t('Luyện tập')}</a></div></div>`; }).join('')}</div>`).join('')}
       <div class="card" style="margin-top:1.2rem"><h3 style="margin-top:0">📏 ${t('Về điểm số trong ứng dụng')}</h3>
@@ -123,7 +123,7 @@
     pageT0 = Date.now();
     App.cleanup = () => { players.forEach(p => p && p.stop()); timers.forEach(clearInterval); stopRec(); UI.stopSpeak(); if (UI.stopRecognize) UI.stopRecognize(); };
     view.innerHTML = `<a href="#/toefl" class="small">← TOEFL iBT</a>
-      <div class="page-head" style="margin-top:.4rem"><div><div class="tiny muted">${sec.ic} ${sec.name}</div><h1 style="margin:.2rem 0">${T.ic} ${esc(T.name)}</h1><p class="muted small" style="margin:0">${T.desc}</p></div></div>
+      <div class="page-head" style="margin-top:.4rem"><div><div class="tiny muted">${sec.ic} <span lang="en" translate="no">${sec.name}</span></div><h1 style="margin:.2rem 0">${T.ic} ${esc(T.name)}</h1><p class="muted small" style="margin:0">${T.desc}</p></div></div>
       ${window.QT ? QT.box(task === 'sentence' ? 'sentenceB' : task, true) : ''}
       <div class="row" style="margin-bottom:1rem">${sec.tasks.map(k => `<a class="btn sm ${k === task ? 'primary' : ''}" href="#/toefl-p/${k}">${TASKS[k].ic} ${esc(TASKS[k].name)}</a>`).join('')}</div>
       ${perPage && sets.length > 1 ? `<div class="tabs" style="display:inline-flex;margin-bottom:1rem">${sets.map(n => `<a class="${n === cur ? 'on' : ''}" href="#/toefl-p/${task}?s=${n}" style="padding:.45rem .9rem;border-radius:10px;font-weight:700;text-decoration:none;color:inherit;${n === cur ? 'background:var(--surface);box-shadow:var(--shadow-sm)' : ''}">${t('Bộ {n}', { n })}</a>`).join('')}</div>` : ''}

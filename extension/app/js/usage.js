@@ -122,7 +122,7 @@
   const exHtml = s => { const x = U.example(s); return `<p class="us-ex"><span lang="en" translate="no">${esc(x.pre)}${x.ans ? `<mark>${esc(x.ans)}</mark>` : ''}${esc(x.post)}</span>${sayBtn(x.text, t('Nghe câu ví dụ'))}</p>`; };
   const exText = s => U.example(s).text;
   const POSL = () => ({ a: 'tính từ', v: 'động từ', n: 'danh từ', adv: 'trạng từ' });
-  const posName = p => (I18N.lang() === 'vi' ? p : ({ 'tính từ': 'adjective', 'động từ': 'verb', 'danh từ': 'noun', 'trạng từ': 'adverb' }[p] || p)); // thuật ngữ từ loại chuẩn tiếng Anh ở giao diện khác (như UI.posChip)
+  const posName = p => (I18N.lang() === 'vi' ? p : UI.posLabel(p)); // cùng nguồn với UI.posChip: bản dịch từ loại của ngôn ngữ giao diện, chưa có → thuật ngữ tiếng Anh
   const posOf = h => { const m = /\(([^)]+)\)\s*$/.exec(h || ''); return m ? m[1] : ''; };
   const headOf = h => String(h || '').replace(/\s*\([^)]*\)\s*$/, '');
   // Mã mẫu động từ → công thức tiếng Anh (nội dung học, không dịch) + tên gọi
