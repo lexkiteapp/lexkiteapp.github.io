@@ -234,7 +234,7 @@
 .idk .row.end{justify-content:flex-end}.idk .btn{min-height:44px}.idk-done{text-align:center;display:grid;gap:.6rem;justify-items:center}@media (max-width:480px){.idk .row.end .btn{flex:1}}`;
     document.head.appendChild(st);
   };
-  const ERRS = () => ({ toobig: T('Tệp quá lớn (tối đa 20 MB, 200 trang).'), type: T('Chưa đọc được loại tệp này. Dùng PDF có chữ, ePub, .srt, .vtt hoặc .txt.'), epub: T('Tệp ePub bị hỏng hoặc có khóa bản quyền (DRM).'), net: T('Chưa tải được bộ đọc PDF – kiểm tra mạng rồi thử lại.'), browser: T('Trình duyệt chưa hỗ trợ – hãy cập nhật trình duyệt') });
+  const ERRS = () => ({ toobig: T('Tệp quá lớn (tối đa 20 MB, 200 trang).'), type: T('Chưa đọc được loại tệp này.'), epub: T('ePub hỏng hoặc có DRM.'), net: T('Chưa tải được bộ đọc PDF.'), browser: T('Trình duyệt chưa hỗ trợ – hãy cập nhật trình duyệt') });
 
   let S = null;
   const root = () => document.getElementById('idRoot');
@@ -262,49 +262,49 @@
   const head = (n, title) => `${dots(n)}<h2 id="idTitle">${title}</h2>`;
   function sourceView() {
     return `${head(1, T('Nhập từ tài liệu'))}
-      <p class="small muted" style="margin:0">${T('Lexkite đọc ngay trên máy bạn – tệp không được tải lên đâu cả. Chỉ từ bạn chọn, kèm câu gốc, được lưu thành thẻ.')}</p>
-      <button type="button" class="idk-drop" id="idDrop"><span aria-hidden="true" style="font-size:1.6rem">📥</span><b>${T('Chọn hoặc kéo thả tệp vào đây')}</b><span class="small muted">${isExt() ? '.epub · .srt · .vtt · .txt' : '.pdf · .epub · .srt · .vtt · .txt'} · ${T('tối đa 20 MB, 200 trang')}</span></button>
-      <input type="file" id="idFile" accept="${isExt() ? '' : '.pdf,application/pdf,'}.epub,.srt,.vtt,.txt,text/plain" hidden aria-label="${T('Chọn tệp')}">
+      <p class="small muted" style="margin:0">${T('Đọc ngay trên máy bạn, không tải tệp lên.')}</p>
+      <button type="button" class="idk-drop" id="idDrop"><span aria-hidden="true" style="font-size:1.6rem">📥</span><b>${T('Chọn hoặc kéo thả file vào đây')}</b><span class="small muted">${isExt() ? '.epub · .srt · .vtt · .txt' : '.pdf · .epub · .srt · .vtt · .txt'} · ${T('tối đa 20 MB, 200 trang')}</span></button>
+      <input type="file" id="idFile" accept="${isExt() ? '' : '.pdf,application/pdf,'}.epub,.srt,.vtt,.txt,text/plain" hidden aria-label="${T('Chọn file')}">
       <label for="idText" class="small" style="font-weight:700">${T('Hoặc dán văn bản')}</label>
-      <textarea class="input" id="idText" rows="4" placeholder="${esc(T('Dán bài báo, đoạn truyện, lời thoại…'))}">${esc(S.text || '')}</textarea>
+      <textarea class="input" id="idText" rows="4" placeholder="${esc(T('Hoặc dán văn bản'))}">${esc(S.text || '')}</textarea>
       <div id="idMsg" role="status" aria-live="polite">${S.err ? `<div class="idk-err">⚠️ ${esc(S.err)}</div>` : ''}</div>
-      <div class="row end"><button type="button" class="btn ghost" data-close>${T('Đóng')}</button><button type="button" class="btn primary" id="idGo">${T('Đọc văn bản')}</button></div>`;
+      <div class="row end"><button type="button" class="btn ghost" data-close>${T('Đóng')}</button><button type="button" class="btn primary" id="idGo">${T('Tiếp tục')}</button></div>`;
   }
   function busyView() {
     return `<div class="idk" aria-busy="true"><h2 id="idTitle">${T('Đang đọc trên máy…')}</h2><div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="${T('Tiến độ')}" id="idBar"><i style="width:0%"></i></div><p class="small muted" id="idProg" role="status" aria-live="polite" style="margin:0">${S.msg || ''}</p><div class="row end"><button type="button" class="btn ghost" id="idCancel">${T('Hủy')}</button></div></div>`;
   }
   function setP(p, label) { const b = $('#idBar'); if (!b) return; const v = Math.round(p * 100); b.firstElementChild.style.width = v + '%'; b.setAttribute('aria-valuenow', v); if (label) { const l = $('#idProg'); if (l) l.textContent = label; } }
   function rows(list) {
-    return `<ul class="idk-list" aria-label="${T('Từ đáng học')}">${list.slice(0, S.shown).map(c => `<li><label class="idk-row"><input type="checkbox" data-w="${esc(c.word)}" ${S.picked.has(c.word) ? 'checked' : ''}><span><b>${esc(c.word)}</b>${c.n > 1 ? `<span class="idk-n">×${c.n}</span>` : ''}${c.meaning ? '' : `<span class="idk-no">${T('chưa có nghĩa')}</span>`}<span class="s">${esc(c.meaning || '')}${c.meaning && c.sentence ? ' · ' : ''}${esc(c.sentence || '')}</span></span></label></li>`).join('')}</ul>`;
+    return `<ul class="idk-list" aria-label="${T('Chọn từ để học')}">${list.slice(0, S.shown).map(c => `<li><label class="idk-row"><input type="checkbox" data-w="${esc(c.word)}" ${S.picked.has(c.word) ? 'checked' : ''}><span><b>${esc(c.word)}</b>${c.n > 1 ? `<span class="idk-n">×${c.n}</span>` : ''}${c.meaning ? '' : `<span class="idk-no">${T('chưa có nghĩa')}</span>`}<span class="s">${esc(c.meaning || '')}${c.meaning && c.sentence ? ' · ' : ''}${esc(c.sentence || '')}</span></span></label></li>`).join('')}</ul>`;
   }
   function pickView() {
     const L = S.list;
-    if (!L.length) return `${head(2, T('Chọn từ để học'))}<div class="idk-note">${T('Không tìm thấy từ mới đáng học trong tài liệu này (từ quá phổ biến hoặc đã có trong sổ từ).')}</div><div class="row end"><button type="button" class="btn" id="idBack">← ${T('Chọn nguồn khác')}</button></div>`;
+    if (!L.length) return `${head(2, T('Chọn từ để học'))}<div class="idk-note">${T('Không có từ mới đáng học ở đây.')}</div><div class="row end"><button type="button" class="btn" id="idBack">← ${T('Chọn nguồn khác')}</button></div>`;
     return `${head(2, T('Chọn từ để học'))}
-      <p class="small muted" style="margin:0">${T('Đã bỏ từ rất phổ biến, từ bạn đã có, tên riêng và số. Xếp theo độ đáng học.')}</p>
+      <p class="small muted" style="margin:0">${T('Đã bỏ từ quá thông dụng, từ đã có, tên riêng, số.')}</p>
       <div class="row" style="gap:.4rem"><span class="chip" id="idCount" role="status" aria-live="polite">${T('Đã chọn {n} từ', { n: S.picked.size })}</span><button type="button" class="btn sm ghost" id="idTop">${T('Chọn {n} từ đầu', { n: PRESELECT })}</button><button type="button" class="btn sm ghost" id="idNone">${T('Bỏ chọn hết')}</button></div>
       ${rows(L)}${L.length > S.shown ? `<button type="button" class="btn ghost" id="idMore">${T('Hiện thêm')}</button>` : ''}
       <div class="row end"><button type="button" class="btn ghost" id="idBack">← ${T('Quay lại')}</button><button type="button" class="btn primary" id="idNext" ${S.picked.size ? '' : 'disabled'}>${T('Tiếp tục')}</button></div>`;
   }
   const pickedList = () => S.list.filter(c => S.picked.has(c.word));
   function meanView() {
-    const P = pickedList(), miss = P.filter(c => !c.meaning).length;
+    const P = pickedList();
     return `${head(3, T('Nghĩa của từ'))}
-      <p class="small muted" style="margin:0">${T('Nghĩa lấy từ từ điển có sẵn của Lexkite. Từ nào chưa có nghĩa vẫn được lưu và đánh dấu để điền sau.')}</p>
-      ${miss ? `<div class="idk-note">${T('{n} từ chưa có nghĩa.', { n: miss })}</div>` : ''}${rows(P.length ? P : [])}
+      <p class="small muted" style="margin:0">${T('Nghĩa từ từ điển Lexkite. Từ thiếu nghĩa vẫn được lưu.')}</p>
+${rows(P.length ? P : [])}
       <div class="row end"><button type="button" class="btn ghost" id="idBack">← ${T('Quay lại')}</button><button type="button" class="btn primary" id="idNext" ${P.length ? '' : 'disabled'}>${T('Tiếp tục')}</button></div>`;
   }
   function nameView() {
     const P = pickedList(), five = P.slice(0, 5);
-    return `${head(4, T('Tạo bộ thẻ'))}
-      <label for="idDeck" class="small" style="font-weight:700">${T('Tên bộ thẻ')}<input class="input" id="idDeck" maxlength="60" value="${esc(S.deck)}"></label>
-      <div><div class="small muted" style="margin-bottom:.3rem">${T('Xem trước {n} thẻ đầu', { n: five.length })}</div><div class="idk-prev">${five.map(c => `<div class="idk-card"><div class="w">${esc(c.word)}</div><div>${c.meaning ? esc(c.meaning) : `<span class="idk-no">${T('chưa có nghĩa')}</span>`}</div>${c.sentence ? `<div class="x">${esc(c.sentence)}</div>` : ''}</div>`).join('')}</div></div>
-      <p class="small muted" style="margin:0">${T('Thẻ vào lịch ôn FSRS như thẻ mới. Tệp gốc không được lưu.')}</p>
+    return `${head(4, T('Tạo bộ {n} thẻ', { n: P.length }))}
+      <label for="idDeck" class="small" style="font-weight:700">${T('Tên bộ từ trong Lexkite')}<input class="input" id="idDeck" maxlength="60" value="${esc(S.deck)}"></label>
+      <div><div class="idk-prev">${five.map(c => `<div class="idk-card"><div class="w">${esc(c.word)}</div><div>${c.meaning ? esc(c.meaning) : `<span class="idk-no">${T('chưa có nghĩa')}</span>`}</div>${c.sentence ? `<div class="x">${esc(c.sentence)}</div>` : ''}</div>`).join('')}</div></div>
+      <p class="small muted" style="margin:0">${T('Thẻ vào lịch ôn FSRS. Không lưu tệp gốc.')}</p>
       <div class="row end"><button type="button" class="btn ghost" id="idBack">← ${T('Quay lại')}</button><button type="button" class="btn primary" id="idSave">${T('Tạo bộ {n} thẻ', { n: P.length })}</button></div>`;
   }
   function doneView() {
     const d = S.done;
-    return `<div class="idk-done">${kit('cheer', 84)}<h2 id="idTitle">${T('Đã tạo bộ “{d}” với {n} thẻ', { n: d.n, d: esc(d.deck) })}</h2><p class="small muted" style="margin:0">${T('Từ mới đã vào lịch ôn FSRS.')}</p></div>
+    return `<div class="idk-done">${kit('cheer', 84)}<h2 id="idTitle">${T('Đã tạo bộ “{d}” với {n} thẻ', { n: d.n, d: esc(d.deck) })}</h2></div>
       <div class="row end"><button type="button" class="btn ghost" id="idUndo">↩ ${T('Hoàn tác')} <span id="idSec">${d.left}</span></button><a class="btn" href="#/deck" data-close>📒 ${T('Xem trong Sổ từ')}</a><a class="btn primary" href="#/practice/learn?src=deck" data-close>🧠 ${T('Học ngay')}</a></div>`;
   }
 
@@ -316,11 +316,12 @@
       const drop = b('idDrop'), f = b('idFile'); drop.onclick = () => f.click(); f.onchange = () => f.files[0] && run(f.files[0]);
       drop.ondragover = e => { e.preventDefault(); drop.classList.add('on'); }; drop.ondragleave = () => drop.classList.remove('on');
       drop.ondrop = e => { e.preventDefault(); drop.classList.remove('on'); if (e.dataTransfer.files[0]) run(e.dataTransfer.files[0]); };
-      on('idGo', () => { const t = b('idText').value; S.text = t; if (t.trim().length < 20) { S.err = T('Hãy dán ít nhất một đoạn văn bản tiếng Anh.'); return draw(); } run(t, T('Văn bản dán')); });
+      const tx = b('idText'), go = b('idGo'); tx.oninput = () => { S.text = tx.value; go.disabled = tx.value.trim().length < 20; }; // chữ dán: ≥ 20 ký tự mới bấm được
+      go.disabled = (S.text || '').trim().length < 20; go.onclick = () => run(tx.value, T('Văn bản dán'));
       return;
     }
     on('idBack', () => { S.step = S.step === 2 ? 1 : S.step - 1; S.err = null; S.focusH = true; draw(); });
-    on('idNext', () => { S.step++; if (S.step === 4 && !S.deck) S.deck = T('Bộ nhập'); S.focusH = true; draw(); });
+    on('idNext', () => { S.step++; if (S.step === 4 && !S.deck) S.deck = T('Văn bản dán'); S.focusH = true; draw(); });
     on('idMore', () => { S.shown += 100; draw(); });
     on('idTop', () => { S.picked = preselect(S.list); draw(); });
     on('idNone', () => { S.picked = new Set(); draw(); });
@@ -333,29 +334,29 @@
     on('idSave', save);
   }
   async function run(src, label) {
-    S.err = null; S.busy = true; S.cancel = false; S.msg = T('Đang đọc…'); draw();
+    S.err = null; S.busy = true; S.cancel = false; S.msg = T('Đang đọc trên máy…'); draw();
     const cancelled = () => S.cancel || !isOpen();
     try {
       const K = known(), miner = createMiner({ known: K });
-      const info = await readSource(src, miner, { isCancelled: cancelled, onProgress: p => setP(p * 0.7, T('Đang đọc… {p}%', { p: Math.round(p * 100) })) });
+      const info = await readSource(src, miner, { isCancelled: cancelled, onProgress: p => setP(p * 0.7) });
       const raw = miner.result();
       setP(0.72, T('Đang tra từ điển…'));
       S.list = await enrich(raw, { lookup, known: K, isCancelled: cancelled, onProgress: p => setP(0.72 + p * 0.28) });
       S.picked = preselect(S.list); S.shown = 100;
-      S.deck = deckName(typeof src === 'string' ? '' : src.name) || T('Bộ nhập');
+      S.deck = deckName(typeof src === 'string' ? '' : src.name) || T('Văn bản dán');
       S.source = typeof src === 'string' ? label : src.name; S.kind = info.kind;
       S.step = 2; S.busy = false; S.focusH = true;
     } catch (e) {
       S.busy = false; S.step = 1;
-      if (e.code === 'cancel') { if (isOpen()) { draw(); toast(T('Đã hủy – chưa tạo thẻ nào')); } return; }
-      S.err = ERRS()[e.code] || T('Chưa đọc được tài liệu này. Hãy thử tệp khác.');
+      if (e.code === 'cancel') { if (isOpen()) { draw(); toast(T('Đã hủy – chưa nhập từ nào')); } return; }
+      S.err = ERRS()[e.code] || T('Chưa nhập được. Hãy thử lại.');
     }
     if (isOpen()) draw();
   }
   async function save() {
     const P = pickedList(); if (!P.length) return;
     const btn = document.getElementById('idSave'); if (btn) btn.disabled = true;
-    const deck = (S.deck || '').trim().slice(0, 60) || T('Bộ nhập'), C = g.Core.Cards, now = Date.now(), vi = !g.I18N || !I18N.meanLang || I18N.meanLang() === 'vi';
+    const deck = (S.deck || '').trim().slice(0, 60) || T('Văn bản dán'), C = g.Core.Cards, now = Date.now(), vi = !g.I18N || !I18N.meanLang || I18N.meanLang() === 'vi';
     try {
       const cards = makeCards(C, P, { deck, source: S.source || '', now, vi }), keys = [];
       await C.mutate(map => { for (const c of cards) { const k = g.Core.keyOf ? g.Core.keyOf(c.word) : c.word.toLowerCase(); if (map[k]) continue; map[k] = c; keys.push(k); } return map; });
@@ -366,12 +367,12 @@
       const h = $('#idTitle'); if (h) { h.tabIndex = -1; h.focus(); }
       const d = S.done; d.timer = setInterval(() => { d.left--; const s = document.getElementById('idSec'); if (s) s.textContent = d.left; if (d.left <= 0) finish(d); }, 1000);
       const u = document.getElementById('idUndo'); if (u) u.onclick = () => undo(d);
-    } catch (e) { S.err = T('Chưa tạo được bộ thẻ. Hãy thử lại.'); if (btn) btn.disabled = false; toast(S.err); }
+    } catch (e) { S.err = T('Chưa nhập được. Hãy thử lại.'); if (btn) btn.disabled = false; toast(S.err); }
   }
   function finish(d) { clearInterval(d.timer); d.timer = 0; const u = document.getElementById('idUndo'); if (u) u.remove(); if (g.Sync && Sync.schedule) Sync.schedule(); } // chỉ đồng bộ sau khi hết 10 s hoàn tác
   async function undo(d) {
     if (!d.timer) return; clearInterval(d.timer); d.timer = 0;
-    try { await g.Core.Cards.mutate(map => { for (const k of d.keys) delete map[k]; return map; }); if (g.App) { await App.load(); App.updateChrome && App.updateChrome(); } toast(T('Đã hoàn tác – bỏ {n} thẻ vừa tạo', { n: d.keys.length })); } catch (e) { toast(T('Chưa hoàn tác được')); }
+    try { await g.Core.Cards.mutate(map => { for (const k of d.keys) delete map[k]; return map; }); if (g.App) { await App.load(); App.updateChrome && App.updateChrome(); } toast(T('Đã hoàn tác', { n: d.keys.length })); } catch (e) { toast(T('Không tải được – thử lại sau')); }
     S.done = null; S.step = 4; if (isOpen()) draw();
   }
 
