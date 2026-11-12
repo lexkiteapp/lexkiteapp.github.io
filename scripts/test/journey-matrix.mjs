@@ -6,6 +6,7 @@ import { chromium, devices } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 import { serve } from '../quality/serve.mjs';
+import { CARDS, DAY, EMPTY, GAME, GOAL, GOAL_N, LEARNER, NEWBIE, NOW, STATS, TODAY_DONE, XP, card, dayKey, seedOf, today, yest } from './lib/seeds.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = path.resolve(arg('root', 'dist')), OUT = path.resolve(arg('out', 'jm-out')), SHARD = arg('shard', 'all'), ONLY = arg('only', ''), WORKERS = +arg('workers', 3);
@@ -26,18 +27,6 @@ const results = [], warns = new Set();
 let STEPS = 0, SCREENS = 0;
 
 // ---------- dữ liệu thử ----------
-const DAY = 864e5, NOW = Date.now(), dayKey = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-const card = (word, vi) => ({ word, vi, pos: 'noun', ex: '', contexts: [], added: NOW - 9 * DAY, mod: NOW - 2 * DAY, srs: { ef: 2.5, interval: 3, reps: 3, lapses: 0, due: NOW - DAY, last: NOW - 4 * DAY, step: 0, S: 3, D: 4 } });
-const CARDS = Object.fromEntries(['resilience', 'sustainable', 'negotiate', 'budget', 'deadline'].map(w => [w, card(w, w)]));
-const GOAL = { onboarded: true, exam: 'ielts', examTarget: '6.5', targetBand: '6.5', goalPick: { exam: 'ielts', target: 6.5, at: NOW }, plSkip: NOW };
-const XP = 1234, TODAY_DONE = 3, GOAL_N = 20;
-const today = dayKey(new Date()), yest = dayKey(new Date(NOW - DAY));
-const GAME = { xp: XP, days: { [today]: { xp: 30 }, [yest]: { xp: 40 } } };
-const STATS = { days: { [today]: TODAY_DONE, [yest]: 5 }, newToday: { day: today, n: 0 } };
-const seedOf = (p, o) => Object.fromEntries(Object.entries(o).map(([k, v]) => [k.startsWith('lk.') ? k : p + k, typeof v === 'string' ? v : JSON.stringify(v)]));
-const NEWBIE = { settings: { onboarded: true }, 'lk.ux1': '1' };
-const LEARNER = { settings: GOAL, cards: CARDS, game: GAME, stats: STATS, 'lk.ux1': '1' };
-const EMPTY = { settings: GOAL, 'lk.ux1': '1' };
 
 // ---------- API giả lập ----------
 const LG_WEEK = { key: 'W', start: NOW - DAY, end: NOW + 3 * DAY };
