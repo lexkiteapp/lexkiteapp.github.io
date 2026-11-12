@@ -470,7 +470,7 @@ tipEn: "Tip: One breath, one idea, one nucleus. Good fluency is not maximum spee
 { w: 'I would say that', ipa: '/aɪ wəd ˈseɪ ðət/', note: '“would”, “that” dạng yếu' }
 ],
 sentences: [
-'In my OPinion / public TRANSport / is the BEST way / to reduce TRAFfic. ↘',
+'In my oPINion / public TRANSport / is the BEST way / to reduce TRAFfic. ↘',
 'People who live in big CIties / often feel STRESSED / because of the NOISE. ↘',
 'To be HONest / I don\'t use social MEdia much / but my FRIENDS do. ↘'
 ],
@@ -551,7 +551,7 @@ P.push({
   sentences: [
     'The decline was SUBSTANTIAL, not MARGINAL.',
     'It wasn’t the POLICY that failed; it was the IMPLEMENTATION.',
-    'UNEMPLOYMENT fell, but WAGES stayed flat.'
+    'Unemployment FELL, but WAGES stayed FLAT.'
   ],
   quiz: [
     { q: 'Trong câu trung tính, nhân thường rơi vào đâu?', options: ['Từ đầu tiên của câu', 'Từ đầu tiên của cụm ý', 'Từ nội dung cuối cùng của cụm ý'], answer: 2, explain: 'Mặc định tiếng Anh đặt nhân ở từ nội dung cuối của cụm ý (ví dụ “in SEPTEMBER”).' },
