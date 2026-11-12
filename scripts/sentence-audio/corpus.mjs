@@ -118,7 +118,7 @@ export function collect() {
       // câu ví dụ của thẻ giải thích (grammar.js / usage.js ExplainCard → UI.speak theo accent người học)
       for (const t of strs(Object.values(x.LESSON_GOLD || {}).flat().flatMap(g => (g && g.ex) || []))) bothSplit(t, 'gold-examples'); }
     // Bài mẫu (phrases.js, bỏ đánh dấu) + câu cố định trong Cài đặt
-    { const x = ctx(); for (const f of fs.readdirSync('web/js').filter(f => /^models.*\.js$/.test(f))) L(x, `web/js/${f}`);
+    { const x = ctx(); for (const f of fs.readdirSync('web/js').filter(f => /^models.*\.js$/.test(f))) L(x, `web/js/${f}`); L(x, 'web/cpack/write/models.js'); // models.js ở cpack từ #1213
       const plain = t => t.replace(/<<[^>]*>>/g, '').replace(/\[\[([^|\]]*)\|[^\]]*\]\]/g, '$1').replace(/\{\{([^}]*)\}\}/g, '$1');
       for (const m of x.MODELS || []) if (m.text) bothSplit(plain(m.text), 'models');
       for (const t of ['This is how I will read words and sentences to you.', 'Many people believe that renewable energy is the key to a sustainable future. However, the transition will not happen overnight.']) bothSplit(t, 'ui-lines'); }

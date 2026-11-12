@@ -1041429,6 +1041429,70 @@
     "qa": {},
     "senseLock": "wiktionary-1"
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "superstitious#adj",
+   "batch": "20261112-r227",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-12",
+   "data": {
+    "w": "superstitious",
+    "pos": "adj",
+    "ipa": "/ˌs(j)uːpəˈstɪʃəs/",
+    "ipaUS": "/ˌsuːpərˈstɪʃəs/",
+    "def": "believing in superstitions",
+    "ex": [
+     "People here are very superstitious.",
+     "I'm not a superstitious person."
+    ],
+    "col": [
+     "superstitious notion",
+     "superstitious person"
+    ],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.14,
+    "emoji": "",
+    "topic": "culture",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:superstitious.s.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:12433437",
+      "tatoeba:11096478"
+     ],
+     "tr": {
+      "es": "wiktionary+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "zh": "wiktionary+ai",
+      "ja": "omw+ai",
+      "ar": "wiktionary+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "susceptible to superstitions",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
   }
  ]
 }

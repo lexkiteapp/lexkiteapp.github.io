@@ -6,4 +6,5 @@
 - Trang đích (`build-go.mjs`) gửi `go_view|go_start|go_done|go_cta` kèm `at` → `ext_events` `fun:<sự kiện>:<nguồn>|<chiến dịch>|<mã>` (trần 600 tổ hợp/ngày).
 - App (`app.js`): đọc UTM lúc vào, nhớ `lk.at`; beacon phiên ĐẦU mang `at`; `fl:1` khi máy đó có bài/ôn đầu tiên (lần duy nhất). Máy chủ (`hit.js` → `attrStmts`): máy mới (ret=0) + UTM → `vid_attr` (lượt đầu thắng); máy cũ → đánh dấu D1 (đúng ngày kế) / D7+ (từ ngày 7). ≤ 40 lượt ghi/IP/giờ; dọn >400 ngày.
 - Đọc: op `channels` (admin.js, đệm 10 phút, kỳ 7/30/90) → bảng theo nguồn/chiến dịch/mã + tóm tắt hôm qua so với hôm kia. D1/D7+ chỉ tính nhóm đủ tuổi.
+- Thẻ chia sẻ (`web/js/share-card.js`, tải lười): QR + chữ chia sẻ trỏ `/go/<lang>/`; QR `?utm_source=qr&utm_campaign=<streak|result|goal|day>` (≤ 62 byte – giới hạn `lib/qr.js`), liên kết `utm_source=share&utm_medium=link&utm_campaign=<loại>[&c=<mã giới thiệu>]`. Test `share-link`. Thẻ đấu (duel) chưa có tính năng → chưa có thẻ.
 - Còn lại: tóm tắt hằng ngày đẩy sang kênh báo (hiện hiển thị trong Quản trị); `/api/go/<nền tảng>/bio` nên trỏ tới `/go/<lang>/` (thuộc phiên social).
