@@ -2,7 +2,7 @@
 // + hreflang vi ↔ en giữa 2 bản. Chạy sau build-samples.mjs. Giao diện chung: scripts/lib/site-layout.mjs.
 import fs from 'node:fs'; import vm from 'node:vm'; import { execFileSync } from 'node:child_process';
 import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L, FIND_I18N } from './lib/site-layout.mjs';
-import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters, loadTask1, loadPron } from './lib/seo-data.mjs';
+import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, relatedPron, loadGrammar, loadLetters, loadTask1, loadPron } from './lib/seo-data.mjs';
 import { lastmodStore } from './lib/lastmod.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
@@ -242,7 +242,7 @@ ${(x.sentences || []).length ? `<h2>Practice sentences</h2><ul class="uses">${x.
 ${quizHtml((x.quiz || []).slice(0, 3), t)}
 ${ctaBox(href, `🗣️ Record yourself saying ${esc(x.ipa)} words`, 'Practise in the app')}
 <nav class="pager" aria-label="Previous / next sound">${prev ? `<a rel="prev" href="/en/pronunciation/${slugP(prev)}">← ${esc(nameP(prev))}</a>` : '<span></span>'}${next ? `<a rel="next" href="/en/pronunciation/${slugP(next)}">${esc(nameP(next))} →</a>` : ''}</nav>
-${related(relatedOf(P, x, y => y.group === x.group, 4), pCard)}
+${related(relatedPron(P, x), pCard)}
 ${extBox('en', 'pron')}
 ${pwaBox('en', 'pron')}</article>`;
     const isSound = !!sound, ex3 = ws.slice(0, 3).map(w => w.w).join(', ');

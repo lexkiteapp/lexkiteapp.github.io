@@ -1,0 +1,5469 @@
+{
+ "scene": "scenes",
+ "version": 1,
+ "created": "2026-11-12",
+ "_note": "Chuỗi ảnh cảnh hội thoại 2D (Kling image, không video) cho 20 tình huống content/situations: Ama = khách, Carlos = nhân viên (trang phục 3 khoá). Ảnh 16:9 2K ở lexkite-media cine/scenes/<sit>/<sit>_f<k>.png; mỗi khung gắn câu thoại (dialogue index) + tag để dùng lại ở bài tình huống, reels (pan/crop 9:16 0 cr), blog, podcast. reuse = chỗ dùng dự kiến; lần dùng thật cộng vào uses. Ledger: tools/ledger.txt. plates = cảnh TRỐNG (không người, không chữ) cùng bối cảnh, 16:9/9:16 × ngày/chiều tối × nhiều góc – nền cho lớp giáo viên phông xanh, reels, intro (owner 12/11: footage mô-đun dùng lại hàng triệu video).",
+ "media": "https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/scenes/",
+ "situations": {
+  "cafe": {
+   "set": "A small sunny cafe interior seen from the front: a wooden counter with a silver coffee machine and a blank chalkboard-style panel on the back wall, a potted plant, warm cream walls with mint and coral accents, soft window light.",
+   "role_look": "barista apron over the white shirt",
+   "tags": {
+    "topic": "ordering at a cafe",
+    "cefr": "A2",
+    "group": "food",
+    "vocab": [
+     "iced latte",
+     "oat milk",
+     "cup",
+     "counter",
+     "card",
+     "card reader",
+     "coffee machine"
+    ]
+   },
+   "cefr": "A2",
+   "group": "food",
+   "frames": [
+    {
+     "id": "cafe_f1",
+     "src": "cafe/cafe_f1.png",
+     "shot": "wide",
+     "lines": [
+      0
+     ],
+     "say": [
+      "Hi! What would you like to drink today?"
+     ],
+     "props": [
+      "counter",
+      "coffee machine",
+      "blank menu panel"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "cafe_f2",
+     "src": "cafe/cafe_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      1,
+      2
+     ],
+     "say": [
+      "Could we get two iced lattes?",
+      "Sure. What size would you like?"
+     ],
+     "props": [
+      "iced latte glasses",
+      "cups in two sizes"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "cafe_f3",
+     "src": "cafe/cafe_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      3,
+      4
+     ],
+     "say": [
+      "Medium, please. Could I swap the milk for oat milk?",
+      "No problem. Anything to eat?"
+     ],
+     "props": [
+      "oat milk carton",
+      "pastry plate"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "cafe_f4",
+     "src": "cafe/cafe_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      5,
+      6
+     ],
+     "say": [
+      "No, thanks. How much does that come to?",
+      "That's nine fifty, please."
+     ],
+     "props": [
+      "card reader",
+      "cash register"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "cafe_f5",
+     "src": "cafe/cafe_f5.png",
+     "shot": "close-up on hands/object",
+     "lines": [
+      7,
+      8
+     ],
+     "say": [
+      "Can I pay by card?",
+      "Of course. Your drinks will be ready soon."
+     ],
+     "props": [
+      "bank card",
+      "card reader",
+      "two iced lattes"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "cafe_p_2",
+     "src": "cafe/plates/cafe_p_2.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cafe/zones/cafe_p_2.zones.json"
+     }
+    },
+    {
+     "id": "cafe_pn_1",
+     "src": "cafe/plates/cafe_pn_1.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8125,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cafe/zones/cafe_pn_1.zones.json"
+     }
+    },
+    {
+     "id": "cafe_pn_4",
+     "src": "cafe/plates/cafe_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8438,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cafe/zones/cafe_pn_4.zones.json"
+     }
+    },
+    {
+     "id": "cafe_v_1",
+     "src": "cafe/plates/cafe_v_1.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.586,
+      "horizon_src": "depth",
+      "floor_top": 0.6979,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cafe/zones/cafe_v_1.zones.json"
+     }
+    },
+    {
+     "id": "cafe_vn_1",
+     "src": "cafe/plates/cafe_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4375,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6562,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cafe/zones/cafe_vn_1.zones.json"
+     }
+    },
+    {
+     "id": "cafe_vn_4",
+     "src": "cafe/plates/cafe_vn_4.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6771,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cafe/zones/cafe_vn_4.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "cafe_amb_vn_1",
+     "src": "cafe/inserts/cafe_amb_vn_1.mp4",
+     "plate": "cafe_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "steam curls up from the coffee machine and the cup, warm sunlight shimmers softly on the wall, the plant leaves sway a little",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    },
+    {
+     "id": "cafe_amb_pn_1",
+     "src": "cafe/inserts/cafe_amb_pn_1.mp4",
+     "plate": "cafe_pn_1",
+     "aspect": "16:9",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "steam curls up from the coffee machine and the cup, warm sunlight shimmers softly on the wall, the plant leaves sway a little",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "restaurant-order": {
+   "set": "A cosy evening restaurant interior: a small round table with white tablecloth next to a large window showing a dusk sky, warm hanging lamps, terracotta walls and green plants.",
+   "role_look": "waiter's dark apron over the white shirt, a folded cloth on one arm",
+   "tags": {
+    "topic": "ordering in a restaurant",
+    "cefr": "A2",
+    "group": "food",
+    "vocab": [
+     "table",
+     "window",
+     "menu",
+     "soup",
+     "grilled fish",
+     "water glass",
+     "bill"
+    ]
+   },
+   "cefr": "A2",
+   "group": "food",
+   "frames": [
+    {
+     "id": "restaurant-order_f1",
+     "src": "restaurant-order/restaurant-order_f1.png",
+     "shot": "wide",
+     "lines": [
+      0
+     ],
+     "say": [
+      "Good evening. Table for two?"
+     ],
+     "props": [
+      "entrance",
+      "window table",
+      "hanging lamps"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "restaurant-order_f2",
+     "src": "restaurant-order/restaurant-order_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      1,
+      2
+     ],
+     "say": [
+      "Yes, please. Do you have a table by the window?",
+      "Of course. Here are your menus."
+     ],
+     "props": [
+      "window table",
+      "two blank menus"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "restaurant-order_f3",
+     "src": "restaurant-order/restaurant-order_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      3,
+      4
+     ],
+     "say": [
+      "Thank you. I'll have the soup and the grilled fish.",
+      "Would you like anything to drink?"
+     ],
+     "props": [
+      "open menu",
+      "notepad",
+      "pen"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "restaurant-order_f4",
+     "src": "restaurant-order/restaurant-order_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      5,
+      6
+     ],
+     "say": [
+      "Just water, please. Is the soup vegetarian?",
+      "It is. I'll bring your water right away."
+     ],
+     "props": [
+      "water jug",
+      "empty glass",
+      "soup bowl icon on menu"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "restaurant-order_f5",
+     "src": "restaurant-order/restaurant-order_f5.png",
+     "shot": "close-up on hands/object",
+     "lines": [
+      7,
+      8
+     ],
+     "say": [
+      "Great. And could we have the bill later?",
+      "Of course, just let me know."
+     ],
+     "props": [
+      "water glass",
+      "soup bowl",
+      "grilled fish plate",
+      "table"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "restaurant-order_p_1",
+     "src": "restaurant-order/plates/restaurant-order_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.65,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8229,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/restaurant-order/zones/restaurant-order_p_1.zones.json"
+     }
+    },
+    {
+     "id": "restaurant-order_pn_2",
+     "src": "restaurant-order/plates/restaurant-order_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.65,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8229,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/restaurant-order/zones/restaurant-order_pn_2.zones.json"
+     }
+    },
+    {
+     "id": "restaurant-order_v_4",
+     "src": "restaurant-order/plates/restaurant-order_v_4.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3044,
+      "horizon_src": "depth",
+      "floor_top": 0.6562,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/restaurant-order/zones/restaurant-order_v_4.zones.json"
+     }
+    },
+    {
+     "id": "restaurant-order_vn_1",
+     "src": "restaurant-order/plates/restaurant-order_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/restaurant-order/zones/restaurant-order_vn_1.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "restaurant-order_amb_vn_1",
+     "src": "restaurant-order/inserts/restaurant-order_amb_vn_1.mp4",
+     "plate": "restaurant-order_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the pendant lamps glow and sway very slightly, candle-like warm light flickers softly, the evening sky outside the window slowly shifts colour",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    },
+    {
+     "id": "restaurant-order_amb_pn_2",
+     "src": "restaurant-order/inserts/restaurant-order_amb_pn_2.mp4",
+     "plate": "restaurant-order_pn_2",
+     "aspect": "16:9",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the pendant lamps glow and sway very slightly, candle-like warm light flickers softly, the evening sky outside the window slowly shifts colour",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "airport-checkin": {
+   "set": "A bright airport check-in hall: a long white desk with a luggage scale and short conveyor belt, big window with a plane outline outside, blue and white palette with orange accents, blank screens above the desk showing only simple plane icons.",
+   "role_look": "airline uniform vest in navy over the white shirt, no logo",
+   "tags": {
+    "topic": "airport check-in",
+    "cefr": "B1",
+    "group": "transport",
+    "vocab": [
+     "passport",
+     "suitcase",
+     "scale",
+     "check-in desk",
+     "boarding pass",
+     "phone",
+     "conveyor belt"
+    ]
+   },
+   "cefr": "B1",
+   "group": "transport",
+   "frames": [
+    {
+     "id": "airport-checkin_f1",
+     "src": "airport-checkin/airport-checkin_f1.png",
+     "shot": "wide",
+     "lines": [
+      0,
+      1
+     ],
+     "say": [
+      "Good morning. Where are you flying to today?",
+      "Hi, I'd like to check in for my flight to Chicago."
+     ],
+     "props": [
+      "check-in desk",
+      "suitcase",
+      "blank screens with plane icon"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "airport-checkin_f2",
+     "src": "airport-checkin/airport-checkin_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      2,
+      3
+     ],
+     "say": [
+      "Of course. May I see your passport and booking reference, please?",
+      "Sure, here's my passport. The booking reference is on my phone."
+     ],
+     "props": [
+      "passport",
+      "phone"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "airport-checkin_f3",
+     "src": "airport-checkin/airport-checkin_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      4,
+      5
+     ],
+     "say": [
+      "Thanks. Are you checking in any bags today?",
+      "I'd like to check this suitcase. What's the weight limit?"
+     ],
+     "props": [
+      "suitcase",
+      "luggage scale",
+      "conveyor belt"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "airport-checkin_f4",
+     "src": "airport-checkin/airport-checkin_f4.png",
+     "shot": "close-up on hands/object",
+     "lines": [
+      6,
+      7
+     ],
+     "say": [
+      "It's twenty-three kilos, and your bag is two kilos over, I'm afraid.",
+      "How much is the fee for the extra weight?"
+     ],
+     "props": [
+      "luggage scale",
+      "suitcase",
+      "dial with no numbers"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "airport-checkin_f5",
+     "src": "airport-checkin/airport-checkin_f5.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      8
+     ],
+     "say": [
+      "It's forty dollars, or you can take a few things out."
+     ],
+     "props": [
+      "suitcase",
+      "a few clothes beside it"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "airport-checkin_p_2",
+     "src": "airport-checkin/plates/airport-checkin_p_2.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3958,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/airport-checkin/zones/airport-checkin_p_2.zones.json"
+     }
+    },
+    {
+     "id": "airport-checkin_pn_2",
+     "src": "airport-checkin/plates/airport-checkin_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3958,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/airport-checkin/zones/airport-checkin_pn_2.zones.json"
+     }
+    },
+    {
+     "id": "airport-checkin_pn_4",
+     "src": "airport-checkin/plates/airport-checkin_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7292,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/airport-checkin/zones/airport-checkin_pn_4.zones.json"
+     }
+    },
+    {
+     "id": "airport-checkin_v_4",
+     "src": "airport-checkin/plates/airport-checkin_v_4.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.325,
+      "horizon_src": "depth",
+      "floor_top": 0.8333,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/airport-checkin/zones/airport-checkin_v_4.zones.json"
+     }
+    },
+    {
+     "id": "airport-checkin_vn_2",
+     "src": "airport-checkin/plates/airport-checkin_vn_2.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4375,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6979,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/airport-checkin/zones/airport-checkin_vn_2.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "airport-checkin_amb_vn_2",
+     "src": "airport-checkin/inserts/airport-checkin_amb_vn_2.mp4",
+     "plate": "airport-checkin_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "a plane slowly taxis past outside the big window, clouds drift, the baggage belt rolls gently",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    },
+    {
+     "id": "airport-checkin_amb_pn_2",
+     "src": "airport-checkin/inserts/airport-checkin_amb_pn_2.mp4",
+     "plate": "airport-checkin_pn_2",
+     "aspect": "16:9",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the sun glows and clouds drift slowly outside the big windows, warm sunlight shifts softly across the floor",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "ask-directions": {
+   "set": "A sunny city street with pale pastel buildings on both sides, a crossing street on the right, and a big round clock tower on a station building far down the road, blue sky.",
+   "role_look": "none",
+   "tags": {
+    "topic": "asking for directions",
+    "cefr": "A2",
+    "group": "travel",
+    "vocab": [
+     "street",
+     "map",
+     "train station",
+     "clock",
+     "corner",
+     "crossing",
+     "pavement"
+    ]
+   },
+   "cefr": "A2",
+   "group": "travel",
+   "frames": [
+    {
+     "id": "ask-directions_f1",
+     "src": "ask-directions/ask-directions_f1.png",
+     "shot": "wide",
+     "lines": [
+      0
+     ],
+     "say": [
+      "Excuse me, could you help me? I'm looking for the train station."
+     ],
+     "props": [
+      "street",
+      "buildings",
+      "station building in distance"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "ask-directions_f2",
+     "src": "ask-directions/ask-directions_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      1,
+      2
+     ],
+     "say": [
+      "Of course. Go straight, then take the second street on the right.",
+      "Sorry, could you say that again, please?"
+     ],
+     "props": [
+      "street",
+      "station building in distance"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "ask-directions_f3",
+     "src": "ask-directions/ask-directions_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      3,
+      4
+     ],
+     "say": [
+      "Sure. Straight on, then the second right.",
+      "So I take the second street on the right?"
+     ],
+     "props": [
+      "crossing street",
+      "road"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "ask-directions_f4",
+     "src": "ask-directions/ask-directions_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      5,
+      6
+     ],
+     "say": [
+      "That's right. You'll see a big clock on the station.",
+      "Is it far from here?"
+     ],
+     "props": [
+      "clock tower",
+      "station building"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "ask-directions_f5",
+     "src": "ask-directions/ask-directions_f5.png",
+     "shot": "medium two-shot",
+     "lines": [
+      7,
+      8,
+      9
+     ],
+     "say": [
+      "No, it's about five minutes on foot.",
+      "Thank you so much for your help!",
+      "You're welcome. Have a nice day!"
+     ],
+     "props": [
+      "street",
+      "clock tower in distance"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "ask-directions_p_1",
+     "src": "ask-directions/plates/ask-directions_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5729,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_p_1.zones.json"
+     }
+    },
+    {
+     "id": "ask-directions_pn_1",
+     "src": "ask-directions/plates/ask-directions_pn_1.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3929,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.5729,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_pn_1.zones.json"
+     }
+    },
+    {
+     "id": "ask-directions_pn_4",
+     "src": "ask-directions/plates/ask-directions_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6042,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_pn_4.zones.json"
+     }
+    },
+    {
+     "id": "ask-directions_v_3",
+     "src": "ask-directions/plates/ask-directions_v_3.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4242,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.6042,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_v_3.zones.json"
+     }
+    },
+    {
+     "id": "ask-directions_vn_1",
+     "src": "ask-directions/plates/ask-directions_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4138,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.5938,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_vn_1.zones.json"
+     }
+    },
+    {
+     "id": "ask-directions_vn_4",
+     "src": "ask-directions/plates/ask-directions_vn_4.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.445,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.625,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_vn_4.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "ask-directions_amb_vn_1",
+     "src": "ask-directions/inserts/ask-directions_amb_vn_1.mp4",
+     "plate": "ask-directions_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds drift across the sky, a gentle breeze moves the shop awnings, sunlight moves softly over the street",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "train-station": {
+   "set": "A clean railway station ticket hall: a ticket window with glass and a counter, a view of a platform and a blue-and-white train through an archway, pale grey floor, teal and orange accents, a blank departure board showing only simple train icons.",
+   "role_look": "station staff vest in teal over the white shirt, no logo",
+   "tags": {
+    "topic": "buying a train ticket",
+    "cefr": "A2",
+    "group": "transport",
+    "vocab": [
+     "ticket",
+     "platform",
+     "train",
+     "ticket window",
+     "seat",
+     "clock",
+     "card"
+    ]
+   },
+   "cefr": "A2",
+   "group": "transport",
+   "frames": [
+    {
+     "id": "train-station_f1",
+     "src": "train-station/train-station_f1.png",
+     "shot": "wide",
+     "lines": [
+      0
+     ],
+     "say": [
+      "Good morning. How can I help?"
+     ],
+     "props": [
+      "ticket window",
+      "departure board with icons",
+      "train through archway"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "train-station_f2",
+     "src": "train-station/train-station_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      1,
+      2
+     ],
+     "say": [
+      "Could I have a ticket to Oxford, please?",
+      "Certainly. Single or return?"
+     ],
+     "props": [
+      "ticket",
+      "two arrow cards"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "train-station_f3",
+     "src": "train-station/train-station_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      3,
+      4
+     ],
+     "say": [
+      "A return, please. What time is the next train?",
+      "Ten thirty, from platform four."
+     ],
+     "props": [
+      "clock",
+      "train",
+      "platform"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "train-station_f4",
+     "src": "train-station/train-station_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      5,
+      6
+     ],
+     "say": [
+      "Is it a direct train, or do I need to change?",
+      "It's direct. No need to change."
+     ],
+     "props": [
+      "route map with dots",
+      "line"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "train-station_f5",
+     "src": "train-station/train-station_f5.png",
+     "shot": "close-up on hands/object",
+     "lines": [
+      7,
+      8
+     ],
+     "say": [
+      "Could I reserve a seat, please?",
+      "Of course. Coach C, seat twenty-two. That's twenty-four pounds."
+     ],
+     "props": [
+      "ticket",
+      "bank card",
+      "ticket window"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "train-station_p_2",
+     "src": "train-station/plates/train-station_p_2.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3893,
+      "horizon_src": "depth",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/train-station/zones/train-station_p_2.zones.json"
+     }
+    },
+    {
+     "id": "train-station_pn_1",
+     "src": "train-station/plates/train-station_pn_1.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.75,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/train-station/zones/train-station_pn_1.zones.json"
+     }
+    },
+    {
+     "id": "train-station_pn_4",
+     "src": "train-station/plates/train-station_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3281,
+      "horizon_src": "depth",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/train-station/zones/train-station_pn_4.zones.json"
+     }
+    },
+    {
+     "id": "train-station_v_2",
+     "src": "train-station/plates/train-station_v_2.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5324,
+      "horizon_src": "depth",
+      "floor_top": 0.6875,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/train-station/zones/train-station_v_2.zones.json"
+     }
+    },
+    {
+     "id": "train-station_vn_4",
+     "src": "train-station/plates/train-station_vn_4.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5096,
+      "horizon_src": "depth",
+      "floor_top": 0.5833,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/train-station/zones/train-station_vn_4.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "train-station_amb_vn_4",
+     "src": "train-station/inserts/train-station_amb_vn_4.mp4",
+     "plate": "train-station_vn_4",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "a train slowly pulls in and stops behind the arch, the departure board icons blink softly",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    },
+    {
+     "id": "train-station_amb_pn_1",
+     "src": "train-station/inserts/train-station_amb_pn_1.mp4",
+     "plate": "train-station_pn_1",
+     "aspect": "16:9",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds drift slowly in the sky beyond the arch, warm light shifts softly on the walls; the parked train stays still",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "taxi": {
+   "set": "Beside a yellow taxi on a sunny street: the car's front seat with a steering wheel and a small meter box with a blank screen, a kerb, and a tall station building in the background, warm yellow and sky-blue palette.",
+   "role_look": "driver's flat cap and a light grey vest over the white shirt",
+   "tags": {
+    "topic": "taking a taxi",
+    "cefr": "A2",
+    "group": "transport",
+    "vocab": [
+     "taxi",
+     "suitcase",
+     "meter",
+     "driver",
+     "seat",
+     "road",
+     "station"
+    ]
+   },
+   "cefr": "A2",
+   "group": "transport",
+   "frames": [
+    {
+     "id": "taxi_f1",
+     "src": "taxi/taxi_f1.png",
+     "shot": "wide",
+     "lines": [
+      0
+     ],
+     "say": [
+      "Good morning. Where to?"
+     ],
+     "props": [
+      "yellow taxi",
+      "kerb",
+      "small suitcase"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "taxi_f2",
+     "src": "taxi/taxi_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      1,
+      2
+     ],
+     "say": [
+      "The central station, please.",
+      "Sure. Do you have any luggage?"
+     ],
+     "props": [
+      "taxi window",
+      "road",
+      "station in distance"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "taxi_f3",
+     "src": "taxi/taxi_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      3,
+      4
+     ],
+     "say": [
+      "Just one small suitcase.",
+      "No problem. It should take about fifteen minutes."
+     ],
+     "props": [
+      "small suitcase",
+      "open boot"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "taxi_f4",
+     "src": "taxi/taxi_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      5,
+      6
+     ],
+     "say": [
+      "Great. Is the meter on?",
+      "Yes, it is. Here we are."
+     ],
+     "props": [
+      "meter box with blank screen",
+      "steering wheel"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "taxi_f5",
+     "src": "taxi/taxi_f5.png",
+     "shot": "close-up on hands/object",
+     "lines": [
+      7,
+      8
+     ],
+     "say": [
+      "Thank you. How much is it?",
+      "That's twelve pounds. Have a good trip!"
+     ],
+     "props": [
+      "coins",
+      "open palm",
+      "taxi door"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "taxi_p_2",
+     "src": "taxi/plates/taxi_p_2.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6354,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/taxi/zones/taxi_p_2.zones.json"
+     }
+    },
+    {
+     "id": "taxi_pn_2",
+     "src": "taxi/plates/taxi_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5208,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/taxi/zones/taxi_pn_2.zones.json"
+     }
+    },
+    {
+     "id": "taxi_pn_3",
+     "src": "taxi/plates/taxi_pn_3.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6771,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/taxi/zones/taxi_pn_3.zones.json"
+     }
+    },
+    {
+     "id": "taxi_v_1",
+     "src": "taxi/plates/taxi_v_1.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3958,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5521,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/taxi/zones/taxi_v_1.zones.json"
+     }
+    },
+    {
+     "id": "taxi_vn_2",
+     "src": "taxi/plates/taxi_vn_2.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6771,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/taxi/zones/taxi_vn_2.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "taxi_amb_vn_2",
+     "src": "taxi/inserts/taxi_amb_vn_2.mp4",
+     "plate": "taxi_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds drift, soft sunlight glints move over the yellow taxi, leaves move in a light breeze",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "supermarket": {
+   "set": "A bright supermarket checkout area: a conveyor belt till with a card reader, shelves of colourful produce behind, a small customer service desk with a blank sign on the side, green and orange palette.",
+   "role_look": "cashier's green apron over the white shirt",
+   "tags": {
+    "topic": "paying at a supermarket",
+    "cefr": "A2",
+    "group": "shopping",
+    "vocab": [
+     "basket",
+     "shopping bag",
+     "card",
+     "till",
+     "loyalty card",
+     "groceries",
+     "desk"
+    ]
+   },
+   "cefr": "A2",
+   "group": "shopping",
+   "frames": [
+    {
+     "id": "supermarket_f1",
+     "src": "supermarket/supermarket_f1.png",
+     "shot": "wide",
+     "lines": [
+      0
+     ],
+     "say": [
+      "Hi there! Did you find everything okay?"
+     ],
+     "props": [
+      "till",
+      "conveyor belt",
+      "basket of groceries"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "supermarket_f2",
+     "src": "supermarket/supermarket_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      1,
+      2
+     ],
+     "say": [
+      "Yes, thanks. Could I have a bag, please?",
+      "Sure. That's five cents extra."
+     ],
+     "props": [
+      "shopping bag",
+      "groceries"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "supermarket_f3",
+     "src": "supermarket/supermarket_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      3,
+      4
+     ],
+     "say": [
+      "That's fine. Do you take cards?",
+      "Yes, just tap here."
+     ],
+     "props": [
+      "bank card",
+      "card reader"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "supermarket_f4",
+     "src": "supermarket/supermarket_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      5,
+      6
+     ],
+     "say": [
+      "Great. Do you have a loyalty card scheme?",
+      "We do. You can sign up at the desk."
+     ],
+     "props": [
+      "loyalty card with star icon",
+      "service desk"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "supermarket_f5",
+     "src": "supermarket/supermarket_f5.png",
+     "shot": "close-up on hands/object",
+     "lines": [
+      7,
+      8
+     ],
+     "say": [
+      "Thanks, I'll do that next time.",
+      "Your total is twenty-three forty. Have a nice day!"
+     ],
+     "props": [
+      "bank card",
+      "card reader",
+      "filled shopping bag"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "supermarket_p_2",
+     "src": "supermarket/plates/supermarket_p_2.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3125,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/supermarket/zones/supermarket_p_2.zones.json"
+     }
+    },
+    {
+     "id": "supermarket_v_2",
+     "src": "supermarket/plates/supermarket_v_2.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.5625,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/supermarket/zones/supermarket_v_2.zones.json"
+     }
+    },
+    {
+     "id": "supermarket_vn_1",
+     "src": "supermarket/plates/supermarket_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.4375,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/supermarket/zones/supermarket_vn_1.zones.json"
+     }
+    },
+    {
+     "id": "supermarket_vn_4",
+     "src": "supermarket/plates/supermarket_vn_4.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3125,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/supermarket/zones/supermarket_vn_4.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "supermarket_amb_vn_1",
+     "src": "supermarket/inserts/supermarket_amb_vn_1.mp4",
+     "plate": "supermarket_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the checkout screen glows, ceiling light reflections shimmer softly on the floor, a light price-tag mobile sways",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "shop-return": {
+   "set": "A tidy clothing shop: a wooden counter with a till, racks of colourful clothes on the left, a mirror on the right wall, soft white and peach palette.",
+   "role_look": "shop assistant's open mid-grey apron over the shirt",
+   "tags": {
+    "topic": "returning an item in a shop",
+    "cefr": "B1",
+    "group": "shopping",
+    "vocab": [
+     "jacket",
+     "zip",
+     "receipt",
+     "refund",
+     "counter",
+     "card",
+     "hanger"
+    ]
+   },
+   "cefr": "B1",
+   "group": "shopping",
+   "frames": [
+    {
+     "id": "shop-return_f1",
+     "src": "shop-return/shop-return_f1.png",
+     "shot": "wide",
+     "lines": [
+      0,
+      1
+     ],
+     "say": [
+      "Hello, how can I help you?",
+      "Hi, I'd like to return this jacket, please."
+     ],
+     "props": [
+      "counter",
+      "jacket",
+      "clothes rack"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "shop-return_f2",
+     "src": "shop-return/shop-return_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      2,
+      3
+     ],
+     "say": [
+      "Of course. Is there something wrong with it?",
+      "The zip is broken, and it doesn't fit properly."
+     ],
+     "props": [
+      "jacket with broken zip"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "shop-return_f3",
+     "src": "shop-return/shop-return_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      4,
+      5
+     ],
+     "say": [
+      "I'm sorry about that. Do you have the receipt with you?",
+      "Yes, here it is. I bought it last Saturday."
+     ],
+     "props": [
+      "receipt",
+      "jacket"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "shop-return_f4",
+     "src": "shop-return/shop-return_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      6,
+      7
+     ],
+     "say": [
+      "That's within 30 days, so you can have a refund or an exchange.",
+      "In that case, I'd prefer a refund. How long will it take?"
+     ],
+     "props": [
+      "refund icon card",
+      "exchange icon card"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "shop-return_f5",
+     "src": "shop-return/shop-return_f5.png",
+     "shot": "close-up on hands/object",
+     "lines": [
+      8
+     ],
+     "say": [
+      "It goes back to your card within five to seven working days."
+     ],
+     "props": [
+      "card reader",
+      "bank card",
+      "receipt"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "shop-return_p_1",
+     "src": "shop-return/plates/shop-return_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3802,
+      "horizon_src": "depth",
+      "floor_top": 0.7917,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/shop-return/zones/shop-return_p_1.zones.json"
+     }
+    },
+    {
+     "id": "shop-return_pn_1",
+     "src": "shop-return/plates/shop-return_pn_1.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.362,
+      "horizon_src": "depth",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/shop-return/zones/shop-return_pn_1.zones.json"
+     }
+    },
+    {
+     "id": "shop-return_pn_4",
+     "src": "shop-return/plates/shop-return_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3932,
+      "horizon_src": "depth",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/shop-return/zones/shop-return_pn_4.zones.json"
+     }
+    },
+    {
+     "id": "shop-return_v_2",
+     "src": "shop-return/plates/shop-return_v_2.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4294,
+      "horizon_src": "depth",
+      "floor_top": 0.8229,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/shop-return/zones/shop-return_v_2.zones.json"
+     }
+    },
+    {
+     "id": "shop-return_vn_4",
+     "src": "shop-return/plates/shop-return_vn_4.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3408,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.5208,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/shop-return/zones/shop-return_vn_4.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "shop-return_amb_vn_4",
+     "src": "shop-return/inserts/shop-return_amb_vn_4.mp4",
+     "plate": "shop-return_vn_4",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "hanging clothes sway very gently, warm light shimmers on the mirror, a soft breeze from the door",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "pharmacy": {
+   "set": "A calm pharmacy: a white counter, shelves of plain unlabelled boxes and bottles, a leafy plant, mint-green and white palette.",
+   "role_look": "white pharmacist coat over the shirt",
+   "tags": {
+    "topic": "at the pharmacy",
+    "cefr": "B1",
+    "group": "health",
+    "vocab": [
+     "cough",
+     "syrup",
+     "spoon",
+     "tablets",
+     "shelf",
+     "bed",
+     "doctor"
+    ]
+   },
+   "cefr": "B1",
+   "group": "health",
+   "frames": [
+    {
+     "id": "pharmacy_f1",
+     "src": "pharmacy/pharmacy_f1.png",
+     "shot": "wide",
+     "lines": [
+      0,
+      1
+     ],
+     "say": [
+      "Good morning. How can I help you?",
+      "Hi. I've had a bad cough for three days."
+     ],
+     "props": [
+      "counter",
+      "medicine shelves"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "pharmacy_f2",
+     "src": "pharmacy/pharmacy_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      2,
+      3
+     ],
+     "say": [
+      "Is it a dry cough, or are you bringing anything up?",
+      "It's dry, and it keeps me awake at night."
+     ],
+     "props": [
+      "counter"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "pharmacy_f3",
+     "src": "pharmacy/pharmacy_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      4,
+      5
+     ],
+     "say": [
+      "I'd suggest this syrup. Take two spoonfuls before bed.",
+      "Is it safe to take with my allergy tablets?"
+     ],
+     "props": [
+      "syrup bottle",
+      "spoon",
+      "tablet box"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "pharmacy_f4",
+     "src": "pharmacy/pharmacy_f4.png",
+     "shot": "close-up on hands/object",
+     "lines": [
+      6,
+      7
+     ],
+     "say": [
+      "Yes, there's no problem with those.",
+      "Great, I'll take it. How much is it?"
+     ],
+     "props": [
+      "syrup bottle",
+      "coin purse",
+      "counter"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "pharmacy_f5",
+     "src": "pharmacy/pharmacy_f5.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      8
+     ],
+     "say": [
+      "It's nine pounds fifty. If it's not better in a week, see your doctor."
+     ],
+     "props": [
+      "paper bag",
+      "calendar icon",
+      "syrup"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "pharmacy_p_2",
+     "src": "pharmacy/plates/pharmacy_p_2.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/pharmacy/zones/pharmacy_p_2.zones.json"
+     }
+    },
+    {
+     "id": "pharmacy_pn_3",
+     "src": "pharmacy/plates/pharmacy_pn_3.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.8125,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/pharmacy/zones/pharmacy_pn_3.zones.json"
+     }
+    },
+    {
+     "id": "pharmacy_v_2",
+     "src": "pharmacy/plates/pharmacy_v_2.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5632,
+      "horizon_src": "depth",
+      "floor_top": 0.9479,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/pharmacy/zones/pharmacy_v_2.zones.json"
+     }
+    },
+    {
+     "id": "pharmacy_vn_4",
+     "src": "pharmacy/plates/pharmacy_vn_4.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4066,
+      "horizon_src": "depth",
+      "floor_top": 0.7188,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/pharmacy/zones/pharmacy_vn_4.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "pharmacy_amb_vn_4",
+     "src": "pharmacy/inserts/pharmacy_amb_vn_4.mp4",
+     "plate": "pharmacy_vn_4",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "trees move gently outside the window, soft light shimmers on the shelves, a plant sways",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "dentist": {
+   "set": "A clean dentist surgery: a reclining blue dental chair with a round light above, a small tray of instruments and a poster showing a plain tooth icon, pale blue and white palette.",
+   "role_look": "white doctor coat over the blue blazer, surgical mask pulled down under the chin",
+   "tags": {
+    "topic": "at the dentist",
+    "cefr": "B1",
+    "group": "health",
+    "vocab": [
+     "tooth",
+     "chair",
+     "mirror",
+     "cavity",
+     "lamp",
+     "gloves",
+     "mouth"
+    ]
+   },
+   "cefr": "B1",
+   "group": "health",
+   "frames": [
+    {
+     "id": "dentist_f1",
+     "src": "dentist/dentist_f1.png",
+     "shot": "wide",
+     "lines": [
+      0,
+      1
+     ],
+     "say": [
+      "Good morning. Please take a seat.",
+      "Thank you. I've had a toothache since Sunday."
+     ],
+     "props": [
+      "dental chair",
+      "lamp",
+      "tool tray"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "dentist_f2",
+     "src": "dentist/dentist_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      2,
+      3
+     ],
+     "say": [
+      "Which tooth is it? Can you show me?",
+      "This one, on the left at the back."
+     ],
+     "props": [
+      "hand mirror",
+      "dental chair"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "dentist_f3",
+     "src": "dentist/dentist_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      4,
+      5
+     ],
+     "say": [
+      "I see. Does cold water make it worse?",
+      "Yes, it's very sensitive."
+     ],
+     "props": [
+      "cup of cold water",
+      "chair"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "dentist_f4",
+     "src": "dentist/dentist_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      6,
+      7
+     ],
+     "say": [
+      "You have a small cavity. I'll fill it today.",
+      "Will it take long?"
+     ],
+     "props": [
+      "tooth model",
+      "dark cavity spot"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "dentist_f5",
+     "src": "dentist/dentist_f5.png",
+     "shot": "close-up on hands/object",
+     "lines": [
+      8
+     ],
+     "say": [
+      "About twenty minutes. I'll numb it first."
+     ],
+     "props": [
+      "gloves",
+      "dental mirror",
+      "syringe on tray",
+      "lamp"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "dentist_p_4",
+     "src": "dentist/plates/dentist_p_4.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/dentist/zones/dentist_p_4.zones.json"
+     }
+    },
+    {
+     "id": "dentist_pn_2",
+     "src": "dentist/plates/dentist_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8021,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/dentist/zones/dentist_pn_2.zones.json"
+     }
+    },
+    {
+     "id": "dentist_pn_4",
+     "src": "dentist/plates/dentist_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7708,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/dentist/zones/dentist_pn_4.zones.json"
+     }
+    },
+    {
+     "id": "dentist_v_2",
+     "src": "dentist/plates/dentist_v_2.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6458,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/dentist/zones/dentist_v_2.zones.json"
+     }
+    },
+    {
+     "id": "dentist_vn_2",
+     "src": "dentist/plates/dentist_vn_2.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6771,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/dentist/zones/dentist_vn_2.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "dentist_amb_vn_2",
+     "src": "dentist/inserts/dentist_amb_vn_2.mp4",
+     "plate": "dentist_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the dental lamp glows and its light pulses softly, the chair's reflections shimmer, a calm clinic ambience",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "bank": {
+   "set": "A modern bank branch: a desk with a computer showing a blank blue screen with simple icons, two chairs, a plant, and a big window; navy and teal palette with warm accents.",
+   "role_look": "bank advisor's lanyard with a plain blank badge over the shirt",
+   "tags": {
+    "topic": "opening a bank account",
+    "cefr": "B1",
+    "group": "money",
+    "vocab": [
+     "account",
+     "passport",
+     "letter",
+     "card",
+     "phone",
+     "app",
+     "desk"
+    ]
+   },
+   "cefr": "B1",
+   "group": "money",
+   "frames": [
+    {
+     "id": "bank_f1",
+     "src": "bank/bank_f1.png",
+     "shot": "wide",
+     "lines": [
+      0,
+      1
+     ],
+     "say": [
+      "Good afternoon. How can I help?",
+      "Hi. I'd like to open a savings account."
+     ],
+     "props": [
+      "desk",
+      "chairs",
+      "computer"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "bank_f2",
+     "src": "bank/bank_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      2,
+      3
+     ],
+     "say": [
+      "Of course. Are you a student, or do you work?",
+      "I'm a student. Is there any monthly fee?"
+     ],
+     "props": [
+      "book",
+      "notebook"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "bank_f3",
+     "src": "bank/bank_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      4,
+      5
+     ],
+     "say": [
+      "No, student accounts are free. May I see your ID?",
+      "Yes, here's my passport and my university letter."
+     ],
+     "props": [
+      "passport",
+      "letter"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "bank_f4",
+     "src": "bank/bank_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      6,
+      7
+     ],
+     "say": [
+      "Thank you. Your card will arrive in five working days.",
+      "Perfect. Can I also use the mobile app?"
+     ],
+     "props": [
+      "bank card",
+      "phone",
+      "app icon"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "bank_f5",
+     "src": "bank/bank_f5.png",
+     "shot": "close-up on hands/object",
+     "lines": [
+      8
+     ],
+     "say": [
+      "Yes. We'll send you a code to set it up."
+     ],
+     "props": [
+      "phone",
+      "computer",
+      "desk"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "bank_p_2",
+     "src": "bank/plates/bank_p_2.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.65,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8021,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/bank/zones/bank_p_2.zones.json"
+     }
+    },
+    {
+     "id": "bank_pn_2",
+     "src": "bank/plates/bank_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7917,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/bank/zones/bank_pn_2.zones.json"
+     }
+    },
+    {
+     "id": "bank_pn_4",
+     "src": "bank/plates/bank_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.65,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8229,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/bank/zones/bank_pn_4.zones.json"
+     }
+    },
+    {
+     "id": "bank_v_4",
+     "src": "bank/plates/bank_v_4.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4743,
+      "horizon_src": "depth",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/bank/zones/bank_v_4.zones.json"
+     }
+    },
+    {
+     "id": "bank_vn_3",
+     "src": "bank/plates/bank_vn_3.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4625,
+      "horizon_src": "depth",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/bank/zones/bank_vn_3.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "bank_amb_vn_3",
+     "src": "bank/inserts/bank_amb_vn_3.mp4",
+     "plate": "bank_vn_3",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds drift slowly past the window, soft light shifts gently across the floor",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "job-interview": {
+   "set": "A bright modern office meeting room: a large wooden table with two chairs, a window with a city skyline, a plant in the corner, neutral white and soft blue palette.",
+   "role_look": "none",
+   "tags": {
+    "topic": "job interview",
+    "cefr": "B2",
+    "group": "work",
+    "vocab": [
+     "desk",
+     "CV",
+     "chair",
+     "folder",
+     "handshake",
+     "office",
+     "window"
+    ]
+   },
+   "cefr": "B2",
+   "group": "work",
+   "frames": [
+    {
+     "id": "job-interview_f1",
+     "src": "job-interview/job-interview_f1.png",
+     "shot": "wide",
+     "lines": [
+      0,
+      1
+     ],
+     "say": [
+      "Welcome, please have a seat. Thank you for coming in today.",
+      "Thank you for having me. I'm excited about this opportunity."
+     ],
+     "props": [
+      "table",
+      "two chairs",
+      "window"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "job-interview_f2",
+     "src": "job-interview/job-interview_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      2,
+      3
+     ],
+     "say": [
+      "Could you tell me about your most recent role?",
+      "I coordinate shipments for a regional distributor, and I supervise a team of four."
+     ],
+     "props": [
+      "folder",
+      "table"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "job-interview_f3",
+     "src": "job-interview/job-interview_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      4,
+      5
+     ],
+     "say": [
+      "What achievement are you most proud of?",
+      "I redesigned our scheduling system, which reduced delays by nearly thirty percent."
+     ],
+     "props": [
+      "sheet with bar chart shape",
+      "pen"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "job-interview_f4",
+     "src": "job-interview/job-interview_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      6,
+      7
+     ],
+     "say": [
+      "That's great. Do you have any questions for us?",
+      "Yes, could you tell me what a typical week looks like in this role?"
+     ],
+     "props": [
+      "folder",
+      "table"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "job-interview_f5",
+     "src": "job-interview/job-interview_f5.png",
+     "shot": "medium two-shot",
+     "lines": [
+      8,
+      9
+     ],
+     "say": [
+      "Of course. We'll be in touch by the end of next week.",
+      "Thank you again. I look forward to hearing from you."
+     ],
+     "props": [
+      "handshake",
+      "bag",
+      "door"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "job-interview_p_1",
+     "src": "job-interview/plates/job-interview_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/job-interview/zones/job-interview_p_1.zones.json"
+     }
+    },
+    {
+     "id": "job-interview_pn_1",
+     "src": "job-interview/plates/job-interview_pn_1.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/job-interview/zones/job-interview_pn_1.zones.json"
+     }
+    },
+    {
+     "id": "job-interview_pn_2",
+     "src": "job-interview/plates/job-interview_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/job-interview/zones/job-interview_pn_2.zones.json"
+     }
+    },
+    {
+     "id": "job-interview_v_4",
+     "src": "job-interview/plates/job-interview_v_4.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6146,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/job-interview/zones/job-interview_v_4.zones.json"
+     }
+    },
+    {
+     "id": "job-interview_vn_1",
+     "src": "job-interview/plates/job-interview_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/job-interview/zones/job-interview_vn_1.zones.json"
+     }
+    },
+    {
+     "id": "job-interview_vn_3",
+     "src": "job-interview/plates/job-interview_vn_3.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/job-interview/zones/job-interview_vn_3.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "job-interview_amb_vn_1",
+     "src": "job-interview/inserts/job-interview_amb_vn_1.mp4",
+     "plate": "job-interview_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds and soft light move over the city skyline behind the glass, sunlight shifts on the table",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "office-intro": {
+   "set": "An open-plan office corridor with desks and laptops on the left, a small kitchen area with a kettle in the background, a staircase on the right, light grey walls with lime-green and orange accents.",
+   "role_look": "none",
+   "tags": {
+    "topic": "meeting a new colleague",
+    "cefr": "B1",
+    "group": "work",
+    "vocab": [
+     "office",
+     "desk",
+     "kitchen",
+     "coffee",
+     "lunch",
+     "stairs",
+     "laptop"
+    ]
+   },
+   "cefr": "B1",
+   "group": "work",
+   "frames": [
+    {
+     "id": "office-intro_f1",
+     "src": "office-intro/office-intro_f1.png",
+     "shot": "wide",
+     "lines": [
+      0,
+      1
+     ],
+     "say": [
+      "Hi, you must be the new person on the marketing team.",
+      "That's right. I'm Linh, and I started on Monday."
+     ],
+     "props": [
+      "desk",
+      "laptop",
+      "corridor"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "office-intro_f2",
+     "src": "office-intro/office-intro_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      2,
+      3
+     ],
+     "say": [
+      "Nice to meet you, Linh. I'm Daniel from finance.",
+      "Nice to meet you too. Could you show me where the meeting rooms are?"
+     ],
+     "props": [
+      "handshake",
+      "doors"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "office-intro_f3",
+     "src": "office-intro/office-intro_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      4,
+      5
+     ],
+     "say": [
+      "Of course. They're one floor up, just past the kitchen.",
+      "Thanks so much. Would you like to grab lunch together sometime this week?"
+     ],
+     "props": [
+      "staircase",
+      "kitchen area"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "office-intro_f4",
+     "src": "office-intro/office-intro_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      6,
+      7
+     ],
+     "say": [
+      "I'd love to. How about Thursday at twelve thirty?",
+      "Thursday works well for me. See you then."
+     ],
+     "props": [
+      "coffee cups",
+      "calendar icon with clock icon"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "office-intro_f5",
+     "src": "office-intro/office-intro_f5.png",
+     "shot": "medium two-shot",
+     "lines": [
+      8
+     ],
+     "say": [
+      "Great, see you then. Welcome aboard!"
+     ],
+     "props": [
+      "desk",
+      "plant",
+      "laptop"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "office-intro_p_1",
+     "src": "office-intro/plates/office-intro_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5312,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/office-intro/zones/office-intro_p_1.zones.json"
+     }
+    },
+    {
+     "id": "office-intro_pn_3",
+     "src": "office-intro/plates/office-intro_pn_3.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5312,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/office-intro/zones/office-intro_pn_3.zones.json"
+     }
+    },
+    {
+     "id": "office-intro_pn_4",
+     "src": "office-intro/plates/office-intro_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5312,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/office-intro/zones/office-intro_pn_4.zones.json"
+     }
+    },
+    {
+     "id": "office-intro_v_1",
+     "src": "office-intro/plates/office-intro_v_1.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.2396,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/office-intro/zones/office-intro_v_1.zones.json"
+     }
+    },
+    {
+     "id": "office-intro_v_4",
+     "src": "office-intro/plates/office-intro_v_4.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3958,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8229,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/office-intro/zones/office-intro_v_4.zones.json"
+     }
+    },
+    {
+     "id": "office-intro_vn_1",
+     "src": "office-intro/plates/office-intro_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.3021,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/office-intro/zones/office-intro_vn_1.zones.json"
+     }
+    },
+    {
+     "id": "office-intro_vn_3",
+     "src": "office-intro/plates/office-intro_vn_3.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5729,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/office-intro/zones/office-intro_vn_3.zones.json"
+     }
+    }
+   ]
+  },
+  "team-meeting": {
+   "set": "A bright meeting room: a long table with two laptops and a notebook, a wall-mounted blank whiteboard with simple coloured shapes, a window and a plant, white and blue palette.",
+   "role_look": "none",
+   "tags": {
+    "topic": "team meeting",
+    "cefr": "B1",
+    "group": "work",
+    "vocab": [
+     "meeting room",
+     "whiteboard",
+     "laptop",
+     "chart",
+     "table",
+     "notes",
+     "calendar"
+    ]
+   },
+   "cefr": "B1",
+   "group": "work",
+   "frames": [
+    {
+     "id": "team-meeting_f1",
+     "src": "team-meeting/team-meeting_f1.png",
+     "shot": "wide",
+     "lines": [
+      0,
+      1
+     ],
+     "say": [
+      "Good morning, everyone. Let's start with the agenda.",
+      "Before we begin, I'd like to add one item about the new schedule."
+     ],
+     "props": [
+      "meeting table",
+      "whiteboard",
+      "laptops"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "team-meeting_f2",
+     "src": "team-meeting/team-meeting_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      2,
+      3
+     ],
+     "say": [
+      "Of course. We'll discuss it at the end.",
+      "Thanks. First, my update: the survey results are ready."
+     ],
+     "props": [
+      "chart sheet",
+      "notebook"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "team-meeting_f3",
+     "src": "team-meeting/team-meeting_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      4,
+      5
+     ],
+     "say": [
+      "Great. Can you share the main findings?",
+      "Sure. Most customers are happy, but they want faster replies."
+     ],
+     "props": [
+      "whiteboard icons",
+      "happy face",
+      "clock icon"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "team-meeting_f4",
+     "src": "team-meeting/team-meeting_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      6,
+      7
+     ],
+     "say": [
+      "That's useful. What do you suggest we do?",
+      "I suggest we create a short reply guide for the whole team."
+     ],
+     "props": [
+      "marker",
+      "booklet drawing"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "team-meeting_f5",
+     "src": "team-meeting/team-meeting_f5.png",
+     "shot": "medium two-shot",
+     "lines": [
+      8,
+      9
+     ],
+     "say": [
+      "Good idea. Can you prepare a draft by next Wednesday?",
+      "Yes, I'll send it to everyone before the next meeting."
+     ],
+     "props": [
+      "notebook",
+      "calendar icon",
+      "thumbs up"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "team-meeting_p_2",
+     "src": "team-meeting/plates/team-meeting_p_2.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6458,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/team-meeting/zones/team-meeting_p_2.zones.json"
+     }
+    },
+    {
+     "id": "team-meeting_pn_1",
+     "src": "team-meeting/plates/team-meeting_pn_1.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6042,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/team-meeting/zones/team-meeting_pn_1.zones.json"
+     }
+    },
+    {
+     "id": "team-meeting_pn_4",
+     "src": "team-meeting/plates/team-meeting_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6458,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.9167,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/team-meeting/zones/team-meeting_pn_4.zones.json"
+     }
+    },
+    {
+     "id": "team-meeting_vn_1",
+     "src": "team-meeting/plates/team-meeting_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4658,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.6458,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/team-meeting/zones/team-meeting_vn_1.zones.json"
+     }
+    },
+    {
+     "id": "team-meeting_vn_3",
+     "src": "team-meeting/plates/team-meeting_vn_3.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4138,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.5938,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/team-meeting/zones/team-meeting_vn_3.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "team-meeting_amb_vn_1",
+     "src": "team-meeting/inserts/team-meeting_amb_vn_1.mp4",
+     "plate": "team-meeting_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "trees sway outside the window, sunlight shifts on the table, a laptop screen glows",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "flat-viewing": {
+   "set": "A light, airy open-plan flat: a grey sofa, a double bed visible through an open door, a wardrobe, a small kitchenette, big windows, warm wood floor and soft pastel palette.",
+   "role_look": "none",
+   "tags": {
+    "topic": "viewing a flat",
+    "cefr": "B1",
+    "group": "housing",
+    "vocab": [
+     "sofa",
+     "bed",
+     "wardrobe",
+     "kitchen",
+     "keys",
+     "window",
+     "contract"
+    ]
+   },
+   "cefr": "B1",
+   "group": "housing",
+   "frames": [
+    {
+     "id": "flat-viewing_f1",
+     "src": "flat-viewing/flat-viewing_f1.png",
+     "shot": "wide",
+     "lines": [
+      0,
+      1
+     ],
+     "say": [
+      "Hello! Come in. Do you have any questions as you look round?",
+      "Hi, thanks. Is the flat furnished?"
+     ],
+     "props": [
+      "front door",
+      "keys",
+      "flat interior"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "flat-viewing_f2",
+     "src": "flat-viewing/flat-viewing_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      2,
+      3
+     ],
+     "say": [
+      "Yes, the sofa, bed and wardrobe are included.",
+      "Great. How much is the rent per month?"
+     ],
+     "props": [
+      "sofa",
+      "bed",
+      "wardrobe"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "flat-viewing_f3",
+     "src": "flat-viewing/flat-viewing_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      4,
+      5
+     ],
+     "say": [
+      "It's nine hundred a month, and the deposit is one month's rent.",
+      "Does the rent include bills such as water and internet?"
+     ],
+     "props": [
+      "sheet with icons",
+      "water tap",
+      "wi-fi icon"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "flat-viewing_f4",
+     "src": "flat-viewing/flat-viewing_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      6,
+      7
+     ],
+     "say": [
+      "Water is included, but you pay for electricity and internet.",
+      "I see. What's the minimum length of the contract?"
+     ],
+     "props": [
+      "contract paper",
+      "pen"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "flat-viewing_f5",
+     "src": "flat-viewing/flat-viewing_f5.png",
+     "shot": "close-up on hands/object",
+     "lines": [
+      8
+     ],
+     "say": [
+      "Twelve months. Would you like to apply?"
+     ],
+     "props": [
+      "pen",
+      "contract",
+      "table"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "flat-viewing_p_1",
+     "src": "flat-viewing/plates/flat-viewing_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7292,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_p_1.zones.json"
+     }
+    },
+    {
+     "id": "flat-viewing_p_3",
+     "src": "flat-viewing/plates/flat-viewing_p_3.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7292,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_p_3.zones.json"
+     }
+    },
+    {
+     "id": "flat-viewing_pn_2",
+     "src": "flat-viewing/plates/flat-viewing_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7292,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_pn_2.zones.json"
+     }
+    },
+    {
+     "id": "flat-viewing_pn_4",
+     "src": "flat-viewing/plates/flat-viewing_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7292,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_pn_4.zones.json"
+     }
+    },
+    {
+     "id": "flat-viewing_v_1",
+     "src": "flat-viewing/plates/flat-viewing_v_1.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7188,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_v_1.zones.json"
+     }
+    },
+    {
+     "id": "flat-viewing_v_2",
+     "src": "flat-viewing/plates/flat-viewing_v_2.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4375,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5312,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_v_2.zones.json"
+     }
+    },
+    {
+     "id": "flat-viewing_vn_2",
+     "src": "flat-viewing/plates/flat-viewing_vn_2.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3081,
+      "horizon_src": "depth",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_vn_2.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "flat-viewing_amb_vn_2",
+     "src": "flat-viewing/inserts/flat-viewing_amb_vn_2.mp4",
+     "plate": "flat-viewing_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "sunlight shifts slowly across the wooden floor and walls, tiny dust motes float in the light",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "phone-plan": {
+   "set": "A modern phone shop: glass display counters with phones, a wall of colourful phone models, a counter with a tablet, bright white and purple palette.",
+   "role_look": "phone shop staff polo under the blazer, plain without logo",
+   "tags": {
+    "topic": "choosing a phone plan",
+    "cefr": "B1",
+    "group": "services",
+    "vocab": [
+     "phone",
+     "plan",
+     "data",
+     "contract",
+     "video",
+     "screen",
+     "shop"
+    ]
+   },
+   "cefr": "B1",
+   "group": "services",
+   "frames": [
+    {
+     "id": "phone-plan_f1",
+     "src": "phone-plan/phone-plan_f1.png",
+     "shot": "wide",
+     "lines": [
+      0,
+      1
+     ],
+     "say": [
+      "Hi there, how can I help?",
+      "Hi, I'm looking for a new phone plan."
+     ],
+     "props": [
+      "counter",
+      "phone display",
+      "phone"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "phone-plan_f2",
+     "src": "phone-plan/phone-plan_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      2,
+      3
+     ],
+     "say": [
+      "Sure. How much data do you usually use each month?",
+      "I stream a lot of videos, so I need at least 50 gigabytes."
+     ],
+     "props": [
+      "phone",
+      "play icon"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "phone-plan_f3",
+     "src": "phone-plan/phone-plan_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      4,
+      5
+     ],
+     "say": [
+      "Then I'd recommend our unlimited plan. It's thirty dollars a month.",
+      "Is there a contract, or can I cancel at any time?"
+     ],
+     "props": [
+      "plan card with infinity icon",
+      "coin icon"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "phone-plan_f4",
+     "src": "phone-plan/phone-plan_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      6,
+      7
+     ],
+     "say": [
+      "It's a twelve-month contract, but you can switch plans after six months.",
+      "That's more than I wanted to pay. Do you have anything cheaper?"
+     ],
+     "props": [
+      "calendar card",
+      "chain link icon"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "phone-plan_f5",
+     "src": "phone-plan/phone-plan_f5.png",
+     "shot": "close-up on hands/object",
+     "lines": [
+      8
+     ],
+     "say": [
+      "There's a twenty-dollar plan with twenty gigabytes. Would that suit you?"
+     ],
+     "props": [
+      "plan card",
+      "cloud icon",
+      "phone"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "phone-plan_p_1",
+     "src": "phone-plan/plates/phone-plan_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5378,
+      "horizon_src": "depth",
+      "floor_top": 0.875,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/phone-plan/zones/phone-plan_p_1.zones.json"
+     }
+    },
+    {
+     "id": "phone-plan_pn_3",
+     "src": "phone-plan/plates/phone-plan_pn_3.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5599,
+      "horizon_src": "depth",
+      "floor_top": 0.875,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/phone-plan/zones/phone-plan_pn_3.zones.json"
+     }
+    },
+    {
+     "id": "phone-plan_v_1",
+     "src": "phone-plan/plates/phone-plan_v_1.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.7708,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/phone-plan/zones/phone-plan_v_1.zones.json"
+     }
+    },
+    {
+     "id": "phone-plan_v_3",
+     "src": "phone-plan/plates/phone-plan_v_3.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5283,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.7083,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/phone-plan/zones/phone-plan_v_3.zones.json"
+     }
+    },
+    {
+     "id": "phone-plan_vn_2",
+     "src": "phone-plan/plates/phone-plan_vn_2.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6042,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6458,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/phone-plan/zones/phone-plan_vn_2.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "phone-plan_amb_vn_2",
+     "src": "phone-plan/inserts/phone-plan_amb_vn_2.mp4",
+     "plate": "phone-plan_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the phone screens on the wall glow and change colours softly, light shimmers on the glass counters",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "lost-luggage": {
+   "set": "An airport baggage claim hall: an empty luggage carousel in the background, a lost-luggage desk with a blank screen, a big window with a plane outline, blue and orange palette.",
+   "role_look": "airport staff vest in navy over the shirt, no logo",
+   "tags": {
+    "topic": "reporting lost luggage",
+    "cefr": "B1",
+    "group": "travel",
+    "vocab": [
+     "suitcase",
+     "carousel",
+     "baggage tag",
+     "boarding pass",
+     "ribbon",
+     "hotel",
+     "desk"
+    ]
+   },
+   "cefr": "B1",
+   "group": "travel",
+   "frames": [
+    {
+     "id": "lost-luggage_f1",
+     "src": "lost-luggage/lost-luggage_f1.png",
+     "shot": "wide",
+     "lines": [
+      0,
+      1
+     ],
+     "say": [
+      "Good morning. How can I help you?",
+      "Hi, my suitcase didn't come out on the carousel."
+     ],
+     "props": [
+      "empty carousel",
+      "desk"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "lost-luggage_f2",
+     "src": "lost-luggage/lost-luggage_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      2,
+      3
+     ],
+     "say": [
+      "I'm sorry about that. May I see your baggage tag and boarding pass?",
+      "Here you are. I flew in from Lisbon this morning."
+     ],
+     "props": [
+      "boarding pass",
+      "baggage tag"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "lost-luggage_f3",
+     "src": "lost-luggage/lost-luggage_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      4,
+      5
+     ],
+     "say": [
+      "Thank you. Could you describe your suitcase for me?",
+      "It's a large navy blue hard-shell suitcase with a red ribbon on the handle."
+     ],
+     "props": [
+      "sketch of navy suitcase",
+      "red ribbon"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "lost-luggage_f4",
+     "src": "lost-luggage/lost-luggage_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      6,
+      7
+     ],
+     "say": [
+      "Is there anything valuable or fragile inside?",
+      "Yes, my medication is inside, so it's quite urgent."
+     ],
+     "props": [
+      "pill box"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "lost-luggage_f5",
+     "src": "lost-luggage/lost-luggage_f5.png",
+     "shot": "medium two-shot",
+     "lines": [
+      8,
+      9
+     ],
+     "say": [
+      "I understand. We'll trace it straight away. Where should we deliver it?",
+      "Could you deliver it to my hotel? It's the Riverside Hotel."
+     ],
+     "props": [
+      "form",
+      "pen",
+      "hotel icon"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "lost-luggage_p_1",
+     "src": "lost-luggage/plates/lost-luggage_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.875,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_p_1.zones.json"
+     }
+    },
+    {
+     "id": "lost-luggage_pn_2",
+     "src": "lost-luggage/plates/lost-luggage_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.875,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_pn_2.zones.json"
+     }
+    },
+    {
+     "id": "lost-luggage_pn_4",
+     "src": "lost-luggage/plates/lost-luggage_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_pn_4.zones.json"
+     }
+    },
+    {
+     "id": "lost-luggage_v_2",
+     "src": "lost-luggage/plates/lost-luggage_v_2.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.625,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_v_2.zones.json"
+     }
+    },
+    {
+     "id": "lost-luggage_v_4",
+     "src": "lost-luggage/plates/lost-luggage_v_4.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_v_4.zones.json"
+     }
+    },
+    {
+     "id": "lost-luggage_vn_2",
+     "src": "lost-luggage/plates/lost-luggage_vn_2.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_vn_2.zones.json"
+     }
+    },
+    {
+     "id": "lost-luggage_vn_3",
+     "src": "lost-luggage/plates/lost-luggage_vn_3.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6354,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_vn_3.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "lost-luggage_amb_vn_2",
+     "src": "lost-luggage/inserts/lost-luggage_amb_vn_2.mp4",
+     "plate": "lost-luggage_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the baggage carousel turns slowly, a plane moves far away outside the window, clouds drift",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "cinema-tickets": {
+   "set": "A cheerful cinema lobby: a ticket counter with a glass window, a blank poster wall showing only colourful shapes, a popcorn machine, deep red and gold palette.",
+   "role_look": "cinema usher's red vest over the white shirt, no logo",
+   "tags": {
+    "topic": "buying cinema tickets",
+    "cefr": "A2",
+    "group": "leisure",
+    "vocab": [
+     "ticket",
+     "cinema",
+     "seat",
+     "screen",
+     "card",
+     "receipt",
+     "popcorn"
+    ]
+   },
+   "cefr": "A2",
+   "group": "leisure",
+   "frames": [
+    {
+     "id": "cinema-tickets_f1",
+     "src": "cinema-tickets/cinema-tickets_f1.png",
+     "shot": "wide",
+     "lines": [
+      0,
+      1
+     ],
+     "say": [
+      "Hello. How can I help you?",
+      "Two tickets for the seven o'clock film, please."
+     ],
+     "props": [
+      "ticket counter",
+      "poster wall",
+      "popcorn machine"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "cinema-tickets_f2",
+     "src": "cinema-tickets/cinema-tickets_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      2,
+      3
+     ],
+     "say": [
+      "Adult or student tickets?",
+      "Two adults, please. Can we sit near the back?"
+     ],
+     "props": [
+      "tickets"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "cinema-tickets_f3",
+     "src": "cinema-tickets/cinema-tickets_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      4,
+      5
+     ],
+     "say": [
+      "Sorry, the back rows are full. Row F is free.",
+      "That's fine. How much is that altogether?"
+     ],
+     "props": [
+      "seat plan with seats",
+      "row"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "cinema-tickets_f4",
+     "src": "cinema-tickets/cinema-tickets_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      6,
+      7
+     ],
+     "say": [
+      "That's twenty-four in total. Cash or card?",
+      "Card, please. Can I have a receipt?"
+     ],
+     "props": [
+      "card reader",
+      "bank card"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "cinema-tickets_f5",
+     "src": "cinema-tickets/cinema-tickets_f5.png",
+     "shot": "close-up on hands/object",
+     "lines": [
+      8
+     ],
+     "say": [
+      "Here are your tickets. Enjoy the film!"
+     ],
+     "props": [
+      "two tickets",
+      "receipt",
+      "window"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "cinema-tickets_p_1",
+     "src": "cinema-tickets/plates/cinema-tickets_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3125,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8542,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_p_1.zones.json"
+     }
+    },
+    {
+     "id": "cinema-tickets_p_3",
+     "src": "cinema-tickets/plates/cinema-tickets_p_3.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8646,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_p_3.zones.json"
+     }
+    },
+    {
+     "id": "cinema-tickets_pn_2",
+     "src": "cinema-tickets/plates/cinema-tickets_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6042,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8542,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_pn_2.zones.json"
+     }
+    },
+    {
+     "id": "cinema-tickets_pn_3",
+     "src": "cinema-tickets/plates/cinema-tickets_pn_3.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3125,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_pn_3.zones.json"
+     }
+    },
+    {
+     "id": "cinema-tickets_v_1",
+     "src": "cinema-tickets/plates/cinema-tickets_v_1.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6042,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6562,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_v_1.zones.json"
+     }
+    },
+    {
+     "id": "cinema-tickets_v_3",
+     "src": "cinema-tickets/plates/cinema-tickets_v_3.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4375,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.625,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_v_3.zones.json"
+     }
+    },
+    {
+     "id": "cinema-tickets_vn_1",
+     "src": "cinema-tickets/plates/cinema-tickets_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_vn_1.zones.json"
+     }
+    },
+    {
+     "id": "cinema-tickets_vn_4",
+     "src": "cinema-tickets/plates/cinema-tickets_vn_4.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6042,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_vn_4.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "cinema-tickets_amb_vn_1",
+     "src": "cinema-tickets/inserts/cinema-tickets_amb_vn_1.mp4",
+     "plate": "cinema-tickets_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "popcorn pops and bubbles in the machine, marquee lights twinkle softly, warm light glows",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "party-invite": {
+   "set": "A friendly neighbourhood park bench scene: green trees, a wooden bench, a blue sky, with a small floating balloon bunch tied to the bench, bright pastel palette.",
+   "role_look": "none",
+   "tags": {
+    "topic": "inviting a friend to a party",
+    "cefr": "A2",
+    "group": "social",
+    "vocab": [
+     "party",
+     "balloons",
+     "cake",
+     "invitation",
+     "friend",
+     "calendar",
+     "snack"
+    ]
+   },
+   "cefr": "A2",
+   "group": "social",
+   "frames": [
+    {
+     "id": "party-invite_f1",
+     "src": "party-invite/party-invite_f1.png",
+     "shot": "wide",
+     "lines": [
+      0
+     ],
+     "say": [
+      "I'm having a party on Saturday. Can you come?"
+     ],
+     "props": [
+      "park bench",
+      "balloons"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "party-invite_f2",
+     "src": "party-invite/party-invite_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      1,
+      2
+     ],
+     "say": [
+      "Sounds fun! What time does it start?",
+      "It starts at seven at my place."
+     ],
+     "props": [
+      "invitation card",
+      "clock icon"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "party-invite_f3",
+     "src": "party-invite/party-invite_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      3,
+      4
+     ],
+     "say": [
+      "Thanks for inviting me. I'd love to come.",
+      "Shall I bring something to eat or drink?"
+     ],
+     "props": [
+      "snack basket",
+      "drink bottle"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "party-invite_f4",
+     "src": "party-invite/party-invite_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      5,
+      6
+     ],
+     "say": [
+      "Just bring yourself! I'll get the food.",
+      "Please bring a friend if you like."
+     ],
+     "props": [
+      "invitation card",
+      "friend icon"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "party-invite_f5",
+     "src": "party-invite/party-invite_f5.png",
+     "shot": "medium two-shot",
+     "lines": [
+      7,
+      8
+     ],
+     "say": [
+      "Great. I'll see you on Saturday, then.",
+      "See you then!"
+     ],
+     "props": [
+      "balloons",
+      "calendar icon"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "party-invite_p_4",
+     "src": "party-invite/plates/party-invite_p_4.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4219,
+      "horizon_src": "depth",
+      "floor_top": 0.8542,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/party-invite/zones/party-invite_p_4.zones.json"
+     }
+    },
+    {
+     "id": "party-invite_pn_1",
+     "src": "party-invite/plates/party-invite_pn_1.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.9271,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/party-invite/zones/party-invite_pn_1.zones.json"
+     }
+    },
+    {
+     "id": "party-invite_pn_2",
+     "src": "party-invite/plates/party-invite_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.8438,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/party-invite/zones/party-invite_pn_2.zones.json"
+     }
+    },
+    {
+     "id": "party-invite_v_3",
+     "src": "party-invite/plates/party-invite_v_3.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.6146,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/party-invite/zones/party-invite_v_3.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "party-invite_amb_v_3",
+     "src": "party-invite/inserts/party-invite_amb_v_3.mp4",
+     "plate": "party-invite_v_3",
+     "aspect": "9:16",
+     "light": "day",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "balloons bob gently in the breeze, leaves move, soft clouds drift over the park",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  },
+  "post-office": {
+   "set": "A cheerful post office: a counter with a parcel scale and stamps, wall shelves of boxes and envelopes, a blank queue ticket machine, red and cream palette.",
+   "role_look": "post office red vest over the white shirt, no logo",
+   "tags": {
+    "topic": "sending a parcel",
+    "cefr": "A2",
+    "group": "services",
+    "vocab": [
+     "box",
+     "parcel",
+     "scale",
+     "stamp",
+     "receipt",
+     "counter",
+     "plane"
+    ]
+   },
+   "cefr": "A2",
+   "group": "services",
+   "frames": [
+    {
+     "id": "post-office_f1",
+     "src": "post-office/post-office_f1.png",
+     "shot": "wide",
+     "lines": [
+      0,
+      1
+     ],
+     "say": [
+      "Next, please. How can I help?",
+      "Hi. I'd like to send this box to Spain."
+     ],
+     "props": [
+      "counter",
+      "parcel scale",
+      "box"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "post-office_f2",
+     "src": "post-office/post-office_f2.png",
+     "shot": "medium two-shot",
+     "lines": [
+      2,
+      3
+     ],
+     "say": [
+      "What's inside it?",
+      "Some books and a scarf. Nothing fragile."
+     ],
+     "props": [
+      "open box",
+      "books",
+      "scarf"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "post-office_f3",
+     "src": "post-office/post-office_f3.png",
+     "shot": "over-the-shoulder on Ama",
+     "lines": [
+      4,
+      5
+     ],
+     "say": [
+      "Do you want it by air or by sea?",
+      "By air, please. How much is it?"
+     ],
+     "props": [
+      "plane card",
+      "ship card"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "post-office_f4",
+     "src": "post-office/post-office_f4.png",
+     "shot": "over-the-shoulder on Carlos",
+     "lines": [
+      6,
+      7
+     ],
+     "say": [
+      "That's twenty-two pounds. It takes about five days.",
+      "Can I get a tracking number?"
+     ],
+     "props": [
+      "parcel scale",
+      "barcode sticker"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    },
+    {
+     "id": "post-office_f5",
+     "src": "post-office/post-office_f5.png",
+     "shot": "close-up on hands/object",
+     "lines": [
+      8
+     ],
+     "say": [
+      "Of course. It's printed on your receipt."
+     ],
+     "props": [
+      "receipt",
+      "stamp",
+      "counter"
+     ],
+     "qc": "eye ≥90, no text/outline, 5 fingers"
+    }
+   ],
+   "reuse": {
+    "lesson_situation": 1,
+    "speak_roleplay": 1,
+    "reels_est": 6,
+    "blog_est": 2,
+    "podcast_est": 1
+   },
+   "uses": 0,
+   "plates": [
+    {
+     "id": "post-office_p_1",
+     "src": "post-office/plates/post-office_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.7917,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/post-office/zones/post-office_p_1.zones.json"
+     }
+    },
+    {
+     "id": "post-office_pn_1",
+     "src": "post-office/plates/post-office_pn_1.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.7917,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/post-office/zones/post-office_pn_1.zones.json"
+     }
+    },
+    {
+     "id": "post-office_pn_4",
+     "src": "post-office/plates/post-office_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7917,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/post-office/zones/post-office_pn_4.zones.json"
+     }
+    },
+    {
+     "id": "post-office_v_1",
+     "src": "post-office/plates/post-office_v_1.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4213,
+      "horizon_src": "depth",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/post-office/zones/post-office_v_1.zones.json"
+     }
+    },
+    {
+     "id": "post-office_v_4",
+     "src": "post-office/plates/post-office_v_4.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.4792,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/post-office/zones/post-office_v_4.zones.json"
+     }
+    },
+    {
+     "id": "post-office_vn_1",
+     "src": "post-office/plates/post-office_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.6875,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/post-office/zones/post-office_vn_1.zones.json"
+     }
+    },
+    {
+     "id": "post-office_vn_3",
+     "src": "post-office/plates/post-office_vn_3.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ],
+   "inserts": [
+    {
+     "id": "post-office_amb_vn_1",
+     "src": "post-office/inserts/post-office_amb_vn_1.mp4",
+     "plate": "post-office_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "light shifts across the floor, the scale display glows, a paper on the counter flutters slightly",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
+   ]
+  }
+ }
+}

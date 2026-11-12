@@ -260,6 +260,9 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   // luật 11b: teach-video trên PR chỉ smoke (preqc + ≤ 2 tập; render đầy đủ khi dispatch/ci-filler), video-motion PR chỉ 1 mẫu
   { let n = -1; try { n = JSON.parse(execFileSync('python3', ['scripts/video/teach2d/gen.py', '--pick', '', '0', 'pull_request', '24'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })).length; } catch (e) { console.log('• ci-policy: python3/gen.py không chạy được – bỏ qua kiểm shard teach-video'); }
     ok(n < 0 || (n >= 1 && n <= 2), `teach-video trên PR chọn ${n} tập (phải 1–2: smoke, không render 24 shard)`);
+    { const tv = (srcs.find(([f]) => f === 'teach-video.yml') || [])[1] || ''; const c = (tv.match(/^concurrency:.*$/m) || [''])[0];
+      ok(/workflow_dispatch/.test(c) && /run_id/.test(c) && /batch/.test(c), 'teach-video.yml: mỗi dispatch phải có concurrency group riêng (batch/run_id) – group chung làm GitHub hủy âm thầm lượt đang chờ (12/11)');
+      ok(!/cancel-in-progress:[^}]*workflow_dispatch/.test(c) && !/github\.ref != /.test(c), 'teach-video.yml: dispatch không được cancel-in-progress'); }
     const vm = (srcs.find(([f]) => f === 'video-motion.yml') || [])[1] || ''; ok(/github\.event_name == 'pull_request' && 'drill' \|\|/.test(vm), 'video-motion.yml: PR phải chạy 1 mẫu (drill), không 4'); }
   { const np = (srcs.find(([f]) => f === 'npm-test.yml') || [])[1] || ''; ok(/^  heavy:/m.test(np) && /heavy-rerun\.mjs/.test(np) && /needs:\s*test/.test(np), 'npm-test.yml thiếu job heavy (chạy heavy-rerun.mjs sau job test) – luật 11'); }
   for (const c of chainCycles(srcs)) ok(false, `vòng workflow_run: ${c}`);

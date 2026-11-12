@@ -67,4 +67,9 @@
 '{n} rương sẵn sàng': '{n} chests ready',
 'Mở khóa ở mốc {n} ngày': 'Unlocked at the {n}-day milestone',
 'Mở quà': 'Open',
+'Chào mừng bạn quay lại!': 'Welcome back!',
+'Rất vui được gặp lại bạn! Ôn nhanh vài từ để lấy lại nhịp nhé.': 'So good to see you again! A quick review will get you back in rhythm.',
+'Bạn đã nghỉ {n} ngày – không sao cả! Mình ôn lại vài từ dễ trước nhé.': 'You have been away {n} days – and that is completely fine! Let us start with a few easy words.',
+'Lâu quá mới gặp! Mình bắt đầu lại thật nhẹ nhàng, chỉ vài phút thôi.': 'It has been a while! Let us ease back in – just a few minutes.',
+'Ôn nhanh vài từ': 'Quick review',
 }); })(typeof self !== 'undefined' ? self : this);

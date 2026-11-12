@@ -19,6 +19,10 @@ ok(C.streak(new Set([ago(1), ago(2)])) === 2, 'hôm nay chưa học vẫn giữ 
 ok(C.pending({}, 7) === 7 && C.pending({ ms: { 3: 1, 7: 1 } }, 9) === 0, 'mốc chưa chúc mừng');
 ok(C.pending({}, 40) === 30, 'nhảy nhiều mốc (đồng bộ) → chỉ 1 màn mốc cao nhất');
 ok(C.next(7) === 14 && C.next(365) === 400, 'mốc tiếp theo');
+// Quay lại sau khi nghỉ: gap = số ngày từ ngày học cuối; bậc 3/7/14; học hôm nay hoặc chưa từng học → không hiện
+ok(C.gap(new Set([ago(0)])) === null && C.gap(new Set()) === null, 'đã học hôm nay / chưa từng học → không có gap');
+ok(C.gap(new Set([ago(1)])) === 1 && C.gap(new Set([ago(9), ago(30)])) === 9, 'gap tính từ ngày học gần nhất');
+ok([0, 1, 2, 3, 6, 7, 13, 14, 90].map(g => C.backTier(g)).join() === '0,0,0,3,3,7,7,14,14' && C.backTier(null) === 0, 'bậc quay lại 3/7/14, dưới 3 ngày không hiện');
 // Lịch tuần: đo trên MỌI thứ trong tuần với "hôm nay" cố định (không phụ thuộc ngày chạy CI – 02/11 Thứ 2: hôm qua = CN tuần trước → không còn ô đóng băng)
 for (let dow = 0; dow < 7; dow++) {
   const now = new Date(2026, 10, 2 + dow, 12), at = n => { const d = new Date(now); d.setDate(d.getDate() - n); return key(d); }; // 2/11/2026 = Thứ 2
@@ -227,6 +231,8 @@ ok(!/retention\.js/.test(fs.readFileSync('web/app/index.html', 'utf8')), 'không
   const r1 = run({ ret_pct: '10' }, 55); r1.A.retTrack(3); r1.A.retTrack(8); r1.A.retTrack(9);
   ok(r1.sent.join() === 'ret_off_seen,ret_off_d7', 'mỗi sự kiện 1 lần/máy');
   const r2 = run({ ret_pct: '10' }, 3, '', { 'lk.noTrack': '1' }); r2.A.retTrack(9); ok(!r2.sent.length, 'máy quản trị không gửi');
+  const r4 = run({ ret_pct: '10' }, 3, '?demo=1&hl=vi'); r4.A.retTrack(9); ok(!r4.sent.length, 'demo/sandbox không gửi beacon (ext-e2e: /api/hit 503 = lỗi console)');
+  const r5 = run({ ret_pct: '10' }, 3, '?sandbox=1'); r5.A.retTrack(9); ok(!r5.sent.length, 'sandbox không gửi beacon');
   const r3 = run({ ret_pct: '10' }, null); r3.A.retOn(); ok(/^\d+$/.test(r3.store['lk.rb']), 'tự tạo nhóm lk.rb cố định');
 }
 console.log(`✓ retention: ${pass} kiểm tra đạt`);
