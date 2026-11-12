@@ -3,7 +3,7 @@ name: Exercise shots
 on:
   workflow_dispatch:
   pull_request:
-    paths: ['web/js/lesson/**', 'web/js/st/v2/ex-*.js', 'web/js/st/lesson.js', 'web/css/st-v2-ex-*.css', 'scripts/test/exercise-shots.mjs', '.github/workflows/exercise-shots.yml']
+    paths: ['web/js/lesson/**', 'web/cpack/st/v2/ex-*.js', 'web/cpack/lesson/ex.js', 'web/js/st/lesson.js', 'web/css/st-v2-ex-*.css', 'scripts/test/exercise-shots.mjs', '.github/workflows/exercise-shots.yml']
 permissions:
   contents: read
 concurrency:

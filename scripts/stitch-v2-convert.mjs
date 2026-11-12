@@ -9,6 +9,7 @@
 // Dùng: node scripts/stitch-v2-convert.mjs [màn…] [--check] [--web]    (cần jsdom – devDependency)
 import fs from 'node:fs'; import path from 'node:path'; import vm from 'node:vm'; import { JSDOM, VirtualConsole } from 'jsdom'; const VC = new VirtualConsole(); // im tiếng lỗi CSS @layer của jsdom (vô hại)
 const A = process.argv.slice(2), WEB = A.includes('--web'), CHECK = A.includes('--check'); // --web: trang web tĩnh (lexkite.com) – cùng phép, nguồn/đích riêng, dựng lúc build (Node) bằng scripts/lib/st-web.mjs
+const CPACK = new Set(['ex-frame', 'ex-match']); // khung bài tập chung: sinh vào web/cpack/st/v2 (js/app.js BUNDLES lesson/espr)
 const SRC = WEB ? 'brand/stitch/web' : 'brand/stitch/v2', OUT = WEB ? 'brand/stitch/web/gen' : 'web/js/st/v2', EN = WEB ? 'web/js/i18n/en/v2web.js' : 'web/js/i18n/en/v2.js';
 const ALL = fs.readdirSync(path.join(SRC, 'bind')).filter(f => f.endsWith('.json')).map(f => f.slice(0, -5));
 const ONLY = A.filter(a => !a.startsWith('--')), SCREENS = ALL; // luôn chạy MỌI màn (nhanh) để en/v2.js đủ khóa; chỉ GHI file màn được nêu (ONLY)
@@ -204,9 +205,9 @@ for (const k of SCREENS) { const bind = JSON.parse(fs.readFileSync(path.join(SRC
   const code = `(self.ST2 || (self.ST2 = {}))[${JSON.stringify(k)}] = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ root: ${JSON.stringify(o.root)},\n header: ${o.header},\n main: ${o.main},\n nav: ${o.nav}${WEB ? `,\n footer: ${o.footer}` : ''}${o.parts.map(([n, h]) => `,\n ${n}: ${h}`).join('')} });\n` +
     (o.protos.length ? `(self.ST2.P || (self.ST2.P = {}))[${JSON.stringify(k)}] = (t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({\n${o.protos.map(([n, h]) => ` ${JSON.stringify(n)}: d => ${h}`).join(',\n')} });\n` : ''), sk = shrink(code);
   const js = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs từ ${SRC}/${k}-light|dark.html + bind/${k}.json – KHÔNG sửa tay (sửa bind map rồi chạy lại). */\n` + (sk.head ? `{ ${sk.head}\n${sk.body}}\n` : sk.body);
-  const out = path.join(OUT, k + '.js');
+  const od = !WEB && CPACK.has(k) ? 'web/cpack/st/v2' : OUT, out = path.join(od, k + '.js'); // CPACK: khung tải lười nằm ngoài ngân sách web/js
   if (CHECK) { if (!fs.existsSync(out) || fs.readFileSync(out, 'utf8') !== js) errs.push(`${k}: ${out} trôi so với Stitch/bind (chạy lại bộ chuyển)`); }
-  else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(out, js); console.log(`✓ ${k}: ${(js.length / 1024).toFixed(1)} KB`); } }
+  else if (!ONLY.length || ONLY.includes(k)) { fs.mkdirSync(od, { recursive: true }); fs.writeFileSync(out, js); console.log(`✓ ${k}: ${(js.length / 1024).toFixed(1)} KB`); } }
 { const en = `/* English UI – ${WEB ? 'v2web (trang web Stitch' : 'v2 (màn Stitch v2'}: TỰ SINH bởi scripts/stitch-v2-convert.mjs, khóa Việt → chữ Stitch; lazy group, LAZY in scripts/build-i18n.sh) */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {\n${Object.entries(enMap).sort().map(([k, v]) => `  ${JSON.stringify(k)}: ${JSON.stringify(v)},`).join('\n')}\n}); })(typeof self !== 'undefined' ? self : this);\n`;
   if (CHECK) { if (!fs.existsSync(EN) || fs.readFileSync(EN, 'utf8') !== en) errs.push(`${EN} trôi`); } else if (!A.includes('--dump')) fs.writeFileSync(EN, en); } // --dump chỉ in sơ đồ: KHÔNG ghi en/v2.js (bỏ qua màn → mất khóa các màn khác)
 if (errs.length) { console.error('✗ stitch-v2-convert:\n  ' + errs.join('\n  ')); process.exit(1); }
