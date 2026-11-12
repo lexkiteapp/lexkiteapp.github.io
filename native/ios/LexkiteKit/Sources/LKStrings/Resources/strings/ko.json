@@ -438,6 +438,7 @@
   "mist.viewList": "목록 보기",
   "mist.retryMistakes": "오답 다시 풀기",
   "mist.reviewFadingWords": "잊어가는 단어 복습",
+  "mist.variantMiniTest": "변형 미니 테스트",
   "mist.clearFixedMistakes": "고친 오답 지우기",
   "mist.all": "모두({n})",
   "mist.missedTimes": "{n}회 놓쳤음",

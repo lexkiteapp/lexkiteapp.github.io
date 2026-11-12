@@ -438,6 +438,7 @@
   "mist.viewList": "Listeyi gör",
   "mist.retryMistakes": "Hataları tekrar çöz",
   "mist.reviewFadingWords": "Unutulan kelimeleri tekrarla",
+  "mist.variantMiniTest": "Varyasyon mini testi",
   "mist.clearFixedMistakes": "Düzeltilenleri temizle",
   "mist.all": "Hepsi ({n})",
   "mist.missedTimes": "{n} kez kaçırdım",

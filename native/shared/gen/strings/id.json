@@ -438,6 +438,7 @@
   "mist.viewList": "Lihat daftar",
   "mist.retryMistakes": "Ulangi kesalahan",
   "mist.reviewFadingWords": "Ulang kata yang mulai lupa",
+  "mist.variantMiniTest": "Mini tes variasi",
   "mist.clearFixedMistakes": "Hapus kesalahan yang diperbaiki",
   "mist.all": "Semua ({n})",
   "mist.missedTimes": "melewatkan {n} kali",

@@ -440,6 +440,7 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case mistViewList = "mist.viewList"
     case mistRetryMistakes = "mist.retryMistakes"
     case mistReviewFadingWords = "mist.reviewFadingWords"
+    case mistVariantMiniTest = "mist.variantMiniTest"
     case mistClearFixedMistakes = "mist.clearFixedMistakes"
     case mistAll = "mist.all"
     case mistMissedTimes = "mist.missedTimes"

@@ -438,6 +438,7 @@
   "mist.viewList": "查看列表",
   "mist.retryMistakes": "重做错题",
   "mist.reviewFadingWords": "复习快忘的词",
+  "mist.variantMiniTest": "变式小测验",
   "mist.clearFixedMistakes": "清除已改错题",
   "mist.all": "全部 ({n})",
   "mist.missedTimes": "错过了 {n} 次",

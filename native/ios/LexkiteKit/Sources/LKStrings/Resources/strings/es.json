@@ -438,6 +438,7 @@
   "mist.viewList": "Ver lista",
   "mist.retryMistakes": "Repetir errores",
   "mist.reviewFadingWords": "Repasar palabras que se olvidan",
+  "mist.variantMiniTest": "Minitest de variantes",
   "mist.clearFixedMistakes": "Quitar errores corregidos",
   "mist.all": "Todo ({n})",
   "mist.missedTimes": "perdido {n} veces",

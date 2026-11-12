@@ -438,6 +438,7 @@
   "mist.viewList": "Показать список",
   "mist.retryMistakes": "Повторить ошибки",
   "mist.reviewFadingWords": "Повторить ускользающие слова",
+  "mist.variantMiniTest": "Мини-тест с вариациями",
   "mist.clearFixedMistakes": "Убрать исправленные",
   "mist.all": "Все ({n})",
   "mist.missedTimes": "пропустил {n} раз",

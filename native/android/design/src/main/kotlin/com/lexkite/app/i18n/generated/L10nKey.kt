@@ -442,6 +442,7 @@ enum class L10nKey(val id: String) {
     mistViewList("mist.viewList"),
     mistRetryMistakes("mist.retryMistakes"),
     mistReviewFadingWords("mist.reviewFadingWords"),
+    mistVariantMiniTest("mist.variantMiniTest"),
     mistClearFixedMistakes("mist.clearFixedMistakes"),
     mistAll("mist.all"),
     mistMissedTimes("mist.missedTimes"),
