@@ -422,6 +422,20 @@ const ADMIN_OPS = {
   },
 };
 
+/** Local publish slots per day (stagger, 09–21 h local like the social schedule); UTC offsets are fixed means (no DST drift needed for a daily slot). */
+export const YT_TZ = { en: -5, vi: 7, pt: -3, es: -5, de: 1, fr: 1, ja: 9, ko: 9, zh: 8, hi: 5.5, ar: 3, tr: 3, ru: 3 };
+export const YT_SLOTS = [[10, 0], [14, 20], [18, 40], [12, 10], [16, 30], [20, 0]];
+/** i-th clip of a channel → ISO publishAt: perDay clips a day, day d = 1.. (never in the past), slot offset rotates per channel so channels do not post at the same minute. */
+export function slotAt(i, perDay, lang, now = Date.now(), rot = 0) {
+  const n = Math.max(1, Math.min(YT_SLOTS.length, perDay | 0)), d = Math.floor(i / n) + 1, [h, m] = YT_SLOTS[(i % n + rot) % YT_SLOTS.length], off = YT_TZ[lang] ?? 0;
+  const base = new Date(now + d * 864e5); return new Date(Date.UTC(base.getUTCFullYear(), base.getUTCMonth(), base.getUTCDate(), h, m) - off * 36e5).toISOString();
+}
+/** The connected channel for a clip language: the channel whose yt_chan_cfg.cfg.lang matches; English falls back to the default channel; other languages without a channel → null (never post a clip on a channel of another language). */
+export async function chanForLang(db, lang) {
+  const l = await channelsOk(db);
+  for (const c of l) { const x = await chanCfg(db, c.channel_id); if (x.explicit_lang && x.cfg.lang === lang) return c; }
+  return lang === 'en' ? l.find(c => true) || null : null;
+}
 const CLI_OPS = {
   /** approved/uploaded ids (shorts-archive.mjs keeps 2 copies of these; web-rendition.mjs adds youtube_id when the video is watchable). */
   async ids(db) {
@@ -432,6 +446,24 @@ const CLI_OPS = {
     for (const r of rows) if (!off.has(r.clip) && embed.has(r.channel_id) && r.status === 'done' && r.video_id && (r.privacy === 'unlisted' || r.privacy === 'public' || (r.publish_at && Date.parse(r.publish_at) <= now))) { web[r.clip] = r.video_id; if (r.lesson) web[r.lesson] = r.video_id; }
     const purge = (await all(db, 'SELECT clip FROM clip_review WHERE deleted = 2')).map(r => r.clip); // "Xóa hẳn" → shorts-archive.mjs trashes Drive files + drops the recipe, then op purged
     return { purge, approved: rows.map(r => r.clip), uploaded: Object.fromEntries(rows.filter(r => r.video_id).map(r => [r.clip, r.video_id])), web };
+  },
+  /** Daily-reels auto queue (docs/specs/daily-reels.md): clips that already passed QC (manifest qa 'pass') are queued as private + publishAt, spread perDay a day per channel, on the channel of their language. b = { items: [{id, lang}], per_day }. No admin click; the quota log is yt_quota. */
+  async autoq(db, b, who, env) {
+    if ((await modeOf(db, env)) !== 'api') return { status: 409, error: 'mode-manual' };
+    const items = (Array.isArray(b.items) ? b.items : []).filter(x => x && CLIP.test(String(x.id))).slice(0, 100), perDay = Math.min(6, Math.max(1, +b.per_day || 3)), now = Date.now(), out = { queued: [], skipped: [] };
+    const used_ = new Map(); let rot = 0;
+    for (const it of items) {
+      const lang = String(it.lang || 'en').toLowerCase(), ch = await chanForLang(db, lang);
+      if (!ch) { out.skipped.push({ id: it.id, why: 'no-channel-' + lang }); continue; }
+      const r = await approveClips(db, { ids: [it.id], privacy: 'private' }, { email: 'autopub@lexkite.com' }, env);
+      if (!(r.queued || []).length) { out.skipped.push(...(r.skipped || [])); continue; }
+      const last = await one(db, "SELECT COUNT(*) AS n FROM yt_queue WHERE channel_id = ? AND status IN ('queued','uploading') AND publish_at > ?", ch.channel_id, new Date(now).toISOString());
+      const k = used_.get(ch.channel_id) ?? (last ? +last.n : 0); used_.set(ch.channel_id, k + 1); rot = (ch.id || 0) % YT_SLOTS.length;
+      const pa = slotAt(k, perDay, lang, now, rot);
+      await run(db, 'UPDATE yt_queue SET channel_id = ?, publish_at = ? WHERE clip = ?', ch.channel_id, pa, it.id);
+      out.queued.push({ id: it.id, channel_id: ch.channel_id, publish_at: pa });
+    }
+    return { ok: true, ...out, quota: await quotaInfo(db) };
   },
   async quota(db) { return { quota: await quotaInfo(db) }; },
   /** shorts-archive.mjs: Drive files of these hard-deleted clips are in the trash and the recipe is gone → deleted = 3 (purged, kept as a tombstone). */
@@ -450,7 +482,7 @@ const CLI_OPS = {
     if (row.upload_url && Date.now() - row.session_at < SESSION_TTL) return { upload_url: row.upload_url, resumed: true };
     if (uploadsLeft(await used(db), await used(db, INS)) < 1) return { status: 429, error: 'quota', quota: await quotaInfo(db) };
     const size = Math.floor(+((b.meta || {}).size) || 0); if (!(size > 0 && size < 256 * 1048576)) return { status: 400, error: 'bad-size' };
-    const ch = await channelRow(db); if (!ch) return { status: 412, error: 'not-connected' };
+    const ch = await channelRow(db, row.channel_id || undefined); if (!ch) return { status: 412, error: 'not-connected' };
     const at = await accessToken(env, db, ch), res = videoResource(row, b.meta || {});
     const r = await gfetch('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status', { method: 'POST', headers: { Authorization: 'Bearer ' + at, 'Content-Type': 'application/json; charset=UTF-8', 'X-Upload-Content-Length': String(size), 'X-Upload-Content-Type': 'video/mp4' }, body: JSON.stringify(res) });
     await spend(db, QUOTA.insert, INS);
@@ -467,7 +499,7 @@ const CLI_OPS = {
   async done(db, b, who, env) {
     const row = await one(db, 'SELECT * FROM yt_queue WHERE clip = ?', String(b.id || '')), vid = String(b.video_id || '');
     if (!row || !/^[A-Za-z0-9_-]{6,20}$/.test(vid)) return { status: 400, error: 'bad-input' };
-    const ch = await channelRow(db); if (!ch) return { status: 412, error: 'not-connected' };
+    const ch = await channelRow(db, row.channel_id || undefined); if (!ch) return { status: 412, error: 'not-connected' };
     const at = await accessToken(env, db, ch);
     const v = await gfetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,status&id=${encodeURIComponent(vid)}`, { headers: { Authorization: 'Bearer ' + at } }); await spend(db, QUOTA.list);
     const it = ((await v.json().catch(() => ({}))).items || [])[0];

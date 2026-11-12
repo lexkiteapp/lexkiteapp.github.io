@@ -1411,6 +1411,8 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     setTimeout(() => Promise.all(BUNDLES.voice.map(f => fetch(f).catch(() => {}))).then(() => App.calm(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); })), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
     App.painted.then(() => idle(() => App.need('remind').then(() => Remind.start()).catch(() => {}))); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
+    // Bàn phím ảo kiểu "resizes-visual" (iOS WKWebView, Chrome Android): viewport bố cục giữ nguyên, chỉ visualViewport thấp lại → trang không còn chỗ cuộn để đưa ô nhập lên trên bàn phím (mqa kbd-visual: practice/test ô #ans bị che). --kb = chiều cao bàn phím → html thêm đệm đáy đúng cỡ đó (style.css)
+    if (window.visualViewport) { const vv = window.visualViewport, root = document.documentElement, kb = () => { const h = Math.max(0, Math.round(innerHeight - vv.height - vv.offsetTop)); root.style.setProperty('--kb', (h > 80 ? h : 0) + 'px'); }; vv.addEventListener('resize', kb); vv.addEventListener('scroll', kb); }
     netState(); setTimeout(showInstallBtn, 1500);
     document.addEventListener('visibilitychange', async () => { if (!document.hidden) { state.cards = await Cards.mine(); state.stats = await Stats.get(); state.game = await Game.get(); updateChrome(); } });
     window.addEventListener('lk:tl', async () => { state.cards = await Cards.mine(); updateChrome(); }); // đổi ngôn ngữ đích (Cài đặt) → Sổ từ/Ôn theo ngôn ngữ mới

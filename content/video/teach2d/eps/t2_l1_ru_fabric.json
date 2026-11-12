@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_fabric",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is it a factory?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I work at a fabric.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I work at a factory.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Fabric is cloth.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Factory! He works in a factory.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I work at a fabric.",
+  "right": "I work at a factory.",
+  "strike": "fabric",
+  "why": "Fabric is cloth.",
+  "memory": "Factory: work.",
+  "quiz": {
+   "stem": "He works in a ___.",
+   "options": [
+    "fabric",
+    "factory"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Fabric” — не фабрика!",
+   "tip": "“Fabric” — это ткань. Фабрика по-английски — “factory”.",
+   "caption": "Ты тоже говоришь “I work at a fabric.”? 😅 “Fabric” похоже на «фабрика», но это ткань. Фабрика — “factory”. Правильно: “I work at a factory.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “factory”. Фабрика — factory, ткань — fabric. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английский",
+    "#грамматика",
+    "#английскийонлайн",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is it a factory?",
+   "tip": "“Fabric” means cloth. A plant is a “factory”.",
+   "caption": "Do you also say “I work at a fabric.”? 😅 “Fabric” looks like “fabrika”, but it means cloth. A plant is “factory”. Correct: “I work at a factory.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Fabric” — не фабрика!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Fabric” — не фабрика!",
+  "keyword": "I work at a factory.",
+  "value": "“Fabric” — это ткань. Фабрика по-английски — “factory”.",
+  "hashtags": [
+   "#английский",
+   "#грамматика",
+   "#английскийонлайн",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“Fabric” — не фабрика!",
+    "description": "Ты тоже говоришь “I work at a fabric.”? 😅 “Fabric” похоже на «фабрика», но это ткань. Фабрика — “factory”. Правильно: “I work at a factory.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
+    "tags": [
+     "I work at a factory.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I work at a fabric.”? 😅 “Fabric” похоже на «фабрика», но это ткань. Фабрика — “factory”. Правильно: “I work at a factory.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Ты тоже говоришь “I work at a fabric.”? 😅 “Fabric” похоже на «фабрика», но это ткань. Фабрика — “factory”. Правильно: “I work at a factory.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#английский",
+     "#грамматика",
+     "#английскийонлайн",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Fabric” — не фабрика! #английский #грамматика #английскийонлайн"
+   }
+  },
+  "first_comment": "Ответ: “factory”. Фабрика — factory, ткань — fabric. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

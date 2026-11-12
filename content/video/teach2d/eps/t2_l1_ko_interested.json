@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_interested",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Interested, not interesting!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am interesting in music.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am interested in music.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Interested is how you feel.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Interested! I am interested in art.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am interesting in music.",
+  "right": "I am interested in music.",
+  "strike": "interesting",
+  "why": "Interested is how you feel.",
+  "memory": "Interested in music.",
+  "quiz": {
+   "stem": "I am ___ in art.",
+   "options": [
+    "interesting",
+    "interested"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“interesting in” 틀렸어요!",
+   "tip": "내 마음은 interested! “I am interested in music”이에요.",
+   "caption": "“I am interesting in music”라고 말하고 있나요? 😅 내가 느끼는 감정은 interested, 대상의 성질은 interesting이에요. “I am interested in music”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “interested”. 관심 있다는 interested! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “interesting in”!",
+   "tip": "For your own feeling, say interested. “I am interested in music”.",
+   "caption": "Do you say “I am interesting in music”? 😅 Your own feeling is “interested”. A thing is “interesting”. “I am interested in music” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“interesting in” 틀렸어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“interesting in” 틀렸어요!",
+  "keyword": "I am interested in music.",
+  "value": "내 마음은 interested! “I am interested in music”이에요.",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“interesting in” 틀렸어요!",
+    "description": "“I am interesting in music”라고 말하고 있나요? 😅 내가 느끼는 감정은 interested, 대상의 성질은 interesting이에요. “I am interested in music”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I am interested in music.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I am interesting in music”라고 말하고 있나요? 😅 내가 느끼는 감정은 interested, 대상의 성질은 interesting이에요. “I am interested in music”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I am interesting in music”라고 말하고 있나요? 😅 내가 느끼는 감정은 interested, 대상의 성질은 interesting이에요. “I am interested in music”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“interesting in” 틀렸어요! #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “interested”. 관심 있다는 interested! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "lang": "ko"
+ }
+}

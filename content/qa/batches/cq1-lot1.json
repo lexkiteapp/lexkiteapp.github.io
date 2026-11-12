@@ -1,0 +1,28 @@
+{
+ "id": "cq1-lot1-20261111",
+ "source": "usage",
+ "n": 60,
+ "checked": [
+  {
+   "id": "usage:prep-verb:count",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-verb:disagree",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-verb:argue",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-verb:care",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-verb:comment",
+   "ok": true
+  }
+ ],
+ "status": "pending"
+}

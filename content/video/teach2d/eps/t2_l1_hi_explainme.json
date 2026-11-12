@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_explainme",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Explain to me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He explained me the rule.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He explained the rule to me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say explain, then to me.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! She explained the rule to me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He explained me the rule.",
+  "right": "He explained the rule to me.",
+  "strike": "explained me",
+  "why": "Say explain, then to me.",
+  "memory": "Explain it to me.",
+  "quiz": {
+   "stem": "She explained the rule ___ me.",
+   "options": [
+    "to",
+    "at"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“explain me” नहीं, “to me”!",
+   "tip": "अंग्रेज़ी में “explain me” नहीं बोलते; पहले चीज़ बताइए, फिर “to me” लगाइए।",
+   "caption": "क्या आप भी कहते हैं “He explained me the rule”? 🙈 अंग्रेज़ी में “He explained the rule to me” सही है, क्योंकि explain के बाद पहले चीज़ और फिर to me आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “to”। पहले चीज़ बोलें, फिर “to me” जोड़ें। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “explain me”, but “to me”!",
+   "tip": "English does not say “explain me”; name the thing first, then add “to me”.",
+   "caption": "Do you say “He explained me the rule”? 🙈 In English “He explained the rule to me” is right, because explain puts the thing first and then to me. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“explain me” नहीं, “to me”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“explain me” नहीं, “to me”!",
+  "keyword": "He explained the rule to me.",
+  "value": "अंग्रेज़ी में “explain me” नहीं बोलते; पहले चीज़ बताइए, फिर “to me” लगाइए।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“explain me” नहीं, “to me”!",
+    "description": "क्या आप भी कहते हैं “He explained me the rule”? 🙈 अंग्रेज़ी में “He explained the rule to me” सही है, क्योंकि explain के बाद पहले चीज़ और फिर to me आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "He explained the rule to me.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “He explained me the rule”? 🙈 अंग्रेज़ी में “He explained the rule to me” सही है, क्योंकि explain के बाद पहले चीज़ और फिर to me आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “He explained me the rule”? 🙈 अंग्रेज़ी में “He explained the rule to me” सही है, क्योंकि explain के बाद पहले चीज़ और फिर to me आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“explain me” नहीं, “to me”! #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “to”। पहले चीज़ बोलें, फिर “to me” जोड़ें। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

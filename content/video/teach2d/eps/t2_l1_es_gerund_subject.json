@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_gerund_subject",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Swim is fun? Use swimming",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Swim is fun.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Swimming is fun.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use swimming, not swim, here.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Dancing! Dancing is fun.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Swim is fun.",
+  "right": "Swimming is fun.",
+  "strike": "Swim",
+  "why": "Use swimming, not swim, here.",
+  "memory": "Swimming is fun.",
+  "quiz": {
+   "stem": "___ is fun.",
+   "options": [
+    "Dance",
+    "Dancing"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Swim is fun”? Usa “-ing”",
+   "tip": "Si un verbo es el sujeto, añade “-ing”. En español usamos el infinitivo: “nadar es”.",
+   "caption": "En español “nadar es divertido”, pero en inglés va con -ing 🏊 No “Swim is fun.”, sino “Swimming is fun.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “Dancing”. Verbo como sujeto: -ing. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Swim is fun”? Use “-ing”",
+   "tip": "When a verb is the subject, add “-ing”. Spanish uses the infinitive: “nadar es”.",
+   "caption": "In Spanish “nadar es divertido”, but English uses -ing. Not “Swim is fun.”, but “Swimming is fun.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Swim is fun”? Usa “-ing”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "¿“Swim is fun”? Usa “-ing”",
+  "keyword": "Swimming is fun.",
+  "value": "Si un verbo es el sujeto, añade “-ing”. En español usamos el infinitivo: “nadar es”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Swim is fun”? Usa “-ing”",
+    "description": "En español “nadar es divertido”, pero en inglés va con -ing 🏊 No “Swim is fun.”, sino “Swimming is fun.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "Swimming is fun.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "En español “nadar es divertido”, pero en inglés va con -ing 🏊 No “Swim is fun.”, sino “Swimming is fun.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "En español “nadar es divertido”, pero en inglés va con -ing 🏊 No “Swim is fun.”, sino “Swimming is fun.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Swim is fun”? Usa “-ing” #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “Dancing”. Verbo como sujeto: -ing. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

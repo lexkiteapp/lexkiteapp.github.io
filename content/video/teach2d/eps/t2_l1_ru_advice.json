@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_advice",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do you say an advice?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He gave me an advice.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He gave me some advice.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Advice has no a or an.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Some! Give me some advice.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He gave me an advice.",
+  "right": "He gave me some advice.",
+  "strike": "an advice",
+  "why": "Advice has no a or an.",
+  "memory": "Some advice.",
+  "quiz": {
+   "stem": "Can you give me ___ advice?",
+   "options": [
+    "an",
+    "some"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“An advice” — ошибка!",
+   "tip": "Advice нельзя посчитать: говори “some advice” или “a piece of advice”.",
+   "caption": "Ты тоже говоришь “He gave me an advice.”? 😅 “Совет” можно посчитать, но “advice” — нет: не “an advice”, а “some advice”. Правильно: “He gave me some advice.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “some”. Advice — без a и an. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say an advice?",
+   "tip": "You cannot count advice: say “some advice” or “a piece of advice”.",
+   "caption": "Do you also say “He gave me an advice.”? 😅 You can count “sovet” in Russian, but not “advice”: say “some advice”. Correct: “He gave me some advice.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“An advice” — ошибка!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“An advice” — ошибка!",
+  "keyword": "He gave me some advice.",
+  "value": "Advice нельзя посчитать: говори “some advice” или “a piece of advice”.",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“An advice” — ошибка!",
+    "description": "Ты тоже говоришь “He gave me an advice.”? 😅 “Совет” можно посчитать, но “advice” — нет: не “an advice”, а “some advice”. Правильно: “He gave me some advice.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "He gave me some advice.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “He gave me an advice.”? 😅 “Совет” можно посчитать, но “advice” — нет: не “an advice”, а “some advice”. Правильно: “He gave me some advice.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Ты тоже говоришь “He gave me an advice.”? 😅 “Совет” можно посчитать, но “advice” — нет: не “an advice”, а “some advice”. Правильно: “He gave me some advice.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“An advice” — ошибка! #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “some”. Advice — без a и an. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

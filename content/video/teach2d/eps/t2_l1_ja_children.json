@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_children",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Two child? Fix it!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have two child.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have two children.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Child has a special plural: children.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Books! I have three books.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have two child.",
+  "right": "I have two children.",
+  "strike": "child",
+  "why": "Child has a special plural: children.",
+  "memory": "I have two children.",
+  "quiz": {
+   "stem": "I have three ___.",
+   "options": [
+    "book",
+    "books"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "two child、複数形が抜けてない？",
+   "tip": "2つ以上なら複数形。child の複数形は children（childs ではない）。",
+   "caption": "“I have two child.”と言っていませんか？😅 数が2以上のときは名詞を複数形にします。child は特別で children になります。 “I have two children.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“books”。数が2以上なら名詞は複数形。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is your plural missing in “two child”?",
+   "tip": "With two or more, use the plural. Child becomes children.",
+   "caption": "Do you say “I have two child.”? 😅 With two or more, the noun must be plural. Child is special: children. The natural way is “I have two children.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "two child、複数形が抜けてない？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "two child、複数形が抜けてない？",
+  "keyword": "I have two children.",
+  "value": "2つ以上なら複数形。child の複数形は children（childs ではない）。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "two child、複数形が抜けてない？",
+    "description": "“I have two child.”と言っていませんか？😅 数が2以上のときは名詞を複数形にします。child は特別で children になります。 “I have two children.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I have two children.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I have two child.”と言っていませんか？😅 数が2以上のときは名詞を複数形にします。child は特別で children になります。 “I have two children.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I have two child.”と言っていませんか？😅 数が2以上のときは名詞を複数形にします。child は特別で children になります。 “I have two children.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "two child、複数形が抜けてない？ #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“books”。数が2以上なら名詞は複数形。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

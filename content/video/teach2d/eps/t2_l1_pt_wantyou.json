@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_wantyou",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Want has a pattern!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want that you help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I want you to help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Want you plus to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! I want you to come.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want that you help me.",
+  "right": "I want you to help me.",
+  "strike": "that you help",
+  "why": "Want you plus to.",
+  "memory": "Want + person + to.",
+  "quiz": {
+   "stem": "I want you ___ come.",
+   "options": [
+    "to",
+    "that"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “I want that you”?",
+   "tip": "Em inglês dizemos “want you to”, sem “that”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I want that you help me.”. O certo é “I want you to help me.”. Em português usamos “quero que você”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “to”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I want that you”?",
+   "tip": "In English we say “want you to”, with no “that”.",
+   "caption": "Watch out for this common mistake! Many people say “I want that you help me.”. The right way is “I want you to help me.”. In Portuguese we say “quero que você”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “I want that you”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Você diz “I want that you”?",
+  "keyword": "I want you to help me.",
+  "value": "Em inglês dizemos “want you to”, sem “that”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “I want that you”?",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “I want that you help me.”. O certo é “I want you to help me.”. Em português usamos “quero que você”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "I want you to help me.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I want that you help me.”. O certo é “I want you to help me.”. Em português usamos “quero que você”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I want that you help me.”. O certo é “I want you to help me.”. Em português usamos “quero que você”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “I want that you”? #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “to”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}
