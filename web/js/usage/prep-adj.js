@@ -51,7 +51,7 @@ x She was afraid [of] losing her job.
 @a annoyed
 + with | bực mình với (ai) | irritated by a person | The teacher was annoyed [with] us for being late.
 + about | bực mình về (việc gì) | irritated by a situation | I'm annoyed [about] the delay.
-! He was annoyed at his colleague for the mistake. => He was annoyed with his colleague for the mistake. | Bực mình với ai dùng *annoyed with*; bực về việc gì dùng *annoyed about/at*. | Use *annoyed with* for people, and *annoyed about/at* for things.
+! He was annoyed from his colleague for the mistake. => He was annoyed with his colleague for the mistake. | Bực mình với ai dùng *annoyed with*; bực về việc gì dùng *annoyed about/at*. | Use *annoyed with* for people, and *annoyed about/at* for things.
 # Phân biệt: *annoyed with somebody* (người) và *annoyed about something* (sự việc). | Distinguish *annoyed with somebody* from *annoyed about something*.
 @a furious
 + with | tức giận với (ai) | extremely angry with a person | The coach was furious [with] the referee.
@@ -80,7 +80,7 @@ x She was afraid [of] losing her job.
 @a careful
 + with | cẩn thận với (đồ vật, tiền) | taking care when using | Be careful [with] that knife.
 + about | thận trọng về | cautious about | You should be careful [about] what you post online.
-! You must be careful of your spending habits. => You must be careful with your spending habits. | Cẩn thận trong chi tiêu/sử dụng đồ vật dùng *careful with*. | Use *careful with* for money, possessions, or tools.
+! You must be careful for your spending habits. => You must be careful with your spending habits. | Cẩn thận trong chi tiêu/sử dụng đồ vật dùng *careful with* (*careful of* = tránh nguy hiểm). | Use *careful with* for money, possessions, or tools.
 # Dùng *careful with* (đồ vật/tiền), *careful about* (hành động/lời nói). | Use *careful with* for physical objects/money, *careful about* for actions.
 @a certain
 + of | chắc chắn về | completely sure about | We are certain [of] victory.
@@ -122,7 +122,7 @@ x I'm very close [to] my grandmother.
 @a connected
 + with | có liên quan đến | linked with | The illness may be connected [with] poor diet.
 + to | được nối với | joined to | Is the printer connected [to] the network?
-! The crime is directly connected with the gang. => The crime is directly connected to the gang. | Có liên hệ/kết nối với cái gì dùng *connected to* (hoặc *connected with*). | Related or linked: use *connected to* or *connected with*.
+! The crime is directly connected for the gang. => The crime is directly connected to the gang. | Có liên hệ/kết nối với cái gì dùng *connected to* (hoặc *connected with*). | Related or linked: use *connected to* or *connected with*, not *for*.
 # *connected to* thường dùng cho kết nối vật lý/mạng lưới; *connected with* cho mối liên hệ xã hội/logic. | *connected to* often implies physical link; *connected with* denotes association.
 @a crazy
 + about | mê mẩn, cuồng | very enthusiastic about | My son is crazy [about] football.
@@ -156,7 +156,7 @@ x I'm very close [to] my grandmother.
 ! Her style is similar with her sister's. => Her style is similar to her sister's. | *similar* đi với *to*, không đi với *with*. | *similar* takes *to*, not *with*.
 @a identical
 + to | giống hệt | exactly the same as | This phone is identical [to] the one I lost.
-! This copy is identical with the original document. => This copy is identical to the original document. | Giống hệt với cái gì dùng *identical to* (hoặc *identical with*). | Being exactly alike takes *identical to*, commonly used in comparisons.
+! This copy is identical for the original document. => This copy is identical to the original document. | Giống hệt với cái gì dùng *identical to* (hoặc *identical with*). | Being exactly alike takes *identical to* (or *with*), not *for*.
 # *identical to* là dạng chuẩn và thường gặp nhất trong các đề thi quốc tế. | While *identical with* occurs, *identical to* is standard in IELTS/TOEIC.
 @a disappointed
 + with | thất vọng với (người, kết quả) | unhappy with | The manager was disappointed [with] the sales figures.
@@ -223,7 +223,7 @@ x I'm very close [to] my grandmother.
 @a friendly
 + to | thân thiện với | kind and pleasant to | The staff were very friendly [to] us.
 + with | thân thiện, thân với (ai) | on good terms with | She's friendly [with] everyone in the office.
-! The locals were exceptionally friendly with foreign visitors. => The locals were exceptionally friendly to foreign visitors. | Thân thiện đối với ai dùng *friendly to* hoặc *friendly towards*. | Behaving in a kindly manner takes *friendly to* or *towards*, not *with*.
+! The locals were exceptionally friendly for foreign visitors. => The locals were exceptionally friendly to foreign visitors. | Thân thiện với ai dùng *friendly to/towards/with*. | Behaving kindly takes *friendly to/towards/with*, not *for*.
 # *friendly to/towards somebody*; khi là bạn bè với ai thì dùng: *be friends with somebody*. | Note: *be friendly to somebody*, but *be friends with somebody*.
 @a full
 + of | đầy | containing a lot of | The streets were full [of] tourists.
@@ -257,7 +257,7 @@ x I'm very close [to] my grandmother.
 @a pleased
 + with | hài lòng với | satisfied with | The teacher was pleased [with] our progress.
 + about | vui về | glad about | We're pleased [about] the results.
-! The manager was pleased about the quarterly profits. => The manager was pleased with the quarterly profits. | Hài lòng/vừa ý với điều gì/ai đó dùng *pleased with*. | Feeling satisfaction takes *pleased with*, not *about*.
+! The manager was pleased for the quarterly profits. => The manager was pleased with the quarterly profits. | Hài lòng với điều gì dùng *pleased with* (hoặc *pleased about*); *pleased for* = vui mừng thay cho ai. | Satisfaction takes *pleased with/about*; *pleased for* means happy on someone's behalf.
 # Cấu trúc: *pleased with something/somebody*; hoặc *pleased to do something*. | Pattern: *pleased with the result*, or *pleased to meet you*.
 @a satisfied
 + with | hài lòng với | content with | Most customers are satisfied [with] the service.
@@ -269,12 +269,12 @@ x I'm very close [to] my grandmother.
 @a harmful
 + to | có hại cho | causing damage to | Plastic waste is harmful [to] marine life.
 ~ academic | Dùng nhiều trong Writing chủ đề môi trường, sức khỏe. | Common in Writing about the environment and health.
-! Smoking is extremely harmful for your lungs and heart. => Smoking is extremely harmful to your lungs and heart. | Có hại/gây tổn hại cho sức khỏe/môi trường dùng *harmful to*. | Causing injury or damage takes *harmful to*, not *for*.
+! Smoking is extremely harmful with your lungs and heart. => Smoking is extremely harmful to your lungs and heart. | Có hại cho sức khỏe/môi trường dùng *harmful to* (*harmful for* cũng gặp). | Causing damage takes *harmful to* (or *for*), not *with*.
 # Rất phổ biến trong đề thi: *harmful to human health, harmful to the environment*. | Essential collocations: *harmful to wildlife, harmful to children*.
 @a beneficial
 + to | có lợi cho | good for | Regular exercise is beneficial [to] mental health.
 + for | có lợi cho | good for | Bilingual education can be beneficial [for] young learners.
-! Daily exercise is highly beneficial for mental wellbeing. => Daily exercise is highly beneficial to mental wellbeing. | Có lợi/mang lại lợi ích cho ai/cái gì dùng *beneficial to*. | Resulting in good takes *beneficial to*, rather than *for* in formal usage.
+! Daily exercise is highly beneficial with mental wellbeing. => Daily exercise is highly beneficial to mental wellbeing. | Có lợi cho ai/cái gì dùng *beneficial to* (hoặc *beneficial for*). | Resulting in good takes *beneficial to* or *for*, not *with*.
 # Cả *beneficial to* và *beneficial for* đều gặp, nhưng *beneficial to* được ưu tiên trong văn bản học thuật. | Both occur, but *beneficial to* is favored in academic writing.
 @a impressed
 + by | ấn tượng bởi | admiring because of | I was impressed [by] her presentation.
@@ -457,7 +457,7 @@ x I feel sorry [for] him.
 @a useful
 + for | hữu ích cho (mục đích) | helpful for | This app is useful [for] learning vocabulary.
 + to | hữu ích đối với (ai) | helpful to someone | Your advice was very useful [to] me.
-! This digital dictionary is useful to all students. => This digital dictionary is useful for all students. | Hữu ích cho ai/mục đích gì dùng *useful for* (hoặc *useful to*). | Serving a practical purpose takes *useful for* or *useful to*.
+! This digital dictionary is useful at all students. => This digital dictionary is useful for all students. | Hữu ích cho ai/mục đích gì dùng *useful for* (hoặc *useful to*). | Serving a practical purpose takes *useful for* or *useful to*, not *at*.
 # *useful for doing something* (mục đích), *useful to somebody* (đối tượng hưởng lợi). | Use *useful for* + purpose/gerund; *useful to* + recipient.
 @a addicted
 + to | nghiện | unable to stop | Many teenagers are addicted [to] social media.
@@ -502,7 +502,7 @@ x I feel sorry [for] him.
 @a comparable
 + to | có thể so sánh với, tương đương | similar to | Prices here are comparable [to] those in London.
 + with | so được với | able to be compared with | Our results are comparable [with] previous studies.
-! The results are not directly comparable with each other. => The results are not directly comparable to each other. | Có thể so sánh tương đương với cái gì dùng *comparable to* (hoặc *comparable with*). | Able to be compared takes *comparable to* or *comparable with*.
+! The results are not directly comparable at each other. => The results are not directly comparable to each other. | Có thể so sánh với cái gì dùng *comparable to* (hoặc *comparable with*). | Able to be compared takes *comparable to* or *with*, not *at*.
 # *comparable to* là cách dùng tiêu chuẩn nhất khi so sánh sự tương đương về mức độ. | *comparable to* is standard when denoting equivalence in scale.
 @a consistent
 + with | nhất quán, phù hợp với | in agreement with | The results are consistent [with] our theory.
@@ -547,7 +547,7 @@ x I feel sorry [for] him.
 # Phân biệt: *generous of somebody* (hành động hào phóng) và *generous with something* (hào phóng tiền bạc/thời gian). | Distinguish *generous of someone* from *generous with time/money*.
 @a hopeful
 + about | hy vọng về | optimistic about | We are hopeful [about] the future.
-! Doctors are hopeful for a full and rapid recovery. => Doctors are hopeful of a full and rapid recovery. | Đầy hy vọng về một kết quả tốt dùng *hopeful of* hoặc *hopeful about*. | Feeling optimism takes *hopeful of* or *hopeful about*, not *for*.
+! Doctors are hopeful with a full and rapid recovery. => Doctors are hopeful of a full and rapid recovery. | Đầy hy vọng về kết quả tốt dùng *hopeful of* hoặc *hopeful about*. | Feeling optimism takes *hopeful of* or *about*, not *with*.
 # *hopeful of* + danh từ (*hopeful of winning*); *hopeful that* + mệnh đề. | Use *hopeful of/about* with nouns, or *hopeful that* with a clause.
 @a ignorant
 + of | không biết | not knowing about | He was ignorant [of] the rules.
@@ -643,7 +643,7 @@ x I feel sorry [for] him.
 # Dùng *appropriate for* (cho mục đích/dịp), *appropriate to* (phù hợp hoàn cảnh). | Use *appropriate for* + event/purpose; *appropriate to* + circumstances.
 @a sympathetic
 + to | thông cảm với; ủng hộ | showing understanding towards | The boss was sympathetic [to] my situation.
-! She was very sympathetic with my difficult situation. => She was very sympathetic to my difficult situation. | Cảm thông/đồng cảm với hoàn cảnh/người khác dùng *sympathetic to* hoặc *sympathetic towards*. | Showing approval or pity takes *sympathetic to* or *towards*, not *with*.
+! She was very sympathetic for my difficult situation. => She was very sympathetic to my difficult situation. | Cảm thông với hoàn cảnh người khác dùng *sympathetic to/towards* (hoặc *with*). | Showing understanding takes *sympathetic to/towards*, not *for*.
 # Trong tiếng Anh chuẩn, *sympathetic to/towards* là phổ biến nhất. | Standard pattern: *sympathetic to the workers' demands*.
 @a respectful
 + of | tôn trọng | showing respect for | Tourists should be respectful [of] local customs.
@@ -656,7 +656,7 @@ x I feel sorry [for] him.
 @a fed up
 + with | chán ngấy | bored and annoyed with | I'm fed up [with] this rain.
 ~ informal | Văn nói Anh–Anh. | Informal British English.
-! Residents are completely fed up of the endless roadworks. => Residents are completely fed up with the endless roadworks. | Chán ngấy/bực mình về điều gì luôn dùng *fed up with*, không dùng *fed up of*. | Exasperated by a recurring annoyance takes *fed up with*, not *of*.
+! Residents are completely fed up from the endless roadworks. => Residents are completely fed up with the endless roadworks. | Chán ngấy điều gì dùng *fed up with* (BrE còn nói *fed up of*). | Exasperated by a recurring annoyance takes *fed up with*, not *from*.
 # Thành ngữ thân mật: *fed up with waiting, fed up to the back teeth*. | Informal British idiom: *fed up with excuses*.
 @a amazed
 + at | kinh ngạc về | very surprised at | We were amazed [at] the view.

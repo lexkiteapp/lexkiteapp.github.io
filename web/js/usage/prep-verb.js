@@ -92,7 +92,7 @@ x These rules apply [to] all staff.
 @v compare
 + with | so sánh với | look at the similarities and differences | Compare this year's results [with] last year's.
 + to | ví (cái này) với | say something is like something else | Life is often compared [to] a journey.
-! Compare this phone to that phone. => Compare this phone with that phone. | So sánh tương quan/đối chiếu chi tiết dùng *compare with*. | Use *compare with* when contrasting concrete features.
+! Compare this phone from that phone. => Compare this phone with that phone. | So sánh tương quan/đối chiếu chi tiết dùng *compare with* (hoặc *compare to*). | Use *compare with* (or *to*) when contrasting two things, never *from*.
 # Dùng *compare to* khi ví von (ẩn dụ), dùng *compare with* khi đối chiếu tìm điểm giống/khác. | Use *compare to* for metaphors, and *compare with* for analysis.
 @v compete
 + with | cạnh tranh với | try to beat | Small shops cannot compete [with] supermarkets.
@@ -147,7 +147,7 @@ x These rules apply [to] all staff.
 # Cả *dream of* và *dream about* đều đúng khi nói về giấc mơ hoặc khát vọng. | Both *dream of* and *dream about* are acceptable for aspirations.
 @v escape
 + from | trốn thoát khỏi | get away from | Two prisoners escaped [from] the jail.
-! The birds escaped out of the cage. => The birds escaped from the cage. | Thoát khỏi nơi giam giữ dùng *escape from*, tránh dùng rườm rà *out of*. | Escape a confined place using *escape from*.
+! The prisoner escaped of the jail last night. => The prisoner escaped from the jail last night. | Thoát khỏi nơi giam giữ dùng *escape from*. | Escape a confined place using *escape from*, not *of*.
 # Trong ngữ cảnh pháp lý/tai nạn: *escape from prison*, *escape from the burning building*. | Common collocations: *escape from prison*, *escape from danger*.
 @v insist
 + on | khăng khăng, nhất định | demand firmly | He insisted [on] paying the bill.
@@ -238,7 +238,7 @@ x I object [to] being treated like a child.
 ! She succeeded to win. => She succeeded in winning. | *succeed in + V-ing*. | *succeed in + -ing*.
 @v suffer
 + from | bị, mắc (bệnh, vấn đề) | experience illness or difficulty | Millions suffer [from] allergies.
-! Many elderly people suffer with chronic pain. => Many elderly people suffer from chronic pain. | Chịu đựng/mắc phải căn bệnh hoặc tình trạng khổ sở dùng *suffer from*. | When enduring an illness or severe condition, use *suffer from*.
+! Many elderly people suffer of chronic pain. => Many elderly people suffer from chronic pain. | Chịu đựng/mắc căn bệnh hoặc tình trạng khổ sở dùng *suffer from*. | When enduring an illness or severe condition, use *suffer from*, not *of*.
 # Collocation học thuật: *suffer from malnutrition, suffer from insomnia*. | Academic collocations: *suffer from depression, suffer from poverty*.
 @v talk
 + to | nói chuyện với | speak with | I need to talk [to] you.
@@ -275,7 +275,7 @@ x I object [to] being treated like a child.
 # Tương tự *adapt to*. Thường dùng khi chuyển chỗ ở, công việc: *adjust to new life*. | Similar to *adapt to*. Commonly used for routines and habits.
 @v admit
 + to | thừa nhận | confess | He admitted [to] cheating.
-! The suspect admitted making a huge mistake. => The suspect admitted to making a huge mistake. | Khi dùng giới từ, *admit to* + V-ing (thừa nhận đã làm gì). | When followed by a preposition, use *admit to* + gerund.
+! He admitted me that he was wrong. => He admitted to me that he was wrong. | Thừa nhận với ai: *admit to somebody*; không nói *admit somebody*. | Use *admit to somebody (that…)*, never *admit somebody that…*.
 # Có thể dùng *admit* trực tiếp với mệnh đề *that*: *He admitted that he was wrong*. | You can also use *admit that* without a preposition.
 @v aim
 + at | nhắm vào (đối tượng) | direct at | The campaign is aimed [at] young voters.
@@ -289,7 +289,7 @@ x I object [to] being treated like a child.
 @v charge
 + for | tính tiền cho | ask money for | Do they charge [for] parking?
 + sb with | buộc tội ai | formally accuse | Police charged him [with] robbery.
-! The driver was charged with speeding yesterday. => The police charged the driver with speeding yesterday. | Cảnh sát buộc tội ai: *charge someone with a crime*. | Legal pattern: *charge someone with an offence/crime*.
+! The police charged him for stealing a car. => The police charged him with stealing a car. | Buộc tội ai về tội gì: *charge someone with*. | Legal pattern: *charge someone with an offence*; *charge for* is for fees.
 # Phân biệt: *charge somebody with* (buộc tội ai) và *charge somebody for* (tính tiền ai). | Distinguish *charge with* (accuse of crime) from *charge for* (bill for service).
 @v collide
 + with | va chạm với | crash into | The bus collided [with] a truck.
@@ -364,7 +364,7 @@ x I object [to] being treated like a child.
 # Có thể dùng *opt to* + động từ nguyên thể: *opt to stay at home during weekends*. | Can also be followed by an infinitive: *opt to do something*.
 @v persist
 + in | kiên trì, cố chấp | continue firmly | He persisted [in] asking questions.
-! The researcher persisted with searching the truth. => The researcher persisted in searching for the truth. | Kiên trì/khăng khăng làm việc gì bất chấp khó khăn dùng *persist in* + V-ing. | To continue firmly in a course of action, use *persist in* + gerund.
+! The researcher persisted on searching the truth. => The researcher persisted in searching for the truth. | Kiên trì làm việc gì bất chấp khó khăn dùng *persist in* + V-ing (hoặc *persist with*); tìm kiếm cái gì là *search for*. | Continue firmly in a course of action: *persist in* + gerund; and *search for* something.
 # *persist in doing something* là collocation học thuật rất được đánh giá cao trong IELTS. | High-level academic collocation: *persist in doing something*.
 @v point
 + at | chỉ vào | show with your finger | It's rude to point [at] people.
@@ -435,7 +435,7 @@ x I object [to] being treated like a child.
 ! Can you explain me this word? => Can you explain this word to me? | *explain sth to sb*, không nói *explain sb sth*. | *explain sth to sb*, not *explain sb sth*.
 @v happen
 + to | xảy ra với | occur to | What happened [to] your phone?
-! What happened with your old laptop? => What happened to your old laptop? | Chuyện gì đã xảy ra với ai/cái gì dùng *happen to*, không dùng *with*. | When asking about someone's fate or status, use *happen to*, never *with*.
+! Something strange happened for me yesterday. => Something strange happened to me yesterday. | Chuyện gì xảy ra với ai dùng *happen to*. | When describing someone's experience or fate, use *happen to*, not *for*.
 # Thường gặp trong giao tiếp hằng ngày: *What happened to you?* (Có chuyện gì xảy ra với bạn thế?). | Common spoken phrase: *Whatever happened to that proposal?*
 @v suit
 + to | (be suited to) phù hợp với | (be suited to) be right for | She is well suited [to] teaching.
@@ -459,7 +459,7 @@ x I object [to] being treated like a child.
 # Mẫu câu: *pray for good health, pray for world peace*. | Standard collocations: *pray for mercy, pray for recovery*.
 @v confess
 + to | thú nhận | admit | She confessed [to] eating the cake.
-! The suspect confessed his crime to the officer. => The suspect confessed to his crime to the officer. | Thú nhận hành vi sai trái dùng *confess to* + danh từ/V-ing. | To admit guilt, use *confess to* followed by a noun or gerund.
+! He confessed stealing the money. => He confessed to stealing the money. | Thú nhận hành vi sai trái dùng *confess to* + V-ing. | To admit guilt, use *confess to* followed by a noun or gerund.
 # Cấu trúc: *confess to doing something*: *He confessed to stealing the jewels*. | Pattern: *confess to* + noun/gerund; *to* is a preposition.
 @v consent
 + to | đồng ý, ưng thuận | give permission for | Patients must consent [to] the treatment.
@@ -467,7 +467,7 @@ x I object [to] being treated like a child.
 # Thường gặp trong pháp lý/y tế: *consent to medical treatment, informed consent*. | Highly formal: *consent to surgery / terms of agreement*.
 @v conform
 + to | tuân theo | follow rules | All products must conform [to] safety standards.
-! All products must conform with national safety rules. => All products must conform to national safety rules. | Tuân thủ/phù hợp với quy chuẩn/tiêu chuẩn dùng *conform to* (hoặc *conform with*). | Products or actions conform *to* regulations, standards, or specifications.
+! All products must conform at national safety rules. => All products must conform to national safety rules. | Tuân thủ quy chuẩn dùng *conform to* (hoặc *conform with*). | Products conform *to* (or *with*) regulations, never *at*.
 # *conform to* phổ biến và trang trọng hơn *conform with* trong văn phong pháp lý và kỹ thuật. | Both *conform to* and *conform with* exist, but *conform to* is standard in exams.
 @v excel
 + at | xuất sắc về (kỹ năng) | be extremely good at | She excels [at] public speaking.

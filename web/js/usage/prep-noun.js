@@ -16,7 +16,7 @@ x Take advantage [of] the sale while it lasts.
 # Trái nghĩa với *advantage of*. Cấu trúc: *the disadvantage of doing something*. | Direct antonym of *advantage of*: *the disadvantage of remote working*.
 @n alternative
 + to | lựa chọn thay thế cho | another possible choice | Cycling is a cheap alternative [to] driving.
-! Solar energy is a clean alternative for coal power. => Solar energy is a clean alternative to coal power. | Giải pháp thay thế cho cái gì bắt buộc dùng *alternative to*, không dùng *for*. | Another option takes *alternative to*, not *for*.
+! Solar energy is a clean alternative of coal power. => Solar energy is a clean alternative to coal power. | Giải pháp thay thế cho cái gì dùng *alternative to*, không dùng *of*. | Another option takes *alternative to*, not *of*.
 # Giới từ *to* đi kèm danh từ/V-ing: *an alternative to traditional schooling*. | Key preposition rule: *alternative to*, never *alternative for*.
 @n answer
 + to | câu trả lời cho; lời giải cho | a reply to; a solution to | There's no easy answer [to] this problem.
@@ -112,7 +112,7 @@ x Take advantage [of] the sale while it lasts.
 @n influence
 + on | ảnh hưởng lên | the power to affect | Parents have a great influence [on] their children.
 + over | quyền chi phối | control over | The company has too much influence [over] the media.
-! Parents have a strong influence over their children habits. => Parents have a strong influence on their children's habits. | Tầm ảnh hưởng lên ai/cái gì dùng *influence on* (hoặc *influence over*). | Capacity to affect behavior takes *influence on* or *influence over*.
+! Parents have a strong influence at their children's habits. => Parents have a strong influence on their children's habits. | Tầm ảnh hưởng lên ai/cái gì dùng *influence on* (hoặc *influence over* khi nói về quyền chi phối). | Capacity to affect behaviour takes *influence on*; *influence over* suggests control.
 # Cả *influence on* và *influence over* đều đúng; *influence on* phổ biến hơn. | Both *influence on* and *influence over* are standard in academic essays.
 @n emphasis
 + on | sự nhấn mạnh vào | special importance given to | Schools place too much emphasis [on] exams.
@@ -174,11 +174,11 @@ x Take advantage [of] the sale while it lasts.
 # Cấu trúc: *take full responsibility for, bear responsibility for*. | Core workplace phrase: *assume responsibility for project outcomes*.
 @n risk
 + of | nguy cơ | the possibility of something bad | Smoking increases the risk [of] heart disease.
-! Smoking significantly increases the risk for heart disease. => Smoking significantly increases the risk of heart disease. | Nguy cơ mắc phải căn bệnh/hiểm họa gì dùng *risk of*. | Probability of an unwanted event takes *risk of*, not *for*.
+! Smoking significantly increases the risk to heart disease. => Smoking significantly increases the risk of heart disease. | Nguy cơ mắc căn bệnh/hiểm họa gì dùng *risk of*. | Probability of an unwanted event takes *risk of*, not *to*.
 # Cấu trúc: *the risk of doing something, run the risk of*. | High-frequency phrase: *at the risk of sounding repetitive*.
 @n chance
 + of | khả năng (xảy ra) | the likelihood of | What are the chances [of] rain tomorrow?
-! The patient has a high chance for a complete recovery. => The patient has a high chance of a complete recovery. | Cơ hội/khả năng xảy ra điều gì dùng *chance of* + danh từ/V-ing. | Likelihood of an outcome takes *chance of*, not *for*.
+! The patient has a high chance to a complete recovery. => The patient has a high chance of a complete recovery. | Khả năng xảy ra điều gì dùng *chance of* + danh từ/V-ing (hoặc *chance to do* = dịp để làm). | Likelihood of an outcome takes *chance of*, not *to* + noun.
 # Dùng *chance of* + danh từ/V-ing (*chance of winning*), *chance to* + V-bare (*chance to travel*). | Use *chance of* + gerund (likelihood), and *chance to* + verb (opportunity).
 @n tax
 + on | thuế đánh vào | money paid on | Some countries have a tax [on] sugary drinks.
@@ -237,7 +237,7 @@ x Take advantage [of] the sale while it lasts.
 # Collocations: *heavy dependence on foreign aid, drug dependence*. | Economic staple: *reduce reliance and dependence on imported oil*.
 @n desire
 + for | khao khát | a strong wish for | People have a natural desire [for] freedom.
-! She had a strong desire with becoming an artist. => She had a strong desire for becoming an artist. | Niềm khao khát/mong muốn điều gì dùng *desire for*, không dùng *with*. | A strong wish takes *desire for*, not *with*.
+! She had a strong desire with becoming an artist. => She had a strong desire to become an artist. | Khao khát làm việc gì dùng *desire to do*; khao khát cái gì dùng *desire for* + danh từ. | Use *desire to do* for actions and *desire for* + noun for things.
 # Phân biệt: *desire for* + danh từ/V-ing (*desire for success*), *desire to* + V-bare (*desire to learn*). | Use *desire for* with nouns and *desire to* with verbs.
 @n doubt
 + about | sự nghi ngờ về | uncertainty about | I have doubts [about] his story.
@@ -265,12 +265,12 @@ x Take advantage [of] the sale while it lasts.
 # Cấu trúc: *an invitation to a party/conference*; thành ngữ: *an open invitation to* (cơ hội mở). | Collocations: *extend an invitation to, accept/decline an invitation to*.
 @n knowledge
 + of | kiến thức về | understanding of | She has a good knowledge [of] history.
-! He has extensive knowledge about international trade. => He has extensive knowledge of international trade. | Kiến thức/sự am hiểu sâu rộng về lĩnh vực gì dùng *knowledge of*. | Theoretical or practical understanding takes *knowledge of*, rather than *about*.
+! He has extensive knowledge to international trade. => He has extensive knowledge of international trade. | Kiến thức/sự am hiểu về lĩnh vực gì dùng *knowledge of* (*knowledge about* cũng gặp). | Understanding of a field takes *knowledge of*, not *to*.
 # Cả *knowledge of* và *knowledge about* đều dùng, nhưng *knowledge of* trang trọng và chuẩn mực hơn. | Both occur, but *knowledge of* is preferred in formal/academic contexts.
 @n limit
 + on | giới hạn đối với | a restriction on | There's a limit [on] how much you can bring.
 + to | giới hạn (của) | the furthest point of | There is a limit [to] my patience.
-! There is a legal limit on the noise level. => There is a legal limit to the noise level. | Giới hạn đối với cái gì dùng *limit to*, không dùng *limit on* trong mẫu này. | A point beyond which something cannot extend takes *limit to*.
+! There is a legal limit of the noise level. => There is a legal limit on the noise level. | Giới hạn đặt ra cho cái gì dùng *limit on* (hoặc *limit to*). | A cap placed on something takes *limit on* (or *limit to*), not *of*.
 # Phân biệt: *a limit to something* (giới hạn chịu đựng/tối đa), *a limit on something* (mức trần quy định). | Distinguish *a limit to human endurance* from *a speed limit of 50 mph*.
 @n preference
 + for | sự ưa thích hơn | liking one thing more | Many people have a preference [for] working from home.
@@ -312,7 +312,7 @@ x As a result [of] the strike, schools closed.
 # Dùng *attack on somebody/something*: *a cyber attack on national servers*. | Common collocations: *heart attack, launch an attack on, under attack*.
 @n cost
 + of | chi phí của | the price of | The cost [of] living keeps rising.
-! Living in the city centre has a high cost of daily commuting. => Living in the city centre has a high cost for daily commuting. | Chi phí bỏ ra cho một dịch vụ/mục đích gì dùng *cost for*. | Expenses incurred for a service take *cost for*.
+! Living in the city centre has a high cost on daily commuting. => Living in the city centre has a high cost of daily commuting. | Chi phí của một hoạt động dùng *cost of*. | The price of an activity takes *cost of*, not *on*.
 # Phân biệt: *cost of living* (giá cả chi phí sinh hoạt), *at the cost of* (với cái giá phải trả). | Distinguish *the cost of an item* from *at all costs*.
 @n price
 + of | giá của | the money needed to buy | The price [of] petrol went up again.
@@ -320,7 +320,7 @@ x As a result [of] the strike, schools closed.
 # Phân biệt: *the price of goods* (giá của món đồ), nhưng *pay a price for something* (trả giá cho việc gì). | Distinguish *the price of oil* from idiom *pay the price for reckless driving*.
 @n rate
 + of | tỉ lệ | a measure of how often | The rate [of] unemployment fell last year.
-! The graph illustrates the birth rate of developed nations. => The graph illustrates the birth rate in developed nations. | Tỷ lệ trong một quốc gia/khu vực dùng *rate in*; tốc độ tăng dùng *rate of*. | Frequency or ratio takes *rate in* (location) or *rate of* (metric).
+! The graph illustrates the birth rate on developed nations. => The graph illustrates the birth rate in developed nations. | Tỷ lệ trong một quốc gia/khu vực dùng *rate in*; tốc độ tăng dùng *rate of*. | A ratio within a place takes *rate in*, not *on*.
 # Collocations: *interest rate, crime rate, unemployment rate, rate of inflation*. | Task 1 staple: *the mortality rate in rural regions*.
 @n proportion
 + of | tỉ lệ (phần của tổng) | a part of a whole | A large proportion [of] students work part-time.

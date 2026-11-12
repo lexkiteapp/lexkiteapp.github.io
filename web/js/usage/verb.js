@@ -49,7 +49,7 @@
 @v go on
 + ing | tiếp tục (việc đang làm) | continue the same activity | She went on [talking] for an hour.
 + to | chuyển sang làm (việc tiếp theo) | do something next | After the intro, he went on [to explain] the rules.
-! After graduating, he went on working in academia. => After graduating, he went on to work in academia. | Chuyển sang một bước/hoạt động mới tiếp theo dùng *go on to do*. | Moving on to a new action takes *go on to do*, not *go on doing*.
+! After graduating, he went on to working in academia. => After graduating, he went on to work in academia. | *go on to do* (chuyển sang bước mới) dùng to-V, không thêm V-ing sau *to*. | *go on to do* takes a bare infinitive; do not add -ing after *to*.
 # Phân biệt: *go on doing* (tiếp tục việc đang làm dở) và *go on to do* (chuyển sang làm việc mới). | Distinguish *go on doing* (continue same action) from *go on to do* (proceed to next).
 @v like
 + ing | thích (sở thích nói chung) | enjoy generally | I like [swimming].
@@ -153,7 +153,7 @@ x I'd love [to come] to your party.
 # Đồng nghĩa với *put off*. Luôn đi với V-ing: *postpone making a decision*. | Synonymous with *put off*: always takes a gerund.
 @v delay
 + ing | trì hoãn | put off | Don't delay [replying] to the email.
-! Bad weather delayed to take off the flight. => Bad weather delayed taking off the flight. | Làm chậm trễ/trì hoãn việc gì dùng *delay* + V-ing, không dùng to-V. | Causing something to happen later takes *delay doing*, not *delay to do*.
+! The company delayed to announce the results. => The company delayed announcing the results. | Trì hoãn việc gì dùng *delay* + V-ing, không dùng to-V. | Causing something to happen later takes *delay doing*, not *delay to do*.
 # Thường gặp trong TOEIC: *delay announcing the results*. | Common workplace pattern: *delay submitting the quarterly report*.
 @v dislike
 + ing | không thích | not like | Many people dislike [speaking] in public.
@@ -176,7 +176,7 @@ x I would appreciate it if you [could] reply soon.
 # Thành ngữ quen thuộc: *can't help feeling worried, can't help smiling*. | Very common idiom: *couldn't help noticing your accent*.
 @v can't stand
 + ing | không chịu nổi | hate | I can't stand [waiting] in traffic.
-! She cannot stand to wait in long grocery lines. => She cannot stand waiting in long grocery lines. | Không thể chịu đựng nổi việc gì dùng *can't stand* + V-ing. | Being unable to tolerate an experience takes *can't stand doing*.
+! She cannot stand to waiting in long grocery lines. => She cannot stand waiting in long grocery lines. | Không chịu nổi việc gì dùng *can't stand* + V-ing (*can't stand to do* cũng gặp). | *can't stand doing*; *to do* is possible but never *to doing*.
 # Cả *can't stand doing* và *can't stand to do* đều gặp, nhưng V-ing phổ biến và tự nhiên hơn. | While infinitive occurs, gerund is the standard preference.
 @v feel like
 + ing | muốn (làm gì lúc này) | want to do now | I don't feel like [cooking] tonight.
