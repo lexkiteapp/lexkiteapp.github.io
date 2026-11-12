@@ -416,7 +416,7 @@
       case 'authui': {
         emit({ type: 'info', key: 'auth', flag: W.LK_NATIVE_AUTH || null, native: !!(W.Sync && Sync.native), can: !!(W.Sync && Sync.can), plugin: !!P().FirebaseAuthentication, plat: plat() });
         if (!(W.Sync && Sync.native)) add('auth', 'Đăng nhập gốc TẮT (Sync.native=false, LK_NATIVE_AUTH=' + JSON.stringify(W.LK_NATIVE_AUTH || null) + ')');
-        await visit('settings', 'settings', { shot: false });
+        await visit('settings/account', 'settings', { shot: false });
         const box = document.getElementById('syncBox'); if (box) { box.scrollIntoView({ block: 'center' }); await sleep(600); }
         const accts = box ? [...box.querySelectorAll('[data-acct]')].filter(vis).map(b => b.dataset.acct) : [];
         emit({ type: 'info', key: 'auth-settings', accts });
@@ -429,7 +429,11 @@
           if (!a || !vis(a)) add('auth', 'Không thấy nút đăng nhập đầu trang');
           else {
             a.click(); await sleep(1500);
-            const m = document.getElementById('modal'), open = m && !m.hidden;
+            const m = document.getElementById('modal');
+            // từ 9dd7763c0 (06/11) màn hẹp: avatar → menu tài khoản (.ux1-menu) có nút "Đăng nhập" [in] → bảng chọn Apple + Google
+            const menuIn = m && !m.hidden && m.querySelector('.ux1-menu [data-acct="in"]');
+            if (menuIn && vis(menuIn)) { emit({ type: 'info', key: 'auth-menu', via: 'ux1-menu' }); menuIn.click(); await sleep(1500); }
+            const open = m && !m.hidden;
             const ks = open ? [...m.querySelectorAll('[data-acct]')].filter(vis).map(b => b.dataset.acct) : [];
             emit({ type: 'info', key: 'auth-chooser', ks });
             if (!(ks.includes('apple') && ks.includes('google'))) add('auth', 'Bảng chọn đăng nhập iOS thiếu Apple/Google: [' + ks.join(',') + ']');
@@ -440,7 +444,7 @@
         return;
       }
       case 'authtap': {
-        await visit('settings', 'settings', { shot: false });
+        await visit('settings/account', 'settings', { shot: false });
         const b = document.querySelector('#syncBox [data-acct="' + s.p + '"]') || (s.p === 'google' && document.querySelector('#syncBox [data-acct="in"]'));
         if (!b) { add('auth', 'Không có nút ' + s.p); return; }
         b.scrollIntoView({ block: 'center' }); await sleep(400);
@@ -471,7 +475,7 @@
         const real = W.Sync.user;
         W.Sync.user = { uid: 'e2e-fixture', displayName: 'E2E Fixture', email: 'fixture@lexkite.test', photoURL: '', providerData: [{ providerId: 'google.com' }], getIdToken: () => Promise.reject(new Error('fixture')), delete: () => Promise.reject(new Error('fixture')) };
         try {
-          await visit('settings', 'settings', { shot: false });
+          await visit('settings/account', 'settings', { shot: false });
           const d = document.querySelector('#syncBox [data-acct="del"]');
           if (!d || !vis(d)) add('auth', 'Không thấy nút "Xóa tài khoản" ở thẻ tài khoản');
           else {

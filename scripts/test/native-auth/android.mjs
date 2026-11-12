@@ -72,7 +72,7 @@ await ev(`const g = document.getElementById('go'); if (g && g.disabled) { const 
 await sleep(5000);
 
 // ---- 2. giao diện đăng nhập ----
-await go('#/settings', 5000);
+await go('#/settings/account', 5000); // từ 06/11 #/settings là mục lục (.set-wrap.idx ẩn mọi .set-sec), thẻ tài khoản nằm ở trang con
 info.ui = await ev(`const b = document.getElementById('syncBox'); if (b) b.scrollIntoView({ block: 'center' }); await new Promise(r => setTimeout(r, 600));
   const vis = e => { const r = e.getBoundingClientRect(); return r.width > 1 && r.height > 1; };
   const top = document.getElementById('avatarBtn');
@@ -124,7 +124,7 @@ ok('App dùng được sau khi hủy (home/vocab/settings)');
 // ---- 5. xóa tài khoản (dữ liệu giả – không đăng nhập thật; chỉ mở hộp xác nhận) ----
 const del = await ev(`const real = Sync.user; Sync.user = { uid: 'e2e-fixture', displayName: 'E2E Fixture', email: 'fixture@lexkite.test', photoURL: '', providerData: [{ providerId: 'google.com' }], getIdToken: () => Promise.reject(new Error('fixture')), delete: () => Promise.reject(new Error('fixture')) };
   const w = ms => new Promise(r => setTimeout(r, ms)); let out = {};
-  try { location.hash = '#/home'; await w(1500); location.hash = '#/settings'; await w(3500);
+  try { location.hash = '#/home'; await w(1500); location.hash = '#/settings/account'; await w(3500);
     const d = document.querySelector('#syncBox [data-acct="del"]'); out.btn = !!d;
     if (d) { d.scrollIntoView({ block: 'center' }); d.click(); await w(3000); const m = document.getElementById('modal'); out.modal = !!(m && !m.hidden && /Lexkite/.test(m.innerText)); out.h = m ? (m.querySelector('h2') || {}).innerText : ''; }
   } finally { window.__restoreUser = () => { UI.closeModal && UI.closeModal(); Sync.user = real || null; Sync.renderBox(document.getElementById('syncBox')); }; }

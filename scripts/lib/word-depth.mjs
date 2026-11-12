@@ -3,7 +3,8 @@
 // Đếm chữ: token chữ cái/số; chữ Hán/Kana/Hangul/Thái (không cách chữ) tính 1 chữ / 2 ký tự.
 // Ngưỡng index – chỉ được TĂNG. Chốt 3/11/2026 theo số đo thật (spec §4): sau làm giàu, trang en trung vị 7 khối / 51 chữ riêng;
 // 5/30 chỉ chặn trang chỉ có nghĩa + 1 câu (33/8.138 trang đang index). Nâng khi kho có thêm dữ liệu (ghi chú tiếng Anh theo L1, ví dụ).
-export const DEPTH_MIN = { blocks: 5, words: 30 };
+// 10/11: 30 → 100 chữ riêng (AdSense "nội dung giá trị thấp", docs/ADS.md § Sẵn sàng duyệt): giữ 1.875/9.209 trang dày nhất (vi 1.266 có ghi chú tự soạn), còn lại noindex,follow.
+export const DEPTH_MIN = { blocks: 5, words: 100 };
 const NOT_OWN = new Set(['wn', 'faq']);
 const DENSE = /[฀-๿぀-ヿ㐀-鿿가-힯]/g;
 export const countWords = text => {

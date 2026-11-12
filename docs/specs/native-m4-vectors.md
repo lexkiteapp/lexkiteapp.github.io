@@ -1,4 +1,4 @@
-> TL;DR: Lược đồ vector M4 `skills.json` (P06 Nghe & Đọc: 6 route), kiểm kê từng màn (trạng thái · mẫu Stitch · khóa vector · nguồn dữ liệu · âm thanh) và thứ được ghi vào kho nào – hợp đồng cho bản port Swift/Kotlin. P07 (Nói & phát âm: 8 route) có `speak.json` riêng – xem "Kiểm kê P07"; P08 (Gọi Ama & Carlos, #/call) có `call.json` – xem "Kiểm kê P08".
+> TL;DR: Lược đồ vector M4 `skills.json` (P06 Nghe & Đọc: 6 route), kiểm kê từng màn (trạng thái · mẫu Stitch · khóa vector · nguồn dữ liệu · âm thanh) và thứ được ghi vào kho nào – hợp đồng cho bản port Swift/Kotlin. P07 (Nói & phát âm: 8 route) có `speak.json` riêng – xem "Kiểm kê P07"; P08 (Gọi Ama & Carlos, #/call) có `call.json` – xem "Kiểm kê P08"; P09 (Viết & ngữ pháp) có `write.json` – xem `native-m4-write.md`.
 > Đọc khi: port hoặc sửa #/listening #/listen #/listen-test #/dictation #/reading #/read trên iOS/Android, #/speak #/speaking #/pron #/say #/reflex #/rtype #/roleplay #/handsfree (P07, `speak.json`), #/call (P08, `call.json`), hoặc mở rộng `skills.json` cho TOEIC/TOEFL và P09.
 
 ## M4 vectors – `vectors/skills.json` (P06: nghe & đọc) – sinh bởi `scripts/native/gen-skills.mjs`
@@ -151,6 +151,8 @@ Mã thật `call/engine.js` + `call.js` (nhánh Stitch v2 đang phát hành) + `
 **Chuỗi:** +91 ID (`call.ui.*`, `call.eng.*`), tổng 113 khóa `callStringKeys()`, đã dịch đủ 15 ngôn ngữ trong pipeline web (không chuỗi mới).
 **Mẫu Stitch bịa thêm – BỎ KHI PORT:** *list* – huy hiệu "AI Ready", nút "Quick surprise call", thời lượng "3-5 mins", "Interactive Practice"; *ring* – ô "Part 1 Questions Covered", "Estimated drill length", "Live Speaking Examiner"; *result* – "Ama's Encouragement", "Pronunciation/Vocabulary %", chip "60% Target", "Office Roleplay", "More natural alternative", "Grammar tip" tách riêng. Bản tối: `dark-maps/call-<màn>.json` (+ khóa `attr` mới cho SVG/`tailwind.config`), ≥ 4.5:1.
 **KHÔNG phủ:** hình/clip/mặt khớp miệng/`SayText`, âm thanh Kokoro, hiệu ứng, Escape (= `hang`), cuộc gọi `tl:"es"` + `esday`, Whisper/gói Chrome/add-on (web-only), dịch phụ đề (`Dict.translateTo`, tùy chọn), ngắt lời khi giáo viên nói (chỉ có ca "kết quả muộn bị bỏ"), thời gian thật của hẹn giờ.
+
+### Kiểm kê P09 – Viết & ngữ pháp: xem `docs/specs/native-m4-write.md` (`vectors/write.json`, `write-pack.json`)
 
 ### Lưu ở đâu (`persist`, quan sát từ luồng thật)
 `listening`: `localStorage vb.listenT` · `listen`: `game.listenDone`, `game.qstat`, Store `mistakes` · `listen-test`: `game.listenBest`, `game.listenTests`, `game.qstat`, `mistakes` · `dictation`: `game.dictDone`, `settings.dictMode`/`dictAuto` · `reading`: `localStorage vb.readLv` · `read`: `game.readDone`, `settings.hl`, `mistakes`. `game.*` và `settings.*` nằm trong `sync.json` (đồng bộ Drive); `mistakes` và `vb.*` chỉ trên máy. XP/nhiệm vụ đi qua `App.reward` (M3).

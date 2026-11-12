@@ -1,20 +1,20 @@
 // Luyện định dạng DELE/SIELE (spanish-exam-w5.md): chọn câu NGƯỜI VIẾT từ Tatoeba (CC BY 2.0 FR, ghi công từng câu) → content/exams/es/src/tatoeba-<cấp>.json.
 // Không AI sinh câu. Cấp = rank tần suất từ (FrequencyWords es_50k chỉ làm thứ hạng) + độ dài; câu điền từ: từ khuyết ∈ kho từ reviewed, bẫy chỉ nhận khi KHÔNG xuất hiện cạnh từ trước/sau trong 443k câu thật.
-// Chạy 1 lần khi đổi nguồn: TATOEBA=<spa_sentences_detailed.tsv> FREQ=<es_50k.txt> node scripts/target/exam-es-lib.mjs  (CI/check chỉ đọc file đã commit).
+// Chạy 1 lần khi đổi nguồn (LEVELS=B2,C1,C2 chỉ ghi các cấp đó, giữ nguyên cấp đã có): LEVELS=… TATOEBA=<spa_sentences_detailed.tsv> FREQ=<es_50k.txt> node scripts/target/exam-es-lib.mjs  (CI/check chỉ đọc file đã commit).
 import fs from 'node:fs';
 import { readJSON, TL_RULES } from './lib.mjs';
 import { form } from './conjugate.mjs';
 
-export const EX_LV = ['A1', 'A2', 'B1'], EX_N = 2, EX_CLOZE = 10, EX_LISTEN = 6; // mỗi cấp 2 đề × (10 điền từ + 6 nghe)
+export const EX_LV = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], EX_NEW = ['B2', 'C1', 'C2'], EX_N = 2, EX_CLOZE = 10, EX_LISTEN = 6; // mỗi cấp 2 đề × (10 điền từ + 6 nghe)
 export const SRC = lv => `content/exams/es/src/tatoeba-${lv}.json`;
-const CAP = { A1: [600, 9, 70], A2: [1500, 12, 95], B1: [4000, 16, 130] }; // [rank tối đa, số từ tối đa, ký tự tối đa]
-const BAN = /(^|[^\p{L}])(tom|mary|bob|ken|jim|tomás|imbécil\w*|idiota\w*|demonio\w*|maldición|teniente|abogado|cita|hospital|sangre|perdedor|maría|john|muert\w*|muri\w+|matar\w*|mató|asesin\w*|sexo|sexual\w*|guerra|dios|jesús|iglesia|religi\w+|suicid\w*|droga\w*|violen\w*|violad\w*|polític\w*|president\w*|gobierno|terror\w*|bomba|armas?|racis\w+|gay|judíos?|musulman\w*|cáncer|hospital)(?=$|[^\p{L}])/iu;
+const CAP = { A1: [600, 9, 70], A2: [1500, 12, 95], B1: [4000, 16, 130], B2: [9000, 22, 160], C1: [20000, 28, 200], C2: [50000, 34, 240] }; export const MAXLEN = Object.fromEntries(Object.entries(CAP).map(([k, v]) => [k, v[2]])); const MINTOK = { A1: 4, A2: 6, B1: 8, B2: 10, C1: 12, C2: 14 }; // [rank tối đa, số từ tối đa, ký tự tối đa]
+const BAN = /(^|[^\p{L}])(tom|mary|bob|ken|jim|tomás|imbécil\w*|idiota\w*|demonio\w*|maldición|teniente|abogado|cita|hospital|sangre|perdedor|maría|john|muert\w*|muri\w+|matar\w*|mató|asesin\w*|sexo|sexual\w*|guerra|dios|jesús|iglesia|religi\w+|suicid\w*|droga\w*|violen\w*|violad\w*|polític\w*|president\w*|gobierno|terror\w*|bomba|armas?|racis\w+|gay|judíos?|musulman\w*|cáncer|hospital|noé|arca|diluvio)(?=$|[^\p{L}])/iu;
 const toks = s => s.toLowerCase().match(/[\p{L}]+/gu) || [];
 
 export function build(tsv, freqTxt) {
   const rank = new Map(); freqTxt.split('\n').forEach((l, i) => { const w = l.split(' ')[0]; if (w && !rank.has(w)) rank.set(w, i + 1); });
   const kho = new Map(), gen = new Map(); // từ kho (1 chữ) → pos / giống
-  for (const f of fs.readdirSync('content/target/es').filter(f => /^core-\d+\.json$/.test(f))) for (const w of readJSON('content/target/es/' + f).words) if (!/[\s-]/.test(w.word)) { kho.set(w.word.toLowerCase(), w.pos); if (w.gender) gen.set(w.word.toLowerCase(), w.gender); }
+  for (const f of fs.readdirSync('content/target/es').filter(f => /^core-\d+\.json$/.test(f))) for (const w of readJSON('content/target/es/' + f).words) if (!/[\s-]/.test(w.word)) { kho.set(w.word.toLowerCase(), w.pos); if (w.gender === 'm' || w.gender === 'f') gen.set(w.word.toLowerCase(), w.gender); }
   const rows = tsv.split('\n').map(l => l.split('\t')).filter(r => r[1] === 'spa' && r[2]), big = new Set();
   for (const r of rows) { const t = toks(r[2]); for (let i = 0; i < t.length - 1; i++) big.add(t[i] + ' ' + t[i + 1]); }
   const inv = new Map(); // từ → tập id câu (chặn bẫy từng xuất hiện CÙNG câu với một từ nội dung của câu này)
@@ -28,7 +28,7 @@ export function build(tsv, freqTxt) {
     const t = toks(x.s), words = x.s.split(/\s+/);
     if (words.slice(1).some(w => /^[A-ZÁÉÍÓÚÑ]/.test(w.replace(/^[¿¡]/, '')))) continue; // tên riêng giữa câu
     const mx = Math.max(...t.map(w => rank.get(w) || 99999)); const lv = EX_LV.find(l => mx <= CAP[l][0] && t.length >= 4 && t.length <= CAP[l][1] && x.s.length <= CAP[l][2]); // nhận ở cấp THẤP nhất phù hợp
-    if (!lv || t.length < (lv === 'A1' ? 4 : lv === 'A2' ? 6 : 8)) continue;
+    if (!lv || t.length < MINTOK[lv]) continue;
     const need = EX_N * (EX_CLOZE + EX_LISTEN); if (per[lv].length >= need * 40) continue; // dư để chọn
     per[lv].push({ ...x, t });
   }
@@ -62,7 +62,7 @@ export function build(tsv, freqTxt) {
 
 if (process.argv[1].endsWith('exam-es-lib.mjs') && process.env.TATOEBA) {
   const o = build(fs.readFileSync(process.env.TATOEBA, 'utf8'), fs.readFileSync(process.env.FREQ, 'utf8'));
-  for (const lv of EX_LV) { fs.writeFileSync(SRC(lv), JSON.stringify(o[lv], null, 1) + '\n'); console.log(lv, o[lv].items.filter(i => i.k === 'c').length, 'điền từ', o[lv].items.filter(i => i.k === 'l').length, 'nghe'); }
+  for (const lv of (process.env.LEVELS ? process.env.LEVELS.split(',') : EX_LV)) { fs.writeFileSync(SRC(lv), JSON.stringify(o[lv], null, 1) + '\n'); console.log(lv, o[lv].items.filter(i => i.k === 'c').length, 'điền từ', o[lv].items.filter(i => i.k === 'l').length, 'nghe'); }
 }
 
 // ---- Gói cpack (dựng từ nguồn đã commit; drill-lib.build() gộp, drill-pack --check kiểm "cũ/mồ côi") ----

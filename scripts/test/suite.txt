@@ -74,6 +74,7 @@ node scripts/test/next-step.mjs
 node scripts/confidence/build.mjs
 node scripts/test/confidence.mjs
 node scripts/test/lesson.mjs
+node scripts/test/mic-exclusive.mjs
 node scripts/factory/build-grammar-bank.mjs --check
 node scripts/test/content-factory.mjs
 node scripts/test/ux1.mjs
@@ -135,6 +136,7 @@ node scripts/test/cron-watch.mjs
 node scripts/test/cron-kick.mjs
 node scripts/test/ci-hog.mjs
 node scripts/test/queue-report.mjs
+node scripts/test/busy-gate.mjs
 node scripts/test/reminders.mjs
 node scripts/test/notify-ux.mjs
 node scripts/test/fcm-push.mjs
@@ -236,6 +238,7 @@ node scripts/test/brand-check.mjs
 node scripts/test/token-contrast.mjs
 node scripts/stitch-sync-palette.mjs --check
 node scripts/social/build-channel-kit.mjs --check
+node scripts/social/build-page-info.mjs --check
 node scripts/test/characters-gate.mjs
 node scripts/test/teacher-native.mjs
 node scripts/test/samples-ui.mjs
@@ -272,6 +275,8 @@ node scripts/target/drill-pack.mjs --check
 node scripts/target/exam-es-check.mjs
 node scripts/test/es-exam.mjs
 node scripts/test/grammar-inventory.mjs
+node scripts/grammar/build-lazy-idx.mjs
+node scripts/test/grammar-lazy.mjs
 node scripts/test/explain-let.mjs
 node scripts/content-qa/sense-check.mjs
 node scripts/test/sense-check.mjs
@@ -300,6 +305,7 @@ node scripts/test/whisper-det.mjs
 node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
 node scripts/test/vocab-img-judge-budget.mjs
+node scripts/test/vocab-img-worth.mjs
 node scripts/test/lastmod.mjs
 node scripts/test/outcomes.mjs
 node scripts/test/today-debt.mjs
@@ -316,6 +322,7 @@ node scripts/test/i18n-native-score.mjs
 node scripts/test/cambridge.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/teach2d-rig.mjs
+node scripts/test/teach2d-l1.mjs
 node scripts/test/workflow-yaml.mjs
 node scripts/test/workflow-call-perms.mjs
 node scripts/test/push-main.mjs
@@ -370,5 +377,7 @@ node scripts/test/es-practice.mjs
 node scripts/test/es-pron.mjs
 node scripts/test/es-path.mjs
 node scripts/test/ext-version.mjs
+node scripts/test/skills-hub.mjs
 node scripts/test/phrasebook.mjs
 node scripts/test/native-strings-locked.mjs
+node scripts/test/suite-shards.mjs

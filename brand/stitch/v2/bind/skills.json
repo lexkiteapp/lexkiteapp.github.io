@@ -1,0 +1,95 @@
+{
+ "_doc": "Màn Kỹ năng (tab Skills) – d do web/js/skills-hub.js dựng: một gợi ý luyện tiếp + danh sách phẳng kỹ năng + lối vào khác.",
+ "remove": [
+  ":scope > header",
+  ":scope > nav"
+ ],
+ "i18n": {
+  "Practise next": "Nên luyện tiếp",
+  "All skills": "Tất cả kỹ năng",
+  "More ways to practise": "Thêm cách luyện"
+ },
+ "text": {
+  "Skills": "d.title",
+  "IELTS · Change": "d.exam",
+  "Speaking": "d.next.name",
+  "Lowest score in your last mock: Band 5.5": "d.next.why",
+  "Start": "d.next.cta",
+  "Off note": "d.offText"
+ },
+ "html": {
+  ":scope > main > div > section:nth-child(2) > div:nth-child(2)": "d.teacher",
+  ":scope > main > div > p": "d.offHtml"
+ },
+ "attr": {
+  ":scope > main > div > div:nth-child(1) > button": {
+   "data-exam-pick": "''",
+   "aria-label": "d.examAria"
+  },
+  ":scope > main > div > section:nth-child(2) > div:nth-child(1) > button": {
+   "data-href": "d.next.href",
+   "aria-label": "d.next.aria"
+  }
+ },
+ "repeat": [
+  {
+   "list": "d.rows",
+   "as": "r",
+   "variants": {
+    "plain": ":scope > main > div > section:nth-child(3) > div > a:nth-child(1)",
+    "next": ":scope > main > div > section:nth-child(3) > div > a:nth-child(2)"
+   },
+   "samples": ":scope > main > div > section:nth-child(3) > div > a",
+   "pick": "r.next ? 'next' : 'plain'",
+   "bind": {
+    "plain": {
+     "html": {
+      ":scope > span:nth-child(2) > span:nth-child(1) > span:nth-child(1)": "e(r.name)",
+      ":scope > span:nth-child(2) > span:nth-child(2)": "e(r.note)",
+      ":scope > span:nth-child(1) > span": "r.icon"
+     },
+     "attr": {
+      ":scope": {
+       "href": "r.href"
+      }
+     }
+    },
+    "next": {
+     "html": {
+      ":scope > span:nth-child(2) > span:nth-child(1) > span:nth-child(1)": "e(r.name)",
+      ":scope > span:nth-child(2) > span:nth-child(2)": "e(r.note)",
+      ":scope > span:nth-child(1) > span": "r.icon",
+      ":scope > span:nth-child(2) > span:nth-child(1) > span:nth-child(2)": "e(r.tag)"
+     },
+     "attr": {
+      ":scope": {
+       "href": "r.href"
+      }
+     }
+    }
+   }
+  },
+  {
+   "list": "d.more",
+   "as": "r",
+   "variants": {
+    "c1": ":scope > main > div > section:nth-child(4) > div > a:nth-child(1)"
+   },
+   "samples": ":scope > main > div > section:nth-child(4) > div > a",
+   "pick": "'c1'",
+   "bind": {
+    "c1": {
+     "html": {
+      ":scope > span:nth-child(2)": "e(r.name)",
+      ":scope > span:nth-child(1) > span": "r.icon"
+     },
+     "attr": {
+      ":scope": {
+       "href": "r.href"
+      }
+     }
+    }
+   }
+  }
+ ]
+}

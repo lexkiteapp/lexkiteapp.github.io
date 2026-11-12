@@ -13,6 +13,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   test:
+    permissions: { contents: read, actions: write }  # npm-test.yml#heavy xin actions: write (heavy-rerun) → job gọi phải cấp đủ, không thì startup_failure
     uses: ./.github/workflows/npm-test.yml
     with: { sha: '${{ github.event.merge_group.head_sha }}' }
   gate:

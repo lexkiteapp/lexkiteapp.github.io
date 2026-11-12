@@ -54,9 +54,7 @@ import kotlinx.serialization.json.JsonObject
 /** Part names (the four IELTS Listening parts). */
 internal val PART_NAME = mapOf(1 to L10nKey.skillListenHoiThoaiDoiSong, 2 to L10nKey.skillListenDocThoaiXaHoi, 3 to L10nKey.skillListenThaoLuanHocThuat, 4 to L10nKey.skillListenBaiGiangHocThuat)
 /** Question-type tips (qtips.js TIP) by question kind. */
-private val TIP = mapOf("tfng" to L10nKey.skillQtTrueBaiNoiDung, "ynng" to L10nKey.skillQtCauHoiVeQuan, "mcq" to L10nKey.skillQtGachChanTuKhoa, "multi" to L10nKey.skillQtChonDu2Dap, "headings" to L10nKey.skillQtDocDanhSachTieu,
-    "info" to L10nKey.skillQtDapAnKhongTheo, "features" to L10nKey.skillQtTimVaDanhDau, "endings" to L10nKey.skillQtDocPhanDauCau, "map" to L10nKey.skillQtTruocKhiNgheXac, "lmatch" to L10nKey.skillQtDocDanhSachLua,
-    "notes" to L10nKey.skillQtDungThoiGianTruoc, "rnotes" to L10nKey.skillQtTieuDeGhiChu, "summary" to L10nKey.skillQtDocLuotCaDoan, "sentence" to L10nKey.skillQtDocCaCauVa)
+private val TIP = com.lexkite.app.feature.vocab.QUESTION_TIPS
 
 /** Speaker chips ("🇬🇧 Daniel"). */
 @Composable

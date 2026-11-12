@@ -50,6 +50,16 @@ export function collect() {
     for (const q of [...(p.phases || []).flatMap(x => [...(x.q || []), ...(x.extended ? [x.extended] : [])]), p.prompt, ...(p.follow || [])]) if (q) addOne(GEN['en-GB'], q, 'cambridge-speaking');
     for (const l of p.partnerLines || []) addOne(GEN['en-US'], l, 'cambridge-speaking');
   }
+  // Trung gian (#/mediate, docs/specs/mediation.md): nguồn đọc/nói/hội thoại đọc to bằng giọng cố định của MediateCore.voices (web/js/mediate.js play()) – biểu đồ không đọc
+  if (fs.existsSync('web/cpack/mediation')) {
+    vm.runInContext(fs.readFileSync('web/js/mediate-core.js', 'utf8'), c);
+    for (const f of fs.readdirSync('web/cpack/mediation').filter(f => /^m\d+\.js$/.test(f)).sort()) vm.runInContext(fs.readFileSync('web/cpack/mediation/' + f, 'utf8'), c);
+    for (const X of Object.values(c.MEDIATION || {})) {
+      const S = X.source, V = c.MediateCore.voices(S);
+      if (S.kind === 'dialogue') for (const l of S.lines || []) oneSplit(V[l.s], l.t, 'mediation-source');
+      else if (S.kind !== 'chart') oneSplit(V._narrator, c.MediateCore.sourceText(S), 'mediation-source');
+    }
+  }
   for (const u of (c.TOEFL || {}).speaking || []) { const v = GEN[u.accent] || GEN['en-GB']; for (const x of u.sentences || []) x.t && addOne(v, x.t, 'toefl-speaking'); for (const x of u.questions || []) x.q && addOne(v, x.q, 'toefl-speaking'); }
   {
     const sp = fs.readFileSync('web/js/speaking.js', 'utf8'), i0 = sp.indexOf('const BANK = [') + 13;
@@ -117,8 +127,8 @@ export function collect() {
       for (const s of JSON.parse(fs.readFileSync('web/data/say.json', 'utf8')).series || []) for (const it of s.items || []) oneSplit(V[s.teacher] || V.ama, it.say, 'say-native'); }
     // Ngân hàng ý tưởng Task 2 (ideas.js: câu ví dụ, nút data-saysent → theo accent người học)
     { const x = ctx(); L(x, 'web/cpack/write/ideas.js'); for (const tp of x.IDEAS || []) for (const iss of tp.issues || []) for (const it of [...(iss.for || []), ...(iss.against || [])]) for (const t of strs(it.ex)) bothSplit(t, 'ideas'); }
-    // Ngữ pháp: mọi câu ví dụ (trường ex) trong web/js/grammar/*.js
-    { const x = ctx(); for (const f of fs.readdirSync('web/js/grammar').filter(f => f.endsWith('.js'))) L(x, `web/js/grammar/${f}`);
+    // Ngữ pháp: mọi câu ví dụ (trường ex) trong web/js/grammar + web/cpack/grammar (bài tải lười); bỏ mục lục lazy-*.js
+    { const x = ctx(); for (const d of ['web/js/grammar', 'web/cpack/grammar']) if (fs.existsSync(d)) for (const f of fs.readdirSync(d).filter(f => f.endsWith('.js') && !/^lazy-/.test(f)).sort()) L(x, `${d}/${f}`);
       const seen = new Set(), walk = o => { if (!o || typeof o !== 'object' || seen.has(o)) return; seen.add(o); for (const [k, v] of Object.entries(o)) { if (k === 'ex') for (const t of strs(v)) bothSplit(t, 'grammar'); else walk(v); } };
       walk(x.GRAMMAR); walk(x.GRAMMAR_CHECK); }
   }

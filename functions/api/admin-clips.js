@@ -54,7 +54,7 @@ export async function flowStats(env, db, now = Date.now()) {
   const ext = byKey(await one(db, 'SELECT status AS k, COUNT(*) AS n FROM dist_ext GROUP BY status'));
   const social = byKey(await one(db, 'SELECT state AS k, COUNT(*) AS n FROM dist_social GROUP BY state'));
   const board = byKey(await one(db, 'SELECT state AS k, COUNT(*) AS n FROM soc_board GROUP BY state'));
-  const drives = await one(db, "SELECT COUNT(*) AS n, SUM(quota_used) AS used, SUM(quota_total) AS total FROM drives WHERE status IN ('ok', 'pending')");
+  const drives = await one(db, "SELECT COUNT(*) AS n, SUM(quota_used) AS used, SUM(quota_total) AS total FROM drives"); // cùng tập hàng với tab Kho Drive (drive.js list): một con số, không lệch 119/403 vs 111/375
   const alerts = await one(db, "SELECT level, COUNT(*) AS n FROM drive_alerts GROUP BY level");
   const embedded = Object.keys(ctx.web).length, packN = packs ? +packs[0].n || 0 : null;
   const sum = (o, ks) => o ? ks.reduce((a, k) => a + (o[k] || 0), 0) : null;

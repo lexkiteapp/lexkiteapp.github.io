@@ -9366,33 +9366,10 @@ guardian	ok	ok
 chapel	ok	ok
 questionable	ok	ok
 blockade	ok	ok
-retaliate	ok	ok
-alimony	ok	ok
-incoherent	ok	ok
-workmanship	ok	ok
-credence	ok	ok
-henceforth	ok	ok
-indignation	ok	ok
-orthography	ok	ok
-parallelism	ok	ok
-conflagration	ok	ok
-electrophoresis	ok	ok
-bicker	ok	ok
-rectification	ok	ok
-eavesdrop	ok	ok
-superconductivity	ok	ok
-emanate	ok	ok
-phonetics	ok	ok
-falsify	ok	ok
-gasification	ok	ok
-anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
-porpoise	ok	ok
-systematics	ok	ok
 jeopardy	ok	ok
 horribly	ok	ok
 heed	ok	ok
 collusion	ok	ok
-reliant	ok	ok
 supplementary	ok	ok
 citadel	ok	ok
 ungrateful	ok	ok
@@ -9462,7 +9439,6 @@ metastatic	ok	ok
 progeny	ok	ok
 accuser	ok	ok
 confiscation	ok	ok
-arbitrator	ok	ok
 nothingness	ok	ok
 shale	ok	ok
 anterior	ok	ok
@@ -9474,7 +9450,6 @@ neuroscience	ok	ok
 downright	ok	ok
 ebony	ok	ok
 goblin	cut_wordis:"Goblins" 0.81s · cut_wordis:"Goblins." 0.73s · dot100:"Goblins." 1.15s · cut_wordis100:"It's goblin." 0.79s · cut_wordis100:"Goblins" 0.68s · cut_next:"Goblins." 0.71s · cut_next:"Blins." 0.55s · plain095:"The Goblin." 0.67s · dot090:"Goblins." 1.24s	ok
-choreographer	ok	ok
 baseless	ok	ok
 pedagogical	ok	ok
 planar	ok	ok
@@ -9490,20 +9465,190 @@ audacious	ok	ok
 invisibility	ok	ok
 edema	ok	ok
 vassal	ok	ok
-impartiality	ok	ok
 boldness	ok	ok
-emitter	ok	ok
 fluidity	ok	ok
 ruthlessly	ok	ok
 adsorption	ok	cut_wordis:"Absorption" 0.96s · cut_wordis:"Absorption" 0.82s · dot100:"Absorption" 0.78s · cut_wordis100:"Absorption" 0.91s · cut_wordis100:"Absorption" 0.77s · cut_next:"Absorption" 0.85s · cut_next:"Absorption" 0.84s · plain095:"Absorption" 0.84s · dot090:"Absorption" 0.88s
 perfectionist	ok	ok
 radicalism	ok	ok
-conceited	ok	ok
 expeditionary	ok	ok
-rectory	ok	ok
-retraction	ok	ok
 enviable	ok	ok
-rattlesnake	ok	ok
-heretical	ok	ok
 metallurgical	ok	ok
 omnipotent	ok	ok
+typeface	ok	ok
+urethra	ok	ok
+emissary	ok	ok
+progenitor	ok	ok
+subjectivity	ok	ok
+symphonic	ok	ok
+grout	ok	ok
+indivisible	ok	ok
+testicle	ok	ok
+interplanetary	ok	ok
+encephalitis	ok	ok
+militarism	ok	ok
+indomitable	ok	ok
+kingship	ok	ok
+unscientific	ok	ok
+beseech	ok	ok
+incestuous	ok	ok
+professorship	ok	ok
+systolic	ok	ok
+inalienable	ok	ok
+interdependence	ok	ok
+gynecology	ok	ok
+neurosurgery	ok	ok
+astrologer	ok	ok
+pontiff	ok	ok
+easement	ok	ok
+permeable	ok	ok
+modicum	ok	ok
+trachea	ok	ok
+depose	ok	ok
+terse	ok	cut_wordis:"TURSE" 0.79s · cut_wordis:"TURSE" 0.60s · dot100:"TURSE" 0.62s · cut_wordis100:"TURSE" 0.69s · cut_wordis100:"TURSE" 0.54s · cut_next:"TURSE" 0.61s · cut_next:"First." 0.40s · plain095:"TURS" 0.61s · dot090:"TURSE" 0.68s
+abdicate	ok	ok
+defibrillator	ok	ok
+inoculation	ok	ok
+bombard	ok	ok
+massif	cut_wordis: câu mang: "The word is massive." · dot100:"The Massive." 1.08s · cut_wordis100: câu mang: "The word is massive." · cut_next: câu mang: "Next word Massific" · plain095:"Massive." 0.71s · dot090:"Massive." 1.19s	cut_wordis: câu mang: "The word is, massive." · dot100:"Massive." 0.70s · cut_wordis100: câu mang: "The word is, massive." · cut_next: câu mang: "Next word, massive." · plain095:"Massive." 0.71s · dot090:"Massive." 0.76s
+misappropriation	ok	ok
+arsonist	ok	ok
+hypertext	ok	ok
+denture	ok	ok
+unhindered	ok	ok
+cockatoo	ok	ok
+helmsman	ok	ok
+patrimony	ok	ok
+disastrously	ok	ok
+embryology	ok	ok
+circumspect	ok	ok
+macrophage	ok	ok
+physiologic	ok	ok
+thalamus	ok	ok
+overwrite	ok	ok
+positivism	ok	ok
+otherness	ok	ok
+saboteur	ok	ok
+unreliability	ok	ok
+probity	ok	ok
+educative	ok	ok
+phylum	ok	ok
+isothermal	ok	ok
+tracheal	ok	ok
+antitank	ok	ok
+argumentation	ok	ok
+permutation	ok	ok
+mutate	ok	ok
+reverie	ok	ok
+maltreatment	ok	ok
+theocracy	ok	ok
+tactician	ok	ok
+electromechanical	ok	ok
+subroutine	ok	ok
+coherently	ok	ok
+ionosphere	ok	ok
+agronomy	ok	ok
+frivolity	ok	ok
+incrimination	ok	ok
+corrode	ok	ok
+rhizome	ok	ok
+acrid	ok	ok
+hallucinatory	ok	ok
+patois	ok	ok
+photoelectric	ok	ok
+satiric	cut_wordis:"Satyric" 0.96s · cut_wordis:"Satyric" 0.94s · dot100:"Zatirik" 0.85s · cut_wordis100:"Satyric" 0.88s · cut_wordis100:"Satyric" 0.87s · cut_next: câu mang: "Next word, Satiraki." · plain095:"Zatirik" 0.77s · dot090:"Zatirik" 0.91s	cut_wordis:"Satyarek" 0.94s · cut_wordis:"Satyarek" 0.81s · dot100:"Satyric" 0.73s · cut_wordis100:"Satyarek" 0.85s · cut_wordis100:"Satyarek" 0.70s · cut_next:"Satyric" 0.81s · cut_next:"TIRIC" 0.59s · plain095:"Satyric" 0.74s · dot090:"Esoteric." 0.80s
+readjustment	ok	ok
+phytoplankton	cut_wordis:"To fight a plankton." 1.19s · cut_wordis:"fighter plankton" 1.11s · dot100:"Fighter Plankton" 1.17s · cut_wordis100: câu mang: "The word is fighter plankton." · cut_next: câu mang: "Next word, fighter plankton." · plain095:"Fighter Plankton" 1.20s · dot090:"Fighter plankton" 1.31s	ok
+bazooka	ok	ok
+supposition	ok	ok
+astrophysicist	ok	ok
+surfactant	ok	ok
+garish	ok	ok
+nullification	ok	ok
+barometric	ok	ok
+irrationality	ok	ok
+reassemble	ok	ok
+cosmonaut	ok	ok
+frankness	cut_wordis:"To franknesses." 0.97s · cut_wordis:"Frankness is" 0.89s · dot100:"Frank Nisser" 0.85s · cut_wordis100:"To Frank Nurse's." 0.86s · cut_wordis100:"Frankness is" 0.78s · cut_next: câu mang: "Next word franknessy" · plain095:"The Frankness." 0.80s · dot090:"A franknesser." 0.93s	ok
+oxidant	cut_wordis: câu mang: "The word is occident." · dot100:"Occidenti" 0.89s · cut_wordis100:"It's oxidant." 0.93s · cut_wordis100:"Occident" 0.84s · cut_next: câu mang: "Next word, Occidenti." · plain095:"Occident" 0.79s · dot090:"Occidenti" 0.95s	cut_wordis:"It's oxidant." 1.01s · cut_wordis:"Occident" 0.75s · dot100:"Occident" 0.77s · cut_wordis100:"It's oxidant." 0.88s · cut_wordis100:"Occident" 0.70s · cut_next:"Occident" 0.75s · plain095:"Occident" 0.81s · dot090:"Occident" 0.86s
+scrupulously	ok	ok
+ineffectiveness	ok	ok
+numerology	ok	ok
+impartially	ok	ok
+oscilloscope	ok	ok
+criminologist	ok	ok
+sharpshooter	ok	ok
+oration	ok	ok
+passivity	ok	ok
+opportunism	ok	ok
+psychoanalyst	ok	ok
+collude	ok	ok
+lymphocyte	ok	ok
+finicky	ok	ok
+lamina	cut_wordis: câu mang: "The word is laminar." · dot100:"Laminar" 0.74s · cut_wordis100: câu mang: "The word is laminar." · cut_next: câu mang: "Next word, laminar." · plain095:"Dlamina" 0.68s · dot090:"LAMINOUS" 0.79s	ok
+phoneme	ok	ok
+liquefaction	ok	ok
+ungainly	ok	ok
+dentition	ok	ok
+expansionism	ok	ok
+ignominy	ok	ok
+oceanographer	ok	ok
+surrealistic	ok	ok
+determinable	ok	ok
+gateau	cut_wordis: câu mang: "The word is gato." · dot100:"Gattoo" 0.73s · cut_wordis100: câu mang: "The word is gato." · cut_next: câu mang: "Next word, gato." · plain095:"I got to" 0.67s · dot090:"I got to." 0.78s	cut_wordis: câu mang: "The word is gatto." · dot100:"Gatto." 0.61s · cut_wordis100: câu mang: "The word is gatto." · cut_next: câu mang: "Next word, gatto." · plain095:"Gatto." 0.61s · dot090:"Gatto." 0.65s
+contestable	ok	ok
+dovecote	cut_wordis:"Dove Goatee" 0.88s · cut_wordis:"Dovegoat" 0.80s · dot100:"Dovegoat" 0.75s · cut_wordis100: câu mang: "The word is dovecoat." · cut_next: câu mang: "The next word to dovego to." · plain095:"Dove coat" 0.72s · dot090:"Dove coat" 0.83s	ok
+abrade	cut_wordis: câu mang: "The word is a braid." · dot100:"A Braid" 1.19s · cut_wordis100: câu mang: "The word is a braid." · cut_next: câu mang: "Next word a braid" · plain095:"A braid" 0.71s · dot090:"The Braid" 0.90s	cut_wordis: câu mang: "The word is a braid." · dot100:"A braid." 0.70s · cut_wordis100:"A braid." 0.79s · cut_wordis100:"A braid." 0.72s · cut_next: câu mang: "Next word, a braid." · plain095:"A braid." 0.70s · dot090:"A braid." 0.79s
+electromagnet	ok	ok
+anatomist	ok	cut_wordis:"It's anatomist." 0.98s · cut_wordis:"Anonymist" 0.78s · dot100:"Anoramist" 0.78s · cut_wordis100: câu mang: "The word is anonymist." · cut_next:"Anonymist" 0.79s · cut_next:"I never missed." 0.64s · plain095:"Anoramist" 0.79s · dot090:"Anoramist." 0.85s
+incompressible	ok	ok
+detoxify	ok	ok
+forebrain	cut_wordis:"to full-brain." 0.93s · cut_wordis:"Full Brain." 0.85s · dot100:"Full Brain." 1.30s · cut_wordis100: câu mang: "The word is full-brain." · cut_next: câu mang: "Next word, full brain." · plain095:"Full Brain" 0.81s · dot090:"Full brains." 0.97s	ok
+protozoan	ok	ok
+acclimation	ok	ok
+mineralogist	ok	ok
+mollify	ok	cut_wordis:"Molify." 0.96s · cut_wordis:"Molify." 0.80s · dot100:"Molify." 0.77s · cut_wordis100:"Molify." 0.93s · cut_wordis100:"Molify." 0.78s · cut_next:"Molify." 0.87s · cut_next:"Allify." 0.72s · plain095:"Molify." 0.76s · dot090:"Molify." 0.85s
+anthropomorphism	ok	ok
+persecutor	ok	ok
+misstatement	ok	ok
+supergiant	ok	ok
+perplex	cut_wordis: câu mang: "The word is perplexi." · dot100:"for plexi" 1.14s · cut_wordis100: câu mang: "The word is perplexi." · cut_next: câu mang: "Next word, perplexi." · plain095:"Vaplex" 0.76s · dot090:"and perplexing." 0.86s	ok
+deregulate	ok	ok
+misjudge	ok	ok
+overcook	ok	ok
+treeless	ok	ok
+dyspnea	ok	ok
+strategical	ok	ok
+superimpose	ok	ok
+sinusoid	ok	ok
+reclassify	ok	ok
+shipowner	ok	ok
+inimical	ok	ok
+satirize	cut_wordis: câu mang: "The word is satiriser." · dot100:"Saturizer" 1.00s · cut_wordis100: câu mang: "The word is satirise." · cut_next: câu mang: "Next word, satiriser." · plain095:"Asaturize." 0.93s · dot090:"Saturizae" 1.10s	cut_wordis: câu mang: "The word is Saturize." · dot100:"SatyRise" 0.79s · cut_wordis100: câu mang: "The word is Saturize." · cut_next:"Saturize." 0.89s · cut_next:"How to rise." 0.63s · plain095:"A Saturday Rise." 0.82s · dot090:"Is that a rise?" 0.87s
+certitude	ok	ok
+adroitly	ok	cut_wordis: câu mang: "The word is a-drightly." · dot100:"Edge rightly." 0.75s · cut_wordis100: câu mang: "The word is a drytly." · cut_next: câu mang: "Next word, a drytly." · plain095:"Edge rightly." 0.77s · dot090:"Edge rightly." 0.84s
+transoceanic	ok	ok
+unaccountably	ok	ok
+intertribal	ok	ok
+retaliate	ok	ok
+alimony	ok	ok
+incoherent	ok	ok
+workmanship	ok	ok
+credence	ok	ok
+henceforth	ok	ok
+indignation	ok	ok
+orthography	ok	ok
+parallelism	ok	ok
+conflagration	ok	ok
+electrophoresis	ok	ok
+bicker	ok	ok
+rectification	ok	ok
+eavesdrop	ok	ok
+superconductivity	ok	ok
+emanate	ok	ok
+phonetics	ok	ok
+falsify	ok	ok
+gasification	ok	ok
+anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
+porpoise	ok	ok
+systematics	ok	ok

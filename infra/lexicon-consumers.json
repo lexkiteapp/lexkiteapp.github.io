@@ -213,6 +213,12 @@
   "scripts/native/gen-skills.mjs": {
    "skip": "chỉ dựng bảng tách từ của Lexis (AWL/từ nối/cụm) và vector cho màn nghe/đọc từ IELTS_DATA nạp bằng data.js; không ghi/xuất kho, từ thật thì app native tải lúc chạy như web"
   },
+  "scripts/native/gen-write.mjs": {
+   "skip": "chỉ lấy khóa IELTS_DATA.INDEX (tập từ mà Lexis.analyze tra) và chủ đề của đề viết để dựng vector/gói viết; không ghi/xuất kho, từ thật thì app native tải lúc chạy như web"
+  },
+  "scripts/native/gen-learn.mjs": {
+   "skip": "chạy JS web thật (soát lỗi, ngữ pháp, phương pháp, giao tiếp tự tin) để sinh vector/gói; nếu nạp kho từ thì chỉ để dựng DOM giả, không ghi/xuất kho"
+  },
   "scripts/native/gen-sync.mjs": {
    "skip": "chỉ tra các từ mà vector sync/migration dùng (map lib) để native dựng lại thẻ L:1; không ghi/xuất kho"
   },
@@ -220,6 +226,9 @@
    "what": "số việc còn cho ci-filler (20k − mục sống + retry), không ghi gì",
    "via": "doneWords",
    "job": "ci-filler.yml (probe infra/ci-backlog.json)"
+  },
+  "scripts/video/teach2d/native-qa.mjs": {
+   "skip": "đọc nghĩa/ví dụ từ web/packs để dịch ngược kiểm clip L1; không ghi kho, không cần mục mở rộng"
   }
  },
  "todo": {
