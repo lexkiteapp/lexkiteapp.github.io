@@ -29,7 +29,7 @@ async function run(tag, root, vn, scheme, gate) {
   const vp = vn === '390' ? { viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true } : { viewport: { width: 1366, height: 860 }, deviceScaleFactor: 1 };
   const ctx = await browser.newContext({ ...vp, colorScheme: scheme, serviceWorkers: 'block', reducedMotion: 'reduce' }); await noProd(ctx);
   await ctx.route('**/*', r => { const u = new URL(r.request().url()); if (u.hostname !== 'lk.test') return r.abort(); let p = decodeURIComponent(u.pathname); if (p.startsWith('/api/')) return r.fulfill({ status: 200, body: '{}', contentType: 'application/json' }); if (p.endsWith('/')) p += 'index.html'; const f = path.join(root, p); if (!fs.existsSync(f)) return r.fulfill({ status: 404 }); r.fulfill({ status: 200, body: fs.readFileSync(f), contentType: MIME[path.extname(f)] || 'application/octet-stream' }); });
-  await ctx.addInitScript(() => { try { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); } catch (e) { /* */ } }); // khung người học thật (cờ ux1): không bật = chụp nhầm khung dự phòng, cổng mù
+  await ctx.addInitScript(() => { try { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); localStorage.setItem('ielts.settings', JSON.stringify({ onboarded: true, plSkip: 1 })); } catch (e) { /* */ } }); // khung người học thật (cờ ux1): không bật = chụp nhầm khung dự phòng, cổng mù
   const page = await ctx.newPage(); if (gate) page.on('pageerror', e => errs.push(`${vn}-${scheme}: ${e.message}`));
   const seen = new Set();
   for (let run = 0; run < 3 && seen.size < Object.keys(TYPES).length; run++) {
