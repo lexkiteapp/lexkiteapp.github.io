@@ -33,9 +33,8 @@ for (const [name, scheme, rtl] of [['light', 'light', false], ['dark', 'dark', f
   const ctx = await browser.newContext({ viewport: { width: 375, height: 812 }, deviceScaleFactor: 2, colorScheme: scheme });
   await ctx.addInitScript(() => { const o = performance.now.bind(performance); performance.now = () => o() * 3; }); // 3× nhanh để vòng đầy đủ chạy trong vài giây
   const page = await ctx.newPage(); page.on('pageerror', e => errs.push(name + ': ' + e.message));
-  await page.addInitScript(r => { document.documentElement.dir = r ? 'rtl' : 'ltr'; document.documentElement.setAttribute('data-theme', 'x'); }, rtl);
   await page.goto(pathToFileURL(file).href);
-  await page.evaluate(s => document.documentElement.setAttribute('data-theme', s), scheme);
+  await page.evaluate(([s, r]) => { document.documentElement.setAttribute('data-theme', s); document.documentElement.dir = r ? 'rtl' : 'ltr'; }, [scheme, rtl]);
   await page.waitForSelector('#rhGo'); await page.screenshot({ path: path.join(out, `${name}-1-intro.png`) });
   const layout = async step => {
     const r = await page.evaluate(() => {
