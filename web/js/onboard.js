@@ -120,10 +120,10 @@
           else if (d) { ev.preventDefault(); const o = radios[(i + d + radios.length) % radios.length]; if (o !== c) pickLang(o.dataset.lang); } }; });
       if (STEPS[n] === 'lang' && nx) {
         const next = nx.onclick;
-        nx.onclick = async () => { const was = Target.cur(), tl = pick.tl && Target.avail().includes(pick.tl) ? pick.tl : was, home = Target.table(tl).home; // cờ tắt giữa chừng → ở ngôn ngữ cũ
+        nx.onclick = async () => { const was = Target.cur(), done = state.settings.onboarded, tl = pick.tl && Target.avail().includes(pick.tl) ? pick.tl : was, home = Target.table(tl).home; // cờ tắt giữa chừng → ở ngôn ngữ cũ
           if (!home) { Target.set(tl); return next(); } nx.disabled = true;
           try { const S = state.settings; S.pace = S.pace || 20; S.dailyGoal = S.dailyGoal || S.pace; S.dailyNew = S.dailyNew || NEW_OF[S.pace] || NEW_OF[20]; // chỉ điền mặc định khi thiếu
-            await D.saveSettings(); Target.set(tl); await D.finish(true, home); } catch (e) { Target.set(was); nx.disabled = false; } }; // lỗi → trả ngôn ngữ cũ, ở lại bước
+            await D.saveSettings(); Target.set(tl); await D.finish(true, home); } catch (e) { Target.set(was); state.settings.onboarded = done; nx.disabled = false; } }; // lỗi → trả ngôn ngữ cũ, ở lại bước
       }
       const acct = $('#setupIn'); if (acct) acct.onclick = e => { e.stopPropagation(); D.login(draw); }; // tài khoản trống: ở lại đúng bước, vẽ lại để ẩn liên kết đăng nhập
       if (TK()) TK().bindSetup(view, pick, id => { TR_ID = id; pick.said = 'goal'; setExam(pick.exam); }, () => { pick.said = 'level'; draw(); });
