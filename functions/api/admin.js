@@ -30,7 +30,7 @@ export const ghApi = async (env, u, f = fetch) => {
 };
 // Quảng cáo (docs/ADS.md): cờ công khai + khóa chỉ quản trị (eCPM ước tính USD/1000 lượt, ngưỡng cổng giữ chân %, cỡ mẫu tối thiểu, checklist sẵn sàng)
 const ADS_KEYS = [...ADS_PUBLIC, 'ads_ecpm_web', 'ads_ecpm_android', 'ads_ecpm_ios', 'ads_guard_pct', 'ads_guard_min', 'ads_ready']; // ads_ready = JSON trạng thái nhập tay của thẻ "Sẵn sàng bật quảng cáo" (duyệt AdSense/AdMob, IRS, CMP…) – không phải cờ, không tới /api/config
-const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate', 'vocab_img', 'vocab_img_pct', 'ret', 'ret_pct', 'ux1', 'ux1_pct', 'offline_pack', 'pt_pilot', 'es_course', ...ADS_KEYS];
+const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate', 'vocab_img', 'vocab_img_pct', 'ret', 'ret_pct', 'ux1', 'ux1_pct', 'offline_pack', 'pt_pilot', 'es_course', 'es_course_pct', 'es_kill', ...ADS_KEYS];
 const DAY = 86400e3;
 // Ngôn ngữ giao diện quản trị: máy khách gửi ui: 'vi' | 'en' (thiếu = 'vi', tương thích cũ) – chỉ áp cho vài câu hiển thị
 const tx = (b, vi, en) => (b && b.ui === 'en' ? en : vi);
