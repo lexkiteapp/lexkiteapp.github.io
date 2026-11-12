@@ -50,12 +50,24 @@ def mouth_dark(f, g):
     cx = (x0 + x1) // 2; box = f[t + int(w * .97):t + int(w * 1.16), cx - int(w * .17):cx + int(w * .17)]   # w = hair width; lips: Carlos 1.00–1.16 (below the moustache), Ama 0.97–1.12
     if box.size == 0: return 0.0
     g = cv2.cvtColor(box, cv2.COLOR_BGR2GRAY)
-    return float((g < 35).mean() + 2 * (g > 200).mean())   # < 35 = mouth interior (Ama's dark skin sits above it); > 200 = teeth (05/11 concern: parted lips showed teeth, dark-only missed it)
+    # 12/11: an OPEN mouth = a TALL dark gap, a closed one = a thin lip line. v4 draws the closed line darker/thicker than the locked
+    # still, so 'share of dark pixels' flagged closed lips (Ama 0.09 vs 0.23, both closed by eye). Measure the gap height instead:
+    # 90th percentile over columns of the longest vertical run of dark pixels (px at 960 h), + teeth (> 200) as before (05/11 concern).
+    d = g < 35; runs = []
+    for col in d.T:
+        best = cur = 0
+        for v in col: cur = cur + 1 if v else 0; best = max(best, cur)
+        runs.append(best)
+    return float(np.percentile(runs, 90) + 40 * (g > 200).mean())
 
 
 def diff(a, b):
-    s = lambda x: cv2.cvtColor(cv2.resize(x, (135, 240)), cv2.COLOR_BGR2GRAY).astype(float)
-    return float(np.abs(s(a) - s(b)).mean())
+    """Mean grey difference over the PERSON (non-green in either frame). 12/11: v4 re-renders the green brighter and mottled
+    (bg diff 8.0 vs person 3.8 on a clean start) – the green is keyed out anyway, so drift/jumps are measured on the figure."""
+    s = lambda x: cv2.GaussianBlur(cv2.cvtColor(cv2.resize(x, (135, 240), interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY), (3, 3), 0).astype(float)
+    m = lambda x: ~(lambda h: (h[..., 0] >= 35) & (h[..., 0] <= 90) & (h[..., 1] > 90))(cv2.cvtColor(cv2.resize(x, (135, 240), interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2HSV))
+    u = m(a) | m(b)
+    return float(np.abs(s(a) - s(b))[u].mean()) if u.any() else 0.0
 
 
 def report(ok, extra=''):
@@ -87,7 +99,8 @@ d = np.array([diff(fr[i + 1], fr[i]) for i in range(n - 1)])
 spikes = [i for i in range(2, len(d) - 2) if d[i] > 4 and d[i] > 2.0 * max(d[i - 2], d[i - 1], d[i + 1], d[i + 2])]
 legdx = max(max(abs(g['legs'][0] - g0['legs'][0]), abs(g['legs'][1] - g0['legs'][1])) for g in G)
 topdy = max(abs(g['top'] - g0['top']) for g in G)
-open_frames = sum(v > m0 + .08 for v in md)   # heuristic (dark lips box vs the locked closed-mouth frame); the sheet confirms
+m0 = max(m0, mouth_dark(fr[0], G[0]))   # closed baseline = locked still or the clip's own first frame (= that still, re-rendered)
+open_frames = sum(v > m0 + 3 for v in md)   # gap ≥ 3 px taller than closed (or teeth); the sheet confirms
 d_start, d_end = diff(fr[0], F0), min(diff(fr[i], T0) for i in range(max(0, n - 6), n))
 ok = {'start = locked first frame (diff < 6)': d_start < 6,
       ('end = approved tail still (diff < 9)' if tail else 'end = back to the first frame (diff < 6)'): d_end < (9 if tail else 6),
