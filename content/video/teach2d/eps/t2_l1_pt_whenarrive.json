@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_whenarrive",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Future after when?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will call you when I will arrive.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will call you when I arrive.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After when, use the present.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Arrive! Call me when you arrive.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will call you when I will arrive.",
+  "right": "I will call you when I arrive.",
+  "strike": "when I will arrive",
+  "why": "After when, use the present.",
+  "memory": "After when: present.",
+  "quiz": {
+   "stem": "Call me when you ___.",
+   "options": [
+    "arrive",
+    "will arrive"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “when I will arrive”?",
+   "tip": "Depois de “when”, usamos o presente, não o futuro.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I will call you when I will arrive.”. O certo é “I will call you when I arrive.”. Diferente do português, que usa o futuro do subjuntivo. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “arrive”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#inglesonline",
+    "#dicasdeingles",
+    "#aprenderingles",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “when I will arrive”?",
+   "tip": "After “when”, we use the present, not the future.",
+   "caption": "Watch out for this common mistake! Many people say “I will call you when I will arrive.”. The right way is “I will call you when I arrive.”. Unlike Portuguese, which uses a future form. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “when I will arrive”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Você diz “when I will arrive”?",
+  "keyword": "I will call you when I arrive.",
+  "value": "Depois de “when”, usamos o presente, não o futuro.",
+  "hashtags": [
+   "#inglesonline",
+   "#dicasdeingles",
+   "#aprenderingles",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “when I will arrive”?",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “I will call you when I will arrive.”. O certo é “I will call you when I arrive.”. Diferente do português, que usa o futuro do subjuntivo. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesonline #dicasdeingles #aprenderingles #lexkite",
+    "tags": [
+     "I will call you when I arrive.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I will call you when I will arrive.”. O certo é “I will call you when I arrive.”. Diferente do português, que usa o futuro do subjuntivo. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I will call you when I will arrive.”. O certo é “I will call you when I arrive.”. Diferente do português, que usa o futuro do subjuntivo. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#inglesonline",
+     "#dicasdeingles",
+     "#aprenderingles",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “when I will arrive”? #inglesonline #dicasdeingles #aprenderingles"
+   }
+  },
+  "first_comment": "Resposta: “arrive”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

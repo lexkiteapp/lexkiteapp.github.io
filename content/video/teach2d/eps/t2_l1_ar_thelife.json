@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_thelife",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No the for life!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The life is beautiful.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Life is beautiful.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "No the for general things.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Life! Life is short.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The life is beautiful.",
+  "right": "Life is beautiful.",
+  "strike": "The",
+  "why": "No the for general things.",
+  "memory": "Life is beautiful.",
+  "quiz": {
+   "stem": "___ is short.",
+   "options": [
+    "The life",
+    "Life"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “The life is”؟",
+   "tip": "مع الأشياء العامة لا نضع the: “Life is beautiful.” وليس “The life is beautiful.”.",
+   "caption": "هل تقول أحيانًا “The life is beautiful.” 😅 مع الأشياء العامة لا نضع the، فالجملة الصحيحة “Life is beautiful.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “Life”. مع الأشياء العامة لا نضع the. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “The life is beautiful”?",
+   "tip": "With general things we do not use the: “Life is beautiful.” not “The life is beautiful.”.",
+   "caption": "Do you sometimes say “The life is beautiful.” 😅 With general things we do not use the, so the right sentence is “Life is beautiful.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “The life is”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "هل تقول “The life is”؟",
+  "keyword": "Life is beautiful.",
+  "value": "مع الأشياء العامة لا نضع the: “Life is beautiful.” وليس “The life is beautiful.”.",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “The life is”؟",
+    "description": "هل تقول أحيانًا “The life is beautiful.” 😅 مع الأشياء العامة لا نضع the، فالجملة الصحيحة “Life is beautiful.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "Life is beautiful.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “The life is beautiful.” 😅 مع الأشياء العامة لا نضع the، فالجملة الصحيحة “Life is beautiful.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “The life is beautiful.” 😅 مع الأشياء العامة لا نضع the، فالجملة الصحيحة “Life is beautiful.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “The life is”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “Life”. مع الأشياء العامة لا نضع the. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

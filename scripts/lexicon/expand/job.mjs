@@ -12,7 +12,7 @@ import { execFileSync } from 'child_process';
 import { arpaToIpa, badChars, ukStyle } from '../ipa.mjs';
 import { ROOT, rd, wr, loadAll } from '../lib.mjs';
 import { assignTopics, buildTopicSets, TAX } from './topics.mjs';
-import { shardOf, mixPool, RETRY_SHARE, yieldSplit, quotaDry, viAnswer, thinPool, MIN_SAMPLE, inflRe, gateEntry, defPosOk, defGrammarBad, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, humanSrc, trTableAmbiguous, CW, ov, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
+import { mergeViSources, shardOf, mixPool, RETRY_SHARE, yieldSplit, quotaDry, viAnswer, thinPool, MIN_SAMPLE, inflRe, gateEntry, defPosOk, defGrammarBad, DEF_POS_FIX, doneWords, LANGS, TOPIC_CHOICES, QUEUE, queueable, hasGap, wsdOk, lockSense, viAgreeSources, viContested, humanSrc, trTableAmbiguous, CW, ov, viNorm, omwHas, trIn, wsdUnwrap } from './lib.mjs';
 import { createPool, judgeKey, familyOf } from '../../lib/ai-pool.mjs';
 import { kaikki, clean, pmap } from './wikt.mjs';
 import { espeakUK } from './espeak.mjs';
@@ -72,7 +72,9 @@ const REFS = { cmu: CMU, bf: (await loadRefs({ britfone: arg('--britfone'), cmu:
 // Vẫn thiếu = lỗ dữ liệu nguồn → bỏ qua (KHÔNG vào hàng duyệt), lượt sau làm lại.
 const VIW = {};
 // nghĩa vi NGƯỜI VIẾT thứ hai: Wiktionary tiếng Việt (viwikt.py, CC BY-SA 4.0) – phủ 94 % mục rớt vì thiếu vi Wiktionary tiếng Anh (31/10); chỉ là nguồn đối chiếu
-const WV = (() => { const f = arg('--viwk'); try { return f && fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : {}; } catch { return {}; } })();
+// + nhãn Wikidata theo WordNet (wikidata_vi.py, CC0): đối chiếu thêm cho mục không có nguồn thứ hai, cổng giữ nguyên
+const readWV = f => { try { return f && fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : {}; } catch { return {}; } };
+const WV = mergeViSources(readWV(arg('--viwk')), readWV(fileURLToPath(new URL('../../../content/lexicon/expand/wikidata-vi.json', import.meta.url))));
 // câu NGƯỜI VIẾT (examples.py: Tatoeba + Simple Wiki + Common Voice + Wikivoyage/Wikinews/Wikibooks) – chạy cả ở bước lọc trước AI, kết quả dùng lại
 const TAT = arg('--tatoeba', process.env.TATOEBA || ''), EXT = {};
 function runExamples(list) { if (!list.length || !TAT || !fs.existsSync(TAT)) return; const tmp = (process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp') + '/lx-ex-' + process.pid;
@@ -315,7 +317,7 @@ for (const x of items) {
      cefrF: c.cefrZ || c.cefr, cefrSrc: c.cefrSrc || 'freq', perLang: true, ...(X[x.k] && X[x.k].trBad ? { trBad: X[x.k].trBad } : {}), z: c.z, emoji: g.emoji || '', topic: g.topic || '', vi: g.vi || '', note_vi: g.note_vi || '', m: T[x.k] || {},
     src: { freq: 'wordfreq-3.1', sense: 'wordnet-3.0:' + c.syn, def: (D[x.k] || {}).src || 'wordnet-gloss+ai-simplify', defGen: GM[x.k] || mGen, ipaUS: CMU.has(x.w) ? 'cmudict' : 'wiktionary', ipaUK: x._ipa.ukSrc, cefr: c.cefrSrc || 'freq',
       ex: X[x.k] ? X[x.k].ex.map(e => e.src) : [], tr: X[x.k] ? X[x.k].trSrc || {} : {}, trSense: X[x.k] ? X[x.k].tg : '', col: g.col && g.col.length ? 'wordnet/tatoeba' : '', syn: g.syn && g.syn.length ? 'wordnet' : '',
-      lic: 'WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0' }, qa: {} } : null;
+      lic: 'WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0' }, qa: {} } : null;
   if (ent && X[x.k] && !X[x.k].defOk) ent.defChanged = X[x.k].defWhy || 'changed';
   if (ent) { ent.senseLock = c._lock || false; ent.src.senseLock = c._lock || ''; }
   if (ent && g.pos && g.pos !== x.pos) ent.posDrift = g.pos; // khóa nghĩa: từ loại cố định theo nghĩa WordNet đã chọn

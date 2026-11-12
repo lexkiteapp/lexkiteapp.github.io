@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_advice",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Advice has no plural!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She gave me many advices.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She gave me good advice.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Advice has no plural.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Advice! He gave me some advice.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She gave me many advices.",
+  "right": "She gave me good advice.",
+  "strike": "advices",
+  "why": "Advice has no plural.",
+  "memory": "One advice, no s.",
+  "quiz": {
+   "stem": "He gave me some ___.",
+   "options": [
+    "advices",
+    "advice"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Advices” n'existe pas !",
+   "tip": "En français, « des conseils » prend un s. En anglais, “advice” ne prend jamais de s.",
+   "caption": "Tu dis “She gave me many advices.” ? Ça n'existe pas ! Dis plutôt “She gave me good advice.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
+   "comment": "Réponse : “advice”. Ce mot ne se met jamais au pluriel. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Advices” does not exist!",
+   "tip": "In French, « des conseils » takes an s. In English, “advice” never does.",
+   "caption": "Do you say “She gave me many advices.”? It does not exist! Say “She gave me good advice.” instead. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Advices” n'existe pas !"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Advices” n'existe pas !",
+  "keyword": "She gave me good advice.",
+  "value": "En français, « des conseils » prend un s. En anglais, “advice” ne prend jamais de s.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“Advices” n'existe pas !",
+    "description": "Tu dis “She gave me many advices.” ? Ça n'existe pas ! Dis plutôt “She gave me good advice.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "She gave me good advice.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Tu dis “She gave me many advices.” ? Ça n'existe pas ! Dis plutôt “She gave me good advice.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Tu dis “She gave me many advices.” ? Ça n'existe pas ! Dis plutôt “She gave me good advice.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Advices” n'existe pas ! #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “advice”. Ce mot ne se met jamais au pluriel. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

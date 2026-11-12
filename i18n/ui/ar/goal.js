@@ -1,3 +1,30 @@
-/* UI ar – goal (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {"Điểm ước tính":"الدرجة المقدّرة","{p}% sẵn sàng":"جاهز بنسبة {p}%","Chưa có điểm ước tính":"لا توجد درجة مقدّرة بعد","Làm một bài thi thử để Lexkite ước tính điểm hiện tại, mức sẵn sàng và kỹ năng cần luyện.":"خُض اختبارًا تجريبيًا ليقدّر Lexkite درجتك الحالية وجاهزيتك والمهارات التي تحتاج إلى التدريب.","Làm bài kiểm tra trình độ":"خُض اختبار تحديد المستوى","Thi thử ngay":"اختبار تجريبي الآن","Chẩn đoán từng kỹ năng":"تشخيص كل مهارة","Cần luyện thêm":"يحتاج إلى تدريب","Đạt nhịp mục tiêu":"على المسار الصحيح","{n} chọn cho bạn":"اختيار {n} لك","Luyện {s} có trọng tâm":"تدريب مركّز: {s}","Kỹ năng thấp nhất của bạn – luyện 5 phút mỗi ngày để kéo điểm tổng lên.":"هذه أضعف مهاراتك – تدرّب 5 دقائق يوميًا لرفع درجتك الإجمالية.","Thi thử tiếp theo: {date}":"الاختبار التجريبي التالي: {date}","Thi thử ngay tuần này để đo điểm":"خُض اختبارًا تجريبيًا هذا الأسبوع لقياس درجتك","Còn {n} ngày đến kỳ thi":"متبقٍ {n} يومًا على الامتحان","~{h} giờ luyện còn lại":"~{h} ساعة دراسة متبقية","Phần 3–4: bám ý người nói":"الجزآن 3–4: تتبّع كلام المتحدث","Đọc lướt tìm ý nhanh":"القراءة السريعة للأفكار الرئيسية","Task 2: liên kết ý":"Task 2: الترابط","Trôi chảy & từ nối":"الطلاقة وأدوات الربط","Khoảng cách":"الفارق","Trọng tâm:":"التركيز:","Đủ 4 kỹ năng":"المهارات الأربع","Dự báo tổng":"التوقع العام","Tối thiểu":"الأدنى","Tối đa":"الأقصى"});
+/* UI ar – goal (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {
+"Chưa có điểm ước tính":"لا توجد درجة مقدّرة بعد",
+"Chẩn đoán từng kỹ năng":"تشخيص كل مهارة",
+"Còn {n} ngày đến kỳ thi":"متبقٍ {n} يومًا على الامتحان",
+"Cần luyện thêm":"يحتاج إلى تدريب",
+"Dự báo tổng":"التوقع العام",
+"Khoảng cách":"الفارق",
+"Kỹ năng thấp nhất của bạn – luyện 5 phút mỗi ngày để kéo điểm tổng lên.":"هذه أضعف مهاراتك – تدرّب 5 دقائق يوميًا لرفع درجتك الإجمالية.",
+"Luyện {s} có trọng tâm":"تدريب مركّز: {s}",
+"Làm bài kiểm tra trình độ":"خُض اختبار تحديد المستوى",
+"Làm một bài thi thử để Lexkite ước tính điểm hiện tại, mức sẵn sàng và kỹ năng cần luyện.":"خُض اختبارًا تجريبيًا ليقدّر Lexkite درجتك الحالية وجاهزيتك والمهارات التي تحتاج إلى التدريب.",
+"Phần 3–4: bám ý người nói":"الجزآن 3–4: تتبّع كلام المتحدث",
+"Task 2: liên kết ý":"Task 2: الترابط",
+"Thi thử ngay":"اختبار تجريبي الآن",
+"Thi thử ngay tuần này để đo điểm":"خُض اختبارًا تجريبيًا هذا الأسبوع لقياس درجتك",
+"Thi thử tiếp theo: {date}":"الاختبار التجريبي التالي: {date}",
+"Trôi chảy & từ nối":"الطلاقة وأدوات الربط",
+"Trọng tâm:":"التركيز:",
+"Tối thiểu":"الأدنى",
+"Tối đa":"الأقصى",
+"{n} chọn cho bạn":"اختيار {n} لك",
+"{p}% sẵn sàng":"جاهز بنسبة {p}%",
+"~{h} giờ luyện còn lại":"~{h} ساعة دراسة متبقية",
+"Điểm ước tính":"الدرجة المقدّرة",
+"Đạt nhịp mục tiêu":"على المسار الصحيح",
+"Đọc lướt tìm ý nhanh":"القراءة السريعة للأفكار الرئيسية",
+"Đủ 4 kỹ năng":"المهارات الأربع",
+});
 })(typeof self !== 'undefined' ? self : this);
