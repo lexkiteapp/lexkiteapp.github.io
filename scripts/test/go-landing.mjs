@@ -36,6 +36,7 @@ const dom = new JSDOM(out[fileOf('en')], { url: goUrl('en') + '?utm_source=tikto
 const w = dom.window, D = w.document, $ = s => D.querySelector(s);
 D.addEventListener('click', e => e.preventDefault()); // jsdom không điều hướng
 ok(beacons.some(b => b.ev === 'go_view' && b.lang === 'en' && b.page === 'go'), 'thiếu beacon go_view');
+ok(beacons.every(b => b.at && b.at.s === 'tiktok' && b.at.c === 'reel_7' && b.at.k === 'ab12' && b.at.m === undefined && Object.keys(b.at).length === 3), 'beacon phải mang UTM sạch (s,c,k): ' + JSON.stringify(beacons[0]));
 const app = [...D.querySelectorAll('[data-app]')][0].href;
 ok(/src=go/.test(app) && /utm_source=tiktok/.test(app) && /utm_campaign=reel_7/.test(app) && /c=ab12/.test(app), 'UTM hợp lệ phải đi tiếp sang /app/: ' + app);
 ok(!/email|a%40b|utm_medium/.test(app), 'không được mang tham số lạ/giá trị không an toàn: ' + app);

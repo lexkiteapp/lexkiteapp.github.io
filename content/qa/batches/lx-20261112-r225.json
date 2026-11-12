@@ -1,0 +1,133 @@
+{
+ "id": "20261112-r225",
+ "source": "lexicon-expand",
+ "n": 23,
+ "checked": [
+  {
+   "id": "pituitary#n",
+   "ok": true
+  },
+  {
+   "id": "leatherback#n",
+   "ok": false,
+   "note": "soát AI 2/3: ex: First example has a grammatical subject-verb agreement error ('Mating ... take place' -> 'takes place') and both examples use 'leatherback turtles' instead of the headword noun 'leatherback'. · ex: 'Mating between leatherback turtles take place' contains a subject-verb agreement error ('take' should be 'takes' or 'turtles' should be singular if referring to the species generally, but 'between...turtles' implies plural, so 'take' is actually correct for plural 'turtles', wait. 'Mating' is the subject. 'Mating... takes place'. The example says 'take place'. This is a grammatical error."
+  },
+  {
+   "id": "aromatherapy#n",
+   "ok": true
+  },
+  {
+   "id": "beltway#n",
+   "ok": true
+  },
+  {
+   "id": "nutritionist#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): sense: linked to dietician.n.01 which does not correspond to the headword nutritionist"
+  },
+  {
+   "id": "mucosa#n",
+   "ok": true
+  },
+  {
+   "id": "shootout#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): def: wrong sense. This sense is a violent exchange of gunfire, not necessarily to kill or scare."
+  },
+  {
+   "id": "hypoglycemia#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): def: ungrammatical English. Should be 'A condition of having too low a level of blood sugar.'"
+  },
+  {
+   "id": "bradycardia#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): def: wrong sense. This sense is a slow heart rate, not a condition where the heart beats slower than 60 times per minute."
+  },
+  {
+   "id": "cardiomyopathy#n",
+   "ok": true
+  },
+  {
+   "id": "courtroom#n",
+   "ok": true
+  },
+  {
+   "id": "ferryboat#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): m: 'ferry' is not a valid French word for ferryboat (should be 'bac' or 'ferry-boat')"
+  },
+  {
+   "id": "jawbone#n",
+   "ok": true
+  },
+  {
+   "id": "divination#n",
+   "ok": true
+  },
+  {
+   "id": "grandstand#n",
+   "ok": true
+  },
+  {
+   "id": "warlord#n",
+   "ok": true
+  },
+  {
+   "id": "bronc#n",
+   "ok": true
+  },
+  {
+   "id": "grandparent#n",
+   "ok": true
+  },
+  {
+   "id": "taxiway#n",
+   "ok": true
+  },
+  {
+   "id": "roundworm#n",
+   "ok": true
+  },
+  {
+   "id": "happenstance#n",
+   "ok": true
+  },
+  {
+   "id": "desalinization#n",
+   "ok": true
+  },
+  {
+   "id": "microtubule#n",
+   "ok": true
+  },
+  {
+   "id": "stopwatch#n",
+   "ok": true
+  },
+  {
+   "id": "tonsillectomy#n",
+   "ok": true
+  },
+  {
+   "id": "reenactment#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): vi: Vietnamese term is a verb; should be a noun phrase like \"sự tái hiện\" for the noun sense"
+  },
+  {
+   "id": "firehouse#n",
+   "ok": true
+  },
+  {
+   "id": "thruway#n",
+   "ok": true
+  },
+  {
+   "id": "metalworker#n",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-12",
+ "status": "rejected",
+ "why": "sai 1/29 > 2% → loại lô"
+}
