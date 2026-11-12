@@ -298,6 +298,8 @@ export function yieldSplit(rows) {
 
 /** 08/11 lọc trước AI (job.mjs --no-prefilter để tắt): cận TRÊN số nguồn NGƯỜI VIẾT của một ứng viên – vi (Wiktionary en vi/bảng dịch · Wiktionary vi) và câu chứa từ
  *  (examples.py · ví dụ Wiktionary · ví dụ WordNet mọi nghĩa). vi = 0 hoặc ex < 2 → chắc trượt cổng (viKeep cần nguồn người viết; ví dụ cần 2 câu người viết). */
+/** gộp các bảng {word#pos:[vi…]} của nguồn đối chiếu, không trùng */
+export const mergeViSources = (...maps) => { const o = {}; for (const m of maps) for (const [k, v] of Object.entries(m)) o[k] = [...new Set([...(o[k] || []), ...v])]; return o; };
 /** Lượt gần như rỗng → không thuê runner / không dispatch (ci-filler, cron, bước plan của workflow, left.mjs).
  *  11/11 (48 h: mọi lượt nFresh 0, 4,2 % đạt, ~35 phút × 4 shard cho 7–16 mục/shard): cộng CÁC SHARD CỦA CÙNG MỘT LƯỢT (last-run/s*.json có `run`) – trước đây s0 của lượt mới
  *  trộn với s1–s3 của lượt cũ nên tổng vượt ngưỡng; ngưỡng 40 → 100 (4,2 % đạt ⇒ dưới 100 mục chỉ ~4 mục nhận). Retry tăng ≥ 50 hoặc kết quả > 24 h → chạy lại. */
