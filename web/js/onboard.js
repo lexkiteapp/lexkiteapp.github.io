@@ -34,7 +34,7 @@
     const was = ex => (ex === state.settings.exam && fits(ex, state.settings.examTarget)) || ''; // đã có mục tiêu hợp thang → chọn sẵn, không hỏi lại
     const pick = { exam: (App.exam && state.settings.exam) || 'ielts', target: '', pace: 20, topics: new Set(), v: {}, lv: '', step: 0, said: '' };
     pick.target = was(pick.exam);
-    { const p = readPick(); if (p) { if (TARGETS[p.exam]) { pick.exam = p.exam; pick.target = fits(p.exam, p.target); } if (NEW_OF[p.pace]) pick.pace = p.pace; if (Array.isArray(p.topics)) pick.topics = new Set(p.topics); if (p.v && typeof p.v === 'object') pick.v = p.v; if (typeof p.lv === 'string') pick.lv = p.lv; if (typeof p.track === 'string') pick.track = p.track; if (typeof p.said === 'string') pick.said = p.said; if (STEPS.includes(p.sn)) pick.step = STEPS.indexOf(p.sn); if (typeof p.tl === 'string' && Target.avail().includes(p.tl)) pick.tl = p.tl; if (p.w) pick.w = 1; } }
+    { const p = readPick(); if (p) { if (TARGETS[p.exam]) { pick.exam = p.exam; pick.target = fits(p.exam, p.target); } if (NEW_OF[p.pace]) pick.pace = p.pace; if (Array.isArray(p.topics)) pick.topics = new Set(p.topics); if (p.v && typeof p.v === 'object') pick.v = p.v; if (typeof p.lv === 'string') pick.lv = p.lv; if (typeof p.track === 'string') pick.track = p.track; if (typeof p.said === 'string') pick.said = p.said; if (STEPS.includes(p.sn)) pick.step = STEPS.indexOf(p.sn); else if (STEPS[p.step]) pick.step = p.step; if (typeof p.tl === 'string' && Target.avail().includes(p.tl)) pick.tl = p.tl; if (p.w) pick.w = 1; } }
     if (fromW) pick.w = 1; // có mục Welcome ngay trước bước đầu trong lịch sử (finishOnboarding gỡ cùng các bước, app.js)
     if (STEPS.includes(s)) pick.step = STEPS.indexOf(s); // hash thắng bước đã lưu (tải lại, Tiến/Lùi); vào không có ?s= → tiếp bước đang dở
     if (location.hash !== hashOf(pick.step)) try { history.replaceState(null, '', urlOf(pick.step)); } catch (e) { /* bỏ qua */ }
@@ -59,8 +59,7 @@
     // Ama phản hồi theo bước + lựa chọn vừa chạm (pick.said = bước vừa có lựa chọn mới)
     const kitLine = () => {
       const k = STEPS[pick.step], fresh = pick.said === k;
-      if (k === 'lang') return ['happy', t('Chào bạn, mình là Ama! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')];
-      if (k === 'goal') return fresh ? ['cheer', t('Tuyệt! Mình sẽ chọn bài hợp với mục tiêu {name}.', { name: trName() })] : ['happy', t('Chào bạn, mình là Ama! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')];
+      if (k === 'goal' || k === 'lang') return fresh && k === 'goal' ? ['cheer', t('Tuyệt! Mình sẽ chọn bài hợp với mục tiêu {name}.', { name: trName() })] : ['happy', t('Chào bạn, mình là Ama! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')];
       if (k === 'level') return !fresh ? (state.settings.placement && lvName() ? ['happy', t('Theo bài kiểm tra, bạn bắt đầu từ {lv}. Muốn đổi thì chọn lại nhé.', { lv: lvName() })] : ['think', t('Chưa chắc trình độ? Làm bài kiểm tra 5 phút để mình xếp đúng chặng.')])
         : pick.lv === 'test' ? ['cheer', t('Lựa chọn thông minh! Bài kiểm tra chỉ mất khoảng 5 phút.')] : ['happy', t('Được rồi, mình bắt đầu từ {lv} nhé.', { lv: lvName() })];
       if (k === 'target') return fresh ? ['cheer', t('Mục tiêu {t} – mình sẽ cùng bạn chinh phục!', { t: pick.target })] : ['think', t('Đặt mục tiêu rõ ràng giúp mình chọn đúng độ khó.')];

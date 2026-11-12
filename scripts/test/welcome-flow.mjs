@@ -155,6 +155,17 @@ ok(/bài kiểm tra/.test($('#onbSay').textContent), 'Ama nói rõ lấy từ b�
 click($('[data-lv=s0]')); await tick(); ok($('[data-lv=s0][aria-checked=true]') && pickOf().lv === 's0', 'vẫn đổi được');
 S.settings.onboarded = true; delete S.settings.placement; w.sessionStorage.removeItem('lk.onbPick');
 
+// ---- bước chọn ngôn ngữ học (W7): chỉ khi cờ TBN bật; chọn chỉ ghi vào pick, Target.set khi Tiếp tục; TBN → thẳng lộ trình ngày ----
+asNew(); await go('#/home', 300); await go('#/welcome/setup', 900); await until(() => $('#obNext'));
+ok(!$('[role=radio][data-lang]') && $('[data-track]'), 'cờ TBN tắt: không có bước chọn ngôn ngữ (bước đầu = mục tiêu): ' + hash() + ' ' + !!$('[role=radio][data-lang]'));
+w.localStorage.setItem('lk.es', '1'); asNew(); await go('#/home', 300); await go('#/welcome/setup', 900); await until(() => $('[data-lang]'));
+ok(/s=lang/.test(hash()) && $('[data-lang=en][aria-checked=true]') && $('[data-lang=es][aria-checked=false]') && $('[role=radiogroup] [data-lang=es] [lang], [data-lang=es][lang=es]'), 'cờ bật: bước đầu = chọn ngôn ngữ, English chọn sẵn: ' + hash());
+ok($('[data-lang=en][tabindex="0"]') && $('[data-lang=es][tabindex="-1"]') && pickOf().sn === 'lang' && pickOf().step === 0, 'roving tabindex; lk.onbPick giữ cả chỉ số step lẫn tên bước');
+click($('[data-lang=es]')); await tick(); ok($('[data-lang=es][aria-checked=true]') && w.Target.cur() === 'en' && pickOf().tl === 'es', 'chọn TBN chỉ ghi vào pick, chưa đổi ngôn ngữ đang học');
+click($('#obNext')); await until(() => S.settings.onboarded && /practice\/esd/.test(hash()), 15000); await tick(300);
+ok(w.Target.cur() === 'es' && /practice\/esd/.test(hash()) && !w.sessionStorage.getItem('lk.onbPick'), 'Tiếp tục: Target.set(es) rồi vào lộ trình ngày TBN: ' + hash());
+w.Target.set('en'); w.localStorage.removeItem('lk.es'); S.settings.onboarded = true; w.sessionStorage.removeItem('lk.onbPick');
+
 await tick(200);
 const real = errors.filter(e => !/Not implemented/.test(e));
 ok(!real.length, 'không lỗi JS: ' + real.slice(0, 3).join(' | '));
