@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_docan",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can needs no do!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Do you can help me, please?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you help me, please?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Can makes questions by itself.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Can! Can you swim?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Do you can help me, please?",
+  "right": "Can you help me, please?",
+  "strike": "Do you can",
+  "why": "Can makes questions by itself.",
+  "memory": "Can you, not do you can.",
+  "quiz": {
+   "stem": "___ you swim?",
+   "options": [
+    "Do you can",
+    "Can"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Do you can” : un “do” de trop",
+   "tip": "“Can” se suffit à lui-même : on l'inverse avec le sujet, sans “do”.",
+   "caption": "Tu dis “Do you can help me, please?” ? Pas de “do” ! Dis “Can you help me, please?”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
+   "comment": "Réponse : “Can” se place devant le sujet, sans “do”. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Do you can”: one “do” too many",
+   "tip": "“Can” needs no “do”: just put it before the subject.",
+   "caption": "Do you say “Do you can help me, please?”? No “do”! Say “Can you help me, please?”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Do you can” : un “do” de trop"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Do you can” : un “do” de trop",
+  "keyword": "Can you help me, please?",
+  "value": "“Can” se suffit à lui-même : on l'inverse avec le sujet, sans “do”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“Do you can” : un “do” de trop",
+    "description": "Tu dis “Do you can help me, please?” ? Pas de “do” ! Dis “Can you help me, please?”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "Can you help me, please?",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Tu dis “Do you can help me, please?” ? Pas de “do” ! Dis “Can you help me, please?”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Tu dis “Do you can help me, please?” ? Pas de “do” ! Dis “Can you help me, please?”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Do you can” : un “do” de trop #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “Can” se place devant le sujet, sans “do”. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

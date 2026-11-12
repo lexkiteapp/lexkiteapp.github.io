@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_many",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Many for things you count",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have much friends.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have many friends.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use many with things you can count.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Many! She has many books.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have much friends.",
+  "right": "I have many friends.",
+  "strike": "much",
+  "why": "Use many with things you can count.",
+  "memory": "Many friends.",
+  "quiz": {
+   "stem": "She has ___ books.",
+   "options": [
+    "much",
+    "many"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Much friends”? Es “many”",
+   "tip": "En español “muchos” vale para todo, pero en inglés “many” es para lo contable.",
+   "caption": "“Muchos amigos”: ¡cuidado con “much”! 👫 Di “I have many friends.”, no “I have much friends.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “many”. “Many” + contables; “much” + incontables. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#cantidades",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Much friends”? It is “many”",
+   "tip": "In Spanish “muchos” works for everything, but in English “many” is for countable things.",
+   "caption": "“Muchos amigos”: careful with “much”! Say “I have many friends.”, not “I have much friends.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Much friends”? Es “many”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "¿“Much friends”? Es “many”",
+  "keyword": "I have many friends.",
+  "value": "En español “muchos” vale para todo, pero en inglés “many” es para lo contable.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#cantidades",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Much friends”? Es “many”",
+    "description": "“Muchos amigos”: ¡cuidado con “much”! 👫 Di “I have many friends.”, no “I have much friends.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #cantidades #lexkite",
+    "tags": [
+     "I have many friends.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "“Muchos amigos”: ¡cuidado con “much”! 👫 Di “I have many friends.”, no “I have much friends.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Muchos amigos”: ¡cuidado con “much”! 👫 Di “I have many friends.”, no “I have much friends.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#cantidades",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Much friends”? Es “many” #aprenderingles #inglesfacil #cantidades"
+   }
+  },
+  "first_comment": "Respuesta: “many”. “Many” + contables; “much” + incontables. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

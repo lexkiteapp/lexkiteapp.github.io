@@ -1,0 +1,28 @@
+{
+ "id": "cq1-lot3-20261111",
+ "source": "usage",
+ "n": 60,
+ "checked": [
+  {
+   "id": "usage:prep-adj:involved",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-adj:nice",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-adj:polite",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-adj:rude",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-adj:limited",
+   "ok": true
+  }
+ ],
+ "status": "pending"
+}
