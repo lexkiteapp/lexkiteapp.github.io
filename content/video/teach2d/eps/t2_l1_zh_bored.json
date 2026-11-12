@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_bored",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Bored is how you feel!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am boring.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am bored.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Bored is a feeling. Boring is the thing.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Boring! The film is boring.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am boring.",
+  "right": "I am bored.",
+  "strike": "boring",
+  "why": "Bored is a feeling. Boring is the thing.",
+  "memory": "I am bored.",
+  "quiz": {
+   "stem": "The film is ___. I am tired.",
+   "options": [
+    "bored",
+    "boring"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“我很无聊”别说 boring！",
+   "tip": "bored 表示人的感受，boring 表示事物让人觉得无聊。",
+   "caption": "你是不是也会说 “I am boring.”？😅 说自己无聊要用 bored，boring 描述的是事物：“I am bored.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“bored”。自己的感受用 bored！免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“I am bored”, not “boring”!",
+   "tip": "Bored is how you feel. Boring describes the thing that bores you.",
+   "caption": "Do you say “I am boring.”? 😅 Bored is how you feel; boring describes the thing: “I am bored.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“我很无聊”别说 boring！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“我很无聊”别说 boring！",
+  "keyword": "I am bored.",
+  "value": "bored 表示人的感受，boring 表示事物让人觉得无聊。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“我很无聊”别说 boring！",
+    "description": "你是不是也会说 “I am boring.”？😅 说自己无聊要用 bored，boring 描述的是事物：“I am bored.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I am bored.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I am boring.”？😅 说自己无聊要用 bored，boring 描述的是事物：“I am bored.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "你是不是也会说 “I am boring.”？😅 说自己无聊要用 bored，boring 描述的是事物：“I am bored.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“我很无聊”别说 boring！ #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“bored”。自己的感受用 bored！免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

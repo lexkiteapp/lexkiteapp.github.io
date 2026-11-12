@@ -15,6 +15,7 @@ node scripts/speak/build.mjs --write    # sửa content/situations → web/js/sp
 node scripts/lesson/build-gold.mjs       # sửa gold bank → web/cpack/lesson/gold.js (Giải thích của #/lesson)
 node scripts/lesson/build-stories.mjs    # sửa content/lesson/stories.json → web/cpack/lesson/stories.js (Truyện + Radio)
 node scripts/framework/build-functions.mjs --write   # sửa content/framework/functions.json → web/cpack/framework/functions.js + en-src (Sổ mẫu câu theo chức năng, #/phrases)
+node scripts/fmt-stable.mjs | tail -1   # nguồn dịch i18n/ui + registry dài: mỗi mục một dòng, sắp xếp (chống xung đột PR – scripts/test/fmt-stable.mjs)
 node scripts/mediation/build.mjs         # sửa content/mediation/*.json → web/cpack/mediation (màn #/mediate)
 node scripts/lesson/build-path-nodes.mjs   # sửa content/lesson/path-nodes.json → web/cpack/lesson/path-nodes.js (nội dung nút Lộ trình)
 bash scripts/build-extension.sh >/dev/null && git checkout -q -- extension/academic.json 2>/dev/null || true   # web/ → extension/app (bỏ thay đổi phụ academic.json)

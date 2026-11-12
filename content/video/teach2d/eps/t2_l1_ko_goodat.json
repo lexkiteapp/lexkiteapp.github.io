@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_goodat",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Good at, not good in!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is good in English.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is good at English.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We say good at.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "At! He is good at sports.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is good in English.",
+  "right": "She is good at English.",
+  "strike": "in",
+  "why": "We say good at.",
+  "memory": "Good at English.",
+  "quiz": {
+   "stem": "He is good ___ sports.",
+   "options": [
+    "in",
+    "at"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“good in” 틀렸어요!",
+   "tip": "잘한다는 good at! “She is good at English”예요.",
+   "caption": "“She is good in English”라고 말하고 있나요? 😅 어떤 분야를 잘한다고 할 때는 in이 아니라 at을 써요. “She is good at English”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “at”. good at으로 기억해요! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Good in” is wrong!",
+   "tip": "Say good at, not good in. “She is good at English”.",
+   "caption": "Do you say “She is good in English”? 😅 To say you are skilled at something, use “at”. “She is good at English” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“good in” 틀렸어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“good in” 틀렸어요!",
+  "keyword": "She is good at English.",
+  "value": "잘한다는 good at! “She is good at English”예요.",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“good in” 틀렸어요!",
+    "description": "“She is good in English”라고 말하고 있나요? 😅 어떤 분야를 잘한다고 할 때는 in이 아니라 at을 써요. “She is good at English”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "She is good at English.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“She is good in English”라고 말하고 있나요? 😅 어떤 분야를 잘한다고 할 때는 in이 아니라 at을 써요. “She is good at English”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“She is good in English”라고 말하고 있나요? 😅 어떤 분야를 잘한다고 할 때는 in이 아니라 at을 써요. “She is good at English”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“good in” 틀렸어요! #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “at”. good at으로 기억해요! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "lang": "ko"
+ }
+}

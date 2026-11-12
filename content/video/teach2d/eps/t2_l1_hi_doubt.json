@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_doubt",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Question, not doubt!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have a doubt.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have a question.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Doubt means you are not sure.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Question! I have a question.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have a doubt.",
+  "right": "I have a question.",
+  "strike": "doubt",
+  "why": "Doubt means you are not sure.",
+  "memory": "Ask a question.",
+  "quiz": {
+   "stem": "Teacher, I have a ___. How do I spell it?",
+   "options": [
+    "doubt",
+    "question"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“I have a doubt” का मतलब अलग!",
+   "tip": "हिंदी का “डाउट” सवाल है, पर अंग्रेज़ी में doubt का मतलब शक है; सवाल के लिए question बोलें।",
+   "caption": "क्या आप भी कहते हैं “I have a doubt”? 😉 अंग्रेज़ी में “I have a question” सही है, क्योंकि doubt का मतलब शक है, सवाल नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “question”। सवाल पूछना हो तो question बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“I have a doubt” means something else!",
+   "tip": "The Hindi “doubt” means a query, but in English doubt means being unsure; say question.",
+   "caption": "Do you say “I have a doubt”? 😉 In English “I have a question” is right, because doubt means being unsure, not a query. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“I have a doubt” का मतलब अलग!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“I have a doubt” का मतलब अलग!",
+  "keyword": "I have a question.",
+  "value": "हिंदी का “डाउट” सवाल है, पर अंग्रेज़ी में doubt का मतलब शक है; सवाल के लिए question बोलें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "“I have a doubt” का मतलब अलग!",
+    "description": "क्या आप भी कहते हैं “I have a doubt”? 😉 अंग्रेज़ी में “I have a question” सही है, क्योंकि doubt का मतलब शक है, सवाल नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I have a question.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “I have a doubt”? 😉 अंग्रेज़ी में “I have a question” सही है, क्योंकि doubt का मतलब शक है, सवाल नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “I have a doubt”? 😉 अंग्रेज़ी में “I have a question” सही है, क्योंकि doubt का मतलब शक है, सवाल नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“I have a doubt” का मतलब अलग! #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “question”। सवाल पूछना हो तो question बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

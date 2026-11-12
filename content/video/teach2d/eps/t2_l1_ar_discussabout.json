@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_discussabout",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Discuss needs no about!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: We discussed about the plan.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: We discussed the plan.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Discuss needs no about.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Discuss! Let us discuss the problem.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "We discussed about the plan.",
+  "right": "We discussed the plan.",
+  "strike": "about",
+  "why": "Discuss needs no about.",
+  "memory": "Discuss the plan.",
+  "quiz": {
+   "stem": "Let us ___ the problem.",
+   "options": [
+    "discuss about",
+    "discuss"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “discuss about”؟",
+   "tip": "الفعل discuss لا يحتاج about: “We discussed the plan.” وليس “We discussed about the plan.”.",
+   "caption": "هل تقول أحيانًا “We discussed about the plan.” 😅 الفعل discuss لا يحتاج about، فالجملة الصحيحة “We discussed the plan.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “discuss”. الفعل discuss لا يحتاج about. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “We discussed about the plan”?",
+   "tip": "The verb discuss needs no about: “We discussed the plan.” not “We discussed about the plan.”.",
+   "caption": "Do you sometimes say “We discussed about the plan.” 😅 The verb discuss needs no about, so the right sentence is “We discussed the plan.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “discuss about”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "هل تقول “discuss about”؟",
+  "keyword": "We discussed the plan.",
+  "value": "الفعل discuss لا يحتاج about: “We discussed the plan.” وليس “We discussed about the plan.”.",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “discuss about”؟",
+    "description": "هل تقول أحيانًا “We discussed about the plan.” 😅 الفعل discuss لا يحتاج about، فالجملة الصحيحة “We discussed the plan.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "We discussed the plan.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “We discussed about the plan.” 😅 الفعل discuss لا يحتاج about، فالجملة الصحيحة “We discussed the plan.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “We discussed about the plan.” 😅 الفعل discuss لا يحتاج about، فالجملة الصحيحة “We discussed the plan.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “discuss about”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “discuss”. الفعل discuss لا يحتاج about. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

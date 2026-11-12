@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_everyone",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Everyone is one person!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Everyone are happy today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Everyone is happy today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Everyone is like one person. Use is.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! Everyone is here.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Everyone are happy today.",
+  "right": "Everyone is happy today.",
+  "strike": "are",
+  "why": "Everyone is like one person. Use is.",
+  "memory": "Everyone is.",
+  "quiz": {
+   "stem": "Everyone ___ here.",
+   "options": [
+    "are",
+    "is"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "everyone 后面用 is！",
+   "tip": "everyone 虽然指很多人，但语法上是单数，动词用 is。",
+   "caption": "你是不是也会说 “Everyone are happy today.”？😅 everyone 在语法上是单数，动词要用 is：“Everyone is happy today.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“is”。everyone 语法上是单数！免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Everyone” takes is!",
+   "tip": "Everyone is grammatically singular, so use is.",
+   "caption": "Do you say “Everyone are happy today.”? 😅 Everyone is singular in grammar, so use is: “Everyone is happy today.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "everyone 后面用 is！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "everyone 后面用 is！",
+  "keyword": "Everyone is happy today.",
+  "value": "everyone 虽然指很多人，但语法上是单数，动词用 is。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "everyone 后面用 is！",
+    "description": "你是不是也会说 “Everyone are happy today.”？😅 everyone 在语法上是单数，动词要用 is：“Everyone is happy today.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "Everyone is happy today.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “Everyone are happy today.”？😅 everyone 在语法上是单数，动词要用 is：“Everyone is happy today.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "你是不是也会说 “Everyone are happy today.”？😅 everyone 在语法上是单数，动词要用 is：“Everyone is happy today.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "everyone 后面用 is！ #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“is”。everyone 语法上是单数！免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

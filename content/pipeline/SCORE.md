@@ -6,7 +6,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **58.2** | 46.2 | 58.2% | 100% | 0 |
+| Kho từ | **58.3** | 46.2 | 58.3% | 100% | 0 |
 | Ngữ pháp | **72.8** | 54.5 | 72.8% | 100% | 0 |
 | Giao tiếp | **67.7** | 15.2 | 67.7% | 100% | 0 |
 | 4 kỹ năng | **62.2** | 48.2 | 62.2% | 100% | 0 |
@@ -24,7 +24,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | collocation | 4967 / 20000 | 25% | 12 |
 | đồng nghĩa | 3074 / 20000 | 15% | 8 |
 | IPA Mỹ | 6794 / 20000 | 34% | 5 |
-| ảnh theo nghĩa | 7842 / 20000 | 39% | 15 |
+| ảnh theo nghĩa | 7875 / 20000 | 39% | 15 |
 | C2 | 940 / 1000 | 94% | 10 |
 | A1 | 866 / 1000 | 87% | 5 |
 

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_verymuch",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Very, not very much!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am very much hungry.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am very hungry.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Very much is not for hungry.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Very! I am very tired.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am very much hungry.",
+  "right": "I am very hungry.",
+  "strike": "very much",
+  "why": "Very much is not for hungry.",
+  "memory": "Very hungry.",
+  "quiz": {
+   "stem": "I am ___ tired.",
+   "options": [
+    "very much",
+    "very"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“very much hungry” न कहें!",
+   "tip": "हिंदी के “बहुत ज़्यादा भूखा” की नकल में much न जोड़ें; “very hungry” कहें।",
+   "caption": "क्या आप भी कहते हैं “I am very much hungry”? 😅 अंग्रेज़ी में “I am very hungry” सही है, क्योंकि विशेषण से पहले very आता है, very much नहीं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “very”। much हटाकर “very hungry” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do not say “very much hungry”!",
+   "tip": "Do not add much like the Hindi “bahut zyada bhookha”; say “very hungry”.",
+   "caption": "Do you say “I am very much hungry”? 😅 In English “I am very hungry” is right, because before an adjective use very, not very much. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“very much hungry” न कहें!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“very much hungry” न कहें!",
+  "keyword": "I am very hungry.",
+  "value": "हिंदी के “बहुत ज़्यादा भूखा” की नकल में much न जोड़ें; “very hungry” कहें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“very much hungry” न कहें!",
+    "description": "क्या आप भी कहते हैं “I am very much hungry”? 😅 अंग्रेज़ी में “I am very hungry” सही है, क्योंकि विशेषण से पहले very आता है, very much नहीं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I am very hungry.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “I am very much hungry”? 😅 अंग्रेज़ी में “I am very hungry” सही है, क्योंकि विशेषण से पहले very आता है, very much नहीं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “I am very much hungry”? 😅 अंग्रेज़ी में “I am very hungry” सही है, क्योंकि विशेषण से पहले very आता है, very much नहीं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“very much hungry” न कहें! #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “very”। much हटाकर “very hungry” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}
