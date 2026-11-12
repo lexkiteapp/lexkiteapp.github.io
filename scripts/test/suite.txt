@@ -134,6 +134,7 @@ node scripts/test/jobs-check.mjs
 node scripts/test/ci-filler.mjs
 node scripts/test/ci-autopilot.mjs
 node scripts/test/cron-watch.mjs
+node scripts/test/vimg-watch.mjs
 node scripts/test/cron-kick.mjs
 node scripts/test/ci-hog.mjs
 node scripts/test/queue-report.mjs
