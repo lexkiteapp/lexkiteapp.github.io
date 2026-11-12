@@ -560,7 +560,7 @@ async function writingCases() {
     const P = await pageEnv(hash, MODF, {}, true);
     const L = lemmaTables(P.E.sb.IELTS_DATA); P.A.app.lemma = L.lemma; P.A.app.lemmaT = { PAST: L.PAST, PP: L.PP, BASE: L.BASE, KNOWN: L.KNOWN };
     P.A.app.cleanText = el => ''; P.A.app.phrasePop = () => {}; P.A.app.savePhraseDialog = () => {}; P.A.app.saveSettings = () => {};
-    for (const f of ['web/js/write/task1-more.js', 'web/js/write/task1-more2.js', 'web/js/write.js', 'web/js/task1.js']) P.E.load(f);
+    for (const f of ['web/cpack/write/task1-more.js', 'web/js/write/task1-more2.js', 'web/js/write.js', 'web/js/task1.js']) P.E.load(f);
     P.E.load('web/js/phrases-model.js'); if (W) applyMini(P, W);
     return P;
   };

@@ -2,7 +2,7 @@
  "scene": "scenes",
  "version": 1,
  "created": "2026-11-12",
- "_note": "Chuỗi ảnh cảnh hội thoại 2D (Kling image, không video) cho 20 tình huống content/situations: Ama = khách, Carlos = nhân viên (trang phục 3 khoá). Ảnh 16:9 2K ở lexkite-media cine/scenes/<sit>/<sit>_f<k>.png; mỗi khung gắn câu thoại (dialogue index) + tag để dùng lại ở bài tình huống, reels (pan/crop 9:16 0 cr), blog, podcast. reuse = chỗ dùng dự kiến; lần dùng thật cộng vào uses. Ledger: tools/ledger.txt.",
+ "_note": "Chuỗi ảnh cảnh hội thoại 2D (Kling image, không video) cho 20 tình huống content/situations: Ama = khách, Carlos = nhân viên (trang phục 3 khoá). Ảnh 16:9 2K ở lexkite-media cine/scenes/<sit>/<sit>_f<k>.png; mỗi khung gắn câu thoại (dialogue index) + tag để dùng lại ở bài tình huống, reels (pan/crop 9:16 0 cr), blog, podcast. reuse = chỗ dùng dự kiến; lần dùng thật cộng vào uses. Ledger: tools/ledger.txt. plates = cảnh TRỐNG (không người, không chữ) cùng bối cảnh, 16:9/9:16 × ngày/chiều tối × nhiều góc – nền cho lớp giáo viên phông xanh, reels, intro (owner 12/11: footage mô-đun dùng lại hàng triệu video).",
  "media": "https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/scenes/",
  "situations": {
   "cafe": {
@@ -123,7 +123,69 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "cafe_p_2",
+     "src": "cafe/plates/cafe_p_2.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "cafe_pn_1",
+     "src": "cafe/plates/cafe_pn_1.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "cafe_pn_4",
+     "src": "cafe/plates/cafe_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "cafe_v_1",
+     "src": "cafe/plates/cafe_v_1.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "cafe_vn_1",
+     "src": "cafe/plates/cafe_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "cafe_vn_4",
+     "src": "cafe/plates/cafe_vn_4.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "restaurant-order": {
    "set": "A cosy evening restaurant interior: a small round table with white tablecloth next to a large window showing a dusk sky, warm hanging lamps, terracotta walls and green plants.",
@@ -246,7 +308,49 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "restaurant-order_p_1",
+     "src": "restaurant-order/plates/restaurant-order_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "restaurant-order_pn_2",
+     "src": "restaurant-order/plates/restaurant-order_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "restaurant-order_v_4",
+     "src": "restaurant-order/plates/restaurant-order_v_4.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "restaurant-order_vn_1",
+     "src": "restaurant-order/plates/restaurant-order_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "airport-checkin": {
    "set": "A bright airport check-in hall: a long white desk with a luggage scale and short conveyor belt, big window with a plane outline outside, blue and white palette with orange accents, blank screens above the desk showing only simple plane icons.",
@@ -367,7 +471,59 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "airport-checkin_p_2",
+     "src": "airport-checkin/plates/airport-checkin_p_2.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "airport-checkin_pn_2",
+     "src": "airport-checkin/plates/airport-checkin_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "airport-checkin_pn_4",
+     "src": "airport-checkin/plates/airport-checkin_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "airport-checkin_v_4",
+     "src": "airport-checkin/plates/airport-checkin_v_4.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "airport-checkin_vn_2",
+     "src": "airport-checkin/plates/airport-checkin_vn_2.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "ask-directions": {
    "set": "A sunny city street with pale pastel buildings on both sides, a crossing street on the right, and a big round clock tower on a station building far down the road, blue sky.",
@@ -488,7 +644,69 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "ask-directions_p_1",
+     "src": "ask-directions/plates/ask-directions_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "ask-directions_pn_1",
+     "src": "ask-directions/plates/ask-directions_pn_1.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "ask-directions_pn_4",
+     "src": "ask-directions/plates/ask-directions_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "ask-directions_v_3",
+     "src": "ask-directions/plates/ask-directions_v_3.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "ask-directions_vn_1",
+     "src": "ask-directions/plates/ask-directions_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "ask-directions_vn_4",
+     "src": "ask-directions/plates/ask-directions_vn_4.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "train-station": {
    "set": "A clean railway station ticket hall: a ticket window with glass and a counter, a view of a platform and a blue-and-white train through an archway, pale grey floor, teal and orange accents, a blank departure board showing only simple train icons.",
@@ -609,7 +827,59 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "train-station_p_2",
+     "src": "train-station/plates/train-station_p_2.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "train-station_pn_1",
+     "src": "train-station/plates/train-station_pn_1.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "train-station_pn_4",
+     "src": "train-station/plates/train-station_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "train-station_v_2",
+     "src": "train-station/plates/train-station_v_2.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "train-station_vn_4",
+     "src": "train-station/plates/train-station_vn_4.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "taxi": {
    "set": "Beside a yellow taxi on a sunny street: the car's front seat with a steering wheel and a small meter box with a blank screen, a kerb, and a tall station building in the background, warm yellow and sky-blue palette.",
@@ -730,7 +1000,59 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "taxi_p_2",
+     "src": "taxi/plates/taxi_p_2.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "taxi_pn_2",
+     "src": "taxi/plates/taxi_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "taxi_pn_3",
+     "src": "taxi/plates/taxi_pn_3.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "taxi_v_1",
+     "src": "taxi/plates/taxi_v_1.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "taxi_vn_2",
+     "src": "taxi/plates/taxi_vn_2.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "supermarket": {
    "set": "A bright supermarket checkout area: a conveyor belt till with a card reader, shelves of colourful produce behind, a small customer service desk with a blank sign on the side, green and orange palette.",
@@ -850,7 +1172,49 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "supermarket_p_2",
+     "src": "supermarket/plates/supermarket_p_2.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "supermarket_v_2",
+     "src": "supermarket/plates/supermarket_v_2.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "supermarket_vn_1",
+     "src": "supermarket/plates/supermarket_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "supermarket_vn_4",
+     "src": "supermarket/plates/supermarket_vn_4.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "shop-return": {
    "set": "A tidy clothing shop: a wooden counter with a till, racks of colourful clothes on the left, a mirror on the right wall, soft white and peach palette.",
@@ -969,7 +1333,59 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "shop-return_p_1",
+     "src": "shop-return/plates/shop-return_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "shop-return_pn_1",
+     "src": "shop-return/plates/shop-return_pn_1.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "shop-return_pn_4",
+     "src": "shop-return/plates/shop-return_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "shop-return_v_2",
+     "src": "shop-return/plates/shop-return_v_2.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "shop-return_vn_4",
+     "src": "shop-return/plates/shop-return_vn_4.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "pharmacy": {
    "set": "A calm pharmacy: a white counter, shelves of plain unlabelled boxes and bottles, a leafy plant, mint-green and white palette.",
@@ -1089,7 +1505,49 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "pharmacy_p_2",
+     "src": "pharmacy/plates/pharmacy_p_2.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "pharmacy_pn_3",
+     "src": "pharmacy/plates/pharmacy_pn_3.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "pharmacy_v_2",
+     "src": "pharmacy/plates/pharmacy_v_2.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "pharmacy_vn_4",
+     "src": "pharmacy/plates/pharmacy_vn_4.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "dentist": {
    "set": "A clean dentist surgery: a reclining blue dental chair with a round light above, a small tray of instruments and a poster showing a plain tooth icon, pale blue and white palette.",
@@ -1210,7 +1668,59 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "dentist_p_4",
+     "src": "dentist/plates/dentist_p_4.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "dentist_pn_2",
+     "src": "dentist/plates/dentist_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "dentist_pn_4",
+     "src": "dentist/plates/dentist_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "dentist_v_2",
+     "src": "dentist/plates/dentist_v_2.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "dentist_vn_2",
+     "src": "dentist/plates/dentist_vn_2.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "bank": {
    "set": "A modern bank branch: a desk with a computer showing a blank blue screen with simple icons, two chairs, a plant, and a big window; navy and teal palette with warm accents.",
@@ -1331,7 +1841,59 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "bank_p_2",
+     "src": "bank/plates/bank_p_2.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "bank_pn_2",
+     "src": "bank/plates/bank_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "bank_pn_4",
+     "src": "bank/plates/bank_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "bank_v_4",
+     "src": "bank/plates/bank_v_4.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "bank_vn_3",
+     "src": "bank/plates/bank_vn_3.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "job-interview": {
    "set": "A bright modern office meeting room: a large wooden table with two chairs, a window with a city skyline, a plant in the corner, neutral white and soft blue palette.",
@@ -1453,7 +2015,69 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "job-interview_p_1",
+     "src": "job-interview/plates/job-interview_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "job-interview_pn_1",
+     "src": "job-interview/plates/job-interview_pn_1.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "job-interview_pn_2",
+     "src": "job-interview/plates/job-interview_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "job-interview_v_4",
+     "src": "job-interview/plates/job-interview_v_4.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "job-interview_vn_1",
+     "src": "job-interview/plates/job-interview_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "job-interview_vn_3",
+     "src": "job-interview/plates/job-interview_vn_3.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "office-intro": {
    "set": "An open-plan office corridor with desks and laptops on the left, a small kitchen area with a kettle in the background, a staircase on the right, light grey walls with lime-green and orange accents.",
@@ -1573,7 +2197,79 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "office-intro_p_1",
+     "src": "office-intro/plates/office-intro_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "office-intro_pn_3",
+     "src": "office-intro/plates/office-intro_pn_3.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "office-intro_pn_4",
+     "src": "office-intro/plates/office-intro_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "office-intro_v_1",
+     "src": "office-intro/plates/office-intro_v_1.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "office-intro_v_4",
+     "src": "office-intro/plates/office-intro_v_4.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "office-intro_vn_1",
+     "src": "office-intro/plates/office-intro_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "office-intro_vn_3",
+     "src": "office-intro/plates/office-intro_vn_3.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "team-meeting": {
    "set": "A bright meeting room: a long table with two laptops and a notebook, a wall-mounted blank whiteboard with simple coloured shapes, a window and a plant, white and blue palette.",
@@ -1696,7 +2392,59 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "team-meeting_p_2",
+     "src": "team-meeting/plates/team-meeting_p_2.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "team-meeting_pn_1",
+     "src": "team-meeting/plates/team-meeting_pn_1.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "team-meeting_pn_4",
+     "src": "team-meeting/plates/team-meeting_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "team-meeting_vn_1",
+     "src": "team-meeting/plates/team-meeting_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "team-meeting_vn_3",
+     "src": "team-meeting/plates/team-meeting_vn_3.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "flat-viewing": {
    "set": "A light, airy open-plan flat: a grey sofa, a double bed visible through an open door, a wardrobe, a small kitchenette, big windows, warm wood floor and soft pastel palette.",
@@ -1818,7 +2566,79 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "flat-viewing_p_1",
+     "src": "flat-viewing/plates/flat-viewing_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "flat-viewing_p_3",
+     "src": "flat-viewing/plates/flat-viewing_p_3.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "flat-viewing_pn_2",
+     "src": "flat-viewing/plates/flat-viewing_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "flat-viewing_pn_4",
+     "src": "flat-viewing/plates/flat-viewing_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "flat-viewing_v_1",
+     "src": "flat-viewing/plates/flat-viewing_v_1.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "flat-viewing_v_2",
+     "src": "flat-viewing/plates/flat-viewing_v_2.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "flat-viewing_vn_2",
+     "src": "flat-viewing/plates/flat-viewing_vn_2.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "phone-plan": {
    "set": "A modern phone shop: glass display counters with phones, a wall of colourful phone models, a counter with a tablet, bright white and purple palette.",
@@ -1938,7 +2758,59 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "phone-plan_p_1",
+     "src": "phone-plan/plates/phone-plan_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "phone-plan_pn_3",
+     "src": "phone-plan/plates/phone-plan_pn_3.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "phone-plan_v_1",
+     "src": "phone-plan/plates/phone-plan_v_1.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "phone-plan_v_3",
+     "src": "phone-plan/plates/phone-plan_v_3.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "phone-plan_vn_2",
+     "src": "phone-plan/plates/phone-plan_vn_2.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "lost-luggage": {
    "set": "An airport baggage claim hall: an empty luggage carousel in the background, a lost-luggage desk with a blank screen, a big window with a plane outline, blue and orange palette.",
@@ -2058,7 +2930,79 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "lost-luggage_p_1",
+     "src": "lost-luggage/plates/lost-luggage_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "lost-luggage_pn_2",
+     "src": "lost-luggage/plates/lost-luggage_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "lost-luggage_pn_4",
+     "src": "lost-luggage/plates/lost-luggage_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "lost-luggage_v_2",
+     "src": "lost-luggage/plates/lost-luggage_v_2.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "lost-luggage_v_4",
+     "src": "lost-luggage/plates/lost-luggage_v_4.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "lost-luggage_vn_2",
+     "src": "lost-luggage/plates/lost-luggage_vn_2.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "lost-luggage_vn_3",
+     "src": "lost-luggage/plates/lost-luggage_vn_3.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "cinema-tickets": {
    "set": "A cheerful cinema lobby: a ticket counter with a glass window, a blank poster wall showing only colourful shapes, a popcorn machine, deep red and gold palette.",
@@ -2177,7 +3121,89 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "cinema-tickets_p_1",
+     "src": "cinema-tickets/plates/cinema-tickets_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "cinema-tickets_p_3",
+     "src": "cinema-tickets/plates/cinema-tickets_p_3.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "cinema-tickets_pn_2",
+     "src": "cinema-tickets/plates/cinema-tickets_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "cinema-tickets_pn_3",
+     "src": "cinema-tickets/plates/cinema-tickets_pn_3.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "cinema-tickets_v_1",
+     "src": "cinema-tickets/plates/cinema-tickets_v_1.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "cinema-tickets_v_3",
+     "src": "cinema-tickets/plates/cinema-tickets_v_3.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "cinema-tickets_vn_1",
+     "src": "cinema-tickets/plates/cinema-tickets_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "cinema-tickets_vn_4",
+     "src": "cinema-tickets/plates/cinema-tickets_vn_4.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "party-invite": {
    "set": "A friendly neighbourhood park bench scene: green trees, a wooden bench, a blue sky, with a small floating balloon bunch tied to the bench, bright pastel palette.",
@@ -2295,7 +3321,49 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "party-invite_p_4",
+     "src": "party-invite/plates/party-invite_p_4.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "party-invite_pn_1",
+     "src": "party-invite/plates/party-invite_pn_1.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "party-invite_pn_2",
+     "src": "party-invite/plates/party-invite_pn_2.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "party-invite_v_3",
+     "src": "party-invite/plates/party-invite_v_3.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   },
   "post-office": {
    "set": "A cheerful post office: a counter with a parcel scale and stamps, wall shelves of boxes and envelopes, a blank queue ticket machine, red and cream palette.",
@@ -2416,7 +3484,79 @@
     "blog_est": 2,
     "podcast_est": 1
    },
-   "uses": 0
+   "uses": 0,
+   "plates": [
+    {
+     "id": "post-office_p_1",
+     "src": "post-office/plates/post-office_p_1.png",
+     "aspect": "16:9",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "post-office_pn_1",
+     "src": "post-office/plates/post-office_pn_1.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "post-office_pn_4",
+     "src": "post-office/plates/post-office_pn_4.png",
+     "aspect": "16:9",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "post-office_v_1",
+     "src": "post-office/plates/post-office_v_1.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "post-office_v_4",
+     "src": "post-office/plates/post-office_v_4.png",
+     "aspect": "9:16",
+     "light": "day",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "post-office_vn_1",
+     "src": "post-office/plates/post-office_vn_1.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    },
+    {
+     "id": "post-office_vn_3",
+     "src": "post-office/plates/post-office_vn_3.png",
+     "aspect": "9:16",
+     "light": "evening",
+     "people": 0,
+     "text": 0,
+     "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ]
   }
  }
 }
