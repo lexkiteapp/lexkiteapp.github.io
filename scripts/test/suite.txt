@@ -363,6 +363,7 @@ node scripts/test/site-footer.mjs
 node scripts/test/v2pre-ring.mjs
 node scripts/test/zombie-pages.mjs
 node scripts/test/ci-guards.mjs
+node scripts/test/workflow-cd-paths.mjs
 node scripts/test/apt-install.mjs
 node scripts/test/perf-median.mjs
 node scripts/test/pr-unconflict.mjs
