@@ -1288,6 +1288,7 @@
 "your / you’re":"your / you’re",
 "{answered} câu trả lời · {mistakes} lần sai · +20 XP thưởng":"{answered} 답변 · {mistakes} 실수 · +20 보너스 XP",
 "{a}/{b} XP tới cấp {n}":"{a}/{b} 레벨 {n}까지 XP",
+"{a}/{b} bài":"{a}/{b} 레슨",
 "{a}/{b} việc":"{a}/{b} 완료",
 "{c}% câu có cấu trúc phức · {e} lỗi phát hiện.":"{c}%개의 복잡한 문장 · {e}개의 오류가 발견되었습니다.",
 "{done}/{total} bài hoàn thành · Học theo vòng: giới thiệu → luyện → nghe → kiểm tra, rồi ôn lại đúng thời điểm vàng.":"{done}/{total} 단위 완료 · 순환 학습: 소개 → 연습 → 듣기 → 테스트 후 최적의 시간에 검토합니다.",

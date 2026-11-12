@@ -1288,6 +1288,7 @@
 "your / you’re":"your / you’re",
 "{answered} câu trả lời · {mistakes} lần sai · +20 XP thưởng":"{answered} الإجابات · {mistakes} الأخطاء · +20 نقطة خبرة إضافية",
 "{a}/{b} XP tới cấp {n}":"{a}/{b} XP إلى المستوى {n}",
+"{a}/{b} bài":"{a}/{b} دروس",
 "{a}/{b} việc":"{a}/{b} تم",
 "{c}% câu có cấu trúc phức · {e} lỗi phát hiện.":"{c}% جمل معقدة · {e} تم العثور على أخطاء.",
 "{done}/{total} bài hoàn thành · Học theo vòng: giới thiệu → luyện → nghe → kiểm tra, rồi ôn lại đúng thời điểm vàng.":"{done}/{total} اكتملت الوحدات · تعلم في دورات: قدم ← تدرب ← استمع ← اختبر، ثم قم بالمراجعة في الوقت الأمثل.",

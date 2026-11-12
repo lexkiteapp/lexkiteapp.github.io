@@ -1288,6 +1288,7 @@
 "your / you’re":"your / you’re",
 "{answered} câu trả lời · {mistakes} lần sai · +20 XP thưởng":"{answered} คำตอบ · {mistakes} ข้อผิดพลาด · +20 XP โบนัส",
 "{a}/{b} XP tới cấp {n}":"{a}/{b} XP สู่ระดับ {n}",
+"{a}/{b} bài":"{a}/{b} บทเรียน",
 "{a}/{b} việc":"{a}/{b} เสร็จแล้ว",
 "{c}% câu có cấu trúc phức · {e} lỗi phát hiện.":"{c}% ประโยคที่ซับซ้อน · พบข้อผิดพลาด {e}",
 "{done}/{total} bài hoàn thành · Học theo vòng: giới thiệu → luyện → nghe → kiểm tra, rồi ôn lại đúng thời điểm vàng.":"หน่วย {done}/{total} เสร็จสมบูรณ์ · เรียนรู้เป็นรอบ: แนะนำ → ฝึกฝน → ฟัง → ทดสอบ จากนั้นทบทวนในเวลาที่เหมาะสม",
