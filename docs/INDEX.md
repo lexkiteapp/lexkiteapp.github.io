@@ -26,6 +26,7 @@
 - [specs/cambridge.md](specs/cambridge.md) — Định dạng đề Cambridge A2–C2 (web/cpack/cambridge/<cấp>/t<N>.js), màn #/cambridge, cổng exam-format-check + cambridge.mjs; đọc khi: viết/soát lô S-CAM hoặc sửa màn Cambridge
 - [specs/content-upgrade-2.md](specs/content-upgrade-2.md) — Nâng cấp nội dung Đợt 2 (05/11): 3 làn gộp/mở khoá/viết, cổng QC, thứ tự O2→O5→O3→O4→O6; đọc khi: mở phiên content-lead hoặc Sonnet viết lô
 - [specs/teach-assets-cdn.md](specs/teach-assets-cdn.md) — Spec kho riêng ảnh/clip giáo viên teach.lexkite.com (Pages tĩnh, băm sha256, CORS, dự phòng /teach/); đọc khi: đổi nơi tải ảnh/clip giáo viên
+- [specs/merge-queue.md](specs/merge-queue.md) — Merge queue + chống xung đột PR, việc chủ bấm ở ruleset; đọc khi: PR kẹt hàng, sửa pr-unconflict
 - [specs/native-apps.md](specs/native-apps.md) — Spec app iOS (SwiftUI) + Android (Compose) native thay bản Capacitor: 29 mục parity (native/shared/parity.json), một nguồn sinh tokens/chuỗi 15 ngôn ngữ/khung/luật chấm điểm (scripts/native/gen.mjs), MVVM + SwiftData/Room, CI native-ios/native-android, lộ trình M0–M6; đọc khi: sửa native/, thêm route web, thay app trên store
 - [specs/native-m2-vectors.md](specs/native-m2-vectors.md) — Lược đồ vector M2 (bài học, rig giáo viên, âm thanh) + ảnh giáo viên đóng gói cho bản port Swift/Kotlin; đọc khi: port/sửa trình học bài, giáo viên, âm thanh native
 - [specs/native-m3-vectors.md](specs/native-m3-vectors.md) — Lược đồ vector M3 `vocab.json` (P04/P05) và kiểm kê màn từ vựng

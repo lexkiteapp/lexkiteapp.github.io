@@ -1,3 +1,14 @@
-/* UI ar – explain (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {"Cấu trúc":"التركيب","Xem giải thích chi tiết":"عرض الشرح الكامل","Vì sao lựa chọn của bạn sai":"لماذا اختيارك خاطئ","Bằng chứng trong bài":"الدليل في النص","Sắc thái nghĩa":"الفرق الدقيق في المعنى","Ví dụ thêm":"أمثلة أخرى","Cùng nhóm":"النمط نفسه","Thêm vào ôn tập":"أضف إلى المراجعة","Báo lỗi giải thích":"الإبلاغ عن خطأ في هذا الشرح","Nghe ví dụ":"استمع إلى المثال"});
+/* UI ar – explain (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {
+"Báo lỗi giải thích":"الإبلاغ عن خطأ في هذا الشرح",
+"Bằng chứng trong bài":"الدليل في النص",
+"Cùng nhóm":"النمط نفسه",
+"Cấu trúc":"التركيب",
+"Nghe ví dụ":"استمع إلى المثال",
+"Sắc thái nghĩa":"الفرق الدقيق في المعنى",
+"Thêm vào ôn tập":"أضف إلى المراجعة",
+"Vì sao lựa chọn của bạn sai":"لماذا اختيارك خاطئ",
+"Ví dụ thêm":"أمثلة أخرى",
+"Xem giải thích chi tiết":"عرض الشرح الكامل",
+});
 })(typeof self !== 'undefined' ? self : this);
