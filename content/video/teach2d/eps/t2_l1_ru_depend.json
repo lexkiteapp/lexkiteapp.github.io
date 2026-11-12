@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_depend",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Which small word is right?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It depends from the weather.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It depends on the weather.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Depend goes with on.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! It depends on you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It depends from the weather.",
+  "right": "It depends on the weather.",
+  "strike": "from",
+  "why": "Depend goes with on.",
+  "memory": "Depend on.",
+  "quiz": {
+   "stem": "It depends ___ you.",
+   "options": [
+    "from",
+    "on"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Depend from” или “depend on”?",
+   "tip": "После depend ставь “on”: “It depends on the weather”.",
+   "caption": "Ты тоже говоришь “It depends from the weather.”? 😅 Русское «зависит от» тянет за собой “from”, а нужно “on”. Правильно: “It depends on the weather.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “on”. После depend всегда on. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Which small word is right?",
+   "tip": "After depend, use “on”: “It depends on the weather”.",
+   "caption": "Do you also say “It depends from the weather.”? 😅 Russian “zavisit ot” pulls in “from”, but you need “on”. Correct: “It depends on the weather.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Depend from” или “depend on”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Depend from” или “depend on”?",
+  "keyword": "It depends on the weather.",
+  "value": "После depend ставь “on”: “It depends on the weather”.",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“Depend from” или “depend on”?",
+    "description": "Ты тоже говоришь “It depends from the weather.”? 😅 Русское «зависит от» тянет за собой “from”, а нужно “on”. Правильно: “It depends on the weather.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "It depends on the weather.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “It depends from the weather.”? 😅 Русское «зависит от» тянет за собой “from”, а нужно “on”. Правильно: “It depends on the weather.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Ты тоже говоришь “It depends from the weather.”? 😅 Русское «зависит от» тянет за собой “from”, а нужно “on”. Правильно: “It depends on the weather.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Depend from” или “depend on”? #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “on”. После depend всегда on. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

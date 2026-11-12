@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_taxi",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "In a taxi, on a train!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I got on the taxi.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I got in the taxi.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Small cars use in. Big ones use on.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! I got in the taxi.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I got on the taxi.",
+  "right": "I got in the taxi.",
+  "strike": "on",
+  "why": "Small cars use in. Big ones use on.",
+  "memory": "I got in the taxi.",
+  "quiz": {
+   "stem": "I got ___ the taxi.",
+   "options": [
+    "in",
+    "on"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "タクシーに「on」で乗ってない？",
+   "tip": "車・タクシーは in、電車・バスは on。乗り物の大きさで使い分けます。",
+   "caption": "“I got on the taxi.”と言っていませんか？😅 車やタクシーのような小さい乗り物は in、電車やバスのような大きい乗り物は on を使います。 “I got in the taxi.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“in”。車は in、電車は on。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you get “on” a taxi?",
+   "tip": "Use in for cars and taxis. Use on for trains and buses.",
+   "caption": "Do you say “I got on the taxi.”? 😅 Small vehicles like cars and taxis use in. Big ones like trains and buses use on. The natural way is “I got in the taxi.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "タクシーに「on」で乗ってない？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "タクシーに「on」で乗ってない？",
+  "keyword": "I got in the taxi.",
+  "value": "車・タクシーは in、電車・バスは on。乗り物の大きさで使い分けます。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "タクシーに「on」で乗ってない？",
+    "description": "“I got on the taxi.”と言っていませんか？😅 車やタクシーのような小さい乗り物は in、電車やバスのような大きい乗り物は on を使います。 “I got in the taxi.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I got in the taxi.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I got on the taxi.”と言っていませんか？😅 車やタクシーのような小さい乗り物は in、電車やバスのような大きい乗り物は on を使います。 “I got in the taxi.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I got on the taxi.”と言っていませんか？😅 車やタクシーのような小さい乗り物は in、電車やバスのような大きい乗り物は on を使います。 “I got in the taxi.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "タクシーに「on」で乗ってない？ #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“in”。車は in、電車は on。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

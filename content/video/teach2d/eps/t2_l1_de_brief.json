@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_brief",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Brief is not a letter!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I wrote a brief to my friend.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I wrote a letter to my friend.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Brief means short in English.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Letter! I wrote a letter to my friend.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I wrote a brief to my friend.",
+  "right": "I wrote a letter to my friend.",
+  "strike": "brief",
+  "why": "Brief means short in English.",
+  "memory": "Letter, not brief.",
+  "quiz": {
+   "stem": "I wrote a ___ to my friend.",
+   "options": [
+    "brief",
+    "letter"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Ein „Brief“ ist kein „brief“!",
+   "tip": "„Brief“ heißt auf Englisch „kurz“. Der Brief aus Papier ist ein „letter“.",
+   "caption": "Schreibst du einen Brief auf Englisch? ✉️ Falsch: “I wrote a brief to my friend.” Richtig: “I wrote a letter to my friend.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “letter”. Richtig heißt es: “I wrote a letter to my friend.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Are you writing a Brief in English?",
+   "tip": "“Brief” means “kurz” in English. A paper Brief is a “letter”.",
+   "caption": "Are you writing a Brief in English? Wrong: “I wrote a brief to my friend.” Right: “I wrote a letter to my friend.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Ein „Brief“ ist kein „brief“!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "Ein „Brief“ ist kein „brief“!",
+  "keyword": "I wrote a letter to my friend.",
+  "value": "„Brief“ heißt auf Englisch „kurz“. Der Brief aus Papier ist ein „letter“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "Ein „Brief“ ist kein „brief“!",
+    "description": "Schreibst du einen Brief auf Englisch? ✉️ Falsch: “I wrote a brief to my friend.” Richtig: “I wrote a letter to my friend.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I wrote a letter to my friend.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Schreibst du einen Brief auf Englisch? ✉️ Falsch: “I wrote a brief to my friend.” Richtig: “I wrote a letter to my friend.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Schreibst du einen Brief auf Englisch? ✉️ Falsch: “I wrote a brief to my friend.” Richtig: “I wrote a letter to my friend.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Ein „Brief“ ist kein „brief“! #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “letter”. Richtig heißt es: “I wrote a letter to my friend.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

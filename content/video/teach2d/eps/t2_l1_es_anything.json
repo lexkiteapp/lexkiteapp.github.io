@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_anything",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Two nos? Not in English!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I don't know nothing.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I don't know anything.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After don't, use anything.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Anything! I don't see anything.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I don't know nothing.",
+  "right": "I don't know anything.",
+  "strike": "nothing",
+  "why": "After don't, use anything.",
+  "memory": "Not anything.",
+  "quiz": {
+   "stem": "I don't see ___.",
+   "options": [
+    "nothing",
+    "anything"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“No sé nada” no es “nothing”",
+   "tip": "En inglés no se doblan los negativos: “don't” + “anything”, no “nothing”.",
+   "caption": "En español “no sé nada” lleva dos negaciones, pero en inglés solo una 🤓 Di “I don't know anything.”, no “I don't know nothing.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “anything”. Una sola negación por frase. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“No sé nada” is not “nothing”",
+   "tip": "English does not double negatives: “don't” + “anything”, not “nothing”.",
+   "caption": "In Spanish “no sé nada” has two negatives, but English has only one. Say “I don't know anything.”, not “I don't know nothing.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“No sé nada” no es “nothing”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“No sé nada” no es “nothing”",
+  "keyword": "I don't know anything.",
+  "value": "En inglés no se doblan los negativos: “don't” + “anything”, no “nothing”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "“No sé nada” no es “nothing”",
+    "description": "En español “no sé nada” lleva dos negaciones, pero en inglés solo una 🤓 Di “I don't know anything.”, no “I don't know nothing.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "I don't know anything.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "En español “no sé nada” lleva dos negaciones, pero en inglés solo una 🤓 Di “I don't know anything.”, no “I don't know nothing.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "En español “no sé nada” lleva dos negaciones, pero en inglés solo una 🤓 Di “I don't know anything.”, no “I don't know nothing.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“No sé nada” no es “nothing” #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “anything”. Una sola negación por frase. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

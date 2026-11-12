@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_past_go",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Yesterday needs a past verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Yesterday I go to school.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Yesterday I went to school.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Yesterday means past. Use went.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Went! Last night I went home.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Yesterday I go to school.",
+  "right": "Yesterday I went to school.",
+  "strike": "go",
+  "why": "Yesterday means past. Use went.",
+  "memory": "Yesterday: past verb.",
+  "quiz": {
+   "stem": "Last night I ___ home.",
+   "options": [
+    "go",
+    "went"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Yesterday I go” sai ở đâu?",
+   "tip": "Tiếng Việt không đổi động từ theo thì. Tiếng Anh thì có: hôm qua phải dùng quá khứ.",
+   "caption": "Bạn có hay nói “Yesterday I go to school.” không? 😅 Có “yesterday” thì động từ về quá khứ: “Yesterday I went to school.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “went”. Kể lại ngày hôm qua của bạn bằng 3 câu quá khứ nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#thiquakhu",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Hôm qua mà vẫn nói “go”?",
+   "tip": "Vietnamese verbs do not change with time. In English, “yesterday” needs the past form.",
+   "caption": "Do you often say “Yesterday I go to school.”? With “yesterday”, the verb goes to the past: “Yesterday I went to school.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Yesterday I go” sai ở đâu?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Yesterday I go” sai ở đâu?",
+  "keyword": "Yesterday I went to school.",
+  "value": "Tiếng Việt không đổi động từ theo thì. Tiếng Anh thì có: hôm qua phải dùng quá khứ.",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#thiquakhu",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“Yesterday I go” sai ở đâu?",
+    "description": "Bạn có hay nói “Yesterday I go to school.” không? 😅 Có “yesterday” thì động từ về quá khứ: “Yesterday I went to school.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #thiquakhu #lexkite",
+    "tags": [
+     "Yesterday I went to school.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “Yesterday I go to school.” không? 😅 Có “yesterday” thì động từ về quá khứ: “Yesterday I went to school.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Bạn có hay nói “Yesterday I go to school.” không? 😅 Có “yesterday” thì động từ về quá khứ: “Yesterday I went to school.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#thiquakhu",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Yesterday I go” sai ở đâu? #hoctienganh #nguphaptienganh #thiquakhu"
+   }
+  },
+  "first_comment": "Đáp án: “went”. Kể lại ngày hôm qua của bạn bằng 3 câu quá khứ nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}
