@@ -9,6 +9,7 @@ import { loadVocab } from './seo-data.mjs';
 import { esc, appHref } from './site-layout.mjs';
 import { LANGS, S, POS, fill } from './seo-pages-i18n.mjs';
 import { toolPath, toolStrings } from './tools-links.mjs';
+import { copyOf as goCopy } from '../build-go.mjs';
 import { loadSources, enrich } from '../dict/build.mjs';
 import { measure, deep } from './word-depth.mjs';
 import { PRIORITY_LANGS } from '../../functions/api/_cpm.js';
@@ -71,6 +72,8 @@ export { setOf, idxW, inSet, slug, gloss, topicOf };
 
 export const en = s => `<span lang="en" dir="ltr">${esc(s)}</span>`;
 export const appLink = (lang, route) => `${appHref(lang)}#/${route}`;
+// Liên kết nội bộ → trang đích học thử /go/<lang>/ (docs/specs/funnel.md): đưa khách SEO vào bài 60 giây không đăng ký; UTM seo/<loại trang> hiện trong Quản trị › Kênh & mã bài
+export const goLine = (l, medium = 'word') => `<p class="golink"><a href="/go/${l}/?utm_source=seo&amp;utm_medium=${medium}&amp;utm_campaign=${l}">${esc(goCopy(l).h1)} →</a></p>`;
 export const cta = (title, note, href, btn) => `<div class="cta"><p><strong>${esc(title)}</strong><small>${esc(note)}</small></p><a class="btn" href="${href}">${esc(btn)} →</a></div>`;
 export const wPath = (l, e) => `/${l}/words/${slug.get(e)}`;
 const DX = loadSources(LANGS); // "Cách dùng từ", kho câu tự soạn, WordNet, bài blog đã đăng – cùng nguồn trang từ điển (scripts/dict/build.mjs)
@@ -140,7 +143,7 @@ ${mis.length ? sec('x', 'mis', t.mis, `<ul class="mis">${mis.map(x => `<li><span
 ${n ? sec('n', 'notes', t.notes, [['m', t.nm], ['e', t.ne], ['u', t.nu], ['f', t.nf]].filter(([q]) => n[q] && !(q === 'f' && famN.length)).map(([q, lb]) => `<p class="note"><b>${esc(lb)}:</b> ${esc(n[q])}</p>`).join('')) : ''}
 ${wnS.length ? sec('o', 'wn', t.wn, `<ol lang="en" dir="ltr">${wnS.map(x => `<li>${esc(x.g)}${x.x ? `<br><i>“${esc(x.x)}”</i>` : ''}</li>`).join('')}</ol><p class="mt">${esc(t.wnSrc)}: <a href="https://en-word.net/" rel="noopener">Open English WordNet</a> (<a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener">CC BY 4.0</a>)</p>`) : ''}
 ${faq.length >= 2 ? sec('q', 'faq', t.fq, faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')) : ''}
-${cta(fill(t.ctaW, { w }), t.ctaWn, appLink(l, 'dict/' + encodeURIComponent(w)), t.ctaB)}
+${cta(fill(t.ctaW, { w }), t.ctaWn, appLink(l, 'dict/' + encodeURIComponent(w)), t.ctaB)}${goLine(l, 'word')}
 ${tools.length ? sec('t', '', t.tools, `<ul>${tools.map(([h, x]) => `<li><a href="${h}">${esc(x)}</a></li>`).join('')}</ul>`) : ''}
 ${dx.blogs.length ? sec('b', '', t.blog, `<ul>${dx.blogs.map(b => `<li><a href="${b.href}">${esc(b.t)}</a></li>`).join('')}</ul>`) : ''}
 ${near.length ? sec('r', '', t.rel, `<p class="chips">${near.map(x => `<a href="${wPath(l, x)}" lang="en" dir="ltr">${esc(x.word)}</a>`).join('')}</p>`) : ''}

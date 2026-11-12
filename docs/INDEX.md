@@ -109,6 +109,7 @@
 - [specs/go-landing.md](specs/go-landing.md) — Trang đích /go/<lang>/ học thử không đăng ký, UTM sạch, đếm go_*; đọc khi: sửa build-go.mjs, content/go, phễu kênh.
 - [specs/funnel.md](specs/funnel.md) — Phễu kênh UTM → /go → app → bài đầu → D1/D7+, bảng Quản trị Kênh & mã bài; đọc khi: sửa _funnel.js, beacon at/fl, admin-channels.js.
 - [specs/referral.md](specs/referral.md) — Vòng giới thiệu: link mời, thưởng XP + đóng băng chuỗi hai phía, trần chống lạm dụng; đọc khi: sửa nút mời, api/ref.js.
+- [SEO-AUDIT-1211.md](SEO-AUDIT-1211.md) — Audit trang từ × 15 ngôn ngữ: quy mô index, lastmod, liên kết /go; đọc khi: chọn việc SEO cho thị trường CPM cao.
 - [specs/seo-words-depth.md](specs/seo-words-depth.md) — Spec độ dày trang từ /<lang>/words/: khối nội dung từ dữ liệu thật 15 ngôn ngữ, cổng DEPTH_MIN (noindex dưới ngưỡng), ảnh trước/sau, hộp blog → /words/ 13 ngôn ngữ (lib seo-words/blog-words); đọc khi: sửa build-seo-pages.mjs, seo-words.mjs, word-depth.mjs, blog-words.mjs
 - [specs/words-off-pages.md](specs/words-off-pages.md) — Spec chuyển trang từ 13 ngôn ngữ sang R2 + Pages Function (giữ URL) để nâng 650 → 1.000 trong ngân sách file; đọc khi: làm SEO-ARCH § Ngân sách file
 - [specs/notifications.md](specs/notifications.md) — Chuẩn mọi thông báo (push, nhắc học, toast, banner, báo lỗi): hỏi quyền sau giá trị, tắt dễ, ≤1/ngày, giọng không dọa, toast một-cái có nút sửa, 15 ngôn ngữ; bảng chỗ lệch; đọc khi: thêm/sửa thông báo/toast
