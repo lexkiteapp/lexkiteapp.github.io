@@ -16,6 +16,7 @@
     ],
     "research": "2026-10-31: App Store arama önerileri (TR), Google Play ilk 30 (hl=tr, gl=TR) istek sınırı nedeniyle alınamadı, Google Suggest sınırlı – ana kaynak App Store önerileri. Lexkite henüz ilk 30'da değil."
   },
+  "whatsNew": "Lexkite 2.0 – tamamen yerel bir uygulama olarak sıfırdan yeniden yapıldı.\n• Daha hızlı, daha akıcı ve pil dostu\n• Bugünün planını net gösteren yeni tasarım\n• Konuşma pratiği: telaffuz geri bildirimi, rol yapma ve eller serbest modu\n• Yapay zekâ öğretmeninle pratik aramaları\n• Anında geri bildirimli yazma pratiği\n• İlerlemen otomatik olarak korunur\n• Birçok hata düzeltmesi",
   "play": {
     "title": "Lexkite: İngilizce Kelime",
     "shortDescription": "İngilizce kelime öğren: kartlar, telaffuzlu sözlük, IELTS ve TOEIC kelimeleri",

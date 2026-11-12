@@ -113,7 +113,7 @@ quiz: [
 
 {{cta: /tu-vung/ | เริ่มฝึกทักษะ TOEFL Writing}}
 
-เตรียมตัวสอบให้พร้อมด้วย [คลังคำศัพท์และข้อสอบจำลอง](/tu-vung/) เพื่อฝึกฝนคำศัพท์ทางวิชาการ และทดสอบความพร้อมในสภาพแวดล้อมที่จำกัดเวลาด้วย [ทำแบบทดสอบ TOEFL จำลอง](/app/#/mock) และฝึกทักษะการพูดควบคู่กันได้ที่ [Template IELTS Speaking Part 2](/th/blog/template-ielts-speaking-part-2/)
+เตรียมตัวสอบให้พร้อมด้วย [คลังคำศัพท์และข้อสอบจำลอง](/en/vocabulary/) เพื่อฝึกฝนคำศัพท์ทางวิชาการ และทดสอบความพร้อมในสภาพแวดล้อมที่จำกัดเวลาด้วย [ทำแบบทดสอบ TOEFL จำลอง](/app/#/mock) และฝึกทักษะการพูดควบคู่กันได้ที่ [Template IELTS Speaking Part 2](/th/blog/template-ielts-speaking-part-2/)
 
 {{youtube: | TOEFL iBT Writing Academic Discussion Guide}}
 
@@ -129,6 +129,8 @@ quiz: [
 > *"While I appreciate Paul's argument that subsidizing public education equips youth with indispensable problem-solving competencies, I firmly concur with Claire's viewpoint regarding the paramount urgency of green energy initiatives. Ecological degradation and climate instability represent acute, existential threats that necessitate immediate capital deployment, whereas the dividends of educational reforms typically manifest only after several decades. For instance, empirical data from Costa Rica illustrates that targeted government investments in geothermal and hydro power enabled the country to achieve 98% renewable grid coverage, substantially lowering respiratory ailments and attracting sustainable ecotourism. Therefore, directing public expenditures toward renewable transition not only addresses immediate environmental catastrophes but also stimulates systemic economic vitality, making it the most sensible fiscal policy for modern administrations."*
 
 ข้อเขียนตัวอย่างนี้มีความโดดเด่นทั้งการใช้คำศัพท์เฉพาะทางระดับสูง โครงสร้างประโยคแบบ Complex Sentence ที่เชื่อมโยงเหตุและผลอย่างสมบูรณ์ และการยกตัวอย่างประเทศคอสตาริกาเป็นข้อสนับสนุนเชิงประจักษ์ ซึ่งเป็นคุณสมบัติหลักที่ทำให้ระบบประเมินของ ETS ให้คะแนนระดับสูงสุด
+
+ข้อสอบ TOEFL ฉบับใหม่ปรับโครงสร้างทั้งชุด อ่านภาพรวมได้ที่[TOEFL ใหม่ 2026 คู่มือเตรียมตัว](/th/blog/toefl-mai-2026-khu-mue-triam-tua/)
 
 ## คำถามที่พบบ่อย (FAQ)
 

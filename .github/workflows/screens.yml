@@ -22,9 +22,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Chụp
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
           mkdir -p /tmp/screens && node scripts/test/screens.mjs /tmp/screens
       - name: Lưu vào nhánh screens (chỉ giữ bản mới nhất)
         run: |

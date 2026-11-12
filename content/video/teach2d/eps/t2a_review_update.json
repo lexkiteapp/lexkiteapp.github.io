@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"update\" mean?",
+  "keyword": "update",
+  "value": "Update means to change something by adding the most recent information.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=update",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"update\" mean?",
+    "description": "Update means to change something by adding the most recent information.\n\nReview your words, free: https://lexkite.com/app/#/review?w=update\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "update",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"update\" mean?\n\nUpdate means to change something by adding the most recent information.\n\nReview your words, free: https://lexkite.com/app/#/review?w=update"
+   },
+   "instagram": {
+    "caption": "What does \"update\" mean?\n\nUpdate means to change something by adding the most recent information.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"update\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to change something by adding the most recent information. Update means to change something by adding the most recent information. Try the full lesson and quiz here: {link}"
  }
 }

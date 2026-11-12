@@ -17,7 +17,7 @@
     var place = function () { // rộng: chân thanh bên
       var f = d.querySelector('.side-foot'), side = !!(wide && wide.matches && f);
       b.classList.toggle('in-side', side);
-      if (side) { if (b.parentNode !== f) f.appendChild(b); } else if (b.parentNode !== d.body) d.body.appendChild(b);
+      if (side) { if (!f.contains(b)) ((w.LexPill || 0).inMenu || f).appendChild(b); } else if (b.parentNode !== d.body) d.body.appendChild(b);
       html.classList.toggle('lk-fab', !side && !b.hidden);
     };
     var sync = function () { b.hidden = HIDE.test(location.hash); b.classList.remove('off'); place(); };

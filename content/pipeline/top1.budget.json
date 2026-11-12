@@ -1,14 +1,14 @@
 {
  "_doc": "Sàn Top-1 score – CHỈ TĂNG (docs/TOP1-SCORE.md). world-scorecard.yml --raise trên main hằng tuần; scripts/test/top1-score.mjs chặn PR hạ/xoá sàn so với origin/main.",
  "floors": {
-  "ui": 51.9,
-  "ux": 80,
+  "ui": 52.9,
+  "ux": 80.6,
   "perf": 80.3,
   "latent": 97,
-  "content": 49.4,
+  "content": 78.8,
   "i18n": 100,
   "notif": 100,
-  "total": 79.8,
+  "total": 83.9,
   "a11y": 98
  }
 }

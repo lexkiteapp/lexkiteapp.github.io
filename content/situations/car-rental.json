@@ -1,0 +1,963 @@
+{
+ "id": "car-rental",
+ "group": "transport",
+ "cefr": "B1",
+ "title": {
+  "en": "Car rental",
+  "vi": "Thuê xe ô tô",
+  "es": "Alquiler de coche",
+  "pt": "Aluguel de carro",
+  "fr": "Location de voiture",
+  "de": "Autovermietung",
+  "id": "Sewa mobil",
+  "th": "เช่ารถ",
+  "zh": "租车",
+  "ja": "レンタカー",
+  "ko": "렌터카",
+  "hi": "कार किराये पर लेना",
+  "ar": "استئجار سيارة",
+  "ru": "Аренда автомобиля",
+  "tr": "Araba kiralama"
+ },
+ "goal": {
+  "en": "Pick up your rental and drive away!",
+  "vi": "Nhận xe thuê và lên đường!",
+  "es": "¡Recoge tu coche de alquiler y ponte en marcha!",
+  "pt": "Retire seu carro alugado e pegue a estrada!",
+  "fr": "Récupérez votre voiture de location et prenez la route !",
+  "de": "Hol dein Mietauto ab und fahr los!",
+  "id": "Ambil mobil sewaanmu dan berangkat!",
+  "th": "รับรถเช่าแล้วออกเดินทางได้เลย!",
+  "zh": "取到租来的车，出发吧！",
+  "ja": "レンタカーを受け取って出発しよう！",
+  "ko": "렌터카를 받아서 출발해요!",
+  "hi": "किराये की कार लें और निकल पड़ें!",
+  "ar": "استلم سيارتك المستأجرة وانطلق!",
+  "ru": "Получи арендованную машину и в путь!",
+  "tr": "Kiraladığın arabayı al ve yola çık!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "book",
+   "title": {
+    "en": "Book & licence",
+    "vi": "Đặt xe & bằng lái",
+    "es": "Reserva y carné",
+    "pt": "Reserva e carteira",
+    "fr": "Réservation et permis",
+    "de": "Buchung & Führerschein",
+    "id": "Pemesanan & SIM",
+    "th": "จองและใบขับขี่",
+    "zh": "预订与驾照",
+    "ja": "予約と免許",
+    "ko": "예약과 면허",
+    "hi": "बुकिंग और लाइसेंस",
+    "ar": "الحجز ورخصة القيادة",
+    "ru": "Бронь и права",
+    "tr": "Rezervasyon ve ehliyet"
+   },
+   "lines": [
+    "b1",
+    "b2",
+    "b3",
+    "b4"
+   ]
+  },
+  {
+   "id": "cover",
+   "title": {
+    "en": "Insurance & fuel",
+    "vi": "Bảo hiểm & nhiên liệu",
+    "es": "Seguro y combustible",
+    "pt": "Seguro e combustível",
+    "fr": "Assurance et carburant",
+    "de": "Versicherung & Kraftstoff",
+    "id": "Asuransi & bensin",
+    "th": "ประกันและน้ำมัน",
+    "zh": "保险与燃油",
+    "ja": "保険と燃料",
+    "ko": "보험과 연료",
+    "hi": "बीमा और ईंधन",
+    "ar": "التأمين والوقود",
+    "ru": "Страховка и топливо",
+    "tr": "Sigorta ve yakıt"
+   },
+   "lines": [
+    "c1",
+    "c2",
+    "c3",
+    "c4"
+   ]
+  },
+  {
+   "id": "return",
+   "title": {
+    "en": "Check & return",
+    "vi": "Kiểm tra & trả xe",
+    "es": "Revisión y devolución",
+    "pt": "Vistoria e devolução",
+    "fr": "Contrôle et retour",
+    "de": "Prüfen & zurückgeben",
+    "id": "Periksa & kembalikan",
+    "th": "ตรวจรถและคืนรถ",
+    "zh": "验车与还车",
+    "ja": "確認と返却",
+    "ko": "점검과 반납",
+    "hi": "जाँच और वापसी",
+    "ar": "الفحص والإرجاع",
+    "ru": "Осмотр и возврат",
+    "tr": "Kontrol ve iade"
+   },
+   "lines": [
+    "r1",
+    "r2",
+    "r3",
+    "r4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "b1",
+   "who": "customer",
+   "en": "Hi, I'd like to rent a car for five days, please.",
+   "variants": {
+    "polite": "Hello, I'd like to rent a car for five days, if that's possible.",
+    "casual": "Hi, I need a car for five days."
+   },
+   "gloss": {
+    "en": "Saying you want to rent a car for five days.",
+    "vi": "Nói rằng bạn muốn thuê xe trong năm ngày.",
+    "es": "Dices que quieres alquilar un coche cinco días.",
+    "pt": "Diz que quer alugar um carro por cinco dias.",
+    "fr": "Dire que vous voulez louer une voiture pour cinq jours.",
+    "de": "Sagen, dass du ein Auto für fünf Tage mieten möchtest.",
+    "id": "Mengatakan bahwa kamu ingin menyewa mobil selama lima hari.",
+    "th": "บอกว่าอยากเช่ารถห้าวัน",
+    "zh": "说你想租车五天。",
+    "ja": "5日間レンタカーを借りたいと伝えます。",
+    "ko": "5일 동안 차를 빌리고 싶다고 말해요.",
+    "hi": "बताना कि आप पाँच दिन के लिए कार किराये पर लेना चाहते हैं।",
+    "ar": "قول إنك تريد استئجار سيارة لمدة خمسة أيام.",
+    "ru": "Сказать, что хотите арендовать машину на пять дней.",
+    "tr": "Beş günlüğüne araba kiralamak istediğini söyleme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b2",
+   "who": "barista",
+   "en": "Certainly. May I see your driving licence, please?",
+   "variants": {
+    "polite": "Certainly. Could I see your driving licence and passport, please?",
+    "casual": "Sure. Can I see your licence?"
+   },
+   "gloss": {
+    "en": "The agent asks to see your driving licence.",
+    "vi": "Nhân viên yêu cầu xem bằng lái xe của bạn.",
+    "es": "El empleado te pide ver tu carné de conducir.",
+    "pt": "O atendente pede para ver a sua carteira de motorista.",
+    "fr": "L'agent demande à voir votre permis de conduire.",
+    "de": "Der Mitarbeiter bittet darum, deinen Führerschein zu sehen.",
+    "id": "Petugas meminta melihat SIM-mu.",
+    "th": "พนักงานขอดูใบขับขี่ของคุณ",
+    "zh": "工作人员请你出示驾照。",
+    "ja": "スタッフが運転免許証の提示を求めます。",
+    "ko": "직원이 운전면허증을 보여 달라고 해요.",
+    "hi": "एजेंट आपका ड्राइविंग लाइसेंस देखना चाहता है।",
+    "ar": "يطلب الموظف رؤية رخصة قيادتك.",
+    "ru": "Сотрудник просит показать водительские права.",
+    "tr": "Görevli ehliyetini görmek istiyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "licence",
+     "ipa": "/ˈlaɪ.səns/",
+     "hi": "LY",
+     "note": {
+      "en": "Stress the first syllable: LY-suns. British spelling is \"licence\"; American English writes \"license\".",
+      "vi": "Nhấn âm đầu: LAI-sần. Anh-Anh viết \"licence\", Anh-Mỹ viết \"license\".",
+      "es": "Acentúa la primera sílaba: LY-suns. En inglés británico se escribe \"licence\"; en el americano, \"license\".",
+      "pt": "Acentue a primeira sílaba: LAI-sans. No inglês britânico escreve-se \"licence\"; no americano, \"license\".",
+      "fr": "Accentuez la première syllabe : LAÏ-sens. L'anglais britannique écrit « licence », l'américain « license ».",
+      "de": "Betone die erste Silbe: LAI-sens. Britisch schreibt man „licence“, amerikanisch „license“.",
+      "id": "Tekankan suku kata pertama: LAI-sens. Ejaan Inggris Britania \"licence\", Amerika \"license\".",
+      "th": "เน้นพยางค์แรก: ไล-เซินส์ อังกฤษแบบบริติชสะกด \"licence\" แบบอเมริกันสะกด \"license\"",
+      "zh": "重音在第一个音节：LY-suns。英式拼写是 licence，美式拼写是 license。",
+      "ja": "最初の音節を強く：ライ・センス。イギリス英語は「licence」、アメリカ英語は「license」と綴ります。",
+      "ko": "첫 음절에 강세: LY-suns. 영국식 철자는 \"licence\", 미국식은 \"license\"예요.",
+      "hi": "पहले अक्षर पर ज़ोर: LY-suns। ब्रिटिश वर्तनी \"licence\" है, अमेरिकी \"license\"।",
+      "ar": "شدّد على المقطع الأول: LY-suns. الإملاء البريطاني \"licence\" والأمريكي \"license\".",
+      "ru": "Ударение на первый слог: ЛАЙ-сенс. В британском варианте пишут \"licence\", в американском \"license\".",
+      "tr": "Vurgu ilk hecede: LAY-sıns. İngiliz yazımı \"licence\", Amerikan yazımı \"license\"."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b3",
+   "who": "customer",
+   "en": "Here you are. Do you have a small automatic? I can't drive a manual.",
+   "variants": {
+    "polite": "Here you are. Would you happen to have a small automatic? I'm afraid I can't drive a manual.",
+    "casual": "Here. Got a small automatic? I can't drive a manual."
+   },
+   "gloss": {
+    "en": "Handing over your licence and asking for a small automatic car.",
+    "vi": "Đưa bằng lái và hỏi xe nhỏ số tự động.",
+    "es": "Entregas el carné y pides un coche pequeño automático.",
+    "pt": "Entrega a carteira e pede um carro pequeno automático.",
+    "fr": "Tendre votre permis et demander une petite voiture automatique.",
+    "de": "Den Führerschein übergeben und nach einem kleinen Automatikwagen fragen.",
+    "id": "Menyerahkan SIM dan menanyakan mobil kecil bertransmisi otomatis.",
+    "th": "ยื่นใบขับขี่และถามหารถเล็กเกียร์ออโต้",
+    "zh": "递上驾照，询问有没有自动挡小型车。",
+    "ja": "免許証を渡して、小型のオートマ車があるか尋ねます。",
+    "ko": "면허증을 건네고 작은 자동 변속기 차가 있는지 물어요.",
+    "hi": "लाइसेंस देकर छोटी ऑटोमैटिक कार के बारे में पूछना।",
+    "ar": "تقديم الرخصة والسؤال عن سيارة صغيرة أوتوماتيكية.",
+    "ru": "Протянуть права и спросить про маленькую машину с автоматом.",
+    "tr": "Ehliyeti uzatıp küçük, otomatik vitesli bir araba sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "manual",
+     "ipa": "/ˈmæn.ju.əl/",
+     "hi": "MAN",
+     "note": {
+      "en": "Stress the first syllable: MAN-yoo-ul. A \"manual\" car has a stick shift; an \"automatic\" changes gear by itself.",
+      "vi": "Nhấn âm đầu: MEN-diu-ồl. Xe \"manual\" là xe số sàn; xe \"automatic\" tự đổi số.",
+      "es": "Acentúa la primera sílaba: MAN-yu-ul. Un coche \"manual\" tiene cambio de marchas; el \"automatic\" cambia solo.",
+      "pt": "Acentue a primeira sílaba: MÉN-iu-ul. Carro \"manual\" tem câmbio manual; o \"automatic\" troca de marcha sozinho.",
+      "fr": "Accentuez la première syllabe : MAN-you-eul. Une voiture « manual » est à boîte manuelle ; « automatic » change de vitesse seule.",
+      "de": "Betone die erste Silbe: MÄN-ju-ul. Ein „manual“ ist ein Schaltwagen; ein „automatic“ schaltet selbst.",
+      "id": "Tekankan suku kata pertama: MEN-yu-ul. Mobil \"manual\" bergigi biasa; \"automatic\" pindah gigi sendiri.",
+      "th": "เน้นพยางค์แรก: แมน-ยู-อัล รถ \"manual\" คือเกียร์ธรรมดา ส่วน \"automatic\" คือเกียร์ออโต้",
+      "zh": "重音在第一个音节：MAN-yoo-ul。manual 是手动挡，automatic 是自动挡。",
+      "ja": "最初の音節を強く：マン・ユ・アル。manual は手動変速（マニュアル）、automatic は自動変速（オートマ）です。",
+      "ko": "첫 음절에 강세: MAN-yoo-ul. manual은 수동 변속기, automatic은 자동 변속기예요.",
+      "hi": "पहले अक्षर पर ज़ोर: MAN-yoo-ul। \"manual\" मैनुअल गियर वाली कार है; \"automatic\" अपने-आप गियर बदलती है।",
+      "ar": "شدّد على المقطع الأول: MAN-yoo-ul. سيارة \"manual\" ناقل حركتها يدوي، و\"automatic\" تغيّر السرعة تلقائيًا.",
+      "ru": "Ударение на первый слог: МЭН-ю-ул. «Manual» — механика, «automatic» — автомат.",
+      "tr": "Vurgu ilk hecede: MEN-yu-ıl. \"Manual\" düz vites, \"automatic\" otomatik vites demektir."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b4",
+   "who": "barista",
+   "en": "Yes, we do. It's sixty a day, with unlimited mileage.",
+   "variants": {
+    "polite": "Yes, we do. It's sixty a day, and the mileage is unlimited.",
+    "casual": "Yep. Sixty a day, unlimited mileage."
+   },
+   "gloss": {
+    "en": "The agent gives the daily price and says there is no distance limit.",
+    "vi": "Nhân viên báo giá theo ngày và nói không giới hạn số km.",
+    "es": "El empleado da el precio diario y dice que no hay límite de kilómetros.",
+    "pt": "O atendente informa o preço da diária e diz que não há limite de quilometragem.",
+    "fr": "L'agent donne le tarif journalier et dit qu'il n'y a pas de limite de kilomètres.",
+    "de": "Der Mitarbeiter nennt den Tagespreis und sagt, dass es kein Kilometerlimit gibt.",
+    "id": "Petugas menyebut harga per hari dan bilang tidak ada batas jarak tempuh.",
+    "th": "พนักงานบอกราคาต่อวันและบอกว่าไม่จำกัดระยะทาง",
+    "zh": "工作人员报出日租价格，并说不限里程。",
+    "ja": "スタッフが1日の料金を伝え、走行距離は無制限だと言います。",
+    "ko": "직원이 하루 요금을 알려 주고 주행 거리 제한이 없다고 해요.",
+    "hi": "एजेंट प्रतिदिन का किराया बताता है और कहता है कि दूरी की कोई सीमा नहीं है।",
+    "ar": "يذكر الموظف السعر اليومي ويقول إنه لا حد للمسافة.",
+    "ru": "Сотрудник называет цену за день и говорит, что пробег не ограничен.",
+    "tr": "Görevli günlük ücreti söylüyor ve kilometre sınırı olmadığını belirtiyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "mileage",
+     "ipa": "/ˈmaɪ.lɪdʒ/",
+     "hi": "MY",
+     "note": {
+      "en": "Say MY-lij: it starts like \"my\" and ends with a soft \"j\", not \"age\". It means the distance you drive.",
+      "vi": "Đọc MAI-lịj: bắt đầu như \"my\", cuối là âm \"j\" nhẹ, không phải \"age\". Nghĩa là quãng đường bạn đi.",
+      "es": "Di MY-lij: empieza como \"my\" y termina en una \"j\" suave, no en \"age\". Es la distancia que recorres.",
+      "pt": "Diga MAI-lij: começa como \"my\" e termina com um \"j\" suave, não \"age\". É a distância que você percorre.",
+      "fr": "Dites MAÏ-lij : cela commence comme « my » et finit par un « j » doux, pas « age ». C'est la distance parcourue.",
+      "de": "Sprich MAI-lidsch: beginnt wie „my“ und endet auf weiches „dsch“, nicht „age“. Gemeint ist die gefahrene Strecke.",
+      "id": "Ucapkan MAI-lij: diawali seperti \"my\" dan diakhiri \"j\" lembut, bukan \"age\". Artinya jarak yang kamu tempuh.",
+      "th": "ออกเสียง ไม-ลิจ: ขึ้นต้นเหมือน \"my\" ลงท้ายเสียง \"จ\" เบา ๆ ไม่ใช่ \"เอจ\" หมายถึงระยะทางที่ขับ",
+      "zh": "读作 MY-lij：开头像 my，结尾是轻的 j 音，不是 age。意思是行驶里程。",
+      "ja": "「マイ・リッジ」と読みます。my で始まり、最後は軽い j の音で「エイジ」ではありません。走った距離のことです。",
+      "ko": "MY-lij로 읽어요. my처럼 시작해서 끝은 약한 j 소리이고 \"age\"가 아니에요. 달린 거리를 뜻해요.",
+      "hi": "MY-lij बोलें: यह \"my\" जैसा शुरू होता है और अंत में हल्की \"ज\" ध्वनि है, \"age\" नहीं। मतलब है चली हुई दूरी।",
+      "ar": "انطقها MY-lij: تبدأ مثل \"my\" وتنتهي بصوت \"ج\" خفيف وليس \"age\". تعني المسافة التي تقطعها.",
+      "ru": "Говорите МАЙ-лидж: начало как «my», конец — мягкое «дж», а не «age». Это пройденное расстояние.",
+      "tr": "MAY-lij diye oku: \"my\" gibi başlar, sonu hafif \"c\" sesidir, \"age\" değil. Gidilen mesafe demektir."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c1",
+   "who": "customer",
+   "en": "What does the insurance cover, and how much is the excess?",
+   "variants": {
+    "polite": "Could you tell me what the insurance covers and how much the excess is?",
+    "casual": "What's covered, and what's the excess?"
+   },
+   "gloss": {
+    "en": "Asking what the insurance includes and how much you pay first if there is damage.",
+    "vi": "Hỏi bảo hiểm gồm những gì và nếu có hư hại thì bạn phải trả trước bao nhiêu.",
+    "es": "Preguntas qué incluye el seguro y cuánto pagas primero si hay daños.",
+    "pt": "Pergunta o que o seguro cobre e quanto você paga primeiro se houver danos.",
+    "fr": "Demander ce que couvre l'assurance et combien vous payez d'abord en cas de dommages.",
+    "de": "Fragen, was die Versicherung abdeckt und wie viel du bei einem Schaden zuerst selbst zahlst.",
+    "id": "Menanyakan apa saja yang ditanggung asuransi dan berapa yang harus kamu bayar lebih dulu jika ada kerusakan.",
+    "th": "ถามว่าประกันครอบคลุมอะไรบ้าง และถ้ารถเสียหายต้องจ่ายเองก่อนเท่าไร",
+    "zh": "询问保险包含什么，以及出险时你要先自付多少。",
+    "ja": "保険の補償内容と、損傷時にまず自己負担する額を尋ねます。",
+    "ko": "보험이 무엇을 보장하는지, 손상 시 먼저 얼마를 내야 하는지 물어요.",
+    "hi": "पूछना कि बीमा में क्या शामिल है और नुकसान होने पर पहले कितना खुद देना होगा।",
+    "ar": "السؤال عمّا يغطيه التأمين وكم عليك أن تدفع أولًا عند حدوث ضرر.",
+    "ru": "Спросить, что покрывает страховка и сколько нужно заплатить самому при повреждении.",
+    "tr": "Sigortanın neleri kapsadığını ve hasar olursa önce ne kadar ödeyeceğini sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "excess",
+     "ipa": "/ˈek.ses/",
+     "hi": "EK",
+     "note": {
+      "en": "Stress the first syllable: EK-sess, not ex-CESS. Here \"excess\" is the amount you pay first if the car is damaged.",
+      "vi": "Nhấn âm đầu: EK-xết, không phải ex-CESS. Ở đây \"excess\" là khoản bạn phải tự trả trước khi xe bị hư hại.",
+      "es": "Acentúa la primera sílaba: EK-ses, no ex-CESS. Aquí \"excess\" es la franquicia que pagas tú si el coche se daña.",
+      "pt": "Acentue a primeira sílaba: ÉK-sess, não ex-CESS. Aqui \"excess\" é o valor que você paga antes se o carro for danificado.",
+      "fr": "Accentuez la première syllabe : EK-sès, pas ex-CESS. Ici « excess » est la franchise que vous payez si la voiture est endommagée.",
+      "de": "Betone die erste Silbe: EK-sess, nicht ex-ZESS. Hier ist „excess“ die Selbstbeteiligung bei einem Schaden am Auto.",
+      "id": "Tekankan suku kata pertama: EK-ses, bukan ex-SES. Di sini \"excess\" adalah biaya awal yang kamu tanggung jika mobil rusak.",
+      "th": "เน้นพยางค์แรก: เอ็ก-เซส ไม่ใช่ เอ็กซ์-เซส ในที่นี้ \"excess\" คือส่วนที่คุณต้องจ่ายเองก่อนถ้ารถเสียหาย",
+      "zh": "重音在第一个音节：EK-sess，不是 ex-CESS。这里的 excess 指车辆受损时你要先自付的免赔额。",
+      "ja": "最初の音節を強く：エク・セス（ex-CESS ではありません）。ここでの excess は、車が損傷したときの自己負担額です。",
+      "ko": "첫 음절에 강세: EK-sess이고 ex-CESS가 아니에요. 여기서 excess는 차가 손상됐을 때 먼저 내는 자기부담금이에요.",
+      "hi": "पहले अक्षर पर ज़ोर: EK-sess, ex-CESS नहीं। यहाँ \"excess\" वह रकम है जो कार को नुकसान होने पर आपको पहले देनी होती है।",
+      "ar": "شدّد على المقطع الأول: EK-sess وليس ex-CESS. هنا \"excess\" هو المبلغ الذي تدفعه أولًا إذا تضررت السيارة.",
+      "ru": "Ударение на первый слог: ЭК-сес, а не экс-СЕС. Здесь «excess» — сумма, которую вы платите сами при повреждении машины.",
+      "tr": "Vurgu ilk hecede: EK-ses, ex-SES değil. Burada \"excess\", araç hasar görürse önce ödediğin muafiyet tutarıdır."
+     }
+    }
+   ]
+  },
+  {
+   "id": "c2",
+   "who": "barista",
+   "en": "Theft and damage are covered, but you pay the first five hundred.",
+   "variants": {
+    "polite": "Theft and damage are covered, although you would pay the first five hundred yourself.",
+    "casual": "Theft and damage, but you pay the first five hundred."
+   },
+   "gloss": {
+    "en": "The agent explains what is covered and how much you pay first.",
+    "vi": "Nhân viên giải thích bảo hiểm bao gồm gì và bạn phải trả trước bao nhiêu.",
+    "es": "El empleado explica qué cubre el seguro y cuánto pagas tú primero.",
+    "pt": "O atendente explica o que está coberto e quanto você paga primeiro.",
+    "fr": "L'agent explique ce qui est couvert et combien vous payez en premier.",
+    "de": "Der Mitarbeiter erklärt, was abgedeckt ist und wie viel du zuerst zahlst.",
+    "id": "Petugas menjelaskan apa yang ditanggung dan berapa yang kamu bayar lebih dulu.",
+    "th": "พนักงานอธิบายว่าครอบคลุมอะไรบ้างและคุณต้องจ่ายเองก่อนเท่าไร",
+    "zh": "工作人员说明保障范围，以及你要先自付多少。",
+    "ja": "スタッフが補償内容と、最初に自己負担する額を説明します。",
+    "ko": "직원이 무엇이 보장되는지, 먼저 얼마를 내야 하는지 설명해요.",
+    "hi": "एजेंट बताता है कि क्या कवर है और आपको पहले कितना देना होगा।",
+    "ar": "يشرح الموظف ما يغطيه التأمين وكم تدفع أولًا.",
+    "ru": "Сотрудник объясняет, что покрыто и сколько вы платите сами.",
+    "tr": "Görevli nelerin kapsandığını ve önce ne kadar ödeyeceğini açıklıyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c3",
+   "who": "customer",
+   "en": "Do I have to bring it back with a full tank?",
+   "variants": {
+    "polite": "Would I need to return it with a full tank?",
+    "casual": "Full tank when I return it?"
+   },
+   "gloss": {
+    "en": "Asking about the fuel policy: must the tank be full on return?",
+    "vi": "Hỏi về quy định nhiên liệu: khi trả xe có phải đổ đầy bình không?",
+    "es": "Preguntas por la política de combustible: ¿hay que devolverlo con el depósito lleno?",
+    "pt": "Pergunta sobre a política de combustível: é preciso devolver com o tanque cheio?",
+    "fr": "Demander la politique de carburant : faut-il rendre la voiture avec le plein ?",
+    "de": "Nach der Tankregelung fragen: Muss der Tank bei der Rückgabe voll sein?",
+    "id": "Menanyakan aturan bensin: apakah tangki harus penuh saat dikembalikan?",
+    "th": "ถามเรื่องนโยบายน้ำมัน: ต้องคืนรถพร้อมน้ำมันเต็มถังไหม",
+    "zh": "询问燃油政策：还车时油箱要加满吗？",
+    "ja": "燃料のルールを尋ねます。返却時は満タンにする必要がありますか。",
+    "ko": "연료 정책을 묻는 말이에요. 반납할 때 연료를 가득 채워야 하나요?",
+    "hi": "ईंधन नीति के बारे में पूछना: क्या लौटाते समय टंकी भरी होनी चाहिए?",
+    "ar": "السؤال عن سياسة الوقود: هل يجب إعادة السيارة بخزان ممتلئ؟",
+    "ru": "Спросить о правилах топлива: нужно ли вернуть машину с полным баком?",
+    "tr": "Yakıt kuralını sorma: arabayı depo dolu olarak mı iade etmem gerekiyor?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "c4",
+   "who": "customer",
+   "en": "Can I add my brother as an additional driver?",
+   "variants": {
+    "polite": "Would it be possible to add my brother as an additional driver?",
+    "casual": "Can my brother drive too?"
+   },
+   "gloss": {
+    "en": "Asking to add a second person who can drive the car.",
+    "vi": "Hỏi có thể thêm một người nữa được phép lái xe không.",
+    "es": "Preguntas si puedes añadir a otra persona que pueda conducir el coche.",
+    "pt": "Pergunta se pode incluir mais uma pessoa que possa dirigir o carro.",
+    "fr": "Demander si l'on peut ajouter une autre personne autorisée à conduire.",
+    "de": "Fragen, ob eine zweite Person als Fahrer eingetragen werden kann.",
+    "id": "Menanyakan apakah bisa menambah satu orang lagi yang boleh mengemudi.",
+    "th": "ถามว่าเพิ่มผู้ขับคนที่สองได้ไหม",
+    "zh": "询问能否再添加一位可以开这辆车的人。",
+    "ja": "運転できる人をもう1人追加できるか尋ねます。",
+    "ko": "차를 운전할 수 있는 사람을 한 명 더 추가할 수 있는지 물어요.",
+    "hi": "पूछना कि कार चलाने वाला एक और व्यक्ति जोड़ा जा सकता है या नहीं।",
+    "ar": "السؤال عن إمكانية إضافة شخص آخر يُسمح له بقيادة السيارة.",
+    "ru": "Спросить, можно ли добавить ещё одного водителя.",
+    "tr": "Arabayı kullanabilecek ikinci bir kişi eklenip eklenemeyeceğini sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "additional",
+     "ipa": "/əˈdɪʃ.ən.əl/",
+     "hi": "DISH",
+     "note": {
+      "en": "Stress the second syllable: uh-DISH-uh-nul. It sounds like \"a dish\" plus \"nul\".",
+      "vi": "Nhấn âm thứ hai: ờ-ĐI-sần-nồl. Nghe như \"a dish\" cộng \"nul\".",
+      "es": "Acentúa la segunda sílaba: a-DISH-a-nul. Suena como \"a dish\" más \"nul\".",
+      "pt": "Acentue a segunda sílaba: a-DÍ-xe-nal. Soa como \"a dish\" mais \"nul\".",
+      "fr": "Accentuez la deuxième syllabe : e-DICH-e-nel. Ça sonne comme « a dish » plus « nul ».",
+      "de": "Betone die zweite Silbe: e-DISCH-e-nel. Klingt wie „a dish“ plus „nul“.",
+      "id": "Tekankan suku kata kedua: e-DISH-e-nul. Bunyinya seperti \"a dish\" plus \"nul\".",
+      "th": "เน้นพยางค์ที่สอง: อะ-ดิช-ชะ-นัล ฟังคล้าย \"a dish\" รวมกับ \"nul\"",
+      "zh": "重音在第二个音节：uh-DISH-uh-nul，听起来像 a dish 加 nul。",
+      "ja": "2番目の音節を強く：ア・ディッシュ・ナル。a dish に nul がつく感じです。",
+      "ko": "두 번째 음절에 강세: 어-DISH-어-널. a dish에 nul이 붙은 소리예요.",
+      "hi": "दूसरे अक्षर पर ज़ोर: uh-DISH-uh-nul। यह \"a dish\" और \"nul\" जैसा सुनाई देता है।",
+      "ar": "شدّد على المقطع الثاني: uh-DISH-uh-nul. تبدو مثل \"a dish\" ثم \"nul\".",
+      "ru": "Ударение на второй слог: э-ДИШ-э-нул. Звучит как «a dish» плюс «nul».",
+      "tr": "Vurgu ikinci hecede: ı-DİŞ-ı-nıl. \"a dish\" ve \"nul\" birleşimi gibi duyulur."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r1",
+   "who": "customer",
+   "en": "Could we check the car for damage before I leave?",
+   "variants": {
+    "polite": "Would you mind checking the car for damage with me before I leave?",
+    "casual": "Can we check for damage first?"
+   },
+   "gloss": {
+    "en": "Asking to look for scratches and dents before driving away.",
+    "vi": "Đề nghị kiểm tra vết xước, vết lõm trước khi lái đi.",
+    "es": "Pides revisar si hay arañazos o abolladuras antes de irte.",
+    "pt": "Pede para verificar riscos e amassados antes de sair.",
+    "fr": "Demander à vérifier rayures et bosses avant de partir.",
+    "de": "Darum bitten, vor der Abfahrt Kratzer und Dellen zu prüfen.",
+    "id": "Meminta memeriksa goresan dan penyok sebelum berangkat.",
+    "th": "ขอตรวจรอยขีดข่วนและรอยบุบก่อนขับออกไป",
+    "zh": "请求在开走前检查车身有没有划痕和凹陷。",
+    "ja": "出発前に傷やへこみがないか確認したいと頼みます。",
+    "ko": "출발하기 전에 긁힌 곳이나 찌그러진 곳이 없는지 확인해 달라고 해요.",
+    "hi": "निकलने से पहले खरोंच और डेंट जाँचने को कहना।",
+    "ar": "طلب فحص الخدوش والانبعاجات قبل الانطلاق.",
+    "ru": "Попросить осмотреть машину на царапины и вмятины перед отъездом.",
+    "tr": "Yola çıkmadan önce çizik ve göçük olup olmadığını kontrol etmeyi isteme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "damage",
+     "ipa": "/ˈdæm.ɪdʒ/",
+     "hi": "DAM",
+     "note": {
+      "en": "Stress the first syllable: DAM-ij. The ending sounds like \"ij\", not \"age\".",
+      "vi": "Nhấn âm đầu: ĐEM-ịj. Phần cuối đọc \"ịj\", không đọc \"age\".",
+      "es": "Acentúa la primera sílaba: DAM-ij. El final suena \"ij\", no \"age\".",
+      "pt": "Acentue a primeira sílaba: DÉM-idj. O final soa \"idj\", não \"age\".",
+      "fr": "Accentuez la première syllabe : DAM-idj. La fin se prononce « idj », pas « age ».",
+      "de": "Betone die erste Silbe: DÄ-midsch. Die Endung klingt wie „idsch“, nicht „age“.",
+      "id": "Tekankan suku kata pertama: DEM-ij. Akhirannya terdengar \"ij\", bukan \"age\".",
+      "th": "เน้นพยางค์แรก: แดม-อิจ พยางค์ท้ายออกเสียง \"อิจ\" ไม่ใช่ \"เอจ\"",
+      "zh": "重音在第一个音节：DAM-ij。词尾读 ij，不读 age。",
+      "ja": "最初の音節を強く：ダム・イジ。語尾は「エイジ」ではなく「イジ」です。",
+      "ko": "첫 음절에 강세: DAM-ij. 끝은 \"이지\"에 가깝고 \"에이지\"가 아니에요.",
+      "hi": "पहले अक्षर पर ज़ोर: DAM-ij। अंत \"ij\" जैसा बोला जाता है, \"age\" नहीं।",
+      "ar": "شدّد على المقطع الأول: DAM-ij. النهاية تُنطق \"ij\" وليس \"age\".",
+      "ru": "Ударение на первый слог: ДЭМ-идж. Окончание звучит «идж», а не «age».",
+      "tr": "Vurgu ilk hecede: DEM-ic. Son hece \"ic\" gibi okunur, \"age\" gibi değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "r2",
+   "who": "barista",
+   "en": "Of course. There's a small scratch on the back bumper. I'll mark it.",
+   "variants": {
+    "polite": "Of course. There's a small scratch on the rear bumper, which I'll note on the form.",
+    "casual": "Sure. Small scratch on the back bumper. I'll mark it."
+   },
+   "gloss": {
+    "en": "The agent points out an existing scratch and writes it on the form.",
+    "vi": "Nhân viên chỉ ra một vết xước có sẵn và ghi vào phiếu.",
+    "es": "El empleado señala un arañazo que ya existía y lo anota en el formulario.",
+    "pt": "O atendente mostra um risco que já existia e anota no formulário.",
+    "fr": "L'agent montre une rayure déjà présente et la note sur le formulaire.",
+    "de": "Der Mitarbeiter zeigt einen vorhandenen Kratzer und trägt ihn ins Formular ein.",
+    "id": "Petugas menunjukkan goresan yang sudah ada dan mencatatnya di formulir.",
+    "th": "พนักงานชี้รอยขีดข่วนที่มีอยู่เดิมและจดลงในแบบฟอร์ม",
+    "zh": "工作人员指出原有的划痕，并记在表格上。",
+    "ja": "スタッフが元からある傷を示し、用紙に書き込みます。",
+    "ko": "직원이 원래 있던 긁힌 자국을 알려 주고 서류에 표시해요.",
+    "hi": "एजेंट पहले से मौजूद खरोंच दिखाता है और फ़ॉर्म पर लिख देता है।",
+    "ar": "يشير الموظف إلى خدش موجود مسبقًا ويسجّله في النموذج.",
+    "ru": "Сотрудник показывает уже имеющуюся царапину и отмечает её в бланке.",
+    "tr": "Görevli önceden var olan bir çizik gösterip forma not ediyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r3",
+   "who": "customer",
+   "en": "Hi, I'm returning the car. I filled it up this morning.",
+   "variants": {
+    "polite": "Good afternoon, I'm here to return the car. I filled the tank this morning.",
+    "casual": "Hi, bringing the car back. It's full."
+   },
+   "gloss": {
+    "en": "Saying you are returning the car and that the tank is full.",
+    "vi": "Nói rằng bạn trả xe và bình xăng đã đầy.",
+    "es": "Dices que devuelves el coche y que el depósito está lleno.",
+    "pt": "Diz que está devolvendo o carro e que o tanque está cheio.",
+    "fr": "Dire que vous rendez la voiture et que le plein est fait.",
+    "de": "Sagen, dass du das Auto zurückgibst und der Tank voll ist.",
+    "id": "Mengatakan bahwa kamu mengembalikan mobil dan tangki sudah penuh.",
+    "th": "บอกว่ามาคืนรถและเติมน้ำมันเต็มถังแล้ว",
+    "zh": "说你来还车，油箱已经加满。",
+    "ja": "車を返却しに来たこと、燃料は満タンであることを伝えます。",
+    "ko": "차를 반납하러 왔고 연료를 가득 채웠다고 말해요.",
+    "hi": "बताना कि आप कार लौटा रहे हैं और टंकी भरी हुई है।",
+    "ar": "قول إنك تعيد السيارة وإن الخزان ممتلئ.",
+    "ru": "Сказать, что возвращаете машину и бак полный.",
+    "tr": "Arabayı iade ettiğini ve deponun dolu olduğunu söyleme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "r4",
+   "who": "barista",
+   "en": "Everything looks fine. You'll get your deposit back in a few days.",
+   "variants": {
+    "polite": "Everything looks fine. Your deposit will be refunded within a few days.",
+    "casual": "All good. Deposit's back in a few days."
+   },
+   "gloss": {
+    "en": "The agent confirms the return and says your deposit will come back.",
+    "vi": "Nhân viên xác nhận đã nhận xe và nói tiền đặt cọc sẽ được hoàn lại.",
+    "es": "El empleado confirma la devolución y dice que te devolverán la fianza.",
+    "pt": "O atendente confirma a devolução e diz que a caução será reembolsada.",
+    "fr": "L'agent confirme le retour et dit que la caution vous sera rendue.",
+    "de": "Der Mitarbeiter bestätigt die Rückgabe und sagt, dass die Kaution zurückkommt.",
+    "id": "Petugas memastikan pengembalian dan bilang uang jaminan akan dikembalikan.",
+    "th": "พนักงานยืนยันการคืนรถและบอกว่าจะคืนเงินมัดจำให้",
+    "zh": "工作人员确认还车完成，并说押金会退还。",
+    "ja": "スタッフが返却を確認し、デポジットは返金されると伝えます。",
+    "ko": "직원이 반납을 확인하고 보증금이 환불될 거라고 말해요.",
+    "hi": "एजेंट वापसी की पुष्टि करता है और कहता है कि डिपॉज़िट लौटा दिया जाएगा।",
+    "ar": "يؤكد الموظف إعادة السيارة ويقول إن التأمين النقدي سيُرد إليك.",
+    "ru": "Сотрудник подтверждает возврат и говорит, что залог вернут.",
+    "tr": "Görevli iadeyi onaylıyor ve depozitonun geri ödeneceğini söylüyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "deposit",
+     "ipa": "/dɪˈpɑː.zɪt/",
+     "hi": "POZ",
+     "note": {
+      "en": "Stress the second syllable: de-POZ-it. The first syllable is short and weak.",
+      "vi": "Nhấn âm thứ hai: đi-PO-zịt. Âm đầu ngắn và nhẹ.",
+      "es": "Acentúa la segunda sílaba: di-POS-it. La primera es corta y débil.",
+      "pt": "Acentue a segunda sílaba: di-PÓ-zit. A primeira é curta e fraca.",
+      "fr": "Accentuez la deuxième syllabe : di-PO-zit. La première est brève et faible.",
+      "de": "Betone die zweite Silbe: di-POS-it. Die erste Silbe ist kurz und schwach.",
+      "id": "Tekankan suku kata kedua: di-POZ-it. Suku kata pertama pendek dan lemah.",
+      "th": "เน้นพยางค์ที่สอง: ดิ-พอซ-ซิท พยางค์แรกสั้นและเบา",
+      "zh": "重音在第二个音节：de-POZ-it。第一个音节又短又轻。",
+      "ja": "2番目の音節を強く：ディ・ポズ・イット。最初の音節は短く弱く読みます。",
+      "ko": "두 번째 음절에 강세: 디-POZ-it. 첫 음절은 짧고 약해요.",
+      "hi": "दूसरे अक्षर पर ज़ोर: de-POZ-it। पहला अक्षर छोटा और हल्का है।",
+      "ar": "شدّد على المقطع الثاني: de-POZ-it. المقطع الأول قصير وخفيف.",
+      "ru": "Ударение на второй слог: ди-ПО-зит. Первый слог короткий и слабый.",
+      "tr": "Vurgu ikinci hecede: di-POZ-it. İlk hece kısa ve zayıftır."
+     }
+    }
+   ]
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "What kind of car are you looking for?",
+   "keywords": [
+    "small",
+    "compact",
+    "automatic",
+    "manual",
+    "SUV",
+    "estate",
+    "van",
+    "economy",
+    "family",
+    "cheap"
+   ],
+   "variants": {
+    "polite": "What type of car would you like to rent?",
+    "casual": "What car do you want?"
+   },
+   "gloss": {
+    "en": "The agent asks which kind of car you want.",
+    "vi": "Nhân viên hỏi bạn muốn loại xe nào.",
+    "es": "El empleado pregunta qué tipo de coche quieres.",
+    "pt": "O atendente pergunta que tipo de carro você quer.",
+    "fr": "L'agent demande quel type de voiture vous voulez.",
+    "de": "Der Mitarbeiter fragt, welche Art von Auto du möchtest.",
+    "id": "Petugas menanyakan jenis mobil yang kamu cari.",
+    "th": "พนักงานถามว่าคุณต้องการรถแบบไหน",
+    "zh": "工作人员问你想要哪种车。",
+    "ja": "スタッフがどんな車を探しているか尋ねます。",
+    "ko": "직원이 어떤 종류의 차를 찾는지 물어요.",
+    "hi": "एजेंट पूछता है कि आपको किस तरह की कार चाहिए।",
+    "ar": "يسألك الموظف عن نوع السيارة التي تريدها.",
+    "ru": "Сотрудник спрашивает, какую машину вы ищете.",
+    "tr": "Görevli nasıl bir araba aradığını soruyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "Would you like to add any extras?",
+   "keywords": [
+    "GPS",
+    "sat nav",
+    "child seat",
+    "extra driver",
+    "insurance",
+    "roof rack",
+    "wifi",
+    "no thanks",
+    "nothing"
+   ],
+   "variants": {
+    "polite": "Would you care to add any extras, such as a child seat or sat nav?",
+    "casual": "Any extras?"
+   },
+   "gloss": {
+    "en": "The agent asks if you want extras like a GPS or a child seat.",
+    "vi": "Nhân viên hỏi bạn có muốn thêm tiện ích như GPS hay ghế trẻ em không.",
+    "es": "El empleado pregunta si quieres extras, como GPS o una silla infantil.",
+    "pt": "O atendente pergunta se você quer extras, como GPS ou cadeirinha infantil.",
+    "fr": "L'agent demande si vous voulez des options, comme un GPS ou un siège enfant.",
+    "de": "Der Mitarbeiter fragt, ob du Extras wie Navi oder Kindersitz möchtest.",
+    "id": "Petugas menanyakan apakah kamu mau tambahan seperti GPS atau kursi anak.",
+    "th": "พนักงานถามว่าคุณต้องการของเสริม เช่น GPS หรือเบาะนั่งเด็กไหม",
+    "zh": "工作人员问你要不要加选导航或儿童座椅等附加项目。",
+    "ja": "スタッフがGPSやチャイルドシートなどのオプションが必要か尋ねます。",
+    "ko": "직원이 내비게이션이나 카시트 같은 옵션이 필요한지 물어요.",
+    "hi": "एजेंट पूछता है कि क्या आपको GPS या चाइल्ड सीट जैसे अतिरिक्त सामान चाहिए।",
+    "ar": "يسألك الموظف إن كنت تريد إضافات مثل نظام ملاحة أو مقعد أطفال.",
+    "ru": "Сотрудник спрашивает, нужны ли дополнительные опции, например навигатор или детское кресло.",
+    "tr": "Görevli navigasyon ya da çocuk koltuğu gibi ekstralar isteyip istemediğini soruyor."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Good morning. How can I help you?"
+  },
+  {
+   "who": "customer",
+   "en": "Hi, I'd like to rent a car for five days, please."
+  },
+  {
+   "who": "barista",
+   "en": "Certainly. May I see your driving licence, please?"
+  },
+  {
+   "who": "customer",
+   "en": "Here you are. Do you have a small automatic? I can't drive a manual."
+  },
+  {
+   "who": "barista",
+   "en": "Yes, we do. It's sixty a day, with unlimited mileage."
+  },
+  {
+   "who": "customer",
+   "en": "Great. Do I have to bring it back with a full tank?"
+  },
+  {
+   "who": "barista",
+   "en": "Yes, please return it full. Sign here, and here are the keys."
+  },
+  {
+   "who": "customer",
+   "en": "Thank you. Could we check the car for damage first?"
+  },
+  {
+   "who": "barista",
+   "en": "Of course. Let's walk around it together."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Does the price include insurance?"
+    },
+    {
+     "who": "barista",
+     "en": "Basic cover is included, but there's an excess of four hundred."
+    },
+    {
+     "who": "customer",
+     "en": "Can I reduce it?"
+    },
+    {
+     "who": "barista",
+     "en": "Yes, full cover costs twelve extra a day and removes the excess."
+    }
+   ],
+   "q": {
+    "en": "How much extra a day is full cover?",
+    "vi": "Bảo hiểm toàn phần tốn thêm bao nhiêu mỗi ngày?",
+    "es": "¿Cuánto más al día cuesta el seguro a todo riesgo?",
+    "pt": "Quanto a mais por dia custa o seguro completo?",
+    "fr": "Combien coûte en plus par jour l'assurance tous risques ?",
+    "de": "Wie viel kostet der Vollschutz pro Tag extra?",
+    "id": "Berapa biaya tambahan per hari untuk asuransi penuh?",
+    "th": "ประกันเต็มรูปแบบแพงขึ้นวันละเท่าไร",
+    "zh": "全险每天要多付多少钱？",
+    "ja": "フルカバーは1日あたりいくら追加ですか？",
+    "ko": "종합 보험은 하루에 얼마가 추가되나요?",
+    "hi": "पूरे कवर के लिए प्रतिदिन कितना अतिरिक्त लगता है?",
+    "ar": "كم تكلّف التغطية الكاملة إضافةً في اليوم؟",
+    "ru": "Сколько стоит полная страховка дополнительно в день?",
+    "tr": "Tam kasko günlük ne kadar ek ücret tutuyor?"
+   },
+   "answer": "twelve"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Hi, I'm back with the car. Sorry I'm late."
+    },
+    {
+     "who": "barista",
+     "en": "No problem. Did you fill the tank?"
+    },
+    {
+     "who": "customer",
+     "en": "Yes, at the station near the airport."
+    },
+    {
+     "who": "barista",
+     "en": "Great. I see a new scratch on the door, though."
+    }
+   ],
+   "q": {
+    "en": "Where is the new scratch?",
+    "vi": "Vết xước mới ở đâu?",
+    "es": "¿Dónde está el arañazo nuevo?",
+    "pt": "Onde está o risco novo?",
+    "fr": "Où se trouve la nouvelle rayure ?",
+    "de": "Wo ist der neue Kratzer?",
+    "id": "Di mana goresan yang baru itu?",
+    "th": "รอยขีดข่วนใหม่อยู่ตรงไหน",
+    "zh": "新的划痕在哪里？",
+    "ja": "新しい傷はどこにありますか？",
+    "ko": "새로 생긴 긁힌 자국은 어디에 있나요?",
+    "hi": "नई खरोंच कहाँ है?",
+    "ar": "أين الخدش الجديد؟",
+    "ru": "Где находится новая царапина?",
+    "tr": "Yeni çizik nerede?"
+   },
+   "answer": "on the door"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "pick-up",
+    "title": {
+     "en": "Rent a small automatic",
+     "vi": "Thuê một xe nhỏ số tự động",
+     "es": "Alquila un coche pequeño automático",
+     "pt": "Alugue um carro pequeno automático",
+     "fr": "Louez une petite voiture automatique",
+     "de": "Miete einen kleinen Automatikwagen",
+     "id": "Sewa mobil kecil otomatis",
+     "th": "เช่ารถเล็กเกียร์ออโต้",
+     "zh": "租一辆自动挡小型车",
+     "ja": "小型のオートマ車を借りる",
+     "ko": "작은 자동 변속기 차 빌리기",
+     "hi": "छोटी ऑटोमैटिक कार किराये पर लें",
+     "ar": "استأجر سيارة صغيرة أوتوماتيكية",
+     "ru": "Арендуй маленькую машину с автоматом",
+     "tr": "Küçük, otomatik bir araba kirala"
+    },
+    "intents": [
+     "b1",
+     "b3"
+    ]
+   },
+   {
+    "id": "insurance-fuel",
+    "title": {
+     "en": "Ask about insurance and fuel",
+     "vi": "Hỏi về bảo hiểm và nhiên liệu",
+     "es": "Pregunta por el seguro y el combustible",
+     "pt": "Pergunte sobre seguro e combustível",
+     "fr": "Renseignez-vous sur l'assurance et le carburant",
+     "de": "Frage nach Versicherung und Tankregel",
+     "id": "Tanyakan soal asuransi dan bensin",
+     "th": "ถามเรื่องประกันและน้ำมัน",
+     "zh": "询问保险和燃油规定",
+     "ja": "保険と燃料について尋ねる",
+     "ko": "보험과 연료에 대해 물어보기",
+     "hi": "बीमा और ईंधन के बारे में पूछें",
+     "ar": "اسأل عن التأمين والوقود",
+     "ru": "Узнай про страховку и топливо",
+     "tr": "Sigorta ve yakıt hakkında sor"
+    },
+    "intents": [
+     "c1",
+     "c3"
+    ]
+   },
+   {
+    "id": "hand-back",
+    "title": {
+     "en": "Check the car and return it",
+     "vi": "Kiểm tra xe và trả xe",
+     "es": "Revisa el coche y devuélvelo",
+     "pt": "Verifique o carro e devolva-o",
+     "fr": "Contrôlez la voiture et rendez-la",
+     "de": "Prüfe das Auto und gib es zurück",
+     "id": "Periksa mobil lalu kembalikan",
+     "th": "ตรวจรถและคืนรถ",
+     "zh": "验车并还车",
+     "ja": "車を確認して返却する",
+     "ko": "차를 점검하고 반납하기",
+     "hi": "कार जाँचें और उसे लौटाएँ",
+     "ar": "افحص السيارة ثم أعدها",
+     "ru": "Осмотри машину и верни её",
+     "tr": "Arabayı kontrol et ve iade et"
+    },
+    "intents": [
+     "r1",
+     "r3"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "Driving side, licence rules and insurance terms differ from country to country. Check whether your own licence is accepted or whether you need an international permit, and expect a card deposit. Photograph the car before you leave and keep the fuel receipt.",
+  "vi": "Bên lái xe, quy định về bằng lái và điều khoản bảo hiểm khác nhau tùy từng nước. Hãy kiểm tra xem bằng lái của bạn có được chấp nhận không hay cần bằng lái quốc tế, và chuẩn bị khoản đặt cọc bằng thẻ. Hãy chụp ảnh xe trước khi đi và giữ lại hóa đơn xăng.",
+  "es": "El lado por el que se conduce, las normas del carné y las condiciones del seguro cambian según el país. Comprueba si tu carné vale o si necesitas un permiso internacional, y prepárate para una fianza con tarjeta. Haz fotos del coche antes de salir y guarda el ticket del combustible.",
+  "pt": "O lado da direção, as regras da carteira de motorista e as condições do seguro mudam de país para país. Verifique se a sua carteira é aceita ou se precisa de uma permissão internacional, e conte com uma caução no cartão. Fotografe o carro antes de sair e guarde o recibo do combustível.",
+  "fr": "Le côté de conduite, les règles du permis et les conditions d'assurance varient d'un pays à l'autre. Vérifiez si votre permis est accepté ou si un permis international est nécessaire, et prévoyez une caution sur carte. Photographiez la voiture avant de partir et gardez le ticket de carburant.",
+  "de": "Fahrtrichtung, Führerscheinregeln und Versicherungsbedingungen sind von Land zu Land verschieden. Prüfe, ob dein Führerschein anerkannt wird oder ob du einen internationalen Führerschein brauchst, und rechne mit einer Kaution auf der Karte. Fotografiere das Auto vor der Abfahrt und bewahre den Tankbeleg auf.",
+  "id": "Sisi jalan, aturan SIM, dan ketentuan asuransi berbeda di tiap negara. Periksa apakah SIM-mu diterima atau perlu SIM internasional, dan siapkan uang jaminan lewat kartu. Foto mobil sebelum berangkat dan simpan struk bensin.",
+  "th": "ฝั่งที่ขับรถ กฎเรื่องใบขับขี่ และเงื่อนไขประกันภัยต่างกันไปในแต่ละประเทศ ควรเช็กว่าใบขับขี่ของคุณใช้ได้หรือต้องมีใบขับขี่สากล และเตรียมวางเงินมัดจำผ่านบัตร ถ่ายรูปรถก่อนออกเดินทางและเก็บใบเสร็จค่าน้ำมันไว้",
+  "zh": "各国的行车方向、驾照规定和保险条款都不一样。请确认你的驾照是否被接受，或是否需要国际驾照，并准备好刷卡押金。提车前给车拍照，并保留加油小票。",
+  "ja": "走行する側、免許のルール、保険の条件は国によって異なります。自分の免許が使えるか、国際免許が必要かを確認し、カードでのデポジットも想定しておきましょう。出発前に車の写真を撮り、給油のレシートは保管しておきます。",
+  "ko": "운전 방향, 면허 규정, 보험 조건은 나라마다 달라요. 내 면허가 인정되는지, 국제운전면허증이 필요한지 확인하고 카드 보증금도 예상해 두세요. 출발 전에 차를 사진으로 찍고 주유 영수증은 보관하세요.",
+  "hi": "गाड़ी चलाने की दिशा, लाइसेंस के नियम और बीमा की शर्तें हर देश में अलग होती हैं। देख लें कि आपका लाइसेंस मान्य है या अंतरराष्ट्रीय परमिट चाहिए, और कार्ड से डिपॉज़िट की उम्मीद रखें। निकलने से पहले कार की फ़ोटो लें और पेट्रोल की रसीद संभालकर रखें।",
+  "ar": "جهة القيادة وقواعد رخصة القيادة وشروط التأمين تختلف من بلد إلى آخر. تأكد من قبول رخصتك أو حاجتك إلى رخصة دولية، وتوقّع تأمينًا نقديًا على البطاقة. صوّر السيارة قبل الانطلاق واحتفظ بإيصال الوقود.",
+  "ru": "Сторона движения, правила о правах и условия страховки в разных странах отличаются. Проверьте, признаются ли ваши права или нужны международные, и будьте готовы к залогу на карте. Сфотографируйте машину перед отъездом и сохраните чек на топливо.",
+  "tr": "Trafikte kullanılan taraf, ehliyet kuralları ve sigorta koşulları ülkeden ülkeye değişir. Ehliyetinin geçerli olup olmadığını ya da uluslararası ehliyet gerekip gerekmediğini kontrol et, kartla depozito alınmasını bekle. Yola çıkmadan önce arabanın fotoğrafını çek ve yakıt fişini sakla."
+ }
+}

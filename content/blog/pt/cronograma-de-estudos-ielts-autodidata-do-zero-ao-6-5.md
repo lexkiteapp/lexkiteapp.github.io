@@ -98,6 +98,10 @@ Você pode acompanhar sua evolução diária acessando a [trilha de estudos no a
 
 {{youtube: | Cronograma de estudos IELTS autodidata do zero ao 6.5 passo a passo}}
 
+Quando o cronograma chegar à fase de simulados, use a [estratégia de 60 minutos no IELTS Reading](/pt/blog/gestao-do-tempo-no-ielts-reading-estrategia-60-minutos/) para dividir o tempo entre os três textos.
+
+Se o seu cronograma inclui Speaking, comece pelo [Part 1 com respostas curtas e naturais](/pt/blog/ielts-speaking-part-1-guia-respostas-naturais/).
+
 ## Perguntas frequentes sobre o cronograma IELTS autodidata
 
 ### Quanto tempo leva para sair do nível intermediário e alcançar o band 6.5?

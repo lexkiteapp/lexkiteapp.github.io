@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"arrange\" mean?",
+  "keyword": "arrange",
+  "value": "Arrange means to put things into a particular order.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=arrange",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"arrange\" mean?",
+    "description": "Arrange means to put things into a particular order.\n\nReview your words, free: https://lexkite.com/app/#/review?w=arrange\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "arrange",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"arrange\" mean?\n\nArrange means to put things into a particular order.\n\nReview your words, free: https://lexkite.com/app/#/review?w=arrange"
+   },
+   "instagram": {
+    "caption": "What does \"arrange\" mean?\n\nArrange means to put things into a particular order.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"arrange\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to put things into a particular order. Arrange means to put things into a particular order. Try the full lesson and quiz here: {link}"
  }
 }

@@ -1,0 +1,1002 @@
+{
+ "v": 1,
+ "tl": "es",
+ "variant": "es-419",
+ "status": "reviewed",
+ "source": {
+  "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
+  "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
+  "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+ },
+ "words": [
+  {
+   "word": "corazón",
+   "pos": "n",
+   "gender": "m",
+   "plural": "corazones",
+   "ipa": "koɾaˈson",
+   "gl": {
+    "vi": "trái tim",
+    "en": "heart",
+    "es": "corazón",
+    "pt": "coração",
+    "fr": "cœur",
+    "de": "Herz",
+    "id": "jantung",
+    "th": "หัวใจ",
+    "zh": "心",
+    "ja": "心臓",
+    "ko": "심장",
+    "hi": "हृदय",
+    "ar": "قلب",
+    "ru": "сердце",
+    "tr": "kalp"
+   },
+   "ex": {
+    "es": "Mi corazón late rápido.",
+    "en": "My heart beats fast."
+   },
+   "rank": 355,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "mayor",
+   "pos": "adj",
+   "ipa": "maˈʝoɾ",
+   "gl": {
+    "vi": "lớn tuổi hơn, lớn hơn",
+    "en": "older, bigger",
+    "es": "mayor",
+    "pt": "maior",
+    "fr": "plus grand",
+    "de": "größer",
+    "id": "lebih besar",
+    "th": "ใหญ่กว่า",
+    "zh": "更大",
+    "ja": "より大きい",
+    "ko": "더 큰",
+    "hi": "बड़ा",
+    "ar": "أكبر",
+    "ru": "большой",
+    "tr": "daha büyük"
+   },
+   "ex": {
+    "es": "Mi hermano es mayor que yo.",
+    "en": "My brother is older than me."
+   },
+   "rank": 482,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "maˈʝor"
+   }
+  },
+  {
+   "word": "seguridad",
+   "pos": "n",
+   "gender": "f",
+   "plural": "seguridades",
+   "ipa": "seɣuɾiˈðad",
+   "gl": {
+    "vi": "an ninh",
+    "en": "security, safety",
+    "es": "seguridad",
+    "pt": "segurança",
+    "fr": "sécurité",
+    "de": "Sicherheit",
+    "id": "keamanan",
+    "th": "ความปลอดภัย",
+    "zh": "安全",
+    "ja": "安全",
+    "ko": "안전",
+    "hi": "सुरक्षा",
+    "ar": "أمان",
+    "ru": "безопасность",
+    "tr": "güvenlik"
+   },
+   "ex": {
+    "es": "La seguridad es importante.",
+    "en": "Safety is important."
+   },
+   "rank": 530,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "seɣuɾiˈðað"
+   }
+  },
+  {
+   "word": "acerca",
+   "pos": "prep",
+   "ipa": "aˈseɾka",
+   "gl": {
+    "vi": "về",
+    "en": "about",
+    "es": "acerca",
+    "pt": "sobre",
+    "fr": "à propos",
+    "de": "über",
+    "id": "tentang",
+    "th": "เกี่ยวกับ",
+    "zh": "关于",
+    "ja": "について",
+    "ko": "에 대해",
+    "hi": "के बारे में",
+    "ar": "عن",
+    "ru": "о",
+    "tr": "hakkında"
+   },
+   "ex": {
+    "es": "Hablamos acerca del libro.",
+    "en": "We talk about the book."
+   },
+   "rank": 549,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "wikt": "từ loại prep ↔ adv/verb"
+   }
+  },
+  {
+   "word": "rey",
+   "pos": "n",
+   "gender": "m",
+   "plural": "reyes",
+   "ipa": "ˈrej",
+   "gl": {
+    "vi": "vua",
+    "en": "king",
+    "es": "rey",
+    "pt": "rei",
+    "fr": "roi",
+    "de": "König",
+    "id": "raja",
+    "th": "กษัตริย์",
+    "zh": "国王",
+    "ja": "王",
+    "ko": "왕",
+    "hi": "राजा",
+    "ar": "ملك",
+    "ru": "король",
+    "tr": "kral"
+   },
+   "ex": {
+    "es": "El rey vive en un castillo grande.",
+    "en": "The king lives in a big castle."
+   },
+   "rank": 585,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.6-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "ˈrej"
+   }
+  },
+  {
+   "word": "puesto",
+   "pos": "n",
+   "gender": "m",
+   "plural": "puestos",
+   "ipa": "ˈpwesto",
+   "gl": {
+    "vi": "vị trí",
+    "en": "position",
+    "es": "puesto",
+    "pt": "posto, cargo",
+    "fr": "poste",
+    "de": "Stelle",
+    "id": "posisi",
+    "th": "ตำแหน่ง",
+    "zh": "职位",
+    "ja": "職",
+    "ko": "직위",
+    "hi": "पद",
+    "ar": "منصب",
+    "ru": "должность",
+    "tr": "pozisyon, görev"
+   },
+   "ex": {
+    "es": "Él consiguió un nuevo puesto en la empresa.",
+    "en": "He got a new position at the company."
+   },
+   "rank": 625,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "resto",
+   "pos": "n",
+   "gender": "m",
+   "plural": "restos",
+   "ipa": "ˈresto",
+   "gl": {
+    "vi": "phần còn lại",
+    "en": "rest",
+    "es": "resto",
+    "pt": "resto",
+    "fr": "reste",
+    "de": "Rest",
+    "id": "sisanya",
+    "th": "ส่วนที่เหลือ",
+    "zh": "其余",
+    "ja": "残り",
+    "ko": "나머지",
+    "hi": "शेष",
+    "ar": "بقية",
+    "ru": "остаток",
+    "tr": "geri kalan"
+   },
+   "ex": {
+    "es": "Guardé el resto de la comida.",
+    "en": "I saved the rest of the food."
+   },
+   "rank": 645,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true,
+    "ipaAi": "ˈɾesto"
+   }
+  },
+  {
+   "word": "agente",
+   "pos": "n",
+   "gender": "mf",
+   "plural": "agentes",
+   "ipa": "aˈxente",
+   "gl": {
+    "vi": "nhân viên, đại lý",
+    "en": "agent",
+    "es": "agente",
+    "pt": "agente",
+    "fr": "agent",
+    "de": "Agent",
+    "id": "agen",
+    "th": "ตัวแทน",
+    "zh": "代理人",
+    "ja": "エージェント",
+    "ko": "에이전트",
+    "hi": "एजेंट",
+    "ar": "عميل",
+    "ru": "агент",
+    "tr": "temsilci"
+   },
+   "ex": {
+    "es": "El agente de viajes me ayudó mucho.",
+    "en": "The travel agent helped me a lot."
+   },
+   "rank": 655,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "aˈxente"
+   }
+  },
+  {
+   "word": "daño",
+   "pos": "n",
+   "gender": "m",
+   "plural": "daños",
+   "ipa": "ˈdaɲo",
+   "gl": {
+    "vi": "thiệt hại",
+    "en": "damage",
+    "es": "daño",
+    "pt": "dano",
+    "fr": "dommage",
+    "de": "Schaden",
+    "id": "kerusakan",
+    "th": "ความเสียหาย",
+    "zh": "伤害",
+    "ja": "損害",
+    "ko": "피해",
+    "hi": "नुकसान",
+    "ar": "ضرر",
+    "ru": "вред",
+    "tr": "zarar"
+   },
+   "ex": {
+    "es": "La lluvia causó mucho daño a la casa.",
+    "en": "The rain caused a lot of damage to the house."
+   },
+   "rank": 697,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "error",
+   "pos": "n",
+   "gender": "m",
+   "plural": "errores",
+   "ipa": "eˈroɾ",
+   "gl": {
+    "vi": "lỗi",
+    "en": "error",
+    "es": "error",
+    "pt": "erro",
+    "fr": "erreur",
+    "de": "Fehler",
+    "id": "kesalahan",
+    "th": "ข้อผิดพลาด",
+    "zh": "错误",
+    "ja": "エラー",
+    "ko": "오류",
+    "hi": "त्रुटि",
+    "ar": "خطأ",
+    "ru": "ошибка",
+    "tr": "hata"
+   },
+   "ex": {
+    "es": "Cometí un error en el examen.",
+    "en": "I made a mistake on the exam."
+   },
+   "rank": 707,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "baño",
+   "pos": "n",
+   "gender": "m",
+   "plural": "baños",
+   "ipa": "ˈbaɲo",
+   "gl": {
+    "vi": "phòng tắm",
+    "en": "bathroom",
+    "es": "baño",
+    "pt": "banheiro",
+    "fr": "salle de bain",
+    "de": "Badezimmer",
+    "id": "kamar mandi",
+    "th": "ห้องน้ำ",
+    "zh": "浴室",
+    "ja": "浴室",
+    "ko": "욕실",
+    "hi": "स्नानघर",
+    "ar": "حمام",
+    "ru": "ванная",
+    "tr": "banyo"
+   },
+   "ex": {
+    "es": "¿Dónde está el baño?",
+    "en": "Where is the bathroom?"
+   },
+   "rank": 715,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "fuerza",
+   "pos": "n",
+   "gender": "f",
+   "plural": "fuerzas",
+   "ipa": "ˈfweɾsa",
+   "gl": {
+    "vi": "sức mạnh",
+    "en": "strength",
+    "es": "fuerza",
+    "pt": "força",
+    "fr": "force",
+    "de": "Kraft",
+    "id": "kekuatan",
+    "th": "ความแข็งแรง",
+    "zh": "力量",
+    "ja": "力",
+    "ko": "힘",
+    "hi": "ताकत",
+    "ar": "قوة",
+    "ru": "сила",
+    "tr": "güç"
+   },
+   "ex": {
+    "es": "Ella tiene mucha fuerza en los brazos.",
+    "en": "She has a lot of strength in her arms."
+   },
+   "rank": 724,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "mente",
+   "pos": "n",
+   "gender": "f",
+   "plural": "mentes",
+   "ipa": "ˈmente",
+   "gl": {
+    "vi": "tâm trí",
+    "en": "mind",
+    "es": "mente",
+    "pt": "mente",
+    "fr": "esprit",
+    "de": "Geist",
+    "id": "pikiran",
+    "th": "จิตใจ",
+    "zh": "思想",
+    "ja": "心",
+    "ko": "마음",
+    "hi": "मन",
+    "ar": "عقل",
+    "ru": "разум",
+    "tr": "zihin"
+   },
+   "ex": {
+    "es": "Abre tu mente a nuevas ideas.",
+    "en": "Open your mind to new ideas."
+   },
+   "rank": 758,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "ˈmente"
+   }
+  },
+  {
+   "word": "tranquilo",
+   "pos": "adj",
+   "ipa": "tɾanˈkilo",
+   "gl": {
+    "vi": "yên tĩnh",
+    "en": "calm",
+    "es": "tranquilo",
+    "pt": "tranquilo",
+    "fr": "tranquille",
+    "de": "ruhig",
+    "id": "tenang",
+    "th": "สงบ",
+    "zh": "平静的",
+    "ja": "静かな",
+    "ko": "조용한",
+    "hi": "शांत",
+    "ar": "هادئ",
+    "ru": "спокойный",
+    "tr": "sakin"
+   },
+   "ex": {
+    "es": "Este lugar es muy tranquilo.",
+    "en": "This place is very calm."
+   },
+   "rank": 804,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "tɾaŋˈkilo"
+   }
+  },
+  {
+   "word": "vista",
+   "pos": "n",
+   "gender": "f",
+   "plural": "vistas",
+   "ipa": "ˈbista",
+   "gl": {
+    "vi": "tầm nhìn",
+    "en": "view",
+    "es": "vista",
+    "pt": "vista",
+    "fr": "vue",
+    "de": "Aussicht",
+    "id": "pemandangan",
+    "th": "วิว",
+    "zh": "景色",
+    "ja": "景色",
+    "ko": "전망",
+    "hi": "नज़ारा",
+    "ar": "منظر",
+    "ru": "вид",
+    "tr": "manzara"
+   },
+   "ex": {
+    "es": "El hotel tiene una hermosa vista al mar.",
+    "en": "The hotel has a beautiful sea view."
+   },
+   "rank": 810,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "centro",
+   "pos": "n",
+   "gender": "m",
+   "plural": "centros",
+   "ipa": "ˈsentɾo",
+   "gl": {
+    "vi": "trung tâm",
+    "en": "center",
+    "es": "centro",
+    "pt": "centro",
+    "fr": "centre",
+    "de": "Zentrum",
+    "id": "pusat",
+    "th": "ศูนย์กลาง",
+    "zh": "中心",
+    "ja": "中心",
+    "ko": "중심",
+    "hi": "केंद्र",
+    "ar": "مركز",
+    "ru": "центр",
+    "tr": "merkez"
+   },
+   "ex": {
+    "es": "Vamos a caminar por el centro de la ciudad.",
+    "en": "Let's walk around downtown."
+   },
+   "rank": 820,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "ˈsentɾo"
+   }
+  },
+  {
+   "word": "tonto",
+   "pos": "adj",
+   "ipa": "ˈtonto",
+   "gl": {
+    "vi": "ngốc nghếch",
+    "en": "silly / foolish",
+    "es": "tonto",
+    "pt": "tolo / bobo",
+    "fr": "bête / idiot",
+    "de": "dumm / albern",
+    "id": "bodoh / konyol",
+    "th": "โง่",
+    "zh": "傻的",
+    "ja": "愚かな",
+    "ko": "바보 같은",
+    "hi": "मूर्ख",
+    "ar": "أحمق",
+    "ru": "глупый",
+    "tr": "aptal"
+   },
+   "ex": {
+    "es": "Fue un error tonto.",
+    "en": "It was a silly mistake."
+   },
+   "rank": 825,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "novio",
+   "pos": "n",
+   "gender": "m",
+   "plural": "novios",
+   "ipa": "ˈnoβjo",
+   "gl": {
+    "vi": "bạn trai",
+    "en": "boyfriend",
+    "es": "novio",
+    "pt": "namorado",
+    "fr": "petit ami",
+    "de": "Feste Freund",
+    "id": "pacar (laki-laki)",
+    "th": "แฟน (ผู้ชาย)",
+    "zh": "男朋友",
+    "ja": "彼氏",
+    "ko": "남자친구",
+    "hi": "प्रेमी",
+    "ar": "حبيب",
+    "ru": "парень (парочка)",
+    "tr": "erkek arkadaş"
+   },
+   "ex": {
+    "es": "Mi novio se llama Carlos.",
+    "en": "My boyfriend's name is Carlos."
+   },
+   "rank": 836,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "placer",
+   "pos": "n",
+   "gender": "m",
+   "plural": "placeres",
+   "ipa": "plaˈseɾ",
+   "gl": {
+    "vi": "hân hạnh / niềm vui",
+    "en": "pleasure",
+    "es": "placer",
+    "pt": "prazer",
+    "fr": "plaisir",
+    "de": "Vergnügen",
+    "id": "kesenangan",
+    "th": "ความยินดี",
+    "zh": "愉快 / 乐趣",
+    "ja": "喜び",
+    "ko": "기쁨 / 즐거움",
+    "hi": "आनंद",
+    "ar": "سرور",
+    "ru": "удовольствие",
+    "tr": "zevk / memnuniyet"
+   },
+   "ex": {
+    "es": "Es un placer conocerte.",
+    "en": "It is a pleasure to meet you."
+   },
+   "rank": 846,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "muchacho",
+   "pos": "n",
+   "gender": "m",
+   "plural": "muchachos",
+   "ipa": "muˈtʃatʃo",
+   "gl": {
+    "vi": "cậu bé / chàng trai",
+    "en": "boy / young man",
+    "es": "muchacho",
+    "pt": "garoto / rapaz",
+    "fr": "garçon / jeune homme",
+    "de": "Junge / Bursche",
+    "id": "anak laki-laki / pemuda",
+    "th": "เด็กผู้ชาย / ชายหนุ่ม",
+    "zh": "男孩 / 男青年",
+    "ja": "男の子 / 青年",
+    "ko": "소년 / 청년",
+    "hi": "लड़का",
+    "ar": "صبي / شاب",
+    "ru": "мальчик / парень",
+    "tr": "oglan / genç adam"
+   },
+   "ex": {
+    "es": "Ese muchacho trabaja con nosotros.",
+    "en": "That young man works with us."
+   },
+   "rank": 854,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "terminar",
+   "pos": "v",
+   "ipa": "teɾmiˈnaɾ",
+   "gl": {
+    "vi": "hoàn thành",
+    "en": "to finish",
+    "es": "terminar",
+    "pt": "terminar",
+    "fr": "finir",
+    "de": "beenden",
+    "id": "menyelesaikan",
+    "th": "เสร็จ",
+    "zh": "完成",
+    "ja": "終わる",
+    "ko": "끝내다",
+    "hi": "समाप्त करना",
+    "ar": "إنهاء",
+    "ru": "заканчивать",
+    "tr": "bitirmek"
+   },
+   "ex": {
+    "es": "Quiero terminar la tarea temprano.",
+    "en": "I want to finish the homework early."
+   },
+   "rank": 909,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "dulce",
+   "pos": "adj",
+   "ipa": "ˈdulse",
+   "gl": {
+    "vi": "ngọt",
+    "en": "sweet",
+    "es": "dulce",
+    "pt": "doce",
+    "fr": "doux",
+    "de": "süß",
+    "id": "manis",
+    "th": "หวาน",
+    "zh": "甜的",
+    "ja": "甘い",
+    "ko": "달콤한",
+    "hi": "मीठा",
+    "ar": "حلو",
+    "ru": "сладкий",
+    "tr": "tatlı"
+   },
+   "ex": {
+    "es": "Esta fruta está muy dulce.",
+    "en": "This fruit is very sweet."
+   },
+   "rank": 920,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "ocho",
+   "pos": "num",
+   "ipa": "ˈotʃo",
+   "gl": {
+    "vi": "tám",
+    "en": "eight",
+    "es": "ocho",
+    "pt": "oito",
+    "fr": "huit",
+    "de": "acht",
+    "id": "delapan",
+    "th": "แปด",
+    "zh": "八",
+    "ja": "八つ",
+    "ko": "여덟",
+    "hi": "आठ",
+    "ar": "ثمانية",
+    "ru": "восемь",
+    "tr": "sekiz"
+   },
+   "ex": {
+    "es": "Tengo ocho dólares en mi bolsillo.",
+    "en": "I have eight dollars in my pocket."
+   },
+   "rank": 928,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "papel",
+   "pos": "n",
+   "gender": "m",
+   "plural": "papeles",
+   "ipa": "paˈpel",
+   "gl": {
+    "vi": "giấy",
+    "en": "paper",
+    "es": "papel",
+    "pt": "papel",
+    "fr": "papier",
+    "de": "Papier",
+    "id": "kertas",
+    "th": "กระดาษ",
+    "zh": "纸",
+    "ja": "紙",
+    "ko": "종이",
+    "hi": "कागज़",
+    "ar": "ورق",
+    "ru": "бумага",
+    "tr": "kağıt"
+   },
+   "ex": {
+    "es": "Necesito una hoja de papel para escribir.",
+    "en": "I need a sheet of paper to write."
+   },
+   "rank": 935,
+   "qa": {
+    "gen": "gemini-3.6-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  }
+ ],
+ "review": {
+  "by": "sonnet-review-B",
+  "at": "2026-11-09",
+  "checked": 24,
+  "fixed": 6,
+  "dropped": 0,
+  "sample": 6
+ }
+}

@@ -52,6 +52,8 @@ publishAt: 2026-12-03T20:03:00+05:30
 
 The Reading section has 100 questions in 75 minutes: Part 5 (30 incomplete sentences), Part 6 (16 text-completion items) and Part 7 (54 reading comprehension questions). Our [TOEIC test format guide](/en/blog/toeic-test-format/) explains every part in detail.
 
+Related reading: [the TOEIC self-study roadmap](/en/blog/toeic-self-study-roadmap-guide/).
+
 Many teachers suggest a target of around 10 minutes for Part 5, or about 20 seconds per item. That is ambitious at first but realistic once you stop reading every sentence in full. Part 7 is long, and test takers who run out of time usually lose those points at the end of the paper.
 
 ![](media:@s1 "A Part 5 practice set presents incomplete sentences with four options, the format you need to answer in about 20 seconds each")

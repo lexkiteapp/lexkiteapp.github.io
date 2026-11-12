@@ -78,9 +78,10 @@ const leak = where => { const m = visible().match(new RegExp(`[^\\s]*${VI.source
 
 // ---------- 1) Khung + thanh bên ----------
 ok(d.body.classList.contains('adm-in') && !$('#side').hidden, 'đăng nhập → hiện thanh bên');
-ok($$('#tabs .side-g').length === 6 && $$('#tabs a[data-tab]').length === 21, 'thanh bên: 6 nhóm, 21 mục (+ Kênh & phân phối, Quảng cáo, Lưu trữ, Sổ tài khoản & khóa)');
-ok($$('#tabs .side-h').map(x => x.textContent).join('|') === 'Overview|Users|Quality|Content & Video|System', 'tên nhóm EN: ' + $$('#tabs .side-h').map(x => x.textContent).join('|'));
-ok($('#tabs a[data-tab="quota"] .nav-l').textContent === 'Quotas', '"Hạn mức" dịch thành Quotas ở EN');
+// IA 05/11 (docs/specs/admin-audit.md §2): 16 mục thanh bên + 7 trang con trong 2 hub (Sức khỏe hệ thống, Tài khoản & khóa) = vẫn đủ 21 trang cũ + 2 mới
+ok($$('#tabs .side-g').length === 7 && $$('#tabs a[data-tab]').length === 16, 'thanh bên: 6 nhóm, 16 mục: ' + $$('#tabs a[data-tab]').map(a => a.dataset.tab).join(','));
+ok($$('#tabs .side-h').map(x => x.textContent).join('|') === 'Learner|Content & Video|Distribution|Revenue|System', 'tên nhóm EN: ' + $$('#tabs .side-h').map(x => x.textContent).join('|'));
+ok($('#tabs a[data-tab="health"] .nav-l').textContent === 'System health' && $('#tabs a[data-tab="vault"] .nav-l').textContent === 'Accounts & keys', 'hub dịch EN');
 ok($('#tabs a[aria-current="page"]').dataset.tab === 'settings' && h1() === 'Settings', 'mở thẳng #settings → mục Cài đặt đang chọn');
 await tick(30);
 ok($('#inboxN').textContent === '2' && $('#alertN').textContent === '1', 'huy hiệu hộp thư/cảnh báo: ' + $('#inboxN').textContent + '/' + $('#alertN').textContent);
@@ -173,8 +174,8 @@ $('.ib-meta .copy').click(); await tick(); ok(copied === '7', 'sao chép mã tin
 w.location.hash = '#drive/browse?d=abc&q=x'; await tick(40);
 ok(seen.AdminDrive === '#drive/browse?d=abc&q=x' && w.location.hash === '#drive/browse?d=abc&q=x' && h1() === 'Drive storage', 'đường dẫn sâu #drive/browse?… giữ nguyên khi vẽ module');
 w.location.hash = '#keys?p=gemini&s=live'; await tick(40);
-ok(seen.AdminKeys === '#keys?p=gemini&s=live' && $('#tabs a[aria-current]').dataset.tab === 'keys', 'đường dẫn sâu #keys?… giữ nguyên');
-$('#tabs a[data-tab="drive"]').click(); await tick(40);
+ok(seen.AdminKeys === '#keys?p=gemini&s=live' && $('#tabs a[aria-current]').dataset.tab === 'vault' && $('.hub-tabs a[aria-current]').dataset.go === 'keys', 'đường dẫn sâu #keys?… giữ nguyên');
+w.location.hash = '#drive/browse?q=x'; await tick(40); $('.hub-tabs a[data-go="drive"]').click(); await tick(40); // hub: tab con Kho Drive
 ok(w.location.hash === '#drive' && seen.AdminDrive === '#drive', 'bấm lại mục Drive → về #drive gốc');
 
 // ---------- 2) Bảng lệnh ----------
@@ -197,9 +198,9 @@ $('#cmdk').click(); await tick(); ok($('#cmdkDlg'), 'nút "Go to…" mở bảng
 
 // ---------- 4) EN không lộ chữ Việt trên từng màn hình lõi ----------
 for (const t of ['overview', 'analytics', 'users', 'inbox', 'alerts', 'quality', 'services', 'settings']) {
-  $(`#tabs a[data-tab="${t}"]`).click(); await tick(60);
+  { const a = $(`#tabs a[data-tab="${t}"]`); if (a) a.click(); else w.location.hash = '#' + t; } await tick(60); // trang con hub: mở bằng #hash
   if ($('.cf-dlg')) { $('.cf-dlg [data-yes]').click(); await tick(40); }
-  ok($('#tabs a[aria-current]').dataset.tab === t && !$('.err-box'), `#${t} vẽ được, không lỗi`);
+  ok(($('#tabs a[aria-current]').dataset.tab === t || ($('.hub-tabs a[aria-current]') || { dataset: {} }).dataset.go === t) && !$('.err-box'), `#${t} vẽ được, không lỗi`);
   leak('#' + t);
 }
 // Người dùng: cột quốc gia (cờ + tên theo ngôn ngữ admin), thẻ đếm theo quốc gia bấm để lọc, ô lọc quốc gia/ngày tham gia
@@ -267,9 +268,9 @@ ok(!lastCall('errorsClear'), 'Hủy → không xóa');
 
 // VI ⇄ EN
 $('#lng').click(); await tick(60);
-ok(d.documentElement.lang === 'vi' && h1() === 'Cảnh báo' && $('#tabs a[data-tab="quota"] .nav-l').textContent === 'Hạn mức' && $('.adm-skip').textContent === 'Bỏ qua tới nội dung', 'đổi sang VI: thanh bên, tiêu đề, chữ tĩnh');
+ok(d.documentElement.lang === 'vi' && h1() === 'Trung tâm cảnh báo' && $('#tabs a[data-tab="health"] .nav-l').textContent === 'Sức khỏe hệ thống' && $('.adm-skip').textContent === 'Bỏ qua tới nội dung', 'đổi sang VI: thanh bên, tiêu đề, chữ tĩnh');
 $('#lng').click(); await tick(60);
-ok(d.documentElement.lang === 'en' && $('#tabs a[data-tab="quota"] .nav-l').textContent === 'Quotas' && $('#inboxN').textContent === '2', 'về EN: giữ huy hiệu sau khi vẽ lại thanh bên');
+ok(d.documentElement.lang === 'en' && $('#tabs a[data-tab="health"] .nav-l').textContent === 'System health' && $('#inboxN').textContent === '2', 'về EN: giữ huy hiệu sau khi vẽ lại thanh bên');
 
 // ---------- Ngăn kéo thanh bên (điện thoại) ----------
 $('#navBtn').click(); ok($('#side').classList.contains('open') && !$('#scrim').hidden && $('#navBtn').getAttribute('aria-expanded') === 'true', 'nút ☰ mở ngăn kéo');
@@ -310,7 +311,9 @@ $('#tabs a[data-tab="video"]').click(); await tick(80);
   leak('#video thư viện');
   await sec('qc'); ok(/No QC report yet/.test(m.textContent) && m.querySelector('[data-go="studio"]'), 'Sản xuất & QC: trạng thái trống + liên kết Video Studio'); leak('#video QC');
   await sec('scripts'); ok(m.querySelectorAll('.vid-cov .none').length === 1 && m.querySelectorAll('.vid-cov .gap').length === 2, 'Kịch bản: độ phủ (thiếu/chưa có)'); leak('#video kịch bản');
-  await sec('channels'); await tick(40); ok(m.querySelector('[data-go="dist"]') && m.querySelector('#vx-web'), 'Kênh & phân phối: liên kết tab Kênh + hiệu quả web'); leak('#video kênh');
+  await sec('channels'); await tick(40); ok(m.querySelector('[data-go="dist"]') && m.querySelector('#vx-web'), 'Phát hành: liên kết tab Kênh & phân phối + hiệu quả web'); leak('#video kênh');
+  { const distL = $('#tabs a[data-tab="dist"] .nav-l').textContent.trim(), cur = m.querySelector('.vx-tab[aria-current=page]'), head = m.querySelector('.vx-h').textContent;
+    ok(cur && !cur.textContent.includes(distL) && !head.includes(distL) && !/routing rules live|tab Kênh/i.test(head), 'Phát hành: tên mục con/tiêu đề khác mục sidebar "' + distL + '", mô tả không tự chỉ sang chính nó'); }
   await sec('archive'); ok(/No clips in the archive/.test(m.textContent) && m.querySelector('[data-go="drive"]'), 'Lưu trữ: trống + liên kết Kho Drive'); leak('#video lưu trữ');
   w.history.replaceState(null, '', '#video/qc'); $('#tabs a[data-tab="video"]').click(); await tick(80);
   ok(true, 'mở lại tab'); await sec('overview');

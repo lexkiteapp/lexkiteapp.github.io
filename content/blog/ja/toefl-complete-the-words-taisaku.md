@@ -65,6 +65,8 @@ publishAt: 2026-11-15T12:10:00+09:00
 
 答えは *roots, underground, their, often, reduce* です。消されている単語の多くは、代名詞（their）、副詞（often）、動詞（reduce）のような**基本語**だということに注目してください。難しいのは珍しい単語ではなく、時間のプレッシャーの中で文法とつづりに気づけるかどうかです。
 
+さらに詳しくは[TOEFL新形式2026の対策ガイド](/ja/blog/toefl-shin-keishiki-2026-taisaku-guide/)もあわせて読んでみてください。
+
 新形式の全体像（1〜6のバンドスコア、ほかのリーディング課題など）は、[TOEFL iBTライティング Academic Discussion対策](/ja/blog/toefl-ibt-writing-academic-discussion-taisaku/)の冒頭でも紹介しています。
 
 ## 空所を埋める5つの手がかり

@@ -2,7 +2,7 @@
 # Build app Android/iOS từ chính bản web (1 bộ mã): web → dist → mobile/www → cap sync (android/, ios/)
 set -euo pipefail
 cd "$(dirname "$0")/.."
-[[ "${1:-}" == "--skip-web" ]] || ./scripts/build-web.sh
+[[ "${1:-}" == "--skip-web" ]] || NO_HASH=1 ./scripts/build-web.sh  # app gốc: tài nguyên nằm sẵn trong gói → không cần bản /h/ (tránh gấp đôi dung lượng app)
 mkdir -p mobile/www
 # Trong app gốc không dùng service worker (tài nguyên đã nằm sẵn trong app) → bỏ sw.js
 # Mã chỉ trang quản trị (admin.js, admin-*.js, lib/dist-rules.js, vendor/jsvectormap) không vào app – khóa bởi scripts/test/js-budget.mjs (adminOnlyDeps)

@@ -86,7 +86,10 @@ export const TASKS = {
   vscene: { kind: 'gen', deny: [] },
   cfgen: { kind: 'gen', deny: ['llama'] },   // xưởng nội dung (scripts/factory/lib.mjs – prompt cục bộ theo kind): soạn
   cfjudge: { kind: 'judge', deny: [] },      // xưởng: 2 giám khảo (judgePair)
-  cfaudit: { kind: 'judge', deny: [] },      // xưởng: soát mẫu lô ≥ 5 % (giám khảo thứ ba khác mô hình) // thẻ cảnh ảnh minh hoạ (scripts/vocab-img/scene.mjs – prompt cục bộ, không qua /api/lexai)
+  cfaudit: { kind: 'judge', deny: [] },
+  nsback: { kind: 'judge', deny: [] },       // O5 native-score (scripts/i18n-native-score.mjs – prompt cục bộ): giám khảo A dịch ngược L1 → en
+  nsjudge: { kind: 'judge', deny: [] },      // O5: giám khảo B khác họ chấm 1–5 (nghĩa khớp en gốc + tự nhiên)
+  nsgen: { kind: 'gen', deny: ['llama'] },   // O5 --fix: viết lại L1 thẳng từ en gốc (Llama bỏ trống ja/th/hi/ar – đo 24/10)      // xưởng: soát mẫu lô ≥ 5 % (giám khảo thứ ba khác mô hình) // thẻ cảnh ảnh minh hoạ (scripts/vocab-img/scene.mjs – prompt cục bộ, không qua /api/lexai)
 };
 export function allowed(mode, model) {
   const t = TASKS[mode]; if (!t) return false;
@@ -252,7 +255,7 @@ export function createPool(opts = {}) {
   const retryAfter = r => { const v = +(r.headers && r.headers.get && r.headers.get('Retry-After')); return Number.isFinite(v) && v > 0 ? Math.min(600, v) * 1e3 : 65e3; };
   const GC_MAX_CHARS = 7900;
   // GrabCast cắt câu trả lời ≈ 1–2 nghìn ký tự với gpt-oss (đo 24/10: lxtr 10 mục bị cụt) → số mục tối đa mỗi lượt theo cỡ đầu ra; cụt nữa → chia đôi
-  const GC_ITEMS = { lxgen: 3, lxtr: 3, lxjudge: 1, lxdef: 5, lxsrc: 2, lxex: 3, xgen: 2, xtr: 2, xjudge: 10, vgen: 1, vjudge: 6, cfgen: 2, cfjudge: 6, cfaudit: 5, translate: 10, judge: 15, vscene: 2 }; // GrabCast: prompt ≤ 8.000 ký tự (422 string_too_long) → chia đôi lô mục cho tới khi vừa
+  const GC_ITEMS = { lxgen: 3, lxtr: 3, lxjudge: 1, lxdef: 5, lxsrc: 2, lxex: 3, xgen: 2, xtr: 2, xjudge: 10, vgen: 1, vjudge: 6, cfgen: 2, cfjudge: 6, cfaudit: 5, translate: 10, judge: 15, vscene: 2, nsback: 10, nsjudge: 6, nsgen: 4 }; // GrabCast: prompt ≤ 8.000 ký tự (422 string_too_long) → chia đôi lô mục cho tới khi vừa
   const gcRoute = provider => {
     async function one(req, model, depth = 0) {
       const cap = GC_ITEMS[req.mode];

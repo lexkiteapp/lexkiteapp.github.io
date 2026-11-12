@@ -11,7 +11,6 @@ D.en = Object.assign(D.en || {}, {
 "Giao tiếp hằng ngày": "Everyday communication",
 "Học gói này": "Study this track",
 "Luyện Part 1–7, từ vựng công sở TSL và các bẫy hay gặp": "Practise Parts 1–7, TSL business vocabulary and common traps",
-"Làm bài kiểm tra đầu vào": "Take the placement test",
 "Mẹo & bẫy hay gặp": "Tips & common traps",
 "Mỗi gói giữ tiến độ riêng – XP và chuỗi ngày dùng chung.": "Each track keeps its own progress – XP and streak are shared.",
 "Mục tiêu của bạn là gì?": "What's your goal?",
@@ -81,5 +80,6 @@ D.en = Object.assign(D.en || {}, {
 "Lộ trình của bạn": "Your plan",
 "Lưu tiến độ của bạn": "Save your progress",
 "Đăng nhập miễn phí để giữ chuỗi ngày, XP và từ đã học – học tiếp trên mọi thiết bị.": "Sign in for free to keep your streak, XP and learned words – and continue on any device.",
+"Lộ trình đã sẵn sàng! Bước cuối: bài kiểm tra 5 phút để xếp đúng chặng – bỏ qua cũng được.": "Your path is ready! Last step: a 5-minute test to place you at the right stage – you can skip it.",
 });
 })(typeof self !== 'undefined' ? self : this);

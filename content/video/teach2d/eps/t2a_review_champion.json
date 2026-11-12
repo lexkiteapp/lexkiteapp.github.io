@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"champion\" mean?",
+  "keyword": "champion",
+  "value": "Champion means a person or team that has won a competition.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=champion",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"champion\" mean?",
+    "description": "Champion means a person or team that has won a competition.\n\nReview your words, free: https://lexkite.com/app/#/review?w=champion\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "champion",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"champion\" mean?\n\nChampion means a person or team that has won a competition.\n\nReview your words, free: https://lexkite.com/app/#/review?w=champion"
+   },
+   "instagram": {
+    "caption": "What does \"champion\" mean?\n\nChampion means a person or team that has won a competition.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"champion\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a person or team that has won a competition. Champion means a person or team that has won a competition. Try the full lesson and quiz here: {link}"
  }
 }

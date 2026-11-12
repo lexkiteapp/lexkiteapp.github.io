@@ -158,6 +158,8 @@ Bu tek cümlelik analiz, dikkatsizce dinlenen iki saatlik podcastten çok daha f
 
 {{cta: /#/listening | Lexkite dinleme odasında ilk 15 dakikalık dikte seansınıza başlayın}}
 
+Dikteyi TOEIC'e uyarlamak isterseniz [TOEIC Listening Part 2 stratejileri](/tr/blog/toeic-listening-part-2-stratejileri-soru-cevap/) yazısında kısa soru-cevap tuzaklarını bulabilirsiniz.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### Haftada kaç gün dikte (dictation) yapmalıyım?

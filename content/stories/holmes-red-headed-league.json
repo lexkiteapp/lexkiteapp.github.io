@@ -1,0 +1,48 @@
+{
+  "id": "holmes-red-headed-league",
+  "kind": "book",
+  "level": "B1",
+  "title": "The Red-Headed League",
+  "summary": "A man with bright red hair gets a strange, easy job, and Sherlock Holmes wants to know why.",
+  "source": {
+    "type": "public-domain",
+    "work": "The Adventures of Sherlock Holmes, \"The Red-Headed League\"",
+    "author": "Arthur Conan Doyle",
+    "published": 1891,
+    "authorDied": 1930,
+    "url": "https://www.gutenberg.org/ebooks/1661",
+    "note": "Retold from the plot of the story in new B1 English by Lexkite; no sentences copied from the original text."
+  },
+  "license": "Adaptation CC BY 4.0 Lexkite; original story in the public domain",
+  "cover": { "style": "2d", "cast": [], "scene": "Flat 2D illustration: a foggy London street at evening with gas lamps, a man with bright red hair holding a newspaper, no text" },
+  "audio": { "wpm": 130, "voice": "kokoro:am_michael", "file": null, "marks": null },
+  "chapters": [
+    {
+      "title": "A Strange Advertisement",
+      "sentences": [
+        "One autumn morning, Dr Watson visited his friend Sherlock Holmes in Baker Street.",
+        "Holmes was talking to a large, older man with bright red hair.",
+        "The visitor's name was Jabez Wilson, and he owned a small shop in London.",
+        "\"Please tell my friend your story from the beginning,\" Holmes said.",
+        "Mr Wilson took an old newspaper out of his pocket.",
+        "His young assistant had shown him an advertisement in it a few weeks earlier.",
+        "It said that a group called the Red-Headed League needed a new member.",
+        "The member would earn good money for very simple work.",
+        "The only condition was that the man had to have red hair.",
+        "Hundreds of red-haired men came to the office, but Mr Wilson got the job.",
+        "Every day, from ten until two, he copied pages from an encyclopedia.",
+        "He was not allowed to leave the office during those hours.",
+        "This went on for eight weeks, and the pay was always on time.",
+        "Then one morning he found a short note on the locked door.",
+        "It said that the Red-Headed League no longer existed.",
+        "Holmes smiled, because he thought this was a very interesting problem."
+      ],
+      "words": ["visitor", "assistant", "advertisement", "league", "member", "earn", "condition", "encyclopedia", "allow", "exist"],
+      "quiz": [
+        { "q": "What did Mr Wilson have to do in his new job?", "options": ["Sell newspapers in the street", "Copy pages from an encyclopedia", "Look after his assistant's shop"], "answer": 1, "explain": "From ten until two every day, he copied pages from an encyclopedia." },
+        { "q": "Why did Mr Wilson get the job?", "options": ["He had red hair.", "He was a friend of Holmes.", "He was the youngest man there."], "answer": 0, "explain": "The only condition in the advertisement was red hair." },
+        { "q": "How did the job end?", "options": ["Mr Wilson left because he was bored.", "Holmes told him to stop.", "He found a note saying the League no longer existed."], "answer": 2, "explain": "One morning there was a note on the locked door: the League no longer existed." }
+      ]
+    }
+  ]
+}

@@ -176,7 +176,7 @@ Kurumsal e-posta yazarken profesyonel imajınızı zedeleyebilecek en yaygın tu
 
 Yazı dilinizin akıcılığını ve dilbilgisi çeşitliliğini artırmak için [IELTS Writing Task 2 şablon](/tr/blog/ielts-writing-task-2-ornekleri/) rehberimizi okuyabilir, kariyer hedefleriniz doğrultusunda uluslararası mülakatlara hazırlanıyorsanız [İngilizce iş mülakatı soruları](/tr/blog/ingilizce-is-mulakati-sorulari/) yazımızı inceleyebilirsiniz. İş yazışmalarında ve ekip içi sohbetlerde sıkça başvurulan kalıplar için [İngilizce Phrasal Verbs En Çok Kullanılanlar](/tr/blog/ingilizce-phrasal-verbs-en-cok-kullanilanlar/) listesini de rehber edinebilirsiniz. Ayrıca genel İngilizce öğrenme disiplini için [İngilizce nasıl öğrenilir](/tr/blog/ingilizce-nasil-ogrenilir/) ve akademik sınavlar için [YDS soru çözme teknikleri](/tr/blog/yds-soru-cozme-teknikleri/) makalelerimiz faydalı olacaktır.
 
-{{youtube: hTms_jR9ZfM | Profesyonel İngilizce E-Posta Yazarken En Çok Yapılan 7 Hata ve Çözümleri}}
+{{youtube: | Profesyonel İngilizce E-Posta Yazarken En Çok Yapılan 7 Hata ve Çözümleri}}
 
 {{cta: /#/write | Kurumsal Yazma Becerilerini Geliştir}}
 
@@ -193,6 +193,8 @@ A) Look at the document below.
 B) Please find attached the quarterly financial report.  
 C) I send you file check it now.  
 *Doğru Cevap:* B ("Please find attached..." iş dünyasında evrensel kabul gören en kibar ek dosya bildirim kalıbıdır).
+
+E-postalarda sık geçen kısaltmaların anlamı için [iş hayatında İngilizce kısaltmalar rehberine](/tr/blog/is-hayatinda-ingilizce-kisaltmalar-email-rehberi/) bakabilirsiniz.
 
 ## Sıkça Sorulan Sorular (SSS)
 

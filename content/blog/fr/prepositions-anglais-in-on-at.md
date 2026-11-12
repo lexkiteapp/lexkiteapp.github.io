@@ -65,6 +65,8 @@ Dans ce guide complet, nous vous présentons cette règle universelle pour le te
 
 La clé pour ne plus jamais hésiter entre *in*, *on* et *at* repose sur une règle visuelle simple : la pyramide inversée. Le sommet large représente les concepts les plus vastes et généraux (*IN*), le milieu resserré désigne les dimensions intermédiaires (*ON*), et la pointe étroite cible la précision absolue (*AT*).
 
+Pour aller plus loin, lisez aussi [nos stratégies pour TOEIC Part 5](/fr/blog/toeic-part-5-strategies-grammaire-vocabulaire/).
+
 ```
 La Pyramide Inversée des Prépositions :
         ▼

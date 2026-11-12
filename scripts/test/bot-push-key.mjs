@@ -18,13 +18,23 @@ import { fileURLToPath } from 'node:url';
 
 export const KEY = '${{ secrets.BOT_DEPLOY_KEY }}', SKIP = '[skip ci]';
 // script đẩy thẳng main của repo chính → regex nhận lời gọi có đẩy trong workflow
-export const SCRIPT_MAIN = { 'scripts/ops/ledger-push.mjs': /scripts\/ops\/ledger-push\.mjs/, 'scripts/vocab-img/publish.mjs': /scripts\/vocab-img\/publish\.mjs[^\n]*--push/, 'scripts/vocab-img/publish-free.mjs': /scripts\/vocab-img\/publish-free\.mjs[^\n]*--push/, 'scripts/ci/commit-regen.sh': /scripts\/ci\/commit-regen\.sh/ };
+export const SCRIPT_MAIN = { 'scripts/ops/ledger-push.mjs': /scripts\/ops\/ledger-push\.mjs/, 'scripts/vocab-img/publish.mjs': /scripts\/vocab-img\/publish\.mjs[^\n]*--push/, 'scripts/vocab-img/publish-free.mjs': /scripts\/vocab-img\/publish-free\.mjs[^\n]*--push/, 'scripts/ci/commit-regen.sh': /scripts\/ci\/commit-regen\.sh/,
+  // helper đẩy main dùng chung (tự gắn [skip ci] – test scripts/test/push-main.mjs); open-pr.sh: Actions bị cấm tạo PR → lô đã xanh đẩy main qua push-main
+  'scripts/ci/push-main.sh': /scripts\/ci\/push-main\.sh/, 'scripts/factory/open-pr.sh': /scripts\/factory\/open-pr\.sh/ };
 // đẩy NHÁNH PR bot (refs/heads/bot/…) vào repo chính để mở PR – CẦN kích check (không [skip ci]), không bao giờ đẩy main; được kiểm bên dưới
 export const PR_BRANCH = new Set(['scripts/factory/open-pr.sh']);
+// gộp main vào nhánh PR CÓ SẴN (pr-unconflict): không bao giờ đẩy main, không force-push
+export const PR_UPDATE = new Set(['scripts/pr-unconflict.mjs', 'scripts/ci/commit-regen-pr.sh']);
+export function scanPrUpdate(f, s) {
+  const e = [], pushes = s.split('\n').filter(l => /'push'|git push/.test(l) && !/^\s*(\/\/|#)/.test(l));
+  if (/HEAD:main|refs\/heads\/main\b/.test(s)) e.push(`${f}: script cập nhật nhánh PR không được đẩy main`);
+  if (!pushes.length || pushes.some(l => /--force|'-f'|\+HEAD/.test(l))) e.push(`${f}: phải có git push và không force-push`);
+  return e;
+}
 export function scanPrBranch(f, s) {
   const e = [], pushes = s.split('\n').filter(l => /git push/.test(l) && !/^\s*#/.test(l));
   if (/HEAD:main|refs\/heads\/main\b/.test(s)) e.push(`${f}: script nhánh PR không được đẩy main`);
-  if (!pushes.length || pushes.some(l => !/HEAD:refs\/heads\/\$\{?br\}?/.test(l))) e.push(`${f}: mọi git push phải là HEAD:refs/heads/$br`);
+  if (!pushes.length || pushes.some(l => !/HEAD:refs\/heads\/\$\{?br\}?|--delete "?\$\{?br\}?"?/.test(l))) e.push(`${f}: mọi git push phải là HEAD:refs/heads/$br`);
   if (!/br="bot\//.test(s)) e.push(`${f}: nhánh phải có tiền tố bot/`);
   return e;
 }
@@ -164,11 +174,12 @@ if (self) {
   }
   for (const f of Object.keys(SCRIPT_MAIN)) scanScript(f, fs.readFileSync(f, 'utf8')).forEach(bad);
   for (const f of PR_BRANCH) scanPrBranch(f, fs.readFileSync(f, 'utf8')).forEach(bad);
+  for (const f of PR_UPDATE) scanPrUpdate(f, fs.readFileSync(f, 'utf8')).forEach(bad);
   const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.name === 'node_modules' ? [] : e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
   for (const f of walk('scripts').filter(f => /\.(m?js|sh|py)$/.test(f) && !f.startsWith('scripts/test/'))) {
     const s = fs.readFileSync(f, 'utf8');
-    if (!/git push|'push',\s*'-q'|'push',\s*'origin'|HEAD:main/.test(s) || SCRIPT_MAIN[f] || EXTERNAL.has(f) || PR_BRANCH.has(f)) continue;
-    bad(`${f} có git push/HEAD:main nhưng chưa phân loại – thêm vào SCRIPT_MAIN (đẩy repo chính: cần ssh-key + [skip ci]), PR_BRANCH (nhánh PR bot/…) hoặc EXTERNAL (kho khác)`);
+    if (!/git push|'push',\s*'-q'|'push',\s*'origin'|HEAD:main/.test(s) || SCRIPT_MAIN[f] || EXTERNAL.has(f) || PR_BRANCH.has(f) || PR_UPDATE.has(f)) continue;
+    bad(`${f} có git push/HEAD:main nhưng chưa phân loại – thêm vào SCRIPT_MAIN (đẩy repo chính: cần ssh-key + [skip ci]), PR_BRANCH (nhánh PR bot/…) PR_UPDATE (gộp main vào nhánh PR có sẵn) hoặc EXTERNAL (kho khác)`);
   }
   if (found.length < 30) bad(`chỉ nhận ra ${found.length} workflow đẩy main – bộ nhận diện hỏng?`);
   if (!fail) console.log(`✓ bot-push-key: ${found.length} workflow đẩy main đều qua SSH khoá deploy + [skip ci]`);

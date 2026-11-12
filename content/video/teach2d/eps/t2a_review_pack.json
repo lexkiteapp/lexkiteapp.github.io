@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"pack\" mean?",
+  "keyword": "pack",
+  "value": "Pack means to put things in a suitcase to go on a trip.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=pack",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"pack\" mean?",
+    "description": "Pack means to put things in a suitcase to go on a trip.\n\nReview your words, free: https://lexkite.com/app/#/review?w=pack\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "pack",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"pack\" mean?\n\nPack means to put things in a suitcase to go on a trip.\n\nReview your words, free: https://lexkite.com/app/#/review?w=pack"
+   },
+   "instagram": {
+    "caption": "What does \"pack\" mean?\n\nPack means to put things in a suitcase to go on a trip.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"pack\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to put things in a suitcase to go on a trip. Pack means to put things in a suitcase to go on a trip. Try the full lesson and quiz here: {link}"
  }
 }

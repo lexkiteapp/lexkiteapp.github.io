@@ -1,6 +1,6 @@
 # GAME FEEL – âm thanh, chuyển động, nhân vật phản ứng (PILOT sau cờ)
 
-> TL;DR: Lớp làm app "đã tay" như game, không đụng layout Stitch v2. Mặc định TẮT; `?feel=1` bật, `?feel=0` tắt. Chờ chủ duyệt mẫu rồi mới bật cho mọi người.
+> TL;DR: Lớp làm app "đã tay" như game, không đụng layout Stitch v2. BẬT mặc định từ 3/11 (docs/specs/play-learn.md); tắt bằng Cài đặt hoặc `?feel=0`. Gói âm chuẩn −16 LUFS (gate `sfx-loudness.mjs`).
 > Đọc khi: sửa âm thanh/rung/hiệu ứng phản hồi, hoặc gắn nhân vật phản ứng.
 
 ## 1. Hiện trạng (29/10)
@@ -15,7 +15,7 @@
 Thiếu: âm được thiết kế, đếm XP, thanh tiến độ chạy, chuyển màn, nhân vật "sống" khi đúng/sai.
 
 ## 2. Gói âm (`web/sfx/*.mp3`, ~22 KB cả gói)
-Tự tổng hợp bằng `scripts/sfx/build.mjs` (công thức trong code, không mẫu của ai → CC0 của mình, $0, dựng lại y hệt). tap 0.8 · correct 3.1 · wrong 2.4 · combo 3.0 · complete 7.7 · streak 5.4 KB.
+Tự tổng hợp bằng `scripts/sfx/build.mjs` (công thức trong code, không mẫu của ai → CC0 của mình, $0, dựng lại y hệt). Mỗi âm chuẩn **−16 LUFS ±1, đỉnh ≤ −1 dBFS** (BS.1770, `scripts/sfx/loudness.mjs`); trộn theo vai bằng `VOL` trong feel.js. tap 0.8 · correct 3.1 · wrong 2.4 · combo 3.0 · complete 7.7 · streak 5.4 KB.
 - correct: chuông 2 nốt đi lên · wrong: "bonk" trầm dịu (không buzzer) · combo: lấp lánh 3 nốt, cao độ tăng theo chuỗi (≤ +7 bán cung) · complete: fanfare 4 nốt + hợp âm ấm · streak: vút + chuông.
 - Tải sau lần chạm đầu; chưa giải mã xong → bíp cũ. Vẫn đi qua `Sfx.*` nên mọi bề mặt tắt theo `settings.sfx`. `Sfx.locked` chặn `streak-ui.js` ghi đè.
 

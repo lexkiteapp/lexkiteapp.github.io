@@ -7,6 +7,7 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
+import { withUtm, clipLang, FC_MODE, fcIssue, FC_MAX } from '../../functions/api/_first_comment.js';
 
 const args = process.argv.slice(2), flag = n => args.includes('--' + n), opt = n => { const i = args.indexOf('--' + n); return i >= 0 ? args[i + 1] : undefined; };
 const die = m => { console.error('✗ publish-grabcast: ' + m); process.exit(1); };
@@ -14,6 +15,8 @@ const DRY = flag('dry-run'), STORE_ONLY = flag('store-only'), FILE = opt('file')
 if (!FILE || (!META && !STORE_ONLY)) die('cần --file video.mp4 --meta script.json (hoặc --store-only)');
 if (!fs.existsSync(FILE)) die('không thấy file ' + FILE);
 if (AT && (isNaN(Date.parse(AT)) || Date.parse(AT) < Date.now() + 60e3)) die('--at phải là thời điểm ISO trong tương lai: ' + AT);
+// Cổng duyệt: --at xếp lịch THẲNG trên GrabCast (vượt duyệt bài đầu/HOLD của Quản trị). Chỉ chạy khi người chạy xác nhận rõ (--i-approved) và không phải CI tự động.
+if (AT && !DRY && (!flag('i-approved') || process.env.CI)) die('--at xếp lịch thật, bỏ qua cổng duyệt Quản trị → cần --i-approved và không chạy trong CI. Mặc định: để nháp, duyệt ở Quản trị › Video & Social.');
 const BASE = String(process.env.GRABCAST_API_BASE || 'https://grabcast-api-342720596878.us-central1.run.app').replace(/\/+$/, '');
 const KEY = process.env.GRABCAST_API_KEY || '', WS = String(process.env.GRABCAST_WORKSPACE || '4');
 if (!KEY && !DRY) die('thiếu env GRABCAST_API_KEY (secret của repo)');
@@ -23,7 +26,10 @@ const stat = fs.statSync(FILE), sha = crypto.createHash('sha256').update(fs.read
 const hashtags = Array.isArray(m.hashtags) ? m.hashtags.map(h => '#' + String(h).replace(/^#/, '')).join(' ') : '';
 const cap0 = m.caption || m.description || raw.caption || '', link = m.link || raw.link || ((raw.script || {}).link) || '';
 // link sâu đúng tính năng (script.link) nằm trong chữ bài – nền tảng video ngắn bỏ qua trường link
-const caption = [cap0, /^https:\/\/lexkite\.com\//.test(link) && !cap0.includes(link) ? link : '', hashtags].filter(Boolean).join('\n\n').trim();
+// UTM theo ngôn ngữ clip (page/ngôn ngữ nhận ra được trong báo cáo web): source=grabcast medium=page campaign=<lang> content=<clip>
+const LANG = clipLang(m.id || raw.id || (process.env.JOB || ''), m.lang || raw.lang || 'en');
+const linkU = withUtm(link, { utm_source: 'grabcast', utm_medium: 'page', utm_campaign: LANG, utm_content: String(m.id || raw.id || process.env.JOB || '').slice(0, 80), utm_term: LANG });
+const caption = [cap0.split(link).join(linkU), /^https:\/\/lexkite\.com\//.test(link) && !cap0.includes(link) ? linkU : '', hashtags].filter(Boolean).join('\n\n').trim();
 if (!caption && !STORE_ONLY) die('meta thiếu caption/description');
 const scrub = s => (KEY ? String(s).split(KEY).join('***') : String(s));
 
@@ -47,7 +53,16 @@ const list = j => (Array.isArray(j) ? j : (j && (j.items || j.data || j.results 
 const MIME = /\.webm$/i.test(FILE) ? 'video/webm' : /\.mov$/i.test(FILE) ? 'video/quicktime' : 'video/mp4';
 // API kho GrabCast (18/10/2026) bắt buộc name + mime + size (tên hiển thị trong Drive) – giữ `filename` cho bản cũ
 const begin = { name: `lexkite-${(process.env.JOB || path.basename(FILE, path.extname(FILE))).replace(/[^A-Za-z0-9_-]/g, '')}-${sha.slice(0, 8)}${path.extname(FILE) || '.mp4'}`, filename: path.basename(FILE), size: stat.size, mime: MIME, content_type: MIME, pool: 'bulk', sha256: sha };
-const post = media_ids => ({ ...(m.title ? { title: String(m.title).slice(0, 200) } : {}), caption, ...(m.first_comment ? { first_comment: m.first_comment } : {}), link: /^https:\/\/lexkite\.com\//.test(link) ? link : 'https://lexkite.com/', media_ids, targets: [] });
+const post = media_ids => ({ ...(m.title ? { title: String(m.title).slice(0, 200) } : {}), caption, link: /^https:\/\/lexkite\.com\//.test(link) ? linkU : withUtm('https://lexkite.com/', { utm_source: 'grabcast', utm_medium: 'page', utm_campaign: LANG, utm_term: LANG }), media_ids, targets: [] });
+// Bình luận đầu: GrabCast nhận ở targets[].options.first_comment (không phải cấp bài), chỉ kênh báo capabilities.first_comment, nền tảng có bình luận (FB/YouTube/Threads/X).
+// {link} → link web có UTM; IG/TikTok không bình luận link (link bio). Ghim: GrabCast/nền tảng không có API ghim → không ghim.
+const platOf = a => String(pick(a, 'platform', 'provider', 'network', 'type') || '').toLowerCase().replace(/^facebook$/, 'facebook_page');
+const fcOptions = a => {
+  const tpl = String(m.first_comment || ''), p = platOf(a), caps = (a && a.capabilities) || {};
+  if (!tpl || !['comment', 'reply'].includes(FC_MODE[p]) || !caps.first_comment || fcIssue(tpl)) return {};
+  const text = tpl.trim().replace('{link}', withUtm(/^https:\/\/lexkite\.com\//.test(link) ? link : 'https://lexkite.com/app/', { utm_source: p, utm_medium: 'page', utm_campaign: LANG, utm_content: 'first_comment', utm_term: LANG }));
+  return [...text].length > FC_MAX[p] ? {} : { first_comment: text };
+};
 const kindFor = a => { const k = a && (a.kinds || a.supported_kinds || a.post_kinds); return Array.isArray(k) && k.length ? String(k[0]) : 'video'; };
 // Khóa chống trùng: cùng video + cùng kênh + cùng giờ → chạy lại workflow không tạo bài đôi
 const idemFor = ids => crypto.createHash('sha256').update([sha, ids.join(','), AT || 'draft'].join('|')).digest('hex').slice(0, 40);
@@ -58,7 +73,7 @@ if (DRY) {
   const p = post(['<media_id>']); p.targets = ids.map(id => ({ account_id: id, kind: 'video', options: {} }));
   console.log(JSON.stringify({ base: BASE, workspace: WS, key: KEY ? '***' : '(chưa đặt)', steps: [
     { POST: 'storage/objects', body: begin }, { PUT: '<upload_url>', bytes: stat.size }, { POST: 'storage/objects/<object_id>/complete' }, { POST: 'storage/objects/<object_id>/use' },
-    { POST: 'posts/validate', body: p }, { POST: 'posts', headers: { 'Idempotency-Key': idemFor(ids) }, body: p },
+    { POST: 'validate', body: p }, { POST: 'posts', headers: { 'Idempotency-Key': idemFor(ids) }, body: p },
     AT ? { POST: 'posts/<post_id>/schedule', body: { scheduled_at: new Date(AT).toISOString(), consent: true } } : { note: 'không có --at → giữ bản nháp' }] }, null, 2));
   process.exit(0);
 }
@@ -90,8 +105,8 @@ const used = await gc('POST', `storage/objects/${encodeURIComponent(oid)}/use`, 
 const mediaId = pick(used, 'media_id') || pick(used.media || {}, 'id') || pick(used, 'id');
 if (!mediaId) die('GrabCast không trả về media_id');
 // 3) validate → tạo bài → lên lịch
-const payload = post([mediaId]); payload.targets = targetsAcc.map(a => ({ account_id: a.id, kind: kindFor(a), options: {} }));
-const v = await gc('POST', 'posts/validate', payload), errs = [...(v.errors || []), ...((v.targets || []).flatMap(t => t.errors || []))];
+const payload = post([mediaId]); payload.targets = targetsAcc.map(a => ({ account_id: a.id, kind: kindFor(a), options: fcOptions(a) }));
+const v = await gc('POST', 'validate', payload), errs = [...(v.errors || []), ...((v.targets || []).flatMap(t => t.errors || []))];
 if (v.valid === false || v.ok === false || errs.length) die('validate không qua: ' + JSON.stringify(errs.length ? errs : v).slice(0, 600));
 const created = await gc('POST', 'posts', payload, { 'Idempotency-Key': idemFor(targetsAcc.map(a => String(a.id))) });
 const postId = pick(created, 'id') || pick(created.post || created.data || {}, 'id');

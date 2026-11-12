@@ -26,6 +26,8 @@ Die goldene Grundregel zur fehlerfreien Lösung lautet: Wählen Sie **True**, we
 
 Anders als bei typischen Schulprüfungen, bei denen falsche Antworten oft absurd oder offensichtlich sind, stammen die Texte des IELTS Academic aus wissenschaftlichen Journalen und Fachzeitschriften. Die Prüfer konzipieren die Aufgaben gezielt, um Ihre Fähigkeit zum präzisen Detailverstehen zu testen:
 
+Passend dazu: [Zeitmanagement im IELTS Reading](/de/blog/zeitmanagement-im-ielts-reading-60-minuten-strategie/).
+
 1. **True (Wahr):** Alle wesentlichen Bestandteile der Aussage stimmen sinngemäß mit dem Text überein. Beachten Sie, dass selten exakt dieselben Vokabeln verwendet werden; die Passage arbeitet fast immer mit anspruchsvollen Synonymen und Paraphrasen.
 2. **False (Falsch):** Der Text behauptet aktiv das Gegenteil oder führt einen Fakt an, der die Aussage logisch unmöglich macht. Es liegt ein nachweisbarer Widerspruch vor.
 3. **Not Given (Nicht angegeben):** Der Text liefert keine ausreichenden Daten. Das Gesamtthema mag zwar im Text vorkommen, die konkrete Behauptung oder Ursache-Wirkungs-Beziehung der Frage wird jedoch nirgends erwähnt.

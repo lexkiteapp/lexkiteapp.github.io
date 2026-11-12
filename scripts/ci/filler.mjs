@@ -10,6 +10,7 @@ import fs from 'node:fs';
 import { execSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import { isZombie } from './zombie.mjs';
+import { retry5xx } from '../lib/retry5xx.mjs';
 
 export const SAMPLE_MIN = 10, LOG_BRANCH = 'ci-stats', LOG_FILE = 'util.tsv', KEEP_LINES = 288;
 export const loadRegistry = (f = 'infra/ci-backlog.json') => JSON.parse(fs.readFileSync(f, 'utf8'));
@@ -86,7 +87,7 @@ export function report(text, now = Date.now()) {
 const REPO = process.env.GITHUB_REPOSITORY || 'lexkiteapp/lexkiteapp.github.io';
 const API = (process.env.GITHUB_API_URL || 'https://api.github.com') + '/repos/' + REPO;
 async function gh(p, { method = 'GET', body, raw = false } = {}) {
-  const r = await fetch(p.startsWith('http') ? p : API + p, { method, headers: { Authorization: 'Bearer ' + process.env.GITHUB_TOKEN, Accept: raw ? 'application/vnd.github.raw' : 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'lexkite-ci-filler', ...(body ? { 'Content-Type': 'application/json' } : {}) }, body: body ? JSON.stringify(body) : undefined, signal: AbortSignal.timeout(30e3) });
+  const r = await retry5xx(() => fetch(p.startsWith('http') ? p : API + p, { method, headers: { Authorization: 'Bearer ' + process.env.GITHUB_TOKEN, Accept: raw ? 'application/vnd.github.raw' : 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'lexkite-ci-filler', ...(body ? { 'Content-Type': 'application/json' } : {}) }, body: body ? JSON.stringify(body) : undefined, signal: AbortSignal.timeout(30e3) }));
   if (r.status === 404) return null;
   if (!r.ok) throw new Error(`GitHub ${method} ${p.slice(0, 80)} → ${r.status} ${(await r.text()).slice(0, 200)}`);
   return raw ? r.text() : r.status === 204 ? {} : r.json().catch(() => ({}));

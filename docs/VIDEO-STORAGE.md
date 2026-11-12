@@ -22,7 +22,7 @@ Duyệt 22/10/2026. Liên quan: `docs/SHORTS-ACCESS.md` (thư viện quản tr�
 2. `drive-shorts.yml` (sau mỗi cine-render + 04:23 UTC): bù tải nếu thiếu → **luật kho** `scripts/video/shorts-archive.mjs` → manifest quản trị lên kho.
 3. Luật kho (giữ dung lượng):
    - clip **đã duyệt / đã đăng / trong hàng chờ YouTube** (`content/video/web/approved.json`, `/api/youtube` op `ids`, `youtube_id`) → master + bìa **2 bản trên 2 Drive khác nhau** (`set_want 2` → `repair` chép phía máy chủ);
-   - clip **chưa duyệt / mẫu thử** → 1 bản; quá **30 ngày** → `retire` (thùng rác Google, Google xoá hẳn sau 30 ngày nữa); công thức + bìa + manifest giữ nguyên, thư viện ghi "dựng lại từ công thức";
+   - clip **chưa duyệt / tạm dừng** → 1 bản, giữ nguyên (từ 04/11/2026 không tự xóa); clip **bị loại** quá **30 ngày** → `retire`, và chỉ khi đọc được danh sách đã duyệt không rỗng (thùng rác Google, Google xoá hẳn sau 30 ngày nữa); công thức + bìa + manifest giữ nguyên, thư viện ghi "dựng lại từ công thức";
    - **cân bằng**: kế hoạch `rebalance` (chênh > 10 %, ví dụ khi nối Drive mới) → áp dụng theo lô ≤ 10 file/≤ 1 GB mỗi lượt, nghỉ 4 s, tối đa 10 lượt/ngày; phần còn lại chạy tiếp lần sau (kế hoạch tính lại từ sổ kho = tiếp tục được).
 4. Thẻ Drive trong Quản trị → Kho Drive: phần dung lượng shorts trên mỗi Drive + "còn chứa ≈ N clip" (≈ 10 MB/master, tới ngưỡng 90 %).
 

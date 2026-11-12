@@ -74,5 +74,17 @@
  "link": "https://lexkite.com/app/#/phrases",
  "cta": "Save useful phrases on lexkite.com",
  "est": 22.5,
- "end_alt": "n_e0b1b7_e2"
+ "end_alt": "n_e0b1b7_e2",
+ "publish": {
+  "title": "Order coffee like a local in English",
+  "keyword": "ordering coffee",
+  "value": "\"Can I get...\", to go, and paying by card.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a1english"
+  ],
+  "first_comment": "Bonus line: \"Can I get that with oat milk?\" Now you're ready to order anywhere. Practice the full coffee lesson: {link}"
+ }
 }

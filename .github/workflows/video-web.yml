@@ -48,10 +48,10 @@ jobs:
         run: |
           node scripts/video/web-rendition.mjs plan shorts-repo
           if [ -s .webvid/dirs.txt ]; then git -C shorts-repo sparse-checkout add $(cat .webvid/dirs.txt); fi
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Cài ffmpeg + dựng kho từ
         if: steps.plan.outputs.todo != '0'
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
           node scripts/build-lexicon.mjs --write >/dev/null
       - name: Dựng bản web + phụ đề EN + thẻ + câu đố EN
         if: steps.plan.outputs.todo != '0'
@@ -73,16 +73,11 @@ jobs:
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
           unset GIT_SSH_COMMAND   # khoá shorts (GITHUB_ENV ở bước trên) đè core.sshCommand của checkout → đẩy main phải bằng BOT_DEPLOY_KEY
-          git add web/data/videos.json content/video/web/captions
-          if git diff --cached --quiet; then echo "không có thay đổi"; exit 0; fi
-          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"   # cả lúc pull --rebase --autostash
-          git commit -qm "video-web: cập nhật bản web của short bản tin [CF-Pages-Skip] [skip ci]"
-          git checkout -q -- .   # bỏ thay đổi phụ (build-lexicon --write) để rebase được
-          ok=0; for k in 1 2 3 4 5; do git push -q origin HEAD:main && { ok=1; break; }; git pull -q --rebase --autostash origin main; done
-          [ "$ok" = 1 ] || { echo "::error::không đẩy được lên main (BOT_DEPLOY_KEY / ruleset?)"; exit 1; }
+          [ -n "$(git status --porcelain web/data/videos.json content/video/web/captions)" ] || { echo "không có thay đổi"; exit 0; }
+          bash scripts/ci/push-main.sh "video-web: cập nhật bản web của short bản tin" web/data/videos.json content/video/web/captions
           # có URL mới cần IndexNow → gấp (1 build); chỉ cập nhật bản cũ → gom (pages-deploy chờ yên + giãn cách)
           if [ -s .webvid/new-urls.txt ]; then u=true; q=0; else u=false; q=15; fi
-          gh workflow run pages-deploy.yml --ref main -f urgent=$u -f quiet=$q -f reason="video-web" && echo "đã yêu cầu deploy" || echo "::warning::không gọi được pages-deploy"
+          bash scripts/ci/gh-retry.sh gh workflow run pages-deploy.yml --ref main -f urgent=$u -f quiet=$q -f reason="video-web" && echo "đã yêu cầu deploy" || echo "::warning::không gọi được pages-deploy"
           if [ -s .webvid/new-urls.txt ]; then sleep 420; node scripts/indexnow.mjs < .webvid/new-urls.txt || echo "::warning::IndexNow lỗi"; fi
       - uses: actions/upload-artifact@v4
         if: always()

@@ -49,4 +49,20 @@ function boot({ muted = false, reduced = false } = {}) {
   g.Feel.set(false); assert.equal(Sfx.tap, st, 'tắt lại phải ra bíp streak-ui');
   const el = { textContent: '5', setAttribute() {}, removeAttribute() {} }; await g.Feel.count(el, 9); assert.equal(el.textContent, '9', 'tắt lớp: số nhảy thẳng');
 }
+{ // game.js: lớp game feel BẬT mặc định (play-learn M1); vb.feel='0' / ?feel=0 tắt; ?feel=1 bật lại; localStorage hỏng → vẫn bật
+  const gsrc = readFileSync(new URL('../../web/js/game.js', import.meta.url), 'utf8');
+  const run = ({ stored, search = '', broken = false } = {}) => {
+    const ls = {}; if (stored != null) ls['vb.feel'] = stored; const added = [];
+    const g = { Core: { Store: {}, todayKey: () => '2026-11-03' }, location: { search, hash: '' },
+      localStorage: broken ? { getItem() { throw new Error('x'); }, setItem() { throw new Error('x'); } } : { getItem: k => (k in ls ? ls[k] : null), setItem: (k, v) => { ls[k] = String(v); } },
+      document: { getElementById: () => null, querySelector: () => null, createElement: () => ({}), head: { appendChild: n => added.push(n) } } };
+    vm.runInNewContext(gsrc, { self: g, window: g, matchMedia: () => ({ matches: false }), navigator: {} }); // game.js chạy với g = self
+    return { on: g.Sfx.feel(), loaded: added.some(n => n.id === 'feelJs'), ls };
+  };
+  let r = run(); assert.equal(r.on, true, 'mặc định phải bật'); assert.ok(r.loaded, 'mặc định phải nạp feel.js');
+  r = run({ stored: '0' }); assert.equal(r.on, false, 'người dùng đã tắt phải giữ tắt'); assert.ok(!r.loaded, 'đã tắt thì không nạp feel.js');
+  r = run({ search: '?feel=0' }); assert.equal(r.on, false); assert.equal(r.ls['vb.feel'], '0');
+  r = run({ stored: '0', search: '?feel=1' }); assert.equal(r.on, true);
+  r = run({ broken: true }); assert.equal(r.on, true, 'localStorage hỏng → vẫn bật');
+}
 console.log('feel: OK');

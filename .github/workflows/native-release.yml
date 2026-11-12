@@ -1,0 +1,149 @@
+# Bản thử app NATIVE (native/ios + native/android) → TestFlight + Google Play "Internal testing" sau mỗi mốc xanh (spec docs/specs/native-apps.md §7).
+# KHÔNG thay bản Capacitor đang live: chỉ kênh thử nội bộ. Owner tự bấm submit 2.0.0 khi đủ parity.
+# Chạy: đẩy tag native-m<N> (vd native-m1) lên commit main đã xanh native-ios + native-android, hoặc Actions → "Native → TestFlight + Play".
+# Secret dùng lại của bản live: ASC_KEY_ID/ASC_ISSUER_ID/ASC_KEY_P8 (iOS, chỉ để tải lên) + ký cố định IOS_DIST_P12_BASE64/IOS_DIST_P12_PASSWORD/IOS_PROFILE_APP_BASE64
+# (scripts/native/ios-sign.sh, Manual – không ký Automatic/-allowProvisioningUpdates: ci-policy luật 13, docs/CI-SIGNING-IOS.md), ANDROID_KEYSTORE_BASE64/_PASSWORD/ANDROID_KEY_ALIAS/ANDROID_KEY_PASSWORD (ký .aab).
+# Thêm mới: PLAY_SERVICE_ACCOUNT_JSON (tài khoản dịch vụ Google Play Developer API; owner tạo theo docs/STORE-READINESS.md § A3) – thiếu → vẫn build + ký .aab làm artifact, báo notice.
+# track=production (chạy tay) → Play Production phát hành dần (rollout = tỉ lệ người dùng), ghi chú "What's new" 15 ngôn ngữ lấy từ store/metadata/<locale>.json (whatsNew).
+# Số build: iOS CFBundleVersion = 10000 + run_number (luôn > bản Capacitor); Android versionCode = 200000 + run_number (luôn > 1000+run của bản Capacitor).
+name: Native → TestFlight + Play
+# ci-policy: all-paths – chỉ chạy khi đẩy tag native-m* (mốc đã xanh), không theo nhánh/đường dẫn
+on:
+  push:
+    tags: ['native-m*']
+  workflow_dispatch:
+    inputs:
+      version: { description: 'Phiên bản hiển thị', required: false, default: '2.0.0' }
+      ios: { description: 'Đẩy iOS (TestFlight)', type: boolean, default: true }
+      android: { description: 'Đẩy Android (Play)', type: boolean, default: true }
+      track: { description: 'Kênh Play', type: choice, options: [internal, production], default: internal }
+      rollout: { description: 'Production: tỉ lệ phát hành dần (0.01–0.99)', required: false, default: '0.1' }
+permissions:
+  contents: read
+concurrency: { group: native-release, cancel-in-progress: false }
+env:
+  VER: ${{ inputs.version || '2.0.0' }}
+jobs:
+  ios:
+    if: github.event_name == 'push' || inputs.ios
+    runs-on: macos-15
+    timeout-minutes: 60
+    env: { TEAM: B285J68262 }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Một nguồn – file sinh khớp nguồn web
+        run: node scripts/native/gen.mjs --check
+      - name: Chọn Xcode 26 (App Store chỉ nhận SDK iOS 26+)
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          [ -n "$X" ] || { echo "::error::Máy chủ chưa có Xcode 26"; exit 1; }
+          sudo xcode-select -s "$X/Contents/Developer"; xcodebuild -version
+      - name: Khoá App Store Connect API (chỉ để tải lên)
+        env: { ASC_KEY_P8: '${{ secrets.ASC_KEY_P8 }}' }
+        run: |
+          [ -n "$ASC_KEY_P8" ] || { echo "::error::Thiếu secret ASC_KEY_P8"; exit 1; }
+          printf '%s' "$ASC_KEY_P8" > "$RUNNER_TEMP/AuthKey.p8"; chmod 600 "$RUNNER_TEMP/AuthKey.p8"
+      - name: Archive (XcodeGen, Release, ký Manual bằng chứng chỉ Distribution cố định)
+        working-directory: native/ios
+        env: { IOS_DIST_P12_BASE64: '${{ secrets.IOS_DIST_P12_BASE64 }}', IOS_DIST_P12_PASSWORD: '${{ secrets.IOS_DIST_P12_PASSWORD }}', IOS_PROFILE_APP_BASE64: '${{ secrets.IOS_PROFILE_APP_BASE64 }}' }
+        run: |
+          command -v xcodegen >/dev/null || brew install xcodegen
+          xcodegen generate
+          bash "$GITHUB_WORKSPACE/scripts/native/ios-sign.sh" Lexkite.xcodeproj/project.pbxproj com.lexkite.app:IOS_PROFILE_APP_BASE64
+          set -o pipefail
+          xcodebuild -project Lexkite.xcodeproj -scheme Lexkite -configuration Release -destination 'generic/platform=iOS' \
+            -archivePath "$RUNNER_TEMP/Native.xcarchive" \
+            DEVELOPMENT_TEAM="$TEAM" MARKETING_VERSION="$VER" CURRENT_PROJECT_VERSION=$((10000 + GITHUB_RUN_NUMBER)) \
+            archive 2>&1 | tail -60
+          test -d "$RUNNER_TEMP/Native.xcarchive"
+      - name: Kiểm entitlements (Sign in with Apple, App Group)
+        run: |
+          APP="$RUNNER_TEMP/Native.xcarchive/Products/Applications/Lexkite.app"
+          codesign -d --entitlements :- "$APP" > "$RUNNER_TEMP/ent.plist" 2>/dev/null; cat "$RUNNER_TEMP/ent.plist"
+          grep -q 'com.apple.developer.applesignin' "$RUNNER_TEMP/ent.plist" || { echo "::error::Thiếu Sign in with Apple"; exit 1; }
+          grep -q 'group.com.lexkite.app' "$RUNNER_TEMP/ent.plist" || { echo "::error::Thiếu App Group group.com.lexkite.app"; exit 1; }
+      - name: Tải lên App Store Connect (TestFlight)
+        env: { KID: '${{ secrets.ASC_KEY_ID }}', ISS: '${{ secrets.ASC_ISSUER_ID }}' }
+        run: |
+          # ExportOptions.plist (manual, app-store-connect, upload) do scripts/native/ios-sign.sh ghi ở bước Archive
+          set -o pipefail
+          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/Native.xcarchive" -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
+            -exportPath "$RUNNER_TEMP/export" \
+            -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" 2>&1 | tail -40
+          echo "✓ Native $VER build $((10000 + GITHUB_RUN_NUMBER)) đã tải lên – hiện ở TestFlight sau khi Apple xử lý (5–30 phút)" >> "$GITHUB_STEP_SUMMARY"
+      - name: Xoá khoá
+        if: always()
+        run: rm -f "$RUNNER_TEMP/AuthKey.p8"; security delete-keychain "$RUNNER_TEMP/lk-sign.keychain-db" 2>/dev/null || true
+
+  android:
+    if: github.event_name == 'push' || inputs.android
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      HAS_KEY: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
+      HAS_PLAY: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON != '' }}
+    steps:
+      - name: Thiếu khoá ký → dừng
+        if: env.HAS_KEY != 'true'
+        run: |
+          echo "::error::Thiếu secret ANDROID_KEYSTORE_BASE64"; exit 1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Một nguồn – file sinh khớp nguồn web
+        run: node scripts/native/gen.mjs --check
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 21 }
+      - uses: gradle/actions/setup-gradle@v4
+        with: { gradle-version: '8.14.3' }
+      - name: bundleRelease (ký upload key)
+        working-directory: native/android
+        env:
+          KS_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          LEXKITE_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          LEXKITE_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          LEXKITE_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          export LEXKITE_KEYSTORE_FILE="$RUNNER_TEMP/upload.jks"
+          printf '%s' "$KS_B64" | base64 -d > "$LEXKITE_KEYSTORE_FILE"
+          export LEXKITE_VERSION_CODE=$((200000 + GITHUB_RUN_NUMBER)) LEXKITE_VERSION_NAME="$VER"
+          echo "versionCode=$LEXKITE_VERSION_CODE versionName=$LEXKITE_VERSION_NAME" | tee -a "$GITHUB_STEP_SUMMARY"
+          gradle --no-daemon :app:bundleRelease
+          rm -f "$LEXKITE_KEYSTORE_FILE"
+          AAB=app/build/outputs/bundle/release/app-release.aab
+          test -f "$AAB"
+          # Bản ký phải dùng đúng upload key của bản live (Play từ chối khoá khác)
+          jarsigner -verify -certs "$AAB" >/dev/null || { echo "::error::.aab chưa được ký"; exit 1; }
+          cp "$AAB" "../../lexkite-native-$VER-$LEXKITE_VERSION_CODE.aab"
+      - uses: actions/upload-artifact@v4
+        with: { name: lexkite-native-aab, path: 'lexkite-native-*.aab', retention-days: 30 }
+      - name: Chưa có PLAY_SERVICE_ACCOUNT_JSON → chỉ artifact
+        if: env.HAS_PLAY != 'true'
+        run: echo "::notice::Chưa có secret PLAY_SERVICE_ACCOUNT_JSON – .aab ở artifact lexkite-native-aab, chưa tự đẩy Play (owner làm 5 bước docs/STORE-READINESS.md § A3)"
+      - name: Ghi chú phát hành 15 ngôn ngữ (store/metadata → whatsnew-<mã Play>)
+        if: env.HAS_PLAY == 'true'
+        run: node scripts/store-metadata.mjs --check && node scripts/store-metadata.mjs --whatsnew "$RUNNER_TEMP/whatsnew"
+      - name: Đẩy Play Internal testing
+        if: env.HAS_PLAY == 'true' && inputs.track != 'production'
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: com.lexkite.app
+          releaseFiles: lexkite-native-*.aab
+          track: internal
+          status: completed
+          whatsNewDirectory: ${{ runner.temp }}/whatsnew
+      - name: Đẩy Play Production (phát hành dần)
+        if: env.HAS_PLAY == 'true' && inputs.track == 'production'
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          packageName: com.lexkite.app
+          releaseFiles: lexkite-native-*.aab
+          releaseName: ${{ env.VER }}
+          track: production
+          status: inProgress
+          userFraction: ${{ inputs.rollout || '0.1' }}
+          whatsNewDirectory: ${{ runner.temp }}/whatsnew

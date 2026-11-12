@@ -17,7 +17,7 @@ paras: [
 ],
 groups: [
 { type: 'tfng',
-instr: 'Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+instr: g.RTI[1],
 items: [
 { n: 1, text: 'Luke Howard found that the temperature difference between London and the countryside was greatest in the afternoon.', a: 'FALSE', cue: 'the difference was greatest not in the afternoon but during the night' },
 { n: 2, text: "Howard's conclusions were at first rejected by professional scientists.", a: 'NOT GIVEN', cue: 'kept careful temperature records both in the city and in the villages around it' },
@@ -27,7 +27,7 @@ items: [
 { n: 6, text: 'Ground-level ozone is the main cause of death during urban heatwaves.', a: 'NOT GIVEN', cue: 'high temperatures speed up the chemical reactions that produce ground-level ozone' },
 ] },
 { type: 'table', title: 'Ways of cooling cities',
-instr: 'Complete the table below. Choose NO MORE THAN TWO WORDS from the passage for each answer.', limit: 2,
+instr: g.RTI[14], limit: 2,
 items: [
 { n: 7, text: 'Cool roofs – disadvantage: in cold climates, may raise ___ in winter', a: ['heating costs'], cue: 'a reflective roof may increase heating costs during the colder months' },
 { n: 8, text: 'Street trees – benefit: shade surfaces and release ___', a: ['water vapour', 'water vapor'], cue: 'they release water vapour through evapotranspiration' },
@@ -35,7 +35,7 @@ items: [
 { n: 10, text: 'Green roofs – extra benefit: absorb ___ during storms', a: ['rainwater'], cue: 'absorbing rainwater that would otherwise overload drains during storms' },
 { n: 11, text: 'Green roofs – disadvantage: costly to install and need regular ___', a: ['maintenance'], cue: 'more expensive to install than cool roofs and need regular maintenance' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 12, q: 'Why, according to the writer, are high night-time temperatures particularly dangerous?',
 options: ['They make air pollution harder to measure.', 'They prevent the body from recovering after a hot day.', 'They cause power networks to fail completely.', 'They mainly affect people who work at night.'],
@@ -75,7 +75,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'Reading Passage 2 has six paragraphs, A–F. Choose the correct heading for each paragraph from the list of headings below.',
+instr: g.RTI[9],
 options: [
 'i Turning recordings into evidence in court',
 'ii From watching to listening',
@@ -96,7 +96,7 @@ items: [
 { n: 19, text: 'Paragraph F', a: 'viii', cue: 'it is much harder to tell from sound alone how many individuals there are' },
 ] },
 { type: 'match',
-instr: 'Look at the following statements (Questions 20–23) and the list of researchers below. Match each statement with the correct researcher, A–D.',
+instr: g.RTI[12],
 options: [
 'A Lars Henriksen',
 'B Amara Okonkwo',
@@ -110,7 +110,7 @@ items: [
 { n: 23, text: 'Broadcasting sound may help a damaged habitat to recover, but only if other conditions are suitable.', a: 'C', cue: 'she believes it could speed recovery where other conditions are favourable' },
 ] },
 { type: 'summary', title: 'A new generation of recorders',
-instr: 'Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.', limit: 2,
+instr: g.RTI[2], limit: 2,
 items: [
 { n: 24, text: 'Modern autonomous recorders can be fixed to a tree and run for months on ordinary ___.', a: ['batteries'], cue: 'powered by ordinary batteries and storing its data on memory cards' },
 { n: 25, text: 'Because some designs are ___, research groups are able to build their own devices.', a: ['open-source', 'open source'], cue: 'open-source designs allow research groups to build their own' },
@@ -148,7 +148,7 @@ paras: [
 ],
 groups: [
 { type: 'ynng',
-instr: 'Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+instr: g.RTI[0],
 items: [
 { n: 27, text: 'The common view of the history of maps as a story of progress is completely untrue.', a: 'NO', cue: 'There is some truth in this story' },
 { n: 28, text: "No flat map can represent the Earth's surface without some distortion.", a: 'YES', cue: 'it is mathematically impossible to flatten a curved surface onto paper without stretching or squeezing it somewhere' },
@@ -156,7 +156,7 @@ items: [
 { n: 30, text: 'Medieval world maps should be assessed according to their original purpose.', a: 'YES', cue: 'such maps should be judged by what they set out to achieve, and I find this argument entirely convincing' },
 { n: 31, text: 'The main problem with digital maps is that they involve choices about what to show.', a: 'NO', cue: 'What troubles me is less that these choices exist' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 32, q: 'Why does the writer mention Greenland and Africa?',
 options: ['To show that Mercator made errors in his measurements.', 'To illustrate how a projection can distort the relative size of areas.', 'To explain why sailors preferred maps of the northern hemisphere.', 'To compare the accuracy of medieval and modern maps.'],
@@ -172,7 +172,7 @@ options: ['Their view leaves no way of separating careful maps from careless one
 a: 0, cue: 'it leaves us with no way of distinguishing a careful map from a careless one' },
 ] },
 { type: 'match',
-instr: 'Complete each sentence with the correct ending, A–F, below.',
+instr: g.RTI[17],
 options: [
 'A made it possible to map a whole nation with unprecedented accuracy.',
 'B were designed mainly to teach religious history.',

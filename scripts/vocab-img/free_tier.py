@@ -88,6 +88,7 @@ def main():
 
 def sheet(res, path, cell=128, cols=12):
     ks = sorted(res, key=lambda k: (res[k]['tier'], k)); rows = (len(ks) + cols - 1) // cols
+    if not ks: print('tờ soát: bỏ qua, lượt này 0 ảnh đạt'); return  # 09/11 job 129143630777: 3 ảnh wiki còn lại đều > 20 KB → PIL không lưu được JPEG cao 0 px
     S = Image.new('RGB', (cols * cell, rows * (cell + 26)), (255, 255, 255)); d = ImageDraw.Draw(S)
     for i, k in enumerate(ks):
         x, y = (i % cols) * cell, (i // cols) * (cell + 26)

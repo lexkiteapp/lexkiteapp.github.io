@@ -76,10 +76,14 @@ jobs:
           python-version: '3.12'
           cache: pip
           cache-dependency-path: scripts/cine/requirements.txt
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Cài thư viện + ffmpeg
         run: |
           pip install -q -r scripts/cine/requirements.txt
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg tesseract-ocr >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: tesseract-ocr }
+      - name: Cài thư viện + ffmpeg (tiếp)
+        run: |
           ffmpeg -hide_banner -version | head -1
       - uses: actions/cache@v4
         with: { path: .footage-cache, key: 'footage-cine0-${{ hashFiles(''brand/library/cine/archive-manifest.json'') }}', restore-keys: 'footage-cine0-' }
@@ -117,8 +121,8 @@ jobs:
       - name: Cài kokoro-js + Rhubarb
         if: hashFiles('content/video/cine/auto/*/lines.json') != ''   # any auto scene (scene may be a list)
         run: |
-          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
-          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL --retry 5 --retry-delay 10 --retry-all-errors -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
           mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
           R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
       - name: Dựng + QA
@@ -191,8 +195,9 @@ jobs:
           python scripts/cine/store_shorts.py out /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
           bash scripts/cine/archive_new.sh /tmp/shorts
           cd /tmp/shorts; git add --sparse -A shorts recipes .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} (${{ inputs.scene }}) [CF-Pages-Skip]" || exit 0
-          for k in 1 2 3 4; do git push -q origin HEAD:main && break; git pull -q --rebase --autostash origin main; done
+          pushed=; for k in 1 2 3 4; do git push -q origin HEAD:main && { pushed=1; break; }; { git fetch -q origin main && git rebase -q origin/main || git rebase --abort 2>/dev/null; }; done
           rm -f ~/.ssh/shorts
+          [ -n "$pushed" ] || { echo "::error::không đẩy được lexkite-shorts sau 4 lần"; exit 1; }
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -308,10 +313,10 @@ jobs:
             echo "::warning::fetch.mjs failed or timed out - git sparse fallback"
             git -C footage sparse-checkout set --no-cone "/anchor/green/kfull_pro/${{ matrix.clip }}.mp4" "/anchor/green/kmask_pro/${{ matrix.clip }}.mkv" && timeout -k 30 900 git -C footage checkout -q; }
           rm -f ~/.ssh/footage
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Real-ESRGAN x2
         if: steps.sr.outputs.cache-hit != 'true'
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
           pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.5.1 && pip install -q spandrel==0.4.0 opencv-python-headless==4.10.0.84 numpy==2.1.3
           python scripts/video/host_sr.py footage/anchor/green ${{ matrix.clip }}
           mkdir -p sr/kfull_x2 sr/kmask_x2; cp footage/anchor/green/kfull_x2/* sr/kfull_x2/; cp footage/anchor/green/kmask_x2/* sr/kmask_x2/
@@ -352,10 +357,13 @@ jobs:
           python-version: '3.12'
           cache: pip
           cache-dependency-path: scripts/cine/requirements.txt
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Cài thư viện + ffmpeg
+        timeout-minutes: 12
         run: |
           pip install -q -r scripts/cine/requirements.txt scipy==1.14.1 faster-whisper==1.0.3 requests==2.32.3
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg tesseract-ocr >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: tesseract-ocr }
       - uses: actions/cache@v4
         with: { path: .footage-cache, key: 'footage-cine3-${{ hashFiles(''brand/library/cine/archive-manifest.json'') }}', restore-keys: 'footage-cine3-' }
       - name: Lấy footage news (anchor/green + anchor/bg + meta, sparse)
@@ -411,8 +419,8 @@ jobs:
           key: video-models-kokoro82m-q8-cine-v1
       - name: Cài kokoro-js + Rhubarb
         run: |
-          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
-          curl -fsSL -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+          curl -fsSL --retry 5 --retry-delay 10 --retry-all-errors -o /tmp/rh.zip https://github.com/DanielSWolf/rhubarb-lip-sync/releases/download/v1.13.0/Rhubarb-Lip-Sync-1.13.0-Linux.zip
           mkdir -p /tmp/rh && unzip -q /tmp/rh.zip -d /tmp/rh
           R=$(find /tmp/rh -type f -name rhubarb | head -1); chmod +x "$R"; echo "RHUBARB=$R" >> "$GITHUB_ENV"; echo "KOKORO_NODE_PATH=/tmp/kk/node_modules" >> "$GITHUB_ENV"
       - name: Giọng (Kokoro + Rhubarb + faster-whisper mốc từ)
@@ -526,8 +534,9 @@ jobs:
           python scripts/cine/store_shorts.py out /tmp/shorts "${{ github.run_number }}" "${{ github.sha }}"
           bash scripts/cine/archive_new.sh /tmp/shorts
           cd /tmp/shorts; git add --sparse -A shorts recipes .gitignore; git -c user.name="Lexkite CI" -c user.email="lexkiteapp@users.noreply.github.com" commit -qm "cine-render #${{ github.run_number }} (news) [CF-Pages-Skip]" || exit 0
-          for k in 1 2 3 4 5 6; do git push -q origin HEAD:main && break; git pull -q --rebase --autostash origin main; done
+          pushed=; for k in 1 2 3 4 5 6; do git push -q origin HEAD:main && { pushed=1; break; }; { git fetch -q origin main && git rebase -q origin/main || git rebase --abort 2>/dev/null; }; done
           rm -f ~/.ssh/shorts
+          [ -n "$pushed" ] || { echo "::error::không đẩy được lexkite-shorts sau 6 lần"; exit 1; }
       - uses: actions/upload-artifact@v4   # small QC-only artifact for news-auto.yml (ledger record) - no media
         if: always()
         with:

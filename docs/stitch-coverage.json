@@ -20,11 +20,11 @@
 
   {"id":"lesson-variants","area":"app","name":"Học: dạng nối/gõ/nói/nghe/đúng-sai","routes":[],"status":"ref","batch":"A1","note":"dùng khung lesson-question, chưa có screen riêng","refs":{"lsn-listen":["86b5cff2","f1a6c062"],"lsn-speak":["c54530d2","06f40e87"],"lsn-truefalse":["aacec35b","3d25105f"]}},
   {"id":"lesson-sheets","area":"app","name":"Thoát giữa chừng · gợi ý · hết giờ · lên cấp","routes":[],"status":"ref","batch":"A1","refs":{"lsn-hint":["b848e9b9","8d912380"],"lsn-timeup":["2b3d9336","82d13d8d"],"lsn-levelup":["cda38453","497d9d1c"]}},
-  {"id":"welcome","area":"app","name":"Chào mừng / thiết lập","routes":["welcome"],"status":"ref","batch":"A1","refs":{"onb-band":["8b34cceb","de9abc22"]}},
+  {"id":"welcome","area":"app","name":"Chào mừng / thiết lập","routes":["welcome"],"status":"stitch","stitch":["d2c0773b","de3f3ff3"],"gate":"diff:welcome","batch":"-"},
   {"id":"placement","area":"app","name":"Kiểm tra trình độ","routes":["placement"],"status":"ref","batch":"A1","stitch":["ec75f4c0","ca9d4b84"],"ref":"brand/stitch/v3/app/placement"},
   {"id":"vocab-path","area":"app","name":"Lộ trình từ vựng / ngày / phần thưởng","routes":["path","day","tracks"],"status":"ref","batch":"A1","refs":{"vpath":["67867976","9eafa7ce"],"vday":["7c66c343","685ac34b"],"vreward":["03538f51","3dcadfd0"]}},
 
-  {"id":"hub-vocab","area":"app","name":"Hub Từ vựng","routes":["vocab"],"status":"ref","batch":"A2","stitch":["a27e62ed","31c4c7fa"],"ref":"brand/stitch/v3/app/hub-vocab"},
+  {"id":"hub-vocab","area":"app","name":"Hub Từ vựng","routes":["vocab"],"status":"stitch","stitch":["66a8a4f8","95826e15"],"gate":"diff:vocab-hub","batch":"-"},
   {"id":"hub-skills","area":"app","name":"Hub Kỹ năng","routes":["skills","skill"],"status":"ref","batch":"A2","stitch":["cb5fe88d","de674fc1"],"ref":"brand/stitch/v3/app/hub-skills"},
   {"id":"hub-tests","area":"app","name":"Hub Thi thử","routes":["tests"],"status":"ref","batch":"A2","stitch":["02960404","affaf6ce"],"ref":"brand/stitch/v3/app/hub-tests"},
   {"id":"library","area":"app","name":"Thư viện + chủ đề","routes":["library","topic"],"status":"ref","batch":"A2","stitch":["d8865208","7864dd4c"],"ref":"brand/stitch/v3/app/library"},
@@ -82,6 +82,7 @@
   {"id":"email-digest","area":"email","name":"Thư tuần (weekly-digest)","routes":[],"status":"ref","batch":"E1","note":"file chưa được nối; thẻ email Stitch ở #257/#259","stitch":["7698d3af","1bd21f38"],"ref":"brand/stitch/v3/email/email-digest"},
   {"id":"social","area":"email","name":"Ảnh OG / mạng xã hội","routes":[],"status":"ref","batch":"E1","refs":{"og-social":["d5262552","e8cd2415"]}},
   {"id":"store-shots","area":"store","name":"Ảnh cửa hàng (Chrome/iOS/Play)","routes":[],"status":"derived","batch":"-","note":"chụp từ app/add-on thật; chụp lại sau A*/X1"},
-  {"id":"gallery","area":"web","name":"web/design/gallery.html (QA nội bộ)","routes":[],"status":"skip","batch":"-"}
+  {"id":"gallery","area":"web","name":"web/design/gallery.html (QA nội bộ)","routes":[],"status":"skip","batch":"-"},
+  {"id":"mediate","area":"app","name":"Trung gian: luyện chuyển ý","routes":["mediate"],"status":"pr","stitch":["9c6d553f","99b55586"],"batch":"-","note":"project 17380622463903601788 · điều phối duyệt 10/11 · khung FOCUS + card/chip/learn-bar có sẵn"}
  ]
 }

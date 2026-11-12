@@ -35,8 +35,11 @@ jobs:
       - name: Kiểm thử ${{ matrix.lang }}
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
-          npx playwright install --with-deps chromium
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core }
+      - name: Kiểm thử ${{ matrix.lang }} (tiếp)
+        run: |
           bash scripts/build-extension.sh
           LANG_T=${{ matrix.lang }} node scripts/test/ext-e2e.mjs /tmp/ext-qa
       - uses: actions/upload-artifact@v4

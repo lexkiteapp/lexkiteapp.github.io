@@ -125,9 +125,10 @@ for (const [nm, y] of [['blog-publish', bp], ['content-protect', cp]]) {
   const st = step(y, 'OpenTimestamps');
   ok(/opentimestamps-client/.test(st) && /node scripts\/ots\.mjs stamp/.test(st) && /node scripts\/ots\.mjs upgrade/.test(st), `${nm}: bước OpenTimestamps cài client + stamp + upgrade`);
   ok(/continue-on-error: true/.test(st) && /::warning::/.test(st), `${nm}: bước OTS không chặn (continue-on-error + cảnh báo)`);
-  ok(y.indexOf('- name: OpenTimestamps') < y.indexOf('- name: Commit sổ đăng ký') && /git add [^\n]*content\/protection\/ots/.test(y), `${nm}: OTS chạy trước commit, commit kèm content/protection/ots`);
+  ok(y.indexOf('- name: OpenTimestamps') < y.indexOf('- name: Commit sổ đăng ký') && /(git add|commit-regen\.sh)[^\n]*content\/protection\/ots/.test(y), `${nm}: OTS chạy trước commit, commit kèm content/protection/ots`);   // content-protect sinh lại trên main mới nhất qua commit-regen.sh (sổ là chuỗi băm nối thêm, rebase luôn xung đột)
 }
 ok(bp.indexOf('- name: Sổ băm nội dung') < bp.indexOf('- name: OpenTimestamps'), 'blog-publish: đóng dấu sau khi ghi sổ bài mới');
+ok(/commit-regen\.sh/.test(step(cp, 'Commit sổ đăng ký')) && /release addon[\s\S]*release landing[\s\S]*ots\.mjs stamp/.test(step(cp, 'Commit sổ đăng ký')), 'content-protect: sổ sinh lại trên main mới nhất (commit-regen.sh) gồm release addon/landing + OTS');
 ok(/push:[\s\S]*'extension\/manifest\.json'[\s\S]*'content\/landing\/\*\*'/.test(cp) && /release addon/.test(cp) && /release landing/.test(cp), 'content-protect: push add-on lên bản/landing → ghi mốc phát hành');
 ok(/if: github\.event_name != 'push'/.test(step(cp, 'Dò bản sao chép')) && /if: github\.event_name != 'push'/.test(step(cp, 'WAF chống cào')), 'content-protect: lần chạy do push không dò bản sao/WAF');
 ok(!/ots stamp|ots\.mjs stamp/.test(fs.readFileSync('package.json', 'utf8') + fs.readFileSync('scripts/test/suite.txt', 'utf8')), 'OTS không chạy cục bộ trong npm test (chỉ CI)');
@@ -240,7 +241,7 @@ ok(/GITHUB_TOKEN: \$\{\{ github\.token \}\}/.test(step(cp, 'Dò bản sao chép'
   ok(/Canary cnr-tr-01/.test(evidenceReport('cnr-tr-01')), 'evidence: tra theo id canary');
   const ce = fs.readFileSync('.github/workflows/content-evidence.yml', 'utf8');
   for (const st of ['Wayback', 'Nhãn hiệu', 'Software Heritage', 'Zenodo', 'OpenTimestamps', 'Tem thời gian RFC 3161']) ok(/continue-on-error: true/.test(step(ce, st)) || /continue-on-error: true/.test(ce.slice(ce.indexOf(`- name: ${st}`), ce.indexOf(`- name: ${st}`) + 400)), `content-evidence: bước ${st} không làm đỏ CI`);
-  ok(/git add [^\n]*content\/protection\/tsa/.test(ce) && /concurrency:\n  group: content-protect/.test(ce), 'content-evidence: commit .tsr, chạy tuần tự với content-protect');
+  ok(/(git add|push-main\.sh "[^"]*") [^\n]*content\/protection\/tsa/.test(ce) && /concurrency:\n  group: content-protect/.test(ce), 'content-evidence: commit .tsr, chạy tuần tự với content-protect');
   ok(!/zenodo-deposit|tsa\.mjs stamp|swh-save/.test(fs.readFileSync('scripts/test/suite.txt', 'utf8')), 'bên thứ ba không chạy cục bộ trong npm test (chỉ CI)');
 }
 

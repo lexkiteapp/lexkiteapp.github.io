@@ -177,7 +177,7 @@ Consulta definiciones precisas y ejemplos contextuales de estas expresiones en e
 
 Para consolidar tu repertorio léxico con metodologías eficaces, lee nuestra guía sobre [cómo aprender vocabulario en inglés](/es/blog/como-aprender-vocabulario-en-ingles/) y descubre qué palabras evitar en [falsos amigos inglés español](/es/blog/falsos-amigos-ingles-espanol/).
 
-Revisa también los patrones verbales en [gerundio o infinitivo en inglés](/es/blog/gerundio-o-infinitivo-en-ingles/) y explora [vocabulario especializado](/tu-vung/) para seguir enriqueciendo tu expresión. No olvides repasar los [phrasal verbs más usados](/es/blog/phrasal-verbs-mas-usados/).
+Revisa también los patrones verbales en [gerundio o infinitivo en inglés](/es/blog/gerundio-o-infinitivo-en-ingles/) y explora [vocabulario especializado](/en/vocabulary/) para seguir enriqueciendo tu expresión. No olvides repasar los [phrasal verbs más usados](/es/blog/phrasal-verbs-mas-usados/).
 
 {{cta: /app/#/library | Explorar colocaciones de vocabulario en Lexkite}}
 

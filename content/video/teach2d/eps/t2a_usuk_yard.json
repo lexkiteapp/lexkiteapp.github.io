@@ -79,5 +79,46 @@
   "words": 46,
   "seconds": 28.1,
   "wpm": 98
+ },
+ "publish": {
+  "title": "Yard or garden? US vs UK English",
+  "keyword": "yard vs garden",
+  "value": "Americans say yard. British people say garden.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/yard",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "Yard or garden? US vs UK English",
+    "description": "Americans say yard. British people say garden.\n\nLook up any word, free: https://lexkite.com/app/#/dict/yard\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "yard vs garden",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Yard or garden? US vs UK English\n\nAmericans say yard. British people say garden.\n\nLook up any word, free: https://lexkite.com/app/#/dict/yard"
+   },
+   "instagram": {
+    "caption": "Yard or garden? US vs UK English\n\nAmericans say yard. British people say garden.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Yard or garden? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Garden! Americans say yard. British people say garden. Practice it with a free quiz: {link}"
  }
 }

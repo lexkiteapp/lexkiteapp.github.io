@@ -149,6 +149,8 @@ Akademik yazma sürecinde en çok zaman kazandıran unsur, cümle kurarken takı
 
 {{youtube: | TOEFL iBT Writing Academic Discussion Guide}}
 
+Bu görevin yeni sınavdaki yerini görmek için [Yeni TOEFL formatı 2026: değişiklikler ve hazırlık rehberi](/tr/blog/yeni-toefl-format-2026-hazirlik-rehberi/) yazısını okuyun.
+
 ## Sıkça Sorulan Sorular (FAQ)
 
 ### Q1. Academic Discussion yazısında iki öğrencinin fikrini de reddedip üçüncü bir fikir sunabilir miyim?

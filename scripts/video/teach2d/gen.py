@@ -6,9 +6,11 @@ the audited IPA bank (scripts/scriptbank, checked again by qc.py) and the curate
 Each template = ONE point, hook first (<= 6 words, on screen from frame 0), example, 3-second quiz, share line, deep-link CTA.
 Lines are short sentences (TTS + captions + whisper clock all come from the same text: voice = subtitle = mouth)."""
 import hashlib, json, os, re, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import publish as PUBLISH  # noqa: E402
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 REG = json.load(open(f'{ROOT}/web/teach/characters.json'))
 PIL = json.load(open(f'{ROOT}/content/video/teach2d/pilots.json'))
+PR_SMOKE_MAX = 1   # số tập teach-video render trên pull_request (ci-policy luật 11 khoá ≤ 2)
 GOLD = {}
 for x in open(f'{ROOT}/content/video/scripts/bank/g0000.jsonl'):
     r = json.loads(x); GOLD[r['id']] = r
@@ -90,6 +92,21 @@ def mistake(p):
         L('c', 'Save this. Free on lexkite.com.')],
         data=dict(wrong=p['wrong_say'], right=p['right_say'], strike=p['strike'], why=g['why'], memory=g['memory'], quiz=dict(stem=q['q'], options=q['options'], answer=q['answer'])),
         cta=cta('grammar-check', '#/fix', 'Check your grammar'), hook=dict(line='h', text=p['hook_text']), src=dict(gold=g['id'], pid=g['pid']))
+
+
+def l1(p):   # clip L1 (l1.json, docs/VIDEO-TEACH2D.md): teacher speaks plain English about a mistake speakers of ONE language make; native hook / tip / caption in that language
+    q = p['quiz']
+    return dict(lines=[
+        L('h', p['hook_say']),
+        L('w', f"Many learners say: {p['wrong']}"),
+        L('r', f"Better: {p['right']}"),
+        L('y', p['why']),
+        L('q', 'Quick quiz! Which one fits?', 3.0, quiz=True),
+        L('a', p['answer_say']),
+        L('sh', 'Send this to a friend!'),
+        L('c', 'Save this. Free on lexkite.com.')],
+        data=dict(wrong=p['wrong'], right=p['right'], strike=p['strike'], why=p['why'], memory=p['memory'], quiz=dict(stem=q['stem'], options=q['options'], answer=q['answer']), native=p['native'], en=p['en']),
+        cta=cta('grammar-check', '#/fix', 'Check your grammar'), hook=dict(line='h', text=p['native']['hook']), src=dict(l1=True))
 
 
 def phrasal(p):
@@ -341,6 +358,7 @@ def react(p):   # Say it like a native (content/say-native/series.json, docs/SAY
                 cta=cta('phrases', '#/phrases', 'Learn real phrases'), hook=dict(line='h', text=hook), src=dict(say=S_['id'], key=it['key'], item=k_.index(p['key'])))
 
 
+T['l1'] = l1; SERIES['l1'] = 'Stop Saying This'
 T['react'] = react; SERIES['react'] = 'Say it like a native'   # 9:16 reaction-card short (owner OK Stitch brand/stitch/say/video-frame 31/10)
 
 
@@ -361,7 +379,9 @@ def make(row):
     assert len(words(hk)) <= 7, ('hook too long', hk)
     assert 30 <= n <= 70, ('word count', n)
     assert 60 * n / est <= 150, ('pace', 60 * n / est)
+    if row.get('lang'): ep['lang'] = row['lang']   # L1 clip: routed only to pages whose cfg.lang == lang (functions/api/_distribution.js blockOf)
     ep['est'] = dict(words=n, seconds=round(est, 1), wpm=round(60 * n / est))
+    ep['publish'] = PUBLISH.build(ep)   # posting metadata written at production from this script (publish.py, docs/specs/video-production-v2.md §2)
     return ep
 
 
@@ -620,6 +640,21 @@ def hook_gate(row, ep):   # the on-screen hook is a true claim about these facts
 def chash(t, point): return hashlib.sha1(f'{t}:{point}'.lower().encode()).hexdigest()[:12]
 
 
+L1_F = f'{ROOT}/content/video/teach2d/l1.json'
+def load_l1(): return [dict(r, template='l1', area='grammar-check') for r in json.load(open(L1_F))['rows']] if os.path.exists(L1_F) else []
+
+
+def l1_gate(row, F=None):   # level <= B1 for every spoken word (the taught words are exempt) + native text complete
+    p = row['in']; bad = []; n = p['native']
+    taught = taught_re(re.findall(r"[A-Za-z']+", p['wrong'] + ' ' + p['right']) + [p['strike']])
+    spoken = [p['hook_say'], p['wrong'], p['right'], p['why'], p['answer_say'], p['quiz']['stem']]
+    for t in spoken:
+        un = [w for w in unknown([taught.sub('', t)])[0] if len(w) > 1 and not lvl_ok(w, F or facts())] if t else []
+        if un: bad.append(f'level>B1: {un}')
+    if not all(n.get(k) for k in ('hook', 'tip', 'caption', 'comment', 'hashtags')) or not row.get('lang'): bad.append('native text incomplete')
+    return bad
+
+
 def load_auto(): return json.load(open(AUTO_F)) if os.path.exists(AUTO_F) else dict(_note='', rows=[])
 
 
@@ -684,6 +719,8 @@ def verify():   # live re-check of every auto row: (ok ids, stale [(id, problems
     F = facts(); ok, stale = [], []
     for r in load_auto()['rows']:
         b = data_gate(r, F); (stale.append((r['id'], b)) if b else ok.append(r['id']))
+    for r in load_l1():
+        b = l1_gate(r, F); (stale.append((r['id'], b)) if b else ok.append(r['id']))
     return ok, stale
 
 
@@ -707,11 +744,18 @@ if __name__ == '__main__':
         if not ids:
             ids = [r['id'] for r in PIL['pilots']]
             if ev == 'pull_request': R_ = load_auto()['rows']; ids += [next(r['id'] for r in R_ if r['template'] == t) for t in CANDS if any(r['template'] == t for r in R_)]
+        if ev == 'pull_request': ids = ids[:PR_SMOKE_MAX]   # luật 11 (hàng chờ 48 job teach-video, 07/11): PR chỉ smoke preqc + 1 tập; render đủ chạy khi dispatch/ci-filler
         print(json.dumps(ids)); sys.exit(0)
+    if '--l1-review' in A_:   # (re)write the reviewed.json verdict of every L1 clip: script + native hook as reviewed, level gate green (l1_gate); native-qa.mjs is the second gate (preqc)
+        R_ = json.load(open(REV_F)); F_ = facts()
+        for row in load_l1():
+            assert not l1_gate(row, F_), (row['id'], l1_gate(row, F_)); ep = make(row)
+            R_['verdicts'][row['id']] = dict(template='l1', hook=ep['hook']['text'], hook_true=True, script_reviewed=True, reviewer='gen.py l1_gate (spoken words <= B1) + Claude L1 review 11/11/2026 (one L1 mistake, English example kept verbatim in the native caption); native text: scripts/rig/native-qa.mjs', script={l['id']: l['text'] for l in ep['lines']})
+        json.dump(R_, open(REV_F, 'w'), indent=1, ensure_ascii=False); open(REV_F, 'a').write('\n'); print('l1 verdicts', len(load_l1())); sys.exit(0)
     if '--verify' in A_:
         ok_, st_ = verify(); print(f'verify: {len(ok_)} ok, {len(st_)} stale'); [print(' ', i, b) for i, b in st_]; sys.exit(0)
     out = f'{ROOT}/content/video/teach2d/eps'; os.makedirs(out, exist_ok=True)
-    for row in PIL['pilots'] + load_auto()['rows']:
+    for row in PIL['pilots'] + load_auto()['rows'] + load_l1():
         ep = make(row)
         if '-q' not in A_: print(f"{ep['id']:28s} {ep['template']:8s} {ep['teacher']:7s} {ep['theme']:5s} {ep['est']}")
         if '--check' not in A_: json.dump(ep, open(f"{out}/{ep['id']}.json", 'w'), indent=1, ensure_ascii=False)

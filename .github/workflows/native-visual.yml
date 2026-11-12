@@ -1,0 +1,40 @@
+# 🎨 Native ↔ web visual QC: ảnh snapshot iOS/Android phải đúng màu token + mốc bố cục (thanh 5 tab, nút chính); tờ so sánh với Stitch render (web) làm artifact.
+name: Native visual QC
+on:
+  pull_request:
+    paths: ['native/**/__Snapshots__/**', 'native/android/app/src/test/snapshots/**', 'native/shared/gen/**', 'brand/stitch/tokens.dtcg.json', 'brand/stitch/v2/today-*.html', 'scripts/native/visual-*', 'scripts/test/native-visual.mjs', 'scripts/test/fixtures/native-visual/**', '.github/workflows/native-visual.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: native-visual-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Tự kiểm (ảnh giả)
+        run: node scripts/test/native-visual.mjs --self-test
+      - name: Vẽ web Stitch (Hôm nay sáng/tối, 390 px) làm cột so sánh
+        continue-on-error: true     # chỉ là ảnh tham chiếu; không làm đỏ cổng
+        timeout-minutes: 14
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 pngjs@7.0.0
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: imagemagick fonts-noto-core fonts-noto-color-emoji }
+      - name: Vẽ web Stitch (Hôm nay sáng/tối, 390 px) làm cột so sánh (tiếp)
+        continue-on-error: true     # chỉ là ảnh tham chiếu; không làm đỏ cổng
+        timeout-minutes: 14
+        run: |
+          mkdir -p "$RUNNER_TEMP/today" && cp brand/stitch/v2/today-light.html brand/stitch/v2/today-dark.html "$RUNNER_TEMP/today/"
+          node scripts/test/stitch-render.mjs "$RUNNER_TEMP/today" out/stitch-today
+      - name: Cổng màu token + mốc bố cục (chặn khi lệch)
+        run: node scripts/test/native-visual.mjs --web out/stitch-today/png --out out/native-visual --langs en,vi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: native-visual, path: out/native-visual, retention-days: 14 }

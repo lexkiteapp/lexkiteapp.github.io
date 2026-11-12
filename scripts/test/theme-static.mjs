@@ -88,7 +88,7 @@ for (const [mode, scheme, stored] of MODES) {
   if (a.theme !== 'auto' || b[0].theme !== 'light' || b[1] !== 'light' || b[0].goal !== 20) bad.push(`sync: bấm nút web không vá ielts.settings.theme (${a.theme} → ${b[0].theme}, giữ khoá khác: ${b[0].goal})`);
   await page.reload({ waitUntil: 'load' }); if (await page.evaluate(() => document.documentElement.getAttribute('data-theme')) !== 'light') bad.push('sync: tải lại sau khi chọn sáng trên web → không còn sáng');
   checks++; await ctx.close(); }
-// Chân trang (tiêu đề nhóm trên máy tính là chữ, không bấm được → không đo): 390 px nhóm gập (chỉ "Sản phẩm" mở), ô chạm ≥ 48 px; 1280 px 4 nhóm mở; menu ngôn ngữ bàn phím. Ảnh footer-{sáng,tối}-{1280,390}.png
+// Chân trang (tiêu đề nhóm trên máy tính là chữ, không bấm được → không đo): 390 px gập hết (accordion), ô chạm ≥ 48 px; 1280 px 3 nhóm mở + link pháp lý hàng đáy ≥ 44 px; menu ngôn ngữ bàn phím. Ảnh footer-{sáng,tối}-{1280,390}.png
 for (const [W, H] of [[1280, 900], [390, 844]]) for (const scheme of ['light', 'dark']) {
   const ctx = await browser.newContext({ viewport: { width: W, height: H }, colorScheme: scheme, reducedMotion: 'reduce' }); await serve(ctx);
   for (const [p, name] of PAGES.filter(([, n]) => /^(landing-en|legal-en|blog-en|404)$/.test(n))) {
@@ -106,10 +106,10 @@ for (const [W, H] of [[1280, 900], [390, 844]]) for (const scheme of ['light', '
       if (o !== 15 || await page.evaluate(q => !document.getElementById(document.querySelector(q).getAttribute('aria-controls')).hidden, fb)) bad.push(`${tag}: menu ngôn ngữ chân trang bàn phím (Enter mở 15 mục, Esc đóng) sai`);
       if (SHOTS) await page.locator('footer').screenshot({ path: path.join(SHOTS, `footer-${scheme}-${W}.png`) });
       await page.close(); continue; }
-    const f = await page.evaluate(W => { const g = [...document.querySelectorAll('.site-foot .fg')], small = [...document.querySelectorAll(`${W < 720 ? '.site-foot summary' : '.flang summary'}, .site-foot .fbtn, .site-foot .tsb, .site-foot .fg[open] a`)].filter(e => e.getBoundingClientRect().width).map(e => [e.className || e.tagName, Math.round(e.getBoundingClientRect().height)]).filter(([, h]) => h < (W < 720 ? 48 : 44)); return { n: g.length, open: g.filter(x => x.open).length, small, ul: [...document.querySelectorAll('.site-foot .fg a')].some(a => getComputedStyle(a).textDecorationLine.includes('underline')) }; }, W);
+    const f = await page.evaluate(W => { const g = [...document.querySelectorAll('.site-foot .fg')], small = [...document.querySelectorAll(`${W < 720 ? '.site-foot summary' : '.flang summary'}, .site-foot .fbtn, .site-foot .tsb, .site-foot .fg[open] a, .site-foot .flegal a`)].filter(e => e.getBoundingClientRect().width).map(e => [e.className || e.tagName, Math.round(e.getBoundingClientRect().height)]).filter(([, h]) => h < (W < 720 ? 48 : 44)); return { n: g.length, open: g.filter(x => x.open).length, small, ul: [...document.querySelectorAll('.site-foot .fg a')].some(a => getComputedStyle(a).textDecorationLine.includes('underline')) }; }, W);
     const tag = `footer ${name} @${W} ${scheme}`; checks++;
-    if (f.n !== 4) bad.push(`${tag}: ${f.n} nhóm (cần 4)`);
-    if (f.open !== (W < 720 ? 1 : 4)) bad.push(`${tag}: ${f.open} nhóm mở (cần ${W < 720 ? 1 : 4})`);
+    if (f.n !== 3) bad.push(`${tag}: ${f.n} nhóm (cần 3)`);
+    if (f.open !== (W < 720 ? 0 : 3)) bad.push(`${tag}: ${f.open} nhóm mở (cần ${W < 720 ? 0 : 3})`);
     if (f.small.length) bad.push(`${tag}: ô chạm nhỏ ${JSON.stringify(f.small.slice(0, 3))}`);
     if (f.ul) bad.push(`${tag}: link chân trang gạch chân khi chưa hover`);
     const tp = await page.evaluate(async () => { const g = document.querySelector('.site-foot .tsp'); if (!g) return { none: 1 }; const b = g.querySelector('[data-tsv=dark]'); b.click(); await new Promise(r => setTimeout(r, 50)); const r = { th: document.documentElement.getAttribute('data-theme'), pr: [...g.querySelectorAll('[data-tsv]')].map(x => x.getAttribute('aria-pressed')).join(',') }; g.querySelector('[data-tsv=auto]').click(); const fb = document.querySelector('.site-foot .fbtns'), last = fb && [...fb.children].filter(e => e.getBoundingClientRect().height).pop(); r.gap = fb && last ? Math.round(fb.getBoundingClientRect().bottom - last.getBoundingClientRect().bottom) : 0; return r; });
@@ -178,6 +178,12 @@ if (has('app/index.html')) {
   if (errs.length) bad.push(`app→web: lỗi JS app ${errs[0]}`);
   checks += 3; await ctx.close();
 }
+// Chân trang: tên ngôn ngữ không đè nhau, menu không tràn màn, chân trang máy tính gọn (chủ 04/11)
+for (const W of [375, 800, 1000, 1440]) { const ctx = await browser.newContext({ viewport: { width: W, height: 800 }, colorScheme: 'dark' }); await serve(ctx);
+  const page = await ctx.newPage(); await page.goto(BASE + '/vi/blog/', { waitUntil: 'load' }).catch(() => {});
+  const r = await page.evaluate(() => { const d = document.querySelector('.flang'); if (!d) return null; d.open = true; const n = d.querySelector('.flangs'), b = n.getBoundingClientRect(), as = [...n.querySelectorAll('a')], R = a => { const x = document.createRange(); x.selectNodeContents(a); return x.getBoundingClientRect(); }; let ov = 0; as.forEach((a, i) => as.slice(i + 1).forEach(c => { const q = R(a), w = R(c); if (q.left < w.right - 1 && w.left < q.right - 1 && q.top < w.bottom - 1 && w.top < q.bottom - 1) ov++; })); d.open = false; return { ov, l: b.left, r: b.right, foot: document.querySelector('footer.site-foot').getBoundingClientRect().height }; });
+  if (!r) bad.push(`chân trang ${W}px: thiếu menu ngôn ngữ`); else { if (r.ov) bad.push(`chân trang ${W}px: ${r.ov} cặp tên ngôn ngữ đè nhau`); if (r.l < 0 || r.r > W) bad.push(`chân trang ${W}px: menu ngôn ngữ tràn màn (${Math.round(r.l)}–${Math.round(r.r)})`); if (W === 1440 && r.foot > 420) bad.push(`chân trang 1440px cao ${Math.round(r.foot)}px (> 420)`); }
+  checks += 3; await ctx.close(); }
 await browser.close();
 if (bad.length) { console.log(`✗ theme-static: ${bad.length} lỗi (${PAGES.length} trang × ${MODES.length} chế độ)\n  - ` + bad.slice(0, 60).join('\n  - ')); process.exit(1); }
 console.log(`✓ theme-static: ${PAGES.length} trang × ${MODES.length} chế độ (${checks} lượt) – đúng data-theme, không nháy, tương phản AA 0 lỗi, nút vòng/lưu/44 px, không tràn @360${SHOTS ? ` · ảnh: ${SHOTS}/` : ''}`);

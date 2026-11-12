@@ -154,5 +154,26 @@
  },
  "ntMoreSenses": {
   "message": "+{n} 件の意味"
+ },
+ "ntQzTag": {
+  "message": "クイックテスト"
+ },
+ "ntQzQ": {
+  "message": "正しい意味を選んでください"
+ },
+ "ntQzTime": {
+  "message": "{s}秒"
+ },
+ "ntQzRight": {
+  "message": "正解！"
+ },
+ "ntQzWrong": {
+  "message": "惜しい！この単語はまたすぐ出ます"
+ },
+ "ntQzTimeout": {
+  "message": "時間切れ。大丈夫です"
+ },
+ "ntQzSkip": {
+  "message": "スキップ"
  }
 }

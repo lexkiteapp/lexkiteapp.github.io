@@ -31,3 +31,18 @@ pas-drill-dark 3af039605d8b49a488407a9d39f5f7d1 (Lexkite Speaking Drill — Say 
 today-light 161ef34efafd4729816377ad7f952b86 / today-dark 30b0c1ef10034be6bddcbbc26ec76007 (Home v2 Today – chủ duyệt 31/10, bản sao app/home-v2/today-*)
 today-new-light a4e2a4cdd838421baf6da5331e548b86 / today-new-dark fc5ac0e346c7485c9c14da0a00749ab7 (Home v2 người mới – app/home-v2/new-*)
 today-desk-light a987323cf148447f9f563b64d5200507 / today-desk-dark c6b09b9251974eeebb54dcd4efe97497 (Home v2 desktop – app/home-v2/desk-*; today-rail dùng chung)
+onb-goal-light 4481132b8c634474ba1a477358eb228d (refs-factory onb-exam light, project 7268539912208977707) – thiết lập bước 1 Mục tiêu
+onb-goal-dark 80b6162807f54d6398a77b8e7218faf1 (refs-factory onb-exam dark, project 7268539912208977707)
+onb-level-light e3ebbba0a75946a1abdec8bc32d6afb7 (refs-factory onb-level light) – bước 2 Trình độ
+onb-level-dark 5695bd35fbbe4ef091d48ec533f45f22 (refs-factory onb-level dark)
+onb-pace-light 16aabec605d041fc947b4fc48980230e (refs-factory onb-goal light) – bước 4 Cường độ
+onb-pace-dark add1f193bd64494d9c13378cc11edda4 (refs-factory onb-goal dark)
+onb-ready-light f9ce6c73d3fd44a8ac22953f54cb2c45 (refs-factory onb-done light) – bước 5 Sẵn sàng
+onb-ready-dark c5f987383413437a82ac2abf460c058b (refs-factory onb-done dark)
+welcome-light d2c0773b495e4bb59a4febb1f01dbcbe (Lexkite Welcome mobile 390, Bright Day, gen 4/11 fix round; key1)
+welcome-dark de3f3ff3fe6f4caaa9061505ef56321f (Lexkite Welcome mobile 390, Tactile Night, gen 4/11 fix round; key1)
+welcome-desk-light c5e1cc7fcd184a76807dd6b795c5fa4b (Lexkite Welcome desktop 1280, Bright Day, gen 4/11 fix round; key1)
+welcome-desk-dark 671614571b5c4fa48baf236253a112f8 (Lexkite Welcome desktop 1280, Tactile Night, gen 4/11 fix round; key1)
+onb-target-light 530752c4c1744ef58a8b0326694db7bf (Lexkite Onboarding band target, Bright Day, gen 4/11 fix round; key1)
+onb-target-dark 9fecefb53d8446febfd72bfa81271a1a (Lexkite Onboarding band target, Tactile Night, gen 4/11 fix round; key1)
+vocab-hub-light 66a8a4f81f144d6bbbd071c356ca2fde / vocab-hub-dark 95826e1508144909bd60043a426769a2 (Tab Từ vựng – key2)

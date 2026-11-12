@@ -96,6 +96,8 @@ qualityScore: 94
 2. **Анализ промахов в Журнале ошибок:** Все ошибочные ответы направляются в ваш личный [журнал ошибок](/#/mistakes), что помогает отслеживать, где именно происходит сбой — в лексике или в логических выводах.
 3. **Развитие смежных навыков:** Сочетайте чтение с практическими советами из руководства [kak perefrazirovat v ielts paraphrase](/ru/blog/kak-perefrazirovat-v-ielts-paraphrase/) и осваивайте [kollokatsii v angliyskom dlya ielts](/ru/blog/kollokatsii-v-angliyskom-dlya-ielts/). Чтобы обогатить академический лексикон, изучите [ielts slovarnyy zapas ekologiya okruzhayushchaya sreda](/ru/blog/ielts-slovarnyy-zapas-ekologiya-okruzhayushchaya-sreda/) и ознакомьтесь с [ielts reading skimming scanning tehniki](/ru/blog/ielts-reading-skimming-scanning-tehniki/). Для систематизации правил загляните в наш раздел [/ngu-phap/](/ngu-phap/).
 
+Сколько минут отвести на каждый текст, подскажет [стратегия тайм-менеджмента в IELTS Reading](/ru/blog/taym-menedzhment-v-ielts-reading-strategiya-60-minut/).
+
 ## Часто задаваемые вопросы (FAQ)
 
 ### Чем True/False/Not Given отличается от Yes/No/Not Given?

@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"downstairs\" mean?",
+  "keyword": "downstairs",
+  "value": "Downstairs means to or on a lower floor.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=downstairs",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"downstairs\" mean?",
+    "description": "Downstairs means to or on a lower floor.\n\nReview your words, free: https://lexkite.com/app/#/review?w=downstairs\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "downstairs",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"downstairs\" mean?\n\nDownstairs means to or on a lower floor.\n\nReview your words, free: https://lexkite.com/app/#/review?w=downstairs"
+   },
+   "instagram": {
+    "caption": "What does \"downstairs\" mean?\n\nDownstairs means to or on a lower floor.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"downstairs\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to or on a lower floor. Downstairs means to or on a lower floor. Try the full lesson and quiz here: {link}"
  }
 }

@@ -138,16 +138,16 @@ const AREAS = [
   ['docs/', 'Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive'],
 ];
 const WHERE = [
-  ['Chuỗi i18n (15 ngôn ngữ)', 'Khóa = câu tiếng Việt trong t(\'…\'). Bản dịch web/js/i18n/<lang>.js + web/js/i18n/en/*.js (nhóm theo tính năng); add-on extension/_locales/<lang>/messages.json. Tool: scripts/i18n-missing.mjs, i18n-qa.mjs, gen-i18n.mjs, i18n-sync.sh. Luật: docs/I18N-PIPELINE.md. Test: scripts/test/i18n-*.mjs'],
-  ['Design token / màu', 'brand/tokens.json → scripts/build-tokens.mjs → :root trong web/css/style.css (+ scripts/lib/site-layout.mjs). Stitch: brand/stitch/tokens.dtcg.json, scripts/build-stitch-css.mjs → web/css/st-*.css. Luật: docs/DESIGN-SYSTEM.md, docs/BRAND-RULES.md; test brand-check.mjs'],
-  ['Giáo viên Ama/Carlos', 'Registry web/teach/characters.json (+ ama/ carlos/); API Chars.* ở web/js/characters.js; lời/khẩu hình web/js/lesson/teacher.js, web/js/st/v2/teacher-call.js; tool scripts/teach, scripts/teacher; luật docs/CHARACTERS.md; test characters-gate.mjs'],
-  ['Luồng bài học', 'web/js/lesson/{engine,ui,stories,gold,teacher}.js; màn st: web/js/st/lesson.js, web/js/st/v2/lesson-question.js, lesson-complete.js; lộ trình web/js/path.js, plan.js, next-step.js; build scripts/lesson/; docs/LESSON-ENGINE.md, docs/LEARNING-PATH.md; test lesson.mjs, learn-flow.mjs'],
-  ['Từ điển / từ vựng', 'web/js/dictionary.js (route #/dict), lexis.js, lex.js, wordcard.js, vocab-img.js; dữ liệu sinh: scripts/build-lexicon.mjs, scripts/lexicon/, scripts/dict/, workers/dict; docs/LEXICON.md; test lex.mjs, dict-pages.mjs'],
+  ['Chuỗi i18n (15 ngôn ngữ)', 'Khóa = câu tiếng Việt trong t(\'…\'). Bản dịch web/js/i18n/<lang>.js + web/js/i18n/en/*.js (nhóm theo tính năng); add-on extension/_locales/<lang>/messages.json. Tool: scripts/i18n-missing.mjs, i18n-qa.mjs, gen-i18n.mjs, i18n-sync.sh. Luật: docs/I18N-PIPELINE.md'],
+  ['Design token / màu', 'brand/tokens.json → scripts/build-tokens.mjs → :root trong web/css/style.css (+ scripts/lib/site-layout.mjs). Stitch: brand/stitch/tokens.dtcg.json, scripts/build-stitch-css.mjs → web/css/st-*.css. Luật: docs/DESIGN-SYSTEM.md, docs/BRAND-RULES.md'],
+  ['Giáo viên Ama/Carlos', 'Registry web/teach/characters.json (+ ama/ carlos/); API Chars.* ở web/js/characters.js; lời/khẩu hình web/js/lesson/teacher.js, web/js/st/v2/teacher-call.js; tool scripts/teach, scripts/teacher; luật docs/CHARACTERS.md'],
+  ['Luồng bài học', 'web/js/lesson/{engine,ui,stories,gold,teacher}.js; màn st: web/js/st/lesson.js, web/js/st/v2/lesson-question.js, lesson-complete.js; lộ trình web/js/path.js, plan.js, next-step.js; build scripts/lesson/; docs/LESSON-ENGINE.md, docs/LEARNING-PATH.md'],
+  ['Từ điển / từ vựng', 'web/js/dictionary.js (route #/dict), lexis.js, lex.js, wordcard.js, vocab-img.js; dữ liệu sinh: scripts/build-lexicon.mjs, scripts/lexicon/, scripts/dict/, workers/dict; docs/LEXICON.md'],
   ['Cổng Stitch v2', 'scripts/stitch-v2-convert.mjs (HTML Stitch → module) → web/js/st/v2/*.js + web/css/st-v2-*.css; ref brand/stitch/v2; docs/STITCH-V2-PORT.md; CI so ảnh (workflow nav-render, dist-ui)'],
   ['Pipeline video', 'scripts/video/{render,auto,synth,motion}.mjs + remotion/ + motion/; cảnh cine scripts/cine; footage scripts/footage; kho brand/library/cine; docs/VIDEO.md, docs/VIDEO-MOTION.md, docs/CREDIT-RULES.md (tiêu credit: đọc trước); workflow cine-render, footage-*'],
   ['Route / màn hình app', 'routes.<tên> = … rải ở web/js/*.js (bảng Routes dưới); alias + lazy bundle ở web/js/app.js (ROUTE_ALIAS, ROUTE_BUNDLE, BUNDLES); thêm script toàn cục → web/app/index.html'],
-  ['API backend', 'functions/api/<tên>.js = /api/<tên>; helper functions/api/_*.js (quota, abuse…); test api-security.mjs'],
-  ['Add-on', 'extension/{manifest.json,background.js,content.js,popup.js,newtab.js}; build scripts/build-extension.sh (web → extension/app); test ext-*.mjs; docs/CWS-RULES.md'],
+  ['API backend', 'functions/api/<tên>.js = /api/<tên>; helper functions/api/_*.js (quota, abuse…)'],
+  ['Add-on', 'extension/{manifest.json,background.js,content.js,popup.js,newtab.js}; build scripts/build-extension.sh (web → extension/app)'],
   ['Blog / SEO', 'content/blog + scripts/blog-pipeline.mjs, build-blog.mjs, build-seo.mjs; workflow blog-daily; docs/BLOG-RUNBOOK.md'],
   ['CI / việc nền', 'infra/jobs.json → docs/JOBS.md (node scripts/jobs/gen.mjs); lease scripts/jobs/lease.mjs; chuỗi test = scripts/test/suite.txt (npm test → run-suite.mjs); scripts/prepush.sh; docs/CI-RUNNERS.md'],
 ];
@@ -164,9 +164,9 @@ out.push('# CODEMAP – bản đồ mã nguồn (SINH TỰ ĐỘNG, đừng sử
   'Tra json: `node -e "const g=require(\'./docs/codemap.json\');console.log(g.nodes[\'web/js/app.js\'])"` · `g.routes` · `g.workflows` · `g.tests` · `g.god`. Mỗi node: exports, imports, importedBy.', '');
 out.push('## Khu vực');
 for (const [d, p] of AREAS) { const k = d.replace(/\/$/, ''); const c = d.startsWith('.github') ? files.filter(f => f.startsWith(d)).length : (top[k] || 0); out.push(`- \`${d}\` (${c} file): ${p}`); }
-out.push(`- API \`/api/*\` (${apiNames.length}): ${pick(apiNames, 70)}`);
+out.push(`- API \`/api/*\` (${apiNames.length}): ${pick(apiNames, 24)}`);
 const subs = {}; for (const f of files) { const m = f.match(/^(web\/js\/[\w-]+|scripts\/[\w-]+)\//); if (m) subs[m[1]] = (subs[m[1]] || 0) + 1; }
-out.push(`- Thư mục con (số file; js/=web/js, s/=scripts): ${Object.entries(subs).filter(([, c]) => c >= 3).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([d, c]) => `${d.replace(/^web\/js\//, 'js/').replace(/^scripts\//, 's/')}:${c}`).join(' ')}`, '');
+out.push(`- Thư mục con (số file; js/=web/js, s/=scripts): ${Object.entries(subs).filter(([, c]) => c >= 12).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([d, c]) => `${d.replace(/^web\/js\//, 'js/').replace(/^scripts\//, 's/')}:${c}`).join(' ')}`, '');
 out.push('## Sửa ở đâu (tác vụ → file)');
 for (const [k, v] of WHERE) {
   const miss = (v  .match(/(?:web|scripts|functions|workers|extension|brand|infra|content|docs)\/[\w.\-/]+/g) || []).map(p => p.replace(/[.,]+$/, '')).filter(p => !/[<{*…]/.test(p) && !exists(p));
@@ -174,13 +174,14 @@ for (const [k, v] of WHERE) {
   out.push(`- **${k}**: ${v}`);
 }
 out.push('', `## God nodes (${gods.length} module được import/nạp nhiều nhất; không tính test)`);
-gods.forEach((n, i) => out.push(`${i + 1}. \`${n.path}\` ←${indeg(n)} · ${pick(n.exports, 6) || 'script'}`));
+gods.forEach((n, i) => out.push(`${i + 1}. \`${n.path}\` ←${indeg(n)} · ${pick(n.exports, 4) || 'script'}`));
 out.push('', `## Routes \`#/…\` → file xử lý (${routeList.length})`);
 const byFile = {}; for (const [r, fs_] of routeList) for (const f of fs_) (byFile[f] ||= []).push(r.slice(2));
 for (const [f, rs] of Object.entries(byFile).sort()) out.push(`- \`${short(f, 'web/js/')}\`: ${rs.join(' ')}`);
 // Gộp theo bộ trigger (mỗi bộ in 1 lần) thay vì lặp [trigger] trên từng dòng.
 out.push('', `## Workflows (${workflows.length}) theo trigger: tên: việc kiểm/làm`);
-const WF_DESC = 40, wfName = w => w.file.replace(/\.ya?ml$/, '');
+const WF_DESC = 14, wfName = w => w.file.replace(/\.ya?ml$/, '');
+// mô tả workflow: cắt theo TỪ ≤ WF_DESC ký tự + '…' (điều phối 05/11: 40→32; 07/11: 32→20 vì mục Mô-đun rỗng ở 23,8 KB, 20→14 khi phần cố định 21,4 KB chỉ chừa 2,4 KB < MIN_MOD; trần 25 KB giữ nguyên) – bản đầy đủ ở json workflows[].desc (cổng codemap-budget)
 const brief = d => d.length > WF_DESC ? d.slice(0, WF_DESC).replace(/\s+\S*$/, '').replace(/[:;,(\s]+$/, '') + '…' : d;
 const byTrig = {}; for (const w of workflows) (byTrig[w.triggers.join(',') || '?'] ||= []).push(w);
 for (const [t, ws] of Object.entries(byTrig).sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0])))
