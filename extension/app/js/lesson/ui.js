@@ -129,7 +129,7 @@
     const X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = (state.settings || {}).examTarget; // chip kỳ thi trên thẻ câu hỏi: "IELTS · Mục tiêu 7.5"
     document.body.classList.add('st'); App.onCleanup(() => document.body.classList.remove('st'));
     const sh = { close: `#/lesson${Q(demo)}`, closeLabel: t('Thoát bài học'), title: KNAME(node.kind) || t('Bài học'), icon: { lesson: 'star', listen: 'headphones', speak: 'mic', review: 'replay', story: 'auto_stories', radio: 'radio' }[node.kind] || 'star', barLabel: t('Tiến độ bài học'), chip: X ? X.short + (tg && (!window.LessonEx || LessonEx.targetOk(App.exam(), tg)) ? ' · ' + t('Mục tiêu {s}', { s: tg }) : '') : '', who: TNAME(L.who) + ' · ' + t('Giáo viên của bạn') };
-    sh.short = X ? X.short : ''; // khung bài tập chung (ex-frame): chip kỳ thi ngắn
+    sh.short = X ? X.short : '';
     L.title = sh.title; L.chip = sh.chip; // màn kết (lesson-complete) dùng lại
     L.sh = sh;
     if (V2) v2shell(sh);
@@ -159,7 +159,7 @@
   const GRID = 'grid grid-cols-2 gap-[1rem] mb-[1rem] lsn-opts', FLOW = 'flex flex-col gap-3 mb-[1rem]', LET = 'ABCDEFGH';
   const SLOW = 'absolute top-[1.2rem] right-[1.5rem] z-20 w-7 h-7 flex items-center justify-center rounded-[9999px] active:scale-95 transition-transform lt:bg-[#FFFFFF] lt:text-[#0D6964] dk:bg-[#142328] dk:text-[#2BA39A] motion-reduce:transition-none after:absolute after:-inset-2 after:content-[\'\']';
   function v2shell(sh) {
-    if (window.LessonEx && LessonEx.usable()) { // 🧩 khung bài tập chung (mẫu Stitch ex-frame): đầu trang trong cột nội dung, giáo viên cạnh bong bóng – không thẻ nào che
+    if (window.LessonEx && LessonEx.usable()) { // 🧩 khung bài tập chung (ex-frame)
       const r0 = ST2.mount(view, 'ex-frame', { close: sh.close, title: sh.title, qn: '', streak: String(App.streak ? App.streak() : 0), chip: sh.short || '', say: '', teacher: LessonEx.teacher() }, null); r0.id = 'lsn'; r0.classList.add('lsn-v2', 'lsn-fx'); r0.style.opacity = '0'; const shown0 = () => { r0.style.opacity = ''; }; setTimeout(shown0, 1600); /* opacity, không visibility: ExitGuard chèn thêm .lk-exitbar */
       L.cssP = (App.loadCss ? App.loadCss('css/story-stage.css') : Promise.resolve()).catch(() => 0).then(() => { shown0(); let n = r0.querySelector('#lsnBub'), c = ''; while (n && n !== r0) { c = getComputedStyle(n).backgroundColor; if (c && !/rgba?\(.*(, ?0\)| 0\))$/.test(c) && c !== 'transparent') break; n = n.parentElement; } if (c) r0.style.setProperty('--ss-floor', c); }); // sàn/bệ + màu bài tập chung với khung lesson-question
       const bx = document.createElement('div'); bx.innerHTML = ST2['lesson-question']({ close: '', title: '', pct: 0, combo: '', chip: '', play: '', who: '', teacher: '', slow: '', opts: ['off', 'on'].map(v => ({ v, o: '', k: '', t: '' })) }).main; const g0 = bx.querySelector('#lsnBody'); L.tpl = { off: g0.children[0], on: g0.children[1] }; return; // khuôn thẻ A–D vẫn của lesson-question
