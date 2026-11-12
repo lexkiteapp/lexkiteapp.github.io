@@ -580,11 +580,27 @@
     const bad = new Set(weak.map(x => E.norm(x))), got = w.filter(p => !bad.has(E.norm(p.card.word))).length; // từ nhớ ngay: không sai lần nào trong cả bài
     const more = `<span class="${ROW}"><span class="inline-flex items-center gap-1">${ic('timer')}${esc(t('Thời gian'))}: ${esc(unitFmt(mins, 'minute'))}</span></span>` +
       (weak.length ? `<span class="${ROW} font-medium"><span class="inline-flex items-start gap-1">${ic('edit_note')}<span>${esc(t('Cần ôn lại:'))} <span lang="en">${esc(weak.join(', '))}</span></span></span></span>` : '');
-    const d = { close: `#/lesson${q}`, mapL: t('Bản đồ bài học'), title: L.title, pct: '100%', chip: L.endChip || L.title, xp: '+' + xp, acc: s.accuracy + '%', first: got + '/' + w.length, combo: String(s.best), streak: String(streak),
-      off1: Math.round(490 * (1 - Math.min(100, s.accuracy) / 100)), off2: Math.round(414 * (1 - (w.length ? got / w.length : 1))),
-      sub: s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'), learned: w.length ? t('Bạn đã học:') + ' ' + w.map(p => p.card.word).join(' · ') : ' ', more,
-      rev: weak.length ? t('Sổ lỗi sai') : t('Bản đồ bài học'), revIcon: weak.length ? 'edit_note' : 'map', revHref: weak.length ? '#/mistakes' : `#/lesson${q}`,
-      teacher: '<div class="lsn-tchw lsn-endt relative z-0 -mb-10 -mt-3 h-[132px] w-full flex justify-center pointer-events-none" aria-hidden="true"><div id="lsnTch" class="relative w-[154px] h-[132px] max-w-full"></div></div>' };
+    const d = {
+      close: `#/lesson${q}`,
+      mapL: t('Bản đồ bài học'),
+      title: L.title,
+      pct: '100%',
+      chip: L.endChip || L.title,
+      xp: '+' + xp,
+      acc: s.accuracy + '%',
+      first: got + '/' + w.length,
+      combo: String(s.best),
+      streak: String(streak),
+      off1: Math.round(490 * (1 - Math.min(100, s.accuracy) / 100)),
+      off2: Math.round(414 * (1 - (w.length ? got / w.length : 1))),
+      sub: s.accuracy >= 80 ? t('Tuyệt vời!') : t('Làm tốt lắm, cứ tiếp tục nhé!'),
+      learned: w.length ? t('Bạn đã học:') + ' ' + w.map(p => p.card.word).join(' · ') : ' ',
+      more,
+      rev: weak.length ? t('Sổ lỗi sai') : t('Bản đồ bài học'),
+      revIcon: weak.length ? 'edit_note' : 'map',
+      revHref: weak.length ? '#/mistakes' : `#/lesson${q}`,
+      teacher: '<div class="lsn-tchw lsn-endt relative z-0 -mb-10 -mt-3 h-[132px] w-full flex justify-center pointer-events-none" aria-hidden="true"><div id="lsnTch" class="relative w-[154px] h-[132px] max-w-full"></div></div>',
+    };
     if (L.teachers && L.teachers.carlos) { try { L.teachers.carlos.destroy(); } catch (e) { /* bỏ qua */ } } L.teachers = null;
     if (L.teacher) { try { L.teacher.destroy(); } catch (e) { /* bỏ qua */ } L.teacher = null; }
     const root = ST2.mount(view, 'lesson-complete', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-end', 'st-end'); root.classList.toggle('lsn-ptr', !kbd);
