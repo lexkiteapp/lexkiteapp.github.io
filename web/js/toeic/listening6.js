@@ -28,11 +28,7 @@ explain: 'Ảnh: hai đứa trẻ đi bộ cạnh nhau trên con đường đấ
 const p1script = [
 { say: g.TQL[0] }, { pause: 3 },
 ];
-P1.forEach(it => {
-p1script.push({ say: 'Number ' + it.n + '. Look at the photograph for number ' + it.n + '.' }); p1script.push({ pause: 1 });
-it.s.forEach((txt, i) => p1script.push({ s: 'N', t: '(' + 'ABCD'[i] + ') ' + txt }));
-p1script.push({ pause: 3 });
-});
+g.TQH.p1(P1, p1script);
 
 T.listening.push({
 id: 'tl6p1', test: 6, part: 1, title: 'Photographs', titleVi: 'Mô tả tranh',
@@ -151,7 +147,7 @@ D: { name: 'Fenella', accent: 'en-GB', gender: 'f' },
 script: p2script,
 groups: [
 { type: 'mcq', instr: g.TQL[41],
-items: P2.map(it => ({ n: it.n, q: 'Mark your answer.', options: ['A', 'B', 'C'], a: it.a, cue: it.r[it.a], explain: it.explain })) },
+items: g.TQH.p2(P2) },
 ],
 vocab: [
 { w: 'checkout', vi: 'việc trả phòng (khách sạn)' },

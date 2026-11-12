@@ -7,7 +7,7 @@
 (function (g) {
   'use strict';
   const d = g.document;
-  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const esc = s => UI.esc(s);
   const T = (k, v) => (g.t ? g.t(k, v) : k);
   const ls = (k, v) => { try { if (v === undefined) return g.localStorage.getItem('vb.' + k); if (v === null) g.localStorage.removeItem('vb.' + k); else g.localStorage.setItem('vb.' + k, v); } catch (e) { return null; } return null; };
   const HARD_AT = 8, PAUSE = 15 * 60e3;

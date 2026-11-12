@@ -203,6 +203,7 @@ node scripts/test/explain-check.mjs
 node scripts/test/size-budget.mjs
 node scripts/test/js-budget.mjs
 node scripts/test/readtest-dedupe.mjs
+node scripts/test/esc-dedupe.mjs
 node scripts/test/shell-size.mjs
 node scripts/test/docs-budget.mjs
 node scripts/test/infra-check.mjs

@@ -102,6 +102,11 @@ g.TQL = [
 'Where does the woman most likely work?',
 'What is the speaker mainly discussing?',
 ];
+// Hai đoạn lặp ở mọi đề (Part 1 đọc "Number n…" + 4 phương án; Part 2 → câu MCQ A–C) viết MỘT lần ở đây (size-budget); listening2–7 gọi g.TQH.
+g.TQH = {
+p1: (P1, out) => P1.forEach(it => { out.push({ say: 'Number ' + it.n + '. Look at the photograph for number ' + it.n + '.' }, { pause: 1 }); it.s.forEach((txt, i) => out.push({ s: 'N', t: '(' + 'ABCD'[i] + ') ' + txt })); out.push({ pause: 3 }); }),
+p2: P2 => P2.map(it => ({ n: it.n, q: 'Mark your answer.', options: ['A', 'B', 'C'], a: it.a, cue: it.r[it.a], explain: it.explain })),
+};
 const T = g.TOEIC = g.TOEIC || { reading: [], listening: [] };
 if (!T.listening) T.listening = [];
 
@@ -130,11 +135,7 @@ explain: 'Ảnh: bãi cát và đá ở phía trước, xa xa có nhiều thuy�
 const p1script = [
 { say: g.TQL[0] }, { pause: 3 },
 ];
-P1.forEach(it => {
-p1script.push({ say: 'Number ' + it.n + '. Look at the photograph for number ' + it.n + '.' }); p1script.push({ pause: 1 });
-it.s.forEach((txt, i) => p1script.push({ s: 'N', t: '(' + 'ABCD'[i] + ') ' + txt }));
-p1script.push({ pause: 3 });
-});
+g.TQH.p1(P1, p1script);
 
 T.listening.push({
 id: 'tl1p1', test: 1, part: 1, title: 'Photographs', titleVi: 'Mô tả tranh',
@@ -253,7 +254,7 @@ D: { name: 'Megan', accent: 'en-US', gender: 'f' },
 script: p2script,
 groups: [
 { type: 'mcq', instr: g.TQL[41],
-items: P2.map(it => ({ n: it.n, q: 'Mark your answer.', options: ['A', 'B', 'C'], a: it.a, cue: it.r[it.a], explain: it.explain })) },
+items: g.TQH.p2(P2) },
 ],
 vocab: [
 { w: 'go live', vi: 'chính thức đi vào hoạt động' },

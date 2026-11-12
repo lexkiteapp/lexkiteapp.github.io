@@ -4,7 +4,7 @@
  * Màu = token Stitch (brand/stitch/tokens.dtcg.json) qua biến CSS → cùng DOM cho sáng (B) / tối (A). `lt:` = chỉ ở giao diện sáng. */
 (function () {
   if (window.ST) return;
-  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const esc = s => UI.esc(s);
   // Icon Material Symbols (font subset tự host web/fonts/msym.woff2 – tên phải nằm trong ms('…') hoặc chú thích @icons để build tải về)
   const ms = (n, cls, fill) => `<span class="material-symbols-outlined${fill ? ' fill' : ''}${cls ? ' ' + cls : ''}" aria-hidden="true">${n}</span>`;
   // @icons history route layers bolt trophy person expand_more local_fire_department star search notifications

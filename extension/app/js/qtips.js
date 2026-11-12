@@ -1,7 +1,7 @@
 /* Mẹo chiến lược theo DẠNG CÂU HỎI (IELTS Reading/Listening, TOEIC Part 1–7, TOEFL iBT 2026) + ghi nhận tiến bộ theo kỹ năng × dạng câu
  * (tỉ lệ đúng, thời gian ước tính/câu) + trang tổng quan #/qstats. Tải lười cùng qengine.js. Tên dạng câu giữ nguyên thuật ngữ đề thi (tiếng Anh). */
 (function (g) {
-  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const esc = s => UI.esc(s);
   const code = o => String(o).split(' ')[0];
   const label = o => String(o).slice(code(o).length + 1);
 

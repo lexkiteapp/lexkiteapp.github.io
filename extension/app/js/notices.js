@@ -52,7 +52,7 @@
   }
 
   // Chữ do quản trị soạn: LUÔN thoát HTML; link chỉ cho #/… (trong app) hoặc https://
-  const esc = v => String(v == null ? '' : v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const esc = v => UI.esc(v);
   const safeUrl = u => { u = String(u || '').trim(); if (/^\/#\//.test(u)) u = u.slice(1); return /^(#\/|https:\/\/)[^\s"'<>]*$/i.test(u) ? u : ''; };
   const ext = u => /^https:/i.test(u) ? ' target="_blank" rel="noopener noreferrer"' : '';
   const API = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '/api/notices' : 'https://lexkite.com/api/notices';

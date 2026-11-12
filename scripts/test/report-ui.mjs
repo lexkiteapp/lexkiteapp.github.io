@@ -2,6 +2,7 @@
 // màn cảm ơn (Kit, mã LX, mốc dự kiến, liên kết riêng, nhắc trong app), khóa gửi lặp 30 s, trang trạng thái + dòng thời gian.
 // Chạy: node scripts/test/report-ui.mjs  (không mạng – fetch giả lập; giao diện tiếng Anh)
 import fs from 'node:fs';
+import { uiEsc } from '../lib/ui-esc.mjs';
 import jsdom from 'jsdom';
 const { JSDOM } = jsdom;
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
@@ -53,7 +54,7 @@ mq.matches = false; mq.f(); ok(pill.parentNode === d.body && d.documentElement.c
 w.location.hash = '#/dict/record?q=private'; w.dispatchEvent(new w.HashChangeEvent('hashchange'));
 
 // ---------- Form ----------
-w.eval(rd('js/report.js'));
+w.UI = w.UI || { esc: uiEsc }; w.eval(rd('js/report.js'));
 const R = w.LexReport;
 let dlg = await R.open();
 ok(dlg && dlg.getAttribute('aria-labelledby') === 'lkrH' && d.getElementById('lkrH').textContent.includes('Report a problem'), 'hộp thoại có tiêu đề (aria-labelledby), tiếng Anh');
