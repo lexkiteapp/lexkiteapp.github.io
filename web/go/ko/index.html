@@ -75,9 +75,10 @@ h1{font-size:1.75rem;line-height:1.2;margin:8px 0 6px;font-weight:800}.sub{margi
 try{S=W.sessionStorage}catch(e){}
 var K=/^(utm_(source|medium|campaign|content|term)|c)$/,V=/^[A-Za-z0-9._~-]{1,40}$/,p={};
 try{new URLSearchParams(location.search).forEach(function(v,k){if(K.test(k)&&V.test(v))p[k]=v});var o=S&&S.getItem('lk.go');if(o&&!Object.keys(p).length)p=JSON.parse(o);if(Object.keys(p).length&&S)S.setItem('lk.go',JSON.stringify(p))}catch(e){}
+var at={s:p.utm_source,m:p.utm_medium,c:p.utm_campaign,k:p.c};Object.keys(at).forEach(function(k){if(!at[k])delete at[k]});
 var q='src=go&'+Object.keys(p).map(function(k){return k+'='+encodeURIComponent(p[k])}).join('&');q=q.replace(/&$/,'');
 D.querySelectorAll('[data-app]').forEach(function(a){a.href=a.getAttribute('data-app')+(a.getAttribute('data-app').indexOf('?')<0?'?':'&')+q});
-function ev(e){try{if(navigator.webdriver||(W.localStorage&&localStorage.getItem('lk.noTrack')==='1'))return;navigator.sendBeacon('/api/hit',JSON.stringify({t:'q',ev:e,lang:L,page:'go'}))}catch(x){}}
+function ev(e){try{if(navigator.webdriver||(W.localStorage&&localStorage.getItem('lk.noTrack')==='1'))return;navigator.sendBeacon('/api/hit',JSON.stringify({t:'q',ev:e,lang:L,page:'go',at:at}))}catch(x){}}
 ev('go_view');
 var $=function(s){return D.querySelector(s)},bar=D.querySelectorAll('.bar i'),opts=$('.opts'),pic=$('.pic'),fb=$('.fb'),next=$('#next'),quiz=$('#quiz'),done=$('#done'),started=0;
 function say(w){try{var u=new SpeechSynthesisUtterance(w);u.lang='en-US';u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
