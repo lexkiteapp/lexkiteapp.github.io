@@ -426,6 +426,8 @@
   "rev.addedFromIeltsWordSets": "Ditambahkan dari kumpulan kata IELTS",
   "rev.fromAnki": "Dari Anki",
   "rev.importedFromYourAnkiDecks": "Diimpor dari dek Anki Anda",
+  "rev.fromADocument": "Dari dokumen",
+  "rev.importedFromTextPdfEpubSubtitles": "Diimpor dari teks, PDF, ePub, dan subtitel",
   "rev.thisLooksTooEasyFor": "Sepertinya ini terlalu mudah untukmu. Coba soal yang lebih sulit (mengetik, bukan memilih) untuk bonus XP?",
   "rev.goHarder": "Lebih sulit",
   "rev.keepThisLevel": "Tetap level ini",

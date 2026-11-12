@@ -426,6 +426,8 @@
   "rev.addedFromIeltsWordSets": "تمت الإضافة من مجموعات كلمات IELTS",
   "rev.fromAnki": "من Anki",
   "rev.importedFromYourAnkiDecks": "مستوردة من رزم Anki الخاصة بك",
+  "rev.fromADocument": "من مستند",
+  "rev.importedFromTextPdfEpubSubtitles": "مستورد من نص وPDF وePub وترجمات",
   "rev.thisLooksTooEasyFor": "يبدو هذا سهلًا جدًا عليك. هل تجرّب أسئلة أصعب (الكتابة بدل الاختيار) لتحصل على XP إضافية؟",
   "rev.goHarder": "أصعب",
   "rev.keepThisLevel": "إبقاء المستوى",

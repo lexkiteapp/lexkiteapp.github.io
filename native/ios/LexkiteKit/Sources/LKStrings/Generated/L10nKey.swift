@@ -428,6 +428,8 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case revAddedFromIeltsWordSets = "rev.addedFromIeltsWordSets"
     case revFromAnki = "rev.fromAnki"
     case revImportedFromYourAnkiDecks = "rev.importedFromYourAnkiDecks"
+    case revFromADocument = "rev.fromADocument"
+    case revImportedFromTextPdfEpubSubtitles = "rev.importedFromTextPdfEpubSubtitles"
     case revThisLooksTooEasyFor = "rev.thisLooksTooEasyFor"
     case revGoHarder = "rev.goHarder"
     case revKeepThisLevel = "rev.keepThisLevel"

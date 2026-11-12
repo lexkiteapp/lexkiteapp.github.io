@@ -426,6 +426,8 @@
   "rev.addedFromIeltsWordSets": "Aus IELTS-Wortsätzen hinzugefügt",
   "rev.fromAnki": "Aus Anki",
   "rev.importedFromYourAnkiDecks": "Aus deinen Anki-Stapeln importiert",
+  "rev.fromADocument": "Aus einem Dokument",
+  "rev.importedFromTextPdfEpubSubtitles": "Aus Text, PDF, ePub und Untertiteln importiert",
   "rev.thisLooksTooEasyFor": "Das scheint dir zu leicht zu sein. Schwerere Aufgaben (tippen statt wählen) für Bonus-XP ausprobieren?",
   "rev.goHarder": "Schwerer",
   "rev.keepThisLevel": "Level behalten",

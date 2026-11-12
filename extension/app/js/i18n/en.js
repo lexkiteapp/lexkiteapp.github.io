@@ -992,6 +992,8 @@
 'Nhập từ Anki': 'Import from Anki',
 'Từ Anki': 'From Anki',
 'Nhập từ bộ thẻ Anki': 'Imported from your Anki decks',
+'Từ tài liệu': 'From a document',
+'Nhập từ văn bản, PDF, ePub, phụ đề': 'Imported from text, PDF, ePub and subtitles',
 'Tìm từ hoặc nghĩa…': 'Search words or meanings…',
 'Tất cả bộ từ': 'All sets',
 'Từ tự thêm': 'Added by me',

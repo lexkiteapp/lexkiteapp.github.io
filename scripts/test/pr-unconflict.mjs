@@ -7,7 +7,10 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
-import { plan, dedupeLines, pick, MAX, mergeEntries, regenCmds, merge3 } from '../pr-unconflict.mjs';
+import { plan, dedupeLines, pick, MAX, mergeEntries, regenCmds, merge3, retryable } from '../pr-unconflict.mjs';
+// 12/11: một lần GitHub 503 từng làm chết cả lượt (không PR nào được gỡ) → 5xx/429 thử lại, 4xx ném ngay.
+assert.ok(retryable(503) && retryable(502) && retryable(429), '5xx/429 phải thử lại');
+assert.ok(!retryable(404) && !retryable(422) && !retryable(401), '4xx không thử lại');
 
 assert.deepEqual(plan(['docs/CODEMAP.md', 'scripts/test/suite.txt']), [{ f: 'docs/CODEMAP.md', how: 'main' }, { f: 'scripts/test/suite.txt', how: 'union' }]);
 assert.equal(plan(['docs/CODEMAP.md', 'web/js/home.js']), null, 'có tệp người viết thì không tự gỡ');

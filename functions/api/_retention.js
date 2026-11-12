@@ -44,5 +44,7 @@ export async function retentionData(db, P, adminVids = [], now = Date.now()) {
     FROM x WHERE d >= ?5 GROUP BY plat, country`, from, d(1), d(7), d(30), d(P - 1));
   // Phiên / người / tuần: tổng phiên chia số (người × tuần có hoạt động) trong 28 ngày – người học đều thì ≥ 3
   const weekly = await all(db, `SELECT COALESCE(NULLIF(plat, ''), 'web') AS plat, COUNT(*) AS s, COUNT(DISTINCT vid || '|' || strftime('%Y-%W', day)) AS uw FROM sessions WHERE ${H} AND day >= ?1 GROUP BY 1`, wk0);
-  return { at: now, today, days: P, ...shape(rows, weekly) };
+  // Vòng thói quen trang chủ 7 ngày (máy·ngày): thấy kế hoạch → bấm bắt đầu → xong; thấy/bấm "tiếp tục" (hit.js HAB_EV)
+  const hab = {}; for (const r of await all(db, "SELECT kind, SUM(n) AS n FROM ext_events WHERE day >= ?1 AND kind >= 'hab:' AND kind < 'hab;' GROUP BY kind", d(6)).catch(() => [])) hab[String(r.kind).slice(4)] = r.n || 0;
+  return { at: now, today, days: P, hab, ...shape(rows, weekly) };
 }
