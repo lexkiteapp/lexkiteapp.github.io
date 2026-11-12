@@ -48,7 +48,7 @@ ok(/'inst_' \+ m \+ '_' \+ a \+ '_' \+ k/.test(src), 'tên sự kiện inst_<m>_
 const id = (rd('web/js/ext-config.js').match(/apps\.apple\.com\/app\/id(\d+)/) || [])[1], meta = `<meta name="apple-itunes-app" content="app-id=${id}">`;
 ok(id === '6824714708', 'ext-config: App Store id');
 ok(rd('web/app/index.html').includes(meta), 'web/app/index.html có Smart App Banner');
-const L = fs.readdirSync('web').filter(d => fs.existsSync(`web/${d}/index.html`) && /^[a-z]{2}$/.test(d));
+const L = fs.readdirSync('web').filter(d => fs.existsSync(`web/${d}/index.html`) && /^[a-z]{2}$/.test(d) && d !== 'go'); // /go/ = trang chọn ngôn ngữ (noindex), không phải landing
 ok(L.length >= 15 && L.every(l => rd(`web/${l}/index.html`).includes(meta)), 'mọi trang landing 15 ngôn ngữ có Smart App Banner (' + L.length + ')');
 
 // Gói tải lười + nudge PWA cũ nhường chỗ khi có app cửa hàng
