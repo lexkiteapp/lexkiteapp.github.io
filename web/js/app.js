@@ -998,9 +998,11 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     if (App.todayPlan) App.todayPlan().then(tasks => {
       const el = $('#todayPlan'); if (!el) return;
       el.removeAttribute('aria-busy');
+      const hab = App.habTrack || (() => {});
       const n = tasks.filter(x => x.done).length, next = tasks.find(x => !x.done), mins = tasks.filter(x => !x.done).reduce((a, x) => a + (x.mins || 0), 0);
       const ra = App.lastActivity(), resume = ra && (!next || ra.href !== next.href) ? `<a class="home-resume small" href="${esc(ra.href)}">${t('Tiếp tục bài đang học')}: <b>${esc(ra.title)}</b> ›</a>` : ''; // bài đang học dở: liên kết phụ trong thẻ chính (trước đây là thẻ riêng tranh nút chính)
       if (!next) {
+        hab('plan_done');
         el.innerHTML = `<div class="today-done">${window.Kit ? Kit.svg('win', 72, true) : UI.icon('party-popper')}<h2>${t('Xong kế hoạch hôm nay!')} ${UI.icon('party-popper')}</h2><p class="muted">${t('Ngày mai quay lại để giữ chuỗi nhé. Muốn học thêm?')}</p>
           <div class="row center"><a class="btn" href="#/practice">⚡ ${t('Trò chơi từ vựng')}</a><a class="btn" href="#/skills">🎯 ${t('Luyện thêm kỹ năng')}</a></div>${resume}</div>`;
         const ks = $('#kitSay'); if (ks) ks.textContent = t('Xong mục tiêu hôm nay rồi! Giỏi quá 🎉');
@@ -1011,6 +1013,9 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
         <a class="btn primary lg block today-cta" href="${next.href}">${next.day ? (next.started ? t('Tiếp tục Ngày {n}', { n: next.day }) : t('Bắt đầu Ngày {n}', { n: next.day })) + (next.track ? ' · ' + esc(next.track) : '') + ' · ≈ ' + t('{m} phút', { m: next.mins }) : n ? t('Tiếp tục: {step}', { step: esc(next.t) }) : t('Bắt đầu: {step}', { step: esc(next.t) })} →</a>${next.sw || ''}${resume}
         <details class="plan-more"><summary>${t('Kế hoạch hôm nay')} · ${t('{a}/{b} việc', { a: n, b: tasks.length })}${mins ? ' · ≈ ' + t('{m} phút', { m: mins }) : ''}</summary>
         <div class="plan">${tasks.map(x => `<a class="plan-item ${x.done ? 'done' : ''} ${x === next ? 'next' : ''}" href="${x.href}"${x === next ? ' aria-current="step"' : ''}><span class="pi-em" aria-hidden="true">${UI.glyph(x.done ? 'circle-check' : x.em)}</span><div class="grow"><b>${esc(x.t)}</b><div class="small muted">${esc(x.sub || '')}</div></div>${x.mins && !x.done ? `<span class="pi-min">${t('{m} phút', { m: x.mins })}</span>` : ''}</a>`).join('')}</div></details>`;
+      hab('plan_seen'); if (resume) hab('resume_seen');
+      const cta = el.querySelector('.today-cta'); if (cta) cta.addEventListener('click', () => hab('plan_start'));
+      const rs = el.querySelector('.home-resume'); if (rs) rs.addEventListener('click', () => hab('resume_click'));
     });
   };
 
