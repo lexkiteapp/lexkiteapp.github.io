@@ -63,7 +63,7 @@
 "Tuần qua của bạn":"你的上周",
 "Tùy chọn: xem 1 video ngắn để nhận thêm 1 món trang trí. Không ảnh hưởng việc học.":"可选：观看一段短视频即可额外获得一件装饰。绝不影响你的学习。",
 "Tất cả đều miễn phí – không cần trả tiền để giữ chuỗi.":"一切都是免费的——您无需付费即可保持连胜。",
-"Từ mới học":"新学单词",
+"Từ mới học":"新单词",
 "Từ đã nói to":"朗读的单词",
 "Vàng":"金色",
 "Xem tiến bộ":"查看进步",

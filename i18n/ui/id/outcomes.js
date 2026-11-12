@@ -43,7 +43,7 @@
 "Viết một đoạn (10 phút)":"Tulis satu paragraf (10 menit)",
 "Viết trong 10 phút":"Menulis selama 10 menit",
 "Vốn từ":"Ragam kosakata",
-"Xem tiến bộ":"Lihat kemajuanku",
+"Xem tiến bộ":"Lihat kemajuan",
 "Xóa ghi âm trên máy":"Hapus rekaman di perangkat ini",
 "Xóa mọi ghi âm bài đo trên máy này? Chỉ số và bài viết vẫn giữ.":"Hapus semua rekaman tes di perangkat ini? Skor dan tulisanmu tetap tersimpan.",
 "theo số từ bạn đã nói và viết":"berdasarkan kata yang kamu ucapkan dan tulis",

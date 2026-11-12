@@ -63,7 +63,7 @@
 "Tuần qua của bạn":"지난주 학습",
 "Tùy chọn: xem 1 video ngắn để nhận thêm 1 món trang trí. Không ảnh hưởng việc học.":"선택 사항: 짧은 영상을 보면 꾸미기 아이템을 하나 더 받아요. 학습에는 전혀 영향이 없어요.",
 "Tất cả đều miễn phí – không cần trả tiền để giữ chuỗi.":"모두 무료입니다. 연속 기록을 유지하기 위해 비용을 지불할 필요가 없습니다.",
-"Từ mới học":"새로 배운 단어",
+"Từ mới học":"새 단어",
 "Từ đã nói to":"소리 내어 말한 단어",
 "Vàng":"골드",
 "Xem tiến bộ":"진도 보기",

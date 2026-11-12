@@ -63,7 +63,7 @@
 "Tuần qua của bạn":"先週のあなた",
 "Tùy chọn: xem 1 video ngắn để nhận thêm 1 món trang trí. Không ảnh hưởng việc học.":"任意：短い動画を見ると、デコレーションがもう1つもらえます。学習には一切影響しません。",
 "Tất cả đều miễn phí – không cần trả tiền để giữ chuỗi.":"すべて無料です。連続記録を維持するために料金を支払う必要はありません。",
-"Từ mới học":"新しく学んだ単語",
+"Từ mới học":"新しい単語",
 "Từ đã nói to":"声に出した単語",
 "Vàng":"ゴールド",
 "Xem tiến bộ":"上達を見る",

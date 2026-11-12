@@ -68,6 +68,8 @@ export async function run(env, now = Date.now()) {
     if (auth) for (const x of due.fcm) { let s = 'fail'; try { s = await sendFcm(auth, x); } catch (e) { s = 'fail'; } stat[s]++; if (s === 'gone') gone.push(x.id); }
   }
   if (gone.length) await fetch(API + '/api/push', { method: 'POST', headers: H, body: JSON.stringify({ op: 'gone', ids: gone }) }).catch(() => {});
+  // ✉️ Email nhắc học/tổng kết tuần cho người tự bật (functions/api/mail.js) – cùng nhịp 10 phút; lỗi không ảnh hưởng push
+  try { const m = await fetch(API + '/api/mail', { method: 'POST', headers: H, body: JSON.stringify({ op: 'tick' }) }); stat.mail = m.ok ? await m.json().catch(() => ({})) : { error: m.status }; } catch (e) { stat.mail = { error: 'net' }; }
   console.log('push', JSON.stringify(stat));
   return stat;
 }

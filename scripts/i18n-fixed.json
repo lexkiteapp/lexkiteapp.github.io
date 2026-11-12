@@ -40558,5 +40558,50 @@
     "ar": "عرض التقدم",
     "ru": "Смотреть прогресс",
     "tr": "İlerlemeyi gör"
+  },
+  "Nhắc học qua email": {
+    "es": "Recordatorios por correo",
+    "pt": "Lembretes por e-mail",
+    "fr": "Rappels par e-mail",
+    "de": "E-Mail-Erinnerungen",
+    "id": "Pengingat lewat email",
+    "th": "เตือนการเรียนทางอีเมล",
+    "zh": "邮件学习提醒",
+    "ja": "メールで学習リマインド",
+    "ko": "이메일로 학습 알림",
+    "hi": "ईमेल से पढ़ाई की याद",
+    "ar": "تذكيرات عبر البريد",
+    "ru": "Напоминания по почте",
+    "tr": "E-posta hatırlatmaları"
+  },
+  "Chỉ khi bạn nghỉ vài ngày, đúng giờ bạn hay học, tối đa 1 email mỗi ngày, hủy một chạm (khi đã đăng nhập)": {
+    "es": "Solo si pasas unos días sin estudiar, a tu hora habitual, máximo 1 correo al día, baja con un toque (con sesión iniciada)",
+    "pt": "Só depois de alguns dias sem estudar, no seu horário habitual, no máximo 1 e-mail por dia, cancele com um toque (com login)",
+    "fr": "Seulement après quelques jours d’absence, à votre heure habituelle, 1 e-mail par jour maximum, désabonnement en un geste (connecté)",
+    "de": "Nur nach einigen Tagen Pause, zu deiner üblichen Lernzeit, höchstens 1 E-Mail pro Tag, Abmeldung mit einem Tipp (wenn angemeldet)",
+    "id": "Hanya setelah beberapa hari absen, pada jam belajarmu, maksimal 1 email per hari, berhenti dengan satu ketukan (saat masuk akun)",
+    "th": "เฉพาะเมื่อคุณหยุดเรียนไม่กี่วัน ตามเวลาที่คุณเรียนบ่อย ไม่เกิน 1 อีเมลต่อวัน ยกเลิกได้ในแตะเดียว (เมื่อเข้าสู่ระบบ)",
+    "zh": "仅在你停学几天后、在你常学习的时间发送，每天最多 1 封，一键退订（需登录）",
+    "ja": "数日お休みしたときだけ、いつもの学習時間に、1日最大1通、ワンタップで配信停止（ログイン時）",
+    "ko": "며칠 쉬었을 때만, 평소 공부하는 시간에, 하루 최대 1통, 한 번에 수신 거부 (로그인 시)",
+    "hi": "केवल कुछ दिन न पढ़ने पर, आपके पढ़ने के समय, दिन में अधिकतम 1 ईमेल, एक टैप में सदस्यता छोड़ें (साइन इन होने पर)",
+    "ar": "فقط بعد غياب أيام، في وقت دراستك المعتاد، بريد واحد يوميًا كحد أقصى، وإلغاء الاشتراك بلمسة (عند تسجيل الدخول)",
+    "ru": "Только после нескольких дней перерыва, в привычное время занятий, не больше 1 письма в день, отписка в один тап (при входе в аккаунт)",
+    "tr": "Yalnızca birkaç gün ara verdiğinde, genelde çalıştığın saatte, günde en fazla 1 e-posta, tek dokunuşla çıkış (giriş yapılmışsa)"
+  },
+  "Cần đăng nhập để nhận email": {
+    "es": "Inicia sesión para recibir correos",
+    "pt": "Entre na conta para receber e-mails",
+    "fr": "Connectez-vous pour recevoir des e-mails",
+    "de": "Melde dich an, um E-Mails zu erhalten",
+    "id": "Masuk untuk menerima email",
+    "th": "เข้าสู่ระบบเพื่อรับอีเมล",
+    "zh": "登录后才能接收邮件",
+    "ja": "メールを受け取るにはログインしてください",
+    "ko": "이메일을 받으려면 로그인하세요",
+    "hi": "ईमेल पाने के लिए साइन इन करें",
+    "ar": "سجّل الدخول لتلقي الرسائل",
+    "ru": "Войдите, чтобы получать письма",
+    "tr": "E-posta almak için giriş yap"
   }
 }
