@@ -247,6 +247,9 @@ async function sweep() {
   // 1b) lịch cron không chạy / workflow bị tắt ngoài ý muốn (scripts/ci/cron-watch.mjs) – mỗi giờ
   try { const cw = await import('./cron-watch.mjs'), r = await cw.cronWatch(gh, { now: +now }); summary(r.md); summary(`- Issue lịch cron: ${await cw.syncIssue(gh, r, LABEL)}`); if (r.bad.length) console.log(`::error::${r.bad.length} workflow lịch không chạy: ${r.bad.map(b => b.file).join(', ')}`); }
   catch (e) { console.log('::warning::cron-watch: ' + e.message); }
+  // 1b') đường ảnh từ vựng (scripts/ci/vimg-watch.mjs) – 6 giờ/lần: workflow ảnh đỏ ≥ 2 lượt liền, hoặc 48 giờ không ảnh mới dù lượt fill chạy thật (xanh giả); kèm ảnh/ngày
+  if (now.getUTCHours() % 6 === 0 || force) try { const vw = await import('./vimg-watch.mjs'), r = await vw.vimgWatch(gh, { now: +now }); summary(r.md); summary(`- Issue ảnh từ vựng: ${await vw.syncIssue(gh, r, LABEL)}`); if (r.bad.length) console.log(`::error::đường ảnh từ vựng: ${r.bad.join(' | ')}`); }
+  catch (e) { console.log('::warning::vimg-watch: ' + e.message); }
   // 1c) cùng 1 check đỏ trên ≥ 3 PR mở = gốc chung ở main/workflow (scripts/ci/pr-common-red.mjs) – 3 giờ/lần (~50 lượt API) + bản tin ngày
   let common = null;
   if (now.getUTCHours() % 3 === 0 || force) try { const pc = await import('./pr-common-red.mjs'); common = pc.commonRed(await pc.scanPrs(gh)); summary(common.md); summary(`- Issue check đỏ chung: ${await pc.syncIssue(gh, common, LABEL)}`); if (common.groups.length) console.log(`::error::${common.groups.length} check đỏ chung trên PR mở: ${common.groups.map(g => `${g.check} (${g.prs.length})`).join(', ')}`); }
