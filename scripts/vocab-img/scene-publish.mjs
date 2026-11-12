@@ -12,7 +12,7 @@ import { STYLE } from './style.mjs';
 import { pick, load } from './media-repo.mjs';
 import { NEURONS_PER_IMG } from './gen.mjs';
 import { cardWins } from './scene.mjs';
-import { neuronReport, passReport } from './report.mjs';
+import { neuronReport, passReport, accPerKneuron } from './report.mjs';
 // neuron ước tính / lượt thị giác GrabCast (CF llama-4-scout: ~1.000 token vào gồm ảnh 448², ~80 ra × bảng giá 24.545 / 77.273 neuron/1M) – ghi đè VIMG_NEURONS_PER_VISION
 const NEURONS_PER_VISION = +(process.env.VIMG_NEURONS_PER_VISION || 31);
 
@@ -73,7 +73,7 @@ const NR = neuronReport(D), neur = NR.total || imgs * NEURONS_PER_IMG + vis * NE
 const rep = { run: BATCH, accepted: n, images_generated: imgs, gc_image_calls: calls, calls_per_accepted: n ? +(calls / n).toFixed(1) : null, images_per_accepted: n ? +(imgs / n).toFixed(1) : null,
   http: codes, s5xx: sum('s5xx'), s429: sum('s429'), ai_busy: sum('ai_busy'), ai_unavailable: sum('ai_unavailable'), ai_exhausted: sum('ai_exhausted'), safety_refused: sum('safety'), safety_rephrased: gs.reduce((a, g) => a + (g.safety_rephrased || 0), 0), safety_failed: gs.reduce((a, g) => a + (g.safety_failed || 0), 0), job_err: sum('job_err'), timeout: sum('timeout'), net: sum('net'), s5xx_rate: calls ? +(sum('s5xx') / calls).toFixed(3) : 0,
   ai_exhausted_hit: exhausted, exhausted_at: exAt, images_before_exhausted: exhausted ? gs.reduce((a, g) => a + (g.gc.ok_before_exhausted ?? g.images), 0) : null, accepted_before_exhausted: exhausted ? n : null,
-  vision_calls: vis, vision_skipped_local_fail: visSkip, pass: PR, neurons: NR, neurons_est: { per_generated_image: NR.npi ?? NEURONS_PER_IMG, per_vision_call: NR.vision_calls ? +(NR.vision_neurons / NR.vision_calls).toFixed(1) : NEURONS_PER_VISION, total: Math.round(neur), per_accepted_image: n ? Math.round(neur / n) : null },
+  vision_calls: vis, vision_skipped_local_fail: visSkip, pass: PR, neurons: NR, neurons_est: { per_generated_image: NR.npi ?? NEURONS_PER_IMG, per_vision_call: NR.vision_calls ? +(NR.vision_neurons / NR.vision_calls).toFixed(1) : NEURONS_PER_VISION, total: Math.round(neur), per_accepted_image: n ? Math.round(neur / n) : null }, accepted_per_kneuron: accPerKneuron(n, neur),
   by_model: gs.reduce((a, g) => { for (const [k_, v] of Object.entries(g.gc.by_model || {})) a[k_] = (a[k_] || 0) + v; return a; }, {}), model_fallback: sum('model_fallback'), config_err: sum('config'),
   cards_added: c, queued: qn, scene_total: Object.values(img.items).filter(x => x.kind === 'scene').length, img_total: Object.values(img.items).filter(x => x.h).length };
 fs.writeFileSync(path.join(D, 'fill-report.json'), JSON.stringify(rep, null, 1));

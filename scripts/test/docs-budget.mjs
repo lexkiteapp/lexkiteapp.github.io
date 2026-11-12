@@ -12,7 +12,7 @@ const files = walk(DOCS).map(f => path.relative(DOCS, f).split(path.sep).join('/
 const errs = [];
 const indexPath = path.join(DOCS, 'INDEX.md');
 if (!fs.existsSync(indexPath)) { console.error('✗ thiếu docs/INDEX.md'); process.exit(1); }
-const index = fs.readFileSync(indexPath, 'utf8');
+const index = fs.readFileSync(indexPath, 'utf8') + (fs.existsSync(path.join(DOCS, 'INDEX-ARCHIVE.md')) ? fs.readFileSync(path.join(DOCS, 'INDEX-ARCHIVE.md'), 'utf8') : ''); // INDEX-ARCHIVE.md = nửa sau mục lục (nguyên văn), INDEX.md phải trỏ tới nó
 const linked = new Set([...index.matchAll(/\]\(([^)#\s]+\.md)\)/g)].map(m => m[1]));
 for (const f of files) {
   const abs = path.join(DOCS, f), size = fs.statSync(abs).size, archived = f.startsWith('archive/') || /-ARCHIVE\.md$/.test(f);

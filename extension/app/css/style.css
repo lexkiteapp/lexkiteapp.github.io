@@ -529,20 +529,9 @@ body.bare .view { padding-top: 2rem; }
 .passage .sent.reading { background: var(--primary-soft); border-radius: 6px; box-shadow: 0 0 0 3px var(--primary-soft); }
 
 /* ---------- Tô sáng chuyên nghiệp (bài đọc & phòng viết) ---------- */
-.hl-bar { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; margin-bottom: 1rem; padding: .5rem; border-radius: 14px; background: var(--surface-2); }
-.hl-chip { border: 2px solid transparent; background: var(--surface); border-radius: 999px; padding: .3rem .75rem; font-weight: 700; font-size: .8rem; cursor: pointer; color: var(--muted); }
-.hl-chip b { font-weight: 800; margin-left: .2rem; }
-.hl-chip.on.kw { border-color: #f59e0b; color: var(--gold-text); } .hl-chip.on.awl { border-color: #E5502F; color: var(--primary-text); }
-.hl-chip.on.link { border-color: #0ea5a4; color: var(--accent-text); } .hl-chip.on.mine { border-color: #16a34a; color: var(--good-text); }
 .passage .tw { padding: 0 1px; }
 .passage.hl-kw .tw.kw { background: linear-gradient(transparent 58%, rgba(245,158,11,.45) 58%); font-weight: 700; }
-.passage.hl-awl .tw.awl { border-bottom: 2.5px solid #E5502F; }
-.passage.hl-link .tw.link { background: rgba(14,165,164,.16); color: #0f766e; font-weight: 700; border-radius: 4px; }
-.passage.hl-link .tw.col { background: rgba(14,165,164,.08); border-bottom: 2px dashed #0ea5a4; }
-.passage.hl-mine .tw.mine { background: rgba(22,163,74,.16); border-radius: 4px; }
 .passage .tw.kw { border-bottom: 0; }
-:root[data-theme="dark"] .passage.hl-link .tw.link { color: #5eead4; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .passage.hl-link .tw.link { color: #5eead4; } }
 
 /* Mất mạng */
 body.offline .topbar::after { content: "📴 Ngoại tuyến"; position: absolute; left: 50%; top: 100%; transform: translateX(-50%); background: var(--hard); color: #fff; font-size: .72rem; font-weight: 700; padding: .15rem .6rem; border-radius: 0 0 8px 8px; }
@@ -756,7 +745,6 @@ u.err-w { text-decoration: underline wavy #db2777; text-underline-offset: 4px; }
 .slot { border: 0; border-bottom: 2px solid var(--line); background: transparent; font: inherit; padding: 0 .1rem; text-align: center; color: inherit; margin: 0 .05rem; }
 .slot:focus { outline: none; border-bottom-color: var(--primary); background: var(--primary-soft); }
 .slot.ok { border-bottom-color: var(--good); color: var(--good-text); } .slot.no { border-bottom-color: var(--again); color: var(--again-text); }
-.annot.hl-mode { cursor: text; outline: 2px dashed rgba(245, 158, 11, .5); outline-offset: 6px; }
 mark.uhl { background: #fde68a; color: inherit; border-radius: 3px; padding: 0 .1rem; }
 /* Trợ lý viết */
 .wa-box { margin-top: .8rem; }
@@ -1293,6 +1281,7 @@ button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weig
   .btn, .btn.sm { min-height: 36px; }
   .crumb a { display: inline-flex; align-items: center; min-height: 24px; }
 }
+@media (pointer: fine) and (min-width: 561px) { .btn.sm.primary, .mk-nav .btn { min-height: 44px; } } /* nút chính + hàng chuyển phần của đề thi ≥ 44 px trên desktop (journey-matrix); khổ hẹp: chuột giả lập không đẩy ô nhập khỏi vùng nhìn thấy khi có bàn phím (mobile-qa-keyboard), cảm ứng thật đã có --tap */
 @media (pointer: coarse) { /* vùng chạm tối thiểu: MỘT token --tap (quality-sweep, WCAG 2.5.8) */
   :root { --tap: 2.8rem; }
   .btn, a.chip, button.chip, .lsw-b, .gsi, .goal-chip, .icon-btn, .fi-btn, .ctx-say, .me-more, .quest-line, .rings-legend a, .brand, select, summary, button.on, a.on, button.linkish, .row > a.small, .grid > a.small, .crumb a, .tabs button, .view > a.small, .page-head > div > a.small:first-child, .word-row .w { min-height: var(--tap) !important; }
@@ -1456,7 +1445,7 @@ body:has(.learn-bar,.grade-bar,.sheet,.sel-bar,.install-nudge,#modal:not([hidden
 .side-foot:not(.sf-ok)>a:not([data-blog]):not([data-l=about]){display:none}.side-foot:not(.sf-ok) .lk-rep.in-side{margin-top:44px}.side-foot:not(.sf-ok):not(:has(.lk-rep.in-side:not([hidden])))::after{content:'';display:block;min-height:44px}
 /* side-menu (05/11): chân thanh bên gọn = 1 hàng hồ sơ + ⋯ menu (js/report-pill-ui.js). Trước khi JS chạy: ẩn link phụ, chừa ô ⋯ → CLS 0; lỗi tải → .sf-ok không .sp-on = chân cũ */
 @media (min-width:901px){.sidebar .side-foot:not(.sf-ok){display:none}.sp-row{position:relative;flex:none}.side-level{padding:var(--sp-2) calc(var(--sp-6) + var(--sp-5)) calc(var(--sp-2) + env(safe-area-inset-bottom,0px)) var(--sp-4)}[dir=rtl] .side-level{padding-left:calc(var(--sp-6) + var(--sp-5));padding-right:var(--sp-4)}.side-level .avatar{width:32px;height:32px;box-shadow:0 0 0 2px var(--surface),0 0 0 3.5px var(--primary)}.side-level .lv-row{gap:var(--sp-3)}.lv-top b{font-size:var(--fs-sm)}.side-level .lv-sub{font-size:var(--fs-xs)}.side-level .progress.thin{height:3px;margin-top:var(--sp-1)}
-.side-foot.sp-on{position:absolute;top:50%;inset-inline-end:var(--sp-1);transform:translateY(-50%);margin:0;padding:0;border:0}.side-foot.sp-on::after{display:none}.sp-on .sf-more>summary{justify-content:center;width:44px;height:44px;min-height:44px;padding:0;border-radius:var(--r-xs)}.sp-on .sf-l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sp-row{display:flex;flex-wrap:wrap;align-items:center}.sp-row>.side-acct{flex:0 0 100%;order:3}.sp-row>.side-level{flex:1;min-width:0;padding-inline-end:0;margin-inline-end:0} .side-foot.sp-on{position:relative;flex:none;margin:0;margin-inline-end:var(--sp-1);padding:0;border:0} /* cùng hàng với #sideLevel (flex) – không đè lên (QA sweep overlap ar) */.side-foot.sp-on::after{display:none}.sp-on .sf-more>summary{justify-content:center;width:44px;height:44px;min-height:44px;padding:0;border-radius:var(--r-xs)}.sp-on .sf-l{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .sp-on .sf-m{left:auto;right:auto;inset-inline-end:0;bottom:calc(100% + var(--sp-2));min-width:236px;max-height:calc(100dvh - 120px);overflow-y:auto}.sp-on .sf-m a{gap:var(--sp-2)}.sp-on .sf-m a:not(:has(.ic)){padding-inline-start:calc(var(--sp-6) + var(--sp-3))}.sp-on .sf-m .ic{width:22px;display:inline-grid;place-items:center;color:var(--muted)}.sp-on .sf-m .ic .i{width:18px;height:18px}.sp-on .sf-m hr{border:0;border-top:1px solid var(--line);margin:var(--sp-1) 2px}
 .sp-on .sf-m .lk-rep.in-side{position:static;width:100%;min-height:var(--tap,36px);gap:var(--sp-2);padding:0 var(--sp-2);margin:0;border:0;border-radius:var(--r-xs);background:none;color:var(--text);font:inherit;font-size:var(--fs-sm);font-weight:400;text-align:start;box-shadow:none;transform:none;opacity:1;cursor:pointer}.sp-on .sf-m .lk-rep.in-side:hover,.sp-on .sf-m .lk-rep.in-side:focus-visible{background:var(--accent-soft);outline:none}}
 /* /report-pill */
@@ -1483,4 +1472,5 @@ body:has(.learn-bar,.grade-bar,.sheet,.sel-bar,.install-nudge,#modal:not([hidden
 .v2 nav a[data-tab]:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 .v2 nav a[data-tab]:active .st-ti { transform: scale(.88); }
 @media (prefers-reduced-motion: reduce) { .st-ti { transition: none; } .v2 nav a[data-tab]:active .st-ti { transform: none; } }
-
+/* icon-flash: chữ ligature chưa có phông → trong suốt, rộng 1em (lớp do iconGuard trong js/app.js gắn/gỡ theo họ phông) */
+html.ic-wait-o .material-symbols-outlined,html.ic-wait-r .material-symbols-rounded{color:transparent!important;display:inline-block;max-width:1em;overflow:hidden;white-space:nowrap}

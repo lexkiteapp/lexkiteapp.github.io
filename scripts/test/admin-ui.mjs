@@ -79,8 +79,8 @@ const leak = where => { const m = visible().match(new RegExp(`[^\\s]*${VI.source
 // ---------- 1) Khung + thanh bên ----------
 ok(d.body.classList.contains('adm-in') && !$('#side').hidden, 'đăng nhập → hiện thanh bên');
 // IA 05/11 (docs/specs/admin-audit.md §2): 16 mục thanh bên + 7 trang con trong 2 hub (Sức khỏe hệ thống, Tài khoản & khóa) = vẫn đủ 21 trang cũ + 2 mới
-ok($$('#tabs .side-g').length === 6 && $$('#tabs a[data-tab]').length === 16, 'thanh bên: 6 nhóm, 16 mục: ' + $$('#tabs a[data-tab]').map(a => a.dataset.tab).join(','));
-ok($$('#tabs .side-h').map(x => x.textContent).join('|') === 'Learner|Operations|Content & Video|Revenue', 'tên nhóm EN: ' + $$('#tabs .side-h').map(x => x.textContent).join('|'));
+ok($$('#tabs .side-g').length === 7 && $$('#tabs a[data-tab]').length === 16, 'thanh bên: 6 nhóm, 16 mục: ' + $$('#tabs a[data-tab]').map(a => a.dataset.tab).join(','));
+ok($$('#tabs .side-h').map(x => x.textContent).join('|') === 'Learner|Content & Video|Distribution|Revenue|System', 'tên nhóm EN: ' + $$('#tabs .side-h').map(x => x.textContent).join('|'));
 ok($('#tabs a[data-tab="health"] .nav-l').textContent === 'System health' && $('#tabs a[data-tab="vault"] .nav-l').textContent === 'Accounts & keys', 'hub dịch EN');
 ok($('#tabs a[aria-current="page"]').dataset.tab === 'settings' && h1() === 'Settings', 'mở thẳng #settings → mục Cài đặt đang chọn');
 await tick(30);
@@ -311,7 +311,9 @@ $('#tabs a[data-tab="video"]').click(); await tick(80);
   leak('#video thư viện');
   await sec('qc'); ok(/No QC report yet/.test(m.textContent) && m.querySelector('[data-go="studio"]'), 'Sản xuất & QC: trạng thái trống + liên kết Video Studio'); leak('#video QC');
   await sec('scripts'); ok(m.querySelectorAll('.vid-cov .none').length === 1 && m.querySelectorAll('.vid-cov .gap').length === 2, 'Kịch bản: độ phủ (thiếu/chưa có)'); leak('#video kịch bản');
-  await sec('channels'); await tick(40); ok(m.querySelector('[data-go="dist"]') && m.querySelector('#vx-web'), 'Kênh & phân phối: liên kết tab Kênh + hiệu quả web'); leak('#video kênh');
+  await sec('channels'); await tick(40); ok(m.querySelector('[data-go="dist"]') && m.querySelector('#vx-web'), 'Phát hành: liên kết tab Kênh & phân phối + hiệu quả web'); leak('#video kênh');
+  { const distL = $('#tabs a[data-tab="dist"] .nav-l').textContent.trim(), cur = m.querySelector('.vx-tab[aria-current=page]'), head = m.querySelector('.vx-h').textContent;
+    ok(cur && !cur.textContent.includes(distL) && !head.includes(distL) && !/routing rules live|tab Kênh/i.test(head), 'Phát hành: tên mục con/tiêu đề khác mục sidebar "' + distL + '", mô tả không tự chỉ sang chính nó'); }
   await sec('archive'); ok(/No clips in the archive/.test(m.textContent) && m.querySelector('[data-go="drive"]'), 'Lưu trữ: trống + liên kết Kho Drive'); leak('#video lưu trữ');
   w.history.replaceState(null, '', '#video/qc'); $('#tabs a[data-tab="video"]').click(); await tick(80);
   ok(true, 'mở lại tab'); await sec('overview');

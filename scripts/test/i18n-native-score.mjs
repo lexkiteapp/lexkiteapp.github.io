@@ -1,26 +1,30 @@
 // O5 native-score: lõi chấm (giả lập ai-pool, không mạng) + chất lượng nguồn en gốc content/i18n/en-src/*.json.
 // Chạy: node scripts/test/i18n-native-score.mjs
 import fs from 'fs';
-import { LANGS, GATE, FIX_MIN, loadEnSrc, buildItems, shardOf, scoreBatch, fixBatch, summarize, gate, sameMarks, packs, hash, SYS, lessonKeys } from '../i18n-native-score.mjs';
+import { LANGS, GATE, FIX_MIN, loadEnSrc, buildItems, shardOf, scoreBatch, fixBatch, summarize, gate, sameMarks, packs, hash, SYS, lessonKeys, grammarFiles } from '../i18n-native-score.mjs';
 
 let fails = 0; const ok = (c, m) => { if (!c) { fails++; console.log('✗', m); } else console.log('✓', m); };
 const VI = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
+// khóa tiếng Việt có thể chỉ mang dấu chung với tiếng Pháp/TBN (‘Xin phép’, ‘Phàn nàn’) – nhận đủ bộ dấu tiếng Việt cho khóa
+const VI_KEY = /[ăâđêôơưàáạảãèéẹẻẽìíịỉĩòóọỏõùúụủũỳýỵỷỹấầẩẫậắằẳẵặếềểễệốồổỗộớờởỡợứừửữự]/i;
 
 // ---- 1. nguồn en gốc ----
 const { m: EN, clash } = loadEnSrc();
 const keys = Object.keys(EN);
 ok(keys.length >= 200, `en-src có ≥ 200 khóa (3 bài gold: be-am-is-are, question-tags-short-answers, hedging) – có ${keys.length}`);
 ok(!clash.length, 'không có khóa trùng khác nội dung giữa các file en-src');
-ok(keys.every(k => VI.test(k)), 'mọi khóa là chuỗi tiếng Việt đang hiển thị');
+ok(keys.every(k => VI_KEY.test(k)), 'mọi khóa là chuỗi tiếng Việt đang hiển thị');
 const viLeft = keys.filter(k => VI.test(EN[k]));
 ok(!viLeft.length, 'bản en không còn chữ tiếng Việt' + (viLeft.length ? ': ' + viLeft.slice(0, 3).join(' | ') : ''));
 const markBad = keys.filter(k => !sameMarks(k, EN[k]));
 ok(!markBad.length, 'en giữ đúng (A)–(D), {biến}, thẻ, mũi tên như bản đang hiển thị' + (markBad.length ? ': ' + markBad.slice(0, 3).join(' | ') : ''));
 ok(keys.every(k => EN[k].length <= Math.max(60, k.length * 2.2)), 'en không phình quá 2,2× bản gốc (không thêm ý)');
 // khóa phải là chuỗi có thật trong bài ngữ pháp (khóa lạ = không bao giờ hiện)
-const gram = fs.readdirSync('web/js/grammar').filter(f => f.endsWith('.js')).map(f => fs.readFileSync('web/js/grammar/' + f, 'utf8')).join('\n').replace(/\\'/g, "'").replace(/\s+/g, ' ');
-const ghost = keys.filter(k => !gram.includes(k));
-ok(!ghost.length, 'mọi khóa en-src có trong web/js/grammar/*.js' + (ghost.length ? ': ' + ghost.slice(0, 3).join(' | ') : ''));
+const gram = grammarFiles().map(f => fs.readFileSync(f, 'utf8')).join('\n').replace(/\\'/g, "'").replace(/\s+/g, ' ');
+// sổ mẫu câu (#/phrases) cũng dùng en-src (functions.json) – chuỗi nằm ở gói lười web/cpack/framework
+const fw = ['web/cpack/framework/functions.js'].filter(f => fs.existsSync(f)).map(f => fs.readFileSync(f, 'utf8')).join('\n').replace(/\\'/g, "'").replace(/\s+/g, ' ');
+const ghost = keys.filter(k => !gram.includes(k) && !fw.includes(k));
+ok(!ghost.length, 'mọi khóa en-src có trong bài ngữ pháp (web/js/grammar + web/cpack/grammar) hoặc web/cpack/framework/functions.js' + (ghost.length ? ': ' + ghost.slice(0, 3).join(' | ') : ''));
 
 const gold = await lessonKeys(['be-am-is-are', 'question-tags-short-answers', 'hedging']);
 const gap = Object.values(gold).flatMap(l => (l || ['(thiếu bài)']).filter(k => !EN[k]));

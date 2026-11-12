@@ -3,7 +3,8 @@
 //   (chỉ đặt vào, không sửa/vẽ lại/đổi màu – logo cần chủ duyệt riêng); giáo viên = ảnh 2D thật web/teach/{ama,carlos}/still-*.webp.
 //   Render bằng Chromium (Playwright) → PNG (sharp nén) + cổng QC tự động:
 //     kích thước đúng · chữ trong vùng an toàn (crop tròn / mobile / TV / desktop) · tương phản chữ ≥ 4.5:1 trên nền THẬT (ảnh chụp ẩn chữ)
-//     · cỡ chữ tối thiểu khi hiển thị nhỏ nhất · không ký tự tiếng Việt · dung lượng dưới giới hạn nền tảng · logo không đổi (sha256).
+//     · cỡ chữ tối thiểu khi hiển thị nhỏ nhất · dung lượng dưới giới hạn nền tảng · logo không đổi (sha256)
+//     · bản EN: không ký tự tiếng Việt · bản VI (hậu tố -vi, page "Học Tiếng Anh"): dấu đúng, mọi chữ dựng bằng phông kit (CDP), không rơi về phông hệ thống.
 //   Việc nặng chỉ trên CI (workflow social-channel-kit.yml); máy cá nhân chỉ chạy `--check` (đọc file đã commit, không mở trình duyệt).
 //   node scripts/social/build-channel-kit.mjs            # dựng + QC (CI)
 //   node scripts/social/build-channel-kit.mjs --check    # chỉ kiểm file đã commit: tồn tại, đúng kích thước, dung lượng, manifest khớp
@@ -31,15 +32,9 @@ function sha(s) { return crypto.createHash('sha256').update(s).digest('hex'); }
 const scopeIds = (svg, sfx) => svg.replace(/id="([^"]+)"/g, `id="$1-${sfx}"`).replace(/url\(#([^)]+)\)/g, `url(#$1-${sfx})`);
 const sizedSvg = (svg, sfx, attrs) => scopeIds(svg, sfx).replace(/<svg([^>]*?)\swidth="[^"]*"\sheight="[^"]*"/, '<svg$1').replace('<svg', `<svg ${attrs}`);
 
-// ---------- Nội dung (CHỈ tiếng Anh – dùng chung mọi nước) ----------
-export const COPY = {
-  headline: 'Learn English words that stick.',
-  sub: 'Free vocabulary for IELTS, TOEIC & everyday English',
-  free: '100% free',
-  url: 'lexkite.com',
-  weekly: 'New lessons every week',
-  thumb: { tag: 'Band 7+', big: '10', l1: 'IELTS WORDS', l2: 'for travel' },
-};
+// ---------- Nội dung theo ngôn ngữ: en = bản chung mọi nước; vi/es/pt/de/fr/ru/tr/ar/hi = page bản địa (cùng bố cục, chỉ đổi chữ). Nguồn: scripts/social/channel-copy.mjs ----------
+import { COPY, KIT_LANGS, RTL, SCRIPT } from './channel-copy.mjs';
+export { COPY };
 
 // ---------- Nền tảng: kích thước + vùng an toàn (tài liệu chính thức, xem README) ----------
 // zones: 'safe' = chữ phải nằm trong · 'view' = khung hiển thị trên thiết bị (để xem trước) · 'block' = bị che (chữ không được chạm)
@@ -78,10 +73,23 @@ export const ASSETS = [
       { type: 'block', label: 'Duration badge', x: 1080, y: 630, w: 200, h: 90 },
     ] },
 ];
+// Bản theo ngôn ngữ: chỉ các asset CÓ chữ (bìa FB, banner YT, mẫu thumbnail); avatar/watermark không chữ → dùng chung bản EN. Cùng PAGE fn = một nguồn bố cục.
+// Bìa FB của ngôn ngữ mới (không phải vi, vi giữ như PR #1018) có thêm bản @2x.
+export const LANG_KINDS = ['fb-cover', 'yt-banner', 'yt-thumb'];
+for (const lang of KIT_LANGS) for (const a of ASSETS.filter(a => !a.lang && LANG_KINDS.includes(a.kind)))
+  ASSETS.push({ ...a, id: a.id + '-' + lang, lang, file: a.file.replace(/\.png$/, `-${lang}.png`), scale2x: lang !== 'vi' && a.kind === 'fb-cover' });
+export const langOf = a => a.lang || 'en';
+// Phông được phép cho chữ: phải là phông ĐÃ nạp (không rơi về phông hệ thống – dấu tiếng Việt/Ả Rập/Devanagari sẽ sai). Cyrillic/Ả Rập/Devanagari = họ Noto Sans (OFL).
+export const OWN_FONTS = ['Plus Jakarta Sans', 'Bricolage Grotesque'];
+export const NOTO_FONTS = /^Noto Sans( Arabic| Devanagari| CJK (JP|KR|SC|TC))?( \w+)?$/;
+export const fontAllowed = f => OWN_FONTS.includes(f) || NOTO_FONTS.test(f);
 
 // ---------- QC thuần (test được không cần trình duyệt) ----------
 const VI = /[ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýĂăĐđĨĩŨũƠơƯưẠ-ỹ]/;
 export const hasVietnamese = s => VI.test(s);
+// Chữ chỉ có ở tiếng Việt (ă ơ ư đ + dấu chồng): ngôn ngữ Latin khác (pt ã/õ, fr é/ç, tr ş/ğ…) được phép, nhưng không được lẫn chữ Việt.
+const VI_ONLY = /[ĂăĐđĨĩŨũƠơƯưẠ-ỹ]/;
+export const hasVietnameseOnly = s => VI_ONLY.test(s);
 export function lum(hex) {
   const n = hex.replace('#', ''), v = [0, 2, 4].map(i => parseInt(n.slice(i, i + 2), 16) / 255);
   const [r, g, b] = v.map(c => c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4);
@@ -138,14 +146,29 @@ const topRule = (W, h) => `<div class="deco" style="left:0;top:0;width:${W}px;he
 // Chip/viên thuốc: data-t đặt ở CHỮ bên trong (ẩn chữ khi đo nền → nền viên thuốc vẫn còn = đo đúng tương phản).
 const pill = (txt, fs, padY, padX, extra = '') => `<span class="pill" style="font-size:${fs}px;padding:${padY}px ${padX}px">${extra}<span data-t>${txt}</span></span>`;
 const chip = (txt, fs, padY, padX, extra = '') => `<span class="chip" style="font-size:${fs}px;padding:${padY}px ${padX}px">${extra}<span data-t>${txt}</span></span>`;
-const dot = (s, c) => `<i style="display:inline-block;width:${s}px;height:${s}px;border-radius:50%;background:${col(c)};margin-right:${s * 0.9}px;flex:none"></i>`;
-const globe = s => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="margin-right:${s * 0.5}px;flex:none"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>`;
-const play = s => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" style="margin-right:${s * 0.45}px;flex:none"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M10 8l6 4-6 4z" fill="${col('apricot')}"/></svg>`;
+const dot = (s, c) => `<i style="display:inline-block;width:${s}px;height:${s}px;border-radius:50%;background:${col(c)};margin-inline-end:${s * 0.9}px;flex:none"></i>`;
+const globe = s => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="margin-inline-end:${s * 0.5}px;flex:none"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>`;
+const play = s => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" style="margin-inline-end:${s * 0.45}px;flex:none"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M10 8l6 4-6 4z" fill="${col('apricot')}"/></svg>`;
 
-const baseCss = W => `${fontCss}
+// Phông Noto: Cyrillic (ru), Ả Rập (ar), Devanagari (hi). Ưu tiên bản đậm của gói fonts-noto-core (CI cài); không có → phông trong repo.
+const firstFile = (dir, re) => { try { const f = fs.readdirSync(dir).filter(n => re.test(n)).sort((x, y) => (/ExtraBold/.test(y) - /ExtraBold/.test(x)) || (/\[/.test(y) - /\[/.test(x)))[0]; return f ? path.join(dir, f) : ''; } catch { return ''; } };
+const SYS_NOTO = '/usr/share/fonts/truetype/noto';
+export function notoFiles() {
+  const r = p => path.join(ROOT, p);
+  return {
+    'Noto Sans': firstFile(SYS_NOTO, /^NotoSans-(ExtraBold|Bold)\.ttf$/) || r('brand/social/src/fonts/NotoSans-Medium.ttf'),
+    'Noto Sans Arabic': r('scripts/cine/fonts/NotoSansArabic.ttf'),
+    'Noto Sans Devanagari': firstFile(SYS_NOTO, /^NotoSansDevanagari(-(ExtraBold|Bold)|\[.*\])\.ttf$/),
+  };
+}
+const notoCss = lang => { const F = notoFiles(), need = lang === 'ru' ? ['Noto Sans'] : lang === 'ar' ? ['Noto Sans Arabic'] : lang === 'hi' ? ['Noto Sans Devanagari'] : [];
+  return need.map(n => { if (!F[n]) throw new Error(`thiếu phông ${n} (CI: apt fonts-noto-core)`); return `@font-face{font-family:'${n}';font-weight:100 900;src:url('${pathToFileURL(F[n]).href}')}`; }).join('\n'); };
+const stackOf = lang => ({ ru: "'Plus Jakarta Sans','Noto Sans'", ar: "'Plus Jakarta Sans','Noto Sans Arabic'", hi: "'Plus Jakarta Sans','Noto Sans Devanagari'", ja: "'Plus Jakarta Sans','Noto Sans CJK JP'", ko: "'Plus Jakarta Sans','Noto Sans CJK KR'", zh: "'Plus Jakarta Sans','Noto Sans CJK SC'" }[lang] || "'Plus Jakarta Sans'");
+const baseCss = (W, lang = 'en') => `${fontCss}
+${notoCss(lang)}
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:${W}px;background:transparent;overflow:hidden}
-.stage{position:relative;overflow:hidden;font-family:'Plus Jakarta Sans',sans-serif}
+.stage{position:relative;overflow:hidden;font-family:${stackOf(lang)},sans-serif}
 .bg,.deco,.fig{position:absolute}.bg{inset:0}
 .fig{overflow:hidden}.fig img{position:absolute;left:0;top:0;display:block}
 .h{font-weight:800;letter-spacing:-0.02em;color:${col('d-text')};line-height:1.06}
@@ -160,6 +183,7 @@ html,body{width:${W}px;background:transparent;overflow:hidden}
 .hide-text [data-t]{visibility:hidden}
 .only-fig .bg,.only-fig .deco,.only-fig [data-t],.only-fig .pill,.only-fig .chip,.only-fig .logo{visibility:hidden!important}
 .only-fig .pill,.only-fig .chip{background:none!important;box-shadow:none!important}
+${lang === 'ar' || lang === 'hi' ? '.stage *{letter-spacing:0!important}.h,.sub{line-height:1.18}.pill,.chip{line-height:1.2;text-transform:none}' : ['ja', 'ko', 'zh'].includes(lang) ? '.h,.sub{line-height:1.18}.pill,.chip{line-height:1.2}' : ''}
 `;
 
 function pageAvatar(a) {
@@ -175,22 +199,22 @@ function pageWatermark(a) {
     ${sizedSvg(ICON_SVG, 'wm', `data-logo style="position:absolute;left:0;top:0;width:${a.w}px;height:${a.h}px"`)}</div>` };
 }
 function pageFbCover(a) {
-  const W = a.w, H = a.h;
+  const W = a.w, H = a.h, L = COPY[langOf(a)];
   return { W, H, html: `<div class="stage" style="width:${W}px;height:${H}px">${bg(W, H, '50% 40%')}${topRule(W, 6)}
     ${trail(W, H, 'M 150 560 C 300 420, 520 380, 700 330 S 1120 230, 1290 150')}
     ${spark(560, 150, 26, 'apricot')}${spark(1110, 112, 22)}${spark(330, 200, 16, 'tealBright2', .8)}${spark(1250, 330, 20, 'apricot', .9)}
     ${paperKite(1262, 46, 84, -16)}
     ${fig(POSES['fb-cover'], { x: 1160, h: 560 })}
     <div style="position:absolute;left:0;top:96px;width:${W}px;display:flex;flex-direction:column;align-items:center;text-align:center">
-      ${chip('Lexkite · 100% free · No paywalls', 28, 10, 28, sizedSvg(ICON_SVG, 'fbc', `data-logo style="width:40px;height:40px;margin-right:14px;flex:none"`))}
-      <div class="h" data-t style="font-size:84px;margin-top:26px">Learn English words</div>
-      <div class="h" data-t style="font-size:84px">that <span class="stick" data-t>stick</span>.</div>
-      <div class="sub" data-t style="font-size:32px;margin-top:20px">${COPY.sub}</div>
-      <div style="margin-top:30px">${pill(COPY.url, 34, 16, 42, globe(32))}</div>
+      ${chip(L.badge, 28, 10, 28, sizedSvg(ICON_SVG, 'fbc', `data-logo style="width:40px;height:40px;margin-inline-end:14px;flex:none"`))}
+      <div class="h" data-t style="font-size:${L.hs}px;margin-top:26px">${L.h1}</div>
+      <div class="h" data-t style="font-size:${L.hs}px">${L.h2a}<span class="stick" data-t>${L.stick}</span>${L.h2b}</div>
+      <div class="sub" data-t style="font-size:32px;margin-top:20px">${L.sub}</div>
+      <div style="margin-top:30px">${pill(L.url, 34, 16, 42, globe(32))}</div>
     </div></div>` };
 }
 function pageYtBanner(a) {
-  const W = a.w, H = a.h; // vùng an toàn mọi thiết bị: x 507–2053, y 508–931
+  const W = a.w, H = a.h, L = COPY[langOf(a)]; // vùng an toàn mọi thiết bị: x 507–2053, y 508–931
   return { W, H, html: `<div class="stage" style="width:${W}px;height:${H}px">${bg(W, H, '50% 50%', 44)}${topRule(W, 8)}
     ${trail(W, H, 'M 90 520 C 160 430, 250 400, 360 410')}${trail(W, H, 'M 1990 470 C 2070 380, 2190 360, 2290 430', 'apricot')}
     ${paperKite(380, 110, 140, -12)}${paperKite(2250, 100, 150, 14)}
@@ -198,14 +222,14 @@ function pageYtBanner(a) {
     ${fig(POSES['yt-banner-l'], { x: -300, h: 971 })}
     ${fig(POSES['yt-banner-r'], { x: 1700, h: 971 })}
     <div style="position:absolute;left:0;top:532px;width:${W}px;display:flex;flex-direction:column;align-items:center;text-align:center">
-      <div style="display:flex;align-items:center;gap:22px">${wordmark('yt', 66)}${chip('100% free channel', 44, 12, 34, dot(18, 'tealBright2'))}</div>
-      <div class="h" data-t style="font-size:96px;margin-top:22px">Learn English words that <span class="stick" data-t>stick</span>.</div>
-      <div class="sub" data-t style="font-size:44px;margin-top:12px">${COPY.sub}</div>
-      <div style="margin-top:26px;display:flex;gap:22px;align-items:center">${pill(COPY.weekly, 44, 13, 44, play(42))}${chip(COPY.url, 44, 13, 36).replace('class="chip"', 'class="chip" data-case')}</div>
+      <div style="display:flex;align-items:center;gap:22px">${wordmark('yt', 66)}${chip(L.channel, 44, 12, 34, dot(18, 'tealBright2'))}</div>
+      <div class="h" data-t style="font-size:${L.hb}px;margin-top:22px">${L.h1}${L.sp ?? ' '}${L.h2a}<span class="stick" data-t>${L.stick}</span>${L.h2b}</div>
+      <div class="sub" data-t style="font-size:44px;margin-top:12px">${L.sub}</div>
+      <div style="margin-top:26px;display:flex;gap:22px;align-items:center">${pill(L.weekly, 44, 13, 44, play(42))}${chip(L.url, 44, 13, 36).replace('class="chip"', 'class="chip" data-case')}</div>
     </div></div>` };
 }
 function pageYtThumb(a) {
-  const W = a.w, H = a.h, t = COPY.thumb;
+  const W = a.w, H = a.h, t = COPY[langOf(a)].thumb;
   return { W, H, html: `<div class="stage" style="width:${W}px;height:${H}px">${bg(W, H, '28% 40%', 32)}
     ${spark(700, 140, 30, 'apricot')}${spark(560, 600, 22, 'sun', .7)}
     ${fig(POSES['yt-thumb'], { x: 600, h: 660 })}
@@ -229,8 +253,9 @@ async function build() {
   const tmp = fs.mkdtempSync(path.join(process.env.RUNNER_TEMP || '/tmp', 'ck-'));
   for (const a of ASSETS) {
     const { W, H, html } = PAGE[a.kind](a);
-    const doc = `<!doctype html><html><head><meta charset="utf-8"><style>${baseCss(W)}</style></head><body>${html}</body></html>`;
-    if (hasVietnamese(doc.replace(/<svg[\s\S]*?<\/svg>/g, ''))) fails.push(`${a.id}: có ký tự tiếng Việt`);
+    const lang = langOf(a), vi = lang === 'vi', own = lang !== 'en'; // own = bản bản địa (kiểm phông + chữ đúng hệ chữ)
+    const doc = `<!doctype html><html lang="${lang}"${RTL.includes(lang) ? ' dir="rtl"' : ''}><head><meta charset="utf-8"><style>${baseCss(W, lang)}</style></head><body>${html}</body></html>`;
+    { const txt = doc.replace(/<svg[\s\S]*?<\/svg>/g, '').replace(/<style>[\s\S]*?<\/style>/, ''); if (!own && hasVietnamese(txt)) fails.push(`${a.id}: có ký tự tiếng Việt`); if (own && !vi && hasVietnameseOnly(txt)) fails.push(`${a.id}: lẫn chữ tiếng Việt`); }
     const f = path.join(tmp, a.id + '.html'); fs.writeFileSync(f, doc);
     const scales = a.scale2x ? [1, 2] : [1];
     for (const sc of scales) {
@@ -257,15 +282,20 @@ async function build() {
           fig: [...document.querySelectorAll('[data-fig]')].map(e => ({ who: e.dataset.fig, ...box(e) })),
         };
       });
+      // bản vi: mọi chữ phải dựng bằng phông của kit (có subset tiếng Việt), không rơi về phông hệ thống
+      const fonts = own ? await platformFonts(page) : [];
+      const fontIssues = fonts.filter(f => !fontAllowed(f)).map(f => `phông hệ thống "${f}" thay cho phông kit (dấu/chữ có thể sai)`);
+      if (own && !fonts.length) fontIssues.push('không đọc được phông đã dùng');
       // nền thật dưới chữ: chụp lại khi ẩn chữ
       await page.evaluate(() => document.body.classList.add('hide-text'));
       const bgShot = await sharp(await page.screenshot({ clip: { x: 0, y: 0, width: W, height: H } })).raw().toBuffer({ resolveWithObject: true });
       await page.evaluate(() => { document.body.classList.remove('hide-text'); document.body.classList.add('only-fig'); });
       const figMask = await sharp(await page.screenshot({ omitBackground: true, clip: { x: 0, y: 0, width: W, height: H } })).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
       await page.close();
-      const issues = [];
+      const issues = [...fontIssues];
       for (const t of els.text) {
-        if (hasVietnamese(t.text)) issues.push(`chữ tiếng Việt: "${t.text}"`);
+        if (!own && hasVietnamese(t.text)) issues.push(`chữ tiếng Việt: "${t.text}"`);
+        if (own && !vi && hasVietnameseOnly(t.text)) issues.push(`lẫn chữ tiếng Việt: "${t.text}"`);
         const zs = a.zones.filter(z => z.type === 'safe'), tvOnly = t.tv;
         for (const z of zs) if (!tvOnly && !inside(t, z)) issues.push(`"${t.text}" ra ngoài vùng an toàn ${z.label}`);
         if (tvOnly && !inside(t, { x: 0, y: 0, w: W, h: H })) issues.push(`"${t.text}" ra ngoài khung`);
@@ -295,7 +325,7 @@ async function build() {
       }
       if (issues.length) fails.push(...issues.map(s => `${a.id}: ${s}`));
       report.push({ id: a.id, platform: a.platform, file: a.file, w: W, h: H, kb, maxKB: a.maxKB, use: a.use, zones: a.zones,
-        text: els.text.map(t => ({ text: t.text, px: t.size, contrast: t.contrast })), issues });
+        text: els.text.map(t => ({ text: t.text, px: t.size, contrast: t.contrast })), ...(own ? { fonts } : {}), issues });
     }
   }
   await browser.close();
@@ -310,6 +340,18 @@ async function build() {
   console.log(md.join('\n'));
   if (fails.length) { console.error('\n✗ QC trượt:\n- ' + fails.join('\n- ')); process.exit(1); }
   console.log(`\n✓ ${report.length} file đạt QC → ${rel(OUT)}`);
+}
+
+// Phông thật dùng để vẽ chữ (CDP: tên họ phông của từng đoạn chữ có glyph) – không dựa vào CSS font-family vì rơi về phông khác là âm thầm.
+async function platformFonts(page) {
+  const cdp = await page.context().newCDPSession(page);
+  await cdp.send('DOM.enable'); await cdp.send('CSS.enable');
+  const { root } = await cdp.send('DOM.getDocument', { depth: -1 });
+  const { nodeIds } = await cdp.send('DOM.querySelectorAll', { nodeId: root.nodeId, selector: '[data-t]' });
+  const used = new Set();
+  for (const nodeId of nodeIds) for (const f of (await cdp.send('CSS.getPlatformFontsForNode', { nodeId })).fonts) if (f.glyphCount) used.add(f.familyName);
+  await cdp.detach();
+  return [...used].sort();
 }
 
 async function previews(sharp, report) {
@@ -367,8 +409,13 @@ export function check() {
     }
     const r = (m.assets || []).find(x => x.id === a.id);
     if (!r) errs.push(`manifest thiếu ${a.id}`);
+    else if (langOf(a) !== 'en' && !(r.fonts || []).length) errs.push(`${a.id}: manifest không ghi phông dùng (cổng phông bản địa)`);
+    else if (langOf(a) !== 'en' && r.fonts.some(f => !fontAllowed(f))) errs.push(`${a.id}: rơi về phông hệ thống ${r.fonts.filter(f => !fontAllowed(f))}`);
+    else if (langOf(a) === 'vi' && !(r.text || []).some(t => hasVietnamese(t.text))) errs.push(`${a.id}: bản vi không có dấu tiếng Việt (chưa dịch?)`);
+    else if (SCRIPT[langOf(a)] && !(r.text || []).some(t => SCRIPT[langOf(a)].test(t.text))) errs.push(`${a.id}: bản ${langOf(a)} không có chữ đúng hệ chữ (chưa dịch?)`);
     else for (const t of r.text || []) {
-      if (hasVietnamese(t.text)) errs.push(`${a.id}: chữ tiếng Việt "${t.text}"`);
+      if (langOf(a) === 'en' && hasVietnamese(t.text)) errs.push(`${a.id}: chữ tiếng Việt "${t.text}"`);
+      if (!['en', 'vi'].includes(langOf(a)) && hasVietnameseOnly(t.text)) errs.push(`${a.id}: lẫn chữ tiếng Việt "${t.text}"`);
       if (t.contrast < 4.5) errs.push(`${a.id}: "${t.text}" tương phản ${t.contrast}:1`);
     }
   }
@@ -379,6 +426,6 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.a
   if (process.argv.includes('--check')) {
     const e = check();
     if (e.length) { console.error('✗ channel-kit:\n- ' + e.join('\n- ')); process.exit(1); }
-    console.log(`✓ channel-kit: ${ASSETS.length} asset đúng kích thước, dung lượng, logo nguyên bản, chỉ tiếng Anh`);
+    console.log(`✓ channel-kit: ${ASSETS.length} asset đúng kích thước, dung lượng, logo nguyên bản, bản en không chữ Việt, bản vi đủ dấu + phông kit`);
   } else await build();
 }

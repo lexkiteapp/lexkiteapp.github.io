@@ -1,7 +1,7 @@
 // Hồi quy máy gác CI (06/11): mỗi ý phải ĐỎ trên code cũ (không có hàm / không có bước trong workflow).
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import { laneVerdict, issueAction, mainRedNeeded, wipVerdict, touchesWeb, webStall, WIP_MAX } from '../ci/guards.mjs';
+import { laneVerdict, issueAction, mainRedNeeded, wipVerdict, touchesWeb, webStall, WIP_MAX, staleCi, staleCiRun } from '../ci/guards.mjs';
 import { splitUndeployed } from '../ops/smoke.mjs';
 import { lowHeadroom } from '../lib/headroom.mjs';
 const wf = f => fs.readFileSync(`.github/workflows/${f}`, 'utf8');
@@ -59,4 +59,18 @@ assert.ok(/cron:/.test(wf('web-merge-daily.yml')) && /guards\.mjs web-daily/.tes
 { const v = splitUndeployed(['/.well-known/assetlinks.json: HTTP 404', '/x: thiếu "abc"', '/api/config: HTTP 500', '/y: lỗi mạng']);
   assert.deepEqual(v.soft, ['/.well-known/assetlinks.json: HTTP 404', '/x: thiếu "abc"']); assert.deepEqual(v.hard, ['/api/config: HTTP 500', '/y: lỗi mạng']); }
 assert.ok(/verified: '\$\{\{ steps\.smoke\.outputs\.verified/.test(pr) && (pr.match(/needs\.smoke\.outputs\.verified != 'false'/g) || []).length === 2, 'mark + ota chỉ chạy khi smoke xác minh được commit');
-console.log('✓ ci-guards: làn nhanh (7 workflow nặng) · main-red · ngân sách vàng · wip-guard · chỉ số web/ hằng ngày');
+
+// stale-ci (10/11): issue ci-failure > 12 giờ chưa có PR liên kết → p0 + comment + dòng bản tin; đã có PR nhắc #số / đã p0 / còn mới → bỏ qua
+{ const now = Date.parse('2026-11-10T12:00:00Z'), iss = (number, h, labels = ['ci-failure']) => ({ number, title: 'CI đỏ: x' + number, created_at: new Date(now - h * 3600e3).toISOString(), labels: labels.map(name => ({ name })) });
+  const issues = [iss(1, 13), iss(2, 13), iss(3, 5), iss(4, 30, ['ci-failure', 'p0']), iss(5, 40, ['bug']), { ...iss(6, 50), pull_request: {} }, iss(7, 20)];
+  const prs = [{ title: 'Sửa codemap', body: 'Closes #2' }, { title: 'x', body: '', head: { ref: 'fix/issue-7-cdn' } }];
+  assert.deepEqual(staleCi(issues, prs, now).map(i => i.number), [1], 'chỉ #1: >12h, ci-failure, chưa p0, không PR nhắc tới (#2 có "Closes #2", #7 có nhánh issue-7)');
+  assert.deepEqual(staleCi([iss(9, 11.9)], [], now), [], '< 12 giờ → chưa gắn');
+  const calls = [], api = async (p, o = {}) => { calls.push([o.method || 'GET', p, o.body]); return p.startsWith('/issues?') ? issues : p.startsWith('/pulls?') ? prs : {}; };
+  const r = await staleCiRun(api, now);
+  assert.equal(r.n, 1); assert.ok(/#1 CI đỏ: x1 → gắn p0/.test(r.md) && /#1/.test(r.text), 'bản tin có dòng #1');
+  assert.ok(calls.some(([m, p, b]) => m === 'POST' && p === '/issues/1/labels' && b.labels[0] === 'p0') && calls.some(([m, p]) => m === 'POST' && p === '/issues/1/comments'), 'gắn nhãn p0 + comment');
+  assert.ok(!calls.some(([m, p]) => m === 'POST' && /\/issues\/[2-7]\//.test(p)), 'không đụng issue khác');
+  assert.ok(/staleCiRun\(gh, \+now\)/.test(fs.readFileSync('scripts/ci/triage.mjs', 'utf8')), 'ci-triage sweep gọi stale-ci mỗi giờ');
+}
+console.log('✓ ci-guards: stale-ci p0 · làn nhanh (7 workflow nặng) · main-red · ngân sách vàng · wip-guard · chỉ số web/ hằng ngày');

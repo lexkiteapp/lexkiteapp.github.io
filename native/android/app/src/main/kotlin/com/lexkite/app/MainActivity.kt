@@ -63,6 +63,7 @@ import com.lexkite.app.feature.skills.SkillsEnv
 import com.lexkite.app.feature.speak.SpeakEnv
 import com.lexkite.app.feature.speak.SpeakRoute
 import com.lexkite.app.feature.speak.SpeakSlots
+import com.lexkite.app.core.call.CallPack
 import com.lexkite.app.core.speak.Rtype
 import com.lexkite.app.core.speak.SayData
 import com.lexkite.app.core.speak.SpeakPack
@@ -174,7 +175,7 @@ class MainActivity : ComponentActivity() {
         speak = { route, arg, query, onExit, open, replace -> SpeakRoute(speakEnv(lang), speakSlots, route, arg, query, open, replace, onExit) },
         words = { route, arg, query, onExit, open ->
             val t = com.lexkite.app.design.LocalL10n.current
-            val env = remember(lang) { WordEnv(app.store, app.audio, UrlHttp, { name -> assets.open(name).bufferedReader().use { it.readText() } }, lang, wordIndex = { StudyWords.load(UrlHttp, cacheDir)?.index ?: emptyMap() }, tx = StudyTx.of(t, L10n.load(this@MainActivity, "vi"))) }
+            val env = remember(lang) { WordEnv(app.store, app.audio, UrlHttp, { name -> assets.open(name).bufferedReader().use { it.readText() } }, lang, wordIndex = { StudyWords.load(UrlHttp, cacheDir)?.index ?: emptyMap() }, wordTopics = { StudyWords.load(UrlHttp, cacheDir)?.topics ?: emptyList() }, tx = StudyTx.of(t, L10n.load(this@MainActivity, "vi"))) }
             WordRoute(env, route, arg, query, onExit, open)
         },
     )
@@ -217,11 +218,12 @@ class MainActivity : ComponentActivity() {
                 loadReadTests = { SpeakEnv.fetchCached(UrlHttp, cacheDir, "readtests-pack.json", SpeakEnv.READTESTS_URL) { runCatching { Rtype.Pack.parse(kotlinx.serialization.json.Json.parseToJsonElement(it) as kotlinx.serialization.json.JsonObject) }.getOrNull() } },
                 loadSkills = { SkillsEnv.fetchPack(UrlHttp, cacheDir, starter = { assets.open("content-pack/skills-starter.json").bufferedReader().use { it.readText() } }) },
                 loadLibrary = { StudyWords.load(UrlHttp, cacheDir) },
-                signedIn = { app.auth.user.value != null }, idToken = { app.auth.idToken() }, online = { isOnline() }, screenOff = { !power.isInteractive })
+                signedIn = { app.auth.user.value != null }, idToken = { app.auth.idToken() }, online = { isOnline() }, screenOff = { !power.isInteractive },
+                loadCall = { SpeakEnv.fetchCached(UrlHttp, cacheDir, "call-pack.json", SpeakEnv.CALL_URL, starter = { assets.open("content-pack/call-starter.json").bufferedReader().use { it.readText() } }) { CallPack.parse(it) } })
         }
     }
     private fun isOnline(): Boolean { val cm = getSystemService(android.content.Context.CONNECTIVITY_SERVICE) as android.net.ConnectivityManager; val n = cm.activeNetwork ?: return false; return cm.getNetworkCapabilities(n)?.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET) == true }
-    private val speakSlots = SpeakSlots(teacher = { who, pose, mod -> androidx.compose.foundation.layout.Box(mod) { TeacherStill(who, pose) } })
+    private val speakSlots = SpeakSlots(teacher = { who, pose, mod -> androidx.compose.foundation.layout.Box(mod) { TeacherStill(who, pose) } }, live = { who, signal, mod -> TeacherView(who, signal, mod) })
     private val vocabSlots = StudySlots(image = { url, desc, mod -> RemoteImage(url, desc, mod) })
 
     /** The teacher in the lesson: the live rig for the stage, the bundled still for the feedback sheet / result (C05). */

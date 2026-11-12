@@ -10,6 +10,7 @@
 //       node scripts/i18n-qa.mjs --short    → liệt kê nhãn ngắn chưa có bản dịch tay
 import fs from 'fs';
 import { missingSegments } from './i18n-english.mjs';
+import { VI, BAD } from './lib/i18n-rules.mjs';
 const root = new URL('../web/js/i18n/', import.meta.url), src = new URL('../i18n/ui/', import.meta.url); // en: web/js/i18n · 13 ngôn ngữ: NGUỒN i18n/ui (gói chạy khóa băm kiểm riêng ở dưới)
 const langs = fs.readFileSync(new URL('./i18n-langs.txt', import.meta.url), 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'));
 const fixed = JSON.parse(fs.readFileSync(new URL('./i18n-fixed.json', import.meta.url), 'utf8'));
@@ -17,8 +18,6 @@ const load = (f, base = root) => { const g = {}; new Function('self', fs.readFil
 const EN = load('en.js').en;
 const lazyGroups = ((fs.readFileSync(new URL('./build-i18n.sh', import.meta.url), 'utf8').match(/^LAZY="([^"]*)"/m) || [])[1] || '').split(/\s+/).filter(Boolean);
 for (const g of lazyGroups) Object.assign(EN, load(`en/${g}.js`).en);
-const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // chỉ chữ riêng của tiếng Việt (â ê ô cũng có trong tiếng Pháp/Bồ Đào Nha)
-const BAD = /\b(Currículo|Currículum|Lebenslauf|CV)\b|简历|이력서|बायोडाटा|Резюме|Mirar hacia arriba|Olhe para cima|Schau nach oben|抬头看|見上げ|올려다|ऊपर देखो|Посмотрите вверх|Yukarıya bak|Lihatlah ke atas|มองขึ้น/;
 const vars = s => (String(s).match(/\{[a-zA-Z0-9_]+\}/g) || []).sort().join(',');
 const tags = s => (String(s).match(/<\/?[a-z]+/gi) || []).map(x => x.toLowerCase()).sort().join(',');
 const short = k => String(EN[k]).trim().split(/\s+/).length <= 3 && !/[{<]/.test(EN[k]) && /[a-z]/i.test(EN[k]) && !/^[A-Z0-9 &–-]+$/.test(EN[k]) && !/IELTS|TOEIC|TOEFL|Part|Task/.test(EN[k]); // tên riêng/thuật ngữ thi giữ nguyên tiếng Anh

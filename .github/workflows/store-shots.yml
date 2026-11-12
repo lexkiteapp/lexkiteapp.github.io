@@ -1,34 +1,118 @@
-# Ảnh Chrome Web Store chụp từ add-on thật (scripts/store-shots.mjs) – lưu vào nhánh "store-shots" để tải về store/chrome/.
-name: Ảnh Chrome Web Store
+# Bộ ảnh + video cửa hàng (một dây chuyền cho cả 3 store, khung chung scripts/lib/store-frame.mjs):
+#   cws   – Chrome Web Store từ add-on THẬT (scripts/store-shots.mjs): 5 ảnh 1280×800 + ô 440×280, 1400×560
+#   app   – Play + App Store từ web app THẬT của commit này (web/ phục vụ nội bộ, scripts/play-shots.mjs): Play 1080×1920 + feature 1024×500,
+#           iPhone 6.9" 1320×2868, 6.5" 1284×2778, iPad 13" 2064×2752
+#   video – app preview iOS 886×1920 + bản 1080×1920 cho YouTube/Play (MODE=app scripts/store-video.mjs, giọng Kokoro của Ama)
+#   pack  – gộp thành <store>/<locale>/ → artifact lexkite-store-assets-v2 + nhánh mồ côi store-assets-v2 – ô nào trên store: store/assets-v2/UPLOAD.md
+# Chỉ chạy khi bấm tay hoặc đổi chính các file này trên main. Không tải gì lên store (điều phối tự tải bằng Chrome).
+name: Ảnh + video cửa hàng
 on:
   workflow_dispatch:
+    inputs:
+      langs: { description: 'Ngôn ngữ (có chữ trong scripts/lib/app-shots-copy.mjs + scripts/store-copy.mjs)', default: 'en,vi' }
   push:
     branches: [main]
-    paths: ['.github/workflows/store-shots.yml', 'scripts/store-shots.mjs']
+    paths: ['.github/workflows/store-shots.yml', 'scripts/store-shots.mjs', 'scripts/play-shots.mjs', 'scripts/lib/store-frame.mjs', 'scripts/lib/app-shots-copy.mjs', 'scripts/store-video.mjs']
 permissions:
-  contents: write
+  contents: read
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: false
+  cancel-in-progress: true
+env:
+  LANGS: ${{ inputs.langs || 'en,vi' }}
 
 jobs:
-  shots:
+  cws:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - name: Chụp
+      - name: Chụp add-on
         run: |
-          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund playwright@1.50.1
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo timeout 600 apt-get install -y -qq fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core >/dev/null
-          bash scripts/build-extension.sh
-          node scripts/store-shots.mjs /tmp/store-shots
-      - name: Lưu vào nhánh store-shots
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core }
+      - name: Chụp (tiếp)
         run: |
-          cd /tmp/store-shots && git init -q && git checkout -q -b store-shots
+          bash scripts/build-extension.sh
+          node scripts/store-shots.mjs /tmp/cws
+      - uses: actions/upload-artifact@v4
+        with: { name: part-cws, path: /tmp/cws, retention-days: 3 }
+
+  app:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Kiểm đổi icon sang PNG 32-bit RGBA (hồi quy 01/11)
+        run: node scripts/test/png-rgba.mjs
+      - name: Chụp app (Play + App Store)
+        run: |
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund playwright@1.50.1
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core }
+      - name: Chụp app (tiếp)
+        run: |
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          BASE=http://localhost:8080/ node scripts/play-shots.mjs /tmp/app
+      - uses: actions/upload-artifact@v4
+        with: { name: part-app, path: /tmp/app, retention-days: 3 }
+
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/cache@v4
+        with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: video-models-kokoro82m-q8-cine-v1 }
+      - uses: ./.github/actions/setup-ffmpeg
+      - name: Quay app preview
+        run: |
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund playwright@1.50.1
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1 >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji }
+      - name: Quay app preview (tiếp)
+        run: |
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          MODE=app BASE=http://localhost:8080/ KOKORO_NODE_PATH=/tmp/kk/node_modules node scripts/store-video.mjs /tmp/video
+      - uses: actions/upload-artifact@v4
+        with: { name: part-video, path: /tmp/video, retention-days: 3 }
+
+  pack:
+    needs: [cws, app, video]
+    if: ${{ !cancelled() }}
+    permissions: { contents: write }   # chỉ để đẩy nhánh mồ côi store-assets-v2
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'part-*', path: parts }
+      - name: Gộp store-assets-v2/<store>/<locale>/
+        run: |
+          O=store-assets-v2; mkdir -p $O/cws $O/video
+          [ -d parts/part-app ] && cp -r parts/part-app/play parts/part-app/appstore $O/
+          if [ -d parts/part-cws ]; then
+            for L in ${LANGS//,/ }; do mkdir -p $O/cws/$L; for i in 1 2 3 4 5; do cp parts/part-cws/$L-$i.png $O/cws/$L/screenshot-$i.png; done; done
+            cp parts/part-cws/promo-*.png $O/cws/
+          fi
+          [ -d parts/part-video ] && cp parts/part-video/* $O/video/
+          find $O -type f | sort | sed "s|^|· |" >> "$GITHUB_STEP_SUMMARY"
+          echo "cws=${{ needs.cws.result }} app=${{ needs.app.result }} video=${{ needs.video.result }}" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with: { name: lexkite-store-assets-v2, path: store-assets-v2, retention-days: 30 }
+      - name: Lưu vào nhánh mồ côi store-assets-v2 (hàng chục MB PNG/MP4 không vào lịch sử main – cùng quy ước ios-shots/play-shots)
+        run: |
+          cd store-assets-v2 && git init -q && git checkout -q -b store-assets-v2
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add . && git commit -qm "Ảnh Chrome Web Store $(date -u +%F) [CF-Pages-Skip]"
-          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" store-shots
+          git add . && git commit -qm "Ảnh + video cửa hàng $(date -u +%F) ($GITHUB_SHA) [CF-Pages-Skip]"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" store-assets-v2

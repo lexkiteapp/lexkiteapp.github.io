@@ -105,7 +105,8 @@
       "title": "Live call with Ama/Carlos (on-device/edge AI tiers, captions, lip sync)",
       "routes": [
         "#/call"
-      ]
+      ],
+      "status": "done"
     },
     {
       "id": "P09",
@@ -122,7 +123,8 @@
         "#/style",
         "#/confidence",
         "#/qstats"
-      ]
+      ],
+      "status": "done"
     },
     {
       "id": "P10",
@@ -165,6 +167,14 @@
       "title": "Learn from YouTube video (official player, A-B, speed, notes, save word)",
       "routes": [
         "#/watch"
+      ]
+    },
+    {
+      "id": "P13",
+      "m": 6,
+      "title": "Mediation: relay a read/heard English source to one specific person (write or say), self-check points, model answer",
+      "routes": [
+        "#/mediate"
       ]
     },
     {
