@@ -72,7 +72,7 @@ def validate(pub):
     if len(str(pub.get('keyword') or '')) < 2: e.append('keyword')
     if len(str(pub.get('value') or '')) < 12: e.append('value')
     if re.search(r'\.\.$|\."\.$', str(pub.get('value') or '')): e.append('value-punct')
-    if not 3 <= len(h) <= 5 or not all(re.fullmatch(r'#[a-z0-9]+', str(x)) for x in h): e.append('hashtags')
+    if not 3 <= len(h) <= 5 or not all(re.fullmatch(r'#[a-z0-9_\u00e0-\u1eff\u0400-\u04ff\u0600-\u06ff\u0900-\u097f\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]+', str(x)) for x in h): e.append('hashtags')
     lang = pub.get('lang') or 'en'
     if not re.fullmatch(r'[a-z]{2}', str(lang)): e.append('lang')
     return e + fc_errors(pub.get('first_comment'), lang)

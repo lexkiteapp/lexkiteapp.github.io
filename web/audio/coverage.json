@@ -21,6 +21,10 @@
    "pct": 100,
    "missing": 0
   },
+  "mediation-source": {
+   "pct": 100,
+   "missing": 0
+  },
   "toefl-speaking": {
    "pct": 100,
    "missing": 0
@@ -108,10 +112,6 @@
   "words-us": {
    "pct": 100,
    "missing": 0
-  },
-  "mediation-source": {
-   "pct": 0,
-   "missing": 311
   }
  }
 }

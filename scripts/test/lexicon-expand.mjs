@@ -423,7 +423,7 @@ ok(sourceGap(gateEntry(Object.assign(g2(), { ipa: '' }))) && !sourceGap(gateEntr
   { const { execFileSync } = await import('node:child_process'), os = await import('node:os'), d = fs.mkdtempSync(path.join(os.tmpdir(), 'lxex-')), f = path.join(d, 'existing.json');
     execFileSync('node', [path.join(ROOT, 'scripts/lexicon/expand/existing.mjs'), f], { cwd: ROOT, stdio: 'pipe' });
     const all = Object.keys(JSON.parse(fs.readFileSync(f, 'utf8'))).filter(k => k.includes('#')).length, live = JSON.parse(fs.readFileSync(path.join(d, 'existing.live.json'), 'utf8'));
-    const failed = [...doneWords()].filter(k => !doneWords({ queue: false }).has(k)).length;
+    const liveDone = doneWords({ queue: false }), failed = [...doneWords()].filter(k => !liveDone.has(k)).length;
     ok(live.wp > 0 && live.wp <= all - failed + 1 && live.w <= live.wp + 1, `existing.mjs: mục sống ${live.wp} ≤ bỏ trùng ${all} − trượt ${failed}`);
     fs.rmSync(d, { recursive: true, force: true }); }
   const job = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/job.mjs'), 'utf8');
