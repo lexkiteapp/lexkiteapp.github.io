@@ -32,7 +32,6 @@
 "Kiểm tra vượt":"Saltar con examen",
 "Luyện Part 1–7, từ vựng công sở TSL và các bẫy hay gặp":"Practica Part 1–7, vocabulario de negocios TSL y trampas frecuentes",
 "Luyện nói tự tin":"Habla con confianza",
-"Làm bài kiểm tra đầu vào":"Hacer la prueba de nivel",
 "Lưu tiến độ của bạn":"Guarda tu progreso",
 "Lộ trình của bạn":"Tu plan",
 "Lộ trình của bạn đã sẵn sàng! Học Ngày 1 ngay – không cần tài khoản.":"¡Tu plan está listo! Empieza el Día 1 ahora, sin necesidad de cuenta.",

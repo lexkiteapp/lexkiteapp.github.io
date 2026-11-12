@@ -32,7 +32,6 @@
 "Kiểm tra vượt":"Uji lompat",
 "Luyện Part 1–7, từ vựng công sở TSL và các bẫy hay gặp":"Latihan Part 1–7, kosakata bisnis TSL, dan jebakan umum",
 "Luyện nói tự tin":"Bicara dengan percaya diri",
-"Làm bài kiểm tra đầu vào":"Ikuti tes penempatan",
 "Lưu tiến độ của bạn":"Simpan kemajuan Anda",
 "Lộ trình của bạn":"Rencana Anda",
 "Lộ trình của bạn đã sẵn sàng! Học Ngày 1 ngay – không cần tài khoản.":"Rencana Anda siap! Mulai Hari 1 sekarang – tanpa perlu akun.",

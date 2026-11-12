@@ -46,10 +46,10 @@ jobs:
           echo "dest=$DEST scheme=$SCHEME"; echo "LK_DEST=$DEST" >> "$GITHUB_ENV"   # cùng máy giả lập cho snapshot chạy trong app chủ
           T=(xcodebuild test -scheme "$SCHEME" -destination "$DEST" -skipPackagePluginValidation)
           N=$(ls Tests/LKSnapshotTests/__Snapshots__/*/*.png 2>/dev/null | wc -l)
-          if [ "${{ inputs.record }}" = "true" ] || [ "$N" -lt 460 ]; then   # đếm cả 8 ảnh khung 5 tab (bước "trong app chủ" ghi) cùng thư mục: thiếu bất kỳ ảnh nào → ghi ảnh thiếu (#721: so 54 bỏ sót ảnh Pace)
+          if [ "${{ inputs.record }}" = "true" ] || [ "$N" -lt 532 ]; then   # đếm cả 8 ảnh khung 5 tab (bước "trong app chủ" ghi) cùng thư mục: thiếu bất kỳ ảnh nào → ghi ảnh thiếu (#721: so 54 bỏ sót ảnh Pace)
             # ghi lại TẤT CẢ khi bấm tay record; thiếu ảnh (test mới) → chỉ ghi ảnh còn thiếu, ảnh chuẩn đã commit vẫn được so
             MODE=$([ "${{ inputs.record }}" = "true" ] && echo 1 || echo missing)
-            echo "::warning::Ảnh snapshot chuẩn $N/460 → ghi ($MODE), rồi chạy lại để kiểm ổn định; tải artifact native-ios-snapshots và commit vào Tests/LKSnapshotTests/__Snapshots__"
+            echo "::warning::Ảnh snapshot chuẩn $N/532 → ghi ($MODE), rồi chạy lại để kiểm ổn định; tải artifact native-ios-snapshots và commit vào Tests/LKSnapshotTests/__Snapshots__"
             # xcodebuild only forwards TEST_RUNNER_-prefixed env to the simulator test process (prefix stripped → SNAPSHOT_RECORD)
             TEST_RUNNER_SNAPSHOT_RECORD=$MODE bash "$GITHUB_WORKSPACE/scripts/native/xctest.sh" "$RUNNER_TEMP/record.log" "${T[@]}" -only-testing:LKSnapshotTests || true
           fi
@@ -82,7 +82,7 @@ jobs:
             TEST_RUNNER_SNAPSHOT_RECORD=$MODE bash "$GITHUB_WORKSPACE/scripts/native/xctest.sh" "$RUNNER_TEMP/record-app.log" "${T[@]}" || true
           fi
           bash "$GITHUB_WORKSPACE/scripts/native/xctest.sh" "$RUNNER_TEMP/test-app.log" "${T[@]}"
-          ls $S/*/*.png | wc -l | xargs -I{} sh -c 'test {} -ge 460 || { echo "::error::thiếu ảnh snapshot ({})"; exit 1; }'
+          ls $S/*/*.png | wc -l | xargs -I{} sh -c 'test {} -ge 532 || { echo "::error::thiếu ảnh snapshot ({})"; exit 1; }'
       - uses: actions/upload-artifact@v4
         if: always()
         with:

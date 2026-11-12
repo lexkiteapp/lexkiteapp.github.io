@@ -35,7 +35,7 @@ def store_one(repo, ep, r, qc, cefr, bank_dir, run, sha):
     for src, dst in files.values(): shutil.copy2(f'{bank_dir}/{src}', f'{d}/{dst}')
     pub = ep['publish']; now = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
     gates = sorted({k for q in qc.values() for k in q['gates']})
-    index = dict(format='teach2d', template=ep['template'], series=ep.get('series') or '', area=ep['area'], cefr=cefr, lang='en', point=pub['keyword'], title=pub['title'], description=pub['value'], hashtags=pub['hashtags'],
+    index = dict(format='teach2d', template=ep['template'], series=ep.get('series') or '', area=ep['area'], cefr=cefr, lang=ep.get('lang') or 'en', point=pub['keyword'], title=pub['title'], description=pub['value'], hashtags=pub['hashtags'],
                  publish=pub, link=ep['cta']['link'], teacher=ep['teacher'], sha=r['sha'], wide=f'{rel}/{base}-wide.mp4', qa=dict(status='pass', score=min(q['score'] for q in qc.values()), gates=gates))
     meta['renders'][base] = dict(run=run, sha=sha, duration=ep['est']['seconds'], bytes=os.path.getsize(f'{d}/{base}.mp4'), qa='ALL PASS', created=now, video=f'{rel}/{base}.mp4', cover=f'{rel}/{base}.jpg', index=index)
     json.dump(meta, open(mp, 'w'), indent=1, ensure_ascii=False)

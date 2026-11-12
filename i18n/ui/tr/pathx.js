@@ -32,7 +32,6 @@
 "Kiểm tra vượt":"Test ile atla",
 "Luyện Part 1–7, từ vựng công sở TSL và các bẫy hay gặp":"Part 1–7, TSL iş kelimeleri ve sık tuzaklar üzerine çalış",
 "Luyện nói tự tin":"Kendinden emin konuş",
-"Làm bài kiểm tra đầu vào":"Seviye testine gir",
 "Lưu tiến độ của bạn":"İlerlemeni kaydet",
 "Lộ trình của bạn":"Planın",
 "Lộ trình của bạn đã sẵn sàng! Học Ngày 1 ngay – không cần tài khoản.":"Planın hazır! 1. Gün'e hemen başla – hesap gerekmez.",

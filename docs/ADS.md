@@ -77,3 +77,21 @@ Tab chính (`home/vocab/skills/tests/me`) không nằm trong vùng nào. Route m
 2. Quản trị › Quảng cáo › bật **Web** → theo dõi 7 ngày: CLS (Quản trị › Phân tích), lấp đầy, cổng giữ chân.
 3. AdMob: tạo app iOS/Android + 3 ad unit (banner, interstitial, rewarded – rewarded bật SSV trỏ `https://lexkite.com/api/ads-reward`) → dán mã, `testing:false` chỉ ở bản phát hành; `ADS_SSV=1`; build `ADS_NATIVE=1`; store §E; bật **Android** rồi **iOS**.
 4. Nối báo cáo Google (§5 "Nối 1 lần") → số thật thay proxy.
+
+## 8. Sẵn sàng duyệt (10/11/2026 – sau lần từ chối "Meet program policies" / AdMob "program criteria")
+Crawl live lexkite.com 10/11 (UA Mediapartners-Google, 11.323 URL từ sitemap, mẫu 10/sitemap + 237 trang × 3.017 link nội bộ). Sửa ở PR #1019; mọi thay đổi = noindex,follow + rời sitemap hoặc làm giàu bằng dữ liệu thật – không xoá trang/tính năng.
+
+| Lý do từ chối phổ biến | Bằng chứng trước sửa | Đã sửa |
+|---|---|---|
+| Nội dung giá trị thấp / sinh hàng loạt | 9.209/11.323 URL (81 %) là `/<lang>/words/` sinh tự động, trung vị ≈ 180 chữ cả trang (≈ 51 chữ riêng), 13 ngôn ngữ dùng chung ví dụ tiếng Anh. GSC 28 ngày: cả nhóm 3 lượt bấm | `word-depth` DEPTH_MIN 30 → **100 chữ riêng** → 1.868 trang dày nhất index (vi 1.266 có ghi chú tự soạn), còn lại noindex,follow |
+| Trang danh sách mỏng | 275 trang thẻ/chuyên mục/phân trang blog, 50–200 chữ | Chỉ trang chủ blog + bài viết index; lưu trữ → noindex,follow, rời `sitemap-blog-*` |
+| Trang công cụ mỏng | 90 trang cấp CEFR ≈ 190 chữ | + 5 câu hỏi mẫu (ngân hàng công khai) + 16 từ đúng cấp (nghĩa + ví dụ): 257–890 chữ; chuỗi mới viết tay 15 ngôn ngữ |
+| Thiếu trang Liên hệ crawl được | Chân trang: Liên hệ → `/app/?hl=..#/contact` (SPA, bot thấy 0 chữ); `/en/contact/` 404 | Liên hệ → `/<lang>/about/#contact` (mục tĩnh, email support@lexkite.com) ở mọi trang tĩnh |
+| Bản quyền / nhãn hiệu thi | Footer chỉ ghi "trademarks of their respective owners" | Footer en/vi: không liên kết, không được British Council/IDP/Cambridge/ETS bảo trợ; About 15 ngôn ngữ + trang TOEIC đã có dòng ETS |
+| Trang bắt buộc | About ✓ (sứ mệnh, đơn vị vận hành, nguồn tiền, độc lập), Privacy ✓ (AdSense, cookie, đồng ý/CMP), Terms ✓, Cookies `/en/privacy#cookies` ✓ | – |
+| Trang pháp lý dịch dở | 13 ngôn ngữ còn dòng tiếng Anh | Đã sẵn: bản còn dòng chưa dịch = noindex (build-legal), sitemap chỉ en/vi |
+| Kỹ thuật | robots.txt `User-agent: *` Allow / (Mediapartners/Googlebot vào được; chỉ chặn bot huấn luyện AI); sitemap index hợp lệ; canonical/hreflang có cổng `seo-pages`; meta `google-adsense-account` trên `/`, `/en/`; ads.txt đúng | – |
+| Link hỏng | 237 trang × 3.017 link nội bộ: 2 lỗi – `/vi/tu-dien/handbag/` 404 (hộp từ điển blog link từ mới trong kho, Worker `lexkite-dict` chỉ deploy khi đổi giai đoạn → asset cũ từ 27/10) · `/cdn-cgi/l/email-protection` (che email của Cloudflare, bình thường) | `dict-stage.yml` deploy Worker mỗi tuần (chỉ tải asset đổi) + chạy tay 1 lần sau gộp |
+| AdMob | Play `com.lexkite.app` + App Store `id6824714708`: website nhà phát triển = `https://lexkite.com` → `/app-ads.txt` khớp `pub-2290668854727752`. Bản store hiện KHÔNG có SDK AdMob → "Contains ads: No", Data safety không khai quảng cáo (đúng sự thật) | Không đổi. Khi bật: build `ADS_NATIVE=1` + Contains ads Yes + Data safety (Device ID, Advertising) + ATT – `store/play/LISTING.md`, `store/apple/LISTING.md`, `docs/STORE-READINESS.md` §E |
+
+Việc của điều phối (KHÔNG làm trong PR): đợi PR lên live + Google crawl lại (sitemap gửi lại trong GSC) → AdSense › Sites › Request review; AdMob duyệt app theo tài khoản AdSense cùng pub-ID (tài khoản được duyệt trước), rồi liên kết app với store trong AdMob.

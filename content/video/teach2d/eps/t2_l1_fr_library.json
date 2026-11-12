@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_library",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Library is a false friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I go to the library to buy books.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I go to the bookstore to buy books.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A library lends books. A bookstore sells them.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Bookstore! I buy books at the bookstore.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I go to the library to buy books.",
+  "right": "I go to the bookstore to buy books.",
+  "strike": "library",
+  "why": "A library lends books. A bookstore sells them.",
+  "memory": "Buy at a bookstore.",
+  "quiz": {
+   "stem": "I buy books at the ___.",
+   "options": [
+    "library",
+    "bookstore"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Library » ≠ librairie !",
+   "tip": "« Library » veut dire {m:library}. Pour acheter un livre, on va dans « a bookstore ».",
+   "caption": "Attention, faux ami ! 😬 « Library » signifie {m:library}, pas librairie. Pour acheter des livres, dis “I go to the bookstore”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
+   "comment": "Réponse : “bookstore”. Une bibliothèque prête des livres, une librairie les vend. Teste d'autres faux amis avec un quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Library” is not librairie!",
+   "tip": "“Library” means bibliothèque. To buy a book, you go to “a bookstore”.",
+   "caption": "Watch out, false friend! “Library” means bibliothèque, not librairie. To buy books, say “I go to the bookstore”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Library » ≠ librairie !"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 56,
+  "seconds": 33.0,
+  "wpm": 102
+ },
+ "publish": {
+  "title": "« Library » ≠ librairie !",
+  "keyword": "I go to the bookstore to buy books.",
+  "value": "« Library » veut dire {m:library}. Pour acheter un livre, on va dans « a bookstore ».",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 50,
+  "platforms": {
+   "youtube": {
+    "title": "« Library » ≠ librairie !",
+    "description": "Attention, faux ami ! 😬 « Library » signifie {m:library}, pas librairie. Pour acheter des livres, dis “I go to the bookstore”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I go to the bookstore to buy books.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Attention, faux ami ! 😬 « Library » signifie {m:library}, pas librairie. Pour acheter des livres, dis “I go to the bookstore”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Attention, faux ami ! 😬 « Library » signifie {m:library}, pas librairie. Pour acheter des livres, dis “I go to the bookstore”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Library » ≠ librairie ! #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “bookstore”. Une bibliothèque prête des livres, une librairie les vend. Teste d'autres faux amis avec un quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

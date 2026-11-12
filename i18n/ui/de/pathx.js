@@ -32,7 +32,6 @@
 "Kiểm tra vượt":"Überspringen per Test",
 "Luyện Part 1–7, từ vựng công sở TSL và các bẫy hay gặp":"Übe Part 1–7, TSL-Business-Wortschatz und typische Fallen",
 "Luyện nói tự tin":"Selbstbewusst sprechen",
-"Làm bài kiểm tra đầu vào":"Einstufungstest machen",
 "Lưu tiến độ của bạn":"Fortschritt speichern",
 "Lộ trình của bạn":"Dein Lernplan",
 "Lộ trình của bạn đã sẵn sàng! Học Ngày 1 ngay – không cần tài khoản.":"Dein Plan ist fertig! Starte jetzt mit Tag 1 – ganz ohne Konto.",

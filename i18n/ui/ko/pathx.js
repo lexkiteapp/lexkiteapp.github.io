@@ -32,7 +32,6 @@
 "Kiểm tra vượt":"테스트로 건너뛰기",
 "Luyện Part 1–7, từ vựng công sở TSL và các bẫy hay gặp":"Part 1–7, TSL 비즈니스 어휘, 자주 나오는 함정 연습",
 "Luyện nói tự tin":"자신 있게 말하기",
-"Làm bài kiểm tra đầu vào":"레벨 테스트 보기",
 "Lưu tiến độ của bạn":"학습 기록 저장",
 "Lộ trình của bạn":"나의 학습 계획",
 "Lộ trình của bạn đã sẵn sàng! Học Ngày 1 ngay – không cần tài khoản.":"계획이 준비됐어요! 지금 바로 1일차를 시작하세요 – 계정은 필요 없어요.",

@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T11:24:58.814Z",
+ "updated": "2026-11-11T01:41:17.946Z",
  "measured": {
   "_at": "2026-10-24",
   "gemini": {
@@ -44,11 +44,11 @@
    "judgeB": 0
   },
   "explain": {
-   "gen": 3387,
-   "genGeminiOnly": 3387,
-   "judgeA": 2655,
-   "judgeB": 2655,
-   "items": 1763
+   "gen": 3861,
+   "genGeminiOnly": 3861,
+   "judgeA": 3030,
+   "judgeB": 3030,
+   "items": 2005
   },
   "scriptBank": {
    "scripts": 21323,
@@ -61,9 +61,9 @@
    "perDay": 400
   },
   "total": {
-   "gen": 4454,
-   "genGeminiOnly": 3387,
-   "judge": 6377
+   "gen": 4928,
+   "genGeminiOnly": 3861,
+   "judge": 7127
   }
  },
  "table": [

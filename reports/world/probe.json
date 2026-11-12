@@ -1,11 +1,22 @@
 {
- "at": "2026-11-09T10:13:03.913Z",
+ "at": "2026-11-12T00:35:29.436Z",
  "lang": "en",
  "device": "Pixel 7",
  "firstRun": {
-  "ok": false,
-  "err": "page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n  - waiting for locator('button.trk-opt, #noAcct') to be visible\n",
-  "url": "/app/?sandbox=1&hl=en#/welcome/setup?s=goal"
+  "ok": true,
+  "seconds": 6,
+  "taps": 9,
+  "trail": [
+   "[data-cta=start], .ctas a.btn.lg",
+   "[data-track]",
+   "#obNext",
+   "#obNext",
+   "#obNext",
+   "#obNext",
+   "#go",
+   "#view button.btn.primary",
+   ".option[data-k]:not([data-k=\"-1\"])"
+  ]
  },
  "today": {
   "ok": true,

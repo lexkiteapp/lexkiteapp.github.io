@@ -32,7 +32,6 @@
 "Kiểm tra vượt":"Test pour sauter",
 "Luyện Part 1–7, từ vựng công sở TSL và các bẫy hay gặp":"Entraînez-vous aux Part 1–7, au vocabulaire pro TSL et aux pièges fréquents",
 "Luyện nói tự tin":"Parler avec assurance",
-"Làm bài kiểm tra đầu vào":"Passer le test de niveau",
 "Lưu tiến độ của bạn":"Enregistrez votre progression",
 "Lộ trình của bạn":"Votre parcours",
 "Lộ trình của bạn đã sẵn sàng! Học Ngày 1 ngay – không cần tài khoản.":"Votre parcours est prêt ! Commencez le Jour 1 maintenant – sans compte.",

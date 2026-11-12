@@ -32,7 +32,6 @@
 "Kiểm tra vượt":"टेस्ट देकर आगे बढ़ें",
 "Luyện Part 1–7, từ vựng công sở TSL và các bẫy hay gặp":"Part 1–7, TSL बिज़नेस शब्दावली और आम जालों का अभ्यास",
 "Luyện nói tự tin":"आत्मविश्वास से बोलें",
-"Làm bài kiểm tra đầu vào":"प्लेसमेंट टेस्ट दें",
 "Lưu tiến độ của bạn":"अपनी प्रगति सहेजें",
 "Lộ trình của bạn":"आपकी योजना",
 "Lộ trình của bạn đã sẵn sàng! Học Ngày 1 ngay – không cần tài khoản.":"आपकी योजना तैयार है! अभी दिन 1 शुरू करें – खाते की ज़रूरत नहीं।",

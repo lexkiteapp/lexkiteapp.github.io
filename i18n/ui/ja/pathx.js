@@ -32,7 +32,6 @@
 "Kiểm tra vượt":"テストで飛び級",
 "Luyện Part 1–7, từ vựng công sở TSL và các bẫy hay gặp":"Part 1–7、TSLビジネス語彙、よくあるひっかけを練習",
 "Luyện nói tự tin":"自信を持って話す",
-"Làm bài kiểm tra đầu vào":"レベル診断テストを受ける",
 "Lưu tiến độ của bạn":"進捗を保存",
 "Lộ trình của bạn":"あなたの学習プラン",
 "Lộ trình của bạn đã sẵn sàng! Học Ngày 1 ngay – không cần tài khoản.":"プランの準備ができたよ！今すぐ1日目を始めよう――アカウントは不要。",

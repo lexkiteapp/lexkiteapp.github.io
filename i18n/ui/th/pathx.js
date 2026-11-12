@@ -32,7 +32,6 @@
 "Kiểm tra vượt":"สอบข้าม",
 "Luyện Part 1–7, từ vựng công sở TSL và các bẫy hay gặp":"ฝึก Part 1–7 คำศัพท์ธุรกิจ TSL และกับดักที่พบบ่อย",
 "Luyện nói tự tin":"พูดอย่างมั่นใจ",
-"Làm bài kiểm tra đầu vào":"ทำแบบทดสอบวัดระดับ",
 "Lưu tiến độ của bạn":"บันทึกความคืบหน้า",
 "Lộ trình của bạn":"แผนของคุณ",
 "Lộ trình của bạn đã sẵn sàng! Học Ngày 1 ngay – không cần tài khoản.":"แผนของคุณพร้อมแล้ว! เริ่มวันที่ 1 ได้เลย – ไม่ต้องมีบัญชี",

@@ -13,7 +13,7 @@ export function loadContent() {
   vm.createContext(ctx);
   const files = ['data.js', 'lexis.js', 'structures.js', 'readings.js', '../cpack/readings/more.js'];
   // grammar: đúng thứ tự app nạp (web/js/app.js) – drills-*.js gắn bài tập vào chương đã có
-  const GORDER = ['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'drills-own', 'bank-gen', 'check'];
+  const GORDER = ['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'starter2', 'academic', 'mastery', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'drills-own', 'bank-gen', 'check'];
   // grammar có thể nằm ở web/js/grammar và web/cpack/grammar (drills-own.js): gộp rồi xếp đúng thứ tự app nạp
   const isG = d => /(^|\/)grammar$/.test(d), gOrder = f => GORDER.indexOf(path.basename(f).slice(0, -3)) + 1 || 99;
   for (const d of DATA_DIRS) {

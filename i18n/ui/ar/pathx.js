@@ -32,7 +32,6 @@
 "Kiểm tra vượt":"اختبار التخطي",
 "Luyện Part 1–7, từ vựng công sở TSL và các bẫy hay gặp":"تدرّب على Part 1–7 ومفردات الأعمال TSL والفخاخ الشائعة",
 "Luyện nói tự tin":"تحدّث بثقة",
-"Làm bài kiểm tra đầu vào":"خذ اختبار تحديد المستوى",
 "Lưu tiến độ của bạn":"احفظ تقدّمك",
 "Lộ trình của bạn":"خطتك",
 "Lộ trình của bạn đã sẵn sàng! Học Ngày 1 ngay – không cần tài khoản.":"خطتك جاهزة! ابدأ اليوم 1 الآن – دون الحاجة إلى حساب.",

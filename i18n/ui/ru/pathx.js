@@ -32,7 +32,6 @@
 "Kiểm tra vượt":"Тест-пропуск",
 "Luyện Part 1–7, từ vựng công sở TSL và các bẫy hay gặp":"Тренируйте Part 1–7, деловую лексику TSL и типичные ловушки",
 "Luyện nói tự tin":"Говорите уверенно",
-"Làm bài kiểm tra đầu vào":"Пройти тест на уровень",
 "Lưu tiến độ của bạn":"Сохраните прогресс",
 "Lộ trình của bạn":"Ваш план",
 "Lộ trình của bạn đã sẵn sàng! Học Ngày 1 ngay – không cần tài khoản.":"Ваш план готов! Начните День 1 прямо сейчас — без регистрации.",

@@ -32,7 +32,6 @@
 "Kiểm tra vượt":"测试跳过",
 "Luyện Part 1–7, từ vựng công sở TSL và các bẫy hay gặp":"练习 Part 1–7、TSL 商务词汇和常见陷阱",
 "Luyện nói tự tin":"自信开口说",
-"Làm bài kiểm tra đầu vào":"参加分级测试",
 "Lưu tiến độ của bạn":"保存学习进度",
 "Lộ trình của bạn":"你的学习计划",
 "Lộ trình của bạn đã sẵn sàng! Học Ngày 1 ngay – không cần tài khoản.":"你的计划已就绪！现在就开始第 1 天——无需账号。",
