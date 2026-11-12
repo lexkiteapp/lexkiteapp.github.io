@@ -43,7 +43,7 @@ h1{font-size:1.75rem;line-height:1.2;margin:8px 0 6px;font-weight:800}.sub{margi
 .done{text-align:center}.done h2{margin:6px 0}.done p{margin:0 0 16px;color:rgb(var(--on-surface-variant))}
 .trust{display:flex;flex-wrap:wrap;gap:8px 14px;justify-content:center;list-style:none;margin:22px 0 14px;padding:0;font-weight:700;font-size:.92rem}.trust li:before{content:"✓ ";color:rgb(var(--secondary))}
 .stores{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:16px}.stores a[hidden]{display:none}
-.langs{display:flex;flex-wrap:wrap;gap:4px 12px;justify-content:center;margin:18px 0 0;padding:0;list-style:none;font-size:.9rem}.langs a{color:rgb(var(--on-surface-variant));text-decoration:none;min-height:44px;display:inline-flex;align-items:center}.langs a[aria-current]{font-weight:800;color:rgb(var(--on-background))}
+.langs{display:flex;flex-wrap:wrap;gap:4px 12px;justify-content:center;margin:18px 0 0;padding:0;list-style:none;font-size:.9rem}.langs a{color:rgb(var(--on-surface-variant));text-decoration:none;min-height:44px;min-width:44px;justify-content:center;display:inline-flex;align-items:center}.langs a[aria-current]{font-weight:800;color:rgb(var(--on-background))}
 [hidden]{display:none!important}@media(prefers-reduced-motion:reduce){*{transition:none!important}}@media(min-width:600px){h1{font-size:2.1rem}}`;
 
 // Script nội tuyến: câu hỏi + UTM + đếm (sendBeacon /api/hit, chỉ đếm; bot/webdriver không đếm). Giữ nhỏ.
@@ -121,7 +121,7 @@ ${alts}
 export function renderIndex() {
   const S = JSON.stringify(LANGS);
   return `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Lexkite – learn English free</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${goUrl('en')}">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Lexkite – learn English free</title><meta name="description" content="Learn English free with Lexkite: pick your language to start a 1-minute lesson."><meta name="robots" content="noindex,follow"><link rel="canonical" href="${goUrl('en')}">
 <script>(function(){try{var S=${S},s=localStorage.getItem('vb.uiLang'),l=s&&S.indexOf(s)>=0?s:null;if(!l){var n=navigator.languages||[navigator.language];for(var i=0;i<n.length;i++){var b=String(n[i]||'').toLowerCase().split('-')[0];if(S.indexOf(b)>=0){l=b;break}}}location.replace('/go/'+(l||'en')+'/'+location.search+location.hash)}catch(e){location.replace('/go/en/')}})();</script></head>
 <body><ul>${LANGS.map(x => `<li><a href="/go/${x}/">${esc(LANG_NAMES[x])}</a></li>`).join('')}</ul></body></html>
 `;
