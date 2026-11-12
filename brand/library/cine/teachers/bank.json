@@ -2374,5 +2374,205 @@
     }
    }
   ]
+ },
+ "gesture_clips": {
+  "_note": "Clip phông xanh 1080p 5 s (Kling v4, ảnh chuẩn trước → clip, chủ 12/11). keyframe = khung khoá → ảnh tư thế → khung khoá (đầu = cuối = khung khoá: nối liền 0 cr); loop = đầu = cuối = ảnh tư thế (giữ thẻ) hoặc khung khoá (bản quay thêm listen/explain). Gốc ở lexkite-media cine/teachers/green/<id>.mp4; chưa qua green-prep/matte-pro/teach-build (việc tiếp theo, 0 cr). qc = qc_green clip PASS + tờ soát ≥90.",
+  "items": [
+   {
+    "id": "ga11_thumbs_up",
+    "who": "ama",
+    "pose": "thumbs_up",
+    "kind": "keyframe",
+    "src": "cine/teachers/green/ga11_thumbs_up.mp4",
+    "model": "kling-video-v4_0",
+    "res": "1080p",
+    "sec": 5,
+    "date": "2026-11-12",
+    "reuse": {
+     "video_est": 80
+    },
+    "uses": 0
+   },
+   {
+    "id": "ga11_clap",
+    "who": "ama",
+    "pose": "clap",
+    "kind": "keyframe",
+    "src": "cine/teachers/green/ga11_clap.mp4",
+    "model": "kling-video-v4_0",
+    "res": "1080p",
+    "sec": 5,
+    "date": "2026-11-12",
+    "reuse": {
+     "video_est": 80
+    },
+    "uses": 0
+   },
+   {
+    "id": "ga11_hold_card",
+    "who": "ama",
+    "pose": "hold_card",
+    "kind": "loop",
+    "src": "cine/teachers/green/ga11_hold_card.mp4",
+    "model": "kling-video-v4_0",
+    "res": "1080p",
+    "sec": 5,
+    "date": "2026-11-12",
+    "reuse": {
+     "video_est": 80
+    },
+    "uses": 0
+   },
+   {
+    "id": "ga11_count",
+    "who": "ama",
+    "pose": "count",
+    "kind": "keyframe",
+    "src": "cine/teachers/green/ga11_count.mp4",
+    "model": "kling-video-v4_0",
+    "res": "1080p",
+    "sec": 5,
+    "date": "2026-11-12",
+    "reuse": {
+     "video_est": 80
+    },
+    "uses": 0
+   },
+   {
+    "id": "gc11_thumbs_up",
+    "who": "carlos",
+    "pose": "thumbs_up",
+    "kind": "keyframe",
+    "src": "cine/teachers/green/gc11_thumbs_up.mp4",
+    "model": "kling-video-v4_0",
+    "res": "1080p",
+    "sec": 5,
+    "date": "2026-11-12",
+    "reuse": {
+     "video_est": 80
+    },
+    "uses": 0
+   },
+   {
+    "id": "gc11_clap",
+    "who": "carlos",
+    "pose": "clap",
+    "kind": "keyframe",
+    "src": "cine/teachers/green/gc11_clap.mp4",
+    "model": "kling-video-v4_0",
+    "res": "1080p",
+    "sec": 5,
+    "date": "2026-11-12",
+    "reuse": {
+     "video_est": 80
+    },
+    "uses": 0
+   },
+   {
+    "id": "gc11_hold_card",
+    "who": "carlos",
+    "pose": "hold_card",
+    "kind": "loop",
+    "src": "cine/teachers/green/gc11_hold_card.mp4",
+    "model": "kling-video-v4_0",
+    "res": "1080p",
+    "sec": 5,
+    "date": "2026-11-12",
+    "reuse": {
+     "video_est": 80
+    },
+    "uses": 0
+   },
+   {
+    "id": "gc11_count",
+    "who": "carlos",
+    "pose": "count",
+    "kind": "keyframe",
+    "src": "cine/teachers/green/gc11_count.mp4",
+    "model": "kling-video-v4_0",
+    "res": "1080p",
+    "sec": 5,
+    "date": "2026-11-12",
+    "reuse": {
+     "video_est": 80
+    },
+    "uses": 0
+   },
+   {
+    "id": "gc11_point",
+    "who": "carlos",
+    "pose": "point",
+    "kind": "keyframe",
+    "src": "cine/teachers/green/gc11_point.mp4",
+    "model": "kling-video-v4_0",
+    "res": "1080p",
+    "sec": 5,
+    "date": "2026-11-12",
+    "reuse": {
+     "video_est": 80
+    },
+    "uses": 0
+   },
+   {
+    "id": "gc11_concern",
+    "who": "carlos",
+    "pose": "concern",
+    "kind": "keyframe",
+    "src": "cine/teachers/green/gc11_concern.mp4",
+    "model": "kling-video-v4_0",
+    "res": "1080p",
+    "sec": 5,
+    "date": "2026-11-12",
+    "reuse": {
+     "video_est": 80
+    },
+    "uses": 0
+   },
+   {
+    "id": "ga11_listen_c",
+    "who": "ama",
+    "pose": "listen",
+    "kind": "loop",
+    "src": "cine/teachers/green/ga11_listen_c.mp4",
+    "model": "kling-video-v4_0",
+    "res": "1080p",
+    "sec": 5,
+    "date": "2026-11-12",
+    "reuse": {
+     "video_est": 80
+    },
+    "uses": 0
+   },
+   {
+    "id": "gc11_listen_c",
+    "who": "carlos",
+    "pose": "listen",
+    "kind": "loop",
+    "src": "cine/teachers/green/gc11_listen_c.mp4",
+    "model": "kling-video-v4_0",
+    "res": "1080p",
+    "sec": 5,
+    "date": "2026-11-12",
+    "reuse": {
+     "video_est": 80
+    },
+    "uses": 0
+   },
+   {
+    "id": "ga11_explain_c",
+    "who": "ama",
+    "pose": "explain",
+    "kind": "loop",
+    "src": "cine/teachers/green/ga11_explain_c.mp4",
+    "model": "kling-video-v4_0",
+    "res": "1080p",
+    "sec": 5,
+    "date": "2026-11-12",
+    "reuse": {
+     "video_est": 80
+    },
+    "uses": 0
+   }
+  ]
  }
 }
