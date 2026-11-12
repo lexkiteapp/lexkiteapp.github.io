@@ -67,6 +67,7 @@
  },
  "after": {
   ":scope > main > header > div > div > div:nth-child(1) > span": "'<b class=\"sr-only\" id=\"lsnPct\" dir=\"ltr\"></b><h1 class=\"sr-only\">' + e(d.title) + '</h1>'",
+  ":scope > main > header > div > div > div:nth-child(1) > div": "'<button type=\"button\" id=\"lkTheme\" data-lk-theme=\"\" aria-label=\"' + e(t('Đổi giao diện sáng/tối')) + '\" class=\"w-11 h-11 -my-3 shrink-0 flex items-center justify-center rounded-[0.75rem] bg-transparent border-0 cursor-pointer lt:text-[#3f4947] dk:text-[#bcc9c7]\"><span class=\"material-symbols-outlined text-[24px]\">dark_mode</span></button>'",
   ":scope > main > div > section:nth-child(1) > div:nth-child(1)": "d.teacher",
   ":scope > main > div > section:nth-child(1) > div:nth-child(2) > div:nth-child(2) > span": "'<span class=\"lsn-xcombo\" id=\"lsnComboT\"></span>'"
  },

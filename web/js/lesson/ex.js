@@ -13,8 +13,8 @@
   const T_L = '--p0:#0D6964;--p0b:#E8F5F3;--p1:#7A5600;--p1b:#FFF3D6;--p2:#B42814;--p2b:#FFEEE4;--p3:#1B6B3A;--p3b:#E6F5EA;--pon:#FFF';
   const T_D = '--p0:#6BD8CE;--p0b:#0B2927;--p1:#F4BF40;--p1b:#2D1F05;--p2:#FF8C69;--p2b:#2E100F;--p3:#7BE09F;--p3b:#0F2A1A;--pon:#091518';
   const CSS = `.lsn-xframe{margin-inline:auto}.lsn-xframe .lsn-qchips{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px}
-.lsn-xhead .lsn-tchw{position:relative;flex:none;width:88px;height:100px;overflow:hidden;overflow:clip;pointer-events:none}
-.lsn-xhead #lsnTch{position:absolute;left:-16px;right:-16px;top:0;bottom:-20px}.lsn-xhead .lsn-xledge{position:absolute;left:4%;right:4%;bottom:0;height:14px;border-radius:999px 999px 5px 5px;background:var(--surface-2);box-shadow:0 2px 0 var(--ledge,var(--line))}
+.lsn-xhead .lsn-tchw{position:relative;flex:none;width:96px;height:112px;display:flex;justify-content:center;align-items:flex-end;pointer-events:none}
+.lsn-fx .lsn-xhead .ex-seat #lsnTch{position:relative;inset:auto;flex:none;width:96px;height:104px;margin-bottom:4px}.lsn-fx .lsn-xhead .ex-seat .ss-floor{width:92px;height:22px;max-width:100%}
 .lsn-xcombo{color:var(--gold-text);font-size:10px;font-weight:800}.lsn-xcombo:empty{display:none}
 .lsn-xcta:enabled{background:linear-gradient(90deg,var(--cta-1),var(--cta-2));color:var(--cta-ink);border-color:transparent;box-shadow:0 4px 0 var(--cta-lip);cursor:pointer}.lsn-xcta:enabled:active{transform:translateY(3px);box-shadow:0 1px 0 var(--cta-lip)}
 .lsn-xcta{transition:background .15s,color .15s,box-shadow .15s,transform .12s}
@@ -34,7 +34,7 @@
   let on = 0; const css = () => { if (on) return; on = 1; const s = document.createElement('style'); s.id = 'lsnExCss'; s.textContent = CSS; document.head.appendChild(s); };
   const usable = () => !!(g.ST2 && g.ST2.P && g.ST2.P['ex-match'] && g.ST2.P['ex-frame'] && g.ST2['ex-frame']);
   // Chỗ giáo viên: đứng trên bệ cạnh bong bóng – bệ che đường cắt hông (docs/CHARACTERS.md §Chỗ giáo viên), không thẻ nào đè lên người
-  const teacher = () => { css(); return '<div class="lsn-tchw" aria-hidden="true"><div id="lsnTch"></div><span class="lsn-xledge"></span></div>'; };
+  const teacher = () => { css(); return '<div class="lsn-tchw ex-seat" aria-hidden="true"><div id="lsnTch"></div><i class="ss-floor" aria-hidden="true"></i></div>'; };
   // Mục tiêu chỉ hiện khi đúng thang của kỳ thi (TOEIC 10–990, TOEFL 0–120, IELTS 1–9): settings cũ đổi kỳ thi vẫn giữ "7.0" → "TOEIC · Mục tiêu 7.0" sai
   const targetOk = (ex, tg) => { const n = parseFloat(tg); if (!tg) return false; if (/^ielts/.test(ex)) return n >= 1 && n <= 9; if (ex === 'toeic') return n >= 100 && n <= 990; if (ex === 'toefl') return n >= 10 && n <= 120; return true; };
   const KIND = it => ({ match: 'Từ vựng', mean: 'Từ vựng', pic: 'Từ vựng', gap: 'Từ vựng', type: 'Từ vựng', build: 'Ngữ pháp', tr: 'Ngữ pháp', say: 'Nói', q: 'Đọc' }[it.type] || '');

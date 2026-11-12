@@ -20,10 +20,11 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Chụp + chấm
+        timeout-minutes: 15
         env: { BASE: "${{ github.event.pull_request.base.sha }}" }
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install --with-deps chromium >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
           B=""
           if [ -n "$BASE" ]; then git worktree add -q /tmp/before "$(git merge-base "$BASE" HEAD)"; B=/tmp/before/web; fi
           node scripts/test/exercise-shots.mjs web "$B" out/exercise-shots
