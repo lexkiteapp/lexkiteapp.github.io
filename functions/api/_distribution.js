@@ -58,10 +58,10 @@ export function routeAll(rules, cfgs, clip, fallback) {
 }
 /** Bộ 16 fanpage Lexkite: 1 page EN chung + 15 page theo ngôn ngữ người học. Tên kênh (GrabCast) → mã ngôn ngữ; không nhận ra = '' (page chung = 'en').
  *  Khớp tên riêng ngôn ngữ (endonym), tên tiếng Anh, tên tiếng Việt, hoặc mã trong ngoặc/sau gạch: "Lexkite Español", "Lexkite (VI)", "Lexkite – Japanese". */
-const LANG_NAMES = { vi: ['tiếng việt', 'việt nam', 'vietnam', 'vietnamese'], es: ['español', 'espanol', 'spanish', 'tây ban nha'], pt: ['português', 'portugues', 'portuguese', 'brasil', 'bồ đào nha'],
-  fr: ['français', 'francais', 'french', 'tiếng pháp'], de: ['deutsch', 'german', 'tiếng đức'], id: ['indonesia', 'bahasa'], th: ['ไทย', 'thai', 'thái lan'], zh: ['中文', '汉语', '漢語', 'chinese', 'trung quốc', 'tiếng trung'],
+const LANG_NAMES = { vi: ['tiếng việt', 'việt nam', 'vietnam', 'vietnamese'], es: ['español', 'espanol', 'spanish', 'tây ban nha', 'aprende inglés', 'aprender inglés', 'aprende ingles'], pt: ['português', 'portugues', 'portuguese', 'brasil', 'bồ đào nha', 'aprenda inglês', 'aprender inglês', 'aprenda ingles'],
+  fr: ['français', 'francais', 'french', 'tiếng pháp', "apprendre l'anglais", 'apprendre l’anglais'], de: ['deutsch', 'german', 'tiếng đức', 'englisch lernen'], id: ['indonesia', 'bahasa'], th: ['ไทย', 'thai', 'thái lan'], zh: ['中文', '汉语', '漢語', 'chinese', 'trung quốc', 'tiếng trung'],
   ja: ['日本語', 'japanese', 'nhật bản', 'tiếng nhật'], ko: ['한국어', 'korean', 'hàn quốc', 'tiếng hàn'], hi: ['हिन्दी', 'हिंदी', 'hindi'], ar: ['العربية', 'arabic', 'ả rập'], ru: ['русский', 'russian', 'tiếng nga'],
-  tr: ['türkçe', 'turkce', 'turkish', 'thổ nhĩ kỳ'], en: ['english', 'global', 'tiếng anh'] };
+  tr: ['türkçe', 'turkce', 'turkish', 'thổ nhĩ kỳ', 'ngilizce öğren', 'ngilizce ogren'], en: ['english', 'global', 'tiếng anh'] };
 export const SOCIAL_LANGS = Object.keys(LANG_NAMES);
 /** Tên page nói người HỌC là ai: "Học tiếng Anh/Nhật…" = page cho người Việt (10/11: "Lexkite - Học Tiếng Anh" bị nhận nhầm 'en' vì chứa "tiếng anh"). Xét trước LANG_NAMES. */
 const LEARNER_VI = /(?:^|[^\p{L}])(?:học|hoc)\s+(?:tiếng|tieng)(?:[^\p{L}]|$)/u;
