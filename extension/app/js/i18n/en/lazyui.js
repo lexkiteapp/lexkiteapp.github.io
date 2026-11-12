@@ -900,4 +900,10 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   'Chỉ gửi từ và câu gốc, không gửi cả tài liệu.': 'Only the words and their sentences are sent, never the whole document.',
   'AI chưa điền được – các từ này vẫn được lưu, điền nghĩa sau.': "AI couldn't fill these in – the words are still saved, add meanings later.",
   'Đã điền {n} nghĩa bằng AI': 'Filled {n} meanings with AI',
+  'Phổ biến': 'Popular',
+  'Beta': 'Beta',
+  'IELTS, TOEIC và giao tiếp hằng ngày': 'IELTS, TOEIC and everyday talk',
+  'Tiếng Bồ Đào Nha Brazil': 'Brazilian Portuguese',
+  'Tiếng TBN Mỹ Latinh · DELE/SIELE A1–C2': 'Latin American Spanish · DELE/SIELE A1–C2',
+  'Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.': 'Pick one language – you can change it any time in Settings.',
 }); })(typeof self !== 'undefined' ? self : this);

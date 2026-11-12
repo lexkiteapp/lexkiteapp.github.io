@@ -59,6 +59,7 @@
     // Ama phản hồi theo bước + lựa chọn vừa chạm (pick.said = bước vừa có lựa chọn mới)
     const kitLine = () => {
       const k = STEPS[pick.step], fresh = pick.said === k;
+      if (k === 'lang') return ['happy', t('Chào bạn, mình là Ama! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')];
       if (k === 'goal') return fresh ? ['cheer', t('Tuyệt! Mình sẽ chọn bài hợp với mục tiêu {name}.', { name: trName() })] : ['happy', t('Chào bạn, mình là Ama! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')];
       if (k === 'level') return !fresh ? (state.settings.placement && lvName() ? ['happy', t('Theo bài kiểm tra, bạn bắt đầu từ {lv}. Muốn đổi thì chọn lại nhé.', { lv: lvName() })] : ['think', t('Chưa chắc trình độ? Làm bài kiểm tra 5 phút để mình xếp đúng chặng.')])
         : pick.lv === 'test' ? ['cheer', t('Lựa chọn thông minh! Bài kiểm tra chỉ mất khoảng 5 phút.')] : ['happy', t('Được rồi, mình bắt đầu từ {lv} nhé.', { lv: lvName() })];
@@ -77,7 +78,7 @@
       const d = { step: n + 1, steps: STEPS.length, stepTxt: `${n + 1} / ${STEPS.length}`, pct: Math.round((n + 1) / STEPS.length * 100), progAria: t('Tiến độ'), meta, say, foot: t('Miễn phí · Dữ liệu học thuộc về bạn'),
         kicker: g.Chars ? Chars.name('ama') : '', teacher: g.Chars ? Chars.slot('ama', { pose: pick.said === k ? 'cheer' : 'point', size: k === 'target' ? 'xs' : k === 'goal' ? 'm' : 'l' }) : '' };
       const tr = K && K.TR[pick.track], P = paces().find(x => x[0] === pick.pace) || paces()[1];
-      if (k === 'lang') { const SUB = { en: t('IELTS, TOEIC, giao tiếp'), pt: t('Tiếng Bồ Đào Nha Brazil'), es: t('Tiếng TBN Mỹ Latinh · DELE/SIELE A1–C2') }, cur = Target.cur();
+      if (k === 'lang') { const SUB = { en: t('IELTS, TOEIC và giao tiếp hằng ngày'), pt: t('Tiếng Bồ Đào Nha Brazil'), es: t('Tiếng TBN Mỹ Latinh · DELE/SIELE A1–C2') }, cur = Target.cur();
         Object.assign(d, { foot: t('Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.'), langs: Target.avail().map(id => ({ id, on: id === cur, flag: Target.table(id).em, name: Target.table(id).name, badge: id === 'en' ? t('Phổ biến') : t('Beta'), sub: SUB[id] || '' })) }); }
       if (k === 'goal') { if (K) K.setupGoal(pick); // nạp CSS .trk-vs (chip biến thể) của tracks.js
         Object.assign(d, { q: t('Mục tiêu của bạn là gì?'), foot: t('Chọn 1 gói – có thể học thêm gói khác sau.'),
@@ -110,7 +111,8 @@
       const nx = $('#obNext'); if (nx) nx.onclick = () => { pick.step++; pick.said = ''; try { history.pushState({ onb: pick.step, n: ((history.state && history.state.n) || 0) + 1 }, '', urlOf(pick.step)); } catch (e) { /* vẫn đi tiếp được */ } draw(); focusQ(); };
       // 🌍 bước chọn ngôn ngữ học (W7): chạm thẻ = Target.set + vẽ lại; học TBN không có gói thi tiếng Anh → "Tiếp tục" kết thúc thiết lập, vào lộ trình ngày TBN
       $$('[data-lang]').forEach(c => { c.onclick = () => { if (c.dataset.lang !== Target.cur()) { Target.set(c.dataset.lang); pick.said = 'lang'; draw(); } }; c.onkeydown = ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); c.click(); } }; });
-      if (STEPS[n] === 'lang' && nx && Target.cur() !== 'en') nx.onclick = async () => { nx.disabled = true; Object.assign(state.settings, { pace: 20, dailyGoal: 20, dailyNew: NEW_OF[20] }); await D.saveSettings(); await D.finish(true, '#/practice/esd'); };
+      const home = Target.table(Target.cur()).home; // ngôn ngữ không có gói thi tiếng Anh: bảng ghi lộ trình riêng
+      if (STEPS[n] === 'lang' && nx && home) nx.onclick = async () => { nx.disabled = true; try { Object.assign(state.settings, { pace: 20, dailyGoal: 20, dailyNew: NEW_OF[20] }); await D.saveSettings(); await D.finish(true, home); } catch (e) { nx.disabled = false; } };
       const acct = $('#setupIn'); if (acct) acct.onclick = e => { e.stopPropagation(); D.login(draw); }; // tài khoản trống: ở lại đúng bước, vẽ lại để ẩn liên kết đăng nhập
       if (TK()) TK().bindSetup(view, pick, id => { TR_ID = id; pick.said = 'goal'; setExam(pick.exam); }, () => { pick.said = 'level'; draw(); });
       $$('#bandT button').forEach(b => b.onclick = () => { pick.target = b.dataset.v; pick.said = 'target'; draw(); });

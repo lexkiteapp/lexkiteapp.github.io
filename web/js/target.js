@@ -13,7 +13,7 @@
     pt: { em: '🇧🇷', name: 'Português', speech: 'pt-BR', rec: 'pt-BR', fallback: [], prefix: 'pt', kokoro: { 'pt-BR': 'pf_dora' }, voices: { ama: 'pf_dora', carlos: 'pm_alex' }, wordFiles: false,
       flag: 'pt_pilot', ls: 'lk.pt', label: 'Português (beta)' },
     // es: tiếng TBN Mỹ Latinh trung tính (seseo – spanish-course.md §8): es-419, máy thiếu giọng es-419 → es-MX → es-US. Kokoro ef_dora/em_alex chờ lượt mẫu W0.
-    es: { em: '🇪🇸', name: 'Español', speech: 'es-419', rec: 'es-MX' /* Web Speech nhận giọng chưa có es-419 ổn định → es-MX (chuẩn trung tính gần nhất) */, fallback: ['es-MX', 'es-US'], prefix: 'es', kokoro: { 'es-419': 'ef_dora', 'es-MX': 'ef_dora', 'es-US': 'ef_dora' }, voices: { ama: 'ef_dora', carlos: 'em_alex' }, wordFiles: false,
+    es: { em: '🇪🇸', name: 'Español', home: '#/practice/esd', speech: 'es-419', rec: 'es-MX' /* Web Speech nhận giọng chưa có es-419 ổn định → es-MX (chuẩn trung tính gần nhất) */, fallback: ['es-MX', 'es-US'], prefix: 'es', kokoro: { 'es-419': 'ef_dora', 'es-MX': 'ef_dora', 'es-US': 'ef_dora' }, voices: { ama: 'ef_dora', carlos: 'em_alex' }, wordFiles: false,
       flag: 'es_course', pct: 'es_course_pct', kill: 'es_kill', ls: 'lk.es', label: 'Español (beta)' },
   };
   const LANGS = Object.keys(TABLE), KEY = 'lk.tl';
