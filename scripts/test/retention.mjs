@@ -231,6 +231,8 @@ ok(!/retention\.js/.test(fs.readFileSync('web/app/index.html', 'utf8')), 'không
   const r1 = run({ ret_pct: '10' }, 55); r1.A.retTrack(3); r1.A.retTrack(8); r1.A.retTrack(9);
   ok(r1.sent.join() === 'ret_off_seen,ret_off_d7', 'mỗi sự kiện 1 lần/máy');
   const r2 = run({ ret_pct: '10' }, 3, '', { 'lk.noTrack': '1' }); r2.A.retTrack(9); ok(!r2.sent.length, 'máy quản trị không gửi');
+  const r4 = run({ ret_pct: '10' }, 3, '?demo=1&hl=vi'); r4.A.retTrack(9); ok(!r4.sent.length, 'demo/sandbox không gửi beacon (ext-e2e: /api/hit 503 = lỗi console)');
+  const r5 = run({ ret_pct: '10' }, 3, '?sandbox=1'); r5.A.retTrack(9); ok(!r5.sent.length, 'sandbox không gửi beacon');
   const r3 = run({ ret_pct: '10' }, null); r3.A.retOn(); ok(/^\d+$/.test(r3.store['lk.rb']), 'tự tạo nhóm lk.rb cố định');
 }
 console.log(`✓ retention: ${pass} kiểm tra đạt`);
