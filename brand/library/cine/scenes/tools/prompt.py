@@ -2,10 +2,13 @@
 import json, os, sys
 B = json.load(open(os.path.join(os.path.dirname(__file__), '..', 'beats.json')))
 s, k = sys.argv[1], sys.argv[2]; S = B[s]
-if k in ('p', 'v'):   # empty plate from the approved f1 (owner 12/11: modules, not finished shots) – p = 16:9, v = 9:16 vertical for reels
-    print(f"Image 1 is the approved first shot of this scene. Make the SAME place with NOBODY in it: remove both people completely and paint the background, furniture and floor behind them naturally, "
-          f"same art style (flat 2D vector, no black outlines), same colours, light and props. {'Same wide framing as image 1.' if k == 'p' else 'Recompose as a tall vertical 9:16 view of the same place, centred on the main counter/desk/feature, with open floor space in the lower half where a standing person can be placed later.'} "
-          "Eye-level camera, nothing cut in half at the frame centre. Absolutely no people, no hands, no animals, no text, letters, numbers or logos anywhere, no watermark.")
+if k in ('p', 'v', 'pn', 'vn'):   # empty plates from the approved f1 (owner 12/11: modules, not finished shots) – p/pn 16:9, v/vn 9:16 · n = warm evening light
+    light = 'warm golden evening light with soft lamp glow, the same place at dusk' if k.endswith('n') else 'the same daylight as 图片1'
+    frame = ('the same wide framing as 图片1' if k[0] == 'p' else
+             'a tall vertical 9:16 view of the same place, centred on its main counter/desk/feature, with open floor in the lower half where a standing person can be placed later')
+    print(f"图片1 (image 1) is the approved first shot of this scene. Draw the SAME place with NOBODY in it: no people at all, the background, furniture and floor behind where they stood painted naturally; "
+          f"same flat 2D vector art style with no black outlines, same colours, props and layout; {light}; {frame}. Eye-level camera. "
+          "Absolutely no people, no hands, no animals, no text, letters, numbers or logos anywhere (blank signs and screens), no watermark.")
     sys.exit(0)
 k = int(k); F = S['frames'][k - 1]
 # 12/11: 'over-the-shoulder' made the model ADD a third person seen from behind (4/24 frames) or swap outfits → name who is seen from behind + hard head count
