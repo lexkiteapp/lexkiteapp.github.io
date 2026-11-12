@@ -8,6 +8,7 @@ import fs from 'fs';
 import path from 'path';
 import { createRequire } from 'module';
 import { serve } from './serve.mjs';
+import { BASE_ROUTES } from './routes.mjs';
 const require = createRequire(import.meta.url);
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = path.resolve(arg('root', 'dist')), LANG = arg('lang', 'en'), OUT = path.resolve(arg('out', `qs-out/${LANG}`));
@@ -16,9 +17,6 @@ const LANGS15 = 'vi en es pt fr de id th zh ja ko hi ar ru tr'.split(' ');
 fs.mkdirSync(OUT + '/shots', { recursive: true });
 
 // ---------- danh sách trang ----------
-const BASE_ROUTES = ['home', 'path', 'day/1', 'review', 'vocab', 'dict/sustainable', 'library', 'grammar', 'tests', 'cbt', 'qstats', 'quick', 'stats', 'resources', 'method', 'me', 'settings', 'contact',
-  'practice', 'practice/learn', 'skills', 'phrases', 'models', 'pron', 'listening', 'reading', 'speaking', 'write', 'task1', 'letters', 'toeic', 'toefl', 'placement', 'topic/ngsl1', 'topic/office-email',
-  'model/t1-travel', 'handsfree', 'reflex', 'roleplay', 'roleplay/manager', 'call', 'call/coffee', 'courses', 'course/ielts-writing', 'paraphrase', 'mistakes', 'goal', 'verb/take', 'fix', 'usage', 'usage/interested'];
 function discoverRoutes() { // mọi routes.xxx = … trong mã nguồn web/js (bản dist đã rút gọn nên không đọc được tên)
   const found = new Set(), dir = 'web/js';
   const walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const f = path.join(d, e.name); if (e.isDirectory()) walk(f); else if (e.name.endsWith('.js')) { const s = fs.readFileSync(f, 'utf8'); for (const m of s.matchAll(/\broutes\.([a-zA-Z_]+)\s*=(?!=)/g)) found.add(m[1]); for (const m of s.matchAll(/\broutes\[['"]([a-z0-9_-]+)['"]\]\s*=(?!=)/g)) found.add(m[1]); } } };
