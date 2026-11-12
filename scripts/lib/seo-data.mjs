@@ -7,7 +7,7 @@ const load = files => { const c = ctx(); for (const f of files) run(c, f); retur
 
 // Writing Task 2: đề (write.js PROMPTS + WRITE_MORE) + bài mẫu (MODELS)
 export function loadWriting() {
-  const c = load(['write/task2-more', 'models', 'write/models2', 'write/models3', 'write/models4', 'write/models5']);
+  const c = load(['write/task2-more', 'write/models', 'write/models2', 'write/models3', 'write/models4', 'write/models5']);
   const w = fs.readFileSync('web/js/write.js', 'utf8'), T = (id, type, topic, text) => ({ id, type, topic, text });
   const P = vm.runInNewContext(w.slice(w.indexOf('const PROMPTS = [') + 16, w.indexOf('];', w.indexOf('const PROMPTS = [')) + 1), { T });
   for (const a of c.WRITE_MORE || []) if (!P.some(p => p.id === a[0])) P.push(T(...a));
@@ -63,7 +63,7 @@ export function loadLetters() {
 }
 // IELTS Academic Task 1: đề (SETS trong task1.js + TASK1_MORE) + bài mẫu MODELS 't1-<id>'
 export function loadTask1() {
-  const c = load(['models', 'write/task1-more', 'write/task1-more2']);
+  const c = load(['write/models', 'write/task1-more', 'write/task1-more2']);
   const w = fs.readFileSync('web/js/task1.js', 'utf8'), i0 = w.indexOf('const SETS = [') + 13;
   const SETS = vm.runInNewContext(w.slice(i0, w.indexOf('\n  ];', i0) + 4));
   for (const d of c.TASK1_MORE || []) if (!SETS.some(x => x.id === d.id)) SETS.push(d);

@@ -35,7 +35,7 @@ const indexHero = (h1, lead, sec) => `${hero(esc(h1), { lead })}\n${sectionNav('
 const related = (items, card) => items.length ? `<section class="grp" aria-labelledby="rel"><h2 id="rel">${L.related}</h2><div class="grid">${items.map(card).join('')}</div></section>` : '';
 const group = (id, title, sub, cards) => `<section class="grp" aria-labelledby="g-${id}"><h2 id="g-${id}">${esc(title)} <small>${sub}</small></h2><div class="grid">${cards.join('')}</div></section>`;
 const short = (s, n) => s.length > n ? s.slice(0, n - 3).replace(/\s+\S*$/, '') + '…' : s;
-const wmDate = gitDate('web/js/models.js', 'web/js/write', 'web/cpack/write').replace(/-/g, '');
+const wmDate = gitDate('web/cpack/write/models.js', 'web/js/write', 'web/cpack/write').replace(/-/g, '');
 const wm = (html, id) => embedWatermark(html, `LK:${id}:${wmDate}`); // thủy ấn tàng hình (P1) trong bài mẫu – ngày = lần sửa dữ liệu cuối (build ổn định)
 
 // ===== Writing Task 2 =====
@@ -75,7 +75,7 @@ ${filterBox('vi')}
 ${catNav(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty), typeArt(ty)]), done.length, 'vi', U.types, esc)}
 ${types.map(([ty, xs], i) => group2(`t${i}`, ty, `${xs.length} ${L.items}`, xs.map(t2Card), typeCls(ty), typeArt(ty))).join('\n')}</div>`, undefined, undefined,
     { smp: 1, ld: [itemList(`Bài mẫu IELTS Writing Task 2`, done.map(([p]) => `${SITE}samples/${p.id}`))] }));
-  addSm([`${SITE}samples/`, ...done.map(([p]) => `${SITE}samples/${p.id}`)], 'web/js/write.js', 'web/js/models.js', 'web/js/write');
+  addSm([`${SITE}samples/`, ...done.map(([p]) => `${SITE}samples/${p.id}`)], 'web/js/write.js', 'web/cpack/write/models.js', 'web/js/write');
   console.log(`✓ SEO: ${done.length} trang bài mẫu Task 2 + mục lục`);
 }
 
