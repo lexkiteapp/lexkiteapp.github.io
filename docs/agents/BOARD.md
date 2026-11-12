@@ -190,21 +190,32 @@ Mẫu thẻ:
 
 ## ĐANG LÀM
 
-### [CQ3] Bài mẫu Writing band 6 & 7 (Lô 1: 10 đề Task 1) · @antigravity · ưu tiên: VỪA
-- **Mục tiêu:** người học band 5–6 thấy được bậc thang lên band.
-- **Phạm vi (Lô 1):** 10 đề Task 1 đầu tiên (energy, leisure, spending, students, museums, cars, transport, internet, water, onlineshop).
-- **Cấu trúc:** Mỗi đề bổ sung 1 bài band 6 (≥ 150 từ) + 1 bài band 7 (≥ 150 từ) kèm chú thích theo 4 tiêu chí TA/CC/LR/GRA trong `band6` và `band7`.
-- **File:** `web/js/models.js`, `web/js/write/task1-more.js`.
-- **Trạng thái:** ĐANG LÀM trên nhánh `cq3/writing-bands`.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [CL1] Lớp học (Teacher/Classroom mode) · @claude (phiên gifted-cori) · ĐÃ LIVE 22/10
 - File riêng: `functions/api/class.js`, `web/js/classroom.js`, `web/js/i18n/*/classroom.js`, `scripts/test/classroom.mjs`, `content/legal/{en,vi}/schools.html` (→ `/<lang>/schools`), `docs/CLASSROOM.md` (kèm ước tính chi phí D1).
 - Móc tối thiểu: `app.js` (BUNDLES/ROUTE_BUNDLE `classroom`), `sync.js` (1 dòng nạp module cho học sinh), `qtips.js` (phát `lexkite:test-done`), `ads.js` (tắt quảng cáo khi `lk.edu`), `hubs.js` (1 hàng "Lớp học"), `account.js` (DELETE_SQL), `_quota.js`, privacy mục 2/8/10, `build-legal.mjs`/`build-seo.mjs` (trang `schools`), `gen-i18n.mjs` (dịch khóa lười còn tiếng Anh tạm).
 - KHÔNG đụng: extension/, web/index.html, landing/blog, native.js, widget-feed.js, lesson-fx/path-*/study.js, swipe/Kit/streak-freeze.
 
 ## CHỜ DUYỆT
+
+### [CQ3] Bài mẫu Writing band 6 & 7 (Lô 1: 10 đề Task 1) · @antigravity · ưu tiên: VỪA
+- **Mục tiêu:** người học band 5–6 thấy được bậc thang lên band.
+- **Phạm vi (Lô 1):** 10 đề Task 1 đầu tiên (`t1-energy`, `t1-leisure`, `t1-spending`, `t1-students`, `t1-museums`, `t1-commute`, `t1-glass`, `t1-town`, `t1-water`, `t1-onlineshop`).
+- **Cấu trúc:** Mỗi đề bổ sung 1 bài band 6 (≥ 150 từ) + 1 bài band 7 (≥ 150 từ) kèm chú thích chuẩn xác theo 4 tiêu chí TA/CC/LR/GRA trong `band6` và `band7`.
+- **PR:** #1137 (nhánh `cq3/writing-bands`, commit `3711d6dbf`).
+- **File:** `web/js/models.js`, `web/js/write/task1-more.js`, `web/js/phrases-model.js`, `web/js/i18n/**`, `native/**`.
+- **Báo cáo (Antigravity 12/11):**
+  - Đã hoàn thành 100% Lô 1 (10 đề Task 1, 20 bài viết mới band 6 và band 7, độ dài 151–193 từ/bài, chuẩn hóa số liệu theo đề bài).
+  - Nhận xét chi tiết 4 tiêu chí Task Achievement (TA), Coherence & Cohesion (CC), Lexical Resource (LR), Grammatical Range & Accuracy (GRA) chỉ rõ nguyên nhân chưa đạt band cao hơn.
+  - Cập nhật giao diện `web/js/phrases-model.js` hiển thị cả 2 accordion phân tích so sánh Band 7.0 và Band 6.0; bổ sung 2 chuỗi i18n mới đủ 15 ngôn ngữ.
+  - Đã chạy kiểm thử chất lượng toàn diện:
+    * `content-check.mjs`: 0 lỗi, lintEn sạch không lỗi lặp từ hay thừa khoảng trắng.
+    * `content-qa/gate.mjs`: PASS 100%.
+    * `vi-lint.mjs`: 2.401 file không lỗi chính tả.
+    * `i18n-missing.mjs` & `i18n-qa.mjs` & `i18n-pack.mjs`: 15 ngôn ngữ chuẩn 100%.
+    * `size-budget.mjs`: web/js và cpack đều nằm trong ngân sách cho phép.
+    * `ext-sync.mjs` & `native-m2-vectors.mjs`: PASS 100%.
+    * `npm test`: PASS 100% 381/381 test scripts.
+- **Điểm độc lập (Claude chấm):** [ ] / 100
 
 ### [B5-L7] Lô 7 Blog 12 bài chuẩn SEO (6 AR + 6 HI) · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường lớn: Tiếng Ả Rập (AR) và Tiếng Hindi (HI - 100% Devanagari bản địa). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi 5W1H, tra từ điển Anh-Anh unilingual/एकभाषी, luyện nghe Dictation/डिक्टेशन, từ vựng IELTS AI/Technology và Câu phức/जटिल वाक्य Complex sentences).
