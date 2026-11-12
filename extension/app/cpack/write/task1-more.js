@@ -155,7 +155,7 @@
     "TA": "Số liệu đúng và đủ (78/64/42/18 → 97/95/84/61), có overview; so sánh khoảng cách thế hệ còn sơ lược, chỉ nói older groups growth nhanh nhất.",
     "CC": "Bố cục 4 đoạn rõ ràng nhưng từ nối cơ bản (but, so, compared to); các câu thiếu liên kết chặt giữa hai năm.",
     "LR": "Từ vựng đủ dùng nhưng lặp: increased/increase nhiều lần, rate, group; thiếu từ thay thế như rose/climbed/doubled.",
-    "GRA": "Lỗi điển hình band 6: (1) hòa hợp chủ–vị sai: '18% of people ... has a smartphone'; (2) sai dạng động từ: 'the rate for the oldest group increase to 61%'; (3) lệch thì: 'which is more than three times higher than in 2013'."
+    "GRA": "Lỗi điển hình band 6: (1) hòa hợp chủ–vị sai: '18% of people ... has a smartphone'; (2) sai dạng động từ: 'the rate for the oldest group increase to 61%'; câu cấu trúc lặp 'the rate for ... increased to'."
   }
 } },
 
@@ -183,7 +183,7 @@
   "notes": {
     "TA": "Số liệu đúng, overview đúng (car giảm nhưng dẫn đầu; train, bicycle tăng; bus giảm); thiếu so sánh định lượng (vd. car gấp mấy lần train).",
     "CC": "Bố cục rõ, nhưng nối câu đơn giản (but, so) và đoạn kết 'In conclusion' lặp lại overview.",
-    "LR": "Từ vựng cơ bản, lặp: decreased/went down, increased, travel; 'transport' dùng như danh từ đếm được không chính xác.",
+    "LR": "Từ vựng cơ bản, lặp: decreased/went down, increased, travel; dùng 'transport' như danh từ đếm được không chính xác ('the least used transport', 'the main transport').",
     "GRA": "Lỗi điển hình band 6: (1) 'the distance grow' (chia động từ); (2) 'are become' (sai cấu trúc); (3) thiếu mạo từ: 'Bicycle was...', 'car is still...'."
   }
 } },
@@ -232,7 +232,7 @@
     "TA": "Số liệu 2000 và 2020 khớp đề (A 9.8→10.1 qua đỉnh 10.4; B 4.5→6.9; C 6.2→5.1; D 1.2→3.8; E 0.4→1.7); chỉ ra C là nước duy nhất giảm liên tục và B vượt C vào 2020.",
     "CC": "Liên kết tốt: with Country C the sole exception, after which, before, and so, whose, Among the lowest consumers, while.",
     "LR": "Từ vựng học thuật: per capita, by a wide margin, sole exception, intake, more than tripled, more than fourfold.",
-    "GRA": "Dùng mệnh đề quan hệ (after which..., whose consumption...), mệnh đề nhượng bộ (although...) và cụm phân từ (measured in kilograms, falling back slightly)."
+    "GRA": "Dùng mệnh đề quan hệ (after which..., whose consumption...), mệnh đề nhượng bộ (although...), cụm phân từ (measured in kilograms) và cụm V-ing sau giới từ (before falling back slightly)."
   }
 },
       band6: {
@@ -284,12 +284,12 @@
 
 <<Thân bài 2>> {{At this point}}, the smolts [[make their way downstream|di chuyển xuôi dòng]] to the sea. They then spend between 1 and 3 years in the ocean, where they [[reach adulthood|trưởng thành]]. {{Finally}}, the mature adults [[swim back upstream|bơi ngược dòng trở lại]] to the upper river [[in order to|để]] spawn, {{and}} the eggs they lay there mark [[the start of a new cycle|sự khởi đầu của một chu trình mới]]. {{In this way}}, each generation [[returns to the place where it was born|quay về nơi nó được sinh ra]].`,
       band7: {
-  "words": 156,
-  "text": "The diagram illustrates the sequential stages in the natural life cycle of the salmon, spanning its journey between freshwater rivers and the open ocean.\n\nOverall, the cycle comprises seven distinct stages, progressing from eggs laid in the riverbed, through maturation in marine waters, and culminating in the adult fish returning to their spawning grounds.\n\nThe cycle commences when adult salmon deposit their eggs amongst gravel in the upper reaches of a river. Approximately six weeks later, these eggs hatch into tiny alevins. As they grow, they transition into fry and migrate to calmer water, where they mature over a period of one to four years before transforming into smolts.\n\nAt this stage, the smolts migrate downstream towards the ocean, where they spend between one and three years growing into full adulthood. Ultimately, the mature salmon undertake a long upstream journey back to their native river to spawn, thereby initiating the cycle anew for the next generation.",
+  "words": 153,
+  "text": "The diagram illustrates the sequential stages in the natural life cycle of the salmon, spanning its journey between freshwater rivers and the open ocean.\n\nOverall, the cycle comprises seven distinct stages, progressing from eggs laid in the riverbed, through maturation in marine waters, and culminating in the adult fish returning to their spawning grounds.\n\nThe cycle commences when adult salmon deposit their eggs amongst gravel in the upper reaches of a river. Approximately six weeks later, these eggs hatch into alevins. As they grow, they transition into fry and migrate to calmer water, and over the following one to four years they mature before transforming into smolts.\n\nAt this stage, the smolts migrate downstream towards the ocean, where they spend between one and three years growing into full adulthood. Ultimately, the mature salmon undertake an upstream journey back to the upper river to spawn, thereby initiating the cycle anew for the next generation.",
   "notes": {
     "TA": "Miêu tả đầy đủ từng giai đoạn kèm khung thời gian (6 tuần, 1–4 năm, 1–3 năm), làm bật vòng lặp tuần hoàn.",
     "CC": "Từ nối thật trong bài: The cycle commences when, Approximately six weeks later, As they grow..., where, before, At this stage, Ultimately, thereby.",
-    "LR": "Từ vựng sinh học học thuật: comprises, spawning grounds, deposit, upper reaches, transition, migrate, long upstream journey, initiating the cycle anew.",
+    "LR": "Từ vựng sinh học học thuật: comprises, spawning grounds, deposit, upper reaches, transition, migrate, upstream journey, initiating the cycle anew.",
     "GRA": "Dùng mệnh đề trạng ngữ thời gian, mệnh đề quan hệ (where they mature...) và cụm phân từ (progressing..., culminating in..., thereby initiating...)."
   }
 },
@@ -313,18 +313,18 @@
 
 <<Thân bài 2>> {{Once}} oxidation [[is complete|hoàn tất]], the leaves [[are dried using hot air|được sấy bằng khí nóng]] at a temperature of 120°C. {{Next}}, the dried tea [[is sorted and graded according to|được phân loại và xếp hạng theo]] the size of the leaves, {{so that}} leaves of a similar size are grouped together. {{Finally}}, the tea [[is packed|được đóng gói]] and shipped to buyers, [[ready to be sold|sẵn sàng để bán]] to consumers.`,
       band7: {
-  "words": 156,
-  "text": "The diagram delineates the multi-stage manufacturing process involved in the production of black tea, from the initial harvesting of leaves to the final shipping.\n\nOverall, the manufacture of black tea comprises seven sequential stages, forming a linear industrial process in which no stage is repeated that begins with manual harvesting and concludes with packing and shipping.\n\nInitially, fresh leaves are picked by hand. These leaves are subsequently laid out on racks to wither for 12 to 18 hours. Once sufficiently withered, they undergo rolling to release their juices, followed by an oxidation period lasting between 2 and 4 hours, during which the leaves are left undisturbed.\n\nFollowing oxidation, the leaves are dried with hot air at a temperature of 120°C. Thereafter, the dried product is sorted and graded according to leaf size, so that leaves of a similar size are grouped together. Finally, the processed tea is packed and shipped to buyers, completing the production chain.",
+  "words": 158,
+  "text": "The diagram delineates the multi-stage manufacturing process involved in the production of black tea, from the initial harvesting of leaves to the final shipping.\n\nOverall, the manufacture of black tea comprises seven sequential stages, forming a linear process that begins with manual harvesting and concludes with packing and shipping, with no stage repeated.\n\nInitially, fresh leaves are picked by hand. These leaves are subsequently laid out on racks to wither for 12 to 18 hours. Once sufficiently withered, they undergo rolling to release their juices, followed by an oxidation period lasting between 2 and 4 hours, during which the leaves are simply left to oxidise.\n\nFollowing oxidation, the leaves are dried with hot air at a temperature of 120°C. Thereafter, the dried product is sorted and graded according to leaf size. Finally, the processed tea is packed and shipped to buyers, completing the production chain. In total, therefore, the product passes through seven stages before it reaches buyers.",
   "notes": {
     "TA": "Bao quát đủ 7 giai đoạn và thông số kỹ thuật (12–18 giờ, 2–4 giờ, 120°C); làm rõ tính chất tuyến tính.",
     "CC": "Từ nối thật trong bài: Initially, subsequently, Once sufficiently withered, followed by, Following oxidation, Thereafter, Finally.",
-    "LR": "Từ vựng trang trọng cho quy trình: delineates, comprises, sequential stages, manual harvesting, undergo rolling, left undisturbed, production chain.",
-    "GRA": "Thể bị động nhuần nhuyễn, mệnh đề phụ và mệnh đề quan hệ (during which the leaves are left undisturbed), cụm phân từ (forming..., completing...)."
+    "LR": "Từ vựng trang trọng cho quy trình: delineates, comprises, sequential stages, manual harvesting, undergo rolling, oxidation period, production chain.",
+    "GRA": "Thể bị động nhuần nhuyễn, mệnh đề phụ và mệnh đề quan hệ (that begins..., during which...), cụm phân từ (forming..., completing...)."
   }
 },
       band6: {
-  "words": 154,
-  "text": "The diagram illustrates the process of making black tea, from collecting the fresh leaves to shipping the final product to buyers.\n\nOverall, the tea production process consists of seven main stages. It is a linear process that begins with hand-picking the leaves and ends with packing and shipping the tea to buyers. The whole process has no repeated stage.\n\nIn the first step, fresh tea leaves are picked by hand. After that, the leaves are spread on racks to wither for 12 to 18 hours. Then, the withered leaves is rolled to release their juices, and they are left to oxidise for 2 to 4 hours.\n\nOnce oxidation is finished, the tea leaves is dried with hot air at 120 degrees Celsius. Next, the dried tea is sorted and graded in different sizes. Finally, the finished tea is packed and shipped to buyers, ready to be sold. In total, the process has seven steps.",
+  "words": 156,
+  "text": "The diagram illustrates the process of making black tea, from collecting the fresh leaves to shipping the final product to buyers.\n\nOverall, the tea production process consists of seven main stages. It is a linear process that begins with hand-picking the leaves and ends with packing and shipping the tea to buyers. The whole process has no repeated stage.\n\nIn the first step, fresh tea leaves are picked by hand. After that, the leaves are spread on racks to wither for 12 to 18 hours. Then, the withered leaves is rolled to release their juices, and they are left to oxidise for 2 to 4 hours.\n\nOnce oxidation is finished, the tea leaves is dried with hot air at 120 degrees Celsius. Next, the dried tea is sorted and graded in different sizes. Finally, the finished tea is packed and shipped to buyers, ready to be sold. Each step follows directly from the one before it.",
   "notes": {
     "TA": "Đủ 7 bước và thông số (12–18 giờ, 2–4 giờ, 120°C); overview nêu được quy trình tuyến tính.",
     "CC": "Tuần tự bằng In the first step, After that, Then, Once, Next, Finally; cơ học.",
@@ -342,18 +342,18 @@
 
 <<Thân bài 2>> On the eastern side of the island, the beach in the north-east [[was left untouched|được giữ nguyên]]. {{However}}, the fishing huts to its south [[were demolished|bị phá bỏ]] and tourist chalets [[were built in their place|được xây dựng thay thế]]. {{Similarly}}, the jetty in the south-east [[was converted into|được chuyển đổi thành]] a ferry pier, [[presumably to cater for|có lẽ để phục vụ]] the arrival of visitors. {{As a result}}, [[the focus of the island appears to have shifted|trọng tâm của hòn đảo dường như đã chuyển dịch]] from fishing and farming towards tourism.`,
       band7: {
-  "words": 161,
-  "text": "The two maps illustrate the redevelopment of a small island before and after the construction of a tourist resort.\n\nOverall, the island transitioned from an undeveloped rural area focused on fishing and farming into a modern holiday destination. Although the island was extensively modernised, the beach, the central road, and portions of the original woodland were preserved.\n\nTo the west of the central road, significant alterations occurred. The northern sector of the forest was cleared to accommodate a hotel, while the southern farmland was converted into a car park. The main road, which runs from north to south, was unchanged. The woodland in the central section was retained, providing natural greenery between the new facilities.\n\nOn the eastern side, the north-eastern beach was left untouched. In contrast, the former fishing huts to the south were demolished and replaced with tourist chalets. Furthermore, the existing jetty in the south-east was converted into a ferry pier, so that tourists could arrive more easily.",
+  "words": 154,
+  "text": "The two maps illustrate the redevelopment of a small island before and after the construction of a tourist resort.\n\nOverall, the island transitioned from an undeveloped rural area focused on fishing and farming into a modern holiday destination. Although the island was extensively modernised, the beach, the central road, and portions of the original woodland were preserved.\n\nTo the west of the central road, significant alterations occurred. The northern sector of the forest was cleared to accommodate a hotel, while the southern farmland was converted into a car park. The main road, which runs from north to south, was unchanged. The woodland in the central section was retained, providing natural greenery between the new facilities.\n\nOn the eastern side, the north-eastern beach was left untouched. In contrast, the former fishing huts to the south were demolished and replaced with tourist chalets. Furthermore, the existing jetty in the south-east was converted into a ferry pier.",
   "notes": {
     "TA": "Mô tả đúng các thay đổi ở phía tây và phía đông đường chính (khách sạn, bãi đỗ xe, nhà nghỉ, bến phà) và phần giữ nguyên (bãi biển, đường, một phần rừng).",
-    "CC": "Định vị và chuyển ý rõ: To the west of..., while, On the eastern side, In contrast, Furthermore, so that.",
+    "CC": "Định vị và chuyển ý rõ: To the west of..., while, On the eastern side, In contrast, Furthermore.",
     "LR": "Từ vựng bản đồ: redevelopment, transitioned, rural area, woodland, alterations, accommodate, converted into, demolished, replaced with, retained.",
-    "GRA": "Dùng thể bị động linh hoạt, mệnh đề nhượng bộ (Although the island was extensively modernised...), mệnh đề mục đích (so that...) và cụm phân từ (providing...)."
+    "GRA": "Dùng thể bị động linh hoạt, mệnh đề nhượng bộ (Although the island was extensively modernised...) và cụm phân từ (providing...)."
   }
 },
       band6: {
-  "words": 155,
-  "text": "The two maps show the changes that took place on a small island before and after a tourist resort was built.\n\nOverall, the island was transformed from a quiet natural place used for fishing and farming into a tourist resort. However, some features like the beach and the main road remained the same.\n\nBefore the development, the western side of the road had a large forest in the north and farmland in the south. After construction, the northern forest was cut down to build a hotel, while the southern farmland become a car park. Only the middle section of the forest was kept.\n\nOn the eastern side of island, the beach in the north-east was not change. However, the old fishing huts were removed to build tourist chalets. In the south-east, the old jetty was turned into a ferry pier so that visitors could arrive on the island easily. The main road did not change.",
+  "words": 158,
+  "text": "The two maps show the changes that took place on a small island before and after a tourist resort was built.\n\nOverall, the island was transformed from an area used for fishing and farming into a tourist resort. However, some features like the beach and the main road remained the same.\n\nBefore the development, the western side of the road had a large forest in the north and farmland in the south. After construction, the northern forest was cut down to build a hotel, while the southern farmland become a car park. Only the middle section of the forest was kept.\n\nOn the eastern side of island, the beach in the north-east was not change. However, the old fishing huts were removed to build tourist chalets. In the south-east, the old jetty was turned into a ferry pier The main road did not change. In general, the island became much more developed after the construction of the resort.",
   "notes": {
     "TA": "Mô tả thay đổi chính ở cả hai phía con đường và phần giữ nguyên (bãi biển, đường chính, một phần rừng).",
     "CC": "Chia đoạn theo phía đông/tây rõ ràng; liên từ cơ bản (However, Before, After construction, while).",
