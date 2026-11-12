@@ -6,7 +6,7 @@
  * Lựa chọn + bước ở sessionStorage lk.onbPick (qua được tải lại + I18N.set), xóa khi xong (finishOnboarding). Luật: docs/specs/welcome.md */
 (function (g) {
   const App = g.App, { state } = App, { esc } = UI;
-  const STEPS = ['goal', 'level', 'target', 'pace', 'ready'], KEY = 'lk.onbPick';
+  const BASE = ['goal', 'level', 'target', 'pace', 'ready'], STEPS = BASE.slice(), KEY = 'lk.onbPick'; // + 'lang' ở đầu khi có ≥ 2 ngôn ngữ chọn được (Target.avail, cờ W7)
   const readPick = () => { try { const p = JSON.parse(sessionStorage.getItem(KEY) || 'null'); return p && typeof p === 'object' ? p : null; } catch (e) { return null; } };
   const savePick = p => { try { sessionStorage.setItem(KEY, JSON.stringify({ exam: p.exam, target: p.target, pace: p.pace, topics: [...p.topics], v: p.v, lv: p.lv, track: p.track, step: p.step, said: p.said, w: p.w })); } catch (e) { /* riêng tư/đầy: vẫn học bình thường */ } };
   const hashOf = i => '#/welcome/setup?s=' + STEPS[i];
@@ -23,6 +23,7 @@
   // D = phần dùng chung từ app.js: { view, TOPICS, topicOf, inDeck, addWord, saveSettings, finish, login }
   function run(s, D) {
     css();
+    STEPS.length = 0; STEPS.push(...(g.Target && Target.avail().length > 1 ? ['lang'] : []), ...BASE);
     const me = ++runs, fromW = /^#\/welcome(\/login)?\/?(\?|$)/.test(App.prevHash || ''), view = D.view, $ = s => view.querySelector(s), $$ = s => [...view.querySelectorAll(s)];
     const TARGETS = { ielts: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], ieltsgt: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], toeic: ['450', '550', '650', '750', '850', '900+'], toefl: ['3.5', '4.0', '4.5', '5.0', '5.5+'], general: ['A2', 'B1', 'B2', 'C1'] };
     const DEF_T = { ielts: '7.0', ieltsgt: '6.5', toeic: '650', toefl: '4.5', general: 'B1' };
@@ -76,6 +77,8 @@
       const d = { step: n + 1, steps: STEPS.length, stepTxt: `${n + 1} / ${STEPS.length}`, pct: Math.round((n + 1) / STEPS.length * 100), progAria: t('Tiến độ'), meta, say, foot: t('Miễn phí · Dữ liệu học thuộc về bạn'),
         kicker: g.Chars ? Chars.name('ama') : '', teacher: g.Chars ? Chars.slot('ama', { pose: pick.said === k ? 'cheer' : 'point', size: k === 'target' ? 'xs' : k === 'goal' ? 'm' : 'l' }) : '' };
       const tr = K && K.TR[pick.track], P = paces().find(x => x[0] === pick.pace) || paces()[1];
+      if (k === 'lang') { const SUB = { en: t('IELTS, TOEIC, giao tiếp'), pt: t('Tiếng Bồ Đào Nha Brazil'), es: t('Tiếng TBN Mỹ Latinh · DELE/SIELE A1–C2') }, cur = Target.cur();
+        Object.assign(d, { foot: t('Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.'), langs: Target.avail().map(id => ({ id, on: id === cur, flag: Target.table(id).em, name: Target.table(id).name, badge: id === 'en' ? t('Phổ biến') : t('Beta'), sub: SUB[id] || '' })) }); }
       if (k === 'goal') { if (K) K.setupGoal(pick); // nạp CSS .trk-vs (chip biến thể) của tracks.js
         Object.assign(d, { q: t('Mục tiêu của bạn là gì?'), foot: t('Chọn 1 gói – có thể học thêm gói khác sau.'),
           tracks: (K ? K.IDS : []).map(id => { const x = K.TR[id], on = id === pick.track; return { id, on, tpl: TPL[id] || 'c4', name: x.name, sub: x.benefit, badge: x.em, vs: vsOf(x, on) }; }) }); }
@@ -105,6 +108,9 @@
       $('#onbBack').onclick = back;
       document.onkeydown = e => { if (e.key !== 'Escape' || (e.target && e.target.tagName === 'SELECT') || !document.getElementById('modal').hidden) return; e.preventDefault(); back(); }; // route() tự gỡ khi rời trang
       const nx = $('#obNext'); if (nx) nx.onclick = () => { pick.step++; pick.said = ''; try { history.pushState({ onb: pick.step, n: ((history.state && history.state.n) || 0) + 1 }, '', urlOf(pick.step)); } catch (e) { /* vẫn đi tiếp được */ } draw(); focusQ(); };
+      // 🌍 bước chọn ngôn ngữ học (W7): chạm thẻ = Target.set + vẽ lại; học TBN không có gói thi tiếng Anh → "Tiếp tục" kết thúc thiết lập, vào lộ trình ngày TBN
+      $$('[data-lang]').forEach(c => { c.onclick = () => { if (c.dataset.lang !== Target.cur()) { Target.set(c.dataset.lang); pick.said = 'lang'; draw(); } }; c.onkeydown = ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); c.click(); } }; });
+      if (STEPS[n] === 'lang' && nx && Target.cur() !== 'en') nx.onclick = async () => { nx.disabled = true; Object.assign(state.settings, { pace: 20, dailyGoal: 20, dailyNew: NEW_OF[20] }); await D.saveSettings(); await D.finish(true, '#/practice/esd'); };
       const acct = $('#setupIn'); if (acct) acct.onclick = e => { e.stopPropagation(); D.login(draw); }; // tài khoản trống: ở lại đúng bước, vẽ lại để ẩn liên kết đăng nhập
       if (TK()) TK().bindSetup(view, pick, id => { TR_ID = id; pick.said = 'goal'; setExam(pick.exam); }, () => { pick.said = 'level'; draw(); });
       $$('#bandT button').forEach(b => b.onclick = () => { pick.target = b.dataset.v; pick.said = 'target'; draw(); });

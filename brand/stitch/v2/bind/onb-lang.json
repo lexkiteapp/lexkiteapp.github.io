@@ -1,0 +1,86 @@
+{
+ "_doc": "Thiết lập – bước 'Ngôn ngữ đang học' (W7, chỉ hiện khi Target.avail() có ≥ 2 ngôn ngữ; web/js/onboard.js). Mẫu Stitch: project 14998838784556418143 (sáng 14612b71…, tối f7866597…). Số 'học viên/bài học' trong mẫu là số bịa → KHÔNG đưa vào. Hai thẻ mẫu (chọn/chưa chọn) = 2 khuôn c1/c2, r = Target.avail() (cờ/nhãn/mô tả từ bảng).",
+ "i18n": {
+  "Choose language": "Chọn ngôn ngữ học",
+  "Start your journey": "Bắt đầu hành trình",
+  "Which language do you want to learn?": "Bạn muốn học ngôn ngữ nào?",
+  "Pick your target language to personalise your path.": "Chọn ngôn ngữ mục tiêu để cá nhân hóa lộ trình học của bạn.",
+  "You can change this any time in Settings": "Bạn có thể đổi bất cứ lúc nào ở Cài đặt",
+  "Continue": "Tiếp tục",
+  "Back": "Quay lại",
+  "Lexkite": "Lexkite"
+ },
+ "text": {
+  "1/4": "d.stepTxt",
+  "Step 1 of building a daily habit": "d.foot"
+ },
+ "attr": {
+  ":scope > div:nth-child(1) > header > button": {
+   "id": "'onbBack'",
+   "type": "'button'"
+  },
+  ":scope > div:nth-child(1) > div": {
+   "role": "'progressbar'",
+   "aria-label": "d.progAria",
+   "aria-valuemin": "1",
+   "aria-valuemax": "d.steps",
+   "aria-valuenow": "d.step"
+  },
+  ":scope > div:nth-child(1) > div > div": {
+   "style": "'width:' + d.pct + '%'"
+  },
+  ":scope > div:nth-child(1) > main > h1": {
+   "id": "'onbQ'"
+  },
+  ":scope > div:nth-child(2) > button": {
+   "id": "'obNext'",
+   "type": "'button'"
+  }
+ },
+ "repeat": [
+  {
+   "list": "d.langs",
+   "as": "r",
+   "variants": {
+    "c1": ":scope > div:nth-child(1) > main > div[role=radiogroup] > div:nth-child(1)",
+    "c2": ":scope > div:nth-child(1) > main > div[role=radiogroup] > div:nth-child(2)"
+   },
+   "samples": ":scope > div:nth-child(1) > main > div[role=radiogroup] > div",
+   "pick": "r.on ? 'c1' : 'c2'",
+   "bind": {
+    "c1": {
+     "html": {
+      ":scope > div > div:nth-child(1) > div:nth-child(1)": "e(r.flag)",
+      ":scope > div > div:nth-child(1) > div:nth-child(2) > div > span:nth-child(1)": "e(r.name)",
+      ":scope > div > div:nth-child(1) > div:nth-child(2) > div > span:nth-child(2)": "e(r.badge)",
+      ":scope > div > div:nth-child(1) > div:nth-child(2) > p": "e(r.sub)"
+     },
+     "attr": {
+      ":scope": {
+       "data-lang": "r.id",
+       "lang": "r.id"
+      }
+     }
+    },
+    "c2": {
+     "html": {
+      ":scope > div > div:nth-child(1) > div:nth-child(1)": "e(r.flag)",
+      ":scope > div > div:nth-child(1) > div:nth-child(2) > div > span:nth-child(1)": "e(r.name)",
+      ":scope > div > div:nth-child(1) > div:nth-child(2) > div > span:nth-child(2)": "e(r.badge)",
+      ":scope > div > div:nth-child(1) > div:nth-child(2) > p": "e(r.sub)"
+     },
+     "attr": {
+      ":scope": {
+       "data-lang": "r.id",
+       "lang": "r.id"
+      }
+     }
+    }
+   }
+  }
+ ],
+ "addClass": {
+  ":scope > div:nth-child(1) > header > button": "ms-flip"
+ },
+ "unwrap": ":scope > div"
+}
