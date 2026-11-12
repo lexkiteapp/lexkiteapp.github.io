@@ -4,7 +4,7 @@
 // UTM (utm_source|medium|campaign|content|term + c = mã kênh/bài) chỉ giữ khi khớp danh sách an toàn, truyền sang /app/ — không dữ liệu cá nhân trong URL.
 // Dùng: node scripts/build-go.mjs [--check]   (--check: không ghi, lỗi nếu web/go chưa dựng lại – chạy trong npm test)
 import fs from 'node:fs';
-import { LANG_NAMES, esc } from './lib/site-layout.mjs';
+import { LANG_NAMES, esc, themeHead } from './lib/site-layout.mjs';
 
 const R = new URL('../', import.meta.url), SITE = 'https://lexkite.com';
 export const LANGS = Object.keys(LANG_NAMES);
@@ -127,7 +127,8 @@ export function renderIndex() {
 `;
 }
 
-export const outputs = () => ({ ...Object.fromEntries(LANGS.map(l => [fileOf(l), render(l)])), 'web/go/index.html': renderIndex() });
+// themeHead: script chống nháy sáng/tối + theme-color theo nền (một nguồn với mọi trang tĩnh; theme-switch.mjs kiểm)
+export const outputs = () => ({ ...Object.fromEntries(LANGS.map(l => [fileOf(l), themeHead(render(l))])), 'web/go/index.html': themeHead(renderIndex()) });
 
 if (import.meta.url === new URL(process.argv[1], 'file:').href) {
   const bad = [];

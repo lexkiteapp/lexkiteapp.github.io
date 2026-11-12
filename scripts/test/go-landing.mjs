@@ -7,11 +7,12 @@ import { LANGS, KEYS, copyOf, outputs, goUrl, fileOf, QUIZ } from '../build-go.m
 
 const errs = []; let n = 0;
 const ok = (c, m) => { n++; if (!c) errs.push(m); };
-const out = outputs();
+const out = outputs(), { THEME_HEAD, THEME_META } = await import('../lib/site-layout.mjs');
 ok(LANGS.length === 15, 'phải đủ 15 ngôn ngữ');
 const en = copyOf('en');
 for (const l of LANGS) {
   const html = out[fileOf(l)], disk = fs.existsSync(fileOf(l)) ? fs.readFileSync(fileOf(l), 'utf8') : '';
+  ok(html.includes(THEME_HEAD) && html.includes(THEME_META), `${l}: thiếu chống nháy giao diện/theme-color (themeHead)`);
   ok(html === disk, `${l}: web/go chưa dựng lại (node scripts/build-go.mjs)`);
   const c = copyOf(l);
   for (const k of KEYS) { ok(c[k] && c[k].length > 1, `${l}: thiếu chữ "${k}"`); if (l !== 'en' && !['t3'].includes(k) && l !== 'id') ok(c[k] !== en[k], `${l}: "${k}" còn nguyên tiếng Anh`); }
