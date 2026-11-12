@@ -438,6 +438,7 @@
   "mist.viewList": "اعرض القائمة",
   "mist.retryMistakes": "أعد الأخطاء",
   "mist.reviewFadingWords": "راجع الكلمات المنسية",
+  "mist.variantMiniTest": "اختبار مصغّر بصيغة جديدة",
   "mist.clearFixedMistakes": "امسح الأخطاء المصحّحة",
   "mist.all": "الكل ({n})",
   "mist.missedTimes": "غاب {n} مرات",

@@ -438,6 +438,7 @@
   "mist.viewList": "सूची देखें",
   "mist.retryMistakes": "गलतियाँ दोबारा करें",
   "mist.reviewFadingWords": "भूलते शब्द दोहराएँ",
+  "mist.variantMiniTest": "वैरिएंट मिनी-टेस्ट",
   "mist.clearFixedMistakes": "सुधरी गलतियाँ हटाएँ",
   "mist.all": "सभी ({n})",
   "mist.missedTimes": "{n} बार चूक गया",

@@ -668,6 +668,7 @@
 "Marketing & Truyền thông":"التسويق والاتصال",
 "Media & Advertising – tin tức, quảng cáo, mạng xã hội":"الإعلام والإعلان – الأخبار والإعلانات ووسائل التواصل الاجتماعي",
 "Micro đang bận – thử lại sau 1 giây.":"الميكروفون مشغول - حاول مرة أخرى خلال ثانية.",
+"Mini-test biến thể":"اختبار مصغّر بصيغة جديدة",
 "Miễn phí · chỉ lưu dữ liệu học của bạn · có thể đăng xuất bất cứ lúc nào":"مجاني · يخزن بيانات دراستك فقط · قم بتسجيل الخروج في أي وقت",
 "Mua sắm":"التسوق",
 "Mua sắm & Tiêu dùng":"التسوق والاستهلاك",

@@ -668,6 +668,7 @@
 "Marketing & Truyền thông":"मार्केटिंग और संचार",
 "Media & Advertising – tin tức, quảng cáo, mạng xã hội":"मीडिया और विज्ञापन - समाचार, विज्ञापन, सोशल मीडिया",
 "Micro đang bận – thử lại sau 1 giây.":"माइक्रोफ़ोन व्यस्त है - एक सेकंड में पुनः प्रयास करें।",
+"Mini-test biến thể":"वैरिएंट मिनी-टेस्ट",
 "Miễn phí · chỉ lưu dữ liệu học của bạn · có thể đăng xuất bất cứ lúc nào":"मुफ़्त · केवल आपका अध्ययन डेटा संग्रहीत करता है · किसी भी समय साइन आउट करें",
 "Mua sắm":"खरीदारी",
 "Mua sắm & Tiêu dùng":"खरीदारी और उपभोग",

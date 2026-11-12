@@ -668,6 +668,7 @@
 "Marketing & Truyền thông":"마케팅과 커뮤니케이션",
 "Media & Advertising – tin tức, quảng cáo, mạng xã hội":"미디어 및 광고 – 뉴스, 광고, 소셜 미디어",
 "Micro đang bận – thử lại sau 1 giây.":"마이크가 사용 중입니다. 잠시 후에 다시 시도해 주세요.",
+"Mini-test biến thể":"변형 미니 테스트",
 "Miễn phí · chỉ lưu dữ liệu học của bạn · có thể đăng xuất bất cứ lúc nào":"무료 · 연구 데이터만 저장 · 언제든지 로그아웃",
 "Mua sắm":"쇼핑",
 "Mua sắm & Tiêu dùng":"쇼핑과 소비",
