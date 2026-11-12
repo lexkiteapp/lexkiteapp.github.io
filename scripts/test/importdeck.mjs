@@ -131,6 +131,53 @@ Skeptical readers doubted the claims, and a skeptical editor agreed. Xqzvtp is n
   ok(m2.result().find(c => c.word === 'skeptical').n === 1, '.vtt: dòng lặp cuộn chỉ đếm 1 lần');
 }
 
+// ---------- 8b. Liên kết (fetchLink) + AI điền nghĩa (aiFill) ----------
+{
+  const J = (status, body) => new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json' } });
+  let sent = null; const okF = async (u, o) => { sent = { u, o }; return J(200, { title: 'T', text: 'Body text.', host: 'news.example.com' }); };
+  const r = await K.fetchLink('  https://news.example.com/a?b=1 ', { fetch: okF, base: 'https://lexkite.com', headers: { 'X-Lexkite-Device': 'abc' } });
+  ok(r.title === 'T' && r.text === 'Body text.' && r.host === 'news.example.com' && sent.u === 'https://lexkite.com/api/readable' && sent.o.method === 'POST' && JSON.parse(sent.o.body).url === 'https://news.example.com/a?b=1' && sent.o.headers['X-Lexkite-Device'] === 'abc', 'fetchLink: POST /api/readable chỉ gửi URL');
+  const code = async p => { try { await p; return 'ok'; } catch (e) { return e.code; } };
+  for (const bad of ['', 'ftp://x.com/a', 'javascript:alert(1)', 'not a url', 'https://']) ok(await code(K.fetchLink(bad, { fetch: okF })) === 'badurl', 'fetchLink: URL sai bị chặn ngay ở máy: ' + bad);
+  for (const c of ['blocked', 'type', 'toobig', 'empty', 'dns', 'fetch']) ok(await code(K.fetchLink('https://a.com/x', { fetch: async () => J(422, { error: c }) })) === c, 'fetchLink: mã lỗi ' + c);
+  ok(await code(K.fetchLink('https://a.com/x', { fetch: async () => J(500, {}) })) === 'fetch' && await code(K.fetchLink('https://a.com/x', { fetch: async () => J(200, { error: 'x' }) })) === 'fetch', 'fetchLink: lỗi lạ/không có chữ → fetch');
+  ok(await code(K.fetchLink('https://a.com/x', { fetch: async () => { throw new TypeError('offline'); } })) === 'net', 'fetchLink: mất mạng → net');
+  let qe; try { await K.fetchLink('https://a.com/x', { fetch: async () => J(429, { error: 'quota', msg: 'quota.burst', signIn: true }) }); } catch (e) { qe = e; } ok(qe && qe.code === 'quota' && qe.q.msg === 'quota.burst', 'fetchLink: 429 → quota kèm thân');
+
+  const mkList = k => Array.from({ length: k }, (_, i) => ({ word: 'w' + uw(i), sentence: 'Sentence about ' + uw(i) + '.', n: 1, meaning: '' }));
+  const gloss = b => { const items = JSON.parse(b.split('\n')[1]); return { m: Object.fromEntries(items.map(x => [x.w, 'nghĩa ' + x.w])) }; };
+  { // theo lô ≤ 20, chỉ gửi từ + câu, đánh dấu ai
+    const list = mkList(45); list[3].meaning = 'có sẵn'; const calls = [];
+    const res = await K.aiFill(list, { call: async (sys, prompt, n) => { calls.push({ sys, prompt, n }); return gloss(prompt); } });
+    ok(calls.length === 3 && calls.map(c => c.n).join() === '20,20,4' && res.filled === 44 && res.stop === '' && res.missing === 0, 'aiFill: 44 từ thiếu nghĩa → 3 lời gọi (20,20,4), bỏ từ đã có nghĩa');
+    ok(calls.every(c => JSON.parse(c.prompt.split('\n')[1]).every(x => Object.keys(x).join() === 'w,s') && c.prompt.length >= 40) && list[3].meaning === 'có sẵn' && !list[3].ai && list[0].ai === 1 && list[0].meaning === 'nghĩa ' + list[0].word, 'aiFill: payload chỉ {w,s}; từ có sẵn nghĩa không bị đè; từ AI gắn cờ ai');
+  }
+  { // nhớ kết quả: lần 2 cùng từ → 0 lời gọi
+    const cache = {}, a = mkList(5); let calls = 0; const call = async (s, p) => { calls++; return gloss(p); };
+    await K.aiFill(a, { call, cache }); const b = mkList(5); await K.aiFill(b, { call, cache });
+    ok(calls === 1 && b.every(c => c.ai === 1 && c.meaning), 'aiFill: nhớ theo từ+ngôn ngữ → lần sau 0 lời gọi');
+    await K.aiFill(mkList(2), { call, cache, lang: 'English' }); ok(calls === 2, 'aiFill: ngôn ngữ nghĩa khác → hỏi lại');
+  }
+  { // hết lượt → dừng im lặng, không gọi tiếp, từ giữ "chưa có nghĩa"
+    const list = mkList(50); let calls = 0;
+    const res = await K.aiFill(list, { call: async (s, p) => { calls++; if (calls === 2) throw Object.assign(new Error('quota'), { code: 'quota' }); return gloss(p); } });
+    ok(calls === 2 && res.stop === 'quota' && res.filled === 20 && res.missing === 30 && list.slice(20).every(c => !c.meaning), 'aiFill: hết lượt giữa chừng → dừng, giữ phần đã điền, không ném lỗi');
+    const r2 = await K.aiFill(mkList(3), { call: async () => { throw new Error('boom'); } }); ok(r2.stop === 'fail' && r2.filled === 0, 'aiFill: lỗi khác → dừng im lặng');
+  }
+  { // đầu ra xấu: bỏ từ không hỏi, rỗng, không phải chuỗi; làm sạch thẻ HTML; cắt 80 ký tự
+    const list = mkList(4);
+    await K.aiFill(list, { call: async () => ({ m: { [list[0].word]: '  "<b>phù du</b>\n"  ', [list[1].word]: '', [list[2].word]: 42, injected: 'x', [list[3].word]: 'a'.repeat(200) } }) });
+    ok(!/[<>\n]/.test(list[0].meaning) && /phù du/.test(list[0].meaning), 'aiFill: bỏ < > xuống dòng: ' + list[0].meaning);
+    ok(!list[1].meaning && !list[2].meaning && list[3].meaning.length === 80 && list.every(c => c.word !== 'injected'), 'aiFill: bỏ rỗng/không phải chuỗi/từ không hỏi, cắt 80 ký tự');
+    const bad = mkList(2); const rb = await K.aiFill(bad, { call: async () => null }); ok(rb.filled === 0 && rb.stop === '', 'aiFill: đầu ra null → không điền, không lỗi');
+  }
+  { const list = mkList(30); let calls = 0; const res = await K.aiFill(list, { call: async (s, p) => { calls++; return gloss(p); }, isCancelled: () => calls >= 1 }); ok(calls === 1 && res.filled === 20, 'aiFill: hủy được giữa các lô'); }
+  // thẻ: nghĩa AI đánh dấu aimean; không đánh dấu nomean
+  const C = { make: (e, x) => ({ word: e.word, vi: e.vi || '', def: e.def || '', ...x }) };
+  const cards = K.makeCards(C, [{ word: 'zeta', meaning: 'chữ zeta', ai: 1, sentence: 'A zeta.' }, { word: 'eta', meaning: 'chữ eta' }, { word: 'iota', meaning: '' }], { deck: 'D', source: 's' });
+  ok(cards[0].aimean === 1 && !cards[0].nomean && !cards[1].aimean && cards[2].nomean === 1 && cards[0].vi === 'chữ zeta', 'makeCards: nghĩa AI → aimean=1; từ điển không; thiếu nghĩa → nomean');
+}
+
 // ---------- 9. Giao diện (jsdom) ----------
 {
   const dom = new JSDOM('<!doctype html><html><head></head><body><main id="view"></main><div id="modal" hidden><div id="modalBox"></div></div><div id="toast"></div></body></html>', { url: 'https://lexkite.com/app/#/deck', runScripts: 'outside-only', pretendToBeVisual: true });
@@ -185,6 +232,52 @@ Skeptical readers doubted the claims, and a skeptical editor agreed. Xqzvtp is n
   q('#idUndo').click(); await until(() => !Object.values(map).some(c => c.deck === 'Chapter one'));
   ok(!Object.values(map).some(c => c.deck === 'Chapter one') && map.abundant, 'Hoàn tác: bỏ đúng thẻ vừa tạo, giữ thẻ cũ');
   ok(syncs === 0, 'Hoàn tác: không đẩy lên đồng bộ');
+  // --- Liên kết bài viết + AI điền nghĩa (nút người học tự bấm; hết lượt → im lặng) ---
+  {
+    const ART = 'The zephyrous breeze felt sublime. A zephyrous wind and a quixotic plan followed. ' + Array.from({ length: 12 }, (_, i) => `Then quuz${uw(i)} arrived. `).join('') + 'Ephemeral joy faded and the ephemeral glow stayed.';
+    const calls = []; let aiMode = 'quota';
+    w.AbortSignal = AbortSignal;
+    w.fetch = async (u, o) => {
+      calls.push({ u, b: o && o.body ? JSON.parse(o.body) : null });
+      if (/\/api\/readable/.test(u)) return new Response(JSON.stringify({ title: 'Great Article.html', text: ART, host: 'news.example.com' }), { status: 200 });
+      if (aiMode === 'quota') return new Response(JSON.stringify({ error: 'quota', msg: 'quota.daily', signIn: true }), { status: 429 });
+      const items = JSON.parse(JSON.parse(o.body).prompt.split('\n')[1]); return new Response(JSON.stringify({ out: { m: Object.fromEntries(items.map(x => [x.w, 'nghĩa ' + x.w])) } }), { status: 200 });
+    };
+    w.Sync = { schedule() { syncs++; }, user: { getIdToken: async () => 'tok' } };
+    d.getElementById('modal').hidden = false; await w.ImportDeck.open();
+    ok(q('#idLink') && q('#idLinkGo') && q('#idLinkGo').disabled && /article link/i.test(box.textContent), 'bước 1: ô dán liên kết + nút Read link (khóa khi trống)');
+    q('#idLink').value = 'ftp://x.com/a'; q('#idLink').dispatchEvent(new w.Event('input')); ok(q('#idLinkGo').disabled, 'liên kết không phải http(s) → nút khóa');
+    q('#idLink').value = 'https://news.example.com/story?id=1'; q('#idLink').dispatchEvent(new w.Event('input')); ok(!q('#idLinkGo').disabled, 'liên kết http(s) → nút mở');
+    q('#idLinkGo').click();
+    ok(await until(() => q('.idk-list')), 'liên kết: đọc xong → bước 2 hiện danh sách từ');
+    ok(calls.filter(c => /readable/.test(c.u)).length === 1 && JSON.stringify(calls[0].b) === '{"url":"https://news.example.com/story?id=1"}', 'liên kết: chỉ gửi URL tới /api/readable');
+    ok(/zephyrous/.test(box.textContent), 'liên kết: từ lấy từ bài viết');
+    q('#idNext').click(); await tick();
+    ok(/Word meanings/.test(q('#idTitle').textContent) && q('#idAi') && /Fill meanings with AI/.test(q('#idAi').textContent) && /never the whole document/.test(box.textContent), 'bước 3: nút AI + ghi chú riêng tư khi còn từ thiếu nghĩa');
+    ok(calls.every(c => !/\/api\/ai/.test(c.u)), 'AI KHÔNG tự chạy – chỉ khi người học bấm');
+    q('#idAi').click(); await until(() => /AI couldn't fill/.test(box.textContent));
+    const ai1 = calls.filter(c => /\/api\/ai/.test(c.u));
+    ok(ai1.length === 1 && ai1[0].b.kind === 'import' && ai1[0].b.n <= 20 && ai1[0].b.n >= 1, 'AI: 1 lời gọi kind import cho lô đầu (n ≤ 20)');
+    ok(/AI couldn't fill/.test(box.textContent) && box.querySelectorAll('.idk-no').length >= 1 && q('#idNext') && !q('#idNext').disabled && !/quota/i.test(box.textContent), 'hết lượt → một dòng báo nhẹ, từ giữ "no meaning yet", vẫn tiếp tục được');
+    aiMode = 'ok'; q('#idAi').click(); await until(() => box.querySelector('.idk-ai'));
+    ok(box.querySelectorAll('.idk-ai').length >= 1 && /AI suggestion/.test(box.textContent) && /nghĩa zephyrous/.test(box.textContent), 'AI điền được → nghĩa hiện kèm nhãn "AI suggestion"');
+    const sentWords = calls.filter(c => /\/api\/ai/.test(c.u) && c.b).flatMap(c => JSON.parse(c.b.prompt.split('\n')[1]).map(x => x.w));
+    ok(sentWords.length && !sentWords.includes('ephemeral'), 'AI: không gửi từ đã có nghĩa trong từ điển');
+    q('#idNext').click(); await tick();
+    ok(q('#idDeck').value === 'Great Article' && box.querySelector('.idk-ai'), 'bước 4: tên bộ lấy từ tiêu đề bài, xem trước có nhãn AI');
+    const want2 = Object.keys(map).length; q('#idSave').click(); ok(await until(() => q('#idUndo')), 'lưu bộ từ liên kết');
+    const got = Object.values(map).filter(c => c.deck === 'Great Article');
+    ok(got.length >= 3 && got.every(c => c.contexts[0].title === 'news.example.com') && got.some(c => c.aimean === 1 && /^nghĩa /.test(c.vi || c.def)) && got.find(c => c.word === 'ephemeral').vi === 'phù du' && !got.find(c => c.word === 'ephemeral').aimean && Object.keys(map).length > want2, 'thẻ: nguồn = tên miền, nghĩa AI đánh dấu aimean, nghĩa từ điển không');
+    q('#idUndo').click(); await until(() => !Object.values(map).some(c => c.deck === 'Great Article'));
+    // lỗi liên kết: thông báo rõ, quay lại bước 1, không treo
+    w.fetch = async () => new Response(JSON.stringify({ error: 'blocked' }), { status: 403 });
+    d.getElementById('modal').hidden = false; await w.ImportDeck.open(); q('#idLink').value = 'http://192.168.1.1/'; q('#idLink').dispatchEvent(new w.Event('input')); q('#idLinkGo').click();
+    ok(await until(() => q('.idk-err')) && /invalid or not allowed/.test(q('.idk-err').textContent) && q('#idLink') && q('#idLink').value === 'http://192.168.1.1/', 'liên kết bị chặn → báo rõ, giữ nguyên ô nhập');
+    w.fetch = async () => { throw new TypeError('Failed to fetch'); };
+    q('#idLinkGo').click(); ok(await until(() => q('.idk-err') && /try again/i.test(q('.idk-err').textContent)), 'mất mạng → thông báo, không treo');
+    w.fetch = async () => new Response(JSON.stringify({ error: 'quota', msg: 'quota.burst', signIn: true }), { status: 429 });
+    q('#idLinkGo').click(); ok(await until(() => q('.idk-err') && /busy|try again|sign in/i.test(q('.idk-err').textContent) && !/quota\./i.test(q('.idk-err').textContent)), 'hết lượt đọc liên kết → câu thân thiện (UI.quotaText), không lộ mã');
+  }
   w.eval('1'); // đóng hộp thoại, không rò hẹn giờ
   d.getElementById('modal').hidden = true;
   // Cờ TẮT: hộp Anki không hiện nút nhập tài liệu; BẬT: có
@@ -201,7 +294,9 @@ Skeptical readers doubted the claims, and a skeptical editor agreed. Xqzvtp is n
   ok(orgFn({ topic: 'import', deck: 'Chapter one', contexts: [] }) === 'doc' && orgFn({ topic: 'anki', deck: 'My deck', contexts: [] }) === 'anki' && orgFn({ topic: 'x', deck: 'D', contexts: [] }) === 'anki', 'origin(): thẻ nhập tài liệu → doc, thẻ Anki giữ anki');
   ok(/doc: \{ emoji: '📥', get name\(\) \{ return t\('Từ tài liệu'\)/.test(app) && /'Từ tài liệu':\s*'From a document'/.test(rd('js/i18n/en/shell.js')), 'ORIGINS.doc có nhãn "Từ tài liệu" + bản en');
   const src = rd('cpack/importdeck-app/importdeck.js');
-  ok(!/fetch\([^)]*(post|POST)|sendBeacon|XMLHttpRequest/.test(src) && !/method:\s*['"]POST/.test(src), 'không gửi nội dung người dùng đi đâu (không POST/beacon)');
+  const posts = src.match(/method:\s*['"]POST['"]/g) || [];
+  ok(!/sendBeacon|XMLHttpRequest/.test(src) && posts.length === 2 && /\/api\/readable/.test(src) && /\/api\/ai/.test(src) && !/\/api\/(?!readable|ai)/.test(src), 'chỉ 2 đường gửi đi, đều do người học bấm: /api/readable (chỉ URL) và /api/ai (từ + câu gốc); không beacon/XHR/đường nào khác');
+  ok(/kind: 'import'/.test(src), 'AI dùng kind import (quota riêng)');
   ok(/integrity/.test(src) && /pdfjs-dist@3\.11\.174/.test(src), 'pdf.js ghim phiên bản + SRI');
 }
 
