@@ -20,6 +20,7 @@ on:
       neurons: { description: 'Trần neuron kho CF_POOL lượt này (ai-pool cf2; 4006 → tài khoản kế)', default: '600000' }
       retry: { description: 'Làm lại danh sách retry trước (0 = lượt kiểm nhỏ, bỏ qua)', default: '1' }
       shards: { description: 'Số shard song song (ci-filler lấp runner rảnh; mỗi shard phần ứng viên theo băm từ#loại, trần neuron chia đều)', default: '1' }
+      force: { description: 'Bỏ cổng «lượt gần rỗng» ở bước plan (1 = chạy dù last-run báo < EMPTY_RUN mục); soát/mẫu cố định không bị cổng', default: '0' }
       words: { description: 'Mẫu pilot CỐ ĐỊNH (vd content/lexicon/expand/pilot/hard.json): chỉ xử lý các từ đó, chấm tự động (grade.mjs), KHÔNG ghi repo', default: '' }
 permissions:
   contents: write
@@ -35,8 +36,16 @@ jobs:
   plan:
     runs-on: ubuntu-latest
     timeout-minutes: 3
-    outputs: { shards: '${{ steps.p.outputs.shards }}', n: '${{ steps.p.outputs.n }}', batch: '${{ steps.p.outputs.batch }}' }
+    outputs: { shards: '${{ steps.p.outputs.shards }}', n: '${{ steps.p.outputs.n }}', batch: '${{ steps.p.outputs.batch }}', idle: '${{ steps.idle.outputs.idle }}' }
     steps:
+      # 11/11 (48 h: mọi lượt nFresh 0, 4,2 % đạt, ~35 phút × 4 shard cho 7–16 mục/shard): cron/ci-filler/dispatch thường qua cổng laneEmpty (lib.mjs) TRƯỚC khi thuê 1–6 runner tải nguồn nặng
+      - uses: actions/checkout@v4
+        if: ${{ github.event.inputs.words == '' && github.event.inputs.audit == '' && github.event.inputs.force != '1' }}
+      - uses: ./.github/actions/no-prod
+        if: ${{ github.event.inputs.words == '' && github.event.inputs.audit == '' && github.event.inputs.force != '1' }}
+      - id: idle
+        if: ${{ github.event.inputs.words == '' && github.event.inputs.audit == '' && github.event.inputs.force != '1' }}
+        run: if node scripts/lexicon/expand/left.mjs --idle; then echo "idle=1" >> $GITHUB_OUTPUT; echo '⏹ lượt gần nhất gần rỗng (< EMPTY_RUN mục, retry chưa tăng, < 24 h) – bỏ lượt (force=1 để chạy)'; fi
       - id: p
         env:
           LX_SHARDS: ${{ github.event.inputs.shards }}
@@ -50,6 +59,7 @@ jobs:
           echo "n=$n" >> $GITHUB_OUTPUT; echo "shards=$(seq -s, 0 $((n-1)) | sed 's/^/[/;s/$/]/')" >> $GITHUB_OUTPUT
   expand:
     needs: plan
+    if: ${{ needs.plan.outputs.idle != '1' }}
     strategy: { fail-fast: false, max-parallel: 6, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }
     runs-on: ubuntu-latest
     timeout-minutes: 200   # 30/10 đo pilot 9: ~14 s/từ (Gemini 3.x chậm) → LX_N 600 ≈ 140 phút

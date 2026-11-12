@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_whereyouare",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Are before you!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Where you are going?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Where are you going?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put are before you.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Are you! Where are you going?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Where you are going?",
+  "right": "Where are you going?",
+  "strike": "you are",
+  "why": "Put are before you.",
+  "memory": "Where are you?",
+  "quiz": {
+   "stem": "Where ___ going?",
+   "options": [
+    "you are",
+    "are you"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Where you are” का क्रम ग़लत!",
+   "tip": "हिंदी में “आप कहाँ जा रहे हैं” का क्रम अलग है; अंग्रेज़ी सवाल में are पहले आता है।",
+   "caption": "क्या आप भी कहते हैं “Where you are going?”? 🙈 अंग्रेज़ी में “Where are you going?” सही है, क्योंकि सवाल में are, you से पहले आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “are you”। क्रम बदलकर “are you” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Where you are” has the wrong order!",
+   "tip": "The Hindi word order differs; in an English question are comes first.",
+   "caption": "Do you say “Where you are going?”? 🙈 In English “Where are you going?” is right, because in a question are comes before you. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Where you are” का क्रम ग़लत!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“Where you are” का क्रम ग़लत!",
+  "keyword": "Where are you going?",
+  "value": "हिंदी में “आप कहाँ जा रहे हैं” का क्रम अलग है; अंग्रेज़ी सवाल में are पहले आता है।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "“Where you are” का क्रम ग़लत!",
+    "description": "क्या आप भी कहते हैं “Where you are going?”? 🙈 अंग्रेज़ी में “Where are you going?” सही है, क्योंकि सवाल में are, you से पहले आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "Where are you going?",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “Where you are going?”? 🙈 अंग्रेज़ी में “Where are you going?” सही है, क्योंकि सवाल में are, you से पहले आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “Where you are going?”? 🙈 अंग्रेज़ी में “Where are you going?” सही है, क्योंकि सवाल में are, you से पहले आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Where you are” का क्रम ग़लत! #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “are you”। क्रम बदलकर “are you” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

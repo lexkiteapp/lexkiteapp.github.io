@@ -1,0 +1,112 @@
+# 🧾 Audit tổng (docs/QUALITY-SWEEP.md §Audit tổng): chấm MỌI trang/mục/tính năng web + app + add-on, sáng/tối, 390/1440, 15 ngôn ngữ → MỘT bảng xếp từ thấp đến cao trên nhánh audit-report, so được giữa các lần.
+# Không fan-out (không workflow_run/check_suite). Lịch ngoài giờ cao điểm; chạy lại sau khi sửa: Actions → Audit tổng. Mục không đo được = "chưa đo", không điểm giả.
+name: Audit tổng
+on:
+  schedule:
+    - cron: '17 19 * * 1,4'   # thứ Hai + Năm 02:17 VN
+  workflow_dispatch:
+    inputs:
+      only: { description: 'id mục, phẩy (trống = tất cả; vd app:home,web:/L/)', required: false, default: '' }
+  push:
+    branches: [main]
+    paths: ['scripts/audit/**', '.github/workflows/audit-all.yml']
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: audit-all-${{ github.ref }}
+  cancel-in-progress: false
+env:
+  PW_VER: playwright@1.50.1
+  AUDIT_ONLY: ${{ inputs.only }}   # lượt thử vài mục: không đòi đủ mục, không ghi đè bảng
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci --no-audit --no-fund && bash scripts/build-web.sh >/dev/null
+      - run: tar -czf dist.tgz dist
+      - uses: actions/upload-artifact@v4
+        with: { name: audit-dist, path: dist.tgz, retention-days: 1, compression-level: 0 }
+
+  scan:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      max-parallel: 12   # chừa runner cho PR (docs/CI-RUNNERS.md)
+      fail-fast: false
+      matrix:
+        job: [app-0, app-1, app-2, app-3, app-4, app-5, app-6, app-7, app-8, app-9, app-10, app-11, app-12, app-13, page-0, page-1, page-2, page-3, ext-0]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - uses: actions/download-artifact@v4
+        with: { name: audit-dist }
+      - run: tar -xzf dist.tgz
+      - name: Cài công cụ
+        timeout-minutes: 14
+        run: |
+          npm ci --no-audit --no-fund
+          npm i --no-save --no-audit --no-fund $PW_VER
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core fonts-noto-ui-core }
+      - uses: ./.github/actions/no-prod
+        with: { hosts: 'audio.lexkite.com', sw: 'off' }
+      - name: Add-on dựng từ dist
+        if: startsWith(matrix.job, 'ext')
+        run: bash scripts/build-extension.sh
+      - name: Quét ${{ matrix.job }}
+        run: |
+          J='${{ matrix.job }}'; K=${J%-*}; I=${J##*-}
+          N=$(case $K in app) echo 14;; page) echo 4;; *) echo 1;; esac)
+          if [ -n "$AUDIT_ONLY" ]; then [ "$I" = 0 ] || exit 0; node scripts/audit/scan.mjs --kind "$K" --shard 0/1 --only "$AUDIT_ONLY" --out out/audit
+          else node scripts/audit/scan.mjs --kind "$K" --shard "$I/$N" --out out/audit; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'audit-${{ matrix.job }}', path: out/audit, retention-days: 3, if-no-files-found: ignore }
+
+  report:
+    needs: scan
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci --no-audit --no-fund
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'audit-*-*', path: out/audit, merge-multiple: true }
+      - name: Giám khảo độ đẹp trên ảnh thật (ai-pool, $0; thiếu khoá → "chưa đo")
+        continue-on-error: true
+        env:
+          GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+          STUDIO_CALLBACK_SECRET: ${{ secrets.STUDIO_CALLBACK_SECRET }}
+          CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
+          CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
+        run: node scripts/audit/judge.mjs out/audit
+      - name: Lấy kết quả lần trước
+        run: |
+          mkdir -p out/prev out/pub/runs
+          if git fetch -q --depth=1 origin audit-report; then git archive FETCH_HEAD latest.json runs | tar -x -C out/prev || true; cp -r out/prev/runs/. out/pub/runs/ 2>/dev/null || true; fi
+      - name: Chấm + bảng điểm
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+        run: |
+          node scripts/audit/report.mjs out/audit out/pub out/prev/latest.json
+          cp -r out/audit/shots out/pub/shots
+          head -8 out/pub/SCORE.md >> "$GITHUB_STEP_SUMMARY"
+          echo "Bảng đầy đủ: https://github.com/$GITHUB_REPOSITORY/blob/audit-report/SCORE.md" >> "$GITHUB_STEP_SUMMARY"
+      - name: Đẩy bảng lên nhánh audit-report (ghi đè – repo không phình)
+        if: env.AUDIT_ONLY == ''
+        env: { GH_TOKEN: '${{ github.token }}', REPO: '${{ github.repository }}' }
+        run: |
+          cd out/pub && git init -q && git checkout -q -b audit-report
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add . && git commit -qm "audit $(date -u +%F) [CF-Pages-Skip]"
+          git push -qf "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git" HEAD:audit-report

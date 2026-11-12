@@ -26,13 +26,66 @@ export const SEED_LEAGUE = () => {
   window.Sync = window.Sync || {}; Sync.user = { uid: 'u1', displayName: 'You Lexkite' }; Sync.authed = async () => Sync.user;
   Sync.league = async () => ({ member: { nick: 'You', tier: 3, xp: 820 }, week: { end: Date.now() + 3 * 864e5 }, rules: { up: 3, down: 2, maxTier: 5 }, board: names.map((n, i) => ({ rank: i + 1, nick: n, xp: xps[i], me: i === 4, zone: i < 3 ? 'up' : i >= 5 ? 'down' : '' })) });
 };
-export const SCREENS = { 'vocab-hub': 'vocab', home: 'home', complete: 'lesson/go?demo=1', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', 'feedback-wrong': 'lesson/go?demo=1', readiness: 'goal', review: 'review?hub=1', practice: 'train', leagues: 'league', me: 'me', streak: 'streak', call: 'call/coffee', story: 'lesson/go?demo=1', 'today-new': 'home', 'speak-sit': 'speak/cafe', 'speak-drill': 'speak/cafe/drill', 'onb-goal': 'welcome/setup', 'onb-level': 'welcome/setup?s=level', 'onb-target': 'welcome/setup?s=target', 'onb-pace': 'welcome/setup?s=pace', 'onb-ready': 'welcome/setup?s=ready', welcome: 'welcome', 'welcome-desk': 'welcome' }; // home = Hôm nay v2 (người đang học, lộ trình đầy đủ trong khối Your path) · today-new = người mới (DRIVE đặt về trạng thái chưa học)
+export const SCREENS = {
+  call: 'call/coffee',
+  complete: 'lesson/go?demo=1',
+  feedback: 'lesson/go?demo=1',
+  'feedback-wrong': 'lesson/go?demo=1',
+  home: 'home',
+  leagues: 'league',
+  lesson: 'lesson/go?demo=1',
+  me: 'me',
+  'onb-goal': 'welcome/setup',
+  'onb-level': 'welcome/setup?s=level',
+  'onb-pace': 'welcome/setup?s=pace',
+  'onb-ready': 'welcome/setup?s=ready',
+  'onb-target': 'welcome/setup?s=target',
+  practice: 'train',
+  readiness: 'goal',
+  review: 'review?hub=1',
+  skills: 'skills',
+  'speak-drill': 'speak/cafe/drill',
+  'speak-sit': 'speak/cafe',
+  story: 'lesson/go?demo=1',
+  streak: 'streak',
+  'today-new': 'home',
+  'vocab-hub': 'vocab',
+  welcome: 'welcome',
+  'welcome-desk': 'welcome',
+}; // home = Hôm nay v2 (người đang học, lộ trình đầy đủ trong khối Your path) · today-new = người mới (DRIVE đặt về trạng thái chưa học)
 // Mẫu so sánh: ảnh vẽ từ HTML Stitch v2 (scripts/test/stitch-render.mjs, cùng job CI → out/stitch-v2/png) theo tên màn v2; chưa có thì JPG cũ brand/stitch/
-export const V2REF = { 'vocab-hub': 'vocab-hub', home: 'today', 'today-new': 'today-new', lesson: 'lesson-question', feedback: 'feedback-correct', 'feedback-wrong': 'feedback-wrong', complete: 'lesson-complete', readiness: 'exam-readiness', review: 'review', practice: 'practice', leagues: 'leagues', me: 'me', streak: 'streak', call: 'teacher-call', story: 'story-duo', 'speak-sit': 'pas-sit', 'speak-drill': 'pas-drill', 'onb-goal': 'onb-goal', 'onb-level': 'onb-level', 'onb-target': 'onb-target', 'onb-pace': 'onb-pace', 'onb-ready': 'onb-ready', welcome: 'welcome', 'welcome-desk': 'welcome-desk' };
+export const V2REF = {
+  call: 'teacher-call',
+  complete: 'lesson-complete',
+  feedback: 'feedback-correct',
+  'feedback-wrong': 'feedback-wrong',
+  home: 'today',
+  leagues: 'leagues',
+  lesson: 'lesson-question',
+  me: 'me',
+  'onb-goal': 'onb-goal',
+  'onb-level': 'onb-level',
+  'onb-pace': 'onb-pace',
+  'onb-ready': 'onb-ready',
+  'onb-target': 'onb-target',
+  practice: 'practice',
+  readiness: 'exam-readiness',
+  review: 'review',
+  skills: 'skills',
+  'speak-drill': 'pas-drill',
+  'speak-sit': 'pas-sit',
+  story: 'story-duo',
+  streak: 'streak',
+  'today-new': 'today-new',
+  'vocab-hub': 'vocab-hub',
+  welcome: 'welcome',
+  'welcome-desk': 'welcome-desk',
+};
 // Bài thử: trả lời ĐÚNG (App._lsn) tới câu trắc nghiệm đầu tiên – giống bối cảnh mẫu Stitch (câu 3/5, đã chọn đáp án đúng); feedback = bấm Kiểm tra
 // màn cần lái tới trạng thái (bài học/phản hồi/kết quả/truyện/cuộc gọi) – stitch-diff và final-qc dùng CHUNG (từng chỉ lái lesson/feedback → chụp nhầm câu đầu)
 export const DRIVEN = /^(lesson|feedback|complete|story|call|today-new|onb-|welcome)/;
 export const DRIVE = async k => { const nz = v => String(v).trim().replace(/[.,!?;:]+$/, '').toLowerCase(), q = s => document.querySelector(s), qa = s => [...document.querySelectorAll(s)], w = ms => new Promise(r => setTimeout(r, ms));
+  if (/^(lesson|feedback|complete)/.test(k) && window.PathTrail) { PathTrail.wordsOf = () => null; await App.routes.lesson('go'); await w(1200); } // ĐỀ QC như story bên dưới: giữ bộ từ thử mà mẫu Stitch vẽ để so như-với-như (nút Lộ trình có từ riêng; bố cục câu dài do ux1-guard + 360 px canh)
   if (/^(onb-|welcome)/.test(k)) { const S = App.state, sel = k === 'welcome' || k === 'welcome-desk' ? ':is(.v2s-welcome, .v2s-welcome-desk)' : '.v2s-' + k; S.settings.onboarded = false; S.cards = {}; S.game.xp = 0; location.hash = /^welcome/.test(k) ? '#/welcome' : '#/welcome/setup?s=' + k.slice(4); for (let i = 0; i < 60 && !q(sel); i++) await w(100); return; } // người có dữ liệu bị chuyển về Hôm nay (docs/specs/welcome.md) → người mới, chỉ trong bộ nhớ
   if (k === 'today-new') { // người mới như mẫu: chưa chọn mục tiêu, 0 XP, chưa học ngày nào (chỉ trong bộ nhớ – lượt tải lại sau đọc lại dữ liệu mẫu) → khung today-new
     localStorage.setItem('lk.lsn.path', '0'); localStorage.removeItem('lk.ux1.pk'); const g = App.state.game || {}; g.xp = 0; g.days = {}; g.frozen = {}; App.state.stats.days = {}; ['examTarget', 'goalPick', 'goal'].forEach(x => delete App.state.settings[x]);
@@ -75,7 +128,7 @@ export const DRIVE = async k => { const nz = v => String(v).trim().replace(/[.,!
 // 13 màn chủ duyệt (v2.1) → khóa trong SCREENS (null = chưa port/chưa chụp → QC cuối ĐỎ). teacher: tư thế mong đợi theo trạng thái (teacher-pose-map), null = màn không có giáo viên;
 // ready: bộ chọn chứng tỏ đã lái TỚI đúng trạng thái (chụp khi chưa tới = ĐỎ ở stitch-diff + final-qc); speaks: giáo viên phải nói (kiểm giọng == giáo viên + khớp miệng); sfx: âm hiệu ứng phải phát; duo: 2 giáo viên cùng màn. Màn port xong: điền k + SCREENS/V2REF/DRIVE.
 export const FINAL = [
-  { stitch: 'today', k: 'home', ready: ':is(.v2-today, .v2-today-desk) [data-blk="path"] :is([data-cur], [data-pv])' /* điện thoại: today (khối lộ trình thu gọn 3 nút [data-pv], lộ trình đầy đủ mở tại chỗ) · máy tính ≥ 1024: today-desk (lộ trình đầy đủ) */, teacher: ['happy', 'talk', 'point'] /* happy = vòng nghỉ Chars.idle (chủ 3/11: cô sống ở Hôm nay) */ }, { stitch: 'today-new', k: 'today-new', ready: '.v2-today-new [data-step]', teacher: ['wave'] }, { stitch: 'review', k: 'review', teacher: null }, { stitch: 'practice', k: 'practice', teacher: null },
+  { stitch: 'today', k: 'home', ready: ':is(.v2-today, .v2-today-desk) [data-blk="path"] :is([data-cur], [data-pv])' /* một component PathTrail [data-pv] ở cả today (điện thoại) và today-desk (≥ 1024): thu gọn = chặng hiện tại, mở rộng chỉ thêm hàng */, teacher: ['happy', 'talk', 'point'] /* happy = vòng nghỉ Chars.idle (chủ 3/11: cô sống ở Hôm nay) */ }, { stitch: 'today-new', k: 'today-new', ready: '.v2-today-new [data-step]', teacher: ['wave'] }, { stitch: 'review', k: 'review', teacher: null }, { stitch: 'practice', k: 'practice', teacher: null },
   { stitch: 'leagues', k: 'leagues', teacher: null }, { stitch: 'me', k: 'me', teacher: null }, { stitch: 'streak', k: 'streak', teacher: ['encourage'] },
   { stitch: 'exam-readiness', k: 'readiness', teacher: null }, { stitch: 'teacher-call', k: 'call', ready: '.tch', teacher: ['talk', 'listen'], speaks: true },
   { stitch: 'lesson-question', k: 'lesson', ready: '.lsn-opts .lsn-opt', teacher: ['listen', 'talk'], speaks: true }, { stitch: 'feedback-correct', k: 'feedback', ready: '.lsn-fv2.ok', teacher: ['cheer'], sfx: ['correct'] },

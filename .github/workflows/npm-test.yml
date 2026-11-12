@@ -9,15 +9,35 @@ on:
   workflow_call:
     inputs:
       sha: { type: string, required: false, default: '' }
+# ci-policy: matrix – 8 shard song song cân theo thời gian đo (38 phút tuần tự → ~6 phút); mỗi shard setup ~40 s (npm ci 1 s, cache), tổng runner-phút tăng ~10 %, đổi lấy vòng CI ngắn hơn 6 lần
 permissions: { contents: read }
 concurrency:
   group: npm-test-${{ github.event.pull_request.number || inputs.sha || github.sha }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
-  test:
-    name: npm test
+  # 12/11 chia song song (trước: 1 job tuần tự 38 phút → ~6 phút): `fast` (lint/chính sách, đỏ sớm) + 8 shard cân theo thời gian đo
+  # (scripts/test/suite-weights.json) chạy ĐỒNG THỜI; job `test` (tên check "npm test" – cổng luật 11/heavy/guards đọc đúng tên này) gộp kết quả.
+  # fail-fast TẮT: một lượt thấy MỌI lỗi (ít vòng CI hơn). scripts/test/suite-shards.mjs canh: hợp fast+shard = đúng toàn bộ suite.txt, số shard khớp matrix.
+  fast:
+    name: npm test fast
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: "${{ inputs.sha }}" }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci --no-audit --no-fund
+      - name: làn nhanh (lint + chính sách)
+        run: node scripts/test/run-suite.mjs --fast
+  shard:
+    name: npm test shard ${{ matrix.shard }}/8
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4, 5, 6, 7, 8]
     steps:
       - uses: actions/checkout@v4
         with: { ref: "${{ inputs.sha }}" }
@@ -26,8 +46,20 @@ jobs:
       - run: npm ci --no-audit --no-fund
       - name: nhánh gốc cho báo cáo khung app theo module (shell-size.mjs so Δ cùng bản Node)
         run: git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main || true
-      - name: npm test (cổng — cùng bộ kiểm với mergecheck/health/Prod release)
-        run: npm test
+      - name: npm test – phần ${{ matrix.shard }}/8
+        run: node scripts/test/run-suite.mjs --shard=${{ matrix.shard }}/8
+  test:
+    name: npm test
+    needs: [fast, shard]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: gộp kết quả (đỏ nếu bất kỳ phần nào không xanh)
+        env: { FAST: '${{ needs.fast.result }}', SHARD: '${{ needs.shard.result }}' }
+        run: |
+          echo "fast=$FAST shard=$SHARD"
+          [ "$FAST" = success ] && [ "$SHARD" = success ]
   # luật 11 (làn nhanh trước làn nặng): npm test xanh → chạy lại các lượt nặng (QA bot, Journey E2E, …) mà job `gate` của chúng đã bỏ qua vì npm test chưa xong. Chỉ ĐỌC API + rerun.
   heavy:
     needs: test

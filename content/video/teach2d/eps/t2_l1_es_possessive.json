@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_possessive",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Use 's, not “of”!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The car of my father is old.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My father's car is old.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use 's for people's things.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "My mom's! This is my mom's car.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The car of my father is old.",
+  "right": "My father's car is old.",
+  "strike": "The car of my father",
+  "why": "Use 's for people's things.",
+  "memory": "Ana's book.",
+  "quiz": {
+   "stem": "This is ___ car.",
+   "options": [
+    "of my mom",
+    "my mom's"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“The car of my father”: suena raro",
+   "tip": "Para el dueño usa “'s”: “my father's car”. “Of” casi no se usa con personas.",
+   "caption": "En español “el coche de mi padre”, pero en inglés usamos 's 🚗 No “The car of my father is old.”, sino “My father's car is old.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “Ana's”. Dueño + 's + cosa. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#posesivos",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“The car of my father” sounds odd",
+   "tip": "For the owner use “'s”: “my father's car”. “Of” is rare with people.",
+   "caption": "In Spanish “el coche de mi padre”, but English uses 's. Not “The car of my father is old.”, but “My father's car is old.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“The car of my father”: suena raro"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“The car of my father”: suena raro",
+  "keyword": "My father's car is old.",
+  "value": "Para el dueño usa “'s”: “my father's car”. “Of” casi no se usa con personas.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#posesivos",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“The car of my father”: suena raro",
+    "description": "En español “el coche de mi padre”, pero en inglés usamos 's 🚗 No “The car of my father is old.”, sino “My father's car is old.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #posesivos #lexkite",
+    "tags": [
+     "My father's car is old.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "En español “el coche de mi padre”, pero en inglés usamos 's 🚗 No “The car of my father is old.”, sino “My father's car is old.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "En español “el coche de mi padre”, pero en inglés usamos 's 🚗 No “The car of my father is old.”, sino “My father's car is old.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#posesivos",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“The car of my father”: suena raro #aprenderingles #inglesfacil #posesivos"
+   }
+  },
+  "first_comment": "Respuesta: “Ana's”. Dueño + 's + cosa. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

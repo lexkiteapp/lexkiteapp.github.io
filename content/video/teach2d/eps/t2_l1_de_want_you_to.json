@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_want_you_to",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Want needs a different shape!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want that you come.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I want you to come.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say want you to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! I want you to help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want that you come.",
+  "right": "I want you to come.",
+  "strike": "that you come",
+  "why": "Say want you to.",
+  "memory": "Want you to.",
+  "quiz": {
+   "stem": "I want you ___ help me.",
+   "options": [
+    "to",
+    "that"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Nicht „want that“ sagen!",
+   "tip": "Im Englischen gibt es kein „want that“. Du sagst „I want you to come“.",
+   "caption": "Du willst, dass jemand etwas tut? 💬 Falsch: “I want that you come.” Richtig: “I want you to come.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “to”. Richtig heißt es: “I want you to come.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you want someone to do something?",
+   "tip": "English has no “want that”. You say “I want you to come”.",
+   "caption": "Do you want someone to do something? Wrong: “I want that you come.” Right: “I want you to come.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Nicht „want that“ sagen!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Nicht „want that“ sagen!",
+  "keyword": "I want you to come.",
+  "value": "Im Englischen gibt es kein „want that“. Du sagst „I want you to come“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Nicht „want that“ sagen!",
+    "description": "Du willst, dass jemand etwas tut? 💬 Falsch: “I want that you come.” Richtig: “I want you to come.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I want you to come.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Du willst, dass jemand etwas tut? 💬 Falsch: “I want that you come.” Richtig: “I want you to come.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Du willst, dass jemand etwas tut? 💬 Falsch: “I want that you come.” Richtig: “I want you to come.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Nicht „want that“ sagen! #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “to”. Richtig heißt es: “I want you to come.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

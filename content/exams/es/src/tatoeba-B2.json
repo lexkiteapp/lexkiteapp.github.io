@@ -1,0 +1,320 @@
+{
+ "v": 1,
+ "source": "Tatoeba (tatoeba.org), CC BY 2.0 FR",
+ "license": "https://creativecommons.org/licenses/by/2.0/fr/",
+ "lv": "B2",
+ "items": [
+  {
+   "id": 1731209,
+   "au": "wallebot",
+   "s": "Cuando llegó el ___ ya se me habían pasado los dolores.",
+   "a": "médico",
+   "o": [
+    "llamada",
+    "broma",
+    "médico"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 978752,
+   "au": "Angel_VV",
+   "s": "Ella se niega a ___ su carrera por el matrimonio.",
+   "a": "dejar",
+   "o": [
+    "deja",
+    "dejó",
+    "dejar"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 8379811,
+   "au": "arh",
+   "s": "Todo lo que tienes que ___ es colocar las compras en la bolsa.",
+   "a": "hacer",
+   "o": [
+    "hace",
+    "hizo",
+    "hacer"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 4378311,
+   "au": "umano",
+   "s": "Una vez, en un matrimonio, tuve que quitarle la liga a la ___ con los dientes.",
+   "a": "novia",
+   "o": [
+    "resto",
+    "minuto",
+    "novia"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10530772,
+   "au": "Shishir",
+   "s": "No puedes salvar el ___ leyendo un libro, pero te puedes salvar de tu propio mundo por un rato.",
+   "a": "mundo",
+   "o": [
+    "broma",
+    "nave",
+    "mundo"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1881115,
+   "au": "radu107",
+   "s": "Después de una larga espera por una ___ todos los cambios se han realizado.",
+   "a": "respuesta",
+   "o": [
+    "código",
+    "trato",
+    "respuesta"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1600323,
+   "au": "Alba",
+   "s": "No sabrás lo que puedes ___ hasta que no lo intentes.",
+   "a": "conseguir",
+   "o": [
+    "conseguir",
+    "consiguió",
+    "consigue"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1923535,
+   "au": "marcelostockle",
+   "s": "La ___ china es igual de rica que la francesa.",
+   "a": "comida",
+   "o": [
+    "comida",
+    "minuto",
+    "cuidado"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1712600,
+   "au": "marcelostockle",
+   "s": "La publicidad se puede describir como la ciencia de interrumpir la inteligencia humana el ___ suficiente para conseguir así dinero.",
+   "a": "tiempo",
+   "o": [
+    "broma",
+    "novia",
+    "tiempo"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 7192797,
+   "au": "arh",
+   "s": "¿No quieres que te cuente lo que hice el ___ pasado?",
+   "a": "verano",
+   "o": [
+    "cerveza",
+    "entrada",
+    "verano"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1805569,
+   "au": "marcelostockle",
+   "s": "Esta ___ no es adecuada para un día frío de invierno.",
+   "a": "ropa",
+   "o": [
+    "resto",
+    "daño",
+    "ropa"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 3393493,
+   "au": "marcelostockle",
+   "s": "Muchos residentes de esta ___ tienen bajo nivel de educación.",
+   "a": "calle",
+   "o": [
+    "director",
+    "novio",
+    "calle"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 2467120,
+   "au": "marcelostockle",
+   "s": "Una línea recta es un ___ particular de una curva.",
+   "a": "caso",
+   "o": [
+    "cuenta",
+    "puerta",
+    "caso"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 355008,
+   "au": "tatoerique",
+   "s": "Las enfermeras en general tienen derecho a ___ tres semanas de vacaciones al año.",
+   "a": "tomar",
+   "o": [
+    "tomar",
+    "toma",
+    "tomó"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 867873,
+   "au": "opor",
+   "s": "Olvidé apagar la ___ antes de irme a la cama.",
+   "a": "televisión",
+   "o": [
+    "árbol",
+    "animal",
+    "televisión"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1604826,
+   "au": "alexmarcelo",
+   "s": "No tenés que ___, no hice más que mi obligación.",
+   "a": "agradecer",
+   "o": [
+    "agradece",
+    "agradecer",
+    "agradeció"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 9002924,
+   "au": "carlosalberto",
+   "s": "¿Ellas viven en el ___ o en el quinto piso?",
+   "a": "cuarto",
+   "o": [
+    "llamada",
+    "cuarto",
+    "prueba"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1294013,
+   "au": "hayastan",
+   "s": "Cuando salí de la cárcel, no tenía intención de ___ a cometer otro crimen.",
+   "a": "volver",
+   "o": [
+    "volver",
+    "vuelve",
+    "volvió"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 2157150,
+   "au": "Kunstliebhaber",
+   "s": "El ___ campeón mundial japonés regresó a casa con la victoria.",
+   "a": "equipo",
+   "o": [
+    "seguridad",
+    "equipo",
+    "pregunta"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 8564563,
+   "au": "adaycito",
+   "s": "Se mudó a un sitio más cálido para ___ su salud.",
+   "a": "cuidar",
+   "o": [
+    "cuidar",
+    "cuida",
+    "cuidó"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10532513,
+   "au": "Shishir",
+   "s": "¿Alguna vez has pensado que tu novia te estaba poniendo los cuernos?",
+   "k": "l"
+  },
+  {
+   "id": 2500390,
+   "au": "al_ex_an_der",
+   "s": "La sabiduría nos llega cuando ya no nos sirve de nada.",
+   "k": "l"
+  },
+  {
+   "id": 1001631,
+   "au": "ssc73",
+   "s": "Me gusta ver los partidos de fútbol en la televisión.",
+   "k": "l"
+  },
+  {
+   "id": 3234149,
+   "au": "wallebot",
+   "s": "No he sido el único que lo ha arreglado, pero les daré las gracias de tu parte.",
+   "k": "l"
+  },
+  {
+   "id": 4405138,
+   "au": "hayastan",
+   "s": "Él huyó de la batalla porque temía perder la vida.",
+   "k": "l"
+  },
+  {
+   "id": 10263654,
+   "au": "Seael",
+   "s": "¿Pero de verdad te vas a meter por ahí con la linterna?",
+   "k": "l"
+  },
+  {
+   "id": 3153956,
+   "au": "fmolinero",
+   "s": "Fueron a la caza de los cuerpos entre las ruinas.",
+   "k": "l"
+  },
+  {
+   "id": 11829686,
+   "au": "Seael",
+   "s": "Siempre había café recién hecho a disposición de los huéspedes.",
+   "k": "l"
+  },
+  {
+   "id": 2949176,
+   "au": "wallebot",
+   "s": "Su sombrero blanco nuevo le pega con su chaqueta blanca.",
+   "k": "l"
+  },
+  {
+   "id": 8978647,
+   "au": "ecorralest101",
+   "s": "Dijo que tenía que ir a una junta ahora, pero que después vendría para discutir el problema.",
+   "k": "l"
+  },
+  {
+   "id": 2574051,
+   "au": "marcelostockle",
+   "s": "Dale siempre la prioridad a los vehículos que vienen por la derecha.",
+   "k": "l"
+  },
+  {
+   "id": 10654139,
+   "au": "DJ_Saidez",
+   "s": "Voy a extrañar a mi hermano cuando se vaya a la universidad.",
+   "k": "l"
+  }
+ ]
+}

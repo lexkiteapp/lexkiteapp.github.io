@@ -1024701,6 +1024701,127 @@
     "qa": {},
     "senseLock": "wiktionary-1"
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "kindly#adj",
+   "batch": "20261110-r219",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)"
+   ],
+   "at": "2026-11-11",
+   "data": {
+    "w": "kindly",
+    "pos": "adj",
+    "ipa": "/ˈkaɪn(d)li/",
+    "ipaUS": "/ˈkaɪndli/",
+    "def": "showing or motivated by kindness, sympathy, and generosity",
+    "ex": [
+     "A kindly old man sits on the park bench every afternoon feeding pigeons."
+    ],
+    "col": [],
+    "syn": [
+     "charitable",
+     "benevolent",
+     "sympathetic"
+    ],
+    "level": "A2",
+    "cefrF": "B1",
+    "cefrSrc": "cefrj",
+    "perLang": true,
+    "z": 4,
+    "emoji": "",
+    "topic": "xw-feelings",
+    "vi": "tử tế",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:charitable.s.03",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.7-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "cefrj",
+     "ex": [
+      "wiktionary"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "pt": "omw+ai",
+      "id": "omw+ai",
+      "ja": "omw+ai"
+     },
+     "trSense": "",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "turnstile#n",
+   "batch": "20261110-r219",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-11",
+   "data": {
+    "w": "turnstile",
+    "pos": "n",
+    "ipa": "/ˈtəːnstaɪl/",
+    "ipaUS": "/ˈtɜːrnstaɪl/",
+    "def": "a gate with revolving arms that allows only one person to pass through at a time",
+    "ex": [
+     "The public passes through turnstiles.",
+     "Tom tried to hop the turnstile without paying."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.39,
+    "emoji": "",
+    "topic": "urban",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:turnstile.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.7-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew30059.24",
+      "tatoeba:11207492"
+     ],
+     "tr": {
+      "es": "wiktionary+omw+ai",
+      "pt": "omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "zh": "wiktionary+ai",
+      "ru": "wiktionary+ai",
+      "tr": "wiktionary+ai"
+     },
+     "trSense": "rotating mechanical device",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
   }
  ]
 }

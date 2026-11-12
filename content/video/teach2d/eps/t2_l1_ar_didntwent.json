@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_didntwent",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "After didn't, use go!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I didn't went there.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I didn't go there.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After didn't, use go.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Go! She didn't go to school.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I didn't went there.",
+  "right": "I didn't go there.",
+  "strike": "went",
+  "why": "After didn't, use go.",
+  "memory": "Didn't go.",
+  "quiz": {
+   "stem": "She didn't ___ to school.",
+   "options": [
+    "went",
+    "go"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “didn't went”؟",
+   "tip": "بعد didn't نستخدم الفعل الأصلي: “I didn't go there.” وليس “I didn't went there.”.",
+   "caption": "هل تقول أحيانًا “I didn't went there.” 😅 بعد didn't نستخدم الفعل الأصلي، فالجملة الصحيحة “I didn't go there.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “go”. بعد didn't نستخدم الفعل الأصلي. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I didn't went there”?",
+   "tip": "After didn't we use the base verb: “I didn't go there.” not “I didn't went there.”.",
+   "caption": "Do you sometimes say “I didn't went there.” 😅 After didn't we use the base verb, so the right sentence is “I didn't go there.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “didn't went”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "هل تقول “didn't went”؟",
+  "keyword": "I didn't go there.",
+  "value": "بعد didn't نستخدم الفعل الأصلي: “I didn't go there.” وليس “I didn't went there.”.",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “didn't went”؟",
+    "description": "هل تقول أحيانًا “I didn't went there.” 😅 بعد didn't نستخدم الفعل الأصلي، فالجملة الصحيحة “I didn't go there.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I didn't go there.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “I didn't went there.” 😅 بعد didn't نستخدم الفعل الأصلي، فالجملة الصحيحة “I didn't go there.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “I didn't went there.” 😅 بعد didn't نستخدم الفعل الأصلي، فالجملة الصحيحة “I didn't go there.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “didn't went”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “go”. بعد didn't نستخدم الفعل الأصلي. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

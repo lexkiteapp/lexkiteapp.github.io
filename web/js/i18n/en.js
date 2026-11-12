@@ -167,6 +167,7 @@
 
 // core.js – review interval previews
 '{n} phút': '{n} min',
+'{a}/{b} bài': '{a}/{b} lessons',
 '1 ngày': '1 day',
 '{n} ngày': '{n} days',
 '{n} tháng': '{n} mo',
@@ -336,7 +337,6 @@
 
 // ---- phrases.js: annotated model answers ----
 'Từ nối': 'Linking words',
-'Lưu tất cả': 'Save all',
 'Lưu vào Sổ cụm từ': 'Save to Phrasebook',
 'Bài mẫu Task {n}': 'Task {n} model answer',
 
@@ -388,8 +388,6 @@
 'Mở': 'Open',
 'Chưa có': 'None yet',
 'Độ đa dạng từ': 'Lexical variety',
-'Từ nối & cụm': 'Linkers & phrases',
-'Từ của tôi': 'My words',
 
 // write.js: trend stats (dynamic keys)
 'Bảng (table)': 'Table',
@@ -448,6 +446,7 @@
 
 /* English UI – khóa của nhóm tải lười verbs, exams, skills mà khung app, add-on hoặc dữ liệu dùng chung cần ngay → giữ trong en.js. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
+  'Mức sẵn sàng thi': 'Exam readiness', 'Mục tiêu hôm nay': "Today's goal", // khung (shell.js) dùng – không chuyển lazy
 // ---------- từ en/verbs.js (khung app / add-on / trang tĩnh dùng) ----------
 'Chia': 'Conjugate',
 'Bất quy tắc': 'Irregular',
@@ -491,7 +490,6 @@
 'Hội thoại đời sống': 'Everyday conversation',
 'Đang tra “{w}”…': 'Looking up “{w}”…',
 'Không tìm thấy “{w}”.': 'No results for “{w}”.',
-'Đã lưu kèm ngữ cảnh': 'Saved with context',
 'Chuẩn': 'Normal',
 'Chế độ luyện tập': 'Practice mode',
 'Nghe': 'Play',
@@ -544,7 +542,6 @@
 'Học tập': 'Education',
 'Truyền thông': 'Media',
 'Thành phố': 'Cities',
-'Nghe cả bài': 'Play all',
 'Kết quả': 'Results',
 'Thư viện phát âm': 'Pronunciation Library',
 'Khẩu hình': 'Mouth position',
@@ -554,27 +551,13 @@
 'Kiểm tra nhanh': 'Quick quiz',
 'Máy nghe được: “{heard}”': 'Heard: “{heard}”',
 'Bài đọc IELTS': 'IELTS Reading',
-'Đọc bài theo phong cách IELTS Academic · chạm vào bất kỳ từ nào để tra nghĩa và lưu kèm câu gốc làm ngữ cảnh.': 'IELTS Academic-style passages · tap any word to look it up and save it with its original sentence as context.',
-'{n} câu hỏi': '{n} questions',
 'Tất cả bài đọc': 'All passages',
-'TÔ SÁNG:': 'HIGHLIGHT:',
 'Từ khóa': 'Keywords',
-'Học thuật AWL': 'Academic (AWL)',
-'Chạm vào từ để tra · bấm đúp vào câu để nghe câu đó · gạch chấm = từ khóa IELTS · nền xanh = từ đã có trong sổ': 'Tap a word to look it up · double-tap a sentence to hear it · dotted underline = IELTS keyword · green background = already in your deck',
-'Lưu tất cả từ khóa': 'Save all keywords',
 'Câu hỏi': 'Questions',
-'{n} câu · True/False/Not Given & trắc nghiệm': '{n} questions · True/False/Not Given & multiple choice',
 'Làm bài': 'Start',
 'Chấm điểm': 'Check answers',
 'Dịch: <b>{vi}</b>': 'Translation: <b>{vi}</b>',
 'Bài đọc: {title}': 'Reading: {title}',
-'Đã lưu {n} từ khóa kèm câu ngữ cảnh': 'Saved {n} keywords with example sentences',
-'Trình duyệt không hỗ trợ đọc văn bản': 'Your browser does not support text-to-speech',
-'Dừng đọc': 'Stop reading',
-'Bạn chưa trả lời hết. Vẫn chấm điểm?': 'You haven’t answered every question. Check anyway?',
-'Kết quả: {score}/{n} ({pct}%)': 'Score: {score}/{n} ({pct}%)',
-'Bài đọc khác': 'More passages',
-'Học các từ vừa lưu': 'Study the words you saved',
 'Đang tải mô hình nhận dạng giọng nói… {p}%': 'Downloading the speech recognition model… {p}%',
 'Bật nhận dạng giọng nói trên máy': 'Turn on on-device speech recognition',
 'Trình duyệt này chưa có nhận dạng giọng nói. Lexkite có thể dùng <b>Whisper</b> (mã nguồn mở) chạy ngay trên máy của bạn: miễn phí, riêng tư – âm thanh không gửi đi đâu.': 'This browser has no built-in speech recognition. Lexkite can use <b>Whisper</b> (open source) running right on your device: free and private – your audio never leaves it.',
@@ -731,6 +714,7 @@
 
 /* ---------- plan.js: today's plan ---------- */
 'Để Lexkite cá nhân hóa lộ trình cho bạn': 'So Lexkite can personalize your path',
+'Làm bài kiểm tra đầu vào': 'Take the placement test', // Hôm nay (plan.js, khung app) cần ngay – không để ở pathx (gói lười) kẻo ngôn ngữ khác hiện tiếng Việt
 'Ôn tập thẻ đến hạn': 'Review due cards',
 'Lặp lại ngắt quãng – ưu tiên số 1': 'Spaced repetition – top priority',
 'đã học {pct}%': '{pct}% learned',
@@ -801,7 +785,6 @@
 'Nghe 1 phần': 'Listen to 1 part',
 'Luyện Speaking': 'Practice Speaking',
 '{n} từ đang sắp quên': '{n} words fading',
-'Đọc bài': 'Read',
 
 'Luyện phát âm từ': 'Practice word pronunciation',
 'Thư viện phát âm': 'Pronunciation library',
@@ -1510,6 +1493,8 @@
 "Học qua video": "Learn with videos",
 "Video YouTube theo chủ đề, lặp đoạn, lưu từ": "YouTube videos by topic, loop parts, save words",
 'Đề A2 Key → C2 Proficiency: Đọc & Viết, Nghe, Nói': 'A2 Key → C2 Proficiency tests: Reading & Writing, Listening, Speaking',
+'Trung gian': 'Mediation',
+'Chuyển ý từ nguồn tiếng Anh cho đúng người cần': 'Pass on what matters from English sources',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* ✍️ Soát lỗi viết trong add-on (extension/writecheck.js, popup, web/js/writecheck-rules.js). Định dạng JSON để service worker đọc được (bản tiếng Anh cho add-on). */

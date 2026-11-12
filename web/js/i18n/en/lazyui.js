@@ -798,8 +798,6 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   // ← en/xcore.js
   'Mọi thì, bị động, cách đọc -ed/-s': 'All tenses, the passive, -ed/-s pronunciation',
   'Học từng bước': 'Step by step',
-  'Mức sẵn sàng thi': 'Exam readiness',
-  'Mục tiêu hôm nay': "Today's goal",
   // ← en/study.js
   'Ghép thẻ tính giờ': 'Timed matching',
   // ← en/shell.js
@@ -836,4 +834,27 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   'Học từ vựng & luyện thi tiếng Anh miễn phí – nhớ lâu bằng khoa học.': "Free English vocabulary & exam prep – remember for longer, backed by science.",
   'Lexkite™ là nhãn hiệu của {owner}.': "Lexkite™ is a trademark of {owner}.",
   'Pháp lý & hỗ trợ': "Legal & support",
+  // ← en/writing.js
+  'Lưu tất cả': 'Save all',
+  'Từ nối & cụm': 'Linkers & phrases',
+  'Từ của tôi': 'My words',
+  // ← en/xcore.js
+  'Đã lưu kèm ngữ cảnh': 'Saved with context',
+  'Nghe cả bài': 'Play all',
+  'Đọc bài theo phong cách IELTS Academic · chạm vào bất kỳ từ nào để tra nghĩa và lưu kèm câu gốc làm ngữ cảnh.': 'IELTS Academic-style passages · tap any word to look it up and save it with its original sentence as context.',
+  '{n} câu hỏi': '{n} questions',
+  'TÔ SÁNG:': 'HIGHLIGHT:',
+  'Học thuật AWL': 'Academic (AWL)',
+  'Chạm vào từ để tra · bấm đúp vào câu để nghe câu đó · gạch chấm = từ khóa IELTS · nền xanh = từ đã có trong sổ': 'Tap a word to look it up · double-tap a sentence to hear it · dotted underline = IELTS keyword · green background = already in your deck',
+  'Lưu tất cả từ khóa': 'Save all keywords',
+  '{n} câu · True/False/Not Given & trắc nghiệm': '{n} questions · True/False/Not Given & multiple choice',
+  'Đã lưu {n} từ khóa kèm câu ngữ cảnh': 'Saved {n} keywords with example sentences',
+  'Trình duyệt không hỗ trợ đọc văn bản': 'Your browser does not support text-to-speech',
+  'Dừng đọc': 'Stop reading',
+  'Bạn chưa trả lời hết. Vẫn chấm điểm?': 'You haven’t answered every question. Check anyway?',
+  'Kết quả: {score}/{n} ({pct}%)': 'Score: {score}/{n} ({pct}%)',
+  'Bài đọc khác': 'More passages',
+  'Học các từ vừa lưu': 'Study the words you saved',
+  // ← en/study.js
+  'Đọc bài': 'Read',
 }); })(typeof self !== 'undefined' ? self : this);

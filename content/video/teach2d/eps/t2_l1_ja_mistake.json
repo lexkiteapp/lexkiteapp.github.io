@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_mistake",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Make a mistake!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I did a mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I made a mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We make a mistake, not do.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Made! I made a mistake.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I did a mistake.",
+  "right": "I made a mistake.",
+  "strike": "did",
+  "why": "We make a mistake, not do.",
+  "memory": "I made a mistake.",
+  "quiz": {
+   "stem": "I ___ a mistake.",
+   "options": [
+    "made",
+    "did"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "mistake は do じゃなくて make",
+   "tip": "「間違える」は make a mistake。do は使いません。セットで覚えよう。",
+   "caption": "“I did a mistake.”と言っていませんか？😅 「間違いをする」を do で訳したくなりますが、英語では make a mistake がセットの言い方です。 “I made a mistake.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“made”。make a mistake で一つの表現。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is it “do” a mistake? Not really!",
+   "tip": "Say make a mistake. Learn the two words together.",
+   "caption": "Do you say “I did a mistake.”? 😅 You might translate suru as do, but English says make a mistake as a set phrase. The natural way is “I made a mistake.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "mistake は do じゃなくて make"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "mistake は do じゃなくて make",
+  "keyword": "I made a mistake.",
+  "value": "「間違える」は make a mistake。do は使いません。セットで覚えよう。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "mistake は do じゃなくて make",
+    "description": "“I did a mistake.”と言っていませんか？😅 「間違いをする」を do で訳したくなりますが、英語では make a mistake がセットの言い方です。 “I made a mistake.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I made a mistake.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I did a mistake.”と言っていませんか？😅 「間違いをする」を do で訳したくなりますが、英語では make a mistake がセットの言い方です。 “I made a mistake.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I did a mistake.”と言っていませんか？😅 「間違いをする」を do で訳したくなりますが、英語では make a mistake がセットの言い方です。 “I made a mistake.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "mistake は do じゃなくて make #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“made”。make a mistake で一つの表現。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

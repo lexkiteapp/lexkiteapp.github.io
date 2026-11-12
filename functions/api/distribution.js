@@ -98,7 +98,7 @@ export async function socialChannels(db) {
   }
   return out;
 }
-async function cfgMap(db) { const m = {}; for (const c of await channels(db)) if (c.status === 'ok') m[c.channel_id] = c.cfg; return m; }
+async function cfgMap(db) { const m = {}; for (const c of await channels(db)) if (c.status === 'ok' && !foreignAccount({ name: c.title })) m[c.channel_id] = c.cfg; return m; }   // Page "Grabcast.click" không phải của Lexkite: không làm đích/luật ngầm
 /** Embed-channel load for pickEmbed: clips planned/uploaded per channel (today = touched since 00:00 UTC). */
 async function embedCounts(db) {
   const day = Date.now() - (Date.now() % 864e5), m = {};

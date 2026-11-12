@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_saw_past",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Yesterday needs a simple past!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Yesterday I have seen a film.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Yesterday I saw a film.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "With yesterday, use the past.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Saw! Yesterday I saw a film.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Yesterday I have seen a film.",
+  "right": "Yesterday I saw a film.",
+  "strike": "have seen",
+  "why": "With yesterday, use the past.",
+  "memory": "Yesterday: saw.",
+  "quiz": {
+   "stem": "Yesterday I ___ a film.",
+   "options": [
+    "have seen",
+    "saw"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "„Gestern habe ich …“ geht nicht!",
+   "tip": "Mit „yesterday“ nimmst du das Simple Past: „I saw“. Nicht das Present Perfect.",
+   "caption": "Das deutsche Perfekt führt dich hier in die Falle! 🎬 Falsch: “Yesterday I have seen a film.” Richtig: “Yesterday I saw a film.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “saw”. Richtig heißt es: “Yesterday I saw a film.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "The German Perfekt tricks you here!",
+   "tip": "With “yesterday” use the simple past: “I saw”, not the present perfect.",
+   "caption": "The German Perfekt tricks you here! Wrong: “Yesterday I have seen a film.” Right: “Yesterday I saw a film.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Gestern habe ich …“ geht nicht!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "„Gestern habe ich …“ geht nicht!",
+  "keyword": "Yesterday I saw a film.",
+  "value": "Mit „yesterday“ nimmst du das Simple Past: „I saw“. Nicht das Present Perfect.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "„Gestern habe ich …“ geht nicht!",
+    "description": "Das deutsche Perfekt führt dich hier in die Falle! 🎬 Falsch: “Yesterday I have seen a film.” Richtig: “Yesterday I saw a film.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "Yesterday I saw a film.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Das deutsche Perfekt führt dich hier in die Falle! 🎬 Falsch: “Yesterday I have seen a film.” Richtig: “Yesterday I saw a film.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Das deutsche Perfekt führt dich hier in die Falle! 🎬 Falsch: “Yesterday I have seen a film.” Richtig: “Yesterday I saw a film.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Gestern habe ich …“ geht nicht! #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “saw”. Richtig heißt es: “Yesterday I saw a film.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}
