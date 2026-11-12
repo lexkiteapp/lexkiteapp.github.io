@@ -599,7 +599,6 @@
       rev: weak.length ? t('Sổ lỗi sai') : t('Bản đồ bài học'),
       revIcon: weak.length ? 'edit_note' : 'map',
       revHref: weak.length ? '#/mistakes' : `#/lesson${q}`,
-      teacher: '<div class="lsn-tchw lsn-endt relative z-0 -mb-10 -mt-3 h-[132px] w-full flex justify-center pointer-events-none" aria-hidden="true"><div id="lsnTch" class="relative w-[154px] h-[132px] max-w-full"></div></div>',
     };
     if (L.teachers && L.teachers.carlos) { try { L.teachers.carlos.destroy(); } catch (e) { /* bỏ qua */ } } L.teachers = null;
     if (L.teacher) { try { L.teacher.destroy(); } catch (e) { /* bỏ qua */ } L.teacher = null; }
