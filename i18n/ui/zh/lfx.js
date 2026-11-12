@@ -1,3 +1,32 @@
-/* UI zh – lfx (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["zh"] = Object.assign(D["zh"] || {}, {"{n} đúng liền":"连对 {n} 题","Tỉ lệ đúng":"正确率","{n} câu đúng liền!":"连续答对 {n} 题！","Câu khó · +{n} XP":"难题 · +{n} XP","Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"这对你来说似乎太简单了。试试更难的题目（输入而不是选择），赢取额外 XP？","Thử mức khó":"挑战更难","Giữ mức này":"保持难度","Đúng rồi – chỉ sai chính tả nhỏ":"正确——只是有个小拼写错误","Viết đúng là: {a}":"正确拼写：{a}","Ẩn giải thích":"隐藏解释","Không trượt câu nào – Kit phải ngả mũ!":"一题没错——Kit 向你脱帽致敬！","Tuyệt đối 100%! Bộ não bạn đang chạy hết công suất.":"满分 100%！你的大脑正在全速运转。","Phong độ rất cao hôm nay!":"你今天状态绝佳！","Gần như hoàn hảo – chỉ còn chút xíu nữa!":"近乎完美——只差一点点！","Đang lên tay rồi đấy!":"你渐入佳境了！","Câu sai hôm nay là điểm cộng ngày mai.":"今天的错题，就是明天的加分。","Kết quả lượt học":"本轮结果","Chuỗi dài nhất":"最长连对","Khoe kết quả":"分享成绩","Tắt âm thanh 15 phút":"15 分钟内不用声音","Tắt micro 15 phút":"15 分钟内不用麦克风","Đã tạm tắt bài nghe 15 phút – câu nghe đổi sang dạng gõ nghĩa.":"听力已暂停 15 分钟——音频题改为输入题。","Đã tạm tắt bài nói 15 phút – làm trắc nghiệm nghĩa thay thế.":"口语已暂停 15 分钟——改做词义选择题。","Bật lại":"重新开启","Cần gợi ý?":"需要提示吗？","Thêm gợi ý":"更多提示","Hiện bản dịch":"显示翻译","Ẩn bản dịch":"隐藏翻译"});
+/* UI zh – lfx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["zh"] = Object.assign(D["zh"] || {}, {
+"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"这对你来说似乎太简单了。试试更难的题目（输入而不是选择），赢取额外 XP？",
+"Bật lại":"重新开启",
+"Chuỗi dài nhất":"最长连对",
+"Câu khó · +{n} XP":"难题 · +{n} XP",
+"Câu sai hôm nay là điểm cộng ngày mai.":"今天的错题，就是明天的加分。",
+"Cần gợi ý?":"需要提示吗？",
+"Giữ mức này":"保持难度",
+"Gần như hoàn hảo – chỉ còn chút xíu nữa!":"近乎完美——只差一点点！",
+"Hiện bản dịch":"显示翻译",
+"Khoe kết quả":"分享成绩",
+"Không trượt câu nào – Kit phải ngả mũ!":"一题没错——Kit 向你脱帽致敬！",
+"Kết quả lượt học":"本轮结果",
+"Phong độ rất cao hôm nay!":"你今天状态绝佳！",
+"Thêm gợi ý":"更多提示",
+"Thử mức khó":"挑战更难",
+"Tuyệt đối 100%! Bộ não bạn đang chạy hết công suất.":"满分 100%！你的大脑正在全速运转。",
+"Tắt micro 15 phút":"15 分钟内不用麦克风",
+"Tắt âm thanh 15 phút":"15 分钟内不用声音",
+"Tỉ lệ đúng":"正确率",
+"Viết đúng là: {a}":"正确拼写：{a}",
+"{n} câu đúng liền!":"连续答对 {n} 题！",
+"{n} đúng liền":"连对 {n} 题",
+"Đang lên tay rồi đấy!":"你渐入佳境了！",
+"Đã tạm tắt bài nghe 15 phút – câu nghe đổi sang dạng gõ nghĩa.":"听力已暂停 15 分钟——音频题改为输入题。",
+"Đã tạm tắt bài nói 15 phút – làm trắc nghiệm nghĩa thay thế.":"口语已暂停 15 分钟——改做词义选择题。",
+"Đúng rồi – chỉ sai chính tả nhỏ":"正确——只是有个小拼写错误",
+"Ẩn bản dịch":"隐藏翻译",
+"Ẩn giải thích":"隐藏解释",
+});
 })(typeof self !== 'undefined' ? self : this);

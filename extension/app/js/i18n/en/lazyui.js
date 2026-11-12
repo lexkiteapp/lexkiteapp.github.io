@@ -700,6 +700,9 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
 "Còn thiếu {n} điểm – thử lại nhé": "{n} points short – try again",
 "Kỷ lục của bạn: {best}": "Your best: {best}",
 "{a}/{b} đúng": "{a}/{b} correct",
+"Bóng ma: {n}": "Ghost: {n}",
+"Bạn lần trước: {n}": "You last time: {n}",
+"Bạn đã thắng bóng ma! 🎉": "You beat the ghost! 🎉",
 "Combo cao nhất {n}": "Best combo: {n}",
 "Từ cần ôn lại": "Words to review",
 "Thẻ cần ôn hôm nay": "cards to review today",
@@ -857,4 +860,10 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   'Học các từ vừa lưu': 'Study the words you saved',
   // ← en/study.js
   'Đọc bài': 'Read',
+  // ← mistake-variant.js (Mini-test biến thể từ Sổ lỗi sai)
+  'Về Sổ lỗi sai': 'Back to Mistake Book',
+  'Hôm nay chưa có câu biến thể nào': 'No variant questions for today',
+  'Khi có lỗi cũ đến lúc ôn, câu hỏi mới sẽ xuất hiện ở đây.': 'When an earlier mistake is due for review, a fresh question will appear here.',
+  'Mình sẽ hỏi lại những câu này vào đúng lúc để bạn nhớ lâu.': 'We will ask about these again at the right time so they stick.',
+  '{n} câu ngắn về chỗ hay nhầm, hỏi theo cách mới': '{n} short questions on tricky spots, asked in a new way',
 }); })(typeof self !== 'undefined' ? self : this);
