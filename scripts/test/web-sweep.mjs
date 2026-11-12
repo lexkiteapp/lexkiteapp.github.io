@@ -81,7 +81,7 @@ async function run(j) {
   await page.waitForTimeout(1200);
   const p = await page.evaluate(probe).catch(() => ({ small: [], hscroll: false, bg: 1, lcp: 0, cls: 0 }));
   const lay = await page.evaluate(scan, { root: 'body', sel: WEB_SEL }).catch(() => ({ overlap: [], clip: [], spill: [], stack: [], cell: [], orphan: [] }));
-  await page.addScriptTag({ content: AXE }).catch(() => {});
+  await page.evaluate(AXE + "\n;0").catch(() => {}); // dist có meta CSP: addScriptTag nội tuyến bị chặn, evaluate (CDP) thì không
   const ax = await page.evaluate(async () => (await axe.run(document, { runOnly: ['wcag2a', 'wcag2aa', 'wcag21aa'] })).violations.map(v => ({ id: v.id, n: v.nodes.length, t: v.nodes[0]?.target?.join(' ') }))).catch(() => []);
   const c = ax.find(v => v.id === 'color-contrast'), other = ax.filter(v => v.id !== 'color-contrast');
   const k = `${j.vp}-${j.scheme}`, T = j.type;

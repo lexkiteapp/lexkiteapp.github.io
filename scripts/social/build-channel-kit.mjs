@@ -12,6 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { waitFn } from '../lib/pw-wait.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const OUT = path.join(ROOT, 'brand/social/channel-kit');
@@ -261,7 +262,7 @@ async function build() {
     for (const sc of scales) {
       const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: sc });
       await page.goto('file://' + f); await page.evaluate(() => document.fonts.ready);
-      await page.waitForFunction(() => [...document.images].every(i => i.complete && i.naturalWidth > 0), null, { timeout: 15000 });
+      await waitFn(page, () => [...document.images].every(i => i.complete && i.naturalWidth > 0), null, { timeout: 15000 });
       const fontsOk = await page.evaluate(async () => { const fs = [...document.fonts]; await Promise.all(fs.map(f => f.load().catch(() => null))); return fs.length >= 2 && fs.every(f => f.status === 'loaded'); });
       if (!fontsOk) fails.push(`${a.id}: phông chưa nạp`);
       const shot = await page.screenshot({ omitBackground: a.kind === 'watermark', clip: { x: 0, y: 0, width: W, height: H } });

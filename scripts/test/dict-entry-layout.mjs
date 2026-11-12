@@ -6,6 +6,7 @@ import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } 
 import { chromium } from 'playwright';
 import { githubCandidates } from '../media/origin.mjs';
 import { noProd } from './lib/no-prod.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 if (!process.env.CI) { console.error('dict-entry-layout: chỉ chạy trên CI (Chromium) – workflow UX cards'); process.exit(2); }
 const [AFTER = 'web', BEFORE, OUT = 'out/dict-entry'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.png': 'image/png', '.webp': 'image/webp', '.woff2': 'font/woff2', '.webmanifest': 'application/json' };
@@ -71,8 +72,8 @@ async function run(TAG, ROOT, vw, scheme, lang) {
   const tagOf = c => `${TAG}-${vw}-${scheme}-${lang}-${c}`;
   page.on('pageerror', e => { if (TAG === 'after') bad.push(`${vw}/${scheme}/${lang}: JS ${e.message}`); });
   await page.goto(`https://lk.test/app/?sandbox=1&hl=${lang}#/dict`, { waitUntil: 'load' });
-  await page.waitForFunction(() => window.Dict && window.App && App.state, null, { timeout: 30000 });
-  await page.waitForFunction(() => document.querySelector('#searchForm'), null, { timeout: 30000 }).catch(() => {});
+  await waitFn(page, () => window.Dict && window.App && App.state, null, { timeout: 30000 });
+  await waitFn(page, () => document.querySelector('#searchForm'), null, { timeout: 30000 }).catch(() => {});
   for (const [name, entry] of Object.entries(CASES)) {
     if (TAG === 'before' && !(SHOT.has(name) && (vw === 390 || vw === 1440) && lang === 'vi')) continue;
     if (TAG === 'after') checks++;
@@ -85,7 +86,7 @@ async function run(TAG, ROOT, vw, scheme, lang) {
     }, { e: entry });
     await page.waitForTimeout(50);
     await page.evaluate(w => { location.hash = `#/dict/${encodeURIComponent(w)}`; }, entry.word);
-    await page.waitForFunction(w => { const el = document.querySelector('#result .entry-word'), f = document.querySelector('#saveCard'); return el && el.textContent.trim() === w && f; }, entry.word, { timeout: 15000 }).catch(() => {});
+    await waitFn(page, w => { const el = document.querySelector('#result .entry-word'), f = document.querySelector('#saveCard'); return el && el.textContent.trim() === w && f; }, entry.word, { timeout: 15000 }).catch(() => {});
     await page.waitForLoadState('load'); await page.waitForTimeout(entry._broken ? 700 : 350);
     if (SHOT.has(name) && (vw === 390 || vw === 1440) && lang === 'vi') {
       const card = page.locator('#result > .card').first();

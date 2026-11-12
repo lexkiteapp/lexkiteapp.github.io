@@ -8,6 +8,7 @@
 import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 import { fileURLToPath } from 'node:url';
+import { waitFn } from '../lib/pw-wait.mjs';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'), W = p => path.join(ROOT, 'web', p);
 const STATIC = process.argv.includes('--static'), OUT = process.argv.includes('--out') ? process.argv[process.argv.indexOf('--out') + 1] : 'out/teacher-bubble';
 const res = []; let bad = 0;
@@ -170,7 +171,7 @@ window.__cls=0;window.__clsSrc=[];new PerformanceObserver(l=>{for(const e of l.g
       const before = await snap();
       ok(before.every(x => !x.done), `${tag}: đo khung TRƯỚC khi ảnh tải (${before.filter(x => !x.done).length}/${before.length} ảnh chưa về)`);
       await page.evaluate(ATT('k6' + w + dark)); const rigOk = await page.evaluate(() => window.ctl.ready().then(r => !!r)).catch(() => false);
-      await page.waitForFunction(() => [...document.querySelectorAll('img.tslot-img')].every(i => i.complete && i.naturalWidth), null, { timeout: 8000 }).catch(() => {});
+      await waitFn(page, () => [...document.querySelectorAll('img.tslot-img')].every(i => i.complete && i.naturalWidth), null, { timeout: 8000 }).catch(() => {});
       await page.waitForTimeout(700); const after = await snap();
       const d = (a, b) => (a && b ? Math.max(...a.map((v, i) => Math.abs(v - b[i]))) : 99);
       const moved = before.map((x, i) => [x.size, Math.max(d(x.slot, after[i].slot), d(x.img, after[i].img), d(x.ledge, after[i].ledge))]).filter(([, v]) => v > 1);

@@ -79,7 +79,9 @@ jobs:
           key: qs-baseline-${{ matrix.lang }}-${{ github.run_id }}
           restore-keys: qs-baseline-${{ matrix.lang }}-
       - name: Quét ${{ matrix.lang }}
-        run: node scripts/quality/sweep.mjs --root dist --lang ${{ matrix.lang }} --out qs-out/${{ matrix.lang }} --baseline qs-baseline/${{ matrix.lang }} $([ "${{ inputs.quick }}" = 1 ] && echo --quick)
+        env:
+          LX_QUICK: ${{ inputs.quick }}
+        run: node scripts/quality/sweep.mjs --root dist --lang ${{ matrix.lang }} --out qs-out/${{ matrix.lang }} --baseline qs-baseline/${{ matrix.lang }} $([ "$LX_QUICK" = 1 ] && echo --quick)
       - name: Biến thể ẢNH BẬT (journey 8 – fixture ảnh từ vựng, CLS 0, tối, RTL, CDN thiếu)
         run: node scripts/test/journey-e2e.mjs --root dist --lang ${{ matrix.lang }} --only 8 --device desktop,mobile --out qs-out/${{ matrix.lang }}/vimg
       - name: CLS trang giới thiệu + blog (> 0,1 là lỗi)
@@ -176,9 +178,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Native E2E mỗi tuần (thứ Hai) – iOS Simulator + Android emulator
         id: n
-        env: { GH_TOKEN: '${{ github.token }}' }
+        env: { GH_TOKEN: '${{ github.token }}', LX_NATIVE: '${{ inputs.native }}' }
         run: |
-          if [ "${{ inputs.native }}" = 1 ] || { [ "$GITHUB_EVENT_NAME" = schedule ] && [ "$(date -u +%u)" = 1 ]; }; then
+          if [ "$LX_NATIVE" = 1 ] || { [ "$GITHUB_EVENT_NAME" = schedule ] && [ "$(date -u +%u)" = 1 ]; }; then
             echo "jn=1" >> "$GITHUB_OUTPUT"
             bash scripts/ci/gh-retry.sh gh workflow run ios-e2e.yml && bash scripts/ci/gh-retry.sh gh workflow run native-auth-e2e.yml && echo "note=đã kích hoạt ios-e2e + native-auth-e2e (Android emulator) – xem tab Actions" >> "$GITHUB_OUTPUT" || echo "note=kích hoạt native THẤT BẠI" >> "$GITHUB_OUTPUT"
           else echo "note=chưa đến tuần (chạy thứ Hai)" >> "$GITHUB_OUTPUT"; fi

@@ -11,6 +11,11 @@ node scripts/test/stitch-coverage.mjs
 node scripts/test/world-scorecard.mjs
 node scripts/test/bundle-names.mjs web
 node scripts/test/no-url-pathname.mjs
+node scripts/test/lexai-oidc.mjs
+node scripts/test/firestore-rules.mjs
+node scripts/test/ext-imgdata.mjs
+node scripts/test/league-xp.mjs
+node scripts/test/workflow-injection.mjs
 node scripts/test/ext-sync.mjs
 node scripts/test/sync-drive.mjs
 node scripts/test/sync-ext-drive.mjs
@@ -114,6 +119,8 @@ node scripts/test/studio.mjs
 node scripts/test/report.mjs
 node scripts/test/report-ui.mjs
 node scripts/test/quota.mjs
+node scripts/test/body-limit.mjs
+node scripts/test/ai-task.mjs
 node scripts/test/capacity.mjs
 node scripts/test/admin-rollup.mjs
 node scripts/test/d1-cap.mjs
@@ -218,11 +225,14 @@ node scripts/test/audio-pr-branch.mjs
 node scripts/test/pages-lag.mjs
 node scripts/test/tts-sites.mjs
 node scripts/test/protection.mjs
+node scripts/test/dns-security.mjs
 node scripts/test/api-security.mjs
 node scripts/test/watch.mjs
 node scripts/test/dictlookup.mjs
 node scripts/test/client-security.mjs
 node scripts/test/headers.mjs
+node scripts/test/csp.mjs
+node scripts/test/pw-wait.mjs
 node scripts/test/static-routes.mjs
 node scripts/test/layout-guards.mjs
 node scripts/test/home-logic.mjs

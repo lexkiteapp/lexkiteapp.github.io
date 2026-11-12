@@ -6,6 +6,7 @@
  * Chống lạm dụng: giới hạn tần suất theo IP (Cache API ở biên), mã 10 ký tự ngẫu nhiên (~10^15 khả năng). */
 import { limit } from './sync.js';
 import { gate } from './_quota.js'; // hạn mức tạo mã theo thiết bị + IP (docs/QUOTAS.md)
+import { readJSON, bodyFail } from './_body.js';
 
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 const TTL = 10 * 60 * 1000, MAX = 1_500_000, ALPHA = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
@@ -21,9 +22,8 @@ export const onRequestOptions = ({ request }) => new Response(null, { status: 20
 export async function onRequestPost({ request, env }) {
   if (!env.DB) return json(request, 500, { error: 'no-db' });
   if (!ORIGINS.test(request.headers.get('Origin') || '')) return json(request, 403, { error: 'origin' });
-  if (+(request.headers.get('Content-Length') || 0) > MAX + 1000) return json(request, 413, { error: 'too-large' });
   const ip = request.headers.get('CF-Connecting-IP') || 'x';
-  let req; try { req = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
+  let req; try { req = await readJSON(request, MAX + 1000); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   const db = env.DB, now = Date.now();
   try {
     await setup(db);

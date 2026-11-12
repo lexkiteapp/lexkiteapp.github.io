@@ -31,9 +31,11 @@ jobs:
         uses: actions/cache/restore@v4
         with: { path: prev-seo-urls.txt, key: 'seo-urls-${{ github.sha }}', restore-keys: 'seo-urls-' }
       - name: URL mới/đổi
+        env:
+          LX_ALL: ${{ github.event.inputs.all }}
         run: |
           touch prev-seo-urls.txt
-          if [ "${{ github.event.inputs.all }}" = "true" ]; then : > prev-seo-urls.txt; fi
+          if [ "$LX_ALL" = "true" ]; then : > prev-seo-urls.txt; fi
           grep -vxFf prev-seo-urls.txt "$RUNNER_TEMP/now.txt" | cut -d' ' -f1 | head -10000 > changed.txt || true
           echo "$(wc -l < changed.txt) URL mới/đổi"; head -5 changed.txt
       - name: Chờ deploy rồi báo IndexNow

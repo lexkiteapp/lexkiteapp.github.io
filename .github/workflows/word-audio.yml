@@ -30,7 +30,9 @@ jobs:
       - id: c
         run: |
           echo "left=$(node scripts/gen-word-audio.mjs --count | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
-          n="${{ github.event.inputs.shards || '10' }}"; echo "shards=$(node -e "console.log(JSON.stringify([...Array(+process.argv[1]).keys()]))" "$n")" >> "$GITHUB_OUTPUT"
+          n="$LX_SHARDS"; echo "shards=$(node -e "console.log(JSON.stringify([...Array(+process.argv[1]).keys()]))" "$n")" >> "$GITHUB_OUTPUT"
+        env:
+          LX_SHARDS: ${{ github.event.inputs.shards || '10' }}
   gen:
     needs: plan
     if: needs.plan.outputs.left != '0'
@@ -56,7 +58,9 @@ jobs:
       - uses: actions/cache@v4
         with: { path: ~/.cache/huggingface, key: whisper-small-en-ct2 }
       - name: Vòng 1 – tạo (câu mang + cắt)
-        run: AUDIO_MIN=70 NODE_PATH=/tmp/kk/node_modules node scripts/gen-word-audio.mjs --round 1 --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "${{ github.event.inputs.limit || '300' }}"
+        run: AUDIO_MIN=70 NODE_PATH=/tmp/kk/node_modules node scripts/gen-word-audio.mjs --round 1 --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "$LX_LIMIT"
+        env:
+          LX_LIMIT: ${{ github.event.inputs.limit || '300' }}
       - name: Vòng 1 – nghe lại (Whisper + độ dài) + nghe file cũ
         run: python3 scripts/word-audio-asr.py --manifest .s3-cand/manifest.json --res .wa-res/res-${{ matrix.shard }}.json --old --minutes 85
       - name: Vòng 2 – cách khác cho file trượt
@@ -114,4 +118,6 @@ jobs:
       - uses: ./.github/actions/setup-ffmpeg
       - run: |
           pip install -q 'faster-whisper==1.2.1' 'av==18.1.0'
-          python3 scripts/word-audio-asr.py --sample "${{ github.event.inputs.asr_sample }}"
+          python3 scripts/word-audio-asr.py --sample "$LX_ASR_SAMPLE"
+        env:
+          LX_ASR_SAMPLE: ${{ github.event.inputs.asr_sample }}

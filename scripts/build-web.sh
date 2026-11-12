@@ -25,6 +25,8 @@ H=$(node scripts/lib/sw-version.mjs web --stamp dist/sw.js)  # hash nội dung k
 grep -q "lexkite-[0-9]*-$H" dist/sw.js && echo "✓ sw cache: …-$H" || { echo "✗ không gắn được phiên bản cache vào dist/sw.js"; exit 1; }
 
 node scripts/build-seo.mjs && node scripts/build-samples.mjs && node scripts/build-samples-en.mjs && node scripts/build-ads.mjs && node scripts/build-blog.mjs && node scripts/build-video-pages.mjs && node scripts/build-seo-pages.mjs && node scripts/build-tools.mjs && node scripts/build-authority.mjs && node scripts/build-sitemap-index.mjs || { echo "✗ bước sinh trang tĩnh lỗi"; exit 1; }
+# CSP chặn thật (docs/SECURITY-CSP.md): BƯỚC CUỐI sửa HTML – chèn meta CSP (sha256 từng script nội tuyến) vào mọi trang + tự kiểm; mọi bước sửa HTML phải đứng TRƯỚC dòng này
+node scripts/csp-meta.mjs dist || { echo "✗ csp-meta: trang có script nội tuyến/handler on*= chưa được CSP phủ"; exit 1; }
 node scripts/test/theme-switch.mjs dist  # mọi trang tĩnh đã dựng: chống nháy + luật tối/sáng data-theme + nút giao diện (không có → không deploy)
 # Giới hạn Cloudflare Pages miễn phí: 20.000 file/lần deploy → cảnh báo sớm (xem docs/SEO-PLAN.md §12)
 n=$(find dist -type f | wc -l | tr -d ' ')

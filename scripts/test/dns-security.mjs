@@ -1,0 +1,33 @@
+// Test offline bộ kiểm bảo mật DNS/header (scripts/lib/dns-security.mjs) + file web/.well-known/security.txt (RFC 9116) – audit 2/11/2026.
+import fs from 'node:fs';
+import { checkCaa, checkDmarc, checkSpf, checkDs, checkHsts, checkSecurityTxt } from '../lib/dns-security.mjs';
+let n = 0; const ok = (c, m) => { if (!c) { console.error('✗ dns-security: ' + m); process.exit(1); } n++; };
+const R = JSON.parse(fs.readFileSync(new URL('../../infra/resources.json', import.meta.url)));
+const exp = (R.services.find(s => s.key === 'dns-security') || {}).expect;
+ok(exp && exp.zone === 'lexkite.com', 'infra/resources.json có dns-security.expect');
+for (const ca of ['letsencrypt.org', 'pki.goog']) ok(exp.caa_issue.includes(ca), `CAA cho phép ${ca} (CA của Cloudflare Universal SSL/Pages)`);
+const caa = [...exp.caa_issue.map(c => `0 issue "${c}"`), `0 iodef "${exp.caa_iodef}"`];
+ok(checkCaa(caa, exp).length === 0, 'CAA đúng → không lỗi');
+ok(checkCaa(caa.filter(x => !/pki\.goog/.test(x)), exp).length > 0, 'thiếu CA → lỗi');
+ok(checkCaa([...caa, '0 issue "evil-ca.example"'], exp).length > 0, 'CA lạ → lỗi');
+ok(checkCaa([...caa, '0 issuewild ";"'], exp).some(e => /wildcard/.test(e)), 'issuewild ";" → lỗi (chặn chứng chỉ Universal SSL)');
+ok(checkCaa([], exp).length > 0, 'không có CAA → lỗi');
+ok(/p=(quarantine|reject)/.test(exp.dmarc) && /rua=mailto:/.test(exp.dmarc), 'DMARC mong đợi có p=quarantine|reject + rua');
+ok(checkDmarc([`"${exp.dmarc}"`], exp).length === 0, 'DMARC đúng');
+ok(checkDmarc(['"v=DMARC1; p=none; rua=mailto:a@b.c"'], exp).length > 0, 'DMARC p=none → lỗi');
+ok(checkDmarc([], exp).length > 0, 'thiếu DMARC → lỗi');
+ok(checkDmarc([`"${exp.dmarc}"`, `"${exp.dmarc}"`], exp).length > 0, '2 bản ghi DMARC → lỗi');
+ok(checkSpf([`"${exp.spf}"`, '"google-site-verification=x"'], exp).length === 0, 'SPF đúng');
+ok(checkSpf(['"v=spf1 +all"'], exp).length > 0 && checkSpf([`"${exp.spf}"`, '"v=spf1 -all"'], exp).length > 0, 'SPF +all / 2 SPF → lỗi');
+ok(checkDs([], exp).state === 'pending', 'chưa có DS ở registrar → pending (cảnh báo, không đỏ)');
+ok(checkDs([exp.dnssec.ds.toLowerCase()], exp).state === 'ok', 'DS khớp → ok');
+ok(checkDs(['1111 13 2 ABCD'], exp).state === 'bad', 'DS sai → lỗi (phân giải sẽ hỏng)');
+ok(checkHsts('max-age=31536000; includeSubDomains; preload', exp).length === 0 && checkHsts('max-age=300', exp).length === 2, 'HSTS kiểm max-age + includeSubDomains');
+// File thật trong repo (Pages phục vụ /.well-known/security.txt): còn hạn ≥ 30 ngày → hết hạn thì npm test đỏ để gia hạn
+const txt = fs.readFileSync(new URL('../../web/.well-known/security.txt', import.meta.url), 'utf8');
+ok(checkSecurityTxt(txt, Date.now(), exp.security_txt).length === 0, 'web/.well-known/security.txt hợp lệ RFC 9116: ' + checkSecurityTxt(txt, Date.now(), exp.security_txt).join('; '));
+ok(checkSecurityTxt(txt.replace(/^Contact:.*$/gm, ''), Date.now()).some(e => /Contact/.test(e)), 'thiếu Contact → lỗi');
+ok(checkSecurityTxt(txt, Date.parse('2027-10-20')).some(e => /hết hạn/.test(e)), 'sắp hết hạn → lỗi');
+const hdr = fs.readFileSync(new URL('../../web/_headers', import.meta.url), 'utf8');
+ok(/\/\.well-known\/security\.txt\n\s+Content-Type: text\/plain/.test(hdr), '_headers ép text/plain cho security.txt');
+console.log(`✓ dns-security: ${n} kiểm tra đạt`);

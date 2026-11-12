@@ -46,9 +46,11 @@ jobs:
           CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
           CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
           AI_POOL_GC_MAX: '2000'
+          LX_REDO: ${{ inputs.redo == 'true' && '--redo' || '' }}
+          LX_LANGS: ${{ inputs.langs }}
         run: |
           mkdir -p out/say-native
-          node scripts/say-native/translate.mjs ${{ inputs.langs && format('--langs {0}', inputs.langs) || '' }} ${{ inputs.redo == 'true' && '--redo' || '' }} 2>&1 | tee out/say-native/translate.log
+          node scripts/say-native/translate.mjs ${LX_LANGS:+--langs "$LX_LANGS"} $LX_REDO 2>&1 | tee out/say-native/translate.log
       - name: Build say.json
         if: always()
         shell: bash

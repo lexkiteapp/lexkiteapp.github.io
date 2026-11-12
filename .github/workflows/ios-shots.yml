@@ -141,4 +141,6 @@ jobs:
           ASC_BUILD: ${{ inputs.build }}
           ASC_SUBMIT: ${{ inputs.submit && 'yes' || 'no' }}
           ASC_REVIEW_PHONE: ${{ secrets.ASC_REVIEW_PHONE }}   # số liên hệ người duyệt – chỉ ở secret, không ở repo
-        run: set -o pipefail; node scripts/asc-upload.mjs ${{ inputs.asc == 'dry-run' && '--dry-run' || '' }} --shots store/apple/screenshots --only ${{ inputs.only || 'all' }} | tee -a "$GITHUB_STEP_SUMMARY"
+          LX_ONLY: ${{ inputs.only || 'all' }}
+          LX_ASC: ${{ inputs.asc == 'dry-run' && '--dry-run' || '' }}
+        run: set -o pipefail; node scripts/asc-upload.mjs $LX_ASC --shots store/apple/screenshots --only "$LX_ONLY" | tee -a "$GITHUB_STEP_SUMMARY"

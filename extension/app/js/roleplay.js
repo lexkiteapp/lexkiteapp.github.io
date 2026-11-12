@@ -57,12 +57,16 @@
   async function nanoReady() { try { return !!LM() && (await LM().availability(LMO)) === 'available'; } catch (e) { return false; } }
   const withTimeout = (p, ms) => Promise.race([p, new Promise((_, rej) => setTimeout(() => rej(new Error('TIMEOUT')), ms))]);
   // ---------- (b) AI miễn phí của Lexkite (/api/ai, kind 'rp') ----------
-  async function proxy(sys, prompt) {
+  // Máy chủ tự dựng prompt hệ thống từ tham số (functions/api/ai.js rpSys/coachSys) – không gửi sys tùy ý (bảo mật 02/11)
+  const rpArgs = (s, L) => ({ kind: daily(s) ? 'everyday' : 'work', lv: lvOf(s)[L], L, name: s.ai.name, role: s.ai.role, persona: s.ai.persona, goal: s.ai.goal, title: s.title, you: s.you });
+  async function proxy(task, rp, prompt, again) {
     const h = { 'Content-Type': 'application/json', 'X-Lexkite-Device': UI.dev() };
     try { if (signedIn()) h.Authorization = 'Bearer ' + await Sync.user.getIdToken(); } catch (e) { /* khách */ }
+    if (!h.Authorization && UI.humanHdr) await UI.humanHdr(h, again); // khách: vé người thật (docs/HUMAN.md) – lượt thường không chờ Turnstile; 403 human (cờ AI_HUMAN_ENFORCE) → chờ vé rồi thử lại
     const ctrl = new AbortController(), to = setTimeout(() => ctrl.abort(), 30000);
-    let r; try { r = await fetch(PROXY, { method: 'POST', headers: h, signal: ctrl.signal, body: JSON.stringify({ prompt, sys, kind: 'rp' }) }); } finally { clearTimeout(to); }
+    let r; try { r = await fetch(PROXY, { method: 'POST', headers: h, signal: ctrl.signal, body: JSON.stringify({ prompt, task, rp, kind: 'rp' }) }); } finally { clearTimeout(to); }
     const j = await r.json().catch(() => ({}));
+    if (r.status === 403 && j.error === 'human' && !again) return proxy(task, rp, prompt, true);
     if (r.status === 429) { UI.quota(j); throw new Error('QUOTA'); } // toast giờ mở lại + gợi ý đăng nhập (khách)
     if (!r.ok || !j.out) throw new Error('FAILED');
     return j.out;
@@ -158,7 +162,7 @@ Rules: stay in character; speak natural spoken English at ${lvOf(s)[L]} level ($
       }
       if (mode === 'server') {
         try {
-          const out = await proxy(sysOf(s, L) + '\nReturn JSON only.', `Conversation so far:\n${transcript(hist, s)}\n\n${next ? `Next point you must cover (say it in your own words, same meaning): "${beat}"` : `This is the end: close the conversation politely, similar to: "${beat}"`}\nIf the learner's last reply is unclear, off-topic or too short to understand, ask them to clarify instead and set "advance" to false (only once per point).\nJSON: {"reply": string (what ${s.ai.name} says next, under 45 words), "advance": boolean}`);
+          const out = await proxy('rp', rpArgs(s, L), `Conversation so far:\n${transcript(hist, s)}\n\n${next ? `Next point you must cover (say it in your own words, same meaning): "${beat}"` : `This is the end: close the conversation politely, similar to: "${beat}"`}\nIf the learner's last reply is unclear, off-topic or too short to understand, ask them to clarify instead and set "advance" to false (only once per point).\nJSON: {"reply": string (what ${s.ai.name} says next, under 45 words), "advance": boolean}`);
           if (out && out.reply) return { text: String(out.reply).slice(0, 400), advance: retried || out.advance !== false };
         } catch (e) { downgrade(e.message === 'QUOTA' ? t('Đã hết lượt AI hôm nay – tiếp tục bằng kịch bản soạn sẵn.') : t('AI đang bận – tiếp tục bằng kịch bản soạn sẵn.')); }
       }
@@ -253,7 +257,7 @@ Rules: stay in character; speak natural spoken English at ${lvOf(s)[L]} level ($
     const lang = langName();
     const prompt = `${daily(s) ? 'Everyday' : 'Workplace'} role-play for a ${lvOf(s)[L]} English learner. Scenario: ${s.title}. Learner's goal: ${s.you}\nTranscript:\n${transcript(hist, s)}\n
 Assess ONLY the learner's lines. Return JSON: {"natural": 0-100, "polite": 0-100, "clarity": 0-100, "grammar": 0-100, "summary": string (2 sentences of feedback written in ${lang}), "rewrites": [ {"you": exact learner line, "better": a sharper, more natural and professional version in English (keep their idea, ${lvOf(s)[Math.min(2, L + 1)]} level), "why": string (1-2 sentences in ${lang} explaining what improved), "meaning": string (translation of "better" into ${lang})} ] exactly 3 items, choosing the learner lines that would improve most}`;
-    try { return await proxy(`You are a strict but encouraging ${daily(s) ? 'everyday' : 'business'} English coach. Be accurate: very short or off-topic answers get low scores. Return JSON only.`, prompt); } catch (e) { /* hết lượt/mất mạng → AI trên máy */ }
+    try { return await proxy('rpcoach', { kind: daily(s) ? 'everyday' : 'work' }, prompt); } catch (e) { /* hết lượt/mất mạng → AI trên máy */ }
     if (lang === 'English' && await nanoReady()) {
       let ss = null;
       try { ss = await LM().create(LMO); const out = await withTimeout(ss.prompt(prompt + '\nReturn only JSON.'), 60000); return JSON.parse(String(out).replace(/^[^{]*/, '').replace(/[^}]*$/, '')); } catch (e) { /* bỏ qua */ } finally { if (ss) try { ss.destroy(); } catch (e) { /* bỏ qua */ } }

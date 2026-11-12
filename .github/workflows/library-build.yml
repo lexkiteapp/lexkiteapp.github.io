@@ -28,7 +28,9 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - id: p
-        run: node scripts/video/library.mjs ci-plan "${{ inputs.ids || 'missing' }}"
+        env:
+          LX_IDS: ${{ inputs.ids || 'missing' }}
+        run: node scripts/video/library.mjs ci-plan "$LX_IDS"
   build:
     needs: plan
     if: needs.plan.outputs.count != '0'
@@ -100,7 +102,7 @@ jobs:
           if [ -z "$LEXKITE_DRIVE_CLI_KEY" ]; then echo "Chưa có secret LEXKITE_DRIVE_CLI_KEY – bỏ qua sao lưu Drive (docs/ASSET-LIBRARY.md §8.6)"; exit 0; fi
           node scripts/video/library.mjs drive-backup out/library || echo "::warning::Sao lưu Kho Drive lỗi một phần – chạy lại library-build hoặc library.mjs sync --backup-only"
       - name: PR manifest vào repo chính
-        env: { GH_TOKEN: '${{ github.token }}' }
+        env: { GH_TOKEN: '${{ github.token }}', LX_REF_NAME: '${{ github.ref_name }}' }
         run: |
           git diff --quiet -- content/video/library.json brand/library/manifest.json && { echo "manifest không đổi"; exit 0; }
           br="library-build/${{ github.run_id }}"
@@ -109,4 +111,4 @@ jobs:
           git add content/video/library.json brand/library/manifest.json
           git commit -q -m "library: bản stacked từ CI library-build #${{ github.run_number }} [CF-Pages-Skip]"
           git push -q origin "$br"
-          gh pr create --title "library: bản stacked (CI #${{ github.run_number }})" --body "Kết quả workflow library-build: foot/figH/w/h + trạng thái cổng stacked trong content/video/library.json, manifest dựng brand/library/manifest.json. Bảng ghép mục WARN/FAIL: artifact library-results." --base "${{ github.ref_name }}" --head "$br" || echo "::warning::Không mở được PR (quyền Actions) – lấy artifact library-results"
+          gh pr create --title "library: bản stacked (CI #${{ github.run_number }})" --body "Kết quả workflow library-build: foot/figH/w/h + trạng thái cổng stacked trong content/video/library.json, manifest dựng brand/library/manifest.json. Bảng ghép mục WARN/FAIL: artifact library-results." --base "$LX_REF_NAME" --head "$br" || echo "::warning::Không mở được PR (quyền Actions) – lấy artifact library-results"

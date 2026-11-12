@@ -246,8 +246,10 @@
           <div style="font-size:2.5rem;margin-bottom:.5rem">⚠️</div>
           <h3>${t('Không tải được giải đấu')}</h3>
           <p class="muted">${t('Vui lòng kiểm tra kết nối mạng và thử lại.')}</p>
-          <button type="button" class="btn primary" onclick="App.route()">${t('Thử lại')}</button>
+          <button type="button" class="btn primary" id="leagueRetry">${t('Thử lại')}</button>
         </div>`;
+      // CSP chặn handler nội tuyến (onclick=) → gắn listener
+      const rb = body.querySelector('#leagueRetry'); if (rb) rb.addEventListener('click', () => App.route());
       return;
     }
 
@@ -264,7 +266,7 @@
             <div class="muted small">${t('Bắt đầu từ Hạng Đồng · Thi đua cùng 30 người học')}</div>
           </div>
 
-          <form id="leagueJoinForm" onsubmit="return false">
+          <form id="leagueJoinForm">
             <label class="set-row col" style="margin-bottom:1rem">
               <span class="set-top">
                 <span><b>${t('Đặt biệt danh của bạn')}</b></span>
@@ -289,7 +291,8 @@
       const errBox = $('#joinNickErr');
       const subBtn = $('#leagueJoinSubmit');
 
-      if (form) form.onsubmit = async () => {
+      if (form) form.onsubmit = async (e) => {
+        e.preventDefault(); // không gửi form (trước đây trình duyệt tải lại trang vì handler async không trả false)
         const nick = cleanNick(input.value);
         if (!nick) {
           errBox.textContent = t('Biệt danh phải từ 2–20 ký tự, không chứa ký tự lạ hoặc liên kết web.');

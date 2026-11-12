@@ -31,8 +31,9 @@ jobs:
           CF_ANALYTICS_TOKEN_2: '${{ secrets.CF_ANALYTICS_TOKEN_2 }}'
           CF_ACCOUNT_2: '${{ secrets.CF_ACCOUNT_2 }}'
           GITHUB_TOKEN: '${{ github.token }}'
+          LX_EVENT: ${{ github.event.schedule }}
         run: |
-          if [ "${{ github.event.schedule }}" = '17 * * * *' ]; then node scripts/free-tier/guard.mjs --intraday; else node scripts/free-tier/guard.mjs; node scripts/free-tier/guard.mjs --intraday; fi
+          if [ "$LX_EVENT" = '17 * * * *' ]; then node scripts/free-tier/guard.mjs --intraday; else node scripts/free-tier/guard.mjs; node scripts/free-tier/guard.mjs --intraday; fi
       - name: Ghi trạng thái (chỉ khi đổi; deploy Pages chỉ khi shed đổi)
         if: ${{ steps.guard.outputs.state_changed == '1' && github.ref == 'refs/heads/main' }}
         env: { GH_TOKEN: '${{ github.token }}' }

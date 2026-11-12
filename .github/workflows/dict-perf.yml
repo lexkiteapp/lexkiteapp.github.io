@@ -26,8 +26,12 @@ jobs:
           npm i --no-save --no-audit --no-fund playwright@1.50.1
           bash scripts/ci/pw-install.sh --with-deps chromium
       - name: Trước
+        env:
+          LX_EVENT: ${{ github.event.before }}
+          LX_REF_NAME: ${{ github.ref_name }}
+          LX_BASE: ${{ inputs.base }}
         run: |
-          BASE="${{ inputs.base }}"; [ -n "$BASE" ] || BASE=$([ "${{ github.ref_name }}" = main ] && echo "${{ github.event.before }}" || git merge-base origin/main HEAD)
+          BASE="$LX_BASE"; [ -n "$BASE" ] || BASE=$([ "$LX_REF_NAME" = main ] && echo "$LX_EVENT" || git merge-base origin/main HEAD)
           git worktree add -q /tmp/base "$BASE" && echo "base=$(git -C /tmp/base rev-parse --short HEAD)"
           [ -f /tmp/base/scripts/lexicon/shards.mjs ] && node /tmp/base/scripts/lexicon/shards.mjs --out /tmp/base/web || echo "bản trước chưa có mảnh"
           node scripts/test/dict-perf.mjs --root /tmp/base --label before --json /tmp/before.json || true

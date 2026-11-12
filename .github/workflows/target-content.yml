@@ -64,7 +64,9 @@ jobs:
     outputs: { ks: '${{ steps.p.outputs.ks }}' }
     steps:
       - id: p
-        run: echo "ks=$(node -e "const n=Math.min(12,Math.max(1,+process.argv[1]||1));console.log(JSON.stringify([...Array(n).keys()]))" "${{ github.event.inputs.shards }}")" >> "$GITHUB_OUTPUT"
+        run: echo "ks=$(node -e "const n=Math.min(12,Math.max(1,+process.argv[1]||1));console.log(JSON.stringify([...Array(n).keys()]))" "$LX_SHARDS")" >> "$GITHUB_OUTPUT"
+        env:
+          LX_SHARDS: ${{ github.event.inputs.shards }}
   gen:
     # shard song song (≤ 12 runner – chừa ≥ 16 trống); mỗi shard chạy ĐỦ cổng rồi gửi tệp lô qua artifact cho job merge
     needs: plan
@@ -87,12 +89,14 @@ jobs:
           bash scripts/ci/lt-up.sh "$LT"
       - name: Ứng viên (khô) hoặc sinh + LanguageTool + 2 giám khảo + dịch ngược + cổng
         env:
+          LX_N: ${{ github.event.inputs.n || 300 }}
+          LX_DRY: ${{ github.event.inputs.dry == '1' && '--dry' || '' }}
           CF_POOL: ${{ secrets.CF_POOL }}
           GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}
           VIMG_POOL_SKIP: '0'
-        run: node scripts/target/gen.mjs --tl "$TL" --n ${{ github.event.inputs.n || 300 }} --shard "${{ matrix.k }}/$SHARDS" ${{ github.event.inputs.dry == '1' && '--dry' || '' }}
+        run: node scripts/target/gen.mjs --tl "$TL" --n "$LX_N" --shard "${{ matrix.k }}/$SHARDS" $LX_DRY
       - name: IPA espeak-ng theo bảng (ghi đè IPA người soạn, lệch → qa.ipaAi)
         if: ${{ github.event.inputs.dry != '1' }}
         run: |

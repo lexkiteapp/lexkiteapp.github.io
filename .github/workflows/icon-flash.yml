@@ -30,4 +30,6 @@ jobs:
         run: bash scripts/ci/pw-install.sh chromium
       - name: Đo chữ ligature lộ ra
         timeout-minutes: 10
-        run: node scripts/test/icon-flash.mjs http://localhost:8080 ${{ (github.event_name == 'pull_request' || inputs.strict == '1') && '--strict' || '' }}
+        env:
+          LX_STRICT: ${{ (github.event_name == 'pull_request' || inputs.strict == '1') && '--strict' || '' }}
+        run: node scripts/test/icon-flash.mjs http://localhost:8080 $LX_STRICT

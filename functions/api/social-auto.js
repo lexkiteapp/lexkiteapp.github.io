@@ -13,10 +13,11 @@ import { clipOf, socialSetup, setupDist } from './distribution.js';
 import { previewClip, previewText, pickPreviewClip, PREVIEW_CLIP_RE as CLIP_RE } from './_social_preview.js';
 
 export { pickPreviewClip }; // dùng ở scripts/social/dryrun.mjs + test (hàm nằm ở _social_preview.js để op Quản trị lk/auto/preview dùng chung)
+import { readText, bodyFail } from './_body.js';
 
 const json = (status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
 export async function onRequestPost({ request, env }) {
-  const text = await request.text().catch(() => ''); if (text.length > 2048) return json(413, { error: 'too-large' });
+  let text; try { text = await readText(request, 2048); } catch (e) { const f = bodyFail(e); return json(f.status, { error: f.error }); }
   let b; try { b = JSON.parse(text || '{}'); } catch (e) { return json(400, { error: 'json' }); }
   if (!request.headers.get('X-Drive-Sig') || !(await cliVerify(env, request, text))) return json(403, { error: 'forbidden' });
   if (await limit('socauto:' + (request.headers.get('CF-Connecting-IP') || '?'), 6, 600)) return json(429, { error: 'too-fast' }); // CI 1 lượt/2 giờ; chặn vòng lặp lỗi

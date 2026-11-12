@@ -43,7 +43,9 @@ jobs:
     outputs: { list: '${{ steps.m.outputs.list }}' }
     steps:
       - id: m
-        run: echo "list=$(python3 -c "import json;print(json.dumps([x.strip() for x in '${{ github.event.inputs.templates || (github.event_name == 'pull_request' && 'drill' || 'drill,mistake,tip,ready') }}'.split(',') if x.strip()]))")" >> "$GITHUB_OUTPUT"
+        env:
+          LX_TPL: ${{ github.event.inputs.templates || (github.event_name == 'pull_request' && 'drill' || 'drill,mistake,tip,ready') }}
+        run: echo "list=$(python3 -c "import json,os;print(json.dumps([x.strip() for x in os.environ['LX_TPL'].split(',') if x.strip()]))")" >> "$GITHUB_OUTPUT"
   voice:
     needs: [setup, gate]
     if: needs.gate.outputs.go == 'true'

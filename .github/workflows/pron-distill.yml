@@ -35,7 +35,12 @@ jobs:
           python scripts/pron/distill/test_helpers.py
       - id: p
         if: inputs.stage == 'teacher' || inputs.stage == 'all'
-        run: python scripts/pron/distill/plan.py "${{ inputs.shards }}" "${{ inputs.limit }}" "${{ inputs.tag }}" "${{ inputs.force }}"
+        env:
+          LX_FORCE: ${{ inputs.force }}
+          LX_TAG: ${{ inputs.tag }}
+          LX_LIMIT: ${{ inputs.limit }}
+          LX_SHARDS: ${{ inputs.shards }}
+        run: python scripts/pron/distill/plan.py "$LX_SHARDS" "$LX_LIMIT" "$LX_TAG" "$LX_FORCE"
   teacher:
     needs: plan
     if: needs.plan.outputs.n != '' && needs.plan.outputs.n != '0'
@@ -61,9 +66,13 @@ jobs:
           pip install -q "optimum[onnxruntime]==1.23.3" "transformers==4.46.3"
           python scripts/pron/export.py facebook/wav2vec2-lv-60-espeak-cv-ft models/C
       - name: teacher shard
-        run: python scripts/pron/distill/teacher.py '${{ toJSON(matrix.sh) }}' shard.npz models/C "${{ inputs.limit }}"
+        env:
+          LX_LIMIT: ${{ inputs.limit }}
+        run: python scripts/pron/distill/teacher.py '${{ toJSON(matrix.sh) }}' shard.npz models/C "$LX_LIMIT"
       - name: upload shard (release asset, never prints the token)
-        run: python scripts/pron/distill/common.py upload "${{ inputs.tag }}" shard.npz "shard-${{ matrix.sh.id }}.npz" replace
+        env:
+          LX_TAG: ${{ inputs.tag }}
+        run: python scripts/pron/distill/common.py upload "$LX_TAG" shard.npz "shard-${{ matrix.sh.id }}.npz" replace
   train:
     needs: [plan, teacher]
     if: always() && (inputs.stage == 'train' || (inputs.stage == 'all' && needs.teacher.result != 'failure' && needs.teacher.result != 'cancelled'))
@@ -81,15 +90,32 @@ jobs:
           pip install -q numpy==1.26.4 scipy==1.13.1 huggingface_hub==0.26.2
           python scripts/pron/distill/test_helpers.py
       - id: t
-        run: python -u scripts/pron/distill/train.py "${{ inputs.tag }}" "${{ inputs.budget_min }}" "${{ inputs.steps }}" "${{ inputs.chain }}" "${{ inputs.max_chain }}" dd
+        env:
+          LX_MAX_CHAIN: ${{ inputs.max_chain }}
+          LX_CHAIN: ${{ inputs.chain }}
+          LX_STEPS: ${{ inputs.steps }}
+          LX_BUDGET_MIN: ${{ inputs.budget_min }}
+          LX_TAG: ${{ inputs.tag }}
+        run: python -u scripts/pron/distill/train.py "$LX_TAG" "$LX_BUDGET_MIN" "$LX_STEPS" "$LX_CHAIN" "$LX_MAX_CHAIN" dd
       - name: not converged -> next chunk (self re-dispatch, capped by max_chain)
         if: steps.t.outputs.finished == 'false'
+        env:
+          LX_EVAL_SMALL: ${{ inputs.eval_small }}
+          LX_MAX_CHAIN: ${{ inputs.max_chain }}
+          LX_CHAIN: ${{ inputs.chain }}
+          LX_BUDGET_MIN: ${{ inputs.budget_min }}
+          LX_STEPS: ${{ inputs.steps }}
+          LX_TAG: ${{ inputs.tag }}
         run: |
-          python scripts/pron/distill/common.py dispatch pron-distill.yml stage=train tag="${{ inputs.tag }}" steps="${{ inputs.steps }}" budget_min="${{ inputs.budget_min }}" \
-            chain="$(( ${{ inputs.chain }} + 1 ))" max_chain="${{ inputs.max_chain }}" eval_small="${{ inputs.eval_small }}"
+          python scripts/pron/distill/common.py dispatch pron-distill.yml stage=train tag="$LX_TAG" steps="$LX_STEPS" budget_min="$LX_BUDGET_MIN" \
+            chain="$(( $LX_CHAIN + 1 ))" max_chain="$LX_MAX_CHAIN" eval_small="$LX_EVAL_SMALL"
       - if: always()
+        env:
+          LX_STEPS: ${{ inputs.steps }}
+          LX_MAX_CHAIN: ${{ inputs.max_chain }}
+          LX_CHAIN: ${{ inputs.chain }}
         run: |
-          { echo "### pron-distill train chunk ${{ inputs.chain }}/${{ inputs.max_chain }}"; echo "step ${{ steps.t.outputs.step }} / ${{ inputs.steps }}, best dev PER ${{ steps.t.outputs.per }}, finished=${{ steps.t.outputs.finished }}"; } >> "$GITHUB_STEP_SUMMARY"
+          { echo "### pron-distill train chunk $LX_CHAIN/$LX_MAX_CHAIN"; echo "step ${{ steps.t.outputs.step }} / $LX_STEPS, best dev PER ${{ steps.t.outputs.per }}, finished=${{ steps.t.outputs.finished }}"; } >> "$GITHUB_STEP_SUMMARY"
   export:
     needs: [train]
     if: always() && (inputs.stage == 'export' || (needs.train.result == 'success' && needs.train.outputs.finished == 'true'))
@@ -103,10 +129,14 @@ jobs:
           pip install -q torch==2.4.1 --index-url "$TORCH_CPU"
           pip install -q numpy==1.26.4 scipy==1.13.1 onnx==1.17.0 onnxruntime==1.20.1
       - id: e
-        run: python -u scripts/pron/distill/export.py "${{ inputs.tag }}" out-s
+        env:
+          LX_TAG: ${{ inputs.tag }}
+        run: python -u scripts/pron/distill/export.py "$LX_TAG" out-s
       - name: pron-eval (4 gate metrics) on the new model, with teacher C as reference
+        env:
+          LX_EVAL_SMALL: ${{ inputs.eval_small }}
         run: |
-          small=""; [ "${{ inputs.eval_small }}" = "true" ] && small="n_so=20 n_ls=10 n_tr=0"
+          small=""; [ "$LX_EVAL_SMALL" = "true" ] && small="n_so=20 n_ls=10 n_tr=0"
           python scripts/pron/distill/common.py dispatch pron-eval.yml candidates=S,C model_url="${{ steps.e.outputs.model_url }}" quant=fp32,q8 $small
           echo "model: ${{ steps.e.outputs.model_url }} (pron-eval dispatched)" >> "$GITHUB_STEP_SUMMARY"
           cat out-s/train_report.json | python -c 'import json,sys;r=json.load(sys.stdin);print(json.dumps({k:r[k] for k in ("step","best_dev_PER_torch","params_M","variants")},indent=1))' >> "$GITHUB_STEP_SUMMARY"

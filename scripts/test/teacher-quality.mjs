@@ -6,6 +6,7 @@
 //     với 2 chỗ giáo viên + mặt vẽ đang nói. 4. Lệch miệng: chỗ giáo viên im lặng không phát clip nhép miệng (0 video). Khớp miệng có tiếng: lip-clock.mjs (±33 ms).
 // Chạy: node scripts/test/teacher-quality.mjs [--static]   (trình duyệt: cần playwright; thiếu → chỉ phần tĩnh)
 import assert from 'node:assert/strict'; import fs from 'node:fs'; import path from 'node:path'; import http from 'node:http'; import { fileURLToPath } from 'node:url';
+import { waitFn } from '../lib/pw-wait.mjs';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..'), WEB = path.join(ROOT, 'web');
 const errs = [], R = JSON.parse(fs.readFileSync(path.join(WEB, 'teach/characters.json'), 'utf8'));
 const CAP = { clip: 260 * 1024, webm: 150 * 1024, still: 48 * 1024, page: 120 * 1024 };
@@ -58,7 +59,7 @@ for (const name of ['chromium', 'webkit']) {
   await page.addInitScript(() => { const gc = HTMLCanvasElement.prototype.getContext; HTMLCanvasElement.prototype.getContext = function (t, o) { return gc.call(this, t, /webgl/.test(t) ? { ...(o || {}), preserveDrawingBuffer: true } : o); }; });
   const perr = [], bytes = { teach: 0 };
   page.on('pageerror', e => perr.push(String(e))); page.on('response', async r => { if (/\/teach\//.test(r.url())) { const b = await r.body().catch(() => null); if (b) bytes.teach += b.length; } });
-  await page.goto(BASE + '/__tq.html'); await page.waitForFunction(() => window.Chars && Chars.slot && window.LessonTeacher);
+  await page.goto(BASE + '/__tq.html'); await waitFn(page, () => window.Chars && Chars.slot && window.LessonTeacher);
   // (a) 2 chỗ giáo viên IM LẶNG như Home/lộ trình (vòng nghỉ + cử chỉ point) → phải là ảnh tĩnh, 0 video, dung lượng nhỏ
   await page.evaluate(() => { document.getElementById('row').innerHTML = Chars.slot('ama', { idle: true, size: 'l', lazy: false }) + Chars.slot('carlos', { pose: 'point', size: 'l', clip: true, loop: true, lazy: false }); });
   await page.waitForTimeout(2500);
@@ -70,9 +71,9 @@ for (const name of ['chromium', 'webkit']) {
   // (b) có lời (data-talk) → clip phát qua WebGL: đo khung đen / viền tối / số lần tải texture
   await page.evaluate(() => { const row = document.getElementById('row'); row.innerHTML = Chars.slot('ama', { pose: 'point', size: 'xl', lazy: false }) + Chars.slot('carlos', { pose: 'point', size: 'xl', lazy: false });
     row.querySelectorAll('.tslot').forEach(s => { s.dataset.clip = Chars.clip(s.dataset.teacher, 'point'); s.dataset.talk = Chars.clip(s.dataset.teacher, 'talk'); }); });
-  await page.waitForFunction(() => window.TeacherLive || document.querySelector('script[src*="teacher-live"]'), null, { timeout: 5000 }).catch(() => {});
+  await waitFn(page, () => window.TeacherLive || document.querySelector('script[src*="teacher-live"]'), null, { timeout: 5000 }).catch(() => {});
   await page.evaluate(() => new Promise(r => { const go = () => { document.querySelectorAll('#row .tslot[data-clip]').forEach(TeacherLive); r(); }; if (window.TeacherLive) go(); else { const s = document.createElement('script'); s.src = 'js/teacher-live.js'; s.onload = go; document.head.appendChild(s); } }));
-  const played = await page.waitForFunction(() => document.querySelectorAll('#row .tslot.live').length === 2, null, { timeout: 8000 }).then(() => true, () => false);
+  const played = await waitFn(page, () => document.querySelectorAll('#row .tslot.live').length === 2, null, { timeout: 8000 }).then(() => true, () => false);
   const res = results[name] = { silent, silentKB: silentBytes >> 10, played };
   if (played) {
     const f0 = await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].map(s => s.lkFrames || 0)), t0 = Date.now();
@@ -91,7 +92,7 @@ for (const name of ['chromium', 'webkit']) {
   const u0 = await page.evaluate(() => [...document.querySelectorAll('#row .tslot')].map(s => [s.lkSum || 0, s.lkFrames || 0]));
   const cdp = name === 'chromium' ? await page.context().newCDPSession(page) : null; if (cdp) await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
   await page.evaluate(() => { window.__lt = LessonTeacher.mount(document.getElementById('lt'), 'ama', { lip: true }); });
-  await page.waitForFunction(() => window.__lt.lip() && window.__lt.lip().frames > 10, null, { timeout: 15000 }).catch(() => {});
+  await waitFn(page, () => window.__lt.lip() && window.__lt.lip().frames > 10, null, { timeout: 15000 }).catch(() => {});
   const perf = await page.evaluate(() => new Promise(r => { let lt = 0; try { new PerformanceObserver(l => { lt += l.getEntries().filter(e => e.duration > 50).length; }).observe({ type: 'longtask' }); } catch (e) { /* WebKit không có longtask */ }
     window.__lt.say('Hello there, let us practise this sentence together right now, nice and slow.', { dur: 4 });
     const s0 = window.__lt.lip() ? window.__lt.lip().frames : 0; let n = 0; const t0 = performance.now(); const f = () => { n++; if (performance.now() - t0 < 4000) requestAnimationFrame(f); else r({ fps: Math.round(n / ((performance.now() - t0) / 1000)), long: lt, face: window.__lt.lip() ? window.__lt.lip().frames - s0 : -1 }); }; requestAnimationFrame(f); }));

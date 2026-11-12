@@ -28,8 +28,9 @@ jobs:
       - name: Số "trước" (main, không chặn)
         if: github.event_name == 'pull_request'
         continue-on-error: true
+        env: { BASE_REF: '${{ github.base_ref }}' }
         run: |
-          git fetch -q --depth=1 origin "${{ github.base_ref }}"
+          git fetch -q --depth=1 origin "$BASE_REF"
           mkdir -p out/base && git archive FETCH_HEAD web | tar -x -C out/base
           node scripts/test/topbar-lang.mjs out/base/web out/topbar-lang --label truoc --report-only
           cat out/topbar-lang/truoc.md >> "$GITHUB_STEP_SUMMARY"

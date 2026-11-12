@@ -5,6 +5,7 @@
 import fs from 'node:fs';
 import { chromium } from 'playwright';
 import { noProd } from './lib/no-prod.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 const [BASE = 'http://localhost:8080', OUT = 'out/video-web'] = process.argv.slice(2);
 fs.mkdirSync(OUT, { recursive: true });
 const VPS = { mobile: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }, desktop: { viewport: { width: 1280, height: 860 } } };
@@ -36,7 +37,7 @@ for (const lang of ['vi', 'ar', 'ja']) for (const [vp, opt] of Object.entries(VP
       await card.click();
       const v = page.locator('.lv-slot video').first(); await v.waitFor({ timeout: 10000 });
       const first = await v.evaluate(el => el.querySelector('source').src);
-      await page.waitForFunction(() => { const x = document.querySelector('.lv-slot video'); return x && x.readyState >= 2 && !x.paused; }, null, { timeout: 20000 }).catch(() => bad('video không phát'));
+      await waitFn(page, () => { const x = document.querySelector('.lv-slot video'); return x && x.readyState >= 2 && !x.paused; }, null, { timeout: 20000 }).catch(() => bad('video không phát'));
       const cap = await v.evaluate(el => [...el.textTracks].map(t => `${t.language}:${t.mode}`).join(','));
       if (cap !== 'en:showing') bad('phụ đề phải chỉ EN và đang hiện: ' + cap);
       await v.evaluate(el => { el.currentTime = Math.max(0, el.duration - 0.4); const p = el.play(); if (p && p.catch) p.catch(() => {}); /* tua sát cuối: play() có thể bị 'interrupted by end of playback' – chỉ là cách kiểm tra tua, không phải lỗi của app (08/11 Visual QA đỏ 1 lần vì chỗ này) */ });
@@ -45,11 +46,11 @@ for (const lang of ['vi', 'ar', 'ja']) for (const [vp, opt] of Object.entries(VP
       if (!/[a-z]/i.test(q)) bad('câu đố không phải tiếng Anh');
       await page.locator('.lv-q .lv-o').last().click();
       await page.locator('.lv-q .ok').first().waitFor({ timeout: 5000 });
-      await page.waitForFunction(() => (document.querySelector('.lv-fb') || {}).textContent, null, { timeout: 3000 }).catch(() => bad('không có phản hồi câu đố'));
+      await waitFn(page, () => (document.querySelector('.lv-fb') || {}).textContent, null, { timeout: 3000 }).catch(() => bad('không có phản hồi câu đố'));
       const marks = await page.locator('.lv-q .lv-mk').allInnerTexts(); if (!marks.includes('✓')) bad('thiếu dấu ✓');
       await page.locator('.lv-q').scrollIntoViewIfNeeded(); await page.screenshot({ path: `${OUT}/${tag}-quiz.png` });
       await page.locator('[data-lv-next]').click();
-      await page.waitForFunction(f => { const s = document.querySelector('.lv-slot video source'); return s && s.src !== f; }, first, { timeout: 10000 }).catch(() => bad('"Video tiếp theo" không đổi clip'));
+      await waitFn(page, f => { const s = document.querySelector('.lv-slot video source'); return s && s.src !== f; }, first, { timeout: 10000 }).catch(() => bad('"Video tiếp theo" không đổi clip'));
       await page.waitForTimeout(800); await page.screenshot({ path: `${OUT}/${tag}-next.png` });
       await page.evaluate(() => { const x = document.querySelector('.lv-slot video'); if (x) x.pause(); });
       log(`✓ ${tag}: thẻ → phát (${cap}) → câu đố "${q.slice(0, 50)}" → phản hồi → clip tiếp theo`);

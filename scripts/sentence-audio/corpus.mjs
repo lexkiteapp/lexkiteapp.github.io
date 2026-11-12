@@ -64,7 +64,7 @@ export function collect() {
   {
     const sp = fs.readFileSync('web/js/speaking.js', 'utf8'), i0 = sp.indexOf('const BANK = [') + 13;
     const BANK = vm.runInNewContext(sp.slice(i0, sp.indexOf('\n  ];', i0) + 4), { t: x => x });
-    vm.runInContext(fs.readFileSync('web/js/speak/more.js', 'utf8'), c);
+    vm.runInContext(fs.readFileSync('web/cpack/speak/more.js', 'utf8'), c);
     for (const f of ['more2', 'more3']) { const p = [`web/cpack/speak/${f}.js`, `web/js/speak/${f}.js`].find(x => fs.existsSync(x)); if (p) vm.runInContext(fs.readFileSync(p, 'utf8'), c); }
     for (const x of c.SPEAK_MORE || []) if (!BANK.some(b => b.title === x.title)) BANK.push(x);
     for (const b of BANK) for (const v of Object.values(GEN)) { for (const q of [...b.p1, ...b.p3]) addOne(v, q, 'speaking-questions'); addOne(v, `${b.p2.q} You should say: ${b.p2.points.join(', ')}.`, 'speaking-questions'); }

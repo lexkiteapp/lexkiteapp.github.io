@@ -54,8 +54,8 @@ jobs:
           pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.5.1
           pip install -q transformers==4.46.3 pymatting==1.1.13 opencv-python-headless==4.10.0.84 numpy==2.1.3 scipy==1.14.1 pillow==11.0.0
       - name: Matte ${{ matrix.clip }}
-        run: python3 scripts/video/matte_pro.py footage/anchor/tools/dl24/${{ matrix.clip }}.mp4 footage/anchor/green --id ${{ matrix.clip }} --engine ${{ inputs.engine }} $EXTRA
-        env: { EXTRA: '${{ inputs.extra }}' }
+        run: python3 scripts/video/matte_pro.py footage/anchor/tools/dl24/${{ matrix.clip }}.mp4 footage/anchor/green --id ${{ matrix.clip }} --engine "$LX_ENGINE" $EXTRA
+        env: { EXTRA: '${{ inputs.extra }}', LX_ENGINE: '${{ inputs.engine }}' }
       - name: Edge QA (old vs PRO; PRO must pass)
         shell: bash
         run: |
@@ -79,8 +79,12 @@ jobs:
         with: { pattern: 'matte-g*', path: footage/anchor/green, merge-multiple: true, run-id: '${{ inputs.from_run || github.run_id }}', github-token: '${{ github.token }}' }
       - uses: ./.github/actions/setup-ffmpeg
       - name: Crop sheet + before/after + metrics
+        env:
+          LX_SHEET: ${{ inputs.sheet }}
+          LX_VIDEO: ${{ inputs.video }}
+          LX_CLIPS: ${{ inputs.clips }}
         run: |
           pip install -q opencv-python-headless==4.10.0.84 numpy==2.1.3 scipy==1.14.1
-          python3 scripts/video/matte_compare.py footage/anchor/green footage/anchor/bg/classroom.png out --sheet '${{ inputs.sheet }}' --video '${{ inputs.video }}' --metrics '${{ inputs.clips }}'
+          python3 scripts/video/matte_compare.py footage/anchor/green footage/anchor/bg/classroom.png out --sheet "$LX_SHEET" --video "$LX_VIDEO" --metrics "$LX_CLIPS"
       - uses: actions/upload-artifact@v4
         with: { name: matte-compare, path: out/, retention-days: 14 }

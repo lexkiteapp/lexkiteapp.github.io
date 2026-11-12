@@ -29,7 +29,9 @@ jobs:
         with: { path: out/d1-backup, key: 'd1-backup-state-${{ github.run_id }}', restore-keys: 'd1-backup-state-' }
       - name: Xuất + mã hoá + tải 2 bản lên Kho Drive
         if: ${{ steps.lease.outputs.skip != '1' }}
-        run: node scripts/ops/d1-backup.mjs ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+        env:
+          LX_FORCE: ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+        run: node scripts/ops/d1-backup.mjs $LX_FORCE
       - name: Lưu trạng thái (tiếp tục lượt sau nếu chưa xong)
         if: ${{ always() && steps.lease.outputs.skip != '1' }}
         uses: actions/cache/save@v4

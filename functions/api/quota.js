@@ -11,6 +11,7 @@ import { setupJobs, timeline } from './_jobs.js';
 import { adminGate, adminAudit, adminCors } from './admin.js';
 import { geminiKeys } from './ai.js';
 import { DEFAULTS, PROVIDERS, BREAKER, budget, validConfig, normId, setupQuota, resetState, dayKey } from './_quota.js';
+import { readJSON, bodyFail } from './_body.js';
 
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req) } });
 const all = async (db, sql, ...a) => (await db.prepare(sql).bind(...a).all()).results || [];
@@ -95,7 +96,7 @@ export const onRequestOptions = ({ request }) => new Response(null, { status: 20
 export async function onRequestPost({ request, env }) {
   if (!env.DB) return json(request, 500, { error: 'no-db' });
   const g = await adminGate(request, env, 'admq'); if (!g.who) return json(request, g.status, { error: g.error });
-  let b; try { b = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
+  let b; try { b = await readJSON(request, 65536); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   const fn = b && typeof b === 'object' && Object.hasOwn(OPS, b.op) ? OPS[b.op] : null; if (!fn) return json(request, 400, { error: 'op' });
   try {
     await setupQuota(env.DB);

@@ -78,8 +78,8 @@ jobs:
         run: npm i --no-save --no-audit --no-fund playwright@1.48.2 && bash scripts/ci/pw-install.sh --with-deps chromium
       - name: Đo 6 route ×3
         timeout-minutes: 18
-        env: { ONLY: '${{ inputs.only }}', TRACE: '${{ inputs.trace }}' }
-        run: node scripts/test/route-vitals.mjs ${{ inputs.base || 'https://lexkite.com' }} out/route-vitals.json
+        env: { ONLY: '${{ inputs.only }}', TRACE: '${{ inputs.trace }}', LX_BASE: '${{ inputs.base || ''https://lexkite.com'' }}' }
+        run: node scripts/test/route-vitals.mjs "$LX_BASE" out/route-vitals.json
       - name: Trước/sau trên bản dựng dist (main vs nhánh, máy chủ có nén, cùng runner)
         if: ${{ github.ref != 'refs/heads/main' && !cancelled() }}
         timeout-minutes: 40

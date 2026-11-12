@@ -28,9 +28,12 @@ jobs:
           CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
           CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
           AI_POOL_GC_MAX: '15000'
+          LX_LANGS: ${{ github.event.inputs.langs }}
+          LX_CALLS: ${{ github.event.inputs.calls || '400' }}
+          LX_SET: ${{ github.event.inputs.set || 'usage grammar' }}
         run: |
-          for s in ${{ github.event.inputs.set || 'usage grammar' }}; do
-            node scripts/explain/job.mjs --set "$s" --calls "${{ github.event.inputs.calls || '400' }}" ${{ github.event.inputs.langs && format('--langs {0}', github.event.inputs.langs) || '' }} || true
+          for s in "$LX_SET"; do
+            node scripts/explain/job.mjs --set "$s" --calls "$LX_CALLS" ${LX_LANGS:+--langs "$LX_LANGS"} || true
           done
           node scripts/explain/build.mjs
           node scripts/content-qa/gate.mjs   # cổng QA: mục chưa có 2 giám khảo đồng ý không được xuất (docs/CONTENT-QA.md)

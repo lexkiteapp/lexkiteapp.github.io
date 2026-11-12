@@ -73,10 +73,10 @@ jobs:
           node scripts/tts-ab/web.mjs /tmp/kk/node_modules/kokoro-js
       - name: Render ElevenLabs (trần ${{ github.event.inputs.max_credits }} credit)
         if: env.PHASE == 'pilot' || env.PHASE == 'batch'
-        env: { ELEVENLABS_API_KEY: '${{ secrets.ELEVENLABS_API_KEY }}' }
+        env: { ELEVENLABS_API_KEY: '${{ secrets.ELEVENLABS_API_KEY }}', LX_EL_SPEED: '${{ github.event.inputs.el_speed }}' }
         run: |
           [ -n "$ELEVENLABS_API_KEY" ] || { echo "Chưa có secret ELEVENLABS_API_KEY"; exit 1; }
-          python3 scripts/tts-ab/eleven.py --phase "$PHASE" --cap "$CAP" --speed "${{ github.event.inputs.el_speed }}"
+          python3 scripts/tts-ab/eleven.py --phase "$PHASE" --cap "$CAP" --speed "$LX_EL_SPEED"
       - uses: actions/upload-artifact@v4
         if: always() && env.PHASE != 'dryrun'
         with: { name: 'tts-ab-audio-${{ github.run_id }}', path: .tts-ab/audio/, retention-days: 30, include-hidden-files: true }

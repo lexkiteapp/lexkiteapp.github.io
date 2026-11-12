@@ -8,6 +8,7 @@ import { cleanRev, diffRev } from './_ads.js';
 import { once } from './_schema.js';
 import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
+import { readJSON, bodyFail } from './_body.js';
 
 export const DDL = 'CREATE TABLE IF NOT EXISTS ads_rev (day TEXT NOT NULL, src TEXT NOT NULL, dim TEXT NOT NULL, key TEXT NOT NULL, earn INTEGER NOT NULL DEFAULT 0, imp INTEGER NOT NULL DEFAULT 0, click INTEGER NOT NULL DEFAULT 0, req INTEGER NOT NULL DEFAULT 0, mreq INTEGER NOT NULL DEFAULT 0, pv INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (day, src, dim, key)) WITHOUT ROWID';
 export const SEL = 'SELECT day, src, dim, key, earn, imp, click, req, mreq, pv FROM ads_rev WHERE day >= ?1 AND day <= ?2';
@@ -40,7 +41,8 @@ export async function onRequestPost({ request, env }) {
   if (!env.STUDIO_CALLBACK_SECRET) return json(503, { error: 'not-configured', need: 'STUDIO_CALLBACK_SECRET' });
   if (await limit('ads-report:' + (request.headers.get('CF-Connecting-IP') || '?'), 10, 600)) return json(429, { error: 'too-fast' });
   if (!(await secretOk(env, given))) return json(403, { error: 'forbidden' });
-  let pkt; try { pkt = cleanRev(await request.json()); } catch (e) { return json(400, { error: String((e && e.message) || 'json').slice(0, 40) }); }
+  let raw; try { raw = await readJSON(request, MAX_BODY); } catch (e) { const f = bodyFail(e); return json(f.status, { error: f.error }); }
+  let pkt; try { pkt = cleanRev(raw); } catch (e) { return json(400, { error: String((e && e.message) || 'json').slice(0, 40) }); }
   { const gb = await guardBg(request, env, (r, s, d) => json(s, d)); if (gb) return gb; }
   try {
     await setup(env.DB, env);

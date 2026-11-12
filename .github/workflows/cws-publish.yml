@@ -38,6 +38,8 @@ jobs:
           [ -n "$TOKEN" ] && [ "$TOKEN" != null ] || { echo "::error::Không lấy được access token (refresh token hết hạn? xem docs/CWS-RULES.md)"; exit 1; }
           echo "::add-mask::$TOKEN"; echo "TOKEN=$TOKEN" >> "$GITHUB_ENV"
       - name: Phiên bản đang có trên cửa hàng
+        env:
+          LX_MODE: ${{ inputs.mode }}
         run: |
           echo "Độ dài ID: publisher ${#PUB} ký tự, item ${#EXT} ký tự (item đúng = 32 chữ a–p)"
           ST=$(curl -s -w '\n%{http_code}' -H "Authorization: Bearer $TOKEN" "$API/v2/publishers/$PUB/items/$EXT:fetchStatus"); CODE=$(echo "$ST" | tail -1); ST=$(echo "$ST" | sed '$d')
@@ -45,7 +47,7 @@ jobs:
           echo "$ST" | jq -c '{published: .publishedItemRevisionStatus.state, submitted: .submittedItemRevisionStatus.state, upload: .lastAsyncUploadState}' || true
           SV=$(echo "$ST" | jq -r '[.. | objects | .crxVersion? // empty] | map(split(".") | map(tonumber)) | max // [] | map(tostring) | join(".")')
           echo "Bản trên cửa hàng: ${SV:-chưa có}"; echo "STORE_VER=$SV" >> "$GITHUB_ENV"
-          if [ "${{ inputs.mode }}" != check ] && echo "$ST" | jq -e '.submittedItemRevisionStatus.state == "PENDING_REVIEW"' >/dev/null 2>&1; then echo "::error::Đang có bản chờ duyệt – đợi duyệt xong hoặc hủy trên dashboard rồi chạy lại"; exit 1; fi
+          if [ "$LX_MODE" != check ] && echo "$ST" | jq -e '.submittedItemRevisionStatus.state == "PENDING_REVIEW"' >/dev/null 2>&1; then echo "::error::Đang có bản chờ duyệt – đợi duyệt xong hoặc hủy trên dashboard rồi chạy lại"; exit 1; fi
       - name: Build + kiểm tra quy tắc
         if: inputs.mode != 'check'
         env: { EXT_AUTOVERSION: '1' }

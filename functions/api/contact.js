@@ -1,12 +1,14 @@
 /* Form liên hệ: POST /api/contact { name, email, msg, lang, hp, ms }
  * → lưu D1 (bảng contact_msgs) → chuyển thư vào support qua Worker lexkite-mail (service binding MAIL).
- * Chống spam: ô bẫy hp, gửi quá nhanh (< 3 s), tối đa 5 tin/giờ mỗi người (IP đã băm, không lưu IP gốc). */
+ * Chống spam: người thật (Turnstile token hoặc vé X-Lexkite-Human – functions/api/_human.js, fail closed), ô bẫy hp, gửi quá nhanh (< 3 s), tối đa 5 tin/giờ mỗi người (IP đã băm, không lưu IP gốc). */
 import { gate } from './_quota.js';
 import { moderate, mask, defang } from './_abuse.js'; // chửi bới/đe dọa/link độc → nhận im lặng, không lưu, không chuyển thư // hạn mức theo IP/thiết bị + cầu dao thư (docs/QUOTAS.md)
+import { readJSON, bodyFail } from './_body.js';
+import { humanGate } from './_human.js';
 
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 const PER_HOUR = 5;
-const cors = req => { const o = req.headers.get('Origin') || ''; return ORIGINS.test(o) ? { 'Access-Control-Allow-Origin': o, 'Access-Control-Allow-Headers': 'Content-Type, X-Lexkite-Device', 'Access-Control-Allow-Methods': 'POST, OPTIONS', Vary: 'Origin' } : {}; };
+const cors = req => { const o = req.headers.get('Origin') || ''; return ORIGINS.test(o) ? { 'Access-Control-Allow-Origin': o, 'Access-Control-Allow-Headers': 'Content-Type, X-Lexkite-Device, X-Lexkite-Human', 'Access-Control-Allow-Methods': 'POST, OPTIONS', Vary: 'Origin' } : {}; };
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...cors(req) } });
 const sha = async s => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)))].map(b => b.toString(16).padStart(2, '0')).join('');
 let ready = false;
@@ -15,23 +17,13 @@ export const onRequestOptions = ({ request }) => new Response(null, { status: 20
 
 export async function onRequestPost({ request, env }) {
   if (!env.DB) return json(request, 500, { error: 'no-db' });
-  if (+(request.headers.get('Content-Length') || 0) > 32768) return json(request, 413, { error: 'too-large' });
-  let b; try { b = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
+  let b; try { b = await readJSON(request, 32768); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   if (!b || typeof b !== 'object') return json(request, 400, { error: 'json' });
   const name = String(b.name || '').trim().slice(0, 100), email = String(b.email || '').trim().slice(0, 200), msg = String(b.msg || '').trim().slice(0, 5000), lang = String(b.lang || '').slice(0, 8);
   if (b.hp || Number(b.ms) < 3000) return json(request, 200, { ok: true }); // máy spam: giả vờ thành công
   if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email) || msg.length < 10) return json(request, 400, { error: 'invalid' });
-  // Kiểm tra Turnstile nếu được cấu hình khóa bí mật
-  if (env.TURNSTILE_SECRET_KEY && b.token) {
-    try {
-      const ip = request.headers.get('CF-Connecting-IP') || '';
-      const params = new URLSearchParams({ secret: env.TURNSTILE_SECRET_KEY, response: b.token });
-      if (ip) params.set('remoteip', ip);
-      const vr = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', { method: 'POST', body: params });
-      const vj = await vr.json();
-      if (!vj.success) return json(request, 403, { error: 'turnstile' });
-    } catch (e) { /* bỏ qua lỗi mạng tạm thời tới Cloudflare verify */ }
-  }
+  // Người thật (02/11, fail closed): có TURNSTILE_SECRET_KEY → BẮT BUỘC token Turnstile (form web) hoặc vé X-Lexkite-Human (app gốc: web/js/human.js); siteverify lỗi → 503, máy khách thử lại
+  { const hg = await humanGate(request, env, { token: b.token }); if (!hg.ok) return json(request, hg.status, { error: hg.error }); }
   if (moderate(name + '\n' + msg).hide) return json(request, 200, { ok: true });
   const q = await gate(request, env, 'contact', { who: null, json }); if (q.res) return q.res;
   const who = (await sha('lexkite-contact|' + (request.headers.get('CF-Connecting-IP') || ''))).slice(0, 24);

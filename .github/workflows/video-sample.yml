@@ -76,7 +76,8 @@ jobs:
         env:
           KOKORO_NODE_PATH: /tmp/kk/node_modules
           VIDEO_STRICT: '1' # kho thật (fetch-render): thiếu phòng/whisper/Rhubarb/Remotion → lỗi, không lặng lẽ dùng nền gradient / chia đều
-        run: node scripts/video/render.mjs --local --script "${{ github.event.inputs.script }}" 2>&1 | tee render.log
+          LX_SCRIPT: ${{ github.event.inputs.script }}
+        run: node scripts/video/render.mjs --local --script "$LX_SCRIPT" 2>&1 | tee render.log
       - name: 6 khung chính để duyệt
         if: always()
         run: |

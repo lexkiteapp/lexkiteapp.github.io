@@ -82,5 +82,6 @@
 'Ảnh không đúng – ẩn ảnh này': 'Wrong picture – hide it',
 'Hết lượt AI miễn phí hôm nay – thử lại vào ngày mai.': 'Daily free AI limit reached – try again tomorrow.',
 'AI đang bận – thử lại sau ít phút.': 'AI is busy right now – try again in a few minutes.',
+'Mở Lexkite một lần để xác minh, rồi thử lại.': 'Open Lexkite once to verify, then try again.',
 'AI không dùng được khi ngoại tuyến – kết nối mạng rồi thử lại.': 'AI is unavailable offline – connect to the internet and try again.',
 }); })(typeof self !== 'undefined' ? self : this);

@@ -8,6 +8,7 @@
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process';
 import { chromium } from 'playwright';
 import { SCREENS, DRIVE, DRIVEN, SEED, SEED_STREAK, FIX_CLOCK, SEED_LEAGUE, SEED_SCREEN, FINAL, serve } from './stitch-screens.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 const [ROOT = 'web', SD = 'out/stitch-diff', OUT = 'out/final-qc'] = process.argv.slice(2); fs.mkdirSync(OUT, { recursive: true });
 const REF = process.env.STITCH_V2_PNG || 'out/stitch-v2/png', LIM = JSON.parse(fs.readFileSync('scripts/test/stitch-diff.json', 'utf8'));
 const S = fs.existsSync(path.join(SD, 'scores.json')) ? JSON.parse(fs.readFileSync(path.join(SD, 'scores.json'), 'utf8')) : null;
@@ -143,7 +144,7 @@ for (const f of FINAL.filter(x => x.k)) {
     if (f.ready) put(f.stitch, 'port', !!(await page.waitForSelector(f.ready, { state: 'attached', timeout: 6000 }).catch(() => null)), `chưa tới trạng thái ${f.ready}`); // chờ trạng thái (màn async), không ngủ cố định
     if (rm) { const a = await page.evaluate(RM).catch(() => []); put(f.stitch, 'reduced-motion', !a.length, a.slice(0, 3).join(' · ')); }
     else {
-      if (f.speaks) await page.waitForFunction(() => { const t = (window.__qc || {}).talk || []; return t.some(x => x.on) && !document.querySelector('.tch.speaking'); }, null, { timeout: 8000 }).catch(() => {}); // câu đầu nói xong (≤ 8 s)
+      if (f.speaks) await waitFn(page, () => { const t = (window.__qc || {}).talk || []; return t.some(x => x.on) && !document.querySelector('.tch.speaking'); }, null, { timeout: 8000 }).catch(() => {}); // câu đầu nói xong (≤ 8 s)
       const T = await page.evaluate(TEACH).catch(e => [{ bad: ['lỗi đo ' + e.message] }]), log = await page.evaluate(() => window.__qc).catch(() => ({ voice: [], tts: [], sfx: [], talk: [] }));
       const want = f.teacher;
       if (!want) put(f.stitch, 'teacher', true, T.length ? `${T.length} hình (màn không bắt buộc)` : '');

@@ -10,6 +10,7 @@ import { adminGate, adminAudit, adminCors } from './admin.js';
 import { looksSecret } from './_keys.js';
 import { ROWS } from './_accounts_reg.js';
 import { limit } from './sync.js';
+import { readText, bodyFail } from './_body.js';
 
 const GH_REPO = 'lexkiteapp/lexkiteapp.github.io', GH_TTL = 600e3, DAY = 86400e3, WARN_DAYS = 14;
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req) } });
@@ -60,8 +61,7 @@ export function build(env, ledger, gh, now = Date.now()) {
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 
 export async function onRequestPost({ request, env }) {
-  const raw = await request.text().catch(() => '');
-  if (raw.length > 8000) return json(request, 413, { error: 'too-large' });
+  let raw; try { raw = await readText(request, 8000); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   let b; try { b = JSON.parse(raw || '{}'); } catch (e) { return json(request, 400, { error: 'json' }); }
   if (!b || typeof b !== 'object' || Array.isArray(b)) return json(request, 400, { error: 'json' });
   const g = await adminGate(request, env, 'acct'); if (!g.who) return json(request, g.status, { error: g.error });

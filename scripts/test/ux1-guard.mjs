@@ -9,6 +9,7 @@ import fs from 'node:fs'; import path from 'node:path';
 import { chromium } from 'playwright';
 import { noProd } from './lib/no-prod.mjs';
 import { serve, scan } from './ux-guard-lib.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 const args = process.argv.slice(2), flags = args.filter(a => a.startsWith('--')), pos = args.filter((a, i) => !a.startsWith('--') && !(args[i - 1] || '').startsWith('--part'));
 const [ROOT = 'web', OUT = 'out/ux1-guard'] = pos, SHOTS = flags.includes('--shots');
 const part = (args[args.indexOf('--part') + 1] || '0/1').split('/').map(Number);
@@ -56,7 +57,7 @@ async function run(width, scheme, lang) {
 
   // 🔥 Giữ chuỗi: mốc 7 ngày (tự hiện khi mở app) → rương → rã băng
   await page.evaluate(async () => { if (App.lazy) await App.lazy('streak', 'ret').catch(() => {}); if (window.Ret) Ret.check(); }).catch(() => {});
-  await page.waitForFunction(() => !!document.querySelector('#modal:not([hidden]) .ret-cel, #modal:not([hidden]) [data-ret-cel]'), null, { timeout: 8000 }).catch(() => errs.push(`${tag}: mốc 7 ngày không hiện`));
+  await waitFn(page, () => !!document.querySelector('#modal:not([hidden]) .ret-cel, #modal:not([hidden]) [data-ret-cel]'), null, { timeout: 8000 }).catch(() => errs.push(`${tag}: mốc 7 ngày không hiện`));
   await check('ret-milestone');
   if (await click('#retChestTile')) { await page.waitForTimeout(1200); await check('ret-chest'); }
   await page.evaluate(() => { const m = document.getElementById('modal'); if (m) m.hidden = true; if (window.Ret) Ret.thaw(); });

@@ -17,6 +17,7 @@ import { claims, limit } from './sync.js';
 import { gate } from './_quota.js';
 import { profaneName } from './_abuse.js';
 import { once } from './_schema.js';
+import { readJSON, bodyFail } from './_body.js';
 
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 export const MAX = { teach: 30, learn: 20, members: 300, tasks: 200 };
@@ -62,7 +63,7 @@ export async function onRequestPost({ request, env }) {
   const who = await claims((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
   const uid = who && who.sub;
   if (!uid) return json(request, 401, { error: 'auth' });
-  let req; try { req = await request.json(); } catch (e) { return bad('json'); }
+  let req; try { req = await readJSON(request, 262144); } catch (e) { const f = bodyFail(e); return f.status === 413 ? json(request, 413, { error: f.error }) : bad('json'); }
   { const wait = await limit(`class:${uid}`, 30, 60); if (wait) return json(request, 429, { error: 'too-fast', wait }); }
   { const q = await gate(request, env, 'classroom', { who, json }); if (q.res) return q.res; } // hạn mức ngày + IP + khóa (docs/QUOTAS.md)
   if (req.op === 'join') { const wait = await limit(`classjoin:${uid}`, 10, 600); if (wait) return json(request, 429, { error: 'too-fast', wait }); } // chống dò mã

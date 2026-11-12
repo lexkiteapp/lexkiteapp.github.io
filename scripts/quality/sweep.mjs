@@ -194,7 +194,7 @@ async function runCombo(c) {
       // content-visibility:auto (danh sách dài, vd .word-row) bỏ bố cục các hàng ngoài màn hình → axe không đo được hình học chữ: phần lớn thành "incomplete" (không kiểm),
       // vài hàng ra kết quả sai (nền mặc định trắng). Chỉ lúc chạy axe (sau khi đã đo tác vụ dài/CLS): ép hiển thị để axe kiểm MỌI hàng như người dùng thấy khi cuộn tới – tăng độ phủ, không nới ngưỡng.
       cvAll = await page.addStyleTag({ content: '*{content-visibility:visible!important}' }).catch(() => null);
-      await page.addScriptTag({ content: AXE });
+      await page.evaluate(AXE + "\n;0"); // không addScriptTag: dist có meta CSP (hash) chặn script nội tuyến tiêm vào – evaluate (CDP) không bị CSP chặn, trang vẫn chạy dưới CSP thật
       const ax = await page.evaluate(async () => { const res = await axe.run(document, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21aa'] }, resultTypes: ['violations'] }); return res.violations.filter(v => v.impact === 'serious' || v.impact === 'critical').map(v => ({ id: v.id, impact: v.impact, help: v.help, nodes: v.nodes.slice(0, 2).map(n => n.target.join(' ')) })); });
       for (const v of ax) found.push({ type: 'axe-' + v.impact, key: v.id + ' ' + (v.nodes[0] || '').slice(0, 60), msg: `${v.id}: ${v.help} [${v.nodes.join(' | ').slice(0, 100)}]` });
     } catch (e) { found.push({ type: 'probe-error', key: 'axe', msg: 'axe: ' + String(e.message).slice(0, 80) }); }

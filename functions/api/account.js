@@ -7,6 +7,7 @@
  * Tài khoản Firebase Authentication: xóa qua REST accounts:delete bằng chính ID token của người dùng (không cần khóa quản trị). */
 import { claims as verifyClaims, limit } from './sync.js';
 import { docsDb } from './_shard.js';
+import { readJSON, bodyFail } from './_body.js';
 
 const RECENT_SEC = 600; // phải đăng nhập lại trong 10 phút gần nhất
 // Khóa API web Firebase của dự án lexkite-app – công khai theo thiết kế (giống web/js/firebase-config.js); env.FIREBASE_API_KEY đè nếu có
@@ -65,7 +66,7 @@ export async function handle(request, env, deps = {}) {
   const uid = who && who.sub;
   if (!uid) return json(request, 401, { error: 'auth' });
   let req;
-  try { req = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
+  try { req = await readJSON(request, 16384); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   if (!req || typeof req !== 'object' || req.op !== 'delete') return json(request, 400, { error: 'op' });
   if (req.confirm !== 'DELETE') return json(request, 400, { error: 'confirm' });
   if (!(typeof who.auth_time === 'number' && now - who.auth_time <= RECENT_SEC)) return json(request, 401, { error: 'reauth' });

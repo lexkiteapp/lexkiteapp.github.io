@@ -2,6 +2,7 @@
 // Đo: lệch lịch vẽ (pre), lệch tiếng–miệng của video (tương quan chéo độ mở miệng ↔ năng lượng tiếng), live so với Rhubarb, fps, số lần nháy (< MIN_HOLD).
 // Cần: KOKORO_NODE_PATH (kokoro-js), RHUBARB, ffmpeg, playwright. Ra: qa/lipsync/{report.md, metrics.json, lipsync.mp4, lipsync.gif, harvest-*.jpg}
 import fs from 'node:fs'; import path from 'node:path'; import http from 'node:http'; import { execFileSync } from 'node:child_process'; import { createRequire } from 'node:module';
+import { waitFn } from '../lib/pw-wait.mjs';
 const req = createRequire(import.meta.url), LS = req('../../web/js/call/lipsync.js');
 const OUT = 'web/lab/lipsync', QA = 'qa/lipsync'; fs.mkdirSync(`${OUT}/audio`, { recursive: true }); fs.mkdirSync(`${QA}/frames`, { recursive: true });
 const sh = (c, a) => execFileSync(c, a, { stdio: ['ignore', 'pipe', 'pipe'] }).toString();
@@ -58,7 +59,7 @@ const srv = http.createServer((q, r) => { const f = path.join('web', decodeURICo
 const { chromium } = req(process.cwd() + '/node_modules/playwright');
 const br = await chromium.launch({ args: ['--autoplay-policy=no-user-gesture-required'] });
 const pg = await br.newPage({ viewport: { width: 900, height: 900 } });
-await pg.goto('http://localhost:8123/lab/lipsync.html?lab=1'); await pg.waitForFunction(() => window.lab && window.lab.ready);
+await pg.goto('http://localhost:8123/lab/lipsync.html?lab=1'); await waitFn(pg, () => window.lab && window.lab.ready);
 const cdp = await pg.context().newCDPSession(pg); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
 const RT = [];
 for (const [i, l] of lines.entries()) for (const mode of ['pre', 'live']) {
@@ -66,7 +67,7 @@ for (const [i, l] of lines.entries()) for (const mode of ['pre', 'live']) {
   RT.push({ ...r, id: l.id });
 }
 // mặt VẼ (LipFace, web/lab/face.html): cùng CPU 4× → fps khi dựng lại lớp vector mỗi khung
-const fpg = await br.newPage({ viewport: { width: 600, height: 600 } }); await fpg.goto('http://localhost:8123/lab/face.html?lab=1'); await fpg.waitForFunction(() => window.face && window.face.ready);
+const fpg = await br.newPage({ viewport: { width: 600, height: 600 } }); await fpg.goto('http://localhost:8123/lab/face.html?lab=1'); await waitFn(fpg, () => window.face && window.face.ready);
 const fcdp = await fpg.context().newCDPSession(fpg); await fcdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
 const FACE = []; for (const [i, l] of lines.entries()) FACE.push(await fpg.evaluate(([i, ms]) => Promise.race([window.face.run(i), new Promise(z => setTimeout(() => z({ timeout: 1, fps: 0 }), ms))]), [i, (l.dur + 6) * 1000]));
 await fcdp.send('Emulation.setCPUThrottlingRate', { rate: 1 }); await fpg.close();
@@ -94,7 +95,7 @@ M.gates = { av_lag_le_45ms: S.avLagMsMaxAbs <= 45, sched_p95_le_40ms: S.schedP95
 
 // 4) Video ≤ 20 s: vẽ tĩnh từng khung (cùng hàm stateAt với phát thật) + ghép tiếng
 const rp = await br.newPage({ viewport: { width: 900, height: 900 }, deviceScaleFactor: 1 });
-await rp.goto('http://localhost:8123/lab/lipsync.html?lab=1&render=1'); await rp.waitForFunction(() => window.lab && window.lab.ready);
+await rp.goto('http://localhost:8123/lab/lipsync.html?lab=1&render=1'); await waitFn(rp, () => window.lab && window.lab.ready);
 const pick = [0, 5, 1, 6, 2, 7, 3, 8].map(i => lines[i]); let tot = 0; const segs = [];
 for (const l of pick) { if (tot + l.dur + 0.3 > 19.5) continue; tot += l.dur + 0.3; segs.push(l); }
 let fn = 0; const FPS = 24; const parts = [];

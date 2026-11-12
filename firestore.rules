@@ -1,9 +1,11 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Mỗi người chỉ đọc/ghi được dữ liệu học của chính mình
-    match /users/{uid}/{document=**} {
-      allow read, write: if request.auth != null && request.auth.uid == uid;
+    // Firestore KHÔNG còn được dùng: đồng bộ chạy qua /api/sync (Cloudflare D1), phía app chỉ dùng Firebase Auth.
+    // Cấm đọc/ghi toàn bộ để không ai (kể cả người đã đăng nhập) lưu dữ liệu tùy ý vào dự án. Muốn dùng lại: thêm luật hẹp
+    // (hasOnly + request.resource.size) và sửa scripts/test/firestore-rules.mjs.
+    match /{document=**} {
+      allow read, write: if false;
     }
   }
 }

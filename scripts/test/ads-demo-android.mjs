@@ -84,6 +84,11 @@ info.setup = await ev(`await Ads.rewarded('ai', 1); // tải config → policy �
   const A = Capacitor.Plugins.AdMob; for (const n of ${JSON.stringify(EVENTS)}) await A.addListener(n, e => __adev.push({ n, t: Date.now(), e: JSON.stringify(e || {}).slice(0, 200) }));
   const n = ADS_CONFIG.native; return { testing: n.testing, unit: n.android.rewarded, inter: n.android.interstitial, can: AdsRun.canReward('ai') }`);
 console.log('setup', JSON.stringify(info.setup));
+// Chẩn đoán khi không cho xem có thưởng (2/11): route/vùng, điểm nghỉ, trạng thái lượt; script nội tuyến có khớp hash meta CSP không (Capacitor có sửa HTML?)
+if (info.setup && !info.setup.can) console.log('why', JSON.stringify(await ev(`const P = AdsPolicy, meta = (document.getElementById('lk-csp') || {}).content || '';
+  const hs = [...document.querySelectorAll('script:not([src])')].filter(x => !x.type || /javascript|module/.test(x.type)); const sha = async t => 'sha256-' + btoa(String.fromCharCode(...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(t.replace(/\\r\\n?/g, '\\n'))))));
+  const miss = []; for (const x of hs) { const h = await sha(x.textContent); if (!meta.includes(h)) miss.push(x.textContent.slice(0, 60)); }
+  return { plat: window.Capacitor && Capacitor.getPlatform(), on: Ads.on(), hash: location.hash, path: location.pathname, brk: !!document.querySelector('#aoHost, [data-ad-break]'), st: AdsRun._st && AdsRun._st(), zone: P.zone ? P.zone({ route: (location.hash.replace(/^#\\/?/, '').split(/[/?]/)[0] || 'home'), path: location.pathname }) : null, inline: hs.length, inlineNoHash: miss, meta: !!meta }`)));
 if (!info.setup || info.setup.testing !== true || !String(info.setup.unit).startsWith(TEST_PUB + '/') || !String(info.setup.inter).startsWith(TEST_PUB + '/')) { fail('Không phải mã THỬ của Google – dừng (không bao giờ gọi mã thật)'); finish(); }
 ok('testing = true, mã thử ' + info.setup.unit);
 if (!info.setup.can) fail('AdsRun.canReward("ai") = false');

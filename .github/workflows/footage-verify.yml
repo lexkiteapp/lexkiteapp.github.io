@@ -26,7 +26,9 @@ jobs:
         run: node scripts/jobs/lease.mjs acquire footage-verify
       - name: Sổ Drive + mẫu ngẫu nhiên
         if: ${{ steps.lease.outputs.skip != '1' }}
-        run: node scripts/footage/verify.mjs --sample "${{ github.event.inputs.sample || '40' }}"
+        env:
+          LX_SAMPLE: ${{ github.event.inputs.sample || '40' }}
+        run: node scripts/footage/verify.mjs --sample "$LX_SAMPLE"
       - name: Diễn tập khôi phục (mp4 + mẫu bất kỳ)
         if: ${{ steps.lease.outputs.skip != '1' }}
         id: drill

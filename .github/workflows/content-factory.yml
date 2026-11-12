@@ -30,9 +30,9 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - id: p
-        env: { GITHUB_TOKEN: '${{ github.token }}' }
+        env: { GITHUB_TOKEN: '${{ github.token }}', LX_AREA: "${{ inputs.area || 'all' }}", LX_MAX: "${{ inputs.max || '4' }}", LX_N: "${{ inputs.n || '25' }}" }
         run: |
-          node scripts/factory/run.mjs --plan --area "${{ inputs.area || 'all' }}" --max "${{ inputs.max || '4' }}" --n "${{ inputs.n || '25' }}" ${{ github.event_name == 'pull_request' && '--pilot' || '' }} > plan.json
+          node scripts/factory/run.mjs --plan --area "$LX_AREA" --max "$LX_MAX" --n "$LX_N" ${{ github.event_name == 'pull_request' && '--pilot' || '' }} > plan.json
           echo "matrix=$(node -e "console.log(JSON.stringify({include:require('./plan.json').include}))")" >> "$GITHUB_OUTPUT"
           echo "parallel=$(node -p "require('./plan.json').parallel")" >> "$GITHUB_OUTPUT"
           echo "count=$(node -p "require('./plan.json').include.length")" >> "$GITHUB_OUTPUT"
@@ -55,7 +55,8 @@ jobs:
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
           AI_POOL_GC_MAX: '2000'
-        run: node scripts/factory/run.mjs --area "${{ matrix.area }}" --kind "${{ matrix.kind }}" --shard "${{ matrix.shard }}" --shards "${{ matrix.shards }}" --n "${{ inputs.n || '25' }}"
+          LX_N: "${{ inputs.n || '25' }}"
+        run: node scripts/factory/run.mjs --area "${{ matrix.area }}" --kind "${{ matrix.kind }}" --shard "${{ matrix.shard }}" --shards "${{ matrix.shards }}" --n "$LX_N"
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: 'factory-${{ matrix.area }}-${{ matrix.kind }}-s${{ matrix.shard }}', path: out/factory/, retention-days: 14, if-no-files-found: ignore }

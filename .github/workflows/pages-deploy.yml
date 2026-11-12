@@ -34,9 +34,12 @@ jobs:
       PAGES_DEPLOY: ${{ vars.PAGES_DEPLOY || 'git' }}
     steps:
       - name: Chờ yên (debounce)
+        env:
+          LX_REASON: ${{ inputs.reason }}
+          LX_QUIET: ${{ inputs.quiet }}
         run: |
-          case "${{ github.event_name }}" in push) q=15;; schedule) q=0;; *) q="${{ inputs.quiet }}";; esac
-          echo "· ${{ github.event_name }} · ${{ inputs.reason }} · chờ ${q:-0} phút (lượt mới hơn sẽ huỷ lượt này)"
+          case "${{ github.event_name }}" in push) q=15;; schedule) q=0;; *) q="$LX_QUIET";; esac
+          echo "· ${{ github.event_name }} · $LX_REASON · chờ ${q:-0} phút (lượt mới hơn sẽ huỷ lượt này)"
           sleep $(( ${q:-0} * 60 ))
       - uses: actions/checkout@v4
         with: { fetch-depth: 300, filter: 'blob:none' }

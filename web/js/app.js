@@ -1192,7 +1192,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       <p class="small muted" style="margin-top:1rem">${t('Hoặc email trực tiếp')}: <a href="mailto:support@lexkite.com">support@lexkite.com</a></p>`;
     // Cloudflare Turnstile: tải ngầm khi mở form liên hệ (bảo vệ chống bot)
     const siteKey = window.TURNSTILE_SITE_KEY || '0x4AAAAAAAMmZ7O1jJgQv8iY';
-    const noTs = !!(window.VBNative && VBNative.is); // app gốc (capacitor://localhost): Turnstile báo lỗi 400020 & hiện khung lỗi → bỏ; máy chủ chỉ xác minh khi có token, vẫn chặn spam bằng ô bẫy/thời gian/hạn mức
+    const noTs = !!(window.VBNative && VBNative.is); // app gốc (capacitor://localhost): Turnstile báo lỗi 400020 & hiện khung lỗi → bỏ widget; khi gửi lấy vé người thật (js/human.js – iframe lexkite.com/human.html)
     if (!noTs && !window.turnstile && !document.getElementById('cf-turnstile-script')) {
       const s = document.createElement('script'); s.id = 'cf-turnstile-script';
       s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
@@ -1222,7 +1222,9 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       if (d.msg.trim().length < 10) { out.textContent = t('Nội dung quá ngắn (tối thiểu 10 ký tự).'); f.msg.focus(); return; }
       const btn = f.querySelector('button'); btn.disabled = true; out.textContent = t('Đang gửi…');
       try {
-        const r = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...d, token: turnstileToken, lang: I18N.lang(), ms: Date.now() - t0 }) });
+        const hd = { 'Content-Type': 'application/json', 'X-Lexkite-Device': UI.dev() };
+        if (!turnstileToken) { const H = await UI.human(); if (H) { await H.ticket(); H.headers(hd); } } // app gốc/add-on (không có widget) hoặc chưa giải → vé người thật qua iframe lexkite.com/human.html (máy chủ bắt buộc 1 trong 2)
+        const r = await fetch(API, { method: 'POST', headers: hd, body: JSON.stringify({ ...d, token: turnstileToken, lang: I18N.lang(), ms: Date.now() - t0 }) });
         if (r.status === 429) throw new Error('rate');
         if (!r.ok) throw new Error('fail');
         f.innerHTML = `<div class="center" style="padding:1.5rem"><div style="font-size:2.5rem">✉️</div><h3>${t('Đã gửi!')}</h3><p class="muted">${t('Cảm ơn bạn. Chúng tôi sẽ trả lời qua email {email}.', { email: esc(d.email) })}</p></div>`;
@@ -1539,6 +1541,8 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     setTimeout(() => Promise.all(BUNDLES.voice.map(f => fetch(f).catch(() => {}))).then(() => App.calm(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); })), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
     App.painted.then(() => idle(() => App.need('remind').then(() => Remind.start()).catch(() => {}))); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
+    // Add-on: lấy sẵn vé người thật cho service worker (giải thích từ trên trang web không chạy được Turnstile) – chỉ khách, chỉ khi vé hết hạn (docs/HUMAN.md)
+    if (Store.isExtension) setTimeout(() => idle(() => { if (!(window.Sync && Sync.user)) UI.human().then(H => H && H.ticket()).catch(() => {}); }), 8000);
     // Bàn phím ảo kiểu "resizes-visual" (iOS WKWebView, Chrome Android): viewport bố cục giữ nguyên, chỉ visualViewport thấp lại → trang không còn chỗ cuộn để đưa ô nhập lên trên bàn phím (mqa kbd-visual: practice/test ô #ans bị che). --kb = chiều cao bàn phím → html thêm đệm đáy đúng cỡ đó (style.css)
     if (window.visualViewport) { const vv = window.visualViewport, root = document.documentElement, kb = () => { const h = Math.max(0, Math.round(innerHeight - vv.height - vv.offsetTop)); root.style.setProperty('--kb', (h > 80 ? h : 0) + 'px'); }; vv.addEventListener('resize', kb); vv.addEventListener('scroll', kb); }
     netState(); setTimeout(showInstallBtn, 1500);

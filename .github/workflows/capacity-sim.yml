@@ -24,9 +24,13 @@ jobs:
       - name: Miniflare (D1 cục bộ)
         run: npm i --no-save --no-audit --no-fund miniflare@4.20260730.0
       - name: Mô phỏng (Miniflare)
-        run: node scripts/capacity/sim.mjs --d1=miniflare --users=${{ github.event.inputs.users || '5' }} --seed=1500 --json=out/capacity/miniflare.json --md=out/capacity/miniflare.md
+        env:
+          LX_USERS: ${{ github.event.inputs.users || '5' }}
+        run: node scripts/capacity/sim.mjs --d1=miniflare --users="$LX_USERS" --seed=1500 --json=out/capacity/miniflare.json --md=out/capacity/miniflare.md
       - name: Mô phỏng kiến trúc cũ (--legacy, Miniflare) để so trước/sau
-        run: node scripts/capacity/sim.mjs --d1=miniflare --legacy --users=${{ github.event.inputs.users || '5' }} --seed=1500 --json=out/capacity/miniflare-legacy.json --md=out/capacity/miniflare-legacy.md
+        env:
+          LX_USERS: ${{ github.event.inputs.users || '5' }}
+        run: node scripts/capacity/sim.mjs --d1=miniflare --legacy --users="$LX_USERS" --seed=1500 --json=out/capacity/miniflare-legacy.json --md=out/capacity/miniflare-legacy.md
       - name: Mô phỏng (ước lượng node:sqlite, đối chiếu)
         if: always()
         run: node scripts/capacity/sim.mjs --users=3 --seed=1500 --json=out/capacity/sqlite.json --md=out/capacity/sqlite.md

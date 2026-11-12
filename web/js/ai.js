@@ -122,12 +122,15 @@ Criteria to use: ${kind === 'task1' ? 'Task Achievement, Coherence and Cohesion,
 
   // AI miễn phí của Lexkite (máy chủ /api/ai): ai cũng chấm được, không cần tự lấy khóa – có hạn mức lượt/ngày
   const PROXY = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '/api/ai' : 'https://lexkite.com/api/ai';
-  async function callProxy(prompt) {
+  // Prompt hệ thống do máy chủ chọn theo task (functions/api/ai.js SYS.grade = SYS ở trên – đổi chữ thì đổi cả hai, test ai-task.mjs so khớp)
+  async function callProxy(prompt, again) {
     const h = { 'Content-Type': 'application/json', 'X-Lexkite-Device': UI.dev() };
     try { if (window.Sync && Sync.user) h.Authorization = 'Bearer ' + await Sync.user.getIdToken(); } catch (e) { /* chưa đăng nhập: hạn mức khách */ }
+    if (!h.Authorization && UI.humanHdr) await UI.humanHdr(h, again); // khách: vé người thật (docs/HUMAN.md) – lượt thường không chờ Turnstile; 403 human (cờ AI_HUMAN_ENFORCE) → chờ vé rồi thử lại
     const ctrl = new AbortController(), to = setTimeout(() => ctrl.abort(), 60000);
-    let r; try { r = await fetch(PROXY, { method: 'POST', headers: h, signal: ctrl.signal, body: JSON.stringify({ prompt, sys: SYS }) }); } finally { clearTimeout(to); }
+    let r; try { r = await fetch(PROXY, { method: 'POST', headers: h, signal: ctrl.signal, body: JSON.stringify({ prompt, task: 'grade' }) }); } finally { clearTimeout(to); }
     const j = await r.json().catch(() => ({}));
+    if (r.status === 403 && j.error === 'human' && !again) return callProxy(prompt, true); // chưa có/hết vé → xác minh (iframe Turnstile) rồi thử lại 1 lần
     if (r.status === 429) throw Object.assign(new Error('PROXY_QUOTA'), { q: j });
     if (!r.ok || !j.out) throw new Error('FAILED');
     j.out._left = j.left; return j.out;

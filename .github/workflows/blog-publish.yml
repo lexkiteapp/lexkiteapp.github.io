@@ -37,9 +37,9 @@ jobs:
           echo "count=$(grep -c '^https://' due.txt || true)" >> "$GITHUB_OUTPUT"
       - name: Yêu cầu deploy Pages (1 lần cho mọi bài trong khung giờ)
         if: steps.due.outputs.count != '0' || inputs.force
-        env: { GH_TOKEN: '${{ github.token }}' }
+        env: { GH_TOKEN: '${{ github.token }}', LX_FORCE: '${{ inputs.force || false }}' }
         run: |
-          bash scripts/ci/gh-retry.sh gh workflow run pages-deploy.yml --ref main -f urgent=true -f quiet=0 -f force=${{ inputs.force || false }} -f reason="blog-publish ${{ steps.due.outputs.count }} bài"
+          bash scripts/ci/gh-retry.sh gh workflow run pages-deploy.yml --ref main -f urgent=true -f quiet=0 -f force="$LX_FORCE" -f reason="blog-publish ${{ steps.due.outputs.count }} bài"
           echo "✓ đã yêu cầu deploy – chờ build (~6 phút) rồi mới báo IndexNow"
           sleep 420
       - name: IndexNow

@@ -85,8 +85,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { sparse-checkout: "scripts/ci", sparse-checkout-cone-mode: false }
-      - run: node scripts/ci/guards.mjs main-red --result "${{ needs.gate.result }}" --sha "${{ github.event.inputs.sha || github.sha }}"
-        env: { GITHUB_TOKEN: '${{ github.token }}' }
+      - run: node scripts/ci/guards.mjs main-red --result "${{ needs.gate.result }}" --sha "$LX_SHA"
+        env: { GITHUB_TOKEN: '${{ github.token }}', LX_SHA: '${{ github.event.inputs.sha || github.sha }}' }
   # 06/11 cảnh báo sớm: ngân sách dư < 5 KB / < 2 % → issue `budget-low` (vàng, TRƯỚC khi đỏ); hết thấp → đóng.
   budget-watch:
     needs: gate

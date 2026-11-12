@@ -225,7 +225,7 @@ class RoleplayVm(private val env: SpeakEnv, private val arg: String, private val
     private suspend fun reply(t: Roleplay.Chat, text: String): Roleplay.Reply {
         val s = t.s
         if (t.mode == "server") {
-            when (val ai = env.ai(Roleplay.systemPrompt(s, t.L) + "\nReturn JSON only.", Roleplay.turnPrompt(s, t.L, t.hist.toList(), t.i))) {
+            when (val ai = env.ai("rp", Roleplay.rpArgs(s, t.L), Roleplay.turnPrompt(s, t.L, t.hist.toList(), t.i))) {
                 is AiResult.Ok -> Roleplay.serverReply(ai.out, t.retried)?.let { return it }
                 is AiResult.Quota -> { t.downgrade(); notice = Tr("Đã hết lượt AI hôm nay – tiếp tục bằng kịch bản soạn sẵn."); chatSync() }
                 AiResult.Failed -> { t.downgrade(); notice = Tr("AI đang bận – tiếp tục bằng kịch bản soạn sẵn."); chatSync() }
@@ -244,7 +244,7 @@ class RoleplayVm(private val env: SpeakEnv, private val arg: String, private val
     private fun finish() { val t = talk ?: return; val s = script ?: return; env.stopListening(); env.stopSpeaking()
         viewModelScope.launch { val hist = t.hist.toList(); var ai: Roleplay.Scores? = null
             if (hist.any { it.who == "me" } && (t.mode != "script" || env.signedIn())) { val langEn = Locale.forLanguageTag(lang).getDisplayLanguage(Locale.ENGLISH).ifEmpty { "English" }
-                (env.ai(Roleplay.scoringSystem(s), Roleplay.scoringPrompt(s, t.L, hist, langEn)) as? AiResult.Ok)?.let { ai = Roleplay.aiScore(it.out) } }
+                (env.ai("rpcoach", Roleplay.coachArgs(s), Roleplay.scoringPrompt(s, t.L, hist, langEn)) as? AiResult.Ok)?.let { ai = Roleplay.aiScore(it.out) } }
             val r = Roleplay.report(pack, s, t.L, hist, t.hints, ai); r?.let { env.pay(it.reward) }; saved2 = emptySet()
             chat = null; result = RpResultUi(s, t.L, r, saved2, Roleplay.confidence(pack, s)) } }
     fun saveRewrite(n: Int) { val s = script ?: return; val r = result?.report?.scores?.rewrites?.getOrNull(n) ?: return; val v = Roleplay.saveRewrite(s, r)

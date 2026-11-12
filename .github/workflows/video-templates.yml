@@ -77,9 +77,11 @@ jobs:
           mkdir -p icons
           for c in 1f6d1 1f697 1f914 1f4a1 1f50e 1f50a 1f4cc 1f4f1 1f4e8; do curl -fsSL -o icons/emoji_u$c.png "https://cdn.jsdelivr.net/gh/googlefonts/noto-emoji@v2.047/png/512/emoji_u$c.png"; done
       - name: Render
+        env:
+          LX_TPLS: ${{ inputs.tpls }}
         run: |
           mkdir -p out/tpl
-          for T in $(echo "${{ inputs.tpls }}" | tr ',' ' '); do
+          for T in $(echo "$LX_TPLS" | tr ',' ' '); do
             python scripts/video/tpl/render_tpl.py --tpl $T ${PLATE:+--crf 18} --lesson "$LD/$LID.json" --lines "$ND/ci/lines.json" --vo "$ND/vis3" \
               --lib footage/anchor --icons icons --fonts brand/social/src/fonts --out "out/tpl/tpl$T-preview.mp4"
           done

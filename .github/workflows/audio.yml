@@ -43,13 +43,13 @@ jobs:
       - id: c
         run: |
           left=$(node scripts/gen-audio.mjs ${TL:+--tl $TL} --limit 0 | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')
-          [ "${{ github.event.inputs.only_call_cues }}" = "true" ] && left=0
+          [ "$LX_ONLY_CUES" = "true" ] && left=0
           echo "left=$left" >> "$GITHUB_OUTPUT"
           # mốc khớp miệng câu giáo viên (Call + Truyện – docs/LESSON-ENGINE.md §Khớp miệng): job cues riêng, chạy song song với gen
           [ -n "$TL" ] && echo "cues=0" >> "$GITHUB_OUTPUT" || echo "cues=$(node scripts/lipsync/call_cues.mjs --count | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
           # số shard động: min(24, 40 − job đang chạy/xếp hàng − 8 chừa cho check PR, ⌈còn / 500⌉) – scripts/ci/shards.mjs (chủ 1/11: dùng hết runner rảnh)
-          echo "shards=$(node scripts/ci/shards.mjs --left "$left" --per 500 --cap "${{ github.event.inputs.shards || '24' }}")" >> "$GITHUB_OUTPUT"
-        env: { GITHUB_TOKEN: '${{ github.token }}', TL: '${{ github.event.inputs.tl }}' }
+          echo "shards=$(node scripts/ci/shards.mjs --left "$left" --per 500 --cap "$LX_SHARDS")" >> "$GITHUB_OUTPUT"
+        env: { GITHUB_TOKEN: '${{ github.token }}', TL: '${{ github.event.inputs.tl }}', LX_ONLY_CUES: '${{ github.event.inputs.only_call_cues }}', LX_SHARDS: '${{ github.event.inputs.shards || ''24'' }}' }
   gen:
     needs: plan
     if: needs.plan.outputs.left != '0'
@@ -76,8 +76,8 @@ jobs:
         if: ${{ github.event.inputs.tl != '' }}
         run: pip install -q "misaki==0.9.4" "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4"
       - name: Tạo âm thanh
-        env: { TL: '${{ github.event.inputs.tl }}' }
-        run: AUDIO_MIN=150 NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs ${TL:+--tl $TL} --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "${{ github.event.inputs.limit || '1500' }}"
+        env: { TL: '${{ github.event.inputs.tl }}', LX_LIMIT: '${{ github.event.inputs.limit || ''1500'' }}' }
+        run: AUDIO_MIN=150 NODE_PATH=/tmp/kk/node_modules node scripts/gen-audio.mjs ${TL:+--tl $TL} --shard ${{ matrix.shard }}/${{ strategy.job-total }} --limit "$LX_LIMIT"
       - uses: actions/upload-artifact@v4
         if: always()
         with:

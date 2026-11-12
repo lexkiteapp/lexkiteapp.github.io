@@ -23,4 +23,6 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           bash scripts/ci/pw-install.sh --with-deps chromium webkit firefox
-          node scripts/test/nav-render.mjs ${{ github.event.inputs.base || 'https://lexkite.com/app/' }}
+          node scripts/test/nav-render.mjs "$LX_BASE"
+        env:
+          LX_BASE: ${{ github.event.inputs.base || 'https://lexkite.com/app/' }}

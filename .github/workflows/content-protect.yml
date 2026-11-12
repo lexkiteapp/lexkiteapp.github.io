@@ -3,6 +3,7 @@
 # + dò canary kho đề/từ qua GitHub code search (GITHUB_TOKEN) → Quản trị (Cảnh báo + tab Backlink) + issue content-copy.
 # Push lên main đổi add-on (extension/manifest.json – lên phiên bản) hoặc landing → chỉ ghi mốc phát hành + đóng dấu OpenTimestamps.
 # OpenTimestamps (content/protection/ots/<hash>.ots): đóng dấu mục mới + upgrade bằng chứng pending; lỗi chỉ cảnh báo (continue-on-error).
+# Cuối job: scripts/verify-dns.mjs kiểm DNS/header bảo mật (docs/AUDIT-2026-10.md).
 # Tài liệu: docs/CONTENT-PROTECTION.md · Bộ hồ sơ DMCA: docs/legal/DMCA-KIT.md
 name: Content protection
 on:
@@ -91,3 +92,7 @@ jobs:
           body=$(printf '%s\n\n%s' "Có trang ngoài chứa nguyên văn câu trong bài Lexkite hoặc canary kho đề/từ. Xử lý theo docs/legal/DMCA-KIT.md." "$(cat watch.txt)")
           n=$(gh issue list --label content-copy --state open --json number -q '.[0].number')
           if [ -n "$n" ]; then gh issue comment "$n" --body "$body"; else gh issue create --title "Nghi bị chép nội dung" --label content-copy --body "$body"; fi
+      - name: DNS & header bảo mật (DNSSEC/CAA/DMARC/SPF/HSTS/security.txt – infra/resources.json dns-security)
+        if: always() && github.event_name != 'push'   # cuối job: đỏ khi DNS/header sai, không chặn các bước trên
+        timeout-minutes: 3
+        run: node scripts/verify-dns.mjs

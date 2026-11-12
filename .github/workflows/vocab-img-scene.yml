@@ -59,12 +59,12 @@ jobs:
         run: PROBE_SHARE=${{ vars.LX_PILOT == '1' && '0.7' || '0.5' }} PROBE_QUICK=1 env ${PILOT_SHARE:+PROBE_SHARE=$PILOT_SHARE PROBE_HEAD=${{ vars.LX_PILOT == '1' && '0.7' || '0.5' }}} node scripts/lib/cf-pool-probe.mjs
         env: { CF_POOL: '${{ secrets.CF_POOL }}', PILOT_SHARE: "${{ (github.event.inputs.mode != 'fill' && github.event_name != 'schedule') && '1' || '' }}" }
       - id: p
-        env: { PROBE_ALIVE: '${{ steps.probe.outputs.alive || 99 }}', PROBE_HEAD: '${{ steps.probe.outputs.alive_head || 99 }}', PROBE_TAIL: '${{ steps.probe.outputs.alive_tail || 99 }}' }
+        env: { PROBE_ALIVE: '${{ steps.probe.outputs.alive || 99 }}', PROBE_HEAD: '${{ steps.probe.outputs.alive_head || 99 }}', PROBE_TAIL: '${{ steps.probe.outputs.alive_tail || 99 }}', LX_SHARDS: '${{ github.event.inputs.shards || ''1'' }}', LX_FROM_RUN: '${{ github.event.inputs.from_run }}', LX_POOL: '${{ github.event.inputs.pool }}', LX_ONLY: '${{ github.event.inputs.only }}', LX_PICK: '${{ github.event.inputs.pick || ''60:0:20'' }}', LX_VARIANTS: '${{ github.event.inputs.variants || ''1'' }}', LX_SHARDS_FILL: '${{ github.event.inputs.shards || (github.event.inputs.judge_run != '''' && ''6'' || '''') }}', LX_JUDGE_RUN: '${{ github.event.inputs.judge_run }}', LX_MAX_GC: '${{ github.event.inputs.max_gc }}', LX_MAX_GC: '${{ github.event.inputs.max_gc }}' }
         run: |
-          n=${{ github.event.inputs.shards || '1' }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1
+          n="$LX_SHARDS"; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1
           # 01/11: fill nhường máy cho giao diện ban ngày VN (01–15 UTC, >50 lượt chờ máy) – 3 máy; đêm 5. Vẫn 10 việc, mỗi việc cùng trần ảnh → tổng ảnh/ngày không đổi (kho vẫn vét hết trong cửa sổ 24 h)
           h=${VIMG_HOUR:-$(date -u +%-H)}; par=5; [ "$h" -ge 1 ] && [ "$h" -lt 15 ] && par=3; echo "par=$par" >> $GITHUB_OUTPUT
-          if [ -n "${{ github.event.inputs.from_run }}" ]; then echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
+          if [ -n "$LX_FROM_RUN" ]; then echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           # 26/10: lịch fill CHỈ chạy khi chủ bật biến repo VIMG_SCHEDULE=1 (bật lại workflow để chạy thử tay không kéo theo fill 4 lượt/ngày)
           if [ "${{ github.event_name }}" = schedule ] && [ "${{ vars.VIMG_SCHEDULE }}" != 1 ]; then echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           # 28/10: fill – dò nhanh PHẦN VẼ của kho (~60 neuron) trước khi bật 10 máy; < 10 tài khoản còn neuron → bỏ lượt (đêm 27/10: 4 lượt rỗng, mỗi lượt cài giám khảo 10 máy rồi mới thấy kho cạn)
@@ -72,12 +72,12 @@ jobs:
           # 31/10 pilot 41158516082: 15/121 sống → thẻ cảnh (đuôi kho) ăn hết, phần vẽ (đầu kho) cạn → 0 ảnh. Pilot cần CẢ hai: vẽ ≥ 10, viết ≥ 5
           # pool=tail: pilot vẽ + viết thẻ + giám khảo đều ở đuôi → chỉ cần đuôi ≥ pilotFloor, không cần đầu (fill giữ sàn cũ)
           # 02/11: sàn đuôi theo KÍCH THƯỚC việc (cf-direct.mjs pilotFloor) thay số cố định 15 – lượt 18 nghĩa cần ~4k neuron, đuôi 11 tài khoản ≈ 100k vẫn bị chặn
-          NA=10; NH=10; NT=5; [ "${{ github.event.inputs.pool }}" = tail ] && { NH=0; NT=$(node -e "import('./scripts/vocab-img/cf-direct.mjs').then(m=>console.log(m.pilotFloor(m.pilotSize(process.argv[1],process.argv[2]),process.argv[3])))" "${{ github.event.inputs.only }}" "${{ github.event.inputs.pick || '60:0:20' }}" "${{ github.event.inputs.variants || '1' }}"); NA=$NT; echo "sàn đuôi pilot: $NT tài khoản"; }
+          NA=10; NH=10; NT=5; [ "$LX_POOL" = tail ] && { NH=0; NT=$(node -e "import('./scripts/vocab-img/cf-direct.mjs').then(m=>console.log(m.pilotFloor(m.pilotSize(process.argv[1],process.argv[2]),process.argv[3])))" "$LX_ONLY" "$LX_PICK" "$LX_VARIANTS"); NA=$NT; echo "sàn đuôi pilot: $NT tài khoản"; }
           if [ "$MODE" = pilot ] && { [ "$PROBE_ALIVE" -lt $NA ] || [ "$PROBE_HEAD" -lt $NH ] || [ "$PROBE_TAIL" -lt $NT ]; }; then echo "::warning::kho CF còn $PROBE_ALIVE/121 tài khoản có neuron (phần đầu $PROBE_HEAD, phần đuôi $PROBE_TAIL) – pilot bỏ lượt (cần đầu ≥ $NH, đuôi ≥ $NT)"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; fi
           # 04/11 gốc hàng chờ lượt 41821221567: 10 việc × ~2 giờ mà max-parallel 3 ban ngày → 4 đợt, lượt kéo dài >6 giờ và giữ nhóm concurrency (lịch 3 giờ bị dồn/huỷ). Việc bị trần bởi KHO/thời gian máy chứ không bởi số việc → mặc định số việc = số máy song song (par): cùng giờ-máy, lượt xong ≤ ~2,2 giờ, không đợt chờ
-          if [ "$MODE" = fill ]; then n=${{ github.event.inputs.shards || (github.event.inputs.judge_run != '' && '6' || '$par') }}; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1; fi
+          if [ "$MODE" = fill ]; then n="$LX_SHARDS_FILL"; case "$n" in ''|*[!0-9]*) n=$par;; esac; [ "$n" -gt 10 ] && n=10; [ "$n" -lt 1 ] && n=1; fi
           # 07/11 (06/11: 7 lượt × 10 máy cài giám khảo cho 1 nghĩa/việc → 91 ảnh/ngày): số việc theo số nghĩa CÓ THỂ vẽ (≥ 40 nghĩa/việc), 0 nghĩa → bỏ lượt
-          if [ "$MODE" = fill ] && [ -z "${{ github.event.inputs.judge_run }}" ]; then
+          if [ "$MODE" = fill ] && [ -z "$LX_JUDGE_RUN" ]; then
             { node scripts/build-lexicon.mjs --write >/dev/null || [ -s dist/lexicon.json ]; }
             G=$(node scripts/vocab-img/scene.mjs --gaps 1000000 --shard 0/1 | node -p "JSON.parse(require('fs').readFileSync(0,'utf8')).items.length")
             echo "nghĩa cảnh thiếu ảnh có thể vẽ (không trong hàng chờ / thẻ đang nghỉ): $G"
@@ -85,7 +85,7 @@ jobs:
             m=$(( (G + 39) / 40 )); [ "$n" -gt "$m" ] && n=$m
           fi
           echo "shards=$(node -e "console.log(JSON.stringify([...Array($n).keys()]))")" >> $GITHUB_OUTPUT
-          G='${{ github.event.inputs.max_gc }}'; [ -z "$G" ] && { [ "$MODE" = fill ] && G=6000 || G=400; }
+          G="$LX_MAX_GC"; [ -z "$G" ] && { [ "$MODE" = fill ] && G=6000 || G=400; }
           echo "per=$(( G / n ))" >> $GITHUB_OUTPUT
   prep:
     needs: plan
@@ -141,10 +141,10 @@ jobs:
           pip install -q open_clip_torch==2.26.1 transformers==4.51.3 sentence-transformers==3.4.1 num2words==0.5.14 imagehash==4.3.1 pytesseract==0.3.13 pillow-avif-plugin==1.4.6 'numpy<2'
       - name: Kho từ vựng + chọn khoá
         if: steps.lease.outputs.skip != '1'
-        env: { ONLY: '${{ github.event.inputs.only }}', VIMG_MODEL: '${{ github.event.inputs.model }}' }
+        env: { ONLY: '${{ github.event.inputs.only }}', VIMG_MODEL: '${{ github.event.inputs.model }}', LX_PICK: '${{ github.event.inputs.pick || ''60:0:20'' }}' }
         run: |
           { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
-          IFS=: read -r PN PF PFN <<< "${{ github.event.inputs.pick || '60:0:20' }}"
+          IFS=: read -r PN PF PFN <<< "$LX_PICK"
           node scripts/vocab-img/scene.mjs --pilot --n ${PN:-60} --from ${PF:-0} --fn ${PFN:-20} > pilot.json
           EXTRA="$( [ "${ONLY#+}" != "$ONLY" ] && echo "${ONLY#+}" )" node -e "const p=require('./pilot.json'),x=(process.env.EXTRA||'').split(',').filter(Boolean),t=require('./content/lexicon/topics.json').topics,c=require('fs').readdirSync('content/confidence/units').map(f=>'conf:'+f.replace('.json',''));p.scene=[...new Set([...p.scene,...x])];require('fs').writeFileSync('keys.json',JSON.stringify({items:[...new Set([...p.items,...x])].concat(t.map(x=>'topic:'+x.id),c),scene:p.scene}))"
           if [ -n "$ONLY" ] && [ "${ONLY#+}" = "$ONLY" ]; then   # A/B mô hình: đúng danh sách (vd. pilot-40) – không bìa/bài học/hư từ
@@ -227,10 +227,10 @@ jobs:
           pip install -q open_clip_torch==2.26.1 transformers==4.51.3 sentence-transformers==3.4.1 num2words==0.5.14 imagehash==4.3.1 pytesseract==0.3.13 pillow-avif-plugin==1.4.6 'numpy<2'
       - name: Kho từ vựng + chọn khoá
         if: steps.lease.outputs.skip != '1'
-        env: { ONLY: '${{ github.event.inputs.only }}', VIMG_MODEL: '${{ github.event.inputs.model }}' }
+        env: { ONLY: '${{ github.event.inputs.only }}', VIMG_MODEL: '${{ github.event.inputs.model }}', LX_PICK: '${{ github.event.inputs.pick || ''60:0:20'' }}' }
         run: |
           { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
-          IFS=: read -r PN PF PFN <<< "${{ github.event.inputs.pick || '60:0:20' }}"
+          IFS=: read -r PN PF PFN <<< "$LX_PICK"
           node scripts/vocab-img/scene.mjs --pilot --n ${PN:-60} --from ${PF:-0} --fn ${PFN:-20} > pilot.json
           EXTRA="$( [ "${ONLY#+}" != "$ONLY" ] && echo "${ONLY#+}" )" node -e "const p=require('./pilot.json'),x=(process.env.EXTRA||'').split(',').filter(Boolean),t=require('./content/lexicon/topics.json').topics,c=require('fs').readdirSync('content/confidence/units').map(f=>'conf:'+f.replace('.json',''));p.scene=[...new Set([...p.scene,...x])];require('fs').writeFileSync('keys.json',JSON.stringify({items:[...new Set([...p.items,...x])].concat(t.map(x=>'topic:'+x.id),c),scene:p.scene}))"
           if [ -n "$ONLY" ] && [ "${ONLY#+}" = "$ONLY" ]; then   # A/B mô hình: đúng danh sách (vd. pilot-40) – không bìa/bài học/hư từ
@@ -417,11 +417,11 @@ jobs:
           pip install -q open_clip_torch==2.26.1 transformers==4.51.3 sentence-transformers==3.4.1 num2words==0.5.14 imagehash==4.3.1 pytesseract==0.3.13 pillow-avif-plugin==1.4.6 'numpy<2'
         timeout-minutes: 12
       - name: Chấm lại bằng giám khảo kép + tờ soát
-        env: { GH_TOKEN: '${{ github.token }}' }
+        env: { GH_TOKEN: '${{ github.token }}', LX_LAB_RUN: '${{ github.event.inputs.lab_run }}' }
         run: |
           { node scripts/build-lexicon.mjs --write >/dev/null || [ -s dist/lexicon.json ]; }
           mkdir -p rj
-          for id in $(echo "${{ github.event.inputs.lab_run }}" | tr ',' ' '); do
+          for id in $(echo "$LX_LAB_RUN" | tr ',' ' '); do
             gh run download $id -R ${{ github.repository }} -n vimg-scene-final -D rj/$id || { echo "::warning::không tải được $id"; continue; }
             rm -f rj/$id/judge.local.a1.json
             python3 scripts/vocab-img/local_judge.py --dir rj/$id --attempt 1 | tail -1
@@ -458,7 +458,7 @@ jobs:
           [ -f m/targets.json ] || { echo "::warning::không có việc nào chạy (thuê bị từ chối?)"; exit 0; }
           python3 scripts/vocab-img/scene_final.py --dir m --sheet m/fill-sheet.jpg --sheet-max 40 | tail -2
       - name: Đẩy ảnh lên kho media (m4, deploy key) → chỉ mục img.json
-        env: { K: '${{ secrets.MEDIA4_DEPLOY_KEY }}', LEX_CDN_CHECK: '0' }
+        env: { K: '${{ secrets.MEDIA4_DEPLOY_KEY }}', LEX_CDN_CHECK: '0', LX_VARIANTS: '${{ github.event.inputs.variants || ''6'' }}' }
         run: |
           [ -f m/result.json ] || exit 0
           node scripts/vocab-img/scene-publish.mjs --dir m --stage .media-out
@@ -469,12 +469,12 @@ jobs:
             # chờ CDN: lỗi mạng của curl (mã 56) KHÔNG được làm đỏ cả bước dưới bash -e (09/11 run 42698529382) – chỉ là vòng thăm dò
             h=$(ls .media-out/vimg | head -1); for i in $(seq 1 20); do c=$(curl -s -o /dev/null -w '%{http_code}' https://media.lexkite.com/vimg/$h || true); [ "$c" = 200 ] && break; sleep 15; done; echo "CDN $h → $c"
           fi
-          node scripts/vocab-img/scene-publish.mjs --dir m --index --variants ${{ github.event.inputs.variants || '6' }}
+          node scripts/vocab-img/scene-publish.mjs --dir m --index --variants "$LX_VARIANTS"
           { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
           ACC=$(node -p "require('./m/fill-report.json').accepted" 2>/dev/null || echo 0)
           cp m/fill-report.json "$RUNNER_TEMP/fill-report.json" 2>/dev/null || true
           # img.json/scenes/queue là chỉ mục dùng chung → sinh lại trên main mới nhất (scene-publish --index bỏ qua ảnh đã có) – scripts/ci/commit-regen.sh
-          REGEN="node scripts/vocab-img/scene-publish.mjs --dir m --index --variants ${{ github.event.inputs.variants || '6' }} >/dev/null && { node scripts/build-lexicon.mjs --write >/dev/null || [ -s dist/lexicon.json ]; } && { cp \"$RUNNER_TEMP/fill-report.json\" m/fill-report.json 2>/dev/null || true; }"
+          REGEN="node scripts/vocab-img/scene-publish.mjs --dir m --index --variants $LX_VARIANTS >/dev/null && { node scripts/build-lexicon.mjs --write >/dev/null || [ -s dist/lexicon.json ]; } && { cp \"$RUNNER_TEMP/fill-report.json\" m/fill-report.json 2>/dev/null || true; }"
           bash scripts/ci/commit-regen.sh "Ảnh cảnh theo nghĩa: lượt fill ${{ github.run_id }} ($ACC ảnh)" "$REGEN" content/lexicon/img.json content/lexicon/vimg-scenes.json content/lexicon/vimg-scene-queue.json web/js/lexicon-img.json extension/app/js/lexicon-img.json web/js/vimg extension/app/js/vimg
       - name: Kho ảnh gốc cho video (GitHub Release 'vimg-masters' – miễn phí, không vào Pages/kho media)
         env: { GH_TOKEN: '${{ github.token }}' }
@@ -487,10 +487,10 @@ jobs:
         if: always()
         with: { name: vimg-fill-final, retention-days: 14, path: "m/result.json\nm/fill-report.json\nm/fill-sheet.jpg\nm/gen-stats.*.json\nm/judge-api.*.json\nm/speed.*.json\nm/final/" }
       - name: Tự nối lượt (vắt hết kho CF trong ngày – cron GitHub hay trễ/bỏ lượt)
-        env: { GH_TOKEN: '${{ github.token }}', CHAIN: '${{ vars.VIMG_CHAIN }}' }
+        env: { GH_TOKEN: '${{ github.token }}', CHAIN: '${{ vars.VIMG_CHAIN }}', LX_JUDGE_RUN: '${{ github.event.inputs.judge_run }}' }
         run: |
           [ "$CHAIN" = 0 ] && { echo "chuỗi tắt (VIMG_CHAIN=0)"; exit 0; }
-          [ -n "${{ github.event.inputs.judge_run }}" ] && { echo "judge_run: không nối lượt vẽ mới"; exit 0; }
+          [ -n "$LX_JUDGE_RUN" ] && { echo "judge_run: không nối lượt vẽ mới"; exit 0; }
           H=$(date -u +%H); [ "$H" -lt 2 ] && { echo "00–02 UTC: nhường kho từ (lexicon-expand 00:12) – cron 02:40 nối tiếp"; exit 0; }   # so trong bash: biểu thức GitHub coi '' == '0' → bước bị bỏ (26/10)
           if ls parts/*/out/vimg-fill/EXHAUSTED >/dev/null 2>&1; then echo "⏹ kho CF hết neuron ngày – chờ cron sau 00:00 UTC"; exit 0; fi
           { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }

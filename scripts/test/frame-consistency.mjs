@@ -17,6 +17,7 @@ import path from 'node:path';
 import { noProd } from './lib/no-prod.mjs';
 import { serve } from '../quality/serve.mjs';
 import { FIXED } from './lib/learn-samples.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = arg('root', 'dist'), OUT = path.resolve(arg('out', 'out/frame-consistency')), ONLY = arg('only', '');
@@ -111,16 +112,16 @@ const mk = async (w, theme) => {
   const page = await ctx.newPage(); const errs = [];
   page.on('pageerror', e => errs.push(String(e.message).slice(0, 120)));
   await page.goto(`${O}/app/?sandbox=1&hl=en#/home`, { waitUntil: 'load', timeout: 60000 });
-  await page.waitForFunction(() => window.App && App.routes && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 45000 });
+  await waitFn(page, () => window.App && App.routes && document.querySelector('#view') && document.querySelector('#view').children.length > 0, null, { timeout: 45000 });
   await sleep(800);
   return { ctx, page, errs, w, theme };
 };
 const go = async (P, h) => {
   await P.page.evaluate(x => { if (window.UI && UI.closeModal) UI.closeModal(); if (window.App && App.state.settings) App.state.settings.onboarded = !/^#?\/welcome/.test(x); /* người có dữ liệu không thấy lại trang giới thiệu (docs/specs/welcome.md) → chỉ trong bộ nhớ */ location.hash = x; window.scrollTo(0, 0); }, h);
-  await P.page.waitForFunction(x => location.hash === '#' + x.split('#').pop() || true, h).catch(() => {});
+  await waitFn(P.page, x => location.hash === '#' + x.split('#').pop() || true, h).catch(() => {});
   await sleep(1100);
   // Gói lười nạp nguội (vd. #/speak → 'pas' + 3 CSS) có thể quá 1.1s trên runner bận → đo lúc còn khung xương, thanh dưới chưa đánh dấu tab (lệch giả). Chờ App.route vẽ xong.
-  await P.page.waitForFunction(() => { const v = document.querySelector('#view'); return v && v.children.length && !v.querySelector(':scope > .skel-page, :scope > .skel-study'); }, null, { timeout: 15000 }).catch(() => {});
+  await waitFn(P.page, () => { const v = document.querySelector('#view'); return v && v.children.length && !v.querySelector(':scope > .skel-page, :scope > .skel-study'); }, null, { timeout: 15000 }).catch(() => {});
   await P.page.evaluate(() => window.scrollTo(0, 0));
 };
 

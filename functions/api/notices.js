@@ -8,6 +8,7 @@
 import { shedRead } from './_d1guard.js';
 import { claims, limit } from './sync.js';
 import { once } from './_schema.js';
+import { readJSON, bodyFail } from './_body.js';
 
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 const cors = req => {
@@ -163,9 +164,8 @@ export async function onRequestPost({ request, env }) {
   const who = authHeader ? await claims(authHeader).catch(() => null) : null;
   const uid = who && who.sub ? who.sub : null;
 
-  if (+(request.headers.get('Content-Length') || 0) > 1024) return json(request, 413, { error: 'too-large' });
   let b;
-  try { const raw = await request.text(); if (raw.length > 1024) return json(request, 413, { error: 'too-large' }); b = JSON.parse(raw); } catch (e) { return json(request, 400, { error: 'json' }); }
+  try { b = await readJSON(request, 1024); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   if (!b || typeof b !== 'object') return json(request, 400, { error: 'json' });
 
   const id = String(b.id || '').trim();

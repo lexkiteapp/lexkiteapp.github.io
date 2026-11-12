@@ -44,6 +44,7 @@ Không đi qua module: file tĩnh, dữ liệu từ điển, bài học, ôn t�
 - **Bậc**: `anon` (khách) < `free` (đã đăng nhập) < `unlimited`.
   `unlimited` = email đã xác minh trong `ADMIN_EMAILS` hoặc `UNLIMITED_EMAILS` (biến môi trường Pages, danh sách email cách nhau bởi dấu phẩy) hoặc id trong bảng `quota_allow` (`e:email`, `u:uid`, `d:thiết bị`, `i:IP băm`).
   Không giới hạn = bỏ qua hạn mức theo người/IP và khóa; cầu dao nhà cung cấp vẫn áp dụng (không thể vượt gói miễn phí).
+- **Khách chưa xác minh người thật** (/api/ai không vé `X-Lexkite-Human`, cờ `AI_HUMAN_ENFORCE` chưa bật): `gate(…, { lowTrust: true })` → ½ hạn mức ngày bậc `anon`; dấu hết lượt ghi riêng (`qx:<tính năng>~low:<id>`) nên xác minh xong dùng tiếp phần còn lại. Chi tiết [HUMAN.md](HUMAN.md).
 
 ## 3. Hạn mức mặc định
 

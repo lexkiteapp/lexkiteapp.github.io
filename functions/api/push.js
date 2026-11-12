@@ -23,6 +23,7 @@ import { d1Usage } from './_d1guard.js';
 import { REG } from './_jobs_reg.js';
 import { adminGate, adminCors } from './admin.js';
 import { limit } from './sync.js';
+import { readText, bodyFail } from './_body.js';
 
 const DAY = 864e5, MAX_SEND = 40;
 export const SEQ = [0, 1, 2, 3, 5, 7, 10, 14], FINAL = 14, REMOTE_FROM = 3; // trùng web/js/remind.js (test reminders.mjs đối chiếu)
@@ -143,8 +144,8 @@ export async function onRequestGet({ request, env }) {
 }
 
 export async function onRequestPost({ request, env }) {
-  if (+(request.headers.get('Content-Length') || 0) > 8192) return json(request, 413, { error: 'big' });
-  const text = await request.text(); let b; try { b = JSON.parse(text); } catch (e) { return json(request, 400, { error: 'json' }); }
+  let text; try { text = await readText(request, 8192); } catch (e) { const f = bodyFail(e, 'big'); return json(request, f.status, { error: f.error }); }
+  let b; try { b = JSON.parse(text); } catch (e) { return json(request, 400, { error: 'json' }); }
   if (!b || typeof b !== 'object') return json(request, 400, { error: 'json' });
   if (!d1bReady(env)) return b.op === 'ev' ? new Response(null, { status: 204 }) : json(request, 503, { error: 'internal-db-missing' }); // không có D1 nội bộ → tắt hẳn (không bao giờ dùng D1 người dùng)
   const db = coordDb(env), now = Date.now(), ip = request.headers.get('CF-Connecting-IP') || '?';

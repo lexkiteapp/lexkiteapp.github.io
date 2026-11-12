@@ -11,6 +11,7 @@ import { chromium } from 'playwright';
 import fs from 'fs';
 import path from 'path';
 import zlib from 'zlib';
+import { waitFn } from '../lib/pw-wait.mjs';
 
 const arg = k => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : null; };
 const OUT = path.resolve(arg('--out') || 'qa-call'), BEFORE = process.argv.includes('--before'), WAV = arg('--whisper');
@@ -96,7 +97,7 @@ async function open(o = {}) {
 }
 const go = (page, h) => page.evaluate(x => { location.hash = x; }, h);
 const state = page => page.evaluate(() => (window.__callState ? window.__callState() : null));
-const until = (page, fn, arg, ms = 15000) => page.waitForFunction(fn, arg, { timeout: ms });
+const until = (page, fn, arg, ms = 15000) => waitFn(page, fn, arg, { timeout: ms });
 // Mắt mở trên khung mặt ĐÃ GHÉP (đầu trơn head-bare không mắt + mắt vector LipFace) – cùng thước scripts/teach/eyes.py: tỉ lệ điểm ảnh lòng trắng trong dải mắt
 // (x 30–70 %, y 32 ± 5,2 %) ≥ 45 % của poster-2x. Bù cho ngoại lệ head-bare trong idle.closed_ok (characters.json). null = khung đang chớp / chưa có canvas.
 const eyeOpen = page => page.evaluate(async () => {

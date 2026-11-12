@@ -11,6 +11,7 @@ import { guardBg, stripBackgroundAI } from './_d1guard.js';
 import { allowed as gcAllowed } from './social.js';
 import { geminiCall, runModel } from './ai.js';
 import { limit } from './sync.js';
+import { readJSON, bodyFail } from './_body.js';
 
 const REPO = 'lexkiteapp/lexkiteapp.github.io';
 const RAW = `https://raw.githubusercontent.com/${REPO}/main/`;
@@ -502,7 +503,7 @@ const json = (req, status, data) => new Response(JSON.stringify(data), { status,
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 
 export async function onRequestPost({ request, env }) {
-  if (+(request.headers.get('Content-Length') || 0) > MAX_BODY) return json(request, 413, { error: 'too-large' });
+  if (+(request.headers.get('Content-Length') || 0) > MAX_BODY) return json(request, 413, { error: 'too-large' }); // báo sớm trước khi xác thực; giới hạn THẬT ở readJSON bên dưới
   const ciSecret = request.headers.get('X-Studio-Secret');
   let who = null;
   if (ciSecret != null) {
@@ -513,7 +514,7 @@ export async function onRequestPost({ request, env }) {
   } else {
     const g = await adminGate(request, env, 'std'); if (!g.who) return json(request, g.status, { error: g.error }); who = g.who;
   }
-  let b; try { b = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
+  let b; try { b = await readJSON(request, MAX_BODY); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   const T = who ? OPS : CI, fn = b && typeof b === 'object' && Object.hasOwn(T, b.op) ? T[b.op] : null; if (!fn) return json(request, 400, { error: 'op' });
   { const gb = await guardBg(request, env, json); if (gb) return gb; } // cầu dao D1 (_d1guard.js): việc nền/quản trị dừng khi tài khoản đã đọc ≥ 50 % hạn mức
   try {

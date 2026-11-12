@@ -3,6 +3,7 @@
 // Chạy: node scripts/test/welcome-journey.mjs [--root dist]
 import { chromium } from 'playwright';
 import { serve } from './stitch-screens.mjs';
+import { waitFn } from '../lib/pw-wait.mjs';
 
 const A = process.argv.slice(2), ROOT = A.includes('--root') ? A[A.indexOf('--root') + 1] : 'web', O = 'https://lk.test', Q = '/app/?sandbox=1&hl=vi';
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -16,11 +17,11 @@ const open = async (hash, { q = Q, seed = {}, init } = {}) => {
   const page = await ctx.newPage(), errs = [];
   page.on('pageerror', e => errs.push(String(e.message).slice(0, 160)));
   await page.goto(O + q + hash, { waitUntil: 'load' });
-  return { ctx, page, errs, hash: () => page.evaluate(() => location.hash), ready: () => page.waitForFunction(() => window.App && App.routeToken && App.routeToken() > 0 && App.drawn().tok > 0, null, { timeout: 30000 }) };
+  return { ctx, page, errs, hash: () => page.evaluate(() => location.hash), ready: () => waitFn(page, () => window.App && App.routeToken && App.routeToken() > 0 && App.drawn().tok > 0, null, { timeout: 30000 }) };
 };
 const ONB = { 'sbx.settings': JSON.stringify({ onboarded: true }) };
 const see = (page, s, timeout = 15000) => page.waitForSelector(s, { state: 'visible', timeout }).then(() => true).catch(() => false);
-const hashIs = (page, re, timeout = 8000) => page.waitForFunction(r => new RegExp(r).test(location.hash), re.source, { timeout }).then(() => true).catch(() => false);
+const hashIs = (page, re, timeout = 8000) => waitFn(page, r => new RegExp(r).test(location.hash), re.source, { timeout }).then(() => true).catch(() => false);
 const steps = async page => { for (let i = 0; i < 8 && !(await page.$('#go')); i++) { await page.click('#obNext'); await sleep(200); } };
 const answerPlacement = async page => { await page.click('#go'); for (let i = 0; i < 30 && !(await page.$('.pl-result')); i++) { const o = page.locator('.pl-wrap .option[data-k]:not([data-k="-1"])'); if (await o.count()) await o.nth(i % 2).click().catch(() => {}); await sleep(450); } };
 

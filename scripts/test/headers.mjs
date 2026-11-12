@@ -20,13 +20,14 @@ const need = {
   'x-frame-options': v => /^(SAMEORIGIN|DENY)$/.test(v),
   'x-content-type-options': v => v === 'nosniff',
   'referrer-policy': v => /strict-origin-when-cross-origin|no-referrer/.test(v),
-  'strict-transport-security': v => /max-age=(\d+)/.test(v) && +v.match(/max-age=(\d+)/)[1] >= 15552000,
+  'strict-transport-security': v => /max-age=(\d+)/.test(v) && +v.match(/max-age=(\d+)/)[1] >= 31536000 && /includeSubDomains/.test(v) && /preload/.test(v), // HSTS preload (audit 2/11: mọi subdomain HTTPS; owner nộp hstspreload.org)
   'permissions-policy': v => /camera=\(\)/.test(v) && /geolocation=\(\)/.test(v),
   'cross-origin-opener-policy': v => /same-origin-allow-popups/.test(v), // cần cho cửa sổ đăng nhập Google (Firebase signInWithPopup)
 };
 for (const [h, ok] of Object.entries(need)) { const v = get(h); if (!v) errs.push(`/* thiếu ${h}`); else if (!ok(v)) errs.push(`/* ${h} sai giá trị: ${v}`); }
-const csp = get('content-security-policy') || get('content-security-policy-report-only');
-if (!csp) errs.push('/* thiếu CSP (Content-Security-Policy hoặc -Report-Only)');
+const csp = get('content-security-policy'); // CHẶN THẬT từ 2/11/2026 – không quay lại Report-Only (chi tiết + meta hash: scripts/test/csp.mjs)
+if (!csp) errs.push('/* thiếu Content-Security-Policy (chặn thật; Report-Only không còn được chấp nhận)');
+if (get('content-security-policy-report-only')) errs.push('/* còn Content-Security-Policy-Report-Only');
 else for (const d of ["object-src 'none'", "base-uri 'self'", 'frame-ancestors']) if (!csp.includes(d)) errs.push(`CSP thiếu ${d}`);
 // Trong cùng 1 khối không lặp header (Pages nối bằng dấu phẩy → giá trị hỏng)
 for (const [p, hs] of rules) { const seen = new Set(); for (const [k] of hs) { if (k === '!') continue; if (seen.has(k)) errs.push(`${p}: header ${k} lặp`); seen.add(k); } }

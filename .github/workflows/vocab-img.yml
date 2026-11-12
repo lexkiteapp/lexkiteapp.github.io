@@ -60,11 +60,14 @@ jobs:
         run: node scripts/build-lexicon.mjs --write
       - name: Chọn nghĩa
         if: steps.lease.outputs.skip != '1'
+        env:
+          LX_LIMIT: ${{ github.event.inputs.limit || '220' }}
+          LX_EXTRA: ${{ github.event.inputs.extra }}
         run: |
           if [ "$MODE" = pilot2 ]; then cp content/lexicon/vimg-pilot2.json keys.json
           elif [ "$MODE" = pilot ]; then cp content/lexicon/vimg-pilot.json keys.json
-          else node scripts/vocab-img/publish.mjs --gaps "${{ github.event.inputs.limit || '220' }}" > gaps.json
-            EXTRA='${{ github.event.inputs.extra }}' node -e "const g=require('./gaps.json').items,x=(process.env.EXTRA||'').split(',').map(s=>s.trim()).filter(Boolean);require('fs').writeFileSync('keys.json',JSON.stringify({items:[...new Set([...x,...g])]}))"; fi
+          else node scripts/vocab-img/publish.mjs --gaps "$LX_LIMIT" > gaps.json
+            EXTRA="$LX_EXTRA" node -e "const g=require('./gaps.json').items,x=(process.env.EXTRA||'').split(',').map(s=>s.trim()).filter(Boolean);require('fs').writeFileSync('keys.json',JSON.stringify({items:[...new Set([...x,...g])]}))"; fi
           echo "nghĩa lượt này: $(node -p "require('./keys.json').items.length")"
       - name: Thẻ vẽ cho nghĩa chưa có thẻ (GrabCast văn bản; thẻ skip = không vẽ)
         if: steps.lease.outputs.skip != '1' && env.MODE == 'fill'

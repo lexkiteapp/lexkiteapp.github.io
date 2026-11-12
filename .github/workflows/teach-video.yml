@@ -68,7 +68,8 @@ jobs:
         env: { GITHUB_TOKEN: '${{ github.token }}' }
         run: echo "par=$(node scripts/ci/shards.mjs --left 48 --per 1 --cap 24 | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
       - id: m   # a batch takes only what the free runners finish in ~1.5 h (4 episodes per runner); ci-filler dispatches the next slice
-        run: echo "list=$(python3 scripts/video/teach2d/gen.py --pick '${{ github.event.inputs.eps }}' '${{ github.event.inputs.shards }}' '${{ github.event_name }}' ${{ steps.p.outputs.par }})" >> "$GITHUB_OUTPUT"   # batch = facts re-verified live (gen.py --verify), not yet banked
+        env: { LX_EPS: '${{ github.event.inputs.eps }}', LX_SHARDS: '${{ github.event.inputs.shards }}', LX_EVENT: '${{ github.event_name }}', LX_PAR: '${{ steps.p.outputs.par }}' }
+        run: echo "list=$(python3 scripts/video/teach2d/gen.py --pick "$LX_EPS" "$LX_SHARDS" "$LX_EVENT" "$LX_PAR")" >> "$GITHUB_OUTPUT"   # batch = facts re-verified live (gen.py --verify), not yet banked
   voice:
     needs: [preqc, gate]
     if: needs.gate.outputs.go == 'true'

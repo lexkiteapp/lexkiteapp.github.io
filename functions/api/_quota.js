@@ -149,7 +149,7 @@ async function strike(db, key, feature) {
 export const UP = 'INSERT INTO quota_count (k, day, n) VALUES (?1, ?2, ?3) ON CONFLICT (k, day) DO UPDATE SET n = n + ?3 RETURNING n';
 const plainJson = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' } });
 
-/** Cổng hạn mức. opt: { who: claims|null (bỏ trống = tự đọc header Authorization), json: (req, status, data) => Response (CORS của endpoint) }
+/** Cổng hạn mức. opt: { who: claims|null (bỏ trống = tự đọc header Authorization), json: (req, status, data) => Response (CORS của endpoint), lowTrust: khách chưa xác minh → ½ hạn mức ngày }
  *  Trả đối tượng q: q.res (Response 429 nếu bị chặn) · q.tier · q.id · q.take(n) (tính lượt ngày cho store 'd1') · q.near(p, keys) · q.use(p, n) · q.busy() */
 /** Cộng lượt thưởng (quảng cáo có thưởng, ôn thẻ): câu lệnh trừ bộ đếm ngày của các khóa (gộp vào batch của endpoint) +
  * xoá dấu "hết lượt hôm nay" ở biên của các khóa đó – không xoá thì gate vẫn chặn tới nửa đêm dù D1 đã được cộng (dấu theo trung tâm dữ liệu). */
@@ -165,7 +165,10 @@ export async function gate(request, env, feature, opt = {}) {
   const id = uid ? 'u:' + uid : dev ? 'd:' + dev : ip;
   const keys = [id, ip, dev && 'd:' + dev, email && 'e:' + email].filter((k, i, a) => k && a.indexOf(k) === i);
   const unlimited = !!(email && (list(env.ADMIN_EMAILS).includes(email) || list(env.UNLIMITED_EMAILS).includes(email))) || keys.some(k => s.allow.has(k));
-  const tier = unlimited ? 'unlimited' : uid ? 'free' : 'anon', [perMin, perDay] = unlimited ? [0, Infinity] : c[tier === 'free' ? 'free' : 'anon'];
+  const tier = unlimited ? 'unlimited' : uid ? 'free' : 'anon', [perMin, perDay0] = unlimited ? [0, Infinity] : c[tier === 'free' ? 'free' : 'anon'];
+  // opt.lowTrust: khách CHƯA xác minh người thật (chưa có vé /api/human, cờ AI_HUMAN_ENFORCE chưa bật) → nửa hạn mức ngày (docs/HUMAN.md)
+  const low = !!opt.lowTrust && tier === 'anon' && !!perDay0; // dấu "hết lượt" của bậc ½ ghi riêng (~low) → xác minh xong dùng tiếp phần còn lại
+  const perDay = low ? Math.max(1, Math.ceil(perDay0 / 2)) : perDay0;
   const ipMin = Math.max(c.anon[0], c.free[0]) * c.ipx, ipDay = Math.max(c.anon[1], c.free[1]) * c.ipx, day = dayKey(now), reset = nextMidnight(now);
   const respond = opt.json || plainJson;
   const q = {
@@ -193,7 +196,7 @@ export async function gate(request, env, feature, opt = {}) {
       if (pk.length) for (const r of rows(res[counted ? (ip !== id ? 2 : 1) : 0])) q.prov[r.k.slice(2)] = r.n;
       if (counted) {
         const idN = (rows(res[0])[0] || {}).n || 0, ipN = ip !== id ? (rows(res[1])[0] || {}).n || 0 : 0, ttl = Math.min(MARK_MAX, (reset - now) / 1000);
-        if (idN > perDay) { await mark(`qx:${feature}:${id}`, ttl, String(reset)); return q.deny('quota.daily', reset); }
+        if (idN > perDay) { await mark(`qx:${low ? feature + "~low" : feature}:${id}`, ttl, String(reset)); return q.deny('quota.daily', reset); }
         if (ipN > ipDay) { await mark(`qx:${feature}:${ip}`, ttl, String(reset)); return q.deny('quota.daily', reset); }
         q.left = Math.max(0, perDay - idN);
       }
@@ -209,11 +212,12 @@ export async function gate(request, env, feature, opt = {}) {
   for (const k of keys) { const u = s.block.get(k); if (u === 0 || u > now) return q.deny('quota.blocked', u || null); }
   if (!perDay) return q.deny('quota.daily', reset);
   // Dấu "hết lượt" ở biên tránh lượt GHI D1; gặp dấu → 1 lượt ĐỌC bộ đếm: đã được cộng lượt thưởng (credit – quảng cáo SSV chạy ở trung tâm dữ liệu khác, ôn thẻ) thì gỡ dấu, cho qua
-  if (c.store === 'd1') for (const k of id === ip ? [id] : [id, ip]) if (await peek(`qx:${feature}:${k}`)) {
+  if (c.store === 'd1') for (const k of id === ip ? [id] : [id, ip]) { const hit = (await peek(`qx:${feature}:${k}`)) ? feature : (low && k === id && await peek(`qx:${feature}~low:${k}`)) ? feature + '~low' : '';
+    if (hit) {
     const r = db ? await db.prepare('SELECT n FROM quota_count WHERE k = ? AND day = ?').bind(feature + '|' + k, day).first().catch(() => false) : false;
     if (r === false || (r && r.n > (k === id ? perDay : ipDay))) return q.deny('quota.daily', reset, k);
-    await unmark(feature, [k]);
-  }
+    await unmark(hit, [k]);
+  } }
   let w;
   if (perMin && (w = await limit(`qm:${feature}:${id}`, perMin, 60))) return q.deny('quota.burst', now + w * 1000, id);
   if (ip !== id && ipMin && (w = await limit(`qm:${feature}:${ip}`, ipMin, 60))) return q.deny('quota.burst', now + w * 1000, ip);

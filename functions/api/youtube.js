@@ -24,6 +24,7 @@ import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import { signState, verifyState, encryptToken, decryptToken, cliVerify, driveMedia } from './drive.js';
 import { manifest, signedPack } from './admin-shorts.js';
+import { readText, bodyFail } from './_body.js';
 
 export const REDIRECT = 'https://lexkite.com/api/youtube/callback';
 export const SCOPE_UP = 'https://www.googleapis.com/auth/youtube.upload', SCOPE_RO = 'https://www.googleapis.com/auth/youtube.readonly';
@@ -554,8 +555,7 @@ const WRITE = new Set(['connect', 'disconnect', 'setdefault', 'settings', 'appro
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 
 export async function onRequestPost({ request, env }) {
-  const text = await request.text().catch(() => '');
-  if (text.length > 32768) return json(request, 413, { error: 'too-large' });
+  let text; try { text = await readText(request, 32768); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   let b; try { b = JSON.parse(text || '{}'); } catch (e) { return json(request, 400, { error: 'json' }); }
   if (!b || typeof b !== 'object' || Array.isArray(b)) return json(request, 400, { error: 'json' });
   const ip = request.headers.get('CF-Connecting-IP') || '?';

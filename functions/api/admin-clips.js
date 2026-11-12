@@ -16,6 +16,7 @@ import { manifest, signed } from './admin-shorts.js';
 import { setup, approveClips, unqueueClip, slotToIso, kick } from './youtube.js';
 import { TOPICS, SKILLS, EXAMS, CEFR, TYPES } from './_taxonomy.js';
 import { normFilter, viewOf, matches, sortRows, pageOf, spreadSlot, field, sectionOf, groupKey, SECTIONS, CTYPES } from './_clip_logic.js';
+import { readText, bodyFail } from './_body.js';
 
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...adminCors(req) } });
 const CLIP = /^[a-z0-9-]{3,120}$/, CHID = /^[A-Za-z0-9_-]{8,64}$/, MAX_IDS = 100, MAX_ALL = 20000;
@@ -130,8 +131,7 @@ const OPS = {
 export const onRequestOptions = ({ request }) => new Response(null, { status: 204, headers: adminCors(request) });
 export async function onRequestPost({ request, env }) {
   const g = await adminGate(request, env, 'clp'); if (!g.who) return json(request, g.status, { error: g.error });
-  const text = await request.text().catch(() => '');
-  if (text.length > 65536) return json(request, 413, { error: 'too-large' });
+  let text; try { text = await readText(request, 65536); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); }
   let b; try { b = JSON.parse(text || '{}'); } catch (e) { b = null; }
   if (!b || typeof b !== 'object' || Array.isArray(b)) return json(request, 400, { error: 'body' });
   if (!Object.hasOwn(OPS, b.op)) return json(request, 400, { error: 'op' });

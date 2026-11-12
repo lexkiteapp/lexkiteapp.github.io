@@ -4,6 +4,7 @@
 //  (4) điểm lấy mẫu trong vùng nội dung trúng phần tử thuộc #view (không phải nền trống / mảnh trang cũ).
 // Dùng: node scripts/test/nav-render.mjs [base]   (CI: nav-render.yml)
 import { chromium, webkit, firefox } from 'playwright';
+import { waitFn } from '../lib/pw-wait.mjs';
 const BASE = process.argv[2] || 'https://lexkite.com/app/';
 const ROUTES = ['home', 'vocab', 'skills', 'tests', 'me', 'grammar', 'library', 'stats', 'settings', 'models'];
 const VIEWS = { desktop: { viewport: { width: 1366, height: 860 } }, mobile: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true } };
@@ -39,7 +40,7 @@ for (const [bn, bt] of Object.entries({ chromium, webkit, firefox })) {
     const tag = `${bn}/${vn}`;
     page.on('pageerror', e => { const m = String(e.message); if (/access control checks/.test(m) && !/lexkite\.com/.test(m)) return; fails.push(`${tag}: lỗi JS ${m.slice(0, 140)}`); }); // WebKit báo CORS của dịch vụ ngoài (app đã bắt lỗi) như lỗi trang
     await page.goto(BASE + '?sandbox=1&hl=vi#/welcome/setup', { waitUntil: 'networkidle' }).catch(() => {});
-    await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(2000); await page.waitForFunction(() => !document.querySelector('body>canvas') && !document.querySelector('#toast.show'), null, { timeout: 8000 }).catch(() => {}); await page.evaluate(() => document.activeElement && document.activeElement.blur && document.activeElement.blur()); } // chờ pháo giấy mừng cài đặt rơi xong // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
+    await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {}); for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); } const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(2000); await waitFn(page, () => !document.querySelector('body>canvas') && !document.querySelector('#toast.show'), null, { timeout: 8000 }).catch(() => {}); await page.evaluate(() => document.activeElement && document.activeElement.blur && document.activeElement.blur()); } // chờ pháo giấy mừng cài đặt rơi xong // thiết lập từng bước (onboard.js): Tiếp tục tới màn cuối rồi Bắt đầu
     for (const r of ROUTES) {
       await page.evaluate(h => { location.hash = h; }, '#/' + r); await page.waitForTimeout(500);
       await page.evaluate(() => scrollBy(0, 2500)); await page.waitForTimeout(300); // cuộn xuống giữa/cuối trang rồi mới đi tiếp (đúng tình huống lỗi)

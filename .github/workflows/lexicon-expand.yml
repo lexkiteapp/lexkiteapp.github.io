@@ -47,9 +47,13 @@ jobs:
         if: ${{ github.event.inputs.words == '' && github.event.inputs.audit == '' && github.event.inputs.force != '1' }}
         run: if node scripts/lexicon/expand/left.mjs --idle; then echo "idle=1" >> $GITHUB_OUTPUT; echo '⏹ lượt gần nhất gần rỗng (< EMPTY_RUN mục, retry chưa tăng, < 24 h) – bỏ lượt (force=1 để chạy)'; fi
       - id: p
+        env:
+          LX_SHARDS: ${{ github.event.inputs.shards }}
+          LX_WORDS: ${{ github.event.inputs.words }}
+          LX_AUDIT: ${{ github.event.inputs.audit }}
         run: |
-          n="${{ github.event.inputs.shards }}"; case "$n" in ''|*[!0-9]*) n=1;; esac; [ "$n" -gt 6 ] && n=6; [ "$n" -lt 1 ] && n=1
-          [ -n "${{ github.event.inputs.words }}${{ github.event.inputs.audit }}" ] && n=1   # mẫu cố định / soát thử: 1 shard
+          n="$LX_SHARDS"; case "$n" in ''|*[!0-9]*) n=1;; esac; [ "$n" -gt 6 ] && n=6; [ "$n" -lt 1 ] && n=1
+          [ -n "$LX_WORDS$LX_AUDIT" ] && n=1   # mẫu cố định / soát thử: 1 shard
           # 08/11 lô RIÊNG mỗi lượt (ngày-r<số lượt>, chung mọi shard): lượt xong = lô khép → lượt kế (cron/ci-filler, cùng ngày) soát mẫu + xuất, không chờ qua ngày
           echo "batch=$(date -u +%Y%m%d)-r${{ github.run_number }}" >> $GITHUB_OUTPUT
           echo "n=$n" >> $GITHUB_OUTPUT; echo "shards=$(seq -s, 0 $((n-1)) | sed 's/^/[/;s/$/]/')" >> $GITHUB_OUTPUT
@@ -75,6 +79,8 @@ jobs:
       - uses: ./.github/actions/no-prod
       - name: Nguồn miễn phí (wordfreq CC BY-SA 4.0 · WordNet · CMUdict BSD-2 · LDNOOBW CC BY 4.0)
         if: ${{ steps.lease.outputs.skip != '1' }}
+        env:
+          LX_WORDS: ${{ github.event.inputs.words }}
         run: |
           pip install -q 'wordfreq[cjk]==3.1.1' nltk==3.9.1 espeakng-loader==0.2.4   # cjk: trcheck --exist cho zh/ja/ko (lớp D2)   # espeak-ng en-gb: IPA Anh khi Wiktionary thiếu (hiệu chuẩn espeak-calib.mjs)
           python -c "import nltk; nltk.download('wordnet', quiet=True); nltk.download('averaged_perceptron_tagger_eng', quiet=True); nltk.download('omw-1.4', quiet=True)"   # OMW 1.4: lemma theo synset 8 ngôn ngữ (synset.py, lớp D1)
@@ -100,9 +106,9 @@ jobs:
           curl -sfL -o "$RUNNER_TEMP/cefrj.csv" https://raw.githubusercontent.com/openlanguageprofiles/olp-en-cefrj/master/cefrj-vocabulary-profile-1.5.csv || true
           curl -sfL -o "$RUNNER_TEMP/octanove.csv" https://raw.githubusercontent.com/openlanguageprofiles/olp-en-cefrj/master/octanove-vocabulary-profile-c1c2-1.0.csv || true
           # 31/10 đa từ loại: mục hàng duyệt "keep: … từ loại khác" (chờ khoá từ#loại) → retry; lũy đẳng; mẫu cố định (words) không ghi repo
-          if [ -z "${{ github.event.inputs.words }}" ]; then node scripts/lexicon/expand/requeue.mjs --pos; fi
+          if [ -z "$LX_WORDS" ]; then node scripts/lexicon/expand/requeue.mjs --pos; fi
           node scripts/lexicon/expand/existing.mjs "$RUNNER_TEMP/existing.json"
-          python scripts/lexicon/expand/pick_words.py --existing "$RUNNER_TEMP/existing.json" --want content/lexicon/expand/retry/words.json ${{ github.event.inputs.words }} --cmu "$RUNNER_TEMP/cmu.dict" --bad "$RUNNER_TEMP/bad.txt" $(test -s "$RUNNER_TEMP/cefrj.csv" && echo --cefrj "$RUNNER_TEMP/cefrj.csv") $(test -s "$RUNNER_TEMP/octanove.csv" && echo --octanove "$RUNNER_TEMP/octanove.csv") --out "$RUNNER_TEMP/candidates.json"
+          python scripts/lexicon/expand/pick_words.py --existing "$RUNNER_TEMP/existing.json" --want content/lexicon/expand/retry/words.json $LX_WORDS --cmu "$RUNNER_TEMP/cmu.dict" --bad "$RUNNER_TEMP/bad.txt" $(test -s "$RUNNER_TEMP/cefrj.csv" && echo --cefrj "$RUNNER_TEMP/cefrj.csv") $(test -s "$RUNNER_TEMP/octanove.csv" && echo --octanove "$RUNNER_TEMP/octanove.csv") --out "$RUNNER_TEMP/candidates.json"
           # nghĩa vi NGƯỜI VIẾT thứ hai (31/10, lớp L1 – rớt vi 178/600): Wiktionary tiếng Việt qua kaikki.org/viwiktionary (CC BY-SA 4.0, ~33 MB gz); tải lỗi = như cũ (chỉ Wiktionary tiếng Anh)
           curl -sfL --retry 2 -o "$RUNNER_TEMP/viwk.jsonl.gz" https://kaikki.org/viwiktionary/raw-wiktextract-data.jsonl.gz && python scripts/lexicon/expand/viwikt.py --raw "$RUNNER_TEMP/viwk.jsonl.gz" --candidates "$RUNNER_TEMP/candidates.json" --out "$RUNNER_TEMP/viwk.json" || echo "::warning::viwikt: không tải được Wiktionary tiếng Việt"
       - name: Sinh + 2 giám khảo + cổng
@@ -115,21 +121,28 @@ jobs:
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}
           VIMG_POOL_SKIP: '0'
+          LX_CALLS: ${{ github.event.inputs.calls || '0' }}
+          LX_NEURONS: ${{ github.event.inputs.neurons || '600000' }}
+          LX_PILOT: ${{ github.event.inputs.pilot }}
+          LX_WORDS: ${{ github.event.inputs.words }}
+          LX_BATCH: ${{ github.event.inputs.batch }}
+          LX_RETRY: ${{ github.event.inputs.retry }}
+          LX_N: ${{ github.event.inputs.n }}
           VIMG_CF_USE_CF2: '0'   # tài khoản 2 thuộc script-bank/news-auto (workers_ai_b độc quyền) – lexicon chỉ dùng kho
         # LEASE_AI_B_NEURONS đặt NGAY trong lệnh: bước thuê ghi LEASE_AI_B_NEURONS=0 vào GITHUB_ENV (đè env của bước)
         # biến repo so TRONG bash: biểu thức GitHub coi '' == '0' (26/10) – dispatch thắng biến repo
         run: |
-          N="${{ github.event.inputs.n }}"; N="${N:-${{ vars.LX_N }}}"; N="${N:-600}"
-          P="${{ github.event.inputs.pilot }}"; P="${P:-${{ vars.LX_PILOT }}}"
-          RT="${{ github.event.inputs.retry }}"; RT="${RT:-${{ vars.LX_RETRY }}}"
+          N="$LX_N"; N="${N:-${{ vars.LX_N }}}"; N="${N:-600}"
+          P="$LX_PILOT"; P="${P:-${{ vars.LX_PILOT }}}"
+          RT="$LX_RETRY"; RT="${RT:-${{ vars.LX_RETRY }}}"
           EXTRA=(); [ "$P" = 1 ] && EXTRA+=(--pilot); [ "$RT" = 0 ] && EXTRA+=(--no-retry)
-          B="${{ github.event.inputs.batch }}"; [ -n "$B" ] && EXTRA+=(--batch "$B")
-          WD="${{ github.event.inputs.words }}"; [ -n "$WD" ] && { EXTRA+=(--words "$WD"); P=0; echo "LX_RUN_WORDS=$WD" >> "$GITHUB_ENV"; }
+          B="$LX_BATCH"; [ -n "$B" ] && EXTRA+=(--batch "$B")
+          WD="$LX_WORDS"; [ -n "$WD" ] && { EXTRA+=(--words "$WD"); P=0; echo "LX_RUN_WORDS=$WD" >> "$GITHUB_ENV"; }
           [ -z "$B$WD" ] && [ "$P" != 1 ] && EXTRA+=(--batch "${{ needs.plan.outputs.batch }}")   # lô riêng của lượt (pilot giữ <ngày>-pilot)
           echo "LX_RUN_N=$N" >> "$GITHUB_ENV"; echo "LX_RUN_PILOT=$P" >> "$GITHUB_ENV"
           # pilot theo lịch: lô pilot hôm nay đã có mục → không chạy thêm (chờ soát 50 mẫu, không phí neuron)
-          if [ -z "$WD" ] && [ "$P" = 1 ] && [ -z "${{ github.event.inputs.pilot }}" ] && [ -s "content/lexicon/expand/pending/$(date -u +%Y%m%d)-pilot.json" ]; then echo "⏭ lô pilot hôm nay đã có – chờ soát"; echo "LX_RUN_PILOT=1" >> "$GITHUB_ENV"; exit 0; fi
-          LEASE_AI_B_NEURONS="$(( ${{ github.event.inputs.neurons || '600000' }} / ${{ needs.plan.outputs.n }} ))" node scripts/lexicon/expand/job.mjs --shard "${{ matrix.shard }}/${{ needs.plan.outputs.n }}" --candidates "$RUNNER_TEMP/candidates.json" --viwk "$RUNNER_TEMP/viwk.json" --cmu "$RUNNER_TEMP/cmu.dict" --britfone "$RUNNER_TEMP/britfone.csv" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --viwords "$RUNNER_TEMP/viet74k.txt" --n "$N" --calls "${{ github.event.inputs.calls || '0' }}" "${EXTRA[@]}"
+          if [ -z "$WD" ] && [ "$P" = 1 ] && [ -z "$LX_PILOT" ] && [ -s "content/lexicon/expand/pending/$(date -u +%Y%m%d)-pilot.json" ]; then echo "⏭ lô pilot hôm nay đã có – chờ soát"; echo "LX_RUN_PILOT=1" >> "$GITHUB_ENV"; exit 0; fi
+          LEASE_AI_B_NEURONS="$(( LX_NEURONS / ${{ needs.plan.outputs.n }} ))" node scripts/lexicon/expand/job.mjs --shard "${{ matrix.shard }}/${{ needs.plan.outputs.n }}" --candidates "$RUNNER_TEMP/candidates.json" --viwk "$RUNNER_TEMP/viwk.json" --cmu "$RUNNER_TEMP/cmu.dict" --britfone "$RUNNER_TEMP/britfone.csv" --tatoeba "$RUNNER_TEMP/tatoeba.tsv" --bad "$RUNNER_TEMP/bad.txt" --viwords "$RUNNER_TEMP/viet74k.txt" --n "$N" --calls "$LX_CALLS" "${EXTRA[@]}"
       - name: Chấm tự động mẫu cố định (nhãn xấu không được lọt · LÕI / DỊCH / IPA – docs/QUALITY-PIPELINE.md bước 3)
         if: ${{ always() && steps.lease.outputs.skip != '1' && github.event.inputs.words != '' }}
         run: node scripts/lexicon/expand/grade.mjs --labels content/lexicon/expand/pilot/labels.json --sheet 50
@@ -142,9 +155,11 @@ jobs:
           CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}
           VIMG_POOL_SKIP: '0'
           VIMG_CF_USE_CF2: '0'
+          LX_AUDIT: ${{ github.event.inputs.audit }}
+          LX_BATCH: ${{ github.event.inputs.batch }}
         run: |
-          AU="${{ github.event.inputs.audit }}"; [ -n "$AU" ] && { LEASE_AI_B_NEURONS=60000 node scripts/lexicon/expand/audit.mjs "$AU" --dry --out "$RUNNER_TEMP/checked.json"; cat "$RUNNER_TEMP/checked.json" | head -c 20000; exit 0; }
-          CUR="${{ github.event.inputs.batch }}"; CUR="${CUR:-${{ needs.plan.outputs.batch }}}"
+          AU="$LX_AUDIT"; [ -n "$AU" ] && { LEASE_AI_B_NEURONS=60000 node scripts/lexicon/expand/audit.mjs "$AU" --dry --out "$RUNNER_TEMP/checked.json"; cat "$RUNNER_TEMP/checked.json" | head -c 20000; exit 0; }
+          CUR="$LX_BATCH"; CUR="${CUR:-${{ needs.plan.outputs.batch }}}"
           for f in content/lexicon/expand/pending/*.json; do
             [ -f "$f" ] || continue; B=$(basename "$f" .json); case "$B" in *pilot*) continue;; esac
             [ "$B" = "$CUR" ] && continue   # lô của CHÍNH lượt này còn nhận mục từ shard khác – lượt kế soát (concurrency không huỷ → lượt trước đã khép)

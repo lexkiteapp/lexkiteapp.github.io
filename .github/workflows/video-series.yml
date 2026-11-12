@@ -142,10 +142,12 @@ jobs:
         with: { pattern: 'series-${{ github.event.inputs.series }}-*-${{ github.run_number }}', path: got }
       - name: Dedupe vs registry + same run, count passing videos
         shell: bash
+        env:
+          LX_DIR: ${{ github.event.inputs.dir }}
         run: |
           pip install -q numpy pillow
           E=$(ls got/*/entry.json 2>/dev/null || true)
-          [ -n "$E" ] && { python3 scripts/video/tpl/series_dedupe.py check content/video/cine/news/${{ github.event.inputs.dir }}/registry.json $E || true; }
+          [ -n "$E" ] && { python3 scripts/video/tpl/series_dedupe.py check content/video/cine/news/"$LX_DIR"/registry.json $E || true; }
           python3 - <<'PY' | tee -a "$GITHUB_STEP_SUMMARY"
           import glob, json, os, re, sys
           rows = []

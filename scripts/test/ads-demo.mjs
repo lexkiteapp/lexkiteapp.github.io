@@ -2,6 +2,7 @@
 // KHÔNG nằm trong npm test. CI: .github/workflows/ads-demo.yml (workflow_dispatch + hằng tuần). Không bao giờ dùng ô thật ở đây.
 // Kiểm: rewardedSlotReady (có fill) · lớp phủ hiện · ghi lại granted (demo có thể cần xem hết) · CLS = 0 · đi đúng đường vỏ Ads.rewarded → run.js → GPT.
 import fs from 'node:fs';
+import { waitFn } from '../lib/pw-wait.mjs';
 const OUT = process.env.ADS_DEMO_OUT || 'ads-demo-out';
 fs.mkdirSync(OUT, { recursive: true });
 const pw = await import('playwright');
@@ -34,7 +35,7 @@ const y0 = await p.evaluate(() => document.getElementById('below').getBoundingCl
 const t0 = Date.now();
 // Người dùng bấm (đi qua vỏ: Ads.rewarded → tải js/ads/* → run.js → GPT)
 await p.evaluate(() => { window.__res = 'pending'; Ads.rewarded('retry').then(v => { window.__res = v; }, e => { window.__res = 'err:' + e; }); });
-const ready = await p.waitForFunction(() => (window.__gpt || []).some(e => e.n === 'rewardedSlotReady' || (e.n === 'slotRenderEnded' && e.empty)), null, { timeout: 25e3 }).then(() => true, () => false);
+const ready = await waitFn(p, () => (window.__gpt || []).some(e => e.n === 'rewardedSlotReady' || (e.n === 'slotRenderEnded' && e.empty)), null, { timeout: 25e3 }).then(() => true, () => false);
 const ev1 = await p.evaluate(() => window.__gpt);
 const filled = ev1.some(e => e.n === 'rewardedSlotReady');
 ok(reqs.some(u => /securepubads\.g\.doubleclick\.net\/tag\/js\/gpt\.js/.test(u)), 'GPT tải từ securepubads.g.doubleclick.net (sau cổng CMP)');
@@ -48,7 +49,7 @@ for (let i = 0; i < 20 && filled && !overlay; i++) {
 ok(overlay, 'lớp phủ quảng cáo có thưởng hiện (makeRewardedVisible)');
 await p.screenshot({ path: OUT + '/web-rewarded.png' });
 // Granted: demo thường cấp thưởng sau khi xem đủ – chờ tối đa 45 s, chỉ GHI LẠI (không bắt buộc)
-const granted = filled && await p.waitForFunction(() => window.__gpt.some(e => e.n === 'rewardedSlotGranted'), null, { timeout: 45e3 }).then(() => true, () => false);
+const granted = filled && await waitFn(p, () => window.__gpt.some(e => e.n === 'rewardedSlotGranted'), null, { timeout: 45e3 }).then(() => true, () => false);
 await p.screenshot({ path: OUT + '/web-rewarded-after.png' });
 const out = await p.evaluate(() => ({ cls: window.__cls, below: document.getElementById('below').getBoundingClientRect().top, gpt: window.__gpt, res: window.__res, ev: window.AdsRun ? AdsRun._ev() : null, consent: window.AdsRun ? AdsRun._consent() : null }));
 if (filled && !granted) console.log('::warning::GPT demo: chưa có rewardedSlotGranted sau 45 s (Google không trả thưởng lần này) – chỉ cảnh báo');
