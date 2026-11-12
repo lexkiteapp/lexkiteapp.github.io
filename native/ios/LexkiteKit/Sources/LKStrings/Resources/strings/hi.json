@@ -3245,5 +3245,7 @@
   "learn.conf.hoiCachNoiBang": "पूछें कि कुछ अंग्रेज़ी में कैसे कहते हैं",
   "learn.quick.choiNhanh15Giay": "15 सेकंड का क्विक प्ले",
   "learn.grammar.dungRoiChiSai": "सही – बस एक छोटी टाइपिंग गलती",
-  "learn.grammar.vietDungLa": "सही वर्तनी: {a}"
+  "learn.grammar.vietDungLa": "सही वर्तनी: {a}",
+  "verb.irregularVerbs": "अनियमित क्रियाएँ",
+  "verb.openIrregularTable": "अनियमित क्रियाओं की तालिका खोलें"
 }

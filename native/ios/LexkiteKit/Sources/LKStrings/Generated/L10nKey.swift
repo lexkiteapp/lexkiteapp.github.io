@@ -3248,6 +3248,8 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case learnQuickChoiNhanh15Giay = "learn.quick.choiNhanh15Giay"
     case learnGrammarDungRoiChiSai = "learn.grammar.dungRoiChiSai"
     case learnGrammarVietDungLa = "learn.grammar.vietDungLa"
+    case verbIrregularVerbs = "verb.irregularVerbs"
+    case verbOpenIrregularTable = "verb.openIrregularTable"
 }
 
 public enum L10nLangs {

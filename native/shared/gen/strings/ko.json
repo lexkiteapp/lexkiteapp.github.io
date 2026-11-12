@@ -3245,5 +3245,7 @@
   "learn.conf.hoiCachNoiBang": "영어로 어떻게 말하는지 묻기",
   "learn.quick.choiNhanh15Giay": "15초 퀵 플레이",
   "learn.grammar.dungRoiChiSai": "정답 – 작은 오타만 있어요",
-  "learn.grammar.vietDungLa": "올바른 철자: {a}"
+  "learn.grammar.vietDungLa": "올바른 철자: {a}",
+  "verb.irregularVerbs": "불규칙 동사",
+  "verb.openIrregularTable": "불규칙 동사표 열기"
 }

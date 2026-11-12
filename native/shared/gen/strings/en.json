@@ -3245,5 +3245,7 @@
   "learn.conf.hoiCachNoiBang": "Ask how to say something in English",
   "learn.quick.choiNhanh15Giay": "15-second Quick Play",
   "learn.grammar.dungRoiChiSai": "Correct – just a small typo",
-  "learn.grammar.vietDungLa": "Correct spelling: {a}"
+  "learn.grammar.vietDungLa": "Correct spelling: {a}",
+  "verb.irregularVerbs": "Irregular verbs",
+  "verb.openIrregularTable": "Open the irregular verbs table"
 }

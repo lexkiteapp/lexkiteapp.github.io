@@ -3245,5 +3245,7 @@
   "learn.conf.hoiCachNoiBang": "ถามว่าพูดสิ่งนี้เป็นภาษาอังกฤษอย่างไร",
   "learn.quick.choiNhanh15Giay": "เล่นด่วน 15 วินาที",
   "learn.grammar.dungRoiChiSai": "ถูกต้อง – แค่พิมพ์ผิดเล็กน้อย",
-  "learn.grammar.vietDungLa": "สะกดที่ถูกต้อง: {a}"
+  "learn.grammar.vietDungLa": "สะกดที่ถูกต้อง: {a}",
+  "verb.irregularVerbs": "คำกริยาไม่ปกติ",
+  "verb.openIrregularTable": "เปิดตารางคำกริยาไม่ปกติ"
 }

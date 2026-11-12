@@ -3249,7 +3249,9 @@ enum class L10nKey(val id: String) {
     learnConfHoiCachNoiBang("learn.conf.hoiCachNoiBang"),
     learnQuickChoiNhanh15Giay("learn.quick.choiNhanh15Giay"),
     learnGrammarDungRoiChiSai("learn.grammar.dungRoiChiSai"),
-    learnGrammarVietDungLa("learn.grammar.vietDungLa");
+    learnGrammarVietDungLa("learn.grammar.vietDungLa"),
+    verbIrregularVerbs("verb.irregularVerbs"),
+    verbOpenIrregularTable("verb.openIrregularTable");
 }
 
 object L10nLangs {

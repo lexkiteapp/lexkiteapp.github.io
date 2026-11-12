@@ -5,6 +5,8 @@
   "web/js/audio.js": { "engine": "LKAudio: phát file, mở khóa âm thanh iOS bằng câu rỗng" },
   "web/js/lesson/teacher.js": { "engine": "LessonTeacher.say → UI.tts giọng nhân vật" },
   "web/js/grammar.js": { "groups": ["grammar", "gold-examples"] },
+  "web/js/irregular.js": { "groups": ["irregular"], "dynamic": "dạng đơn lẻ (went, gone) đọc qua UI.speak: phần lớn chưa có file riêng, rơi về engine đọc động" },
+  "web/js/irregular-drill.js": { "groups": ["irregular"] },
   "web/js/espr.js": { "groups": [], "dynamic": "câu tiếng TBN của bài luyện W2b: dựng sẵn ở corpus riêng scripts/sentence-audio/corpus-es.mjs (gen-audio.mjs --tl es, giọng ef_dora) – nhóm tiếng Anh không đo; chưa có file thì UI.tts đọc giọng máy es-419" },
   "web/cpack/es-app/day-ui.js": { "groups": [], "dynamic": "từ + câu ví dụ tiếng TBN của lộ trình ngày W4: dựng sẵn ở corpus riêng scripts/sentence-audio/corpus-es.mjs (path-lib.pathLines, Ama ef_dora); chưa có file thì UI.tts đọc giọng máy es-419" },
   "web/cpack/es-app/exam-ui.js": { "groups": [], "dynamic": "câu Tatoeba của đề DELE/SIELE W5 (nghe chép + câu điền từ): dựng sẵn ở corpus riêng scripts/sentence-audio/corpus-es.mjs (exam-es-lib.examLines, giọng ef_dora); chưa có file thì UI.tts đọc giọng máy es-419" },

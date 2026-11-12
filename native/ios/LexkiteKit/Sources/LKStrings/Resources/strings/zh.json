@@ -3245,5 +3245,7 @@
   "learn.conf.hoiCachNoiBang": "询问某个东西用英语怎么说",
   "learn.quick.choiNhanh15Giay": "15秒快玩",
   "learn.grammar.dungRoiChiSai": "正确——只是有个小拼写错误",
-  "learn.grammar.vietDungLa": "正确拼写：{a}"
+  "learn.grammar.vietDungLa": "正确拼写：{a}",
+  "verb.irregularVerbs": "不规则动词",
+  "verb.openIrregularTable": "打开不规则动词表"
 }

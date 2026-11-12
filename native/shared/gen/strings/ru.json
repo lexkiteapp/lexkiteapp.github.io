@@ -3245,5 +3245,7 @@
   "learn.conf.hoiCachNoiBang": "Спросить, как что-то сказать по-английски",
   "learn.quick.choiNhanh15Giay": "Быстрая игра на 15 секунд",
   "learn.grammar.dungRoiChiSai": "Верно – только небольшая опечатка",
-  "learn.grammar.vietDungLa": "Правильно пишется: {a}"
+  "learn.grammar.vietDungLa": "Правильно пишется: {a}",
+  "verb.irregularVerbs": "Неправильные глаголы",
+  "verb.openIrregularTable": "Открыть таблицу неправильных глаголов"
 }

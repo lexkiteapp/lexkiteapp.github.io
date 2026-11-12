@@ -3245,5 +3245,7 @@
   "learn.conf.hoiCachNoiBang": "اسأل كيف تقول شيئًا بالإنجليزية",
   "learn.quick.choiNhanh15Giay": "اللعب السريع في 15 ثانية",
   "learn.grammar.dungRoiChiSai": "صحيح – مجرد خطأ إملائي بسيط",
-  "learn.grammar.vietDungLa": "الكتابة الصحيحة: {a}"
+  "learn.grammar.vietDungLa": "الكتابة الصحيحة: {a}",
+  "verb.irregularVerbs": "الأفعال الشاذة",
+  "verb.openIrregularTable": "افتح جدول الأفعال الشاذة"
 }

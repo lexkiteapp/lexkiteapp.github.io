@@ -3245,5 +3245,7 @@
   "learn.conf.hoiCachNoiBang": "英語でどう言うか尋ねる",
   "learn.quick.choiNhanh15Giay": "15秒クイックプレイ",
   "learn.grammar.dungRoiChiSai": "正解 – 小さなタイプミスがあります",
-  "learn.grammar.vietDungLa": "正しいつづり：{a}"
+  "learn.grammar.vietDungLa": "正しいつづり：{a}",
+  "verb.irregularVerbs": "不規則動詞",
+  "verb.openIrregularTable": "不規則動詞の一覧を開く"
 }
