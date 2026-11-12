@@ -31,8 +31,8 @@ const VID_EV = ['view', 'done', 'quiz_ok', 'quiz_no', 'yt_fallback']; // t:'v' �
 const CTA_EV = ['ext_land', 'ext_feat', 'ext_blog', 'ext_app', 'ext_set', 'ext_nudge',
   ...['head', 'foot', 'menu', 'me', 'top'].flatMap(p => ['cws', 'play', 'ios', 'a2hs', 'dock', 'web'].map(k => `app_${p}_${k}`))]; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
 const CTA_LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr']; // 15 ngôn ngữ – chặn giá trị lạ làm phình bảng ext_events
-const CTA_PAGES = ['vocab', 'samples', 'speaking', 'grammar', 'letters', 'blog'];
-const SMART_CTA_EV = ['cta_addon_view', 'cta_addon_click', 'cta_pwa_view', 'cta_pwa_click', 'cta_topic_click']; // CTA trang tĩnh/từ vựng (scripts/lib/site-layout.mjs)
+const CTA_PAGES = ['vocab', 'samples', 'speaking', 'grammar', 'letters', 'blog', 'go'];
+const SMART_CTA_EV = ['cta_addon_view', 'cta_addon_click', 'cta_pwa_view', 'cta_pwa_click', 'cta_topic_click', 'go_view', 'go_start', 'go_done', 'go_cta']; // CTA trang tĩnh/từ vựng (scripts/lib/site-layout.mjs)
 
 // Nguồn giọng (t:'vo'): khóa cố định, số đếm chặn trần → ≤ 12 dòng ext_events/beacon, không phình bảng
 export const VO_KEYS = ['f', 'k', 's', 's_off', 's_wait', 's_load', 's_fail', 's_lang', 's_pref'], VO_PLAT = ['web', 'app', 'ext'];
