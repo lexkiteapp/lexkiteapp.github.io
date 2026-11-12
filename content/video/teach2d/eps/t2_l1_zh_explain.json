@@ -66,7 +66,7 @@
    "answer": 0
   },
   "native": {
-   "hook": "explain 后不能直接加人！",
+   "hook": "explain 后面要用 “to”！",
    "tip": "explain 后面先说事情，再用 “to + 人”。",
    "caption": "你是不是也会说 “He explained me the rule.”？😅 explain 后要先说内容，再用 to 引出对象：“He explained the rule to me.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
    "comment": "答案：“explain ... to me”。explain 要用 to 接人！免费测验在这里：{link}",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "explain 后不能直接加人！"
+  "text": "explain 后面要用 “to”！"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 99
  },
  "publish": {
-  "title": "explain 后不能直接加人！",
+  "title": "explain 后面要用 “to”！",
   "keyword": "He explained the rule to me.",
   "value": "explain 后面先说事情，再用 “to + 人”。",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 41,
   "platforms": {
    "youtube": {
-    "title": "explain 后不能直接加人！",
+    "title": "explain 后面要用 “to”！",
     "description": "你是不是也会说 “He explained me the rule.”？😅 explain 后要先说内容，再用 to 引出对象：“He explained the rule to me.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
     "tags": [
      "He explained the rule to me.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "explain 后不能直接加人！ #学英语 #英语口语 #英语学习"
+    "caption": "explain 后面要用 “to”！ #学英语 #英语口语 #英语学习"
    }
   },
   "first_comment": "答案：“explain ... to me”。explain 要用 to 接人！免费测验在这里：{link}",

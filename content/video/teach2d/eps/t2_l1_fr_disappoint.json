@@ -66,7 +66,7 @@
    "answer": 1
   },
   "native": {
-   "hook": "« Déception » ≠ “deception”",
+   "hook": "“Deception”, pas « déception »!",
    "tip": "“Deception” veut dire tromperie. Pour une déception, dis “disappointment”.",
    "caption": "Tu dis “The game was a big deception.” ? Faux ami ! Dis plutôt “The game was a big disappointment.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
    "comment": "Réponse : “disappointment”. “Deception” veut dire tromperie. Teste d'autres pièges avec un quiz gratuit : {link}",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "« Déception » ≠ “deception”"
+  "text": "“Deception”, pas « déception »!"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 98
  },
  "publish": {
-  "title": "« Déception » ≠ “deception”",
+  "title": "“Deception”, pas « déception »!",
   "keyword": "The game was a big disappointment.",
   "value": "“Deception” veut dire tromperie. Pour une déception, dis “disappointment”.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 40,
   "platforms": {
    "youtube": {
-    "title": "« Déception » ≠ “deception”",
+    "title": "“Deception”, pas « déception »!",
     "description": "Tu dis “The game was a big deception.” ? Faux ami ! Dis plutôt “The game was a big disappointment.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "The game was a big disappointment.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "« Déception » ≠ “deception” #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "“Deception”, pas « déception »! #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
   "first_comment": "Réponse : “disappointment”. “Deception” veut dire tromperie. Teste d'autres pièges avec un quiz gratuit : {link}",

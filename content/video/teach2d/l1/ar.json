@@ -663,7 +663,7 @@
     },
     "answer_say": "Many! How many books do you have?",
     "native": {
-     "hook": "much أم many؟",
+     "hook": "هل تقول “much people”؟",
      "tip": "مع المعدود نستخدم many: “There are many people here.” وليس “There are much people here.”.",
      "caption": "هل تقول أحيانًا “There are much people here.” 😅 مع المعدود نستخدم many، فالجملة الصحيحة “There are many people here.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
      "comment": "الإجابة: “many”. مع المعدود نستخدم many. اختبار مجاني هنا: {link}",
