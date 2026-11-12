@@ -343,7 +343,7 @@
     },
     "answer_say": "Does! She does her homework.",
     "native": {
-     "hook": "¿“Make” la tarea? ¡Es “do”!",
+     "hook": "¿“Make homework”? ¡Es “do”!",
      "tip": "Con tareas y quehaceres usa “do”: “do homework”. “Make” es para crear algo.",
      "caption": "En español “hacer” sirve para todo, pero en inglés no 😉 Di “I do my homework.”, no “I make my homework.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
      "comment": "Respuesta: “does”. “Do” para tareas; “make” para crear cosas. Practica más con un quiz gratis aquí: {link}",
