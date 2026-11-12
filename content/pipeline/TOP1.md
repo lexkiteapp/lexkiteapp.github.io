@@ -3,7 +3,7 @@
 <!-- top1-score -->
 ## 🏆 Top-1 score: **85.9 / 100** · trên 2 trục có mốc: Lexkite 90.9 vs Duolingo 58.5
 
-Gộp từ nguồn đã có, không quét lại – cách đo: [docs/TOP1-SCORE.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/docs/TOP1-SCORE.md) · sàn chỉ tăng: `content/pipeline/top1.budget.json` · lượt: https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43126347500 · quality-sweep: https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43119191113
+Gộp từ nguồn đã có, không quét lại – cách đo: [docs/TOP1-SCORE.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/docs/TOP1-SCORE.md) · sàn chỉ tăng: `content/pipeline/top1.budget.json` · lượt: https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43128159707 · quality-sweep: https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43119191113
 
 | Trục | Trọng số | Lexkite | Duolingo | Sàn | Thành phần |
 |---|---|---|---|---|---|
@@ -26,7 +26,7 @@ Gộp từ nguồn đã có, không quét lại – cách đo: [docs/TOP1-SCORE.
 | 3 | ux | chạm tới bài hôm nay: 50 → 100 | +1.5 | 2 | 0.8 | [WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · 2 chạm |
 | 4 | ui | SSIM vs Stitch: 39.7 → 100 | +3 | 5 | 0.6 | [stitch-diff.json](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/scripts/test/stitch-diff.json) |
 | 5 | content | content-qa: 66 → 100 | +1.7 | 4 | 0.4 | [WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · content/pipeline/SCORE.md |
-| 6 | ux | lần đầu → câu đầu: 77.8 → 100 | +0.7 | 2 | 0.3 | [WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · 5.7 s · 9 chạm (probe 2026-11-12) |
+| 6 | ux | lần đầu → câu đầu: 77.8 → 100 | +0.7 | 2 | 0.3 | [WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · 6 s · 9 chạm (probe 2026-11-12) |
 | 7 | content | learnability: 91.6 → 100 | +0.4 | 4 | 0.1 | [WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · content/pipeline/LEARN.md |
 | 8 | perf | medium cls: `layout-shift` | +0.1 | 2 | 0.1 | [ảnh](https://raw.githubusercontent.com/lexkiteapp/lexkiteapp.github.io/quality-qa/ar/ar-d-light__speak.png) · route ar #/speak d-light (1) |
 | 9 | latent | add-on: không có lỗi console/trang từ add-on | +0.1 | 2 | 0.1 | ar — console https://lexkite.com/app/?hl=ar#/welcome: Failed to load resource: the server respo |
@@ -37,9 +37,9 @@ Gộp từ nguồn đã có, không quét lại – cách đo: [docs/TOP1-SCORE.
 - **ui/frame-consistency** 100 – success 2026-11-11 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43119192242
 - **ui/SSIM vs Stitch** 39.7 – SSIM trung bình 0.338 trên 26 màn×chế độ (đích 0.85; ngưỡng ratchet = điểm CI − 0,01) ([stitch-diff.json](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/scripts/test/stitch-diff.json))
 - **ui/màn đã Stitch** 24.6 – 17 Stitch / 69 màn (ref 49, tay 0) ([WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · 17 Stitch / 69 màn (ref 49, tay 0))
-- **ux/qa-bot (live)** 100 – success 2026-11-12 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43121234885
+- **ux/qa-bot (live)** 100 – success 2026-11-12 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43123540398
 - **ux/journey-e2e** 100 – success 2026-11-11 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43090374542
-- **ux/lần đầu → câu đầu** 77.8 – 5.7 s · 9 chạm (probe 2026-11-12) ([WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · 5.7 s · 9 chạm (probe 2026-11-12))
+- **ux/lần đầu → câu đầu** 77.8 – 6 s · 9 chạm (probe 2026-11-12) ([WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · 6 s · 9 chạm (probe 2026-11-12))
 - **ux/chạm tới bài hôm nay** 50 – 2 chạm ([WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · 2 chạm)
 - **ux/Thoát/Back + luồng học** 100 – ✓exit-guard.mjs ✓learn-flow.mjs
 - **perf/Lighthouse perf** 99.3 – / 100, /en/ 99, /app/?hl=en 98, /en/vocabulary/ 100, /en/blog/ 99, /en/blog/about/ 100 (quality-sweep › lighthouse (6 trang, điện thoại))
