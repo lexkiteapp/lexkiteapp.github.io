@@ -2265,5 +2265,114 @@
    "file": "tools/dl/r03_ruth_desk.mp4",
    "why": "eyes closed 40 % of 0-193 (EYES=dark eyes.py; long closure f36-62), no 7 s window <= 20 %; framing/band/board fine"
   }
- ]
+ ],
+ "gesture_stills": {
+  "_note": "Ảnh tư thế 2K phông xanh cho TeacherRig (Chars.still) + thumbnail/ghép video 0 cr. Nguồn lexkite-media cine/teachers/green/<id>_still.png; web/teach/<who>/still-<pose>.webp do scripts/teach/still_img.py dựng. reuse = số chỗ gọi dự kiến (rig GESTURES theo kịch bản ~60–120 bài/cử chỉ).",
+  "items": [
+   {
+    "id": "ga11_thumbs_up",
+    "who": "ama",
+    "pose": "thumbs_up",
+    "model": "kling-image-v3_0",
+    "qc": "qc_green still PASS + soát mắt (5 ngón, môi khép)",
+    "date": "2026-11-05",
+    "reuse": {
+     "rig": 1,
+     "native": 1,
+     "video_est": 80
+    }
+   },
+   {
+    "id": "ga11_clap",
+    "who": "ama",
+    "pose": "clap",
+    "model": "kling-image-v3_0",
+    "qc": "qc_green still PASS + soát mắt (5 ngón, môi khép)",
+    "date": "2026-11-05",
+    "reuse": {
+     "rig": 1,
+     "native": 1,
+     "video_est": 80
+    }
+   },
+   {
+    "id": "gc11_thumbs_up",
+    "who": "carlos",
+    "pose": "thumbs_up",
+    "model": "kling-image-v3_0",
+    "qc": "qc_green still PASS + soát mắt (5 ngón, môi khép)",
+    "date": "2026-11-05",
+    "reuse": {
+     "rig": 1,
+     "native": 1,
+     "video_est": 80
+    }
+   },
+   {
+    "id": "gc11_hold_card",
+    "who": "carlos",
+    "pose": "hold_card",
+    "model": "kling-image-v3_0",
+    "qc": "qc_green still PASS + soát mắt (5 ngón, môi khép)",
+    "date": "2026-11-05",
+    "reuse": {
+     "rig": 1,
+     "native": 1,
+     "video_est": 80
+    }
+   },
+   {
+    "id": "ga11_hold_card",
+    "who": "ama",
+    "pose": "hold_card",
+    "model": "gemini-3-pro-image",
+    "qc": "qc_green still PASS + soát mắt (5 ngón, môi khép)",
+    "date": "2026-11-12",
+    "reuse": {
+     "rig": 1,
+     "native": 1,
+     "video_est": 80
+    }
+   },
+   {
+    "id": "ga11_count",
+    "who": "ama",
+    "pose": "count",
+    "model": "gemini-3-pro-image",
+    "qc": "qc_green still PASS + soát mắt (5 ngón, môi khép)",
+    "date": "2026-11-12",
+    "reuse": {
+     "rig": 1,
+     "native": 1,
+     "video_est": 80
+    }
+   },
+   {
+    "id": "gc11_clap",
+    "who": "carlos",
+    "pose": "clap",
+    "model": "gemini-3-pro-image",
+    "qc": "qc_green still PASS + soát mắt (5 ngón, môi khép)",
+    "date": "2026-11-12",
+    "reuse": {
+     "rig": 1,
+     "native": 1,
+     "video_est": 80
+    }
+   },
+   {
+    "id": "gc11_count",
+    "who": "carlos",
+    "pose": "count",
+    "model": "gemini-3-pro-image",
+    "qc": "qc_green still PASS + soát mắt (5 ngón, môi khép)",
+    "date": "2026-11-12",
+    "reuse": {
+     "rig": 1,
+     "native": 1,
+     "video_est": 80
+    }
+   }
+  ]
+ }
 }
