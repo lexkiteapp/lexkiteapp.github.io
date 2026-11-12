@@ -1,11 +1,12 @@
 /* API trang quản trị (/admin.html). Chỉ email trong biến bí mật ADMIN_EMAILS (Cloudflare Pages) được dùng.
  * POST /api/admin  (Authorization: Bearer <Firebase ID token>)  { op, ... }
- * op: usage · services · serviceSet · serviceDelete · overview · users · usersStats · usersBulk · usersExport · user · userDelete · inbox · inboxMark · analytics · live · growth · errors · errorsClear · config · configSet · alerts
+ * op: usage · services · serviceSet · serviceDelete · overview · users · usersStats · usersBulk · usersExport · user · userDelete · inbox · inboxMark · analytics · live · growth · retention · errors · errorsClear · config · configSet · alerts
  * (alerts gồm cả Backlink, PR & Thương hiệu – bảng bw_* do functions/api/backlinks.js ghi) */
 import { claims, limit, userDocs } from './sync.js';
 import { geminiKeys, geminiCall, isCooling, resetGeminiCache, gemFetch } from './ai.js';
 import { setup as hitSetup, dayOf as vday, TZ, hitMode, aeOnline } from './hit.js';
 import { growthData, growthRoll } from './growth.js';
+import { retentionData } from './_retention.js';
 import { tierShare, landStats } from './_cpm.js';
 import { loadDays, merge, top, distinctBy, sumOf, freqOf, perDay, unkey, vidsHash } from './_rollup.js';
 import { purgeNotices } from './notices.js';
@@ -643,6 +644,11 @@ export const OPS = {
     if (rollOff(env)) return cached('growth-v1?d=' + P, 600, () => growthData(db, P));
     const { vids } = await humanWhere(db, env);
     return cached(`growth-r1?d=${P}&x=${vidsHash(vids)}`, 600, () => growthRoll(db, P, new Set(vids)));
+  },
+  // Giữ chân D1/D7/D30 theo nền tảng & quốc gia (functions/api/_retention.js) – đệm 10 phút
+  async retention(db, b, who, env) {
+    const P = [30, 90].includes(+b.days) ? +b.days : 30, { vids } = await humanWhere(db, env);
+    return cached(`retention-v1?d=${P}&x=${vidsHash(vids)}`, 600, () => retentionData(db, P, vids));
   },
   async errors(db) { return { rows: await all(db, 'SELECT * FROM errors ORDER BY last DESC LIMIT 200') }; },
   async errorsClear(db, b) { if (b.h) await db.prepare('DELETE FROM errors WHERE h = ?').bind(String(b.h)).run(); else await db.prepare('DELETE FROM errors').run(); return { ok: true }; },

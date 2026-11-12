@@ -857,6 +857,12 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   'Học các từ vừa lưu': 'Study the words you saved',
   // ← en/study.js
   'Đọc bài': 'Read',
+  // ← mistake-variant.js (Mini-test biến thể từ Sổ lỗi sai)
+  'Về Sổ lỗi sai': 'Back to Mistake Book',
+  'Hôm nay chưa có câu biến thể nào': 'No variant questions for today',
+  'Khi có lỗi cũ đến lúc ôn, câu hỏi mới sẽ xuất hiện ở đây.': 'When an earlier mistake is due for review, a fresh question will appear here.',
+  'Mình sẽ hỏi lại những câu này vào đúng lúc để bạn nhớ lâu.': 'We will ask about these again at the right time so they stick.',
+  '{n} câu ngắn về chỗ hay nhầm, hỏi theo cách mới': '{n} short questions on tricky spots, asked in a new way',
 // ← importdeck.js (nhập tài liệu → bộ thẻ)
   'Tệp quá lớn (tối đa 20 MB, 200 trang).': 'This file is too large (up to 20 MB, 200 pages).',
   'Chưa đọc được loại tệp này. Dùng PDF có chữ, ePub, .srt, .vtt hoặc .txt.': 'This file type can\'t be read. Use a text-based PDF, ePub, .srt, .vtt or .txt.',

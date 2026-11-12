@@ -64,12 +64,13 @@
   routes.mistakes = App.guard(async function (arg, query) {
     const w = App.W;
     const retry = !!(query && query.get && query.get('retry'));
+    if (query && query.get && query.get('variant')) return App.lazy('mvar').then(() => MVar.run());
     const list = await w(Store.get('mistakes', []));
     if (migrate(list)) await w(Store.set('mistakes', list));
     const open = list.filter(x => !x.fixed);
     view.innerHTML = `
       <div class="page-head"><div><h1>${UI.icon('book-x')} ${t('Sổ lỗi sai')}</h1><p class="muted">${t('Mọi câu bạn làm sai đều được ghi lại tự động. Ôn lại lỗi sai là cách tăng điểm nhanh nhất – xem lại vì sao sai rồi đánh dấu “Đã hiểu”.')}</p></div>
-        <div class="row">${open.length ? (retry ? `<a class="btn" href="#/mistakes">${UI.icon('clipboard-list')} ${t('Xem danh sách')}</a>` : `<a class="btn primary" href="#/mistakes?retry=1">${UI.icon('repeat')} ${t('Làm lại lỗi sai')}</a>`) : ''}${open.length ? `<a class="btn" href="#/practice/learn?src=forgetting">🧠 ${t('Ôn từ sắp quên')}</a>` : ''}<button class="btn sm" id="clearFixed">${t('Dọn lỗi đã sửa')}</button></div></div>
+        <div class="row">${open.length ? (retry ? `<a class="btn" href="#/mistakes">${UI.icon('clipboard-list')} ${t('Xem danh sách')}</a>` : `<a class="btn primary" href="#/mistakes?retry=1">${UI.icon('repeat')} ${t('Làm lại lỗi sai')}</a>`) : ''}${open.length ? `<a class="btn" href="#/mistakes?variant=1">${UI.icon('puzzle')} ${t('Mini-test biến thể')}</a>` : ''}${open.length ? `<a class="btn" href="#/practice/learn?src=forgetting">🧠 ${t('Ôn từ sắp quên')}</a>` : ''}<button class="btn sm" id="clearFixed">${t('Dọn lỗi đã sửa')}</button></div></div>
       <div class="tabs" style="display:inline-flex;margin-bottom:1rem" id="mTabs"><button class="on" data-k="">${t('Tất cả ({n})', { n: open.length })}</button>${Object.entries(KIND()).map(([k, [e, n]]) => `<button data-k="${k}">${e} ${n} (${open.filter(x => x.kind === k).length})</button>`).join('')}</div>
       <div id="mList"></div>`;
     const draw = k => {
@@ -145,6 +146,7 @@
       if (cur) tasks.push({ em: cur.topic.emoji, t: t('Học bài: {name}', { name: cur.topic.name }), sub: `${cur.stage.name} · ${t('đã học {pct}%', { pct: Math.round(cur.pct * 100) })}`, href: pn.href, mins: 8, done: (d.newWords || 0) >= 5, focus: weak === 'vocab' ? 'vocab' : '' }); }
     const mistakes = (await Store.get('mistakes', [])).filter(x => !x.fixed).length;
     if (mistakes) tasks.push({ em: '📕', t: t('Làm lại {n} lỗi sai', { n: mistakes }), sub: t('Tự nhớ lại đáp án – sửa lỗi = tăng điểm nhanh nhất'), href: '#/mistakes?retry=1', mins: Math.min(10, 2 + mistakes), done: false });
+    if (mistakes) { const mv = await App.lazy('mvar').then(() => MVar.todayTask()).catch(() => null); if (mv) tasks.push(mv); }
     const sk = await skillTask(ex, dow, d);
     if (sk && !tasks.some(x => x.href === sk.href)) tasks.push(sk);
     return tasks.slice(0, 5);
