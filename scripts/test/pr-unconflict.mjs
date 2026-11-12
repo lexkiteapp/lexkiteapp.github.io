@@ -7,10 +7,26 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
-import { plan, dedupeLines, pick, MAX } from '../pr-unconflict.mjs';
+import { plan, dedupeLines, pick, MAX, mergeEntries, regenCmds, merge3 } from '../pr-unconflict.mjs';
 
 assert.deepEqual(plan(['docs/CODEMAP.md', 'scripts/test/suite.txt']), [{ f: 'docs/CODEMAP.md', how: 'main' }, { f: 'scripts/test/suite.txt', how: 'union' }]);
-assert.equal(plan(['docs/CODEMAP.md', 'web/js/app.js']), null, 'có tệp người viết thì không tự gỡ');
+assert.equal(plan(['docs/CODEMAP.md', 'web/js/home.js']), null, 'có tệp người viết thì không tự gỡ');
+// 10/11: tệp sinh lấy main (rồi dựng lại); nguồn dịch + tệp registry gỡ theo dòng mục; en là NGUỒN (không phải tệp sinh)
+assert.deepEqual(plan(['web/js/i18n/de/ux1.js', 'extension/app/js/app.js', 'web/css/st-v2-today.css', 'web/cpack/lesson/pn-de.js', 'i18n/ui/de/ux1.js', 'web/js/app.js']).map(s => s.how), ['main', 'main', 'main', 'main', 'dict3', 'entries']);
+assert.equal(plan(['web/js/i18n/en/ux1.js']), null, 'en là nguồn người viết');
+assert.equal(plan(['web/js/i18n/en.js']), null);
+assert.equal(mergeEntries('a\n<<<<<<< HEAD\n"x":"1",\n=======\n"y":"2",\n"x":"1",\n>>>>>>> m\nz'), 'a\n"x":"1",\n"y":"2",\nz', 'giữ mục cả hai phía, bỏ dòng trùng');
+assert.equal(mergeEntries('<<<<<<< HEAD\n    call: \'call\', // gọi\n||||||| base\n=======\n    // dẫn\n    say: [\'say\'],\n>>>>>>> m'), "    call: 'call', // gọi\n    // dẫn\n    say: ['say'],", 'registry + diff3');
+assert.equal(mergeEntries('<<<<<<< HEAD\n  const x = 1;\n=======\n  y: 2,\n>>>>>>> m'), null, 'khối có mã thường → người gỡ');
+assert.deepEqual(merge3({ a: 1, b: 2, c: 3 }, { a: 1, b: 9, d: 4 }, { a: 7, b: 2, c: 3, e: 5 }), { a: 7, b: 9, e: 5, d: 4 }, 'dịch: main + thay đổi của PR (sửa b, xoá c, thêm d)');
+assert.equal(merge3({ a: 1 }, { a: 2 }, { a: 3 }), null, 'hai phía sửa cùng khóa khác giá trị → người gỡ');
+assert.deepEqual(merge3({ a: 1 }, { a: 2 }, { a: 2 }), { a: 2 }, 'cùng sửa giống nhau → nhận');
+assert.deepEqual(regenCmds([{ f: 'docs/CODEMAP.md' }]), []);
+assert.deepEqual(plan(['content/pipeline/LEARN.md', 'content/pipeline/SCORE.md', 'docs/JOBS.md']).map(s => s.how), ['main', 'main', 'main'], '#985: báo cáo sinh lấy main');
+assert.deepEqual(regenCmds([{ f: 'docs/JOBS.md' }]).map(c => c.join(' ')), ['node scripts/jobs/gen.mjs --write'], 'tệp có cổng khớp nguồn → sinh lại');
+assert.deepEqual(regenCmds([{ f: 'content/pipeline/LEARN.md' }]), [], 'báo cáo do bot main sinh → chỉ lấy main');
+assert.deepEqual(regenCmds([{ f: 'i18n/ui/de/ux1.js' }]).map(c => c.join(' ')), ['node scripts/fmt-stable.mjs', 'node scripts/i18n-pack.mjs', 'bash scripts/build-extension.sh']);
+assert.ok(regenCmds([{ f: 'web/css/st-v2-today.css' }]).some(c => c.includes('scripts/build-stitch-css.mjs')));
 assert.equal(plan([]), null);
 
 assert.equal(dedupeLines('# a\nx\n\ny\nx\n# a\nz'), '# a\nx\n\ny\n# a\nz');

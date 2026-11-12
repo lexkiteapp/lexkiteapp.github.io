@@ -26,9 +26,61 @@ export const SEED_LEAGUE = () => {
   window.Sync = window.Sync || {}; Sync.user = { uid: 'u1', displayName: 'You Lexkite' }; Sync.authed = async () => Sync.user;
   Sync.league = async () => ({ member: { nick: 'You', tier: 3, xp: 820 }, week: { end: Date.now() + 3 * 864e5 }, rules: { up: 3, down: 2, maxTier: 5 }, board: names.map((n, i) => ({ rank: i + 1, nick: n, xp: xps[i], me: i === 4, zone: i < 3 ? 'up' : i >= 5 ? 'down' : '' })) });
 };
-export const SCREENS = { 'vocab-hub': 'vocab', home: 'home', complete: 'lesson/go?demo=1', lesson: 'lesson/go?demo=1', feedback: 'lesson/go?demo=1', 'feedback-wrong': 'lesson/go?demo=1', readiness: 'goal', review: 'review?hub=1', practice: 'train', skills: 'skills', leagues: 'league', me: 'me', streak: 'streak', call: 'call/coffee', story: 'lesson/go?demo=1', 'today-new': 'home', 'speak-sit': 'speak/cafe', 'speak-drill': 'speak/cafe/drill', 'onb-goal': 'welcome/setup', 'onb-level': 'welcome/setup?s=level', 'onb-target': 'welcome/setup?s=target', 'onb-pace': 'welcome/setup?s=pace', 'onb-ready': 'welcome/setup?s=ready', welcome: 'welcome', 'welcome-desk': 'welcome' }; // home = Hôm nay v2 (người đang học, lộ trình đầy đủ trong khối Your path) · today-new = người mới (DRIVE đặt về trạng thái chưa học)
+export const SCREENS = {
+  call: 'call/coffee',
+  complete: 'lesson/go?demo=1',
+  feedback: 'lesson/go?demo=1',
+  'feedback-wrong': 'lesson/go?demo=1',
+  home: 'home',
+  leagues: 'league',
+  lesson: 'lesson/go?demo=1',
+  me: 'me',
+  'onb-goal': 'welcome/setup',
+  'onb-level': 'welcome/setup?s=level',
+  'onb-pace': 'welcome/setup?s=pace',
+  'onb-ready': 'welcome/setup?s=ready',
+  'onb-target': 'welcome/setup?s=target',
+  practice: 'train',
+  readiness: 'goal',
+  review: 'review?hub=1',
+  skills: 'skills',
+  'speak-drill': 'speak/cafe/drill',
+  'speak-sit': 'speak/cafe',
+  story: 'lesson/go?demo=1',
+  streak: 'streak',
+  'today-new': 'home',
+  'vocab-hub': 'vocab',
+  welcome: 'welcome',
+  'welcome-desk': 'welcome',
+}; // home = Hôm nay v2 (người đang học, lộ trình đầy đủ trong khối Your path) · today-new = người mới (DRIVE đặt về trạng thái chưa học)
 // Mẫu so sánh: ảnh vẽ từ HTML Stitch v2 (scripts/test/stitch-render.mjs, cùng job CI → out/stitch-v2/png) theo tên màn v2; chưa có thì JPG cũ brand/stitch/
-export const V2REF = { 'vocab-hub': 'vocab-hub', home: 'today', 'today-new': 'today-new', lesson: 'ex-frame', feedback: 'feedback-correct', 'feedback-wrong': 'feedback-wrong', complete: 'lesson-complete', readiness: 'exam-readiness', review: 'review', practice: 'practice', skills: 'skills', leagues: 'leagues', me: 'me', streak: 'streak', call: 'teacher-call', story: 'story-duo', 'speak-sit': 'pas-sit', 'speak-drill': 'pas-drill', 'onb-goal': 'onb-goal', 'onb-level': 'onb-level', 'onb-target': 'onb-target', 'onb-pace': 'onb-pace', 'onb-ready': 'onb-ready', welcome: 'welcome', 'welcome-desk': 'welcome-desk' };
+export const V2REF = {
+  call: 'teacher-call',
+  complete: 'lesson-complete',
+  feedback: 'feedback-correct',
+  'feedback-wrong': 'feedback-wrong',
+  home: 'today',
+  leagues: 'leagues',
+  lesson: 'ex-frame',
+  me: 'me',
+  'onb-goal': 'onb-goal',
+  'onb-level': 'onb-level',
+  'onb-pace': 'onb-pace',
+  'onb-ready': 'onb-ready',
+  'onb-target': 'onb-target',
+  practice: 'practice',
+  readiness: 'exam-readiness',
+  review: 'review',
+  skills: 'skills',
+  'speak-drill': 'pas-drill',
+  'speak-sit': 'pas-sit',
+  story: 'story-duo',
+  streak: 'streak',
+  'today-new': 'today-new',
+  'vocab-hub': 'vocab-hub',
+  welcome: 'welcome',
+  'welcome-desk': 'welcome-desk',
+};
 // Bài thử: trả lời ĐÚNG (App._lsn) tới câu trắc nghiệm đầu tiên – giống bối cảnh mẫu Stitch (câu 3/5, đã chọn đáp án đúng); feedback = bấm Kiểm tra
 // màn cần lái tới trạng thái (bài học/phản hồi/kết quả/truyện/cuộc gọi) – stitch-diff và final-qc dùng CHUNG (từng chỉ lái lesson/feedback → chụp nhầm câu đầu)
 export const DRIVEN = /^(lesson|feedback|complete|story|call|today-new|onb-|welcome)/;

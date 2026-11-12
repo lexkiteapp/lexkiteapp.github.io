@@ -1,4 +1,4 @@
-/* Khung bài tập có hình (Ghép cặp, Xếp câu…): lesson/ex.js. Tải cùng gói lesson (js/app.js BCSS). */
+/* Khung bài tập có hình (Ghép cặp, Xếp câu…): cpack/lesson/ex.js. Tải cùng gói lesson (js/app.js BCSS). */
 .lsn-xframe{margin-inline:auto}.lsn-xframe .lsn-qchips{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px}
 .lsn-xhead .lsn-tchw{position:relative;flex:none;width:96px;height:112px;display:flex;justify-content:center;align-items:flex-end;pointer-events:none}
 .lsn-fx .lsn-xhead .ex-seat #lsnTch{position:relative;inset:auto;flex:none;width:96px;height:104px;margin-bottom:4px}.lsn-fx .lsn-xhead .ex-seat .ss-floor{width:92px;height:22px;max-width:100%}

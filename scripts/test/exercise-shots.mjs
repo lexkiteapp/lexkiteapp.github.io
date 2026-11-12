@@ -1,4 +1,4 @@
-// 🧩 Ảnh + cổng khung bài tập chung (web/js/lesson/ex.js, mẫu Stitch ex-frame/ex-match): chạy thật #/lesson/go?demo=1 tới Ghép cặp, Xếp câu, Chọn từ, Gõ – 390 px và máy tính, sáng và tối.
+// 🧩 Ảnh + cổng khung bài tập chung (web/cpack/lesson/ex.js, mẫu Stitch ex-frame/ex-match): chạy thật #/lesson/go?demo=1 tới Ghép cặp, Xếp câu, Chọn từ, Gõ – 390 px và máy tính, sáng và tối.
 // Cổng (loại lỗi "thẻ cắt ngang giáo viên / đầu trang lệch cột / nút nhỏ"): giáo viên không giao với thẻ nào · đầu trang cùng mép cột với thân · không tràn ngang · nút ≥ 44 px · không lồng button · không lỗi JS.
 // Có web-trước → chụp thêm bản trước (chỉ ảnh, không chấm). Dùng: node scripts/test/exercise-shots.mjs <web> [web-trước] [out=out/exercise-shots]   (CI: exercise-shots.yml)
 import fs from 'node:fs'; import path from 'node:path';
