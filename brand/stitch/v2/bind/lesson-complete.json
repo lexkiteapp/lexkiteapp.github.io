@@ -124,7 +124,7 @@
   ":scope > main > div > div:nth-child(6)": "relative z-10 lsn-sub",
   ":scope > main > div > div:nth-child(6) > div:nth-child(1) > span": "break-words",
   ":scope > main > div > div:nth-child(7) > button:nth-child(2)": "no-underline",
-  ":scope > main > div > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "truncate min-w-0"
+  ":scope > main > div > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "min-w-0 break-words text-center leading-tight"
  },
  "html": {
   ":scope > main > div > div:nth-child(5)": "'<div id=\"lsnTch\" class=\"relative w-[154px] h-[132px] max-w-full\"></div>'",
