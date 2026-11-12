@@ -644,7 +644,7 @@
 "Từ gắn ngữ cảnh":"문맥 속 단어",
 "Từ học thuật (AWL) đã dùng":"학술용어(AWL) 사용",
 "Từ khóa ↔ Paraphrase":"핵심어 ↔ 바꿔 말하기",
-"Từ mới học":"새로 배운 단어",
+"Từ mới học":"새 단어",
 "Từ mới mỗi ngày:":"하루에 새로운 단어:",
 "Từ nối & cụm":"연결어와 구문",
 "Từ nối & cụm từ":"단어 및 구문 연결",
