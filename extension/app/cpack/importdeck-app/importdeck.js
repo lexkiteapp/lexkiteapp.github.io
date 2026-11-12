@@ -234,7 +234,7 @@
 .idk .row.end{justify-content:flex-end}.idk .btn{min-height:44px}.idk-done{text-align:center;display:grid;gap:.6rem;justify-items:center}@media (max-width:480px){.idk .row.end .btn{flex:1}}`;
     document.head.appendChild(st);
   };
-  const ERRS = () => ({ toobig: T('Tệp quá lớn (tối đa 20 MB, 200 trang).'), type: T('Chưa đọc được loại tệp này.'), epub: T('ePub hỏng hoặc có DRM.'), net: T('Chưa tải được bộ đọc PDF.'), browser: T('Trình duyệt chưa hỗ trợ – hãy cập nhật trình duyệt') });
+  const ERRS = () => ({ toobig: T('Tệp quá lớn (tối đa 20 MB, 200 trang).'), type: T('Chưa đọc được loại tệp này.'), epub: T('Chưa đọc được loại tệp này.'), net: T('Không tải được – thử lại sau'), browser: T('Trình duyệt chưa hỗ trợ – hãy cập nhật trình duyệt') });
 
   let S = null;
   const root = () => document.getElementById('idRoot');
@@ -340,7 +340,7 @@ ${rows(P.length ? P : [])}
       const K = known(), miner = createMiner({ known: K });
       const info = await readSource(src, miner, { isCancelled: cancelled, onProgress: p => setP(p * 0.7) });
       const raw = miner.result();
-      setP(0.72, T('Đang tra từ điển…'));
+      setP(0.72);
       S.list = await enrich(raw, { lookup, known: K, isCancelled: cancelled, onProgress: p => setP(0.72 + p * 0.28) });
       S.picked = preselect(S.list); S.shown = 100;
       S.deck = deckName(typeof src === 'string' ? '' : src.name) || T('Văn bản dán');
@@ -372,7 +372,7 @@ ${rows(P.length ? P : [])}
   function finish(d) { clearInterval(d.timer); d.timer = 0; const u = document.getElementById('idUndo'); if (u) u.remove(); if (g.Sync && Sync.schedule) Sync.schedule(); } // chỉ đồng bộ sau khi hết 10 s hoàn tác
   async function undo(d) {
     if (!d.timer) return; clearInterval(d.timer); d.timer = 0;
-    try { await g.Core.Cards.mutate(map => { for (const k of d.keys) delete map[k]; return map; }); if (g.App) { await App.load(); App.updateChrome && App.updateChrome(); } toast(T('Đã hoàn tác', { n: d.keys.length })); } catch (e) { toast(T('Không tải được – thử lại sau')); }
+    try { await g.Core.Cards.mutate(map => { for (const k of d.keys) delete map[k]; return map; }); if (g.App) { await App.load(); App.updateChrome && App.updateChrome(); } toast(T('Hoàn tác')); } catch (e) { toast(T('Không tải được – thử lại sau')); }
     S.done = null; S.step = 4; if (isOpen()) draw();
   }
 

@@ -864,9 +864,6 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   'Mình sẽ hỏi lại những câu này vào đúng lúc để bạn nhớ lâu.': 'We will ask about these again at the right time so they stick.',
   '{n} câu ngắn về chỗ hay nhầm, hỏi theo cách mới': '{n} short questions on tricky spots, asked in a new way',
 // ← importdeck.js (nhập tài liệu → bộ thẻ)
-  'ePub hỏng hoặc có DRM.': 'This ePub is damaged or has DRM.',
-  'Đã hoàn tác': 'Undone',
-  'Chưa tải được bộ đọc PDF.': 'Could not load the PDF reader.',
   'Chưa đọc được loại tệp này.': 'This file type can\'t be read.',
   'Thẻ vào lịch ôn FSRS. Không lưu tệp gốc.': 'Cards join your FSRS schedule. The file is not saved.',
   'Nghĩa từ từ điển Lexkite. Từ thiếu nghĩa vẫn được lưu.': 'Meanings come from the Lexkite dictionary. Words without one are still saved.',
@@ -889,6 +886,4 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   'Tạo bộ {n} thẻ': 'Create {n} cards',
   'Đã tạo bộ “{d}” với {n} thẻ': 'Created the deck “{d}” with {n} cards',
   'Văn bản dán': 'Pasted text',
-  'Đang tra từ điển…': 'Looking words up…',
-  'Nhập từ PDF, ePub, phụ đề hoặc văn bản': 'Import from PDF, ePub, subtitles or text',
 }); })(typeof self !== 'undefined' ? self : this);
