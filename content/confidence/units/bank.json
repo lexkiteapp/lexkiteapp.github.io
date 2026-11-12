@@ -169,6 +169,10 @@
           [
             "open|account|checking|savings",
             "Sure, I can help with that."
+          ],
+          [
+            "joint|business|student|children",
+            "Of course, we offer that."
           ]
         ]
       },
@@ -179,6 +183,10 @@
           [
             "fees|cost|free|monthly|pay",
             "No monthly fee if you keep 500 dollars in it."
+          ],
+          [
+            "overdraft|interest|rate|minimum|limit",
+            "Good question. The details are on the form."
           ]
         ]
       },
@@ -189,6 +197,10 @@
           [
             "recognize|charge|strange|don't know|didn't make",
             "Let me check that for you."
+          ],
+          [
+            "fraud|scam|unauthorized",
+            "Okay, let me pull up your account."
           ]
         ]
       },
@@ -199,6 +211,10 @@
           [
             "cancel|new one|new card|yes|please",
             "Of course."
+          ],
+          [
+            "thank|appreciate",
+            "You're welcome."
           ]
         ]
       }
