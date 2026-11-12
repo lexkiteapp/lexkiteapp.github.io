@@ -468,6 +468,7 @@
 "Nhập sao lưu":"Yedeği içe aktar",
 "Nhập từ tiếng Anh, ví dụ: sustainable":"İngilizce bir kelime yazın, ör. sürdürülebilir",
 "Nhập từ tài liệu":"Bir belgeden içe aktar",
+"Nhắc học qua email":"Email reminders",
 "Nhắc “thời điểm vàng”":"“Altın an” hatırlatmaları",
 "Nhẹ nhàng":"Rahat",
 "Nhờ hàng xóm trông nhà khi đi du lịch":"Seyahat sırasında komşudan eve göz kulak olmasını isteme",

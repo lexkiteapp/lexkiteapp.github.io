@@ -468,6 +468,7 @@
 "Nhập sao lưu":"백업 가져오기",
 "Nhập từ tiếng Anh, ví dụ: sustainable":"영어 단어를 입력하세요. 지속 가능한",
 "Nhập từ tài liệu":"문서에서 가져오기",
+"Nhắc học qua email":"Email reminders",
 "Nhắc “thời điểm vàng”":"‘골든타임’ 알림",
 "Nhẹ nhàng":"가볍게",
 "Nhờ hàng xóm trông nhà khi đi du lịch":"여행 중 집을 봐달라고 이웃에게 부탁",

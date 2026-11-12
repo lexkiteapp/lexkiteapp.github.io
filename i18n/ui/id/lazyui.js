@@ -468,6 +468,7 @@
 "Nhập sao lưu":"Impor cadangan",
 "Nhập từ tiếng Anh, ví dụ: sustainable":"Ketikkan kata bahasa Inggris, mis. berkelanjutan",
 "Nhập từ tài liệu":"Impor dari dokumen",
+"Nhắc học qua email":"Email reminders",
 "Nhắc “thời điểm vàng”":"Pengingat “saat terbaik”",
 "Nhẹ nhàng":"Santai",
 "Nhờ hàng xóm trông nhà khi đi du lịch":"Meminta tetangga menjaga rumah saat Anda bepergian",
