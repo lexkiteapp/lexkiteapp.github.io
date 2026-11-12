@@ -55,7 +55,7 @@ rules: [
 ],
 vn: 'Người Việt thường bỏ hẳn -ed (“I work there last year”), hoặc đọc mọi -ed thành /ɪd/ (“work-ed”, “stop-ed”) khiến từ thừa một âm tiết. Một lỗi khác là đọc theo chữ: “increased” kết thúc bằng chữ “e” nhưng âm cuối của “increase” là /s/ vô thanh nên -ed đọc /t/. Cách sửa: xác định âm cuối của động từ gốc, rồi nối -ed với từ tiếp theo (“developed_a plan” → /dɪˈveləptə/).',
 tip: 'Câu thần chú: “Tiền Đô → /ɪd/” (t, d thêm âm tiết). Còn lại: đặt tay lên cổ – rung thì /d/, không rung thì /t/. Lưu ý vài tính từ đặc biệt đọc /ɪd/: naked, wicked, learned (uyên bác), aged (già).',
-tipEn: "Tip: “T and D add a beat” – /ɪd/ appears only after /t/ or /d/. Otherwise touch your throat: voiced /d/ vibrates, voiceless /t/ does not. A few adjectives (naked, wicked, learned, aged) take /ɪd/.",
+tipEn: "Tip: “T and D add a beat” – /ɪd/ appears only after /t/ or /d/. Otherwise check the last sound of the base verb: after a voiced sound -ed is /d/, after a voiceless sound it is /t/. A few adjectives take /ɪd/: naked, wicked, learned (= scholarly) and aged (= elderly).",
 words: [
 { w: 'developed', ipa: '/dɪˈveləpt/', note: '/t/ (sau /p/)' },
 { w: 'increased', ipa: '/ɪnˈkriːst/', note: '/t/ (sau /s/)' },
@@ -256,7 +256,7 @@ rules: [
 ],
 vn: 'Tiếng Việt mỗi âm tiết đều rõ và đều nhau, nên người Việt hay đọc “e-du-ca-tion” bốn âm tiết bằng nhau, hoặc nhấn âm cuối theo thói quen (“compuTER”, “deveLOP”). Cách sửa: khi học từ mới, luôn ghi kèm mẫu trọng âm (oOo…), vỗ tay mạnh ở âm tiết nhấn, và giảm các nguyên âm còn lại thành /ə/.',
 tip: 'Thần chú: “Danh trước – Động sau – Đuôi đứng trước.” Danh từ 2 âm tiết nhấn trước, động từ nhấn sau, còn -tion/-ic/-ity thì nhấn ngay âm tiết đứng trước đuôi.',
-tipEn: "Tip: Nouns first, verbs second, and stress the syllable before endings like -tion, -ic and -ity. These are strong tendencies with exceptions, so check the dictionary for new words.",
+tipEn: "Tip: Two-syllable nouns first, two-syllable verbs second, and stress the syllable before endings like -tion, -ic and -ity. These are strong tendencies with exceptions, so check the dictionary for new words.",
 words: [
 { w: 'record (n)', ipa: '/ˈrekɔːd/', note: 'Oo' },
 { w: 'record (v)', ipa: '/rɪˈkɔːd/', note: 'oO' },
@@ -287,7 +287,7 @@ quiz: [
 P.push({
 id: 'stress-shift', group: 'stress', ipa: '/ˈfəʊtəɡrɑːf/ → /fəˈtɒɡrəfi/', title: 'Trọng âm “nhảy” trong họ từ', emoji: '🦘', level: 'B2', titleEn: "Stress Shift in Word Families",
 how: 'Khi thêm hậu tố, trọng âm có thể di chuyển sang âm tiết khác – và nguyên âm thay đổi theo: âm tiết được nhấn có nguyên âm đầy đủ, âm tiết mất trọng âm bị giảm thành /ə/. Ví dụ: ˈPHOtograph /ˈfəʊtəɡrɑːf/ → phoˈTOgraphy /fəˈtɒɡrəfi/ → photoˈGRAphic /ˌfəʊtəˈɡræfɪk/. Chữ “o” đầu tiên đổi từ /əʊ/ thành /ə/ rồi lại /əʊ/.',
-howEn: "When a suffix is added, stress often moves to a different syllable, and the vowel of the previously stressed syllable reduces: the first “o” of photograph is /əʊ/, becomes /ə/ in photography, and is /əʊ/ again in photographic (/ˈfəʊtəɡrɑːf/ → /fəˈtɒɡrəfi/ → /ˌfəʊtəˈɡræfɪk/). Keeping the stress of the base word (PHOtography) is an error that listeners notice easily.",
+howEn: "When a suffix is added, stress often moves to a different syllable, and the vowel of the previously stressed syllable reduces: in British English the first “o” of photograph is /əʊ/, becomes /ə/ in photography, and is /əʊ/ again in photographic (/ˈfəʊtəɡrɑːf/ → /fəˈtɒɡrəfi/ → /ˌfəʊtəˈɡræfɪk/). Keeping the stress of the base word (PHOtography) is an error that listeners notice easily.",
 rules: [
 { label: '-y, -ity, -ism (sau gốc nhiều âm tiết)', when: 'trọng âm thường lùi về âm thứ 3 từ cuối', ex: ['phoˈtography', 'eˈconomy', 'deˈmocracy'] },
 { label: '-ic, -ical', when: 'nhấn ngay trước hậu tố', ex: ['photoˈgraphic', 'ecoˈnomic', 'demoˈcratic'] },
@@ -296,7 +296,7 @@ rules: [
 ],
 vn: 'Người học thường “giữ nguyên” trọng âm của từ gốc cho cả họ từ: đọc “PHOtography”, “POlitical”, “ECOnomic”. Đây là lỗi đặc biệt dễ nghe thấy trong IELTS vì các từ economy/economic, technology/technological xuất hiện liên tục. Cách sửa: học họ từ theo bộ, đọc to cả bộ liền nhau và vỗ tay theo trọng âm.',
 tip: 'Mẹo: Đếm từ cuối lên. -y/-ity: nhấn âm thứ 3 từ cuối; -ic/-ian/-tion: nhấn âm thứ 2 từ cuối (ngay trước đuôi).',
-tipEn: "Tip: Count back from the end. -y/-ity usually put the stress on the third syllable from the end (phoˈtography, eˈconomy); -ic/-tion/-sion/-cian put it on the syllable just before the ending (photoˈgraphic, poliˈtician). Suffixes such as -ism usually leave the stress where it was (criticize → criticism), with exceptions such as Catholic → Catholicism.",
+tipEn: "Tip: Count back from the end. -y/-ity usually put the stress on the third syllable from the end (phoˈtography, eˈconomy); -ic/-ian/-tion put it on the syllable just before the ending (photoˈgraphic, poliˈtician). IPA here is British; learn each word family as a set.",
 words: [
 { w: 'photograph', ipa: '/ˈfəʊtəɡrɑːf/', note: 'Ooo' },
 { w: 'photography', ipa: '/fəˈtɒɡrəfi/', note: 'oOoo' },
