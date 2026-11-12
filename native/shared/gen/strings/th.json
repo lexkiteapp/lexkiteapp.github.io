@@ -438,6 +438,7 @@
   "mist.viewList": "ดูรายการ",
   "mist.retryMistakes": "ทำข้อผิดอีกครั้ง",
   "mist.reviewFadingWords": "ทบทวนคำที่ใกล้ลืม",
+  "mist.variantMiniTest": "มินิเทสต์แบบใหม่",
   "mist.clearFixedMistakes": "ล้างข้อผิดที่แก้แล้ว",
   "mist.all": "ทั้งหมด ({n})",
   "mist.missedTimes": "พลาด {n} ครั้ง",

@@ -438,6 +438,7 @@
   "mist.viewList": "Xem danh sách",
   "mist.retryMistakes": "Làm lại lỗi sai",
   "mist.reviewFadingWords": "Ôn từ sắp quên",
+  "mist.variantMiniTest": "Mini-test biến thể",
   "mist.clearFixedMistakes": "Dọn lỗi đã sửa",
   "mist.all": "Tất cả ({n})",
   "mist.missedTimes": "sai {n} lần",

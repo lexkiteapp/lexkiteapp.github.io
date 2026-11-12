@@ -438,6 +438,7 @@
   "mist.viewList": "リストを見る",
   "mist.retryMistakes": "間違いをやり直す",
   "mist.reviewFadingWords": "忘れかけの単語を復習",
+  "mist.variantMiniTest": "バリエーションミニテスト",
   "mist.clearFixedMistakes": "修正済みを消す",
   "mist.all": "すべて ({n})",
   "mist.missedTimes": "{n} 回欠席しました",

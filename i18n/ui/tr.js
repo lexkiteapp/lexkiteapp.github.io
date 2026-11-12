@@ -668,6 +668,7 @@
 "Marketing & Truyền thông":"Pazarlama ve iletişim",
 "Media & Advertising – tin tức, quảng cáo, mạng xã hội":"Medya ve Reklamcılık – haberler, reklam, sosyal medya",
 "Micro đang bận – thử lại sau 1 giây.":"Mikrofon meşgul; bir saniye sonra tekrar deneyin.",
+"Mini-test biến thể":"Varyasyon mini testi",
 "Miễn phí · chỉ lưu dữ liệu học của bạn · có thể đăng xuất bất cứ lúc nào":"Ücretsiz · yalnızca çalışma verilerinizi saklar · istediğiniz zaman çıkış yapın",
 "Mua sắm":"Alışveriş",
 "Mua sắm & Tiêu dùng":"Alışveriş ve tüketim",
