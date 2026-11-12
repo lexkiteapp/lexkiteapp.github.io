@@ -1581,7 +1581,7 @@
   "speak.pron.giongAnh": "สำเนียงอังกฤษ",
   "speak.pron.tuInToDuoc": "เน้นคำพูดใหญ่ๆ พูดคำเล็ก ๆ อย่างรวดเร็วและเบา (รูปแบบที่อ่อนแอ) ฟังโมเดล จากนั้นแตะ Shadowing แล้วพูดตามทันที",
   "speak.pron.chonCau": "เลือกประโยค",
-  "speak.pron.shadowing": "การแชโดว์",
+  "speak.pron.shadowing": "Shadowing",
   "speak.pron.ngheMau": "กำลังเล่นโมเดล...",
   "speak.pron.noiTheoNgayBay": "พูดพร้อมตอนนี้...",
   "speak.pron.nhanRoHonCac": "เน้นคำสำคัญให้ชัดเจนยิ่งขึ้น: {w}",

@@ -70,7 +70,7 @@
 "Răng trên chạm nhẹ môi dưới, thổi hơi và rung cổ – môi không khép lại.":"Gigi atas sedikit di bibir bawah Anda, dorong udara keluar dengan suara Anda – bibir Anda tidak menutup.",
 "Rất giống giọng mẫu – nhịp tự nhiên!":"Sangat mirip dengan model – ritme alami!",
 "Rất tốt – bạn bắt kịp cả đoạn!":"Hebat – Anda mengikuti keseluruhan bagiannya!",
-"Shadowing":"Membayangi",
+"Shadowing":"Shadowing",
 "Thiết bị này chưa hỗ trợ nhận dạng giọng nói – hãy luyện phần nghe phân biệt bên dưới.":"Perangkat ini belum mendukung pengenalan ucapan – sebagai gantinya, praktikkan latihan mendengarkan di bawah ini.",
 "Thè đầu lưỡi giữa hai hàm răng, thổi hơi và rung cổ (đặt tay lên cổ để cảm nhận).":"Letakkan ujung lidah di antara gigi, dorong udara keluar dan gunakan suara Anda (sentuh tenggorokan untuk merasakan dengungan).",
 "Thè đầu lưỡi ra giữa hai hàm răng rồi thổi hơi nhẹ – không để lưỡi sau răng.":"Letakkan ujung lidah di antara gigi dan tiup perlahan – jangan sampai berada di belakang gigi.",

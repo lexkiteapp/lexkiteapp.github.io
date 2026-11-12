@@ -70,7 +70,7 @@
 "Răng trên chạm nhẹ môi dưới, thổi hơi và rung cổ – môi không khép lại.":"ฟันบนเบา ๆ ที่ริมฝีปากล่าง ดันอากาศออกโดยเปิดเสียง ริมฝีปากของคุณไม่ได้ปิด",
 "Rất giống giọng mẫu – nhịp tự nhiên!":"ใกล้เคียงกับโมเดลมาก – จังหวะที่เป็นธรรมชาติ!",
 "Rất tốt – bạn bắt kịp cả đoạn!":"เยี่ยมมาก – คุณตามทันเนื้อหาทั้งหมด!",
-"Shadowing":"การแชโดว์",
+"Shadowing":"Shadowing",
 "Thiết bị này chưa hỗ trợ nhận dạng giọng nói – hãy luyện phần nghe phân biệt bên dưới.":"อุปกรณ์นี้ยังไม่รองรับการรู้จำคำพูด โปรดฝึกทักษะการฟังด้านล่างนี้แทน",
 "Thè đầu lưỡi giữa hai hàm răng, thổi hơi và rung cổ (đặt tay lên cổ để cảm nhận).":"วางปลายลิ้นไว้ระหว่างฟัน ดันลมออกแล้วใช้เสียง (แตะคอเพื่อรู้สึกถึงเสียงกระหึ่ม)",
 "Thè đầu lưỡi ra giữa hai hàm răng rồi thổi hơi nhẹ – không để lưỡi sau răng.":"วางปลายลิ้นไว้ระหว่างฟันแล้วเป่าเบา ๆ อย่าเก็บไว้หลังฟัน",

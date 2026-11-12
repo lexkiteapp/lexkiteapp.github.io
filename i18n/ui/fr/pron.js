@@ -70,7 +70,7 @@
 "Răng trên chạm nhẹ môi dưới, thổi hơi và rung cổ – môi không khép lại.":"Placez légèrement les dents du haut sur votre lèvre inférieure, expulsez l'air en parlant – vos lèvres ne se ferment pas.",
 "Rất giống giọng mẫu – nhịp tự nhiên!":"Très proche du modèle – rythme naturel !",
 "Rất tốt – bạn bắt kịp cả đoạn!":"Super – vous avez suivi tout le passage !",
-"Shadowing":"Ombrage",
+"Shadowing":"Shadowing",
 "Thiết bị này chưa hỗ trợ nhận dạng giọng nói – hãy luyện phần nghe phân biệt bên dưới.":"Cet appareil ne prend pas encore en charge la reconnaissance vocale. Pratiquez plutôt l'exercice d'écoute ci-dessous.",
 "Thè đầu lưỡi giữa hai hàm răng, thổi hơi và rung cổ (đặt tay lên cổ để cảm nhận).":"Mettez le bout de votre langue entre vos dents, expulsez l'air et utilisez votre voix (touchez votre gorge pour sentir le bourdonnement).",
 "Thè đầu lưỡi ra giữa hai hàm răng rồi thổi hơi nhẹ – không để lưỡi sau răng.":"Mettez le bout de votre langue entre vos dents et soufflez doucement – ne le gardez pas derrière vos dents.",
