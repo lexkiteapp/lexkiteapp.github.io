@@ -66,8 +66,8 @@
    "answer": 1
   },
   "native": {
-   "hook": "否定疑問への Yes/No、逆では？",
-   "tip": "「魚が嫌い？」に「はい、嫌い」は Yes ではなく No。事実で答えよう。",
+   "hook": "Yes か No か？日本人の癖の罠！",
+   "tip": "英語では事実で答えます。否定なら No と言います。",
    "caption": "“Yes, I don't like fish.”と言っていませんか？😅 日本語は相手の言葉に同意するかで「はい」と答えますが、英語は答えの内容が否定なら No です。 “No, I don't like fish.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
    "comment": "答え：“No”。否定の答えは No。無料クイズで練習：{link}",
    "hashtags": [
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "否定疑問への Yes/No、逆では？"
+  "text": "Yes か No か？日本人の癖の罠！"
  },
  "src": {
   "l1": true
@@ -103,9 +103,9 @@
   "wpm": 97
  },
  "publish": {
-  "title": "否定疑問への Yes/No、逆では？",
+  "title": "Yes か No か？日本人の癖の罠！",
   "keyword": "No, I don't like fish.",
-  "value": "「魚が嫌い？」に「はい、嫌い」は Yes ではなく No。事実で答えよう。",
+  "value": "英語では事実で答えます。否定なら No と言います。",
   "hashtags": [
    "#英語学習",
    "#英会話",
@@ -116,7 +116,7 @@
   "script_words": 38,
   "platforms": {
    "youtube": {
-    "title": "否定疑問への Yes/No、逆では？",
+    "title": "Yes か No か？日本人の癖の罠！",
     "description": "“Yes, I don't like fish.”と言っていませんか？😅 日本語は相手の言葉に同意するかで「はい」と答えますが、英語は答えの内容が否定なら No です。 “No, I don't like fish.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
     "tags": [
      "No, I don't like fish.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "否定疑問への Yes/No、逆では？ #英語学習 #英会話 #英語勉強"
+    "caption": "Yes か No か？日本人の癖の罠！ #英語学習 #英会話 #英語勉強"
    }
   },
   "first_comment": "答え：“No”。否定の答えは No。無料クイズで練習：{link}",

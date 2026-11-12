@@ -84,6 +84,7 @@ node scripts/test/ux1-rollout.mjs
 node scripts/test/pron-gop.mjs
 node scripts/test/pron-pairs.mjs
 node scripts/test/pron-coach.mjs
+node scripts/test/pron-shadow.mjs
 node scripts/test/call-engine.mjs
 node scripts/test/feedback-eval.mjs
 node scripts/test/route-race.mjs
@@ -174,6 +175,7 @@ node scripts/test/admin-gate.mjs
 node scripts/test/pr-check.mjs
 node scripts/test/library.mjs
 node scripts/test/anki.mjs
+node scripts/test/importdeck.mjs
 node scripts/test/video.mjs
 node scripts/test/video-templates.mjs
 node scripts/test/capsplit.mjs
@@ -389,4 +391,8 @@ node scripts/test/phrasebook.mjs
 node scripts/test/native-strings-locked.mjs
 node scripts/audit/score.mjs --self-test
 node scripts/test/suite-shards.mjs
+node scripts/build-go.mjs --check
+node scripts/test/go-landing.mjs
+node scripts/test/mistake-variant.mjs
 node scripts/test/adsense-hygiene.mjs
+node scripts/test/play-duel.mjs

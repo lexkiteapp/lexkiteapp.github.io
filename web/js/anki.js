@@ -532,6 +532,7 @@ hr#answer{border:0;height:0;margin:0}
   };
   const ART = () => `<svg width="64" height="56" viewBox="0 0 64 56" aria-hidden="true"><rect x="22" y="6" width="34" height="44" rx="7" fill="#FFB054" transform="rotate(10 39 28)"/><rect x="16" y="6" width="34" height="44" rx="7" fill="#fff" stroke="#0F3D3E" stroke-width="2.5" transform="rotate(-6 33 28)"/><path d="M26 18 L36 14 L40 26 Z" fill="#E5502F" transform="rotate(-6 33 28)"/><path d="M36 14 L46 22 L40 26 Z" fill="#FFC94A" transform="rotate(-6 33 28)"/><path d="M40 26 Q38 34 32 38 Q28 41 30 45" stroke="#0F3D3E" stroke-width="2" fill="none" stroke-linecap="round" transform="rotate(-6 33 28)"/></svg>`;
   const kit = (m, s) => g.Kit && typeof g.Kit.svg === 'function' ? g.Kit.svg(m, s, true) : '';
+  const impOn = () => { try { return localStorage.getItem('lk.impdeck') === '1' || JSON.parse(localStorage.getItem('lk.cfg') || '{}').v.importdeck == 1; } catch (e) { return false; } }; // cờ importdeck, mặc định TẮT
   const meanLangVi = () => !g.I18N || !I18N.meanLang || I18N.meanLang() === 'vi';
   const slug = s => String(s || 'lexkite').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'lexkite';
   const dateKey = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
@@ -671,6 +672,7 @@ hr#answer{border:0;height:0;margin:0}
     if (!S.set) return `<button type="button" class="ak-drop" id="akDrop"><span class="em" aria-hidden="true">📥</span><b>${T('Chọn hoặc kéo thả file vào đây')}</b><span class="small muted">.apkg · .colpkg · .txt · .tsv · .csv</span></button>
       <input type="file" id="akFile" accept=".apkg,.colpkg,.anki2,.anki21,.txt,.tsv,.csv,text/plain,text/csv,text/tab-separated-values" hidden aria-label="${T('Chọn file')}">
       <div id="akMsg" role="status" aria-live="polite">${S.error ? `<div class="ak-err">⚠️ ${esc(S.error)}</div>` : S.parsing ? `<p class="small muted">${T('Đang đọc file…')}</p>` : ''}</div>
+      ${impOn() ? `<button type="button" class="btn" id="akImp">📥 ${T('Nhập từ tài liệu')}</button>` : ''}
       <div class="ak-note"><b>${T('Lấy file từ Anki thế nào?')}</b><ol class="ak-steps" style="margin-top:.5rem"><li><span>${esc(T('Trong Anki chọn bộ thẻ → File → Export.'))}</span></li><li><span>${esc(T('Chọn “Anki Deck Package (.apkg)” hoặc “Notes in Plain Text (.txt)”.'))}</span></li><li><span>${esc(T('Chọn file đó ở đây. Âm thanh và hình ảnh trong thẻ sẽ được bỏ qua.'))}</span></li></ol></div>`;
     const set = S.set, opt = sel => `<option value="-1">${T('— Không dùng —')}</option>` + set.columns.map((c, i) => `<option value="${i}" ${sel === i ? 'selected' : ''}>${esc(c || T('Cột {n}', { n: i + 1 }))}</option>`).join('');
     const sel = (id, label, k) => `<label for="${id}">${label}<select class="input" id="${id}" data-k="${k}">${opt(S.map[k])}</select></label>`;
@@ -724,6 +726,7 @@ hr#answer{border:0;height:0;margin:0}
     if (S.importing) { $('#akCancel').onclick = () => { S.cancel = true; }; return; }
     if (!S.set) {
       const drop = $('#akDrop'), f = $('#akFile');
+      const ip = $('#akImp'); if (ip) ip.onclick = () => g.App.need('anki', 'impdeck').then(() => g.ImportDeck.open()).catch(() => toast(T('Không tải được – thử lại sau')));
       drop.onclick = () => f.click();
       f.onchange = () => pick(f.files[0]);
       drop.ondragover = e => { e.preventDefault(); drop.classList.add('on'); };
