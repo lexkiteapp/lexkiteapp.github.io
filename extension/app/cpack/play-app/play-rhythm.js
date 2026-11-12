@@ -116,7 +116,7 @@
       const x = sents[S.i], beat = beatOf(S.i), plan = Coach.plan(x.s, accent(), g.UI.WEAK);
       Object.assign(S, { plan, beat, taps: [], used: new Set(), T0: performance.now() + LEAD * beat, live: true });
       view.innerHTML = `<div class="study-wrap rh">${head(`🥁 ${t('Câu số {a}/{b}', { a: S.i + 1, b: sents.length })}`, S.i, sents.length, muteBtn())}
-        <div class="row between nowrap" style="margin-bottom:.6rem"><b id="rhS" aria-live="off">${S.score}</b><span class="chip rh-c" id="rhC" ${S.combo < 3 ? 'hidden' : ''}>${t('COMBO ×{n}', { n: mult(S.combo) })}</span></div>
+        <div class="row between nowrap" style="margin-bottom:.6rem"><span><span aria-hidden="true">🏆</span> <b id="rhS" aria-live="off">${S.score}</b></span><span class="chip rh-c" id="rhC" ${S.combo < 3 ? 'hidden' : ''}>${t('COMBO ×{n}', { n: mult(S.combo) })}</span></div>
         <div class="card q-card"><span class="rh-b" id="rhB" aria-hidden="true"></span><div class="rh-s" id="rhW" role="list" aria-label="${esc(x.s)}">${chips(plan)}</div><div class="rh-cue" id="rhQ" dir="auto" aria-hidden="true">…</div></div>
         <button class="btn primary rh-tap" id="rhT" aria-label="${esc(t('Chạm vào từ nhấn'))}">${t('CHẠM')} <span class="kbd">␣</span></button></div>`;
       const q = view.querySelector('.study-top a.icon-btn'); if (q) { q.style.width = q.style.height = '44px'; q.setAttribute('aria-label', t('Thoát')); }

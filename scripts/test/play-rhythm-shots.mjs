@@ -35,7 +35,7 @@ for (const [name, scheme, rtl] of [['light', 'light', false], ['dark', 'dark', f
   const page = await ctx.newPage(); page.on('pageerror', e => errs.push(name + ': ' + e.message));
   await page.goto(pathToFileURL(file).href);
   await page.evaluate(([s, r]) => { document.documentElement.setAttribute('data-theme', s); document.documentElement.dir = r ? 'rtl' : 'ltr'; }, [scheme, rtl]);
-  await page.waitForSelector('#rhGo'); await page.screenshot({ path: path.join(out, `${name}-1-intro.png`) });
+  await page.waitForSelector('#rhGo'); await page.waitForTimeout(600); /* hiệu ứng mờ dần của khung app */ await page.screenshot({ path: path.join(out, `${name}-1-intro.png`) });
   const layout = async step => {
     const r = await page.evaluate(() => {
       const vw = innerWidth, bad = []; const cs = [...document.querySelectorAll('#rhW .rh-w')].map(e => e.getBoundingClientRect());
