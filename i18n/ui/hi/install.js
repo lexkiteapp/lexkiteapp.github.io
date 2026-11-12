@@ -3,7 +3,9 @@
 "Bài đầu tiên xong rồi! Có app, bạn học nhanh hơn ngay từ màn hình chính.":"पहला पाठ पूरा हुआ! ऐप से आप होम स्क्रीन से ही तेज़ी से शुरू कर सकते हैं।",
 "Bạn đã lưu {n} từ. Có app, ôn chúng lúc nào cũng tiện.":"आपने {n} शब्द सेव किए हैं। ऐप में इन्हें कभी भी दोहराना आसान है।",
 "Chuỗi {n} ngày thật tuyệt! Có app, việc học đều mỗi ngày nhẹ nhàng hơn.":"{n} दिन की लगातार स्ट्रीक – शानदार! ऐप के साथ रोज़ पढ़ना आसान हो जाता है।",
+"Mang Lexkite lên điện thoại":"Lexkite को अपने फ़ोन पर लाएँ",
 "Mang Lexkite theo bên mình":"Lexkite को अपने साथ रखें",
+"Quét mã bằng camera điện thoại để tải app miễn phí.":"ऐप मुफ़्त पाने के लिए फ़ोन के कैमरे से कोड स्कैन करें।",
 "Tải trên App Store":"App Store से डाउनलोड करें",
 "Tải trên Google Play":"Google Play पर पाएँ",
 });

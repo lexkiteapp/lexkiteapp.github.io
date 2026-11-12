@@ -3,7 +3,9 @@
 "Bài đầu tiên xong rồi! Có app, bạn học nhanh hơn ngay từ màn hình chính.":"Первый урок пройден! С приложением можно начинать быстрее — прямо с главного экрана.",
 "Bạn đã lưu {n} từ. Có app, ôn chúng lúc nào cũng tiện.":"Вы сохранили слов: {n}. С приложением повторять их можно в любой момент.",
 "Chuỗi {n} ngày thật tuyệt! Có app, việc học đều mỗi ngày nhẹ nhàng hơn.":"Серия {n} дн. подряд — отлично! С приложением заниматься каждый день проще.",
+"Mang Lexkite lên điện thoại":"Lexkite — на ваш телефон",
 "Mang Lexkite theo bên mình":"Берите Lexkite с собой",
+"Quét mã bằng camera điện thoại để tải app miễn phí.":"Наведите камеру телефона на код, чтобы бесплатно скачать приложение.",
 "Tải trên App Store":"Загрузите в App Store",
 "Tải trên Google Play":"Загрузите в Google Play",
 });
