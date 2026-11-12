@@ -37,6 +37,7 @@
 "node scripts/test/install-sheet.mjs": 1.0,
 "node scripts/test/pwa-installable.mjs": 0.5,
 "node scripts/test/addon-listings.mjs": 0.5,
+"node scripts/test/rate-prompt.mjs": 0.5,
 "node scripts/test/grammar-inventory.mjs": 3.0,
 "node scripts/test/i18n-leak.js web en --strict --gtx-down": 25.4,
 "node scripts/test/i18n-leak.js web en,pt --strict --gtx-down --slow-pre": 19.3,

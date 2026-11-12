@@ -25,3 +25,6 @@ Chuẩn: [specs/notifications.md](specs/notifications.md) (đẹp, không ép, c
 
 ## PWA dự phòng
 `web/manifest.webmanifest`: standalone, icon 192/512 + maskable (logo giữ nguyên), ảnh chụp narrow/wide, shortcuts, `related_applications` (Play + App Store, `prefer_related_applications:false`). Khóa bằng `scripts/test/pwa-installable.mjs` (link cửa hàng khớp `ext-config.js`).
+
+## Nhắc đánh giá trong app (native 2.0, cần bản cửa hàng mới)
+Chính sách MỘT nguồn `native/shared/review-prompt.json`: chỉ ở màn "xong bài" khi đúng ≥ 80 %, đã xong ≥ 5 bài, cài ≥ 3 ngày, cách lần trước ≥ 90 ngày, tối đa 3 lần đời. iOS: `ReviewPrompt.swift` + StoreKit `requestReview`; Android: `ReviewPrompt.kt` + Play In-App Review. Hệ điều hành/Play quyết định có hiện hộp hay không; không tự vẽ cổng "bạn có thích app không", không thưởng cho đánh giá. Khóa bằng `scripts/test/rate-prompt.mjs` (+ XCTest/JUnit cùng vectors; chạy trên CI native).
