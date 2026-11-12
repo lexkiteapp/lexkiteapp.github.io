@@ -1337,7 +1337,7 @@
 "Ôn 20 thẻ flashcard":"Ulang 20 kartu",
 "Ôn 40 thẻ flashcard":"Ulang 40 kartu",
 "Ôn 500 lượt":"Selesaikan 500 ulangan",
-"Ôn lại":"Latihan lagi",
+"Ôn lại":"Ulangi",
 "Ôn ngay":"Ulang sekarang",
 "Ôn ngay →":"Ulang sekarang →",
 "Ôn thẻ":"Ulang kartu",

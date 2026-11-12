@@ -1337,7 +1337,7 @@
 "Ôn 20 thẻ flashcard":"Revisar 20 cartões",
 "Ôn 40 thẻ flashcard":"Revisar 40 cartões",
 "Ôn 500 lượt":"Faça 500 revisões",
-"Ôn lại":"Praticar de novo",
+"Ôn lại":"Revisar",
 "Ôn ngay":"Revisar agora",
 "Ôn ngay →":"Revisar agora →",
 "Ôn thẻ":"Revisar cartões",

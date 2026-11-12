@@ -1337,7 +1337,7 @@
 "Ôn 20 thẻ flashcard":"20 kartı tekrarla",
 "Ôn 40 thẻ flashcard":"40 kartı tekrarla",
 "Ôn 500 lượt":"500 tekrar tamamla",
-"Ôn lại":"Tekrar çalış",
+"Ôn lại":"Tekrar et",
 "Ôn ngay":"Şimdi tekrarla",
 "Ôn ngay →":"Şimdi tekrarla →",
 "Ôn thẻ":"Kartları tekrarla",
