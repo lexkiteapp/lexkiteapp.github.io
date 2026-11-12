@@ -426,6 +426,8 @@
   "rev.addedFromIeltsWordSets": "आईईएलटीएस शब्द सेट से जोड़ा गया",
   "rev.fromAnki": "Anki से",
   "rev.importedFromYourAnkiDecks": "आपके Anki डेक से आयात किए गए",
+  "rev.fromADocument": "दस्तावेज़ से",
+  "rev.importedFromTextPdfEpubSubtitles": "टेक्स्ट, PDF, ePub और सबटाइटल से आयात किया गया",
   "rev.thisLooksTooEasyFor": "यह आपके लिए बहुत आसान लग रहा है। बोनस XP के लिए कठिन सवाल (चुनने के बजाय टाइप करें) आज़माएँ?",
   "rev.goHarder": "और कठिन",
   "rev.keepThisLevel": "यही स्तर रखें",

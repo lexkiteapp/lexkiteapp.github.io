@@ -426,6 +426,8 @@
   "rev.addedFromIeltsWordSets": "Added from IELTS word sets",
   "rev.fromAnki": "From Anki",
   "rev.importedFromYourAnkiDecks": "Imported from your Anki decks",
+  "rev.fromADocument": "From a document",
+  "rev.importedFromTextPdfEpubSubtitles": "Imported from text, PDF, ePub and subtitles",
   "rev.thisLooksTooEasyFor": "This looks too easy for you. Want tougher items (type instead of pick) for bonus XP?",
   "rev.goHarder": "Go harder",
   "rev.keepThisLevel": "Keep this level",

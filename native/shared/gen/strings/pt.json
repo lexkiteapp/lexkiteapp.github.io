@@ -426,6 +426,8 @@
   "rev.addedFromIeltsWordSets": "Adicionado de conjuntos de palavras do IELTS",
   "rev.fromAnki": "Do Anki",
   "rev.importedFromYourAnkiDecks": "Importadas dos seus baralhos do Anki",
+  "rev.fromADocument": "De um documento",
+  "rev.importedFromTextPdfEpubSubtitles": "Importado de texto, PDF, ePub e legendas",
   "rev.thisLooksTooEasyFor": "Isto parece fácil demais para você. Que tal questões mais difíceis (digitar em vez de escolher) para ganhar XP extra?",
   "rev.goHarder": "Mais difícil",
   "rev.keepThisLevel": "Manter nível",

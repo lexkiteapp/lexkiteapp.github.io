@@ -28,8 +28,10 @@
     dict: { emoji: '🔎', get name() { return t('Từ tra từ điển'); }, get desc() { return t('Từ bạn tự tra và lưu'); } },
     library: { emoji: '📚', get name() { return t('Từ thư viện'); }, get desc() { return t('Thêm từ các bộ từ IELTS'); } },
     anki: { emoji: '🃏', get name() { return t('Từ Anki'); }, get desc() { return t('Nhập từ bộ thẻ Anki'); } },
+    doc: { emoji: '📥', get name() { return t('Từ tài liệu'); }, get desc() { return t('Nhập từ văn bản, PDF, ePub, phụ đề'); } },
   };
   function origin(c) {
+    if (c.topic === 'import') return 'doc';
     if (c.deck || c.topic === 'anki') return 'anki';
     const ctx = (c.contexts || []).find(x => x.source) || c.contexts[c.contexts.length - 1];
     if (ctx && ctx.source && /youtube\.com|youtu\.be|netflix|vimeo|ted\.com/.test(ctx.source)) return 'youtube';

@@ -196,6 +196,10 @@ Skeptical readers doubted the claims, and a skeptical editor agreed. Xqzvtp is n
   const app = rd('js/app.js'), cfg = fs.readFileSync(new URL('../../functions/api/config.js', import.meta.url), 'utf8'), adm = fs.readFileSync(new URL('../../functions/api/admin.js', import.meta.url), 'utf8');
   ok(/impdeck: \['cpack\/importdeck-app\/freq-rank\.js', 'cpack\/importdeck-app\/importdeck\.js'\]/.test(app), 'app.js: gói lười impdeck (khung app chỉ +1 dòng)');
   ok(/'importdeck'/.test(cfg) && /'importdeck'/.test(adm), 'importdeck có trong PUBLIC_KEYS + CONFIG_KEYS (mặc định tắt)');
+  // Nhãn nguồn: thẻ nhập tài liệu (topic 'import', có deck) → 'doc' (Từ tài liệu), không lẫn 'Từ Anki'; thẻ Anki giữ 'anki'
+  const om = app.match(/function origin\(c\) \{[\s\S]*?\n  \}\n/), orgFn = new Function('return ' + om[0].replace('function origin', 'function'))();
+  ok(orgFn({ topic: 'import', deck: 'Chapter one', contexts: [] }) === 'doc' && orgFn({ topic: 'anki', deck: 'My deck', contexts: [] }) === 'anki' && orgFn({ topic: 'x', deck: 'D', contexts: [] }) === 'anki', 'origin(): thẻ nhập tài liệu → doc, thẻ Anki giữ anki');
+  ok(/doc: \{ emoji: '📥', get name\(\) \{ return t\('Từ tài liệu'\)/.test(app) && /'Từ tài liệu':\s*'From a document'/.test(rd('js/i18n/en/shell.js')), 'ORIGINS.doc có nhãn "Từ tài liệu" + bản en');
   const src = rd('cpack/importdeck-app/importdeck.js');
   ok(!/fetch\([^)]*(post|POST)|sendBeacon|XMLHttpRequest/.test(src) && !/method:\s*['"]POST/.test(src), 'không gửi nội dung người dùng đi đâu (không POST/beacon)');
   ok(/integrity/.test(src) && /pdfjs-dist@3\.11\.174/.test(src), 'pdf.js ghim phiên bản + SRI');

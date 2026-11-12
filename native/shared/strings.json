@@ -427,6 +427,8 @@
   "rev.addedFromIeltsWordSets": "Thêm từ các bộ từ IELTS",
   "rev.fromAnki": "Từ Anki",
   "rev.importedFromYourAnkiDecks": "Nhập từ bộ thẻ Anki",
+  "rev.fromADocument": "Từ tài liệu",
+  "rev.importedFromTextPdfEpubSubtitles": "Nhập từ văn bản, PDF, ePub, phụ đề",
   "rev.thisLooksTooEasyFor": "Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?",
   "rev.goHarder": "Thử mức khó",
   "rev.keepThisLevel": "Giữ mức này",

@@ -426,6 +426,8 @@
   "rev.addedFromIeltsWordSets": "Добавлено из наборов слов IELTS.",
   "rev.fromAnki": "Из Anki",
   "rev.importedFromYourAnkiDecks": "Импортировано из ваших колод Anki",
+  "rev.fromADocument": "Из документа",
+  "rev.importedFromTextPdfEpubSubtitles": "Импорт из текста, PDF, ePub и субтитров",
   "rev.thisLooksTooEasyFor": "Похоже, это для вас слишком легко. Попробовать задания сложнее (вводить, а не выбирать) за бонусный XP?",
   "rev.goHarder": "Сложнее",
   "rev.keepThisLevel": "Оставить так",
