@@ -11,6 +11,7 @@
  *   { t:'x', vid, ev:{install|update|uninstall:1}, reason }           → ext_events (đếm theo ngày; lý do gỡ = kind 'uninstall:<lý do>')
  *   { t:'q', ev:'ext_land'|'ext_feat'|'ext_blog'|'ext_app'|'ext_set'|'ext_nudge' }        → bấm nút cài add-on: ext_events kind 'cta:<ev>' (chỉ đếm)
  *   { t:'q', ev:'app_<head|foot|menu|me|top>_<cws|play|ios|a2hs|dock|web>' }             → nút "Tải app" (web/js/get-app.js): ext_events kind 'cta:<ev>' (chỉ đếm)
+ *   { t:'q', ev:'inst_<first|streak|words>_<v|c|x>_<play|ios|desk>' }       → lời mời cài app ở khoảnh khắc giá trị (web/js/install-sheet.js; v xem · c bấm · x để sau): kind 'cta:<ev>'
  *   { t:'q', ev:'ret_<on|off>_<seen|d7>' }                              → thử nghiệm cờ ret: ext_events kind 'ret:<ev>' (1 lượt/máy/sự kiện)
  *   { t:'q', ev:'quiz_view'|'quiz_done'|'quiz_cta' }                     → mini-quiz cuối bài blog: ext_events kind 'blog:<ev>' (chỉ đếm, không lưu bài/IP; 30 lượt/giờ/IP)
  * Quốc gia lấy từ Cloudflare (request.cf.country). vid = mã ngẫu nhiên trên máy người dùng, không gắn danh tính.
@@ -28,6 +29,7 @@ const UX1_EV = ['on', 'off'].flatMap(a => ['seen', 'd1', 'd7'].map(e => `ux1_${a
 const VID_EV = ['view', 'done', 'quiz_ok', 'quiz_no', 'yt_fallback']; // t:'v' – video bài học (lesson-video.js)
 const CTA_EV = ['ext_land', 'ext_feat', 'ext_blog', 'ext_app', 'ext_set', 'ext_nudge',
   ...['head', 'foot', 'menu', 'me', 'top'].flatMap(p => ['cws', 'play', 'ios', 'a2hs', 'dock', 'web'].map(k => `app_${p}_${k}`))]; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
+const INST_EV = ['first', 'streak', 'words'].flatMap(m => ['v', 'c', 'x'].flatMap(a => ['play', 'ios', 'desk'].map(k => `inst_${m}_${a}_${k}`))); // mời cài app ở khoảnh khắc giá trị (web/js/install-sheet.js): xem · bấm · để sau → kind 'cta:<ev>'
 const CTA_LANGS = ['vi', 'en', 'es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr']; // 15 ngôn ngữ – chặn giá trị lạ làm phình bảng ext_events
 const CTA_PAGES = ['vocab', 'samples', 'speaking', 'grammar', 'letters', 'blog'];
 const SMART_CTA_EV = ['cta_addon_view', 'cta_addon_click', 'cta_pwa_view', 'cta_pwa_click', 'cta_topic_click']; // CTA trang tĩnh/từ vựng (scripts/lib/site-layout.mjs)
@@ -222,7 +224,7 @@ export async function onRequestPost({ request, env }) {
       const kind = landKey(b, request.cf && request.cf.country); if (!kind) return ok();
       if (await limit('hl:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 30, 3600)) return ok();
       await env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(dayOf(now), kind).run();
-    } else if (b.t === 'q' && (QUIZ_EV.includes(b.ev) || CTA_EV.includes(b.ev) || SMART_CTA_EV.includes(b.ev) || RET_EV.includes(b.ev) || UX1_EV.includes(b.ev))) {
+    } else if (b.t === 'q' && (QUIZ_EV.includes(b.ev) || CTA_EV.includes(b.ev) || INST_EV.includes(b.ev) || SMART_CTA_EV.includes(b.ev) || RET_EV.includes(b.ev) || UX1_EV.includes(b.ev))) {
       if (await limit('hq:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 60, 3600)) return ok();
       const today = dayOf(now);
       if (SMART_CTA_EV.includes(b.ev)) {
@@ -233,7 +235,7 @@ export async function onRequestPost({ request, env }) {
         if (page) batch.push(env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, `cta:${b.ev}:page:${page}`));
         await env.DB.batch(batch);
       } else {
-        await env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, (CTA_EV.includes(b.ev) ? 'cta:' : RET_EV.includes(b.ev) ? 'ret:' : UX1_EV.includes(b.ev) ? 'ux1:' : 'blog:') + b.ev).run();
+        await env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, ((CTA_EV.includes(b.ev) || INST_EV.includes(b.ev)) ? 'cta:' : RET_EV.includes(b.ev) ? 'ret:' : UX1_EV.includes(b.ev) ? 'ux1:' : 'blog:') + b.ev).run();
       }
     } else if (b.t === 'v' && VID_EV.includes(b.ev) && /^[a-z0-9_]{6,80}$/.test(b.id || '')) {
       // 🎬 Video bài học trên web (web/js/lesson-video.js): lượt xem / xem hết / câu đố đúng-sai theo clip → kind 'vid:<ev>:<id>' (Quản trị → Thư viện video → Web)
