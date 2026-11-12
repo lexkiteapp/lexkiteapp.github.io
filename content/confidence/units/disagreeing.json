@@ -176,12 +176,8 @@
             "Hmm, they can learn fast."
           ],
           [
-            "risk|rush|careful|mistake|bugs",
-            "I understand your concern about moving too quickly."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "I think we should replace the old system next week. What do you think?"
+            "risk|soon|rush|mistake",
+            "Okay, I see the risk."
           ]
         ]
       },
@@ -194,12 +190,8 @@
             "Okay, maybe longer."
           ],
           [
-            "complex|two days|weeks|support|manual",
-            "You have a point, complex tools take time to learn."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Don't you think a two-day training session would be enough?"
+            "weeks?|months?|busy|workload|deadline",
+            "Maybe it takes longer than that."
           ]
         ]
       },
@@ -210,14 +202,6 @@
           [
             "correct me|last year|tried|remember",
             "Yes… it didn't go well."
-          ],
-          [
-            "true|agree|plan|schedule|pilot",
-            "True, but having a proper rollout plan is key."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "We cannot keep delaying this upgrade forever."
           ]
         ]
       },
@@ -230,12 +214,8 @@
             "That makes sense."
           ],
           [
-            "phase|pilot|gradual|trial|stage",
-            "A phased rollout would certainly reduce the risk."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "What alternative approach would you propose instead?"
+            "pilot|trial|small group|few people|department",
+            "A small pilot sounds reasonable."
           ]
         ]
       }

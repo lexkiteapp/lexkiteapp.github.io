@@ -177,8 +177,8 @@
             "Okay, thanks for being honest."
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "Could you summarize if your project is on track or delayed?"
+            "finished|almost done|completed|done|ready|progress|half",
+            "Good progress."
           ]
         ]
       },
@@ -191,12 +191,8 @@
             "I see."
           ],
           [
-            "feature|plan|scope|timeline|idea",
-            "That sounds like an interesting proposal."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Go ahead with what you wanted to present to the meeting."
+            "broken|fail\\w*|crash\\w*",
+            "That is not ideal."
           ]
         ]
       },
@@ -209,12 +205,8 @@
             "That's a good point."
           ],
           [
-            "testing|qa|bugs|minimal|manageable",
-            "Managing feature scope keeps risks low."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "What potential risks should the team be mindful of?"
+            "overtime|weekends?|automat\\w*|tools?|scope|prioriti[sz]e",
+            "That could work."
           ]
         ]
       },
@@ -227,12 +219,8 @@
             "Perfect."
           ],
           [
-            "approval|sign-off|next steps|action",
-            "Looks like everyone is on board with the plan."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Let us make a clear team decision on this proposal."
+            "tomorrow|tonight|morning|report|document|summary|slides|message|chat",
+            "Sounds good."
           ]
         ]
       }

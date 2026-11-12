@@ -178,12 +178,8 @@
             "Sounds good."
           ],
           [
-            "presentation|topic|pitch|morning|start",
-            "We are looking forward to hearing your ideas."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Whenever you are ready, please proceed with your presentation."
+            "welcome|everyone|introduc\\w*|slides?|begin",
+            "Welcome. We're listening."
           ]
         ]
       },
@@ -196,12 +192,8 @@
             "Interesting."
           ],
           [
-            "efficiency|cost|faster|speed|productivity",
-            "Saving time directly translates to cost savings."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "What is the core takeaway or central concept of the proposal?"
+            "goal|purpose|idea|help|faster|easier|improve|team",
+            "That sounds useful."
           ]
         ]
       },
@@ -214,12 +206,8 @@
             "Thanks, please send it to me."
           ],
           [
-            "budget|estimate|low|cheap|reasonable",
-            "I appreciate you committing to get the precise figures."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "What budget or financial investment does this idea require?"
+            "dollars?|cheap|free|around|expensive|euros?|thousand|hundred",
+            "Good to know."
           ]
         ]
       },
@@ -232,12 +220,8 @@
             "Thank you. Great talk!"
           ],
           [
-            "wrap up|conclude|slides|summary|all",
-            "Excellent presentation. Thank you for your time."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Are there any concluding remarks before we wrap up?"
+            "report|slides?|summary|email|handout|follow-?up",
+            "Thanks, we'll look at it."
           ]
         ]
       }

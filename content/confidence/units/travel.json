@@ -172,12 +172,8 @@
             "Let me check that for you."
           ],
           [
-            "kim|name|check in|room|arrived",
-            "Welcome to the Riverside Hotel! Let me pull up your booking."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Good evening! Are you checking in with us tonight?"
+            "check in|check-in|checking in|just arrived|my name is",
+            "Welcome. One moment, please."
           ]
         ]
       },
@@ -190,12 +186,8 @@
             "Thank you."
           ],
           [
-            "passport|id|card|identification",
-            "Thank you very much, let me scan your ID."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "May I please see your passport or ID to complete check-in?"
+            "moment|wait|find|bag|pocket|minute",
+            "Thank you very much."
           ]
         ]
       },
@@ -216,8 +208,8 @@
             "Checkout is at eleven."
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "Do you need any information about breakfast, Wi-Fi, or checkout?"
+            "elevator|lift|pool|gym|parking|luggage|towels?|laundry|ice",
+            "Of course."
           ]
         ]
       },
@@ -234,8 +226,8 @@
             "Okay."
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "Would you like to request a late checkout tomorrow?"
+            "taxi|airport|wake-?up|alarm|map|restaurant|recommend\\w*|suggest\\w*|early",
+            "Certainly, I'll take care of it."
           ]
         ]
       }

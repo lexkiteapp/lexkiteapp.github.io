@@ -167,12 +167,8 @@
             "We went to school together."
           ],
           [
-            "empty|available|sure|welcome|please",
-            "Thank you, appreciate it!"
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Excuse me, is anyone sitting in this empty chair?"
+            "cousin|sister|brother|roommate|yoga|gym|club|class|party|online|book",
+            "Oh, that's nice."
           ]
         ]
       },
@@ -185,12 +181,8 @@
             "Oh, nice!"
           ],
           [
-            "local|born|grew up|from here|recent",
-            "It is a fantastic city with plenty to discover."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Have you lived in this area for a long time?"
+            "trails?|mountains?|walks?|outdoors|nature",
+            "That sounds fun."
           ]
         ]
       },
@@ -203,12 +195,8 @@
             "Of course! The more the better."
           ],
           [
-            "restaurant|park|bakery|downtown|food",
-            "Yes, there are lots of hidden gems around there."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "What are some of your favorite local hangouts so far?"
+            "bring|snacks?|water|ride|car|drive|details|plan|meet",
+            "We'll figure out the details."
           ]
         ]
       },
@@ -221,12 +209,8 @@
             "You too!"
           ],
           [
-            "whatsapp|instagram|connect|contact|text",
-            "Sounds great, I will send you a message!"
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Would you like to visit that café together sometime?"
+            "looking forward|can't wait|excited|message|see you|bye",
+            "Me too!"
           ]
         ]
       }

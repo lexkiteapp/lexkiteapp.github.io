@@ -173,12 +173,8 @@
             "Okay, I can help with that."
           ],
           [
-            "broken|damaged|wrong|item|delivery",
-            "I am very sorry to hear that. Let us get it sorted."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Thank you for calling customer support. What can I help with?"
+            "complaint|complain|issue|delivery|package|parcel",
+            "Sure, I'll help you with that."
           ]
         ]
       },
@@ -191,12 +187,8 @@
             "I'm so sorry to hear that."
           ],
           [
-            "missing|parts|shade|scratched|box",
-            "I apologize for the poor condition it arrived in."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Could you describe what is wrong with the product?"
+            "late|missing|cracked|scratched|stained|faulty|defective|torn|dented",
+            "I apologize for the problem."
           ]
         ]
       },
@@ -213,8 +205,8 @@
             "A replacement, no problem."
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "Would you prefer a full refund or a replacement item?"
+            "exchange|swap|credit|voucher",
+            "Understood, I'll note that down."
           ]
         ]
       },
@@ -227,12 +219,8 @@
             "Of course."
           ],
           [
-            "faster|urgent|tracking|express",
-            "I can upgrade it to express delivery free of charge."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "The refund or replacement takes 5 to 7 days. Is that acceptable?"
+            "long|slow|wait|week|faster|quicker",
+            "I know, I'm sorry about that."
           ]
         ]
       }

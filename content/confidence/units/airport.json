@@ -167,12 +167,8 @@
             "Let me look… The next flight is tomorrow at 8 a.m."
           ],
           [
-            "help|missed|connecting|delayed|problem",
-            "Let me check the flight status for you."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "How can I help you with your journey today?"
+            "missed|delayed|connection",
+            "Sorry about that. There's an 8 a.m. flight tomorrow."
           ]
         ]
       },
@@ -185,12 +181,8 @@
             "Yes, here's a hotel voucher."
           ],
           [
-            "okay|fine|works|tomorrow|morning",
-            "Great, let me issue that boarding pass."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Does tomorrow morning at 8 a.m. work for you?"
+            "food|meal|dinner",
+            "Sure, I can add a meal voucher."
           ]
         ]
       },
@@ -203,12 +195,8 @@
             "At the baggage office, next to belt 6."
           ],
           [
-            "gate|voucher|meal|food|taxi",
-            "Meal vouchers can be used at any café in terminal 2."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Is there anything else I can sort out for you?"
+            "suitcase|missing|backpack",
+            "I'm sorry about that. We'll find it."
           ]
         ]
       },
@@ -221,12 +209,8 @@
             "Good question. It's gate B12 now."
           ],
           [
-            "tag|receipt|here it is|lost|found",
-            "Thanks, I have entered the bag details in the system."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Do you have the baggage receipt tag from check-in?"
+            "thank|appreciate",
+            "Happy to help."
           ]
         ]
       }

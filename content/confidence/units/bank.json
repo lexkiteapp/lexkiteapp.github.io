@@ -171,12 +171,8 @@
             "Sure, I can help with that."
           ],
           [
-            "card|statement|loan|transfer|help",
-            "I can certainly look into that for you."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Good morning! How may I assist you today?"
+            "joint|business|student|children",
+            "Of course, we offer that."
           ]
         ]
       },
@@ -189,12 +185,8 @@
             "No monthly fee if you keep 500 dollars in it."
           ],
           [
-            "interest|card|minimum|online|app",
-            "Our online banking and debit card are completely free."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Please fill out this form, and let me know if you have questions."
+            "overdraft|interest|rate|minimum|limit",
+            "Good question. The details are on the form."
           ]
         ]
       },
@@ -207,12 +199,8 @@
             "Let me check that for you."
           ],
           [
-            "deposit|cash|cheque|check|withdraw",
-            "We can process that deposit at window four."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Can I help you with any other banking matters today?"
+            "fraud|scam|unauthorized",
+            "Okay, let me pull up your account."
           ]
         ]
       },
@@ -225,12 +213,8 @@
             "Of course."
           ],
           [
-            "block|freeze|fraud|stolen|stop",
-            "I will block the card immediately to protect your funds."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Would you like me to cancel the compromised card now?"
+            "thank|appreciate",
+            "You're welcome."
           ]
         ]
       }

@@ -172,12 +172,8 @@
             "Thanks!"
           ],
           [
-            "pasta|cook|first time|recipe",
-            "You did really well for your first time!"
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Great work on that pasta dough today!"
+            "of course|please|sit|welcome|take it",
+            "Thank you so much!"
           ]
         ]
       },
@@ -194,8 +190,8 @@
             "Cool."
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "Is this your first time coming to this class?"
+            "second|third|new|joined|started|friend|recommended|teacher",
+            "Oh, nice. I'm glad we met."
           ]
         ]
       },
@@ -208,12 +204,8 @@
             "Oh, nice choice!"
           ],
           [
-            "pizza|downtown|street|recommend",
-            "That sounds like a place worth checking out."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Do you know any nice spots to eat in this neighbourhood?"
+            "vegetarian|vegan|spicy|cook|cooking|sweet|dessert|burger|salad|sushi|seafood|soup|steak|tacos?",
+            "Mm, that sounds delicious!"
           ]
         ]
       },
@@ -226,12 +218,8 @@
             "I'd love that!"
           ],
           [
-            "love to|sounds good|great|let's go",
-            "Awesome, let's exchange contact details."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Would you like to try out that restaurant together sometime?"
+            "dinner|weekend|tomorrow|friday|saturday|sunday|restaurant",
+            "Sounds like a plan!"
           ]
         ]
       }

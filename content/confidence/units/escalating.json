@@ -167,12 +167,8 @@
             "I'm sorry to hear that."
           ],
           [
-            "unacceptable|urgent|work from home|down",
-            "I understand this is frustrating. Let me look up your case."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Customer service here. How can I help you today?"
+            "wi-?fi|router|connection|working from home|work from home|business|slow|disconnect|offline",
+            "I understand, that sounds frustrating."
           ]
         ]
       },
@@ -185,12 +181,8 @@
             "I can't change the schedule myself."
           ],
           [
-            "unacceptable|ridiculous|cannot wait|priority",
-            "Let me see if an emergency engineer slot opened up."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Our earliest available appointment is in three weeks."
+            "unacceptable|too long|ridiculous|urgent|emergency|waiting",
+            "I do understand your frustration."
           ]
         ]
       },
@@ -203,12 +195,8 @@
             "One moment… Okay, we can come on Thursday."
           ],
           [
-            "thursday|yes|home|available|confirm",
-            "Great, I will book the Thursday appointment for you."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Can someone be at home this Thursday between 9 and 1?"
+            "escalate|senior|manager",
+            "One moment. I found a Thursday slot."
           ]
         ]
       },
@@ -221,12 +209,8 @@
             "Sure, it's R-5-8-1."
           ],
           [
-            "case|ticket|record|note",
-            "I have logged all these details under reference 88412."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Is there anything else I can check before connecting you?"
+            "email|confirm|writing|written",
+            "Of course, I'll email you a confirmation."
           ]
         ]
       }

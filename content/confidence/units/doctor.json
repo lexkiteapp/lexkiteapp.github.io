@@ -177,8 +177,8 @@
             "I'm sorry to hear that."
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "Please tell me what symptoms or pain you are feeling."
+            "knee|rash|nose|neck|ears?\\b|legs?\\b",
+            "I'm sorry to hear that."
           ]
         ]
       },
@@ -195,8 +195,8 @@
             "Okay, good."
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "Do you also have a fever, cough, or feel very tired?"
+            "chills?|nausea|nauseous|vomit|aches?\\b|weak|sweat",
+            "Okay, that helps."
           ]
         ]
       },
@@ -213,8 +213,8 @@
             "Okay, no allergies."
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "Are you allergic to any medications, like penicillin?"
+            "don't know|dont know|unsure|maybe|never",
+            "Okay, we'll be careful with the medicine."
           ]
         ]
       },
@@ -227,12 +227,8 @@
             "Twice a day, after meals."
           ],
           [
-            "side effect|food|water|sleep|drowsy",
-            "Take it with water after meals, and get plenty of rest."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Do you have any questions about this prescription?"
+            "side effects?|drowsy|alcohol|drive|driving|food|milk|empty stomach",
+            "Good question. Just follow the label."
           ]
         ]
       }

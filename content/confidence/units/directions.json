@@ -178,8 +178,8 @@
             "Yes, there's one quite close."
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "Which place are you trying to find nearby?"
+            "post office|cafe|restaurant|toilet|restroom|park|hotel|atm|shop|store|market|library|school",
+            "Yes, there's one nearby."
           ]
         ]
       },
@@ -192,12 +192,8 @@
             "Okay, let me explain."
           ],
           [
-            "walk|foot|minutes|distance",
-            "It is only about a five-minute walk."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "The pharmacy is quite close by."
+            "directions|walk|route|map|show me|tell me|explain",
+            "Sure, it's easy to find."
           ]
         ]
       },
@@ -212,6 +208,10 @@
           [
             "so i|turn left|straight",
             "Yes, exactly."
+          ],
+          [
+            "bank|next to|blocks|two",
+            "Yes, that's right."
           ]
         ]
       },
@@ -224,12 +224,8 @@
             "You're welcome!"
           ],
           [
-            "helpful|kind|great|perfect|appreciate",
-            "Glad I could point you in the right direction!"
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "It is just a five-minute walk down that street."
+            "appreciate|cheers|bye|goodbye|see you|great|perfect|awesome",
+            "No problem at all!"
           ]
         ]
       }

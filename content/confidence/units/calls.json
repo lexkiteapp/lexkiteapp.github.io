@@ -168,12 +168,8 @@
             "Oh yes, thanks for calling back."
           ],
           [
-            "appointment|dentist|book|reschedule|mia",
-            "Hi! Let me bring up your file."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Bright Smile Dental here. How can I help you today?"
+            "voicemail|message|missed|appointment",
+            "Right, thanks for getting back to me."
           ]
         ]
       },
@@ -186,12 +182,8 @@
             "Great."
           ],
           [
-            "busy|can't|friday|morning|other",
-            "We also have a slot on Friday morning if that suits you better."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "We need to reschedule Tuesday. Would Thursday at 3:00 work?"
+            "sure|perfect|great|sounds|alright",
+            "Wonderful, thank you."
           ]
         ]
       },
@@ -204,12 +196,8 @@
             "That's right."
           ],
           [
-            "perfect|great|booked|noted|thanks",
-            "All set in our calendar."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "I am confirming your new appointment for Thursday at 3:00."
+            "correct|exactly|sure",
+            "Yes, that's correct."
           ]
         ]
       },
@@ -222,12 +210,8 @@
             "You're welcome."
           ],
           [
-            "clean|filling|doctor|cost|price",
-            "Routine cleaning is covered under your standard plan."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Is there anything else before I let you go?"
+            "nothing|appreciate|see you|take care|later|goodbye",
+            "Okay, take care."
           ]
         ]
       }

@@ -176,8 +176,8 @@
             "Sure!"
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "Are you looking for something specific, or just browsing?"
+            "shirts?|pants|jeans|shoes|jacket|dress|sweater|gift|need|want",
+            "Okay, I can help."
           ]
         ]
       },
@@ -190,12 +190,8 @@
             "Let me check… yes, we do."
           ],
           [
-            "colour|color|blue|black|cotton|fit",
-            "It also comes in black and dark blue."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "This shirt is part of our new arrival line. What do you think?"
+            "colors?|blue|red|black|white|green|yellow|gray|pink",
+            "Yes, we have it."
           ]
         ]
       },
@@ -210,10 +206,6 @@
           [
             "yes|sure|okay",
             "Great."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Would you like to try it on in the fitting room?"
           ]
         ]
       },
@@ -230,8 +222,8 @@
             "Oh, I can get you another size."
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "Does it fit comfortably, or would you like another size?"
+            "perfect|nice|love|comfortable",
+            "That's great."
           ]
         ]
       },
@@ -244,12 +236,8 @@
             "Perfect."
           ],
           [
-            "card|cash|pay|twenty|deal|cheap",
-            "Let me ring that up for you at the register."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "It is twenty dollars on sale today. Would you like to buy it?"
+            "sale|good price|deal|nice|cheap",
+            "It's a good price."
           ]
         ]
       }

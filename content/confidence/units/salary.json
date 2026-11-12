@@ -176,12 +176,8 @@
             "We're excited too."
           ],
           [
-            "delighted|pleased|role|position|offer",
-            "We are very enthusiastic about having you join."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "We are extending a job offer at 70,000 a year. What are your thoughts?"
+            "pleased|delighted|honored|wonderful|glad|love|surprised",
+            "We're glad to hear that."
           ]
         ]
       },
@@ -194,12 +190,8 @@
             "I see. That's above our budget, I'm afraid."
           ],
           [
-            "market|experience|value|higher|more|75",
-            "I understand your expectations based on market data."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "How does the 70,000 offer compare with your expectations?"
+            "low|lower|experience|skills?|market|worth|expected|expecting|deserve|raise",
+            "I understand. Let me see what we can do."
           ]
         ]
       },
@@ -212,12 +204,8 @@
             "We could add five more days."
           ],
           [
-            "bonus|equity|learning|stipend|hybrid",
-            "We definitely have flexibility on benefits and remote days."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "74,000 is our cap. Are there other package components you value?"
+            "bonus|review|raise|stock|equity|insurance|six months|promotion",
+            "That's something we can consider."
           ]
         ]
       },
@@ -230,12 +218,8 @@
             "Of course."
           ],
           [
-            "deal|agree|contract|sign|accept",
-            "Fantastic, I will have the formal offer letter sent."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Does 74,000 plus extra vacation days sound agreeable to you?"
+            "family|wife|husband|partner|talk to|discuss|sleep on",
+            "Of course, that's a big decision."
           ]
         ]
       }

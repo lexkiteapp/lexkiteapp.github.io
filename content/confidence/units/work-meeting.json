@@ -167,12 +167,8 @@
             "Thanks."
           ],
           [
-            "on time|fine|no problem|worries|join",
-            "No worries at all, we are just kicking off."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Thanks for joining the meeting today. Let us get started."
+            "on time|take a seat|sit|seat|just in time|coffee|water",
+            "Oh good, thanks."
           ]
         ]
       },
@@ -185,12 +181,8 @@
             "Sure. I think we need more money for ads. Oh, and new office chairs!"
           ],
           [
-            "agenda|topic|update|roadmap|q3",
-            "Today's main agenda item is reviewing the quarterly numbers."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Could you remind the group of the main topic for this meeting?"
+            "project|plan|schedule|sales|launch|results|goals?|ideas?|update|agenda",
+            "Okay. We need more money for ads. And new chairs!"
           ]
         ]
       },
@@ -203,12 +195,8 @@
             "Okay, fair enough."
           ],
           [
-            "focus|agenda|table|topic|budget",
-            "Let's stick to the core budget items first."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Let us park side topics and return to the main budget agenda."
+            "focus|priority|agenda|topic|ads|marketing|stay on",
+            "Okay, got it."
           ]
         ]
       },
@@ -221,12 +209,8 @@
             "Yes, I'm on it."
           ],
           [
-            "decision|action|confirmed|recap|plan",
-            "Agreed, we will have the revised figures circulated by Friday."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "To wrap up: do we all agree on the next steps for Friday?"
+            "plan|exactly|correct|notes|minutes|email|follow-?up|meeting|finish",
+            "Sounds good to me."
           ]
         ]
       }

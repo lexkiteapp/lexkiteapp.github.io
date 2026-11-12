@@ -175,8 +175,8 @@
             "Interesting."
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "What is your personal opinion on this topic?"
+            "office|colleagues?|coworkers?",
+            "Okay, I hear you."
           ]
         ]
       },
@@ -189,12 +189,8 @@
             "That's fair."
           ],
           [
-            "productivity|remote|trust|balance|work",
-            "Flexibility often leads to better work-life balance."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "What makes you feel flexible working hours are beneficial?"
+            "lonely|alone|social|isolated|lunch|coffee|face to face|in person",
+            "Yeah, I get that."
           ]
         ]
       },
@@ -207,12 +203,8 @@
             "Hmm, maybe."
           ],
           [
-            "distraction|office|online|tools|collaborate",
-            "Quiet time is essential for focused technical tasks."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Don't teams collaborate better in person in an office?"
+            "creativity|culture|collaborat\\w*|ideas|brainstorm\\w*|hybrid",
+            "Okay, that's a fair point."
           ]
         ]
       },
@@ -225,12 +217,8 @@
             "Ha, okay!"
           ],
           [
-            "compromise|middle|best of both|works",
-            "A hybrid schedule gives people the best of both worlds."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Do you think a hybrid schedule offers the best compromise?"
+            "enjoyed|thanks|thank you|coffee|deal|sounds good|fun",
+            "Ha, same here!"
           ]
         ]
       }

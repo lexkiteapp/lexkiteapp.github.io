@@ -168,12 +168,8 @@
             "Nice to meet you too!"
           ],
           [
-            "hello|hi|sam|i'm|my name",
-            "Welcome to the neighbourhood!"
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Hi there, I'm Lina from next door!"
+            "hello|pleased|glad|happy|good morning|good afternoon|good evening",
+            "Great to meet you!"
           ]
         ]
       },
@@ -186,12 +182,8 @@
             "I'm from here. I grew up in this city."
           ],
           [
-            "from|brazil|spain|vietnam|city|country",
-            "Oh, very nice! Welcome."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Which country or city are you from originally?"
+            "japan|vietnam|korea|mexico|spain|china|india|france|germany|canada|colombia|italy|russia|turkey|peru|argentina|philippines|thailand|indonesia",
+            "Oh, I'd love to visit there."
           ]
         ]
       },
@@ -208,8 +200,8 @@
             "Oh, interesting!"
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "What kind of work or studies do you do?"
+            "doctor|chef|waiter|manager|accountant|developer|programmer|lawyer|artist|freelance",
+            "Oh, that sounds interesting."
           ]
         ]
       },
@@ -222,12 +214,8 @@
             "Bye!"
           ],
           [
-            "take care|goodbye|nice meeting",
-            "Take care, and see you soon!"
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "I need to run, but lovely chatting with you!"
+            "take care|goodbye|talk soon|thanks|thank you|nice talking|catch up",
+            "Take care!"
           ]
         ]
       }

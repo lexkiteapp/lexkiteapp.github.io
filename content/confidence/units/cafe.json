@@ -168,12 +168,8 @@
             "Sure."
           ],
           [
-            "menu|recommend|have|what do you",
-            "Our iced latte and flat white are both great."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Hi! What drink can I make for you today?"
+            "chai|smoothie|chocolate|lemonade|soda|cola|matcha|macchiato|flat white",
+            "Nice choice."
           ]
         ]
       },
@@ -194,8 +190,8 @@
             "Large, got it."
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "Which size cup would you prefer: small, medium, or large?"
+            "regular|tall|grande|venti|big",
+            "Okay, got it."
           ]
         ]
       },
@@ -212,8 +208,8 @@
             "Okay, for here."
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "Will you drink it here or take it away?"
+            "stay|inside|dine|mug",
+            "Sure, you can sit inside."
           ]
         ]
       },
@@ -230,8 +226,8 @@
             "Cash is fine."
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "Would you like to pay by cash or card?"
+            "phone|apple|google|tap|contactless",
+            "Sure, just tap whenever you're ready."
           ]
         ]
       }

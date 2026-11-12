@@ -175,12 +175,8 @@
             "Okay, thanks."
           ],
           [
-            "engineer|analyst|manager|projects|revenue|growth",
-            "Very impressive track record."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Could you walk me through your recent professional background?"
+            "degree|graduated|studied|university|college|internship",
+            "Good background."
           ]
         ]
       },
@@ -193,12 +189,8 @@
             "That's honest. I like that."
           ],
           [
-            "automated|workflow|negotiated|vendor|contract",
-            "Streamlining tool usage makes an immediate impact."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "What specific steps did you take to achieve that cost reduction?"
+            "perfectionist|perfectionism|deadlines?|public speaking|nervous|shy",
+            "Thanks for being candid."
           ]
         ]
       },
@@ -211,12 +203,8 @@
             "Impressive."
           ],
           [
-            "patient|feedback|communication|support|demo",
-            "Listening first is the best way to handle team resistance."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "How did you manage pushback or resistance from colleagues?"
+            "launched|promoted|award|led|delivered|project",
+            "That sounds like a strong result."
           ]
         ]
       },
@@ -229,12 +217,8 @@
             "Good question."
           ],
           [
-            "scale|mission|team|opportunity|values",
-            "We appreciate candidates who resonate with our mission."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "What attracted you to apply for this specific role?"
+            "nothing|covered|answered|clear|explained",
+            "Okay, that is fine."
           ]
         ]
       }

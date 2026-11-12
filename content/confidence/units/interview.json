@@ -169,12 +169,8 @@
             "Thanks, that's helpful."
           ],
           [
-            "developer|designer|manager|worked|role",
-            "Thank you, that gives a clear starting picture."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Could you begin with a brief introduction about your career?"
+            "degree|university|college|internship|intern|volunteer|recent|fresh|currently",
+            "Good, thanks for sharing that."
           ]
         ]
       },
@@ -187,12 +183,8 @@
             "I see."
           ],
           [
-            "communication|leadership|detail|creative|adapt",
-            "Strong problem-solving is very valuable for our team."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "What do you consider your greatest professional strength?"
+            "passion|reputation|mission|values?|culture|career|opportunit|challenge|learn",
+            "I'm glad to hear that."
           ]
         ]
       },
@@ -209,8 +201,8 @@
             "Okay."
           ],
           [
-            "pardon|sorry|again|repeat|\\?",
-            "Could you give a specific example of when you used that strength?"
+            "organized|patient|hardworking|hard-working|team player|reliable|communicat|detail|punctual|flexible",
+            "Nice, that's useful in this role."
           ]
         ]
       },
@@ -221,14 +213,6 @@
           [
             "typical day|what|how|when|team",
             "Good question."
-          ],
-          [
-            "culture|next steps|process|when",
-            "We will be wrapping up interviews by the end of the week."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Do you have any other questions for me about the team?"
           ]
         ]
       }

@@ -174,12 +174,8 @@
             "Let me check."
           ],
           [
-            "appointment|ana|calling|dr|dentist",
-            "One moment, let me see if Dr Patel is available."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Bright Smile Dental, Grace speaking. How may I direct your call?"
+            "appointment|book|schedule|toothache|tooth|teeth|cleaning|checkup|pain",
+            "Okay, I see."
           ]
         ]
       },
@@ -192,12 +188,8 @@
             "Of course."
           ],
           [
-            "urgent|tell her|emergency|note|ask",
-            "I will leave a note right on her desk."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "She is with a patient. Would you like to leave a message?"
+            "urgent|important|tomorrow|reschedule|cancel",
+            "Okay, I'll write that down."
           ]
         ]
       },
@@ -210,12 +202,8 @@
             "Thanks."
           ],
           [
-            "ana|silva|it's|name",
-            "Thank you, I have got your contact details."
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "May I please have your full name and phone number?"
+            "mobile|cell|phone|home|email|address",
+            "Let me write that down."
           ]
         ]
       },
@@ -228,12 +216,8 @@
             "Got it, thank you."
           ],
           [
-            "s i l v a|letters|last name|name",
-            "Got it: S-I-L-V-A. Thank you!"
-          ],
-          [
-            "pardon|sorry|again|repeat|\\?",
-            "Could you spell your surname slowly for me?"
+            "slowly|letters?|capital|starts?|ends?|begins?",
+            "Okay, thanks for your patience."
           ]
         ]
       }
