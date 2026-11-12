@@ -43,6 +43,7 @@
   function pickWords(cards, opts = {}) {
     const now = opts.now || Date.now(), n = opts.n || 6, list = (Array.isArray(cards) ? cards : Object.values(cards || {})).filter(c => c && c.word && (c.vi || c.def));
     const out = [], seen = new Set(), add = (c, why) => { const k = norm(c.word); if (out.length < n && !seen.has(k)) { seen.add(k); out.push({ card: c, why }); } };
+    if (opts.fixed) { const byK = new Map(list.map(c => [norm(c.word), c])); (opts.starter || []).slice(0, n).forEach(c => add(byK.get(norm(c.word)) || c, byK.has(norm(c.word)) ? 'due' : 'start')); if (out.length >= n) return out; } // nút Lộ trình đã chốt từ: xem trước khớp bài thật
     if (opts.mode === 'review') list.filter(c => c.srs && c.srs.lapses > 0 && (c.srs.reps === 0 || isDue(c, now))).sort((a, b) => b.srs.lapses - a.srs.lapses).forEach(c => add(c, 'due')); // nút Ôn lỗi: từ hay quên trước
     list.filter(c => isDue(c, now)).sort((a, b) => a.srs.due - b.srs.due).forEach(c => add(c, 'due'));
     list.filter(c => !isDue(c, now) && fromExt(c)).sort((a, b) => (b.mod || 0) - (a.mod || 0)).forEach(c => add(c, 'ext'));
