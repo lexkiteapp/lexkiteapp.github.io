@@ -26,7 +26,7 @@ import { landKey, normRef } from './_cpm.js';
 const QUIZ_EV = ['quiz_view', 'quiz_done', 'quiz_cta'];
 const RET_EV = ['ret_on_seen', 'ret_off_seen', 'ret_on_d7', 'ret_off_d7']; // thử nghiệm cờ ret (web/js/app.js retTrack): nhóm bật/đối chứng – đã thấy / chuỗi chạm 7 → kind 'ret:<ev>' (D7 = d7/seen)
 const UX1_EV = ['on', 'off'].flatMap(a => ['seen', 'd1', 'd7'].map(e => `ux1_${a}_${e}`)); // thử nghiệm cờ ux1 (web/js/app.js ux1Track) → kind 'ux1:<ev>' (D1 = d1/seen, D7 = d7/seen)
-const HAB_EV = ['plan_seen', 'plan_start', 'plan_done', 'resume_seen', 'resume_click']; // vòng thói quen trang chủ (web/js/plan.js App.habTrack, 1 lượt/máy/ngày/sự kiện) → kind 'hab:<ev>' – chỉ số đếm, không định danh
+const HAB_EV = ['plan_seen', 'plan_start', 'plan_done', 'resume_seen', 'resume_click', 'back_seen', 'back_go']; // vòng thói quen trang chủ (web/js/plan.js App.habTrack, 1 lượt/máy/ngày/sự kiện) → kind 'hab:<ev>' – chỉ số đếm, không định danh
 const VID_EV = ['view', 'done', 'quiz_ok', 'quiz_no', 'yt_fallback']; // t:'v' – video bài học (lesson-video.js)
 const CTA_EV = ['ext_land', 'ext_feat', 'ext_blog', 'ext_app', 'ext_set', 'ext_nudge',
   ...['head', 'foot', 'menu', 'me', 'top'].flatMap(p => ['cws', 'play', 'ios', 'a2hs', 'dock', 'web'].map(k => `app_${p}_${k}`))]; // bấm "Thêm vào Chrome" (web/js/ext-cta.js) → kind 'cta:<ev>'
