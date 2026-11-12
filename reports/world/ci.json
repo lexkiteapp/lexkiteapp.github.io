@@ -1,10 +1,10 @@
 {
- "at": "2026-11-11T23:23:35.645Z",
+ "at": "2026-11-12T00:20:23.757Z",
  "workflows": {
   "npm-test": {
    "conclusion": "success",
-   "at": "2026-11-11T19:53:31Z",
-   "id": 43090937803
+   "at": "2026-11-11T23:49:49Z",
+   "id": 43122326153
   },
   "visual-qa": {
    "conclusion": "success",
@@ -14,8 +14,8 @@
   "new-ui-qa": null,
   "mobile-qa": {
    "conclusion": "success",
-   "at": "2026-11-11T20:04:54Z",
-   "id": 43090937644
+   "at": "2026-11-11T23:36:57Z",
+   "id": 43119192441
   },
   "journey-e2e": {
    "conclusion": "success",
@@ -38,16 +38,16 @@
    "id": 42998563294
   },
   "qa-bot": {
-   "conclusion": "failure",
-   "at": "2026-11-11T21:01:54Z",
-   "id": 43093326412
+   "conclusion": "success",
+   "at": "2026-11-12T00:07:43Z",
+   "id": 43121234885
   }
  },
  "mobile": {
-  "maxLcp": 6666,
+  "maxLcp": 6288,
   "maxCls": 0.0757,
-  "maxInp": 136,
-  "maxTbt": 68,
-  "at": "2026-11-11T19:59:08.694Z"
+  "maxInp": 160,
+  "maxTbt": 119,
+  "at": "2026-11-11T23:30:49.770Z"
  }
 }
