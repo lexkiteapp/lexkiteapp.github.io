@@ -816,6 +816,8 @@
   "model.commonMistakes": "Частые ошибки",
   "model.band6EssayFor": "Эссе на балл 6 для сравнения",
   "model.whyItOnlyReaches": "Почему только балл 6",
+  "model.band7EssayFor": "Эссе уровня 7 для сравнения",
+  "model.whyItHasntReached": "Почему оно еще не достигло более высокого уровня",
   "model.savedPhrasesToYour": "Сохранено {n} фраз в вашем разговорнике.",
   "model.selectTextInThe2": "Выделите текст в эссе, чтобы выделить его",
   "model.highlightingOff": "Выделение выключено",

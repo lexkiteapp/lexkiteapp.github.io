@@ -816,6 +816,8 @@
   "model.commonMistakes": "Common mistakes",
   "model.band6EssayFor": "Band 6 essay for comparison",
   "model.whyItOnlyReaches": "Why it only reaches band 6",
+  "model.band7EssayFor": "Band 7 essay for comparison",
+  "model.whyItHasntReached": "Why it hasn’t reached a higher band",
   "model.savedPhrasesToYour": "Saved {n} phrases to your Phrasebook",
   "model.selectTextInThe2": "Select text in the essay to highlight it",
   "model.highlightingOff": "Highlighting off",

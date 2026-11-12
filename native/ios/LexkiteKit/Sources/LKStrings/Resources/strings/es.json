@@ -816,6 +816,8 @@
   "model.commonMistakes": "Errores comunes",
   "model.band6EssayFor": "Redacción de banda 6 para comparar",
   "model.whyItOnlyReaches": "Por qué solo alcanza la banda 6",
+  "model.band7EssayFor": "Ensayo de banda 7 para comparar",
+  "model.whyItHasntReached": "Por qué no alcanza una banda superior",
   "model.savedPhrasesToYour": "{n} frases guardadas en tu libro de frases",
   "model.selectTextInThe2": "Seleccione el texto del ensayo para resaltarlo.",
   "model.highlightingOff": "Resaltado desactivado",
