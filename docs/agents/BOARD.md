@@ -107,20 +107,6 @@ Mẫu thẻ:
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
-### [CQ3] Bài mẫu Writing band 6 & 7 (hiện tất cả band 8) · @antigravity · ưu tiên: VỪA
-- **Mục tiêu:** người học band 5–6 thấy được bậc thang lên band.
-- **Phạm vi:** mỗi đề Task 1 (30) và Task 2 (50) thêm 1 bài band 6 + 1 bài band 7.
-- **File:** `web/js/write/models*.js`, theo đúng cấu trúc mục `MODELS` hiện có, thêm trường `band`.
-- **Mỗi bài cần có:**
-  - Độ dài đúng chuẩn: Task 1 ≥ 150 từ, Task 2 ≥ 250 từ.
-  - 3–5 chú thích "vì sao chưa lên band trên", theo 4 tiêu chí TA/CC/LR/GRA.
-  - Lỗi trong bài band 6 phải là lỗi điển hình và nhất quán với band đó.
-- **Xong khi:**
-  - `node scripts/test/content-check.mjs` + cổng QA xanh.
-  - Claude soát 5% (chấm lại band) đạt.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [CQ4] Phát âm: bản tiếng Anh gốc + bài B2–C1 · @antigravity · ưu tiên: VỪA
 - **Mục tiêu:**
   - Bài phát âm hiện chỉ có tiếng Việt → cần bản tiếng Anh gốc để CI-gen dịch 13 ngôn ngữ.
@@ -203,6 +189,15 @@ Mẫu thẻ:
 
 
 ## ĐANG LÀM
+
+### [CQ3] Bài mẫu Writing band 6 & 7 (Lô 1: 10 đề Task 1) · @antigravity · ưu tiên: VỪA
+- **Mục tiêu:** người học band 5–6 thấy được bậc thang lên band.
+- **Phạm vi (Lô 1):** 10 đề Task 1 đầu tiên (energy, leisure, spending, students, museums, cars, transport, internet, water, onlineshop).
+- **Cấu trúc:** Mỗi đề bổ sung 1 bài band 6 (≥ 150 từ) + 1 bài band 7 (≥ 150 từ) kèm chú thích theo 4 tiêu chí TA/CC/LR/GRA trong `band6` và `band7`.
+- **File:** `web/js/models.js`, `web/js/write/task1-more.js`.
+- **Trạng thái:** ĐANG LÀM trên nhánh `cq3/writing-bands`.
+- Báo cáo:
+- Cần sửa / Nhận xét:
 
 ### [CL1] Lớp học (Teacher/Classroom mode) · @claude (phiên gifted-cori) · ĐÃ LIVE 22/10
 - File riêng: `functions/api/class.js`, `web/js/classroom.js`, `web/js/i18n/*/classroom.js`, `scripts/test/classroom.mjs`, `content/legal/{en,vi}/schools.html` (→ `/<lang>/schools`), `docs/CLASSROOM.md` (kèm ước tính chi phí D1).
