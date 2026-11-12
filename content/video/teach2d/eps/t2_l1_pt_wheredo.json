@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_wheredo",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Questions need help!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Where you live?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Where do you live?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Questions need do or does.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Do! Where do you work?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Where you live?",
+  "right": "Where do you live?",
+  "strike": "Where you live",
+  "why": "Questions need do or does.",
+  "memory": "Question word, then do.",
+  "quiz": {
+   "stem": "Where ___ you work?",
+   "options": [
+    "do",
+    "are"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “Where you live?”",
+   "tip": "Nas perguntas, precisamos do auxiliar “do” ou “does”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Where you live?”. O certo é “Where do you live?”. Em português basta mudar a entonação; em inglês não. Ouça o Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “do”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#inglesfacil",
+    "#falaringles",
+    "#inglesdodia",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “Where you live?”",
+   "tip": "In questions, we need the helper “do” or “does”.",
+   "caption": "Watch out for this common mistake! Many people say “Where you live?”. The right way is “Where do you live?”. In Portuguese the tone is enough; in English it is not. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “Where you live?”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "Você diz “Where you live?”",
+  "keyword": "Where do you live?",
+  "value": "Nas perguntas, precisamos do auxiliar “do” ou “does”.",
+  "hashtags": [
+   "#inglesfacil",
+   "#falaringles",
+   "#inglesdodia",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “Where you live?”",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “Where you live?”. O certo é “Where do you live?”. Em português basta mudar a entonação; em inglês não. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesfacil #falaringles #inglesdodia #lexkite",
+    "tags": [
+     "Where do you live?",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “Where you live?”. O certo é “Where do you live?”. Em português basta mudar a entonação; em inglês não. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “Where you live?”. O certo é “Where do you live?”. Em português basta mudar a entonação; em inglês não. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#inglesfacil",
+     "#falaringles",
+     "#inglesdodia",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “Where you live?” #inglesfacil #falaringles #inglesdodia"
+   }
+  },
+  "first_comment": "Resposta: “do”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}
