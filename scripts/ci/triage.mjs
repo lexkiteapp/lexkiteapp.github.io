@@ -253,7 +253,7 @@ async function sweep() {
   catch (e) { console.log('::warning::pr-common-red: ' + e.message); }
   // 1c) workflow tốn runner bất thường (scripts/ci/ci-hog.mjs) – mỗi 3 giờ: ~12–40 lệnh API (hạn mức GITHUB_TOKEN dùng chung với required-gate)
   if (now.getUTCHours() % 3 === 0 || force) try {
-    const h = await import('./ci-hog.mjs'), r = h.hogReport(await h.fetchRuns(gh, +now));
+    const h = await import('./ci-hog.mjs'), r = h.hogReport(await h.fetchRuns(gh, +now), h.shardedNames());
     summary(r.md); summary(`- Issue runner: ${await h.syncIssue(gh, r, LABEL)}`);
     if (r.bad.length) console.log(`::error::${r.bad.length} workflow tốn runner bất thường: ${r.bad.map(b => b.name).join(', ')}`);
     if (process.env.LEXKITE_DRIVE_CLI_KEY) { const { driveApi } = await import('../video/library.mjs'); await driveApi('ext_alert', { kind: 'ci_hog', ok: !r.bad.length, n: Math.max(1, r.bad.length), msg: r.bad.map(b => `${b.name}: ${b.why}`).join(' · ').slice(0, 300), repo: REPO }); }
