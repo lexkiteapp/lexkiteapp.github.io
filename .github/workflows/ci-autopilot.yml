@@ -1,5 +1,5 @@
 # ci-autopilot (12/11, chủ: "CI nhàn rỗi mà 65 PR chất đống"): mỗi 10 phút duyệt PR mở – gộp main vào PR tụt (bắt xung đột ẩn sớm), báo xung đột 1 lần,
-# chạy lại check hỏng vì hạ tầng (≤ 2 lần), gộp PR xanh hẳn (cần secret AUTOPILOT_MERGE_TOKEN: gộp bằng github.token không kích workflow push-main), nạp việc theo ngân sách
+# chạy lại check hỏng vì hạ tầng (≤ 2 lần), gộp PR xanh hẳn (cần env AUTOPILOT_MERGE_TOKEN – chưa nối secret: gộp bằng github.token không kích workflow push-main), nạp việc theo ngân sách
 # runner (busy < 24/40, chừa ≥ 16 trống). Bản tin: job summary + issue ghim "CI autopilot". Dùng lại pr-unconflict.fix + filler.measure. Script + test: scripts/ci/autopilot.mjs, scripts/test/ci-autopilot.mjs.
 # ci-policy: all-paths – lịch/dispatch, không gắn với đường dẫn
 # ci-policy: queue – lượt đang đẩy nhánh PR không được huỷ giữa chừng; lượt chờ chạy ngay sau
@@ -24,5 +24,5 @@ jobs:
       - name: Duyệt PR
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          AUTOPILOT_MERGE_TOKEN: ${{ secrets.AUTOPILOT_MERGE_TOKEN }}
+          # AUTOPILOT_MERGE_TOKEN: thêm dòng '${{ secrets.AUTOPILOT_MERGE_TOKEN }}' SAU KHI chủ tạo secret (accounts.mjs chặn secret chưa có trong sổ)
         run: node scripts/ci/autopilot.mjs ${{ inputs.dry && '--dry' || '' }}

@@ -39,6 +39,6 @@ ok(/concurrency:\s*\{[^}]*group: ci-autopilot/.test(wf) && /timeout-minutes:\s*\
 ok(/cron:/.test(wf) && /workflow_dispatch:/.test(wf) && !/workflow_run|check_suite|check_run|pull_request/.test(wf.replace(/^#.*$/gm, '')), 'lịch + dispatch, KHÔNG fan-out workflow_run/check_suite/PR');
 ok(!/--no-verify|force|skip.?check|enable.?auto/i.test(src.replace(/^\s*\/?\*.*$/gm, '').replace(/\/\/.*$/gm, '').replace(/`[^`]*`/g, '')), 'mã không bỏ check / force');
 ok(/decide\(fresh\)\.act === 'merge'/.test(src) && /merge_method: 'squash'/.test(src) && /sha: pr\.sha/.test(src), 'gộp: đọc lại + quyết định lại ngay trước khi gộp, squash, ghim sha');
-ok(/AUTOPILOT_MERGE_TOKEN/.test(wf), 'workflow truyền token gộp (github.token không kích workflow push-main)');
+ok(/process\.env\.AUTOPILOT_MERGE_TOKEN/.test(src) && /mergeToken && merges < MAX_MERGES/.test(src), 'chỉ gộp khi có token gộp riêng (github.token không kích workflow push-main)');
 if (fail) { console.error(`ci-autopilot: ${fail} lỗi`); process.exit(1); }
 console.log('ci-autopilot: OK');
