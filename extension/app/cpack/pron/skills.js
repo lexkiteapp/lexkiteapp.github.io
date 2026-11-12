@@ -47,7 +47,7 @@ quiz: [
 P.push({
 id: 'ed-endings', group: 'vn', ipa: '/t/ /d/ /ɪd/', title: 'Đuôi -ed: /t/, /d/ hay /ɪd/?', emoji: '🔚', level: 'A2', titleEn: "Past -ed: /t/, /d/ or /ɪd/?",
 how: 'Cách đọc -ed phụ thuộc vào ÂM cuối của động từ gốc (không phải chữ cái). Chỉ khi động từ kết thúc bằng âm /t/ hoặc /d/ thì -ed mới thêm một âm tiết /ɪd/. Các trường hợp khác -ed chỉ là một phụ âm dính vào cuối: /t/ sau âm vô thanh, /d/ sau âm hữu thanh và nguyên âm.',
-howEn: "The pronunciation of the regular -ed suffix depends entirely on the final sound of the root verb. Only when the base verb ends in the sounds /t/ or /d/ does -ed add an extra syllable /ɪd/. Otherwise, it is an attached single consonant: /t/ after voiceless sounds, and /d/ after voiced sounds and vowels.",
+howEn: "The pronunciation of the regular -ed suffix depends on the final sound (not the final letter) of the base verb. Only when the base verb ends in the sounds /t/ or /d/ does -ed add an extra syllable /ɪd/. Otherwise -ed is just a single consonant added to the end: /t/ after voiceless sounds, and /d/ after voiced sounds and vowels.",
 rules: [
 { label: '/ɪd/', when: 'sau âm /t/, /d/ – thêm một âm tiết', ex: ['wanted', 'needed', 'decided'] },
 { label: '/t/', when: 'sau âm vô thanh /p k f s ʃ tʃ θ/', ex: ['developed', 'reduced', 'watched'] },
@@ -55,7 +55,7 @@ rules: [
 ],
 vn: 'Người Việt thường bỏ hẳn -ed (“I work there last year”), hoặc đọc mọi -ed thành /ɪd/ (“work-ed”, “stop-ed”) khiến từ thừa một âm tiết. Một lỗi khác là đọc theo chữ: “increased” kết thúc bằng chữ “e” nhưng âm cuối của “increase” là /s/ vô thanh nên -ed đọc /t/. Cách sửa: xác định âm cuối của động từ gốc, rồi nối -ed với từ tiếp theo (“developed_a plan” → /dɪˈveləptə/).',
 tip: 'Câu thần chú: “Tiền Đô → /ɪd/” (t, d thêm âm tiết). Còn lại: đặt tay lên cổ – rung thì /d/, không rung thì /t/. Lưu ý vài tính từ đặc biệt đọc /ɪd/: naked, wicked, learned (uyên bác), aged (già).',
-tipEn: "Tip: “T and D add a beat” – /ɪd/ appears only after /t/ or /d/. Otherwise check the last sound of the base verb: after a voiced sound -ed is /d/, after a voiceless sound it is /t/. A few adjectives take /ɪd/: naked, wicked, learned (= scholarly) and aged (= elderly).",
+tipEn: "Tip: “T and D add a beat” – /ɪd/ appears after /t/ or /d/. Otherwise put a hand on your throat and say the last sound of the base verb: if it vibrates, -ed is /d/; if not, /t/. As exceptions, a few adjectives take /ɪd/: naked, wicked, learned (= scholarly) and aged (= elderly).",
 words: [
 { w: 'developed', ipa: '/dɪˈveləpt/', note: '/t/ (sau /p/)' },
 { w: 'increased', ipa: '/ɪnˈkriːst/', note: '/t/ (sau /s/)' },
@@ -246,7 +246,7 @@ quiz: [
 P.push({
 id: 'word-stress', group: 'stress', ipa: '/ˈ/ Oo – oO', title: 'Trọng âm từ: các quy tắc cốt lõi', emoji: '🎯', level: 'B1', titleEn: "Core Rules of Word Stress",
 how: 'Mỗi từ nhiều âm tiết có một âm tiết được nhấn: to hơn, dài hơn, cao hơn và nguyên âm rõ. Các âm tiết không nhấn thường bị giảm thành /ə/ hoặc /ɪ/. Sai trọng âm khiến người bản ngữ khó nhận ra từ hơn cả sai một âm. Ký hiệu: O = âm tiết nhấn, o = không nhấn; trong IPA, dấu ˈ đứng TRƯỚC âm tiết được nhấn.',
-howEn: "In English, stressed syllables are usually longer, louder and higher in pitch, while unstressed syllables often reduce to /ə/ or /ɪ/. Wrong stress can hinder recognition more than a wrong single sound. In IPA the mark ˈ comes before the stressed syllable. Several patterns are useful tendencies, not exceptionless rules: two-syllable nouns and adjectives are often stressed on the first syllable, two-syllable verbs on the second, and suffixes such as -tion, -ic and -ity usually pull the stress onto the syllable just before them.",
+howEn: "In English, stressed syllables are usually longer, louder, higher in pitch and have a full vowel, while unstressed syllables often reduce to /ə/ or /ɪ/. Wrong stress can hinder recognition more than a wrong single sound. In the notation here O = stressed syllable and o = unstressed; in IPA the mark ˈ comes before the stressed syllable. Several patterns are useful tendencies, not exceptionless rules: two-syllable nouns and adjectives are often stressed on the first syllable, two-syllable verbs on the second, and suffixes such as -tion, -ic and -ity usually pull the stress onto the syllable just before them.",
 rules: [
 { label: 'Danh từ/tính từ 2 âm tiết', when: 'thường nhấn âm 1 (Oo)', ex: ['ˈproduct', 'ˈrecord (n)', 'ˈmodern'] },
 { label: 'Động từ 2 âm tiết', when: 'thường nhấn âm 2 (oO)', ex: ['reˈcord (v)', 'deˈcide', 'imˈprove'] },
@@ -256,7 +256,7 @@ rules: [
 ],
 vn: 'Tiếng Việt mỗi âm tiết đều rõ và đều nhau, nên người Việt hay đọc “e-du-ca-tion” bốn âm tiết bằng nhau, hoặc nhấn âm cuối theo thói quen (“compuTER”, “deveLOP”). Cách sửa: khi học từ mới, luôn ghi kèm mẫu trọng âm (oOo…), vỗ tay mạnh ở âm tiết nhấn, và giảm các nguyên âm còn lại thành /ə/.',
 tip: 'Thần chú: “Danh trước – Động sau – Đuôi đứng trước.” Danh từ 2 âm tiết nhấn trước, động từ nhấn sau, còn -tion/-ic/-ity thì nhấn ngay âm tiết đứng trước đuôi.',
-tipEn: "Tip: Two-syllable nouns first, two-syllable verbs second, and stress the syllable before endings like -tion, -ic and -ity. These are strong tendencies with exceptions, so check the dictionary for new words.",
+tipEn: "Tip: Two-syllable nouns: stress the first syllable; two-syllable verbs: the second; and stress the syllable just before -tion, -ic or -ity. These are strong tendencies with exceptions, so check the dictionary for new words.",
 words: [
 { w: 'record (n)', ipa: '/ˈrekɔːd/', note: 'Oo' },
 { w: 'record (v)', ipa: '/rɪˈkɔːd/', note: 'oO' },
@@ -287,7 +287,7 @@ quiz: [
 P.push({
 id: 'stress-shift', group: 'stress', ipa: '/ˈfəʊtəɡrɑːf/ → /fəˈtɒɡrəfi/', title: 'Trọng âm “nhảy” trong họ từ', emoji: '🦘', level: 'B2', titleEn: "Stress Shift in Word Families",
 how: 'Khi thêm hậu tố, trọng âm có thể di chuyển sang âm tiết khác – và nguyên âm thay đổi theo: âm tiết được nhấn có nguyên âm đầy đủ, âm tiết mất trọng âm bị giảm thành /ə/. Ví dụ: ˈPHOtograph /ˈfəʊtəɡrɑːf/ → phoˈTOgraphy /fəˈtɒɡrəfi/ → photoˈGRAphic /ˌfəʊtəˈɡræfɪk/. Chữ “o” đầu tiên đổi từ /əʊ/ thành /ə/ rồi lại /əʊ/.',
-howEn: "When a suffix is added, stress often moves to a different syllable, and the vowel of the previously stressed syllable reduces: in British English the first “o” of photograph is /əʊ/, becomes /ə/ in photography, and is /əʊ/ again in photographic (/ˈfəʊtəɡrɑːf/ → /fəˈtɒɡrəfi/ → /ˌfəʊtəˈɡræfɪk/). Keeping the stress of the base word (PHOtography) is an error that listeners notice easily.",
+howEn: "When a suffix is added, stress often moves to a different syllable. The previously stressed syllable reduces, while the newly stressed syllable gets a full vowel. In British English the first “o” of photograph is /əʊ/ (/ˈfəʊtəɡrɑːf/), reduces to /ə/ in photography (/fəˈtɒɡrəfi/), and is /əʊ/ again in photographic (/ˌfəʊtəˈɡræfɪk/), where it has secondary stress. Keeping the stress of the base word (PHOtography) is an error that listeners notice easily.",
 rules: [
 { label: '-y, -ity, -ism (sau gốc nhiều âm tiết)', when: 'trọng âm thường lùi về âm thứ 3 từ cuối', ex: ['phoˈtography', 'eˈconomy', 'deˈmocracy'] },
 { label: '-ic, -ical', when: 'nhấn ngay trước hậu tố', ex: ['photoˈgraphic', 'ecoˈnomic', 'demoˈcratic'] },
@@ -296,7 +296,7 @@ rules: [
 ],
 vn: 'Người học thường “giữ nguyên” trọng âm của từ gốc cho cả họ từ: đọc “PHOtography”, “POlitical”, “ECOnomic”. Đây là lỗi đặc biệt dễ nghe thấy trong IELTS vì các từ economy/economic, technology/technological xuất hiện liên tục. Cách sửa: học họ từ theo bộ, đọc to cả bộ liền nhau và vỗ tay theo trọng âm.',
 tip: 'Mẹo: Đếm từ cuối lên. -y/-ity: nhấn âm thứ 3 từ cuối; -ic/-ian/-tion: nhấn âm thứ 2 từ cuối (ngay trước đuôi).',
-tipEn: "Tip: Count back from the end. -y/-ity usually put the stress on the third syllable from the end (phoˈtography, eˈconomy); -ic/-ian/-tion put it on the syllable just before the ending (photoˈgraphic, poliˈtician). IPA here is British; learn each word family as a set.",
+tipEn: "Tip: Count back from the end. -y/-ity usually put the stress on the third syllable from the end (phoˈtography, eˈconomy); -ic/-ian/-tion usually put it on the syllable just before the ending (photoˈgraphic, poliˈtician). IPA here is British; learn each word family as a set.",
 words: [
 { w: 'photograph', ipa: '/ˈfəʊtəɡrɑːf/', note: 'Ooo' },
 { w: 'photography', ipa: '/fəˈtɒɡrəfi/', note: 'oOoo' },
