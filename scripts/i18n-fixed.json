@@ -40378,5 +40378,35 @@
     "ar": "تحقق من إجابتي",
     "ru": "Проверить мой ответ",
     "tr": "Cevabımı kontrol et"
+  },
+  "Điểm gần nhất": {
+    "es": "Última puntuación",
+    "pt": "Última pontuação",
+    "fr": "Dernier score",
+    "de": "Letzte Punktzahl",
+    "id": "Skor terakhir",
+    "th": "คะแนนล่าสุด",
+    "zh": "最近得分",
+    "ja": "最新スコア",
+    "ko": "최근 점수",
+    "hi": "नवीनतम स्कोर",
+    "ar": "آخر نتيجة",
+    "ru": "Последний результат",
+    "tr": "Son puan"
+  },
+  "Nên luyện thêm {skill}: điểm thấp nhất ở lần thi gần nhất.": {
+    "es": "Practica {skill} a continuación: fue tu puntuación más baja la última vez.",
+    "pt": "Pratique {skill} a seguir: foi a sua pontuação mais baixa da última vez.",
+    "fr": "Travaille {skill} ensuite : c'était ton score le plus faible la dernière fois.",
+    "de": "Übe als Nächstes {skill}: Das war zuletzt dein schwächstes Ergebnis.",
+    "id": "Latih {skill} berikutnya: skornya paling rendah terakhir kali.",
+    "th": "ฝึก {skill} ต่อเลย: ครั้งล่าสุดได้คะแนนต่ำที่สุด",
+    "zh": "接下来练习{skill}:上次这项得分最低。",
+    "ja": "次は{skill}を練習しましょう。前回いちばん低いスコアでした。",
+    "ko": "다음에는 {skill}을(를) 연습하세요. 지난번 점수가 가장 낮았어요.",
+    "hi": "अब {skill} का अभ्यास करें: पिछली बार इसमें सबसे कम अंक थे।",
+    "ar": "تدرّب على {skill} الآن: كانت أدنى درجة لك في المرة السابقة.",
+    "ru": "Потренируйте {skill}: в прошлый раз это был самый низкий результат.",
+    "tr": "Sırada {skill} çalış: geçen sefer en düşük puanın buydu."
   }
 }

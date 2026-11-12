@@ -1,0 +1,254 @@
+{
+ "_doc": "Hub Thi (#/tests) – d do HubV2.tests (web/js/hubs-v2.js), route trong web/js/hubs.js. Mẫu brand/stitch/v3/app/hub-tests (trường ref của coverage). Chuyển kỳ thi = App.setExam; thẻ điểm chỉ hiện khi có điểm thật, thẻ giáo viên nói bước tiếp theo; thẻ lớn = bài đầu của kỳ thi (4 phần chỉ IELTS, phút theo mock.js); thẻ \"15-Minute Diagnostic\" = Kiểm tra trình độ; hàng CBT (protos.row) = các bài còn lại và Kỳ thi khác; Recent = lịch sử điểm thật hoặc dòng trống. Bỏ chữ mẫu bịa: Preparedness 85 %, 12 days, +50 XP, 2h 45m, Last 30 days.",
+ "compact": true,
+ "keys": {
+  "Điểm gần nhất": "Latest score",
+  "Nên luyện thêm {skill}: điểm thấp nhất ở lần thi gần nhất.": "Practise {skill} next: it was your lowest score last time."
+ },
+ "protos": {
+  "row": {
+   "sel": ":scope > main > div > section:nth-child(7)",
+   "html": {
+    ":scope > div:nth-child(1) > div:nth-child(1) > span": "e(d.icon)",
+    ":scope > div:nth-child(1) > div:nth-child(2) > h4": "e(d.title)",
+    ":scope > div:nth-child(1) > div:nth-child(2) > p": "e(d.desc)"
+   },
+   "attr": {
+    ":scope": {
+     "href": "d.href"
+    }
+   },
+   "tag": {
+    ":scope": {
+     "to": "a",
+     "addClass": "text-inherit"
+    }
+   }
+  }
+ },
+ "remove": [
+  ":scope > main > header",
+  ":scope > main > nav",
+  ":scope > main > div > section:nth-child(6)"
+ ],
+ "repeat": [
+  {
+   "list": "d.ready",
+   "as": "r",
+   "variants": {
+    "one": ":scope > main > div > section:nth-child(3)"
+   },
+   "bind": {
+    "one": {
+     "repeat": [
+      {
+       "list": "r.gap",
+       "as": "g",
+       "variants": {
+        "one": ":scope > div:nth-child(1) > div:nth-child(2)"
+       },
+       "bind": {
+        "one": {
+         "html": {
+          ":scope > span:nth-child(2)": "e(g)"
+         }
+        }
+       }
+      },
+      {
+       "list": "r.bands",
+       "as": "b",
+       "samples": ":scope > div:nth-child(3) > div",
+       "variants": {
+        "one": ":scope > div:nth-child(3) > div:nth-child(1)"
+       },
+       "bind": {
+        "one": {
+         "html": {
+          ":scope > span:nth-child(1)": "e(b.name)",
+          ":scope > span:nth-child(2)": "e(b.val)"
+         }
+        }
+       }
+      }
+     ],
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(1) > span": "e(t('Điểm gần nhất'))",
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > span:nth-child(1)": "e(r.score)",
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > span:nth-child(2)": "e(r.target)"
+     },
+     "cls": {
+      ":scope > div:nth-child(3)": {
+       "grid": "r.bands.length ? 'grid' : 'hidden'"
+      }
+     },
+     "addClass": {
+      ":scope > div:nth-child(1) > div:nth-child(1) > div > span:nth-child(2)": "empty:hidden"
+     },
+     "remove": [
+      ":scope > div:nth-child(2)"
+     ]
+    }
+   }
+  },
+  {
+   "list": "d.exams",
+   "as": "x",
+   "pick": "x.on ? 'on' : 'off'",
+   "samples": ":scope > main > div > section:nth-child(2) > button",
+   "variants": {
+    "on": ":scope > main > div > section:nth-child(2) > button:nth-child(1)",
+    "off": ":scope > main > div > section:nth-child(2) > button:nth-child(2)"
+   },
+   "bind": {
+    "on": {
+     "html": {
+      ":scope": "e(x.short)"
+     },
+     "attr": {
+      ":scope": {
+       "data-exam-set": "x.k",
+       "aria-pressed": "x.on ? 'true' : 'false'",
+       "aria-label": "x.name",
+       "type": "'button'"
+      }
+     },
+     "addClass": {
+      ":scope": "min-h-[44px]"
+     }
+    },
+    "off": {
+     "html": {
+      ":scope": "e(x.short)"
+     },
+     "attr": {
+      ":scope": {
+       "data-exam-set": "x.k",
+       "aria-pressed": "x.on ? 'true' : 'false'",
+       "aria-label": "x.name",
+       "type": "'button'"
+      }
+     },
+     "addClass": {
+      ":scope": "min-h-[44px]"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.rows",
+   "as": "r",
+   "samples": ":scope > main > div > section:nth-child(7) > div:nth-child(2) > div",
+   "variants": {
+    "one": ":scope > main > div > section:nth-child(7) > div:nth-child(2) > div:nth-child(1)"
+   },
+   "bind": {
+    "one": {
+     "html": {
+      ":scope > div > div:nth-child(1)": "e(r.score)",
+      ":scope > div > div:nth-child(2) > span:nth-child(1)": "e(r.title)",
+      ":scope > div > div:nth-child(2) > span:nth-child(2)": "e(r.meta)"
+     },
+     "cls": {
+      ":scope > div > div:nth-child(1)": {
+       "w-9": "'min-w-[2.25rem] px-1 flex-none'"
+      }
+     },
+     "addClass": {
+      ":scope > div > div:nth-child(2) > span:nth-child(2)": "empty:hidden"
+     },
+     "remove": [
+      ":scope > span"
+     ]
+    }
+   }
+  },
+  {
+   "list": "d.main.mods",
+   "as": "r",
+   "samples": ":scope > main > div > section:nth-child(4) > div:nth-child(2) > div",
+   "variants": {
+    "one": ":scope > main > div > section:nth-child(4) > div:nth-child(2) > div:nth-child(1)"
+   },
+   "bind": {
+    "one": {
+     "html": {
+      ":scope > span": "e(r.icon)",
+      ":scope > div > span:nth-child(1)": "e(r.name)",
+      ":scope > div > span:nth-child(2)": "e(r.sub)"
+     }
+    }
+   }
+  }
+ ],
+ "html": {
+  ":scope > main > div > section:nth-child(1) > h1": "e(t('Thi thử'))",
+  ":scope > main > div > section:nth-child(1) > p": "e(t('Làm đề đầy đủ có tính giờ để biết mình đang ở đâu.'))",
+  ":scope > main > div > section:nth-child(3) > div:nth-child(1)": "d.teacher",
+  ":scope > main > div > section:nth-child(3) > div:nth-child(2) > div > span:nth-child(2)": "e(t('Tiếp theo'))",
+  ":scope > main > div > section:nth-child(3) > div:nth-child(2) > p": "e(d.tip)",
+  ":scope > main > div > section:nth-child(4) > div:nth-child(1) > div > span": "e(d.main.exam)",
+  ":scope > main > div > section:nth-child(4) > div:nth-child(1) > div > h2": "e(d.main.title)",
+  ":scope > main > div > section:nth-child(4) > div:nth-child(1) > span": "e(d.main.chip)",
+  ":scope > main > div > section:nth-child(4) > button > span:nth-child(2)": "e(t('Bắt đầu'))",
+  ":scope > main > div > section:nth-child(5) > div:nth-child(1) > div > div > span:nth-child(2)": "e(t('{n} phút', { n: 5 }))",
+  ":scope > main > div > section:nth-child(5) > div:nth-child(1) > div > h3": "e(t('Kiểm tra trình độ (5 phút)'))",
+  ":scope > main > div > section:nth-child(5) > div:nth-child(1) > span": "''",
+  ":scope > main > div > section:nth-child(5) > p": "e(d.placeSub)",
+  ":scope > main > div > section:nth-child(5) > button > span:nth-child(2)": "e(t('Bắt đầu'))",
+  ":scope > main > div > section:nth-child(7) > div:nth-child(1) > h3": "e(t('Lịch sử điểm'))",
+  ":scope > main > div > section:nth-child(7) > div:nth-child(1) > span": "''",
+  ":scope > main > div > section:nth-child(7) > button > span:nth-child(1)": "e(t('Tiến độ & huy hiệu'))"
+ },
+ "attr": {
+  ":scope > main > div > section:nth-child(2)": {
+   "aria-label": "t('Kỳ thi của bạn')"
+  },
+  ":scope > main > div > section:nth-child(3) > div:nth-child(1)": {
+   "aria-label": "''",
+   "aria-hidden": "'true'"
+  },
+  ":scope > main > div > section:nth-child(4) > button": {
+   "href": "d.main.href"
+  },
+  ":scope > main > div > section:nth-child(5) > button": {
+   "href": "'#/placement'"
+  },
+  ":scope > main > div > section:nth-child(7) > button": {
+   "href": "'#/stats'"
+  },
+  ":scope > main > div > section:nth-child(7)": {
+   "id": "'history'"
+  }
+ },
+ "cls": {
+  ":scope > main > div > section:nth-child(4) > div:nth-child(2)": {
+   "grid": "d.main.mods.length ? 'grid' : 'hidden'"
+  }
+ },
+ "addClass": {
+  ":scope > main": "pt-14",
+  ":scope > main > div > section:nth-child(4) > div:nth-child(1) > span": "empty:hidden",
+  ":scope > main > div > section:nth-child(5) > div:nth-child(1) > span": "empty:hidden",
+  ":scope > main > div > section:nth-child(7) > div:nth-child(1) > span": "empty:hidden"
+ },
+ "tag": {
+  ":scope > main > div > section:nth-child(4) > button": {
+   "to": "a",
+   "addClass": "text-center"
+  },
+  ":scope > main > div > section:nth-child(5) > button": {
+   "to": "a",
+   "addClass": "text-center"
+  },
+  ":scope > main > div > section:nth-child(7) > button": {
+   "to": "a",
+   "addClass": "text-center min-h-[44px]"
+  }
+ },
+ "after": {
+  ":scope > main > div > section:nth-child(4) > div:nth-child(1)": "'<p class=\"text-[14px] font-[500] leading-snug lt:text-[#3f4947] dk:text-[#A9BDBB]\">' + e(d.main.desc) + '</p>'",
+  ":scope > main > div > section:nth-child(5)": "d.more",
+  ":scope > main > div > section:nth-child(7)": "d.other"
+ }
+}

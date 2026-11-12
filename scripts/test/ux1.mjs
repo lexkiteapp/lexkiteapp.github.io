@@ -208,6 +208,21 @@ const tabH = new Set(tabs.map(a => a.getAttribute('href')));
 const tabHubs = new Set(); for (const r of ['vocab', 'skills', 'tests']) { await go('#/' + r, '.hub-grid, .hub-hero, [class*="v2-hub"], .v2-skills'); $$('#view a[href^="#/"]').forEach(a => tabHubs.add(a.getAttribute('href').replace('?hub=1', ''))); }
 const lost = OLD.filter(h => !hub.has(h) && !me.has(h) && !tabH.has(h) && !tabHubs.has(h));
 ok(OLD.length >= 20 && !lost.length, `không cắt: ${OLD.length} lối vào cũ đều tới được qua 5 tab (Từ vựng, Kỹ năng, Thi) / Luyện / Tôi` + (lost.length ? ' – thiếu: ' + lost.join(' ') : ''));
+// Hub Thi Stitch v2 (cờ bật): đủ lối vào, số thật, không chữ/số bịa của mẫu, theo kỳ thi
+const hubLinks = () => new Set($$('#view main a[href]').map(a => a.getAttribute('href')));
+const FAKE = /8,400|36 sets|142 saved|\+45 XP|5 modes|42 audio|Progress|Preparedness|12 days|\+50 XP|2h 45m|Last 30 days|coach|teacher-slot/;
+App.state.settings.exam = 'ielts'; await w.Core.Store.set('mocks', []);
+await go('#/tests', '.v2-hub-tests');
+{ const L = hubLinks(), S = $('.v2-hub-tests').textContent; ok($('.v2-hub-tests') && $('.v2 nav a[data-tab="tests"][aria-current="page"]'), 'Hub Thi: khung Stitch + tab Thi');
+  for (const h of ['#/placement', '#/mock', '#/listening', '#/cbt', '#/toeic', '#/toefl', '#/grammar/mix?n=40', '#/stats']) ok(L.has(h), 'Hub Thi (IELTS) có ' + h);
+  ok($$('.v2-hub-tests [data-exam-set]').length === 5 && $('.v2-hub-tests [data-exam-set="ielts"][aria-pressed="true"]'), 'Hub Thi: 5 kỳ thi, đúng kỳ đang chọn'); ok($('.v2-hub-tests #history'), 'Hub Thi: mục lịch sử (#history)');
+  ok(!FAKE.test(S) && /Chưa có bài thi|No tests|take/i.test(S), 'Hub Thi: chưa thi → trạng thái rỗng rõ ràng, không số bịa'); }
+await w.Core.Store.set('mocks', [{ at: Date.now(), bands: { listening: 7.5, reading: 7, writing: 6, speaking: 6.5 }, overall: 7 }]); App.state.settings.examTarget = '7.5';
+await go('#/tests', '.v2-hub-tests');
+{ const S = $('.v2-hub-tests').textContent; ok(/Band 7(?![.\d])/.test(S) && /\+0\.5/.test(S) && /7\.5/.test(S), 'Hub Thi: điểm thật + khoảng cách tới mục tiêu'); ok(/(Nên luyện thêm|Practise) [^:.]*(Writing|Viết)/i.test(S),'Hub Thi: gợi ý đúng kỹ năng thấp nhất (Writing)'); }
+$('.v2-hub-tests [data-exam-set="toefl"]').click(); await tick(150); await go('#/tests', '.v2-hub-tests');
+ok(App.exam() === 'toefl' && hubLinks().has('#/toefl') && $('.v2-hub-tests [data-exam-set="toefl"][aria-pressed="true"]') && hubLinks().has('#/mock'), 'Hub Thi: chuyển kỳ thi đổi thật; bài kỳ thi khác vẫn tới được');
+App.state.settings.exam = 'ielts'; delete App.state.settings.examTarget; await w.Core.Store.set('mocks', []);
 for (const h of ['#/goal', '#/stats', '#/mistakes', '#/settings']) ok(me.has(h), 'Tôi có ' + h);
 if ($('.v2-me')) { // Tôi (Stitch v2): MỌI mục trang Tôi cũ còn tới được + công tắc/giá trị bám cài đặt thật
   const hrefs = new Set($$('.v2-me main a[href]').map(a => a.getAttribute('href'))), acts = new Set($$('.v2-me [data-act]').map(b => b.getAttribute('data-act')));

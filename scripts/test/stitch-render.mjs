@@ -4,7 +4,7 @@
 // Dùng: node scripts/test/stitch-render.mjs [brand/stitch/v2] [out/stitch-v2]   (cần playwright + imagemagick; CI: stitch-diff.yml)
 import fs from 'node:fs'; import path from 'node:path'; import { execFileSync } from 'node:child_process'; import { chromium } from 'playwright'; import { PNG } from 'pngjs';
 const [SRC = 'brand/stitch/v2', OUT = 'out/stitch-v2'] = process.argv.slice(2); fs.mkdirSync(path.join(OUT, 'png'), { recursive: true });
-export const ORDER = ['today', 'today-new', 'today-desk', 'path', 'lesson-question', 'feedback-correct', 'feedback-wrong', 'lesson-complete', 'story-duo', 'review', 'practice', 'skills', 'leagues', 'streak', 'me', 'teacher-call', 'exam-readiness', 'pas-sit', 'pas-drill'];
+export const ORDER = ['today', 'today-new', 'today-desk', 'path', 'lesson-question', 'feedback-correct', 'feedback-wrong', 'lesson-complete', 'story-duo', 'review', 'practice', 'skills', 'leagues', 'streak', 'me', 'teacher-call', 'exam-readiness', 'hub-tests', 'pas-sit', 'pas-drill'];
 const STILL = '*,*::before,*::after{animation:none!important;transition:none!important;caret-color:transparent!important}';
 // Logo thật trong ảnh mẫu: HTML Stitch chỉ chừa chỗ (<img class="logo">, .wordmark) và mở bằng file:// nên không có file/CSS của app → vẽ bằng đúng web/icons/icon.svg + luật .logo/.wordmark của web/css/style.css (một nguồn, không vẽ logo riêng trong mẫu).
 const APP_CSS = fs.readFileSync('web/css/style.css', 'utf8'), BRAND_CSS = (APP_CSS.match(/^\.(?:logo|wordmark(?: b)?) \{[^\n]*\}[ \t]*$/gm) || []).join('\n'), BRAND_ICON = 'data:image/svg+xml;base64,' + fs.readFileSync('web/icons/icon.svg').toString('base64');
