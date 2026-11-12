@@ -1,4 +1,6 @@
 # Reels hằng ngày tự động (spec 1 trang – 12/11/2026, chờ duyệt)
+> TL;DR: Reels hằng ngày tự động cho mọi page/kênh: 6 định dạng từ template Teach2D có sẵn, chọn chủ đề → dựng → QC → lịch → số liệu, 0 credit, chạy trên CI.
+> Đọc khi: thêm template reels, đổi lịch đăng hằng ngày, kéo số liệu reels.
 
 **Mục tiêu (chủ 12/11):** mỗi page/kênh nhận ≥1–2 reel/ngày, lịch xếp trước ≥30 ngày, tự duyệt + tự đăng, 0 credit Kling, mọi việc nặng chạy trên CI. Đo số liệu và tuần sau ưu tiên định dạng thắng.
 
