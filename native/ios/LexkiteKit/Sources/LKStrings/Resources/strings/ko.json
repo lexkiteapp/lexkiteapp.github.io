@@ -426,6 +426,8 @@
   "rev.addedFromIeltsWordSets": "IELTS 단어 세트에서 추가됨",
   "rev.fromAnki": "Anki에서",
   "rev.importedFromYourAnkiDecks": "Anki 덱에서 가져온 단어",
+  "rev.fromADocument": "문서에서",
+  "rev.importedFromTextPdfEpubSubtitles": "텍스트, PDF, ePub, 자막에서 가져옴",
   "rev.thisLooksTooEasyFor": "너무 쉬워 보이네요. 더 어려운 문제(고르는 대신 직접 입력)로 보너스 XP를 받아 볼까요?",
   "rev.goHarder": "더 어렵게",
   "rev.keepThisLevel": "그대로 하기",

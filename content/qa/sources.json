@@ -99,7 +99,8 @@
   {
    "id": "pron",
    "paths": [
-    "web/js/pron"
+    "web/js/pron",
+    "web/cpack/pron"
    ],
    "owner": "claude",
    "gen": false,
@@ -565,6 +566,7 @@
   "content/dict": "Chỉ chứa stage.json – trạng thái mở index trang từ điển do workflow dict-stage.yml ghi (không phải nội dung học); nội dung trang lấy từ kho từ vựng đã qua cổng vocab/lexicon",
   "content/brand": "tài sản thương hiệu, không phải nội dung học",
   "content/landing": "trang giới thiệu – build-landing.mjs --check",
+  "content/go": "trang đích /go – build-go.mjs --check + test go-landing (15 ngôn ngữ, chữ UI ngắn)",
   "content/legal": "văn bản pháp lý soạn tay",
   "content/pipeline": "hàng đợi/nhật ký pipeline",
   "content/pr": "bài PR/danh bạ",

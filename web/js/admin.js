@@ -1285,6 +1285,7 @@
         </div>
         <p class="small muted mt">${L('Thống kê ẩn danh tự xây: không cookie, không lưu IP; quốc gia do Cloudflare xác định. Chỉ tính người thật: loại bot, máy chủ đám mây (CI GitHub, máy ảo Android/iOS), header CI, chế độ sandbox và tài khoản quản trị. "Hôm nay" theo giờ Việt Nam (UTC+7).')}${a.excluded && a.excluded.s ? ' ' + L('Đã loại trong khoảng này: {n} phiên.', { n: num(a.excluded.s) }) : ''}</p>`;
       if (window.AdminGrowth) { const g = document.createElement('section'); main.appendChild(g); AdminGrowth.render(g, api, L, { esc, num, lang: () => LANG }); } // js/admin-growth.js
+      if (window.AdminChannels) { const g = document.createElement('section'); main.appendChild(g); AdminChannels.render(g, api, L, { esc, num, lang: () => LANG }); } // js/admin-channels.js (phễu kênh/mã bài)
       if (!l) return;
       drawMap(l.countries);
       // Tự cập nhật thẻ trực tiếp 30 giây/lần – chỉ khi đang mở tab Phân tích và trang đang hiển thị

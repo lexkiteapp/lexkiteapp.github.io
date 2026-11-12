@@ -430,6 +430,8 @@ enum class L10nKey(val id: String) {
     revAddedFromIeltsWordSets("rev.addedFromIeltsWordSets"),
     revFromAnki("rev.fromAnki"),
     revImportedFromYourAnkiDecks("rev.importedFromYourAnkiDecks"),
+    revFromADocument("rev.fromADocument"),
+    revImportedFromTextPdfEpubSubtitles("rev.importedFromTextPdfEpubSubtitles"),
     revThisLooksTooEasyFor("rev.thisLooksTooEasyFor"),
     revGoHarder("rev.goHarder"),
     revKeepThisLevel("rev.keepThisLevel"),

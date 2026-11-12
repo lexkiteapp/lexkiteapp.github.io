@@ -107,20 +107,6 @@ Mẫu thẻ:
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
-### [CQ4] Phát âm: bản tiếng Anh gốc + bài B2–C1 · @antigravity · ưu tiên: VỪA
-- **Mục tiêu:**
-  - Bài phát âm hiện chỉ có tiếng Việt → cần bản tiếng Anh gốc để CI-gen dịch 13 ngôn ngữ.
-  - Lộ trình đang hết bài phát âm từ chặng C1.
-- **File:** `web/js/pron/skills.js`, `web/js/pron/sounds.js`.
-  - Thêm `titleEn`, `howEn`, `tipEn` (không đổi `id`).
-  - Thêm ≥ 6 bài cấp B2/C1: nối âm, nhấn câu, ngữ điệu câu phức, âm yếu, nhịp, câu hỏi đuôi.
-- **Từ ví dụ:** phải có trong kho từ, hoặc liệt kê vào Báo cáo để Claude thêm kho. `pron/lexicon` không được tăng.
-- **Xong khi:**
-  - Chạy lại `node scripts/path/build-mix.mjs` thì lộ trình chặng C1 có bài phát âm.
-  - `learn-flow.mjs` xanh.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [CQ5] Bản tiếng Anh gốc cho lời giải / checklist chỉ có tiếng Việt · @antigravity · ưu tiên: CAO
 - **Mục tiêu:** 13 ngôn ngữ khác không còn thấy giải thích tiếng Việt. Bản tiếng Anh là nguồn để CI-gen (Gemini) dịch qua cổng dịch.
 - **Phạm vi:** checklist TOEIC S&W, ghi chú TOEFL Complete the Words, giải thích luyện đọc, thông báo writecheck, ghi chú sâu từ vựng (`web/js/notes/*`), lời giải quiz ngữ pháp.
@@ -196,6 +182,18 @@ Mẫu thẻ:
 - KHÔNG đụng: extension/, web/index.html, landing/blog, native.js, widget-feed.js, lesson-fx/path-*/study.js, swipe/Kit/streak-freeze.
 
 ## CHỜ DUYỆT
+
+### [CQ4] Phát âm: bản tiếng Anh gốc + bài B2–C1 · @antigravity · ưu tiên: VỪA
+- **Mục tiêu:**
+  - Bài phát âm có bản tiếng Anh gốc (`titleEn`, `howEn`, `tipEn`) để CI-gen dịch 13 ngôn ngữ.
+  - Lộ trình chặng C1 có đủ bài phát âm nâng cao.
+- **Phạm vi hoàn thành:**
+  - `web/js/pron/skills.js` + `web/js/pron/sounds.js`: bổ sung đầy đủ `titleEn`, `howEn`, `tipEn`.
+  - Thêm 6 bài phát âm B2/C1 chuẩn ngữ âm: `linking-catenation`, `sentence-stress-focus`, `complex-intonation`, `advanced-weak-forms`, `stress-timed-rhythm`, `question-tag-intonation`.
+  - Đã chạy `node scripts/path/build-mix.mjs` cập nhật `web/js/path-mix.js` lên 62 bài phát âm, chặng C1 có bài đầy đủ.
+  - Từ ví dụ dùng 100% kho từ có sẵn, không tăng `pron/lexicon`.
+- **Báo cáo:** PR #1178 (nhánh `cq4/pron-c1-en`).
+- Cần sửa / Nhận xét:
 
 ### [B5-L7] Lô 7 Blog 12 bài chuẩn SEO (6 AR + 6 HI) · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường lớn: Tiếng Ả Rập (AR) và Tiếng Hindi (HI - 100% Devanagari bản địa). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi 5W1H, tra từ điển Anh-Anh unilingual/एकभाषी, luyện nghe Dictation/डिक्टेशन, từ vựng IELTS AI/Technology và Câu phức/जटिल वाक्य Complex sentences).

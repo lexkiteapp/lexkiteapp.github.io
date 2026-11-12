@@ -426,6 +426,8 @@
   "rev.addedFromIeltsWordSets": "从雅思单词集中添加",
   "rev.fromAnki": "来自 Anki",
   "rev.importedFromYourAnkiDecks": "从你的 Anki 牌组导入",
+  "rev.fromADocument": "来自文档",
+  "rev.importedFromTextPdfEpubSubtitles": "从文本、PDF、ePub 和字幕导入",
   "rev.thisLooksTooEasyFor": "这对你来说似乎太简单了。试试更难的题目（输入而不是选择），赢取额外 XP？",
   "rev.goHarder": "挑战更难",
   "rev.keepThisLevel": "保持难度",

@@ -426,6 +426,8 @@
   "rev.addedFromIeltsWordSets": "IELTS kelime setlerinden eklendi",
   "rev.fromAnki": "Anki'den",
   "rev.importedFromYourAnkiDecks": "Anki destelerinden aktarıldı",
+  "rev.fromADocument": "Belgeden",
+  "rev.importedFromTextPdfEpubSubtitles": "Metin, PDF, ePub ve altyazıdan içe aktarıldı",
   "rev.thisLooksTooEasyFor": "Bu sana fazla kolay görünüyor. Ekstra XP için daha zor sorular (seçmek yerine yazarak) denemek ister misin?",
   "rev.goHarder": "Daha zor",
   "rev.keepThisLevel": "Seviyeyi koru",
