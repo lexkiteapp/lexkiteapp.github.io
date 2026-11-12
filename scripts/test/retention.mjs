@@ -1,6 +1,5 @@
 // 🔥 Lớp giữ thói quen (web/js/retention.js, docs/RETENTION.md): lõi thuần + giao diện trên JSDOM bằng dữ liệu giả (không tài khoản thật).
 import assert from 'node:assert/strict';
-import { uiEsc } from '../lib/ui-esc.mjs';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import { JSDOM } from 'jsdom';
@@ -67,7 +66,7 @@ const dom = new JSDOM(`<!DOCTYPE html><html><body><span id="streakPill">7</span>
 const win = dom.window;
 win.t = (k, p) => { let s = String(k); if (p) for (const [a, b] of Object.entries(p)) s = s.replaceAll('{' + a + '}', b); return s; };
 let modalEl = null, toasts = [];
-win.UI = { esc: uiEsc, modal: h => { modalEl = win.document.getElementById('modal'); modalEl.innerHTML = h; modalEl.hidden = false; return modalEl; }, closeModal: () => { modalEl.hidden = true; modalEl.innerHTML = ''; }, toast: m => toasts.push(m) };
+win.UI = { modal: h => { modalEl = win.document.getElementById('modal'); modalEl.innerHTML = h; modalEl.hidden = false; return modalEl; }, closeModal: () => { modalEl.hidden = true; modalEl.innerHTML = ''; }, toast: m => toasts.push(m) };
 const today = key(new Date());
 const state = { user: { displayName: 'Lan' }, stats: { days: {} }, game: { xp: 100, days: Object.fromEntries([...days].map(k => [k, { xp: 10 }])), frozen: {}, freezes: 1, freezeAt: 7 } };
 win.Game = { mutate: async f => { const s = JSON.parse(JSON.stringify(state.game)); await f(s); return s; } };

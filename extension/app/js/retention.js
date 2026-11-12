@@ -6,7 +6,7 @@
 (function (g) {
   'use strict';
   const t = (k, p) => (g.t ? g.t(k, p) : k);
-  const esc = s => UI.esc(s);
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
   const keyOf = d => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
 
   const MILESTONES = [3, 7, 14, 30, 50, 100, 180, 365];

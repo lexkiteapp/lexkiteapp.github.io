@@ -10,7 +10,7 @@
 (function (g) {
   const YT_EMBED = 'https://www.youtube-nocookie.com/embed/'; // khung nhúng (không phải mã) – add-on giữ được; iframe_api (mã từ xa) bị build-extension.sh gỡ khỏi bản add-on
   const R = () => g.LkVideoRank;
-  const esc = s => UI.esc(s);
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const T = (k, o) => (typeof g.t === 'function' ? g.t(k, o) : k.replace(/\{(\w+)\}/g, (_, x) => (o && o[x] != null ? o[x] : '')));
   const ls = (k, v) => { try { if (v === undefined) return localStorage.getItem('vb.' + k); localStorage.setItem('vb.' + k, v); } catch (e) { return null; } return null; };
   const web = /^https?:$/.test(location.protocol) && /(^|\.)lexkite\.com$|^localhost$|^127\.0\.0\.1$|\.pages\.dev$/.test(location.hostname);

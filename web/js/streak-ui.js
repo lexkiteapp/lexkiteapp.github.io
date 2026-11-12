@@ -6,7 +6,7 @@
   'use strict';
 
   const t = (k, p) => (g.t ? g.t(k, p) : k);
-  const esc = s => UI.esc(s);
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
   // Micro-audio thêm cho Sfx (tách khỏi khung app: game.js chỉ giữ API rỗng cho tới khi gói này nạp xong)
   if (g.Sfx && g.Sfx.extend) g.Sfx.extend((tone, buzz) => ({

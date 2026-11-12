@@ -156,7 +156,7 @@
   const raw = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
   const ASKOFF = OFF && !(raw('lk.e2e') === '1' && (navigator.webdriver || Store.sandbox));
   const tr = (k, v) => (typeof g.t === 'function' ? g.t(k, v) : k);
-  const esc = x => UI.esc(x);
+  const esc = x => String(x == null ? '' : x).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   // Số liệu: shown/open theo mẫu (CTR), ask_yes/ask_no, optin/optout – gộp, gửi bằng beacon text/plain (không preflight), không gửi nội dung học
   const evq = new Map(); let evT = 0;
   const ev = (e, tpl = '', n = 1) => { if (OFF) return; const k = e + '|' + tpl; evq.set(k, (evq.get(k) || 0) + n); clearTimeout(evT); evT = setTimeout(flush, 1500); };

@@ -9,7 +9,7 @@
   const DAY = 864e5, N = 48, CEFR = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   const INTERVALS = [30, 60, 120, 180];
   const DEF = { intervalMin: 60, startHour: 7, endHour: 22, showMean: true };
-  const esc = s => UI.esc(s);
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const clip = (s, n) => { s = String(s || '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim(); return s.length > n ? s.slice(0, n - 1).trim() + '…' : s; };
 
   /** Cấu hình đã chuẩn hóa (settings.wordWidget) */
