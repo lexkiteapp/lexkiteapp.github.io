@@ -43,7 +43,7 @@
 "Viết một đoạn (10 phút)":"Escreva um parágrafo (10 minutos)",
 "Viết trong 10 phút":"Escreva por 10 minutos",
 "Vốn từ":"Variedade de vocabulário",
-"Xem tiến bộ":"Ver meu progresso",
+"Xem tiến bộ":"Ver progresso",
 "Xóa ghi âm trên máy":"Apagar gravações deste dispositivo",
 "Xóa mọi ghi âm bài đo trên máy này? Chỉ số và bài viết vẫn giữ.":"Apagar todas as gravações dos testes neste dispositivo? Suas pontuações e textos são mantidos.",
 "theo số từ bạn đã nói và viết":"com base nas palavras que você falou e escreveu",

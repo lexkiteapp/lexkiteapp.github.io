@@ -638,7 +638,7 @@
 "Từ gắn ngữ cảnh":"语境中的词",
 "Từ học thuật (AWL) đã dùng":"使用的学术词汇 (AWL)",
 "Từ khóa ↔ Paraphrase":"关键词 ↔ 同义改写",
-"Từ mới học":"新学单词",
+"Từ mới học":"新单词",
 "Từ mới mỗi ngày:":"每天新单词：",
 "Từ nối & cụm":"连接词与短语",
 "Từ nối & cụm từ":"连接单词和短语",
