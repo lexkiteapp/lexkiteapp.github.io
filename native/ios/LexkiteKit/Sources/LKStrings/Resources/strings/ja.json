@@ -426,6 +426,8 @@
   "rev.addedFromIeltsWordSets": "IELTS単語セットから追加",
   "rev.fromAnki": "Anki から",
   "rev.importedFromYourAnkiDecks": "Anki のデッキから読み込んだ単語",
+  "rev.fromADocument": "ドキュメントから",
+  "rev.importedFromTextPdfEpubSubtitles": "テキスト・PDF・ePub・字幕から取り込み",
   "rev.thisLooksTooEasyFor": "簡単すぎるようですね。もっと難しい問題（選ぶ代わりに入力）でボーナスXPを狙いませんか？",
   "rev.goHarder": "難しくする",
   "rev.keepThisLevel": "このままで",
