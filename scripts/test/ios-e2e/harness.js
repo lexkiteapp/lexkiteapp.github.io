@@ -433,8 +433,13 @@
             // từ 9dd7763c0 (06/11) màn hẹp: avatar → menu tài khoản (.ux1-menu) có nút "Đăng nhập" [in] → bảng chọn Apple + Google
             const menuIn = m && !m.hidden && m.querySelector('.ux1-menu [data-acct="in"]');
             if (menuIn && vis(menuIn)) { emit({ type: 'info', key: 'auth-menu', via: 'ux1-menu' }); menuIn.click(); await sleep(1500); }
-            const open = m && !m.hidden;
-            const ks = open ? [...m.querySelectorAll('[data-acct]')].filter(vis).map(b => b.dataset.acct) : [];
+            // 12/11 (#1072): chờ có hạn thay vì ngủ cố định – hiệu ứng mở hộp thoại trên runner chậm làm bảng mới chỉ có nút [in]; còn nút "in" thì bấm lại
+            const chooser = () => (m && !m.hidden ? [...m.querySelectorAll('[data-acct]')].filter(vis).map(b => b.dataset.acct) : []);
+            for (let k = 0; k < 8 && !(chooser().includes('apple') && chooser().includes('google')); k++) {
+              const again = m && !m.hidden && m.querySelector('.ux1-menu [data-acct="in"]'); if (again && vis(again) && k % 3 === 2) again.click();
+              await sleep(1000);
+            }
+            const open = m && !m.hidden, ks = chooser();
             emit({ type: 'info', key: 'auth-chooser', ks });
             if (!(ks.includes('apple') && ks.includes('google'))) add('auth', 'Bảng chọn đăng nhập iOS thiếu Apple/Google: [' + ks.join(',') + ']');
             if (open && COMING.test(m.innerText)) add('auth', 'Hộp thoại "sắp có / phát hành chính thức"');

@@ -124,9 +124,9 @@
   // Không tải gói nặng ở trang chủ: dữ liệu có sẵn thì gợi ý đúng bài, chưa có thì dẫn tới trang danh sách.
   // Đếm ẩn danh vòng thói quen trang chủ (hit.js HAB_EV): mỗi máy 1 lượt/ngày/sự kiện, chỉ số đếm, tôn trọng lk.noTrack
   App.habTrack = ev => { try { const k = 'lk.hab.' + ev, d = todayKey(); if (localStorage.getItem('lk.noTrack') === '1' || localStorage.getItem(k) === d) return; localStorage.setItem(k, d); const u = (/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com') + '/api/hit', b = JSON.stringify({ t: 'q', ev }); navigator.sendBeacon ? navigator.sendBeacon(u, b) : fetch(u, { method: 'POST', body: b, keepalive: true, mode: 'no-cors' }).catch(() => {}); } catch (e) { /* bỏ qua */ } };
-  // Kế hoạch 5–10 phút: việc chưa xong đầu tiên luôn giữ; các việc sau chỉ thêm khi tổng chưa quá 10 phút (việc đã xong vẫn hiện để thấy tiến độ)
+  // Kế hoạch 5–10 phút: việc chưa xong đầu tiên luôn giữ; các việc sau chỉ thêm khi tổng chưa quá 10 phút (việc đã xong, việc ưu tiên theo kết quả kiểm tra và nhắc làm kiểm tra luôn giữ)
   const PLAN_MINS = 10;
-  const fitMins = tasks => { let sum = 0, first = true; return tasks.filter(x => { if (x.done) return true; if (first) { first = false; sum = x.mins || 0; return true; } if (sum + (x.mins || 0) > PLAN_MINS) return false; sum += x.mins || 0; return true; }); };
+  const fitMins = tasks => { let sum = 0, first = true; return tasks.filter(x => { if (x.done) return true; if (x.focus || x.href === '#/placement') { sum += x.mins || 0; first = false; return true; } if (first) { first = false; sum += x.mins || 0; return true; } if (sum + (x.mins || 0) > PLAN_MINS) return false; sum += x.mins || 0; return true; }); };
   App.todayPlan = async function () {
     const s = state.settings, g = state.game, d = g.days[todayKey()] || {};
     const ex = App.exam ? App.exam() : 'ielts', dow = new Date().getDay();

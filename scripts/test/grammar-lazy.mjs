@@ -33,7 +33,10 @@ const full = loadContent();
   const c = mkCtx(); dataFiles.forEach(f => run(c, f));
   const ids = LAZY.flatMap(L => lessonsOf(L.src).map(x => x.id));
   assert.equal(lazyOf(c).length, ids.length, 'phải có đủ bài rút gọn');
-  assert.ok(lazyOf(c).every(x => !x.blocks && !x.quiz && x.title && x.en && x.level && x.emoji && x.summary && x.unit && x.order != null), 'bài rút gọn đủ trường danh sách, không có nội dung');
+  // Xưởng nội dung (bank-gen.js) nối câu trắc nghiệm vào bài theo id, kể cả bài rút gọn – put() trong starter2/mastery giữ chúng khi thay bài. Nên quiz của bài rút gọn CHỈ được là câu của kho xưởng (12/11, #1026: lượt đầu có câu cho bài A1 làm test này đỏ 7 đêm).
+  const bank = (JSON.parse(read('../content/factory/grammar-quiz.json')).items) || {};
+  assert.ok(lazyOf(c).every(x => (x.quiz || []).length === (bank[x.id] || []).length), 'bài rút gọn chỉ mang câu của kho xưởng (bank-gen), không mang quiz của bài');
+  assert.ok(lazyOf(c).every(x => !x.blocks && x.title && x.en && x.level && x.emoji && x.summary && x.unit && x.order != null), 'bài rút gọn đủ trường danh sách, không có nội dung');
   assert.ok(Object.keys(c.GRAMMAR_CHECK).length && ids.every(id => c.GRAMMAR_CHECK[id]), 'GRAMMAR_CHECK vẫn đủ 22 bài');
   assert.equal(c.GRAMMAR.length, full.GRAMMAR.length, 'danh sách phải đủ số bài như nạp đầy đủ');
   const n = c.GRAMMAR.length;

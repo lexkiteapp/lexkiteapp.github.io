@@ -1,0 +1,15 @@
+{
+ "id": "cf-mcq-2026-11-12-s1",
+ "source": "content-factory",
+ "kind": "mcq",
+ "n": 6,
+ "checked": [
+  {
+   "id": "possessive-case#0",
+   "ok": false,
+   "note": "options: 'by' is also grammatical, making the answer ambiguous",
+   "by": "openai/gpt-oss-120b"
+  }
+ ],
+ "status": "rejected"
+}

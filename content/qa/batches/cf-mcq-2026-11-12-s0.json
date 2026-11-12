@@ -1,0 +1,15 @@
+{
+ "id": "cf-mcq-2026-11-12-s0",
+ "source": "content-factory",
+ "kind": "mcq",
+ "n": 13,
+ "checked": [
+  {
+   "id": "determiners#0",
+   "ok": false,
+   "note": "qs[0]: Multiple correct answers ('This' and 'That' are both valid for 'book on the shelf') · qs[2]: Multiple correct answers ('Both', 'Each', and 'All' are all grammatically correct with 'passed')",
+   "by": "gemini-3.6-flash"
+  }
+ ],
+ "status": "rejected"
+}
