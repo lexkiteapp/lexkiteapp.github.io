@@ -17,8 +17,10 @@ if [ "$m" = still ]; then
   case $MODEL in kling-*) cmd+=(--imageCount "$N");; *) cmd+=(--image_count "$N");; esac
   cmd+=(--img_resolution 2k --aspect_ratio 9:16 --prompt "$p" --poll=600)
 else
-  p=$(cat "$T/prompts/bank/$id${KEY:+.v4}.clip.txt")
-  if [ -n "$KEY" ]; then   # v4: first = locked hands-down, keyframe_1 = approved pose still (KEY url), tail = locked → loopable gesture, splices at 0 cr
+  p=$(cat "$T/prompts/bank/$id${KEY:+.v4}${LOOP:+.loop}.clip.txt")
+  if [ -n "$LOOP" ]; then   # v4 hold loop: first = tail = the approved pose still (e.g. hold_card: the card never has to appear)
+    cmd=(kling image_to_video --model kling-video-v4_0 --input first_image="$3" --input tail_image="$4" --duration "${DUR:-5}" --resolution 1080p --prompt "$p" --poll=1800)
+  elif [ -n "$KEY" ]; then   # v4: first = locked hands-down, keyframe_1 = approved pose still (KEY url), tail = locked → loopable gesture, splices at 0 cr
     cmd=(kling image_to_video --model "$VMODEL" --input first_image="$3" --input keyframe_1="$KEY" --input tail_image="$4" --duration "${DUR:-5}" --resolution 1080p --prompt "$p" --poll=1800)
   else
     cmd=(kling image_to_video --model "$VMODEL" --image "$3" --tailImage "$4" --duration 5 --resolution 1080p --enable_audio false --prompt "$p" --poll=1800)
@@ -33,5 +35,5 @@ if [ "$m" = still ]; then
 else
   u=$(head -1 "$W/raw/bank_$id.$m.urls"); [ -n "$u" ] && curl -s -o "$W/out/$id.mp4" "$u" && "$PY" "$QC" clip "$W/out/$id.mp4" "$5" "$6" "$W/out/${id}_sheet.jpg"
 fi
-MD=$MODEL; [ "$m" = still ] || MD=$VMODEL
+MD=$MODEL; [ "$m" = still ] || MD=$VMODEL; [ -n "$LOOP" ] && MD=kling-video-v4_0-loop
 echo "bank $m $id $MD $((B - A)) cr ($B->$A) n=$(wc -l < "$W/raw/bank_$id.$m.urls" | tr -d ' ')" | tee -a "$T/ledger.txt"

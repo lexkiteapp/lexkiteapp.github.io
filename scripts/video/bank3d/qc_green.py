@@ -30,7 +30,9 @@ def mask(f):
     n, lab, st, _ = cv2.connectedComponentsWithStats(m)
     if n < 2: return m > 0, 0
     big = 1 + int(np.argmax(st[1:, cv2.CC_STAT_AREA]))
-    stray = int(sum(st[i, cv2.CC_STAT_AREA] for i in range(1, n) if i != big and st[i, cv2.CC_STAT_AREA] > 40))
+    bx, by, bw, bh = st[big, :4]; P = 12   # 12/11: Carlos's curls separate from the head by thin green gaps → islands hugging the figure are hair, not dirt
+    near = lambda i: st[i, 0] >= bx - P and st[i, 1] >= by - P and st[i, 0] + st[i, 2] <= bx + bw + P and st[i, 1] + st[i, 3] <= by + bh * .25
+    stray = int(sum(st[i, cv2.CC_STAT_AREA] for i in range(1, n) if i != big and st[i, cv2.CC_STAT_AREA] > 40 and not near(i)))
     return lab == big, stray
 
 
@@ -54,9 +56,14 @@ def mouth_dark(f, g):
     # still, so 'share of dark pixels' flagged closed lips (Ama 0.09 vs 0.23, both closed by eye). Measure the gap height instead:
     # 90th percentile over columns of the longest vertical run of dark pixels (px at 960 h), + teeth (> 200) as before (05/11 concern).
     d = g < 35; runs = []
-    for col in d.T:
-        best = cur = 0
-        for v in col: cur = cur + 1 if v else 0; best = max(best, cur)
+    for col in d.T:   # a run touching the box top = Carlos's moustache sliding in when he tilts (12/11 point/concern false 'open'), not a gap
+        best = cur = 0; top = True
+        for v in col:
+            if v: cur += 1
+            else:
+                if not top: best = max(best, cur)
+                cur = 0; top = False
+        if not top: best = max(best, cur)
         runs.append(best)
     return float(np.percentile(runs, 90) + 40 * (g > 200).mean())
 

@@ -155,3 +155,35 @@ bank clip ga11_thumbs_up v4 keyframe 75 cr (6739->6664): qc_green FAIL start 8.6
 TICKET 12/11 B1b re-pilot (owner 12/11: still first → clip, 1080p): ga11_thumbs_up v4 keyframe, prompt now 'eyes stay open, NO blinking' (pilot ghost = lid cross-fade during blinks). Cap 80. Pass = gate + eye sheet: no ghost frames, lips closed, gesture reached, start/end = locked frame.
 bank clip ga11_thumbs_up kling-video-v4_0 75 cr (4084->4009) n=1
 bank clip ga11_thumbs_up try2 (no-blink prompt) 75 cr (4084->4009): eye check PASS 91 – blinks now crisp closed lids (f45-50, f75), no ghost; gesture reached, feet planted (dy 1), lips closed. qc_green FIX (measurement, thresholds unchanged): (1) mouth = height of the dark gap (90th pct column run, px) + teeth vs the clip's own closed first frame, not dark-pixel share (v4 draws the closed lip line darker: false 'open'); (2) start/end/jump diff measured on the PERSON (non-green) – v4 re-renders the green brighter + mottled (bg 8.0 vs person 3.8). Re-run: try2 PASS (start 3.9, mouth open 0), try1 PASS gate (ghost blinks = eye-only defect, stays rejected); negative test (painted open mouth f40-80) FAIL open 13 ✓. ga11_thumbs_up try2 → BANKED (media green/ga11_thumbs_up.mp4).
+bank clip gc11_thumbs_up kling-video-v4_0 75 cr (4009->3934) n=1
+bank clip ga11_clap kling-video-v4_0 75 cr (3934->3859) n=1
+bank clip gc11_clap kling-video-v4_0 75 cr (3859->3784) n=1
+bank clip ga11_hold_card kling-video-v4_0 75 cr (3784->3709) n=1
+clips.sh run 12/11 (v4 keyframe, 75 cr each, 4009->3709 = 300): gc11_thumbs_up gate FAIL (stray) · ga11_clap PASS · gc11_clap gate FAIL (stray) · ga11_hold_card FAIL → 2 consecutive → STOP ✓.
+ANALYSIS: (a) 'stray' on Carlos = his curls separated from the head by thin green gaps (islands at y≈96-113 hugging the head) → qc_green: islands inside the figure box (±12 px, top quarter) are hair; corner dirt still caught (negative test FAIL ✓). Re-gate: gc11_thumbs_up/gc11_clap/ga11_clap/ga11_thumbs_up PASS. (b) EYE: ga11_clap PASS 91 · gc11_clap PASS 90 → BANKED · gc11_thumbs_up FAIL (thumb only to chest, misses the shoulder-high keyframe; one wink frame) · ga11_hold_card FAIL (card materialises then drops to the floor: rest→card has no physical source). FIX: hold_card = HOLD LOOP (first = tail = approved hold_card still, small natural moves, card never leaves the hands); Carlos thumbs prompt: shoulder-high like the keyframe, no wink.
+bank clip ga11_hold_card kling-video-v4_0-loop 75 cr (3709->3634) n=1
+VERDICT ga11_hold_card LOOP PASS 90 (gate PASS; card stays blank in both hands, gentle tilt toward the viewer and back, eyes open, lips closed) → BANKED. Hold-loop design fixes the 'card from nowhere' failure.
+bank clip gc11_hold_card kling-video-v4_0-loop 75 cr (3634->3559) n=1
+bank clip gc11_thumbs_up kling-video-v4_0 75 cr (3559->3484) n=1
+bank clip ga11_count kling-video-v4_0 75 cr (3484->3409) n=1
+bank clip gc11_count kling-video-v4_0 75 cr (3409->3334) n=1
+VERDICT: gc11_hold_card LOOP PASS 90 → BANKED · gc11_count PASS 90 (index up, keyframe reached, gate mouth 9 vs 6.3 base) → BANKED · gc11_thumbs_up FAIL #2 (gate: mouth opens in 24 sampled frames; eye: orange open mouth) → DROP clip (rig keeps the still) · ga11_count FAIL #1 eye 86 (eyes shut-smiling in ~1/3 of samples despite 'no blinking'). Gesture clips banked 6/8: Ama thumbs_up, clap, hold_card · Carlos clap, hold_card, count.
+TICKET 12/11 Carlos missing poses (owner: footage balanced): encourage still via kling-image-v3_0 x4 first (owner 12/11: Kling images ~1 cr – use them; fallback Nano Banana if framing fails); then v4 clips rest→pose for point (still green_carlos_o3_point_cand), concern (green_carlos_o3k_ref), encourage. Cap 300.
+bank still gc11_encourage kling-image-v3_0 4 cr (3334->3330) n=4
+bank still gc11_encourage try1 (kling-image-v3_0 x4, 4 cr) FAIL eye: s1/s3 framing OK but palm DOWN across the body (reads 'presenting'), neutral face; s2/s4 framing. Try2: palm clearly UP, small 'you can do it' open-hand gesture beside the chest + bigger kind smile.
+bank still gc11_encourage kling-image-v3_0 4 cr (3330->3326) n=4
+bank still gc11_encourage try2 (kling-image-v3_0 x4, 4 cr) FAIL: s1 right gesture (palm up beside chest) but zoomed/shifted · s2 framing + eyes shut · s3 THREE arms · s4 teeth. 2 consecutive fails on the cheap model → switch: Nano Banana (image 1 = locked ref, image 2 = try2 s1 as POSE ref), proven 4/4 on 12/11. Lesson: kling-image-v3 is fine for scenes/plates (cheap variety) but unreliable for locked-frame character poses.
+bank still gc11_encourage gemini-3-pro-image 20 cr (3326->3306) n=1
+bank still gc11_encourage try3 (Nano Banana + pose ref, 20 cr) FAIL eye: extra arm (raised forearm AND the same-side hand still hanging) – qc_green cannot see limb count. 3 fails on encourage → DROP (Carlos keeps 'happy' for encourage, owner OK 29/10). Next: v4 rest→pose clips from existing approved stills: gc11_point (green_carlos_o3_point_cand), gc11_concern (green_carlos_o3k_ref); ga11_count retry (eyes).
+bank clip gc11_point kling-video-v4_0 75 cr (3306->3231) n=1
+bank clip gc11_concern kling-video-v4_0 75 cr (3231->3156) n=1
+clips run 2 (4009-...): gc11_point 75 cr gate FAIL mouth · gc11_concern 75 cr gate FAIL mouth → STOP (2 consecutive) ✓; ga11_count not sent.
+ANALYSIS: Carlos 'open mouth' = his black moustache sliding into the mouth box when he tilts (dark run touching the box top); the orange shape under the moustache is in the APPROVED locked ref (owner OK 28/10). qc_green fix: dark runs touching the box top are ignored. Regression: 7 real clips PASS (Ama base 14, Carlos 2), negatives FAIL (painted open mouth Carlos open 11, Ama open 13) ✓.
+RE-EVAL (eye, same rubric): gc11_point PASS 90 (palm-up present to the right, back to rest, crisp blink f72) · gc11_concern PASS 90 (brows knit up, sympathetic tilt, mouth = ref) · gc11_thumbs_up try2 PASS 90 – my earlier 'open orange mouth' call was wrong (= the locked ref mouth); thumb reaches shoulder height like the keyframe → all three BANKED (thumbs_up FAIL #2 withdrawn).
+bank clip ga11_count kling-video-v4_0 75 cr (3156->3081) n=1
+VERDICT ga11_count try2 PASS 90 (gate PASS; index up 'one', calm face, one crisp blink) → BANKED. GESTURE CLIPS COMPLETE 8/8 (thumbs_up, clap, hold_card[loop], count × Ama/Carlos) + Carlos point, concern. Next (owner: balanced, non-repetitive footage): 3rd takes listen_c + explain_c for both (v4 hold loop first = tail = locked ref, motion by prompt), cap 450.
+bank clip ga11_listen_c kling-video-v4_0-loop 75 cr (3081->3006) n=1
+bank clip gc11_listen_c kling-video-v4_0-loop 75 cr (3006->2931) n=1
+bank clip ga11_explain_c kling-video-v4_0-loop 75 cr (2931->2856) n=1
+bank clip gc11_explain_c kling-video-v4_0-loop 75 cr (2856->2781) n=1
+VERDICT 3rd takes (v4 hold loop from locked ref): ga11_listen_c PASS 90 · gc11_listen_c PASS 90 · ga11_explain_c PASS 91 (open-hand explain, side gesture) → BANKED · gc11_explain_c FAIL eye 85 (hands on hips, winks in 2/6 samples) – not retried (Carlos already has explain + explain_b). Spend so far 12/11: 6839 -> 2781 = 4,058 cr.
