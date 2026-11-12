@@ -272,6 +272,7 @@
     grammarA1: ['cpack/grammar/starter2.js'], grammarC2: ['cpack/grammar/mastery.js'], // 12 bài A1 / 10 bài C2 (~29 KB nén mỗi gói): chỉ tải khi mở bài của cấp đó; gói 'grammar' mang mục lục gọn lazy-a1/c2.js (scripts/grammar/build-lazy-idx.mjs)
     pas: ['js/i18n/en/v2.js', 'js/i18n/en/speak.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/pas-sit.js', 'js/st/v2/pas-drill.js', 'js/characters.js', 'js/speak/data.js', 'js/speak/score.js', 'js/speak/app.js'], // 🎙️ Play & Speak (cờ speak_pack, docs/specs/play-and-speak.md)
     pron: ['js/i18n/en/pron.js', 'js/pron/sounds.js', 'js/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/pron.js'],
+    shadow: ['js/speak/score.js', 'js/pron/shadow.js'], // Nói đuổi liên tục (nút trong pron/rhythm.js)
     words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
     readings: ['js/reading.js', 'js/readings.js', 'cpack/readings/more.js', 'js/choice-kit.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
     klocal: ['js/klocal.js'], // Kokoro trên máy cho chữ chưa có file dựng sẵn (docs/specs/kokoro-on-device.md) – tự quyết có nạp mô hình hay không

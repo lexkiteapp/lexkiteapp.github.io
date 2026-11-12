@@ -1,6 +1,6 @@
 /* Phát âm – "Nói đuổi liên tục" (spec upgrade-2026-11 #8): nghe câu 1 → nói theo ngay → tự sang câu 2… hết cả đoạn 3 câu, không bấm giữa chừng,
  * rồi tô từng TỪ (✓ đúng · ✗ sót/sai · ~ yếu) và, khi máy có mô hình âm vị (window.Gop → Speak.score trả r.phones), nêu cả ÂM yếu của từ; không có mô hình thì chỉ mức từ.
- * Tải lười (nút trong pron/rhythm.js). Dùng lại: PronCoach (SENTENCES, band) · Speak.score/align (speak/score.js) · UI.tts. Âm thanh không rời máy.
+ * Tải lười: gói 'shadow' (speak/score.js + file này) khi bấm nút trong pron/rhythm.js. Dùng lại: PronCoach (SENTENCES, band) · Speak.score/align (speak/score.js) · UI.tts. Âm thanh không rời máy.
  * Không mic (từ chối / không hỗ trợ / người học chọn): nghe và đọc theo, chạm "Đã nói theo" để sang câu kế – không chấm, không thưởng.
  * Phần thuần (test: scripts/test/pron-shadow.mjs): passages · mark · summary. */
 (function (g) {
@@ -54,7 +54,7 @@
     css();
     const P = passages(C().SENTENCES), esc = s => g.UI.esc(s), ic = n => g.UI.icon(n), acc = accent();
     let k = Math.max(0, P.findIndex((p, i) => !(load()[i] >= 85))), run = 0, noMic = !canMic(), rows = [], cur = -1, phase = '', timer = 0, wake = null;
-    const dev = () => !!(g.Gop && g.Gop.score), speak = () => g.Speak && g.Speak.score ? Promise.resolve() : (g.App && App.loadScript ? App.loadScript('js/speak/score.js') : Promise.resolve());
+    const dev = () => !!(g.Gop && g.Gop.score);
     const stop = () => { run++; clearTimeout(timer); phase = ''; cur = -1; if (g.Speak && Speak.stop) Speak.stop(); if (wake) wake(); wake = null; if (g.speechSynthesis) try { speechSynthesis.cancel(); } catch (e) { /* bỏ qua */ } };
 
     const line = (r, i) => `<div class="shd-line" lang="en" translate="no">${r.map(x => `<span class="shd-w ${x.st}"><i aria-hidden="true">${MARK[x.st]}</i><span>${esc(x.w)}</span><span class="sr-only"> (${esc(LBL[x.st]())})</span>${x.ph.length ? `<span class="ph">${esc(x.ph.join(' '))}</span>` : ''}</span>`).join('')}</div>`;
@@ -87,7 +87,7 @@
     }
 
     async function start() {
-      stop(); const my = run; rows = []; await speak();
+      stop(); const my = run; rows = [];
       const p = P[k];
       for (let i = 0; i < p.sents.length; i++) {
         if (my !== run || !box.isConnected) return;
