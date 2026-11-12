@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_manyhw",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Homework has no s!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have many homeworks today.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have a lot of homework today.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Homework has no s. Say a lot of.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Homework! I have a lot of homework.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have many homeworks today.",
+  "right": "I have a lot of homework today.",
+  "strike": "many homeworks",
+  "why": "Homework has no s. Say a lot of.",
+  "memory": "A lot of homework.",
+  "quiz": {
+   "stem": "I have a lot of ___.",
+   "options": [
+    "homework",
+    "homeworks"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "homework 不能加 s！",
+   "tip": "homework 是不可数名词，不加 s，也不能用 many。",
+   "caption": "你是不是也会说 “I have many homeworks today.”？😅 homework 不可数，不加 s，要用 a lot of：“I have a lot of homework today.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“a lot of homework”。homework 不可数！免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No “s” on homework!",
+   "tip": "Homework is uncountable, so no s and no many. Say “a lot of”.",
+   "caption": "Do you say “I have many homeworks today.”? 😅 Homework is uncountable, so no s and no many: “I have a lot of homework today.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "homework 不能加 s！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "homework 不能加 s！",
+  "keyword": "I have a lot of homework today.",
+  "value": "homework 是不可数名词，不加 s，也不能用 many。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "homework 不能加 s！",
+    "description": "你是不是也会说 “I have many homeworks today.”？😅 homework 不可数，不加 s，要用 a lot of：“I have a lot of homework today.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I have a lot of homework today.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I have many homeworks today.”？😅 homework 不可数，不加 s，要用 a lot of：“I have a lot of homework today.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "你是不是也会说 “I have many homeworks today.”？😅 homework 不可数，不加 s，要用 a lot of：“I have a lot of homework today.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "homework 不能加 s！ #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“a lot of homework”。homework 不可数！免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

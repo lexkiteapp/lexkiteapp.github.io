@@ -315,9 +315,11 @@ ok(w.ST2['story-duo'], 'story-duo: khung nạp được');
 // khung chat = MẶT riêng: nền lt:/dk: của khung khác nền trang (main) ở CẢ hai giao diện (so màu thật theo bảng, không dò một hex cố định)
 const chatSurface = ch => { const bg = (el, v) => ((el && el.className.match(new RegExp(`\\b${v}:bg-\\[(#[0-9A-Fa-f]{6})\\]`))) || [])[1], m = ch.closest('main');
   return ['lt', 'dk'].every(v => bg(ch, v) && bg(m, v) && bg(ch, v).toUpperCase() !== bg(m, v).toUpperCase()); };
-for (const [pos, kind] of [[3, 'story'], [9, 'radio']]) { // ux1: chặng 'mid' = truyện (chặng chẵn) / radio (chặng lẻ)
+const radioPos = (() => { for (let k = 1; k < 60; k += 2) if (!w.PathTrail.hidden(w.Ux1.unitAt(k * 6, 6), 3)) return k * 6 + 3; return -1; })(); // chặng lẻ CÓ ô truyện (ô rỗng bị bỏ qua có chủ đích, test riêng ở ux1.mjs)
+for (const [pos, kind] of [[3, 'story'], [radioPos, 'radio']]) { // ux1: chặng 'mid' = truyện (chặng chẵn) / radio (chặng lẻ)
   w.localStorage.setItem('lk.lsn.path.demo', String(pos)); w.localStorage.removeItem(`lk.lsn.s.${kind}.demo`);
   w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(120);
+  if (kind === 'story') ok(st().story.id === w.PathTrail.storyOf(pos, w.Ux1.unitAt), 'v2 story: nút Truyện mở đúng truyện của ô Lộ trình');
   const D = w.document, said = [], T = st().teachers; let sawDuo = false, sawQ = false, sawLine = false, bothOk = false;
   ok(D.querySelector('.v2-story-duo') && $('#lsn.lsn-v2') && T && T.ama && T.carlos && $('#lsnTch') && $('#lsnTch2') && $('.lsn-bar').getAttribute('role') === 'progressbar' && $('a.lsn-x').getAttribute('href') === '#/lesson?demo=1', `v2 ${kind}: khung story-duo, Ama + Carlos (2 LessonTeacher), thanh tiến độ, ✕ về bản đồ`);
   ok(D.querySelectorAll('.lsn-ln').length === 1 && $('#lsnPlay') && $('#lsnGo') && /Tiếp tục|Continue/.test($('#lsnGo').textContent), `v2 ${kind}: câu đầu hiện, nút Nghe lại + Tiếp tục`);

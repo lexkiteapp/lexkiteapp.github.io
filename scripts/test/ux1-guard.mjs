@@ -14,7 +14,7 @@ const [ROOT = 'web', OUT = 'out/ux1-guard'] = pos, SHOTS = flags.includes('--sho
 const part = (args[args.indexOf('--part') + 1] || '0/1').split('/').map(Number);
 fs.mkdirSync(OUT, { recursive: true });
 const ROUTES = ['review', 'train', 'league', 'me', 'goal', 'streak', 'stats', 'mistakes', 'grammar'];
-const ALL = [[360, 'light', 'en'], [360, 'dark', 'vi'], [390, 'dark', 'en'], [390, 'light', 'ar'], [412, 'light', 'de'], [412, 'dark', 'ru'], [1366, 'light', 'en'], [1366, 'dark', 'ar'], [1920, 'dark', 'vi'], [1920, 'light', 'en']];
+const ALL = [[360, 'light', 'en'], [360, 'dark', 'vi'], [360, 'light', 'de'], [390, 'dark', 'en'], [390, 'light', 'ar'], [412, 'light', 'de'], [412, 'dark', 'ru'], [1366, 'light', 'en'], [1366, 'dark', 'ar'], [1920, 'dark', 'vi'], [1920, 'light', 'en']];
 const CONFIGS = ALL.filter((c, i) => i % part[1] === part[0]);
 const OPT = { roots: ['#view', '#ux1Rail', '#nav', '#bnav', '#lsnFoot'], layers: true, cover: true };
 const browser = await chromium.launch();
@@ -69,10 +69,11 @@ async function run(width, scheme, lang) {
   await go('home?pick=1'); await check('goal-pick');
   await click('.ux1-pk-tg .chip'); await page.waitForTimeout(1600); await check('home-map');
   await page.evaluate(() => localStorage.setItem('lk.lsn.path', '4')); await go('home'); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); // cùng URL → goto không vẽ lại
-  { const c = await page.evaluate(() => { const b = document.querySelector(':is(.v2-today, .v2-today-desk) [data-act="pathx"]'); if (!b) return null; const pv = document.querySelector(':is(.v2-today, .v2-today-desk) [data-pv]'); return { exp: b.getAttribute('aria-expanded'), n: pv ? pv.querySelectorAll('[data-pn]').length : 0, full: !!document.querySelector(':is(.v2-today, .v2-today-desk) [data-pathfull] [data-st]') }; });
-    if (c && !(c.exp === 'false' && c.n >= 5 && c.n <= 7 && !c.full)) errs.push(`${tag}: khối Your path thu gọn phải đủ 5–7 nút, aria-expanded=false, chưa vẽ lộ trình đầy đủ (${JSON.stringify(c)})`); } // điện thoại + máy tính: gác trạng thái thu gọn
-  await page.evaluate(() => { const b = document.querySelector(':is(.v2-today, .v2-today-desk) [data-act="pathx"][aria-expanded="false"]'); if (b) b.click(); }); await page.waitForTimeout(300); // điện thoại: khối Your path thu gọn 5–7 nút → mở lộ trình đầy đủ tại chỗ rồi mới kiểm nút đã xong
-  if (!await page.evaluate(() => !!document.querySelector('.ux1-n.done, .v2 [data-st="done"]'))) errs.push(`${tag}: bản đồ n4 không có nút đã xong`);
+  { const c = await page.evaluate(() => { const b = document.querySelector(':is(.v2-today, .v2-today-desk) [data-act="pathx"]'); if (!b) return null; const pv = document.querySelector(':is(.v2-today, .v2-today-desk) [data-pv]'); return { exp: b.getAttribute('aria-expanded'), n: pv ? pv.querySelectorAll('[data-pr]').length : 0, heads: pv ? pv.querySelectorAll('[role="progressbar"]').length : 0 }; });
+    if (c && !(c.exp === 'false' && c.n >= 5 && c.n <= 6 && c.heads === 1)) errs.push(`${tag}: khối Your path thu gọn phải là đúng chặng hiện tại, 5–6 nút, aria-expanded=false (${JSON.stringify(c)})`); } // điện thoại + máy tính: gác trạng thái thu gọn
+  { const near = await page.evaluate(() => [...document.querySelectorAll('[data-pv] [data-pr]')].flatMap(r => { const b = r.querySelector('button[aria-haspopup="dialog"]'), tx = r.querySelector('div[class*="left-[120px]"]'); if (!b || !tx) return []; const R = Math.max(...[b, ...b.querySelectorAll('*')].map(e => e.getBoundingClientRect().right)), gap = tx.getBoundingClientRect().left - R; return gap < 12 ? [`${r.getAttribute('data-pr')} cách chữ ${Math.round(gap)} px`] : []; })); if (near.length) errs.push(`${tag}: nút lộ trình sát/đè chữ (cần ≥ 12 px): ${near.slice(0, 6).join(', ')}`); }
+  await page.evaluate(() => { const b = document.querySelector(':is(.v2-today, .v2-today-desk) [data-act="pathx"][aria-expanded="false"]'); if (b) b.click(); }); await page.waitForTimeout(300); // điện thoại: khối Your path thu gọn → mở lộ trình đầy đủ tại chỗ rồi mới kiểm nút đã xong
+  if (!await page.evaluate(() => !!document.querySelector('.ux1-n.done, .v2 [data-pr] button polyline'))) errs.push(`${tag}: bản đồ n4 không có nút đã xong`);
   await check('home-map-n4');
   for (const r of ROUTES) { await go(r); await check(r); }
 

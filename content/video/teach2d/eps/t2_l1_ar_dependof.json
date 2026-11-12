@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_dependof",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say depend on!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It depends of the weather.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It depends on the weather.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say depend on.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! It depends on you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It depends of the weather.",
+  "right": "It depends on the weather.",
+  "strike": "of",
+  "why": "Say depend on.",
+  "memory": "Depend on.",
+  "quiz": {
+   "stem": "It depends ___ you.",
+   "options": [
+    "on",
+    "of"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "هل تقول “depends of”؟",
+   "tip": "بعد depend نستخدم on: “It depends on the weather.” وليس “It depends of the weather.”.",
+   "caption": "هل تقول أحيانًا “It depends of the weather.” 😅 بعد depend نستخدم on، فالجملة الصحيحة “It depends on the weather.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “on”. بعد depend نستخدم on. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “It depends of the weather”?",
+   "tip": "After depend we use on: “It depends on the weather.” not “It depends of the weather.”.",
+   "caption": "Do you sometimes say “It depends of the weather.” 😅 After depend we use on, so the right sentence is “It depends on the weather.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “depends of”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "هل تقول “depends of”؟",
+  "keyword": "It depends on the weather.",
+  "value": "بعد depend نستخدم on: “It depends on the weather.” وليس “It depends of the weather.”.",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “depends of”؟",
+    "description": "هل تقول أحيانًا “It depends of the weather.” 😅 بعد depend نستخدم on، فالجملة الصحيحة “It depends on the weather.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "It depends on the weather.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “It depends of the weather.” 😅 بعد depend نستخدم on، فالجملة الصحيحة “It depends on the weather.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “It depends of the weather.” 😅 بعد depend نستخدم on، فالجملة الصحيحة “It depends on the weather.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “depends of”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “on”. بعد depend نستخدم on. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

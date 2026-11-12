@@ -127,7 +127,7 @@ export function bodyOf(l, e) {
     const ts = toolStrings(l), lvU = String(e.level || '').toUpperCase();
     const tools = ts ? [ts.levels && ts.levels[lvU] && [toolPath(l, 'test', lvU), fill(ts.level.h1, { lv: lvU, name: ts.levels[lvU].name })], [toolPath(l, 'test'), ts.nav.levelTest], [toolPath(l, 'toeic'), ts.nav.toeic]].filter(Boolean) : [];
     const body = `<article class="page wd">
-<header class="hero"><h1>${en(W)}</h1>${vimgOf(e, `${w} – ${m}`, t.ph)}<div class="sub">${pos ? `<span class="chip">${esc(pos)}</span>` : ''}${e.level ? `<span class="chip">${esc(t.level)} ${esc(e.level)}</span>` : ''}${tp ? `<span class="chip">${en(tp.name || tp.id)}</span>` : ''}</div></header>
+<header class="hero"><h1>${en(W)}</h1>${vimgOf(e, `${w} – ${m}`, t.ph)}<div class="sub">${pos ? `<span class="chip">${esc(pos)}</span>` : ''}${e.level ? `<span class="chip">${esc(t.level)} ${esc(e.level)}</span>` : ''}${tp && l === 'vi' ? `<span class="chip">${esc(tp.name || tp.id)}</span>` : ''}</div></header>
 ${sec('m', 'mean', senses.length > 1 ? t.means : t.mean, meanHtml)}
 ${sec('p', 'pron', t.pron, `<p class="pr"><span>${esc(t.uk)} <span class="ipa" dir="ltr">${esc(e.ipa || '')}</span></span>${ipaUS ? `<span>${esc(t.us)} <span class="ipa" dir="ltr">${esc(ipaUS)}</span></span>` : ''}${au ? `<button type="button" class="au" data-a="${esc(au)}" aria-label="${esc(t.pron)}: ${esc(w)}"></button>` : ''}</p>`)}
 ${sec('e', 'ex', exs.length > 1 ? t.exs : t.ex, exs.map(s => `<blockquote lang="en" dir="ltr">${hiW(s, k)}</blockquote>`).join(''))}

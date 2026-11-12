@@ -1,3 +1,11 @@
-/* UI hi – ads (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {"Hết lượt hôm nay? Xem 1 video ngắn để nhận thêm {n} lượt.":"आज के मुफ़्त मौके खत्म हो गए? एक छोटा वीडियो देखें और {n} और पाएँ।","Xem video":"वीडियो देखें","Đã cộng thêm lượt – thử lại sau vài giây.":"अतिरिक्त मौके जोड़ दिए गए – कुछ सेकंड बाद फिर कोशिश करें।","Ôn 10 thẻ để mở thêm {n} lượt – miễn phí.":"{n} और बार पाने के लिए 10 कार्ड दोहराएँ – मुफ़्त।","Ôn thẻ ngay":"अभी दोहराएँ","Nhờ ôn thẻ, bạn được thêm {n} lượt.":"कार्ड दोहराने से आपको {n} और बार मिले।","Đã ôn {r}/{need} thẻ hôm nay – ôn thêm để nhận lượt.":"आज {r}/{need} कार्ड दोहराए – और दोहराएँ तो बार मिलेंगे।"});
+/* UI hi – ads (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {
+"Hết lượt hôm nay? Xem 1 video ngắn để nhận thêm {n} lượt.":"आज के मुफ़्त मौके खत्म हो गए? एक छोटा वीडियो देखें और {n} और पाएँ।",
+"Nhờ ôn thẻ, bạn được thêm {n} lượt.":"कार्ड दोहराने से आपको {n} और बार मिले।",
+"Xem video":"वीडियो देखें",
+"Ôn 10 thẻ để mở thêm {n} lượt – miễn phí.":"{n} और बार पाने के लिए 10 कार्ड दोहराएँ – मुफ़्त।",
+"Ôn thẻ ngay":"अभी दोहराएँ",
+"Đã cộng thêm lượt – thử lại sau vài giây.":"अतिरिक्त मौके जोड़ दिए गए – कुछ सेकंड बाद फिर कोशिश करें।",
+"Đã ôn {r}/{need} thẻ hôm nay – ôn thêm để nhận lượt.":"आज {r}/{need} कार्ड दोहराए – और दोहराएँ तो बार मिलेंगे।",
+});
 })(typeof self !== 'undefined' ? self : this);

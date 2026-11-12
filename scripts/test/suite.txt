@@ -30,6 +30,8 @@ node scripts/test/speak-split.mjs
 node scripts/test/speak.mjs
 node scripts/test/i18n-single.mjs
 node scripts/test/i18n-pack.mjs
+node scripts/test/fmt-stable.mjs
+node scripts/test/gen-guard.mjs
 node scripts/test/lexicon-expand.mjs
 node scripts/test/sentence-asr.mjs
 node scripts/test/i18n-english.mjs
@@ -82,6 +84,7 @@ node scripts/test/ux1-rollout.mjs
 node scripts/test/pron-gop.mjs
 node scripts/test/pron-pairs.mjs
 node scripts/test/pron-coach.mjs
+node scripts/test/pron-shadow.mjs
 node scripts/test/call-engine.mjs
 node scripts/test/feedback-eval.mjs
 node scripts/test/route-race.mjs
@@ -125,6 +128,7 @@ node scripts/test/es-conjugate.mjs
 node scripts/test/sync-ctx.mjs
 node scripts/test/schema-lock.mjs
 node scripts/test/analytics.mjs
+node scripts/test/retention-admin.mjs
 node scripts/test/d1-scan.mjs
 node scripts/test/drive.mjs
 node scripts/test/ci-triage.mjs
@@ -132,7 +136,9 @@ node scripts/test/required-gate.mjs
 node scripts/test/drive-ui.mjs
 node scripts/test/jobs-check.mjs
 node scripts/test/ci-filler.mjs
+node scripts/test/ci-autopilot.mjs
 node scripts/test/cron-watch.mjs
+node scripts/test/vimg-watch.mjs
 node scripts/test/cron-kick.mjs
 node scripts/test/ci-hog.mjs
 node scripts/test/queue-report.mjs
@@ -168,6 +174,7 @@ node scripts/test/admin-gate.mjs
 node scripts/test/pr-check.mjs
 node scripts/test/library.mjs
 node scripts/test/anki.mjs
+node scripts/test/importdeck.mjs
 node scripts/test/video.mjs
 node scripts/test/video-templates.mjs
 node scripts/test/capsplit.mjs
@@ -359,6 +366,7 @@ node scripts/test/site-footer.mjs
 node scripts/test/v2pre-ring.mjs
 node scripts/test/zombie-pages.mjs
 node scripts/test/ci-guards.mjs
+node scripts/test/workflow-cd-paths.mjs
 node scripts/test/apt-install.mjs
 node scripts/test/perf-median.mjs
 node scripts/test/pr-unconflict.mjs
@@ -380,4 +388,8 @@ node scripts/test/ext-version.mjs
 node scripts/test/skills-hub.mjs
 node scripts/test/phrasebook.mjs
 node scripts/test/native-strings-locked.mjs
+node scripts/audit/score.mjs --self-test
 node scripts/test/suite-shards.mjs
+node scripts/test/mistake-variant.mjs
+node scripts/test/adsense-hygiene.mjs
+node scripts/test/play-duel.mjs

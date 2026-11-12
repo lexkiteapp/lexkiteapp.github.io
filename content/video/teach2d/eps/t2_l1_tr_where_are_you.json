@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_where_are_you",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where are you from?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Where you are from?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Where are you from?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put are before you.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Are you! Where are you from?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Where you are from?",
+  "right": "Where are you from?",
+  "strike": "you are",
+  "why": "Put are before you.",
+  "memory": "Where are you?",
+  "quiz": {
+   "stem": "Where ___ from?",
+   "options": [
+    "are you",
+    "you are"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Soruda sıra: “are you”!",
+   "tip": "Soru kelimesinden sonra yardımcı fiil gelir: “Where are you from?”",
+   "caption": "“Where you are from?” mi diyorsun? 😅 Türkçe sıra karışabilir; İngilizcede “are” önce gelir. Doğrusu “Where are you from?”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “are you”. Soruda are önce. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "In questions, “are” comes first!",
+   "tip": "After the question word, put the verb first: “Where are you from?”",
+   "caption": "Do you say “Where you are from?”? 😅 The word order differs from Turkish: “are” goes first. The right sentence is “Where are you from?”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Soruda sıra: “are you”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Soruda sıra: “are you”!",
+  "keyword": "Where are you from?",
+  "value": "Soru kelimesinden sonra yardımcı fiil gelir: “Where are you from?”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "Soruda sıra: “are you”!",
+    "description": "“Where you are from?” mi diyorsun? 😅 Türkçe sıra karışabilir; İngilizcede “are” önce gelir. Doğrusu “Where are you from?”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "Where are you from?",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“Where you are from?” mi diyorsun? 😅 Türkçe sıra karışabilir; İngilizcede “are” önce gelir. Doğrusu “Where are you from?”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Where you are from?” mi diyorsun? 😅 Türkçe sıra karışabilir; İngilizcede “are” önce gelir. Doğrusu “Where are you from?”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Soruda sıra: “are you”! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “are you”. Soruda are önce. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}
