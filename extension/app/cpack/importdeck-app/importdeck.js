@@ -239,7 +239,7 @@
   let S = null;
   const root = () => document.getElementById('idRoot');
   const isOpen = () => { const m = document.getElementById('modal'); return !!root() && !(m && m.hidden); };
-  const dots = n => `<div class="idk-step" aria-label="${T('Bước {n}/4', { n })}"><span class="idk-dots" aria-hidden="true">${[1, 2, 3, 4].map(i => `<i class="${i <= n ? 'on' : ''}"></i>`).join('')}</span><span>${T('Bước {n}/4', { n })}</span></div>`;
+  const dots = n => `<div class="idk-step" aria-label="${n}/4"><span class="idk-dots" aria-hidden="true">${[1, 2, 3, 4].map(i => `<i class="${i <= n ? 'on' : ''}"></i>`).join('')}</span><span>${n}/4</span></div>`;
   const known = () => { const s = new Set(); for (const c of Object.values((g.App && App.state && App.state.cards) || {})) { s.add(String(c.word).toLowerCase()); } return s; };
   const lookup = async w => {
     if (!g.Lex) return null;
@@ -263,7 +263,7 @@
   function sourceView() {
     return `${head(1, T('Nhập từ tài liệu'))}
       <p class="small muted" style="margin:0">${T('Đọc ngay trên máy bạn, không tải tệp lên.')}</p>
-      <button type="button" class="idk-drop" id="idDrop"><span aria-hidden="true" style="font-size:1.6rem">📥</span><b>${T('Chọn hoặc kéo thả file vào đây')}</b><span class="small muted">${isExt() ? '.epub · .srt · .vtt · .txt' : '.pdf · .epub · .srt · .vtt · .txt'} · ${T('tối đa 20 MB, 200 trang')}</span></button>
+      <button type="button" class="idk-drop" id="idDrop"><span aria-hidden="true" style="font-size:1.6rem">📥</span><b>${T('Chọn hoặc kéo thả file vào đây')}</b><span class="small muted">${isExt() ? '.epub · .srt · .vtt · .txt' : '.pdf · .epub · .srt · .vtt · .txt'} · ≤ 20 MB</span></button>
       <input type="file" id="idFile" accept="${isExt() ? '' : '.pdf,application/pdf,'}.epub,.srt,.vtt,.txt,text/plain" hidden aria-label="${T('Chọn file')}">
       <label for="idText" class="small" style="font-weight:700">${T('Hoặc dán văn bản')}</label>
       <textarea class="input" id="idText" rows="4" placeholder="${esc(T('Hoặc dán văn bản'))}">${esc(S.text || '')}</textarea>
@@ -281,7 +281,6 @@
     const L = S.list;
     if (!L.length) return `${head(2, T('Chọn từ để học'))}<div class="idk-note">${T('Không có từ mới đáng học ở đây.')}</div><div class="row end"><button type="button" class="btn" id="idBack">← ${T('Chọn nguồn khác')}</button></div>`;
     return `${head(2, T('Chọn từ để học'))}
-      <p class="small muted" style="margin:0">${T('Đã bỏ từ quá thông dụng, từ đã có, tên riêng, số.')}</p>
       <div class="row" style="gap:.4rem"><span class="chip" id="idCount" role="status" aria-live="polite">${T('Đã chọn {n} từ', { n: S.picked.size })}</span><button type="button" class="btn sm ghost" id="idTop">${T('Chọn {n} từ đầu', { n: PRESELECT })}</button><button type="button" class="btn sm ghost" id="idNone">${T('Bỏ chọn hết')}</button></div>
       ${rows(L)}${L.length > S.shown ? `<button type="button" class="btn ghost" id="idMore">${T('Hiện thêm')}</button>` : ''}
       <div class="row end"><button type="button" class="btn ghost" id="idBack">← ${T('Quay lại')}</button><button type="button" class="btn primary" id="idNext" ${S.picked.size ? '' : 'disabled'}>${T('Tiếp tục')}</button></div>`;
