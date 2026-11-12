@@ -28,11 +28,15 @@ export function project(mtd, today, now = Date.now()) {
   const p1 = mtd / Math.max(86400e3, now - ms) * (me - ms), p2 = mtd + today / Math.max(3600e3, now - ds) * (me - now);
   return Math.round(Math.max(p1, p2, mtd));
 }
-/** → { reads, writes|null, source: 'cloudflare'|'own', pct, at } */
+/** @typedef {{ reads: number, writes: number|null, source: string, mReads?: number, mWrites?: number, via?: string, seen?: number,
+ *   plan?: 'free'|'paid', period?: 'day'|'month', limit?: number, projReads?: number, projWrites?: number,
+ *   ratio?: number, kind?: 'reads'|'writes', block?: boolean, alert?: boolean, spend?: boolean, at?: number, which?: string }} D1Usage */
+/** → { reads, writes|null, source: 'cloudflare'|'own', ratio, at… }
+ * @returns {Promise<D1Usage>} */
 export async function d1Usage(env, db, now = Date.now(), fetcher = fetch, which = 'main') {
   const C = CACHE[which];
   if (C && now - C.at < 300e3 && C.day === day(now)) return C.v;
-  let v = null;
+  /** @type {D1Usage|null} */ let v = null;
   const paid = planOf(env, which) === 'paid';
   const tok = env && (which === 'b' ? env.D1B_TOKEN : (env.CF_ANALYTICS_TOKEN || env.CF_API_TOKEN)), acct = env && (which === 'b' ? env.D1B_ACCOUNT_ID : env.CF_ACCOUNT_ID);
   if (tok && acct) {
@@ -81,10 +85,10 @@ export function usagePeek(env, db, now = Date.now(), fetcher = fetch) {
 export const isShed = u => !!(u && u.source === 'cloudflare' && u.ratio >= SHED_PCT);
 export const SHED_BODY = { error: 'quota-shed', reason: 'd1-85' };
 /** Endpoint đọc không thiết yếu (thông báo, quản trị phụ…): ≥ 85 % → Response 429 nhẹ (Retry-After tới 00:00 UTC), ngược lại null. Không chờ mạng. */
-export function shedRead(env, mk) {
+export function shedRead(env, mk, now = Date.now()) {
   try {
-    const u = usagePeek(env, env && env.DB); if (!isShed(u)) return null;
-    const s = secsToReset(), r = mk(429, { ...SHED_BODY, pct: Math.round(u.ratio * 100), retry: s });
+    const u = usagePeek(env, env && env.DB, now); if (!isShed(u)) return null;
+    const s = secsToReset(now), r = mk(429, { ...SHED_BODY, pct: Math.round(u.ratio * 100), retry: s });
     try { r.headers.set('Retry-After', String(s)); } catch (e) { /* header bất biến */ }
     return r;
   } catch (e) { /* cho qua */ }
@@ -106,18 +110,18 @@ export async function guardBg(request, env, json, which = 'main') {
 }
 
 /** Workers AI qua REST của TÀI KHOẢN 2 (cùng giao diện env.AI.run(model, input) → result). Token cần quyền Account › Workers AI › Read + Edit. */
-export function restAi(accountId, token, fetcher = (...a) => fetch(...a)) {
+export function restAi(accountId, token, fetcher = /** @type {typeof fetch} */ ((input, init) => fetch(input, init))) {
   return { run: async (model, input) => {
     const r = await fetcher(`https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(accountId)}/ai/run/${model}`, { method: 'POST', headers: { Authorization: 'Bearer ' + token, 'Content-Type': 'application/json' }, body: JSON.stringify(input) });
     const j = await r.json().catch(() => ({}));
-    if (!r.ok || j.success === false) { const e = new Error('ai-b-' + ((j.errors && j.errors[0] && j.errors[0].code) || r.status)); e.status = r.status; throw e; }
+    if (!r.ok || j.success === false) { const e = /** @type {Error & { status?: number }} */ (new Error('ai-b-' + ((j.errors && j.errors[0] && j.errors[0].code) || r.status))); e.status = r.status; throw e; }
     return j.result;
   } };
 }
 /** Đặt chỗ Workers AI tài khoản CHÍNH cho đường người dùng (infra/jobs.json › reservations.workers_ai): đường NỀN (CI: studio X-Studio-Secret, lexai OIDC) KHÔNG dùng binding env.AI chính
  * (trừ khi sổ cấp background_neurons > 0) mà dùng Workers AI của TÀI KHOẢN 2 qua REST (AI_B_ACCOUNT_ID/AI_B_TOKEN, mặc định D1B_ACCOUNT_ID/D1B_TOKEN); chưa cấu hình → env.AI = null (cổng AI rơi sang Gemini/GrabCast). Không đọc D1. */
 export function stripBackgroundAI(env, fetcher) {
-  const R = (REG.reservations || {}).workers_ai || {};
+  const R = /** @type {{ background_neurons?: number }} */ ((REG.reservations || {}).workers_ai || {});
   if (+R.background_neurons > 0 || !env) return env;
   const acct = env.AI_B_ACCOUNT_ID || env.D1B_ACCOUNT_ID, tok = env.AI_B_TOKEN || env.D1B_TOKEN;
   if (!env.AI && !(acct && tok)) return env;

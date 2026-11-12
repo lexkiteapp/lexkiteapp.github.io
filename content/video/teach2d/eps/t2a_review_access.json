@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"access\" mean?",
+  "keyword": "access",
+  "value": "Access means an entrance to a place.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=access",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"access\" mean?",
+    "description": "Access means an entrance to a place.\n\nReview your words, free: https://lexkite.com/app/#/review?w=access\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "access",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"access\" mean?\n\nAccess means an entrance to a place.\n\nReview your words, free: https://lexkite.com/app/#/review?w=access"
+   },
+   "instagram": {
+    "caption": "What does \"access\" mean?\n\nAccess means an entrance to a place.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"access\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means an entrance to a place. Access means an entrance to a place. Practice it with a free quiz: {link}"
  }
 }

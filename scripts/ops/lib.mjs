@@ -16,7 +16,9 @@ export const sha256Buf = b => crypto.createHash('sha256').update(b).digest('hex'
 /** Chỗ trống pool (byte) hoặc null nếu không đọc được. */
 export async function poolFree() { try { const p = await driveApi('list', {}); return { free: +p.free, drives: (p.drives || []).filter(d => d.status === 'ok' && d.weight > 0 && !d.auto_paused).length }; } catch (e) { if (QUOTA.test(String(e.code))) throw e; return null; } }
 /** Cảnh báo Quản trị → Kho Drive: kind 'backup' | 'deploy'. ok:true → gỡ. Lỗi mạng không làm hỏng việc chính. */
-export async function alert(kind, ok, msg) { try { await driveApi('ext_alert', { kind, ok, n: 1, msg: String(msg || '').slice(0, 280) }); } catch (e) { console.error('⚠ ext_alert ' + kind + ': ' + e.message); } }
+/** Cờ Kho Drive là số liệu PRODUCTION: chỉ lượt CI trên main được ghi. Test/máy cá nhân/nhánh thử không được đặt hay gỡ (driveCliKey tự đọc khoá trong ~/.config: 2/11 test bản cụt của rollback.mjs đặt cờ đỏ thật). Chạy tay có chủ đích: LK_OPS_ALERT=1. */
+export const alertAllowed = (e = process.env) => e.LK_OPS_ALERT === '1' || (e.GITHUB_ACTIONS === 'true' && e.GITHUB_REF === 'refs/heads/main');
+export async function alert(kind, ok, msg) { if (!alertAllowed()) { console.log(`· bỏ qua cờ ${kind} (không phải lượt CI trên main)`); return; } try { await driveApi('ext_alert', { kind, ok, n: 1, msg: String(msg || '').slice(0, 280) }); } catch (e) { console.error('⚠ ext_alert ' + kind + ': ' + e.message); } }
 /** Tải lên Kho Drive: 2 bản trên 2 Drive KHÁC NHAU, folder backups/<loại> | releases/<loại>, cls original. Ném lỗi nếu thiếu bản sao. */
 export async function uploadTwoCopies(file, { name, folder, mimeType = 'application/octet-stream', sha, assetId }) {
   const free = await poolFree(), size = fs.statSync(file).size;

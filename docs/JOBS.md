@@ -45,6 +45,8 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:17 | `lexicon-expand` | `17 */3 * * *` | render | cf_pool, gh_minutes | 120 | cf_pool_neurons≈600000 | ✓ |
 | 00:20 | `word-audio` | `20 */4 * * *` | render | gh_minutes | 150 | — | — |
 | 00:23 | `pages-deploy` | `23 */3 * * *` | publishing | gh_minutes | 2 | — | — |
+| 00:23 | `pr-unconflict` | `23,53 * * * *` | reports | gh_minutes | 2 | — | — |
+| 00:41 | `main-red-sweep` | `41 * * * *` | reports | gh_minutes | 1 | — | — |
 | 00:41 | `ads-revenue-hourly` | `41 * * * *` | reports | gh_minutes, d1_main | 1 | d1_main_reads≈1100, d1_main_writes≈500 | — |
 | 00:47 | `cdn-mirror` | `47 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:50 | `script-bank` | `50 0 * * *` | render | workers_ai_b, grabcast_ai, gh_minutes | 60 | workers_ai_b_neurons≈2000, grabcast_text≈60 | ✓ |
@@ -54,6 +56,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 01:00 | `lighthouse` | `0 1 * * 1` | reports | gh_minutes | 15 | — | — |
 | 01:00 | `mail-digest` | `0 1 * * *` | reports | d1_main_read | 2 | d1_main_reads≈3000 | — |
 | 01:15 | `youtube-upload` | `15 1,8,14,20 * * *` | publishing | youtube_api, drive_pool, d1_internal | 20 | d1_internal_reads≈200, d1_main_reads≈100, drive_calls≈60 | ✓ |
+| 01:20 | `store-reviews` | `20 1 * * 1` | reports | gh_minutes | 1 | — | — |
 | 01:25 | `capacity-watch` | `25 1 * * *` | reports | d1_main, gh_minutes | 2 | d1_main_reads≈40 | — |
 | 01:30 | `pr-check` | `30 1 * * *` | publishing | gh_minutes | 10 | — | — |
 | 01:30 | `screens` | `30 1 * * *` | render | gh_minutes | 25 | — | — |
@@ -70,17 +73,21 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 02:40 | `vocab-img-scene` | `40 2,4,7,10,13,16,19,22 * * *` | bulk | grabcast_ai, gh_minutes | 120 | grabcast_images≈6000, grabcast_text≈300, shards_max≈10, per_shard_images≈max_gc / shards, judge≈local CPU (0 token), grabcast_vision≈6000 | ✓ |
 | 03:20 | `visual-qa` | `20 3 * * 1` | reports | gh_minutes | 30 | — | — |
 | 03:40 | `mobile-qa` | `40 3 * * 1` | reports | gh_minutes | 30 | — | — |
+| 03:41 | `content-evidence` | `41 3 * * *`<br>`23 4 1 * *` | reports | gh_minutes | 30 | — | — |
 | 03:41 | `storage-watch` | `41 3 * * 1` | reports | gh_minutes | 5 | d1_internal_reads≈10 | ✓ |
 | 03:47 | `drive-repair` | `47 3 * * *` | archive | drive_pool | 30 | drive_calls≈100 | — |
+| 03:53 | `video-auto` | `17 23 * * *`<br>`53 3,6 * * *` | render | gh_minutes | 90 | — | — |
 | 04:17 | `ads-demo` | `17 4 * * 1` | reports | gh_minutes | 30 | — | — |
 | 04:23 | `drive-shorts` | `23 4 * * *` | archive | drive_pool, d1_internal | 20 | d1_internal_reads≈20000, drive_calls≈1500 | ✓ |
 | 04:40 | `capacity-sim` | `40 4 * * 1` | reports | gh_minutes | 10 | — | — |
 | 04:40 | `vocab-img-free` | `40 4 * * 1` | bulk | gh_minutes | 6 | images≈0 | — |
 | 04:41 | `report-shots` | `41 4 * * 1` | archive | gh_minutes | 2 | — | — |
 | 04:47 | `video-web` | `47 4 * * *` | render | gh_minutes, drive_pool, d1_internal | 40 | d1_internal_reads≈300, drive_calls≈100 | ✓ |
+| 05:23 | `web-merge-daily` | `23 5 * * *` | reports | gh_minutes | 2 | — | — |
 | 05:30 | `d1b-migrate` | `30 5 * * *` | archive | d1_internal, d1_main_read, drive_pool | 45 | d1_main_reads≈40000, d1_internal_reads≈2000 | ✓ |
 | 06:03 | `ads-revenue` | `3 6 * * *` | reports | gh_minutes, d1_main | 2 | d1_main_reads≈1500, d1_main_writes≈300 | — |
 | 06:20 | `footage-verify` | `20 6 * * 1` | reports | drive_pool, d1_internal | 20 | d1_internal_reads≈8000, drive_calls≈300 | ✓ |
+| 07:20 | `ci-queue-report` | `20 7 * * *` | reports | gh_minutes | 3 | — | — |
 | 07:30 | `explain` | `30 7 * * *` | render | gemini, grabcast_ai, gh_minutes | 40 | gemini_calls≈400, grabcast_text≈200 | — |
 | 08:53 | `news-auto` | `53 8 * * *` | render | gh_minutes, workers_ai_b, gemini, drive_pool | 150 | clips≈6, gemini_calls≈12, drive_calls≈60, workers_ai_b_neurons≈3000 | ✓ |
 | 11:30 | `release-archive` | `30 11 * * 6` | archive | drive_pool, gh_minutes | 30 | drive_calls≈40 | ✓ |
@@ -96,7 +103,6 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 22:00 | `i18n-leak` | `0 22 * * *` | reports | gh_minutes | 20 | — | — |
 | 22:40 | `quality-sweep` | `40 22 * * *` | reports | gh_minutes | 45 | — | ✓ |
 | 23:10 | `content-qa` | `10 23 * * *` | reports | gh_minutes | 5 | — | — |
-| 23:17 | `video-auto` | `17 23 * * *` | render | gh_minutes | 90 | — | — |
 | 23:30 | `blog-daily` | `30 23 * * *` | publishing | gemini, gh_minutes | 30 | — | — |
 
 Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: việc nền "đăng bài" trước, rồi dựng, lưu trữ (footage-archive 01:45 → drive-shorts → d1b-migrate 05:30), báo cáo.
@@ -107,6 +113,7 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | Việc hạ nguồn | Đọc qua | Việc/lịch |
 |---|---|---|
 | `scripts/content-score.mjs` – content/pipeline/SCORE.md – điểm mảng Kho từ (đếm từ#loại kể cả mở rộng 20k, độ phủ trường, ảnh) | `loadAllPlus` | content-qa.yml (score) |
+| `scripts/content-qa/learnability.mjs` – reports/learnability.json + content/pipeline/LEARN.md – thước đo 'Dễ học – dễ nhớ' (12 tiêu chí; dùng cấp CEFR kho từ cho i+1, kể cả mục mở rộng 20k) | `loadAllPlus` | content-qa.yml (score) + npm test |
 | `scripts/content-qa/lkf-check.mjs` – reports/lkf-coverage.json – độ phủ lo của từ#loại (luật vocab theo cấp CEFR, kể cả mục mở rộng 20k) cho khung Can-do | `loadAllPlus` | npm test + content-qa.yml (score) |
 | `scripts/lexicon/shards.mjs` – mảnh tra từ (web, mobile, add-on qua Lex) + mảnh nghĩa 13 ngôn ngữ | `loadExpand` | build-web (mỗi lần deploy) |
 | `scripts/lexicon/surfaces.mjs` – dict-consistency: mảnh = INDEX | `loadBrowserIndex` | npm test |
@@ -131,6 +138,7 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/lexicon/i18n-job.mjs` –  | bỏ qua: mục mở rộng đã có nghĩa 13 ngôn ngữ qua 2 giám khảo trong nguồn (x: 1 bị lọc) | — |
 | `scripts/lexicon/expand/espeak-calib.mjs` –  | bỏ qua: chỉ lấy mẫu từ kho viết tay để hiệu chuẩn IPA Anh espeak ↔ Wiktionary; không ghi/xuất | — |
 | `scripts/lexicon/cefr-check.mjs` –  | bỏ qua: chỉ gắn cờ CEFR bộ viết tay; mục mở rộng có cổng CEFR riêng (gateEntry) | — |
+| `scripts/lesson/build-path-nodes.mjs` –  | bỏ qua: nội dung nút Lộ trình chọn tay từ bộ viết tay (đúng 12 từ IELTS_DATA.TOPICS mỗi chặng) và kiểm từ#loại + CEFR + ví dụ nguyên văn trong kho đó; mục mở rộng 20k không đi vào bài chốt sẵn | — |
 | `scripts/scriptbank/gold.mjs` –  | bỏ qua: bộ mẫu vàng cố định từ bộ viết tay | — |
 | `scripts/vocab-img/cards.mjs` – thẻ nghĩa vimg | `dist/lexicon.json` | vocab-img |
 | `scripts/vocab-img/publish.mjs` – đăng ảnh vimg | `dist/lexicon.json` | vocab-img |
@@ -148,4 +156,12 @@ Sau mốc reset 00:00 UTC (hạn mức D1 miễn phí làm mới), thứ tự: v
 | `scripts/tts-ab/coverage.mjs` – docs/TTS-AB.md §Độ phủ – % chuỗi app phát có giọng Kokoro dựng sẵn (từ đơn audio/w + câu ví dụ audio/l của mọi từ trong chỉ mục tra từ) | `loadBrowserIndex` | tts-ab (độ phủ) |
 | `scripts/lexicon/core.mjs` –  | bỏ qua: danh sách từ lõi cho lô nghĩa gold P0.2 chỉ chọn từ kho viết tay (loadAll) – mục mở rộng 20k chưa vào lô gold | — |
 | `scripts/content-qa/sense-check.mjs` –  | bỏ qua: cổng nghĩa v2 kiểm mục trong content/lexicon/senses*.json đối chiếu kho viết tay (từ lõi, scripts/lexicon/core.mjs); mục mở rộng chưa có nghĩa gold – khi lô gold nhận mục mở rộng phải đổi sang loadAllPlus | — |
+| `scripts/native/web-ref.mjs` –  | bỏ qua: chạy JS web thật trong node:vm để sinh vector native (lib chỉ gồm từ mà vector dùng); không ghi/xuất kho | — |
+| `scripts/native/gen-vocab.mjs` –  | bỏ qua: chỉ lấy vài từ của các chủ đề cốt lõi làm mẫu thử cho vector test (vocab.json); dữ liệu từ thật thì app native tải lúc chạy như web, nên mục mở rộng 20k không đi qua script này | — |
+| `scripts/native/gen-skills.mjs` –  | bỏ qua: chỉ dựng bảng tách từ của Lexis (AWL/từ nối/cụm) và vector cho màn nghe/đọc từ IELTS_DATA nạp bằng data.js; không ghi/xuất kho, từ thật thì app native tải lúc chạy như web | — |
+| `scripts/native/gen-write.mjs` –  | bỏ qua: chỉ lấy khóa IELTS_DATA.INDEX (tập từ mà Lexis.analyze tra) và chủ đề của đề viết để dựng vector/gói viết; không ghi/xuất kho, từ thật thì app native tải lúc chạy như web | — |
+| `scripts/native/gen-learn.mjs` –  | bỏ qua: chạy JS web thật (soát lỗi, ngữ pháp, phương pháp, giao tiếp tự tin) để sinh vector/gói; nếu nạp kho từ thì chỉ để dựng DOM giả, không ghi/xuất kho | — |
+| `scripts/native/gen-sync.mjs` –  | bỏ qua: chỉ tra các từ mà vector sync/migration dùng (map lib) để native dựng lại thẻ L:1; không ghi/xuất kho | — |
+| `scripts/lexicon/expand/left.mjs` – số việc còn cho ci-filler (20k − mục sống + retry), không ghi gì | `doneWords` | ci-filler.yml (probe infra/ci-backlog.json) |
+| `scripts/video/teach2d/native-qa.mjs` –  | bỏ qua: đọc nghĩa/ví dụ từ web/packs để dịch ngược kiểm clip L1; không ghi kho, không cần mục mở rộng | — |
 | **CÒN THIẾU** srs-topics | bộ chủ đề SRS/Từ vựng trong app (IELTS_DATA.TOPICS) chưa có bộ xw-*: từ mở rộng tra được (mảnh) nhưng chưa vào danh sách bộ học – cần bộ tải lười JSON từ mảnh (không thêm vào web/js, ngân sách 19 MB) | — |

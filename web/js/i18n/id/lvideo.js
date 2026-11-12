@@ -1,3 +1,2 @@
-/* SINH từ i18n/ui/id/lvideo.js bằng scripts/i18n-pack.mjs – đừng sửa tay */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["id"] = Object.assign(D["id"] || {}, {"_ynnmea":"Tonton 20 detik","_10u46hz":"Video hari ini","_t0qfll":"Video pelajaran","_1cw0djl":"Putar video: {t}","_1uf5ws0":"Tutup video","_6bifv9":"Video tidak dapat diputar. Coba lagi nanti.","_apvbgs":"Pertanyaan cepat","_dek07p":"Benar! Ditambahkan ke kartu ulasanmu.","_ha39cs":"Belum tepat. Jawaban: {a} – ditambahkan ke kartu ulasanmu.","_1b3yrgg":"Video berikutnya","_2ykj2p":"Bab video"});
-})(typeof self !== 'undefined' ? self : this);
+/* SINH từ i18n/ui/id/lvideo.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.id=Object.assign(D.id||{},{_nmea:"Tonton 20 detik",_46hz:"Video hari ini",_qfll:"Video pelajaran",_djl:"Putar video: {t}",_5ws0:"Tutup video",_ifv9:"Video tidak dapat diputar. Coba lagi nanti.",_vbgs:"Pertanyaan cepat",_k07p:"Benar! Ditambahkan ke kartu ulasanmu.",_39cs:"Belum tepat. Jawaban: {a} – ditambahkan ke kartu ulasanmu.",_yrgg:"Video berikutnya",_kj2p:"Bab video"});})(typeof self!=='undefined'?self:this);

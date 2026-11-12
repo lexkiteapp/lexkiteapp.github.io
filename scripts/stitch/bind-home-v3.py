@@ -3,7 +3,7 @@
 import json
 def P(*n, base=':scope'): return ' > '.join([base] + [f':nth-child({i})' for i in n])
 def R(*n): return P(*n)  # trong khuôn lặp (:scope = phần tử khuôn)
-LOGO = lambda w: f"'<img src=\"/icons/icon.svg?v=2\" width=\"{w}\" height=\"{w}\" alt=\"\">'"
+LOGO = lambda w: f"'<img src=\"/icons/icon.svg?v=3\" width=\"{w}\" height=\"{w}\" alt=\"\">'"
 STATIC = lambda s: "'" + s.replace("'", "\\'") + "'"  # chữ mẫu tiếng Anh (câu học viên/từ ví dụ) – giữ nguyên mọi ngôn ngữ
 b = {'chrome': True, 'unwrap': ':scope > div', 'i18n': {}, 'repeat': [], 'html': {}, 'after': {}, 'attr': {}, 'tag': {}, 'remove': [], 'text': {}, 'addClass': {}}
 I = b['i18n']

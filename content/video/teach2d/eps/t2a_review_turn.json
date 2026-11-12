@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"turn\" mean?",
+  "keyword": "turn",
+  "value": "Turn means to change the direction of something (e.g., a car).",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=turn",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"turn\" mean?",
+    "description": "Turn means to change the direction of something (e.g., a car).\n\nReview your words, free: https://lexkite.com/app/#/review?w=turn\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "turn",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"turn\" mean?\n\nTurn means to change the direction of something (e.g., a car).\n\nReview your words, free: https://lexkite.com/app/#/review?w=turn"
+   },
+   "instagram": {
+    "caption": "What does \"turn\" mean?\n\nTurn means to change the direction of something (e.g., a car).\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"turn\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to change the direction of something (e.g., a car). Turn means to change the direction of something (e.g., a car). Try the full lesson and quiz here: {link}"
  }
 }

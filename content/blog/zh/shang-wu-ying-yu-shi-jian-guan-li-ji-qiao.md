@@ -113,7 +113,7 @@ IMPORTANT|  - Routine vendor inquiry  |  - Unformatted meeting deck|
 
 诸如 `cut down on unnecessary cycle overhead`（缩减不必要的研发迭代开销）或 `push back against scope creep`（坚决抵制无休止的需求蔓延）等高频动词短语，必须做到无需思考、自然脱口而出。
 
-Lexkite 应用程序内置了前沿的智能语音打分引擎。只需进入[发音练习模块](/#/practice/speak)，对着麦克风朗读专业职场例句，系统便会精确识别音素层面的微弱偏差，帮助你在短时间内纠正重音与连读缺陷。在日常工作中，也可以通过[口语综合练习](/#/speaking)锻炼整句输出的流利度，并在[词汇学习专区](/tu-vung/)系统扩充商务管理词库。
+Lexkite 应用程序内置了前沿的智能语音打分引擎。只需进入[发音练习模块](/#/practice/speak)，对着麦克风朗读专业职场例句，系统便会精确识别音素层面的微弱偏差，帮助你在短时间内纠正重音与连读缺陷。在日常工作中，也可以通过[口语综合练习](/#/speaking)锻炼整句输出的流利度，并在[词汇学习专区](/en/vocabulary/)系统扩充商务管理词库。
 
 ## 每日工程自律：晨间对齐与晚间复盘清单
 

@@ -43,11 +43,11 @@ const settings = theme => JSON.stringify({ onboarded: true, theme });
 // Trạng thái chụp + quét (dùng chung cho trước/sau). ux1: bật cờ "Một app" (Hôm nay/Từ vựng/Kỹ năng/Thi/Tôi) như bản live đang chạy.
 const STATES = [
   ['home', '/home'], ['vocab', '/vocab'], ['review', '/review'], ['practice', '/practice'], ['skills', '/skills'], ['tests', '/tests'],
-  ['me', '/me'], ['settings', '/settings'], ['stats', '/stats'], ['lesson', '/lesson/go?demo=1'],
+  ['me', '/me'], ['settings', '/settings'], ...['account', 'look', 'study', 'sound', 'remind', 'ai', 'ext', 'data', 'help'].map(k => ['settings-' + k, '/settings/' + k]), // trang con Cài đặt (admin cần quyền quản trị – không quét) ['stats', '/stats'], ['lesson', '/lesson/go?demo=1'],
   ['review-card', '/review', { ux1: 1, mode: 'flip' }], ['review-type', '/review', { ux1: 1, mode: 'type' }], ['ux1-home', '/home', { ux1: 1 }], ['ux1-train', '/train', { ux1: 1 }], ['ux1-me', '/me', { ux1: 1 }],
 ];
 // Cột trái máy tính: mép trái nội dung của mục menu, khối tiến độ và chân thanh bên phải thẳng một hàng
-const ALIGN = [{ name: 'sidebar', items: ['.sidebar #nav > a', '.sidebar #nav > details > summary', '.sidebar .side-foot > :first-child'] }];
+const ALIGN = [{ name: 'sidebar', items: ['.sidebar #nav > a', '.sidebar #nav > details > summary', '.sidebar .side-foot:not(.sp-on) > :first-child'] }]; // 05/11: chân gọn (.sp-on) = nút ⋯ cố ý ở cuối hàng hồ sơ, không phải mục cột; bố cục dự phòng (lỗi tải) vẫn đo
 
 const vp = w => w <= 430 ? { ...devices['Pixel 7'], viewport: { width: w, height: 844 }, screen: { width: w, height: 844 } } : { viewport: { width: w, height: w >= 1200 ? 900 : 1024 }, deviceScaleFactor: 1 };
 const INIT = ({ seed, theme }) => {
@@ -118,7 +118,7 @@ const PLAY = async ({ wrongEvery = 2, maxSteps = 60 } = {}) => {
 // ---------- 1) Hành trình học ----------
 async function journey(w, theme) {
   const tag = `journey@${w}${theme[0]}`, fails = [], steps = [];
-  const { ctx, page, take } = await context(w, theme, { ux1: 1, seed: { 'sbx.settings': JSON.stringify({ theme }) } }); // chưa onboarded → đi qua thiết lập; ux1 = như bản live (cờ ux1=1) – #/lesson/go cần ux1
+  const { ctx, page, take } = await context(w, theme, { ux1: 1, seed: { 'sbx.settings': JSON.stringify({ theme }), 'sbx.cards': '{}' } }); // người mới thật (chưa onboarded, chưa có thẻ – có dữ liệu thì Welcome/setup chuyển về Home, docs/specs/welcome.md); sau thiết lập nạp lại bộ thẻ mẫu cho các bước sau → đi qua thiết lập; ux1 = như bản live (cờ ux1=1) – #/lesson/go cần ux1
   const ok = (c, m) => { if (!c) { fails.push(m); console.log(`  ✗ [${tag}] ${m}`); } return !!c; };
   const step = async (name, fn) => {
     const t0 = Date.now();
@@ -136,11 +136,12 @@ async function journey(w, theme) {
   await step('onboarding', async () => {
     await boot(page, '/welcome/setup');
     if (await has('#noAcct')) await click('#noAcct');
-    await click('button.trk-opt'); await click('#obNext', 300);
-    await click('.trk-lv [data-lv]:not([data-lv="test"])');
+    await click('[data-track]'); await click('#obNext', 300);
+    await click('[data-lv]:not([data-lv="test"])');
     for (let i = 0; i < 8 && !(await has('#go')); i++) await click('#obNext', 300);
     await click('#go', 1500);
     ok(!/welcome/.test(page.url()), 'thiết lập xong → rời màn chào (' + page.url().replace(O, '') + ')');
+    await page.evaluate(c => localStorage.setItem('sbx.cards', c), JSON.stringify(CARDS)); await boot(page, '/home'); // bộ thẻ mẫu như trước khi welcome đổi (các bước sau cần thẻ)
     ok(JSON.parse(await page.evaluate(() => localStorage.getItem('sbx.settings')) || '{}').onboarded, 'đã lưu onboarded trong sandbox');
   });
   let g0 = null;
@@ -187,7 +188,7 @@ async function journey(w, theme) {
   });
   await step('me', async () => { await go(page, '/me'); await go(page, '/stats'); });
   await step('theme', async () => {
-    await go(page, '/settings');
+    await go(page, '/settings/look'); // Cài đặt = mục lục + trang con: Chế độ màu ở nhóm Giao diện
     const lum = () => page.evaluate(() => { const c = getComputedStyle(document.body).backgroundColor.match(/\d+(\.\d+)?/g).map(Number); return (0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]) / 255; });
     await click('#sTheme button[data-v="dark"]', 600);
     ok(await page.evaluate(() => document.documentElement.getAttribute('data-theme')) === 'dark', 'chọn Tối → html[data-theme=dark]');
@@ -236,8 +237,48 @@ async function ui(w, theme) {
       const nf = rec.issues.filter(i => i.sev === 'fail').length;
       console.log(`${nf || rec.errors.length ? '•' : '✓'} ${ctxKey}: ${nf} lỗi giao diện, ${rec.errors.length} lỗi JS/request`);
     }
+    // Thanh bên ở màn thấp + RTL, nhóm đang mở: mọi hàng cuộn tới được, không bị cắt/đè, không tràn ngang (có ảnh để xem)
+    if (w >= 901) for (const [h, dir] of [[760, 'ltr'], [560, 'ltr'], [760, 'rtl']]) {
+      const key = `sidebar-${h}-${dir}@${w}${theme[0]}`, rec = { state: 'sidebar', w, theme, key, issues: [], cls: 0, errors: [] };
+      try {
+        await page.setViewportSize({ width: w, height: h });
+        await page.goto('about:blank'); await boot(page, '/home');
+        await page.evaluate(d => { document.documentElement.dir = d; const g = document.querySelector('#nav .nav-group'); if (g) g.open = true; /* ux1: menu phẳng, không có nhóm */ }, dir);
+        await sleep(400);
+        const bad = await page.evaluate(() => { const out = [], side = document.querySelector('.sidebar');
+          if (side.scrollWidth > side.clientWidth + 1) out.push(`tràn ngang ${side.scrollWidth}/${side.clientWidth}`);
+          for (const e of document.querySelectorAll('#nav a, #nav summary, .side-foot > a, .sf-more > summary, .lk-rep.in-side, #sideLevel')) { if (e.hidden || !e.getBoundingClientRect().width || (e.checkVisibility && !e.checkVisibility())) continue; // nhóm đóng: content-visibility:hidden vẫn có kích thước
+            e.scrollIntoView({ block: 'nearest', behavior: 'instant' }); const r = e.getBoundingClientRect(), hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2), n = (e.innerText || e.id).trim().split('\n')[0];
+            if (r.bottom > innerHeight + 1 || r.top < 0) out.push(`"${n}" bị cắt (${Math.round(r.top)}…${Math.round(r.bottom)} / ${innerHeight})`);
+            else if (!hit || !(e === hit || e.contains(hit))) out.push(`"${n}" bị đè`); }
+          return out; });
+        for (const m of bad) rec.issues.push({ k: 'sidebar', sev: 'fail', sig: `sidebar|${h}|${dir}|${m}`, msg: m });
+        await page.screenshot({ path: `${OUT}/shots/${key}.png` });
+      } catch (e) { rec.errors.push('quét dừng: ' + String(e.message).split('\n')[0].slice(0, 200)); }
+      R.ui.push(rec);
+      console.log(`${rec.issues.length ? '•' : '✓'} ${key}: ${rec.issues.length} lỗi thanh bên`);
+    }
     await ctx.close();
   }
+}
+
+
+// Khung hẹp chưa nằm trong WIDTHS: 360 (điện thoại nhỏ) và 1024 (cột phải hẹp nhất) × sáng/tối, màn ux1. Chỉ soi phần tử thừa/đè lên nội dung:
+// inlinebox = đỏ (lỗi cấu trúc, không có baseline), covered = cảnh báo (đầu dò đầy đủ đã chạy ở 390/768/1440).
+const NARROW = [360, 1024];
+async function narrow(w, theme) {
+  const list = STATES.filter(s => s[2] && s[2].ux1), { ctx, page, take } = await context(w, theme, { ux1: 1 });
+  for (const [name, hash] of list) {
+    const key = `${name}@${w}${theme[0]}`, rec = { state: name, w, theme, key, issues: [], cls: 0, errors: [], narrow: true };
+    try {
+      await page.goto('about:blank'); await boot(page, hash); await sleep(500);
+      rec.issues = (await page.evaluate(() => QAB.scan({ tap: 0, align: [] }))).filter(i => i.k === 'inlinebox' || i.k === 'covered').map(i => (i.k === 'covered' ? { ...i, sev: 'warn' } : i));
+      if (rec.issues.some(i => i.sev === 'fail')) await page.screenshot({ path: `${OUT}/shots/${key}.png` });
+    } catch (e) { rec.errors.push('quét dừng: ' + String(e.message).split('\n')[0].slice(0, 200)); }
+    rec.errors.push(...await take());
+    R.ui.push(rec);
+  }
+  await ctx.close();
 }
 
 // ---------- 3) Hiệu năng: chuyển tab → FPS, long task, INP ----------
@@ -295,6 +336,7 @@ async function storage() {
 try {
   if (ONLY.includes('journeys')) { await journey(390, 'light'); await journey(1440, 'dark'); }
   if (ONLY.includes('ui')) for (const w of WIDTHS) for (const t of THEMES) await ui(w, t);
+  if (ONLY.includes('ui') && WIDTHS.length === 3) for (const w of NARROW) for (const t of THEMES) await narrow(w, t);
   if (ONLY.includes('perf')) for (const w of [390, 1440]) await perf(w);
   if (ONLY.includes('storage')) await storage();
 } catch (e) { R.errors.push('bot dừng: ' + e.message); }

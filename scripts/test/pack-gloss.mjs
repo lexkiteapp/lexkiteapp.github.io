@@ -34,6 +34,9 @@ ok(!backCheck('pregnant', [[['full of', 0]], [['adjective', ['full', 'replete']]
 ok(backCheck('commute', [[['commuting', 0]], null]), 'dạng biến đổi (commuting) vẫn khớp');
 ok(!backCheck('currently', [[['actually', 0]], null]), 'currently ≠ actually');
 
+// ---- nguồn: job dịch đêm (lexicon-i18n) phải ghi bảng tay bằng cờ MANUAL (06/11 ghi cờ 1 → 320 nghĩa ko bị hạ, main đỏ)
+ok(/pack\[w\] = \[m, FLAG\.MANUAL/.test(fs.readFileSync(new URL('scripts/lexicon/i18n-job.mjs', R), 'utf8')), 'i18n-job: bảng tay ghi cờ FLAG.MANUAL');
+
 // ---- 2) bảng tay đã áp (cờ 2) · 3) danh sách cấm
 const LANGS = fs.readFileSync(new URL('scripts/i18n-langs.txt', R), 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'));
 ok(LANGS.length === 13, '13 ngôn ngữ gói');
@@ -57,3 +60,7 @@ for (const l of LANGS) for (const w of ['pregnant', 'currently']) ok(packs[l][w]
 
 const legacy = Object.fromEntries(LANGS.map(l => [l, Object.values(packs[l]).filter(v => v[1] === FLAG.LEGACY).length]));
 console.log(`✓ pack-gloss: ${n} kiểm · ${applied} nghĩa tay đã áp · còn chờ tinh chỉnh kiểm ngược (cờ 1): ${JSON.stringify(legacy)}`);
+
+// hồi quy 06/11 (a6bf18c13): bot lexicon-i18n phải ÁP LẠI bảng tay sau rebase + chạy pack-gloss trước khi đẩy main
+{ const y = (await import('node:fs')).readFileSync('.github/workflows/lexicon-i18n.yml', 'utf8'); const i = y.indexOf('rebase');
+  if (!(/gen-word-packs\.mjs "\$L" --gloss-only/.test(y) && /pack-gloss\.mjs \|\|[^\n]*KHÔNG đẩy/.test(y) && /PUSH_MAIN_REGEN=[^\n]*--gloss-only[^\n]*pack-gloss\.mjs/.test(y) && y.indexOf('--gloss-only') < y.indexOf('scripts/ci/push-main.sh'))) { console.error('✗ lexicon-i18n.yml: sau rebase phải áp lại bảng tay (--gloss-only) và chạy pack-gloss trước khi push'); process.exit(1); } }

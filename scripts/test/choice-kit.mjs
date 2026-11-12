@@ -8,6 +8,7 @@ const w = dom.window;
 w.matchMedia = () => ({ matches: false, addEventListener() {} });
 w.HTMLElement.prototype.getBoundingClientRect = function () { return { top: 10, bottom: 40, left: 0, right: 1000, width: 1000, height: 30 }; };
 w.eval(fs.readFileSync(new URL('../../web/js/choice-kit.js', import.meta.url), 'utf8'));
+w.eval(fs.readFileSync(new URL('../../web/js/word-arrange.js', import.meta.url), 'utf8'));
 const $ = s => w.document.querySelector(s);
 const q = (name, k) => `<div>${['x', 'y', 'z', 'w'].slice(0, k).map(v => `<label><input type="radio" name="${name}" value="${v}"> ${v}</label>`).join('')}</div>`;
 const draw = () => { $('#root').innerHTML = q('q1', 4) + q('q2', 4) + '<input type="text" id="gap">'; };
@@ -46,15 +47,15 @@ ok(!A('cat', 'car', { typo: true }).ok && !A('', 'x').ok && !A('do', "don't").ok
 ok(A('colour', 'color', { alts: ['colour'] }).ok, 'accept: đáp án thay thế');
 ok(CK.hint('because').head === 'b' && CK.hint('because').len === 7, 'hint: chữ đầu + số ký tự');
 // ── xếp câu: tiles (chạm đặt/gỡ về đúng ô cũ, phím số, Backspace, ←/→, kéo) ──
-ok(JSON.stringify(CK.insertAt([0, 1, 2], 2, 0)) === '[2,0,1]' && JSON.stringify(CK.insertAt([0, 1], 5, 9)) === '[0,1,5]', 'insertAt: chèn/đổi chỗ, kẹp biên');
+ok(JSON.stringify(w.WordArrange.insertAt([0, 1, 2], 2, 0)) === '[2,0,1]' && JSON.stringify(w.WordArrange.insertAt([0, 1], 5, 9)) === '[0,1,5]', 'insertAt: chèn/đổi chỗ, kẹp biên');
 const R = [{ left: 0, top: 0, width: 50, height: 40 }, { left: 60, top: 0, width: 50, height: 40 }];
-ok(CK.slotIndex(R, 10, 10) === 0 && CK.slotIndex(R, 80, 10) === 1 && CK.slotIndex(R, 200, 10) === 2 && CK.slotIndex([R[1], R[0]], 100, 10, true) === 0 && CK.slotIndex([R[1], R[0]], 5, 10, true) === 2, 'slotIndex: trái/phải/cuối, RTL đảo');
+ok(w.WordArrange.slotIndex(R, 10, 10) === 0 && w.WordArrange.slotIndex(R, 80, 10) === 1 && w.WordArrange.slotIndex(R, 200, 10) === 2 && w.WordArrange.slotIndex([R[1], R[0]], 100, 10, true) === 0 && w.WordArrange.slotIndex([R[1], R[0]], 5, 10, true) === 2, 'slotIndex: trái/phải/cuối, RTL đảo');
 w.document.body.insertAdjacentHTML('beforeend', '<div id="ans"></div><div id="bank"></div><p id="live"></p>');
 const words = ['I', 'like', 'tea'], ord = { v: [] }, ans = $('#ans'), bank = $('#bank');
 const drawT = () => { ans.innerHTML = ord.v.map(i => `<button class="lsn-tile" data-a="${i}">${words[i]}</button>`).join(''); bank.innerHTML = words.map((x, i) => `<button class="lsn-tile${ord.v.includes(i) ? ' used' : ''}" data-i="${i}">${x}</button>`).join(''); };
 drawT();
 let locked = false;
-const tk = CK.tiles({ ans, bank, get: () => ord.v, set: o => { ord.v = o; }, draw: drawT, locked: () => locked, word: i => words[i], say: x => { $('#live').textContent = x; }, t: (k, v) => k.replace(/\{(\w+)\}/g, (_, n) => v[n]) });
+const tk = w.WordArrange.bind({ ans, bank, get: () => ord.v, set: o => { ord.v = o; }, draw: drawT, locked: () => locked, word: i => words[i], say: x => { $('#live').textContent = x; }, t: (k, v) => k.replace(/\{(\w+)\}/g, (_, n) => v[n]) });
 bank.querySelector('[data-i="2"]').click(); bank.querySelector('[data-i="0"]').click();
 ok(JSON.stringify(ord.v) === '[2,0]' && bank.querySelector('[data-i="2"]').classList.contains('used') && bank.children.length === 3, 'chạm ngân hàng → đặt cuối; ô cũ giữ chỗ (không nhảy bố cục)');
 ok($('#live').textContent === 'I: vị trí 2/2', 'aria-live đọc vị trí');

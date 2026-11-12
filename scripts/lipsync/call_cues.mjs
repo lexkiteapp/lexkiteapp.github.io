@@ -18,7 +18,7 @@ for (const k of c.CALLS || []) {
   for (const x of [...nodes.flatMap(n => [n.m, n.re, ...(n.br || []).map(b => b[1])]), k.end, "Let's keep our chat friendly and on topic!"]) if (x) { const text = String(x).trim(); lines.set(c.KVoice.lineKey(voice, text), { who, voice, text }); }
 }
 // Truyện của #/lesson (giáo viên đứng trên màn, cùng giọng – khớp scripts/gen-audio.mjs §Truyện): bài học dùng chung mặt vẽ (lesson/ui.js)
-vm.runInContext(fs.readFileSync('web/js/lesson/stories.js', 'utf8'), c);
+vm.runInContext(fs.readFileSync('web/cpack/lesson/stories.js', 'utf8'), c);
 for (const st of c.LESSON_STORIES || []) for (const l of st.lines) { const who = V[l.who] ? l.who : 'ama', voice = V[who].voice.app, text = String(l.en).trim(); lines.set(c.KVoice.lineKey(voice, text), { who, voice, text }); }
 const old = (() => { try { const g = {}; new Function('self', fs.readFileSync(IDX, 'utf8'))(g); return g.LK_CUES.k; } catch (e) { return {}; } })();
 const todo = process.argv.includes('--index-only') ? [] : [...lines].filter(([k]) => !(k in old)); // --index-only: chỉ ghi lại chỉ mục (từ điển + mốc đã có), không sinh tiếng

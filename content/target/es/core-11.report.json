@@ -1,0 +1,289 @@
+{
+ "at": "2026-11-05T02:54:37.665Z",
+ "accepted": 17,
+ "rejected": [
+  {
+   "form": "lo",
+   "word": "lo",
+   "why": [
+    "dịch ngược lệch: vi,pt,fr,ja,ko,hi,ar,ru,tr"
+   ]
+  },
+  {
+   "form": "van",
+   "word": "ir",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "visto",
+   "word": "ver",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "quería",
+   "word": "querer",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "nuestra",
+   "word": "nuestro",
+   "why": [
+    "dịch ngược lệch: id"
+   ]
+  },
+  {
+   "form": "veces",
+   "word": "vez",
+   "why": [
+    "giám khảo A: IPA corresponds to singular 'vez' not plural 'veces'; plural form IPA missing."
+   ]
+  },
+  {
+   "form": "quien",
+   "word": "quien",
+   "why": [
+    "giám khảo A: Lemma missing accent; should be 'quién'."
+   ]
+  },
+  {
+   "form": "unos",
+   "word": "un",
+   "why": [
+    "giám khảo A: Lemma given as 'un' instead of 'unos' for the plural form.",
+    "dịch ngược lệch: pt,fr,de"
+   ]
+  },
+  {
+   "form": "esposa",
+   "word": "esposa",
+   "why": [
+    "dịch ngược lệch: tr"
+   ]
+  },
+  {
+   "form": "esté",
+   "word": "estar",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "hiciste",
+   "word": "hacer",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "saber",
+   "word": "saber",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "caso",
+   "word": "caso",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "minuto",
+   "word": "minuto",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  },
+  {
+   "form": "dar",
+   "word": "dar",
+   "why": [
+    "trùng lemma giữa shard"
+   ]
+  }
+ ],
+ "tried": [
+  "estoy",
+  "ahora",
+  "muy",
+  "ha",
+  "esta",
+  "así",
+  "vamos",
+  "algo",
+  "hay",
+  "bueno",
+  "o",
+  "he",
+  "ser",
+  "tiene",
+  "puedo",
+  "ella",
+  "quiero",
+  "fue",
+  "gracias",
+  "sólo",
+  "tan",
+  "quién",
+  "sus",
+  "tiempo",
+  "dos",
+  "esa",
+  "nunca",
+  "dónde",
+  "va",
+  "oh",
+  "favor",
+  "mucho",
+  "mí",
+  "quieres",
+  "siento",
+  "señor",
+  "mejor",
+  "hace",
+  "has",
+  "decir",
+  "también",
+  "sobre",
+  "dios",
+  "sin",
+  "tenemos",
+  "están",
+  "ti",
+  "puedes",
+  "ver",
+  "hombre",
+  "vida",
+  "alguien",
+  "cosas",
+  "siempre",
+  "hasta",
+  "ahí",
+  "ir",
+  "años",
+  "antes",
+  "estar",
+  "estamos",
+  "quiere",
+  "podría",
+  "vas",
+  "ellos",
+  "tal",
+  "pasa",
+  "fuera",
+  "después",
+  "han",
+  "desde",
+  "lo",
+  "para",
+  "yo",
+  "ya",
+  "este",
+  "sabes",
+  "ni",
+  "nosotros",
+  "mundo",
+  "madre",
+  "nuevo",
+  "luego",
+  "quería",
+  "nuestra",
+  "visto",
+  "veces",
+  "quien",
+  "ustedes",
+  "unos",
+  "van",
+  "caso",
+  "muchas",
+  "manera",
+  "entiendo",
+  "espero",
+  "minutos",
+  "da",
+  "esposa",
+  "cinco",
+  "bastante",
+  "sigue",
+  "hubiera",
+  "hiciste",
+  "sangre",
+  "algunas",
+  "fiesta",
+  "hermana",
+  "esté",
+  "bebé",
+  "lista"
+ ],
+ "spot": [
+  "mucho",
+  "esperar"
+ ],
+ "stats": {
+  "used": {
+   "lexai": 0,
+   "gc": 0,
+   "cf2": 0,
+   "cfLeak": 0,
+   "cf2Dead": [],
+   "gem": 3,
+   "groq": 11
+  },
+  "budget": {
+   "lexai": 0,
+   "gc": 10000,
+   "cf2": 0
+  },
+  "by": {
+   "gem|gemini-3.8-flash": {
+    "ok": 3,
+    "fail": 11,
+    "bad": 0
+   },
+   "gem|gemini-3.6-flash": {
+    "ok": 0,
+    "fail": 1,
+    "bad": 0
+   },
+   "groq|openai/gpt-oss-120b": {
+    "ok": 6,
+    "fail": 0,
+    "bad": 0
+   },
+   "groq|qwen/qwen3.8-27b": {
+    "ok": 5,
+    "fail": 0,
+    "bad": 0
+   },
+   "lexai|gemini-3.5-flash": {
+    "ok": 0,
+    "fail": 11,
+    "bad": 0
+   }
+  },
+  "keys": {
+   "gem": {
+    "size": 85,
+    "live": 37,
+    "parked": {
+     "day": 30,
+     "minute": 16,
+     "auth": 2
+    }
+   },
+   "groq": {
+    "size": 109,
+    "live": 109,
+    "parked": {}
+   }
+  }
+ },
+ "wiktFlags": []
+}

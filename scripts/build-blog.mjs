@@ -71,8 +71,8 @@ const COPY = {
   en: 'This article was written exclusively by the Lexkite academic team (lexkite.com). Please credit the source when quoting.',
 };
 const L = {
-  vi: { blog: 'Blog', home: 'Trang chủ', open: 'Mở app', min: 'phút đọc', toc: 'Nội dung bài', related: 'Bài liên quan', tags: 'Thẻ', page: 'Trang', newer: '← Mới hơn', older: 'Cũ hơn →', all: 'Tất cả', updated: 'Cập nhật', play: 'Phát video', by: 'Lexkite', cat: 'Chuyên mục', tagT: 'Bài viết về', foot: 'Lexkite – học từ vựng & luyện thi IELTS, TOEIC, TOEFL miễn phí. Nội dung tự biên soạn.', tm: 'IELTS, TOEIC, TOEFL là nhãn hiệu của chủ sở hữu tương ứng; Lexkite là sản phẩm độc lập.', skip: 'Bỏ qua đến nội dung', about: 'Về Blog Lexkite', try: 'Học miễn phí trên Lexkite', tryD: 'Flashcard FSRS, từ điển song ngữ, luyện 4 kỹ năng và thi thử – không cần thẻ tín dụng.', rss: 'RSS', words: 'Từ vựng', samples: 'Bài mẫu', seg: { cat: 'chu-de', tag: 'the', page: 'trang' }, aboutSlug: 'gioi-thieu', nav: { words: '/tu-vung/', samples: '/samples/' } },
-  en: { blog: 'Blog', home: 'Home', open: 'Open app', min: 'min read', toc: 'Contents', related: 'Related posts', tags: 'Tags', page: 'Page', newer: '← Newer', older: 'Older →', all: 'All', updated: 'Updated', play: 'Play video', by: 'Lexkite', cat: 'Category', tagT: 'Posts about', foot: 'Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice. Original content.', tm: 'IELTS, TOEIC and TOEFL are trademarks of their respective owners; Lexkite is independent.', skip: 'Skip to content', about: 'About', try: 'Learn free with Lexkite', tryD: 'FSRS flashcards, bilingual dictionary, 4-skill practice and mock tests – no credit card.', rss: 'RSS', words: 'Vocabulary', samples: 'Samples', seg: { cat: 'topic', tag: 'tag', page: 'page' }, aboutSlug: 'about', nav: { words: '/en/vocabulary/', samples: '/en/samples/' },
+  vi: { blog: 'Blog', home: 'Trang chủ', open: 'Mở app', min: 'phút đọc', toc: 'Nội dung bài', related: 'Bài liên quan', tags: 'Thẻ', page: 'Trang', newer: '← Mới hơn', older: 'Cũ hơn →', all: 'Tất cả', updated: 'Cập nhật', play: 'Phát video', by: 'Lexkite', cat: 'Chuyên mục', tagT: 'Bài viết về', foot: 'Lexkite – học từ vựng & luyện thi IELTS, TOEIC, TOEFL miễn phí. Nội dung tự biên soạn.', tm: 'IELTS, TOEIC, TOEFL là nhãn hiệu của chủ sở hữu tương ứng. Lexkite là sản phẩm độc lập, không liên kết và không được British Council, IDP, Cambridge hay ETS bảo trợ.', skip: 'Bỏ qua đến nội dung', about: 'Về Blog Lexkite', try: 'Học miễn phí trên Lexkite', tryD: 'Flashcard FSRS, từ điển song ngữ, luyện 4 kỹ năng và thi thử – không cần thẻ tín dụng.', rss: 'RSS', words: 'Từ vựng', samples: 'Bài mẫu', seg: { cat: 'chu-de', tag: 'the', page: 'trang' }, aboutSlug: 'gioi-thieu', nav: { words: '/tu-vung/', samples: '/samples/' } },
+  en: { blog: 'Blog', home: 'Home', open: 'Open app', min: 'min read', toc: 'Contents', related: 'Related posts', tags: 'Tags', page: 'Page', newer: '← Newer', older: 'Older →', all: 'All', updated: 'Updated', play: 'Play video', by: 'Lexkite', cat: 'Category', tagT: 'Posts about', foot: 'Lexkite – free vocabulary and IELTS, TOEIC, TOEFL practice. Original content.', tm: 'IELTS, TOEIC and TOEFL are trademarks of their respective owners. Lexkite is independent and not affiliated with or endorsed by the British Council, IDP, Cambridge or ETS.', skip: 'Skip to content', about: 'About', try: 'Learn free with Lexkite', tryD: 'FSRS flashcards, bilingual dictionary, 4-skill practice and mock tests – no credit card.', rss: 'RSS', words: 'Vocabulary', samples: 'Samples', seg: { cat: 'topic', tag: 'tag', page: 'page' }, aboutSlug: 'about', nav: { words: '/en/vocabulary/', samples: '/en/samples/' },
     cats: { 'tu-vung': 'Vocabulary', ielts: 'IELTS', toeic: 'TOEIC', toefl: 'TOEFL', 'phuong-phap': 'Study methods', 'ngu-phap': 'Grammar & usage', 'phat-am': 'Pronunciation', 'ky-nang': 'English skills' } },
   id: { blog: 'Blog', home: 'Beranda', open: 'Buka aplikasi', min: 'menit baca', toc: 'Daftar isi', related: 'Artikel terkait', tags: 'Tag', page: 'Halaman', newer: '← Lebih baru', older: 'Lebih lama →', all: 'Semua', updated: 'Diperbarui', play: 'Putar video', cat: 'Kategori', tagT: 'Artikel tentang', foot: 'Lexkite – belajar kosakata dan latihan IELTS, TOEIC, TOEFL gratis. Konten orisinal.', tm: 'IELTS, TOEIC, dan TOEFL adalah merek dagang milik pemiliknya masing-masing; Lexkite adalah produk independen.', skip: 'Langsung ke konten', about: 'Tentang', try: 'Belajar gratis di Lexkite', tryD: 'Flashcard FSRS, kamus dwibahasa, latihan 4 keterampilan, dan simulasi tes – tanpa kartu kredit.', words: 'Kosakata', samples: 'Contoh esai', seg: { cat: 'topik', tag: 'tag', page: 'halaman' }, aboutSlug: 'tentang', nav: { words: '/en/vocabulary/', samples: '/en/samples/' },
     cats: { 'tu-vung': 'Kosakata', ielts: 'IELTS', toeic: 'TOEIC', toefl: 'TOEFL', 'phuong-phap': 'Metode belajar', 'ngu-phap': 'Tata bahasa', 'phat-am': 'Pelafalan', 'ky-nang': 'Keterampilan bahasa Inggris' } },
@@ -192,7 +192,7 @@ function inline(s) {
 }
 // Liên kết nội bộ thương hiệu (chống cào bài, tăng liên kết về app): chỉ lần xuất hiện ĐẦU, tối đa 3 link/bài, không trong tiêu đề/link sẵn có
 const AUTOLINK = {
-  vi: [['flashcard FSRS', '/app/#/review'], ['tiện ích Chrome', '/app/#/settings'], ['ôn thi IELTS', '/'], ['tra từ', '/app/#/dict'], ['luyện phát âm', '/app/#/pron']],
+  vi: [['flashcard FSRS', '/app/#/review'], ['tiện ích Chrome', '/app/#/settings'], ['ôn thi IELTS', '/vi/'], ['tra từ', '/app/#/dict'], ['luyện phát âm', '/app/#/pron']],
   en: [['FSRS flashcards', '/app/?hl=en#/review'], ['Chrome extension', '/app/?hl=en#/settings'], ['IELTS preparation', '/en/'], ['look up words', '/app/?hl=en#/dict'], ['pronunciation practice', '/app/?hl=en#/pron']],
 };
 let LINKED = null;
@@ -287,8 +287,8 @@ function layout({ lang, title, desc, url, alt = [], to = () => null, img, imgAlt
 ${alt.map(a => `<link rel="alternate" hreflang="${a.lang}" href="${SITE}${a.url}">`).join('\n')}
 <link rel="alternate" type="application/rss+xml" title="${esc(C.blogName[lang] || C.blogName.en)}" href="${SITE}${b}rss.xml">
 <meta name="theme-color" content="#0F3D3E">
-<link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">
+<link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=3">
 <meta property="og:type" content="${type}">
 <meta property="og:site_name" content="Lexkite">
 <meta property="og:locale" content="${{ vi: 'vi_VN', en: 'en_US', id: 'id_ID', es: 'es_ES', ja: 'ja_JP', ko: 'ko_KR', th: 'th_TH', zh: 'zh_CN', ar: 'ar_AR' }[lang] || lang}">
@@ -350,7 +350,7 @@ for (const p of posts) {
   const cat = catName(p.category, p.lang), b = base(p.lang), sg = SEG(p.lang);
   const crumbs = [[t.home, landingHref(p.lang)], [t.blog, b], [cat, `${b}${sg.cat}/${p.category}/`], [p.title, postUrl(p)]];
   const jsonld = [
-    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, image: [imgUrl(cv.id)], datePublished: iso(pub), dateModified: iso(upd), inLanguage: p.lang, wordCount: words, keywords: [p.keyword, ...(p.tags || [])].join(', '), articleSection: cat, mainEntityOfPage: SITE + postUrl(p), author: editorialNode(p.lang), publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png?v=2`, width: 512, height: 512 } } },
+    { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.description, image: [imgUrl(cv.id)], datePublished: iso(pub), dateModified: iso(upd), inLanguage: p.lang, wordCount: words, keywords: [p.keyword, ...(p.tags || [])].join(', '), articleSection: cat, mainEntityOfPage: SITE + postUrl(p), author: editorialNode(p.lang), publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: { '@type': 'ImageObject', url: `${SITE}/icons/icon-512.png?v=3`, width: 512, height: 512 } } },
     crumbsLd(crumbs),
     ...(faq.length >= 2 ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }] : []),
   ];
@@ -387,21 +387,23 @@ for (const lang of langs) {
   const groups = [{ u: b, name: C.blogName[lang] || C.blogName.en, desc: C.blogDesc[lang] || C.blogDesc.en, items: list, kind: 'all' }];
   for (const k of Object.keys(CATEGORIES)) { const v = catName(k, lang), it = list.filter(p => p.category === k); if (it.length) groups.push({ u: `${b}${sg.cat}/${k}/`, name: `${v} – ${C.blogName[lang] || 'Blog'}`, h1: v, desc: `${t.cat} ${v}: ${it.length} ${lang === 'vi' ? 'bài viết về' : 'posts on'} ${v}${lang === 'vi' ? ' – mẹo, phương pháp và lộ trình học miễn phí cùng Lexkite.' : ' – tips, methods and free study plans from Lexkite.'}`, items: it, kind: 'cat', cat: k }); }
   const tagMap = new Map(); for (const p of list) for (const g of p.tags || []) (tagMap.get(g) || tagMap.set(g, []).get(g)).push(p);
-  for (const [g, it] of tagMap) if (it.length >= 2) groups.push({ u: `${b}${sg.tag}/${g}/`, name: `${t.tagT} ${g} – ${C.blogName[lang] || 'Blog'}`, h1: `#${g}`, desc: `${it.length} ${lang === 'vi' ? 'bài viết gắn thẻ' : 'posts tagged'} “${g}” ${lang === 'vi' ? 'trên Blog Lexkite: học từ vựng, luyện thi IELTS, TOEIC, TOEFL.' : 'on the Lexkite Blog.'}`, items: it, kind: 'tag', noindex: it.length < 2 });
+  for (const [g, it] of tagMap) if (it.length >= 2) groups.push({ u: `${b}${sg.tag}/${g}/`, name: `${t.tagT} ${g} – ${C.blogName[lang] || 'Blog'}`, h1: `#${g}`, desc: `${it.length} ${lang === 'vi' ? 'bài viết gắn thẻ' : 'posts tagged'} “${g}” ${lang === 'vi' ? 'trên Blog Lexkite: học từ vựng, luyện thi IELTS, TOEIC, TOEFL.' : 'on the Lexkite Blog.'}`, items: it, kind: 'tag' });
   for (const g of groups) {
     const pages = Math.max(1, Math.ceil(g.items.length / PER));
     for (let n = 1; n <= pages; n++) {
       const u = n === 1 ? g.u : `${g.u}${sg.page}/${n}/`, items = g.items.slice((n - 1) * PER, n * PER);
       const crumbs = [[t.home, landingHref(lang)], [t.blog, b], ...(g.kind === 'all' ? [] : [[g.h1, g.u]]), ...(n > 1 ? [[`${t.page} ${n}`, u]] : [])];
       const title = n > 1 ? `${g.name} – ${t.page} ${n}` : g.name;
+      // Chỉ trang chủ blog (trang 1) index; chuyên mục/thẻ/phân trang = danh sách liên kết mỏng → noindex,follow + rời sitemap (docs/ADS.md § Sẵn sàng duyệt)
+      const idx = g.kind === 'all' && n === 1 && items.length > 0;
       const body = `${crumbsHtml(crumbs.length > 1 ? crumbs : [[t.home, landingHref(lang)], [t.blog, b]])}
 <section class="hero"><h1>${esc(g.kind === 'all' ? (C.blogName[lang] || 'Blog') : g.h1)}${n > 1 ? ` – ${t.page} ${n}` : ''}</h1><p>${esc(g.desc)}</p></section>
 <nav class="cats" aria-label="${t.cat}"><a href="${b}"${g.kind === 'all' ? ' aria-current="page"' : ''}>${t.all}</a>${Object.keys(CATEGORIES).filter(k => list.some(p => p.category === k)).map(k => [k, catName(k, lang)]).map(([k, v]) => `<a href="${b}${sg.cat}/${k}/"${g.cat === k ? ' aria-current="page"' : ''}>${esc(v)}</a>`).join('')}</nav>
 ${items.length ? `<div class="grid">${(u => items.map((p, i) => card(p, 'h2', n === 1 && i < 2, u)))(new Set()).join('')}</div>` : `<p>${lang === 'vi' ? 'Bài viết đầu tiên sắp ra mắt.' : 'First posts coming soon.'}</p>`}
 ${pages > 1 ? `<nav class="pager" aria-label="${t.page}">${n > 1 ? `<a rel="prev" href="${n === 2 ? g.u : `${g.u}${sg.page}/${n - 1}/`}">${t.newer}</a>` : '<span></span>'}${n < pages ? `<a rel="next" href="${g.u}${sg.page}/${n + 1}/">${t.older}</a>` : ''}</nav>` : ''}`;
       const jsonld = [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': g.kind === 'all' ? 'Blog' : 'CollectionPage', name: title, description: g.desc, url: SITE + u, inLanguage: lang, ...(g.kind === 'all' ? { publisher: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/' } } : {}), hasPart: items.map(p => ({ '@type': 'BlogPosting', headline: p.title, url: SITE + postUrl(p), datePublished: iso(when(p)) })) }];
-      write(u, layout({ lang, title: `${title} | Lexkite`, desc: n > 1 ? `${g.desc} (${t.page} ${n})` : g.desc, url: u, body, jsonld, to: g.kind === 'cat' ? l => posts.some(p => p.lang === l && p.category === g.cat) ? `${base(l)}${SEG(l).cat}/${g.cat}/` : null : undefined, robots: g.noindex || !items.length ? 'noindex,follow' : 'index,follow', img: items[0] ? imgUrl(coverOf(items[0]).id) : undefined, script: copyJs(lang) }));
-      if (!g.noindex && items.length) sm.push({ loc: u, lastmod: iso(Math.max(...items.map(p => p.updated ? Date.parse(p.updated) : when(p)))) });
+      write(u, layout({ lang, title: `${title} | Lexkite`, desc: n > 1 ? `${g.desc} (${t.page} ${n})` : g.desc, url: u, body, jsonld, to: g.kind === 'cat' ? l => posts.some(p => p.lang === l && p.category === g.cat) ? `${base(l)}${SEG(l).cat}/${g.cat}/` : null : undefined, robots: idx ? 'index,follow' : 'noindex,follow', img: items[0] ? imgUrl(coverOf(items[0]).id) : undefined, script: copyJs(lang) }));
+      if (idx) sm.push({ loc: u, lastmod: iso(Math.max(...items.map(p => p.updated ? Date.parse(p.updated) : when(p)))) });
     }
   }
   // RSS 2.0 – 20 bài mới nhất
@@ -439,7 +441,7 @@ for (const { lang, data, body, key, u } of PAGES) {
   const crumbs = [[t.home, landingHref(lang)], [t.blog, base(lang)], [data.title, u]];
   write(u, layout({ lang, title: `${data.title} | Lexkite`, desc: data.description, url: u, to: l => (PAGES.find(x => x.key === key && x.lang === l) || {}).u, body: `${crumbsHtml(crumbs)}<article class="post"><h1>${esc(data.title)}</h1>${render(body, lang).html}</article>`,
     script: copyJs(lang),
-    jsonld: [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': 'AboutPage', name: data.title, description: data.description, url: SITE + u, inLanguage: lang, about: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: `${SITE}/icons/icon-512.png?v=2` } }] }));
+    jsonld: [crumbsLd(crumbs), { '@context': 'https://schema.org', '@type': 'AboutPage', name: data.title, description: data.description, url: SITE + u, inLanguage: lang, about: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/', logo: `${SITE}/icons/icon-512.png?v=3` } }] }));
   sm.push({ loc: u, lastmod: iso(NOW) });
 }
 

@@ -1,0 +1,18 @@
+# ci-policy: all-paths – chỉ số hằng ngày trên cả repo, không gắn với đường dẫn nào
+# 06/11 chỉ số: số PR chạm web/ gộp trong 24 giờ; = 0 trong khi còn PR chạm web/ mở → issue `web-stall` (đóng khi có PR gộp). Lịch hằng ngày; cron-watch canh nếu GitHub bỏ lịch.
+name: web-merge-daily
+on:
+  schedule:
+    - cron: '23 5 * * *'
+  workflow_dispatch:
+permissions: { contents: read, pull-requests: read, issues: write }
+concurrency: { group: web-merge-daily, cancel-in-progress: false }
+jobs:
+  metric:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: "scripts/ci", sparse-checkout-cone-mode: false }
+      - run: node scripts/ci/guards.mjs web-daily
+        env: { GITHUB_TOKEN: '${{ github.token }}' }

@@ -1,0 +1,320 @@
+{
+ "v": 1,
+ "source": "Tatoeba (tatoeba.org), CC BY 2.0 FR",
+ "license": "https://creativecommons.org/licenses/by/2.0/fr/",
+ "lv": "B1",
+ "items": [
+  {
+   "id": 3550973,
+   "au": "Aether",
+   "s": "¿Cuál es tu juego favorito para ___ con amigos?",
+   "a": "jugar",
+   "o": [
+    "jugar",
+    "juega",
+    "jugó"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 12400242,
+   "au": "DJ_Saidez",
+   "s": "Tiene la ___ en la punta de la lengua.",
+   "a": "palabra",
+   "o": [
+    "trato",
+    "palabra",
+    "ataque"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 2391540,
+   "au": "Shishir",
+   "s": "Me compré un sombrero nuevo en el ___ comercial.",
+   "a": "centro",
+   "o": [
+    "centro",
+    "respuesta",
+    "vista"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 6566812,
+   "au": "arh",
+   "s": "Pongo mi mano en el ___ por él.",
+   "a": "fuego",
+   "o": [
+    "llamada",
+    "investigación",
+    "fuego"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 2002275,
+   "au": "wallebot",
+   "s": "Voy a ponerme un jersey, va a ___ frío.",
+   "a": "hacer",
+   "o": [
+    "hace",
+    "hizo",
+    "hacer"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1522858,
+   "au": "marcelostockle",
+   "s": "En cuanto a mí, no estoy contento con el resultado de la ___ del otro día.",
+   "a": "prueba",
+   "o": [
+    "daño",
+    "prueba",
+    "marido"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1639083,
+   "au": "Uvulaofdoom",
+   "s": "Para comprar una ___, hay que entrar tus detalles personales.",
+   "a": "entrada",
+   "o": [
+    "espectáculo",
+    "código",
+    "entrada"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1874117,
+   "au": "marcelostockle",
+   "s": "Queda otra ___ sobre la que debemos discutir.",
+   "a": "pregunta",
+   "o": [
+    "cuerpo",
+    "pregunta",
+    "agente"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 2304582,
+   "au": "Shishir",
+   "s": "No me puedo ___ que tus padres te dejen venir aquí sola.",
+   "a": "creer",
+   "o": [
+    "cree",
+    "creer",
+    "creyó"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 871499,
+   "au": "Kokoo",
+   "s": "La belleza de la ___ puso lágrimas en sus ojos.",
+   "a": "música",
+   "o": [
+    "negocio",
+    "música",
+    "equipo"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 4629459,
+   "au": "saverius",
+   "s": "Los libros son para la ___ lo que la comida para el muchacho.",
+   "a": "mente",
+   "o": [
+    "avión",
+    "ataque",
+    "mente"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1088445,
+   "au": "Shishir",
+   "s": "Él saldrá hacia la estación una ___ antes de que salga el tren.",
+   "a": "hora",
+   "o": [
+    "papá",
+    "hora",
+    "doctor"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 3863472,
+   "au": "carlosalberto",
+   "s": "Si todo sucede por una ___, ¿no eso tiene una razón de ser?",
+   "a": "razón",
+   "o": [
+    "razón",
+    "resto",
+    "par"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1190153,
+   "au": "nancy",
+   "s": "Él es pobre, pero es muy orgulloso para ___ ayuda.",
+   "a": "pedir",
+   "o": [
+    "pide",
+    "pedir",
+    "pidió"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1336632,
+   "au": "marcelostockle",
+   "s": "Olvida tus problemas un poco y ven a ___ con nosotros.",
+   "a": "cenar",
+   "o": [
+    "cena",
+    "cenó",
+    "cenar"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 594134,
+   "au": "darinmex",
+   "s": "Ese ___ siempre pide dinero de sus padres.",
+   "a": "tipo",
+   "o": [
+    "prueba",
+    "carrera",
+    "tipo"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 4553680,
+   "au": "swyter",
+   "s": "Esta ___ me recuerda a un antiguo conocido.",
+   "a": "canción",
+   "o": [
+    "placer",
+    "canción",
+    "muchacho"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1852691,
+   "au": "Shishir",
+   "s": "Una casa sin amor no es más casa que un ___ sin alma es un hombre.",
+   "a": "cuerpo",
+   "o": [
+    "cuerpo",
+    "broma",
+    "carrera"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 462405,
+   "au": "lukaszpp",
+   "s": "Estaba muy enfadada y fue a hablar con el ___ del colegio.",
+   "a": "director",
+   "o": [
+    "broma",
+    "nave",
+    "director"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 854487,
+   "au": "P_Scipio",
+   "s": "Por favor, dime qué pasará la ___ que viene.",
+   "a": "semana",
+   "o": [
+    "semana",
+    "cuarto",
+    "director"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1977189,
+   "au": "mossu",
+   "s": "Es un lujo que no nos podemos permitir.",
+   "k": "l"
+  },
+  {
+   "id": 1106910,
+   "au": "AgentGreen",
+   "s": "La familia es la unidad más importante de la sociedad.",
+   "k": "l"
+  },
+  {
+   "id": 7861778,
+   "au": "Seael",
+   "s": "Cálmate y cuéntame todo lo que puedas recordar.",
+   "k": "l"
+  },
+  {
+   "id": 624909,
+   "au": "Leono",
+   "s": "Si no vas al concierto, tampoco voy yo.",
+   "k": "l"
+  },
+  {
+   "id": 1112688,
+   "au": "karenm2s",
+   "s": "Yo no recuerdo exactamente, pero yo supongo que fue el viernes pasado.",
+   "k": "l"
+  },
+  {
+   "id": 1499369,
+   "au": "Shishir",
+   "s": "El hombre que esperaba el autobús perdió la paciencia.",
+   "k": "l"
+  },
+  {
+   "id": 1723457,
+   "au": "hayastan",
+   "s": "Los amigos de hoy son los enemigos de mañana.",
+   "k": "l"
+  },
+  {
+   "id": 864124,
+   "au": "manufrutos",
+   "s": "Hoy es el día de la fiesta nacional.",
+   "k": "l"
+  },
+  {
+   "id": 1565045,
+   "au": "Alba",
+   "s": "El cielo está despejado y luce el sol.",
+   "k": "l"
+  },
+  {
+   "id": 688001,
+   "au": "lukaszpp",
+   "s": "Podrás sacar muchas fotos con tu nueva cámara.",
+   "k": "l"
+  },
+  {
+   "id": 3122715,
+   "au": "gdaniel",
+   "s": "Él es bien recibido donde sea que llegue.",
+   "k": "l"
+  },
+  {
+   "id": 606211,
+   "au": "arashi_29",
+   "s": "Ellos son capaces de hablar un poco de español.",
+   "k": "l"
+  }
+ ]
+}

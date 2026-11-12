@@ -98,7 +98,7 @@ Transforming your abilities from hesitant beginner to confident communicator req
 - **Daily Focus**:
   - Perform 10 minutes of active speech mimicry using the [Shadowing technique for spoken English](/en/blog/shadowing-technique/).
   - Formulate simple daily reflections or journal entries using [conditional sentences in English](/en/blog/conditional-sentences-in-english-rules-and-examples/).
-  - Test comprehension and explore exam-level benchmarks through the [IELTS reading True False Not Given guide](/en/blog/ielts-reading-true-false-not-given/) or expand your academic scope in the [vocabulary library](/tu-vung/).
+  - Test comprehension and explore exam-level benchmarks through the [IELTS reading True False Not Given guide](/en/blog/ielts-reading-true-false-not-given/) or expand your academic scope in the [vocabulary library](/en/vocabulary/).
   - Solidify your verb control by reviewing [present perfect vs past simple](/en/blog/present-perfect-vs-past-simple/) to avoid common timeline mistakes.
 
 ## Daily 45-Minute Routine for Absolute Beginners

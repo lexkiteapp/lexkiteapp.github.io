@@ -1,0 +1,12 @@
+{
+ "fixed": [
+  {
+   "word": "cuenta",
+   "field": "ipa",
+   "from": "ˈkwɛnta",
+   "to": "ˈkwenta",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  }
+ ],
+ "dropped": []
+}

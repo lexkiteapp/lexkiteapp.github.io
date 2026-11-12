@@ -43,9 +43,11 @@ export function plan(wfs, lastByFile, now = Date.now()) {
   return ORDER.filter(f => wfs.includes(f)).map(file => {
     const last = has(lastByFile, file) ? lastByFile[file] : null, lim = limitMin(ALLOW[file]);
     if (last && last.error) return { file, act: 'skip', why: 'github-error' };
-    if (last && last.status !== 'completed') return { file, act: 'skip', why: 'in-flight' };
     const age = last ? (now - Date.parse(last.created_at)) / 6e4 : Infinity;
-    if (age <= lim) return { file, act: 'skip', why: `recent ${Math.round(age)}m <= ${lim}m` };
+    // queued quá hạn = lượt zombie không bao giờ chạy (khớp scripts/ci/zombie.mjs: 2 giờ, required-gate 15 phút vì bộ canh chết thì không PR nào có status) – không để nó chặn lượt kích
+    const gate = file === 'required-gate.yml', stuck = !!last && last.status === 'queued' && age > (gate ? 15 : 120);
+    if (last && last.status !== 'completed' && !stuck) return { file, act: 'skip', why: 'in-flight' };
+    if (age <= lim && !(gate && stuck)) return { file, act: 'skip', why: `recent ${Math.round(age)}m <= ${lim}m` };
     if (used >= BACKFILL_MAX) return { file, act: 'skip', why: 'cap' };
     used++; return { file, act: 'dispatch', why: last ? `overdue ${Math.round(age)}m > ${lim}m` : 'no-runs' };
   });

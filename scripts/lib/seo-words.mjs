@@ -1,6 +1,6 @@
 // Trang từ /<lang>/words/<slug> – MỘT nguồn chọn trang + dựng nội dung (docs/specs/seo-words-depth.md), dùng chung bởi:
 //   scripts/build-seo-pages.mjs (sinh trang, sitemap, hreflang) và scripts/build-blog.mjs (hộp "từ trong bài" → /<lang>/words/, chạy TRƯỚC build-seo-pages).
-// Chỉ đọc nguồn (kho từ, web/packs, web/js/notes, web/js/usage, WordNet, bài mẫu Writing/Speaking); không ghi file. N: SEO_N_MAIN (1500), SEO_N_OTHER (400).
+// Chỉ đọc nguồn (kho từ, web/packs, web/js/notes, web/js/usage, WordNet, bài mẫu Writing/Speaking); không ghi file. N: SEO_N_MAIN (1500), SEO_N_PRIORITY (650: ngôn ngữ thị trường CPM cao, functions/api/_cpm.js), SEO_N_OTHER (400).
 // indexable(l, e) = đúng điều kiện build-seo-pages dùng cho robots: trong tập idxW (không mỏng, không trùng trang từ điển) VÀ đạt DEPTH_MIN.
 import fs from 'node:fs'; import vm from 'node:vm';
 import { loadBrowserIndex } from '../lexicon/shards.mjs';
@@ -11,8 +11,9 @@ import { LANGS, S, POS, fill } from './seo-pages-i18n.mjs';
 import { toolPath, toolStrings } from './tools-links.mjs';
 import { loadSources, enrich } from '../dict/build.mjs';
 import { measure, deep } from './word-depth.mjs';
+import { PRIORITY_LANGS } from '../../functions/api/_cpm.js';
 
-const N_MAIN = +(process.env.SEO_N_MAIN || 1500), N_OTHER = +(process.env.SEO_N_OTHER || 400);
+const N_MAIN = +(process.env.SEO_N_MAIN || 1500), N_OTHER = +(process.env.SEO_N_OTHER || 400), N_PRIORITY = +(process.env.SEO_N_PRIORITY || 650);
 
 export const J = f => JSON.parse(fs.readFileSync(f, 'utf8'));
 export const RTL = new Set(['ar']);
@@ -53,7 +54,7 @@ const slug = new Map(); { const used = new Set(); for (const e of ranked) { let 
 const setOf = {};
 for (const l of LANGS) {
   if (l === 'en' || l === 'vi') setOf[l] = ranked.filter(e => l === 'en' || e.vi);
-  else setOf[l] = ranked.filter(e => { const g = gloss(l, e); return g && g[0] && g[0].toLowerCase() !== e.word.toLowerCase(); }).slice(0, N_OTHER);
+  else setOf[l] = ranked.filter(e => { const g = gloss(l, e); return g && g[0] && g[0].toLowerCase() !== e.word.toLowerCase(); }).slice(0, PRIORITY_LANGS.includes(l) ? N_PRIORITY : N_OTHER);
 }
 // Trang mỏng → noindex: nghĩa bản địa là dịch máy thô (cờ 0) hoặc không có collocation/đồng nghĩa/cụm (chỉ 1 ví dụ)
 const byTok = new Map(); for (const e of Object.values(INDEX)) if (e && /\s/.test(e.word)) for (const t of e.word.toLowerCase().split(/\s+/)) { const a = byTok.get(t) || byTok.set(t, []).get(t); if (a.length < 6) a.push(e); }
@@ -74,10 +75,10 @@ export const cta = (title, note, href, btn) => `<div class="cta"><p><strong>${es
 export const wPath = (l, e) => `/${l}/words/${slug.get(e)}`;
 const DX = loadSources(LANGS); // "Cách dùng từ", kho câu tự soạn, WordNet, bài blog đã đăng – cùng nguồn trang từ điển (scripts/dict/build.mjs)
 const VI_RE = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
-// Câu tiếng Anh tự soạn khác của app (bài mẫu IELTS Writing web/js/models.js, câu trả lời mẫu Speaking web/js/speak/samples.js – CONTENT-RULES) → ví dụ thật cho từ ít ví dụ
+// Câu tiếng Anh tự soạn khác của app (bài mẫu IELTS Writing web/js/models.js, câu trả lời mẫu Speaking web/cpack/speak/samples.js – CONTENT-RULES) → ví dụ thật cho từ ít ví dụ
 const MORE_EX = (() => {
   const ctx = {}; ctx.self = ctx; ctx.window = ctx; vm.createContext(ctx);
-  for (const f of ['web/js/models.js', 'web/js/speak/samples.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), ctx, { filename: f });
+  for (const f of ['web/js/models.js', 'web/cpack/speak/samples.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), ctx, { filename: f });
   const texts = [...(ctx.MODELS || []).map(m => String(m.text || '').replace(/<<[^>]*>>/g, '').replace(/\[\[([^|\]]+)\|[^\]]*\]\]/g, '$1').replace(/\{\{([^}]*)\}\}/g, '$1')), ...Object.values(ctx.SPEAK_SAMPLES || {}).map(x => String(x.a || ''))];
   const by = new Map();
   for (const tx0 of texts) for (const s0 of tx0.split(/(?<=[.!?])\s+/)) { const s = s0.replace(/\s+/g, ' ').trim(); if (s.length < 25 || s.length > 130 || VI_RE.test(s) || /[[\]{}<>_|]/.test(s) || !/^[A-Z“"']/.test(s)) continue; for (const t of new Set(s.toLowerCase().match(/[a-z]+/g) || [])) { const a = by.get(t) || by.set(t, []).get(t); if (a.length < 20 && !a.includes(s)) a.push(s); } }

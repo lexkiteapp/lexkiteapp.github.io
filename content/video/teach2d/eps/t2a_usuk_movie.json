@@ -79,5 +79,46 @@
   "words": 44,
   "seconds": 27.1,
   "wpm": 97
+ },
+ "publish": {
+  "title": "Movie or film? US vs UK English",
+  "keyword": "movie vs film",
+  "value": "Americans say movie. British people say film.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/movie",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "Movie or film? US vs UK English",
+    "description": "Americans say movie. British people say film.\n\nLook up any word, free: https://lexkite.com/app/#/dict/movie\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "movie vs film",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Movie or film? US vs UK English\n\nAmericans say movie. British people say film.\n\nLook up any word, free: https://lexkite.com/app/#/dict/movie"
+   },
+   "instagram": {
+    "caption": "Movie or film? US vs UK English\n\nAmericans say movie. British people say film.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Movie or film? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Film! Americans say movie. British people say film. More practice like this (free): {link}"
  }
 }

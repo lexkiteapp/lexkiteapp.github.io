@@ -1,0 +1,145 @@
+{
+ "fixed": [
+  {
+   "word": "calle",
+   "field": "ipa",
+   "from": "ˈkajje",
+   "to": "ˈkaʝe",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "sino",
+   "field": "gl.vi",
+   "from": "nhưng mà",
+   "to": "mà là, chứ không",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "aire",
+   "field": "ipa",
+   "from": "ˈaɪɾe",
+   "to": "ˈajɾe",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "accidente",
+   "field": "ipa",
+   "from": "aksiˈðɛnte",
+   "to": "aksiˈðente",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "tienda",
+   "field": "ipa",
+   "from": "ˈtjɛnda",
+   "to": "ˈtjenda",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "profesor",
+   "field": "gl.vi",
+   "from": "thầy giáo",
+   "to": "giáo viên, thầy giáo",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "reunión",
+   "field": "ipa",
+   "from": "reʊˈnjon",
+   "to": "rewˈnjon",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "maldición",
+   "field": "ipa",
+   "from": "malðiˈsjon",
+   "to": "maldiˈsjon",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  },
+  {
+   "word": "andar",
+   "field": "gl.vi",
+   "from": "đi bộ",
+   "to": "đi, đi bộ",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "rato",
+   "field": "gl.pt",
+   "from": "período",
+   "to": "momento, um tempo",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "rato",
+   "field": "gl.zh",
+   "from": "段时间",
+   "to": "一会儿",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "rato",
+   "field": "gl.hi",
+   "from": "क्षण",
+   "to": "कुछ समय",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "rato",
+   "field": "gl.ru",
+   "from": "мгновение",
+   "to": "некоторое время",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "tía",
+   "field": "gl.vi",
+   "from": "cô",
+   "to": "cô, dì",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "tía",
+   "field": "gl.zh",
+   "from": "姑妈",
+   "to": "姑姑, 阿姨",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "tía",
+   "field": "gl.ko",
+   "from": "이모",
+   "to": "이모, 고모",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "tía",
+   "field": "gl.hi",
+   "from": "चाची",
+   "to": "चाची, मौसी, बुआ",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "tía",
+   "field": "gl.tr",
+   "from": "teyze",
+   "to": "teyze, hala",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "tía",
+   "field": "gl.ar",
+   "from": "عمة",
+   "to": "عمة، خالة",
+   "why": "nghĩa/ví dụ/dịch chưa đúng hoặc chưa tự nhiên"
+  },
+  {
+   "word": "escena",
+   "field": "ipa",
+   "from": "eˈsena",
+   "to": "esˈsena",
+   "why": "IPA theo quy ước g2p (e/o đóng, ɣ sau nguyên âm, ʝ, aw/ej, không đồng hóa nasal)"
+  }
+ ],
+ "dropped": []
+}

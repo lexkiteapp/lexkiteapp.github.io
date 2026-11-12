@@ -64,6 +64,17 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   // Ví dụ đánh dấu [[…]] = phần cấu trúc mục tiêu. Tách 1 lần: ex = chữ thuần (đọc, xếp câu, lưu), exm = bản đánh dấu (chỉ để vẽ)
   const prepHL = () => { for (const x of window.GRAMMAR || []) { if (x._hl) continue; x._hl = 1; for (const b of x.blocks || []) for (const o of b.type === 'uses' ? b.items : b.type === 'formula' ? b.rows : b.type === 'ielts' ? [b] : []) if (typeof o.ex === 'string' && o.ex.includes('[[')) { o.exm = o.ex; o.ex = o.ex.replace(/\[\[|\]\]/g, ''); } } };
   prepHL();
+  // Bài rút gọn (x.lazy = tên gói, lazy-a1/c2.js): đủ tên/cấp/tóm tắt để lên danh sách, đếm, tìm; nội dung ở gói grammarA1/grammarC2 → chờ nạp rồi file nguồn thay bài tại chỗ.
+  // loadScript nuốt lỗi mạng (gói báo xong mà bài vẫn rút gọn) → tải lại 1 lần; vẫn hỏng thì ném lỗi, lần bấm sau tải lại tiếp.
+  const stubKeys = ls => [...new Set(ls.map(x => x && x.lazy).filter(Boolean))].filter(k => (window.GRAMMAR || []).some(x => x.lazy === k));
+  const needFull = async ls => {
+    const ks = stubKeys(ls); if (!ks.length) return;
+    await App.lazy(...ks);
+    const miss = stubKeys(ls); if (miss.length) { await Promise.all(miss.map(App.reneed)); if (stubKeys(ls).length) throw new Error('grammar bundle'); }
+    prepHL();
+  };
+  const loading = () => { view.innerHTML = `<div class="skel-page" aria-busy="true" aria-label="${t('Đang tải…')}"><div class="skel skel-h"></div><div class="skel skel-l"></div></div>`; };
+  const loadFail = () => UI.toast(t('Không tải được – thử lại sau'));
   const hx = o => o.exm ? esc(o.exm).replace(/\[\[(.+?)\]\]/g, '<mark class="g-hl">$1</mark>') : esc(o.ex || '');
   // CSS riêng của bài ngữ pháp: nạp cùng gói grammar (tải lười) – không làm nặng khung app (style.css nằm trong SHELL)
   if (!document.getElementById('gCss')) { const st = document.createElement('style'); st.id = 'gCss'; st.textContent = G_CSS; document.head.appendChild(st); }
@@ -153,8 +164,9 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   function mix(query) {
     const ch = query && +query.get('ch'), n = (query && +query.get('n')) || 20;
     const chap = ch && CHAPTERS.find(c => c.n === ch);
-    const all = chap ? lessonsOf(chap) : L(), d = done();
-    const pool = (!chap && Object.keys(d).length >= 3 ? all.filter(x => d[x.id] != null) : all).flatMap(x => [...x.quiz.map(q => ({ q, x })), ...drillsOf(x).map(d => ({ d, x }))]);
+    const all = chap ? lessonsOf(chap) : L(), d = done(), pick = !chap && Object.keys(d).length >= 3 ? all.filter(x => d[x.id] != null) : all;
+    if (pick.some(x => x.lazy)) { loading(); return needFull(pick).then(() => mix(query), () => { loadFail(); routes.grammar(); }); }
+    const pool = pick.flatMap(x => [...x.quiz.map(q => ({ q, x })), ...drillsOf(x).map(d => ({ d, x }))]);
     const qs = UI.shuffle(pool).slice(0, n);
     let i = 0, right = 0;
     const next = () => {
@@ -176,7 +188,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
           $('#nx').onclick = () => { i++; next(); }; $('#nx').focus();
         };
         if (d.t === 'error') $$('.dr-part', item).forEach(b => b.onclick = () => { if (!item.dataset.locked) done(gradeDrill(item, d, +b.dataset.j)); });
-        else { const go = () => { if (!item.dataset.locked) done(gradeDrill(item, d)); }; $('.dr-chk', item).onclick = go; const inp = $('.dr-in', item); inp.focus(); inp.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); go(); } }); }
+        else { const go = () => { if (!item.dataset.locked) done(gradeDrill(item, d, null, x)); }; $('.dr-chk', item).onclick = go; const inp = $('.dr-in', item); inp.focus(); inp.addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); go(); } }); }
         return;
       }
       view.innerHTML = `<div class="study-wrap"><div class="study-top"><a class="icon-btn" href="#/grammar">✕</a><div class="progress"><i style="width:${i / qs.length * 100}%"></i></div><span class="small muted">${i + 1}/${qs.length}</span></div>
@@ -248,7 +260,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       ${m ? `<div class="small" style="margin-top:.4rem"><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en">${esc(m.wrong)}</s> → <span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en">${esc(m.right)}</b></div>` : ''}</div>`;
   }
   // ---------- Bài tập tự luận: chia động từ, dạng từ, điền từ, viết lại câu, nối câu, tìm lỗi sai ----------
-  const dkind = k => { const K = { verb: UI.icon('a-large-small') + ' ' + t('Chia động từ'), form: '🧬 ' + t('Dạng đúng của từ'), fill: UI.icon('pencil') + ' ' + t('Điền từ'), rewrite: UI.icon('repeat') + ' ' + t('Viết lại câu'), combine: '🔗 ' + t('Nối câu'), error: '🕵️ ' + t('Tìm lỗi sai') }; return K[k] || K.fill; };
+  const dkind = k => { const K = { verb: UI.icon('a-large-small') + ' ' + t('Chia động từ'), form: '🧬 ' + t('Dạng đúng của từ'), fill: UI.icon('pencil') + ' ' + t('Điền từ'), rewrite: UI.icon('repeat') + ' ' + t('Viết lại câu'), combine: '🔗 ' + t('Nối câu'), error: '🕵️ ' + t('Tìm lỗi sai'), own: '💬 ' + t('Tự đặt câu') }; return K[k] || K.fill; };
   const dnorm = s => ' ' + String(s || '').toLowerCase().replace(/[’‘`]/g, "'").replace(/won't/g, 'will not').replace(/can't|can not/g, 'cannot').replace(/n't\b/g, ' not').replace(/'re\b/g, ' are').replace(/'ve\b/g, ' have').replace(/'ll\b/g, ' will').replace(/'m\b/g, ' am')
     .replace(/[.,!?;:"“”()]/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
   // Chuẩn hóa thêm: chính tả Anh–Mỹ (-ize/-ise), "per cent"/"percent" → "%"
@@ -266,13 +278,34 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   function drillItem(d, k) {
     const head = `<span class="chip" style="font-size:.75rem">${dkind(d.t)}</span>`;
     if (d.t === 'error') return `<div class="q-item dr" data-d="${k}">${head}<div class="dr-q" style="margin:.5rem 0;font-size:1.05rem;line-height:2">${d.parts.map((p, j) => `<button class="dr-part" data-j="${j}"><u>${esc(p)}</u><sub>${'ABCD'[j] || j + 1}</sub></button>`).join(' ')}</div><div class="small muted">${t('Bấm vào phần sai.')}</div><div class="small" data-fb hidden aria-live="polite"></div></div>`;
+    // 💬 Tự đặt câu (drills-own.js): câu thật về bản thân, chấm theo cấu trúc của bài (GRAMMAR_CHECK) chứ không theo một đáp án
+    if (d.t === 'own') return `<div class="q-item dr" data-d="${k}">${head}<div style="margin:.5rem 0" lang="en">${esc(d.q)}</div>${d.hint ? `<div class="small muted">${t('Gợi ý')}: <span lang="en">${esc(d.hint)}</span></div>` : ''}<textarea class="dr-in" rows="2" spellcheck="true" lang="en" placeholder="${t('Viết câu của bạn…')}"></textarea><div class="tiny muted">${t('Câu của bạn có thể khác câu mẫu: máy chỉ kiểm bạn đã dùng đúng cấu trúc của bài.')}</div><div class="row" style="margin-top:.4rem"><button class="btn sm primary dr-chk">${t('Kiểm tra')}</button></div><div class="small" data-fb hidden aria-live="polite"></div></div>`;
     const long = d.t === 'rewrite' || d.t === 'combine';
     const q = long ? `<div style="margin:.5rem 0">${esc(d.q)}${d.hint ? ` <span class="muted small">(${esc(d.hint)})</span>` : ''}</div><textarea class="dr-in" rows="2" spellcheck="false" placeholder="${t('Viết câu của bạn…')}">${esc(d.start ? d.start + ' ' : '')}</textarea>`
       : `<div style="margin:.5rem 0;line-height:2.2">${esc(d.q).replace('___', `<input class="dr-in gap" size="14" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="${esc(t('Điền từ'))}">`)}</div>`;
     return `<div class="q-item dr" data-d="${k}">${head}${q}<div class="row" style="margin-top:.4rem"><button class="btn sm primary dr-chk">${t('Kiểm tra')}</button></div><div class="small" data-fb hidden aria-live="polite"></div></div>`;
   }
+  // Chấm câu tự đặt (t: 'own') bằng mẫu nhận diện cấu trúc của bài x (GRAMMAR_CHECK + VBStruct) – cùng luật với Thử thách tự đặt câu
+  function gradeOwn(item, d, x) {
+    const fb = $('[data-fb]', item), inp = $('.dr-in', item), given = inp.value.trim().replace(/\s+/g, ' ');
+    if (!given) return null;
+    if (given.split(' ').length < 4 || !/[a-z]/i.test(given)) { fb.hidden = false; fb.textContent = t('Hãy viết một câu hoàn chỉnh (ít nhất 4 từ).'); return null; }
+    const gc = x && (window.GRAMMAR_CHECK || {})[x.id], m = gc ? given.match(new RegExp(gc[0], 'iu')) : null;
+    const st = !m && x && window.VBStruct ? VBStruct.analyze(given, 20).find(r => r.lesson === x.id) : null;
+    const hit = m ? m[0] : st ? st.match : '', ok = gc ? !!hit : matchAnswer(given, d.a), answer = d.a[0];
+    const i = hit ? given.toLowerCase().indexOf(hit.toLowerCase()) : -1;
+    const marked = i >= 0 ? esc(given.slice(0, i)) + `<mark class="g-ok">${esc(given.slice(i, i + hit.length))}</mark>` + esc(given.slice(i + hit.length)) : esc(given);
+    inp.classList.toggle('ok', ok); inp.classList.toggle('no', !ok); inp.readOnly = true;
+    const c = $('.dr-chk', item); if (c) c.remove();
+    item.dataset.locked = 1; fb.hidden = false;
+    fb.innerHTML = `${ok ? `<div lang="en">${marked}</div>${UI.icon('circle-check')} <b>${t('Tuyệt! Bạn đã dùng đúng cấu trúc của bài.')}</b>` : `❌ ${t('Chưa thấy cấu trúc của bài trong câu.')}${gc ? ` ${t('Công thức')}: <b translate="no">${esc(gc[1])}</b>` : ''}`}
+      <div class="muted">${t('Câu mẫu:')} <span lang="en">${esc(answer)}</span></div>${d.ex ? `<div class="muted">${esc(d.ex)}</div>` : ''}`;
+    Sfx.answer(ok, { el: item, answer });
+    return { ok, given, answer };
+  }
   // Chấm 1 câu, trả về true/false (null nếu chưa làm)
-  function gradeDrill(item, d, picked) {
+  function gradeDrill(item, d, picked, x) {
+    if (d.t === 'own') return gradeOwn(item, d, x);
     const fb = $('[data-fb]', item);
     let ok, given, answer, typoR = null;
     if (d.t === 'error') {
@@ -320,7 +353,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       const meta = r => r && Object.assign(r, { q: d.t === 'error' ? d.parts.join(' ') : d.q, ex: d.ex });
       if (d.t === 'error') $$('.dr-part', item).forEach(b => b.onclick = () => { if (!item.dataset.locked) after(meta(gradeDrill(item, d, +b.dataset.j))); });
       else {
-        const go = () => { if (!item.dataset.locked) after(meta(gradeDrill(item, d))); };
+        const go = () => { if (!item.dataset.locked) after(meta(gradeDrill(item, d, null, x))); };
         $('.dr-chk', item).onclick = go;
         $('.dr-in', item).addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); go(); } });
       }
@@ -332,6 +365,8 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       <p style="margin:.6rem 0 0;opacity:.95">${esc(x.summary)}</p></div>`;
 
   function lesson(id, query) {
+    const st = L().find(x => x.id === id);
+    if (st && st.lazy) { loading(); return needFull([st]).then(() => lesson(id, query), () => { loadFail(); routes.grammar(); }); }
     prepHL();
     if (query && query.get('view') === 'full') return lessonFull(id);
     return lessonSteps(id);
@@ -400,7 +435,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     // Câu dùng cho bài "xếp chữ": lấy từ ví dụ trong bài, 5–12 từ
     const sents = [...formulas.flatMap(f => f.rows.map(r => r.ex)), ...uses.flatMap(u => u.items.map(it => it.ex))]
       .filter(Boolean).filter(t => { const n = tokenize(t).length; return n >= 5 && n <= 12; });
-    const builds = UI.shuffle([...new Set(sents)]).slice(0, 3);
+    const builds = UI.shuffle([...new Set(sents)]).slice(0, 3), WPICK = 'border:2px solid var(--line);cursor:pointer;font-size:.95rem;padding:.35rem .7rem';
     const steps = [];
     steps.push({ name: t('Hình dung'), em: '👀', html: () => `${visual.map(b => R[b.type](b)).join('') || ''}<div class="g-tip" style="margin-top:1rem">🧠 <b>${t('Ghi nhớ:')}</b> ${esc(x.summary)}</div>` });
     if (formulas.length && formulas[0].rows[0]) steps.push({ name: t('Ghép công thức'), em: '🧮', html: () => {
@@ -422,20 +457,21 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     if (mistakes.length) steps.push({ name: t('Bắt lỗi'), em: '🕵️', html: () => `<div class="stack"><div class="small muted">${t('Đọc câu sai, tự tìm lỗi trong đầu rồi bấm để kiểm tra – cách nhớ lâu nhất là tự phát hiện.')}</div>${mistakes.map((m, k) => `<div class="g-mistake"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <span lang="en">${esc(m.wrong)}</span></div><button class="btn sm" data-reveal="${k}" style="margin-top:.5rem">${UI.icon('search')} ${t('Tôi đã tìm ra lỗi – xem đáp án')}</button><div data-ans="${k}" hidden style="margin-top:.4rem" aria-live="polite"><div><span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en">${esc(m.right)}</b></div><div class="small muted">${esc(m.why)}</div></div></div>`).join('')}${l1Slot(x)}</div>`,
       bind: () => $$('[data-reveal]').forEach(b => b.onclick = () => { $(`[data-ans="${b.dataset.reveal}"]`).hidden = false; b.remove(); Sfx.flip(); }) });
     if (builds.length) steps.push({ name: t('Xếp câu'), em: '🧩', html: () => `<div class="stack">${builds.map((s, k) => `<div class="g-block" data-build="${k}"><h3>🧩 ${t('Xếp các từ thành câu đúng')}</h3><div class="build-slot" data-slot="${k}"></div>
-        <div class="row" data-pool="${k}" style="margin-top:.6rem">${UI.shuffle(tokenize(s).map((w, j) => ({ w, j }))).map(({ w, j }) => `<button class="chip wpick" data-j="${j}" style="border:2px solid var(--line);cursor:pointer;font-size:.95rem;padding:.35rem .7rem">${esc(w)}</button>`).join('')}</div>
+        <div class="row" data-pool="${k}" style="margin-top:.6rem">${UI.shuffle(tokenize(s).map((w, j) => ({ w, j }))).map(({ w, j }) => `<button type="button" class="chip wpick" data-i="${j}" style="${WPICK}">${esc(w)}</button>`).join('')}</div>
         <div class="row" style="margin-top:.6rem"><button class="btn sm" data-undo="${k}">↺ ${t('Làm lại')}</button><span class="small" data-msg="${k}"></span></div></div>`).join('')}</div>`,
       bind: () => builds.forEach((s, k) => {
-        const words = tokenize(s); let built = [];
+        const words = tokenize(s); let built = [], done = false;
         const pool = $(`[data-pool="${k}"]`), slot = $(`[data-slot="${k}"]`), msg = $(`[data-msg="${k}"]`);
         const check = () => {
           if (built.length < words.length) return;
           const ok = built.map(j => words[j]).join(' ') === words.join(' ');
           msg.innerHTML = ok ? `${UI.icon('circle-check')} <b>${t('Chính xác!')}</b>` : `❌ ${t('Đáp án: <i>{a}</i>', { a: esc(s) })}`; Sfx.answer(ok, { el: slot, answer: s });
           if (ok) UI.speak(s, state.settings.accent);
-          slot.classList.add(ok ? 'ok' : 'no');
+          slot.classList.add(ok ? 'ok' : 'no'); done = true;
         };
-        $$('.wpick', pool).forEach(b => b.onclick = () => { built.push(+b.dataset.j); slot.insertAdjacentHTML('beforeend', `<span class="chip" style="font-size:.95rem;padding:.35rem .7rem">${esc(b.textContent)}</span>`); b.hidden = true; Sfx.pop(); check(); });
-        $(`[data-undo="${k}"]`).onclick = () => { built = []; slot.innerHTML = ''; slot.className = 'build-slot'; msg.textContent = ''; $$('.wpick', pool).forEach(b => b.hidden = false); };
+        const draw = () => { slot.innerHTML = built.map(j => `<button type="button" class="chip wpick" data-a="${j}" style="${WPICK}">${esc(words[j])}</button>`).join(''); };
+        const arr = WordArrange.bind({ ans: slot, bank: pool, sel: '.wpick', scope: slot.closest('[data-build]'), get: () => built, set: o => { built = o; }, draw, locked: () => done, word: j => words[j], t, onPlace: () => Sfx.pop(), onChange: check });
+        $(`[data-undo="${k}"]`).onclick = () => { built = []; done = false; slot.classList.remove('ok', 'no'); msg.textContent = ''; arr.reset(); };
       }) });
     if (drillsOf(x).length) steps.push({ name: t('Tự luận'), em: '✍️', html: () => drillsHtml(x), bind: () => bindDrills(x) });
     steps.push({ name: t('Luyện tập'), em: '✏️', html: () => quizHtml(x), bind: () => bindQuiz(x, next, () => lessonSteps(id)) });

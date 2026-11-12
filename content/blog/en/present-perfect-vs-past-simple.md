@@ -63,7 +63,7 @@ The time frame is your life so far, and the exact time is not important or not k
 - *She **has lived** in three different countries.*
 - *Have you ever **tried** durian?*
 
-Add a specific past time and the frame closes: *She **lived** in Canada in 2018.*
+Add a specific past time and the frame closes: *She **lived** in Canada in 2018.* The same contrast helps when you report a repair, as in [this renting phrase guide](/en/blog/english-for-newcomers-renting/): *the heating hasn't worked since Sunday.*
 
 ### 2. A past action with a present result
 

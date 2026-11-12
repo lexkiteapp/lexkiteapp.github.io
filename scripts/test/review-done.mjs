@@ -21,7 +21,7 @@ const ok = (cond, msg) => {
 
 const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
-const css = fs.readFileSync(path.join(WEB, 'css/style.css'), 'utf8');
+const css = (fs.readFileSync(path.join(WEB, 'css/style.css'), 'utf8') + fs.readFileSync(path.join(WEB, 'css/lazy-ui.css'), 'utf8'));
 
 const vc = new jsdom.VirtualConsole();
 vc.on('jsdomError', e => {
@@ -201,7 +201,7 @@ Core.Stats.logReview = async () => ({ days: App.state.stats.days });
 }
 
 // Kiểm tra CSS
-const cssText = fs.readFileSync(path.join(WEB, 'css/style.css'), 'utf8');
+const cssText = (fs.readFileSync(path.join(WEB, 'css/style.css'), 'utf8') + fs.readFileSync(path.join(WEB, 'css/lazy-ui.css'), 'utf8'));
 ok(cssText.includes('.rev-stats'), 'CSS chứa .rev-stats');
 ok(cssText.includes('.rev-pill'), 'CSS chứa .rev-pill');
 ok(cssText.includes('.rev-hardest'), 'CSS chứa .rev-hardest');

@@ -1,6 +1,5 @@
 {
  "_doc": "Play & Speak F1 màn tình huống (#/speak/<id>, cờ speak_pack) – d do web/js/speak/app.js situation() dựng từ content/situations/<id>.json + tiến độ lk.spk. Mẫu Stitch sáng/tối CÙNG cấu trúc DOM → mỗi thứ một bộ chọn, không còn chỗ lai. Ẩn phần Stitch tự bịa: '+25 XP upon completion', '67% Café readiness', chip 'Smart review', huy hiệu '8' ở tab Từ vựng; 'Level B1' ở phụ đề = CEFR thật (d.sub). Nút chặng 'Review'/'Boss tip' là mẫu: chỉ vẽ từ d.nodes (chặng thật, 3 khuôn done/cur/todo, số cột theo số chặng). Danh sách nhiệm vụ vẽ từ d.tasks (3 khuôn done/cur/todo, trạng thái từ dữ liệu). Chip 'Weekly goal' = d.week (mục tiêu tuần thật). Mũi tên nút Bắt đầu: bản tối Stitch dùng ký tự '→' trong chữ, bản sáng dùng svg → giữ svg ở cả hai (cùng nét #1C1003 với chữ). Thanh tab: gắn theo d.tabsNav[i] (giữ icon riêng từng tab của mẫu).",
- "compact": true,
  "i18n": {
   "Go back": "Quay lại màn trước",
   "Adventure Path": "Lộ trình phiêu lưu",
@@ -100,6 +99,16 @@
   },
   ":scope > div > main > div:nth-child(6) > button:nth-child(1) > svg": {
    "dk:hidden": "''"
+  },
+  ":scope > div > main > div:nth-child(1) > div:nth-child(1)": {
+   "border-2": "''",
+   "border-dashed": "''",
+   "justify-center": "'justify-end'",
+   "lt:border-[#136B66]/70": "''",
+   "lt:p-2": "''",
+   "dk:border-[#14b8a6]/40": "''",
+   "dk:p-3": "''",
+   "dk:shadow-[0_3px_0_#061013]": "''"
   }
  },
  "remove": [

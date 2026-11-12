@@ -231,7 +231,7 @@ ok(S.places[0].fill === 0.8 && Math.abs(S.plat.web.rev - 0.16) < 1e-9 && S.conse
   ok(!(await verifySsv(`https://lexkite.com/api/ads-reward?${msg.replace('reward_amount=3', 'reward_amount=99')}&signature=${sig}&key_id=42`, keys)), 'SSV: sửa tham số → từ chối');
   const { onRequestGet } = await import('../../functions/api/ads-reward.js');
   ok((await onRequestGet({ request: new Request('https://lexkite.com/api/ads-reward?x=1'), env: {} })).status === 404, 'SSV: mặc định TẮT (ADS_SSV≠1 → 404)'); }
-{ const pub = CFG.web.client.replace(/^ca-/, ''), line = `google.com, ${pub}, DIRECT, f08c47fec0942fa0`; ok(rd('web/ads.txt').includes(line) && rd('web/app-ads.txt').includes(line) && rd('web/index.html').includes(`google-adsense-account" content="${CFG.web.client}`), 'ads.txt + app-ads.txt + thẻ xác minh trang chủ khớp mã trong config.js'); }
+{ const pub = CFG.web.client.replace(/^ca-/, ''), line = `google.com, ${pub}, DIRECT, f08c47fec0942fa0`; ok(rd('web/ads.txt').includes(line) && rd('web/app-ads.txt').includes(line) && ['web/index.html', 'web/en/index.html', 'web/vi/index.html'].every(f => rd(f).includes(`google-adsense-account" content="${CFG.web.client}`)), 'ads.txt + app-ads.txt + thẻ xác minh ở / (tĩnh) và đích 302 của / khớp mã trong config.js'); }
 // D1: truy vấn ext_events theo khoảng ngày dùng PK, không SCAN
 try {
   const { DatabaseSync } = await import('node:sqlite'); const db = new DatabaseSync(':memory:');

@@ -1,0 +1,21 @@
+# Đo hàng chờ CI mỗi ngày ở mức job, so với mốc 05/11 trước PR #719 → 1 comment vào issue "CI hàng chờ – đo hằng ngày" (nhãn ci-queue).
+# Chỉ đọc API Actions (~170 lệnh/lượt), 1 runner ~3 phút. Script + test: scripts/ci/queue-report.mjs, scripts/test/queue-report.mjs.
+name: CI queue report
+on:
+  schedule:
+    - cron: '20 7 * * *'   # 14:20 giờ Việt Nam – lượt đầu 06/11 ≈ 24 giờ sau khi gộp #719
+  workflow_dispatch:
+permissions: { contents: read, actions: read, issues: write }
+concurrency: { group: ci-queue-report, cancel-in-progress: false }
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: scripts/ci }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Đo + ghi issue
+        env: { GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
+        run: node scripts/ci/queue-report.mjs

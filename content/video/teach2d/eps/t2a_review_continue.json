@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"continue\" mean?",
+  "keyword": "continue",
+  "value": "Continue means to do something without stopping, or after pausing.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=continue",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"continue\" mean?",
+    "description": "Continue means to do something without stopping, or after pausing.\n\nReview your words, free: https://lexkite.com/app/#/review?w=continue\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "continue",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"continue\" mean?\n\nContinue means to do something without stopping, or after pausing.\n\nReview your words, free: https://lexkite.com/app/#/review?w=continue"
+   },
+   "instagram": {
+    "caption": "What does \"continue\" mean?\n\nContinue means to do something without stopping, or after pausing.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"continue\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to do something without stopping, or after pausing. Continue means to do something without stopping, or after pausing. Practice it with a free quiz: {link}"
  }
 }

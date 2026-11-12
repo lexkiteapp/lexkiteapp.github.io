@@ -1,0 +1,98 @@
+/* 🎭 Sân khấu Truyện (docs/specs/story-stage.md): Ama + Carlos đứng trên CÙNG một sàn, cùng màu mặt khung chat (không đường cắt hông), người đang nói sáng + to nhẹ,
+ * người kia mờ. Chỉ transform/opacity được chuyển động; màu theo token (sáng/tối theo :root[data-theme] hoặc hệ thống). Tải lười (js/lesson/story-stage.js) – ngoài khung app. */
+.ss,.ss-pop{--ss-hdr:3.5rem;--ss-r-top:22px;--ss-r-sheet:20px;--ss-fs-emoji:20px;--ss-fs-word:1.15rem;--ss-fs-btn:1.1rem;--ss-pop-bg:#fff;--ss-pop-fg:#10191B;--ss-pop-bg-dk:#142328;--ss-pop-fg-dk:#EEF6F7;--ss-pop-shadow:0 -8px 28px rgb(0 0 0/.22)}
+.ss{--ss-floor:#F0F4F3;--ss-shade:rgb(16 25 27/.10);--ss-h:184px;--ss-fg:#10191B;--ss-mut:#4E5F62}
+:root[data-theme="dark"] .ss{--ss-floor:#091518;--ss-shade:rgb(0 0 0/.34);--ss-fg:#EEF6F7;--ss-mut:#9DB5BA}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ss{--ss-floor:#091518;--ss-shade:rgb(0 0 0/.34);--ss-fg:#EEF6F7;--ss-mut:#9DB5BA}}
+/* Đầu trang cố định (h-14 + vùng an toàn iPhone): nội dung chính luôn bắt đầu dưới nó → chip AMA / ĐỐI THOẠI / CARLOS không bị che */
+.ss>main{padding-top:calc(var(--ss-hdr) + env(safe-area-inset-top,0px) + var(--sp-2))}
+.ss>header{-webkit-backdrop-filter:none;backdrop-filter:none} /* làm mờ nền đầu trang cố định = lỗi giật khi cuộn trên Safari iPhone; nền đã gần đục (95 %) */
+.ss .ss-stage{position:relative;display:flex;direction:ltr;justify-content:space-between;align-items:flex-end;height:var(--ss-h);margin:0 -1rem;padding:0 var(--sp-1);contain:layout paint;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ss .ss-seat{position:relative;flex:0 0 52%;height:100%;pointer-events:none;transform-origin:50% 100%;transition:transform .26s cubic-bezier(.2,.8,.2,1);will-change:transform}
+.ss .ss-seat[data-who="ama"]{transform:translateX(3%) scale(.94)}.ss .ss-seat[data-who="carlos"]{transform:translateX(-3%) scale(.94)}
+.ss .ss-fig{position:absolute;inset:0;opacity:.62;transition:opacity .26s linear} /* không mặt nạ mờ trên khung đang vẽ động: ép ghép lớp bằng CPU mỗi khung (fps 4×); sàn .ss-floor đã che đáy ảnh */
+.ss .ss-stage[data-speaker=""] .ss-fig,.ss .ss-seat.on .ss-fig{opacity:1}
+.ss .ss-seat.on[data-who="ama"]{transform:translateX(3%) scale(1.04)}.ss .ss-seat.on[data-who="carlos"]{transform:translateX(-3%) scale(1.04)}
+/* sàn chung: cùng màu mặt khung chat bên dưới; mép trên mờ nhẹ + bóng dưới chân hai người → đứng trên sàn, không lơ lửng */
+.ss .ss-floor{position:absolute;left:0;right:0;bottom:0;height:30px;background:var(--ss-floor);border-radius:var(--ss-r-top) var(--ss-r-top) 0 0;box-shadow:0 -1px 0 var(--ss-shade);pointer-events:none}
+.ss .ss-floor::before{content:"";position:absolute;left:8%;right:8%;top:-7px;height:10px;border-radius:50%;background:radial-gradient(closest-side,var(--ss-shade),transparent)}
+/* chỉ báo người nói: chấm sáng trên chip tên */
+.ss .ss-who-on{outline:2px solid currentColor;outline-offset:1px}
+/* dòng thoại: nhẹ, không viền dày; 🔊 + 🐢 cùng hàng, cùng chỗ cho cả hai người (cuối bong bóng, đầu dòng) */
+.ss .lsn-ln{box-shadow:none!important} /* viền: để bong bóng giữ viền Stitch (border-2); trước đây border-width:1px!important đặt lên <li> ngoài (không có màu viền → hộp trắng cứng quanh cả dòng) */
+.ss .lsn-ln.ss-in{animation:ss-in .24s cubic-bezier(.2,.8,.2,1) both}
+.ss .ss-col{flex:1 1 auto;min-width:0;display:flex;flex-direction:column}
+.ss .ss-act{display:flex;gap:var(--sp-2);align-items:center;justify-content:flex-start;margin-top:var(--sp-1);flex-direction:row!important}
+.ss .ss-act>button{order:0!important;margin:0!important;min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:9999px}
+.ss .ss-slow{font-size:var(--ss-fs-emoji);line-height:1;background:transparent;border:0;color:inherit;cursor:pointer}
+.ss .lsn-ln p{touch-action:manipulation}
+.ss .lsn-ln.ss-cur{--ss-ring:1}
+.ss .lsn-ln.ss-cur>div:nth-child(2){box-shadow:0 0 0 2px var(--ss-ring-c,rgb(43 163 154/.55))}
+/* tra từ: tấm đáy */
+.ss-pop{position:fixed;left:0;right:0;bottom:0;z-index:80;max-width:520px;margin:0 auto;padding:var(--sp-4) var(--sp-4) calc(var(--sp-4) + env(safe-area-inset-bottom,0px));border-radius:var(--ss-r-sheet) var(--ss-r-sheet) 0 0;background:var(--ss-pop-bg);color:var(--ss-pop-fg);box-shadow:var(--ss-pop-shadow);animation:ss-up .22s cubic-bezier(.2,.8,.2,1) both}
+:root[data-theme="dark"] .ss-pop{background:var(--ss-pop-bg-dk);color:var(--ss-pop-fg-dk)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ss-pop{background:var(--ss-pop-bg-dk);color:var(--ss-pop-fg-dk)}}
+.ss-pop .ss-pw{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-2);font-size:var(--ss-fs-word)}
+.ss-pop button{min-width:44px;min-height:44px;border-radius:9999px;border:0;background:transparent;color:inherit;font-size:var(--ss-fs-btn);cursor:pointer}
+.ss-pop .ss-pm{margin-top:var(--sp-1);opacity:.9}
+@keyframes ss-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes ss-up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.ss .ss-seat,.ss .ss-fig{transition:none}.ss .lsn-ln.ss-in,.ss-pop{animation:none}}
+@media (max-width:360px){.ss{--ss-h:164px}}
+
+/* ===== Khung bài tập (Xếp câu · Nghe chọn · Điền từ · Chép chính tả = màn lesson-question) – cùng sàn/bệ như sân khấu Truyện ===== */
+.lsn-fx{--lf-plinth:#E4EBE9;--lf-edge:#CBD5D2;--ex-rule:#C9D3D1;--ex-dis-bg:#E2E8E7;--ex-dis-fg:#4E5F62;--ex-on-bg:#0D6964;--ex-on-fg:#FFFFFF;--ex-on-edge:#07423F;--ex-mut:#4E5F62}
+:root[data-theme="dark"] .lsn-fx{--lf-plinth:#1A2C33;--lf-edge:#0D1A1E;--ex-rule:#2E4650;--ex-dis-bg:#1A2C33;--ex-dis-fg:#9DB5BA;--ex-on-bg:#2BA39A;--ex-on-fg:#04201E;--ex-on-edge:#145A54;--ex-mut:#9DB5BA}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lsn-fx{--lf-plinth:#1A2C33;--lf-edge:#0D1A1E;--ex-rule:#2E4650;--ex-dis-bg:#1A2C33;--ex-dis-fg:#9DB5BA;--ex-on-bg:#2BA39A;--ex-on-fg:#04201E;--ex-on-edge:#145A54;--ex-mut:#9DB5BA}}
+/* Ama đứng GIỮA bệ: teacher.js thêm lớp .tch vào #lsnTch → ui.js `.lsn-v2 .tch{position:absolute;inset:0}` + w-[170px] ghim hộp vào mép TRÁI (Ama lệch trái, cả trên main); trả về dòng chảy flex để justify-center căn giữa */
+.lsn-fx .ex-seat #lsnTch{position:relative;inset:auto;flex:none}
+.lsn-fx .ex-seat{position:relative;align-items:flex-end;padding-bottom:var(--sp-1)}
+/* bệ cao 28 px che dải mờ ở đáy ảnh (final-qc not-pasted-on: thân mờ phải khuất sau mặt đục): viên bo tròn có gờ đáy dưới chân Ama (không lơ lửng); cùng số đo với mẫu Stitch lesson-question (hàng giáo viên cao 150 px, KHÔNG chồng thẻ đề bài) */
+.lsn-fx .ex-seat .ss-floor{position:absolute;left:50%;bottom:0;width:200px;max-width:86%;height:28px;transform:translateX(-50%);border-radius:9999px;background:var(--lf-plinth);box-shadow:0 3px 0 var(--lf-edge);pointer-events:none}
+/* đường kẻ trả lời: 2 dòng kẻ sẵn, thẻ từ bay vào ngồi trên dòng; ngân hàng giữ ô trống nên không xô bố cục */
+.lsn-fx div.lsn-ans{--p:3.5rem;min-height:calc(var(--p)*2);padding:0!important;gap:0 var(--sp-2)!important;align-content:flex-start;border:0!important;
+ background-image:repeating-linear-gradient(to bottom,transparent 0,transparent calc(var(--p) - 2px),var(--ex-rule) calc(var(--p) - 2px),var(--ex-rule) var(--p))}
+.lsn-fx div.lsn-ans>button{margin:var(--sp-1) 0!important;min-height:3rem}
+.lsn-fx .lsn-bank{gap:var(--sp-2)!important;padding-top:var(--sp-4)!important;min-height:7.5rem;align-content:flex-start}
+.lsn-fx .lsn-bank>button{min-height:3rem} /* KHÔNG đặt touch-action ở đây: word-arrange.js dùng touch-action:none cho thẻ kéo-chèn (Chromium cảm ứng huỷ pointer nếu cho phép cuộn) */
+/* nút nghe: to, rõ + 🐢 cùng cỡ */
+/* nút nghe: vùng chạm ≥ 44 px nhưng KHÔNG đổi chỗ/chiều cao khung (🐢 vẫn absolute góc thẻ như mẫu Stitch → cổng stitch-diff) */
+.lsn-fx #lsnPlay,.lsn-fx #lsnSlow{min-width:44px;min-height:44px;border-radius:9999px}
+/* Kiểm tra: TẮT = xám phẳng chữ đủ tương phản; BẬT giữ nguyên mẫu Stitch (gradient cam – cổng stitch-diff vùng CTA ≥ 0,99, không được xa mẫu hơn) */
+@media (prefers-reduced-motion:no-preference){.lsn-fx #lsnCheck{transition:background-color .15s}}
+#lsnCheck{text-transform:uppercase;letter-spacing:.02em} /* nút Kiểm tra viết hoa như mẫu Stitch (CHECK ANSWER), cùng kiểu nút Tiếp tục */
+.lsn-fx #lsnCheck:disabled{background-image:none!important;opacity:1!important;background-color:var(--ex-dis-bg)!important;color:var(--ex-dis-fg)!important;box-shadow:none!important;cursor:not-allowed}
+.lsn-fx .lsn-qfoot{--ss-fs-ic:16px}
+/* Bỏ qua / Báo lỗi: liên kết chữ nhỏ, lặng, dưới nút chính (không nền, không viền, không bóng) */
+.lsn-fx .lsn-qfoot .lsn-skipb,.lsn-fx .lsn-qfoot #lsnRep{background:transparent!important;border:0!important;box-shadow:none!important;color:var(--ex-mut)!important;flex:0 0 auto!important;padding:var(--sp-1) var(--sp-2)!important;min-height:44px}
+.lsn-fx .lsn-qfoot .lsn-skipb *,.lsn-fx .lsn-qfoot #lsnRep *{font-size:var(--fs-xs)!important;font-weight:600!important;letter-spacing:0!important;text-transform:none!important}
+.lsn-fx .lsn-qfoot .lsn-skipb .material-symbols-outlined,.lsn-fx .lsn-qfoot #lsnRep .material-symbols-outlined{font-size:var(--ss-fs-ic)!important}
+.lsn-fx .lsn-qfoot>div:first-child{justify-content:center!important;gap:var(--sp-4)}
+
+/* câu đề: cao như mẫu Stitch (ô trống dạng viên 38 px) → thẻ đề + CTA đúng chỗ của mẫu */
+.lsn-fx #lsnBub{padding-block:calc(var(--sp-2) + var(--sp-1)/2)}
+:root[data-theme="dark"] .lsn-fx #lsnBub{padding-block:var(--sp-3)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lsn-fx #lsnBub{padding-block:var(--sp-3)}}
+:root .lsn-fx:has(.lsn-fv2) #lsnBub{padding-block:var(--sp-2)} /* tấm phản hồi đang mở: thẻ đề về cỡ mẫu feedback-* (thấp hơn mẫu lesson-question) */
+/* Tấm phản hồi đang mở: lưới đáp án gọn như mẫu feedback-* (khe 8 px; đúng → thẻ 72 px) → máy nhỏ không bị đẩy nội dung/phải cuộn; chưa có phản hồi giữ thẻ 96 px.
+ * Đổi cỡ xảy ra ngay lúc bấm Kiểm tra (không tính CLS: có thao tác vừa nhập) + hiện nhẹ bằng opacity/transform (không chuyển động bố cục). */
+:root .lsn-fx:has(.lsn-fv2) .lsn-opts{gap:var(--sp-2);animation:ss-in .2s cubic-bezier(.2,.8,.2,1) both}
+:root .lsn-fx:has(.lsn-fv2.ok) .lsn-opts .lsn-opt{height:4.5rem;min-height:4.5rem;padding-block:calc(var(--sp-2) + var(--sp-1)/2)}
+@media (prefers-reduced-motion:reduce){:root .lsn-fx:has(.lsn-fv2) .lsn-opts{animation:none}}
+
+/* khớp nhịp dọc mẫu story-duo (đo trên ảnh stitch-diff): nhãn Ama sát sân khấu hơn 7 px, khối câu hỏi cách thẻ A/B/C 16 px như mẫu */
+.ss .lsn-chatp{margin-top:-.45rem}
+.ss .lsn-qblk{margin-bottom:-.5rem}
+/* Căn theo ảnh stitch-diff (lượt 175b114e2): story – tấm hội thoại lên 20 px (bệ .ss-floor vẫn lộ ~20 px phía trên tấm); feedback – nút Tiếp tục sát hàng "Vì sao?" 13 px; lesson – nút Kiểm tra lên 4 px */
+.ss .ss-stage{margin-bottom:-32px}
+:root .lsn-fx .lsn-fv2 #lsnNext{margin-top:-.8rem}
+:root .lsn-fx #lsnCheck{margin-top:0} /* sáng: sau gộp main lệch 4 px so mẫu (cta 0,955) */
+:root[data-theme="dark"] .lsn-fx #lsnCheck{margin-top:calc(var(--sp-1)*-1)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lsn-fx #lsnCheck{margin-top:calc(var(--sp-1)*-1)}}
+/* Lượt ảnh stitch-diff 0fb658a7b: story – tấm hội thoại lên thêm 12 px (bệ vẫn lộ ~6 px) + bong bóng thấp hơn 4,5 px mỗi cái (mẫu: nhãn Ama/thẻ A-B-C lệch +13…+21 px); feedback sai – hàng nghe lại/thẻ từ điển gọn như mẫu (+14 px dồn lại) */
+.ss .lsn-ln>div:nth-child(2){padding-block:calc(var(--sp-3) + var(--sp-1)/2)}
+:root .lsn-fx:has(.lsn-fv2.bad) .lsn-qcard{margin-top:.1rem}
+:root .lsn-fx:has(.lsn-fv2.bad) #lsnPlay{padding-block:.1rem}
+:root .lsn-fx:has(.lsn-fv2.bad) #lsnBub{padding-bottom:.125rem}
+:root .lsn-fv2.bad .lsn-dict button{margin-block:-.2rem}
+:root .lsn-fv2.bad .lsn-dict>p{margin-top:0}

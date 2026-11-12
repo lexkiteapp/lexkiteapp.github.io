@@ -1,6 +1,5 @@
 {
  "_doc": "Màn Giải đấu (#/league) – d do League route (web/js/league.js) dựng từ dữ liệu thật Sync.league('me'). Đầu trang + thanh tab = chuẩn chung (shell.js). Banner tuần trước, đổi biệt danh, quy tắc → thẻ cùng khuôn thẻ 'Earn +40 XP' (d.cards).",
- "compact": true,
  "remove": [
   ":scope > header",
   ":scope > nav",
@@ -48,7 +47,7 @@
      },
      "cls": {
       ":scope > div:nth-child(1) > div:nth-child(2)": {
-       "dk:[color:#2BA39A]": "'dk:[color:#6bd8ce]'"
+       "dk:[color:#4DC4BA]": "'dk:[color:#6bd8ce]'"
       },
       ":scope > div:nth-child(2) > div:nth-child(1) > span": {
        "lt:text-[#B37800]": "'lt:text-[#8A5A00]'"
@@ -95,9 +94,9 @@
     "row": {
      "text": {
       "4": "r.rank",
-      "980": "r.xp",
       "TC": "r.ini",
       "Tariq Chen": "r.nick",
+      "980": "r.xp",
       "XP": "'XP'"
      },
      "addClass": {
@@ -112,19 +111,19 @@
     "me": {
      "text": {
       "5": "r.rank",
-      "820": "r.xp",
       "YO": "r.ini",
       "You": "r.nick",
       "SAFE": "r.chip",
       "160 XP to Promotion": "r.gap",
+      "820": "r.xp",
       "XP": "'XP'"
      },
      "cls": {
       ":scope > div:nth-child(1) > div:nth-child(1)": {
-       "dk:[color:#003733]": "'dk:[color:#0d1a1e]'"
+       "dk:[color:#00201D]": "'dk:[color:#0d1a1e]'"
       },
       ":scope > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)": {
-       "dk:[color:#003733]": "'dk:[color:#0d1a1e]'"
+       "dk:[color:#00201D]": "'dk:[color:#0d1a1e]'"
       },
       ":scope > div:nth-child(2) > div:nth-child(1) > span": {
        "lt:text-[#B37800]": "'lt:text-[#8A5A00]'"

@@ -36,16 +36,17 @@ ok(c.querySelector('.bq-opts').getAttribute('role') === 'group' && c.querySelect
 ok(c.querySelector('.bq-fb').getAttribute('aria-live') === 'polite', 'phản hồi đọc qua aria-live');
 let o = c.querySelectorAll('.bq-opt');
 ok(o.length === 4, '4 đáp án');
-o[0].click(); o[1].click();
+const byText = (list, t) => [...list].find(x => x.textContent.endsWith(t));
+const went = byText(o, 'went'); went.click(); [...o].find(x => x !== went).click();
 const fb = c.querySelector('.bq-fb');
 ok(fb.classList.contains('ok') && fb.textContent.includes('Chính xác') && fb.textContent.includes('Went'), 'đúng → xanh + giải thích');
-ok([...o].every(x => x.disabled) && !o[1].classList.contains('no'), 'khóa sau lần chọn đầu');
+ok([...o].every(x => x.disabled) && ![...o].some(x => x.classList.contains('no')), 'khóa sau lần chọn đầu');
 ok(doc.activeElement === c.querySelector('.bq-btn'), 'chuyển focus tới nút tiếp');
 c.querySelector('.bq-btn').click();
 ok(doc.activeElement === c.querySelector('.bq-q'), 'câu mới: focus vào câu hỏi');
 o = c.querySelectorAll('.bq-opt');
-o[0].click();
-ok(c.querySelector('.bq-fb').classList.contains('no') && o[1].classList.contains('ok') && o[0].classList.contains('no'), 'sai → đỏ + hiện đáp án đúng');
+const wrong = [...o].find(x => !x.textContent.endsWith('since')); wrong.click();
+ok(c.querySelector('.bq-fb').classList.contains('no') && byText(o, 'since').classList.contains('ok') && wrong.classList.contains('no'), 'sai → đỏ + hiện đáp án đúng');
 ok(c.querySelector('.bq-btn').textContent.includes('Xem kết quả'), 'câu cuối: nút xem kết quả');
 c.querySelector('.bq-btn').click();
 ok(c.querySelector('.bq-score').textContent === '1/2', 'điểm 1/2');
@@ -62,6 +63,16 @@ const evil = run('en', 'ltr', { items: [quiz.items[0]], cta: { url: 'javascript:
 evil.doc.querySelector('.bq-opt').click(); evil.doc.querySelector('.bq-btn').click();
 ok(evil.doc.querySelector('.bq-cta').getAttribute('href').startsWith('/app/') && !evil.doc.querySelector('.bq-cta img'), 'CTA lạ bị thay, chữ được esc');
 ok(/\.blog-quiz\{--qok[^}]*\}@media \(prefers-color-scheme:dark\)/.test(evil.doc.getElementById('lk-qz-css').textContent), 'có màu riêng cho chế độ tối');
+
+// Trộn phương án mỗi lần tải (bài hay để đáp án cùng một vị trí): đáp án đúng vẫn đúng, vị trí thay đổi
+const pos = new Set();
+for (let k = 0; k < 40; k++) {
+  const r = run('en', 'ltr', [quiz.items[0]]), opts = [...r.doc.querySelectorAll('.bq-opt')];
+  ok(opts.map(x => x.textContent.slice(1)).sort().join() === 'goes,going,gone,went', 'trộn giữ đủ phương án');
+  const i = opts.findIndex(x => x.textContent.endsWith('went')); pos.add(i); opts[i].click();
+  ok(r.doc.querySelector('.bq-fb').classList.contains('ok'), 'đáp án đúng sau khi trộn vẫn được chấm đúng');
+}
+ok(pos.size >= 3, `đáp án đúng xuất hiện ở nhiều vị trí (${[...pos]})`);
 
 // Dữ liệu quiz trong mọi bài: đúng cấu trúc, đáp án duy nhất
 for (const p of loadPosts().filter(p => p.quiz)) {

@@ -26,6 +26,8 @@ Aufbauend auf unserem Leitfaden zu [Englisch Vokabeln lernen](/de/blog/englisch-
 
 Innerhalb der 75-minuetigen Reading-Pruefung schliesst Part 7 direkt an Part 5 (30 Satzergaenzungen) und Part 6 (16 Textergaenzungen) an. Die Textbeispiele simulieren authentische Dokumente des internationalen Geschaeftsalltags: Geschaefts-E-Mails, interne Rundschreiben, Pressemitteilungen, Stellenanzeigen, Rechnungen, Bestellformulare und Instant-Messaging-Verlaeufe mehrerer Mitarbeiter.
 
+Mehr dazu findest du in unserem Beitrag [TOEIC Lernplan für das Selbststudium](/de/blog/toeic-selbststudium-lernplan-guide/).
+
 Die 54 Fragen verteilen sich systematisch auf drei Textkategorien:
 
 | Kategorie | Dokumentstruktur | Fragenanzahl | Analytische Hauptherausforderung |

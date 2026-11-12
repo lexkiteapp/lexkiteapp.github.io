@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lexkite — Onboarding: Target Band (Tactile Night 390px)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #040B0D;
+      color: #EEF6F7;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .app-screen {
+      width: 100%;
+      max-width: 390px;
+      min-height: 100vh;
+      background-color: #0E191C;
+      display: flex;
+      flex-col;
+      position: relative;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+      padding-bottom: 84px;
+    }
+
+    /* Tactile Back Button */
+    .tactile-back {
+      background-color: #162E33;
+      border: 2px solid #3A5F66;
+      box-shadow: 0 3px 0 0 #102226;
+      color: #45D1C5;
+      transition: all 0.1s ease;
+    }
+    .tactile-back:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #102226;
+    }
+
+    /* Score Tile Standard & Selected */
+    .score-tile {
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      min-height: 84px;
+      border-radius: 16px;
+      background-color: #162E33;
+      border: 2px solid #3A5F66;
+      box-shadow: 0 4px 0 0 #1E3E44;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-align: center;
+    }
+    .score-tile:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #1E3E44;
+    }
+
+    /* Selected Tile State */
+    .score-tile.selected {
+      background-color: #1A393F;
+      border-color: #45D1C5;
+      box-shadow: 0 4px 0 0 #00504B;
+    }
+    .score-tile.selected:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #00504B;
+    }
+
+    /* Primary CTA */
+    .primary-cta {
+      background: linear-gradient(to right, #F2553B, #FF9E3B);
+      color: #1B0B04;
+      box-shadow: 0 4px 0 0 #8E2816;
+      transition: all 0.1s ease;
+    }
+    .primary-cta:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #8E2816;
+    }
+  </style>
+</head>
+<body>
+  <main class="app-screen flex flex-col">
+    <!-- Top Focus Bar (≥44px back button + slim progress bar) -->
+    <header class="w-full px-4 pt-3 pb-2 flex items-center gap-3 shrink-0">
+      <button type="button" aria-label="Back" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl tactile-back flex items-center justify-center focus:outline-none">
+        <span class="material-symbols-rounded text-2xl">arrow_back</span>
+      </button>
+
+      <!-- Slim Progress Bar -->
+      <div class="flex-1 h-2.5 bg-[#1D2F33] rounded-full overflow-hidden p-0.5 border border-[#3A5F66]/50">
+        <div class="h-full bg-[#45D1C5] rounded-full w-[45%] transition-all duration-300"></div>
+      </div>
+    </header>
+
+    <!-- Main Scrollable Content -->
+    <div class="px-5 pt-3 flex-1 flex flex-col">
+      <!-- Teacher Slot Hero Row -->
+      <section class="flex items-center gap-3.5 mb-5 shrink-0" aria-label="Guidance">
+        <!-- Standing Teacher Slot with floor line -->
+        <div class="flex flex-col items-center shrink-0">
+          <div class="w-14 h-16 rounded-2xl bg-[#1E3E44] border-2 border-[#5E8A92] flex items-center justify-center" aria-hidden="true">
+            <!-- Plain empty soft rounded block standing on floor line, no dashed border, no outline, no label -->
+          </div>
+          <!-- 4px rounded floor line beneath -->
+          <div class="w-16 h-1 bg-[#5E8A92] rounded-full mt-1.5" aria-hidden="true"></div>
+        </div>
+
+        <!-- Speech Bubble Line -->
+        <div class="flex-1 bg-[#1D2F33] border-2 border-[#3A5F66] rounded-2xl px-3.5 py-2.5 relative shadow-[0_2px_0_0_#102226]">
+          <!-- Speech triangle pointing to slot -->
+          <div class="absolute left-[-7px] top-1/2 -translate-y-1/2 w-3 h-3 bg-[#1D2F33] border-l-2 border-b-2 border-[#3A5F66] rotate-45"></div>
+          <p class="text-sm font-semibold text-[#EAF2F2] leading-snug m-0">
+            Pick the band your goal needs.
+          </p>
+        </div>
+      </section>
+
+      <!-- Heading -->
+      <header class="mb-5">
+        <h1 class="text-2xl font-extrabold text-[#EAF2F2] tracking-tight leading-tight m-0">
+          What band are you aiming for?
+        </h1>
+      </header>
+
+      <!-- 2-Column Grid of 6 Score Tiles -->
+      <fieldset class="grid grid-cols-2 gap-3.5 w-full m-0 p-0 border-0" aria-label="Score options">
+        <legend class="sr-only">Target IELTS Band score</legend>
+
+        <!-- Score Tile 5.5 -->
+        <label class="score-tile group">
+          <input type="radio" name="band" value="5.5" class="sr-only">
+          <span class="text-3xl font-extrabold text-[#EAF2F2] tracking-tight select-none">
+            5.5
+          </span>
+        </label>
+
+        <!-- Score Tile 6.0 -->
+        <label class="score-tile group">
+          <input type="radio" name="band" value="6.0" class="sr-only">
+          <span class="text-3xl font-extrabold text-[#EAF2F2] tracking-tight select-none">
+            6.0
+          </span>
+        </label>
+
+        <!-- Score Tile 6.5 -->
+        <label class="score-tile group">
+          <input type="radio" name="band" value="6.5" class="sr-only">
+          <span class="text-3xl font-extrabold text-[#EAF2F2] tracking-tight select-none">
+            6.5
+          </span>
+        </label>
+
+        <!-- Score Tile 7.0 (Selected) -->
+        <label class="score-tile selected group" aria-checked="true">
+          <input type="radio" name="band" value="7.0" checked class="sr-only">
+          <!-- Check Badge in Top-Right Corner -->
+          <div class="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-[#45D1C5] flex items-center justify-center text-[#0E191C] shadow-sm" aria-hidden="true">
+            <span class="material-symbols-rounded text-base font-bold leading-none">check</span>
+          </div>
+          <span class="text-3xl font-extrabold text-[#45D1C5] tracking-tight select-none">
+            7.0
+          </span>
+        </label>
+
+        <!-- Score Tile 7.5 -->
+        <label class="score-tile group">
+          <input type="radio" name="band" value="7.5" class="sr-only">
+          <span class="text-3xl font-extrabold text-[#EAF2F2] tracking-tight select-none">
+            7.5
+          </span>
+        </label>
+
+        <!-- Score Tile 8.0+ -->
+        <label class="score-tile group">
+          <input type="radio" name="band" value="8.0+" class="sr-only">
+          <span class="text-3xl font-extrabold text-[#EAF2F2] tracking-tight select-none">
+            8.0+
+          </span>
+        </label>
+      </fieldset>
+    </div>
+
+    <!-- Sticky Full-Width Primary Button 'Continue' -->
+    <footer class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] px-5 py-4 bg-gradient-to-t from-[#0E191C] via-[#0E191C]/95 to-transparent z-40">
+      <button type="button" class="w-full h-12 rounded-full primary-cta font-extrabold text-base flex items-center justify-center tracking-wide focus:outline-none select-none">
+        Continue
+      </button>
+    </footer>
+  </main>
+</body>
+</html>

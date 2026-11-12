@@ -17,7 +17,7 @@ paras: [
 ],
 groups: [
 { type: 'tfng',
-instr: 'Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.',
+instr: g.RTI[1],
 items: [
 { n: 1, text: 'Under the break-bulk system, a ship might remain in port for seven days or more.', a: 'TRUE', cue: 'a ship could spend a week or longer in port being loaded and unloaded' },
 { n: 2, text: 'Before containers were introduced, cargo was rarely stolen from the docks.', a: 'FALSE', cue: 'Theft was common, because valuable items were easy to slip into a pocket or carry away' },
@@ -27,14 +27,14 @@ items: [
 { n: 6, text: 'Weathering steel costs more to produce than ordinary steel.', a: 'NOT GIVEN', cue: 'Most containers are built from corrugated weathering steel' },
 ] },
 { type: 'note', title: 'Design features of a standard container',
-instr: 'Complete the notes below. Choose ONE WORD ONLY from the passage for each answer.', limit: 1,
+instr: g.RTI[20], limit: 1,
 items: [
 { n: 7, text: 'Corner castings: hollow blocks with oval holes that hold a ___ to fix boxes together', a: ['twistlock'], cue: 'into which a device called a twistlock can be inserted and turned' },
 { n: 8, text: 'Steel: develops a surface layer of ___ that protects against further corrosion', a: ['rust'], cue: 'forms a protective layer of rust on its surface which slows further corrosion' },
 { n: 9, text: 'Walls: corrugations increase strength but add little ___', a: ['weight'], cue: 'add strength without adding much weight' },
 { n: 10, text: 'Floor: thick hardwood ___ that resists damage from forklift trucks', a: ['plywood'], cue: 'The floor is usually made of thick hardwood plywood' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 11, q: "What was McLean's key idea, according to paragraph C?",
 options: ['Oil tankers could be converted to carry dry cargo cheaply.', 'The box should be one part of a connected system of transport.', 'Wooden railway containers could be adapted for use at sea.', 'Cargo should be carried on the deck rather than below it.'],
@@ -76,7 +76,7 @@ paras: [
 ],
 groups: [
 { type: 'match',
-instr: 'Reading Passage 2 has seven paragraphs, A–G. Choose the correct heading for each paragraph from the list of headings below.',
+instr: g.RTI[15],
 options: [
 'i The economic advantages of speaking several languages',
 'ii Different views of what counts as success',
@@ -94,12 +94,12 @@ items: [
 { n: 15, text: 'Paragraph B', a: 'iii', cue: 'stop using the heritage language at home' },
 { n: 16, text: 'Paragraph C', a: 'vi', cue: 'The loss matters for more than sentimental reasons' },
 { n: 17, text: 'Paragraph D', a: 'iv', cue: 'Yet language death is not inevitable' },
-{ n: 18, text: 'Paragraph E', a: 'viii', cue: 'they can become fluent speakers without formal lessons' },
+{ n: 18, text: 'Paragraph E', a: 'viii', cue: g.RTI[24] },
 { n: 19, text: 'Paragraph F', a: 'ix', cue: 'Where few or no fluent speakers remain, communities face a harder task' },
 { n: 20, text: 'Paragraph G', a: 'ii', cue: 'There is also debate about what success means' },
 ] },
 { type: 'match',
-instr: 'Reading Passage 2 has seven paragraphs, A–G. Which paragraph contains the following information? NB You may use any letter more than once.',
+instr: g.RTI[13],
 options: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
 items: [
 { n: 21, text: 'a reason why statistics on language loss may be unreliable', a: 'A', cue: 'such figures are difficult to check' },
@@ -107,9 +107,9 @@ items: [
 { n: 23, text: 'a description of a learner and a speaker sharing everyday tasks', a: 'F', cue: 'doing ordinary activities together, such as cooking or gardening' },
 ] },
 { type: 'summary', title: 'The language nest',
-instr: 'Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.', limit: 2,
+instr: g.RTI[2], limit: 2,
 items: [
-{ n: 24, text: 'In a language nest, elders speak to very young children only in the heritage language, so the children learn through play and conversation instead of ___.', a: ['formal lessons'], cue: 'they can become fluent speakers without formal lessons' },
+{ n: 24, text: 'In a language nest, elders speak to very young children only in the heritage language, so the children learn through play and conversation instead of ___.', a: ['formal lessons'], cue: g.RTI[24] },
 { n: 25, text: 'The nests also bring different ___ together, so that stories and customs are passed on.', a: ['generations'], cue: 'The nests also bring older and younger generations together' },
 { n: 26, text: 'One survey found that projects with early-childhood immersion were more successful than those relying only on ___ for adults.', a: ['evening classes'], cue: 'those based only on evening classes for adults' },
 ] },
@@ -145,7 +145,7 @@ paras: [
 ],
 groups: [
 { type: 'ynng',
-instr: 'Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.',
+instr: g.RTI[0],
 items: [
 { n: 27, text: 'Campaigns that simply inform people about health risks have generally succeeded in changing behaviour.', a: 'NO', cue: 'have a disappointing record' },
 { n: 28, text: 'Habit and the way choices are presented have a strong influence on how people behave.', a: 'YES', cue: 'I do not dispute this basic insight' },
@@ -153,7 +153,7 @@ items: [
 { n: 30, text: 'Making nudges public is certain to have no effect on how well they work.', a: 'NO', cue: 'transparency may in some cases reduce the effectiveness of the interventions it is meant to legitimise' },
 { n: 31, text: 'Food companies have actively persuaded governments to choose nudges instead of taxes.', a: 'NOT GIVEN', cue: 'avoid confrontation with industry' },
 ] },
-{ type: 'mcq', instr: 'Choose the correct letter, A, B, C or D.',
+{ type: 'mcq', instr: g.RTI[3],
 items: [
 { n: 32, q: "What does Dr Okafor's review suggest?",
 options: ['Nudges have no measurable effect on public health.', 'Government agencies usually design their trials badly.', 'The benefits of nudges shrink considerably when they are used on a large scale.', 'Academic journals refuse to publish studies with negative results.'],
@@ -181,7 +181,7 @@ options: [
 a: ['C', 'E'],
 cue: 'Nudges are inexpensive, and even small improvements, applied across a whole population, can save lives' },
 { type: 'sentence',
-instr: 'Complete the sentences below. Choose NO MORE THAN TWO WORDS from the passage for each answer.', limit: 2,
+instr: g.RTI[8], limit: 2,
 items: [
 { n: 38, text: 'According to the writer, nudges work best for people who are already ___ to change.', a: ['motivated'], cue: 'people who are already motivated to change' },
 { n: 39, text: 'The writer believes behavioural techniques should be seen as one ___ among many.', a: ['instrument'], cue: 'Behavioural techniques are best regarded as one instrument among many' },

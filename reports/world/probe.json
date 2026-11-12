@@ -1,22 +1,21 @@
 {
- "at": "2026-11-03T05:30:09.103Z",
+ "at": "2026-11-12T00:35:29.436Z",
  "lang": "en",
  "device": "Pixel 7",
  "firstRun": {
   "ok": true,
-  "seconds": 5.9,
-  "taps": 10,
+  "seconds": 6,
+  "taps": 9,
   "trail": [
-   ".ctas a.btn.lg",
-   "button.trk-opt",
+   "[data-cta=start], .ctas a.btn.lg",
+   "[data-track]",
    "#obNext",
-   ".trk-lv [data-lv]:not([data-lv=\"test\"])",
    "#obNext",
    "#obNext",
    "#obNext",
    "#go",
-   "ol.day-steps a[data-step=\"learn\"]:not(.ok)",
-   "#known"
+   "#view button.btn.primary",
+   ".option[data-k]:not([data-k=\"-1\"])"
   ]
  },
  "today": {

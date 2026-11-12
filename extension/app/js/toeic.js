@@ -54,7 +54,7 @@
       <h2 style="margin-top:1.4rem">🎯 ${t('Luyện theo Part')}</h2>${tabs}
       <h3 style="margin:.8rem 0 .4rem">🎧 Listening</h3>
       <div class="grid auto">${T().listening.filter(p => p.test === cur).map(p => `<div class="card"><span class="chip">Part ${p.part} · ${L_PART()[p.part] || ''}</span><h3 style="margin:.5rem 0 .2rem">Test ${p.test} · ${esc(p.title)}</h3><div class="small muted">${App.listening ? t('{n} câu', { n: App.listening.qNums(p).length }) : ''}</div>
-        <div class="row" style="margin-top:.6rem"><a class="btn sm primary" href="#/listen/${p.id}">🎯 ${t('Luyện tập')}</a><a class="btn sm" href="#/listen/${p.id}?mode=exam">⏱ ${t('Nghe 1 lần')}</a><a class="btn sm ghost" href="#/dictation/${p.id}">⌨️ ${t('Chép chính tả')}</a></div></div>`).join('') || `<div class="card muted">${t('Đang cập nhật.')}</div>`}</div>
+        <div class="card-acts"><a class="btn sm primary" href="#/listen/${p.id}">${UI.icon('target')} ${t('Luyện tập')}</a><a class="btn sm" href="#/listen/${p.id}?mode=exam">${UI.icon('timer')} ${t('Nghe 1 lần')}</a><a class="btn sm" href="#/dictation/${p.id}">${UI.icon('keyboard')} ${t('Chép chính tả')}</a></div></div>`).join('') || `<div class="card muted">${t('Đang cập nhật.')}</div>`}</div>
       <h3 style="margin:1rem 0 .4rem">📖 Reading</h3>
       <div class="grid auto">${T().reading.filter(rt => rt.test === cur).flatMap(rt => rt.parts.map(pt => `<div class="card"><span class="chip">Part ${pt.part} · ${R_PART()[pt.part] || ''}</span><h3 style="margin:.5rem 0 .2rem">Test ${rt.test} · ${esc(pt.title)}</h3><div class="small muted">${t('{n} câu', { n: countPart(pt) })}</div>
         <div class="row" style="margin-top:.6rem"><a class="btn sm primary" href="#/toeic-r/${rt.id}?part=${pt.part}">🎯 ${t('Luyện Part {n}', { n: pt.part })}</a></div></div>`)).join('') || `<div class="card muted">${t('Đang cập nhật.')}</div>`}</div>
@@ -118,10 +118,12 @@
     const bar = (title, right = '') => `<div class="mk-bar"><div class="row nowrap"><b>💼 TOEIC Mock · Test ${n}</b><span class="chip">${esc(title)}</span></div><div class="row nowrap">${right}<a class="btn sm ghost" href="#/toeic" data-confirm="${esc(t('Thoát bài thi?'))}">${t('Thoát')}</a></div></div>`;
     const lPart = k => {
       const p = LP[k];
-      view.innerHTML = `${bar('Listening · Part ' + p.part)}<div class="card lplayer" style="margin-top:1rem"><b id="tState">🔊 ${t('Đang phát – chỉ nghe 1 lần')}</b><span class="lnow small muted" id="lNow"></span></div>
+      view.innerHTML = `${bar('Listening · Part ' + p.part)}<div class="card lplayer" style="margin-top:1rem"><b id="tState">⏳ ${t('Đang tải…')}</b><span class="lnow small muted" id="lNow"></span></div>
         <div class="card" id="lQs">${QE.questionsHtml(p)}<div class="row" style="margin-top:1rem"><button class="btn primary" id="tNext" disabled>${k < LP.length - 1 ? t('Phần tiếp') + ' →' : t('Sang Reading') + ' →'}</button></div></div>`;
       QE.bind($('#lQs'));
-      player = App.listening.Player(p, { onEnd: () => { const s = $('#tState'); if (s) s.textContent = '✓ ' + t('Hết phần nghe'); const b = $('#tNext'); if (b) b.disabled = false; } });
+      player = App.listening.Player(p, { onSound: () => { const s = $('#tState'); if (s) s.textContent = '🔊 ' + t('Đang phát – chỉ nghe 1 lần'); },
+        onBlocked: () => { const s = $('#tState'); if (!s) return; s.innerHTML = `<button class="btn primary" id="tTap">▶ ${t('Chạm ▶ để nghe')}</button> <span class="small muted">${t('Âm thanh chưa phát được – chạm để nghe (chưa tính lượt nghe)')}</span>`; $('#tTap').onclick = () => { s.textContent = '⏳ ' + t('Đang tải…'); player.play(); }; },
+        onEnd: () => { const s = $('#tState'); if (s) s.textContent = '✓ ' + t('Hết phần nghe'); const b = $('#tNext'); if (b) b.disabled = false; } });
       player.play(0);
       setTimeout(() => { const b = $('#tNext'); if (b) b.disabled = false; }, 30000);
       $('#tNext').onclick = () => { player.stop(); const r = QE.collect(p, $('#lQs')); Object.keys(r).forEach(q => { r[q].part = p.part; { const i0 = p.groups.flatMap(g => g.items || []).find(i => i.n === +q) || {}; r[q].explain = QE.exT(i0.explain, i0._mv); } }); Object.assign(res.L, r); save(k < LP.length - 1 ? { stage: 'L', k: k + 1 } : { stage: 'R' }); if (k < LP.length - 1) lPart(k + 1); else reading(); window.scrollTo({ top: 0 }); };
@@ -286,7 +288,7 @@
     $('#swHear').onclick = () => UI.tts(u.text, accent, 0.95);
     const start = async () => {
       swStop(); UI.stopSpeak(); go.textContent = '⏹'; $('#swPrepB').disabled = true; phase.textContent = '🔴 ' + t('Đang ghi âm – bấm lần nữa để dừng');
-      const SR = window.SpeechRecognition || window.webkitSpeechRecognition, segs = [], tStart = performance.now(); let t0 = 0;
+      const SRC = window.SpeechRecognition || window.webkitSpeechRecognition, SR = UI.micParallel(SRC) ? SRC : null, segs = [], tStart = performance.now(); let t0 = 0; // mic độc quyền: bài này giữ ghi âm để nghe lại (LX-1003)
       if (SR) { try { const r = sw.sr = new SR(); r.lang = accent; r.continuous = true; r.interimResults = false; r.onspeechstart = () => { t0 = t0 || performance.now(); }; r.onresult = e => { for (let k = e.resultIndex; k < e.results.length; k++) if (e.results[k].isFinal) { t0 = t0 || tStart; /* SỬA LỖI: trình duyệt không phát onspeechstart → trước đây lấy (kết quả đầu − 1,5 s), nhưng cụm đầu thường dài 5–10 s → từ/phút bị thổi phồng; nay lấy lúc bắt đầu ghi */ segs.push({ text: e.results[k][0].transcript.trim(), t: performance.now() }); } }; r.onerror = () => {}; r.start(); } catch (e) { sw.sr = null; } }
       const ok = await swRecord(u.secs, left => { clock.textContent = mmss(left); clock.classList.toggle('warn', left <= 10); }, url => {
         try { if (sw.sr) sw.sr.stop(); } catch (e) { /* đã dừng */ }

@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"sofa\" mean?",
+  "keyword": "sofa",
+  "value": "Sofa means a long soft seat for two or more people.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=sofa",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"sofa\" mean?",
+    "description": "Sofa means a long soft seat for two or more people.\n\nReview your words, free: https://lexkite.com/app/#/review?w=sofa\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "sofa",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"sofa\" mean?\n\nSofa means a long soft seat for two or more people.\n\nReview your words, free: https://lexkite.com/app/#/review?w=sofa"
+   },
+   "instagram": {
+    "caption": "What does \"sofa\" mean?\n\nSofa means a long soft seat for two or more people.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"sofa\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a long soft seat for two or more people. Sofa means a long soft seat for two or more people. Practice it with a free quiz: {link}"
  }
 }

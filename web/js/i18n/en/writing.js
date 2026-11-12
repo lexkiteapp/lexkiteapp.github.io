@@ -6,7 +6,6 @@
 'Biểu đồ tròn': 'Pie chart',
 'Quy trình': 'Process',
 'Bản đồ': 'Map',
-'Bấm giờ': 'Start timer',
 'Tiếp tục': 'Resume',
 'Tạm dừng': 'Pause',
 'Số từ': 'Words',
@@ -17,14 +16,11 @@
 
 // ---- phrases.js: annotated model answers ----
 'Từ nối': 'Linking words',
-'Tô sáng': 'Highlight',
-'Lưu tất cả': 'Save all',
 'Lưu vào Sổ cụm từ': 'Save to Phrasebook',
 'Bài mẫu Task {n}': 'Task {n} model answer',
 
 // ---- phrases.js: exercises ----
 'Xem đáp án': 'Show answers',
-'Xóa hết': 'Clear all',
 'Danh từ số nhiều': 'Plural noun',
 'Đáp án': 'Answers',
 'Chính xác!': 'Correct!',
@@ -71,8 +67,6 @@
 'Mở': 'Open',
 'Chưa có': 'None yet',
 'Độ đa dạng từ': 'Lexical variety',
-'Từ nối & cụm': 'Linkers & phrases',
-'Từ của tôi': 'My words',
 
 // write.js: trend stats (dynamic keys)
 'Bảng (table)': 'Table',
@@ -89,7 +83,6 @@
 'Số liệu': 'Figures',
 
 // ---- ideas.js: Task 2 idea bank ----
-'bấm để lưu': 'tap to save',
 'Không lưu được': 'Couldn’t save',
 
 // ---- assist.js: writing assistant ----

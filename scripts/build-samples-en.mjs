@@ -6,6 +6,7 @@ import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar
 import { lastmodStore } from './lib/lastmod.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
+import { art, typeArt, topicArt, toneArt, task1Art, vocabArt, unitArt, pronArt, t2Key, t1Key, catNav } from './lib/samples-visual.mjs';
 const SITE = 'https://lexkite.com/', OG = `${SITE}og-default.png`, L = SEO_L.en, U = SU.en;
 const LM = lastmodStore();
 // URL công khai không đuôi .html (Cloudflare Pages chuyển 308 /x.html → /x); file trên đĩa vẫn là *.html
@@ -20,7 +21,7 @@ const crumbs = (path, name) => { const p = path.split('/'), it = [['Home', SITE 
   return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: it.map(([n, u], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: u })) }; };
 // <!--HL--> được out() thay bằng hreflang vi/en/x-default nếu bản tiếng Việt tồn tại. <head> giữ nguyên từng thẻ như bản cũ.
 // o: { lr: thuộc tính thêm cho LearningResource, ld: JSON-LD thêm } – trang bài mẫu/speaking tự gắn CSS samples-ui (.smp)
-const head = (title, desc0, path, o = {}) => { const desc = clip(desc0); return `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${SITE}${path}"><!--HL--><meta property="og:type" content="article"><meta property="og:site_name" content="Lexkite"><meta property="og:locale" content="en_US"><meta property="og:url" content="${SITE}${path}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${OG}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=2" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=2">${ld({ '@context': 'https://schema.org', '@type': 'LearningResource', name: title, description: desc, url: SITE + path, inLanguage: 'en', isAccessibleForFree: true, educationalLevel: 'IELTS / TOEIC', provider: { '@type': 'Organization', name: 'Lexkite', url: SITE }, ...(o.lr || {}) })}${ld(crumbs(path, title.replace(/\s*[–|]\s*Lexkite$/, '')))}${(o.ld || []).map(ld).join('')}${/^en\/(samples|speaking|ielts-writing)\//.test(path) ? smpHead() : ''}`; };
+const head = (title, desc0, path, o = {}) => { const desc = clip(desc0); return `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(desc)}"><meta name="theme-color" content="#0F3D3E"><link rel="canonical" href="${SITE}${path}"><!--HL--><meta property="og:type" content="article"><meta property="og:site_name" content="Lexkite"><meta property="og:locale" content="en_US"><meta property="og:url" content="${SITE}${path}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:image" content="${OG}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=3">${ld({ '@context': 'https://schema.org', '@type': 'LearningResource', name: title, description: desc, url: SITE + path, inLanguage: 'en', isAccessibleForFree: true, educationalLevel: 'IELTS / TOEIC', provider: { '@type': 'Organization', name: 'Lexkite', url: SITE }, ...(o.lr || {}) })}${ld(crumbs(path, title.replace(/\s*[–|]\s*Lexkite$/, '')))}${(o.ld || []).map(ld).join('')}${/^en\/(samples|speaking|ielts-writing)\//.test(path) ? smpHead() : ''}`; };
 const page = (title, desc, path, viPath, body, name, o = {}) => {
   const p = path.split('/'), sec = p[1], id = p[2];
   const vis = [['Home', '/en/'], [SEC[sec] || sec, `/en/${sec}/`], ...(SUB[id] && p[3] ? [[SUB[id], `/en/${sec}/${id}/`]] : []), ...(id ? [[name || title, `/${path}`]] : [])];
@@ -45,10 +46,10 @@ const SEEN = new Set(), uniqT = (a, b) => { const v = SEEN.has(a) ? b : a; SEEN.
 
 // ---- Writing Task 2 ---- (giao diện bài mẫu: scripts/lib/samples-ui.mjs – nhãn vai trò đoạn/câu bằng tiếng Anh, không có nghĩa tiếng Việt)
 {
-  lm = gitDate('web/js/write.js', 'web/js/models.js', 'web/js/write');
+  lm = gitDate('web/js/write.js', 'web/js/models.js', 'web/js/write', 'web/cpack/write');
   const { PROMPTS: P, MODELS } = loadWriting();
   const done = []; for (const p of P) { const m = MODELS.find(x => x.id === 't2-' + p.id); if (m) done.push([p, m]); }
-  const t2Card = ([p, m]) => smpCard({ href: `/en/samples/${p.id}`, cls: typeCls(p.type), tag: p.type, title: p.text, band: m.band, meta: [`${m.words} ${U.words}`, `${docStats(m.text).phrases} ${U.phrases}`, U.min(mins(m.words))], key: `${p.type} ${p.topic}` });
+  const t2Card = ([p, m]) => smpCard({ href: `/en/samples/${p.id}`, cls: typeCls(p.type), art: topicArt(p.topic), title: t2Key(p.id, 'en', p.text), desc: p.text, band: m.band, meta: [['vm-w', m.words, U.words], ['vm-p', docStats(m.text).phrases, U.phrases], ['vm-t', mins(m.words), U.minL]], key: `${p.type} ${p.topic}` });
   done.forEach(([p, m], di) => {
     const gl = [...m.text.matchAll(/\[\[([^|\]]*)\|/g)].map(x => x[1]);
     const paras = parseDoc(m.text, 'en'), st = docStats(m.text), prev = done[di - 1], next = done[di + 1];
@@ -69,17 +70,18 @@ ${pwaBox('en', 'samples')}</article>${smpTail('en')}`, `Band ${m.band}: ${short(
   const by = {}; for (const d of done) (by[d[0].type] = by[d[0].type] || []).push(d);
   const types = Object.entries(by), gls = done.reduce((a, [, m]) => a + docStats(m.text).phrases, 0);
   out('en/samples/', 'samples/', page(`${done.length} IELTS Writing Task 2 Band 8 Sample Essays – Lexkite`, `${done.length} band 8 IELTS Writing Task 2 model essays by question type, with highlighted phrases. Practise and get feedback free.`, 'en/samples/', 'samples/',
-    `<div class="page smp">${hero2({ h1: esc(`${done.length} IELTS Writing Task 2 sample essays (band 8)`), lead: 'Original model answers grouped by question type, with high-scoring phrases highlighted.', mood: 'think', cls: 'has-kit',
+    `<div class="page smp">${hero2({ h1: esc(`${done.length} IELTS Writing Task 2 sample essays (band 8)`), lead: 'Original model answers grouped by question type, with high-scoring phrases highlighted.', mood: 'think',
       statsHtml: stats([[done.length, U.statEss], [types.length, U.statTypes], ['8.0', 'Band', 'band'], [gls.toLocaleString('en'), U.statGl]]) })}
 ${sectionNav('en', '/en/samples/')}
-${filterBox('en', typeFilter(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty)]), done.length, 'en'))}
-${types.map(([ty, xs], i) => group2(`t${i}`, ty, `${xs.length} ${L.items}`, xs.map(t2Card), typeCls(ty))).join('\n')}</div>${smpTail('en')}`, undefined,
+${filterBox('en')}
+${catNav(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty), typeArt(ty)]), done.length, 'en', U.types, esc)}
+${types.map(([ty, xs], i) => group2(`t${i}`, ty, `${xs.length} ${L.items}`, xs.map(t2Card), typeCls(ty), typeArt(ty))).join('\n')}</div>${smpTail('en')}`, undefined,
     { ld: [itemList('IELTS Writing Task 2 sample essays', done.map(([p]) => `${SITE}en/samples/${p.id}`))] }));
 }
 
 // ---- Speaking ----
 {
-  lm = gitDate('web/js/speaking.js', 'web/js/speak');
+  lm = gitDate('web/js/speaking.js', 'web/js/speak', 'web/cpack/speak');
   const { BANK, S } = loadSpeaking();
   const slug = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/đ/g, 'd').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   // Bản tiếng Việt đổi cả Đ → D ('Đọc sách' → speaking/doc-sach); URL tiếng Anh giữ nguyên (oc-sach) nhưng hreflang phải trỏ đúng bản vi
@@ -91,12 +93,12 @@ ${types.map(([ty, xs], i) => group2(`t${i}`, ty, `${xs.length} ${L.items}`, xs.m
   const qs = b => [...b.p1, b.p2.q, ...b.p3];
   const part = (n, icon, h, inner) => `<section class="part" id="part-${n}" aria-labelledby="ph-${n}"><h2 id="ph-${n}"><span class="pb" aria-hidden="true">${icon}</span>${h}</h2><p class="pdesc">${U.parts[n - 1]}</p>${inner}</section>`;
   const made = BANK.map((b, i) => [slug(b.title), b, i]);
-  const spCard = ([id, b]) => smpCard({ href: `/en/speaking/${id}`, cls: topicCls(b.topic), tag: b.topic ? b.topic.replace(/-/g, ' ') : 'Part 1–3', emoji: topicEmoji(b.topic), title: name(b), desc: b.p2.q, meta: ['Part 1–3', `${qs(b).length} ${U.questions}`], key: b.topic || '' });
+  const spCard = ([id, b]) => smpCard({ href: `/en/speaking/${id}`, cls: topicCls(b.topic), tag: b.topic ? b.topic.replace(/-/g, ' ') : '', art: topicArt(b.topic), title: name(b), desc: b.p2.q, meta: [['vm-q', qs(b).length, U.questions]], key: b.topic || '' });
   for (const [id, b, i] of made) {
     const topic = (b.topic || '').replace(/-/g, ' '), prev = made[i - 1], next = made[i + 1];
     const nV = qs(b).reduce((a, q) => a + ((S[q] && S[q].vocab) || []).length, 0), nW = qs(b).reduce((a, q) => a + ((S[q] && S[q].a) || '').split(/\s+/).length, 0);
     out(`en/speaking/${id}`, `speaking/${viSlug(b.title)}`, page(uniqT(`IELTS Speaking: ${b.p2.q.replace(/\.$/, '')} – Part 1, 2, 3 Sample Answers`, `IELTS Speaking (${topic}): ${b.p2.q.replace(/\.$/, '')} – Sample Answers`), uniqT(`IELTS Speaking questions on ${topic} (Parts 1–3) with band 8 sample answers. Cue card: ${b.p2.q}`, `Band 8 IELTS Speaking sample answers (${topic}, Parts 1–3). Part 1: ${(b.p1 && b.p1[0] && (b.p1[0].q || b.p1[0])) || ''} Cue card: ${b.p2.q}`), `en/speaking/${id}`, `speaking/${viSlug(b.title)}`,
-      `<article class="page smp smp-doc narrow ${topicCls(b.topic)}">${hero2({ kicker: ['IELTS Speaking', ...(topic ? [topic] : [])], h1: `IELTS Speaking – ${esc(name(b))}`,
+      `<article class="page smp smp-doc narrow ${topicCls(b.topic)}">${hero2({ kicker: ['IELTS Speaking', 'Part 1–3', ...(topic ? [topic] : [])], h1: `IELTS Speaking – ${esc(name(b))}`,
         statsHtml: stats([[qs(b).length, U.questions], [nV, U.phrases], [mins(nW), U.minL]]) })}
 <nav class="jump" aria-label="${U.partsL}"><a href="#part-1">Part 1</a><a href="#part-2">Part 2 – Cue card</a><a href="#part-3">Part 3</a></nav>
 ${ctaBox(`${APP}/speaking/p1/${i}`, '🎙️ Practise speaking this topic (record & get feedback)', 'Practise speaking', 'Record your answer and get feedback on pronunciation and fluency.')}
@@ -112,10 +114,10 @@ ${pwaBox('en', 'speaking')}</article>${smpTail('en')}`, name(b),
   }
   const nQ = made.reduce((a, [, b]) => a + qs(b).length, 0);
   out('en/speaking/', 'speaking/', page(`${made.length} IELTS Speaking Topics with Sample Answers – Lexkite`, `${made.length} IELTS Speaking topics: Part 1–3 questions, Part 2 cue cards and band 8 sample answers. Practise free.`, 'en/speaking/', 'speaking/',
-    `<div class="page smp">${hero2({ h1: esc(`${made.length} IELTS Speaking topics`), lead: 'Part 1–3 questions, Part 2 cue cards and original band 8 sample answers.', mood: 'happy', cls: 'has-kit', statsHtml: stats([[made.length, U.statTopics], [nQ, U.statQ], ['Part 1–3', 'IELTS']]) })}
+    `<div class="page smp">${hero2({ h1: esc(`${made.length} IELTS Speaking topics`), lead: 'Part 1–3 questions, Part 2 cue cards and original band 8 sample answers.', mood: 'happy', statsHtml: stats([[made.length, U.statTopics], [nQ, U.statQ], ['Part 1–3', 'IELTS']]) })}
 ${sectionNav('en', '/en/speaking/')}
 ${filterBox('en')}
-${group2('all', 'Topics', `${made.length} ${L.items}`, made.map(spCard))}</div>${smpTail('en')}`, undefined,
+${group2('all', 'Topics', `${made.length} ${L.items}`, made.map(spCard), '', 'v-speaking')}</div>${smpTail('en')}`, undefined,
     { ld: [itemList('IELTS Speaking topics', made.map(([id]) => `${SITE}en/speaking/${id}`))] }));
 }
 
@@ -128,7 +130,7 @@ ${group2('all', 'Topics', `${made.length} ${L.items}`, made.map(spCard))}</div>$
   const D = (c.I18N_DICT && c.I18N_DICT.en) || {};
   const enName = x => D[x.name] || x.id.replace(/^(ex|dom|awl|ngsl|tsl)-/, '').replace(/-/g, ' ').replace(/\b\w/g, m => m.toUpperCase());
   const chipsOf = x => { const { level, exams } = vocabMeta(x); return [[`${x.words.length} words`, 'ink'], ...(level ? [[level, 'alt']] : []), ...exams]; };
-  const vCard = x => setCard({ href: `/en/vocabulary/${x.id}`, title: enName(x), emoji: x.emoji, chips: chipsOf(x), key: `${x.id} ${G[x.group] || ''}` });
+  const vCard = x => setCard({ href: `/en/vocabulary/${x.id}`, title: enName(x), art: vocabArt(x.id, x.group), chips: chipsOf(x), key: `${x.id} ${G[x.group] || ''}` });
   for (const x of TP) {
     const g = G[x.group] || 'Vocabulary', n = x.words.length, nm = enName(x);
     const rows = x.words.map((w, i) => { const k = audioKey(w.word); return `<tr><td class="no">${i + 1}</td><td><span class="w">${k ? audioBtn(k, w.word, 'en') : ''}${esc(w.word)}</span>${w.pos ? `<span class="pos">${esc(w.pos)}</span>` : ''}</td><td class="ipa">${esc(w.ipa || '')}</td><td>${esc(w.def || '')}</td><td class="ex">${esc(w.ex || '')}</td></tr>`; }).join('');
@@ -144,11 +146,12 @@ ${pwaBox('en', 'vocab')}`, nm));
   const by = {}; for (const x of TP) (by[x.group] = by[x.group] || []).push(x);
   const total = TP.reduce((a, x) => a + x.words.length, 0), nAu = TP.reduce((a, x) => a + x.words.filter(w => audioKey(w.word)).length, 0), F = FIND_I18N.en;
   out('en/vocabulary/', 'tu-vung/', page(`IELTS, TOEIC & TOEFL Vocabulary Lists – ${TP.length} Sets – Lexkite`, `${TP.length} vocabulary lists for IELTS, TOEIC and TOEFL with IPA, definitions and examples. Learn with free flashcards.`, 'en/vocabulary/', 'tu-vung/',
-    `<div class="page smp">${hero2({ h1: esc(`Vocabulary lists (${TP.length} sets)`), lead: `${total.toLocaleString('en')} words with IPA, definitions, examples and audio. Pick a set to see the list, then learn it with free flashcards.`, mood: 'cheer', cls: 'has-kit',
-  statsHtml: stats([[TP.length, F[2]], [total.toLocaleString('en'), F[3]], [Object.keys(by).length, F[4]], [nAu.toLocaleString('en'), F[5]]]) })}
+    `<div class="page smp">${hero2({ h1: esc(`Vocabulary lists (${TP.length} sets)`), lead: `${total.toLocaleString('en')} words with IPA, definitions, examples and audio. Pick a set to see the list, then learn it with free flashcards.`, mood: 'cheer',
+  statsHtml: stats([[TP.length, F[2], '', 'v-topics'], [total.toLocaleString('en'), F[3], '', 'v-core'], [Object.keys(by).length, F[4], '', 'shapes'], [nAu.toLocaleString('en'), F[5], '', 'audio']]) })}
 ${sectionNav('en', '/en/vocabulary/')}
-${filterBox('en', typeFilter(Object.entries(by).map(([k, xs]) => [k, G[k] || k, xs.length, '']), TP.length, 'en', F[1]))}
-${Object.entries(by).map(([k, xs]) => group(k, G[k] || k, `${xs.length} ${L.sets}`, xs.map(vCard))).join('\n')}</div>`));
+${filterBox('en')}
+${catNav(Object.entries(by).map(([k, xs]) => [k, G[k] || k, xs.length, '', vocabArt('', k)]), TP.length, 'en', F[1], esc)}
+${Object.entries(by).map(([k, xs]) => group2(k, G[k] || k, `${xs.length} ${L.sets}`, xs.map(vCard), '', vocabArt('', k))).join('\n')}</div>`));
 }
 // ===== Bài học app → trang tiếng Anh (docs/SEO-ARCH.md §6): ngữ pháp, phát âm, IELTS Writing Task 1 / General Task 1 =====
 // Nội dung app soạn tiếng Việt → bản tiếng Anh viết riêng cho người học quốc tế ở content/seo-en/{grammar,pron}.json (khóa = chuỗi gốc tiếng Việt;
@@ -175,7 +178,7 @@ const cnt = (k, idx) => nL[k][idx ? 0 : 1]++;
   const UD = { foundation: 'Parts of speech, word formation, pronouns, questions and numbers – the basics for beginners.', tenses: 'The 12 tenses and ways to talk about the future.', verbs: 'Modal verbs, the passive, conditionals and reported speech.', words: 'Articles, countable nouns, comparisons, prepositions and subject–verb agreement.', sentences: 'Relative clauses, noun clauses, linking and inversion for band 7+.', academic: 'Participle clauses, the subjunctive, nominalisation, hedging and punctuation for band 7.5+.' };
   const idxG = new Set(), tr = new Map();
   for (const l of G) { const [t, m] = mkT(MAP); tr.set(l, t); const walk = o => { if (typeof o === 'string') t(o); else if (Array.isArray(o)) o.forEach(walk); else if (o && typeof o === 'object') for (const [k, v] of Object.entries(o)) if (!['ex', 'vi', 'wrong', 'right', 'marks', 'c'].includes(k)) walk(v); }; walk([l.summary, l.blocks.filter(b => ['formula', 'uses', 'tip', 'mistake', 'ielts', 'table', 'signals'].includes(b.type)), l.quiz.slice(0, 3)]); if (ok(m)) idxG.add(l.id); }
-  const gCard = l => setCard({ href: `/en/grammar/${l.id}`, title: l.en, desc: short(tr.get(l)(l.summary) || '', 110), emoji: l.emoji, chips: [[l.level || '', 'alt']].filter(c => c[0]), key: `${l.en} ${UN[l.unit] || ''}` });
+  const gCard = l => setCard({ href: `/en/grammar/${l.id}`, title: l.en, desc: short(tr.get(l)(l.summary) || '', 110), art: unitArt(l.unit), chips: [[l.level || '', 'alt']].filter(c => c[0]), key: `${l.en} ${UN[l.unit] || ''}` });
   G.forEach((l, gi) => {
     const t = tr.get(l), idx = idxG.has(l.id), bl = l.blocks || [], prev = G[gi - 1], next = G[gi + 1];
     const blk = b => {
@@ -206,8 +209,11 @@ ${pwaBox('en', 'grammar')}</article>`;
   const units = {}; for (const l of G) (units[l.unit] ||= []).push(l);
   const order = [...UNITS.map(u => u.id).filter(id => units[id]), ...Object.keys(units).filter(k => !UNITS.some(u => u.id === k))];
   outL('en/grammar/', 'ngu-phap/', page(`English Grammar Lessons: ${G.length} Topics from Basics to IELTS | Lexkite`, `${G.length} free English grammar lessons: all 12 tenses, conditionals, the passive, relative clauses and more, with formulas, examples, common mistakes and quizzes.`, 'en/grammar/', 'ngu-phap/',
-    `${indexHero(`English grammar (${G.length} lessons)`, 'From the basics to band 7+: formulas, uses, signal words, common mistakes and quick quizzes with answers.', 'grammar')}
-${order.map(k => group(k, `${(UNITS.find(u => u.id === k) || {}).emoji || ''} ${UN[k] || k}`.trim(), `${units[k].length} ${L.lessons}`, units[k].map(gCard)).replace('</h2>', `</h2>${UD[k] ? `<p>${esc(UD[k])}</p>` : ''}`)).join('\n')}`, undefined,
+    `<div class="page smp">${hero2({ h1: esc(`English grammar (${G.length} lessons)`), lead: 'From the basics to band 7+: formulas, uses, signal words, common mistakes and quick quizzes with answers.', mood: 'think', statsHtml: stats([[G.length, L.lessons, '', 'notebook'], [order.length, FIND_I18N.en[4], '', 'shapes']]) })}
+${sectionNav('en', '/en/grammar/')}
+${filterBox('en')}
+${catNav(order.map(k => [k, UN[k] || k, units[k].length, '', unitArt(k)]), G.length, 'en', L.sectionsL, esc)}
+${order.map(k => group2(k, UN[k] || k, `${units[k].length} ${L.lessons}`, units[k].map(gCard), '', unitArt(k)).replace('</h2>', `</h2>${UD[k] ? `<p>${esc(UD[k])}</p>` : ''}`)).join('\n')}</div>`, undefined,
     { ld: [itemList('English grammar lessons', G.map(l => `${SITE}en/grammar/${l.id}`))] }), 'grammar', true);
 }
 
@@ -220,7 +226,7 @@ ${order.map(k => group(k, `${(UNITS.find(u => u.id === k) || {}).emoji || ''} ${
   const tr = new Map(), idxP = new Set();
   for (const x of P) { const [t, m] = mkT(MAP); tr.set(x, t); [x.title, x.how, x.vn, x.tip, ...(x.rules || []).flatMap(r => [r.label, r.when, ...(r.ex || [])]), ...(x.sentences || []), ...(x.words || []).map(w => w.note), ...(x.quiz || []).slice(0, 3).flatMap(q => [q.q, q.explain, ...(q.options || [])])].forEach(t); if (ok(m) && META[x.id]) idxP.add(x.id); }
   const au = w => { const k = audioKey(w); return k ? audioBtn(k, w, 'en') : ''; };
-  const pCard = x => setCard({ href: `/en/pronunciation/${slugP(x)}`, title: nameP(x), desc: short(tr.get(x)(x.how) || '', 110), emoji: x.emoji, chips: [[x.level || '', 'alt']].filter(c => c[0]), key: `${x.ipa} ${GN[x.group] || ''}` });
+  const pCard = x => setCard({ href: `/en/pronunciation/${slugP(x)}`, title: nameP(x), desc: short(tr.get(x)(x.how) || '', 110), art: pronArt(x.group), chips: [[x.level || '', 'alt']].filter(c => c[0]), key: `${x.ipa} ${GN[x.group] || ''}` });
   P.forEach((x, i) => {
     const t = tr.get(x), idx = idxP.has(x.id), s = slugP(x), nm = nameP(x), prev = P[i - 1], next = P[i + 1], href = `${APP}/pron/${encodeURIComponent(x.id)}`, sound = x.mouth;
     const ws = (x.words || []).slice(0, 12), pairs = x.pairs || [];
@@ -247,14 +253,17 @@ ${pwaBox('en', 'pron')}</article>`;
   });
   const by = {}; for (const x of P) (by[x.group] ||= []).push(x);
   outL('en/pronunciation/', 'phat-am/', page(`English Pronunciation: All 44 IPA Sounds with Audio & Minimal Pairs | Lexkite`, `Learn all 44 English IPA sounds plus word stress, -ed/-s endings and intonation: mouth position, example words with audio and minimal pairs. Free.`, 'en/pronunciation/', 'phat-am/',
-    `${indexHero(`English pronunciation (${P.length} lessons)`, 'The 44 IPA sounds of English plus stress, endings and intonation – with example words, audio and minimal pairs.', 'pronunciation')}
-${Object.entries(by).map(([k, xs]) => group(k, GN[k] || k, `${xs.length} ${L.lessons}`, xs.map(pCard))).join('\n')}`, undefined,
+    `<div class="page smp">${hero2({ h1: esc(`English pronunciation (${P.length} lessons)`), lead: 'The 44 IPA sounds of English plus stress, endings and intonation – with example words, audio and minimal pairs.', mood: 'happy', statsHtml: stats([[P.length, L.lessons, '', 'notebook'], ['44', 'IPA', '', 'p-vowels']]) })}
+${sectionNav('en', '/en/pronunciation/')}
+${filterBox('en')}
+${catNav(Object.entries(by).map(([k, xs]) => [k, GN[k] || k, xs.length, '', pronArt(k)]), P.length, 'en', L.sectionsL, esc)}
+${Object.entries(by).map(([k, xs]) => group2(k, GN[k] || k, `${xs.length} ${L.lessons}`, xs.map(pCard), '', pronArt(k))).join('\n')}</div>`, undefined,
     { ld: [itemList('English pronunciation lessons', P.map(x => `${SITE}en/pronunciation/${slugP(x)}`))] }), 'pronunciation', true);
 }
 
 // ---- IELTS Writing: Academic Task 1 (mới) + General Task 1 (bản en của /viet-thu/); Task 2 đã có ở /en/samples/ (không nhân đôi) ----
 {
-  lm = gitDate('web/js/task1.js', 'web/js/models.js', 'web/js/write');
+  lm = gitDate('web/js/task1.js', 'web/js/models.js', 'web/js/write', 'web/cpack/write');
   const { SETS, MODELS } = loadTask1(), TY = { line: 'Line graph', bar: 'Bar chart', pie: 'Pie chart', table: 'Table', process: 'Process diagram', map: 'Maps' };
   const made = SETS.map(x => [x, MODELS.find(m => m.id === 't1-' + x.id)]).filter(([, m]) => m);
   const dataHtml = x => {
@@ -265,7 +274,7 @@ ${Object.entries(by).map(([k, xs]) => group(k, GN[k] || k, `${xs.length} ${L.les
     if (x.maps) return x.maps.map(([n, ps]) => `<p><b>${esc(n)}:</b> ${ps.map(p => esc(p[0])).join(', ')}</p>`).join('');
     return '';
   };
-  const c1 = ([x, m]) => smpCard({ href: `/en/ielts-writing/task-1/${x.id}`, cls: 't-x', tag: TY[x.type] || x.type, title: x.title, band: m.band, meta: [`${m.words} ${U.words}`, `${docStats(m.text).phrases} ${U.phrases}`], key: `${x.type} ${x.id}` });
+  const c1 = ([x, m]) => smpCard({ href: `/en/ielts-writing/task-1/${x.id}`, cls: 't-x', art: task1Art(x.type), title: t1Key(x.title), desc: x.title, band: m.band, meta: [['vm-w', m.words, U.words], ['vm-p', docStats(m.text).phrases, U.phrases]], key: `${x.type} ${x.id}` });
   made.forEach(([x, m], di) => {
     const gl = [...m.text.matchAll(/\[\[([^|\]]*)\|[^\]]*\]\]/g)].map(z => [z[1], '']), paras = parseDoc(m.text, 'en'), st = docStats(m.text), prev = made[di - 1], next = made[di + 1], ty = TY[x.type] || x.type;
     const body = `<article class="page smp smp-doc t-x">${hero2({ kicker: ['IELTS Academic Writing Task 1', ty], h1: `IELTS Writing Task 1 ${esc(ty)} – Band ${esc(m.band)} Sample`, statsHtml: stats([[m.band, 'Band', 'band'], [m.words, U.words], [paras.length, U.paras], [st.phrases, U.phrases], [mins(m.words), U.minL]]) })}
@@ -284,17 +293,17 @@ ${extBox('en', 'samples')}</article>${smpTail('en')}`;
   });
   const byT = Object.keys(TY).map(k => [k, made.filter(([x]) => x.type === k)]).filter(([, xs]) => xs.length);
   outL('en/ielts-writing/task-1/', '-', page(`${made.length} IELTS Academic Writing Task 1 Band 8 Samples (Charts, Maps, Processes) | Lexkite`, `${made.length} band 8 IELTS Academic Writing Task 1 model answers: line graphs, bar charts, pie charts, tables, maps and processes, with data and key vocabulary.`, 'en/ielts-writing/task-1/', '-',
-    `<div class="page smp">${hero2({ h1: esc(`${made.length} IELTS Writing Task 1 samples`), lead: 'Original band 8 reports for every Academic Task 1 type, with the data and key phrases.', mood: 'think', cls: 'has-kit', statsHtml: stats([[made.length, U.statEss], [byT.length, U.statTypes], ['8.0', 'Band', 'band']]) })}
+    `<div class="page smp">${hero2({ h1: esc(`${made.length} IELTS Writing Task 1 samples`), lead: 'Original band 8 reports for every Academic Task 1 type, with the data and key phrases.', mood: 'think', statsHtml: stats([[made.length, U.statEss], [byT.length, U.statTypes], ['8.0', 'Band', 'band']]) })}
 ${sectionNav('en', '/en/ielts-writing/')}
 ${filterBox('en')}
-${typeFilter(byT.map(([k, xs]) => [k, TY[k], xs.length, 't-x']), made.length, 'en')}
-${byT.map(([k, xs]) => group2(k, TY[k], `${xs.length} ${L.items}`, xs.map(c1), 't-x')).join('\n')}</div>${smpTail('en')}`, undefined,
+${catNav(byT.map(([k, xs]) => [k, TY[k], xs.length, 't-x', task1Art(k)]), made.length, 'en', U.types, esc)}
+${byT.map(([k, xs]) => group2(k, TY[k], `${xs.length} ${L.items}`, xs.map(c1), 't-x', task1Art(k))).join('\n')}</div>${smpTail('en')}`, undefined,
     { ld: [itemList('IELTS Academic Writing Task 1 samples', made.map(([x]) => `${SITE}en/ielts-writing/task-1/${x.id}`))] }), 'ielts-writing', true);
 
   const { LT, MD } = loadLetters(), TONE = { formal: 'Formal letter', 'semi-formal': 'Semi-formal letter', informal: 'Informal letter' };
   const ml = LT.map(x => [x, MD.find(y => y.id === 'gt-' + x.id)]).filter(([, m]) => m);
   const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
-  const c2 = ([x, m]) => smpCard({ href: `/en/ielts-writing/general-task-1/${x.id}`, cls: toneCls(x.tone), tag: TONE[x.tone] || x.tone, emoji: '✉️', title: cap(x.topic), desc: short(x.situation, 120), band: m.band, meta: [`${m.words} ${U.words}`, `${docStats(m.text).phrases} ${U.phrases}`], key: `${x.topic} ${x.tone}` });
+  const c2 = ([x, m]) => smpCard({ href: `/en/ielts-writing/general-task-1/${x.id}`, cls: toneCls(x.tone), art: toneArt(x.tone), title: cap(x.topic), desc: x.situation, band: m.band, meta: [['vm-w', m.words, U.words], ['vm-p', docStats(m.text).phrases, U.phrases]], key: `${x.topic} ${x.tone}` });
   ml.forEach(([x, m], di) => {
     const gl = [...m.text.matchAll(/\[\[([^|\]]*)\|[^\]]*\]\]/g)].map(z => [z[1], '']), paras = parseDoc(m.text, 'en', /\n\s*\n|\n/), st = docStats(m.text), prev = ml[di - 1], next = ml[di + 1], tn = TONE[x.tone] || x.tone;
     const body = `<article class="page smp smp-doc ${toneCls(x.tone)}">${hero2({ kicker: ['IELTS General Training', 'Writing Task 1', tn], h1: `${esc(cap(x.topic))} – IELTS General Task 1 sample letter`, statsHtml: stats([[m.band, 'Band', 'band'], [m.words, U.words], [st.phrases, U.phrases], [st.links, U.links], [mins(m.words), U.minL]]) })}
@@ -312,18 +321,18 @@ ${extBox('en', 'letters')}</article>${smpTail('en')}`;
   });
   const tones = Object.keys(TONE).map(k => [k, ml.filter(([x]) => x.tone === k)]).filter(([, xs]) => xs.length);
   outL('en/ielts-writing/general-task-1/', 'viet-thu/', page(`${ml.length} IELTS General Writing Task 1 Sample Letters (Formal, Semi-formal, Informal) | Lexkite`, `${ml.length} band 8 IELTS General Training Task 1 letters in three tones, with useful phrases. Practise letter writing free.`, 'en/ielts-writing/general-task-1/', 'viet-thu/',
-    `<div class="page smp">${hero2({ h1: esc(`${ml.length} IELTS General Task 1 letters`), lead: 'Formal, semi-formal and informal model letters with useful phrases highlighted.', mood: 'happy', cls: 'has-kit', statsHtml: stats([[ml.length, U.statLt], [tones.length, U.statTone], ['8.0', 'Band', 'band']]) })}
+    `<div class="page smp">${hero2({ h1: esc(`${ml.length} IELTS General Task 1 letters`), lead: 'Formal, semi-formal and informal model letters with useful phrases highlighted.', mood: 'happy', statsHtml: stats([[ml.length, U.statLt], [tones.length, U.statTone], ['8.0', 'Band', 'band']]) })}
 ${sectionNav('en', '/en/ielts-writing/')}
 ${filterBox('en')}
-${typeFilter(tones.map(([k, xs]) => [k, TONE[k], xs.length, toneCls(k)]), ml.length, 'en', U.tones)}
-${tones.map(([k, xs]) => group2(k, TONE[k], `${xs.length} ${L.items}`, xs.map(c2), toneCls(k))).join('\n')}</div>${smpTail('en')}`, undefined,
+${catNav(tones.map(([k, xs]) => [k, TONE[k], xs.length, toneCls(k), toneArt(k)]), ml.length, 'en', U.tones, esc)}
+${tones.map(([k, xs]) => group2(k, TONE[k], `${xs.length} ${L.items}`, xs.map(c2), toneCls(k), toneArt(k))).join('\n')}</div>${smpTail('en')}`, undefined,
     { ld: [itemList('IELTS General Training Writing Task 1 letters', ml.map(([x]) => `${SITE}en/ielts-writing/general-task-1/${x.id}`))] }), 'ielts-writing', true);
   // Mục lục IELTS Writing: Task 1 (Academic) · Task 1 (General) · Task 2 (/en/samples/) · Speaking (/en/speaking/)
   const { PROMPTS: P2, MODELS: M2 } = loadWriting(), nT2 = P2.filter(p => M2.some(m => m.id === 't2-' + p.id)).length, nSp = fs.readdirSync('dist/en/speaking').filter(f => f.endsWith('.html') && f !== 'index.html').length;
-  const hubCard = (href, title, desc, emoji, n) => setCard({ href, title, desc, emoji, chips: [[`${n} samples`, 'ink']] });
+  const hubCard = (href, title, desc, a, n) => setCard({ href, title, desc, art: a, chips: [[`${n} samples`, 'ink']] });
   outL('en/ielts-writing/', '-', page(`IELTS Writing Samples: Task 1 & Task 2 Band 8 Model Answers | Lexkite`, `Free band 8 IELTS Writing model answers: ${made.length} Academic Task 1 reports, ${ml.length} General Training letters and ${nT2} Task 2 essays, with key vocabulary.`, 'en/ielts-writing/', '-',
     `${indexHero('IELTS Writing model answers', 'Original band 8 answers for every part of the Writing test – with the task, the data, the model answer and the key vocabulary.', 'ielts-writing')}
-<section class="grp"><div class="grid">${[hubCard('/en/ielts-writing/task-1/', 'Academic Writing Task 1', 'Line graphs, bar and pie charts, tables, maps and processes.', '📈', made.length), hubCard('/en/ielts-writing/general-task-1/', 'General Training Task 1 letters', 'Formal, semi-formal and informal letters.', '✉️', ml.length), hubCard('/en/samples/', 'Writing Task 2 essays', 'Opinion, discussion, problem–solution and two-part questions.', '📝', nT2), hubCard('/en/speaking/', 'IELTS Speaking', 'Part 1–3 questions and band 8 sample answers.', '🎤', nSp)].join('')}</div></section>`), 'ielts-writing', true);
+<section class="grp"><div class="grid">${[hubCard('/en/ielts-writing/task-1/', 'Academic Writing Task 1', 'Line graphs, bar and pie charts, tables, maps and processes.', 't-line', made.length), hubCard('/en/ielts-writing/general-task-1/', 'General Training Task 1 letters', 'Formal, semi-formal and informal letters.', 'letter', ml.length), hubCard('/en/samples/', 'Writing Task 2 essays', 'Opinion, discussion, problem–solution and two-part questions.', 'doc', nT2), hubCard('/en/speaking/', 'IELTS Speaking', 'Part 1–3 questions and band 8 sample answers.', 'v-speaking', nSp)].join('')}</div></section>`), 'ielts-writing', true);
 }
 
 // Sitemap riêng theo loại (vi/en hreflang khi có bản tiếng Việt) + IndexNow (.seo-urls-en.txt, build-seo-pages.mjs gộp vào .seo-urls.txt)

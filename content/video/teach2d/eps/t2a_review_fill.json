@@ -72,5 +72,46 @@
   "words": 37,
   "seconds": 23.3,
   "wpm": 95
+ },
+ "publish": {
+  "title": "What does \"fill\" mean?",
+  "keyword": "fill",
+  "value": "Fill means to make something full.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=fill",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"fill\" mean?",
+    "description": "Fill means to make something full.\n\nReview your words, free: https://lexkite.com/app/#/review?w=fill\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "fill",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"fill\" mean?\n\nFill means to make something full.\n\nReview your words, free: https://lexkite.com/app/#/review?w=fill"
+   },
+   "instagram": {
+    "caption": "What does \"fill\" mean?\n\nFill means to make something full.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"fill\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to make something full. Fill means to make something full. More practice like this (free): {link}"
  }
 }

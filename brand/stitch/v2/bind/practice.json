@@ -1,6 +1,5 @@
 {
  "_doc": "Màn Luyện (Practice) – d do Ux1 routes.train (web/js/ux1.js) dựng: thẻ kỳ thi, nước rút hằng ngày, 8 mô-đun kỹ năng + MỌI mục còn lại của GROUPS() cùng khuôn ô, hàng thi thử đầy đủ.",
- "compact": true,
  "remove": [
   ":scope > header",
   ":scope > nav"

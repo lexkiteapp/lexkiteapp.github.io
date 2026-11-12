@@ -66,18 +66,22 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
-        with: { ssh-key: '${{ github.event_name != ''pull_request'' && secrets.BOT_DEPLOY_KEY || '''' }}', ref: "${{ github.event_name == 'pull_request' && github.sha || 'main' }}" }
+        with: { ssh-key: "${{ github.event_name != 'pull_request' && secrets.BOT_DEPLOY_KEY || '' }}", ref: "${{ github.event_name == 'pull_request' && github.sha || 'main' }}" }
       - uses: actions/setup-node@v4
         with: { node-version: 22, cache: npm }
       - uses: actions/download-artifact@v4
         with: { pattern: 'factory-*', path: out/factory, merge-multiple: true }
       - name: Gom lô → nguồn + lo + content/qa/batches + bảng điểm
         run: node scripts/factory/merge.mjs out/factory --summary out/factory-summary.md
+      - name: Chuẩn hóa chính tả Việt do AI sinh (vi-lint --fix)
+        run: node scripts/vi-lint.mjs --fix || true   # AI hay ra hoá/khoẻ (kiểu cũ) → sửa tự động; npm test sau đó vẫn chặn lỗi còn lại
+      - name: Đồng bộ add-on (extension/app = web/) – merge.mjs ghi vào web/ nên phải dựng lại, nếu không ext-sync đỏ
+        run: bash scripts/build-extension.sh
       - name: npm test
         run: npm ci --no-audit --no-fund && npm test
       - name: Bản vá lô (lượt thử PR – phiên chính áp vào PR, bot không đẩy vào nhánh PR)
         if: always()
-        run: git add -A content web && git diff --cached --binary > out/factory.patch || true
+        run: git add -A content web extension && git diff --cached --binary > out/factory.patch || true
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: factory-merged, path: "out/factory-summary.md\nout/factory.patch", retention-days: 14 }

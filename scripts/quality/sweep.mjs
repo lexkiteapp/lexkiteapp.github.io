@@ -93,14 +93,15 @@ function probe(mobile) {
     const cs = getComputedStyle(e);
     // Loại dương tính giả của bộ dò (không phải lỗi giao diện): (a) nội dung nhóm <details> đang đóng; (b) phần tử bị khung cuộn/cắt (overflow≠visible) che hết – người dùng không thấy/không chạm được.
     const cd = e.closest('details:not([open])'); if (cd && !(e.tagName === 'SUMMARY' && e.parentElement === cd)) continue;
-    let clipped = false, pinned = cs.position === 'fixed' || cs.position === 'sticky';
+    let clipped = false, pinned = cs.position === 'fixed' || cs.position === 'sticky', vr = { left: r.left, top: r.top, right: r.right, bottom: r.bottom };
     for (let p = e.parentElement; p && p !== document.body; p = p.parentElement) {
       const pc = getComputedStyle(p); if (pc.position === 'fixed' || pc.position === 'sticky') pinned = true; // thanh dính/cố định (thanh đáy, thanh bên, thanh trên): nội dung cuộn dưới chúng là chủ ý
-      if (/(hidden|clip|auto|scroll)/.test(pc.overflowX + pc.overflowY)) { const q = p.getBoundingClientRect(); if (r.right <= q.left + 1 || r.left >= q.right - 1 || r.bottom <= q.top + 1 || r.top >= q.bottom - 1) { clipped = true; break; } }
+      if (/(hidden|clip|auto|scroll)/.test(pc.overflowX + pc.overflowY)) { const q = p.getBoundingClientRect(); if (r.right <= q.left + 1 || r.left >= q.right - 1 || r.bottom <= q.top + 1 || r.top >= q.bottom - 1) { clipped = true; break; }
+        vr = { left: Math.max(vr.left, q.left), top: Math.max(vr.top, q.top), right: Math.min(vr.right, q.right), bottom: Math.min(vr.bottom, q.bottom) }; } // phần thấy được (khung cuộn cắt bớt): hàng menu cuộn dở dưới logo không phải 'đè' (05/11: a.brand ⟷ summary ar desktop)
     }
     if (clipped) continue;
     if (e.type === 'checkbox' || e.type === 'radio') { const lab = e.closest('label') || (e.id && document.querySelector('label[for="' + e.id + '"]')); if (lab) continue; }
-    items.push({ e, r, fixed: pinned, inline: e.tagName === 'A' && cs.display === 'inline' });
+    items.push({ e, r, vr: { ...vr, width: vr.right - vr.left, height: vr.bottom - vr.top }, fixed: pinned, inline: e.tagName === 'A' && cs.display === 'inline' });
   }
   if (mobile) for (const it of items) {
     if (it.inline && it.e.closest('p,td,li,figcaption,dd,small,span')) continue; // WCAG 2.5.8: liên kết trong câu được miễn
@@ -110,7 +111,7 @@ function probe(mobile) {
   for (let i = 0; i < cap.length; i++) for (let j = i + 1; j < cap.length; j++) {
     const a = cap[i], b = cap[j]; if (a.fixed !== b.fixed || a.e.contains(b.e) || b.e.contains(a.e)) continue;
     // Liên kết inline xuống dòng: getBoundingClientRect là hộp bao 2 dòng (phủ cả liên kết kế bên dù không đè) → so từng hộp dòng thật (getClientRects)
-    const boxes = it => it.inline ? [...it.e.getClientRects()].filter(q => q.width > 1 && q.height > 1) : [it.r];
+    const boxes = it => it.inline ? [...it.e.getClientRects()].filter(q => q.width > 1 && q.height > 1) : [it.vr];
     let hit = null;
     for (const p of boxes(a)) for (const q of boxes(b)) {
       const ix = Math.min(p.right, q.right) - Math.max(p.left, q.left), iy = Math.min(p.bottom, q.bottom) - Math.max(p.top, q.top);
@@ -143,7 +144,8 @@ async function runCombo(c) {
   await ctx.addInitScript(() => {
     window.__cls = 0; window.__lt = []; window.__rej = [];
     try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (!e.hadRecentInput && !(window.__navAt && e.startTime < window.__navAt + 400)) { window.__cls += e.value; (window.__clsSrc = window.__clsSrc || []).push(((e.sources && e.sources[0] && e.sources[0].node && (e.sources[0].node.id ? '#' + e.sources[0].node.id : (e.sources[0].node.className || e.sources[0].node.nodeName || '')).toString().slice(0, 40)) || '?') + ' ' + e.value.toFixed(3)); } }).observe({ type: 'layout-shift', buffered: true }); } catch { /* */ }
-    try { new PerformanceObserver(l => { for (const e of l.getEntries()) window.__lt.push(Math.round(e.duration)); }).observe({ type: 'longtask', buffered: true }); } catch { /* */ }
+    try { new PerformanceObserver(l => { for (const e of l.getEntries()) { if (window.__probeAt != null && e.startTime >= window.__probeAt && (window.__probeEnd == null || e.startTime <= window.__probeEnd)) continue; /* tác vụ do chính probe đo (O(n²) trên DOM) → không tính là lỗi app */ window.__lt.push(Math.round(e.duration)); if (e.duration > 150) { const t0 = e.startTime - 30, t1 = e.startTime + e.duration + 30; (window.__ltRes = window.__ltRes || []).push(Math.round(e.duration) + 'ms ~ ' + performance.getEntriesByType('resource').filter(r => r.initiatorType === 'script' || /\.js(\?|$)/.test(r.name)).filter(r => r.responseEnd >= t0 && r.responseEnd <= t1).map(r => r.name.split('/').slice(-2).join('/') + ' ' + Math.round(r.decodedBodySize / 1024) + 'KB').slice(0, 4).join(', ')); } } }).observe({ type: 'longtask', buffered: true }); } catch { /* */ }
+    try { new PerformanceObserver(l => { for (const e of l.getEntries()) if (e.duration > 150) (window.__loaf = window.__loaf || []).push(Math.round(e.duration) + 'ms[script ' + Math.round(e.renderStart ? e.renderStart - e.startTime : e.duration) + ' · style/layout ' + Math.round(e.styleAndLayoutStart ? e.startTime + e.duration - e.styleAndLayoutStart : 0) + ' · dom ' + document.getElementsByTagName('*').length + '] ' + (e.scripts || []).slice(0, 3).map(x => (x.sourceURL || '').split('/').slice(-2).join('/') + '#' + (x.sourceFunctionName || x.invoker || x.invokerType) + ' ' + Math.round(x.duration)).join(' | ')); }).observe({ type: 'long-animation-frame', buffered: true }); } catch { /* */ } // gốc tác vụ dài (Chromium ≥123)
     addEventListener('unhandledrejection', e => { window.__rej.push(String((e.reason && (e.reason.stack || e.reason.message)) || e.reason).slice(0, 200)); });
     try { localStorage.setItem('vb-onboarded', '1'); } catch { /* */ }
   });
@@ -167,11 +169,13 @@ async function runCombo(c) {
     await page.waitForTimeout(kind === 'app' ? 1100 : 900);
     const p = { kind, id, tag, bad: 0 };
     const found = [...bag]; bag = [];
-    const extra = await page.evaluate(() => ({ cls: window.__cls, src: (window.__clsSrc || []).slice(0, 4).join(', '), lt: window.__lt.slice(), rej: window.__rej.slice() })).catch(() => ({ cls: 0, src: '', lt: [], rej: [] }));
+    const extra = await page.evaluate(() => ({ cls: window.__cls, src: (window.__clsSrc || []).slice(0, 4).join(', '), lt: window.__lt.slice(), loaf: (window.__loaf || []).slice(0, 2).join(' ; ') + ' || ' + (window.__ltRes || []).slice(0, 2).join(' ; '), rej: window.__rej.slice() })).catch(() => ({ cls: 0, src: '', lt: [], rej: [] }));
+    await page.evaluate(() => { window.__probeAt = performance.now(); window.__probeEnd = null; }).catch(() => {});
     const r = await page.evaluate(probe, !!vp.isMobile).catch(e => [{ t: 'probe-error', k: '', x: String(e.message).slice(0, 80) }]);
+    await page.evaluate(() => { window.__probeEnd = performance.now() + 50; }).catch(() => {});
     for (const f of r) if (f.t !== 'probe-error') found.push({ type: f.t, key: f.k, msg: f.x });
     if (extra.cls > 0.1) found.push({ type: 'cls', key: 'layout-shift', msg: `CLS ${extra.cls.toFixed(3)} > 0.1 [${extra.src}]` });
-    const lt = Math.max(0, ...extra.lt); if (lt > 200) found.push({ type: 'longtask', key: 'longtask', msg: `tác vụ dài ${lt} ms > 200` });
+    const lt = Math.max(0, ...extra.lt); if (lt > 200) found.push({ type: 'longtask', key: 'longtask', msg: `tác vụ dài ${lt} ms > 200` + (extra.loaf ? ` [${extra.loaf}]` : '') });
     for (const m of extra.rej) found.push({ type: 'rejection', key: norm(m), msg: norm(m) });
     let cvAll = null;
     try {

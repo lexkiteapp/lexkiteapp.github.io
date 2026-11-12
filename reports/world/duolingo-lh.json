@@ -1,17 +1,17 @@
 {
  "url": "https://www.duolingo.com/",
- "at": "2026-11-03T05:29:10.523Z",
+ "at": "2026-11-09T10:12:07.125Z",
  "scores": {
-  "performance": 33,
+  "performance": 35,
   "accessibility": 82,
   "best-practices": 57,
   "seo": 100
  },
  "metrics": {
-  "first-contentful-paint": "4.3 s",
-  "largest-contentful-paint": "13.6 s",
-  "total-blocking-time": "2,570 ms",
+  "first-contentful-paint": "4.2 s",
+  "largest-contentful-paint": "12.8 s",
+  "total-blocking-time": "2,270 ms",
   "cumulative-layout-shift": "0",
-  "speed-index": "5.7 s"
+  "speed-index": "4.8 s"
  }
 }

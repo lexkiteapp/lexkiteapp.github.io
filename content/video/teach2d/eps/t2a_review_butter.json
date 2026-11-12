@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"butter\" mean?",
+  "keyword": "butter",
+  "value": "Butter means a yellow food made from cream.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=butter",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"butter\" mean?",
+    "description": "Butter means a yellow food made from cream.\n\nReview your words, free: https://lexkite.com/app/#/review?w=butter\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "butter",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"butter\" mean?\n\nButter means a yellow food made from cream.\n\nReview your words, free: https://lexkite.com/app/#/review?w=butter"
+   },
+   "instagram": {
+    "caption": "What does \"butter\" mean?\n\nButter means a yellow food made from cream.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"butter\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a yellow food made from cream. Butter means a yellow food made from cream. Practice it with a free quiz: {link}"
  }
 }

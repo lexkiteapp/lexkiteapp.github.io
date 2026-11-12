@@ -141,8 +141,8 @@
 'Bắt đầu →': 'Start →',
 
 /* ---------- plan.js: today's plan ---------- */
-'Làm bài kiểm tra đầu vào (5 phút)': 'Take the placement test (5 min)',
 'Để Lexkite cá nhân hóa lộ trình cho bạn': 'So Lexkite can personalize your path',
+'Làm bài kiểm tra đầu vào': 'Take the placement test', // Hôm nay (plan.js, khung app) cần ngay – không để ở pathx (gói lười) kẻo ngôn ngữ khác hiện tiếng Việt
 'Ôn tập thẻ đến hạn': 'Review due cards',
 'Lặp lại ngắt quãng – ưu tiên số 1': 'Spaced repetition – top priority',
 'đã học {pct}%': '{pct}% learned',
@@ -201,11 +201,10 @@
 '{done}/{total} bài hoàn thành · Học theo vòng: giới thiệu → luyện → nghe → kiểm tra, rồi ôn lại đúng thời điểm vàng.': '{done}/{total} units complete · Learn in cycles: introduce → practice → listen → test, then review at the optimal time.',
 'Bài này đang khóa': 'This unit is locked',
 'Hoàn thành bài trước (kiểm tra đạt ≥ 80%) hoặc học ≥ 80% số từ của bài này để mở khóa.': 'Complete the previous unit (score ≥ 80% on its test) or learn ≥ 80% of this unit’s words to unlock it.',
-'điểm kiểm tra {score}%': 'test score {score}%',
+
 'Đóng': 'Close',
 
 /* ---------- method.js ---------- */
-'Đường cong quên lãng': 'Forgetting curve',
 '{n} thẻ đang ở thời điểm vàng': '{n} cards at their optimal time',
 'Không còn thẻ đến hạn': 'No cards due',
 'Lặp lại ngắt quãng': 'Spaced repetition',
@@ -213,9 +212,7 @@
 '1 bài ngữ pháp': '1 grammar lesson',
 'Nghe 1 phần': 'Listen to 1 part',
 'Luyện Speaking': 'Practice Speaking',
-'Ghép thẻ tính giờ': 'Timed matching',
 '{n} từ đang sắp quên': '{n} words fading',
-'Đọc bài': 'Read',
 
 'Luyện phát âm từ': 'Practice word pronunciation',
 'Thư viện phát âm': 'Pronunciation library',

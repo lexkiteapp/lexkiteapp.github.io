@@ -132,6 +132,8 @@ IELTS 라이팅 Task 2 에세이를 작성할 때, 단어는 열심히 외워서
 
 {{cta: /#/write | Lexkite 라이팅 룸에서 Band 8 모범 에세이와 복합문 구조 실전 연습하기}}
 
+완성한 복합문을 에세이 구조 안에 넣는 연습은 [IELTS Writing Task 2 4단락 템플릿](/ko/blog/ielts-writing-task-2-template-4danrak/)에서 이어서 해 보세요.
+
 ## IELTS 복합문에 관한 자주 묻는 질문 (FAQ)
 
 ### 에세이 전체 문장을 100% 복합문으로만 써야 하나요?

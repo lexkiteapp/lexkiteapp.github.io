@@ -62,6 +62,14 @@ Giá xem trên [elevenlabs.io/pricing/api](https://elevenlabs.io/pricing/api) ng
 - Không đưa ElevenLabs vào từ và câu: phải trả lại tiền với mỗi nội dung mới, và trộn giọng sẽ phá tính đồng bộ.
 - Chỉ cân nhắc dùng cho giọng Ama và Carlos trong video, Call và Play & Speak, sau khi thử mù 0 credit: 10k ký tự miễn phí, chỉ để nghe thử, không phát hành. Nếu anh duyệt thì mỗi đợt $22.
 
+## LKAudio (web/js/audio.js – nạp trước ui.js, nằm trong khung app)
+- Phát giọng đọc ổn định mọi máy (việc 4). Mở khóa ở lần chạm đầu (iOS).
+- MỘT kênh giọng đọc (file …/audio/l|w/… hoặc giọng máy – cái mới dừng cái cũ; sfx/video không tính; `data-lk-mix` = phát chồng có chủ đích).
+- `play(urls)`: từng gốc CDN có hạn chờ → hết gốc mới `onFail` (giọng máy đúng người nói: Ama nữ, Carlos nam, UK/US), gói offline (web/sw.js `lk-offline`).
+- iOS mở khóa THEO PHẦN TỬ → `unlock()` mồi POOL 4 phần tử trong cú chạm đầu; mọi trình phát mượn qua `LKAudio.el()`; bị chặn → `LKAudio.blocked()` (vì sao: scripts/test/ios-audio-unlock.mjs).
+- Test: scripts/test/audio-voice.mjs (Node) · scripts/test/audio-play.mjs (Chromium + WebKit) · scripts/test/ios-audio-unlock.mjs · scripts/test/ios-audio-e2e.mjs.
+- Khung app sát ngân sách gzip: chú thích dài của file này để ở đây, không để trong mã.
+
 ## Nguồn
 
 Kiểm kê chi tiết (file:dòng) nằm ở ghi chú phiên `audio-inventory.md`. Xem thêm [WORD-AUDIO](../WORD-AUDIO.md), [VIDEO](../VIDEO.md), [CREDIT-RULES](../CREDIT-RULES.md), PR #281, #286, #293, #294.

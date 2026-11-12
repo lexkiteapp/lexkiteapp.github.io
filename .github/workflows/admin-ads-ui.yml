@@ -1,0 +1,46 @@
+# Quản trị › Quảng cáo (#ads): ảnh TRƯỚC/SAU trên dữ liệu MẪU (có số / chưa nối Google × Tổng quan, Vị trí × sáng/tối × 1280/360 px, không số thật),
+# chặn lỗi JS, yêu cầu mạng ra ngoài, nhảy bố cục, tràn ngang, đè, cắt chữ, số vô nghĩa, axe. Ảnh: artifact admin-ads-shots (compare-*.png = TRƯỚC | SAU). docs/ADS.md §6
+name: Quảng cáo quản trị – giao diện
+on:
+  pull_request:
+    paths: ['web/js/admin-ads.js', 'web/js/admin-chart.js', 'web/js/ads/policy.js', 'web/js/ads/config.js', 'web/css/admin.css', 'scripts/test/admin-ads-shots.mjs', '.github/workflows/admin-ads-ui.yml']
+  push:
+    branches: [main]
+    paths: ['web/js/admin-ads.js', 'web/js/admin-chart.js', 'web/js/ads/policy.js', 'web/js/ads/config.js', 'web/css/admin.css', 'scripts/test/admin-ads-shots.mjs', '.github/workflows/admin-ads-ui.yml']
+  workflow_dispatch:
+    inputs:
+      before: { description: 'commit/nhánh để chụp ảnh TRƯỚC (mặc định: điểm rẽ nhánh từ main, hoặc commit trước lần đẩy)', required: false, default: '' }
+permissions:
+  contents: read
+concurrency:   # ci-policy 2/11: push/lịch trùng gộp; chạy tay (mỗi lượt khác input) không bao giờ bị huỷ
+  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  ui:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - name: Playwright
+        timeout-minutes: 14
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - name: Ảnh TRƯỚC
+        env: { BEFORE: '${{ inputs.before }}', EV_BEFORE: '${{ github.event.before }}', BASE: '${{ github.event.pull_request.base.sha }}' }
+        run: |
+          B="$BEFORE"; [ -z "$B" ] && B="$BASE"; [ -z "$B" ] && B="$EV_BEFORE"; case "$B" in ''|0000000000000000000000000000000000000000) B=HEAD~1;; esac
+          echo "before = $B"; mkdir -p /tmp/before && git archive "$B" web | tar -x -C /tmp/before
+          node scripts/test/admin-ads-shots.mjs out/admin-ads before /tmp/before/web
+      - name: Ảnh SAU (chặn lỗi)
+        if: ${{ !cancelled() }}
+        run: node scripts/test/admin-ads-shots.mjs out/admin-ads after web
+      - name: Ghép TRƯỚC | SAU
+        if: ${{ !cancelled() }}
+        run: node scripts/test/admin-ads-shots.mjs --compare out/admin-ads
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with: { name: admin-ads-shots, path: out/admin-ads, retention-days: 14 }

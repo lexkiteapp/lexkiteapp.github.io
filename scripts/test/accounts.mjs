@@ -96,7 +96,7 @@ const rec = async p => { const r = await p; ALL.push(r.text); return r; };
 {
   const ui = fs.readFileSync(new URL('../../web/js/admin-accounts.js', import.meta.url), 'utf8'), ad = fs.readFileSync(new URL('../../web/js/admin.js', import.meta.url), 'utf8');
   ok(/AdminSync\.watch\(\['accounts'\]/.test(ui) && /esc\(/.test(ui) && !/innerHTML\s*=\s*[^;`]*\+\s*r\./.test(ui), 'UI tự làm mới + thoát HTML');
-  ok(/\['accounts', '🗂️'/.test(ad) && /async accounts\(\)/.test(ad), 'có mục thanh bên + view');
+  ok(/\['accounts', '🗂️'/.test(ad) && /async accounts\(main\)[^\n]*\n[^\n]*\n\s*AdminAccounts\.render\(main,/.test(ad), 'có mục (hub Tài khoản & khóa) + view vẽ vào đúng host main (R1)');
 }
 console.log = log;
 if (fails) { console.log(`✗ accounts: ${fails}/${n} kiểm tra lỗi`); process.exit(1); }

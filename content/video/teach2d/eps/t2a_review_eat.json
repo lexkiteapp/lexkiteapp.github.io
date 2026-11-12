@@ -72,5 +72,46 @@
   "words": 39,
   "seconds": 24.2,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"eat\" mean?",
+  "keyword": "eat",
+  "value": "Eat means to put food in your mouth.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=eat",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"eat\" mean?",
+    "description": "Eat means to put food in your mouth.\n\nReview your words, free: https://lexkite.com/app/#/review?w=eat\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "eat",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"eat\" mean?\n\nEat means to put food in your mouth.\n\nReview your words, free: https://lexkite.com/app/#/review?w=eat"
+   },
+   "instagram": {
+    "caption": "What does \"eat\" mean?\n\nEat means to put food in your mouth.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"eat\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to put food in your mouth. Eat means to put food in your mouth. Practice it with a free quiz: {link}"
  }
 }

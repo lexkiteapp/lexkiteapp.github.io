@@ -1,0 +1,28 @@
+# Ảnh thật sổ mẫu câu #/phrases 390 px sáng/tối để duyệt hình; artifact 7 ngày.
+name: Phrase book shots
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['web/js/phrase-book.js', 'web/js/phrases-model.js', 'web/cpack/framework/**', 'scripts/test/phrasebook-shots.mjs', '.github/workflows/phrasebook-shots.yml']
+permissions:
+  contents: read
+concurrency:
+  group: phrasebook-shots-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chụp
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/phrasebook-shots.mjs http://localhost:8080 out/phrasebook
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: phrasebook-shots, path: out/phrasebook, retention-days: 7 }

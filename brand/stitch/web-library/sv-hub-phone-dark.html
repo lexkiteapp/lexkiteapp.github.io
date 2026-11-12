@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>IELTS Writing Task 2 - Essay Library</title>
+<!-- Tailwind CSS CDN with forms and container-queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans for tactile, modern, ultra-readable typography -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            tactile: {
+              canvas: '#081518',
+              surface: '#0E1E22',
+              card: '#13272C',
+              cardElevated: '#183137',
+              border: '#1E3C42',
+              borderLight: '#284D55',
+              ledge: '#071214',
+              ledgeElevated: '#0A181B',
+              coral: '#F2553B',
+              coralLedge: '#8E2816',
+              mint: '#36D7C7',
+              teal: '#2BA39A',
+              tealLedge: '#165751',
+              gold: '#FFB830',
+              goldLedge: '#996303',
+              purple: '#A855F7',
+              purpleLedge: '#5B1E8C',
+              textPrimary: '#EEF6F7',
+              textSecondary: '#A9BFC1',
+              textTertiary: '#67868A'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif']
+          },
+          boxShadow: {
+            'tactile-btn': '0 4px 0 0 #071214',
+            'tactile-card': '0 5px 0 0 #071214',
+            'tactile-coral': '0 4px 0 0 #8E2816',
+            'tactile-teal': '0 4px 0 0 #165751'
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="tactile-physics">
+    /* Tactile 3D bottom ledge physics */
+    .tactile-card {
+      border: 2px solid #1E3C42;
+      box-shadow: 0 4px 0 0 #071214;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-card:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #071214;
+    }
+    .tactile-button-coral {
+      background-color: #F2553B;
+      color: #1B0B04;
+      border: 2px solid #FFA08A;
+      box-shadow: 0 4px 0 0 #8E2816;
+    }
+    .tactile-button-coral:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #8E2816;
+    }
+    .tactile-badge-gold {
+      background: linear-gradient(135deg, #FFC533 0%, #E69500 100%);
+      color: #291800;
+      border: 1.5px solid #FFE685;
+      box-shadow: 0 3px 0 0 #7A4500;
+    }
+    .tactile-badge-teal {
+      background: linear-gradient(135deg, #3EE0CE 0%, #1FA69A 100%);
+      color: #03211E;
+      border: 1.5px solid #82F5E9;
+      box-shadow: 0 3px 0 0 #0B453F;
+    }
+    .tactile-badge-purple {
+      background: linear-gradient(135deg, #B96DF9 0%, #8736E6 100%);
+      color: #1B0336;
+      border: 1.5px solid #E1B7FF;
+      box-shadow: 0 3px 0 0 #431478;
+    }
+    /* Hide scrollbar for horizontal chip bars */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-tactile-canvas text-tactile-textPrimary font-sans antialiased min-h-screen flex justify-center selection:bg-tactile-teal selection:text-white pb-24">
+<!-- Mobile Screen Container (390px Native iOS Canvas) -->
+<div class="w-full max-w-[390px] min-h-screen bg-tactile-canvas flex flex-col relative px-4 pt-3 overflow-x-hidden" data-purpose="mobile-viewport">
+<!-- BEGIN: iOSStatusBar -->
+<header class="w-full flex items-center justify-between pt-1 pb-3 text-xs font-bold text-tactile-textSecondary" data-purpose="ios-status-bar">
+<span>9:41</span>
+<div class="flex items-center space-x-1.5 text-tactile-textSecondary">
+<!-- Cellular Icon -->
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M2 17h2v4H2v-4zm4-4h2v8H6v-8zm4-4h2v12h-2V9zm4-5h2v17h-2V4zm4-3h2v20h-2V1z"></path>
+</svg>
+<!-- Wifi Icon -->
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98C20.93 5.9 16.69 4 12 4zm0 3.5c3.5 0 6.7 1.34 9.14 3.53L12 19.8 2.86 11.03C5.3 8.84 8.5 7.5 12 7.5z"></path>
+</svg>
+<!-- Battery Icon -->
+<div class="flex items-center">
+<div class="w-5 h-2.5 border-2 border-tactile-textSecondary rounded-sm p-0.5 flex items-center">
+<div class="w-full h-full bg-tactile-textSecondary rounded-xs"></div>
+</div>
+<div class="w-0.5 h-1 bg-tactile-textSecondary rounded-r-xs"></div>
+</div>
+</div>
+</header>
+<!-- END: iOSStatusBar -->
+<!-- BEGIN: AppHeader -->
+<nav class="flex items-center justify-between pb-3 pt-1" data-purpose="top-navigation-bar">
+<!-- Back Button & Title -->
+<div class="flex items-center gap-3">
+<button aria-label="Go Back" class="w-10 h-10 rounded-xl bg-tactile-surface border-2 border-tactile-border shadow-tactile-btn flex items-center justify-center text-tactile-textPrimary active:translate-y-0.5 active:shadow-none transition-all">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M15.75 19.5L8.25 12l7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<div>
+<span class="text-[11px] font-extrabold tracking-wider text-tactile-mint uppercase block">Task 2 Library</span>
+<h1 class="text-xl font-extrabold text-tactile-textPrimary leading-none">Model Essays</h1>
+</div>
+</div>
+<!-- Action Pill / Bookmark count -->
+<div class="flex items-center gap-2">
+<button aria-label="Saved essays" class="h-10 px-3 rounded-xl bg-tactile-surface border-2 border-tactile-border shadow-tactile-btn flex items-center gap-1.5 text-xs font-bold text-tactile-textPrimary active:translate-y-0.5">
+<svg class="w-4 h-4 text-tactile-gold fill-tactile-gold" viewbox="0 0 24 24">
+<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+</svg>
+<span class="text-tactile-textPrimary">28</span>
+</button>
+</div>
+</nav>
+<!-- END: AppHeader -->
+<!-- BEGIN: SearchAndFilters -->
+<section class="mt-2 mb-3" data-purpose="search-and-filter-section">
+<!-- Search Input -->
+<div class="relative flex items-center mb-3">
+<span class="absolute left-3.5 text-tactile-textSecondary">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+<input class="w-full h-11 pl-10 pr-10 bg-tactile-surface border-2 border-tactile-border rounded-xl text-tactile-textPrimary placeholder:text-tactile-textTertiary text-xs font-semibold focus:outline-none focus:border-tactile-mint shadow-tactile-btn transition-colors" placeholder="Search by topic, keyword, or prompt..." type="text"/>
+<button aria-label="Filter settings" class="absolute right-2.5 p-1 text-tactile-textSecondary hover:text-tactile-textPrimary">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Category Filter Chips -->
+<div class="flex items-center space-x-2 overflow-x-auto no-scrollbar pb-1 pt-0.5" data-purpose="horizontal-chip-filters">
+<button class="shrink-0 px-3.5 py-1.5 rounded-full bg-tactile-teal text-[#03211E] font-black text-xs border border-tactile-mint shadow-[0_3px_0_0_#165751]">
+          All Types
+        </button>
+<button class="shrink-0 px-3 py-1.5 rounded-full bg-tactile-surface text-tactile-textSecondary font-bold text-xs border-2 border-tactile-border shadow-tactile-btn hover:text-tactile-textPrimary">
+          Agree / Disagree
+        </button>
+<button class="shrink-0 px-3 py-1.5 rounded-full bg-tactile-surface text-tactile-textSecondary font-bold text-xs border-2 border-tactile-border shadow-tactile-btn hover:text-tactile-textPrimary">
+          Discuss Both
+        </button>
+<button class="shrink-0 px-3 py-1.5 rounded-full bg-tactile-surface text-tactile-textSecondary font-bold text-xs border-2 border-tactile-border shadow-tactile-btn hover:text-tactile-textPrimary">
+          Problem / Solution
+        </button>
+</div>
+</section>
+<!-- END: SearchAndFilters -->
+<!-- BEGIN: BannerPromptCard -->
+<section class="mb-4" data-purpose="daily-masterclass-card">
+<div class="tactile-card bg-gradient-to-br from-[#122A2F] via-[#0E2024] to-[#0A181B] rounded-2xl p-4 relative overflow-hidden">
+<!-- Ambient decorative glow -->
+<div class="absolute -right-8 -bottom-8 w-32 h-32 bg-tactile-teal/20 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center space-x-2">
+<span class="tactile-badge-gold px-2.5 py-0.5 rounded-full text-[10px] font-black tracking-wider uppercase">
+              Band 9.0 Verified
+            </span>
+<span class="text-[11px] font-bold text-tactile-mint flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tactile-mint animate-pulse"></span>
+              Editor's Choice
+            </span>
+</div>
+<!-- Bookmark Pin -->
+<button aria-label="Bookmark this prompt" class="w-8 h-8 rounded-lg bg-tactile-cardElevated/80 border border-tactile-border flex items-center justify-center text-tactile-mint active:scale-95 transition-transform">
+<svg class="w-4 h-4 fill-tactile-mint" viewbox="0 0 24 24">
+<path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-4.5 7 4.5V5c0-1.1-.9-2-2-2z"></path>
+</svg>
+</button>
+</div>
+<h3 class="text-base font-extrabold text-tactile-textPrimary leading-snug mb-1.5">
+          "Artificial Intelligence &amp; Future Employment"
+        </h3>
+<p class="text-xs font-medium text-tactile-textSecondary line-clamp-2 leading-relaxed mb-3">
+          Explore complex topical cohesion, lexical variety (Band 9), and nuance in the debate around automated labor markets.
+        </p>
+<div class="flex items-center justify-between pt-2 border-t border-tactile-border/60">
+<div class="flex items-center space-x-3 text-[11px] font-semibold text-tactile-textSecondary">
+<span class="flex items-center gap-1">
+<svg class="w-3.5 h-3.5 text-tactile-textTertiary" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              342 words
+            </span>
+<span>•</span>
+<span>Technology</span>
+</div>
+<button class="tactile-button-coral px-3.5 py-1.5 rounded-xl text-xs font-black flex items-center gap-1 transition-all">
+<span>Read Essay</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24"><path d="M8.25 4.5l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+</div>
+</section>
+<!-- END: BannerPromptCard -->
+<!-- BEGIN: EssayListSection -->
+<main class="flex flex-col space-y-3.5" data-purpose="essay-library-feed">
+<div class="flex items-center justify-between px-1">
+<h2 class="text-sm font-extrabold text-tactile-textPrimary tracking-wide uppercase">
+          Curated Model Essays
+        </h2>
+<span class="text-xs font-bold text-tactile-mint">142 Available</span>
+</div>
+<!-- CARD 1: Band 8.5 Education Essay -->
+<article class="tactile-card bg-tactile-card rounded-2xl p-4 flex flex-col justify-between" data-purpose="essay-card">
+<div class="flex items-start justify-between gap-3 mb-2">
+<!-- Band Score Badge -->
+<div class="flex items-center gap-2">
+<span class="tactile-badge-teal px-2.5 py-1 rounded-lg text-xs font-black tracking-wide">
+              BAND 8.5
+            </span>
+<span class="text-[11px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-tactile-surface text-tactile-mint border border-tactile-border">
+              Agree / Disagree
+            </span>
+</div>
+<span class="text-[11px] font-bold text-tactile-textTertiary">40 min task</span>
+</div>
+<h3 class="text-sm font-extrabold text-tactile-textPrimary leading-snug mb-1">
+          University Degrees vs. Practical Trade Qualifications
+        </h3>
+<p class="text-xs font-medium text-tactile-textSecondary leading-relaxed line-clamp-2 mb-3">
+          Some believe tertiary education is the single path to career success, while others argue vocational skills yield higher economic resilience.
+        </p>
+<!-- Topic Tags & Footer Row -->
+<div class="flex items-center justify-between pt-2.5 border-t border-tactile-border">
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-tactile-textSecondary">
+<span class="px-2 py-0.5 rounded bg-tactile-surface border border-tactile-border text-tactile-textSecondary">#Education</span>
+<span class="px-2 py-0.5 rounded bg-tactile-surface border border-tactile-border text-tactile-textSecondary">#Economy</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-tactile-mint">298w</span>
+<button aria-label="Open essay details" class="w-8 h-8 rounded-xl bg-tactile-cardElevated border border-tactile-borderLight text-tactile-textPrimary flex items-center justify-center shadow-sm active:translate-y-0.5 transition-transform">
+<svg class="w-4 h-4 text-tactile-mint" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M8.25 4.5l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+</div>
+</article>
+<!-- CARD 2: Band 8.0 Environment Essay -->
+<article class="tactile-card bg-tactile-card rounded-2xl p-4 flex flex-col justify-between" data-purpose="essay-card">
+<div class="flex items-start justify-between gap-3 mb-2">
+<!-- Band Score Badge -->
+<div class="flex items-center gap-2">
+<span class="tactile-badge-gold px-2.5 py-1 rounded-lg text-xs font-black tracking-wide">
+              BAND 8.0
+            </span>
+<span class="text-[11px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-tactile-surface text-tactile-gold border border-tactile-border">
+              Problem / Solution
+            </span>
+</div>
+<span class="text-[11px] font-bold text-tactile-textTertiary">42 min task</span>
+</div>
+<h3 class="text-sm font-extrabold text-tactile-textPrimary leading-snug mb-1">
+          Urban Traffic Congestion &amp; Strict Carbon Levies
+        </h3>
+<p class="text-xs font-medium text-tactile-textSecondary leading-relaxed line-clamp-2 mb-3">
+          Rising vehicle numbers degrade inner-city air quality. This model analyzes pricing disincentives versus transit infrastructure investments.
+        </p>
+<!-- Topic Tags & Footer Row -->
+<div class="flex items-center justify-between pt-2.5 border-t border-tactile-border">
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-tactile-textSecondary">
+<span class="px-2 py-0.5 rounded bg-tactile-surface border border-tactile-border text-tactile-textSecondary">#Environment</span>
+<span class="px-2 py-0.5 rounded bg-tactile-surface border border-tactile-border text-tactile-textSecondary">#Urban</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-tactile-mint">312w</span>
+<button aria-label="Open essay details" class="w-8 h-8 rounded-xl bg-tactile-cardElevated border border-tactile-borderLight text-tactile-textPrimary flex items-center justify-center shadow-sm active:translate-y-0.5 transition-transform">
+<svg class="w-4 h-4 text-tactile-mint" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M8.25 4.5l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+</div>
+</article>
+<!-- CARD 3: Band 7.5 Society & Media Essay -->
+<article class="tactile-card bg-tactile-card rounded-2xl p-4 flex flex-col justify-between" data-purpose="essay-card">
+<div class="flex items-start justify-between gap-3 mb-2">
+<!-- Band Score Badge -->
+<div class="flex items-center gap-2">
+<span class="tactile-badge-purple px-2.5 py-1 rounded-lg text-xs font-black tracking-wide">
+              BAND 7.5
+            </span>
+<span class="text-[11px] font-extrabold uppercase px-2 py-0.5 rounded-md bg-tactile-surface text-tactile-purple border border-tactile-border">
+              Discuss Both
+            </span>
+</div>
+<span class="text-[11px] font-bold text-tactile-textTertiary">38 min task</span>
+</div>
+<h3 class="text-sm font-extrabold text-tactile-textPrimary leading-snug mb-1">
+          Consumer Advertising on Children's Behavioral Trends
+        </h3>
+<p class="text-xs font-medium text-tactile-textSecondary leading-relaxed line-clamp-2 mb-3">
+          Commercial marketing frequently targets adolescents. A balanced analysis of regulatory censorship against parental responsibility.
+        </p>
+<!-- Topic Tags & Footer Row -->
+<div class="flex items-center justify-between pt-2.5 border-t border-tactile-border">
+<div class="flex items-center gap-1.5 text-[11px] font-bold text-tactile-textSecondary">
+<span class="px-2 py-0.5 rounded bg-tactile-surface border border-tactile-border text-tactile-textSecondary">#Media</span>
+<span class="px-2 py-0.5 rounded bg-tactile-surface border border-tactile-border text-tactile-textSecondary">#Society</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-bold text-tactile-mint">274w</span>
+<button aria-label="Open essay details" class="w-8 h-8 rounded-xl bg-tactile-cardElevated border border-tactile-borderLight text-tactile-textPrimary flex items-center justify-center shadow-sm active:translate-y-0.5 transition-transform">
+<svg class="w-4 h-4 text-tactile-mint" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M8.25 4.5l7.5 7.5-7.5 7.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</button>
+</div>
+</div>
+</article>
+</main>
+<!-- END: EssayListSection -->
+<!-- BEGIN: BottomNavigation -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] bg-tactile-surface/95 backdrop-blur-md border-t-2 border-tactile-border px-5 py-2.5 z-50 flex items-center justify-between" data-purpose="mobile-dock-nav">
+<!-- Nav Item 1: Practice / Prompts -->
+<a class="flex flex-col items-center gap-1 text-tactile-textTertiary hover:text-tactile-textSecondary transition-colors" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] font-bold">Topics</span>
+</a>
+<!-- Nav Item 2: Library (ACTIVE) -->
+<a class="flex flex-col items-center gap-1 text-tactile-mint transition-colors" href="#">
+<div class="relative">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"></path>
+</svg>
+<span class="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-tactile-coral"></span>
+</div>
+<span class="text-[10px] font-extrabold">Library</span>
+</a>
+<!-- Center Action Button: AI Write/Review -->
+<div class="-mt-6">
+<button aria-label="Compose new essay" class="tactile-button-coral w-12 h-12 rounded-2xl flex items-center justify-center font-black shadow-tactile-coral active:translate-y-1 transition-all">
+<svg class="w-6 h-6 stroke-tactile-ledge stroke-[2.5]" fill="none" viewbox="0 0 24 24">
+<path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Nav Item 3: Analytics / Scores -->
+<a class="flex flex-col items-center gap-1 text-tactile-textTertiary hover:text-tactile-textSecondary transition-colors" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] font-bold">Progress</span>
+</a>
+<!-- Nav Item 4: Profile -->
+<a class="flex flex-col items-center gap-1 text-tactile-textTertiary hover:text-tactile-textSecondary transition-colors" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[10px] font-bold">Profile</span>
+</a>
+</nav>
+<!-- END: BottomNavigation -->
+</div>
+</body></html>

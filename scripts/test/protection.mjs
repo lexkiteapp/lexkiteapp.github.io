@@ -7,6 +7,13 @@ import { spawnSync } from 'node:child_process';
 import { feedsFor } from '../websub-ping.mjs';
 import { signature, suspects, canaryProbes, ghSuspects } from '../copy-watch.mjs';
 import { IP_META, themeHead } from '../lib/site-layout.mjs';
+import { saveSnapshot, parseSitemap, pickChanged, latest } from '../lib/wayback.mjs';
+import { headToStamp, coveringStamps, tsrPath, TSAS } from '../tsa.mjs';
+import { toEntry as swhEntry, saveApi } from '../swh-save.mjs';
+import { manifest as zManifest, metadata as zMeta } from '../zenodo-deposit.mjs';
+import { cdxFirst, USES as TM_USES } from '../tm-evidence.mjs';
+import { evidenceReport } from '../lib/evidence.mjs';
+import { recordEvidence } from '../lib/content-registry.mjs';
 
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const throws = (f, m) => { try { f(); ok(false, m); } catch { ok(true, m); } };
@@ -118,9 +125,10 @@ for (const [nm, y] of [['blog-publish', bp], ['content-protect', cp]]) {
   const st = step(y, 'OpenTimestamps');
   ok(/opentimestamps-client/.test(st) && /node scripts\/ots\.mjs stamp/.test(st) && /node scripts\/ots\.mjs upgrade/.test(st), `${nm}: bước OpenTimestamps cài client + stamp + upgrade`);
   ok(/continue-on-error: true/.test(st) && /::warning::/.test(st), `${nm}: bước OTS không chặn (continue-on-error + cảnh báo)`);
-  ok(y.indexOf('- name: OpenTimestamps') < y.indexOf('- name: Commit sổ đăng ký') && /git add [^\n]*content\/protection\/ots/.test(y), `${nm}: OTS chạy trước commit, commit kèm content/protection/ots`);
+  ok(y.indexOf('- name: OpenTimestamps') < y.indexOf('- name: Commit sổ đăng ký') && /(git add|commit-regen\.sh)[^\n]*content\/protection\/ots/.test(y), `${nm}: OTS chạy trước commit, commit kèm content/protection/ots`);   // content-protect sinh lại trên main mới nhất qua commit-regen.sh (sổ là chuỗi băm nối thêm, rebase luôn xung đột)
 }
 ok(bp.indexOf('- name: Sổ băm nội dung') < bp.indexOf('- name: OpenTimestamps'), 'blog-publish: đóng dấu sau khi ghi sổ bài mới');
+ok(/commit-regen\.sh/.test(step(cp, 'Commit sổ đăng ký')) && /release addon[\s\S]*release landing[\s\S]*ots\.mjs stamp/.test(step(cp, 'Commit sổ đăng ký')), 'content-protect: sổ sinh lại trên main mới nhất (commit-regen.sh) gồm release addon/landing + OTS');
 ok(/push:[\s\S]*'extension\/manifest\.json'[\s\S]*'content\/landing\/\*\*'/.test(cp) && /release addon/.test(cp) && /release landing/.test(cp), 'content-protect: push add-on lên bản/landing → ghi mốc phát hành');
 ok(/if: github\.event_name != 'push'/.test(step(cp, 'Dò bản sao chép')) && /if: github\.event_name != 'push'/.test(step(cp, 'WAF chống cào')), 'content-protect: lần chạy do push không dò bản sao/WAF');
 ok(!/ots stamp|ots\.mjs stamp/.test(fs.readFileSync('package.json', 'utf8') + fs.readFileSync('scripts/test/suite.txt', 'utf8')), 'OTS không chạy cục bộ trong npm test (chỉ CI)');
@@ -185,5 +193,57 @@ ok(canaryProbes(CAN).every(p => /^https:\/\/lexkite\.com\/#canary-/.test(p.url) 
 ok(ghSuspects([{ html_url: 'https://github.com/lexkiteapp/lexkiteapp.github.io/blob/x', repository: { full_name: 'lexkiteapp/lexkiteapp.github.io' }, path: 'a' }, { html_url: 'https://github.com/bad/copy/blob/y', repository: { full_name: 'bad/copy' }, path: 'b' }]).map(x => x.url).join() === 'https://github.com/bad/copy/blob/y', 'canary GitHub: bỏ repo của Lexkite, báo repo lạ');
 ok(/GITHUB_TOKEN: \$\{\{ github\.token \}\}/.test(step(cp, 'Dò bản sao chép')), 'content-protect: dò canary bằng GITHUB_TOKEN (miễn phí, không cần khóa)');
 
-console.log(fails ? `✗ protection: ${fails}/${n} lỗi` : `✓ protection: ${n} kiểm tra đạt (WAF, sổ băm, OpenTimestamps, WebSub, copy-watch, robots/AI, LICENSE, canary)`);
+// ---------- Bằng chứng bên thứ ba (3/11): Wayback, RFC 3161, Software Heritage, Zenodo, nhãn hiệu, evidence ----------
+{
+  const wb = fs.readFileSync('scripts/wayback-snapshot.mjs', 'utf8');
+  ok(/import \{[^}]*saveSnapshot[^}]*sleep[^}]*\} from '\.\/lib\/wayback\.mjs'/.test(wb), 'wayback-snapshot: saveSnapshot/sleep được import (lỗi 3/11: chưa định nghĩa → 0 bản lưu)');
+  const H = (h, st = 302) => async () => ({ status: st, headers: { get: k => h[k.toLowerCase()] || null }, json: async () => ({}) });
+  ok((await saveSnapshot('https://lexkite.com/a', { fetchImpl: H({ location: '/web/20261103010203/https://lexkite.com/a' }) })).snapshotUrl === 'https://web.archive.org/web/20261103010203/https://lexkite.com/a', 'Wayback: lấy mốc từ Location');
+  let calls = 0; const f429 = async () => (++calls === 1 ? { status: 429, headers: { get: () => null } } : { status: 200, headers: { get: k => (k === 'content-location' ? '/web/20261103010203/https://lexkite.com/a' : null) } });
+  ok((await saveSnapshot('https://lexkite.com/a', { fetchImpl: f429, wait: async () => {} })).ok && calls === 2, 'Wayback: 429 → chờ rồi thử lại 1 lần');
+  ok(!(await saveSnapshot('https://lexkite.com/a', { fetchImpl: H({}, 503) })).ok, 'Wayback: lỗi máy chủ → ok=false (không ghi sổ)');
+  const now = Date.UTC(2026, 10, 3, 12), avail = ts => async () => ({ json: async () => ({ archived_snapshots: { closest: { available: true, timestamp: ts, url: `http://web.archive.org/web/${ts}/x` } } }) });
+  ok(await latest('x', avail('20261103110000'), 3, now) === 'https://web.archive.org/web/20261103110000/x' && await latest('x', avail('20261101110000'), 3, now) === null, 'Wayback availability: chỉ nhận bản chụp ≤ 3 giờ');
+  const sm = parseSitemap('<urlset><url><loc>https://lexkite.com/a</loc><lastmod>2026-11-03</lastmod></url><url><loc>https://lexkite.com/b</loc><lastmod>2026-10-01</lastmod></url><url><loc>https://lexkite.com/c</loc></url></urlset>');
+  ok(sm.length === 3 && sm[0].lastmod === '2026-11-03', 'sitemap: đọc loc + lastmod');
+  const pc = pickChanged(sm, new Map([['https://lexkite.com/a', '2026-10-20T00:00:00Z'], ['https://lexkite.com/b', '2026-10-20T00:00:00Z']]), 10).map(x => x.loc);
+  ok(pc.join() === 'https://lexkite.com/a,https://lexkite.com/c', 'sitemap: chỉ trang mới hoặc đổi sau lần lưu cuối');
+  ok(pickChanged(sm, new Map(), 1).length === 1, 'sitemap: giới hạn --max');
+  // RFC 3161
+  const L3 = [JSON.stringify({ seq: 1, hash: 'a'.repeat(64) }), JSON.stringify({ seq: 2, hash: 'b'.repeat(64) }), JSON.stringify({ seq: 3, hash: 'c'.repeat(64) })];
+  const has = new Set([tsrPath('b'.repeat(64), 'digicert', 'D')]), ex = p => has.has(p);
+  ok(headToStamp(L3, ex, 'D').entry.seq === 3 && headToStamp(L3.slice(0, 2), ex, 'D') === null, 'TSA: đóng tem mục đầu sổ khi chưa có');
+  ok(coveringStamps(L3, 1, ex, 'D').entry.seq === 2 && coveringStamps(L3, 3, ex, 'D') === null, 'TSA: tem mục sau phủ mục trước qua chuỗi băm');
+  ok(TSAS.length >= 3 && TSAS.every(t => /^https?:\/\//.test(t.url)) && fs.existsSync('content/protection/tsa/certs/freetsa-cacert.pem'), 'TSA: ≥ 3 TSA miễn phí, có CA FreeTSA để tự kiểm');
+  if (fs.existsSync('content/protection/tsa')) { const fl = fs.readdirSync('content/protection/tsa').filter(f => f.endsWith('.tsr')), hs = new Set(readRegistry().map(e => e.hash));
+    ok(fl.every(f => /^[0-9a-f]{64}\.(digicert|sectigo|freetsa)\.tsr$/.test(f) && hs.has(f.slice(0, 64)) && fs.statSync(`content/protection/tsa/${f}`).size < 20e3), 'TSA: mọi tệp .tsr ứng với 1 mục sổ, < 20 KB'); }
+  // Software Heritage, Zenodo, nhãn hiệu
+  const sw = swhEntry({ id: 7, save_request_status: 'accepted', save_task_status: 'pending', request_date: '2026-11-03' }, 'https://github.com/lexkiteapp/lexkiteapp.github.io');
+  ok(sw.requestId === '7' && sw.status === 'accepted/pending' && /^https:\/\/archive\.softwareheritage\.org\//.test(sw.url) && swhEntry({ exception: 'x' }, 'o') === null, 'SWH: kết quả API → mục sổ');
+  ok(saveApi('https://github.com/a/b') === 'https://archive.softwareheritage.org/api/1/origin/save/git/url/https://github.com/a/b/', 'SWH: đúng API save code now');
+  const zm = zManifest(['b', 'a'], f => f);
+  ok(zm.files === 2 && zm.lines[0].endsWith('  a') && zm.root === sha256(zm.lines.join('\n')), 'Zenodo: manifest sắp xếp + gốc băm tính lại được');
+  const md = zMeta({ month: '2026-11', root: 'r', files: 1, commit: 'c' });
+  ok(md.access_right === 'restricted' && md.access_conditions && /All rights reserved/.test(md.description) && !/license/.test(Object.keys(md).join()), 'Zenodo: restricted access, không cấp giấy phép');
+  const zr = spawnSync(process.execPath, ['scripts/zenodo-deposit.mjs'], { env: { ...process.env, ZENODO_TOKEN: '' }, encoding: 'utf8', timeout: 20e3 });
+  ok(zr.status === 0 && /chưa có secret ZENODO_TOKEN/.test(zr.stdout), 'Zenodo: thiếu token → bỏ qua, thoát 0 (job tắt)');
+  ok(cdxFirst('[["timestamp","original"],["20261020010203","https://lexkite.com/"]]').at === '2026-10-20T01:02:03Z' && cdxFirst('[]') === null, 'nhãn hiệu: bản lưu Wayback sớm nhất (CDX)');
+  ok(['website', 'chrome-web-store', 'google-play', 'app-store', 'logo'].every(u => TM_USES.some(x => x.use === u)), 'nhãn hiệu: đủ web, 3 store, logo');
+  const tmp3 = fs.mkdtempSync(path.join(os.tmpdir(), 'lkev-')), K = path.join(tmp3, 'r.jsonl');
+  const e1 = recordPublish({ url: 'https://lexkite.com/vi/blog/z/', html: '<p>z</p>', source: 'z' }, K);
+  const sE = recordEvidence('swh', sw, K);
+  ok(stampable(sE) && stampable(recordEvidence('deposit', { url: 'https://zenodo.org/records/123', doi: '10.5281/zenodo.123', root: 'a'.repeat(64), files: 3, access: 'restricted' }, K)), 'bằng chứng SWH/Zenodo được đóng dấu OTS');
+  throws(() => recordEvidence('swh', { ...sw, url: 'https://evil.example/x' }, K), 'bằng chứng: URL lạ → lỗi');
+  throws(() => recordEvidence('tm-use', { url: 'https://lexkite.com/', mark: 'Lexkite', use: 'web', firstUse: 'x', note: 'owner@example.com' }, K), 'bằng chứng: chặn email/khóa');
+  throws(() => recordEvidence('deposit', { url: 'https://zenodo.org/records/1', doi: 'd' }, K), 'bằng chứng: thiếu trường bắt buộc → lỗi');
+  const rep = evidenceReport('https://lexkite.com/vi/blog/z/', { file: K });
+  ok(/Mục #1 publish/.test(rep) && /OpenTimestamps/.test(rep) && /RFC 3161/.test(rep) && /Zenodo/.test(rep) && /Wayback/.test(rep) && /Software Heritage/.test(rep), 'evidence: gom băm, OTS, RFC 3161, Zenodo, Wayback, SWH');
+  ok(/Canary cnr-tr-01/.test(evidenceReport('cnr-tr-01')), 'evidence: tra theo id canary');
+  const ce = fs.readFileSync('.github/workflows/content-evidence.yml', 'utf8');
+  for (const st of ['Wayback', 'Nhãn hiệu', 'Software Heritage', 'Zenodo', 'OpenTimestamps', 'Tem thời gian RFC 3161']) ok(/continue-on-error: true/.test(step(ce, st)) || /continue-on-error: true/.test(ce.slice(ce.indexOf(`- name: ${st}`), ce.indexOf(`- name: ${st}`) + 400)), `content-evidence: bước ${st} không làm đỏ CI`);
+  ok(/(git add|push-main\.sh "[^"]*") [^\n]*content\/protection\/tsa/.test(ce) && /concurrency:\n  group: content-protect/.test(ce), 'content-evidence: commit .tsr, chạy tuần tự với content-protect');
+  ok(!/zenodo-deposit|tsa\.mjs stamp|swh-save/.test(fs.readFileSync('scripts/test/suite.txt', 'utf8')), 'bên thứ ba không chạy cục bộ trong npm test (chỉ CI)');
+}
+
+console.log(fails ? `✗ protection: ${fails}/${n} lỗi` : `✓ protection: ${n} kiểm tra đạt (WAF, sổ băm, OpenTimestamps, WebSub, copy-watch, robots/AI, LICENSE, canary, Wayback/RFC 3161/SWH/Zenodo/nhãn hiệu)`);
 process.exit(fails ? 1 : 0);
