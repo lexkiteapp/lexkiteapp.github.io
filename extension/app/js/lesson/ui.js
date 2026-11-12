@@ -127,7 +127,8 @@
     App.onCleanup(cleanup);
     const X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = (state.settings || {}).examTarget; // chip kỳ thi trên thẻ câu hỏi: "IELTS · Mục tiêu 7.5"
     document.body.classList.add('st'); App.onCleanup(() => document.body.classList.remove('st'));
-    const sh = { close: `#/lesson${Q(demo)}`, closeLabel: t('Thoát bài học'), title: KNAME(node.kind) || t('Bài học'), icon: { lesson: 'star', listen: 'headphones', speak: 'mic', review: 'replay', story: 'auto_stories', radio: 'radio' }[node.kind] || 'star', barLabel: t('Tiến độ bài học'), chip: X ? X.short + (tg && (!window.LessonEx || LessonEx.targetOk(App.exam(), tg)) ? ' · ' + t('Mục tiêu {s}', { s: tg }) : '') : '', short: X ? X.short : '', who: TNAME(L.who) + ' · ' + t('Giáo viên của bạn') };
+    const sh = { close: `#/lesson${Q(demo)}`, closeLabel: t('Thoát bài học'), title: KNAME(node.kind) || t('Bài học'), icon: { lesson: 'star', listen: 'headphones', speak: 'mic', review: 'replay', story: 'auto_stories', radio: 'radio' }[node.kind] || 'star', barLabel: t('Tiến độ bài học'), chip: X ? X.short + (tg && (!window.LessonEx || LessonEx.targetOk(App.exam(), tg)) ? ' · ' + t('Mục tiêu {s}', { s: tg }) : '') : '', who: TNAME(L.who) + ' · ' + t('Giáo viên của bạn') };
+    sh.short = X ? X.short : ''; // khung bài tập chung (ex-frame): chip kỳ thi ngắn
     L.title = sh.title; L.chip = sh.chip; // màn kết (lesson-complete) dùng lại
     L.sh = sh;
     if (V2) v2shell(sh);
