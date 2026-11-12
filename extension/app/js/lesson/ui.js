@@ -187,7 +187,8 @@
     const T = (L.teachers && who && L.teachers[who]) || L.teacher, rate = slow ? 0.7 : 0.95;
     if (L.teachers) { ['ama', 'carlos'].forEach(k => { const el = $(k === 'ama' ? '#lsnTch' : '#lsnTch2'); if (el) el.classList.toggle('talk', k === who); }); }
     const done = onEnd; if (L.ss) { L.ss.speaker(who); onEnd = () => { if (L && L.ss) L.ss.speaker(''); if (done) done(); }; }
-    if (T) T.say(text, { rate, voice: VOICE(who), onEnd, caption: cap, show: cap ? false : RADIO }); // câu đọc = đáp án → bong bóng chỉ hiện 🔊 · · · (không lộ chữ) else { if (cap) cap.clock(cap.est * 70); UI.tts(text, 'en-US', rate, { voice: VOICE(who), onEnd }); }
+    // show: câu đọc = đáp án → bong bóng chỉ hiện 🔊 · · · (không lộ chữ)
+    if (T) T.say(text, { rate, voice: VOICE(who), onEnd, caption: cap, show: cap ? false : RADIO }); else { if (cap) cap.clock(cap.est * 70); UI.tts(text, 'en-US', rate, { voice: VOICE(who), onEnd }); }
   };
   // Chip kỳ thi trên thẻ câu hỏi (Tactile): "IELTS · Mục tiêu 7.5" – lấy từ mục tiêu đã chọn, không có thì ẩn
   const examChip = () => { const s = state.settings || {}, X = (App.EXAMS || {})[App.exam ? App.exam() : ''], tg = s.examTarget; return X ? `<div class="lsn-ex"><span class="tk-chip gold">${esc(X.short)}${tg ? ' · ' + esc(t('Mục tiêu {s}', { s: tg })) : ''}</span></div>` : ''; };
