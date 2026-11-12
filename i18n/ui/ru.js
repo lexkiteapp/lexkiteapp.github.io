@@ -1288,6 +1288,7 @@
 "your / you’re":"your / you’re",
 "{answered} câu trả lời · {mistakes} lần sai · +20 XP thưởng":"{answered} ответы · {mistakes} ошибки · +20 бонусного опыта",
 "{a}/{b} XP tới cấp {n}":"{a}/{b} Опыт до уровня {n}",
+"{a}/{b} bài":"{a}/{b} уроков",
 "{a}/{b} việc":"{a}/{b} выполнено",
 "{c}% câu có cấu trúc phức · {e} lỗi phát hiện.":"{c}% сложных предложений · найдено {e} ошибок.",
 "{done}/{total} bài hoàn thành · Học theo vòng: giới thiệu → luyện → nghe → kiểm tra, rồi ôn lại đúng thời điểm vàng.":"{done}/{total} модулей завершены · Учитесь циклично: знакомьте → практикуйтесь → слушайте → тестируйте, а затем повторяйте в оптимальное время.",

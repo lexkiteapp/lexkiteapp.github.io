@@ -437,7 +437,6 @@
 "Xin để lại lời nhắn":"请求留言",
 "Xong {a}/{b} câu.":"完成：{a}/{b} 句。",
 "Xử lý khi lỡ chuyến, chuyến bay bị hủy, mất hành lý hoặc đổi cổng.":"处理误机或航班取消、行李丢失、登机口变更。",
-"{a}/{b} bài":"{a}/{b} 节课",
 "{n} ngày liên tiếp – giữ nhịp nhé!":"连续 {n} 天——继续保持！",
 "{n} trên 5":"5 分中的 {n} 分",
 "Âm thanh chỉ ở trong trình duyệt này và bị xóa khi rời trang. Chữ được chuyển bằng trình nhận dạng của trình duyệt (hoặc Whisper ngay trên máy nếu bạn đã bật).":"你的录音只保存在这个浏览器里，离开页面后就会删除。语音由浏览器的语音识别转成文字（如果你开启了，也可由这台设备上的 Whisper 完成）。",
