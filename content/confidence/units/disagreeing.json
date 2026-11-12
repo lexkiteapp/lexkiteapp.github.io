@@ -174,6 +174,10 @@
           [
             "agree|however|fair point|training|but",
             "Hmm, they can learn fast."
+          ],
+          [
+            "risk|soon|rush|mistake",
+            "Okay, I see the risk."
           ]
         ]
       },
@@ -184,6 +188,10 @@
           [
             "differently|thought about|how long|not so sure|really",
             "Okay, maybe longer."
+          ],
+          [
+            "weeks?|months?|busy|workload|deadline",
+            "Maybe it takes longer than that."
           ]
         ]
       },
@@ -204,6 +212,10 @@
           [
             "halfway|one team|test|start small|middle",
             "That makes sense."
+          ],
+          [
+            "pilot|trial|small group|few people|department",
+            "A small pilot sounds reasonable."
           ]
         ]
       }
