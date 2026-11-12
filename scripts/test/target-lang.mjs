@@ -46,6 +46,25 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ls.delete('lk.es'); ls.delete('lk.pt'); ls.set('lk.cfg', JSON.stringify({ v: { es_course: true } })); ok(T.enabled() && T.enabled('es') && !T.enabled('pt') && T.cur() === 'es', 'cờ máy chủ es_course → es');
   ls.set('lk.cfg', JSON.stringify({ v: { es_course: '0', pt_pilot: '1' } })); ok(T.cur() === 'en' && T.enabled() && !T.enabled('es'), 'es_course=0 → es tắt (pt vẫn bật)');
   ok(/'es_course'/.test(rd('functions/api/config.js')) && /'es_course'/.test(rd('functions/api/admin.js')), 'es_course có trong PUBLIC_KEYS + CONFIG_KEYS');
+  // bật theo bậc: es_course_pct theo nhóm thiết bị lk.esb · es_kill tắt mọi đường · cờ 0 rõ ràng thắng %
+  const cfg = v => ls.set('lk.cfg', JSON.stringify({ v }));
+  [...ls.keys()].forEach(k => ls.delete(k));
+  ls.set('lk.esb', '9'); cfg({ es_course_pct: '10' }); ok(T.enabled('es'), 'pct=10, nhóm 9 → bật');
+  ls.set('lk.esb', '10'); ok(!T.enabled('es'), 'pct=10, nhóm 10 → tắt (ranh giới)');
+  ls.set('lk.esb', '0'); cfg({ es_course_pct: '0' }); ok(!T.enabled('es'), 'pct=0 → tắt cả nhóm 0');
+  cfg({}); ok(!T.enabled('es'), 'không có pct → tắt');
+  ls.set('lk.esb', '99'); cfg({ es_course_pct: '100' }); ok(T.enabled('es'), 'pct=100 → bật mọi nhóm');
+  cfg({ es_course_pct: '100', es_kill: '1' }); ok(!T.enabled('es') && T.cur() === 'en', 'es_kill=1 thắng pct');
+  ls.set('lk.es', '1'); ok(!T.enabled('es'), 'es_kill=1 thắng cả lk.es=1');
+  ls.delete('lk.es'); cfg({ es_course: true, es_kill: 'true' }); ok(!T.enabled('es'), 'es_kill thắng cờ es_course=true');
+  cfg({ es_course: '0', es_course_pct: '100' }); ok(!T.enabled('es'), 'es_course=0 rõ ràng thắng pct');
+  ls.delete('lk.esb'); cfg({ es_course_pct: '50' }); T.enabled('es'); ok(/^\d{1,2}$/.test(ls.get('lk.esb')), 'nhóm lk.esb được tạo 1 lần (0–99)');
+  ls.set('lk.tb', '1'); ls.set('lk.esb', '50'); cfg({ es_course_pct: '10' }); ok(!T.enabled('es'), 'lk.tb (cổng bot teacher-bubble) không ảnh hưởng nhóm lk.esb');
+  ls.set('lk.esb', ''); cfg({ es_course_pct: '1' }); ok(!T.enabled('es') || /^\d{1,2}$/.test(ls.get('lk.esb')), 'lk.esb rỗng/hỏng → chọn lại nhóm hợp lệ');
+  ls.set('lk.esb', '150'); T.enabled('es'); ok(/^\d{1,2}$/.test(ls.get('lk.esb')), 'lk.esb ngoài 0–99 → chọn lại');
+  ls.set('lk.esb', '5'); for (const bad of ['abc', true, null, '', {}]) { cfg({ es_course_pct: bad }); ok(!T.enabled('es'), 'pct rác ' + JSON.stringify(bad) + ' → tắt'); }
+  cfg({ es_course_pct: 100 }); ok(T.enabled('es'), 'pct số 100 → bật');
+  ok(/'es_course_pct'/.test(rd('functions/api/config.js')) && /'es_course_pct'/.test(rd('functions/api/admin.js')) && /'es_kill'/.test(rd('functions/api/config.js')) && /'es_kill'/.test(rd('functions/api/admin.js')), 'es_course_pct + es_kill có trong PUBLIC_KEYS + CONFIG_KEYS');
   // một bảng, không nhánh code: không còn so sánh trực tiếp với 'pt'/'es' trong target.js + settings.js
   for (const f of ['web/js/target.js', 'web/js/settings.js']) ok(!/[!=]==?\s*'(pt|es)'|'(pt|es)'\s*[!=]==?|lk\.pt'|pt_pilot\b(?!',)/.test(rd(f).replace(/^\s*(\/\/|\*|\/\*).*$/gm, '').replace(/const TABLE = \{[\s\S]*?\n {2}\};/, '') /* dữ liệu bảng được phép */), f + ': không còn nhánh if (pt) – tra bảng');
 }
