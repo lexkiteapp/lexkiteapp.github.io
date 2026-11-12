@@ -76,12 +76,15 @@ async function full(n) {
   return gh(`/pulls/${n}`);
 }
 
+/** Tệp xung đột của lần fix() gần nhất (ci-autopilot dùng để báo tên tệp). */
+export let lastConflicts = [];
 export function fix(p, dry) {
   const br = p.head.ref;
   git('fetch', '-q', 'origin', 'main', `${br}:refs/remotes/origin/${br}`);
   git('checkout', '-q', '-B', 'unconflict', `origin/${br}`);
   const m = tryGit('merge', '--no-edit', '-m', `Gộp main vào ${br} (pr-unconflict: tự gỡ tệp tự sinh)`, 'origin/main');
   const conflicted = git('diff', '--name-only', '--diff-filter=U').split('\n').filter(Boolean);
+  lastConflicts = conflicted;
   const steps = m.ok ? [] : plan(conflicted);   // gộp sạch cục bộ (GitHub tính cũ) → vẫn đẩy bản gộp để PR hết dirty
   if (!steps) { tryGit('merge', '--abort'); console.log(`#${p.number}: xung đột ở tệp người viết (${conflicted.join(', ')}) – để phiên phụ trách`); return 'manual'; }
   for (const { f, how } of steps) {

@@ -1,0 +1,28 @@
+# ci-autopilot (12/11, chủ: "CI nhàn rỗi mà 65 PR chất đống"): mỗi 10 phút duyệt PR mở – gộp main vào PR tụt (bắt xung đột ẩn sớm), báo xung đột 1 lần,
+# chạy lại check hỏng vì hạ tầng (≤ 2 lần), gộp PR xanh hẳn (cần secret AUTOPILOT_MERGE_TOKEN: gộp bằng github.token không kích workflow push-main), nạp việc theo ngân sách
+# runner (busy < 24/40, chừa ≥ 16 trống). Bản tin: job summary + issue ghim "CI autopilot". Dùng lại pr-unconflict.fix + filler.measure. Script + test: scripts/ci/autopilot.mjs, scripts/test/ci-autopilot.mjs.
+# ci-policy: all-paths – lịch/dispatch, không gắn với đường dẫn
+# ci-policy: queue – lượt đang đẩy nhánh PR không được huỷ giữa chừng; lượt chờ chạy ngay sau
+name: ci-autopilot
+on:
+  schedule:
+    - cron: '7-57/10 * * * *'
+  workflow_dispatch:
+    inputs:
+      dry: { description: 'Chỉ thử, không đẩy/gộp/ghi issue', type: boolean, default: false }
+permissions: { contents: read, pull-requests: write, issues: write, actions: write, statuses: read, checks: read }
+concurrency: { group: ci-autopilot, cancel-in-progress: false }
+jobs:
+  autopilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}', fetch-depth: 0 }   # đẩy bằng khoá deploy để CI của PR chạy lại (github.token không kích workflow)
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Duyệt PR
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          AUTOPILOT_MERGE_TOKEN: ${{ secrets.AUTOPILOT_MERGE_TOKEN }}
+        run: node scripts/ci/autopilot.mjs ${{ inputs.dry && '--dry' || '' }}
