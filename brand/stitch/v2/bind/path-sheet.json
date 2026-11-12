@@ -1,0 +1,64 @@
+{
+ "_doc": "Tấm chi tiết nút Lộ trình – d do web/js/path-trail.js dựng.",
+ "i18n": {},
+ "text": {
+  "Stage 1 · Greetings": "d.over",
+  "Speak: tell about your day": "d.title",
+  "Lunch, evening, bedtime": "d.sub",
+  "Words": "d.wordsL",
+  "Example": "d.exL",
+  "3 min": "d.min",
+  "Start": "d.go"
+ },
+ "attr": {
+  ":scope > main > div > button:nth-of-type(1)": {
+   "data-act": "'pclose'",
+   "aria-label": "d.close"
+  },
+  ":scope > main > div > button:nth-of-type(2)": {
+   "data-href": "d.href",
+   "data-act": "'pgo'"
+  }
+ },
+ "repeat": [
+  {
+   "list": "d.words",
+   "as": "w",
+   "variants": {
+    "x": ":scope > main > div > div:nth-of-type(3) > span:nth-child(1)"
+   },
+   "samples": ":scope > main > div > div:nth-of-type(3) > span",
+   "pick": "'x'",
+   "bind": {
+    "x": {
+     "text": {
+      "work": "w"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.ex",
+   "as": "x",
+   "variants": {
+    "x": ":scope > main > div > div:nth-of-type(4) > div:nth-child(1)"
+   },
+   "samples": ":scope > main > div > div:nth-of-type(4) > div",
+   "pick": "'x'",
+   "bind": {
+    "x": {
+     "text": {
+      "We usually watch TV in the evening.": "x.en",
+      "Buổi tối chúng mình thường xem tivi.": "x.tr"
+     },
+     "attr": {
+      ":scope > button": {
+       "data-say": "x.en",
+       "aria-label": "x.en"
+      }
+     }
+    }
+   }
+  }
+ ]
+}
