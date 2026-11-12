@@ -1,0 +1,32 @@
+# 🏁 Màn "Hoàn thành bài học" (Stitch v2.1): hình học thật + số liệu nhất quán – chặn tái phát lỗi chủ báo 12/11
+# (chip sai cấp, vòng không nhãn, Ama lệch/bị cắt, ′, TỔNG XP, vòng focus bằng chuột, icon replay, ✕ bị cắt, số liệu lệch).
+# Ma trận 375/320/1280 · sáng/tối · vi/en/de/ar(RTL). Hermetic (web/ trên lk.test), 0 lượt chạm prod. Ảnh từng ca ở artifact lesson-complete.
+name: Màn kết bài học – hình học
+on:
+  pull_request:
+    paths: ['web/js/lesson/**', 'web/js/st/v2/lesson-complete.js', 'web/css/st-v2-lesson-complete.css', 'web/css/st-lesson.css', 'web/js/app.js', 'web/app/index.html', 'brand/stitch/v2/lesson-complete-*.html', 'brand/stitch/v2/bind/lesson-complete.json', 'scripts/test/lesson-complete-geometry.mjs', 'scripts/test/stitch-screens.mjs', '.github/workflows/lesson-complete.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: lesson-complete-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  geometry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài Playwright (Chromium)
+        timeout-minutes: 8
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - name: Đo màn kết (9 ca)
+        timeout-minutes: 8
+        run: node scripts/test/lesson-complete-geometry.mjs web out/lesson-complete
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: lesson-complete, path: out/lesson-complete, retention-days: 14 }

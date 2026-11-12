@@ -1,26 +1,30 @@
 {
- "_doc": "Màn Hoàn thành bài học (#/lesson/go, cờ ux1) – d do web/js/lesson/ui.js finish() dựng từ phiên thật. Ama (cheer, ảnh tĩnh) đứng SAU thẻ 'sub' đục (thẻ kéo lên chồng đáy hình). Combo/thời gian/từ đã học/từ sai/không sai câu nào nằm trong thẻ này (d.more); Bài khác = #lsnAgain; nút thứ hai = Sổ lỗi sai (có câu sai) hoặc Bản đồ bài học; X (2 chỗ) = Bản đồ bài học; Chia sẻ = #lsnShare.",
+ "_doc": "Màn Hoàn thành bài học (#/lesson/go, cờ ux1) – d do web/js/lesson/ui.js finishV2() dựng từ phiên thật. Chip = chặng + số bài (L.endChip). 2 vòng = Chính xác (ngoài, teal) + Đúng ngay lần đầu (trong, vàng), có chú giải ngay dưới. 3 ô: XP nhận được (bài này) · COMBO cao nhất · Chuỗi ngày. Ama (cheer, ảnh tĩnh) căn giữa, thò sau thẻ 'sub' đục. Thẻ sub: lời khen + từ đã học + thời gian + từ cần ôn (d.more). Bài tiếp theo = #lsnAgain; nút hai = Sổ lỗi sai (có câu sai) hoặc Bản đồ bài học (icon map); X (2 chỗ) = Bản đồ bài học; Chia sẻ = #lsnShare.",
  "i18n": {
   "Close lesson": "Thoát bài học",
   "Learner profile": "Hồ sơ người học",
   "Lesson complete!": "Hoàn thành bài học!",
   "Share results": "Chia sẻ kết quả",
-  "TOTAL XP": "Tổng XP",
-  "ACCURACY": "Chính xác",
-  "STREAK": "Chuỗi",
-  "Toggle theme": "Đổi giao diện sáng/tối"
+  "Toggle theme": "Đổi giao diện sáng/tối",
+  "XP EARNED": "XP nhận được",
+  "BEST COMBO": "COMBO cao nhất",
+  "DAY STREAK": "Chuỗi ngày",
+  "Accuracy": "Chính xác",
+  "Recalled first try": "Từ nhớ ngay lần đầu"
  },
  "text": {
   "Active Drill Session": "d.title",
   "70%": "d.pct",
   "UNIT 3 • WRITING TASK 1": "d.chip",
   "+25": "d.xp",
-  "100%": "d.acc",
   "14": "d.streak",
   "Vocabulary Mastery +3": "d.sub",
   "Mastered 4 complex linking expressions today.": "d.learned",
-  "CONTINUE": "t('Bài khác')",
-  "REVIEW LESSON": "d.rev"
+  "CONTINUE": "t('Bài tiếp theo')",
+  "REVIEW LESSON": "d.rev",
+  "92%": "d.acc",
+  "88%": "d.first",
+  "12": "d.combo"
  },
  "attr": {
   ":scope > header > div > button:nth-child(1)": {
@@ -75,16 +79,25 @@
   ":scope > header > div > button:nth-child(3)": {
    "id": "'lkTheme'",
    "aria-label": "t('Đổi giao diện sáng/tối')"
+  },
+  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > span:nth-child(2)": {
+   "dir": "'ltr'"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > span:nth-child(1) > span:nth-child(3)": {
+   "dir": "'ltr'"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > span:nth-child(2) > span:nth-child(3)": {
+   "dir": "'ltr'"
   }
  },
  "cls": {
   ":scope > header > div > div:nth-child(2) > div:nth-child(2) > div": {
    "w-[70%]": "''"
   },
-  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > span:nth-child(1)": {
+  ":scope > main > div > div:nth-child(5) > div:nth-child(1) > span:nth-child(1)": {
    "truncate": "''"
   },
-  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > span:nth-child(2)": {
+  ":scope > main > div > div:nth-child(5) > div:nth-child(1) > span:nth-child(2)": {
    "truncate": "''"
   }
  },
@@ -107,16 +120,18 @@
   ":scope > main > div > div:nth-child(1) > button:nth-child(1)": "relative after:absolute after:-inset-1 after:content-['']",
   ":scope > main > div > div:nth-child(1) > button:nth-child(3)": "relative after:absolute after:-inset-1 after:content-['']",
   ":scope > main > div > div:nth-child(1) > div:nth-child(2)": "max-w-[60%]",
-  ":scope > main > div > div:nth-child(4)": "lsn-stats",
+  ":scope > main > div > div:nth-child(4)": "lsn-tiles",
   ":scope > main > div > div:nth-child(5)": "relative z-10 lsn-sub",
-  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > span": "break-words",
-  ":scope > main > div > div:nth-child(6) > button:nth-child(2)": "no-underline"
+  ":scope > main > div > div:nth-child(5) > div:nth-child(1) > span": "break-words",
+  ":scope > main > div > div:nth-child(6) > button:nth-child(2)": "no-underline",
+  ":scope > main > div > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "truncate min-w-0"
  },
  "after": {
   ":scope > main > div > div:nth-child(4)": "d.teacher",
-  ":scope > main > div > div:nth-child(5) > div:nth-child(2) > span:nth-child(2)": "d.more"
+  ":scope > main > div > div:nth-child(5) > div:nth-child(1) > span:nth-child(2)": "d.more"
  },
  "html": {
-  ":scope > main > div > div:nth-child(4) > div:nth-child(3) > div:nth-child(1)": "ST2.flame(ST2.flameState(+d.streak), 26)"
+  ":scope > main > div > div:nth-child(4) > div:nth-child(3) > div:nth-child(1)": "ST2.flame(ST2.flameState(+d.streak), 26)",
+  ":scope > main > div > div:nth-child(6) > button:nth-child(2) > span:nth-child(1)": "d.revIcon"
  }
 }

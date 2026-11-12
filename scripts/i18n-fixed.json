@@ -2360,6 +2360,36 @@
     "ru": "Вспомнил",
     "tr": "Hatırladım"
   },
+  "XP nhận được": {
+    "es": "XP ganados",
+    "pt": "XP ganhos",
+    "fr": "XP gagnés",
+    "de": "Erhaltene XP",
+    "id": "XP diperoleh",
+    "th": "XP ที่ได้รับ",
+    "zh": "获得经验值",
+    "ja": "獲得XP",
+    "ko": "획득 XP",
+    "hi": "मिले XP",
+    "ar": "نقاط الخبرة المكتسبة",
+    "ru": "Полученный XP",
+    "tr": "Kazanılan XP"
+  },
+  "Từ nhớ ngay lần đầu": {
+    "es": "Recordadas al primer intento",
+    "pt": "Lembradas de primeira",
+    "fr": "Retenus du premier coup",
+    "de": "Auf Anhieb gewusst",
+    "id": "Langsung diingat",
+    "th": "จำได้ตั้งแต่ครั้งแรก",
+    "zh": "一次就记住",
+    "ja": "一発で覚えた",
+    "ko": "한 번에 기억",
+    "hi": "पहली बार में याद",
+    "ar": "تذكرتها من أول مرة",
+    "ru": "Вспомнено с первого раза",
+    "tr": "İlk seferde hatırlanan"
+  },
   "Chuỗi ngày": {
     "es": "Racha diaria",
     "pt": "Sequência diária",
