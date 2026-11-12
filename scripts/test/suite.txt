@@ -84,6 +84,7 @@ node scripts/test/ux1-rollout.mjs
 node scripts/test/pron-gop.mjs
 node scripts/test/pron-pairs.mjs
 node scripts/test/pron-coach.mjs
+node scripts/test/pron-shadow.mjs
 node scripts/test/call-engine.mjs
 node scripts/test/feedback-eval.mjs
 node scripts/test/route-race.mjs
