@@ -1,5 +1,5 @@
 {
- "_doc": "Thiết lập – bước 'Ngôn ngữ đang học' (W7, chỉ hiện khi Target.avail() có ≥ 2 ngôn ngữ; web/js/onboard.js). Mẫu Stitch: project 14998838784556418143 (sáng 14612b71…, tối f7866597…). Số 'học viên/bài học' trong mẫu là số bịa → KHÔNG đưa vào. Hai thẻ mẫu (chọn/chưa chọn) = 2 khuôn c1/c2, r = Target.avail() (cờ/nhãn/mô tả từ bảng).",
+ "_doc": "Thiết lập – bước 'Ngôn ngữ đang học' (W7, chỉ hiện khi Target.avail() có ≥ 2 ngôn ngữ; web/js/onboard.js). Mẫu Stitch: project 14998838784556418143 (sáng 14612b71…, tối f7866597…). Số 'học viên/bài học' trong mẫu là số bịa → KHÔNG đưa vào. Hai thẻ mẫu (chọn/chưa chọn) = 2 khuôn c1/c2, r = Target.avail() (cờ/nhãn/mô tả từ bảng). Logo/wordmark bỏ khỏi đầu màn (luật brand-logo-stitch: chỉ logo thật; các bước thiết lập khác cũng không có logo).",
  "i18n": {
   "Choose language": "Chọn ngôn ngữ học",
   "Start your journey": "Bắt đầu hành trình",
@@ -7,8 +7,7 @@
   "Pick your target language to personalise your path.": "Chọn ngôn ngữ mục tiêu để cá nhân hóa lộ trình học của bạn.",
   "You can change this any time in Settings": "Bạn có thể đổi bất cứ lúc nào ở Cài đặt",
   "Continue": "Tiếp tục",
-  "Back": "Quay lại",
-  "Lexkite": "Lexkite"
+  "Back": "Quay lại"
  },
  "text": {
   "1/4": "d.stepTxt",
