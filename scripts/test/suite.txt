@@ -391,3 +391,4 @@ node scripts/audit/score.mjs --self-test
 node scripts/test/suite-shards.mjs
 node scripts/test/mistake-variant.mjs
 node scripts/test/adsense-hygiene.mjs
+node scripts/test/play-duel.mjs
