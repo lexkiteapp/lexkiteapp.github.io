@@ -27,6 +27,7 @@
   "web/js/phrases.js": { "groups": ["words-uk", "words-us"], "dynamic": "cụm từ / câu người học tự lưu" },
   "web/js/pron.js": { "groups": ["pron"] },
   "web/js/pron/rhythm.js": { "groups": ["pron"] },
+  "web/js/pron/shadow.js": { "groups": ["pron"] },
   "web/js/pron/sayit.js": { "groups": ["pron"] },
   "web/js/speak/app.js": { "groups": ["speak-situations"] },
   "web/js/settings.js": { "groups": ["ui-lines"] },
