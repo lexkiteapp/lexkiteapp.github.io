@@ -11,8 +11,8 @@ Rules (waist-up teachers, eye-level camera):
   ground   the SOLID body (alpha >= 250; app stills fade out over their last ~94 rows) reaches the frame bottom -> the fade is off-frame
   eye      teacher eye line within ±0.07 H of the plate horizon (bg_zones.py) – an eye-level camera sees eyes on the horizon
   scale    every teacher in one frame has the same head size (eye→mouth px) ±8 %
-  frame    eyes inside 6–94 % of the width, head top not cut, ≥ 85 % of the body width visible
-  apart    two teachers overlap ≤ 20 % of the narrower body
+  frame    eyes inside 6–94 % of the width, head top not cut, ≥ 85 % of the torso width visible
+  apart    two teachers' torsos overlap ≤ 20 % of the narrower torso (arms may cross)
   light    layer grade == plate light (day | evening)
   furniture lower body over near forbidden cells (bg_zones grid 'N': table/counter right at the camera) ≤ 35 %
 
@@ -49,7 +49,8 @@ def check(frame, plate, hosts):
     for i, h in enumerate(hosts):
         a = h['alpha'] if 'alpha' in h else load_alpha(h['layer'])
         sb, top = solid_bottom(a); s, x, y = h['s'], h['x'], h['y']
-        cols = np.nonzero(a.max(0) > 0)[0]; bx0, bx1 = x + cols.min() * s, x + (cols.max() + 1) * s
+        rows = np.nonzero(a.max(1) > 0)[0]; cols = np.nonzero(a[int(top + 0.8 * (rows.max() - top))] > 0)[0]   # TORSO width (a raised/pointing arm may cross over)
+        bx0, bx1 = x + cols.min() * s, x + (cols.max() + 1) * s
         by0 = y + top * s; ey = y + h['eye'][1] * s; ex = x + h['eye'][0] * s
         boxes.append((bx0, bx1, ey)); heads.append(h['eye_mouth'] * s)
         res.append((sb is not None and y + (sb + 1) * s >= H - 2, 'ground', f'host{i}: solid body ends at y={y + ((sb or 0) + 1) * s:.0f}, frame bottom {H} (floating if above; fade must be off-frame)'))

@@ -8,7 +8,7 @@ R = os.path.join(os.path.dirname(__file__), '..', '..'); C = json.load(open(f'{R
 k = 960 / C['frame']['h']; EY, EM = C['frame']['eye_y'] * 960, C['frame']['eye_mouth'] * k   # app stills = 2x the registry frame
 W, H, HZ = 1920, 1080, 0.42; plate = dict(horizon=HZ, light='evening')
 def host(who, cx, **o):
-    a = F.load_alpha(f'{R}/web/teach/{who}/still-count.webp'); sb, _ = F.solid_bottom(a); cols = np.nonzero(a[int(EY)] > 0)[0]; ex = (cols.min() + cols.max()) / 2
+    a = F.load_alpha(f'{R}/web/teach/{who}/still-point.webp'); sb, _ = F.solid_bottom(a); cols = np.nonzero(a[int(EY)] > 0)[0]; ex = (cols.min() + cols.max()) / 2
     p = F.place((W, H), HZ, EY, sb, cx, ex); h = dict(alpha=a, eye=[ex, EY], eye_mouth=EM, grade='evening', **p); h.update(o); return h, sb
 def fails(hosts, pl=plate): return sorted({k for ok, k, _ in F.check((W, H), pl, hosts) if not ok})
 (a, sb), (c, _) = host('ama', 0.30), host('carlos', 0.70)
