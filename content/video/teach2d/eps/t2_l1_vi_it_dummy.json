@@ -66,7 +66,7 @@
    "answer": 0
   },
   "native": {
-   "hook": "Thiếu “it” khi nói thời tiết!",
+   "hook": "Tiếng Anh cần “it” cho thời tiết!",
    "tip": "Tiếng Việt có thể bỏ chủ ngữ (“nóng quá”). Tiếng Anh luôn cần “it”.",
    "caption": "Bạn có hay nói “Is very hot today.” không? 😅 Câu tiếng Anh luôn cần chủ ngữ: “It is very hot today.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
    "comment": "Đáp án: “It”. Nói thời tiết hôm nay bắt đầu bằng “It is…” nhé. Luyện thêm miễn phí tại đây: {link}",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Thiếu “it” khi nói thời tiết!"
+  "text": "Tiếng Anh cần “it” cho thời tiết!"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 97
  },
  "publish": {
-  "title": "Thiếu “it” khi nói thời tiết!",
+  "title": "Tiếng Anh cần “it” cho thời tiết!",
   "keyword": "It is very hot today.",
   "value": "Tiếng Việt có thể bỏ chủ ngữ (“nóng quá”). Tiếng Anh luôn cần “it”.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 37,
   "platforms": {
    "youtube": {
-    "title": "Thiếu “it” khi nói thời tiết!",
+    "title": "Tiếng Anh cần “it” cho thời tiết!",
     "description": "Bạn có hay nói “Is very hot today.” không? 😅 Câu tiếng Anh luôn cần chủ ngữ: “It is very hot today.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
     "tags": [
      "It is very hot today.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "Thiếu “it” khi nói thời tiết! #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+    "caption": "Tiếng Anh cần “it” cho thời tiết! #hoctienganh #nguphaptienganh #tienganhgiaotiep"
    }
   },
   "first_comment": "Đáp án: “It”. Nói thời tiết hôm nay bắt đầu bằng “It is…” nhé. Luyện thêm miễn phí tại đây: {link}",

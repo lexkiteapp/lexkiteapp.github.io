@@ -40498,5 +40498,50 @@
     "ar": "{n} أسئلة قصيرة عن النقاط التي تُخطئ فيها، بطريقة جديدة",
     "ru": "{n} коротких вопросов о слабых местах, заданных по-новому",
     "tr": "Sık karıştırdığın yerlerle ilgili, yeni biçimde sorulan {n} kısa soru"
+  },
+  "Bóng ma: {n}": {
+    "es": "Fantasma: {n}",
+    "pt": "Fantasma: {n}",
+    "fr": "Fantôme : {n}",
+    "de": "Geist: {n}",
+    "id": "Hantu: {n}",
+    "th": "ผีคู่แข่ง: {n}",
+    "zh": "幽灵：{n}",
+    "ja": "ゴースト：{n}",
+    "ko": "고스트: {n}",
+    "hi": "भूत: {n}",
+    "ar": "الشبح: {n}",
+    "ru": "Призрак: {n}",
+    "tr": "Hayalet: {n}"
+  },
+  "Bạn lần trước: {n}": {
+    "es": "Tú la última vez: {n}",
+    "pt": "Você da última vez: {n}",
+    "fr": "Toi la dernière fois : {n}",
+    "de": "Du beim letzten Mal: {n}",
+    "id": "Kamu terakhir kali: {n}",
+    "th": "คุณครั้งก่อน: {n}",
+    "zh": "上次的你：{n}",
+    "ja": "前回の自分：{n}",
+    "ko": "지난번의 나: {n}",
+    "hi": "पिछली बार का आप: {n}",
+    "ar": "أنت في المرة السابقة: {n}",
+    "ru": "Ты в прошлый раз: {n}",
+    "tr": "Geçen seferki sen: {n}"
+  },
+  "Bạn đã thắng bóng ma! 🎉": {
+    "es": "¡Ganaste al fantasma! 🎉",
+    "pt": "Você venceu o fantasma! 🎉",
+    "fr": "Tu as battu le fantôme ! 🎉",
+    "de": "Du hast den Geist besiegt! 🎉",
+    "id": "Kamu mengalahkan hantu! 🎉",
+    "th": "คุณชนะผีคู่แข่งแล้ว! 🎉",
+    "zh": "你打败了幽灵！🎉",
+    "ja": "ゴーストに勝った！🎉",
+    "ko": "고스트를 이겼어요! 🎉",
+    "hi": "आपने भूत को हरा दिया! 🎉",
+    "ar": "لقد هزمت الشبح! 🎉",
+    "ru": "Ты победил призрака! 🎉",
+    "tr": "Hayaleti yendin! 🎉"
   }
 }
