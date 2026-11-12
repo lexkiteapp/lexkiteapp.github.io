@@ -22,3 +22,6 @@ Chuẩn: [specs/notifications.md](specs/notifications.md) (đẹp, không ép, c
 ## Máy tính: QR "Mang Lexkite lên điện thoại" (cùng `install-sheet.js`)
 - Cùng 3 khoảnh khắc và trần như trên; chỉ hiện trên máy tính (kind cws/web/dock, không cảm ứng). Mã QR trỏ `https://lexkite.com/?utm_source=qr&utm_medium=install_sheet&utm_campaign=<khoảnh khắc>` – nút "Tải app" của trang chủ tự chọn Play/App Store theo máy quét. Thư viện QR `js/lib/qr.js` nạp lười (dùng chung Chuyển dữ liệu).
 - Đếm `inst_<m>_<v|c>_desk` (c = "Đã hiểu", không tính từ chối). Lời mời add-on trên Chromium máy tính (Chrome/Edge) đã có ở trang Từ điển `#/dict` (`data-ext-cta="app"`) + toast từ lần tra thứ 3 (`ext-cta.js`).
+
+## PWA dự phòng
+`web/manifest.webmanifest`: standalone, icon 192/512 + maskable (logo giữ nguyên), ảnh chụp narrow/wide, shortcuts, `related_applications` (Play + App Store, `prefer_related_applications:false`). Khóa bằng `scripts/test/pwa-installable.mjs` (link cửa hàng khớp `ext-config.js`).
