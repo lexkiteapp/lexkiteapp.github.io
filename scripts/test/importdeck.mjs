@@ -138,7 +138,7 @@ Skeptical readers doubted the claims, and a skeptical editor agreed. Xqzvtp is n
   for (const [k, v] of Object.entries({ TextEncoder, TextDecoder, Blob, File, Response, CompressionStream, DecompressionStream, crypto: globalThis.crypto })) Object.defineProperty(w, k, { value: v, configurable: true });
   w.matchMedia = () => ({ matches: false, addEventListener() {} });
   w.localStorage.setItem('vb.uiLang', 'en');
-  for (const f of ['js/i18n.js', 'js/i18n/en.js', 'js/i18n/en/lazyui.js', 'js/kit.js']) w.eval(rd(f));
+  for (const f of ['js/i18n.js', 'js/i18n/en.js', 'js/i18n/en/lazyui.js', 'js/i18n/en/anki.js', 'js/kit.js']) w.eval(rd(f));
   const store = {}, keyOf = s => String(s || '').toLowerCase().replace(/\s+/g, ' ').trim(); let map = { abundant: { word: 'abundant', srs: {} } }, syncs = 0;
   w.Core = { keyOf, Store: { get: async (k, f) => store[k] ?? f, set: async (k, v) => { store[k] = v; } },
     Cards: { make: (e, x) => ({ word: e.word, vi: e.vi || '', def: e.def || '', topic: e.topic, srs: { reps: 0 }, contexts: [], ...x }), mutate: async fn => { map = fn({ ...map }); } } };
