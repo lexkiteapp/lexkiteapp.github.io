@@ -48,7 +48,7 @@
  },
  "addClass": {
   ":scope > main > header > div > button": "lsn-x no-underline",
-  ":scope > main > header > div > div > div:nth-child(1) > div": "relative min-h-[44px] -my-3 bg-transparent border-0 cursor-pointer",
+  ":scope > main > header > div > div > div:nth-child(1) > div": "relative min-h-[44px] min-w-[44px] justify-center -my-3 bg-transparent border-0 cursor-pointer",
   ":scope > main > header > div > div > div:nth-child(2)": "lsn-bar",
   ":scope > main > div > section:nth-child(1)": "lsn-xhead",
   ":scope > main > div > section:nth-child(1) > div:nth-child(2) > div:nth-child(2)": "lsn-qchips",

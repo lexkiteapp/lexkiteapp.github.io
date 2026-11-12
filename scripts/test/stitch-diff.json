@@ -45,47 +45,47 @@
   }
  },
  "feedback-dark": {
-  "ssim": 0.21,
+  "ssim": 0.146,
   "rows": -0.199,
   "reg": {
-   "header": 0.685,
-   "top": 0.348,
-   "mid": 0.22,
+   "header": 0.129,
+   "top": 0.211,
+   "mid": 0.09,
    "low": 0.075,
-   "cta": 0.012
+   "cta": -0.281
   }
  },
  "feedback-light": {
-  "ssim": 0.201,
+  "ssim": 0.094,
   "rows": -0.113,
   "reg": {
-   "header": 0.751,
-   "top": 0.31,
-   "mid": 0.179,
+   "header": 0.07,
+   "top": 0.118,
+   "mid": 0.013,
    "low": 0.057,
-   "cta": 0.021
+   "cta": 0.004
   }
  },
  "feedback-wrong-dark": {
-  "ssim": 0.216,
-  "rows": 0.161,
+  "ssim": 0.157,
+  "rows": -0.04,
   "reg": {
-   "header": 0.645,
-   "top": 0.337,
-   "mid": 0.153,
+   "header": 0.139,
+   "top": 0.207,
+   "mid": 0.112,
    "low": 0.232,
-   "cta": 0.029
+   "cta": -0.083
   }
  },
  "feedback-wrong-light": {
-  "ssim": 0.107,
+  "ssim": 0.097,
   "rows": 0.101,
   "reg": {
-   "header": 0.696,
-   "top": 0.245,
-   "mid": 0.06,
-   "low": 0.378,
-   "cta": 0.006
+   "header": 0.095,
+   "top": 0.113,
+   "mid": 0.004,
+   "low": 0.205,
+   "cta": -0.173
   }
  },
  "home-dark": {
@@ -136,22 +136,22 @@
   "ssim": 0.183,
   "rows": 0.025,
   "reg": {
-   "header": 0.719,
-   "top": 0.294,
-   "mid": 0.387,
+   "header": 0.491,
+   "top": 0.171,
+   "mid": 0.121,
    "low": 0.062,
-   "cta": 0.99
+   "cta": 0.406
   }
  },
  "lesson-light": {
   "ssim": 0.194,
-  "rows": 0.164,
+  "rows": 0.162,
   "reg": {
-   "header": 0.696,
-   "top": 0.341,
-   "mid": 0.33,
+   "header": 0.465,
+   "top": 0.126,
+   "mid": 0.132,
    "low": 0.077,
-   "cta": 0.99
+   "cta": 0.565
   }
  },
  "me-dark": {

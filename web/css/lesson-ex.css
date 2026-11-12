@@ -1,7 +1,7 @@
 /* Khung bài tập có hình (Ghép cặp, Xếp câu…): cpack/lesson/ex.js. Tải cùng gói lesson (js/app.js BCSS). */
 .lsn-xframe{margin-inline:auto}.lsn-xframe .lsn-qchips{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--sp-1)}
 .lsn-xhead .lsn-tchw{position:relative;flex:none;width:96px;height:112px;display:flex;justify-content:center;align-items:flex-end;pointer-events:none}
-.lsn-fx .lsn-xhead .ex-seat #lsnTch{position:relative;inset:auto;flex:none;width:96px;height:104px;margin-bottom:var(--sp-1)}.lsn-fx .lsn-xhead .ex-seat .ss-floor{width:92px;height:22px;max-width:100%}
+.lsn-fx .lsn-xhead .ex-seat #lsnTch{position:relative;inset:auto;flex:none;width:96px;height:104px;margin-bottom:var(--sp-1)}.lsn-fx .lsn-xhead .ex-seat .ss-floor{width:116px;height:28px;max-width:none}
 .lsn-xcombo{color:var(--gold-text);font-size:calc(var(--fs-xs)*.84);font-weight:800}.lsn-xcombo:empty{display:none}
 .lsn-fx .lsn-xcta:enabled{color:var(--cta-ink)!important}.lsn-fx section.lsn-ans{--p:3.5rem;min-height:calc(var(--p)*2);padding:0!important;gap:0 var(--sp-2)!important;align-content:flex-start;border:0!important;background-color:transparent!important;box-shadow:none!important;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent calc(var(--p) - 2px),var(--ex-rule) calc(var(--p) - 2px),var(--ex-rule) var(--p))}.lsn-fx section.lsn-ans>button{margin:var(--sp-1) 0!important}.lsn-xcta:enabled{background:linear-gradient(90deg,var(--cta-1),var(--cta-2));color:var(--cta-ink);border-color:transparent;box-shadow:0 4px 0 var(--cta-lip);cursor:pointer}.lsn-xcta:enabled:active{transform:translateY(3px);box-shadow:0 1px 0 var(--cta-lip)}
 .lsn-xcta{transition:background .15s,color .15s,box-shadow .15s,transform .12s}
