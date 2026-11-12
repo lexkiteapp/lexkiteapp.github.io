@@ -1,0 +1,140 @@
+{
+ "_note": "Edge Add-ons 'Search terms' (≤7 cụm, mỗi cụm ≤ 30 ký tự) cho 15 ngôn ngữ – Partner Center → Store listings → từng ngôn ngữ. Không nhồi từ, không tên thương hiệu khác. Kiểm: node scripts/test/addon-listings.mjs",
+ "terms": {
+  "en": [
+   "english dictionary",
+   "translate selection",
+   "vocabulary flashcards",
+   "IELTS vocabulary",
+   "TOEIC vocabulary",
+   "spaced repetition",
+   "learn english words"
+  ],
+  "vi": [
+   "từ điển anh việt",
+   "dịch tiếng anh",
+   "flashcard từ vựng",
+   "từ vựng IELTS",
+   "từ vựng TOEIC",
+   "lặp lại ngắt quãng",
+   "học tiếng anh"
+  ],
+  "es": [
+   "diccionario inglés",
+   "traducir selección",
+   "flashcards de vocabulario",
+   "vocabulario IELTS",
+   "vocabulario TOEIC",
+   "repetición espaciada",
+   "aprender inglés"
+  ],
+  "pt_BR": [
+   "dicionário inglês",
+   "traduzir seleção",
+   "flashcards de vocabulário",
+   "vocabulário IELTS",
+   "vocabulário TOEIC",
+   "repetição espaçada",
+   "aprender inglês"
+  ],
+  "fr": [
+   "dictionnaire anglais",
+   "traduire la sélection",
+   "flashcards de vocabulaire",
+   "vocabulaire IELTS",
+   "vocabulaire TOEIC",
+   "répétition espacée",
+   "apprendre l'anglais"
+  ],
+  "de": [
+   "englisch wörterbuch",
+   "auswahl übersetzen",
+   "vokabel karteikarten",
+   "IELTS vokabeln",
+   "TOEIC vokabeln",
+   "spaced repetition",
+   "englisch lernen"
+  ],
+  "id": [
+   "kamus inggris",
+   "terjemahkan teks",
+   "flashcard kosakata",
+   "kosakata IELTS",
+   "kosakata TOEIC",
+   "pengulangan berjarak",
+   "belajar bahasa inggris"
+  ],
+  "th": [
+   "พจนานุกรมอังกฤษ",
+   "แปลข้อความที่เลือก",
+   "แฟลชการ์ดคำศัพท์",
+   "คำศัพท์ IELTS",
+   "คำศัพท์ TOEIC",
+   "ทบทวนแบบเว้นระยะ",
+   "เรียนภาษาอังกฤษ"
+  ],
+  "zh_CN": [
+   "英语词典",
+   "划词翻译",
+   "单词闪卡",
+   "雅思词汇",
+   "托业词汇",
+   "间隔重复",
+   "学英语单词"
+  ],
+  "ja": [
+   "英語辞書",
+   "選択範囲を翻訳",
+   "単語フラッシュカード",
+   "IELTS 単語",
+   "TOEIC 単語",
+   "間隔反復",
+   "英単語 学習"
+  ],
+  "ko": [
+   "영어 사전",
+   "선택 영역 번역",
+   "단어 플래시카드",
+   "IELTS 단어",
+   "TOEIC 단어",
+   "간격 반복",
+   "영어 단어 공부"
+  ],
+  "hi": [
+   "अंग्रेज़ी शब्दकोश",
+   "चयनित टेक्स्ट अनुवाद",
+   "शब्द फ्लैशकार्ड",
+   "IELTS शब्दावली",
+   "TOEIC शब्दावली",
+   "अंतराल दोहराव",
+   "अंग्रेज़ी सीखें"
+  ],
+  "ar": [
+   "قاموس إنجليزي",
+   "ترجمة النص المحدد",
+   "بطاقات مفردات",
+   "مفردات IELTS",
+   "مفردات TOEIC",
+   "التكرار المتباعد",
+   "تعلم الإنجليزية"
+  ],
+  "ru": [
+   "английский словарь",
+   "перевод выделенного",
+   "карточки со словами",
+   "слова IELTS",
+   "слова TOEIC",
+   "интервальное повторение",
+   "учить английский"
+  ],
+  "tr": [
+   "ingilizce sözlük",
+   "seçili metni çevir",
+   "kelime kartları",
+   "IELTS kelimeleri",
+   "TOEIC kelimeleri",
+   "aralıklı tekrar",
+   "ingilizce öğren"
+  ]
+ }
+}
