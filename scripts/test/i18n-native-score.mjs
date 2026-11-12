@@ -87,8 +87,12 @@ const read = (f, d) => (/native-fixed/.test(f) ? { ja: { 'Câu một.': { l1: 'F
 const P = packs(en, read);
 ok(P.ja['Câu một.'] === 'FIX' && P.ja['Câu hai.'] === 'cdn2', 'native-fixed đè gói CDN chỉ khi hash en khớp');
 
+// nguồn bài ngữ pháp: chuỗi không kết thúc bằng ".." (lỗi ghép '→ câu.' + '.' từng lọt 44 lời giải; khóa en-src/L1 chép nguyên văn)
+for (const f of grammarFiles()) { const m = fs.readFileSync(f, 'utf8').match(/[^.]\.\.(?=['"])/g); ok(!m, `${f}: ${m && m.length} chuỗi kết thúc bằng ".."`); }
+
 // workflow + kết quả
 const wf = fs.readFileSync('.github/workflows/i18n-native-score.yml', 'utf8');
+ok(/NS_MIN: '\d+'/.test(wf) && +wf.match(/NS_MIN: '(\d+)'/)[1] + 4 < +wf.match(/timeout-minutes: (\d+)/)[1], 'workflow: NS_MIN + 4 phút chốt cứng < timeout job (không mất phần đã chấm)');
 ok(/workflow_dispatch/.test(wf) && /concurrency:/.test(wf) && /timeout-minutes:/.test(wf) && /--check/.test(wf), 'workflow: dispatch + concurrency + timeout + chạy cổng --check');
 if (fs.existsSync('content/i18n-native-score.json')) { const s = JSON.parse(fs.readFileSync('content/i18n-native-score.json', 'utf8')); ok(typeof s.avg === 'number' && typeof s.n === 'number', 'content/i18n-native-score.json đúng khuôn (content-score đọc avg)'); }
 

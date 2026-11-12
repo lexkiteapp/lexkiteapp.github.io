@@ -30,6 +30,8 @@ node scripts/test/speak-split.mjs
 node scripts/test/speak.mjs
 node scripts/test/i18n-single.mjs
 node scripts/test/i18n-pack.mjs
+node scripts/test/fmt-stable.mjs
+node scripts/test/gen-guard.mjs
 node scripts/test/lexicon-expand.mjs
 node scripts/test/sentence-asr.mjs
 node scripts/test/i18n-english.mjs
@@ -132,6 +134,7 @@ node scripts/test/required-gate.mjs
 node scripts/test/drive-ui.mjs
 node scripts/test/jobs-check.mjs
 node scripts/test/ci-filler.mjs
+node scripts/test/ci-autopilot.mjs
 node scripts/test/cron-watch.mjs
 node scripts/test/cron-kick.mjs
 node scripts/test/ci-hog.mjs
