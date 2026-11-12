@@ -1039857,6 +1039857,327 @@
     "qa": {},
     "senseLock": "wiktionary-1"
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "breakout#n",
+   "batch": "20261112-r226",
+   "why": [
+    "ví dụ: không đủ 2 câu NGƯỜI VIẾT đúng nghĩa khoá (Tatoeba/Wiktionary/WordNet, trắc nghiệm nghĩa 3 giám khảo)",
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-12",
+   "data": {
+    "w": "breakout",
+    "pos": "n",
+    "ipa": "/ˈbreɪkaʊt/",
+    "ipaUS": "/ˈbreɪkaʊt/",
+    "def": "an escape from prison",
+    "ex": [],
+    "col": [],
+    "syn": [
+     "break",
+     "jailbreak",
+     "prison-breaking"
+    ],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.49,
+    "emoji": "",
+    "topic": "crime",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:break.n.16",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [],
+     "tr": {
+      "es": "omw+ai",
+      "pt": "wiktionary+ai",
+      "ja": "omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "an escape from prison",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "profusion#n",
+   "batch": "20261112-r226",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-12",
+   "data": {
+    "w": "profusion",
+    "pos": "n",
+    "ipa": "/prə(ʊ)ˈfjuːʒən/",
+    "ipaUS": "/prəˈfjuːʒn/",
+    "def": "a great amount or abundance of something",
+    "ex": [
+     "There is also a garden room with a profusion of flowers.",
+     "Nowhere else in all the world is there such a profusion of roses."
+    ],
+    "col": [],
+    "syn": [
+     "richness"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.52,
+    "emoji": "",
+    "topic": "education",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:profusion.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew124931.23",
+      "commonvoice:cv0.32479"
+     ],
+     "tr": {
+      "ja": "omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "abundance",
+     "col": "",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "navigation#n",
+   "batch": "20261112-r226",
+   "why": [
+    "nghĩa: không khoá được nghĩa thông dụng (nghĩa 1 Wiktionary ↔ WordNet, 3 giám khảo {\"wk1\":[0,0,1],\"wk2\":[2,2,2]})"
+   ],
+   "at": "2026-11-12"
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "groundbreaking#n",
+   "batch": "20261112-r226",
+   "why": [
+    "giám khảo nêu lỗi: no translations"
+   ],
+   "at": "2026-11-12",
+   "data": {
+    "w": "groundbreaking",
+    "pos": "n",
+    "ipa": "/ˈɡraʊndˌbreɪkɪŋ/",
+    "ipaUS": "/ˈɡraʊndbreɪkɪŋ/",
+    "def": "a ceremony that marks the start of a building project",
+    "ex": [
+     "By July, the groundbreaking was scheduled for September.",
+     "The groundbreaking for the project is slated to begin later in the year."
+    ],
+    "col": [
+     "groundbreaking ceremony"
+    ],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.46,
+    "emoji": "",
+    "topic": "architecture",
+    "vi": "lễ khởi công",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:groundbreaking.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew287125.28",
+      "wikinews:wnw30733.2"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi"
+     },
+     "trSense": "",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-2+semcor"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "gemini:gemini-3.6-flash": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 4
+     },
+     "f": [
+      "no translations"
+     ],
+     "tr": {
+      "es": [],
+      "pt": [],
+      "fr": [],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": null,
+     "btw": {
+      "es": [],
+      "pt": [],
+      "fr": [],
+      "de": [],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "viBtw": [
+      "groundbreaking ceremony",
+      "groundbreaking ceremony",
+      "groundbreaking ceremony"
+     ],
+     "viLem": [
+      "groundbreaking ceremony"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C1",
+      "C1"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {}
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "c"
+     ]
+    },
+    "senseLock": "wiktionary-2+semcor",
+    "tp": [
+     "architecture.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "farmhouse#n",
+   "batch": "20261112-r226",
+   "why": [
+    "dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo"
+   ],
+   "at": "2026-11-12",
+   "data": {
+    "w": "farmhouse",
+    "pos": "n",
+    "ipa": "/ˈfɑːmhæus/",
+    "ipaUS": "/ˈfɑːrmhaʊs/",
+    "def": "the main house on a farm",
+    "ex": [
+     "The farmhouse was both large and old.",
+     "There were farmhouses all over the area."
+    ],
+    "col": [
+     "old farmhouse",
+     "original farmhouse"
+    ],
+    "syn": [],
+    "level": "C1",
+    "cefrF": "C1",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 3.42,
+    "emoji": "",
+    "topic": "dom-biz",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:farmhouse.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:11793528",
+      "tatoeba:4009134"
+     ],
+     "tr": {
+      "es": "wiktionary+ai",
+      "pt": "omw+ai",
+      "fr": "wiktionary+ai",
+      "de": "wiktionary+ai",
+      "zh": "omw+ai",
+      "ja": "omw+ai",
+      "tr": "wiktionary+ai"
+     },
+     "trSense": "farmer's residence",
+     "col": "wordnet/tatoeba",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
   }
  ]
 }
