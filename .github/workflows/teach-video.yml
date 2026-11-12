@@ -24,10 +24,10 @@ jobs:
     outputs: { go: '${{ steps.g.outputs.go }}' }
     steps:
       - id: g
-        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}' }
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
         run: |
           go=true
-          if [ "$EV" = pull_request ]; then
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
             n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
             [ "${n:-1}" -ge 1 ] || go=false
           fi

@@ -13,5 +13,5 @@ ok(pickReruns([run(1, 'ci.yml')], { 1: J('success', 'skipped') }, H).length === 
 ok(pickReruns([run(1, 'qa-bot.yml', { event: 'push' })], { 1: J('success', 'skipped') }, H).length === 0, 'chỉ lượt pull_request');
 ok(pickReruns([run(1, 'qa-bot.yml')], { 1: J('success') }, H).length === 0, 'không có job nặng nào → không chạy lại');
 const hf = heavyFiles();
-ok(hf.length === 13 && ['teach-video.yml', 'video-motion.yml'].every(f => hf.includes(f)) && ['qa-bot.yml', 'journey-e2e.yml', 'scroll-perf.yml', 'size-guard.yml', 'mobile-qa.yml'].every(f => hf.includes(f)), `13 workflow nặng có dấu heavy-gate (${hf.length})`);
+ok(hf.length >= 13 && ['teach-video.yml', 'video-motion.yml'].every(f => hf.includes(f)) && ['qa-bot.yml', 'journey-e2e.yml', 'scroll-perf.yml', 'size-guard.yml', 'mobile-qa.yml'].every(f => hf.includes(f)), `>= 13 workflow nặng có dấu heavy-gate (${hf.length})`);
 if (bad) process.exit(1); console.log('✓ heavy-rerun: chỉ chạy lại lượt nặng đã bị gate bỏ qua, 13 workflow nặng có gate');

@@ -137,6 +137,11 @@ export function violations(file, src) {
   if ((t.events.has('pull_request') || t.events.has('pull_request_target')) && !reason(src, 'matrix'))
     for (const j of jobs(src)) { const n = matrixLegs(j.text); if (n > MATRIX_MAX) out.push(`${file}: job "${j.id}" chạy trên PR với matrix ${n} nhánh (> ${MATRIX_MAX}) – gộp phần nhỏ nối tiếp trong 1 job (mỗi nhánh = 1 lượt xin runner + setup), hoặc dòng "# ci-policy: matrix – <lý do>"`); }
   if ((t.events.has('pull_request') || t.events.has('pull_request_target')) && !/cancel-in-progress:\s*["']?(true|\$\{\{)/.test(src) && !reason(src, 'queue')) out.push(`${file}: chạy trên PR mà concurrency không có cancel-in-progress (luật 12) – commit mới phải huỷ lượt cũ (hoặc dòng "# ci-policy: queue – <lý do>")`);
+  // luật 14 (12/11 – bão CI: 262 lượt chờ, PR mới đợi ~2 h): workflow chạy trình duyệt (Playwright/Chrome) trên PR PHẢI nằm sau làn nhanh
+  //  (`# ci-policy: heavy-gate`, luật 11) – hoặc có dòng `# ci-policy: fast-lane – <lý do>` (vd. đường dẫn rất hẹp). Không để bộ UI mới lọt qua cổng.
+  if ((t.events.has('pull_request') || t.events.has('pull_request_target')) && /playwright|pw-install|puppeteer|google-chrome/i.test(String(src).replace(/^\s*#.*$/gm, '')) && !/^# ci-policy: heavy-gate\b/m.test(src) && !reason(src, 'fast-lane'))
+    out.push(`${file}: chạy trình duyệt trên PR mà không qua làn nhanh (luật 14) – thêm "# ci-policy: heavy-gate" + job gate (mẫu web-sweep.yml) hoặc dòng "# ci-policy: fast-lane – <lý do>"`);
+  if (/^# ci-policy: heavy-gate\b/m.test(src) && !/READY/.test(src)) out.push(`${file}: job gate thiếu nhãn \`ready\` (luật 14: PR có nhãn ready chạy việc nặng ngay, không chờ npm test)`);
   if (/^# ci-policy: heavy-gate\b/m.test(src)) {   // luật 11
     const js = jobs(src), g = js.find(j => j.id === 'gate');
     if (!g || !/check_name=npm%20test/.test(g.text) || !/outputs:\s*\{\s*go:/.test(g.text)) out.push(`${file}: heavy-gate cần job "gate" đọc check-run npm test và xuất output go`);
@@ -239,11 +244,15 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     ok(!violations('mobile-qa.yml', job('      - timeout-minutes: 12\n        run: npx playwright install chromium\n')).some(x => /luật 10/.test(x)), 'luật 10: mobile-qa.yml được miễn');
   }
   { const hv = "# ci-policy: heavy-gate – x\n" + base.replace("  push:\n    branches: [main]\n    paths: ['a/**']", "  pull_request:\n    paths: ['a/**']").replace('concurrency: { group: x }', 'concurrency: { group: x, cancel-in-progress: true }');
-    const gate = "  gate:\n    runs-on: ubuntu-latest\n    timeout-minutes: 3\n    outputs: { go: '${{ steps.g.outputs.go }}' }\n    steps:\n      - run: gh api 'x?check_name=npm%20test'\n";
+    const gate = "  gate:\n    runs-on: ubuntu-latest\n    timeout-minutes: 3\n    outputs: { go: '${{ steps.g.outputs.go }}' }\n    steps:\n      - run: gh api 'x?check_name=npm%20test' $READY\n";
     const good = hv.replace('jobs:\n', 'jobs:\n' + gate).replace('  a:\n', "  a:\n    needs: gate\n    if: needs.gate.outputs.go == 'true'\n");
     ok(violations('h.yml', good).length === 0, 'luật 11: gate + needs + if → đạt');
     ok(violations('h.yml', hv.replace('jobs:\n', 'jobs:\n' + gate)).some(v => /luật 11/.test(v)), 'luật 11: job không needs gate → lỗi');
     ok(violations('h.yml', hv).some(v => /gate/.test(v)), 'luật 11: thiếu job gate → lỗi');
+    ok(violations('h.yml', good.replace(' $READY', '')).some(v => /luật 14/.test(v)), 'luật 14: gate thiếu nhãn ready → lỗi');
+    const ui = base.replace("  push:\n    branches: [main]\n", '  pull_request:\n').replace('concurrency: { group: x }', 'concurrency: { group: x, cancel-in-progress: true }').replace('    steps: []\n', '    steps:\n      - run: npx playwright test\n');
+    ok(violations('u.yml', ui).some(v => /luật 14/.test(v)), 'luật 14: PR chạy trình duyệt không qua làn nhanh → lỗi');
+    ok(violations('u.yml', '# ci-policy: fast-lane – đường dẫn rất hẹp, không phải bộ UI nặng\n' + ui).length === 0, 'luật 14: có lý do fast-lane → đạt');
     ok(violations('h.yml', good.replace('cancel-in-progress: true', 'cancel-in-progress: false')).some(v => /luật 12/.test(v)), 'luật 12: PR không cancel-in-progress → lỗi');
     ok(violations('h.yml', '# ci-policy: queue – việc tuần tự không được huỷ\n' + good.replace('cancel-in-progress: true', 'cancel-in-progress: false')).length === 0, 'luật 12: có lý do queue → đạt'); }
   { const sg = l => violations('s.yml', base.replace('    steps: []\n', `    steps:\n      - run: |\n          ${l}\n`)).filter(v => /luật 13/.test(v)).length;
@@ -255,13 +264,17 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   // --- quét repo
   const files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f)), srcs = files.map(f => [f, fs.readFileSync(path.join(WF, f), 'utf8')]);
   for (const [f, s] of srcs) for (const v of violations(f, s)) ok(false, v);
-  const HEAVY = ['teach-video', 'video-motion', 'qa-bot', 'journey-e2e', 'ux-cards', 'scroll-perf', 'stitch-diff', 'font-audit', 'frame-consistency', 'visual-qa', 'mobile-qa', 'web-sweep', 'size-guard'];
+  const HEAVY = ['teach-video', 'video-motion', 'qa-bot', 'journey-e2e', 'ux-cards', 'scroll-perf', 'stitch-diff', 'font-audit', 'frame-consistency', 'visual-qa', 'mobile-qa', 'web-sweep', 'size-guard',
+    'journey-matrix', 'storage-audit', 'theme-qa', 'shell-responsive', 'icon-flash', 'figure-layout', 'stitch-web', 'stitch-quality-qc', 'stitch-refs-qc', 'topbar-lang', 'review-taps', 'review-taps-stability', 'samples-visual', 'admin-guard', 'admin-ads-ui', 'tools-pages', 'dict-pages', 'authority-pages'];
   for (const h of HEAVY) { const src = (srcs.find(([f]) => f === h + '.yml') || [])[1] || ''; ok(/^# ci-policy: heavy-gate\b/m.test(src), `${h}.yml thiếu dòng "# ci-policy: heavy-gate – …" (luật 11)`); }
   // luật 11b: teach-video trên PR chỉ smoke (preqc + ≤ 2 tập; render đầy đủ khi dispatch/ci-filler), video-motion PR chỉ 1 mẫu
   { let n = -1; try { n = JSON.parse(execFileSync('python3', ['scripts/video/teach2d/gen.py', '--pick', '', '0', 'pull_request', '24'], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })).length; } catch (e) { console.log('• ci-policy: python3/gen.py không chạy được – bỏ qua kiểm shard teach-video'); }
     ok(n < 0 || (n >= 1 && n <= 2), `teach-video trên PR chọn ${n} tập (phải 1–2: smoke, không render 24 shard)`);
     const vm = (srcs.find(([f]) => f === 'video-motion.yml') || [])[1] || ''; ok(/github\.event_name == 'pull_request' && 'drill' \|\|/.test(vm), 'video-motion.yml: PR phải chạy 1 mẫu (drill), không 4'); }
   { const np = (srcs.find(([f]) => f === 'npm-test.yml') || [])[1] || ''; ok(/^  heavy:/m.test(np) && /heavy-rerun\.mjs/.test(np) && /needs:\s*test/.test(np), 'npm-test.yml thiếu job heavy (chạy heavy-rerun.mjs sau job test) – luật 11'); }
+  { // luật 15: ci-autopilot không được cập nhật nhánh PR cũ/nhàn rỗi, trần 6 PR/lượt (bão CI 12/11: update-branch mọi PR tụt → ~40 workflow/PR/lần)
+    const ap = fs.readFileSync(path.join(ROOT, 'scripts/ci/autopilot.mjs'), 'utf8');
+    ok(/MAX_UPDATES = 6\b/.test(ap) && /isPriority\(pr, now\)\)/.test(ap) && /isRecent\(pr, now\)/.test(ap), 'luật 15: autopilot giữ trần 6 PR + chỉ đụng PR ưu tiên (isPriority/isRecent)'); }
   for (const c of chainCycles(srcs)) ok(false, `vòng workflow_run: ${c}`);
   for (const k of ciParity(fs.readFileSync(path.join(WF, 'ci.yml'), 'utf8'), fs.readFileSync(path.join(ROOT, 'scripts/test/suite.txt'), 'utf8'))) ok(false, `ci.yml chạy "${k}" nhưng suite.txt (cổng PR) không có → PR xanh vẫn làm main đỏ`);
   ok(ciParity('run: node scripts/a.mjs\n- run: npx tsc -p x.json', 'node scripts/a.mjs').join() === 'tsc -p', 'ciParity bắt lệnh thiếu');

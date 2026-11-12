@@ -1,3 +1,4 @@
+# ci-policy: fast-lane – chỉ chạy khi PR đổi đúng web/js/report.js hoặc script đo (đường dẫn hẹp, bench OCR không phải bộ giao diện nặng)
 # Ảnh chụp báo lỗi trên R2 (docs/REPORTS.md § Ảnh chụp).
 #  · bench (PR đổi web/js/report.js / script đo; hoặc chạy tay): đo trần nén bằng OCR – scripts/report-shot-bench.mjs (150 KB/1280 px so với 300 KB/1600 px).
 #  · setup (chạy tay): tạo bucket RIÊNG TƯ lexkite-report-shots (idempotent) – sau đó bỏ dấu # khối [[r2_buckets]] REPORT_SHOTS trong wrangler.toml.

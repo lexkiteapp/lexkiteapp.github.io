@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* ci-autopilot (12/11, chủ giận: CI nhàn rỗi trong khi 65 PR chất đống): mỗi 10 phút duyệt MỌI PR mở không draft và làm đúng 4 việc, dùng lại hạ tầng có sẵn
  * (pr-unconflict.fix để gộp main bằng khoá deploy → CI của PR chạy lại; filler.measure/countJobs đo runner; ngân sách 40 runner giữ ≥16 trống):
- *   1. PR tụt sau main, không xung đột → gộp main vào nhánh (bắt xung đột ẩn sớm). Có ngân sách: chỉ khi busy < 24/40, số PR ≤ floor((24 − busy) / 4), cũ nhất trước.
+ *   1. PR tụt sau main, không xung đột → gộp main vào nhánh (bắt xung đột ẩn sớm). Có ngân sách: chỉ khi busy < 24/40, số PR ≤ min(6, floor((24 − busy) / 4)), và CHỈ PR ưu tiên (isPriority: không draft, động tĩnh ≤ 24 h, check bắt buộc xanh hoặc lượt trước chỉ hỏng hạ tầng); PR cũ/nhàn rỗi không bao giờ bị đụng.
  *   2. Xung đột → nhãn needs-rebase + 1 bình luận nêu tên tệp (có nhãn rồi thì im; hết xung đột thì gỡ nhãn).
  *   3. Check đỏ vì hạ tầng (runner mất, cài đặt/mạng/apt/playwright treo, bị huỷ) → chạy lại job hỏng, tối đa 2 lần/lượt (run_attempt ≤ 2).
  *   4. Check bắt buộc required-gate xanh + gộp được + không nhãn chặn → squash-merge. KHÔNG bao giờ gộp khi đỏ/đang chạy/thiếu status; không bỏ check nào.
@@ -14,7 +14,7 @@ import { measure } from './filler.mjs';
 import { retry5xx } from '../lib/retry5xx.mjs';
 
 export const TOTAL = 40, KEEP_FREE = 16, BUSY_MAX = TOTAL - KEEP_FREE;   // 24: dưới mức này mới nạp thêm việc
-export const PER_PR = 4, MAX_UPDATES = 8, MAX_MERGES = 3, MAX_RERUN_ATTEMPT = 2, STUCK_H = 24, WINDOW_H = 24;
+export const PER_PR = 4, MAX_UPDATES = 6, PRIORITY_H = 24, MAX_MERGES = 3, MAX_RERUN_ATTEMPT = 2, STUCK_H = 24, WINDOW_H = 24;
 export const HOLD_LABELS = ['do-not-merge', 'frozen', 'hold', 'wip', 'blocked'];
 export const L_REBASE = 'needs-rebase', L_READY = 'ready-to-merge', ISSUE_TITLE = 'CI autopilot', ISSUE_LABEL = 'ci-autopilot';
 const INFRA_STEP = /\b(set up job|setup[- ]node|checkout|apt|apt-get|install|npm ci|npm install|playwright|download|upload artifact|cache|ffmpeg|wrangler|retry|network|curl)\b/i;
@@ -34,6 +34,10 @@ export function isInfraJob(job, msg = '') {
 }
 /** Lượt hỏng đáng chạy lại (thuần): mọi job hỏng đều là hạ tầng và lượt còn trong hạn 2 lần chạy lại. */
 export const shouldRerun = (run, failedJobs) => ['failure', 'cancelled', 'timed_out'].includes(run.conclusion) && (run.run_attempt || 1) <= MAX_RERUN_ATTEMPT && failedJobs.length > 0 && failedJobs.every(j => j.infra);
+/** PR ưu tiên được cập nhật nhánh (thuần; 12/11 bão CI: update-branch mọi PR tụt = ~40 workflow/PR mỗi lần main nhúc nhích): không draft, có động tĩnh ≤ 24 h, và check bắt buộc xanh hoặc lượt trước chỉ hỏng vì hạ tầng (pr.infra). PR cũ/nhàn rỗi KHÔNG bao giờ bị đụng. */
+export const isPriority = (pr, now = Date.now()) => !pr.draft && now - Date.parse(pr.updatedAt) <= PRIORITY_H * 3600e3 && (pr.gate === 'SUCCESS' || pr.infra === true);
+/** PR còn sống (không draft, động tĩnh ≤ 24 h) – điều kiện tối thiểu để gỡ xung đột tệp tự sinh bằng đẩy nhánh. */
+export const isRecent = (pr, now = Date.now()) => !pr.draft && now - Date.parse(pr.updatedAt) <= PRIORITY_H * 3600e3;
 export const held = pr => pr.labels.some(l => HOLD_LABELS.includes(l));
 /** Quyết định cho 1 PR (thuần). pr: { draft, labels[], mergeable: MERGEABLE|CONFLICTING|UNKNOWN, gate: SUCCESS|FAILURE|PENDING|ERROR|null, behind }. */
 export function decide(pr) {
@@ -138,17 +142,17 @@ export async function main({ dry = process.argv.includes('--dry') } = {}) {
       }
     } else {
       if (pr.labels.includes(L_READY) && !dry) await call(token, 'DELETE', `/repos/${REPO}/issues/${n}/labels/${L_READY}`);
-      if (d.act === 'conflict' && !pr.fork) {
+      if (d.act === 'conflict' && !pr.fork && left > 0 && isRecent(pr, now)) {   // đẩy nhánh = chạy lại ~40 workflow: chỉ PR còn sống, trong ngân sách
         const r = dry ? 'dry' : uc.fix({ number: n, head: { ref: pr.branch } }, false);   // tự gỡ tệp tự sinh; ngoài ra 'manual'
-        if (r === 'fixed') { mark('update', n); log.push(`#${n}: gỡ xung đột tệp tự sinh`); continue; }
+        if (r === 'fixed') { left--; mark('update', n); log.push(`#${n}: gỡ xung đột tệp tự sinh`); continue; }
         if (r === 'manual' && !pr.labels.includes(L_REBASE) && !dry) {
           await call(token, 'POST', `/repos/${REPO}/issues/${n}/labels`, { labels: [L_REBASE] });
           await call(token, 'POST', `/repos/${REPO}/issues/${n}/comments`, { body: `⚠️ **ci-autopilot:** nhánh xung đột với \`main\` ở tệp: ${uc.lastConflicts.map(f => '`' + f + '`').join(', ') || '(không rõ)'}. Phiên phụ trách gộp main vào nhánh rồi đẩy lại; nhãn \`${L_REBASE}\` tự gỡ khi hết xung đột. (Chỉ báo 1 lần.)` });
           mark('conflict', n);
         }
       } else if (pr.labels.includes(L_REBASE) && d.act !== 'conflict' && !dry) await call(token, 'DELETE', `/repos/${REPO}/issues/${n}/labels/${L_REBASE}`);
-      if (d.act === 'triage-red' && left > 0) { const k = await rerunInfra(token, pr, dry); if (k) { left--; mark('rerun', n); log.push(`#${n}: chạy lại ${k} lượt (hạ tầng)`); } }
-      if (d.act === 'update' && left > 0 && !pr.fork) { const r = dry ? 'dry' : uc.fix({ number: n, head: { ref: pr.branch } }, false); if (r === 'fixed') { left--; mark('update', n); log.push(`#${n}: gộp main vào nhánh`); } }
+      if (d.act === 'triage-red' && left > 0 && isRecent(pr, now)) { const k = await rerunInfra(token, pr, dry); if (k) { left--; pr.infra = true; mark('rerun', n); log.push(`#${n}: chạy lại ${k} lượt (hạ tầng)`); } }
+      if (d.act === 'update' && left > 0 && !pr.fork && isPriority(pr, now)) { const r = dry ? 'dry' : uc.fix({ number: n, head: { ref: pr.branch } }, false); if (r === 'fixed') { left--; mark('update', n); log.push(`#${n}: gộp main vào nhánh`); } }
     }
     if (now - Date.parse(pr.createdAt) > STUCK_H * 3600e3 && !(d.act === 'merge' && !ready.includes(n))) stuck.push({ n, age: Math.round((now - Date.parse(pr.createdAt)) / 3600e3), reason: stuckReason(pr, d) });
   }
