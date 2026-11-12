@@ -105,7 +105,7 @@
 "{p}% hoàn thành":"{p}% abgeschlossen",
 "{p}% trí nhớ":"{p}% Gedächtnis",
 "Ôn":"Wiederholen",
-"Ôn lại":"Noch einmal üben",
+"Ôn lại":"Wiederholen",
 "Ôn ngay ({m} phút)":"Jetzt wiederholen ({m} Min.)",
 "Ôn {a}/{b} thẻ":"{a}/{b} Karten wiederholt",
 "Đang làm":"In Arbeit",

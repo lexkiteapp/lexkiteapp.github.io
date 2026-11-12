@@ -105,7 +105,7 @@
 "{p}% hoàn thành":"{p}% terminé",
 "{p}% trí nhớ":"{p}% de mémoire",
 "Ôn":"Réviser",
-"Ôn lại":"Refaire",
+"Ôn lại":"Réviser",
 "Ôn ngay ({m} phút)":"Réviser ({m} min)",
 "Ôn {a}/{b} thẻ":"{a}/{b} cartes révisées",
 "Đang làm":"En cours",

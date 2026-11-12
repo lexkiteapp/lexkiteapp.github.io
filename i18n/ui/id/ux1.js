@@ -105,7 +105,7 @@
 "{p}% hoàn thành":"{p}% selesai",
 "{p}% trí nhớ":"{p}% ingatan",
 "Ôn":"Ulang",
-"Ôn lại":"Latihan lagi",
+"Ôn lại":"Ulangi",
 "Ôn ngay ({m} phút)":"Ulangi sekarang ({m} mnt)",
 "Ôn {a}/{b} thẻ":"{a}/{b} kartu diulang",
 "Đang làm":"Sedang berjalan",

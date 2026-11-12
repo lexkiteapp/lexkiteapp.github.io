@@ -105,7 +105,7 @@
 "{p}% hoàn thành":"%{p} tamamlandı",
 "{p}% trí nhớ":"Hafıza %{p}",
 "Ôn":"Tekrar",
-"Ôn lại":"Tekrar çalış",
+"Ôn lại":"Tekrar et",
 "Ôn ngay ({m} phút)":"Şimdi tekrar et ({m} dk)",
 "Ôn {a}/{b} thẻ":"{a}/{b} kart tekrarlandı",
 "Đang làm":"Devam ediyor",

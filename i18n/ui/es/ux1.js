@@ -105,7 +105,7 @@
 "{p}% hoàn thành":"{p}% completado",
 "{p}% trí nhớ":"{p}% de memoria",
 "Ôn":"Repasar",
-"Ôn lại":"Practicar de nuevo",
+"Ôn lại":"Repasar",
 "Ôn ngay ({m} phút)":"Repasar ya ({m} min)",
 "Ôn {a}/{b} thẻ":"{a}/{b} tarjetas repasadas",
 "Đang làm":"En curso",
