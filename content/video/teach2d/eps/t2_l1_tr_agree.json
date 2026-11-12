@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_agree",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Agree is a verb!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Agree is a verb. No am.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Agree! I agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am agree with you.",
+  "right": "I agree with you.",
+  "strike": "am agree",
+  "why": "Agree is a verb. No am.",
+  "memory": "I agree.",
+  "quiz": {
+   "stem": "I ___ with you.",
+   "options": [
+    "am agree",
+    "agree"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“I am agree” değil, “I agree”!",
+   "tip": "“Katılıyorum” için “I agree” de. “Am” eklemek yanlış olur.",
+   "caption": "“I am agree with you.” mi diyorsun? 😅 “Agree” zaten fiildir, önüne “am” gelmez. Doğrusu “I agree with you.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “agree”. Agree fiildir, am yok. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “I am agree”, but “I agree”!",
+   "tip": "Say “I agree”. Do not add “am”.",
+   "caption": "Do you say “I am agree with you.”? 😅 “Agree” is already a verb, so “am” does not go before it. The right sentence is “I agree with you.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“I am agree” değil, “I agree”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“I am agree” değil, “I agree”!",
+  "keyword": "I agree with you.",
+  "value": "“Katılıyorum” için “I agree” de. “Am” eklemek yanlış olur.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“I am agree” değil, “I agree”!",
+    "description": "“I am agree with you.” mi diyorsun? 😅 “Agree” zaten fiildir, önüne “am” gelmez. Doğrusu “I agree with you.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I agree with you.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I am agree with you.” mi diyorsun? 😅 “Agree” zaten fiildir, önüne “am” gelmez. Doğrusu “I agree with you.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I am agree with you.” mi diyorsun? 😅 “Agree” zaten fiildir, önüne “am” gelmez. Doğrusu “I agree with you.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“I am agree” değil, “I agree”! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “agree”. Agree fiildir, am yok. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}

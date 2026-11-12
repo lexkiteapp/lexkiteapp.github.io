@@ -13,7 +13,7 @@ const rd = f => fs.readFileSync(f, 'utf8');
 
 // ---- 1. tĩnh: tách khung, canh khởi động, lưu không dấu + ----
 const app = rd('web/js/app.js'), onb = rd('web/js/onboard.js'), wl = rd('web/js/welcome.js') + rd('web/js/st/v2/welcome.js') + rd('web/js/st/v2/welcome-desk.js'), pl = rd('web/js/placement.js'), frames = ['goal', 'level', 'target', 'pace', 'ready'].map(k => rd(`web/js/st/v2/onb-${k}.js`));
-ok(!firstLoadFiles().includes('/js/welcome.js') && /welcome: \[[^\]]*'js\/welcome\.js'\]/.test(app) && /ROUTE_BUNDLE = \{ welcome: 'welcome'/.test(app), 'welcome.js là gói lười, route nạp đúng gói');
+ok(!firstLoadFiles().includes('/js/welcome.js') && /welcome: \[[^\]]*'js\/welcome\.js'\]/.test(app) && /ROUTE_BUNDLE = \{[^}]*\bwelcome: 'welcome',/.test(app), 'welcome.js là gói lười, route nạp đúng gói');
 ok(!/id="wCard"|id="wFeats"|data-wg=/.test(app) && /wCard/.test(wl) && /wFeats/.test(wl) && /#loginH/.test(wl) && /data-wjump/.test(wl), 'markup trang giới thiệu chỉ còn ở welcome.js');
 ok(/!document\.getElementById\('lkHero'\)\) skel = setTimeout/.test(app), 'khung chờ không thay khung chào #lkHero');
 ok(/const bootDog = setTimeout\([\s\S]{0,200}errState\(true, true\); \}, 8000\)/.test(app) && /clearTimeout\(bootDog\)/.test(app) && /reload === true \? location\.reload\(\)/.test(app), 'canh khởi động 8 s: thẻ lỗi, Thử lại = tải lại, boot chạy thì hủy');

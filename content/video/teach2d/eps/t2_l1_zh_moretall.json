@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_moretall",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do not say more taller!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He is more taller than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He is taller than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Taller already means more tall.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Older! She is older than her brother.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He is more taller than me.",
+  "right": "He is taller than me.",
+  "strike": "more taller",
+  "why": "Taller already means more tall.",
+  "memory": "Taller than me.",
+  "quiz": {
+   "stem": "She is ___ than her brother.",
+   "options": [
+    "more older",
+    "older"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "不能说 more taller！",
+   "tip": "短形容词比较级直接加 -er，前面不要再加 more。",
+   "caption": "你是不是也会说 “He is more taller than me.”？😅 短形容词加 -er 就够了，不用再加 more：“He is taller than me.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“taller”。短词加 -er 不加 more！免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “more taller”!",
+   "tip": "Short adjectives take er, so do not add more.",
+   "caption": "Do you say “He is more taller than me.”? 😅 Short adjectives only need er, not more as well: “He is taller than me.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "不能说 more taller！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "不能说 more taller！",
+  "keyword": "He is taller than me.",
+  "value": "短形容词比较级直接加 -er，前面不要再加 more。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "不能说 more taller！",
+    "description": "你是不是也会说 “He is more taller than me.”？😅 短形容词加 -er 就够了，不用再加 more：“He is taller than me.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "He is taller than me.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “He is more taller than me.”？😅 短形容词加 -er 就够了，不用再加 more：“He is taller than me.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "你是不是也会说 “He is more taller than me.”？😅 短形容词加 -er 就够了，不用再加 more：“He is taller than me.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "不能说 more taller！ #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“taller”。短词加 -er 不加 more！免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

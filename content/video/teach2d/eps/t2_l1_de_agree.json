@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_agree",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Agree is a verb!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Agree is already a verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Agree! I agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am agree with you.",
+  "right": "I agree with you.",
+  "strike": "am agree",
+  "why": "Agree is already a verb.",
+  "memory": "Just say agree.",
+  "quiz": {
+   "stem": "I ___ with you.",
+   "options": [
+    "am agree",
+    "agree"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Nicht „I am agree“ sagen!",
+   "tip": "Im Englischen ist „agree“ schon das Verb. Sag einfach „I agree“.",
+   "caption": "Sagst du „I am agree“? 🙈 Falsch: “I am agree with you.” Richtig: “I agree with you.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “agree”. Richtig heißt es: “I agree with you.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I am agree”?",
+   "tip": "In English “agree” is already the verb. Just say “I agree”.",
+   "caption": "Do you say “I am agree”? Wrong: “I am agree with you.” Right: “I agree with you.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Nicht „I am agree“ sagen!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Nicht „I am agree“ sagen!",
+  "keyword": "I agree with you.",
+  "value": "Im Englischen ist „agree“ schon das Verb. Sag einfach „I agree“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Nicht „I am agree“ sagen!",
+    "description": "Sagst du „I am agree“? 🙈 Falsch: “I am agree with you.” Richtig: “I agree with you.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I agree with you.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagst du „I am agree“? 🙈 Falsch: “I am agree with you.” Richtig: “I agree with you.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Sagst du „I am agree“? 🙈 Falsch: “I am agree with you.” Richtig: “I agree with you.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Nicht „I am agree“ sagen! #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “agree”. Richtig heißt es: “I agree with you.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

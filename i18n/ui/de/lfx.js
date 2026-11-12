@@ -1,3 +1,32 @@
-/* UI de – lfx (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {"{n} đúng liền":"{n} in Folge","Tỉ lệ đúng":"Genauigkeit","{n} câu đúng liền!":"{n} richtige in Folge!","Câu khó · +{n} XP":"Schwere Aufgabe · +{n} XP","Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"Das scheint dir zu leicht zu sein. Schwerere Aufgaben (tippen statt wählen) für Bonus-XP ausprobieren?","Thử mức khó":"Schwerer","Giữ mức này":"Level behalten","Đúng rồi – chỉ sai chính tả nhỏ":"Richtig – nur ein kleiner Tippfehler","Viết đúng là: {a}":"Richtige Schreibweise: {a}","Ẩn giải thích":"Erklärung ausblenden","Không trượt câu nào – Kit phải ngả mũ!":"Kein einziger Fehler – Kit zieht den Hut!","Tuyệt đối 100%! Bộ não bạn đang chạy hết công suất.":"Glatte 100 %! Dein Gehirn läuft auf Hochtouren.","Phong độ rất cao hôm nay!":"Du bist heute in Topform!","Gần như hoàn hảo – chỉ còn chút xíu nữa!":"Fast fehlerfrei – nur noch ein kleines bisschen!","Đang lên tay rồi đấy!":"Du kommst richtig in Fahrt!","Câu sai hôm nay là điểm cộng ngày mai.":"Die Fehler von heute sind die Treffer von morgen.","Kết quả lượt học":"Ergebnisse der Runde","Chuỗi dài nhất":"Beste Serie","Khoe kết quả":"Ergebnis teilen","Tắt âm thanh 15 phút":"15 Min. ohne Ton","Tắt micro 15 phút":"15 Min. ohne Mikro","Đã tạm tắt bài nghe 15 phút – câu nghe đổi sang dạng gõ nghĩa.":"Hören 15 Min. pausiert – Audioaufgaben werden zu Tippaufgaben.","Đã tạm tắt bài nói 15 phút – làm trắc nghiệm nghĩa thay thế.":"Sprechen 15 Min. pausiert – stattdessen ein Bedeutungsquiz.","Bật lại":"Wieder an","Cần gợi ý?":"Brauchst du einen Tipp?","Thêm gợi ý":"Weiterer Tipp","Hiện bản dịch":"Übersetzung zeigen","Ẩn bản dịch":"Übersetzung ausblenden"});
+/* UI de – lfx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {
+"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"Das scheint dir zu leicht zu sein. Schwerere Aufgaben (tippen statt wählen) für Bonus-XP ausprobieren?",
+"Bật lại":"Wieder an",
+"Chuỗi dài nhất":"Beste Serie",
+"Câu khó · +{n} XP":"Schwere Aufgabe · +{n} XP",
+"Câu sai hôm nay là điểm cộng ngày mai.":"Die Fehler von heute sind die Treffer von morgen.",
+"Cần gợi ý?":"Brauchst du einen Tipp?",
+"Giữ mức này":"Level behalten",
+"Gần như hoàn hảo – chỉ còn chút xíu nữa!":"Fast fehlerfrei – nur noch ein kleines bisschen!",
+"Hiện bản dịch":"Übersetzung zeigen",
+"Khoe kết quả":"Ergebnis teilen",
+"Không trượt câu nào – Kit phải ngả mũ!":"Kein einziger Fehler – Kit zieht den Hut!",
+"Kết quả lượt học":"Ergebnisse der Runde",
+"Phong độ rất cao hôm nay!":"Du bist heute in Topform!",
+"Thêm gợi ý":"Weiterer Tipp",
+"Thử mức khó":"Schwerer",
+"Tuyệt đối 100%! Bộ não bạn đang chạy hết công suất.":"Glatte 100 %! Dein Gehirn läuft auf Hochtouren.",
+"Tắt micro 15 phút":"15 Min. ohne Mikro",
+"Tắt âm thanh 15 phút":"15 Min. ohne Ton",
+"Tỉ lệ đúng":"Genauigkeit",
+"Viết đúng là: {a}":"Richtige Schreibweise: {a}",
+"{n} câu đúng liền!":"{n} richtige in Folge!",
+"{n} đúng liền":"{n} in Folge",
+"Đang lên tay rồi đấy!":"Du kommst richtig in Fahrt!",
+"Đã tạm tắt bài nghe 15 phút – câu nghe đổi sang dạng gõ nghĩa.":"Hören 15 Min. pausiert – Audioaufgaben werden zu Tippaufgaben.",
+"Đã tạm tắt bài nói 15 phút – làm trắc nghiệm nghĩa thay thế.":"Sprechen 15 Min. pausiert – stattdessen ein Bedeutungsquiz.",
+"Đúng rồi – chỉ sai chính tả nhỏ":"Richtig – nur ein kleiner Tippfehler",
+"Ẩn bản dịch":"Übersetzung ausblenden",
+"Ẩn giải thích":"Erklärung ausblenden",
+});
 })(typeof self !== 'undefined' ? self : this);

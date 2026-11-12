@@ -348,6 +348,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "ci-autopilot",
+   "workflow": "ci-autopilot.yml",
+   "cron": [
+    "7-57/10 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "required-gate",
    "workflow": "required-gate.yml",
    "cron": [

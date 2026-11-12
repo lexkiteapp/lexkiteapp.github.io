@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_hedont",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "He doesn't!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He don't like tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He doesn't like tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use doesn't with he and she.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Doesn't! She doesn't like milk.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He don't like tea.",
+  "right": "He doesn't like tea.",
+  "strike": "don't",
+  "why": "Use doesn't with he and she.",
+  "memory": "He doesn't like.",
+  "quiz": {
+   "stem": "She ___ like milk.",
+   "options": [
+    "don't",
+    "doesn't"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “He don't”؟",
+   "tip": "مع he وshe نقول doesn't: “He doesn't like tea.” وليس “He don't like tea.”.",
+   "caption": "هل تقول أحيانًا “He don't like tea.” 😅 مع he وshe نقول doesn't، فالجملة الصحيحة “He doesn't like tea.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “doesn't”. مع he وshe نقول doesn't. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “He don't like tea”?",
+   "tip": "With he and she we say doesn't: “He doesn't like tea.” not “He don't like tea.”.",
+   "caption": "Do you sometimes say “He don't like tea.” 😅 With he and she we say doesn't, so the right sentence is “He doesn't like tea.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “He don't”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "هل تقول “He don't”؟",
+  "keyword": "He doesn't like tea.",
+  "value": "مع he وshe نقول doesn't: “He doesn't like tea.” وليس “He don't like tea.”.",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “He don't”؟",
+    "description": "هل تقول أحيانًا “He don't like tea.” 😅 مع he وshe نقول doesn't، فالجملة الصحيحة “He doesn't like tea.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "He doesn't like tea.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “He don't like tea.” 😅 مع he وshe نقول doesn't، فالجملة الصحيحة “He doesn't like tea.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “He don't like tea.” 😅 مع he وshe نقول doesn't، فالجملة الصحيحة “He doesn't like tea.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “He don't”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “doesn't”. مع he وshe نقول doesn't. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

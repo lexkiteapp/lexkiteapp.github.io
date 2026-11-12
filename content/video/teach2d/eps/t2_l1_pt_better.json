@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_better",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Better is already better!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She speaks more better than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She speaks better than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Better already means more good.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Better! This is better than that.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She speaks more better than me.",
+  "right": "She speaks better than me.",
+  "strike": "more better",
+  "why": "Better already means more good.",
+  "memory": "Better, not more better.",
+  "quiz": {
+   "stem": "This is ___ than that.",
+   "options": [
+    "better",
+    "more better"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “more better”?",
+   "tip": "“Better” já é comparativo. Não precisa de “more”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She speaks more better than me.”. O certo é “She speaks better than me.”. É a versão do “mais melhor” do português. Ouça o Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “better”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#inglesfacil",
+    "#falaringles",
+    "#inglesdodia",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “more better”?",
+   "tip": "“Better” is already a comparative. You do not need “more”.",
+   "caption": "Watch out for this common mistake! Many people say “She speaks more better than me.”. The right way is “She speaks better than me.”. It is the English version of Portuguese “mais melhor”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “more better”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Você diz “more better”?",
+  "keyword": "She speaks better than me.",
+  "value": "“Better” já é comparativo. Não precisa de “more”.",
+  "hashtags": [
+   "#inglesfacil",
+   "#falaringles",
+   "#inglesdodia",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “more better”?",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “She speaks more better than me.”. O certo é “She speaks better than me.”. É a versão do “mais melhor” do português. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesfacil #falaringles #inglesdodia #lexkite",
+    "tags": [
+     "She speaks better than me.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “She speaks more better than me.”. O certo é “She speaks better than me.”. É a versão do “mais melhor” do português. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She speaks more better than me.”. O certo é “She speaks better than me.”. É a versão do “mais melhor” do português. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#inglesfacil",
+     "#falaringles",
+     "#inglesdodia",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “more better”? #inglesfacil #falaringles #inglesdodia"
+   }
+  },
+  "first_comment": "Resposta: “better”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}
