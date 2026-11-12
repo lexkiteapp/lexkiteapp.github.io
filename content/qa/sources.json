@@ -99,7 +99,8 @@
   {
    "id": "pron",
    "paths": [
-    "web/js/pron"
+    "web/js/pron",
+    "web/cpack/pron"
    ],
    "owner": "claude",
    "gen": false,
