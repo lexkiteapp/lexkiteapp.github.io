@@ -5,9 +5,10 @@ const P = g.PRON = g.PRON || [];
 /* ───────────── NHÓM 1: LỖI NGƯỜI VIỆT ───────────── */
 
 P.push({
-id: 'final-consonants', group: 'vn', ipa: '/t/ /d/ /k/ /s/ /z/', title: 'Âm cuối: đừng “nuốt” phụ âm cuối', emoji: '✂️', level: 'A2',
+id: 'final-consonants', group: 'vn', ipa: '/t/ /d/ /k/ /s/ /z/', title: 'Âm cuối: đừng “nuốt” phụ âm cuối', emoji: '✂️', level: 'A2', titleEn: "Word-Final Consonants: Never Swallow Final Sounds",
 how: 'Trong tiếng Việt, âm cuối như “t, c, p” chỉ được “chặn” lại chứ không bật hơi, và tiếng Việt không có âm cuối /s/, /z/, /v/, /dʒ/… Trong tiếng Anh, âm cuối mang nghĩa: “rice” (gạo) khác “rise” (tăng), “life” khác “live”. Hãy phát âm trọn vẹn âm cuối: /t/ /k/ /p/ bật nhẹ hơi, /s/ xì rõ, /z/ có rung dây thanh. Lưu ý thêm: nguyên âm đứng trước phụ âm cuối hữu thanh (/b d ɡ z v/) được kéo dài hơn một chút – đây là dấu hiệu quan trọng để người nghe phân biệt “bad” với “bat”.',
-rules: [
+howEn: "In English, final consonants carry vital grammatical and lexical distinctions: \"rice\" differs from \"rise\", and \"life\" from \"live\". Articulate final stops /p, t, k/ with a crisp release, keep /s/ sharp, and ensure /z/ has clear vocal cord vibration. Additionally, vowels are noticeably longer before voiced consonants (/b, d, ɡ, z, v/) than before voiceless ones.",
+    rules: [
 { label: 'Phụ âm tắc /p t k/', when: 'chặn lại rồi bật nhẹ hơi, không “nuốt” mất', ex: ['stop', 'fact', 'like'] },
 { label: 'Phụ âm tắc hữu thanh /b d ɡ/', when: 'rung dây thanh, nguyên âm trước kéo dài hơn', ex: ['job', 'road', 'big'] },
 { label: 'Âm xát /s z f v/', when: 'giữ luồng hơi đến hết âm, không cắt ngang', ex: ['price', 'rise', 'live'] },
@@ -15,7 +16,8 @@ rules: [
 ],
 vn: 'Lỗi phổ biến: bỏ hẳn âm cuối (“price” → “prai”), thay /s/ bằng “ch” cuối kiểu tiếng Việt, đọc /z/ thành /s/ (“rise” nghe như “rice”), và đọc /v/ cuối thành /p/ hoặc bỏ đi (“live” → “lip”/“li”). Cách sửa: luyện chậm, phóng đại âm cuối, sau đó nối âm cuối với nguyên âm của từ tiếp theo (“fact_is”, “price_of”) để âm cuối tự nhiên xuất hiện.',
 tip: 'Thần chú: “Âm cuối là nửa nghĩa của từ.” Khi tự ghi âm, hãy tua lại và nghe riêng phần cuối mỗi từ – nếu không nghe thấy gì, giám khảo cũng vậy.',
-words: [
+tipEn: "Rule of thumb: Final consonants carry half the word meaning. In connected speech, link a final consonant into the following initial vowel (\"fact_is\", \"price_of\") so it flows effortlessly.",
+    words: [
 { w: 'fact', ipa: '/fækt/', note: 'cụm cuối /kt/' },
 { w: 'job', ipa: '/dʒɒb/', note: 'âm cuối /b/' },
 { w: 'rise', ipa: '/raɪz/', note: 'âm cuối /z/ (rung)' },
@@ -43,16 +45,18 @@ quiz: [
 });
 
 P.push({
-id: 'ed-endings', group: 'vn', ipa: '/t/ /d/ /ɪd/', title: 'Đuôi -ed: /t/, /d/ hay /ɪd/?', emoji: '🔚', level: 'A2',
+id: 'ed-endings', group: 'vn', ipa: '/t/ /d/ /ɪd/', title: 'Đuôi -ed: /t/, /d/ hay /ɪd/?', emoji: '🔚', level: 'A2', titleEn: "Past -ed Endings: /t/, /d/, or /ɪd/?",
 how: 'Cách đọc -ed phụ thuộc vào ÂM cuối của động từ gốc (không phải chữ cái). Chỉ khi động từ kết thúc bằng âm /t/ hoặc /d/ thì -ed mới thêm một âm tiết /ɪd/. Các trường hợp khác -ed chỉ là một phụ âm dính vào cuối: /t/ sau âm vô thanh, /d/ sau âm hữu thanh và nguyên âm.',
-rules: [
+howEn: "The pronunciation of the regular -ed suffix depends entirely on the final sound of the root verb. Only when the base verb ends in the sounds /t/ or /d/ does -ed add an extra syllable /ɪd/. Otherwise, it is an attached single consonant: /t/ after voiceless sounds, and /d/ after voiced sounds and vowels.",
+    rules: [
 { label: '/ɪd/', when: 'sau âm /t/, /d/ – thêm một âm tiết', ex: ['wanted', 'needed', 'decided'] },
 { label: '/t/', when: 'sau âm vô thanh /p k f s ʃ tʃ θ/', ex: ['developed', 'reduced', 'watched'] },
 { label: '/d/', when: 'sau âm hữu thanh /b ɡ v z ʒ dʒ m n ŋ l/ và mọi nguyên âm', ex: ['improved', 'changed', 'studied'] }
 ],
 vn: 'Người Việt thường bỏ hẳn -ed (“I work there last year”), hoặc đọc mọi -ed thành /ɪd/ (“work-ed”, “stop-ed”) khiến từ thừa một âm tiết. Một lỗi khác là đọc theo chữ: “increased” kết thúc bằng chữ “e” nhưng âm cuối của “increase” là /s/ vô thanh nên -ed đọc /t/. Cách sửa: xác định âm cuối của động từ gốc, rồi nối -ed với từ tiếp theo (“developed_a plan” → /dɪˈveləptə/).',
 tip: 'Câu thần chú: “Tiền Đô → /ɪd/” (t, d thêm âm tiết). Còn lại: đặt tay lên cổ – rung thì /d/, không rung thì /t/. Lưu ý vài tính từ đặc biệt đọc /ɪd/: naked, wicked, learned (uyên bác), aged (già).',
-words: [
+tipEn: "Mnemonic: \"T and D add a beat /ɪd/\". Otherwise, touch your throat: feel vibration for voiced /d/, and no vibration for voiceless /t/.",
+    words: [
 { w: 'developed', ipa: '/dɪˈveləpt/', note: '/t/ (sau /p/)' },
 { w: 'increased', ipa: '/ɪnˈkriːst/', note: '/t/ (sau /s/)' },
 { w: 'introduced', ipa: '/ˌɪntrəˈdjuːst/', note: '/t/ (sau /s/)' },
@@ -80,16 +84,18 @@ quiz: [
 });
 
 P.push({
-id: 's-endings', group: 'vn', ipa: '/s/ /z/ /ɪz/', title: 'Đuôi -s/-es: /s/, /z/ hay /ɪz/?', emoji: '🐍', level: 'A2',
+id: 's-endings', group: 'vn', ipa: '/s/ /z/ /ɪz/', title: 'Đuôi -s/-es: /s/, /z/ hay /ɪz/?', emoji: '🐍', level: 'A2', titleEn: "Suffix -s/-es: /s/, /z/, or /ɪz/?",
 how: 'Đuôi -s/-es xuất hiện ở danh từ số nhiều, động từ ngôi thứ ba số ít (he works) và sở hữu cách (the country\'s). Cả ba đều theo cùng một quy tắc dựa trên ÂM cuối của từ gốc: thêm âm tiết /ɪz/ sau các âm “xuýt”; /s/ sau âm vô thanh; /z/ sau âm hữu thanh và nguyên âm.',
-rules: [
+howEn: "The third-person singular and plural -s suffix mirrors the -ed rule. Sibilant sounds (/s, z, ʃ, ʒ, tʃ, dʒ/) add an extra syllable /ɪz/. After voiceless consonants, it sounds as /s/; after voiced consonants and vowels, it becomes /z/.",
+    rules: [
 { label: '/ɪz/', when: 'sau âm xuýt /s z ʃ ʒ tʃ dʒ/ – thêm một âm tiết', ex: ['resources', 'businesses', 'changes'] },
 { label: '/s/', when: 'sau âm vô thanh /p t k f θ/', ex: ['benefits', 'effects', 'months'] },
 { label: '/z/', when: 'sau âm hữu thanh /b d ɡ v m n ŋ l/ và nguyên âm', ex: ['jobs', 'schools', 'cities'] }
 ],
 vn: 'Lỗi thường gặp: bỏ -s hoàn toàn (giám khảo sẽ nghĩ bạn sai ngữ pháp số ít/số nhiều), đọc mọi -s thành /s/ (thực ra /z/ phổ biến hơn), hoặc quên âm tiết /ɪz/ (“change” và “changes” nghe giống nhau). Cách sửa: luyện riêng /z/ như tiếng ong “zzz” có rung dây thanh, và luôn đếm âm tiết với các từ có /ɪz/.',
 tip: 'Mẹo: -s là “tấm gương” của -ed. Âm vô thanh → /s/ (như /t/), âm hữu thanh → /z/ (như /d/), âm xuýt → /ɪz/ (như /t d/ → /ɪd/). Ngoại lệ hay gặp: “says” /sez/, “does” /dʌz/ – nguyên âm thay đổi.',
-words: [
+tipEn: "Rule: Sibilants need /ɪz/ to remain distinct. After vowels and voiced consonants, relax and let vocal cords buzz for /z/ (\"days\" /deɪz/, \"plans\" /plænz/).",
+    words: [
 { w: 'benefits', ipa: '/ˈbenɪfɪts/', note: '/s/ (sau /t/)' },
 { w: 'effects', ipa: '/ɪˈfekts/', note: '/s/ – cụm /kts/' },
 { w: 'months', ipa: '/mʌnθs/', note: '/s/ (sau /θ/)' },
@@ -117,16 +123,18 @@ quiz: [
 });
 
 P.push({
-id: 'th-sounds', group: 'vn', ipa: '/θ/ /ð/', title: 'Âm /θ/ và /ð/ – không phải “th” tiếng Việt', emoji: '👅', level: 'A2',
+id: 'th-sounds', group: 'vn', ipa: '/θ/ /ð/', title: 'Âm /θ/ và /ð/ – không phải “th” tiếng Việt', emoji: '👅', level: 'A2', titleEn: "Dental Fricatives /θ/ and /ð/",
 how: 'Cả /θ/ và /ð/ đều là âm “giữa hai răng”: đặt đầu lưỡi nhẹ giữa răng trên và răng dưới (hoặc chạm mặt sau răng trên), rồi thổi hơi qua khe hẹp. /θ/ vô thanh – chỉ có hơi (think, health). /ð/ hữu thanh – có rung dây thanh (the, weather). Đây là âm xát kéo dài được, khác hẳn “th” tiếng Việt (một âm tắc bật hơi).',
-rules: [
+howEn: "English dental fricatives /θ/ (voiceless) and /ð/ (voiced) are produced by resting the tip of the tongue gently between the front teeth (or behind the upper incisors) and pushing a continuous airstream through the constriction without stopping.",
+    rules: [
 { label: '/θ/ vô thanh', when: 'thường ở từ nội dung: danh từ, động từ, số đếm', ex: ['think', 'three', 'growth'] },
 { label: '/ð/ hữu thanh', when: 'thường ở từ chức năng (the, this, that, they, than) và giữa hai nguyên âm', ex: ['the', 'although', 'weather'] },
 { label: 'Danh từ /θ/ → động từ /ð/', when: 'một số cặp đổi âm khi thành động từ', ex: ['bath → bathe', 'breath → breathe', 'cloth → clothe'] }
 ],
 vn: 'Người Việt hay đọc /θ/ thành “th” tiếng Việt hoặc /t/ (“think” → “tink”), hoặc /s/ (“think” → “sink”); đọc /ð/ thành /d/ hoặc /z/ (“they” → “day”, “clothing” → “closing”). Cách sửa: soi gương – phải thấy đầu lưỡi lộ ra giữa hai hàm răng; giữ âm kéo dài “θθθθ” vài giây trước khi nói cả từ.',
 tip: 'Thần chú: “Lè lưỡi – thổi hơi.” Nếu không kéo dài được âm thì bạn đang đọc /t/ hoặc /d/, chưa phải /θ/ /ð/.',
-words: [
+tipEn: "Tip: Stick out the tongue tip slightly and breathe through. If the sound stops abruptly like a click, you are saying /t/ or /d/ rather than /θ/ or /ð/.",
+    words: [
 { w: 'think', ipa: '/θɪŋk/', note: '/θ/ đầu' },
 { w: 'three', ipa: '/θriː/', note: '/θr/' },
 { w: 'health', ipa: '/helθ/', note: '/θ/ cuối' },
@@ -154,9 +162,10 @@ quiz: [
 });
 
 P.push({
-id: 'sh-ch-zh', group: 'vn', ipa: '/ʃ/ /s/ /tʃ/ /dʒ/ /ʒ/', title: '/ʃ/ – /s/ và /tʃ/ – /dʒ/ – /ʒ/', emoji: '🤫', level: 'B1',
+id: 'sh-ch-zh', group: 'vn', ipa: '/ʃ/ /s/ /tʃ/ /dʒ/ /ʒ/', title: '/ʃ/ – /s/ và /tʃ/ – /dʒ/ – /ʒ/', emoji: '🤫', level: 'B1', titleEn: "Post-Alveolar Contrasts: /ʃ/, /s/, /tʃ/, /dʒ/, /ʒ/",
 how: '/s/: đầu lưỡi gần lợi trên, môi dẹt, tiếng xì mảnh (see). /ʃ/: lưỡi lùi ra sau một chút, môi tròn và đưa ra trước, tiếng “suỵt” trầm hơn (she). /tʃ/ và /dʒ/ là âm tắc-xát: chặn hơi hoàn toàn rồi bật ra thành /ʃ/ hoặc /ʒ/ (chair, job). /ʒ/ giống /ʃ/ nhưng có rung dây thanh, hầu như chỉ xuất hiện ở giữa từ (decision, usually, measure).',
-rules: [
+howEn: "Distinguish crisp alveolar sibilants (/s, z/) from rounded post-alveolar fricatives and affricates (/ʃ, ʒ, tʃ, dʒ/). For /ʃ/ and /tʃ/, flare and round the lips into a gentle trumpet shape while raising the tongue blade.",
+    rules: [
 { label: '/s/ ↔ /ʃ/', when: '/ʃ/ môi tròn, lưỡi lùi sau; -tion, -sion, -cial, -tial đều chứa /ʃ/', ex: ['social', 'pressure', 'education'] },
 { label: '/tʃ/ ↔ /ʃ/', when: '/tʃ/ có một “cú chặn” trước, /ʃ/ thì không', ex: ['chair – share', 'watch – wash', 'cheap – sheep'] },
 { label: '/dʒ/ ↔ /tʃ/', when: '/dʒ/ hữu thanh (rung), /tʃ/ vô thanh', ex: ['jeep – cheap', 'large – larch', 'job'] },
@@ -164,7 +173,8 @@ rules: [
 ],
 vn: 'Lỗi phổ biến: miền Nam/miền Bắc đều có thể lẫn “s/x” nên “she” → “see”, “sort” ↔ “short”; /tʃ/ đọc như “ch” tiếng Việt (không bật, không tròn môi); /dʒ/ đọc thành “gi” /z/ (“job” → “zop”); /ʒ/ đọc thành /z/ hoặc /dʒ/ (“decision” → “di-xi-dần”). Cách sửa: luyện tròn môi khi phát /ʃ tʃ dʒ ʒ/ – bốn âm này đều cần môi đưa ra trước.',
 tip: 'Mẹo: “Bốn âm môi chu: /ʃ/ /ʒ/ /tʃ/ /dʒ/.” Nếu môi bạn đang dẹt như cười, đó là /s/ hoặc /z/.',
-words: [
+tipEn: "Mnemonic: Four rounded-lip sounds: /ʃ/, /ʒ/, /tʃ/, and /dʒ/. If your lips are wide in a flat smile, you are producing /s/ or /z/ instead.",
+    words: [
 { w: 'social', ipa: '/ˈsəʊʃl/', note: '/s/ đầu, /ʃ/ giữa' },
 { w: 'pressure', ipa: '/ˈpreʃə/', note: '/ʃ/' },
 { w: 'education', ipa: '/ˌedʒuˈkeɪʃn/', note: '/dʒ/ và /ʃ/' },
@@ -192,9 +202,10 @@ quiz: [
 });
 
 P.push({
-id: 'l-n-clusters', group: 'vn', ipa: '/l/ /n/ /str/ /sts/', title: '/l/ – /n/ và cụm phụ âm', emoji: '🧩', level: 'B1',
+id: 'l-n-clusters', group: 'vn', ipa: '/l/ /n/ /str/ /sts/', title: '/l/ – /n/ và cụm phụ âm', emoji: '🧩', level: 'B1', titleEn: "Lateral, Nasal and Consonant Clusters",
 how: '/n/ là âm mũi: hơi đi ra đằng mũi (bịt mũi lại sẽ không nói được). /l/ là âm bên: đầu lưỡi chạm lợi trên, hơi đi ra hai bên lưỡi, mũi không tham gia. Ở cuối từ (school, feel), /l/ là “L tối”: cuống lưỡi nâng lên, nghe như “âu” nhẹ – nhưng không được bỏ. Cụm phụ âm (str-, spl-, -sts, -kts) phải đọc liền, KHÔNG chèn nguyên âm “ơ” giữa các phụ âm.',
-rules: [
+howEn: "Differentiate alveolar lateral /l/ from nasal /n/. For consonant clusters such as /str/, /spl/, /kts/, and /sts/, transition smoothly between consonants in one continuous breath without inserting an intrusive schwa vowel between them.",
+    rules: [
 { label: '/n/', when: 'hơi qua mũi – bịt mũi sẽ nghẹt', ex: ['night', 'national', 'knowledge'] },
 { label: '/l/', when: 'hơi qua hai bên lưỡi, mũi không rung', ex: ['light', 'local', 'language'] },
 { label: 'Cụm đầu', when: 'không chèn “ơ”: str- ≠ “sơ-tơ-r”', ex: ['street', 'strategy', 'explain'] },
@@ -202,7 +213,8 @@ rules: [
 ],
 vn: 'Một số vùng phía Bắc lẫn /l/ và /n/ (“light” ↔ “night”, “low” ↔ “no”). Hầu hết người Việt chèn nguyên âm vào cụm phụ âm (“street” → “sơ-trít”, “sport” → nghe như “support”) hoặc rút gọn cụm cuối (“tests” → “tet”). Cách sửa: với /l/–/n/, bịt mũi để kiểm tra; với cụm phụ âm, bắt đầu từ cuối cụm rồi thêm dần: “eet → reet → treet → street”.',
 tip: 'Thần chú: “Một hơi, không ơ.” Một cụm phụ âm phải nằm gọn trong một nhịp, giống như “str” là một khối duy nhất.',
-words: [
+tipEn: "One breath, zero intrusive vowels. Keep consonant clusters tight in a single muscular stroke, treating \"str\" as one unbroken block.",
+    words: [
 { w: 'knowledge', ipa: '/ˈnɒlɪdʒ/', note: '/n/ đầu, /l/ giữa' },
 { w: 'language', ipa: '/ˈlæŋɡwɪdʒ/', note: '/l/ đầu' },
 { w: 'national', ipa: '/ˈnæʃnəl/', note: '/n/ đầu, L tối cuối' },
@@ -232,9 +244,10 @@ quiz: [
 /* ───────────── NHÓM 2: TRỌNG ÂM & NGỮ ĐIỆU ───────────── */
 
 P.push({
-id: 'word-stress', group: 'stress', ipa: '/ˈ/ Oo – oO', title: 'Trọng âm từ: các quy tắc cốt lõi', emoji: '🎯', level: 'B1',
+id: 'word-stress', group: 'stress', ipa: '/ˈ/ Oo – oO', title: 'Trọng âm từ: các quy tắc cốt lõi', emoji: '🎯', level: 'B1', titleEn: "Core Rules of English Word Stress",
 how: 'Mỗi từ nhiều âm tiết có một âm tiết được nhấn: to hơn, dài hơn, cao hơn và nguyên âm rõ. Các âm tiết không nhấn thường bị giảm thành /ə/ hoặc /ɪ/. Sai trọng âm khiến người bản ngữ khó nhận ra từ hơn cả sai một âm. Ký hiệu: O = âm tiết nhấn, o = không nhấn; trong IPA, dấu ˈ đứng TRƯỚC âm tiết được nhấn.',
-rules: [
+howEn: "English is a stress-accent language where stressed syllables are longer, louder, and higher in pitch, while unstressed syllables reduce to schwa /ə/ or /ɪ/. Master major patterns: two-syllable nouns stress the first syllable, verbs stress the second, and suffixes like -tion, -ic, -ity predictably govern placement.",
+    rules: [
 { label: 'Danh từ/tính từ 2 âm tiết', when: 'thường nhấn âm 1 (Oo)', ex: ['ˈproduct', 'ˈrecord (n)', 'ˈmodern'] },
 { label: 'Động từ 2 âm tiết', when: 'thường nhấn âm 2 (oO)', ex: ['reˈcord (v)', 'deˈcide', 'imˈprove'] },
 { label: '-tion, -sion, -ic, -ical, -ity', when: 'nhấn âm tiết ngay TRƯỚC hậu tố', ex: ['polˈlution', 'ecoˈnomic', 'aˈbility'] },
@@ -243,7 +256,8 @@ rules: [
 ],
 vn: 'Tiếng Việt mỗi âm tiết đều rõ và đều nhau, nên người Việt hay đọc “e-du-ca-tion” bốn âm tiết bằng nhau, hoặc nhấn âm cuối theo thói quen (“compuTER”, “deveLOP”). Cách sửa: khi học từ mới, luôn ghi kèm mẫu trọng âm (oOo…), vỗ tay mạnh ở âm tiết nhấn, và giảm các nguyên âm còn lại thành /ə/.',
 tip: 'Thần chú: “Danh trước – Động sau – Đuôi đứng trước.” Danh từ 2 âm tiết nhấn trước, động từ nhấn sau, còn -tion/-ic/-ity thì nhấn ngay âm tiết đứng trước đuôi.',
-words: [
+tipEn: "Rule: Stressed syllables have full vowel quality and clear pitch change; unstressed syllables diminish into light schwas.",
+    words: [
 { w: 'record (n)', ipa: '/ˈrekɔːd/', note: 'Oo' },
 { w: 'record (v)', ipa: '/rɪˈkɔːd/', note: 'oO' },
 { w: 'pollution', ipa: '/pəˈluːʃn/', note: 'oOo' },
@@ -271,9 +285,10 @@ quiz: [
 });
 
 P.push({
-id: 'stress-shift', group: 'stress', ipa: '/ˈfəʊtəɡrɑːf/ → /fəˈtɒɡrəfi/', title: 'Trọng âm “nhảy” trong họ từ', emoji: '🦘', level: 'B2',
+id: 'stress-shift', group: 'stress', ipa: '/ˈfəʊtəɡrɑːf/ → /fəˈtɒɡrəfi/', title: 'Trọng âm “nhảy” trong họ từ', emoji: '🦘', level: 'B2', titleEn: "Stress Shift Across Word Families",
 how: 'Khi thêm hậu tố, trọng âm có thể di chuyển sang âm tiết khác – và nguyên âm thay đổi theo: âm tiết được nhấn có nguyên âm đầy đủ, âm tiết mất trọng âm bị giảm thành /ə/. Ví dụ: ˈPHOtograph /ˈfəʊtəɡrɑːf/ → phoˈTOgraphy /fəˈtɒɡrəfi/ → photoˈGRAphic /ˌfəʊtəˈɡræfɪk/. Chữ “o” đầu tiên đổi từ /əʊ/ thành /ə/ rồi lại /əʊ/.',
-rules: [
+howEn: "When derivational suffixes are attached, stress frequently shifts to a different syllable, triggering dramatic vowel reduction in the previously stressed root (e.g., /ˈfəʊtəɡrɑːf/ → /fəˈtɒɡrəfi/ → /ˌfəʊtəˈɡræfɪk/). Identifying these shifts is essential for natural academic and professional fluency.",
+    rules: [
 { label: '-y, -ity, -ism (sau gốc nhiều âm tiết)', when: 'trọng âm thường lùi về âm thứ 3 từ cuối', ex: ['phoˈtography', 'eˈconomy', 'deˈmocracy'] },
 { label: '-ic, -ical', when: 'nhấn ngay trước hậu tố', ex: ['photoˈgraphic', 'ecoˈnomic', 'demoˈcratic'] },
 { label: '-ian, -tion', when: 'nhấn ngay trước hậu tố', ex: ['poliˈtician', 'eduˈcation', 'compeˈtition'] },
@@ -281,7 +296,8 @@ rules: [
 ],
 vn: 'Người học thường “giữ nguyên” trọng âm của từ gốc cho cả họ từ: đọc “PHOtography”, “POlitical”, “ECOnomic”. Đây là lỗi đặc biệt dễ nghe thấy trong IELTS vì các từ economy/economic, technology/technological xuất hiện liên tục. Cách sửa: học họ từ theo bộ, đọc to cả bộ liền nhau và vỗ tay theo trọng âm.',
 tip: 'Mẹo: Đếm từ cuối lên. -y/-ity: nhấn âm thứ 3 từ cuối; -ic/-ian/-tion: nhấn âm thứ 2 từ cuối (ngay trước đuôi).',
-words: [
+tipEn: "Count backwards from the suffix: endings like -ic, -ian, -tion pull primary stress onto the penultimate syllable (immediately before the suffix).",
+    words: [
 { w: 'photograph', ipa: '/ˈfəʊtəɡrɑːf/', note: 'Ooo' },
 { w: 'photography', ipa: '/fəˈtɒɡrəfi/', note: 'oOoo' },
 { w: 'photographic', ipa: '/ˌfəʊtəˈɡræfɪk/', note: 'ooOo' },
@@ -309,16 +325,18 @@ quiz: [
 });
 
 P.push({
-id: 'weak-forms', group: 'stress', ipa: '/ə/ /tə/ /fə/ /əv/', title: 'Trọng âm câu và dạng yếu', emoji: '🥁', level: 'B1',
+id: 'weak-forms', group: 'stress', ipa: '/ə/ /tə/ /fə/ /əv/', title: 'Trọng âm câu và dạng yếu', emoji: '🥁', level: 'B1', titleEn: "Sentence Stress and Weak Forms",
 how: 'Tiếng Anh có nhịp dựa trên trọng âm: các từ mang nội dung (danh từ, động từ chính, tính từ, trạng từ, từ phủ định, từ để hỏi) được nhấn; các từ chức năng (giới từ, mạo từ, trợ động từ, đại từ, liên từ) thường đọc nhanh và nhẹ với nguyên âm /ə/ – gọi là dạng yếu. Khoảng cách giữa các từ được nhấn gần như đều nhau, nên các từ yếu bị “nén” lại.',
-rules: [
+howEn: "In natural spoken English, content words (nouns, verbs, adjectives) receive sentence stress, while grammatical function words (articles, prepositions, pronouns, auxiliaries) are reduced to weak forms with schwa /ə/. Speaking with full vowel forms makes speech sound robotic.",
+    rules: [
 { label: 'Từ được nhấn', when: 'danh từ, động từ chính, tính từ, trạng từ, not/never, từ để hỏi', ex: ['TRAFfic', 'reDUCE', 'SERious'] },
 { label: 'Dạng yếu', when: 'giới từ, mạo từ, trợ động từ, liên từ khi đứng giữa câu', ex: ['to /tə/', 'for /fə/', 'and /ən/'] },
 { label: 'Dạng mạnh', when: 'khi đứng cuối câu, khi được nhấn đối lập, hoặc phủ định', ex: ['Where are you FROM? /frɒm/', 'I CAN. /kæn/', 'can\'t /kɑːnt/'] }
 ],
 vn: 'Người Việt đọc mọi từ to và rõ như nhau (“I – WANT – TO – GO – TO – THE – PARK”), làm câu nghe “cứng như robot” và giám khảo khó nhận ra từ khóa. Đặc biệt nguy hiểm: “can” đọc mạnh /kæn/ dễ bị nghe thành “can\'t”. Cách sửa: gạch chân từ nội dung, đọc to chúng trước, sau đó “chèn” các từ yếu vào giữa thật nhanh mà giữ nguyên nhịp.',
 tip: 'Thần chú: “Nội dung thì nhấn – chức năng thì lướt.” Trong giọng Anh, “can” khẳng định là /kən/, còn “can\'t” là /kɑːnt/ – nguyên âm dài khác hẳn.',
-words: [
+tipEn: "Stress content, glide over grammar. In British RP, positive \"can\" is reduced to /kən/, whereas negative \"can't\" retains a long stressed vowel /kɑːnt/.",
+    words: [
 { w: 'to', ipa: '/tə/', note: 'dạng yếu' },
 { w: 'for', ipa: '/fə/', note: 'dạng yếu (mạnh /fɔː/)' },
 { w: 'of', ipa: '/əv/', note: 'dạng yếu (mạnh /ɒv/)' },
@@ -346,9 +364,10 @@ quiz: [
 });
 
 P.push({
-id: 'intonation', group: 'stress', ipa: '↘ ↗ ↘↗', title: 'Ngữ điệu: lên, xuống và thể hiện thái độ', emoji: '🎢', level: 'B2',
+id: 'intonation', group: 'stress', ipa: '↘ ↗ ↘↗', title: 'Ngữ điệu: lên, xuống và thể hiện thái độ', emoji: '🎢', level: 'B2', titleEn: "Sentence Intonation and Expressive Pitch",
 how: 'Ngữ điệu là sự lên xuống cao độ của cả câu, tập trung ở từ được nhấn mạnh nhất cuối nhóm ý (gọi là “nhân”). Tiếng Việt dùng thanh điệu cho từng âm tiết để đổi nghĩa từ; tiếng Anh dùng ngữ điệu cho cả cụm để thể hiện thông tin đã xong hay chưa, đang hỏi hay khẳng định, và thái độ (chắc chắn, ngạc nhiên, lưỡng lự).',
-rules: [
+howEn: "Intonation conveys attitude, grammatical structure, and communicative intent. Falling intonation signals certainty and finality; rising intonation indicates uncertainty or yes/no questions; fall-rise contours indicate reservation or that more information is to follow.",
+    rules: [
 { label: 'Xuống ↘', when: 'câu trần thuật, câu hỏi Wh-, mệnh lệnh – thông tin đã hoàn chỉnh', ex: ['I live in Hanoi. ↘', 'What do you do? ↘'] },
 { label: 'Lên ↗', when: 'câu hỏi Yes/No, hỏi lại, thể hiện quan tâm', ex: ['Do you like it? ↗', 'Really? ↗'] },
 { label: 'Liệt kê ↗ ↗ ↘', when: 'lên ở mỗi mục, xuống ở mục cuối', ex: ['buses ↗, trains ↗ and bikes ↘'] },
@@ -356,7 +375,8 @@ rules: [
 ],
 vn: 'Lỗi thường gặp: nói đều đều (monotone) vì sợ sai, hoặc xuống giọng giữa câu khiến giám khảo nghĩ bạn đã nói xong; lên giọng cuối câu trần thuật khiến câu nghe như câu hỏi, thiếu tự tin. Cách sửa: ở mỗi câu trả lời IELTS, chọn từ quan trọng nhất cuối câu và cho giọng “rơi” rõ ở đó; với ý chưa xong, giữ giọng ở mức ngang hoặc hơi lên.',
 tip: 'Mẹo: “Xong thì xuống, hỏi có/không thì lên, còn tiếp thì treo.” Phạm vi cao độ rộng hơn = nghe hào hứng và tự nhiên hơn.',
-words: [
+tipEn: "Glide your voice with wider pitch movement: expand your vocal range to sound engaged, authoritative, and natural.",
+    words: [
 { w: 'Really?', ipa: '/ˈrɪəli/', note: '↗ ngạc nhiên, quan tâm' },
 { w: 'Sorry?', ipa: '/ˈsɒri/', note: '↗ xin nhắc lại' },
 { w: 'Sorry.', ipa: '/ˈsɒri/', note: '↘ xin lỗi' },
@@ -384,9 +404,10 @@ quiz: [
 });
 
 P.push({
-id: 'connected-speech', group: 'stress', ipa: '‿ /neks dɔː/ /ˈwɒnə/', title: 'Nối âm, nuốt âm và biến âm', emoji: '🔗', level: 'B2',
+id: 'connected-speech', group: 'stress', ipa: '‿ /neks dɔː/ /ˈwɒnə/', title: 'Nối âm, nuốt âm và biến âm', emoji: '🔗', level: 'B2', titleEn: "Connected Speech: Linking, Elision, and Assimilation",
 how: 'Người bản ngữ không nói từng từ tách rời mà “dính” các từ lại. Ba hiện tượng chính: (1) Nối âm – phụ âm cuối nối với nguyên âm đầu từ sau (turn‿off), giữa hai nguyên âm chèn /j/ hoặc /w/ (the‿/j/‿end, go‿/w/‿out), và trong giọng Anh, chữ “r” cuối được đọc khi từ sau bắt đầu bằng nguyên âm (far‿away /fɑːr əˈweɪ/). (2) Nuốt âm – /t/ /d/ giữa hai phụ âm thường biến mất (next door /ˌneks ˈdɔː/). (3) Biến âm – âm thay đổi do âm bên cạnh (ten people /tem ˈpiːpl/, did you /ˈdɪdʒu/).',
-rules: [
+howEn: "Natural fluent speech links words together smoothly rather than pronouncing isolated tokens. Features include consonant-to-vowel linking, elision of final /t, d/ in clusters, and assimilation where adjacent sounds influence each other.",
+    rules: [
 { label: 'Phụ âm + nguyên âm', when: 'phụ âm cuối “chuyển” sang từ sau', ex: ['turn‿off', 'kind‿of', 'fact‿is'] },
 { label: 'Nguyên âm + nguyên âm', when: 'chèn /j/ sau /iː ɪ eɪ aɪ ɔɪ/, chèn /w/ sau /uː əʊ aʊ/', ex: ['the‿(j)‿environment', 'go‿(w)‿out', 'two‿(w)‿hours'] },
 { label: 'Nối /r/ (giọng Anh)', when: 'r cuối câm, nhưng được đọc khi từ sau bắt đầu bằng nguyên âm', ex: ['far‿away', 'more‿often', 'after‿all'] },
@@ -395,7 +416,8 @@ rules: [
 ],
 vn: 'Người Việt quen tách rời từng âm tiết, nên nói “turn – off”, “an – apple”, thậm chí chèn âm tắc họng giữa các từ. Kết quả là câu nói bị đứt quãng và thiếu trôi chảy. Ngược lại, cũng đừng lạm dụng “wanna/gonna” trong IELTS – hãy dùng nối âm tự nhiên (/ˈwɒntə/) thay vì giọng quá suồng sã. Cách sửa: đánh dấu ‿ trong câu mẫu, luyện chậm phần nối, rồi tăng tốc dần.',
 tip: 'Mẹo: “Phụ âm đi tìm nguyên âm.” Mỗi khi một từ kết thúc bằng phụ âm và từ sau bắt đầu bằng nguyên âm, hãy coi phụ âm đó như âm đầu của từ sau: “an‿apple” → “a napple”.',
-words: [
+tipEn: "Consonants seek vowels: mentally attach the final consonant to the next word starting with a vowel (\"an‿apple\" → \"a napple\").",
+    words: [
 { w: 'next door', ipa: '/ˌneks ˈdɔː/', note: 'nuốt /t/' },
 { w: 'last week', ipa: '/ˌlɑːs ˈwiːk/', note: 'nuốt /t/' },
 { w: 'handbag', ipa: '/ˈhæmbæɡ/', note: 'nuốt /d/ + /n/ → /m/' },
@@ -423,9 +445,10 @@ quiz: [
 });
 
 P.push({
-id: 'chunking', group: 'stress', ipa: '/ … / … /', title: 'Ngắt nhịp theo cụm ý cho IELTS Speaking', emoji: '⏸️', level: 'B2',
+id: 'chunking', group: 'stress', ipa: '/ … / … /', title: 'Ngắt nhịp theo cụm ý cho IELTS Speaking', emoji: '⏸️', level: 'B2', titleEn: "Chunking and Thought Groups in IELTS Speaking",
 how: 'Người nói tự nhiên chia câu thành các “cụm ý” (thought groups) – mỗi cụm thường 3–7 từ, mang một ý nhỏ và có một từ được nhấn mạnh nhất. Giữa các cụm có khoảng dừng rất ngắn. Ngắt đúng chỗ giúp người nghe hiểu cấu trúc câu; ngắt sai chỗ (giữa mạo từ và danh từ, giữa giới từ và tân ngữ) làm câu vỡ vụn, nghe như đang “tìm từ”.',
-rules: [
+howEn: "Divide extended speech into meaningful thought groups (tone units) separated by brief micro-pauses. Each chunk contains one central tonic accent, allowing the speaker to control rhythm, clarify logic, and maintain high fluency without breathless rushing.",
+    rules: [
 { label: 'Sau cụm mở đầu', when: 'cụm dẫn ý, trạng từ đầu câu', ex: ['In my opinion /', 'To be honest /'] },
 { label: 'Sau chủ ngữ dài', when: 'chủ ngữ từ 3–4 từ trở lên', ex: ['People who live in big cities / often…'] },
 { label: 'Trước liên từ, mệnh đề', when: 'because, but, which, so, although…', ex: ['/ because it saves time', '/ which is why…'] },
@@ -433,7 +456,8 @@ rules: [
 ],
 vn: 'Người Việt thường ngắt ở bất cứ đâu khi cần nghĩ từ, chèn “ờ… ờ…” liên tục, hoặc ngược lại nói một mạch không nghỉ vì sợ bị đánh giá là thiếu trôi chảy. Cả hai đều làm giảm điểm. Cách sửa: học sẵn các cụm từ “khối” (In my opinion, The main reason is…) để nói liền một hơi; khi cần thời gian suy nghĩ, dừng ở ranh giới cụm ý thay vì giữa cụm, và dùng cụm câu giờ tự nhiên như “Let me think…”.',
 tip: 'Thần chú: “Một hơi – một ý – một điểm nhấn.” Tốc độ lý tưởng không phải là nhanh nhất mà là đều, với khoảng dừng đúng chỗ.',
-words: [
+tipEn: "Rule: One breath – one idea – one nucleus. Optimal fluency is not maximum speed, but steady rhythm punctuated by purposeful pauses.",
+    words: [
 { w: 'To be honest,', ipa: '/tə bi ˈɒnɪst/', note: 'một cụm – nói liền' },
 { w: 'As far as I know,', ipa: '/əz ˈfɑːr əz aɪ ˈnəʊ/', note: 'một cụm – nối /r/' },
 { w: 'In my opinion,', ipa: '/ɪn ˈmaɪ əˈpɪnjən/', note: 'một cụm – nhấn “pin”' },
@@ -458,4 +482,236 @@ quiz: [
 { q: 'Tiêu chí Pronunciation trong IELTS đánh giá cao điều gì về nhịp nói?', options: ['Nói càng nhanh càng tốt', 'Ngắt nhịp hợp lý, nhịp điệu tự nhiên, dễ hiểu', 'Đọc từng từ thật rõ, tách rời'], answer: 1, explain: 'Band cao yêu cầu dùng linh hoạt các đặc điểm như ngắt cụm, nhịp và ngữ điệu, giúp người nghe hiểu dễ dàng – không phải tốc độ.' }
 ]
 });
+
+/* ───────────── NHÓM 3: NÂNG CAO B2–C1 (NGỮ ÂM HỌC THUẬT & GIAO TIẾP TỰ NHIÊN) ───────────── */
+
+P.push({
+  id: 'linking-catenation', group: 'stress', ipa: 'C‿V /r/ /j/ /w/', title: 'Nối âm nâng cao: Catenation & âm chèn /r, j, w/', emoji: '🔗', level: 'B2', titleEn: "Advanced Linking: Consonant-to-Vowel Catenation & Intrusive Sounds",
+  how: 'Ở cấp độ B2 trở lên, nối âm không chỉ là việc đọc liền từ mà là biến phụ âm cuối của từ đứng trước thành phụ âm đầu của từ đứng sau (catenation). Khi một từ kết thúc bằng nguyên âm và từ tiếp theo bắt đầu bằng nguyên âm, người bản xứ tự nhiên chèn thêm một bán nguyên âm /j/ (sau nguyên âm khép trước như /iː, eɪ, aɪ/), /w/ (sau nguyên âm tròn môi như /uː, əʊ, aʊ/) hoặc âm nối /r/ (linking and intrusive r trong tiếng Anh chuẩn Anh) để luồng hơi không bị đứt đoạn.',
+  howEn: "At B2 level and above, linking involves smoothly transitioning syllable boundaries. Consonant-to-vowel catenation resyllabifies the final consonant onto the following vowel onset. Furthermore, vowel-to-vowel junctures naturally introduce transient glides: an intrusive /j/ after front vowels (/iː, eɪ, aɪ/), an intrusive /w/ after rounded vowels (/uː, əʊ, aʊ/), and linking or intrusive /r/ in non-rhotic accents to preserve continuous airflow.",
+  rules: [
+    { label: 'Nối phụ âm sang nguyên âm (C-V)', when: 'phụ âm cuối chuyển sang làm âm đầu của từ sau', ex: ['hold on', 'turn off', 'clean up'] },
+    { label: 'Chèn âm lướt /j/', when: 'sau nguyên âm /iː, eɪ, aɪ, ɔɪ/ gặp nguyên âm khác', ex: ['see it /siː-j-ɪt/', 'say it /seɪ-j-ɪt/'] },
+    { label: 'Chèn âm lướt /w/', when: 'sau nguyên âm /uː, əʊ, aʊ/ gặp nguyên âm khác', ex: ['go on /ɡəʊ-w-ɒn/', 'do it /duː-w-ɪt/'] },
+    { label: 'Âm /r/ nối (Linking & Intrusive r)', when: 'sau chữ kết thúc bằng r hoặc các âm /ə, ɔː, ɑː/', ex: ['clear idea', 'start out'] }
+  ],
+  vn: 'Người học thường ngắt khựng giữa hai từ bắt đầu bằng nguyên âm hoặc phát âm giật cục từng từ đơn lẻ. Điều này làm mất điểm Fluency và Pronunciation trong IELTS Speaking. Hãy để lưỡi lướt nhẹ nhàng và liên tục qua ranh giới từ.',
+  tip: 'Mẹo: Hãy tưởng tượng ranh giới từ biến mất: “clean it” nghe như “clea-nit”, “turn off” nghe như “tur-noff”. Khi hai nguyên âm gặp nhau, để môi và lưỡi lướt tự nhiên tạo âm đệm nhẹ.',
+  tipEn: "Rule: Imagine word boundaries disappear: pronounce 'clean it' as 'clea-nit'. At vowel-vowel junctures, allow the articulators to glide smoothly without a glottal stop.",
+  words: [
+    { w: 'turn', ipa: '/tɜːn/', note: 'nối âm: turn on' },
+    { w: 'hold', ipa: '/həʊld/', note: 'nối âm: hold on' },
+    { w: 'point', ipa: '/pɔɪnt/', note: 'nối âm: point out' },
+    { w: 'clear', ipa: '/klɪə/', note: 'âm r nối: clear out' },
+    { w: 'clean', ipa: '/kliːn/', note: 'nối âm: clean up' },
+    { w: 'find', ipa: '/faɪnd/', note: 'nối âm: find out' },
+    { w: 'start', ipa: '/stɑːt/', note: 'nối âm: start up' },
+    { w: 'keep', ipa: '/kiːp/', note: 'nối âm: keep in' },
+    { w: 'stand', ipa: '/stænd/', note: 'nối âm: stand up' },
+    { w: 'check', ipa: '/tʃek/', note: 'nối âm: check in' }
+  ],
+  sentences: [
+    'Please hold on for a minute and turn off the light.',
+    'We need to find out how to clean up the area.',
+    'The report makes a very clear and convincing point.'
+  ],
+  quiz: [
+    { q: 'Cụm “clean up” khi nói nhanh trong câu thường được nối âm như thế nào?', options: ['clea-nup (phụ âm /n/ làm đầu âm tiết sau)', 'ngắt quãng giữa clean và up', 'bỏ hẳn âm /n/'], answer: 0, explain: 'Catenation chuyển phụ âm cuối sang đầu nguyên âm tiếp theo: “clean up” → “clea-nup”.' },
+    { q: 'Khi nói cụm “see it” /siː ɪt/, âm đệm tự nhiên nào thường xuất hiện ở giữa?', options: ['Âm /j/ lướt nhẹ', 'Âm /w/', 'Âm /k/'], answer: 0, explain: 'Sau nguyên âm khép trước /iː/, lưỡi lướt sang /ɪ/ tự nhiên tạo ra bán nguyên âm /j/ (“see-y-it”).' },
+    { q: 'Trong cụm “go on” /ɡəʊ ɒn/, âm đệm nào hình thành do môi tròn?', options: ['Âm /w/ lướt nhẹ', 'Âm /r/', 'Âm /s/'], answer: 0, explain: 'Sau nguyên âm tròn môi /əʊ/, môi khép nhẹ và lướt sang /ɒ/ tạo thành âm /w/ (“go-w-on”).' },
+    { q: 'Nối âm mang lại lợi ích gì lớn nhất trong IELTS Speaking?', options: ['Tăng tính trôi chảy (Fluency) và ngữ điệu tự nhiên', 'Nói nhanh gấp đôi', 'Thay đổi nghĩa từ vựng'], answer: 0, explain: 'Nối âm giúp luồng hơi liên tục, tạo nhịp điệu tự nhiên và cải thiện điểm phát âm lẫn độ lưu loát.' },
+    { q: 'Lỗi thường gặp của người học khi gặp hai nguyên âm cạnh nhau là gì?', options: ['Chèn âm tắc thanh hầu (glottal stop) ngắt quãng', 'Nối quá mượt mà', 'Kéo dài cả hai nguyên âm'], answer: 0, explain: 'Nhiều người học khựng lại và giật giọng bằng âm tắc thanh hầu thay vì lướt nhẹ liên tục.' }
+  ]
+});
+
+P.push({
+  id: 'sentence-stress-focus', group: 'stress', ipa: 'Oo / oO ˈ—', title: 'Trọng âm câu & Âm tiết nhân (Tonic syllable)', emoji: '🎯', level: 'B2', titleEn: "Sentence Stress & Nuclear Tone Placement",
+  how: 'Mỗi câu nói trong tiếng Anh luôn có một trọng tâm thông tin mang âm tiết nhân (tonic syllable hay nuclear stress) – nơi cao độ giọng nói thay đổi mạnh nhất. Người bản ngữ chuyển vị trí trọng tâm này để làm nổi bật thông tin mới, đối lập ý niệm hoặc đính chính nhận định. Nắm vững quy tắc âm tiết nhân giúp bài nói IELTS đạt tiêu chuẩn tự nhiên và sắc bén.',
+  howEn: "Every spoken tone unit contains a single primary nuclear stress (tonic syllable) where the most prominent pitch movement occurs. Shifting the nuclear stress allows speakers to signal contrast, introduce focal information, or correct misconceptions dynamically, a key criterion for high-band IELTS discourse.",
+  rules: [
+    { label: 'Trọng âm trung tính (Neutral stress)', when: 'rơi vào từ nội dung cuối cùng của cụm ý', ex: ['read the report', 'start a project'] },
+    { label: 'Trọng âm tương phản (Contrastive)', when: 'nhấn mạnh từ đối lập để phản bác hoặc làm rõ', ex: ['I said increase, not decrease'] },
+    { label: 'Trọng âm danh từ vs động từ', when: 'từ 2 âm tiết: danh từ nhấn âm 1, động từ nhấn âm 2', ex: ['a record vs to record', 'a project vs to project'] }
+  ],
+  vn: 'Người học hay nói với âm lượng và cao độ đều đều ở mọi từ, hoặc nhấn sai vào các từ phụ khiến giám khảo khó bắt được ý chính. Hãy chủ động hạ giọng ở các từ phụ và tạo đỉnh cao độ rõ rệt ở từ chứa thông tin then chốt.',
+  tip: 'Mẹo: Đặt từ khóa quan trọng nhất lên một chiếc “bục cao” bằng cách nâng cao độ giọng nói và kéo dài nguyên âm ở âm tiết đó.',
+  tipEn: "Rule: Highlight your key message: identify the single most informative word in each phrase and elevate its pitch and duration.",
+  words: [
+    { w: 'report', ipa: '/rɪˈpɔːt/', note: 'nhấn âm 2: rɪ-PORT' },
+    { w: 'project', ipa: '/ˈprɒdʒekt/', note: 'danh từ: PRO-ject' },
+    { w: 'present', ipa: '/ˈpreznt/', note: 'danh từ: PRE-sent' },
+    { w: 'record', ipa: '/ˈrekɔːd/', note: 'danh từ: RE-cord' },
+    { w: 'contract', ipa: '/ˈkɒntrækt/', note: 'danh từ: CON-tract' },
+    { w: 'produce', ipa: '/prəˈdjuːs/', note: 'động từ: pro-DUCE' },
+    { w: 'increase', ipa: '/ɪnˈkriːs/', note: 'động từ: in-CREASE' },
+    { w: 'decrease', ipa: '/dɪˈkriːs/', note: 'động từ: de-CREASE' },
+    { w: 'object', ipa: '/ˈɒbdʒɪkt/', note: 'danh từ: OB-ject' },
+    { w: 'progress', ipa: '/ˈprəʊɡres/', note: 'danh từ: PRO-gress' }
+  ],
+  sentences: [
+    'We must present the final report by Friday afternoon.',
+    'There was a notable increase in the production figures.',
+    'They signed the new contract after reviewing the project.'
+  ],
+  quiz: [
+    { q: 'Trong câu trung tính, âm tiết nhân thường nằm ở đâu?', options: ['Từ nội dung quan trọng cuối cùng của cụm', 'Từ đầu tiên của câu', 'Bất kỳ từ nào'], answer: 0, explain: 'Theo cấu trúc trung tính của tiếng Anh, trọng âm chính rơi vào từ vựng nội dung cuối cùng của đơn vị ngữ điệu.' },
+    { q: 'Khi muốn đính chính “Tôi muốn bản BÁO CÁO, không phải hợp đồng”, ta nhấn mạnh vào đâu?', options: ['REPORT (với cao độ nổi bật)', 'bình đẳng cả câu', 'nhấn vào đại từ I'], answer: 0, explain: 'Trọng âm tương phản dồn vào từ cần làm rõ đối lập: REPORT.' },
+    { q: 'Từ “record” khi làm danh từ (bản ghi) có trọng âm ở đâu?', options: ['Âm tiết 1 (/ˈrekɔːd/)', 'Âm tiết 2 (/rɪˈkɔːd/)', 'Cả hai âm'], answer: 0, explain: 'Các từ 2 âm tiết có cặp danh-động từ thường nhấn âm 1 khi là danh từ (RE-cord) và âm 2 khi là động từ (re-CORD).' },
+    { q: 'Yếu tố nào làm nên sự nổi bật của âm tiết nhân?', options: ['Cao độ thay đổi rõ rệt, âm lượng lớn hơn và nguyên âm dài hơn', 'Chỉ nói thật to', 'Nói thật nhanh'], answer: 0, explain: 'Trọng âm trong tiếng Anh là sự kết hợp của độ cao (pitch change), độ dài (duration) và độ vang (loudness).' },
+    { q: 'Việc điều chỉnh trọng âm câu linh hoạt phản ánh tiêu chí nào trong IELTS?', options: ['Pronunciation Band 7+ (sử dụng linh hoạt các đặc điểm ngữ âm để truyền tải sắc thái)', 'Từ vựng Band 6', 'Ngữ pháp Band 5'], answer: 0, explain: 'Barem IELTS chấm điểm cao cho thí sinh biết dùng sentence stress để định hướng thông tin và nhấn mạnh ý nghĩa.' }
+  ]
+});
+
+P.push({
+  id: 'complex-intonation', group: 'stress', ipa: '↗ ↘ ↘↗ (sub/main)', title: 'Ngữ điệu câu phức & Cao độ xuống-lên (Fall-rise)', emoji: '🎢', level: 'C1', titleEn: "Complex Sentence Intonation & Fall-Rise Tones",
+  how: 'Ở trình độ C1, người nói làm chủ các đường nét ngữ điệu phức hợp. Trong câu phức có mệnh đề phụ đứng trước (Although..., When..., If...), mệnh đề phụ thường mang ngữ điệu lên nhẹ hoặc xuống-lên (fall-rise ↘↗) để báo hiệu cho người nghe rằng thông tin chưa kết thúc. Mệnh đề chính theo sau sẽ kết thúc bằng ngữ điệu xuống dứt khoát (falling ↘) thể hiện sự hoàn tất trọn vẹn của luận điểm.',
+  howEn: "At C1 proficiency, speakers employ complex nuclear tones purposefully. In subordinate-clause prefaces (clauses introduced by 'Although', 'While', 'If'), a fall-rise tone (↘↗) signals that the idea is non-final and conditional. The subsequent main clause resolves with a decisive falling tone (↘), projecting academic authority and logical completion.",
+  rules: [
+    { label: 'Mệnh đề phụ đầu câu (Non-finality)', when: 'mệnh đề Although/If/When đứng trước: dùng ngữ điệu lên hoặc xuống-lên', ex: ['Although it is difficult ↗', 'If we consider the cost ↘↗'] },
+    { label: 'Mệnh đề chính kết câu (Finality)', when: 'kết thúc câu trần thuật: ngữ điệu xuống dứt khoát', ex: ['it is definitely worth it ↘', 'the results will improve ↘'] },
+    { label: 'Trạng từ liên kết đầu câu', when: 'however, therefore, moreover: nâng cao độ rồi hạ nhẹ', ex: ['However ↘↗', 'Therefore ↘'] }
+  ],
+  vn: 'Người học thường kết thúc mọi mệnh đề bằng ngữ điệu rơi bằng phẳng, khiến câu phức nghe rời rạc như hai câu đơn vụn vỡ. Hãy giữ giọng hơi lơ lửng hoặc dùng âm điệu xuống-lên ở vế đầu để dẫn dắt tai người nghe sang mệnh đề chính.',
+  tip: 'Mẹo: Xem mệnh đề phụ như chiếc cầu treo: giọng hơi nhấc lên ở cuối cầu để người nghe háo hức chờ đợi bờ bên kia (mệnh đề chính).',
+  tipEn: "Rule: Treat dependent clauses as open musical phrases: maintain suspended or rising pitch so your listener anticipates the concluding main clause.",
+  words: [
+    { w: 'although', ipa: '/ɔːlˈðəʊ/', note: 'mở đầu mệnh đề phụ' },
+    { w: 'however', ipa: '/haʊˈevə(r)/', note: 'trạng từ chuyển ý' },
+    { w: 'therefore', ipa: '/ˈðeəfɔː(r)/', note: 'trạng từ kết luận' },
+    { w: 'moreover', ipa: '/mɔːrˈəʊvə(r)/', note: 'trạng từ bổ sung' },
+    { w: 'furthermore', ipa: '/ˌfɜːðəˈmɔː(r)/', note: 'trạng từ học thuật' },
+    { w: 'certainly', ipa: '/ˈsɜːtnli/', note: 'trạng từ khẳng định' },
+    { w: 'definitely', ipa: '/ˈdefɪnɪtli/', note: 'trạng từ chắc chắn' },
+    { w: 'probably', ipa: '/ˈprɒbəbli/', note: 'trạng từ suy đoán' },
+    { w: 'actually', ipa: '/ˈæktʃʊli/', note: 'trạng từ thực tế' },
+    { w: 'naturally', ipa: '/ˈnætʃərəli/', note: 'trạng từ tất yếu' }
+  ],
+  sentences: [
+    'Although the task was challenging ↘↗, the team completed it on time. ↘',
+    'However ↘↗, we must certainly consider the long-term impact. ↘',
+    'Therefore ↘, natural resources should be protected effectively. ↘'
+  ],
+  quiz: [
+    { q: 'Ngữ điệu chuẩn ở cuối mệnh đề “Although it is expensive…” đứng đầu câu là gì?', options: ['Ngữ điệu lên hoặc xuống-lên (↘↗) biểu thị ý chưa dứt', 'Ngữ điệu xuống tận đáy', 'Ngữ điệu thì thầm'], answer: 0, explain: 'Mệnh đề phụ đứng trước diễn đạt tính phụ thuộc, yêu cầu cao độ treo hoặc xuống-lên để dẫn vào mệnh đề chính.' },
+    { q: 'Mệnh đề chính kết thúc câu trần thuật học thuật thường dùng ngữ điệu nào?', options: ['Ngữ điệu xuống dứt khoát (Falling ↘)', 'Ngữ điệu lên như câu hỏi', 'Giữ nguyên tần số không đổi'], answer: 0, explain: 'Ngữ điệu xuống (Falling tone) thể hiện sự dứt khoát, chắc chắn và hoàn thành thông điệp.' },
+    { q: 'Cao độ xuống-lên (Fall-rise ↘↗) thường biểu đạt hàm ý nào của người nói?', options: ['Dè dặt, cảnh báo, hoặc ý niệm chưa hoàn tất', 'Tức giận tột độ', 'Kết thúc hoàn toàn cuộc trò chuyện'], answer: 0, explain: 'Fall-rise là một trong những ngữ điệu tinh tế nhất của tiếng Anh, thể hiện sự dè dặt, bảo lưu ý kiến (reservation).' },
+    { q: 'Tại sao việc làm chủ ngữ điệu câu phức lại quan trọng ở cấp C1?', options: ['Giúp tổ chức bài nói mạch lạc và dẫn dắt người nghe qua các cấu trúc ngữ pháp phức tạp', 'Để nói giống một phát thanh viên', 'Để tránh phải dùng liên từ'], answer: 0, explain: 'Ngữ điệu chính là keo dán gắn kết các mệnh đề, giúp người nghe theo dõi lập luận nhiều tầng bậc.' },
+    { q: 'Trong cụm “However,...”, trạng từ liên kết này thường được phát âm như thế nào?', options: ['Tách biệt thành một tone unit riêng với ngữ điệu chuyển tiếp', 'Dính chặt vào từ tiếp theo không ngắt', 'Không phát âm'], answer: 0, explain: 'Các trạng từ liên kết đầu câu thường tạo thành một đơn vị ngữ điệu ngắn để chuẩn bị tâm thế cho người nghe.' }
+  ]
+});
+
+P.push({
+  id: 'advanced-weak-forms', group: 'stress', ipa: '/wəd əv/ /ʃəd əv/', title: 'Dạng yếu nâng cao: Trợ động từ khuyết thiếu & Co cụm hoàn thành', emoji: '💨', level: 'C1', titleEn: "Advanced Weak Forms: Auxiliary Contractions & Reductions",
+  how: 'Ở tốc độ nói tự nhiên của người bản xứ, các cấu trúc hoàn thành với trợ động từ khuyết thiếu như “should have”, “would have”, “could have” không bao giờ được phát âm với nguyên âm đầy đủ. Chúng co lại thành các dạng yếu nối liền: “should’ve” /ʃʊdəv/ hoặc thậm chí /ʃədəv/. Tương tự, “must have” trở thành /mʌstəv/ hay /məsəv/. Làm chủ các dạng yếu này giúp bạn nghe hiểu tức thì tiếng Anh bản ngữ và nói năng nhẹ nhàng, thanh thoát.',
+  howEn: "In natural spoken English, complex modal auxiliary chains undergo systematic phonetic reduction. Modal perfect constructions like 'should have', 'would have', and 'could have' reduce to cliticized forms (/ʃʊdəv/, /wʊdəv/, /kʊdəv/), with unstressed auxiliary vowels compressing into schwa /ə/. Internalizing these advanced weak forms unlocks rapid native listening comprehension and effortless speech production.",
+  rules: [
+    { label: 'Rút gọn should have / would have', when: 'đọc thành một khối nhẹ nhàng với schwa', ex: ['should have → /ʃəd əv/', 'would have → /wəd əv/'] },
+    { label: 'Rút gọn could have / must have', when: 'nguyên âm trợ động từ yếu đi', ex: ['could have → /kəd əv/', 'must have → /məst əv/'] },
+    { label: 'Dạng mạnh (Strong form)', when: 'đứng ở cuối câu hoặc khi muốn nhấn mạnh đối lập', ex: ['Yes, you should have! /hæv/'] }
+  ],
+  vn: 'Người học thường phát âm từng từ rời rạc: “I - would - have - told - you” với đầy đủ nguyên âm căng, khiến câu nói nặng nề và tốn sức. Hãy thả lỏng cơ miệng và để các trợ động từ lướt nhanh như một âm đệm nhẹ trước động từ chính.',
+  tip: 'Thần chú: “Trợ từ là bóng râm, động từ chính là ánh sáng.” Chỉ tập trung sức bật vào động từ chính mang nghĩa; các trợ từ đi trước hãy lướt thật nhanh.',
+  tipEn: "Rule: Keep auxiliaries in the background: glide swiftly across modal chains and release full stress only upon the lexical verb.",
+  words: [
+    { w: 'would', ipa: '/wʊd/', note: 'dạng yếu: /wəd/' },
+    { w: 'could', ipa: '/kəd/', note: 'dạng yếu: /kəd/' },
+    { w: 'should', ipa: '/ʃəd/', note: 'dạng yếu: /ʃəd/' },
+    { w: 'have', ipa: '/hæv/', note: 'dạng yếu: /əv/' },
+    { w: 'must', ipa: '/məst/', note: 'dạng yếu: /məst/' },
+    { w: 'might', ipa: '/maɪt/', note: 'trợ động từ phỏng đoán' },
+    { w: 'shall', ipa: '/ʃæl/', note: 'dạng yếu: /ʃəl/' },
+    { w: 'will', ipa: '/wɪl/', note: 'dạng co cụm: /l/' },
+    { w: 'can', ipa: '/kæn/', note: 'dạng yếu: /kən/' },
+    { w: 'need', ipa: '/niːd/', note: 'bán trợ động từ' }
+  ],
+  sentences: [
+    'They should have confirmed the schedule earlier.',
+    'We could have completed the project without any difficulty.',
+    'You must have seen the latest economic report.'
+  ],
+  quiz: [
+    { q: 'Cụm “should have done” trong giao tiếp bản ngữ tự nhiên thường được phát âm thế nào?', options: ['/ʃəd əv dʌn/ (rút gọn thành dạng yếu lướt nhanh)', '/ʃuːld hæv dʌn/ đọc rõ từng từ', '/ʃuːd hæv dʌn/'], answer: 0, explain: 'Trong lời nói tự nhiên, “should have” rút gọn thành dạng yếu với schwa: /ʃəd əv/ hoặc /ʃʊdəv/.' },
+    { q: 'Khi nào “have” bắt buộc phải phát âm ở dạng mạnh (/hæv/)?', options: ['Khi đứng ở cuối câu (ví dụ: “Yes, I have.”)', 'Khi đứng trước danh từ', 'Khi nói thật nhanh'], answer: 0, explain: 'Hư từ đứng ở vị trí cuối câu không bao giờ được phát âm dạng yếu; luôn phải dùng dạng mạnh.' },
+    { q: 'Âm nào là nguyên âm phổ biến nhất trong các dạng yếu của tiếng Anh?', options: ['Âm schwa /ə/', 'Nguyên âm /iː/', 'Nguyên âm /uː/'], answer: 0, explain: 'Schwa /ə/ là âm trung tâm, đại diện cho trạng thái thả lỏng hoàn toàn của bộ máy cấu âm.' },
+    { q: 'Lợi ích của việc phát âm đúng các dạng yếu là gì?', options: ['Tạo nhịp điệu tiếng Anh chuẩn xác và tiết kiệm sức khi nói', 'Để khoe từ vựng khó', 'Để người nghe khó hiểu'], answer: 0, explain: 'Tiếng Anh là ngôn ngữ đẳng thời theo trọng âm; việc lướt dạng yếu giúp duy trì nhịp điệu tự nhiên.' },
+    { q: 'Từ “can” trong câu khẳng định “I can do it” được phát âm tự nhiên là gì?', options: ['/kən/ (dạng yếu)', '/kæn/ (dạng mạnh)', '/kɑːnt/'], answer: 0, explain: '“Can” khẳng định là hư từ nên đọc lướt là /kən/; chỉ khi phủ định “can\x27t” mới mang trọng âm và đọc dạng mạnh.' }
+  ]
+});
+
+P.push({
+  id: 'stress-timed-rhythm', group: 'stress', ipa: '♩ . . ♩ . ♩ (isochrony)', title: 'Nhịp điệu tiếng Anh: Đẳng thời theo trọng âm (Stress-timed rhythm)', emoji: '🥁', level: 'C1', titleEn: "Stress-Timed Rhythm & Isochronous Timing",
+  how: 'Tiếng Việt là ngôn ngữ đơn lập, nhịp điệu tính theo từng âm tiết (syllable-timed: mỗi âm tiết chiếm một khoảng thời gian tương đương). Ngược lại, tiếng Anh là ngôn ngữ đẳng thời theo trọng âm (stress-timed rhythm): khoảng thời gian giữa các âm tiết mang trọng âm chính là xấp xỉ bằng nhau, bất kể ở giữa chúng có bao nhiêu âm tiết không nhấn. Nắm vững bản chất này là chìa khóa tối hậu để thoát khỏi lối nói giật cục, đạt đến độ tự nhiên của người bản ngữ.',
+  howEn: "Unlike syllable-timed languages where each syllable receives equal duration, English operates on stress-timed rhythm (isochrony). The duration between consecutive stressed syllables remains relatively constant, compressing unstressed syllables via vowel reduction and elision. Mastering this rhythmic cadence transforms hesitant, mechanical delivery into effortless C1/C2 fluency.",
+  rules: [
+    { label: 'Âm tiết mang trọng âm (Beats)', when: 'giữ nhịp đập chính của câu, phát âm rõ ràng, vang', ex: ['walk in the park', 'develop a system'] },
+    { label: 'Âm tiết không nhấn (Compression)', when: 'bị nén lại trong khoảng thời gian ngắn giữa 2 nhịp đập', ex: ['regular schedule', 'structure of the direct control'] },
+    { label: 'Duy trì tốc độ nhịp đập', when: 'không tăng tốc ở từ nhấn mà lướt nhanh ở từ đệm', ex: ['advance and develop'] }
+  ],
+  vn: 'Lỗi gốc rễ của người học là dành thời lượng bằng nhau cho mỗi âm tiết, khiến câu nói nghe như tiếng gõ máy chữ đều đều. Hãy gõ nhịp tay theo các từ trọng tâm và nén các từ nhỏ xung quanh vào giữa hai nhịp đập.',
+  tip: 'Mẹo: Hãy tưởng tượng trọng âm là những bước chân đều đặn khi bạn đi bộ. Dù giữa hai bước chân có 1 từ hay 3 từ lướt, bước chân vẫn chạm đất đúng nhịp đập.',
+  tipEn: "Rule: Keep the metronome ticking on stressed beats: compress intervening unstressed syllables so the rhythmic tempo remains uninterrupted.",
+  words: [
+    { w: 'walk', ipa: '/wɔːk/', note: 'từ nội dung: nhịp đập chính' },
+    { w: 'park', ipa: '/pɑːk/', note: 'từ nội dung: nhịp đập chính' },
+    { w: 'regular', ipa: '/ˈreɡjʊlə/', note: 'nhấn âm 1: REG-u-lar' },
+    { w: 'schedule', ipa: '/ˈʃedjuːl/', note: 'nhấn âm 1: SCHED-ule' },
+    { w: 'advance', ipa: '/ədˈvɑːns/', note: 'nhấn âm 2: ad-VANCE' },
+    { w: 'develop', ipa: '/dɪˈveləp/', note: 'nhấn âm 2: de-VEL-op' },
+    { w: 'control', ipa: '/kənˈtrəʊl/', note: 'nhấn âm 2: con-TROL' },
+    { w: 'direct', ipa: '/daɪˈrekt/', note: 'nhấn âm 2: di-RECT' },
+    { w: 'system', ipa: '/ˈsɪstəm/', note: 'nhấn âm 1: SYS-tem' },
+    { w: 'structure', ipa: '/ˈstrʌktʃə(r)/', note: 'nhấn âm 1: STRUC-ture' }
+  ],
+  sentences: [
+    'They walk in the park on a regular schedule.',
+    'We must direct and control the whole system structure.',
+    'Plans advance and develop through regular practice.'
+  ],
+  quiz: [
+    { q: 'Đặc trưng nhịp điệu của tiếng Anh (Stress-timed) khác tiếng Việt (Syllable-timed) ở điểm nào?', options: ['Khoảng cách thời gian giữa các âm tiết nhấn là tương đương nhau', 'Mỗi âm tiết đọc dài bằng nhau', 'Nói không bao giờ nghỉ'], answer: 0, explain: 'Tiếng Anh điều chỉnh thời lượng âm tiết không nhấn để giữ khoảng cách giữa các âm tiết có trọng âm xấp xỉ bằng nhau.' },
+    { q: 'Khi số lượng âm tiết không nhấn giữa hai trọng âm tăng lên, người bản ngữ sẽ làm gì?', options: ['Nén các âm tiết không nhấn lại nhanh và lướt hơn', 'Đọc chậm lại để kịp phát âm từng âm', 'Hét to hơn'], answer: 0, explain: 'Các âm tiết không nhấn bị nén lại (compression) bằng cách lướt và giảm nguyên âm về schwa.' },
+    { q: 'Tại sao việc nói theo kiểu syllable-timed (đều đều mỗi âm) lại gây khó khăn cho người nghe bản ngữ?', options: ['Làm mất các điểm mốc âm thanh để não bộ nhận diện từ vựng cốt lõi', 'Vì nghe quá nhanh', 'Vì nghe quá êm ái'], answer: 0, explain: 'Người bản xứ dựa vào các đỉnh trọng âm (beats) để giải mã thông tin. Nhịp đều đều làm phẳng các tín hiệu này.' },
+    { q: 'Trong câu “They WALK in the PARK”, các từ “in the” được xử lý như thế nào?', options: ['Được lướt rất nhanh trong khoảng trống giữa WALK và PARK', 'Đọc to ngang ngửa WALK', 'Bỏ hẳn không phát âm'], answer: 0, explain: 'Hai từ “in the” là hư từ không nhấn, được nén gọn lại giữa hai nhịp đập chính WALK và PARK.' },
+    { q: 'Phương pháp luyện nhịp điệu hiệu quả nhất là gì?', options: ['Vỗ tay hoặc gõ nhịp theo các âm tiết mang trọng âm chính', 'Đọc từng chữ một trong từ điển', 'Nói thì thầm'], answer: 0, explain: 'Vỗ tay theo nhịp nhấn giúp cơ thể cảm nhận được tính đẳng thời của nhịp điệu tiếng Anh.' }
+  ]
+});
+
+P.push({
+  id: 'question-tag-intonation', group: 'stress', ipa: '↗ (ask) vs ↘ (confirm)', title: 'Ngữ điệu câu hỏi đuôi: Xác nhận hay Hỏi thật?', emoji: '🏷️', level: 'B2', titleEn: "Intonation in Question Tags: Seeking Confirmation vs Real Questions",
+  how: 'Câu hỏi đuôi (question tags) trong tiếng Anh có hai mô thức ngữ điệu mang ý nghĩa hoàn toàn trái ngược nhau. Khi người nói muốn tìm kiếm sự đồng tình hoặc xác nhận điều mình đã biết chắc (seeking confirmation), ngữ điệu ở phần đuôi sẽ ĐI XUỐNG (falling tone ↘). Ngược lại, khi người nói thực sự không chắc chắn và muốn hỏi thông tin thật (real inquiry), ngữ điệu ở phần đuôi sẽ ĐI LÊN (rising tone ↗). Dùng sai ngữ điệu sẽ làm sai lệch hoàn toàn thái độ giao tiếp.',
+  howEn: "Question tags utilize contrasting intonation contours to communicate fundamentally distinct interpersonal meanings. A falling tone (↘) on the tag indicates that the speaker expects agreement and is merely seeking confirmation of known common ground. Conversely, a rising tone (↗) converts the statement into a genuine question where the speaker is uncertain of the answer.",
+  rules: [
+    { label: 'Ngữ điệu xuống (Falling ↘)', when: 'tìm kiếm sự đồng tình, đã chắc chắn điều mình nói', ex: ['It is a great result, isn\'t it? ↘', 'You agree with me, don\'t you? ↘'] },
+    { label: 'Ngữ điệu lên (Rising ↗)', when: 'thực sự không biết chắc, hỏi để lấy thông tin thật', ex: ['You haven\'t seen my phone, have you? ↗', 'The meeting is ready, isn\'t it? ↗'] },
+    { label: 'Câu hỏi xác nhận sự thật', when: 'right? sure? dùng với cao độ linh hoạt', ex: ['That is correct, right? ↘'] }
+  ],
+  vn: 'Nhiều người học mặc định mọi câu hỏi đều phải lên giọng ở cuối, khiến các câu hỏi đuôi mang tính khẳng định thân mật bị biến thành nghi vấn ngờ vực. Hãy lắng nghe chủ đích giao tiếp của mình để chọn cao độ lên hay xuống chuẩn xác.',
+  tip: 'Mẹo: “Biết rồi thì xuống, chưa biết thì lên.” Nếu bạn chỉ muốn đối phương gật đầu tán thành, hãy hạ giọng ở câu hỏi đuôi.',
+  tipEn: "Rule: Down for agreement, up for genuine doubt. Lower your pitch on the tag when inviting confirmation of an obvious fact.",
+  words: [
+    { w: 'right', ipa: '/raɪt/', note: 'từ hỏi đuôi thông dụng' },
+    { w: 'sure', ipa: '/ʃɔː/', note: 'tính từ xác nhận' },
+    { w: 'ready', ipa: '/ˈredi/', note: 'tính từ trạng thái' },
+    { w: 'correct', ipa: '/kəˈrekt/', note: 'tính từ đúng đắn' },
+    { w: 'true', ipa: '/truː/', note: 'tính từ sự thật' },
+    { w: 'agree', ipa: '/əˈɡriː/', note: 'động từ đồng ý' },
+    { w: 'confirm', ipa: '/kənˈfɜːm/', note: 'động từ xác nhận' },
+    { w: 'expect', ipa: '/ɪkˈspekt/', note: 'động từ kỳ vọng' },
+    { w: 'wonder', ipa: '/ˈwʌndə/', note: 'động từ băn khoăn' },
+    { w: 'suppose', ipa: '/səˈpəʊz/', note: 'động từ giả định' }
+  ],
+  sentences: [
+    'The project is on the right track, isn\'t it? ↘',
+    'You are completely sure about this conclusion, aren\'t you? ↘',
+    'We should confirm the details before we agree, shouldn\'t we? ↗'
+  ],
+  quiz: [
+    { q: 'Khi bạn nói “It\'s a lovely day, isn\'t it?” và mong đợi người nghe đồng tình, ngữ điệu ở “isn\x27t it” sẽ như thế nào?', options: ['Ngữ điệu đi xuống (Falling tone ↘)', 'Ngữ điệu đi lên cao vút', 'Thì thầm không có ngữ điệu'], answer: 0, explain: 'Khi tìm kiếm sự đồng tình về một sự thật hiển nhiên, ngữ điệu câu hỏi đuôi luôn đi xuống (Falling tone).' },
+    { q: 'Khi người nói thực sự không biết câu trả lời và muốn hỏi thông tin thật, ngữ điệu ở câu hỏi đuôi là gì?', options: ['Ngữ điệu đi lên (Rising tone ↗)', 'Ngữ điệu đi xuống', 'Ngữ điệu ngang'], answer: 0, explain: 'Ngữ điệu đi lên (Rising tone) biến câu trần thuật thành một câu hỏi thực sự.' },
+    { q: 'Nếu dùng ngữ điệu lên (↗) cho câu “You didn\'t take my keys, did you?”, người nói biểu lộ thái độ gì?', options: ['Nghi ngờ và thực sự muốn đối phương trả lời xem có lấy hay không', 'Chắc chắn 100% đối phương không lấy', 'Tỏ ra thờ ơ'], answer: 0, explain: 'Ngữ điệu lên thể hiện sự băn khoăn, nghi vấn thật sự từ người hỏi.' },
+    { q: 'Cặp từ ngữ điệu nào tóm tắt quy tắc ngữ điệu câu hỏi đuôi?', options: ['Xác nhận thì Xuống (↘), Hỏi thật thì Lên (↗)', 'Luôn luôn đi lên', 'Luôn luôn đi xuống'], answer: 0, explain: 'Thần chú: Biết rồi/xác nhận thì xuống, chưa biết/hỏi thật thì lên.' },
+    { q: 'Trong bài thi IELTS Speaking, việc dùng đúng ngữ điệu câu hỏi đuôi giúp ích gì?', options: ['Tạo tương tác tự nhiên với giám khảo như một cuộc đối thoại chân thực', 'Kéo dài thời gian trả lời', 'Tránh phải trả lời câu hỏi khó'], answer: 0, explain: 'Ngữ điệu câu hỏi đuôi tự nhiên thể hiện năng lực giao tiếp xã hội và độ nhạy ngữ âm ở mức độ Band 7–8.' }
+  ]
+});
+
 })(typeof self !== 'undefined' ? self : this);
