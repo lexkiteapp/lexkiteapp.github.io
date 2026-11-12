@@ -663,7 +663,7 @@
       "key": "jsdelivr",
       "name": "jsDelivr CDN (thư viện AI chạy trên máy; CI: Noto Emoji/OpenMoji/CLDR cho ảnh từ vựng)",
       "kind": "cdn",
-      "purpose": "Tải transformers.js để chạy AI ngay trên máy người dùng (không tốn máy chủ)",
+      "purpose": "Tải transformers.js để chạy AI ngay trên máy người dùng (không tốn máy chủ) · pdf.js 3.11.174 (SRI) đọc PDF trên máy khi nhập tài liệu → bộ thẻ (web/js/importdeck.js, chỉ khi chọn PDF, không có trong add-on)",
       "console": "",
       "free": "Miễn phí",
       "upgrade": "—",

@@ -19,6 +19,7 @@
 - [CHARACTERS.md](CHARACTERS.md) — 1 bộ nhân vật duy nhất: 2 giáo viên 2D Ama/Carlos cho app, add-on, social, video; registry web/teach/characters.json + cổng; đọc khi: đụng bất cứ chỗ nào hiện giáo viên
 - [samples-visual](specs/samples-visual.md) — thư viện công khai lướt bằng mắt (huy hiệu, bento, thẻ, cổng SEO); đọc khi sửa /samples/ và các tab cùng họ
 - [specs/retention-1211.md](specs/retention-1211.md) — baseline giữ chân 12/11 (D1/D7, 5 điểm rơi) + cách đo ở Quản trị; đọc khi: làm vòng thói quen/nhắc/quay lại
+- [specs/backlog-1211.md](specs/backlog-1211.md) — đối chiếu spec ↔ main 12/11: hạng mục #1–#12 xong/dở/chưa; đọc khi: chọn việc tiếp theo trong backlog nâng cấp
 - [SYNC-NOTES.md](SYNC-NOTES.md) — ghi chú giải thích web/js/sync.js; đọc khi: sửa đồng bộ tài khoản
 - [specs/learnability.md](specs/learnability.md) — Spec P0-H Dễ học – dễ nhớ: 12 tiêu chí sư phạm → luật máy đo tầng 0, trọng số, điểm sàn; đọc khi: sửa bộ chấm learnability.mjs hoặc nội dung bài để tăng điểm
 - [specs/home-upgrade.md](specs/home-upgrade.md) — Spec nâng cấp Home 3/11: so 5 app lớn, lát L1–L5 (cô giáo vòng nghỉ mắt mở, Home v2, lưới màn học, thử thách, lộ trình nhiều chặng), cổng CI; đọc khi: sửa Home/#/home hoặc giáo viên trên Home
@@ -41,6 +42,7 @@
 - [specs/kokoro-on-device.md](specs/kokoro-on-device.md) — Kokoro chạy trên máy (kokoro-js, Web Worker) cho chữ chưa có file dựng sẵn: cấp máy, tải lười, R2, cờ kl/kl_pct, lùi giọng máy; đọc khi: sửa web/js/klocal*.js, bật/tắt từ xa
 - [specs/community.md](specs/community.md) — Spec Cộng đồng người học 3/11: phòng học, chat, phòng nói WebRTC, mời bạn/bạn học, học chung, an toàn + tuổi, $0 (DO/D1/TURN), 7 đợt sau cờ `community`; đọc khi: làm bất kỳ phần nào của #/community
 - [specs/play-learn.md](specs/play-learn.md) — Spec vừa chơi vừa học 3/11: benchmark 6 app, lớp phản hồi (âm −16 LUFS, rung, reduced-motion), Thử thách 60 giây trên SRS thật + thách đấu bạn, mốc M1–M3, gate CI; đọc khi: thêm mini-game/âm thanh/hiệu ứng phản hồi
+- [specs/play-community-1211.md](specs/play-community-1211.md) — Chơi + cộng đồng 12/11: đối chuẩn Duolingo/Quizlet/Kahoot/Memrise/ELSA/Busuu/HelloTalk, 7 khoảng trống xếp theo D1/D7/D30; đọc khi làm đấu bóng ma, mini-game, bạn bè, kho bộ thẻ, sửa bài cộng đồng
 - [specs/outcomes-3-6m.md](specs/outcomes-3-6m.md) — Đầu ra 3–6 tháng: vòng ngày nói + viết, lộ trình 12/24 tuần, lỗi → SRS, bài đo 4 tuần/lần #/outcome (mốc 1); đọc khi: làm lộ trình/nhiệm vụ nói-viết/đo tiến bộ/phần thưởng
 - [CAPACITY.md](CAPACITY.md) — Chi phí Cloudflare theo người dùng (đo bằng Miniflare, không dội production), kiến trúc mở rộng; đọc khi: lập kế hoạch tải/chi phí hoặc thêm endpoint đọc/ghi D1
 - [CODEMAP.md](CODEMAP.md) — Bản đồ mã nguồn tự sinh (khu vực, god node, route, workflow, test, sửa-ở-đâu; json đầy đủ docs/codemap.json); đọc khi: ĐẦU MỖI PHIÊN, trước khi tìm code

@@ -579,8 +579,8 @@ class SkillsVectorsTest {
     /** P07: the downloaded pack and the bundled starter parse, carry the contract numbers and the scoring calibration of score.js. */
     @Test fun parity_P07() {
         val p = spackFull
-        assertEquals(56, p.lessons.size); assertEquals(40, p.bank.size); assertEquals(31, p.scripts.size); assertEquals(23, p.contrasts.size); assertEquals(12, p.coachSentences.size)
-        assertEquals(15, p.scripts.count { it.daily }); assertEquals(16, p.scripts.count { !it.daily })
+        assertEquals(56, p.lessons.size); assertEquals(40, p.bank.size); assertEquals(33, p.scripts.size); assertEquals(23, p.contrasts.size); assertEquals(12, p.coachSentences.size)
+        assertEquals(15, p.scripts.count { it.daily }); assertEquals(18, p.scripts.count { !it.daily })
         val st = spStarter!!; assertEquals(8, st.bank.size); assertEquals(8, st.lessons.size); assertEquals(6, st.scripts.size)
         assertTrue(SpeakScore.pass(0.8)); assertFalse(SpeakScore.pass(0.7999)); assertFalse(SpeakScore.pass(1.0, unclear = true))
         assertTrue(p.weak.containsKey("the") && p.light.contains("i"))

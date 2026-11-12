@@ -395,4 +395,56 @@ br: [['next time|again|quieter|later|more time', 'I will, thanks.'], ['luck|good
 ],
 end: ['Thanks. Have a good day!', 'Thanks for being so honest. Have a good afternoon!', 'Thanks for being so straightforward – it makes things easier for everyone. Have a good afternoon, and I\'ll take you up on that offer next time.'],
 });
+
+W({
+id: 'behavioural-interview', em: '🧩', title: 'Job interview: tell me about a challenge',
+ai: { name: 'Hannah', role: 'hiring manager running a general job interview', persona: 'friendly but thorough, asks for real examples and follows up', goal: 'learn how the candidate behaves at work, using real examples' },
+you: 'Introduce yourself briefly, give one strength and one weakness, tell a short story about a conflict or problem (situation, action, result), say why you want the job and ask one question.',
+cando: 'Trả lời phỏng vấn theo tình huống: giới thiệu bản thân, điểm mạnh/yếu, kể một ví dụ (tình huống – hành động – kết quả) và đặt câu hỏi ngược lại',
+vocab: [['strength', 'something you do very well'], ['weakness', 'something you are still improving'], ['conflict', 'a serious disagreement'], ['take the initiative', 'start something without being told to'], ['collaborate', 'work together with other people']],
+turns: [
+{ a: ['Hello, thanks for coming. Please tell me a little about yourself.', 'Hi, thanks for coming in today. Could you tell me a little about yourself and your experience?', 'Welcome, and thanks for making the time. To start, could you give me a short summary of your background and what brings you here?'],
+h: ['I am Nam. I have three years of work in sales. I like working with people.', 'I\'m Nam. I\'ve worked in sales for three years, and I enjoy solving problems for customers.', 'I\'m Nam. I\'ve spent three years in sales, most recently managing a small team of five, and what I enjoy most is turning customer problems into long-term relationships.'], tip: 'Giới thiệu ngắn gọn: tên, kinh nghiệm, điều bạn thích',
+br: [['sales|work|year|experience|manage', 'Thank you, that is a useful start.'], ['enjoy|like|love|people|customer', 'Good to hear.']] },
+{ a: ['What is your biggest strength?', 'What would you say is your biggest strength, and what is one weakness?', 'What would you say is your greatest strength, and what is one area you are still working on?'],
+h: ['My strength is I am organised. My weakness is I am shy in big meetings.', 'My strength is staying organised under pressure. My weakness is that I can be quiet in big meetings, so I\'m practising speaking up.', 'My main strength is staying organised under pressure. A weakness is that I used to stay quiet in large meetings, so I now prepare one point in advance to make sure I contribute.'], tip: 'Nói một điểm mạnh và một điểm yếu (kèm cách bạn cải thiện)',
+br: [['strength|organis|calm|pressure|team', 'That is valuable.'], ['weakness|shy|quiet|working on|practis|improv', 'Thank you for being honest.']] },
+{ a: ['Tell me about a time you had a problem with a colleague.', 'Can you tell me about a time you disagreed with a colleague? What happened?', 'Can you describe a time you had a real disagreement with a colleague? Walk me through what happened and what you did.'],
+h: ['Once a colleague and I wanted different plans. I talked to him. We chose one plan together.', 'Last year a colleague and I disagreed about a plan for a client. I asked him to talk, we listened to each other, and we combined both ideas.', 'Last year a colleague and I disagreed about how to handle a delayed client order. I suggested a short meeting, we listened to each other\'s concerns, and we combined both ideas into one plan that the client accepted.'], tip: 'Kể ví dụ theo thứ tự: tình huống – hành động – kết quả',
+br: [['colleague|disagree|plan|client|different', 'I see.'], ['talk|listen|meeting|together|combine|agree', 'That sounds like a mature approach.']] },
+{ a: ['Why do you want this job?', 'Why are you interested in this job, and why our company?', 'What attracts you to this role in particular, and why our company rather than another?'],
+h: ['I want to learn and grow. Your company is big and good.', 'I want to grow in a larger team, and your company has a strong reputation for training people.', 'I want to grow in a larger team, and your company has a strong reputation for developing people. I also think my experience with customers would help from the first month.'], tip: 'Nói lý do chọn công việc và công ty này',
+br: [['grow|learn|train|develop|reputation', 'That is a good reason.'], ['experience|help|skill|customer|month', 'I can see the fit.']] },
+{ a: ['Do you have any questions for me?', 'We\'re nearly out of time. Do you have any questions for me?', 'We\'re nearly out of time, so let me ask: do you have any questions for me about the role or the team?'],
+h: ['Yes. What is a normal day in this job?', 'Yes, I do. What does a typical day look like for someone in this role?', 'Yes, I do. What does a typical day look like in this role, and how will success be measured in the first six months?'], tip: 'Đặt một câu hỏi hay về công việc hoặc cách đánh giá',
+br: [['day|week|team|typical|normal', 'Good question. I will explain.'], ['success|measure|goal|month|expect', 'That is a very good question.']] },
+],
+end: ['Thank you, Nam. We will call you next week. Good luck!', 'Thank you, Nam. We\'ll be in touch by the end of next week. It was nice talking to you.', 'Thank you, Nam. That was a very clear conversation. We\'ll be in touch by the end of next week with the next steps. Have a good day.'],
+});
+
+W({
+id: 'ask-for-raise', em: '📈', title: 'Asking your manager for a raise',
+ai: { name: 'Daniel', role: 'your manager at a medium-sized company', persona: 'fair, a little busy, listens if you bring facts', goal: 'understand the request and agree a clear next step without promising too much' },
+you: 'Ask for a short meeting, say why you deserve a raise with two facts, name the amount you hope for, listen to his answer and agree on a next step and a date.',
+cando: 'Xin tăng lương với sếp hiện tại: nêu thành tích, con số mong muốn, nghe phản hồi và thống nhất bước tiếp theo',
+vocab: [['raise', 'an increase in your salary'], ['performance review', 'a talk about how well you have worked'], ['achievement', 'something good you did'], ['workload', 'the amount of work you have'], ['budget', 'the money a company can spend'], ['in the range of', 'about, between two numbers']],
+turns: [
+{ a: ['Hi. You wanted to talk to me?', 'Hi, come in. You asked for a few minutes. What\'s on your mind?', 'Come in, take a seat. You mentioned wanting to talk about something. What\'s on your mind?'],
+h: ['Yes. I want to talk about my salary, please.', 'Yes, thank you for your time. I\'d like to talk about my salary and my role.', 'Yes, thank you for making the time. I\'d like to discuss my compensation, given how my role has developed over the past year.'], tip: 'Mở đầu lịch sự và nói rõ bạn muốn bàn về lương',
+br: [['salary|raise|pay|money|compensation', 'I see. Go ahead.'], ['role|job|year|responsib', 'Okay, tell me more.']] },
+{ a: ['Okay. Why do you think you deserve a raise?', 'Okay. Why do you feel a raise is justified now?', 'Okay, I\'m listening. What makes you feel a raise is justified at this point?'],
+h: ['I finished all my projects on time. I also train two new people.', 'I\'ve delivered all my projects on time this year, and I\'ve been training two new colleagues as well.', 'I\'ve delivered every project on time this year, increased customer satisfaction by ten percent, and I\'ve taken on training two new colleagues on top of my normal workload.'], tip: 'Nêu hai thành tích cụ thể (có số liệu nếu được)',
+br: [['project|time|deliver|finish|complet', 'That is true, your work has been good.'], ['train|colleague|team|percent|customer|result', 'I have noticed that.']] },
+{ a: ['What number do you have in mind?', 'What kind of raise were you thinking of?', 'What kind of figure did you have in mind, and how did you arrive at it?'],
+h: ['I think ten percent is fair.', 'I was hoping for around ten percent, which matches what I see for similar jobs.', 'I was hoping for something in the range of ten percent, which is in line with what I\'ve seen for similar roles in this city.'], tip: 'Nói con số mong muốn và một lý do hợp lý',
+br: [['percent|ten|\\d|range|number|figure', 'Thank you for being clear.'], ['market|similar|fair|reason|city', 'I understand your reasoning.']] },
+{ a: ['That is difficult this year. The budget is tight.', 'I understand, but the budget is tight this year. I can\'t promise ten percent.', 'I appreciate you laying that out, but the budget is quite tight this year, so I can\'t promise ten percent right now.'],
+h: ['I understand. Could we find a smaller raise or other benefits?', 'I understand. Could we look at a smaller raise, or extra benefits like more flexible hours?', 'I understand the constraints. Would it be possible to consider a smaller increase now, or non-salary benefits such as flexible hours or a training budget?'], tip: 'Phản hồi bình tĩnh và đề xuất một phương án khác',
+br: [['smaller|less|percent|raise|increase', 'That might be possible.'], ['benefit|flexible|hours|training|holiday|remote', 'I can look into that.']] },
+{ a: ['Let me talk to HR. I will tell you next week.', 'Let me speak to HR and come back to you. Can we meet again next week?', 'Let me speak to HR and see what is realistic. Can we schedule a follow-up for next week?'],
+h: ['Yes, thank you. Next week is good.', 'Yes, that works. Thank you for listening. Shall we say Tuesday?', 'That works for me, thank you for being open to this. Shall we say Tuesday morning, and I\'ll send a short summary of my achievements beforehand?'], tip: 'Cảm ơn và chốt ngày hẹn gặp lại',
+br: [['tuesday|monday|friday|next week|morning|afternoon|day', 'Good, I will put it in the calendar.'], ['summary|send|email|achievement|prepare', 'Yes, that would help.']] },
+],
+end: ['Good. See you next week. Thanks for coming.', 'Good, I\'ll put it in the calendar. Thanks for raising this so professionally.', 'Good, Tuesday morning it is. Thank you for raising this so professionally, and yes, please send that summary – it will help me make your case.'],
+});
 })(typeof self !== 'undefined' ? self : this);

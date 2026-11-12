@@ -66,7 +66,7 @@
    "answer": 0
   },
   "native": {
-   "hook": "Về nhà: “go to home”?",
+   "hook": "Đừng nói “go to home”!",
    "tip": "“Home” là trạng từ nên không cần “to”. Tiếng Việt “về nhà” dễ gây nhầm.",
    "caption": "Bạn có hay nói “I go to home.” không? 😅 “Home” không đi với “to”: “I go home.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
    "comment": "Đáp án: “home”. Nói “I go home” khi bạn tan làm nhé. Luyện thêm miễn phí tại đây: {link}",
@@ -78,8 +78,8 @@
    ]
   },
   "en": {
-   "hook": "Đừng nói “go to home”!",
-   "tip": "“Home” works like an adverb, so no “to”.",
+   "hook": "Do not say “go to home”!",
+   "tip": "“Home” works like an adverb, so no “to”. Vietnamese “về nhà” is easy to confuse.",
    "caption": "Do you often say “I go to home.”? “Home” takes no “to”: “I go home.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
   }
  },
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Về nhà: “go to home”?"
+  "text": "Đừng nói “go to home”!"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 95
  },
  "publish": {
-  "title": "Về nhà: “go to home”?",
+  "title": "Đừng nói “go to home”!",
   "keyword": "I go home.",
   "value": "“Home” là trạng từ nên không cần “to”. Tiếng Việt “về nhà” dễ gây nhầm.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 34,
   "platforms": {
    "youtube": {
-    "title": "Về nhà: “go to home”?",
+    "title": "Đừng nói “go to home”!",
     "description": "Bạn có hay nói “I go to home.” không? 😅 “Home” không đi với “to”: “I go home.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #gioitu #lexkite",
     "tags": [
      "I go home.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "Về nhà: “go to home”? #hoctienganh #nguphaptienganh #gioitu"
+    "caption": "Đừng nói “go to home”! #hoctienganh #nguphaptienganh #gioitu"
    }
   },
   "first_comment": "Đáp án: “home”. Nói “I go home” khi bạn tan làm nhé. Luyện thêm miễn phí tại đây: {link}",
