@@ -171,12 +171,14 @@ async function i18nPage(item) {
   } finally { await ctx.close(); }
   return out;
 }
+// Trang do Worker dựng khi truy cập (từ điển /en/dictionary/<từ>/, /vi/tu-dien/<từ>/: từ ngoài pool vẫn 200 noindex – scripts/dict/links.mjs, test dict-pages) và /api/: máy chủ tĩnh của audit không có → không phải link hỏng thật
+const DYNAMIC = /^\/(?:en\/dictionary|vi\/tu-dien|api)\//;
 async function links(item) {
   const ctx = await context(), page = await ctx.newPage(), bad = [];
   try {
     await go(page, O + item.url);
     const hrefs = await page.evaluate(() => [...new Set([...document.querySelectorAll('a[href^="/"]')].map(a => a.getAttribute('href').split('#')[0]))].slice(0, 50));
-    for (const h of hrefs) { if (!h) continue; const r = await ctx.request.get(O + h, { maxRedirects: 3 }).catch(() => null); if (!r || r.status() >= 400) bad.push(h); }
+    for (const h of hrefs) { if (!h || DYNAMIC.test(h)) continue; const r = await ctx.request.get(O + h, { maxRedirects: 3 }).catch(() => null); if (!r || r.status() >= 400) bad.push(h); }
     return { checked: hrefs.length, bad };
   } catch { return null; } finally { await ctx.close(); }
 }
