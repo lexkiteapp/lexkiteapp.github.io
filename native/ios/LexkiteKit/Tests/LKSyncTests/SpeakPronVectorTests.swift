@@ -8,7 +8,7 @@ import LKStrings
 /// M4 P07 – #/pron logic (LKStore/Speak/PronCore.swift) against vectors/speak.json `pron.*`, produced by running the REAL web code
 /// (scripts/native/gen-speak.mjs; docs/specs/native-m4-vectors.md). One test per key of the file, every case checked. Microphone, speech, audio and timers are
 /// inputs of each case (heard text, alternatives, error codes, random numbers); the sound-effect names and CSS class lists are the only fields not asserted
-/// (they name web DOM, the port has its own views). The full 62-lesson pack is read from web/data/speak-pack.json of the same checkout.
+/// (they name web DOM, the port has its own views). The full 56-lesson pack is read from web/data/speak-pack.json of the same checkout.
 @MainActor
 final class SpeakPronVectorTests: XCTestCase {
     struct PronR {
@@ -31,7 +31,7 @@ final class SpeakPronVectorTests: XCTestCase {
         if let p = Self.cachedPack { return p }
         let url = Vectors.dir.appendingPathComponent("../../../../web/data/speak-pack.json").standardized
         let p = SpeakPack(json: try JSON.parse(try Data(contentsOf: url)))
-        XCTAssertEqual(p.pron.list("lessons").count, 62)
+        XCTAssertEqual(p.pron.list("lessons").count, 56)
         Self.cachedPack = p; return p
     }
     func pairs() throws -> PronPairs { PronPairs(json: try pack().pron["pairs"] ?? .null) }

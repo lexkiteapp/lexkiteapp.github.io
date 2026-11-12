@@ -274,13 +274,13 @@ const RV = T1.vectorJson, RD = T1.rigJson;
     ok(S1 === (await SP.speakStarter()) && same(SP.SPEAK_STARTER_PATH, S1) && same('native/ios/LexkiteKit/Sources/LKStore/Resources/speak-content.json', S1) && Buffer.byteLength(S1) < 128 * 1024, `speak-starter.json: deterministic, equal to the committed copies (shared + iOS resource), ${(Buffer.byteLength(S1) / 1024) | 0} KB < 128`);
     if (!/^[0-9a-f]{12}$/.test(PK.v) || PK.schema !== 1) bp.push('v/schema');
     if (PK.speaking.bank.length < 30 || Object.keys(PK.speaking.samples).length < 300 || Object.keys(PK.speaking.parts).join() !== 'p1,p2,p3' || !PK.speaking.fillers.includes('you know')) bp.push('speaking');
-    if (PK.pron.lessons.length !== 62 || PK.pron.pairs.contrasts.length !== 23 || Object.keys(PK.pron.pairs.tips).length !== 23 || PK.pron.coach.sentences.length !== 12 || Object.keys(PK.consts.weak).length < 35) bp.push('pron');
+    if (PK.pron.lessons.length !== 56 || PK.pron.pairs.contrasts.length !== 23 || Object.keys(PK.pron.pairs.tips).length !== 23 || PK.pron.coach.sentences.length !== 12 || Object.keys(PK.consts.weak).length < 35) bp.push('pron');
     if (PK.roleplay.scripts.length !== 33 || PK.roleplay.guestAiPerDay !== 2 || PK.roleplay.rate.join() !== '0.82,0.92,1' || Object.keys(PK.roleplay.names).length < 16 || PK.roleplay.errors.length !== 11) bp.push('roleplay');
     const JS = x => JSON.stringify(x);
     if (V.data.pron.lessons.some(l => JS(PK.pron.lessons.find(q => q.id === l.id)) !== JS(l)) || JS(V.data.pron.pairs) !== JS(PK.pron.pairs) || V.data.roleplay.some(r => JS(PK.roleplay.scripts.find(q => q.id === r.id)) !== JS(r))) bp.push('data.* differs from the pack');
     if (JS(PK.consts.speakScore) !== JS(V.shared.speak.cal) || JS(PK.speaking.parts) !== JS(V.data.speaking.parts)) bp.push('consts vs vectors');
     if (ST.speaking.bank.length !== 8 || ST.pron.lessons.length !== 8 || ST.roleplay.scripts.length !== 6 || JS(ST.pron.pairs) !== JS(PK.pron.pairs) || ST.speaking.bank.some((b, i) => JS(b) !== JS(PK.speaking.bank[i]))) bp.push('starter is not a subset of the pack');
-    ok(bp.length === 0, `speak-pack.json: ${PK.speaking.bank.length} speaking topics + ${Object.keys(PK.speaking.samples).length} sample answers, 62 pronunciation lessons + pair/coach tables, 33 roleplay scripts + constants; shape = speak.json data.*; starter = 8 topics / 8 lessons / 6 scripts${bp.length ? ' – ' + bp.join('; ') : ''}`);
+    ok(bp.length === 0, `speak-pack.json: ${PK.speaking.bank.length} speaking topics + ${Object.keys(PK.speaking.samples).length} sample answers, 56 pronunciation lessons + pair/coach tables, 33 roleplay scripts + constants; shape = speak.json data.*; starter = 8 topics / 8 lessons / 6 scripts${bp.length ? ' – ' + bp.join('; ') : ''}`);
   }
   // strings: every t() key of the P07 screens (literal calls + keys that arrive as data) is mapped by strings.json
   {
