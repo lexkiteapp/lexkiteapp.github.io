@@ -19,7 +19,7 @@ const measure = () => { const r = e => e.getBoundingClientRect(), inter = (a, b)
   const tch = document.querySelector('.lsn-tchw'), vis = e => e && e.offsetParent !== null && r(e).height > 0;
   if (document.documentElement.scrollWidth > innerWidth + 1) out.push('tràn ngang');
   if (vis(tch)) for (const c of document.querySelectorAll('.lsn-qcard, #lsnBody, .lsn-qfoot')) if (vis(c) && inter(r(tch), r(c))) out.push('thẻ chồng giáo viên: ' + c.className.split(' ').pop());
-  const x = document.querySelector('.lsn-x'), bar = document.querySelector('.lsn-bar'), body = document.querySelector('#lsnBody');
+  const x0 = document.querySelector('.lsn-x'), x = vis(x0) ? x0 : null, /* ExitGuard (thanh FOCUS) ẩn nút ✕ của màn và dựng nút thoát chung: không còn ✕ của màn để so cột */ bar = document.querySelector('.lsn-bar'), body = document.querySelector('#lsnBody');
   if (x && body && vis(body) && Math.abs(r(x).left - r(body).left) > 1) out.push(`đầu trang lệch cột: X ${Math.round(r(x).left)} ≠ thân ${Math.round(r(body).left)}`);
   if (bar && body && vis(body) && r(bar).right > r(body).right + 1) out.push('thanh tiến độ rộng hơn cột');
   for (const b of document.querySelectorAll('#lsn button, #lsn a[href]')) if (vis(b) && !b.disabled) { const m = r(b), af = getComputedStyle(b, '::after'); const pad = af.content !== 'none' && af.position === 'absolute' ? Math.max(0, -parseFloat(af.top) || 0) * 2 : 0; if (m.height + pad < 43.5 || m.width < 28) out.push(`nút < 44: ${(b.id || b.getAttribute('aria-label') || b.textContent).trim().slice(0, 24)} ${Math.round(m.width)}×${Math.round(m.height)}`); }
