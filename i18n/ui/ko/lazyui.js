@@ -1,7 +1,5 @@
 /* UI ko – lazyui (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ko"] = Object.assign(D["ko"] || {}, {
-"Bài band 7 để so sánh":"비교를 위한 밴드 7 에세이",
-"Vì sao chưa lên band trên":"더 높은 밴드에 도달하지 못한 이유",
 "(chép xong câu này để xem)":"(이 문장을 받아쓴 후 확인)",
 "(không dịch được)":"(번역 불가)",
 "(≈{n}/{total} từ)":"(≒{n}/{total}단어)",
@@ -42,6 +40,7 @@
 "Biểu đồ đường":"선 그래프",
 "Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC":"비즈니스 서비스 목록: TOEIC에서 자주 사용되는 직장, 사무실 및 비즈니스 어휘",
 "Bài band 6 để so sánh":"비교용 밴드 6 에세이",
+"Bài band 7 để so sánh":"비교를 위한 밴드 7 에세이",
 "Bài có <b>{n} từ</b> – Task 1 cần tối thiểu 150 từ.":"귀하의 답변은 <b>{n}단어</b>입니다. 작업 1에는 최소 150개가 필요합니다.",
 "Bài có đủ các yếu tố chính của Task 1. Hãy tự kiểm tra lại độ chính xác của số liệu, ngữ pháp và chính tả.":"귀하의 답변은 작업 1의 모든 핵심 요소를 다루고 있습니다. 수치, 문법 및 철자가 정확한지 다시 확인하세요.",
 "Bài luyện tập":"연습 횟수",
@@ -674,6 +673,7 @@
 "Viết từ từ gốc":"기본 단어로 구축",
 "Viết ít nhất 250 từ · thời gian gợi ý 40 phút":"최소 250자 이상 작성 · 권장 시간 : 40분",
 "Vào bài học đầu tiên":"첫 수업을 시작하세요",
+"Vì sao chưa lên band trên":"더 높은 밴드에 도달하지 못한 이유",
 "Vì sao chỉ đạt band 6":"밴드 6에 그치는 이유",
 "Vì sao nên lưu từ kèm câu gốc?":"원래 문장으로 단어를 저장하는 이유는 무엇입니까?",
 "Vì sao? →":"왜? →",

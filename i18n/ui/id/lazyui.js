@@ -1,7 +1,5 @@
 /* UI id – lazyui (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["id"] = Object.assign(D["id"] || {}, {
-"Bài band 7 để so sánh":"Esai band 7 untuk perbandingan",
-"Vì sao chưa lên band trên":"Mengapa belum mencapai band yang lebih tinggi",
 "(chép xong câu này để xem)":"(selesaikan kalimat ini untuk melihatnya)",
 "(không dịch được)":"(terjemahan tidak tersedia)",
 "(≈{n}/{total} từ)":"(≈{n}/{total} kata)",
@@ -42,6 +40,7 @@
 "Biểu đồ đường":"Grafik garis",
 "Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC":"Daftar Layanan Bisnis: kosakata pekerjaan, kantor, dan bisnis yang umum di TOEIC",
 "Bài band 6 để so sánh":"Esai band 6 sebagai pembanding",
+"Bài band 7 để so sánh":"Esai band 7 untuk perbandingan",
 "Bài có <b>{n} từ</b> – Task 1 cần tối thiểu 150 từ.":"Jawaban Anda memiliki <b>{n} kata</b> – Tugas 1 membutuhkan setidaknya 150.",
 "Bài có đủ các yếu tố chính của Task 1. Hãy tự kiểm tra lại độ chính xác của số liệu, ngữ pháp và chính tả.":"Jawaban Anda mencakup semua elemen kunci dari Tugas 1. Periksa kembali keakuratan angka, tata bahasa, dan ejaan Anda.",
 "Bài luyện tập":"Sesi latihan",
@@ -674,6 +673,7 @@
 "Viết từ từ gốc":"Bangun dari kata dasar",
 "Viết ít nhất 250 từ · thời gian gợi ý 40 phút":"Tulis minimal 250 kata · waktu yang disarankan: 40 menit",
 "Vào bài học đầu tiên":"Mulailah pelajaran pertama Anda",
+"Vì sao chưa lên band trên":"Mengapa belum mencapai band yang lebih tinggi",
 "Vì sao chỉ đạt band 6":"Mengapa hanya mencapai band 6",
 "Vì sao nên lưu từ kèm câu gốc?":"Mengapa menyimpan kata-kata dengan kalimat aslinya?",
 "Vì sao? →":"Mengapa? →",

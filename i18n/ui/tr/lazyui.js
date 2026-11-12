@@ -1,7 +1,5 @@
 /* UI tr – lazyui (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {
-"Bài band 7 để so sánh":"Karşılaştırma için Band 7 makalesi",
-"Vì sao chưa lên band trên":"Neden daha yüksek bir banda ulaşamadı",
 "(chép xong câu này để xem)":"(görmek için bu cümleyi yazın)",
 "(không dịch được)":"(çeviri yok)",
 "(≈{n}/{total} từ)":"(≈{n}/{total} kelime)",
@@ -42,6 +40,7 @@
 "Biểu đồ đường":"Çizgi grafik",
 "Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC":"Ticari Hizmet Listesi: TOEIC'de yaygın olan iş, ofis ve iş kelimeleri",
 "Bài band 6 để so sánh":"Karşılaştırma için band 6 makale",
+"Bài band 7 để so sánh":"Karşılaştırma için Band 7 makalesi",
 "Bài có <b>{n} từ</b> – Task 1 cần tối thiểu 150 từ.":"Cevabınız <b>{n} kelime</b> içeriyor – Görev 1 en az 150 kelime gerektiriyor.",
 "Bài có đủ các yếu tố chính của Task 1. Hãy tự kiểm tra lại độ chính xác của số liệu, ngữ pháp và chính tả.":"Cevabınız Görev 1'in tüm temel unsurlarını kapsamaktadır. Şekillerinizin, gramerinizin ve yazımınızın doğruluğunu bir kez daha kontrol edin.",
 "Bài luyện tập":"Alıştırmalar",
@@ -674,6 +673,7 @@
 "Viết từ từ gốc":"Temel kelimelerden inşa edin",
 "Viết ít nhất 250 từ · thời gian gợi ý 40 phút":"En az 250 kelime yazın · önerilen süre: 40 dakika",
 "Vào bài học đầu tiên":"İlk dersinize başlayın",
+"Vì sao chưa lên band trên":"Neden daha yüksek bir banda ulaşamadı",
 "Vì sao chỉ đạt band 6":"Neden yalnızca band 6 alıyor",
 "Vì sao nên lưu từ kèm câu gốc?":"Neden kelimeleri orijinal cümleleriyle birlikte saklayasınız ki?",
 "Vì sao? →":"Neden? →",

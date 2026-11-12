@@ -1,7 +1,5 @@
 /* UI ar – lazyui (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {
-"Bài band 7 để so sánh":"مقال الفرقة 7 للمقارنة",
-"Vì sao chưa lên band trên":"لماذا لم يصل إلى الفرقة الأعلى",
 "(chép xong câu này để xem)":"(اكتب هذه الجملة لعرضها)",
 "(không dịch được)":"(الترجمة غير متاحة)",
 "(≈{n}/{total} từ)":"(≈{n}/{total} كلمات)",
@@ -42,6 +40,7 @@
 "Biểu đồ đường":"رسم بياني خطي",
 "Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC":"قائمة خدمات الأعمال: مفردات العمل والمكتب والأعمال الشائعة في TOEIC",
 "Bài band 6 để so sánh":"مقال بمستوى 6 للمقارنة",
+"Bài band 7 để so sánh":"مقال الفرقة 7 للمقارنة",
 "Bài có <b>{n} từ</b> – Task 1 cần tối thiểu 150 từ.":"تحتوي إجابتك على <b>{n} من الكلمات</b> – تتطلب المهمة 1 150 كلمة على الأقل.",
 "Bài có đủ các yếu tố chính của Task 1. Hãy tự kiểm tra lại độ chính xác của số liệu, ngữ pháp và chính tả.":"تغطي إجابتك جميع العناصر الأساسية للمهمة 1. تحقق مرة أخرى من دقة الأرقام والنحو والإملاء.",
 "Bài luyện tập":"جلسات التدريب",
@@ -674,6 +673,7 @@
 "Viết từ từ gốc":"البناء من الكلمات الأساسية",
 "Viết ít nhất 250 từ · thời gian gợi ý 40 phút":"اكتب 250 كلمة على الأقل. · الوقت المقترح: 40 دقيقة",
 "Vào bài học đầu tiên":"ابدأ الدرس الأول",
+"Vì sao chưa lên band trên":"لماذا لم يصل إلى الفرقة الأعلى",
 "Vì sao chỉ đạt band 6":"لماذا يصل إلى المستوى 6 فقط",
 "Vì sao nên lưu từ kèm câu gốc?":"لماذا حفظ الكلمات مع جملها الأصلية؟",
 "Vì sao? →":"لماذا؟ ←",

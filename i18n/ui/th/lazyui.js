@@ -1,7 +1,5 @@
 /* UI th – lazyui (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["th"] = Object.assign(D["th"] || {}, {
-"Bài band 7 để so sánh":"เรียงความแบนด์ 7 เพื่อการเปรียบเทียบ",
-"Vì sao chưa lên band trên":"เหตุใดจึงยังไม่ถึงแบนด์ที่สูงกว่า",
 "(chép xong câu này để xem)":"(พิมพ์ประโยคนี้ให้ครบเพื่อดู)",
 "(không dịch được)":"(แปลไม่ได้)",
 "(≈{n}/{total} từ)":"(µ{n}/{total} คำ)",
@@ -42,6 +40,7 @@
 "Biểu đồ đường":"กราฟเส้น",
 "Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC":"รายการบริการธุรกิจ: คำศัพท์เกี่ยวกับงาน สำนักงาน และธุรกิจทั่วไปใน TOEIC",
 "Bài band 6 để so sánh":"เรียงความระดับ band 6 เพื่อเปรียบเทียบ",
+"Bài band 7 để so sánh":"เรียงความแบนด์ 7 เพื่อการเปรียบเทียบ",
 "Bài có <b>{n} từ</b> – Task 1 cần tối thiểu 150 từ.":"คำตอบของคุณมี <b>{n} คำ</b> - ภารกิจที่ 1 ต้องมีอย่างน้อย 150",
 "Bài có đủ các yếu tố chính của Task 1. Hãy tự kiểm tra lại độ chính xác của số liệu, ngữ pháp và chính tả.":"คำตอบของคุณครอบคลุมองค์ประกอบสำคัญทั้งหมดของภารกิจที่ 1 ตรวจสอบความถูกต้องของตัวเลข ไวยากรณ์ และการสะกดคำอีกครั้ง",
 "Bài luyện tập":"ครั้งที่ฝึก",
@@ -674,6 +673,7 @@
 "Viết từ từ gốc":"สร้างจากคำพื้นฐาน",
 "Viết ít nhất 250 từ · thời gian gợi ý 40 phút":"เขียนอย่างน้อย 250 คำ · เวลาแนะนำ: 40 นาที",
 "Vào bài học đầu tiên":"เริ่มบทเรียนแรกของคุณ",
+"Vì sao chưa lên band trên":"เหตุใดจึงยังไม่ถึงแบนด์ที่สูงกว่า",
 "Vì sao chỉ đạt band 6":"ทำไมได้แค่ band 6",
 "Vì sao nên lưu từ kèm câu gốc?":"ทำไมต้องบันทึกคำด้วยประโยคดั้งเดิม?",
 "Vì sao? →":"ทำไม? →",

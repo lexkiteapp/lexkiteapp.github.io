@@ -1,7 +1,5 @@
 /* UI ja – lazyui (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {
-"Bài band 7 để so sánh":"比較用のバンド7エッセイ",
-"Vì sao chưa lên band trên":"より高いバンドに達していない理由",
 "(chép xong câu này để xem)":"(この文をディクテーションして表示)",
 "(không dịch được)":"（翻訳できません）",
 "(≈{n}/{total} từ)":"(≈{n}/{total} 単語)",
@@ -42,6 +40,7 @@
 "Biểu đồ đường":"折れ線グラフ",
 "Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC":"ビジネスサービスリスト：TOEICでよく出題される仕事、オフィス、ビジネス用語",
 "Bài band 6 để so sánh":"比較用のバンド6エッセイ",
+"Bài band 7 để so sánh":"比較用のバンド7エッセイ",
 "Bài có <b>{n} từ</b> – Task 1 cần tối thiểu 150 từ.":"あなたの答えには <b>{n} 語 </b> が含まれています – タスク 1 には少なくとも 150 語が必要です。",
 "Bài có đủ các yếu tố chính của Task 1. Hãy tự kiểm tra lại độ chính xác của số liệu, ngữ pháp và chính tả.":"あなたの答えはタスク 1 の重要な要素をすべてカバーしています。数字、文法、スペルの正確さを再確認してください。",
 "Bài luyện tập":"練習回数",
@@ -674,6 +673,7 @@
 "Viết từ từ gốc":"基本単語から構築する",
 "Viết ít nhất 250 từ · thời gian gợi ý 40 phút":"少なくとも 250 単語を書く · 推奨時間: 40 分",
 "Vào bài học đầu tiên":"最初のレッスンを開始します",
+"Vì sao chưa lên band trên":"より高いバンドに達していない理由",
 "Vì sao chỉ đạt band 6":"バンド6にとどまる理由",
 "Vì sao nên lưu từ kèm câu gốc?":"なぜ単語を元の文章と一緒に保存するのでしょうか?",
 "Vì sao? →":"なぜ？→",

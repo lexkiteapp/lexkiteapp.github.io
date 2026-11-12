@@ -1,7 +1,5 @@
 /* UI fr – lazyui (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["fr"] = Object.assign(D["fr"] || {}, {
-"Bài band 7 để so sánh":"Dissertation de bande 7 pour comparaison",
-"Vì sao chưa lên band trên":"Pourquoi elle n’atteint pas une bande supérieure",
 "(chép xong câu này để xem)":"(retranscrivez cette phrase pour afficher)",
 "(không dịch được)":"(traduction indisponible)",
 "(≈{n}/{total} từ)":"(≈{n}/{total} mots)",
@@ -42,6 +40,7 @@
 "Biểu đồ đường":"Graphique linéaire",
 "Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC":"Business Service List : vocabulaire de travail, de bureau et d'affaires courant au TOEIC",
 "Bài band 6 để so sánh":"Essai de niveau 6 pour comparaison",
+"Bài band 7 để so sánh":"Dissertation de bande 7 pour comparaison",
 "Bài có <b>{n} từ</b> – Task 1 cần tối thiểu 150 từ.":"Votre réponse contient <b>{n} mots</b> – La tâche 1 en nécessite au moins 150.",
 "Bài có đủ các yếu tố chính của Task 1. Hãy tự kiểm tra lại độ chính xác của số liệu, ngữ pháp và chính tả.":"Votre réponse couvre tous les éléments clés de la tâche 1. Vérifiez à nouveau l'exactitude de vos chiffres, de votre grammaire et de votre orthographe.",
 "Bài luyện tập":"Séances d'entraînement",
@@ -674,6 +673,7 @@
 "Viết từ từ gốc":"Construire à partir de mots de base",
 "Viết ít nhất 250 từ · thời gian gợi ý 40 phút":"Écrivez au moins 250 mots · durée suggérée : 40 minutes",
 "Vào bài học đầu tiên":"Commencez votre première leçon",
+"Vì sao chưa lên band trên":"Pourquoi elle n’atteint pas une bande supérieure",
 "Vì sao chỉ đạt band 6":"Pourquoi il n'atteint que le niveau 6",
 "Vì sao nên lưu từ kèm câu gốc?":"Pourquoi sauvegarder les mots avec leurs phrases originales ?",
 "Vì sao? →":"Pourquoi ? →",
