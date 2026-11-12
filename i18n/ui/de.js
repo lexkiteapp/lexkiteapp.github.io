@@ -1336,7 +1336,7 @@
 "Ôn 20 thẻ flashcard":"20 Karten wiederholen",
 "Ôn 40 thẻ flashcard":"40 Karten wiederholen",
 "Ôn 500 lượt":"500 Wiederholungen",
-"Ôn lại":"Noch einmal üben",
+"Ôn lại":"Wiederholen",
 "Ôn ngay":"Jetzt wiederholen",
 "Ôn ngay →":"Jetzt wiederholen →",
 "Ôn thẻ":"Karten wiederholen",
