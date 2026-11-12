@@ -66,7 +66,7 @@
    "answer": 1
   },
   "native": {
-   "hook": "„Aktuell“ ist nicht „actually“",
+   "hook": "Willst du „gerade jetzt“ sagen?",
    "tip": "„Actually“ heißt „eigentlich“. Für „aktuell“ oder „gerade“ sagst du „right now“.",
    "caption": "Willst du „gerade jetzt“ sagen? 🌧️ Falsch: “Actually, it is raining now.” Richtig: “Right now, it is raining.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.",
    "comment": "Lösung: “right now”. Richtig heißt es: “Right now, it is raining.” Übe mehr mit einem kostenlosen Quiz: {link}",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "„Aktuell“ ist nicht „actually“"
+  "text": "Willst du „gerade jetzt“ sagen?"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 99
  },
  "publish": {
-  "title": "„Aktuell“ ist nicht „actually“",
+  "title": "Willst du „gerade jetzt“ sagen?",
   "keyword": "Right now, it is raining.",
   "value": "„Actually“ heißt „eigentlich“. Für „aktuell“ oder „gerade“ sagst du „right now“.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 42,
   "platforms": {
    "youtube": {
-    "title": "„Aktuell“ ist nicht „actually“",
+    "title": "Willst du „gerade jetzt“ sagen?",
     "description": "Willst du „gerade jetzt“ sagen? 🌧️ Falsch: “Actually, it is raining now.” Richtig: “Right now, it is raining.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "Right now, it is raining.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "„Aktuell“ ist nicht „actually“ #englischlernen #englischtipps #sprachenlernen"
+    "caption": "Willst du „gerade jetzt“ sagen? #englischlernen #englischtipps #sprachenlernen"
    }
   },
   "first_comment": "Lösung: “right now”. Richtig heißt es: “Right now, it is raining.” Übe mehr mit einem kostenlosen Quiz: {link}",
