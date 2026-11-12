@@ -59,7 +59,9 @@
     // Ama phản hồi theo bước + lựa chọn vừa chạm (pick.said = bước vừa có lựa chọn mới)
     const kitLine = () => {
       const k = STEPS[pick.step], fresh = pick.said === k;
-      if (k === 'goal' || k === 'lang') return fresh && k === 'goal' ? ['cheer', t('Tuyệt! Mình sẽ chọn bài hợp với mục tiêu {name}.', { name: trName() })] : ['happy', t('Chào bạn, mình là Ama! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')];
+      const hello = ['happy', t('Chào bạn, mình là Ama! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')];
+      if (k === 'lang') return hello;
+      if (k === 'goal') return fresh ? ['cheer', t('Tuyệt! Mình sẽ chọn bài hợp với mục tiêu {name}.', { name: trName() })] : hello;
       if (k === 'level') return !fresh ? (state.settings.placement && lvName() ? ['happy', t('Theo bài kiểm tra, bạn bắt đầu từ {lv}. Muốn đổi thì chọn lại nhé.', { lv: lvName() })] : ['think', t('Chưa chắc trình độ? Làm bài kiểm tra 5 phút để mình xếp đúng chặng.')])
         : pick.lv === 'test' ? ['cheer', t('Lựa chọn thông minh! Bài kiểm tra chỉ mất khoảng 5 phút.')] : ['happy', t('Được rồi, mình bắt đầu từ {lv} nhé.', { lv: lvName() })];
       if (k === 'target') return fresh ? ['cheer', t('Mục tiêu {t} – mình sẽ cùng bạn chinh phục!', { t: pick.target })] : ['think', t('Đặt mục tiêu rõ ràng giúp mình chọn đúng độ khó.')];

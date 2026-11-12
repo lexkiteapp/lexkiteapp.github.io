@@ -162,6 +162,11 @@ w.localStorage.setItem('lk.es', '1'); asNew(); await go('#/home', 300); await go
 ok(/s=lang/.test(hash()) && $('[data-lang=en][aria-checked=true]') && $('[data-lang=es][aria-checked=false]') && $('[role=radiogroup] [data-lang=es] [lang], [data-lang=es][lang=es]'), 'cờ bật: bước đầu = chọn ngôn ngữ, English chọn sẵn: ' + hash());
 ok($('[data-lang=en][tabindex="0"]') && $('[data-lang=es][tabindex="-1"]') && pickOf().sn === 'lang' && pickOf().step === 0, 'roving tabindex; lk.onbPick giữ cả chỉ số step lẫn tên bước');
 click($('[data-lang=es]')); await tick(); ok($('[data-lang=es][aria-checked=true]') && w.Target.cur() === 'en' && pickOf().tl === 'es', 'chọn TBN chỉ ghi vào pick, chưa đổi ngôn ngữ đang học');
+$('[data-lang=es]').dispatchEvent(new w.KeyboardEvent('keydown', { key: 'ArrowUp', bubbles: true, cancelable: true })); await tick();
+ok($('[data-lang=en][aria-checked=true]') && $('[data-lang=en][tabindex="0"]') && pickOf().tl === 'en', 'mũi tên chọn thẻ kế, roving tabindex theo thẻ chọn');
+w.sessionStorage.setItem('lk.onbPick', JSON.stringify({ sn: 'khong-co', step: 0 })); await go('#/home', 200); await go('#/welcome/setup', 900); await until(() => $('[data-lang]'));
+ok(/s=lang/.test(hash()) && $('[data-lang=en][aria-checked=true]'), 'tên bước cũ không còn trong STEPS: rơi về chỉ số step, không lỗi');
+click($('[data-lang=es]')); await tick();
 click($('#obNext')); await until(() => S.settings.onboarded && /practice\/esd/.test(hash()), 15000); await tick(300);
 ok(w.Target.cur() === 'es' && /practice\/esd/.test(hash()) && !w.sessionStorage.getItem('lk.onbPick'), 'Tiếp tục: Target.set(es) rồi vào lộ trình ngày TBN: ' + hash());
 w.Target.set('en'); w.localStorage.removeItem('lk.es'); S.settings.onboarded = true; w.sessionStorage.removeItem('lk.onbPick');
