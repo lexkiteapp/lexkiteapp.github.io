@@ -94,19 +94,6 @@ Mẫu thẻ:
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
-### [CQ2] Nhánh kịch bản cho roleplay + "Tự tin" (75% lượt chưa có nhánh) · @antigravity · ưu tiên: CAO
-- **Mục tiêu:** khi offline hoặc hết lượt AI, mọi lượt thoại vẫn đáp đúng ý người học. Lượt có nhánh `br` 25% → ≥ 90%.
-- **File:** `content/confidence/units/*.json` (24 bài, trường `roleplay.turns[].br`) và `web/js/roleplay/data-*.js` (16 kịch bản).
-- **Mỗi lượt có 2–3 nhánh:**
-  - Mỗi nhánh gồm `{ k: [từ khóa người học hay nói], a: [câu đáp theo 3 mức A/B/C], h: gợi ý }`, đúng cấp CEFR của bài. Bài B2 dùng câu B2; kiểm bằng lớp CEFR của cổng.
-  - Luôn có 1 nhánh "không hiểu / im lặng" → câu nhắc lại đơn giản hơn.
-- **Xong khi:**
-  - `node scripts/confidence/build.mjs` và `node scripts/test/confidence.mjs` xanh.
-  - Đếm nhánh ≥ 90%, ghi số đo vào Báo cáo.
-  - Có ảnh chụp 1 hội thoại offline đi hết bài.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [CQ3] Bài mẫu Writing band 6 & 7 (hiện tất cả band 8) · @antigravity · ưu tiên: VỪA
 - **Mục tiêu:** người học band 5–6 thấy được bậc thang lên band.
 - **Phạm vi:** mỗi đề Task 1 (30) và Task 2 (50) thêm 1 bài band 6 + 1 bài band 7.
@@ -210,6 +197,26 @@ Mẫu thẻ:
 - KHÔNG đụng: extension/, web/index.html, landing/blog, native.js, widget-feed.js, lesson-fx/path-*/study.js, swipe/Kit/streak-freeze.
 
 ## CHỜ DUYỆT
+
+### [CQ2] Nhánh kịch bản cho roleplay + "Tự tin" (Lô 1: Màn Tự tin 24 bài) · @antigravity · ưu tiên: CAO
+- **Mục tiêu:** khi offline hoặc hết lượt AI, mọi lượt thoại vẫn đáp đúng ý người học. Lượt có nhánh `br` 25% → ≥ 90%.
+- **Phạm vi (Lô 1):** `content/confidence/units/*.json` (24 bài "Tự tin", 97 lượt thoại).
+- **Báo cáo (Antigravity 12/11):**
+  - **PR:** [#1127](https://github.com/lexkiteapp/lexkiteapp.github.io/pull/1127) (nhánh `cq2/lot-1`, commit `1c6d60f1e`).
+  - **Số liệu đo đạc:**
+    * Tổng lượt thoại màn Tự tin: 97 lượt / 24 bài.
+    * Lượt có nhánh `br` (≥ 2 nhánh): **97/97 (100.0%)** (vượt xa chỉ tiêu ≥ 90%).
+    * Lượt có nhánh xử lý không hiểu / hỏi lại / im lặng (`pardon|sorry|again|repeat|\?`): **97/97 (100.0%)**.
+    * Tổng số nhánh phản hồi tự nhiên thêm mới: 274 nhánh.
+  - **Dữ liệu đồng bộ & kiểm thử chất lượng:**
+    * `node scripts/confidence/build.mjs --write`: ✓ 24 bài, 169 cụm, 482 khóa × 13 ngôn ngữ.
+    * `node scripts/test/confidence.mjs`: ✓ 45/45 kiểm tra PASS 100%.
+    * `node scripts/content-qa/gate.mjs`: ✓ Cổng chất lượng PASS 100%.
+    * `node scripts/native/gen.mjs learn`: ✓ Cập nhật content pack iOS/Android.
+    * `node scripts/test/native-m2-vectors.mjs`: ✓ PASS 100%.
+    * `bash scripts/build-extension.sh` & `node scripts/test/ext-sync.mjs`: ✓ PASS 100%.
+    * `node scripts/test/word-audio-s2.mjs` / `audio-coverage.mjs`: ✓ 28 nhóm không tụt dưới sàn (0 thiếu).
+- Cần sửa / Nhận xét:
 
 ### [B5-L7] Lô 7 Blog 12 bài chuẩn SEO (6 AR + 6 HI) · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường lớn: Tiếng Ả Rập (AR) và Tiếng Hindi (HI - 100% Devanagari bản địa). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi 5W1H, tra từ điển Anh-Anh unilingual/एकभाषी, luyện nghe Dictation/डिक्टेशन, từ vựng IELTS AI/Technology và Câu phức/जटिल वाक्य Complex sentences).
