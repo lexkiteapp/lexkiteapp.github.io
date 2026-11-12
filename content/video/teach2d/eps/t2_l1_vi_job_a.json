@@ -66,7 +66,7 @@
    "answer": 1
   },
   "native": {
-   "hook": "Quên “a” khi nói nghề nghiệp?",
+   "hook": "Quên “a” trước nghề của bạn?",
    "tip": "Tiếng Việt không có mạo từ, nhưng tiếng Anh cần “a/an” trước nghề nghiệp.",
    "caption": "Bạn có hay nói “I am teacher.” không? 😅 Nói nghề nghiệp phải có “a/an”: “I am a teacher.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
    "comment": "Đáp án: “an”. Hãy tự giới thiệu nghề của bạn bằng “I am a…” nhé. Luyện thêm miễn phí tại đây: {link}",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Quên “a” khi nói nghề nghiệp?"
+  "text": "Quên “a” trước nghề của bạn?"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 97
  },
  "publish": {
-  "title": "Quên “a” khi nói nghề nghiệp?",
+  "title": "Quên “a” trước nghề của bạn?",
   "keyword": "I am a teacher.",
   "value": "Tiếng Việt không có mạo từ, nhưng tiếng Anh cần “a/an” trước nghề nghiệp.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 37,
   "platforms": {
    "youtube": {
-    "title": "Quên “a” khi nói nghề nghiệp?",
+    "title": "Quên “a” trước nghề của bạn?",
     "description": "Bạn có hay nói “I am teacher.” không? 😅 Nói nghề nghiệp phải có “a/an”: “I am a teacher.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
     "tags": [
      "I am a teacher.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "Quên “a” khi nói nghề nghiệp? #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+    "caption": "Quên “a” trước nghề của bạn? #hoctienganh #nguphaptienganh #tienganhgiaotiep"
    }
   },
   "first_comment": "Đáp án: “an”. Hãy tự giới thiệu nghề của bạn bằng “I am a…” nhé. Luyện thêm miễn phí tại đây: {link}",

@@ -66,7 +66,7 @@
    "answer": 1
   },
   "native": {
-   "hook": "“Depend from” или “depend on”?",
+   "hook": "Какое маленькое слово верное?",
    "tip": "После depend ставь “on”: “It depends on the weather”.",
    "caption": "Ты тоже говоришь “It depends from the weather.”? 😅 Русское «зависит от» тянет за собой “from”, а нужно “on”. Правильно: “It depends on the weather.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
    "comment": "Ответ: “on”. После depend всегда on. Бесплатный тест для практики здесь: {link}",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "“Depend from” или “depend on”?"
+  "text": "Какое маленькое слово верное?"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 97
  },
  "publish": {
-  "title": "“Depend from” или “depend on”?",
+  "title": "Какое маленькое слово верное?",
   "keyword": "It depends on the weather.",
   "value": "После depend ставь “on”: “It depends on the weather”.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 38,
   "platforms": {
    "youtube": {
-    "title": "“Depend from” или “depend on”?",
+    "title": "Какое маленькое слово верное?",
     "description": "Ты тоже говоришь “It depends from the weather.”? 😅 Русское «зависит от» тянет за собой “from”, а нужно “on”. Правильно: “It depends on the weather.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
     "tags": [
      "It depends on the weather.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "“Depend from” или “depend on”? #английскийязык #английский #изучениеанглийского"
+    "caption": "Какое маленькое слово верное? #английскийязык #английский #изучениеанглийского"
    }
   },
   "first_comment": "Ответ: “on”. После depend всегда on. Бесплатный тест для практики здесь: {link}",
