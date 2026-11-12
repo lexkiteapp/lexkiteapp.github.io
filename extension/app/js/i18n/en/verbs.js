@@ -175,7 +175,7 @@
 'Bản đã sửa': 'Corrected text',
 "Cách dùng & mẫu câu": "Usage & patterns",
 "Cách dùng “{w}”": "How to use “{w}”",
-// ---------- Irregular verbs (web/js/irregular.js, #/irregular) ----------
+// ---------- Irregular verbs (web/cpack/irregular/table.js, #/irregular) ----------
 'Động từ bất quy tắc': 'Irregular verbs',
 'Tìm mọi dạng, ví dụ went hoặc gone': 'Search any form, like went or gone',
 'Mọi cấp độ': 'All levels',

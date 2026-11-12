@@ -196,5 +196,5 @@
     if (r) { if (!S.sheet || S.sheet !== r || $('#modal').hidden) openSheet(D, r); } else { S.pushed = false; if (S.sheet && !$('#modal').hidden) UI.closeModal(); S.sheet = null; sheetCss(false); }
     App.onCleanup && App.onCleanup(() => { if (S.sheet && !$('#modal').hidden && !/^#\/irregular\/(?!practice)/.test(location.hash)) UI.closeModal(); sheetCss(false); });
   });
-  g.Irv = { S, filtered, miss, setMiss, saved, acc, ipaOf, ms, bodyOn, norm }; // dùng chung với irregular-drill.js (gói lười 'irvdrill') + test jsdom
+  g.Irv = { S, filtered, miss, setMiss, saved, acc, ipaOf, ms, bodyOn, norm }; // dùng chung với irregular/drill.js (gói lười 'irvdrill') + test jsdom
 })(self);

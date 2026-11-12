@@ -1,5 +1,5 @@
 /* 🔤 Luyện động từ bất quy tắc – #/irregular/practice: điền chỗ trống (quá khứ / quá khứ phân từ), 10 câu từ bộ lọc hiện tại.
- * Gói lười 'irvdrill' (chỉ nạp khi luyện): dùng chung hàm với irregular.js qua Irv. Giao diện = Stitch brand/stitch/v2/irv-drill-{light,dark}.html. */
+ * Gói lười 'irvdrill' (chỉ nạp khi luyện): dùng chung hàm với irregular/table.js qua Irv. Giao diện = Stitch brand/stitch/v2/irv-drill-{light,dark}.html. */
 (function (g) {
   'use strict';
   const { $, esc } = UI, { filtered, miss, setMiss, saved, acc, ipaOf, ms, bodyOn } = Irv, enc = encodeURIComponent;
