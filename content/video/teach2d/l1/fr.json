@@ -23,7 +23,7 @@
     },
     "answer_say": "Sensitive! She is very sensitive.",
     "native": {
-     "hook": "« Sensible » ≠ sensible !",
+     "hook": "« Sensible » n’est pas “sensible”!",
      "tip": "« Sensible » veut dire raisonnable. Pour « sensible » en français, dis “sensitive”.",
      "caption": "Tu dis “My brother is very sensible.” ? Faux ami ! Pour parler de quelqu'un de sensible, dis “My brother is very sensitive.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
      "comment": "Réponse : “sensitive”. En anglais, “sensible” veut dire raisonnable. Teste d'autres pièges avec un quiz gratuit : {link}",
@@ -743,7 +743,7 @@
     },
     "answer_say": "Told! She told me a story.",
     "native": {
-     "hook": "« Il m'a dit » : “told me”",
+     "hook": "“Said me” : pas de l’anglais !",
      "tip": "Avec une personne, on dit “told me”. “Said me” n'existe pas.",
      "caption": "Tu dis “He said me the truth.” ? Avec « me », il faut “told”. Dis “He told me the truth.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
      "comment": "Réponse : “told”. Avec une personne, on utilise “tell”. Teste d'autres pièges avec un quiz gratuit : {link}",
@@ -783,7 +783,7 @@
     },
     "answer_say": "Than! He is older than me.",
     "native": {
-     "hook": "« Plus grand que » : “than”",
+     "hook": "“Taller that” : faux !",
      "tip": "On traduit « que » par “than” dans une comparaison, pas par “that”.",
      "caption": "Tu dis “She is taller that me.” ? Dans une comparaison, c'est “than” ! Dis “She is taller than me.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
      "comment": "Réponse : “than”. Dans une comparaison, « que » devient “than”. Teste d'autres pièges avec un quiz gratuit : {link}",
@@ -863,7 +863,7 @@
     },
     "answer_say": "Disappointment! It was a big disappointment.",
     "native": {
-     "hook": "« Déception » ≠ “deception”",
+     "hook": "“Deception”, pas « déception »!",
      "tip": "“Deception” veut dire tromperie. Pour une déception, dis “disappointment”.",
      "caption": "Tu dis “The game was a big deception.” ? Faux ami ! Dis plutôt “The game was a big disappointment.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
      "comment": "Réponse : “disappointment”. “Deception” veut dire tromperie. Teste d'autres pièges avec un quiz gratuit : {link}",

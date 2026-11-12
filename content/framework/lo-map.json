@@ -434,7 +434,9 @@
       "invite-out": "I.A2.01",
       "reschedule-meeting": "I.B1.09",
       "course-enquiry": "I.A2.05",
-      "polite-decline": "I.B2.04"
+      "polite-decline": "I.B2.04",
+      "behavioural-interview": "I.B2.10",
+      "ask-for-raise": "I.B2p.05"
     },
     "reading": {
       "urban-farming": "R.B1.01",

@@ -1,0 +1,20 @@
+cafe p2 pn1 pn4 v1 vn1 vn4
+restaurant-order p1 pn2 v4 vn1
+airport-checkin p2 pn2 pn4 v4 vn2
+ask-directions p1 pn1 pn4 v3 vn1 vn4
+train-station p2 pn1 pn4 v2 vn4
+taxi p2 pn2 pn3 v1 vn2
+supermarket p2 v2 vn1 vn4
+shop-return p1 pn1 pn4 v2 vn4
+pharmacy p2 pn3 v2 vn4
+dentist p4 pn2 pn4 v2 vn2
+bank p2 pn2 pn4 v4 vn3
+job-interview p1 pn1 pn2 v4 vn1 vn3
+office-intro p1 pn3 pn4 v1 v4 vn1 vn3
+team-meeting p2 pn1 pn4 vn1 vn3
+flat-viewing p1 p3 pn2 pn4 v1 v2 vn2
+phone-plan p1 pn3 v1 v3 vn2
+lost-luggage p1 pn2 pn4 v2 v4 vn2 vn3
+cinema-tickets p1 p3 pn2 pn3 v1 v3 vn1 vn4
+party-invite p4 pn1 pn2 v3
+post-office p1 pn1 pn4 v1 v4 vn1 vn3

@@ -66,7 +66,7 @@
    "answer": 1
   },
   "native": {
-   "hook": "¿“Make” la tarea? ¡Es “do”!",
+   "hook": "¿“Make homework”? ¡Es “do”!",
    "tip": "Con tareas y quehaceres usa “do”: “do homework”. “Make” es para crear algo.",
    "caption": "En español “hacer” sirve para todo, pero en inglés no 😉 Di “I do my homework.”, no “I make my homework.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
    "comment": "Respuesta: “does”. “Do” para tareas; “make” para crear cosas. Practica más con un quiz gratis aquí: {link}",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "¿“Make” la tarea? ¡Es “do”!"
+  "text": "¿“Make homework”? ¡Es “do”!"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 96
  },
  "publish": {
-  "title": "¿“Make” la tarea? ¡Es “do”!",
+  "title": "¿“Make homework”? ¡Es “do”!",
   "keyword": "I do my homework.",
   "value": "Con tareas y quehaceres usa “do”: “do homework”. “Make” es para crear algo.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 35,
   "platforms": {
    "youtube": {
-    "title": "¿“Make” la tarea? ¡Es “do”!",
+    "title": "¿“Make homework”? ¡Es “do”!",
     "description": "En español “hacer” sirve para todo, pero en inglés no 😉 Di “I do my homework.”, no “I make my homework.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
     "tags": [
      "I do my homework.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "¿“Make” la tarea? ¡Es “do”! #aprenderingles #inglesfacil #vocabulario"
+    "caption": "¿“Make homework”? ¡Es “do”! #aprenderingles #inglesfacil #vocabulario"
    }
   },
   "first_comment": "Respuesta: “does”. “Do” para tareas; “make” para crear cosas. Practica más con un quiz gratis aquí: {link}",

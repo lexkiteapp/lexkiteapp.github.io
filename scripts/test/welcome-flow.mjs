@@ -19,6 +19,11 @@ ok(/!document\.getElementById\('lkHero'\)\) skel = setTimeout/.test(app), 'khung
 ok(/const bootDog = setTimeout\([\s\S]{0,200}errState\(true, true\); \}, 8000\)/.test(app) && /clearTimeout\(bootDog\)/.test(app) && /reload === true \? location\.reload\(\)/.test(app), 'canh khởi động 8 s: thẻ lỗi, Thử lại = tải lại, boot chạy thì hủy');
 ok(/App\.blogLive && !\(window\.Capacitor && Capacitor\.isNativePlatform && Capacitor\.isNativePlatform\(\)\)\) App\.blogLive\(\)/.test(wl), 'app iOS/Android: Welcome lần mở đầu KHÔNG hiện lối vào blog (chặn hồi quy "mở app ra trang chủ blog", chủ 5/11)');
 ok(!/blog/.test(rd('web/js/onboard.js')) && !/\/blog\//.test(rd('scripts/gen-hero.mjs')), 'thiết lập + khung chào dựng sẵn không có link blog');
+{ // khung chào dựng sẵn (gen-hero): mọi ngôn ngữ ≠ vi phải có chữ KHÁC bản Việt ở cả mục (không rơi về khóa tiếng Việt). Từng hỏng khi khóa kicker chuyển sang en/lazyui.js (4a141cbf) → hero non-vi tiếng Việt + app gọi dịch máy /api/dictlookup, e2e đỏ (503 mock CI)
+  const hm = /var T=(\{.*?\}),S=/.exec(rd('web/app/index.html').split('<!--hero-->')[1] || ''); const HT = hm ? JSON.parse(hm[1]) : {};
+  ok(Object.keys(HT).length === 15, 'hero dựng sẵn đủ 15 ngôn ngữ');
+  for (const l of Object.keys(HT).filter(x => x !== 'vi')) ok(HT[l].every((x, i) => x !== HT.vi[i]), `hero ${l}: không còn chữ tiếng Việt chưa dịch (gen-hero gộp lõi + nhóm lazy)`);
+}
 ok(/const fresh = !hasData\(\);/.test(app) && /App\.replaceHash\('#\/welcome'\)/.test(app), 'boot dùng chung phép "có dữ liệu", chuyển bằng replace');
 ok(/location\.replace\(location\.pathname \+ location\.search \+ h\)/.test(app), 'replace giữ /app/ (app có <base href="/">)');
 ok(/const bare = v => String\(v \|\| ''\)\.replace\(\/\\\+\$\/, ''\)/.test(onb) && /examTarget: tg/.test(onb) && /targetBand = tg/.test(onb) && /IELTS 0–9, TOEIC 10–990, TOEFL 1–6, General A1–C2/.test(onb), 'examTarget/targetBand lưu không dấu +, có ghi chú thang');
