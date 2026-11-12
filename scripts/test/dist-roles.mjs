@@ -149,6 +149,19 @@ ok(retired.length === 2 && reported.join() === 'gone-clip' && idx.items.map(x =>
   const both = { ...one, 'gc-facebook_page-333': n({ lang: 'vi' }) }, imp2 = D.implicitSocialRules([], both);
   ok(D.routeAll(imp2, both, { id: 'c', lang: 'vi' }, null).find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-333', 'có page tiếng Việt → clip vi vào page riêng (đứng trước page chung)');
   ok(D.routeAll(imp2, both, { id: 'c', lang: 'en' }, null).find(x => x.platform === 'facebook_page').channel_id === 'gc-facebook_page-111', 'clip en vẫn vào page chung');
+  // chủ 12/11 "chia đều": 2 page "Học Tiếng Anh" (vi) + 2 page EN (Lexkite.com, Learn English) → mỗi clip đúng 1 page, chia ~đều, ổn định; page tắt → page cùng nhóm nhận thay
+  { const two = { ...both, 'gc-facebook_page-444': n({ lang: 'vi' }), 'gc-facebook_page-555': n({ lang: 'en' }) }, imp3 = D.implicitSocialRules([], two), fb = (cf, lang, id) => (D.routeAll(imp3, cf, { id, lang }, null).find(x => x.platform === 'facebook_page') || {}).channel_id;
+    const ids = Array.from({ length: 400 }, (_, i) => 'clip-' + i), cnt = (lang, cf = two) => ids.reduce((m, id) => { const c = fb(cf, lang, id); m[c] = (m[c] || 0) + 1; return m; }, {});
+    const vi = cnt('vi'), en = cnt('en');
+    ok(Object.keys(vi).sort().join() === 'gc-facebook_page-333,gc-facebook_page-444' && Math.min(...Object.values(vi)) >= 160, 'clip vi chia đều 2 page tiếng Việt: ' + JSON.stringify(vi));
+    ok(Object.keys(en).sort().join() === 'gc-facebook_page-111,gc-facebook_page-555' && Math.min(...Object.values(en)) >= 160, 'clip en chia đều 2 page EN: ' + JSON.stringify(en));
+    ok(ids.every(id => fb(two, 'vi', id) === fb(two, 'vi', id)) && D.shareOf({ id: 'x' }, 2) === D.shareOf({ id: 'x' }, 2), 'chia theo id clip: lập lịch lại vẫn ra cùng page');
+    ok(Object.keys(cnt('ja')).sort().join() === 'gc-facebook_page-111,gc-facebook_page-555', 'clip ngôn ngữ chưa có page riêng → chia giữa các page EN chung');
+    const off = { ...two, 'gc-facebook_page-444': n({ lang: 'vi', active: 0 }) };
+    ok(JSON.stringify(Object.keys(cnt('vi', off))) === '["gc-facebook_page-333"]', 'page vi thứ hai tạm dừng → mọi clip vi về page vi còn lại (không rơi sang page EN)');
+    ok(D.implicitSocialRules([], both).every(r => !('share' in r.cond)), 'một page/ngôn ngữ → luật như cũ (không có share)');
+    const src = (await import('node:fs')).readFileSync('functions/api/distribution.js', 'utf8');
+    ok(/sGrp\.has\(r\.clip \+ '\|' \+ so\.platform \+ '\|' \+ langOfCfg/.test(src), 'plan_run: clip đã có trên 1 page cùng nền tảng + ngôn ngữ không bị xếp thêm vào page kia (không đăng trùng khi đổi cách chia)'); }
   ok(D.foreignAccount({ name: 'Grabcast.click' }) && D.foreignAccount({ username: 'grabcast_click' }) && D.foreignAccount({ title: 'Grab Cast' }) && !D.foreignAccount({ name: 'Lexkite.com' }) && !D.foreignAccount({ username: 'lexkitecom' }), 'foreignAccount: chặn mọi biến thể tên GrabCast, giữ Lexkite');
   ok(D.pausedAccount({ status: 'paused' }) && D.pausedAccount({ publishing_paused: true }) && !D.pausedAccount({ status: 'active' }) && !D.pausedAccount({}), 'pausedAccount: kênh Pause publishing trên GrabCast');
 }

@@ -28,6 +28,7 @@ export function blockOf(cfg, clip) {
 }
 export const allowed = (cfg, clip) => !blockOf(cfg, clip);
 const condOk = (cond, clip) => Object.entries(cond || {}).every(([k, want]) => {
+  if (k === 'share') return shareOf(clip, want[1]) === want[0]; // luật ngầm: nhiều page cùng ngôn ngữ chia đều clip (implicitSocialRules)
   const w = list(want).map(x => x.toLowerCase()); if (!w.length) return true;
   const have = k === 'topic' ? [clip.topic, clip.sub] : k === 'region' ? list(clip.regions || clip.region) : k === 'lang' ? [clip.lang || 'en'] : [clip[k]];
   return have.some(h => h && w.includes(String(h).toLowerCase()));
@@ -73,19 +74,27 @@ export function langOfChannel(title) {
   return '';
 }
 /** Kênh social (gc-*) đang ok mà NỀN TẢNG chưa có luật nào (kể cả luật đã tắt – tắt là chủ ý dừng) → luật ngầm cho TỪNG ngôn ngữ của nền tảng đó:
- *  mỗi kênh nhận clip cùng ngôn ngữ (cond.lang = cfg.lang, mặc định 'en'); nhiều kênh cùng ngôn ngữ → kênh đầu theo id. Nối kênh xong là có lịch, không phải tạo luật tay,
+ *  mỗi kênh nhận clip cùng ngôn ngữ (cond.lang = cfg.lang, mặc định 'en'); nhiều kênh cùng ngôn ngữ → chia đều theo id clip (cond.share). Nối kênh xong là có lịch, không phải tạo luật tay,
  *  và clip EN không bao giờ rơi vào page tiếng Tây Ban Nha chỉ vì id đứng đầu bảng chữ cái (lỗi cũ: 1 kênh/nền tảng, bất kể ngôn ngữ). */
 export function implicitSocialRules(allRules, cfgs) {
   // chỉ luật cho kênh GrabCast (gc-*) mới chặn luật ngầm: luật YouTube trực tiếp (UC…) không được làm câm kênh YouTube GrabCast (lỗi cũ: platformOf(UC…) = 'youtube')
-  const have = new Set((allRules || []).filter(r => /^gc-/.test(String(r.channel_id || ''))).map(r => platformOf(r.channel_id))), seen = new Set(), own = [], general = [];
+  const have = new Set((allRules || []).filter(r => /^gc-/.test(String(r.channel_id || ''))).map(r => platformOf(r.channel_id))), groups = new Map(), own = [], general = [];
   for (const id of Object.keys(cfgs || {}).filter(x => /^gc-/.test(x)).sort()) {
-    const p = platformOf(id), lang = String((cfgs[id] && cfgs[id].lang) || 'en').toLowerCase(), k = p + '|' + lang;
-    if (have.has(p) || seen.has(k)) continue; seen.add(k);
-    // page ngôn ngữ riêng chỉ nhận clip cùng ngôn ngữ (đứng trước); page EN chung = mọi ngôn ngữ chưa có page riêng (05/11: mới có 1 page "Lexkite.com")
-    (lang === 'en' ? general : own).push({ cond: lang === 'en' ? {} : { lang }, channel_id: id, active: 1 });
+    const p = platformOf(id), lang = langOfCfg(cfgs[id]), k = p + '|' + lang;
+    if (!have.has(p)) groups.set(k, [...(groups.get(k) || []), id]);
+  }
+  // page ngôn ngữ riêng chỉ nhận clip cùng ngôn ngữ (đứng trước); page EN chung = mọi ngôn ngữ chưa có page riêng (05/11: mới có 1 page "Lexkite.com")
+  // chủ 12/11 "chia đều": nhiều page cùng nền tảng + ngôn ngữ (2 page "Học Tiếng Anh") → mỗi clip về đúng 1 page theo hash id (ổn định, ~đều); page của phần đó tắt/chặn → page cùng nhóm nhận thay
+  for (const [k, ids] of groups) {
+    const lang = k.split('|')[1], base = lang === 'en' ? {} : { lang }, out = lang === 'en' ? general : own;
+    if (ids.length > 1) ids.forEach((id, i) => out.push({ cond: { ...base, share: [i, ids.length] }, channel_id: id, active: 1 }));
+    ids.forEach(id => out.push({ cond: base, channel_id: id, active: 1 }));
   }
   return [...own, ...general];
 }
+export const langOfCfg = c => String((c && c.lang) || 'en').toLowerCase();
+/** Phần (0…n-1) của clip khi n page cùng ngôn ngữ chia nhau – chỉ theo id clip nên lần lập lịch nào cũng ra cùng page. */
+export const shareOf = (clip, n) => Math.min(n - 1, Math.floor(hash(String((clip && clip.id) || '')) * n));
 /** Tài khoản không phải của Lexkite trong workspace GrabCast (OAuth Meta kéo kèm Page/IG "Grabcast.click" vào ws4, 05/11) hoặc bị tạm dừng đăng → không bao giờ là đích autopilot. */
 export const foreignAccount = a => /grab\s*cast/i.test([a && a.name, a && a.title, a && a.username, a && a.handle].filter(Boolean).join(' '));
 export const pausedAccount = a => /^(paused|disabled|inactive)$/i.test(String((a && (a.publishing || a.status)) || '')) || (a && (a.paused === true || a.publishing_paused === true));

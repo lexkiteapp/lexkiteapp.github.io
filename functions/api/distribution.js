@@ -9,7 +9,7 @@ import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { manifest } from './admin-shorts.js';
 import { setup, chanCfg, pauseChannel } from './youtube.js';
-import { langOfChannel, foreignAccount, pausedAccount, extAccount, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM, PLAN_DAYS } from './_distribution.js';
+import { langOfChannel, foreignAccount, pausedAccount, extAccount, normCfg, route, routeAll, implicitSocialRules, langOfCfg, pickEmbed, explain, platformOf, planAll, localDate, localHM, PLAN_DAYS } from './_distribution.js';
 import { embedMeta, socialMeta, PLATFORMS } from './_role_meta.js';
 import { viewOf, typeOf } from './_clip_logic.js';
 import { TOPICS, SKILLS, EXAMS, CEFR, TYPES } from './_taxonomy.js';
@@ -142,11 +142,11 @@ const OPS = {
     if (b.replan) await run(db, "DELETE FROM yt_plan WHERE source = 'auto' AND clip IN (SELECT clip FROM yt_queue WHERE status IN ('manual', 'queued'))");
     const q = await all(db, "SELECT q.clip, q.title, q.video_id, q.status FROM yt_queue q WHERE q.status IN ('manual', 'queued', 'uploading', 'done', 'failed', 'social') ORDER BY q.approved_at"), planned = new Map((await all(db, 'SELECT * FROM yt_plan')).map(r => [r.clip, r]));
     const cfgs = await cfgMap(db), embedCfgs = Object.fromEntries(Object.entries(cfgs).filter(([id, c]) => c.role === 'embed' && !isExt(id))), counts = await embedCounts(db), allRules = await rules(db), rl = allRules.filter(r => r.active), fb = await dflt(db), routed = {}, skipped = [], rows = [];
-    const ytRules = rl.filter(r => platformOf(r.channel_id) === 'youtube'), soRules = [...rl.filter(r => platformOf(r.channel_id) !== 'youtube'), ...implicitSocialRules(allRules, cfgs)], social = {}, sRows = new Map(), sDone = new Set((await all(db, 'SELECT clip, channel_id FROM dist_social')).map(r => r.clip + '|' + r.channel_id));
+    const ytRules = rl.filter(r => platformOf(r.channel_id) === 'youtube'), soRules = [...rl.filter(r => platformOf(r.channel_id) !== 'youtube'), ...implicitSocialRules(allRules, cfgs)], social = {}, sRows = new Map(), sHad = await all(db, 'SELECT clip, channel_id FROM dist_social'), sDone = new Set(sHad.map(r => r.clip + '|' + r.channel_id)), sGrp = new Set(sHad.map(r => r.clip + '|' + platformOf(r.channel_id) + '|' + langOfCfg(cfgs[r.channel_id])));
     for (const r of q) {
       const it = by.get(r.clip); if (!it) { skipped.push({ id: r.clip, why: 'unknown' }); continue; }
       const old = planned.get(r.clip), c = clipOf(it, r.title);
-      for (const so of routeAll(soRules, cfgs, c, null)) if (!sDone.has(r.clip + '|' + so.channel_id)) { (social[so.channel_id] = social[so.channel_id] || []).push(c); sRows.set(r.clip + '|' + so.channel_id, so); }
+      for (const so of routeAll(soRules, cfgs, c, null)) if (!sDone.has(r.clip + '|' + so.channel_id) && !sGrp.has(r.clip + '|' + so.platform + '|' + langOfCfg(cfgs[so.channel_id]))) { (social[so.channel_id] = social[so.channel_id] || []).push(c); sRows.set(r.clip + '|' + so.channel_id, so); }
       if (!['manual', 'queued'].includes(r.status)) continue; // đã/đang lên YouTube hoặc YouTube lỗi: social vẫn được xếp (ở trên), kế hoạch YouTube thì thôi
       if (old && old.source === 'manual' && old.slot_ms) continue;
       let ch = old && old.source === 'manual' ? { channel_id: old.channel_id, rule: -2 } : route(ytRules, cfgs, c, fb);
