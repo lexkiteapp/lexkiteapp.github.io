@@ -66,7 +66,7 @@
    "answer": 0
   },
   "native": {
-   "hook": "“Explain me” — типичная ошибка",
+   "hook": "Скажи одним маленьким словом",
    "tip": "Не “explain me”, а “explain to me”: “Explain the rule to me”.",
    "caption": "Ты тоже говоришь “Explain me the rule.”? 😅 По-русски «объясни мне», вот и получается “explain me”. Нужно “explain … to me”. Правильно: “Explain the rule to me.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
    "comment": "Ответ: “to”. Объясняем кому-то через to. Бесплатный тест для практики здесь: {link}",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "“Explain me” — типичная ошибка"
+  "text": "Скажи одним маленьким словом"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 99
  },
  "publish": {
-  "title": "“Explain me” — типичная ошибка",
+  "title": "Скажи одним маленьким словом",
   "keyword": "Explain the rule to me.",
   "value": "Не “explain me”, а “explain to me”: “Explain the rule to me”.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 41,
   "platforms": {
    "youtube": {
-    "title": "“Explain me” — типичная ошибка",
+    "title": "Скажи одним маленьким словом",
     "description": "Ты тоже говоришь “Explain me the rule.”? 😅 По-русски «объясни мне», вот и получается “explain me”. Нужно “explain … to me”. Правильно: “Explain the rule to me.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
     "tags": [
      "Explain the rule to me.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "“Explain me” — типичная ошибка #английскийязык #учуанглийский #английскийдляначинающих"
+    "caption": "Скажи одним маленьким словом #английскийязык #учуанглийский #английскийдляначинающих"
    }
   },
   "first_comment": "Ответ: “to”. Объясняем кому-то через to. Бесплатный тест для практики здесь: {link}",
