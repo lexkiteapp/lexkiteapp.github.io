@@ -185,6 +185,40 @@
      "model": "kling-image-v3_0",
      "uses": 0
     }
+   ],
+   "inserts": [
+    {
+     "id": "cafe_amb_vn_1",
+     "src": "cafe/inserts/cafe_amb_vn_1.mp4",
+     "plate": "cafe_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "steam curls up from the coffee machine and the cup, warm sunlight shimmers softly on the wall, the plant leaves sway a little",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    },
+    {
+     "id": "cafe_amb_pn_1",
+     "src": "cafe/inserts/cafe_amb_pn_1.mp4",
+     "plate": "cafe_pn_1",
+     "aspect": "16:9",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "steam curls up from the coffee machine and the cup, warm sunlight shimmers softly on the wall, the plant leaves sway a little",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
    ]
   },
   "restaurant-order": {
@@ -348,6 +382,40 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ],
+   "inserts": [
+    {
+     "id": "restaurant-order_amb_vn_1",
+     "src": "restaurant-order/inserts/restaurant-order_amb_vn_1.mp4",
+     "plate": "restaurant-order_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the pendant lamps glow and sway very slightly, candle-like warm light flickers softly, the evening sky outside the window slowly shifts colour",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    },
+    {
+     "id": "restaurant-order_amb_pn_2",
+     "src": "restaurant-order/inserts/restaurant-order_amb_pn_2.mp4",
+     "plate": "restaurant-order_pn_2",
+     "aspect": "16:9",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the pendant lamps glow and sway very slightly, candle-like warm light flickers softly, the evening sky outside the window slowly shifts colour",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -521,6 +589,40 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ],
+   "inserts": [
+    {
+     "id": "airport-checkin_amb_vn_2",
+     "src": "airport-checkin/inserts/airport-checkin_amb_vn_2.mp4",
+     "plate": "airport-checkin_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "a plane slowly taxis past outside the big window, clouds drift, the baggage belt rolls gently",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    },
+    {
+     "id": "airport-checkin_amb_pn_2",
+     "src": "airport-checkin/inserts/airport-checkin_amb_pn_2.mp4",
+     "plate": "airport-checkin_pn_2",
+     "aspect": "16:9",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the sun glows and clouds drift slowly outside the big windows, warm sunlight shifts softly across the floor",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -706,6 +808,24 @@
      "model": "kling-image-v3_0",
      "uses": 0
     }
+   ],
+   "inserts": [
+    {
+     "id": "ask-directions_amb_vn_1",
+     "src": "ask-directions/inserts/ask-directions_amb_vn_1.mp4",
+     "plate": "ask-directions_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds drift across the sky, a gentle breeze moves the shop awnings, sunlight moves softly over the street",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
    ]
   },
   "train-station": {
@@ -877,6 +997,40 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ],
+   "inserts": [
+    {
+     "id": "train-station_amb_vn_4",
+     "src": "train-station/inserts/train-station_amb_vn_4.mp4",
+     "plate": "train-station_vn_4",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "a train slowly pulls in and stops behind the arch, the departure board icons blink softly",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    },
+    {
+     "id": "train-station_amb_pn_1",
+     "src": "train-station/inserts/train-station_amb_pn_1.mp4",
+     "plate": "train-station_pn_1",
+     "aspect": "16:9",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds drift slowly in the sky beyond the arch, warm light shifts softly on the walls; the parked train stays still",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -1052,6 +1206,24 @@
      "model": "kling-image-v3_0",
      "uses": 0
     }
+   ],
+   "inserts": [
+    {
+     "id": "taxi_amb_vn_2",
+     "src": "taxi/inserts/taxi_amb_vn_2.mp4",
+     "plate": "taxi_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds drift, soft sunlight glints move over the yellow taxi, leaves move in a light breeze",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
    ]
   },
   "supermarket": {
@@ -1212,6 +1384,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ],
+   "inserts": [
+    {
+     "id": "supermarket_amb_vn_1",
+     "src": "supermarket/inserts/supermarket_amb_vn_1.mp4",
+     "plate": "supermarket_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the checkout screen glows, ceiling light reflections shimmer softly on the floor, a light price-tag mobile sways",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -1385,6 +1575,24 @@
      "model": "kling-image-v3_0",
      "uses": 0
     }
+   ],
+   "inserts": [
+    {
+     "id": "shop-return_amb_vn_4",
+     "src": "shop-return/inserts/shop-return_amb_vn_4.mp4",
+     "plate": "shop-return_vn_4",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "hanging clothes sway very gently, warm light shimmers on the mirror, a soft breeze from the door",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
    ]
   },
   "pharmacy": {
@@ -1545,6 +1753,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ],
+   "inserts": [
+    {
+     "id": "pharmacy_amb_vn_4",
+     "src": "pharmacy/inserts/pharmacy_amb_vn_4.mp4",
+     "plate": "pharmacy_vn_4",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "trees move gently outside the window, soft light shimmers on the shelves, a plant sways",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -1720,6 +1946,24 @@
      "model": "kling-image-v3_0",
      "uses": 0
     }
+   ],
+   "inserts": [
+    {
+     "id": "dentist_amb_vn_2",
+     "src": "dentist/inserts/dentist_amb_vn_2.mp4",
+     "plate": "dentist_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the dental lamp glows and its light pulses softly, the chair's reflections shimmer, a calm clinic ambience",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
    ]
   },
   "bank": {
@@ -1891,6 +2135,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ],
+   "inserts": [
+    {
+     "id": "bank_amb_vn_3",
+     "src": "bank/inserts/bank_amb_vn_3.mp4",
+     "plate": "bank_vn_3",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds drift slowly past the window, soft light shifts gently across the floor",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -2075,6 +2337,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ],
+   "inserts": [
+    {
+     "id": "job-interview_amb_vn_1",
+     "src": "job-interview/inserts/job-interview_amb_vn_1.mp4",
+     "plate": "job-interview_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds and soft light move over the city skyline behind the glass, sunlight shifts on the table",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -2444,6 +2724,24 @@
      "model": "kling-image-v3_0",
      "uses": 0
     }
+   ],
+   "inserts": [
+    {
+     "id": "team-meeting_amb_vn_1",
+     "src": "team-meeting/inserts/team-meeting_amb_vn_1.mp4",
+     "plate": "team-meeting_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "trees sway outside the window, sunlight shifts on the table, a laptop screen glows",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
    ]
   },
   "flat-viewing": {
@@ -2638,6 +2936,24 @@
      "model": "kling-image-v3_0",
      "uses": 0
     }
+   ],
+   "inserts": [
+    {
+     "id": "flat-viewing_amb_vn_2",
+     "src": "flat-viewing/inserts/flat-viewing_amb_vn_2.mp4",
+     "plate": "flat-viewing_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "sunlight shifts slowly across the wooden floor and walls, tiny dust motes float in the light",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
    ]
   },
   "phone-plan": {
@@ -2808,6 +3124,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ],
+   "inserts": [
+    {
+     "id": "phone-plan_amb_vn_2",
+     "src": "phone-plan/inserts/phone-plan_amb_vn_2.mp4",
+     "plate": "phone-plan_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the phone screens on the wall glow and change colours softly, light shimmers on the glass counters",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -3000,6 +3334,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ],
+   "inserts": [
+    {
+     "id": "lost-luggage_amb_vn_2",
+     "src": "lost-luggage/inserts/lost-luggage_amb_vn_2.mp4",
+     "plate": "lost-luggage_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the baggage carousel turns slowly, a plane moves far away outside the window, clouds drift",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -3203,6 +3555,24 @@
      "model": "kling-image-v3_0",
      "uses": 0
     }
+   ],
+   "inserts": [
+    {
+     "id": "cinema-tickets_amb_vn_1",
+     "src": "cinema-tickets/inserts/cinema-tickets_amb_vn_1.mp4",
+     "plate": "cinema-tickets_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "popcorn pops and bubbles in the machine, marquee lights twinkle softly, warm light glows",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    }
    ]
   },
   "party-invite": {
@@ -3361,6 +3731,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ],
+   "inserts": [
+    {
+     "id": "party-invite_amb_v_3",
+     "src": "party-invite/inserts/party-invite_amb_v_3.mp4",
+     "plate": "party-invite_v_3",
+     "aspect": "9:16",
+     "light": "day",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "balloons bob gently in the breeze, leaves move, soft clouds drift over the park",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -3554,6 +3942,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ],
+   "inserts": [
+    {
+     "id": "post-office_amb_vn_1",
+     "src": "post-office/inserts/post-office_amb_vn_1.mp4",
+     "plate": "post-office_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "light shifts across the floor, the scale display glows, a paper on the counter flutters slightly",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
