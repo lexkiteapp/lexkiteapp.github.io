@@ -125,9 +125,6 @@
   // Không tải gói nặng ở trang chủ: dữ liệu có sẵn thì gợi ý đúng bài, chưa có thì dẫn tới trang danh sách.
   // Đếm ẩn danh vòng thói quen trang chủ (hit.js HAB_EV): mỗi máy 1 lượt/ngày/sự kiện, chỉ số đếm, tôn trọng lk.noTrack
   App.habTrack = ev => { try { const k = 'lk.hab.' + ev, d = todayKey(); if (localStorage.getItem('lk.noTrack') === '1' || localStorage.getItem(k) === d) return; localStorage.setItem(k, d); const u = (/(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com') + '/api/hit', b = JSON.stringify({ t: 'q', ev }); navigator.sendBeacon ? navigator.sendBeacon(u, b) : fetch(u, { method: 'POST', body: b, keepalive: true, mode: 'no-cors' }).catch(() => {}); } catch (e) { /* bỏ qua */ } };
-  // Kế hoạch 5–10 phút: việc chưa xong đầu tiên luôn giữ; các việc sau chỉ thêm khi tổng chưa quá 10 phút (việc đã xong, việc ưu tiên theo kết quả kiểm tra và nhắc làm kiểm tra luôn giữ)
-  const PLAN_MINS = 10;
-  const fitMins = tasks => { let sum = 0, first = true; return tasks.filter(x => { if (x.done) return true; if (x.focus || x.href === '#/placement') { sum += x.mins || 0; first = false; return true; } if (first) { first = false; sum += x.mins || 0; return true; } if (sum + (x.mins || 0) > PLAN_MINS) return false; sum += x.mins || 0; return true; }); };
   App.todayPlan = async function () {
     const s = state.settings, g = state.game, d = g.days[todayKey()] || {};
     const ex = App.exam ? App.exam() : 'ielts', dow = new Date().getDay();
@@ -154,7 +151,7 @@
     if (mistakes) { const mv = await App.lazy('mvar').then(() => MVar.todayTask()).catch(() => null); if (mv) tasks.push(mv); }
     const sk = await skillTask(ex, dow, d);
     if (sk && !tasks.some(x => x.href === sk.href)) tasks.push(sk);
-    return fitMins(tasks).slice(0, 5);
+    return tasks.slice(0, 5);
   };
   const TOEFL_ROT = [['response', UI.icon('headphones'), 'Listen and Choose a Response'], ['cw', UI.icon('puzzle'), 'Complete the Words'], ['email', UI.icon('mail'), 'Write an Email'], ['repeat', UI.icon('repeat'), 'Listen and Repeat'], ['conversation', UI.icon('users'), 'Listen to a Conversation'], ['daily', UI.icon('smartphone'), 'Read in Daily Life'], ['sentence', UI.icon('brick-wall'), 'Build a Sentence'], ['interview', UI.icon('mic'), 'Take an Interview'], ['announcement', '📢', 'Listen to an Announcement'], ['academic', UI.icon('library'), 'Read an Academic Passage'], ['discussion', UI.icon('message-circle'), 'Write for an Academic Discussion'], ['talk', UI.icon('graduation-cap'), 'Listen to an Academic Talk']];
   async function skillTask(ex, dow, d) {
