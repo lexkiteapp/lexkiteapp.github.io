@@ -47,6 +47,7 @@ const play = (mode) => { // mode: 'perfect' | 'wrong-weak' | 'none'
   const start = now, beat = w.PlayRhythm.core.beatOf(+/(\d+)\/\d+/.exec(view.textContent)[1] - 1), T0 = start + 4 * beat, cs = chips();
   assert.ok(cs.length >= 4 && cs.some(c => c.classList.contains('st')) && cs.some(c => c.classList.contains('wk')), 'câu phải có từ nhấn và từ yếu');
   assert.ok(view.querySelector('#rhT') && view.querySelector('#rhT').getAttribute('aria-label'), 'nút chạm có nhãn cho trình đọc màn hình');
+  assert.equal(typeof view.querySelector('#rhT').onkeydown, 'function', 'trình xử lý phím trên nút phải được gắn (không bị chú thích nuốt)'); assert.equal(typeof view.querySelector('#rhT').onpointerdown, 'function');
   cs.forEach((c, k) => { const st = c.classList.contains('st'); if (mode === 'perfect' && st) { now = T0 + k * beat; key(' '); } if (mode === 'wrong-weak' && !st) { now = T0 + k * beat; key(' '); } });
   now = T0 + (cs.length - 1) * beat + beat; frame();
   return cs;

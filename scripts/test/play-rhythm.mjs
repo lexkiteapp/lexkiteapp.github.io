@@ -36,6 +36,9 @@ r = core.judge(P, [B * 2 + 10, B * 2 - 200], B); assert.equal(r.words[2], 'perfe
 // combo mang sang câu sau: bắt đầu 2 → chạm đúng đầu tiên là combo 3 → ×2; chuỗi còn lại trả về
 r = core.judge([{ stress: true }], [0], B, 2); assert.equal(r.score, 40); assert.equal(r.combo, 3);
 r = core.judge(P, [0, B * 1], B, 5); assert.equal(r.combo, 0, 'chạm nhầm làm đứt chuỗi mang sang');
+// bỏ lỡ từ nhấn đứt combo; chạm trùng nhịp cũng đứt
+r = core.judge([{ stress: true }, { stress: true }, { stress: true }], [0, B], B, 5); assert.equal(r.score, 60 + 60, 'combo 6, 7 → ×3 mỗi chạm'); assert.equal(r.combo, 0, 'lỡ từ cuối → chuỗi mang sang câu sau về 0');
+r = core.judge([{ stress: true }, { stress: true }, { stress: true }], [0, B * 2], B, 5); assert.equal(r.combo, 1, 'lỡ giữa chừng rồi chạm lại → bắt đầu lại từ 1');
 // thứ tự chạm không quan trọng (máy gửi lộn xộn vẫn ra cùng kết quả)
 assert.deepEqual(core.judge(P, [B * 4, 0, B * 2], B), core.judge(P, [0, B * 2, B * 4], B));
 // combo ×2 từ lần thứ 3, ×3 từ lần thứ 6 (cùng luật Thử thách 60 giây)

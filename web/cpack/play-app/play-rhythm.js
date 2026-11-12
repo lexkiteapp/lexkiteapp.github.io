@@ -22,9 +22,10 @@
     let extra = 0;
     for (const tp of taps.slice().sort((a, b) => a - b)) { // hai chạm cùng một nhịp: giữ chạm GẦN nhịp hơn, chạm xa hơn thành "thừa" (chạm sớm không cướp chỗ chạm đúng)
       const s = snap(tp, n, beat, new Set()); if (!s) { extra++; ev.push({ at: tp, k: -1 }); continue; }
-      const o = slot.get(s.k); if (!o) slot.set(s.k, s); else { extra++; if (Math.abs(s.d) < Math.abs(o.d)) slot.set(s.k, s); }
+      const o = slot.get(s.k); if (!o) slot.set(s.k, s); else { extra++; ev.push({ at: tp, k: -1 }); if (Math.abs(s.d) < Math.abs(o.d)) slot.set(s.k, s); }
     }
     for (const [k, s] of slot) ev.push({ at: k * beat, k, d: s.d });
+    plan.forEach((w, k) => { if (w.stress && !slot.has(k)) ev.push({ at: k * beat, k: -2 }); }); // bỏ lỡ từ nhấn cũng đứt combo (không "bỏ bớt từ để giữ chuỗi")
     const words = plan.map(() => 'rest');
     let combo = combo0, best = 0, score = 0, hits = 0;
     plan.forEach((w, k) => { if (w.stress) words[k] = 'miss'; });
@@ -119,7 +120,7 @@
         <div class="card q-card"><div class="rh-s" id="rhW" role="list" aria-label="${esc(x.s)}">${chips(plan)}</div><div class="rh-cue" id="rhQ" aria-hidden="true">…</div></div>
         <button class="btn primary rh-tap" id="rhT" aria-label="${esc(t('Chạm vào từ nhấn'))}">${t('CHẠM')} <span class="kbd">␣</span></button></div>`;
       const q = view.querySelector('.study-top a.icon-btn'); if (q) { q.style.width = q.style.height = '44px'; q.setAttribute('aria-label', t('Thoát')); }
-      wireMute(); const b = $('#rhT'); b.onpointerdown = e => { e.preventDefault(); if (e.button > 0 || e.isPrimary === false) return; tap(); }; // chỉ chạm chính (không chuột phải / ngón thứ hai) b.onkeydown = e => { if (e.key === ' ' || e.key === 'Enter') e.preventDefault(); }; // phím xử lý ở keys (tránh chạm hai lần)
+      wireMute(); const b = $('#rhT'); b.onpointerdown = e => { e.preventDefault(); if (e.button > 0 || e.isPrimary === false) return; tap(); }; /* chỉ chạm chính (không chuột phải / ngón thứ hai) */ b.onkeydown = e => { if (e.key === ' ' || e.key === 'Enter') e.preventDefault(); }; /* phím xử lý ở keys (tránh chạm hai lần) */
       for (let i = 0; i < LEAD + plan.length; i++) tick(S.T0 - (LEAD - i) * beat); // mọi nhịp cùng một tiếng – không lộ từ nào nhấn
       const cue = n => { const el = $('#rhQ'); if (el) el.textContent = n; }; let cleared = false;
       for (let i = 0; i < LEAD; i++) later(() => cue(i < LEAD - 1 ? String(LEAD - 1 - i) : t('Bắt đầu')), Math.max(0, S.T0 - (LEAD - i) * beat - performance.now()));
