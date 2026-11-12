@@ -8,7 +8,7 @@ import kotlinx.serialization.json.JsonObject
 
 /**
  * The writing content the web ships as scripts, read as data: ideas (`cpack/write/ideas.js`), letters (`js/write/gt-letters.js`), paraphrase pairs (`js/lib/paraphrase-data.js`),
- * annotated model answers (`js/models.js` + `cpack/write/models2..5.js` + the model blocks of gt-letters/task2-more/task1-more*.js), Task 2 prompts (`js/write.js` + `WRITE_MORE`)
+ * annotated model answers (`js/models.js` + `cpack/write/models2..5.js + task1-more.js` + the model blocks of gt-letters/task2-more/task1-more*.js), Task 2 prompts (`js/write.js` + `WRITE_MORE`)
  * and Task 1 chart sets (`js/task1.js` + `TASK1_MORE`). Pass the texts in the order the web loads them.
  */
 class WritingData(

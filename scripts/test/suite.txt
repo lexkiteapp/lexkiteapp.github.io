@@ -84,6 +84,7 @@ node scripts/test/ux1-rollout.mjs
 node scripts/test/pron-gop.mjs
 node scripts/test/pron-pairs.mjs
 node scripts/test/pron-coach.mjs
+node scripts/test/pron-shadow.mjs
 node scripts/test/call-engine.mjs
 node scripts/test/feedback-eval.mjs
 node scripts/test/route-race.mjs
@@ -127,6 +128,7 @@ node scripts/test/es-conjugate.mjs
 node scripts/test/sync-ctx.mjs
 node scripts/test/schema-lock.mjs
 node scripts/test/analytics.mjs
+node scripts/test/retention-admin.mjs
 node scripts/test/d1-scan.mjs
 node scripts/test/drive.mjs
 node scripts/test/ci-triage.mjs
@@ -387,4 +389,5 @@ node scripts/test/phrasebook.mjs
 node scripts/test/native-strings-locked.mjs
 node scripts/audit/score.mjs --self-test
 node scripts/test/suite-shards.mjs
+node scripts/test/mistake-variant.mjs
 node scripts/test/adsense-hygiene.mjs

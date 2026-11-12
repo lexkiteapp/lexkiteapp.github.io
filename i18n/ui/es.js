@@ -668,6 +668,7 @@
 "Marketing & Truyền thông":"Marketing y comunicación",
 "Media & Advertising – tin tức, quảng cáo, mạng xã hội":"Medios y publicidad: noticias, publicidad, redes sociales.",
 "Micro đang bận – thử lại sau 1 giây.":"El micrófono está ocupado; inténtelo de nuevo en un segundo.",
+"Mini-test biến thể":"Minitest de variantes",
 "Miễn phí · chỉ lưu dữ liệu học của bạn · có thể đăng xuất bất cứ lúc nào":"Gratis · almacena solo los datos de tu estudio · cierra sesión en cualquier momento",
 "Mua sắm":"De compras",
 "Mua sắm & Tiêu dùng":"Compras y consumo",

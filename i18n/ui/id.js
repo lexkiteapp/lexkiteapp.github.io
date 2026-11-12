@@ -668,6 +668,7 @@
 "Marketing & Truyền thông":"Pemasaran & komunikasi",
 "Media & Advertising – tin tức, quảng cáo, mạng xã hội":"Media & Periklanan – berita, periklanan, media sosial",
 "Micro đang bận – thử lại sau 1 giây.":"Mikrofon sedang sibuk – coba lagi sebentar lagi.",
+"Mini-test biến thể":"Mini tes variasi",
 "Miễn phí · chỉ lưu dữ liệu học của bạn · có thể đăng xuất bất cứ lúc nào":"Gratis · hanya menyimpan data studi Anda · keluar kapan saja",
 "Mua sắm":"Belanja",
 "Mua sắm & Tiêu dùng":"Belanja & konsumsi",

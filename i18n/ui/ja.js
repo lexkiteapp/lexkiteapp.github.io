@@ -668,6 +668,7 @@
 "Marketing & Truyền thông":"マーケティングと広報",
 "Media & Advertising – tin tức, quảng cáo, mạng xã hội":"メディアと広告 – ニュース、広告、ソーシャルメディア",
 "Micro đang bận – thử lại sau 1 giây.":"マイクが使用中です。しばらくしてからもう一度お試しください。",
+"Mini-test biến thể":"バリエーションミニテスト",
 "Miễn phí · chỉ lưu dữ liệu học của bạn · có thể đăng xuất bất cứ lúc nào":"無料 · 学習データのみを保存 · いつでもサインアウト",
 "Mua sắm":"買い物",
 "Mua sắm & Tiêu dùng":"買い物と消費",
