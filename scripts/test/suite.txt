@@ -127,6 +127,7 @@ node scripts/test/es-conjugate.mjs
 node scripts/test/sync-ctx.mjs
 node scripts/test/schema-lock.mjs
 node scripts/test/analytics.mjs
+node scripts/test/retention-admin.mjs
 node scripts/test/d1-scan.mjs
 node scripts/test/drive.mjs
 node scripts/test/ci-triage.mjs
