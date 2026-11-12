@@ -397,3 +397,4 @@ node scripts/test/go-landing.mjs
 node scripts/test/mistake-variant.mjs
 node scripts/test/adsense-hygiene.mjs
 node scripts/test/play-duel.mjs
+node scripts/test/funnel.mjs

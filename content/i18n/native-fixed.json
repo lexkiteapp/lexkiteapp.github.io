@@ -1,0 +1,704 @@
+{
+ "es": {
+  "/ʃ/ – /s/ và /tʃ/ – /dʒ/ – /ʒ/": {
+   "en": "cbc153baf8e5",
+   "l1": "/ʃ/ – /s/ y /tʃ/ – /dʒ/ – /ʒ/"
+  },
+  "Nối âm nâng cao: /r/ chèn trong giọng Anh": {
+   "en": "b0777331be35",
+   "l1": "Enlace avanzado: la /r/ añadida en el inglés británico"
+  },
+  "Giọng Anh chuẩn (RP) không đọc r ở cuối từ, nhưng có hai hiện tượng ngược nhau mà người nghe nâng cao cần nhận…": {
+   "en": "fd7e09f9a46e",
+   "l1": "El inglés británico estándar (RP) y otros acentos británicos no róticos no pronuncian la r final, pero conviene reconocer dos fenómenos opuestos…"
+  },
+  "Trọng tâm thông tin: dời nhân trong câu": {
+   "en": "e689717a3848",
+   "l1": "Foco de información: mover el núcleo dentro de la frase"
+  },
+  "Trong bài này, CHỮ HOA là từ mang nhân (không đánh dấu trọng âm trong từ). Mỗi cụm ý có một từ mang “nhân” (nu…": {
+   "en": "144853ad27a5",
+   "l1": "En esta lección las MAYÚSCULAS marcan la palabra que lleva el núcleo (no se marca el acento dentro de las palabras). Cada grupo de sentido tiene un núcleo…"
+  },
+  "Ngữ điệu câu phức và xuống-lên (fall-rise)": {
+   "en": "712ed657c67c",
+   "l1": "Entonación de la oración compleja y el tono descendente-ascendente"
+  },
+  "Ở trình độ C1, người nói điều khiển ngữ điệu qua nhiều mệnh đề. Khi mệnh đề phụ đứng trước (Although…, When…, …": {
+   "en": "b2080498218c",
+   "l1": "En el nivel C1, los hablantes controlan la entonación a lo largo de varias cláusulas. Cuando la subordinada va primero (Although…, When…, If…), …"
+  },
+  "Dạng yếu nâng cao: should have, would have…": {
+   "en": "68089afaf341",
+   "l1": "Formas débiles avanzadas: should have, would have…"
+  },
+  "Ở tốc độ nói tự nhiên, các cấu trúc “khuyết thiếu + have” như should have, would have, could have, must have t…": {
+   "en": "6f8a63ee3349",
+   "l1": "A velocidad natural, los modales perfectos como should have, would have, could have y must have suelen reducirse cuando…"
+  },
+  "Nhịp điệu tiếng Anh: đẳng thời theo trọng âm": {
+   "en": "ce1740cf0515",
+   "l1": "El ritmo del inglés: isocronía acentual"
+  },
+  "Tiếng Việt thường được mô tả là nhịp theo âm tiết (mỗi âm tiết dài gần bằng nhau). Tiếng Anh nghiêng về nhịp t…": {
+   "en": "a2334b63e0ee",
+   "l1": "El vietnamita se describe normalmente como de ritmo silábico (cada sílaba dura casi lo mismo). El inglés tiende al ritmo acentual…"
+  },
+  "Ngữ điệu câu hỏi đuôi: xác nhận hay hỏi thật?": {
+   "en": "6840f1be4f99",
+   "l1": "Entonación de las question tags: ¿confirmar o preguntar de verdad?"
+  },
+  "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
+   "en": "d1aa4be8fefa",
+   "l1": "Las question tags suelen tener una de dos entonaciones con significados distintos. Cuando el hablante está casi seguro y…"
+  }
+ },
+ "pt": {
+  "/ʃ/ – /s/ và /tʃ/ – /dʒ/ – /ʒ/": {
+   "en": "cbc153baf8e5",
+   "l1": "/ʃ/ – /s/ e /tʃ/ – /dʒ/ – /ʒ/"
+  },
+  "Nối âm nâng cao: /r/ chèn trong giọng Anh": {
+   "en": "b0777331be35",
+   "l1": "Ligação avançada: o /r/ inserido no inglês britânico"
+  },
+  "Giọng Anh chuẩn (RP) không đọc r ở cuối từ, nhưng có hai hiện tượng ngược nhau mà người nghe nâng cao cần nhận…": {
+   "en": "fd7e09f9a46e",
+   "l1": "O inglês britânico padrão (RP) e outros sotaques britânicos não róticos não pronunciam o r final, mas há dois fenômenos opostos que vale reconhecer…"
+  },
+  "Trọng tâm thông tin: dời nhân trong câu": {
+   "en": "e689717a3848",
+   "l1": "Foco de informação: deslocar o núcleo dentro da frase"
+  },
+  "Trong bài này, CHỮ HOA là từ mang nhân (không đánh dấu trọng âm trong từ). Mỗi cụm ý có một từ mang “nhân” (nu…": {
+   "en": "144853ad27a5",
+   "l1": "Nesta lição, as MAIÚSCULAS marcam a palavra que leva o núcleo (a sílaba tônica dentro das palavras não é marcada). Cada grupo de sentido tem um núcleo…"
+  },
+  "Ngữ điệu câu phức và xuống-lên (fall-rise)": {
+   "en": "712ed657c67c",
+   "l1": "Entonação da frase complexa e o tom descendente-ascendente"
+  },
+  "Ở trình độ C1, người nói điều khiển ngữ điệu qua nhiều mệnh đề. Khi mệnh đề phụ đứng trước (Although…, When…, …": {
+   "en": "b2080498218c",
+   "l1": "No nível C1, o falante controla a entonação ao longo de várias orações. Quando a subordinada vem primeiro (Although…, When…, If…), …"
+  },
+  "Dạng yếu nâng cao: should have, would have…": {
+   "en": "68089afaf341",
+   "l1": "Formas fracas avançadas: should have, would have…"
+  },
+  "Ở tốc độ nói tự nhiên, các cấu trúc “khuyết thiếu + have” như should have, would have, could have, must have t…": {
+   "en": "6f8a63ee3349",
+   "l1": "Na fala em velocidade natural, os modais perfeitos como should have, would have, could have e must have costumam ser reduzidos quando…"
+  },
+  "Nhịp điệu tiếng Anh: đẳng thời theo trọng âm": {
+   "en": "ce1740cf0515",
+   "l1": "O ritmo do inglês: isocronia acentual"
+  },
+  "Tiếng Việt thường được mô tả là nhịp theo âm tiết (mỗi âm tiết dài gần bằng nhau). Tiếng Anh nghiêng về nhịp t…": {
+   "en": "a2334b63e0ee",
+   "l1": "O vietnamita costuma ser descrito como de ritmo silábico (cada sílaba dura quase o mesmo). O inglês tende ao ritmo acentual…"
+  },
+  "Ngữ điệu câu hỏi đuôi: xác nhận hay hỏi thật?": {
+   "en": "6840f1be4f99",
+   "l1": "Entonação das question tags: confirmar ou perguntar de verdade?"
+  },
+  "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
+   "en": "d1aa4be8fefa",
+   "l1": "As question tags costumam ter uma de duas entonações, com significados diferentes. Quando o falante está quase certo e…"
+  }
+ },
+ "fr": {
+  "/ʃ/ – /s/ và /tʃ/ – /dʒ/ – /ʒ/": {
+   "en": "cbc153baf8e5",
+   "l1": "/ʃ/ – /s/ et /tʃ/ – /dʒ/ – /ʒ/"
+  },
+  "Nối âm nâng cao: /r/ chèn trong giọng Anh": {
+   "en": "b0777331be35",
+   "l1": "Liaison avancée : le /r/ ajouté en anglais britannique"
+  },
+  "Giọng Anh chuẩn (RP) không đọc r ở cuối từ, nhưng có hai hiện tượng ngược nhau mà người nghe nâng cao cần nhận…": {
+   "en": "fd7e09f9a46e",
+   "l1": "L’anglais britannique standard (RP) et d’autres accents britanniques non rhotiques ne prononcent pas le r final, mais deux phénomènes opposés méritent d’être reconnus…"
+  },
+  "Trọng tâm thông tin: dời nhân trong câu": {
+   "en": "e689717a3848",
+   "l1": "Focus d’information : déplacer le noyau dans la phrase"
+  },
+  "Trong bài này, CHỮ HOA là từ mang nhân (không đánh dấu trọng âm trong từ). Mỗi cụm ý có một từ mang “nhân” (nu…": {
+   "en": "144853ad27a5",
+   "l1": "Dans cette leçon, les MAJUSCULES marquent le mot qui porte le noyau (l’accent à l’intérieur des mots n’est pas marqué). Chaque groupe de sens a un noyau…"
+  },
+  "Ngữ điệu câu phức và xuống-lên (fall-rise)": {
+   "en": "712ed657c67c",
+   "l1": "Intonation de la phrase complexe et mélodie descendante-montante"
+  },
+  "Ở trình độ C1, người nói điều khiển ngữ điệu qua nhiều mệnh đề. Khi mệnh đề phụ đứng trước (Although…, When…, …": {
+   "en": "b2080498218c",
+   "l1": "Au niveau C1, le locuteur gère l’intonation sur plusieurs propositions. Quand la subordonnée vient en premier (Although…, When…, If…), …"
+  },
+  "Dạng yếu nâng cao: should have, would have…": {
+   "en": "68089afaf341",
+   "l1": "Formes faibles avancées : should have, would have…"
+  },
+  "Ở tốc độ nói tự nhiên, các cấu trúc “khuyết thiếu + have” như should have, would have, could have, must have t…": {
+   "en": "6f8a63ee3349",
+   "l1": "À vitesse naturelle, les modaux parfaits comme should have, would have, could have et must have sont généralement réduits lorsque…"
+  },
+  "Nhịp điệu tiếng Anh: đẳng thời theo trọng âm": {
+   "en": "ce1740cf0515",
+   "l1": "Le rythme de l’anglais : l’isochronie accentuelle"
+  },
+  "Tiếng Việt thường được mô tả là nhịp theo âm tiết (mỗi âm tiết dài gần bằng nhau). Tiếng Anh nghiêng về nhịp t…": {
+   "en": "a2334b63e0ee",
+   "l1": "Le vietnamien est généralement décrit comme à rythme syllabique (chaque syllabe dure à peu près autant). L’anglais tend vers un rythme accentuel…"
+  },
+  "Ngữ điệu câu hỏi đuôi: xác nhận hay hỏi thật?": {
+   "en": "6840f1be4f99",
+   "l1": "Intonation des question tags : confirmer ou vraiment demander ?"
+  },
+  "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
+   "en": "d1aa4be8fefa",
+   "l1": "Les question tags prennent couramment l’une de deux intonations aux sens différents. Quand le locuteur est presque sûr et…"
+  }
+ },
+ "de": {
+  "/ʃ/ – /s/ và /tʃ/ – /dʒ/ – /ʒ/": {
+   "en": "cbc153baf8e5",
+   "l1": "/ʃ/ – /s/ und /tʃ/ – /dʒ/ – /ʒ/"
+  },
+  "Nối âm nâng cao: /r/ chèn trong giọng Anh": {
+   "en": "b0777331be35",
+   "l1": "Fortgeschrittenes Linking: das eingeschobene /r/ im britischen Englisch"
+  },
+  "Giọng Anh chuẩn (RP) không đọc r ở cuối từ, nhưng có hai hiện tượng ngược nhau mà người nghe nâng cao cần nhận…": {
+   "en": "fd7e09f9a46e",
+   "l1": "Das britische Standardenglisch (RP) und andere nicht-rhotische britische Akzente sprechen kein finales r, doch zwei gegenläufige Phänomene sollte man erkennen…"
+  },
+  "Trọng tâm thông tin: dời nhân trong câu": {
+   "en": "e689717a3848",
+   "l1": "Informationsfokus: den Kern im Satz verschieben"
+  },
+  "Trong bài này, CHỮ HOA là từ mang nhân (không đánh dấu trọng âm trong từ). Mỗi cụm ý có một từ mang “nhân” (nu…": {
+   "en": "144853ad27a5",
+   "l1": "In dieser Lektion markieren GROSSBUCHSTABEN das Wort, das den Kern trägt (die Wortbetonung innerhalb der Wörter wird nicht markiert). Jede Sinngruppe hat einen Kern…"
+  },
+  "Ngữ điệu câu phức và xuống-lên (fall-rise)": {
+   "en": "712ed657c67c",
+   "l1": "Intonation komplexer Sätze und der fallend-steigende Tonverlauf"
+  },
+  "Ở trình độ C1, người nói điều khiển ngữ điệu qua nhiều mệnh đề. Khi mệnh đề phụ đứng trước (Although…, When…, …": {
+   "en": "b2080498218c",
+   "l1": "Auf C1-Niveau steuern Sprecher die Intonation über mehrere Teilsätze hinweg. Steht der Nebensatz zuerst (Although…, When…, If…), …"
+  },
+  "Dạng yếu nâng cao: should have, would have…": {
+   "en": "68089afaf341",
+   "l1": "Fortgeschrittene Schwachformen: should have, would have…"
+  },
+  "Ở tốc độ nói tự nhiên, các cấu trúc “khuyết thiếu + have” như should have, would have, could have, must have t…": {
+   "en": "6f8a63ee3349",
+   "l1": "Bei natürlichem Sprechtempo werden Modalverben der Vergangenheit wie should have, would have, could have und must have meist reduziert, wenn…"
+  },
+  "Nhịp điệu tiếng Anh: đẳng thời theo trọng âm": {
+   "en": "ce1740cf0515",
+   "l1": "Der englische Rhythmus: akzentzählend (stress-timed)"
+  },
+  "Tiếng Việt thường được mô tả là nhịp theo âm tiết (mỗi âm tiết dài gần bằng nhau). Tiếng Anh nghiêng về nhịp t…": {
+   "en": "a2334b63e0ee",
+   "l1": "Das Vietnamesische gilt meist als silbenzählend (jede Silbe ist etwa gleich lang). Das Englische tendiert zum akzentzählenden Rhythmus…"
+  },
+  "Ngữ điệu câu hỏi đuôi: xác nhận hay hỏi thật?": {
+   "en": "6840f1be4f99",
+   "l1": "Intonation bei Question Tags: bestätigen oder wirklich fragen?"
+  },
+  "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
+   "en": "d1aa4be8fefa",
+   "l1": "Question Tags haben üblicherweise eines von zwei Intonationsmustern mit unterschiedlicher Bedeutung. Wenn der Sprecher fast sicher ist und…"
+  }
+ },
+ "id": {
+  "/ʃ/ – /s/ và /tʃ/ – /dʒ/ – /ʒ/": {
+   "en": "cbc153baf8e5",
+   "l1": "/ʃ/ – /s/ dan /tʃ/ – /dʒ/ – /ʒ/"
+  },
+  "Nối âm nâng cao: /r/ chèn trong giọng Anh": {
+   "en": "b0777331be35",
+   "l1": "Penyambungan lanjutan: /r/ sisipan dalam bahasa Inggris Britania"
+  },
+  "Giọng Anh chuẩn (RP) không đọc r ở cuối từ, nhưng có hai hiện tượng ngược nhau mà người nghe nâng cao cần nhận…": {
+   "en": "fd7e09f9a46e",
+   "l1": "Bahasa Inggris Britania standar (RP) dan aksen Britania non-rotik lainnya tidak melafalkan r di akhir kata, tetapi ada dua gejala yang berlawanan yang perlu dikenali…"
+  },
+  "Trọng tâm thông tin: dời nhân trong câu": {
+   "en": "e689717a3848",
+   "l1": "Fokus informasi: memindahkan inti dalam kalimat"
+  },
+  "Trong bài này, CHỮ HOA là từ mang nhân (không đánh dấu trọng âm trong từ). Mỗi cụm ý có một từ mang “nhân” (nu…": {
+   "en": "144853ad27a5",
+   "l1": "Dalam pelajaran ini HURUF KAPITAL menandai kata yang membawa inti (tekanan kata di dalam kata tidak ditandai). Setiap kelompok makna punya satu inti…"
+  },
+  "Ngữ điệu câu phức và xuống-lên (fall-rise)": {
+   "en": "712ed657c67c",
+   "l1": "Intonasi kalimat kompleks dan nada turun-naik"
+  },
+  "Ở trình độ C1, người nói điều khiển ngữ điệu qua nhiều mệnh đề. Khi mệnh đề phụ đứng trước (Although…, When…, …": {
+   "en": "b2080498218c",
+   "l1": "Pada level C1, penutur mengatur intonasi lintas klausa. Ketika anak kalimat datang lebih dulu (Although…, When…, If…), …"
+  },
+  "Dạng yếu nâng cao: should have, would have…": {
+   "en": "68089afaf341",
+   "l1": "Bentuk lemah tingkat lanjut: should have, would have…"
+  },
+  "Ở tốc độ nói tự nhiên, các cấu trúc “khuyết thiếu + have” như should have, would have, could have, must have t…": {
+   "en": "6f8a63ee3349",
+   "l1": "Dalam ujaran berkecepatan alami, modal perfek seperti should have, would have, could have, dan must have biasanya direduksi ketika…"
+  },
+  "Nhịp điệu tiếng Anh: đẳng thời theo trọng âm": {
+   "en": "ce1740cf0515",
+   "l1": "Ritme bahasa Inggris: berdasarkan tekanan (stress-timed)"
+  },
+  "Tiếng Việt thường được mô tả là nhịp theo âm tiết (mỗi âm tiết dài gần bằng nhau). Tiếng Anh nghiêng về nhịp t…": {
+   "en": "a2334b63e0ee",
+   "l1": "Bahasa Vietnam biasanya digambarkan berirama suku kata (tiap suku kata kira-kira sama panjang). Bahasa Inggris cenderung berirama tekanan…"
+  },
+  "Ngữ điệu câu hỏi đuôi: xác nhận hay hỏi thật?": {
+   "en": "6840f1be4f99",
+   "l1": "Intonasi question tag: menegaskan atau benar-benar bertanya?"
+  },
+  "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
+   "en": "d1aa4be8fefa",
+   "l1": "Question tag biasanya memakai salah satu dari dua pola intonasi dengan makna berbeda. Ketika penutur hampir yakin dan…"
+  }
+ },
+ "th": {
+  "/ʃ/ – /s/ và /tʃ/ – /dʒ/ – /ʒ/": {
+   "en": "cbc153baf8e5",
+   "l1": "/ʃ/ – /s/ และ /tʃ/ – /dʒ/ – /ʒ/"
+  },
+  "Nối âm nâng cao: /r/ chèn trong giọng Anh": {
+   "en": "b0777331be35",
+   "l1": "การเชื่อมเสียงขั้นสูง: เสียง /r/ ที่แทรกเข้ามาในสำเนียงอังกฤษแบบบริติช"
+  },
+  "Giọng Anh chuẩn (RP) không đọc r ở cuối từ, nhưng có hai hiện tượng ngược nhau mà người nghe nâng cao cần nhận…": {
+   "en": "fd7e09f9a46e",
+   "l1": "ภาษาอังกฤษบริติชมาตรฐาน (RP) และสำเนียงบริติชอื่นที่ไม่ออกเสียง r ท้ายคำ จะไม่ออกเสียง r ที่ท้ายคำ แต่มีปรากฏการณ์ตรงข้ามกันสองอย่างที่ควรจำให้ได้…"
+  },
+  "Trọng tâm thông tin: dời nhân trong câu": {
+   "en": "e689717a3848",
+   "l1": "จุดเน้นของข้อมูล: การย้ายตำแหน่งเสียงเน้นหลักในประโยค"
+  },
+  "Trong bài này, CHỮ HOA là từ mang nhân (không đánh dấu trọng âm trong từ). Mỗi cụm ý có một từ mang “nhân” (nu…": {
+   "en": "144853ad27a5",
+   "l1": "ในบทเรียนนี้ ตัวพิมพ์ใหญ่ใช้ทำเครื่องหมายคำที่มีเสียงเน้นหลัก (ไม่ได้ทำเครื่องหมายการเน้นพยางค์ภายในคำ) แต่ละกลุ่มความคิดมีเสียงเน้นหลักหนึ่งจุด…"
+  },
+  "Ngữ điệu câu phức và xuống-lên (fall-rise)": {
+   "en": "712ed657c67c",
+   "l1": "ทำนองเสียงของประโยคซับซ้อนและเสียงตกแล้วขึ้น"
+  },
+  "Ở trình độ C1, người nói điều khiển ngữ điệu qua nhiều mệnh đề. Khi mệnh đề phụ đứng trước (Although…, When…, …": {
+   "en": "b2080498218c",
+   "l1": "ที่ระดับ C1 ผู้พูดควบคุมทำนองเสียงข้ามหลายอนุประโยค เมื่ออนุประโยครองมาก่อน (Although…, When…, If…) …"
+  },
+  "Dạng yếu nâng cao: should have, would have…": {
+   "en": "68089afaf341",
+   "l1": "รูปเสียงเบาขั้นสูง: should have, would have…"
+  },
+  "Ở tốc độ nói tự nhiên, các cấu trúc “khuyết thiếu + have” như should have, would have, could have, must have t…": {
+   "en": "6f8a63ee3349",
+   "l1": "เมื่อพูดด้วยความเร็วปกติ กริยาช่วยแบบ perfect เช่น should have, would have, could have และ must have มักถูกลดเสียงเมื่อ…"
+  },
+  "Nhịp điệu tiếng Anh: đẳng thời theo trọng âm": {
+   "en": "ce1740cf0515",
+   "l1": "จังหวะของภาษาอังกฤษ: จังหวะตามการเน้นเสียง"
+  },
+  "Tiếng Việt thường được mô tả là nhịp theo âm tiết (mỗi âm tiết dài gần bằng nhau). Tiếng Anh nghiêng về nhịp t…": {
+   "en": "a2334b63e0ee",
+   "l1": "ภาษาเวียดนามมักถูกอธิบายว่ามีจังหวะตามพยางค์ (แต่ละพยางค์ยาวพอ ๆ กัน) ส่วนภาษาอังกฤษมีแนวโน้มเป็นจังหวะตามการเน้นเสียง…"
+  },
+  "Ngữ điệu câu hỏi đuôi: xác nhận hay hỏi thật?": {
+   "en": "6840f1be4f99",
+   "l1": "ทำนองเสียงของ question tag: ยืนยันหรือถามจริง ๆ?"
+  },
+  "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
+   "en": "d1aa4be8fefa",
+   "l1": "question tag มักใช้ทำนองเสียงหนึ่งในสองแบบที่ความหมายต่างกัน เมื่อผู้พูดค่อนข้างมั่นใจและ…"
+  }
+ },
+ "zh": {
+  "/ʃ/ – /s/ và /tʃ/ – /dʒ/ – /ʒ/": {
+   "en": "cbc153baf8e5",
+   "l1": "/ʃ/ – /s/ 与 /tʃ/ – /dʒ/ – /ʒ/"
+  },
+  "Nối âm nâng cao: /r/ chèn trong giọng Anh": {
+   "en": "b0777331be35",
+   "l1": "高级连读：英式英语中插入的 /r/"
+  },
+  "Giọng Anh chuẩn (RP) không đọc r ở cuối từ, nhưng có hai hiện tượng ngược nhau mà người nghe nâng cao cần nhận…": {
+   "en": "fd7e09f9a46e",
+   "l1": "标准英式英语（RP）及其他非卷舌的英国口音不发词尾的 r，但有两种相反的现象值得认识…"
+  },
+  "Trọng tâm thông tin: dời nhân trong câu": {
+   "en": "e689717a3848",
+   "l1": "信息焦点：在句中移动核心重音"
+  },
+  "Trong bài này, CHỮ HOA là từ mang nhân (không đánh dấu trọng âm trong từ). Mỗi cụm ý có một từ mang “nhân” (nu…": {
+   "en": "144853ad27a5",
+   "l1": "本课用大写字母标出带核心重音（nucleus）的词（词内的单词重音不标注）。每个意群有一个核心重音…"
+  },
+  "Ngữ điệu câu phức và xuống-lên (fall-rise)": {
+   "en": "712ed657c67c",
+   "l1": "复合句语调与降升调"
+  },
+  "Ở trình độ C1, người nói điều khiển ngữ điệu qua nhiều mệnh đề. Khi mệnh đề phụ đứng trước (Although…, When…, …": {
+   "en": "b2080498218c",
+   "l1": "在 C1 水平，说话者会跨多个从句来控制语调。当从句在前时（Although…、When…、If…），…"
+  },
+  "Dạng yếu nâng cao: should have, would have…": {
+   "en": "68089afaf341",
+   "l1": "高级弱读形式：should have、would have……"
+  },
+  "Ở tốc độ nói tự nhiên, các cấu trúc “khuyết thiếu + have” như should have, would have, could have, must have t…": {
+   "en": "6f8a63ee3349",
+   "l1": "在自然语速下，should have、would have、could have、must have 等完成式情态结构通常会弱读，当……"
+  },
+  "Nhịp điệu tiếng Anh: đẳng thời theo trọng âm": {
+   "en": "ce1740cf0515",
+   "l1": "英语的节奏：重音计时"
+  },
+  "Tiếng Việt thường được mô tả là nhịp theo âm tiết (mỗi âm tiết dài gần bằng nhau). Tiếng Anh nghiêng về nhịp t…": {
+   "en": "a2334b63e0ee",
+   "l1": "越南语通常被描述为音节计时（每个音节长度大致相同）。英语则倾向于重音计时…"
+  },
+  "Ngữ điệu câu hỏi đuôi: xác nhận hay hỏi thật?": {
+   "en": "6840f1be4f99",
+   "l1": "附加疑问句的语调：是确认还是真问？"
+  },
+  "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
+   "en": "d1aa4be8fefa",
+   "l1": "附加疑问句通常有两种意义不同的语调。当说话者几乎确定并且…"
+  }
+ },
+ "ja": {
+  "/ʃ/ – /s/ và /tʃ/ – /dʒ/ – /ʒ/": {
+   "en": "cbc153baf8e5",
+   "l1": "/ʃ/ – /s/ と /tʃ/ – /dʒ/ – /ʒ/"
+  },
+  "Nối âm nâng cao: /r/ chèn trong giọng Anh": {
+   "en": "b0777331be35",
+   "l1": "上級のリンキング：イギリス英語で挿入される /r/"
+  },
+  "Giọng Anh chuẩn (RP) không đọc r ở cuối từ, nhưng có hai hiện tượng ngược nhau mà người nghe nâng cao cần nhận…": {
+   "en": "fd7e09f9a46e",
+   "l1": "標準的なイギリス英語（RP）やその他の非ローティックなイギリス英語の発音では語末の r を発音しませんが、逆向きの2つの現象を知っておく必要があります…"
+  },
+  "Trọng tâm thông tin: dời nhân trong câu": {
+   "en": "e689717a3848",
+   "l1": "情報の焦点：文中で核の位置を動かす"
+  },
+  "Trong bài này, CHỮ HOA là từ mang nhân (không đánh dấu trọng âm trong từ). Mỗi cụm ý có một từ mang “nhân” (nu…": {
+   "en": "144853ad27a5",
+   "l1": "このレッスンでは、核（nucleus）を担う語を大文字で示します（語内のアクセントは示しません）。1つの意味のまとまりには核が1つあります…"
+  },
+  "Ngữ điệu câu phức và xuống-lên (fall-rise)": {
+   "en": "712ed657c67c",
+   "l1": "複文のイントネーションと下降上昇調"
+  },
+  "Ở trình độ C1, người nói điều khiển ngữ điệu qua nhiều mệnh đề. Khi mệnh đề phụ đứng trước (Although…, When…, …": {
+   "en": "b2080498218c",
+   "l1": "C1 レベルでは、話し手は複数の節にまたがってイントネーションを操ります。従属節が先に来るとき（Although…、When…、If…）、…"
+  },
+  "Dạng yếu nâng cao: should have, would have…": {
+   "en": "68089afaf341",
+   "l1": "上級の弱形：should have、would have…"
+  },
+  "Ở tốc độ nói tự nhiên, các cấu trúc “khuyết thiếu + have” như should have, would have, could have, must have t…": {
+   "en": "6f8a63ee3349",
+   "l1": "自然な速さの発話では、should have、would have、could have、must have などの完了形の助動詞表現は、通常、次のときに弱く短くなります…"
+  },
+  "Nhịp điệu tiếng Anh: đẳng thời theo trọng âm": {
+   "en": "ce1740cf0515",
+   "l1": "英語のリズム：強勢拍リズム"
+  },
+  "Tiếng Việt thường được mô tả là nhịp theo âm tiết (mỗi âm tiết dài gần bằng nhau). Tiếng Anh nghiêng về nhịp t…": {
+   "en": "a2334b63e0ee",
+   "l1": "ベトナム語は一般に音節拍リズム（各音節の長さがほぼ同じ）と説明されます。英語は強勢拍リズムに傾いています…"
+  },
+  "Ngữ điệu câu hỏi đuôi: xác nhận hay hỏi thật?": {
+   "en": "6840f1be4f99",
+   "l1": "付加疑問のイントネーション：確認か、本当の質問か？"
+  },
+  "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
+   "en": "d1aa4be8fefa",
+   "l1": "付加疑問には、意味の異なる2つのイントネーションがよく使われます。話し手がほぼ確信していて、…"
+  }
+ },
+ "ko": {
+  "/ʃ/ – /s/ và /tʃ/ – /dʒ/ – /ʒ/": {
+   "en": "cbc153baf8e5",
+   "l1": "/ʃ/ – /s/ 와 /tʃ/ – /dʒ/ – /ʒ/"
+  },
+  "Nối âm nâng cao: /r/ chèn trong giọng Anh": {
+   "en": "b0777331be35",
+   "l1": "고급 연음: 영국 영어에서 끼어드는 /r/"
+  },
+  "Giọng Anh chuẩn (RP) không đọc r ở cuối từ, nhưng có hai hiện tượng ngược nhau mà người nghe nâng cao cần nhận…": {
+   "en": "fd7e09f9a46e",
+   "l1": "표준 영국 영어(RP)와 다른 비로틱 영국 억양은 어말의 r을 발음하지 않지만, 서로 반대되는 두 가지 현상은 알아 둘 만합니다…"
+  },
+  "Trọng tâm thông tin: dời nhân trong câu": {
+   "en": "e689717a3848",
+   "l1": "정보 초점: 문장 안에서 핵 위치 옮기기"
+  },
+  "Trong bài này, CHỮ HOA là từ mang nhân (không đánh dấu trọng âm trong từ). Mỗi cụm ý có một từ mang “nhân” (nu…": {
+   "en": "144853ad27a5",
+   "l1": "이 레슨에서는 대문자가 핵(nucleus)을 가진 단어를 나타냅니다(단어 안의 강세는 표시하지 않습니다). 각 의미 단위에는 핵이 하나 있습니다…"
+  },
+  "Ngữ điệu câu phức và xuống-lên (fall-rise)": {
+   "en": "712ed657c67c",
+   "l1": "복문 억양과 하강상승조"
+  },
+  "Ở trình độ C1, người nói điều khiển ngữ điệu qua nhiều mệnh đề. Khi mệnh đề phụ đứng trước (Although…, When…, …": {
+   "en": "b2080498218c",
+   "l1": "C1 수준에서는 화자가 여러 절에 걸쳐 억양을 조절합니다. 종속절이 먼저 올 때(Although…, When…, If…) …"
+  },
+  "Dạng yếu nâng cao: should have, would have…": {
+   "en": "68089afaf341",
+   "l1": "고급 약형: should have, would have…"
+  },
+  "Ở tốc độ nói tự nhiên, các cấu trúc “khuyết thiếu + have” như should have, would have, could have, must have t…": {
+   "en": "6f8a63ee3349",
+   "l1": "자연스러운 속도로 말할 때 should have, would have, could have, must have 같은 완료 조동사 구문은 보통 다음과 같은 경우에 약화됩니다…"
+  },
+  "Nhịp điệu tiếng Anh: đẳng thời theo trọng âm": {
+   "en": "ce1740cf0515",
+   "l1": "영어의 리듬: 강세 박자"
+  },
+  "Tiếng Việt thường được mô tả là nhịp theo âm tiết (mỗi âm tiết dài gần bằng nhau). Tiếng Anh nghiêng về nhịp t…": {
+   "en": "a2334b63e0ee",
+   "l1": "베트남어는 흔히 음절 박자 언어(음절 길이가 거의 같음)로 설명됩니다. 영어는 강세 박자 쪽에 가깝습니다…"
+  },
+  "Ngữ điệu câu hỏi đuôi: xác nhận hay hỏi thật?": {
+   "en": "6840f1be4f99",
+   "l1": "부가의문문 억양: 확인일까, 진짜 질문일까?"
+  },
+  "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
+   "en": "d1aa4be8fefa",
+   "l1": "부가의문문은 보통 의미가 다른 두 가지 억양 중 하나를 씁니다. 화자가 거의 확신하고 있을 때…"
+  }
+ },
+ "hi": {
+  "/ʃ/ – /s/ và /tʃ/ – /dʒ/ – /ʒ/": {
+   "en": "cbc153baf8e5",
+   "l1": "/ʃ/ – /s/ और /tʃ/ – /dʒ/ – /ʒ/"
+  },
+  "Nối âm nâng cao: /r/ chèn trong giọng Anh": {
+   "en": "b0777331be35",
+   "l1": "उन्नत लिंकिंग: ब्रिटिश अंग्रेज़ी में जुड़ने वाली /r/ ध्वनि"
+  },
+  "Giọng Anh chuẩn (RP) không đọc r ở cuối từ, nhưng có hai hiện tượng ngược nhau mà người nghe nâng cao cần nhận…": {
+   "en": "fd7e09f9a46e",
+   "l1": "मानक ब्रिटिश अंग्रेज़ी (RP) और अन्य नॉन-रोटिक ब्रिटिश लहजे शब्द के अंत में r का उच्चारण नहीं करते, फिर भी दो विपरीत घटनाओं को पहचानना ज़रूरी है…"
+  },
+  "Trọng tâm thông tin: dời nhân trong câu": {
+   "en": "e689717a3848",
+   "l1": "सूचना का केंद्र: वाक्य में न्यूक्लियस को खिसकाना"
+  },
+  "Trong bài này, CHỮ HOA là từ mang nhân (không đánh dấu trọng âm trong từ). Mỗi cụm ý có một từ mang “nhân” (nu…": {
+   "en": "144853ad27a5",
+   "l1": "इस पाठ में बड़े अक्षर उस शब्द को दिखाते हैं जिस पर न्यूक्लियस है (शब्दों के भीतर का बलाघात चिह्नित नहीं है)। हर विचार-समूह में एक न्यूक्लियस होता है…"
+  },
+  "Ngữ điệu câu phức và xuống-lên (fall-rise)": {
+   "en": "712ed657c67c",
+   "l1": "जटिल वाक्यों का स्वर-संगीत और गिरता-चढ़ता स्वर"
+  },
+  "Ở trình độ C1, người nói điều khiển ngữ điệu qua nhiều mệnh đề. Khi mệnh đề phụ đứng trước (Although…, When…, …": {
+   "en": "b2080498218c",
+   "l1": "C1 स्तर पर वक्ता कई उपवाक्यों में स्वर-संगीत को नियंत्रित करते हैं। जब आश्रित उपवाक्य पहले आता है (Although…, When…, If…), …"
+  },
+  "Dạng yếu nâng cao: should have, would have…": {
+   "en": "68089afaf341",
+   "l1": "उन्नत कमज़ोर रूप: should have, would have…"
+  },
+  "Ở tốc độ nói tự nhiên, các cấu trúc “khuyết thiếu + have” như should have, would have, could have, must have t…": {
+   "en": "6f8a63ee3349",
+   "l1": "सामान्य गति की बोलचाल में should have, would have, could have और must have जैसे परफ़ेक्ट मोडल प्रायः तब कमज़ोर हो जाते हैं जब…"
+  },
+  "Nhịp điệu tiếng Anh: đẳng thời theo trọng âm": {
+   "en": "ce1740cf0515",
+   "l1": "अंग्रेज़ी की लय: बलाघात-आधारित लय"
+  },
+  "Tiếng Việt thường được mô tả là nhịp theo âm tiết (mỗi âm tiết dài gần bằng nhau). Tiếng Anh nghiêng về nhịp t…": {
+   "en": "a2334b63e0ee",
+   "l1": "वियतनामी को आमतौर पर अक्षर-आधारित लय वाली भाषा बताया जाता है (हर अक्षर लगभग समान लंबाई का)। अंग्रेज़ी बलाघात-आधारित लय की ओर झुकती है…"
+  },
+  "Ngữ điệu câu hỏi đuôi: xác nhận hay hỏi thật?": {
+   "en": "6840f1be4f99",
+   "l1": "प्रश्न-टैग का स्वर-संगीत: पुष्टि या सचमुच पूछना?"
+  },
+  "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
+   "en": "d1aa4be8fefa",
+   "l1": "प्रश्न-टैग (question tag) में आमतौर पर अलग-अलग अर्थ वाले दो स्वर-संगीतों में से एक होता है। जब वक्ता लगभग निश्चित होता है और…"
+  }
+ },
+ "ar": {
+  "/ʃ/ – /s/ và /tʃ/ – /dʒ/ – /ʒ/": {
+   "en": "cbc153baf8e5",
+   "l1": "/ʃ/ – /s/ و/tʃ/ – /dʒ/ – /ʒ/"
+  },
+  "Nối âm nâng cao: /r/ chèn trong giọng Anh": {
+   "en": "b0777331be35",
+   "l1": "الربط المتقدم: صوت /r/ المُقحَم في الإنجليزية البريطانية"
+  },
+  "Giọng Anh chuẩn (RP) không đọc r ở cuối từ, nhưng có hai hiện tượng ngược nhau mà người nghe nâng cao cần nhận…": {
+   "en": "fd7e09f9a46e",
+   "l1": "لا تنطق الإنجليزية البريطانية القياسية (RP) وغيرها من اللهجات البريطانية غير الراجعة حرف r في آخر الكلمة، لكن هناك ظاهرتين متعاكستين تستحقان المعرفة…"
+  },
+  "Trọng tâm thông tin: dời nhân trong câu": {
+   "en": "e689717a3848",
+   "l1": "بؤرة المعلومات: نقل النواة داخل الجملة"
+  },
+  "Trong bài này, CHỮ HOA là từ mang nhân (không đánh dấu trọng âm trong từ). Mỗi cụm ý có một từ mang “nhân” (nu…": {
+   "en": "144853ad27a5",
+   "l1": "في هذا الدرس تشير الأحرف الكبيرة إلى الكلمة التي تحمل النواة (ولا يُشار إلى النبر داخل الكلمات). لكل مجموعة فكرية نواة واحدة…"
+  },
+  "Ngữ điệu câu phức và xuống-lên (fall-rise)": {
+   "en": "712ed657c67c",
+   "l1": "التنغيم في الجمل المركبة والنغمة الهابطة الصاعدة"
+  },
+  "Ở trình độ C1, người nói điều khiển ngữ điệu qua nhiều mệnh đề. Khi mệnh đề phụ đứng trước (Although…, When…, …": {
+   "en": "b2080498218c",
+   "l1": "في المستوى C1 يتحكم المتحدث في التنغيم عبر عدة جمل فرعية. عندما تأتي الجملة الفرعية أولًا (Although…, When…, If…)، …"
+  },
+  "Dạng yếu nâng cao: should have, would have…": {
+   "en": "68089afaf341",
+   "l1": "الصيغ الضعيفة المتقدمة: should have وwould have…"
+  },
+  "Ở tốc độ nói tự nhiên, các cấu trúc “khuyết thiếu + have” như should have, would have, could have, must have t…": {
+   "en": "6f8a63ee3349",
+   "l1": "في الكلام بسرعته الطبيعية، تُختزل عادةً أفعال الاحتمال في الماضي مثل should have وwould have وcould have وmust have عندما…"
+  },
+  "Nhịp điệu tiếng Anh: đẳng thời theo trọng âm": {
+   "en": "ce1740cf0515",
+   "l1": "إيقاع الإنجليزية: الإيقاع المعتمد على النبر"
+  },
+  "Tiếng Việt thường được mô tả là nhịp theo âm tiết (mỗi âm tiết dài gần bằng nhau). Tiếng Anh nghiêng về nhịp t…": {
+   "en": "a2334b63e0ee",
+   "l1": "يوصف الإيقاع في الفيتنامية عادةً بأنه مقطعي (كل مقطع بطول متقارب)، بينما تميل الإنجليزية إلى الإيقاع المعتمد على النبر…"
+  },
+  "Ngữ điệu câu hỏi đuôi: xác nhận hay hỏi thật?": {
+   "en": "6840f1be4f99",
+   "l1": "تنغيم السؤال الذيلي: تأكيد أم سؤال حقيقي؟"
+  },
+  "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
+   "en": "d1aa4be8fefa",
+   "l1": "يأخذ السؤال الذيلي (question tag) عادةً أحد نمطين من التنغيم بمعنيين مختلفين. عندما يكون المتحدث شبه متأكد و…"
+  }
+ },
+ "ru": {
+  "/ʃ/ – /s/ và /tʃ/ – /dʒ/ – /ʒ/": {
+   "en": "cbc153baf8e5",
+   "l1": "/ʃ/ – /s/ и /tʃ/ – /dʒ/ – /ʒ/"
+  },
+  "Nối âm nâng cao: /r/ chèn trong giọng Anh": {
+   "en": "b0777331be35",
+   "l1": "Продвинутое связывание: вставное /r/ в британском английском"
+  },
+  "Giọng Anh chuẩn (RP) không đọc r ở cuối từ, nhưng có hai hiện tượng ngược nhau mà người nghe nâng cao cần nhận…": {
+   "en": "fd7e09f9a46e",
+   "l1": "Стандартный британский английский (RP) и другие неротические британские акценты не произносят конечное r, но два противоположных явления стоит уметь узнавать…"
+  },
+  "Trọng tâm thông tin: dời nhân trong câu": {
+   "en": "e689717a3848",
+   "l1": "Информационный фокус: перенос ядра внутри предложения"
+  },
+  "Trong bài này, CHỮ HOA là từ mang nhân (không đánh dấu trọng âm trong từ). Mỗi cụm ý có một từ mang “nhân” (nu…": {
+   "en": "144853ad27a5",
+   "l1": "В этом уроке ЗАГЛАВНЫЕ БУКВЫ отмечают слово, несущее ядро (словесное ударение внутри слов не обозначается). В каждой синтагме одно ядро…"
+  },
+  "Ngữ điệu câu phức và xuống-lên (fall-rise)": {
+   "en": "712ed657c67c",
+   "l1": "Интонация сложного предложения и нисходяще-восходящий тон"
+  },
+  "Ở trình độ C1, người nói điều khiển ngữ điệu qua nhiều mệnh đề. Khi mệnh đề phụ đứng trước (Although…, When…, …": {
+   "en": "b2080498218c",
+   "l1": "На уровне C1 говорящий управляет интонацией на протяжении нескольких частей предложения. Когда придаточное стоит первым (Although…, When…, If…), …"
+  },
+  "Dạng yếu nâng cao: should have, would have…": {
+   "en": "68089afaf341",
+   "l1": "Продвинутые слабые формы: should have, would have…"
+  },
+  "Ở tốc độ nói tự nhiên, các cấu trúc “khuyết thiếu + have” như should have, would have, could have, must have t…": {
+   "en": "6f8a63ee3349",
+   "l1": "В речи с естественной скоростью модальные конструкции с perfect, такие как should have, would have, could have и must have, обычно редуцируются, когда…"
+  },
+  "Nhịp điệu tiếng Anh: đẳng thời theo trọng âm": {
+   "en": "ce1740cf0515",
+   "l1": "Ритм английского: ударный ритм (stress-timing)"
+  },
+  "Tiếng Việt thường được mô tả là nhịp theo âm tiết (mỗi âm tiết dài gần bằng nhau). Tiếng Anh nghiêng về nhịp t…": {
+   "en": "a2334b63e0ee",
+   "l1": "Вьетнамский обычно описывают как язык со слоговым ритмом (все слоги примерно одной длины). Английский тяготеет к ударному ритму…"
+  },
+  "Ngữ điệu câu hỏi đuôi: xác nhận hay hỏi thật?": {
+   "en": "6840f1be4f99",
+   "l1": "Интонация разделительных вопросов: подтвердить или спросить всерьёз?"
+  },
+  "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
+   "en": "d1aa4be8fefa",
+   "l1": "У разделительных вопросов (question tags) обычно бывает одна из двух интонаций с разным смыслом. Когда говорящий почти уверен и…"
+  }
+ },
+ "tr": {
+  "/ʃ/ – /s/ và /tʃ/ – /dʒ/ – /ʒ/": {
+   "en": "cbc153baf8e5",
+   "l1": "/ʃ/ – /s/ ve /tʃ/ – /dʒ/ – /ʒ/"
+  },
+  "Nối âm nâng cao: /r/ chèn trong giọng Anh": {
+   "en": "b0777331be35",
+   "l1": "İleri düzey bağlama: İngiliz İngilizcesinde araya giren /r/"
+  },
+  "Giọng Anh chuẩn (RP) không đọc r ở cuối từ, nhưng có hai hiện tượng ngược nhau mà người nghe nâng cao cần nhận…": {
+   "en": "fd7e09f9a46e",
+   "l1": "Standart İngiliz İngilizcesi (RP) ve diğer r’siz İngiliz aksanları sözcük sonundaki r’yi söylemez, ancak birbirine zıt iki olguyu tanımak gerekir…"
+  },
+  "Trọng tâm thông tin: dời nhân trong câu": {
+   "en": "e689717a3848",
+   "l1": "Bilgi odağı: Cümlede çekirdeği kaydırmak"
+  },
+  "Trong bài này, CHỮ HOA là từ mang nhân (không đánh dấu trọng âm trong từ). Mỗi cụm ý có một từ mang “nhân” (nu…": {
+   "en": "144853ad27a5",
+   "l1": "Bu derste BÜYÜK HARFLER çekirdeği taşıyan sözcüğü gösterir (sözcük içindeki vurgu işaretlenmez). Her anlam grubunda bir çekirdek vardır…"
+  },
+  "Ngữ điệu câu phức và xuống-lên (fall-rise)": {
+   "en": "712ed657c67c",
+   "l1": "Karmaşık cümle tonlaması ve alçalan-yükselen ton"
+  },
+  "Ở trình độ C1, người nói điều khiển ngữ điệu qua nhiều mệnh đề. Khi mệnh đề phụ đứng trước (Although…, When…, …": {
+   "en": "b2080498218c",
+   "l1": "C1 düzeyinde konuşucu, tonlamayı birden çok yan cümle boyunca yönetir. Yan cümle başta geldiğinde (Although…, When…, If…), …"
+  },
+  "Dạng yếu nâng cao: should have, would have…": {
+   "en": "68089afaf341",
+   "l1": "İleri düzey zayıf biçimler: should have, would have…"
+  },
+  "Ở tốc độ nói tự nhiên, các cấu trúc “khuyết thiếu + have” như should have, would have, could have, must have t…": {
+   "en": "6f8a63ee3349",
+   "l1": "Doğal konuşma hızında should have, would have, could have ve must have gibi geçmiş zaman kipleri genellikle şu durumlarda zayıflar…"
+  },
+  "Nhịp điệu tiếng Anh: đẳng thời theo trọng âm": {
+   "en": "ce1740cf0515",
+   "l1": "İngilizcenin ritmi: vurgu zamanlı ritim"
+  },
+  "Tiếng Việt thường được mô tả là nhịp theo âm tiết (mỗi âm tiết dài gần bằng nhau). Tiếng Anh nghiêng về nhịp t…": {
+   "en": "a2334b63e0ee",
+   "l1": "Vietnamca genellikle hece zamanlı (her hece yaklaşık eşit uzunlukta) bir dil olarak tanımlanır. İngilizce ise vurgu zamanlı ritme yaklaşır…"
+  },
+  "Ngữ điệu câu hỏi đuôi: xác nhận hay hỏi thật?": {
+   "en": "6840f1be4f99",
+   "l1": "Soru eki (question tag) tonlaması: onay mı, gerçek soru mu?"
+  },
+  "Câu hỏi đuôi (question tag) có hai ngữ điệu thường gặp với nghĩa khác nhau. Khi người nói gần như chắc chắn và…": {
+   "en": "d1aa4be8fefa",
+   "l1": "Soru ekleri genellikle anlamları farklı iki tonlamadan birini alır. Konuşucu neredeyse emin olduğunda ve…"
+  }
+ }
+}
