@@ -41,7 +41,7 @@
 .lq-tf label:has(input:checked) b, .lq-tf label.sel b { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); }
 .lq-tf label.struck { text-decoration: line-through; opacity: .5; filter: grayscale(.85); border-style: dashed; border-bottom-width: 2px; cursor: not-allowed; transform: none !important; }
 `; document.head.appendChild(st); } } catch (e) { /* không có DOM (kiểm thử) */ }
-  const esc = s => UI.esc(s);
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const $ = (s, el = document) => el.querySelector(s), $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const L = 'ABCDEFGH';
   const code = o => String(o).split(' ')[0];

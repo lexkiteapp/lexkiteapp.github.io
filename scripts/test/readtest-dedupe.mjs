@@ -39,6 +39,6 @@ for (const { sub, re, name, first } of [{ sub: 'toeic', re: /^listening\d+\.js$/
 }
 for (const f of ['scripts/sentence-audio/corpus.mjs', 'scripts/test/next-step.mjs']) ok(/\.test\(f\)\)\.sort\(\)|dataFiles\('listen'/.test(fs.readFileSync(f, 'utf8')), `${f}: đọc listening/listen theo sort (hoặc dataFiles – đã sort theo số)`);
 // Hai đoạn lặp của đề Listening TOEIC (Part 1 đọc số + 4 phương án; Part 2 → MCQ A–C) chỉ ở g.TQH (listening1.js); listening2–7 gọi.
-for (const f of fs.readdirSync('web/js/toeic').filter(x => /^listening\d+\.js$/.test(x))) { const s = fs.readFileSync(path.join('web/js/toeic', f), 'utf8'); if (f !== 'listening1.js') { ok(!/P1\.forEach|Mark your answer\./.test(s), `${f}: chép lại helper Part 1/2 → dùng g.TQH.p1/p2`); ok(/g\.TQH\.p1\(/.test(s) && /g\.TQH\.p2\(/.test(s), `${f}: gọi g.TQH.p1/p2`); } }
+for (const f of fs.readdirSync('web/js/toeic').filter(x => /^listening\d+\.js$/.test(x))) { const s = fs.readFileSync(path.join('web/js/toeic', f), 'utf8'); if (f !== 'listening1.js') { ok(!/P1\.forEach|Mark your answer\.|p2script\.push\(\{ s: it\.rs|speakers: \{ N:/.test(s), `${f}: chép lại helper Part 1/2 → dùng g.TQH.p1/p2`); ok(/g\.TQH\.p1\(/.test(s) && /g\.TQH\.p1i\(/.test(s) && /g\.TQH\.p2s\(/.test(s) && /g\.TQH\.sp\b/.test(s) && /g\.TQH\.p2\(/.test(s), `${f}: gọi g.TQH.p1/p2`); } }
 console.log(fails ? `✗ readtest-dedupe: ${fails} lỗi` : `✓ readtest-dedupe: ${rti.length} chuỗi dùng chung, ${files.length} đề không lặp chuỗi dài`);
 process.exit(fails ? 1 : 0);

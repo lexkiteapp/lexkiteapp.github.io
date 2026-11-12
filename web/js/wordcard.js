@@ -4,7 +4,7 @@
    Dữ liệu ghi chú soạn bằng tiếng Việt (js/notes/<chữ>.json: m, e, u, f); câu/cụm tiếng Anh là NỘI DUNG học → không dịch,
    phần giải thích tiếng Việt nằm trong .wn nên vẫn được app.js dịch sang ngôn ngữ người học. */
 (function () {
-  const esc = s => UI.esc(s);
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const VI = /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
   const EN = s => (VI.test(s) ? '' : ' lang="en"');
 

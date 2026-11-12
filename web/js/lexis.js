@@ -1,7 +1,7 @@
 /* Lexis: nhận diện từ học thuật (AWL), từ nối, collocation, từ chủ đề trong văn bản → tô sáng & phân tích bài viết. */
 (function (g) {
   const { TOPICS, INDEX } = g.IELTS_DATA;
-  const esc = s => UI.esc(s);
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
   const AWL = new Set(), LINK = new Set(), TOPIC = new Map();

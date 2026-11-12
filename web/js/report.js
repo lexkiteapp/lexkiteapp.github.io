@@ -12,7 +12,7 @@
   const ST = { new: 'Mới', ack: 'Đã tiếp nhận', prog: 'Đang xử lý', fixed: 'Đã sửa', wontfix: 'Không sửa', dup: 'Trùng lặp' };
   const CONTENT = /^(dict|topic|read|reading|grammar|model|task1|letters|course|toeic-test|listen-test|mock|toefl-p|roleplay|call|cbt|method|pron|phrases)$/; // trang có mã nội dung (từ, bài, đề…)
   const MAXB = 300 * 1024, MAXPX = 1600, KEY = 'lk.rp';
-  const esc = s => UI.esc(s);
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const ls = { get(k, f) { try { const v = localStorage.getItem(k); return v == null ? f : JSON.parse(v); } catch (e) { return f; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* bỏ qua */ } } };
   const mine = () => (Array.isArray(ls.get(KEY, [])) ? ls.get(KEY, []) : []);
   // Báo đẩy "đã sửa": sw.js đọc '/__rep' (cache lk-meta) khi có push rỗng → hỏi trạng thái các phiếu chưa sửa → "Lỗi LX-… đã được sửa" (chữ đã dịch sẵn ở đây)

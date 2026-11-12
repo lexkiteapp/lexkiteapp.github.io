@@ -9,10 +9,10 @@ ok(esc(null) === '' && esc(undefined) === '' && esc(0) === '0', 'UI.esc: null/un
 const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? (/i18n|node_modules/.test(e.name) ? [] : walk(path.join(d, e.name))) : e.name.endsWith('.js') ? [path.join(d, e.name)] : []);
 let n = 0;
 for (const f of walk('web/js')) {
-  if (f === 'web/js/ui.js' || /\/admin|\/explain-card\.js|\/tools\/|\/anki\.js|\/vocab-img\.js/.test(f)) continue; // tools/*: trang độc lập không nạp ui.js · explain-card: test chạy riêng không nạp ui.js · anki/vocab-img: bản khác nghĩa (không thoát ', không String(null))
+  if (f === 'web/js/ui.js' || /\/admin|\/explain-card\.js|\/lexis\.js|\/qtips\.js|\/qengine\.js|\/lesson-fx\.js|\/wordcard\.js|\/report\.js|\/tools\/|\/anki\.js|\/vocab-img\.js/.test(f)) continue; // tools/*: trang độc lập không nạp ui.js · explain-card/lexis/qtips/qengine/lesson-fx/wordcard/report: test + script dựng (scripts/native, dict/build) nạp riêng không có ui.js không nạp ui.js · anki/vocab-img: bản khác nghĩa (không thoát ', không String(null))
   const s = fs.readFileSync(f, 'utf8');
   ok(!/\{ '&': '&amp;', '<': '&lt;'/.test(s), `${f}: chép lại bảng thoát HTML → dùng UI.esc`);
   n += (s.match(/const esc = \w+ => UI\.esc\(\w+\)/g) || []).length;
 }
-ok(n >= 10, `≥10 tệp ủy quyền UI.esc (đang ${n})`);
+ok(n >= 6, `≥6 tệp ủy quyền UI.esc (đang ${n})`);
 console.log(fails ? `✗ esc-dedupe: ${fails} lỗi` : `✓ esc-dedupe: UI.esc là bản duy nhất, ${n} tệp ủy quyền`); process.exit(fails ? 1 : 0);
