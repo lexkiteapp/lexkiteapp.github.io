@@ -23,7 +23,7 @@
     },
     "answer_say": "An! He is an engineer.",
     "native": {
-     "hook": "Quên “a” khi nói nghề nghiệp?",
+     "hook": "Quên “a” trước nghề của bạn?",
      "tip": "Tiếng Việt không có mạo từ, nhưng tiếng Anh cần “a/an” trước nghề nghiệp.",
      "caption": "Bạn có hay nói “I am teacher.” không? 😅 Nói nghề nghiệp phải có “a/an”: “I am a teacher.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
      "comment": "Đáp án: “an”. Hãy tự giới thiệu nghề của bạn bằng “I am a…” nhé. Luyện thêm miễn phí tại đây: {link}",
@@ -115,7 +115,7 @@
      ]
     },
     "en": {
-     "hook": "Hôm qua mà vẫn nói “go”?",
+     "hook": "Yesterday, but still saying “go”?",
      "tip": "Vietnamese verbs do not change with time. In English, “yesterday” needs the past form.",
      "caption": "Do you often say “Yesterday I go to school.”? With “yesterday”, the verb goes to the past: “Yesterday I went to school.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
