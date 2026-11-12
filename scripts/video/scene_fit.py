@@ -3,8 +3,10 @@
 Every compositor that puts a teacher layer (app still, green-keyed clip frame, Rive) on a scene plate/insert
 (brand/library/cine/scenes/bank.json) MUST call check() (or `scene_fit.py check <placement.json>`) and refuse to render on FAIL.
 
-Layer source for scenes: the GREEN-SCREEN master (cine/teachers/green/*.mp4 or the approved green still), keyed by matte_pro.py / still_img.key()
-WITHOUT the app's 10 % bottom fade (still_img.py/build.py add it only for the in-app card) – the waist cut then sits on the frame bottom.
+Layer sources for scenes (all fine, all through check()):
+  1. TeacherRig (web/js/teacher-rig.js via teach2d/rig_host.mjs) = PREFERRED: live lip sync to the scene's dialogue, emotions, gestures.
+     Its pose images keep the app's 10 % bottom fade -> place() pushes that fade below the frame bottom automatically (solid_bottom).
+  2. Green-screen masters (cine/teachers/green/*.mp4) keyed by matte_pro.py – real gesture motion, no fade.
 Rules (waist-up teachers, eye-level camera):
   ground   the SOLID body (alpha >= 250; app stills fade out over their last ~94 rows) reaches the frame bottom -> the fade is off-frame
   eye      teacher eye line within ±0.07 H of the plate horizon (bg_zones.py) – an eye-level camera sees eyes on the horizon
