@@ -107,6 +107,7 @@
 - [specs/tutor-daily.md](specs/tutor-daily.md) — Gia sư 1-1 hằng ngày Ama/Carlos: buổi 5–15 phút, lời gia sư, nhắc giọng gia sư, báo cáo tuần, $0 ở 1M DAU; đọc khi: sửa Buổi học hôm nay/thẻ gia sư
 - [specs/landing.md](specs/landing.md) — Spec landing lexkite.com (?home=1): so 5 app lớn, section, CTA, Stitch + port, tiêu chí xong; đọc khi: sửa build-landing.mjs, vẽ lại landing.
 - [specs/go-landing.md](specs/go-landing.md) — Trang đích /go/<lang>/ học thử không đăng ký, UTM sạch, đếm go_*; đọc khi: sửa build-go.mjs, content/go, phễu kênh.
+- [specs/funnel.md](specs/funnel.md) — Phễu kênh UTM → /go → app → bài đầu → D1/D7+, bảng Quản trị Kênh & mã bài; đọc khi: sửa _funnel.js, beacon at/fl, admin-channels.js.
 - [specs/seo-words-depth.md](specs/seo-words-depth.md) — Spec độ dày trang từ /<lang>/words/: khối nội dung từ dữ liệu thật 15 ngôn ngữ, cổng DEPTH_MIN (noindex dưới ngưỡng), ảnh trước/sau, hộp blog → /words/ 13 ngôn ngữ (lib seo-words/blog-words); đọc khi: sửa build-seo-pages.mjs, seo-words.mjs, word-depth.mjs, blog-words.mjs
 - [specs/words-off-pages.md](specs/words-off-pages.md) — Spec chuyển trang từ 13 ngôn ngữ sang R2 + Pages Function (giữ URL) để nâng 650 → 1.000 trong ngân sách file; đọc khi: làm SEO-ARCH § Ngân sách file
 - [specs/notifications.md](specs/notifications.md) — Chuẩn mọi thông báo (push, nhắc học, toast, banner, báo lỗi): hỏi quyền sau giá trị, tắt dễ, ≤1/ngày, giọng không dọa, toast một-cái có nút sửa, 15 ngôn ngữ; bảng chỗ lệch; đọc khi: thêm/sửa thông báo/toast
