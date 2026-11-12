@@ -34,6 +34,8 @@
       const a = Array.isArray(p) ? p : [p]; let at = 0;
       a.forEach((ms, i) => { ms = Math.max(0, +ms || 0); if (i % 2 === 0 && ms) { const go = () => P.Haptics.vibrate({ duration: Math.max(10, ms) }).catch(() => {}); if (at) hapT.push(setTimeout(go, at)); else go(); } at += ms; });
       return true; } }); } catch (e) { /* bỏ qua */ }
+    // Chạm thanh tab / nút chính → rung nhẹ như app gốc (Sfx.haptic tôn trọng công tắc Rung, tắt âm, giảm chuyển động)
+    document.addEventListener('pointerdown', e => { if (e.pointerType === 'touch' && g.Sfx && e.target.closest && e.target.closest('#bnav a, .btn:not(:disabled), .tabs button')) g.Sfx.haptic('tap'); }, { passive: true });
   }
 
   // Nhắc học: lập lịch 7+ ngày cục bộ ở js/remind.js (tải lười, docs/REMINDERS.md). opts.ask: chỉ xin quyền khi người dùng chủ động

@@ -1288,6 +1288,7 @@
 "your / you’re":"your / you’re",
 "{answered} câu trả lời · {mistakes} lần sai · +20 XP thưởng":"{answered} 個の答え · {mistakes} 個の間違い · +20 ボーナス XP",
 "{a}/{b} XP tới cấp {n}":"{a}/{b} XP からレベル {n}",
+"{a}/{b} bài":"{a}/{b} レッスン",
 "{a}/{b} việc":"{a}/{b} 完了",
 "{c}% câu có cấu trúc phức · {e} lỗi phát hiện.":"{c}% の複雑な文 · {e} 個のエラーが見つかりました。",
 "{done}/{total} bài hoàn thành · Học theo vòng: giới thiệu → luyện → nghe → kiểm tra, rồi ôn lại đúng thời điểm vàng.":"{done}/{total} のユニットを完了 · 導入→練習→リスニング→テストのサイクルで学習し、最適なタイミングで復習します。",

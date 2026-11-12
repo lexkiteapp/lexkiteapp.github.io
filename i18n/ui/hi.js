@@ -1288,6 +1288,7 @@
 "your / you’re":"your / you’re",
 "{answered} câu trả lời · {mistakes} lần sai · +20 XP thưởng":"{answered} उत्तर · {mistakes} गलतियाँ · +20 बोनस एक्सपी",
 "{a}/{b} XP tới cấp {n}":"{a}/{b} एक्सपी से स्तर {n}",
+"{a}/{b} bài":"{a}/{b} पाठ",
 "{a}/{b} việc":"{a}/{b} हो गया",
 "{c}% câu có cấu trúc phức · {e} lỗi phát hiện.":"{c}% जटिल वाक्य · {e} त्रुटियाँ मिलीं।",
 "{done}/{total} bài hoàn thành · Học theo vòng: giới thiệu → luyện → nghe → kiểm tra, rồi ôn lại đúng thời điểm vàng.":"{done}/{total} इकाइयाँ पूर्ण · चक्रों में सीखें: परिचय दें → अभ्यास करें → सुनें → परीक्षण करें, फिर इष्टतम समय पर समीक्षा करें।",

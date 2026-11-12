@@ -437,7 +437,6 @@
 "Xin để lại lời nhắn":"Mesaj bırakmak iste",
 "Xong {a}/{b} câu.":"Tamamlandı: {b} cümleden {a} tanesi.",
 "Xử lý khi lỡ chuyến, chuyến bay bị hủy, mất hành lý hoặc đổi cổng.":"Kaçırılan ya da iptal edilen uçuşla, kayıp çantayla veya kapı değişikliğiyle başa çık.",
-"{a}/{b} bài":"{a}/{b} ders",
 "{n} ngày liên tiếp – giữ nhịp nhé!":"Üst üste {n} gün – devam et!",
 "{n} trên 5":"5 üzerinden {n}",
 "Âm thanh chỉ ở trong trình duyệt này và bị xóa khi rời trang. Chữ được chuyển bằng trình nhận dạng của trình duyệt (hoặc Whisper ngay trên máy nếu bạn đã bật).":"Sesin bu tarayıcıda kalır ve sayfadan çıkınca silinir. Konuşman, tarayıcının konuşma tanıma özelliğiyle (ya da açtıysan bu cihazdaki Whisper ile) yazıya çevrilir.",

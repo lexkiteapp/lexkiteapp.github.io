@@ -1288,6 +1288,7 @@
 "your / you’re":"your / you’re",
 "{answered} câu trả lời · {mistakes} lần sai · +20 XP thưởng":"{answered} respuestas · {mistakes} errores · +20 XP extra",
 "{a}/{b} XP tới cấp {n}":"{a}/{b} XP al nivel {n}",
+"{a}/{b} bài":"{a}/{b} lecciones",
 "{a}/{b} việc":"{a}/{b} hecho",
 "{c}% câu có cấu trúc phức · {e} lỗi phát hiện.":"{c}% oraciones complejas · {e} errores encontrados.",
 "{done}/{total} bài hoàn thành · Học theo vòng: giới thiệu → luyện → nghe → kiểm tra, rồi ôn lại đúng thời điểm vàng.":"{done}/{total} unidades completas · Aprender en ciclos: presentar → practicar → escuchar → probar, luego repasar en el momento óptimo.",

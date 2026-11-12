@@ -1288,6 +1288,7 @@
 "your / you’re":"your / you’re",
 "{answered} câu trả lời · {mistakes} lần sai · +20 XP thưởng":"{answered} answers · {mistakes} mistakes · +20 bonus XP",
 "{a}/{b} XP tới cấp {n}":"{a}/{b} XP'yi {n} seviyesine kadar",
+"{a}/{b} bài":"{a}/{b} ders",
 "{a}/{b} việc":"{a}/{b} tamamlandı",
 "{c}% câu có cấu trúc phức · {e} lỗi phát hiện.":"%{c} karmaşık cümleler · {e} hata bulundu.",
 "{done}/{total} bài hoàn thành · Học theo vòng: giới thiệu → luyện → nghe → kiểm tra, rồi ôn lại đúng thời điểm vàng.":"{done}/{total} ünite tamamlandı · Döngüler halinde öğrenin: tanıtın → pratik yapın → dinleyin → test edin, ardından en uygun zamanda gözden geçirin.",
