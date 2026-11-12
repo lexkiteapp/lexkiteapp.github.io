@@ -30,6 +30,12 @@ assert.equal(r.score, 20 + 20, 'combo bị reset sau chạm sai'); assert.equal(
 // chạm ngoài nhịp = thừa; không chạm gì = 0 điểm, 0 %
 r = core.judge(P, [B / 2], B); assert.equal(r.extra, 1); assert.equal(r.hits, 0); assert.equal(r.acc, 0); assert.deepEqual(r.words.filter(x => x === 'miss').length, 3);
 r = core.judge(P, [], B); assert.equal(r.score, 0); assert.equal(r.acc, 0);
+// hai chạm cùng một nhịp: giữ chạm GẦN hơn (chạm sớm không cướp chỗ chạm đúng), chạm xa thành thừa
+r = core.judge(P, [B * 2 - 200, B * 2 + 10], B); assert.equal(r.words[2], 'perfect'); assert.equal(r.extra, 1);
+r = core.judge(P, [B * 2 + 10, B * 2 - 200], B); assert.equal(r.words[2], 'perfect', 'thứ tự đến không đổi kết quả');
+// combo mang sang câu sau: bắt đầu 2 → chạm đúng đầu tiên là combo 3 → ×2; chuỗi còn lại trả về
+r = core.judge([{ stress: true }], [0], B, 2); assert.equal(r.score, 40); assert.equal(r.combo, 3);
+r = core.judge(P, [0, B * 1], B, 5); assert.equal(r.combo, 0, 'chạm nhầm làm đứt chuỗi mang sang');
 // thứ tự chạm không quan trọng (máy gửi lộn xộn vẫn ra cùng kết quả)
 assert.deepEqual(core.judge(P, [B * 4, 0, B * 2], B), core.judge(P, [0, B * 2, B * 4], B));
 // combo ×2 từ lần thứ 3, ×3 từ lần thứ 6 (cùng luật Thử thách 60 giây)
@@ -41,9 +47,9 @@ assert.equal(core.mult(2), 1); assert.equal(core.mult(3), 2); assert.equal(core.
 assert.equal(core.beatOf(0), 700); assert.equal(core.beatOf(4), 560);
 assert.equal(core.xpOf(0, 0), 5); assert.equal(core.xpOf(100, 100), 40); assert.equal(core.xpOf(5, 95), 20);
 
-// SRS: chỉ chấm khi chạm đúng từ đích VÀ cả câu ≥ 80 %; còn lại không chấm (không phạt)
-assert.equal(core.srsGrade({ words: ['perfect'], acc: 90 }, 0), 2); assert.equal(core.srsGrade({ words: ['good'], acc: 80 }, 0), 2);
-assert.equal(core.srsGrade({ words: ['good'], acc: 79 }, 0), null); assert.equal(core.srsGrade({ words: ['miss'], acc: 100 }, 0), null);
+// SRS: chỉ chấm khi chạm đúng từ đích, cả câu ≥ 90 % VÀ không chạm thừa; còn lại không chấm (không phạt)
+assert.equal(core.srsGrade({ words: ['perfect'], acc: 100, extra: 0 }, 0), 2); assert.equal(core.srsGrade({ words: ['good'], acc: 90, extra: 0 }, 0), 2);
+assert.equal(core.srsGrade({ words: ['good'], acc: 89, extra: 0 }, 0), null, 'cả câu phải ≥ 90 %'); assert.equal(core.srsGrade({ words: ['perfect'], acc: 100, extra: 1 }, 0), null, 'chạm thừa (vd. chạm mọi nhịp) → không chấm'); assert.equal(core.srsGrade({ words: ['miss'], acc: 100 }, 0), null);
 assert.equal(core.srsGrade({ words: ['perfect'], acc: 100 }, -1), null);
 
 // Chọn câu: dùng ví dụ có từ đích; bỏ câu ngắn/dài/lạ/toàn từ nhấn; bù bằng câu mẫu; không trùng

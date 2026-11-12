@@ -24,7 +24,7 @@ w.Core = { Cards: { update: async () => {} }, SRS: { review: (s, g) => (reviews.
 const view = w.document.getElementById('view');
 w.App = { view, state: { cards: deck, settings: {}, game: { best: {} } }, reward: async d => { rewards.push(d); }, cleanup: null };
 w.UI = { $: (s, r) => (r || w.document).querySelector(s), esc: s => String(s).replace(/[<>&"]/g, ''), speak: x => said.push(x), WEAK: { to: ['tə', 'tə', ''], the: ['ðə', 'ðə', ''], a: ['ə', 'ə', ''], for: ['fə', 'fər', ''], was: ['wəz', 'wəz', ''], at: ['ət', 'ət', ''], in: ['ɪn', 'ɪn', ''], after: ['ɑːftə', 'æftər', ''] } };
-w.Sfx = { answer: ok => answers.push(ok), finish() {}, haptic: e => haptics.push(e) };
+w.Sfx = { correct: () => answers.push(true), wrong: () => answers.push(false), answer: () => { throw new Error('không được gọi Sfx.answer (aria-live từng chạm + tải gói lười giữa vòng)'); }, finish() {}, haptic: e => haptics.push(e) };
 const H = {
   accent: () => 'en-GB', emptySource: () => { view.innerHTML = 'EMPTY'; }, norm: x => ({ word: x.word, ex: x.ex, vi: x.vi, pos: '', ipa: '' }), practiceDone: d => done.push(d),
   head: (title, i, n, extra) => `<div class="study-top"><a class="icon-btn" href="#/practice">✕</a><div class="progress"><i></i></div><span>${extra}</span></div><div>${title}</div>`,
@@ -60,7 +60,11 @@ assert.ok(chips().filter(c => c.classList.contains('perfect')).every(c => c.quer
 assert.ok(+view.querySelector('#rhS').textContent > 0, 'điểm phải tăng'); assert.ok(said.length === 1, 'đọc mẫu câu sau khi chấm');
 assert.ok(view.querySelector('#rhQ').textContent.includes(st1 + '/' + st1));
 assert.deepEqual(Array.from(reviews), [2], 'từ đích apple (đến hạn) chạm đúng, câu 100 % → Good');
-flush();
+// tab ẩn trong lúc chờ chuyển câu → KHÔNG bắt đầu câu mới (nếu không sẽ chấm 0 chạm); quay lại mới bắt đầu
+Object.defineProperty(w.document, 'hidden', { configurable: true, get: () => true }); flush();
+assert.ok(/1\/5/.test(view.textContent) && !/2\/5/.test(view.textContent), 'đang ẩn: chưa sang câu 2');
+Object.defineProperty(w.document, 'hidden', { configurable: true, get: () => false }); w.document.dispatchEvent(new w.Event('visibilitychange'));
+assert.ok(/2\/5/.test(view.textContent), 'quay lại: sang câu 2');
 // --- câu 2: chạm nhầm vào từ yếu → sai, không chấm SRS ---
 const r1 = reviews.length; n0 = answers.length; cs = play('wrong-weak');
 assert.ok(answers.slice(n0).length > 0 && answers.slice(n0).every(x => x === false), 'chạm từ yếu → sai');
@@ -71,6 +75,8 @@ Object.defineProperty(w.document, 'hidden', { configurable: true, get: () => tru
 now += 60000; frame(); assert.ok(!view.querySelector('.celebrate'), 'tab ẩn không được chạy tiếp');
 Object.defineProperty(w.document, 'hidden', { configurable: true, get: () => false }); w.document.dispatchEvent(new w.Event('visibilitychange'));
 assert.ok(view.querySelector('#rhT'), 'quay lại phải hiện lại câu'); assert.ok(/3\/5/.test(view.textContent), 'vẫn là câu 3');
+// phím Space trên nút ✕ (thoát) không được bị tính là chạm
+now += 4 * 700 + 100; const nA = answers.length; view.querySelector('.study-top a.icon-btn').dispatchEvent(new w.KeyboardEvent('keydown', { key: ' ', bubbles: true })); assert.equal(answers.length, nA, 'Space trên ✕ không phải chạm');
 // --- câu 3, 4, 5: bỏ qua không chạm → 0 điểm, vẫn kết thúc bình thường ---
 play('none'); flush(); play('none'); flush(); play('none'); await new Promise(r => setImmediate(r)); flush(); await new Promise(r => setImmediate(r));
 assert.ok(view.querySelector('.celebrate'), 'sau 5 câu phải ra màn kết thúc');
