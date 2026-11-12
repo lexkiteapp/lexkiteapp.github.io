@@ -76,7 +76,8 @@
     const lib = () => { const o = []; for (const tp of TOPICS) { for (const w of tp.words) { if (o.length >= 400) return o; o.push(norm(w)); } } return o; }; // dừng ở 400, không trải cả kho 20k từ
     const cands = items.length >= 12 ? items : [...items, ...lib()];
     const title = ch ? `👥 ${t('Thách đấu: vượt {n} điểm', { n: ch.s })}` : `⚡ ${t('Thử thách 60 giây')}`;
-    const S = { i: 0, q: items.slice(), score: 0, combo: 0, best: 0, right: 0, n: 0, graded: new Set(), trace: [], lastT: -250, passed: false, missed: [], used: 0, at: performance.now(), paused: false, over: false, busy: false };
+    const S = { i: 0, q: items.slice(), score: 0, combo: 0, best: 0, right: 0, n: 0, graded: new Set(), missed: [], used: 0, at: performance.now(), paused: false, over: false, busy: false };
+    Object.assign(S, { trace: [], lastT: -250, passed: false }); // dấu vết cho đấu bóng ma
     if (!document.getElementById('bzCss')) { const st = document.createElement('style'); st.id = 'bzCss'; st.textContent = '#bzG{transition:background .2s,color .2s}#bzG.ahead{background:var(--good-soft);color:var(--good-text)}@media(prefers-reduced-motion:reduce){#bzG{transition:none}}'; document.head.appendChild(st); }
     view.innerHTML = `<div class="study-wrap bz">${head(title, 0, 1, `<span id="bzT" dir="ltr">60s</span>`)}
       <div class="row between nowrap" style="margin-bottom:.6rem"><b id="bzS" aria-live="off">0</b><span class="chip" id="bzG" hidden dir="auto"></span><span class="chip" id="bzC" hidden></span></div>
