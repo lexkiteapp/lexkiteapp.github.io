@@ -1,0 +1,1631 @@
+{
+ "cafe": {
+  "set": "A small sunny cafe interior seen from the front: a wooden counter with a silver coffee machine and a blank chalkboard-style panel on the back wall, a potted plant, warm cream walls with mint and coral accents, soft window light.",
+  "role_look": "barista apron over the white shirt",
+  "frames": [
+   {
+    "lines": [
+     0
+    ],
+    "shot": "wide",
+    "action": "Carlos stands behind the counter with a welcoming smile and an open friendly mouth, one hand open toward Ama who steps up to the counter with a closed smile.",
+    "props": [
+     "counter",
+     "coffee machine",
+     "blank menu panel"
+    ]
+   },
+   {
+    "lines": [
+     1,
+     2
+    ],
+    "shot": "medium two-shot",
+    "action": "Ama points toward two tall glasses on a display shelf while Carlos listens with a closed smile and holds up a medium-sized cup in one hand.",
+    "props": [
+     "iced latte glasses",
+     "cups in two sizes"
+    ]
+   },
+   {
+    "lines": [
+     3,
+     4
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Ama gestures at a carton of oat milk on the counter; Carlos nods with a friendly open mouth and slides a small plate of pastries toward her.",
+    "props": [
+     "oat milk carton",
+     "pastry plate"
+    ]
+   },
+   {
+    "lines": [
+     5,
+     6
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Ama shakes her head politely and lifts one palm; Carlos taps a blank card reader on the counter with a small open mouth.",
+    "props": [
+     "card reader",
+     "cash register"
+    ]
+   },
+   {
+    "lines": [
+     7,
+     8
+    ],
+    "shot": "close-up on hands/object",
+    "action": "Ama holds out a bank card toward the reader while Carlos's hand rests on the reader; two iced lattes sit ready beside them.",
+    "props": [
+     "bank card",
+     "card reader",
+     "two iced lattes"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "ordering at a cafe",
+   "cefr": "A2",
+   "group": "food",
+   "vocab": [
+    "iced latte",
+    "oat milk",
+    "cup",
+    "counter",
+    "card",
+    "card reader",
+    "coffee machine"
+   ]
+  }
+ },
+ "restaurant-order": {
+  "set": "A cosy evening restaurant interior: a small round table with white tablecloth next to a large window showing a dusk sky, warm hanging lamps, terracotta walls and green plants.",
+  "role_look": "waiter's dark apron over the white shirt, a folded cloth on one arm",
+  "frames": [
+   {
+    "lines": [
+     0
+    ],
+    "shot": "wide",
+    "action": "Carlos stands at the entrance with a welcoming gesture and open friendly mouth; Ama stands in front of him with a closed smile.",
+    "props": [
+     "entrance",
+     "window table",
+     "hanging lamps"
+    ]
+   },
+   {
+    "lines": [
+     1,
+     2
+    ],
+    "shot": "medium two-shot",
+    "action": "Ama points toward the window table and Carlos leads the way, holding two blank menus out to her.",
+    "props": [
+     "window table",
+     "two blank menus"
+    ]
+   },
+   {
+    "lines": [
+     3,
+     4
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Ama seated at the table, one finger tracing a picture icon in the open blank menu, while Carlos stands with a notepad with a blank page and a friendly look.",
+    "props": [
+     "open menu",
+     "notepad",
+     "pen"
+    ]
+   },
+   {
+    "lines": [
+     5,
+     6
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Ama leans slightly forward with an asking expression and a small open mouth; Carlos nods with a smile and holds an empty water jug.",
+    "props": [
+     "water jug",
+     "empty glass",
+     "soup bowl icon on menu"
+    ]
+   },
+   {
+    "lines": [
+     7,
+     8
+    ],
+    "shot": "close-up on hands/object",
+    "action": "Carlos places a glass of water and a bowl of soup on the table with a smile; Ama's hand makes a small writing-in-the-air gesture for the bill.",
+    "props": [
+     "water glass",
+     "soup bowl",
+     "grilled fish plate",
+     "table"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "ordering in a restaurant",
+   "cefr": "A2",
+   "group": "food",
+   "vocab": [
+    "table",
+    "window",
+    "menu",
+    "soup",
+    "grilled fish",
+    "water glass",
+    "bill"
+   ]
+  }
+ },
+ "airport-checkin": {
+  "set": "A bright airport check-in hall: a long white desk with a luggage scale and short conveyor belt, big window with a plane outline outside, blue and white palette with orange accents, blank screens above the desk showing only simple plane icons.",
+  "role_look": "airline uniform vest in navy over the white shirt, no logo",
+  "frames": [
+   {
+    "lines": [
+     0,
+     1
+    ],
+    "shot": "wide",
+    "action": "Ama wheels a suitcase up to the desk with a small open mouth; Carlos behind the desk greets her with a welcoming smile.",
+    "props": [
+     "check-in desk",
+     "suitcase",
+     "blank screens with plane icon"
+    ]
+   },
+   {
+    "lines": [
+     2,
+     3
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos holds out his hand for the passport while Ama hands over her passport with one hand and holds her phone with the other.",
+    "props": [
+     "passport",
+     "phone"
+    ]
+   },
+   {
+    "lines": [
+     4,
+     5
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Ama lifts her suitcase toward the luggage scale on the desk, Carlos watches and gestures toward the conveyor belt.",
+    "props": [
+     "suitcase",
+     "luggage scale",
+     "conveyor belt"
+    ]
+   },
+   {
+    "lines": [
+     6,
+     7
+    ],
+    "shot": "close-up on hands/object",
+    "action": "Close on the scale with the suitcase on it and a plain dial with no numbers; Carlos's hand points at the dial while Ama's hand rests on the suitcase handle.",
+    "props": [
+     "luggage scale",
+     "suitcase",
+     "dial with no numbers"
+    ]
+   },
+   {
+    "lines": [
+     8
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Carlos shrugs gently with a sympathetic small open mouth and points to the suitcase as if suggesting taking items out; Ama looks thoughtful, hand on chin.",
+    "props": [
+     "suitcase",
+     "a few clothes beside it"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "airport check-in",
+   "cefr": "B1",
+   "group": "transport",
+   "vocab": [
+    "passport",
+    "suitcase",
+    "scale",
+    "check-in desk",
+    "boarding pass",
+    "phone",
+    "conveyor belt"
+   ]
+  }
+ },
+ "ask-directions": {
+  "set": "A sunny city street with pale pastel buildings on both sides, a crossing street on the right, and a big round clock tower on a station building far down the road, blue sky.",
+  "role_look": "none",
+  "frames": [
+   {
+    "lines": [
+     0
+    ],
+    "shot": "wide",
+    "action": "Ama approaches Carlos on the pavement with a polite small open mouth, one hand raised; Carlos stands with a closed smile.",
+    "props": [
+     "street",
+     "buildings",
+     "station building in distance"
+    ]
+   },
+   {
+    "lines": [
+     1,
+     2
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos points straight ahead with an arm out; Ama tilts her head with a puzzled polite look, hand near her ear.",
+    "props": [
+     "street",
+     "station building in distance"
+    ]
+   },
+   {
+    "lines": [
+     3,
+     4
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Carlos points straight ahead then to the right side street, Ama copies the right-turn gesture with her hand, both facing the junction.",
+    "props": [
+     "crossing street",
+     "road"
+    ]
+   },
+   {
+    "lines": [
+     5,
+     6
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Carlos points to the big clock on the station far away; Ama looks toward it with an asking expression.",
+    "props": [
+     "clock tower",
+     "station building"
+    ]
+   },
+   {
+    "lines": [
+     7,
+     8,
+     9
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos waves cheerfully with an open mouth while Ama puts her hand on her chest with a grateful smile, ready to walk off.",
+    "props": [
+     "street",
+     "clock tower in distance"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "asking for directions",
+   "cefr": "A2",
+   "group": "travel",
+   "vocab": [
+    "street",
+    "map",
+    "train station",
+    "clock",
+    "corner",
+    "crossing",
+    "pavement"
+   ]
+  }
+ },
+ "train-station": {
+  "set": "A clean railway station ticket hall: a ticket window with glass and a counter, a view of a platform and a blue-and-white train through an archway, pale grey floor, teal and orange accents, a blank departure board showing only simple train icons.",
+  "role_look": "station staff vest in teal over the white shirt, no logo",
+  "frames": [
+   {
+    "lines": [
+     0
+    ],
+    "shot": "wide",
+    "action": "Carlos sits behind the ticket window with a welcoming smile; Ama walks toward the window.",
+    "props": [
+     "ticket window",
+     "departure board with icons",
+     "train through archway"
+    ]
+   },
+   {
+    "lines": [
+     1,
+     2
+    ],
+    "shot": "medium two-shot",
+    "action": "Ama leans toward the window gesturing a ticket shape with both hands; Carlos holds up two blank cards, one marked with a single arrow and one with a double arrow.",
+    "props": [
+     "ticket",
+     "two arrow cards"
+    ]
+   },
+   {
+    "lines": [
+     3,
+     4
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Ama glances at a blank wall clock while Carlos points through the archway to a train on a platform.",
+    "props": [
+     "clock",
+     "train",
+     "platform"
+    ]
+   },
+   {
+    "lines": [
+     5,
+     6
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Ama traces a straight line on a simple route map made of dots; Carlos nods reassuringly and draws a straight line with his finger.",
+    "props": [
+     "route map with dots",
+     "line"
+    ]
+   },
+   {
+    "lines": [
+     7,
+     8
+    ],
+    "shot": "close-up on hands/object",
+    "action": "Carlos slides a printed blank ticket under the window glass toward Ama's hand, which holds a bank card.",
+    "props": [
+     "ticket",
+     "bank card",
+     "ticket window"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "buying a train ticket",
+   "cefr": "A2",
+   "group": "transport",
+   "vocab": [
+    "ticket",
+    "platform",
+    "train",
+    "ticket window",
+    "seat",
+    "clock",
+    "card"
+   ]
+  }
+ },
+ "taxi": {
+  "set": "Beside a yellow taxi on a sunny street: the car's front seat with a steering wheel and a small meter box with a blank screen, a kerb, and a tall station building in the background, warm yellow and sky-blue palette.",
+  "role_look": "driver's flat cap and a light grey vest over the white shirt",
+  "frames": [
+   {
+    "lines": [
+     0
+    ],
+    "shot": "wide",
+    "action": "Carlos sits in the driver's seat of a yellow taxi with the window open, smiling; Ama stands at the kerb with a suitcase beside her.",
+    "props": [
+     "yellow taxi",
+     "kerb",
+     "small suitcase"
+    ]
+   },
+   {
+    "lines": [
+     1,
+     2
+    ],
+    "shot": "medium two-shot",
+    "action": "Ama leans toward the open window pointing down the road; Carlos listens with a friendly open mouth.",
+    "props": [
+     "taxi window",
+     "road",
+     "station in distance"
+    ]
+   },
+   {
+    "lines": [
+     3,
+     4
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Carlos gets out and lifts Ama's small suitcase into the boot; Ama stands beside him with a closed smile.",
+    "props": [
+     "small suitcase",
+     "open boot"
+    ]
+   },
+   {
+    "lines": [
+     5,
+     6
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "From the back seat, Ama points at the small meter box on the dashboard; Carlos nods, one hand on the wheel, glancing back with a smile.",
+    "props": [
+     "meter box with blank screen",
+     "steering wheel"
+    ]
+   },
+   {
+    "lines": [
+     7,
+     8
+    ],
+    "shot": "close-up on hands/object",
+    "action": "Ama hands over a few coins while Carlos holds out his open palm; the taxi door is open and the station is behind them.",
+    "props": [
+     "coins",
+     "open palm",
+     "taxi door"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "taking a taxi",
+   "cefr": "A2",
+   "group": "transport",
+   "vocab": [
+    "taxi",
+    "suitcase",
+    "meter",
+    "driver",
+    "seat",
+    "road",
+    "station"
+   ]
+  }
+ },
+ "supermarket": {
+  "set": "A bright supermarket checkout area: a conveyor belt till with a card reader, shelves of colourful produce behind, a small customer service desk with a blank sign on the side, green and orange palette.",
+  "role_look": "cashier's green apron over the white shirt",
+  "frames": [
+   {
+    "lines": [
+     0
+    ],
+    "shot": "wide",
+    "action": "Carlos sits at the till smiling with an open friendly mouth; Ama stands at the belt with groceries in a basket.",
+    "props": [
+     "till",
+     "conveyor belt",
+     "basket of groceries"
+    ]
+   },
+   {
+    "lines": [
+     1,
+     2
+    ],
+    "shot": "medium two-shot",
+    "action": "Ama holds an open hand asking for a bag; Carlos reaches under the till and pulls out a paper shopping bag.",
+    "props": [
+     "shopping bag",
+     "groceries"
+    ]
+   },
+   {
+    "lines": [
+     3,
+     4
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Ama takes a bank card from her wallet while Carlos points to the card reader on the till.",
+    "props": [
+     "bank card",
+     "card reader"
+    ]
+   },
+   {
+    "lines": [
+     5,
+     6
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Ama holds a blank loyalty card with a star icon; Carlos points to the small customer service desk to the side.",
+    "props": [
+     "loyalty card with star icon",
+     "service desk"
+    ]
+   },
+   {
+    "lines": [
+     7,
+     8
+    ],
+    "shot": "close-up on hands/object",
+    "action": "Ama taps her card on the reader; Carlos hands her a filled shopping bag with a smile.",
+    "props": [
+     "bank card",
+     "card reader",
+     "filled shopping bag"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "paying at a supermarket",
+   "cefr": "A2",
+   "group": "shopping",
+   "vocab": [
+    "basket",
+    "shopping bag",
+    "card",
+    "till",
+    "loyalty card",
+    "groceries",
+    "desk"
+   ]
+  }
+ },
+ "shop-return": {
+  "set": "A tidy clothing shop: a wooden counter with a till, racks of colourful clothes on the left, a mirror on the right wall, soft white and peach palette.",
+  "role_look": "shop assistant's open mid-grey apron over the shirt",
+  "frames": [
+   {
+    "lines": [
+     0,
+     1
+    ],
+    "shot": "wide",
+    "action": "Ama holds a folded jacket toward Carlos at the counter with a small open mouth; Carlos gives a welcoming smile.",
+    "props": [
+     "counter",
+     "jacket",
+     "clothes rack"
+    ]
+   },
+   {
+    "lines": [
+     2,
+     3
+    ],
+    "shot": "medium two-shot",
+    "action": "Ama pulls the jacket's zip to show it stuck halfway and holds the jacket against her body to show the fit, frowning slightly; Carlos looks concerned.",
+    "props": [
+     "jacket with broken zip"
+    ]
+   },
+   {
+    "lines": [
+     4,
+     5
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Ama hands over a small blank paper receipt while Carlos holds out his hand to take it.",
+    "props": [
+     "receipt",
+     "jacket"
+    ]
+   },
+   {
+    "lines": [
+     6,
+     7
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Carlos shows two cards on the counter, one with a coin icon and one with a hanger icon; Ama points at the coin one with a satisfied look.",
+    "props": [
+     "refund icon card",
+     "exchange icon card"
+    ]
+   },
+   {
+    "lines": [
+     8
+    ],
+    "shot": "close-up on hands/object",
+    "action": "Carlos taps a card reader with the receipt beside it while Ama's bank card rests next to it.",
+    "props": [
+     "card reader",
+     "bank card",
+     "receipt"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "returning an item in a shop",
+   "cefr": "B1",
+   "group": "shopping",
+   "vocab": [
+    "jacket",
+    "zip",
+    "receipt",
+    "refund",
+    "counter",
+    "card",
+    "hanger"
+   ]
+  }
+ },
+ "pharmacy": {
+  "set": "A calm pharmacy: a white counter, shelves of plain unlabelled boxes and bottles, a leafy plant, mint-green and white palette.",
+  "role_look": "white pharmacist coat over the shirt",
+  "frames": [
+   {
+    "lines": [
+     0,
+     1
+    ],
+    "shot": "wide",
+    "action": "Ama covers a cough with her fist near her mouth; Carlos stands at the counter in his white coat with a caring look.",
+    "props": [
+     "counter",
+     "medicine shelves"
+    ]
+   },
+   {
+    "lines": [
+     2,
+     3
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos gestures a questioning palm toward Ama's throat; Ama touches her chest with a tired expression and heavy eyelids.",
+    "props": [
+     "counter"
+    ]
+   },
+   {
+    "lines": [
+     4,
+     5
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Carlos holds a bottle of syrup and a measuring spoon; Ama holds a small box of tablets and looks questioning.",
+    "props": [
+     "syrup bottle",
+     "spoon",
+     "tablet box"
+    ]
+   },
+   {
+    "lines": [
+     6,
+     7
+    ],
+    "shot": "close-up on hands/object",
+    "action": "Ama's hand picks up the syrup bottle from the counter while Carlos gives a thumbs-up, and a coin purse waits next to it.",
+    "props": [
+     "syrup bottle",
+     "coin purse",
+     "counter"
+    ]
+   },
+   {
+    "lines": [
+     8
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Carlos hands Ama a paper bag with the syrup and points to a calendar icon; Ama nods thankfully.",
+    "props": [
+     "paper bag",
+     "calendar icon",
+     "syrup"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "at the pharmacy",
+   "cefr": "B1",
+   "group": "health",
+   "vocab": [
+    "cough",
+    "syrup",
+    "spoon",
+    "tablets",
+    "shelf",
+    "bed",
+    "doctor"
+   ]
+  }
+ },
+ "dentist": {
+  "set": "A clean dentist surgery: a reclining blue dental chair with a round light above, a small tray of instruments and a poster showing a plain tooth icon, pale blue and white palette.",
+  "role_look": "white doctor coat over the blue blazer, surgical mask pulled down under the chin",
+  "frames": [
+   {
+    "lines": [
+     0,
+     1
+    ],
+    "shot": "wide",
+    "action": "Carlos invites Ama to sit with a hand toward the dental chair; Ama sits down holding her cheek with a pained expression.",
+    "props": [
+     "dental chair",
+     "lamp",
+     "tool tray"
+    ]
+   },
+   {
+    "lines": [
+     2,
+     3
+    ],
+    "shot": "medium two-shot",
+    "action": "Ama points to a spot on the left of her cheek; Carlos leans in with a small hand mirror.",
+    "props": [
+     "hand mirror",
+     "dental chair"
+    ]
+   },
+   {
+    "lines": [
+     4,
+     5
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Carlos holds a cup of cold water and Ama winces holding her cheek with a hand raised.",
+    "props": [
+     "cup of cold water",
+     "chair"
+    ]
+   },
+   {
+    "lines": [
+     6,
+     7
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Carlos shows Ama a large tooth model with a small dark hole and she looks concerned with her hand on her chin.",
+    "props": [
+     "tooth model",
+     "dark cavity spot"
+    ]
+   },
+   {
+    "lines": [
+     8
+    ],
+    "shot": "close-up on hands/object",
+    "action": "Carlos in gloves holds a small dental mirror and a numbing syringe on the tray while Ama has a closed trusting smile.",
+    "props": [
+     "gloves",
+     "dental mirror",
+     "syringe on tray",
+     "lamp"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "at the dentist",
+   "cefr": "B1",
+   "group": "health",
+   "vocab": [
+    "tooth",
+    "chair",
+    "mirror",
+    "cavity",
+    "lamp",
+    "gloves",
+    "mouth"
+   ]
+  }
+ },
+ "bank": {
+  "set": "A modern bank branch: a desk with a computer showing a blank blue screen with simple icons, two chairs, a plant, and a big window; navy and teal palette with warm accents.",
+  "role_look": "bank advisor's lanyard with a plain blank badge over the shirt",
+  "frames": [
+   {
+    "lines": [
+     0,
+     1
+    ],
+    "shot": "wide",
+    "action": "Carlos sits at the desk and greets Ama with open arms; Ama walks to the chair opposite with a small open mouth.",
+    "props": [
+     "desk",
+     "chairs",
+     "computer"
+    ]
+   },
+   {
+    "lines": [
+     2,
+     3
+    ],
+    "shot": "medium two-shot",
+    "action": "Ama holds a book and notebook to show she is a student while Carlos listens with a smile.",
+    "props": [
+     "book",
+     "notebook"
+    ]
+   },
+   {
+    "lines": [
+     4,
+     5
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Ama places a passport and a letter on the desk while Carlos holds out a hand.",
+    "props": [
+     "passport",
+     "letter"
+    ]
+   },
+   {
+    "lines": [
+     6,
+     7
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Carlos holds up a blank bank card and Ama holds her phone showing a simple app icon.",
+    "props": [
+     "bank card",
+     "phone",
+     "app icon"
+    ]
+   },
+   {
+    "lines": [
+     8
+    ],
+    "shot": "close-up on hands/object",
+    "action": "Carlos taps on his computer and Ama's phone on the desk lights up with a plain keypad of dots.",
+    "props": [
+     "phone",
+     "computer",
+     "desk"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "opening a bank account",
+   "cefr": "B1",
+   "group": "money",
+   "vocab": [
+    "account",
+    "passport",
+    "letter",
+    "card",
+    "phone",
+    "app",
+    "desk"
+   ]
+  }
+ },
+ "job-interview": {
+  "set": "A bright modern office meeting room: a large wooden table with two chairs, a window with a city skyline, a plant in the corner, neutral white and soft blue palette.",
+  "role_look": "none",
+  "frames": [
+   {
+    "lines": [
+     0,
+     1
+    ],
+    "shot": "wide",
+    "action": "Carlos stands behind the table with an open hand inviting Ama to sit; Ama shakes his hand with a closed confident smile.",
+    "props": [
+     "table",
+     "two chairs",
+     "window"
+    ]
+   },
+   {
+    "lines": [
+     2,
+     3
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos holds a folder and looks interested; Ama sits straight with open palms, explaining with a small open mouth.",
+    "props": [
+     "folder",
+     "table"
+    ]
+   },
+   {
+    "lines": [
+     4,
+     5
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Ama shows a simple bar-chart drawing on a sheet going downward, with no numbers or letters; Carlos looks impressed.",
+    "props": [
+     "sheet with bar chart shape",
+     "pen"
+    ]
+   },
+   {
+    "lines": [
+     6,
+     7
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Carlos opens his palm inviting a question; Ama leans forward with a curious look and a raised hand.",
+    "props": [
+     "folder",
+     "table"
+    ]
+   },
+   {
+    "lines": [
+     8,
+     9
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos stands and offers a handshake with a friendly open mouth while Ama accepts it with a warm smile, a bag over her arm.",
+    "props": [
+     "handshake",
+     "bag",
+     "door"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "job interview",
+   "cefr": "B2",
+   "group": "work",
+   "vocab": [
+    "desk",
+    "CV",
+    "chair",
+    "folder",
+    "handshake",
+    "office",
+    "window"
+   ]
+  }
+ },
+ "office-intro": {
+  "set": "An open-plan office corridor with desks and laptops on the left, a small kitchen area with a kettle in the background, a staircase on the right, light grey walls with lime-green and orange accents.",
+  "role_look": "none",
+  "frames": [
+   {
+    "lines": [
+     0,
+     1
+    ],
+    "shot": "wide",
+    "action": "Carlos walks over to Ama's desk with a friendly wave and open mouth; Ama stands with her laptop bag and smiles.",
+    "props": [
+     "desk",
+     "laptop",
+     "corridor"
+    ]
+   },
+   {
+    "lines": [
+     2,
+     3
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos and Ama shake hands with smiles; Ama points toward an unlabelled door along the corridor.",
+    "props": [
+     "handshake",
+     "doors"
+    ]
+   },
+   {
+    "lines": [
+     4,
+     5
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Carlos points up the staircase past the kitchen area; Ama follows his pointing with an interested look.",
+    "props": [
+     "staircase",
+     "kitchen area"
+    ]
+   },
+   {
+    "lines": [
+     6,
+     7
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Ama holds a coffee cup toward Carlos with an inviting look; Carlos smiles and gives a thumbs-up.",
+    "props": [
+     "coffee cups",
+     "calendar icon with clock icon"
+    ]
+   },
+   {
+    "lines": [
+     8
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos opens his arms in welcome and Ama gives a small grateful nod with a closed smile, both beside the desk.",
+    "props": [
+     "desk",
+     "plant",
+     "laptop"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "meeting a new colleague",
+   "cefr": "B1",
+   "group": "work",
+   "vocab": [
+    "office",
+    "desk",
+    "kitchen",
+    "coffee",
+    "lunch",
+    "stairs",
+    "laptop"
+   ]
+  }
+ },
+ "team-meeting": {
+  "set": "A bright meeting room: a long table with two laptops and a notebook, a wall-mounted blank whiteboard with simple coloured shapes, a window and a plant, white and blue palette.",
+  "role_look": "none",
+  "frames": [
+   {
+    "lines": [
+     0,
+     1
+    ],
+    "shot": "wide",
+    "action": "Carlos stands at the head of the table with an open mouth, hand toward the whiteboard; Ama sits at the table with a raised hand.",
+    "props": [
+     "meeting table",
+     "whiteboard",
+     "laptops"
+    ]
+   },
+   {
+    "lines": [
+     2,
+     3
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos nods with a calm smile; Ama holds up a printed page with colourful pie-chart shapes.",
+    "props": [
+     "chart sheet",
+     "notebook"
+    ]
+   },
+   {
+    "lines": [
+     4,
+     5
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Carlos looks at Ama with an interested face; Ama points to a happy face icon and a clock icon on the whiteboard.",
+    "props": [
+     "whiteboard icons",
+     "happy face",
+     "clock icon"
+    ]
+   },
+   {
+    "lines": [
+     6,
+     7
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Carlos spreads his hands asking a question; Ama draws a simple small booklet shape on the whiteboard with a marker.",
+    "props": [
+     "marker",
+     "booklet drawing"
+    ]
+   },
+   {
+    "lines": [
+     8,
+     9
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos nods approvingly with a thumbs-up; Ama writes in a notebook with a smile, near a calendar icon.",
+    "props": [
+     "notebook",
+     "calendar icon",
+     "thumbs up"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "team meeting",
+   "cefr": "B1",
+   "group": "work",
+   "vocab": [
+    "meeting room",
+    "whiteboard",
+    "laptop",
+    "chart",
+    "table",
+    "notes",
+    "calendar"
+   ]
+  }
+ },
+ "flat-viewing": {
+  "set": "A light, airy open-plan flat: a grey sofa, a double bed visible through an open door, a wardrobe, a small kitchenette, big windows, warm wood floor and soft pastel palette.",
+  "role_look": "none",
+  "frames": [
+   {
+    "lines": [
+     0,
+     1
+    ],
+    "shot": "wide",
+    "action": "Carlos opens the front door with a welcoming gesture; Ama steps in curiously looking around.",
+    "props": [
+     "front door",
+     "keys",
+     "flat interior"
+    ]
+   },
+   {
+    "lines": [
+     2,
+     3
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos gestures toward the sofa, bed and wardrobe with a sweeping hand; Ama nods happily while looking at them.",
+    "props": [
+     "sofa",
+     "bed",
+     "wardrobe"
+    ]
+   },
+   {
+    "lines": [
+     4,
+     5
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Carlos holds a sheet with a coin icon and a house icon; Ama points to a water tap and a wi-fi icon with a questioning look.",
+    "props": [
+     "sheet with icons",
+     "water tap",
+     "wi-fi icon"
+    ]
+   },
+   {
+    "lines": [
+     6,
+     7
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Carlos holds a blank paper with a signature line; Ama looks over it thoughtfully with a hand on chin.",
+    "props": [
+     "contract paper",
+     "pen"
+    ]
+   },
+   {
+    "lines": [
+     8
+    ],
+    "shot": "close-up on hands/object",
+    "action": "Carlos hands a pen to Ama over a blank contract on the table; Ama's hand takes it.",
+    "props": [
+     "pen",
+     "contract",
+     "table"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "viewing a flat",
+   "cefr": "B1",
+   "group": "housing",
+   "vocab": [
+    "sofa",
+    "bed",
+    "wardrobe",
+    "kitchen",
+    "keys",
+    "window",
+    "contract"
+   ]
+  }
+ },
+ "phone-plan": {
+  "set": "A modern phone shop: glass display counters with phones, a wall of colourful phone models, a counter with a tablet, bright white and purple palette.",
+  "role_look": "phone shop staff polo under the blazer, plain without logo",
+  "frames": [
+   {
+    "lines": [
+     0,
+     1
+    ],
+    "shot": "wide",
+    "action": "Carlos stands behind the counter greeting with a smile; Ama walks in holding her phone up.",
+    "props": [
+     "counter",
+     "phone display",
+     "phone"
+    ]
+   },
+   {
+    "lines": [
+     2,
+     3
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos asks with an open palm; Ama shows a video playing on her phone screen as a simple play icon.",
+    "props": [
+     "phone",
+     "play icon"
+    ]
+   },
+   {
+    "lines": [
+     4,
+     5
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Carlos points to a bold card showing an infinity symbol and a coin icon; Ama frowns slightly thinking.",
+    "props": [
+     "plan card with infinity icon",
+     "coin icon"
+    ]
+   },
+   {
+    "lines": [
+     6,
+     7
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Carlos shows a calendar card with a chain-link icon; Ama shakes her head slightly with a hand on her cheek.",
+    "props": [
+     "calendar card",
+     "chain link icon"
+    ]
+   },
+   {
+    "lines": [
+     8
+    ],
+    "shot": "close-up on hands/object",
+    "action": "Carlos holds up a smaller, cheaper plan card with a coin and a cloud icon; Ama holds her phone nearby with a thoughtful look.",
+    "props": [
+     "plan card",
+     "cloud icon",
+     "phone"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "choosing a phone plan",
+   "cefr": "B1",
+   "group": "services",
+   "vocab": [
+    "phone",
+    "plan",
+    "data",
+    "contract",
+    "video",
+    "screen",
+    "shop"
+   ]
+  }
+ },
+ "lost-luggage": {
+  "set": "An airport baggage claim hall: an empty luggage carousel in the background, a lost-luggage desk with a blank screen, a big window with a plane outline, blue and orange palette.",
+  "role_look": "airport staff vest in navy over the shirt, no logo",
+  "frames": [
+   {
+    "lines": [
+     0,
+     1
+    ],
+    "shot": "wide",
+    "action": "Ama stands at the empty carousel with open hands, looking puzzled, then Carlos waits at the lost-luggage desk with a smile.",
+    "props": [
+     "empty carousel",
+     "desk"
+    ]
+   },
+   {
+    "lines": [
+     2,
+     3
+    ],
+    "shot": "medium two-shot",
+    "action": "Ama hands over a boarding pass and a small tag while Carlos takes them with a sympathetic look.",
+    "props": [
+     "boarding pass",
+     "baggage tag"
+    ]
+   },
+   {
+    "lines": [
+     4,
+     5
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Ama shows a large rectangle shape with her hands; Carlos sketches a navy suitcase with a red ribbon on a sheet, no text.",
+    "props": [
+     "sketch of navy suitcase",
+     "red ribbon"
+    ]
+   },
+   {
+    "lines": [
+     6,
+     7
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Ama puts a hand on her chest with an urgent look and holds a small pill box; Carlos looks concerned.",
+    "props": [
+     "pill box"
+    ]
+   },
+   {
+    "lines": [
+     8,
+     9
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos holds a blank form and pen; Ama points to a small hotel-building icon on the form.",
+    "props": [
+     "form",
+     "pen",
+     "hotel icon"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "reporting lost luggage",
+   "cefr": "B1",
+   "group": "travel",
+   "vocab": [
+    "suitcase",
+    "carousel",
+    "baggage tag",
+    "boarding pass",
+    "ribbon",
+    "hotel",
+    "desk"
+   ]
+  }
+ },
+ "cinema-tickets": {
+  "set": "A cheerful cinema lobby: a ticket counter with a glass window, a blank poster wall showing only colourful shapes, a popcorn machine, deep red and gold palette.",
+  "role_look": "cinema usher's red vest over the white shirt, no logo",
+  "frames": [
+   {
+    "lines": [
+     0,
+     1
+    ],
+    "shot": "wide",
+    "action": "Carlos waits at the ticket window with a smile; Ama steps up with a bag and gives a small open-mouthed smile.",
+    "props": [
+     "ticket counter",
+     "poster wall",
+     "popcorn machine"
+    ]
+   },
+   {
+    "lines": [
+     2,
+     3
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos holds up a ticket pair; Ama points toward the back of the cinema through a door.",
+    "props": [
+     "tickets"
+    ]
+   },
+   {
+    "lines": [
+     4,
+     5
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Carlos points to a simple seating-plan drawing with seats in rows; Ama gives an acceptable nod.",
+    "props": [
+     "seat plan with seats",
+     "row"
+    ]
+   },
+   {
+    "lines": [
+     6,
+     7
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Carlos holds a card reader; Ama holds out her bank card and gestures for a receipt.",
+    "props": [
+     "card reader",
+     "bank card"
+    ]
+   },
+   {
+    "lines": [
+     8
+    ],
+    "shot": "close-up on hands/object",
+    "action": "Carlos hands two cinema tickets and a receipt through the window to Ama's hand.",
+    "props": [
+     "two tickets",
+     "receipt",
+     "window"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "buying cinema tickets",
+   "cefr": "A2",
+   "group": "leisure",
+   "vocab": [
+    "ticket",
+    "cinema",
+    "seat",
+    "screen",
+    "card",
+    "receipt",
+    "popcorn"
+   ]
+  }
+ },
+ "party-invite": {
+  "set": "A friendly neighbourhood park bench scene: green trees, a wooden bench, a blue sky, with a small floating balloon bunch tied to the bench, bright pastel palette.",
+  "role_look": "none",
+  "frames": [
+   {
+    "lines": [
+     0
+    ],
+    "shot": "wide",
+    "action": "Ama sits on the bench holding a balloon string and smiling with an open mouth; Carlos sits near her with a closed smile.",
+    "props": [
+     "park bench",
+     "balloons"
+    ]
+   },
+   {
+    "lines": [
+     1,
+     2
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos leans in with an interested look; Ama holds up a blank party invitation card with a clock icon.",
+    "props": [
+     "invitation card",
+     "clock icon"
+    ]
+   },
+   {
+    "lines": [
+     3,
+     4
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Carlos puts his hand on his heart with a grateful smile and gestures holding a snack basket, offering to bring something.",
+    "props": [
+     "snack basket",
+     "drink bottle"
+    ]
+   },
+   {
+    "lines": [
+     5,
+     6
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Ama waves her hands lightly in a no-need gesture and points toward a second friend-shaped icon; Carlos smiles.",
+    "props": [
+     "invitation card",
+     "friend icon"
+    ]
+   },
+   {
+    "lines": [
+     7,
+     8
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos and Ama give each other a friendly fist bump with big smiles.",
+    "props": [
+     "balloons",
+     "calendar icon"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "inviting a friend to a party",
+   "cefr": "A2",
+   "group": "social",
+   "vocab": [
+    "party",
+    "balloons",
+    "cake",
+    "invitation",
+    "friend",
+    "calendar",
+    "snack"
+   ]
+  }
+ },
+ "post-office": {
+  "set": "A cheerful post office: a counter with a parcel scale and stamps, wall shelves of boxes and envelopes, a blank queue ticket machine, red and cream palette.",
+  "role_look": "post office red vest over the white shirt, no logo",
+  "frames": [
+   {
+    "lines": [
+     0,
+     1
+    ],
+    "shot": "wide",
+    "action": "Carlos waves at Ama from behind the counter; Ama approaches with a cardboard box in her arms.",
+    "props": [
+     "counter",
+     "parcel scale",
+     "box"
+    ]
+   },
+   {
+    "lines": [
+     2,
+     3
+    ],
+    "shot": "medium two-shot",
+    "action": "Carlos looks at the box with curiosity; Ama opens the lid to show books and a folded scarf.",
+    "props": [
+     "open box",
+     "books",
+     "scarf"
+    ]
+   },
+   {
+    "lines": [
+     4,
+     5
+    ],
+    "shot": "over-the-shoulder on Ama",
+    "action": "Carlos holds two cards, one with a plane icon and one with a ship icon; Ama points at the plane.",
+    "props": [
+     "plane card",
+     "ship card"
+    ]
+   },
+   {
+    "lines": [
+     6,
+     7
+    ],
+    "shot": "over-the-shoulder on Carlos",
+    "action": "Carlos places the box on the parcel scale with a nod; Ama points at a tracking-barcode sticker with a curious look.",
+    "props": [
+     "parcel scale",
+     "barcode sticker"
+    ]
+   },
+   {
+    "lines": [
+     8
+    ],
+    "shot": "close-up on hands/object",
+    "action": "Carlos hands a printed blank receipt to Ama's hand with a stamp on it.",
+    "props": [
+     "receipt",
+     "stamp",
+     "counter"
+    ]
+   }
+  ],
+  "tags": {
+   "topic": "sending a parcel",
+   "cefr": "A2",
+   "group": "services",
+   "vocab": [
+    "box",
+    "parcel",
+    "scale",
+    "stamp",
+    "receipt",
+    "counter",
+    "plane"
+   ]
+  }
+ }
+}
