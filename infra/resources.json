@@ -137,7 +137,7 @@
       "key": "ai",
       "name": "Cloudflare Workers AI",
       "kind": "ai",
-      "purpose": "Dự phòng chấm Writing/Speaking & hội thoại Roleplay công sở (/api/ai) khi Gemini gần trần; hạn mức theo người ở functions/api/_quota.js (docs/QUOTAS.md), cầu dao giữ < 80% gói miễn phí · AI phân loại báo lỗi (functions/api/_triage.js, @cf/meta/llama-4-scout-17b-16e-instruct, binding AI; không có binding → REST api.cloudflare.com với secret CF_AI_TOKEN + CF_ACCOUNT_ID tùy chọn)",
+      "purpose": "Dự phòng chấm Writing/Speaking & hội thoại Roleplay công sở · AI điền nghĩa cho Nhập tài liệu, tính năng `import` (/api/ai) khi Gemini gần trần; hạn mức theo người ở functions/api/_quota.js (docs/QUOTAS.md), cầu dao giữ < 80% gói miễn phí · AI phân loại báo lỗi (functions/api/_triage.js, @cf/meta/llama-4-scout-17b-16e-instruct, binding AI; không có binding → REST api.cloudflare.com với secret CF_AI_TOKEN + CF_ACCOUNT_ID tùy chọn)",
       "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/ai/workers-ai",
       "free": "10.000 neuron/ngày",
       "upgrade": "Workers Paid",
@@ -572,6 +572,19 @@
       "match": [
         "lexkite-blog-media",
         "e34e14b7ab35eaf2b3d9d84fcce011f7.r2.cloudflarestorage.com"
+      ]
+    },
+    {
+      "key": "cf-doh",
+      "name": "Cloudflare DNS-over-HTTPS (cloudflare-dns.com)",
+      "kind": "api",
+      "purpose": "/api/readable (Nhập tài liệu từ liên kết) phân giải DNS để chặn SSRF: mọi địa chỉ phải là IP công khai, kiểm lại từng bước chuyển hướng (functions/api/readable.js). Lỗi → từ chối liên kết (không bao giờ cho qua)",
+      "console": "",
+      "free": "Miễn phí, không khóa API",
+      "upgrade": "Không cần",
+      "status": "Đang dùng",
+      "match": [
+        "cloudflare-dns.com"
       ]
     },
     {

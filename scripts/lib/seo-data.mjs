@@ -43,6 +43,12 @@ export function relatedOf(list, item, same, n = 6) {
   const i = list.indexOf(item), after = pool.filter(x => list.indexOf(x) > i), before = pool.filter(x => list.indexOf(x) < i);
   return [...after, ...before].slice(0, n);
 }
+// Phát âm: bài cũ giữ NGUYÊN 4 gợi ý như trước (cổng samples-seo-parity cấm mất link), bài nâng cao mới (adv) chỉ được THÊM vào cuối (tối đa 2); bài adv gợi ý như thường.
+export function relatedPron(list, x) {
+  const same = y => y.group === x.group;
+  if (x.adv) return relatedOf(list, x, same, 4);
+  return [...relatedOf(list.filter(y => !y.adv), x, same, 4), ...relatedOf(list.filter(y => y.adv), x, same, 2)];
+}
 // Ngữ pháp: bài + tên chủ điểm (UNITS trong web/js/grammar.js)
 export function loadGrammar() {
   const c = load(['grammar/tenses', 'grammar/verbs', 'grammar/sentences', 'grammar/foundation', 'grammar/academic', 'grammar/chapters', 'grammar/book2']);

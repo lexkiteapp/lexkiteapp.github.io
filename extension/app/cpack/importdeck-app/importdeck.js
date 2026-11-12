@@ -1,7 +1,8 @@
 /* 📥 Nhập tài liệu → bộ thẻ FSRS riêng (docs/specs/import-to-deck.md #5, lát M1: dán chữ · .txt · .srt/.vtt · ePub · PDF).
  * Tải lười (App.need('impdeck')), cờ `importdeck` mặc định TẮT. Đọc HẾT trên máy: không tải tệp/văn bản lên máy chủ, không lưu bản gốc – chỉ thẻ + câu gốc ≤ 25 từ + tên nguồn.
  * Lõi (ImportDeckKit) thuần JS, kiểm thử bằng scripts/test/importdeck.mjs. Giao diện (ImportDeck) 4 bước: Nguồn → Chọn từ → Nghĩa → Tạo bộ.
- * Chưa có (PR sau): link bài viết (/api/readable) và AI điền nghĩa (api/ai.js, khóa quota `import`) – từ thiếu nghĩa được đánh dấu "chưa có nghĩa". */
+ * Lát 2: dán liên kết bài viết (POST /api/readable, functions/api/readable.js – máy chủ tải trang, chống SSRF) và nút "Điền nghĩa bằng AI" (api/ai.js kind 'import',
+ * quota `import`: theo lô ≤ 20 từ, chỉ gửi từ + câu gốc, nhớ kết quả, người học tự bấm, thẻ đánh dấu aimean). Hết lượt/lỗi → im lặng giữ "chưa có nghĩa". */
 (function (g) {
   'use strict';
   const MAX_BYTES = 20 * 1048576, MAX_PAGES = 200, BATCH = 50, MAX_WORDS = 25, PRESELECT = 30, TOP_DROP = 1000, CAND = 300, MAX_TEXT = 4e6;
@@ -155,10 +156,43 @@
       if (vi) { if (!e.vi && c.meaning) e.vi = c.meaning; } else if (!e.def && c.meaning) e.def = c.meaning;
       const card = C.make(e, { deck, added: now - picked.length + i });
       if (c.sentence) { card.ex = c.sentence; card.contexts = [{ text: c.sentence, source: '', title: source, at: now }]; }
+      if (c.ai && c.meaning) card.aimean = 1; // nghĩa do AI gợi ý (không phải từ điển) – hiện nhãn "AI gợi ý"
       if (!c.meaning && !(card.vi || card.def)) card.nomean = 1; // "chưa có nghĩa" – điền sau
       out.push(card);
     });
     return out;
+  }
+
+  // Liên kết bài viết → { title, text, host } qua /api/readable. Lỗi: { code: badurl|blocked|type|toobig|empty|dns|fetch|net|quota (+ .q) }
+  const LINK_ERR = { badurl: 1, blocked: 1, type: 1, toobig: 1, empty: 1, dns: 1, fetch: 1 };
+  async function fetchLink(url, { fetch: f = g.fetch && g.fetch.bind(g), base = '', headers = {}, timeout = 20000 } = {}) {
+    url = String(url || '').trim(); if (!/^https?:\/\/[^\s]{4,2000}$/i.test(url)) throw err('badurl');
+    if (g.navigator && g.navigator.onLine === false) throw err('net');
+    let r; try { r = await f(base + '/api/readable', { method: 'POST', headers: { 'Content-Type': 'application/json', ...headers }, body: JSON.stringify({ url }), signal: AbortSignal.timeout(timeout) }); } catch (e) { throw err('net'); }
+    const j = await r.json().catch(() => ({}));
+    if (r.status === 429) throw Object.assign(err('quota'), { q: j });
+    if (!r.ok || !j || typeof j.text !== 'string') throw err(LINK_ERR[j && j.error] ? j.error : 'fetch');
+    return { title: String(j.title || ''), text: j.text, host: String(j.host || '') };
+  }
+
+  // AI điền nghĩa ngắn cho từ thiếu nghĩa. call(sys, prompt, n) → đối tượng { m: { từ: nghĩa } } (giao diện nối /api/ai kind 'import'); ném lỗi { code:'quota' } khi hết lượt.
+  // Theo lô ≤ 20 từ/lời gọi, chỉ gửi từ + câu gốc (≤ 200 ký tự), nhớ theo từ+ngôn ngữ (cache: đối tượng thường), hết lượt/lỗi → dừng im lặng (từ giữ "chưa có nghĩa").
+  const AI_BATCH = 20;
+  const aiSys = lang => `You write very short dictionary glosses for language learners. Input: a JSON array of {"w": word, "s": the sentence it appears in}. For each word give the meaning that fits its sentence: at most 8 words, written in ${lang}. Reply with ONE JSON object {"m":{"<word>":"<gloss>"}} using exactly the input words as keys. Leave out any word you are not sure about.`;
+  const cleanGloss = v => typeof v === 'string' ? v.replace(/[<>\r\n]+/g, ' ').replace(/\s+/g, ' ').trim().replace(/^["“'‘]+|["”'’.]+$/g, '').slice(0, 80) : '';
+  async function aiFill(list, { call, lang = 'Vietnamese', cache = {}, isCancelled = () => false, onProgress } = {}) {
+    const need = list.filter(c => !c.meaning); let filled = 0, stop = '';
+    const hit = []; for (const c of need) { const v = cache[c.word + '|' + lang]; if (v) { c.meaning = v; c.ai = 1; filled++; } else hit.push(c); }
+    for (let i = 0; i < hit.length && !stop; i += AI_BATCH) {
+      if (isCancelled()) break;
+      const b = hit.slice(i, i + AI_BATCH);
+      try {
+        const out = await call(aiSys(lang), 'Give a short meaning for each word.\n' + JSON.stringify(b.map(c => ({ w: c.word, s: String(c.sentence || '').slice(0, 200) }))), b.length), m = out && typeof out.m === 'object' && out.m ? out.m : {};
+        for (const c of b) { const v = cleanGloss(m[c.word]); if (v) { c.meaning = v; c.ai = 1; cache[c.word + '|' + lang] = v; filled++; } }
+      } catch (e) { stop = e && e.code === 'quota' ? 'quota' : 'fail'; }
+      if (onProgress) onProgress(Math.min(1, (i + AI_BATCH) / hit.length));
+    }
+    return { filled, stop, missing: need.length - filled };
   }
 
   // PDF: pdf.js tải lười từ CDN (SRI), worker qua blob (CSP worker-src 'self' blob:), đọc từng trang, nhả luồng chính mỗi mẻ 50 trang, hủy được
@@ -210,7 +244,7 @@
     throw err('type');
   }
 
-  const Kit = { parseSubs, epubEach, pdfEach, splitSent, forms, rankOf, createMiner, enrich, preselect, deckName, makeCards, readSource, loadPdfJs, MAX_BYTES, MAX_PAGES, PRESELECT };
+  const Kit = { parseSubs, epubEach, pdfEach, splitSent, forms, rankOf, createMiner, enrich, preselect, deckName, makeCards, readSource, loadPdfJs, fetchLink, aiFill, AI_BATCH, MAX_BYTES, MAX_PAGES, PRESELECT };
   g.ImportDeckKit = Kit;
   if (typeof module !== 'undefined' && module.exports) module.exports = Kit;
   if (typeof document === 'undefined' || !g.UI) return;
@@ -231,10 +265,24 @@
 .idk-no{font-size:.72rem;font-weight:800;color:var(--again-text,#8a2a14);background:var(--again-soft,#ffe6df);border-radius:99px;padding:.05rem .5rem;margin-left:.35rem}
 .idk-err{background:var(--again-soft);color:var(--again-text);border-radius:12px;padding:.6rem .75rem}.idk-note{font-size:.82rem;color:var(--muted);background:var(--surface-2);border-radius:12px;padding:.6rem .75rem}
 .idk-prev{display:grid;gap:.5rem}.idk-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:.6rem .8rem}.idk-card .w{font-weight:800}.idk-card .x{font-size:.82rem;color:var(--muted)}
+.idk-link{display:flex;gap:.5rem}.idk-link input{flex:1;min-width:0}.idk-ai{font-size:.72rem;font-weight:800;color:var(--accent-text);border:1px solid var(--accent);border-radius:99px;padding:.05rem .5rem;margin-left:.35rem}
 .idk .row.end{justify-content:flex-end}.idk .btn{min-height:44px}.idk-done{text-align:center;display:grid;gap:.6rem;justify-items:center}@media (max-width:480px){.idk .row.end .btn{flex:1}}`;
     document.head.appendChild(st);
   };
   const ERRS = () => ({ toobig: T('Tệp quá lớn (tối đa 20 MB, 200 trang).'), type: T('Chưa đọc được loại tệp này.'), epub: T('Chưa đọc được loại tệp này.'), net: T('Không tải được – thử lại sau'), browser: T('Trình duyệt chưa hỗ trợ – hãy cập nhật trình duyệt') });
+  const linkMsg = e => e.code === 'quota' ? ((g.UI.quotaText && g.UI.quotaText(e.q || {})) || T('Không tải được – thử lại sau')) : e.code === 'net' ? T('Không tải được – thử lại sau') : e.code === 'badurl' || e.code === 'blocked' ? T('Liên kết không hợp lệ hoặc không được phép.') : e.code === 'toobig' ? T('Bài viết quá lớn (tối đa 1 MB).') : T('Không đọc được bài từ liên kết này.');
+  const apiBase = () => /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : 'https://lexkite.com';
+  const apiHeaders = async () => { const h = { 'X-Lexkite-Device': g.UI.dev ? g.UI.dev() : '' }; try { if (g.Sync && Sync.user) h.Authorization = 'Bearer ' + await Sync.user.getIdToken(); } catch (e) { /* khách */ } return h; };
+  const MEAN_KEY = 'lk.impmean';
+  const meanCache = () => { try { return JSON.parse(localStorage.getItem(MEAN_KEY) || '{}') || {}; } catch (e) { return {}; } };
+  const saveMeanCache = c => { try { const k = Object.keys(c); if (k.length > 400) for (const x of k.slice(0, k.length - 400)) delete c[x]; localStorage.setItem(MEAN_KEY, JSON.stringify(c)); } catch (e) { /* bỏ qua */ } };
+  const aiCall = async (sys, prompt, n) => { // → /api/ai kind 'import' (AI miễn phí, quota `import`); 429 → { code:'quota' }
+    let r; try { r = await fetch(apiBase() + '/api/ai', { method: 'POST', headers: { 'Content-Type': 'application/json', ...(await apiHeaders()) }, body: JSON.stringify({ kind: 'import', n, sys, prompt }), signal: AbortSignal.timeout(60000) }); } catch (e) { throw err('net'); }
+    const j = await r.json().catch(() => ({}));
+    if (r.status === 429) throw Object.assign(err('quota'), { q: j });
+    if (!r.ok || !j.out) throw err('fail');
+    return j.out;
+  };
 
   let S = null;
   const root = () => document.getElementById('idRoot');
@@ -267,6 +315,8 @@
       <input type="file" id="idFile" accept="${isExt() ? '' : '.pdf,application/pdf,'}.epub,.srt,.vtt,.txt,text/plain" hidden aria-label="${T('Chọn file')}">
       <label for="idText" class="small" style="font-weight:700">${T('Hoặc dán văn bản')}</label>
       <textarea class="input" id="idText" rows="4" placeholder="${esc(T('Hoặc dán văn bản'))}">${esc(S.text || '')}</textarea>
+      <label for="idLink" class="small" style="font-weight:700">${T('Hoặc dán liên kết bài viết')}</label>
+      <div class="idk-link"><input class="input" id="idLink" type="url" inputmode="url" autocomplete="off" placeholder="https://" value="${esc(S.link || '')}"><button type="button" class="btn" id="idLinkGo">${T('Đọc liên kết')}</button></div>
       <div id="idMsg" role="status" aria-live="polite">${S.err ? `<div class="idk-err">⚠️ ${esc(S.err)}</div>` : ''}</div>
       <div class="row end"><button type="button" class="btn ghost" data-close>${T('Đóng')}</button><button type="button" class="btn primary" id="idGo">${T('Tiếp tục')}</button></div>`;
   }
@@ -275,7 +325,7 @@
   }
   function setP(p, label) { const b = $('#idBar'); if (!b) return; const v = Math.round(p * 100); b.firstElementChild.style.width = v + '%'; b.setAttribute('aria-valuenow', v); if (label) { const l = $('#idProg'); if (l) l.textContent = label; } }
   function rows(list) {
-    return `<ul class="idk-list" aria-label="${T('Chọn từ để học')}">${list.slice(0, S.shown).map(c => `<li><label class="idk-row"><input type="checkbox" data-w="${esc(c.word)}" ${S.picked.has(c.word) ? 'checked' : ''}><span><b>${esc(c.word)}</b>${c.n > 1 ? `<span class="idk-n">×${c.n}</span>` : ''}${c.meaning ? '' : `<span class="idk-no">${T('chưa có nghĩa')}</span>`}<span class="s">${esc(c.meaning || '')}${c.meaning && c.sentence ? ' · ' : ''}${esc(c.sentence || '')}</span></span></label></li>`).join('')}</ul>`;
+    return `<ul class="idk-list" aria-label="${T('Chọn từ để học')}">${list.slice(0, S.shown).map(c => `<li><label class="idk-row"><input type="checkbox" data-w="${esc(c.word)}" ${S.picked.has(c.word) ? 'checked' : ''}><span><b>${esc(c.word)}</b>${c.n > 1 ? `<span class="idk-n">×${c.n}</span>` : ''}${c.meaning ? (c.ai ? `<span class="idk-ai">${T('AI gợi ý')}</span>` : '') : `<span class="idk-no">${T('chưa có nghĩa')}</span>`}<span class="s">${esc(c.meaning || '')}${c.meaning && c.sentence ? ' · ' : ''}${esc(c.sentence || '')}</span></span></label></li>`).join('')}</ul>`;
   }
   function pickView() {
     const L = S.list;
@@ -291,13 +341,18 @@
     return `${head(3, T('Nghĩa của từ'))}
       <p class="small muted" style="margin:0">${T('Nghĩa từ từ điển Lexkite. Từ thiếu nghĩa vẫn được lưu.')}</p>
 ${rows(P.length ? P : [])}
+      ${aiBox(P)}
       <div class="row end"><button type="button" class="btn ghost" id="idBack">← ${T('Quay lại')}</button><button type="button" class="btn primary" id="idNext" ${P.length ? '' : 'disabled'}>${T('Tiếp tục')}</button></div>`;
   }
+  const aiBox = P => { // nút AI chỉ hiện khi còn từ thiếu nghĩa (người học tự bấm; chỉ gửi từ + câu gốc)
+    const n = P.filter(c => !c.meaning).length; if (!n) return '';
+    return `<div class="idk-note" id="idAiBox"><button type="button" class="btn sm" id="idAi" ${S.aiBusy ? 'disabled' : ''}>✨ ${S.aiBusy ? T('Đang nhờ AI điền nghĩa…') : T('Điền nghĩa bằng AI')}</button><div class="small" style="margin-top:.4rem">${S.aiNote || T('Chỉ gửi từ và câu gốc, không gửi cả tài liệu.')}</div></div>`;
+  };
   function nameView() {
     const P = pickedList(), five = P.slice(0, 5);
     return `${head(4, T('Tạo bộ {n} thẻ', { n: P.length }))}
       <label for="idDeck" class="small" style="font-weight:700">${T('Tên bộ từ trong Lexkite')}<input class="input" id="idDeck" maxlength="60" value="${esc(S.deck)}"></label>
-      <div><div class="idk-prev">${five.map(c => `<div class="idk-card"><div class="w">${esc(c.word)}</div><div>${c.meaning ? esc(c.meaning) : `<span class="idk-no">${T('chưa có nghĩa')}</span>`}</div>${c.sentence ? `<div class="x">${esc(c.sentence)}</div>` : ''}</div>`).join('')}</div></div>
+      <div><div class="idk-prev">${five.map(c => `<div class="idk-card"><div class="w">${esc(c.word)}</div><div>${c.meaning ? esc(c.meaning) + (c.ai ? ` <span class="idk-ai">${T('AI gợi ý')}</span>` : '') : `<span class="idk-no">${T('chưa có nghĩa')}</span>`}</div>${c.sentence ? `<div class="x">${esc(c.sentence)}</div>` : ''}</div>`).join('')}</div></div>
       <p class="small muted" style="margin:0">${T('Thẻ vào lịch ôn FSRS. Không lưu tệp gốc.')}</p>
       <div class="row end"><button type="button" class="btn ghost" id="idBack">← ${T('Quay lại')}</button><button type="button" class="btn primary" id="idSave">${T('Tạo bộ {n} thẻ', { n: P.length })}</button></div>`;
   }
@@ -317,6 +372,8 @@ ${rows(P.length ? P : [])}
       drop.ondrop = e => { e.preventDefault(); drop.classList.remove('on'); if (e.dataTransfer.files[0]) run(e.dataTransfer.files[0]); };
       const tx = b('idText'), go = b('idGo'); tx.oninput = () => { S.text = tx.value; go.disabled = tx.value.trim().length < 20; }; // chữ dán: ≥ 20 ký tự mới bấm được
       go.disabled = (S.text || '').trim().length < 20; go.onclick = () => run(tx.value, T('Văn bản dán'));
+      const lk = b('idLink'), lg = b('idLinkGo'); lk.oninput = () => { S.link = lk.value; lg.disabled = !/^https?:\/\/\S{4,}$/i.test(lk.value.trim()); }; lg.disabled = !/^https?:\/\/\S{4,}$/i.test((S.link || '').trim());
+      lg.onclick = () => runLink(lk.value); lk.onkeydown = e => { if (e.key === 'Enter' && !lg.disabled) { e.preventDefault(); runLink(lk.value); } };
       return;
     }
     on('idBack', () => { S.step = S.step === 2 ? 1 : S.step - 1; S.err = null; S.focusH = true; draw(); });
@@ -330,9 +387,9 @@ ${rows(P.length ? P : [])}
       const n = b('idNext'); if (n) n.disabled = !S.picked.size;
     });
     const dk = b('idDeck'); if (dk) dk.oninput = () => { S.deck = dk.value; };
-    on('idSave', save);
+    on('idSave', save); on('idAi', aiRun);
   }
-  async function run(src, label) {
+  async function run(src, label, opts = {}) {
     S.err = null; S.busy = true; S.cancel = false; S.msg = T('Đang đọc trên máy…'); draw();
     const cancelled = () => S.cancel || !isOpen();
     try {
@@ -342,7 +399,7 @@ ${rows(P.length ? P : [])}
       setP(0.72);
       S.list = await enrich(raw, { lookup, known: K, isCancelled: cancelled, onProgress: p => setP(0.72 + p * 0.28) });
       S.picked = preselect(S.list); S.shown = 100;
-      S.deck = deckName(typeof src === 'string' ? '' : src.name) || T('Văn bản dán');
+      S.deck = opts.deck || deckName(typeof src === 'string' ? '' : src.name) || T('Văn bản dán'); S.aiNote = '';
       S.source = typeof src === 'string' ? label : src.name; S.kind = info.kind;
       S.step = 2; S.busy = false; S.focusH = true;
     } catch (e) {
@@ -351,6 +408,21 @@ ${rows(P.length ? P : [])}
       S.err = ERRS()[e.code] || T('Chưa nhập được. Hãy thử lại.');
     }
     if (isOpen()) draw();
+  }
+  async function runLink(url) {
+    S.err = null; S.busy = true; S.cancel = false; S.msg = T('Đang tải bài viết…'); draw();
+    let res; try { res = await fetchLink(url, { base: apiBase(), headers: await apiHeaders() }); }
+    catch (e) { S.busy = false; S.step = 1; S.err = linkMsg(e); if (isOpen()) draw(); return; }
+    if (!isOpen()) return;
+    return run(res.text, res.host || T('Văn bản dán'), { deck: deckName(res.title || res.host) });
+  }
+  async function aiRun() { // AI điền nghĩa cho các từ đã chọn mà thiếu nghĩa; hết lượt/lỗi → giữ "chưa có nghĩa", chỉ một dòng báo nhẹ
+    if (S.aiBusy) return; S.aiBusy = true; S.aiNote = ''; draw();
+    const cache = meanCache(), lang = g.I18N && I18N.meanLang && I18N.meanLang() !== 'vi' ? 'English' : 'Vietnamese';
+    const r = await aiFill(pickedList(), { call: aiCall, lang, cache, isCancelled: () => !isOpen() }); saveMeanCache(cache);
+    S.aiBusy = false; if (!isOpen()) return;
+    S.aiNote = r.stop && r.missing ? T('AI chưa điền được – các từ này vẫn được lưu, điền nghĩa sau.') : '';
+    draw(); if (r.filled) toast(T('Đã điền {n} nghĩa bằng AI', { n: r.filled }));
   }
   async function save() {
     const P = pickedList(); if (!P.length) return;
