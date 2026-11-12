@@ -1101,6 +1101,20 @@ export const REG = {
    "lease": true
   },
   {
+   "id": "audit-all",
+   "workflow": "audit-all.yml",
+   "cron": [
+    "17 19 * * 1,4"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 300,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "content-qa",
    "workflow": "content-qa.yml",
    "cron": [
