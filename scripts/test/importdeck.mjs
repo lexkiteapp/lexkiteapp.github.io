@@ -10,7 +10,7 @@ const require = createRequire(import.meta.url);
 const rd = f => fs.readFileSync(new URL('../../web/' + f, import.meta.url), 'utf8');
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const FIX = new URL('./fixtures/importdeck/', import.meta.url);
-(0, eval)(rd('cpack/importdeck-app/freq-rank.js').replace(/^self\./m, 'globalThis.'));
+(0, eval)(rd('js/lib/freq-rank.js').replace(/^self\./m, 'globalThis.'));
 const A = require('../../web/js/anki.js'); globalThis.AnkiKit = A;
 const K = require('../../web/cpack/importdeck-app/importdeck.js');
 const enc = new TextEncoder();
@@ -147,7 +147,7 @@ Skeptical readers doubted the claims, and a skeptical editor agreed. Xqzvtp is n
   w.Lex = { get: async x => DICT[x] ? { entry: DICT[x], key: x } : null };
   w.Sync = { schedule() { syncs++; } };
   w.eval(rd('js/ui.js')); w.AnkiKit = A;
-  (0, w.eval)(rd('cpack/importdeck-app/freq-rank.js')); w.eval(rd('cpack/importdeck-app/importdeck.js'));
+  (0, w.eval)(rd('js/lib/freq-rank.js')); w.eval(rd('cpack/importdeck-app/importdeck.js'));
   const tick = (ms = 0) => new Promise(r => setTimeout(r, ms)), until = async (f, t = 3000) => { for (let i = 0; i < t / 10 && !f(); i++) await tick(10); return f(); };
   ok(typeof w.ImportDeck.open === 'function' && typeof w.App.importDeck === 'function', 'ImportDeck nạp được, gắn App.importDeck');
   await w.ImportDeck.open();
@@ -194,7 +194,7 @@ Skeptical readers doubted the claims, and a skeptical editor agreed. Xqzvtp is n
 // ---------- 10. Cờ, bó tải, add-on ----------
 {
   const app = rd('js/app.js'), cfg = fs.readFileSync(new URL('../../functions/api/config.js', import.meta.url), 'utf8'), adm = fs.readFileSync(new URL('../../functions/api/admin.js', import.meta.url), 'utf8');
-  ok(/impdeck: \['cpack\/importdeck-app\/freq-rank\.js', 'cpack\/importdeck-app\/importdeck\.js'\]/.test(app), 'app.js: gói lười impdeck (khung app chỉ +1 dòng)');
+  ok(/impdeck: \['js\/lib\/freq-rank\.js', 'cpack\/importdeck-app\/importdeck\.js'\]/.test(app), 'app.js: gói lười impdeck (khung app chỉ +1 dòng)');
   ok(/'importdeck'/.test(cfg) && /'importdeck'/.test(adm), 'importdeck có trong PUBLIC_KEYS + CONFIG_KEYS (mặc định tắt)');
   const src = rd('cpack/importdeck-app/importdeck.js');
   ok(!/fetch\([^)]*(post|POST)|sendBeacon|XMLHttpRequest/.test(src) && !/method:\s*['"]POST/.test(src), 'không gửi nội dung người dùng đi đâu (không POST/beacon)');

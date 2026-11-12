@@ -349,7 +349,7 @@
     wordcard: ['js/wordcard.js'], // 🧠 Khối "Hiểu sâu" của thẻ từ (mẹo nhớ · lỗi sai/đúng · dùng khi thi · họ từ)
     ailocal: ['js/ai-local.js'], // 🔒 AI trên máy (Chrome/Edge built-in AI) – chỉ tải khi một tính năng AI cần, xem docs/AI-LOCAL.md
     anki: ['js/lib/save-file.js', 'js/anki.js'], // 🃏 Xuất/nhập Anki (.apkg/.txt/.csv) – chỉ tải khi mở hộp thoại Anki
-    impdeck: ['cpack/importdeck-app/freq-rank.js', 'cpack/importdeck-app/importdeck.js'], // 📥 Nhập PDF/ePub/chữ/phụ đề → bộ thẻ (cờ importdeck; mở từ hộp thoại Anki, cùng nạp 'anki') – docs/specs/import-to-deck.md
+    impdeck: ['js/lib/freq-rank.js', 'cpack/importdeck-app/importdeck.js'], // 📥 Nhập PDF/ePub/chữ/phụ đề → bộ thẻ (cờ importdeck; mở từ hộp thoại Anki, cùng nạp 'anki') – docs/specs/import-to-deck.md
     share: ['js/lib/qr.js', 'js/lib/save-file.js', 'js/share-card.js'],
     xport: ['js/export.js'],
     file: ['js/lib/save-file.js'],
