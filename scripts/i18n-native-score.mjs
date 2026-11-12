@@ -154,31 +154,35 @@ async function main(argv) {
     if (argv.includes('--check') && !g.ok) process.exit(1);
     return;
   }
-  const [si, sn] = String(arg('--shard') || '1/1').split('/').map(Number), limit = +(arg('--limit') || 400);
+  const [si, sn] = String(arg('--shard') || '1/1').split('/').map(Number), limit = +(arg('--limit') || 400), mine = rd(`${CACHE_DIR}/part-${si}.json`, {});
   const { createPool, CHAINS } = await import('./lib/ai-pool.mjs');
   const pool = createPool({ budget: { lexai: 0 }, prompt: req => ({ sys: SYS[req.mode](req.lang), user: JSON.stringify(req.items), temp: req.mode === 'nsgen' ? 0.4 : 0.1 }) });
   const AI = { ...pool, CHAINS };
-  const cache = loadCache(), part = `${CACHE_DIR}/part-${si}.json`, mine = rd(part, {});
+  // NS_MIN: dừng đúng hạn để CI kịp lưu phần đã chấm (quá giờ job bị hủy → mất hết, run 42953904883); chốt cứng +4 phút nếu một lô treo trong hàng chờ pool
+  const deadline = Date.now() + (+process.env.NS_MIN || 1e6) * 60000, late = () => Date.now() > deadline;
+  const notice = why => { const by = Object.entries(pool.stats().by).map(([k, v]) => `${k} ${v.ok}/${v.fail}/${v.bad}`).join(' · '); console.log(`::notice title=native-score shard ${si}::${why} · ${Object.keys(mine).length} mục · ok/fail/bad: ${by}`.slice(0, 1800)); };
+  if (process.env.NS_MIN) setTimeout(() => { notice('chốt cứng hết giờ'); process.exit(0); }, +process.env.NS_MIN * 60000 + 240000).unref();
+  const cache = loadCache(), part = `${CACHE_DIR}/part-${si}.json`;
   const todo = shardOf(items, si, sn).filter(x => !cache[x.h]).slice(0, limit);
   console.log(`shard ${si}/${sn}: ${todo.length} mục mới (tổng ${items.length}, thiếu L1 ${JSON.stringify(missing)})`);
   fs.mkdirSync(CACHE_DIR, { recursive: true });
   for (const lang of LANGS) {
     const L = todo.filter(x => x.lang === lang);
-    for (let i = 0; i < L.length; i += 10) { const r = await scoreBatch(AI, lang, L.slice(i, i + 10)); Object.assign(mine, r); Object.assign(cache, r); fs.writeFileSync(part, JSON.stringify(mine)); }
+    for (let i = 0; i < L.length && !late(); i += 10) { const r = await scoreBatch(AI, lang, L.slice(i, i + 10)); Object.assign(mine, r); Object.assign(cache, r); fs.writeFileSync(part, JSON.stringify(mine)); }
   }
   if (argv.includes('--fix')) {
     const fixed = rd(FIXED, {}), mineItems = shardOf(items, si, sn);
     for (const lang of LANGS) {
       const low = mineItems.filter(x => x.lang === lang && cache[x.h] && cache[x.h].s < FIX_MIN), old = Object.fromEntries(low.map(x => [x.vi, cache[x.h].s]));
-      for (let i = 0; i < low.length; i += 8) {
+      for (let i = 0; i < low.length && !late(); i += 8) {
         const ok = await fixBatch(AI, lang, low.slice(i, i + 8), old);
         for (const [vi, v] of Object.entries(ok)) { (fixed[lang] = fixed[lang] || {})[vi] = { l1: v.l1, s: v.s, en: hash(en[vi]) }; mine[v.h] = v.r; }
-        fs.writeFileSync(part, JSON.stringify(mine));
+        fs.writeFileSync(part, JSON.stringify(mine)); fs.writeFileSync(FIXED, JSON.stringify(fixed, null, 1) + '\n');
         if (Object.keys(ok).length) console.log(`  ${lang}: sửa ${Object.keys(ok).length}`);
       }
     }
-    fs.writeFileSync(FIXED, JSON.stringify(fixed, null, 1) + '\n');
   }
+  notice(late() ? 'hết NS_MIN, phần còn lại để lượt sau' : 'xong');
   console.log('✓ xong shard', si, '·', Object.keys(mine).length, 'mục đã chấm trong part');
 }
 
