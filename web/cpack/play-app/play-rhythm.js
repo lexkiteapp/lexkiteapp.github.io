@@ -70,12 +70,12 @@
     const S = { osc: [], i: 0, score: 0, combo: 0, bestCombo: 0, hits: 0, stressed: 0, extra: 0, missed: [], over: false, T0: 0, taps: [], plan: [], live: false, raf: 0, timers: [] };
     if (!document.getElementById('rhCss')) {
       const st = document.createElement('style'); st.id = 'rhCss';
-      st.textContent = `.rh-s{display:flex;flex-wrap:wrap;gap:.5rem .6rem;justify-content:center;margin:.4rem 0 1rem;direction:ltr}
+      st.textContent = `.rh-s{display:flex;flex-wrap:wrap;gap:.9rem .6rem;justify-content:center;margin:.9rem 0 1rem;direction:ltr}.rh-b{display:block;width:14px;height:14px;border-radius:50%;margin:0 auto;background:var(--primary);opacity:.25}.rh-b.p{opacity:1}
 .rh-w{position:relative;display:inline-flex;flex-direction:column;align-items:center;min-width:2.2rem;padding:.45rem .6rem .3rem;border-radius:12px;background:var(--surface-2,rgba(127,127,127,.12));border:2px solid transparent;font-size:1.15rem}
-.rh-w i{font-style:normal;font-size:.8rem;line-height:1;min-height:.9rem}.rh-w.on{border-color:var(--primary);background:var(--primary-soft)}
+.rh-w i{font-style:normal;font-size:.8rem;line-height:1;min-height:.9rem}.rh-w.on{border-color:var(--primary);background:var(--primary-soft)}.rh-w.on::before{content:'▼';position:absolute;top:-.95rem;left:50%;transform:translateX(-50%);font-size:.7rem;line-height:1}
 .rh-w.perfect,.rh-w.good{background:var(--good-soft);color:var(--good-text);border-color:var(--good-text)}.rh-w.miss{border-style:dashed;border-color:var(--again-text,currentColor);background:var(--again-soft)}.rh-w.wrong{background:var(--again-soft);border-color:var(--again-text,currentColor);text-decoration:line-through}
 .rh-w.st b{font-weight:800}.rh-w.wk{font-size:.95rem}#rhM{min-width:44px;min-height:44px}.rh-c[hidden]{display:inline-flex;visibility:hidden}.rh-tap{width:100%;min-height:96px;font-size:1.4rem;touch-action:manipulation;user-select:none;-webkit-user-select:none}
-.rh-tap:active,.rh-tap.hit{transform:scale(.97)}.rh-cue{min-height:1.6rem;font-weight:700;text-align:center}@media(prefers-reduced-motion:reduce){.rh-tap:active,.rh-tap.hit{transform:none}}`;
+.rh-tap:active,.rh-tap.hit{transform:scale(.97)}.rh-tap.hit{box-shadow:0 0 0 4px var(--primary-soft)}.rh-cue{min-height:1.6rem;font-weight:700;text-align:center}@media(prefers-reduced-motion:reduce){.rh-tap:active,.rh-tap.hit{transform:none}}`;
       document.head.appendChild(st);
     }
     // --- Âm: tích-tắc lên lịch theo đồng hồ âm thanh ---
@@ -117,15 +117,16 @@
       Object.assign(S, { plan, beat, taps: [], used: new Set(), T0: performance.now() + LEAD * beat, live: true });
       view.innerHTML = `<div class="study-wrap rh">${head(`🥁 ${t('Câu số {a}/{b}', { a: S.i + 1, b: sents.length })}`, S.i, sents.length, muteBtn())}
         <div class="row between nowrap" style="margin-bottom:.6rem"><b id="rhS" aria-live="off">${S.score}</b><span class="chip rh-c" id="rhC" ${S.combo < 3 ? 'hidden' : ''}>${t('COMBO ×{n}', { n: mult(S.combo) })}</span></div>
-        <div class="card q-card"><div class="rh-s" id="rhW" role="list" aria-label="${esc(x.s)}">${chips(plan)}</div><div class="rh-cue" id="rhQ" aria-hidden="true">…</div></div>
+        <div class="card q-card"><span class="rh-b" id="rhB" aria-hidden="true"></span><div class="rh-s" id="rhW" role="list" aria-label="${esc(x.s)}">${chips(plan)}</div><div class="rh-cue" id="rhQ" aria-hidden="true">…</div></div>
         <button class="btn primary rh-tap" id="rhT" aria-label="${esc(t('Chạm vào từ nhấn'))}">${t('CHẠM')} <span class="kbd">␣</span></button></div>`;
       const q = view.querySelector('.study-top a.icon-btn'); if (q) { q.style.width = q.style.height = '44px'; q.setAttribute('aria-label', t('Thoát')); }
       wireMute(); const b = $('#rhT'); b.onpointerdown = e => { e.preventDefault(); if (e.button > 0 || e.isPrimary === false) return; tap(); }; /* chỉ chạm chính (không chuột phải / ngón thứ hai) */ b.onkeydown = e => { if (e.key === ' ' || e.key === 'Enter') e.preventDefault(); }; /* phím xử lý ở keys (tránh chạm hai lần) */
       for (let i = 0; i < LEAD + plan.length; i++) tick(S.T0 - (LEAD - i) * beat); // mọi nhịp cùng một tiếng – không lộ từ nào nhấn
-      const cue = n => { const el = $('#rhQ'); if (el) el.textContent = n; }; let cleared = false;
+      const cue = n => { const el = $('#rhQ'); if (el) el.textContent = n; }; let cleared = false, lastBeat = -99;
       for (let i = 0; i < LEAD; i++) later(() => cue(i < LEAD - 1 ? String(LEAD - 1 - i) : t('Bắt đầu')), Math.max(0, S.T0 - (LEAD - i) * beat - performance.now()));
       const frame = () => {
-        if (!S.live) return; const now = performance.now() - S.T0, k = Math.floor(now / beat); // từ k sáng ĐÚNG lúc nhịp k (tiếng tích-tắc) và giữ tới nhịp sau
+        if (!S.live) return; const now = performance.now() - S.T0, k = Math.floor(now / beat); // nhịp k (âm trong lúc đếm nhịp)
+        if (k !== lastBeat) { lastBeat = k; const d = $('#rhB'); if (d) { d.classList.add('p'); later(() => d.classList.remove('p'), 110); } } // chấm nhịp: theo dõi bằng mắt khi tắt âm / tai nghe trễ // từ k sáng ĐÚNG lúc nhịp k (tiếng tích-tắc) và giữ tới nhịp sau
         if (now >= 0) { const w = view.querySelectorAll('#rhW .rh-w'); w.forEach((e, j) => e.classList.toggle('on', j === k && k < plan.length)); if (!cleared) { cleared = true; cue(''); } }
         if (now > (plan.length - 1) * beat + beat * 0.6) return finish(x);
         S.raf = requestAnimationFrame(frame);
@@ -138,6 +139,7 @@
       let ok = false; if (s) { S.used.add(s.k); ok = !!S.plan[s.k].stress; }
       if (b) { b.classList.add('hit'); setTimeout(() => b.classList.remove('hit'), 90); }
       if (muted) { if (g.Sfx && g.Sfx.haptic) g.Sfx.haptic(ok ? 'correct' : 'wrong'); } else (ok ? g.Sfx.correct : g.Sfx.wrong)(); // âm + rung của Sfx, KHÔNG qua Sfx.answer (nó ghi aria-live từng chạm, đếm chuỗi chung và tải gói lười giữa vòng)
+      if (s) { const ch = view.querySelectorAll('#rhW .rh-w')[s.k]; if (ch) { const r = ok ? (Math.abs(s.d) <= PERFECT ? 'perfect' : 'good') : 'wrong'; ch.classList.remove('perfect', 'good', 'wrong'); ch.classList.add(r); const m = ch.querySelector('[data-m]'); if (m) m.textContent = MARK[r]; } } // thấy ngay từ nào vừa chạm (chữ ✓✓/✓/! chứ không chỉ màu)
       const cue = $('#rhQ'); if (cue) cue.textContent = ok ? (Math.abs(s.d) <= PERFECT ? t('Chuẩn!') : t('Tốt')) : s ? t('Từ này yếu – để im') : t('Lệch nhịp');
     }
     async function grade(x, res) {
@@ -148,7 +150,7 @@
     }
     function finish(x) {
       stop(); const res = judge(S.plan, S.taps, S.beat, S.combo), LAB = { perfect: t('Chuẩn!'), good: t('Tốt'), miss: t('Từ nhấn bị lỡ'), wrong: t('Từ này yếu – để im') };
-      view.querySelectorAll('#rhW .rh-w').forEach((e, k) => { e.classList.remove('on'); e.classList.add(res.words[k]); if (LAB[res.words[k]]) e.setAttribute('aria-label', S.plan[k].w + ' – ' + LAB[res.words[k]]); /* trình đọc màn hình: từng từ kèm kết quả */ const m = e.querySelector('[data-m]'); if (m) m.textContent = MARK[res.words[k]] || ''; });
+      view.querySelectorAll('#rhW .rh-w').forEach((e, k) => { e.classList.remove('on', 'perfect', 'good', 'wrong'); e.classList.add(res.words[k]); if (LAB[res.words[k]]) e.setAttribute('aria-label', S.plan[k].w + ' – ' + LAB[res.words[k]]); /* trình đọc màn hình: từng từ kèm kết quả */ const m = e.querySelector('[data-m]'); if (m) m.textContent = MARK[res.words[k]] || ''; });
       S.score += res.score; S.hits += res.hits; S.stressed += res.stressed; S.extra += res.extra; S.bestCombo = Math.max(S.bestCombo, res.best); S.combo = res.combo; // chuỗi mang sang câu sau
       S.plan.forEach((w, k) => { if (w.stress && res.words[k] === 'miss') S.missed.push(w.w); });
       $('#rhS').textContent = S.score; const c = $('#rhC'); c.hidden = S.combo < 3; c.textContent = t('COMBO ×{n}', { n: mult(S.combo) });
