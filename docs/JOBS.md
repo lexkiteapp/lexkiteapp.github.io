@@ -38,6 +38,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:04 | `ci-filler` | `4-59/10 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:07 | `blog-publish` | `7 */3 * * *` | publishing | gh_minutes | 10 | — | — |
 | 00:07 | `d1-usage-watch` | `7,27,47 * * * *` | reports | d1_main, gh_minutes | 1 | d1_main_reads≈10, d1_main_writes≈2 | — |
+| 00:07 | `ci-autopilot` | `7-57/10 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:07 | `youtube-manual` | `7,37 * * * *` | publishing | youtube_api, d1_main_read | 5 | d1_main_reads≈300 | — |
 | 00:15 | `d1-backup` | `15 0 * * 1,2` | archive | d1_main_read, drive_pool, gh_minutes | 30 | d1_main_reads≈60000, drive_calls≈80 | ✓ |
 | 00:17 | `free-tier-guard` | `35 1 * * *`<br>`17 * * * *` | reports | gh_minutes | 2 | — | — |

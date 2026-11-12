@@ -96,16 +96,21 @@
     const D = g.Distract;
     // Phương án nhiễu (so với cả kho ~10k từ) tính từng câu khi cần: câu 1 ngay, các câu sau lúc rảnh → không có tác vụ dài khi vào trang
     const picked = shuffle(pool).slice(0, N), questions = [];
-    const build = w => {
+    const mk = (w, raw) => {
       const right = mean(w), rl = right.toLowerCase();
       const ok = x => x.word.toLowerCase() !== w.word.toLowerCase() && (() => { const m = mean(x).toLowerCase(); return m && m !== rl && !m.includes(rl) && !rl.includes(m); })();
-      let ds = [];
-      try { if (D && D.pick) ds = D.pick(w, others, { n: 2, key: 'vi', mean, seed: Math.floor(Math.random() * 1e9) }).filter(ok); } catch (e) { ds = []; }
+      let ds = (raw || []).filter(ok);
       if (ds.length < 2) ds = ds.concat(shuffle(others.filter(x => ok(x) && !ds.includes(x))).slice(0, 2 - ds.length));
       const opts = shuffle([right, ...ds.slice(0, 2).map(mean)]);
       return { word: w.word, ipa: w.ipa || '', ipaUS: w.ipaUS || '', pos: w.pos || '', options: opts, correctIdx: opts.indexOf(right) };
     };
-    const qAt = i => questions[i] || (questions[i] = build(picked[i]));
+    const popt = w => ({ n: 2, key: 'vi', mean, seed: Math.floor(Math.random() * 1e9) });
+    const rawSync = w => { try { return D && D.pick ? D.pick(w, others, popt(w)) : []; } catch (e) { return []; } };
+    // quét kho ~10k từ theo lát ≤ 8 ms, nhường luồng giữa các lát (cùng kết quả pick) → không có tác vụ dài khi vào trang / lúc rảnh
+    const give = () => new Promise(r => (g.scheduler && g.scheduler.yield ? g.scheduler.yield().then(r) : setTimeout(r, 0)));
+    const rawAsync = w => { try { return D && D.pickAsync ? D.pickAsync(w, others, popt(w), give).catch(() => []) : Promise.resolve(rawSync(w)); } catch (e) { return Promise.resolve([]); } };
+    const qAt = i => questions[i] || (questions[i] = mk(picked[i], rawSync(picked[i]))); // dự phòng đồng bộ khi câu chưa kịp chuẩn bị
+    const prep = async i => { if (questions[i] || done) return; const raw = await rawAsync(picked[i]); if (!questions[i] && !done) questions[i] = mk(picked[i], raw); };
 
     const total = picked.length;
     let qIdx = 0, score = 0, busy = false, done = false, timer = null, secondsLeft = LIMIT, startTime = 0;
@@ -203,12 +208,16 @@
     const stop = () => { done = true; if (timer) clearInterval(timer); document.removeEventListener('keydown', keyHandler); };
     if (App.onCleanup) App.onCleanup(stop); else if (App.cleanups) App.cleanups.push(stop);
 
-    renderQuestion();
-    startTime = Date.now();
-    timer = setInterval(tick, 250);
     const idle = g.requestIdleCallback ? f => g.requestIdleCallback(f, { timeout: 300 }) : f => setTimeout(f, 16);
-    const pre = i => { if (done || i >= total) return; qAt(i); idle(() => pre(i + 1)); };
-    idle(() => pre(1));
+    const pre = async i => { if (done || i >= total) return; await prep(i); idle(() => pre(i + 1)); };
+    view.innerHTML = '<div class="qk-wrap center" aria-busy="true"></div>';
+    prep(0).then(() => { // câu 1 chuẩn bị theo lát trước khi vẽ (đồng hồ 15 s chỉ chạy từ lúc câu hiện ra)
+      if (done) return;
+      renderQuestion();
+      startTime = Date.now();
+      timer = setInterval(tick, 250);
+      idle(() => pre(1));
+    });
   };
 
   // ==========================================

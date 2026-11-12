@@ -16,12 +16,48 @@ const GROUPS = { home: ['web/js/st/common.js', 'web/js/st/home.js'], lesson: ['w
 // Màn Stitch v2 (khung TỰ SINH bởi scripts/stitch-v2-convert.mjs – web/js/st/v2/<màn>.js): mỗi màn 1 nhóm = vỏ chung + khung màn + file gắn dữ liệu.
 //   Cấu hình Tailwind MẶC ĐỊNH thuần (như Stitch): tên màu/cỡ chữ/bo góc của Stitch đã được bộ chuyển đổi ra giá trị thật.
 const V2 = fs.existsSync('web/js/st/v2') ? fs.readdirSync('web/js/st/v2').filter(f => f.endsWith('.js') && !/^(shell|runtime)\.js$/.test(f)).map(f => f.slice(0, -3)) : [];
-const V2DATA = { 'vocab-hub': ['web/js/vocab-hub.js'], skills: ['web/js/skills-hub.js'], welcome: ['web/js/welcome.js'], 'welcome-desk': ['web/js/welcome.js'], 'onb-goal': ['web/js/onboard.js'], 'onb-level': ['web/js/onboard.js'], 'onb-target': ['web/js/onboard.js'], 'onb-pace': ['web/js/onboard.js'], 'onb-ready': ['web/js/onboard.js'], path: ['web/js/ux1.js'], today: ['web/js/ux1.js'], 'today-new': ['web/js/ux1.js'], 'today-desk': ['web/js/ux1.js'], 'today-rail': ['web/js/ux1.js'], review: ['web/js/ux1.js'], practice: ['web/js/ux1.js'], me: ['web/js/ux1-me.js'], streak: ['web/js/retention.js'], 'exam-readiness': ['web/js/goal.js'], 'teacher-call': ['web/js/call.js'], 'lesson-question': ['web/js/lesson/ui.js'], 'feedback-correct': ['web/js/lesson/ui.js'], 'feedback-wrong': ['web/js/lesson/ui.js'], 'lesson-complete': ['web/js/lesson/ui.js'], 'story-duo': ['web/js/lesson/ui.js'], 'pas-drill': ['web/js/speak/app.js'], 'pas-sit': ['web/js/speak/app.js'], 'say-front': ['web/js/say.js'], 'say-back': ['web/js/say.js'] }; // file JS dựng dữ liệu d cho khung (class viết nguyên văn trong đó cũng được biên dịch)
+const V2DATA = {
+  'exam-readiness': ['web/js/goal.js'],
+  'feedback-correct': ['web/js/lesson/ui.js'],
+  'feedback-wrong': ['web/js/lesson/ui.js'],
+  'lesson-complete': ['web/js/lesson/ui.js'],
+  'lesson-question': ['web/js/lesson/ui.js'],
+  me: ['web/js/ux1-me.js'],
+  'onb-goal': ['web/js/onboard.js'],
+  'onb-level': ['web/js/onboard.js'],
+  'onb-pace': ['web/js/onboard.js'],
+  'onb-ready': ['web/js/onboard.js'],
+  'onb-target': ['web/js/onboard.js'],
+  'pas-drill': ['web/js/speak/app.js'],
+  'pas-sit': ['web/js/speak/app.js'],
+  path: ['web/js/ux1.js'],
+  practice: ['web/js/ux1.js'],
+  review: ['web/js/ux1.js'],
+  'say-back': ['web/js/say.js'],
+  'say-front': ['web/js/say.js'],
+  skills: ['web/js/skills-hub.js'],
+  'story-duo': ['web/js/lesson/ui.js'],
+  streak: ['web/js/retention.js'],
+  'teacher-call': ['web/js/call.js'],
+  today: ['web/js/ux1.js'],
+  'today-desk': ['web/js/ux1.js'],
+  'today-new': ['web/js/ux1.js'],
+  'today-rail': ['web/js/ux1.js'],
+  'vocab-hub': ['web/js/vocab-hub.js'],
+  welcome: ['web/js/welcome.js'],
+  'welcome-desk': ['web/js/welcome.js'],
+}; // file JS dựng dữ liệu d cho khung (class viết nguyên văn trong đó cũng được biên dịch)
 for (const k of V2) GROUPS['v2-' + k] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', `web/js/st/v2/${k}.js`, ...(V2DATA[k] || [])].filter(f => fs.existsSync(f));
 // Trang web tĩnh Stitch (lexkite.com – khung TỰ SINH brand/stitch/web/gen/<trang>.js – chỉ dùng lúc build, không triển khai trong web/ (size-budget), `stitch-v2-convert.mjs --web`): mỗi trang 1 nhóm w-<trang>, CSS được generator NHÚNG vào <style> (scripts/lib/st-web.mjs).
 //   Nhóm w-* nạp cả file dựng dữ liệu (generator) vì nó có thể chèn class Tailwind viết tay; vỏ chung (đầu trang + chân trang) nằm trong brand/stitch/web/gen/chrome.js.
 const WEB = fs.existsSync('brand/stitch/web/gen') ? fs.readdirSync('brand/stitch/web/gen').filter(f => f.endsWith('.js') && f !== 'chrome.js').map(f => f.slice(0, -3)) : [];
-const WEBDATA = { home: ['scripts/build-landing.mjs'], sample: ['scripts/lib/samples-ui.mjs'], speaking: ['scripts/lib/samples-ui.mjs'], post: ['scripts/lib/blog-st.mjs'], hub: ['scripts/lib/blog-st.mjs', 'scripts/lib/samples-ui.mjs'] }; // blog: class viết tay của generator nằm ở blog-st.mjs (build-blog.mjs chỉ dựng dữ liệu, có URL ngoài thật – YouTube/PubSubHubbub)
+const WEBDATA = {
+  home: ['scripts/build-landing.mjs'],
+  hub: ['scripts/lib/blog-st.mjs', 'scripts/lib/samples-ui.mjs'],
+  post: ['scripts/lib/blog-st.mjs'],
+  sample: ['scripts/lib/samples-ui.mjs'],
+  speaking: ['scripts/lib/samples-ui.mjs'],
+}; // blog: class viết tay của generator nằm ở blog-st.mjs (build-blog.mjs chỉ dựng dữ liệu, có URL ngoài thật – YouTube/PubSubHubbub)
 for (const k of WEB) GROUPS['w-' + k] = ['brand/stitch/web/gen/chrome.js', `brand/stitch/web/gen/${k}.js`, 'scripts/lib/st-web.mjs', ...(WEBDATA[k] || [])].filter(f => fs.existsSync(f));
 const OUT = g => `web/css/st-${g}.css`;
 // Gói nhiều màn nạp CÙNG LÚC (BCSS trong app.js): tiền tố PRE chung (token, font, vỏ, reset ≈ 3,5 KB gz) tách ra 1 file nạp 1 lần thay vì lặp trong từng file màn.
