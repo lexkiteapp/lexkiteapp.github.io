@@ -14,17 +14,17 @@
  },
  "text": {
   "Active Drill Session": "d.title",
-  "70%": "d.pct",
-  "Unit 3 • Writing Task 1": "d.chip",
-  "+25": "d.xp",
+  "100%": "d.pct",
+  "Everyday English · Lesson 3/12": "d.chip",
+  "+33": "d.xp",
   "14": "d.streak",
   "Awesome!": "d.sub",
   "You learned: afraid · consider · listening · decide": "d.learned",
   "NEXT LESSON": "t('Bài tiếp theo')",
   "LESSON MAP": "d.rev",
-  "92%": "d.acc",
-  "88%": "d.first",
-  "12": "d.combo"
+  "98%": "d.acc",
+  "4/4": "d.first",
+  "9": "d.combo"
  },
  "attr": {
   ":scope > header > div > button:nth-child(1)": {
@@ -92,7 +92,7 @@
  },
  "cls": {
   ":scope > header > div > div:nth-child(2) > div:nth-child(2) > div": {
-   "w-[70%]": "''"
+   "w-full": "''"
   },
   ":scope > main > div > div:nth-child(6) > div:nth-child(1) > span:nth-child(1)": {
    "truncate": "''"
