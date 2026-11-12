@@ -172,6 +172,14 @@
           [
             "first time|hi|hello|new|events",
             "No, it's my third. What brings you here?"
+          ],
+          [
+            "speaker|presentation|interesting|agree|talk",
+            "Yes, the speaker made some fantastic points."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "Did you enjoy the keynote presentation just now?"
           ]
         ]
       },
@@ -182,6 +190,14 @@
           [
             "working on|what do you do|job|work",
             "I'm building an app for small farms."
+          ],
+          [
+            "marketing|engineer|network|learn|attend",
+            "Conferences are great for spotting emerging trends."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "What field do you work in, or what brought you to the event?"
           ]
         ]
       },
@@ -192,6 +208,14 @@
           [
             "get into|how did|interesting|why|tell me",
             "My family has a farm, so I saw the problems."
+          ],
+          [
+            "phone|number|qr|profile|chat",
+            "Let me share my contact details with you."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "It would be great to stay in touch after the event."
           ]
         ]
       },
@@ -202,6 +226,14 @@
           [
             "great talking|feel free|email|card|nice",
             "Thanks, I will!"
+          ],
+          [
+            "sounds good|perfect|keep in touch|follow up",
+            "Looking forward to connecting again soon."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "Let us grab a coffee sometime to discuss potential collaboration."
           ]
         ]
       }

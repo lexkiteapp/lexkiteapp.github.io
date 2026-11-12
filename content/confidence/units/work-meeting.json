@@ -165,6 +165,14 @@
           [
             "get started|thanks for coming|start|welcome",
             "Thanks."
+          ],
+          [
+            "on time|fine|no problem|worries|join",
+            "No worries at all, we are just kicking off."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "Thanks for joining the meeting today. Let us get started."
           ]
         ]
       },
@@ -175,6 +183,14 @@
           [
             "discuss|budget|hear from|you first|what do you think",
             "Sure. I think we need more money for ads. Oh, and new office chairs!"
+          ],
+          [
+            "agenda|topic|update|roadmap|q3",
+            "Today's main agenda item is reviewing the quarterly numbers."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "Could you remind the group of the main topic for this meeting?"
           ]
         ]
       },
@@ -185,6 +201,14 @@
           [
             "park|later|come back|for now|another time",
             "Okay, fair enough."
+          ],
+          [
+            "focus|agenda|table|topic|budget",
+            "Let's stick to the core budget items first."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "Let us park side topics and return to the main budget agenda."
           ]
         ]
       },
@@ -195,6 +219,14 @@
           [
             "wrap up|friday|same page|agree|send",
             "Yes, I'm on it."
+          ],
+          [
+            "decision|action|confirmed|recap|plan",
+            "Agreed, we will have the revised figures circulated by Friday."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "To wrap up: do we all agree on the next steps for Friday?"
           ]
         ]
       }

@@ -165,6 +165,14 @@
           [
             "available|still|apartment|calling about",
             "Yes, it is."
+          ],
+          [
+            "flat|rent|property|oak street|listing",
+            "Yes, the Oak Street property is still on the market."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "Brooks speaking. Which property are you calling regarding?"
           ]
         ]
       },
@@ -175,6 +183,14 @@
           [
             "utilities|included|water|electricity|internet",
             "Water is included, but not electricity."
+          ],
+          [
+            "bills|heating|council tax|gas|wifi",
+            "Water and building maintenance are covered in that figure."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "The monthly rent is 1,200. Do you have questions about costs?"
           ]
         ]
       },
@@ -185,6 +201,14 @@
           [
             "deposit|lease|how long|contract",
             "One month's rent, and the lease is for one year."
+          ],
+          [
+            "pets|parking|furnished|move in|when",
+            "Pets are considered on request, and street parking is available."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "Do you have any questions regarding the tenancy terms?"
           ]
         ]
       },
@@ -195,6 +219,14 @@
           [
             "take a look|see|visit|this week|saturday|tomorrow",
             "Sure. How about Saturday at ten?"
+          ],
+          [
+            "viewing|schedule|appointment|friday|afternoon",
+            "I can arrange a viewing for you on Saturday morning."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "Would you like to book a time to view the apartment?"
           ]
         ]
       }

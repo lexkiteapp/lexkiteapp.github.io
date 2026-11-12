@@ -173,6 +173,14 @@
           [
             "walk you through|responsible|last role|worked|experience",
             "Okay, thanks."
+          ],
+          [
+            "engineer|analyst|manager|projects|revenue|growth",
+            "Very impressive track record."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "Could you walk me through your recent professional background?"
           ]
         ]
       },
@@ -183,6 +191,14 @@
           [
             "working on|weakness|improve|better|learning",
             "That's honest. I like that."
+          ],
+          [
+            "automated|workflow|negotiated|vendor|contract",
+            "Streamlining tool usage makes an immediate impact."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "What specific steps did you take to achieve that cost reduction?"
           ]
         ]
       },
@@ -193,6 +209,14 @@
           [
             "as a result|percent|result|cut|saved|increased",
             "Impressive."
+          ],
+          [
+            "patient|feedback|communication|support|demo",
+            "Listening first is the best way to handle team resistance."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "How did you manage pushback or resistance from colleagues?"
           ]
         ]
       },
@@ -203,6 +227,14 @@
           [
             "next steps|team|what|how|when",
             "Good question."
+          ],
+          [
+            "scale|mission|team|opportunity|values",
+            "We appreciate candidates who resonate with our mission."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "What attracted you to apply for this specific role?"
           ]
         ]
       }

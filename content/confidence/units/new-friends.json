@@ -165,6 +165,14 @@
           [
             "work|school|know|neighbor|friend|together",
             "We went to school together."
+          ],
+          [
+            "empty|available|sure|welcome|please",
+            "Thank you, appreciate it!"
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "Excuse me, is anyone sitting in this empty chair?"
           ]
         ]
       },
@@ -175,6 +183,14 @@
           [
             "into|like|love|enjoy",
             "Oh, nice!"
+          ],
+          [
+            "local|born|grew up|from here|recent",
+            "It is a fantastic city with plenty to discover."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "Have you lived in this area for a long time?"
           ]
         ]
       },
@@ -185,6 +201,14 @@
           [
             "me too|join|free|love to|sure|great",
             "Of course! The more the better."
+          ],
+          [
+            "restaurant|park|bakery|downtown|food",
+            "Yes, there are lots of hidden gems around there."
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "What are some of your favorite local hangouts so far?"
           ]
         ]
       },
@@ -195,6 +219,14 @@
           [
             "text|hanging out|keep in touch|great|thanks",
             "You too!"
+          ],
+          [
+            "whatsapp|instagram|connect|contact|text",
+            "Sounds great, I will send you a message!"
+          ],
+          [
+            "pardon|sorry|again|repeat|\\?",
+            "Would you like to visit that café together sometime?"
           ]
         ]
       }
