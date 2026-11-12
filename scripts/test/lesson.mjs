@@ -199,8 +199,16 @@ async function solve(right) {
   if (it.type === 'q') { const opts = [...w.document.querySelectorAll('.lsn-opts .lsn-opt')]; (right ? opts.find(o => o.dataset.o === it.answer) : opts.find(o => o.dataset.o !== it.answer)).click(); $('#lsnCheck').click(); await tick(); return; }
   if (it.type === 'match') {
     const B = s2 => [...w.document.querySelectorAll(`.lsn-match .lsn-opt[data-s="${s2}"]`)];
-    if (!right) { const a = B('w')[0], b = B('m').find(x => x.dataset.m !== a.dataset.m); a.click(); b.click(); }
+    if (!right) { const a = B('w')[0], b = B('m').find(x => x.dataset.m !== a.dataset.m); a.click(); b.click(); if (w.document.querySelector('.lsn-xframe .lsn-match')) ok(b.textContent.length > 3 && !b.disabled && !a.disabled && a.getAttribute('aria-pressed') === 'false', 'ghép cặp: sai có phản hồi trên ô, ô vẫn bấm lại được'); }
+    const X = w.document.querySelector('.lsn-xframe .lsn-match');
+    if (X) { // Ghép cặp có hình: ô hình + loa riêng (không lồng nút) trên MỌI ô tiếng Anh, đếm cặp; mỗi cặp đúng 1 màu + 1 dây; sai có trạng thái thấy được rồi tự trả về
+      ok(B('w').every(b => b.querySelector('.lsn-xpic') && (b.querySelector('.lsn-xpic img') || b.querySelector('.lsn-xpic .material-symbols-outlined'))), 'ghép cặp: mọi ô tiếng Anh có ảnh hoặc icon');
+      ok(X.querySelectorAll('.lsn-msay').length === B('w').length && !X.querySelector('button button'), 'ghép cặp: loa trên mọi ô tiếng Anh, không lồng button');
+      ok(/0\/4/.test($('#lsnPairs').textContent), 'ghép cặp: đếm cặp 0/4');
+      ok(B('w').concat(B('m')).every(b => b.textContent === b.textContent.trim() || b.dataset.s), 'ghép cặp: ô giữ nguyên móc');
+    }
     for (const a of B('w')) { if (a.disabled) continue; a.click(); B('m').find(x => x.dataset.m === a.dataset.m).click(); }
+    if (X) { ok(new Set(B('w').map(b => b.dataset.p)).size === 4 && X.querySelectorAll('.lsn-wires g').length === 4 && /4\/4/.test($('#lsnPairs').textContent), 'ghép cặp: 4 cặp đúng = 4 màu + 4 dây + đếm 4/4'); }
     await tick(300); return;
   }
   if (it.type === 'type') { const inp = $('#lsnIn'); inp.value = right ? it.answer : 'nope'; inp.dispatchEvent(new w.Event('input')); $('#lsnCheck').click(); await tick(); return; }
@@ -265,11 +273,11 @@ w.localStorage.setItem('lk.lsn.path.demo', '0'); w.localStorage.removeItem('lk.l
 w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(320);
 {
   const D = w.document, V = $('#lsn.lsn-v2'), say0 = [];
-  ok(V && D.querySelector('.v2-lesson-question') && $('.lsn-bar') && $('#lsnBub').textContent.length > 3, 'v2: dựng khung Stitch (thanh tiến độ + lời nhắc), giữ #lsn');
+  ok(V && D.querySelector('.v2-ex-frame') && $('.lsn-bar') && $('#lsnBub').textContent.length > 3, 'v2: dựng khung Stitch (thanh tiến độ + lời nhắc), giữ #lsn');
   ok(!D.querySelector('.lsn-ask, .lsn-duo') && $('a.lsn-x') && $('a.lsn-x').getAttribute('href') === '#/lesson?demo=1', 'v2: nút ✕ thoát về bản đồ; không còn khối giáo viên cũ');
   ok($('.lsn-bar').getAttribute('role') === 'progressbar' && $('#lsnFill') && /%$/.test($('#lsnPct').textContent) && $('#lsnQn'), 'v2: thanh tiến độ ARIA + % + Câu n/m');
   const T = st().teacher, tw = $('.lsn-tchw'), card = $('.lsn-qcard');
-  ok(T && T.who === 'ama' && $('#lsnTch') && tw && card && tw.compareDocumentPosition(card) & 4 && /z-10/.test(card.firstElementChild.className) && tw.querySelector('.ss-floor') && /h-\[150px\]/.test(tw.className), 'v2: Ama (LessonTeacher) đứng TRÊN bệ (.ss-floor) ngay trên thẻ đề bài đục (thẻ z-10), hàng cao 150 px khớp mẫu Stitch');
+  ok(T && T.who === 'ama' && $('#lsnTch') && tw && card && tw.compareDocumentPosition(card) & 4 && tw.querySelector('.ss-floor') && tw.classList.contains('ex-seat') && (D.querySelector('.lsn-xframe') ? tw.closest('.lsn-xhead') && !tw.closest('.lsn-qcard') : /z-10/.test(card.firstElementChild.className) && /h-\[150px\]/.test(tw.className)), 'v2: Ama (LessonTeacher) đứng TRÊN bệ (.ss-floor) trong chỗ ngồi .ex-seat – khung bài tập chung: cạnh bong bóng, KHÔNG thẻ nào đè lên người; khung lesson-question: ngay trên thẻ đề bài đục (thẻ z-10), hàng cao 150 px');
   ok(!D.querySelector('.lsn-tchw .rounded-full, .lsn-tchw [class*="ring"], .lsn-tchw [class*="mask"]') && !/mask|clip-path/.test(tw.getAttribute('style') || ''), 'v2: không vòng / hào quang / khung / mặt nạ quanh giáo viên');
   const oS = T.say; T.say = (txt, o) => { say0.push(o || {}); return oS.call(T, txt, o); };
   ok(!!$('#lsnCheck') && ($('#lsnCheck').disabled || $('#lsnCheck').hidden), 'v2: nút Kiểm tra có sẵn, khóa tới khi chọn');
@@ -278,7 +286,7 @@ w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tic
     const f = $('#lsnFoot'), still = () => ($('#lsnTch .tch-still') || {}).src || '';
     ok(f && f.classList.contains('bad') && !f.hidden && f.querySelector('.v2s-feedback-wrong') && $('#lsn').contains(f) && !/\blsn-foot\b/.test(f.className), 'v2: sai → tấm Stitch feedback-wrong nằm TRONG luồng (không cố định → không che đáp án)');
     ok(it0.type === 'match' || f.textContent.includes(ans0.split(' ')[0]), 'v2: tấm sai có đáp án đúng');
-    ok(/concern/.test(still()) && $('#lsnTch .tch-rig').classList.contains('posed'), 'v2: sai → Ama ảnh tĩnh concern ngay chỗ cũ (sau thẻ đề bài)');
+    ok(/concern/.test(still()) && $('#lsnTch .tch-rig').classList.contains('posed'), 'v2: sai → Ama ảnh tĩnh concern ngay chỗ cũ (cạnh bong bóng)');
     ok($('#lsnNext') && $('#lsnNext').textContent.trim().length > 2 && !$('#lsnCheck').offsetParent, 'v2: nút Đã hiểu (#lsnNext) thay chân Kiểm tra');
     if (it0.card) { const dk = f.querySelector('.lsn-dict'), sp = dk ? [...dk.querySelectorAll('button[data-speak]')] : []; ok(dk && dk.textContent.includes(it0.card.word) && sp.length === 2 && new Set(sp.map(b => b.dataset.accent)).size === 2 && sp.every(b => b.getAttribute('aria-label')), 'v2.1 dict: thẻ từ điển Stitch trong tấm sai – từ + 2 loa UK/US đúng giọng, có aria-label'); }
     if (['q', 'gap', 'mean', 'pic'].includes(it0.type) && (it0.options || []).length) { const os = [...D.querySelectorAll('#lsnBody.lsn-opts .lsn-opt')]; ok(D.querySelectorAll('#lsnBody .lsn-otag').length === (os.some(b => b.dataset.o === st().pick) ? 2 : 1) && os.every(b => b.querySelector('.text-\\[22px\\]')) && D.querySelector('#lsnBody .lsn-osub'), 'v2.1 sai: thẻ đáp án chữ to + nhãn phụ (nghĩa) + tag Đáp án của bạn / Lựa chọn đúng (Stitch feedback-wrong)'); }

@@ -15,8 +15,11 @@ const TOK = JSON.parse(fs.readFileSync('brand/stitch/tokens.dtcg.json', 'utf8'))
 const GROUPS = { home: ['web/js/st/common.js', 'web/js/st/home.js'], lesson: ['web/js/st/common.js', 'web/js/st/lesson.js'], goal: ['web/js/st/common.js', 'web/js/st/goal.js'] };
 // Màn Stitch v2 (khung TỰ SINH bởi scripts/stitch-v2-convert.mjs – web/js/st/v2/<màn>.js): mỗi màn 1 nhóm = vỏ chung + khung màn + file gắn dữ liệu.
 //   Cấu hình Tailwind MẶC ĐỊNH thuần (như Stitch): tên màu/cỡ chữ/bo góc của Stitch đã được bộ chuyển đổi ra giá trị thật.
-const V2 = fs.existsSync('web/js/st/v2') ? fs.readdirSync('web/js/st/v2').filter(f => f.endsWith('.js') && !/^(shell|runtime)\.js$/.test(f)).map(f => f.slice(0, -3)) : [];
+const V2 = ['web/js/st/v2', 'web/cpack/st/v2'].filter(d => fs.existsSync(d)).flatMap(d => fs.readdirSync(d).filter(f => f.endsWith('.js') && !/^(shell|runtime)\.js$/.test(f)).map(f => f.slice(0, -3)));
+const V2F = k => (fs.existsSync(`web/cpack/st/v2/${k}.js`) ? `web/cpack/st/v2/${k}.js` : `web/js/st/v2/${k}.js`);
 const V2DATA = {
+  'ex-frame': ['web/js/lesson/ui.js', 'web/cpack/lesson/ex.js'],
+  'ex-match': ['web/cpack/lesson/ex.js'],
   'exam-readiness': ['web/js/goal.js'],
   'feedback-correct': ['web/js/lesson/ui.js'],
   'feedback-wrong': ['web/js/lesson/ui.js'],
@@ -47,7 +50,7 @@ const V2DATA = {
   welcome: ['web/js/welcome.js'],
   'welcome-desk': ['web/js/welcome.js'],
 }; // file JS dựng dữ liệu d cho khung (class viết nguyên văn trong đó cũng được biên dịch)
-for (const k of V2) GROUPS['v2-' + k] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', `web/js/st/v2/${k}.js`, ...(V2DATA[k] || [])].filter(f => fs.existsSync(f));
+for (const k of V2) GROUPS['v2-' + k] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', V2F(k), ...(V2DATA[k] || [])].filter(f => fs.existsSync(f));
 // Trang web tĩnh Stitch (lexkite.com – khung TỰ SINH brand/stitch/web/gen/<trang>.js – chỉ dùng lúc build, không triển khai trong web/ (size-budget), `stitch-v2-convert.mjs --web`): mỗi trang 1 nhóm w-<trang>, CSS được generator NHÚNG vào <style> (scripts/lib/st-web.mjs).
 //   Nhóm w-* nạp cả file dựng dữ liệu (generator) vì nó có thể chèn class Tailwind viết tay; vỏ chung (đầu trang + chân trang) nằm trong brand/stitch/web/gen/chrome.js.
 const WEB = fs.existsSync('brand/stitch/web/gen') ? fs.readdirSync('brand/stitch/web/gen').filter(f => f.endsWith('.js') && f !== 'chrome.js').map(f => f.slice(0, -3)) : [];
@@ -63,7 +66,7 @@ const OUT = g => `web/css/st-${g}.css`;
 // Gói nhiều màn nạp CÙNG LÚC (BCSS trong app.js): tiền tố PRE chung (token, font, vỏ, reset ≈ 3,5 KB gz) tách ra 1 file nạp 1 lần thay vì lặp trong từng file màn.
 // Tiền tố chung (token/font/vỏ, ~3,6 KB gz) cho các nhóm luôn nạp CÙNG NHAU (app.js BCSS) → nạp 1 lần thay vì lặp trong từng file.
 //   v2-ux1-pre: gói ux1 (Home/Hôm nay, Lộ trình, Ôn, Luyện, Giải đấu, Tôi, Chuỗi, Sẵn sàng thi) nạp 11 file v2 cùng lúc (3/11: lặp 11 × tiền tố → Today vượt 10 KB)
-const SHARED = { 'v2-onb-pre': ['v2-onb-goal', 'v2-onb-level', 'v2-onb-target', 'v2-onb-pace', 'v2-onb-ready'], 'v2-speak-pre': ['v2-pas-drill', 'v2-pas-sit'], 'v2-ux1-pre': ['v2-path', 'v2-review', 'v2-practice', 'v2-skills', 'v2-leagues', 'v2-me', 'v2-streak', 'v2-exam-readiness', 'v2-today', 'v2-today-new', 'v2-today-desk', 'v2-today-rail'] }, NOPRE = new Set(Object.values(SHARED).flat());
+const SHARED = { 'v2-onb-pre': ['v2-onb-goal', 'v2-onb-level', 'v2-onb-target', 'v2-onb-pace', 'v2-onb-ready'], 'v2-speak-pre': ['v2-pas-drill', 'v2-pas-sit'], 'v2-ux1-pre': ['v2-path', 'v2-review', 'v2-practice', 'v2-skills', 'v2-leagues', 'v2-me', 'v2-streak', 'v2-exam-readiness', 'v2-today', 'v2-today-new', 'v2-today-desk', 'v2-today-rail', 'v2-ex-frame', 'v2-ex-match'] }, NOPRE = new Set(Object.values(SHARED).flat());
 
 const rgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)).join(' ');
 const C = Object.entries(TOK.color);

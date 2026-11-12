@@ -2,6 +2,11 @@
 (function (g) {
 const D = g.I18N_DICT = g.I18N_DICT || {};
 D.en = Object.assign(D.en || {}, {
+'Đã ghép': 'Matched',
+'Chưa phải': 'Not this one',
+'{a}/{b} cặp': '{a}/{b} pairs',
+'Từ vựng': 'Vocabulary',
+'Ngữ pháp': 'Grammar',
 'Bài học trộn đang thử nghiệm, sắp ra mắt.': 'Mixed lessons are in testing and coming soon.',
 'Quay về trang chủ': 'Back to home',
 'Tiến độ bài học': 'Lesson progress',

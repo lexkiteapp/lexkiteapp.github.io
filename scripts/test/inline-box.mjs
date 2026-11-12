@@ -30,7 +30,7 @@ ok(offenders('<a class="block p-4 border-2"><div>a</div></a>').length === 0, 't�
 ok(offenders('<a class="p-4 lg:flex"><div>a</div></a>').length === 0, 'tự kiểm: display theo biến thể → qua');
 ok(offenders('<a class="underline"><span>a</span></a>').length === 0, 'tự kiểm: con inline → qua');
 
-const DIRS = ['web/js/st/v2', 'brand/stitch/web/gen'];
+const DIRS = ['web/js/st/v2', 'web/cpack/st/v2', 'brand/stitch/web/gen'];
 for (const d of DIRS) {
   let bad = 0, n = 0;
   for (const f of fs.readdirSync(R + d).filter(x => x.endsWith('.js'))) {

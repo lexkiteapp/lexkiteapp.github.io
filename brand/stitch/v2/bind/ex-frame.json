@@ -1,0 +1,78 @@
+{
+ "_doc": "Khung bài tập chung (#/lesson/go, cờ ux1) – mẫu Stitch 'Arrange the sentence' 4/11 (key1, screen e923905b…, bản sáng = scripts/stitch/retheme-light.mjs). Đầu trang nằm TRONG cột nội dung, giáo viên đứng cạnh bong bóng (không thẻ nào che), thẻ đề bài, #lsnBody, nút chính + 2 link phụ. web/js/lesson/ui.js + ex.js gắn dữ liệu; khuôn thẻ A–D vẫn lấy từ lesson-question.",
+ "i18n": {
+  "Available Words": "Từ có sẵn",
+  "Report": "Báo lỗi",
+  "TRANSLATION": "Bản dịch"
+ },
+ "text": {
+  "Question 6 of 10": "d.qn",
+  "14": "d.streak",
+  "TOEIC · Vocabulary": "d.chip",
+  "Arrange the words into a sentence": "d.say",
+  "Check answer": "t('Kiểm tra đáp án')",
+  "0.8x": "'0.8×'"
+ },
+ "protos": {
+  "placed": { "sel": ":scope > main > div > section:nth-child(3) > button:nth-child(1)", "addClass": { ":scope": "lsn-tile lt:text-[#ffffff] dk:text-[#00201e]" }, "text": { "We": "d.t" } },
+  "slot": { "sel": ":scope > main > div > section:nth-child(3) > div:nth-of-type(1)", "addClass": { ":scope": "lsn-slot" } },
+  "tray": { "sel": ":scope > main > div > section:nth-child(3)", "attr": { ":scope": { "id": "'lsnAns'", "role": "'group'", "lang": "'en'" } }, "addClass": { ":scope": "lsn-ans" }, "html": { ":scope": "''" } },
+  "tile": { "sel": ":scope > main > div > section:nth-child(4) > div > button:nth-child(1)", "addClass": { ":scope": "lsn-tile lt:text-[#162124] dk:text-[#EAF2F2]" }, "text": { "send": "d.t" } },
+  "bank": { "sel": ":scope > main > div > section:nth-child(4)", "attr": { ":scope > div": { "id": "'lsnBank'", "lang": "'en'" } }, "addClass": { ":scope > div": "lsn-bank" }, "html": { ":scope > div": "''" } }
+ },
+ "attr": {
+  ":scope > main > header > div > button": { "href": "d.close", "id": "'lsnX'", "aria-label": "t('Thoát bài học')" },
+  ":scope > main > header > div > div > div:nth-child(1) > span": { "id": "'lsnQn'" },
+  ":scope > main > header > div > div > div:nth-child(1) > div": { "data-href": "'#/me'", "type": "'button'", "aria-label": "t('Hồ sơ người học')" },
+  ":scope > main > header > div > div > div:nth-child(2)": { "role": "'progressbar'", "aria-label": "t('Tiến độ bài học')", "aria-valuemin": "'0'", "aria-valuemax": "'100'", "aria-valuenow": "'0'" },
+  ":scope > main > header > div > div > div:nth-child(2) > div": { "style": "'width:0%'", "id": "'lsnFill'" },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(2) > div:nth-child(2)": { "id": "'lsnCombo'", "aria-live": "'polite'" },
+  ":scope > main > div > section:nth-child(1) > div:nth-child(2) > p": { "id": "'lsnSay'", "dir": "'auto'" },
+  ":scope > main > div > section:nth-child(2) > div > div:nth-child(1) > p": { "id": "'lsnBub'", "aria-live": "'polite'" },
+  ":scope > main > div > section:nth-child(2) > div > div:nth-child(2) > button:nth-child(1)": { "id": "'lsnPlay'", "aria-label": "t('Nghe lại')" },
+  ":scope > main > div > section:nth-child(2) > div > div:nth-child(2) > button:nth-child(2)": { "id": "'lsnSlow'", "aria-label": "t('Nghe chậm hơn')" },
+  ":scope > main > div > section:nth-child(3)": { "id": "'lsnBody'" },
+  ":scope > main > footer > button": { "id": "'lsnCheck'", "type": "'button'" },
+  ":scope > main > footer > div > button:nth-child(1)": { "id": "'lsnSkip'", "type": "'button'" },
+  ":scope > main > footer > div > button:nth-child(2)": { "id": "'lsnRep'", "type": "'button'", "aria-label": "t('Báo lỗi câu hỏi')" }
+ },
+ "html": {
+  ":scope > main > div > section:nth-child(1) > div:nth-child(2) > p": "e(d.say)",
+  ":scope > main > div > section:nth-child(2) > div > div:nth-child(1) > p": "''",
+  ":scope > main > div > section:nth-child(3)": "''",
+  ":scope > main > footer > div > button:nth-child(1)": "'<span class=\"material-symbols-outlined text-[16px]\" aria-hidden=\"true\">hearing_disabled</span><span>' + e(t('Bỏ qua')) + '</span>'"
+ },
+ "tag": {
+  ":scope > main > header > div > button": { "to": "a" },
+  ":scope > main > header > div > div > div:nth-child(1) > div": { "to": "button" }
+ },
+ "addClass": {
+  ":scope > main > header > div > button": "lsn-x no-underline",
+  ":scope > main > header > div > div > div:nth-child(1) > div": "relative min-h-[44px] min-w-[44px] justify-center -my-3 bg-transparent border-0 cursor-pointer",
+  ":scope > main > header > div > div > div:nth-child(2)": "lsn-bar",
+  ":scope > main > div > section:nth-child(1)": "lsn-xhead",
+  ":scope > main > div > section:nth-child(1) > div:nth-child(2) > div:nth-child(2)": "lsn-qchips",
+  ":scope > main > div > section:nth-child(1) > div:nth-child(2) > div:nth-child(2) > span": "lsn-xchip",
+  ":scope > main > div > section:nth-child(2)": "isolate lsn-qcard",
+  ":scope > main > div > section:nth-child(2) > div": "relative z-10",
+  ":scope > main > div > section:nth-child(2) > div > div:nth-child(1) > span": "lsn-xtr",
+  ":scope > main > div > section:nth-child(2) > div > div:nth-child(1)": "min-w-0",
+  ":scope > main > footer": "lsn-qfoot",
+  ":scope > main > footer > button": "lsn-xcta motion-reduce:transition-none",
+  ":scope > main > footer > div > button:nth-child(1)": "lsn-skipb gap-1",
+  ":scope > main": "lsn-xframe"
+ },
+ "cls": {
+  ":scope > main > footer > button": { "opacity-80": "'opacity-100'", "cursor-not-allowed": "'disabled:cursor-default'" }
+ },
+ "after": {
+  ":scope > main > header > div > div > div:nth-child(1) > span": "'<b class=\"sr-only\" id=\"lsnPct\" dir=\"ltr\"></b><h1 class=\"sr-only\">' + e(d.title) + '</h1>'",
+  ":scope > main > header > div > div > div:nth-child(1) > div": "'<button type=\"button\" id=\"lkTheme\" data-lk-theme=\"\" aria-label=\"' + e(t('Đổi giao diện sáng/tối')) + '\" class=\"w-11 h-11 -my-3 shrink-0 flex items-center justify-center rounded-[0.75rem] bg-transparent border-0 cursor-pointer lt:text-[#3f4947] dk:text-[#A3B9B7]\"><span class=\"material-symbols-outlined text-[24px]\">dark_mode</span></button>'",
+  ":scope > main > div > section:nth-child(1) > div:nth-child(1)": "d.teacher",
+  ":scope > main > div > section:nth-child(1) > div:nth-child(2) > div:nth-child(2) > span": "'<span class=\"lsn-xcombo\" id=\"lsnComboT\"></span>'"
+ },
+ "remove": [
+  ":scope > main > div > section:nth-child(1) > div:nth-child(1)",
+  ":scope > main > div > section:nth-child(4)"
+ ]
+}

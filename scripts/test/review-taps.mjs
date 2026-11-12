@@ -32,7 +32,7 @@ const TARGETS = [
 // thẻ bộ (theo nguồn): chạm giữa thẻ VÀ chạm vào chip "n đến hạn" đều mở bộ đó
 const DECK = '.v2-review main a[href^="#/deck?from="]';
 
-const seed = async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; await App.saveSettings();
+const seed = async () => { localStorage.setItem('lk.ux1', '1'); localStorage.setItem('lk.onb', '1'); App.state.settings.onboarded = true; App.state.settings.exam = 'ielts'; App.state.settings.plSkip = 1; await App.saveSettings(); /* plSkip: không hiện hộp mời kiểm tra trình độ (ux1 levelInvite) đè lên trang */
   const now = Date.now(), mk = (w, srs, web) => ({ word: w, vi: w + ' (vi)', ipa: '', topic: web ? 'mine' : 'ielts', added: now - 1e6, contexts: web ? [{ text: 'a ' + w, source: 'https://example.com/a', at: now }] : [], col: [], syn: [], ant: [], examples: [],
     srs: Object.assign({ ef: 2.5, interval: 0, reps: 0, lapses: 0, due: now, last: 0 }, srs) });
   const map = { hello: mk('hello', { interval: 3, reps: 2, due: now - 1000, last: now - 4e8 }, true), world: mk('world', { interval: 30, reps: 5, due: now + 9e8, last: now - 1e8 }, true), focus: mk('focus', { interval: 5, reps: 3, due: now + 5e8, last: now - 2e8 }, true) };

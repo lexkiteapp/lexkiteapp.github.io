@@ -61,7 +61,7 @@ export const V2REF = {
   'feedback-wrong': 'feedback-wrong',
   home: 'today',
   leagues: 'leagues',
-  lesson: 'lesson-question',
+  lesson: 'ex-frame',
   me: 'me',
   'onb-goal': 'onb-goal',
   'onb-level': 'onb-level',

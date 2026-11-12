@@ -1,0 +1,33 @@
+# 🧩 Ảnh trước/sau + cổng khung bài tập chung (Ghép cặp, Xếp câu, Chọn từ, Gõ): 390 px + máy tính, sáng + tối – scripts/test/exercise-shots.mjs.
+name: Exercise shots
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['web/js/lesson/**', 'web/cpack/st/v2/ex-*.js', 'web/cpack/lesson/ex.js', 'web/js/st/lesson.js', 'web/css/st-v2-ex-*.css', 'scripts/test/exercise-shots.mjs', '.github/workflows/exercise-shots.yml']
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chụp + chấm
+        timeout-minutes: 15
+        env: { BASE: "${{ github.event.pull_request.base.sha }}" }
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          B=""
+          if [ -n "$BASE" ]; then git worktree add -q /tmp/before "$(git merge-base "$BASE" HEAD)"; B=/tmp/before/web; fi
+          node scripts/test/exercise-shots.mjs web "$B" out/exercise-shots
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: exercise-shots, path: out/exercise-shots, retention-days: 14 }
