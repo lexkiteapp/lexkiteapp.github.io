@@ -290,7 +290,7 @@
     "TA": "Miêu tả đầy đủ từng giai đoạn kèm khung thời gian (6 tuần, 1–4 năm, 1–3 năm), làm bật vòng lặp tuần hoàn.",
     "CC": "Từ nối thật trong bài: The cycle commences when, Approximately six weeks later, As they grow..., where, before, At this stage, Ultimately, thereby.",
     "LR": "Từ vựng sinh học học thuật: comprises, spawning grounds, deposit, upper reaches, transition, migrate, upstream journey, initiating the cycle anew.",
-    "GRA": "Dùng mệnh đề trạng ngữ thời gian, mệnh đề quan hệ (where they mature...) và cụm phân từ (progressing..., culminating in..., thereby initiating...)."
+    "GRA": "Dùng mệnh đề trạng ngữ thời gian, mệnh đề quan hệ (where they spend between one and three years...) và cụm phân từ (progressing..., culminating in..., thereby initiating...)."
   }
 },
       band6: {
@@ -353,7 +353,7 @@
 },
       band6: {
   "words": 158,
-  "text": "The two maps show the changes that took place on a small island before and after a tourist resort was built.\n\nOverall, the island was transformed from an area used for fishing and farming into a tourist resort. However, some features like the beach and the main road remained the same.\n\nBefore the development, the western side of the road had a large forest in the north and farmland in the south. After construction, the northern forest was cut down to build a hotel, while the southern farmland become a car park. Only the middle section of the forest was kept.\n\nOn the eastern side of island, the beach in the north-east was not change. However, the old fishing huts were removed to build tourist chalets. In the south-east, the old jetty was turned into a ferry pier The main road did not change. In general, the island became much more developed after the construction of the resort.",
+  "text": "The two maps show the changes that took place on a small island before and after a tourist resort was built.\n\nOverall, the island was transformed from an area used for fishing and farming into a tourist resort. However, some features like the beach and the main road remained the same.\n\nBefore the development, the western side of the road had a large forest in the north and farmland in the south. After construction, the northern forest was cut down to build a hotel, while the southern farmland become a car park. Only the middle section of the forest was kept.\n\nOn the eastern side of island, the beach in the north-east was not change. However, the old fishing huts were removed to build tourist chalets. In the south-east, the old jetty was turned into a ferry pier. The main road did not change. In general, the island became much more developed after the construction of the resort.",
   "notes": {
     "TA": "Mô tả thay đổi chính ở cả hai phía con đường và phần giữ nguyên (bãi biển, đường chính, một phần rừng).",
     "CC": "Chia đoạn theo phía đông/tây rõ ràng; liên từ cơ bản (However, Before, After construction, while).",
