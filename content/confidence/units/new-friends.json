@@ -165,6 +165,10 @@
           [
             "work|school|know|neighbor|friend|together",
             "We went to school together."
+          ],
+          [
+            "cousin|sister|brother|roommate|yoga|gym|club|class|party|online|book",
+            "Oh, that's nice."
           ]
         ]
       },
@@ -175,6 +179,10 @@
           [
             "into|like|love|enjoy",
             "Oh, nice!"
+          ],
+          [
+            "trails?|mountains?|walks?|outdoors|nature",
+            "That sounds fun."
           ]
         ]
       },
@@ -185,6 +193,10 @@
           [
             "me too|join|free|love to|sure|great",
             "Of course! The more the better."
+          ],
+          [
+            "bring|snacks?|water|ride|car|drive|details|plan|meet",
+            "We'll figure out the details."
           ]
         ]
       },
@@ -195,6 +207,10 @@
           [
             "text|hanging out|keep in touch|great|thanks",
             "You too!"
+          ],
+          [
+            "looking forward|can't wait|excited|message|see you|bye",
+            "Me too!"
           ]
         ]
       }
