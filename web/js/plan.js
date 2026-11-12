@@ -151,7 +151,7 @@
     if (mistakes) { const mv = await App.lazy('mvar').then(() => MVar.todayTask()).catch(() => null); if (mv) tasks.push(mv); }
     const sk = await skillTask(ex, dow, d);
     if (sk && !tasks.some(x => x.href === sk.href)) tasks.push(sk);
-    return fitMins(tasks).slice(0, 5);
+    return tasks.slice(0, 5);
   };
   const TOEFL_ROT = [['response', UI.icon('headphones'), 'Listen and Choose a Response'], ['cw', UI.icon('puzzle'), 'Complete the Words'], ['email', UI.icon('mail'), 'Write an Email'], ['repeat', UI.icon('repeat'), 'Listen and Repeat'], ['conversation', UI.icon('users'), 'Listen to a Conversation'], ['daily', UI.icon('smartphone'), 'Read in Daily Life'], ['sentence', UI.icon('brick-wall'), 'Build a Sentence'], ['interview', UI.icon('mic'), 'Take an Interview'], ['announcement', '📢', 'Listen to an Announcement'], ['academic', UI.icon('library'), 'Read an Academic Passage'], ['discussion', UI.icon('message-circle'), 'Write for an Academic Discussion'], ['talk', UI.icon('graduation-cap'), 'Listen to an Academic Talk']];
   async function skillTask(ex, dow, d) {
