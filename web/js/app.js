@@ -665,8 +665,9 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       // Đường dẫn "Kỹ năng › Nghe" ở đầu trang con → luôn biết mình đang ở đâu, 1 chạm quay lại trang trung tâm.
       const crumb = () => { const c = my === routeSeq && App.crumb && App.crumb(name, arg), ph = c && view.querySelector('.page-head'); if (ph && !ph.querySelector('.crumb')) ph.insertAdjacentHTML('afterbegin', c); };
       const mo = new MutationObserver(crumb); mo.observe(view, { childList: true });
-      try { await fn(arg, query); } catch (e) { if (my !== routeSeq || (e && e.name === 'AbortError')) return; if (!view.querySelector(':scope > :not(.skel-page):not(.skel-study)')) errState(); throw e; } finally { mo.disconnect(); if (holdPre && my === routeSeq && view.firstElementChild !== first0) document.body.classList.remove('v2pre'); } // lượt cũ lỗi vì bị hủy → im lặng; nội dung mới đã thay → nhả v2pre (giữ nếu chỉ chuyển hướng)
+      try { await fn(arg, query); } catch (e) { if (my !== routeSeq || (e && e.name === 'AbortError')) return; if (!view.querySelector(':scope > :not(.skel-page):not(.skel-study)')) errState(); throw e; } finally { mo.disconnect(); } // lượt cũ lỗi vì bị hủy → im lặng
       crumb(); // trang vẽ .page-head sau bước bất đồng bộ
+      if (holdPre && my === routeSeq && view.firstElementChild !== first0) document.body.classList.remove('v2pre'); // nội dung mới đã thay → nhả v2pre (giữ nếu chỉ chuyển hướng)
       setTimeout(() => { if (my === routeSeq) document.body.classList.remove('v2pre'); }, 1500);
       if (backY && my === routeSeq) Scroll.restore(backY, () => my === routeSeq);
       if (late.length) App.calm(() => App.need(...late).catch(() => {}), 2500); // sau lần vẽ đầu (kể cả khi đã sang trang khác: gói dùng chung)
