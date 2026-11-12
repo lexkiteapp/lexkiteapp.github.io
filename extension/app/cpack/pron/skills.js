@@ -166,7 +166,7 @@ id: 'sh-ch-zh', group: 'vn', ipa: '/ʃ/ /s/ /tʃ/ /dʒ/ /ʒ/', title: '/ʃ/ – 
 how: '/s/: đầu lưỡi gần lợi trên, môi dẹt, tiếng xì mảnh (see). /ʃ/: lưỡi lùi ra sau một chút, môi tròn và đưa ra trước, tiếng “suỵt” trầm hơn (she). /tʃ/ và /dʒ/ là âm tắc-xát: chặn hơi hoàn toàn rồi bật ra thành /ʃ/ hoặc /ʒ/ (chair, job). /ʒ/ giống /ʃ/ nhưng có rung dây thanh, hầu như chỉ xuất hiện ở giữa từ (decision, usually, measure).',
 howEn: "/s/ and /z/ are alveolar: the tongue tip is close to the ridge behind the upper teeth, the lips are spread, and the sound is thin and sharp. /ʃ/ and /ʒ/ are post-alveolar: the tongue pulls back a little and the lips round and protrude, giving a darker “shh”. /tʃ/ and /dʒ/ are affricates: a full stop of air released into /ʃ/ or /ʒ/ (chair, job). All four sounds /ʃ ʒ tʃ dʒ/ are normally made with some lip rounding; /ʒ/ is voiced and mostly occurs in the middle of words (decision, usually).",
     rules: [
-{ label: '/s/ ↔ /ʃ/', when: '/ʃ/ môi tròn, lưỡi lùi sau; -tion, -cial, -tial, -ssion (mission) và -sion sau phụ âm (tension) chứa /ʃ/; -sion sau nguyên âm là /ʒ/ (vision); ngoại lệ: question /tʃ/', ex: ['social', 'pressure', 'education'] },
+{ label: '/s/ ↔ /ʃ/', when: '/ʃ/ môi tròn, lưỡi lùi sau; -tion, -cial, -tial, -ssion (mission) và -sion sau phụ âm (tension) chứa /ʃ/; -sion sau nguyên âm là /ʒ/ (vision); -stion thường là /tʃ/: question, suggestion', ex: ['social', 'pressure', 'education'] },
 { label: '/tʃ/ ↔ /ʃ/', when: '/tʃ/ có một “cú chặn” trước, /ʃ/ thì không', ex: ['chair – share', 'watch – wash', 'cheap – sheep'] },
 { label: '/dʒ/ ↔ /tʃ/', when: '/dʒ/ hữu thanh (rung), /tʃ/ vô thanh', ex: ['jeep – cheap', 'large – larch', 'job'] },
 { label: '/ʒ/', when: 'thường gặp trong -sion (sau nguyên âm), -sure (measure; nhưng pressure /ʃ/), -sual', ex: ['decision', 'measure', 'usually'] }
@@ -250,7 +250,7 @@ howEn: "In English, stressed syllables are usually longer, louder and higher in 
     rules: [
 { label: 'Danh từ/tính từ 2 âm tiết', when: 'thường nhấn âm 1 (Oo)', ex: ['ˈproduct', 'ˈrecord (n)', 'ˈmodern'] },
 { label: 'Động từ 2 âm tiết', when: 'thường nhấn âm 2 (oO)', ex: ['reˈcord (v)', 'deˈcide', 'imˈprove'] },
-{ label: '-tion, -sion, -ic, -ical, -ity', when: 'nhấn âm tiết ngay TRƯỚC hậu tố', ex: ['polˈlution', 'ecoˈnomic', 'aˈbility'] },
+{ label: '-tion, -sion, -ic, -ical, -ity', when: 'thường nhấn âm tiết ngay TRƯỚC hậu tố (có ngoại lệ: Arabic, Catholic)', ex: ['polˈlution', 'ecoˈnomic', 'aˈbility'] },
 { label: '-ee, -eer, -ese', when: 'nhấn chính hậu tố', ex: ['refuˈgee', 'volunˈteer', 'Japaˈnese'] },
 { label: 'Danh từ ghép', when: 'nhấn phần đầu', ex: ['ˈclassroom', 'ˈgreenhouse', 'ˈsmartphone'] }
 ],
@@ -272,14 +272,14 @@ tipEn: "Tip: Nouns first, verbs second, and stress the syllable before endings l
 pairs: [['REcord (n)', 'reCORD (v)'], ['PREsent (n)', 'preSENT (v)'], ['INcrease (n)', 'inCREASE (v)'], ['OBject (n)', 'obJECT (v)'], ['CONtrast (n)', 'conTRAST (v)']],
 sentences: [
 'There has been a SHARP INcrease in polLUtion. ↘',
-'We need to inCREASE PUBlic awareness of ENergy use. ↘',
+'We need to inCREASE PUBlic aWAREness of ENergy use. ↘',
 'eduCAtion is the KEY to ecoNOmic GROWTH. ↘'
 ],
 quiz: [
 { q: '“present” là ĐỘNG TỪ (trình bày) nhấn âm nào?', options: ['Âm 1: PREsent', 'Âm 2: preSENT', 'Không nhấn'], answer: 1, explain: 'Động từ 2 âm tiết thường nhấn âm 2: /prɪˈzent/. Danh từ “món quà” là /ˈpreznt/.' },
 { q: 'Mẫu trọng âm của “pollution”?', options: ['Ooo', 'oOo', 'ooO'], answer: 1, explain: 'Hậu tố -tion → nhấn âm tiết ngay trước: pol-LU-tion /pəˈluːʃn/.' },
 { q: '“electricity” nhấn âm tiết nào?', options: ['e', 'lec', 'tri'], answer: 2, explain: 'Hậu tố -ity → nhấn âm tiết ngay trước: e-lec-TRI-ci-ty /ɪˌlekˈtrɪsəti/.' },
-{ q: 'Danh từ ghép “greenhouse” (nhà kính) nhấn ở đâu?', options: ['GREENhouse', 'greenHOUSE', 'Nhấn đều'], answer: 0, explain: 'Danh từ ghép thường nhấn phần đầu: /ˈɡriːnhaʊs/. “a green HOUSE” (ngôi nhà màu xanh) mới nhấn cả hai.' },
+{ q: 'Danh từ ghép “greenhouse” (nhà kính) nhấn ở đâu?', options: ['GREENhouse', 'greenHOUSE', 'Nhấn đều'], answer: 0, explain: 'Danh từ ghép thường nhấn phần đầu: /ˈɡriːnhaʊs/. “a green HOUSE” (cụm tính từ + danh từ) thường nhấn từ thứ hai.' },
 { q: 'Từ nào nhấn vào chính hậu tố?', options: ['economic', 'Vietnamese', 'political'], answer: 1, explain: 'Hậu tố -ese thường được nhấn khi đứng một mình: /ˌvjetnəˈmiːz/ (trong cụm như “Vietnamese food” trọng âm có thể dời). Hai từ còn lại nhấn âm tiết trước -ic/-ical.' }
 ]
 });
@@ -287,7 +287,7 @@ quiz: [
 P.push({
 id: 'stress-shift', group: 'stress', ipa: '/ˈfəʊtəɡrɑːf/ → /fəˈtɒɡrəfi/', title: 'Trọng âm “nhảy” trong họ từ', emoji: '🦘', level: 'B2', titleEn: "Stress Shift in Word Families",
 how: 'Khi thêm hậu tố, trọng âm có thể di chuyển sang âm tiết khác – và nguyên âm thay đổi theo: âm tiết được nhấn có nguyên âm đầy đủ, âm tiết mất trọng âm bị giảm thành /ə/. Ví dụ: ˈPHOtograph /ˈfəʊtəɡrɑːf/ → phoˈTOgraphy /fəˈtɒɡrəfi/ → photoˈGRAphic /ˌfəʊtəˈɡræfɪk/. Chữ “o” đầu tiên đổi từ /əʊ/ thành /ə/ rồi lại /əʊ/.',
-howEn: "When a suffix is added, stress often moves to a different syllable, and the vowel of the previously stressed syllable reduces: the first “o” of photograph is /əʊ/, becomes /ə/ in photography, and is /əʊ/ again in photographic (/ˈfəʊtəɡrɑːf/ → /fəˈtɒɡrəfi/ → /ˌfəʊtəˈɡræfɪk/). Learners who keep the stress of the base word (PHOtography) are among the easiest to notice.",
+howEn: "When a suffix is added, stress often moves to a different syllable, and the vowel of the previously stressed syllable reduces: the first “o” of photograph is /əʊ/, becomes /ə/ in photography, and is /əʊ/ again in photographic (/ˈfəʊtəɡrɑːf/ → /fəˈtɒɡrəfi/ → /ˌfəʊtəˈɡræfɪk/). Keeping the stress of the base word (PHOtography) is an error that listeners notice easily.",
     rules: [
 { label: '-y, -ity (sau gốc nhiều âm tiết)', when: 'trọng âm thường lùi về âm thứ 3 từ cuối', ex: ['phoˈtography', 'eˈconomy', 'deˈmocracy'] },
 { label: '-ic, -ical', when: 'nhấn ngay trước hậu tố', ex: ['photoˈgraphic', 'ecoˈnomic', 'demoˈcratic'] },
@@ -320,7 +320,7 @@ quiz: [
 { q: '“economic” có mẫu trọng âm nào?', options: ['oOoo', 'Oooo', 'ooOo'], answer: 2, explain: '-ic → nhấn ngay trước: e-co-NO-mic /ˌiːkəˈnɒmɪk/.' },
 { q: 'Trong “photographer”, trọng âm nằm ở?', options: ['PHO', 'TO', 'GRA'], answer: 1, explain: '“photographer” /fəˈtɒɡrəfə/ nhấn giống “photography”.' },
 { q: 'Chữ “o” đầu trong “political” đọc là?', options: ['/ə/', '/ɒ/', '/əʊ/'], answer: 0, explain: 'Trọng âm chuyển sang “li” nên âm “po” bị giảm thành /ə/: /pəˈlɪtɪkl/. Trong “politics” nó là /ɒ/ vì được nhấn.' },
-{ q: 'Từ nào nhấn khác ba từ còn lại?', options: ['technology', 'economy', 'democratic'], answer: 2, explain: '“democratic” /ˌdeməˈkrætɪk/ nhấn âm 3 (ooOo); “technology” và “economy” đều nhấn âm 2 (oOoo).' }
+{ q: 'Từ nào nhấn khác hai từ còn lại?', options: ['technology', 'economy', 'democratic'], answer: 2, explain: '“democratic” /ˌdeməˈkrætɪk/ nhấn âm 3 (ooOo); “technology” và “economy” đều nhấn âm 2 (oOoo).' }
 ]
 });
 
@@ -334,7 +334,7 @@ howEn: "In natural spoken English, content words (nouns, main verbs, adjectives,
 { label: 'Dạng mạnh', when: 'khi đứng cuối câu hoặc được nhấn đối lập; “can’t” là từ riêng với nguyên âm đầy đủ', ex: ['Where are you FROM? /frɒm/', 'I CAN. /kæn/', 'can\'t /kɑːnt/ (Anh), /kænt/ (Mỹ)'] }
 ],
 vn: 'Người Việt đọc mọi từ to và rõ như nhau (“I – WANT – TO – GO – TO – THE – PARK”), làm câu nghe “cứng như robot” và giám khảo khó nhận ra từ khóa. Đặc biệt nguy hiểm: “can” đọc mạnh /kæn/ dễ bị nghe thành “can\'t”. Cách sửa: gạch chân từ nội dung, đọc to chúng trước, sau đó “chèn” các từ yếu vào giữa thật nhanh mà giữ nguyên nhịp.',
-tip: 'Thần chú: “Nội dung thì nhấn – chức năng thì lướt.” Trong giọng Anh, “can” khẳng định là /kən/, còn “can\'t” là /kɑːnt/ (giọng Mỹ: /kænt/) – nguyên âm khác hẳn.',
+tip: 'Thần chú: “Nội dung thì nhấn – chức năng thì lướt.” Khi không nhấn, “can” khẳng định là /kən/, còn “can\'t” là /kɑːnt/ (giọng Mỹ: /kænt/) – nguyên âm khác hẳn.',
 tipEn: "Tip: Stress the content, glide over the grammar. Positive “can” is usually /kən/, whereas “can’t” keeps a full vowel: /kɑːnt/ in British English, /kænt/ in American English.",
     words: [
 { w: 'to', ipa: '/tə/', note: 'dạng yếu' },
@@ -352,7 +352,7 @@ pairs: [['can /kən/', 'can\'t /kɑːnt/'], ['for /fə/', 'four /fɔː/'], ['to 
 sentences: [
 'I WANT to GO to the PARK. ↘',
 'PEOple can SAVE a LOT of MONey by COOKing at HOME. ↘',
-'MOST of my FRIENDS are INterested in TECHnology. ↘'
+'MOST of my FRIENDS are INterested in techNOlogy. ↘'
 ],
 quiz: [
 { q: 'Trong “a cup of tea”, “of” thường đọc là?', options: ['/əv/ hoặc /ə/', '/ɒv/', '/ɒf/'], answer: 0, explain: 'Giữa câu, “of” là dạng yếu /əv/, nói nhanh có thể chỉ còn /ə/: /ə ˈkʌp ə ˈtiː/.' },
@@ -366,7 +366,7 @@ quiz: [
 P.push({
 id: 'intonation', group: 'stress', ipa: '↘ ↗ ↘↗', title: 'Ngữ điệu: lên, xuống và thể hiện thái độ', emoji: '🎢', level: 'B2', titleEn: "Intonation: Rise, Fall, Attitude",
 how: 'Ngữ điệu là sự lên xuống cao độ của cả câu, tập trung ở từ được nhấn mạnh nhất cuối nhóm ý (gọi là “nhân”). Tiếng Việt dùng thanh điệu cho từng âm tiết để đổi nghĩa từ; tiếng Anh dùng ngữ điệu cho cả cụm để thể hiện thông tin đã xong hay chưa, đang hỏi hay khẳng định, và thái độ (chắc chắn, ngạc nhiên, lưỡng lự).',
-howEn: "Intonation is the rise and fall of pitch across a phrase, concentrated on the nucleus, the most prominent word of the thought group. Vietnamese uses tones on single syllables to change word meaning; English uses intonation over whole phrases to signal attitude, grammatical structure and intent. A fall usually signals that the information is complete (statements, Wh-questions); a rise typically marks yes/no questions and checking (“Do you like it? ↗”, “Really? ↗”); a fall-rise signals reservation or that there is more to come.",
+howEn: "Intonation is the rise and fall of pitch across a phrase, concentrated on the nucleus, the most prominent word of the thought group. Vietnamese uses tones on single syllables to change word meaning; English uses intonation over whole phrases to signal attitude, grammatical structure and intent. A fall usually signals that the information is complete (statements, Wh-questions); a rise typically marks yes/no questions and checking (“Do you like it? ↗”, “Really? ↗”), although British speakers also often fall on yes/no questions; a fall-rise signals reservation or that there is more to come.",
     rules: [
 { label: 'Xuống ↘', when: 'câu trần thuật, câu hỏi Wh-, mệnh lệnh – thông tin đã hoàn chỉnh', ex: ['I live in Hanoi. ↘', 'What do you do? ↘'] },
 { label: 'Lên ↗', when: 'câu hỏi Yes/No (thường lên, nhưng giọng Anh cũng hay xuống), hỏi lại, thể hiện quan tâm', ex: ['Do you like it? ↗', 'Really? ↗'] },
@@ -390,9 +390,9 @@ tipEn: "Tip: “Finished, fall; yes/no question, rise; more to come, hang.” A 
 ],
 pairs: [['Sorry? ↗', 'Sorry. ↘'], ['Yes? ↗', 'Yes. ↘'], ['You\'re a student? ↗', 'You\'re a student. ↘']],
 sentences: [
-'I PREfer living in the CIty. ↘',
+'I preFER living in the CIty. ↘',
 'Do you THINK it will CHANGE? ↗',
-'We need more BUSes ↗, more TRAINS ↗ and SAFer cycle LANES. ↘'
+'We need more BUSes ↗, more TRAINS ↗ and SAFer CYcle lanes. ↘'
 ],
 quiz: [
 { q: 'Câu hỏi Wh- như “What do you do?” thường có ngữ điệu?', options: ['Lên ↗', 'Xuống ↘', 'Ngang'], answer: 1, explain: 'Câu hỏi Wh- trung tính thường xuống giọng ở cuối.' },
@@ -404,7 +404,7 @@ quiz: [
 });
 
 P.push({
-id: 'connected-speech', group: 'stress', ipa: '‿ /neks dɔː/ /ˈwɒnə/', title: 'Nối âm, nuốt âm và biến âm', emoji: '🔗', level: 'B2', titleEn: "Linking, Elision, Assimilation",
+id: 'connected-speech', group: 'stress', ipa: '‿ /neks dɔː/ /ˈdɪdʒuː/', title: 'Nối âm, nuốt âm và biến âm', emoji: '🔗', level: 'B2', titleEn: "Linking, Elision, Assimilation",
 how: 'Người bản ngữ không nói từng từ tách rời mà “dính” các từ lại. Ba hiện tượng chính: (1) Nối âm – phụ âm cuối nối với nguyên âm đầu từ sau (turn‿off), giữa hai nguyên âm chèn /j/ hoặc /w/ (the‿/j/‿end, go‿/w/‿out), và trong giọng Anh, chữ “r” cuối được đọc khi từ sau bắt đầu bằng nguyên âm (far‿away /fɑːr əˈweɪ/). (2) Nuốt âm – /t/ /d/ giữa hai phụ âm thường biến mất (next door /ˌneks ˈdɔː/). (3) Biến âm – âm thay đổi do âm bên cạnh (ten people /tem ˈpiːpl/, did you /ˈdɪdʒu/).',
 howEn: "Fluent speech links words instead of pronouncing isolated tokens. Main features: consonant-to-vowel linking (turn off), /j/ and /w/ glides between vowels (the‿/j/‿end, go‿/w/‿out), linking /r/ in British accents (far‿away), elision of /t, d/ between consonants (next door), and assimilation, where a sound changes under the influence of its neighbour (ten people, did you).",
     rules: [
@@ -518,7 +518,7 @@ P.push({
   quiz: [
     { q: 'Trong giọng Anh, “criteria are” thường được nói như thế nào?', options: ['/kraɪˈtɪəriə ɑː/ với một tiếng tắc họng bắt buộc', '/kraɪˈtɪəriər ə/ – có /r/ chèn dù không có chữ r', '/kraɪˈtɪəriəl ə/'], answer: 1, explain: 'Sau /ə/ và trước nguyên âm, nhiều người nói Anh thêm /r/ (intrusive r) dù chính tả không có r.' },
     { q: 'Điểm khác nhau giữa /r/ nối và /r/ chèn là gì?', options: ['/r/ nối có chữ r trong chính tả, /r/ chèn thì không', '/r/ nối chỉ gặp ở giọng Mỹ', '/r/ chèn chỉ gặp ở cuối câu'], answer: 0, explain: '“far away” có chữ r (nối); “law and order” không có chữ r nhưng vẫn nghe /r/ (chèn).' },
-    { q: 'Từ nào sau đây thường có /r/ chèn ngay bên trong từ?', options: ['drawer', 'hearing', 'drawing /ˈdrɔːrɪŋ/'], answer: 2, explain: 'Gốc “draw” kết thúc /ɔː/ và hậu tố -ing bắt đầu bằng nguyên âm nên thường chèn /r/; “drawer” và “hearing” có chữ r sẵn.' },
+    { q: 'Từ nào sau đây thường có /r/ chèn ngay bên trong từ (không có chữ r ở chỗ đó)?', options: ['hearing', 'drawing', 'story'], answer: 1, explain: '“drawing” = draw + -ing: sau /ɔː/ và trước nguyên âm thường chèn /r/ (/ˈdrɔːrɪŋ/); “hearing” và “story” có chữ r thật ở giữa từ.' },
     { q: 'Với giọng Mỹ chuẩn (đọc r cuối từ), /r/ chèn…', options: ['là đặc điểm bắt buộc', 'không cần thiết, vì r cuối vốn đã được đọc', 'chỉ gặp ở người học tiếng Anh'], answer: 1, explain: 'Giọng Mỹ chuẩn đọc r cuối nên không cần chèn /r/ để nối nguyên âm; một vài giọng như Boston lại có.' },
     { q: 'Là người học, bạn nên làm gì với /r/ chèn?', options: ['Bắt buộc dùng trong mọi câu', 'Tránh hoàn toàn vì là lỗi', 'Nhận ra khi nghe; dùng hay không tùy giọng bạn học'], answer: 2, explain: 'Một số người coi /r/ chèn là kém chuẩn; mục tiêu chính là nhận ra để nghe hiểu, không bắt buộc bắt chước.' }
   ]
@@ -540,7 +540,7 @@ P.push({
     { w: 'only', ipa: '/ˈəʊnli/', note: 'từ chỉ trọng tâm: I only bought ONE (nhân dời theo ý)' },
     { w: 'even', ipa: '/ˈiːvn/', note: 'nhấn mạnh bất ngờ: even HE agreed' },
     { w: 'just', ipa: '/dʒʌst/', note: 'giới hạn: just a MINUTE' },
-    { w: 'also', ipa: '/ˈɔːlsəʊ/', note: 'thêm thông tin mới: ALSO nhận nhân khi bổ sung' },
+    { w: 'also', ipa: '/ˈɔːlsəʊ/', note: 'thêm thông tin: thường nhân ở mục được thêm (She also speaks FRENCH)' },
     { w: 'instead', ipa: '/ɪnˈsted/', note: 'thay thế: nhân ở phần thay thế' },
     { w: 'rather than', ipa: '/ˈrɑːðə ðæn/', note: 'đối lập: nhân ở hai vế đối lập' },
     { w: 'in fact', ipa: '/ɪn ˈfækt/', note: 'đính chính: in FACT' },
@@ -550,12 +550,12 @@ P.push({
   ],
   sentences: [
     'The decline was SUBSTANTIAL, not MARGINAL.',
-    'It wasn’t the policy that failed; it was the IMPLEMENTATION.',
-    'Unemployment fell, but WAGES stayed flat.'
+    'It wasn’t the POLICY that failed; it was the IMPLEMENTATION.',
+    'UNEMPLOYMENT fell, but WAGES stayed flat.'
   ],
   quiz: [
-    { q: 'Trong câu trung tính, nhân thường rơi vào đâu?', options: ['Từ đầu tiên của câu', 'Từ đầu tiên của cụm ý', 'Từ nội dung cuối cùng của cụm ý'], answer: 2, explain: 'Mặc định tiếng Anh đặt nhân ở từ nội dung cuối của cụm ý (ví dụ “in SEPtember”).' },
-    { q: '“I didn’t say HE took it” thường gợi ý điều gì?', options: ['Có thể một người khác đã lấy nó', 'Anh ấy không lấy gì cả', 'Tôi không nói gì cả'], answer: 0, explain: 'Nhấn “HE” đối lập với người khác: người nói không bảo là anh ấy lấy – hàm ý có thể là người khác.' },
+    { q: 'Trong câu trung tính, nhân thường rơi vào đâu?', options: ['Từ đầu tiên của câu', 'Từ đầu tiên của cụm ý', 'Từ nội dung cuối cùng của cụm ý'], answer: 2, explain: 'Mặc định tiếng Anh đặt nhân ở từ nội dung cuối của cụm ý (ví dụ “in SEPTEMBER”).' },
+    { q: '“I didn’t say HE took it” thường gợi ý điều gì?', options: ['Anh ấy không lấy gì cả', 'Tôi không nói gì cả', 'Có thể một người khác đã lấy nó'], answer: 2, explain: 'Nhấn “HE” đối lập với người khác: người nói không bảo là anh ấy lấy – hàm ý có thể là người khác.' },
     { q: '“I didn’t say he TOOK it” thường gợi ý điều gì?', options: ['Chắc chắn có người khác lấy', 'Có thể anh ấy mượn hoặc làm việc khác chứ không “lấy”', 'Tôi không nói gì về việc đó cả'], answer: 1, explain: 'Nhấn “TOOK” đối lập hành động: người nói phủ nhận động từ đó, không phủ nhận hết sự việc.' },
     { q: 'Trong “We’ve hired a new MANAGER. The manager is called SARA.”, vì sao lần nhắc thứ hai “manager” không có nhân?', options: ['Vì “manager” là từ chức năng', 'Vì câu thứ hai nói nhanh hơn', 'Vì đó là thông tin đã biết, nhân dành cho thông tin mới (Sara)'], answer: 2, explain: 'Thông tin đã nhắc được hạ xuống (de-accent); nhân đặt vào thông tin mới.' },
     { q: 'Âm tiết mang nhân nổi bật chủ yếu nhờ…', options: ['chuyển động cao độ rõ nhất, kèm nguyên âm dài và rõ hơn', 'chỉ nói to hơn', 'chỉ nói nhanh hơn'], answer: 0, explain: 'Nhân nổi bật nhờ chuyển động cao độ, độ dài và độ rõ của nguyên âm; riêng độ to không phải yếu tố chính.' }
@@ -593,7 +593,7 @@ P.push({
   ],
   quiz: [
     { q: 'Mệnh đề chính kết thúc câu trần thuật thường dùng ngữ điệu nào?', options: ['Lên như câu hỏi', 'Xuống (↘)', 'Ngang, không đổi'], answer: 1, explain: 'Ngữ điệu xuống thường báo thông tin đã hoàn chỉnh; đây là xu hướng chung, không phải luật tuyệt đối.' },
-    { q: 'Cuối mệnh đề “Although it is expensive…” đứng đầu câu thường có ngữ điệu nào?', options: ['Lên nhẹ hoặc xuống-lên (↘↗) – báo câu chưa hết', 'Xuống sâu như đã kết thúc', 'Hạ giọng thật thấp rồi ngắt'], answer: 0, explain: 'Mệnh đề phụ đứng trước thường mang giọng “mở” (lên hoặc xuống-lên) để dẫn sang mệnh đề chính.' },
+    { q: 'Cuối mệnh đề “Although it is expensive…” đứng đầu câu thường có ngữ điệu nào?', options: ['Xuống sâu như đã kết thúc', 'Hạ giọng thật thấp rồi ngắt', 'Lên nhẹ hoặc xuống-lên (↘↗) – báo câu chưa hết'], answer: 2, explain: 'Mệnh đề phụ đứng trước thường mang giọng “mở” (lên hoặc xuống-lên) để dẫn sang mệnh đề chính.' },
     { q: 'Ngữ điệu xuống-lên (↘↗) thường truyền đạt điều gì?', options: ['Sự chắc chắn tuyệt đối', 'Báo hiệu một câu hỏi Yes/No', 'Còn điều chưa nói hoặc dè dặt'], answer: 2, explain: 'Xuống-lên thường biểu đạt sự dè dặt hoặc “còn tiếp”; nó không đồng nghĩa với “điều kiện”.' },
     { q: 'Trạng từ nối “However” ở đầu câu thường được xử lý thế nào?', options: ['Dính vào từ sau, không ngắt', 'Thường là một cụm ngữ điệu ngắn riêng, hay dùng ↘↗', 'Đọc kéo dài với giọng thật cao'], answer: 1, explain: 'Trạng từ nối đầu câu thường là một cụm ngữ điệu ngắn với giọng xuống-lên để báo ý còn tiếp; không có quy tắc tuyệt đối.' },
     { q: 'Ví dụ nào khớp với xu hướng “mệnh đề phụ mở – mệnh đề chính đóng”?', options: ['If we act now ↘↗, the damage can still be limited ↘', 'If we act now ↘, the damage can still be limited ↗', 'If we act now ↗, the damage can still be limited ↗'], answer: 0, explain: 'Mệnh đề phụ dùng xuống-lên (còn tiếp) và mệnh đề chính kết thúc bằng xuống (hoàn tất).' }
@@ -631,7 +631,7 @@ P.push({
   ],
   quiz: [
     { q: 'Trong lời nói tự nhiên, “should have done” khi không nhấn thường nghe như thế nào?', options: ['/ʃʊd hæv dʌn/ – đọc rõ từng từ', '/ʃəd hæv dʌn/ – chỉ “should” yếu, “have” vẫn mạnh', '/ʃəd əv dʌn/ – rút gọn, lướt nhanh'], answer: 2, explain: 'Khi không nhấn, “should have” thường rút gọn thành /ʃəd əv/ (viết tắt should’ve nghe gần như vậy).' },
-    { q: 'Vì sao nhiều người viết nhầm “could of” thay cho “could have”?', options: ['Vì /əv/ yếu của “have” nghe giống “of”', 'Vì “of” và “have” có cùng nghĩa', 'Vì “have” luôn bị bỏ khi nói'], answer: 0, explain: 'Dạng yếu /əv/ của “have” trùng với dạng yếu của “of”, nên tai dễ nghe nhầm và tay viết nhầm.' },
+    { q: 'Vì sao nhiều người viết nhầm “could of” thay cho “could have”?', options: ['Vì “of” và “have” có cùng nghĩa', 'Vì “have” luôn bị bỏ khi nói', 'Vì /əv/ yếu của “have” nghe giống “of”'], answer: 2, explain: 'Dạng yếu /əv/ của “have” trùng với dạng yếu của “of”, nên tai dễ nghe nhầm và tay viết nhầm.' },
     { q: 'Trong “You must have been working since morning”, nhóm “must have been” nghe gần nhất với…', options: ['/mʌst hæv biːn/ với ba từ nhấn đều', '/mʌst hæv bɪn/', '/məst əv bɪn/'], answer: 2, explain: 'Cả “must”, “have” và “been” đều có thể yếu đi: /məst əv bɪn/; trọng âm dồn vào “working”.' },
     { q: 'Trong “They should have told us”, từ nào thường mang trọng âm câu?', options: ['told', 'should', 'have'], answer: 0, explain: 'Động từ chính “told” mang nghĩa nên được nhấn; “should have” lướt nhanh.' },
     { q: 'Khi nào động từ khuyết thiếu quay về dạng mạnh?', options: ['Khi nói rất nhanh', 'Khi được nhấn đối lập, ví dụ “I COULD have gone (but didn’t)”', 'Không bao giờ'], answer: 1, explain: 'Nhấn đối lập làm động từ khuyết thiếu giữ nguyên âm đầy đủ /kʊd/.' }
@@ -663,13 +663,13 @@ P.push({
     { w: 'reasonably', ipa: '/ˈriːznəbli/', note: 'thường 3 âm tiết' }
   ],
   sentences: [
-    'PRICES have been RISing because of a SHORTage of FOOD.',
+    'PRIces have been RISing because of a SHORTage of FOOD.',
     'The TEAcher is going to exPLAIN the reSULTS to the WHOLE class.',
     'A conSIDerable proPORtion of the LITerature on the SUBject is RELatively reCENT.'
   ],
   quiz: [
     { q: 'Nhịp điệu tiếng Anh (stress-timed) khác nhịp theo âm tiết ở điểm nào?', options: ['Mọi âm tiết dài bằng nhau', 'Không bao giờ ngừng nghỉ', 'Khoảng cách giữa các âm tiết nhấn có xu hướng khá đều'], answer: 2, explain: 'Tiếng Anh nén các âm tiết yếu để các âm tiết nhấn đến khá đều nhau; đây là xu hướng, không phải nhịp đồng hồ chính xác.' },
-    { q: '“The CATS have been CHASing the MICE” có bao nhiêu nhịp theo cách đánh dấu của bài này?', options: ['3', '7', '5'], answer: 0, explain: 'Chỉ các âm tiết nhấn CATS, CHAS-, MICE là nhịp; các âm tiết còn lại bị nén.' },
+    { q: '“The CATS have been CHASing the MICE” có bao nhiêu nhịp theo cách đánh dấu của bài này?', options: ['7', '3', '5'], answer: 1, explain: 'Chỉ các âm tiết nhấn CATS, CHAS-, MICE là nhịp; các âm tiết còn lại bị nén.' },
     { q: 'Càng có nhiều âm tiết không nhấn giữa hai trọng âm, người bản ngữ thường…', options: ['đọc chậm lại để rõ từng âm', 'nhấn thêm vào mọi từ nhỏ', 'nén các âm tiết đó nhanh và giảm về /ə/'], answer: 2, explain: 'Âm tiết yếu bị nén (nói nhanh, nguyên âm giảm) để giữ nhịp giữa các trọng âm.' },
     { q: '“comfortable” khi nói tự nhiên thường có bao nhiêu âm tiết?', options: ['4 đều nhau', '3 (/ˈkʌmftəbl/)', '5'], answer: 1, explain: 'Âm tiết yếu giữa thường rụng: /ˈkʌmftəbl/ chỉ còn 3 âm tiết.' },
     { q: 'Vì sao nói đều từng âm tiết khiến người nghe khó theo dõi?', options: ['Mất các “đỉnh” nhấn giúp nhận ra từ khóa', 'Vì nói quá nhanh', 'Vì ngữ pháp bị sai'], answer: 0, explain: 'Người bản ngữ dựa vào các âm tiết nhấn để nhận diện từ nội dung; nhịp đều làm phẳng các tín hiệu này.' }
@@ -707,7 +707,7 @@ P.push({
   ],
   quiz: [
     { q: 'Bạn nói “It’s a rather ambitious target, isn’t it?” và mong người nghe đồng tình. Đuôi thường có ngữ điệu nào?', options: ['Lên cao vút', 'Xuống (↘)', 'Ngang, không đổi'], answer: 1, explain: 'Khi gần chắc chắn và mời đồng tình, đuôi thường xuống.' },
-    { q: 'Khi thật sự không biết câu trả lời, đuôi thường…', options: ['lên (↗)', 'xuống', 'ngang'], answer: 0, explain: 'Đuôi lên biến câu trần thuật thành câu hỏi thật.' },
+    { q: 'Khi thật sự không biết câu trả lời, đuôi thường…', options: ['xuống', 'ngang', 'lên (↗)'], answer: 2, explain: 'Đuôi lên biến câu trần thuật thành câu hỏi thật.' },
     { q: '“You didn’t take my keys, did you? ↗” thể hiện thái độ gì?', options: ['Chắc chắn họ không lấy', 'Tức giận', 'Không chắc, thật sự muốn biết'], answer: 2, explain: 'Đuôi lên thể hiện nghi vấn thật từ người hỏi.' },
     { q: 'Đuôi “right?” sau “So we meet at six, …” thường có ngữ điệu nào?', options: ['Xuống sâu như đã chắc chắn', 'Lên (↗) – mời phản hồi', 'Không có ngữ điệu'], answer: 1, explain: '“Right?” thường lên vì mời người nghe xác nhận hoặc phản hồi.' },
     { q: 'Câu nào tóm tắt đúng xu hướng cho câu hỏi đuôi?', options: ['Xác nhận thường ↘, hỏi thật thường ↗', 'Đuôi lên khi câu khẳng định, xuống khi câu phủ định', 'Đuôi luôn do thói quen từng người'], answer: 0, explain: 'Đây là xu hướng; ngữ cảnh và thái độ vẫn quyết định ngữ điệu.' }
