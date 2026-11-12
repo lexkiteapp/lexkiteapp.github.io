@@ -96,7 +96,12 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo timeout 300 apt-get -o DPkg::Lock::Timeout=120 install -y -qq fonts-noto-cjk fonts-noto-core >/dev/null || true
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-cjk fonts-noto-core }
+      - name: Chụp (tiếp)
+        timeout-minutes: 14
+        env: { PAGES: "${{ github.event.inputs.seo_words }}" }
+        run: |
           node scripts/test/seo-words-shots.mjs out "$PAGES" seo-words-shots
       - if: always()
         uses: actions/upload-artifact@v4

@@ -29,13 +29,7 @@ jobs:
       - name: Lưu kết quả (lấy bản mới nhất trước khi đẩy, thử lại tối đa 5 lần)
         if: github.ref == 'refs/heads/main'
         run: |
-          git config user.name "lexkite-bot"
-          git config user.email "lexkite-bot@users.noreply.github.com"
-          git add -A web/packs
-          git diff --cached --quiet && exit 0
-          git commit -m "Gói nghĩa từ vựng: cập nhật tự động [CF-Pages-Skip] [skip ci]"
-          for i in 1 2 3 4 5; do git pull --rebase --autostash -X theirs origin main && git push && exit 0; sleep $((i * 7)); done
-          exit 1
+          bash scripts/ci/push-main.sh "Gói nghĩa từ vựng: cập nhật tự động" web/packs
       - name: Nhánh khác main – artifact + summary (không đẩy vào nhánh; lấy về bằng bash scripts/ci/bot-output.sh word-packs <nhánh>)
         if: github.ref != 'refs/heads/main'
         uses: ./.github/actions/bot-output

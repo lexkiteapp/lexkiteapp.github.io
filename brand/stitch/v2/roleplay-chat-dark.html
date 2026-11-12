@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Roleplay Conversation (Bright Day 390px) (dark – dark-from-light.mjs)</title>
+  <!-- Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Material Symbols Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              tealLight: '#164E4F',
+              tealSoft: '#E6F4F1',
+              coral: '#F25C05',
+              coralDark: '#C84800',
+              cream: '#FFF8F5',
+              surface: '#FFFFFF',
+              surfaceAlt: '#FFF2EB',
+              border: '#E8DCD4',
+              ink: '#191C1B',
+              inkMuted: '#4A5553',
+            }
+          },
+          boxShadow: {
+            'tactile': '0 4px 0 #0E1618',
+            'tactile-card': '0 3px 0 #0E1618',
+            'tactile-btn': '0 4px 0 #001614',
+            'tactile-coral': '0 4px 0 #6F2500',
+            'tactile-coral-press': '0 1px 0 #6F2500',
+            'tactile-press': '0 1px 0 #0E1618',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #1E2F33;
+      color: #E8F1F0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Typing indicator animation */
+    @keyframes pulseDot {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+    .dot-1 { animation: pulseDot 1.4s infinite ease-in-out; }
+    .dot-2 { animation: pulseDot 1.4s infinite ease-in-out 0.2s; }
+    .dot-3 { animation: pulseDot 1.4s infinite ease-in-out 0.4s; }
+  </style>
+</head>
+<body class="flex justify-center bg-[#1D2F33] min-h-screen">
+  <!-- Mobile Container exactly 390px wide -->
+  <div class="w-[390px] min-h-screen bg-[#1D2F33] flex flex-col justify-between relative shadow-sm border-x border-[#4A6870]">
+
+    <!-- ================= TOP BAR (FOCUS VARIANT §5d) ================= -->
+    <header class="sticky top-0 z-30 bg-[#1D2F33]/95 backdrop-blur-sm px-4 pt-3 pb-2 border-b border-[#4A6870]">
+      <!-- Row 1: Close X + Slim Progress Bar + End & score button -->
+      <div class="flex items-center gap-3">
+        <!-- Close Button (min 44x44px tap area) -->
+        <button aria-label="Close practice" class="w-11 h-11 flex items-center justify-center rounded-full bg-[#162528] border border-[#4A6870] text-[#EAF2F2] hover:bg-[#1D2F33] active:translate-y-0.5 shadow-sm transition-all flex-shrink-0">
+          <span class="material-symbols-rounded text-2xl text-[#EAF2F2]">close</span>
+        </button>
+
+        <!-- Slim Progress Bar -->
+        <div class="flex-1 flex flex-col justify-center">
+          <div class="w-full bg-[#263A3F] h-2 rounded-full overflow-hidden">
+            <div class="bg-[#12514D] h-2 rounded-full transition-all duration-300" style="width: 50%;"></div>
+          </div>
+        </div>
+
+        <!-- End and score quiet action (min 44px height tap target) -->
+        <button class="h-11 px-3 flex items-center justify-center text-xs font-bold text-[#FFC94A] hover:text-[#FFC94A] bg-[#1D2F33] hover:bg-[#263A3F] rounded-xl border border-[#7A5A2A] transition-all flex-shrink-0 active:translate-y-0.5">
+          End &amp; score
+        </button>
+      </div>
+
+      <!-- Row 2: Status line (A2, on-device AI model, Turn info) -->
+      <div class="mt-2.5 flex items-center justify-between px-1">
+        <div class="inline-flex items-center gap-1.5 bg-[#263A3F] border border-[#2D464D] px-2.5 py-1 rounded-full">
+          <span class="w-2 h-2 rounded-full bg-[#12514D] animate-pulse"></span>
+          <span class="text-[11px] font-bold text-[#5EEAD4] tracking-tight">On-device AI (Gemini Nano)</span>
+        </div>
+        <div class="text-[12px] font-bold text-[#EAF2F2]">
+          Level <span class="text-[#5EEAD4] font-extrabold">A2</span> · Turn <span class="text-[#5EEAD4] font-extrabold">3/6</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= CHAT / ROLE-PLAY AREA ================= -->
+    <main class="flex-1 px-4 py-4 space-y-4 overflow-y-auto">
+
+      <!-- Scenario Context Banner -->
+      <div class="bg-[#162528] rounded-2xl p-3 border border-[#4A6870] shadow-[0_2px_0_#EADCD1] flex items-center gap-3">
+        <!-- 2D Teacher Slot Placeholder: Clean dashed container with label "teacher-slot" -->
+        <div class="w-12 h-12 rounded-xl border-2 border-dashed border-[#12514D]/40 bg-[#263A3F] flex flex-col items-center justify-center flex-shrink-0" title="teacher-slot">
+          <span class="material-symbols-rounded text-lg text-[#5EEAD4]">smart_toy</span>
+          <span class="text-[8px] font-extrabold uppercase text-[#5EEAD4] tracking-tighter">teacher-slot</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-1.5">
+            <span class="text-xs font-extrabold uppercase tracking-wide text-[#5EEAD4]">Cafe Counter</span>
+            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#1D2F33] text-[#FFC94A] border border-[#6B3A30]">Role-play</span>
+          </div>
+          <p class="text-xs font-semibold text-[#EAF2F2] truncate">Ordering coffee &amp; morning snack with barista Mia</p>
+        </div>
+      </div>
+
+      <!-- Bubble 1: AI (Mia) - Left Aligned -->
+      <div class="flex flex-col items-start space-y-1 max-w-[88%]">
+        <div class="flex items-center gap-1.5 px-1">
+          <span class="text-xs font-bold text-[#5EEAD4]">Mia (Barista)</span>
+          <span class="text-[10px] font-semibold text-[#EAF2F2]">10:02 AM</span>
+        </div>
+        <div class="bg-[#162528] border-2 border-[#4A6870] rounded-2xl rounded-tl-sm p-3.5 shadow-[0_3px_0_#E0D0C4] text-[#EAF2F2]">
+          <p class="text-[15px] leading-snug font-semibold">
+            Hi! What can I get for you today?
+          </p>
+          <!-- Audio speech playback button (44px min touch target) -->
+          <div class="mt-2.5 pt-2 border-t border-[#4A6870] flex items-center gap-2">
+            <button aria-label="Listen to Mia" class="h-8 px-2.5 rounded-lg bg-[#263A3F] hover:bg-[#1F4A4E] text-[#5EEAD4] text-xs font-bold flex items-center gap-1.5 border border-[#2D464D] active:translate-y-0.5 transition-all">
+              <span class="material-symbols-rounded text-base">volume_up</span>
+              <span>Listen</span>
+            </button>
+            <span class="text-[11px] font-medium text-[#EAF2F2]">A2 natural speed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bubble 2: Learner - Right Aligned (Deep Teal #0F3D3E) -->
+      <div class="flex flex-col items-end space-y-1 ml-auto max-w-[88%]">
+        <div class="flex items-center gap-1.5 px-1">
+          <span class="text-[10px] font-semibold text-[#EAF2F2]">10:02 AM</span>
+          <span class="text-xs font-bold text-[#5EEAD4]">You</span>
+        </div>
+        <div class="bg-[#12514D] text-white border-2 border-[#12514D] rounded-2xl rounded-tr-sm p-3.5 shadow-[0_3px_0_#061E1E]">
+          <p class="text-[15px] leading-snug font-semibold text-white">
+            I would like a flat white, please.
+          </p>
+          <div class="mt-2 flex items-center justify-end gap-1.5 text-teal-200 text-[11px] font-bold">
+            <span class="material-symbols-rounded text-sm text-teal-300">check_circle</span>
+            <span>Pronounced clearly (96%)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bubble 3: AI (Mia) with prompt & typing indicator -->
+      <div class="flex flex-col items-start space-y-1 max-w-[90%]">
+        <div class="flex items-center gap-1.5 px-1">
+          <span class="text-xs font-bold text-[#5EEAD4]">Mia (Barista)</span>
+          <span class="text-[10px] font-semibold text-[#EAF2F2]">Just now</span>
+        </div>
+        <div class="bg-[#162528] border-2 border-[#4A6870] rounded-2xl rounded-tl-sm p-3.5 shadow-[0_3px_0_#E0D0C4] text-[#EAF2F2]">
+          <p class="text-[15px] leading-snug font-semibold">
+            Sure! Would you like anything to eat with that?
+          </p>
+
+          <!-- Audio playback + Typing indicator -->
+          <div class="mt-3 pt-2.5 border-t border-[#4A6870] flex items-center justify-between">
+            <button aria-label="Listen to Mia" class="h-8 px-2.5 rounded-lg bg-[#263A3F] hover:bg-[#1F4A4E] text-[#5EEAD4] text-xs font-bold flex items-center gap-1.5 border border-[#2D464D] active:translate-y-0.5 transition-all">
+              <span class="material-symbols-rounded text-base">volume_up</span>
+              <span>Listen</span>
+            </button>
+
+            <!-- Active Conversation Typing Dots -->
+            <div class="flex items-center gap-1 px-2.5 py-1 bg-[#1D2F33] rounded-full border border-[#4A6870]">
+              <span class="text-[10px] font-bold text-[#EAF2F2] mr-1">Listening</span>
+              <div class="w-1.5 h-1.5 rounded-full bg-[#12514D] dot-1"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-[#12514D] dot-2"></div>
+              <div class="w-1.5 h-1.5 rounded-full bg-[#12514D] dot-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Assistance Card: Hint Card -->
+      <div class="bg-[#1D2F33] border-2 border-[#6B3A30] rounded-2xl p-3.5 shadow-[0_3px_0_#EAD1C2] space-y-2.5">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-1.5 text-[#FFC94A]">
+            <span class="material-symbols-rounded text-lg">lightbulb</span>
+            <span class="text-xs font-extrabold uppercase tracking-wider">Suggested Response</span>
+          </div>
+          <span class="text-[11px] font-bold text-[#FFC94A] bg-[#3B3015] px-2 py-0.5 rounded-full">High-score phrase</span>
+        </div>
+
+        <div class="bg-[#162528] rounded-xl p-2.5 border border-[#4A6870] flex items-center justify-between gap-2">
+          <p class="text-sm font-bold text-[#EAF2F2]">
+            &ldquo;Could I have a croissant too?&rdquo;
+          </p>
+          <button aria-label="Listen to suggestion" class="h-9 px-3 rounded-lg bg-[#1D2F33] hover:bg-[#263A3F] text-[#FFC94A] border border-[#7A5A2A] text-xs font-bold flex items-center gap-1 flex-shrink-0 active:translate-y-0.5 transition-all">
+            <span class="material-symbols-rounded text-base">play_arrow</span>
+            <span>Listen</span>
+          </button>
+        </div>
+
+        <!-- Quick scaffolding pills (Tap to insert / practice) -->
+        <div class="flex flex-wrap gap-2 pt-0.5">
+          <button class="h-8 px-2.5 rounded-lg bg-[#162528] border border-[#4A6870] text-[11px] font-bold text-[#5EEAD4] hover:bg-[#263A3F] flex items-center gap-1 active:translate-y-0.5 transition-all">
+            <span class="material-symbols-rounded text-sm text-[#5EEAD4]">add</span>
+            <span>"Just the coffee, thanks"</span>
+          </button>
+          <button class="h-8 px-2.5 rounded-lg bg-[#162528] border border-[#4A6870] text-[11px] font-bold text-[#5EEAD4] hover:bg-[#263A3F] flex items-center gap-1 active:translate-y-0.5 transition-all">
+            <span class="material-symbols-rounded text-sm text-[#5EEAD4]">add</span>
+            <span>"A blueberry muffin, please"</span>
+          </button>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ================= BOTTOM INTERACTIVE BAR & FULL CTA ================= -->
+    <footer class="sticky bottom-0 z-30 bg-[#1D2F33] border-t-2 border-[#4A6870] px-4 pt-3 pb-4 space-y-3">
+
+      <!-- Assistance toggles (min 44px tap targets) -->
+      <div class="flex items-center gap-2">
+        <button class="flex-1 h-11 px-3 bg-[#162528] border-2 border-[#4A6870] rounded-xl text-xs font-bold text-[#5EEAD4] flex items-center justify-center gap-1.5 shadow-[0_2px_0_#E0D0C4] hover:bg-[#1D2F33] active:translate-y-0.5 active:shadow-none transition-all">
+          <span class="material-symbols-rounded text-lg text-[#FFC94A]">lightbulb</span>
+          <span>Hint</span>
+        </button>
+
+        <button class="flex-1 h-11 px-3 bg-[#162528] border-2 border-[#4A6870] rounded-xl text-xs font-bold text-[#5EEAD4] flex items-center justify-center gap-1.5 shadow-[0_2px_0_#E0D0C4] hover:bg-[#1D2F33] active:translate-y-0.5 active:shadow-none transition-all">
+          <span class="material-symbols-rounded text-lg text-[#5EEAD4]">record_voice_over</span>
+          <span>Help me speak</span>
+        </button>
+
+        <button aria-label="Translation helper" class="w-11 h-11 bg-[#162528] border-2 border-[#4A6870] rounded-xl text-[#5EEAD4] flex items-center justify-center shadow-[0_2px_0_#E0D0C4] hover:bg-[#1D2F33] active:translate-y-0.5 active:shadow-none transition-all flex-shrink-0">
+          <span class="material-symbols-rounded text-xl">translate</span>
+        </button>
+      </div>
+
+      <!-- Input Bar: Round Coral Mic Button + Text Input + Send Button -->
+      <div class="flex items-center gap-2">
+        <!-- Round Coral Microphone Button (Tactile 48x48px min target) -->
+        <button aria-label="Speak response" class="w-12 h-12 rounded-full bg-[#F25C05] hover:bg-[#C64800] text-white flex items-center justify-center border-2 border-[#6F2500] shadow-tactile-coral active:translate-y-1 active:shadow-tactile-coral-press transition-all flex-shrink-0">
+          <span class="material-symbols-rounded text-2xl text-white">mic</span>
+        </button>
+
+        <!-- Text Input with min 48px height -->
+        <div class="flex-1 relative flex items-center">
+          <input 
+            type="text" 
+            placeholder="Speak or type your answer..." 
+            value="Could I have a croissant too?"
+            class="w-full h-12 pl-3.5 pr-10 bg-[#162528] border-2 border-[#D8C7B9] focus:border-[#12514D] rounded-xl text-sm font-semibold text-[#EAF2F2] placeholder-[#E8F1F0] outline-none shadow-[inset_0_2px_2px_rgba(0,0,0,0.05)] transition-all"
+          />
+          <button aria-label="Clear text" class="absolute right-2.5 w-6 h-6 flex items-center justify-center rounded-full text-[#EAF2F2] hover:text-[#EAF2F2]">
+            <span class="material-symbols-rounded text-sm">cancel</span>
+          </button>
+        </div>
+
+        <!-- Send Icon Button (Tactile 48x48px min target) -->
+        <button aria-label="Send message" class="w-12 h-12 rounded-xl bg-[#12514D] hover:bg-[#12514D] text-white flex items-center justify-center border-2 border-[#12514D] shadow-tactile-btn active:translate-y-1 active:shadow-none transition-all flex-shrink-0">
+          <span class="material-symbols-rounded text-xl text-white">arrow_upward</span>
+        </button>
+      </div>
+
+      <!-- Single Primary Action Button pinned at bottom (§5d Focus rule: 1 full-width button) -->
+      <div>
+        <button class="w-full h-12 rounded-xl bg-[#F25C05] hover:bg-[#C64800] text-[#1A0D00] font-extrabold text-sm flex items-center justify-center gap-2 border-2 border-[#6F2500] shadow-tactile-coral active:translate-y-1 active:shadow-tactile-coral-press transition-all">
+          <span>Submit Turn &amp; Continue</span>
+          <span class="material-symbols-rounded text-lg text-[#1A0D00]">arrow_forward</span>
+        </button>
+      </div>
+
+      <!-- Auto-save / offline indicator footnote -->
+      <div class="flex items-center justify-center gap-1.5 text-[11px] font-semibold text-[#EAF2F2]">
+        <span class="material-symbols-rounded text-sm text-[#5EEAD4]">lock</span>
+        <span>Private on-device session · Powered by Gemini Nano</span>
+      </div>
+
+    </footer>
+
+  </div>
+</body>
+</html>

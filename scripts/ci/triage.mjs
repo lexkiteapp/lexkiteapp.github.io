@@ -258,6 +258,10 @@ async function sweep() {
     if (r.bad.length) console.log(`::error::${r.bad.length} workflow tốn runner bất thường: ${r.bad.map(b => b.name).join(', ')}`);
     if (process.env.LEXKITE_DRIVE_CLI_KEY) { const { driveApi } = await import('../video/library.mjs'); await driveApi('ext_alert', { kind: 'ci_hog', ok: !r.bad.length, n: Math.max(1, r.bad.length), msg: r.bad.map(b => `${b.name}: ${b.why}`).join(' · ').slice(0, 300), repo: REPO }); }
   } catch (e) { console.log('::warning::ci-hog: ' + e.message); }
+  // 1d) issue ci-failure > 12 giờ chưa có PR liên kết → p0 (scripts/ci/guards.mjs stale-ci) – mỗi giờ, 2 lệnh API + 2/issue mới quá hạn
+  let stale = null;
+  try { stale = await (await import('./guards.mjs')).staleCiRun(gh, +now); summary(stale.md); if (stale.n) console.log(`::error::${stale.text}`); }
+  catch (e) { console.log('::warning::stale-ci: ' + e.message); }
   if (!digestDue(now, force)) return summary('Quét giờ: xong (bản tin chạy mỗi 4 giờ).');
   // 2) lượt hoãn vì hạn mức: sau 00:10 UTC (hạn mức D1 đã đặt lại) chạy lại lượt đỏ MỚI NHẤT của mỗi workflow – 1 lần (attempt 1), bỏ nếu đã có lượt mới hơn
   const since = new Date(now - 26 * 3600e3).toISOString().slice(0, 19) + 'Z';
@@ -281,6 +285,7 @@ async function sweep() {
   // 4) runner 24 h (ci-filler): TB/đỉnh theo giờ + phút-runner rảnh khi còn tồn đọng (KPI → ~0)
   try { const f = await import('./filler.mjs'), u = f.report(await f.readLog()); d.md += '\n' + u.md; d.text += `\n\nRunner 24 h: ${u.msg}`; } catch (e) { console.log('runner report:', e.message); }
   if (common) { d.md += '\n' + common.md; d.text += `\n\nPR mở – ${common.text}`; }
+  if (stale && stale.n) { d.md += '\n' + stale.md; d.text += `\n\n${stale.text}`; }
   summary(d.md);
   if (!process.env.LEXKITE_DRIVE_CLI_KEY) return console.log('Không có LEXKITE_DRIVE_CLI_KEY – chỉ ghi tóm tắt job.');
   try {

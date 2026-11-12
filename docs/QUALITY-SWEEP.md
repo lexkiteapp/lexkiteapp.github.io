@@ -28,6 +28,9 @@ Mức độ: critical = lỗi trang/promise/5xx/axe critical · high = console, 
 Mỗi bước: `journey-e2e/checks.js` (lớp nổi chồng nhau, 2 lời mời, focus, ô quảng cáo) + lỗi console/promise + tải lại + mất mạng. Hermetic: `/api/*` giả lập trong tiến trình, host ngoài rỗng, `?sandbox=1` (đồng bộ/lớp học dùng tài khoản Firebase GIẢ). Hộp hỏi nhắc học chỉ hiện khi kiểm thử nếu `localStorage lk.e2e=1` (remind.js, số liệu/push vẫn tắt).
 Chạy tay: `node scripts/test/journey-e2e.mjs --root dist --lang vi --device mobile --only 1 [--ext]`.
 
+## journey-matrix – ma trận hành trình trên thanh 5 tab
+`scripts/test/journey-matrix.mjs` (workflow `journey-matrix.yml`: mỗi PR đụng `web/**`, chạy tay; 3 shard `phone`, `desktop`, `edge`, tổng dưới ~20 phút runner). Người mới, đang học, ôn, luyện, thi thử, giải đấu khách + đã tham gia, Tôi, 5 tab + deep link cũ × 390/1440 px × sáng/tối; thêm Back/Esc/X, mạng chậm, ngoại tuyến, trạng thái rỗng, 15 ngôn ngữ. Mỗi màn: 0 lỗi console/pageerror, `LKJC` sạch, nút chính/tab/nút thoát ≥ 44 px, đúng tab; `journey-matrix/probe.js` soi thêm chữ Việt và thiếu dịch. Hermetic như journey-e2e. Đỏ khi có lỗi hoặc 0 bước; ảnh lỗi ở artifact `journey-matrix-<shard>`. Chạy tay trên CI: Actions → Journey matrix.
+
 ## Luật chuyển từ METHODS (27/10)
 - **Quét lỗi tiềm ẩn hằng đêm (24/10):** `quality-sweep.yml` (docs/QUALITY-SWEEP.md) – 0 token, hermetic (/api = {}), 1 issue "quality-sweep" + 1 dòng bản tin. Lỗi nó tìm ra → sửa theo LOẠI + thêm cổng vào npm test, đừng chỉ vá từng trang.
 - **Liên kết nội bộ (24/10, /vi/blog/-lang 404):** gốc lỗi = `web/blog-lang.html` cắt `^/blog/?` làm "/blog-lang" thành đuôi "-lang". Cổng: `scripts/lib/url-guard.mjs` (badPath/joinPath – URL bài dựng qua joinPath), `scripts/test/links-js.mjs` (jsdom chạy script thật, quét liên kết DOM + tĩnh của mọi trang blog, ma trận chuyển hướng /blog*, gợi ý 404), `crawl.js` quét href do JS sinh. Mọi URL ghép từ biến → dùng joinPath, không nối chuỗi trần.

@@ -125,6 +125,30 @@ class LkAudio(
         val ok = playFile(seq, 0, "", file, rate, object : SpeakListener { override fun onSegment(seg: Segment) { started = true; onStart() } })
         return if (ok) Clip.PLAYED else if (started) Clip.FAILED_AFTER_START else Clip.FAILED
     }
+    /** A plain audio URL (dictionary pronunciation, hands-free list): cached under `u-<hash>` like a clip; FAILED = no file / unplayable (the caller moves on, like the web `error` event). */
+    suspend fun playUrl(url: String, rate: Float = 1f): Clip {
+        val f = cacheDir?.let { File(it, "u-" + AudioLogic.fnv36(url) + ".mp3") } ?: return Clip.FAILED
+        if (f.length() == 0L) {
+            val r = fetcher.get(url); if (!r.ok) return Clip.FAILED
+            val ok = withContext(io) { f.parentFile?.mkdirs(); runCatching { f.writeBytes(r.body!!) }.isSuccess }; if (!ok) return Clip.FAILED
+        }
+        return if (playFile(seq, 0, "", f, rate, object : SpeakListener {})) Clip.PLAYED else Clip.FAILED
+    }
+    /** The 1 s silent WAV (8 kHz, 8-bit mono) that keeps a screen-off playback session alive between steps (web handsfree getSilent). */
+    suspend fun playSilence(): Clip {
+        val f = cacheDir?.let { File(it, "silence.wav") } ?: return Clip.FAILED
+        if (f.length() == 0L) withContext(io) { f.parentFile?.mkdirs(); runCatching { f.writeBytes(silentWav()) } }
+        return if (f.length() > 0 && playFile(seq, 0, "", f, 1f, object : SpeakListener {})) Clip.PLAYED else Clip.FAILED
+    }
+    private fun silentWav(): ByteArray {
+        val rate = 8000; val n = rate; val b = ByteArray(44 + n)
+        fun s(o: Int, t: String) { for (i in t.indices) b[o + i] = t[i].code.toByte() }
+        fun w32(o: Int, v: Int) { b[o] = v.toByte(); b[o + 1] = (v shr 8).toByte(); b[o + 2] = (v shr 16).toByte(); b[o + 3] = (v shr 24).toByte() }
+        fun w16(o: Int, v: Int) { b[o] = v.toByte(); b[o + 1] = (v shr 8).toByte() }
+        s(0, "RIFF"); w32(4, 36 + n); s(8, "WAVE"); s(12, "fmt "); w32(16, 16); w16(20, 1); w16(22, 1); w32(24, rate); w32(28, rate); w16(32, 1); w16(34, 8); s(36, "data"); w32(40, n)
+        for (i in 44 until b.size) b[i] = 128.toByte()
+        return b
+    }
     /** Device voice cast (see [TtsBackend.speakCast]); [stop] cancels it. */
     fun speakCast(text: String, voice: String?, lang: String, pitch: Float, rate: Float, cb: TtsCallback) { tts.speakCast(text, voice, lang, pitch, rate, cb) }
     fun voiceNames(lang: String): List<String> = tts.voiceNames(lang)

@@ -34,16 +34,16 @@ jobs:
         working-directory: native/android
         run: |
           N=$(ls app/src/test/snapshots/*.png 2>/dev/null | wc -l)
-          if [ "${{ inputs.record }}" = "true" ] || [ "$N" -lt 303 ]; then
+          if [ "${{ inputs.record }}" = "true" ] || [ "$N" -lt 495 ]; then
             # bấm tay record → ghi lại tất cả; thiếu ảnh (test mới / ảnh đổi có chủ đích đã xoá) → chỉ thêm ảnh còn thiếu, ảnh chuẩn đã commit vẫn được so
-            echo "::warning::Ảnh snapshot chuẩn $N/303 → ghi ảnh thiếu rồi kiểm lại; tải artifact native-android-snapshots và commit vào app/src/test/snapshots"
+            echo "::warning::Ảnh snapshot chuẩn $N/495 → ghi ảnh thiếu rồi kiểm lại; tải artifact native-android-snapshots và commit vào app/src/test/snapshots"
             KEEP="$RUNNER_TEMP/keep"; mkdir -p "$KEEP"
             [ "${{ inputs.record }}" = "true" ] || cp app/src/test/snapshots/*.png "$KEEP/" 2>/dev/null || true
             gradle --no-daemon -q :app:recordRoborazziDebug
             cp "$KEEP"/*.png app/src/test/snapshots/ 2>/dev/null || true
           fi
           gradle --no-daemon :app:verifyRoborazziDebug
-          test "$(ls app/src/test/snapshots/*.png | wc -l)" -ge 303 || { echo "::error::thiếu ảnh snapshot"; exit 1; }
+          test "$(ls app/src/test/snapshots/*.png | wc -l)" -ge 495 || { echo "::error::thiếu ảnh snapshot"; exit 1; }
       - name: Build APK debug + release (R8 + shrink, không ký, không tải mapping)
         working-directory: native/android
         env: { LEXKITE_CRASHLYTICS_UPLOAD: '0' }

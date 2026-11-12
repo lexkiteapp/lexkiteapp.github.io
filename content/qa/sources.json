@@ -503,7 +503,8 @@
   {
    "id": "mediation",
    "paths": [
-    "content/mediation"
+    "content/mediation",
+    "web/cpack/mediation"
    ],
    "owner": "claude",
    "gen": false,
@@ -548,7 +549,8 @@
    "delegate": [
     "test/content-factory.mjs"
    ]
-  }
+  },
+  { "id": "phrase-book", "paths": ["web/cpack/framework", "content/framework/functions.json"], "owner": "claude", "gen": true, "checks": ["schema"], "delegate": ["test/phrasebook.mjs", "test/content-factory.mjs"], "doc": "docs/CONTENT-FACTORY.md" }
  ],
  "skip": {
   "web/cpack/es-app": "MÃ giao diện bài phát âm TBN (pron-ui.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu ở web/cpack/es (nguồn px), test scripts/test/es-pron.mjs",

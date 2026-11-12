@@ -22,7 +22,8 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           bash scripts/ci/pw-install.sh --with-deps chrome
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core fonts-noto-cjk >/dev/null || true
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core fonts-noto-cjk }
       - name: Fixture (artifact video-motion embed)
         env: { GH_TOKEN: '${{ github.token }}', REPO: '${{ github.repository }}', RUN_ID: '${{ inputs.run_id }}' }
         run: |

@@ -241,7 +241,7 @@ ok(/GITHUB_TOKEN: \$\{\{ github\.token \}\}/.test(step(cp, 'Dò bản sao chép'
   ok(/Canary cnr-tr-01/.test(evidenceReport('cnr-tr-01')), 'evidence: tra theo id canary');
   const ce = fs.readFileSync('.github/workflows/content-evidence.yml', 'utf8');
   for (const st of ['Wayback', 'Nhãn hiệu', 'Software Heritage', 'Zenodo', 'OpenTimestamps', 'Tem thời gian RFC 3161']) ok(/continue-on-error: true/.test(step(ce, st)) || /continue-on-error: true/.test(ce.slice(ce.indexOf(`- name: ${st}`), ce.indexOf(`- name: ${st}`) + 400)), `content-evidence: bước ${st} không làm đỏ CI`);
-  ok(/git add [^\n]*content\/protection\/tsa/.test(ce) && /concurrency:\n  group: content-protect/.test(ce), 'content-evidence: commit .tsr, chạy tuần tự với content-protect');
+  ok(/(git add|push-main\.sh "[^"]*") [^\n]*content\/protection\/tsa/.test(ce) && /concurrency:\n  group: content-protect/.test(ce), 'content-evidence: commit .tsr, chạy tuần tự với content-protect');
   ok(!/zenodo-deposit|tsa\.mjs stamp|swh-save/.test(fs.readFileSync('scripts/test/suite.txt', 'utf8')), 'bên thứ ba không chạy cục bộ trong npm test (chỉ CI)');
 }
 
