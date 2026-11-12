@@ -1,6 +1,6 @@
 # Đối chiếu spec ↔ main (12/11/2026) – cái gì xong, dở, chưa làm
 
-> TL;DR: Đợt 1 của upgrade-2026-11 gần xong; Đợt 2 chỉ xong #3; Đợt 3 (#5, #11, #12) chưa có code UI. Gia sư (#tutor) mới có logic, chưa có màn. Thứ tự làm: #9 → #8 → #11 (ghost) → #5 → #12 → gia sư M3.
+> TL;DR: Cập nhật 12/11: #8, #9 xong (#1136, #1125); #5 xong M1 (#1167, cờ tắt), còn link + AI nghĩa. #11/#12 do play-community; gia sư mới có logic, chưa có màn.
 > Cơ sở: `real/main` 42ea12f48 + PR mở tra qua API 12/11. Chỉ đọc mã/PR, chưa chạy app. Cột Bằng chứng = tệp hoặc PR.
 
 ## upgrade-2026-11.md (12 hạng mục)
