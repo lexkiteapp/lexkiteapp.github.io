@@ -81,7 +81,7 @@ for (const lang of KIT_LANGS) for (const a of ASSETS.filter(a => !a.lang && LANG
 export const langOf = a => a.lang || 'en';
 // Phông được phép cho chữ: phải là phông ĐÃ nạp (không rơi về phông hệ thống – dấu tiếng Việt/Ả Rập/Devanagari sẽ sai). Cyrillic/Ả Rập/Devanagari = họ Noto Sans (OFL).
 export const OWN_FONTS = ['Plus Jakarta Sans', 'Bricolage Grotesque'];
-export const NOTO_FONTS = /^Noto Sans( Arabic| Devanagari)?( \w+)?$/;
+export const NOTO_FONTS = /^Noto Sans( Arabic| Devanagari| CJK (JP|KR|SC|TC))?( \w+)?$/;
 export const fontAllowed = f => OWN_FONTS.includes(f) || NOTO_FONTS.test(f);
 
 // ---------- QC thuần (test được không cần trình duyệt) ----------
@@ -163,7 +163,7 @@ export function notoFiles() {
 }
 const notoCss = lang => { const F = notoFiles(), need = lang === 'ru' ? ['Noto Sans'] : lang === 'ar' ? ['Noto Sans Arabic'] : lang === 'hi' ? ['Noto Sans Devanagari'] : [];
   return need.map(n => { if (!F[n]) throw new Error(`thiếu phông ${n} (CI: apt fonts-noto-core)`); return `@font-face{font-family:'${n}';font-weight:100 900;src:url('${pathToFileURL(F[n]).href}')}`; }).join('\n'); };
-const stackOf = lang => ({ ru: "'Plus Jakarta Sans','Noto Sans'", ar: "'Plus Jakarta Sans','Noto Sans Arabic'", hi: "'Plus Jakarta Sans','Noto Sans Devanagari'" }[lang] || "'Plus Jakarta Sans'");
+const stackOf = lang => ({ ru: "'Plus Jakarta Sans','Noto Sans'", ar: "'Plus Jakarta Sans','Noto Sans Arabic'", hi: "'Plus Jakarta Sans','Noto Sans Devanagari'", ja: "'Plus Jakarta Sans','Noto Sans CJK JP'", ko: "'Plus Jakarta Sans','Noto Sans CJK KR'", zh: "'Plus Jakarta Sans','Noto Sans CJK SC'" }[lang] || "'Plus Jakarta Sans'");
 const baseCss = (W, lang = 'en') => `${fontCss}
 ${notoCss(lang)}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -183,7 +183,7 @@ html,body{width:${W}px;background:transparent;overflow:hidden}
 .hide-text [data-t]{visibility:hidden}
 .only-fig .bg,.only-fig .deco,.only-fig [data-t],.only-fig .pill,.only-fig .chip,.only-fig .logo{visibility:hidden!important}
 .only-fig .pill,.only-fig .chip{background:none!important;box-shadow:none!important}
-${lang === 'ar' || lang === 'hi' ? '.stage *{letter-spacing:0!important}.h,.sub{line-height:1.18}.pill,.chip{line-height:1.2;text-transform:none}' : ''}
+${lang === 'ar' || lang === 'hi' ? '.stage *{letter-spacing:0!important}.h,.sub{line-height:1.18}.pill,.chip{line-height:1.2;text-transform:none}' : ['ja', 'ko', 'zh'].includes(lang) ? '.h,.sub{line-height:1.18}.pill,.chip{line-height:1.2}' : ''}
 `;
 
 function pageAvatar(a) {
@@ -223,7 +223,7 @@ function pageYtBanner(a) {
     ${fig(POSES['yt-banner-r'], { x: 1700, h: 971 })}
     <div style="position:absolute;left:0;top:532px;width:${W}px;display:flex;flex-direction:column;align-items:center;text-align:center">
       <div style="display:flex;align-items:center;gap:22px">${wordmark('yt', 66)}${chip(L.channel, 44, 12, 34, dot(18, 'tealBright2'))}</div>
-      <div class="h" data-t style="font-size:${L.hb}px;margin-top:22px">${L.h1} ${L.h2a}<span class="stick" data-t>${L.stick}</span>${L.h2b}</div>
+      <div class="h" data-t style="font-size:${L.hb}px;margin-top:22px">${L.h1}${L.sp ?? ' '}${L.h2a}<span class="stick" data-t>${L.stick}</span>${L.h2b}</div>
       <div class="sub" data-t style="font-size:44px;margin-top:12px">${L.sub}</div>
       <div style="margin-top:26px;display:flex;gap:22px;align-items:center">${pill(L.weekly, 44, 13, 44, play(42))}${chip(L.url, 44, 13, 36).replace('class="chip"', 'class="chip" data-case')}</div>
     </div></div>` };

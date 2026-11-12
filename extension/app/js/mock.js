@@ -250,20 +250,8 @@
         ask(0);
       });
       function recorder() {
-        let finalText = '', interim = '', rec = null, media = null, chunks = [], stream = null, on = true;
-        const startP = (async () => {
-          try { stream = await navigator.mediaDevices.getUserMedia({ audio: { autoGainControl: true, noiseSuppression: true, echoCancellation: true } }); media = new MediaRecorder(stream); media.ondataavailable = e => e.data.size && chunks.push(e.data); media.start(); } catch (e) { /* không có micro */ }
-          if (SR) { rec = new SR(); rec.lang = state.settings.accent || 'en-GB'; rec.continuous = true; rec.interimResults = true;
-            rec.onresult = e => { interim = ''; for (let i = e.resultIndex; i < e.results.length; i++) { const r = e.results[i]; if (r.isFinal) finalText += r[0].transcript + ' '; else interim += r[0].transcript; } const l = $('#mkLive'); if (l) l.textContent = (finalText + interim).slice(-220); };
-            rec.onend = () => { if (on && rec) try { rec.start(); } catch (e) { /* đang chạy */ } };
-            try { rec.start(); } catch (e) { /* đã chạy */ } }
-        })();
-        const stop = () => new Promise(async res => {
-          await startP; on = false; try { rec && rec.stop(); } catch (e) { /* đã dừng */ }
-          const done = () => { if (stream) stream.getTracks().forEach(x => x.stop()); res({ text: (finalText + ' ' + interim).trim(), audio: chunks.length ? UI.recUrl(new Blob(chunks, { type: (media && media.mimeType) || 'audio/webm' }), 'mock' + answers.length) : '' }); };
-          if (media && media.state !== 'inactive') { media.onstop = () => setTimeout(done, 250); media.stop(); } else setTimeout(done, 250);
-        });
-        return { stop, cancel: () => { on = false; try { rec && rec.abort(); } catch (e) { /* bỏ qua */ } if (media && media.state !== 'inactive') try { media.stop(); } catch (e) { /* bỏ qua */ } if (stream) stream.getTracks().forEach(x => x.stop()); } };
+        const startP = UI.speechSession({ lang: state.settings.accent || 'en-GB', slot: 'mock' + answers.length, onText: x => { const l = $('#mkLive'); if (l) l.textContent = x.slice(-220); }, onError: c => toast(UI.recErrorText(c)) });
+        return { stop: () => startP.then(x => (x ? x.stop() : { text: '', audio: '' })), cancel: () => { startP.then(x => { if (x) x.cancel(); }); } };
       }
       function ask(k) {
         if (k >= Q.length) { const sc = scoreSpeaking(answers); M.bands.speaking = sc.band || null; M.detail.speaking = { sc, answers }; return next(); }

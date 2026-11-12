@@ -73,6 +73,27 @@ export const COPY = {
     url: 'lexkite.com', weekly: 'हर हफ़्ते नए पाठ',
     thumb: { tag: 'Band 7+', big: '10', l1: 'शब्द', l2: 'सफ़र में' },
   },
+  ja: {
+    h1: '忘れない英単語を', h2a: '', stick: '無料で学ぼう', h2b: '。', sp: '', hs: 84, hb: 88,
+    sub: 'IELTS・TOEIC・日常英会話の単語を無料で',
+    badge: 'Lexkite · 完全無料 · ペイウォールなし', channel: '100%無料チャンネル',
+    url: 'lexkite.com', weekly: '毎週新しいレッスン',
+    thumb: { tag: 'Band 7+', big: '10', l1: '英単語', l2: '旅行編' },
+  },
+  ko: {
+    h1: '잊지 않는 영어 단어를', h2a: '', stick: '무료로 배우세요', h2b: '.', hs: 72, hb: 72,
+    sub: 'IELTS, TOEIC, 일상 영어 단어를 무료로',
+    badge: 'Lexkite · 100% 무료 · 결제 장벽 없음', channel: '100% 무료 채널',
+    url: 'lexkite.com', weekly: '매주 새로운 레슨',
+    thumb: { tag: 'Band 7+', big: '10', l1: '영어 단어', l2: '여행 편' },
+  },
+  zh: {
+    h1: '轻松记住英语单词，', h2a: '', stick: '完全免费', h2b: '。', sp: '', hs: 80, hb: 88,
+    sub: 'IELTS、TOEIC 与日常英语词汇，免费学',
+    badge: 'Lexkite · 100% 免费 · 无付费墙', channel: '100% 免费频道',
+    url: 'lexkite.com', weekly: '每周更新新课程',
+    thumb: { tag: 'Band 7+', big: '10', l1: '英语单词', l2: '旅行篇' },
+  },
 };
 export const KIT_LANGS = Object.keys(COPY).filter(l => l !== 'en');   // ngôn ngữ có bộ ảnh riêng (vi = PR #1018)
 export const RTL = ['ar'];
@@ -108,5 +129,14 @@ export const INFO = {
   hi: { name: 'Lexkite - अंग्रेज़ी सीखें', bio: 'अंग्रेज़ी शब्द जो याद रहें: IELTS, TOEIC और रोज़मर्रा की अंग्रेज़ी। छोटे पाठ, 100% मुफ़्त।',
     about: 'Lexkite आपको अंग्रेज़ी शब्द इस तरह सिखाता है कि वे सच में याद रहें: छोटे पाठ, स्मार्ट रिवीज़न और IELTS, TOEIC व रोज़मर्रा की अंग्रेज़ी के लिए क्विज़। सब कुछ 100% मुफ़्त, कोई पेवॉल नहीं। हर हफ़्ते नए पाठ। वेब, ऐप और Chrome एक्सटेंशन पर।',
     cta: 'और जानें', back: 'English words that stay in memory: IELTS, TOEIC and everyday English. Short lessons, 100% free.' },
+  ja: { name: 'Lexkite - 英語学習', bio: 'IELTS・TOEIC・日常英会話の英単語が身につく。短いレッスンで、すべて100%無料。',
+    about: 'Lexkiteは、忘れない英単語を身につけるための学習サービスです。短いレッスン、スマートな復習、IELTS・TOEIC・日常英会話向けのクイズを、すべて100%無料で、ペイウォールなしで提供。毎週新しいレッスンを配信しています。Web、アプリ、Chrome拡張機能で使えます。',
+    cta: '詳しく見る', back: 'Learn English words you will not forget. Short lessons, IELTS/TOEIC/everyday English, 100% free.' },
+  ko: { name: 'Lexkite - 영어 공부', bio: '잊지 않는 영어 단어: IELTS, TOEIC, 일상 영어. 짧은 레슨, 100% 무료.',
+    about: 'Lexkite는 오래 기억에 남는 영어 단어 학습을 도와줍니다. 짧은 레슨, 똑똑한 복습, IELTS·TOEIC·일상 영어 퀴즈를 모두 100% 무료로, 결제 장벽 없이 제공합니다. 매주 새로운 레슨이 올라옵니다. 웹, 앱, Chrome 확장 프로그램에서 사용하세요.',
+    cta: '더 알아보기', back: 'English words you will not forget: IELTS, TOEIC, everyday English. Short lessons, 100% free.' },
+  zh: { name: 'Lexkite - 学英语', bio: '轻松记住英语单词：IELTS、TOEIC 与日常英语。短课程，100% 免费。',
+    about: 'Lexkite 帮你真正记住英语单词：短课程、智能复习，以及面向 IELTS、TOEIC 和日常英语的测验。全部 100% 免费，没有付费墙。每周更新新课程。可在网页、手机应用和 Chrome 扩展中使用。',
+    cta: '了解更多', back: 'Remember English words for real: IELTS, TOEIC and everyday English. Short lessons, 100% free.' },
 };
 export const FB_CATEGORY = 'Education'; // Page → Chỉnh sửa thông tin → Hạng mục (tìm "Education" / "Giáo dục"; thêm "Website" nếu có)
