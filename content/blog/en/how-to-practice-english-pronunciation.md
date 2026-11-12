@@ -195,8 +195,6 @@ Record yourself on your phone, then listen to the model and to your recording on
 
 ![Lexkite practice hub listing games and exercises, including pronunciation practice](media:practice "The practice hub lists pronunciation practice alongside other exercises")
 
-If you are preparing for PTE, our [PTE Read Aloud pronunciation tips](/en/blog/pte-read-aloud-pronunciation/) cover how automated scoring treats pronunciation.
-
 {{cta: /#/pron | Open the pronunciation library and practise your first sound pair}}
 
 {{youtube: | A 10-minute daily routine for English pronunciation}}
