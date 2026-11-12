@@ -183,9 +183,7 @@
     $('#sQ1').onchange = e => { s.quietStart = e.target.value || '22:00'; save(); };
     $('#sQ2').onchange = e => { s.quietEnd = e.target.value || '08:00'; save(); };
     $('#sCap').oninput = e => { s.sessionCap = +e.target.value; $('#vCap').textContent = s.sessionCap || t('Không giới hạn'); save(); };
-    const mailPush = async e => { const on = e.target.checked, ok = await (window.Remind && Remind.mailSync ? Remind.mailSync(true) : Promise.resolve(false)); if (!ok && on) { e.target.checked = false; if (e.target.id === 'sDigest') s.emailDigest = false; else s.emailRemind = false; save(); toast(t('Cần đăng nhập để nhận email')); } };
-    $('#sMailRem').onchange = async e => { s.emailRemind = e.target.checked; save(); if (App.need) await App.need('remind').catch(() => {}); mailPush(e); };
-    $('#sDigest').onchange = async e => { s.emailDigest = e.target.checked; save(); if (App.need) await App.need('remind').catch(() => {}); mailPush(e); };
+    $('#sMailRem').onchange = $('#sDigest').onchange = async e => { const k = e.target.id === 'sDigest' ? 'emailDigest' : 'emailRemind'; s[k] = e.target.checked; save(); if (App.need) await App.need('remind').catch(() => {}); if (!(window.Remind && await Remind.mailSync(true)) && s[k]) { e.target.checked = s[k] = false; save(); toast(t('Cần đăng nhập để nhận email')); } };
     const fillVoices = () => {
       if (!$('#sVoice')) return; // đã rời trang Cài đặt
       const list = UI.voicesFor(s.accent);

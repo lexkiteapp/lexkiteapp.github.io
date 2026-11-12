@@ -34,3 +34,9 @@ Blitz 60 s + link thách `?ch=` không máy chủ (`cpack/play-app/play-blitz.js
 
 ## 5. Luật chung
 Stitch Lexkite Kit + 2D Ama/Carlos; sáng/tối, 360–390 px, nút ≥44 px; 15 ngôn ngữ (`i18n-missing`+`i18n-qa` strict); code lười, shell không tăng; thông báo theo notifications-ux (mặc định chỉ trong app, trần 1 push/ngày, giờ yên, không câu ép); 0 tim/mạng; không cắt tính năng/test/ngưỡng; mỗi PR có test + e2e và đủ cổng CI trước khi tự gộp.
+
+## 🥁 Nhịp điệu (game 1/4 của chuỗi mini-game 12/11)
+Chạm đúng nhịp NHẤN của câu tiếng Anh: từ nhấn (từ nội dung) → chạm đúng lúc; từ yếu (a, the, to…) → để im. Luyện nhịp "stress-timed" – kỹ năng nói thật, luật nhấn lấy từ `PronCoach.plan` (không chép lại).
+Câu = ví dụ của từ đến hạn/yếu (SRS thật) → 12 câu mẫu; 5 câu, nhịp 700→560 ms. Chấm: ±90 ms = Chuẩn (20), ±240 ms = Tốt (10), combo ×1/×2/×3 như Blitz; chạm nhầm từ yếu/ngoài nhịp = trừ độ chính xác + reset combo.
+SRS: chỉ thẻ đến hạn, chỉ khi chạm đúng từ đích và cả câu ≥ 90 % và không chạm thừa → Good qua `SRS.review`; lỡ/sai KHÔNG phạt. Lazy `cpack/play-app/play-rhythm.js` (pgames, ngoài khung), âm Web Audio lên lịch theo đồng hồ âm thanh, nút tắt âm, phím Space, ký hiệu ✓✓/✓/✗/! (không chỉ màu), tab ẩn → làm lại câu. Giới hạn đã biết: bài dựa vào thị giác (từ nhấn hiện bằng chữ đậm/●, tích-tắc đều) nên người khiếm thị chưa chơi được; kết quả từng từ được đọc ở cuối câu.
+Stitch (project "Lexkite Games" 3076699522281938084): gameplay sáng 83338e27…, kết quả sáng f02d3416…, gameplay tối 9439bedb…, kết quả tối 1bf02f7a….

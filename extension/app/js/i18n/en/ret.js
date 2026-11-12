@@ -72,4 +72,12 @@
 'Bạn đã nghỉ {n} ngày – không sao cả! Mình ôn lại vài từ dễ trước nhé.': 'You have been away {n} days – and that is completely fine! Let us start with a few easy words.',
 'Lâu quá mới gặp! Mình bắt đầu lại thật nhẹ nhàng, chỉ vài phút thôi.': 'It has been a while! Let us ease back in – just a few minutes.',
 'Ôn nhanh vài từ': 'Quick review',
+'Tuần qua của bạn': 'Your last week',
+'Từ mới học': 'New words',
+'Phút học (ước tính)': 'Study minutes (estimated)',
+'Từ đã nói to': 'Words spoken',
+'Số ngày có học': 'Days studied',
+'Tuần qua bạn học nhiều hơn tuần trước đó – tuyệt vời!': 'You studied more last week than the week before – wonderful!',
+'Mỗi tuần một chút là đủ. Mình cùng đi tiếp nhé!': 'A little each week is enough. Let us keep going together!',
+'Xem tiến bộ': 'See progress',
 }); })(typeof self !== 'undefined' ? self : this);

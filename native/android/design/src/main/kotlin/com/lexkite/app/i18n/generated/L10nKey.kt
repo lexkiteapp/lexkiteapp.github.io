@@ -1172,6 +1172,7 @@ enum class L10nKey(val id: String) {
     usageThereAreNoUsage("usage.thereAreNoUsage"),
     usageYouMightBeLooking("usage.youMightBeLooking"),
     revBlitz60("rev.blitz60"),
+    revRhythm("rev.rhythm"),
     revPractiseSpanish("rev.practiseSpanish"),
     revTestHint("rev.testHint"),
     revWritingRoom("rev.writingRoom"),
