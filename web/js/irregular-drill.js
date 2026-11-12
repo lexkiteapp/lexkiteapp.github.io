@@ -34,7 +34,7 @@
     const frame = (inner, pct, n) => `<div class="v2s-irregular"><div class="${ROOT}" data-irv="drill"><div class="w-full max-w-[390px] lg:max-w-[560px] min-h-screen flex flex-col relative lt:bg-[#fff8f5] dk:bg-[#091518]">
       <header class="w-full pt-4 pb-3 px-4 flex items-center gap-3"><button type="button" data-exit aria-label="${esc(t('Thoát bài học'))}" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center active:scale-95 transition-all lt:text-[#4a5d61] lt:hover:bg-[#fff1e8] dk:text-[#9eb5b3] dk:hover:bg-[#16282d]">${ms('close', 'text-2xl')}</button>
         <div class="flex-1 flex items-center gap-2.5"><div class="w-full h-2.5 rounded-full overflow-hidden p-[1px] lt:bg-[#ebdcd3] dk:bg-[#16282d]" role="progressbar" aria-valuemin="0" aria-valuemax="${total}" aria-valuenow="${n}" aria-label="${esc(t('Luyện nhanh {n} động từ', { n: total }))}"><div class="h-full rounded-full transition-all duration-300 lt:bg-[#00504b] dk:bg-[#2ba39a]" style="width:${pct}%"></div></div><span class="text-xs font-bold tracking-wide shrink-0 lt:text-[#4a5d61] dk:text-[#9eb5b3]">${n}/${total}</span></div></header>${inner}</div></div></div>`;
-    const teacher = pose => Chars.img('ama', { kind: 'still', pose, size: 64, alt: '', cls: 'w-full h-full object-contain object-bottom select-none' });
+    const teacher = pose => Chars.slot('ama', { pose, size: 'xs', hip: true, lazy: false }); // khung giáo viên chuẩn (docs/CHARACTERS.md §Chỗ giáo viên)
     const CARD2 = 'border-2 lt:bg-[#ffffff] lt:border-[#e6d7cd] lt:shadow-[0_3px_0_#e6d7cd] dk:bg-[#121d20] dk:border-[#1e3338] dk:shadow-[0_3px_0_#0a1315]';
     function ask() {
       cur = queue[idx]; state = 'ask';
@@ -76,7 +76,7 @@
       if (g.ExitGuard && ExitGuard.done) ExitGuard.done();
       App.reward && App.reward({ quizzes: 1, xp: 10 + c * 2 });
       const retryQ = wrong.map(x => x.b + ':' + x.kind).join(',');
-      view.innerHTML = frame(`<main class="flex-1 px-4 py-6 flex flex-col justify-between"><div class="flex flex-col items-center gap-5 text-center"><div class="w-24 h-24 rounded-2xl overflow-hidden flex items-end justify-center lt:bg-[#fff1e8] dk:bg-[#121d20]">${Chars.img('ama', { kind: 'still', pose: wrong.length ? 'encourage' : 'cheer', size: 96, alt: '', cls: 'w-full h-full object-contain object-bottom select-none' })}</div>
+      view.innerHTML = frame(`<main class="flex-1 px-4 py-6 flex flex-col justify-between"><div class="flex flex-col items-center gap-5 text-center"><div class="w-24 h-24 rounded-2xl overflow-hidden flex items-end justify-center lt:bg-[#fff1e8] dk:bg-[#121d20]">${Chars.slot('ama', { pose: wrong.length ? 'encourage' : 'cheer', size: 's', hip: true, lazy: false })}</div>
         <h1 class="text-2xl font-extrabold break-words lt:text-[#132226] dk:text-[#ffffff]" role="status">${esc(t('{c} trên {n} câu đúng', { c, n }))}</h1>
         ${wrong.length ? '' : `<p class="text-base font-bold lt:text-[#00504b] dk:text-[#4dd0c5]">${esc(t('Không có câu nào sai, giỏi lắm!'))}</p>`}</div>
         <div class="w-full pt-6 pb-6 flex flex-col gap-3">${wrong.length ? `<a href="#/irregular/practice?retry=${enc(retryQ)}" data-lk-primary class="w-full min-h-[56px] px-6 py-3 rounded-2xl text-lg font-extrabold flex items-center justify-center text-center lt:bg-[#f06400] lt:text-[#1a0d00] lt:shadow-[0_4px_0_#ba4c00] dk:bg-[#f25c05] dk:text-[#1a0d00] dk:shadow-[0_4px_0_#9a3800]">${esc(t('Luyện lại câu sai'))}</a>` : ''}
