@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — Streak (Bright Day 390px)</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Material Symbols Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'canvas-bg': '#FFF7EA',
+            'card-bg': '#FFFFFF',
+            'card-border': '#EADEC8',
+            'card-ledge': '#D8CFBC',
+            'teal-brand': '#0F3D3E',
+            'teal-deep': '#1F7A75',
+            'teal-light': '#E6F4F2',
+            'teal-border': '#2BA39A',
+            'coral-cta': '#F2553B',
+            'coral-ledge': '#B53A22',
+            'amber-sun': '#FFB054',
+            'amber-subtle': '#FFF1DD',
+            'ink-primary': '#0F3D3E',
+            'ink-muted': '#365355',
+            'frozen-blue': '#D9F2FF',
+            'frozen-border': '#4FA8DE',
+            'frozen-text': '#0A4B75',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'tactile-card': '0 5px 0 0 #D8CFBC',
+            'tactile-cta': '0 6px 0 0 #B53A22',
+            'tactile-cta-active': '0 2px 0 0 #B53A22',
+            'tactile-btn': '0 4px 0 0 #D8CFBC',
+            'tactile-btn-active': '0 1px 0 0 #D8CFBC',
+            'tactile-chip': '0 3px 0 0 #D8CFBC',
+            'flame-glow': '0 12px 28px -6px rgba(242, 85, 59, 0.35)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Strict Ergonomic & Contrast Enforcements */
+    body {
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+    .material-symbols-rounded.outlined-icon {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Hide scrollbar for a clean native mobile feel */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      box-sizing: border-box;
+    }
+    /* ô giáo viên = Chars.slot của app (web/js/teacher-slot.js) */
+    .tslot{--h:112px;position:relative;display:inline-block;flex:none;width:calc(var(--h)*.9);height:var(--h);vertical-align:bottom}.tslot-fig{position:absolute;top:calc(var(--h)*-.1);left:calc(var(--h)*-.25);right:calc(var(--h)*-.25);bottom:0;overflow:hidden}.tslot-img{position:absolute;left:50%;bottom:calc(var(--h)*-.18);height:calc(var(--h)*1.2);width:auto;max-width:none;transform:translateX(-50%)}.tslot-ledge{position:absolute;left:2%;right:2%;bottom:0;height:calc(var(--h)*.16);border-radius:999px 999px calc(var(--h)*.06) calc(var(--h)*.06);background:#FBF1E0;box-shadow:inset 0 1px 0 rgb(255 255 255/.10),inset 0 calc(var(--h)*.02) calc(var(--h)*.03) rgb(0 0 0/.10),0 calc(var(--h)*.03) 0 #E9D9BC}
+  </style>
+</head>
+<body class="bg-canvas-bg min-h-screen flex justify-center selection:bg-teal-light selection:text-teal-brand">
+
+  <!-- Mobile Container (Exact 390px, Inner Screen layout with no bottom tab bar) -->
+  <main class="w-[390px] max-w-[390px] min-h-screen bg-canvas-bg flex flex-col relative pb-28 border-x border-[#EADEC8]/40 shadow-sm overflow-x-hidden">
+
+    <!-- Top App Bar (Inner Screen variant: Back arrow 44px + Title "Streak" + Help icon 44px) -->
+    <header class="sticky top-0 z-40 bg-canvas-bg/95 backdrop-blur-md px-4 h-14 flex items-center justify-between border-b-2 border-card-border/60">
+      <button type="button" aria-label="Back" class="w-11 h-11 flex items-center justify-center rounded-xl bg-card-bg border-2 border-card-border shadow-tactile-btn active:translate-y-1 active:shadow-tactile-btn-active text-teal-brand transition-all">
+        <span class="material-symbols-rounded text-2xl">arrow_back</span>
+      </button>
+
+      <h1 class="text-xl font-extrabold tracking-tight text-teal-brand">Streak</h1>
+
+      <button type="button" aria-label="Streak information & help" class="w-11 h-11 flex items-center justify-center rounded-xl bg-card-bg border-2 border-card-border shadow-tactile-btn active:translate-y-1 active:shadow-tactile-btn-active text-teal-brand transition-all">
+        <span class="material-symbols-rounded text-2xl">help</span>
+      </button>
+    </header>
+
+    <!-- Main Scrollable Body with 16px Gutters -->
+    <div class="px-4 py-4 flex flex-col gap-4">
+
+      <!-- Top Hero Block: Big glowing flame illustration + "14" + "Day Streak" + teacher-slot speech card -->
+      <section class="bg-gradient-to-b from-[#FFFDF9] to-card-bg rounded-2xl border-2 border-card-border p-4 shadow-tactile-card flex flex-col gap-3 relative overflow-hidden">
+        <!-- Ambient Warm Glow behind flame -->
+        <div class="absolute -top-12 -left-8 w-44 h-44 bg-amber-sun/20 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="flex items-center gap-4">
+          <!-- Flame & Number Hero Badge -->
+          <div class="flex flex-col items-center justify-center p-3 rounded-2xl bg-amber-subtle/80 border-2 border-[#FBD9A6] shadow-inner relative flex-shrink-0 w-36">
+            <!-- Lửa chung của app (ST2.flame active, 64px – web/js/st/v2/runtime.js) -->
+            <div class="w-16 h-16 relative flex items-center justify-center filter drop-shadow-[0_4px_10px_rgba(242,85,59,0.35)]">
+              <svg class="st-fl" data-fl="active" width="55" height="64" viewBox="0 0 120 140" fill="none" aria-hidden="true" focusable="false"><path class="fl-ledge" d="M56 10C56 10 74 34 72 54C75 48 80 44 87 40C87 40 98 56 98 78C98 94 92 108 82 118C75 125 66 128 58 128C44 128 26 120 20 102C14 84 22 62 34 46C35 55 42 61 46 59C51 57 53 43 53 32C53 22 56 10 56 10Z" fill="#B53A22" transform="translate(0 7)"/><path class="fl-body" d="M56 10C56 10 74 34 72 54C75 48 80 44 87 40C87 40 98 56 98 78C98 94 92 108 82 118C75 125 66 128 58 128C44 128 26 120 20 102C14 84 22 62 34 46C35 55 42 61 46 59C51 57 53 43 53 32C53 22 56 10 56 10Z" fill="#F2553B" stroke="#B53A22" stroke-linejoin="round" stroke-width="5"/><path class="fl-mid" d="M57 38C57 38 69 54 68 70C71 65 74 62 80 60C80 60 84 74 82 89C80 102 71 114 58 116C46 116 34 107 32 94C30 81 37 68 44 58C45 64 49 67 52 65C55 63 56 50 57 38Z" fill="#FFB054"/><path class="fl-core" d="M58 66C58 66 68 78 68 92C68 102 61 108 55 108C49 108 44 101 44 93C44 82 52 74 58 66Z" fill="#FFC94A"/><path class="fl-shine" d="M36 50C33 55 28 67 27 78C26.5 83 29 86 31 83C33 80 34 73 37 64C38.5 59 39 53 36 50Z" fill="#FFE7C2"/></svg>
+            </div>
+            <!-- Large 14 number -->
+            <span class="text-4xl font-extrabold text-teal-brand tracking-tight mt-1 leading-none">14</span>
+            <span class="text-xs font-bold uppercase tracking-wider text-ink-muted mt-1">day streak</span>
+          </div>
+
+          <!-- Coach Speech Bubble + Empty Teacher Slot Placeholder -->
+          <div class="flex-1 flex flex-col justify-between h-full gap-2">
+            <!-- Speech Bubble -->
+            <div class="relative bg-teal-light rounded-xl p-3 border-2 border-[#A8DDD7] text-teal-brand text-xs font-semibold leading-relaxed shadow-sm">
+              Nice rhythm – one short lesson keeps your streak.
+              <!-- Speech pointer arrow -->
+              <div class="absolute -bottom-2 left-6 w-3 h-3 bg-teal-light border-b-2 border-r-2 border-[#A8DDD7] rotate-45"></div>
+            </div>
+
+            <!-- Ô giáo viên (Chars.slot cỡ m 112px, bệ + ảnh tĩnh thật – luật CHARACTERS ≥12 % cao màn) -->
+            <div class="h-[116px] overflow-hidden rounded-xl border-2 border-solid border-[#2BA39A]/60 bg-[#FBF7F1] flex items-end justify-center gap-2 px-3 text-teal-brand" title="teacher-slot"><span class="tslot tslot-m" aria-hidden="true"><span class="tslot-fig"><img class="tslot-img" src="../../../web/teach/ama/still-encourage.webp" alt="" width="112" height="97"></span><i class="tslot-ledge"></i></span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- "This week" Strip of 7 day circles -->
+      <section class="bg-card-bg rounded-2xl border-2 border-card-border p-3.5 shadow-tactile-card flex flex-col gap-2.5">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xs font-extrabold uppercase tracking-wider text-teal-brand">This week</h2>
+          <span class="text-xs font-bold text-teal-deep">5 of 7 completed</span>
+        </div>
+
+        <!-- 7 Day Circles Row -->
+        <div class="grid grid-cols-7 gap-1.5 pt-1">
+          <!-- Mon: Past learned (warm orange with flame) -->
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-[11px] font-extrabold text-ink-muted">M</span>
+            <div class="w-10 h-10 rounded-full bg-gradient-to-b from-[#F2553B] to-[#D94228] border-2 border-[#D94228] flex items-center justify-center text-white shadow-sm" title="Mon: Learned">
+              <span class="material-symbols-rounded text-xl">local_fire_department</span>
+            </div>
+          </div>
+
+          <!-- Tue: Past learned -->
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-[11px] font-extrabold text-ink-muted">T</span>
+            <div class="w-10 h-10 rounded-full bg-gradient-to-b from-[#F2553B] to-[#D94228] border-2 border-[#D94228] flex items-center justify-center text-white shadow-sm" title="Tue: Learned">
+              <span class="material-symbols-rounded text-xl">local_fire_department</span>
+            </div>
+          </div>
+
+          <!-- Wed: Past learned -->
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-[11px] font-extrabold text-ink-muted">W</span>
+            <div class="w-10 h-10 rounded-full bg-gradient-to-b from-[#F2553B] to-[#D94228] border-2 border-[#D94228] flex items-center justify-center text-white shadow-sm" title="Wed: Learned">
+              <span class="material-symbols-rounded text-xl">local_fire_department</span>
+            </div>
+          </div>
+
+          <!-- Thu: Frozen day (icy blue with snowflake) -->
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-[11px] font-extrabold text-frozen-text">T</span>
+            <div class="w-10 h-10 rounded-full bg-frozen-blue border-2 border-frozen-border flex items-center justify-center text-frozen-text shadow-sm" title="Thu: Frozen">
+              <span class="material-symbols-rounded text-xl">ac_unit</span>
+            </div>
+          </div>
+
+          <!-- Fri: Past learned -->
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-[11px] font-extrabold text-ink-muted">F</span>
+            <div class="w-10 h-10 rounded-full bg-gradient-to-b from-[#F2553B] to-[#D94228] border-2 border-[#D94228] flex items-center justify-center text-white shadow-sm" title="Fri: Learned">
+              <span class="material-symbols-rounded text-xl">local_fire_department</span>
+            </div>
+          </div>
+
+          <!-- Sat: TODAY outlined in coral with a dot & label "Today" -->
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-[11px] font-extrabold text-coral-ledge">Today</span>
+            <div class="w-10 h-10 rounded-full bg-white border-2 border-coral-cta flex items-center justify-center text-coral-cta relative shadow-tactile-btn" title="Sat: Today">
+              <span class="w-3.5 h-3.5 rounded-full bg-coral-cta"></span>
+            </div>
+          </div>
+
+          <!-- Sun: Future day soft and empty -->
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-[11px] font-extrabold text-ink-muted">S</span>
+            <div class="w-10 h-10 rounded-full bg-[#F8F4EC] border-2 border-card-border flex items-center justify-center text-transparent" title="Sun: Upcoming">
+              <span class="w-2 h-2 rounded-full bg-[#E5D5C0]"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Month Calendar Card: November 2026 -->
+      <section class="bg-card-bg rounded-2xl border-2 border-card-border p-3.5 shadow-tactile-card flex flex-col gap-3">
+        <!-- Month Header with navigation arrows (min 44px touch targets) -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-teal-deep text-xl">calendar_month</span>
+            <h3 class="text-sm font-extrabold text-teal-brand tracking-tight">November 2026</h3>
+          </div>
+          <div class="flex items-center gap-1">
+            <button type="button" aria-label="Previous month" class="w-11 h-11 flex items-center justify-center rounded-xl bg-canvas-bg border-2 border-card-border text-teal-brand active:translate-y-0.5 transition-transform">
+              <span class="material-symbols-rounded text-xl">chevron_left</span>
+            </button>
+            <button type="button" aria-label="Next month" aria-disabled="true" disabled class="w-11 h-11 flex items-center justify-center rounded-xl bg-canvas-bg border-2 border-card-border text-teal-brand active:translate-y-0.5 transition-transform opacity-40">
+              <span class="material-symbols-rounded text-xl">chevron_right</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Days Header -->
+        <div class="grid grid-cols-7 text-center text-[11px] font-bold text-ink-muted border-b border-card-border pb-1">
+          <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+        </div>
+
+        <!-- Mini Calendar Grid (Sample month snapshot: Nov 1 to Nov 21) -->
+        <div class="grid grid-cols-7 gap-y-2 text-center text-xs font-bold text-teal-brand">
+          <!-- Leading offset for November 2026 (Nov 1 is Sunday) -->
+          <span class="text-[#C2B7A3]"></span>
+          <span class="text-[#C2B7A3]"></span>
+          <span class="text-[#C2B7A3]"></span>
+          <span class="text-[#C2B7A3]"></span>
+          <span class="text-[#C2B7A3]"></span>
+          <span class="text-[#C2B7A3]"></span>
+          <!-- Day 1 (Learned) -->
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full bg-[#FF7D3B] text-[#1B0B04] flex items-center justify-center text-[11px]">1</div></div>
+
+          <!-- Week 2: 2-8 Learned streak -->
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full bg-[#FF7D3B] text-[#1B0B04] flex items-center justify-center text-[11px]">2</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full bg-[#FF7D3B] text-[#1B0B04] flex items-center justify-center text-[11px]">3</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full bg-[#FF7D3B] text-[#1B0B04] flex items-center justify-center text-[11px]">4</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full bg-[#FF7D3B] text-[#1B0B04] flex items-center justify-center text-[11px]">5</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full bg-[#FF7D3B] text-[#1B0B04] flex items-center justify-center text-[11px]">6</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full bg-[#FF7D3B] text-[#1B0B04] flex items-center justify-center text-[11px]">7</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full bg-[#FF7D3B] text-[#1B0B04] flex items-center justify-center text-[11px]">8</div></div>
+
+          <!-- Week 3: 9-11 Learned, 12 Frozen, 13 Learned, 14 TODAY, 15 Empty -->
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full bg-[#FF7D3B] text-[#1B0B04] flex items-center justify-center text-[11px]">9</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full bg-[#FF7D3B] text-[#1B0B04] flex items-center justify-center text-[11px]">10</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full bg-[#FF7D3B] text-[#1B0B04] flex items-center justify-center text-[11px]">11</div></div>
+          <!-- Day 12: Frozen -->
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full bg-frozen-blue border border-frozen-border text-frozen-text flex items-center justify-center text-[11px] font-extrabold">12</div></div>
+          <!-- Day 13: Learned -->
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full bg-[#FF7D3B] text-[#1B0B04] flex items-center justify-center text-[11px]">13</div></div>
+          <!-- Day 14: TODAY -->
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full border-2 border-coral-cta text-coral-ledge font-extrabold flex items-center justify-center text-[11px] bg-white">14</div></div>
+          <!-- Day 15+: Future -->
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">15</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">16</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">17</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">18</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">19</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">20</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">21</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">22</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">23</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">24</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">25</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">26</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">27</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">28</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">29</div></div>
+          <div class="flex justify-center"><div class="w-7 h-7 rounded-full text-ink-muted flex items-center justify-center text-[11px]">30</div></div>
+        </div>
+
+        <!-- Tiny Legend (Learned, Frozen, Today) -->
+        <div class="flex items-center justify-center gap-4 pt-2 border-t border-card-border text-[11px] font-bold">
+          <div class="flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-[#FF7D3B]"></span>
+            <span class="text-teal-brand">Learned</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-frozen-blue border border-frozen-border"></span>
+            <span class="text-teal-brand">Frozen</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full border-2 border-coral-cta bg-white"></span>
+            <span class="text-teal-brand">Today</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- "Streak freeze" Card: 1 of 2 freezes ready -->
+      <section class="bg-card-bg rounded-2xl border-2 border-card-border p-3.5 shadow-tactile-card flex flex-col gap-2.5">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-frozen-blue border border-frozen-border flex items-center justify-center text-frozen-text">
+              <span class="material-symbols-rounded text-lg">ac_unit</span>
+            </div>
+            <h3 class="text-sm font-extrabold text-teal-brand">Streak freeze</h3>
+          </div>
+          <!-- 1 of 2 freezes status pill -->
+          <div class="flex items-center gap-1.5 bg-frozen-blue/60 border border-frozen-border px-2.5 py-1 rounded-full text-xs font-bold text-frozen-text">
+            <span>1 of 2 ready</span>
+            <div class="flex gap-1 ml-0.5">
+              <span class="material-symbols-rounded text-sm text-[#0077B6]">check_box_outline_blank</span>
+              <span class="material-symbols-rounded text-sm text-[#8ECAE6]">indeterminate_check_box</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xs font-medium text-ink-muted leading-relaxed">
+          Protects your streak if you miss a day. Earn one free every 7 days.
+        </p>
+      </section>
+
+      <!-- "Next milestone: 30 days" Card + "Gift chest" reward chip & "1 chest ready" row -->
+      <section class="bg-card-bg rounded-2xl border-2 border-card-border p-3.5 shadow-tactile-card flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <div class="flex flex-col">
+            <span class="text-[11px] font-bold uppercase tracking-wider text-ink-muted">Next milestone</span>
+            <h3 class="text-base font-extrabold text-teal-brand">30-day streak</h3>
+          </div>
+          <!-- Reward Chip -->
+          <div class="flex items-center gap-1.5 bg-[#FFF2DE] border border-[#F3BE7A] px-3 py-1.5 rounded-full shadow-sm">
+            <span class="material-symbols-rounded text-amber-600 text-base">featured_seasonal_and_gifts</span>
+            <span class="text-xs font-extrabold text-[#874A00]">Gift chest</span>
+          </div>
+        </div>
+
+        <!-- Progress Bar (14/30) -->
+        <div class="flex flex-col gap-1.5">
+          <div class="flex justify-between text-xs font-extrabold text-teal-brand">
+            <span>14 days locked</span>
+            <span class="text-ink-muted">16 days to go</span>
+          </div>
+          <div class="w-full h-3 rounded-full bg-[#ECE4D7] border border-card-border overflow-hidden p-0.5">
+            <div class="h-full rounded-full bg-gradient-to-r from-coral-cta to-amber-sun transition-all duration-300" style="width: 46.6%;"></div>
+          </div>
+        </div>
+
+        <!-- "1 chest ready" Claim Row -->
+        <div class="flex items-center justify-between bg-teal-light/70 rounded-xl p-2.5 border-2 border-[#B2E2DC]">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-teal-deep text-2xl">trophy</span>
+            <div class="flex flex-col">
+              <span class="text-xs font-extrabold text-teal-brand">1 chest ready</span>
+              <span class="text-[11px] font-medium text-ink-muted">Unlocked at 7-day milestone</span>
+            </div>
+          </div>
+          <!-- Open Button with min 44px target -->
+          <button type="button" class="min-h-[44px] px-4 rounded-xl bg-teal-deep text-white font-extrabold text-xs tracking-wider uppercase border-b-4 border-[#0F3D3E] shadow-sm active:translate-y-1 active:border-b-0 transition-all flex items-center justify-center">
+            Open
+          </button>
+        </div>
+      </section>
+
+      <!-- "Daily goal" Card: ring 14/20 XP & 3-option choice -->
+      <section class="bg-card-bg rounded-2xl border-2 border-card-border p-3.5 shadow-tactile-card flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-teal-deep text-xl">target</span>
+            <h3 class="text-sm font-extrabold text-teal-brand">Daily study goal</h3>
+          </div>
+          <!-- XP Progress Badge -->
+          <span class="text-xs font-bold text-ink-muted">14 / 20 XP today</span>
+        </div>
+
+        <!-- 3-option segmented choice (each at least 44px tall) -->
+        <div class="grid grid-cols-3 gap-2">
+          <!-- Casual (5 min) -->
+          <button type="button" class="min-h-[44px] py-2 px-1.5 rounded-xl border-2 border-card-border bg-canvas-bg/60 flex flex-col items-center justify-center text-center shadow-tactile-btn active:translate-y-0.5 transition-all">
+            <span class="text-xs font-extrabold text-teal-brand">Casual</span>
+            <span class="text-[10px] font-semibold text-ink-muted">5 min / day</span>
+          </button>
+
+          <!-- Regular (10 min) - SELECTED with teal border and ledge -->
+          <button type="button" class="min-h-[44px] py-2 px-1.5 rounded-xl border-2 border-teal-border bg-teal-light flex flex-col items-center justify-center text-center shadow-tactile-chip relative active:translate-y-0.5 transition-all">
+            <span class="text-xs font-extrabold text-teal-brand">Regular</span>
+            <span class="text-[10px] font-bold text-teal-deep">10 min (selected)</span>
+          </button>
+
+          <!-- Intense (20 min) -->
+          <button type="button" class="min-h-[44px] py-2 px-1.5 rounded-xl border-2 border-card-border bg-canvas-bg/60 flex flex-col items-center justify-center text-center shadow-tactile-btn active:translate-y-0.5 transition-all">
+            <span class="text-xs font-extrabold text-teal-brand">Intense</span>
+            <span class="text-[10px] font-semibold text-ink-muted">20 min / day</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- "Event: collect 5 leaves" & "Collection" links -->
+      <section class="bg-card-bg rounded-2xl border-2 border-card-border p-3.5 shadow-tactile-card flex flex-col gap-2.5">
+        <!-- Event Row -->
+        <div class="flex items-center justify-between border-b border-card-border pb-2.5">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-green-700 text-xl">eco</span>
+            <div class="flex flex-col">
+              <span class="text-xs font-extrabold text-teal-brand">Event: collect 5 leaves</span>
+              <span class="text-[11px] font-medium text-ink-muted">Autumn vocabulary quest</span>
+            </div>
+          </div>
+          <!-- 5 leaf icons (2 filled, 3 outline) -->
+          <div class="flex items-center gap-1">
+            <span class="material-symbols-rounded text-green-700 text-lg">spa</span>
+            <span class="material-symbols-rounded text-green-700 text-lg">spa</span>
+            <span class="material-symbols-rounded outlined-icon text-[#B5A895] text-lg">spa</span>
+            <span class="material-symbols-rounded outlined-icon text-[#B5A895] text-lg">spa</span>
+            <span class="material-symbols-rounded outlined-icon text-[#B5A895] text-lg">spa</span>
+          </div>
+        </div>
+
+        <!-- Collection Navigation Row (Frames and Stickers link) -->
+        <a href="#collection" class="min-h-[44px] flex items-center justify-between text-teal-brand hover:text-teal-deep transition-colors px-1">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-rounded text-amber-600 text-lg">collections_bookmark</span>
+            <span class="text-xs font-extrabold">Collection: frames & stickers</span>
+          </div>
+          <span class="material-symbols-rounded text-lg text-ink-muted">chevron_right</span>
+        </a>
+      </section>
+
+    </div>
+
+    <!-- Pinned Bottom Bar with One Full-Width Coral Primary CTA -->
+    <div class="fixed bottom-0 w-[390px] max-w-[390px] bg-canvas-bg/95 backdrop-blur-md px-4 py-3 border-t-2 border-card-border/80 z-50">
+      <button type="button" class="w-full h-14 rounded-2xl bg-gradient-to-r from-coral-cta to-[#FF6B4A] border-2 border-coral-ledge shadow-tactile-cta active:translate-y-1 active:shadow-tactile-cta-active flex items-center justify-center gap-2 text-[#1B0B04] font-extrabold text-base tracking-wide uppercase transition-all duration-75">
+        <span>Continue learning</span>
+        <span class="material-symbols-rounded text-xl">arrow_forward</span>
+      </button>
+    </div>
+
+  </main>
+
+</body>
+</html>

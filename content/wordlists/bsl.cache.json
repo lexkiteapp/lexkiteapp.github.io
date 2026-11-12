@@ -1,0 +1,7208 @@
+{
+ "non": {
+  "ipa": "/nɒn/",
+  "pos": "adverb",
+  "def": "To no extent, in no way.",
+  "ex": "I felt none the worse for my recent illness.",
+  "syn": [],
+  "vi": "không",
+  "v": 2,
+  "tries": 1
+ },
+ "maturity": {
+  "ipa": "/məˈtjʊəɹɪti/",
+  "pos": "noun",
+  "def": "The state of being mature, ready or ripe; the prime state of productibility and self expression.",
+  "ex": "",
+  "syn": [],
+  "vi": "trưởng thành, đến kỳ hạn",
+  "v": 2,
+  "tries": 1
+ },
+ "anti": {
+  "ipa": "/ˈænti/",
+  "pos": "adjective",
+  "def": "Opposed to something.",
+  "ex": "",
+  "syn": [],
+  "vi": "chống",
+  "v": 2,
+  "tries": 1
+ },
+ "volatility": {
+  "ipa": "/ˌvɒl.əˈtɪl.ə.ti/",
+  "pos": "noun",
+  "def": "The state of being volatile.",
+  "ex": "The geopolitical situation is very volatile.",
+  "syn": [],
+  "vi": "sự biến động, sự bay hơi",
+  "v": 2,
+  "tries": 1
+ },
+ "receivable": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "A debt owed, usually to a business, from the perspective of that business",
+  "ex": "One man's receivable is another man's payable.",
+  "syn": [],
+  "vi": "khoản phải thu",
+  "v": 2,
+  "tries": 3
+ },
+ "pre": {
+  "ipa": "/ˈpɹi/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "trước"
+ },
+ "creditor": {
+  "ipa": "/ˈkɹɛdɪtə/",
+  "pos": "noun",
+  "def": "A person to whom a debt is owed.",
+  "ex": "The pensions are a problem in Greece's negotiations with its international creditors.",
+  "syn": [],
+  "vi": "chủ nợ",
+  "v": 2,
+  "tries": 1
+ },
+ "annuity": {
+  "ipa": "/əˈn(j)uɪti/",
+  "pos": "noun",
+  "def": "A right to receive amounts of money regularly over a certain fixed period, in perpetuity, or, especially, over the remaining life or lives of one or more beneficiaries.",
+  "ex": "If it weren't for her annuity, she'd never be able to pay the bills.",
+  "syn": [],
+  "vi": "niên kim",
+  "v": 2,
+  "tries": 1
+ },
+ "disclosure": {
+  "ipa": "/dɪsˈkləʊʒə(ɹ)/",
+  "pos": "noun",
+  "def": "The act of revealing something.",
+  "ex": "We had to agree to total confidentiality and sign a non-disclosure agreement.",
+  "syn": [],
+  "vi": "tiết lộ, để lộ ra",
+  "v": 2,
+  "tries": 1
+ },
+ "risky": {
+  "ipa": "/ˈɹɪski/",
+  "pos": "adjective",
+  "def": "Dangerous; involving risks.",
+  "ex": "",
+  "syn": [],
+  "vi": "nguy hiểm",
+  "v": 2,
+  "tries": 1
+ },
+ "leverage": {
+  "ipa": "/ˈlɛv.(ə.)ɹɪd͡ʒ/",
+  "pos": "noun",
+  "def": "A force compounded by means of a lever rotating around a pivot.",
+  "ex": "This grants Algeria political leverage in the region.",
+  "syn": [],
+  "vi": "đòn bẩy, làm lợi cho người",
+  "v": 2,
+  "tries": 1
+ },
+ "coalition": {
+  "ipa": "/kəʊ.əˈlɪʃ.ən/",
+  "pos": "noun",
+  "def": "A temporary group or union of organizations, usually formed for a particular advantage.",
+  "ex": "Germany is preparing for a \"traffic light\" coalition.",
+  "syn": [],
+  "vi": "liên minh, cuộc liên hiệp",
+  "v": 2,
+  "tries": 1
+ },
+ "beta": {
+  "ipa": "/ˈbiːtə/",
+  "pos": "noun",
+  "def": "The second letter of the Greek alphabet (Β, &nbsp;β), preceded by alpha (Α, &nbsp;α) and followed by gamma, (Γ, &nbsp;γ). In modern Greek it represents the voiced labiodental fricative sound of v foun",
+  "ex": "Beta-carotene also helps to keep your skin healthy and young-looking.",
+  "syn": [],
+  "vi": "phiên bản beta",
+  "v": 2,
+  "tries": 1
+ },
+ "lender": {
+  "ipa": "/ˈlɛn.dɚ/",
+  "pos": "noun",
+  "def": "One who lends, especially money; specifically, a bank or other entity that specializes in granting loans.",
+  "ex": "Money lenders are enjoying a profitable period.",
+  "syn": [],
+  "vi": "người cho vay",
+  "v": 2,
+  "tries": 1
+ },
+ "regulator": {
+  "ipa": "/ˈɹɛɡ.jʊ.leɪ.tə/",
+  "pos": "noun",
+  "def": "A device that controls or limits something.",
+  "ex": "",
+  "syn": [],
+  "vi": "bộ điều chỉnh, người chỉnh đốn",
+  "v": 2,
+  "tries": 1
+ },
+ "par": {
+  "ipa": "/pɑː/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Milan is the fashion capital par excellence.",
+  "syn": [],
+  "vi": "bài ngắn, sự bằng nhau"
+ },
+ "trader": {
+  "ipa": "/ˈtɹeɪdə(ɹ)/",
+  "pos": "noun",
+  "def": "One who earns a living by trading goods or securities.",
+  "ex": "The horse trader showed Miroslav five horses.",
+  "syn": [],
+  "vi": "thương nhân, thương gia",
+  "v": 2,
+  "tries": 1
+ },
+ "stockmarket": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "A market for the trading of company stock.",
+  "ex": "",
+  "syn": [],
+  "vi": "thị trường chứng khoán",
+  "v": 2,
+  "tries": 3
+ },
+ "ex": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "bán tại"
+ },
+ "breach": {
+  "ipa": "/ˈbɹiːt͡ʃ/",
+  "pos": "noun",
+  "def": "A gap or opening made by breaking or battering, as in a wall, fortification or levee / embankment; the space between the parts of a solid body rent by violence.",
+  "ex": "Has the cybersecurity breach been contained?",
+  "syn": [],
+  "vi": "sự vi phạm, mối bất hòa",
+  "v": 2,
+  "tries": 1
+ },
+ "issuer": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "One who issues, emits, or publishes.",
+  "ex": "",
+  "syn": [],
+  "vi": "người phát hành",
+  "v": 2,
+  "tries": 3
+ },
+ "borrower": {
+  "ipa": "/ˈbɔɹəʊə/",
+  "pos": "noun",
+  "def": "One who borrows.",
+  "ex": "",
+  "syn": [],
+  "vi": "người đi vay",
+  "v": 2,
+  "tries": 1
+ },
+ "insurer": {
+  "ipa": "/ɪnˈʃʊ.ɹə/",
+  "pos": "noun",
+  "def": "One who insures.",
+  "ex": "",
+  "syn": [],
+  "vi": "người bảo hiểm",
+  "v": 2,
+  "tries": 1
+ },
+ "profitability": {
+  "ipa": "/ˌpɹɒf.ɪ.təˈbɪl.ɪ.ti/",
+  "pos": "noun",
+  "def": "The state or quality of being profitable; capacity to make a profit.",
+  "ex": "",
+  "syn": [],
+  "vi": "lợi nhuận",
+  "v": 2,
+  "tries": 1
+ },
+ "terrorism": {
+  "ipa": "/ˈtɛɹəɹɪzəm/",
+  "pos": "noun",
+  "def": "The system of fear and intimidation put into place during the Reign of Terror in Revolutionary France around 1793-94.",
+  "ex": "",
+  "syn": [],
+  "vi": "khủng bố",
+  "v": 2,
+  "tries": 1
+ },
+ "regulatory": {
+  "ipa": "/ˈɹɛɡ.jʊ.lə.t(ɔː.)ɹi/",
+  "pos": "adjective",
+  "def": "Of or pertaining to regulation.",
+  "ex": "The committee recommends devolution of regulatory power to the provinces.",
+  "syn": [],
+  "vi": "quy định",
+  "v": 2,
+  "tries": 1
+ },
+ "coefficient": {
+  "ipa": "/ˌkəʊ.iˈfɪʃn̩t/",
+  "pos": "noun",
+  "def": "A constant by which an algebraic term is multiplied.",
+  "ex": "The quadratic coefficient in this term is questionable.",
+  "syn": [],
+  "vi": "hệ số",
+  "v": 2,
+  "tries": 2
+ },
+ "disclose": {
+  "ipa": "/dɪsˈkləʊz/",
+  "pos": "verb",
+  "def": "To open up; unfasten.",
+  "ex": "Lukas refused to disclose that information.",
+  "syn": [],
+  "vi": "tiết lộ, để hở",
+  "v": 2,
+  "tries": 1
+ },
+ "conversion": {
+  "ipa": "/kənˈvɜːʃ(ə)n/",
+  "pos": "noun",
+  "def": "The act of converting something or someone.",
+  "ex": "",
+  "syn": [],
+  "vi": "chuyển đổi, đổi tôn giáo",
+  "v": 2,
+  "tries": 1
+ },
+ "taxpayer": {
+  "ipa": "/ˈtakspeɪə/",
+  "pos": "noun",
+  "def": "A person who is subject to, liable for, or pays tax.",
+  "ex": "Our taxpayers deserve to know that.",
+  "syn": [],
+  "vi": "người đóng thuế",
+  "v": 2,
+  "tries": 1
+ },
+ "alliance": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "đồng minh, quan hệ bà con"
+ },
+ "debtor": {
+  "ipa": "/ˈdɛt.ə/",
+  "pos": "noun",
+  "def": "A person or firm that owes money; one in debt; one who owes a debt.",
+  "ex": "The shopkeeper was tired of chasing his debtors so from then on he demanded payment in full.",
+  "syn": [],
+  "vi": "con nợ",
+  "v": 2,
+  "tries": 1
+ },
+ "scandal": {
+  "ipa": "/ˈskændəl/",
+  "pos": "noun",
+  "def": "An incident or event that disgraces or damages the reputation of the persons or organization involved.",
+  "ex": "",
+  "syn": [],
+  "vi": "vụ bê bối, lời gièm pha",
+  "v": 2,
+  "tries": 1
+ },
+ "payoff": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "A payment.",
+  "ex": "Tom said that he would not invest in stocks unless there was a definite payoff.",
+  "syn": [],
+  "vi": "sự đền đáp, sự cho nghĩ phép",
+  "v": 2,
+  "tries": 3
+ },
+ "publicly": {
+  "ipa": "/ˈpʌb.lɪ.kli/",
+  "pos": "adverb",
+  "def": "In public, openly, in an open and public manner.",
+  "ex": "",
+  "syn": [],
+  "vi": "công khai",
+  "v": 2,
+  "tries": 1
+ },
+ "governance": {
+  "ipa": "/ˈɡʌvənəns/",
+  "pos": "noun",
+  "def": "The process, or the power, of governing; government or administration.",
+  "ex": "",
+  "syn": [],
+  "vi": "quản trị",
+  "v": 2,
+  "tries": 1
+ },
+ "marketer": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "One who designs and executes marketing campaigns.",
+  "ex": "",
+  "syn": [],
+  "vi": "nhà tiếp thị",
+  "v": 2,
+  "tries": 3
+ },
+ "rebel": {
+  "ipa": "/ˈɹɛb.əl/",
+  "pos": "noun",
+  "def": "A person who resists an established authority, often violently.",
+  "ex": "",
+  "syn": [],
+  "vi": "nổi loạn",
+  "v": 2,
+  "tries": 1
+ },
+ "restructure": {
+  "ipa": "/ɹiːˈstɹʌkt͡ʃə(ɹ)/",
+  "pos": "verb",
+  "def": "To change the organization of.",
+  "ex": "Thank to a fundamental restructuring, our surplus has swelled threefold.",
+  "syn": [],
+  "vi": "tái cơ cấu",
+  "v": 2,
+  "tries": 1
+ },
+ "arbitrage": {
+  "ipa": "/ˈɑɹbɪˌtɹɑʒ/",
+  "pos": "noun",
+  "def": "A market activity in which a security, commodity, currency or other tradable item is bought in one market and sold simultaneously in another, in order to profit from price differences between the mark",
+  "ex": "The boardroom grew restive when the CEO discussed complex arbitrage strategies no one fully understood.",
+  "syn": [],
+  "vi": "kinh doanh chênh lệch giá",
+  "v": 2,
+  "tries": 1
+ },
+ "deem": {
+  "ipa": "/diːm/",
+  "pos": "verb",
+  "def": "To hold in belief or estimation; to adjudge as a conclusion; to regard as being; to evaluate according to one's beliefs; to account.",
+  "ex": "Boris deemed Melissa unworthy of such a responsibility.",
+  "syn": [],
+  "vi": "cho là",
+  "v": 2,
+  "tries": 1
+ },
+ "allowance": {
+  "ipa": "/əˈlaʊəns/",
+  "pos": "noun",
+  "def": "Permission; granting, conceding, or admitting.",
+  "ex": "",
+  "syn": [],
+  "vi": "trợ cấp, khoan dung",
+  "v": 2,
+  "tries": 1
+ },
+ "warrant": {
+  "ipa": "/ˈwɒɹənt/",
+  "pos": "noun",
+  "def": "Authorization or certification; a sanction, as given by a superior.",
+  "ex": "",
+  "syn": [],
+  "vi": "lệnh bảo đảm, cho phép",
+  "v": 2,
+  "tries": 1
+ },
+ "telecom": {
+  "ipa": "/ˈtɛlə(ˌ)kɒm/",
+  "pos": "noun",
+  "def": "Telecommunication or telecommunications.",
+  "ex": "The house is thousands of metres away from the street telecoms cabinet.",
+  "syn": [],
+  "vi": "viễn thông",
+  "v": 2,
+  "tries": 1
+ },
+ "diversify": {
+  "ipa": "/daɪˈvɜː.sɪ.faɪ/",
+  "pos": "verb",
+  "def": "To make (something) diverse or varied in form or quality; to give variety to (something) to distinguish by numerous aspects or differences.",
+  "ex": "Algeria focuses on diversifying its exports.",
+  "syn": [],
+  "vi": "đa dạng hóa",
+  "v": 2,
+  "tries": 1
+ },
+ "multi": {
+  "ipa": "",
+  "pos": "prefix",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "có nghĩa là nhiều"
+ },
+ "technological": {
+  "ipa": "/ˌtɛk.nəˈlɒdʒ.ɪ.kəl/",
+  "pos": "adjective",
+  "def": "Of, relating to, or involving technology, especially modern scientific technology.",
+  "ex": "",
+  "syn": [],
+  "vi": "công nghệ",
+  "v": 2,
+  "tries": 1
+ },
+ "multinational": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "A multinational company.",
+  "ex": "Global multinational corporations are engaged in environmental violence.",
+  "syn": [],
+  "vi": "đa quốc gia",
+  "v": 2,
+  "tries": 3
+ },
+ "shrink": {
+  "ipa": "/ˈʃɹɪŋk/",
+  "pos": "verb",
+  "def": "To cause to become smaller.",
+  "ex": "",
+  "syn": [],
+  "vi": "co lại, co lại",
+  "v": 2,
+  "tries": 1
+ },
+ "foreigner": {
+  "ipa": "/ˈfɒɹ.ɪ.nə(ɹ)/",
+  "pos": "noun",
+  "def": "A person from a foreign country.",
+  "ex": "",
+  "syn": [],
+  "vi": "người nước ngoài",
+  "v": 2,
+  "tries": 1
+ },
+ "taxable": {
+  "ipa": "/ˈtæksəbəl/",
+  "pos": "adjective",
+  "def": "That can be taxed.",
+  "ex": "All economic problems would be solved, if they made complacency taxable.",
+  "syn": [],
+  "vi": "chịu thuế",
+  "v": 2,
+  "tries": 1
+ },
+ "inflow": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The act or process of flowing in or into",
+  "ex": "Volatile aid and investment inflows have limited growth, and poverty remains high.",
+  "syn": [
+   "influx"
+  ],
+  "vi": "dòng chảy vào, cửa sông",
+  "v": 2,
+  "tries": 3
+ },
+ "pledge": {
+  "ipa": "/plɛd͡ʒ/",
+  "pos": "verb",
+  "def": "To make a solemn promise (to do something).",
+  "ex": "",
+  "syn": [],
+  "vi": "cam kết, cầm đồ",
+  "v": 2,
+  "tries": 1
+ },
+ "modest": {
+  "ipa": "/ˈmɑdəst/",
+  "pos": "adjective",
+  "def": "Not bragging or boasting about oneself or one's achievements; unpretentious, humble.",
+  "ex": "",
+  "syn": [],
+  "vi": "khiêm tốn, khiêm nhượng",
+  "v": 2,
+  "tries": 1
+ },
+ "convertible": {
+  "ipa": "/kənˈvɜːtəbəl/",
+  "pos": "adjective",
+  "def": "Able to be converted, particularly: Able to be exchanged, one for the other, especially Able to be exchanged for specie. Able to be exchanged for foreign currency. Able to be exchanged for a different",
+  "ex": "",
+  "syn": [],
+  "vi": "có thể chuyển đổi, chuyển hoán",
+  "v": 2,
+  "tries": 1
+ },
+ "ledger": {
+  "ipa": "/ˈlɛd͡ʒə/",
+  "pos": "noun",
+  "def": "A book for keeping notes; a record book, a register.",
+  "ex": "The auditors will have a hard time deciphering this ledger.",
+  "syn": [],
+  "vi": "sổ cái, cây đàn ngang của cái giàn",
+  "v": 2,
+  "tries": 1
+ },
+ "linear": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "This system of linear equations has infinitely many solutions.",
+  "syn": [],
+  "vi": "nét dài, thuộc về đường dài"
+ },
+ "summit": {
+  "ipa": "/ˈsʌmɪt/",
+  "pos": "noun",
+  "def": "Alternative spelling of summat (“something”).",
+  "ex": "The mountain climbers reached the summit.",
+  "syn": [],
+  "vi": "đỉnh cao",
+  "v": 2,
+  "tries": 1
+ },
+ "repay": {
+  "ipa": "/ɹiˈpeɪ/",
+  "pos": "verb",
+  "def": "Synonym of pay back in all senses.",
+  "ex": "",
+  "syn": [],
+  "vi": "trả ơn, đánh lại",
+  "v": 2,
+  "tries": 1
+ },
+ "presidency": {
+  "ipa": "/ˈpɹɛzɪdənsi/",
+  "pos": "noun",
+  "def": "The office or role of president.",
+  "ex": "",
+  "syn": [],
+  "vi": "tổng thống, chức chủ tịch",
+  "v": 2,
+  "tries": 1
+ },
+ "con": {
+  "ipa": "/kɒn/",
+  "pos": "adjective",
+  "def": "ISO 639-3 language code for Cofán.",
+  "ex": "",
+  "syn": [],
+  "vi": "lừa đảo",
+  "v": 2,
+  "tries": 1
+ },
+ "predecessor": {
+  "ipa": "/ˈpɹiːdɪsɛsə(ɹ)/",
+  "pos": "noun",
+  "def": "One who precedes; one who has preceded another in any state, position, office, etc.; one whom another follows or comes after, in any office or position.",
+  "ex": "Lojban and its predecessor Loglan are mutually unintelligible.",
+  "syn": [],
+  "vi": "người tiền nhiệm",
+  "v": 2,
+  "tries": 1
+ },
+ "deputy": {
+  "ipa": "/ˈdɛpjəti/",
+  "pos": "noun",
+  "def": "One appointed as the substitute of others, and empowered to act for them, in their name or their behalf; a substitute in office.",
+  "ex": "He came back with the deputy.",
+  "syn": [],
+  "vi": "phó, đại biểu",
+  "v": 2,
+  "tries": 1
+ },
+ "chancellor": {
+  "ipa": "/ˈtʃɑːnsələ/",
+  "pos": "noun",
+  "def": "A senior secretary or official with administrative or legal duties, sometimes in charge of some area of government such as finance or justice.",
+  "ex": "In Germany, the federal chancellor is democratically chosen.",
+  "syn": [],
+  "vi": "thủ tướng, quan chưởng ấn",
+  "v": 2,
+  "tries": 1
+ },
+ "fluctuation": {
+  "ipa": "/flʌkt͡ʃuːˈeɪʃən/",
+  "pos": "noun",
+  "def": "A motion like that of waves; a moving in this and that direction; an irregular rising and falling.",
+  "ex": "The fluctuation in prices caused a financial crisis.",
+  "syn": [],
+  "vi": "sự dao động, hay thay đổi",
+  "v": 2,
+  "tries": 1
+ },
+ "goodwill": {
+  "ipa": "/ˌɡʊdˈwɪl/",
+  "pos": "noun",
+  "def": "A favorably disposed attitude toward someone or something.",
+  "ex": "This generosity unites people, fostering goodwill and cooperation.",
+  "syn": [],
+  "vi": "thiện chí, lòng tốt",
+  "v": 2,
+  "tries": 1
+ },
+ "insider": {
+  "ipa": "/ɪnˈsaɪdɚ/",
+  "pos": "noun",
+  "def": "A person who has special knowledge about the inner workings of a group, organization, or institution.",
+  "ex": "",
+  "syn": [],
+  "vi": "người trong cuộc",
+  "v": 2,
+  "tries": 1
+ },
+ "constitutional": {
+  "ipa": "/ˌkɒn.stɪˈtjuː.ʃ(ə)n.(ə)l/",
+  "pos": "adjective",
+  "def": "Belonging to, or inherent in, the constitution or structure of one's body or mind.",
+  "ex": "",
+  "syn": [],
+  "vi": "hiến pháp, đúng với hiến pháp",
+  "v": 2,
+  "tries": 1
+ },
+ "privatization": {
+  "ipa": "/ˌpɹaɪvɪtaɪˈzeɪʃ(ə)n/",
+  "pos": "noun",
+  "def": "The transfer of a company or organization from government to private ownership and control.",
+  "ex": "",
+  "syn": [],
+  "vi": "tư nhân hóa",
+  "v": 2,
+  "tries": 1
+ },
+ "missile": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "khí giới để bắn"
+ },
+ "accordance": {
+  "ipa": "/əˈkɔː.dəns/",
+  "pos": "noun",
+  "def": "Agreement; harmony; conformity; compliance.",
+  "ex": "",
+  "syn": [],
+  "vi": "phù hợp",
+  "v": 2,
+  "tries": 1
+ },
+ "parliamentary": {
+  "ipa": "/ˌpɑːləˈmɛnt(ə)ɹi/",
+  "pos": "adjective",
+  "def": "Of, relating to, or enacted by a parliament.",
+  "ex": "Spain, Switzerland and Japan are parliamentary monarchies.",
+  "syn": [],
+  "vi": "nghị viện",
+  "v": 2,
+  "tries": 1
+ },
+ "activist": {
+  "ipa": "/ˈæk.tɪ.vɪst/",
+  "pos": "noun",
+  "def": "One who is politically active in the role of a citizen; especially, one who campaigns for change.",
+  "ex": "",
+  "syn": [],
+  "vi": "nhà hoạt động",
+  "v": 2,
+  "tries": 1
+ },
+ "consultancy": {
+  "ipa": "/kənˈsʌl.tən.si/",
+  "pos": "noun",
+  "def": "A consultant or consulting firm.",
+  "ex": "",
+  "syn": [],
+  "vi": "tư vấn",
+  "v": 2,
+  "tries": 1
+ },
+ "charter": {
+  "ipa": "/ˈt͡ʃɑːtə/",
+  "pos": "noun",
+  "def": "A document issued by some authority, creating a public or private institution, and defining its purposes and privileges.",
+  "ex": "They chartered planes to airlift their employees.",
+  "syn": [],
+  "vi": "điều lệ, đặc quyền",
+  "v": 2,
+  "tries": 1
+ },
+ "lessee": {
+  "ipa": "/lɛˈsiː/",
+  "pos": "noun",
+  "def": "An individual or a corporation who has the right of use of something of value, gained through a lease agreement with the real owner of the property.",
+  "ex": "",
+  "syn": [],
+  "vi": "bên thuê",
+  "v": 2,
+  "tries": 1
+ },
+ "bust": {
+  "ipa": "/bʌst/",
+  "pos": "verb",
+  "def": "To break.",
+  "ex": "",
+  "syn": [],
+  "vi": "bật ra",
+  "v": 2,
+  "tries": 1
+ },
+ "rally": {
+  "ipa": "/ˈɹæli/",
+  "pos": "noun",
+  "def": "A public gathering or mass meeting that is not mainly a protest and is organized to inspire enthusiasm for a cause.",
+  "ex": "",
+  "syn": [],
+  "vi": "tập hợp, nhóm lại",
+  "v": 2,
+  "tries": 1
+ },
+ "intangible": {
+  "ipa": "/ɪnˈtæn.d͡ʒɪ.bəl/",
+  "pos": "adjective",
+  "def": "Incapable of being perceived by the senses; incorporeal.",
+  "ex": "\"Silent Night\" was declared an intangible cultural heritage by UNESCO in 2011.",
+  "syn": [],
+  "vi": "vô hình, bất khả xâm phạm",
+  "v": 2,
+  "tries": 1
+ },
+ "exempt": {
+  "ipa": "/ɪɡˈzɛm(p)t/",
+  "pos": "adjective",
+  "def": "Free from a duty, obligation, rule, law, etc.",
+  "ex": "Exemptions may apply in some cases.",
+  "syn": [],
+  "vi": "miễn trừ, được khỏi",
+  "v": 2,
+  "tries": 1
+ },
+ "weaken": {
+  "ipa": "/ˈwikən/",
+  "pos": "verb",
+  "def": "To make weaker or less strong.",
+  "ex": "",
+  "syn": [],
+  "vi": "suy yếu, làm yếu bớt",
+  "v": 2,
+  "tries": 1
+ },
+ "accrue": {
+  "ipa": "/əˈkɹuː/",
+  "pos": "verb",
+  "def": "To increase, to rise",
+  "ex": "She had to adjust her schedule to accommodate the compensatory time off she had accrued.",
+  "syn": [],
+  "vi": "tích lũy, do đó",
+  "v": 2,
+  "tries": 1
+ },
+ "interim": {
+  "ipa": "/ˈɪntəɹɪm/",
+  "pos": "adverb",
+  "def": "transitional",
+  "ex": "A peace accord in 2006 led to the promulgation of an interim constitution in 2007.",
+  "syn": [],
+  "vi": "tạm thời",
+  "v": 2,
+  "tries": 1
+ },
+ "payout": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "An amount of money paid out.",
+  "ex": "Insurance companies everywhere are facing hard times and have become even more tight fisted about payouts.",
+  "syn": [],
+  "vi": "thanh toán",
+  "v": 2,
+  "tries": 3
+ },
+ "suppress": {
+  "ipa": "/səˈpɹɛs/",
+  "pos": "verb",
+  "def": "To put an end to, especially with force, to crush, do away with; to prohibit, subdue.",
+  "ex": "",
+  "syn": [],
+  "vi": "kìm nén",
+  "v": 2,
+  "tries": 1
+ },
+ "electoral": {
+  "ipa": "/ɪˈlɛk.tə.ɹəl/",
+  "pos": "adjective",
+  "def": "Relating to or composed of electors.",
+  "ex": "The Bouteflika years were characterized by electoral manipulation.",
+  "syn": [],
+  "vi": "bầu cử",
+  "v": 2,
+  "tries": 1
+ },
+ "ambition": {
+  "ipa": "/æmˈbɪʃ.ən/",
+  "pos": "noun",
+  "def": "Eager or inordinate desire for some object that confers distinction, as preferment, honor, superiority, political power, or fame; desire to distinguish one's self from other people.",
+  "ex": "",
+  "syn": [],
+  "vi": "tham vọng",
+  "v": 2,
+  "tries": 1
+ },
+ "systematic": {
+  "ipa": "/ˌsɪs.tɪˈmæt.ɪk/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "Human rights violations, misogyny and exclusion are widespread and systematic.",
+  "syn": [],
+  "vi": "có phương pháp"
+ },
+ "outsider": {
+  "ipa": "/ˌaʊtˈsaɪdə/",
+  "pos": "noun",
+  "def": "Someone who is not part of a particular community, profession, organization etc.; a person coming from elsewhere, having no special knowledge. .mw-parser-output .defdate{font-size:smaller}",
+  "ex": "",
+  "syn": [],
+  "vi": "người ngoài cuộc, không chuyên môn",
+  "v": 2,
+  "tries": 1
+ },
+ "prevail": {
+  "ipa": "/pɹɪˈveɪl/",
+  "pos": "verb",
+  "def": "To be superior in strength, dominance, influence, or frequency; to have or gain the advantage over others; to have the upper hand; to outnumber others.",
+  "ex": "",
+  "syn": [],
+  "vi": "chiếm ưu thế, chiếm ưu thế",
+  "v": 2,
+  "tries": 1
+ },
+ "counterpart": {
+  "ipa": "/ˈkaʊntəˌpɑːt/",
+  "pos": "noun",
+  "def": "Either of two parts that fit together or otherwise complement one another.",
+  "ex": "Our sales team is more efficient than their counterparts in other branches.",
+  "syn": [],
+  "vi": "đối tác, bản đối chiếu",
+  "v": 2,
+  "tries": 1
+ },
+ "repayment": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The act of repaying.",
+  "ex": "",
+  "syn": [],
+  "vi": "trả nợ, sự trả góp",
+  "v": 2,
+  "tries": 3
+ },
+ "offshore": {
+  "ipa": "/ɒfˈʃɔː(ɹ)/",
+  "pos": "adverb",
+  "def": "Moving away from the shore.",
+  "ex": "Sami transferred money from offshore account.",
+  "syn": [],
+  "vi": "ngoài khơi",
+  "v": 2,
+  "tries": 1
+ },
+ "marketplace": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "An open area in a town housing a public market.",
+  "ex": "Some high-street retailers were slow to enter the new digital marketplace of the Internet.",
+  "syn": [],
+  "vi": "thị trường",
+  "v": 2,
+  "tries": 3
+ },
+ "proxy": {
+  "ipa": "/ˈpɹɒk.si/",
+  "pos": "noun",
+  "def": "Used as a proxy or acting as a proxy.",
+  "ex": "Zelenskyy is using Ukraine to fight a proxy war for Washington.",
+  "syn": [],
+  "vi": "người đại diện, giấy ủy nhiệm",
+  "v": 2,
+  "tries": 1
+ },
+ "politically": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "In a political manner",
+  "ex": "",
+  "syn": [],
+  "vi": "về mặt chính trị",
+  "v": 2,
+  "tries": 3
+ },
+ "municipal": {
+  "ipa": "/mjuˈnɪsɪpəl/",
+  "pos": "adjective",
+  "def": "Of or pertaining to a municipality (a city or a corporation having the right of administering local government).",
+  "ex": "Each municipality has a different garbage fee.",
+  "syn": [],
+  "vi": "thành phố, thuộc về đô thị",
+  "v": 2,
+  "tries": 1
+ },
+ "hostile": {
+  "ipa": "/ˈhɒstaɪl/",
+  "pos": "adjective",
+  "def": "Not friendly; appropriate to an enemy; showing the disposition of an enemy; showing ill will and malevolence or a desire to thwart and injure.",
+  "ex": "",
+  "syn": [],
+  "vi": "thù địch",
+  "v": 2,
+  "tries": 1
+ },
+ "tonne": {
+  "ipa": "/tʌn/",
+  "pos": "noun",
+  "def": "A unit of mass equal to 1000 kilograms.",
+  "ex": "The avalanche brought tonnes of snow down to the foot of the mountain.",
+  "syn": [],
+  "vi": "tấn",
+  "v": 2,
+  "tries": 1
+ },
+ "mandate": {
+  "ipa": "/ˈmændeɪ̯t/",
+  "pos": "noun",
+  "def": "An official or authoritative command; an order or injunction; a commission; a judicial precept; an authorization.",
+  "ex": "For running for a fifth mandate, Bouteflika damaged his own credibility.",
+  "syn": [],
+  "vi": "ủy quyền, huấn lịnh",
+  "v": 2,
+  "tries": 1
+ },
+ "gamble": {
+  "ipa": "/ˈɡæm.bəl/",
+  "pos": "noun",
+  "def": "A bet or wager.",
+  "ex": "",
+  "syn": [],
+  "vi": "cờ bạc, cờ bạc",
+  "v": 2,
+  "tries": 1
+ },
+ "tighten": {
+  "ipa": "/ˈtaɪ.tən/",
+  "pos": "verb",
+  "def": "To make tighter.",
+  "ex": "",
+  "syn": [],
+  "vi": "thắt chặt, căng thẳng",
+  "v": 2,
+  "tries": 1
+ },
+ "squeeze": {
+  "ipa": "/skwiːz/",
+  "pos": "verb",
+  "def": "To apply pressure (to something) from two or more sides at once.",
+  "ex": "",
+  "syn": [],
+  "vi": "vắt kiệt, đè",
+  "v": 2,
+  "tries": 1
+ },
+ "scrap": {
+  "ipa": "/ˈskɹæp/",
+  "pos": "noun",
+  "def": "A (small) piece; a fragment; a detached, incomplete portion.",
+  "ex": "The entire plan has been scrapped.",
+  "syn": [],
+  "vi": "phế liệu, đồ ăn dư",
+  "v": 2,
+  "tries": 1
+ },
+ "petrol": {
+  "ipa": "/ˈpɛt.ɹəl/",
+  "pos": "noun",
+  "def": "A fluid consisting of a mixture of refined petroleum hydrocarbons, primarily consisting of octane, commonly used as a motor fuel.",
+  "ex": "",
+  "syn": [],
+  "vi": "xăng dầu, dầu hỏa",
+  "v": 2,
+  "tries": 1
+ },
+ "uncertain": {
+  "ipa": "/ʌnˈsɜːtən/",
+  "pos": "adjective",
+  "def": "Not certain; unsure.",
+  "ex": "",
+  "syn": [],
+  "vi": "không chắc chắn, bấp bênh",
+  "v": 2,
+  "tries": 1
+ },
+ "terror": {
+  "ipa": "/ˈtɛɹə/",
+  "pos": "noun",
+  "def": "Intense dread, fright, or fear.",
+  "ex": "",
+  "syn": [],
+  "vi": "khủng bố",
+  "v": 2,
+  "tries": 1
+ },
+ "trustee": {
+  "ipa": "/tɹʌsˈtiː/",
+  "pos": "noun",
+  "def": "A person to whom property is legally committed in trust, to be applied either for the benefit of specified individuals (beneficiaries), or for public uses; one who is intrusted with property for the b",
+  "ex": "The Board of Trustees voted to divest the organization's overseas holdings.",
+  "syn": [],
+  "vi": "người được ủy thác",
+  "v": 2,
+  "tries": 1
+ },
+ "frontier": {
+  "ipa": "/ˈfɹʌntɪə/",
+  "pos": "noun",
+  "def": "The part of a country which borders or faces another country or unsettled region.",
+  "ex": "Many families went west to make a new life on the frontier.",
+  "syn": [],
+  "vi": "biên giới",
+  "v": 2,
+  "tries": 1
+ },
+ "seize": {
+  "ipa": "/ˈsiːz/",
+  "pos": "verb",
+  "def": "To deliberately take hold of; to grab or capture.",
+  "ex": "",
+  "syn": [],
+  "vi": "nắm bắt, chiếm",
+  "v": 2,
+  "tries": 1
+ },
+ "beneficiary": {
+  "ipa": "/ˌbɛn.ɪˈfɪʃ.əɹ.i/",
+  "pos": "noun",
+  "def": "One who benefits or receives an advantage.",
+  "ex": "Yanni removed Skura as a beneficiary of his life insurance policy.",
+  "syn": [],
+  "vi": "người thụ hưởng",
+  "v": 2,
+  "tries": 1
+ },
+ "capitalism": {
+  "ipa": "/ˈkapɪt(ə)lɪz(ə)m/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chủ nghĩa tư bản"
+ },
+ "capitalization": {
+  "ipa": "/ˌkæpɪtəlaɪˈzeɪʃən/",
+  "pos": "noun",
+  "def": "American and Oxford British English standard spelling of capitalisation.",
+  "ex": "",
+  "syn": [],
+  "vi": "viết hoa",
+  "v": 2,
+  "tries": 1
+ },
+ "diplomat": {
+  "ipa": "/ˈdɪp.lə.mæt/",
+  "pos": "noun",
+  "def": "A person, such as an ambassador, who is accredited to represent a government officially in its relations with other governments or international organisations",
+  "ex": "",
+  "syn": [],
+  "vi": "nhà ngoại giao",
+  "v": 2,
+  "tries": 1
+ },
+ "intent": {
+  "ipa": "/ɪnˈtɛnt/",
+  "pos": "noun",
+  "def": "Something that is intended.",
+  "ex": "",
+  "syn": [],
+  "vi": "ý định, mục đích",
+  "v": 2,
+  "tries": 1
+ },
+ "lessor": {
+  "ipa": "/ˈlɛsə/",
+  "pos": "noun",
+  "def": "The owner of property that is leased; the landlord to a lease.",
+  "ex": "",
+  "syn": [],
+  "vi": "người cho thuê",
+  "v": 2,
+  "tries": 1
+ },
+ "affiliate": {
+  "ipa": "/əˈfɪl.i.ət/",
+  "pos": "verb",
+  "def": "Someone or something, especially, a television station, that is associated with a larger, related organization, such as a television network; a member of a group of associated things.",
+  "ex": "The college is affiliated with the university.",
+  "syn": [],
+  "vi": "liên kết, giao thiệp",
+  "v": 2,
+  "tries": 1
+ },
+ "statutory": {
+  "ipa": "/ˈstætjʊt(ə)ɹɪ/",
+  "pos": "adjective",
+  "def": "Of, relating to, enacted or regulated by a statute.",
+  "ex": "There are no statutory minimum paid vacations or paid public holidays in the United States.",
+  "syn": [],
+  "vi": "theo luật định",
+  "v": 2,
+  "tries": 1
+ },
+ "exporter": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "One who, or that which, exports: especially a person who or organization that exports or sells goods made in one country for delivery in another country.",
+  "ex": "India is the leading exporter of guar gum, making up nearly 85 per cent of the global production.",
+  "syn": [],
+  "vi": "nhà xuất khẩu",
+  "v": 2,
+  "tries": 3
+ },
+ "lag": {
+  "ipa": "/læɡ/",
+  "pos": "noun",
+  "def": "ISO 639-3 language code for Langi.",
+  "ex": "",
+  "syn": [],
+  "vi": "tụt hậu",
+  "v": 2,
+  "tries": 1
+ },
+ "volatile": {
+  "ipa": "/ˈvɒl.əˌtaɪl/",
+  "pos": "adjective",
+  "def": "Evaporating or vaporizing readily under normal conditions.",
+  "ex": "The geopolitical situation is very volatile.",
+  "syn": [],
+  "vi": "bay hơi, chưng phát",
+  "v": 2,
+  "tries": 1
+ },
+ "sack": {
+  "ipa": "/sæk/",
+  "pos": "noun",
+  "def": "A bag; especially a large bag of strong, coarse material for storage and handling of various commodities, such as potatoes, coal, coffee; or, a bag with handles used at a supermarket, a grocery sack; ",
+  "ex": "",
+  "syn": [],
+  "vi": "bao, áo choàng của đàn bà",
+  "v": 2,
+  "tries": 1
+ },
+ "obstacle": {
+  "ipa": "/ˈɒbstəkəl/",
+  "pos": "noun",
+  "def": "Something that impedes, stands in the way of, or holds up progress, either physically or figuratively",
+  "ex": "",
+  "syn": [],
+  "vi": "trở ngại",
+  "v": 2,
+  "tries": 1
+ },
+ "coup": {
+  "ipa": "/kuː/",
+  "pos": "noun",
+  "def": "A quick, brilliant, and highly successful act.",
+  "ex": "The generals conducted a successful coup.",
+  "syn": [],
+  "vi": "cuộc đảo chính",
+  "v": 2,
+  "tries": 1
+ },
+ "issuance": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The act of issuing, or giving out.",
+  "ex": "the issuance of an order; the issuance of rations",
+  "syn": [],
+  "vi": "phát hành",
+  "v": 2,
+  "tries": 3
+ },
+ "capitalist": {
+  "ipa": "/ˈkæp.ɪ.tə.lɪst/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "xuất vốn cho người khác"
+ },
+ "capitalize": {
+  "ipa": "/ˈkæpətəˌlaɪz/",
+  "pos": "verb",
+  "def": "In writing or editing, to write (something: either an entire word or text, or just the initial letter(s) thereof) in capital letters, in upper case.",
+  "ex": "",
+  "syn": [],
+  "vi": "viết hoa",
+  "v": 2,
+  "tries": 1
+ },
+ "differential": {
+  "ipa": "[dɪfəˈɹənʃəɫ]",
+  "pos": "adjective",
+  "def": "The differential gear in an automobile etc",
+  "ex": "Differential equations are equations involving derivatives.",
+  "syn": [],
+  "vi": "sự khác biệt, vi phân",
+  "v": 2,
+  "tries": 2
+ },
+ "amortization": {
+  "ipa": "/əˌmɔːtəˈzeɪʃən/",
+  "pos": "noun",
+  "def": "The reduction of loan principal over a series of payments.",
+  "ex": "",
+  "syn": [],
+  "vi": "khấu hao, sự trừ lần",
+  "v": 2,
+  "tries": 1
+ },
+ "unfair": {
+  "ipa": "/ʌnˈfɛə(ɹ)/",
+  "pos": "adjective",
+  "def": "Not fair. Not just.",
+  "ex": "",
+  "syn": [],
+  "vi": "không công bằng",
+  "v": 2,
+  "tries": 1
+ },
+ "inter": {
+  "ipa": "/ɪnˈtɜː/",
+  "pos": "verb",
+  "def": "",
+  "ex": "Nikola Tesla's remains are interred in the Tesla Museum in Belgrade.",
+  "syn": [],
+  "vi": "chôn, an táng"
+ },
+ "nationalist": {
+  "ipa": "/ˈnæʃ.ə.nə.lɪst/",
+  "pos": "noun",
+  "def": "Of or relating to nationalism.",
+  "ex": "The revanchist rhetoric is fueling nationalist movements.",
+  "syn": [],
+  "vi": "người theo chủ nghĩa dân tộc, chủ nghĩa quốc xã",
+  "v": 2,
+  "tries": 1
+ },
+ "demographic": {
+  "ipa": "/ˌdɛm.əˈɡɹæf.ɪk/",
+  "pos": "adjective",
+  "def": "Of or pertaining to demography.",
+  "ex": "Algeria needs to address its demographic challenges.",
+  "syn": [],
+  "vi": "nhân khẩu học",
+  "v": 2,
+  "tries": 1
+ },
+ "conglomerate": {
+  "ipa": "/kənˈɡlɒm.(ə.)ɹɪt/",
+  "pos": "noun",
+  "def": "A cluster of heterogeneous things.",
+  "ex": "Drop by drop, the water can conglomerate into a lake.",
+  "syn": [],
+  "vi": "tập đoàn",
+  "v": 2,
+  "tries": 1
+ },
+ "senator": {
+  "ipa": "/ˈsɛn.ə.tə/",
+  "pos": "noun",
+  "def": "A member, normally elected, in the house or chamber of a legislature called a senate, as, for instance, the legislatures of the United States and Canada.",
+  "ex": "",
+  "syn": [],
+  "vi": "thượng nghị sĩ",
+  "v": 2,
+  "tries": 1
+ },
+ "adoption": {
+  "ipa": "/əˈdɒp.ʃən/",
+  "pos": "noun",
+  "def": "The act of adopting.",
+  "ex": "",
+  "syn": [],
+  "vi": "nhận con nuôi, làm con nuôi",
+  "v": 2,
+  "tries": 1
+ },
+ "sensible": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "cãm giác được, có tri giác"
+ },
+ "headline": {
+  "ipa": "/ˈhɛd.laɪn/",
+  "pos": "noun",
+  "def": "A rope. Any of various type of rope used to attach a sail to a yard. .mw-parser-output .defdate{font-size:smaller} A rope or chain used to attach the bow of a vessel to the shore or to another vessel.",
+  "ex": "",
+  "syn": [],
+  "vi": "tiêu đề",
+  "v": 2,
+  "tries": 1
+ },
+ "macroeconomic": {
+  "ipa": "/ˌmækɹəʊˌiːkəˈnɒmɪk/",
+  "pos": "adjective",
+  "def": "Relating to macroeconomics.",
+  "ex": "Algeria has made incredible progress in terms of macroeconomic stability.",
+  "syn": [],
+  "vi": "kinh tế vĩ mô",
+  "v": 2,
+  "tries": 1
+ },
+ "contingent": {
+  "ipa": "/kənˈtɪn.d͡ʒənt/",
+  "pos": "noun",
+  "def": "An event which may or may not happen; that which is unforeseen, undetermined, or dependent on something in the future.",
+  "ex": "We should be prepared for all contingencies.",
+  "syn": [],
+  "vi": "ngẫu nhiên",
+  "v": 2,
+  "tries": 1
+ },
+ "privately": {
+  "ipa": "/ˈpɹaɪvɪtli/",
+  "pos": "adverb",
+  "def": "In a private manner.",
+  "ex": "",
+  "syn": [],
+  "vi": "riêng tư",
+  "v": 2,
+  "tries": 1
+ },
+ "guerrilla": {
+  "ipa": "/ɡəˈɹɪlə/",
+  "pos": "noun",
+  "def": "A soldier in a small independent group, fighting against the government or regular forces by surprise raids.",
+  "ex": "Guerrilla gardening is gardening on another person's land without permission.",
+  "syn": [],
+  "vi": "du kích, đánh du kích",
+  "v": 2,
+  "tries": 1
+ },
+ "repurchase": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "The act of repurchasing.",
+  "ex": "France repurchased the island in 1877 and took control the following year.",
+  "syn": [],
+  "vi": "mua lại",
+  "v": 2,
+  "tries": 3
+ },
+ "plunge": {
+  "ipa": "/plʌnd͡ʒ/",
+  "pos": "verb",
+  "def": "To thrust into liquid, or into any penetrable substance; to immerse.",
+  "ex": "",
+  "syn": [],
+  "vi": "lao xuống, đánh lớn",
+  "v": 2,
+  "tries": 1
+ },
+ "intensive": {
+  "ipa": "/ɪnˈtɛnsɪv/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "kịch liệt, mạnh thêm"
+ },
+ "horizontal": {
+  "ipa": "/ˌhɒɹɪˈzɒn.təl/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "The exponential function has a horizontal asymptote.",
+  "syn": [],
+  "vi": "nằm ngang, thuộc về chân trời"
+ },
+ "legally": {
+  "ipa": "/ˈliːɡəli/",
+  "pos": "adverb",
+  "def": "As permitted by law; not contrary to law.",
+  "ex": "",
+  "syn": [],
+  "vi": "hợp pháp",
+  "v": 2,
+  "tries": 1
+ },
+ "installment": {
+  "ipa": "/ɪnˈstɔːl.mənt/",
+  "pos": "noun",
+  "def": "One of a series of parts, whether equal or unequal to the other parts of the series, of a given entity or a given process, which part presents or is presented at a particular scheduled interval.",
+  "ex": "",
+  "syn": [],
+  "vi": "trả góp, người trả nợ góp",
+  "v": 2,
+  "tries": 1
+ },
+ "revive": {
+  "ipa": "/ɹɪˈvaɪ̯v/",
+  "pos": "verb",
+  "def": "To cause (a person or animal) to recover from a faint; to cause (a person or animal) to return to a state of consciousness.",
+  "ex": "",
+  "syn": [],
+  "vi": "hồi sinh, khêu gợi lại",
+  "v": 2,
+  "tries": 1
+ },
+ "ballot": {
+  "ipa": "/ˈbælət/",
+  "pos": "noun",
+  "def": "A small ball placed in a container to cast a vote; now, by extension, a piece of paper or card used for this purpose, or some other means used to signify a vote.",
+  "ex": "Tom and Mary counted the ballots.",
+  "syn": [],
+  "vi": "lá phiếu, lá thăm",
+  "v": 2,
+  "tries": 1
+ },
+ "treasury": {
+  "ipa": "/ˈtɹɛʒ.ə.ɹi/",
+  "pos": "noun",
+  "def": "A place where treasure is stored safely.",
+  "ex": "TATOEBA: The All-inclusive Treasury Of Examples Beautifully Arranged.",
+  "syn": [],
+  "vi": "kho bạc, bộ tài chánh",
+  "v": 2,
+  "tries": 1
+ },
+ "intermediary": {
+  "ipa": "/ˌɪntə(ɹ)ˈmiːdi.əɹi/",
+  "pos": "adjective",
+  "def": "That intermediates.",
+  "ex": "The two presidents exchanged phone numbers so they could talk without intermediaries.",
+  "syn": [],
+  "vi": "người trung gian",
+  "v": 2,
+  "tries": 1
+ },
+ "boast": {
+  "ipa": "/bəʊst/",
+  "pos": "noun",
+  "def": "A brag; ostentatious positive appraisal of oneself.",
+  "ex": "",
+  "syn": [],
+  "vi": "khoe khoan, tánh khoác lác",
+  "v": 2,
+  "tries": 1
+ },
+ "militant": {
+  "ipa": "/ˈmɪlɪtənt/",
+  "pos": "adjective",
+  "def": "Fighting or disposed to fight; belligerent, warlike. .mw-parser-output .defdate{font-size:smaller}",
+  "ex": "Hamas militants attacked many Israeli military outposts.",
+  "syn": [],
+  "vi": "dân quân",
+  "v": 2,
+  "tries": 1
+ },
+ "discourage": {
+  "ipa": "/dɪsˈkʌɹɪd͡ʒ/",
+  "pos": "verb",
+  "def": "To extinguish the courage of; to dishearten; to depress the spirits of; to deprive of confidence; to deject.",
+  "ex": "",
+  "syn": [],
+  "vi": "làm nản lòng, chán nản",
+  "v": 2,
+  "tries": 1
+ },
+ "fate": {
+  "ipa": "/feɪt/",
+  "pos": "noun",
+  "def": "The presumed cause, force, principle, or divine will that predetermines events.",
+  "ex": "",
+  "syn": [],
+  "vi": "định mệnh, số mạng",
+  "v": 2,
+  "tries": 1
+ },
+ "widen": {
+  "ipa": "/ˈwaɪdn̩/",
+  "pos": "verb",
+  "def": "To become wide or wider.",
+  "ex": "",
+  "syn": [],
+  "vi": "mở rộng",
+  "v": 2,
+  "tries": 1
+ },
+ "gang": {
+  "ipa": "/ˈɡæŋ/",
+  "pos": "verb",
+  "def": "To go; walk; proceed.",
+  "ex": "",
+  "syn": [],
+  "vi": "băng nhóm, một bọn",
+  "v": 2,
+  "tries": 1
+ },
+ "devise": {
+  "ipa": "/dɪˈvaɪz/",
+  "pos": "verb",
+  "def": "To use one’s intellect to plan or design (something).",
+  "ex": "",
+  "syn": [],
+  "vi": "nghĩ ra",
+  "v": 2,
+  "tries": 1
+ },
+ "speculation": {
+  "ipa": "/ˌspɛk.jəˈleɪ.ʃən/",
+  "pos": "noun",
+  "def": "The process or act of thinking or meditating on a subject.",
+  "ex": "",
+  "syn": [],
+  "vi": "suy đoán, sự đầu cơ",
+  "v": 2,
+  "tries": 1
+ },
+ "incremental": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "Pertaining to an increment.",
+  "ex": "Incremental improvement is fine as long as the increments are large enough to see.",
+  "syn": [
+   "gradual"
+  ],
+  "vi": "tăng dần",
+  "v": 2,
+  "tries": 3
+ },
+ "fighter": {
+  "ipa": "/ˈfaɪ.tə(ɹ)/",
+  "pos": "noun",
+  "def": "A person who fights; a combatant.",
+  "ex": "",
+  "syn": [],
+  "vi": "chiến binh, chiến đấu cơ",
+  "v": 2,
+  "tries": 1
+ },
+ "grip": {
+  "ipa": "/ˈɡɹɪp/",
+  "pos": "verb",
+  "def": "To take hold (of), particularly with the hand.",
+  "ex": "",
+  "syn": [],
+  "vi": "va li, bám lấy",
+  "v": 2,
+  "tries": 1
+ },
+ "underwrite": {
+  "ipa": "/ˈʌndəɹaɪt/",
+  "pos": "verb",
+  "def": "To write below or under; subscribe.",
+  "ex": "Not every company can afford to underwrite such an expensive event.",
+  "syn": [],
+  "vi": "bảo lãnh, bảo hiểm",
+  "v": 2,
+  "tries": 1
+ },
+ "compel": {
+  "ipa": "/kəmˈpɛl/",
+  "pos": "verb",
+  "def": "To drive together, round up.",
+  "ex": "No one has compellingly argued otherwise.",
+  "syn": [],
+  "vi": "ép buộc, bắt buộc",
+  "v": 2,
+  "tries": 1
+ },
+ "multiplier": {
+  "ipa": "[ˈmʌɫ.tɪ.ˌplaɪ.ə(ɹ)]",
+  "pos": "noun",
+  "def": "A number by which another (the multiplicand) is to be multiplied.",
+  "ex": "In the expression 5 × 7, the \"5\" is a multiplier.",
+  "syn": [],
+  "vi": "phép nhân",
+  "v": 2,
+  "tries": 2
+ },
+ "slowdown": {
+  "ipa": "/ˈsləʊdaʊn/",
+  "pos": "noun",
+  "def": "A reduction in speed, or a decrease in the level of production, economic activity, etc.",
+  "ex": "Algerian economists are expecting a slight slowdown of the country's GDP.",
+  "syn": [],
+  "vi": "sự chậm lại, chậm lại",
+  "v": 2,
+  "tries": 1
+ },
+ "suspicion": {
+  "ipa": "/səˈspɪʃ.ən/",
+  "pos": "noun",
+  "def": "The act of suspecting something or someone, especially of something wrong.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự nghi ngờ",
+  "v": 2,
+  "tries": 1
+ },
+ "flee": {
+  "ipa": "/ˈfliː/",
+  "pos": "verb",
+  "def": "To run away; to escape.",
+  "ex": "",
+  "syn": [],
+  "vi": "chạy trốn, chuồn",
+  "v": 2,
+  "tries": 1
+ },
+ "tangible": {
+  "ipa": "/ˈtæn.d͡ʒɪ.b(ə)l/",
+  "pos": "adjective",
+  "def": "Touchable; able to be touched or felt; perceptible by the sense of touch.",
+  "ex": "Service economy is a useful labor that does not produce a tangible commodity.",
+  "syn": [],
+  "vi": "hữu hình, có thật",
+  "v": 2,
+  "tries": 1
+ },
+ "dump": {
+  "ipa": "/dʌmp/",
+  "pos": "noun",
+  "def": "A place where waste or garbage is left; a ground or place for dumping ashes, refuse, etc.; a disposal site.",
+  "ex": "",
+  "syn": [],
+  "vi": "bãi rác, bù lon làm cầu",
+  "v": 2,
+  "tries": 1
+ },
+ "bail": {
+  "ipa": "/beɪl/",
+  "pos": "noun",
+  "def": "Security, usually a sum of money, exchanged for the release of an arrested person as a guarantee of that person's appearance for trial.",
+  "ex": "",
+  "syn": [],
+  "vi": "tại ngoại, hàng rào",
+  "v": 2,
+  "tries": 1
+ },
+ "outflow": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The process of flowing out",
+  "ex": "Engineers monitored the outflow from the dam to prevent flooding downstream.",
+  "syn": [
+   "effluence",
+   "efflux",
+   "effluxion"
+  ],
+  "vi": "dòng chảy ra",
+  "v": 2,
+  "tries": 3
+ },
+ "spokesman": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "One who speaks as the voice of a group of people.",
+  "ex": "Tom wasn't sure why he was considered the spokesman for the group.",
+  "syn": [],
+  "vi": "người phát ngôn, người đại diện",
+  "v": 2,
+  "tries": 3
+ },
+ "contingency": {
+  "ipa": "/kənˈtɪnd͡ʒənsi/",
+  "pos": "noun",
+  "def": "The quality of being contingent, of happening by chance. .mw-parser-output .defdate{font-size:smaller}",
+  "ex": "We should be prepared for all contingencies.",
+  "syn": [],
+  "vi": "sự ngẫu nhiên",
+  "v": 2,
+  "tries": 1
+ },
+ "surrender": {
+  "ipa": "/səˈɹɛndə(ɹ)/",
+  "pos": "verb",
+  "def": "To give up into the power, control, or possession of another.",
+  "ex": "",
+  "syn": [],
+  "vi": "đầu hàng",
+  "v": 2,
+  "tries": 1
+ },
+ "judicial": {
+  "ipa": "/d͡ʒuˈdɪʃəl/",
+  "pos": "adjective",
+  "def": "Of or relating to the administration of justice.",
+  "ex": "Maltese is used in legal and judicial proceedings in Malta.",
+  "syn": [],
+  "vi": "tư pháp",
+  "v": 2,
+  "tries": 1
+ },
+ "certainty": {
+  "ipa": "/ˈsɜːtn̩ti/",
+  "pos": "noun",
+  "def": "The state of being certain.",
+  "ex": "Suspicions are more unpleasant than certainties.",
+  "syn": [],
+  "vi": "sự chắc chắn, chắc chắn",
+  "v": 2,
+  "tries": 1
+ },
+ "mainstream": {
+  "ipa": "/ˈmeɪn.stɹiːm/",
+  "pos": "adjective",
+  "def": "Used or accepted broadly rather than by small portions of population, market, scientific community, etc.",
+  "ex": "The mainstream media is the most prevalent practitioner of scaremongering.",
+  "syn": [],
+  "vi": "chủ đạo",
+  "v": 2,
+  "tries": 1
+ },
+ "rebuild": {
+  "ipa": "/ɹiːˈbɪld/",
+  "pos": "verb",
+  "def": "To build again or anew.",
+  "ex": "",
+  "syn": [],
+  "vi": "xây dựng lại",
+  "v": 2,
+  "tries": 1
+ },
+ "corrupt": {
+  "ipa": "/kəˈɹʌpt/",
+  "pos": "adjective",
+  "def": "Willing to act dishonestly for personal gain; accepting bribes.",
+  "ex": "",
+  "syn": [],
+  "vi": "tham nhũng, hư",
+  "v": 2,
+  "tries": 1
+ },
+ "proposition": {
+  "ipa": "/ˌpɹɑpəˈzɪʃən/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "công việc, điều dự định"
+ },
+ "amid": {
+  "ipa": "/əˈmɪd/",
+  "pos": "preposition",
+  "def": "In the middle of; in the center of; surrounded by.",
+  "ex": "They reached the castle in safety, amid a thousand joyous acclamations.",
+  "syn": [],
+  "vi": "ở giữa",
+  "v": 2,
+  "tries": 1
+ },
+ "bold": {
+  "ipa": "/ˈbəʊld/",
+  "pos": "adjective",
+  "def": "Courageous; daring.",
+  "ex": "",
+  "syn": [],
+  "vi": "in đậm, bạo dạng",
+  "v": 2,
+  "tries": 1
+ },
+ "handful": {
+  "ipa": "/ˈhæn(d)fʊl/",
+  "pos": "noun",
+  "def": "The amount that a hand will grasp or contain.",
+  "ex": "",
+  "syn": [],
+  "vi": "một số ít, làm khó chịu",
+  "v": 2,
+  "tries": 1
+ },
+ "unchanged": {
+  "ipa": "/ʌnˈt͡ʃeɪnd͡ʒd/",
+  "pos": "adjective",
+  "def": "Not changed or altered; remaining in an original state.",
+  "ex": "The temperatures we had throughout the month were relatively unchanged.",
+  "syn": [],
+  "vi": "không thay đổi",
+  "v": 2,
+  "tries": 1
+ },
+ "queue": {
+  "ipa": "/kjuː/",
+  "pos": "noun",
+  "def": "A line of people, vehicles or other objects, usually one to be dealt with in sequence (i.e., the one at the front end is dealt with first, the one behind is dealt with next, and so on), and which newc",
+  "ex": "",
+  "syn": [],
+  "vi": "xếp hàng, đoàn người nối nhau",
+  "v": 2,
+  "tries": 1
+ },
+ "bidder": {
+  "ipa": "/ˈbɪd.ə/",
+  "pos": "noun",
+  "def": "Someone who bids , but most commonly, one offers to pay a specified price at an auction.",
+  "ex": "Tom has the heart of a mercenary who sells out his loyalty to the highest bidder.",
+  "syn": [],
+  "vi": "người đấu giá",
+  "v": 2,
+  "tries": 1
+ },
+ "respective": {
+  "ipa": "/ɹɪˈspɛktɪv/",
+  "pos": "adjective",
+  "def": "Relating to particular persons or things, each to each; particular; own.",
+  "ex": "",
+  "syn": [],
+  "vi": "tương ứng",
+  "v": 2,
+  "tries": 1
+ },
+ "odds": {
+  "ipa": "/ɒdz/",
+  "pos": "noun",
+  "def": "The ratio of the probability of an event happening to that of it not happening.",
+  "ex": "",
+  "syn": [],
+  "vi": "tỷ lệ cược, so le",
+  "v": 2,
+  "tries": 1
+ },
+ "allegation": {
+  "ipa": "/ˌæl.ɪˈɡeɪ.ʃən/",
+  "pos": "noun",
+  "def": "An assertion, especially an accusation, not necessarily based on facts.",
+  "ex": "",
+  "syn": [],
+  "vi": "lời cáo buộc",
+  "v": 2,
+  "tries": 1
+ },
+ "redemption": {
+  "ipa": "/ɹɪˈdɛmpʃən/",
+  "pos": "noun",
+  "def": "The act of redeeming or something redeemed.",
+  "ex": "Ben Affleck explores themes of crime and redemption in his second film as director.",
+  "syn": [],
+  "vi": "sự cứu chuộc, sự chuộc lại",
+  "v": 2,
+  "tries": 1
+ },
+ "downward": {
+  "ipa": "/ˈdaʊnwəd/",
+  "pos": "adverb",
+  "def": "Toward a lower level, whether in physical space, in a hierarchy, or in amount or value.",
+  "ex": "Ziri drove that narrow downward road.",
+  "syn": [],
+  "vi": "đi xuống",
+  "v": 2,
+  "tries": 1
+ },
+ "depreciate": {
+  "ipa": "/dɪˈpɹiːʃɪeɪt/",
+  "pos": "verb",
+  "def": "To lessen in price or estimated value; to lower the worth of.",
+  "ex": "The depreciation of the equipment is calculated over five years.",
+  "syn": [],
+  "vi": "mất giá, giãm giá trị",
+  "v": 2,
+  "tries": 1
+ },
+ "digit": {
+  "ipa": "/ˈdɪd͡ʒɪt/",
+  "pos": "noun",
+  "def": "A position in a sequence of numerals representing a place value in a positional number system.",
+  "ex": "",
+  "syn": [],
+  "vi": "chữ số, bề ngang ngón tay",
+  "v": 2,
+  "tries": 1
+ },
+ "provoke": {
+  "ipa": "/pɹəˈvəʊk/",
+  "pos": "verb",
+  "def": "To cause someone to become annoyed or angry.",
+  "ex": "",
+  "syn": [],
+  "vi": "khiêu khích, chọc giận",
+  "v": 2,
+  "tries": 1
+ },
+ "inevitably": {
+  "ipa": "/ɪˈnɛvɪtəbli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "tất yếu"
+ },
+ "info": {
+  "ipa": "/ˈɪnfəʊ/",
+  "pos": "noun",
+  "def": "information.",
+  "ex": "Thank you for the extra info.",
+  "syn": [],
+  "vi": "thông tin",
+  "v": 2,
+  "tries": 1
+ },
+ "secular": {
+  "ipa": "/ˈsɛkjʊlə/",
+  "pos": "adjective",
+  "def": "Not specifically religious; lay or civil, as opposed to clerical.",
+  "ex": "",
+  "syn": [],
+  "vi": "thế tục, từng thế kỷ",
+  "v": 2,
+  "tries": 1
+ },
+ "distress": {
+  "ipa": "/dɪˈstɹɛs/",
+  "pos": "noun",
+  "def": "Physical or emotional discomfort, suffering, or alarm, particularly of a more acute nature.",
+  "ex": "",
+  "syn": [],
+  "vi": "đau khổ, đứt hơi",
+  "v": 2,
+  "tries": 1
+ },
+ "withhold": {
+  "ipa": "/wɪθˈhəʊld/",
+  "pos": "verb",
+  "def": "To keep (a physical object that one has obtained) to oneself rather than giving it back to its owner.",
+  "ex": "After pay withholding tax, please send the tax paid receipt in PDF format.",
+  "syn": [],
+  "vi": "giữ lại, giấu sự thật",
+  "v": 2,
+  "tries": 1
+ },
+ "sterling": {
+  "ipa": "/ˈstɜːlɪŋ/",
+  "pos": "adjective",
+  "def": "An English silver penny first introduced by the Normans.",
+  "ex": "His supervisor gave him a sterling recommendation.",
+  "syn": [],
+  "vi": "đồng bảng Anh",
+  "v": 2,
+  "tries": 1
+ },
+ "legacy": {
+  "ipa": "/ˈlɛɡəsi/",
+  "pos": "noun",
+  "def": "Money or property bequeathed to someone in a will.",
+  "ex": "Work well done leaves a lasting legacy.",
+  "syn": [],
+  "vi": "di sản",
+  "v": 2,
+  "tries": 1
+ },
+ "thrive": {
+  "ipa": "/θɹaɪv/",
+  "pos": "verb",
+  "def": "To grow or increase stature; to grow vigorously or luxuriantly, to flourish.",
+  "ex": "Not all animals thrive well in captivity.",
+  "syn": [],
+  "vi": "phát triển mạnh, lớn lên",
+  "v": 2,
+  "tries": 2
+ },
+ "commander": {
+  "ipa": "/kəˈmɑːndə/",
+  "pos": "noun",
+  "def": "One who exercises control and direction of a military or naval organization.",
+  "ex": "",
+  "syn": [],
+  "vi": "người chỉ huy, hải quân trung tá",
+  "v": 2,
+  "tries": 1
+ },
+ "accountability": {
+  "ipa": "/əˌkaʊn.təˈbɪl.ə.ti/",
+  "pos": "noun",
+  "def": "The state of being accountable; liability to be called on to render an account or give an explanation; liability to be held responsible or answerable for something.",
+  "ex": "",
+  "syn": [],
+  "vi": "trách nhiệm giải trình",
+  "v": 2,
+  "tries": 1
+ },
+ "incorporation": {
+  "ipa": "/ɪŋˌkɔːpəˈɹeɪʃən/",
+  "pos": "noun",
+  "def": "The act of incorporating, or the state of being incorporated.",
+  "ex": "Incorporate balance exercises for stability and coordination.",
+  "syn": [],
+  "vi": "sự hợp nhất, công ty",
+  "v": 2,
+  "tries": 1
+ },
+ "bondholder": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The registered owner of a financial bond.",
+  "ex": "",
+  "syn": [],
+  "vi": "người nắm giữ trái phiếu",
+  "v": 2,
+  "tries": 3
+ },
+ "unveil": {
+  "ipa": "/ʌnˈveɪl/",
+  "pos": "verb",
+  "def": "To remove a veil from; to uncover; to reveal something hidden.",
+  "ex": "Microsoft recently unveiled two new dual screen devices.",
+  "syn": [],
+  "vi": "tiết lộ, cái màng trùm đầu",
+  "v": 2,
+  "tries": 1
+ },
+ "diplomatic": {
+  "ipa": "/ˌdɪpləˈmætɪk/",
+  "pos": "adjective",
+  "def": "Concerning the relationships between the governments of countries.",
+  "ex": "",
+  "syn": [],
+  "vi": "ngoại giao, khôn ngoan",
+  "v": 2,
+  "tries": 1
+ },
+ "formerly": {
+  "ipa": "/ˈfɔːməli/",
+  "pos": "adverb",
+  "def": "At some time in the past.",
+  "ex": "",
+  "syn": [],
+  "vi": "trước đây",
+  "v": 2,
+  "tries": 1
+ },
+ "optimization": {
+  "ipa": "/ˌɑptəmaɪˈzeɪʃən/",
+  "pos": "noun",
+  "def": "The design and operation of a system or process to make it as good as possible in some defined sense.",
+  "ex": "",
+  "syn": [],
+  "vi": "tối ưu hóa",
+  "v": 2,
+  "tries": 1
+ },
+ "spectrum": {
+  "ipa": "/ˈspɛktɹəm/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Tom is probably on the spectrum.",
+  "syn": [],
+  "vi": "quang phổ"
+ },
+ "tuple": {
+  "ipa": "/ˈtʊpəl/",
+  "pos": "noun",
+  "def": "A finite sequence of terms.",
+  "ex": "",
+  "syn": [],
+  "vi": "bộ đồ",
+  "v": 2,
+  "tries": 1
+ },
+ "halt": {
+  "ipa": "/hɒlt/",
+  "pos": "verb",
+  "def": "To stop marching.",
+  "ex": "Traffic was halted for several hours.",
+  "syn": [],
+  "vi": "dừng lại, bắt người nào dừng lại",
+  "v": 2,
+  "tries": 1
+ },
+ "shed": {
+  "ipa": "/ʃɛd/",
+  "pos": "verb",
+  "def": "To part, separate or divide.",
+  "ex": "",
+  "syn": [],
+  "vi": "túp lều, cởi quần áo",
+  "v": 2,
+  "tries": 1
+ },
+ "median": {
+  "ipa": "/ˈmiː.di.ən/",
+  "pos": "adjective",
+  "def": "A central vein or nerve, especially the median vein or median nerve running through the forearm and arm. .mw-parser-output .defdate{font-size:smaller}",
+  "ex": "It is important to know the difference between mean and median.",
+  "syn": [],
+  "vi": "ở giữa, đường giữa",
+  "v": 2,
+  "tries": 1
+ },
+ "wholly": {
+  "ipa": "/ˈhəʊ.li/",
+  "pos": "adverb",
+  "def": "Completely and entirely; to the fullest extent.",
+  "ex": "Couscous is a wholly Berber invention.",
+  "syn": [],
+  "vi": "hoàn toàn",
+  "v": 2,
+  "tries": 1
+ },
+ "commissioner": {
+  "ipa": "/kəˈmɪ.ʃə.nə/",
+  "pos": "noun",
+  "def": "One who commissions something.",
+  "ex": "\"Under what circumstances was the body discovered?\" asked the commissioner.",
+  "syn": [],
+  "vi": "ủy viên, nhân viên",
+  "v": 2,
+  "tries": 1
+ },
+ "legislature": {
+  "ipa": "/ˈlɛd͡ʒɪsləˌt͡ʃʊə/",
+  "pos": "noun",
+  "def": "A governmental body with the power to make, amend and repeal laws.",
+  "ex": "Sweden and New Zealand are examples of nations with unicameral legislatures.",
+  "syn": [],
+  "vi": "cơ quan lập pháp",
+  "v": 2,
+  "tries": 1
+ },
+ "predictable": {
+  "ipa": "/pɹəˈdɪktəbləl/",
+  "pos": "adjective",
+  "def": "Able to be predicted.",
+  "ex": "",
+  "syn": [],
+  "vi": "có thể dự đoán được",
+  "v": 2,
+  "tries": 1
+ },
+ "liquidation": {
+  "ipa": "/ˌlɪk.wəˈdeɪ.ʃən/",
+  "pos": "noun",
+  "def": "The act or process of liquidating or of being liquidated. The act of exchange of an asset of lesser liquidity with a more liquid one, such as cash. The act or process of winding up the affairs of a co",
+  "ex": "",
+  "syn": [],
+  "vi": "thanh lý, sự thanh toán nợ",
+  "v": 2,
+  "tries": 1
+ },
+ "chaos": {
+  "ipa": "/ˈkeɪ.ɒs/",
+  "pos": "noun",
+  "def": "The unordered state of matter in classical accounts of cosmogony.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự hỗn loạn",
+  "v": 2,
+  "tries": 1
+ },
+ "impairment": {
+  "ipa": "/ɪmˈpɛəmənt/",
+  "pos": "noun",
+  "def": "The result of being impaired.",
+  "ex": "",
+  "syn": [],
+  "vi": "suy giảm",
+  "v": 2,
+  "tries": 1
+ },
+ "migrant": {
+  "ipa": "/ˈmaɪɡɹənt/",
+  "pos": "noun",
+  "def": "A migratory animal, in particular a migratory bird.",
+  "ex": "Fifteen hundred migrants stormed the Channel Tunnel.",
+  "syn": [],
+  "vi": "người di cư",
+  "v": 2,
+  "tries": 1
+ },
+ "macroeconomics": {
+  "ipa": "/ˌmækrəʊˌiːkəˈnɒmɪks/",
+  "pos": "noun",
+  "def": "The study of the entire economy in terms of the total amount of goods and services produced, total income earned, the level of employment of productive resources, and the general behavior of prices.",
+  "ex": "Algeria has made incredible progress in terms of macroeconomic stability.",
+  "syn": [],
+  "vi": "kinh tế vĩ mô",
+  "v": 2,
+  "tries": 1
+ },
+ "accrual": {
+  "ipa": "/əˈkɹuːəl/",
+  "pos": "noun",
+  "def": "The act or process of accruing; accumulation.",
+  "ex": "",
+  "syn": [],
+  "vi": "tích lũy",
+  "v": 2,
+  "tries": 1
+ },
+ "confront": {
+  "ipa": "/kənˈfɹʌnt/",
+  "pos": "verb",
+  "def": "To stand or meet facing, especially in competition, hostility or defiance; to come face to face with.",
+  "ex": "",
+  "syn": [],
+  "vi": "đối đầu, đối chất",
+  "v": 2,
+  "tries": 1
+ },
+ "scrutiny": {
+  "ipa": "/ˈskɹuː.tɪ.ni/",
+  "pos": "noun",
+  "def": "Intense study of someone or something.",
+  "ex": "The statement seems to make sense, but under further scrutiny, it falls apart.",
+  "syn": [],
+  "vi": "sự xem xét kỹ lưỡng, sự kiểm phiếu",
+  "v": 2,
+  "tries": 1
+ },
+ "exile": {
+  "ipa": "/ˈɛɡˌzaɪl/",
+  "pos": "noun",
+  "def": "The state of being banished from one's home or country.",
+  "ex": "",
+  "syn": [],
+  "vi": "lưu đày, tha hương",
+  "v": 2,
+  "tries": 1
+ },
+ "explicitly": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "In an explicit manner.",
+  "ex": "I would like to explicitly emphasize this.",
+  "syn": [
+   "expressly",
+   "unambiguously"
+  ],
+  "vi": "rõ ràng",
+  "v": 2,
+  "tries": 3
+ },
+ "payback": {
+  "ipa": "/ˈpeɪbæk/",
+  "pos": "noun",
+  "def": "An act of revenge.",
+  "ex": "Could Yanni's death be payback for his testimony against Skura's father?",
+  "syn": [],
+  "vi": "hoàn vốn",
+  "v": 2,
+  "tries": 1
+ },
+ "sacrifice": {
+  "ipa": "/ˈsæk.ɹɪ.faɪs/",
+  "pos": "noun",
+  "def": "Originally, the killing (and often burning) of a human being or an animal as an offering to a deity; later, also the offering of an object to a deity. A human being or an animal, or a physical object ",
+  "ex": "",
+  "syn": [],
+  "vi": "hy sinh, sự bán lổ",
+  "v": 2,
+  "tries": 1
+ },
+ "semi": {
+  "ipa": "/ˈsɛmi/",
+  "pos": "prefix",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "nữa"
+ },
+ "conviction": {
+  "ipa": "/kənˈvɪkʃən/",
+  "pos": "noun",
+  "def": "A firmly held belief.",
+  "ex": "",
+  "syn": [],
+  "vi": "niềm tin, lòng tin chắc",
+  "v": 2,
+  "tries": 1
+ },
+ "continuously": {
+  "ipa": "/kənˈtɪnjuəsli/",
+  "pos": "adverb",
+  "def": "Without pause.",
+  "ex": "",
+  "syn": [],
+  "vi": "liên tục",
+  "v": 2,
+  "tries": 1
+ },
+ "tier": {
+  "ipa": "/ˈtaɪ.ə/",
+  "pos": "noun",
+  "def": "One who ties (knots, etc.).",
+  "ex": "Those words are in the second and third tiers of frequency.",
+  "syn": [],
+  "vi": "bậc, dãy ghế",
+  "v": 2,
+  "tries": 1
+ },
+ "inadequate": {
+  "ipa": "/ɪnˈædəkwɪt/",
+  "pos": "adjective",
+  "def": "Not adequate; lacking in quality or quantity required; insufficient for a purpose.",
+  "ex": "You constantly make me feel inadequate.",
+  "syn": [],
+  "vi": "không đầy đủ, ít",
+  "v": 2,
+  "tries": 1
+ },
+ "acre": {
+  "ipa": "/ˈeɪ.kə/",
+  "pos": "noun",
+  "def": "An English unit of land area (symbol: a. or ac.) originally denoting a day's ploughing for a yoke of oxen, now standardized as 4,840 square yards or 4,046.86 square metres. An area of 10,240 square ya",
+  "ex": "Yanni owns about 4000 acres there.",
+  "syn": [],
+  "vi": "mẫu Anh",
+  "v": 2,
+  "tries": 1
+ },
+ "reliance": {
+  "ipa": "/ɹɪˈlaɪ.əns/",
+  "pos": "noun",
+  "def": "The act of relying (on or in someone or something); trust.",
+  "ex": "Tebboune claims that Algeria will end its reliance on the bad practices of the past.",
+  "syn": [],
+  "vi": "sự trông cậy",
+  "v": 2,
+  "tries": 1
+ },
+ "covenant": {
+  "ipa": "/ˈkʌv.ən.ənt/",
+  "pos": "noun",
+  "def": "An agreement to do or not do a particular thing.",
+  "ex": "And I will make my covenant between me and thee: and I will multiply thee exceedingly.",
+  "syn": [],
+  "vi": "giao ước, bản giao kèo",
+  "v": 2,
+  "tries": 1
+ },
+ "materially": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "In a material manner; with regard to physical things or characteristics.",
+  "ex": "",
+  "syn": [],
+  "vi": "về mặt vật chất, thành tựu",
+  "v": 2,
+  "tries": 3
+ },
+ "clash": {
+  "ipa": "/ˈklæʃ/",
+  "pos": "noun",
+  "def": "A loud sound, like the crashing together of metal objects; a crash.",
+  "ex": "",
+  "syn": [],
+  "vi": "xung đột, sự xung đột",
+  "v": 2,
+  "tries": 1
+ },
+ "deter": {
+  "ipa": "/dɪˈtɜː/",
+  "pos": "verb",
+  "def": "To prevent something from happening.",
+  "ex": "His sudden illness deterred us from traveling.",
+  "syn": [],
+  "vi": "răn đe",
+  "v": 2,
+  "tries": 1
+ },
+ "condemn": {
+  "ipa": "/kənˈdɛm/",
+  "pos": "verb",
+  "def": "To strongly criticise or denounce; to excoriate.",
+  "ex": "",
+  "syn": [],
+  "vi": "lên án, chỉ trích",
+  "v": 2,
+  "tries": 1
+ },
+ "operative": {
+  "ipa": "/ˈɒpəɹətɪv/",
+  "pos": "adjective",
+  "def": "Effectual or important.",
+  "ex": "",
+  "syn": [],
+  "vi": "hoạt động, có hiệu lực",
+  "v": 2,
+  "tries": 1
+ },
+ "privatize": {
+  "ipa": "/ˈpɹaɪvətaɪz/",
+  "pos": "verb",
+  "def": "To release government control (of a business or industry) to private industry.",
+  "ex": "",
+  "syn": [],
+  "vi": "tư nhân hóa",
+  "v": 2,
+  "tries": 1
+ },
+ "endure": {
+  "ipa": "/ɪnˈd͡ʒʊə(ɹ)/",
+  "pos": "verb",
+  "def": "To continue or carry on, despite obstacles or hardships; to persist.",
+  "ex": "",
+  "syn": [],
+  "vi": "chịu đựng, chịu được",
+  "v": 2,
+  "tries": 1
+ },
+ "doctrine": {
+  "ipa": "/ˈdɒk.tɹɪn/",
+  "pos": "noun",
+  "def": "A belief or tenet, especially about philosophical or theological matters.",
+  "ex": "Military doctrine sets out the basic principles of military action.",
+  "syn": [],
+  "vi": "học thuyết, đạo giáo",
+  "v": 2,
+  "tries": 1
+ },
+ "triple": {
+  "ipa": "/ˈtɹɪp.əl/",
+  "pos": "adjective",
+  "def": "Made up of three related elements, often matching",
+  "ex": "Tom was baptized by triple immersion.",
+  "syn": [],
+  "vi": "gấp ba, ba lần hơn",
+  "v": 2,
+  "tries": 1
+ },
+ "alpha": {
+  "ipa": "/ˈælfə/",
+  "pos": "noun",
+  "def": "The name of the first letter of the Greek alphabet (Α,  α), followed by beta. In the Latin alphabet it is the predecessor to A.",
+  "ex": "I will attempt to make an alpha particle (\"α-particle\") with the Large Hadron Collider.",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "deflation": {
+  "ipa": "/dɪˈfleɪʃən/",
+  "pos": "noun",
+  "def": "An act or instance of deflating.",
+  "ex": "The balloon is almost completely deflated.",
+  "syn": [],
+  "vi": "giảm phát",
+  "v": 2,
+  "tries": 1
+ },
+ "antitrust": {
+  "ipa": "/ˌæntiˈtɹʌst/",
+  "pos": "adjective",
+  "def": "Opposed to or against the establishment or existence of trusts (monopolies), usually referring to legislation.",
+  "ex": "The purpose of antitrust law is to stop the abusive influence of the market by big companies.",
+  "syn": [],
+  "vi": "chống độc quyền",
+  "v": 2,
+  "tries": 1
+ },
+ "riot": {
+  "ipa": "/ˈɹaɪ.ət/",
+  "pos": "noun",
+  "def": "A tumultuous disturbance of the public peace by a large group of people, often involving violence or damage to property.",
+  "ex": "",
+  "syn": [],
+  "vi": "cuộc náo loạn, sự có nhiều",
+  "v": 2,
+  "tries": 1
+ },
+ "align": {
+  "ipa": "/əˈlaɪn/",
+  "pos": "verb",
+  "def": "To form a line; to fall into line.",
+  "ex": "When do Earth and Mars align?",
+  "syn": [],
+  "vi": "căn chỉnh, dàn trận",
+  "v": 2,
+  "tries": 1
+ },
+ "reinvest": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "To invest again, give another investment.",
+  "ex": "Chemical companies are waiting until everything dies down before reinvesting.",
+  "syn": [],
+  "vi": "tái đầu tư",
+  "v": 2,
+  "tries": 3
+ },
+ "provincial": {
+  "ipa": "/pɹəˈvɪn(t)ʃəl/",
+  "pos": "adjective",
+  "def": "Of or pertaining to a province.",
+  "ex": "Hangzhou is the provincial capital of Zhejiang Province.",
+  "syn": [],
+  "vi": "tỉnh",
+  "v": 2,
+  "tries": 1
+ },
+ "fierce": {
+  "ipa": "/fɪəs/",
+  "pos": "adjective",
+  "def": "Exceedingly violent, severe, ferocious, cruel or savage.",
+  "ex": "",
+  "syn": [],
+  "vi": "mạnh mẽ, hung tợn",
+  "v": 2,
+  "tries": 1
+ },
+ "veto": {
+  "ipa": "/ˈviːtəʊ/",
+  "pos": "noun",
+  "def": "A political right to disapprove of (and thereby stop) the process of a decision, a law etc.",
+  "ex": "Tom's parents vetoed his summer plans.",
+  "syn": [],
+  "vi": "phủ quyết",
+  "v": 2,
+  "tries": 1
+ },
+ "instant": {
+  "ipa": "/ˈɪnstənt/",
+  "pos": "adjective",
+  "def": "A very short period of time; a moment.",
+  "ex": "",
+  "syn": [],
+  "vi": "lập tức, cấp bách",
+  "v": 2,
+  "tries": 1
+ },
+ "ceasefire": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "In warfare, an agreed end to hostilities for a specific purpose. (Typically only temporary).",
+  "ex": "The rebels agreed to a ceasefire while the peace talks were underway.",
+  "syn": [],
+  "vi": "ngừng bắn, chấm dứt chiến tranh",
+  "v": 2,
+  "tries": 3
+ },
+ "handset": {
+  "ipa": "/ˈhæn(d)sɛt/",
+  "pos": "noun",
+  "def": "The part of a landline telephone containing both receiver and transmitter (and sometimes dial), held in the hand.",
+  "ex": "The customer gets the best possible price for his old handset.",
+  "syn": [],
+  "vi": "thiết bị cầm tay",
+  "v": 2,
+  "tries": 1
+ },
+ "sentiment": {
+  "ipa": "/ˈsɛn.tɪ.mənt/",
+  "pos": "noun",
+  "def": "A general thought, feeling, or sense.",
+  "ex": "",
+  "syn": [],
+  "vi": "tình cảm",
+  "v": 2,
+  "tries": 1
+ },
+ "vest": {
+  "ipa": "/vɛst/",
+  "pos": "noun",
+  "def": "A sleeveless garment that buttons down the front, worn over a shirt, and often as part of a suit; a waistcoat.",
+  "ex": "",
+  "syn": [],
+  "vi": "áo vest, áo gi lê",
+  "v": 2,
+  "tries": 1
+ },
+ "beef": {
+  "ipa": "/biːf/",
+  "pos": "noun",
+  "def": "The meat from cattle or other bovines; especially, that from adults.",
+  "ex": "",
+  "syn": [],
+  "vi": "thịt bò, bò",
+  "v": 2,
+  "tries": 1
+ },
+ "parity": {
+  "ipa": "/ˈpæɹɪti/",
+  "pos": "noun",
+  "def": "Equality; comparability of strength or intensity.",
+  "ex": "Women will never gain parity with men in a field that few women wish to enter.",
+  "syn": [],
+  "vi": "sự ngang bằng, sự bằng nhau",
+  "v": 2,
+  "tries": 1
+ },
+ "centralize": {
+  "ipa": "/ˈsɛntɹəlaɪz/",
+  "pos": "verb",
+  "def": "To move things physically towards the centre; to consolidate or concentrate",
+  "ex": "",
+  "syn": [],
+  "vi": "tập trung hóa",
+  "v": 2,
+  "tries": 1
+ },
+ "sovereign": {
+  "ipa": "/ˈsɒv.ɹɪn/",
+  "pos": "adjective",
+  "def": "Exercising power of rule.",
+  "ex": "Algeria is an independent and sovereign nation.",
+  "syn": [],
+  "vi": "có chủ quyền, chí cao",
+  "v": 2,
+  "tries": 1
+ },
+ "lucrative": {
+  "ipa": "/ˈluː.kɹə.tɪv/",
+  "pos": "adjective",
+  "def": "Producing a surplus; profitable.",
+  "ex": "Ancient Berbers developed a lucrative olive oil industry.",
+  "syn": [],
+  "vi": "sinh lời, có lợi",
+  "v": 2,
+  "tries": 1
+ },
+ "variability": {
+  "ipa": "/ˌvɛəɹ.i.əˈbɪl.ə.ti/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "sự biến thiên"
+ },
+ "strive": {
+  "ipa": "/ˈstɹaɪv/",
+  "pos": "verb",
+  "def": "To try to achieve a result; to make strenuous effort; to try earnestly and persistently.",
+  "ex": "",
+  "syn": [],
+  "vi": "phấn đấu, chiến đấu",
+  "v": 2,
+  "tries": 1
+ },
+ "bribe": {
+  "ipa": "/bɹaɪb/",
+  "pos": "noun",
+  "def": "Something (usually money) given in exchange for influence or as an inducement to breaking the law.",
+  "ex": "",
+  "syn": [],
+  "vi": "hối lộ",
+  "v": 2,
+  "tries": 1
+ },
+ "militia": {
+  "ipa": "/məˈlɪʃə/",
+  "pos": "noun",
+  "def": "An army of trained civilians, which may be an official reserve army, called upon in time of need, the entire able-bodied population of a state which may also be called upon, or a private force not und",
+  "ex": "The government supplied weapons to local militia.",
+  "syn": [],
+  "vi": "dân quân",
+  "v": 2,
+  "tries": 1
+ },
+ "controller": {
+  "ipa": "/kənˈtɹəʊlə/",
+  "pos": "noun",
+  "def": "One who controls something.",
+  "ex": "",
+  "syn": [],
+  "vi": "bộ điều khiển, người cầm lái",
+  "v": 2,
+  "tries": 1
+ },
+ "shield": {
+  "ipa": "/ˈʃiːld/",
+  "pos": "noun",
+  "def": "Anything that protects or defends; defense; shelter; protection. A broad piece of defensive armor, held in hand, formerly in general use in war, for the protection of the body. One who protects or def",
+  "ex": "",
+  "syn": [],
+  "vi": "cái khiên",
+  "v": 2,
+  "tries": 1
+ },
+ "pact": {
+  "ipa": "/pækt/",
+  "pos": "noun",
+  "def": "An agreement; a compact; a covenant.",
+  "ex": "We supported a peace pact between the two countries.",
+  "syn": [],
+  "vi": "hiệp ước",
+  "v": 2,
+  "tries": 1
+ },
+ "discretion": {
+  "ipa": "/dɪˈskɹɛʃən/",
+  "pos": "noun",
+  "def": "The quality of being discreet.",
+  "ex": "Discretion is a mark of maturity.",
+  "syn": [],
+  "vi": "tùy ý, sự nhận thức",
+  "v": 2,
+  "tries": 1
+ },
+ "supervision": {
+  "ipa": "/ˌs(j)uːpəˈvɪʒən/",
+  "pos": "noun",
+  "def": "The act or instance of supervising.",
+  "ex": "",
+  "syn": [],
+  "vi": "giám sát, sự giám đốc",
+  "v": 2,
+  "tries": 1
+ },
+ "pursuit": {
+  "ipa": "/pəˈsjuːt/",
+  "pos": "noun",
+  "def": "The act of pursuing.",
+  "ex": "The pursuit of success requires sacrifices.",
+  "syn": [],
+  "vi": "theo đuổi, sự đi tìm hạnh phúc",
+  "v": 2,
+  "tries": 1
+ },
+ "vector": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "A vector quantity has two characteristics, a magnitude and a direction.",
+  "syn": [],
+  "vi": "côn trùng, toán véc tơ"
+ },
+ "endowment": {
+  "ipa": "/ɪnˈdaʊmənt/",
+  "pos": "noun",
+  "def": "Something with which a person or thing is endowed.",
+  "ex": "Are there teachers endowed with artificial intelligence?",
+  "syn": [],
+  "vi": "tài sản, quyên trợ",
+  "v": 2,
+  "tries": 1
+ },
+ "governmental": {
+  "ipa": "/ˌɡʌv(ə)nˈmɛnt(ə)l/",
+  "pos": "adjective",
+  "def": "Relating to a government.",
+  "ex": "Do you do double-entry accounting or traditional governmental accounting?",
+  "syn": [],
+  "vi": "chính phủ",
+  "v": 2,
+  "tries": 1
+ },
+ "slash": {
+  "ipa": "/slaʃ/",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "khía nhọn ở bộ phận cây, vết rạch thịt"
+ },
+ "restraint": {
+  "ipa": "/ɹɪˈstɹeɪnt/",
+  "pos": "noun",
+  "def": "Something that restrains, ties, fastens or secures.",
+  "ex": "Institutionally, a major restraint is the copyright problem.",
+  "syn": [],
+  "vi": "kiềm chế, sự giam cầm",
+  "v": 2,
+  "tries": 1
+ },
+ "torture": {
+  "ipa": "/ˈtɔːt͡ʃə/",
+  "pos": "noun",
+  "def": "The infliction of severe pain or anguish, especially as an interrogation technique or punishment; (usually in the plural) a technique, method, or device which is designed to inflict such anguish.",
+  "ex": "",
+  "syn": [],
+  "vi": "tra tấn, nổi đau khổ",
+  "v": 2,
+  "tries": 1
+ },
+ "crunch": {
+  "ipa": "/kɹʌnt͡ʃ/",
+  "pos": "verb",
+  "def": "To crush something, especially food, with a noisy crackling sound.",
+  "ex": "",
+  "syn": [],
+  "vi": "lạo xạo, kêu lạo xạo",
+  "v": 2,
+  "tries": 1
+ },
+ "receiver": {
+  "ipa": "/ɹɪˈsiː.və/",
+  "pos": "noun",
+  "def": "A person who receives. An official whose job is to receive taxes or other monies; a tax collector, a treasurer. .mw-parser-output .defdate{font-size:smaller} A person who receives something in a gener",
+  "ex": "",
+  "syn": [],
+  "vi": "người nhận, bình trong phòng thí nghiệm",
+  "v": 2,
+  "tries": 1
+ },
+ "encyclopedia": {
+  "ipa": "/ɪnˌsaɪkləˈpiːdi.ə/",
+  "pos": "noun",
+  "def": "A comprehensive reference work (often spanning several printed volumes) with articles (usually arranged in alphabetical order, or sometimes arranged by category) on a range of subjects, sometimes gene",
+  "ex": "Yanni sold encyclopedias door to door.",
+  "syn": [],
+  "vi": "bách khoa toàn thư",
+  "v": 2,
+  "tries": 1
+ },
+ "aversion": {
+  "ipa": "/əˈvɜːʒən/",
+  "pos": "noun",
+  "def": "Opposition or repugnance of mind; fixed dislike often without any conscious reasoning.",
+  "ex": "I developed an aversion toward the word \"awesome\".",
+  "syn": [],
+  "vi": "ác cảm, không ưa",
+  "v": 2,
+  "tries": 1
+ },
+ "reconcile": {
+  "ipa": "/ˈɹɛkənsaɪl/",
+  "pos": "verb",
+  "def": "To restore a friendly relationship; to bring back or return to harmony.",
+  "ex": "",
+  "syn": [],
+  "vi": "hòa giải, dàn xếp",
+  "v": 2,
+  "tries": 1
+ },
+ "indirectly": {
+  "ipa": "/ˌɪn.dɪˈɹɛk(t).li/",
+  "pos": "adverb",
+  "def": "In an indirect manner.",
+  "ex": "France continues to colonize Africa indirectly.",
+  "syn": [],
+  "vi": "gián tiếp",
+  "v": 2,
+  "tries": 1
+ },
+ "yuan": {
+  "ipa": "/ˌjuːˈæn/",
+  "pos": "noun",
+  "def": "The basic unit of money in China.",
+  "ex": "The Dragon Boat Festival commemorates Qu Yuan.",
+  "syn": [],
+  "vi": "nhân dân tệ",
+  "v": 2,
+  "tries": 1
+ },
+ "liberty": {
+  "ipa": "/ˈlɪbəti/",
+  "pos": "noun",
+  "def": "The condition of being free.",
+  "ex": "",
+  "syn": [],
+  "vi": "tự do, quyền đi lại",
+  "v": 2,
+  "tries": 1
+ },
+ "decent": {
+  "ipa": "/ˈdiː.sənt/",
+  "pos": "adjective",
+  "def": "Appropriate; suitable for the circumstances.",
+  "ex": "",
+  "syn": [],
+  "vi": "tử tế, đoan chính",
+  "v": 2,
+  "tries": 1
+ },
+ "appetite": {
+  "ipa": "/ˈæp.ɪ.taɪt/",
+  "pos": "noun",
+  "def": "A desire to eat food or consume drinks.",
+  "ex": "",
+  "syn": [],
+  "vi": "thèm ăn, khao khát",
+  "v": 2,
+  "tries": 1
+ },
+ "tobacco": {
+  "ipa": "/təˈbækəʊ/",
+  "pos": "noun",
+  "def": "Any plant of the genus Nicotiana.",
+  "ex": "",
+  "syn": [],
+  "vi": "thuốc lá",
+  "v": 2,
+  "tries": 1
+ },
+ "unpopular": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "Lacking popularity",
+  "ex": "",
+  "syn": [],
+  "vi": "không được ưa chuộng",
+  "v": 2,
+  "tries": 3
+ },
+ "quantify": {
+  "ipa": "/ˈkwɒn.tɪˌfaɪ/",
+  "pos": "verb",
+  "def": "To assign a quantity to.",
+  "ex": "I knew it was a problem, but no one had ever quantified it for me like that.",
+  "syn": [],
+  "vi": "định lượng",
+  "v": 2,
+  "tries": 1
+ },
+ "corn": {
+  "ipa": "/ˈkɔːn/",
+  "pos": "noun",
+  "def": "Any cereal plant (or its grain) that is the main crop or staple of a country or region.",
+  "ex": "",
+  "syn": [],
+  "vi": "ngô, chai chân",
+  "v": 2,
+  "tries": 1
+ },
+ "skeptical": {
+  "ipa": "/ˈskɛptɪkəl/",
+  "pos": "adjective",
+  "def": "Having, or expressing doubt; questioning.",
+  "ex": "",
+  "syn": [],
+  "vi": "hoài nghi",
+  "v": 2,
+  "tries": 1
+ },
+ "legislative": {
+  "ipa": "/ˈlɛd͡ʒ.ɪ.slə.tɪv/",
+  "pos": "adjective",
+  "def": "Making, or having the power to make, a law or laws; lawmaking.",
+  "ex": "Algeria organized successful legislative elections yesterday.",
+  "syn": [],
+  "vi": "lập pháp",
+  "v": 2,
+  "tries": 1
+ },
+ "independently": {
+  "ipa": "/ˌɪndɪˈpɛndəntli/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "độc lập"
+ },
+ "negligence": {
+  "ipa": "/ˈnɛɡlɪd͡ʒəns/",
+  "pos": "noun",
+  "def": "The state of being negligent.",
+  "ex": "",
+  "syn": [],
+  "vi": "sơ suất, hờ hửng",
+  "v": 2,
+  "tries": 1
+ },
+ "determinant": {
+  "ipa": "/dɪˈtɜːmɪnənt/",
+  "pos": "noun",
+  "def": "A determining factor; an element that determines the nature of something.",
+  "ex": "",
+  "syn": [],
+  "vi": "yếu tố quyết định",
+  "v": 2,
+  "tries": 1
+ },
+ "redeem": {
+  "ipa": "/ɹɪˈdiːm/",
+  "pos": "verb",
+  "def": "To recover ownership of something by buying it back.",
+  "ex": "Tom does have one redeeming quality.",
+  "syn": [],
+  "vi": "chuộc lại, chuộc lại",
+  "v": 2,
+  "tries": 1
+ },
+ "tribunal": {
+  "ipa": "/tɹaɪˈbjuːnəl/",
+  "pos": "noun",
+  "def": "An assembly including one or more judges to conduct judicial business; a court of law.",
+  "ex": "International tribunals are essential for prosecuting war criminals.",
+  "syn": [],
+  "vi": "tòa án",
+  "v": 2,
+  "tries": 1
+ },
+ "icon": {
+  "ipa": "/ˈaɪ.kɒn/",
+  "pos": "noun",
+  "def": "An image, symbol, picture, portrait, or other representation, usually as an object of religious devotion.",
+  "ex": "",
+  "syn": [],
+  "vi": "biểu tượng",
+  "v": 2,
+  "tries": 1
+ },
+ "steep": {
+  "ipa": "/stiːp/",
+  "pos": "adjective",
+  "def": "Of a near-vertical gradient; of a slope, surface, curve, etc. that proceeds upward or downward at an angle approaching vertical.",
+  "ex": "",
+  "syn": [],
+  "vi": "dốc",
+  "v": 2,
+  "tries": 1
+ },
+ "safeguard": {
+  "ipa": "/ˈseɪfɡɑːd/",
+  "pos": "noun",
+  "def": "Something that serves as a guard or protection; a defense.",
+  "ex": "Free flow of information is the only safeguard against tyranny.",
+  "syn": [],
+  "vi": "bảo vệ, đoàn công voa",
+  "v": 2,
+  "tries": 1
+ },
+ "loom": {
+  "ipa": "/luːm/",
+  "pos": "noun",
+  "def": "A utensil; tool; a weapon; an article in general.",
+  "ex": "Many good grades will loom on the horizon.",
+  "syn": [],
+  "vi": "khung cửi, bóng mờ hoặc lớn ra",
+  "v": 2,
+  "tries": 1
+ },
+ "uranium": {
+  "ipa": "/jʊˈɹeɪniəm/",
+  "pos": "adjective",
+  "def": "The element with atomic number 92 and symbol U. A radioactive silvery-grey metal in the actinide series.",
+  "ex": "NATO bombed Serbia with ammunition containing depleted uranium.",
+  "syn": [],
+  "vi": "chất u ran, chất hóa học",
+  "v": 2,
+  "tries": 1
+ },
+ "deductible": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "Eligible to be deducted.",
+  "ex": "Luxury spending is ineligible for tax deductions.",
+  "syn": [],
+  "vi": "được khấu trừ",
+  "v": 2,
+  "tries": 1
+ },
+ "conceptual": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "",
+  "ex": "The Econ exam was pretty easy, mostly conceptual stuff, supply and demand, and all that.",
+  "syn": [],
+  "vi": "khái niệm luận"
+ },
+ "assault": {
+  "ipa": "/əˈsɒlt/",
+  "pos": "noun",
+  "def": "A violent onset or attack with physical means, for example blows, weapons, etc.",
+  "ex": "",
+  "syn": [],
+  "vi": "tấn công, công kích",
+  "v": 2,
+  "tries": 1
+ },
+ "optimism": {
+  "ipa": "/ˈɒptɪmɪzəm/",
+  "pos": "noun",
+  "def": "A tendency to expect the best, or at least, a favourable outcome.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự lạc quan",
+  "v": 2,
+  "tries": 1
+ },
+ "faction": {
+  "ipa": "/ˈfæk.ʃən/",
+  "pos": "noun",
+  "def": "A group of people, especially within a political organization, which expresses a shared belief or opinion different from people who are not part of the group.",
+  "ex": "Factional in-fighting threw a monkey wrench into the deliberations.",
+  "syn": [],
+  "vi": "phe phái, bè đảng",
+  "v": 2,
+  "tries": 1
+ },
+ "forge": {
+  "ipa": "/fɔːd͡ʒ/",
+  "pos": "noun",
+  "def": "A furnace or hearth where metals are heated prior to hammering them into shape.",
+  "ex": "",
+  "syn": [],
+  "vi": "rèn, lò luyện sắt",
+  "v": 2,
+  "tries": 1
+ },
+ "rig": {
+  "ipa": "/ɹɪɡ/",
+  "pos": "noun",
+  "def": "The rigging of a sailing ship or other such craft.",
+  "ex": "",
+  "syn": [],
+  "vi": "giàn khoan, âm mưu sắp đặt trước",
+  "v": 2,
+  "tries": 1
+ },
+ "abolish": {
+  "ipa": "/əˈbɒl.ɪʃ/",
+  "pos": "verb",
+  "def": "To end a law, system, institution, custom or practice. .mw-parser-output .defdate{font-size:smaller}",
+  "ex": "",
+  "syn": [],
+  "vi": "bãi bỏ, bải bỏ",
+  "v": 2,
+  "tries": 1
+ },
+ "predetermine": {
+  "ipa": "/ˌpɹiː.dɪˈtɜː.mɪn/",
+  "pos": "verb",
+  "def": "To determine or decide in advance.",
+  "ex": "I will not allow my path through life to be predetermined.",
+  "syn": [],
+  "vi": "định trước",
+  "v": 2,
+  "tries": 1
+ },
+ "analytical": {
+  "ipa": "/ˌæn.əˈlɪt.ɪ.kəl/",
+  "pos": "adjective",
+  "def": "Of or pertaining to analysis; resolving into elements or constituent parts",
+  "ex": "Can we use Scientific calculators on the analytical chemistry test?",
+  "syn": [],
+  "vi": "phân tích",
+  "v": 2,
+  "tries": 1
+ },
+ "congressional": {
+  "ipa": "/kəŋˈɡɹɛ.ʃə.nəl/",
+  "pos": "adjective",
+  "def": "Of or relating to a congress.",
+  "ex": "The congressional staffer who leaked classified documents has been arrested.",
+  "syn": [],
+  "vi": "quốc hội",
+  "v": 2,
+  "tries": 1
+ },
+ "spy": {
+  "ipa": "/spaɪ/",
+  "pos": "verb",
+  "def": "ISO 639-3 language code for Sabaot.",
+  "ex": "",
+  "syn": [],
+  "vi": "gián điệp",
+  "v": 2,
+  "tries": 1
+ },
+ "fiber": {
+  "ipa": "/ˈfaɪ.bə/",
+  "pos": "noun",
+  "def": "",
+  "ex": "Please cut perpendicular to the fibers.",
+  "syn": [],
+  "vi": "người khoác lác, người nói sạo"
+ },
+ "stall": {
+  "ipa": "/stɔːl/",
+  "pos": "noun",
+  "def": "A compartment for a single animal in a stable or cattle shed.",
+  "ex": "",
+  "syn": [],
+  "vi": "quầy hàng, chuồng bò",
+  "v": 2,
+  "tries": 1
+ },
+ "lure": {
+  "ipa": "/lʊə/",
+  "pos": "noun",
+  "def": "Something that tempts or attracts, especially one with a promise of reward or pleasure.",
+  "ex": "Sami lured prostitutes into his car.",
+  "syn": [],
+  "vi": "thu hút, cạm bẩy",
+  "v": 2,
+  "tries": 1
+ },
+ "populist": {
+  "ipa": "/ˈpɒp.jʊ.lɪst/",
+  "pos": "noun",
+  "def": "A person who advocates populism (a movement against ruling elites who are presumed not to act in the interests of the ordinary citizen).",
+  "ex": "The new political parties are rally lovers and populists, but not at all democratic.",
+  "syn": [],
+  "vi": "người theo chủ nghĩa dân túy",
+  "v": 2,
+  "tries": 1
+ },
+ "contemplate": {
+  "ipa": "/ˈkɒn.təmˌpleɪt/",
+  "pos": "verb",
+  "def": "To look at on all sides or in all its aspects; to view or consider with continued attention; to regard with deliberate care; to meditate on; to study, ponder, or consider.",
+  "ex": "",
+  "syn": [],
+  "vi": "suy ngẫm, xem",
+  "v": 2,
+  "tries": 1
+ },
+ "raid": {
+  "ipa": "/ɹeɪd/",
+  "pos": "noun",
+  "def": "A quick hostile or predatory incursion or invasion in a battle.",
+  "ex": "The club was raided by fundamentalists.",
+  "syn": [],
+  "vi": "cuộc đột kích, cuộc xét hỏi bắt bớ",
+  "v": 2,
+  "tries": 1
+ },
+ "liquidate": {
+  "ipa": "/ˈlɪkwɪdeɪt/",
+  "pos": "verb",
+  "def": "Synonym of liquefy (“to make (something) into a liquid”); to liquidize. To make (a sound) less harsh. To use up (money or other assets) wastefully; to dissipate, to squander, to waste. To kill (someon",
+  "ex": "",
+  "syn": [],
+  "vi": "thanh lý, thanh toán nợ",
+  "v": 2,
+  "tries": 1
+ },
+ "debenture": {
+  "ipa": "/dɪˈbɛntjʊə/",
+  "pos": "noun",
+  "def": "A certificate that certifies an amount of money owed to someone; a certificate of indebtedness.",
+  "ex": "Shareholders expressed concern about the growing number of outstanding debentures.",
+  "syn": [],
+  "vi": "giấy nợ, giấy nợ",
+  "v": 2,
+  "tries": 1
+ },
+ "collar": {
+  "ipa": "/ˈkɒlə/",
+  "pos": "noun",
+  "def": "Clothes that encircle the neck. The part of an upper garment (shirt, jacket, etc.) that fits around the neck and throat, especially if sewn from a separate piece of fabric. A decorative band or other ",
+  "ex": "",
+  "syn": [],
+  "vi": "cổ áo, chổ giữa cây",
+  "v": 2,
+  "tries": 1
+ },
+ "outperform": {
+  "ipa": "/ˌaʊt.pɚˈfɔɹm/",
+  "pos": "verb",
+  "def": "To perform better than something or someone.",
+  "ex": "He studied so hard that he outperformed everyone in the final exam",
+  "syn": [],
+  "vi": "vượt trội hơn",
+  "v": 2,
+  "tries": 1
+ },
+ "optimize": {
+  "ipa": "/ˈɒptɪmaɪz/",
+  "pos": "verb",
+  "def": "To act optimistically or as an optimist.",
+  "ex": "",
+  "syn": [],
+  "vi": "tối ưu hóa",
+  "v": 2,
+  "tries": 1
+ },
+ "broadband": {
+  "ipa": "/ˈbɹɔːdbænd/",
+  "pos": "noun",
+  "def": "A wideband of electromagnetic frequencies.",
+  "ex": "There are big differences in broadband speed and quality from country to country.",
+  "syn": [],
+  "vi": "băng thông rộng",
+  "v": 2,
+  "tries": 1
+ },
+ "entail": {
+  "ipa": "/ɛnˈteɪl/",
+  "pos": "verb",
+  "def": "To imply, require, or invoke.",
+  "ex": "His occupation entails a lot of travelling.",
+  "syn": [],
+  "vi": "đòi hỏi",
+  "v": 2,
+  "tries": 1
+ },
+ "carmaker": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "A company that manufactures automobiles.",
+  "ex": "",
+  "syn": [],
+  "vi": "nhà sản xuất ô tô",
+  "v": 2,
+  "tries": 3
+ },
+ "discretionary": {
+  "ipa": "/dɪˈskɹɛʃən(ə)ɹi/",
+  "pos": "adjective",
+  "def": "Available at one's discretion; able to be used as one chooses; left to or regulated by one's own discretion or judgment.",
+  "ex": "",
+  "syn": [],
+  "vi": "tùy ý",
+  "v": 2,
+  "tries": 1
+ },
+ "reconciliation": {
+  "ipa": "/ˌɹɛk(ə)nsɪlɪˈeɪʃ(ə)n/",
+  "pos": "noun",
+  "def": "The re-establishment of friendly relations; conciliation, rapprochement.",
+  "ex": "Tolerance is a bridge that leads to reconciliation.",
+  "syn": [],
+  "vi": "hòa giải, sự giảng hòa",
+  "v": 2,
+  "tries": 1
+ },
+ "directive": {
+  "ipa": "/daɪˈɹɛk.tɪv/",
+  "pos": "adjective",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chỉ huy, chi phối"
+ },
+ "mutually": {
+  "ipa": "/ˈmjuːtʃʊəli/",
+  "pos": "adverb",
+  "def": "In the same way, each to the other; reciprocally.",
+  "ex": "",
+  "syn": [],
+  "vi": "lẫn nhau",
+  "v": 2,
+  "tries": 1
+ },
+ "subprime": {
+  "ipa": "/ˈsʌb.pɹʌɪm/",
+  "pos": "adjective",
+  "def": "Less than prime; inferior.",
+  "ex": "",
+  "syn": [],
+  "vi": "dưới chuẩn",
+  "v": 2,
+  "tries": 1
+ },
+ "refusal": {
+  "ipa": "/ɹɪˈfjuːzl̩/",
+  "pos": "noun",
+  "def": "The act of refusing.",
+  "ex": "",
+  "syn": [],
+  "vi": "từ chối",
+  "v": 2,
+  "tries": 1
+ },
+ "geographic": {
+  "ipa": "/d͡ʒiəˈɡɹæfɪk/",
+  "pos": "adjective",
+  "def": "Pertaining to geography (or to geographics).",
+  "ex": "Algeria has geographical advantage over Morocco.",
+  "syn": [],
+  "vi": "địa lý",
+  "v": 2,
+  "tries": 1
+ },
+ "consortium": {
+  "ipa": "/kənˈsɔː.ti.əm/",
+  "pos": "noun",
+  "def": "An association or combination of businesses, financial institutions, or investors, for the purpose of engaging in a joint venture.",
+  "ex": "He's looking to form consortiums and alliances with the private sector, with the universities.",
+  "syn": [],
+  "vi": "tập đoàn",
+  "v": 2,
+  "tries": 1
+ },
+ "policeman": {
+  "ipa": "/pəˈliːsmən/",
+  "pos": "noun",
+  "def": "A police officer, usually a male.",
+  "ex": "",
+  "syn": [],
+  "vi": "cảnh sát",
+  "v": 2,
+  "tries": 1
+ },
+ "amortize": {
+  "ipa": "/əˈmɔːtaɪz/",
+  "pos": "verb",
+  "def": "To alienate (property) in mortmain.",
+  "ex": "",
+  "syn": [],
+  "vi": "khấu hao",
+  "v": 2,
+  "tries": 1
+ },
+ "deliberately": {
+  "ipa": "/dɪˈlɪb.(ə.)ɹət.li/",
+  "pos": "adverb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "cân hắn, đắn đo"
+ },
+ "mill": {
+  "ipa": "/mɪl/",
+  "pos": "noun",
+  "def": "A grinding apparatus for substances such as grains, seeds, etc.",
+  "ex": "Pepper has a stronger flavor when it is ground straight from a mill.",
+  "syn": [
+   "factory",
+   "works",
+   "permille"
+  ],
+  "vi": "cối xay, cối xay",
+  "v": 2,
+  "tries": 2
+ },
+ "loser": {
+  "ipa": "/ˈluːzə/",
+  "pos": "noun",
+  "def": "A person who loses; one who fails to win or thrive.",
+  "ex": "",
+  "syn": [],
+  "vi": "kẻ thất bại, bên thua",
+  "v": 2,
+  "tries": 1
+ },
+ "builder": {
+  "ipa": "/ˈbɪl.də/",
+  "pos": "noun",
+  "def": "One who builds or constructs things.",
+  "ex": "Road builders need to consider environmental consequences.",
+  "syn": [],
+  "vi": "người xây dựng",
+  "v": 2,
+  "tries": 1
+ },
+ "mainland": {
+  "ipa": "/ˈmeɪnlænd/",
+  "pos": "noun",
+  "def": "The continent; the principal land, as distinguished from islands or a peninsula.",
+  "ex": "Cornwall is the south-westernmost county of the British mainland.",
+  "syn": [],
+  "vi": "đất liền, đất liền",
+  "v": 2,
+  "tries": 1
+ },
+ "peaceful": {
+  "ipa": "/ˈpiːsfl̩/",
+  "pos": "adjective",
+  "def": "Not at war; not disturbed by strife or turmoil.",
+  "ex": "",
+  "syn": [],
+  "vi": "hoà bình",
+  "v": 2,
+  "tries": 1
+ },
+ "counterparty": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The other party to a financial transaction",
+  "ex": "We can't leave the counterparty any loopholes.",
+  "syn": [],
+  "vi": "đối tác",
+  "v": 2,
+  "tries": 3
+ },
+ "overwhelm": {
+  "ipa": "/ˌəʊ.vəˈ(h)wɛlm/",
+  "pos": "verb",
+  "def": "To engulf, surge over and submerge.",
+  "ex": "",
+  "syn": [],
+  "vi": "áp đảo, chôn",
+  "v": 2,
+  "tries": 1
+ },
+ "consistency": {
+  "ipa": "/kənˈsɪs.tən.si/",
+  "pos": "noun",
+  "def": "Local coherence.",
+  "ex": "",
+  "syn": [],
+  "vi": "tính nhất quán",
+  "v": 2,
+  "tries": 1
+ },
+ "declaration": {
+  "ipa": "/ˌdɛk.ləˈɹeɪ.ʃən/",
+  "pos": "noun",
+  "def": "An emphatic or formal act of saying, telling or asserting something, by speech or writing; a decisive assertion or proclamation.",
+  "ex": "",
+  "syn": [],
+  "vi": "tuyên ngôn, lời tuyên bố",
+  "v": 2,
+  "tries": 1
+ },
+ "retention": {
+  "ipa": "/ɹɪˈtɛnʃən/",
+  "pos": "noun",
+  "def": "The act of retaining or something retained.",
+  "ex": "Language learning stimulates brain activity and improves memory retention.",
+  "syn": [],
+  "vi": "sự giữ lại, sự bí tiểu",
+  "v": 2,
+  "tries": 1
+ },
+ "harsh": {
+  "ipa": "/ˈhɑːʃ/",
+  "pos": "adjective",
+  "def": "Unpleasantly rough to the touch or other senses.",
+  "ex": "",
+  "syn": [],
+  "vi": "thô ráp, chát đắng",
+  "v": 2,
+  "tries": 1
+ },
+ "covariance": {
+  "ipa": "/kəʊˈvɛː.ɹi.əns/",
+  "pos": "noun",
+  "def": "A statistical measure defined as Cov⁡(X,Y)=E⁡((X−μ)(Y−ν)) given two real-valued random variables X and Y, with expected values E(X)=μ and E(Y)=ν.",
+  "ex": "The influence of covariates on the primary outcome variable was explored using logistic regression.",
+  "syn": [],
+  "vi": "hiệp phương sai",
+  "v": 2,
+  "tries": 1
+ },
+ "jointly": {
+  "ipa": "/ˈd͡ʒɔɪntli/",
+  "pos": "adverb",
+  "def": "Together, acting as one; collectively.",
+  "ex": "",
+  "syn": [],
+  "vi": "cùng nhau, cùng",
+  "v": 2,
+  "tries": 1
+ },
+ "exclusion": {
+  "ipa": "/ɪksˈkluːʒən/",
+  "pos": "noun",
+  "def": "The act of excluding or shutting out; removal from consideration or taking part. .mw-parser-output .defdate{font-size:smaller}",
+  "ex": "",
+  "syn": [],
+  "vi": "loại trừ",
+  "v": 2,
+  "tries": 1
+ },
+ "bomber": {
+  "ipa": "/ˈbɒmə(ɹ)/",
+  "pos": "noun",
+  "def": "A military aircraft designed to carry and drop bombs.",
+  "ex": "My grandfather got seriously injured by a bomber during the war.",
+  "syn": [],
+  "vi": "máy bay ném bom",
+  "v": 2,
+  "tries": 1
+ },
+ "viewer": {
+  "ipa": "/ˈvjuːə/",
+  "pos": "noun",
+  "def": "Someone who views a spectacle; an onlooker or spectator.",
+  "ex": "The teasers are designed to titillate viewers.",
+  "syn": [],
+  "vi": "người xem, người có năng lực thấy",
+  "v": 2,
+  "tries": 1
+ },
+ "spur": {
+  "ipa": "/spɜː/",
+  "pos": "noun",
+  "def": "A rigid implement, often roughly y-shaped, that is fixed to one's heel for the purpose of prodding a horse. Often worn by, and emblematic of, the cowboy or the knight.",
+  "ex": "Algeria's economic growth spurred demand in real estate.",
+  "syn": [],
+  "vi": "thúc đẩy, dao nhọn cột ở cựa gà",
+  "v": 2,
+  "tries": 1
+ },
+ "prospectus": {
+  "ipa": "/pɹəˈspɛktəs/",
+  "pos": "noun",
+  "def": "A document, distributed to prospective members, investors, buyers, or participants, which describes an institution (such as a university), a publication, or a business and what it has to offer.",
+  "ex": "I picked up a prospectus and some other literature at the open day.",
+  "syn": [],
+  "vi": "bản cáo bạch",
+  "v": 2,
+  "tries": 1
+ },
+ "buffer": {
+  "ipa": "/ˈbʌfə/",
+  "pos": "noun",
+  "def": "Someone or something that buffs (polishes and makes shiny). A machine with rotary brushes, passed over a hard floor to clean it. A machine for polishing shoes and boots.",
+  "ex": "Motorists must leave at least a metre-wide buffer when passing cyclists.",
+  "syn": [],
+  "vi": "đệm",
+  "v": 2,
+  "tries": 1
+ },
+ "infect": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "làm hư"
+ },
+ "formulate": {
+  "ipa": "/ˈfɔː(ɹ)mjʊleɪt/",
+  "pos": "verb",
+  "def": "To put into a clear and definite form of statement or expression.",
+  "ex": "Was it Leibniz or Newton who first formulated the theory of calculus?",
+  "syn": [],
+  "vi": "xây dựng",
+  "v": 2,
+  "tries": 1
+ },
+ "socialist": {
+  "ipa": "/ˈsəʊʃəlɪst/",
+  "pos": "adjective",
+  "def": "Of, relating to, supporting, or advocating socialism.",
+  "ex": "",
+  "syn": [],
+  "vi": "xã hội chủ nghĩa",
+  "v": 2,
+  "tries": 1
+ },
+ "browser": {
+  "ipa": "/ˈbɹaʊ.zə/",
+  "pos": "noun",
+  "def": "One who or which browses.",
+  "ex": "",
+  "syn": [],
+  "vi": "trình duyệt",
+  "v": 2,
+  "tries": 1
+ },
+ "cyclical": {
+  "ipa": "/ˈsaɪklɪkəl/",
+  "pos": "adjective",
+  "def": "Recurring at regular intervals.",
+  "ex": "To memorize Thai letters, you should review them cyclically.",
+  "syn": [],
+  "vi": "mang tính chu kỳ",
+  "v": 2,
+  "tries": 1
+ },
+ "exaggerate": {
+  "ipa": "/ɛɡˈzæd͡ʒ.ə.ɹeɪt/",
+  "pos": "verb",
+  "def": "To overstate, to describe more than the fact.",
+  "ex": "",
+  "syn": [],
+  "vi": "nói quá, làm to thêm",
+  "v": 2,
+  "tries": 1
+ },
+ "cartel": {
+  "ipa": "/kɑːˈtɛl/",
+  "pos": "noun",
+  "def": "A group of businesses or nations that collude to limit competition within an industry or market.",
+  "ex": "Mexican drug cartels are vying over lucrative drug-trafficking routes to the U.S.",
+  "syn": [],
+  "vi": "tập đoàn",
+  "v": 2,
+  "tries": 1
+ },
+ "triumph": {
+  "ipa": "/ˈtɹaɪ̯ʌmf/",
+  "pos": "noun",
+  "def": "A conclusive success following an effort, conflict, or confrontation of obstacles; victory; conquest.",
+  "ex": "",
+  "syn": [],
+  "vi": "chiến thắng, cuộc khải hoàn",
+  "v": 2,
+  "tries": 1
+ },
+ "divert": {
+  "ipa": "/daɪˈvɜːt/",
+  "pos": "verb",
+  "def": "To turn aside from a course.",
+  "ex": "Traffic is being diverted because of flooding.",
+  "syn": [],
+  "vi": "chuyển hướng, đổi chiều",
+  "v": 2,
+  "tries": 1
+ },
+ "delegation": {
+  "ipa": "/dɛlɪˈɡeɪʃən/",
+  "pos": "noun",
+  "def": "An act of delegating.",
+  "ex": "He looks like the Armenian delegate.",
+  "syn": [],
+  "vi": "phái đoàn, phái đoàn",
+  "v": 2,
+  "tries": 1
+ },
+ "ordinate": {
+  "ipa": "/ˈɔː(ɹ)dɪnət/",
+  "pos": "noun",
+  "def": "The second of the two terms by which a point is referred to, in a system of fixed rectilinear coordinate (Cartesian coordinate) axes.",
+  "ex": "The attempts to overturn the ordinance still need to be passed by Congress.",
+  "syn": [],
+  "vi": "điều hành",
+  "v": 2,
+  "tries": 1
+ },
+ "casualty": {
+  "ipa": "/ˈkaʒʊ.əlti/",
+  "pos": "noun",
+  "def": "Something that happens by chance, especially an unfortunate event; an accident, a disaster.",
+  "ex": "",
+  "syn": [],
+  "vi": "tai nạn, lính chết hay bị thương",
+  "v": 2,
+  "tries": 1
+ },
+ "dot": {
+  "ipa": "/dɒt/",
+  "pos": "noun",
+  "def": "ISO 639-3 language code for Dass.",
+  "ex": "",
+  "syn": [],
+  "vi": "dấu chấm",
+  "v": 2,
+  "tries": 1
+ },
+ "distinctive": {
+  "ipa": "/dɪˈstɪŋktɪv/",
+  "pos": "adjective",
+  "def": "Distinguishing, used to or enabling the distinguishing of some thing.",
+  "ex": "",
+  "syn": [],
+  "vi": "đặc biệt, đặc biệt",
+  "v": 2,
+  "tries": 1
+ },
+ "inflationary": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "Causing or liable to cause inflation.",
+  "ex": "The rapid influx of precious metals from the new mines had an inflationary effect on the specie based economy.",
+  "syn": [],
+  "vi": "lạm phát",
+  "v": 2,
+  "tries": 3
+ },
+ "tort": {
+  "ipa": "/tɔːt/",
+  "pos": "noun",
+  "def": "A wrongful act, whether intentional or negligent, regarded as non-criminal and unrelated to a contract, which causes an injury and can be remedied in civil court, usually through the awarding of damag",
+  "ex": "You're not a baker if you can't bake torts.",
+  "syn": [],
+  "vi": "tra tấn",
+  "v": 2,
+  "tries": 1
+ },
+ "positively": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chắc chắn, xác thực"
+ },
+ "constituency": {
+  "ipa": "/kənˈstɪt͡ʃu.ənsi/",
+  "pos": "noun",
+  "def": "A district represented by one or more elected officials.",
+  "ex": "The legislator talked at length with his constituents about beach erosion.",
+  "syn": [],
+  "vi": "khu vực bầu cử, các cử tri",
+  "v": 2,
+  "tries": 1
+ },
+ "explosion": {
+  "ipa": "/ɪkˈspləʊ.ʒən/",
+  "pos": "noun",
+  "def": "A violent release of energy (sometimes mechanical, nuclear, or chemical); an act or instance of exploding.",
+  "ex": "",
+  "syn": [],
+  "vi": "vụ nổ",
+  "v": 2,
+  "tries": 1
+ },
+ "liberalization": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The process or act of making more liberal.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự tự do hóa",
+  "v": 2,
+  "tries": 3
+ },
+ "buyout": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The acquisition of a controlling interest in a business or corporation by outright purchase or by purchase of a majority of issued shares of stock.",
+  "ex": "Auctions are annoying, so I bought it instantly with a buyout.",
+  "syn": [],
+  "vi": "mua lại",
+  "v": 2,
+  "tries": 3
+ },
+ "remarkably": {
+  "ipa": "/ɹɪˈmɑːkəbli/",
+  "pos": "adverb",
+  "def": "In a remarkable manner.",
+  "ex": "",
+  "syn": [],
+  "vi": "đáng chú ý",
+  "v": 2,
+  "tries": 1
+ },
+ "spark": {
+  "ipa": "/ˈspɑːk/",
+  "pos": "noun",
+  "def": "A small particle of glowing matter, either molten or on fire, resulting from an electrical surge or excessive heat created by friction.",
+  "ex": "",
+  "syn": [],
+  "vi": "tia lửa, điện tín viên",
+  "v": 2,
+  "tries": 1
+ },
+ "competitiveness": {
+  "ipa": "/kəmˈpɛtɪtɪvnəs/",
+  "pos": "noun",
+  "def": "The state of being competitive.",
+  "ex": "",
+  "syn": [],
+  "vi": "khả năng cạnh tranh",
+  "v": 2,
+  "tries": 1
+ },
+ "copper": {
+  "ipa": "/ˈkɒpə/",
+  "pos": "noun",
+  "def": "A reddish-brown metallic chemical element (symbol Cu) with the atomic number 29; also, the metal made up of this element.",
+  "ex": "",
+  "syn": [],
+  "vi": "đồng, cảnh sát viên",
+  "v": 2,
+  "tries": 1
+ },
+ "poison": {
+  "ipa": "/ˈpɔɪ.zən/",
+  "pos": "noun",
+  "def": "A substance that is harmful or lethal to a living organism when ingested.",
+  "ex": "",
+  "syn": [],
+  "vi": "chất độc, chất độc",
+  "v": 2,
+  "tries": 1
+ },
+ "outright": {
+  "ipa": "/aʊtˈɹaɪt/",
+  "pos": "adverb",
+  "def": "Wholly; completely; entirely.",
+  "ex": "It's always better to ask outright.",
+  "syn": [],
+  "vi": "ngay, hoàn toàn",
+  "v": 2,
+  "tries": 1
+ },
+ "bitter": {
+  "ipa": "/ˈbɪt.ə/",
+  "pos": "adjective",
+  "def": "Having an acrid taste (usually from a basic substance).",
+  "ex": "",
+  "syn": [],
+  "vi": "vị đắng, đắng",
+  "v": 2,
+  "tries": 1
+ },
+ "hostility": {
+  "ipa": "/hɒsˈtɪlɪti/",
+  "pos": "noun",
+  "def": "The state of being hostile.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự thù địch",
+  "v": 2,
+  "tries": 1
+ },
+ "enlargement": {
+  "ipa": "/ɪnˈlɑːd͡ʒ.mənt/",
+  "pos": "noun",
+  "def": "An act or instance of making something larger.",
+  "ex": "",
+  "syn": [],
+  "vi": "mở rộng, bành trướng",
+  "v": 2,
+  "tries": 1
+ },
+ "hub": {
+  "ipa": "/hʌb/",
+  "pos": "noun",
+  "def": "ISO 639-3 language code for Huambisa.",
+  "ex": "Algeria should become a manufacturing hub.",
+  "syn": [],
+  "vi": "trung tâm",
+  "v": 2,
+  "tries": 1
+ },
+ "trim": {
+  "ipa": "/ˈtɹɪm/",
+  "pos": "verb",
+  "def": "To reduce slightly; to cut; especially, to remove excess.",
+  "ex": "",
+  "syn": [],
+  "vi": "cắt tỉa, dọn dẹp có thứ tự",
+  "v": 2,
+  "tries": 1
+ },
+ "lesser": {
+  "ipa": "/ˈlɛsə/",
+  "pos": "adjective",
+  "def": "Of two (or, rarely, more than two) things: smaller in size (littler), in value, in importance etc.",
+  "ex": "Compared to surrender, death is the lesser evil.",
+  "syn": [],
+  "vi": "ít hơn",
+  "v": 2,
+  "tries": 1
+ },
+ "denounce": {
+  "ipa": "/diˈnaʊns/",
+  "pos": "verb",
+  "def": "To make known in a formal manner; to proclaim; to announce; to declare.",
+  "ex": "",
+  "syn": [],
+  "vi": "tố cáo, bài bác",
+  "v": 2,
+  "tries": 1
+ },
+ "protester": {
+  "ipa": "/prəˈtestə/",
+  "pos": "noun",
+  "def": "One who protests, either alone or in a public display of group feeling.",
+  "ex": "",
+  "syn": [],
+  "vi": "người phản đối",
+  "v": 2,
+  "tries": 1
+ },
+ "echo": {
+  "ipa": "/ˈɛk.əʊ/",
+  "pos": "noun",
+  "def": "Alternative letter-case form of Echo of the ICAO/NATO radiotelephony alphabet.",
+  "ex": "",
+  "syn": [],
+  "vi": "tiếng vọng",
+  "v": 2,
+  "tries": 1
+ },
+ "haul": {
+  "ipa": "/hɔːl/",
+  "pos": "verb",
+  "def": "To transport by drawing or pulling, as with horses or oxen, or a motor vehicle.",
+  "ex": "They hauled everything in large bags.",
+  "syn": [],
+  "vi": "lôi, chuyên chở vận tải",
+  "v": 2,
+  "tries": 1
+ },
+ "financially": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "In terms of finance or money.",
+  "ex": "He helped his daughter out financially, paying her rent and utilities, until she recovered from the accident.",
+  "syn": [],
+  "vi": "tài chính",
+  "v": 2,
+  "tries": 3
+ },
+ "maximization": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The act of raising something to its greatest value or extent.",
+  "ex": "I would no longer call this maximalism, but obsession.",
+  "syn": [],
+  "vi": "tối đa hóa",
+  "v": 2,
+  "tries": 3
+ },
+ "bureaucrat": {
+  "ipa": "/ˈbjʊəɹəkɹæt/",
+  "pos": "noun",
+  "def": "An official who is part of a bureaucracy.",
+  "ex": "The bureaucrats are militants of paperwork.",
+  "syn": [],
+  "vi": "quan chức",
+  "v": 2,
+  "tries": 1
+ },
+ "dissolution": {
+  "ipa": "/ˌdɪsəˈl(j)uːʃən/",
+  "pos": "noun",
+  "def": "The termination of an organized body or legislative assembly, especially a formal dismissal.",
+  "ex": "Justice without mercy is cruelty; mercy without justice is the mother of dissolution.",
+  "syn": [],
+  "vi": "giải thể, lâm chung",
+  "v": 2,
+  "tries": 1
+ },
+ "distortion": {
+  "ipa": "/dɪsˈtɔːʃən/",
+  "pos": "noun",
+  "def": "An act of distorting.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự bóp méo, biến thể",
+  "v": 2,
+  "tries": 1
+ },
+ "continually": {
+  "ipa": "/kənˈtɪnjuəli/",
+  "pos": "adverb",
+  "def": "In regular or repeated succession; very often.",
+  "ex": "",
+  "syn": [],
+  "vi": "liên tục",
+  "v": 2,
+  "tries": 1
+ },
+ "awkward": {
+  "ipa": "/ˈɔːk.wəd/",
+  "pos": "adjective",
+  "def": "Lacking dexterity in the use of the hands or of tools.",
+  "ex": "",
+  "syn": [],
+  "vi": "vụng về, khó chịu",
+  "v": 2,
+  "tries": 1
+ },
+ "slack": {
+  "ipa": "/slæk/",
+  "pos": "noun",
+  "def": "The part of anything that hangs loose, having no strain upon it.",
+  "ex": "",
+  "syn": [],
+  "vi": "lười biếng, mùa chết",
+  "v": 2,
+  "tries": 1
+ },
+ "drift": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": "chổ cạn đi qua được, khuynh hướng"
+ },
+ "interference": {
+  "ipa": "/ˌɪntə(ɹ)ˈfɪəɹəns/",
+  "pos": "noun",
+  "def": "The act of interfering with something, or something that interferes.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự can thiệp, sự can thiệp",
+  "v": 2,
+  "tries": 1
+ },
+ "geographical": {
+  "ipa": "/d͡ʒiəˈɡɹæfɪkl̩/",
+  "pos": "adjective",
+  "def": "Of or relating to geography.",
+  "ex": "Algeria has geographical advantage over Morocco.",
+  "syn": [],
+  "vi": "địa lý",
+  "v": 2,
+  "tries": 1
+ },
+ "encompass": {
+  "ipa": "/ɪnˈkʌmpəs/",
+  "pos": "verb",
+  "def": "To form a circle around; to encircle.",
+  "ex": "The Maghreb region encompasses Morocco, Algeria, Tunisia, Mauritania, and Libya.",
+  "syn": [],
+  "vi": "bao gồm, bao quanh",
+  "v": 2,
+  "tries": 1
+ },
+ "proportional": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "A proportion.",
+  "ex": "Algeria is a country of continental proportions.",
+  "syn": [],
+  "vi": "tỷ lệ thuận",
+  "v": 2,
+  "tries": 3
+ },
+ "uncover": {
+  "ipa": "/ʌnˈkʌvə(ɹ)/",
+  "pos": "verb",
+  "def": "To remove a cover from.",
+  "ex": "",
+  "syn": [],
+  "vi": "khám phá, bày tỏ",
+  "v": 2,
+  "tries": 1
+ },
+ "petty": {
+  "ipa": "/ˈpɛt.i/",
+  "pos": "adjective",
+  "def": "Having little or no importance. .mw-parser-output .defdate{font-size:smaller}",
+  "ex": "",
+  "syn": [],
+  "vi": "nhỏ mọn, không quan trọng",
+  "v": 2,
+  "tries": 1
+ },
+ "worsen": {
+  "ipa": "/ˈwɜːsn̩/",
+  "pos": "verb",
+  "def": "To make worse; to impair.",
+  "ex": "",
+  "syn": [],
+  "vi": "xấu đi",
+  "v": 2,
+  "tries": 1
+ },
+ "reorganization": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The act or process of rearranging. See reorganize.",
+  "ex": "All hope of my promotion went up in smoke after my reorganization plan fell through.",
+  "syn": [
+   "rearrangement",
+   "rearranging",
+   "reordering"
+  ],
+  "vi": "tổ chức lại",
+  "v": 2,
+  "tries": 3
+ },
+ "successive": {
+  "ipa": "/səkˈsɛsɪv/",
+  "pos": "adjective",
+  "def": "Coming one after the other in a series.",
+  "ex": "",
+  "syn": [],
+  "vi": "liên tiếp",
+  "v": 2,
+  "tries": 1
+ },
+ "blend": {
+  "ipa": "/blɛnd/",
+  "pos": "verb",
+  "def": "A mixture of two or more things.",
+  "ex": "Days can blend into one another.",
+  "syn": [],
+  "vi": "trộn, lẫn lộn nhau",
+  "v": 2,
+  "tries": 1
+ },
+ "simplicity": {
+  "ipa": "/sɪmˈplɪsɪti/",
+  "pos": "noun",
+  "def": "The state or quality of being simple The quality or state of being unmixed or uncompounded",
+  "ex": "",
+  "syn": [],
+  "vi": "sự đơn giản, tính bình dị",
+  "v": 2,
+  "tries": 1
+ },
+ "deregulation": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The process of removing constraints, especially government-imposed economic regulation.",
+  "ex": "Some say the airline industry has not been profitable since Ronald Reagan began deregulation.",
+  "syn": [],
+  "vi": "bãi bỏ quy định",
+  "v": 2,
+  "tries": 3
+ },
+ "computerize": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "To convert a manual function or system into a computer system.",
+  "ex": "Companies are rapidly trying to computerize their systems.",
+  "syn": [],
+  "vi": "vi tính hóa",
+  "v": 2,
+  "tries": 3
+ },
+ "succession": {
+  "ipa": "/səkˈsɛʃ.ən/",
+  "pos": "noun",
+  "def": "An act, process, or instance of succeeding: An act of following in sequence. A sequence of things in order. A passing of royal powers. A group of rocks or strata that succeed one another in chronologi",
+  "ex": "",
+  "syn": [],
+  "vi": "sự kế thừa, sự kế thừa",
+  "v": 2,
+  "tries": 1
+ },
+ "royalty": {
+  "ipa": "/ˈɹɔɪəlti/",
+  "pos": "noun",
+  "def": "The rank, status, power or authority of a monarch.",
+  "ex": "All the royalties went to charity.",
+  "syn": [],
+  "vi": "tiền bản quyền, người trong gia tộc vua",
+  "v": 2,
+  "tries": 1
+ },
+ "macro": {
+  "ipa": "/ˈmæk.ɹəʊ/",
+  "pos": "adjective",
+  "def": "Very large in scale or scope.",
+  "ex": "He took a lot of macro photographs of disgusting Canadian bugs.",
+  "syn": [],
+  "vi": "vĩ mô",
+  "v": 2,
+  "tries": 1
+ },
+ "flourish": {
+  "ipa": "/ˈflʌɹ.ɪʃ/",
+  "pos": "verb",
+  "def": "To thrive or grow well.",
+  "ex": "",
+  "syn": [],
+  "vi": "phát triển mạnh mẽ, dùng những câu văn hoa",
+  "v": 2,
+  "tries": 1
+ },
+ "insurgent": {
+  "ipa": "/ɪnˈsəːdʒ(ə)nt/",
+  "pos": "adjective",
+  "def": "Rebellious, opposing authority.",
+  "ex": "To fight terrorism, Algeria has mastered anti-insurgency warfare so well.",
+  "syn": [],
+  "vi": "nổi dậy, dâng lên",
+  "v": 2,
+  "tries": 1
+ },
+ "relevance": {
+  "ipa": "/ˈɹɛl.ɪ.vən(t)s/",
+  "pos": "noun",
+  "def": "The property or state of being relevant or pertinent.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự liên quan",
+  "v": 2,
+  "tries": 1
+ },
+ "setup": {
+  "ipa": "/ˈsɛtʌp/",
+  "pos": "noun",
+  "def": "Equipment designed for a particular purpose; an apparatus.",
+  "ex": "I ran setup and then the whole thing crashed.",
+  "syn": [],
+  "vi": "cài đặt, người kiêu ngạo",
+  "v": 2,
+  "tries": 1
+ },
+ "notable": {
+  "ipa": "/ˈnəʊtəbl̩/",
+  "pos": "adjective",
+  "def": "Worthy of note; remarkable; memorable; noted or distinguished. .mw-parser-output .defdate{font-size:smaller}",
+  "ex": "In Algiers, the Martyrs' Memorial is a notable landmark.",
+  "syn": [],
+  "vi": "đáng chú ý, danh tiếng",
+  "v": 2,
+  "tries": 1
+ },
+ "tranche": {
+  "ipa": "/tɹɑ̃ʃ/",
+  "pos": "noun",
+  "def": "A slice, section or portion.",
+  "ex": "Today the first tranche of investments in the project account was received.",
+  "syn": [],
+  "vi": "đợt",
+  "v": 2,
+  "tries": 1
+ },
+ "policymaker": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "One involved in the formulation of policies, especially politicians, lobbyists, and activists.",
+  "ex": "The policymaker made sure to carefully consider the pros and cons in his work.",
+  "syn": [],
+  "vi": "nhà hoạch định chính sách",
+  "v": 2,
+  "tries": 3
+ },
+ "technically": {
+  "ipa": "/ˈtɛk.nɪˌkəl.i/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "utilization": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The act of using something.",
+  "ex": "Pietro decided to utilize the opportunity.",
+  "syn": [
+   "use"
+  ],
+  "vi": "sự tận dụng",
+  "v": 2,
+  "tries": 3
+ },
+ "tumble": {
+  "ipa": "/ˈtʌmbl̩/",
+  "pos": "noun",
+  "def": "A fall, especially end over end.",
+  "ex": "",
+  "syn": [],
+  "vi": "nhào lộn, sự ngã xuống thình lình",
+  "v": 2,
+  "tries": 1
+ },
+ "baseline": {
+  "ipa": "/ˈbeɪslaɪn/",
+  "pos": "noun",
+  "def": "A line that is a base for measurement or for construction.",
+  "ex": "Miss Williams is challenging the call on the left baseline. The ball was called in.",
+  "syn": [],
+  "vi": "đường cơ sở",
+  "v": 2,
+  "tries": 1
+ },
+ "template": {
+  "ipa": "/ˈtɛm.plɪt/",
+  "pos": "noun",
+  "def": "A physical object whose shape is used as a guide to make other objects.",
+  "ex": "C++0x will admit template functions that take an arbitrary number of arguments.",
+  "syn": [],
+  "vi": "bản mẫu",
+  "v": 2,
+  "tries": 1
+ },
+ "obituary": {
+  "ipa": "/əˈbɪt͡ʃʊ(ə)ɹi/",
+  "pos": "noun",
+  "def": "A brief notice of a person's death, especially one published in a newspaper or other publication; also , the section of a newspaper where notices of deaths are published.",
+  "ex": "Reading the obituary section, for old people, is like taking a victory lap.",
+  "syn": [],
+  "vi": "cáo phó",
+  "v": 2,
+  "tries": 1
+ },
+ "peso": {
+  "ipa": "/ˈpeɪsəʊ/",
+  "pos": "noun",
+  "def": "A former unit of currency in Spain and Spain's colonies, worth 8 reales; the Spanish dollar.",
+  "ex": "The cost amounted to twelve pesos.",
+  "syn": [],
+  "vi": "đồng peso",
+  "v": 2,
+  "tries": 1
+ },
+ "denominate": {
+  "ipa": "/dɪˈnɒm.ɪ.neɪt/",
+  "pos": "verb",
+  "def": "To name; to designate.",
+  "ex": "These two fractions need to be given a common denominator.",
+  "syn": [],
+  "vi": "đặt tên",
+  "v": 2,
+  "tries": 1
+ },
+ "shortfall": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "An instance of not meeting a quota, debt, or monthly payment on a debt or other obligation, or of having an insufficient amount to cover such obligations.",
+  "ex": "Due to a shortfall in revenue, we will have to make some cuts.",
+  "syn": [],
+  "vi": "sự thiếu hụt",
+  "v": 2,
+  "tries": 3
+ },
+ "originate": {
+  "ipa": "/əˈɹɪd͡ʒɪneɪt/",
+  "pos": "verb",
+  "def": "To cause (someone or something) to be; to bring (someone or something) into existence; to produce or initiate a person or thing. .mw-parser-output .defdate{font-size:smaller}",
+  "ex": "",
+  "syn": [],
+  "vi": "bắt nguồn, bắt đầu",
+  "v": 2,
+  "tries": 1
+ },
+ "bureaucratic": {
+  "ipa": "/ˌbjʊəɹəˈkɹætɪk/",
+  "pos": "adjective",
+  "def": "Of or pertaining to bureaucracy or the actions of bureaucrats.",
+  "ex": "The bureaucrats are militants of paperwork.",
+  "syn": [],
+  "vi": "quan liêu",
+  "v": 2,
+  "tries": 1
+ },
+ "stochastic": {
+  "ipa": "/stəˈkæstɪk/",
+  "pos": "adjective",
+  "def": "random, randomly determined.",
+  "ex": "A good knowledge of numerical analysis, stochastic calculus and programming in C++ is important for a job in banking my lecturer said.",
+  "syn": [],
+  "vi": "ngẫu nhiên",
+  "v": 2,
+  "tries": 1
+ },
+ "kidnap": {
+  "ipa": "/ˈkɪdnæp/",
+  "pos": "verb",
+  "def": "To seize or detain (a person) unlawfully and transport or conceal them, sometimes for ransom. .mw-parser-output .defdate{font-size:smaller}",
+  "ex": "",
+  "syn": [],
+  "vi": "bắt cóc",
+  "v": 2,
+  "tries": 1
+ },
+ "dictator": {
+  "ipa": "/dɪkˈteɪtə/",
+  "pos": "noun",
+  "def": "An authoritarian leader of a country, nation, or government.",
+  "ex": "",
+  "syn": [],
+  "vi": "nhà độc tài",
+  "v": 2,
+  "tries": 1
+ },
+ "dual": {
+  "ipa": "/ˈd͡ʒuː.əl/",
+  "pos": "adjective",
+  "def": "Characterized by having two (usually equivalent) components.",
+  "ex": "Overtaking is simpler on a dual carriageway.",
+  "syn": [],
+  "vi": "hai",
+  "v": 2,
+  "tries": 1
+ },
+ "brick": {
+  "ipa": "/ˈbɹɪk/",
+  "pos": "noun",
+  "def": "A hardened rectangular block of mud, clay etc., used for building.",
+  "ex": "",
+  "syn": [],
+  "vi": "gạch",
+  "v": 2,
+  "tries": 1
+ },
+ "internally": {
+  "ipa": "/ɪnˈtɜːnəli/",
+  "pos": "adverb",
+  "def": "In an internal manner; within or inside of external limits; in an inner part or situation.",
+  "ex": "",
+  "syn": [],
+  "vi": "nội bộ",
+  "v": 2,
+  "tries": 1
+ },
+ "refinance": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "To renew the terms of a loan.",
+  "ex": "",
+  "syn": [],
+  "vi": "tái cấp vốn",
+  "v": 2,
+  "tries": 3
+ },
+ "tribal": {
+  "ipa": "/ˈtɹaɪbəl/",
+  "pos": "adjective",
+  "def": "Of or relating to tribes.",
+  "ex": "Massinissa unified a tribal and mostly nomadic Numidia.",
+  "syn": [],
+  "vi": "bộ lạc",
+  "v": 2,
+  "tries": 1
+ },
+ "empower": {
+  "ipa": "/ɪmˈpaʊ.ə/",
+  "pos": "verb",
+  "def": "To give permission, power, or the legal right to do something.",
+  "ex": "Her strength empowers those around her.",
+  "syn": [],
+  "vi": "trao quyền",
+  "v": 2,
+  "tries": 1
+ },
+ "oversight": {
+  "ipa": "/ˈəʊvəˌsaɪt/",
+  "pos": "noun",
+  "def": "An omission; something that is left out, missed, or forgotten.",
+  "ex": "There is big oversight in that plan.",
+  "syn": [],
+  "vi": "giám sát, điều vô ý",
+  "v": 2,
+  "tries": 1
+ },
+ "transparent": {
+  "ipa": "/tɹænsˈpæɹənt/",
+  "pos": "adjective",
+  "def": "See-through, clear; having the property that light passes through it almost undisturbed, such that one can see through it clearly.",
+  "ex": "",
+  "syn": [],
+  "vi": "trong suốt, hiển nhiên",
+  "v": 2,
+  "tries": 1
+ },
+ "predictor": {
+  "ipa": "/pɹɪˈdɪk.tə/",
+  "pos": "noun",
+  "def": "Something that anticipates, predicts, or foretells.",
+  "ex": "The biggest predictor of self-reported porn addiction is religiosity.",
+  "syn": [],
+  "vi": "người dự đoán",
+  "v": 2,
+  "tries": 1
+ },
+ "dominance": {
+  "ipa": "/ˈdɒmɪnəns/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "hugely": {
+  "ipa": "/ˈhjuːd͡ʒli/",
+  "pos": "adverb",
+  "def": "Greatly; to a huge extent.",
+  "ex": "",
+  "syn": [],
+  "vi": "cực kỳ, khổng lồ",
+  "v": 2,
+  "tries": 1
+ },
+ "wholesaler": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "A person or company that buys merchandise from manufacturers, importers, or distributors and resells the merchandise to retail businesses and to business and institutional end users.",
+  "ex": "Tom is a wholesaler of toys for ferrets.",
+  "syn": [],
+  "vi": "người bán buôn",
+  "v": 2,
+  "tries": 3
+ },
+ "bilateral": {
+  "ipa": "/baɪˈlætəɹəl/",
+  "pos": "adjective",
+  "def": "Having two sides.",
+  "ex": "Algeria and Western Sahara need to sign a bilateral military agreement.",
+  "syn": [],
+  "vi": "song phương",
+  "v": 2,
+  "tries": 1
+ },
+ "cotton": {
+  "ipa": "/ˈkɒt.n̩/",
+  "pos": "noun",
+  "def": "A fibrous substance: A soft, fibrous, usually white substance consisting of fine hairs, especially the substance around the seeds of a plant of genus Gossypium. Any similar soft, fibrous, white substa",
+  "ex": "",
+  "syn": [],
+  "vi": "bông, bông gòn",
+  "v": 2,
+  "tries": 1
+ },
+ "routinely": {
+  "ipa": "/ɹuːˈtiːnli/",
+  "pos": "adverb",
+  "def": "In a routine manner, in a way that has become common or expected.",
+  "ex": "",
+  "syn": [],
+  "vi": "thường xuyên",
+  "v": 2,
+  "tries": 1
+ },
+ "obscure": {
+  "ipa": "/əbˈskjʊə(ɹ)/",
+  "pos": "",
+  "def": "",
+  "ex": "Mark writes his academic papers obscurely.",
+  "syn": [],
+  "vi": ""
+ },
+ "mobility": {
+  "ipa": "/mə(ʊ)ˈbɪlɪti/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "dilute": {
+  "ipa": "/daɪˈljuːt/",
+  "pos": "",
+  "def": "",
+  "ex": "Without water, pharmaceutical preparations and dilutions can't be made.",
+  "syn": [],
+  "vi": ""
+ },
+ "elaborate": {
+  "ipa": "/ɪˈlæb.ə.ɹeɪt/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "reprint": {
+  "ipa": "/ˈɹiːpɹɪnt/",
+  "pos": "noun",
+  "def": "A book, pamphlet or other printed matter that has been published once before but is now being released again.",
+  "ex": "The book has been reprinted several times, and is also available online.",
+  "syn": [],
+  "vi": "in lại",
+  "v": 2,
+  "tries": 1
+ },
+ "bull": {
+  "ipa": "/bʊl/",
+  "pos": "noun",
+  "def": "An adult male, specifically: An adult male of domesticated cattle or oxen.",
+  "ex": "",
+  "syn": [],
+  "vi": "con bò đực, bò đực",
+  "v": 2,
+  "tries": 1
+ },
+ "extremist": {
+  "ipa": "/ɪkˈstɹiːmɪst/",
+  "pos": "noun",
+  "def": "A person who holds extreme views, especially one who advocates such views; a radical or fanatic.",
+  "ex": "",
+  "syn": [],
+  "vi": "cực đoan",
+  "v": 2,
+  "tries": 1
+ },
+ "peg": {
+  "ipa": "/ˈpɛɡ/",
+  "pos": "noun",
+  "def": "ISO 639-3 language code for Pengo.",
+  "ex": "",
+  "syn": [],
+  "vi": "chốt",
+  "v": 2,
+  "tries": 1
+ },
+ "idle": {
+  "ipa": "/ˈaɪd(ə)l/",
+  "pos": "adjective",
+  "def": "Empty, vacant.",
+  "ex": "",
+  "syn": [],
+  "vi": "nhàn rỗi, không có hiệu quả",
+  "v": 2,
+  "tries": 1
+ },
+ "annualize": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "American and Oxford British spelling of annualise.",
+  "ex": "Boris went on annual camping trips.",
+  "syn": [],
+  "vi": "hàng năm hóa",
+  "v": 2,
+  "tries": 3
+ },
+ "turmoil": {
+  "ipa": "/ˈtɜːmɔɪl/",
+  "pos": "noun",
+  "def": "A state of great disorder or uncertainty.",
+  "ex": "Morocco is plunged into domestic turmoil.",
+  "syn": [],
+  "vi": "sự hỗn loạn, sự gió cuốn",
+  "v": 2,
+  "tries": 1
+ },
+ "wary": {
+  "ipa": "/ˈwɛə.ɹi/",
+  "pos": "adjective",
+  "def": "Cautious of danger; carefully watching and guarding against deception, trickery, and dangers; suspiciously prudent",
+  "ex": "",
+  "syn": [],
+  "vi": "cảnh giác, cẩn thận",
+  "v": 2,
+  "tries": 1
+ },
+ "credible": {
+  "ipa": "/ˈkɹɛdəbl̩/",
+  "pos": "adjective",
+  "def": "Believable or plausible.",
+  "ex": "",
+  "syn": [],
+  "vi": "đáng tin cậy",
+  "v": 2,
+  "tries": 1
+ },
+ "woe": {
+  "ipa": "/wəʊ/",
+  "pos": "noun",
+  "def": "ISO 639-3 language code for Woleaian.",
+  "ex": "",
+  "syn": [],
+  "vi": "khốn nạn",
+  "v": 2,
+  "tries": 1
+ },
+ "capita": {
+  "ipa": "",
+  "pos": "",
+  "def": "",
+  "ex": "Finland has the most saunas per capita.",
+  "syn": [],
+  "vi": "đầu người",
+  "v": 2,
+  "tries": 3
+ },
+ "tolerate": {
+  "ipa": "/ˈtɒl.ə.ɹeɪt/",
+  "pos": "verb",
+  "def": "To allow or permit without explicit approval, usually if it is perceived as negative.",
+  "ex": "",
+  "syn": [],
+  "vi": "tha thứ, khoan dung",
+  "v": 2,
+  "tries": 1
+ },
+ "casino": {
+  "ipa": "/kəˈsiːnəʊ/",
+  "pos": "noun",
+  "def": "A public building or room for gambling.",
+  "ex": "",
+  "syn": [],
+  "vi": "sòng bạc, câu lạc bộ",
+  "v": 2,
+  "tries": 1
+ },
+ "downside": {
+  "ipa": "/ˈdaʊnˌsaɪd/",
+  "pos": "noun",
+  "def": "A disadvantageous aspect of something that is normally advantageous.",
+  "ex": "Being handsome also has its downside.",
+  "syn": [],
+  "vi": "nhược điểm",
+  "v": 2,
+  "tries": 1
+ },
+ "steam": {
+  "ipa": "/stiːm/",
+  "pos": "noun",
+  "def": "The hot gaseous form of water, formed when water changes from the liquid phase to the gas phase (at or above its boiling point temperature).",
+  "ex": "",
+  "syn": [],
+  "vi": "hơi nước, hơi nước",
+  "v": 2,
+  "tries": 1
+ },
+ "hydrogen": {
+  "ipa": "/ˈhaɪdɹəd͡ʒ(ə)n/",
+  "pos": "noun",
+  "def": "The lightest chemical element (symbol H), with an atomic number of 1 and atomic weight of 1.008.",
+  "ex": "\"Which element has the symbol H?\" \"Hydrogen.\"",
+  "syn": [],
+  "vi": "hydro",
+  "v": 2,
+  "tries": 1
+ },
+ "crush": {
+  "ipa": "/kɹʌʃ/",
+  "pos": "noun",
+  "def": "A violent collision or compression; a crash; destruction; ruin.",
+  "ex": "",
+  "syn": [],
+  "vi": "người mình thích, yêu",
+  "v": 2,
+  "tries": 1
+ },
+ "thereafter": {
+  "ipa": "/ˌðɛəɹˈɑːf.tə(ɹ)/",
+  "pos": "adverb",
+  "def": "After that time, from then on; thenceforth.",
+  "ex": "Tom acquired a service turtle. Shortly thereafter, his life was cut short.",
+  "syn": [],
+  "vi": "sau đó, sau khi",
+  "v": 2,
+  "tries": 1
+ },
+ "marketable": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "Of or pertaining to marketability; capable of being marketed.",
+  "ex": "The quality and scarcity ensured that the product was eminently marketable.",
+  "syn": [],
+  "vi": "có thể bán được",
+  "v": 2,
+  "tries": 3
+ },
+ "conjunction": {
+  "ipa": "/kənˈd͡ʒʌŋk.ʃn̩/",
+  "pos": "noun",
+  "def": "The act of joining, or condition of being joined.",
+  "ex": "We distinguish between subordinating and coordinating conjunctions.",
+  "syn": [],
+  "vi": "sự liên kết, sự giao hội",
+  "v": 2,
+  "tries": 1
+ },
+ "doubtful": {
+  "ipa": "/ˈdaʊtfəl/",
+  "pos": "adjective",
+  "def": "Subject to, or causing doubt.",
+  "ex": "",
+  "syn": [],
+  "vi": "nghi ngờ, không chắc",
+  "v": 2,
+  "tries": 1
+ },
+ "ideological": {
+  "ipa": "/ˌaɪ.diː.əˈlɒd͡ʒ.ɪ.kəl/",
+  "pos": "adjective",
+  "def": "Of or pertaining to one or more ideologies.",
+  "ex": "",
+  "syn": [],
+  "vi": "tư tưởng",
+  "v": 2,
+  "tries": 1
+ },
+ "bracket": {
+  "ipa": "/ˈbɹækɪt/",
+  "pos": "",
+  "def": "",
+  "ex": "Only one competitor can emerge from the crucible of losers' bracket.",
+  "syn": [],
+  "vi": ""
+ },
+ "outrage": {
+  "ipa": "/ˈaʊt.ɹeɪd͡ʒ/",
+  "pos": "noun",
+  "def": "An excessively violent or vicious attack; an atrocity.",
+  "ex": "",
+  "syn": [],
+  "vi": "phẫn nộ, sự làm nhục",
+  "v": 2,
+  "tries": 1
+ },
+ "hurdle": {
+  "ipa": "/ˈhɜːdl̩/",
+  "pos": "noun",
+  "def": "An artificial barrier, variously constructed, over which athletes or horses jump in a race.",
+  "ex": "Furries face psychological hurdles in learning Spanish.",
+  "syn": [],
+  "vi": "trở ngại, hàng rào",
+  "v": 2,
+  "tries": 1
+ },
+ "commentator": {
+  "ipa": "/ˈkɒmənˌteɪtə/",
+  "pos": "noun",
+  "def": "A person who makes a commentary, particularly Synonym of historian or chronicler, a person who compiles an annotated history. .mw-parser-output .defdate{font-size:smaller} A person who compiles explan",
+  "ex": "",
+  "syn": [],
+  "vi": "người bình luận",
+  "v": 2,
+  "tries": 1
+ },
+ "premier": {
+  "ipa": "/ˈpɹɛm.iː.ə/",
+  "pos": "adjective",
+  "def": "Foremost; first or highest in quality or degree.",
+  "ex": "The premier and his cabinet colleagues resigned.",
+  "syn": [],
+  "vi": "thủ tướng",
+  "v": 2,
+  "tries": 1
+ },
+ "insurgency": {
+  "ipa": "/ɪnˈsɜːd͡ʒənsi/",
+  "pos": "noun",
+  "def": "rebellion; revolt; the state of being insurgent",
+  "ex": "To fight terrorism, Algeria has mastered anti-insurgency warfare so well.",
+  "syn": [],
+  "vi": "cuộc nổi dậy, cuộc bạo động",
+  "v": 2,
+  "tries": 1
+ },
+ "averse": {
+  "ipa": "/əˈvɜː(ɹ)s/",
+  "pos": "adjective",
+  "def": "Having a repugnance or opposition of mind.",
+  "ex": "I developed an aversion toward the word \"awesome\".",
+  "syn": [],
+  "vi": "ác cảm",
+  "v": 2,
+  "tries": 1
+ },
+ "enlarge": {
+  "ipa": "/ɪnˈlɑːd͡ʒ/",
+  "pos": "verb",
+  "def": "To make (something) larger.",
+  "ex": "",
+  "syn": [],
+  "vi": "phóng to, tăng gia",
+  "v": 2,
+  "tries": 1
+ },
+ "ethanol": {
+  "ipa": "/ˈɛθ.ə.nɒl/",
+  "pos": "noun",
+  "def": "A simple aliphatic alcohol formally derived from ethane by replacing one hydrogen atom with a hydroxyl group: CH3-CH2-OH.",
+  "ex": "This volume of ethanol cannot completely dissolve 0.5 g of the white solid.",
+  "syn": [],
+  "vi": "etanol",
+  "v": 2,
+  "tries": 1
+ },
+ "fairness": {
+  "ipa": "/ˈfɛə.nəs/",
+  "pos": "noun",
+  "def": "The property of being fair or equitable.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự công bằng",
+  "v": 2,
+  "tries": 1
+ },
+ "dependency": {
+  "ipa": "/dɪˈpɛndənsi/",
+  "pos": "noun",
+  "def": "A state of dependence; a refusal to exercise initiative.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự phụ thuộc",
+  "v": 2,
+  "tries": 1
+ },
+ "prepayment": {
+  "ipa": "/ˌpɹiːˈpeɪ.mənt/",
+  "pos": "noun",
+  "def": "A payment in advance.",
+  "ex": "",
+  "syn": [],
+  "vi": "trả trước",
+  "v": 2,
+  "tries": 1
+ },
+ "externality": {
+  "ipa": "/ɛkstəˈnælɪti/",
+  "pos": "noun",
+  "def": "The state of being external or externalized.",
+  "ex": "Does Algeria need to borrow externally?",
+  "syn": [],
+  "vi": "ngoại tại",
+  "v": 2,
+  "tries": 1
+ },
+ "helicopter": {
+  "ipa": "/ˈhɛl.iˌkɒp.tə(ɹ)/",
+  "pos": "noun",
+  "def": "An aircraft that is borne along by one or more sets of long rotating blades which allow it to hover, move in any direction including reverse, or land; and typically having a smaller set of blades on i",
+  "ex": "",
+  "syn": [],
+  "vi": "trực thăng",
+  "v": 2,
+  "tries": 1
+ },
+ "perpetual": {
+  "ipa": "/pəˈpɛtʃʊəl/",
+  "pos": "adjective",
+  "def": "Lasting forever, or for an indefinitely long time.",
+  "ex": "Pornography perpetuates harmful stereotypes about women.",
+  "syn": [],
+  "vi": "vĩnh viễn, bất diệt",
+  "v": 2,
+  "tries": 1
+ },
+ "ration": {
+  "ipa": "/ˈɹeɪʃən/",
+  "pos": "noun",
+  "def": "A portion of some limited resource, especially food, allocated to a person, group or period.",
+  "ex": "",
+  "syn": [],
+  "vi": "khẩu phần ăn, khẩu phần",
+  "v": 2,
+  "tries": 1
+ },
+ "mosque": {
+  "ipa": "/mɒsk/",
+  "pos": "noun",
+  "def": "A place of worship for Muslims, often having at least one minaret; a masjid.",
+  "ex": "",
+  "syn": [],
+  "vi": "nhà thờ Hồi giáo",
+  "v": 2,
+  "tries": 1
+ },
+ "inability": {
+  "ipa": "/ˌɪnəˈbɪlɪti/",
+  "pos": "noun",
+  "def": "Lack of the ability to do something; incapability.",
+  "ex": "Our inability to talk has prevented us from addressing important matters.",
+  "syn": [],
+  "vi": "sự bất lực",
+  "v": 2,
+  "tries": 1
+ },
+ "analytic": {
+  "ipa": "/ˌænəˈlɪtɪk/",
+  "pos": "adjective",
+  "def": "Of, or relating to any form of analysis, or to analytics.",
+  "ex": "Can we use Scientific calculators on the analytical chemistry test?",
+  "syn": [],
+  "vi": "phân tích",
+  "v": 2,
+  "tries": 1
+ },
+ "autonomous": {
+  "ipa": "/ɔːˈtɒnəməs/",
+  "pos": "adjective",
+  "def": "Governing itself independently.",
+  "ex": "Russia and China have many autonomous regions.",
+  "syn": [],
+  "vi": "tự trị, tự chủ động",
+  "v": 2,
+  "tries": 1
+ },
+ "prone": {
+  "ipa": "/pɹəʊn/",
+  "pos": "adjective",
+  "def": "Lying face-down.",
+  "ex": "",
+  "syn": [],
+  "vi": "nghiêng, giốc",
+  "v": 2,
+  "tries": 1
+ },
+ "inefficiency": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "Lack of efficiency or effectiveness.",
+  "ex": "Inefficiency is a form of waste.",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "downgrade": {
+  "ipa": "/ˈdaʊnˌɡɹeɪd/",
+  "pos": "noun",
+  "def": "A reduction of a rating, as a financial or credit rating.",
+  "ex": "Going from Starbucks to instant coffee is a massive downgrade, if you ask me.",
+  "syn": [],
+  "vi": "hạ cấp, hết thời",
+  "v": 2,
+  "tries": 2
+ },
+ "plead": {
+  "ipa": "/pliːd/",
+  "pos": "verb",
+  "def": "To present (an argument or a plea), especially in a legal case.",
+  "ex": "",
+  "syn": [],
+  "vi": "cầu xin, biện hộ",
+  "v": 2,
+  "tries": 1
+ },
+ "openly": {
+  "ipa": "/ˈəʊpənli/",
+  "pos": "adverb",
+  "def": "In an open manner; visibly.",
+  "ex": "",
+  "syn": [],
+  "vi": "công khai, khai mạc",
+  "v": 2,
+  "tries": 1
+ },
+ "oust": {
+  "ipa": "/aʊst/",
+  "pos": "verb",
+  "def": "To expel; to remove.",
+  "ex": "Australia’s first female prime minister Julia Gillard ousted as Labour party leader.",
+  "syn": [],
+  "vi": "lật đổ, chiếm",
+  "v": 2,
+  "tries": 1
+ },
+ "underwriter": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "An entity assuming a financial risk.",
+  "ex": "They were the underwriters of the company's shares, but only on a \"best efforts\" basis.",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "newcomer": {
+  "ipa": "/ˈnjuːkʌmə/",
+  "pos": "noun",
+  "def": "One who has recently come to a community; a recent arrival.",
+  "ex": "",
+  "syn": [],
+  "vi": "người mới đến, người mới đến",
+  "v": 2,
+  "tries": 1
+ },
+ "prolong": {
+  "ipa": "/pɹəʊˈlɒŋ/",
+  "pos": "verb",
+  "def": "To extend in space or length.",
+  "ex": "",
+  "syn": [],
+  "vi": "kéo dài, kéo dài",
+  "v": 2,
+  "tries": 1
+ },
+ "salvage": {
+  "ipa": "/ˈsælvɪd͡ʒ/",
+  "pos": "noun",
+  "def": "The rescue of a ship, its crew and passengers or its cargo from a hazardous situation.",
+  "ex": "Sami tried to salvage his marriage.",
+  "syn": [],
+  "vi": "cứu hộ, người được cứu khỏi",
+  "v": 2,
+  "tries": 1
+ },
+ "pursuant": {
+  "ipa": "/pəˈsjuː.ənt/",
+  "pos": "adjective",
+  "def": "That pursues.",
+  "ex": "Pursuant to this law, no one is allowed to kill, except in self-defense.",
+  "syn": [],
+  "vi": "theo",
+  "v": 2,
+  "tries": 1
+ },
+ "appropriately": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "In an appropriate manner; properly; suitably.",
+  "ex": "",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "accusation": {
+  "ipa": "/ˌæk.jʊˈzeɪ.ʃ(ə)n/",
+  "pos": "noun",
+  "def": "The act of accusing.",
+  "ex": "",
+  "syn": [],
+  "vi": "lời buộc tội",
+  "v": 2,
+  "tries": 1
+ },
+ "entrepreneurial": {
+  "ipa": "/ˌɒn.tɹə.pɹəˈnɜː.ɹi.əl/",
+  "pos": "adjective",
+  "def": "Having the spirit, attitude or qualities of an entrepreneur; enterprising.",
+  "ex": "Dependability is part of our entrepreneurial culture.",
+  "syn": [],
+  "vi": "kinh doanh",
+  "v": 2,
+  "tries": 1
+ },
+ "devaluation": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The removal or lessening of something's value.",
+  "ex": "The Algerian dinar is devaluing year after year.",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "outlay": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "A laying out or expending; that which is laid out or expended.",
+  "ex": "Without too much outlay, you could buy a second-hand car.",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "precious": {
+  "ipa": "/ˈpɹɛʃ.əs/",
+  "pos": "adjective",
+  "def": "Of high value or worth.",
+  "ex": "",
+  "syn": [],
+  "vi": "quý giá, cầu kỳ",
+  "v": 2,
+  "tries": 1
+ },
+ "regain": {
+  "ipa": "/ɹiːˈɡeɪn/",
+  "pos": "verb",
+  "def": "To get back; to recover possession of.",
+  "ex": "",
+  "syn": [],
+  "vi": "lấy lại, ăn lại",
+  "v": 2,
+  "tries": 1
+ },
+ "restrictive": {
+  "ipa": "/ɹɪˈstɹɪktɪv/",
+  "pos": "adjective",
+  "def": "Confining, limiting, containing within defined bounds.",
+  "ex": "",
+  "syn": [],
+  "vi": "hạn chế",
+  "v": 2,
+  "tries": 1
+ },
+ "deed": {
+  "ipa": "/diːd/",
+  "pos": "noun",
+  "def": "An action or act; something that is done.",
+  "ex": "",
+  "syn": [],
+  "vi": "chứng thư, chứng thư",
+  "v": 2,
+  "tries": 1
+ },
+ "competent": {
+  "ipa": "/ˈkɒmpətənt/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "horror": {
+  "ipa": "/ˈhɒɹə/",
+  "pos": "noun",
+  "def": "An intense distressing emotion of fear or repugnance.",
+  "ex": "",
+  "syn": [],
+  "vi": "kinh dị, điều ghê sợ",
+  "v": 2,
+  "tries": 1
+ },
+ "occasional": {
+  "ipa": "/əˈkeɪʒ(ə)nəl/",
+  "pos": "adjective",
+  "def": "Occurring or appearing irregularly from time to time, but not often; incidental.",
+  "ex": "",
+  "syn": [],
+  "vi": "thỉnh thoảng, dời đi được",
+  "v": 2,
+  "tries": 1
+ },
+ "asylum": {
+  "ipa": "/əˈsaɪləm/",
+  "pos": "noun",
+  "def": "A place of safety or refuge.",
+  "ex": "",
+  "syn": [],
+  "vi": "tị nạn, chổ ẩn náu",
+  "v": 2,
+  "tries": 1
+ },
+ "isolation": {
+  "ipa": "/ˌaɪsəˈleɪʃən/",
+  "pos": "noun",
+  "def": "The state of being isolated, detached, or separated; the state of being away from other people.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự cách ly",
+  "v": 2,
+  "tries": 1
+ },
+ "partition": {
+  "ipa": "/pɑːˈtɪ.ʃən/",
+  "pos": "",
+  "def": "",
+  "ex": "There were Jews in Arab countries before the partition of Palestine.",
+  "syn": [],
+  "vi": ""
+ },
+ "hypothetical": {
+  "ipa": "/ˌhaɪpəˈθɛtɪkəl/",
+  "pos": "adjective",
+  "def": "Based upon a hypothesis; conjectural.",
+  "ex": "Let's not worry about hypothetical situations.",
+  "syn": [],
+  "vi": "giả định",
+  "v": 2,
+  "tries": 1
+ },
+ "deprive": {
+  "ipa": "/dɪˈpɹaɪv/",
+  "pos": "verb",
+  "def": "Used with “of”, to take something away from (someone) and keep it away; to deny someone something.",
+  "ex": "",
+  "syn": [],
+  "vi": "tước đoạt, cách chức",
+  "v": 2,
+  "tries": 1
+ },
+ "investigator": {
+  "ipa": "/ɪnˈvɛs.tɪˌɡeɪ̯.təː/",
+  "pos": "noun",
+  "def": "One who investigates.",
+  "ex": "",
+  "syn": [],
+  "vi": "người điều tra",
+  "v": 2,
+  "tries": 1
+ },
+ "explosive": {
+  "ipa": "/ɛkˈspləʊsɪv/",
+  "pos": "adjective",
+  "def": "Able to, or likely to, explode.",
+  "ex": "",
+  "syn": [],
+  "vi": "chất nổ, bộc phát",
+  "v": 2,
+  "tries": 1
+ },
+ "tactical": {
+  "ipa": "/ˈtæktɪk(ə)l/",
+  "pos": "adjective",
+  "def": "Of or relating to tactics.",
+  "ex": "",
+  "syn": [],
+  "vi": "chiến thuật, có mưu lược",
+  "v": 2,
+  "tries": 1
+ },
+ "reap": {
+  "ipa": "/ˈɹiːp/",
+  "pos": "verb",
+  "def": "To cut (for example a grain) with a sickle, scythe, or reaping machine.",
+  "ex": "",
+  "syn": [],
+  "vi": "gặt, gặt lúa",
+  "v": 2,
+  "tries": 1
+ },
+ "boycott": {
+  "ipa": "/ˈbɔɪkɒt/",
+  "pos": "verb",
+  "def": "To abstain, either as an individual or a group, from using, buying, or dealing with someone or some organization as an expression of protest.",
+  "ex": "Tom decided to boycott the elections.",
+  "syn": [],
+  "vi": "tẩy chay",
+  "v": 2,
+  "tries": 1
+ },
+ "gloomy": {
+  "ipa": "/ˈɡluːmi/",
+  "pos": "adjective",
+  "def": "Not very illuminated; dim because of darkness, especially when appearing depressing or frightening.",
+  "ex": "",
+  "syn": [],
+  "vi": "ảm đạm, buồn bả",
+  "v": 2,
+  "tries": 1
+ },
+ "unpredictable": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "An unpredictable thing.",
+  "ex": "",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "disastrous": {
+  "ipa": "/dɪˈzɑː.stɹəs/",
+  "pos": "adjective",
+  "def": "Of the nature of a disaster; calamitous.",
+  "ex": "My first love relationship ended disastrously.",
+  "syn": [],
+  "vi": "thảm họa",
+  "v": 2,
+  "tries": 1
+ },
+ "dissident": {
+  "ipa": "/ˈdɪsɪdənt/",
+  "pos": "adjective",
+  "def": "In a manner that disagrees; dissenting; discordant.",
+  "ex": "\"Dissidents must be tolerated!\" \"Even when they aren't tolerant themselves?\"",
+  "syn": [],
+  "vi": "bất đồng chính kiến, bất tuân lịnh",
+  "v": 2,
+  "tries": 1
+ },
+ "defensive": {
+  "ipa": "/dɪˈfɛn.sɪv/",
+  "pos": "adjective",
+  "def": "Intended for defence; protective.",
+  "ex": "",
+  "syn": [],
+  "vi": "phòng thủ, để bảo vệ",
+  "v": 2,
+  "tries": 1
+ },
+ "communism": {
+  "ipa": "/ˈkɒmjᵿnɪz(ə)m/",
+  "pos": "noun",
+  "def": "Any far-left political ideology or philosophy advocating holding the production of resources collectively, especially by seizing it through revolution.",
+  "ex": "",
+  "syn": [],
+  "vi": "chủ nghĩa cộng sản",
+  "v": 2,
+  "tries": 1
+ },
+ "frustration": {
+  "ipa": "/fɹʌsˈtɹeɪ.ʃən/",
+  "pos": "noun",
+  "def": "The feeling of annoyance at impossibility from resistance or inability to achieve something.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự thất vọng, làm hỏng",
+  "v": 2,
+  "tries": 1
+ },
+ "fret": {
+  "ipa": "/fɹɛt/",
+  "pos": "verb",
+  "def": "Especially when describing animals: to consume, devour, or eat.",
+  "ex": "Not all string instruments have frets.",
+  "syn": [],
+  "vi": "băn khoăn, ăn mòn",
+  "v": 2,
+  "tries": 1
+ },
+ "undervalue": {
+  "ipa": "/ˌʌndə(ɹ)ˈvælju/",
+  "pos": "verb",
+  "def": "To underestimate, or assign too low a value to (something or someone); to have too little regard for.",
+  "ex": "Investors believe they can skillfully buy undervalued assets.",
+  "syn": [],
+  "vi": "đánh giá thấp",
+  "v": 2,
+  "tries": 1
+ },
+ "diligence": {
+  "ipa": "/ˈdɪlɪd͡ʒəns/",
+  "pos": "noun",
+  "def": "Steady application; industry; careful work involving long-term effort.",
+  "ex": "",
+  "syn": [],
+  "vi": "siêng năng, cần mẩn",
+  "v": 2,
+  "tries": 1
+ },
+ "undoubtedly": {
+  "ipa": "/ʌnˈdaʊtɪdli/",
+  "pos": "adverb",
+  "def": "Without doubt; definitely.",
+  "ex": "Esperanto is undoubtedly a functioning language.",
+  "syn": [],
+  "vi": "chắc chắn, chắc chắn",
+  "v": 2,
+  "tries": 1
+ },
+ "congressman": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "A male member of congress.",
+  "ex": "When the scandal broke, the Congressman's constituents were seething.",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "ratify": {
+  "ipa": "/ˈɹætɪfaɪ/",
+  "pos": "verb",
+  "def": "To give formal consent to; make officially valid, to sign off on.",
+  "ex": "The Blessed are beautified, the saints are sanctified and rats are ratified.",
+  "syn": [],
+  "vi": "phê chuẩn",
+  "v": 2,
+  "tries": 1
+ },
+ "correspondent": {
+  "ipa": "/ˌkɒɹ.ɪˈspɒn.dənt/",
+  "pos": "adjective",
+  "def": "Corresponding; suitable; adapted; congruous.",
+  "ex": "",
+  "syn": [],
+  "vi": "phóng viên",
+  "v": 2,
+  "tries": 1
+ },
+ "doom": {
+  "ipa": "/duːm/",
+  "pos": "noun",
+  "def": "Initialism of didn't organize, only moved; used in compounds designating a miscellaneous collection of items which one has failed to properly organize.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự diệt vong",
+  "v": 2,
+  "tries": 1
+ },
+ "rage": {
+  "ipa": "/ɹeɪd͡ʒ/",
+  "pos": "noun",
+  "def": "Violent uncontrolled anger.",
+  "ex": "",
+  "syn": [],
+  "vi": "cơn thịnh nộ, cơn giận dử",
+  "v": 2,
+  "tries": 1
+ },
+ "separatist": {
+  "ipa": "/ˈsɛpəɹətɪst/",
+  "pos": "noun",
+  "def": "Someone who advocates separation from the established Church; a member of any of various sects or schismatic movements.",
+  "ex": "",
+  "syn": [],
+  "vi": "người ly khai",
+  "v": 2,
+  "tries": 1
+ },
+ "deficiency": {
+  "ipa": "/dɪˈfɪʃənsi/",
+  "pos": "",
+  "def": "",
+  "ex": "AIDS means \"Acquired Immune Deficiency Syndrome\".",
+  "syn": [],
+  "vi": ""
+ },
+ "imbalance": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The property of not being in balance.",
+  "ex": "The growing imbalances between the rich and poor first lead to more crime.",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "bolster": {
+  "ipa": "/ˈbɒlstə/",
+  "pos": "noun",
+  "def": "A large cushion or pillow, usually cylindrical in shape.",
+  "ex": "Narcissists may use others to bolster their own self-esteem and self-worth.",
+  "syn": [],
+  "vi": "củng cố, gối ngang",
+  "v": 2,
+  "tries": 1
+ },
+ "constructive": {
+  "ipa": "/kənˈstɹʌktɪv/",
+  "pos": "adjective",
+  "def": "Relating to or causing construction.",
+  "ex": "",
+  "syn": [],
+  "vi": "mang tính xây dựng, cấu tạo",
+  "v": 2,
+  "tries": 1
+ },
+ "laser": {
+  "ipa": "/ˈleɪz.ə(ɹ)/",
+  "pos": "noun",
+  "def": "A device that produces a monochromatic, coherent beam of light.",
+  "ex": "",
+  "syn": [],
+  "vi": "tia laze",
+  "v": 2,
+  "tries": 1
+ },
+ "smuggle": {
+  "ipa": "/ˈsmʌɡəl/",
+  "pos": "verb",
+  "def": "To import or export, illicitly or by stealth, without paying lawful customs charges or duties.",
+  "ex": "Sami smuggled immigrants through the Mediterranean.",
+  "syn": [],
+  "vi": "buôn lậu",
+  "v": 2,
+  "tries": 1
+ },
+ "proclaim": {
+  "ipa": "/pɹəʊˈkleɪm/",
+  "pos": "verb",
+  "def": "To announce or declare.",
+  "ex": "This country recently proclaimed its independence.",
+  "syn": [],
+  "vi": "tuyên bố, tuyên ngôn",
+  "v": 2,
+  "tries": 1
+ },
+ "skeptic": {
+  "ipa": "/ˈskɛp.tɪk/",
+  "pos": "noun",
+  "def": "Someone who doubts beliefs, claims, plans, etc. that are accepted by others as true or appropriate, especially one who habitually does so.",
+  "ex": "",
+  "syn": [],
+  "vi": "hoài nghi",
+  "v": 2,
+  "tries": 1
+ },
+ "bounce": {
+  "ipa": "/baʊns/",
+  "pos": "verb",
+  "def": "To change the direction of motion after hitting an obstacle.",
+  "ex": "",
+  "syn": [],
+  "vi": "tung lên, khoe khoang",
+  "v": 2,
+  "tries": 1
+ },
+ "reformer": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "One who reforms, or who works for reform.",
+  "ex": "",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "unwilling": {
+  "ipa": "/ʌnˈwɪlɪŋ/",
+  "pos": "adjective",
+  "def": "Not willing; reluctant",
+  "ex": "",
+  "syn": [],
+  "vi": "không muốn",
+  "v": 2,
+  "tries": 1
+ },
+ "cheaply": {
+  "ipa": "/ˈt͡ʃiːpli/",
+  "pos": "adverb",
+  "def": "In a cheap manner; without expending much money.",
+  "ex": "His company did cheaply produced pornography and schlock films.",
+  "syn": [],
+  "vi": "rẻ tiền",
+  "v": 2,
+  "tries": 1
+ },
+ "enrich": {
+  "ipa": "/ɪnˈɹɪt͡ʃ/",
+  "pos": "verb",
+  "def": "To enhance.",
+  "ex": "Compassion costs nothing but enriches all.",
+  "syn": [],
+  "vi": "làm giàu, dồi dào",
+  "v": 2,
+  "tries": 1
+ },
+ "prop": {
+  "ipa": "/pɹɒp/",
+  "pos": "noun",
+  "def": "An object placed against or under another, to support it; anything that supports.",
+  "ex": "The ladder is propped against the wall.",
+  "syn": [],
+  "vi": "chống đỡ",
+  "v": 2,
+  "tries": 1
+ },
+ "depositor": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "A person who makes a deposit, especially a deposit of money in a bank",
+  "ex": "",
+  "syn": [],
+  "vi": "người gửi tiền",
+  "v": 2,
+  "tries": 3
+ },
+ "clout": {
+  "ipa": "/klaʊt/",
+  "pos": "noun",
+  "def": "Influence or effectiveness, especially political.",
+  "ex": "Why are you siccing your followers on someone with far less clout than you?",
+  "syn": [],
+  "vi": "ảnh hưởng, khăn tay",
+  "v": 2,
+  "tries": 1
+ },
+ "collectively": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "In a collective manner; viewed together as a whole; to be treated as a single unit, rather than the items that make up the collection separately.",
+  "ex": "",
+  "syn": [
+   "jointly",
+   "mutually"
+  ],
+  "vi": "tập thể",
+  "v": 2,
+  "tries": 3
+ },
+ "conspiracy": {
+  "ipa": "/kənˈspɪɹəsi/",
+  "pos": "noun",
+  "def": "An agreement or arrangement between multiple parties to do something harmful, immoral or subversive; an instance of collusion. An agreement between two or more persons to break the law at some time in",
+  "ex": "",
+  "syn": [],
+  "vi": "âm mưu, cuộc âm mưu",
+  "v": 2,
+  "tries": 1
+ },
+ "enhancement": {
+  "ipa": "/ɪnˈhɑːns.mənt/",
+  "pos": "noun",
+  "def": "An improvement or supplement that tends to increase a sense of esteem.",
+  "ex": "Different opinions can enhance our understanding.",
+  "syn": [],
+  "vi": "sự nâng cao, sự lên giá",
+  "v": 2,
+  "tries": 1
+ },
+ "decentralize": {
+  "ipa": "/diːˈsɛntɹəlaɪz/",
+  "pos": "verb",
+  "def": "To cause to change from being concentrated at one point or site to being distributed across several.",
+  "ex": "Will a decentralized Algeria be a threat to the territorial integrity of the country?",
+  "syn": [],
+  "vi": "phân quyền",
+  "v": 2,
+  "tries": 1
+ },
+ "explode": {
+  "ipa": "/ɪkˈspləʊd/",
+  "pos": "verb",
+  "def": "To fly apart with sudden violent force; to blow up, to burst, to detonate, to go off.",
+  "ex": "",
+  "syn": [],
+  "vi": "nổ tung, bật cười",
+  "v": 2,
+  "tries": 1
+ },
+ "pensioner": {
+  "ipa": "/ˈpɛnʃənə/",
+  "pos": "noun",
+  "def": "Someone who lives on a pension, especially the retirement or old age pension.",
+  "ex": "",
+  "syn": [],
+  "vi": "người về hưu",
+  "v": 2,
+  "tries": 1
+ },
+ "unauthorize": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "To disown the authority of; to repudiate.",
+  "ex": "I don't want unauthorized pictures of me on people's social media.",
+  "syn": [],
+  "vi": "trái phép",
+  "v": 2,
+  "tries": 3
+ },
+ "pin": {
+  "ipa": "/pɪn/",
+  "pos": "noun",
+  "def": "ISO 639-3 language code for Piame.",
+  "ex": "",
+  "syn": [],
+  "vi": "ghim",
+  "v": 2,
+  "tries": 1
+ },
+ "prudent": {
+  "ipa": "/ˈpɹuː.dənt/",
+  "pos": "adjective",
+  "def": "Sagacious in adapting means to ends; circumspect in action, or in determining any line of conduct.",
+  "ex": "",
+  "syn": [],
+  "vi": "khôn ngoan, cẩn thận",
+  "v": 2,
+  "tries": 1
+ },
+ "census": {
+  "ipa": "/ˈsɛnsəs/",
+  "pos": "noun",
+  "def": "An official count or enumeration of members of a population (not necessarily human), usually residents or citizens in a particular region, often done at regular intervals.",
+  "ex": "\"Trasianka\" will be equalized with Belarusian language during the census.",
+  "syn": [],
+  "vi": "điều tra dân số",
+  "v": 2,
+  "tries": 1
+ },
+ "vow": {
+  "ipa": "/vaʊ/",
+  "pos": "noun",
+  "def": "A solemn promise to perform some act, or behave in a specified manner, especially a promise to live and act in accordance with the rules of a religious order.",
+  "ex": "",
+  "syn": [],
+  "vi": "lời thề, lời thề",
+  "v": 2,
+  "tries": 1
+ },
+ "ineffective": {
+  "ipa": "/ˌɪn.ɪˈfɛk.tɪv/",
+  "pos": "adjective",
+  "def": "Not having the desired effect; ineffectual; otiose.",
+  "ex": "The countermeasures that were introduced proved completely ineffective.",
+  "syn": [],
+  "vi": "không hiệu quả, bất tài",
+  "v": 2,
+  "tries": 1
+ },
+ "adequately": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "In an adequate manner.",
+  "ex": "We have adequate seat for everyone.",
+  "syn": [],
+  "vi": "đầy đủ",
+  "v": 2,
+  "tries": 3
+ },
+ "prosper": {
+  "ipa": "/ˈpɹɒspə(ɹ)/",
+  "pos": "verb",
+  "def": "To be successful; to succeed; to be fortunate or prosperous; to thrive; to make gain.",
+  "ex": "",
+  "syn": [],
+  "vi": "thịnh vượng, phát đạt",
+  "v": 2,
+  "tries": 1
+ },
+ "cooperative": {
+  "ipa": "/kəʊˈɒpəɹətɪv/",
+  "pos": "adjective",
+  "def": "Ready to work with another person or in a team; ready to cooperate.",
+  "ex": "",
+  "syn": [],
+  "vi": "hợp tác xã, cộng tác",
+  "v": 2,
+  "tries": 1
+ },
+ "subsection": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "A defined part of a section.",
+  "ex": "",
+  "syn": [],
+  "vi": "tiểu mục",
+  "v": 2,
+  "tries": 3
+ },
+ "formulation": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The act, process, or result of formulating or reducing to a formula.",
+  "ex": "If you liked our old shampoo, you'll love the new kinder, gentler formulation.",
+  "syn": [],
+  "vi": "công thức",
+  "v": 2,
+  "tries": 3
+ },
+ "exert": {
+  "ipa": "/ɪɡˈzɜːt/",
+  "pos": "verb",
+  "def": "To make use of, to apply, especially of something nonmaterial; to bring to bear.",
+  "ex": "Algeria exerts influence throughout Africa and beyond.",
+  "syn": [],
+  "vi": "gắng sức, cố gắng",
+  "v": 2,
+  "tries": 1
+ },
+ "expectancy": {
+  "ipa": "/ɪkˈspɛkt(ə)nsi/",
+  "pos": "noun",
+  "def": "Expectation or anticipation; the state of expecting something.",
+  "ex": "",
+  "syn": [],
+  "vi": "kỳ vọng, liệu trước",
+  "v": 2,
+  "tries": 1
+ },
+ "syndicate": {
+  "ipa": "/ˈsɪndɪkət/",
+  "pos": "noun",
+  "def": "A group of individuals or companies formed to transact some specific business, or to promote a common interest; a self-coordinating group.",
+  "ex": "This sweet little old lady turned out to be the head of a crime syndicate.",
+  "syn": [],
+  "vi": "tổ chức",
+  "v": 2,
+  "tries": 1
+ },
+ "unfavorable": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "Serving to hinder or oppose; adverse, disadvantageous, inconducive, unsuitable.",
+  "ex": "The weather is unfavorable for our athletic meet today.",
+  "syn": [
+   "favourable",
+   "inauspicious",
+   "unfortunate"
+  ],
+  "vi": "không thuận lợi",
+  "v": 2,
+  "tries": 3
+ },
+ "proprietorship": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The state of being a proprietor; ownership",
+  "ex": "",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "franc": {
+  "ipa": "/ˈfɹæŋk/",
+  "pos": "noun",
+  "def": "Any of several units of currency.",
+  "ex": "",
+  "syn": [],
+  "vi": "đồng franc",
+  "v": 2,
+  "tries": 1
+ },
+ "policyholder": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "A person who holds an insurance policy, especially the person whose life is insured",
+  "ex": "The insurer will indemnify the policyholder against loss of or damage to the motor car.",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "supervisory": {
+  "ipa": "/ˌsuːpə(ɹ)ˈvaɪzəɹɪ/",
+  "pos": "adjective",
+  "def": "Of, pertaining to, or in the capacity of a supervisor",
+  "ex": "The police major is the highest rank in the supervisory and enforcement corps.",
+  "syn": [],
+  "vi": "giám sát",
+  "v": 2,
+  "tries": 1
+ },
+ "sheer": {
+  "ipa": "/ʃɪə̯/",
+  "pos": "adjective",
+  "def": "Very thin or transparent.",
+  "ex": "",
+  "syn": [],
+  "vi": "tuyệt đối, đúng sự thật",
+  "v": 2,
+  "tries": 1
+ },
+ "realization": {
+  "ipa": "/ˌɹɪə.laɪˈzeɪ.ʃən/",
+  "pos": "noun",
+  "def": "The act of realizing, as: An act of figuring out or becoming aware.",
+  "ex": "",
+  "syn": [],
+  "vi": "hiện thực hóa, quam niệm",
+  "v": 2,
+  "tries": 1
+ },
+ "neo": {
+  "ipa": "/ˈniːəʊ/",
+  "pos": "noun",
+  "def": "A newcomer to science fiction; a fan who is extremely new and inexperienced with the genre; a beginner.",
+  "ex": "Neo successfully dodged all the shots.",
+  "syn": [],
+  "vi": "tân",
+  "v": 2,
+  "tries": 1
+ },
+ "reinvestment": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The condition of being reinvested",
+  "ex": "Chemical companies are waiting until everything dies down before reinvesting.",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "scratch": {
+  "ipa": "/skɹæt͡ʃ/",
+  "pos": "verb",
+  "def": "To rub a surface with a sharp object, especially by a living creature to remove itching with nails, claws, etc.",
+  "ex": "",
+  "syn": [],
+  "vi": "cào, bàn sơ qua một vấn đề",
+  "v": 2,
+  "tries": 1
+ },
+ "dissent": {
+  "ipa": "/dɪˈsɛnt/",
+  "pos": "verb",
+  "def": "To disagree; to withhold assent. Construed with from (or, formerly, to).",
+  "ex": "Freedom is always the freedom of the dissenter.",
+  "syn": [],
+  "vi": "bất đồng chính kiến, bất đồng ý kiến",
+  "v": 2,
+  "tries": 1
+ },
+ "pit": {
+  "ipa": "/pɪt/",
+  "pos": "noun",
+  "def": "ISO 639-3 language code for Pitta-Pitta.",
+  "ex": "",
+  "syn": [],
+  "vi": "cái hố",
+  "v": 2,
+  "tries": 1
+ },
+ "intrigue": {
+  "ipa": "/ˈɪntɹiːɡ/",
+  "pos": "verb",
+  "def": "A complicated or clandestine plot or scheme intended to effect some purpose by secret artifice; conspiracy; stratagem; the practice of engaging in hidden schemes.",
+  "ex": "",
+  "syn": [],
+  "vi": "âm mưu, khêu gợi",
+  "v": 2,
+  "tries": 1
+ },
+ "brave": {
+  "ipa": "/bɹeɪv/",
+  "pos": "adjective",
+  "def": "Strong in the face of fear; courageous.",
+  "ex": "",
+  "syn": [],
+  "vi": "can đảm, ăn mặt đẹp",
+  "v": 2,
+  "tries": 1
+ },
+ "scatter": {
+  "ipa": "/ˈskætə/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "annum": {
+  "ipa": "/ˈæn.əm/",
+  "pos": "noun",
+  "def": "Synonym of year.",
+  "ex": "",
+  "syn": [],
+  "vi": "hàng năm",
+  "v": 2,
+  "tries": 1
+ },
+ "mar": {
+  "ipa": "/mɑː(ɹ)/",
+  "pos": "verb",
+  "def": "ISO 639-2 &amp; ISO 639-3 language code for Marathi.",
+  "ex": "",
+  "syn": [],
+  "vi": "tháng ba",
+  "v": 2,
+  "tries": 1
+ },
+ "reportedly": {
+  "ipa": "/ɹɪˈpɔːtɪdli/",
+  "pos": "adverb",
+  "def": "According to reports or rumors. .mw-parser-output .defdate{font-size:smaller}",
+  "ex": "",
+  "syn": [],
+  "vi": "theo báo cáo",
+  "v": 2,
+  "tries": 1
+ },
+ "negotiator": {
+  "ipa": "/nɪˈɡəʊ.ʃi.eɪ.tə/",
+  "pos": "noun",
+  "def": "One who negotiates.",
+  "ex": "",
+  "syn": [],
+  "vi": "người đàm phán",
+  "v": 2,
+  "tries": 1
+ },
+ "offensive": {
+  "ipa": "/əˈfɛnsɪv/",
+  "pos": "adjective",
+  "def": "Causing offense; arousing a visceral reaction of disgust, anger, hatred, sadness, or indignation.",
+  "ex": "",
+  "syn": [],
+  "vi": "xúc phạm, công kích",
+  "v": 2,
+  "tries": 1
+ },
+ "rape": {
+  "ipa": "/ˈɹeɪ̯p/",
+  "pos": "noun",
+  "def": "The act of forcing sex upon another person without their consent or against their will; originally coitus forced by a man on a woman, but now generally any sex act forced by any person upon another pe",
+  "ex": "",
+  "syn": [],
+  "vi": "hiếp dâm, bã nho",
+  "v": 2,
+  "tries": 1
+ },
+ "embody": {
+  "ipa": "/ɪmˈbɒdi/",
+  "pos": "verb",
+  "def": "To represent in a physical or concrete form; to incarnate or personify.",
+  "ex": "Sami embodied peacefulness and loving kindness.",
+  "syn": [],
+  "vi": "hiện thân, biến chế",
+  "v": 2,
+  "tries": 1
+ },
+ "detection": {
+  "ipa": "/dɪˈtɛk.ʃən/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "intelligent": {
+  "ipa": "/ɪnˈtɛlɪd͡ʒənt/",
+  "pos": "adjective",
+  "def": "Of high or especially quick cognitive capacity, bright.",
+  "ex": "",
+  "syn": [],
+  "vi": "thông minh, khôn ngoan",
+  "v": 2,
+  "tries": 1
+ },
+ "slim": {
+  "ipa": "/ˈslɪm/",
+  "pos": "adjective",
+  "def": "Slender; thin. Slender in an attractive way.",
+  "ex": "",
+  "syn": [],
+  "vi": "mảnh khảnh",
+  "v": 2,
+  "tries": 1
+ },
+ "synergy": {
+  "ipa": "/ˈsɪnəd͡ʒi/",
+  "pos": "noun",
+  "def": "A synonym of binding energy.",
+  "ex": "Those actors play off each other so well that it makes a kind of synergy.",
+  "syn": [],
+  "vi": "sức mạnh tổng hợp",
+  "v": 2,
+  "tries": 1
+ },
+ "disguise": {
+  "ipa": "/dɪsˈɡaɪz/",
+  "pos": "noun",
+  "def": "Material (such as clothing, makeup, a wig) used to alter one’s visual appearance in order to hide one's identity or assume another.",
+  "ex": "",
+  "syn": [],
+  "vi": "cải trang, cải trang",
+  "v": 2,
+  "tries": 1
+ },
+ "assertion": {
+  "ipa": "/əˈsɜːʃən/",
+  "pos": "noun",
+  "def": "The act of asserting; positive declaration or averment.",
+  "ex": "",
+  "syn": [],
+  "vi": "khẳng định, lời nói chắc",
+  "v": 2,
+  "tries": 1
+ },
+ "dictatorship": {
+  "ipa": "/dɪkˈteɪtəʃɪp/",
+  "pos": "noun",
+  "def": "A type of government where absolute sovereignty is allotted to an individual or a small clique.",
+  "ex": "",
+  "syn": [],
+  "vi": "chế độ độc tài",
+  "v": 2,
+  "tries": 1
+ },
+ "fraudulent": {
+  "ipa": "/ˈfɹɔːdjʊ.lənt/",
+  "pos": "adjective",
+  "def": "Dishonest; based on fraud or deception.",
+  "ex": "Undoubtedly these fraudulent applications are programmed to trick people.",
+  "syn": [],
+  "vi": "lừa đảo",
+  "v": 2,
+  "tries": 1
+ },
+ "constituent": {
+  "ipa": "/kənˈstɪtjuənt/",
+  "pos": "adjective",
+  "def": "Being a part or component of a whole.",
+  "ex": "The legislator talked at length with his constituents about beach erosion.",
+  "syn": [],
+  "vi": "thành phần",
+  "v": 2,
+  "tries": 1
+ },
+ "fiduciary": {
+  "ipa": "/fɪˈdjuːʃ.i.əɹ.i/",
+  "pos": "adjective",
+  "def": "Relating to an entity that owes to another good faith, accountability and trust, often in the context of trusts and trustees.",
+  "ex": "",
+  "syn": [],
+  "vi": "người được ủy thác",
+  "v": 2,
+  "tries": 1
+ },
+ "rebound": {
+  "ipa": "/ɹiˈbaʊnd/",
+  "pos": "noun",
+  "def": "The recoil of an object bouncing off another.",
+  "ex": "Alessia missed a sitter but, from the rebound, scored a worldie.",
+  "syn": [],
+  "vi": "bật lại, sự bị văng ngược lại",
+  "v": 2,
+  "tries": 1
+ },
+ "scorecard": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "A printed card allowing spectators of a game to identify players and record progress.",
+  "ex": "",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "ounce": {
+  "ipa": "/aʊns/",
+  "pos": "noun",
+  "def": "a unit of weight equal to about 28 grams; there are 16 ounces in a pound",
+  "ex": "The baby weighed seven pounds, eight ounces.",
+  "syn": [],
+  "vi": "ounce, một giống beo",
+  "v": 2,
+  "tries": 1
+ },
+ "plague": {
+  "ipa": "/pleɪɡ/",
+  "pos": "noun",
+  "def": "The bubonic plague, the pestilent disease caused by the virulent bacterium Yersinia pestis.",
+  "ex": "",
+  "syn": [],
+  "vi": "bệnh dịch hạch, tai ương",
+  "v": 2,
+  "tries": 1
+ },
+ "killer": {
+  "ipa": "/ˈkɪlə/",
+  "pos": "noun",
+  "def": "One who or that which kills.",
+  "ex": "",
+  "syn": [],
+  "vi": "kẻ sát nhân, kẻ giết người",
+  "v": 2,
+  "tries": 1
+ },
+ "grave": {
+  "ipa": "/ɡɹeɪv/",
+  "pos": "noun",
+  "def": "An excavation in the earth as a place of burial.",
+  "ex": "",
+  "syn": [],
+  "vi": "phần mộ, mồ mã",
+  "v": 2,
+  "tries": 1
+ },
+ "contributor": {
+  "ipa": "/kənˈtɹɪb.jə.tə/",
+  "pos": "noun",
+  "def": "A benefactor; someone who donates to charity or some cause.",
+  "ex": "Contributors should be civil and respectful.",
+  "syn": [],
+  "vi": "người đóng góp, người chịu phần",
+  "v": 2,
+  "tries": 1
+ },
+ "negotiable": {
+  "ipa": "/nɪˈɡəʊʃəbəl/",
+  "pos": "adjective",
+  "def": "Able to be traversed; navigable.",
+  "ex": "",
+  "syn": [],
+  "vi": "có thể thương lượng, có thể giao dịch được",
+  "v": 2,
+  "tries": 1
+ },
+ "reconstruction": {
+  "ipa": "/ˌɹiːkənˈstɹʌkʃən/",
+  "pos": "noun",
+  "def": "The action of reconstructing something, not necessarily to the earlier state.",
+  "ex": "He started reconstructing the sequence of events.",
+  "syn": [],
+  "vi": "tái thiết, sự kiến trúc lại",
+  "v": 2,
+  "tries": 1
+ },
+ "restate": {
+  "ipa": "",
+  "pos": "verb",
+  "def": "To state again (without changing)",
+  "ex": "I heard you restate what I said, but I'm not sure whether you agree with me.",
+  "syn": [
+   "rephrase",
+   "reword",
+   "reiterate"
+  ],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "rightly": {
+  "ipa": "/ˈɹaɪtli/",
+  "pos": "adverb",
+  "def": "In a right manner; correctly, justifiably.",
+  "ex": "",
+  "syn": [],
+  "vi": "đúng, đúng",
+  "v": 2,
+  "tries": 1
+ },
+ "sadly": {
+  "ipa": "/ˈsædli/",
+  "pos": "adverb",
+  "def": "In a sad manner; sorrowfully.",
+  "ex": "",
+  "syn": [],
+  "vi": "thật đáng buồn",
+  "v": 2,
+  "tries": 1
+ },
+ "paramilitary": {
+  "ipa": "/ˌpæɹəˈmɪlɪˌtɹi/",
+  "pos": "noun",
+  "def": "A group of civilians trained and organized in a military fashion, but which do not represent the formal forces of a sovereign power.",
+  "ex": "Sami organized his gang in a paramilitary structure with him in command.",
+  "syn": [],
+  "vi": "bán quân sự",
+  "v": 2,
+  "tries": 1
+ },
+ "incorrect": {
+  "ipa": "/ˌɪn.kəˈɹɛkt/",
+  "pos": "adjective",
+  "def": "Not correct; erroneous or wrong.",
+  "ex": "",
+  "syn": [],
+  "vi": "không đúng, sai",
+  "v": 2,
+  "tries": 1
+ },
+ "dismantle": {
+  "ipa": "[dɪsˈmæntʰəɫ]",
+  "pos": "verb",
+  "def": "To divest, strip of dress or covering.",
+  "ex": "",
+  "syn": [],
+  "vi": "tháo dỡ, cất đi",
+  "v": 2,
+  "tries": 2
+ },
+ "duly": {
+  "ipa": "/ˈdʒuːli/",
+  "pos": "adverb",
+  "def": "In a due, fit, or becoming manner; as it ought to be; suitably; properly.",
+  "ex": "Candidates must be duly nominated by the electoral commission.",
+  "syn": [],
+  "vi": "đúng cách",
+  "v": 2,
+  "tries": 1
+ },
+ "reformist": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "One who advocates reform (of an institution).",
+  "ex": "Reformist prison systems try and encourage learning the teachings of stoicism because it lowers reoffending rates a lot.",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "imminent": {
+  "ipa": "/ˈɪmɪnənt/",
+  "pos": "adjective",
+  "def": "About to happen, occur, or take place very soon, especially of something which won't last long.",
+  "ex": "Rodrigo realized his death was imminent.",
+  "syn": [],
+  "vi": "sắp xảy ra, cấp bách",
+  "v": 2,
+  "tries": 1
+ },
+ "sympathy": {
+  "ipa": "/ˈsɪm.pə.θi/",
+  "pos": "noun",
+  "def": "A feeling of pity or sorrow for the suffering or distress of another.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự đồng cảm, lòng thương hại",
+  "v": 2,
+  "tries": 1
+ },
+ "forecaster": {
+  "ipa": "/ˈfɔːkɑːstə/",
+  "pos": "noun",
+  "def": "A person who forecasts.",
+  "ex": "",
+  "syn": [],
+  "vi": "người dự báo",
+  "v": 2,
+  "tries": 1
+ },
+ "conceal": {
+  "ipa": "/kənˈsiːl/",
+  "pos": "verb",
+  "def": "To hide something from view or from public knowledge, to try to keep something secret.",
+  "ex": "",
+  "syn": [],
+  "vi": "che giấu, giấu",
+  "v": 2,
+  "tries": 1
+ },
+ "unrelated": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "Not connected or associated",
+  "ex": "The holiday started with two unrelated mishaps.",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "clarity": {
+  "ipa": "/ˈklæɹ.ɪ.ti/",
+  "pos": "noun",
+  "def": "The state or measure of being clear, either in appearance, thought or style; lucidity.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự rõ ràng",
+  "v": 2,
+  "tries": 1
+ },
+ "flotation": {
+  "ipa": "/fləʊˈteɪʃən/",
+  "pos": "noun",
+  "def": "A state of floating, or being afloat.",
+  "ex": "The flotation device kept Tom safely above water.",
+  "syn": [],
+  "vi": "tuyển nổi",
+  "v": 2,
+  "tries": 1
+ },
+ "maneuver": {
+  "ipa": "/məˈnuːvə/",
+  "pos": "noun",
+  "def": "The planned movement of troops, vehicles etc.; a strategic repositioning; a large training field-exercise of fighting units. .mw-parser-output .defdate{font-size:smaller}",
+  "ex": "The centipede maneuvered through the dense vegetation.",
+  "syn": [],
+  "vi": "điều động, sự thao diển quân đội",
+  "v": 2,
+  "tries": 1
+ },
+ "prosperous": {
+  "ipa": "/ˈpɹɒs.p(ə.)ɹəs/",
+  "pos": "adjective",
+  "def": "Characterized by success.",
+  "ex": "",
+  "syn": [],
+  "vi": "thịnh vượng, phát đạt",
+  "v": 2,
+  "tries": 1
+ },
+ "launder": {
+  "ipa": "/ˈlɔːndə/",
+  "pos": "verb",
+  "def": "A washerwoman or washerman.",
+  "ex": "Tomás was convicted for money laundering.",
+  "syn": [],
+  "vi": "giặt giũ",
+  "v": 2,
+  "tries": 1
+ },
+ "specialization": {
+  "ipa": "/ˌspɛʃəlɪˈzeɪʃn̩/",
+  "pos": "noun",
+  "def": "The act or process of specializing.",
+  "ex": "A triangle is a specialization of a polygon to one with exactly three sides.",
+  "syn": [
+   "particularization"
+  ],
+  "vi": "chuyên môn hóa",
+  "v": 2,
+  "tries": 2
+ },
+ "globally": {
+  "ipa": "/ˈɡləʊbəli/",
+  "pos": "adverb",
+  "def": "In all places or situations.",
+  "ex": "",
+  "syn": [],
+  "vi": "trên toàn cầu",
+  "v": 2,
+  "tries": 1
+ },
+ "cleric": {
+  "ipa": "/ˈklɛɹɪk/",
+  "pos": "noun",
+  "def": "A member of a clergy.",
+  "ex": "Together, a bard, a wizard, a cleric, a barbarian and a monk comprise the party.",
+  "syn": [],
+  "vi": "giáo sĩ",
+  "v": 2,
+  "tries": 1
+ },
+ "dash": {
+  "ipa": "/dæʃ/",
+  "pos": "noun",
+  "def": "Any of the following symbols: ‒ (figure dash), – (en dash), — (em dash), or ― (horizontal bar).",
+  "ex": "Add a dash of vinegar.",
+  "syn": [],
+  "vi": "dấu gạch ngang, chạm",
+  "v": 2,
+  "tries": 2
+ },
+ "rein": {
+  "ipa": "/ɹeɪn/",
+  "pos": "noun",
+  "def": "A strap or rope attached to a bridle or bit, used to control a horse, other animal or young child.",
+  "ex": "He gave the child free rein to manage.",
+  "syn": [],
+  "vi": "kiềm chế, dây cương",
+  "v": 2,
+  "tries": 1
+ },
+ "dismissal": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The act of sending someone away.",
+  "ex": "",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "empowerment": {
+  "ipa": "/ɪmˈpaʊ.əɹ.mənt/",
+  "pos": "noun",
+  "def": "The achievement of political, social or economic power by an individual or group.",
+  "ex": "I read a quote about self empowerment or self love every day for inspiration.",
+  "syn": [],
+  "vi": "trao quyền",
+  "v": 2,
+  "tries": 1
+ },
+ "revival": {
+  "ipa": "/ɹɪˈvaɪ̯vəl/",
+  "pos": "noun",
+  "def": "The act of reviving, or the state of being revived.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự hồi sinh, sự hồi sanh",
+  "v": 2,
+  "tries": 1
+ },
+ "nationalize": {
+  "ipa": "/ˈnæʃənəlaɪz/",
+  "pos": "verb",
+  "def": "To make into, or to become, a nation.",
+  "ex": "",
+  "syn": [],
+  "vi": "quốc hữu hóa, dân tộc hóa",
+  "v": 2,
+  "tries": 1
+ },
+ "swiftly": {
+  "ipa": "/ˈswɪftli/",
+  "pos": "adverb",
+  "def": "In a swift manner; quickly; with quick motion or velocity; fleetly.",
+  "ex": "",
+  "syn": [],
+  "vi": "nhanh chóng",
+  "v": 2,
+  "tries": 1
+ },
+ "void": {
+  "ipa": "/vɔɪd/",
+  "pos": "adjective",
+  "def": "Containing nothing; empty; not occupied or filled.",
+  "ex": "He has an unbridgeable void inside.",
+  "syn": [],
+  "vi": "trống rỗng, không có giá trị",
+  "v": 2,
+  "tries": 1
+ },
+ "enforceable": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "Capable of being enforced.",
+  "ex": "",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "dub": {
+  "ipa": "/dʌb/",
+  "pos": "noun",
+  "def": "ISO 639-3 language code for Dubli.",
+  "ex": "These Russian movies are dubbed in English.",
+  "syn": [],
+  "vi": "lồng tiếng",
+  "v": 2,
+  "tries": 1
+ },
+ "deliberate": {
+  "ipa": "/dɪˈlɪb.(ə.)ɹət/",
+  "pos": "adjective",
+  "def": "Done on purpose; intentional.",
+  "ex": "",
+  "syn": [],
+  "vi": "có chủ ý, cẩn thận",
+  "v": 2,
+  "tries": 1
+ },
+ "unsecured": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "Not physically secured; not fastened; not attached.",
+  "ex": "Tom seized an unsecured bus at night and took it for a joyride until early morning.",
+  "syn": [
+   "free",
+   "loose"
+  ],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "blast": {
+  "ipa": "/blɑːst/",
+  "pos": "noun",
+  "def": "Used to show anger or disappointment: damn",
+  "ex": "",
+  "syn": [],
+  "vi": "vụ nổ",
+  "v": 2,
+  "tries": 1
+ },
+ "alas": {
+  "ipa": "/əˈlæs/",
+  "pos": "adverb",
+  "def": "Used to express sorrow, regret, compassion, grief, resignation, or disappointment.",
+  "ex": "Alas, they just keep looking for pretexts!",
+  "syn": [],
+  "vi": "than ôi",
+  "v": 2,
+  "tries": 1
+ },
+ "impair": {
+  "ipa": "/ɪmˈpɛə/",
+  "pos": "verb",
+  "def": "To weaken; to affect negatively; to have a diminishing effect on.",
+  "ex": "",
+  "syn": [],
+  "vi": "làm suy yếu, làm hao mòn",
+  "v": 2,
+  "tries": 1
+ },
+ "testify": {
+  "ipa": "/ˈtɛstɪfaɪ/",
+  "pos": "verb",
+  "def": "To make a declaration, or give evidence, under oath.",
+  "ex": "",
+  "syn": [],
+  "vi": "làm chứng",
+  "v": 2,
+  "tries": 1
+ },
+ "prod": {
+  "ipa": "/pɹɒd/",
+  "pos": "verb",
+  "def": "To poke, to push, to touch.",
+  "ex": "Tom occasionally prods me to work out with him, but I'm really not interested.",
+  "syn": [],
+  "vi": "sản phẩm, chọc bằng vật nhọn",
+  "v": 2,
+  "tries": 1
+ },
+ "liberalize": {
+  "ipa": "/ˈlɪbəɹəlaɪz/",
+  "pos": "verb",
+  "def": "to make liberal, free.",
+  "ex": "",
+  "syn": [],
+  "vi": "tự do hóa",
+  "v": 2,
+  "tries": 1
+ },
+ "bully": {
+  "ipa": "/ˈbʊli/",
+  "pos": "adjective",
+  "def": "Well done; often sarcastic in modern use.",
+  "ex": "",
+  "syn": [],
+  "vi": "bắt nạt",
+  "v": 2,
+  "tries": 1
+ },
+ "persistent": {
+  "ipa": "/pəˈsɪstənt/",
+  "pos": "adjective",
+  "def": "Obstinately refusing to give up or let go.",
+  "ex": "",
+  "syn": [],
+  "vi": "kiên trì, khăng khăng",
+  "v": 2,
+  "tries": 1
+ },
+ "catastrophe": {
+  "ipa": "/kəˈtæstɹəfi/",
+  "pos": "noun",
+  "def": "Any large and disastrous event of great significance.",
+  "ex": "",
+  "syn": [],
+  "vi": "thảm họa, kết cuộc thê thảm một vở kịch",
+  "v": 2,
+  "tries": 1
+ },
+ "endless": {
+  "ipa": "/ˈɛndlɪs/",
+  "pos": "adjective",
+  "def": "Having no end.",
+  "ex": "",
+  "syn": [],
+  "vi": "vô tận",
+  "v": 2,
+  "tries": 1
+ },
+ "revaluation": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "The process of altering the relative value of a currency or other standard of exchange.",
+  "ex": "After the new party took power, the government declared a revaluation of the currency in an attempt to limit runaway inflation.",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "swell": {
+  "ipa": "/swɛl/",
+  "pos": "",
+  "def": "",
+  "ex": "",
+  "syn": [],
+  "vi": ""
+ },
+ "worthy": {
+  "ipa": "/ˈwɜː.ði/",
+  "pos": "adjective",
+  "def": "Having worth, merit, or value.",
+  "ex": "",
+  "syn": [],
+  "vi": "xứng đáng, có giá trị",
+  "v": 2,
+  "tries": 1
+ },
+ "resale": {
+  "ipa": "/ˈriːseɪl/",
+  "pos": "noun",
+  "def": "Sale of something previously bought.",
+  "ex": "Tom ruined the resale value of his truck when he spilled paint in it.",
+  "syn": [],
+  "vi": "bán lại",
+  "v": 2,
+  "tries": 1
+ },
+ "corrective": {
+  "ipa": "/kəˈɹɛktɪv/",
+  "pos": "adjective",
+  "def": "Of or pertaining to correction; serving to correct.",
+  "ex": "",
+  "syn": [],
+  "vi": "sửa chữa",
+  "v": 2,
+  "tries": 1
+ },
+ "genocide": {
+  "ipa": "/ˈd͡ʒɛnəsaɪd/",
+  "pos": "noun",
+  "def": "The systematic and deliberate destruction of a group of people; typically by killing substantial numbers of them, on the basis of their ethnicity, religion, nationality, or similar grounds. .mw-parser",
+  "ex": "",
+  "syn": [],
+  "vi": "sự diệt chủng",
+  "v": 2,
+  "tries": 1
+ },
+ "legitimacy": {
+  "ipa": "/ləˈd͡ʒɪtɪməsi/",
+  "pos": "noun",
+  "def": "The quality or state of being legitimate or valid; validity. Public acceptance of an institution, such as a government, corporation, or system.",
+  "ex": "Fair trials ensure the legitimacy of holding war criminals accountable.",
+  "syn": [],
+  "vi": "tính hợp pháp",
+  "v": 2,
+  "tries": 1
+ },
+ "speculator": {
+  "ipa": "/ˈspɛkjʊˌleɪtə/",
+  "pos": "noun",
+  "def": "One who speculates; an observer; a contemplator.",
+  "ex": "",
+  "syn": [],
+  "vi": "kẻ đầu cơ, người đầu cơ",
+  "v": 2,
+  "tries": 1
+ },
+ "inconsistent": {
+  "ipa": "/ˌɪnkənˈsɪstənt/",
+  "pos": "adjective",
+  "def": "Not consistent:",
+  "ex": "Personality tests give me inconsistent results.",
+  "syn": [],
+  "vi": "không nhất quán, không hợp nhau",
+  "v": 2,
+  "tries": 1
+ },
+ "plainly": {
+  "ipa": "/ˈpleɪnli/",
+  "pos": "adverb",
+  "def": "In a plain manner; simply; basically.",
+  "ex": "",
+  "syn": [],
+  "vi": "rõ ràng",
+  "v": 2,
+  "tries": 1
+ },
+ "unexpectedly": {
+  "ipa": "/ʌnɪkˈspɛktɪdli/",
+  "pos": "adverb",
+  "def": "In an unexpected manner.",
+  "ex": "",
+  "syn": [],
+  "vi": "bất ngờ",
+  "v": 2,
+  "tries": 1
+ },
+ "timber": {
+  "ipa": "/ˈtɪmbə/",
+  "pos": "noun",
+  "def": "Used by loggers to warn others that a tree being felled is falling.",
+  "ex": "Seasoned timber is better for construction and joinery.",
+  "syn": [],
+  "vi": "gỗ",
+  "v": 2,
+  "tries": 1
+ },
+ "credential": {
+  "ipa": "/kɹɪˈdɛnʃəl/",
+  "pos": "noun",
+  "def": "Pertaining to or serving as an introduction or recommendation (to someone). .mw-parser-output .defdate{font-size:smaller}",
+  "ex": "",
+  "syn": [],
+  "vi": "thông tin xác thực",
+  "v": 2,
+  "tries": 1
+ },
+ "heir": {
+  "ipa": "/ˈɛə̯/",
+  "pos": "noun",
+  "def": "Someone who inherits, or is designated to inherit, the property of another.",
+  "ex": "",
+  "syn": [],
+  "vi": "người thừa kế",
+  "v": 2,
+  "tries": 1
+ },
+ "genuinely": {
+  "ipa": "/ˈd͡ʒɛn.ju.ɪn.li/",
+  "pos": "adverb",
+  "def": "In a genuine manner; truthfully, truly.",
+  "ex": "",
+  "syn": [],
+  "vi": "thực sự",
+  "v": 2,
+  "tries": 1
+ },
+ "severely": {
+  "ipa": "",
+  "pos": "adverb",
+  "def": "In a severe manner.",
+  "ex": "",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "grim": {
+  "ipa": "/ɡɹɪm/",
+  "pos": "adjective",
+  "def": "Dismal and gloomy, cold and forbidding.",
+  "ex": "",
+  "syn": [],
+  "vi": "nghiệt ngã, ghê gớm",
+  "v": 2,
+  "tries": 1
+ },
+ "relational": {
+  "ipa": "",
+  "pos": "adjective",
+  "def": "Relating to relations.",
+  "ex": "",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "brutal": {
+  "ipa": "/ˈbɹuːtəl/",
+  "pos": "adjective",
+  "def": "Savagely violent, vicious, ruthless, or cruel, often in an unintelligent manner.",
+  "ex": "",
+  "syn": [],
+  "vi": "tàn bạo",
+  "v": 2,
+  "tries": 1
+ },
+ "quasi": {
+  "ipa": "/ˈkweɪzaɪ/",
+  "pos": "prefix",
+  "def": "Resembling or having a likeness to the named thing.",
+  "ex": "Putin's passport was found on the quasi drone attack scene.",
+  "syn": [],
+  "vi": "gần như",
+  "v": 2,
+  "tries": 1
+ },
+ "monopolist": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "One who has, or attempts to acquire, a monopoly on something.",
+  "ex": "",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "disposition": {
+  "ipa": "/ˌdɪs.pəˈzɪʃ.ən/",
+  "pos": "noun",
+  "def": "The way in which something or someone is disposed or disposed of (in any sense of those terms); thus: Control over something, or the results produced by the exercise of such control; thus: The arrange",
+  "ex": "She usually has a sunny disposition.",
+  "syn": [],
+  "vi": "bố trí, bày binh bố trận",
+  "v": 2,
+  "tries": 1
+ },
+ "histogram": {
+  "ipa": "/ˈhɪstəˌɡɹæm/",
+  "pos": "noun",
+  "def": "A graphical display of numerical data in the form of upright bars, with the area of each bar representing frequency.",
+  "ex": "",
+  "syn": [],
+  "vi": "biểu đồ",
+  "v": 2,
+  "tries": 1
+ },
+ "misunderstand": {
+  "ipa": "/mɪs.ʌn.də(ɹ)ˈstænd/",
+  "pos": "verb",
+  "def": "To understand incorrectly, while believing one has understood correctly.",
+  "ex": "",
+  "syn": [],
+  "vi": "hiểu lầm",
+  "v": 2,
+  "tries": 1
+ },
+ "worksheet": {
+  "ipa": "",
+  "pos": "noun",
+  "def": "A sheet of paper or computerized document on which problems are worked out or solved and the answers are recorded.",
+  "ex": "The reward for finishing your worksheet early is another worksheet.",
+  "syn": [],
+  "vi": "",
+  "v": 2,
+  "tries": 3
+ },
+ "intercept": {
+  "ipa": "/ɪntəˈsɛpt/",
+  "pos": "verb",
+  "def": "To stop, deflect or divert (something in progress or motion).",
+  "ex": "He intercepted the ball from the opponent.",
+  "syn": [],
+  "vi": "chặn, chận bắt",
+  "v": 2,
+  "tries": 1
+ },
+ "dent": {
+  "ipa": "/dɛnt/",
+  "pos": "noun",
+  "def": "A shallow deformation in the surface of an object, produced by an impact.",
+  "ex": "",
+  "syn": [],
+  "vi": "vết lõm",
+  "v": 2,
+  "tries": 1
+ },
+ "importer": {
+  "ipa": "/ɪmˈpɔː(ɹ)tə(ɹ)/",
+  "pos": "noun",
+  "def": "One who, or that which, imports: especially a person or company importing goods into a country.",
+  "ex": "",
+  "syn": [],
+  "vi": "nhà nhập khẩu",
+  "v": 2,
+  "tries": 1
+ },
+ "peacekeeping": {
+  "ipa": "/ˈpiːskiːpɪŋ/",
+  "pos": "noun",
+  "def": "The act of preserving peace, specifically between hostile groups or states, especially by a sanctioned military force. .mw-parser-output .defdate{font-size:smaller}",
+  "ex": "Peacekeeper is the basic rank of active officers in the French National Police.",
+  "syn": [],
+  "vi": "gìn giữ hòa bình",
+  "v": 2,
+  "tries": 1
+ },
+ "geography": {
+  "ipa": "/dʒiˈɒɡɹəfi/",
+  "pos": "noun",
+  "def": "The study of the physical properties of the earth, including how humans affect and are affected by them.",
+  "ex": "",
+  "syn": [],
+  "vi": "địa lý",
+  "v": 2,
+  "tries": 1
+ },
+ "dismal": {
+  "ipa": "/ˈdɪzməl/",
+  "pos": "adjective",
+  "def": "Disastrous, calamitous.",
+  "ex": "The flyover provides a dismal view of slum dwellings.",
+  "syn": [],
+  "vi": "ảm đạm, buồn rầu",
+  "v": 2,
+  "tries": 1
+ },
+ "confrontation": {
+  "ipa": "/ˌkɒn.fɹənˈteɪ.ʃən/",
+  "pos": "noun",
+  "def": "The act of confronting or challenging another, especially face to face.",
+  "ex": "",
+  "syn": [],
+  "vi": "sự đối đầu",
+  "v": 2,
+  "tries": 1
+ },
+ "demise": {
+  "ipa": "/dɪˈmaɪz/",
+  "pos": "noun",
+  "def": "The conveyance or transfer of an estate, either in fee for life or for years, most commonly the latter.",
+  "ex": "Alienation from nature will one day become humanity's demise.",
+  "syn": [],
+  "vi": "sự tàn lụi, cho thuê",
+  "v": 2,
+  "tries": 1
+ },
+ "reversal": {
+  "ipa": "/ɹɪˈvɜː(ɹ)səl/",
+  "pos": "noun",
+  "def": "The state of being reversed.",
+  "ex": "",
+  "syn": [],
+  "vi": "đảo ngược, sự biến chuyển",
+  "v": 2,
+  "tries": 1
+ },
+ "tide": {
+  "ipa": "/taɪd/",
+  "pos": "noun",
+  "def": "The daily fluctuation in the level of the sea caused by the gravitational influence of the moon and the sun.",
+  "ex": "",
+  "syn": [],
+  "vi": "thủy triều, con nước",
+  "v": 2,
+  "tries": 1
+ },
+ "saver": {
+  "ipa": "/ˈseɪvə/",
+  "pos": "noun",
+  "def": "One who saves.",
+  "ex": "Tom sat in front of his computer just staring at the screen saver.",
+  "syn": [],
+  "vi": "tiết kiệm",
+  "v": 2,
+  "tries": 1
+ },
+ "tick": {
+  "ipa": "/tɪk/",
+  "pos": "noun",
+  "def": "A tiny woodland arachnid of the suborder Ixodida.",
+  "ex": "",
+  "syn": [],
+  "vi": "đánh dấu, chút lát",
+  "v": 2,
+  "tries": 1
+ },
+ "intensify": {
+  "ipa": "/ɪnˈtɛnsɪfaɪ/",
+  "pos": "verb",
+  "def": "To render more intense.",
+  "ex": "Over the years, his anger has intensified.",
+  "syn": [],
+  "vi": "tăng cường",
+  "v": 2,
+  "tries": 1
+ },
+ "aviation": {
+  "ipa": "/ˌeɪ̯.viːˈeɪ̯.ʃən/",
+  "pos": "noun",
+  "def": "The art or science of making and flying aircraft.",
+  "ex": "The aviation expert analyzed the statistics in detail.",
+  "syn": [],
+  "vi": "hàng không",
+  "v": 2,
+  "tries": 1
+ },
+ "defy": {
+  "ipa": "/dɪˈfaɪ/",
+  "pos": "verb",
+  "def": "To challenge (someone) or brave (a hazard or opposition).",
+  "ex": "",
+  "syn": [],
+  "vi": "thách thức, coi rẽ",
+  "v": 2,
+  "tries": 1
+ },
+ "decimal": {
+  "ipa": "/ˈdɛs.ɪ.məl/",
+  "pos": "noun",
+  "def": "NATO, ICAO, ITU &amp; IMO radiotelephony clear code (spelling-alphabet name) for decimal point.",
+  "ex": "The cavaliers were decimated by the artillery.",
+  "syn": [],
+  "vi": "số thập phân",
+  "v": 2,
+  "tries": 1
+ },
+ "realizable": {
+  "ipa": "/ˌɹɪəˈlaɪz.ə.bl̩/",
+  "pos": "adjective",
+  "def": "Capable of being realized (made real) or achieved.",
+  "ex": "",
+  "syn": [],
+  "vi": "có thể thực hiện được, có thể làm được",
+  "v": 2,
+  "tries": 1
+ },
+ "dioxide": {
+  "ipa": "/daɪˈɒksaɪd/",
+  "pos": "noun",
+  "def": "Any oxide containing two oxygen atoms in each molecule.",
+  "ex": "Forests are massive sponges of carbon dioxide.",
+  "syn": [],
+  "vi": "dioxit",
+  "v": 2,
+  "tries": 1
+ },
+ "micro": {
+  "ipa": "/ˈmaɪ.kɹoʊ/",
+  "pos": "noun",
+  "def": "(gaming slang) micromanagement",
+  "ex": "A 25-year-old man's recommended dietary allowance of iron is 8 micro-grams.",
+  "syn": [
+   "PC",
+   "micro"
+  ],
+  "vi": "vi mô",
+  "v": 2,
+  "tries": 1
+ }
+}

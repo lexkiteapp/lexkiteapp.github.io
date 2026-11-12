@@ -1,0 +1,18 @@
+{
+ "topic": "Grammar: borrow or lend?",
+ "scene": "library",
+ "seed": "cp-borrow-lend",
+ "vars": {
+  "a": "borrow",
+  "b": "lend",
+  "confession": "Oops, I asked my friend to borrow me a pen.",
+  "aRule": "Borrow means you take it for a while: I borrow a pen from you.",
+  "bRule": "Lend means you give it for a while: I can lend you my pen.",
+  "tip": "borrow from, lend to. Borrow brings it to you, lend lets it go."
+ },
+ "hashtags": [
+  "englishgrammar",
+  "confusingwords",
+  "vocabulary"
+ ]
+}

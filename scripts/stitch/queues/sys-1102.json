@@ -1,0 +1,512 @@
+[
+ {
+  "id": "gap-cbt",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. This is a focus screen inside a lesson, so no bottom tabs: a clear close (X) button on the top left and a slim progress bar, nothing else crowded in the top bar, and no lives counter. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: IELTS computer-based Reading practice. Top bar with close, \"Reading 14 of 26\", a small CBT chip, a countdown timer and a clearly readable \"Hide\" text button next to the timer. A teacher-slot coach tip card (Coach Ama, IELTS tip about True, False and Not Given). Below, an academic passage card \"The Termite Mound Architecture\" with paragraphs A and B, a Highlight on/off toggle, an \"Expand full passage (680 words)\" button and the first question of a True/False/Not Given set. Use a plain calm exam-reading look."
+ },
+ {
+  "id": "gap-cbt",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "gap-cbt/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "gap-handoff",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. At the bottom show the five tabs Today, Vocab, Skills, Tests, Me, with the relevant one highlighted. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Connect the Lexkite add-on. Back arrow, title \"Browser sync\". Headline \"Connect the Lexkite add-on\" with one line \"Link your desktop browser to study vocabulary everywhere you read.\" A small flow diagram: Chrome add-on, sync arrows, Lexkite app. A big card with a one-time pairing code K7P-Q4M and \"Expires in 4:56\". Three numbered steps: open the add-on, choose Sign in with code, paste the code. A teacher-slot with Ama saying \"Your words will sync both ways.\" Buttons: Done (coral) and \"Get a new code\". A small reassurance line about encrypted sync. All text on the dark theme must remain high contrast."
+ },
+ {
+  "id": "gap-handoff",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "gap-handoff/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "gap-league-pop",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. This is a focus screen inside a lesson, so no bottom tabs: a clear close (X) button on the top left and a slim progress bar, nothing else crowded in the top bar, and no lives counter. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Weekly league promotion popup over a dimmed app. Large celebratory card: \"You were promoted!\", Silver League to Gold League, \"Finished #4 of 30 this week\", a short leaderboard of three rows (Sara K. 1,980 XP, YOU Alex L. 1,940 XP, James R. 1,820 XP) with the top 5 promotion zone marked, a teacher-slot with Carlos saying \"Gold looks good on you!\", the label \"Gold League unlocked\", coral Continue button and a quiet \"See leaderboard\" link. The Lexkite wordmark and any small header text must be dark and clearly readable on the light background, no gems and no rewards other than XP."
+ },
+ {
+  "id": "gap-league-pop",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "gap-league-pop/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "gap-lsn-hint",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. This is a focus screen inside a lesson, so no bottom tabs: a clear close (X) button on the top left and a slim progress bar, nothing else crowded in the top bar, and no lives counter. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Grammar hint sheet during a fill-in-the-gap drill. Question \"She has lived here ____ 2019.\" with answers A since, B for, C during. A hint panel rises from the bottom: title Hint, a teacher-slot with Ama and the line \"Think: a specific point or a length?\", short explanation of since with a starting point and for with a length of time, two small example groups (since 2019, since Monday / for five years, for two hours), a target example sentence and a note that 2019 is a specific year. Buttons: \"Got it\" and \"Show answer\". Instead of any lives counter show nothing in the top-right; progress bar only."
+ },
+ {
+  "id": "gap-lsn-hint",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "gap-lsn-hint/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "gap-lsn-listen",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. This is a focus screen inside a lesson, so no bottom tabs: a clear close (X) button on the top left and a slim progress bar, nothing else crowded in the top bar, and no lives counter. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: IELTS sound drill: \"Tap what you hear\", subtitle \"Distinguish minimal vowel pairs at exam speed\". A teacher-slot card for Ama with the tip \"Listen for the vowel sound in the middle.\" A big round play button with a 0.75x slow toggle. Four large answer cards: though /ðəʊ/, thought /θɔːt/, through /θruː/, tough /tʌf/, one selected. Coral Check button. The small section label above the title and the coach chip must have clearly readable contrast in both themes, and there is no lives counter."
+ },
+ {
+  "id": "gap-lsn-listen",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "gap-lsn-listen/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "gap-lsn-timeup",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Carlos is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. This is a focus screen inside a lesson, so no bottom tabs: a clear close (X) button on the top left and a slim progress bar, nothing else crowded in the top bar, and no lives counter. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Rapid vocabulary drill result: \"Time's up!\" with a large 0:00 clock. A teacher-slot with Carlos saying \"So close - one more round?\" Summary: answered 8 of 10, 6 correct, accuracy 75 percent, XP +12, streak 4, paced at 4.2 seconds per question. A card showing the last question \"Which word means vital?\" with the answer Crucial. Buttons: \"See answers\" and a coral \"Try again\". No lives counter."
+ },
+ {
+  "id": "gap-lsn-timeup",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "gap-lsn-timeup/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "gap-lsn-truefalse",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. This is a focus screen inside a lesson, so no bottom tabs: a clear close (X) button on the top left and a slim progress bar, nothing else crowded in the top bar, and no lives counter. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Reading comprehension, question 4 of 7. A passage card: \"The library opens at nine on weekdays but closes early on Fridays.\" A statement card: \"The library closes early every day.\" Instruction \"Select whether the statement is True or False\". Two big answer buttons True and False. A teacher-slot with Ama saying \"Read every word of the statement.\" Coral Check button. No lives counter."
+ },
+ {
+  "id": "gap-lsn-truefalse",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "gap-lsn-truefalse/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "gap-roleplay",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. This is a focus screen inside a lesson, so no bottom tabs: a clear close (X) button on the top left and a slim progress bar, nothing else crowded in the top bar, and no lives counter. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Speaking role-play, B1: Hotel check-in, turn 3 of 5, you are the guest. Chat-style dialogue: receptionist (teacher-slot, Ama) says \"Good afternoon! Welcome to the Grand Azure. How can I help you today?\"; the learner reply \"Hello! I have a reservation under Alex Nguyen for three nights.\" with a small positive feedback line \"Great: polite request (+15 XP)\"; the receptionist continues about a Deluxe King room on floor 4. Suggestion chips (tap to insert): \"Ask about breakfast\", \"Ask for a late checkout\". Bottom: a big hold-to-answer microphone button, a keyboard toggle and a Continue button. No lives counter."
+ },
+ {
+  "id": "gap-roleplay",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "gap-roleplay/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "gap-toefl",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. This is a focus screen inside a lesson, so no bottom tabs: a clear close (X) button on the top left and a slim progress bar, nothing else crowded in the top bar, and no lives counter. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: TOEFL iBT Reading drill, question 4 of 10, with a timer. Teacher-slot coach card (Ama) with a short tip. A botany passage excerpt with the word \"abundant\" highlighted, then the question \"The word abundant in the passage is closest in meaning to:\" with four answer cards A plentiful, B rare, C tiny, D colourful, A selected. Back and coral Check and Next buttons. No lives counter."
+ },
+ {
+  "id": "gap-toefl",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "gap-toefl/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "gap-toeic",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Carlos is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. This is a focus screen inside a lesson, so no bottom tabs: a clear close (X) button on the top left and a slim progress bar, nothing else crowded in the top bar, and no lives counter. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: TOEIC Listening Part 1 Photographs, a countdown timer. Teacher-slot tip card (Carlos): \"Listen for the action verb in the sentence.\" A rounded empty picture frame labelled \"photo-slot\" for the exam photo, a Play Statement button with an audio wave and 1x speed. Four large option buttons A, B, C, D labelled Statement A to D, with C selected, and the note that in TOEIC the options are spoken only. Next button. No lives counter."
+ },
+ {
+  "id": "gap-toeic",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "gap-toeic/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "gap-vday",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Carlos is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. This is a focus screen inside a lesson, so no bottom tabs: a clear close (X) button on the top left and a slim progress bar, nothing else crowded in the top bar, and no lives counter. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Lesson day overview: \"Day 3 - Work and careers\", IELTS and TOEIC core. A teacher-slot with Carlos and the line \"Say each word out loud once.\" Lesson goal \"8 words, about 6 minutes\", chips 5 new and 3 review. A list of target vocabulary cards each with word, part of speech, NEW or REVIEW tag, short definition and a speaker button: colleague, deadline, negotiate, promotion, candidate, schedule. Coral Start button. No lives counter."
+ },
+ {
+  "id": "gap-vday",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "gap-vday/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "gap-phrases",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. At the bottom show the five tabs Today, Vocab, Skills, Tests, Me, with the relevant one highlighted. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Sentence patterns for Speaking and Writing. Header with a teacher-slot (Carlos) and the line \"Steal these for Speaking Part 3.\" Title \"Sentence patterns\" with the subtitle \"Useful patterns for Speaking and Writing\" in clearly readable text, a search box, filter chips Opinions, Agreeing, Describing trends. Two formula cards: Stating viewpoint \"I'd argue that + clause\" and Nuanced stance \"It is widely held that..., yet I believe...\", each with an example sentence and a speaker button. Coral button \"Practise these 5\". Do not show any band-score badge. The Phrases tab belongs under Skills."
+ },
+ {
+  "id": "gap-phrases",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "gap-phrases/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "gap-verbs",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. At the bottom show the five tabs Today, Vocab, Skills, Tests, Me, with the relevant one highlighted. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Irregular verbs table. Back arrow and title, a teacher-slot (Ama) saying \"Say all three forms aloud.\", tabs Most common, A to Z, My tricky ones (4). Table with columns base V1, past V2, participle V3 and audio: go /ɡəʊ/ went gone; buy bought bought; write wrote written; take took taken; speak spoke spoken, each with IPA in clearly readable text. Progress line \"16 of 95 high-yield verbs mastered\". Coral button \"Quiz me on 10\" with clearly readable text. Rows must stay as dark cards in the dark theme, no white rows."
+ },
+ {
+  "id": "gap-verbs",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "gap-verbs/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "hold-library",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. At the bottom show the five tabs Today, Vocab, Skills, Tests, Me, with the relevant one highlighted. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Vocabulary library: back arrow, title, \"6,420 words, 180 sets\", search and an Anki import/export button, category chips (All sets, IELTS, Everyday, Business, Academic), CEFR filter chips A1 to C2 with B2 selected, one featured set card \"Smart Spaced Deck\" with a coral Study button, then topic cards (Environment, Urban Planning, Artificial Intelligence, Health and Diet, Education System) each with an emoji-free icon, word count and a progress percentage. Fix points: all text, chips and counters must have strong contrast in both themes (small grey text is too faint), icon-only buttons clearly visible, no invented numbers or claims, no Vietnamese text in the English screen. Do not show any band-score promises."
+ },
+ {
+  "id": "hold-library",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "hold-library/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "hold-topic",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. At the bottom show the five tabs Today, Vocab, Skills, Tests, Me, with the relevant one highlighted. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Topic detail: Education. Back arrow, topic title, short description, 40 words and 12 added with a progress bar, a coral button \"Add 28 words to flashcards\", practice mode tiles (Learn, Match cards, Test, Hands-free), Anki export, then a word list header with level filter chips A to C1 and the first word card: pedagogy, noun, IPA, English definition, example sentence, collocations, speaker and Added check. Fix points: all text, chips and counters must have strong contrast in both themes (small grey text is too faint), icon-only buttons clearly visible, no invented numbers or claims, no Vietnamese text in the English screen. "
+ },
+ {
+  "id": "hold-topic",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "hold-topic/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "hold-deck",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. At the bottom show the five tabs Today, Vocab, Skills, Tests, Me, with the relevant one highlighted. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: My Deck: back arrow, title, \"248 words saved, 96 mastered\", deck mastery progress, two action cards Flashcards (14 due today) and Quiz Sprint (3-minute sprint) with readable captions, share/export/import and Anki buttons, filter row (topic, source, mastery), then saved word cards: resilient, ubiquitous with IPA, definition, example, mastery tag and retention percent, speaker and edit buttons. Fix points: all text, chips and counters must have strong contrast in both themes (small grey text is too faint), icon-only buttons clearly visible, no invented numbers or claims, no Vietnamese text in the English screen. "
+ },
+ {
+  "id": "hold-deck",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "hold-deck/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "hold-mistakes",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. At the bottom show the five tabs Today, Vocab, Skills, Tests, Me, with the relevant one highlighted. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Mistakes notebook: back arrow, title, \"14 items ready for mastery\". A teacher-slot card with Ama and a kind line about mistakes. Buttons: Retry my mistakes (coral), Review words I'm forgetting, Clear fixed. Filter chips All 14, Vocabulary 6, Grammar 5, Reading 2, Listening 1. One mistake card: Grammar slip, gerunds, \"I like ____ to music on my daily commute\", your wrong answer versus the right answer listening with IPA, a tip about preference verbs and an Open grammar rule link. Fix points: all text, chips and counters must have strong contrast in both themes (small grey text is too faint), icon-only buttons clearly visible, no invented numbers or claims, no Vietnamese text in the English screen. "
+ },
+ {
+  "id": "hold-mistakes",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "hold-mistakes/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "hold-stats",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. At the bottom show the five tabs Today, Vocab, Skills, Tests, Me, with the relevant one highlighted. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Progress and badges: back arrow, title, a Show off share button. Level 7 card with XP progress 2,340 of 3,000 and an estimate, a 14-day streak and a teacher-slot cheer zone. Today's quests: master 5 collocations, one speaking drill, score 80 percent on a quiz, all done. A memory card with the best review window and a coral button to review 18 words now. Memory levels list: permanent, strong, learning. Fix points: all text, chips and counters must have strong contrast in both themes (small grey text is too faint), icon-only buttons clearly visible, no invented numbers or claims, no Vietnamese text in the English screen. Replace any pseudo-scientific claim with plain wording."
+ },
+ {
+  "id": "hold-stats",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "hold-stats/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "hold-dictionary",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. At the bottom show the five tabs Today, Vocab, Skills, Tests, Me, with the relevant one highlighted. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Dictionary entry: back arrow, title, a search box with Find button, recent searches (resilient, ubiquitous, affect vs effect). Entry card for resilient, adjective, level B2, with UK and US pronunciations and IPA, a slow-listen button, a stress hint, a short meaning line in the learner's own language (shown here in German), an English definition, a teacher-slot and a short usage note from Ama about swapping strong for resilient in writing. Do not mention Cambridge or any band score. Fix points: all text, chips and counters must have strong contrast in both themes (small grey text is too faint), icon-only buttons clearly visible, no invented numbers or claims, no Vietnamese text in the English screen. "
+ },
+ {
+  "id": "hold-dictionary",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "hold-dictionary/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "hold-web-home",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a public web page of lexkite.com for the Lexkite English-learning app (IELTS, TOEIC, TOEFL), shown in a phone-width layout. Feel: bright, tidy, trustworthy and playful. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems. No photos and no drawn people: where a teacher appears show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher is added later by code). No invented claims: no exam-examiner credentials, no band-score promises, no statement about ads. Compact header with the Lexkite wordmark, a language switcher and a menu button. Labels must survive text 40 percent longer in German or Russian: wrap, never truncate. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Page: Home page. Hero headline about English vocabulary that sticks, one supporting sentence, coral Start free button and a quieter Add to Chrome button, a short line that the app is free and available in 15 languages. A phone mockup card showing a sample question with the word resilient and a teacher-slot. Below, a three-step How it works strip, a row of exam names (IELTS, TOEIC, TOEFL), a short FAQ and a footer."
+ },
+ {
+  "id": "hold-web-home",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "hold-web-home/light",
+  "prompt": "Convert this exact public web page, still in mobile phone portrait layout, to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "hold-web-speaking",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a public web page of lexkite.com for the Lexkite English-learning app (IELTS, TOEIC, TOEFL), shown in a phone-width layout. Feel: bright, tidy, trustworthy and playful. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems. No photos and no drawn people: where a teacher appears show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher is added later by code). No invented claims: no exam-examiner credentials, no band-score promises, no statement about ads. Compact header with the Lexkite wordmark, a language switcher and a menu button. Labels must survive text 40 percent longer in German or Russian: wrap, never truncate. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Page: Speaking practice page: topic \"Describe a time when the weather changed your plans\". Breadcrumb, title, a chip row (Parts 1, 2, 3 included, topic 14 of 40), a teacher-slot card for Carlos with a short encouraging line and a Listen button, then numbered sections Part 1 warm-up questions, Part 2 cue card, Part 3 discussion with sample answers and key phrases highlighted. Coral button to practise out loud in the app."
+ },
+ {
+  "id": "hold-web-speaking",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "hold-web-speaking/light",
+  "prompt": "Convert this exact public web page, still in mobile phone portrait layout, to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "hold-web-post",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a public web page of lexkite.com for the Lexkite English-learning app (IELTS, TOEIC, TOEFL), shown in a phone-width layout. Feel: bright, tidy, trustworthy and playful. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems. No photos and no drawn people: where a teacher appears show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher is added later by code). No invented claims: no exam-examiner credentials, no band-score promises, no statement about ads. Compact header with the Lexkite wordmark, a language switcher and a menu button. Labels must survive text 40 percent longer in German or Russian: wrap, never truncate. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Page: Blog article page: \"Academic Word List: 570 word families for IELTS\". Breadcrumb, category label, title, byline by the Lexkite editorial team with date and read time, a summary card, headings with short paragraphs and a small table of sublists, a flat abstract illustration header without people and without text, a teacher-slot box inviting to practise in the app, a coral call to action and related articles."
+ },
+ {
+  "id": "hold-web-post",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "hold-web-post/light",
+  "prompt": "Convert this exact public web page, still in mobile phone portrait layout, to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "hold-web-hub",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a public web page of lexkite.com for the Lexkite English-learning app (IELTS, TOEIC, TOEFL), shown in a phone-width layout. Feel: bright, tidy, trustworthy and playful. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems. No photos and no drawn people: where a teacher appears show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher is added later by code). No invented claims: no exam-examiner credentials, no band-score promises, no statement about ads. Compact header with the Lexkite wordmark, a language switcher and a menu button. Labels must survive text 40 percent longer in German or Russian: wrap, never truncate. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Page: Blog hub page: title \"Lexkite Blog\", one short intro sentence, a search box, filter chips (All guides, IELTS, TOEIC, TOEFL, Grammar, Vocabulary), a featured article card, then a list of article cards with category, title, two-line summary and read time, and pagination. A small teacher-slot card for Carlos. No claims about accreditation."
+ },
+ {
+  "id": "hold-web-hub",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "hold-web-hub/light",
+  "prompt": "Convert this exact public web page, still in mobile phone portrait layout, to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "pt-picker",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. This is a focus screen inside a lesson, so no bottom tabs: a clear close (X) button on the top left and a slim progress bar, nothing else crowded in the top bar, and no lives counter. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Onboarding step: choose the language you want to learn. Calm title \"What do you want to learn?\" and a short line that you can change it later in Settings. Two large selectable language cards: \"English\" selected by default, and \"Português\" with a small \"beta\" badge and a note \"Brazilian Portuguese, 30 starter words\". Each card has a simple flat language mark, no flags of people, no photos. A teacher-slot with Ama welcoming the learner. A coral Continue button. Onboarding screen: no bottom tabs, only a back arrow and step dots."
+ },
+ {
+  "id": "pt-picker",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "pt-picker/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "pt-settings",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. At the bottom show the five tabs Today, Vocab, Skills, Tests, Me, with the relevant one highlighted. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Settings, section Study goal. Rows in rounded cards: Daily goal, Exam target, and the new row \"Language I'm learning\" showing \"English\" with a chevron, and a small beta tag for Português in the option sheet title. Below it a secondary button \"Add 30 starter words\" that is only visible when Português is chosen, with a one-line explanation. Bottom tabs with Me highlighted."
+ },
+ {
+  "id": "pt-settings",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "pt-settings/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "pt-sheet",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Mobile phone, portrait orientation, a single app screen of Lexkite, an English-learning app for IELTS, TOEIC and TOEFL learners. Feel: friendly, tactile, game-like but calm. Deep teal brand colour, one warm coral primary button with a tactile raised feel, cream light theme, rounded friendly cards, generous touch areas. No hearts, lives or gems anywhere. No photos and no drawn people: wherever the teacher appears, show an empty rounded placeholder labelled \"teacher-slot\" (the 2D teacher Ama is added later by code). Realistic content, no lorem ipsum, no invented claims or badges. Every label must survive text 40 percent longer in German or Russian: let text wrap, never truncate with ellipsis, never shrink buttons. At the bottom show the five tabs Today, Vocab, Skills, Tests, Me, with the relevant one highlighted. Make all small text, labels and secondary buttons clearly readable with strong contrast against their background. Screen: Bottom sheet over the Settings screen: \"Language I'm learning\". Two radio cards: English (selected) and Português with a beta badge, a note that your review cards, voice and Notebook follow the language you pick, and that English stays exactly as it is. Buttons: coral Save and a quiet Cancel. Sheet has a grab handle and a clear close button. Bottom tabs visible dimmed behind."
+ },
+ {
+  "id": "pt-sheet",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "pt-sheet/light",
+  "prompt": "Convert this exact screen to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral primary button. Keep the layout, components and every text string identical. No bright white panels or light cards anywhere; secondary and caption text must stay clearly readable."
+ },
+ {
+  "id": "reel-say-45",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Social media vertical video frame for Lexkite, an English-learning app, a 4:5 portrait aspect ratio (feed post, slightly shorter than a phone screen). Feel: bold, friendly, tactile, scroll-stopping but calm. Deep teal brand colour, warm coral accent button-like chips with a raised feel, cream light theme. Layout rules: a big hook question sits in the top third; the main content card in the middle; a teacher-slot (an empty rounded placeholder labelled \"teacher-slot\", 2D teacher Ama inserted by code) at the lower side; a small Lexkite wordmark and a clear Follow for more line at the bottom, kept inside the safe area away from the edges. No photos, no drawn people, no hearts or gems, no invented claims. Big readable text; labels must survive longer German or Russian text by wrapping, never truncating. Content: Format How do you say X? Hook question at the top: \"How do you say 'deadline' in English?\" Beneath it, a big answer card: the word deadline, IPA, a speaker button with sound wave, syllable stress shown with bold letters, and one short example sentence. A small line \"Say it with me\"."
+ },
+ {
+  "id": "reel-say-45",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "reel-say-45/light",
+  "prompt": "Convert this exact frame to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral accents. Keep the same aspect ratio, layout and every text string identical. No bright white panels."
+ },
+ {
+  "id": "reel-say-916",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Social media vertical video frame for Lexkite, an English-learning app, a 9:16 full-height vertical aspect ratio (Reel or Short). Feel: bold, friendly, tactile, scroll-stopping but calm. Deep teal brand colour, warm coral accent button-like chips with a raised feel, cream light theme. Layout rules: a big hook question sits in the top third; the main content card in the middle; a teacher-slot (an empty rounded placeholder labelled \"teacher-slot\", 2D teacher Ama inserted by code) at the lower side; a small Lexkite wordmark and a clear Follow for more line at the bottom, kept inside the safe area away from the edges. No photos, no drawn people, no hearts or gems, no invented claims. Big readable text; labels must survive longer German or Russian text by wrapping, never truncating. Content: Format How do you say X? Hook question at the top: \"How do you say 'deadline' in English?\" Beneath it, a big answer card: the word deadline, IPA, a speaker button with sound wave, syllable stress shown with bold letters, and one short example sentence. A small line \"Say it with me\"."
+ },
+ {
+  "id": "reel-say-916",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "reel-say-916/light",
+  "prompt": "Convert this exact frame to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral accents. Keep the same aspect ratio, layout and every text string identical. No bright white panels."
+ },
+ {
+  "id": "reel-mispro-45",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Social media vertical video frame for Lexkite, an English-learning app, a 4:5 portrait aspect ratio (feed post, slightly shorter than a phone screen). Feel: bold, friendly, tactile, scroll-stopping but calm. Deep teal brand colour, warm coral accent button-like chips with a raised feel, cream light theme. Layout rules: a big hook question sits in the top third; the main content card in the middle; a teacher-slot (an empty rounded placeholder labelled \"teacher-slot\", 2D teacher Carlos inserted by code) at the lower side; a small Lexkite wordmark and a clear Follow for more line at the bottom, kept inside the safe area away from the edges. No photos, no drawn people, no hearts or gems, no invented claims. Big readable text; labels must survive longer German or Russian text by wrapping, never truncating. Content: Format commonly mispronounced word. Hook question at the top: \"Are you saying 'comfortable' wrong?\" A two-column card: wrong way (cum-FORT-a-ble, marked with a cross) versus right way (KUMF-tuh-bul, marked with a check), IPA, speaker button, stress highlighted in bold letters, a short tip."
+ },
+ {
+  "id": "reel-mispro-45",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "reel-mispro-45/light",
+  "prompt": "Convert this exact frame to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral accents. Keep the same aspect ratio, layout and every text string identical. No bright white panels."
+ },
+ {
+  "id": "reel-mispro-916",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Social media vertical video frame for Lexkite, an English-learning app, a 9:16 full-height vertical aspect ratio (Reel or Short). Feel: bold, friendly, tactile, scroll-stopping but calm. Deep teal brand colour, warm coral accent button-like chips with a raised feel, cream light theme. Layout rules: a big hook question sits in the top third; the main content card in the middle; a teacher-slot (an empty rounded placeholder labelled \"teacher-slot\", 2D teacher Carlos inserted by code) at the lower side; a small Lexkite wordmark and a clear Follow for more line at the bottom, kept inside the safe area away from the edges. No photos, no drawn people, no hearts or gems, no invented claims. Big readable text; labels must survive longer German or Russian text by wrapping, never truncating. Content: Format commonly mispronounced word. Hook question at the top: \"Are you saying 'comfortable' wrong?\" A two-column card: wrong way (cum-FORT-a-ble, marked with a cross) versus right way (KUMF-tuh-bul, marked with a check), IPA, speaker button, stress highlighted in bold letters, a short tip."
+ },
+ {
+  "id": "reel-mispro-916",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "reel-mispro-916/light",
+  "prompt": "Convert this exact frame to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral accents. Keep the same aspect ratio, layout and every text string identical. No bright white panels."
+ },
+ {
+  "id": "reel-phrase-45",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Social media vertical video frame for Lexkite, an English-learning app, a 4:5 portrait aspect ratio (feed post, slightly shorter than a phone screen). Feel: bold, friendly, tactile, scroll-stopping but calm. Deep teal brand colour, warm coral accent button-like chips with a raised feel, cream light theme. Layout rules: a big hook question sits in the top third; the main content card in the middle; a teacher-slot (an empty rounded placeholder labelled \"teacher-slot\", 2D teacher Ama inserted by code) at the lower side; a small Lexkite wordmark and a clear Follow for more line at the bottom, kept inside the safe area away from the edges. No photos, no drawn people, no hearts or gems, no invented claims. Big readable text; labels must survive longer German or Russian text by wrapping, never truncating. Content: Format single-phrase card. Hook question at the top: \"What do you say when you miss the bus?\" A large phrase card: \"I missed my bus.\" with a plain-English meaning, a second polite variation, a speaker button and a tag \"Daily English\"."
+ },
+ {
+  "id": "reel-phrase-45",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "reel-phrase-45/light",
+  "prompt": "Convert this exact frame to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral accents. Keep the same aspect ratio, layout and every text string identical. No bright white panels."
+ },
+ {
+  "id": "reel-phrase-916",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Social media vertical video frame for Lexkite, an English-learning app, a 9:16 full-height vertical aspect ratio (Reel or Short). Feel: bold, friendly, tactile, scroll-stopping but calm. Deep teal brand colour, warm coral accent button-like chips with a raised feel, cream light theme. Layout rules: a big hook question sits in the top third; the main content card in the middle; a teacher-slot (an empty rounded placeholder labelled \"teacher-slot\", 2D teacher Ama inserted by code) at the lower side; a small Lexkite wordmark and a clear Follow for more line at the bottom, kept inside the safe area away from the edges. No photos, no drawn people, no hearts or gems, no invented claims. Big readable text; labels must survive longer German or Russian text by wrapping, never truncating. Content: Format single-phrase card. Hook question at the top: \"What do you say when you miss the bus?\" A large phrase card: \"I missed my bus.\" with a plain-English meaning, a second polite variation, a speaker button and a tag \"Daily English\"."
+ },
+ {
+  "id": "reel-phrase-916",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "reel-phrase-916/light",
+  "prompt": "Convert this exact frame to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral accents. Keep the same aspect ratio, layout and every text string identical. No bright white panels."
+ },
+ {
+  "id": "reel-near-45",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Social media vertical video frame for Lexkite, an English-learning app, a 4:5 portrait aspect ratio (feed post, slightly shorter than a phone screen). Feel: bold, friendly, tactile, scroll-stopping but calm. Deep teal brand colour, warm coral accent button-like chips with a raised feel, cream light theme. Layout rules: a big hook question sits in the top third; the main content card in the middle; a teacher-slot (an empty rounded placeholder labelled \"teacher-slot\", 2D teacher Carlos inserted by code) at the lower side; a small Lexkite wordmark and a clear Follow for more line at the bottom, kept inside the safe area away from the edges. No photos, no drawn people, no hearts or gems, no invented claims. Big readable text; labels must survive longer German or Russian text by wrapping, never truncating. Content: Format near-sound word set. Hook question at the top: \"Can you hear the difference?\" A card with three look-alike words in a row: ship, sheep, sleep, each with IPA and a speaker button, the differing sound highlighted in coral, and a one-line tip about the long and short vowel."
+ },
+ {
+  "id": "reel-near-45",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "reel-near-45/light",
+  "prompt": "Convert this exact frame to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral accents. Keep the same aspect ratio, layout and every text string identical. No bright white panels."
+ },
+ {
+  "id": "reel-near-916",
+  "mode": "light",
+  "kind": "gen",
+  "device": "MOBILE",
+  "prompt": "Social media vertical video frame for Lexkite, an English-learning app, a 9:16 full-height vertical aspect ratio (Reel or Short). Feel: bold, friendly, tactile, scroll-stopping but calm. Deep teal brand colour, warm coral accent button-like chips with a raised feel, cream light theme. Layout rules: a big hook question sits in the top third; the main content card in the middle; a teacher-slot (an empty rounded placeholder labelled \"teacher-slot\", 2D teacher Carlos inserted by code) at the lower side; a small Lexkite wordmark and a clear Follow for more line at the bottom, kept inside the safe area away from the edges. No photos, no drawn people, no hearts or gems, no invented claims. Big readable text; labels must survive longer German or Russian text by wrapping, never truncating. Content: Format near-sound word set. Hook question at the top: \"Can you hear the difference?\" A card with three look-alike words in a row: ship, sheep, sleep, each with IPA and a speaker button, the differing sound highlighted in coral, and a one-line tip about the long and short vowel."
+ },
+ {
+  "id": "reel-near-916",
+  "mode": "dark",
+  "kind": "edit",
+  "device": "MOBILE",
+  "from": "reel-near-916/light",
+  "prompt": "Convert this exact frame to the dark theme: deep teal-black background, slightly lighter dark cards, readable high-contrast text, brand teal accents lightened for contrast, keep the coral accents. Keep the same aspect ratio, layout and every text string identical. No bright white panels."
+ }
+]

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pilot B – viseme sprite</title>
+<!-- Pilot B v2 (docs/TEACHER-IN-APP.md §5.4), owner chose B on 27/10. 0 credits, all cut from the 3D bank v2 by scripts/teacher/sprite_build.py:
+     base = 3 s ping-pong loop of the real listen clip (real head/shoulder motion + real blink, no drift), mouth = 10 shapes laid over the
+     mouth with a per-frame face track (requestVideoFrameCallback), crossfaded 60 ms; voice = Kokoro lines + Rhubarb cues gated by VAD
+     (scripts/teacher/sprite_cues.py), loudness picks small / mid / wide in-betweens. -->
+<style>
+  :root { --teal: #0F3D3E; --teal2: #17595A; --ok: #2FBF71; --text: #13201f; --muted: #5b6b6a; --card: #fff; --bg: #F4EFE6; --line: #0F3D3E33; }
+  @media (prefers-color-scheme: dark) { :root { --text: #EAF2F1; --muted: #9DB3B1; --card: #17292A; --bg: #0B1C1D; --line: #EAF2F133; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); }
+  @media (max-width: 760px) { .wrap { grid-template-columns: 1fr; } }
+  .stage { position: relative; width: 100%; aspect-ratio: 3 / 4; border-radius: 22px; overflow: hidden; background: #ddd; box-shadow: 0 10px 30px #0004; }
+  .rig { position: absolute; left: 0; top: 0; width: 480px; height: 640px; transform-origin: 0 0; }
+  .rig video { position: absolute; inset: 0; width: 480px; height: 640px; object-fit: cover; }
+  .face { position: absolute; left: 0; top: 0; width: 480px; height: 640px; transform-origin: 0 0; will-change: transform; }
+  .mouth { position: absolute; background-repeat: no-repeat; opacity: 0; transition: opacity 60ms linear; }
+  .say { position: absolute; left: 10px; right: 10px; bottom: 10px; background: #fffd; color: #13201f; border-radius: 12px; padding: 6px 10px; font-size: 15px; z-index: 3; min-height: 1.5em; }
+  .bar { display: flex; gap: 8px; flex-wrap: wrap; }
+  button { border: 0; border-radius: 99px; padding: 8px 14px; font: 600 14px system-ui; cursor: pointer; background: var(--teal2); color: #fff; }
+  button.alt { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  button[aria-pressed="true"] { background: var(--teal); color: #fff; }
+  button:focus-visible { outline: 3px solid #E5502F; outline-offset: 2px; }
+  .card { background: var(--card); border-radius: 14px; padding: 12px 14px; }
+  .card h2 { margin: 0 0 6px; font-size: 16px; } .card p { margin: 4px 0; color: var(--muted); font-size: 14px; }
+  .num { font: 13px/1.6 ui-monospace, Menlo, monospace; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div>
+    <div class="bar" style="margin-bottom:10px" id="who">
+      <button class="alt" data-who="ama" aria-pressed="true">Ama</button>
+      <button class="alt" data-who="carlos" aria-pressed="false">Carlos</button>
+    </div>
+    <div class="stage" id="stage">
+      <div class="rig" id="rig">
+        <video id="vid" muted playsinline loop preload="auto"></video>
+        <div class="face" id="face"><div class="mouth" id="m0"></div><div class="mouth" id="m1"></div></div>
+      </div>
+      <div class="say" id="say" lang="en">Tap a line to hear the teacher.</div>
+    </div>
+    <div class="bar" style="margin-top:12px" id="lines"></div>
+    <div class="bar" style="margin-top:8px"><button class="alt" id="all">▶ Play all 4</button></div>
+  </div>
+  <div style="display:grid;gap:12px;align-content:start">
+    <div class="card"><h2>Pilot B v2 · viseme sprite (0 credits)</h2>
+      <p>The head, shoulders and blinks are the teacher's own footage (a 3 s listen loop, played forward and back so it never jumps). The mouth is laid over it with 10 shapes cut from the talk clips, follows every frame of the head, and blends between shapes in 60 ms.</p>
+      <p>Each sound picks its shape once: quiet ones the small-open shape, loud ones the wide shape. Silence shows the teacher's own closed mouth.</p></div>
+    <div class="card"><h2>Measured on this device</h2><div class="num" id="m">loading…</div></div>
+    <div class="card"><h2>Measured offline (Rhubarb vs audio)</h2><div class="num" id="off">…</div></div>
+  </div>
+</div>
+<script>
+(async () => {
+  const $ = id => document.getElementById(id);
+  const vid = $('vid'), face = $('face'), rig = $('rig'), L = [$('m0'), $('m1')];
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const LEAD = 0.03;                 // start the 60 ms blend 30 ms early so its midpoint lands on the sound
+  let T = null, who = '', front = 0, cur = '', track = null, playing = null;
+  const lag = [], fpsS = []; let vf = 0;
+  const fit = () => { rig.style.transform = `scale(${$('stage').clientWidth / 480})`; };
+  addEventListener('resize', fit); fit();
+
+  async function load(w) {
+    who = w; cur = ''; L.forEach(l => (l.style.opacity = 0));
+    const [sp, lines, timing] = await Promise.all([`${w}_sprite.json`, `${w}_lines.json`, `${w}_timing.json`].map(u => fetch('assets/' + u).then(r => r.json())));
+    T = { sp, lines, timing, bufs: {} }; track = sp.track;
+    const m = sp.mouth;
+    L.forEach(l => Object.assign(l.style, { left: m.x + 'px', top: m.y + 'px', width: m.w + 'px', height: m.h + 'px', backgroundImage: `url(assets/${w}_mouths.webp)`, backgroundSize: `${m.order.length * 100}% 100%` }));
+    vid.poster = `assets/${w}_poster.jpg`; vid.src = `assets/${w}_loop.mp4`;
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) vid.play().catch(() => {});
+    $('lines').innerHTML = '';
+    Object.entries(lines).forEach(([id, Ln]) => { const b = document.createElement('button'); b.textContent = Ln.text; b.onclick = () => play(id).then(report); $('lines').append(b); });
+    const e = timing.boundary_err_ms;
+    $('off').textContent = `${w}: raw Rhubarb speech/silence boundaries vs audio (${e.n}):\n  mean ${e.mean} ms · median ${e.median} · p90 ${e.p90} · max ${e.max}\nGated by audio VAD → boundaries snap to the audio (10 ms grid).\nFace track: smoothed, max ${sp.track_jitter_px} px from the raw ORB track.`;
+    setTimeout(report, 800);
+  }
+  // Face track: move the mouth layer with the exact video frame on screen
+  function setFrame(t) { if (!track) return; const n = track.length, i = Math.round(t * 24) % n, a = track[i]; face.style.transform = `matrix(${a.join(',')})`; }
+  if ('requestVideoFrameCallback' in HTMLVideoElement.prototype) { const cb = (now, md) => { vf++; setFrame(md.mediaTime); vid.requestVideoFrameCallback(cb); }; vid.requestVideoFrameCallback(cb); }
+  else (function raf() { setFrame(vid.currentTime); requestAnimationFrame(raf); })();
+  let fn = 0, ft = performance.now(); (function fps() { fn++; const t = performance.now(); if (t - ft >= 1000) { fpsS.push(fn * 1000 / (t - ft)); fn = 0; ft = t; } requestAnimationFrame(fps); })();
+
+  function show(k) {                 // k = shape id or '' (teacher's own mouth from the video)
+    if (k === cur) return false; cur = k;
+    const back = L[1 - front], o = T.sp.mouth.order;
+    if (k) { back.style.backgroundPosition = `${o.indexOf(k) / (o.length - 1) * 100}% 0`; back.style.opacity = 1; }
+    L[front].style.opacity = 0; if (k) front = 1 - front; return true;
+  }
+  // Rhubarb cue → one of 10 shapes, using loudness for the in-betweens
+  function shapeAt(Ln, i) {
+    const [t0, v] = Ln.gated[i], end = i < Ln.gated.length - 1 ? Ln.gated[i + 1][0] : Ln.dur, lv = +Ln.env20[Math.min(Ln.env20.length - 1, Math.round((t0 + end) * 25))] || 0; // loudness at the cue's midpoint: one shape per cue, no flicker
+    if (v === 'X') return end - t0 < 0.25 && t0 > 0.05 && end < Ln.dur - 0.05 ? 'X' : '';
+    return { A: 'A', B: 'B', C: lv < 5 ? 'C1' : 'C', D: lv < 6 ? 'C' : 'D', E: 'E', F: 'F', G: 'G', H: 'H' }[v] || 'C1';
+  }
+  async function play(id) {
+    if (ctx.state !== 'running') await ctx.resume();
+    const Ln = T.lines[id], cues = Ln.gated;
+    const B = T.bufs[id] || (T.bufs[id] = await fetch(`assets/${id}.mp3`).then(r => r.arrayBuffer()).then(a => new Promise((ok, no) => ctx.decodeAudioData(a, ok, no))));
+    const src = ctx.createBufferSource(); src.buffer = B; src.connect(ctx.destination);
+    const lat = ctx.outputLatency || ctx.baseLatency || 0, start = ctx.currentTime + 0.06; src.start(start); playing = src;
+    $('say').textContent = Ln.text;
+    return new Promise(done => {
+      let i = 0, done_i = -1;
+      (function tick() {
+        const t = ctx.currentTime - start - lat + LEAD;   // audible time, looking 30 ms ahead
+        while (i < cues.length - 1 && cues[i + 1][0] <= t) i++;
+        if (t >= 0 && i !== done_i) { done_i = i; if (show(shapeAt(Ln, i))) lag.push((t - LEAD + 0.03 - cues[i][0]) * 1000); }  // blend midpoint vs cue onset
+        if (t < Ln.dur + 0.05 && playing === src) requestAnimationFrame(tick); else { show(''); done(); }
+      })();
+    });
+  }
+  $('all').onclick = async () => { for (const id of Object.keys(T.lines)) { await play(id); await new Promise(r => setTimeout(r, 350)); } report(); };
+  $('who').onclick = e => { const b = e.target.closest('button'); if (!b) return; [...$('who').children].forEach(x => x.setAttribute('aria-pressed', x === b)); load(b.dataset.who); };
+
+  const q = (a, p) => { if (!a.length) return 0; const s = a.map(Math.abs).sort((x, y) => x - y); return s[Math.min(s.length - 1, Math.floor(p * s.length))]; };
+  function report() {
+    const res = performance.getEntriesByType('resource').filter(r => r.name.includes('assets/' + who) || (r.name.includes('.mp3') && T && Object.keys(T.lines).some(k => r.name.includes(k))));
+    const kb = res.reduce((s, r) => s + (r.encodedBodySize || r.transferSize || 0), 0) / 1024, f = fpsS.slice(-10);
+    $('m').textContent = `${who} assets   ${kb.toFixed(0)} KB loaded (${res.length} files; loop + mouths + data + lines played)\n` +
+      `page fps      ${f.length ? (f.reduce((a, b) => a + b, 0) / f.length).toFixed(0) : '–'} (rAF, last 10 s) · video frames tracked ${vf}\n` +
+      `mouth blends  ${lag.length}\n` +
+      `lip lag |x|   p50 ${q(lag, .5).toFixed(0)} ms · p95 ${q(lag, .95).toFixed(0)} ms (blend midpoint vs Rhubarb cue, after output latency ${((ctx.outputLatency || ctx.baseLatency || 0) * 1000).toFixed(0)} ms)\n` +
+      `device        ${navigator.deviceMemory || '?'} GB · ${navigator.hardwareConcurrency || '?'} cores · ${screen.width}×${screen.height}@${devicePixelRatio}`;
+  }
+  load('ama');
+})();
+</script>
+</body>
+</html>

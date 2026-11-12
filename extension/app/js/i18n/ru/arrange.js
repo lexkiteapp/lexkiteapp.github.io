@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/ru/arrange.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ru=Object.assign(D.ru||{},{_gty8:"Нажмите на карточку, чтобы добавить её в конец или убрать; перетащите в середину, чтобы вставить; стрелки перемещают, Delete убирает, Ctrl+Z отменяет",_p2yi:"{w}: позиция {n} из {m}",_qcv1:"{w} убрано"});})(typeof self!=='undefined'?self:this);

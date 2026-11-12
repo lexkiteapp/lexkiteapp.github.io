@@ -1,0 +1,48 @@
+<h1>Lexkite cho nhà trường</h1>
+<p class="muted">Hướng dẫn cho giáo viên và quản trị viên CNTT của trường: chế độ Lớp học, cài add-on Lexkite cho toàn bộ tên miền và triển khai ứng dụng web. Lexkite miễn phí và không quảng cáo cho tài khoản lớp học.</p>
+<h2 id="teachers">1. Chế độ Lớp học cho giáo viên</h2>
+<ol>
+<li>Mở <a href="/app/#/class">lexkite.com/app/#/class</a> và đăng nhập Google.</li>
+<li>Ở mục <b>Lớp tôi dạy</b>, nhập tên lớp và bấm <b>Tạo lớp</b>. Bạn nhận được mã tham gia 6 ký tự.</li>
+<li>Bấm <b>Chia sẻ lên Google Classroom</b> để đăng đường link vào bảng tin lớp, hoặc đọc mã cho học sinh. Học sinh mở link, đăng nhập và bấm <b>Tham gia</b>.</li>
+<li>Bấm <b>Giao bài</b> để chọn bộ từ vựng hoặc đề luyện (IELTS Listening, IELTS Reading Academic và General Training, TOEIC Listening &amp; Reading). Mỗi bài có nút <b>Giao trên Classroom</b> riêng để đăng thành bài tập Google Classroom có hạn nộp.</li>
+<li>Bảng <b>Tiến độ học sinh</b> cho thấy với từng em: số bài đã hoàn thành, độ chính xác trung bình, hoạt động gần nhất và điểm cao nhất của từng bài. Bấm <b>CSV</b> để tải về sổ điểm.</li>
+</ol>
+<p>Kết quả tự gửi khi học sinh đã đăng nhập hoàn thành hoạt động của bộ từ được giao (Kiểm tra, Ghép thẻ hoặc bài luyện có điểm) hoặc nộp đề luyện được giao. Lexkite không xin quyền Google Classroom nào: nút chia sẻ dùng đường link chia sẻ công khai của Google, nên không đọc danh sách lớp, email hay điểm từ Google.</p>
+<h2 id="extension">2. Cài add-on Chrome cho toàn bộ tên miền</h2>
+<p>ID add-on: <code>idalfipabpfcajpkfkifbdlpejcdmfcd</code> · Chrome Web Store: <a href="https://chromewebstore.google.com/detail/idalfipabpfcajpkfkifbdlpejcdmfcd" target="_blank" rel="noopener">Lexkite</a></p>
+<p><b>Google Admin console (Chromebook và Chrome được quản lý):</b></p>
+<ol>
+<li>Đăng nhập <a href="https://admin.google.com" target="_blank" rel="noopener">admin.google.com</a> bằng tài khoản quản trị.</li>
+<li>Vào <b>Thiết bị → Chrome → Ứng dụng và tiện ích → Người dùng và trình duyệt</b> (Devices → Chrome → Apps &amp; extensions → Users &amp; browsers).</li>
+<li>Chọn đơn vị tổ chức ở cột trái (ví dụ <i>Học sinh</i> hoặc <i>Giáo viên</i>).</li>
+<li>Bấm nút <b>+</b> màu vàng → <b>Thêm từ Chrome Web Store</b>, tìm <b>Lexkite</b> (hoặc dán ID ở trên) rồi bấm <b>Chọn</b>.</li>
+<li>Đặt <b>Chính sách cài đặt</b> là <b>Buộc cài đặt</b> (hoặc <b>Buộc cài đặt + ghim vào thanh công cụ</b>) và bấm <b>Lưu</b>.</li>
+<li>Thiết bị nhận chính sách ở lần đồng bộ tiếp theo. Muốn áp ngay trên máy thử: mở <code>chrome://policy</code> và bấm <b>Tải lại chính sách</b>.</li>
+</ol>
+<p><b>Windows Group Policy, cấu hình macOS hoặc chính sách JSON trên Linux (Chrome Enterprise Core):</b> thêm giá trị sau vào chính sách <code>ExtensionInstallForcelist</code>:</p>
+<p><code>idalfipabpfcajpkfkifbdlpejcdmfcd;https://clients2.google.com/service/update2/crx</code></p>
+<p><b>Quyền add-on sử dụng:</b> đọc từ bạn bôi đen trên trang để hiện nghĩa (truy cập trang web), lưu từ đã lưu trên máy (storage), nhắc ôn tập (alarms, notifications), menu chuột phải (context menus) và mở tìm kiếm web cho một từ (search). Add-on không hiện quảng cáo và không tải mã từ xa. Chi tiết: <a href="privacy#extension">Chính sách quyền riêng tư, mục 13</a>.</p>
+<h2 id="webapp">3. Triển khai ứng dụng web</h2>
+<p>Lexkite là ứng dụng web, nhà trường không cần máy chủ hay cài đặt gì. Để đưa lên mọi máy của học sinh:</p>
+<ol>
+<li>Trong Admin console vào <b>Thiết bị → Chrome → Ứng dụng và tiện ích → Người dùng và trình duyệt</b>, bấm <b>+</b> → <b>Thêm theo URL</b> (Add by URL).</li>
+<li>Nhập <code>https://lexkite.com/app/</code>, chọn <b>Mở trong cửa sổ riêng</b>, rồi đặt <b>Buộc cài đặt</b> (có thể ghim vào thanh tác vụ).</li>
+<li>Muốn đưa trang lớp học lên máy học sinh: thêm dấu trang <code>https://lexkite.com/app/#/class</code> bằng chính sách <b>Dấu trang được quản lý</b> (Thiết bị → Chrome → Cài đặt → Người dùng và trình duyệt).</li>
+</ol>
+<p><b>Cho phép các địa chỉ sau</b> nếu trường có lọc web: <code>lexkite.com</code>, <code>*.lexkite.com</code>, <code>lexkiteapp.github.io</code>, <code>cdn.jsdelivr.net</code>, <code>lexkite-app.firebaseapp.com</code>, <code>www.gstatic.com</code>, <code>apis.google.com</code>, <code>accounts.google.com</code>, <code>fonts.googleapis.com</code>, <code>fonts.gstatic.com</code>, <code>translate.googleapis.com</code>, <code>api.datamuse.com</code> và <code>challenges.cloudflare.com</code>.</p>
+<h2 id="signin">4. Đăng nhập Google cho học sinh dưới 18 tuổi</h2>
+<p>Google Workspace for Education chặn người dùng được đánh dấu dưới 18 tuổi đăng nhập vào ứng dụng bên thứ ba mà quản trị viên chưa cấu hình. Để học sinh đăng nhập được Lexkite:</p>
+<ol>
+<li>Trong Admin console vào <b>Bảo mật → Quyền truy cập và kiểm soát dữ liệu → Kiểm soát API → Quản lý quyền truy cập của ứng dụng bên thứ ba</b>.</li>
+<li>Bấm <b>Định cấu hình ứng dụng mới</b>, tìm <b>Lexkite</b> (trang đăng nhập <code>lexkite-app.firebaseapp.com</code>) và chọn.</li>
+<li>Chọn đơn vị tổ chức và đặt quyền truy cập là <b>Tin cậy</b> (Trusted). Lexkite chỉ xin thông tin hồ sơ cơ bản (tên, email, ảnh của chính tài khoản học sinh), không truy cập Google Drive, Gmail hay dữ liệu Classroom.</li>
+</ol>
+<p>Nếu không tìm thấy ứng dụng, hãy liên hệ <a href="mailto:support@lexkite.com">support@lexkite.com</a> để nhận OAuth client ID.</p>
+<h2 id="privacy">5. Quyền riêng tư của học sinh</h2>
+<ul>
+<li>Giáo viên chỉ thấy tên hiển thị học sinh tự nhập khi vào lớp (nên dùng tên và lớp) và kết quả bài được giao của em đó. Email và ảnh không bao giờ hiện cho giáo viên hay bạn cùng lớp.</li>
+<li>Không quảng cáo cho tài khoản lớp học; dữ liệu học sinh không bao giờ bị bán hay dùng cho quảng cáo, lập hồ sơ.</li>
+<li>Giáo viên có thể xóa học sinh hoặc xóa lớp bất cứ lúc nào – dữ liệu liên quan bị xóa ngay. Học sinh có thể rời lớp; xóa tài khoản sẽ xóa toàn bộ dữ liệu.</li>
+<li>COPPA và FERPA: xem <a href="privacy#schools">Chính sách quyền riêng tư, mục 10</a>. Cần thỏa thuận xử lý dữ liệu hoặc bảng câu hỏi quyền riêng tư: liên hệ <a href="mailto:support@lexkite.com">support@lexkite.com</a>.</li>
+</ul>

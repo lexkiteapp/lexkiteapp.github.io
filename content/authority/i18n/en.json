@@ -1,0 +1,212 @@
+{
+  "nav": {
+    "hub": "About Lexkite",
+    "team": "Editorial team",
+    "policy": "Editorial policy",
+    "corrections": "Corrections",
+    "sources": "Sources",
+    "research": "Research",
+    "embed": "Free widgets"
+  },
+  "byline": "By the Lexkite Editorial Team",
+  "factChecked": "Fact-checked {date}",
+  "related": "More about how we work",
+  "about": {
+    "title": "About Lexkite – free English vocabulary and exam practice",
+    "desc": "Who makes Lexkite, what it is for, how it is funded and how we keep our English learning content accurate, independent and free to use.",
+    "h1": "About Lexkite",
+    "lead": "Lexkite is a free app for learning English vocabulary and preparing for IELTS, TOEIC and TOEFL, available in 15 interface languages.",
+    "sections": [
+      [
+        "What Lexkite does",
+        "Lexkite combines spaced-repetition flashcards (FSRS), a bilingual dictionary, practice for reading, listening, writing and speaking, and timed mock tests. It runs in the browser, as a Chrome add-on and on mobile. The core features are free and do not require a credit card."
+      ],
+      [
+        "Who runs Lexkite",
+        "Lexkite is operated by MODIAN LUXURY JEWELRY LLC, a Wyoming limited liability company, as stated in our Terms. Content on this website is produced by the Lexkite Editorial Team, described on its own page, together with the editorial standards we follow."
+      ],
+      [
+        "How Lexkite is funded",
+        "Lexkite is funded by its operator and may show advertising to keep the core app free. Advertisers and partners have no influence on what we write, which words we teach or how we rate study methods."
+      ],
+      [
+        "Independence",
+        "IELTS, TOEIC and TOEFL are trademarks of their respective owners. Lexkite is an independent product and is not affiliated with or endorsed by the British Council, IDP, Cambridge University Press & Assessment or ETS. We never promise scores."
+      ],
+      [
+        "Contact",
+        "Questions, corrections and partnership requests: support@lexkite.com."
+      ]
+    ]
+  },
+  "team": {
+    "title": "Lexkite Editorial Team – who writes and checks our content",
+    "desc": "The Lexkite Editorial Team writes and reviews our English learning articles, dictionary data and practice questions. How the team works, honestly explained.",
+    "h1": "The Lexkite Editorial Team",
+    "lead": "Articles, dictionary entries and practice questions on Lexkite are published under one shared byline: the Lexkite Editorial Team.",
+    "sections": [
+      [
+        "Why a team byline",
+        "We publish under a team name rather than individual names because every piece passes through the same multi-step process, and no single person is responsible for the final result. We do not invent author personas, job titles or qualifications."
+      ],
+      [
+        "How we use AI tools",
+        "Drafts, translations and quality checks are produced with the help of AI writing tools. AI output is never published as is: it must pass our six-step editorial process, a fact-check against official sources and a 100-point quality review before it goes live. When a check fails, the piece is rewritten or dropped."
+      ],
+      [
+        "What the team is responsible for",
+        "Choosing topics that learners actually search for, writing original explanations and example sentences, checking exam facts against the test owners, localizing each article for 15 languages (not word-for-word machine translation) and keeping published pages up to date."
+      ],
+      [
+        "Accountability",
+        "Each article shows its publication date, the date it was last updated and the date its facts were last checked. If you find an error, our corrections policy explains how to report it and what we do next."
+      ]
+    ]
+  },
+  "policy": {
+    "title": "Editorial policy and fact-checking process – Lexkite",
+    "desc": "How Lexkite researches, writes, fact-checks, localizes and reviews every article: our six-step editorial process, quality threshold and update rules.",
+    "h1": "Editorial policy and fact-checking",
+    "lead": "Every Lexkite article follows the same six steps. An article is published only when it scores at least 90 out of 100 in the final review.",
+    "stepsH": "Our six-step process",
+    "steps": [
+      [
+        "Brief",
+        "We study what learners in each language actually search for and what the best existing answers miss, then define the question the article must answer."
+      ],
+      [
+        "Outline",
+        "The article answers the main question directly at the top, then goes deeper with structure that is easy to scan."
+      ],
+      [
+        "Original writing",
+        "Explanations and every English example sentence are written for Lexkite. We do not copy text, questions or images from other publishers or from official test materials."
+      ],
+      [
+        "Fact-check",
+        "Test formats, timings and score scales are checked against the official test owners. If a fact cannot be confirmed, it is removed. The fact-check date is recorded on every article."
+      ],
+      [
+        "Localization",
+        "Each language version is adapted for its readers – their typical mistakes, examples and search terms – instead of being machine-translated."
+      ],
+      [
+        "Independent quality review",
+        "A reviewer who did not write the article scores it out of 100 on search intent, accuracy and depth, original value, natural style, readability, helpful links and trustworthiness. Below 90 points, the article is revised or not published."
+      ]
+    ],
+    "rulesH": "Rules we always follow",
+    "rules": [
+      "No promised scores or guaranteed results.",
+      "No fake reviews, testimonials, author names or credentials.",
+      "Images are our own app screenshots or diagrams; no copyrighted test materials.",
+      "Exam facts link to the official source.",
+      "When an exam changes, affected articles are updated and show the new update date."
+    ]
+  },
+  "corrections": {
+    "title": "Corrections policy – how Lexkite fixes mistakes",
+    "desc": "Found an error on Lexkite? How to report it, how quickly we review it, and how corrections are shown on the page.",
+    "h1": "Corrections policy",
+    "lead": "We want every fact on Lexkite to be right. When it is not, we fix it and say so.",
+    "sections": [
+      [
+        "How to report an error",
+        "Email support@lexkite.com with the page address and what is wrong. A source for the correct information helps us check faster."
+      ],
+      [
+        "What happens next",
+        "We review every report. Factual errors are corrected as soon as they are confirmed, and the article's update date changes so readers can see it was revised."
+      ],
+      [
+        "Significant corrections",
+        "If a correction changes the meaning of advice – for example a wrong exam rule – we add a short note in the article explaining what changed."
+      ],
+      [
+        "Dictionary and practice questions",
+        "Wrong definitions, answers or explanations in the app or dictionary are corrected at the source, so the fix reaches every page and language that uses them."
+      ]
+    ]
+  },
+  "sources": {
+    "title": "Sources and references used by Lexkite",
+    "desc": "The official exam owners, frameworks, open word lists and open-source tools behind Lexkite's English learning content, with licences.",
+    "h1": "Sources and references",
+    "lead": "Lexkite's explanations and example sentences are original. These are the official references and open data sets we rely on.",
+    "groups": [
+      [
+        "Official exam information",
+        "Exam formats, timings and score scales are checked against the test owners."
+      ],
+      [
+        "Language frameworks",
+        "Levels follow the Common European Framework of Reference for Languages (CEFR) of the Council of Europe."
+      ],
+      [
+        "Open word lists and data",
+        "Word lists and pronunciations come from openly licensed sources; definitions and example sentences are our own."
+      ],
+      [
+        "Learning science",
+        "Flashcard scheduling uses FSRS, an open-source spaced-repetition algorithm."
+      ]
+    ],
+    "creditsNote": "Full image and data credits are listed on our credits page."
+  },
+  "research": {
+    "title": "Commonly confused English words: open dataset of {n} pairs",
+    "desc": "Free CC BY dataset of {n} commonly confused English word groups, with parts of speech, definitions, typical mistakes and memory tips. Charts and CSV download.",
+    "h1": "Commonly confused English words: an open dataset",
+    "lead": "{n} groups of English words that learners often mix up – like affect/effect and borrow/lend – with definitions, a typical mistake and a memory tip for each. Free to reuse with credit.",
+    "keyH": "Key findings",
+    "keys": [
+      "{n} word groups and {m} documented typical mistakes.",
+      "{d}% of the groups contrast words from different parts of speech (for example a verb and a noun), so checking the word class solves many errors.",
+      "{s}% of the groups contain words of the same part of speech, where only meaning and usage tell them apart."
+    ],
+    "chart1": "Word groups by part-of-speech pattern",
+    "chart2": "Word groups by number of words",
+    "other": "Other patterns",
+    "tableH": "The full dataset",
+    "cols": [
+      "Words",
+      "Parts of speech",
+      "Typical mistake → correction",
+      "Memory tip"
+    ],
+    "methodH": "Method",
+    "method": [
+      "The groups were selected and written by the Lexkite Editorial Team from mistakes that appear again and again in learner writing and in exam practice. Each group lists every word with its part of speech, a short English definition, an original example sentence and a typical mistake with its correction. Where a group has no separate mistake note, the typical mistake is its example sentence with the confused word swapped in.",
+      "The statistics on this page are calculated automatically from the same data that powers the \"Commonly confused words\" lessons in the Lexkite app, every time the site is built."
+    ],
+    "privacyH": "Privacy",
+    "privacy": "This dataset contains no user data of any kind. It is built only from Lexkite's own editorial content, not from what learners type, save or answer.",
+    "limitsH": "Limitations",
+    "limits": "This is a curated list, not a frequency count from a learner corpus: it shows which confusions our editors document, not how often each one happens.",
+    "downloadH": "Download and licence",
+    "download": "The dataset is free to use under the Creative Commons Attribution 4.0 licence (CC BY 4.0). Please credit Lexkite and link to this page.",
+    "csv": "Download CSV",
+    "json": "Download JSON",
+    "citeH": "How to cite",
+    "embedLink": "Put the \"word pair of the day\" on your site"
+  },
+  "embed": {
+    "title": "Free English learning widgets for teachers and bloggers – Lexkite",
+    "desc": "Add a free \"confused word pair of the day\" widget or a CEFR level badge to your website or class blog. Lightweight, no cookies, no tracking.",
+    "h1": "Free widgets for your website",
+    "lead": "Teachers, schools and bloggers can add these free widgets with one copy-paste. They load nothing from third parties, set no cookies and do not track visitors.",
+    "pairH": "Word pair of the day",
+    "pair": "Shows a different commonly confused word pair every day, with a typical mistake and a memory tip.",
+    "badgeH": "CEFR level badge",
+    "badge": "Students who took our free English level test can show their level on a blog or profile.",
+    "copy": "Copy code",
+    "copied": "Copied",
+    "previewH": "Preview",
+    "rulesH": "Terms of use",
+    "rules": "Free for any website, including commercial ones. Please keep the credit link visible. Do not change the content to make it misleading.",
+    "widgetLabel": "Word pair of the day",
+    "mistake": "Typical mistake",
+    "tip": "Tip",
+    "more": "More word pairs on Lexkite"
+  }
+}

@@ -1,0 +1,23 @@
+{
+ "topic": "Word of the day for the office: \"heads-up\"",
+ "scene": "office",
+ "seed": "wotd-heads-up",
+ "vars": {
+  "word": "heads-up",
+  "hookLine": "Quick heads-up.",
+  "question": "Heads up? Should I look at the ceiling?",
+  "meaning": "a short warning about something coming soon",
+  "example": "Can you give me a heads-up before the client call?",
+  "tip": "give someone a heads-up before a change, not after it."
+ },
+ "lines": {
+  "example": {
+   "expr": "curious"
+  }
+ },
+ "hashtags": [
+  "wordoftheday",
+  "businessenglish",
+  "englishvocabulary"
+ ]
+}

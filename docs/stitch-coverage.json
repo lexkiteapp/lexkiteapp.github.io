@@ -1,0 +1,88 @@
+{
+ "_note": "Nguồn duy nhất của docs/STITCH-COVERAGE.md (sinh bằng: node scripts/test/stitch-coverage.mjs --write). status: stitch = đã port + có id + cổng · pr = đã port, chờ chủ duyệt ảnh · wip = đang làm · ref = có screen Kit, chưa port · hand = viết tay/chưa có screen · derived = chụp từ màn khác · skip = không hiển thị. Khi mọi dòng (trừ skip/derived) là stitch thì đặt enforce=true.",
+ "enforce": false,
+ "surfaces": [
+  {"id":"home","area":"app","name":"Hôm nay / Lộ trình","routes":["home"],"status":"stitch","stitch":["8d1f597a","9fa7728b"],"gate":"diff:home","batch":"-"},
+  {"id":"lesson-question","area":"app","name":"Học: câu hỏi","routes":["lesson"],"status":"stitch","stitch":["e085ef84","ddf7a88a"],"gate":"diff:lesson","batch":"-"},
+  {"id":"feedback-correct","area":"app","name":"Phản hồi đúng","routes":[],"status":"stitch","stitch":["eea2095d","d2dc627f"],"gate":"diff:feedback","batch":"-"},
+  {"id":"feedback-wrong","area":"app","name":"Phản hồi sai","routes":[],"status":"stitch","stitch":["08b5c91c","e5a327f7"],"gate":"diff:feedback-wrong","batch":"-"},
+  {"id":"lesson-complete","area":"app","name":"Hoàn thành bài","routes":[],"status":"stitch","stitch":["55d0558e","d63ad24f"],"gate":"diff:complete","batch":"-"},
+  {"id":"story-duo","area":"app","name":"Truyện đôi","routes":[],"status":"stitch","stitch":["fc621f97","d845f393"],"gate":"diff:story","batch":"-"},
+  {"id":"review","area":"app","name":"Ôn tập","routes":["review"],"status":"stitch","stitch":["8a4b46cf","d99cb2ce"],"gate":"diff:review","batch":"-"},
+  {"id":"practice","area":"app","name":"Luyện tập","routes":["practice","train"],"status":"stitch","stitch":["6c30fd9f","bd1af8e9"],"gate":"diff:practice","batch":"-"},
+  {"id":"leagues","area":"app","name":"Giải đấu","routes":["league"],"status":"stitch","stitch":["ecbce2a2","028981cb"],"gate":"diff:leagues","batch":"-"},
+  {"id":"me","area":"app","name":"Tôi","routes":["me"],"status":"stitch","stitch":["6bb9884c","240decab"],"gate":"diff:me","batch":"-"},
+  {"id":"streak","area":"app","name":"Chuỗi ngày","routes":["streak"],"status":"stitch","stitch":["dd88917b","3f5c8fc5"],"gate":"diff:streak","batch":"-"},
+  {"id":"exam-readiness","area":"app","name":"Mục tiêu / sẵn sàng thi","routes":["goal"],"status":"stitch","stitch":["7f694052","c6877409"],"gate":"diff:readiness","batch":"-"},
+  {"id":"teacher-call","area":"app","name":"Gọi giáo viên","routes":["call"],"status":"stitch","stitch":["d5c26ebf","d486adc2"],"gate":"diff:call","batch":"-"},
+  {"id":"pas-sit","area":"app","name":"Play&Speak: tình huống","routes":["speak"],"status":"stitch","stitch":["45068b5f","c08d044d"],"gate":"diff:speak-sit","batch":"-"},
+  {"id":"pas-drill","area":"app","name":"Play&Speak: luyện nói","routes":[],"status":"stitch","stitch":["d99a0c00","3af03960"],"gate":"diff:speak-drill","batch":"-"},
+
+  {"id":"lesson-variants","area":"app","name":"Học: dạng nối/gõ/nói/nghe/đúng-sai","routes":[],"status":"ref","batch":"A1","note":"dùng khung lesson-question, chưa có screen riêng","refs":{"lsn-listen":["86b5cff2","f1a6c062"],"lsn-speak":["c54530d2","06f40e87"],"lsn-truefalse":["aacec35b","3d25105f"]}},
+  {"id":"lesson-sheets","area":"app","name":"Thoát giữa chừng · gợi ý · hết giờ · lên cấp","routes":[],"status":"ref","batch":"A1","refs":{"lsn-hint":["b848e9b9","8d912380"],"lsn-timeup":["2b3d9336","82d13d8d"],"lsn-levelup":["cda38453","497d9d1c"]}},
+  {"id":"welcome","area":"app","name":"Chào mừng / thiết lập","routes":["welcome"],"status":"stitch","stitch":["d2c0773b","de3f3ff3"],"gate":"diff:welcome","batch":"-"},
+  {"id":"placement","area":"app","name":"Kiểm tra trình độ","routes":["placement"],"status":"ref","batch":"A1","stitch":["ec75f4c0","ca9d4b84"],"ref":"brand/stitch/v3/app/placement"},
+  {"id":"vocab-path","area":"app","name":"Lộ trình từ vựng / ngày / phần thưởng","routes":["path","day","tracks"],"status":"ref","batch":"A1","refs":{"vpath":["67867976","9eafa7ce"],"vday":["7c66c343","685ac34b"],"vreward":["03538f51","3dcadfd0"]}},
+
+  {"id":"hub-vocab","area":"app","name":"Hub Từ vựng","routes":["vocab"],"status":"stitch","stitch":["66a8a4f8","95826e15"],"gate":"diff:vocab-hub","batch":"-"},
+  {"id":"hub-skills","area":"app","name":"Hub Kỹ năng","routes":["skills","skill"],"status":"ref","batch":"A2","stitch":["cb5fe88d","de674fc1"],"ref":"brand/stitch/v3/app/hub-skills"},
+  {"id":"hub-tests","area":"app","name":"Hub Thi thử","routes":["tests"],"status":"ref","batch":"A2","stitch":["02960404","affaf6ce"],"ref":"brand/stitch/v3/app/hub-tests"},
+  {"id":"library","area":"app","name":"Thư viện + chủ đề","routes":["library","topic"],"status":"ref","batch":"A2","stitch":["d8865208","7864dd4c"],"ref":"brand/stitch/v3/app/library"},
+  {"id":"deck","area":"app","name":"Bộ thẻ của tôi (+Anki)","routes":["deck"],"status":"ref","batch":"A2","stitch":["76fb6f7f","9fce8c3d"],"ref":"brand/stitch/v3/app/deck"},
+
+  {"id":"dict","area":"app","name":"Từ điển + thẻ từ (sheet)","routes":["dict"],"status":"ref","batch":"A3","stitch":["17400aad","08d8fb36"],"ref":"brand/stitch/v3/app/dict"},
+  {"id":"phrases","area":"app","name":"Cụm từ / mẫu câu","routes":["phrases","model","models"],"status":"ref","batch":"A3","refs":{"phrases":["34796f81","095cb931"]}},
+  {"id":"verbs","area":"app","name":"Động từ + bảng chữ","routes":["verb","letters"],"status":"ref","batch":"A3","refs":{"verbs":["d6a466e8","0f824cc7"]}},
+  {"id":"usage","area":"app","name":"Cách dùng / kết hợp từ","routes":["usage"],"status":"ref","batch":"A3","refs":{"usage":["2001a781","3e0fab84"]}},
+  {"id":"mistakes","area":"app","name":"Sổ lỗi sai","routes":["mistakes"],"status":"ref","batch":"A3","stitch":["78159447","711d6351"],"ref":"brand/stitch/v3/app/mistakes"},
+
+  {"id":"listening","area":"app","name":"Nghe (hub, chép chính tả, rảnh tay)","routes":["listening","listen","listen-test","dictation","handsfree"],"status":"ref","batch":"A4","refs":{"handsfree":["f46d5e91","541e577b"]}},
+  {"id":"reading","area":"app","name":"Đọc","routes":["reading","read"],"status":"ref","batch":"A4","stitch":["eab4c092","8d816d50"],"ref":"brand/stitch/v3/app/reading"},
+  {"id":"writing","area":"app","name":"Viết (editor, task1, sửa văn)","routes":["write","task1","style","paraphrase","criteria","fix"],"status":"ref","batch":"A4","refs":{"task1":["99cefd7c","1252e9b7"],"rewrite":["c3d3a2d8","2db49dba"]}},
+  {"id":"speaking","area":"app","name":"Nói + nhập vai","routes":["speaking","roleplay"],"status":"ref","batch":"A4","refs":{"roleplay":["8f65ebb7","4559fec2"]}},
+  {"id":"pron","area":"app","name":"Phát âm","routes":["pron"],"status":"ref","batch":"A4","stitch":["247f2e03","b32b9414"],"ref":"brand/stitch/v3/app/pron"},
+
+  {"id":"games","area":"app","name":"Trò chơi từ vựng","routes":["reflex","rtype"],"status":"ref","batch":"A5","stitch":["7444e407","a4a0f014"],"ref":"brand/stitch/v3/app/games"},
+  {"id":"stats","area":"app","name":"Thống kê + huy hiệu","routes":["stats","qstats"],"status":"ref","batch":"A5","stitch":["3a35d2a5","9afe9189"],"ref":"brand/stitch/v3/app/stats"},
+  {"id":"confidence","area":"app","name":"Độ tự tin","routes":["confidence"],"status":"ref","batch":"A5","refs":{"confidence":["9f9e1b57","1d808baa"]}},
+  {"id":"grammar","area":"app","name":"Ngữ pháp","routes":["grammar"],"status":"ref","batch":"A5","stitch":["9e62a2e8","e5fec5b8"],"ref":"brand/stitch/v3/app/grammar"},
+  {"id":"courses","area":"app","name":"Khóa học + lớp","routes":["courses","course","class"],"status":"ref","batch":"A5","refs":{"courses":["d38a9685","7e887c16"]}},
+
+  {"id":"mock","area":"app","name":"Thi thử IELTS / quick","routes":["mock","quick"],"status":"ref","batch":"A6","stitch":["3a6a64d0","fa723816"],"ref":"brand/stitch/v3/app/mock"},
+  {"id":"toeic","area":"app","name":"TOEIC","routes":["toeic","toeic-r","toeic-sw","toeic-test"],"status":"ref","batch":"A6","refs":{"toeic":["47e56c5b","06192c45"]}},
+  {"id":"toefl","area":"app","name":"TOEFL","routes":["toefl","toefl-p"],"status":"ref","batch":"A6","refs":{"toefl":["61c9645f","2230fdd3"]}},
+  {"id":"cbt","area":"app","name":"Thi trên máy (CBT)","routes":["cbt"],"status":"ref","batch":"A6","refs":{"cbt":["d87006e4","aa5c0196"]}},
+  {"id":"info","area":"app","name":"Tài nguyên · phương pháp · liên hệ · ý tưởng","routes":["resources","method","contact","ideas"],"status":"ref","batch":"A6","refs":{"resources":["963f03cb","d848d452"]}},
+
+  {"id":"settings","area":"app","name":"Cài đặt","routes":["settings"],"status":"ref","batch":"A7","stitch":["4cdd1e5e","3557fce0"],"ref":"brand/stitch/v3/app/settings"},
+  {"id":"account","area":"app","name":"Tài khoản / đồng bộ (sheet)","routes":[],"status":"ref","batch":"A7","stitch":["44304848","1cb5174b"],"ref":"brand/stitch/v3/app/account"},
+  {"id":"account-confirm","area":"app","name":"Đăng xuất · xóa tài khoản","routes":[],"status":"ref","batch":"A7","refs":{"signout":["b3a83f21","9c011724"]}},
+  {"id":"handoff","area":"app","name":"Bàn giao đăng nhập add-on","routes":["handoff"],"status":"ref","batch":"A7","refs":{"handoff":["efbfd4de","0ece53bf"]}},
+  {"id":"report","area":"app","name":"Báo lỗi / góp ý","routes":["report"],"status":"ref","batch":"A7","stitch":["dee49364","cc189b93"],"ref":"brand/stitch/v3/app/report"},
+
+  {"id":"notices","area":"app","name":"Bảng thông báo","routes":[],"status":"ref","batch":"A8","refs":{"notices":["1534a2a4","36dadd7b"]}},
+  {"id":"streak-modals","area":"app","name":"Popup chuỗi (đóng băng/mất/cột mốc)","routes":[],"status":"ref","batch":"A8","stitch":["de7e0c9b","68f5bb99"],"ref":"brand/stitch/v3/app/streak-modals"},
+  {"id":"share-card","area":"app","name":"Thẻ chia sẻ","routes":[],"status":"ref","batch":"A8","stitch":["e3e78a42","4f3d1f83"],"ref":"brand/stitch/v3/share/share-card"},
+  {"id":"pickers","area":"app","name":"Chọn ngôn ngữ · chọn kỳ thi · popup giải đấu","routes":[],"status":"ref","batch":"A8","refs":{"league-pop":["d4fca663","da4b3e08"]}},
+  {"id":"chrome-bits","area":"app","name":"Modal/confirm/toast chung · cookie · banner add-on · tìm kiếm","routes":[],"status":"ref","batch":"A8","refs":{"toast-confirm":["64ebdc26","3766afc0"],"search-results":["05e0df6a","f0a89d32"]}},
+  {"id":"video-learn","area":"app","name":"Học qua video","routes":[],"status":"wip","batch":"V","note":"M1 viết tay; M2 Stitch đang làm (phiên h-c-qua-video-m2)"},
+
+  {"id":"web-g1","area":"web","name":"Landing · mẫu · speaking · bài blog · hub blog","routes":[],"status":"pr","batch":"W1","note":"WEB-PAGES §1 #1–5, PR #244 HOLD chờ duyệt ảnh","gate":"web:stitch-web"},
+  {"id":"web-g2a","area":"web","name":"Từ vựng hub/bộ · ngữ pháp · từ SEO · hội thoại","routes":[],"status":"ref","batch":"W2a","note":"WEB-PAGES §1 #6–10"},
+  {"id":"web-g2b","area":"web","name":"Từ điển · CEFR test/kết quả · TOEIC · video","routes":[],"status":"ref","batch":"W2b","note":"WEB-PAGES §1 #11–15"},
+  {"id":"web-g3a","area":"web","name":"About · research · embed · privacy/terms · credits","routes":[],"status":"ref","batch":"W3a","note":"WEB-PAGES §1 #16–20; sau #303/#301"},
+  {"id":"web-g3b","area":"web","name":"Schools · 404 · bye · chọn ngôn ngữ blog","routes":[],"status":"ref","batch":"W3b","note":"WEB-PAGES §1 #21–24"},
+  {"id":"admin","area":"admin","name":"Admin: KPI · bảng · media · studio · khóa (5 kiểu)","routes":[],"status":"ref","batch":"W4","note":"WEB-PAGES §2"},
+
+  {"id":"ext-popup","area":"addon","name":"Add-on: popup","routes":[],"status":"ref","batch":"X1","stitch":["be940f60","46d7108b"],"ref":"brand/stitch/v3/ext/ext-popup"},
+  {"id":"ext-newtab","area":"addon","name":"Add-on: tab mới","routes":[],"status":"ref","batch":"X1","stitch":["314901e3","eff710d1"],"ref":"brand/stitch/v3/ext/ext-newtab"},
+  {"id":"ext-word","area":"addon","name":"Add-on: popup từ trên trang + FAB/tooltip/toast","routes":[],"status":"ref","batch":"X1","stitch":["696e8804","d71106c1"],"ref":"brand/stitch/v3/ext/ext-word"},
+  {"id":"ext-writecheck","area":"addon","name":"Add-on: gạch chân & gợi ý viết","routes":[],"status":"ref","batch":"X1","stitch":["ecac2306","4e7cf368"],"ref":"brand/stitch/v3/ext/ext-writecheck"},
+
+  {"id":"email-digest","area":"email","name":"Thư tuần (weekly-digest)","routes":[],"status":"ref","batch":"E1","note":"file chưa được nối; thẻ email Stitch ở #257/#259","stitch":["7698d3af","1bd21f38"],"ref":"brand/stitch/v3/email/email-digest"},
+  {"id":"social","area":"email","name":"Ảnh OG / mạng xã hội","routes":[],"status":"ref","batch":"E1","refs":{"og-social":["d5262552","e8cd2415"]}},
+  {"id":"store-shots","area":"store","name":"Ảnh cửa hàng (Chrome/iOS/Play)","routes":[],"status":"derived","batch":"-","note":"chụp từ app/add-on thật; chụp lại sau A*/X1"},
+  {"id":"gallery","area":"web","name":"web/design/gallery.html (QA nội bộ)","routes":[],"status":"skip","batch":"-"},
+  {"id":"mediate","area":"app","name":"Trung gian: luyện chuyển ý","routes":["mediate"],"status":"pr","stitch":["9c6d553f","99b55586"],"batch":"-","note":"project 17380622463903601788 · điều phối duyệt 10/11 · khung FOCUS + card/chip/learn-bar có sẵn"}
+ ]
+}

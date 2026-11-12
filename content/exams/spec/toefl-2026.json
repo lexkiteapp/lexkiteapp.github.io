@@ -1,0 +1,174 @@
+{
+ "_doc": "Machine-readable exam format (structure only, no exam content). Counts/times checked against the official pages in verified.sources on verified.date; criteria descriptions are LexKite's own wording. Read by scripts/content-qa/exam-format-check.mjs (docs/CONTENT-QA.md §6).",
+ "id": "toefl-2026",
+ "name": "TOEFL iBT (format from 21 January 2026)",
+ "provider": "ETS",
+ "audience": "acad",
+ "effective": "2026-01-21",
+ "verified": {
+  "date": "2026-11-01",
+  "sources": [
+   "https://www.ets.org/toefl/test-takers/ibt/about/content.html",
+   "https://www.ets.org/toefl/test-takers/ibt/about/content/{reading,listening,writing,speaking}.html"
+  ]
+ },
+ "total_minutes": 90,
+ "total_minutes_note": "base time 30+29+23+8; allow about 2 hours including directions; adaptive sections can vary",
+ "adaptive": ["reading", "listening"],
+ "sections": [
+  {
+   "id": "reading",
+   "name": "Reading",
+   "minutes": 30,
+   "questions": 50,
+   "adaptive": true,
+   "tasks": [
+    {
+     "n": 1,
+     "name": "Complete the Words",
+     "questions": null,
+     "types": ["cw"],
+     "note": "fill missing letters of words in a short academic paragraph"
+    },
+    {
+     "n": 2,
+     "name": "Read in Daily Life",
+     "questions": null,
+     "types": ["daily"],
+     "note": "short everyday texts (notices, messages, schedules) with MCQ"
+    },
+    {
+     "n": 3,
+     "name": "Read an Academic Passage",
+     "questions": null,
+     "types": ["academic"],
+     "note": "short academic passage with MCQ on main idea, detail, vocabulary"
+    }
+   ],
+   "per_task_note": "ETS gives only the section total; the split between tasks varies by adaptive route"
+  },
+  {
+   "id": "listening",
+   "name": "Listening",
+   "minutes": 29,
+   "questions": 47,
+   "adaptive": true,
+   "tasks": [
+    {
+     "n": 1,
+     "name": "Listen and Choose a Response",
+     "questions": null,
+     "types": ["response"]
+    },
+    {
+     "n": 2,
+     "name": "Listen to a Conversation",
+     "questions": null,
+     "types": ["conversation"]
+    },
+    {
+     "n": 3,
+     "name": "Listen to an Announcement",
+     "questions": null,
+     "types": ["announcement"]
+    },
+    {
+     "n": 4,
+     "name": "Listen to an Academic Talk",
+     "questions": null,
+     "types": ["talk"]
+    }
+   ],
+   "per_task_note": "ETS gives only the section total; the split between tasks varies by adaptive route"
+  },
+  {
+   "id": "writing",
+   "name": "Writing",
+   "minutes": 23,
+   "questions": 12,
+   "tasks": [
+    {
+     "n": 1,
+     "name": "Build a Sentence",
+     "questions": 10,
+     "types": ["sentence"],
+     "note": "arrange given words/phrases into a correct sentence or question"
+    },
+    {
+     "n": 2,
+     "name": "Write an Email",
+     "questions": 1,
+     "types": ["email"],
+     "minutes": 7
+    },
+    {
+     "n": 3,
+     "name": "Write for an Academic Discussion",
+     "questions": 1,
+     "types": ["discussion"],
+     "minutes": 10
+    }
+   ],
+   "per_task_note": "10+1+1 = ETS section total 12; task minutes are LexKite practice timings consistent with the 23-minute section"
+  },
+  {
+   "id": "speaking",
+   "name": "Speaking",
+   "minutes": 8,
+   "questions": 11,
+   "tasks": [
+    {
+     "n": 1,
+     "name": "Listen and Repeat",
+     "questions": 7,
+     "types": ["repeat"]
+    },
+    {
+     "n": 2,
+     "name": "Take an Interview",
+     "questions": 4,
+     "types": ["interview"],
+     "resp_s": 45
+    }
+   ],
+   "per_task_note": "7+4 = ETS section total 11"
+  }
+ ],
+ "scoring": {
+  "scale": "1–6 per section and overall",
+  "step": 0.5,
+  "overall": "mean of the four section scores rounded to the nearest half band",
+  "legacy": "comparable 0–120 total also reported for two years after January 2026",
+  "unscored_if": "any section has no answered item"
+ },
+ "criteria": {
+  "writing": [
+   {
+    "id": "task",
+    "focus": "Email covers every point for the reader and purpose; discussion post takes a clear position and adds to what classmates said."
+   },
+   {
+    "id": "development",
+    "focus": "Ideas are explained with reasons, details or examples, not just listed."
+   },
+   {
+    "id": "language",
+    "focus": "Accurate, varied grammar and precise vocabulary; tone fits the reader."
+   }
+  ],
+  "speaking": [
+   {
+    "id": "accuracy",
+    "focus": "Repeated sentences match the model word for word."
+   },
+   {
+    "id": "intelligibility",
+    "focus": "Pronunciation, stress and pacing are easy to follow."
+   },
+   {
+    "id": "response",
+    "focus": "Interview answers are relevant, developed and use appropriate grammar and vocabulary."
+   }
+  ]
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "v": 1,
+ "id": "tpl1b_airport_gate_5b373a",
+ "template": "fix",
+ "tpl": "1b",
+ "source": {
+  "gold": "cf:airport:overweight:x"
+ },
+ "topic": "travel",
+ "cefr": "B1",
+ "area": "roleplay",
+ "plate": "airport_gate",
+ "host": "ama",
+ "clip": "ga11_talk",
+ "hook": {
+  "line": "n_5b373a_h",
+  "quote": "My bag is too much heavy.",
+  "kind": "Stop saying 'too much heavy'",
+  "mode": "strong",
+  "display": "Stop saying",
+  "judge": null
+ },
+ "wrong_line": "My bag is too much heavy.",
+ "key_line": "My bag is too heavy.",
+ "series": [
+  "AIRPORT ENGLISH",
+  "TOO + adjective. TOO"
+ ],
+ "beats": [
+  {
+   "kind": "k",
+   "line": "n_5b373a_k",
+   "card": {
+    "formula": "TOO + adjective. TOO"
+   }
+  },
+  {
+   "kind": "y",
+   "line": "n_5b373a_y",
+   "card": {
+    "text": "Too goes right before the adjective. No much."
+   }
+  }
+ ],
+ "recap": {
+  "rows": [
+   "My bag is too heavy.",
+   "This box is too heavy.",
+   "Is my bag overweight?"
+  ]
+ },
+ "quiz": {
+  "pre": "My suitcase is",
+  "post": "",
+  "a": "too heavy",
+  "b": "too much heavy",
+  "answer": 0
+ },
+ "cta": {
+  "text": "Roleplay this free on lexkite.com",
+  "link": "https://lexkite.com/app/#/roleplay",
+  "label": "Voice roleplay"
+ }
+}

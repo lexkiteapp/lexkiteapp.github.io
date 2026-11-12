@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/tr/explain.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.tr=Object.assign(D.tr||{},{_euv7:"Bu açıklamadaki hatayı bildir",_oh3:"Metindeki kanıt",_zw0g:"Aynı kalıp",_4gg9:"Yapı",_95jp:"Örneği dinle","Sắc thái nghĩa":"Anlam nüansı",_zwdi:"Tekrara ekle",_nktn:"Seçimin neden yanlış",_ncyk:"Daha fazla örnek",_p76b:"Ayrıntılı açıklamayı gör"});})(typeof self!=='undefined'?self:this);

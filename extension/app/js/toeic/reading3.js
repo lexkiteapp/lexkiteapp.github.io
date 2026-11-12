@@ -4,7 +4,7 @@
   T.reading.push({ id: 'tr3', test: 3, title: 'TOEIC Reading Test 3', parts: [
 
     /* ================= PART 5 ================= */
-    { part: 5, title: 'Incomplete Sentences', instr: 'A word or phrase is missing in each of the sentences below. Four answer choices are given below each sentence. Select the best answer to complete the sentence.',
+    { part: 5, title: 'Incomplete Sentences', instr: g.TQR[2],
       groups: [ { type: 'mcq', instr: '', items: [
         { n: 101, q: 'The new accounting software will help the finance team process invoices more -------.', options: ['efficient', 'efficiently', 'efficiency', 'efficiencies'], a: 1, cue: 'process invoices more',
           explain: 'Cần trạng từ bổ nghĩa cho động từ "process" (dạng so sánh hơn "more + trạng từ") → "efficiently" (một cách hiệu quả). "efficient" là tính từ; "efficiency/efficiencies" là danh từ.' },
@@ -46,8 +46,8 @@
           explain: 'Hai vế mang nghĩa tương phản (tàu trễ một tiếng nhưng vẫn đến kịp) và vế sau là mệnh đề → liên từ "Although" (mặc dù). "Despite" là giới từ, cần danh từ/V-ing; "Because" chỉ nguyên nhân; "Unless" = trừ khi.' },
         { n: 120, q: 'The new policy allows employees to work from home ------- two days per week.', options: ['until', 'within', 'up to', 'as of'], a: 2, cue: 'two days per week',
           explain: '"up to + số lượng" = tối đa, lên đến → được làm việc tại nhà tối đa hai ngày mỗi tuần. "until" chỉ mốc thời gian; "within" = trong vòng (khoảng thời gian); "as of" = kể từ (ngày nào).' },
-        { n: 121, q: 'Neither of the candidates ------- the experience required for the senior accountant position.', options: ['has', 'have', 'having', 'to have'], a: 0, cue: 'Neither of the candidates',
-          explain: 'Theo văn phong trang trọng (chuẩn TOEIC), "Neither of + danh từ số nhiều" đi với động từ số ít → "has". "having/to have" không phải động từ chia, câu sẽ thiếu động từ chính.' },
+        { n: 121, q: 'Neither of the candidates ------- the experience required for the senior accountant position.', options: ['has', 'are', 'having', 'to have'], a: 0, cue: 'Neither of the candidates',
+          explain: 'Theo văn phong trang trọng (chuẩn TOEIC), "Neither of + danh từ số nhiều" đi với động từ số ít → "has". "are" sai vì động từ số nhiều không hợp với "Neither of", và "are the experience" vô nghĩa (ở đây cần động từ mang nghĩa sở hữu như "has", không phải động từ to be). "having/to have" không phải động từ chia, câu sẽ thiếu động từ chính.' },
         { n: 122, q: 'Please keep your receipt, as it will be needed for any returns or -------.', options: ['exchanging', 'exchanged', 'exchangeable', 'exchanges'], a: 3, cue: 'any returns or',
           explain: 'Cấu trúc song song với "or": "returns" là danh từ số nhiều → "exchanges" (việc đổi hàng). "exchanging/exchanged" là dạng động từ; "exchangeable" là tính từ.' },
         { n: 123, q: 'The company picnic will be held in the gymnasium ------- it rains on Saturday.', options: ['unless', 'whereas', 'if', 'so'], a: 2, cue: 'it rains on Saturday',
@@ -69,7 +69,7 @@
       ] } ] },
 
     /* ================= PART 6 ================= */
-    { part: 6, title: 'Text Completion', instr: 'Read the texts that follow. A word, phrase, or sentence is missing in parts of each text. Four answer choices for each question are given below the text. Select the best answer to complete the text.',
+    { part: 6, title: 'Text Completion', instr: g.TQR[1],
       passages: [
         { title: 'E-mail', text:
 `To: All staff
@@ -88,7 +88,7 @@ On Monday, March 17, members of the IT team will be on hand to help you -----(13
 Thank you for your cooperation.
 
 Facilities Management`,
-          groups: [ { type: 'mcq', instr: 'Questions 131-134 refer to the following e-mail.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[12], items: [
             { n: 131, q: '(131)', options: ['provided', 'providing', 'provides', 'provision'], a: 0, cue: 'the boxes ------- by the moving company',
               explain: 'Rút gọn mệnh đề quan hệ bị động: "the boxes (which are) provided by the moving company" (những thùng do công ty chuyển nhà cung cấp) → V3 "provided". Có "by" chỉ tác nhân nên không dùng "providing" (chủ động); "provides/provision" sai từ loại.' },
             { n: 132, q: '(132)', options: ['The new building has a rooftop garden.', 'The moving company was founded in 1998.', 'Desk numbers are listed on the floor plan attached to this e-mail.', 'Please submit your expense reports by Thursday.'], a: 2, cue: 'your new desk number',
@@ -106,7 +106,7 @@ At Brightpath Business Academy, we offer evening and weekend courses designed fo
 This fall, we are offering courses in digital marketing, basic accounting, and team leadership. Classes are small, with no more than fifteen students, so each participant receives -----(136)----- attention. -----(137)-----.
 
 Register before August 31 and receive 20 percent off your first course. -----(138)----- more information, visit www.brightpathacademy.com.`,
-          groups: [ { type: 'mcq', instr: 'Questions 135-138 refer to the following advertisement.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[16], items: [
             { n: 135, q: '(135)', options: ['work', 'worked', 'works', 'working'], a: 3, cue: '------- professionals',
               explain: 'Trước danh từ "professionals" cần tính từ; "working professionals" = người đang đi làm (nên khóa học mở buổi tối và cuối tuần). "worked" mang nghĩa bị động, không hợp; "work/works" là danh từ/động từ.' },
             { n: 136, q: '(136)', options: ['individualize', 'individual', 'individually', 'individuality'], a: 1, cue: 'receives ------- attention',
@@ -122,7 +122,7 @@ Register before August 31 and receive 20 percent off your first course. -----(13
 Founder Delia Marsh says the company's success comes from its close relationships with farmers. "We buy directly from growers in Colombia and Ethiopia," she explained. "-----(141)-----."
 
 To celebrate the opening, Calloway will offer free coffee tastings every afternoon -----(142)----- the first week.`,
-          groups: [ { type: 'mcq', instr: 'Questions 139-142 refer to the following article.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[6], items: [
             { n: 139, q: '(139)', options: ['opened', 'has opened', 'will open', 'was opening'], a: 2, cue: 'next week',
               explain: '"next week" chỉ tương lai → "will open". Các thì quá khứ và hiện tại hoàn thành không đi với mốc tương lai.' },
             { n: 140, q: '(140)', options: ['roasted', 'roasting', 'roast', 'roasts'], a: 0, cue: 'how the beans are',
@@ -146,7 +146,7 @@ If you would prefer to cancel your subscription, please contact our customer ser
 Sincerely,
 Hannah Celik
 Subscriber Services`,
-          groups: [ { type: 'mcq', instr: 'Questions 143-146 refer to the following letter.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[13], items: [
             { n: 143, q: '(143)', options: ['publish', 'published', 'publishing', 'publisher'], a: 1, cue: 'the magazine will be',
               explain: 'Tạp chí "được xuất bản" → bị động "will be published". "will be publishing" cần tân ngữ và chủ ngữ phải là người xuất bản; "publish" và "publisher" không đứng sau "will be" trong nghĩa này.' },
             { n: 144, q: '(144)', options: ['Our offices will move to a new location in March.', 'Readers can submit photos for our annual contest.', 'Printed copies will remain available at newsstands.', 'In fact, the annual price will stay the same for at least two years.'], a: 3, cue: 'to keep subscription prices low',
@@ -159,7 +159,7 @@ Subscriber Services`,
       ] },
 
     /* ================= PART 7 ================= */
-    { part: 7, title: 'Reading Comprehension', instr: 'In this part you will read a selection of texts, such as magazine and newspaper articles, e-mails, and instant messages. Each text or set of texts is followed by several questions. Select the best answer for each question.',
+    { part: 7, title: 'Reading Comprehension', instr: g.TQR[0],
       passages: [
         { title: 'Notice', text:
 `NOTICE TO ALL TENANTS – HOLLIS PLAZA OFFICE TOWER
@@ -169,7 +169,7 @@ The underground parking garage will be closed on Saturday, October 18, from 7:00
 During the closure, tenants may park free of charge at the Bexley Street lot by showing their Hollis Plaza parking permit to the attendant. The lot is a five-minute walk from the main entrance of the building.
 
 Questions may be directed to the building management office at extension 210.`,
-          groups: [ { type: 'mcq', instr: 'Questions 147-148 refer to the following notice.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[14], items: [
             { n: 147, q: 'Why will the parking garage be closed?', options: ['To install security cameras', 'To host a community event', 'To carry out maintenance work', 'To add more parking spaces'], a: 2, cue: 'so that the floor can be resurfaced and the parking lines repainted',
               explain: 'Bãi đóng cửa để "resurface the floor" (làm lại mặt sàn) và "repaint the parking lines" (sơn lại vạch đỗ xe) → công việc bảo trì (C). Sơn lại vạch không có nghĩa là thêm chỗ đỗ (D).' },
             { n: 148, q: 'What should tenants show at the Bexley Street lot?', options: ['A parking permit', 'A building ID card', 'A payment receipt', 'A letter from management'], a: 0, cue: 'by showing their Hollis Plaza parking permit to the attendant',
@@ -184,7 +184,7 @@ Joon Park [9:21 A.M.]: Bad news. The driver took the box to our office by mistak
 Marta Klein [9:22 A.M.]: The workshop starts at 10:00.
 Joon Park [9:23 A.M.]: I'll grab a taxi and bring it over myself. I should be there by 9:45.
 Marta Klein [9:24 A.M.]: You're a lifesaver. I'll set up the room in the meantime.`,
-          groups: [ { type: 'mcq', instr: 'Questions 149-150 refer to the following text-message chain.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[5], items: [
             { n: 149, q: 'At 9:22 A.M., what does Ms. Klein imply when she writes, "The workshop starts at 10:00"?', options: ['She wants to postpone the workshop.', 'She gave the clients the wrong time.', 'She plans to leave the hotel.', 'She is worried the handouts will not arrive in time.'], a: 3, cue: 'The driver took the box to our office by mistake.',
               explain: 'Ngay sau khi biết thùng tài liệu bị giao nhầm về văn phòng, cô nhắc "workshop bắt đầu lúc 10 giờ" → hàm ý lo không kịp có tài liệu (D). Không có dấu hiệu muốn hoãn hay rời khách sạn – cô còn chuẩn bị phòng trong lúc chờ.' },
             { n: 150, q: 'What will Mr. Park most likely do next?', options: ['Call the print shop again', 'Take a taxi to the hotel', 'Set up a workshop room', 'Print new handouts'], a: 1, cue: "I'll grab a taxi and bring it over myself",
@@ -254,8 +254,8 @@ Anneliese Brandt`,
 One of the city's largest providers, WorkNest, opened its fourth location last month in a former textile factory on Dunmore Avenue. The building offers 120 desks, private meeting rooms, and a café. "Our members include graphic designers, software developers, and accountants," said WorkNest manager Paulo Reyes. "Many of them tell us that the biggest advantage is flexibility. They can rent a desk one month at a time instead of signing a long-term lease."
 
 However, not everyone is convinced. Some business owners say that shared offices can be noisy and lack privacy. In response, WorkNest has installed soundproof phone booths at all of its locations.`,
-          groups: [ { type: 'mcq', instr: 'Questions 158-160 refer to the following article.', items: [
-            { n: 158, q: 'What is the article mainly about?', options: ['The closing of a textile factory', 'A survey of local accountants', 'The opening of a new café', 'The growing use of shared workspaces'], a: 3, cue: 'Shared office spaces are becoming increasingly popular',
+          groups: [ { type: 'mcq', instr: g.TQR[8], items: [
+            { n: 158, q: g.TQR[3], options: ['The closing of a textile factory', 'A survey of local accountants', 'The opening of a new café', 'The growing use of shared workspaces'], a: 3, cue: 'Shared office spaces are becoming increasingly popular',
               explain: 'Câu chủ đề: văn phòng dùng chung ngày càng phổ biến với doanh nghiệp nhỏ → D. Nhà máy dệt cũ chỉ là địa điểm của WorkNest; quán café là một tiện ích; khảo sát là của Phòng Thương mại về các công ty, không riêng kế toán.' },
             { n: 159, q: 'According to Mr. Reyes, why do members like WorkNest?', options: ['It is located near public transportation.', 'It does not require long-term commitments.', 'It offers free meals.', 'It provides business training.'], a: 1, cue: 'They can rent a desk one month at a time instead of signing a long-term lease',
               explain: 'Ưu điểm lớn nhất là sự linh hoạt: thuê theo từng tháng thay vì ký hợp đồng dài hạn → "does not require long-term commitments" (B). Các lựa chọn khác không được nhắc đến.' },
@@ -272,7 +272,7 @@ Rachel Dunn [11:09 A.M.]: I'll call their product manager right now and ask her 
 Ahmed Saleh [11:11 A.M.]: Sofia, the large-format printer is booked by the sales department all day tomorrow. Should I reserve it for you this afternoon?
 Sofia Grant [11:12 A.M.]: Yes, please. Two o'clock would be ideal.
 Ahmed Saleh [11:13 A.M.]: Done. It's yours from 2:00 to 4:00.`,
-          groups: [ { type: 'mcq', instr: 'Questions 161-164 refer to the following online chat discussion.', items: [
+          groups: [ { type: 'mcq', instr: g.TQR[4], items: [
             { n: 161, q: 'Why was the presentation moved to an earlier date?', options: ['A design needs to be revised.', 'A printer is broken.', 'A client representative will be away.', 'The sales department requested a change.'], a: 2, cue: 'Their marketing director will be on vacation at the end of the week',
               explain: 'Giám đốc marketing của khách hàng đi nghỉ cuối tuần → một đại diện khách hàng sẽ vắng mặt (C). Máy in không hỏng mà chỉ bị phòng kinh doanh đặt trước (B sai).' },
             { n: 162, q: 'What is suggested about Ms. Grant?', options: ['She has completed some designs.', 'She works in the sales department.', 'She will travel on Friday.', 'She needs nutrition information.'], a: 0, cue: 'The cereal box designs are done',
@@ -281,6 +281,93 @@ Ahmed Saleh [11:13 A.M.]: Done. It's yours from 2:00 to 4:00.`,
               explain: '"another matter" (lại là chuyện khác) đối lập với việc thiết kế hộp đã xong; ngay sau đó anh nói vẫn đang chờ thông tin dinh dưỡng → nhãn chai nước chưa xong (D).' },
             { n: 164, q: 'What has Mr. Saleh just done?', options: ['Contacted the client', 'Reserved a piece of equipment', 'Printed some samples', 'Rescheduled a meeting'], a: 1, cue: "Done. It's yours from 2:00 to 4:00.",
               explain: 'Ông hỏi có nên đặt máy in khổ lớn cho Sofia không, cô đồng ý, ông trả lời "Done. It\'s yours from 2:00 to 4:00" → đã đặt máy in (thiết bị) (B). Người liên hệ khách hàng là Rachel (A sai).' }
+          ] } ] },
+        { title: 'Memo', text:
+`MEMO
+
+To: All Employees
+From: Gwendolyn Achterberg, Office Manager
+Date: February 26
+Subject: New visitor check-in process
+
+Starting Monday, March 9, visitors to Brackenridge Consulting Engineers will no longer sign the paper logbook at the reception desk. Instead, they will check in on a tablet located next to the main entrance. The tablet will print a name badge and automatically send a text message to the employee they are meeting.
+
+To make this system work, please register any expected visitors at least one day in advance through the "Guests" page of the company intranet. Visitors who have not been registered will still be admitted, but reception staff will need to contact you by phone before issuing a badge, which may cause delays.
+
+Employees who regularly receive deliveries from couriers do not need to register them; couriers will continue to use the loading entrance on Halberd Lane.
+
+A short video demonstrating the system is available on the intranet.`,
+          groups: [ { type: 'mcq', instr: 'Questions 165-166 refer to the following memo.', items: [
+            { n: 165, q: g.TQR[11], options: ['To announce a change in a procedure for guests', 'To remind employees to wear name badges', 'To introduce a new receptionist', 'To report a problem with the company intranet'], a: 0, cue: 'visitors to Brackenridge Consulting Engineers will no longer sign the paper logbook',
+              explain: 'Bản ghi nhớ thông báo khách đến "will no longer sign the paper logbook" (không ký sổ giấy nữa) mà sẽ "check in on a tablet" (làm thủ tục trên máy tính bảng) → thay đổi quy trình tiếp khách. Thẻ tên là dành cho khách, không phải nhắc nhân viên đeo thẻ; không có lễ tân mới hay sự cố mạng nội bộ.' },
+            { n: 166, q: 'What are employees asked to do?', options: ['Pick up visitors at the loading entrance', 'Watch a training session in person', 'Enter visitor information ahead of time', 'Send text messages to couriers'], a: 2, cue: 'please register any expected visitors at least one day in advance',
+              explain: '"register any expected visitors at least one day in advance" → đăng ký thông tin khách trước ít nhất một ngày. Lối vào khu bốc hàng chỉ dành cho người giao hàng; video hướng dẫn xem trên mạng nội bộ chứ không phải buổi đào tạo trực tiếp; tin nhắn do máy tính bảng tự gửi cho nhân viên.' }
+          ] } ] },
+        { title: 'Receipt', text:
+`HALLORAN MUSIC SUPPLY
+412 Corvell Avenue, Brisbane
+Tel: (07) 5550 2184
+
+Receipt No. 20817
+Date: Saturday, August 9
+Customer: Ines Vasquez
+
+Item | Qty | Price
+Digital piano stand (model DS-40) | 1 | $89.00
+Sustain pedal | 1 | $34.00
+Piano tuning service (home visit) | 1 | $120.00
+Subtotal | | $243.00
+Member discount (10% on merchandise only) | | -$12.30
+Total paid (credit card) | | $230.70
+
+Home visit scheduled: Thursday, August 14, between 1:00 and 3:00 P.M.
+
+Merchandise may be returned within 30 days with this receipt. Service fees are non-refundable once the service has been performed.`,
+          groups: [ { type: 'mcq', instr: 'Questions 167-168 refer to the following receipt.', items: [
+            { n: 167, q: 'What is indicated about Ms. Vasquez?', options: ['She paid in cash.', 'She is a member of a store program.', 'She bought a new piano.', 'She works at Halloran Music Supply.'], a: 1, cue: 'Member discount (10% on merchandise only)',
+              explain: 'Hóa đơn có dòng "Member discount" (giảm giá cho hội viên) → cô Vasquez là hội viên của cửa hàng. Cô trả bằng thẻ tín dụng ("credit card"), không phải tiền mặt; cô mua giá đỡ đàn và bàn đạp, không mua đàn mới.' },
+            { n: 168, q: 'What will most likely happen on August 14?', options: ['A sale will begin at the store.', 'Ms. Vasquez will return a pedal.', 'A piano stand will be delivered.', "A technician will visit Ms. Vasquez's home."], a: 3, cue: 'Home visit scheduled: Thursday, August 14',
+              explain: '"Piano tuning service (home visit)" và "Home visit scheduled: Thursday, August 14" → ngày 14/8 sẽ có thợ đến nhà lên dây đàn. Không có thông tin về đợt giảm giá, việc trả lại bàn đạp hay giao giá đỡ đàn.' }
+          ] } ] },
+        { title: 'Online chat discussion', text:
+`Folasade Adeyemi [10:02 A.M.]: Good morning. Harbison Pharmaceuticals has asked us to translate its product safety manual into Spanish and Portuguese by Friday instead of next Wednesday.
+Mateus Cardoso [10:05 A.M.]: That's three days earlier than we agreed. How long is the manual?
+Folasade Adeyemi [10:06 A.M.]: About 18,000 words. They've offered to pay a 20 percent rush fee.
+Mateus Cardoso [10:08 A.M.]: I can handle the Portuguese version if someone takes over my marketing brochure for Delmont Tours.
+Yvette Lambert [10:11 A.M.]: I can finish the brochure. I only have a short contract to proofread this week.
+Folasade Adeyemi [10:12 A.M.]: Thanks, Yvette. Ricardo, could you do the Spanish version?
+Ricardo Solís [10:14 A.M.]: I'll need help with the technical terms. Is there a glossary from their last project?
+Folasade Adeyemi [10:15 A.M.]: Not that I know of. I'll ask their project manager this morning.
+Ricardo Solís [10:16 A.M.]: OK. Then I'll start with the sections that don't have technical vocabulary.
+Folasade Adeyemi [10:18 A.M.]: Great. I'll let Harbison know we can meet the new deadline.`,
+          groups: [ { type: 'mcq', instr: g.TQR[9], items: [
+            { n: 169, q: g.TQR[18], options: ['Hiring additional translators', 'Negotiating a price with a client', 'Reviewing a marketing brochure', 'Completing a project sooner than planned'], a: 3, cue: 'by Friday instead of next Wednesday',
+              explain: 'Khách hàng muốn bản dịch xong "by Friday instead of next Wednesday" (thứ Sáu thay vì thứ Tư tuần sau) và cả nhóm phân công để kịp → hoàn thành dự án sớm hơn dự kiến. Phí làm gấp do khách tự đề nghị, không có thương lượng giá; tờ quảng cáo chỉ là việc phụ được chuyển cho người khác.' },
+            { n: 170, q: 'What will Ms. Lambert most likely do this week?', options: ['Translate a manual into Spanish', 'Contact a project manager', 'Work on a document for Delmont Tours', 'Create a glossary of terms'], a: 2, cue: 'I can finish the brochure.',
+              explain: 'Cô Lambert nói "I can finish the brochure" – tức tờ quảng cáo cho Delmont Tours mà anh Cardoso đang làm. Bản tiếng Tây Ban Nha là việc của anh Solís; liên hệ quản lý dự án là việc của cô Adeyemi.' },
+            { n: 171, q: 'At 10:15 A.M., what does Ms. Adeyemi most likely mean when she writes, "Not that I know of"?', options: ['She is not aware of an existing list of terms.', "She does not know the client's deadline.", 'She has not read the safety manual.', 'She cannot recommend another translator.'], a: 0, cue: 'Not that I know of.',
+              explain: 'Anh Solís hỏi có "glossary" (bảng thuật ngữ) từ dự án trước không; cô trả lời "Not that I know of" (theo tôi biết thì không có) rồi nói sẽ hỏi quản lý dự án → cô không biết có sẵn bảng thuật ngữ nào. Hạn chót cô đã nắm rõ (thứ Sáu), nên các cách hiểu khác không hợp ngữ cảnh.' }
+          ] } ] },
+        { title: 'Article', text:
+`Ferry Operator to Go Electric
+By Oksana Hrytsenko
+
+LYTTELTON BAY (March 4) – Brennan Isle Ferries announced on Monday that it will replace two of its diesel-powered vessels with electric ferries by the end of next year. The company operates the 40-minute crossing between Lyttelton Bay and Marrow Island, carrying roughly 3,000 passengers a day during the summer months. —[1]—
+
+The new vessels, which are being built by Kvarnes Marine in Bergen, will each carry up to 350 passengers and 60 cars. They will be charged at both terminals during the ten-minute stop between trips. —[2]— Chief executive Dominic Ashworth said the switch will reduce the company's fuel costs by nearly half and make crossings noticeably quieter.
+
+Construction of charging stations at the two terminals will begin in May. During this work, some parking spaces at the Lyttelton Bay terminal will be temporarily unavailable. —[3]— Passengers are encouraged to use the shuttle bus that runs from the city center every 30 minutes.
+
+Ticket prices will not change as a result of the project, Mr. Ashworth confirmed. —[4]— The company also plans to add an extra evening departure on weekends once the electric ferries are in service.`,
+          groups: [ { type: 'mcq', instr: g.TQR[7], items: [
+            { n: 172, q: g.TQR[3], options: ["A shipyard's plans to expand", "A ferry company's switch to new vessels", 'A change in ferry ticket prices', 'The opening of a new ferry route'], a: 1, cue: 'will replace two of its diesel-powered vessels with electric ferries',
+              explain: 'Bài báo nói Brennan Isle Ferries "will replace two of its diesel-powered vessels with electric ferries" → hãng phà chuyển sang tàu mới chạy điện. Giá vé "will not change" (không đổi); tuyến Lyttelton Bay – Marrow Island đã có sẵn; xưởng đóng tàu chỉ được nhắc qua.' },
+            { n: 173, q: 'What is NOT mentioned as an advantage of the electric ferries?', options: ['Lower fuel costs', 'Quieter crossings', 'Shorter travel times', 'Additional weekend service'], a: 2, cue: "reduce the company's fuel costs by nearly half and make crossings noticeably quieter",
+              explain: 'Bài nêu: giảm gần một nửa chi phí nhiên liệu, chuyến đi yên tĩnh hơn, và thêm chuyến tối cuối tuần khi tàu điện hoạt động. Thời gian di chuyển ngắn hơn không được nhắc đến (chuyến đi vẫn là "40-minute crossing") → đáp án.' },
+            { n: 174, q: 'In the article, the word "service" in paragraph 4 is closest in meaning to', options: ['operation', 'repair', 'assistance', 'ceremony'], a: 0, cue: 'once the electric ferries are in service',
+              explain: '"once the electric ferries are in service" = khi phà điện đi vào hoạt động → "service" ở đây nghĩa là sự vận hành (operation). Nghĩa "sửa chữa", "sự giúp đỡ" hay "buổi lễ" đều không hợp với cụm "in service".' },
+            { n: 175, q: 'In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? "Such a short stop is possible because the batteries need only a partial recharge each time."', options: ['[1]', '[2]', '[3]', '[4]'], a: 1, cue: 'They will be charged at both terminals during the ten-minute stop between trips.',
+              explain: 'Câu cần chèn có "Such a short stop" (một lần dừng ngắn như vậy) – phải đứng ngay sau câu nhắc đến "the ten-minute stop between trips" (10 phút dừng giữa các chuyến) để sạc pin → vị trí [2]. Các vị trí khác nói về số hành khách, bãi đỗ xe và giá vé, không có "stop" nào để liên kết.' }
           ] } ] },
         { title: 'Web page and E-mail', text:
 `www.northernlogisticssummit.com/register
@@ -314,19 +401,208 @@ Finally, two of our team members will arrive late on November 5 because of a cli
 Best regards,
 Lucia Ferreira
 Operations Manager, Carrow Freight`,
-          groups: [ { type: 'mcq', instr: 'Questions 165-170 refer to the following Web page and e-mail.', items: [
-            { n: 165, q: 'What is indicated about the summit?', options: ['It is held every two years.', 'It includes an exhibition.', 'It is free for students.', 'It lasts three days.'], a: 1, cue: 'access to the exhibition hall, where more than 80 companies will display',
+          groups: [ { type: 'mcq', instr: 'Questions 176-180 refer to the following Web page and e-mail.', items: [
+            { n: 176, q: 'What is indicated about the summit?', options: ['It is held every two years.', 'It includes an exhibition.', 'It is free for students.', 'It lasts three days.'], a: 1, cue: 'access to the exhibition hall, where more than 80 companies will display',
               explain: 'Trang web nêu sảnh triển lãm với hơn 80 công ty trưng bày thiết bị, phần mềm → có triển lãm (B). Vé sinh viên giá $120 (C sai); hội nghị diễn ra 2 ngày 5–6/11 (D sai); email nói công ty tham dự "every year" nên A sai.' },
-            { n: 166, q: 'What is the purpose of Ms. Ferreira\'s e-mail?', options: ['To cancel a registration', 'To propose a speaker', 'To make arrangements for colleagues', 'To complain about a price'], a: 2, cue: 'I would like to register six employees',
+            { n: 177, q: "What is the purpose of Ms. Ferreira's e-mail?", options: ['To cancel a registration', 'To propose a speaker', 'To make arrangements for colleagues', 'To complain about a price'], a: 2, cue: 'I would like to register six employees',
               explain: 'Bà muốn đăng ký cho 6 nhân viên, hỏi về lối đi cho xe lăn và việc nhận thẻ cho hai đồng nghiệp đến muộn → sắp xếp cho đồng nghiệp (C). Bà chỉ đề nghị được hưởng giá sớm một cách lịch sự, không phàn nàn (D).' },
-            { n: 167, q: 'What price per full pass is Ms. Ferreira hoping to pay before any group discount?', options: ['$420', '$490', '$250', '$120'], a: 0, cue: 'I was hoping you might still offer us the early price',
+            { n: 178, q: 'What price per full pass is Ms. Ferreira hoping to pay before any group discount?', options: ['$420', '$490', '$250', '$120'], a: 0, cue: 'I was hoping you might still offer us the early price',
               explain: 'Kết hợp hai văn bản: bà muốn được "the early price" cho vé "full passes"; theo bảng giá, vé trọn gói giá sớm là $420 (A). $490 là giá thường hiện áp dụng (từ 1/10) – bẫy cho B.' },
-            { n: 168, q: 'What is suggested about Carrow Freight?', options: ['It is a new company.', 'It will host the networking dinner.', 'It has an office in Duluth.', 'It has sent employees to previous summits.'], a: 3, cue: 'our company has sent staff to the summit every year since it began',
-              explain: '"has sent staff to the summit every year since it began" → công ty đã cử nhân viên tham dự các kỳ trước (D). Nếu tham dự từ kỳ đầu thì khó là công ty mới (A sai); không có thông tin về văn phòng ở Duluth.' },
-            { n: 169, q: 'Why will Carrow Freight most likely receive an additional discount?', options: ['Its employees are students.', 'It registered before September 30.', 'It is registering more than five people.', 'It is a sponsor of the event.'], a: 2, cue: 'Groups of five or more from the same company receive an additional 10 percent discount',
+            { n: 179, q: 'Why will Carrow Freight most likely receive an additional discount?', options: ['Its employees are students.', 'It registered before September 30.', 'It is registering more than five people.', 'It is a sponsor of the event.'], a: 2, cue: 'Groups of five or more from the same company receive an additional 10 percent discount',
               explain: 'Câu hỏi kết hợp: trang web giảm thêm 10% cho nhóm từ 5 người trở lên cùng công ty; email đăng ký 6 nhân viên → đủ điều kiện (C). Email gửi ngày 3/10, đã qua hạn giá sớm 30/9 (B sai).' },
-            { n: 170, q: 'What does Ms. Ferreira ask about two of her colleagues?', options: ['Whether they can share a pass', 'Whether they can collect their badges at an evening event', 'Whether they can attend only the dinner', 'Whether they can stay at a different hotel'], a: 1, cue: 'pick up their badges at the dinner instead of at the registration desk',
+            { n: 180, q: 'What does Ms. Ferreira ask about two of her colleagues?', options: ['Whether they can share a pass', 'Whether they can collect their badges at an evening event', 'Whether they can attend only the dinner', 'Whether they can stay at a different hotel'], a: 1, cue: 'pick up their badges at the dinner instead of at the registration desk',
               explain: 'Bà hỏi hai đồng nghiệp đến muộn có thể "pick up their badges at the dinner" không – bữa tối networking diễn ra vào tối 5/11 → nhận thẻ tại một sự kiện buổi tối (B). Họ vẫn đăng ký vé trọn gói, chỉ lỡ các phiên ban ngày (C sai).' }
+          ] } ] },
+        { title: 'Advertisement and Online review', text:
+`Larkspur Office Rentals
+Furniture for temporary offices, events, and growing teams
+
+Need desks and chairs for a few weeks or a few months? Larkspur rents high-quality office furniture by the month, with free delivery and setup anywhere within the city limits.
+
+Package | Contents | Monthly price
+Starter | 4 desks, 4 chairs | $280
+Team | 10 desks, 10 chairs, 1 meeting table | $650
+Studio | 10 adjustable standing desks, 10 chairs, 2 storage cabinets | $890
+
+• Rentals of three months or longer receive a 15% discount.
+• Deliveries outside the city limits are available for a flat fee of $75.
+• Damaged items are repaired or replaced within 48 hours at no charge.
+
+Call 555-0147 or visit our showroom at 90 Fenwick Road.
+
+* * *
+
+Posted by: Halima Osei, Operations Director, Quillon Analytics
+Rating: 4 out of 5
+
+Our company needed temporary workspace for ten new data analysts while our main office was being expanded. We rented the package with standing desks from Larkspur for four months, and the team loved it. The furniture arrived on time, and the delivery crew set everything up in under two hours. When one of the cabinet doors came loose in the second month, a technician fixed it the next day.
+
+My only complaint concerns billing. The first invoice did not include the discount we were promised for a long-term rental, and it took several phone calls to have it corrected. Still, I would recommend Larkspur to any business that needs furniture in a hurry.`,
+          groups: [ { type: 'mcq', instr: 'Questions 181-185 refer to the following advertisement and online review.', items: [
+            { n: 181, q: 'What is indicated about Larkspur Office Rentals?', options: ['It sells used furniture.', 'It has several showrooms.', 'It offers design consultations.', 'It sets up furniture at no extra cost within the city.'], a: 3, cue: 'with free delivery and setup anywhere within the city limits',
+              explain: 'Quảng cáo nêu "free delivery and setup anywhere within the city limits" → giao và lắp đặt miễn phí trong thành phố. Công ty cho thuê chứ không bán đồ cũ; chỉ có một phòng trưng bày ở 90 Fenwick Road; không nhắc đến tư vấn thiết kế.' },
+            { n: 182, q: 'Which package did Quillon Analytics most likely rent?', options: ['The Starter package', 'The Team package', 'The Studio package', 'A custom package'], a: 2, cue: 'We rented the package with standing desks',
+              explain: 'Kết hợp hai văn bản: bài đánh giá nói đã thuê "the package with standing desks" và có nhắc "cabinet doors" (cửa tủ); trong quảng cáo, chỉ gói Studio có "adjustable standing desks" và "storage cabinets" → gói Studio. Gói Team có bàn họp nhưng không có bàn đứng.' },
+            { n: 183, q: 'How much should Quillon Analytics have been charged per month?', options: ['$650.00', '$756.50', '$890.00', '$965.00'], a: 1, cue: 'The first invoice did not include the discount we were promised for a long-term rental',
+              explain: 'Kết hợp hai văn bản: gói Studio giá $890/tháng; thuê 4 tháng nên được giảm 15% ("three months or longer") → 890 × 0,85 = $756.50. $890 là giá chưa giảm trên hóa đơn sai; $965 là cộng thêm phí giao ngoài thành phố, không có căn cứ.' },
+            { n: 184, q: 'What is suggested about the repair mentioned in the review?', options: ['It was completed within the time stated in the advertisement.', 'It required a replacement cabinet.', 'It was charged to Quillon Analytics.', 'It took place during the first month of the rental.'], a: 0, cue: 'a technician fixed it the next day',
+              explain: 'Kết hợp hai văn bản: quảng cáo hứa sửa hoặc thay đồ hỏng "within 48 hours at no charge"; bài đánh giá cho biết thợ sửa cửa tủ "the next day" (ngày hôm sau) → đúng thời hạn đã hứa. Việc sửa miễn phí, chỉ sửa cửa chứ không thay tủ, và xảy ra vào tháng thứ hai.' },
+            { n: 185, q: 'In the online review, the word "concerns" in paragraph 2 is closest in meaning to', options: ['worries', 'interests', 'troubles', 'relates to'], a: 3, cue: 'My only complaint concerns billing.',
+              explain: '"My only complaint concerns billing" = phàn nàn duy nhất của tôi liên quan đến việc lập hóa đơn → "concerns" là động từ, nghĩa "liên quan đến" (relates to). Nghĩa "lo lắng", "làm quan tâm" hay "gây phiền toái" không hợp với cấu trúc câu này.' }
+          ] } ] },
+        { title: 'Price list, E-mail and Delivery notice', text:
+`Montaro Coffee Traders – Wholesale Price List (effective July 1)
+
+Product | Origin | Price per 5 kg bag
+House Blend | Brazil and Colombia | $92
+Highland Reserve | Ethiopia | $128
+Dark Harbor Espresso | Sumatra | $110
+Morning Light Decaf | Peru | $105
+
+Orders of ten or more bags receive free delivery; smaller orders are charged a flat fee of $25. Orders received by noon on a weekday are shipped the same day. Our Ethiopian beans are harvested once a year, so supplies may be limited from late summer until the next harvest arrives in November.
+
+* * *
+
+To: orders@montarocoffee.com
+From: Leon Abara
+Date: August 18
+Subject: Weekly order
+
+Hello,
+
+Please send us the following: six bags of House Blend, three bags of Dark Harbor Espresso, and two bags of Highland Reserve. We have recently added a cold brew menu, and it has been far more popular than we expected, so we are going through beans much faster than before.
+
+If any item is unavailable, please substitute the decaf rather than delaying the entire order. We would like to have everything by Thursday, as we are hosting a tasting event that evening.
+
+Best regards,
+Leon Abara
+Manager, Bramble Street Café
+
+* * *
+
+Montaro Coffee Traders – Delivery Notice
+
+Customer: Bramble Street Café
+Order date: August 18
+Shipped: August 18
+Expected arrival: August 20 (Thursday)
+
+Items shipped:
+House Blend – 6 bags
+Dark Harbor Espresso – 3 bags
+Morning Light Decaf – 2 bags
+
+Delivery charge: $0.00
+
+Note: One item on your order was out of stock and has been replaced according to your instructions. We apologize for any inconvenience.`,
+          groups: [ { type: 'mcq', instr: 'Questions 186-190 refer to the following price list, e-mail, and delivery notice.', items: [
+            { n: 186, q: 'What is the purpose of the delivery notice?', options: ['To request payment for an order', 'To provide details about a shipment', 'To announce a price increase', 'To confirm a change of address'], a: 1, cue: 'Items shipped',
+              explain: 'Thông báo liệt kê ngày gửi, ngày dự kiến đến, "Items shipped" và phí giao hàng → cung cấp thông tin về lô hàng đã gửi. Không có yêu cầu thanh toán, tăng giá hay đổi địa chỉ.' },
+            { n: 187, q: 'Why is Bramble Street Café using more coffee than before?', options: ['It is opening a second location.', 'Its supplier has raised its prices.', 'It is extending its business hours.', 'A new type of drink is selling well.'], a: 3, cue: 'far more popular than we expected',
+              explain: 'Email: quán vừa thêm "a cold brew menu" và nó "far more popular than we expected" → loại đồ uống mới bán chạy. Không nhắc đến chi nhánh mới, tăng giá hay kéo dài giờ mở cửa.' },
+            { n: 188, q: 'In the e-mail, the phrase "going through" in paragraph 1 is closest in meaning to', options: ['using up', 'examining', 'passing by', 'experiencing'], a: 0, cue: 'going through beans much faster',
+              explain: '"going through beans much faster than before" = dùng hết hạt cà phê nhanh hơn → "using up". "examining" (xem xét kỹ), "experiencing" (trải qua) và "passing by" (đi ngang qua) là các nghĩa khác của "go through", không hợp ngữ cảnh.' },
+            { n: 189, q: "What is suggested about Mr. Abara's order?", options: ['It will arrive after the tasting event.', 'It was received after noon.', 'It did not include any Ethiopian beans.', 'It contained only one type of coffee.'], a: 2, cue: 'Morning Light Decaf – 2 bags',
+              explain: 'Kết hợp 3 tài liệu: ông đặt 2 bao Highland Reserve (bảng giá: xuất xứ "Ethiopia", nguồn cung hạn chế từ cuối hè); thông báo giao hàng thay bằng "Morning Light Decaf – 2 bags" theo đúng dặn dò "substitute the decaf" → đơn không có hạt Ethiopia. Hàng đến thứ Năm, đúng ngày tổ chức buổi thử cà phê; hàng gửi ngay trong ngày nên đơn được nhận trước buổi trưa.' },
+            { n: 190, q: 'What is probably true about the delivery charge?', options: ['It was added to a later invoice.', 'It was waived because of the size of the order.', 'It was reduced because one item was out of stock.', 'It applies only to orders received after noon.'], a: 1, cue: 'Orders of ten or more bags receive free delivery',
+              explain: 'Đơn hàng gồm 6 + 3 + 2 = 11 bao; bảng giá ghi "Orders of ten or more bags receive free delivery" và thông báo ghi "Delivery charge: $0.00" → được miễn phí vì số lượng lớn. Mức $25 chỉ áp dụng cho đơn dưới 10 bao; việc hết hàng không liên quan đến phí giao.' }
+          ] } ] },
+        { title: 'Memo, Schedule and E-mail', text:
+`To: All Store Managers, Ravensworth Garden Centers
+From: Petra Lindholm, Director of Operations
+Date: April 3
+Subject: Inventory system training
+
+As announced last month, Ravensworth Garden Centers will switch to the StockWise inventory system on May 5. To prepare, every store manager must attend one half-day training session in April. Sessions will be held at our three regional offices, and managers should choose the location closest to their store. Each session is limited to twelve participants, so please register by April 10 through the HR portal.
+
+Managers who cannot attend any of the scheduled sessions should contact Kwabena Mensah in the IT department, who will arrange an online session. Travel expenses for the training will be reimbursed in the usual way.
+
+* * *
+
+StockWise Training Sessions – April
+
+Date | Time | Location | Trainer
+Tuesday, April 15 | 9:00 A.M.–1:00 P.M. | Northfield Regional Office | Simone Duarte
+Thursday, April 17 | 1:00–5:00 P.M. | Ashby Regional Office | Kwabena Mensah
+Wednesday, April 23 | 9:00 A.M.–1:00 P.M. | Ashby Regional Office | Simone Duarte
+Friday, April 25 | 1:00–5:00 P.M. | Calder Bay Regional Office | Simone Duarte
+
+* * *
+
+To: Kwabena Mensah
+From: Arjun Kapoor
+Date: April 14
+Subject: Training session
+
+Dear Kwabena,
+
+I registered for the session at the Ashby office on April 17, since it is only 20 minutes from my store. Unfortunately, our regional director has just scheduled a store inspection for that afternoon, and I need to be present. The other session at the Ashby office would be ideal, but I see on the portal that it is already full. I would rather not drive to Calder Bay, which is nearly three hours away.
+
+Would it be possible for me to join one of your online sessions instead? I am available any morning next week except Monday.
+
+Thank you,
+Arjun Kapoor
+Manager, Ravensworth Garden Centers – Millbrook Store`,
+          groups: [ { type: 'mcq', instr: 'Questions 191-195 refer to the following memo, schedule, and e-mail.', items: [
+            { n: 191, q: g.TQR[11], options: ['To announce required training for managers', 'To introduce a new director of operations', 'To explain a new travel reimbursement policy', 'To request feedback on a software system'], a: 0, cue: 'every store manager must attend one half-day training session in April',
+              explain: 'Bản ghi nhớ yêu cầu "every store manager must attend one half-day training session" → thông báo khóa đào tạo bắt buộc cho quản lý cửa hàng. Chi phí đi lại được hoàn "in the usual way" (theo cách thông thường), không phải chính sách mới; không xin ý kiến về phần mềm.' },
+            { n: 192, q: 'In the memo, the word "limited" in paragraph 1 is closest in meaning to', options: ['basic', 'restricted', 'delayed', 'shortened'], a: 1, cue: 'Each session is limited to twelve participants',
+              explain: '"Each session is limited to twelve participants" = mỗi buổi giới hạn tối đa 12 người → "limited" nghĩa là bị hạn chế (restricted). Nghĩa "cơ bản", "bị hoãn" hay "rút ngắn" không hợp với việc giới hạn số người.' },
+            { n: 193, q: 'Who was originally scheduled to train Mr. Kapoor?', options: ['Petra Lindholm', 'Simone Duarte', 'His regional director', 'Kwabena Mensah'], a: 3, cue: 'I registered for the session at the Ashby office on April 17',
+              explain: 'Kết hợp lịch học và e-mail: anh Kapoor đăng ký buổi "at the Ashby office on April 17"; theo lịch, buổi này do Kwabena Mensah giảng dạy. Simone Duarte dạy các buổi còn lại; Petra Lindholm là người gửi bản ghi nhớ.' },
+            { n: 194, q: 'According to Mr. Kapoor, which session has no places available?', options: ['The session on April 15', 'The session on April 17', 'The session on April 23', 'The session on April 25'], a: 2, cue: 'The other session at the Ashby office would be ideal, but I see on the portal that it is already full.',
+              explain: 'Kết hợp lịch học và e-mail: anh nói "the other session at the Ashby office" đã "already full" (hết chỗ); theo lịch, buổi còn lại ở Ashby là thứ Tư, 23/4. Buổi 17/4 là buổi anh đã đăng ký; buổi 25/4 ở Calder Bay.' },
+            { n: 195, q: 'What is indicated about Mr. Kapoor?', options: ['He is following a procedure described in the memo.', 'He has already completed the StockWise training.', 'He works at the Ashby Regional Office.', 'He wants to be reimbursed for a trip to Calder Bay.'], a: 0, cue: 'should contact Kwabena Mensah in the IT department, who will arrange an online session',
+              explain: 'Kết hợp bản ghi nhớ và e-mail: bản ghi nhớ hướng dẫn quản lý không dự được buổi nào thì "contact Kwabena Mensah… who will arrange an online session"; anh Kapoor viết cho Kwabena xin học trực tuyến → làm đúng quy trình. Anh là quản lý cửa hàng Millbrook, chưa học, và không muốn đi Calder Bay.' }
+          ] } ] },
+        { title: 'Price list, Booking form and E-mail', text:
+`Aurelio Studios – Corporate Photography Rates
+
+Service | Description | Price
+Headshot session | Individual portraits, up to 15 people, 2 edited images each | $600
+Event coverage (half day) | Up to 4 hours, 100 edited images | $950
+Event coverage (full day) | Up to 8 hours, 250 edited images | $1,700
+Rush editing | Edited images delivered within 48 hours instead of 10 business days | $250
+
+Clients who book two or more services for the same date receive $100 off the total. A 30% deposit is required to confirm any booking.
+
+* * *
+
+Aurelio Studios – Booking Request
+
+Client: Tidewell Renewable Energy
+Contact: Benedikt Hauer, Communications Manager
+Event date: Thursday, June 12
+Location: Tidewell headquarters, 18 Marlow Quay
+Services requested: Headshot session (morning); Event coverage, half day (afternoon product launch)
+Additional notes: We would like at least 20 staff members photographed for our new Web site. Please contact me if this changes the price.
+
+* * *
+
+To: Benedikt Hauer
+From: Lucinda Aurelio
+Date: May 20
+Subject: Your booking for June 12
+
+Dear Mr. Hauer,
+
+Thank you for choosing Aurelio Studios. I have reserved June 12 for your company. Because you would like 20 people photographed rather than 15, I will bring my assistant, Tomás Herrera, and add a charge of $200 for the additional portraits.
+
+Your total therefore comes to $1,650. Once we receive your deposit, the booking will be confirmed. Please note that edited images from the product launch will be sent to you within ten business days. If you need them sooner for your press release, let me know and I can arrange it for an extra fee.
+
+Best regards,
+Lucinda Aurelio`,
+          groups: [ { type: 'mcq', instr: 'Questions 196-200 refer to the following price list, booking form, and e-mail.', items: [
+            { n: 196, q: 'Why did Ms. Aurelio add a charge of $200?', options: ['The event will last longer than four hours.', 'More people will be photographed than the session normally covers.', 'The images must be delivered quickly.', 'The photographs will be taken outside the studio.'], a: 1, cue: 'Because you would like 20 people photographed rather than 15',
+              explain: 'Kết hợp ba văn bản: bảng giá ghi buổi chụp chân dung "up to 15 people"; phiếu đặt yêu cầu "at least 20 staff members"; e-mail giải thích phụ phí $200 vì "20 people… rather than 15" → số người vượt mức gói. Sự kiện chỉ nửa ngày và khách chưa yêu cầu chỉnh ảnh gấp.' },
+            { n: 197, q: "Why was $100 deducted from Mr. Hauer's total?", options: ['He paid a deposit early.', 'He is a returning client.', 'He booked two services for the same date.', 'He declined the rush editing service.'], a: 2, cue: 'Clients who book two or more services for the same date receive $100 off the total.',
+              explain: 'Kết hợp ba văn bản: anh Hauer đặt hai dịch vụ cùng ngày 12/6 (chụp chân dung + chụp sự kiện nửa ngày); bảng giá giảm $100 cho "two or more services for the same date" → 600 + 950 + 200 − 100 = $1,650 như trong e-mail. Không có thông tin khách cũ hay đặt cọc sớm.' },
+            { n: 198, q: 'How much will Mr. Hauer most likely have to pay to confirm the booking?', options: ['$330', '$450', '$525', '$495'], a: 3, cue: 'A 30% deposit is required to confirm any booking.',
+              explain: 'Kết hợp bảng giá và e-mail: cần đặt cọc 30% để xác nhận; tổng tiền là $1,650 → 1,650 × 30% = $495. $450 là 30% của $1,500 (chưa tính phụ phí và giảm giá) – bẫy tính sai.' },
+            { n: 199, q: 'In the e-mail, the word "arrange" in paragraph 2 is closest in meaning to', options: ['organize', 'put in order', 'adapt', 'settle'], a: 0, cue: 'I can arrange it for an extra fee',
+              explain: '"I can arrange it for an extra fee" = tôi có thể sắp xếp/tổ chức việc gửi ảnh sớm hơn với phụ phí → "arrange" nghĩa là tổ chức, lo liệu (organize). Nghĩa "xếp theo thứ tự" (như sắp xếp đồ vật) hay "chuyển thể" không hợp ngữ cảnh.' },
+            { n: 200, q: 'What is suggested about Tidewell Renewable Energy?', options: ['It has used Aurelio Studios before.', 'It recently moved its headquarters.', 'It has fewer than 15 employees.', 'It is launching a product on June 12.'], a: 3, cue: 'Event coverage, half day (afternoon product launch)',
+              explain: 'Phiếu đặt ghi sự kiện ngày 12/6 là "afternoon product launch" (buổi ra mắt sản phẩm buổi chiều), e-mail cũng nhắc "edited images from the product launch" → công ty sẽ ra mắt sản phẩm ngày 12/6. Công ty muốn chụp ít nhất 20 nhân viên nên không thể có dưới 15 người; không có thông tin về việc từng thuê studio hay chuyển trụ sở.' }
           ] } ] }
       ] }
   ] });

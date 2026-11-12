@@ -1,0 +1,10 @@
+{
+ "_note": "Tự sinh mỗi thứ Hai bởi scripts/seo/gsc.mjs (workflow seo-gsc.yml) từ Google Search Console 28 ngày. Lượt viết hằng tuần đọc file này TRƯỚC 2027-01-cpm-clusters.json, 2026-11-seo-program.json, briefs.json. type: write-brief = brief có sẵn chưa viết · new-brief = soạn brief mới (1 từ khoá chính/bài) · enrich = làm giàu bài đã có (không viết bài thứ 2) · refresh-title = sửa title/description theo truy vấn (không đổi slug) · cannibal = gộp/phân vai 2 URL · decline = điều tra trang tụt. gain = ước tính thêm lượt bấm/28 ngày · cpmShare = tỉ lệ hiển thị từ nhóm CPM cao (functions/api/_cpm.js) · score = gain × (1 + CPM_W × cpmShare), là khoá xếp hạng. Không tự sửa lịch đăng.",
+ "generated": "2026-11-09",
+ "source": "reports/seo/gsc-2026-11-09.json",
+ "range": {
+  "startDate": "2026-10-10",
+  "endDate": "2026-11-06"
+ },
+ "items": []
+}

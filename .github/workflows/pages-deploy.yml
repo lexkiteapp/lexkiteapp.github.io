@@ -1,0 +1,74 @@
+# 🚀 Cổng deploy Cloudflare Pages duy nhất (docs/FREE-TIER.md §7) – trần Free 500 build/tháng, tháng 10/2026 đã 936+.
+# Mọi commit máy có [CF-Pages-Skip] (scripts/test/pages-skip.mjs chặn quên); workflow cần lên site thì GỌI workflow này
+# (`gh workflow run pages-deploy.yml -f urgent=… -f reason=…`), KHÔNG tự curl deploy hook.
+# Gom: concurrency cancel-in-progress + chờ yên `quiet` phút → chuỗi push/yêu cầu liền nhau chỉ còn 1 deploy; cron 3 giờ bù commit máy đã skip
+# (push bằng GITHUB_TOKEN không kích hoạt workflow khác). Quyết định: scripts/pages/deploy.mjs (chế độ = biến repo PAGES_DEPLOY: git|hook|direct).
+name: Pages deploy
+on:
+  push:
+    branches: [main]
+    # = NON_SITE trong scripts/pages/deploy.mjs (thứ tự có nghĩa: mẫu sau ghi đè mẫu trước)
+    paths: ['**', '!docs/**', '!reports/**', '!brand/**', '!mobile/**', '!store/**', '!workers/**', '!infra/**', '!.github/**', '!types/**',
+      '!scripts/test/**', '!scripts/video/**', '!scripts/cine/**', '!scripts/footage/**', '!**/*.md', 'content/**', 'web/**']
+  schedule:
+    - cron: '23 */3 * * *'
+  workflow_dispatch:
+    inputs:
+      urgent: { description: 'Bỏ qua giãn cách tối thiểu (bài blog đến giờ, chế độ shed)', type: boolean, default: false }
+      quiet: { description: 'Chờ yên (phút) trước khi deploy – yêu cầu mới trong lúc chờ sẽ huỷ lượt này', type: number, default: 10 }
+      force: { description: 'Deploy dù HEAD không đổi', type: boolean, default: false }
+      reason: { description: 'Ai gọi / vì sao (ghi log)', type: string, default: 'tay' }
+permissions:
+  contents: read
+jobs:
+  deploy:
+    # chế độ git: Cloudflare tự build push → lượt push bỏ qua (job bị bỏ thì KHÔNG vào nhóm concurrency, không huỷ lượt gấp đang chờ)
+    if: github.event_name != 'push' || vars.PAGES_DEPLOY == 'hook' || vars.PAGES_DEPLOY == 'direct'
+    # gấp tách nhóm: yêu cầu thường mới đến không huỷ deploy bài blog đến giờ
+    concurrency:
+      group: pages-deploy-${{ inputs.urgent && 'urgent' || 'normal' }}
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      PAGES_DEPLOY: ${{ vars.PAGES_DEPLOY || 'git' }}
+    steps:
+      - name: Chờ yên (debounce)
+        run: |
+          case "${{ github.event_name }}" in push) q=15;; schedule) q=0;; *) q="${{ inputs.quiet }}";; esac
+          echo "· ${{ github.event_name }} · ${{ inputs.reason }} · chờ ${q:-0} phút (lượt mới hơn sẽ huỷ lượt này)"
+          sleep $(( ${q:-0} * 60 ))
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 300, filter: 'blob:none' }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Quyết định
+        id: plan
+        env:
+          CF_TOKEN: ${{ secrets.CF_ANALYTICS_TOKEN }}   # Pages Read
+          CF_ACCOUNT_ID: e34e14b7ab35eaf2b3d9d84fcce011f7
+          EVENT: ${{ github.event_name }}
+          URGENT: ${{ inputs.urgent }}
+          FORCE: ${{ inputs.force }}
+          MIN_GAP_MIN: ${{ vars.PAGES_MIN_GAP_MIN || '180' }}
+        run: node scripts/pages/deploy.mjs plan
+      - name: Deploy hook (tính 1 build)
+        if: steps.plan.outputs.act == 'hook'
+        env: { HOOK: '${{ secrets.CF_PAGES_DEPLOY_HOOK }}' }
+        run: |
+          [ -n "$HOOK" ] || { echo "::error::Thiếu secret CF_PAGES_DEPLOY_HOOK"; exit 1; }
+          curl -fsS -X POST "$HOOK" > /dev/null && echo "✓ đã gọi deploy hook (Cloudflare build ~5 phút)"
+      - name: Dựng dist (Direct Upload – không tính build Cloudflare)
+        if: steps.plan.outputs.act == 'direct'
+        run: |
+          git fetch -q --unshallow --filter=blob:none origin main 2>/dev/null || true
+          npm ci --no-audit --no-fund
+          bash scripts/build-web.sh
+      - name: wrangler pages deploy
+        if: steps.plan.outputs.act == 'direct'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}   # cần quyền Cloudflare Pages: Edit
+          CLOUDFLARE_ACCOUNT_ID: e34e14b7ab35eaf2b3d9d84fcce011f7
+        run: |
+          msg=$(git log -1 --format=%s | head -c 300)
+          npx -y wrangler@3.114.0 pages deploy dist --project-name lexkite --branch main --commit-hash "$GITHUB_SHA" --commit-message "$msg" --commit-dirty=true

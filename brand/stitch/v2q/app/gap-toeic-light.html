@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite TOEIC Listening Part 1</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-lowest": "#ffffff",
+            "inverse-primary": "#88d4cb",
+            "inverse-on-surface": "#fdeee3",
+            "secondary-fixed": "#ffdcbf",
+            "on-primary-fixed-variant": "#00504a",
+            "secondary-fixed-dim": "#ffb872",
+            "on-surface": "#211a14",
+            "tertiary": "#5b4300",
+            "on-background": "#211a14",
+            "secondary-container": "#fd9500",
+            "primary": "#00504b",
+            "surface-variant": "#efe0d6",
+            "outline-variant": "#bec9c6",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-error": "#ffffff",
+            "background": "#fff8f5",
+            "on-tertiary": "#ffffff",
+            "primary-fixed": "#a4f1e7",
+            "surface-dim": "#e6d7cd",
+            "outline": "#6f7977",
+            "surface-container-high": "#f4e5db",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "on-surface-variant": "#3f4947",
+            "on-secondary-fixed": "#2d1600",
+            "surface": "#fff8f5",
+            "on-secondary-container": "#633700",
+            "on-error-container": "#93000a",
+            "error": "#ba1a1a",
+            "tertiary-fixed": "#ffdf9b",
+            "surface-container": "#faebe1",
+            "surface-bright": "#fff8f5",
+            "tertiary-container": "#785a00",
+            "on-primary-container": "#9be7de",
+            "on-secondary": "#ffffff",
+            "primary-container": "#136a63",
+            "on-tertiary-container": "#ffd370",
+            "tertiary-fixed-dim": "#f5bf31",
+            "on-primary": "#ffffff",
+            "secondary": "#8c5000",
+            "on-tertiary-fixed": "#251a00",
+            "on-primary-fixed": "#00201d",
+            "inverse-surface": "#372f28",
+            "surface-container-low": "#fff1e8",
+            "primary-fixed-dim": "#88d4cb",
+            "surface-container-highest": "#efe0d6",
+            "error-container": "#ffdad6",
+            "surface-tint": "#126a63"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1rem",
+            "space-lg": "1.5rem",
+            "margin-md": "2rem",
+            "margin": "1rem",
+            "gutter-lg": "2rem",
+            "space-md": "1rem",
+            "margin-lg": "3rem",
+            "space-xs": "0.25rem",
+            "gutter-md": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Physical 3D bottom ledge shadow utilities */
+    .ledge-primary {
+      box-shadow: 0 4px 0 #00504b;
+    }
+    .ledge-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #00504b;
+    }
+    .ledge-secondary {
+      box-shadow: 0 4px 0 #bec9c6;
+    }
+    .ledge-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #bec9c6;
+    }
+    .ledge-selected {
+      box-shadow: 0 4px 0 #136a63;
+    }
+    .ledge-selected:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #136a63;
+    }
+    .ledge-amber {
+      box-shadow: 0 4px 0 #c27803;
+    }
+    .ledge-amber:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #c27803;
+    }
+    .card-ledge {
+      box-shadow: 0 4px 0 #bec9c6;
+    }
+    /* Speech bubble arrow */
+    .speech-bubble::before {
+      content: "";
+      position: absolute;
+      left: -9px;
+      top: 18px;
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 9px solid #bec9c6;
+    }
+    .speech-bubble::after {
+      content: "";
+      position: absolute;
+      left: -6px;
+      top: 19px;
+      width: 0;
+      height: 0;
+      border-top: 7px solid transparent;
+      border-bottom: 7px solid transparent;
+      border-right: 7px solid #ffffff;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary selection:text-on-primary font-body-md text-body-md" style="width: 100%; max-width: 390px; margin: 0 auto;">
+<!-- TOP FOCUS APP BAR -->
+<header class="w-full pt-4 pb-2 px-4 bg-background">
+<!-- Row 1: Nav Bar -->
+<div class="flex items-center justify-between gap-3 h-10">
+<!-- Close Button -->
+<button aria-label="Close" class="w-9 h-9 rounded-full bg-surface-container-lowest border-2 border-outline-variant flex items-center justify-center text-on-surface-variant ledge-secondary transition-all">
+<span class="material-symbols-outlined" style="font-size: 20px;">close</span>
+</button>
+<!-- Progress Track -->
+<div class="flex-1 h-3.5 bg-surface-container-high rounded-full overflow-hidden border border-outline-variant relative">
+<div class="h-full bg-primary-container rounded-full relative" style="width: 50%;">
+<!-- Gloss streak -->
+<div class="absolute inset-x-0 top-0 h-1 bg-white opacity-40 rounded-full"></div>
+</div>
+</div>
+<!-- Hearts indicator -->
+<div class="flex items-center gap-1.5 px-3 py-1 bg-surface-container-lowest border-2 border-outline-variant rounded-full ledge-secondary">
+<span class="text-xs font-bold leading-none text-on-surface">5</span>
+<span class="material-symbols-outlined material-symbols-fill text-[#e11d48]" style="font-size: 16px;">favorite</span>
+</div>
+</div>
+<!-- Row 2: Sub-header with Tags & Timer -->
+<div class="flex items-center justify-between mt-3 pt-1">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm tracking-wide">
+          PHOTOGRAPHS
+        </span>
+<span class="font-label-md text-label-md text-on-surface-variant">Listen &amp; select</span>
+</div>
+<!-- Timer Pill -->
+<div class="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined" style="font-size: 14px;">timer</span>
+<span>00:48</span>
+</div>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="flex-1 px-4 pb-28 pt-1 flex flex-col gap-3.5">
+<!-- TEACHER FEEDBACK ROW -->
+<section class="flex items-start gap-2.5">
+<!-- Empty Teacher Slot -->
+<div class="teacher-slot w-[72px] h-[72px] shrink-0 rounded-2xl bg-[#eaf5f3] border border-dashed border-primary flex flex-col items-center justify-center p-1 text-center">
+<span class="material-symbols-outlined text-primary mb-0.5" style="font-size: 22px;">school</span>
+<span class="font-label-sm text-[9px] leading-tight font-extrabold text-primary tracking-tight">TEACHER<br/>SLOT</span>
+</div>
+<!-- Speech Bubble -->
+<div class="speech-bubble relative flex-1 bg-surface-container-lowest border-2 border-outline-variant rounded-2xl p-2.5 card-ledge">
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="w-2 h-2 rounded-full bg-[#1db954] shrink-0"></span>
+<span class="font-label-sm text-[11px] font-extrabold text-primary tracking-wide">CARLOS · TUTOR TIP</span>
+</div>
+<p class="font-body-sm text-[13px] leading-snug text-on-surface font-semibold">
+          “Listen for the action verb in the sentence.”
+        </p>
+</div>
+</section>
+<!-- PHOTO STIMULUS CARD -->
+<section class="bg-surface-container-lowest border-2 border-outline-variant rounded-2xl p-3 card-ledge flex flex-col gap-2.5">
+<!-- Image Stimulus Area -->
+<div class="relative w-full h-44 rounded-xl bg-surface-container-low border border-outline-variant overflow-hidden flex flex-col justify-between p-3 select-none">
+<!-- Zoom Action Pill in top right -->
+<button aria-label="Zoom in photo" class="absolute top-2.5 right-2.5 w-8 h-8 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm border border-outline-variant flex items-center justify-center text-on-surface ledge-secondary active:translate-y-1">
+<span class="material-symbols-outlined" style="font-size: 18px;">zoom_in</span>
+</button>
+<!-- Illustration of Office Desk Stimulus -->
+<div class="w-full h-full flex items-center justify-center pt-2 pb-5">
+<svg class="w-48 h-28" fill="none" viewbox="0 0 192 112" xmlns="http://www.w3.org/2000/svg">
+<!-- Window / Background Line -->
+<path d="M12 28H180" stroke="#bec9c6" stroke-dasharray="3 3" stroke-width="1.5"></path>
+<!-- Plant pot on left -->
+<rect fill="#bec9c6" height="20" rx="3" width="16" x="22" y="58"></rect>
+<path d="M30 58C30 46 22 44 20 42C26 44 30 48 30 58Z" fill="#136a63"></path>
+<path d="M30 58C30 44 38 42 40 40C34 43 30 48 30 58Z" fill="#88d4cb"></path>
+<!-- Monitor & Stand -->
+<rect fill="#211a14" height="46" rx="4" width="68" x="62" y="18"></rect>
+<rect fill="#fff8f5" height="40" rx="2" width="62" x="65" y="21"></rect>
+<!-- Bar Chart on Monitor -->
+<rect fill="#fd9500" height="13" rx="1.5" width="7" x="73" y="44"></rect>
+<rect fill="#136a63" height="21" rx="1.5" width="7" x="83" y="36"></rect>
+<rect fill="#00504b" height="27" rx="1.5" width="7" x="93" y="30"></rect>
+<rect fill="#f5bf31" height="17" rx="1.5" width="7" x="103" y="40"></rect>
+<line stroke="#bec9c6" stroke-width="1.5" x1="70" x2="118" y1="58" y2="58"></line>
+<!-- Monitor Stand -->
+<rect fill="#6f7977" height="12" width="8" x="92" y="64"></rect>
+<path d="M84 76H108" stroke="#6f7977" stroke-linecap="round" stroke-width="3"></path>
+<!-- Coffee Mug on right -->
+<rect fill="#fd9500" height="18" rx="2" width="14" x="146" y="58"></rect>
+<path d="M160 62C163 62 165 64 165 67C165 70 163 72 160 72" stroke="#fd9500" stroke-width="2"></path>
+<path d="M150 52C150 50 152 50 152 48" stroke="#bec9c6" stroke-linecap="round" stroke-width="1"></path>
+<path d="M155 54C155 52 157 52 157 50" stroke="#bec9c6" stroke-linecap="round" stroke-width="1"></path>
+<!-- Desk Notepad & Pen -->
+<rect fill="#fff8f5" height="10" rx="1" stroke="#bec9c6" width="18" x="122" y="68"></rect>
+<!-- Desk Table Top Surface -->
+<path d="M6 78H186" stroke="#211a14" stroke-linecap="round" stroke-width="3"></path>
+<path d="M16 81L16 104" stroke="#bec9c6" stroke-linecap="round" stroke-width="3"></path>
+<path d="M176 81L176 104" stroke="#bec9c6" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<!-- Label Pill at bottom of picture -->
+<div class="w-full flex items-center justify-between border-t border-outline-variant/60 pt-1.5">
+<div class="flex items-center gap-1.5 px-2 py-0.5 bg-surface-container-lowest/90 rounded-md border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 14px;">photo_camera</span>
+<span class="font-label-sm text-[11px] text-on-surface">Image Statement 1–A</span>
+</div>
+<div class="h-1 flex-1 mx-3 bg-surface-container-high rounded-full overflow-hidden">
+<div class="w-1/4 h-full bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Play Controls Row -->
+<div class="flex items-center gap-2 pt-0.5">
+<!-- Main Play Button -->
+<button class="flex-1 h-12 bg-primary-container text-on-primary rounded-xl flex items-center justify-center gap-2 font-label-md text-label-md border-2 border-primary ledge-primary transition-all">
+<span class="material-symbols-outlined text-on-primary" style="font-size: 20px;">volume_up</span>
+<span>Play Statement</span>
+<span class="material-symbols-outlined text-primary-fixed opacity-75" style="font-size: 18px;">graphic_eq</span>
+</button>
+<!-- Loop / Replay Button -->
+<button aria-label="Replay audio" class="w-12 h-12 rounded-xl bg-surface-container-lowest border-2 border-outline-variant flex items-center justify-center text-primary ledge-secondary transition-all">
+<span class="material-symbols-outlined" style="font-size: 22px;">replay</span>
+</button>
+</div>
+<!-- Audio Status Row -->
+<div class="flex items-center justify-between px-1 text-on-surface-variant font-label-sm text-xs">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#1db954]"></span>
+<span class="font-semibold text-on-surface">Audio ready</span>
+</div>
+<div class="text-[11px] font-semibold text-on-surface-variant">
+          1x speed · US accent
+        </div>
+</div>
+</section>
+<!-- SELECT STATEMENT (OPTIONS) -->
+<section class="flex flex-col gap-2">
+<!-- Section Header -->
+<div class="flex items-center justify-between px-1">
+<span class="font-label-sm text-label-sm tracking-wider text-on-surface font-extrabold">SELECT STATEMENT</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant font-medium">Tap letter to mark</span>
+</div>
+<!-- 2x2 Grid of 4 Options -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Option A (Unselected) -->
+<button class="w-full bg-surface-container-lowest border-2 border-outline-variant rounded-xl p-2.5 flex items-center justify-between ledge-secondary text-left transition-all">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-surface-container-high border border-outline-variant flex items-center justify-center font-label-sm text-xs text-on-surface font-extrabold">A</span>
+<span class="font-label-md text-sm text-on-surface font-semibold">Statement A</span>
+</div>
+<span class="w-4 h-4 rounded-full border-2 border-outline-variant"></span>
+</button>
+<!-- Option B (SELECTED) -->
+<button class="w-full bg-[#eaf5f3] border-2 border-primary-container rounded-xl p-2.5 flex items-center justify-between ledge-selected text-left relative transition-all">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="w-6 h-6 rounded-md bg-primary-container text-on-primary flex items-center justify-center font-label-sm text-xs font-extrabold shrink-0">B</span>
+<div class="flex flex-col">
+<span class="font-label-md text-sm text-primary font-bold leading-tight truncate">Statement B</span>
+<span class="text-[9px] font-extrabold text-primary tracking-wider uppercase leading-none">SELECTED</span>
+</div>
+</div>
+<span class="w-4 h-4 rounded-full bg-primary-container flex items-center justify-center text-on-primary shrink-0 ml-1">
+<span class="material-symbols-outlined" style="font-size: 13px;">check</span>
+</span>
+</button>
+<!-- Option C (Unselected) -->
+<button class="w-full bg-surface-container-lowest border-2 border-outline-variant rounded-xl p-2.5 flex items-center justify-between ledge-secondary text-left transition-all">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-surface-container-high border border-outline-variant flex items-center justify-center font-label-sm text-xs text-on-surface font-extrabold">C</span>
+<span class="font-label-md text-sm text-on-surface font-semibold">Statement C</span>
+</div>
+<span class="w-4 h-4 rounded-full border-2 border-outline-variant"></span>
+</button>
+<!-- Option D (Unselected) -->
+<button class="w-full bg-surface-container-lowest border-2 border-outline-variant rounded-xl p-2.5 flex items-center justify-between ledge-secondary text-left transition-all">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-surface-container-high border border-outline-variant flex items-center justify-center font-label-sm text-xs text-on-surface font-extrabold">D</span>
+<span class="font-label-md text-sm text-on-surface font-semibold">Statement D</span>
+</div>
+<span class="w-4 h-4 rounded-full border-2 border-outline-variant"></span>
+</button>
+</div>
+<!-- Helper Notice -->
+<div class="flex items-center gap-1.5 px-1 pt-0.5 text-on-surface font-body-sm text-[12px]">
+<span class="material-symbols-outlined text-primary" style="font-size: 16px;">info</span>
+<span class="font-medium text-on-surface-variant">In the TOEIC test, options are spoken only and not printed.</span>
+</div>
+</section>
+</main>
+<!-- STICKY BOTTOM ACTION BAR -->
+<footer class="fixed bottom-0 inset-x-0 mx-auto max-w-[390px] p-4 bg-background/95 backdrop-blur-md z-30">
+<button class="w-full h-14 bg-[#f59e0b] hover:bg-[#d97706] text-[#1a0d00] font-headline-sm text-headline-sm rounded-2xl flex items-center justify-center gap-2 border-2 border-[#b45309] ledge-amber transition-all cursor-pointer">
+<span class="font-extrabold tracking-tight">Next</span>
+<span class="material-symbols-outlined" style="font-size: 24px; font-weight: 800;">arrow_forward</span>
+</button>
+</footer>
+</body></html>

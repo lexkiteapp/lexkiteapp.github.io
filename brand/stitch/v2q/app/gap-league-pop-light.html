@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite League Promotion - Gold (Bright Day)</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cream: '#fdf6f0',
+              teal: '#136a63',
+              darkteal: '#0a3d38',
+              orange: '#f99806',
+              orangedark: '#c27803',
+              ink: '#111827',
+              goldsoft: '#fef3c7',
+              goldborder: '#fde047',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="base-typography">
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+  </style>
+<style data-purpose="custom-shadows">
+    .tactile-button-orange {
+      background-color: #f99806;
+      box-shadow: 0 4px 0 0 #c27803;
+      transition: all 0.1s ease;
+    }
+    .tactile-button-orange:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #c27803;
+    }
+    .tactile-card-gold {
+      background-color: #fef8eb;
+      border: 1.5px solid #f9d892;
+      box-shadow: 0 3px 0 0 #f0ca78;
+    }
+    .modal-frame {
+      box-shadow: 0 10px 25px -5px rgba(100, 70, 50, 0.12), 0 8px 10px -6px rgba(100, 70, 50, 0.08);
+      border: 2px solid #ecd8c8;
+    }
+  </style>
+</head>
+<body class="bg-[#0F3D3E] text-brand-ink min-h-screen flex justify-center items-center m-0 p-0 antialiased">
+<!-- BEGIN: MobileViewport -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#0F3D3E]/85 flex flex-col justify-center items-center px-3 py-6 relative select-none">
+<!-- BEGIN: PromotionModalCard -->
+<main class="w-full bg-[#fffcf9] rounded-[28px] modal-frame relative px-4 pt-4 pb-5 flex flex-col items-center">
+<!-- Close Button 'X' (44x44 minimum tap target) -->
+<button aria-label="Close dialog" class="absolute top-3.5 right-3.5 w-11 h-11 rounded-full bg-[#f3e5d7] hover:bg-[#ebd8c7] flex items-center justify-center text-[#141E20] active:scale-95 transition-transform" type="button">
+<svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- BEGIN: MascotAndSpeechSection -->
+<section class="w-full flex items-center justify-center gap-2.5 mt-2 mb-2 px-1" data-purpose="mascot-encouragement">
+<!-- Teacher Character Avatar (Ama) - Empty dashed slot -->
+<div class="teacher-slot relative w-20 h-20 flex-shrink-0 bg-[#e6f4f1] border border-dashed border-[#136a63]/40 rounded-2xl flex items-center justify-center"></div>
+<!-- Mascot Speech Bubble -->
+<div class="relative bg-[#fcf4ea] border-2 border-[#ecd8c8] px-4 py-2.5 rounded-2xl rounded-bl-sm max-w-[200px] shadow-sm">
+<p class="text-sm font-extrabold tracking-tight leading-snug text-[#141E20]">“Gold looks good on you!”</p>
+<!-- Speech triangle pointer -->
+<div class="absolute -left-2.5 bottom-2.5 w-0 h-0 border-t-[7px] border-t-transparent border-r-[10px] border-r-[#ecd8c8] border-b-[7px] border-b-transparent"></div>
+<div class="absolute -left-[7px] bottom-2.5 w-0 h-0 border-t-[6px] border-t-transparent border-r-[8px] border-r-[#fcf4ea] border-b-[6px] border-b-transparent"></div>
+</div>
+</section>
+<!-- END: MascotAndSpeechSection -->
+<!-- BEGIN: PromotionTransitionCard -->
+<section class="w-full bg-[#fcf5ed] border-2 border-[#f2dfcf] rounded-2xl p-3.5 mb-3" data-purpose="league-progression">
+<div class="flex items-center justify-around">
+<!-- Silver League Side -->
+<div class="flex flex-col items-center">
+<!-- Silver Shield Badge -->
+<div class="w-16 h-18 py-1.5 px-2 bg-gradient-to-b from-[#f2f4f8] to-[#d6dbe4] rounded-xl border-2 border-[#bdc4ce] flex flex-col items-center justify-center shadow-inner">
+<svg class="w-9 h-9 text-[#475569]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm0 3c3.09 0 5.5 2.11 5.5 5.5 0 3.32-2.19 6.78-5.5 7.82-3.31-1.04-5.5-4.5-5.5-7.82C6.5 7.11 8.91 5 12 5z" fill-opacity="0.6"></path>
+<path d="M12 6.5A3.5 3.5 0 0 0 8.5 10c0 2.2 1.4 4.5 3.5 5.3 2.1-.8 3.5-3.1 3.5-5.3A3.5 3.5 0 0 0 12 6.5z" fill="#334155"></path>
+</svg>
+</div>
+<span class="text-[11px] font-extrabold text-[#141E20] mt-1.5 tracking-tight">Silver League</span>
+</div>
+<!-- Upward Arrow Indicator -->
+<div class="flex items-center justify-center">
+<svg class="w-7 h-7 text-[#0b4d47]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24">
+<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+<polyline points="16 7 22 7 22 13"></polyline>
+</svg>
+</div>
+<!-- Gold League Side -->
+<div class="flex flex-col items-center relative">
+<!-- Deep amber-gold star -->
+<div class="absolute -top-1.5 -right-1 z-10">
+<svg class="w-4 h-4 text-[#92400e] fill-current" viewbox="0 0 24 24">
+<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+</svg>
+</div>
+<!-- Gold Shield/Medal Badge -->
+<div class="w-16 h-18 py-1.5 px-2 bg-gradient-to-b from-[#fcd34d] via-[#f59e0b] to-[#d97706] rounded-xl border-2 border-[#92400e] flex flex-col items-center justify-center shadow-md">
+<!-- Inner Medal Emblem -->
+<div class="w-9 h-9 rounded-full bg-[#fef3c7] border-2 border-[#92400e] flex flex-col items-center justify-center">
+<!-- Ribbon & Star -->
+<svg class="w-5 h-5 text-[#78350f]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2l2.4 4.8 5.3.8-3.8 3.7.9 5.3L12 14.1l-4.8 2.5.9-5.3L4.3 7.6l5.3-.8L12 2z"></path>
+<path d="M9 16l-2 6 5-3 5 3-2-6" fill="none" stroke="#78350f" stroke-width="1.5"></path>
+</svg>
+</div>
+</div>
+<!-- League Tag Pill -->
+<div class="-mt-2.5 z-10 bg-[#7c2d12] text-white px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wide border border-[#fef3c7]">
+Gold League
+</div>
+</div>
+</div>
+</section>
+<!-- END: PromotionTransitionCard -->
+<!-- BEGIN: Headlines -->
+<h1 class="text-2xl font-black text-[#141E20] text-center tracking-tight mb-1">
+  You were promoted!
+</h1>
+<p class="text-[13px] font-bold text-[#2d3748] text-center mb-3">
+  Finished <span class="font-extrabold text-[#141E20]">#4 of 30</span> this week – welcome to Gold.
+</p>
+<!-- END: Headlines -->
+<!-- BEGIN: PromotionZoneStandings -->
+<section class="w-full bg-[#fbf5ed] border-2 border-[#ebd7c5] rounded-2xl p-3 mb-3" data-purpose="top5-promotion-zone">
+<!-- Section Header -->
+<div class="flex justify-between items-center mb-2 px-1">
+<span class="text-[11px] font-black uppercase tracking-wider text-[#0F3D3E]">
+TOP 5 PROMOTION ZONE
+</span>
+<span class="bg-[#caece6] text-[#0F3D3E] text-[10px] font-black px-2.5 py-1 rounded-full border border-[#0F3D3E]/30 min-w-[44px] text-center">
+Safe
+</span>
+</div>
+<!-- Horizontal 3-Column Rank Circles -->
+<div class="grid grid-cols-3 gap-2 items-center text-center">
+<!-- Rank #3: Sara K. -->
+<div class="flex flex-col items-center bg-white/95 py-2 px-1 rounded-full border border-[#eddccc]">
+<span class="text-[10px] font-black text-[#262626]">#3</span>
+<div class="w-9 h-9 rounded-full bg-[#fef08a] text-[#1A0D00] font-black text-xs flex items-center justify-center my-0.5 border border-[#eab308]">
+SK
+</div>
+<span class="text-[11px] font-black text-[#141E20] truncate w-full">Sara K.</span>
+<span class="text-[10px] font-black text-[#0F3D3E]">1,980 XP</span>
+</div>
+<!-- Rank #4: YOU (AL - Alex L.) Highlighted -->
+<div class="flex flex-col items-center bg-[#eef8f6] py-2 px-1 rounded-full border-2 border-[#0F3D3E] shadow-sm relative">
+<span class="absolute -top-2 bg-[#0F3D3E] text-white text-[9px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-tighter">
+YOU
+</span>
+<span class="text-[10px] font-black text-[#0F3D3E] mt-0.5">#4</span>
+<div class="w-9 h-9 rounded-full bg-[#0F3D3E] text-white font-black text-xs flex items-center justify-center my-0.5 shadow-sm">
+AL
+</div>
+<span class="text-[11px] font-black text-[#141E20] truncate w-full">Alex L.</span>
+<span class="text-[10px] font-black text-[#0F3D3E]">1,940 XP</span>
+</div>
+<!-- Rank #5: James R. -->
+<div class="flex flex-col items-center bg-white/95 py-2 px-1 rounded-full border border-[#eddccc]">
+<span class="text-[10px] font-black text-[#262626]">#5</span>
+<div class="w-9 h-9 rounded-full bg-[#fed7aa] text-[#1A0D00] font-black text-xs flex items-center justify-center my-0.5 border border-[#fb923c]">
+JR
+</div>
+<span class="text-[11px] font-black text-[#141E20] truncate w-full">James R.</span>
+<span class="text-[10px] font-black text-[#0F3D3E]">1,820 XP</span>
+</div>
+</div>
+</section>
+<!-- END: PromotionZoneStandings -->
+<!-- BEGIN: RewardCard -->
+<section class="w-full min-h-[44px] tactile-card-gold rounded-full py-2.5 px-4 mb-3 flex items-center justify-center gap-2" data-purpose="unlocked-reward">
+<svg class="w-4 h-4 text-[#78350f]" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M6 3h12l4 6-10 12L2 9l4-6z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M2 9h20M10 3l-2 6 4 12 4-12-2-6" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-[12px] font-black text-[#1A0D00] tracking-tight">Gold League unlocked</span>
+</section>
+<!-- END: RewardCard -->
+<!-- BEGIN: PrimaryCTA -->
+<button class="w-full min-h-[48px] tactile-button-orange rounded-2xl py-3.5 px-6 flex items-center justify-center gap-2 text-[#1a0d00] font-black text-base active:opacity-95" data-purpose="continue-action" type="button">
+<span>Continue</span>
+<svg class="w-5 h-5 stroke-[3]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<line x1="5" x2="19" y1="12" y2="12"></line>
+<polyline points="12 5 19 12 12 19"></polyline>
+</svg>
+</button>
+<!-- END: PrimaryCTA -->
+<!-- BEGIN: SecondaryLink -->
+<button class="mt-3 min-h-[44px] py-2 px-4 flex items-center justify-center gap-1.5 text-[#0F3D3E] hover:text-[#0b4d47] font-extrabold text-sm active:opacity-75 transition-colors" data-purpose="view-leaderboard" type="button">
+<svg class="w-4 h-4 text-[#0F3D3E]" fill="currentColor" viewbox="0 0 24 24">
+<path d="M4 19h4V9H4v10zm6 0h4V5h-4v14zm6 0h4v-7h-4v7z"></path>
+</svg>
+<span>See leaderboard</span>
+</button>
+<!-- END: SecondaryLink -->
+</main>
+<!-- END: PromotionModalCard -->
+</div>
+<!-- END: MobileViewport -->
+</body></html>

@@ -1,5 +1,5 @@
 /* Luyện thi TOEFL iBT theo định dạng mới (áp dụng từ 21/01/2026): 4 kỹ năng, 12 dạng bài, thang band 1–6 (kèm 0–120 trong giai đoạn chuyển tiếp).
- * Dữ liệu: js/toefl/data1.js (tự biên soạn). Dùng chung bộ câu hỏi (qengine.js), trình phát nhiều giọng (listening.js),
+ * Dữ liệu: cpack/toefl/data1.js (tự biên soạn). Dùng chung bộ câu hỏi (qengine.js), trình phát nhiều giọng (listening.js),
  * nhận dạng/ghi âm (UI.recognize) và chấm AI tùy chọn (ai.js). Điểm ước tính chỉ để tham khảo, không tương đương điểm chính thức của ETS. */
 (function () {
   const { $, $$, esc, toast } = UI;
@@ -16,18 +16,18 @@
     { key: 'speaking', ic: '🗣️', name: 'Speaking', mins: 8, items: 11, tasks: ['repeat', 'interview'] },
   ];
   const TASKS = {
-    cw: { name: 'Complete the Words', ic: '🔤', desc: t('Điền các chữ cái còn thiếu để hoàn thành từ trong một đoạn văn học thuật ngắn.') },
-    daily: { name: 'Read in Daily Life', ic: '📰', desc: t('Đọc thông báo, email, tờ rơi, tin nhắn đời thường và trả lời câu hỏi trắc nghiệm.') },
-    academic: { name: 'Read an Academic Passage', ic: '🎓', desc: t('Đọc bài học thuật; câu hỏi chi tiết, phủ định, suy luận, từ vựng trong ngữ cảnh và mục đích tu từ.') },
-    response: { name: 'Listen and Choose a Response', ic: '💬', desc: t('Nghe một câu nói ngắn và chọn câu đáp phù hợp nhất.') },
-    conversation: { name: 'Listen to a Conversation', ic: '👥', desc: t('Nghe hội thoại trong môi trường đại học và trả lời câu hỏi.') },
-    announcement: { name: 'Listen to an Announcement', ic: '📢', desc: t('Nghe thông báo trong khuôn viên trường hoặc lớp học.') },
-    talk: { name: 'Listen to an Academic Talk', ic: '🧑‍🏫', desc: t('Nghe bài giảng ngắn; câu hỏi ý chính, chi tiết, mục đích và suy luận.') },
-    sentence: { name: 'Build a Sentence', ic: '🧩', desc: t('Sắp xếp các cụm từ thành câu trả lời đúng ngữ pháp.') },
-    email: { name: 'Write an Email', ic: '📧', desc: t('Viết email theo tình huống, đủ các ý đề yêu cầu (khoảng 7 phút).') },
-    discussion: { name: 'Write for an Academic Discussion', ic: '🗨️', desc: t('Viết bài đóng góp ý kiến vào thảo luận trên diễn đàn lớp học (khoảng 10 phút).') },
-    repeat: { name: 'Listen and Repeat', ic: '🔁', desc: t('Nghe và nhắc lại chính xác từng câu, từ ngắn đến dài.') },
-    interview: { name: 'Take an Interview', ic: '🎙️', desc: t('Trả lời các câu hỏi phỏng vấn, khoảng 45 giây mỗi câu.') },
+    cw: { name: 'Complete the Words', ic: '🔤', get desc() { return t('Điền các chữ cái còn thiếu để hoàn thành từ trong một đoạn văn học thuật ngắn.'); } },
+    daily: { name: 'Read in Daily Life', ic: '📰', get desc() { return t('Đọc thông báo, email, tờ rơi, tin nhắn đời thường và trả lời câu hỏi trắc nghiệm.'); } },
+    academic: { name: 'Read an Academic Passage', ic: '🎓', get desc() { return t('Đọc bài học thuật; câu hỏi chi tiết, phủ định, suy luận, từ vựng trong ngữ cảnh và mục đích tu từ.'); } },
+    response: { name: 'Listen and Choose a Response', ic: '💬', get desc() { return t('Nghe một câu nói ngắn và chọn câu đáp phù hợp nhất.'); } },
+    conversation: { name: 'Listen to a Conversation', ic: '👥', get desc() { return t('Nghe hội thoại trong môi trường đại học và trả lời câu hỏi.'); } },
+    announcement: { name: 'Listen to an Announcement', ic: '📢', get desc() { return t('Nghe thông báo trong khuôn viên trường hoặc lớp học.'); } },
+    talk: { name: 'Listen to an Academic Talk', ic: '🧑‍🏫', get desc() { return t('Nghe bài giảng ngắn; câu hỏi ý chính, chi tiết, mục đích và suy luận.'); } },
+    sentence: { name: 'Build a Sentence', ic: '🧩', get desc() { return t('Sắp xếp các cụm từ thành câu trả lời đúng ngữ pháp.'); } },
+    email: { name: 'Write an Email', ic: '📧', get desc() { return t('Viết email theo tình huống, đủ các ý đề yêu cầu (khoảng 7 phút).'); } },
+    discussion: { name: 'Write for an Academic Discussion', ic: '🗨️', get desc() { return t('Viết bài đóng góp ý kiến vào thảo luận trên diễn đàn lớp học (khoảng 10 phút).'); } },
+    repeat: { name: 'Listen and Repeat', ic: '🔁', get desc() { return t('Nghe và nhắc lại chính xác từng câu, từ ngắn đến dài.'); } },
+    interview: { name: 'Take an Interview', ic: '🎙️', get desc() { return t('Trả lời các câu hỏi phỏng vấn, khoảng 45 giây mỗi câu.'); } },
   };
   const secOf = task => SECTIONS.find(s => s.tasks.includes(task));
   const unitsOf = task => { const s = secOf(task); return s ? D()[s.key].filter(u => u.task === task) : []; };
@@ -55,9 +55,9 @@
         <div class="card hero-main" style="background:linear-gradient(135deg,#0F3D3E,#1F7A72)">
           <h2 style="color:#fff;margin:0">🆕 ${t('Định dạng mới từ 21/01/2026')}</h2>
           <ul style="color:#ede9fe;margin:.5rem 0 0;padding-left:1.1rem;line-height:1.7" class="small">
-            <li>${t('Bài thi ngắn hơn (khoảng 1,5 giờ) và <b>thích ứng</b>: độ khó thay đổi theo câu trả lời của bạn.')}</li>
-            <li>${t('Điểm mỗi kỹ năng và điểm tổng theo <b>thang band 1–6</b> (bước 0,5); điểm tổng là trung bình 4 kỹ năng.')}</li>
-            <li>${t('Trong giai đoạn chuyển tiếp, phiếu điểm vẫn ghi thêm điểm tương đương <b>thang 0–120</b>.')}</li>
+            <li>${t('Bài thi ngắn hơn (khoảng 1,5 giờ làm bài); Reading và Listening <b>thích ứng</b>: độ khó thay đổi theo câu trả lời của bạn.')}</li>
+            <li>${t('Điểm mỗi kỹ năng và điểm tổng theo <b>thang band 1–6</b> (bước 0,5); điểm tổng là trung bình 4 kỹ năng, làm tròn tới 0,5 gần nhất.')}</li>
+            <li>${t('Trong 2 năm đầu (tới tháng 1/2028), phiếu điểm ghi thêm điểm tương đương <b>thang 0–120</b>.')}</li>
           </ul>
         </div>
         <div class="card">
@@ -65,7 +65,7 @@
           <table class="tx-table"><thead><tr><th>${t('Phần')}</th><th>${t('Số câu')}</th><th>${t('Thời gian')}</th></tr></thead><tbody>
             ${SECTIONS.map(s => `<tr><td>${s.ic} ${s.name}</td><td>~${s.items}</td><td class="muted">${t('khoảng {m} phút', { m: s.mins })}</td></tr>`).join('')}
           </tbody></table>
-          <div class="tiny muted">${t('Số câu và thời gian là con số tham khảo do ETS công bố; vì đề thích ứng nên có thể thay đổi.')}</div>
+          <div class="tiny muted">${t('Số câu và thời gian là con số tham khảo do ETS công bố (tổng ~90 phút làm bài, nên dành khoảng 2 giờ cho cả buổi thi); vì Reading và Listening thích ứng nên có thể thay đổi.')}</div>
         </div>
       </div>
       ${SECTIONS.map(s => `<h2 style="margin-top:1.4rem">${s.ic} ${s.name}</h2>
@@ -84,13 +84,13 @@
   };
 
   // ================= TIỆN ÍCH CHUNG =================
-  const explainMark = (root, groups) => groups.forEach(g => g.items.forEach(it => { const el = $(`[data-item="${it.n}"] .lq-fb`, root); if (el && it.explain) el.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(it.explain)}</div>`); }));
+  const explainMark = (root, groups) => groups.forEach(g => g.items.forEach(it => { const el = $(`[data-item="${it.n}"] .lq-fb`, root); if (el && it.explain) el.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(QE.exT(it.explain))}</div>`); }));
   const resultHtml = (right, total, objective = true) => {
     const pct = total ? right / total : 0;
     return `<div class="feedback ${pct >= 0.7 ? 'ok' : 'no'}" style="position:static"><b>${t('{a}/{b} câu đúng', { a: right, b: total })} (${Math.round(pct * 100)}%)</b>${objective ? ` · ${t('band ước tính ≈ {b}', { b: bandEst(pct) })}` : ''} · ${t('câu sai đã vào Sổ lỗi sai')}
       <div class="tiny muted" style="margin-top:.3rem">${t('Ước tính tham khảo trên đề tự biên soạn, không phải điểm chính thức của ETS.')}</div></div>`;
   };
-  const log = (kind, task, n, q, answer, given, explain) => { if (App.logMistake) App.logMistake({ kind, q: `TOEFL · ${TASKS[task].name} · ${n}: ${q || ''}`, answer, given: given || t('(bỏ trống)'), explain: explain || '', ref: '' }); };
+  const log = (kind, task, n, q, answer, given, explain) => { if (App.logMistake) App.logMistake({ kind, q: `TOEFL · ${TASKS[task].name} · ${n}: ${q || ''}`, answer, given: given || I18N.tk('(bỏ trống)'), explain: explain || '', ref: '' }); };
   const wc = s => (String(s).match(/[A-Za-z0-9][A-Za-z0-9'’-]*/g) || []).length;
   const mmss = s => `${String(Math.floor(Math.max(0, s) / 60)).padStart(2, '0')}:${String(Math.max(0, s) % 60).padStart(2, '0')}`;
   const store = { get: k => { try { return localStorage.getItem('vb.toefl.' + k) || ''; } catch (e) { return ''; } }, set: (k, v) => { try { localStorage.setItem('vb.toefl.' + k, v); } catch (e) { /* bỏ qua */ } } };
@@ -101,7 +101,7 @@
   function stopRec() { clearInterval(rec.timer); rec.timer = null; try { if (rec.media && rec.media.state !== 'inactive') rec.media.stop(); else if (rec.stream) rec.stream.getTracks().forEach(x => x.stop()); } catch (e) { /* đã dừng */ } }
   async function record(seconds, onTick, onDone) {
     if (!navigator.mediaDevices || !window.MediaRecorder) { toast(t('Trình duyệt không hỗ trợ ghi âm.')); return false; }
-    try { rec.stream = await navigator.mediaDevices.getUserMedia({ audio: true }); } catch (e) { toast(t('Cần cho phép dùng micro để ghi âm.')); return false; }
+    try { rec.stream = await navigator.mediaDevices.getUserMedia({ audio: { autoGainControl: true, noiseSuppression: true, echoCancellation: true } }); } catch (e) { toast(t('Cần cho phép dùng micro để ghi âm.')); return false; }
     const chunks = [], media = rec.media = new MediaRecorder(rec.stream), stream = rec.stream;
     media.ondataavailable = e => e.data.size && chunks.push(e.data);
     media.onstop = () => { stream.getTracks().forEach(x => x.stop()); onDone(chunks.length ? UI.recUrl(new Blob(chunks, { type: media.mimeType || 'audio/webm' }), 'toefl') : ''); };
@@ -120,9 +120,11 @@
     const cur = sets.includes(+((query && query.get && query.get('s')) || 0)) ? +query.get('s') : sets[0];
     const units = perPage && sets.length > 1 ? all.filter(u => (u.set || 1) === cur) : all;
     const players = [], timers = [];
+    pageT0 = Date.now();
     App.cleanup = () => { players.forEach(p => p && p.stop()); timers.forEach(clearInterval); stopRec(); UI.stopSpeak(); if (UI.stopRecognize) UI.stopRecognize(); };
     view.innerHTML = `<a href="#/toefl" class="small">← TOEFL iBT</a>
       <div class="page-head" style="margin-top:.4rem"><div><div class="tiny muted">${sec.ic} ${sec.name}</div><h1 style="margin:.2rem 0">${T.ic} ${esc(T.name)}</h1><p class="muted small" style="margin:0">${T.desc}</p></div></div>
+      ${window.QT ? QT.box(task === 'sentence' ? 'sentenceB' : task, true) : ''}
       <div class="row" style="margin-bottom:1rem">${sec.tasks.map(k => `<a class="btn sm ${k === task ? 'primary' : ''}" href="#/toefl-p/${k}">${TASKS[k].ic} ${esc(TASKS[k].name)}</a>`).join('')}</div>
       ${perPage && sets.length > 1 ? `<div class="tabs" style="display:inline-flex;margin-bottom:1rem">${sets.map(n => `<a class="${n === cur ? 'on' : ''}" href="#/toefl-p/${task}?s=${n}" style="padding:.45rem .9rem;border-radius:10px;font-weight:700;text-decoration:none;color:inherit;${n === cur ? 'background:var(--surface);box-shadow:var(--shadow-sm)' : ''}">${t('Bộ {n}', { n })}</a>`).join('')}</div>` : ''}
       <div id="tfBody"></div>`;
@@ -137,9 +139,9 @@
     const ans = [];
     body.innerHTML = `${units.map((u, ui) => {
       let k = 0;
-      const html = esc(u.text).replace(/\{([^|}]*)\|([^}]*)\}/g, (m, pre, miss) => { k++; ans.push({ ui, k, pre, miss, explain: (u.explain || [])[k - 1] || '' });
-        return `<span style="white-space:nowrap">${pre}<input class="gap" data-cw="${ans.length - 1}" style="width:${miss.length + 1.6}ch;min-width:0;padding:0 .15rem;margin:0" maxlength="${pre.length + miss.length}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="${esc(t('Ô trống {n}', { n: k }))}"></span>`; });
-      return `<div class="card toeic-u" data-u="${ui}"><div><b>${esc(u.title)}</b><div class="lq-instr" style="margin-top:.5rem"><i>${esc(u.instr || '')}</i></div><div style="line-height:2.3;font-size:1.02rem">${html}</div><div data-cwfb></div></div></div>`;
+      const html = esc(u.text).replace(/\{([^|}]*)\|([^}]*)\}/g, (m, pre, miss) => { k++; ans.push({ ui, k, pre, miss, explain: QE.exT((u.explain || [])[k - 1] || '') });
+        return `<label class="cw-slot">${pre}<input class="gap cw" data-cw="${ans.length - 1}" style="--n:${miss.length}" maxlength="${pre.length + miss.length}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="${esc(t('Ô trống {n}', { n: k }))}"></label>`; }); // ô inline: rộng theo số chữ thiếu, thẳng baseline, vùng chạm 44 px ở .cw-slot::after (style.css)
+      return `<div class="card toeic-u" data-u="${ui}"><div><b>${esc(u.title)}</b><div class="lq-instr" style="margin-top:.5rem"><i>${esc(u.instr || '')}</i></div><div class="cw-text">${html}</div><div data-cwfb></div></div></div>`;
     }).join('')}
       <div class="row" style="margin-top:1rem"><button class="btn primary" id="tSub">✅ ${t('Nộp bài & xem giải thích')}</button></div><div id="tRes" style="margin-top:1rem"></div>`;
     const inputs = $$('input[data-cw]', body);
@@ -160,7 +162,9 @@
     };
   }
 
+  let pageT0 = 0; // mốc mở trang luyện → giây/câu (ước tính)
   async function finish(task, right, total, stat) {
+    if (window.QT) { const sk = { reading: 'fr', listening: 'fl', writing: 'fw' }[secOf(task).key]; if (sk) await QT.recordRaw(sk, task === 'sentence' ? 'sentenceB' : task, right, total, pageT0 ? Math.min(10800, Math.round((Date.now() - pageT0) / 1000)) : 0); }
     await App.reward({ quizzes: 1, [stat]: 1, xp: 10 + right * 2 });
     await saveBest(task, total ? right / total : 0);
     const r = $('#tRes'); if (!r) return;
@@ -205,7 +209,7 @@
         const root = $(`.toeic-u[data-u="${k}"]`, body), res = QE.collect({ groups: u.groups }, root);
         QE.mark(root, res); explainMark(root, u.groups);
         const tr = $(`[data-tr="${k}"]`, root); if (tr) tr.hidden = false;
-        Object.entries(res).forEach(([n, r]) => { total++; if (r.ok) right++; else log(listening ? 'listening' : 'reading', task, n, r.q, r.answer, r.given, (u.groups.flatMap(g => g.items).find(i => i.n === +n) || {}).explain); });
+        Object.entries(res).forEach(([n, r]) => { total++; if (r.ok) right++; else log(listening ? 'listening' : 'reading', task, n, r.q, r.answer, r.given, QE.exT((u.groups.flatMap(g => g.items).find(i => i.n === +n) || {}).explain)); });
       });
       $('#tSub').disabled = true;
       await finish(task, right, total, listening ? 'listens' : 'readings');
@@ -224,29 +228,30 @@
   };
   function practiceSentence({ task, units, body }) {
     const items = units.flatMap(u => u.items);
-    body.innerHTML = `<div class="card"><div class="lq-instr"><i>${esc(units[0].instr || '')}</i><br><span class="tiny">${t('Bấm cụm từ để đưa vào câu; bấm lại để bỏ ra.')}</span></div>
+    body.innerHTML = `<div class="card"><div class="lq-instr"><i>${esc(units[0].instr || '')}</i><br><span class="tiny">${t('Bấm cụm từ để đưa vào câu, bấm lại để bỏ ra; kéo để chèn vào giữa hoặc đổi chỗ.')}</span></div>
       ${items.map(it => `<div class="lq-item" data-bs="${it.n}" style="margin-bottom:.6rem"><div><span class="qn">${it.n}</span> <i>“${esc(it.prompt)}”</i></div>
         <div class="row" style="align-items:center;gap:.3rem;margin:.4rem 0 .3rem 2.2rem"><div data-ans style="flex:1;min-height:2.5rem;border:2px dashed var(--line);border-radius:10px;padding:.3rem;display:flex;flex-wrap:wrap;gap:.3rem;align-items:center">${it.starter ? `<span class="muted">${esc(it.starter)}</span>` : ''}</div><b>${esc(it.end || '.')}</b></div>
-        <div data-bank class="row" style="gap:.3rem;margin-left:2.2rem">${seeded(it.n, it.chunks.length).map(i => `<button class="btn sm" data-c="${i}">${esc(it.chunks[i])}</button>`).join('')}</div>
+        <div data-bank class="row" style="gap:.3rem;margin-left:2.2rem">${seeded(it.n, it.chunks.length).map(i => `<button type="button" class="btn sm ts-chunk" data-i="${i}">${esc(it.chunks[i])}</button>`).join('')}</div>
         <div class="lq-fb" hidden></div></div>`).join('')}</div>
       <div class="row" style="margin-top:1rem"><button class="btn primary" id="tSub">✅ ${t('Nộp bài & xem giải thích')}</button><button class="btn ghost" id="tReset">↺ ${t('Làm lại')}</button></div><div id="tRes" style="margin-top:1rem"></div>`;
-    body.addEventListener('click', e => {
-      const b = e.target.closest('button[data-c]'); if (!b || b.disabled) return;
-      const item = b.closest('[data-bs]'), ans = $('[data-ans]', item), bank = $('[data-bank]', item);
-      (b.parentElement === ans ? bank : ans).appendChild(b);
+    let sent = false;
+    items.forEach(it => { // xếp cụm: component chung (word-arrange.js); nộp bài đọc thứ tự từ các nút trong [data-ans] như cũ
+      const item = $(`[data-bs="${it.n}"]`, body), ans = $('[data-ans]', item), bank = $('[data-bank]', item); let order = [];
+      const draw = () => { $$('button', ans).forEach(b => b.remove()); ans.insertAdjacentHTML('beforeend', order.map(i => `<button type="button" class="btn sm ts-chunk" data-a="${i}">${esc(it.chunks[i])}</button>`).join('')); };
+      WordArrange.bind({ ans, bank, sel: '.ts-chunk', scope: item, get: () => order, set: o => { order = o; }, draw, locked: () => sent, word: i => it.chunks[i], t });
     });
     $('#tReset').onclick = () => routes['toefl-p'](task, query);
     $('#tSub').onclick = async () => {
-      let right = 0;
+      let right = 0; sent = true;
       items.forEach(it => {
         const item = $(`[data-bs="${it.n}"]`, body), given = $$('[data-ans] button', item).map(b => b.textContent).join(' ');
         const correct = it.chunks.join(' '), ok = [correct, ...(it.alt || [])].some(x => x.toLowerCase() === given.toLowerCase());
         const sentence = (it.starter ? it.starter + ' ' : '') + (!it.starter || /[.!?]$/.test(it.starter) ? cap(correct) : correct) + (it.end || '.');
-        if (ok) right++; else log('grammar', task, it.n, it.prompt, sentence, given, it.explain);
+        if (ok) right++; else log('grammar', task, it.n, it.prompt, sentence, given, QE.exT(it.explain));
         item.classList.add(ok ? 'ok' : 'no');
         $$('button', item).forEach(b => { b.disabled = true; });
         const fb = $('.lq-fb', item); fb.hidden = false;
-        fb.innerHTML = `${ok ? '✅' : '❌'} ${t('Đáp án: <b>{a}</b>', { a: esc(sentence) })}<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(it.explain)}</div>`;
+        fb.innerHTML = `${ok ? '✅' : '❌'} ${t('Đáp án: <b>{a}</b>', { a: esc(sentence) })}<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(QE.exT(it.explain))}</div>`;
       });
       $('#tSub').disabled = true;
       await finish(task, right, items.length, 'quizzes');
@@ -283,7 +288,7 @@
       <div id="wOut" style="margin-top:1rem"></div><div id="wAIOut"></div>`;
     const ta = $('#wTxt'); ta.value = store.get(key);
     let left = u.minutes * 60, started = false, rewarded = false;
-    const paint = () => { const n = wc(ta.value); $('#wCnt').innerHTML = t('{n} từ', { n }) + (n && n < minW ? ` · <span style="color:var(--again)">${t('nên viết ≥ {m} từ', { m: minW })}</span>` : ''); };
+    const paint = () => { const n = wc(ta.value); $('#wCnt').innerHTML = t('{n} từ', { n }) + (n && n < minW ? ` · <span style="color:var(--again-text)">${t('nên viết ≥ {m} từ', { m: minW })}</span>` : ''); };
     ta.addEventListener('input', () => {
       store.set(key, ta.value); paint();
       if (started) return; started = true;
@@ -294,7 +299,11 @@
       $('#wOut').innerHTML = `<div class="grid g2" style="align-items:start">
         <div class="card" style="margin:0"><h3 style="margin-top:0">📝 ${t('Bài mẫu')}</h3><div style="white-space:pre-wrap;line-height:1.7">${esc(u.model)}</div><div class="tiny muted" style="margin-top:.4rem">${t('{n} từ', { n: wc(u.model) })}</div></div>
         <div class="card" style="margin:0"><h3 style="margin-top:0">✅ ${t('Tự kiểm tra bài của bạn')}</h3>${u.checklist.map((c, k) => `<label class="small" style="display:flex;gap:.45rem;align-items:flex-start;margin:.35rem 0;cursor:pointer"><input type="checkbox" data-ck="${k}"> <span>${esc(c)}</span></label>`).join('')}
-          <div class="small" id="ckRes" style="margin-top:.4rem"></div><div class="tip small" style="margin-top:.6rem">💡 ${esc(u.tips)}</div></div></div>`;
+          <div class="small" id="ckRes" style="margin-top:.4rem"></div><div class="tip small" style="margin-top:.6rem">💡 ${esc(u.tips)}</div></div></div>${u.mid ? `
+        <div class="card" style="margin:1rem 0 0"><h3 style="margin-top:0">📄 ${t('Bài mức trung bình')}</h3><div style="white-space:pre-wrap;line-height:1.7">${esc(u.mid)}</div><div class="tiny muted" style="margin-top:.4rem">${t('{n} từ', { n: wc(u.mid) })}</div>
+          ${u.midNote ? `<div class="tip small" style="margin-top:.6rem">🔍 <b>${t('Vì sao kém hơn bài mẫu')}:</b> ${esc(u.midNote)}</div>` : ''}</div>` : ''}${u.outline ? `
+        <div class="card" style="margin:1rem 0 0"><h3 style="margin-top:0">🧭 ${t('Dàn ý')}</h3><ol class="small" style="margin:.2rem 0 0;padding-left:1.3rem;line-height:1.7">${u.outline.map(o => `<li>${esc(o)}</li>`).join('')}</ol></div>` : ''}${u.vocab ? `
+        <div class="card" style="margin:1rem 0 0"><h3 style="margin-top:0">🔤 ${t('Từ nên dùng')}</h3><div>${u.vocab.map(v => `<span class="chip" style="white-space:normal;max-width:100%;color:inherit">${esc(v)}</span>`).join('')}</div></div>` : ''}`;
       const upd = () => { const a = $$('[data-ck]:checked').length, b = u.checklist.length; $('#ckRes').innerHTML = `<b>${t('Đạt {a}/{b} tiêu chí', { a, b })}</b>`; };
       $$('[data-ck]').forEach(x => x.onchange = upd); upd();
       if (!rewarded && wc(ta.value) >= minW) { rewarded = true; App.reward({ xp: 10 }); }
@@ -320,7 +329,7 @@ Return ONLY JSON: {"score": number (holistic task score on a 0-5 scale, may use 
           <div class="tiny muted" style="margin-top:.4rem">${t('Nhận xét do AI tạo, chỉ để tham khảo – không phải điểm chính thức của ETS.')}</div></div>`;
         App.reward({ xp: 5 });
       } catch (e) {
-        out.innerHTML = `<div class="card small">❌ ${esc(AI.errText ? AI.errText(e) : e.message)} ${e.message === 'BAD_KEY' || e.message === 'NO_KEY' ? `<button class="btn sm" data-k>${t('Nhập khóa')}</button>` : ''}</div>`;
+        out.innerHTML = `<div class="card small">❌ ${esc(AI.errText ? AI.errText(e) : e.message)} ${e.message === 'BAD_KEY' ? `<button class="btn sm" data-k>${t('Nhập khóa')}</button>` : ''}</div>`;
         const k = $('[data-k]', out); if (k) k.onclick = () => AI.keyDialog(go);
       }
       ai.disabled = false;

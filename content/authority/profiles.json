@@ -1,0 +1,9 @@
+{
+  "_doc": "Kênh THẬT của Lexkite cho schema Organization.sameAs (scripts/lib/authority-links.mjs). Chỉ thêm URL đang hiển thị công khai do Lexkite làm chủ. scripts/test/authority-pages.mjs kiểm từng URL: cửa hàng add-on (web/js/ext-config.js), repo GitHub thật, hoặc mục status=live trong content/pr/placements.json. Kênh mới (YouTube, LinkedIn…) → thêm vào placements.json (live) trước rồi mới thêm ở đây. Xem docs/BACKLINKS.md.",
+  "sameAs": [
+    { "url": "https://github.com/lexkiteapp", "proof": "repo" },
+    { "url": "https://peerlist.io/lexkite", "proof": "placements" },
+    { "url": "https://lexkite.hashnode.dev/", "proof": "placements" }
+  ],
+  "store": true
+}

@@ -1,0 +1,124 @@
+{
+ "id": "t2a_usuk_movie",
+ "template": "usuk",
+ "series": "US or UK?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "U.S. or U.K.?",
+   "pause": 0.42
+  },
+  {
+   "id": "us",
+   "text": "In America, people say movie.",
+   "pause": 0.42
+  },
+  {
+   "id": "uk",
+   "text": "In Britain, people say film. Same thing!",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Let's watch a movie tonight.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! You're in Liverpool. Which word do people use?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Film!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "us": "movie",
+  "uk": "film",
+  "ipa_us": "/ˈmuːvi/",
+  "ipa_uk": "/fɪlm/",
+  "same": "Same thing!",
+  "quiz": {
+   "options": [
+    "movie",
+    "film"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/movie",
+  "link": "https://lexkite.com/app/#/dict/movie",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "US or UK?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Movie or film? US vs UK English",
+  "keyword": "movie vs film",
+  "value": "Americans say movie. British people say film.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/movie",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "Movie or film? US vs UK English",
+    "description": "Americans say movie. British people say film.\n\nLook up any word, free: https://lexkite.com/app/#/dict/movie\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "movie vs film",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Movie or film? US vs UK English\n\nAmericans say movie. British people say film.\n\nLook up any word, free: https://lexkite.com/app/#/dict/movie"
+   },
+   "instagram": {
+    "caption": "Movie or film? US vs UK English\n\nAmericans say movie. British people say film.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Movie or film? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Film! Americans say movie. British people say film. More practice like this (free): {link}"
+ }
+}

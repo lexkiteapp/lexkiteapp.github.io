@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_wake",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: wake.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to stop sleeping.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I usually wake up at six.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "wake",
+  "ipa": "/weɪk/",
+  "mean": "to stop sleeping",
+  "ex": "I usually wake up at six.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=wake",
+  "link": "https://lexkite.com/app/#/review?w=wake",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 36,
+  "seconds": 22.8,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "What does \"wake\" mean?",
+  "keyword": "wake",
+  "value": "Wake means to stop sleeping.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=wake",
+  "script_words": 30,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"wake\" mean?",
+    "description": "Wake means to stop sleeping.\n\nReview your words, free: https://lexkite.com/app/#/review?w=wake\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "wake",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"wake\" mean?\n\nWake means to stop sleeping.\n\nReview your words, free: https://lexkite.com/app/#/review?w=wake"
+   },
+   "instagram": {
+    "caption": "What does \"wake\" mean?\n\nWake means to stop sleeping.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"wake\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to stop sleeping. Wake means to stop sleeping. Try the full lesson and quiz here: {link}"
+ }
+}

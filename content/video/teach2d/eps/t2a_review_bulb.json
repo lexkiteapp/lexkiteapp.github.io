@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_bulb",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: bulb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means the glass part of an electric light.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Please replace the light bulb in the hallway.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "bulb",
+  "ipa": "/bʌlb/",
+  "mean": "the glass part of an electric light",
+  "ex": "Please replace the light bulb in the hallway.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=bulb",
+  "link": "https://lexkite.com/app/#/review?w=bulb",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 25.7,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"bulb\" mean?",
+  "keyword": "bulb",
+  "value": "Bulb means the glass part of an electric light.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=bulb",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"bulb\" mean?",
+    "description": "Bulb means the glass part of an electric light.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bulb\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "bulb",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"bulb\" mean?\n\nBulb means the glass part of an electric light.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bulb"
+   },
+   "instagram": {
+    "caption": "What does \"bulb\" mean?\n\nBulb means the glass part of an electric light.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"bulb\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means the glass part of an electric light. Bulb means the glass part of an electric light. Try the full lesson and quiz here: {link}"
+ }
+}

@@ -1,0 +1,27 @@
+# 🧍 Cổng teacher-native (runtime): giáo viên trên màn thật phải đứng trên bệ Chars.slot – không vệt cắt, không đè chữ, không bị xén. Báo cáo + ảnh ở artifact 7 ngày.
+name: teacher-native
+on:
+  pull_request:
+    paths: ['web/js/**', 'web/app/index.html', 'scripts/test/teacher-native*']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency: { group: 'teacher-native-${{ github.ref }}', cancel-in-progress: true }   # ci-policy: lượt cũ cùng nhánh bị huỷ
+jobs:
+  shots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài playwright
+        timeout-minutes: 14
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - name: Chạy cổng
+        run: node scripts/test/teacher-native-shots.mjs web out/teacher-native
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: teacher-native, path: out/teacher-native, retention-days: 7 }

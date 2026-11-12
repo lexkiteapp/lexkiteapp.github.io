@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Starting theme of MainActivity: Kit background, no system icon (transparent) so nothing flashes; the Compose brand screen takes over on the first frame. -->
+    <style name="Theme.Lexkite.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/lk_splash_bg</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/lk_splash_icon</item>
+        <item name="postSplashScreenTheme">@style/Theme.Lexkite.Base</item>
+    </style>
+    <style name="Theme.Lexkite.Base" parent="android:Theme.Material.Light.NoActionBar" />
+</resources>

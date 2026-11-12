@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_award",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: award.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a prize given to someone for doing something well.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "She won an award for her research.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "award",
+  "ipa": "/əˈwɔːrd/",
+  "mean": "a prize given to someone for doing something well",
+  "ex": "She won an award for her research.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=award",
+  "link": "https://lexkite.com/app/#/review?w=award",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"award\" mean?",
+  "keyword": "award",
+  "value": "Award means a prize given to someone for doing something well.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=award",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"award\" mean?",
+    "description": "Award means a prize given to someone for doing something well.\n\nReview your words, free: https://lexkite.com/app/#/review?w=award\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "award",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"award\" mean?\n\nAward means a prize given to someone for doing something well.\n\nReview your words, free: https://lexkite.com/app/#/review?w=award"
+   },
+   "instagram": {
+    "caption": "What does \"award\" mean?\n\nAward means a prize given to someone for doing something well.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"award\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a prize given to someone for doing something well. Award means a prize given to someone for doing something well. Practice it with a free quiz: {link}"
+ }
+}

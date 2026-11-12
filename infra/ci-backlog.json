@@ -1,0 +1,27 @@
+{
+ "_note": "Sổ việc tồn đọng cho ci-filler (scripts/ci/filler.mjs, .github/workflows/ci-filler.yml): runner rảnh (busy < total − reserve, không job đói) → dispatch theo thứ tự dưới. shards = min(max_shards, total − busy − reserve); max_shards ≤ max-parallel của workflow. quota_bound = giới hạn bởi hạn mức ngoài (CF_POOL, Gemini, Google) → không bao giờ dispatch. probe.cmd + left_re: số việc còn (0 = xong); probe.stale_hours: chạy lại khi lượt hoàn tất gần nhất cũ hơn N giờ. Test: scripts/test/ci-filler.mjs (workflow tồn tại, có concurrency + timeout-minutes, có workflow_dispatch + input shards).",
+ "total_runners": 40,
+ "reserve": 8,
+ "entries": [
+  { "id": "word-audio", "workflow": "word-audio.yml", "cpu_bound": true, "quota_bound": false, "shards_input": "shards", "max_shards": 6, "inputs": { "limit": "300" },
+    "probe": { "cmd": "node scripts/gen-word-audio.mjs --count", "left_re": "cần tạo (\\d+)", "env": { "WORD_AUDIO_EXPAND": "1" } }, "note": "Kokoro giọng từ đơn Anh + Mỹ + Whisper" },
+  { "id": "sentence-audio-asr", "workflow": "sentence-audio-asr.yml", "cpu_bound": true, "quota_bound": false, "shards_input": "shards", "max_shards": 6, "inputs": { "limit": "1500" },
+    "probe": { "cmd": "node scripts/sentence-audio/todo.mjs --count", "left_re": "cần nghe (\\d+)" }, "note": "Kokoro câu: Whisper kiểm + render lại câu trượt" },
+  { "id": "audio-sentences", "workflow": "audio.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "inputs": { "limit": "1500" },
+    "probe": { "cmd": "node scripts/gen-audio.mjs --limit 0", "left_re": "cần tạo (\\d+)" }, "note": "Kokoro câu mới (audio/l)" },
+  { "id": "teach-video", "workflow": "teach-video.yml", "cpu_bound": true, "quota_bound": false, "eligible": false, "hold": "owner 3/11: lip-sync must meet the #293 standard (shared visemes.json rig + sync gate) and the owner approves 2-3 samples before any batch", "shards_input": "shards", "max_shards": 24, "inputs": {},
+    "probe": { "cmd": "python3 scripts/video/teach2d/gen.py --todo --count", "left_re": "cần render (\\d+)" }, "note": "Video Teach2D: tập đã qua cổng máy (reviewed.json) chưa vào bank.json – Kokoro + Remotion, 0 credit, không gọi media/api thật (scripts/media/origin.py)" },
+  { "id": "mobile-qa", "workflow": "mobile-qa.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 6 }, "note": "QA mobile (Playwright) trên main" },
+  { "id": "visual-qa", "workflow": "visual-qa.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 6 }, "note": "QA giao diện 15 ngôn ngữ" },
+  { "id": "web-sweep", "workflow": "web-sweep.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 12 }, "note": "Quét trang web công khai" },
+  { "id": "qa-bot", "workflow": "qa-bot.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 4 }, "note": "QA bot: hành trình, giao diện, hiệu năng, lưu trữ trên bản dựng main" },
+  { "id": "journey-e2e", "workflow": "journey-e2e.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 6 }, "note": "Journey E2E: hành trình người học trên main" },
+  { "id": "ux-cards", "workflow": "ux-cards.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 8 }, "note": "Thẻ UX: ảnh chụp + cổng ux-guard" },
+  { "id": "content-qa", "workflow": "content-qa.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 12 }, "note": "Cổng QA nội dung (0 token AI)" },
+  { "id": "lighthouse", "workflow": "lighthouse.yml", "cpu_bound": true, "quota_bound": false, "jobs": 1, "probe": { "stale_hours": 24 }, "note": "Lighthouse/CWV 14 trang (ghi reports/lighthouse.json)" },
+  { "id": "ext-e2e", "workflow": "ext-e2e.yml", "cpu_bound": true, "quota_bound": false, "jobs": 6, "probe": { "stale_hours": 12 }, "note": "E2E add-on 6 ngôn ngữ" },
+  { "id": "vocab-img-scene", "workflow": "vocab-img-scene.yml", "cpu_bound": false, "quota_bound": true, "eligible": false, "probe": {}, "note": "CF_POOL ảnh – hạn mức neuron, thêm runner không giúp" },
+  {"id": "lexicon-expand", "workflow": "lexicon-expand.yml", "cpu_bound": true, "quota_bound": false, "shards_input": "shards", "max_shards": 4, "min_shards": 2, "probe": {"cmd": "node scripts/lexicon/expand/left.mjs", "left_re": "còn (\\d+) mục"}, "note": "08/11: không bị hạn mức (CF_POOL phần chữ gần như chưa dùng, Groq/Gemini xoay khoá) – shard theo băm từ#loại, trần neuron chia đều; cổng chất lượng + cầu dao sản lượng giữ nguyên"},
+  { "id": "lexicon-i18n", "workflow": "lexicon-i18n.yml", "cpu_bound": false, "quota_bound": true, "eligible": false, "probe": {}, "note": "Dịch AI – hạn mức" }
+ ]
+}

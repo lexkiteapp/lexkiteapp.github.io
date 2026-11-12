@@ -1,0 +1,19 @@
+/* UI th – share (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["th"] = Object.assign(D["th"] || {}, {
+"Bài đăng 1:1":"โพสต์ 1:1",
+"Chia sẻ":"แชร์",
+"Hôm nay mình đã học bài!":"วันนี้ฉันได้เรียนแล้ว!",
+"Học từ vựng & luyện thi miễn phí":"เรียนคำศัพท์และเตรียมสอบฟรี",
+"Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.":"ดื่มกาแฟสักแก้วแล้วทบทวนการ์ดสักหน่อย ☕ – แล้วจะมีผลงานให้อวดทันที",
+"Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"ฉันเรียนภาษาอังกฤษทุกวันกับ Lexkite 🔥 เรียนฟรีที่ {url}",
+"Não bạn đang ở chế độ nghỉ dưỡng":"สมองของคุณอยู่ในโหมดพักร้อน",
+"Story 9:16":"สตอรี่ 9:16",
+"Thẻ thành tích":"การ์ดความสำเร็จ",
+"Thẻ ôn hôm nay":"การ์ดที่ทบทวนวันนี้",
+"Trí nhớ siêu đỉnh!":"ความจำยอดเยี่ยม!",
+"Tải ảnh":"บันทึกรูปภาพ",
+"Từng bước nhỏ mỗi ngày, tiến bộ lớn mỗi tháng.":"ก้าวเล็ก ๆ ทุกวัน ความก้าวหน้าใหญ่ทุกเดือน",
+"Xong mục tiêu hôm nay!":"ทำเป้าหมายวันนี้สำเร็จ!",
+"Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé":"บันทึกรูปแล้ว – คัดลอกลิงก์แล้ว วางลงในโพสต์ได้เลย",
+});
+})(typeof self !== 'undefined' ? self : this);

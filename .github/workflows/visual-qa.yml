@@ -1,0 +1,108 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
+# 👁 Soát giao diện tự động (tràn chữ, nút đè chữ, chữ ép cột, tương phản tối, RTL…) – phục vụ thư mục web/ của chính commit (không cần deploy).
+# Chỉ lưu báo cáo + vài ảnh cắt + contact.html làm artifact 5 ngày (không commit ảnh). Chạy tay, hằng tuần, và CỔNG PR khi đổi giao diện app/landing
+# (ma trận 375/820/1440 × sáng/tối × en/vi/es/ar/ja + lỗi JS, CLS, vùng chạm 44 px; ngưỡng scripts/test/visual-qa.budget.json chỉ được giảm).
+name: Visual QA
+on:
+  workflow_dispatch:
+    inputs:
+      quick: { description: 'Chỉ 375px es/ar (nhanh)', required: false, default: '0' }
+      video_only: { description: '1 = chỉ chạy E2E video bài học', required: false, default: '0' }
+      seo_words: { description: 'Chỉ chụp trước (main)/sau (nhánh) trang từ, vd. en/words/detect,vi/words/detect', required: false, default: '' }
+  pull_request:
+    paths: ['web/app/**', 'web/css/**', 'web/js/**', 'web/index.html', 'web/*/index.html', 'scripts/build-landing.mjs', 'scripts/build-stitch-css.mjs', 'scripts/lib/site-layout.mjs', 'scripts/lib/st-web.mjs', 'brand/tokens.json', 'scripts/test/visual-qa*', '.github/workflows/visual-qa.yml']
+  schedule:
+    - cron: '20 3 * * 1'   # thứ Hai 10:20 giờ Việt Nam
+permissions:
+  contents: read
+  actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ (docs/CI-RUNNERS.md › Máy gác)
+  checks: read
+# lượt tay/lịch: nhóm 'visual-qa' không huỷ (ci-filler cần – infra/ci-backlog.json); PR: nhóm riêng theo nhánh, lượt mới huỷ lượt cũ
+concurrency:
+  group: ${{ github.event_name == 'pull_request' && format('visual-qa-pr-{0}', github.ref) || 'visual-qa' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha → go=$go"
+  vqa:
+    if: ${{ (!github.event.inputs.seo_words) && needs.gate.outputs.go == 'true' }}
+    needs: gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - if: github.event_name == 'pull_request'
+        uses: ./.github/actions/fast-lane   # làn nhanh: npm test đỏ → huỷ lượt nặng
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: 🎬 Video bài học E2E (sandbox + vtest, Chrome có H.264; vi/ar/ja × điện thoại/máy tính)
+        if: ${{ github.event_name != 'pull_request' }}   # PR: video-web.yml/video-e2e.yml lo phần video
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chrome
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/video-web-e2e.mjs http://localhost:8080 out/video-web
+      - if: ${{ always() && github.event_name != 'pull_request' }}
+        uses: actions/upload-artifact@v4
+        with: { name: video-web-e2e, path: out/video-web, retention-days: 7 }
+      - name: Soát
+        if: ${{ !cancelled() && github.event.inputs.video_only != '1' }}
+        env: { VQA_QUICK: "${{ github.event.inputs.quick || '0' }}" }
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          (cd web && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          node scripts/test/visual-qa.mjs http://localhost:8080 vqa-out
+          cat vqa-out/report.md >> "$GITHUB_STEP_SUMMARY"
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: visual-qa, path: vqa-out, retention-days: 5 }
+  # Ảnh trước/sau trang từ /<lang>/words/<slug> (docs/specs/seo-words-depth.md §6): dựng chỉ bước trang từ (≈ 5 s) cho nhánh và main, chụp 390/1280 sáng/tối
+  seo-words:
+    if: ${{ (github.event.inputs.seo_words) && needs.gate.outputs.go == 'true' }}
+    needs: gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Dựng trang từ – sau (nhánh) và trước (main)
+        run: |
+          SEO_DIST=out/after node scripts/build-seo-pages.mjs | tail -1
+          git worktree add -q "$RUNNER_TEMP/base" origin/main
+          (cd "$RUNNER_TEMP/base" && SEO_DIST="$GITHUB_WORKSPACE/out/before" node scripts/build-seo-pages.mjs | tail -1)
+      - name: Chụp
+        timeout-minutes: 14
+        env: { PAGES: "${{ github.event.inputs.seo_words }}" }
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-cjk fonts-noto-core }
+      - name: Chụp (tiếp)
+        timeout-minutes: 14
+        env: { PAGES: "${{ github.event.inputs.seo_words }}" }
+        run: |
+          node scripts/test/seo-words-shots.mjs out "$PAGES" seo-words-shots
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: seo-words-shots, path: seo-words-shots, retention-days: 14, if-no-files-found: ignore }

@@ -1,0 +1,235 @@
+{
+ "_doc": "Trang giới thiệu máy tính (≥ 1024 px, web/js/welcome.js chọn bằng matchMedia). Giữ menu thật: Tính năng (nhảy tới #wFeats), Thi thử, Add-on, Blog (ẩn tới khi blogLive). Bỏ dòng thừa 'Bright Day · Lexkite Kit'. Chữ/logo/giáo viên như bind welcome.json.",
+ "styles": true,
+ "swap": {
+  "w-[1280px]": "w-full"
+ },
+ "rootClass": "lt:bg-[#FBF7F1] dk:bg-[#0E191C] lt:text-[#162124] dk:text-[#EAF2F2]",
+ "text": {
+  "lexkite": "'lexkite'",
+  "sustainable": "'sustainable'",
+  "/səˈsteɪnəbl/ · adj · B2": "'/səˈsteɪnəbl/ · adj · B2'",
+  "Features": "t('Tính năng')",
+  "Mock tests": "t('Thi thử')",
+  "Chrome add-on": "t('Add-on Chrome')",
+  "Blog": "t('Blog')",
+  "Sign in": "t('Đăng nhập')",
+  "Start learning": "t('Bắt đầu học')",
+  "For IELTS, TOEIC & TOEFL learners": "d.kicker",
+  "Study 15 minutes a day with flashcards that know when you are about to forget.": "d.lead",
+  "Start for free": "d.start",
+  "I already have an account": "d.have",
+  "Check your level first (5 min)": "d.lkTest",
+  "Your English style (1 min)": "d.lkStyle",
+  "Free · No account needed to start": "d.free",
+  "Tap to flip": "t('Chạm để lật')",
+  "Again": "t('Quên')",
+  "Hard": "t('Khó')",
+  "Good": "t('Nhớ')",
+  "Easy": "t('Dễ')",
+  "Everything inside": "t('Mọi thứ bên trong')",
+  "Tactile language learning designed for exam mastery and long-term retention.": "d.tag",
+  "IELTS, TOEIC and TOEFL are registered trademarks of their respective owners. Lexkite is an independent educational tool.": "d.tm",
+  "Product": "t('Sản phẩm')",
+  "Web app": "t('Ứng dụng web')",
+  "Legal & support": "t('Pháp lý & hỗ trợ')",
+  "Privacy policy": "t('Chính sách quyền riêng tư')",
+  "Terms of use": "t('Điều khoản sử dụng')",
+  "Contact": "t('Liên hệ')",
+  "© 2025 Lexkite. All rights reserved.": "d.copy"
+ },
+ "protos": {
+  "fp": {
+   "sel": ":scope > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > p",
+   "html": {
+    ":scope": "e(d.s)"
+   }
+  },
+  "cta": {
+   "sel": ":scope > main > section:nth-child(1) > div > div:nth-child(1) > div:nth-child(4) > a:nth-child(1)",
+   "attr": {
+    ":scope": {
+     "href": "d.href"
+    }
+   },
+   "addClass": {
+    ":scope": "mt-3 text-center"
+   },
+   "html": {
+    ":scope": "e(d.s)"
+   }
+  }
+ },
+ "html": {
+  ":scope > header > div > a > div": "d.logo",
+  ":scope > main > section:nth-child(1) > div > div:nth-child(1) > h1": "d.h1",
+  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)": "d.teacher",
+  ":scope > footer > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div": "d.logo",
+  ":scope > header > div > div > div > span:nth-child(2)": "e(d.langTxt)",
+  ":scope > footer > div > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(4) > a": "e(t('Blog học tiếng Anh'))"
+ },
+ "after": {
+  ":scope > header > div > div > div > span:nth-child(3)": "d.lang",
+  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)": "d.back"
+ },
+ "attr": {
+  ":scope > header > div > a": {
+   "href": "'#/welcome'",
+   "aria-label": "'Lexkite'"
+  },
+  ":scope > header > div > nav": {
+   "aria-label": "'Lexkite'"
+  },
+  ":scope > header > div > nav > a:nth-child(1)": {
+   "data-wjump": "'wFeats'",
+   "type": "'button'",
+   "href": "null"
+  },
+  ":scope > header > div > nav > a:nth-child(2)": {
+   "href": "'#/tests'"
+  },
+  ":scope > header > div > nav > a:nth-child(3)": {
+   "href": "'#/settings'"
+  },
+  ":scope > header > div > nav > a:nth-child(4)": {
+   "href": "d.blog",
+   "data-blog": "''",
+   "hidden": "''"
+  },
+  ":scope > header > div > div > a:nth-child(2)": {
+   "id": "'loginH'",
+   "href": "null",
+   "type": "'button'"
+  },
+  ":scope > header > div > div > a:nth-child(3)": {
+   "href": "'#/welcome/setup'"
+  },
+  ":scope > main > section:nth-child(1) > div > div:nth-child(1) > div:nth-child(4) > a:nth-child(1)": {
+   "href": "'#/welcome/setup'"
+  },
+  ":scope > main > section:nth-child(1) > div > div:nth-child(1) > div:nth-child(4) > a:nth-child(2)": {
+   "id": "'loginW'",
+   "href": "null",
+   "type": "'button'"
+  },
+  ":scope > main > section:nth-child(1) > div > div:nth-child(1) > div:nth-child(5) > a:nth-child(1)": {
+   "href": "'#/placement'"
+  },
+  ":scope > main > section:nth-child(1) > div > div:nth-child(1) > div:nth-child(5) > a:nth-child(3)": {
+   "href": "'#/style'"
+  },
+  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)": {
+   "id": "'wKit'"
+  },
+  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2)": {
+   "id": "'wCard'"
+  },
+  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(1) > button": {
+   "id": "'wSay'",
+   "aria-label": "t('Nghe') + ': sustainable'"
+  },
+  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)": {
+   "id": "'wFront'",
+   "type": "'button'"
+  },
+  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(3)": {
+   "id": "'wGrades'"
+  },
+  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > button:nth-child(1)": {
+   "data-wg": "'again'"
+  },
+  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > button:nth-child(2)": {
+   "data-wg": "'hard'"
+  },
+  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > button:nth-child(3)": {
+   "data-wg": "'good'"
+  },
+  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(3) > button:nth-child(4)": {
+   "data-wg": "'easy'"
+  },
+  ":scope > main > section:nth-child(2)": {
+   "id": "'wFeats'"
+  },
+  ":scope > footer > div > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(1) > a": {
+   "href": "'#/welcome/setup'"
+  },
+  ":scope > footer > div > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(2) > a": {
+   "href": "'#/settings'"
+  },
+  ":scope > footer > div > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(3) > a": {
+   "href": "'#/tests'"
+  },
+  ":scope > footer > div > div:nth-child(1) > div:nth-child(3) > ul > li:nth-child(4) > a": {
+   "href": "d.blog"
+  },
+  ":scope > footer > div > div:nth-child(1) > div:nth-child(4) > ul > li:nth-child(1) > a": {
+   "href": "d.privacy"
+  },
+  ":scope > footer > div > div:nth-child(1) > div:nth-child(4) > ul > li:nth-child(2) > a": {
+   "href": "d.terms"
+  },
+  ":scope > footer > div > div:nth-child(1) > div:nth-child(4) > ul > li:nth-child(3) > a": {
+   "href": "'#/contact'"
+  }
+ },
+ "setClass": {
+  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)": "w-full h-[240px]",
+  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2)": "h-1 w-4/5 mx-auto rounded-full lt:bg-[#ECE4D7] dk:bg-[#263A3F]"
+ },
+ "addClass": {
+  ":scope > header": "w-head",
+  ":scope > header > div > nav": "w-nav",
+  ":scope > header > div > div > div": "relative focus-within:outline focus-within:outline-2",
+  ":scope > main > section:nth-child(1) > div > div:nth-child(1) > div:nth-child(4)": "w-cta",
+  ":scope > main > section:nth-child(2)": "scroll-mt-24",
+  ":scope > main > section:nth-child(1) > div > div:nth-child(1) > div:nth-child(5) > a > span:nth-child(2)": "ms-flip",
+  ":scope > footer": "w-foot"
+ },
+ "tag": {
+  ":scope > header > div > nav > a:nth-child(1)": {
+   "to": "button"
+  },
+  ":scope > header > div > div > a:nth-child(2)": {
+   "to": "button"
+  },
+  ":scope > main > section:nth-child(1) > div > div:nth-child(1) > div:nth-child(4) > a:nth-child(2)": {
+   "to": "button"
+  },
+  ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)": {
+   "to": "button",
+   "addClass": "w-full"
+  }
+ },
+ "remove": [
+  ":scope > footer > div > div:nth-child(2) > div:nth-child(2)"
+ ],
+ "repeat": [
+  {
+   "list": "d.hl",
+   "as": "r",
+   "sel": ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(1)",
+   "samples": ":scope > main > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(3) > div",
+   "html": {
+    ":scope > div:nth-child(1) > span": "r.ic",
+    ":scope > div:nth-child(2)": "'<div>' + e(r.ti) + '</div>' + self.ST2.P['welcome-desk'](t, e).fp({ s: r.d })"
+   }
+  },
+  {
+   "list": "d.feats",
+   "as": "r",
+   "sel": ":scope > main > section:nth-child(2) > div:nth-child(2) > div:nth-child(1)",
+   "samples": ":scope > main > section:nth-child(2) > div:nth-child(2) > div",
+   "html": {
+    ":scope > div:nth-child(1) > span": "r.ic",
+    ":scope > div:nth-child(2) > h3": "e(r.ti)",
+    ":scope > div:nth-child(2) > p": "e(r.d)"
+   }
+  }
+ ],
+ "keys": {
+  "Thử ngay": "Try it now",
+  "Mọi thứ bên trong": "Everything inside",
+  "80 bài ngữ pháp trực quan": "80 visual grammar lessons",
+  "Học từng bước, 2.000 câu luyện: trắc nghiệm, viết lại câu, tìm lỗi sai": "Step by step, with 2,000 exercises: multiple choice, sentence rewriting, error spotting"
+ }
+}

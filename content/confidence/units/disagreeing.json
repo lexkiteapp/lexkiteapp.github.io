@@ -1,0 +1,213 @@
+{
+  "id": "disagreeing",
+  "level": "B2",
+  "order": 20,
+  "em": "🤔",
+  "title": {
+    "vi": "Phản đối khéo léo",
+    "en": "Disagreeing politely"
+  },
+  "goal": {
+    "vi": "Đồng ý một phần, phản đối mà không gây mất lòng và cùng tìm cách giải quyết ở giữa.",
+    "en": "Agree with part of an idea, disagree without hurting anyone and find a middle way."
+  },
+  "dialogue": {
+    "a": "Nina",
+    "aRole": "a coworker",
+    "lines": [
+      [
+        "a",
+        "I think we should move the whole team to the new software next week."
+      ],
+      [
+        "b",
+        "I agree with you that the old system is slow."
+      ],
+      [
+        "b",
+        "That's a fair point. However, a lot of people haven't had any training yet."
+      ],
+      [
+        "a",
+        "They can learn fast."
+      ],
+      [
+        "b",
+        "I see it a bit differently. Have you thought about how long training takes?"
+      ],
+      [
+        "a",
+        "Hmm, maybe a month?"
+      ],
+      [
+        "b",
+        "Correct me if I'm wrong, but didn't we try something like this last year?"
+      ],
+      [
+        "a",
+        "True. It didn't go well."
+      ],
+      [
+        "b",
+        "Maybe we can meet halfway: start with one team and test it."
+      ],
+      [
+        "a",
+        "Okay, that makes sense."
+      ]
+    ]
+  },
+  "phrases": [
+    {
+      "id": "i-agree-with",
+      "say": "I agree with you on that.",
+      "not": "I am agree with you.",
+      "gap": "agree",
+      "mean": {
+        "vi": "Nói bạn đồng ý với một ý",
+        "en": "Say you agree with an idea"
+      },
+      "why": {
+        "vi": "\"Agree\" là động từ; không bao giờ nói \"I am agree\".",
+        "en": "\"Agree\" is a verb; never say \"I am agree\"."
+      }
+    },
+    {
+      "id": "fair-point-however",
+      "say": "That's a fair point. However, the cost is still high.",
+      "not": "You are wrong because the cost is high.",
+      "gap": "However",
+      "mean": {
+        "vi": "Ghi nhận ý người khác trước khi phản đối",
+        "en": "Accept their idea before you disagree"
+      },
+      "why": {
+        "vi": "Công nhận một phần ý kiến trước khi đưa ra ý khác.",
+        "en": "Accept part of their idea before you disagree."
+      },
+      "tk": "disagree"
+    },
+    {
+      "id": "see-it-differently",
+      "say": "I see it a bit differently.",
+      "not": "I think different.",
+      "gap": "differently",
+      "mean": {
+        "vi": "Nói bạn có quan điểm khác một cách nhẹ nhàng",
+        "en": "Say gently that you have a different view"
+      },
+      "why": {
+        "vi": "Sau động từ dùng \"differently\", không dùng \"different\".",
+        "en": "After a verb, use \"differently\", not \"different\"."
+      }
+    },
+    {
+      "id": "have-you-thought",
+      "say": "Have you thought about the cost of training?",
+      "not": "You don't think about the cost.",
+      "gap": "thought",
+      "mean": {
+        "vi": "Chỉ ra vấn đề bằng một câu hỏi",
+        "en": "Point out a problem with a question"
+      },
+      "why": {
+        "vi": "Một câu hỏi nêu vấn đề mà không nghe như chỉ trích.",
+        "en": "A question points out a problem without blaming anyone."
+      }
+    },
+    {
+      "id": "correct-me",
+      "say": "Correct me if I'm wrong, but didn't we try this last year?",
+      "not": "You forget, we tried this already.",
+      "gap": "Correct",
+      "mean": {
+        "vi": "Nêu một ý mạnh mà vẫn khiêm tốn",
+        "en": "Make a strong point in a soft way"
+      },
+      "why": {
+        "vi": "Câu này làm ý kiến mạnh nghe mềm hơn và khiêm tốn.",
+        "en": "This makes a strong point sound softer and less sure."
+      }
+    },
+    {
+      "id": "look-at-numbers",
+      "say": "Let's look at the numbers before we decide.",
+      "not": "You have no proof.",
+      "gap": "numbers",
+      "mean": {
+        "vi": "Đưa cuộc tranh luận về dữ kiện",
+        "en": "Move the talk to facts"
+      },
+      "why": {
+        "vi": "Tập trung vào dữ kiện, không nhắm vào con người.",
+        "en": "Focus on facts, not on people."
+      }
+    },
+    {
+      "id": "meet-halfway",
+      "say": "Maybe we can meet halfway: start small and test it.",
+      "not": "OK, your idea and my idea mix.",
+      "gap": "halfway",
+      "mean": {
+        "vi": "Đề xuất giải pháp ở giữa",
+        "en": "Suggest a middle way"
+      },
+      "why": {
+        "vi": "Đưa ra cách ở giữa giúp cả nhóm cùng tiến lên.",
+        "en": "A middle way helps everyone move forward."
+      }
+    }
+  ],
+  "roleplay": {
+    "ai": {
+      "name": "Nina",
+      "role": "a coworker with strong opinions",
+      "persona": "confident, quick, but open to good reasons",
+      "goal": "change all the team's software next week"
+    },
+    "you": "Your coworker wants a big change next week. Agree with part of her idea, disagree politely with a reason and suggest a middle way.",
+    "turns": [
+      {
+        "a": "The old system is too slow. We should change everything next week!",
+        "h": "I agree with you that it's slow. However, people need training first.",
+        "br": [
+          [
+            "agree|however|fair point|training|but",
+            "Hmm, they can learn fast."
+          ]
+        ]
+      },
+      {
+        "a": "Training is easy. Two days, maybe?",
+        "h": "I see it a bit differently. Have you thought about how long it really takes?",
+        "br": [
+          [
+            "differently|thought about|how long|not so sure|really",
+            "Okay, maybe longer."
+          ]
+        ]
+      },
+      {
+        "a": "But we have to change sometime.",
+        "h": "True. Correct me if I'm wrong, but didn't we try this last year?",
+        "br": [
+          [
+            "correct me|last year|tried|remember",
+            "Yes… it didn't go well."
+          ]
+        ]
+      },
+      {
+        "a": "So what do you suggest?",
+        "h": "Maybe we can meet halfway: start with one team and test it.",
+        "br": [
+          [
+            "halfway|one team|test|start small|middle",
+            "That makes sense."
+          ]
+        ]
+      }
+    ],
+    "end": "Okay, let's try one team first. Thanks for keeping it calm!"
+  }
+}

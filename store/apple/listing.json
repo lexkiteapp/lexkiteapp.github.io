@@ -1,0 +1,62 @@
+{
+  "_note": "Phần chung cho App Store (scripts/asc-upload.mjs). Chữ từng ngôn ngữ: store/metadata/<locale>.json (khối \"apple\", nguồn duy nhất chung với Google Play). Sửa rồi chạy: node scripts/store-metadata.mjs --check --write-md && node scripts/asc-upload.mjs --check --write-md",
+  "appId": "6824714708",
+  "bundleId": "com.lexkite.app",
+  "version": "1.0",
+  "primaryCategory": "EDUCATION",
+  "secondaryCategory": "REFERENCE",
+  "copyright": "2026 MODIAN LUXURY JEWELRY LLC",
+  "reviewNotes": "Lexkite is an English vocabulary and exam-practice app. No login is required: sign-in is not offered in the iOS app, every feature works without an account and learning data is stored on the device, so no demo account is needed.\n\nHow to reach the main features (bottom tab bar: Today, Vocabulary, Skills, Tests, Me):\n- Today: the daily plan of new words and reviews. On first launch, pick a goal on the welcome screen (or skip it) to create the first deck.\n- Vocabulary: word lists and flashcard review (FSRS). Tap the card to flip it, then rate how well you remembered it.\n- Dictionary: use the search box at the top and type any English word (looking up new words needs internet).\n- Skills: listening, dictation, pronunciation, reading, games, AI writing feedback and Roleplay (AI conversation for English practice, processed by Google Gemini or Cloudflare Workers AI; needs internet). Hands-free audio study: tap the headphones button during a flashcard review session.\n- Tests: placement test and IELTS / TOEIC / TOEFL practice tests with explanations.\n- Me: streak, XP, statistics and Settings (daily reminder, interface language, dark mode, export backup, delete all study data, contact / report a problem).\n\nNative iOS features: Home Screen and Lock Screen widgets (long-press the Home Screen, tap +, choose Lexkite), daily study reminders (local notifications; tapping one opens the review session), offline use (the whole app is bundled), haptic feedback, native text-to-speech, the share sheet for exports, and hands-free audio study that keeps playing with the screen locked (lock-screen controls), which is why the app declares the \"audio\" background mode.\n\nThe microphone and speech recognition are used only when the user taps the microphone button in speaking or pronunciation practice. The app has no in-app purchases. This build shows no ads (the AdMob SDK is not included); a future build may show labelled ads outside lessons, with Google UMP consent and App Tracking Transparency.\n\nIELTS, TOEIC and TOEFL are mentioned only to describe practice content; Lexkite is not affiliated with their owners (stated at the end of the description).",
+  "aliases": {
+    "es-MX": "es-ES"
+  },
+  "screenshots": {
+    "iphone-69": "APP_IPHONE_67",
+    "ipad-13": "APP_IPAD_PRO_3GEN_129"
+  },
+  "screenshotLangs": {
+    "en": [
+      "en-US"
+    ],
+    "vi": [
+      "vi"
+    ]
+  },
+  "settings": {
+    "_note": "Chạy: node scripts/asc-upload.mjs --only settings [--dry-run]. Quốc gia: mọi lãnh thổ trừ EU-27 (EU27 trong script). Số điện thoại liên hệ chỉ qua env ASC_REVIEW_PHONE (không lưu ở đây).",
+    "contentRightsDeclaration": "USES_THIRD_PARTY_CONTENT",
+    "ageRating": {
+      "alcoholTobaccoOrDrugUseOrReferences": "NONE",
+      "contests": "NONE",
+      "gamblingSimulated": "NONE",
+      "gunsOrOtherWeapons": "NONE",
+      "horrorOrFearThemes": "NONE",
+      "matureOrSuggestiveThemes": "NONE",
+      "medicalOrTreatmentInformation": "NONE",
+      "profanityOrCrudeHumor": "NONE",
+      "sexualContentGraphicAndNudity": "NONE",
+      "sexualContentOrNudity": "NONE",
+      "violenceCartoonOrFantasy": "NONE",
+      "violenceRealistic": "NONE",
+      "violenceRealisticProlongedGraphicOrSadistic": "NONE",
+      "gambling": false,
+      "lootBox": false,
+      "unrestrictedWebAccess": false,
+      "messagingAndChat": false,
+      "parentalControls": false,
+      "ageAssurance": false,
+      "userGeneratedContent": false,
+      "advertising": false,
+      "healthOrWellnessTopics": false,
+      "ageRatingOverrideV2": "THIRTEEN_PLUS"
+    },
+    "baseTerritory": "USA",
+    "availableInNewTerritories": false,
+    "reviewContact": {
+      "contactFirstName": "Quyen",
+      "contactLastName": "Khieu Dinh",
+      "contactEmail": "support@lexkite.com"
+    },
+    "releaseType": "MANUAL"
+  }
+}

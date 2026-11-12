@@ -1,0 +1,22 @@
+{
+ "topic": "Supermarket English: spot the mistake in \"How much cost this?\"",
+ "scene": "supermarket",
+ "vars": {
+  "wrong": "How much cost this?",
+  "wrongShort": "how much cost",
+  "right": "How much does this cost?",
+  "fix": "does this cost",
+  "tip": "in a hurry? Just ask, how much is this?",
+  "skill": "everyday English"
+ },
+ "lines": {
+  "situation": "I asked the cashier, \"How much cost this?\" Was that okay?",
+  "explain": "Close! Just add does: \"How much does this cost?\"",
+  "example": "For two or more, it's \"How much do these cost?\""
+ },
+ "hashtags": [
+  "commonmistakes",
+  "englishtips",
+  "learnenglish"
+ ]
+}

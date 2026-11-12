@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — Rewrite &amp; Improve My Text</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-container": "#ba8b00",
+            "secondary-container": "#981201",
+            "on-secondary": "#660800",
+            "on-primary-container": "#00322e",
+            "background": "#091518",
+            "surface-tint": "#6bd8ce",
+            "on-primary-fixed-variant": "#00504b",
+            "surface-container-low": "#121d20",
+            "on-tertiary-container": "#392900",
+            "on-background": "#d8e5e9",
+            "on-tertiary": "#402e00",
+            "outline": "#879391",
+            "surface-variant": "#2b373a",
+            "secondary": "#ffb4a6",
+            "on-primary-fixed": "#00201e",
+            "secondary-fixed": "#ffdad3",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-secondary-fixed": "#3f0300",
+            "on-error-container": "#ffdad6",
+            "surface": "#091518",
+            "surface-dim": "#091518",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-container": "#162125",
+            "primary": "#6bd8ce",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-error": "#690005",
+            "outline-variant": "#3d4947",
+            "tertiary-fixed": "#ffdf9e",
+            "surface-container-high": "#202c2f",
+            "primary-fixed-dim": "#6bd8ce",
+            "tertiary": "#f4bf40",
+            "on-secondary-container": "#ffa493",
+            "inverse-on-surface": "#263236",
+            "error": "#ffb4ab",
+            "on-surface": "#d8e5e9",
+            "surface-container-lowest": "#051013",
+            "surface-container-highest": "#2b373a",
+            "on-primary": "#003733",
+            "primary-fixed": "#88f5ea",
+            "on-surface-variant": "#bcc9c7",
+            "primary-container": "#2ba39a",
+            "inverse-surface": "#d8e5e9",
+            "inverse-primary": "#006a64",
+            "error-container": "#93000a",
+            "on-tertiary-fixed": "#261a00",
+            "surface-bright": "#2f3b3e"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            "headline": ["Plus Jakarta Sans", "sans-serif"],
+            "display": ["Plus Jakarta Sans", "sans-serif"],
+            "body": ["Plus Jakarta Sans", "sans-serif"],
+            "label": ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#091518] text-[#f1f7f7] min-h-screen flex flex-col justify-start items-center antialiased overflow-x-hidden p-0 m-0">
+<!-- Mobile Screen Container: Edge-to-Edge 390px viewport width -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#091518] px-4 pt-3 pb-8 flex flex-col gap-4 relative">
+<!-- 1. Top Bar -->
+<header class="flex items-center justify-between w-full h-14">
+<!-- Close Button -->
+<button aria-label="Close" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-[#122227] border border-[#1f3a40] text-[#e5f2f2] flex items-center justify-center active:translate-y-0.5 active:scale-95 transition-all shadow-[0_2px_0_#061215]" type="button">
+<svg class="w-5 h-5 text-[#e5f2f2]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24">
+<line x1="18" x2="6" y1="6" y2="18"></line>
+<line x1="6" x2="18" y1="6" y2="18"></line>
+</svg>
+</button>
+<!-- Progress Center -->
+<div class="flex-1 mx-3 flex flex-col items-center">
+<div class="flex justify-between items-center w-full px-1 mb-1.5 text-[10px] font-black tracking-wider uppercase">
+<span class="text-[#5eead4] font-bold">WRITING UPGRADE</span>
+<span class="text-[#94adb2]">STEP 3 OF 4</span>
+</div>
+<div class="w-full h-2.5 bg-[#122227] rounded-full overflow-hidden p-0.5 border border-[#1f3a40]">
+<div class="h-full bg-[#2dd4bf] rounded-full w-3/4 transition-all duration-300"></div>
+</div>
+</div>
+<!-- Gamified Heart Badge -->
+<div class="min-w-[44px] min-h-[44px] h-11 px-3 bg-[#122227] border border-[#1f3a40] rounded-full flex items-center justify-center gap-1.5 shadow-[0_2px_0_#061215]">
+<svg class="w-5 h-5 text-rose-400 fill-rose-400 shrink-0" viewbox="0 0 24 24">
+<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+</svg>
+<span class="text-rose-400 font-black text-sm">5</span>
+</div>
+</header>
+<!-- 2. Subheader Chips -->
+<section aria-label="Task tags" class="flex items-center gap-2 flex-wrap">
+<div class="min-h-[32px] flex items-center gap-1.5 bg-[#0a2327] border border-[#16444b] text-[#5eead4] font-bold text-xs py-1 px-3 rounded-full">
+<span class="w-2 h-2 rounded-full bg-[#5eead4] shrink-0"></span>
+<span>IELTS TASK 2 • GRAMMAR &amp; VOCAB</span>
+</div>
+<div class="min-h-[32px] flex items-center bg-[#0d262b] border border-[#1a4a52] text-[#9ee6df] font-bold text-xs py-1 px-3 rounded-full">
+<span>CEFR B1 → B2+</span>
+</div>
+</section>
+<!-- 3. Teacher Slot & Speech Card -->
+<section aria-label="Writing Coach feedback" class="flex items-center gap-3 w-full">
+<!-- Empty Dashed Rounded Teacher Slot -->
+<div aria-hidden="true" class="teacher-slot w-16 h-16 shrink-0 rounded-2xl border-2 border-dashed border-[#14b8a6]/40 bg-[#07191d]/60 flex items-center justify-center">
+<svg class="w-8 h-8 text-[#5eead4]" fill="currentColor" stroke="currentColor" stroke-width="0.5" viewbox="0 0 24 24">
+<path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18C5 19.5 8.13 21 12 21C15.87 21 19 19.5 19 17.18V13.18L12 17L5 13.18Z"></path>
+</svg>
+</div>
+<!-- Speech Card -->
+<div class="flex-1 bg-[#0e2227] border border-[#1a3d45] rounded-2xl p-3 shadow-[0_3px_0_#061215]">
+<div class="flex items-center gap-1.5 text-xs font-bold mb-1">
+<span class="text-[#5eead4]">TEACHER CARLOS</span>
+<span class="text-[#94adb2]">•</span>
+<span class="text-[#fbbf24]">Writing Coach</span>
+</div>
+<p class="text-[#e5f2f2] text-sm font-semibold leading-snug">
+          “Three small fixes, big upgrade.”
+        </p>
+</div>
+</section>
+<!-- 4. "YOUR ORIGINAL SENTENCE" Card -->
+<section class="bg-[#0e2227] border border-[#1a3d45] rounded-2xl p-4 shadow-[0_4px_0_#061215] flex flex-col gap-3">
+<!-- Header row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-rose-500/20 border border-rose-500/40 flex items-center justify-center shrink-0">
+<svg class="w-3.5 h-3.5 text-rose-400" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24">
+<line x1="18" x2="6" y1="6" y2="18"></line>
+<line x1="6" x2="18" y1="6" y2="18"></line>
+</svg>
+</div>
+<span class="text-xs font-black tracking-wider text-[#e5f2f2] uppercase">YOUR ORIGINAL SENTENCE</span>
+</div>
+<span class="bg-[#f59e0b] text-[#1c1003] font-black px-2.5 py-0.5 rounded-full text-xs">3 issues found</span>
+</div>
+<!-- Original Text with squiggly error marks -->
+<p class="text-base text-[#d8e5e9] leading-relaxed font-medium">
+        “I am very <span class="text-rose-400 underline decoration-wavy decoration-rose-400 font-bold">interesting</span> in this job because it <span class="text-rose-400 underline decoration-wavy decoration-rose-400 font-bold">give</span> me many <span class="text-rose-400 underline decoration-wavy decoration-rose-400 font-bold">chance</span>.”
+      </p>
+<!-- Footer note -->
+<div class="pt-1 border-t border-[#16353c] flex items-center justify-between text-[#94adb2] font-medium text-xs">
+<span>Target exam: IELTS Academic (Task 2)</span>
+</div>
+</section>
+<!-- 5. "IMPROVED VERSION" Card -->
+<section class="bg-[#0d2025] border-2 border-[#14b8a6]/70 rounded-2xl p-4 shadow-[0_5px_0_#061215] flex flex-col gap-3.5">
+<!-- Header row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-[#0f4e4a] border border-[#2dd4bf] flex items-center justify-center shrink-0 shadow-sm">
+<svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24">
+<polyline points="20 6 9 17 4 12"></polyline>
+</svg>
+</div>
+<span class="text-sm font-black tracking-wider text-[#ffffff] uppercase">IMPROVED VERSION</span>
+</div>
+<!-- Copy Button (min 44x44px touch target) -->
+<button aria-label="Copy improved sentence" class="min-h-[44px] min-w-[44px] bg-[#132c33] hover:bg-[#1a3840] border border-[#204a54] text-[#e5f2f2] flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold active:translate-y-0.5 active:scale-95 transition-all" type="button">
+<svg class="w-4 h-4 text-[#5eead4]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<rect height="13" rx="2" ry="2" width="13" x="9" y="9"></rect>
+<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+</svg>
+<span>Copy</span>
+</button>
+</div>
+<!-- Upgraded sentence box -->
+<div class="bg-[#0a1e22] border border-[#163e46] p-4 rounded-2xl">
+<p class="text-base text-[#ffffff] leading-loose font-medium">
+          “I am very <span class="bg-[#0f3d3e] text-[#5eead4] border border-[#14b8a6]/40 px-2 py-0.5 rounded-lg font-bold inline-block">interested</span> in this job because it <span class="bg-[#0f3d3e] text-[#5eead4] border border-[#14b8a6]/40 px-2 py-0.5 rounded-lg font-bold inline-block">gives</span> me many <span class="bg-[#0f3d3e] text-[#5eead4] border border-[#14b8a6]/40 px-2 py-0.5 rounded-lg font-bold inline-block">opportunities</span>.”
+        </p>
+</div>
+<!-- Audio row -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2.5">
+<button aria-label="Play native audio" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-[#0f3d3e] border border-[#14b8a6] text-[#5eead4] flex items-center justify-center active:translate-y-0.5 active:scale-95 transition-all shadow-[0_2px_0_#061215]" type="button">
+<svg class="w-5 h-5 text-[#5eead4] fill-current" viewbox="0 0 24 24">
+<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path>
+</svg>
+</button>
+<span class="text-[#e5f2f2] font-semibold text-xs leading-tight">Natural British / US<br/>stress cadence</span>
+</div>
+<div class="px-2.5 py-1 rounded-full border border-[#164e4b] bg-[#092b2e] text-[#5eead4] text-[10px] font-black tracking-wider">
+          NATIVE AUDIO
+        </div>
+</div>
+</section>
+<!-- 6. "WHY THESE CHANGES WORK" Section -->
+<section class="flex flex-col gap-2.5">
+<h2 class="text-xs font-black tracking-wider uppercase text-[#94adb2] px-1">
+        WHY THESE CHANGES WORK
+      </h2>
+<!-- Rule 1 -->
+<article class="bg-[#0d2025] border border-[#183940] rounded-2xl p-4 shadow-[0_3px_0_#071316] flex items-start gap-3">
+<div class="bg-[#fef3c7] text-[#1c1003] font-black rounded-lg w-7 h-7 flex items-center justify-center text-sm shrink-0 shadow-sm">
+          1
+        </div>
+<div class="flex-1">
+<div class="flex items-center gap-1.5 flex-wrap text-xs">
+<span class="text-rose-400 line-through font-semibold">interesting</span>
+<span class="text-[#94adb2]">→</span>
+<span class="bg-[#0f3d3e] text-[#5eead4] px-2 py-0.5 rounded font-bold">interested</span>
+<span class="text-[#94adb2] text-xs font-semibold">(Participle Adjective)</span>
+</div>
+<p class="text-[#e5f2f2] text-xs font-medium mt-1.5 leading-relaxed">
+            Use -ed for people's personal feelings; -ing describes the thing causing the feeling.
+          </p>
+</div>
+</article>
+<!-- Rule 2 -->
+<article class="bg-[#0d2025] border border-[#183940] rounded-2xl p-4 shadow-[0_3px_0_#071316] flex items-start gap-3">
+<div class="bg-[#fef3c7] text-[#1c1003] font-black rounded-lg w-7 h-7 flex items-center justify-center text-sm shrink-0 shadow-sm">
+          2
+        </div>
+<div class="flex-1">
+<div class="flex items-center gap-1.5 flex-wrap text-xs">
+<span class="text-rose-400 line-through font-semibold">give</span>
+<span class="text-[#94adb2]">→</span>
+<span class="bg-[#0f3d3e] text-[#5eead4] px-2 py-0.5 rounded font-bold">gives</span>
+<span class="text-[#94adb2] text-xs font-semibold">(Subject-Verb Agreement)</span>
+</div>
+<p class="text-[#e5f2f2] text-xs font-medium mt-1.5 leading-relaxed">
+            Third-person singular pronoun “it” takes a singular verb ending in -s.
+          </p>
+</div>
+</article>
+<!-- Rule 3 -->
+<article class="bg-[#0d2025] border border-[#183940] rounded-2xl p-4 shadow-[0_3px_0_#071316] flex items-start gap-3">
+<div class="bg-[#fef3c7] text-[#1c1003] font-black rounded-lg w-7 h-7 flex items-center justify-center text-sm shrink-0 shadow-sm">
+          3
+        </div>
+<div class="flex-1">
+<div class="flex items-center gap-1.5 flex-wrap text-xs">
+<span class="text-rose-400 line-through font-semibold">chance</span>
+<span class="text-[#94adb2]">→</span>
+<span class="bg-[#0f3d3e] text-[#5eead4] px-2 py-0.5 rounded font-bold">opportunities</span>
+<span class="text-[#94adb2] text-xs font-semibold">(Lexical Precision)</span>
+</div>
+<p class="text-[#e5f2f2] text-xs font-medium mt-1.5 leading-relaxed">
+            “Chance” usually means luck/probability. In professional contexts, “opportunities” is the correct countable academic term.
+          </p>
+</div>
+</article>
+</section>
+<!-- 7. Reward Callout Card -->
+<section class="bg-[#0e2227] border border-[#1a3d45] rounded-2xl p-3.5 shadow-[0_3px_0_#061215] flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-[#f59e0b]/20 border border-[#f59e0b]/40 text-[#f59e0b] flex items-center justify-center shrink-0">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"></path>
+</svg>
+</div>
+<p class="text-xs font-semibold text-[#e5f2f2] leading-tight">
+          Earn <span class="text-[#5eead4] font-black">+25 XP</span> by practicing these 3 rules
+        </p>
+</div>
+<a class="text-[#fbbf24] font-bold text-xs underline min-h-[44px] min-w-[44px] flex items-center justify-center shrink-0" href="#deck">
+        View Deck
+      </a>
+</section>
+<!-- 8. Primary CTA Button -->
+<div class="pt-2 w-full flex flex-col items-center">
+<button class="bg-[#f59e0b] shadow-[0_4px_0_#b45309] active:translate-y-1 active:shadow-none min-h-[52px] w-full rounded-2xl flex items-center justify-center gap-2 text-lg font-black text-[#1c1003] transition-all" type="button">
+<span>Practise these fixes</span>
+<svg class="w-5 h-5 text-[#1c1003]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24">
+<line x1="5" x2="19" y1="12" y2="12"></line>
+<polyline points="12 5 19 12 12 19"></polyline>
+</svg>
+</button>
+<span class="text-[#94adb2] text-xs font-medium text-center mt-2.5 pb-2">
+        3 rapid interactive drill questions • ~2 mins
+      </span>
+</div>
+</main>
+</body></html>

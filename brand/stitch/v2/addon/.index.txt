@@ -1,0 +1,7 @@
+# Stitch v2.1 refs – addon (factory, project 7268539912208977707, DS assets/1b7a8a3d3d52404bb332d9ba3f783547 Lexkite Kit). page light-id dark-id device verdict | note | prompt = scratchpad prompts.tsv line (copied in prompts.txt)
+popup 7669efef47084158b923f67dd7fabc03 481f34db4b8b4d399824268273e467d6 7268539912208977707 MOBILE PASS | all toggles = real popup.html ids (siteOn, wcOn, selMode, acOn, ntOn, ctxOn, QR, report)
+newtab 03cd6b5dffb84ed28cf8e6756ffae7a8 63566f4cc4a64f50ab7b4b80778646a4 7268539912208977707 DESKTOP PASS
+newtab-off 0be147a7952b4c63a2461153db2dd64f 76fe6557d3bb481e89a796a5c4ddf20b 7268539912208977707 DESKTOP PASS
+word-popup 7557696a71a6469da2fbe1a12cac39fd bab543f7301d44808155b84dc7668982 7268539912208977707 DESKTOP PASS | dark r1 rejected (white popup card in dark) → dark2; background article = context only, not ported
+# TODO(QC đỏ, chưa vào main) select-fab d177a84e15024095b6841cf5f4e268b7 a93b2693e9c84814a5e9ba19ee774084 7268539912208977707 DESKTOP PASS | FAB + tooltip + toast; article background = context only
+# TODO(QC đỏ, chưa vào main) writecheck 0260ed9f66784a9c9093f966f1c02b9d b596cb80e96e45e8bb331ec10059781c 7268539912208977707 DESKTOP PASS | port only the underline + suggestion card + count badge; Stitch side tabs/footer cards in the mock composer are context, not features

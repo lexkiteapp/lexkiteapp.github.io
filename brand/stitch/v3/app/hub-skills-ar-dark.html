@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-[#10191B]" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Skills Hub (Tactile Night RTL)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            night: {
+              bg: '#10191B',
+              card: '#172427',
+              surface: '#1E2F33',
+              border: '#253A3E',
+              borderDark: '#1E2F33',
+              text: '#E8F1F0',
+              muted: '#A9BDBB',
+              teal: '#2DD4BF',
+              tealLight: '#16383B',
+              tealGlow: '#5EEAD4',
+              orange: '#FB923C',
+              orangeLight: '#35251D',
+              cta: '#ea580c',
+              ctaDark: '#c2410c',
+              ctaLedge: '#9a3412',
+            }
+          },
+          fontFamily: {
+            arabic: ['"Noto Sans Arabic"', '"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans Arabic"', 'sans-serif']
+          },
+          boxShadow: {
+            'tactile-card': '0 4px 0 0 #0d1517',
+            'tactile-sm': '0 3px 0 0 #0d1517',
+            'tactile-btn': '0 4px 0 0 #9a3412',
+            'tactile-surface': '0 2px 0 0 #0d1517',
+            'tactile-bar': '0 -3px 0 0 #0d1517'
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Noto Sans Arabic', 'Plus Jakarta Sans', sans-serif;
+      background-color: #10191B;
+      color: #E8F1F0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .rtl-flip {
+      transform: scaleX(-1);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-symbols-outlined.outline-icon {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="min-h-full flex flex-col justify-between max-w-[390px] mx-auto bg-night-bg relative selection:bg-night-teal selection:text-[#10191B] pb-24">
+<!-- TOP HEADER (HUB BAR) -->
+<header class="w-full pt-3 pb-3 px-4 bg-night-bg border-b-2 border-night-border sticky top-0 z-40">
+<div class="flex items-center justify-between">
+<!-- Right: Target Badge (mirrored position in RTL) -->
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-2xl bg-night-surface border-2 border-night-teal flex items-center justify-center text-night-teal shadow-tactile-surface">
+<span class="material-symbols-outlined text-[22px]">school</span>
+</div>
+<div class="text-right">
+<div class="text-[15px] font-extrabold text-night-teal leading-tight tracking-tight">IELTS Band 7.5</div>
+<div class="text-[12px] font-semibold text-night-muted leading-tight">مركز إتقان المهارات</div>
+</div>
+</div>
+<!-- Left: Gamification stats & notifications (RTL left) -->
+<div class="flex items-center gap-1.5">
+<!-- Streak -->
+<div class="flex items-center gap-1 bg-night-surface border border-night-border px-2.5 py-1 rounded-xl shadow-tactile-surface">
+<span class="material-symbols-outlined text-[17px] text-[#fb923c]">local_fire_department</span>
+<span class="text-[13px] font-bold text-[#fed7aa] font-sans">14</span>
+</div>
+<!-- XP -->
+<div class="flex items-center gap-1 bg-night-surface border border-night-border px-2.5 py-1 rounded-xl shadow-tactile-surface">
+<span class="material-symbols-outlined text-[17px] text-[#facc15]">bolt</span>
+<span class="text-[13px] font-bold text-[#fef08a] font-sans">820</span>
+</div>
+<!-- Bell -->
+<button aria-label="الإشعارات" class="w-11 h-11 rounded-xl bg-night-surface border border-night-border flex items-center justify-center text-night-muted hover:text-night-text active:translate-y-0.5 transition-transform shadow-tactile-surface min-h-[44px]"><span class="material-symbols-outlined outline-icon text-[20px]">notifications</span></button>
+</div>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="flex-1 px-4 pt-3.5 space-y-4">
+<!-- HERO RECOMMENDED SPRINT CARD -->
+<section class="bg-night-card rounded-3xl border-2 border-night-border p-4 shadow-tactile-card">
+<div class="flex items-center justify-between mb-2.5">
+<div class="inline-flex items-center gap-1.5 bg-[#0e3b2e] border border-[#10b981] text-[#6ee7b7] px-2.5 py-1 rounded-full text-[12px] font-bold">
+<span class="material-symbols-outlined text-[15px]">bolt</span>
+<span>موصى به • 10 دقائق</span>
+</div>
+<span class="text-[12px] font-bold text-night-teal bg-night-surface border border-night-teal/40 px-2.5 py-1 rounded-full">
+          مهمة الكتابة 2
+        </span>
+</div>
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<h1 class="text-[18px] font-extrabold text-night-text leading-snug">
+            تدريب ترابط النص وأدوات الربط
+          </h1>
+<p class="text-[13px] font-medium text-night-muted mt-1 leading-relaxed">
+            ارفع درجتك في امتحان IELTS من 6.5 إلى 7.0 مع 8 روابط لغوية متقدمة للمقال الأكاديمي.
+          </p>
+</div>
+<!-- Tutor Avatar Bubble -->
+<div class="flex flex-col items-center shrink-0">
+<div class="relative w-12 h-12 rounded-full border-2 border-dashed border-night-teal bg-night-surface flex items-center justify-center text-night-teal">
+<span class="material-symbols-outlined text-[24px]">support_agent</span>
+<span class="absolute -bottom-1 -left-1 bg-night-cta text-[#1a0d00] text-[10px] font-extrabold px-1 py-0.2 rounded-full border border-night-card">AI</span>
+</div>
+<span class="text-[11px] font-bold text-night-teal mt-1">المدربة آما</span>
+</div>
+</div>
+<!-- Coach Tip Card -->
+<div class="mt-3 bg-night-surface border-r-4 border-night-teal rounded-xl p-2.5 flex items-start gap-2 border border-night-border">
+<span class="material-symbols-outlined text-night-teal text-[18px] shrink-0 mt-0.5">lightbulb</span>
+<p class="text-[12px] font-semibold text-night-text leading-normal">
+          "10 دقائق من التدريب على أدوات الربط تبني انسيابية تلقائية في مهمة الكتابة 2."
+        </p>
+</div>
+<!-- Main CTA Button -->
+<button class="w-full mt-3.5 bg-night-cta hover:bg-night-ctaDark active:translate-y-1 active:shadow-none text-[#1a0d00] font-extrabold py-3.5 px-5 rounded-2xl shadow-tactile-btn border-2 border-night-ctaLedge flex items-center justify-center gap-2 transition-all min-h-[48px]">
+<span class="text-[15px] font-bold">بدء تدريب 10 دقائق</span>
+<span class="material-symbols-outlined text-[20px] font-black rtl-flip">arrow_forward</span>
+</button>
+</section>
+<!-- CORE IELTS SKILLS SECTION -->
+<section class="space-y-2.5">
+<div class="flex items-center justify-between px-1">
+<h2 class="text-[17px] font-extrabold text-night-text tracking-tight">
+          مهارات آيلتس الأساسية
+        </h2>
+<span class="text-[12px] font-bold text-night-muted bg-night-surface border border-night-border px-2.5 py-0.5 rounded-full">
+          4 وحدات
+        </span>
+</div>
+<p class="text-[12px] font-medium text-night-muted px-1 -mt-1">
+        4 كفاءات محورية لتحقيق مستوى النطاق 7.5
+      </p>
+<!-- 2x2 Grid of Modules -->
+<div class="grid grid-cols-2 gap-3 pt-1">
+<!-- Listening Card -->
+<article class="bg-night-card rounded-2xl border-2 border-night-border p-3 shadow-tactile-sm flex flex-col justify-between min-h-[148px]">
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="w-8 h-8 rounded-xl bg-night-surface border border-night-teal/50 flex items-center justify-center text-night-teal">
+<span class="material-symbols-outlined text-[18px]">headphones</span>
+</div>
+<span class="text-[11px] font-extrabold text-night-teal bg-night-surface border border-night-teal/40 px-2 py-0.5 rounded-full font-sans">
+                Band 7.0
+              </span>
+</div>
+<h3 class="text-[15px] font-extrabold text-night-text">الاستماع</h3>
+<p class="text-[12px] font-semibold text-night-muted mt-0.5">42 تمريناً صوتياً</p>
+</div>
+<div class="mt-2.5 pt-2 border-t border-night-border">
+<div class="flex items-center justify-between text-[11px] font-bold text-night-muted mb-1">
+<span>القسم 3 واللهجات</span>
+<span class="font-sans text-night-teal font-extrabold">72%</span>
+</div>
+<!-- Progress Bar (Mirrored) -->
+<div class="w-full h-2 bg-night-bg rounded-full overflow-hidden border border-night-border">
+<div class="h-full bg-night-teal rounded-full" style="width: 72%;"></div>
+</div>
+</div>
+</article>
+<!-- Reading Card -->
+<article class="bg-night-card rounded-2xl border-2 border-night-border p-3 shadow-tactile-sm flex flex-col justify-between min-h-[148px]">
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="w-8 h-8 rounded-xl bg-night-surface border border-yellow-500/50 flex items-center justify-center text-yellow-400">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+</div>
+<span class="text-[11px] font-extrabold text-[#fde047] bg-night-surface border border-yellow-500/40 px-2 py-0.5 rounded-full font-sans">
+                Band 6.5
+              </span>
+</div>
+<h3 class="text-[15px] font-extrabold text-night-text">القراءة</h3>
+<p class="text-[12px] font-semibold text-night-muted mt-0.5">28 نصاً مقروءاً</p>
+</div>
+<div class="mt-2.5 pt-2 border-t border-night-border">
+<div class="flex items-center justify-between text-[11px] font-bold text-night-muted mb-1">
+<span>صواب / خطأ / غير مذكور</span>
+<span class="font-sans text-yellow-400 font-extrabold">58%</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2 bg-night-bg rounded-full overflow-hidden border border-night-border">
+<div class="h-full bg-yellow-400 rounded-full" style="width: 58%;"></div>
+</div>
+</div>
+</article>
+<!-- Writing Card -->
+<article class="bg-night-card rounded-2xl border-2 border-night-border p-3 shadow-tactile-sm flex flex-col justify-between min-h-[148px]">
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="w-8 h-8 rounded-xl bg-night-surface border border-night-orange/50 flex items-center justify-center text-night-orange">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+</div>
+<span class="text-[11px] font-extrabold text-[#fdba74] bg-night-surface border border-night-orange/40 px-2 py-0.5 rounded-full font-sans">
+                Band 6.5
+              </span>
+</div>
+<h3 class="text-[15px] font-extrabold text-night-text">الكتابة</h3>
+<p class="text-[12px] font-semibold text-night-muted mt-0.5">14 مقالاً مقيّماً</p>
+</div>
+<div class="mt-2.5 pt-2 border-t border-night-border">
+<div class="flex items-center justify-between text-[11px] font-bold text-night-muted mb-1">
+<span>الثروة المعجمية للمهمة 2</span>
+<span class="font-sans text-night-orange font-extrabold">45%</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2 bg-night-bg rounded-full overflow-hidden border border-night-border">
+<div class="h-full bg-night-orange rounded-full" style="width: 45%;"></div>
+</div>
+</div>
+</article>
+<!-- Speaking Card -->
+<article class="bg-night-card rounded-2xl border-2 border-night-border p-3 shadow-tactile-sm flex flex-col justify-between min-h-[148px]">
+<div>
+<div class="flex items-center justify-between mb-2">
+<div class="w-8 h-8 rounded-xl bg-night-surface border border-night-teal/50 flex items-center justify-center text-night-teal">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+</div>
+<span class="text-[11px] font-extrabold text-night-teal bg-night-surface border border-night-teal/40 px-2 py-0.5 rounded-full font-sans">
+                Band 7.0
+              </span>
+</div>
+<h3 class="text-[15px] font-extrabold text-night-text">المحادثة</h3>
+<p class="text-[12px] font-semibold text-night-muted mt-0.5">35 موضوعاً تدريبياً</p>
+</div>
+<div class="mt-2.5 pt-2 border-t border-night-border">
+<div class="flex items-center justify-between text-[11px] font-bold text-night-muted mb-1">
+<span>طلاقة الجزء 2</span>
+<span class="font-sans text-night-teal font-extrabold">80%</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2 bg-night-bg rounded-full overflow-hidden border border-night-border">
+<div class="h-full bg-night-teal rounded-full" style="width: 80%;"></div>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- TARGETED FOUNDATIONS SECTION -->
+<section class="space-y-2.5 pb-2">
+<div class="px-1">
+<h2 class="text-[17px] font-extrabold text-night-text tracking-tight">
+          الأسس المستهدفة
+        </h2>
+<p class="text-[12px] font-medium text-night-muted">
+          آليات قواعدية حرجة وصوتيات دقيقة
+        </p>
+</div>
+<!-- Foundation 1: Pronunciation -->
+<div class="bg-night-card rounded-2xl border-2 border-night-border p-3.5 shadow-tactile-sm flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-2xl bg-night-surface border-2 border-night-teal flex items-center justify-center text-night-teal shrink-0 shadow-tactile-surface">
+<span class="material-symbols-outlined text-[22px]">graphic_eq</span>
+</div>
+<div>
+<h3 class="text-[14px] font-extrabold text-night-text">
+              النطق والصوتيات الصوتية
+            </h3>
+<p class="text-[12px] font-semibold text-night-muted mt-0.5">
+              إتقان أصوات /θ/ و /ð/ ونبر الكلمات...
+            </p>
+</div>
+</div>
+<button class="bg-night-surface hover:bg-night-surface/80 active:translate-y-0.5 text-night-text font-extrabold text-[13px] px-3.5 py-2 rounded-xl border border-night-border shrink-0 shadow-tactile-surface flex items-center gap-1 min-h-[44px]">
+<span>تدرّب</span>
+<span class="material-symbols-outlined text-[16px] rtl-flip font-bold">arrow_forward</span>
+</button>
+</div>
+<!-- Foundation 2: Grammar & Complex Structures -->
+<div class="bg-night-card rounded-2xl border-2 border-night-border p-3.5 shadow-tactile-sm flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-2xl bg-night-surface border-2 border-yellow-500/80 flex items-center justify-center text-yellow-400 shrink-0 shadow-tactile-surface">
+<span class="material-symbols-outlined text-[22px]">translate</span>
+</div>
+<div>
+<h3 class="text-[14px] font-extrabold text-night-text">
+              القواعد والتراكيب المعقدة
+            </h3>
+<p class="text-[12px] font-semibold text-night-muted mt-0.5">
+              قلب ترتيب الجمل، الجمل الشرطية...
+            </p>
+</div>
+</div>
+<button class="bg-night-surface hover:bg-night-surface/80 active:translate-y-0.5 text-night-text font-extrabold text-[13px] px-3.5 py-2 rounded-xl border border-night-border shrink-0 shadow-tactile-surface flex items-center gap-1 min-h-[44px]">
+<span>تدرّب</span>
+<span class="material-symbols-outlined text-[16px] rtl-flip font-bold">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<!-- CANONICAL BOTTOM NAVIGATION BAR (MIRRORED RTL ORDER) -->
+<!-- In RTL: rightmost is index 0 (اليوم), followed by المفردات, المهارات (Active), الاختبارات, and أنا (Me on leftmost) -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto bg-night-bg border-t-2 border-night-border z-50 px-2 py-1.5 shadow-tactile-bar">
+<div class="flex items-center justify-around">
+<!-- Tab 1: Today (اليوم) -->
+<button class="flex flex-col items-center justify-center py-1 px-2.5 text-night-muted hover:text-night-text active:translate-y-0.5 min-w-[56px] min-h-[48px]">
+<span class="material-symbols-outlined outline-icon text-[22px]">calendar_today</span>
+<span class="text-[11px] font-bold mt-0.5">اليوم</span>
+</button>
+<!-- Tab 2: Vocab (المفردات) -->
+<button class="flex flex-col items-center justify-center py-1 px-2.5 text-night-muted hover:text-night-text active:translate-y-0.5 min-w-[56px] min-h-[48px]">
+<span class="material-symbols-outlined outline-icon text-[22px]">menu_book</span>
+<span class="text-[11px] font-bold mt-0.5">المفردات</span>
+</button>
+<!-- Tab 3: Skills (المهارات) - ACTIVE TAB -->
+<button class="flex flex-col items-center justify-center py-1 px-3 min-w-[62px] min-h-[48px]">
+<div class="bg-night-surface border-2 border-night-teal px-3 py-1 rounded-2xl flex items-center justify-center shadow-tactile-surface">
+<span class="material-symbols-outlined text-[20px] text-night-teal">bolt</span>
+</div>
+<span class="text-[11px] font-extrabold text-night-teal mt-0.5">المهارات</span>
+</button>
+<!-- Tab 4: Tests (الاختبارات) -->
+<button class="flex flex-col items-center justify-center py-1 px-2.5 text-night-muted hover:text-night-text active:translate-y-0.5 min-w-[56px] min-h-[48px]">
+<span class="material-symbols-outlined outline-icon text-[22px]">assignment</span>
+<span class="text-[11px] font-bold mt-0.5">الاختبارات</span>
+</button>
+<!-- Tab 5: Me (أنا) -->
+<button class="flex flex-col items-center justify-center py-1 px-2.5 text-night-muted hover:text-night-text active:translate-y-0.5 min-w-[56px] min-h-[48px]">
+<span class="material-symbols-outlined outline-icon text-[22px]">person</span>
+<span class="text-[11px] font-bold mt-0.5">أنا</span>
+</button>
+</div>
+</nav>
+</body></html>

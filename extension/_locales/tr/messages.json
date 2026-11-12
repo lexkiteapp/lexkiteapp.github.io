@@ -1,11 +1,179 @@
 {
  "appName": {
-  "message": "Lexkite – Sözlük ve IELTS Kartları"
+  "message": "Lexkite – İngilizce Sözlük, Çeviri ve Kelime Kartları"
  },
  "appDesc": {
-  "message": "Kelimeye çift tıklayın: anlam, okunuş ve ses. Cümleleri ve YouTube altyazılarını çevirin. Kaydedin ve kartlarla tekrar edin."
+  "message": "Herhangi bir kelimeye çift tıkla: anlam, IPA ve ses. Seçili metni çevir, kelimeleri bağlamıyla kaydet, IELTS/TOEIC için tekrar et."
  },
  "openApp": {
   "message": "Lexkite'ı aç"
+ },
+ "rateTitle": {
+  "message": "Lexkite'ı beğendin mi?"
+ },
+ "rateBody": {
+  "message": "Lexkite öğrenmene yardımcı oluyorsa, mağazada kısa bir değerlendirme diğer öğrencilerin onu bulmasına yardımcı olur."
+ },
+ "rateYes": {
+  "message": "Lexkite'ı değerlendir"
+ },
+ "rateLater": {
+  "message": "Sonra"
+ },
+ "rateNever": {
+  "message": "Bir daha sorma"
+ },
+ "ntGot": {
+  "message": "✓ Biliyorum"
+ },
+ "ntAgain": {
+  "message": "↻ Tekrar"
+ },
+ "ntGolden": {
+  "message": "Altın an"
+ },
+ "ntSaved": {
+  "message": "Yeni kaydedilen"
+ },
+ "ntToday": {
+  "message": "Anın kelimesi"
+ },
+ "ntSearch": {
+  "message": "Web'de ara…"
+ },
+ "ntSearchBtn": {
+  "message": "Ara"
+ },
+ "ntOff": {
+  "message": "Yeni sekme kartını kapat"
+ },
+ "ntConf": {
+  "message": "Özgüvenle konuş"
+ },
+ "ntListen": {
+  "message": "Dinle"
+ },
+ "ntSlow": {
+  "message": "Yavaş"
+ },
+ "ntUK": {
+  "message": "İng."
+ },
+ "ntUS": {
+  "message": "ABD"
+ },
+ "ntFamily": {
+  "message": "Kelime ailesi"
+ },
+ "ntColloc": {
+  "message": "Eşdizimler"
+ },
+ "ntSyn": {
+  "message": "Eş anlamlılar"
+ },
+ "ntAnt": {
+  "message": "Zıt anlamlılar"
+ },
+ "ntQuiz": {
+  "message": "Test modu"
+ },
+ "ntReveal": {
+  "message": "Anlamı gör"
+ },
+ "ntTapTr": {
+  "message": "Çeviriyi görmek için dokun"
+ },
+ "ntMT": {
+  "message": "Makine çevirisi"
+ },
+ "ntExample": {
+  "message": "Örnek"
+ },
+ "ntAdd": {
+  "message": "＋ Desteme ekle"
+ },
+ "ntAdded": {
+  "message": "✓ Destemde"
+ },
+ "ntNext": {
+  "message": "Sonraki kelime →"
+ },
+ "ntProgress": {
+  "message": "Bugün {n}/{g} kelime"
+ },
+ "ntShortcuts": {
+  "message": "Klavye kısayolları"
+ },
+ "ntKeys": {
+  "message": "Boşluk: göster · 1/2: puanla · N: sonraki · P: dinle"
+ },
+ "posN": {
+  "message": "isim"
+ },
+ "posV": {
+  "message": "fiil"
+ },
+ "posAdj": {
+  "message": "sıfat"
+ },
+ "posAdv": {
+  "message": "zarf"
+ },
+ "posPhrV": {
+  "message": "öbek fiil"
+ },
+ "posPhrase": {
+  "message": "ifade"
+ },
+ "posIdiom": {
+  "message": "deyim"
+ },
+ "posPrep": {
+  "message": "edat"
+ },
+ "posConj": {
+  "message": "bağlaç"
+ },
+ "posPron": {
+  "message": "zamir"
+ },
+ "posDet": {
+  "message": "belirleyici"
+ },
+ "posExcl": {
+  "message": "ünlem"
+ },
+ "posNum": {
+  "message": "sayı"
+ },
+ "posAbbr": {
+  "message": "kısaltma"
+ },
+ "posColl": {
+  "message": "eşdizim"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} anlam"
+ },
+ "ntQzTag": {
+  "message": "Hızlı sınav"
+ },
+ "ntQzQ": {
+  "message": "Doğru anlamı seç"
+ },
+ "ntQzTime": {
+  "message": "{s} saniye"
+ },
+ "ntQzRight": {
+  "message": "Doğru!"
+ },
+ "ntQzWrong": {
+  "message": "Tam değil — kelime yakında tekrar gelecek"
+ },
+ "ntQzTimeout": {
+  "message": "Süre doldu, sorun değil"
+ },
+ "ntQzSkip": {
+  "message": "Atla"
  }
 }

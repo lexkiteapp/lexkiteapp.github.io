@@ -1,0 +1,75 @@
+{
+ "id": "auto_airport_mistake_4de412",
+ "scene": "airport",
+ "template": "mistake",
+ "area": "grammar-check",
+ "cefr": "A2",
+ "point": "any in negatives",
+ "series": "Airport English #19",
+ "title": "Spot the mistake: \"No, I don't have some liquids.\"",
+ "description": "A learner says \"No, I don't have some liquids.\" at the airport. The fix: \"No, I don't have any liquids.\"\nComment your answer below and follow for daily English (Airport English #19).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4de412#/fix",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#airportenglish",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/airport/auto_airport_mistake_4de412/cine-auto-airport-mistake-4de412-en-v3.mp4",
+ "cover": "shorts/airport/auto_airport_mistake_4de412/cine-auto-airport-mistake-4de412-en-v3.jpg",
+ "ci_artifact": "cine-airport-17",
+ "run": "17",
+ "platforms": {
+  "tiktok": {
+   "title": "Spot the mistake: \"No, I don't have some liquids.\"",
+   "caption": "A learner says \"No, I don't have some liquids.\" at the airport. The fix: \"No, I don't have any liquids.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4de412#/fix",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4de412#/fix",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "A learner says \"No, I don't have some liquids.\" at the airport. The fix: \"No, I don't have any liquids.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4de412#/fix\n#learnenglish #englishtips #airportenglish #commonmistakes #englishgrammar #travelenglish"
+  },
+  "reels": {
+   "title": "Spot the mistake: \"No, I don't have some liquids.\"",
+   "caption": "A learner says \"No, I don't have some liquids.\" at the airport. The fix: \"No, I don't have any liquids.\"\nComment your answer below and follow for daily English (Airport English #19).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4de412#/fix",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4de412#/fix",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "A learner says \"No, I don't have some liquids.\" at the airport. The fix: \"No, I don't have any liquids.\"\nComment your answer below and follow for daily English (Airport English #19).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4de412#/fix\n#learnenglish #englishtips #airportenglish #commonmistakes #englishgrammar #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Spot the mistake: \"No, I don't have some liquids.\" #shorts",
+   "caption": "A learner says \"No, I don't have some liquids.\" at the airport. The fix: \"No, I don't have any liquids.\"\nComment your answer below and follow for daily English (Airport English #19).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4de412#/fix",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4de412#/fix",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#commonmistakes"
+   ],
+   "caption_with_tags": "A learner says \"No, I don't have some liquids.\" at the airport. The fix: \"No, I don't have any liquids.\"\nComment your answer below and follow for daily English (Airport English #19).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_mistake_4de412#/fix\n#shorts #learnenglish #englishtips #airportenglish #commonmistakes"
+  }
+ },
+ "slot": {
+  "date": "2026-11-16",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

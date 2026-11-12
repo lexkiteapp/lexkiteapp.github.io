@@ -1,0 +1,325 @@
+{
+"_note": "Tiêu đề ngắn trên thẻ mục lục /samples/ (đề đầy đủ vẫn ở HTML). Thiếu khóa → samples-visual.mjs cắt câu đầu của đề.",
+"t2": {
+"p1": {
+"en": "Free university education",
+"vi": "Đại học miễn phí"
+},
+"p2": {
+"en": "Technology: simpler or harder life?",
+"vi": "Công nghệ: dễ hay khó hơn?"
+},
+"p3": {
+"en": "Traffic congestion in big cities",
+"vi": "Tắc đường ở thành phố lớn"
+},
+"p4": {
+"en": "Working from home",
+"vi": "Làm việc tại nhà"
+},
+"p5": {
+"en": "Environment vs public services",
+"vi": "Môi trường hay dịch vụ công"
+},
+"p6": {
+"en": "Childhood obesity",
+"vi": "Béo phì ở trẻ em"
+},
+"p7": {
+"en": "Advertising aimed at children",
+"vi": "Quảng cáo nhắm vào trẻ em"
+},
+"p8": {
+"en": "Longer prison sentences",
+"vi": "Tăng án tù để giảm tội phạm"
+},
+"p9": {
+"en": "Grandparents raising children",
+"vi": "Vai trò của ông bà"
+},
+"p10": {
+"en": "Museums or sports facilities",
+"vi": "Bảo tàng hay thể thao"
+},
+"p11": {
+"en": "Competition at work",
+"vi": "Cạnh tranh nơi làm việc"
+},
+"p12": {
+"en": "Reoffending after prison",
+"vi": "Tái phạm sau khi ra tù"
+},
+"p13": {
+"en": "Free use of natural resources",
+"vi": "Quyền dùng tài nguyên"
+},
+"p14": {
+"en": "Prevention or treatment",
+"vi": "Phòng bệnh hay chữa bệnh"
+},
+"p15": {
+"en": "Cities looking alike",
+"vi": "Thành phố ngày càng giống nhau"
+},
+"p16": {
+"en": "Stay-at-home fathers",
+"vi": "Ông bố ở nhà chăm con"
+},
+"p17": {
+"en": "Online learning replacing schools",
+"vi": "Mạng thay thế trường học"
+},
+"p18": {
+"en": "The purpose of education",
+"vi": "Mục đích của giáo dục"
+},
+"p19": {
+"en": "Young and old drifting apart",
+"vi": "Khoảng cách thế hệ"
+},
+"p20": {
+"en": "Fewer flights or fewer cars",
+"vi": "Giảm chuyến bay hay giảm xe"
+},
+"p21": {
+"en": "Sharing personal data online",
+"vi": "Chia sẻ dữ liệu cá nhân"
+},
+"p22": {
+"en": "More positive news",
+"vi": "Thêm tin tích cực"
+},
+"p23": {
+"en": "Youth unemployment",
+"vi": "Thất nghiệp ở người trẻ"
+},
+"p24": {
+"en": "Studying abroad",
+"vi": "Du học"
+},
+"p25": {
+"en": "Technology against crime",
+"vi": "Công nghệ chống tội phạm"
+},
+"p26": {
+"en": "Government and healthy eating",
+"vi": "Chính phủ và ăn uống lành mạnh"
+},
+"p27": {
+"en": "Celebrity influence on youth",
+"vi": "Ảnh hưởng của người nổi tiếng"
+},
+"p28": {
+"en": "Wealth and happiness",
+"vi": "Giàu có và hạnh phúc"
+},
+"p29": {
+"en": "Traditional clothing fading",
+"vi": "Trang phục truyền thống mai một"
+},
+"p30": {
+"en": "Compulsory art and music",
+"vi": "Bắt buộc học nghệ thuật"
+},
+"p31": {
+"en": "AI tools for homework",
+"vi": "AI làm bài tập"
+},
+"p32": {
+"en": "Four-day working week",
+"vi": "Tuần làm bốn ngày"
+},
+"p33": {
+"en": "Clothing recycling costs",
+"vi": "Hãng thời trang trả phí tái chế"
+},
+"p34": {
+"en": "Video-call doctors",
+"vi": "Khám bệnh qua video"
+},
+"p35": {
+"en": "Preserving old buildings",
+"vi": "Bảo tồn nhà cổ"
+},
+"p36": {
+"en": "Social media and false news",
+"vi": "Mạng xã hội và tin giả"
+},
+"p37": {
+"en": "Punishing online crime",
+"vi": "Trừng phạt tội phạm mạng"
+},
+"p38": {
+"en": "Quotas for local films",
+"vi": "Hạn ngạch phim nội địa"
+},
+"p39": {
+"en": "A cashless future",
+"vi": "Tương lai không tiền mặt"
+},
+"p40": {
+"en": "Early formal lessons",
+"vi": "Học chữ sớm"
+},
+"p41": {
+"en": "AI and jobs",
+"vi": "AI và việc làm"
+},
+"p42": {
+"en": "Nuclear power and climate",
+"vi": "Điện hạt nhân và khí hậu"
+},
+"p43": {
+"en": "Mental health at school",
+"vi": "Sức khoẻ tinh thần ở trường"
+},
+"p44": {
+"en": "Suburbs or high-rises",
+"vi": "Mở rộng ngoại ô hay xây cao"
+},
+"p45": {
+"en": "Compulsory community work",
+"vi": "Bắt buộc lao động công ích"
+},
+"p46": {
+"en": "Tourist entry fees",
+"vi": "Thu phí du khách"
+},
+"p47": {
+"en": "News from short videos",
+"vi": "Đọc tin qua video ngắn"
+},
+"p48": {
+"en": "Burnout at work",
+"vi": "Kiệt sức vì công việc"
+},
+"p49": {
+"en": "Falling birth rates",
+"vi": "Tỉ lệ sinh giảm"
+},
+"p50": {
+"en": "Food waste",
+"vi": "Lãng phí thực phẩm"
+},
+"p51": {
+"en": "Scams targeting older people",
+"vi": "Lừa đảo nhắm vào người già"
+},
+"p52": {
+"en": "Relying on navigation apps",
+"vi": "Phụ thuộc app chỉ đường"
+},
+"p53": {
+"en": "The gig economy",
+"vi": "Việc làm tự do qua app"
+},
+"p54": {
+"en": "Private tutoring",
+"vi": "Học thêm"
+},
+"p55": {
+"en": "Global streaming culture",
+"vi": "Phim trực tuyến toàn cầu"
+},
+"p56": {
+"en": "Living with parents longer",
+"vi": "Sống cùng bố mẹ lâu hơn"
+},
+"p57": {
+"en": "Sleeping less",
+"vi": "Ngủ ít hơn"
+},
+"p58": {
+"en": "Decline of the humanities",
+"vi": "Ít người học ngành nhân văn"
+},
+"p59": {
+"en": "Leaving villages for cities",
+"vi": "Rời quê lên thành phố"
+},
+"p60": {
+"en": "Paying for online news",
+"vi": "Trả tiền đọc tin"
+},
+"p61": {
+"en": "Tax on sugary drinks",
+"vi": "Đánh thuế đồ uống có đường"
+},
+"p62": {
+"en": "Smartphones under fourteen",
+"vi": "Điện thoại cho trẻ dưới 14"
+},
+"p63": {
+"en": "Climate: individuals or governments",
+"vi": "Khí hậu: cá nhân hay chính phủ"
+},
+"p64": {
+"en": "Qualifications or experience",
+"vi": "Bằng cấp hay kinh nghiệm"
+},
+"p65": {
+"en": "Rental e-scooters",
+"vi": "Xe điện cho thuê"
+},
+"p66": {
+"en": "Volunteer holidays abroad",
+"vi": "Du lịch tình nguyện"
+},
+"p67": {
+"en": "Unaffordable city housing",
+"vi": "Nhà ở quá đắt"
+},
+"p68": {
+"en": "Disappearing languages",
+"vi": "Ngôn ngữ đang biến mất"
+},
+"p69": {
+"en": "Video game popularity",
+"vi": "Sức hút của trò chơi điện tử"
+},
+"p70": {
+"en": "Changing jobs often",
+"vi": "Đổi việc thường xuyên"
+},
+"p71": {
+"en": "Exams or coursework",
+"vi": "Thi cử hay bài tập"
+},
+"p72": {
+"en": "Banning single-use plastic",
+"vi": "Cấm nhựa dùng một lần"
+},
+"p73": {
+"en": "The Olympics and unity",
+"vi": "Thế vận hội và đoàn kết"
+},
+"p74": {
+"en": "Experiences or possessions",
+"vi": "Trải nghiệm hay đồ vật"
+},
+"p75": {
+"en": "Advice from AI chatbots",
+"vi": "Hỏi ý kiến chatbot AI"
+},
+"p76": {
+"en": "City centre driving fees",
+"vi": "Phí vào trung tâm thành phố"
+},
+"p77": {
+"en": "Rising homelessness",
+"vi": "Người vô gia cư tăng"
+},
+"p78": {
+"en": "Life skills at school",
+"vi": "Kỹ năng sống ở trường"
+},
+"p79": {
+"en": "Home films or cinema",
+"vi": "Xem phim tại nhà hay rạp"
+},
+"p80": {
+"en": "Marrying later in life",
+"vi": "Kết hôn muộn"
+}
+}
+}

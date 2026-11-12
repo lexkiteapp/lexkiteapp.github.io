@@ -1,0 +1,210 @@
+{
+ "_doc": "Machine-readable exam format (structure only, no exam content). Counts/times checked against the official pages in verified.sources on verified.date; criteria descriptions are LexKite's own wording. Read by scripts/content-qa/exam-format-check.mjs (docs/CONTENT-QA.md §6).",
+ "id": "ielts-gt",
+ "name": "IELTS General Training",
+ "provider": "IDP / British Council / Cambridge",
+ "cefr": ["A2", "C2"],
+ "verified": {
+  "date": "2026-11-01",
+  "sources": [
+   "https://ielts.org/take-a-test/test-types/ielts-general-training-test/ielts-general-training-format-{listening,reading,writing,speaking}"
+  ]
+ },
+ "total_minutes": [161, 164],
+ "total_minutes_note": "L 30 + R 60 + W 60 + S 11–14, plus Listening transfer/review time",
+ "sections": [
+  {
+   "id": "listening",
+   "name": "Listening",
+   "minutes": 30,
+   "minutes_note": "about 30 min of recording; paper test adds 10 min transfer, computer test 2 min review",
+   "questions": 40,
+   "marks": "one mark per question",
+   "parts": [
+    {
+     "n": 1,
+     "name": "Part 1",
+     "questions": 10,
+     "types": ["form", "note", "table", "mcq", "short-answer"],
+     "context": "everyday social conversation, two speakers"
+    },
+    {
+     "n": 2,
+     "name": "Part 2",
+     "questions": 10,
+     "types": ["mcq", "matching", "map", "plan", "note"],
+     "context": "everyday social monologue"
+    },
+    {
+     "n": 3,
+     "name": "Part 3",
+     "questions": 10,
+     "types": ["mcq", "matching", "sentence", "note", "flow-chart"],
+     "context": "educational/training conversation, up to four speakers"
+    },
+    {
+     "n": 4,
+     "name": "Part 4",
+     "questions": 10,
+     "types": ["note", "sentence", "summary", "table", "flow-chart", "mcq"],
+     "context": "academic monologue (lecture)"
+    }
+   ],
+   "question_types": ["mcq", "matching", "map/plan/diagram labelling", "form/note/table/flow-chart/summary completion", "sentence completion", "short-answer"],
+   "rules": ["answers come in the same order as the recording", "heard once only", "word limit stated per task (e.g. ONE WORD AND/OR A NUMBER)"]
+  },
+  {
+   "id": "reading",
+   "name": "Reading (General Training)",
+   "minutes": 60,
+   "questions": 40,
+   "sections": 3,
+   "text_words": {
+    "min": 2150,
+    "max": 2375
+   },
+   "marks": "one mark per question",
+   "parts": [
+    {
+     "n": 1,
+     "name": "Section 1 – social survival",
+     "questions": null,
+     "types": ["matching", "tfng", "sentence", "short-answer"],
+     "texts": "2–3 short factual texts or several shorter texts (notices, adverts, timetables)"
+    },
+    {
+     "n": 2,
+     "name": "Section 2 – workplace survival",
+     "questions": null,
+     "types": ["matching", "tfng", "sentence", "note"],
+     "texts": "2 work-related texts"
+    },
+    {
+     "n": 3,
+     "name": "Section 3 – general reading",
+     "questions": null,
+     "types": ["headings", "mcq", "ynng", "summary"],
+     "texts": "1 longer, more complex text on a general topic"
+    }
+   ],
+   "question_types": ["mcq (4 options or more answers from a longer list)", "tfng", "matching information", "matching headings", "matching features", "matching sentence endings", "sentence completion", "summary/note/table/flow-chart completion", "diagram label completion", "short-answer"]
+  },
+  {
+   "id": "writing",
+   "name": "Writing",
+   "minutes": 60,
+   "tasks": [
+    {
+     "n": 1,
+     "name": "Task 1 – letter",
+     "questions": 1,
+     "types": ["letter (personal, semi-formal or formal; three bullet points)"],
+     "min_words": 150,
+     "minutes": 20
+    },
+    {
+     "n": 2,
+     "name": "Task 2 – essay",
+     "questions": 1,
+     "types": ["semi-formal/neutral discursive essay"],
+     "min_words": 250,
+     "minutes": 40,
+     "weight": 2
+    }
+   ],
+   "rules": ["connected text, no notes or bullet points", "off-topic or copied text is penalised"],
+   "criteria": [
+    {
+     "id": "TA",
+     "name": "Task Achievement (Task 1) / Task Response (Task 2)",
+     "weight": 0.25,
+     "focus": "Does the answer do everything the prompt asks, with relevant, well-developed and accurate content at the required length?"
+    },
+    {
+     "id": "CC",
+     "name": "Coherence and Cohesion",
+     "weight": 0.25,
+     "focus": "Is the text logically ordered in paragraphs, with clear progression and linking that helps rather than gets in the way?"
+    },
+    {
+     "id": "LR",
+     "name": "Lexical Resource",
+     "weight": 0.25,
+     "focus": "How wide, precise and natural is the vocabulary, including collocation and spelling?"
+    },
+    {
+     "id": "GRA",
+     "name": "Grammatical Range and Accuracy",
+     "weight": 0.25,
+     "focus": "How varied are the sentence structures and how many sentences are error-free?"
+    }
+   ]
+  },
+  {
+   "id": "speaking",
+   "name": "Speaking",
+   "minutes": [11, 14],
+   "format": "one-to-one with an examiner, recorded",
+   "parts": [
+    {
+     "n": 1,
+     "name": "Introduction and interview",
+     "questions": null,
+     "types": ["interview"],
+     "minutes": [4, 5]
+    },
+    {
+     "n": 2,
+     "name": "Long turn",
+     "questions": 1,
+     "types": ["cue-card"],
+     "minutes": [3, 4],
+     "prep_s": 60,
+     "resp_s": [60, 120],
+     "note": "task card with prompts; 1 min preparation; speak up to 2 min; then 1–2 rounding-off questions"
+    },
+    {
+     "n": 3,
+     "name": "Discussion",
+     "questions": null,
+     "types": ["discussion"],
+     "minutes": [4, 5],
+     "note": "more abstract questions linked to the Part 2 topic"
+    }
+   ],
+   "criteria": [
+    {
+     "id": "FC",
+     "name": "Fluency and Coherence",
+     "weight": 0.25,
+     "focus": "Can the candidate keep talking at length without unnatural pauses and link ideas clearly?"
+    },
+    {
+     "id": "LR",
+     "name": "Lexical Resource",
+     "weight": 0.25,
+     "focus": "Range and flexibility of vocabulary, ability to paraphrase when a word is missing."
+    },
+    {
+     "id": "GRA",
+     "name": "Grammatical Range and Accuracy",
+     "weight": 0.25,
+     "focus": "Mix of simple and complex structures and how often they are accurate."
+    },
+    {
+     "id": "P",
+     "name": "Pronunciation",
+     "weight": 0.25,
+     "focus": "How easy the speech is to understand: sounds, word and sentence stress, rhythm, intonation."
+    }
+   ]
+  }
+ ],
+ "scoring": {
+  "scale": "band 0–9",
+  "step": 0.5,
+  "overall": "mean of the four skill bands, rounded to the nearest half band (.25 rounds up to .5, .75 rounds up to the next whole band)",
+  "listening_reading": "raw score out of 40 converted to a band by an official conversion table (not reproduced)",
+  "writing": "Task 2 counts twice as much as Task 1"
+ }
+}

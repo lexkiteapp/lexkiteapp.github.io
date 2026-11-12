@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Reading Drill - True or False (Tactile Night)</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              teal: '#4cd9cc',
+              'teal-dark': '#2ba39a',
+              'teal-muted': '#194945',
+              coral: '#f97316',
+              'coral-hover': '#ea580c',
+              'coral-ledge': '#9a3412',
+            },
+            surface: {
+              night: '#091518',
+              abyss: '#051013',
+              card: '#121d20',
+              'card-elevated': '#182629',
+              'card-selected': '#132c2c',
+              border: '#283b3e',
+              'border-subtle': '#1f3033',
+              ledge: '#0b1618'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            body: ['"Noto Sans"', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            'tactile-dark': '0 4px 0 0 #071012',
+            'tactile-button': '0 4px 0 0 #9a3412',
+            'tactile-teal': '0 4px 0 0 #164843',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #091518;
+      color: #E1ECEB;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-rounded.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Smooth button press tactile feedback */
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #9a3412;
+    }
+    .tactile-card-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #071012;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#091518] flex flex-col justify-between max-w-[390px] mx-auto px-4 py-4 selection:bg-[#4cd9cc] selection:text-[#051013]">
+<!-- TOP BAR: Focus Mode inside a lesson (Close X, Progress Bar, Step Indicator) -->
+<header class="w-full flex flex-col gap-2 pt-1 pb-2">
+<div class="flex items-center justify-between gap-3 h-12">
+<!-- Close (X) Button (Generous >= 44x44px touch target) -->
+<button aria-label="Close Drill" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-[#121d20] border-2 border-[#283b3e] text-[#E1ECEB] hover:bg-[#182629] active:translate-y-0.5 transition-all shadow-[0_2px_0_0_#071012]" type="button">
+<span class="material-symbols-rounded text-2xl">close</span>
+</button>
+<!-- Center Track Info & Progress Bar -->
+<div class="flex-1 flex flex-col items-center gap-1.5 px-1">
+<span class="text-xs font-extrabold uppercase tracking-wider text-[#4cd9cc]">Reading Drill • 4 of 7</span>
+<!-- Slim Progress Bar with Ledge -->
+<div class="w-full bg-[#1a282b] h-3 rounded-full overflow-hidden p-0.5 border border-[#283b3e]">
+<div class="bg-[#4cd9cc] h-full rounded-full transition-all duration-300 shadow-[0_0_8px_rgba(76,217,204,0.4)]" style="width: 57.14%;"></div>
+</div>
+</div>
+<!-- Reference Icon button / helper tool >= 44x44px -->
+<button aria-label="Reading Passage Reference" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-[#121d20] border-2 border-[#283b3e] text-[#4cd9cc] hover:bg-[#182629] active:translate-y-0.5 transition-all shadow-[0_2px_0_0_#071012]" type="button">
+<span class="material-symbols-rounded text-2xl">menu_book</span>
+</button>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT -->
+<main class="flex-1 flex flex-col gap-3 py-1">
+<!-- TEACHER SLOT: Ama Guidance Card -->
+<section class="w-full bg-[#121d20] rounded-2xl border-2 border-[#283b3e] p-3 shadow-[0_4px_0_0_#071012] flex items-center gap-3">
+<!-- teacher-slot container: empty rounded dashed box strictly labelled "teacher-slot" -->
+<div aria-label="Teacher avatar slot" class="w-16 h-16 min-w-[64px] min-h-[64px] rounded-xl border-2 border-dashed border-[#4cd9cc]/60 bg-[#16292b] flex flex-col items-center justify-center p-1 text-center">
+<span class="material-symbols-rounded text-[#4cd9cc] text-xl">school</span>
+<span class="text-[9px] font-extrabold uppercase tracking-tight text-[#4cd9cc] leading-tight mt-0.5">teacher-slot</span>
+</div>
+<!-- Ama's speech bubble tip -->
+<div class="flex-1 flex flex-col bg-[#182629] border border-[#283b3e] rounded-xl p-2.5">
+<div class="flex items-center gap-2 mb-0.5">
+<span class="text-xs font-bold text-[#4cd9cc]">Coach Ama</span>
+<span class="text-[10px] font-semibold bg-[#113835] text-[#67e8f9] px-2 py-0.5 rounded-full border border-[#1f5651]">Reading Tip</span>
+</div>
+<p class="text-xs font-semibold text-[#E1ECEB] leading-snug">
+          “Read every word of the statement.”
+        </p>
+</div>
+</section>
+<!-- PASSAGE EXCERPT CARD -->
+<article class="w-full bg-[#121d20] rounded-2xl border-2 border-[#283b3e] p-4 shadow-[0_4px_0_0_#071012] flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#4cd9cc]">
+<span class="material-symbols-rounded text-base">auto_stories</span>
+<span>Passage Excerpt</span>
+</div>
+<p class="text-base font-semibold text-[#E1ECEB] leading-relaxed font-body">
+        The library opens at nine on weekdays but closes early on Fridays.
+      </p>
+</article>
+<!-- STATEMENT CARD -->
+<article class="w-full bg-[#1f211c] rounded-2xl border-2 border-[#3d3725] p-4 shadow-[0_4px_0_0_#071012] flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#f4bf40]">
+<span class="material-symbols-rounded text-base">format_quote</span>
+<span>Statement</span>
+</div>
+<p class="text-base font-bold text-[#ffffff] leading-relaxed">
+        The library closes early every day.
+      </p>
+</article>
+<!-- INSTRUCTION & ANSWER BUTTONS -->
+<section class="w-full flex flex-col gap-2 mt-1">
+<h2 class="text-sm font-bold text-[#E1ECEB] px-1">
+        Select whether the statement is True or False
+      </h2>
+<!-- Radio / Button Options -->
+<div aria-label="True or False selection" class="flex flex-col gap-2.5" role="radiogroup">
+<!-- OPTION 1: TRUE -->
+<button aria-checked="false" class="tactile-card-btn w-full min-h-[56px] py-3 px-4 bg-[#121d20] border-2 border-[#283b3e] rounded-2xl shadow-[0_4px_0_0_#071012] flex items-center justify-between hover:bg-[#182629] transition-all" role="radio" type="button">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full border-2 border-[#283b3e] flex items-center justify-center font-extrabold text-sm text-[#A9BDBB] bg-[#182629]">A</span>
+<span class="text-base font-bold text-[#E1ECEB]">True</span>
+</div>
+<div class="w-6 h-6 rounded-full border-2 border-[#283b3e] bg-[#0d1719] flex items-center justify-center">
+<!-- Unchecked radio visual -->
+</div>
+</button>
+<!-- OPTION 2: FALSE (Selected state demonstrating tactile feedback) -->
+<button aria-checked="true" class="tactile-card-btn w-full min-h-[56px] py-3 px-4 bg-[#132c2c] border-2 border-[#4cd9cc] rounded-2xl shadow-[0_4px_0_0_#164843] flex items-center justify-between transition-all" role="radio" type="button">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-[#4cd9cc] text-[#051013] flex items-center justify-center font-black text-sm">B</span>
+<span class="text-base font-bold text-[#ffffff]">False</span>
+</div>
+<div class="w-6 h-6 rounded-full bg-[#4cd9cc] text-[#051013] flex items-center justify-center">
+<span class="material-symbols-rounded text-base font-black">check</span>
+</div>
+</button>
+</div>
+</section>
+</main>
+<!-- BOTTOM ACTION BAR: Coral Primary Check Button (Generous touch target, raised tactile feel) -->
+<footer class="w-full pt-3 pb-2 flex flex-col gap-1.5">
+<button class="tactile-btn w-full min-h-[56px] py-3.5 px-6 rounded-2xl bg-[#f97316] hover:bg-[#ea580c] text-[#1a0d00] font-extrabold text-base tracking-wide flex items-center justify-center gap-2 border-2 border-[#9a3412] shadow-[0_5px_0_0_#9a3412] transition-all" type="button">
+<span class="material-symbols-rounded text-xl">check_circle</span>
+<span>Check answer</span>
+</button>
+<!-- Context / Exam standard micro-label -->
+<div class="text-center text-[11px] font-semibold text-[#94A8A6] pt-0.5">
+      IELTS General &amp; Academic Reading Section 1
+    </div>
+</footer>
+</body></html>

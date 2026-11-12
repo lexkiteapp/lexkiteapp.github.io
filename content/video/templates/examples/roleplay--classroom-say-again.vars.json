@@ -1,0 +1,25 @@
+{
+ "topic": "Classroom English roleplay: asking the teacher to say that again",
+ "scene": "classroom",
+ "vars": {
+  "phrase": "say that again",
+  "place": "class",
+  "hookLine": "Wait… what did she say?",
+  "staffOpen": "For homework, read pages forty to fifty-two.",
+  "learnerLine": "Sorry, could you say that again, please?",
+  "staffReply": "Of course! Pages forty to fifty-two.",
+  "tip": "add please. Teachers are happy to repeat."
+ },
+ "hashtags": [
+  "englishconversation",
+  "speakenglish"
+ ],
+ "lines": {
+  "hook": {
+   "expr": "surprised"
+  },
+  "example": {
+   "expr": "curious"
+  }
+ }
+}

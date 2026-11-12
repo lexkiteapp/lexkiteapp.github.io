@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+
+<html class="dark bg-[#091518]" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bộ thẻ ghi nhớ (My Decks) - Lexkite</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-fixed": "#ffdad4",
+            "secondary": "#895100",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "primary-fixed-dim": "#88d4cd",
+            "tertiary-container": "#b03224",
+            "on-error-container": "#93000a",
+            "tertiary": "#8e190f",
+            "surface-dim": "#e2d8d0",
+            "on-secondary-container": "#663b00",
+            "on-tertiary": "#ffffff",
+            "surface-bright": "#fff8f3",
+            "on-surface-variant": "#3f4947",
+            "on-primary-container": "#9ce9e2",
+            "surface-container-low": "#fcf2e9",
+            "secondary-fixed-dim": "#ffb86c",
+            "secondary-container": "#fe9d19",
+            "inverse-primary": "#88d4cd",
+            "inverse-on-surface": "#f9efe6",
+            "on-primary-fixed-variant": "#00504c",
+            "primary": "#00514d",
+            "on-secondary-fixed": "#2c1600",
+            "on-tertiary-fixed": "#410000",
+            "surface-container": "#f6ece4",
+            "secondary-fixed": "#ffdcbc",
+            "on-primary-fixed": "#00201e",
+            "surface-variant": "#eae1d8",
+            "background": "#fff8f3",
+            "on-error": "#ffffff",
+            "primary-fixed": "#a4f0e9",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-container": "#ffd0c9",
+            "on-secondary": "#ffffff",
+            "on-primary": "#ffffff",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "outline-variant": "#bec9c7",
+            "surface-tint": "#106a65",
+            "surface-container-highest": "#eae1d8",
+            "on-secondary-fixed-variant": "#683c00",
+            "surface-container-high": "#f0e7de",
+            "on-surface": "#1f1b16",
+            "inverse-surface": "#34302a",
+            "outline": "#6f7978",
+            "surface": "#fff8f3",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "primary-container": "#136b66",
+            "on-background": "#1f1b16"
+          },
+          borderRadius: {
+            DEFAULT: "1rem",
+            lg: "2rem",
+            xl: "3rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "headline-md": ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            "headline-lg-mobile": ["24px", { lineHeight: "32px", fontWeight: "800" }],
+            "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "700" }],
+            "body-lg": ["18px", { lineHeight: "26px", fontWeight: "500" }],
+            "label-lg": ["16px", { lineHeight: "20px", letterSpacing: "0.2px", fontWeight: "700" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+            "headline-xl-mobile": ["30px", { lineHeight: "38px", fontWeight: "800" }],
+            "label-md": ["14px", { lineHeight: "18px", letterSpacing: "0.4px", fontWeight: "700" }],
+            "headline-lg": ["32px", { lineHeight: "40px", fontWeight: "800" }],
+            "headline-xl": ["40px", { lineHeight: "48px", fontWeight: "800" }],
+            "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.6px", fontWeight: "800" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="bg-[#091518] text-[#E8F1F0] antialiased min-h-screen selection:bg-[#14B8A6] selection:text-[#00201e]">
+<!-- Desktop App Container -->
+<div class="max-w-[1280px] mx-auto min-h-screen flex flex-col md:flex-row border-x-2 border-[#1E2F33] bg-[#091518] shadow-[0_8px_30px_rgb(0,0,0,0.5)]">
+<!-- LEFT SIDEBAR (~268px Sticky Rail) -->
+<aside class="w-full md:w-[268px] shrink-0 bg-[#061619] border-r-2 border-[#1E2F33] flex flex-col justify-between p-5 sticky top-0 h-auto md:h-screen z-40">
+<div class="flex flex-col gap-6">
+<!-- Logo Header -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-10 h-10 rounded-DEFAULT bg-[#136B66] flex items-center justify-center text-[#E8F1F0] shadow-[0_3px_0_0_#093835] shrink-0">
+<span class="material-symbols-outlined text-2xl text-[#2DD4BF]" data-icon="kitesurfing">kitesurfing</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-md text-headline-md tracking-tight text-[#2DD4BF] font-black">LEXKITE</span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></span>
+</div>
+<span class="font-label-sm text-label-sm text-[#C2D6D4] font-bold">Luyện thi thông minh</span>
+</div>
+</div>
+<!-- Main Navigation Destinations (>=44px touch targets) -->
+<nav class="flex flex-col gap-1.5">
+<!-- Item 1: Hôm nay -->
+<a class="min-h-[44px] flex items-center gap-3.5 px-3.5 py-2.5 rounded-DEFAULT text-[#C2D6D4] hover:text-[#E8F1F0] hover:bg-[#12252A] transition-all active:translate-y-[2px]" href="#">
+<span class="material-symbols-outlined text-[22px] text-[#C2D6D4]" data-icon="wb_sunny">wb_sunny</span>
+<span class="font-label-md text-label-md">Hôm nay</span>
+</a>
+<!-- Item 2: Từ vựng (Active State) -->
+<a class="min-h-[44px] flex items-center justify-between px-3.5 py-2.5 rounded-DEFAULT bg-[#12252A] text-[#2DD4BF] font-bold border border-[#1E2F33] shadow-[0_3px_0_0_#051013] transition-all" href="#">
+<div class="flex items-center gap-3.5">
+<span class="material-symbols-outlined text-[22px] text-[#2DD4BF]" data-icon="style" data-weight="fill" style="font-variation-settings: 'FILL' 1;">style</span>
+<span class="font-label-md text-label-md text-[#2DD4BF] font-bold">Từ vựng (Bộ thẻ)</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-[#2DD4BF]"></span>
+</a>
+<!-- Item 3: Kỹ năng -->
+<a class="min-h-[44px] flex items-center gap-3.5 px-3.5 py-2.5 rounded-DEFAULT text-[#C2D6D4] hover:text-[#E8F1F0] hover:bg-[#12252A] transition-all active:translate-y-[2px]" href="#">
+<span class="material-symbols-outlined text-[22px] text-[#C2D6D4]" data-icon="psychology">psychology</span>
+<span class="font-label-md text-label-md">Kỹ năng</span>
+</a>
+<!-- Item 4: Bài thi -->
+<a class="min-h-[44px] flex items-center gap-3.5 px-3.5 py-2.5 rounded-DEFAULT text-[#C2D6D4] hover:text-[#E8F1F0] hover:bg-[#12252A] transition-all active:translate-y-[2px]" href="#">
+<span class="material-symbols-outlined text-[22px] text-[#C2D6D4]" data-icon="quiz">quiz</span>
+<span class="font-label-md text-label-md">Bài thi</span>
+</a>
+<!-- Item 5: Me / Tài khoản -->
+<a class="min-h-[44px] flex items-center gap-3.5 px-3.5 py-2.5 rounded-DEFAULT text-[#C2D6D4] hover:text-[#E8F1F0] hover:bg-[#12252A] transition-all active:translate-y-[2px]" href="#">
+<span class="material-symbols-outlined text-[22px] text-[#C2D6D4]" data-icon="account_circle">account_circle</span>
+<span class="font-label-md text-label-md">Tài khoản</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Profile Badge & Nav Footer -->
+<div class="flex flex-col gap-4 pt-4 border-t-2 border-[#1E2F33]">
+<!-- Streak / Status Pill -->
+<div class="bg-[#12252A] border-2 border-[#23383E] p-3 rounded-DEFAULT flex items-center justify-between shadow-[0_2px_0_0_#051013]">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-[#F59E0B]/20 flex items-center justify-center text-[#F59E0B]">
+<span class="material-symbols-outlined text-lg" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-[#E8F1F0] font-extrabold leading-none">14 ngày liên tiếp</span>
+<span class="font-label-sm text-label-sm text-[#C2D6D4] leading-tight mt-0.5">Mục tiêu: 8.0 Band</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm font-black text-[#1C1003] px-2 py-0.5 bg-[#F59E0B] rounded-full">Top 5%</span>
+</div>
+<!-- User mini identity with >= 44x44px settings button -->
+<div class="flex items-center gap-3 px-1 py-1">
+<div class="w-9 h-9 rounded-full bg-[#136B66] text-[#E8F1F0] flex items-center justify-center font-bold text-sm shadow-[0_2px_0_0_#093835] shrink-0">
+  LK
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md text-[#E8F1F0] truncate">Minh Anh Tran</span>
+<span class="font-label-sm text-label-sm text-[#C2D6D4] truncate">Học viên IELTS Pro</span>
+</div>
+<button aria-label="Cài đặt tài khoản" class="min-w-[44px] min-h-[44px] flex items-center justify-center text-[#C2D6D4] hover:text-[#E8F1F0] rounded-DEFAULT hover:bg-[#12252A] active:translate-y-[2px] transition-colors shrink-0" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="settings">settings</span>
+</button>
+</div>
+<!-- Secondary Legal / Help Links (each min-h-[44px] for touch target compliance) -->
+<div class="flex items-center justify-between px-1 pt-1 font-label-sm text-label-sm text-[#C2D6D4] border-t border-[#1E2F33]">
+<a class="min-h-[44px] inline-flex items-center px-2 py-2 hover:text-[#2DD4BF] transition-colors" href="#">Blog</a>
+<span class="text-[#1E2F33] select-none">•</span>
+<a class="min-h-[44px] inline-flex items-center px-2 py-2 hover:text-[#2DD4BF] transition-colors" href="#">Giới thiệu</a>
+<span class="text-[#1E2F33] select-none">•</span>
+<a class="min-h-[44px] inline-flex items-center px-2 py-2 hover:text-[#2DD4BF] transition-colors" href="#">Báo cáo sự cố</a>
+</div>
+</div>
+</aside>
+<!-- MAIN APP CANVAS (Workbench Area) -->
+<main class="flex-1 flex flex-col min-w-0 bg-[#091518]">
+<!-- TOP BAR / BREADCRUMB HEADER -->
+<header class="sticky top-0 z-30 bg-[#091518]/95 backdrop-blur-sm px-6 lg:px-8 py-5 border-b-2 border-[#1E2F33] flex flex-col gap-4">
+<!-- Title + Search + Primary CTA -->
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-[#C2D6D4]">Học viện Lexkite</span>
+<span class="text-[#879391] text-xs">/</span>
+<span class="font-label-sm text-label-sm text-[#2DD4BF] font-bold">Từ vựng Spaced Repetition</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-[#E8F1F0] tracking-tight mt-0.5">
+  Bộ thẻ ghi nhớ
+  <span class="font-body-md text-body-md text-[#C2D6D4] font-medium ml-2">(My decks)</span>
+</h1>
+</div>
+<!-- Actions Cluster -->
+<div class="flex items-center gap-3">
+<!-- Search Bar with min-h-[44px] & Cmd+K -->
+<div class="relative w-64 md:w-72">
+<span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#C2D6D4] material-symbols-outlined text-lg" data-icon="search">search</span>
+<input class="w-full min-h-[44px] bg-[#12252A] border-2 border-[#2A4047] focus:border-[#2DD4BF] focus:ring-0 rounded-DEFAULT pl-10 pr-16 py-2.5 text-sm font-medium text-[#E8F1F0] placeholder:text-[#C2D6D4] shadow-[0_2px_0_0_#051013]" placeholder="Tìm bộ thẻ từ vựng..." type="text"/>
+<kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 bg-[#1E2F33] min-h-[28px] min-w-[28px] inline-flex items-center justify-center px-2 py-0.5 rounded text-[11px] font-bold text-[#C2D6D4] border border-[#2A4047]">⌘K</kbd>
+</div>
+<!-- Primary 3D CTA Button (New Deck, >= 44x44px touch area) -->
+<button class="min-h-[44px] bg-[#F59E0B] text-[#1C1003] font-label-md text-label-md px-5 py-2.5 rounded-DEFAULT shadow-[0_4px_0_0_#B45309] hover:brightness-105 active:translate-y-[3px] active:shadow-[0_1px_0_0_#B45309] transition-all flex items-center justify-center gap-2 shrink-0 border border-[#F59E0B]/30 cursor-pointer">
+<span class="material-symbols-outlined text-lg font-bold" data-icon="add_circle">add_circle</span>
+<span class="font-black">Tạo bộ thẻ mới</span>
+</button>
+</div>
+</div>
+<!-- Filter Pills Bar (All pills min-h-[44px]) -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+<button class="min-h-[44px] px-4 py-2.5 rounded-full bg-[#136B66] text-[#E8F1F0] font-label-md text-label-md shadow-[0_3px_0_0_#093835] border border-[#2DD4BF]/40 active:translate-y-[2px] shrink-0 inline-flex items-center gap-2 cursor-pointer">
+<span class="font-bold">Tất cả</span>
+<span class="bg-[#2DD4BF] text-[#00201E] text-xs px-2 py-0.5 rounded-full font-black">5</span>
+</button>
+<button class="min-h-[44px] px-4 py-2.5 rounded-full bg-[#12252A] text-[#C2D6D4] hover:text-[#E8F1F0] border-2 border-[#1E2F33] shadow-[0_3px_0_0_#051013] active:translate-y-[2px] font-label-md text-label-md shrink-0 inline-flex items-center gap-2 cursor-pointer">
+<span class="font-bold">Cần ôn tập</span>
+<span class="bg-[#F59E0B] text-[#1C1003] font-black text-xs px-2 py-0.5 rounded-full">3</span>
+</button>
+<button class="min-h-[44px] px-4 py-2.5 rounded-full bg-[#12252A] text-[#C2D6D4] hover:text-[#E8F1F0] border-2 border-[#1E2F33] shadow-[0_3px_0_0_#051013] active:translate-y-[2px] font-label-md text-label-md shrink-0 inline-flex items-center gap-2 cursor-pointer">
+<span class="font-bold">Đã thuộc</span>
+<span class="bg-[#2DD4BF] text-[#00201E] font-black text-xs px-2 py-0.5 rounded-full">1</span>
+</button>
+<button class="min-h-[44px] px-4 py-2.5 rounded-full bg-[#12252A] text-[#C2D6D4] hover:text-[#E8F1F0] border-2 border-[#1E2F33] shadow-[0_3px_0_0_#051013] active:translate-y-[2px] font-label-md text-label-md shrink-0 inline-flex items-center cursor-pointer">
+<span class="font-bold">Đã lưu trữ</span>
+</button>
+</div>
+</header>
+<!-- 2-COLUMN WORKBENCH CONTENT -->
+<div class="p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT/CENTER COLUMN (Decks & Review Loop - 8 Cols) -->
+<div class="lg:col-span-8 flex flex-col gap-6 min-w-0">
+<!-- Daily Spaced Repetition Summary Banner Card -->
+<div class="bg-[#12252A] border-2 border-[#23383E] rounded-DEFAULT p-6 shadow-[0_4px_0_0_#051013] relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+<div class="flex items-start gap-4">
+<div class="w-14 h-14 rounded-DEFAULT bg-[#B45309] text-[#FEF3C7] flex items-center justify-center shadow-[0_3px_0_0_#78350F] shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-3xl" data-icon="auto_mode">auto_mode</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="inline-flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-[#1C1003] font-black bg-[#F59E0B] px-2.5 py-0.5 rounded-full">
+  SM-2 Thuật toán thông minh
+</span>
+<span class="font-label-sm text-label-sm text-[#C2D6D4] flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span> ~12 phút
+</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-[#E8F1F0] font-extrabold">
+  32 thẻ cần ôn hôm nay trên tất cả bộ thẻ
+</h2>
+<p class="font-body-sm text-body-sm text-[#C2D6D4]">
+  Duy trì đường cong ghi nhớ Ebbinghaus trước khi từ vựng bị lãng quên.
+</p>
+</div>
+</div>
+<!-- Prominent 3D CTA Button (>= 44x44px touch area) -->
+<button class="min-h-[44px] w-full md:w-auto px-6 py-3 bg-[#F59E0B] text-[#1C1003] font-label-lg text-label-lg rounded-DEFAULT shadow-[0_4px_0_0_#B45309] hover:brightness-105 active:translate-y-[3px] active:shadow-[0_1px_0_0_#B45309] transition-all flex items-center justify-center gap-2.5 shrink-0 cursor-pointer">
+<span class="material-symbols-outlined text-xl" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span class="whitespace-nowrap font-black">Ôn tập tất cả (32)</span>
+</button>
+</div>
+<!-- DECK CARDS LIST -->
+<div class="flex flex-col gap-4">
+<!-- Deck Card 1 -->
+<div class="bg-[#12252A] border-2 border-[#23383E] rounded-DEFAULT p-5 shadow-[0_4px_0_0_#051013] hover:border-[#2A4047] transition-all flex flex-col gap-4">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-start gap-3.5 min-w-0">
+<div class="w-12 h-12 rounded-DEFAULT bg-[#1E2F33] text-[#2DD4BF] flex items-center justify-center font-bold text-xl border-2 border-[#23383E] shrink-0 shadow-[0_2px_0_0_#051013]">
+<span class="material-symbols-outlined text-2xl" data-icon="school">school</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-extrabold truncate">
+  IELTS Academic Band 7+ Collocations
+</h3>
+<!-- Warm Amber Tactile Badge -->
+<span class="bg-[#FEF3C7] text-[#1C1003] border border-[#F59E0B] font-label-sm text-label-sm font-extrabold px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 shadow-[0_1px_0_0_#B45309]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#B45309]"></span>
+  14 thẻ cần ôn
+</span>
+</div>
+<span class="font-body-sm text-body-sm text-[#C2D6D4] mt-0.5">
+  240 từ vựng nâng cao chuyên dùng cho Writing Task 2 &amp; Speaking Part 3
+</span>
+</div>
+</div>
+<!-- Overflow Menu Button (>= 44x44px touch area) -->
+<button aria-label="Tuỳ chọn bộ thẻ IELTS Academic Band 7+ Collocations" class="min-w-[44px] min-h-[44px] rounded-DEFAULT flex items-center justify-center text-[#C2D6D4] hover:text-[#E8F1F0] hover:bg-[#1E2F33] transition-all active:translate-y-[2px] shrink-0" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+<!-- Progress & Bottom Actions Bar -->
+<div class="pt-2 border-t border-[#1E2F33] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex-1 max-w-sm">
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1.5">
+<span class="text-[#C2D6D4] font-bold">Mức độ thông thạo (Mastery)</span>
+<span class="text-[#2DD4BF] font-extrabold">68%</span>
+</div>
+<!-- Tactile Progress Bar -->
+<div class="h-3 w-full bg-[#091518] rounded-full overflow-hidden p-0.5 shadow-inner border border-[#1E2F33]">
+<div class="h-full bg-[#14B8A6] rounded-full relative" style="width: 68%;">
+<div class="absolute inset-x-0 top-0 h-[2px] bg-white/30 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 self-end sm:self-center">
+<span class="font-label-sm text-label-sm text-[#C2D6D4] font-semibold">Đã học 163 / 240 thẻ</span>
+<button class="min-h-[44px] px-5 py-2.5 bg-[#136B66] text-[#E8F1F0] font-label-md text-label-md rounded-DEFAULT shadow-[0_4px_0_0_#093835] hover:brightness-110 active:translate-y-[3px] active:shadow-[0_1px_0_0_#093835] transition-all inline-flex items-center justify-center gap-2 cursor-pointer font-bold">
+<span>Học bộ thẻ</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Deck Card 2 -->
+<div class="bg-[#12252A] border-2 border-[#23383E] rounded-DEFAULT p-5 shadow-[0_4px_0_0_#051013] hover:border-[#2A4047] transition-all flex flex-col gap-4">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-start gap-3.5 min-w-0">
+<div class="w-12 h-12 rounded-DEFAULT bg-[#1E2F33] text-[#F59E0B] flex items-center justify-center font-bold text-xl border-2 border-[#23383E] shrink-0 shadow-[0_2px_0_0_#051013]">
+<span class="material-symbols-outlined text-2xl" data-icon="business_center">business_center</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-extrabold truncate">
+  Work &amp; Office Idioms
+</h3>
+<!-- Warm Amber Tactile Badge -->
+<span class="bg-[#FEF3C7] text-[#1C1003] border border-[#F59E0B] font-label-sm text-label-sm font-extrabold px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 shadow-[0_1px_0_0_#B45309]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#B45309]"></span>
+  8 thẻ cần ôn
+</span>
+</div>
+<span class="font-body-sm text-body-sm text-[#C2D6D4] mt-0.5">
+  120 thành ngữ công sở phổ biến trong môi trường làm việc quốc tế và phỏng vấn
+</span>
+</div>
+</div>
+<button aria-label="Tuỳ chọn bộ thẻ Work &amp; Office Idioms" class="min-w-[44px] min-h-[44px] rounded-DEFAULT flex items-center justify-center text-[#C2D6D4] hover:text-[#E8F1F0] hover:bg-[#1E2F33] transition-all active:translate-y-[2px] shrink-0" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+<!-- Progress & Bottom Actions Bar -->
+<div class="pt-2 border-t border-[#1E2F33] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex-1 max-w-sm">
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1.5">
+<span class="text-[#C2D6D4] font-bold">Mức độ thông thạo (Mastery)</span>
+<span class="text-[#2DD4BF] font-extrabold">85%</span>
+</div>
+<div class="h-3 w-full bg-[#091518] rounded-full overflow-hidden p-0.5 shadow-inner border border-[#1E2F33]">
+<div class="h-full bg-[#14B8A6] rounded-full relative" style="width: 85%;">
+<div class="absolute inset-x-0 top-0 h-[2px] bg-white/30 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 self-end sm:self-center">
+<span class="font-label-sm text-label-sm text-[#C2D6D4] font-semibold">Đã học 102 / 120 thẻ</span>
+<button class="min-h-[44px] px-5 py-2.5 bg-[#136B66] text-[#E8F1F0] font-label-md text-label-md rounded-DEFAULT shadow-[0_4px_0_0_#093835] hover:brightness-110 active:translate-y-[3px] active:shadow-[0_1px_0_0_#093835] transition-all inline-flex items-center justify-center gap-2 cursor-pointer font-bold">
+<span>Học bộ thẻ</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Deck Card 3 -->
+<div class="bg-[#12252A] border-2 border-[#23383E] rounded-DEFAULT p-5 shadow-[0_4px_0_0_#051013] hover:border-[#2A4047] transition-all flex flex-col gap-4">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-start gap-3.5 min-w-0">
+<div class="w-12 h-12 rounded-DEFAULT bg-[#1E2F33] text-[#F87171] flex items-center justify-center font-bold text-xl border-2 border-[#23383E] shrink-0 shadow-[0_2px_0_0_#051013]">
+<span class="material-symbols-outlined text-2xl" data-icon="warning">warning</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-extrabold truncate">
+  Common Test Pitfalls (False Friends)
+</h3>
+<!-- Warm Amber Tactile Badge -->
+<span class="bg-[#FEF3C7] text-[#1C1003] border border-[#F59E0B] font-label-sm text-label-sm font-extrabold px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 shadow-[0_1px_0_0_#B45309]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#B45309]"></span>
+  10 thẻ cần ôn
+</span>
+</div>
+<span class="font-body-sm text-body-sm text-[#C2D6D4] mt-0.5">
+  64 cặp từ gây nhầm lẫn kinh điển dẫn tới mất điểm oan trong bài thi Đọc &amp; Nghe
+</span>
+</div>
+</div>
+<button aria-label="Tuỳ chọn bộ thẻ Common Test Pitfalls" class="min-w-[44px] min-h-[44px] rounded-DEFAULT flex items-center justify-center text-[#C2D6D4] hover:text-[#E8F1F0] hover:bg-[#1E2F33] transition-all active:translate-y-[2px] shrink-0" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+<!-- Progress & Bottom Actions Bar -->
+<div class="pt-2 border-t border-[#1E2F33] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex-1 max-w-sm">
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1.5">
+<span class="text-[#C2D6D4] font-bold">Mức độ thông thạo (Mastery)</span>
+<span class="text-[#2DD4BF] font-extrabold">42%</span>
+</div>
+<div class="h-3 w-full bg-[#091518] rounded-full overflow-hidden p-0.5 shadow-inner border border-[#1E2F33]">
+<div class="h-full bg-[#14B8A6] rounded-full relative" style="width: 42%;">
+<div class="absolute inset-x-0 top-0 h-[2px] bg-white/30 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 self-end sm:self-center">
+<span class="font-label-sm text-label-sm text-[#C2D6D4] font-semibold">Đã học 27 / 64 thẻ</span>
+<button class="min-h-[44px] px-5 py-2.5 bg-[#136B66] text-[#E8F1F0] font-label-md text-label-md rounded-DEFAULT shadow-[0_4px_0_0_#093835] hover:brightness-110 active:translate-y-[3px] active:shadow-[0_1px_0_0_#093835] transition-all inline-flex items-center justify-center gap-2 cursor-pointer font-bold">
+<span>Học bộ thẻ</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Deck Card 4 (Mastered Deck) -->
+<div class="bg-[#12252A] border-2 border-[#23383E] rounded-DEFAULT p-5 shadow-[0_4px_0_0_#051013] hover:border-[#2A4047] transition-all flex flex-col gap-4">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-start gap-3.5 min-w-0">
+<div class="w-12 h-12 rounded-DEFAULT bg-[#1E2F33] text-[#2DD4BF] flex items-center justify-center font-bold text-xl border-2 border-[#23383E] shrink-0 shadow-[0_2px_0_0_#051013]">
+<span class="material-symbols-outlined text-2xl" data-icon="coffee">coffee</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2 flex-wrap">
+<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-extrabold truncate">
+  Dining &amp; Social Small Talk
+</h3>
+<!-- Mint Teal Completed Badge -->
+<span class="bg-[#0F766E]/50 text-[#5EEAD4] border border-[#2DD4BF]/50 font-label-sm text-label-sm font-bold px-2.5 py-0.5 rounded-full inline-flex items-center gap-1 shadow-[0_1px_0_0_#093835]">
+<span class="material-symbols-outlined text-sm text-[#5EEAD4]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+  Đã hoàn thành ôn tập
+</span>
+</div>
+<span class="font-body-sm text-body-sm text-[#C2D6D4] mt-0.5">
+  85 mẫu câu giao tiếp tự nhiên trong ngữ cảnh gặp gỡ bạn bè và nhà hàng
+</span>
+</div>
+</div>
+<button aria-label="Tuỳ chọn bộ thẻ Dining &amp; Social Small Talk" class="min-w-[44px] min-h-[44px] rounded-DEFAULT flex items-center justify-center text-[#C2D6D4] hover:text-[#E8F1F0] hover:bg-[#1E2F33] transition-all active:translate-y-[2px] shrink-0" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+<!-- Progress & Bottom Actions Bar -->
+<div class="pt-2 border-t border-[#1E2F33] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex-1 max-w-sm">
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1.5">
+<span class="text-[#C2D6D4] font-bold">Mức độ thông thạo (Mastery)</span>
+<span class="text-[#2DD4BF] font-extrabold">96%</span>
+</div>
+<div class="h-3 w-full bg-[#091518] rounded-full overflow-hidden p-0.5 shadow-inner border border-[#1E2F33]">
+<div class="h-full bg-[#14B8A6] rounded-full relative" style="width: 96%;">
+<div class="absolute inset-x-0 top-0 h-[2px] bg-white/30 rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 self-end sm:self-center">
+<span class="font-label-sm text-label-sm text-[#C2D6D4] font-semibold">82 / 85 từ ghi nhớ vĩnh viễn</span>
+<!-- Outline Button "Ôn lại" (>= 44x44px touch area) -->
+<button class="min-h-[44px] px-5 py-2.5 bg-[#1E2F33] border-2 border-[#2A4047] text-[#E8F1F0] font-label-md text-label-md rounded-DEFAULT shadow-[0_4px_0_0_#051013] hover:bg-[#23383E] active:translate-y-[3px] active:shadow-[0_1px_0_0_#051013] transition-all inline-flex items-center justify-center gap-2 cursor-pointer font-bold">
+<span class="material-symbols-outlined text-base text-[#2DD4BF]" data-icon="refresh">refresh</span>
+<span>Ôn lại</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN (Tactile Utilities & Coach Slot - 4 Cols) -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Teacher-slot Placeholder (Coach Ama Tip) -->
+<div class="rounded-DEFAULT border-2 border-dashed border-[#2DD4BF]/50 bg-[#12252A] p-5 flex flex-col gap-3 relative shadow-[0_2px_0_0_#051013]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-[#136B66] text-[#2DD4BF] flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-lg" data-icon="school">school</span>
+</div>
+<span class="font-label-md text-label-md text-[#2DD4BF] font-black uppercase tracking-wider">Coach Ama tip</span>
+</div>
+<span class="font-label-sm text-label-sm text-[#C2D6D4] font-bold px-2 py-0.5 rounded bg-[#1E2F33] border border-[#23383E]">teacher-slot</span>
+</div>
+<p class="font-body-md text-body-md text-[#E8F1F0] italic leading-relaxed">
+  “Học 10–15 thẻ mỗi phiên giúp tối ưu hóa khả năng ghi nhớ dài hạn và chống mỏi nhận thức.”
+</p>
+<div class="flex items-center justify-between pt-1 border-t border-[#1E2F33]">
+<span class="font-label-sm text-label-sm text-[#C2D6D4]">Chiến lược học tập Spaced SM-2</span>
+<a class="min-h-[44px] inline-flex items-center px-2 font-label-sm text-label-sm text-[#2DD4BF] font-bold hover:underline" href="#">Chi tiết →</a>
+</div>
+</div>
+<!-- Import from Anki (.apkg) Card -->
+<div class="bg-[#12252A] border-2 border-[#23383E] rounded-DEFAULT p-5 shadow-[0_4px_0_0_#051013] flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-DEFAULT bg-[#1E2F33] text-[#2DD4BF] flex items-center justify-center shadow-[0_2px_0_0_#051013] border border-[#23383E] shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-extrabold">Nhập từ Anki (.apkg)</h3>
+<span class="font-label-sm text-label-sm text-[#C2D6D4] font-semibold">Tương thích hoàn toàn 100%</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-[#C2D6D4] leading-relaxed">
+  Nhập trực tiếp tệp <code class="font-mono text-xs bg-[#1E2F33] text-[#2DD4BF] px-1.5 py-0.5 rounded border border-[#2A4047]">.apkg</code> hoặc <code class="font-mono text-xs bg-[#1E2F33] text-[#2DD4BF] px-1.5 py-0.5 rounded border border-[#2A4047]">.csv</code> flashcards vào Lexkite với thuật toán lặp lại ngắt quãng SM-2 tự động.
+</p>
+<!-- Drop Zone / Upload Action -->
+<div class="border-2 border-dashed border-[#2A4047] rounded-DEFAULT p-4 flex flex-col items-center justify-center gap-2 bg-[#1E2F33]/50 hover:bg-[#1E2F33] transition-colors cursor-pointer text-center">
+<span class="material-symbols-outlined text-3xl text-[#2DD4BF]" data-icon="file_upload">file_upload</span>
+<span class="font-label-sm text-label-sm text-[#E8F1F0] font-bold">Kéo thả tệp hoặc chọn từ máy tính</span>
+<span class="font-label-sm text-label-sm text-[#C2D6D4]">Hỗ trợ tối đa 50MB</span>
+</div>
+<!-- Import Action Button (min-h-[44px]) -->
+<button class="min-h-[44px] w-full py-2.5 px-5 bg-[#1E2F33] border-2 border-[#2A4047] text-[#E8F1F0] font-label-md text-label-md rounded-DEFAULT shadow-[0_4px_0_0_#051013] hover:bg-[#23383E] active:translate-y-[3px] active:shadow-[0_1px_0_0_#051013] transition-all flex items-center justify-center gap-2 cursor-pointer font-bold">
+<span class="material-symbols-outlined text-lg text-[#2DD4BF]" data-icon="attachment">attachment</span>
+<span>Chọn tệp .apkg</span>
+</button>
+</div>
+<!-- Empty Custom Decks State Area -->
+<div class="border-2 border-dashed border-[#23383E] bg-[#12252A] rounded-DEFAULT p-5 shadow-[0_3px_0_0_#051013] flex flex-col items-center text-center gap-3">
+<div class="w-12 h-12 rounded-full bg-[#1E2F33] flex items-center justify-center text-[#C2D6D4] border border-[#2A4047]">
+<span class="material-symbols-outlined text-2xl" data-icon="folder_off">folder_off</span>
+</div>
+<div class="flex flex-col gap-1">
+<h4 class="font-headline-sm text-headline-sm text-[#E8F1F0] font-bold">
+  Chưa có bộ thẻ rỗng
+</h4>
+<p class="font-body-sm text-body-sm text-[#C2D6D4] max-w-xs">
+  Mỗi bộ thẻ hiện đều có từ vựng sẵn sàng cho việc ghi nhớ và rèn luyện.
+</p>
+</div>
+<!-- Create Empty Deck Button (min-h-[44px]) -->
+<button class="min-h-[44px] mt-1 px-5 py-2.5 border-2 border-[#23383E] bg-[#1E2F33] hover:bg-[#23383E] rounded-DEFAULT text-[#2DD4BF] font-label-md text-label-md shadow-[0_3px_0_0_#051013] active:translate-y-[2px] transition-all flex items-center justify-center gap-1.5 cursor-pointer font-bold">
+<span class="material-symbols-outlined text-base" data-icon="create_new_folder">create_new_folder</span>
+<span>+ Tạo bộ thẻ rỗng</span>
+</button>
+</div>
+<!-- Spaced Repetition Info Micro-Card -->
+<div class="bg-[#12252A] p-4 rounded-DEFAULT flex items-center gap-3 border-2 border-[#23383E] shadow-[0_2px_0_0_#051013]">
+<span class="material-symbols-outlined text-[#F59E0B] text-2xl" data-icon="tips_and_updates">tips_and_updates</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-extrabold text-[#E8F1F0]">Mẹo duy trì Streak</span>
+<span class="font-body-sm text-body-sm text-[#C2D6D4]">Ôn tập trước 22:00 mỗi tối để cố định chuỗi 14 ngày.</span>
+</div>
+</div>
+</div></div>
+</main>
+</div>
+</body></html>

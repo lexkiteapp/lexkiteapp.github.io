@@ -1,0 +1,124 @@
+{
+ "id": "t2a_usuk_check",
+ "template": "usuk",
+ "series": "US or UK?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "U.S. or U.K.?",
+   "pause": 0.42
+  },
+  {
+   "id": "us",
+   "text": "In America, people say check.",
+   "pause": 0.42
+  },
+  {
+   "id": "uk",
+   "text": "In Britain, people say bill. Same thing!",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Can we have the check, please?",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! You're in Liverpool. Which word do people use?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Bill!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "us": "check",
+  "uk": "bill",
+  "ipa_us": "/tʃek/",
+  "ipa_uk": "/bɪl/",
+  "same": "Same thing!",
+  "quiz": {
+   "options": [
+    "check",
+    "bill"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/check",
+  "link": "https://lexkite.com/app/#/dict/check",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "US or UK?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Check or bill? US vs UK English",
+  "keyword": "check vs bill",
+  "value": "Americans say check. British people say bill.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/check",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Check or bill? US vs UK English",
+    "description": "Americans say check. British people say bill.\n\nLook up any word, free: https://lexkite.com/app/#/dict/check\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "check vs bill",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Check or bill? US vs UK English\n\nAmericans say check. British people say bill.\n\nLook up any word, free: https://lexkite.com/app/#/dict/check"
+   },
+   "instagram": {
+    "caption": "Check or bill? US vs UK English\n\nAmericans say check. British people say bill.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Check or bill? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Bill! Americans say check. British people say bill. Practice it with a free quiz: {link}"
+ }
+}

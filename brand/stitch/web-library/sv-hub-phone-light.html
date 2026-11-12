@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite Library - Model Band 8+ IELTS Essays</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800&amp;family=Plus+Jakarta+Sans:wght@500;600;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-highest": "#e8e1db",
+            "outline-variant": "#e3beb6",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#cc8200",
+            "primary-container": "#ff5a36",
+            "secondary": "#3b6566",
+            "on-primary-container": "#5a0c00",
+            "on-primary-fixed": "#3d0600",
+            "surface-container-high": "#eee7e0",
+            "on-secondary": "#ffffff",
+            "tertiary-fixed-dim": "#ffb95f",
+            "surface-container": "#f4ede6",
+            "primary": "#b52603",
+            "on-error": "#ffffff",
+            "on-primary-fixed-variant": "#8c1900",
+            "primary-fixed": "#ffdad2",
+            "inverse-surface": "#33302c",
+            "secondary-fixed-dim": "#a3cfcf",
+            "on-tertiary-container": "#402500",
+            "surface-dim": "#dfd9d2",
+            "on-secondary-fixed-variant": "#224d4e",
+            "error-container": "#ffdad6",
+            "on-secondary-container": "#426b6c",
+            "inverse-primary": "#ffb4a3",
+            "surface-tint": "#b52603",
+            "on-secondary-fixed": "#002020",
+            "on-surface": "#1e1b17",
+            "outline": "#8f7069",
+            "tertiary": "#855300",
+            "on-surface-variant": "#5b403a",
+            "surface": "#fff8f2",
+            "error": "#ba1a1a",
+            "on-background": "#1e1b17",
+            "secondary-fixed": "#beebeb",
+            "surface-variant": "#e8e1db",
+            "surface-container-low": "#f9f2ec",
+            "on-tertiary": "#ffffff",
+            "secondary-container": "#beebeb",
+            "on-tertiary-fixed-variant": "#653e00",
+            "on-tertiary-fixed": "#2a1700",
+            "on-error-container": "#93000a",
+            "inverse-on-surface": "#f6f0e9",
+            "primary-fixed-dim": "#ffb4a3",
+            "surface-bright": "#fff8f2",
+            "tertiary-fixed": "#ffddb8",
+            "on-primary": "#ffffff",
+            "background": "#fff8f2"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1.25rem",
+            "gutter-mobile": "0.75rem",
+            "space-sm": "0.75rem",
+            "space-xl": "3rem",
+            "gutter": "1.25rem",
+            "space-lg": "2rem",
+            "margin-mobile": "1rem",
+            "margin": "2rem",
+            "space-xs": "0.375rem"
+          },
+          "fontFamily": {
+            "display": ["Epilogue"],
+            "label-md": ["Space Grotesk"],
+            "display-mobile": ["Epilogue"],
+            "headline-md": ["Epilogue"],
+            "headline-sm": ["Epilogue"],
+            "headline-lg": ["Epilogue"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Space Grotesk"],
+            "label-sm": ["Space Grotesk"],
+            "headline-lg-mobile": ["Epilogue"]
+          },
+          "fontSize": {
+            "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "display-mobile": ["34px", { "lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "headline-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "label-lg": ["16px", { "lineHeight": "22px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+
+    /* Chunky Tactile Extrusions */
+    .tactile-card {
+      border: 2px solid #0F3D3E;
+      box-shadow: 0 4px 0 #D6C7A8;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-card:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #D6C7A8;
+    }
+
+    .tactile-btn-primary {
+      background-color: #FF5A36;
+      color: #1B0B04;
+      border: 2px solid #0F3D3E;
+      box-shadow: 0 5px 0 #C83B1B;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 #C83B1B;
+    }
+
+    .tactile-btn-secondary {
+      background-color: #FFFFFF;
+      color: #0F3D3E;
+      border: 2px solid #0F3D3E;
+      box-shadow: 0 4px 0 #D6C7A8;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #D6C7A8;
+    }
+
+    /* Glossy badge highlight overlay */
+    .gloss-badge {
+      position: relative;
+      overflow: hidden;
+      border: 2px solid #0F3D3E;
+    }
+    .gloss-badge::after {
+      content: '';
+      position: absolute;
+      top: 1px;
+      left: 2px;
+      right: 2px;
+      height: 44%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.05) 100%);
+      border-radius: 999px 999px 40% 40%;
+      pointer-events: none;
+    }
+
+    /* Floor Stage and Custom Empty Teacher Slot */
+    .hero-floor-perspective {
+      background: radial-gradient(ellipse at 50% 100%, #EBDCC6 0%, #FFF8F2 70%);
+      border-bottom: 2px solid #0F3D3E;
+    }
+
+    .teacher-slot {
+      width: 140px;
+      height: 170px;
+      border-radius: 20px;
+      border: 2.5px dashed #0F3D3E;
+      background-color: #FFF5EB;
+      box-shadow: 0 6px 0 rgba(15, 61, 62, 0.15);
+      position: relative;
+    }
+
+    /* Hide scrollbar for clean filter pill swipe */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased flex justify-center selection:bg-primary selection:text-white">
+<!-- Mobile Viewport Flow (390px Native Single Column) -->
+<div class="w-full max-w-[390px] min-h-screen bg-background flex flex-col relative pb-24 overflow-x-hidden">
+<!-- 1. Lexkite Standard Web Header -->
+<header class="w-full bg-surface-container-lowest sticky top-0 z-40 px-4 h-16 flex items-center justify-between border-b-2 border-secondary shadow-[0_4px_0_theme(colors.surface-container-highest)]">
+<!-- Brand Logo Group -->
+<a class="flex items-center gap-2 group" href="#">
+<div class="w-9 h-9 rounded-xl bg-primary-container border-2 border-[#0F3D3E] shadow-[0_3px_0_#C83B1B] flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">change_history</span>
+</div>
+<span class="font-display text-headline-sm font-extrabold text-[#0F3D3E] tracking-tight">Lexkite</span>
+</a>
+<!-- Compact Nav & Start Free Action -->
+<div class="flex items-center gap-2">
+<nav class="flex items-center gap-2 pr-1">
+<span class="font-label-md text-label-md border-b-2 border-primary text-primary pb-0.5">Library</span>
+</nav>
+<button class="tactile-btn-primary px-3.5 py-1.5 rounded-xl font-label-md text-label-md uppercase tracking-wider flex items-center justify-center min-h-[44px]">
+          Start free
+        </button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col">
+<!-- 2. Spotlight Hero Section -->
+<section class="px-4 pt-6 pb-6 flex flex-col items-center text-center">
+<!-- Live Status Capsule -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border-2 border-[#0F3D3E] mb-3.5 shadow-[0_2px_0_#D6C7A8]">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-[#0F3D3E] uppercase font-bold tracking-wider">IELTS Academic Task 2</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-extrabold text-[#0F3D3E] leading-tight mb-2">
+          80 Band 8+ Essays
+        </h1>
+<p class="font-body-sm text-body-sm text-[#4A5B5C] max-w-[320px] mb-6">
+          Model structures, high-scoring collocations, and examiner breakdowns.
+        </p>
+<!-- Glanceable Tactile Stat Badges (Trio) -->
+<div class="w-full grid grid-cols-3 gap-2 mb-6">
+<div class="bg-surface-container-lowest p-2.5 rounded-2xl border-2 border-[#0F3D3E] shadow-[0_3px_0_#D6C7A8] flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[22px] mb-1" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-display text-[15px] font-extrabold text-[#0F3D3E]">80</span>
+<span class="font-label-sm text-[10px] text-[#4A5B5C]">Essays</span>
+</div>
+<div class="bg-surface-container-lowest p-2.5 rounded-2xl border-2 border-[#0F3D3E] shadow-[0_3px_0_#D6C7A8] flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[22px] mb-1" style="font-variation-settings: 'FILL' 1;">category</span>
+<span class="font-display text-[15px] font-extrabold text-[#0F3D3E]">6 Types</span>
+<span class="font-label-sm text-[10px] text-[#4A5B5C]">Question Grid</span>
+</div>
+<div class="bg-surface-container-lowest p-2.5 rounded-2xl border-2 border-[#0F3D3E] shadow-[0_3px_0_#D6C7A8] flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-[#CC8200] text-[22px] mb-1" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span class="font-display text-[15px] font-extrabold text-[#0F3D3E]">8.0–9.0</span>
+<span class="font-label-sm text-[10px] text-[#4A5B5C]">Official Band</span>
+</div>
+</div>
+<!-- Hero Floor with EXACTLY ONE empty rounded teacher-slot -->
+<div class="w-full hero-floor-perspective pt-4 pb-5 flex flex-col items-center justify-end rounded-3xl border-2 border-[#0F3D3E]">
+<!-- The strictly plain empty teacher slot -->
+<div class="teacher-slot"></div>
+</div>
+</section>
+<!-- 3. Bento Mosaic of 6 Question Types -->
+<section class="px-4 py-4">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-sm bg-primary-container border border-[#0F3D3E]"></span>
+<h2 class="font-headline-sm text-headline-sm font-extrabold text-[#0F3D3E]">Essay Blueprints</h2>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-[#4A5B5C] bg-surface-container px-2 py-0.5 rounded-md border border-[#0F3D3E]">6 Formats</span>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<!-- Tile 1 (Featured: Spans 2 cols) -->
+<div class="col-span-2 tactile-card bg-surface-container-lowest p-3.5 rounded-2xl flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="gloss-badge w-12 h-12 rounded-xl bg-[#FF5A36] flex items-center justify-center text-white shadow-[0_3px_0_#C83B1B]">
+<span class="material-symbols-outlined text-[26px]">balance</span>
+</div>
+<div class="text-left">
+<span class="font-display text-[16px] font-extrabold text-[#0F3D3E] block leading-snug">Agree / Disagree</span>
+<span class="font-body-sm text-[12px] text-[#4A5B5C]">Opinion &amp; Thesis balance</span>
+</div>
+</div>
+<span class="font-label-md text-label-md font-bold px-2.5 py-1 rounded-xl bg-primary-fixed text-[#3D0600] border border-[#0F3D3E]">
+              24
+            </span>
+</div>
+<!-- Tile 2: Discussion -->
+<div class="tactile-card bg-surface-container-lowest p-3 rounded-2xl flex flex-col justify-between cursor-pointer min-h-[128px]">
+<div class="flex justify-between items-start">
+<div class="gloss-badge w-10 h-10 rounded-xl bg-cyan-600 flex items-center justify-center text-white shadow-[0_3px_0_#0e7490]">
+<span class="material-symbols-outlined text-[22px]">forum</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold px-2 py-0.5 rounded-lg bg-surface-container text-[#0F3D3E] border border-[#0F3D3E]">18</span>
+</div>
+<div>
+<span class="font-display text-[14px] font-extrabold text-[#0F3D3E] leading-tight block">Discussion</span>
+<span class="font-label-sm text-[11px] text-[#4A5B5C]">Both Views</span>
+</div>
+</div>
+<!-- Tile 3: Problem & Solution -->
+<div class="tactile-card bg-surface-container-lowest p-3 rounded-2xl flex flex-col justify-between cursor-pointer min-h-[128px]">
+<div class="flex justify-between items-start">
+<div class="gloss-badge w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white shadow-[0_3px_0_#047857]">
+<span class="material-symbols-outlined text-[22px]">troubleshoot</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold px-2 py-0.5 rounded-lg bg-surface-container text-[#0F3D3E] border border-[#0F3D3E]">14</span>
+</div>
+<div>
+<span class="font-display text-[14px] font-extrabold text-[#0F3D3E] leading-tight block">Problem &amp; Sol.</span>
+<span class="font-label-sm text-[11px] text-[#4A5B5C]">Causes &amp; Steps</span>
+</div>
+</div>
+<!-- Tile 4: Advantages vs Disadvantages -->
+<div class="tactile-card bg-surface-container-lowest p-3 rounded-2xl flex flex-col justify-between cursor-pointer min-h-[128px]">
+<div class="flex justify-between items-start">
+<div class="gloss-badge w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-[0_3px_0_#4338ca]">
+<span class="material-symbols-outlined text-[22px]">compare_arrows</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold px-2 py-0.5 rounded-lg bg-surface-container text-[#0F3D3E] border border-[#0F3D3E]">10</span>
+</div>
+<div>
+<span class="font-display text-[14px] font-extrabold text-[#0F3D3E] leading-tight block">Adv vs Disadv</span>
+<span class="font-label-sm text-[11px] text-[#4A5B5C]">Weight Evaluation</span>
+</div>
+</div>
+<!-- Tile 5: Positive / Negative Trend -->
+<div class="tactile-card bg-surface-container-lowest p-3 rounded-2xl flex flex-col justify-between cursor-pointer min-h-[128px]">
+<div class="flex justify-between items-start">
+<div class="gloss-badge w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center text-[#1B0B04] shadow-[0_3px_0_#b45309]">
+<span class="material-symbols-outlined text-[22px]">trending_up</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold px-2 py-0.5 rounded-lg bg-surface-container text-[#0F3D3E] border border-[#0F3D3E]">8</span>
+</div>
+<div>
+<span class="font-display text-[14px] font-extrabold text-[#0F3D3E] leading-tight block">Trends</span>
+<span class="font-label-sm text-[11px] text-[#4A5B5C]">Positive/Negative</span>
+</div>
+</div>
+<!-- Tile 6: Two-Part Question (Spans 2 cols for visual balance) -->
+<div class="col-span-2 tactile-card bg-surface-container-lowest p-3.5 rounded-2xl flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="gloss-badge w-10 h-10 rounded-xl bg-rose-500 flex items-center justify-center text-white shadow-[0_3px_0_#be123c]">
+<span class="material-symbols-outlined text-[22px]">quiz</span>
+</div>
+<div class="text-left">
+<span class="font-display text-[15px] font-extrabold text-[#0F3D3E] block leading-snug">Two-Part Direct Questions</span>
+<span class="font-body-sm text-[12px] text-[#4A5B5C]">Dual question prompt response</span>
+</div>
+</div>
+<span class="font-label-md text-label-md font-bold px-2.5 py-1 rounded-xl bg-surface-container text-[#0F3D3E] border border-[#0F3D3E]">
+              6
+            </span>
+</div>
+</div>
+</section>
+<!-- 4. Slim Tactile Search & Sideways Filter Pills -->
+<section class="px-4 py-3">
+<!-- Search Field with Inset Ledge -->
+<div class="relative w-full mb-3">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-[#4A5B5C] pointer-events-none">search</span>
+<input class="w-full h-12 pl-11 pr-4 rounded-xl bg-white border-2 border-[#0F3D3E] font-body-sm text-body-sm text-[#0F3D3E] placeholder-[#4A5B5C] focus:outline-none focus:ring-0 shadow-[inset_0_3px_0_#E5DECF]" placeholder="Search topic, keyword, or prompt..." type="text"/>
+</div>
+<!-- Horizontally Scrollable Pills with Gradient Fade Indicator -->
+<div class="relative w-full flex items-center">
+<div class="flex gap-2 overflow-x-auto no-scrollbar py-1 pr-8">
+<button class="shrink-0 px-3.5 py-1.5 rounded-full bg-[#0F3D3E] text-white border-2 border-[#0F3D3E] font-label-sm text-label-sm font-bold shadow-[0_3px_0_#002020] min-h-[38px] active:translate-y-0.5">
+              All Topics
+            </button>
+<button class="shrink-0 px-3.5 py-1.5 rounded-full bg-white text-[#0F3D3E] border-2 border-[#0F3D3E] font-label-sm text-label-sm font-bold shadow-[0_3px_0_#D6C7A8] min-h-[38px] active:translate-y-0.5">
+              Education
+            </button>
+<button class="shrink-0 px-3.5 py-1.5 rounded-full bg-white text-[#0F3D3E] border-2 border-[#0F3D3E] font-label-sm text-label-sm font-bold shadow-[0_3px_0_#D6C7A8] min-h-[38px] active:translate-y-0.5">
+              Technology
+            </button>
+<button class="shrink-0 px-3.5 py-1.5 rounded-full bg-white text-[#0F3D3E] border-2 border-[#0F3D3E] font-label-sm text-label-sm font-bold shadow-[0_3px_0_#D6C7A8] min-h-[38px] active:translate-y-0.5">
+              Environment
+            </button>
+<button class="shrink-0 px-3.5 py-1.5 rounded-full bg-white text-[#0F3D3E] border-2 border-[#0F3D3E] font-label-sm text-label-sm font-bold shadow-[0_3px_0_#D6C7A8] min-h-[38px] active:translate-y-0.5">
+              Work &amp; Society
+            </button>
+<button class="shrink-0 px-3.5 py-1.5 rounded-full bg-white text-[#0F3D3E] border-2 border-[#0F3D3E] font-label-sm text-label-sm font-bold shadow-[0_3px_0_#D6C7A8] min-h-[38px] active:translate-y-0.5">
+              Health
+            </button>
+</div>
+<!-- Overflow Indicator / Chevron Hint -->
+<div class="absolute right-0 top-0 bottom-0 w-8 pointer-events-none bg-gradient-to-l from-background to-transparent flex items-center justify-end">
+<div class="w-6 h-6 rounded-full bg-white border border-[#0F3D3E] shadow-sm flex items-center justify-center text-[#0F3D3E]">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Glanceable Essay Cards -->
+<section class="px-4 py-4 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm font-extrabold text-[#0F3D3E]">Featured Band 8+ Essays</h2>
+<span class="font-label-sm text-label-sm text-[#4A5B5C]">Showing 80 models</span>
+</div>
+<!-- Big Featured Essay Card 1 -->
+<article class="tactile-card bg-surface-container-lowest p-4 rounded-2xl flex flex-col gap-3">
+<!-- Card Header & Badge -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="gloss-badge w-12 h-12 rounded-2xl bg-cyan-500 flex items-center justify-center text-white shadow-[0_4px_0_#0891b2]">
+<span class="material-symbols-outlined text-[26px]">school</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-cyan-800 bg-cyan-100 px-2 py-0.5 rounded-md border border-[#0F3D3E]">Education</span>
+<span class="font-body-sm text-[11px] text-[#4A5B5C] block mt-0.5">Agree / Disagree Task</span>
+</div>
+</div>
+<!-- Band score badge -->
+<div class="px-2.5 py-1 rounded-xl bg-amber-400 border-2 border-[#0F3D3E] shadow-[0_2px_0_#b45309] flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-[#1B0B04]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-display text-[13px] font-extrabold text-[#1B0B04]">Band 8.5</span>
+</div>
+</div>
+<!-- Headline & Prompt -->
+<div>
+<h3 class="font-display text-[20px] font-extrabold text-[#0F3D3E] leading-snug">
+              Free University Tuition
+            </h3>
+<p class="font-body-sm text-body-sm text-[#4A5B5C] mt-1 leading-relaxed">
+              "Should higher education be funded entirely by governments?"
+            </p>
+</div>
+<!-- Micro Metas -->
+<div class="pt-2 border-t border-surface-container-highest flex items-center justify-between">
+<div class="flex items-center gap-3 font-label-sm text-[12px] text-[#4A5B5C]">
+<span class="flex items-center gap-1 font-semibold"><span class="material-symbols-outlined text-[16px] text-[#0F3D3E]">description</span> 312 words</span>
+<span>•</span>
+<span class="flex items-center gap-1 font-semibold"><span class="material-symbols-outlined text-[16px] text-[#0F3D3E]">auto_awesome</span> 8 Collocations</span>
+<span>•</span>
+<span class="flex items-center gap-1 font-semibold"><span class="material-symbols-outlined text-[16px] text-[#0F3D3E]">schedule</span> 4 min read</span>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high border-2 border-[#0F3D3E] flex items-center justify-center text-[#0F3D3E] active:translate-y-0.5">
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Secondary Card 2: Environment -->
+<article class="tactile-card bg-surface-container-lowest p-4 rounded-2xl flex flex-col gap-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="gloss-badge w-11 h-11 rounded-2xl bg-emerald-600 flex items-center justify-center text-white shadow-[0_4px_0_#047857]">
+<span class="material-symbols-outlined text-[24px]">eco</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md border border-[#0F3D3E]">Environment</span>
+<span class="font-body-sm text-[11px] text-[#4A5B5C] block mt-0.5">Problem &amp; Solution</span>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-xl bg-amber-400 border-2 border-[#0F3D3E] shadow-[0_2px_0_#b45309] flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-[#1B0B04]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-display text-[13px] font-extrabold text-[#1B0B04]">Band 8.0</span>
+</div>
+</div>
+<div>
+<h3 class="font-display text-[18px] font-extrabold text-[#0F3D3E] leading-snug">
+              Plastic Bag Bans
+            </h3>
+<p class="font-body-sm text-body-sm text-[#4A5B5C] mt-1 leading-relaxed">
+              "Do economic penalties effectively curb consumer plastic use?"
+            </p>
+</div>
+<div class="pt-2 border-t border-surface-container-highest flex items-center justify-between font-label-sm text-[12px] text-[#4A5B5C]">
+<div class="flex items-center gap-2 font-semibold">
+<span>285 words</span>
+<span>•</span>
+<span>7 Collocations</span>
+<span>•</span>
+<span>3 min read</span>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high border-2 border-[#0F3D3E] flex items-center justify-center text-[#0F3D3E] active:translate-y-0.5">
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Secondary Card 3: AI in Classrooms -->
+<article class="tactile-card bg-surface-container-lowest p-4 rounded-2xl flex flex-col gap-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="gloss-badge w-11 h-11 rounded-2xl bg-indigo-600 flex items-center justify-center text-white shadow-[0_4px_0_#4338ca]">
+<span class="material-symbols-outlined text-[24px]">psychology</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-indigo-800 bg-indigo-100 px-2 py-0.5 rounded-md border border-[#0F3D3E]">Technology</span>
+<span class="font-body-sm text-[11px] text-[#4A5B5C] block mt-0.5">Discussion Both Views</span>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-xl bg-amber-400 border-2 border-[#0F3D3E] shadow-[0_2px_0_#b45309] flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-[#1B0B04]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-display text-[13px] font-extrabold text-[#1B0B04]">Band 9.0</span>
+</div>
+</div>
+<div>
+<h3 class="font-display text-[18px] font-extrabold text-[#0F3D3E] leading-snug">
+              AI in Classrooms
+            </h3>
+<p class="font-body-sm text-body-sm text-[#4A5B5C] mt-1 leading-relaxed">
+              "Will automated teaching tools replace human teachers in schools?"
+            </p>
+</div>
+<div class="pt-2 border-t border-surface-container-highest flex items-center justify-between font-label-sm text-[12px] text-[#4A5B5C]">
+<div class="flex items-center gap-2 font-semibold">
+<span>320 words</span>
+<span>•</span>
+<span>11 Collocations</span>
+<span>•</span>
+<span>4 min read</span>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high border-2 border-[#0F3D3E] flex items-center justify-center text-[#0F3D3E] active:translate-y-0.5">
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Secondary Card 4: Remote Work Culture -->
+<article class="tactile-card bg-surface-container-lowest p-4 rounded-2xl flex flex-col gap-3">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="gloss-badge w-11 h-11 rounded-2xl bg-amber-500 flex items-center justify-center text-[#1B0B04] shadow-[0_4px_0_#b45309]">
+<span class="material-symbols-outlined text-[24px]">corporate_fare</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-amber-900 bg-amber-100 px-2 py-0.5 rounded-md border border-[#0F3D3E]">Work &amp; Society</span>
+<span class="font-body-sm text-[11px] text-[#4A5B5C] block mt-0.5">Adv vs Disadvantages</span>
+</div>
+</div>
+<div class="px-2.5 py-1 rounded-xl bg-amber-400 border-2 border-[#0F3D3E] shadow-[0_2px_0_#b45309] flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-[#1B0B04]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-display text-[13px] font-extrabold text-[#1B0B04]">Band 8.5</span>
+</div>
+</div>
+<div>
+<h3 class="font-display text-[18px] font-extrabold text-[#0F3D3E] leading-snug">
+              Remote Work Culture
+            </h3>
+<p class="font-body-sm text-body-sm text-[#4A5B5C] mt-1 leading-relaxed">
+              "Are remote workplaces more beneficial for modern urban families?"
+            </p>
+</div>
+<div class="pt-2 border-t border-surface-container-highest flex items-center justify-between font-label-sm text-[12px] text-[#4A5B5C]">
+<div class="flex items-center gap-2 font-semibold">
+<span>298 words</span>
+<span>•</span>
+<span>9 Collocations</span>
+<span>•</span>
+<span>4 min read</span>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high border-2 border-[#0F3D3E] flex items-center justify-center text-[#0F3D3E] active:translate-y-0.5">
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Load More Tactile Trigger -->
+<button class="tactile-btn-secondary w-full py-3 rounded-2xl font-label-md text-label-md uppercase tracking-wider flex items-center justify-center gap-2 mt-2 min-h-[48px]">
+<span>Load 12 More Essays</span>
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</button>
+</section>
+<!-- 6. Friendly Lexkite Web Footer -->
+<footer class="w-full bg-surface-container border-t-2 border-secondary px-5 py-8 mt-6 flex flex-col gap-6 text-center items-center">
+<!-- Logo Stamp -->
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-xl bg-primary-container border-2 border-[#0F3D3E] flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">change_history</span>
+</div>
+<span class="font-display text-headline-sm font-extrabold text-[#0F3D3E]">Lexkite IELTS Lab</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#4A5B5C] max-w-[280px]">
+          Tactile pedagogical learning system for IELTS and TOEIC test-takers worldwide.
+        </p>
+<!-- Links Navigation -->
+<div class="flex flex-wrap justify-center gap-x-4 gap-y-2 font-label-md text-label-md text-[#4A5B5C]">
+<a class="hover:text-primary transition-colors" href="#">Task 2 Index</a>
+<span>•</span>
+<a class="hover:text-primary transition-colors" href="#">Evaluation Criteria</a>
+<span>•</span>
+<a class="hover:text-primary transition-colors" href="#">Band Descriptors</a>
+<span>•</span>
+<a class="hover:text-primary transition-colors" href="#">Privacy</a>
+<span>•</span>
+<a class="hover:text-primary transition-colors" href="#">Terms</a>
+</div>
+<!-- Mini Footer CTA -->
+<div class="w-full pt-2">
+<button class="tactile-btn-primary w-full py-3 rounded-xl font-label-md text-label-md uppercase tracking-wider min-h-[48px]">
+            Explore Band Descriptors
+          </button>
+</div>
+<span class="font-label-sm text-[11px] text-[#4A5B5C] pt-2">
+          © 2025 Lexkite. Pedagogical IELTS Writing Lab.
+        </span>
+</footer>
+</main>
+<!-- Shared Component: BottomNavBar (Fixed Mobile Destination Dock) -->
+<!-- Screen represents top-level Library destination -> BottomNav is strictly mapped -->
+<nav class="fixed bottom-0 left-0 w-full z-50 md:hidden bg-surface-container-lowest border-t-2 border-secondary shadow-[0_-4px_0_theme(colors.surface-container-highest)] flex justify-around items-center px-3 py-2">
+<!-- Item 1: Library (Active) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-3 py-1 font-bold active:translate-y-0.5 transition-all duration-75 min-h-[44px]" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-label-sm text-label-sm">Library</span>
+</a>
+<!-- Item 2: Topics (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary px-3 py-1 active:translate-y-0.5 transition-all duration-75 min-h-[44px]" href="#">
+<span class="material-symbols-outlined text-[20px]">category</span>
+<span class="font-label-sm text-label-sm">Topics</span>
+</a>
+<!-- Item 3: Band 9 (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary px-3 py-1 active:translate-y-0.5 transition-all duration-75 min-h-[44px]" href="#">
+<span class="material-symbols-outlined text-[20px]">military_tech</span>
+<span class="font-label-sm text-label-sm">Band 9</span>
+</a>
+<!-- Item 4: Saved (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary px-3 py-1 active:translate-y-0.5 transition-all duration-75 min-h-[44px]" href="#">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+<span class="font-label-sm text-label-sm">Saved</span>
+</a>
+</nav>
+</div>
+</body></html>

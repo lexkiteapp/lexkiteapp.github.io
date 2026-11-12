@@ -1,0 +1,75 @@
+{
+ "id": "news_supermarket_fix_155f6a",
+ "scene": "news",
+ "template": "fix",
+ "area": "grammar",
+ "cefr": "A1",
+ "point": "questions with does: how much does it cost",
+ "series": "SHOPPING ENGLISH / Asking prices",
+ "bg": "supermarket",
+ "title": "Stop saying \"How much it cost?\"",
+ "description": "Questions with does: how much does it cost. Save this: How much does it cost? / How much do these cost? / How much is it?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_supermarket_fix_155f6a#/grammar",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_supermarket_fix_155f6a/cine-news-supermarket-fix-155f6a-en.mp4",
+ "cover": "shorts/news/news_supermarket_fix_155f6a/cine-news-supermarket-fix-155f6a-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "Stop saying \"How much it cost?\"",
+   "caption": "Questions with does: how much does it cost. Save this: How much does it cost? / How much do these cost? / How much is it?\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_supermarket_fix_155f6a#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_supermarket_fix_155f6a#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "Questions with does: how much does it cost. Save this: How much does it cost? / How much do these cost? / How much is it?\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_supermarket_fix_155f6a#/grammar\n#learnenglish #englishtips #commonmistakes #englishgrammar #americanenglish #esl"
+  },
+  "reels": {
+   "title": "Stop saying \"How much it cost?\"",
+   "caption": "Questions with does: how much does it cost. Save this: How much does it cost? / How much do these cost? / How much is it?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_supermarket_fix_155f6a#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_supermarket_fix_155f6a#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Questions with does: how much does it cost. Save this: How much does it cost? / How much do these cost? / How much is it?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_supermarket_fix_155f6a#/grammar\n#learnenglish #englishtips #commonmistakes #englishgrammar #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Stop saying \"How much it cost?\" #shorts",
+   "caption": "Questions with does: how much does it cost. Save this: How much does it cost? / How much do these cost? / How much is it?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_supermarket_fix_155f6a#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_supermarket_fix_155f6a#/grammar",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#commonmistakes",
+    "#englishgrammar"
+   ],
+   "caption_with_tags": "Questions with does: how much does it cost. Save this: How much does it cost? / How much do these cost? / How much is it?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_supermarket_fix_155f6a#/grammar\n#shorts #learnenglish #englishtips #commonmistakes #englishgrammar"
+  }
+ },
+ "slot": {
+  "date": "2026-11-01",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

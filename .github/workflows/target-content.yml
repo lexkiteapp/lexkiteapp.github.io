@@ -1,0 +1,138 @@
+# Sinh bộ từ lõi ngôn ngữ đích theo lô (pt-BR ~300 · es-419 3.000 lemma A1–B2, lô 300) – chạy tay; docs/specs/target-language.md, spanish-course.md W1.
+# AI qua ai-pool chung (khóa miễn phí): soạn → LanguageTool 0 lỗi (bảng có lt) → 2 giám khảo khác họ → dịch ngược → cổng validate
+# → IPA espeak-ng của bảng (tl_ipa_fill.py) → Wiktionary lemma/giống/số nhiều (wikt-check.mjs) → kiểm cả bộ (build.mjs --check) → mẫu soát ≥ 5 %.
+# Kết quả: tệp lô mới core-NN.json + .report.json (status pending-review) → artifact bot-output-target-<tl> (không bot commit vào nhánh PR –
+# scripts/test/no-pr-branch-push.mjs); lấy về: bash scripts/ci/bot-output.sh target-<tl> <nhánh> <run-id>, tự commit rồi chạy lượt sau. Bảng riêng từng ngôn ngữ: scripts/target/tl-gen.mjs.
+name: target-content
+run-name: "target-content ${{ github.event.inputs.tl || 'PR' }} ${{ github.event.inputs.dry == '1' && '(khô)' || '' }}"
+on:
+  workflow_dispatch:
+    inputs:
+      tl: { description: 'Ngôn ngữ đích (khóa trong scripts/target/tl-gen.mjs)', default: 'es' }
+      n: { description: 'Số mục mới (1 lô)', default: '300' }
+      dry: { description: '1 = chỉ dựng danh sách ứng viên (không gọi AI)', default: '1' }
+      shards: { description: 'Số job song song (1–12; mỗi shard ≤ n mục)', default: '1' }
+  pull_request:
+    paths: ['scripts/target/**', 'content/target/**', 'scripts/content-qa/grammar-map-check.mjs', 'scripts/ci/lt-up.sh', 'scripts/word-audio/tl-voices.json', '.github/workflows/target-content.yml']
+permissions: { contents: read, id-token: write }   # chỉ đọc repo (lô ra artifact); id-token: JWT OIDC cho /api/lexai
+# Lượt tay nối tiếp lô trước → xếp hàng, KHÔNG huỷ lượt đang sinh (mất hạn mức ai-pool); PR thì huỷ lượt cũ.
+concurrency:
+  group: 'target-content-${{ github.ref }}'
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+env:
+  CF_POOL_HOLD: ${{ vars.CF_POOL_HOLD }}
+jobs:
+  check:
+    # PR: khô cho mọi tl + tự kiểm IPA espeak (seed khớp cả dấu nhấn) + Wiktionary trên seed (100 %) + chia động từ ↔ Wiktionary + kho ngữ pháp es
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy: { fail-fast: false, matrix: { tl: [pt, es] } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: node scripts/target/build.mjs ${{ matrix.tl }} --check
+      - run: node scripts/target/gen.mjs --tl ${{ matrix.tl }} --n 300 --dry
+      - name: IPA espeak-ng tự kiểm trên seed (es)
+        if: ${{ matrix.tl == 'es' }}
+        run: pip install -q "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4" && TL=es python3 scripts/target/tl_ipa_fill.py --self
+      - name: Wiktionary trên seed (es)
+        if: ${{ matrix.tl == 'es' }}
+        run: node scripts/target/wikt-check.mjs --tl es --self
+      - name: Chia động từ ↔ Wiktionary (es, khớp 100 %)
+        if: ${{ matrix.tl == 'es' }}
+        run: node scripts/target/conj-check.mjs
+      - name: LanguageTool tự chạy (es) – câu ví dụ kho ngữ pháp
+        if: ${{ matrix.tl == 'es' }}
+        run: bash scripts/ci/lt-up.sh es
+      - name: Kho điểm ngữ pháp (es) + LanguageTool 0 lỗi
+        if: ${{ matrix.tl == 'es' }}
+        run: node scripts/content-qa/grammar-map-check.mjs --tl es
+      - name: Gói luyện tập es (W2b) – khớp nguồn, giải thích đủ 15 ngôn ngữ, LanguageTool 0 lỗi trên câu điền từ
+        if: ${{ matrix.tl == 'es' }}
+        run: node scripts/target/drill-pack.mjs --check --lt
+      - name: Đề luyện định dạng DELE/SIELE (W5) – nguồn Tatoeba có ghi công, spec không đoán số, LanguageTool 0 lỗi trên consigna
+        if: ${{ matrix.tl == 'es' }}
+        run: node scripts/target/exam-es-check.mjs --lt
+  plan:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs: { ks: '${{ steps.p.outputs.ks }}' }
+    steps:
+      - id: p
+        run: echo "ks=$(node -e "const n=Math.min(12,Math.max(1,+process.argv[1]||1));console.log(JSON.stringify([...Array(n).keys()]))" "${{ github.event.inputs.shards }}")" >> "$GITHUB_OUTPUT"
+  gen:
+    # shard song song (≤ 12 runner – chừa ≥ 16 trống); mỗi shard chạy ĐỦ cổng rồi gửi tệp lô qua artifact cho job merge
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy: { fail-fast: false, matrix: { k: '${{ fromJSON(needs.plan.outputs.ks) }}' } }
+    env: { TL: '${{ github.event.inputs.tl }}', SHARDS: '${{ github.event.inputs.shards }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - name: Kiểm seed + bản sao app + các lô trước
+        run: node scripts/target/build.mjs "$TL" --check
+      - name: LanguageTool tự chạy (bảng có lt) – cổng §5.1
+        if: ${{ github.event.inputs.dry != '1' }}
+        run: |
+          LT=$(node -e "import('./scripts/target/tl-gen.mjs').then(m=>console.log(m.TL_GEN[process.env.TL].lt||''))")
+          bash scripts/ci/lt-up.sh "$LT"
+      - name: Ứng viên (khô) hoặc sinh + LanguageTool + 2 giám khảo + dịch ngược + cổng
+        env:
+          CF_POOL: ${{ secrets.CF_POOL }}
+          GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
+          GROQ_POOL: ${{ secrets.GROQ_POOL }}
+          CF_ACCOUNT_1: ${{ secrets.CF_ACCOUNT_ID }}
+          VIMG_POOL_SKIP: '0'
+        run: node scripts/target/gen.mjs --tl "$TL" --n ${{ github.event.inputs.n || 300 }} --shard "${{ matrix.k }}/$SHARDS" ${{ github.event.inputs.dry == '1' && '--dry' || '' }}
+      - name: IPA espeak-ng theo bảng (ghi đè IPA người soạn, lệch → qa.ipaAi)
+        if: ${{ github.event.inputs.dry != '1' }}
+        run: |
+          [ "$(jq -r --arg t "$TL" '.[$t].espeak // ""' scripts/word-audio/tl-voices.json)" = "" ] && exit 0
+          pip install -q "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4" && python3 scripts/target/tl_ipa_fill.py "$(ls content/target/$TL/core-[0-9]*.json | grep -v report | tail -1)"
+      - name: Wiktionary lemma / giống / số nhiều
+        if: ${{ github.event.inputs.dry != '1' }}
+        run: node scripts/target/wikt-check.mjs --tl "$TL"
+      - if: ${{ github.event.inputs.dry != '1' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: target-${{ github.event.inputs.tl }}-shard-${{ matrix.k }}
+          path: content/target/${{ github.event.inputs.tl }}/core-*.json
+          retention-days: 30
+  merge:
+    needs: [plan, gen]
+    if: ${{ !cancelled() && needs.plan.result == 'success' && github.event.inputs.dry != '1' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env: { TL: '${{ github.event.inputs.tl }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'target-${{ github.event.inputs.tl }}-shard-*', path: /tmp/shards }
+      - name: Gộp shard (chỉ tệp lô MỚI của từng shard) + bỏ trùng lemma giữa shard
+        run: |
+          before=$(ls content/target/$TL/ | wc -l)
+          for d in /tmp/shards/*/; do for f in "$d"core-*.json; do [ -e "content/target/$TL/$(basename "$f")" ] || cp "$f" "content/target/$TL/"; done; done
+          [ "$(ls content/target/$TL/ | wc -l)" -gt "$before" ] || { echo '✗ không shard nào ra lô mới'; exit 1; }
+          node scripts/target/dedupe.mjs --tl "$TL"
+      - name: Kiểm cả bộ sau lô
+        if: ${{ github.event.inputs.dry != '1' }}
+        run: node scripts/target/build.mjs "$TL" --check
+      # Không đẩy vào nhánh PR (no-pr-branch-push: đầu PR là commit bot → required-gate treo) → artifact bot-output-target-<tl>;
+      # người làm PR / vòng nạp lấy về: bash scripts/ci/bot-output.sh target-<tl> <nhánh> <run-id> rồi tự commit (lượt sau nối tiếp).
+      - name: Lô mới → artifact bot-output (không commit vào nhánh)
+        id: bo
+        uses: ./.github/actions/bot-output
+        with: { name: 'target-${{ github.event.inputs.tl }}', paths: 'content/target/${{ github.event.inputs.tl }}', retention-days: '30' }
+      - if: ${{ steps.bo.outputs.changed != '1' }}
+        run: echo '✗ không có lô mới' && exit 1

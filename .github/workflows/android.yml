@@ -9,11 +9,12 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: android
+  group: android-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   apk:
     runs-on: ubuntu-latest
+    timeout-minutes: 120   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -26,7 +27,7 @@ jobs:
       # Máy chủ ubuntu-latest đã cài sẵn Android SDK (ANDROID_HOME) → không cần bước cài riêng
       - name: Build web → mobile/www → cap sync
         run: |
-          npm ci --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
           ./scripts/build-mobile.sh
       - name: Gradle assembleDebug
         working-directory: mobile/android
@@ -38,10 +39,123 @@ jobs:
         with:
           name: lexkite-android
           path: lexkite.apk
+      # Chỉ nhánh main mới thay bản APK công khai (chạy tay trên nhánh khác = chỉ build kiểm tra + artifact)
       - name: Publish "android-latest" release
+        if: github.ref == 'refs/heads/main'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release delete android-latest --yes --cleanup-tag || true
           gh release create android-latest lexkite.apk --prerelease --title "Lexkite Android (bản mới nhất)" \
             --notes "Bản build tự động từ commit ${GITHUB_SHA::7}. Tải lexkite.apk về điện thoại Android → mở file → cho phép cài từ nguồn này → Cài đặt. (Bản thử nghiệm, chưa lên Google Play.)"
+
+      # Bản KIỂM THỬ riêng (không phát hành): chèn đầu dò mặt tiền video (scripts/test/native-facade.js) → máy giả lập đọc "E2E-VF" trong logcat
+      - name: APK kiểm thử (đầu dò mặt tiền video)
+        working-directory: mobile/android
+        run: |
+          PUB=app/src/main/assets/public; cp ../../scripts/test/native-facade.js $PUB/e2e-facade.js
+          perl -0pi -e 's#</body>#<script src="/e2e-facade.js"></script></body>#i' $PUB/index.html && grep -q e2e-facade $PUB/index.html
+          ./gradlew --no-daemon assembleDebug && cp app/build/outputs/apk/debug/app-debug.apk ../../lexkite-e2e.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lexkite-android-e2e
+          path: lexkite-e2e.apk
+          retention-days: 7
+  # Bản phát hành Google Play (.aab, ký bằng upload key). Chỉ chạy khi đã có đủ 4 GitHub Secrets (docs/STORE-READINESS.md § Ký Android):
+  # ANDROID_KEYSTORE_BASE64 (file .jks mã hoá base64), ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_ALIAS, ANDROID_KEY_PASSWORD.
+  # versionCode = 1000 + số lần chạy workflow (luôn tăng), versionName = "version" trong mobile/package.json.
+  # Kết quả: artifact "lexkite-play-aab" → tải về, tải lên Play Console (Kiểm thử nội bộ/kín). Không tự đăng lên Play.
+  aab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
+    env:
+      HAS_KEY: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
+    steps:
+      - name: Chưa có khóa ký → bỏ qua
+        if: env.HAS_KEY != 'true'
+        run: echo "::notice::Chưa có secret ANDROID_KEYSTORE_BASE64 – bỏ qua bản .aab (xem docs/STORE-READINESS.md)"
+      - uses: actions/checkout@v4
+        if: env.HAS_KEY == 'true'
+      - uses: actions/setup-node@v4
+        if: env.HAS_KEY == 'true'
+        with:
+          node-version: 22
+      - uses: actions/setup-java@v4
+        if: env.HAS_KEY == 'true'
+        with:
+          distribution: temurin
+          java-version: 21
+      - name: Build web → mobile/www → cap sync
+        if: env.HAS_KEY == 'true'
+        run: |
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
+          ./scripts/build-mobile.sh
+      - name: Gradle bundleRelease (ký upload key)
+        if: env.HAS_KEY == 'true'
+        working-directory: mobile/android
+        env:
+          KS_B64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          LEXKITE_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          LEXKITE_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          LEXKITE_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          export LEXKITE_KEYSTORE_FILE="$RUNNER_TEMP/upload.jks"
+          printf '%s' "$KS_B64" | base64 -d > "$LEXKITE_KEYSTORE_FILE"
+          export LEXKITE_VERSION_CODE=$((1000 + GITHUB_RUN_NUMBER))
+          export LEXKITE_VERSION_NAME=$(node -p "require('../package.json').version")
+          echo "versionCode=$LEXKITE_VERSION_CODE versionName=$LEXKITE_VERSION_NAME"
+          # Vân tay upload key (công khai, không phải bí mật) → đăng ký SHA-1/SHA-256 trong Firebase cho Google Sign-In
+          keytool -list -v -keystore "$LEXKITE_KEYSTORE_FILE" -storepass "$LEXKITE_KEYSTORE_PASSWORD" 2>/dev/null | grep -E '^\s*SHA(1|256):' | sed 's/^ */upload key /' | tee -a "$GITHUB_STEP_SUMMARY" || true
+          chmod +x gradlew
+          ./gradlew --no-daemon bundleRelease
+          rm -f "$LEXKITE_KEYSTORE_FILE"
+          cp app/build/outputs/bundle/release/app-release.aab "../../lexkite-$LEXKITE_VERSION_NAME-$LEXKITE_VERSION_CODE.aab"
+      - uses: actions/upload-artifact@v4
+        if: env.HAS_KEY == 'true'
+        with:
+          name: lexkite-play-aab
+          path: lexkite-*.aab
+          retention-days: 30
+
+  # Chụp màn hình demo trên Android giả lập (KVM của máy chủ GitHub) – xem nhanh mỗi bản build
+  screens:
+    needs: apk
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: lexkite-android-e2e
+      - name: Bật KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
+      - uses: reactivecircus/android-emulator-runner@v2
+        continue-on-error: true
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          profile: pixel_7
+          disable-animations: true
+          script: |
+            adb install -r lexkite-e2e.apk && mkdir -p shots
+            adb logcat -c; adb shell monkey -p com.lexkite.app -c android.intent.category.LAUNCHER 1; sleep 45; adb exec-out screencap -p > shots/android-1-start.png
+            adb logcat -d -s chromium:V Capacitor:V Capacitor/Console:V AndroidRuntime:E '*:F' > shots/logcat.txt || true
+            sleep 20; adb logcat -d | grep -o 'E2E-VF .*' | tail -1 > shots/facade-android.txt || true; cat shots/facade-android.txt; grep -q '"ok":true' shots/facade-android.txt && echo "::notice::mặt tiền video Android OK" || echo "::error::mặt tiền video Android lỗi – xem shots/facade-android.txt"
+            adb shell cmd uimode night yes && sleep 4 && adb exec-out screencap -p > shots/android-2-dark.png
+            # Widget màn hình chính: dựng đúng RemoteViews (WidgetPreviewActivity, chỉ bản debug; mỗi dòng chạy riêng nên không dùng biến), tối/sáng × vi/ar (RTL)
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang vi && sleep 3 && adb exec-out screencap -p > shots/android-widget-vi-dark.png
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang ar && sleep 3 && adb exec-out screencap -p > shots/android-widget-ar-dark.png
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es kind word --es lang vi && sleep 3 && adb exec-out screencap -p > shots/android-word-vi-dark.png
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es kind word --es lang ar && sleep 3 && adb exec-out screencap -p > shots/android-word-ar-dark.png
+            adb shell cmd uimode night no && sleep 2
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang vi && sleep 3 && adb exec-out screencap -p > shots/android-widget-vi-light.png
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es lang ar && sleep 3 && adb exec-out screencap -p > shots/android-widget-ar-light.png
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es kind word --es lang vi && sleep 3 && adb exec-out screencap -p > shots/android-word-vi-light.png
+            adb shell am start -W -n com.lexkite.app/com.vocaband.app.WidgetPreviewActivity --es kind word --es lang vi --ez quiz true && sleep 3 && adb exec-out screencap -p > shots/android-word-quiz-light.png
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lexkite-android-screenshots
+          path: shots/

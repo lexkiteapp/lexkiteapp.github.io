@@ -1,0 +1,156 @@
+# docs/ – INDEX (mục lục chuẩn, một dòng mỗi tài liệu)
+
+> TL;DR: Mỗi tài liệu trong `docs/` (kể cả `archive/` và thư mục con) có đúng một dòng ở đây: nó là gì và khi nào đọc. `docs/README.md` giữ thứ tự đọc đầu phiên; file này là danh mục đầy đủ.
+> Test `scripts/test/docs-budget.mjs` (chạy trong `npm test`) FAIL nếu tài liệu thiếu ở đây hoặc vượt ngân sách dung lượng. Thêm doc mới = thêm 1 dòng vào đây.
+
+## Tài liệu hiện hành (docs/)
+- [ADMIN-SECURITY.md](ADMIN-SECURITY.md) — Các lớp bảo vệ trang /admin: adminGate ở API (Origin, rate-limit, Firebase token + email_verified + ADMIN_EMAILS), cổng whoami ở trình duyệt; đọc khi: sửa trang/API quản trị hoặc bật Cloudflare Access
+- [ADS.md](ADS.md) — Thiết kế quảng cáo một lần, mọi cờ TẮT: AdMob (app), AdSense (web), add-on Chrome không bao giờ; chỉ đặt ở điểm nghỉ của bài học; đọc khi: đụng tới quảng cáo, đồng ý, hoặc bật nền tảng quảng cáo mới
+- [API-KEYS.md](API-KEYS.md) — Bộ quản lý khóa API (Gemini, Groq, OpenRouter, Anthropic, OpenAI, Resend, Brevo, Cloudflare) trong một kho mã hóa, tự xoay vòng và báo sức khỏe; đọc khi: thêm/xoay khóa hoặc sửa _keys.js
+- [ACCOUNTS-LEDGER.md](ACCOUNTS-LEDGER.md) — Sổ tài khoản & khóa trong Admin: dịch vụ/khóa thuộc email nào, giữ ở đâu (chỉ tên), hạn + nhắc 14 ngày, có/thiếu secret. Đọc khi thêm secret hoặc gia hạn token.
+- [ASSET-LIBRARY.md](ASSET-LIBRARY.md) — Kho tài nguyên hình ảnh mô-đun (nhân vật, biểu cảm, phòng, đạo cụ…) để ghép tổ hợp vô hạn cho video, Call Mia, roleplay, bài học; đọc khi: sản xuất hoặc ghép tài nguyên ảnh/nhân vật
+- [OWNER-DECISIONS.md](OWNER-DECISIONS.md) — Sổ tra nhanh quyết định quan trọng của chủ (pháp nhân LLC Wyoming, bản quyền/nhãn hiệu free-first, nội dung private, mục tiêu điểm nội dung, chi phí/CI) kèm link doc gốc; đọc khi: cần biết chủ đã chốt gì
+- [AUDIT-2026-10.md](AUDIT-2026-10.md) — Audit 17/10/2026 về SEO, pháp lý, khung trang, bảo mật (Critical/High/Medium/Low) cùng các sửa đã làm và đề xuất còn mở; đọc khi: tra lại vì sao một lỗi/chính sách được sửa
+- [AUTOMATION.md](AUTOMATION.md) — Quy trình tự động A→Z cho video học + phân phối trên GitHub Actions và Cloudflare ($0), mỗi bước có cổng QC; người chỉ duyệt ở 2 điểm; đọc khi: sửa đường ống tự động video/phân phối
+- [BACKLOG.md](BACKLOG.md) — Việc tồn đọng theo thứ tự ưu tiên: đang làm, chờ anh chủ; việc xong chuyển xuống mục đã xong; đọc khi: chọn việc mới cần làm
+- [BLOG-RUNBOOK.md](BLOG-RUNBOOK.md) — Sổ tay vận hành blog & SEO: repo/dịch vụ, 15 ngôn ngữ và cụm bài, lịch đăng thông minh, workflow tự động, 6 bước viết bài; đọc khi: viết/lên lịch/sửa bài blog hoặc ảnh blog
+- [BRAND-RULES.md](BRAND-RULES.md) — Nguồn thương hiệu duy nhất cho Lexkite: bảng màu (Kit chỉ từ web/js/kit.js, teal), thứ đã bỏ (xanh cũ #2F62C0), đổi tên thương hiệu, watermark video; đọc khi: đụng logo, màu, tên, watermark
+- [CHARACTERS.md](CHARACTERS.md) — 1 bộ nhân vật duy nhất: 2 giáo viên 2D Ama/Carlos cho app, add-on, social, video; registry web/teach/characters.json + cổng; đọc khi: đụng bất cứ chỗ nào hiện giáo viên
+- [samples-visual](specs/samples-visual.md) — thư viện công khai lướt bằng mắt (huy hiệu, bento, thẻ, cổng SEO); đọc khi sửa /samples/ và các tab cùng họ
+- [SYNC-NOTES.md](SYNC-NOTES.md) — ghi chú giải thích web/js/sync.js; đọc khi: sửa đồng bộ tài khoản
+- [specs/learnability.md](specs/learnability.md) — Spec P0-H Dễ học – dễ nhớ: 12 tiêu chí sư phạm → luật máy đo tầng 0, trọng số, điểm sàn; đọc khi: sửa bộ chấm learnability.mjs hoặc nội dung bài để tăng điểm
+- [specs/home-upgrade.md](specs/home-upgrade.md) — Spec nâng cấp Home 3/11: so 5 app lớn, lát L1–L5 (cô giáo vòng nghỉ mắt mở, Home v2, lưới màn học, thử thách, lộ trình nhiều chặng), cổng CI; đọc khi: sửa Home/#/home hoặc giáo viên trên Home
+- [specs/daily-reels.md](specs/daily-reels.md) — Spec reels hằng ngày tự động 12/11: 6 định dạng, chọn chủ đề → dựng → QC → lịch → số liệu; đọc khi: thêm template reels, đổi lịch đăng hằng ngày
+- [specs/upgrade-2026-11.md](specs/upgrade-2026-11.md) — Spec nâng cấp toàn diện 11/2026: 12 hạng mục chủ gửi 04/11 (top bar, linh vật, nhập tài liệu, Tab mới, đầu vào, shadowing, sổ lỗi, lượt AI, 1v1, kho cộng đồng) so main, 3 đợt; đọc khi: làm bất kỳ hạng mục nào trong đó
+- [specs/import-to-deck.md](specs/import-to-deck.md) — Spec nhập PDF/ePub/link/phụ đề thành bộ thẻ FSRS riêng (đợt 3 upgrade-2026-11); đọc khi sửa anki.js, watch.js, api/ai.js hoặc bộ thẻ riêng
+- [specs/cambridge.md](specs/cambridge.md) — Định dạng đề Cambridge A2–C2 (web/cpack/cambridge/<cấp>/t<N>.js), màn #/cambridge, cổng exam-format-check + cambridge.mjs; đọc khi: viết/soát lô S-CAM hoặc sửa màn Cambridge
+- [specs/content-upgrade-2.md](specs/content-upgrade-2.md) — Nâng cấp nội dung Đợt 2 (05/11): 3 làn gộp/mở khoá/viết, cổng QC, thứ tự O2→O5→O3→O4→O6; đọc khi: mở phiên content-lead hoặc Sonnet viết lô
+- [specs/teach-assets-cdn.md](specs/teach-assets-cdn.md) — Spec kho riêng ảnh/clip giáo viên teach.lexkite.com (Pages tĩnh, băm sha256, CORS, dự phòng /teach/); đọc khi: đổi nơi tải ảnh/clip giáo viên
+- [specs/merge-queue.md](specs/merge-queue.md) — Merge queue + chống xung đột PR, việc chủ bấm ở ruleset; đọc khi: PR kẹt hàng, sửa pr-unconflict
+- [specs/native-apps.md](specs/native-apps.md) — Spec app iOS (SwiftUI) + Android (Compose) native thay bản Capacitor: 29 mục parity (native/shared/parity.json), một nguồn sinh tokens/chuỗi 15 ngôn ngữ/khung/luật chấm điểm (scripts/native/gen.mjs), MVVM + SwiftData/Room, CI native-ios/native-android, lộ trình M0–M6; đọc khi: sửa native/, thêm route web, thay app trên store
+- [specs/native-m2-vectors.md](specs/native-m2-vectors.md) — Lược đồ vector M2 (bài học, rig giáo viên, âm thanh) + ảnh giáo viên đóng gói cho bản port Swift/Kotlin; đọc khi: port/sửa trình học bài, giáo viên, âm thanh native
+- [specs/native-m3-vectors.md](specs/native-m3-vectors.md) — Lược đồ vector M3 `vocab.json` (P04/P05) và kiểm kê màn từ vựng
+- [specs/native-m4-vectors.md](specs/native-m4-vectors.md) — Vector M4 `skills.json` (P06 nghe & đọc), kiểm kê màn; đọc khi: port nghe/đọc native
+- [specs/native-m4-write.md](specs/native-m4-write.md) — P09 viết native (`write.json`); đọc khi: port #/write #/task1 #/criteria
+- [specs/admin-audit.md](specs/admin-audit.md) — Kiểm toán Quản trị 05/11 (R1–R12, hub, kiểm kê tab); đọc khi: sửa /admin.html
+- [specs/admin-ia-v2.md](specs/admin-ia-v2.md) — Admin IA v2: menu 7 nhóm, quy tắc một chỗ, 3 đợt; đọc khi: sửa menu/banner admin
+- [specs/video-learn.md](specs/video-learn.md) — Spec "Học qua video": #/watch (chủ đề CEFR × mục tiêu, dán link, tìm), trình phát YouTube chính thức (A-B, tốc độ, ghi chú, lưu từ), /api/watch, add-on youtube.com; điều khoản YouTube đã kiểm; đọc khi: sửa watch*.js, functions/api/watch.js, phần YouTube của add-on
+- [welcome](specs/welcome.md) — màn chào + thiết lập lần đầu: ai thấy gì, đi đâu; đọc khi sửa welcome.js, onboard.js, gen-hero
+- [specs/kokoro-on-device.md](specs/kokoro-on-device.md) — Kokoro chạy trên máy (kokoro-js, Web Worker) cho chữ chưa có file dựng sẵn: cấp máy, tải lười, R2, cờ kl/kl_pct, lùi giọng máy; đọc khi: sửa web/js/klocal*.js, bật/tắt từ xa
+- [specs/community.md](specs/community.md) — Spec Cộng đồng người học 3/11: phòng học, chat, phòng nói WebRTC, mời bạn/bạn học, học chung, an toàn + tuổi, $0 (DO/D1/TURN), 7 đợt sau cờ `community`; đọc khi: làm bất kỳ phần nào của #/community
+- [specs/play-learn.md](specs/play-learn.md) — Spec vừa chơi vừa học 3/11: benchmark 6 app, lớp phản hồi (âm −16 LUFS, rung, reduced-motion), Thử thách 60 giây trên SRS thật + thách đấu bạn, mốc M1–M3, gate CI; đọc khi: thêm mini-game/âm thanh/hiệu ứng phản hồi
+- [specs/outcomes-3-6m.md](specs/outcomes-3-6m.md) — Đầu ra 3–6 tháng: vòng ngày nói + viết, lộ trình 12/24 tuần, lỗi → SRS, bài đo 4 tuần/lần #/outcome (mốc 1); đọc khi: làm lộ trình/nhiệm vụ nói-viết/đo tiến bộ/phần thưởng
+- [CAPACITY.md](CAPACITY.md) — Chi phí Cloudflare theo người dùng (đo bằng Miniflare, không dội production), kiến trúc mở rộng; đọc khi: lập kế hoạch tải/chi phí hoặc thêm endpoint đọc/ghi D1
+- [CODEMAP.md](CODEMAP.md) — Bản đồ mã nguồn tự sinh (khu vực, god node, route, workflow, test, sửa-ở-đâu; json đầy đủ docs/codemap.json); đọc khi: ĐẦU MỖI PHIÊN, trước khi tìm code
+- [CI-RUNNERS.md](CI-RUNNERS.md) — Ngân sách 40 runner GitHub Pro (repo giữ công khai): việc nền ≤ ~20 (max-parallel), concurrency PR hủy lượt cũ, prod-release 1 lượt chờ, lượt ma queued; đọc khi: thêm workflow ma trận/nền hoặc check PR phải xếp hàng
+- [CI-SIGNING-IOS.md](CI-SIGNING-IOS.md) — Ký iOS trên CI bằng chứng chỉ Distribution cố định (secret p12 + hồ sơ), tạo/gia hạn, dọn chứng chỉ CI cũ; đọc khi: TestFlight đỏ vì ký/chứng chỉ, hoặc gia hạn hằng năm
+- [QUALITY-PIPELINE.md](QUALITY-PIPELINE.md) — Phương pháp "làm 1 lần ăn ngay" cho pipeline sinh nội dung (ảnh, kho từ): thước đo trước, nhánh riêng, pilot mẫu khó cố định, đạt mới hàng loạt, tự dừng khi tụt, mỗi lỗi một test; đọc khi: bắt đầu/đổi prompt, mô hình, giám khảo, nguồn
+- [SYNC-DRIVE.md](SYNC-DRIVE.md) — Đồng bộ local-first qua Google Drive appDataFolder của chính người học: so sánh hạn mức, thiết kế, di chuyển từ D1, việc chủ duyệt; đọc khi: sửa đồng bộ/đăng nhập/xóa tài khoản.
+- [specs/account-flow.md](specs/account-flow.md) — Spec luồng tài khoản: hiện trạng, 8 lỗi kèm cách tái hiện, thiết kế đích, 5 mốc + việc của chủ; đọc khi: sửa đăng ký/đăng nhập/gộp/đồng bộ.
+- [FREE-TIER.md](FREE-TIER.md) — Free-tier guard hằng ngày: số dùng thật so với trần gói miễn phí (Workers, D1, R2, Pages build, repo), chế độ shed của Worker; đọc khi: thêm Worker/trang tự sinh/việc nền hoặc có issue free-tier
+- [CLASSROOM.md](CLASSROOM.md) — Chế độ lớp học (giáo viên/học sinh): tạo lớp, giao bài qua Google Classroom, dữ liệu tối thiểu, chi phí D1 và giới hạn; đọc khi: sửa tính năng lớp học
+- [CONFIDENCE.md](CONFIDENCE.md) — Lộ trình Giao tiếp tự tin (#/confidence) A1→B2: bài 5-8 phút, bộ công cụ tự tin, thử thách 2 phút/ngày, điểm tự tin; đọc khi: sửa/nối tính năng tự tin hoặc video liên quan
+- [CONTENT-AUDIT-2026-10-25.md](CONTENT-AUDIT-2026-10-25.md) — Kiểm định nội dung học 25/10: mẫu ngẫu nhiên, lớp lỗi toàn kho 9.588 dòng, sửa tại nguồn, cổng mới và hàng sinh lại; đọc khi: tra lịch sử sửa lỗi nội dung
+- [CONTENT-PIPELINE.md](CONTENT-PIPELINE.md) — Quy trình sản xuất lô nội dung học: hàng đợi tự động, brief ≤15 dòng, viết, cổng tự động xanh, nghiệm thu; đọc khi: giao/viết một lô nội dung
+- [CONTENT-PROTECTION.md](CONTENT-PROTECTION.md) — Bảo vệ nội dung chống cào: luật Cloudflare WAF, "được lập chỉ mục trước", sổ băm, OpenTimestamps, giám sát bản sao; đọc khi: xử lý sao chép/DMCA hoặc sửa WAF
+- [CONTENT-QA.md](CONTENT-QA.md) — Cổng QA nội dung bắt buộc cho mọi nguồn: sổ nguồn, bảy lớp kiểm, baseline chỉ được giảm, luồng cho nội dung sinh tự động; đọc khi: thêm/sinh nội dung học hàng loạt
+- [CONTENT-FACTORY.md](CONTENT-FACTORY.md) — Xưởng nội dung lô đêm dùng chung (luật → ai-pool → 2 giám khảo → soát mẫu → 1 PR bot); đọc khi: thêm loại nội dung sinh hàng loạt hoặc xem lô đêm
+- [STORIES.md](STORIES.md) — Truyện/sách phỏng theo A1–C1 + podcast: kiểm kê dùng lại, dữ liệu, luật bản quyền PD, cổng chất lượng, mốc M1–M3; đọc khi: thêm truyện hoặc làm trình đọc
+- [CONTENT-ROADMAP.md](CONTENT-ROADMAP.md) — Lộ trình nội dung (audit 24/10): điểm từng mảng, lỗi chặn, cách sửa, thứ tự làm và ai làm; đọc khi: chọn mảng nội dung cần nâng
+- [CONTENT-WORLD-PLAN.md](CONTENT-WORLD-PLAN.md) — Chuẩn đích top 1 (CEFR/EVP/EGP/GSE/đặc tả đề) + kế hoạch P0/P1/P2 và 7 PR P0; đọc khi: mở PR nội dung mới hoặc nâng chỉ tiêu
+- [CURRICULUM-PLAN.md](CURRICULUM-PLAN.md) — Khung chương trình A1→C2 (kỹ năng × chủ đề × chức năng), kho kịch bản chung `sc:`, thiết kế lại Call, chống nhàm/nhớ lâu, mốc "nói như bản xứ", PR giai đoạn 1; đọc khi: thêm cuộc gọi/roleplay/tình huống nói/sổ mẫu câu hoặc chọn việc nội dung tiếp
+- [CONTENT-RULES.md](CONTENT-RULES.md) — Quy tắc nội dung học (từ vựng, bài tập, đề thi): nguồn & bản quyền, chuẩn từng loại, đa ngôn ngữ, dung lượng/tốc độ, cổng kiểm; đọc khi: thêm hoặc sửa bất kỳ nội dung học
+- [COORDINATION.md](COORDINATION.md) — Phối hợp Claude ⇄ Antigravity: quy tắc vàng, phân vùng file, việc mở, phân vùng đang giữ; đọc khi: sửa ngoài vùng của mình hoặc gộp nhánh
+- [CREDIT-RULES.md](CREDIT-RULES.md) — Luật bắt buộc khi tiêu credit (Kling/dịch vụ trả phí): làm hết phần 0 credit trước, phân tích, dry-run, thử 1 cái, hỏng 2 lần thì dừng; đọc khi: TRƯỚC mọi việc tốn credit
+- [CREDITS.md](CREDITS.md) — Bảng nguồn dữ liệu và giấy phép (từ điển, mô hình/thư viện tách nền video); đọc khi: thêm dữ liệu/mô hình/giọng mới
+- [CWS-FEATURED.md](CWS-FEATURED.md) — Checklist huy hiệu Featured trên Chrome Web Store: kỹ thuật & tuân thủ, listing & trải nghiệm, cách gửi xét, cách giữ huy hiệu; đọc khi: chuẩn bị listing add-on
+- [CWS-RULES.md](CWS-RULES.md) — Quy tắc Chrome Web Store và quy trình phát hành add-on: không mã từ xa, giới hạn cửa hàng, phát hành tự động, thiết lập workflow, kiểm thử; đọc khi: sửa extension/ hoặc phát hành add-on
+- [DESIGN-SYSTEM.md](DESIGN-SYSTEM.md) — Hệ thiết kế web app + add-on: một họ icon Lucide, token, chuyển động, vi hiệu ứng, thành phần, kiểm tra trước khi ship UI. Chất lượng chỉ đi lên; đọc khi: mọi thay đổi giao diện
+- [STITCH-WEB.md](STITCH-WEB.md) — Thiết kế lại mọi trang web + add-on theo Stitch: 16 loại trang → file sinh trang → màn Stitch, luật port, thứ tự PR; đọc khi: đổi giao diện trang tĩnh/blog/công cụ/add-on
+- [WEB-PAGES](WEB-PAGES.md) — kiểm kê mọi trang không phải app + admin: trạng thái Stitch Kit, screen, PR chủ, cổng web-sweep; đọc khi đổi giao diện trang tĩnh/blog/SEO/pháp lý/admin
+- [STITCH-V2-PORT](STITCH-V2-PORT.md) — port màn Stitch v2 vào app bằng bộ chuyển tự động; đọc khi port/sửa màn v2
+- [STITCH-COVERAGE](STITCH-COVERAGE.md) — bảng màn đã/chưa port Stitch + lô kế tiếp (sinh từ stitch-coverage.json); đọc khi chọn lô port hoặc thêm màn/route mới
+- [GAME-FEEL.md](GAME-FEEL.md) — Lớp game feel: gói âm CC0, rung, chuyển động phản hồi (XP, thanh, combo), nhân vật phản ứng, cờ ?feel=1; đọc khi: sửa âm/hiệu ứng phản hồi
+- [DISTRIBUTION.md](DISTRIBUTION.md) — Kênh & phân phối (nhúng + social): vai trò kênh, định tuyến, hợp đồng cho tác tử social (GrabCast), hệ thống web/app; đọc khi: sửa phân phối/social
+- [EDGE-SUBMIT.md](EDGE-SUBMIT.md) — Gói hồ sơ đăng Lexkite lên Microsoft Edge Add-ons: dùng chung zip Chrome, các bước trên Partner Center, lưu ý chính sách; đọc khi: đăng/cập nhật add-on trên Edge
+- [EXPLAIN.md](EXPLAIN.md) — Lược đồ lời giải đáp án: một thẻ dùng chung explain-card.js, dữ liệu web/js/explain/<bộ>/<lang>.json, mặc định hiện Cấu trúc + Vì sao; đọc khi: sửa phản hồi bài luyện
+- [GRABCAST-API-REQUESTS.md](GRABCAST-API-REQUESTS.md) — Danh sách endpoint GrabCast cần mở cho khóa API workspace để Lexkite quản lý 100% (connect, insights, comments, inbox…); đọc khi: làm việc với GrabCast API
+- [HANDOFF.md](HANDOFF.md) — Bàn giao ngắn: việc nền đang chạy (ảnh từ vựng hàng loạt qua kho CF, kho từ 20k), số liệu mới nhất, việc tiếp theo, việc chờ chủ; đọc khi: đầu phiên, trước khi nhận việc ảnh từ vựng / kho từ
+- [I18N-PIPELINE.md](I18N-PIPELINE.md) — Quy trình 15 ngôn ngữ giao diện: nguồn chuẩn duy nhất, quy tắc thêm chữ mới, kiểm tra tự động, mở thêm ngôn ngữ, SEO/blog theo ngôn ngữ; đọc khi: MỌI việc thêm chữ giao diện
+- [AI-LOCAL.md](AI-LOCAL.md) — AI có sẵn trong trình duyệt (Prompt/Translator/Detector/Proofreader…): trạng thái API, quy tắc tải, fallback máy chủ; đọc khi: thêm/sửa tính năng AI
+- [INFRA-RULES.md](INFRA-RULES.md) — Quy tắc tài nguyên hệ thống: mọi dịch vụ/Worker/lưu trữ phải đăng ký ở infra/resources.json; hiện trạng lưu trữ, ngưỡng nâng cấp, mail; đọc khi: thêm dịch vụ/host/Worker/lưu trữ mới
+- [INDEX.md](INDEX.md) — mục lục chuẩn này; đọc khi: tìm tài liệu hoặc thêm doc mới (phải thêm 1 dòng ở đây)
+- [JOBS.md](JOBS.md) — Sổ việc nền & điều phối, SINH TỰ ĐỘNG từ infra/jobs.json (không sửa tay): luật, tài nguyên, lịch UTC, đồ thị kho từ; đọc khi: thêm cron/CI nền
+- [LESSON-ENGINE.md](LESSON-ENGINE.md) — Bài học trộn bài tập nhỏ #/lesson (nghe chọn từ, xếp câu, nói theo, ảnh→nói, dịch ô chữ): cá nhân hóa từ FSRS + add-on, lỗi cũ, COMBO, Giải thích 0 AI, Ama/Carlos sprite, cờ lesson_mix; đọc khi: sửa/mở rộng màn bài học
+- [LESSON-UX-V2.md](LESSON-UX-V2.md) — Bài học v2 kiểu Duolingo: gốc lỗi, ma trận dạng bài (đề → ô trả lời → gợi ý → chấm), luật nội dung CI, bản dịch câu 15 ngôn ngữ; đọc khi: sửa đề/gợi ý/dạng bài
+- [SAY-NATIVE.md](SAY-NATIVE.md) — Say it like a native: thẻ 2 mặt #/say (Stitch v2 say-front/back, Ama/Carlos 2D, nghĩa 15 ngôn ngữ trên CI, chia sẻ 1:1/4:5) + video react
+- [CALL.md](CALL.md) — Cuộc gọi Ama/Carlos #/call (kịch bản IELTS/TOEIC rẽ nhánh, nhận dạng trên máy, tổng kết sửa lỗi, luyện lại câu yếu) + nhịp câu/shadowing phát âm; đọc khi: sửa call*.js, pron/coach.js, pron/rhythm.js
+- [LEARNING-PATH.md](LEARNING-PATH.md) — Lộ trình bản đồ chặng (cờ ux1): tâm lý người học → luật (SDT, flow, FSRS, i+1, chống nản), chặng theo mục tiêu thi + trình độ, nút kiểm tra kỹ năng thi; đọc khi: sửa thứ tự chặng/nút bản đồ hoặc 5 tab ux1
+- [LEXICON.md](LEXICON.md) — Kho từ vựng một nguồn sự thật: quy tắc chuẩn hóa build-lexicon, CEFR, nghĩa 13 ngôn ngữ, giọng đọc, hiển thị, ảnh minh họa; đọc khi: sửa từ vựng/nghĩa/ảnh từ
+- [MEDIA-QA-RUBRIC.md](MEDIA-QA-RUBRIC.md) — Thang chấm 100 cho tài nguyên nhân vật & video: ảnh nhân vật, bối cảnh, video, Call Mia, vòng lặp sau đăng; chỉ dùng khi ≥ 90; đọc khi: chấm lô ảnh/video
+- [PERF-SCROLL.md](PERF-SCROLL.md) — Hiệu năng web: cuộn mượt (luật khung màn, content-visibility, cổng scroll-perf) + tải trang 6 route (LCP/TBT/CLS/INP/byte trên lexkite.com, danh sách việc theo lợi ích).
+- [OTA.md](OTA.md) — Cập nhật OTA cho app Android/iOS: bản web ký ECDSA phát qua GitHub Release, /api/ota, kiểm chữ ký/minNative/rollback, nhắc cập nhật native; đọc khi: sửa web/js/ota.js, scripts/ota, hoặc prod-release job ota
+- [METHODS.md](METHODS.md) — Luật lõi: điều phối, repo/remote/ship, ngân sách, việc nặng = CI, i18n, nội dung, video, lỗi đã mắc, tài khoản & hạ tầng; đọc khi: ĐẦU MỖI PHIÊN
+- [BACKLINKS.md](BACKLINKS.md) — Kế hoạch backlink miễn phí mới: 20 nơi đăng (kho dữ liệu, học liệu mở, chợ học liệu, kỹ thuật bản địa) chữ điền sẵn; đọc khi: làm backlink/PR
+- [PR-PLATFORMS.md](PR-PLATFORMS.md) — Nền tảng PR & backlink miễn phí: tiến độ đăng, thay đổi 2026, danh sách xếp hạng 32 mục, cảnh báo, lộ trình 4 tuần; đọc khi: làm PR/backlink
+- [QA-BOT.md](QA-BOT.md) — bot QA trên CI: hành trình học sandbox + đầu dò giao diện ẩn 390/768/1440 sáng/tối + hiệu năng + dung lượng, trước/sau trên PR, live sau deploy; đọc khi: sửa giao diện app, bot đỏ
+- [QUALITY-SWEEP.md](QUALITY-SWEEP.md) — quality-sweep: quét lỗi tiềm ẩn hằng đêm (22:40 UTC, 0 token LLM) và journey-e2e; mở 1 issue + 1 dòng bản tin; đọc khi: sửa/đọc kết quả quét đêm
+- [QUOTAS.md](QUOTAS.md) — Hạn mức & chống lạm dụng: rà endpoint, danh tính/bậc, hạn mức mặc định, cầu dao nhà cung cấp (≤80% gói miễn phí), phản hồi 429; đọc khi: thêm endpoint tốn tài nguyên
+- [TEACHER-IN-APP.md](TEACHER-IN-APP.md) — Giáo viên 3D Ama/Carlos trong app: Call with Ama/Carlos local-first, khớp môi viseme (pilot A 3D vs B sprite), free-tier 1M DAU, ngân sách tải; đọc khi: làm call/pron/clip giáo viên
+- [README.md](README.md) — Mục lục đọc-trước của docs/: thứ tự đầu phiên và mô tả nhóm tài liệu; đọc khi: đầu phiên
+- [RETENTION.md](RETENTION.md) — Lớp giữ thói quen: lịch tuần, mốc chuỗi, rã băng, sự kiện mùa, rương mỹ phẩm, widget giáo viên (cờ ret); đọc khi: sửa streak/thưởng
+- [REMINDERS.md](REMINDERS.md) — Nhắc học thông minh: một nguồn lập lịch, máy chủ push.js (D1 nội bộ), hỏi quyền không dark pattern, cờ, FCM, test; đọc khi: sửa nhắc học/push
+- [specs/tutor-daily.md](specs/tutor-daily.md) — Gia sư 1-1 hằng ngày Ama/Carlos: buổi 5–15 phút, lời gia sư, nhắc giọng gia sư, báo cáo tuần, $0 ở 1M DAU; đọc khi: sửa Buổi học hôm nay/thẻ gia sư
+- [specs/landing.md](specs/landing.md) — Spec landing lexkite.com (?home=1): so 5 app lớn, section, CTA, Stitch + port, tiêu chí xong; đọc khi: sửa build-landing.mjs, vẽ lại landing.
+- [specs/seo-words-depth.md](specs/seo-words-depth.md) — Spec độ dày trang từ /<lang>/words/: khối nội dung từ dữ liệu thật 15 ngôn ngữ, cổng DEPTH_MIN (noindex dưới ngưỡng), ảnh trước/sau, hộp blog → /words/ 13 ngôn ngữ (lib seo-words/blog-words); đọc khi: sửa build-seo-pages.mjs, seo-words.mjs, word-depth.mjs, blog-words.mjs
+- [specs/words-off-pages.md](specs/words-off-pages.md) — Spec chuyển trang từ 13 ngôn ngữ sang R2 + Pages Function (giữ URL) để nâng 650 → 1.000 trong ngân sách file; đọc khi: làm SEO-ARCH § Ngân sách file
+- [specs/notifications.md](specs/notifications.md) — Chuẩn mọi thông báo (push, nhắc học, toast, banner, báo lỗi): hỏi quyền sau giá trị, tắt dễ, ≤1/ngày, giọng không dọa, toast một-cái có nút sửa, 15 ngôn ngữ; bảng chỗ lệch; đọc khi: thêm/sửa thông báo/toast
+- [specs/exit-button.md](specs/exit-button.md) — Lối thoát mọi màn học: nút X/Quay lại ở top-bar, Esc, back hệ thống, vuốt iOS, hỏi nhẹ khi đang dở (module web/js/exit-guard.js); đọc khi: thêm màn học/route mới, sửa top-bar màn học, exit-sweep đỏ
+- [Khung học chung Next/Back + xếp câu, điền từ](specs/learn-flow-nav.md) — hiện trạng điều hướng ~30 màn học, Enter/thanh FOCUS, ChoiceKit tiles/accept, cổng nav-sweep; đọc khi thêm/sửa màn học hoặc nav-sweep đỏ
+- [specs/target-language.md](specs/target-language.md) — Ngôn ngữ đích (học tiếng Bồ Đào Nha pt-BR, thử): Target/tl khác ngôn ngữ nghĩa, khóa thẻ `pt:`, giọng theo bảng, Kokoro + espeak pt-br, bộ 30 từ mẫu, cờ pt_pilot; đọc khi: đụng thẻ/SRS, giọng, nội dung ngôn ngữ đích
+- [content-lots.md](content-lots.md) — Lô nội dung cho phiên Sonnet (lộ trình SCORE ≥ 95): file riêng, mẫu chuẩn, cổng, token, điểm/công; đọc khi mở/soát một lô nội dung
+- [specs/sense-v2.md](specs/sense-v2.md) — Mô hình nghĩa từ v2 (P0.2): nhiều nghĩa/từ#loại, CEFR theo nghĩa, ví dụ theo độ dài cấp, collocation, pattern, register, họ từ; cổng sense-check; đọc khi sửa/sinh content/lexicon/senses.json
+- [specs/mediation.md](specs/mediation.md) — Trung gian (O3): định dạng content/mediation/m<NN>.json gắn Can-do M.*, nguồn theo cấp, ý cần/ý bỏ, bài mẫu; cổng mediation-check; đọc khi viết/soát lô S-MED hoặc làm màn luyện trung gian
+- [specs/spanish-course.md](specs/spanish-course.md) — Khóa tiếng Tây Ban Nha (tl `es`) cho 14 ngôn ngữ: mở rộng Target, nguồn miễn phí + giấy phép, 8 đợt W0–W7, ước tính token/CI, 6 cổng QC, điểm chủ quyết.
+- [specs/spanish-exam-w5.md](specs/spanish-exam-w5.md) — W5 luyện định dạng DELE/SIELE (spec + trạng thái đợt 1); đọc khi làm thi thử TBN
+- [specs/report-scale.md](specs/report-scale.md) — Báo lỗi quy mô triệu người: cụm lỗi (chữ ký ngữ cảnh + embedding), trần AI riêng, Turnstile/hạn mức/chế độ bão/low-signal, repro Playwright + resolve/mở lại sau live; đọc khi: sửa gom trùng, AI phân loại, chống spam, workflow repro báo lỗi
+- [REPORTS.md](REPORTS.md) — Báo lỗi người dùng (Report a problem): mã LX-xxxx, link #/report/<mã>, AI phân loại nền, ưu tiên và Claude Code xử lý; đọc khi: sửa luồng báo lỗi
+- [ROLLBACK.md](ROLLBACK.md) — Sao lưu & khôi phục nhanh: mục 0 làm đúng thứ tự khi có sự cố; rollback Pages, git, D1 Time Travel, app/add-on, kho âm thanh; đọc khi: CÓ SỰ CỐ hoặc cần khôi phục
+- [SCALING-PLAN.md](SCALING-PLAN.md) — Kế hoạch mở rộng Cloudflare Workers > 100k người học/ngày: giới hạn gói miễn phí, chốt phòng thủ, lộ trình nâng cấp, bước bật gói Paid; đọc khi: cân nhắc nâng gói
+- [SEO-ARCH.md](SEO-ARCH.md) — Biến nội dung công khai của app thành trang tĩnh index được: kiểm kê, mô hình trang tĩnh, sitemap/hreflang/IndexNow, cổng, nhân rộng; đọc khi: sửa SEO twin/trang tĩnh
+- [SEO-DICT-PAGES.md](SEO-DICT-PAGES.md) — Trang từ điển tự sinh /vi/tu-dien/, /en/dictionary/: URL bản địa, nội dung độc nhất, schema/hreflang/sitemap shard, ngưỡng index + mở dần; đọc khi: sửa trang từ điển, mở index, làm script GSC
+- [SEO-AUTHORITY.md](SEO-AUTHORITY.md) — Uy tín/E-E-A-T: trang Giới thiệu, đội biên tập, quy trình kiểm chứng, sửa lỗi; đọc khi: sửa các trang này hoặc tác giả blog/sameAs
+- [SEO-TOOLS.md](SEO-TOOLS.md) — Công cụ miễn phí 15 ngôn ngữ: bài kiểm tra trình độ CEFR thích ứng, trang cấp độ A1–C2, quiz TOEIC Part 5; URL, ngân hàng câu, engine, SEO; đọc khi: sửa công cụ/chuỗi/câu hỏi
+- [SEO-GROWTH-PLAN.md](SEO-GROWTH-PLAN.md) — Kế hoạch tăng trưởng SEO 15 quốc gia 6 tháng (17/10/2026→04/2027): mục tiêu, nhịp đăng, nội dung theo nước, trang công cụ, đo lường; đọc khi: lên kế hoạch nội dung SEO
+- [SEO-PLAN.md](SEO-PLAN.md) — SEO kỹ thuật và blog tự đăng: kiến trúc, rà soát & sửa, blog engine, lịch đăng, quy trình viết 7 bước, đặc tả định dạng bài; đọc khi: sửa SEO kỹ thuật/blog engine
+- [SHORTS-ACCESS.md](SHORTS-ACCESS.md) — Thư viện video quản trị phát từ Kho Drive riêng (repo riêng tư lexkite-shorts), không cần token GitHub; luồng và dữ liệu; đọc khi: sửa thư viện video
+- [STORAGE.md](STORAGE.md) — Dung lượng repo chính và kho media (24/10): số đo trước→sau, âm thanh ở kho media, không viết lại lịch sử git, cổng size-guard; đọc khi: thêm file lớn/media
+- [STORE-READINESS.md](STORE-READINESS.md) — Sẵn sàng lên Google Play & App Store (com.lexkite.app): trạng thái hiện tại, checklist Play, App Store, chung, và khi bật AdMob; đọc khi: nộp/cập nhật app lên store
+- [TECH-RADAR.md](TECH-RADAR.md) — Tech radar: chuẩn chọn công nghệ (miễn phí, tiên tiến, chạy ở máy người dùng/biên); danh sách áp dụng, theo dõi, không dùng và lý do; đọc khi: thêm thư viện/dịch vụ
+- [TOKEN-RULES.md](TOKEN-RULES.md) — Luật tiết kiệm token: đọc ít, giao việc cho agent ngắn, không chờ/poll, gộp kiểm thử, nội dung hàng loạt, báo cáo ngắn; đọc khi: ĐẦU MỖI PHIÊN và khi giao việc
+- [COMPETITOR-UPLIFT.md](COMPETITOR-UPLIFT.md) — Học từ 4You + 10 app lớn: 9 hạng mục có bằng chứng, chạy $0, xếp giá trị ÷ công sức, thứ tự PR; đọc khi: chọn việc "học đối thủ"
+- [UX-BENCHMARK.md](UX-BENCHMARK.md) — Top 10 khoảng cách Lexkite vs Duolingo (tự sinh từ bảng World) + việc nên làm theo trục; đọc khi: chọn việc UX/sản phẩm tiếp theo
+- [WORLD-SCORECARD.md](WORLD-SCORECARD.md) — Thước đo "vượt Duolingo" trên CI: trục, nguồn, mốc Duolingo an toàn, sàn chỉ tăng; đọc khi: đọc/sửa content/pipeline/WORLD.md
+- [HOME-V2.md](HOME-V2.md) — Trang chủ v2 "Hôm nay": benchmark Duolingo/Busuu/ELSA → khối home, ưu tiên HIỆN tính năng sẵn có; đọc khi: sửa #/home
+- [TOP1-SCORE.md](TOP1-SCORE.md) — Top-1 score /100: 8 trục có trọng số gộp từ quality-sweep + World + CI (không quét lại), Top 10 nâng cấp lợi ích/công sức, sàn chỉ tăng, issue + bản tin; đọc khi: đọc/sửa bảng Top-1 hay chọn việc nâng cấp
+- [UX-PUBLIC.md](UX-PUBLIC.md) — Audit UX trang vào cửa + app (24/10): lỗi nặng nhất, token vai trò, mẫu lỗi toàn app, Lighthouse trước→sau, LCP màn đầu; đọc khi: sửa landing/UX công khai
+- [VIDEO-QC.md](VIDEO-QC.md) — Chuẩn QC video trước & sau, tự động trên CI: trượt 1 cổng là không dùng/không đăng; kết quả qc/<id>.json + điểm 100; đọc khi: kiểm tài nguyên/clip video
+- [VIDEO-SCALE-PLAN.md](VIDEO-SCALE-PLAN.md) — Kho video đa dạng + chuẩn 100/100: tránh bị nền tảng coi trùng lặp, bảy trục đa dạng, thang 100 điểm, đường ống 0 credit; đọc khi: nhân rộng video
+- [VIDEO-STORAGE.md](VIDEO-STORAGE.md) — Lưu trữ short theo công thức (recipe-first) $0, mở rộng tới 100k clip: nơi lưu, luồng, dựng lại từ công thức, di trú repo cũ; đọc khi: lưu/dựng lại short
+- [VIDEO-TEACHERS.md](VIDEO-TEACHERS.md) — Giáo viên video, bộ cảnh và clip nói (họ template v9): clip dùng ngay 0 credit, mặt nạ đầu, thêm giáo viên, bank CLASSROOM, chữ trên bảng; đọc khi: sửa giáo viên/cảnh video
+- [VIDEO-TEMPLATES.md](VIDEO-TEMPLATES.md) — Template video v1 (24/10) nhất quán theo thiết kế: lưới, thang chữ, màu từ kit.js, token chuyển động, luật, cấu trúc beat; đọc khi: sửa template video
+- [VIDEO-MOTION](VIDEO-MOTION.md) — Stitch overlay cards + Remotion motion keyed to the voice; read before touching scripts/video/motion or the stitch-short composition
+- [VIDEO-TEACH2D](VIDEO-TEACH2D.md) — 5 teaching templates (2D registry teacher + Kit cards, short + lesson embed), QC before/after render, topic plan; read before any teaching video work
+- [VIDEO-SERIES.md](VIDEO-SERIES.md) — 6 series video đánh số + bộ lọc chủ đề máy làm tốt + chuẩn pipeline quy mô lớn: lý do save/share, kho 10 tập đầu mỗi series, luật series, nhịp giảng; đọc khi: lên nội dung video
+- [VIDEO.md](VIDEO.md) — Nguồn sự thật video hiện hành: chiến lược (NEWS-ANCHOR), look v5, builder scripts/cine/, CI cine-render, lưu trữ, kho footage; đọc khi: mọi việc video
+- [VISUAL-LEARNING-PLAN.md](VISUAL-LEARNING-PLAN.md) — Kế hoạch ảnh học ngoài thẻ từ vựng: các ứng viên theo giá trị/công sức, giai đoạn 1 (24/10), luật cho mọi giai đoạn; đọc khi: thêm ảnh minh họa mới
+- [VOCAB-IMG-STYLE.md](VOCAB-IMG-STYLE.md) — Chuẩn ảnh từ vựng: nghiên cứu app lớn, khoa học học tập, phong cách nhà duy nhất, khung hình đọc được ở 96-160 px, luật theo lớp từ, dàn nhân vật; đọc khi: sinh/duyệt ảnh từ vựng
+- [TTS-AB.md](TTS-AB.md) — Phép thử A/B giọng Kokoro ↔ ElevenLabs: bộ câu, chấm CI, nghe mù, trần credit, giấy phép; đọc khi: chọn engine giọng đọc, xem sổ chi ElevenLabs
+- [specs/audio-quality.md](specs/audio-quality.md) — Chất lượng giọng đọc/phát âm/nghe: điểm hiện tại theo mảng (~64/100), 5 nâng cấp $0 lên 100, có nên dùng ElevenLabs (giá, điều khoản); đọc khi: sửa giọng đọc, chấm phát âm, nghe hoặc cân nhắc TTS trả phí
+- [WORD-AUDIO.md](WORD-AUDIO.md) — Giọng đọc từ đơn (audio/w) bản s3: vấn đề, thí nghiệm word-audio-lab, cách làm hiện tại, giấy phép, kết quả; đọc khi: sửa âm thanh từ
+- [YOUTUBE-SETUP.md](YOUTUBE-SETUP.md) — Tải short đã duyệt lên YouTube ($0): hiện đăng tay qua Studio, thiết lập một lần, dùng hằng ngày, kiểm định API compliance, bảo mật, nhiều kênh; đọc khi: đăng video lên YouTube
+- [YOUTUBE-AUDIT.md](YOUTUBE-AUDIT.md) — Hồ sơ soạn sẵn xin YouTube API audit + quota (câu trả lời form, phạm vi, lưu lượng, kịch bản video demo, việc sau khi duyệt); đọc khi: nộp form audit YouTube
+- [i18n-review-2026-10-16.md](i18n-review-2026-10-16.md) — Nhật ký rà soát bản dịch 16/10/2026 cho các chuỗi bị back-translation gắn cờ (OK/WRONG); đọc khi: tra quyết định dịch cũ
+
+## Phần còn lại của mục lục
+- [INDEX-ARCHIVE.md](INDEX-ARCHIVE.md) — Con trỏ tài liệu đã chuyển, thư mục con (agents/audits/legal/research/specs…), kho docs/archive/ (tách nguyên văn từ INDEX.md khi INDEX chạm 45 KB); đọc khi: tìm dòng mục lục của doc trong thư mục con hoặc archive, hoặc thêm doc mới ở đó

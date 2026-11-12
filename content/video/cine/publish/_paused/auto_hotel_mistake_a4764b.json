@@ -1,0 +1,75 @@
+{
+ "id": "auto_hotel_mistake_a4764b",
+ "scene": "hotel",
+ "template": "mistake",
+ "area": "grammar-check",
+ "cefr": "A2",
+ "point": "plural towels",
+ "series": "Hotel English #28",
+ "title": "Spot the mistake: \"Can I have two towel, please?\"",
+ "description": "A learner says \"Can I have two towel, please?\" at the hotel. The fix: \"Can I have two towels, please?\"\nComment your answer below and follow for daily English (Hotel English #28).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_a4764b#/fix",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#hotelenglish",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/hotel/auto_hotel_mistake_a4764b/cine-auto-hotel-mistake-a4764b-en-v3.mp4",
+ "cover": "shorts/hotel/auto_hotel_mistake_a4764b/cine-auto-hotel-mistake-a4764b-en-v3.jpg",
+ "ci_artifact": "cine-hotel-19",
+ "run": "19",
+ "platforms": {
+  "tiktok": {
+   "title": "Spot the mistake: \"Can I have two towel, please?\"",
+   "caption": "A learner says \"Can I have two towel, please?\" at the hotel. The fix: \"Can I have two towels, please?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_a4764b#/fix",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_a4764b#/fix",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "A learner says \"Can I have two towel, please?\" at the hotel. The fix: \"Can I have two towels, please?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_a4764b#/fix\n#learnenglish #englishtips #hotelenglish #commonmistakes #englishgrammar #travelenglish"
+  },
+  "reels": {
+   "title": "Spot the mistake: \"Can I have two towel, please?\"",
+   "caption": "A learner says \"Can I have two towel, please?\" at the hotel. The fix: \"Can I have two towels, please?\"\nComment your answer below and follow for daily English (Hotel English #28).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_a4764b#/fix",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_a4764b#/fix",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "A learner says \"Can I have two towel, please?\" at the hotel. The fix: \"Can I have two towels, please?\"\nComment your answer below and follow for daily English (Hotel English #28).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_a4764b#/fix\n#learnenglish #englishtips #hotelenglish #commonmistakes #englishgrammar #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Spot the mistake: \"Can I have two towel, please?\" #shorts",
+   "caption": "A learner says \"Can I have two towel, please?\" at the hotel. The fix: \"Can I have two towels, please?\"\nComment your answer below and follow for daily English (Hotel English #28).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_a4764b#/fix",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_a4764b#/fix",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#commonmistakes"
+   ],
+   "caption_with_tags": "A learner says \"Can I have two towel, please?\" at the hotel. The fix: \"Can I have two towels, please?\"\nComment your answer below and follow for daily English (Hotel English #28).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_mistake_a4764b#/fix\n#shorts #learnenglish #englishtips #hotelenglish #commonmistakes"
+  }
+ },
+ "slot": {
+  "date": "2026-11-09",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

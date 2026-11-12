@@ -1,0 +1,576 @@
+{
+ "_doc": "Sổ đăng ký MỌI nguồn nội dung học – cổng QA (docs/CONTENT-QA.md, scripts/content-qa/gate.mjs). Thư mục nội dung mới chưa có ở đây → CI đỏ. checks: schema · lexicon · pair (✗/✓) · cefr · judges (2 giám khảo) · translation · spot (≥5%/lô) · reports (tự ẩn). gen=true: có nội dung sinh tự động → bắt buộc judges + translation + spot.",
+ "sources": [
+  {"id": "outcomes", "paths": ["web/cpack/outcomes"], "owner": "claude", "gen": false, "checks": ["schema", "cefr"], "delegate": ["test/outcomes.mjs"], "doc": "docs/specs/outcomes-3-6m.md"},
+  {
+   "id": "stories",
+   "paths": [
+    "content/stories",
+    "web/js/stories"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "license",
+    "cefr",
+    "lexicon",
+    "grammar"
+   ],
+   "doc": "docs/STORIES.md"
+  },
+  {
+   "id": "vocab",
+   "paths": [
+    "web/js/lib",
+    "content/lexicon",
+    "content/wordlists"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "lexicon"
+   ],
+   "delegate": [
+    "build-lexicon.mjs",
+    "test/lex.mjs",
+    "content-qa/sense-check.mjs"
+   ]
+  },
+  {
+   "id": "lexicon-expand",
+   "paths": [
+    "content/lexicon/expand"
+   ],
+   "owner": "claude",
+   "gen": true,
+   "checks": [
+    "schema",
+    "lexicon",
+    "cefr",
+    "judges",
+    "translation",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "build-lexicon.mjs",
+    "test/lexicon-expand.mjs"
+   ]
+  },
+  {
+   "id": "vocab-notes",
+   "paths": [
+    "web/js/notes",
+    "content/notes-src"
+   ],
+   "owner": "antigravity",
+   "gen": true,
+   "checks": [
+    "schema",
+    "lexicon",
+    "cefr",
+    "judges",
+    "translation",
+    "spot",
+    "reports"
+   ]
+  },
+  {
+   "id": "grammar",
+   "paths": [
+    "web/js/grammar",
+    "web/cpack/grammar"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "pair",
+    "reports"
+   ],
+   "delegate": [
+    "test/content-check.mjs"
+   ]
+  },
+  {
+   "id": "pron",
+   "paths": [
+    "web/js/pron"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "lexicon"
+   ]
+  },
+  {
+   "id": "usage",
+   "paths": [
+    "web/js/usage"
+   ],
+   "owner": "antigravity",
+   "gen": true,
+   "checks": [
+    "schema",
+    "lexicon",
+    "pair",
+    "judges",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "test/usage.mjs"
+   ]
+  },
+  {
+   "id": "explain",
+   "paths": [
+    "content/explain",
+    "web/js/explain"
+   ],
+   "owner": "ci:explain.yml",
+   "gen": true,
+   "checks": [
+    "schema",
+    "judges",
+    "translation",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "test/explain.mjs",
+    "test/explain-check.mjs"
+   ]
+  },
+  {
+   "id": "reading",
+   "paths": [
+    "web/js/readtest",
+    "web/cpack/readings"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "translation"
+   ],
+   "delegate": [
+    "test/content-check.mjs"
+   ]
+  },
+  {
+   "id": "listening",
+   "paths": [
+    "web/js/listen",
+    "web/cpack/listen"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "translation"
+   ],
+   "delegate": [
+    "test/content-check.mjs"
+   ]
+  },
+  {
+   "id": "toeic",
+   "paths": [
+    "web/js/toeic"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "test/content-check.mjs"
+   ]
+  },
+  {
+   "id": "toefl",
+   "paths": [
+    "web/js/toefl",
+    "web/cpack/toefl"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "test/content-check.mjs"
+   ]
+  },
+  {
+   "id": "cambridge",
+   "paths": [
+    "web/cpack/cambridge"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "format"
+   ],
+   "delegate": [
+    "content-qa/exam-format-check.mjs",
+    "test/cambridge.mjs"
+   ],
+   "doc": "docs/specs/cambridge.md"
+  },
+  {
+   "id": "exam-spec",
+   "paths": [
+    "content/exams"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "format"
+   ],
+   "delegate": [
+    "content-qa/exam-format-check.mjs"
+   ]
+  },
+  {
+   "id": "framework",
+   "paths": [
+    "content/framework"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr"
+   ],
+   "delegate": [
+    "content-qa/lkf-check.mjs",
+    "test/lkf.mjs",
+    "content-qa/grammar-map-check.mjs",
+    "test/grammar-inventory.mjs"
+   ]
+  },
+  {
+   "id": "target-lang",
+   "paths": [
+    "content/target"
+   ],
+   "owner": "claude",
+   "gen": true,
+   "checks": [
+    "schema",
+    "judges",
+    "translation",
+    "spot"
+   ],
+   "delegate": [
+    "test/target-lang.mjs"
+   ],
+   "_note": "Ngôn ngữ đích (docs/specs/target-language.md): seed soát tay; bộ lõi do scripts/target/gen.mjs sinh – 2 giám khảo khác họ + dịch ngược en + mẫu soát ≥5 %"
+  },
+  {
+   "id": "target-es-drills",
+   "paths": [
+    "web/cpack/es"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "target/drill-pack.mjs --check",
+    "test/es-practice.mjs"
+   ],
+   "_note": "Gói luyện tập tiếng TBN W2b (spanish-course.md §10): dựng từ content/target/es/{drills,gx}; drill-pack --check = khớp nguồn + đủ 15 ngôn ngữ + ví dụ TBN nguyên văn, CI thêm LanguageTool 0 lỗi (--lt)"
+  },
+  {
+   "id": "writing",
+   "paths": [
+    "web/js/write",
+    "web/cpack/write"
+   ],
+   "owner": "antigravity",
+   "gen": true,
+   "checks": [
+    "schema",
+    "cefr",
+    "judges",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "test/content-check.mjs"
+   ]
+  },
+  {
+   "id": "speaking",
+   "paths": [
+    "web/js/speak",
+    "web/cpack/speak"
+   ],
+   "owner": "antigravity",
+   "gen": true,
+   "checks": [
+    "schema",
+    "cefr",
+    "judges",
+    "spot"
+   ],
+   "delegate": [
+    "test/content-check.mjs"
+   ]
+  },
+  {
+   "id": "roleplay",
+   "paths": [
+    "web/js/roleplay",
+    "web/js/call"
+   ],
+   "owner": "antigravity",
+   "gen": true,
+   "checks": [
+    "schema",
+    "cefr",
+    "pair",
+    "judges",
+    "spot"
+   ]
+  },
+  {
+   "id": "confidence",
+   "paths": [
+    "content/confidence",
+    "web/js/confidence"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr",
+    "pair",
+    "translation"
+   ],
+   "delegate": [
+    "confidence/build.mjs",
+    "test/confidence.mjs"
+   ]
+  },
+  {
+   "id": "lesson",
+   "paths": [
+    "web/js/lesson",
+    "web/cpack/lesson",
+    "content/lesson"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "pair"
+   ],
+   "delegate": [
+    "test/lesson.mjs"
+   ],
+   "note": "#/lesson: stories.js từ content/lesson/stories.json (tự soạn A1–A2, build-stories --check: lược đồ + 15 ngôn ngữ cặp ghép); gold.js sinh từ gold bank video (content/video/scripts/bank, đã qua cổng script-bank) – build-gold --check trong test/lesson.mjs; bộ demo/khởi đầu trong ui.js"
+  },
+  {
+   "id": "ui-i18n",
+   "paths": [
+    "content/i18n"
+   ],
+   "owner": "ci:i18n.yml",
+   "gen": true,
+   "checks": [
+    "translation"
+   ],
+   "delegate": [
+    "i18n-qa.mjs --strict",
+    "i18n-leak.js"
+   ]
+  },
+  {
+   "id": "blog",
+   "paths": [
+    "content/blog"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "test/blog-images.mjs",
+    "test/blog-captions.mjs"
+   ]
+  },
+  {
+   "id": "seo-en",
+   "paths": [
+    "content/seo-en"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "build-landing.mjs --check"
+   ]
+  },
+  {
+   "id": "free-tools",
+   "paths": [
+    "content/tools"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr"
+   ],
+   "delegate": [
+    "test/tools-pages.mjs"
+   ]
+  },
+  {
+   "id": "authority",
+   "paths": [
+    "content/authority"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "test/authority-pages.mjs"
+   ]
+  },
+  {
+   "id": "say-native",
+   "paths": [
+    "content/say-native"
+   ],
+   "owner": "claude",
+   "gen": true,
+   "checks": [
+    "schema",
+    "lexicon",
+    "pair",
+    "judges",
+    "translation",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "say-native/build.mjs"
+   ]
+  },
+  {
+   "id": "situations",
+   "paths": [
+    "content/situations"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr"
+   ],
+   "delegate": [
+    "test/situations.mjs"
+   ]
+  },
+  {
+   "id": "mediation",
+   "paths": [
+    "content/mediation",
+    "web/cpack/mediation"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "cefr"
+   ],
+   "delegate": [
+    "content-qa/mediation-check.mjs",
+    "test/mediation.mjs"
+   ],
+   "doc": "docs/specs/mediation.md"
+  },
+  {
+   "id": "tutor",
+   "paths": [
+    "web/js/tutor"
+   ],
+   "owner": "claude",
+   "gen": false,
+   "checks": [
+    "schema",
+    "translation"
+   ],
+   "delegate": [
+    "test/reminders.mjs"
+   ]
+  },
+  {
+   "id": "content-factory",
+   "paths": [
+    "content/factory"
+   ],
+   "owner": "claude",
+   "gen": true,
+   "checks": [
+    "schema",
+    "judges",
+    "spot",
+    "reports"
+   ],
+   "delegate": [
+    "test/content-factory.mjs"
+   ]
+  },
+  { "id": "phrase-book", "paths": ["web/cpack/framework", "content/framework/functions.json"], "owner": "claude", "gen": true, "checks": ["schema"], "delegate": ["test/phrasebook.mjs", "test/content-factory.mjs"], "doc": "docs/CONTENT-FACTORY.md" }
+ ],
+ "skip": {
+  "web/cpack/es-app": "MÃ giao diện bài phát âm TBN (pron-ui.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu ở web/cpack/es (nguồn px), test scripts/test/es-pron.mjs",
+  "web/cpack/play-app": "MÃ giao diện Thử thách 60 giây (play-blitz.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/play-blitz.mjs",
+  "web/cpack/outcomes-app": "MÃ giao diện bài đo (outcomes.js, outcomes-core.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu đề ở web/cpack/outcomes (nguồn 'outcomes'), test scripts/test/outcomes.mjs",
+  "content/seo": "sổ máy sinh lastmod.json (URL → băm nội dung chính + ngày sửa thật cho sitemap) – không phải nội dung học; scripts/lib/lastmod.mjs, test scripts/test/lastmod.mjs",
+  "web/js/st": "khuôn giao diện 4 màn port thẳng từ Google Stitch (DOM + class Tailwind, chữ qua t()) – không phải nội dung học; kiểm bởi scripts/test/stitch-diff.mjs + build-stitch-css.mjs --check",
+  "web/js/vimg": "mảnh chỉ mục ảnh minh hoạ (khoá từ#loại → mã băm ảnh) SINH bởi build-lexicon từ content/lexicon/img.json – không phải nội dung học; ảnh đã qua cổng vocab-img (OCR, NSFW, giám khảo), kiểm bởi scripts/test/vocab-img.mjs",
+  "web/js/get-app": "chữ hướng dẫn nút \"Tải app\" sinh từ bản dịch giao diện (build-landing.mjs --check) – không phải nội dung học; test scripts/test/get-app.mjs",
+  "content/dict": "Chỉ chứa stage.json – trạng thái mở index trang từ điển do workflow dict-stage.yml ghi (không phải nội dung học); nội dung trang lấy từ kho từ vựng đã qua cổng vocab/lexicon",
+  "content/brand": "tài sản thương hiệu, không phải nội dung học",
+  "content/landing": "trang giới thiệu – build-landing.mjs --check",
+  "content/legal": "văn bản pháp lý soạn tay",
+  "content/pipeline": "hàng đợi/nhật ký pipeline",
+  "content/pr": "bài PR/danh bạ",
+  "content/protection": "dấu bản quyền",
+  "content/video": "kịch bản video – cổng riêng docs/VIDEO.md (duyệt mẫu trước khi chạy hàng loạt)",
+  "content/qa": "chính cổng QA (sổ đăng ký, baseline, hàng duyệt, lô)",
+  "web/js/ads": "mã quảng cáo (docs/ADS.md), không phải nội dung học – test scripts/test/ads.mjs",
+  "content/visual": "prompt vẽ ảnh cảnh/bìa bài học – ảnh ra qua giám khảo riêng của vocab-img-scene (CLIP + chú thích + thị giác GrabCast), không phải văn bản học",
+  "web/js/tools": "mã giao diện công cụ miễn phí (không phải nội dung) – dữ liệu ở content/tools, kiểm bởi test/tools-pages.mjs"
+ }
+}

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Bright Day - Learning Method (Editorial &amp; Sprint Story)</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,500;1,700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#e2d8d0",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#f9efe6",
+            "on-primary-fixed": "#00201e",
+            "surface-tint": "#106a65",
+            "outline": "#6f7978",
+            "on-secondary-fixed-variant": "#683c00",
+            "surface-container": "#f6ece4",
+            "on-background": "#1f1b16",
+            "on-primary-container": "#9ce9e2",
+            "secondary": "#895100",
+            "on-error-container": "#93000a",
+            "secondary-container": "#fe9d19",
+            "on-secondary-container": "#663b00",
+            "on-primary-fixed-variant": "#00504c",
+            "error-container": "#ffdad6",
+            "on-surface": "#1f1b16",
+            "on-primary": "#ffffff",
+            "inverse-primary": "#88d4cd",
+            "surface-container-low": "#fcf2e9",
+            "tertiary": "#8e190f",
+            "background": "#fff8f3",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#fff8f3",
+            "primary-fixed": "#a4f0e9",
+            "on-surface-variant": "#3f4947",
+            "on-secondary-fixed": "#2c1600",
+            "primary": "#00514d",
+            "surface-bright": "#fff8f3",
+            "outline-variant": "#bec9c7",
+            "on-error": "#ffffff",
+            "surface-container-high": "#f0e7de",
+            "secondary-fixed-dim": "#ffb86c",
+            "primary-fixed-dim": "#88d4cd",
+            "on-tertiary-container": "#ffd0c9",
+            "surface-container-highest": "#eae1d8",
+            "tertiary-container": "#b03224",
+            "surface-variant": "#eae1d8",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "inverse-surface": "#34302a",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "tertiary-fixed": "#ffdad4",
+            "secondary-fixed": "#ffdcbc",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#136b66",
+            "on-tertiary-fixed": "#410000"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "1rem",
+            "margin-desktop": "2.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "margin-tablet": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "gutter": "1rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      font-size: 22px;
+      line-height: 1;
+      display: inline-block;
+    }
+    .material-symbols-outlined.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Tactile 3D drop ledge button */
+    .tactile-button-orange {
+      background-color: #fe9d19;
+      color: #1c1003;
+      box-shadow: 0 4px 0 #895100;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-button-orange:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #895100;
+    }
+    /* Tactile editorial cards */
+    .editorial-card {
+      background-color: #ffffff;
+      border: 2px solid #eae1d8;
+      box-shadow: 0 4px 0 #e2d8d0;
+      border-radius: 1.25rem;
+    }
+    .editorial-badge {
+      border: 1.5px solid #bec9c7;
+      box-shadow: 0 2px 0 #e2d8d0;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Device Shell Canvas (390px portrait viewport) -->
+<div class="w-full max-w-[390px] min-h-screen bg-background relative flex flex-col pb-36 border-x border-surface-container-high shadow-2xl">
+<!-- Top App Bar (Shared Components JSON Anchor) -->
+<header class="bg-surface dark:bg-inverse-surface border-b-2 border-outline-variant dark:border-outline shadow-[0_4px_0_theme(colors.outline-variant)] dark:shadow-none docked full-width top-0 sticky z-40">
+<div class="flex justify-between items-center w-full px-5 py-3 max-w-[390px] mx-auto">
+<button aria-label="Go back" class="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container-lowest text-primary hover:bg-surface-container active:translate-y-[2px] transition-transform duration-100 border-2 border-surface-container-highest shadow-[0_2px_0_theme(colors.surface-dim)]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="text-headline-sm font-headline-sm text-primary dark:text-inverse-primary tracking-tight">Lexkite Bright Day</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider scale-90 -mt-0.5">Methodology</span>
+</div>
+<button aria-label="Settings and options" class="w-11 h-11 flex items-center justify-center rounded-full bg-surface-container-lowest text-primary hover:bg-surface-container active:translate-y-[2px] transition-transform duration-100 border-2 border-surface-container-highest shadow-[0_2px_0_theme(colors.surface-dim)]">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Editorial Story Prologue Banner -->
+<div class="px-4 pt-3.5">
+<div class="bg-gradient-to-r from-surface-container to-surface-container-low border-2 border-surface-variant rounded-2xl p-2.5 flex items-center justify-between shadow-[0_2px_0_#eae1d8]">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container ring-4 ring-secondary-container/20"></span>
+<span class="text-label-sm font-extrabold text-secondary tracking-widest uppercase">Variant 03 • Editorial Sprint Story</span>
+</div>
+<span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-surface-container-highest text-on-surface-variant uppercase tracking-wider">CEFR / IELTS</span>
+</div>
+</div>
+<!-- Main Content Container -->
+<main class="px-4 pt-4 space-y-6">
+<!-- Editorial Lead & Hero Header Section -->
+<section class="space-y-3">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full border border-surface-dim">
+<span class="material-symbols-outlined text-primary text-base" data-icon="lightbulb">lightbulb</span>
+<span class="text-label-sm font-label-sm text-primary font-bold">Bright Day Pedagogy</span>
+</div>
+<h1 class="text-headline-xl-mobile font-headline-xl-mobile text-on-surface tracking-tight leading-tight">
+          How Lexkite teaches
+        </h1>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+          A scientifically calibrated 4-step loop designed for permanent vocabulary retention and effortless exam fluency.
+        </p>
+</section>
+<!-- Teacher Slot: Dedicated class "teacher-slot" empty dashed placeholder + Speech Bubble -->
+<section class="relative">
+<div class="teacher-slot w-full border-2 border-dashed border-primary/50 bg-primary-fixed/20 rounded-2xl p-4 flex flex-col items-center justify-center text-center space-y-2 min-h-[96px]">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg border-2 border-dashed border-primary/60 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-base" data-icon="school">school</span>
+</div>
+<span class="text-label-md font-label-md text-primary tracking-wide uppercase font-extrabold">Teacher Slot</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant/90">2D interactive mentor loads here during live sprint</span>
+</div>
+<!-- Speech Bubble cue from Coach Ama (Zero illustrated characters) -->
+<div class="mt-3 relative bg-surface-container-lowest border-2 border-surface-variant rounded-2xl p-3.5 shadow-[0_3px_0_#e2d8d0]">
+<div class="flex items-start gap-2.5">
+<div class="w-8 h-8 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center font-extrabold text-xs shrink-0 shadow-[0_2px_0_#895100]">
+              CA
+            </div>
+<div class="space-y-0.5">
+<span class="text-label-sm font-label-sm text-secondary font-bold block">Coach Ama • IELTS Master Coach</span>
+<p class="text-body-sm font-body-sm text-on-surface italic leading-snug">
+                “Language mastery isn’t cramming — it’s tactile, spaced daily sprints.”
+              </p>
+</div>
+</div>
+</div>
+</section>
+<!-- The 4-Step Pedagogical Loop (Editorial Flow with Dual-Column Chips) -->
+<section class="space-y-4">
+<div class="flex items-center justify-between pb-0.5">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">The 4-Step Loop</h2>
+<p class="text-label-sm text-on-surface-variant">Calibrated neuro-linguistic progression</p>
+</div>
+<span class="text-label-sm font-label-sm text-primary bg-primary-fixed px-3 py-1 rounded-full border border-primary/30 font-bold shadow-[0_1px_0_#88d4cd]">Daily 15m Flow</span>
+</div>
+<!-- Step 1 Card: Learn -->
+<article class="editorial-card p-4 space-y-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container text-on-primary flex items-center justify-center text-label-lg font-extrabold shadow-[0_3px_0_#00504c] shrink-0">
+                01
+              </div>
+<div class="min-w-0">
+<span class="text-label-sm font-label-sm text-primary tracking-wider uppercase font-bold block">Step 1 • Discover</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface leading-snug">Learn in Living Context</h3>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-bold border border-surface-variant shrink-0">B1–C2 Corpus</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 border border-surface-variant">
+<p class="text-body-sm font-body-sm text-on-surface leading-relaxed">
+<strong class="text-primary font-bold">Contextual Discovery:</strong> High-yield collocations and authentic CEFR B1–C2 corpus sentences, not isolated wordlists.
+            </p>
+</div>
+<!-- Dual-column compact data chips -->
+<div class="grid grid-cols-2 gap-2 pt-0.5">
+<div class="text-label-sm font-label-sm px-2.5 py-1.5 rounded-xl bg-surface-bright border border-surface-dim text-on-surface flex items-center gap-1.5 shadow-[0_1px_0_#e2d8d0]">
+<span class="material-symbols-outlined text-sm text-primary shrink-0" data-icon="check_circle">check_circle</span>
+<span class="truncate">Collocation chunks</span>
+</div>
+<div class="text-label-sm font-label-sm px-2.5 py-1.5 rounded-xl bg-surface-bright border border-surface-dim text-on-surface flex items-center gap-1.5 shadow-[0_1px_0_#e2d8d0]">
+<span class="material-symbols-outlined text-sm text-primary shrink-0" data-icon="check_circle">check_circle</span>
+<span class="truncate">Authentic audio</span>
+</div>
+</div>
+</article>
+<!-- Step 2 Card: Practise -->
+<article class="editorial-card p-4 space-y-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center text-label-lg font-extrabold shadow-[0_3px_0_#895100] shrink-0">
+                02
+              </div>
+<div class="min-w-0">
+<span class="text-label-sm font-label-sm text-secondary tracking-wider uppercase font-bold block">Step 2 • Internalize</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface leading-snug">Active Retrieval</h3>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-bold border border-surface-variant shrink-0">Tactile Drill</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 border border-surface-variant">
+<p class="text-body-sm font-body-sm text-on-surface leading-relaxed">
+<strong class="text-secondary font-bold">Active Retrieval:</strong> 3-beat rhythm shadowing, interactive minimal pairs, and tactile sentence builder drills.
+            </p>
+</div>
+<!-- Dual-column compact data chips -->
+<div class="grid grid-cols-2 gap-2 pt-0.5">
+<div class="text-label-sm font-label-sm px-2.5 py-1.5 rounded-xl bg-surface-bright border border-surface-dim text-on-surface flex items-center gap-1.5 shadow-[0_1px_0_#e2d8d0]">
+<span class="material-symbols-outlined text-sm text-secondary shrink-0" data-icon="headphones">headphones</span>
+<span class="truncate">3-Beat shadowing</span>
+</div>
+<div class="text-label-sm font-label-sm px-2.5 py-1.5 rounded-xl bg-surface-bright border border-surface-dim text-on-surface flex items-center gap-1.5 shadow-[0_1px_0_#e2d8d0]">
+<span class="material-symbols-outlined text-sm text-secondary shrink-0" data-icon="build">build</span>
+<span class="truncate">Syntax builder</span>
+</div>
+</div>
+</article>
+<!-- Step 3 Card: Review -->
+<article class="editorial-card p-4 space-y-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center text-label-lg font-extrabold shadow-[0_3px_0_#00201e] shrink-0">
+                03
+              </div>
+<div class="min-w-0">
+<span class="text-label-sm font-label-sm text-primary tracking-wider uppercase font-bold block">Step 3 • Retain</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface leading-snug">Adaptive Spaced Repetition</h3>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-bold border border-surface-variant shrink-0">SM-2 Algorithm</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 border border-surface-variant">
+<p class="text-body-sm font-body-sm text-on-surface leading-relaxed">
+<strong class="text-primary font-bold">SM-2 Adaptive Memory:</strong> Smart intervals that recall fading memories right before the forgetting curve drops.
+            </p>
+</div>
+<!-- Dual-column compact data chips -->
+<div class="grid grid-cols-2 gap-2 pt-0.5">
+<div class="text-label-sm font-label-sm px-2.5 py-1.5 rounded-xl bg-surface-bright border border-surface-dim text-on-surface flex items-center gap-1.5 shadow-[0_1px_0_#e2d8d0]">
+<span class="material-symbols-outlined text-sm text-primary shrink-0" data-icon="timeline">timeline</span>
+<span class="truncate">Curve guard</span>
+</div>
+<div class="text-label-sm font-label-sm px-2.5 py-1.5 rounded-xl bg-surface-bright border border-surface-dim text-on-surface flex items-center gap-1.5 shadow-[0_1px_0_#e2d8d0]">
+<span class="material-symbols-outlined text-sm text-primary shrink-0" data-icon="alarm">alarm</span>
+<span class="truncate">Pre-decay alerts</span>
+</div>
+</div>
+</article>
+<!-- Step 4 Card: Test -->
+<article class="editorial-card p-4 space-y-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-tertiary-container text-on-tertiary flex items-center justify-center text-label-lg font-extrabold shadow-[0_3px_0_#8c170e] shrink-0">
+                04
+              </div>
+<div class="min-w-0">
+<span class="text-label-sm font-label-sm text-tertiary tracking-wider uppercase font-bold block">Step 4 • Validate</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface leading-snug">Diagnostic Proof</h3>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-bold border border-surface-variant shrink-0">Instant AI</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-3 border border-surface-variant">
+<p class="text-body-sm font-body-sm text-on-surface leading-relaxed">
+<strong class="text-tertiary font-bold">Diagnostic Proof:</strong> Timed IELTS &amp; TOEIC exam simulations with instant AI band estimation and error heatmaps.
+            </p>
+</div>
+<!-- Dual-column compact data chips -->
+<div class="grid grid-cols-2 gap-2 pt-0.5">
+<div class="text-label-sm font-label-sm px-2.5 py-1.5 rounded-xl bg-surface-bright border border-surface-dim text-on-surface flex items-center gap-1.5 shadow-[0_1px_0_#e2d8d0]">
+<span class="material-symbols-outlined text-sm text-tertiary shrink-0" data-icon="analytics">analytics</span>
+<span class="truncate">0.5 Band score</span>
+</div>
+<div class="text-label-sm font-label-sm px-2.5 py-1.5 rounded-xl bg-surface-bright border border-surface-dim text-on-surface flex items-center gap-1.5 shadow-[0_1px_0_#e2d8d0]">
+<span class="material-symbols-outlined text-sm text-tertiary shrink-0" data-icon="speed">speed</span>
+<span class="truncate">Diagnostics</span>
+</div>
+</div>
+</article>
+</section>
+<!-- 15-Minute Micro-Study Plan Efficiency Comparison (Executive Summary Format) -->
+<section class="space-y-3 pt-2">
+<div class="flex items-center justify-between">
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Efficiency Comparison</h2>
+<span class="inline-flex items-center gap-1 text-label-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full border border-surface-variant">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="insights">insights</span> Metric Test
+</span>
+</div>
+<div class="editorial-card p-4 space-y-4">
+<div class="flex items-center justify-between pb-1 border-b border-surface-variant">
+<div class="text-label-md font-label-md text-on-surface font-extrabold tracking-wide">
+            Executive Summary
+          </div>
+<div class="text-label-sm text-secondary font-bold">30-Day Cohort Study</div>
+</div>
+<div class="text-body-sm text-on-surface-variant">
+          Traditional Cramming vs. Lexkite 15-Min Sprint
+        </div>
+<!-- Tactile Pill Comparison Bento -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Left: Cramming Pill -->
+<div class="bg-surface-container-low border-2 border-surface-variant rounded-2xl p-3 flex flex-col justify-between space-y-2 shadow-[0_2px_0_#eae1d8]">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-base text-error" data-icon="close">close</span>
+<span class="text-label-sm font-bold text-on-surface">Cramming (2 hrs)</span>
+</div>
+<div class="space-y-0.5">
+<div class="text-headline-lg-mobile font-headline-lg-mobile text-outline font-black">32%</div>
+<div class="text-label-sm font-medium text-on-surface-variant">30-Day Retention</div>
+</div>
+<div class="pt-2 border-t border-surface-dim text-body-sm font-medium text-error flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="warning">warning</span> High test fatigue
+</div>
+</div>
+<!-- Right: Lexkite Pill -->
+<div class="bg-primary-container text-on-primary rounded-2xl p-3 border-2 border-primary shadow-[0_4px_0_#00504c] flex flex-col justify-between space-y-2">
+<div class="flex items-center gap-1.5 text-on-primary-container">
+<span class="material-symbols-outlined text-base text-secondary-container" data-icon="bolt">bolt</span>
+<span class="text-label-sm font-bold text-on-primary">Lexkite (15 min)</span>
+</div>
+<div class="space-y-0.5">
+<div class="text-headline-lg-mobile font-headline-lg-mobile text-on-primary font-black">89%</div>
+<div class="text-label-sm font-medium text-on-primary-container">30-Day Retention</div>
+</div>
+<div class="pt-2 border-t border-primary/40 text-body-sm font-medium text-on-primary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary-fixed" data-icon="verified">verified</span> Zero exam anxiety
+</div>
+</div>
+</div>
+<!-- Velocity Badge & Resin Progress Track -->
+<div class="bg-surface-container-low rounded-xl p-3 border border-surface-variant space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-bold text-on-surface">Exam Readiness Velocity</span>
+<span class="text-label-sm font-extrabold text-on-secondary-container bg-secondary-container px-2 py-0.5 rounded-full shadow-[0_1px_0_#895100]">
+            2.8x Faster Band Leap
+          </span>
+</div>
+<div class="w-full h-3.5 bg-surface-container rounded-full overflow-hidden p-0.5 border border-surface-variant relative shadow-inner">
+<div class="h-full bg-secondary-container rounded-full relative" style="width: 82%;">
+<div class="absolute inset-x-0 top-0 h-1 bg-white/50 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Research-Backed Principles (3 tactile feature cards) -->
+<section class="space-y-3 pt-2">
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Cognitive Science Foundations</h2>
+<div class="space-y-2.5">
+<!-- Card 1 -->
+<div class="editorial-card p-3.5 flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary shrink-0 border border-surface-variant shadow-[0_2px_0_#e2d8d0]">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+</div>
+<div class="space-y-0.5 min-w-0">
+<h3 class="text-label-lg font-label-lg text-on-surface font-extrabold">Cognitive Load Optimization</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-snug">Short micro-modules prevent short-term working memory saturation.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="editorial-card p-3.5 flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-secondary shrink-0 border border-surface-variant shadow-[0_2px_0_#e2d8d0]">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+</div>
+<div class="space-y-0.5 min-w-0">
+<h3 class="text-label-lg font-label-lg text-on-surface font-extrabold">Collocation-First Lexical Chunks</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-snug">Store word groups natively to reduce translation latency under time pressure.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="editorial-card p-3.5 flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-surface-container flex items-center justify-center text-primary shrink-0 border border-surface-variant shadow-[0_2px_0_#e2d8d0]">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</div>
+<div class="space-y-0.5 min-w-0">
+<h3 class="text-label-lg font-label-lg text-on-surface font-extrabold">Accent &amp; Prosody Feedback</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-snug">Real-time spectral analysis trains native intonation patterns for Band 7+ Speaking.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive FAQ Accordion -->
+<section class="space-y-3 pt-2">
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Frequently Asked Questions</h2>
+<div class="space-y-2">
+<!-- FAQ 1 (Open State) -->
+<div class="editorial-card overflow-hidden border-2 border-primary/40">
+<button class="w-full p-4 flex justify-between items-center text-left bg-surface-container-low min-h-[48px]" onclick="toggleFaq('faq-1')">
+<span class="text-label-lg font-label-lg text-on-surface font-bold pr-2">Why 15 minutes a day?</span>
+<span class="material-symbols-outlined text-primary shrink-0 transition-transform duration-200" data-icon="keyboard_arrow_up" id="icon-faq-1">keyboard_arrow_up</span>
+</button>
+<div class="p-4 pt-1 bg-surface-container-lowest border-t border-surface-variant" id="faq-1">
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                15 minutes aligns directly with the neurological threshold of active deliberate focus. Distributed daily micro-sessions prevent the fatigue crash of weekend cramming, guaranteeing sustainable habit compounding and a 3x higher retention index over 90 days.
+              </p>
+</div>
+</div>
+<!-- FAQ 2 (Closed State) -->
+<div class="editorial-card overflow-hidden">
+<button class="w-full p-4 flex justify-between items-center text-left bg-surface-container-low min-h-[48px]" onclick="toggleFaq('faq-2')">
+<span class="text-label-lg font-label-lg text-on-surface font-bold pr-2">How is Lexkite aligned with IELTS &amp; CEFR standards?</span>
+<span class="material-symbols-outlined text-outline shrink-0 transition-transform duration-200" data-icon="keyboard_arrow_down" id="icon-faq-2">keyboard_arrow_down</span>
+</button>
+<div class="p-4 pt-1 bg-surface-container-lowest border-t border-surface-variant hidden" id="faq-2">
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                Every prompt, lexical chunk, and diagnostic passage is curated directly from authentic British Council and Cambridge assessment corpora. Rubrics evaluate Lexical Resource, Cohesion, Grammar Accuracy, and Pronunciation against the official Band 9 descriptor tables.
+              </p>
+</div>
+</div>
+<!-- FAQ 3 (Closed State) -->
+<div class="editorial-card overflow-hidden">
+<button class="w-full p-4 flex justify-between items-center text-left bg-surface-container-low min-h-[48px]" onclick="toggleFaq('faq-3')">
+<span class="text-label-lg font-label-lg text-on-surface font-bold pr-2">Can I study offline or on desktop?</span>
+<span class="material-symbols-outlined text-outline shrink-0 transition-transform duration-200" data-icon="keyboard_arrow_down" id="icon-faq-3">keyboard_arrow_down</span>
+</button>
+<div class="p-4 pt-1 bg-surface-container-lowest border-t border-surface-variant hidden" id="faq-3">
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                Yes. Daily decks download automatically so you can practice during commutes without internet connectivity. Progress synchronizes seamlessly across native mobile apps and our desktop writing lab.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Seal Endnote -->
+<div class="text-center pt-2 pb-6 space-y-1">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="verified_user">verified_user</span>
+<p class="text-label-sm font-label-sm text-secondary font-bold">Empirical Pedagogy • No gimmicks • Evidence-based</p>
+</div>
+</main>
+<!-- Sticky Floating CTA Above Bottom Nav (Coral/Amber button with 3D ledge and #1C1003 text) -->
+<div class="fixed bottom-16 left-0 w-full z-40 px-4 max-w-[390px] mx-auto pointer-events-none">
+<div class="pointer-events-auto bg-surface-container-lowest/95 backdrop-blur-md p-2 rounded-2xl border-2 border-surface-variant shadow-[0_4px_12px_rgba(31,27,22,0.12)]">
+<button class="w-full h-14 tactile-button-orange rounded-xl flex items-center justify-between px-5 active:scale-[0.99] transition-all">
+<div class="flex flex-col text-left">
+<span class="text-label-lg font-label-lg font-extrabold tracking-tight text-[#1c1003]">Start learning →</span>
+<span class="text-label-sm font-label-sm font-bold text-[#1c1003]/80">+15 XP • Diagnostic test included</span>
+</div>
+<div class="w-9 h-9 rounded-lg bg-[#1c1003]/10 flex items-center justify-center text-[#1c1003] shadow-[0_1px_0_rgba(0,0,0,0.1)]">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Bottom Navigation Bar (Shared Components JSON Anchor) -->
+<!-- Destination count: 5 | Active intent: 'Skills' -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 max-w-[390px] mx-auto bg-surface-container-lowest dark:bg-inverse-surface border-t-2 border-outline-variant dark:border-outline shadow-[0_-4px_0_theme(colors.outline-variant)] dark:shadow-none docked full-width bottom-0">
+<!-- Tab 1: Today -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1.5 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] active:shadow-none transition-transform duration-100 min-w-[48px] min-h-[48px]">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="text-label-sm font-label-sm mt-0.5">Today</span>
+</button>
+<!-- Tab 2: Vocab -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1.5 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] active:shadow-none transition-transform duration-100 min-w-[48px] min-h-[48px]">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="text-label-sm font-label-sm mt-0.5">Vocab</span>
+</button>
+<!-- Tab 3: Skills (ACTIVE TAB) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-3 py-1.5 shadow-[0_2px_0_theme(colors.secondary)] hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] active:shadow-none transition-transform duration-100 min-w-[48px] min-h-[48px]">
+<span class="material-symbols-outlined filled" data-icon="psychology">psychology</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-bold">Skills</span>
+</button>
+<!-- Tab 4: Tests -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1.5 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] active:shadow-none transition-transform duration-100 min-w-[48px] min-h-[48px]">
+<span class="material-symbols-outlined" data-icon="quiz">quiz</span>
+<span class="text-label-sm font-label-sm mt-0.5">Tests</span>
+</button>
+<!-- Tab 5: Me -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-3 py-1.5 hover:bg-surface-container dark:hover:bg-surface-variant active:translate-y-[2px] active:shadow-none transition-transform duration-100 min-w-[48px] min-h-[48px]">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm mt-0.5">Me</span>
+</button>
+</nav>
+</div>
+<!-- Inline Micro-Interactions Script for FAQs -->
+<script>
+    function toggleFaq(id) {
+      const panel = document.getElementById(id);
+      const icon = document.getElementById('icon-' + id);
+      if (panel.classList.contains('hidden')) {
+        panel.classList.remove('hidden');
+        icon.textContent = 'keyboard_arrow_up';
+        icon.classList.add('text-primary');
+        icon.classList.remove('text-outline');
+      } else {
+        panel.classList.add('hidden');
+        icon.textContent = 'keyboard_arrow_down';
+        icon.classList.remove('text-primary');
+        icon.classList.add('text-outline');
+      }
+    }
+  </script>
+</body></html>

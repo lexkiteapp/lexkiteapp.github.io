@@ -1,0 +1,15 @@
+{
+  "metadata": {
+    "soundFile": "/home/runner/work/lexkiteapp.github.io/lexkiteapp.github.io/cine/wav/a_cash.wav",
+    "duration": 1.24
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.23, "value": "C" },
+    { "start": 0.23, "end": 0.31, "value": "A" },
+    { "start": 0.31, "end": 0.46, "value": "C" },
+    { "start": 0.46, "end": 0.60, "value": "B" },
+    { "start": 0.60, "end": 1.02, "value": "C" },
+    { "start": 1.02, "end": 1.16, "value": "B" },
+    { "start": 1.16, "end": 1.24, "value": "X" }
+  ]
+}

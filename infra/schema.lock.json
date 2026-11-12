@@ -1,0 +1,88 @@
+{
+ "_keys.js": {
+  "vers": {
+   "keys": 1
+  },
+  "ddl": "14c24f2070e29d64"
+ },
+ "_meta_oauth.js": {
+  "vers": {
+   "soc-oauth": 1
+  },
+  "ddl": "fe4de04e60349039"
+ },
+ "_quota.js": {
+  "vers": {
+   "quota": 1
+  },
+  "ddl": "22c615637981bc55"
+ },
+ "_rollup.js": {
+  "vers": {
+   "rollup": 1
+  },
+  "ddl": "572519f113814f83"
+ },
+ "_social_auto.js": {
+  "vers": {
+   "soc-lock": 2,
+   "soc-fc": 1
+  },
+  "ddl": "6e5e814f8f522196"
+ },
+ "ads-report.js": {
+  "vers": {
+   "ads_rev": 1
+  },
+  "ddl": "2049662e4f27eecf"
+ },
+ "ai.js": {
+  "vers": {
+   "ai": 1
+  },
+  "ddl": "d30d1ee5dda07909"
+ },
+ "capacity.js": {
+  "vers": {
+   "capacity": 2
+  },
+  "ddl": "40d684eae89dcbe7"
+ },
+ "class.js": {
+  "vers": {
+   "class": 1
+  },
+  "ddl": "67529faa7384ddf4"
+ },
+ "community.js": {
+  "vers": {
+   "community": 1
+  },
+  "ddl": "bf29f22f85da6dac"
+ },
+ "hit.js": {
+  "vers": {
+   "hit": 1
+  },
+  "ddl": "f9ae6e8740886f73"
+ },
+ "league.js": {
+  "vers": {
+   "league": 1
+  },
+  "ddl": "081e05b2c1147bbc"
+ },
+ "notices.js": {
+  "vers": {
+   "notices": 1
+  },
+  "ddl": "4049458fb9fda124"
+ },
+ "sync.js": {
+  "vers": {
+   "sync": 3,
+   "docs": 1
+  },
+  "ddl": "92ace6a598d1f574"
+ }
+}

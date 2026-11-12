@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lexkite - Language Settings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#FFF8F1",
+            "surface-dim": "#EADBCE",
+            "surface-container": "#F4EDE3",
+            "surface-container-low": "#FAF2E8",
+            "surface-container-lowest": "#FFFFFF",
+            "surface-container-high": "#EFE7DD",
+            "primary": "#0D5C58",
+            "primary-dark": "#073B38",
+            "primary-container": "#0D5C58",
+            "on-primary": "#FFFFFF",
+            "coral": "#FF5A36",
+            "coral-border": "#EA580C",
+            "coral-shadow": "#C84423",
+            "coral-hover": "#F04E2A",
+            "on-surface": "#1E1B15",
+            "on-surface-variant": "#4A453E",
+            "outline-variant": "#D8CFBE",
+            "outline-subtle": "#EADBCE"
+          },
+          fontFamily: {
+            sans: ["'Plus Jakarta Sans'", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="bg-[#F0EAE1] text-on-surface antialiased min-h-screen flex justify-center selection:bg-[#ABEDE7] selection:text-primary">
+
+  <!-- Mobile Screen Container (390px fixed profile) -->
+  <div class="w-full max-w-[390px] min-h-screen flex flex-col bg-surface relative overflow-hidden border-x border-[#E0D5C7] shadow-xl">
+
+    <!-- 1. BACKGROUND SCREEN: Settings (Dimmed & non-interactive when bottom sheet is active) -->
+    <div class="flex-1 flex flex-col pointer-events-none select-none opacity-40 blur-[0.4px] transition-all pb-24" aria-hidden="true">
+      
+      <!-- Settings Header -->
+      <header class="sticky top-0 z-10 bg-surface border-b border-[#EADBCE] px-4 h-14 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-surface-container-lowest border border-[#EADBCE] flex items-center justify-center text-primary shadow-[0_2px_0_0_#E0D5C7]">
+            <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+          </div>
+          <h1 class="text-xl font-bold text-primary">Settings</h1>
+        </div>
+      </header>
+
+      <!-- Settings Content List -->
+      <div class="p-4 space-y-4">
+        <!-- Account Profile Card -->
+        <div class="p-4 rounded-2xl bg-surface-container-lowest border border-[#EADBCE] shadow-[0_2px_0_0_#E0D5C7] flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-xl bg-surface-container border border-[#D8CFBE] flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-2xl">account_circle</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <h2 class="text-base font-bold text-on-surface">Alex Mercer</h2>
+            <p class="text-xs text-on-surface-variant font-medium">IELTS Academic Candidate · Band 7.5 Goal</p>
+          </div>
+        </div>
+
+        <!-- Section: Learning Preferences -->
+        <div class="space-y-2">
+          <p class="text-xs font-bold uppercase tracking-wider text-on-surface-variant px-1">Study Preferences</p>
+          <div class="bg-surface-container-lowest rounded-2xl border border-[#EADBCE] shadow-[0_2px_0_0_#E0D5C7] divide-y divide-[#EADBCE]/60">
+            
+            <!-- Language Item (The one currently triggered) -->
+            <div class="p-3.5 flex items-center justify-between bg-primary/5">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-surface-container border border-[#EADBCE] flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-[20px]">translate</span>
+                </div>
+                <div>
+                  <p class="text-xs text-on-surface-variant font-medium">Language I'm learning</p>
+                  <p class="text-sm font-bold text-primary">English</p>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-variant text-[20px]">chevron_right</span>
+            </div>
+
+            <!-- Target Exam -->
+            <div class="p-3.5 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-surface-container border border-[#EADBCE] flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-[20px]">school</span>
+                </div>
+                <div>
+                  <p class="text-xs text-on-surface-variant font-medium">Primary Exam Focus</p>
+                  <p class="text-sm font-bold text-on-surface">IELTS Academic</p>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-variant text-[20px]">chevron_right</span>
+            </div>
+
+            <!-- Daily Target -->
+            <div class="p-3.5 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-surface-container border border-[#EADBCE] flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-[20px]">timer</span>
+                </div>
+                <div>
+                  <p class="text-xs text-on-surface-variant font-medium">Daily Practice Goal</p>
+                  <p class="text-sm font-bold text-on-surface">15 minutes / day</p>
+                </div>
+              </div>
+              <span class="material-symbols-outlined text-on-surface-variant text-[20px]">chevron_right</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: App & Audio -->
+        <div class="space-y-2">
+          <p class="text-xs font-bold uppercase tracking-wider text-on-surface-variant px-1">Audio & Speech</p>
+          <div class="bg-surface-container-lowest rounded-2xl border border-[#EADBCE] shadow-[0_2px_0_0_#E0D5C7] p-3.5 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-surface-container border border-[#EADBCE] flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-[20px]">record_voice_over</span>
+              </div>
+              <div>
+                <p class="text-xs text-on-surface-variant font-medium">Audio Accent Voice</p>
+                <p class="text-sm font-bold text-on-surface">British English (RP)</p>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-on-surface-variant text-[20px]">chevron_right</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 2. BACKDROP OVERLAY -->
+    <div class="absolute inset-0 bg-[#1E1B15]/40 backdrop-blur-[1px] z-20"></div>
+
+    <!-- 3. BOTTOM SHEET CONTAINER -->
+    <div class="absolute bottom-0 left-0 right-0 z-30 flex flex-col max-h-[92vh] bg-surface rounded-t-[28px] border-t-2 border-x border-[#EADBCE] shadow-[0_-8px_24px_rgba(30,27,21,0.14)] overflow-hidden">
+      
+      <!-- Grab Handle -->
+      <div class="w-full pt-3 pb-1 flex justify-center items-center">
+        <div class="w-12 h-1.5 rounded-full bg-[#D8CFBE]"></div>
+      </div>
+
+      <!-- Sheet Header: Title and Clear Close Button -->
+      <div class="px-5 pt-2 pb-3 flex items-center justify-between border-b border-[#EADBCE]/70">
+        <div>
+          <h2 class="text-lg font-bold text-primary leading-tight">Language I'm learning</h2>
+          <p class="text-xs text-on-surface-variant font-medium mt-0.5">Select your target language curriculum</p>
+        </div>
+        <button type="button" aria-label="Close language selection" class="w-10 h-10 rounded-xl bg-surface-container-lowest border border-[#EADBCE] text-on-surface-variant hover:text-primary hover:bg-surface-container flex items-center justify-center shadow-[0_2px_0_0_#E0D5C7] active:translate-y-0.5 active:shadow-none transition-all cursor-pointer">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <!-- Sheet Scrollable Content -->
+      <div class="px-5 py-4 overflow-y-auto space-y-4">
+
+        <!-- Radio Cards Group -->
+        <fieldset class="space-y-3">
+          <legend class="sr-only">Choose language you are learning</legend>
+
+          <!-- Option 1: English (Selected) -->
+          <label class="relative block p-4 rounded-2xl bg-surface-container-lowest border-2 border-primary shadow-[0_3px_0_0_#0D5C58] cursor-pointer transition-all">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-start gap-3.5">
+                <!-- Custom Radio Indicator (Active) -->
+                <div class="w-6 h-6 mt-0.5 rounded-full border-2 border-primary bg-primary flex items-center justify-center shrink-0">
+                  <div class="w-2.5 h-2.5 rounded-full bg-white"></div>
+                </div>
+                <div class="space-y-1">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-base font-bold text-primary">English</span>
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold bg-[#E6F5F4] text-primary border border-primary/20">
+                      Standard
+                    </span>
+                  </div>
+                  <p class="text-xs text-on-surface-variant leading-relaxed">
+                    Full IELTS, TOEFL &amp; TOEIC modules with 570 Academic Word List flashcards, speaking drills, and reading diagnostics.
+                  </p>
+                </div>
+              </div>
+              <input type="radio" name="learning_language" value="en" checked class="sr-only"/>
+            </div>
+          </label>
+
+          <!-- Option 2: Português (With Beta Badge) -->
+          <label class="relative block p-4 rounded-2xl bg-surface-container-lowest border-2 border-[#EADBCE] shadow-[0_2px_0_0_#E0D5C7] hover:border-primary/50 cursor-pointer transition-all">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-start gap-3.5">
+                <!-- Custom Radio Indicator (Inactive) -->
+                <div class="w-6 h-6 mt-0.5 rounded-full border-2 border-[#D8CFBE] bg-surface flex items-center justify-center shrink-0"></div>
+                <div class="space-y-1">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-base font-bold text-on-surface">Português</span>
+                    <!-- Beta Badge -->
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold bg-[#FFF1ED] text-coral border border-coral/30">
+                      Beta
+                    </span>
+                  </div>
+                  <p class="text-xs text-on-surface-variant leading-relaxed">
+                    Core European and Brazilian Portuguese fundamentals, conversational verbs, and essential CEFR A1–B2 vocabulary sets.
+                  </p>
+                </div>
+              </div>
+              <input type="radio" name="learning_language" value="pt" class="sr-only"/>
+            </div>
+          </label>
+        </fieldset>
+
+        <!-- Information / Guarantee Note Box -->
+        <div class="p-3.5 rounded-xl bg-surface-container-low border border-[#EADBCE] flex items-start gap-3">
+          <span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">info</span>
+          <p class="text-xs text-on-surface leading-relaxed">
+            Your review cards, voice prompts, and Notebook follow the language you pick. Your existing English study history stays exactly as it is.
+          </p>
+        </div>
+
+        <!-- Teacher Coach Slot (Ama placeholder per specifications) -->
+        <div class="p-3.5 rounded-2xl bg-surface-container-lowest border border-[#EADBCE] shadow-[0_2px_0_0_#E0D5C7] flex items-center gap-3">
+          <!-- Empty rounded placeholder labeled [teacher-slot] -->
+          <div class="w-12 h-12 rounded-xl border-2 border-dashed border-primary/40 bg-surface-container flex flex-col items-center justify-center text-primary shrink-0" title="teacher-slot">
+            <span class="material-symbols-outlined text-[18px]">psychology</span>
+            <span class="text-[8px] font-bold leading-none mt-0.5">[teacher-slot]</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="text-xs font-bold text-primary">Ama</span>
+              <span class="text-[10px] font-semibold text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Learning Advisor</span>
+            </div>
+            <p class="text-xs text-on-surface-variant italic leading-snug mt-0.5">
+              "Switch anytime without losing your active spaced-repetition memory intervals."
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sheet Action Buttons: Coral Save and Quiet Cancel -->
+      <div class="p-5 pt-3 pb-6 bg-surface border-t border-[#EADBCE] flex flex-col gap-2.5">
+        <!-- Coral Primary Action Button (Tactile Raised Feel) -->
+        <button type="button" class="w-full min-h-[50px] px-5 py-3 rounded-2xl bg-coral border-[1.5px] border-coral-border text-white text-base font-bold flex items-center justify-center gap-2 shadow-[0_4px_0_0_#C84423] hover:bg-coral-hover hover:-translate-y-0.5 active:translate-y-1 active:shadow-none transition-all duration-100 cursor-pointer">
+          <span>Save Changes</span>
+          <span class="material-symbols-outlined text-[20px]">check</span>
+        </button>
+
+        <!-- Quiet Cancel Secondary Button -->
+        <button type="button" class="w-full min-h-[46px] px-5 py-2.5 rounded-2xl bg-transparent border border-[#D8CFBE] text-on-surface-variant text-sm font-semibold flex items-center justify-center hover:bg-surface-container hover:text-on-surface active:translate-y-0.5 transition-colors cursor-pointer">
+          <span>Cancel</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- 4. BOTTOM NAVIGATION BAR (Dimmed behind bottom sheet per instructions) -->
+    <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] z-10 bg-surface-container-lowest border-t border-[#EADBCE] px-2 py-2 flex justify-around items-center opacity-30 select-none pointer-events-none" aria-hidden="true">
+      
+      <!-- Tab 1: Today -->
+      <div class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant px-1 py-1">
+        <span class="material-symbols-outlined text-[22px]">calendar_today</span>
+        <span class="text-[11px] font-semibold mt-0.5">Today</span>
+      </div>
+
+      <!-- Tab 2: Vocab -->
+      <div class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant px-1 py-1">
+        <span class="material-symbols-outlined text-[22px]">menu_book</span>
+        <span class="text-[11px] font-semibold mt-0.5">Vocab</span>
+      </div>
+
+      <!-- Tab 3: Skills -->
+      <div class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant px-1 py-1">
+        <span class="material-symbols-outlined text-[22px]">psychology</span>
+        <span class="text-[11px] font-semibold mt-0.5">Skills</span>
+      </div>
+
+      <!-- Tab 4: Tests -->
+      <div class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant px-1 py-1">
+        <span class="material-symbols-outlined text-[22px]">assignment</span>
+        <span class="text-[11px] font-semibold mt-0.5">Tests</span>
+      </div>
+
+      <!-- Tab 5: Me (Settings belongs to the Me profile hub, highlighted) -->
+      <div class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] bg-primary text-white rounded-xl px-2.5 py-1 shadow-[0_2px_0_0_#073B38]">
+        <span class="material-symbols-outlined text-[22px]">person</span>
+        <span class="text-[11px] font-bold mt-0.5">Me</span>
+      </div>
+
+    </nav>
+
+  </div>
+
+</body>
+</html>

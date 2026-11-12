@@ -1,0 +1,75 @@
+{
+ "id": "auto_hotel_speak_7c0cea",
+ "scene": "hotel",
+ "template": "speak",
+ "area": "speaking",
+ "cefr": "A1",
+ "point": "Could you call a taxi for me?",
+ "series": "Hotel English #12",
+ "title": "Say this at the hotel: \"Could you call a taxi for me?\"",
+ "description": "Say it out loud with Ama at the hotel: \"Could you call a taxi for me?\"\nComment your answer below and follow for daily English (Hotel English #12).\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=social&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_speak_7c0cea",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#hotelenglish",
+  "#speakenglish",
+  "#pronunciation",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/hotel/auto_hotel_speak_7c0cea/cine-auto-hotel-speak-7c0cea-en-v3.mp4",
+ "cover": "shorts/hotel/auto_hotel_speak_7c0cea/cine-auto-hotel-speak-7c0cea-en-v3.jpg",
+ "ci_artifact": "cine-hotel-20",
+ "run": "20",
+ "platforms": {
+  "tiktok": {
+   "title": "Say this at the hotel: \"Could you call a taxi for me?\"",
+   "caption": "Say it out loud with Ama at the hotel: \"Could you call a taxi for me?\"\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_speak_7c0cea",
+   "link": "https://lexkite.com/en/speaking/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_speak_7c0cea",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#speakenglish",
+    "#pronunciation",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Say it out loud with Ama at the hotel: \"Could you call a taxi for me?\"\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_speak_7c0cea\n#learnenglish #englishtips #hotelenglish #speakenglish #pronunciation #travelenglish"
+  },
+  "reels": {
+   "title": "Say this at the hotel: \"Could you call a taxi for me?\"",
+   "caption": "Say it out loud with Ama at the hotel: \"Could you call a taxi for me?\"\nComment your answer below and follow for daily English (Hotel English #12).\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_speak_7c0cea",
+   "link": "https://lexkite.com/en/speaking/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_speak_7c0cea",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#speakenglish",
+    "#pronunciation",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Say it out loud with Ama at the hotel: \"Could you call a taxi for me?\"\nComment your answer below and follow for daily English (Hotel English #12).\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_speak_7c0cea\n#learnenglish #englishtips #hotelenglish #speakenglish #pronunciation #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Say this at the hotel: \"Could you call a taxi for me?\"",
+   "caption": "Say it out loud with Ama at the hotel: \"Could you call a taxi for me?\"\nComment your answer below and follow for daily English (Hotel English #12).\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_speak_7c0cea",
+   "link": "https://lexkite.com/en/speaking/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_speak_7c0cea",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#speakenglish"
+   ],
+   "caption_with_tags": "Say it out loud with Ama at the hotel: \"Could you call a taxi for me?\"\nComment your answer below and follow for daily English (Hotel English #12).\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_speak_7c0cea\n#shorts #learnenglish #englishtips #hotelenglish #speakenglish"
+  }
+ },
+ "slot": {
+  "date": "2026-11-03",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

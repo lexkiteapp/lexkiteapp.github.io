@@ -1,0 +1,26 @@
+{
+ "topic": "Slang at the cafe: \"It's on me\" vs textbook English",
+ "scene": "cafe",
+ "seed": "iv-on-me",
+ "vars": {
+  "idiom": "it's on me",
+  "hookLine": "Wait, it's on me?",
+  "textbook": "My textbook says: I will pay for you, okay?",
+  "meaning": "It's on me just means I'm paying. It's a friendly offer.",
+  "native": "Put your wallet away. Coffee today? It's on me.",
+  "tip": "use it's on me with friends. Want to return the favor? Next one's on me.",
+  "textbookCard": "I will pay for you.",
+  "nativeCard": "It's on me!"
+ },
+ "lines": {
+  "hook": {
+   "expr": "surprised",
+   "gesture": "hands on cheeks"
+  }
+ },
+ "hashtags": [
+  "englishslang",
+  "idioms",
+  "learnenglish"
+ ]
+}

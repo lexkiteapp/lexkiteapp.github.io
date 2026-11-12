@@ -1,0 +1,59 @@
+{
+ "id": "sense-gold-20261103",
+ "source": "vocab",
+ "n": 100,
+ "checked": [
+  {
+   "id": "power#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "struggle#v",
+   "ok": true,
+   "note": "fam nên có struggle (n) – cổng đã sửa: cho phép cùng chữ khác từ loại"
+  },
+  {
+   "id": "on the other hand#phrase",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "the#det",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "regard#v",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "stock#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "except#prep",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "commit#v",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "chip#n",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "id": "go through#phrv",
+   "ok": true,
+   "note": ""
+  }
+ ],
+ "status": "published",
+ "by": "Opus soát 10/100 (10 %): nghĩa, CEFR, ví dụ, collocation"
+}

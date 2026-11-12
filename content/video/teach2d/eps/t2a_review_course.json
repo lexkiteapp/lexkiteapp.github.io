@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_course",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: course.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a series of lessons on a particular subject.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I'm taking an online course in photography.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "course",
+  "ipa": "/kɔːrs/",
+  "mean": "a series of lessons on a particular subject",
+  "ex": "I'm taking an online course in photography.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=course",
+  "link": "https://lexkite.com/app/#/review?w=course",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 25.7,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"course\" mean?",
+  "keyword": "course",
+  "value": "Course means a series of lessons on a particular subject.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=course",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"course\" mean?",
+    "description": "Course means a series of lessons on a particular subject.\n\nReview your words, free: https://lexkite.com/app/#/review?w=course\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "course",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"course\" mean?\n\nCourse means a series of lessons on a particular subject.\n\nReview your words, free: https://lexkite.com/app/#/review?w=course"
+   },
+   "instagram": {
+    "caption": "What does \"course\" mean?\n\nCourse means a series of lessons on a particular subject.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"course\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a series of lessons on a particular subject. Course means a series of lessons on a particular subject. More practice like this (free): {link}"
+ }
+}

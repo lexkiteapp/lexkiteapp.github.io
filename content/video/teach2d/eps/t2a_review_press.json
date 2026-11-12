@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_press",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: press.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to push something against something else.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Press the green button to start the machine.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "press",
+  "ipa": "/pres/",
+  "mean": "to push something against something else",
+  "ex": "Press the green button to start the machine.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=press",
+  "link": "https://lexkite.com/app/#/review?w=press",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 41,
+  "seconds": 25.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"press\" mean?",
+  "keyword": "press",
+  "value": "Press means to push something against something else.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=press",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"press\" mean?",
+    "description": "Press means to push something against something else.\n\nReview your words, free: https://lexkite.com/app/#/review?w=press\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "press",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"press\" mean?\n\nPress means to push something against something else.\n\nReview your words, free: https://lexkite.com/app/#/review?w=press"
+   },
+   "instagram": {
+    "caption": "What does \"press\" mean?\n\nPress means to push something against something else.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"press\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to push something against something else. Press means to push something against something else. Practice it with a free quiz: {link}"
+ }
+}

@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Desktop Vocab Hub | Tactile Night Edition</title>
+<!-- Material Symbols Outlined literal link -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "error": "#ffb4ab",
+            "surface-variant": "#2b373a",
+            "surface-container-highest": "#2b373a",
+            "secondary": "#ffb4a6",
+            "on-surface-variant": "#bcc9c7",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-secondary-container": "#ffa493",
+            "surface-tint": "#6bd8ce",
+            "surface-bright": "#2f3b3e",
+            "on-tertiary": "#402e00",
+            "inverse-on-surface": "#263236",
+            "surface-dim": "#091518",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "error-container": "#93000a",
+            "outline-variant": "#3d4947",
+            "on-primary-fixed": "#00201e",
+            "surface": "#091518",
+            "secondary-fixed": "#ffdad3",
+            "surface-container": "#162125",
+            "primary": "#6bd8ce",
+            "on-primary-container": "#00322e",
+            "primary-fixed": "#88f5ea",
+            "primary-container": "#2ba39a",
+            "on-error-container": "#ffdad6",
+            "on-error": "#690005",
+            "tertiary-container": "#ba8b00",
+            "tertiary-fixed": "#ffdf9e",
+            "on-secondary": "#660800",
+            "secondary-fixed-dim": "#ffb4a6",
+            "primary-fixed-dim": "#6bd8ce",
+            "outline": "#879391",
+            "background": "#10191B",
+            "secondary-container": "#981201",
+            "on-primary-fixed-variant": "#00504b",
+            "on-background": "#E8F1F0",
+            "surface-container-lowest": "#051013",
+            "tertiary-fixed-dim": "#f4bf40",
+            "surface-container-low": "#121d20",
+            "on-primary": "#003733",
+            "inverse-surface": "#d8e5e9",
+            "on-secondary-fixed": "#3f0300",
+            "tertiary": "#f4bf40",
+            "on-surface": "#E8F1F0",
+            "surface-container-high": "#202c2f",
+            "on-tertiary-container": "#392900",
+            "on-tertiary-fixed": "#261a00",
+            "inverse-primary": "#006a64",
+            /* Lexkite Tactile Night specific tokens */
+            nightCanvas: "#10191B",
+            nightSidebar: "#132023",
+            nightCard: "#172427",
+            nightSubCard: "#1E2F33",
+            nightBorder: "#263D42",
+            nightSubBorder: "#2A444A",
+            nightLedge: "#0C1517",
+            textPrimary: "#E8F1F0",
+            textMuted: "#A9BDBB",
+            accentTeal: "#2EC4B6",
+            accentTealHover: "#38E1D2",
+            tealDarkLedge: "#17635C",
+            coralMain: "#F2553B",
+            amberMain: "#FFB054",
+            coralLedge: "#B53A22",
+            inkDarkText: "#1B0B04"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "space-md": "16px",
+            "space-lg": "24px",
+            "space-sm": "8px",
+            "space-xl": "32px",
+            "space-xs": "4px",
+            "margin": "16px",
+            "gutter": "16px"
+          },
+          fontFamily: {
+            title: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            label: ["Plus Jakarta Sans", "sans-serif"]
+          },
+          fontSize: {
+            title: ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            display: ["32px", { lineHeight: "38px", fontWeight: "800" }],
+            body: ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            label: ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #10191B;
+      color: #E8F1F0;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    /* Tactile 3D Extrusion Styles (Tactile Night) */
+    .tactile-card {
+      background-color: #172427;
+      border: 1.5px solid #263D42;
+      box-shadow: 0 4px 0 #0C1517;
+      border-radius: 16px;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-card-interactive {
+      background-color: #172427;
+      border: 1.5px solid #263D42;
+      box-shadow: 0 4px 0 #0C1517;
+      border-radius: 16px;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, border-color 0.15s ease;
+      cursor: pointer;
+    }
+    .tactile-card-interactive:hover {
+      border-color: #2EC4B6;
+    }
+    .tactile-card-interactive:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #0C1517;
+    }
+
+    /* Primary CTA Tactile Button (Coral-Amber) */
+    .btn-tactile-primary {
+      background: linear-gradient(135deg, #F2553B 0%, #FFB054 100%);
+      color: #1B0B04;
+      font-weight: 800;
+      border-radius: 16px;
+      border: none;
+      box-shadow: 0 4px 0 #B53A22;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .btn-tactile-primary::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 35%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
+      border-top-left-radius: 14px;
+      border-top-right-radius: 14px;
+      pointer-events: none;
+    }
+    .btn-tactile-primary:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #B53A22;
+    }
+
+    /* Secondary Tactile Button (Tactile Night) */
+    .btn-tactile-secondary {
+      background-color: #1E2F33;
+      border: 1.5px solid #2A444A;
+      color: #E8F1F0;
+      font-weight: 700;
+      border-radius: 14px;
+      box-shadow: 0 3px 0 #0C1517;
+      transition: transform 0.08s ease, box-shadow 0.08s ease, background-color 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .btn-tactile-secondary:hover {
+      background-color: #24383D;
+    }
+    .btn-tactile-secondary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #0C1517;
+    }
+
+    /* Tactile Teal Mini Button / Action Pill */
+    .btn-tactile-teal {
+      background-color: #2EC4B6;
+      color: #10191B;
+      font-weight: 800;
+      border-radius: 12px;
+      box-shadow: 0 3px 0 #17635C;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-tactile-teal:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #17635C;
+    }
+
+    /* Striped Tactical Progress Bar */
+    .progress-bar-striped {
+      background-image: repeating-linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.2) 8px,
+        transparent 8px,
+        transparent 16px
+      );
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] min-h-screen antialiased flex flex-col justify-start">
+<!-- Desktop Canvas Container (Strict 1280px Layout) -->
+<div class="w-full max-w-[1280px] mx-auto min-h-screen flex relative">
+<!-- FIXED LEFT SIDEBAR NAVIGATION (260px Docked) -->
+<aside class="w-[260px] h-screen sticky top-0 flex-shrink-0 flex flex-col justify-between p-4 bg-[#132023] border-r border-[#22363A] z-40 select-none">
+<div class="flex flex-col gap-6">
+<!-- Logo & Target Exam Pill -->
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex items-center gap-2.5">
+<!-- Origami Kite Brand Mark -->
+<div class="w-10 h-10 rounded-xl bg-[#2EC4B6] flex items-center justify-center text-[#10191B] shadow-[0_3px_0_#17635C]">
+<span class="material-symbols-outlined text-[24px]">navigation</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display text-[22px] font-extrabold tracking-tight text-[#E8F1F0] leading-none">Lexkite</span>
+<span class="text-[10px] font-bold text-[#A9BDBB] uppercase tracking-wider mt-0.5">Desktop Mastery</span>
+</div>
+</div>
+<!-- Target Exam Pill -->
+<div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#172E31] border border-[#2EC4B6]/40 text-[#E8F1F0] font-semibold text-[11px] self-start">
+<span class="w-2 h-2 rounded-full bg-[#2EC4B6] animate-pulse"></span>
+<span>Target: IELTS Band 7.5+</span>
+</div>
+</div>
+<!-- 5 Canonical Nav Items (JSON/Prompt Aligned) -->
+<nav class="flex flex-col gap-2 mt-2">
+<!-- Item 1: Today -->
+<a class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] font-bold text-[14px] transition-all min-h-[44px]" href="#">
+<span class="material-symbols-outlined text-[22px]">today</span>
+<span>Today</span>
+</a>
+<!-- Item 2: Vocab (ACTIVELY SELECTED) -->
+<a class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl bg-[#173133] border-2 border-[#2EC4B6] text-[#E8F1F0] font-extrabold text-[14px] shadow-[0_3px_0_#0C1517] min-h-[44px]" href="#">
+<span class="material-symbols-outlined text-[22px] text-[#2EC4B6]">menu_book</span>
+<span>Vocab</span>
+<span class="ml-auto text-[11px] bg-[#2EC4B6] text-[#10191B] px-2 py-0.5 rounded-full font-bold">HUB</span>
+</a>
+<!-- Item 3: Skills -->
+<a class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] font-bold text-[14px] transition-all min-h-[44px]" href="#">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span>Skills</span>
+</a>
+<!-- Item 4: Tests -->
+<a class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] font-bold text-[14px] transition-all min-h-[44px]" href="#">
+<span class="material-symbols-outlined text-[22px]">quiz</span>
+<span>Tests</span>
+</a>
+<!-- Item 5: Me -->
+<a class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl text-[#A9BDBB] hover:bg-[#1E2F33] hover:text-[#E8F1F0] font-bold text-[14px] transition-all min-h-[44px]" href="#">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span>Me</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Bottom: Learner Kai Profile Card -->
+<div class="tactile-card p-3.5 flex flex-col gap-2.5 bg-[#172427] border-[#263D42]">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#1E2F33] text-[#2EC4B6] font-extrabold flex items-center justify-center text-[13px] border-2 border-[#2EC4B6] shadow-inner">
+            LK
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-extrabold text-[14px] text-[#E8F1F0] truncate">Learner Kai</span>
+<span class="text-[11px] font-semibold text-[#A9BDBB] truncate">Lvl 7 Word Explorer</span>
+</div>
+</div>
+<!-- Streak & XP Pills -->
+<div class="grid grid-cols-2 gap-2 pt-1">
+<div class="flex items-center justify-center gap-1.5 py-1.5 px-2 bg-[#1E2F33] rounded-lg border border-[#2A444A] text-[12px] font-bold text-[#F2553B]">
+<span class="material-symbols-outlined text-[16px] text-[#F2553B]">local_fire_department</span>
+<span>14d</span>
+</div>
+<div class="flex items-center justify-center gap-1.5 py-1.5 px-2 bg-[#1E2F33] rounded-lg border border-[#2A444A] text-[12px] font-bold text-[#FFB054]">
+<span class="material-symbols-outlined text-[16px] text-[#FFB054]">bolt</span>
+<span>820 XP</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- MAIN CONTENT AREA (Flex Grow, Scrollable Canvas) -->
+<main class="flex-1 min-w-0 px-8 py-6 pb-20 flex flex-col gap-8 bg-[#10191B]">
+<!-- Top Bar: Universal Search, Shortcuts, Streak/XP Counters -->
+<header class="flex items-center justify-between gap-4 w-full">
+<!-- Universal Search Bar -->
+<div class="flex-1 max-w-2xl relative flex items-center">
+<span class="material-symbols-outlined text-[20px] text-[#A9BDBB] absolute left-4 pointer-events-none">search</span>
+<input class="w-full h-12 pl-12 pr-28 rounded-2xl bg-[#172427] border-2 border-[#263D42] text-[#E8F1F0] placeholder-[#879391] font-medium text-[14px] focus:outline-none focus:border-[#2EC4B6] focus:ring-2 focus:ring-[#2EC4B6]/20 transition-all shadow-[0_3px_0_#0C1517]" placeholder="Search 4,200+ exam words, collocations, phrases..." type="text"/>
+<div class="absolute right-3.5 flex items-center gap-2">
+<span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-md bg-[#1E2F33] border border-[#2A444A] text-[11px] font-extrabold text-[#A9BDBB]">⌘K</span>
+<button class="p-1.5 text-[#A9BDBB] hover:text-[#E8F1F0] hover:bg-[#1E2F33] rounded-lg transition-colors" title="Filters">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Top Right Pills (Status Indicators) -->
+<div class="flex items-center gap-3 flex-shrink-0">
+<div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#172427] border-2 border-[#263D42] shadow-[0_3px_0_#0C1517] text-[13px] font-bold text-[#E8F1F0]">
+<span class="material-symbols-outlined text-[18px] text-[#F2553B]">local_fire_department</span>
+<span>14 Days</span>
+</div>
+<div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#172427] border-2 border-[#263D42] shadow-[0_3px_0_#0C1517] text-[13px] font-bold text-[#E8F1F0]">
+<span class="material-symbols-outlined text-[18px] text-[#FFB054]">bolt</span>
+<span>820 XP</span>
+</div>
+</div>
+</header>
+<!-- SECTION 1: HERO SECTION (Bento Grid: Continue Learning + Daily Ring & Word of the Day) -->
+<section class="grid grid-cols-12 gap-6 w-full items-start">
+<!-- LEFT / MAIN HERO: "Continue Learning" Tactile Card (7 Cols) -->
+<div class="col-span-12 lg:col-span-7 tactile-card p-6 flex flex-col justify-between gap-5 bg-[#172427] relative overflow-hidden">
+<!-- Top Badges & Live Status -->
+<div class="flex flex-wrap items-center justify-between gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1E3335] border border-[#2EC4B6]/40 text-[#2EC4B6] text-[11px] font-extrabold tracking-wide uppercase">
+<span class="w-2 h-2 rounded-full bg-[#2EC4B6]"></span>
+              ACTIVE DECK • IELTS 7.5+ ACADEMIC
+            </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#F2553B]/15 border border-[#F2553B]/30 text-[#ffb4a6] text-[11px] font-extrabold">
+<span class="material-symbols-outlined text-[14px] text-[#F2553B]">alarm</span>
+              Due today: 18 words
+            </span>
+</div>
+<!-- Hero Headline & Deck Description -->
+<div class="flex flex-col gap-1.5">
+<h1 class="font-display text-[26px] font-extrabold text-[#E8F1F0] leading-tight">Academic Collocations &amp; Phrasals</h1>
+<p class="text-[14px] text-[#A9BDBB] font-medium leading-relaxed">
+              Master essential high-scoring academic partnerships, prepositional idioms, and nuance discriminators for IELTS Writing &amp; Speaking.
+            </p>
+</div>
+<!-- Tactile Progress Meter -->
+<div class="flex flex-col gap-2 pt-1">
+<div class="flex justify-between items-center text-[12px] font-bold text-[#E8F1F0]">
+<span>Progress Mastery</span>
+<span class="text-[#2EC4B6] font-extrabold">42 / 120 words mastered (35%)</span>
+</div>
+<!-- Striped Physical Bar -->
+<div class="w-full h-4 bg-[#1E2F33] rounded-full border border-[#2A444A] overflow-hidden p-0.5">
+<div class="h-full bg-[#2EC4B6] progress-bar-striped rounded-full transition-all duration-500" style="width: 35%;"></div>
+</div>
+</div>
+<!-- Teacher Slot Placeholder & Coach Speech Balloon -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 p-3.5 bg-[#1A282B] rounded-xl border border-[#263D42]">
+<!-- Strictly empty teacher slot placeholder (140 x 170 Live Slot) -->
+<div class="teacher-slot w-[140px] h-[110px] sm:h-[130px] rounded-xl border-2 border-dashed border-[#2EC4B6]/60 bg-[#132023] flex flex-col items-center justify-center text-center p-2 flex-shrink-0">
+<span class="material-symbols-outlined text-[24px] text-[#2EC4B6] mb-1">cast_for_education</span>
+<span class="text-[10px] font-extrabold text-[#E8F1F0] leading-tight">TEACHER</span>
+<span class="text-[9px] text-[#A9BDBB] mt-0.5 leading-snug">140 × 170 Live Slot (Ama &amp; Carlos)</span>
+</div>
+<!-- Speech Balloon -->
+<div class="flex-1 relative bg-[#1E2F33] p-3.5 rounded-xl border border-[#2A444A] shadow-[0_2px_0_#0C1517] flex flex-col justify-center">
+<div class="flex items-center gap-1.5 text-[11px] font-extrabold text-[#2EC4B6] mb-1 uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">psychology</span>
+                Recall Coach Tip
+              </div>
+<p class="text-[13px] text-[#E8F1F0] font-semibold leading-snug">
+                “Review your 18 due words before midnight to lock memory into long-term recall!”
+              </p>
+</div>
+</div>
+<!-- Primary Tactile CTA Button -->
+<button class="btn-tactile-primary w-full h-14 text-[16px] tracking-wide mt-1">
+<span>Continue Deck (42 / 120)</span>
+<span class="material-symbols-outlined text-[20px] ml-2">arrow_forward</span>
+</button>
+</div>
+<!-- RIGHT COLUMN: Daily Goal Ring + Word of the Day (5 Cols) -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-6">
+<!-- Card A: Daily Goal Progress Ring -->
+<div class="tactile-card p-5 bg-[#172427] flex items-center gap-5">
+<!-- Circular SVG Progress Ring (14/20 XP, 70%) -->
+<div class="relative w-24 h-24 flex-shrink-0 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90 transform" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#1E2F33" stroke-width="10"></circle>
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#2EC4B6" stroke-dasharray="251.2" stroke-dashoffset="75.36" stroke-linecap="round" stroke-width="10"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-[16px] font-extrabold text-[#E8F1F0]">70%</span>
+<span class="text-[9px] font-bold text-[#A9BDBB] uppercase">14/20 XP</span>
+</div>
+</div>
+<!-- Stats & Status Text -->
+<div class="flex flex-col justify-center flex-1">
+<div class="flex items-center gap-1.5 text-[11px] font-extrabold text-[#2EC4B6] uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]">flag</span>
+                Tagesziel / Daily Goal
+              </div>
+<h3 class="text-[16px] font-extrabold text-[#E8F1F0] mt-0.5">6 XP left to reach target</h3>
+<p class="text-[12px] text-[#A9BDBB] mt-1 leading-snug">
+                Spaced repetition algorithm (FSRS-4) active. Next decay cycle calculates at 00:00.
+              </p>
+</div>
+</div>
+<!-- Card B: Word of the Day -->
+<div class="tactile-card p-5 bg-[#172427] flex flex-col gap-3.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#1E2F33] border border-[#2A444A] text-[#E8F1F0] text-[11px] font-extrabold">
+<span class="material-symbols-outlined text-[14px] text-[#FFB054]">star</span>
+                CEFR C1 • IELTS 7.5+
+              </div>
+<span class="text-[11px] font-bold text-[#A9BDBB]">WORD OF THE DAY</span>
+</div>
+<!-- Headword & Audio Button -->
+<div class="flex items-center justify-between">
+<div class="flex items-baseline gap-2.5">
+<span class="font-display text-[22px] font-extrabold text-[#E8F1F0]">resilient</span>
+<span class="text-[13px] font-medium text-[#A9BDBB]">/rɪˈzɪl.i.ənt/</span>
+<span class="text-[12px] font-bold text-[#2EC4B6] italic">(adj.)</span>
+</div>
+<!-- Pronunciation Button -->
+<button class="w-10 h-10 rounded-xl bg-[#1E2F33] border-2 border-[#2A444A] text-[#E8F1F0] flex items-center justify-center hover:bg-[#25393E] hover:border-[#2EC4B6] transition-colors shadow-[0_3px_0_#0C1517] active:translate-y-0.5 active:shadow-[0_1px_0_#0C1517]" title="Play audio pronunciation">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+<!-- Definition -->
+<p class="text-[13px] text-[#E8F1F0] font-semibold leading-snug">
+              Able to withstand or recover quickly from difficult, severe, or harsh conditions.
+            </p>
+<!-- Corpus Quote -->
+<div class="p-3 bg-[#1A282B] rounded-xl border border-[#263D42] text-[12px] text-[#A9BDBB] leading-relaxed italic border-l-4 border-l-[#2EC4B6]">
+              “The local tourism economy proved extraordinarily resilient despite prolonged global supply restrictions.” 
+              <span class="block text-[10px] font-bold text-[#E8F1F0] not-italic mt-1">— Cambridge Academic Corpus</span>
+</div>
+<!-- Secondary Tactile Button -->
+<button class="btn-tactile-secondary w-full h-11 text-[13px] mt-1">
+<span class="material-symbols-outlined text-[16px] mr-1.5 text-[#2EC4B6]">bookmark_add</span>
+              + Save to Study Deck (+5 XP)
+            </button>
+</div>
+</div>
+</section>
+<!-- SECTION 2: CURATED EXAM TOPICS (3 Columns × 2 Rows Tactile Cards) -->
+<section class="flex flex-col gap-4 w-full">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[22px] text-[#2EC4B6]">category</span>
+<h2 class="font-title text-[20px] font-extrabold text-[#E8F1F0]">Curated Exam Topics</h2>
+</div>
+<span class="text-[12px] font-bold text-[#A9BDBB]">6 Modular Vocabulary Modules</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+<!-- 1. Environment & Ecology -->
+<div class="tactile-card-interactive p-5 flex flex-col justify-between gap-4">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-2xl bg-[#1E2F33] text-[#2EC4B6] flex items-center justify-center border border-[#2A444A]">
+<span class="material-symbols-outlined text-[26px]">eco</span>
+</div>
+<span class="text-[11px] font-extrabold px-2.5 py-1 bg-[#1E2F33] border border-[#2A444A] rounded-full text-[#A9BDBB]">
+                40 words
+              </span>
+</div>
+<div>
+<h3 class="font-title text-[17px] font-extrabold text-[#E8F1F0] leading-snug">Environment &amp; Ecology</h3>
+<p class="text-[12px] text-[#A9BDBB] mt-1">Biodiversity, decarbonization, conservation</p>
+</div>
+<div class="flex flex-col gap-1.5 pt-2 border-t border-[#263D42]">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-[#A9BDBB]">Mastery</span>
+<span class="text-[#2EC4B6] font-extrabold">65%</span>
+</div>
+<div class="w-full h-2.5 bg-[#1E2F33] rounded-full border border-[#2A444A] overflow-hidden">
+<div class="h-full bg-[#2EC4B6] rounded-full" style="width: 65%;"></div>
+</div>
+</div>
+</div>
+<!-- 2. Urban Planning & Tech -->
+<div class="tactile-card-interactive p-5 flex flex-col justify-between gap-4">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-2xl bg-[#1E2F33] text-[#2EC4B6] flex items-center justify-center border border-[#2A444A]">
+<span class="material-symbols-outlined text-[26px]">location_city</span>
+</div>
+<span class="text-[11px] font-extrabold px-2.5 py-1 bg-[#1E2F33] border border-[#2A444A] rounded-full text-[#A9BDBB]">
+                40 words
+              </span>
+</div>
+<div>
+<h3 class="font-title text-[17px] font-extrabold text-[#E8F1F0] leading-snug">Urban Planning &amp; Tech</h3>
+<p class="text-[12px] text-[#A9BDBB] mt-1">Infrastructure, smart grids, transit density</p>
+</div>
+<div class="flex flex-col gap-1.5 pt-2 border-t border-[#263D42]">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-[#A9BDBB]">Mastery</span>
+<span class="text-[#2EC4B6] font-extrabold">40%</span>
+</div>
+<div class="w-full h-2.5 bg-[#1E2F33] rounded-full border border-[#2A444A] overflow-hidden">
+<div class="h-full bg-[#2EC4B6] rounded-full" style="width: 40%;"></div>
+</div>
+</div>
+</div>
+<!-- 3. Education & Pedagogy -->
+<div class="tactile-card-interactive p-5 flex flex-col justify-between gap-4">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-2xl bg-[#1E2F33] text-[#FFB054] flex items-center justify-center border border-[#2A444A]">
+<span class="material-symbols-outlined text-[26px]">school</span>
+</div>
+<span class="text-[11px] font-extrabold px-2.5 py-1 bg-[#1E2F33] border border-[#2A444A] rounded-full text-[#A9BDBB]">
+                40 words
+              </span>
+</div>
+<div>
+<h3 class="font-title text-[17px] font-extrabold text-[#E8F1F0] leading-snug">Education &amp; Pedagogy</h3>
+<p class="text-[12px] text-[#A9BDBB] mt-1">Curricula, vocational training, literacy</p>
+</div>
+<div class="flex flex-col gap-1.5 pt-2 border-t border-[#263D42]">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-[#A9BDBB]">Mastery</span>
+<span class="text-[#2EC4B6] font-extrabold">80%</span>
+</div>
+<div class="w-full h-2.5 bg-[#1E2F33] rounded-full border border-[#2A444A] overflow-hidden">
+<div class="h-full bg-[#2EC4B6] rounded-full" style="width: 80%;"></div>
+</div>
+</div>
+</div>
+<!-- 4. Business & Economics -->
+<div class="tactile-card-interactive p-5 flex flex-col justify-between gap-4">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-2xl bg-[#1E2F33] text-[#F2553B] flex items-center justify-center border border-[#2A444A]">
+<span class="material-symbols-outlined text-[26px]">trending_up</span>
+</div>
+<span class="text-[11px] font-extrabold px-2.5 py-1 bg-[#1E2F33] border border-[#2A444A] rounded-full text-[#A9BDBB]">
+                40 words
+              </span>
+</div>
+<div>
+<h3 class="font-title text-[17px] font-extrabold text-[#E8F1F0] leading-snug">Business &amp; Economics</h3>
+<p class="text-[12px] text-[#A9BDBB] mt-1">Fiscal policy, inflation metrics, global trade</p>
+</div>
+<div class="flex flex-col gap-1.5 pt-2 border-t border-[#263D42]">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-[#A9BDBB]">Mastery</span>
+<span class="text-[#2EC4B6] font-extrabold">25%</span>
+</div>
+<div class="w-full h-2.5 bg-[#1E2F33] rounded-full border border-[#2A444A] overflow-hidden">
+<div class="h-full bg-[#2EC4B6] rounded-full" style="width: 25%;"></div>
+</div>
+</div>
+</div>
+<!-- 5. Health, Diet & Mind -->
+<div class="tactile-card-interactive p-5 flex flex-col justify-between gap-4">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-2xl bg-[#1E2F33] text-[#2EC4B6] flex items-center justify-center border border-[#2A444A]">
+<span class="material-symbols-outlined text-[26px]">favorite</span>
+</div>
+<span class="text-[11px] font-extrabold px-2.5 py-1 bg-[#1E2F33] border border-[#2A444A] rounded-full text-[#A9BDBB]">
+                40 words
+              </span>
+</div>
+<div>
+<h3 class="font-title text-[17px] font-extrabold text-[#E8F1F0] leading-snug">Health, Diet &amp; Mind</h3>
+<p class="text-[12px] text-[#A9BDBB] mt-1">Mental resilience, preventive care, nutrition</p>
+</div>
+<div class="flex flex-col gap-1.5 pt-2 border-t border-[#263D42]">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-[#A9BDBB]">Mastery</span>
+<span class="text-[#2EC4B6] font-extrabold">90%</span>
+</div>
+<div class="w-full h-2.5 bg-[#1E2F33] rounded-full border border-[#2A444A] overflow-hidden">
+<div class="h-full bg-[#2EC4B6] rounded-full" style="width: 90%;"></div>
+</div>
+</div>
+</div>
+<!-- 6. Abstract & Nuances -->
+<div class="tactile-card-interactive p-5 flex flex-col justify-between gap-4">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-2xl bg-[#1E2F33] text-[#A9BDBB] flex items-center justify-center border border-[#2A444A]">
+<span class="material-symbols-outlined text-[26px]">forum</span>
+</div>
+<span class="text-[11px] font-extrabold px-2.5 py-1 bg-[#1E2F33] border border-[#2A444A] rounded-full text-[#A9BDBB]">
+                40 words
+              </span>
+</div>
+<div>
+<h3 class="font-title text-[17px] font-extrabold text-[#E8F1F0] leading-snug">Abstract &amp; Nuances</h3>
+<p class="text-[12px] text-[#A9BDBB] mt-1">Concession qualifiers, hedging, rhetoric</p>
+</div>
+<div class="flex flex-col gap-1.5 pt-2 border-t border-[#263D42]">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-[#A9BDBB]">Mastery</span>
+<span class="text-[#2EC4B6] font-extrabold">15%</span>
+</div>
+<div class="w-full h-2.5 bg-[#1E2F33] rounded-full border border-[#2A444A] overflow-hidden">
+<div class="h-full bg-[#2EC4B6] rounded-full" style="width: 15%;"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: "MY DECKS" LIST & MANAGEMENT -->
+<section class="flex flex-col gap-4 w-full">
+<!-- Section Header with "+ New Deck" Secondary CTA -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[22px] text-[#2EC4B6]">collections_bookmark</span>
+<h2 class="font-title text-[20px] font-extrabold text-[#E8F1F0]">My Personal Decks</h2>
+</div>
+<button class="btn-tactile-secondary h-11 px-4 text-[13px]">
+<span class="material-symbols-outlined text-[18px] mr-1.5 text-[#2EC4B6]">add_box</span>
+            + New Deck
+          </button>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Deck Item 1 -->
+<div class="tactile-card p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-[#172427]">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-[#1E2F33] border-2 border-[#2A444A] flex items-center justify-center text-[#F2553B] flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">warning</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-title text-[16px] font-extrabold text-[#E8F1F0]">Exam Traps: Confused Pairs</h4>
+<div class="flex flex-wrap items-center gap-2 mt-1 text-[12px] font-semibold text-[#A9BDBB]">
+<span>18 words total</span>
+<span>•</span>
+<span class="text-[#F2553B] font-extrabold">8 due today</span>
+<span>•</span>
+<span class="px-2 py-0.5 rounded bg-[#1E2F33] border border-[#2A444A] text-[11px] font-bold text-[#E8F1F0]">in 2h</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 self-end md:self-auto">
+<button class="btn-tactile-primary h-11 px-5 text-[14px]">
+<span>Review (8)</span>
+<span class="material-symbols-outlined text-[18px] ml-1.5">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Deck Item 2 -->
+<div class="tactile-card p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-[#172427]">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-[#1E2F33] border-2 border-[#2EC4B6]/40 flex items-center justify-center text-[#2EC4B6] flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">join_inner</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-title text-[16px] font-extrabold text-[#E8F1F0]">Task 2 Cohesion Connectors</h4>
+<div class="flex flex-wrap items-center gap-2 mt-1 text-[12px] font-semibold text-[#A9BDBB]">
+<span>24 words total</span>
+<span>•</span>
+<span class="text-[#2EC4B6] font-extrabold">4 due</span>
+<span>•</span>
+<span class="px-2 py-0.5 rounded bg-[#1A3332] text-[11px] font-bold text-[#2EC4B6]">100% memorized</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 self-end md:self-auto">
+<button class="btn-tactile-secondary h-11 px-5 text-[14px]">
+<span>Practice (4)</span>
+<span class="material-symbols-outlined text-[18px] ml-1.5 text-[#2EC4B6]">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Deck Item 3 -->
+<div class="tactile-card p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-[#172427]">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-[#1E2F33] border-2 border-[#2A444A] flex items-center justify-center text-[#FFB054] flex-shrink-0">
+<span class="material-symbols-outlined text-[24px]">record_voice_over</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-title text-[16px] font-extrabold text-[#E8F1F0]">Speaking Idioms &amp; Collocations</h4>
+<div class="flex flex-wrap items-center gap-2 mt-1 text-[12px] font-semibold text-[#A9BDBB]">
+<span>32 words total</span>
+<span>•</span>
+<span class="text-[#E8F1F0] font-extrabold">6 due</span>
+<span>•</span>
+<span class="px-2 py-0.5 rounded bg-[#1E2F33] border border-[#2A444A] text-[11px] font-bold text-[#A9BDBB]">75% memorized</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 self-end md:self-auto">
+<button class="btn-tactile-secondary h-11 px-5 text-[14px]">
+<span>Review (6)</span>
+<span class="material-symbols-outlined text-[18px] ml-1.5 text-[#2EC4B6]">play_arrow</span>
+</button>
+</div>
+</div>
+<!-- Special Integration Card: Import Anki Deck -->
+<div class="tactile-card p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-[#182C2E] border-2 border-[#2EC4B6]/40">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-[#1E2F33] border-2 border-[#2EC4B6] flex items-center justify-center text-[#2EC4B6] flex-shrink-0 shadow-[0_3px_0_#17635C]">
+<span class="material-symbols-outlined text-[24px]">sync_alt</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h4 class="font-title text-[16px] font-extrabold text-[#E8F1F0]">Import Anki Deck (.apkg)</h4>
+<span class="text-[10px] font-extrabold px-2 py-0.5 bg-[#2EC4B6] text-[#10191B] rounded-md uppercase">FSRS &amp; SM-2</span>
+</div>
+<p class="text-[12px] font-semibold text-[#A9BDBB] mt-0.5">
+                  Migrate existing flashcards seamlessly with retained spaced repetition stability metrics.
+                </p>
+</div>
+</div>
+<div class="flex items-center gap-3 self-end md:self-auto">
+<button class="btn-tactile-teal h-11 px-5 text-[13px] flex items-center">
+<span class="material-symbols-outlined text-[18px] mr-1.5">file_download</span>
+<span>Sync / Import</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<script>
+    // Audio pronunciation micro-interaction feedback
+    document.addEventListener('DOMContentLoaded', () => {
+      const audioButtons = document.querySelectorAll('button[title="Play audio pronunciation"]');
+      audioButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const icon = btn.querySelector('.material-symbols-outlined');
+          if (icon) {
+            icon.textContent = 'graphic_eq';
+            setTimeout(() => {
+              icon.textContent = 'volume_up';
+            }, 1200);
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

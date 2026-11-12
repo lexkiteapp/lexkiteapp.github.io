@@ -1,0 +1,47 @@
+# Kho kịch bản video ngắn – CHỈ chữ (không dựng, không credit Kling, không đăng). docs/VIDEO-SCALE-PLAN.md §16.
+# Sinh (Gemini, mô hình KHÁC kho lời giải) + QC tất định + chấm chéo Llama 70B; tiếp tục được, không trùng điểm học.
+# Lời giải được ưu tiên: kho chỉ dùng 3.6-flash / 3.5-flash / 3-flash-preview (lời giải dùng 3.8-flash) và tối đa 4.000/10.000 neuron; tự đỏ khi không sinh/chấm được gì.
+name: Kho kịch bản video (sinh + QC)
+on:
+  schedule:
+    - cron: '50 0 * * *'   # 07:20 VN: neuron Workers AI vừa làm mới (trần 4.000 → lời giải còn ≥ 6.000); Gemini dùng mô hình lời giải KHÔNG dùng
+  workflow_dispatch:
+    inputs:
+      max: { description: 'Số kịch bản tối đa lượt này', default: '400' }
+      calls: { description: 'Số lần gọi Gemini tối đa', default: '60' }
+      neurons: { description: 'Trần neuron Workers AI cho giám khảo (để dành cho lời giải)', default: '4000' }
+      cap: { description: 'Tối đa điểm cùng loại/lô (thử nghiệm: 2)', default: '6' }
+permissions:
+  contents: write
+  id-token: write   # JWT OIDC cho /api/lexai
+concurrency: { group: script-bank, cancel-in-progress: false }
+jobs:
+  bank:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Thuê tài nguyên (điều phối việc nền, docs/JOBS.md) – neuron Workers AI tài khoản 2 theo phần cấp; tài khoản chính nền = 0
+        id: lease
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs acquire script-bank
+      - name: Sinh + QC + chấm
+        env:  # ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite → GrabCast → Workers AI tài khoản 2 (neuron = phần cấp điều phối) → GrabCast Groq
+          GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+          CF_AI_TOKEN_2: ${{ secrets.CF_AI_TOKEN_2 }}
+          CF_ACCOUNT_2: ${{ secrets.CF_ACCOUNT_2 }}
+          AI_POOL_GC_MAX: '8000'
+        if: ${{ steps.lease.outputs.skip != '1' }}
+        run: node scripts/scriptbank/job.mjs --max "${{ github.event.inputs.max || '400' }}" --calls "${{ github.event.inputs.calls || '60' }}" --neurons "${{ steps.lease.outputs.ai_b_neurons || 0 }}" --cap "${{ github.event.inputs.cap || '6' }}"
+      - name: Lưu kết quả
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        run: |
+          test -n "$(git status --porcelain content/video/scripts web/data/script-bank.json)" || { echo 'không có thay đổi'; exit 0; }
+          bash scripts/ci/push-main.sh "Kho kịch bản video: lô tự động" content/video/scripts web/data/script-bank.json
+      - name: Trả thuê
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs release script-bank --status "${{ job.status }}"

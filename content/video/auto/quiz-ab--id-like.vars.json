@@ -1,0 +1,19 @@
+{
+ "topic": "Cafe English quiz: \"I like\" or \"I'd like\"?",
+ "scene": "cafe",
+ "seed": "q-id-like",
+ "vars": {
+  "question": "I like or I'd like?",
+  "optionA": "I like a latte, please.",
+  "optionB": "I'd like a latte, please.",
+  "answer": "It's B, I'd like. It means I want, and it sounds polite.",
+  "example": "Exactly! I'd like a muffin too, please.",
+  "tip": "I like is about always. I'd like is about right now.",
+  "kw": "I'd like"
+ },
+ "hashtags": [
+  "englishquiz",
+  "grammarquiz",
+  "testyourenglish"
+ ]
+}

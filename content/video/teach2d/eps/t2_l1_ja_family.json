@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_family",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Family size in English!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My family is four people.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: There are four people in my family.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use there are, then say the number.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "There are! There are five people in my family.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My family is four people.",
+  "right": "There are four people in my family.",
+  "strike": "is",
+  "why": "Use there are, then say the number.",
+  "memory": "There are four people in my family.",
+  "quiz": {
+   "stem": "___ five people in my family.",
+   "options": [
+    "There is",
+    "There are"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "家族は4人、英語では？",
+   "tip": "「My family is four people」は不自然。人数は “There are ~ people in my family” と言います。",
+   "caption": "「家族は4人です」を “My family is four people” と言っていませんか？🙈 自然な英語は “There are four people in my family” です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“There are”。人数を言うときの形を覚えよう。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Four people in your family?",
+   "tip": "“My family is four people” sounds odd. Say “There are ~ people in my family”.",
+   "caption": "Do you say “My family is four people”? 🙈 The natural way is “There are four people in my family”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "家族は4人、英語では？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "家族は4人、英語では？",
+  "keyword": "There are four people in my family.",
+  "value": "「My family is four people」は不自然。人数は “There are ~ people in my family” と言います。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "家族は4人、英語では？",
+    "description": "「家族は4人です」を “My family is four people” と言っていませんか？🙈 自然な英語は “There are four people in my family” です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "There are four people in my family.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "「家族は4人です」を “My family is four people” と言っていませんか？🙈 自然な英語は “There are four people in my family” です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "「家族は4人です」を “My family is four people” と言っていませんか？🙈 自然な英語は “There are four people in my family” です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "家族は4人、英語では？ #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“There are”。人数を言うときの形を覚えよう。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

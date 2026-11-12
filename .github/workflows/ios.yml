@@ -1,0 +1,72 @@
+# Tự build app iOS cho Simulator trên máy macOS của GitHub – miễn phí cho repo công khai, không cần ký (chưa có Apple Developer).
+# Mục đích: bắt lỗi build sớm (Capacitor/SPM/Info.plist). Kết quả: lexkite-ios-sim.zip (App.app) để kéo thả vào Simulator.
+# Bản ký + TestFlight: .github/workflows/ios-testflight.yml (App Store Connect API key, secret ASC_*).
+name: Build iOS (simulator)
+on:
+  push:
+    branches: [main]
+    paths: ['mobile/**', 'scripts/build-mobile.sh', 'scripts/ios-widget-render.swift', '.github/workflows/ios.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ios
+  cancel-in-progress: true
+jobs:
+  sim:
+    runs-on: macos-15
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # App Store Connect (từ 28/04/2026) chỉ nhận bản build bằng Xcode 26+ / iOS 26 SDK → build kiểm tra bằng đúng Xcode đó
+      - name: Chọn Xcode 26 (mới nhất có trên máy chủ)
+        run: |
+          X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          if [ -n "$X" ]; then sudo xcode-select -s "$X/Contents/Developer"; else echo "::warning::Máy chủ chưa có Xcode 26 – bản này KHÔNG nộp App Store được (đổi runs-on: macos-26)"; fi
+          xcodebuild -version
+      - uses: actions/cache@v4   # sharp (mobile/, Capacitor) tải libvips ~7 MB từ github.com/lovell/sharp-libvips: lưu để lượt sau không phụ thuộc mạng (09/11 iOS E2E đỏ 'Request timed out' rồi biên dịch lỗi)
+        with:
+          path: ~/.npm/_libvips
+          key: sharp-libvips-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('mobile/package-lock.json') }}
+      - name: Build web → mobile/www → cap sync
+        run: |
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
+          ./scripts/build-mobile.sh
+      - name: xcodebuild (iphonesimulator, không ký)
+        working-directory: mobile/ios/App
+        run: |
+          xcodebuild -project App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO build | tail -40
+          test -d build/Build/Products/Debug-iphonesimulator/App.app
+          cd build/Build/Products/Debug-iphonesimulator && zip -qry "$GITHUB_WORKSPACE/lexkite-ios-sim.zip" App.app
+      # Widget (WidgetKit) không đặt lên màn hình chính bằng lệnh được → render chính WidgetViews.swift bằng SwiftUI trên macOS
+      - name: Ảnh widget màn hình chính/khóa (sáng/tối, vi + ar RTL)
+        continue-on-error: true
+        run: |
+          mkdir -p shots
+          swiftc -parse-as-library mobile/ios/App/LexkiteWidget/WidgetSnapshot.swift mobile/ios/App/LexkiteWidget/WidgetViews.swift mobile/ios/App/LexkiteWidget/WordFeed.swift mobile/ios/App/LexkiteWidget/WordViews.swift \
+            scripts/ios-widget-render.swift -o "$RUNNER_TEMP/lexrender"
+          "$RUNNER_TEMP/lexrender" shots
+      - name: Chụp màn hình demo trên iPhone giả lập (xem nhanh mỗi bản build)
+        continue-on-error: true
+        run: |
+          DEV=$(xcrun simctl list devices available | grep -m1 -oE 'iPhone 1[5-9][^(]*\(([A-F0-9-]+)\)' | grep -oE '[A-F0-9-]{36}')
+          xcrun simctl boot "$DEV"; xcrun simctl bootstatus "$DEV" -b
+          APP=mobile/ios/App/build/Build/Products/Debug-iphonesimulator/App.app
+          xcrun simctl install "$DEV" "$APP"; mkdir -p shots
+          xcrun simctl launch "$DEV" com.lexkite.app; sleep 12; xcrun simctl io "$DEV" screenshot shots/ios-1-start.png
+          xcrun simctl ui "$DEV" appearance dark; sleep 3; xcrun simctl io "$DEV" screenshot shots/ios-2-dark.png
+          xcrun simctl openurl "$DEV" "capacitor://localhost/#/review" || true; sleep 5; xcrun simctl io "$DEV" screenshot shots/ios-3-review.png
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lexkite-ios-sim
+          path: lexkite-ios-sim.zip
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lexkite-ios-screenshots
+          path: shots/

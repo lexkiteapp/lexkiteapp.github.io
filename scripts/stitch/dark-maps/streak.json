@@ -1,0 +1,18 @@
+{
+ "_doc": "Bảng tối cho streak (5/11) lấy từ ref tối Stitch streak-v5/dark (key1 screen 9f0d0a3999c64bcca2c06b8a05593c0f): nền #10191B, thẻ #172427, nổi #1E2F33, viền #2A3F45/#2D464D/#37525A, gờ #0E1618, chữ #E8F1F0/#A9BDBB, teal #2BA39A/#5EEAD4, băng #1A3844/#8ECAE6, CTA gờ #9E2F1A.",
+ "config": {
+  "canvas-bg": "#10191B", "card-bg": "#172427", "card-border": "#2A3F45", "card-ledge": "#0E1618",
+  "teal-brand": "#E8F1F0", "teal-deep": "#5EEAD4", "teal-light": "#18353A", "teal-border": "#2BA39A",
+  "coral-cta": "#FF6B52", "coral-ledge": "#9E2F1A", "amber-sun": "#FFB054", "amber-subtle": "#1E2F33",
+  "ink-primary": "#E8F1F0", "ink-muted": "#A9BDBB", "frozen-blue": "#1A3844", "frozen-border": "#4FA8DE", "frozen-text": "#8ECAE6"
+ },
+ "hex": { "#D8CFBC": "#0E1618", "#B53A22": "#9E2F1A", "#FFF7EA": "#10191B", "#0F3D3E": "#E8F1F0" },
+ "cls": {
+  "border-[#EADEC8]/40": "border-[#2A3F45]/40", "from-[#FFFDF9]": "from-[#1E2F33]", "border-[#FBD9A6]": "border-[#37525A]",
+  "border-[#A8DDD7]": "border-[#2D464D]", "bg-[#F4FAF9]": "bg-[#142629]", "bg-white": "bg-[#172427]", "text-white": "text-[#1B0B04]", "text-coral-ledge": "text-coral-cta",
+  "bg-[#F5ECE0]": "bg-[#1E2F33]", "bg-[#E5D5C0]": "bg-[#37525A]", "text-[#C2B7A3]": "text-[#6B8489]",
+  "text-[#0077B6]": "text-[#8ECAE6]", "text-[#8ECAE6]": "text-[#4FA8DE]", "bg-[#FFF2DE]": "bg-[#2E2717]", "border-[#F3BE7A]": "border-[#7A5A2A]",
+  "text-[#874A00]": "text-[#FFC94A]", "text-amber-600": "text-[#FFB054]", "bg-[#F0E6D8]": "bg-[#0E1618]", "border-[#0F3D3E]": "border-[#12514D]",
+  "bg-teal-deep": "bg-[#2BA39A]", "text-green-700": "text-[#34D399]", "text-[#B5A895]": "text-[#6B8489]", "selection:text-teal-brand": "selection:text-[#E8F1F0]"
+ }
+}

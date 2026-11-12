@@ -1,0 +1,18 @@
+{
+ "topic": "Cafe English: pick up your order",
+ "scene": "cafe",
+ "seed": "pv-pick-up",
+ "vars": {
+  "verb": "pick up",
+  "hookLine": "Ready to pick up!",
+  "literal": "Pick it up? From the floor?",
+  "meaning": "Pick up means come and get it. Your coffee is ready at the counter.",
+  "example": "I'll pick up two lattes on my way to work.",
+  "tip": "you can say pick up the order or pick it up."
+ },
+ "hashtags": [
+  "phrasalverbs",
+  "englishvocabulary",
+  "learnenglish"
+ ]
+}

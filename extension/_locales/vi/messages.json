@@ -1,11 +1,179 @@
 {
  "appName": {
-  "message": "Lexkite – Từ điển & Flashcard IELTS"
+  "message": "Lexkite – Từ điển tiếng Anh, Dịch & Flashcard từ vựng"
  },
  "appDesc": {
-  "message": "Bấm đúp tra từ, bôi đen dịch câu, tra từ trong phụ đề YouTube; lưu kèm ngữ cảnh và ôn flashcard đúng thời điểm vàng."
+  "message": "Bấm đúp tra từ: nghĩa, phiên âm, phát âm. Bôi đen để dịch, lưu từ kèm ngữ cảnh và ôn flashcard luyện IELTS, TOEIC."
  },
  "openApp": {
   "message": "Mở Lexkite"
+ },
+ "rateTitle": {
+  "message": "Bạn thấy Lexkite hữu ích?"
+ },
+ "rateBody": {
+  "message": "Nếu Lexkite giúp bạn học tốt hơn, một đánh giá ngắn trên cửa hàng sẽ giúp người học khác tìm thấy nó."
+ },
+ "rateYes": {
+  "message": "Đánh giá Lexkite"
+ },
+ "rateLater": {
+  "message": "Để sau"
+ },
+ "rateNever": {
+  "message": "Đừng hỏi lại"
+ },
+ "ntGot": {
+  "message": "✓ Đã nhớ"
+ },
+ "ntAgain": {
+  "message": "↻ Ôn lại"
+ },
+ "ntGolden": {
+  "message": "Thời điểm vàng"
+ },
+ "ntSaved": {
+  "message": "Từ mới lưu"
+ },
+ "ntToday": {
+  "message": "Từ hôm nay"
+ },
+ "ntSearch": {
+  "message": "Tìm trên web…"
+ },
+ "ntSearchBtn": {
+  "message": "Tìm"
+ },
+ "ntOff": {
+  "message": "Tắt thẻ ở tab mới"
+ },
+ "ntConf": {
+  "message": "Giao tiếp tự tin"
+ },
+ "ntListen": {
+  "message": "Nghe"
+ },
+ "ntSlow": {
+  "message": "Chậm"
+ },
+ "ntUK": {
+  "message": "Anh"
+ },
+ "ntUS": {
+  "message": "Mỹ"
+ },
+ "ntFamily": {
+  "message": "Họ từ"
+ },
+ "ntColloc": {
+  "message": "Cụm từ"
+ },
+ "ntSyn": {
+  "message": "Đồng nghĩa"
+ },
+ "ntAnt": {
+  "message": "Trái nghĩa"
+ },
+ "ntQuiz": {
+  "message": "Tự kiểm tra"
+ },
+ "ntReveal": {
+  "message": "Xem nghĩa"
+ },
+ "ntTapTr": {
+  "message": "Chạm để xem bản dịch"
+ },
+ "ntMT": {
+  "message": "Dịch máy"
+ },
+ "ntExample": {
+  "message": "Ví dụ"
+ },
+ "ntAdd": {
+  "message": "＋ Thêm vào bộ thẻ"
+ },
+ "ntAdded": {
+  "message": "✓ Đã có trong bộ thẻ"
+ },
+ "ntNext": {
+  "message": "Từ tiếp →"
+ },
+ "ntProgress": {
+  "message": "Hôm nay {n}/{g} từ"
+ },
+ "ntShortcuts": {
+  "message": "Phím tắt"
+ },
+ "ntKeys": {
+  "message": "Space: xem nghĩa · 1/2: chấm · N: từ tiếp · P: nghe"
+ },
+ "posN": {
+  "message": "danh từ"
+ },
+ "posV": {
+  "message": "động từ"
+ },
+ "posAdj": {
+  "message": "tính từ"
+ },
+ "posAdv": {
+  "message": "trạng từ"
+ },
+ "posPhrV": {
+  "message": "cụm động từ"
+ },
+ "posPhrase": {
+  "message": "cụm từ"
+ },
+ "posIdiom": {
+  "message": "thành ngữ"
+ },
+ "posPrep": {
+  "message": "giới từ"
+ },
+ "posConj": {
+  "message": "liên từ"
+ },
+ "posPron": {
+  "message": "đại từ"
+ },
+ "posDet": {
+  "message": "từ hạn định"
+ },
+ "posExcl": {
+  "message": "thán từ"
+ },
+ "posNum": {
+  "message": "số từ"
+ },
+ "posAbbr": {
+  "message": "viết tắt"
+ },
+ "posColl": {
+  "message": "cụm kết hợp"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} nghĩa"
+ },
+ "ntQzTag": {
+  "message": "Câu đố nhanh"
+ },
+ "ntQzQ": {
+  "message": "Chọn nghĩa đúng"
+ },
+ "ntQzTime": {
+  "message": "{s} giây"
+ },
+ "ntQzRight": {
+  "message": "Chính xác!"
+ },
+ "ntQzWrong": {
+  "message": "Chưa đúng — từ này sẽ quay lại sớm"
+ },
+ "ntQzTimeout": {
+  "message": "Hết giờ — không sao"
+ },
+ "ntQzSkip": {
+  "message": "Bỏ qua"
  }
 }

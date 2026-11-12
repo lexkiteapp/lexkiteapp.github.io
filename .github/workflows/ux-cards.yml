@@ -1,0 +1,126 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
+# 🃏 Ảnh trước/sau các thẻ học có dữ liệu (scripts/test/ux-cards.mjs): sổ lỗi sai, làm lại, thẻ ôn đã lật, bài ngữ pháp – 360 px/máy tính, sáng/tối, en/vi/ar. Hermetic. Artifact 7 ngày.
+# + ux-guard.mjs: gác bố cục mọi trang chính (FAIL khi chồng lấn/cắt/tràn chữ/lặp IPA-loa).
+# + dict-entry-layout.mjs: gác thẻ kết quả tra từ (cột rỗng, câu lạc lõng, ví dụ lặp, nút lệch, tràn, tương phản) mọi trạng thái; PR có tờ trước/sau.
+# + ux1-guard.mjs (job ux1, 3 phần song song): giao diện ux1 + mọi bước bài học + màn giữ chuỗi; có 'before' → tờ trước/sau các màn từng lỗi.
+# Chạy: tay (before = commit trước khi sửa) hoặc đẩy nhánh ux-cards* (before = main trên remote).
+name: UX cards
+on:
+  workflow_dispatch:
+    inputs:
+      before: { description: 'Commit TRƯỚC (để trống = chỉ chụp bản hiện tại)', required: false, default: '' }
+  push:
+    branches: ['ux-cards*']
+  pull_request:
+    paths: ['web/js/**', 'web/css/**', 'web/app/**', 'scripts/test/ux-guard*.mjs', 'scripts/test/ux1-guard.mjs', 'scripts/test/dict-entry-layout.mjs', '.github/workflows/ux-cards.yml']
+permissions:
+  contents: read
+  actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ (docs/CI-RUNNERS.md › Máy gác)
+  checks: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha → go=$go"
+  shots:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - if: github.event_name == 'pull_request'
+        uses: ./.github/actions/fast-lane   # làn nhanh: npm test đỏ → huỷ lượt nặng
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chụp
+        env: { BEFORE: "${{ github.event.inputs.before }}", EV: "${{ github.event_name }}" }
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: imagemagick fonts-noto-color-emoji fonts-noto-core }
+      - name: Chụp (tiếp)
+        env: { BEFORE: "${{ github.event.inputs.before }}", EV: "${{ github.event_name }}" }
+        run: |
+          B=""
+          if [ "$EV" = push ]; then BEFORE="$(git merge-base origin/main HEAD)"; [ "$BEFORE" = "$(git rev-parse HEAD)" ] && BEFORE=""; fi
+          if [ -n "$BEFORE" ]; then git worktree add -q /tmp/before "$BEFORE"; B=/tmp/before/web; fi
+          node scripts/test/ux-cards.mjs web "$B" out/ux-cards
+      - name: Gác bố cục (chồng lấn · cắt mép · tràn chữ · lặp IPA/loa)
+        if: always()
+        run: node scripts/test/ux-guard.mjs web out/ux-cards/guard
+      - name: Gác thẻ kết quả tra từ (mọi trạng thái · 390–1440 · sáng/tối · vi/en/ar) + tờ trước/sau
+        if: always()
+        run: |
+          B=""; if git cat-file -e HEAD^2 2>/dev/null; then git worktree add -q /tmp/dict-before HEAD^1 && B=/tmp/dict-before/web; fi
+          node scripts/test/dict-entry-layout.mjs web "$B" out/ux-cards/dict-entry
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: ux-cards, path: out/ux-cards, retention-days: 7 }
+
+  ux1:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix: { part: [0, 1, 2] }
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài
+        timeout-minutes: 14
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: imagemagick fonts-noto-color-emoji fonts-noto-core fonts-noto-cjk }
+      - name: Trước (main/commit 'before') – chỉ để làm tờ so sánh, không chặn
+        env: { BEFORE: "${{ github.event.inputs.before }}", EV: "${{ github.event_name }}" }
+        continue-on-error: true
+        run: |
+          if [ "$EV" = push ]; then BEFORE="$(git merge-base origin/main HEAD)"; [ "$BEFORE" = "$(git rev-parse HEAD)" ] && BEFORE=""; fi
+          [ -n "$BEFORE" ] || exit 0
+          git worktree add -q /tmp/before "$BEFORE"
+          # bài thử cần móc App._lsn để lái từng câu (bản cũ chưa có) – chỉ chèn móc, không đổi gì khác
+          grep -q 'App._lsn' /tmp/before/web/js/lesson/ui.js || perl -0pi -e 's/(\n    App\.onCleanup\(cleanup\);\n    view\.innerHTML = `<div class="lsn")/\n    if (demo) App._lsn = L;$1/' /tmp/before/web/js/lesson/ui.js
+          node scripts/test/ux1-guard.mjs /tmp/before/web out/ux1/before --part ${{ matrix.part }}/3 --shots || true
+      - name: Gác bố cục ux1 · bài học · giữ chuỗi
+        run: node scripts/test/ux1-guard.mjs web out/ux1/after --part ${{ matrix.part }}/3 --shots
+      - name: Tờ trước/sau (màn từng lỗi ở bản trước)
+        if: always()
+        run: |
+          [ -f out/ux1/before/report.json ] || exit 0
+          mkdir -p out/ux1/sheets
+          node -e '
+            const fs=require("fs"),{execFileSync:x}=require("child_process"),r=JSON.parse(fs.readFileSync("out/ux1/before/report.json"));
+            const steps=new Set(Object.values(r.found).flat().map(s=>s.split(":")[0].replace(" ","-").replace(/[/?=]/g,"_")));
+            for(const s of steps){const b=`out/ux1/before/${s}.jpg`,a=`out/ux1/after/${s}.jpg`;if(!fs.existsSync(b)||!fs.existsSync(a))continue;
+              try{x("montage",["-label","TRƯỚC",b,"-label","SAU",a,"-tile","2x","-geometry","+12+12","-resize","x1600>","-pointsize","28",`out/ux1/sheets/${s}.jpg`]);}catch(e){console.log("montage",s,e.message)}}
+            console.log("tờ:",fs.readdirSync("out/ux1/sheets").length);'
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: 'ux1-guard-${{ matrix.part }}', path: out/ux1, retention-days: 7 }

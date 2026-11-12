@@ -1,0 +1,14 @@
+{
+ "_doc": "Mẫu khói 8 từ – kiểm tuyến gem/groq trước pilot cố định (không chấm).",
+ "n": 8,
+ "items": [
+  "abyss#n",
+  "acknowledgement#n",
+  "addiction#n",
+  "adorable#adj",
+  "adorn#v",
+  "adsorption#n",
+  "airspace#n",
+  "allot#v"
+ ]
+}

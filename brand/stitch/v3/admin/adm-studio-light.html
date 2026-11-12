@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full bg-[#fbf9f4] text-[#1c2826]">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lexkite Admin — Video Studio</title>
+  <!-- Google Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            teal: {
+              950: '#071817',
+              900: '#0c2826',
+              850: '#113533',
+              800: '#134e4a',
+              700: '#18645f',
+              600: '#207f79',
+              500: '#2ba39a',
+              100: '#d7f2ee',
+              50: '#f0fbf9',
+            },
+            coral: {
+              500: '#ff6243',
+              600: '#ea5033',
+              700: '#cf3c21',
+              50: '#fff4f0',
+              100: '#ffe5dd',
+            },
+            sand: {
+              50: '#fdfcf9',
+              100: '#fbf9f4',
+              200: '#f3efe6',
+              300: '#e7e2d6',
+              400: '#d5cec0',
+              500: '#9b9283',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 20;
+      vertical-align: middle;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .material-symbols-rounded.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 20;
+    }
+    /* Subtle tactile ledge styling */
+    .tactile-card {
+      background: #ffffff;
+      border: 1px solid #e7e2d6;
+      box-shadow: 0 2px 0 0 #dfd9cb;
+      transition: all 0.15s ease-out;
+    }
+    .tactile-card:hover {
+      border-color: #d1c9b8;
+      box-shadow: 0 3px 0 0 #d1c9b8;
+      transform: translateY(-1px);
+    }
+    .tactile-card.active-card {
+      border-color: #134e4a;
+      box-shadow: 0 0 0 1.5px #134e4a, 0 3px 0 0 #0c2826;
+      background: #fafdfc;
+    }
+    .tactile-btn-coral {
+      background: #ff6243;
+      color: #ffffff;
+      border: 1px solid #d94123;
+      box-shadow: 0 2px 0 0 #b33017;
+      transition: all 0.12s ease;
+    }
+    .tactile-btn-coral:hover {
+      background: #f75535;
+      transform: translateY(-1px);
+      box-shadow: 0 3px 0 0 #b33017;
+    }
+    .tactile-btn-coral:active {
+      transform: translateY(1px);
+      box-shadow: 0 0 0 0 #b33017;
+    }
+    .tactile-btn-secondary {
+      background: #ffffff;
+      color: #134e4a;
+      border: 1px solid #d5cec0;
+      box-shadow: 0 2px 0 0 #ded8cc;
+      transition: all 0.12s ease;
+    }
+    .tactile-btn-secondary:hover {
+      background: #f7f5ef;
+      border-color: #c2baa9;
+      box-shadow: 0 3px 0 0 #c2baa9;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(1px);
+      box-shadow: 0 0 0 0 #ded8cc;
+    }
+    /* Custom thin scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f3efe6;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #d5cec0;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b5ac9d;
+    }
+  </style>
+</head>
+<body class="h-full flex overflow-hidden font-sans text-sm selection:bg-teal-100 selection:text-teal-900">
+
+  <!-- ========================================================================= -->
+  <!-- LEFT SIDEBAR -->
+  <!-- ========================================================================= -->
+  <aside class="w-64 bg-[#fdfcf9] border-r border-sand-300 flex flex-col justify-between flex-shrink-0 z-30 select-none">
+    
+    <!-- Top brand & navigation groups -->
+    <div class="flex flex-col h-full overflow-y-auto">
+      
+      <!-- Brand Logo Header -->
+      <div class="px-5 py-4 border-b border-sand-200 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-2.5 group">
+          <div class="w-8 h-8 rounded-lg bg-teal-800 flex items-center justify-center text-white shadow-[0_2px_0_0_#0c2826] group-hover:bg-teal-700 transition-colors">
+            <!-- Kite icon SVG -->
+            <svg class="w-4 h-4 text-emerald-300" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L20.5 10.5L12 22L3.5 10.5L12 2Z"/>
+              <path d="M12 2L12 22" stroke="#071817" stroke-width="1.5"/>
+              <path d="M3.5 10.5L20.5 10.5" stroke="#071817" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="font-bold text-base tracking-tight text-teal-900 flex items-center gap-1.5 leading-tight">
+              Lexkite <span class="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-teal-100 text-teal-800 border border-teal-200">Admin</span>
+            </div>
+            <div class="text-[11px] text-sand-500 font-medium leading-none mt-0.5">Nội bộ · v2.4.1</div>
+          </div>
+        </a>
+        <button class="w-7 h-7 rounded flex items-center justify-center text-sand-500 hover:text-teal-900 hover:bg-sand-200 transition-colors" title="Thu gọn menu">
+          <span class="material-symbols-rounded text-lg">first_page</span>
+        </button>
+      </div>
+
+      <!-- Navigation groups -->
+      <nav class="p-3 space-y-4 flex-1">
+        
+        <!-- Group: Tổng quan -->
+        <div>
+          <div class="px-2.5 mb-1 text-[11px] font-bold uppercase tracking-wider text-sand-500">Tổng quan</div>
+          <ul class="space-y-0.5">
+            <li>
+              <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-sand-700 hover:text-teal-900 hover:bg-sand-200 transition-colors">
+                <span class="material-symbols-rounded text-lg text-sand-500">dashboard</span>
+                <span class="font-medium text-[13px]">Tổng quan</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-sand-700 hover:text-teal-900 hover:bg-sand-200 transition-colors">
+                <span class="material-symbols-rounded text-lg text-sand-500">analytics</span>
+                <span class="font-medium text-[13px]">Phân tích</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-sand-700 hover:text-teal-900 hover:bg-sand-200 transition-colors">
+                <span class="material-symbols-rounded text-lg text-sand-500">campaign</span>
+                <span class="font-medium text-[13px]">Quảng cáo</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Group: Người dùng -->
+        <div>
+          <div class="px-2.5 mb-1 text-[11px] font-bold uppercase tracking-wider text-sand-500">Người dùng</div>
+          <ul class="space-y-0.5">
+            <li>
+              <a href="#" class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-sand-700 hover:text-teal-900 hover:bg-sand-200 transition-colors">
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-rounded text-lg text-sand-500">group</span>
+                  <span class="font-medium text-[13px]">Người dùng</span>
+                </div>
+                <span class="text-[11px] font-mono font-medium text-sand-500 bg-sand-200 px-1.5 py-0.2 rounded">184</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-sand-700 hover:text-teal-900 hover:bg-sand-200 transition-colors">
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-rounded text-lg text-sand-500">mail</span>
+                  <span class="font-medium text-[13px]">Hộp thư</span>
+                </div>
+                <span class="text-[11px] font-mono font-bold text-teal-800 bg-teal-100 px-1.5 py-0.2 rounded">3</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-sand-700 hover:text-teal-900 hover:bg-sand-200 transition-colors">
+                <span class="material-symbols-rounded text-lg text-sand-500">notifications</span>
+                <span class="font-medium text-[13px]">Thông báo</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Group: Chất lượng -->
+        <div>
+          <div class="px-2.5 mb-1 text-[11px] font-bold uppercase tracking-wider text-sand-500">Chất lượng</div>
+          <ul class="space-y-0.5">
+            <li>
+              <a href="#" class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-sand-700 hover:text-teal-900 hover:bg-sand-200 transition-colors">
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-rounded text-lg text-sand-500">warning</span>
+                  <span class="font-medium text-[13px]">Cảnh báo</span>
+                </div>
+                <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-sand-700 hover:text-teal-900 hover:bg-sand-200 transition-colors">
+                <span class="material-symbols-rounded text-lg text-sand-500">bug_report</span>
+                <span class="font-medium text-[13px]">Báo lỗi</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-sand-700 hover:text-teal-900 hover:bg-sand-200 transition-colors">
+                <span class="material-symbols-rounded text-lg text-sand-500">verified</span>
+                <span class="font-medium text-[13px]">Chất lượng</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Group: Nội dung & Video (Active Studio) -->
+        <div>
+          <div class="px-2.5 mb-1 text-[11px] font-bold uppercase tracking-wider text-teal-800">Nội dung &amp; Video</div>
+          <ul class="space-y-0.5">
+            <li>
+              <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-sand-700 hover:text-teal-900 hover:bg-sand-200 transition-colors">
+                <span class="material-symbols-rounded text-lg text-sand-500">hub</span>
+                <span class="font-medium text-[13px]">Kênh &amp; phân phối</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-sand-700 hover:text-teal-900 hover:bg-sand-200 transition-colors">
+                <span class="material-symbols-rounded text-lg text-sand-500">share</span>
+                <span class="font-medium text-[13px]">Video &amp; Social</span>
+              </a>
+            </li>
+            <li>
+              <!-- SELECTED ITEM -->
+              <a href="#" class="flex items-center justify-between px-2.5 py-2 rounded-lg bg-teal-800 text-white font-semibold shadow-[0_2px_0_0_#0c2826] transition-all">
+                <div class="flex items-center gap-2.5">
+                  <span class="material-symbols-rounded text-lg text-emerald-300 filled">movie_filter</span>
+                  <span class="text-[13px]">Video Studio</span>
+                </div>
+                <span class="text-[11px] font-mono bg-teal-950/40 text-emerald-200 px-1.5 py-0.5 rounded font-bold">12</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Group: Hệ thống -->
+        <div>
+          <div class="px-2.5 mb-1 text-[11px] font-bold uppercase tracking-wider text-sand-500">Hệ thống</div>
+          <ul class="space-y-0.5">
+            <li>
+              <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-sand-700 hover:text-teal-900 hover:bg-sand-200 transition-colors">
+                <span class="material-symbols-rounded text-lg text-sand-500">speed</span>
+                <span class="font-medium text-[13px]">Hạn mức</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-sand-700 hover:text-teal-900 hover:bg-sand-200 transition-colors">
+                <span class="material-symbols-rounded text-lg text-sand-500">cloud_queue</span>
+                <span class="font-medium text-[13px]">Kho Drive</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-sand-700 hover:text-teal-900 hover:bg-sand-200 transition-colors">
+                <span class="material-symbols-rounded text-lg text-sand-500">key</span>
+                <span class="font-medium text-[13px]">Khóa API</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </nav>
+
+      <!-- Bottom Settings Link & App Status -->
+      <div class="p-3 border-t border-sand-200 bg-sand-50">
+        <a href="#" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-sand-700 hover:text-teal-900 hover:bg-sand-200 transition-colors">
+          <span class="material-symbols-rounded text-lg text-sand-500">settings</span>
+          <span class="font-medium text-[13px]">Cài đặt</span>
+        </a>
+        <div class="mt-2 pt-2 px-2 flex items-center justify-between text-[11px] text-sand-500">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>Hệ thống bình thường</span>
+          </div>
+          <span class="font-mono text-[10px]">99.8%</span>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN WORKSPACE -->
+  <!-- ========================================================================= -->
+  <div class="flex-1 flex flex-col min-w-0 bg-[#fbf9f4]">
+    
+    <!-- SLIM TOP BAR -->
+    <header class="h-14 bg-sand-50 border-b border-sand-300 px-6 flex items-center justify-between flex-shrink-0 z-20">
+      
+      <!-- Left: Breadcrumb / Page Title -->
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1.5 text-xs text-sand-500">
+          <span class="hover:text-teal-900 cursor-pointer">Admin</span>
+          <span class="text-sand-400">›</span>
+          <span class="hover:text-teal-900 cursor-pointer">Nội dung &amp; Video</span>
+          <span class="text-sand-400">›</span>
+          <span class="font-semibold text-teal-900">Video Studio</span>
+        </div>
+        <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-teal-50 text-teal-800 text-[11px] font-semibold border border-teal-200">
+          <span class="w-1.5 h-1.5 rounded-full bg-teal-600 animate-pulse"></span>
+          Tự động hóa pipeline
+        </span>
+      </div>
+
+      <!-- Right: Search Command, VI|EN switch, Sync status, Admin Initials -->
+      <div class="flex items-center gap-3">
+        
+        <!-- Command Search Bar -->
+        <div class="relative w-64">
+          <span class="material-symbols-rounded absolute left-2.5 top-1/2 -translate-y-1/2 text-sand-500 text-lg">search</span>
+          <input 
+            type="text" 
+            placeholder="Tìm video, mã thẻ, từ khóa..." 
+            class="w-full bg-[#ffffff] border border-sand-300 rounded-lg pl-8 pr-12 py-1.5 text-xs text-[#1c2826] placeholder-sand-500 focus:outline-none focus:border-teal-700 focus:ring-1 focus:ring-teal-700 shadow-sm"
+          >
+          <kbd class="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-mono px-1.5 py-0.5 rounded bg-sand-100 text-sand-500 border border-sand-300">Ctrl K</kbd>
+        </div>
+
+        <!-- Language toggle VI | EN -->
+        <div class="flex items-center bg-sand-200 p-0.5 rounded-lg border border-sand-300 text-xs font-semibold">
+          <button class="px-2 py-0.5 rounded bg-white text-teal-900 shadow-xs">VI</button>
+          <button class="px-2 py-0.5 rounded text-sand-500 hover:text-teal-900 transition-colors">EN</button>
+        </div>
+
+        <div class="h-4 w-[1px] bg-sand-300"></div>
+
+        <!-- Pipeline Stats Pill -->
+        <div class="hidden xl:flex items-center gap-2 text-xs text-sand-500 bg-sand-100 border border-sand-200 px-2.5 py-1 rounded-lg">
+          <span class="material-symbols-rounded text-sm text-teal-700">cloud_done</span>
+          <span>Đã render hôm nay: <strong class="font-mono text-teal-900">14/20 video</strong></span>
+        </div>
+
+        <!-- Admin Initials Avatar & profile menu -->
+        <div class="flex items-center gap-2 pl-1">
+          <div class="w-8 h-8 rounded-full bg-teal-800 text-emerald-200 border border-teal-700 flex items-center justify-center font-bold text-xs shadow-xs" title="Quản trị viên: Hoàng Minh (HM)">
+            HM
+          </div>
+          <div class="hidden md:block leading-tight text-left">
+            <div class="font-bold text-xs text-teal-950">Hoàng Minh</div>
+            <div class="text-[10px] text-sand-500">Admin · Lexkite Core</div>
+          </div>
+        </div>
+
+      </div>
+
+    </header>
+
+    <!-- SUB-BAR / STUDIO ACTION TOOLBAR -->
+    <div class="h-12 bg-[#fdfcf9] border-b border-sand-300 px-6 flex items-center justify-between flex-shrink-0">
+      
+      <!-- Left: Quick filter & Pipeline status -->
+      <div class="flex items-center gap-3">
+        <h1 class="text-sm font-bold text-teal-950 tracking-tight flex items-center gap-2">
+          <span>Quy trình sản xuất Video Reel (9:16)</span>
+        </h1>
+        <div class="h-4 w-[1px] bg-sand-300"></div>
+        <div class="flex items-center gap-1.5 text-xs text-sand-500">
+          <span class="material-symbols-rounded text-base text-sand-400">filter_list</span>
+          <span>Lọc:</span>
+          <button class="px-2 py-0.5 rounded-full bg-teal-100 text-teal-900 font-semibold border border-teal-200 text-[11px]">Tất cả định dạng (7)</button>
+          <button class="px-2 py-0.5 rounded-full bg-white text-sand-600 hover:bg-sand-200 border border-sand-300 text-[11px]">Mẫu ngữ pháp</button>
+          <button class="px-2 py-0.5 rounded-full bg-white text-sand-600 hover:bg-sand-200 border border-sand-300 text-[11px]">Cặp phát âm</button>
+        </div>
+      </div>
+
+      <!-- Right: Action Buttons -->
+      <div class="flex items-center gap-2.5">
+        <button class="tactile-btn-secondary px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5">
+          <span class="material-symbols-rounded text-base">refresh</span>
+          <span>Đồng bộ kho kịch bản</span>
+        </button>
+        <button class="tactile-btn-coral px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5">
+          <span class="material-symbols-rounded text-base">add_circle</span>
+          <span>Tạo video tự động</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- CONTENT WORKSPACE: PIPELINE COLUMNS + RIGHT REVIEW PANEL -->
+    <div class="flex-1 flex overflow-hidden">
+      
+      <!-- HORIZONTAL PIPELINE CONTAINER -->
+      <main class="flex-1 overflow-x-auto overflow-y-hidden p-4 flex gap-3.5 bg-[#fbf9f4]">
+
+        <!-- ========================================== -->
+        <!-- COLUMN 1: Ý tưởng (3) -->
+        <!-- ========================================== -->
+        <div class="w-64 flex-shrink-0 flex flex-col bg-sand-100/90 rounded-xl border border-sand-300 h-full">
+          <div class="p-3 border-b border-sand-200 flex items-center justify-between flex-shrink-0">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-sand-400"></span>
+              <span class="font-bold text-xs text-sand-700">Ý tưởng</span>
+            </div>
+            <span class="text-xs font-mono font-bold bg-white text-sand-600 px-2 py-0.5 rounded-full border border-sand-300">3</span>
+          </div>
+
+          <!-- Cards Stack -->
+          <div class="p-2.5 space-y-2.5 overflow-y-auto flex-1">
+            
+            <!-- Card 1.1 -->
+            <div class="tactile-card p-3 rounded-lg cursor-pointer">
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-teal-800 bg-teal-50 px-1.5 py-0.5 rounded border border-teal-200">Collocations</span>
+                <span class="text-[10px] font-mono text-sand-500">ID-108</span>
+              </div>
+              <h4 class="font-bold text-xs text-teal-950 mb-1 leading-snug">"Pay attention" vs "Draw attention"</h4>
+              <p class="text-[11px] text-sand-500 mb-2 leading-relaxed">Trích từ lỗi sai học viên IELTS Task 2 hôm qua.</p>
+              <div class="flex items-center justify-between pt-2 border-t border-sand-200 text-[10px] text-sand-500">
+                <span class="flex items-center gap-1"><span class="material-symbols-rounded text-sm text-sand-400">schedule</span> 15s</span>
+                <span class="font-medium bg-sand-100 px-1.5 py-0.5 rounded">EN · B1</span>
+              </div>
+            </div>
+
+            <!-- Card 1.2 -->
+            <div class="tactile-card p-3 rounded-lg cursor-pointer">
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 px-1.5 py-0.5 rounded border border-indigo-200">Pronounce</span>
+                <span class="text-[10px] font-mono text-sand-500">ID-109</span>
+              </div>
+              <h4 class="font-bold text-xs text-teal-950 mb-1 leading-snug">Âm câm trong "Doubt", "Debt", "Subtle"</h4>
+              <p class="text-[11px] text-sand-500 mb-2 leading-relaxed">Âm /b/ bị nuốt hoàn toàn trong giọng bản xứ.</p>
+              <div class="flex items-center justify-between pt-2 border-t border-sand-200 text-[10px] text-sand-500">
+                <span class="flex items-center gap-1"><span class="material-symbols-rounded text-sm text-sand-400">schedule</span> 25s</span>
+                <span class="font-medium bg-sand-100 px-1.5 py-0.5 rounded">EN · A2</span>
+              </div>
+            </div>
+
+            <!-- Card 1.3 -->
+            <div class="tactile-card p-3 rounded-lg cursor-pointer">
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-teal-800 bg-teal-50 px-1.5 py-0.5 rounded border border-teal-200">Idiom</span>
+                <span class="text-[10px] font-mono text-sand-500">ID-110</span>
+              </div>
+              <h4 class="font-bold text-xs text-teal-950 mb-1 leading-snug">"Once in a blue moon" dùng khi nào?</h4>
+              <p class="text-[11px] text-sand-500 mb-2 leading-relaxed">Ví dụ ngữ cảnh thực tế thay vì dịch từ ngữ thô.</p>
+              <div class="flex items-center justify-between pt-2 border-t border-sand-200 text-[10px] text-sand-500">
+                <span class="flex items-center gap-1"><span class="material-symbols-rounded text-sm text-sand-400">schedule</span> 20s</span>
+                <span class="font-medium bg-sand-100 px-1.5 py-0.5 rounded">EN · B2</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- COLUMN 2: Kịch bản (2) -->
+        <!-- ========================================== -->
+        <div class="w-64 flex-shrink-0 flex flex-col bg-sand-100/90 rounded-xl border border-sand-300 h-full">
+          <div class="p-3 border-b border-sand-200 flex items-center justify-between flex-shrink-0">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+              <span class="font-bold text-xs text-sand-700">Kịch bản</span>
+            </div>
+            <span class="text-xs font-mono font-bold bg-white text-sand-600 px-2 py-0.5 rounded-full border border-sand-300">2</span>
+          </div>
+
+          <div class="p-2.5 space-y-2.5 overflow-y-auto flex-1">
+            
+            <div class="tactile-card p-3 rounded-lg cursor-pointer">
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">Hook 3s OK</span>
+                <span class="text-[10px] font-mono text-sand-500">ID-105</span>
+              </div>
+              <h4 class="font-bold text-xs text-teal-950 mb-1 leading-snug">Phân biệt "Affect" và "Effect" chuẩn xác</h4>
+              <p class="text-[11px] text-sand-500 mb-2 leading-relaxed">Carlos minh họa bằng câu chuyện thi trượt.</p>
+              <div class="flex items-center justify-between pt-2 border-t border-sand-200 text-[10px] text-sand-500">
+                <span class="text-emerald-700 font-semibold flex items-center gap-1">
+                  <span class="material-symbols-rounded text-sm">check_circle</span> Đã duyệt kịch bản
+                </span>
+                <span class="font-mono text-[10px] text-sand-400">92 từ</span>
+              </div>
+            </div>
+
+            <div class="tactile-card p-3 rounded-lg cursor-pointer">
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">Cần rút gọn</span>
+                <span class="text-[10px] font-mono text-sand-500">ID-106</span>
+              </div>
+              <h4 class="font-bold text-xs text-teal-950 mb-1 leading-snug">Cách nói "No problem" tự nhiên hơn</h4>
+              <p class="text-[11px] text-sand-500 mb-2 leading-relaxed">Độ dài dự kiến 42s — vượt mốc 35s của TikTok Reel.</p>
+              <div class="flex items-center justify-between pt-2 border-t border-sand-200 text-[10px] text-sand-500">
+                <span class="text-amber-700 font-semibold flex items-center gap-1">
+                  <span class="material-symbols-rounded text-sm">edit_note</span> Đang biên tập lại
+                </span>
+                <span class="font-mono text-[10px] text-sand-400">128 từ</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- COLUMN 3: Dựng (Đang render) (2) -->
+        <!-- ========================================== -->
+        <div class="w-64 flex-shrink-0 flex flex-col bg-sand-100/90 rounded-xl border border-sand-300 h-full">
+          <div class="p-3 border-b border-sand-200 flex items-center justify-between flex-shrink-0">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+              <span class="font-bold text-xs text-sand-700">Dựng (Render)</span>
+            </div>
+            <span class="text-xs font-mono font-bold bg-amber-100 text-amber-900 px-2 py-0.5 rounded-full border border-amber-300">2</span>
+          </div>
+
+          <div class="p-2.5 space-y-2.5 overflow-y-auto flex-1">
+            
+            <!-- In-progress render card -->
+            <div class="tactile-card p-3 rounded-lg cursor-pointer border-amber-300 bg-amber-50/20">
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded border border-amber-200 flex items-center gap-1">
+                  <span class="material-symbols-rounded text-xs animate-spin">sync</span> Render 68%
+                </span>
+                <span class="text-[10px] font-mono text-sand-500">ID-103</span>
+              </div>
+              <h4 class="font-bold text-xs text-teal-950 mb-1 leading-snug">3 cách phản biện Band 7.5 Writing Task 2</h4>
+              
+              <!-- Mini flat 2D teacher thumbnail -->
+              <div class="w-full h-20 bg-teal-900/10 rounded border border-sand-200 mb-2 flex items-center justify-center relative overflow-hidden">
+                <svg class="w-12 h-12 text-teal-800" viewBox="0 0 100 100" fill="currentColor">
+                  <circle cx="50" cy="38" r="22" fill="#207f79"/>
+                  <rect x="30" y="65" width="40" height="30" rx="8" fill="#134e4a"/>
+                  <circle cx="43" cy="36" r="3" fill="#ffffff"/>
+                  <circle cx="57" cy="36" r="3" fill="#ffffff"/>
+                  <path d="M44 48 Q50 54 56 48" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                </svg>
+                <div class="absolute inset-x-0 bottom-0 bg-teal-950/80 text-white text-[9px] px-1.5 py-0.5 font-mono text-center">
+                  Ghép audio Carlos: 00:18 / 00:27
+                </div>
+              </div>
+
+              <!-- Progress bar -->
+              <div class="w-full bg-sand-200 h-1.5 rounded-full overflow-hidden mb-2">
+                <div class="bg-amber-500 h-full rounded-full" style="width: 68%"></div>
+              </div>
+
+              <div class="flex items-center justify-between text-[10px] text-sand-500">
+                <span>Remotion Pipeline</span>
+                <span class="font-mono text-amber-800 font-semibold">Còn ~45s</span>
+              </div>
+            </div>
+
+            <!-- In-progress render card 2 -->
+            <div class="tactile-card p-3 rounded-lg cursor-pointer">
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-teal-800 bg-teal-50 px-1.5 py-0.5 rounded border border-teal-200 flex items-center gap-1">
+                  Đợi hàng đợi (Queue)
+                </span>
+                <span class="text-[10px] font-mono text-sand-500">ID-104</span>
+              </div>
+              <h4 class="font-bold text-xs text-teal-950 mb-1 leading-snug">Ship vs Sheep — Nghe chuẩn trong 15s</h4>
+              <p class="text-[11px] text-sand-500 mb-2 leading-relaxed">Đã tổng hợp file âm thanh chuẩn studio của Ama.</p>
+              <div class="flex items-center justify-between pt-2 border-t border-sand-200 text-[10px] text-sand-500">
+                <span class="flex items-center gap-1"><span class="material-symbols-rounded text-sm text-sand-400">hourglass_top</span> Hàng đợi #2</span>
+                <span class="font-medium bg-sand-100 px-1.5 py-0.5 rounded">EN · Phonics</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- COLUMN 4: QA Kiểm thử (1 - ACTIVE SELECTED) -->
+        <!-- ========================================== -->
+        <div class="w-64 flex-shrink-0 flex flex-col bg-sand-100/90 rounded-xl border-2 border-teal-800 h-full shadow-sm">
+          <div class="p-3 border-b border-teal-800/20 bg-teal-50/60 rounded-t-lg flex items-center justify-between flex-shrink-0">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-teal-700 ring-2 ring-teal-200"></span>
+              <span class="font-bold text-xs text-teal-950">QA Kiểm thử</span>
+            </div>
+            <span class="text-xs font-mono font-bold bg-teal-800 text-white px-2 py-0.5 rounded-full shadow-xs">1 cần duyệt</span>
+          </div>
+
+          <div class="p-2.5 space-y-2.5 overflow-y-auto flex-1">
+            
+            <!-- ACTIVE CARD: Present perfect in 30 seconds -->
+            <div class="tactile-card active-card p-3 rounded-lg cursor-pointer relative">
+              <div class="absolute -top-2.5 right-2 bg-teal-800 text-emerald-200 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border border-teal-600 shadow-xs flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Đang xem xét
+              </div>
+
+              <div class="flex items-start justify-between gap-2 mb-2 mt-0.5">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-teal-900 bg-teal-100 px-1.5 py-0.5 rounded border border-teal-200">Mẫu ngữ pháp</span>
+                <span class="text-[10px] font-mono text-sand-500">ID-101</span>
+              </div>
+
+              <!-- Flat 2D Illustrated Thumbnail of Carlos Teacher -->
+              <div class="w-full h-24 bg-[#0c2826] rounded-lg mb-2.5 flex items-center justify-center relative overflow-hidden border border-teal-900">
+                <!-- Flat 2D Avatar representation -->
+                <svg class="w-16 h-16" viewBox="0 0 100 100" fill="none">
+                  <rect width="100" height="100" fill="#0c2826"/>
+                  <!-- Ground oval shadow -->
+                  <ellipse cx="50" cy="85" rx="30" ry="6" fill="#134e4a" opacity="0.6"/>
+                  <!-- Body flat -->
+                  <path d="M28 84 C28 65 38 56 50 56 C62 56 72 65 72 84 Z" fill="#207f79"/>
+                  <!-- Collar -->
+                  <polygon points="50,62 42,56 58,56" fill="#ff6243"/>
+                  <!-- Head -->
+                  <circle cx="50" cy="38" r="18" fill="#e8dfce"/>
+                  <!-- Hair -->
+                  <path d="M32 36 C32 24 40 18 50 18 C60 18 68 24 68 36 C64 34 58 32 50 32 C42 32 36 34 32 36 Z" fill="#133533"/>
+                  <!-- Glasses -->
+                  <circle cx="44" cy="38" r="4.5" stroke="#071817" stroke-width="2" fill="none"/>
+                  <circle cx="56" cy="38" r="4.5" stroke="#071817" stroke-width="2" fill="none"/>
+                  <line x1="48.5" y1="38" x2="51.5" y2="38" stroke="#071817" stroke-width="2"/>
+                  <!-- Smile -->
+                  <path d="M46 47 Q50 50 54 47" stroke="#071817" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                </svg>
+
+                <!-- Floating Video Badge -->
+                <div class="absolute bottom-1.5 left-2 bg-black/70 backdrop-blur-xs text-white text-[10px] font-mono px-1.5 py-0.2 rounded flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> 00:29
+                </div>
+                <div class="absolute top-1.5 right-1.5 bg-teal-900/90 text-emerald-300 text-[9px] font-bold px-1.5 py-0.2 rounded border border-teal-700">
+                  9:16 HD
+                </div>
+              </div>
+
+              <h4 class="font-bold text-xs text-teal-950 mb-1 leading-snug">Present perfect in 30 seconds</h4>
+              <div class="flex items-center gap-1.5 mb-2">
+                <span class="text-[10px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 px-1.5 py-0.2 rounded">EN · B1</span>
+                <span class="text-[10px] text-sand-500">Giáo viên: Carlos (2D)</span>
+              </div>
+
+              <!-- Quick QA status strip -->
+              <div class="p-1.5 rounded bg-sand-100 border border-sand-200 flex items-center justify-between text-[11px]">
+                <div class="flex items-center gap-1 text-emerald-700 font-bold">
+                  <span class="material-symbols-rounded text-sm filled">check_circle</span>
+                  <span>Đạt 3/3 tiêu chuẩn</span>
+                </div>
+                <span class="font-mono text-[10px] text-teal-800 font-semibold">−16 LUFS</span>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- COLUMN 5: Kho GrabCast (2) -->
+        <!-- ========================================== -->
+        <div class="w-64 flex-shrink-0 flex flex-col bg-sand-100/90 rounded-xl border border-sand-300 h-full">
+          <div class="p-3 border-b border-sand-200 flex items-center justify-between flex-shrink-0">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+              <span class="font-bold text-xs text-sand-700">Kho GrabCast</span>
+            </div>
+            <span class="text-xs font-mono font-bold bg-white text-sand-600 px-2 py-0.5 rounded-full border border-sand-300">2</span>
+          </div>
+
+          <div class="p-2.5 space-y-2.5 overflow-y-auto flex-1">
+            
+            <div class="tactile-card p-3 rounded-lg cursor-pointer">
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-purple-800 bg-purple-50 px-1.5 py-0.5 rounded border border-purple-200">Sẵn sàng xuất</span>
+                <span class="text-[10px] font-mono text-sand-500">ID-098</span>
+              </div>
+              <h4 class="font-bold text-xs text-teal-950 mb-1 leading-snug">"Comfortable" phát âm 3 âm tiết thay vì 4</h4>
+              <p class="text-[11px] text-sand-500 mb-2 leading-relaxed">Đã đóng gói phụ đề SRT song ngữ Anh - Việt.</p>
+              <div class="flex items-center justify-between pt-2 border-t border-sand-200 text-[10px] text-sand-500">
+                <span class="flex items-center gap-1 font-mono text-sand-600">
+                  <span class="material-symbols-rounded text-sm text-sand-400">inventory_2</span> 14.2 MB
+                </span>
+                <span class="font-medium bg-sand-100 px-1.5 py-0.5 rounded">EN · Phonics</span>
+              </div>
+            </div>
+
+            <div class="tactile-card p-3 rounded-lg cursor-pointer">
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-purple-800 bg-purple-50 px-1.5 py-0.5 rounded border border-purple-200">Sẵn sàng xuất</span>
+                <span class="text-[10px] font-mono text-sand-500">ID-099</span>
+              </div>
+              <h4 class="font-bold text-xs text-teal-950 mb-1 leading-snug">5 Collocations bắt buộc biết trong IELTS</h4>
+              <p class="text-[11px] text-sand-500 mb-2 leading-relaxed">Đã gắn tracking link mở bài học Lexkite.</p>
+              <div class="flex items-center justify-between pt-2 border-t border-sand-200 text-[10px] text-sand-500">
+                <span class="flex items-center gap-1 font-mono text-sand-600">
+                  <span class="material-symbols-rounded text-sm text-sand-400">inventory_2</span> 18.6 MB
+                </span>
+                <span class="font-medium bg-sand-100 px-1.5 py-0.5 rounded">EN · Academic</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- COLUMN 6: Lên lịch (1) -->
+        <!-- ========================================== -->
+        <div class="w-64 flex-shrink-0 flex flex-col bg-sand-100/90 rounded-xl border border-sand-300 h-full">
+          <div class="p-3 border-b border-sand-200 flex items-center justify-between flex-shrink-0">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-teal-600"></span>
+              <span class="font-bold text-xs text-sand-700">Lên lịch</span>
+            </div>
+            <span class="text-xs font-mono font-bold bg-white text-sand-600 px-2 py-0.5 rounded-full border border-sand-300">1</span>
+          </div>
+
+          <div class="p-2.5 space-y-2.5 overflow-y-auto flex-1">
+            
+            <div class="tactile-card p-3 rounded-lg cursor-pointer border-teal-200 bg-teal-50/20">
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-teal-800 bg-teal-100 px-1.5 py-0.5 rounded border border-teal-200">Hẹn giờ 19:30</span>
+                <span class="text-[10px] font-mono text-sand-500">ID-095</span>
+              </div>
+              <h4 class="font-bold text-xs text-teal-950 mb-1 leading-snug">Lỡ chuyến xe buýt: Nói sao cho tự nhiên?</h4>
+              <p class="text-[11px] text-sand-500 mb-2 leading-relaxed">Đăng đồng thời: TikTok, Shorts &amp; Instagram Reels.</p>
+              <div class="flex items-center justify-between pt-2 border-t border-sand-200 text-[10px] text-teal-900">
+                <span class="flex items-center gap-1 font-semibold">
+                  <span class="material-symbols-rounded text-sm text-teal-700">event</span> Hôm nay, 19:30
+                </span>
+                <span class="font-mono text-sand-500">Auto-post</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- COLUMN 7: Đã đăng (1) -->
+        <!-- ========================================== -->
+        <div class="w-64 flex-shrink-0 flex flex-col bg-sand-100/90 rounded-xl border border-sand-300 h-full">
+          <div class="p-3 border-b border-sand-200 flex items-center justify-between flex-shrink-0">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+              <span class="font-bold text-xs text-sand-700">Đã đăng</span>
+            </div>
+            <span class="text-xs font-mono font-bold bg-white text-sand-600 px-2 py-0.5 rounded-full border border-sand-300">1</span>
+          </div>
+
+          <div class="p-2.5 space-y-2.5 overflow-y-auto flex-1">
+            
+            <div class="tactile-card p-3 rounded-lg cursor-pointer opacity-90 hover:opacity-100">
+              <div class="flex items-start justify-between gap-2 mb-2">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">Trực tuyến</span>
+                <span class="text-[10px] font-mono text-sand-500">ID-091</span>
+              </div>
+              <h4 class="font-bold text-xs text-teal-950 mb-1 leading-snug">"Hardly" không phải là "Chăm chỉ"</h4>
+              <p class="text-[11px] text-sand-500 mb-2 leading-relaxed">Đã tiếp cận người học tự nhiên từ kênh TikTok.</p>
+              <div class="flex items-center justify-between pt-2 border-t border-sand-200 text-[10px] text-sand-600">
+                <span class="flex items-center gap-1 font-medium text-emerald-700">
+                  <span class="material-symbols-rounded text-sm">trending_up</span> 142 lượt xem
+                </span>
+                <span class="font-mono text-sand-500">2 giờ trước</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </main>
+
+      <!-- ========================================================================= -->
+      <!-- RIGHT SIDE PANEL: CHI TIẾT DUYỆT VIDEO & 9:16 PREVIEW FRAME -->
+      <!-- ========================================================================= -->
+      <aside class="w-96 bg-[#fdfcf9] border-l border-sand-300 flex flex-col flex-shrink-0 z-10 shadow-sm overflow-hidden">
+        
+        <!-- Panel Header -->
+        <div class="px-5 py-3.5 border-b border-sand-200 flex items-center justify-between bg-sand-50 flex-shrink-0">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-teal-700"></span>
+              <h3 class="font-bold text-xs text-teal-950 uppercase tracking-wider">Chi tiết kiểm định Video</h3>
+            </div>
+            <div class="text-[11px] text-sand-500 font-mono mt-0.5">Mã kịch bản: LXK-REEL-101</div>
+          </div>
+          <button class="w-7 h-7 rounded flex items-center justify-center text-sand-500 hover:text-teal-900 hover:bg-sand-200 transition-colors" title="Đóng bảng chi tiết">
+            <span class="material-symbols-rounded text-base">close</span>
+          </button>
+        </div>
+
+        <!-- Scrollable Inspector Content -->
+        <div class="flex-1 overflow-y-auto p-4 space-y-4">
+
+          <!-- 1. PREVIEW FRAME 9:16 (High Fidelity SaaS preview) -->
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label class="text-xs font-bold text-teal-950 flex items-center gap-1.5">
+                <span class="material-symbols-rounded text-base text-teal-700">smartphone</span>
+                Khung xem trước 9:16 (Vertical Reel)
+              </label>
+              <span class="text-[10px] font-mono text-sand-500 bg-sand-200 px-1.5 py-0.2 rounded">1080 × 1920 px</span>
+            </div>
+
+            <!-- Frame Container (Center aligned 9:16 phone mockup) -->
+            <div class="w-full flex justify-center py-1">
+              <div class="w-52 h-[340px] rounded-2xl bg-[#071817] border-4 border-[#122b29] shadow-[0_8px_20px_-4px_rgba(7,24,23,0.35)] relative overflow-hidden flex flex-col justify-between p-3 select-none">
+                
+                <!-- Phone Top Indicators -->
+                <div class="flex items-center justify-between text-white/70 text-[9px] font-mono z-10">
+                  <span class="flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> EN • 00:29
+                  </span>
+                  <span class="px-1 py-0.2 rounded bg-white/10 text-[8px]">Lexkite Reel</span>
+                </div>
+
+                <!-- Stage Visual: 2D Cartoon Teacher Carlos Illustration -->
+                <div class="my-auto flex flex-col items-center justify-center text-center z-10">
+                  
+                  <!-- Flat 2D Teacher Character -->
+                  <div class="w-20 h-20 relative flex items-center justify-center mb-1">
+                    <!-- Glow behind character -->
+                    <div class="absolute inset-0 bg-teal-500/20 rounded-full blur-md"></div>
+                    <svg class="w-16 h-16 relative" viewBox="0 0 100 100" fill="none">
+                      <!-- Ground shadow -->
+                      <ellipse cx="50" cy="88" rx="28" ry="6" fill="#040e0d"/>
+                      <!-- Torso -->
+                      <path d="M26 84 C26 64 36 56 50 56 C64 56 74 64 74 84 Z" fill="#207f79"/>
+                      <!-- Coral tie -->
+                      <polygon points="50,60 44,56 56,56" fill="#ff6243"/>
+                      <!-- Head -->
+                      <circle cx="50" cy="36" r="18" fill="#f5ede0"/>
+                      <!-- Flat Hair -->
+                      <path d="M32 34 C32 22 40 16 50 16 C60 16 68 22 68 34 C64 32 58 30 50 30 C42 30 36 32 32 34 Z" fill="#133533"/>
+                      <!-- Glasses -->
+                      <circle cx="44" cy="36" r="4.5" stroke="#0c2826" stroke-width="2" fill="none"/>
+                      <circle cx="56" cy="36" r="4.5" stroke="#0c2826" stroke-width="2" fill="none"/>
+                      <line x1="48.5" y1="36" x2="51.5" y2="36" stroke="#0c2826" stroke-width="2"/>
+                      <!-- Big cheerful smile -->
+                      <path d="M44 45 Q50 50 56 45" stroke="#0c2826" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+
+                  <!-- Speech Bubble / Hook text -->
+                  <div class="bg-white/95 text-[#0c2826] px-2.5 py-1.5 rounded-lg shadow-md border border-white text-left max-w-[180px] mb-2">
+                    <div class="text-[9px] font-bold text-teal-800 uppercase tracking-tight">Ngữ pháp phản xạ</div>
+                    <div class="text-[11px] font-extrabold leading-tight">"Have you ever..." vs "Did you ever..."</div>
+                  </div>
+
+                  <!-- Real-time dynamic subtitle banner -->
+                  <div class="bg-teal-950/90 border border-teal-500/40 text-emerald-200 text-[10px] font-bold px-2 py-1 rounded max-w-[170px] leading-tight">
+                    "I have lived in Berlin since October..."
+                  </div>
+
+                </div>
+
+                <!-- Bottom Channel Overlay in Reel -->
+                <div class="flex items-center justify-between z-10 pt-2 border-t border-white/10">
+                  <div class="flex items-center gap-1.5">
+                    <div class="w-4 h-4 rounded bg-teal-700 flex items-center justify-center text-[8px] text-white font-bold">L</div>
+                    <span class="text-[10px] text-white font-semibold">@lexkite.app</span>
+                  </div>
+                  <span class="text-[9px] text-white/70 bg-white/10 px-1 py-0.2 rounded font-mono">B1 IELTS</span>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Video Player mini controls -->
+            <div class="flex items-center justify-between mt-2 px-2 py-1.5 bg-sand-100 rounded-lg border border-sand-200 text-xs text-sand-600">
+              <div class="flex items-center gap-2">
+                <button class="w-6 h-6 rounded bg-teal-800 text-white flex items-center justify-center hover:bg-teal-700 transition-colors">
+                  <span class="material-symbols-rounded text-sm filled">play_arrow</span>
+                </button>
+                <span class="font-mono text-[11px] text-teal-950 font-medium">00:12 / 00:29</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button class="hover:text-teal-900" title="Chạy chậm 0.75x"><span class="font-mono text-[10px] font-bold">0.75×</span></button>
+                <button class="hover:text-teal-900" title="Bật/Tắt âm thanh"><span class="material-symbols-rounded text-sm">volume_up</span></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. THÔNG TIN VIDEO & NGUYÊN TẮC BIÊN TẬP -->
+          <div class="bg-white p-3 rounded-lg border border-sand-300 shadow-xs space-y-2.5">
+            <div class="text-xs font-bold text-teal-950 flex items-center justify-between">
+              <span>Thông tin xuất bản</span>
+              <span class="text-[10px] font-mono text-sand-500">Mẫu: Gram-Sprint-04</span>
+            </div>
+            
+            <div class="space-y-1.5 text-xs">
+              <div class="flex justify-between items-start py-1 border-b border-sand-100">
+                <span class="text-sand-500">Tiêu đề:</span>
+                <span class="font-semibold text-teal-950 text-right max-w-[200px]">Present perfect in 30 seconds</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-sand-100">
+                <span class="text-sand-500">Mục tiêu ngữ pháp:</span>
+                <span class="font-medium text-sand-700">Present Perfect vs Past Simple</span>
+              </div>
+              <div class="flex justify-between items-center py-1 border-b border-sand-100">
+                <span class="text-sand-500">Giáo viên phụ trách:</span>
+                <span class="font-medium text-sand-700 flex items-center gap-1">
+                  <span class="w-3.5 h-3.5 rounded-full bg-teal-800 text-[8px] text-white flex items-center justify-center font-bold">C</span>
+                  Carlos (2D Avatar)
+                </span>
+              </div>
+              <div class="flex justify-between items-center py-1">
+                <span class="text-sand-500">Kênh mục tiêu:</span>
+                <div class="flex items-center gap-1">
+                  <span class="px-1.5 py-0.2 rounded bg-sand-100 text-sand-700 text-[10px] font-medium border border-sand-200">TikTok</span>
+                  <span class="px-1.5 py-0.2 rounded bg-sand-100 text-sand-700 text-[10px] font-medium border border-sand-200">YT Shorts</span>
+                  <span class="px-1.5 py-0.2 rounded bg-sand-100 text-sand-700 text-[10px] font-medium border border-sand-200">IG Reels</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. QA CHECKLIST (Tiêu chuẩn kỹ thuật kiểm định) -->
+          <div class="bg-white p-3.5 rounded-lg border border-sand-300 shadow-xs">
+            <div class="flex items-center justify-between mb-2.5">
+              <h4 class="text-xs font-bold text-teal-950 flex items-center gap-1.5">
+                <span class="material-symbols-rounded text-base text-teal-700">verified_user</span>
+                Bảng kiểm định QA (Chất lượng)
+              </h4>
+              <span class="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">3/3 ĐẠT</span>
+            </div>
+
+            <ul class="space-y-2 text-xs">
+              
+              <!-- Check item 1: Tương phản text & subtitle -->
+              <li class="flex items-start justify-between gap-2 p-2 rounded bg-sand-50 border border-sand-200">
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-rounded text-base text-emerald-600 filled flex-shrink-0 mt-0.5">check_circle</span>
+                  <div>
+                    <div class="font-bold text-teal-950 text-[12px]">Tương phản chữ (WCAG AAA)</div>
+                    <div class="text-[11px] text-sand-500 leading-tight">Chữ trắng trên nền mờ tối đạt tỉ lệ 9.2:1 (vượt chuẩn 4.5:1).</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-mono font-bold text-emerald-800 bg-emerald-100/70 px-1.5 py-0.5 rounded">9.2:1</span>
+              </li>
+
+              <!-- Check item 2: Phụ đề không tràn lề -->
+              <li class="flex items-start justify-between gap-2 p-2 rounded bg-sand-50 border border-sand-200">
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-rounded text-base text-emerald-600 filled flex-shrink-0 mt-0.5">check_circle</span>
+                  <div>
+                    <div class="font-bold text-teal-950 text-[12px]">Phụ đề &amp; Safe Zone (Vùng an toàn)</div>
+                    <div class="text-[11px] text-sand-500 leading-tight">Cách đáy 180px, không bị che bởi nút Like/Share của TikTok.</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-bold text-emerald-800 bg-emerald-100/70 px-1.5 py-0.5 rounded">Khớp</span>
+              </li>
+
+              <!-- Check item 3: Âm lượng tiêu chuẩn podcast/reel -->
+              <li class="flex items-start justify-between gap-2 p-2 rounded bg-sand-50 border border-sand-200">
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-rounded text-base text-emerald-600 filled flex-shrink-0 mt-0.5">check_circle</span>
+                  <div>
+                    <div class="font-bold text-teal-950 text-[12px]">Âm lượng tiêu chuẩn (−16 LUFS)</div>
+                    <div class="text-[11px] text-sand-500 leading-tight">Tích hợp chuẩn EBU R128, giọng nói trong trẻo, không rè peak.</div>
+                  </div>
+                </div>
+                <span class="text-[10px] font-mono font-bold text-teal-900 bg-teal-100 px-1.5 py-0.5 rounded">−16 LUFS</span>
+              </li>
+
+              <!-- Extra Note: Cảnh báo nhẹ -->
+              <li class="flex items-start justify-between gap-2 p-2 rounded bg-amber-50/60 border border-amber-200/80 text-[11px]">
+                <div class="flex items-start gap-1.5">
+                  <span class="material-symbols-rounded text-base text-amber-600 flex-shrink-0">info</span>
+                  <span class="text-amber-900">Hook mở đầu: <strong>3.2 giây</strong> (khuyên dùng dưới 4.0 giây).</span>
+                </div>
+                <span class="text-[10px] font-medium text-amber-800 bg-amber-100 px-1.5 py-0.2 rounded">Khuyên dùng</span>
+              </li>
+
+            </ul>
+          </div>
+
+          <!-- 4. LỊCH SỬ KÉO THẢ & HOẠT ĐỘNG PIPELINE -->
+          <div class="text-xs text-sand-500 space-y-1.5 px-1">
+            <div class="font-bold text-teal-900 uppercase text-[10px] tracking-wider">Nhật ký xử lý</div>
+            <div class="flex items-center justify-between text-[11px]">
+              <span>Tạo kịch bản tự động</span>
+              <span class="font-mono text-sand-400">09:15 · Bot Lexkite</span>
+            </div>
+            <div class="flex items-center justify-between text-[11px]">
+              <span>Hoàn tất render Remotion</span>
+              <span class="font-mono text-sand-400">09:28 · Worker #3</span>
+            </div>
+            <div class="flex items-center justify-between text-[11px]">
+              <span>Vào hàng chờ QA</span>
+              <span class="font-mono text-sand-400">09:29 · Tự động</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Panel Fixed Bottom Action Footer (Clearly labeled publish action) -->
+        <div class="p-4 border-t border-sand-300 bg-sand-50 flex-shrink-0 space-y-2">
+          
+          <div class="flex items-center gap-2">
+            <!-- Secondary Action: Dựng lại -->
+            <button class="tactile-btn-secondary flex-1 py-2.5 px-3 rounded-lg text-xs font-bold flex items-center justify-center gap-1.5">
+              <span class="material-symbols-rounded text-base">replay</span>
+              <span>Dựng lại</span>
+            </button>
+
+            <!-- Coral Primary Action: Duyệt (Chuyển sang Kho GrabCast để xuất bản) -->
+            <button class="tactile-btn-coral flex-[1.6] py-2.5 px-4 rounded-lg text-xs font-bold flex items-center justify-center gap-2">
+              <span class="material-symbols-rounded text-base filled">check_circle</span>
+              <span>Duyệt &amp; Sang Kho GrabCast</span>
+            </button>
+          </div>
+
+          <p class="text-[10px] text-center text-sand-500 leading-tight">
+            * Nhấn <strong>Duyệt</strong> sẽ chuyển video vào kho và mở khóa lịch tự động đăng lúc 19:30.
+          </p>
+
+        </div>
+
+      </aside>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Examinations &amp; Practice Tests</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-container": "#9ce9e2",
+            "surface": "#fff8f3",
+            "on-secondary-fixed": "#2c1600",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "on-tertiary-fixed": "#410000",
+            "primary": "#00514d",
+            "on-primary-fixed-variant": "#00504c",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#f9efe6",
+            "surface-tint": "#106a65",
+            "surface-container": "#f6ece4",
+            "on-primary": "#ffffff",
+            "on-surface": "#1f1b16",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "tertiary-container": "#b03224",
+            "outline-variant": "#bec9c7",
+            "surface-variant": "#eae1d8",
+            "on-tertiary": "#ffffff",
+            "outline": "#6f7978",
+            "on-background": "#1f1b16",
+            "on-error-container": "#93000a",
+            "surface-bright": "#fff8f3",
+            "primary-fixed-dim": "#88d4cd",
+            "on-secondary-container": "#663b00",
+            "inverse-primary": "#88d4cd",
+            "background": "#fff8f3",
+            "tertiary": "#8e190f",
+            "primary-container": "#136b66",
+            "on-error": "#ffffff",
+            "surface-container-high": "#f0e7de",
+            "on-surface-variant": "#3f4947",
+            "surface-dim": "#e2d8d0",
+            "on-primary-fixed": "#00201e",
+            "tertiary-fixed": "#ffdad4",
+            "secondary": "#895100",
+            "primary-fixed": "#a4f0e9",
+            "inverse-surface": "#34302a",
+            "surface-container-highest": "#eae1d8",
+            "secondary-fixed-dim": "#ffb86c",
+            "secondary-fixed": "#ffdcbc",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#683c00",
+            "error-container": "#ffdad6",
+            "surface-container-low": "#fcf2e9",
+            "secondary-container": "#fe9d19",
+            "on-tertiary-container": "#ffd0c9"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "gutter-desktop": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "gutter": "1rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "margin-tablet": "1.5rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Tactile Press Physics */
+    .tactile-btn-amber {
+      background-color: #fe9d19;
+      color: #1f1b16;
+      box-shadow: 0 4px 0 #b45309;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-amber:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #b45309;
+    }
+
+    .tactile-btn-teal {
+      background-color: #136b66;
+      color: #ffffff;
+      box-shadow: 0 4px 0 #00514d;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn-teal:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #00514d;
+    }
+
+    .tactile-card {
+      background-color: #ffffff;
+      border: 2px solid #eae1d8;
+      box-shadow: 0 4px 0 #e2d8d0;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .tactile-card-interactive:hover {
+      box-shadow: 0 6px 0 #bec9c7;
+      transform: translateY(-2px);
+    }
+    .tactile-card-interactive:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #bec9c7;
+    }
+
+    .teacher-slot {
+      border: 2px dashed #136b66;
+      background: radial-gradient(circle, rgba(164,240,233,0.2) 0%, rgba(255,248,243,0.7) 100%);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- ========================================================================= -->
+<!-- 1. LEFT SIDEBAR NAVIGATION (Desktop 280px Fixed Tactile Hub Rail)        -->
+<!-- ========================================================================= -->
+<aside class="w-72 shrink-0 bg-surface-container-low border-r-2 border-surface-container-highest flex flex-col justify-between p- space-md sticky top-0 h-screen select-none z-30">
+<div class="flex flex-col gap-6">
+<!-- Lexkite Brand Header -->
+<div class="flex items-center gap-3 px-3 pt-2">
+<div class="w-11 h-11 rounded-DEFAULT bg-primary text-on-primary flex items-center justify-center shadow-[0_3px_0_#00201e]">
+<span class="material-symbols-outlined text-[26px]">navigation</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary font-black tracking-tight leading-tight">Lexkite</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold tracking-wider">IELTS &amp; Workplace Prep</span>
+</div>
+</div>
+<!-- Current Track Selector Badge -->
+<div class="px-2">
+<div class="bg-surface-container-high border-2 border-surface-container-highest rounded-DEFAULT p-2.5 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container inline-block shadow-[0_0_0_2px_#ffffff]"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold">Academic Band 7 Track</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">unfold_more</span>
+</div>
+</div>
+<!-- Primary Canonical 5 Destinations -->
+<nav aria-label="Main Navigation" class="flex flex-col gap-1.5 px-1">
+<!-- Destination: Today -->
+<a class="flex items-center gap-3.5 px-4 min-h-[48px] rounded-DEFAULT font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all active:translate-y-0.5" href="#today">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span>Today</span>
+</a>
+<!-- Destination: Vocab -->
+<a class="flex items-center gap-3.5 px-4 min-h-[48px] rounded-DEFAULT font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all active:translate-y-0.5" href="#vocab">
+<span class="material-symbols-outlined text-[22px]">book_4</span>
+<span>Vocab</span>
+<span class="ml-auto bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-2 py-0.5 rounded-full border border-surface-container-highest">42 due</span>
+</a>
+<!-- Destination: Skills -->
+<a class="flex items-center gap-3.5 px-4 min-h-[48px] rounded-DEFAULT font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all active:translate-y-0.5" href="#skills">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span>Skills</span>
+</a>
+<!-- Destination: Tests (ACTIVELY HIGHLIGHTED) -->
+<a aria-current="page" class="flex items-center gap-3.5 px-4 min-h-[50px] rounded-DEFAULT font-label-md text-label-md text-on-primary bg-primary shadow-[0_4px_0_#00201e] font-extrabold translate-y-[-1px]" href="#tests">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">quiz</span>
+<span class="tracking-wide">Tests</span>
+<span class="ml-auto bg-primary-container text-on-primary-container px-2 py-0.5 rounded-full font-label-sm text-label-sm border border-primary-fixed-dim">Sim Hub</span>
+</a>
+<!-- Destination: Me -->
+<a class="flex items-center gap-3.5 px-4 min-h-[48px] rounded-DEFAULT font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all active:translate-y-0.5" href="#me">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span>Me</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Bottom: Language Selector & Editorial Help Links -->
+<div class="flex flex-col gap-3 px-1 pt-4 border-t-2 border-surface-container-highest">
+<!-- Language Pill Selector -->
+<div class="bg-surface-container-lowest border-2 border-surface-container-highest rounded-DEFAULT p-2 flex items-center justify-between shadow-[0_2px_0_#eae1d8] min-h-[44px]"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">translate</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface font-extrabold">English (US)</span><span class="font-label-sm text-[10px] text-on-surface-variant font-bold">15 localized targets</span></div></div><span class="material-symbols-outlined text-on-surface-variant text-[18px]">expand_more</span></div>
+<!-- Footer Micro Links -->
+<div class="flex items-center justify-between px-1 pt-1 font-label-sm text-label-sm text-on-surface-variant font-bold"><a class="hover:text-primary transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center py-2 px-1" href="#blog">Blog</a><span>·</span><a class="hover:text-primary transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center py-2 px-1" href="#about">About Lexkite</a><span>·</span><a class="hover:text-primary transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center py-2 px-1" href="#support">Support</a></div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- 2. MAIN HUB CANVAS (Constrained to Desktop Grid at 1280px)                 -->
+<!-- ========================================================================= -->
+<main class="flex-1 min-w-0 max-w-[1000px] px-8 py-8 flex flex-col gap-8 pb-20">
+<!-- TOP BAR / SUB-HEADER -->
+<header class="flex flex-col gap-4 border-b-2 border-surface-container-highest pb-6">
+<!-- Breadcrumb + Quick Action Row -->
+<div class="flex items-center justify-between flex-wrap gap-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant font-bold"><span class="text-on-surface font-black">EXAMINATION SUITE</span><span>/</span><span class="text-primary font-extrabold">IELTS ACADEMIC CBT v2.4</span></div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight font-black">
+            Examinations &amp; Practice Tests
+          </h1>
+</div>
+<!-- Quick Action: Diagnostic History & Analytics -->
+<a class="min-h-[44px] px-4 rounded-DEFAULT bg-surface-container-lowest border-2 border-surface-container-highest shadow-[0_3px_0_#eae1d8] hover:bg-surface-container-high text-on-surface flex items-center gap-2 font-label-md text-label-md active:translate-y-0.5 transition-all" href="#analytics">
+<span class="material-symbols-outlined text-primary text-[20px]">analytics</span>
+<span>Diagnostic History &amp; Analytics</span>
+</a>
+</div>
+<!-- Exam Picker Chips (Accommodating +40% localized string expansion) -->
+<div aria-label="Exam Track Selection" class="flex items-center gap-3 overflow-x-auto pt-2 pb-1" role="tablist">
+<!-- Active: IELTS Academic -->
+<button aria-selected="true" class="min-h-[44px] px-5 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-[0_3px_0_#00201e] flex items-center gap-2 shrink-0 border-2 border-primary transition-all" role="tab">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="whitespace-normal text-left">IELTS Academic</span>
+</button>
+<!-- Inactive Option: TOEIC Full Test -->
+<button aria-selected="false" class="min-h-[44px] px-5 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md border-2 border-surface-container-highest shadow-[0_3px_0_#eae1d8] hover:border-primary-fixed-dim hover:text-on-surface flex items-center gap-2 shrink-0 active:translate-y-0.5 transition-all" role="tab">
+<span class="material-symbols-outlined text-[18px]">domain_verification</span>
+<span class="whitespace-normal text-left">TOEIC Full Test</span>
+</button>
+<!-- Inactive Option: TOEFL iBT -->
+<button aria-selected="false" class="min-h-[44px] px-5 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md border-2 border-surface-container-highest shadow-[0_3px_0_#eae1d8] hover:border-primary-fixed-dim hover:text-on-surface flex items-center gap-2 shrink-0 active:translate-y-0.5 transition-all" role="tab">
+<span class="material-symbols-outlined text-[18px]">school</span>
+<span class="whitespace-normal text-left">TOEFL iBT</span>
+</button>
+<!-- Inactive Option: CEFR Diagnostic -->
+<button aria-selected="false" class="min-h-[44px] px-5 rounded-full bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md border-2 border-surface-container-highest shadow-[0_3px_0_#eae1d8] hover:border-primary-fixed-dim hover:text-on-surface flex items-center gap-2 shrink-0 active:translate-y-0.5 transition-all" role="tab">
+<span class="material-symbols-outlined text-[18px]">speed</span>
+<span class="whitespace-normal text-left">CEFR Diagnostic (A1–C2)</span>
+</button>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- 3. HERO READINESS SCORE CARD + TEACHER COACH SLOT                         -->
+<!-- ========================================================================= -->
+<section aria-label="Current Test Readiness" class="tactile-card rounded-xl p-6 relative overflow-hidden">
+<!-- Top Badges / Target Status -->
+<div class="flex items-center justify-between flex-wrap gap-3 pb-6 border-b-2 border-surface-container"><div class="flex items-center gap-3"><span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm border border-secondary-fixed-dim font-black flex items-center gap-1.5 shadow-sm"><span class="material-symbols-outlined text-[16px]">stars</span><span>Target Exam: Nov 28, 2025</span></span><span class="font-body-sm text-body-sm text-on-surface font-bold">In 32 days</span></div><div class="flex items-center gap-2 bg-surface-container-high px-3 py-1.5 rounded-full border border-surface-container-highest"><span class="w-3 h-3 rounded-full bg-primary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-primary font-black tracking-wide">STATUS: ON TRACK FOR BAND 7.0</span></div></div>
+<!-- Core Score & Breakdown Grid -->
+<div class="grid grid-cols-12 gap-6 pt-6 items-center">
+<!-- Band Score Physical Widget -->
+<div class="col-span-12 lg:col-span-5 flex items-center gap-5 bg-surface-container-low p-4 rounded-lg border-2 border-surface-container-highest">
+<div class="w-24 h-24 rounded-full bg-primary text-on-primary flex flex-col items-center justify-center shrink-0 shadow-[0_4px_0_#00201e] border-2 border-primary-fixed-dim">
+<span class="font-headline-lg text-headline-lg font-black leading-none">6.5</span>
+<span class="font-label-sm text-[10px] tracking-wider text-primary-fixed font-bold uppercase mt-1">Band Score</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-headline-sm text-headline-sm font-extrabold text-on-surface">Overall Projected Readiness</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Needs +0.5 improvement in Writing Task 2 coherence to clear your institutional requirement.
+            </p>
+</div>
+</div>
+<!-- Four Module Score Pills -->
+<div class="col-span-12 lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-3"><div class="bg-surface-container-lowest border-2 border-surface-container-highest rounded-DEFAULT p-3 flex flex-col items-center justify-center shadow-[0_3px_0_#eae1d8]"><span class="font-label-sm text-label-sm text-on-surface-variant font-black">LISTENING</span><span class="font-headline-md text-headline-md font-black text-primary my-1">7.0</span><span class="font-label-sm text-[11px] text-primary-container font-extrabold">Band Met ✓</span></div><div class="bg-surface-container-lowest border-2 border-surface-container-highest rounded-DEFAULT p-3 flex flex-col items-center justify-center shadow-[0_3px_0_#eae1d8]"><span class="font-label-sm text-label-sm text-on-surface-variant font-black">READING</span><span class="font-headline-md text-headline-md font-black text-primary my-1">6.5</span><span class="font-label-sm text-[11px] text-secondary font-black">−0.5 to goal</span></div><div class="bg-tertiary-fixed border-2 border-tertiary-container rounded-DEFAULT p-3 flex flex-col items-center justify-center shadow-[0_3px_0_#8e190f]"><span class="font-label-sm text-label-sm text-on-tertiary-fixed font-black">WRITING</span><span class="font-headline-md text-headline-md font-black text-tertiary my-1">6.0</span><span class="font-label-sm text-[11px] text-tertiary font-black">Action Required</span></div><div class="bg-surface-container-lowest border-2 border-surface-container-highest rounded-DEFAULT p-3 flex flex-col items-center justify-center shadow-[0_3px_0_#eae1d8]"><span class="font-label-sm text-label-sm text-on-surface-variant font-black">SPEAKING</span><span class="font-headline-md text-headline-md font-black text-primary my-1">6.5</span><span class="font-label-sm text-[11px] text-secondary font-black">−0.5 to goal</span></div></div>
+</div>
+<!-- Coach Ama Dynamic Slot & Feedback Quote (Strictly No Characters/Photos) -->
+<div class="mt-6 pt-5 border-t-2 border-surface-container flex items-start gap-4 bg-surface-container-low rounded-lg p-4 border border-surface-container-highest">
+<!-- Teacher Slot Container -->
+<div class="teacher-slot w-14 h-14 rounded-DEFAULT shrink-0 flex flex-col items-center justify-center text-center p-1" title="Teacher Slot: 2D Coach Ama is mounted here dynamically">
+<span class="material-symbols-outlined text-primary text-[20px]">smart_toy</span>
+<span class="font-label-sm text-[9px] text-primary font-black leading-none mt-1">teacher-slot</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-primary font-extrabold">Lead IELTS Coach Ama</span>
+<span class="font-label-sm text-[11px] bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full font-bold">Certified Examiner Logic</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic">
+            “Your Task 2 lexical resource is performing at Band 7.5, but coherence paragraph transitions slipped in Test #4. Prioritize the 15-minute argument connector drill to securely lift your composite to Band 7.0 before Saturday’s full run.”
+          </p>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 4. CORE TEST MODULES (Bento Grid: Full Sim vs 15-min Rapid Sprint)       -->
+<!-- ========================================================================= -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-primary font-extrabold">
+          Diagnostic &amp; Simulation Modes
+        </h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-extrabold">CBT Standard Environment · 2025 Rubric</span>
+</div>
+<div class="grid grid-cols-12 gap-6">
+<!-- CARD 1: Full Exam Simulation (Featured Card) -->
+<div class="col-span-12 md:col-span-7 tactile-card rounded-xl p-6 flex flex-col justify-between border-2 border-surface-container-highest relative">
+<div class="flex flex-col gap-4">
+<!-- Badges Row -->
+<div class="flex items-center justify-between flex-wrap gap-2">
+<span class="bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-black px-3 py-1 rounded-full border border-secondary-fixed-dim">
+                OFFICIAL TIMING &amp; FORMAT
+              </span>
+<span class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-extrabold px-3 py-1 rounded-full border border-surface-container-highest flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">timer</span>
+<span>2 hrs 45 mins</span>
+</span>
+</div>
+<!-- Title & Description -->
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-lg text-headline-lg font-black text-on-surface tracking-tight">
+                Full Exam Simulation
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                Computer-Based Test replica covering all four modules consecutively under authentic test conditions with strict audio timeouts and locked word processor controls.
+              </p>
+</div>
+<!-- Module Sequence Breakdown -->
+<div class="grid grid-cols-4 gap-2 pt-2"><div class="bg-surface-container-low p-2 rounded-DEFAULT border border-surface-container-highest text-center"><span class="font-label-sm text-[11px] text-on-surface-variant font-bold block">1. AUDIO</span><span class="font-label-md text-label-md text-on-surface font-extrabold">Listening (30m)</span></div><div class="bg-surface-container-low p-2 rounded-DEFAULT border border-surface-container-highest text-center"><span class="font-label-sm text-[11px] text-on-surface-variant font-bold block">2. TEXTS</span><span class="font-label-md text-label-md text-on-surface font-extrabold">Reading (60m)</span></div><div class="bg-surface-container-low p-2 rounded-DEFAULT border border-surface-container-highest text-center"><span class="font-label-sm text-[11px] text-on-surface-variant font-bold block">3. TASKS</span><span class="font-label-md text-label-md text-on-surface font-extrabold">Writing (60m)</span></div><div class="bg-surface-container-low p-2 rounded-DEFAULT border border-surface-container-highest text-center"><span class="font-label-sm text-[11px] text-on-surface-variant font-bold block">4. VOICE</span><span class="font-label-md text-label-md text-on-surface font-extrabold">Speaking (14m)</span></div></div>
+<!-- Distinct Feature Points -->
+<ul class="flex flex-col gap-2 text-on-surface-variant font-body-sm text-body-sm pt-2">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span>Authentic Cambridge/IDP scoring rubric and instant band descriptor breakdown</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">splitscreen</span>
+<span>Includes optional 10-minute scheduled rest break between Reading and Writing</span>
+</li>
+</ul>
+</div>
+<!-- Tactile Primary Amber CTA Button -->
+<div class="pt-6">
+<button class="tactile-btn-amber w-full min-h-[52px] px-6 rounded-DEFAULT font-label-lg text-label-lg font-black tracking-wide flex items-center justify-center gap-3 cursor-pointer">
+<span>Start Full Mock Test</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- CARD 2: Quick Diagnostic Sprint -->
+<div class="col-span-12 md:col-span-5 tactile-card rounded-xl p-6 flex flex-col justify-between border-2 border-surface-container-highest bg-surface-container-low">
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<span class="bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-black px-3 py-1 rounded-full border border-primary-fixed-dim">
+                RAPID EVALUATION
+              </span>
+<span class="bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-extrabold px-3 py-1 rounded-full border border-surface-container-highest flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>15 mins</span>
+</span>
+</div>
+<div class="flex flex-col gap-2">
+<h3 class="font-headline-lg text-headline-lg font-black text-primary tracking-tight">
+                Quick Diagnostic Sprint
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                20 adaptive high-frequency items designed to test grammatical trap detection, paraphrasing agility, and lexical precision under tight time pressure.
+              </p>
+</div>
+<!-- Sprint Spec List -->
+<div class="bg-surface-container-lowest p-3.5 rounded-DEFAULT border-2 border-surface-container-highest flex flex-col gap-2"><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-on-surface-variant font-bold">ADAPTIVE ALGORITHM</span><span class="text-primary font-black">Real-time Level Adjust</span></div><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-on-surface-variant font-bold">TARGETED DOMAINS</span><span class="text-primary font-black">Lexical &amp; Sentence Traps</span></div><div class="flex items-center justify-between font-label-sm text-label-sm"><span class="text-on-surface-variant font-bold">BENCHMARK REPORT</span><span class="text-primary font-black">Instant Error Heatmap</span></div></div>
+</div>
+<!-- Tactile Secondary Deep Teal CTA Button -->
+<div class="pt-6">
+<button class="tactile-btn-teal w-full min-h-[52px] px-6 rounded-DEFAULT font-label-lg text-label-lg font-black tracking-wide flex items-center justify-center gap-3 cursor-pointer">
+<span>Start 15-min Sprint</span>
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 5. CBT SKILL SIMULATIONS INTERFACE PRACTICE ROW                            -->
+<!-- ========================================================================= -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary font-extrabold">
+            CBT Skill Simulations
+          </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Master the official computer-delivered interface affordances before your test appointment
+          </p>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container-high px-3 py-1 rounded-full text-on-surface-variant border border-surface-container-highest font-bold">
+          4 Hardware Tools
+        </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"><div class="tactile-card tactile-card-interactive rounded-DEFAULT p-5 flex flex-col justify-between gap-4 cursor-pointer"><div class="flex flex-col gap-3"><div class="w-12 h-12 rounded-DEFAULT bg-primary-fixed text-primary flex items-center justify-center shadow-[0_3px_0_#88d4cd] border border-primary-fixed-dim"><span class="material-symbols-outlined text-[26px]">headphones</span></div><div class="flex flex-col gap-1"><h4 class="font-headline-sm text-headline-sm font-extrabold text-on-surface leading-snug">Audio Player &amp; Notetaker</h4><p class="font-body-sm text-body-sm text-on-surface-variant">Simulate single-play audio constraints, volume dials, and keyboard shortcut notepads.</p></div></div><div class="flex items-center justify-between pt-2 border-t border-surface-container font-label-sm text-label-sm text-primary font-extrabold min-h-[44px]"><span>Launch Player</span><span class="material-symbols-outlined text-[18px]">open_in_new</span></div></div><div class="tactile-card tactile-card-interactive rounded-DEFAULT p-5 flex flex-col justify-between gap-4 cursor-pointer"><div class="flex flex-col gap-3"><div class="w-12 h-12 rounded-DEFAULT bg-secondary-fixed text-secondary flex items-center justify-center shadow-[0_3px_0_#ffb86c] border border-secondary-fixed-dim"><span class="material-symbols-outlined text-[26px]">splitscreen_left</span></div><div class="flex flex-col gap-1"><h4 class="font-headline-sm text-headline-sm font-extrabold text-on-surface leading-snug">Split-Screen Highlighter</h4><p class="font-body-sm text-body-sm text-on-surface-variant">Master passage split panes, official color text-marking, and matching-heading dropzones.</p></div></div><div class="flex items-center justify-between pt-2 border-t border-surface-container font-label-sm text-label-sm text-secondary font-extrabold min-h-[44px]"><span>Test Split View</span><span class="material-symbols-outlined text-[18px]">open_in_new</span></div></div><div class="tactile-card tactile-card-interactive rounded-DEFAULT p-5 flex flex-col justify-between gap-4 cursor-pointer"><div class="flex flex-col gap-3"><div class="w-12 h-12 rounded-DEFAULT bg-tertiary-fixed text-tertiary flex items-center justify-center shadow-[0_3px_0_#ffb4a8] border border-tertiary-container"><span class="material-symbols-outlined text-[26px]">keyboard</span></div><div class="flex flex-col gap-1"><h4 class="font-headline-sm text-headline-sm font-extrabold text-on-surface leading-snug">Timed Essay Editor</h4><p class="font-body-sm text-body-sm text-on-surface-variant">Practice without auto-spellcheck. Real-time dynamic word counter and strict 60m autosave.</p></div></div><div class="flex items-center justify-between pt-2 border-t border-surface-container font-label-sm text-label-sm text-tertiary font-extrabold min-h-[44px]"><span>Open Wordpad</span><span class="material-symbols-outlined text-[18px]">open_in_new</span></div></div><div class="tactile-card tactile-card-interactive rounded-DEFAULT p-5 flex flex-col justify-between gap-4 cursor-pointer"><div class="flex flex-col gap-3"><div class="w-12 h-12 rounded-DEFAULT bg-surface-container-highest text-on-surface flex items-center justify-center shadow-[0_3px_0_#bec9c7] border border-outline-variant"><span class="material-symbols-outlined text-[26px]">mic</span></div><div class="flex flex-col gap-1"><h4 class="font-headline-sm text-headline-sm font-extrabold text-on-surface leading-snug">Part 2 Cue-Card Mic</h4><p class="font-body-sm text-body-sm text-on-surface-variant">Strict 1-minute digital preparation timer followed by uninterrupted 2-minute voice recording.</p></div></div><div class="flex items-center justify-between pt-2 border-t border-surface-container font-label-sm text-label-sm text-on-surface font-extrabold min-h-[44px]"><span>Calibrate Mic</span><span class="material-symbols-outlined text-[18px]">open_in_new</span></div></div></div>
+</section>
+<!-- ========================================================================= -->
+<!-- 6. PAST RESULTS & ANALYTICS LIST                                          -->
+<!-- ========================================================================= -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-md text-headline-md text-primary font-extrabold">
+            Recent Mock Tests &amp; Diagnostics
+          </h2>
+<span class="bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm px-2.5 py-0.5 rounded-full font-bold">14 tests on file</span>
+</div>
+<a class="font-label-md text-label-md text-primary hover:underline font-extrabold flex items-center gap-1 min-h-[44px] min-w-[44px] px-2" href="#all-tests"><span>View All 14 Tests</span><span class="material-symbols-outlined text-[18px]">chevron_right</span></a>
+</div>
+<!-- Tactile Row List Container -->
+<div class="flex flex-col gap-3">
+<!-- Item 1: IELTS Academic Mock #4 -->
+<div class="tactile-card rounded-DEFAULT p-4 flex items-center justify-between flex-wrap gap-4 border-2 border-surface-container-highest hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-DEFAULT bg-primary text-on-primary flex flex-col items-center justify-center font-black shadow-[0_3px_0_#00201e] shrink-0">
+<span class="text-sm leading-none">6.5</span>
+<span class="text-[9px] uppercase font-bold text-primary-fixed">BAND</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-extrabold text-on-surface">IELTS Academic Mock #4</span>
+<span class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold">Yesterday, 14:20</span>
+</div>
+<div class="flex items-center gap-3 font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+<span>Listening: <strong>7.0</strong></span>
+<span>·</span>
+<span>Reading: <strong>6.5</strong></span>
+<span>·</span>
+<span class="text-tertiary font-bold">Writing: 6.0</span>
+<span>·</span>
+<span>Speaking: <strong>6.5</strong></span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="min-h-[44px] px-4 rounded-DEFAULT bg-surface-container text-primary hover:bg-surface-container-high font-label-md text-label-md font-extrabold flex items-center gap-2 border border-surface-container-highest transition-colors">
+<span>Review Mistake Heatmap</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Item 2: Quick Diagnostic Sprint -->
+<div class="tactile-card rounded-DEFAULT p-4 flex items-center justify-between flex-wrap gap-4 border-2 border-surface-container-highest hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-DEFAULT bg-secondary-container text-on-surface flex flex-col items-center justify-center font-black shadow-[0_3px_0_#895100] shrink-0">
+<span class="text-sm leading-none">7.0</span>
+<span class="text-[9px] uppercase font-bold text-on-secondary-fixed">SPRINT</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-extrabold text-on-surface">Quick Diagnostic Sprint</span>
+<span class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold">3 days ago</span>
+</div>
+<div class="flex items-center gap-3 font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+<span>17 / 20 correct</span>
+<span>·</span>
+<span class="text-secondary font-bold">Trap Accuracy: 85%</span>
+<span>·</span>
+<span>Elapsed: 13m 42s</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="min-h-[44px] px-4 rounded-DEFAULT bg-surface-container text-on-surface hover:bg-surface-container-high font-label-md text-label-md font-extrabold flex items-center gap-2 border border-surface-container-highest transition-colors">
+<span>Review 3 missed items</span>
+<span class="material-symbols-outlined text-[18px]">troubleshoot</span>
+</button>
+</div>
+</div>
+<!-- Item 3: IELTS Academic Mock #3 -->
+<div class="tactile-card rounded-DEFAULT p-4 flex items-center justify-between flex-wrap gap-4 border-2 border-surface-container-highest hover:bg-surface-container-low transition-colors"><div class="flex items-center gap-4"><div class="w-12 h-12 rounded-DEFAULT bg-surface-container-highest text-on-surface flex flex-col items-center justify-center font-black shadow-[0_3px_0_#bec9c7] shrink-0"><span class="text-sm leading-none">6.0</span><span class="text-[9px] uppercase font-bold text-on-surface-variant">BAND</span></div><div class="flex flex-col"><div class="flex items-center gap-2"><span class="font-headline-sm text-headline-sm font-bold text-on-surface">IELTS Academic Mock #3</span><span class="bg-surface-container text-on-surface font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold">Oct 18, 2025</span></div><div class="flex items-center gap-3 font-body-sm text-body-sm text-on-surface-variant mt-0.5"><span>Listening: <strong>6.5</strong></span><span>·</span><span>Reading: <strong>6.0</strong></span><span>·</span><span>Writing: <strong>5.5</strong></span><span>·</span><span>Speaking: <strong>6.0</strong></span></div></div></div><div class="flex items-center gap-3"><span class="font-label-sm text-label-sm text-on-surface-variant font-extrabold uppercase tracking-wider px-3 py-1 bg-surface-container-high rounded-full border border-surface-container-highest min-h-[44px] flex items-center justify-center">Archived</span><button class="min-h-[44px] min-w-[44px] px-3 rounded-DEFAULT hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-extrabold flex items-center justify-center transition-colors"><span class="material-symbols-outlined text-[20px]">more_horiz</span></button></div></div>
+</div>
+</section>
+</main>
+</body></html>

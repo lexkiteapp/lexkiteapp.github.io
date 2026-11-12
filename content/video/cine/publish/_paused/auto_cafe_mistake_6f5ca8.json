@@ -1,0 +1,75 @@
+{
+ "id": "auto_cafe_mistake_6f5ca8",
+ "scene": "cafe",
+ "template": "mistake",
+ "area": "grammar-check",
+ "cefr": "A2",
+ "point": "sit by the window",
+ "series": "Café English #17",
+ "title": "Spot the mistake: \"Can we sit in the window, please?\"",
+ "description": "A learner says \"Can we sit in the window, please?\" at the coffee shop. The fix: \"Can we sit by the window, please?\"\nComment your answer below and follow for daily English (Café English #17).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_mistake_6f5ca8#/fix",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#coffeeshopenglish",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/cafe/auto_cafe_mistake_6f5ca8/cine-auto-cafe-mistake-6f5ca8-en-v3.mp4",
+ "cover": "shorts/cafe/auto_cafe_mistake_6f5ca8/cine-auto-cafe-mistake-6f5ca8-en-v3.jpg",
+ "ci_artifact": "cine-cafe-35",
+ "run": "35",
+ "platforms": {
+  "tiktok": {
+   "title": "Spot the mistake: \"Can we sit in the window, please?\"",
+   "caption": "A learner says \"Can we sit in the window, please?\" at the coffee shop. The fix: \"Can we sit by the window, please?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_mistake_6f5ca8#/fix",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_mistake_6f5ca8#/fix",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "A learner says \"Can we sit in the window, please?\" at the coffee shop. The fix: \"Can we sit by the window, please?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_mistake_6f5ca8#/fix\n#learnenglish #englishtips #coffeeshopenglish #commonmistakes #englishgrammar #travelenglish"
+  },
+  "reels": {
+   "title": "Spot the mistake: \"Can we sit in the window, please?\"",
+   "caption": "A learner says \"Can we sit in the window, please?\" at the coffee shop. The fix: \"Can we sit by the window, please?\"\nComment your answer below and follow for daily English (Café English #17).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_mistake_6f5ca8#/fix",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_mistake_6f5ca8#/fix",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "A learner says \"Can we sit in the window, please?\" at the coffee shop. The fix: \"Can we sit by the window, please?\"\nComment your answer below and follow for daily English (Café English #17).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_mistake_6f5ca8#/fix\n#learnenglish #englishtips #coffeeshopenglish #commonmistakes #englishgrammar #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Spot the mistake: \"Can we sit in the window, please?\"",
+   "caption": "A learner says \"Can we sit in the window, please?\" at the coffee shop. The fix: \"Can we sit by the window, please?\"\nComment your answer below and follow for daily English (Café English #17).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_mistake_6f5ca8#/fix",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_mistake_6f5ca8#/fix",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#commonmistakes"
+   ],
+   "caption_with_tags": "A learner says \"Can we sit in the window, please?\" at the coffee shop. The fix: \"Can we sit by the window, please?\"\nComment your answer below and follow for daily English (Café English #17).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_mistake_6f5ca8#/fix\n#shorts #learnenglish #englishtips #coffeeshopenglish #commonmistakes"
+  }
+ },
+ "slot": {
+  "date": "2026-11-25",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

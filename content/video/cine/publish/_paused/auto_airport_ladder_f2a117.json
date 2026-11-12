@@ -1,0 +1,75 @@
+{
+ "id": "auto_airport_ladder_f2a117",
+ "scene": "airport",
+ "template": "ladder",
+ "area": "phrases",
+ "cefr": "A2",
+ "point": "polite request an aisle seat",
+ "series": "Airport English #8",
+ "title": "3 ways to ask for an aisle seat in English",
+ "description": "Polite, neutral and casual ways to ask at the airport. Most polite: \"Could I possibly have an aisle seat?\"\nComment your answer below and follow for daily English (Airport English #8).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_f2a117#/phrases",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#airportenglish",
+  "#politeenglish",
+  "#englishphrases",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/airport/auto_airport_ladder_f2a117/cine-auto-airport-ladder-f2a117-en-v3.mp4",
+ "cover": "shorts/airport/auto_airport_ladder_f2a117/cine-auto-airport-ladder-f2a117-en-v3.jpg",
+ "ci_artifact": "cine-airport-17",
+ "run": "17",
+ "platforms": {
+  "tiktok": {
+   "title": "3 ways to ask for an aisle seat in English",
+   "caption": "Polite, neutral and casual ways to ask at the airport. Most polite: \"Could I possibly have an aisle seat?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_f2a117#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_f2a117#/phrases",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#politeenglish",
+    "#englishphrases",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the airport. Most polite: \"Could I possibly have an aisle seat?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_f2a117#/phrases\n#learnenglish #englishtips #airportenglish #politeenglish #englishphrases #travelenglish"
+  },
+  "reels": {
+   "title": "3 ways to ask for an aisle seat in English",
+   "caption": "Polite, neutral and casual ways to ask at the airport. Most polite: \"Could I possibly have an aisle seat?\"\nComment your answer below and follow for daily English (Airport English #8).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_f2a117#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_f2a117#/phrases",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#politeenglish",
+    "#englishphrases",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the airport. Most polite: \"Could I possibly have an aisle seat?\"\nComment your answer below and follow for daily English (Airport English #8).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_f2a117#/phrases\n#learnenglish #englishtips #airportenglish #politeenglish #englishphrases #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "3 ways to ask for an aisle seat in English #shorts",
+   "caption": "Polite, neutral and casual ways to ask at the airport. Most polite: \"Could I possibly have an aisle seat?\"\nComment your answer below and follow for daily English (Airport English #8).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_f2a117#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_f2a117#/phrases",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#politeenglish"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the airport. Most polite: \"Could I possibly have an aisle seat?\"\nComment your answer below and follow for daily English (Airport English #8).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_f2a117#/phrases\n#shorts #learnenglish #englishtips #airportenglish #politeenglish"
+  }
+ },
+ "slot": {
+  "date": "2026-12-02",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

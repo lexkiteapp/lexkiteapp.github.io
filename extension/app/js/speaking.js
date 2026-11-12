@@ -40,13 +40,11 @@
     p3: { name: 'Part 3 · Thảo luận', target: [40, 70], desc: 'Câu hỏi trừu tượng – nêu quan điểm, lý do, ví dụ (~40–70 giây)' },
   };
 
-  let rec = null, media = null, chunks = [], stream = null, tick = null, prepT = null;
+  let sess = null, tick = null, prepT = null;
   const stopAll = () => {
     clearInterval(tick); clearInterval(prepT);
-    try { rec && rec.abort(); } catch (e) { /* đã dừng */ }
-    try { media && media.state !== 'inactive' && media.stop(); } catch (e) { /* đã dừng */ }
-    if (stream) stream.getTracks().forEach(t => t.stop());
-    rec = null; media = null; stream = null; UI.stopSpeak();
+    if (sess) sess.cancel();
+    sess = null; UI.stopSpeak();
   };
 
   // Chủ đề bổ sung (js/speak/*.js nạp trước): window.SPEAK_MORE = [{ topic, title, p1: [...], p2: { q, points }, p3: [...] }]
@@ -63,9 +61,9 @@
     App.cleanup = stopAll;
     const qs = part === 'p2' ? [tp.p2.q] : tp[part];
     view.innerHTML = `
-      <div class="page-head"><div><h1>🗣️ ${t('Phòng luyện Speaking')}</h1><p class="muted">${t('Giám khảo đọc câu hỏi → bạn ghi âm câu trả lời → nghe lại, xem bản chữ và phân tích từ vựng. Ghi âm chỉ nằm trên máy bạn.')}</p></div></div>
+      <div class="page-head"><div class="row between" style="flex-wrap:wrap;gap:.5rem"><div><h1>🗣️ ${t('Phòng luyện Speaking')}</h1><p class="muted">${t('Giám khảo đọc câu hỏi → bạn ghi âm câu trả lời → nghe lại, xem bản chữ và phân tích từ vựng. Ghi âm chỉ nằm trên máy bạn.')}</p></div><div><a href="#/criteria?skill=speaking" class="btn sm ghost">📊 ${t('Tiêu chí chấm band 4–9')}</a></div></div></div>
       <div class="tabs" style="display:inline-flex;margin-bottom:.8rem">${Object.entries(PARTS).map(([k, v]) => `<button class="${k === part ? 'on' : ''}" data-part="${k}">${t(v.name)}</button>`).join('')}</div>
-      <div class="row" style="margin-bottom:1rem">${BANK.map((b, i) => `<a class="chip ${i === +ti ? 'lv' : ''}" href="#/speaking/${part}/${i}">${App.topicOf(b.topic) ? App.topicOf(b.topic).emoji : '💬'} ${esc(t(b.title))}</a>`).join('')}</div>
+      <div class="row sp-topic" style="margin-bottom:1rem;gap:.5rem"><select class="input" id="spTopic" aria-label="${t('Chủ đề')}">${BANK.map((b, i) => `<option value="${i}" ${i === +ti ? 'selected' : ''}>${App.topicOf(b.topic) ? App.topicOf(b.topic).emoji : '💬'} ${esc(t(b.title))}</option>`).join('')}</select><button type="button" class="btn sm" id="spRand">🎲 ${t('Chủ đề ngẫu nhiên')}</button><span class="tiny muted">${t('{n} chủ đề', { n: BANK.length })}</span></div>
       <div class="grid" style="grid-template-columns:minmax(0,1fr) 300px;align-items:start" id="spGrid">
         <div class="stack">
           <div class="card">
@@ -89,13 +87,15 @@
       </div>`;
     if (innerWidth < 900) $('#spGrid').style.gridTemplateColumns = '1fr';
     $$('[data-part]').forEach(b => b.onclick = () => { location.hash = `#/speaking/${b.dataset.part}/${ti}`; });
+    $('#spTopic').onchange = e => { location.hash = `#/speaking/${part}/${e.target.value}`; };
+    $('#spRand').onclick = () => { let r = +ti; while (BANK.length > 1 && r === +ti) r = Math.floor(Math.random() * BANK.length); location.hash = `#/speaking/${part}/${r}`; };
 
     // Từ vựng gợi ý theo chủ đề
     const topic = App.topicOf(tp.topic);
     const words = topic ? topic.words.slice(0, 8) : [];
     const extra = [...(App.topicOf('linking') || { words: [] }).words.slice(0, 2), ...(App.topicOf('idioms') || { words: [] }).words.slice(0, 2)];
     $('#sugg').innerHTML = [...words, ...extra].map(w => `<div class="row between nowrap" style="padding:.3rem 0;border-bottom:1px dashed var(--line)">
-      <div style="min-width:0"><b>${esc(w.word)}</b> <span class="tiny muted">${esc(w.vi)}</span></div>
+      <div style="min-width:0"><b>${esc(w.word)}</b> <span class="tiny muted">${esc(App.meanOf(w))}</span></div>
       <div class="row nowrap" style="gap:.2rem"><button class="icon-btn sm" data-speak="${esc(w.word)}">🔊</button>${App.inDeck(w.word) ? '' : `<button class="icon-btn sm" data-add-seed="${esc(w.word)}" title="${t('Thêm vào flashcard')}">＋</button>`}</div></div>`).join('');
     App.bindCommon();
 
@@ -115,9 +115,9 @@
       const sents = UI.splitSentences(smp.a);
       el.innerHTML = `<details class="sample-box"><summary><b>📝 ${t('Câu trả lời mẫu (band 7.5–8)')}</b> <span class="tiny muted">– ${t('xem sau khi đã tự trả lời')}</span></summary>
         <div class="sample-txt">${sents.map((x, i) => `<span class="sm-s" data-i="${i}">${esc(x)}</span>`).join(' ')}</div>
-        ${(smp.vocab || []).length ? `<div class="row" style="gap:.3rem;margin:.5rem 0">${smp.vocab.map(([en, vi]) => `<button class="chip sm-v" data-en="${esc(en)}" data-vi="${esc(vi)}" title="${esc(vi)} – ${t('bấm để lưu')}">+ ${esc(en)}</button>`).join('')}</div>` : ''}
+        ${(smp.vocab || []).length ? `<div class="row" style="gap:.3rem;margin:.5rem 0">${smp.vocab.map(([en, vi]) => `<button class="chip sm-v" data-en="${esc(en)}" data-vi="${esc(vi)}" title="${I18N.learnLang() === 'vi' ? esc(vi) + ' – ' : ''}${t('bấm để lưu')}">+ ${esc(en)}</button>`).join('')}</div>` : ''}
         <div class="row"><button class="btn sm" id="smPlay">🔊 ${t('Nghe cả bài')}</button><button class="btn sm primary" id="smShadow">🔁 ${t('Luyện shadowing')}</button></div><div id="smShadowBox"></div></details>`;
-      $$('.sm-v', el).forEach(b => b.onclick = () => App.savePhraseDialog && App.savePhraseDialog({ phrase: b.dataset.en, vi: b.dataset.vi, sentence: sents.find(x => x.toLowerCase().includes(b.dataset.en.toLowerCase().split(' ')[0])) || '', title: t('Speaking mẫu') }));
+      $$('.sm-v', el).forEach(b => b.onclick = () => App.savePhraseDialog && App.savePhraseDialog({ phrase: b.dataset.en, vi: I18N.learnLang() === 'vi' ? b.dataset.vi : '', sentence: sents.find(x => x.toLowerCase().includes(b.dataset.en.toLowerCase().split(' ')[0])) || '', title: t('Speaking mẫu') }));
       $('#smPlay', el).onclick = () => UI.tts(smp.a, state.settings.accent, 0.95, { onSentence: i => { $$('.sm-s', el).forEach((x, j) => x.classList.toggle('on', j === i)); } });
       $('#smShadow', el).onclick = () => shadow(sents, $('#smShadowBox', el));
     };
@@ -127,7 +127,7 @@
         if (k >= sents.length) { box.innerHTML = `<div class="feedback ok" style="position:static;margin-top:.6rem"><b>${t('Hoàn thành shadowing · trung bình {pct}% giống mẫu', { pct: Math.round(total / sents.length) })}</b></div>`; App.reward({ spoken: 3, xp: 10 }); return; }
         const s2 = sents[k];
         box.innerHTML = `<div class="card" style="margin-top:.6rem;box-shadow:none;border:1px solid var(--line)"><div class="tiny muted">${t('Câu {i}/{n} – nghe rồi nói lặp lại, bắt chước nhịp và ngữ điệu', { i: k + 1, n: sents.length })}</div>
-          <div style="font-size:1.1rem;margin:.4rem 0">${esc(s2)}</div><div class="row"><button class="btn sm" id="shL">🔊 ${t('Nghe')}</button><button class="btn sm" id="shS">🐢</button><button class="btn sm primary" id="shR">🎙️ ${t('Nói lại')}</button><button class="btn sm ghost" id="shN">${t('Bỏ qua')} →</button></div><div id="shRes" class="small" style="margin-top:.4rem"></div></div>`;
+          <div style="font-size:1.1rem;margin:.4rem 0">${esc(s2)}</div><label class="md-sw small" style="margin:.2rem 0 .5rem"><input type="checkbox" data-whisper ${state.settings.whisperMode ? 'checked' : ''}><span></span>🤫 ${t('Thì thầm')}</label><div class="row"><button class="btn sm" id="shL">🔊 ${t('Nghe')}</button><button class="btn sm" id="shS">🐢</button><button class="btn sm primary" id="shR">🎙️ ${t('Nói lại')}</button><button class="btn sm ghost" id="shN">${t('Bỏ qua')} →</button></div><div id="shRes" class="small" style="margin-top:.4rem"></div></div>`;
         const say = r => UI.tts(s2, state.settings.accent, r);
         $('#shL').onclick = () => say(); $('#shS').onclick = () => say(0.7); $('#shN').onclick = () => { k++; step(); };
         $('#shR').onclick = () => {
@@ -148,28 +148,16 @@
     setTimeout(() => tts(askText(), state.settings.accent, 0.95), 400);
 
     // Ghi âm + nhận dạng giọng nói
-    let recording = false, t0 = 0, finalText = '', interim = '';
+    let recording = false, t0 = 0;
+    const canSR = !!(window.SpeechRecognition || window.webkitSpeechRecognition);
     const clock = s => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
     const startRec = async () => {
       UI.stopSpeak();
-      try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
-      catch (e) { return toast('⚠️ ' + t('Cần cho phép dùng micro (biểu tượng 🎙️ trên thanh địa chỉ)')); }
-      chunks = []; finalText = ''; interim = '';
-      try { media = new MediaRecorder(stream); media.ondataavailable = e => e.data.size && chunks.push(e.data); media.start(); } catch (e) { media = null; }
-      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (SR) {
-        rec = new SR(); rec.lang = state.settings.accent; rec.continuous = true; rec.interimResults = true;
-        rec.onresult = e => {
-          interim = '';
-          for (let i = e.resultIndex; i < e.results.length; i++) { const r = e.results[i]; if (r.isFinal) finalText += r[0].transcript + ' '; else interim += r[0].transcript; }
-          const l = $('#live'); if (l) l.textContent = (finalText + interim).slice(-160);
-        };
-        rec.onend = () => { if (recording && rec) try { rec.start(); } catch (e) { /* đang chạy */ } }; // Chrome tự dừng sau ~1 phút im lặng
-        try { rec.start(); } catch (e) { /* đã chạy */ }
-      }
+      sess = await UI.speechSession({ lang: state.settings.accent, slot: 'speak', onText: x => { const l = $('#live'); if (l) l.textContent = x.slice(-160); }, onError: c => toast(c === 'not-allowed' ? '⚠️ ' + t('Cần cho phép dùng micro (biểu tượng 🎙️ trên thanh địa chỉ)') : UI.recErrorText(c)) });
+      if (!sess) return;
       recording = true; t0 = Date.now();
       $('#recBtn').classList.add('rec'); $('#recBtn').textContent = '⏹';
-      $('#recHint').textContent = '🔴 ' + (SR ? t('Đang ghi âm và chuyển thành chữ… bấm để dừng') : t('Đang ghi âm… (trình duyệt không hỗ trợ chuyển giọng nói thành chữ)'));
+      $('#recHint').textContent = '🔴 ' + (canSR ? t('Đang ghi âm và chuyển thành chữ… bấm để dừng') : t('Đang ghi âm… (trình duyệt không hỗ trợ chuyển giọng nói thành chữ)'));
       tick = setInterval(() => {
         const s = (Date.now() - t0) / 1000, el = $('#clock'); if (!el) return;
         el.textContent = clock(s);
@@ -183,11 +171,8 @@
       const secs = (Date.now() - t0) / 1000;
       $('#recBtn').classList.remove('rec'); $('#recBtn').textContent = '🎙️';
       $('#recHint').textContent = t('Bấm micro để trả lời lại');
-      const done = () => analyse((finalText + ' ' + interim).trim(), secs, chunks.length ? UI.recUrl(new Blob(chunks, { type: (media && media.mimeType) || 'audio/webm' }), 'speak') : '');
-      try { rec && rec.stop(); } catch (e) { /* đã dừng */ }
-      rec = null;
-      if (media && media.state !== 'inactive') { media.onstop = () => { setTimeout(done, 300); if (stream) stream.getTracks().forEach(x => x.stop()); }; media.stop(); }
-      else { if (stream) stream.getTracks().forEach(x => x.stop()); setTimeout(done, 300); }
+      const cur = sess; sess = null;
+      if (cur) cur.stop().then(o => analyse(o.text, secs, o.audio));
     };
     $('#recBtn').onclick = () => {
       if (recording) return stopRec();

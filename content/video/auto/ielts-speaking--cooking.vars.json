@@ -1,0 +1,18 @@
+{
+ "topic": "IELTS Speaking Part 1: do you like cooking?",
+ "scene": "library",
+ "seed": "ielts-cooking",
+ "vars": {
+  "question": "Do you like cooking?",
+  "weak": "I said no. Just no. Oops.",
+  "model": "Not really, to be honest. I'm a terrible cook, so I usually eat with my family.",
+  "structure": "An honest answer, a reason, then what you do instead.",
+  "tip": "a no answer is fine. Just explain why and add one detail.",
+  "kw": "to be honest"
+ },
+ "hashtags": [
+  "ielts",
+  "ieltsspeaking",
+  "englishtips"
+ ]
+}

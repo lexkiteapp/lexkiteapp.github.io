@@ -1,0 +1,53 @@
+{
+ "at": "2026-11-12T00:35:42.802Z",
+ "workflows": {
+  "npm-test": {
+   "conclusion": "success",
+   "at": "2026-11-12T00:21:28Z",
+   "id": 43126271469
+  },
+  "visual-qa": {
+   "conclusion": "success",
+   "at": "2026-11-11T19:44:35Z",
+   "id": 43088741422
+  },
+  "new-ui-qa": null,
+  "mobile-qa": {
+   "conclusion": "success",
+   "at": "2026-11-11T23:36:57Z",
+   "id": 43119192441
+  },
+  "journey-e2e": {
+   "conclusion": "success",
+   "at": "2026-11-11T20:00:06Z",
+   "id": 43090374542
+  },
+  "stitch-quality-qc": {
+   "conclusion": "success",
+   "at": "2026-11-10T05:29:50Z",
+   "id": 42760825465
+  },
+  "ext-e2e": {
+   "conclusion": "success",
+   "at": "2026-11-11T19:58:21Z",
+   "id": 43090937221
+  },
+  "native-auth-e2e": {
+   "conclusion": "success",
+   "at": "2026-11-11T10:17:53Z",
+   "id": 42998563294
+  },
+  "qa-bot": {
+   "conclusion": "success",
+   "at": "2026-11-12T00:26:56Z",
+   "id": 43123540398
+  }
+ },
+ "mobile": {
+  "maxLcp": 6288,
+  "maxCls": 0.0757,
+  "maxInp": 160,
+  "maxTbt": 119,
+  "at": "2026-11-11T23:30:49.770Z"
+ }
+}

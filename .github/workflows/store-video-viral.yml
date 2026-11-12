@@ -1,0 +1,39 @@
+# Video quảng cáo bản quốc tế (scripts/store-video-viral.mjs): quay add-on thật → hook, chữ động, zoom, chuyển cảnh, nhạc + thumbnail → nhánh "store-video-viral".
+name: Video quảng cáo (viral)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/store-video-viral.yml', 'scripts/store-video-viral.mjs']
+permissions:
+  contents: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  viral:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/setup-ffmpeg
+      - name: Quay + dựng
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
+      - name: Quay + dựng (tiếp)
+        run: |
+          bash scripts/build-extension.sh
+          for i in 1 2 3; do RAW_OUT=/tmp/raw LANG_V=en node scripts/store-video.mjs /tmp/x && break; echo "thử lại $i"; done
+          node scripts/store-video-viral.mjs /tmp/raw /tmp/viral
+      - name: Lưu vào nhánh store-video-viral
+        run: |
+          cd /tmp/viral && git init -q && git checkout -q -b store-video-viral
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add . && git commit -qm "Video viral $(date -u +%F) [CF-Pages-Skip]"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" store-video-viral

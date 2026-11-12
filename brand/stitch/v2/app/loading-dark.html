@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Learn Path Skeleton (Tactile Night)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #051013;
+      color: #d8e5e9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Skeleton shimmer effect - Tactile Night */
+    @keyframes shimmer {
+      0% {
+        background-position: -250% 0;
+      }
+      100% {
+        background-position: 250% 0;
+      }
+    }
+
+    .shimmer-box {
+      background: linear-gradient(
+        90deg,
+        #12282c 0%,
+        #1b383e 35%,
+        #274d55 50%,
+        #1b383e 65%,
+        #12282c 100%
+      );
+      background-size: 250% 100%;
+      animation: shimmer 2s infinite ease-in-out;
+    }
+
+    .shimmer-box-subtle {
+      background: linear-gradient(
+        90deg,
+        #0d2024 0%,
+        #162f35 40%,
+        #21434b 50%,
+        #162f35 60%,
+        #0d2024 100%
+      );
+      background-size: 250% 100%;
+      animation: shimmer 2s infinite ease-in-out;
+    }
+
+    .shimmer-accent {
+      background: linear-gradient(
+        90deg,
+        rgba(45, 212, 191, 0.25) 0%,
+        rgba(107, 216, 206, 0.6) 50%,
+        rgba(45, 212, 191, 0.25) 100%
+      );
+      background-size: 250% 100%;
+      animation: shimmer 2s infinite ease-in-out;
+    }
+
+    /* Tactile bottom ledge styling for dark mode */
+    .tactile-card {
+      border: 2px solid #1d383e;
+      box-shadow: 0 5px 0 0 #060d0f;
+    }
+
+    .tactile-node-shadow {
+      box-shadow: 0 5px 0 0 #060d0f;
+    }
+
+    .tactile-node-active-shadow {
+      box-shadow: 0 5px 0 0 #060d0f, 0 0 16px rgba(45, 212, 191, 0.35);
+    }
+
+    /* Pulse dot */
+    @keyframes gentle-pulse {
+      0%, 100% { opacity: 0.5; transform: scale(0.96); }
+      50% { opacity: 1; transform: scale(1.04); }
+    }
+    .pulse-anim {
+      animation: gentle-pulse 2.2s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-[#051013]">
+<!-- Mobile phone viewport container 390px wide -->
+<div class="w-[390px] min-h-screen bg-[#091518] flex flex-col relative pb-[84px] shadow-2xl overflow-x-hidden">
+<!-- 1. TOP BAR 56px: HUB VARIANT (Lexkite Kit Tactile Night) -->
+<header class="sticky top-0 z-40 w-full h-[56px] bg-[#0d191c] border-b-2 border-[#1f383f] flex items-center justify-between px-4 shadow-[0_4px_0_0_#051013]">
+<!-- Brand Left -->
+<div class="flex items-center gap-1">
+<div class="w-8 h-8 rounded-2xl bg-[#12423e] flex items-center justify-center text-[#6bd8ce] border border-[#2ba39a]/40 shadow-[0_2px_0_0_#061a18]">
+<span class="material-symbols-outlined text-[20px]" data-icon="kitesurfing">kitesurfing</span>
+</div>
+<span class="text-[20px] leading-7 font-['Plus_Jakarta_Sans'] font-extrabold text-[#6bd8ce] tracking-tight">Lexkite</span>
+</div>
+<!-- Hub Status Indicators Right -->
+<div class="flex items-center gap-1">
+<!-- Exam Badge -->
+<span class="text-[12px] leading-4 tracking-[0.04em] font-['Plus_Jakarta_Sans'] bg-[#102a2d] text-[#6bd8ce] px-2 py-0.5 rounded-full border border-[#1f4a4c]">
+          IELTS
+        </span>
+<!-- Flame Streak Pill -->
+<div class="flex items-center gap-1 bg-[#2b2212] px-2 py-0.5 rounded-full border border-[#4d381c] shadow-[0_2px_0_0_#140f06]">
+<span class="material-symbols-outlined text-[#ff9800] text-[16px]" data-icon="local_fire_department" data-weight="fill" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="text-[12px] leading-4 tracking-[0.04em] font-['Plus_Jakarta_Sans'] text-[#ffd699] font-extrabold">14</span>
+</div>
+<!-- Star XP Pill -->
+<div class="flex items-center gap-1 bg-[#2b2512] px-2 py-0.5 rounded-full border border-[#4d4019] shadow-[0_2px_0_0_#141106]">
+<span class="material-symbols-outlined text-[#f4bf40] text-[16px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-[12px] leading-4 tracking-[0.04em] font-['Plus_Jakarta_Sans'] text-[#ffdf9e] font-extrabold">820</span>
+</div>
+<!-- Round Avatar -->
+<div class="w-7 h-7 rounded-full bg-[#184e49] text-[#6bd8ce] flex items-center justify-center font-bold text-[12px] leading-4 tracking-[0.04em] border-2 border-[#206760] shadow-[0_2px_0_0_#051013]">
+          L
+        </div>
+</div>
+</header>
+<!-- 2. SKELETON BODY: Learn Path Loading Placeholder -->
+<main class="flex-1 px-4 pt-4 flex flex-col items-center">
+<!-- Unit header placeholder banner with tactile card ledge -->
+<div class="w-full bg-[#0d2024] rounded-[16px] tactile-card p-4 mb-6 relative overflow-hidden">
+<!-- Top row: chips skeleton placeholders -->
+<div class="flex items-center justify-between mb-3">
+<div class="w-24 h-5 rounded-full shimmer-box"></div>
+<div class="w-16 h-5 rounded-full shimmer-box"></div>
+</div>
+<!-- Unit Title placeholder -->
+<div class="w-3/4 h-6 rounded-lg shimmer-box mb-2"></div>
+<!-- Subtitle placeholder -->
+<div class="w-1/2 h-4 rounded-md shimmer-box mb-4"></div>
+<!-- Progress track skeleton -->
+<div class="w-full h-3 rounded-full bg-[#081518] border border-[#162e33] overflow-hidden relative">
+<div class="w-2/5 h-full rounded-full shimmer-accent"></div>
+</div>
+</div>
+<!-- Section Title & Badge Shimmer Bar -->
+<div class="w-full flex items-center justify-between px-1 mb-6">
+<div class="w-28 h-5 rounded-lg shimmer-box"></div>
+<div class="w-14 h-4 rounded-full shimmer-box"></div>
+</div>
+<!-- Winding Path of Round Learning Node Skeletons -->
+<div class="w-full relative flex flex-col items-center pb-8">
+<!-- SVG Curved Sinuous Winding Path connecting nodes -->
+<svg class="absolute top-8 left-0 w-full h-[520px] pointer-events-none z-0" fill="none" viewbox="0 0 358 520">
+<path d="M 179 28 
+                   C 179 65, 88 75, 88 122 
+                   C 88 175, 270 185, 270 236 
+                   C 270 295, 120 305, 120 355 
+                   C 120 405, 240 415, 240 465" stroke="#16343b" stroke-dasharray="14 10" stroke-linecap="round" stroke-width="12"></path>
+<path d="M 179 28 
+                   C 179 65, 88 75, 88 122" stroke="#2dd4bf" stroke-linecap="round" stroke-opacity="0.45" stroke-width="12"></path>
+</svg>
+<!-- Node 1 (Center): Active Current Step Skeleton (Glowing vibrant teal ring) -->
+<div class="relative z-10 flex flex-col items-center mb-14" style="margin-left: 0px;">
+<!-- Floating crown / flag placeholder above current node -->
+<div class="w-8 h-4 rounded-full shimmer-box-subtle mb-1 pulse-anim border border-[#2dd4bf]/30"></div>
+<div class="w-[72px] h-[72px] rounded-full bg-[#12282c] border-[3px] border-[#2dd4bf] tactile-node-active-shadow flex items-center justify-center relative p-1.5 overflow-hidden">
+<!-- Shimmering inner disk -->
+<div class="w-full h-full rounded-full shimmer-box flex items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-[#2dd4bf]/30 pulse-anim"></div>
+</div>
+<!-- Star mini badge -->
+<div class="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-[#162e33] border border-[#2dd4bf]/40 flex items-center justify-center">
+<div class="w-3 h-3 rounded-full shimmer-accent"></div>
+</div>
+</div>
+<!-- Label pill placeholder under node -->
+<div class="w-16 h-3 rounded-full shimmer-box mt-2"></div>
+</div>
+<!-- Node 2 (Shifted Left): Next Step Node Skeleton -->
+<div class="relative z-10 flex flex-col items-center mb-14 -translate-x-[90px]">
+<div class="w-[66px] h-[66px] rounded-full bg-[#102327] border-2 border-[#1d383e] tactile-node-shadow flex items-center justify-center relative p-1.5 overflow-hidden">
+<div class="w-full h-full rounded-full shimmer-box-subtle flex items-center justify-center">
+<div class="w-5 h-5 rounded-md bg-[#1d383e]/50"></div>
+</div>
+</div>
+<div class="w-14 h-3 rounded-full shimmer-box mt-2"></div>
+</div>
+<!-- Node 3 (Shifted Right): Mid Step Node Skeleton (Milestone / Chest size) -->
+<div class="relative z-10 flex flex-col items-center mb-14 translate-x-[90px]">
+<div class="w-[70px] h-[70px] rounded-full bg-[#102327] border-2 border-[#1d383e] tactile-node-shadow flex items-center justify-center relative p-1.5 overflow-hidden">
+<div class="w-full h-full rounded-full shimmer-box-subtle flex items-center justify-center">
+<div class="w-6 h-6 rounded-lg bg-[#1d383e]/50"></div>
+</div>
+</div>
+<div class="w-16 h-3 rounded-full shimmer-box mt-2"></div>
+</div>
+<!-- Node 4 (Shifted Left): Review Node Skeleton -->
+<div class="relative z-10 flex flex-col items-center mb-14 -translate-x-[60px]">
+<div class="w-[64px] h-[64px] rounded-full bg-[#102327] border-2 border-[#1d383e] tactile-node-shadow flex items-center justify-center relative p-1.5 overflow-hidden">
+<div class="w-full h-full rounded-full shimmer-box-subtle flex items-center justify-center">
+<div class="w-5 h-5 rounded-md bg-[#1d383e]/50"></div>
+</div>
+</div>
+<div class="w-12 h-3 rounded-full shimmer-box mt-2"></div>
+</div>
+<!-- Node 5 (Shifted Right): Checkpoint / Unit Trophy Skeleton -->
+<div class="relative z-10 flex flex-col items-center mb-4 translate-x-[60px]">
+<div class="w-[74px] h-[74px] rounded-[22px] bg-[#102327] border-2 border-[#1d383e] tactile-node-shadow flex items-center justify-center relative p-2 overflow-hidden">
+<div class="w-full h-full rounded-[14px] shimmer-box-subtle flex items-center justify-center">
+<div class="w-7 h-7 rounded-md bg-[#1d383e]/60"></div>
+</div>
+</div>
+<div class="w-20 h-3.5 rounded-full shimmer-box mt-2"></div>
+</div>
+</div>
+</main>
+<!-- 3. BOTTOM TAB BAR 64px (CANONICAL LEXKITE 5 TABS - TACTILE NIGHT) -->
+<nav class="fixed bottom-0 left-0 right-0 w-full max-w-md mx-auto h-16 bg-[#0b171a] border-t-2 border-[#1f383f] shadow-[0_-4px_0_0_#051013] z-50 flex items-center justify-around">
+<!-- Tab 1: Today (Active) -->
+<button class="flex-1 flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5 transition-transform">
+<div class="w-14 h-8 rounded-full bg-[#14383a] border border-[#1f5054] text-[#38d6c8] flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+</div>
+<span class="font-bold text-xs text-[#38d6c8] leading-tight">Today</span>
+</button>
+<!-- Tab 2: Vocab (Inactive with red badge) -->
+<button class="flex-1 flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5 transition-transform text-[#a6c7c3]">
+<div class="relative flex items-center justify-center h-8">
+<span class="material-symbols-outlined text-[22px] text-[#a6c7c3]" data-icon="menu_book">menu_book</span>
+<span class="absolute top-1 -right-1 w-2 h-2 rounded-full bg-[#ba1a1a] border-2 border-[#0b171a] ring-1 ring-[#ba1a1a]/50"></span>
+</div>
+<span class="font-medium text-xs text-[#a6c7c3] leading-tight">Vocab</span>
+</button>
+<!-- Tab 3: Skills (Inactive) -->
+<button class="flex-1 flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5 transition-transform text-[#a6c7c3]">
+<div class="flex items-center justify-center h-8">
+<span class="material-symbols-outlined text-[22px] text-[#a6c7c3]" data-icon="track_changes">track_changes</span>
+</div>
+<span class="font-medium text-xs text-[#a6c7c3] leading-tight">Skills</span>
+</button>
+<!-- Tab 4: Tests (Inactive) -->
+<button class="flex-1 flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5 transition-transform text-[#a6c7c3]">
+<div class="flex items-center justify-center h-8">
+<span class="material-symbols-outlined text-[22px] text-[#a6c7c3]" data-icon="flag">flag</span>
+</div>
+<span class="font-medium text-xs text-[#a6c7c3] leading-tight">Tests</span>
+</button>
+<!-- Tab 5: Me (Inactive) -->
+<button class="flex-1 flex flex-col items-center justify-center gap-0.5 active:translate-y-0.5 transition-transform text-[#a6c7c3]">
+<div class="flex items-center justify-center h-8">
+<span class="material-symbols-outlined text-[22px] text-[#a6c7c3]" data-icon="person">person</span>
+</div>
+<span class="font-medium text-xs text-[#a6c7c3] leading-tight">Me</span>
+</button>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,13 @@
+{
+  "_note": "Hàng đợi chủ đề cho Video Studio (Quản trị → Video Studio → Lấy từ hàng đợi). Mỗi mục: topic (bắt buộc), format short|lesson, lang. Đọc qua raw.githubusercontent.com (nhánh main) – xem docs/VIDEO-PIPELINE.md §7",
+  "topics": [
+    { "topic": "Don't say \"I'm agree\" – say \"I agree\"", "format": "short", "lang": "en" },
+    { "topic": "POV: your boss says \"Let's circle back\"", "format": "short", "lang": "en" },
+    { "topic": "Affect or effect? A 3-second quiz", "format": "short", "lang": "en" },
+    { "topic": "Leo explains \"spill the tea\"", "format": "short", "lang": "en" },
+    { "topic": "Why \"an hour\" but \"a university\"?", "format": "short", "lang": "en" },
+    { "topic": "Textbook vs real: \"How are you?\"", "format": "short", "lang": "en" },
+    { "topic": "3 phrases for disagreeing politely in meetings", "format": "short", "lang": "en" },
+    { "topic": "Small talk at the office coffee machine", "format": "lesson", "lang": "en" }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "meetings", "level": "B1", "order": 9, "em": "💼", "rp": "manager",
+  "title": { "vi": "Họp ở công ty", "en": "Work meetings" },
+  "goal": { "vi": "Cập nhật tiến độ, xin phát biểu, đưa ý kiến và hứa việc tiếp theo.", "en": "Give an update, ask to speak, suggest an idea and agree on next steps." },
+  "dialogue": { "a": "Rosa", "aRole": "your team manager", "lines": [
+    ["a", "Okay, let's get started. First, the project timeline. Any updates?"],
+    ["b", "Yes. We're on track for the first part, but testing might take a bit longer than planned."],
+    ["a", "How much longer, do you think?"],
+    ["b", "Probably one more week. Could I add something?"],
+    ["a", "Sure, go ahead."],
+    ["b", "I think we need one more person on testing. That way, we can still finish on time."],
+    ["a", "That's a good point. Can you send me the details?"],
+    ["b", "Of course. I'll follow up by email after the meeting."],
+    ["a", "Great. Let's move on to the budget."]
+  ] },
+  "phrases": [
+    { "id": "on-track", "say": "We're on track.", "not": "Everything is in the plan.", "gap": "track",
+      "mean": { "vi": "Báo công việc đang đúng kế hoạch", "en": "Say the work is going as planned" },
+      "why": { "vi": "\"On track\" nghĩa là công việc đang theo đúng kế hoạch.", "en": "\"On track\" means the work is going as planned." } },
+    { "id": "could-i-add", "say": "Could I add something?", "not": "Wait, I talk now.", "gap": "add",
+      "mean": { "vi": "Xin phát biểu trong cuộc họp", "en": "Ask to speak in a meeting" },
+      "why": { "vi": "Dùng \"Could I add something?\" để tham gia thảo luận lịch sự.", "en": "Use \"Could I add something?\" to join the discussion politely." } },
+    { "id": "might-take-longer", "say": "It might take a bit longer than planned.", "not": "It will be late, sorry, my fault.", "gap": "might",
+      "mean": { "vi": "Báo tin chậm trễ một cách bình tĩnh", "en": "Give news about a delay calmly" },
+      "why": { "vi": "\"Might take longer\" báo tin xấu rõ ràng, bình tĩnh, không hoảng.", "en": "\"Might take longer\" gives bad news clearly and calmly, without panic." } },
+    { "id": "that-way", "say": "That way, we can still finish on time.", "not": "So we finish on time maybe.", "gap": "way",
+      "mean": { "vi": "Nối ý kiến với kết quả rõ ràng", "en": "Link your idea to a clear result" },
+      "why": { "vi": "\"That way…\" cho thấy ý của bạn dẫn tới kết quả gì.", "en": "\"That way…\" shows what result your idea will bring." } },
+    { "id": "good-point", "say": "That's a good point.", "not": "You are right, I am wrong.", "gap": "point",
+      "mean": { "vi": "Đồng ý với một ý hay", "en": "Agree with a good idea" },
+      "why": { "vi": "Câu này khen ý tưởng mà không biến thành chuyện ai đúng ai sai.", "en": "This praises the idea without making it about who is right." } },
+    { "id": "just-to-clarify", "say": "Just to clarify, do you mean next Friday?", "not": "I don't understand what you say.", "gap": "clarify", "tk": "repair",
+      "mean": { "vi": "Kiểm tra lại một chi tiết", "en": "Check a detail" },
+      "why": { "vi": "\"Just to clarify…\" kiểm tra chi tiết và cho thấy bạn đang nghe kỹ.", "en": "\"Just to clarify…\" checks a detail and shows you are listening carefully." } },
+    { "id": "follow-up", "say": "I'll follow up by email.", "not": "I will send you email later after.", "gap": "up",
+      "mean": { "vi": "Hứa gửi thêm thông tin sau", "en": "Promise to send more information later" },
+      "why": { "vi": "\"Follow up\" là gửi thêm thông tin hoặc kiểm tra lại sau – cho thấy bạn sẽ hành động.", "en": "\"Follow up\" means sending more information or checking later – it shows you will act." } }
+  ],
+  "roleplay": {
+    "ai": { "name": "Rosa", "role": "the learner's team manager", "persona": "busy but fair, likes clear answers", "goal": "get a project update and a plan" },
+    "you": "Give a short update, explain a small delay, suggest a solution and promise to follow up.",
+    "turns": [
+      { "a": "Okay, let's get started. Can you give us a quick update on your project?", "h": "Sure. We're on track for the first part.", "br": [["on track|on schedule|going well|fine|good", "Great to hear."], ["late|delay|behind|problem", "Okay, thanks for being honest."]] },
+      { "a": "And what about testing? Any problems?", "h": "Testing might take a bit longer than planned.", "br": [["longer|late|week|delay|more time", "I see."]] },
+      { "a": "Hmm. Do you have any ideas to fix that?", "h": "Could I suggest adding one more person to testing? That way, we can finish on time.", "br": [["suggest|idea|could|maybe|we could|person|help", "That's a good point."]] },
+      { "a": "Can you send me the details after the meeting?", "h": "Of course. I'll follow up by email this afternoon.", "br": [["email|follow up|send|of course|sure", "Perfect."]] }
+    ],
+    "end": "Thanks, everyone. Let's move on to the budget."
+  }
+}

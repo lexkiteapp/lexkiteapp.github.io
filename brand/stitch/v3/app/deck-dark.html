@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - My Decks</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#10191B",
+            "surface": "#10191B",
+            "surface-card": "#172427",
+            "surface-raised": "#1E2F33",
+            "border-subtle": "#263C41",
+            "border-raised": "#2E474D",
+            "on-surface": "#E8F1F0",
+            "on-surface-variant": "#A9BDBB",
+            "outline": "#A9BDBB",
+            "primary": "#2DD4BF",
+            "primary-container": "#136B66",
+            "on-primary": "#051A18",
+            "secondary-container": "#FD651E",
+            "on-secondary-container": "#1C1003",
+            "badge-amber": "#38240D",
+            "badge-amber-text": "#FDBA74",
+            "badge-amber-border": "#7C3B11",
+            "badge-teal": "#0F3836",
+            "badge-teal-text": "#5EEAD4",
+            "badge-teal-border": "#136B66"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-xl": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter-tablet": "1.5rem",
+            "space-md": "0.75rem",
+            "margin-desktop": "3rem",
+            "gutter-desktop": "2rem",
+            "space-lg": "1rem",
+            "gutter": "1rem",
+            "margin-tablet": "2rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["17px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "800" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "500" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 700;
+    }
+    /* Physical mechanical press states with dark tactile ledge */
+    .btn-ledge-coral {
+      box-shadow: 0 4px 0 0 #9A3412;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .btn-ledge-coral:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 0 #9A3412;
+    }
+    .btn-ledge-teal {
+      box-shadow: 0 4px 0 0 #091012;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .btn-ledge-teal:active {
+      transform: translateY(4px);
+      box-shadow: 0 0 0 0 #091012;
+    }
+    .card-ledge {
+      box-shadow: 0 4px 0 0 #091012;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .card-ledge:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #091012;
+    }
+    .chip-ledge {
+      box-shadow: 0 2px 0 0 #091012;
+    }
+    .chip-ledge:active {
+      transform: translateY(2px);
+      box-shadow: 0 0 0 0 #091012;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary selection:text-on-primary">
+<!-- Mobile Viewport Wrapper (390px fixed container style) -->
+<div class="w-full max-w-[390px] min-h-screen bg-background relative flex flex-col pb-24 shadow-2xl overflow-x-hidden border-x-2 border-border-subtle">
+<!-- TopAppBar -->
+<header class="bg-surface sticky top-0 z-40 border-b-2 border-border-subtle shadow-[0_2px_0_0_#091012] flex justify-between items-center w-full px-3 h-14">
+<!-- Leading Back Action (>= 48px touch target) -->
+<button aria-label="Go Back" class="min-w-[48px] min-h-[48px] flex items-center justify-center rounded-xl bg-surface-raised border border-border-raised text-primary hover:brightness-110 active:translate-y-[2px] transition" type="button">
+<span class="material-symbols-outlined text-primary text-[24px]">arrow_back</span>
+</button>
+<!-- Screen Title with Localization Sub-label -->
+<div class="flex flex-col items-center text-center px-1">
+<h1 class="text-headline-md font-headline-md text-primary font-extrabold tracking-tight leading-tight">
+          Lexkite
+        </h1>
+<span class="text-label-sm font-label-sm text-on-surface-variant tracking-wider uppercase font-bold">
+          My decks
+        </span>
+</div>
+<!-- Trailing Action: Streak and Status -->
+<div class="flex items-center gap-1">
+<div class="flex items-center gap-1 bg-surface-raised border-2 border-border-raised rounded-full px-2.5 py-1 shadow-[0_2px_0_0_#091012]">
+<span class="text-label-md font-label-md text-on-surface font-extrabold flex items-center gap-0.5">
+            14 <span class="text-[#FD651E]">🔥</span>
+</span>
+<span class="w-[1px] h-3 bg-border-raised mx-0.5"></span>
+<span class="text-label-md font-label-md text-primary font-extrabold flex items-center gap-0.5">
+            420 <span class="material-symbols-outlined text-[16px] text-primary material-symbols-fill">diamond</span>
+</span>
+</div>
+</div>
+</header>
+<!-- Main Scrollable Canvas -->
+<main class="flex-1 px-4 pt-4 pb-6 space-y-4">
+<!-- Breadcrumb / Header Label Resilient to +40% String Length -->
+<div class="flex items-center justify-between gap-2 pt-1">
+<div>
+<h2 class="text-headline-lg-mobile font-headline-lg-mobile text-on-surface font-extrabold tracking-tight">
+            Bộ thẻ ghi nhớ / Decks
+          </h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+            5 Active collections • Spaced repetition
+          </p>
+</div>
+<button aria-label="Search and Filter" class="min-w-[48px] min-h-[48px] flex items-center justify-center bg-surface-raised border-2 border-border-raised rounded-xl shadow-[0_2px_0_0_#091012] active:translate-y-0.5 active:shadow-none transition-transform" type="button">
+<span class="material-symbols-outlined text-on-surface text-[22px]">search</span>
+</button>
+</div>
+<!-- Spaced Repetition Due Summary Banner -->
+<section class="bg-surface-card border-2 border-border-subtle rounded-[20px] p-4 card-ledge relative overflow-hidden">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="inline-flex items-center gap-1.5 bg-badge-amber text-badge-amber-text border-2 border-badge-amber-border rounded-full px-2.5 py-0.5 text-label-sm font-label-sm font-extrabold mb-2 shadow-[0_2px_0_0_#091012]">
+<span class="material-symbols-outlined text-[14px] text-badge-amber-text material-symbols-fill">schedule</span>
+              DAILY DRILL
+            </div>
+<p class="text-headline-md font-headline-md text-on-surface font-extrabold tracking-tight">
+              32 cards due today across your decks
+            </p>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-snug">
+              Estimated 12 mins to retain 95% retention rate.
+            </p>
+</div>
+<!-- Geometric tactile marker (zero illustrations) -->
+<div class="w-12 h-12 rounded-2xl bg-surface-raised border-2 border-border-raised flex items-center justify-center shrink-0 shadow-[0_2px_0_0_#091012]">
+<span class="material-symbols-outlined text-[#FD651E] text-[28px] material-symbols-fill">timer</span>
+</div>
+</div>
+<!-- Primary CTA with Tactile 3D Ledge -->
+<button class="mt-4 w-full min-h-[48px] bg-secondary-container text-on-secondary-container font-extrabold border-2 border-[#9A3412] rounded-xl font-label-lg text-label-lg flex items-center justify-center gap-2 btn-ledge-coral px-4 py-3 tracking-wide" type="button">
+<span>Review all due (32)</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</section>
+<!-- Actions Bar: "New deck" and Filter Pills -->
+<div class="space-y-3 pt-1">
+<div class="flex items-center gap-2">
+<!-- Tactile Teal Primary Action -->
+<button class="min-h-[48px] px-4 flex items-center justify-center gap-2 bg-primary-container hover:bg-[#14B8A6] text-white border-2 border-[#2DD4BF]/40 rounded-xl font-label-md text-label-md btn-ledge-teal shrink-0" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>New deck</span>
+</button>
+<!-- Quick Sort Action button >= 48px -->
+<button aria-label="Sort decks" class="min-w-[48px] min-h-[48px] flex items-center justify-center bg-surface-raised border-2 border-border-raised rounded-xl shadow-[0_2px_0_0_#091012] active:translate-y-0.5 active:shadow-none transition-transform" type="button">
+<span class="material-symbols-outlined text-on-surface text-[20px]">sort</span>
+</button>
+</div>
+<!-- Horizontal Filter Chips / Tabs -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-full bg-primary text-[#051A18] border-2 border-border-subtle font-label-sm text-label-sm font-extrabold chip-ledge flex items-center gap-1 whitespace-nowrap" type="button">
+<span>All (5)</span>
+</button>
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-full bg-surface-raised text-on-surface border-2 border-border-raised font-label-sm text-label-sm chip-ledge flex items-center gap-1.5 whitespace-nowrap" type="button">
+<span class="w-2 h-2 rounded-full bg-[#FD651E]"></span>
+<span>Due (3)</span>
+</button>
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-full bg-surface-raised text-on-surface border-2 border-border-raised font-label-sm text-label-sm chip-ledge flex items-center gap-1.5 whitespace-nowrap" type="button">
+<span class="material-symbols-outlined text-[14px] text-primary material-symbols-fill">verified</span>
+<span>Mastered (1)</span>
+</button>
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-full bg-surface-raised text-on-surface border-2 border-border-raised font-label-sm text-label-sm chip-ledge flex items-center gap-1 whitespace-nowrap" type="button">
+<span>Archived</span>
+</button>
+</div>
+</div>
+<!-- Personal Deck Cards List -->
+<section class="space-y-3.5 pt-1">
+<!-- DECK CARD 1 -->
+<article class="bg-surface-card border-2 border-border-subtle rounded-[20px] p-4 card-ledge flex flex-col justify-between">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="px-2.5 py-0.5 rounded-md bg-surface-raised border border-border-raised text-[11px] font-extrabold text-on-surface uppercase tracking-wider">
+                  IELTS Academic
+                </span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">
+                  240 words
+                </span>
+</div>
+<h3 class="text-body-lg font-body-lg text-on-surface font-extrabold leading-tight">
+                IELTS Academic Band 7+ Collocations
+              </h3>
+</div>
+<!-- Overflow 44x44 target -->
+<button aria-label="More options for IELTS Academic Band 7+ Collocations" class="min-w-[44px] min-h-[44px] -mr-1 -mt-1 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-raised active:scale-95 transition" type="button">
+<span class="material-symbols-outlined text-[22px]">more_vert</span>
+</button>
+</div>
+<!-- Progress Bar & Due Details -->
+<div class="mt-4 pt-3 border-t-2 border-border-subtle space-y-2.5">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant font-bold">Mastery: 68%</span>
+<!-- Due Pill Badge -->
+<span class="px-2.5 py-0.5 rounded-full bg-badge-amber border-2 border-badge-amber-border text-badge-amber-text font-extrabold flex items-center gap-1 shadow-[0_1px_0_0_#091012]">
+<span class="material-symbols-outlined text-[13px] material-symbols-fill">bolt</span>
+                14 due today
+              </span>
+</div>
+<!-- Tactile Level 0 Sunken Track -->
+<div class="w-full h-3 bg-surface-raised rounded-full border-2 border-border-subtle overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)]">
+<div class="h-full bg-primary rounded-full" style="width: 68%;"></div>
+</div>
+</div>
+<!-- Study Quick Tap Action -->
+<div class="mt-3 flex justify-end">
+<button class="min-h-[44px] px-4 py-1.5 bg-surface-raised border-2 border-border-raised rounded-xl text-on-surface font-label-md text-label-md flex items-center gap-1.5 chip-ledge hover:text-primary transition-colors" type="button">
+<span>Study Deck</span>
+<span class="material-symbols-outlined text-[18px] text-primary">play_arrow</span>
+</button>
+</div>
+</article>
+<!-- DECK CARD 2 -->
+<article class="bg-surface-card border-2 border-border-subtle rounded-[20px] p-4 card-ledge flex flex-col justify-between">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="px-2.5 py-0.5 rounded-md bg-surface-raised border border-border-raised text-[11px] font-extrabold text-on-surface uppercase tracking-wider">
+                  B2 Business
+                </span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">
+                  120 words
+                </span>
+</div>
+<h3 class="text-body-lg font-body-lg text-on-surface font-extrabold leading-tight">
+                Work &amp; Office Idioms
+              </h3>
+</div>
+<button aria-label="More options for Work &amp; Office Idioms" class="min-w-[44px] min-h-[44px] -mr-1 -mt-1 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-raised active:scale-95 transition" type="button">
+<span class="material-symbols-outlined text-[22px]">more_vert</span>
+</button>
+</div>
+<div class="mt-4 pt-3 border-t-2 border-border-subtle space-y-2.5">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant font-bold">Mastery: 85%</span>
+<span class="px-2.5 py-0.5 rounded-full bg-badge-amber border-2 border-badge-amber-border text-badge-amber-text font-extrabold flex items-center gap-1 shadow-[0_1px_0_0_#091012]">
+<span class="material-symbols-outlined text-[13px] material-symbols-fill">bolt</span>
+                8 due today
+              </span>
+</div>
+<div class="w-full h-3 bg-surface-raised rounded-full border-2 border-border-subtle overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)]">
+<div class="h-full bg-primary rounded-full" style="width: 85%;"></div>
+</div>
+</div>
+<div class="mt-3 flex justify-end">
+<button class="min-h-[44px] px-4 py-1.5 bg-surface-raised border-2 border-border-raised rounded-xl text-on-surface font-label-md text-label-md flex items-center gap-1.5 chip-ledge hover:text-primary transition-colors" type="button">
+<span>Study Deck</span>
+<span class="material-symbols-outlined text-[18px] text-primary">play_arrow</span>
+</button>
+</div>
+</article>
+<!-- DECK CARD 3 -->
+<article class="bg-surface-card border-2 border-border-subtle rounded-[20px] p-4 card-ledge flex flex-col justify-between">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="px-2.5 py-0.5 rounded-md bg-surface-raised border border-border-raised text-[11px] font-extrabold text-on-surface uppercase tracking-wider">
+                  B1-B2 Diagnostic
+                </span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">
+                  64 words
+                </span>
+</div>
+<h3 class="text-body-lg font-body-lg text-on-surface font-extrabold leading-tight">
+                Common Test Pitfalls (False Friends)
+              </h3>
+</div>
+<button aria-label="More options for Common Test Pitfalls" class="min-w-[44px] min-h-[44px] -mr-1 -mt-1 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-raised active:scale-95 transition" type="button">
+<span class="material-symbols-outlined text-[22px]">more_vert</span>
+</button>
+</div>
+<div class="mt-4 pt-3 border-t-2 border-border-subtle space-y-2.5">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant font-bold">Mastery: 42%</span>
+<span class="px-2.5 py-0.5 rounded-full bg-badge-amber border-2 border-badge-amber-border text-badge-amber-text font-extrabold flex items-center gap-1 shadow-[0_1px_0_0_#091012]">
+<span class="material-symbols-outlined text-[13px] material-symbols-fill">bolt</span>
+                10 due today
+              </span>
+</div>
+<div class="w-full h-3 bg-surface-raised rounded-full border-2 border-border-subtle overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)]">
+<div class="h-full bg-primary rounded-full" style="width: 42%;"></div>
+</div>
+</div>
+<div class="mt-3 flex justify-end">
+<button class="min-h-[44px] px-4 py-1.5 bg-surface-raised border-2 border-border-raised rounded-xl text-on-surface font-label-md text-label-md flex items-center gap-1.5 chip-ledge hover:text-primary transition-colors" type="button">
+<span>Study Deck</span>
+<span class="material-symbols-outlined text-[18px] text-primary">play_arrow</span>
+</button>
+</div>
+</article>
+<!-- DECK CARD 4 (Fully Reviewed State) -->
+<article class="bg-surface-card border-2 border-border-subtle rounded-[20px] p-4 card-ledge flex flex-col justify-between">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1">
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="px-2.5 py-0.5 rounded-md bg-surface-raised border border-border-raised text-[11px] font-extrabold text-on-surface uppercase tracking-wider">
+                  Spoken English
+                </span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">
+                  85 words
+                </span>
+</div>
+<h3 class="text-body-lg font-body-lg text-on-surface font-extrabold leading-tight">
+                Dining &amp; Social Small Talk
+              </h3>
+</div>
+<button aria-label="More options for Dining and Social Small Talk" class="min-w-[44px] min-h-[44px] -mr-1 -mt-1 flex items-center justify-center rounded-lg text-on-surface-variant hover:bg-surface-raised active:scale-95 transition" type="button">
+<span class="material-symbols-outlined text-[22px]">more_vert</span>
+</button>
+</div>
+<div class="mt-4 pt-3 border-t-2 border-border-subtle space-y-2.5">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant font-bold">Mastery: 96%</span>
+<!-- Reviewed Teal Badge -->
+<span class="px-2.5 py-0.5 rounded-full bg-badge-teal border-2 border-badge-teal-border text-badge-teal-text font-extrabold flex items-center gap-1 shadow-[0_1px_0_0_#091012]">
+<span class="material-symbols-outlined text-[13px] text-primary material-symbols-fill">check_circle</span>
+                All reviewed ✓
+              </span>
+</div>
+<div class="w-full h-3 bg-surface-raised rounded-full border-2 border-border-subtle overflow-hidden shadow-[inset_0_2px_4px_rgba(0,0,0,0.5)]">
+<div class="h-full bg-primary rounded-full" style="width: 96%;"></div>
+</div>
+</div>
+<div class="mt-3 flex justify-end">
+<button class="min-h-[44px] px-4 py-1.5 bg-surface-raised border-2 border-border-raised rounded-xl text-on-surface-variant font-label-md text-label-md flex items-center gap-1.5 chip-ledge hover:text-on-surface transition-colors" type="button">
+<span>Review Again</span>
+<span class="material-symbols-outlined text-[18px]">replay</span>
+</button>
+</div>
+</article>
+</section>
+<!-- Import from Anki (.apkg) Card -->
+<section class="bg-surface-card border-2 border-border-subtle rounded-[20px] p-4 card-ledge">
+<div class="flex items-start gap-3">
+<div class="w-11 h-11 rounded-2xl bg-surface-raised border-2 border-border-raised flex items-center justify-center shrink-0 shadow-[0_2px_0_0_#091012]">
+<span class="material-symbols-outlined text-primary text-[24px] material-symbols-fill">sync_saved_locally</span>
+</div>
+<div class="flex-1">
+<h3 class="text-headline-md font-headline-md text-on-surface font-extrabold tracking-tight">
+              Import Anki Deck
+            </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 leading-snug">
+              Bring your .apkg or .csv flashcards directly into Lexkite with automatic spaced repetition scheduling.
+            </p>
+</div>
+</div>
+<button class="mt-4 w-full min-h-[48px] bg-surface-raised text-on-surface border-2 border-border-raised rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 chip-ledge hover:brightness-110 transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">upload_file</span>
+<span>Choose .apkg file</span>
+</button>
+</section>
+<!-- Empty State Fallback Preview Card (Zero Mascot / Geometric only) -->
+<section class="bg-surface-card/60 border-2 border-dashed border-border-raised rounded-[20px] p-4 text-center">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-xl bg-surface-raised border-2 border-border-raised flex items-center justify-center mb-2 shadow-[0_2px_0_0_#091012]">
+<span class="material-symbols-outlined text-on-surface-variant text-[24px]">folder_open</span>
+</div>
+<h4 class="text-body-lg font-body-lg text-on-surface font-bold">
+            No empty custom decks
+          </h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant max-w-[260px] mt-0.5">
+            Every deck currently has active word queues scheduled for repetition.
+          </p>
+<button class="mt-3 min-h-[44px] px-3.5 py-1 text-label-sm font-label-sm text-primary font-extrabold flex items-center gap-1 active:translate-y-0.5 transition-transform" type="button">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+<span>Create empty deck</span>
+</button>
+</div>
+</section>
+<!-- Teacher Slot Module -->
+<section aria-label="Pedagogical Guidance Slot" class="w-full bg-surface-card border-2 border-dashed border-border-raised rounded-[20px] p-4 relative">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant tracking-wider uppercase font-extrabold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary">school</span>
+            teacher-slot
+          </span>
+<span class="text-[10px] font-bold px-2 py-0.5 bg-surface-raised rounded-full border border-border-raised text-on-surface-variant">
+            SPACED ADVICE
+          </span>
+</div>
+<!-- Teacher feedback speech module -->
+<div class="bg-surface-raised rounded-xl border-2 border-border-raised p-3 shadow-[0_2px_0_0_#091012]">
+<p class="text-body-sm font-body-sm text-on-surface leading-snug">
+<strong class="font-extrabold text-primary">Coach tip:</strong> Studying 10–15 cards per session maximizes synaptic retention while preventing fatigue.
+          </p>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Vocab is active) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 pb-safe bg-surface border-t-2 border-border-subtle shadow-[0_-2px_0_0_#091012] max-w-[390px] left-1/2 -translate-x-1/2">
+<!-- 1. Today -->
+<a aria-label="Today Tab" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-on-surface-variant hover:text-primary active:translate-y-1 active:shadow-none transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-label-sm font-label-sm mt-0.5">Today</span>
+</a>
+<!-- 2. Vocab (ACTIVE ITEM) -->
+<a aria-current="page" aria-label="Vocab Tab (Active)" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 bg-primary text-[#051A18] border-2 border-[#14B8A6] rounded-xl shadow-[0_2px_0_0_#091012] active:translate-y-1 active:shadow-none transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px] material-symbols-fill">style</span>
+<span class="text-label-sm font-label-sm font-extrabold mt-0.5">Vocab</span>
+</a>
+<!-- 3. Skills -->
+<a aria-label="Skills Tab" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-on-surface-variant hover:text-primary active:translate-y-1 active:shadow-none transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]">military_tech</span>
+<span class="text-label-sm font-label-sm mt-0.5">Skills</span>
+</a>
+<!-- 4. Tests -->
+<a aria-label="Tests Tab" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-on-surface-variant hover:text-primary active:translate-y-1 active:shadow-none transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]">timer</span>
+<span class="text-label-sm font-label-sm mt-0.5">Tests</span>
+</a>
+<!-- 5. Me -->
+<a aria-label="Profile Tab" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-on-surface-variant hover:text-primary active:translate-y-1 active:shadow-none transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-label-sm font-label-sm mt-0.5">Me</span>
+</a>
+</nav>
+</div>
+</body></html>

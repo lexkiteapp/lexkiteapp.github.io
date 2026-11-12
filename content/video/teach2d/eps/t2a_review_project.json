@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_project",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: project.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a planned piece of work for specific purpose.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Our group project is about renewable energy.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "project",
+  "ipa": "/ˈprɑːdʒekt/",
+  "mean": "a planned piece of work for specific purpose",
+  "ex": "Our group project is about renewable energy.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=project",
+  "link": "https://lexkite.com/app/#/review?w=project",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 25.7,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"project\" mean?",
+  "keyword": "project",
+  "value": "Project means a planned piece of work for specific purpose.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=project",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"project\" mean?",
+    "description": "Project means a planned piece of work for specific purpose.\n\nReview your words, free: https://lexkite.com/app/#/review?w=project\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "project",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"project\" mean?\n\nProject means a planned piece of work for specific purpose.\n\nReview your words, free: https://lexkite.com/app/#/review?w=project"
+   },
+   "instagram": {
+    "caption": "What does \"project\" mean?\n\nProject means a planned piece of work for specific purpose.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"project\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a planned piece of work for specific purpose. Project means a planned piece of work for specific purpose. More practice like this (free): {link}"
+ }
+}

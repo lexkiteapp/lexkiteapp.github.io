@@ -1,0 +1,83 @@
+// Kiểm cấu trúc giao diện họ trang "bài mẫu" (scripts/lib/samples-ui.mjs + build-samples*.mjs):
+// 1) đơn vị: parseDoc tách vai trò đoạn/câu, cụm từ có nghĩa (vi) / không nghĩa (en), chữ giao diện đủ 2 ngôn ngữ;
+// 2) HTML đã dựng (nếu dist/ mới hơn bộ dựng): trang bài mẫu + mục lục vi/en có đủ khối mới, canonical/hreflang/JSON-LD giữ nguyên.
+import fs from 'node:fs';
+import { loadWriting } from '../lib/seo-data.mjs';
+import { t2Key, catNav, VIS_CSS } from '../lib/samples-visual.mjs';
+import { S, placeTip, parseDoc, docStats, docHtml, sideHtml, phraseCards, pager2, typeFilter, smpTail, SMP_CSS, SMP_JS } from '../lib/samples-ui.mjs';
+let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
+
+// ---- 1. đơn vị ----
+const T = '<<Mở bài>> [[In recent years|Trong những năm gần đây]], people argue. {{However}}, I disagree.\n\n<<Thân bài 1>> <<Câu chủ đề>> First point. <<Ví dụ>> {{For example}}, x.\n\n<<Kết bài>> {{In conclusion}}, done.';
+const vi = parseDoc(T, 'vi'), en = parseDoc(T, 'en');
+ok(vi.length === 3 && vi.map(p => p.role).join() === 'intro,body,concl', 'parseDoc: vai trò đoạn intro/body/concl');
+ok(vi[0].label === 'Mở bài' && en[0].label === 'Introduction' && en[1].label === 'Body paragraph 1' && en[2].label === 'Conclusion', 'parseDoc: nhãn đoạn vi/en');
+ok(/class="lb lb-ts">Câu chủ đề</.test(vi[1].html) && /class="lb lb-ts">Topic sentence</.test(en[1].html) && /lb-ex">Example</.test(en[1].html), 'parseDoc: nhãn vai trò câu vi/en');
+ok(/<mark class="ph" tabindex="0" data-g="Trong những năm gần đây"/.test(vi[0].html), 'vi: cụm từ chạm xem nghĩa (data-g, tabindex)');
+ok(/<mark class="ph">In recent years<\/mark>/.test(en[0].html) && !/data-g|Trong/.test(en.map(p => p.html).join('')), 'en: không lộ nghĩa tiếng Việt');
+ok(!/[<]{2}|\[\[|\{\{/.test(vi.map(p => p.html).join('')), 'parseDoc: không sót cú pháp chú thích thô');
+ok(docStats(T).phrases === 1 && docStats(T).links === 3, 'docStats: đếm cụm từ / từ nối');
+const d = docHtml(vi, 'vi'), s = sideHtml(vi, 'vi');
+ok((d.match(/<section class="para r-/g) || []).length === 3 && /id="d3"/.test(d) && /Đoạn 3\/3/.test(d), 'docHtml: thẻ đoạn + id + số thứ tự');
+ok(/href="#d1"/.test(s) && /data-cls="gl-on"/.test(s) && /data-print/.test(s) && !/data-cls="gl-on"/.test(sideHtml(en, 'en')), 'sideHtml: dàn bài + nút (nút nghĩa chỉ ở vi)');
+ok(/<ol class="phr">/.test(phraseCards([['a', 'b']])) && /rel="prev"/.test(pager2(['/x', 'X'], ['/y', 'Y'], 'en')) && /data-g="g-t0"/.test(typeFilter([['t0', 'A', 2, 't-ad']], 2, 'vi')), 'thẻ cụm từ / bài trước-sau / chip lọc');
+for (const k of Object.keys(S.vi)) ok(k in S.en, `S.en thiếu khóa "${k}"`);
+for (const k of Object.keys(S.en)) ok(k in S.vi, `S.vi thiếu khóa "${k}"`);
+ok(/prefers-color-scheme:dark/.test(SMP_CSS) && /@media print/.test(SMP_CSS) && /prefers-reduced-motion/.test(SMP_CSS), 'CSS: chế độ tối + in + giảm chuyển động');
+ok(SMP_JS.length < 4096, `JS nhỏ (${SMP_JS.length} B < 4 KB)`);
+// Vị trí tooltip nghĩa: ưu tiên trên, không vượt đỉnh thẻ đoạn (không che tiêu đề "Bài mẫu"), kẹp trong khung nhìn, mũi tên trỏ giữa cụm từ
+const R = (l, t, w = 120, h = 24) => ({ left: l, right: l + w, top: t, bottom: t + h });
+let q = placeTip(R(400, 500), 260, 60, 1280, 900, 300);
+ok(!q.below && q.y + 60 <= 500 && q.y >= 300 && q.x === 330 && q.ax === 130, 'tooltip: đủ chỗ → nằm trên, căn giữa, mũi tên giữa cụm từ');
+q = placeTip(R(400, 320), 260, 60, 1280, 900, 300);
+ok(q.below && q.y >= 344, 'tooltip: dòng đầu đoạn → xuống dưới (không che tiêu đề / nội dung phía trên thẻ đoạn)');
+q = placeTip(R(1200, 500, 60), 300, 60, 1280, 900, 0);
+ok(q.x + 300 <= 1272 && q.ax > 150 && q.ax <= 286, 'tooltip: sát mép phải → kẹp trong khung nhìn, mũi tên vẫn trỏ cụm từ');
+q = placeTip(R(5, 500, 40), 300, 60, 390, 844, 0);
+ok(q.x === 8 && q.ax >= 14 && q.ax < 40, 'tooltip: sát mép trái → kẹp 8px');
+q = placeTip(R(400, 860), 260, 60, 1280, 900, 0);
+ok(!q.below && q.y + 60 <= 900, 'tooltip: cuối màn hình → nằm trên');
+ok(/<div id="glp" hidden>.*class="gx" aria-label="Đóng"/.test(smpTail('vi')) && /aria-label="Close"/.test(smpTail('en')) && /id="gla"[^>]*role="status"/.test(smpTail('vi')), 'hộp nghĩa: nút đóng vi/en + vùng thông báo');
+ok(/max-width:600px/.test(SMP_JS) && /#glp\.sheet/.test(SMP_CSS) && /mark\.ph:focus-visible/.test(SMP_CSS) && !/mark\.ph\{background:rgba/.test(SMP_CSS), 'bottom sheet trên điện thoại, vòng focus chỉ cho bàn phím, cụm từ không tô nền mặc định');
+
+// ---- 1b. lớp lướt bằng mắt: huy hiệu, tiêu đề ngắn, khối không hở ô ----
+const ARTS = fs.readdirSync('web/img/lib').filter(f => f.endsWith('.svg'));
+ok(ARTS.length >= 60, `đủ huy hiệu (${ARTS.length})`);
+for (const f of ARTS) { const x = fs.readFileSync(`web/img/lib/${f}`, 'utf8'); ok(!/<text\b|<script\b|<image\b|\bhref=|https?:\/\/(?!www\.w3\.org)/.test(x), `${f}: không chữ, không script, không tải ngoài`); ok(x.length <= 8192, `${f}: ≤ 8 KB (${x.length})`); }
+for (const a of ['ad', 'di', 'ps', 'av', 'pn', 'tp', 'education', 'crime', 'economy', 'formal', 'semi', 'informal', 't-line', 't-map', 'v-exam', 'g-academic', 'p-stress', 'doc', 'medal', 'phrase', 'clock', 'q']) ok(ARTS.includes(a + '.svg'), `thiếu huy hiệu ${a}`);
+const { PROMPTS: WP, MODELS: WM } = loadWriting(), done = WP.filter(p => WM.some(m => m.id === 't2-' + p.id));
+for (const p of done) { for (const l of ['vi', 'en']) { const k = t2Key(p.id, l, p.text); ok(k.split(/\s+/).length <= (l === 'vi' ? 8 : 6) && !k.endsWith('…'), `${p.id}/${l}: tiêu đề ngắn, soạn tay (${k})`); } }
+// Bộ chọn danh mục (thay bento + hàng chip trùng): MỘT nav, ô nào cũng cùng lớp (không ô rộng/hẹp), cùng cỡ huy hiệu, có ô "Tất cả", số đếm cùng chỗ
+for (const n of [1, 2, 3, 4, 5, 6, 7, 8, 9]) { const h = catNav(Array.from({ length: n }, (_, i) => [`g${i}`, `Nhóm ${i}/x`, i + 1, i % 2 ? 't-ad' : '', 'doc']), 99, 'vi', 'Lọc', x => x), tiles = h.match(/<a class="vcn-i[^"]*"/g) || [];
+  ok((h.match(/<nav /g) || []).length === 1 && tiles.length === n + 1 && !/\b(d2|p2)\b/.test(h) && (h.match(/width="36" height="36"/g) || []).length === n + 1 && (h.match(/<span class="n">\d+<\/span><\/a>/g) || []).length === n + 1 && /data-g="" /.test(h.replace('data-g=""', 'data-g="" ')) && /aria-labelledby="vcn-l"/.test(h) && /<wbr>/.test(h), `catNav ${n}: 1 nav, ${n + 1} ô đồng nhất, huy hiệu 36, số đếm cuối ô, ô Tất cả, nhãn nhìn thấy`); }
+ok(!/#[0-9a-fA-F]{3,8}\b/.test(VIS_CSS.replace(/url\("data:[^"]*"\)/g, '')), 'VIS_CSS chỉ dùng token màu');
+ok(/\.vh-t\{[^}]*overflow:hidden/.test(VIS_CSS) && /margin-bottom:-13%/.test(VIS_CSS), 'giáo viên: cắt phần mờ chân ảnh ở sàn (cấm thân mờ dần)');
+
+// ---- 2. HTML đã dựng ----
+const src = ['scripts/lib/samples-ui.mjs', 'scripts/build-samples.mjs', 'scripts/build-samples-en.mjs'].map(f => fs.statSync(f).mtimeMs);
+const fresh = f => fs.existsSync(f) && fs.statSync(f).mtimeMs >= Math.max(...src);
+const P = { vi: 'dist/samples/p5.html', en: 'dist/en/samples/p5.html', viIdx: 'dist/samples/index.html', enIdx: 'dist/en/samples/index.html', sp: 'dist/speaking/hoc-tap.html', lt: 'dist/viet-thu/gt1.html' };
+if (Object.values(P).every(fresh)) {
+  const h = Object.fromEntries(Object.entries(P).map(([k, f]) => [k, fs.readFileSync(f, 'utf8')]));
+  // Mọi <script> nội tuyến của trang tĩnh phải chạy được (lỗi cú pháp = ô lọc, nút nghe, chip nhóm chết cả trang – lỗi 24/10)
+  for (const f of [...Object.values(P), 'dist/en/vocabulary/index.html', 'dist/tu-vung/index.html', 'dist/en/speaking/index.html']) if (fs.existsSync(f)) for (const m of fs.readFileSync(f, 'utf8').matchAll(/<script>([\s\S]*?)<\/script>/g)) { let e = ''; try { new Function(m[1]); } catch (x) { e = x.message; } ok(!e, `${f}: script nội tuyến hợp lệ${e ? ' – ' + e : ''}`); }
+  for (const k of ['vi', 'en', 'lt']) {
+    ok(/<article class="page smp smp-doc/.test(h[k]) && /class="ess-side"/.test(h[k]) && /class="side-box outline"/.test(h[k]) && /class="side-box legend"/.test(h[k]), `${k}: cột dàn bài + chú thích màu`);
+    ok((h[k].match(/<section class="para r-/g) || []).length >= 4, `${k}: thẻ đoạn có vai trò`);
+    ok(/<ul class="stats vs">/.test(h[k]) && /class="band"/.test(h[k]) && /class="prompt/.test(h[k]) && /<ol class="phr">/.test(h[k]) && /class="save"/.test(h[k]) && /class="cta2"/.test(h[k]), `${k}: số liệu, đề bài, thẻ cụm từ, lưu cụm, CTA`);
+    ok(/<nav class="pg2"/.test(h[k]) && /id="glp"/.test(h[k]) && h[k].includes(SMP_CSS.slice(0, 200)), `${k}: bài trước/sau + popover + CSS riêng`);
+    ok(/<link rel="canonical"/.test(h[k]) && /"@type":"LearningResource"[^<]*"learningResourceType"/.test(h[k]) && /"@type":"BreadcrumbList"/.test(h[k]), `${k}: canonical + JSON-LD (LearningResource mở rộng + Breadcrumb)`);
+    ok(/src="\/teach\/(ama|carlos)\/avatar\.webp"/.test(h[k]) && !/class="kit"><svg/.test(h[k]), `${k}: nhân vật chỉ Ama/Carlos 2D ở CTA, không còn Kit`);
+  }
+  ok(/data-g="/.test(h.vi) && !/data-g="[^"]/.test(h.en.split('<main')[1]), 'nghĩa tiếng Việt chỉ ở bản vi');
+  for (const k of ['vi', 'en']) ok(/hreflang="vi"/.test(h[k]) && /hreflang="en"/.test(h[k]) && /hreflang="x-default"/.test(h[k]), `${k}: hreflang vi/en/x-default`);
+  ok(/Kết bài/.test(h.vi) && /Conclusion/.test(h.en) && !/Kết bài|Mở bài|Thân bài/.test(h.en), 'nhãn đoạn đúng ngôn ngữ (en không lộ tiếng Việt)');
+  for (const k of ['viIdx', 'enIdx']) {
+    ok(/<nav class="tf vcn"/.test(h[k]) && (h[k].match(/<nav class="tf/g) || []).length === 1 && (h[k].match(/class="card set vc t-/g) || []).length >= 80 && (h[k].match(/<p class="vc-q">[^<]{40,}/g) || []).length >= 80 && (h[k].match(/class="vcn-i/g) || []).length === 7 && !/class="vb-i/.test(h[k]) && /class="tfb tfb-r"/.test(h[k]) && /class="vh-t"/.test(h[k]) && /"@type":"ItemList"/.test(h[k]) && /id="q"/.test(h[k]), `${k}: chip lọc dạng đề, ≥ 80 thẻ có màu, ItemList, ô lọc`);
+  }
+  ok(/id="part-2"/.test(h.sp) && /class="q cue"/.test(h.sp) && /class="qa"/.test(h.sp) && /<ul class="vch">/.test(h.sp) && /<nav class="pg2"/.test(h.sp), 'speaking: phần thi, cue card, Q&A, từ vựng, chủ đề trước/sau');
+  ok(/class="ess2 letter"/.test(h.lt), 'thư mẫu: giao diện giấy viết thư');
+  console.log(`✓ samples-ui: HTML đã dựng (${Object.keys(P).length} trang mẫu) đạt`);
+} else console.log('• samples-ui: dist/ cũ hơn bộ dựng – bỏ qua kiểm HTML (chạy build-samples*.mjs trước)');
+if (fail) { console.error(`✗ samples-ui: ${fail} lỗi`); process.exit(1); }
+console.log('✓ samples-ui: cấu trúc giao diện bài mẫu đạt');

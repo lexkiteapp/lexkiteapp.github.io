@@ -1,0 +1,75 @@
+{
+ "id": "news_living_room_ways_0b506e",
+ "scene": "news",
+ "template": "ways",
+ "area": "speaking",
+ "cefr": "B1",
+ "point": "saying no to an invitation: polite to casual",
+ "series": "SPEAKING / 3 ways to say no",
+ "bg": "living_room",
+ "title": "3 ways to say it: polite to casual (3 ways to say no)",
+ "description": "Saying no to an invitation: polite to casual. Save this: I'd love to, but I can't. / Sorry, I can't make it. / Can't tonight. Next time!\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_living_room_ways_0b506e",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#politeenglish",
+  "#englishphrases",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_living_room_ways_0b506e/cine-news-living-room-ways-0b506e-en.mp4",
+ "cover": "shorts/news/news_living_room_ways_0b506e/cine-news-living-room-ways-0b506e-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "3 ways to say it: polite to casual (3 ways to say no)",
+   "caption": "Saying no to an invitation: polite to casual. Save this: I'd love to, but I can't. / Sorry, I can't make it. / Can't tonight. Next time!\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_living_room_ways_0b506e",
+   "link": "https://lexkite.com/en/speaking/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_living_room_ways_0b506e",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#politeenglish",
+    "#englishphrases",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "Saying no to an invitation: polite to casual. Save this: I'd love to, but I can't. / Sorry, I can't make it. / Can't tonight. Next time!\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_living_room_ways_0b506e\n#learnenglish #englishtips #politeenglish #englishphrases #americanenglish #esl"
+  },
+  "reels": {
+   "title": "3 ways to say it: polite to casual (3 ways to say no)",
+   "caption": "Saying no to an invitation: polite to casual. Save this: I'd love to, but I can't. / Sorry, I can't make it. / Can't tonight. Next time!\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_living_room_ways_0b506e",
+   "link": "https://lexkite.com/en/speaking/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_living_room_ways_0b506e",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#politeenglish",
+    "#englishphrases",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Saying no to an invitation: polite to casual. Save this: I'd love to, but I can't. / Sorry, I can't make it. / Can't tonight. Next time!\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_living_room_ways_0b506e\n#learnenglish #englishtips #politeenglish #englishphrases #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "3 ways to say it: polite to casual (3 ways to say no)",
+   "caption": "Saying no to an invitation: polite to casual. Save this: I'd love to, but I can't. / Sorry, I can't make it. / Can't tonight. Next time!\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_living_room_ways_0b506e",
+   "link": "https://lexkite.com/en/speaking/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_living_room_ways_0b506e",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#politeenglish",
+    "#englishphrases"
+   ],
+   "caption_with_tags": "Saying no to an invitation: polite to casual. Save this: I'd love to, but I can't. / Sorry, I can't make it. / Can't tonight. Next time!\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_living_room_ways_0b506e\n#shorts #learnenglish #englishtips #politeenglish #englishphrases"
+  }
+ },
+ "slot": {
+  "date": "2026-10-26",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

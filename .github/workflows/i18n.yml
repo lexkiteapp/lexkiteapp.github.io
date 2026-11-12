@@ -4,30 +4,57 @@ name: Sinh bản dịch giao diện (i18n)
 on:
   push:
     branches: [main]
-    paths: [scripts/i18n-langs.txt, web/js/i18n/en.js, .github/workflows/i18n.yml]
+    paths: [scripts/i18n-langs.txt, web/js/i18n/en.js, scripts/i18n-fixed.json, scripts/gen-i18n.mjs, .github/workflows/i18n.yml, 'content/legal/en/**', 'content/legal/vi/**', scripts/build-legal.mjs, scripts/gen-explain.mjs, 'web/js/readtest/explain-*.js', 'content/i18n/en-src/**', content/i18n/native-fixed.json, scripts/gen-content-i18n.mjs]
+  schedule:
+    - cron: '30 2 * * *'  # hằng đêm: dịch tiếp phần còn dở (lời giải đề thi dịch dần theo ngân sách thời gian)
   workflow_dispatch:
 permissions:
   contents: write
-concurrency:
-  group: i18n
-  cancel-in-progress: false
+concurrency: { group: i18n, cancel-in-progress: false }  # nhóm riêng: dùng chung nhóm thì run chờ bị run khác đè (GitHub giữ 1 run chờ/nhóm)
 jobs:
   translate:
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
+        with: { ssh-key: "${{ github.ref == 'refs/heads/main' && secrets.BOT_DEPLOY_KEY || '' }}" }   # chỉ main cầm khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - run: npm ci --no-audit --no-fund
       - name: Dịch từng ngôn ngữ
         run: |
+          SECONDS=0
           for l in $(grep -v '^#' scripts/i18n-langs.txt); do node scripts/gen-i18n.mjs "$l" || echo "lỗi $l"; sleep 2; done
-      - name: Lưu kết quả vào repo (tự lấy bản mới nhất trước khi đẩy, thử lại tối đa 5 lần)
+          # Bản sửa dịch quản trị đã duyệt (Quản trị → Chất lượng → Áp dụng) → gộp vào i18n-fixed.json trước khi áp
+          node -e "const fs=require('fs');fetch('https://lexkite.com/api/i18nfix').then(r=>r.json()).then(a=>{const p='scripts/i18n-fixed.json',d=JSON.parse(fs.readFileSync(p,'utf8'));let n=0;for(const[k,v]of Object.entries(a)){d[k]=Object.assign(d[k]||{},v);n+=Object.keys(v).length}fs.writeFileSync(p,JSON.stringify(d,null,2)+'\\n');console.log('bản sửa đã duyệt:',n)}).catch(e=>console.log('bỏ qua i18nfix',e.message))"
+          node scripts/i18n-fix.mjs  # bản dịch tay cho nhãn ngắn dễ bị dịch máy sai nghĩa
+          node scripts/build-legal.mjs --translate  # Chính sách & Điều khoản cho 15 ngôn ngữ (chỉ dịch dòng mới/sửa)
+          node scripts/gen-hero.mjs  # khung trang chào mừng dựng sẵn trong index.html theo bản dịch mới
+          for l in $(grep -v '^#' scripts/i18n-langs.txt); do EXPLAIN_MIN=$(( 50 - (SECONDS / 60) )) node scripts/gen-explain.mjs "$l" || echo "lỗi lời giải $l"; done  # lời giải đề thi (chỉ câu mới)
+          node scripts/i18n-backcheck.mjs || echo 'kiểm nghĩa lỗi mạng – lần sau làm tiếp'  # dịch ngược câu mới/đổi → web/i18n/backcheck.json (tab Chất lượng)
+          node scripts/i18n-pack.mjs  # nguồn i18n/ui (khóa nguyên câu, bot/người sửa ở đây) → gói chạy khóa băm web/js/i18n/<lang>
+          node scripts/native/gen.mjs --check  # gác: bản dịch bot không được làm trôi chuỗi native (đỏ → không commit)
+          node scripts/i18n-qa.mjs   # báo cáo chất lượng: đủ khóa, đúng biến, không lẫn tiếng (xem docs/I18N-PIPELINE.md)
+      - name: Dịch sẵn nội dung bài học (dùng thời gian còn lại – dịch dần qua nhiều đêm, chỉ câu mới)
+        timeout-minutes: 25
+        continue-on-error: true
         run: |
-          git config user.name "vocaband-bot"
-          git config user.email "vocaband-bot@users.noreply.github.com"
-          git add web/js/i18n/*.js
-          git diff --cached --quiet && exit 0
-          git commit -m "i18n: cập nhật bản dịch giao diện tự động"
-          for i in 1 2 3 4 5; do git pull --rebase -X theirs origin main && git push && exit 0; sleep $((i * 10)); done
-          exit 1
+          timeout 600 node scripts/harvest-content.mjs 3000 2>/dev/null | tail -1 || echo 'thu thập quá giờ – dùng danh sách cũ'
+          LANGS="en $(grep -v '^#' scripts/i18n-langs.txt)"  # en cũng cần: nội dung soạn tiếng Việt → giao diện tiếng Anh
+          for l in $LANGS; do CONTENT_MIN=1 node scripts/gen-content-i18n.mjs "$l" || echo "lỗi nội dung $l"; done
+      - name: Lưu kết quả vào repo (tự lấy bản mới nhất trước khi đẩy, thử lại tối đa 5 lần)
+        if: always() && github.ref == 'refs/heads/main'
+        run: |
+          # 3/11: bot dịch ghi NGUỒN i18n/ui/<lang>; gói chạy web/js/i18n/<lang> (khóa băm) sinh từ đó – đẩy cả hai.
+          # 27/10: bản dịch mới ở web/js/i18n phải chép sang add-on cùng commit, nếu không ext-sync (npm test) đỏ trên main và mọi PR
+          bash scripts/build-extension.sh >/dev/null
+          bash scripts/ci/push-main.sh "i18n: cập nhật bản dịch giao diện tự động" extension/app content/i18n/strings.json content/i18n/from-en.json web/i18n/content scripts/i18n-fixed.json i18n/ui web/js/i18n functions/api/_report-i18n.js web/i18n/explain web/i18n/backcheck.json content/i18n-backcheck-cache.json web/app/index.html web/*/privacy.html web/*/terms.html web/privacy.html web/terms.html content/legal/cache
+      - if: always() && github.ref != 'refs/heads/main'
+        run: bash scripts/build-extension.sh >/dev/null   # như bước lưu: bản dịch web/js/i18n chép sang add-on cùng lúc
+      - name: Nhánh khác main – artifact + summary (không đẩy vào nhánh; lấy về bằng bash scripts/ci/bot-output.sh i18n <nhánh>)
+        if: always() && github.ref != 'refs/heads/main'
+        uses: ./.github/actions/bot-output
+        with:
+          name: i18n
+          paths: extension/app content/i18n/strings.json content/i18n/from-en.json web/i18n/content scripts/i18n-fixed.json i18n/ui web/js/i18n functions/api/_report-i18n.js web/i18n/explain web/i18n/backcheck.json content/i18n-backcheck-cache.json web/app/index.html web/*/privacy.html web/*/terms.html web/privacy.html web/terms.html content/legal/cache

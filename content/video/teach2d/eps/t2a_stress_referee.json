@@ -1,0 +1,146 @@
+{
+ "id": "t2a_stress_referee",
+ "template": "stress",
+ "series": "Where's the Stress?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where's the stress? Refer!",
+   "pause": 0.42
+  },
+  {
+   "id": "a",
+   "text": "Refer. Stress on the second part.",
+   "pause": 0.42
+  },
+  {
+   "id": "b",
+   "text": "Now say referee.",
+   "pause": 0.42
+  },
+  {
+   "id": "m",
+   "text": "The stress moves to the third part.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Say it with me: referee.",
+   "pause": 1.8,
+   "repeat": true
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Where's the stress?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "ans",
+   "text": "The third part. Referee.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "a": {
+   "word": "refer",
+   "syl": [
+    "re",
+    "fer"
+   ],
+   "stress": 1,
+   "say": "second",
+   "ipa": "/rɪˈfɜːr/"
+  },
+  "b": {
+   "word": "referee",
+   "syl": [
+    "re",
+    "fe",
+    "ree"
+   ],
+   "stress": 2,
+   "say": "third",
+   "ipa": "/ˌrefəˈriː/"
+  },
+  "quiz": {
+   "options": [
+    "RE",
+    "REE"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/stress-shift",
+  "link": "https://lexkite.com/app/#/pron/stress-shift",
+  "say": "Check word stress"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Where's the stress?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 29.4,
+  "wpm": 92
+ },
+ "publish": {
+  "title": "Refer vs referee: where is the stress?",
+  "keyword": "refer referee stress",
+  "value": "Refer /rɪˈfɜːr/: stress on the 2nd part. Referee /ˌrefəˈriː/: the 3rd part.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/stress-shift",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Refer vs referee: where is the stress?",
+    "description": "Refer /rɪˈfɜːr/: stress on the 2nd part. Referee /ˌrefəˈriː/: the 3rd part.\n\nCheck word stress, free: https://lexkite.com/app/#/pron/stress-shift\n\nSeries: Where's the Stress? · Teacher: Carlos\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "refer referee stress",
+     "Where's the Stress?",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Refer vs referee: where is the stress?\n\nRefer /rɪˈfɜːr/: stress on the 2nd part. Referee /ˌrefəˈriː/: the 3rd part.\n\nCheck word stress, free: https://lexkite.com/app/#/pron/stress-shift"
+   },
+   "instagram": {
+    "caption": "Refer vs referee: where is the stress?\n\nRefer /rɪˈfɜːr/: stress on the 2nd part. Referee /ˌrefəˈriː/: the 3rd part.\n\nCheck word stress: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Refer vs referee: where is the stress? #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Quiz answer: The third part. Referee. Practice it with a free quiz: {link}"
+ }
+}

@@ -1,0 +1,28 @@
+# Sao các bảng nội bộ (drive*) từ D1 chính sang D1 nội bộ (tài khoản Cloudflare thứ hai, hạn mức riêng) rồi đối chiếu số dòng. Điều phối: infra/jobs.json (docs/JOBS.md) – 05:30 UTC hằng ngày,
+# sau footage-archive/drive-shorts/video-web; thuê d1_internal + drive_pool + d1_main_read; tự bỏ qua nếu chưa cấu hình D1B_* trên Pages hoặc đã xong. Chạy lại được (INSERT OR REPLACE).
+# Quy trình cờ D1B (biến Pages): 'dual' (ghi cả hai) → 1 ngày số dòng khớp → 'on' (chỉ D1 nội bộ). Secret: LEXKITE_DRIVE_CLI_KEY.
+name: d1b-migrate
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 5 * * *'
+concurrency: { group: d1b-migrate, cancel-in-progress: false }
+permissions: { contents: read }
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Thuê tài nguyên (điều phối việc nền)
+        id: lease
+        run: node scripts/jobs/lease.mjs acquire d1b-migrate
+      - name: Sao + đối chiếu
+        if: ${{ steps.lease.outputs.skip != '1' }}
+        run: node scripts/d1b/migrate.mjs
+      - name: Trả thuê
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        run: node scripts/jobs/lease.mjs release d1b-migrate --status "${{ job.status }}"

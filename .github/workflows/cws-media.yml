@@ -1,0 +1,28 @@
+# Media Chrome Web Store (video 1080p + 5 ảnh 1280×800 + ô 440×280) từ add-on thật – scripts/cws-media.mjs. Tải artifact "cws-media" để xem/đăng.
+name: CWS media
+on:
+  workflow_dispatch:
+concurrency: { group: cws-media, cancel-in-progress: true }
+permissions:
+  contents: read
+jobs:
+  media:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/setup-ffmpeg
+      - name: Dựng media
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
+      - name: Dựng media (tiếp)
+        run: |
+          bash scripts/build-extension.sh
+          node scripts/cws-media.mjs /tmp/cws-media
+      - uses: actions/upload-artifact@v4
+        with: { name: cws-media, path: /tmp/cws-media/, retention-days: 14 }

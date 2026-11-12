@@ -5,7 +5,7 @@
   const { $, $$, esc, toast } = UI;
   const App = window.App;
   const LT = 'https://api.languagetool.org/v2/check';
-  const TYPE = { misspelling: [t('Chính tả'), '#e11d48'], grammar: [t('Ngữ pháp'), '#d97706'], typographical: [t('Dấu câu'), '#64748b'], style: [t('Văn phong'), '#2563eb'], duplication: [t('Lặp từ'), '#7c3aed'], uncategorized: [t('Khác'), '#64748b'] };
+  const TYPE = () => ({ misspelling: [t('Chính tả'), '#e11d48'], grammar: [t('Ngữ pháp'), '#d97706'], typographical: [t('Dấu câu'), '#64748b'], style: [t('Văn phong'), '#2563eb'], duplication: [t('Lặp từ'), '#7c3aed'], uncategorized: [t('Khác'), '#64748b'] });
 
   // Dự phòng khi LanguageTool quá tải/mất mạng: Proofreader API có sẵn trong Chrome (chạy trên máy, miễn phí)
   async function chromeProofread(text) {
@@ -42,11 +42,11 @@
       const text = ta.value; if (text.trim().split(/\s+/).length < 5) return toast(t('Viết ít nhất 1–2 câu rồi kiểm tra nhé'));
       out.innerHTML = `<div class="small muted" style="margin-top:.6rem">⏳ ${t('Đang kiểm tra…')}</div>`;
       let ms; try { ms = await check(text); } catch (e) { out.innerHTML = `<div class="small" style="margin-top:.6rem">❌ ${esc(e.message)}</div>`; return; }
-      if (!ms.length) { out.innerHTML = `<div class="small" style="margin-top:.6rem;color:var(--good)">✅ ${t('Không phát hiện lỗi ngữ pháp/chính tả. Hãy tập trung vào ý và từ vựng nhé!')}</div>`; return; }
-      const vi = (await Dict.translateVi(ms.map(m => m.msg.replace(/\n/g, ' ')).join('\n')).catch(() => '')).split('\n');
+      const L = (window.I18N && I18N.lang && I18N.lang()) || 'vi';
+      const vi = L === 'en' ? ms.map(m => m.msg) : (await (L === 'vi' ? Dict.translateVi(ms.map(m => m.msg.replace(/\n/g, ' ')).join('\n')) : Dict.translateTo(ms.map(m => m.msg.replace(/\n/g, ' ')).join('\n'), L)).catch(() => '')).split('\n');
       const counts = {}; ms.forEach(m => { counts[m.type] = (counts[m.type] || 0) + 1; });
-      out.innerHTML = `<div class="row" style="margin:.6rem 0 .3rem;gap:.3rem">${Object.entries(counts).map(([k, n]) => `<span class="chip" style="color:${(TYPE[k] || TYPE.uncategorized)[1]}">${(TYPE[k] || TYPE.uncategorized)[0]}: ${n}</span>`).join('')}</div>
-        <div class="wa-list">${ms.map((m, i) => `<div class="wa-it" data-i="${i}"><div class="row between nowrap"><span><span class="wa-tag" style="background:${(TYPE[m.type] || TYPE.uncategorized)[1]}">${(TYPE[m.type] || TYPE.uncategorized)[0]}</span> <s class="wa-bad">${esc(m.bad)}</s></span><button class="icon-btn sm" data-ign="${i}" title="${t('Bỏ qua')}">✕</button></div>
+      out.innerHTML = `<div class="row" style="margin:.6rem 0 .3rem;gap:.3rem">${Object.entries(counts).map(([k, n]) => `<span class="chip" style="color:${(TYPE()[k] || TYPE().uncategorized)[1]}">${(TYPE()[k] || TYPE().uncategorized)[0]}: ${n}</span>`).join('')}</div>
+        <div class="wa-list">${ms.map((m, i) => `<div class="wa-it" data-i="${i}"><div class="row between nowrap"><span><span class="wa-tag" style="background:${(TYPE()[m.type] || TYPE().uncategorized)[1]}">${(TYPE()[m.type] || TYPE().uncategorized)[0]}</span> <s class="wa-bad">${esc(m.bad)}</s></span><button class="icon-btn sm" data-ign="${i}" title="${t('Bỏ qua')}">✕</button></div>
           <div class="small" style="margin:.25rem 0">${esc(vi[i] || m.msg)}</div>
           <div class="row" style="gap:.3rem">${m.reps.map((r, k) => `<button class="chip wa-rep" data-i="${i}" data-k="${k}">${esc(r || t('(xóa)'))}</button>`).join('') || `<span class="tiny muted">${t('Không có gợi ý – tự sửa lại câu')}</span>`}</div></div>`).join('')}</div>`;
       $$('.wa-rep', out).forEach(b => b.onclick = () => {
@@ -79,7 +79,7 @@
         out.innerHTML = `<div class="wa-list" style="margin-top:.6rem">${vs.map((v, i) => `<div class="wa-it"><span class="wa-tag" style="background:#2563eb">${esc(v.style || '')}</span><div style="margin:.3rem 0">${esc(v.text)}</div><div class="tiny muted">${esc(v.note || '')}</div><div class="row" style="margin-top:.3rem"><button class="btn sm" data-use="${i}">${t('Dùng câu này')}</button><button class="ctx-say sm" data-saysent="${esc(v.text)}">🔊</button></div></div>`).join('') || `<div class="small muted">${t('Không có kết quả.')}</div>`}</div>`;
         $$('[data-use]', out).forEach(x => x.onclick = () => { const v = vs[+x.dataset.use].text; ta.value = ta.value.slice(0, a) + v + ta.value.slice(b); ta.dispatchEvent(new Event('input', { bubbles: true })); toast(t('Đã thay câu')); });
       } catch (e) {
-        out.innerHTML = `<div class="small" style="margin-top:.6rem">❌ ${esc(AI.errText ? AI.errText(e) : e.message)} ${e.message === 'NO_KEY' ? `<button class="btn sm" data-k>${t('Bật AI')}</button>` : ''}</div>`;
+        out.innerHTML = `<div class="small" style="margin-top:.6rem">❌ ${esc(AI.errText ? AI.errText(e) : e.message)} ${e.message === 'BAD_KEY' ? `<button class="btn sm" data-k>${t('Nhập khóa')}</button>` : ''}</div>`;
         const k = $('[data-k]', out); if (k) k.onclick = () => AI.keyDialog();
       }
     };

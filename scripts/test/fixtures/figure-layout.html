@@ -1,0 +1,48 @@
+<!doctype html>
+<!-- Trang dựng thử cho scripts/test/figure-layout.mjs: nạp đúng CSS + mã vẽ đề của app, vẽ MỌI đề Task 1
+     trong 2 ngữ cảnh thật (trang #/task1 và phòng thi #/mock), rồi window.FigureLayout.check từng hình. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link id="gf" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=block">
+<link rel="stylesheet" href="../../../web/css/style.css">
+<link rel="stylesheet" href="../../../web/css/lazy-ui.css">
+<style>.fx-ctx { margin: 1rem 0; } body.fallback, body.fallback * { --font: sans-serif !important; }</style>
+<script>
+  // Vỏ tối thiểu cho task1.js (UI/Core/App) – chỉ phần mã vẽ dùng tới
+  window.t = (s, o) => String(s).replace(/\{(\w+)\}/g, (_, k) => (o || {})[k] ?? '');
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  window.UI = { $: s => document.querySelector(s), $$: s => [...document.querySelectorAll(s)], esc, toast() {} };
+  window.Core = { Store: { get: async (k, d) => d, set() {} } };
+  window.App = { state: {}, routes: {}, view: document.createElement('div'), guard: f => f };
+</script>
+<script src="../../../web/js/write/task1-more.js"></script>
+<script src="../../../web/js/write/task1-more2.js"></script>
+<script src="../../../web/js/task1.js"></script>
+<script src="../lib/figure-layout.js"></script>
+</head><body><main class="view" id="root"></main>
+<script>
+  // Dựng theo đúng khung của 2 nơi hiển thị: trang Task 1 (lưới 1fr + cột 300 px ở ≥ 900 px) và phòng thi (card toàn chiều rộng)
+  window.renderAll = () => {
+    const wide = innerWidth >= 900, root = document.getElementById('root');
+    root.innerHTML = App.task1.SETS.map(d => `
+      <section class="fx-ctx"><div class="grid" style="grid-template-columns:${wide ? 'minmax(0,1fr) 300px' : '1fr'}"><div class="card">
+        <div class="chart-wrap" data-fig="${d.id}@task1">${App.task1.draw(d)}</div></div><div></div></div></section>
+      <section class="fx-ctx"><div class="card"><b>Writing Task 1</b><p class="small">${esc(d.title)}</p><div class="t1chart" data-fig="${d.id}@mock">${App.task1.draw(d)}</div></div></section>`).join('');
+    return App.task1.SETS.length;
+  };
+  // Tự kiểm bộ dò: mỗi hình lỗi cố ý (bản đồ cũ bị cắt, chữ đè…) phải bị bắt đúng loại – bộ dò mù thì cổng đỏ
+  window.selfTest = () => {
+    const box = document.createElement('div'); box.className = 'card'; box.style.width = '320px'; document.body.appendChild(box);
+    const cases = {
+      clip: '<svg viewBox="0 0 220 180" style="width:300px"><rect x="130" y="24" width="94" height="42" fill="#f59e0b"/></svg>',
+      overlap: '<svg viewBox="0 0 200 60" style="width:300px"><text x="10" y="30" class="ch-lg">Shopping centre</text><text x="40" y="34" class="ch-lg">Library</text></svg>',
+      straddle: '<svg viewBox="0 0 220 180" style="width:300px"><rect x="8" y="124" width="94" height="42" fill="#16a34a"/><line x1="110" y1="20" x2="110" y2="176" stroke="#888" stroke-width="10"/><text x="80" y="170" class="ch-lg">Main St</text></svg>',
+      blocks: '<svg viewBox="0 0 200 100" style="width:300px"><rect x="10" y="10" width="80" height="50" fill="#64748b"/><rect x="60" y="30" width="80" height="50" fill="#0ea5a4"/></svg>',
+      tiny: '<svg viewBox="0 0 1000 100" style="width:300px"><text x="10" y="50" class="ch-ax">2020</text></svg>',
+      contrast: '<svg viewBox="0 0 120 60" style="width:240px"><rect x="0" y="0" width="120" height="60" fill="#f59e0b"/><text x="60" y="34" text-anchor="middle" class="ch-map" style="fill:#fff">Shops</text></svg>',
+      flow: '<div class="proc" style="flex-direction:row;flex-wrap:wrap;max-width:none"><div class="pstep" style="width:120px">A</div><div class="parrow" style="transform:none">→</div><div class="pstep" style="width:200px">B</div></div>',
+    };
+    const res = Object.entries(cases).map(([kind, html]) => { box.innerHTML = html; const got = FigureLayout.check(box).map(i => i.kind); return { kind, ok: got.includes(kind), got }; });
+    box.remove(); return res;
+  };
+  window.checkAll = () => [...document.querySelectorAll('[data-fig]')].map(el => ({ fig: el.dataset.fig, issues: FigureLayout.check(el) })).filter(x => x.issues.length);
+</script></body></html>

@@ -1,0 +1,20 @@
+/* UI ru – account (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ru"] = Object.assign(D["ru"] || {}, {
+"Báo lỗi bạn đã gửi được giữ lại ở dạng ẩn danh (gỡ email và tài khoản). Tài khoản Apple của bạn không bị ảnh hưởng.":"Отправленные вами сообщения о проблемах сохраняются анонимно (email и аккаунт удаляются). Ваш аккаунт Apple не затрагивается.",
+"Báo lỗi bạn đã gửi được giữ lại ở dạng ẩn danh (gỡ email và tài khoản). Tài khoản Google của bạn không bị ảnh hưởng.":"Отправленные вами сообщения о проблемах сохраняются анонимно (email и аккаунт удаляются). Ваш аккаунт Google не затрагивается.",
+"Bạn cần kết nối mạng để xóa tài khoản.":"Чтобы удалить аккаунт, нужно подключение к интернету.",
+"Dữ liệu bảng xếp hạng":"Ваши данные в таблице лидеров",
+"Dữ liệu học đã đồng bộ (flashcard, tiến độ, XP, chuỗi ngày học)":"Синхронизированные учебные данные (карточки, прогресс, XP, серия дней)",
+"Hãy đăng nhập để xóa tài khoản.":"Войдите, чтобы удалить аккаунт.",
+"Hồ sơ tài khoản (tên, email) và tài khoản đăng nhập Lexkite":"Данные аккаунта (имя, email) и ваш аккаунт входа в Lexkite",
+"Không xóa được tài khoản. Vui lòng thử lại hoặc liên hệ hỗ trợ.":"Не удалось удалить аккаунт. Попробуйте ещё раз или обратитесь в поддержку.",
+"Những gì sẽ bị xóa vĩnh viễn trên máy chủ:":"Что будет навсегда удалено с наших серверов:",
+"Tôi hiểu thao tác này không thể hoàn tác":"Я понимаю, что это действие нельзя отменить",
+"Xóa cả dữ liệu học trên máy này":"Также удалить учебные данные на этом устройстве",
+"Xóa tài khoản Lexkite?":"Удалить ваш аккаунт Lexkite?",
+"Xóa vĩnh viễn":"Удалить навсегда",
+"Đang xóa…":"Удаление…",
+"Đã xóa tài khoản của bạn.":"Ваш аккаунт удалён.",
+"Để bảo mật, hãy đăng nhập lại một lần nữa để xác nhận.":"В целях безопасности войдите ещё раз для подтверждения.",
+});
+})(typeof self !== 'undefined' ? self : this);

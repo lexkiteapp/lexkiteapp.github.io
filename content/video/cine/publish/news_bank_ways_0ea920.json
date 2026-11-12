@@ -1,0 +1,75 @@
+{
+ "id": "news_bank_ways_0ea920",
+ "scene": "news",
+ "template": "ways",
+ "area": "phrases",
+ "cefr": "A2",
+ "point": "asking for help: polite to casual",
+ "series": "EVERYDAY ENGLISH / 3 ways to ask",
+ "bg": "bank",
+ "title": "3 ways to say it: polite to casual (3 ways to ask)",
+ "description": "Asking for help: polite to casual. Save this: Would you mind helping me? / Could you help me? / Can you give me a hand?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_bank_ways_0ea920#/phrases",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#politeenglish",
+  "#englishphrases",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_bank_ways_0ea920/cine-news-bank-ways-0ea920-en.mp4",
+ "cover": "shorts/news/news_bank_ways_0ea920/cine-news-bank-ways-0ea920-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "3 ways to say it: polite to casual (3 ways to ask)",
+   "caption": "Asking for help: polite to casual. Save this: Would you mind helping me? / Could you help me? / Can you give me a hand?\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_bank_ways_0ea920#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_bank_ways_0ea920#/phrases",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#politeenglish",
+    "#englishphrases",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "Asking for help: polite to casual. Save this: Would you mind helping me? / Could you help me? / Can you give me a hand?\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_bank_ways_0ea920#/phrases\n#learnenglish #englishtips #politeenglish #englishphrases #americanenglish #esl"
+  },
+  "reels": {
+   "title": "3 ways to say it: polite to casual (3 ways to ask)",
+   "caption": "Asking for help: polite to casual. Save this: Would you mind helping me? / Could you help me? / Can you give me a hand?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_bank_ways_0ea920#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_bank_ways_0ea920#/phrases",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#politeenglish",
+    "#englishphrases",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Asking for help: polite to casual. Save this: Would you mind helping me? / Could you help me? / Can you give me a hand?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_bank_ways_0ea920#/phrases\n#learnenglish #englishtips #politeenglish #englishphrases #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "3 ways to say it: polite to casual (3 ways to ask) #shorts",
+   "caption": "Asking for help: polite to casual. Save this: Would you mind helping me? / Could you help me? / Can you give me a hand?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_bank_ways_0ea920#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_bank_ways_0ea920#/phrases",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#politeenglish",
+    "#englishphrases"
+   ],
+   "caption_with_tags": "Asking for help: polite to casual. Save this: Would you mind helping me? / Could you help me? / Can you give me a hand?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_bank_ways_0ea920#/phrases\n#shorts #learnenglish #englishtips #politeenglish #englishphrases"
+  }
+ },
+ "slot": {
+  "date": "2026-10-23",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

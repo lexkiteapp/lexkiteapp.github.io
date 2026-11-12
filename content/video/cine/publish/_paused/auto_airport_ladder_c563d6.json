@@ -1,0 +1,75 @@
+{
+ "id": "auto_airport_ladder_c563d6",
+ "scene": "airport",
+ "template": "ladder",
+ "area": "phrases",
+ "cefr": "B2",
+ "point": "polite request a luggage tag",
+ "series": "Airport English #23",
+ "title": "3 ways to ask for a luggage tag in English",
+ "description": "Polite, neutral and casual ways to ask at the airport. Most polite: \"Could I possibly have a luggage tag?\"\nComment your answer below and follow for daily English (Airport English #23).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_c563d6#/phrases",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#airportenglish",
+  "#politeenglish",
+  "#englishphrases",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/airport/auto_airport_ladder_c563d6/cine-auto-airport-ladder-c563d6-en-v3.mp4",
+ "cover": "shorts/airport/auto_airport_ladder_c563d6/cine-auto-airport-ladder-c563d6-en-v3.jpg",
+ "ci_artifact": "cine-airport-17",
+ "run": "17",
+ "platforms": {
+  "tiktok": {
+   "title": "3 ways to ask for a luggage tag in English",
+   "caption": "Polite, neutral and casual ways to ask at the airport. Most polite: \"Could I possibly have a luggage tag?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_c563d6#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_c563d6#/phrases",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#politeenglish",
+    "#englishphrases",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the airport. Most polite: \"Could I possibly have a luggage tag?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_c563d6#/phrases\n#learnenglish #englishtips #airportenglish #politeenglish #englishphrases #travelenglish"
+  },
+  "reels": {
+   "title": "3 ways to ask for a luggage tag in English",
+   "caption": "Polite, neutral and casual ways to ask at the airport. Most polite: \"Could I possibly have a luggage tag?\"\nComment your answer below and follow for daily English (Airport English #23).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_c563d6#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_c563d6#/phrases",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#politeenglish",
+    "#englishphrases",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the airport. Most polite: \"Could I possibly have a luggage tag?\"\nComment your answer below and follow for daily English (Airport English #23).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_c563d6#/phrases\n#learnenglish #englishtips #airportenglish #politeenglish #englishphrases #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "3 ways to ask for a luggage tag in English #shorts",
+   "caption": "Polite, neutral and casual ways to ask at the airport. Most polite: \"Could I possibly have a luggage tag?\"\nComment your answer below and follow for daily English (Airport English #23).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_c563d6#/phrases",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_c563d6#/phrases",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#politeenglish"
+   ],
+   "caption_with_tags": "Polite, neutral and casual ways to ask at the airport. Most polite: \"Could I possibly have a luggage tag?\"\nComment your answer below and follow for daily English (Airport English #23).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_ladder_c563d6#/phrases\n#shorts #learnenglish #englishtips #airportenglish #politeenglish"
+  }
+ },
+ "slot": {
+  "date": "2026-11-14",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

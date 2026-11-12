@@ -1,0 +1,26 @@
+{
+ "topic": "Job interview roleplay: tell me about yourself",
+ "scene": "office",
+ "vars": {
+  "phrase": "now I'd love to",
+  "place": "a job interview",
+  "hookLine": "Talk about… myself?",
+  "staffOpen": "Let's start easy. Tell me about yourself.",
+  "learnerLine": "I'm a designer. I've worked on shopping apps for three years, and now I'd love to grow here.",
+  "staffReply": "Nice and clear. So why do you want to join us?",
+  "tip": "present, past, future. Who you are, what you've done, and what you want next."
+ },
+ "lines": {
+  "explain": {
+   "expr": "curious"
+  }
+ },
+ "title": "Tell me about yourself – job interview roleplay",
+ "hook": "Tell me about yourself",
+ "caption": "How to answer \"Tell me about yourself\" in a job interview",
+ "hashtags": [
+  "jobinterview",
+  "businessenglish",
+  "speakenglish"
+ ]
+}

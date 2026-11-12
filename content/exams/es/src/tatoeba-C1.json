@@ -1,0 +1,320 @@
+{
+ "v": 1,
+ "source": "Tatoeba (tatoeba.org), CC BY 2.0 FR",
+ "license": "https://creativecommons.org/licenses/by/2.0/fr/",
+ "lv": "C1",
+ "items": [
+  {
+   "id": 3590576,
+   "au": "ficion",
+   "s": "Si pides un aumento de sueldo antes de ___ mérito, voy a pensar que estás colocando la carreta adelante del caballo.",
+   "a": "hacer",
+   "o": [
+    "hace",
+    "hizo",
+    "hacer"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10063055,
+   "au": "manufrutos",
+   "s": "Resulta que tenía un ___, pero murió antes de que yo naciera.",
+   "a": "hermano",
+   "o": [
+    "prueba",
+    "escena",
+    "hermano"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 2378853,
+   "au": "fgreco",
+   "s": "Para los perros de rescate la ___ física es una cualidad importante.",
+   "a": "fuerza",
+   "o": [
+    "montón",
+    "pelo",
+    "fuerza"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1677788,
+   "au": "teskmon",
+   "s": "Tenemos que animar a la gente a unirse a la campaña y a ___ con nosotros.",
+   "a": "trabajar",
+   "o": [
+    "trabajar",
+    "trabaja",
+    "trabajó"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10185757,
+   "au": "saverius",
+   "s": "Acelera un poco, que si no se va a ___ parado el coche en esta cuesta.",
+   "a": "quedar",
+   "o": [
+    "queda",
+    "quedó",
+    "quedar"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 873795,
+   "au": "Shishir",
+   "s": "Una ___ que un hombre casado no debería olvidar jamás es la fecha de su aniversario de casamiento.",
+   "a": "cosa",
+   "o": [
+    "trato",
+    "cosa",
+    "ataque"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 4360689,
+   "au": "umano",
+   "s": "A mí siempre me impresiona la gente que es capaz de ___ con pocos recursos.",
+   "a": "vivir",
+   "o": [
+    "vive",
+    "vivir",
+    "vivió"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1439793,
+   "au": "marcelostockle",
+   "s": "Cansado del duro trabajo, él se fue a la ___ más temprano de lo usual.",
+   "a": "cama",
+   "o": [
+    "recuerdo",
+    "rey",
+    "cama"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 2839894,
+   "au": "rainbyte",
+   "s": "Es increíble que puedas escribir un programa tan bien diseñado, luego de ___ aprendido programación por imitación.",
+   "a": "haber",
+   "o": [
+    "hubo",
+    "haber",
+    "ha"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1297961,
+   "au": "marcelostockle",
+   "s": "Peter estaba harto de muchachas infantiles y quería conocer una ___ madura de verdad.",
+   "a": "mujer",
+   "o": [
+    "minuto",
+    "fuego",
+    "mujer"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 2857838,
+   "au": "Besatnias",
+   "s": "Esta pareja tiene un humor tan seco que dicen montones de chistes seguidos sin ___ salir la más mínima risa.",
+   "a": "dejar",
+   "o": [
+    "deja",
+    "dejó",
+    "dejar"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10017708,
+   "au": "Shishir",
+   "s": "Ser un sabio significa no avergonzarse de no ___ nada, no temer no saber nada y no estar orgulloso de no saber nada.",
+   "a": "saber",
+   "o": [
+    "sabe",
+    "supo",
+    "saber"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10180301,
+   "au": "saverius",
+   "s": "El ___ le pegaba cuando llegaba borracho a casa, y su mujer le pegaba con la sartén mientras él dormía.",
+   "a": "marido",
+   "o": [
+    "marido",
+    "misión",
+    "tarjeta"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 6175230,
+   "au": "emigonza",
+   "s": "Si todo el ___ intenta ser de algún modo distinto y algo especial, se convierte en algo especial el hecho de ser normal.",
+   "a": "mundo",
+   "o": [
+    "calle",
+    "pregunta",
+    "mundo"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 854288,
+   "au": "Shishir",
+   "s": "Te haré la compra, te limpiaré la casa y haré la ___ por ti.",
+   "a": "cena",
+   "o": [
+    "centro",
+    "cena",
+    "futuro"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10180390,
+   "au": "saverius",
+   "s": "Nativo es el que vive en un ___ desde hace mucho tiempo.",
+   "a": "lugar",
+   "o": [
+    "suerte",
+    "lugar",
+    "cena"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1455708,
+   "au": "marcelostockle",
+   "s": "Traté de ___ una foto de la ardilla que vi el parque, pero se movía muy rápido y no pude tomar ni una sola foto buena.",
+   "a": "tomar",
+   "o": [
+    "tomar",
+    "toma",
+    "tomó"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 1255109,
+   "au": "zortxoko",
+   "s": "La verdadera libertad no está en lo que haces, sino en la ___ como eliges vivir lo que haces, y sólo a ti te pertenece tal facultad.",
+   "a": "forma",
+   "o": [
+    "minuto",
+    "montón",
+    "forma"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10345800,
+   "au": "saverius",
+   "s": "Los egipcios jugaban al billar, pero en el ___ y con algunas reglas particulares.",
+   "a": "suelo",
+   "o": [
+    "carrera",
+    "suelo",
+    "señal"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 10236573,
+   "au": "Seael",
+   "s": "¡Pues ya hay que ___ mala puntería para fallar un tiro así de fácil!",
+   "a": "tener",
+   "o": [
+    "tener",
+    "tiene",
+    "tuvo"
+   ],
+   "k": "c"
+  },
+  {
+   "id": 2929258,
+   "au": "teskmon",
+   "s": "La profesora me señaló con el dedo y me pidió que fuera con ella.",
+   "k": "l"
+  },
+  {
+   "id": 10281365,
+   "au": "manufrutos",
+   "s": "Estoy planeando dedicar más tiempo a estudiar francés de ahora en adelante.",
+   "k": "l"
+  },
+  {
+   "id": 4745451,
+   "au": "halime",
+   "s": "A veces siento que soy una carga para las personas que me rodean.",
+   "k": "l"
+  },
+  {
+   "id": 886016,
+   "au": "Shishir",
+   "s": "A ella le gustan las fresas y a su hermana las manzanas.",
+   "k": "l"
+  },
+  {
+   "id": 3632996,
+   "au": "Tono",
+   "s": "No pude entender por qué me fue difícil montar en bicicleta hasta que me di cuenta de que tenía el volante al revés.",
+   "k": "l"
+  },
+  {
+   "id": 10728177,
+   "au": "saverius",
+   "s": "Los delincuentes adolescentes que van a un correccional, salen peor que como entraron.",
+   "k": "l"
+  },
+  {
+   "id": 2313554,
+   "au": "ildefonk",
+   "s": "He elaborado una lista de personas con las que aún tengo que hablar.",
+   "k": "l"
+  },
+  {
+   "id": 10311852,
+   "au": "Seael",
+   "s": "No deberías salir a pescar con la mar tan picada como está.",
+   "k": "l"
+  },
+  {
+   "id": 12172816,
+   "au": "carlosalberto",
+   "s": "El pequeño búho verde tiene la mejor escuela de idiomas que conozco.",
+   "k": "l"
+  },
+  {
+   "id": 977998,
+   "au": "hundo",
+   "s": "Ella ha perdido a su único hijo en un accidente de circulación.",
+   "k": "l"
+  },
+  {
+   "id": 870135,
+   "au": "Shishir",
+   "s": "A los ancianos no les gustan las nuevas ideas; prefieren creer que desde su juventud el mundo, en lugar de haber mejorado, ha perdido algo.",
+   "k": "l"
+  },
+  {
+   "id": 722669,
+   "au": "qdii",
+   "s": "Se te quitan los complejos cuando ves los resultados de los demás.",
+   "k": "l"
+  }
+ ]
+}

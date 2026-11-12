@@ -1,0 +1,31 @@
+{
+ "topic": "Office English: do a decision or make a decision?",
+ "scene": "office",
+ "seed": "col-decision",
+ "vars": {
+  "wrongColl": "do a decision",
+  "rightColl": "make a decision",
+  "hookLine": "\"Do a decision\"?",
+  "question": "I told my team we need to do a decision today.",
+  "rule": "We make a decision. Make also goes with a plan and a choice.",
+  "example": "So, can we make a decision by Friday?",
+  "tip": "make a decision, make a plan, make a choice. Do is for tasks."
+ },
+ "lines": {
+  "hook": {
+   "expr": "thinking",
+   "gesture": ""
+  },
+  "situation": {
+   "expr": "calm"
+  },
+  "example": {
+   "expr": "curious"
+  }
+ },
+ "hashtags": [
+  "collocations",
+  "businessenglish",
+  "learnenglish"
+ ]
+}

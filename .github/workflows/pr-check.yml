@@ -1,0 +1,50 @@
+# 🔗 Backlink, PR & Thương hiệu – HẰNG NGÀY (miễn phí, máy chủ GitHub): kiểm từng bài PR/hồ sơ/thư mục (còn bài, còn link lexkite.com, rel, noindex),
+# tên miền na ná (DNS qua DoH), tài khoản mạng xã hội (hồ sơ công khai) → gửi lên Quản trị (/api/backlinks, ký HMAC bằng secret CI sẵn có
+# STUDIO_CALLBACK_SECRET) → cảnh báo trong Quản trị + thư sự cố nghiêm trọng + bản tin tuần; mở/đóng issue "brand-watch" theo từng sự cố.
+# Không có secret / Quản trị lỗi → vẫn chạy bằng file, kết quả ở artifact + issue. Tài liệu: docs/PR-PLATFORMS.md § Theo dõi tự động.
+name: Backlink, PR & Thương hiệu
+on:
+  schedule:
+    - cron: '30 1 * * *'   # 08:30 giờ Việt Nam
+  workflow_dispatch:       # chạy tay, hoặc nút "Kiểm ngay" trong Quản trị (GH_DISPATCH_TOKEN ở Cloudflare)
+permissions:
+  contents: read
+  issues: write
+concurrency: { group: pr-check, cancel-in-progress: false }
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Kiểm backlink, tên miền na ná, tài khoản
+        id: check
+        continue-on-error: true
+        env:
+          STUDIO_CALLBACK_SECRET: ${{ secrets.STUDIO_CALLBACK_SECRET }}
+          LEXKITE_CI_HEADER: ${{ secrets.LEXKITE_CI_HEADER }}
+          GITHUB_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node scripts/pr-check.mjs --remote --out reports/pr-check.json --md reports/pr-check.md
+      - name: Lưu báo cáo (artifact)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-check
+          path: reports/pr-check.*
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Issue theo từng sự cố (nhãn brand-watch – tự mở/đóng)
+        if: always() && hashFiles('reports/pr-check.json') != ''
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node scripts/pr-check.mjs --issues reports/pr-check.json
+      - name: Kết luận
+        if: always()
+        run: |
+          if [ "${{ steps.check.outcome }}" != "success" ]; then echo "⛔ Có sự cố backlink/thương hiệu hoặc không kiểm được mục nào – xem báo cáo"; exit 1; fi
+          echo "✓ Không có sự cố"

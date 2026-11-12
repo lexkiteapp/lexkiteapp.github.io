@@ -1,0 +1,75 @@
+{
+ "id": "auto_cafe_speak_4cbd1a",
+ "scene": "cafe",
+ "template": "speak",
+ "area": "speaking",
+ "cefr": "A1",
+ "point": "Could I get the Wi-Fi password?",
+ "series": "Café English #10",
+ "title": "Say it with me: \"Could I get the Wi-Fi password?\"",
+ "description": "Say it out loud with Ama at the coffee shop: \"Could I get the Wi-Fi password?\"\nComment your answer below and follow for daily English (Café English #10).\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=social&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_speak_4cbd1a",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#coffeeshopenglish",
+  "#speakenglish",
+  "#pronunciation",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/cafe/auto_cafe_speak_4cbd1a/cine-auto-cafe-speak-4cbd1a-en-v3.mp4",
+ "cover": "shorts/cafe/auto_cafe_speak_4cbd1a/cine-auto-cafe-speak-4cbd1a-en-v3.jpg",
+ "ci_artifact": "cine-cafe-16",
+ "run": "16",
+ "platforms": {
+  "tiktok": {
+   "title": "Say it with me: \"Could I get the Wi-Fi password?\"",
+   "caption": "Say it out loud with Ama at the coffee shop: \"Could I get the Wi-Fi password?\"\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_speak_4cbd1a",
+   "link": "https://lexkite.com/en/speaking/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_speak_4cbd1a",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#speakenglish",
+    "#pronunciation",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Say it out loud with Ama at the coffee shop: \"Could I get the Wi-Fi password?\"\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_speak_4cbd1a\n#learnenglish #englishtips #coffeeshopenglish #speakenglish #pronunciation #travelenglish"
+  },
+  "reels": {
+   "title": "Say it with me: \"Could I get the Wi-Fi password?\"",
+   "caption": "Say it out loud with Ama at the coffee shop: \"Could I get the Wi-Fi password?\"\nComment your answer below and follow for daily English (Café English #10).\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_speak_4cbd1a",
+   "link": "https://lexkite.com/en/speaking/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_speak_4cbd1a",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#speakenglish",
+    "#pronunciation",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Say it out loud with Ama at the coffee shop: \"Could I get the Wi-Fi password?\"\nComment your answer below and follow for daily English (Café English #10).\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_speak_4cbd1a\n#learnenglish #englishtips #coffeeshopenglish #speakenglish #pronunciation #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Say it with me: \"Could I get the Wi-Fi password?\" #shorts",
+   "caption": "Say it out loud with Ama at the coffee shop: \"Could I get the Wi-Fi password?\"\nComment your answer below and follow for daily English (Café English #10).\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_speak_4cbd1a",
+   "link": "https://lexkite.com/en/speaking/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_speak_4cbd1a",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#speakenglish"
+   ],
+   "caption_with_tags": "Say it out loud with Ama at the coffee shop: \"Could I get the Wi-Fi password?\"\nComment your answer below and follow for daily English (Café English #10).\nPractice free on lexkite.com\nhttps://lexkite.com/en/speaking/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_speak_4cbd1a\n#shorts #learnenglish #englishtips #coffeeshopenglish #speakenglish"
+  }
+ },
+ "slot": {
+  "date": "2026-11-03",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

@@ -1,0 +1,11 @@
+/* UI es – ads (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["es"] = Object.assign(D["es"] || {}, {
+"Hết lượt hôm nay? Xem 1 video ngắn để nhận thêm {n} lượt.":"¿Sin turnos gratis hoy? Mira un video corto para conseguir {n} más.",
+"Nhờ ôn thẻ, bạn được thêm {n} lượt.":"Gracias a tu repaso, tienes {n} turnos más.",
+"Xem video":"Ver video",
+"Ôn 10 thẻ để mở thêm {n} lượt – miễn phí.":"Repasa 10 tarjetas para desbloquear {n} turnos más, gratis.",
+"Ôn thẻ ngay":"Repasar ahora",
+"Đã cộng thêm lượt – thử lại sau vài giây.":"Turnos extra añadidos: vuelve a intentarlo en unos segundos.",
+"Đã ôn {r}/{need} thẻ hôm nay – ôn thêm để nhận lượt.":"Hoy has repasado {r}/{need} tarjetas: repasa más para ganar turnos.",
+});
+})(typeof self !== 'undefined' ? self : this);

@@ -1,0 +1,24 @@
+{
+ "topic": "Supermarket roleplay: \"Can I get a bag?\" at the checkout",
+ "scene": "supermarket",
+ "seed": "rp-bag",
+ "vars": {
+  "phrase": "get a bag",
+  "place": "the supermarket",
+  "hookLine": "Is this line open?",
+  "staffOpen": "Hi there! This lane is open. Come on over.",
+  "learnerLine": "Thanks. Can I get a bag too, please?",
+  "staffReply": "Sure, here you go. Have a good day!",
+  "tip": "can I get works for almost anything in a store. Add please to sound friendly."
+ },
+ "lines": {
+  "hook": {
+   "expr": "curious"
+  }
+ },
+ "hashtags": [
+  "englishconversation",
+  "roleplay",
+  "dailyenglish"
+ ]
+}

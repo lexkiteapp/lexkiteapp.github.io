@@ -1,0 +1,55 @@
+# Nghĩa 13 ngôn ngữ theo NGHĨA + TỪ LOẠI (định nghĩa + ví dụ làm ngữ cảnh) rồi duyệt AI – miễn phí (kho khóa Gemini → Workers AI qua /api/lexai).
+# Mỗi đêm một lô, tiếp tục từ chỗ dừng; ưu tiên ko, th, hi, zh, ja, ar rồi các ngôn ngữ còn lại. Xem docs/LEXICON.md.
+name: Nghĩa từ vựng 13 ngôn ngữ (theo nghĩa + duyệt AI)
+on:
+  schedule:
+    - cron: '30 21 * * *'   # 04:30 giờ VN (sau word-packs)
+  workflow_dispatch:
+    inputs:
+      calls: { description: 'Số lần gọi AI (25 mục/lần)', default: '120' }
+      langs: { description: 'Ngôn ngữ (vd ko,th) – trống = theo thứ tự ưu tiên', default: '' }
+permissions:
+  contents: write
+  id-token: write   # JWT OIDC để /api/lexai xác thực (không cần secret)
+  actions: read     # đọc trạng thái word-packs (bước chờ)
+# 04/11: nhóm riêng. Trước đây chung nhóm google-translate với 3 workflow khác: GitHub chỉ giữ 1 lượt CHỜ/nhóm nên sent-packs (21:50) luôn đè lượt i18n → cancelled 4 đêm liền (31/10–04/11).
+# i18n gọi /api/lexai (không phải Google Translate); chỉ cần loại trừ với word-packs (cùng ghi web/packs/<lang>.json) → bước chờ bên dưới.
+concurrency: { group: lexicon-i18n, cancel-in-progress: false }
+jobs:
+  lexicon-i18n:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Chờ word-packs xong (cùng ghi web/packs; tối đa 90 phút, TRƯỚC checkout để đọc kho mới nhất; quá hạn thì bỏ lượt, không ghi đè)
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          for i in $(seq 1 90); do
+            n=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/word-packs.yml/runs?status=in_progress&per_page=5" --jq '.total_count' 2>/dev/null || echo 0)
+            q=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/word-packs.yml/runs?status=queued&per_page=5" --jq '.total_count' 2>/dev/null || echo 0)
+            [ "$((n + q))" = "0" ] && exit 0
+            sleep 60
+          done
+          echo '::warning::word-packs còn chạy sau 90 phút → bỏ lượt i18n đêm nay'; echo SKIP=1 >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+        if: env.SKIP != '1'
+        with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}' }   # đẩy main qua SSH khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: actions/setup-node@v4
+        if: env.SKIP != '1'
+        with: { node-version: 22 }
+      - name: Dựng kho (dist/lexicon.json)
+        if: env.SKIP != '1'
+        run: node scripts/build-lexicon.mjs --write
+      - name: Dịch theo nghĩa + duyệt
+        if: env.SKIP != '1'
+        run: node scripts/lexicon/i18n-job.mjs --calls "${{ github.event.inputs.calls || '120' }}" ${{ github.event.inputs.langs && format('--langs {0}', github.event.inputs.langs) || '' }}
+      - name: Lưu kết quả
+        if: env.SKIP != '1'
+        run: |
+          # 06/11 (commit a6bf18c13): `-X theirs` đè bảng tay vừa vào main (ko/maturity cờ 1 ≠ 2) rồi đẩy [skip ci] → main đỏ pack-gloss.
+          # Nay: mỗi lần thử, trên main mới nhất đặt lại gói bot đổi rồi ÁP LẠI bảng tay (--gloss-only), pack-gloss làm cổng, đỏ thì KHÔNG đẩy.
+          SAVE=$(mktemp -d); export SAVE
+          git status --porcelain -uall web/packs | cut -c4- > "$SAVE/list"
+          [ -s "$SAVE/list" ] || { echo "gói nghĩa không đổi"; exit 0; }
+          tar -cf "$SAVE/packs.tar" -T "$SAVE/list"
+          PUSH_MAIN_REGEN='tar -xf "$SAVE/packs.tar"; for L in $(sed -n "s#^web/packs/\([a-z][a-z]\)\.json\$#\1#p" "$SAVE/list"); do node scripts/gen-word-packs.mjs "$L" --gloss-only; done; node scripts/test/pack-gloss.mjs || { echo "::error::pack-gloss đỏ sau khi đặt lại – KHÔNG đẩy main"; exit 1; }' \
+            bash scripts/ci/push-main.sh "Nghĩa 13 ngôn ngữ: dịch theo nghĩa + duyệt AI (lô tự động)" web/packs

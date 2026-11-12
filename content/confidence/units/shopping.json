@@ -1,0 +1,51 @@
+{
+  "id": "shopping", "level": "A1", "order": 3, "em": "🛍️", "rp": "shop",
+  "title": { "vi": "Mua sắm", "en": "Shopping" },
+  "goal": { "vi": "Hỏi cỡ, thử đồ, hỏi giá và quyết định mua.", "en": "Ask for a size, try something on, ask the price and decide to buy." },
+  "dialogue": { "a": "Maya", "aRole": "a shop assistant", "lines": [
+    ["a", "Hi! Can I help you find anything?"],
+    ["b", "I'm just looking, thanks."],
+    ["b", "Excuse me, do you have this in a medium?"],
+    ["a", "Let me check. Yes, here you go."],
+    ["b", "Can I try it on?"],
+    ["a", "Sure, the fitting rooms are over there."],
+    ["b", "It fits! How much is it?"],
+    ["a", "It's twenty-five dollars."],
+    ["b", "Great, I'll take it."]
+  ] },
+  "phrases": [
+    { "id": "just-looking", "say": "I'm just looking, thanks.", "not": "No, I don't need help.", "gap": "looking",
+      "mean": { "vi": "Nói bạn chỉ xem hàng, chưa cần giúp", "en": "Say you are only looking and don't need help yet" },
+      "why": { "vi": "Câu kia nghe hơi lạnh; câu này lịch sự và rất bình thường trong cửa hàng.", "en": "The other sounds a bit cold; this is polite and normal in a shop." } },
+    { "id": "have-this-in", "say": "Do you have this in a medium?", "not": "Is there medium size of this?", "gap": "in",
+      "mean": { "vi": "Hỏi cỡ hoặc màu khác", "en": "Ask for another size or color" },
+      "why": { "vi": "Dùng \"Do you have this in…?\" cho cỡ và màu.", "en": "Use \"Do you have this in…?\" for sizes and colors." } },
+    { "id": "try-it-on", "say": "Can I try it on?", "not": "Can I try it?", "gap": "on",
+      "mean": { "vi": "Xin mặc thử quần áo hoặc đi thử giày", "en": "Ask to put on clothes or shoes before you buy" },
+      "why": { "vi": "Với quần áo, giày dép nói \"try it on\"; \"try it\" thường là nếm hoặc thử dùng.", "en": "For clothes and shoes, say \"try it on\"; \"try it\" usually means taste or test." } },
+    { "id": "how-much-is-it", "say": "How much is it?", "not": "How much money?", "gap": "much",
+      "mean": { "vi": "Hỏi giá", "en": "Ask the price" },
+      "why": { "vi": "\"How much is it?\" là câu hỏi đầy đủ, lịch sự; câu kia nghe cụt.", "en": "\"How much is it?\" is a full, polite question; the other sounds not complete." } },
+    { "id": "ill-take-it", "say": "I'll take it.", "not": "I buy it.", "gap": "take",
+      "mean": { "vi": "Nói bạn quyết định mua", "en": "Say you have decided to buy it" },
+      "why": { "vi": "Trong cửa hàng, khi chốt mua người ta nói \"I'll take it.\"", "en": "In a shop, when you decide to buy, people say \"I'll take it.\"" } },
+    { "id": "a-bit-too", "say": "It's a bit too big.", "not": "It's very big, no good.", "gap": "bit",
+      "mean": { "vi": "Nói nhẹ nhàng rằng món đồ chưa vừa", "en": "Say gently that something doesn't fit" },
+      "why": { "vi": "\"A bit too…\" là cách mềm mỏng để nói có vấn đề.", "en": "\"A bit too…\" is a soft, polite way to say there is a problem." } },
+    { "id": "can-i-return-this", "say": "Can I return this?", "not": "I give back this.", "gap": "return",
+      "mean": { "vi": "Hỏi trả lại hàng đã mua", "en": "Ask to bring something back to the shop" },
+      "why": { "vi": "Dùng động từ \"return\" khi mang hàng trả lại cửa hàng.", "en": "Use the verb \"return\" when you take something back to a shop." } }
+  ],
+  "roleplay": {
+    "ai": { "name": "Maya", "role": "a shop assistant in a clothes shop", "persona": "helpful and relaxed", "goal": "help the learner find the right size and buy a shirt" },
+    "you": "Look around, ask for your size, try the shirt on, ask the price and buy it.",
+    "turns": [
+      { "a": "Hi! Can I help you find anything?", "h": "I'm just looking, thanks.", "br": [["just looking", "No problem. Take your time."], ["yes|looking for|do you have", "Sure!"]] },
+      { "a": "That shirt is new this week. Do you like it?", "h": "Yes! Do you have this in a medium?", "br": [["medium|small|large|size", "Let me check… yes, we do."]] },
+      { "a": "Here you go. Would you like to try it on?", "h": "Yes, please. Where are the fitting rooms?", "br": [["fitting room|where", "They're just over there."], ["yes|sure|okay", "Great."]] },
+      { "a": "How does it fit?", "h": "It fits well. How much is it?", "br": [["how much|price|cost", "It's twenty-five dollars."], ["too big|too small|bit", "Oh, I can get you another size."]] },
+      { "a": "It's on sale today, so it's only twenty dollars.", "h": "Great, I'll take it.", "br": [["take it|buy|i'll", "Perfect."]] }
+    ],
+    "end": "You can pay at the front. Thanks for shopping with us!"
+  }
+}

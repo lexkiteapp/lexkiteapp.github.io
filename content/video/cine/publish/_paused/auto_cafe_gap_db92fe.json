@@ -1,0 +1,75 @@
+{
+ "id": "auto_cafe_gap_db92fe",
+ "scene": "cafe",
+ "template": "gap",
+ "area": "vocab-review",
+ "cefr": "A1",
+ "point": "word cappuccino",
+ "series": "Café English #21",
+ "title": "One word is missing: \"Could I have a ___?\"",
+ "description": "Fill in the missing word, then say the full sentence: \"Could I have a cappuccino?\"\nComment your answer below and follow for daily English (Café English #21).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_db92fe#/review",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#coffeeshopenglish",
+  "#englishvocabulary",
+  "#fillintheblank",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/cafe/auto_cafe_gap_db92fe/cine-auto-cafe-gap-db92fe-en-v3.mp4",
+ "cover": "shorts/cafe/auto_cafe_gap_db92fe/cine-auto-cafe-gap-db92fe-en-v3.jpg",
+ "ci_artifact": "cine-cafe-15",
+ "run": "15",
+ "platforms": {
+  "tiktok": {
+   "title": "One word is missing: \"Could I have a ___?\"",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have a cappuccino?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_db92fe#/review",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_db92fe#/review",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#englishvocabulary",
+    "#fillintheblank",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have a cappuccino?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_db92fe#/review\n#learnenglish #englishtips #coffeeshopenglish #englishvocabulary #fillintheblank #travelenglish"
+  },
+  "reels": {
+   "title": "One word is missing: \"Could I have a ___?\"",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have a cappuccino?\"\nComment your answer below and follow for daily English (Café English #21).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_db92fe#/review",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_db92fe#/review",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#englishvocabulary",
+    "#fillintheblank",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have a cappuccino?\"\nComment your answer below and follow for daily English (Café English #21).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_db92fe#/review\n#learnenglish #englishtips #coffeeshopenglish #englishvocabulary #fillintheblank #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "One word is missing: \"Could I have a ___?\" #shorts",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have a cappuccino?\"\nComment your answer below and follow for daily English (Café English #21).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_db92fe#/review",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_db92fe#/review",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#englishvocabulary"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have a cappuccino?\"\nComment your answer below and follow for daily English (Café English #21).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_gap_db92fe#/review\n#shorts #learnenglish #englishtips #coffeeshopenglish #englishvocabulary"
+  }
+ },
+ "slot": {
+  "date": "2026-11-21",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

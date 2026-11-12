@@ -1,0 +1,36 @@
+# Chứng minh `taps` (WebKit iPhone, tối) không còn đỏ-xanh ngẫu nhiên: chạy lại review-taps.mjs 20 lần, phải 20/20 xanh.
+# Gốc lỗi: sweep 15 ngôn ngữ chuyển trang khi fetch lex-index.json / packs/<lang>.json còn bay (+ lexkite.com bị abort) → WebKit "access control checks".
+name: Màn Ôn – ổn định ×20
+on:
+  workflow_dispatch:
+    inputs:
+      runs: { description: 'Số lần lặp mỗi shard', default: '5' }
+  pull_request:
+    paths: ['.github/workflows/review-taps-stability.yml']
+permissions:
+  contents: read
+concurrency:
+  group: review-taps-stability-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  repeat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix: { shard: [1, 2, 3, 4] }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium webkit
+        timeout-minutes: 12
+      - name: Lặp review-taps
+        run: |
+          n=${{ inputs.runs || '5' }}; bad=0
+          for i in $(seq 1 "$n"); do
+            node scripts/test/review-taps.mjs web out/s$i > out.log 2>&1 && echo "run $i ✓" || { echo "run $i ✗"; grep '✗' out.log | head -5; bad=$((bad+1)); }
+          done
+          echo "shard ${{ matrix.shard }}: $((n-bad))/$n xanh"; [ "$bad" = 0 ]

@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/ja/share.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ja=Object.assign(D.ja||{},{_rycn:"投稿 1:1",_ao96:"シェア",_w4x3:"今日も勉強しました！",_163a:"無料で単語学習・試験対策",_g2iv:"コーヒーを飲んで、カードを少し復習しよう ☕ – すぐにシェアできる成果ができます。",_pk4w:"Lexkiteで毎日英語を勉強中 🔥 無料で学べます：{url}",_u46w:"脳がバカンスモード中です",_12m6:"ストーリーズ 9:16",_ep8k:"成果カード",_nokr:"今日の復習カード",_juu9:"記憶力バツグン！",_l38g:"画像を保存",_by8y:"毎日の小さな一歩が、毎月の大きな前進に。",_nrng:"今日の目標達成！",_7u16:"画像を保存しました – リンクをコピーしたので投稿に貼り付けてください"});})(typeof self!=='undefined'?self:this);

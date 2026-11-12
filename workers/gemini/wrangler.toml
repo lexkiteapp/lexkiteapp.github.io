@@ -1,0 +1,9 @@
+# Proxy Gemini ghim tại Mỹ – chỉ gọi qua service binding GEM (Pages Functions). Không URL công khai.
+name = "lexkite-gemini"
+main = "index.js"
+compatibility_date = "2026-10-01"
+workers_dev = false
+preview_urls = false
+
+[placement]
+region = "gcp:us-central1"

@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_orange",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: orange.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a round, sweet fruit with a thick orange skin.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I drink a glass of orange juice every morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "orange",
+  "ipa": "/ˈɔːrəndʒ/",
+  "mean": "a round, sweet fruit with a thick orange skin",
+  "ex": "I drink a glass of orange juice every morning.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=orange",
+  "link": "https://lexkite.com/app/#/review?w=orange",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.2,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"orange\" mean?",
+  "keyword": "orange",
+  "value": "Orange means a round, sweet fruit with a thick orange skin.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=orange",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"orange\" mean?",
+    "description": "Orange means a round, sweet fruit with a thick orange skin.\n\nReview your words, free: https://lexkite.com/app/#/review?w=orange\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "orange",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"orange\" mean?\n\nOrange means a round, sweet fruit with a thick orange skin.\n\nReview your words, free: https://lexkite.com/app/#/review?w=orange"
+   },
+   "instagram": {
+    "caption": "What does \"orange\" mean?\n\nOrange means a round, sweet fruit with a thick orange skin.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"orange\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a round, sweet fruit with a thick orange skin. Orange means a round, sweet fruit with a thick orange skin. More practice like this (free): {link}"
+ }
+}

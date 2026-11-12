@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_nation",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: nation.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a country, especially its people, culture and government.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "The whole nation celebrated the victory.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "nation",
+  "ipa": "/ˈneɪʃn/",
+  "mean": "a country, especially its people, culture and government",
+  "ex": "The whole nation celebrated the victory.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=nation",
+  "link": "https://lexkite.com/app/#/review?w=nation",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 41,
+  "seconds": 25.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"nation\" mean?",
+  "keyword": "nation",
+  "value": "Nation means a country, especially its people, culture and government.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=nation",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"nation\" mean?",
+    "description": "Nation means a country, especially its people, culture and government.\n\nReview your words, free: https://lexkite.com/app/#/review?w=nation\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "nation",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"nation\" mean?\n\nNation means a country, especially its people, culture and government.\n\nReview your words, free: https://lexkite.com/app/#/review?w=nation"
+   },
+   "instagram": {
+    "caption": "What does \"nation\" mean?\n\nNation means a country, especially its people, culture and government.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"nation\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a country, especially its people, culture and government. Nation means a country, especially its people, culture and government. Try the full lesson and quiz here: {link}"
+ }
+}

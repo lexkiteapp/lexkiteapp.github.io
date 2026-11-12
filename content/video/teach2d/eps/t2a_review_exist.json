@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_exist",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: exist.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to be present, alive or real.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Many of these animals no longer exist in the wild.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "exist",
+  "ipa": "/ɪɡˈzɪst/",
+  "mean": "to be present, alive or real",
+  "ex": "Many of these animals no longer exist in the wild.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=exist",
+  "link": "https://lexkite.com/app/#/review?w=exist",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 43,
+  "seconds": 26.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"exist\" mean?",
+  "keyword": "exist",
+  "value": "Exist means to be present, alive or real.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=exist",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"exist\" mean?",
+    "description": "Exist means to be present, alive or real.\n\nReview your words, free: https://lexkite.com/app/#/review?w=exist\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "exist",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"exist\" mean?\n\nExist means to be present, alive or real.\n\nReview your words, free: https://lexkite.com/app/#/review?w=exist"
+   },
+   "instagram": {
+    "caption": "What does \"exist\" mean?\n\nExist means to be present, alive or real.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"exist\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to be present, alive or real. Exist means to be present, alive or real. Practice it with a free quiz: {link}"
+ }
+}

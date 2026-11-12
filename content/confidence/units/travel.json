@@ -1,0 +1,50 @@
+{
+  "id": "travel", "level": "A2", "order": 5, "em": "✈️", "rp": "hotel",
+  "title": { "vi": "Du lịch: khách sạn và sân bay", "en": "Travel: hotel and airport" },
+  "goal": { "vi": "Nhận phòng, hỏi thông tin và nhờ giúp đỡ khi đi du lịch.", "en": "Check in, ask for information and ask for help when you travel." },
+  "dialogue": { "a": "Daniel", "aRole": "a hotel receptionist", "lines": [
+    ["a", "Good evening! Welcome to the Riverside Hotel. How can I help you?"],
+    ["b", "Hi, I have a reservation under the name Kim."],
+    ["a", "Let me see… Yes, a double room for three nights."],
+    ["b", "That's right. What time is breakfast?"],
+    ["a", "From seven to ten, on the first floor."],
+    ["b", "Great. Could you tell me the Wi-Fi password?"],
+    ["a", "It's on this card. Here's your key. You're in room 312."],
+    ["b", "Thanks. Could I get a late checkout on Friday?"],
+    ["a", "Let me check… Yes, twelve o'clock is fine."]
+  ] },
+  "phrases": [
+    { "id": "reservation-under", "say": "I have a reservation under the name Kim.", "not": "I booked. My name Kim.", "gap": "under",
+      "mean": { "vi": "Báo với lễ tân bạn đã đặt phòng", "en": "Tell the front desk you booked a room" },
+      "why": { "vi": "Nói cả câu \"I have a reservation under the name…\" – khách sạn nghe câu này mỗi ngày.", "en": "Use the full sentence \"I have a reservation under the name…\" – hotels hear it every day." } },
+    { "id": "what-time-is", "say": "What time is breakfast?", "not": "Breakfast is when?", "gap": "time",
+      "mean": { "vi": "Hỏi giờ của một việc gì đó", "en": "Ask when something happens" },
+      "why": { "vi": "Bắt đầu bằng \"What time is…?\" khi hỏi giờ.", "en": "Start with \"What time is…?\" to ask about times." } },
+    { "id": "could-you-tell-me", "say": "Could you tell me the Wi-Fi password?", "not": "Give me Wi-Fi.", "gap": "tell",
+      "mean": { "vi": "Hỏi thông tin một cách lịch sự", "en": "Ask for information politely" },
+      "why": { "vi": "\"Could you tell me…?\" là cách hỏi thông tin lịch sự.", "en": "\"Could you tell me…?\" is a polite way to ask for information." } },
+    { "id": "late-checkout", "say": "Could I get a late checkout?", "not": "I want to stay more.", "gap": "late",
+      "mean": { "vi": "Xin trả phòng muộn hơn giờ quy định", "en": "Ask to leave your room later than normal" },
+      "why": { "vi": "\"Late checkout\" là từ khách sạn dùng cho việc trả phòng muộn.", "en": "\"Late checkout\" is the hotel word for leaving later than normal." } },
+    { "id": "window-seat", "say": "Could I have a window seat, please?", "not": "I want the seat near the glass.", "gap": "window",
+      "mean": { "vi": "Xin chỗ ngồi cạnh cửa sổ trên máy bay", "en": "Ask for a seat by the window on a plane" },
+      "why": { "vi": "Dùng \"window seat\" hoặc \"aisle seat\" khi làm thủ tục bay.", "en": "Use \"window seat\" or \"aisle seat\" when you check in for a flight." } },
+    { "id": "on-time", "say": "Is the flight on time?", "not": "The plane is late or not?", "gap": "on",
+      "mean": { "vi": "Hỏi chuyến bay có đúng giờ không", "en": "Ask if the flight is not late" },
+      "why": { "vi": "\"On time\" nghĩa là đúng giờ; đây là câu hỏi quen thuộc ở sân bay.", "en": "\"On time\" means not late; this is the usual question at an airport." } },
+    { "id": "problem-with-room", "say": "Sorry, there's a problem with my room. The air conditioning isn't working.", "not": "Room broken!", "gap": "problem",
+      "mean": { "vi": "Báo sự cố trong phòng một cách bình tĩnh", "en": "Report a problem in your room calmly" },
+      "why": { "vi": "Nói rõ cái gì hỏng bằng câu đầy đủ, nhân viên sẽ giúp nhanh hơn.", "en": "Say what is wrong in a calm, full sentence, and staff can help you faster." } }
+  ],
+  "roleplay": {
+    "ai": { "name": "Daniel", "role": "a hotel receptionist", "persona": "professional, warm and clear", "goal": "check the learner in and answer questions" },
+    "you": "Check in, ask about breakfast or Wi-Fi, and ask for a late checkout.",
+    "turns": [
+      { "a": "Good evening! Welcome to the Riverside Hotel. How can I help you?", "h": "Hi, I have a reservation under the name Kim.", "br": [["reservation|booking|booked", "Let me check that for you."]] },
+      { "a": "Yes, I see it: a double room for three nights. Can I see your passport, please?", "h": "Sure, here you go.", "br": [["here you go|here it is|sure|yes", "Thank you."]] },
+      { "a": "Here's your key. You're in room 312. Do you have any questions?", "h": "Yes. What time is breakfast?", "br": [["breakfast", "Breakfast is from seven to ten."], ["wi-?fi|password|internet", "The Wi-Fi password is on your key card."], ["checkout|check out", "Checkout is at eleven."]] },
+      { "a": "Is there anything else I can help you with?", "h": "Could I get a late checkout on Friday?", "br": [["late checkout|late check-out|check out later|stay later", "Let me see… yes, twelve o'clock is fine."], ["no|that's all|nothing", "Okay."]] }
+    ],
+    "end": "Enjoy your stay! Have a good night."
+  }
+}

@@ -1,0 +1,52 @@
+# 🛡️ Cổng QA nội dung (bắt buộc – mọi nguồn nội dung học)
+
+> TL;DR: Cổng QA nội dung bắt buộc cho mọi nguồn: sổ nguồn, bảy lớp kiểm, baseline chỉ được giảm, luồng cho nội dung sinh tự động. Mã ở scripts/content-qa/ và content/qa/.
+> Đọc khi: thêm/sinh nội dung học hàng loạt.
+
+Mục tiêu: không mục nội dung nào tới người học nếu chưa qua cùng một cổng, dù do Claude, Antigravity, bot CI (Gemini / Workers AI tài khoản 2) hay người soạn.
+Mã: `scripts/content-qa/lib.mjs` (luật thuần) · `scripts/content-qa/gate.mjs` (cổng) · `content/qa/` (sổ nguồn, baseline, hàng duyệt, lô).
+Chạy ở: `npm test` + `ci.yml` (mỗi push) · `explain.yml` trước khi commit nội dung sinh · `content-qa.yml` hằng đêm (bản tin xu hướng, `infra/jobs.json` id `content-qa`).
+
+## 1. Sổ nguồn – `content/qa/sources.json`
+Mọi thư mục `content/*` và `web/js/*` (trừ vendor, i18n giao diện) phải là một nguồn có `owner` + `checks`, hoặc nằm trong `skip` kèm lý do. Thư mục mới chưa đăng ký → **CI đỏ**. `delegate` = test chuyên sâu sẵn có (content-check, explain-check, i18n-qa…) phải nằm trong `npm test`.
+
+## 2. Bảy lớp kiểm
+| # | Lớp | Luật | Kiểu lỗi |
+|---|---|---|---|
+| 1 | Lược đồ + kho từ | trường bắt buộc, đáp án trong phạm vi, phương án không trùng; từ đầu mục/ví dụ phát âm có trong kho từ (`scripts/lexicon/lib.mjs`) | cũ → baseline |
+| 2 | ✗/✓ | câu sai ≠ câu đúng (sửa dấu câu vẫn hợp lệ), không rỗng, câu đúng chứa cụm đích | cũ → baseline |
+| 3 | **2 giám khảo độc lập** | `qa[lang].j = { '<họ>:<mô hình>': điểm }` – ≥ 2 HỌ mô hình khác nhau (gemini · llama/Workers AI tk2 · qwen…) **hoặc** cặp duy nhất gpt-oss-120b + gpt-oss-20b (xem dưới), mọi điểm ≥ 4, lệch ≤ 1. Không đạt → `content/qa/review-queue.json` (hoặc `content/explain/review.json`), **không xuất** | CỨNG |
+| 4 | CEFR | cấp bài hợp lệ; từ trong câu cao hơn cấp bài > 1 bậc (theo CEFR kho từ) → đánh dấu | cũ → baseline |
+| 5 | Dịch | giữ `{biến}`, `[đáp án]`, số; không lẫn tiếng Việt; đúng chữ viết bản địa (th/zh/ja/ko/hi/ar/ru ≥ 50% ký tự); không chép nguyên bản gốc; nội dung sinh: dịch ngược `qa.bt ≥ 0.8` | CỨNG (sinh) / baseline (cũ) |
+| 6 | Kiểm mẫu lô | mỗi lô `content/qa/batches/<id>.json` `{ id, source, n, checked:[{id, ok, note}], status }`: soát ≥ 5% (≥ 1 mục); sai > 2% → `status: "rejected"` + gỡ cả lô | CỨNG |
+| 7 | Báo lỗi tự ẩn | phiếu "Nội dung sai" có `cid` → `content_flags` (1 phiếu/thiết bị/mục); đủ **N = 3** thiết bị (env `CONTENT_HIDE_N`) → `config.content_hidden`; `op:'hidden'` công khai (cache 10'), thẻ lời giải lọc; quản trị `op:'unhide'` sau khi sửa | CỨNG (cơ chế phải còn) |
+
+### Đánh đổi lớp 3 (25/10): hai giám khảo cùng họ gpt-oss
+Neuron Cloudflare của bể GrabCast (~70 tài khoản × 10k/ngày) để dành cho ẢNH → văn bản CF tắt (`AI_POOL_CF_TEXT`, mặc định tắt), mặc định cả hai giám khảo chạy Groq:
+A = `gpt-oss-120b` (lời nhắn chấm gốc), B = `gpt-oss-20b` + lời nhắn KHÁC (`JUDGE_B_SYS`: người soát thứ hai, phải tìm lỗi cụ thể trước khi cho 4–5). `ai-pool` bắt buộc B khác MÔ HÌNH A; `agree()` chỉ tính cặp này là 2 giám khảo (cùng mô hình hoặc cặp cùng họ khác thì không).
+- **Mất:** độc lập theo họ – 120b và 20b chung dữ liệu huấn luyện/cách hiểu, dễ cùng sai một kiểu (đồng ý sai). 20b yếu hơn 120b nên B có thể bỏ sót lỗi tinh, hoặc chấm lệch > 1 → nhiều mục vào hàng duyệt hơn.
+- **Bù:** lời nhắn B đối nghịch (giảm "đồng ý dễ dãi"); ngưỡng không đổi (≥ 4, lệch ≤ 1); kiểm mẫu lô ≥ 5 % (lớp 6) và báo lỗi tự ẩn (lớp 7) vẫn chạy. Khi Gemini kho Lexkite có khóa sống, `lexai` vẫn có thể làm B (khác họ thật).
+- **Theo dõi:** tỉ lệ sai ở lớp 6 của lô chấm bằng cặp gpt-oss; nếu > 2 % → bật lại một giám khảo khác họ (Gemini/Workers AI tk2) cho B.
+
+## 3. Baseline – chỉ được giảm
+Nội dung soạn tay trước cổng (24/10/2026) có 2.183 lỗi cũ / 49 loại (`content/qa/baseline.json`). Cổng đỏ khi một loại TĂNG. Sửa xong → `node scripts/content-qa/gate.mjs --lower-baseline` (không bao giờ nâng; `--init-baseline` chỉ chạy khi chưa có file).
+
+## 4. Luồng cho nội dung sinh tự động / số lượng lớn
+1. Soạn qua `scripts/lib/ai-pool.mjs` (Gemini kho Lexkite → GrabCast Groq gpt-oss-120b → Workers AI tài khoản 2 → GrabCast Gemini; GrabCast Cloudflare chỉ khi `AI_POOL_CF_TEXT=1`; chỉ mô hình đủ chuẩn – docs/API-KEYS.md §8; KHÔNG AI tài khoản chính) → kiểm khuôn trong job.
+2. Giám khảo A + giám khảo B khác họ hoặc cặp gpt-oss 120b/20b với lời nhắn khác (`judgePair`; thiếu giám khảo thứ 2 = bỏ qua trung tính, không xuất) → ghi `qa.j` (mô hình hạng S không được tính); dịch → dịch ngược → `qa.bt`.
+3. Không đồng ý → hàng duyệt. Đồng ý → vào nguồn kèm 1 tệp lô.
+4. Claude/Antigravity soát ≥ 5% mẫu, ghi `checked` → cổng quyết định xuất hay loại lô.
+5. Sau khi lên: báo lỗi của học viên tự ẩn mục; sửa → `unhide`.
+
+## 5. Lệnh
+`node scripts/content-qa/gate.mjs [--json]` · `node scripts/test/content-qa.mjs` · `npm run content:gate`.
+
+## 6. Format đề thi – `content/exams/spec/` (P0.5)
+- 10 spec máy đọc (`ielts-ac`, `ielts-gt`, `toeic-lr`, `toeic-sw`, `toefl-2026`, `cam-a2`…`cam-c2`): phần, số câu, thời gian, dạng câu, độ dài bài, thang điểm, tiêu chí chấm tự diễn đạt. Chỉ cấu trúc; số liệu đối chiếu trang chính thức ghi ở `verified` (01/11/2026). Đổi format → sửa spec + `verified`.
+- `node scripts/content-qa/exam-format-check.mjs [--json] [--md f] [--list]` (trong `npm test` + `content:gate`): đếm phần/câu/thời gian/độ dài của đề IELTS (listen, readtest, write, speak, mock), TOEIC L&R + S&W, TOEFL theo spec; mọi câu phải có đáp án + lời giải + căn cứ (cue hoặc câu trích tìm thấy trong bài/lời thoại).
+- Lệch đã biết: `content/exams/spec/deviations.json` – chỉ được xoá dòng khi đã sửa đề; lệch mới hoặc dòng đã hết lệch → đỏ. Đếm 0 đề ở họ đề có dữ liệu → đỏ.
+- Hàng chờ sửa (01/11): IELTS GT 5 đề ngắn 1.189–1.943 từ (cần 2.150–2.375); AC rt7–9 dài 2.752–2.836 (≤ 2.750); TOEFL bộ 1–5 Listening 32/47 câu, bộ 5–6 thiếu Reading/Speaking/Build a Sentence; 17 câu TOEFL Reading chưa trích căn cứ; TOEIC S&W chưa có 2 dạng tranh (Describe a picture, Write a sentence based on a picture); Cambridge A2–C2 chưa có đề (P1). Chống trùng n-gram với nguồn công khai: chưa có (cần kho nguồn tham chiếu).
+
+## 7. Bố cục hình đề – `figure-layout.yml` (3/11)
+- Mọi hình đề tự vẽ (Writing Task 1: map/process/bar/line/pie/table trong `web/js/task1.js` + `write/task1-more*.js`; cùng hình hiện ở `#/model` và phòng thi `#/mock`) được Chromium thật vẽ ở 360 px & 1280 px × sáng/tối × font thật/dự phòng; `scripts/test/lib/figure-layout.js` dò: tràn khung (bị cắt), chữ đè chữ, chữ vắt mép khối/đè đường dày, khối chồng khối, chữ < 9 px, tương phản < 4,5:1. Baseline **0 lỗi**; chỉ chạy CI (`node scripts/test/figure-layout.mjs` từ chối ngoài `$CI`); báo cáo + ảnh: artifact `figure-layout-report`.
+- Sửa ở hàm vẽ chung (bố cục theo độ dài chữ/số hàng, chữ tự chọn mực tối/trắng theo nền), không vá từng đề. Hình đề mới vẽ bằng SVG/HTML (TOEIC, Reading…) → thêm vào `scripts/test/fixtures/figure-layout.html` + `paths` của workflow.

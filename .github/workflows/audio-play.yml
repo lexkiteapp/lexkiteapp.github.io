@@ -1,0 +1,34 @@
+# 🔊 Phát audio ổn định mọi máy (docs/specs/audio-quality.md việc 4): chọn giọng máy dự phòng (Node) + gói offline khớp s3.tsv
+# + Playwright Chromium & WebKit (Safari): mở khóa, phát được, 404/treo → gốc CDN dự phòng → giọng máy đúng người nói, không chồng tiếng.
+name: Phát audio (Chromium + WebKit)
+on:
+  pull_request:
+    paths: ['web/js/audio*.js', 'web/js/ui.js', 'web/js/klocal*.js', 'web/js/lesson/teacher.js', 'web/js/settings.js', 'web/sw.js', 'web/audio/w/s3.tsv', 'web/data/offline-pack.json', 'scripts/audio/offline-pack.mjs', 'scripts/test/audio-*.mjs', 'scripts/test/ios-audio-e2e.mjs', 'web/js/listening.js', 'web/js/mock.js', 'web/js/toeic.js', 'web/js/lesson/ui.js', 'web/js/lesson/engine.js', '.github/workflows/audio-play.yml']
+  push:
+    branches: [main]
+    paths: ['web/js/audio*.js', 'web/js/ui.js', 'web/js/klocal*.js', 'web/js/lesson/teacher.js', 'web/sw.js', 'scripts/test/audio-*.mjs', 'scripts/test/ios-audio-e2e.mjs', 'web/js/listening.js', 'web/js/mock.js', 'web/js/toeic.js', 'web/js/lesson/ui.js', 'web/js/lesson/engine.js']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: audio-play-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+jobs:
+  play:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Chọn giọng máy dự phòng + gói offline
+        run: node scripts/test/audio-voice.mjs && node scripts/audio/offline-pack.mjs --check
+      - name: Cài Playwright
+        timeout-minutes: 14
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium webkit
+      - name: Phát audio – Chromium + WebKit
+        run: node scripts/test/audio-play.mjs chromium,webkit
+      - name: iOS mở khóa âm thanh theo phần tử – chạm thật (iPhone 13 WebKit + Pixel 7 Chromium)
+        run: node scripts/test/ios-audio-e2e.mjs web webkit,chromium

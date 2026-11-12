@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_relax",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: relax.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means to stop feeling nervous or worried.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "I like to relax by listening to music.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "relax",
+  "ipa": "/rɪˈlæks/",
+  "mean": "to stop feeling nervous or worried",
+  "ex": "I like to relax by listening to music.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=relax",
+  "link": "https://lexkite.com/app/#/review?w=relax",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 41,
+  "seconds": 25.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"relax\" mean?",
+  "keyword": "relax",
+  "value": "Relax means to stop feeling nervous or worried.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=relax",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"relax\" mean?",
+    "description": "Relax means to stop feeling nervous or worried.\n\nReview your words, free: https://lexkite.com/app/#/review?w=relax\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "relax",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"relax\" mean?\n\nRelax means to stop feeling nervous or worried.\n\nReview your words, free: https://lexkite.com/app/#/review?w=relax"
+   },
+   "instagram": {
+    "caption": "What does \"relax\" mean?\n\nRelax means to stop feeling nervous or worried.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"relax\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to stop feeling nervous or worried. Relax means to stop feeling nervous or worried. More practice like this (free): {link}"
+ }
+}

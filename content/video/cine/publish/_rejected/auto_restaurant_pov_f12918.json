@@ -1,0 +1,75 @@
+{
+ "id": "auto_restaurant_pov_f12918",
+ "scene": "restaurant",
+ "template": "pov",
+ "area": "roleplay",
+ "cefr": "A2",
+ "point": "ready to order",
+ "series": "Restaurant English #4",
+ "title": "POV: \"Are you ready to order?\" What do you say?",
+ "description": "You are at the restaurant. One natural answer: \"Yes, I'd like the soup, please.\"\nComment your answer below and follow for daily English (Restaurant English #4).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_pov_f12918#/roleplay",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#restaurantenglish",
+  "#englishconversation",
+  "#roleplay",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/restaurant/auto_restaurant_pov_f12918/cine-auto-restaurant-pov-f12918-en-v3.mp4",
+ "cover": "shorts/restaurant/auto_restaurant_pov_f12918/cine-auto-restaurant-pov-f12918-en-v3.jpg",
+ "ci_artifact": "cine-restaurant-11-14",
+ "run": "11-14",
+ "platforms": {
+  "tiktok": {
+   "title": "POV: \"Are you ready to order?\" What do you say?",
+   "caption": "You are at the restaurant. One natural answer: \"Yes, I'd like the soup, please.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_pov_f12918#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_pov_f12918#/roleplay",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#englishconversation",
+    "#roleplay",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "You are at the restaurant. One natural answer: \"Yes, I'd like the soup, please.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_pov_f12918#/roleplay\n#learnenglish #englishtips #restaurantenglish #englishconversation #roleplay #travelenglish"
+  },
+  "reels": {
+   "title": "POV: \"Are you ready to order?\" What do you say?",
+   "caption": "You are at the restaurant. One natural answer: \"Yes, I'd like the soup, please.\"\nComment your answer below and follow for daily English (Restaurant English #4).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_pov_f12918#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_pov_f12918#/roleplay",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#englishconversation",
+    "#roleplay",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "You are at the restaurant. One natural answer: \"Yes, I'd like the soup, please.\"\nComment your answer below and follow for daily English (Restaurant English #4).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_pov_f12918#/roleplay\n#learnenglish #englishtips #restaurantenglish #englishconversation #roleplay #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "POV: \"Are you ready to order?\" What do you say? #shorts",
+   "caption": "You are at the restaurant. One natural answer: \"Yes, I'd like the soup, please.\"\nComment your answer below and follow for daily English (Restaurant English #4).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_pov_f12918#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_pov_f12918#/roleplay",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#englishconversation"
+   ],
+   "caption_with_tags": "You are at the restaurant. One natural answer: \"Yes, I'd like the soup, please.\"\nComment your answer below and follow for daily English (Restaurant English #4).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_pov_f12918#/roleplay\n#shorts #learnenglish #englishtips #restaurantenglish #englishconversation"
+  }
+ },
+ "slot": {
+  "date": "2026-12-08",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

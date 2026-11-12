@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/tr/ota.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.tr=Object.assign(D.tr||{},{_hkil:"Güncelleme hazır",_xfjx:"Lexkite’in yeni sürümü var",_e7ze:"Lexkite’i kullanmaya devam etmek için lütfen güncelle.",_qi3m:"Güncelle",_h4s8:"Yeni özellikler ve hata düzeltmeleri için güncelle.",_4x79:"Yeniden başlat",_4ca7:"App Store’u aç"});})(typeof self!=='undefined'?self:this);

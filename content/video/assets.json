@@ -1,0 +1,430 @@
+{
+ "_note": "Danh sách tài nguyên nhân vật & bối cảnh cho Kling (tạo theo lô, ảnh ADN làm tham chiếu) và cho pipeline video chọn ảnh theo kịch bản. Quy trình: docs/VIDEO-PIPELINE.md, docs/VIDEO-CONTENT-PLAN.md",
+ "style": "modern American animated sitcom style, clean flat 2D vector illustration, bold simple shapes, smooth outlines, minimal shading, vibrant limited palette (burnt orange #E5502F, deep teal #0F3D3E, warm yellow #FFC94A, cream #FFF7EA), no text, no logo, no watermark",
+ "characters": {
+  "mia": {
+   "dna": "brand/characters/mia/dna.png",
+   "voice": "af_heart",
+   "desc": "Mia, 24-year-old Asian-American woman, New York marketing assistant, short glossy black bob with bangs, yellow hair clip, burnt-orange sweater over white collar shirt, deep teal trousers, white sneakers, ID lanyard"
+  },
+  "leo": {
+   "dna": "brand/characters/leo/dna.png",
+   "voice": "am_michael",
+   "desc": "Leo, 28-year-old American man from Austin, messy light-brown hair, short beard, round black glasses, deep teal cardigan over mustard t-shirt, beige chinos, orange sneakers, lanyard"
+  },
+  "ama": {
+   "dna": "brand/characters/ama/dna.png",
+   "voice": "af_bella",
+   "desc": "Ama, 19-year-old African-American college student, short natural curly hair with yellow headband, coral hoodie, teal denim overall skirt, black leggings, white sneakers, backpack"
+  }
+ },
+ "views": [
+  "front view",
+  "three-quarter view facing left",
+  "side profile facing right"
+ ],
+ "expressions": [
+  "happy smile",
+  "big laugh",
+  "awkward forced smile",
+  "surprised",
+  "shocked jaw drop",
+  "thinking hand on chin",
+  "confused head tilt",
+  "proud chin up",
+  "sad",
+  "eye-roll unimpressed",
+  "excited fists up",
+  "frozen blank stare"
+ ],
+ "gestures": [
+  "waving hello",
+  "pointing to the right",
+  "pointing at the viewer",
+  "thumbs up",
+  "arms crossed",
+  "hands on head",
+  "clapping",
+  "shrugging",
+  "looking at smartphone",
+  "holding a coffee cup"
+ ],
+ "outfits": {
+  "office": "office outfit",
+  "casual": "casual weekend outfit",
+  "travel": "travel outfit with a small rolling suitcase"
+ },
+ "backgrounds": [
+  {
+   "id": "office-01",
+   "group": "office",
+   "desc": "open-plan office desks",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "office-02",
+   "group": "office",
+   "desc": "glass-walled meeting room",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "office-03",
+   "group": "office",
+   "desc": "video call on a laptop screen in a home office",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "office-04",
+   "group": "office",
+   "desc": "office pantry with coffee machine",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "office-05",
+   "group": "office",
+   "desc": "office elevator interior",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "office-06",
+   "group": "office",
+   "desc": "reception desk lobby",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "office-07",
+   "group": "office",
+   "desc": "job interview room",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "office-08",
+   "group": "office",
+   "desc": "manager's office",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "office-09",
+   "group": "office",
+   "desc": "rooftop terrace workspace",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "office-10",
+   "group": "office",
+   "desc": "coworking space",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "office-11",
+   "group": "office",
+   "desc": "presentation room with projector screen",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "office-12",
+   "group": "office",
+   "desc": "company parking garage",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "study-01",
+   "group": "study",
+   "desc": "IELTS exam hall with rows of desks",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "study-02",
+   "group": "study",
+   "desc": "university library",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "study-03",
+   "group": "study",
+   "desc": "college dorm room",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "study-04",
+   "group": "study",
+   "desc": "lecture hall",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "study-05",
+   "group": "study",
+   "desc": "late-night coffee shop with laptops",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "study-06",
+   "group": "study",
+   "desc": "study desk with desk lamp",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "study-07",
+   "group": "study",
+   "desc": "exam waiting room",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "study-08",
+   "group": "study",
+   "desc": "university campus quad",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "life-01",
+   "group": "life",
+   "desc": "American coffee shop counter",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "life-02",
+   "group": "life",
+   "desc": "supermarket aisle",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "life-03",
+   "group": "life",
+   "desc": "classic American diner booth",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "life-04",
+   "group": "life",
+   "desc": "food truck on a city street",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "life-05",
+   "group": "life",
+   "desc": "New York apartment living room",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "life-06",
+   "group": "life",
+   "desc": "big city park with trees",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "life-07",
+   "group": "life",
+   "desc": "subway train car",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "life-08",
+   "group": "life",
+   "desc": "back seat of a rideshare car",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "life-09",
+   "group": "life",
+   "desc": "doctor's clinic reception",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "life-10",
+   "group": "life",
+   "desc": "bank counter",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "life-11",
+   "group": "life",
+   "desc": "barbershop",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "life-12",
+   "group": "life",
+   "desc": "gym",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "travel-01",
+   "group": "travel",
+   "desc": "airport check-in counter",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "travel-02",
+   "group": "travel",
+   "desc": "airport security line",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "travel-03",
+   "group": "travel",
+   "desc": "hotel front desk",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "travel-04",
+   "group": "travel",
+   "desc": "upscale restaurant",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "travel-05",
+   "group": "travel",
+   "desc": "train station platform",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "brand-01",
+   "group": "brand",
+   "desc": "orange-to-teal gradient intro background",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "brand-02",
+   "group": "brand",
+   "desc": "chalkboard background for vocabulary",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  },
+  {
+   "id": "brand-03",
+   "group": "brand",
+   "desc": "quiz show background with light panels",
+   "ratios": [
+    "9:16",
+    "16:9"
+   ]
+  }
+ ],
+ "pairs": [
+  "Mia and Leo in a meeting",
+  "Mia and Leo chatting over coffee",
+  "Ama and Mia studying together",
+  "Ama asking Leo a question",
+  "Mia, Leo and Ama on a video call",
+  "Mia, Leo and Ama having lunch",
+  "Mia, Leo and Ama celebrating with high-fives",
+  "Mia and Leo pillow fight meme pose"
+ ],
+ "status": {}
+}

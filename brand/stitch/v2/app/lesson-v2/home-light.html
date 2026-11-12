@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Home - Today Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #FFF9F3;
+      color: #1A1816;
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#FFF9F3] flex justify-center selection:bg-[#FDE68A] selection:text-[#1C1003]">
+
+  <!-- Mobile screen container (390px, zero device chrome/frame) -->
+  <div class="w-full max-w-[390px] min-h-screen bg-[#FFF9F3] flex flex-col relative pb-[84px]">
+
+    <!-- ==============================================
+         TOP BAR (56px) - HUB Variant Customization
+         Left: Kite logo + 'Lexkite'
+         Right: Language switcher pill (globe + 'VI' + chevron) + round avatar 'L'
+         ============================================== -->
+    <header class="h-[56px] px-4 flex items-center justify-between sticky top-0 z-40 bg-[#FFF9F3]/95 backdrop-blur-sm border-b border-[#F0E4D7]">
+      <!-- Brand Left -->
+      <div class="flex items-center gap-2">
+        <!-- Lexkite Glossy Vector Logo -->
+        <div class="w-8 h-8 rounded-xl bg-white flex items-center justify-center shadow-[0_2px_0_#E8D9CA] border border-[#F2E5D7]">
+          <svg class="w-5 h-5" viewBox="0 0 32 32" fill="none">
+            <polygon points="16,4 28,14 16,16" fill="#F59E0B" />
+            <polygon points="16,4 4,14 16,16" fill="#14B8A6" />
+            <polygon points="16,16 28,14 16,28" fill="#EA580C" />
+            <polygon points="16,16 4,14 16,28" fill="#0D9488" />
+            <circle cx="14" cy="11" r="2.5" fill="#FFFFFF" opacity="0.8" />
+          </svg>
+        </div>
+        <span class="text-[20px] font-[900] tracking-tight text-[#136B66]">Lexkite</span>
+      </div>
+
+      <!-- Right Controls: Language Switcher Pill + Avatar 'L' -->
+      <div class="flex items-center gap-2">
+        <!-- Compact Language Switcher Pill -->
+        <button class="h-9 px-2.5 rounded-full bg-white border border-[#EADBCE] shadow-[0_2px_0_#E0CEBD] active:translate-y-[2px] active:shadow-none transition-all flex items-center gap-1.5 cursor-pointer">
+          <svg class="w-4 h-4 text-[#136B66]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+          <span class="text-[13px] font-[800] text-[#1A1816]">VI</span>
+          <svg class="w-3.5 h-3.5 text-[#736357]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+
+        <!-- Round Avatar 'L' with Tactile Depth -->
+        <div class="w-9 h-9 rounded-full bg-gradient-to-b from-[#2DD4BF] to-[#0D9488] border-2 border-white shadow-[0_2px_0_#0B5E57] flex items-center justify-center cursor-pointer">
+          <span class="text-[14px] font-[900] text-white">L</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==============================================
+         MAIN CONTENT AREA (16px side margins, 8px grid)
+         ============================================== -->
+    <main class="flex-1 px-4 py-3 flex flex-col gap-4">
+
+      <!-- 1. LABELLED STATS STRIP (4 Equal Tactile Mini-Cards) -->
+      <!-- Each with icon + big number + small label underneath -->
+      <section class="grid grid-cols-4 gap-2">
+
+        <!-- Stat 1: Target IELTS 7.0 -->
+        <div class="bg-white rounded-[16px] p-2 flex flex-col items-center justify-between border-[2px] border-[#EFE2D4] shadow-[0_4px_0_#DECABE] text-center min-h-[88px]">
+          <!-- Icon -->
+          <div class="w-7 h-7 rounded-full bg-[#E6F7F5] flex items-center justify-center">
+            <svg class="w-4 h-4 text-[#136B66]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+          </div>
+          <!-- Big Number / Score -->
+          <div class="flex flex-col items-center">
+            <span class="text-[14px] font-[900] text-[#136B66] leading-tight">7.0</span>
+            <span class="text-[10px] font-[800] text-[#736357] uppercase tracking-wide">Target</span>
+          </div>
+        </div>
+
+        <!-- Stat 2: Flame '3' Day streak -->
+        <div class="bg-white rounded-[16px] p-2 flex flex-col items-center justify-between border-[2px] border-[#EFE2D4] shadow-[0_4px_0_#DECABE] text-center min-h-[88px]">
+          <!-- Glossy Flame Icon -->
+          <div class="w-7 h-7 rounded-full bg-[#FEF3C7] flex items-center justify-center">
+            <svg class="w-4 h-4 text-[#F59E0B]" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2c.5 3 2 4.5 3.5 6 1.5 1.5 2.5 3.5 2.5 6 0 4-3.5 8-8 8s-8-4-8-8c0-3.5 2-6 3.5-7.5C7 9.5 8 11 9 11c0-2.5 1-6 3-9z"/>
+              <path d="M12 14c-.5 1-1.5 2-1.5 3.5 0 1.5 1 2.5 2.5 2.5s2.5-1 2.5-2.5c0-1.5-1-2.5-1.5-3.5-1 1-1 1-2 0z" fill="#EF4444"/>
+            </svg>
+          </div>
+          <!-- Big Number -->
+          <div class="flex flex-col items-center">
+            <span class="text-[15px] font-[900] text-[#EA580C] leading-tight">3</span>
+            <span class="text-[10px] font-[800] text-[#736357] uppercase tracking-wide">Streak</span>
+          </div>
+        </div>
+
+        <!-- Stat 3: Star '220' XP -->
+        <div class="bg-white rounded-[16px] p-2 flex flex-col items-center justify-between border-[2px] border-[#EFE2D4] shadow-[0_4px_0_#DECABE] text-center min-h-[88px]">
+          <!-- Glossy Star Icon -->
+          <div class="w-7 h-7 rounded-full bg-[#FFFBEB] flex items-center justify-center">
+            <svg class="w-4 h-4 text-[#F59E0B]" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <!-- Big Number -->
+          <div class="flex flex-col items-center">
+            <span class="text-[15px] font-[900] text-[#1A1816] leading-tight">220</span>
+            <span class="text-[10px] font-[800] text-[#736357] uppercase tracking-wide">XP</span>
+          </div>
+        </div>
+
+        <!-- Stat 4: Ring '12/20' Daily goal -->
+        <div class="bg-white rounded-[16px] p-2 flex flex-col items-center justify-between border-[2px] border-[#EFE2D4] shadow-[0_4px_0_#DECABE] text-center min-h-[88px]">
+          <!-- Circular Progress Ring Icon -->
+          <div class="w-7 h-7 relative flex items-center justify-center">
+            <svg class="w-6 h-6 -rotate-90" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="9" fill="none" stroke="#EFE2D4" stroke-width="3"/>
+              <circle cx="12" cy="12" r="9" fill="none" stroke="#14B8A6" stroke-width="3" stroke-dasharray="56.5" stroke-dashoffset="22.6" stroke-linecap="round"/>
+            </svg>
+            <div class="w-2 h-2 rounded-full bg-[#14B8A6] absolute"></div>
+          </div>
+          <!-- Big Number -->
+          <div class="flex flex-col items-center">
+            <span class="text-[13px] font-[900] text-[#136B66] leading-tight tracking-tight">12/20</span>
+            <span class="text-[10px] font-[800] text-[#736357] uppercase tracking-wide">Goal</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- 2. CURRENT UNIT CARD (Tactile Kit: 16px radius, 2px border, 5px bottom ledge) -->
+      <section class="bg-white rounded-[20px] p-4 border-[2px] border-[#EFE2D4] shadow-[0_5px_0_#DECABE] flex flex-col gap-3 relative overflow-hidden">
+        
+        <!-- Header Tag Row -->
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span>
+            <span class="text-[11px] font-[900] tracking-wider text-[#136B66] uppercase">Unit 1 · Education</span>
+          </div>
+          <span class="px-2 py-0.5 rounded-full bg-[#E6F7F5] text-[#136B66] text-[11px] font-[800] border border-[#C5EDE8]">
+            Today's Core
+          </span>
+        </div>
+
+        <!-- Bold Lesson Title -->
+        <h2 class="text-[19px] font-[900] leading-snug text-[#1A1816] tracking-tight">
+          Talking about exams and assessment
+        </h2>
+
+        <!-- One line goal -->
+        <p class="text-[13px] font-[600] text-[#4A4036] leading-relaxed">
+          You'll learn 4 words: <span class="font-[800] text-[#136B66]">assessment</span>, <span class="font-[800] text-[#136B66]">curriculum</span>, <span class="font-[800] text-[#136B66]">tuition</span>, <span class="font-[800] text-[#136B66]">graduate</span>
+        </p>
+
+        <!-- Three Tiny Chips: 4 min, 9 exercises, B2 -->
+        <div class="flex items-center gap-2 pt-0.5">
+          <div class="h-6 px-2.5 rounded-full bg-[#FAF3EB] border border-[#EADCCE] flex items-center gap-1 text-[11px] font-[800] text-[#5A4E45]">
+            <svg class="w-3 h-3 text-[#F59E0B]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            4 min
+          </div>
+          <div class="h-6 px-2.5 rounded-full bg-[#FAF3EB] border border-[#EADCCE] flex items-center gap-1 text-[11px] font-[800] text-[#5A4E45]">
+            <svg class="w-3 h-3 text-[#14B8A6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            9 exercises
+          </div>
+          <div class="h-6 px-2.5 rounded-full bg-[#FEF3C7] border border-[#FDE68A] text-[11px] font-[900] text-[#92400E]">
+            B2
+          </div>
+        </div>
+
+        <!-- Full-Width Orange 'START LESSON' Tactile Button inline in card -->
+        <!-- 6px darker ledge and STRICT deep brown-black ink (#1C1003) -->
+        <button class="w-full mt-1.5 h-[50px] rounded-[16px] bg-[#F59E0B] shadow-[0_6px_0_#B45309] active:translate-y-[4px] active:shadow-[0_2px_0_#B45309] transition-transform flex items-center justify-center gap-2 cursor-pointer border border-[#FBBF24]">
+          <span class="text-[16px] font-[900] tracking-wide text-[#1C1003] uppercase">Start Lesson</span>
+          <svg class="w-5 h-5 text-[#1C1003]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+
+      </section>
+
+      <!-- 3. WINDING PATH OF 6 ROUND LESSON NODES (Duolingo Style) -->
+      <!-- 1st glowing active, rest locked. Tiny label under each. -->
+      <section class="flex flex-col items-center py-2 relative">
+
+        <!-- Header / section divider -->
+        <div class="w-full flex items-center justify-between mb-4 px-1">
+          <span class="text-[12px] font-[900] text-[#736357] tracking-wider uppercase">Path Progress</span>
+          <span class="text-[12px] font-[800] text-[#136B66]">1 of 6 unlocked</span>
+        </div>
+
+        <!-- SVG S-curve path connecting the 6 nodes -->
+        <svg class="absolute top-[52px] w-[320px] h-[480px] pointer-events-none z-0" viewBox="0 0 320 480" fill="none">
+          <!-- Dashed background track -->
+          <path d="M 160 30 C 220 50, 240 90, 220 120 C 190 150, 110 160, 100 200 C 90 240, 180 260, 210 290 C 240 320, 180 370, 160 380 C 130 400, 150 440, 160 450" 
+                stroke="#EADBCE" stroke-width="8" stroke-linecap="round" stroke-dasharray="10 12" />
+        </svg>
+
+        <!-- Winding Nodes Container -->
+        <div class="w-full flex flex-col gap-6 relative z-10">
+
+          <!-- Node 1: ACTIVE / GLOWING (Centered slightly right) -->
+          <div class="flex flex-col items-center translate-x-0 group cursor-pointer">
+            <div class="relative">
+              <!-- Animated halo / pulse ring -->
+              <div class="absolute -inset-2.5 rounded-full bg-[#F59E0B]/25 animate-pulse"></div>
+              
+              <!-- Tactile 3D Round Node (Star / Crown Active) -->
+              <div class="w-16 h-16 rounded-full bg-gradient-to-b from-[#FBBF24] to-[#F59E0B] border-[3px] border-white shadow-[0_6px_0_#B45309] flex items-center justify-center relative active:translate-y-[3px] active:shadow-[0_3px_0_#B45309] transition-all">
+                <!-- Glossy specular crescent -->
+                <div class="absolute top-1.5 left-3 w-8 h-4 bg-white/40 rounded-full blur-[1px]"></div>
+                <!-- Glossy Book / Star icon inside -->
+                <svg class="w-8 h-8 text-[#1C1003]" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+
+              <!-- Start Flag Floating Badge -->
+              <div class="absolute -top-3 -right-2 px-2 py-0.5 rounded-full bg-[#136B66] text-white text-[10px] font-[900] shadow-[0_2px_0_#094340] border border-white">
+                START
+              </div>
+            </div>
+            <!-- Tiny label under node -->
+            <span class="mt-2 text-[12px] font-[900] text-[#136B66] tracking-tight bg-white/80 px-2 py-0.5 rounded-full border border-[#EADBCE]">
+              1. Vocabulary
+            </span>
+          </div>
+
+          <!-- Node 2: LOCKED (Drifts Right, +45px) -->
+          <div class="flex flex-col items-center translate-x-12 opacity-85">
+            <div class="w-14 h-14 rounded-full bg-[#EFE3D5] border-[3px] border-white shadow-[0_5px_0_#D5C4B2] flex items-center justify-center relative">
+              <!-- Lock icon -->
+              <svg class="w-5 h-5 text-[#8A796D]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+              </svg>
+            </div>
+            <span class="mt-1.5 text-[11px] font-[700] text-[#736357]">
+              2. Collocations
+            </span>
+          </div>
+
+          <!-- Node 3: LOCKED (Drifts Left, -40px) -->
+          <div class="flex flex-col items-center -translate-x-10 opacity-80">
+            <div class="w-14 h-14 rounded-full bg-[#EFE3D5] border-[3px] border-white shadow-[0_5px_0_#D5C4B2] flex items-center justify-center relative">
+              <svg class="w-5 h-5 text-[#8A796D]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+              </svg>
+            </div>
+            <span class="mt-1.5 text-[11px] font-[700] text-[#736357]">
+              3. Listening Sprint
+            </span>
+          </div>
+
+          <!-- Node 4: LOCKED (Drifts Right, +35px) -->
+          <div class="flex flex-col items-center translate-x-8 opacity-75">
+            <div class="w-14 h-14 rounded-full bg-[#EFE3D5] border-[3px] border-white shadow-[0_5px_0_#D5C4B2] flex items-center justify-center relative">
+              <svg class="w-5 h-5 text-[#8A796D]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+              </svg>
+            </div>
+            <span class="mt-1.5 text-[11px] font-[700] text-[#736357]">
+              4. Dictation Drill
+            </span>
+          </div>
+
+          <!-- Node 5: LOCKED (Centered slightly left, -15px) -->
+          <div class="flex flex-col items-center -translate-x-4 opacity-70">
+            <div class="w-14 h-14 rounded-full bg-[#EFE3D5] border-[3px] border-white shadow-[0_5px_0_#D5C4B2] flex items-center justify-center relative">
+              <svg class="w-5 h-5 text-[#8A796D]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+              </svg>
+            </div>
+            <span class="mt-1.5 text-[11px] font-[700] text-[#736357]">
+              5. Speaking Quick-check
+            </span>
+          </div>
+
+          <!-- Node 6: CHEST / MILESTONE (Locked Big Chest Node) -->
+          <div class="flex flex-col items-center translate-x-0 opacity-70">
+            <div class="w-16 h-16 rounded-[22px] bg-[#EFE3D5] border-[3px] border-white shadow-[0_5px_0_#D5C4B2] flex items-center justify-center relative">
+              <!-- Treasure Chest / Crown Icon -->
+              <svg class="w-8 h-8 text-[#8A796D]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19C19 19.6 18.6 20 18 20H6C5.4 20 5 19.6 5 19V18H19V19Z"/>
+              </svg>
+            </div>
+            <span class="mt-1.5 text-[11px] font-[800] text-[#736357]">
+              Unit Review + Chest
+            </span>
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- ==============================================
+         BOTTOM TAB BAR (64px)
+         White bar with top border, exactly 5 equal tabs:
+         1. Today (house) - ACTIVE: teal icon inside soft teal pill + bold teal label
+         2. Vocab (open book + small red due badge '12')
+         3. Skills (target)
+         4. Tests (flag)
+         5. Me (person)
+         ============================================== -->
+    <nav class="h-[64px] w-full max-w-[390px] fixed bottom-0 z-50 bg-white border-t border-[#EADBCE] shadow-[0_-4px_12px_rgba(115,99,87,0.06)] grid grid-cols-5 items-center px-1">
+
+      <!-- Tab 1: Today (ACTIVE) -->
+      <a href="#" class="flex flex-col items-center justify-center gap-0.5 py-1">
+        <!-- Soft teal pill container for active state -->
+        <div class="h-8 px-3.5 rounded-full bg-[#E6F7F5] flex items-center justify-center shadow-[0_2px_0_#C2EBE5]">
+          <!-- House icon -->
+          <svg class="w-5 h-5 text-[#136B66]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+          </svg>
+        </div>
+        <!-- Bold teal label -->
+        <span class="text-[11px] font-[900] text-[#136B66] tracking-tight">Today</span>
+      </a>
+
+      <!-- Tab 2: Vocab (open book + red due badge) -->
+      <a href="#" class="flex flex-col items-center justify-center gap-1 py-1 text-[#4A4036] hover:text-[#136B66] transition-colors relative">
+        <div class="relative">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+          <!-- Small Red Due Badge -->
+          <span class="absolute -top-1 -right-2 px-1 min-w-[14px] h-[14px] rounded-full bg-[#EF4444] text-white text-[9px] font-[900] flex items-center justify-center leading-none border border-white">
+            12
+          </span>
+        </div>
+        <span class="text-[11px] font-[700] text-[#4A4036]">Vocab</span>
+      </a>
+
+      <!-- Tab 3: Skills (target) -->
+      <a href="#" class="flex flex-col items-center justify-center gap-1 py-1 text-[#4A4036] hover:text-[#136B66] transition-colors">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <circle cx="12" cy="12" r="6"></circle>
+          <circle cx="12" cy="12" r="2"></circle>
+        </svg>
+        <span class="text-[11px] font-[700] text-[#4A4036]">Skills</span>
+      </a>
+
+      <!-- Tab 4: Tests (flag) -->
+      <a href="#" class="flex flex-col items-center justify-center gap-1 py-1 text-[#4A4036] hover:text-[#136B66] transition-colors">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
+          <line x1="4" y1="22" x2="4" y2="15"></line>
+        </svg>
+        <span class="text-[11px] font-[700] text-[#4A4036]">Tests</span>
+      </a>
+
+      <!-- Tab 5: Me (person) -->
+      <a href="#" class="flex flex-col items-center justify-center gap-1 py-1 text-[#4A4036] hover:text-[#136B66] transition-colors">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span class="text-[11px] font-[700] text-[#4A4036]">Me</span>
+      </a>
+
+    </nav>
+
+  </div>
+
+</body>
+</html>
+

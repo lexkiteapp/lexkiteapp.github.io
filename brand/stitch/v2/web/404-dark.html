@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — 404 (Tactile Night)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            night: {
+              bg: '#081518',
+              card: '#101E22',
+              raised: '#172427',
+              border: '#233B40',
+              ledge: '#050D0F',
+              text: '#EEF6F7',
+              muted: '#A9BFC1',
+              subtle: '#829EA2'
+            },
+            lex: {
+              teal: '#2BA39A',
+              tealLight: '#6BD8CE',
+              tealDeep: '#186A64',
+              tealLedge: '#0F4440',
+              coral: '#FF6448',
+              coralEnd: '#F2553B',
+              coralLedge: '#A6311C',
+              coralInk: '#1B0B04',
+              amber: '#FFB84C',
+              gold: '#FFC94A',
+              badgeBg: '#281310',
+              badgeBorder: '#83281E',
+              badgeText: '#FFA493'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #081518;
+      color: #EEF6F7;
+    }
+
+    /* Tactile coral CTA with high-contrast Deep Ink typography (#1B0B04) */
+    .btn-tactile-coral {
+      background: linear-gradient(180deg, #FF6F52 0%, #F2553B 100%);
+      color: #1B0B04;
+      box-shadow: 0 5px 0 0 #A6311C, 0 10px 22px -4px rgba(242, 85, 59, 0.4);
+      transition: all 0.1s ease-out;
+    }
+    .btn-tactile-coral:hover {
+      filter: brightness(1.06);
+    }
+    .btn-tactile-coral:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #A6311C, 0 4px 10px -2px rgba(242, 85, 59, 0.28);
+    }
+
+    /* Tactile secondary button with crisp border & teal/white high readability */
+    .btn-tactile-secondary {
+      background-color: #101E22;
+      box-shadow: 0 5px 0 0 #050D0F;
+      border: 2px solid #233B40;
+      transition: all 0.1s ease-out;
+    }
+    .btn-tactile-secondary:hover {
+      background-color: #172427;
+      border-color: #2BA39A;
+      box-shadow: 0 5px 0 0 #050D0F, 0 0 16px rgba(43, 163, 154, 0.25);
+    }
+    .btn-tactile-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #050D0F;
+    }
+
+    /* Card styling */
+    .card-tactile {
+      background-color: #101E22;
+      border: 2px solid #233B40;
+      box-shadow: 0 6px 0 0 #050D0F;
+      transition: all 0.15s ease-out;
+    }
+    .card-tactile:hover {
+      transform: translateY(-2px);
+      border-color: #2BA39A;
+      box-shadow: 0 8px 0 0 #050D0F, 0 12px 24px -6px rgba(43, 163, 154, 0.22);
+    }
+
+    /* Tactile search */
+    .search-tactile {
+      background-color: #101E22;
+      border: 2px solid #233B40;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5), 0 4px 0 0 #050D0F;
+      transition: all 0.15s ease-out;
+    }
+    .search-tactile:focus-within {
+      border-color: #2BA39A;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5), 0 4px 0 0 #050D0F, 0 0 0 3px rgba(43, 163, 154, 0.25);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-lex-teal selection:text-white bg-[#081518]">
+<!-- Desktop Header (Tactile Night) -->
+<header class="w-full bg-[#081518]/95 backdrop-blur border-b-2 border-night-border sticky top-0 z-50">
+<div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-lex-teal to-lex-tealDeep p-2 flex items-center justify-center shadow-[0_3px_0_0_#0F4440] group-hover:scale-105 transition-transform">
+<svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L4 12L12 22L20 12L12 2Z"></path>
+<circle cx="12" cy="12" fill="#FFC94A" r="2.5"></circle>
+</svg>
+</div>
+<span class="text-2xl font-extrabold tracking-tight text-white group-hover:text-lex-tealLight transition-colors">Lexkite</span>
+</a>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center gap-8 text-[#A9BFC1] font-semibold text-sm">
+<a class="hover:text-white transition-colors" href="#">Courses</a>
+<a class="hover:text-white transition-colors" href="#">Dictionary</a>
+<a class="hover:text-white transition-colors" href="#">Blog</a>
+<a class="hover:text-white transition-colors" href="#">Extension</a>
+</nav>
+<!-- Right Actions: High-Contrast Deep Ink "Start free" button -->
+<div class="flex items-center gap-4">
+<a class="text-[#A9BFC1] hover:text-white font-semibold text-sm px-4 py-2 transition-colors" href="#">Sign in</a>
+<a class="btn-tactile-coral font-extrabold text-sm px-5 py-2.5 rounded-xl flex items-center gap-2 tracking-wide" href="#">
+<span>Start free</span>
+<span class="material-symbols-rounded text-lg font-bold">bolt</span>
+</a>
+</div>
+</div>
+</header>
+<!-- Main 404 Content Area -->
+<main class="flex-1 flex flex-col items-center justify-center px-4 py-12 md:py-16 max-w-4xl mx-auto w-full text-center">
+<!-- High-Contrast Error Pill Badge -->
+<div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-lex-badgeBg border border-lex-badgeBorder text-lex-badgeText text-xs font-extrabold tracking-wider uppercase mb-8 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-[#FF6448] animate-pulse"></span>
+<span>ERROR 404 • LOST IN THE SKY</span>
+</div>
+<!-- Hero Illustration (Tactile Kite in Tree) -->
+<div class="relative mb-8 max-w-md w-full mx-auto">
+<div class="relative rounded-3xl p-3 bg-night-card border-2 border-night-border shadow-[0_12px_32px_rgba(0,0,0,0.6),0_6px_0_0_#050D0F] overflow-hidden group">
+<!-- Ambient Radial Glow -->
+<div class="absolute inset-0 bg-gradient-to-b from-lex-teal/10 via-transparent to-transparent pointer-events-none"></div>
+<img alt="Playful tactile kite caught in a stylized tree" class="w-full h-auto rounded-2xl object-cover block select-none transform group-hover:scale-[1.02] transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1V4MzOWwTM_SjD-KaXmFZ7cihCtC7QyboyVGPf3dqtPstmF8ESpW8yqnYLRVKMOigFkM2gBqaFpoXRLGPq3APbwddam8w-LjwBZgrMHw_DqgpLyEoB09_wlrFia6r8KcuIG03mGxpA_-H7puGNXgsIPH4z-BIpqxuNHYhHJ06_kzSO9smXogBrcDlpFY4P2gjmikXTBhCRia6xkK9qku0PD8AfMfkCgURCwSjKZE21IPZE0100h8F6QBpI"/>
+</div>
+</div>
+<!-- Main Title & Copy -->
+<h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-3">
+      Oops, this page flew away
+    </h1>
+<p class="text-base md:text-lg text-[#A9BFC1] font-medium max-w-lg mx-auto mb-8">
+      The word or lesson you're looking for got caught up in the breeze.
+    </p>
+<!-- Search Input Card (Crisp Contrast) -->
+<div class="w-full max-w-xl mx-auto mb-7">
+<form class="search-tactile rounded-2xl px-4 py-3.5 flex items-center gap-3" onsubmit="event.preventDefault();">
+<span class="material-symbols-rounded text-lex-tealLight text-2xl">search</span>
+<input class="bg-transparent border-none outline-none text-[#EEF6F7] placeholder-[#829EA2] text-sm md:text-base flex-1 font-medium focus:ring-0" placeholder="Search words, topics, or grammar rules..." type="text"/>
+<kbd class="hidden sm:inline-flex items-center justify-center w-7 h-7 rounded-lg bg-night-raised border border-night-border text-[#A9BFC1] font-mono text-xs font-bold shadow-inner">
+          /
+        </kbd>
+</form>
+</div>
+<!-- Primary Action Buttons: Go home (Deep Ink text & icon) and Open the app -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto mb-14">
+<a class="btn-tactile-coral w-full sm:w-1/2 py-3.5 px-6 rounded-2xl font-extrabold text-sm md:text-base flex items-center justify-center gap-2 tracking-wide" href="#">
+<span class="material-symbols-rounded text-xl font-bold">home</span>
+<span>Go home</span>
+</a>
+<a class="btn-tactile-secondary w-full sm:w-1/2 py-3.5 px-6 rounded-2xl text-[#EEF6F7] font-extrabold text-sm md:text-base flex items-center justify-center gap-2" href="#">
+<span class="material-symbols-rounded text-xl text-lex-tealLight">rocket_launch</span>
+<span>Open the app</span>
+</a>
+</div>
+<!-- Divider & Secondary Navigation Hub -->
+<div class="w-full max-w-xl mx-auto mb-8">
+<div class="relative flex items-center justify-center">
+<div class="w-full border-t border-night-border"></div>
+<span class="absolute bg-[#081518] px-4 text-xs font-extrabold uppercase tracking-widest text-[#829EA2]">
+          Or jump right back in
+        </span>
+</div>
+</div>
+<!-- 3 Quick Path Cards (Dictionary, Blog, Level Test) - Pure Tactile Dark #101E22 -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-xl mx-auto">
+<!-- Dictionary Card -->
+<a class="card-tactile rounded-2xl p-5 flex flex-col items-center text-center group cursor-pointer" href="#">
+<div class="w-12 h-12 rounded-xl bg-lex-teal/15 border border-lex-teal/35 flex items-center justify-center mb-3 group-hover:bg-lex-teal/25 transition-colors">
+<span class="material-symbols-rounded text-lex-tealLight text-2xl">menu_book</span>
+</div>
+<h3 class="text-base font-bold text-white mb-1 group-hover:text-lex-tealLight transition-colors">Dictionary</h3>
+<p class="text-xs text-[#A9BFC1] font-medium">Explore 40k+ words</p>
+</a>
+<!-- Blog Card -->
+<a class="card-tactile rounded-2xl p-5 flex flex-col items-center text-center group cursor-pointer" href="#">
+<div class="w-12 h-12 rounded-xl bg-lex-amber/15 border border-lex-amber/35 flex items-center justify-center mb-3 group-hover:bg-lex-amber/25 transition-colors">
+<span class="material-symbols-rounded text-lex-amber text-2xl">auto_stories</span>
+</div>
+<h3 class="text-base font-bold text-white mb-1 group-hover:text-lex-amber transition-colors">Blog</h3>
+<p class="text-xs text-[#A9BFC1] font-medium">Exam tips &amp; guides</p>
+</a>
+<!-- Level Test Card -->
+<a class="card-tactile rounded-2xl p-5 flex flex-col items-center text-center group cursor-pointer" href="#">
+<div class="w-12 h-12 rounded-xl bg-lex-coral/15 border border-lex-coral/35 flex items-center justify-center mb-3 group-hover:bg-lex-coral/25 transition-colors">
+<span class="material-symbols-rounded text-[#FF6448] text-2xl">speed</span>
+</div>
+<h3 class="text-base font-bold text-white mb-1 group-hover:text-[#FF6448] transition-colors">Level test</h3>
+<p class="text-xs text-[#A9BFC1] font-medium">Free 5-min check</p>
+</a>
+</div>
+</main>
+<!-- Desktop Footer (Tactile Night) -->
+<footer class="w-full bg-[#050D0F] border-t-2 border-night-border py-8 px-6 mt-12">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+<!-- Brand & Tagline -->
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded-lg bg-lex-teal p-1.5 flex items-center justify-center shadow-sm">
+<svg class="w-4 h-4 text-white" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L4 12L12 22L20 12L12 2Z"></path>
+</svg>
+</div>
+<p class="text-xs text-[#A9BFC1] font-medium">
+          © 2025 Lexkite Prep Inc. Free, tactile vocabulary mastery for IELTS, TOEIC &amp; TOEFL.
+        </p>
+</div>
+<!-- Legal Links -->
+<div class="flex flex-wrap items-center gap-6 text-xs text-[#A9BFC1] font-medium">
+<a class="hover:text-white transition-colors" href="#">Privacy</a>
+<a class="hover:text-white transition-colors" href="#">Terms</a>
+<a class="hover:text-white transition-colors" href="#">Editorial Standards</a>
+<a class="hover:text-white transition-colors" href="#">Help Center</a>
+</div>
+</div>
+</footer>
+</body></html>

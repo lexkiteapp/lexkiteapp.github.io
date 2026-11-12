@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — Story Sentence Builder (Bright Day Mobile)</title>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=JetBrains+Mono:wght@600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Rounded -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'lex-cream': '#FFF7EA',
+            'lex-card': '#FFFFFF',
+            'lex-card-border': '#EADEC8',
+            'lex-card-ledge': '#D8CFBC',
+            'lex-teal-deep': '#0F3D3E',
+            'lex-teal': '#1F7A75',
+            'lex-teal-bright': '#2BA39A',
+            'lex-teal-light': '#E6F6F5',
+            'lex-teal-border': '#99D8D4',
+            'lex-coral': '#F2553B',
+            'lex-coral-ledge': '#B53A22',
+            'lex-amber': '#FFB054',
+            'lex-ink': '#1B0B04',
+            'lex-muted': '#4E6668',
+            'lex-dim': '#70898B',
+            'lex-slot-bg': '#F5EFE3',
+            'lex-slot-border': '#D8CFBC'
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          boxShadow: {
+            'tactile-card': '0 4px 0 0 #D8CFBC',
+            'tactile-tile': '0 3px 0 0 #D8CFBC',
+            'tactile-tile-selected': '0 1px 0 0 #D8CFBC',
+            'tactile-cta': '0 5px 0 0 #B53A22',
+            'tactile-cta-active': '0 2px 0 0 #B53A22',
+            'tactile-btn': '0 4px 0 0 #D8CFBC'
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Ensure minimum tap target and smooth physics */
+    .tactile-press:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 #D8CFBC !important;
+    }
+    .cta-press:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #B53A22 !important;
+    }
+    /* Prevent selection */
+    button, .no-select {
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+</head>
+<body class="bg-stone-900 flex justify-center items-center min-h-screen p-0 sm:p-4 antialiased selection:bg-teal-200">
+<!-- Mobile Frame (Fixed 390px Phone Screen, 100% light theme Lexkite Kit) -->
+<main class="w-full max-w-[390px] h-screen max-h-[844px] bg-[#10191B] flex flex-col justify-between overflow-hidden relative shadow-2xl sm:rounded-[36px] border border-[#2D434A]">
+<!-- Top Bar Variant: Lesson / Focus Screen (§5d: close X top left + slim progress bar, no tabs) -->
+<header class="w-full h-14 flex items-center px-4 gap-3 bg-[#10191B] shrink-0 z-30 pt-1">
+<!-- Close Button (min 44x44px) -->
+<button aria-label="Exit lesson" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#172427] border-2 border-[#2D434A] shadow-[0_3px_0_0_#0D1517] active:translate-y-0.5 active:shadow-none transition-all text-[#E8F1F0]" type="button">
+<span class="material-symbols-rounded text-[22px]">close</span>
+</button>
+<!-- Slim Progress Bar with Rounded Pill -->
+<div class="flex-1 flex flex-col justify-center">
+<div class="w-full h-3 bg-[#1E2F33] rounded-full overflow-hidden p-0.5 border border-[#2D434A]">
+<div class="h-full bg-gradient-to-r from-[#2BA39A] to-[#3BD4C7] rounded-full w-[65%] transition-all duration-300 shadow-[0_0_8px_rgba(59,212,199,0.3)]"></div>
+</div>
+</div>
+<!-- Streak / Step Indicator (min 44px height tap zone) -->
+<div class="h-11 px-3 flex items-center gap-1.5 bg-[#172427] border-2 border-[#2D434A] rounded-xl shadow-[0_3px_0_0_#0D1517] text-[#E8F1F0] text-xs font-extrabold tracking-wide">
+<span class="material-symbols-rounded text-amber-400 text-[18px]">local_fire_department</span>
+<span>14</span>
+</div>
+</header>
+<!-- Scrollable Workout Content Area -->
+<div class="flex-1 overflow-y-auto px-4 py-2 space-y-4">
+<!-- Sub-tag context / Category Banner -->
+<div class="flex items-center justify-between text-xs font-bold text-[#A9BDBB] tracking-wide px-1">
+<span class="flex items-center gap-1.5 uppercase tracking-wider text-[11px] font-extrabold text-[#3BD4C7]">
+<span class="w-2 h-2 rounded-full bg-[#3BD4C7] animate-pulse"></span>
+          Story Duo • Part 3 of 4
+        </span>
+<span class="bg-[#1E2F33] text-[#E8F1F0] px-2 py-0.5 rounded-md font-bold text-[11px] border border-[#2D434A]">
+          IELTS Band 7.5+
+        </span>
+</div>
+<!-- Dialogue / Story Bubble with empty teacher-slot placeholder -->
+<section class="bg-[#172427] border-2 border-[#2D434A] rounded-2xl p-4 shadow-[0_4px_0_0_#0D1517] space-y-3">
+<!-- Story Character & Dialogue Header -->
+<div class="flex items-start gap-3">
+<!-- Explicit empty placeholder labeled 'teacher-slot' (140x170 standard slot in miniature avatar version) -->
+<div class="w-14 h-14 rounded-2xl border-2 border-dashed border-[#3BD4C7] bg-[#1E2F33]/70 flex flex-col items-center justify-center shrink-0 p-1 text-center" title="teacher-slot">
+<span class="material-symbols-rounded text-[#3BD4C7] text-[20px]">school</span>
+<span class="text-[9px] font-extrabold text-[#3BD4C7] leading-tight mt-0.5 tracking-tight">teacher-slot</span>
+</div>
+<!-- Dialogue Speech Cloud -->
+<div class="flex-1 bg-[#1E2F33] border border-[#2D434A] rounded-xl p-3 relative shadow-inner">
+<div class="flex items-center justify-between mb-1">
+<span class="text-[12px] font-extrabold text-[#3BD4C7] tracking-wide uppercase">Coach Carlos</span>
+<button aria-label="Play audio snippet" class="w-8 h-8 -mr-1 -mt-1 flex items-center justify-center rounded-lg bg-[#172427] border border-[#2D434A] text-[#3BD4C7] hover:bg-[#23383D] active:scale-95 transition-transform" style="min-width:32px; min-height:32px;" type="button">
+<span class="material-symbols-rounded text-[18px]">volume_up</span>
+</button>
+</div>
+<p class="text-[15px] font-bold text-[#E8F1F0] leading-snug">
+              “I was wondering if we could arrange <span class="text-[#FFA07A] underline decoration-2 decoration-[#FFA07A]/40">a quick consultation</span> before noon?”
+            </p>
+</div>
+</div>
+<!-- Task Instruction (Clear, high-contrast, +40% text expansion resilient) -->
+<div class="pt-1 border-t border-[#2D434A]/80">
+<h2 class="text-sm font-extrabold text-[#E8F1F0] tracking-tight">
+            Build the natural formal response:
+          </h2>
+<p class="text-xs font-semibold text-[#A9BDBB] mt-0.5">
+            Tap the word tiles below in the correct lexical sequence.
+          </p>
+</div>
+</section>
+<!-- Sentence Target Assembly Zone (Dashed Slots & Selected Tiles) -->
+<section class="bg-[#172427] border-2 border-[#2D434A] rounded-2xl p-3.5 min-h-[120px] shadow-[0_4px_0_0_#0D1517] flex flex-col justify-between">
+<div class="text-[11px] font-extrabold text-[#A9BDBB] uppercase tracking-wider mb-2 flex items-center justify-between">
+<span>Your sentence</span>
+<span class="text-[10px] text-[#3BD4C7] font-bold">4 of 6 words placed</span>
+</div>
+<!-- Target Slot Ribbon with Selected Word Tiles and Empty Placeholder Lines -->
+<div class="flex flex-wrap gap-2 items-center min-h-[52px] p-1.5 rounded-xl bg-[#10191B]/80 border border-dashed border-[#2D434A]">
+<!-- Placed Tile 1: "Hi" (min-w-44 min-h-44, tactile) -->
+<button aria-label="Remove word Hi" class="h-11 min-w-[44px] px-3.5 bg-[#1E2F33] border-2 border-[#3BD4C7] text-[#E8F1F0] font-extrabold text-[15px] rounded-xl flex items-center justify-center shadow-[0_3px_0_0_#0D1517] active:translate-y-0.5 transition-all tactile-press" type="button">
+            Hi
+          </button>
+<!-- Placed Tile 2: "," -->
+<button aria-label="Remove punctuation" class="h-11 min-w-[44px] px-3 bg-[#1E2F33] border-2 border-[#3BD4C7] text-[#E8F1F0] font-extrabold text-[15px] rounded-xl flex items-center justify-center shadow-[0_3px_0_0_#0D1517] active:translate-y-0.5 transition-all tactile-press" type="button">
+            ,
+          </button>
+<!-- Placed Tile 3: "I" (short word, strictly enforced min 44x44px tap target) -->
+<button aria-label="Remove word I" class="h-11 min-w-[44px] px-3.5 bg-[#1E2F33] border-2 border-[#3BD4C7] text-[#E8F1F0] font-extrabold text-[15px] rounded-xl flex items-center justify-center shadow-[0_3px_0_0_#0D1517] active:translate-y-0.5 transition-all tactile-press" type="button">
+            I
+          </button>
+<!-- Placed Tile 4: "would" -->
+<button aria-label="Remove word would" class="h-11 min-w-[44px] px-3.5 bg-[#1E2F33] border-2 border-[#3BD4C7] text-[#E8F1F0] font-extrabold text-[15px] rounded-xl flex items-center justify-center shadow-[0_3px_0_0_#0D1517] active:translate-y-0.5 transition-all tactile-press" type="button">
+            would
+          </button>
+<!-- Empty Slot Target indicator (pulsing guide) -->
+<div class="h-11 min-w-[56px] px-2 rounded-xl border-2 border-dashed border-[#3BD4C7]/80 bg-[#1E2F33]/60 flex items-center justify-center animate-pulse">
+<span class="w-4 h-0.5 bg-[#3BD4C7] rounded-full"></span>
+</div>
+<!-- Trailing Ghost Slot -->
+<div class="h-11 min-w-[48px] px-2 rounded-xl border-2 border-dashed border-[#2D434A] bg-[#1E2F33]/30 flex items-center justify-center">
+<span class="w-3 h-0.5 bg-[#2D434A] rounded-full"></span>
+</div>
+</div>
+<div class="mt-2 flex justify-between items-center text-[11px] text-[#A9BDBB] font-bold px-1">
+<span>Tap placed word to return to bank</span>
+<button class="text-[#FFA07A] hover:underline font-extrabold flex items-center gap-0.5" type="button">
+<span class="material-symbols-rounded text-[14px]">refresh</span>
+            Reset
+          </button>
+</div>
+</section>
+<!-- Word Bank Section -->
+<section class="space-y-2 pt-1">
+<div class="flex items-center justify-between px-1">
+<span class="text-xs font-extrabold text-[#E8F1F0] uppercase tracking-wider">Word Bank</span>
+<span class="text-[11px] font-semibold text-[#A9BDBB]">Every tile ≥44×44px</span>
+</div>
+<!-- Bank Tiles (Wrapping in rows with 8px gaps, min-width 44px, min-height 44px) -->
+<div class="flex flex-wrap gap-2 items-center p-1">
+<!-- Active Tile: "be" (min-w 44, h 44, 2px border, 3px ledge, 4.5:1 contrast) -->
+<button class="h-11 min-w-[44px] px-4 bg-[#1E2F33] border-2 border-[#2D434A] text-[#E8F1F0] font-extrabold text-[15px] rounded-xl shadow-[0_3px_0_0_#0D1517] tactile-press transition-all flex items-center justify-center" type="button">
+            be
+          </button>
+<!-- Active Tile: "delighted" -->
+<button class="h-11 min-w-[44px] px-4 bg-[#1E2F33] border-2 border-[#2D434A] text-[#E8F1F0] font-extrabold text-[15px] rounded-xl shadow-[0_3px_0_0_#0D1517] tactile-press transition-all flex items-center justify-center" type="button">
+            delighted
+          </button>
+<!-- Active Tile: "to" (short word, ≥44px wide) -->
+<button class="h-11 min-w-[44px] px-3.5 bg-[#1E2F33] border-2 border-[#2D434A] text-[#E8F1F0] font-extrabold text-[15px] rounded-xl shadow-[0_3px_0_0_#0D1517] tactile-press transition-all flex items-center justify-center" type="button">
+            to
+          </button>
+<!-- Active Short Word Tile: "a" (crucial constraint test: strictly ≥44px wide and tall) -->
+<button class="h-11 min-w-[44px] px-3 bg-[#1E2F33] border-2 border-[#2D434A] text-[#E8F1F0] font-extrabold text-[15px] rounded-xl shadow-[0_3px_0_0_#0D1517] tactile-press transition-all flex items-center justify-center" type="button">
+            a
+          </button>
+<!-- Active Short Word Tile: "the" (≥44px wide) -->
+<button class="h-11 min-w-[44px] px-3.5 bg-[#1E2F33] border-2 border-[#2D434A] text-[#E8F1F0] font-extrabold text-[15px] rounded-xl shadow-[0_3px_0_0_#0D1517] tactile-press transition-all flex items-center justify-center" type="button">
+            the
+          </button>
+<!-- Distractor Tile: "was" -->
+<button class="h-11 min-w-[44px] px-3.5 bg-[#1E2F33] border-2 border-[#2D434A] text-[#E8F1F0] font-extrabold text-[15px] rounded-xl shadow-[0_3px_0_0_#0D1517] tactile-press transition-all flex items-center justify-center" type="button">
+            was
+          </button>
+<!-- Distractor Tile: "schedule" -->
+<button class="h-11 min-w-[44px] px-4 bg-[#1E2F33] border-2 border-[#2D434A] text-[#E8F1F0] font-extrabold text-[15px] rounded-xl shadow-[0_3px_0_0_#0D1517] tactile-press transition-all flex items-center justify-center" type="button">
+            schedule
+          </button>
+<!-- Dimmed / Already Placed Placeholder Tile in Bank: "would" -->
+<div class="h-11 min-w-[44px] px-3.5 bg-[#142023] border-2 border-[#223338] text-transparent font-extrabold text-[15px] rounded-xl flex items-center justify-center cursor-not-allowed no-select">
+            would
+          </div>
+<!-- Dimmed / Already Placed Placeholder Tile in Bank: "I" -->
+<div class="h-11 min-w-[44px] px-3.5 bg-[#142023] border-2 border-[#223338] text-transparent font-extrabold text-[15px] rounded-xl flex items-center justify-center cursor-not-allowed no-select">
+            I
+          </div>
+<!-- Dimmed / Already Placed Placeholder Tile in Bank: "Hi" -->
+<div class="h-11 min-w-[44px] px-3.5 bg-[#142023] border-2 border-[#223338] text-transparent font-extrabold text-[15px] rounded-xl flex items-center justify-center cursor-not-allowed no-select">
+            Hi
+          </div>
+</div>
+</section>
+<!-- Pedagogical Hint Callout Banner -->
+<aside class="p-3 bg-[#172427] border border-[#2D434A] rounded-xl flex items-start gap-2.5">
+<span class="material-symbols-rounded text-[#3BD4C7] text-[20px] shrink-0 mt-0.5">lightbulb</span>
+<div class="text-xs text-[#E8F1F0] font-semibold leading-relaxed">
+<span class="font-extrabold text-[#3BD4C7]">Examiner Tip:</span> In IELTS Speaking Part 3 and formal workplace emails, pairing <span class="font-bold underline text-[#FFA07A]">“would be delighted to”</span> demonstrates polite C1 modal fluency without over-formality.
+        </div>
+</aside>
+</div>
+<!-- Pinned Bottom Action Container (§5d: one full-width primary button pinned at bottom) -->
+<footer class="w-full p-4 bg-[#10191B] border-t-2 border-[#2D434A] shrink-0 z-30 space-y-2">
+<!-- Full-Width Primary CTA (56px height, coral-amber gradient, 5px bottom ledge #8E2816 / #B53A22, dark ink text) -->
+<button class="w-full h-14 rounded-2xl bg-gradient-to-r from-[#F2553B] via-[#F77245] to-[#FFB054] border-2 border-[#8E2816] text-[#1B0B04] font-extrabold text-base tracking-wide flex items-center justify-center gap-2 shadow-[0_5px_0_0_#8E2816] cta-press transition-all duration-75 active:translate-y-0.5" type="button">
+<span>CHECK ANSWER</span>
+<span class="material-symbols-rounded text-[20px] font-bold">arrow_forward</span>
+</button>
+<!-- Bottom Micro-info: no hearts, 100% free learning reminder -->
+<div class="flex items-center justify-center gap-1.5 text-[11px] font-bold text-[#A9BDBB] text-center pt-0.5">
+<span class="material-symbols-rounded text-[14px] text-[#3BD4C7]">verified</span>
+<span>Cambridge &amp; IDP Rubric Aligned • 0 Hearts Lost</span>
+</div>
+</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,46 @@
+# Báo lỗi tự chuyển trạng thái theo PR (docs/REPORTS.md § Tự động theo PR) – scripts/report-autofix.mjs, HMAC LEXKITE_REPORT_CLI_KEY.
+#  · PR gộp có LX-1234 (tiêu đề/nội dung/nhánh) → Đang xử lý + ghi commit chờ live.
+#  · Sau Pages deploy + cron 3 giờ (:53, sau cron deploy :23) → commit đã lên live (tổ tiên CF_PAGES_COMMIT_SHA) → Đã sửa (fix_ver = CACHE sw.js), báo người báo.
+# Thiếu secret → cảnh báo, xanh. Chạy lại an toàn (op progress/resolve idempotent).
+# ci-policy: all-paths – mọi PR gộp đều có thể ghi mã LX-xxxx; job chỉ chạy khi PR đã gộp và có "LX-" (≈ 10 giây, không checkout đủ)
+name: Báo lỗi tự động theo PR (report-autofix)
+on:
+  pull_request:
+    types: [closed]
+  workflow_run:
+    workflows: ['Pages deploy']
+    types: [completed]
+  schedule:
+    - cron: '53 */3 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: report-autofix-${{ github.event_name == 'pull_request' && github.event.pull_request.number || 'live' }}
+  cancel-in-progress: true   # nhóm theo PR (mỗi PR gộp 1 lượt, không bị lượt khác huỷ); nhóm live: lượt mới quét lại toàn bộ (idempotent) nên huỷ lượt cũ không mất tín hiệu – ci-policy workflow_run
+jobs:
+  merged:
+    if: github.event_name == 'pull_request' && github.event.pull_request.merged && (contains(github.event.pull_request.title, 'LX-') || contains(github.event.pull_request.body, 'LX-') || contains(github.event.pull_request.head.ref, 'LX-'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: scripts, sparse-checkout-cone-mode: false }
+      - env:
+          LEXKITE_REPORT_CLI_KEY: ${{ secrets.LEXKITE_REPORT_CLI_KEY }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_BRANCH: ${{ github.event.pull_request.head.ref }}
+          SHA: ${{ github.event.pull_request.merge_commit_sha }}
+          PR: ${{ github.event.pull_request.number }}
+        run: node scripts/report-autofix.mjs merged
+  live:
+    if: github.event_name != 'pull_request' && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, fetch-depth: 0, filter: 'blob:none' }   # đủ lịch sử để so tổ tiên, không tải blob
+      - env:
+          LEXKITE_REPORT_CLI_KEY: ${{ secrets.LEXKITE_REPORT_CLI_KEY }}
+        run: node scripts/report-autofix.mjs live

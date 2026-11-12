@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_coupon",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: coupon.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a ticket that gives a discount on a purchase.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Use this coupon to get ten percent off.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "coupon",
+  "ipa": "/ˈkuːpɔːn/",
+  "mean": "a ticket that gives a discount on a purchase",
+  "ex": "Use this coupon to get ten percent off.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=coupon",
+  "link": "https://lexkite.com/app/#/review?w=coupon",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"coupon\" mean?",
+  "keyword": "coupon",
+  "value": "Coupon means a ticket that gives a discount on a purchase.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=coupon",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"coupon\" mean?",
+    "description": "Coupon means a ticket that gives a discount on a purchase.\n\nReview your words, free: https://lexkite.com/app/#/review?w=coupon\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "coupon",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"coupon\" mean?\n\nCoupon means a ticket that gives a discount on a purchase.\n\nReview your words, free: https://lexkite.com/app/#/review?w=coupon"
+   },
+   "instagram": {
+    "caption": "What does \"coupon\" mean?\n\nCoupon means a ticket that gives a discount on a purchase.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"coupon\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a ticket that gives a discount on a purchase. Coupon means a ticket that gives a discount on a purchase. More practice like this (free): {link}"
+ }
+}

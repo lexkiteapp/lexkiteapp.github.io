@@ -1,0 +1,34 @@
+{
+ "id": "cf-functions-2026-11-02-s0",
+ "source": "content-factory",
+ "kind": "functions",
+ "n": 23,
+ "checked": [
+  {
+   "id": "making-polite-request",
+   "ok": true,
+   "by": "gemini-3.8-flash"
+  },
+  {
+   "id": "asking-the-price",
+   "ok": true,
+   "by": "gemini-3.8-flash"
+  },
+  {
+   "id": "saying-sorry-small",
+   "ok": true,
+   "by": "claude"
+  },
+  {
+   "id": "inviting-someone",
+   "ok": true,
+   "by": "claude"
+  },
+  {
+   "id": "greeting-hello",
+   "ok": true,
+   "by": "claude"
+  }
+ ],
+ "status": "accepted"
+}

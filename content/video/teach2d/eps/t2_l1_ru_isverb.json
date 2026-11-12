@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_isverb",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do you forget is?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She very beautiful.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is very beautiful.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "English needs is.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! He is tired.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She very beautiful.",
+  "right": "She is very beautiful.",
+  "strike": "She very",
+  "why": "English needs is.",
+  "memory": "She is.",
+  "quiz": {
+   "stem": "He ___ tired.",
+   "options": [
+    "is",
+    "are"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Забываешь “is”?",
+   "tip": "Не пропускай is: “She is very beautiful”.",
+   "caption": "Ты тоже говоришь “She very beautiful.”? 😅 В русском нет «есть» в настоящем времени: «она красивая». В английском “is” нужен. Правильно: “She is very beautiful.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “is”. Без is — нельзя. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английский",
+    "#грамматика",
+    "#английскийонлайн",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you forget is?",
+   "tip": "Do not skip is: “She is very beautiful”.",
+   "caption": "Do you also say “She very beautiful.”? 😅 Russian has no “is” in the present: “ona krasivaya”. English needs “is”. Correct: “She is very beautiful.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Забываешь “is”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 38,
+  "seconds": 24.2,
+  "wpm": 94
+ },
+ "publish": {
+  "title": "Забываешь “is”?",
+  "keyword": "She is very beautiful.",
+  "value": "Не пропускай is: “She is very beautiful”.",
+  "hashtags": [
+   "#английский",
+   "#грамматика",
+   "#английскийонлайн",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Забываешь “is”?",
+    "description": "Ты тоже говоришь “She very beautiful.”? 😅 В русском нет «есть» в настоящем времени: «она красивая». В английском “is” нужен. Правильно: “She is very beautiful.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
+    "tags": [
+     "She is very beautiful.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “She very beautiful.”? 😅 В русском нет «есть» в настоящем времени: «она красивая». В английском “is” нужен. Правильно: “She is very beautiful.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Ты тоже говоришь “She very beautiful.”? 😅 В русском нет «есть» в настоящем времени: «она красивая». В английском “is” нужен. Правильно: “She is very beautiful.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#английский",
+     "#грамматика",
+     "#английскийонлайн",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Забываешь “is”? #английский #грамматика #английскийонлайн"
+   }
+  },
+  "first_comment": "Ответ: “is”. Без is — нельзя. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

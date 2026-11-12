@@ -1,11 +1,179 @@
 {
  "appName": {
-  "message": "Lexkite – พจนานุกรมและแฟลชการ์ด IELTS"
+  "message": "Lexkite – พจนานุกรมอังกฤษ แปลภาษา และแฟลชการ์ดคำศัพท์"
  },
  "appDesc": {
-  "message": "ดับเบิลคลิกคำใดก็ได้เพื่อดูความหมาย สัทอักษร และเสียงเจ้าของภาษา แปลประโยคและซับไตเติล YouTube บันทึกพร้อมบริบทและทบทวนแบบเว้นระยะ"
+  "message": "ดับเบิลคลิกคำใดก็ได้เพื่อดูความหมาย คำอ่าน IPA และเสียง แปลข้อความที่เลือก บันทึกคำพร้อมบริบท ทบทวนแฟลชการ์ดเตรียมสอบ IELTS/TOEIC"
  },
  "openApp": {
   "message": "เปิด Lexkite"
+ },
+ "rateTitle": {
+  "message": "ชอบ Lexkite ไหม?"
+ },
+ "rateBody": {
+  "message": "ถ้า Lexkite ช่วยให้คุณเรียนได้ดีขึ้น รีวิวสั้น ๆ ในสโตร์จะช่วยให้ผู้เรียนคนอื่นค้นพบได้"
+ },
+ "rateYes": {
+  "message": "รีวิว Lexkite"
+ },
+ "rateLater": {
+  "message": "ไว้ทีหลัง"
+ },
+ "rateNever": {
+  "message": "ไม่ต้องถามอีก"
+ },
+ "ntGot": {
+  "message": "✓ จำได้แล้ว"
+ },
+ "ntAgain": {
+  "message": "↻ ทบทวน"
+ },
+ "ntGolden": {
+  "message": "ช่วงเวลาทอง"
+ },
+ "ntSaved": {
+  "message": "บันทึกล่าสุด"
+ },
+ "ntToday": {
+  "message": "คำศัพท์ตอนนี้"
+ },
+ "ntSearch": {
+  "message": "ค้นหาบนเว็บ…"
+ },
+ "ntSearchBtn": {
+  "message": "ค้นหา"
+ },
+ "ntOff": {
+  "message": "ปิดการ์ดในแท็บใหม่"
+ },
+ "ntConf": {
+  "message": "พูดอย่างมั่นใจ"
+ },
+ "ntListen": {
+  "message": "ฟัง"
+ },
+ "ntSlow": {
+  "message": "ช้า"
+ },
+ "ntUK": {
+  "message": "UK"
+ },
+ "ntUS": {
+  "message": "US"
+ },
+ "ntFamily": {
+  "message": "กลุ่มคำ"
+ },
+ "ntColloc": {
+  "message": "คำที่ใช้คู่กัน"
+ },
+ "ntSyn": {
+  "message": "คำพ้องความหมาย"
+ },
+ "ntAnt": {
+  "message": "คำตรงข้าม"
+ },
+ "ntQuiz": {
+  "message": "โหมดทดสอบ"
+ },
+ "ntReveal": {
+  "message": "ดูความหมาย"
+ },
+ "ntTapTr": {
+  "message": "แตะเพื่อดูคำแปล"
+ },
+ "ntMT": {
+  "message": "แปลด้วยเครื่อง"
+ },
+ "ntExample": {
+  "message": "ตัวอย่าง"
+ },
+ "ntAdd": {
+  "message": "＋ เพิ่มลงชุดการ์ดของฉัน"
+ },
+ "ntAdded": {
+  "message": "✓ อยู่ในชุดการ์ดแล้ว"
+ },
+ "ntNext": {
+  "message": "คำถัดไป →"
+ },
+ "ntProgress": {
+  "message": "วันนี้ {n}/{g} คำ"
+ },
+ "ntShortcuts": {
+  "message": "แป้นลัด"
+ },
+ "ntKeys": {
+  "message": "Space: ดู · 1/2: ให้คะแนน · N: ถัดไป · P: ฟัง"
+ },
+ "posN": {
+  "message": "คำนาม"
+ },
+ "posV": {
+  "message": "คำกริยา"
+ },
+ "posAdj": {
+  "message": "คำคุณศัพท์"
+ },
+ "posAdv": {
+  "message": "คำวิเศษณ์"
+ },
+ "posPhrV": {
+  "message": "กริยาวลี"
+ },
+ "posPhrase": {
+  "message": "วลี"
+ },
+ "posIdiom": {
+  "message": "สำนวน"
+ },
+ "posPrep": {
+  "message": "คำบุพบท"
+ },
+ "posConj": {
+  "message": "คำสันธาน"
+ },
+ "posPron": {
+  "message": "คำสรรพนาม"
+ },
+ "posDet": {
+  "message": "คำนำหน้านาม"
+ },
+ "posExcl": {
+  "message": "คำอุทาน"
+ },
+ "posNum": {
+  "message": "คำบอกจำนวน"
+ },
+ "posAbbr": {
+  "message": "คำย่อ"
+ },
+ "posColl": {
+  "message": "คำปรากฏร่วม"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} ความหมาย"
+ },
+ "ntQzTag": {
+  "message": "ควิซด่วน"
+ },
+ "ntQzQ": {
+  "message": "เลือกความหมายที่ถูกต้อง"
+ },
+ "ntQzTime": {
+  "message": "{s} วินาที"
+ },
+ "ntQzRight": {
+  "message": "ถูกต้อง!"
+ },
+ "ntQzWrong": {
+  "message": "ยังไม่ใช่ — คำนี้จะกลับมาเร็วๆ นี้"
+ },
+ "ntQzTimeout": {
+  "message": "หมดเวลา ไม่เป็นไร"
+ },
+ "ntQzSkip": {
+  "message": "ข้าม"
  }
 }

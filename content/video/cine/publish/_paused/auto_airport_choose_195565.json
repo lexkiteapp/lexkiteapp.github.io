@@ -1,0 +1,75 @@
+{
+ "id": "auto_airport_choose_195565",
+ "scene": "airport",
+ "template": "choose",
+ "area": "listening",
+ "cefr": "A2",
+ "point": "listen time forty",
+ "series": "Airport English #18",
+ "title": "What time is boarding? Listen once and choose!",
+ "description": "Listen once at the airport and pick the right answer. Answer: \"Boarding starts at ten forty.\"\nComment your answer below and follow for daily English (Airport English #18).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_195565#/listening",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#airportenglish",
+  "#listeningpractice",
+  "#englishlistening",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/airport/auto_airport_choose_195565/cine-auto-airport-choose-195565-en-v3.mp4",
+ "cover": "shorts/airport/auto_airport_choose_195565/cine-auto-airport-choose-195565-en-v3.jpg",
+ "ci_artifact": "cine-airport-28",
+ "run": "28",
+ "platforms": {
+  "tiktok": {
+   "title": "What time is boarding? Listen once and choose!",
+   "caption": "Listen once at the airport and pick the right answer. Answer: \"Boarding starts at ten forty.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_195565#/listening",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_195565#/listening",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#listeningpractice",
+    "#englishlistening",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Listen once at the airport and pick the right answer. Answer: \"Boarding starts at ten forty.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_195565#/listening\n#learnenglish #englishtips #airportenglish #listeningpractice #englishlistening #travelenglish"
+  },
+  "reels": {
+   "title": "What time is boarding? Listen once and choose!",
+   "caption": "Listen once at the airport and pick the right answer. Answer: \"Boarding starts at ten forty.\"\nComment your answer below and follow for daily English (Airport English #18).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_195565#/listening",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_195565#/listening",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#listeningpractice",
+    "#englishlistening",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Listen once at the airport and pick the right answer. Answer: \"Boarding starts at ten forty.\"\nComment your answer below and follow for daily English (Airport English #18).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_195565#/listening\n#learnenglish #englishtips #airportenglish #listeningpractice #englishlistening #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "What time is boarding? Listen once and choose! #shorts",
+   "caption": "Listen once at the airport and pick the right answer. Answer: \"Boarding starts at ten forty.\"\nComment your answer below and follow for daily English (Airport English #18).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_195565#/listening",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_195565#/listening",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#listeningpractice"
+   ],
+   "caption_with_tags": "Listen once at the airport and pick the right answer. Answer: \"Boarding starts at ten forty.\"\nComment your answer below and follow for daily English (Airport English #18).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_choose_195565#/listening\n#shorts #learnenglish #englishtips #airportenglish #listeningpractice"
+  }
+ },
+ "slot": {
+  "date": "2026-11-04",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

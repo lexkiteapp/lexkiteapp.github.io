@@ -1,0 +1,75 @@
+{
+ "id": "news_clothing_store_ab_b20f1c",
+ "scene": "news",
+ "template": "ab",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "phrasal verb + pronoun: try it on",
+ "series": "SHOPPING ENGLISH / try it on",
+ "bg": "clothing_store",
+ "title": "\"Can I try on it?\" or \"Can I try it on?\"? Comment A or B",
+ "description": "Phrasal verb + pronoun: try it on. Save this: Can I try it on? / try on this jacket / try it on\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_clothing_store_ab_b20f1c#/grammar",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#englishquiz",
+  "#grammartest",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_clothing_store_ab_b20f1c/cine-news-clothing-store-ab-b20f1c-en.mp4",
+ "cover": "shorts/news/news_clothing_store_ab_b20f1c/cine-news-clothing-store-ab-b20f1c-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "\"Can I try on it?\" or \"Can I try it on?\"? Comment A or B",
+   "caption": "Phrasal verb + pronoun: try it on. Save this: Can I try it on? / try on this jacket / try it on\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_clothing_store_ab_b20f1c#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_clothing_store_ab_b20f1c#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishquiz",
+    "#grammartest",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "Phrasal verb + pronoun: try it on. Save this: Can I try it on? / try on this jacket / try it on\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_clothing_store_ab_b20f1c#/grammar\n#learnenglish #englishtips #englishquiz #grammartest #americanenglish #esl"
+  },
+  "reels": {
+   "title": "\"Can I try on it?\" or \"Can I try it on?\"? Comment A or B",
+   "caption": "Phrasal verb + pronoun: try it on. Save this: Can I try it on? / try on this jacket / try it on\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_clothing_store_ab_b20f1c#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_clothing_store_ab_b20f1c#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishquiz",
+    "#grammartest",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Phrasal verb + pronoun: try it on. Save this: Can I try it on? / try on this jacket / try it on\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_clothing_store_ab_b20f1c#/grammar\n#learnenglish #englishtips #englishquiz #grammartest #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "\"Can I try on it?\" or \"Can I try it on?\"? Comment A or B",
+   "caption": "Phrasal verb + pronoun: try it on. Save this: Can I try it on? / try on this jacket / try it on\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_clothing_store_ab_b20f1c#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_clothing_store_ab_b20f1c#/grammar",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#englishquiz",
+    "#grammartest"
+   ],
+   "caption_with_tags": "Phrasal verb + pronoun: try it on. Save this: Can I try it on? / try on this jacket / try it on\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_clothing_store_ab_b20f1c#/grammar\n#shorts #learnenglish #englishtips #englishquiz #grammartest"
+  }
+ },
+ "slot": {
+  "date": "2026-10-23",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

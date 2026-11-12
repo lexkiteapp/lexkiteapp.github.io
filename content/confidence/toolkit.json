@@ -1,0 +1,55 @@
+{
+  "_note": "Bộ công cụ tự tin – id nhóm và id cụm là VĨNH VIỄN (link video: #/confidence/toolkit#<nhóm>-<cụm>, script bank cf:tk:<nhóm>:<cụm>).",
+  "groups": [
+    { "id": "repair", "em": "🔧",
+      "title": { "vi": "Khi bạn chưa nghe rõ hoặc chưa hiểu", "en": "When you didn't hear or understand" },
+      "intro": { "vi": "Người bản xứ cũng nhờ nhắc lại mỗi ngày. Hỏi lại là kỹ năng, không phải lỗi.", "en": "Native speakers ask people to repeat every day. Asking again is a skill, not a mistake." },
+      "phrases": [
+        { "id": "say-again", "say": "Sorry, could you say that again?", "mean": { "vi": "Nhờ người khác nhắc lại", "en": "Ask someone to repeat" } },
+        { "id": "didnt-catch", "say": "Sorry, I didn't catch that.", "mean": { "vi": "Nói bạn chưa nghe kịp", "en": "Say you didn't hear it" } },
+        { "id": "more-slowly", "say": "Could you speak a bit more slowly, please?", "mean": { "vi": "Nhờ nói chậm hơn", "en": "Ask someone to speak more slowly" } },
+        { "id": "what-do-you-mean-by", "say": "What do you mean by \"deadline\"?", "mean": { "vi": "Hỏi nghĩa của một từ bạn chưa hiểu", "en": "Ask about one word you don't understand" } },
+        { "id": "so-you-mean", "say": "So you mean we start tomorrow?", "mean": { "vi": "Nói lại bằng lời mình để kiểm tra đã hiểu đúng", "en": "Say it in your own words to check you understood" } }
+      ] },
+    { "id": "fillers", "em": "⏳",
+      "title": { "vi": "Câu giờ để suy nghĩ", "en": "Buying time to think" },
+      "intro": { "vi": "Im lặng vài giây là bình thường. Dùng các câu này thay cho \"umm…\" kéo dài.", "en": "A few seconds of silence is normal. Use these instead of a long \"umm…\"." },
+      "phrases": [
+        { "id": "let-me-think", "say": "Let me think…", "mean": { "vi": "Xin vài giây để nghĩ", "en": "Ask for a few seconds to think" } },
+        { "id": "good-question", "say": "That's a good question.", "mean": { "vi": "Câu giờ khi gặp câu hỏi khó", "en": "Get time when a question is hard" } },
+        { "id": "how-can-i-put-it", "say": "How can I put it…?", "mean": { "vi": "Tìm cách diễn đạt", "en": "Look for the right way to say something" } },
+        { "id": "well", "say": "Well, I think it depends.", "mean": { "vi": "Mở đầu câu trả lời một cách bình tĩnh", "en": "Start an answer calmly" } },
+        { "id": "give-me-a-second", "say": "Give me a second.", "mean": { "vi": "Xin một chút thời gian", "en": "Ask for a moment" } }
+      ] },
+    { "id": "smalltalk", "em": "☀️",
+      "title": { "vi": "Mở đầu và kết thúc chuyện xã giao", "en": "Starting and ending small talk" },
+      "intro": { "vi": "Một câu mở đầu dễ và một câu kết thúc lịch sự giúp bạn tự tin bắt chuyện với bất kỳ ai.", "en": "One easy opener and one polite ending help you talk to anyone with confidence." },
+      "phrases": [
+        { "id": "hows-your-day", "say": "How's your day going?", "mean": { "vi": "Hỏi thăm ngày của ai đó", "en": "Ask about someone's day" } },
+        { "id": "nice-weather", "say": "Nice weather today, isn't it?", "mean": { "vi": "Bắt chuyện bằng thời tiết", "en": "Start a chat about the weather" } },
+        { "id": "what-brings-you-here", "say": "So, what brings you here?", "mean": { "vi": "Hỏi lý do người kia có mặt ở đây", "en": "Ask why someone is here" } },
+        { "id": "great-talking", "say": "It was great talking to you.", "mean": { "vi": "Kết thúc cuộc nói chuyện vui vẻ", "en": "End a conversation warmly" } },
+        { "id": "let-you-go", "say": "Anyway, I should let you go.", "mean": { "vi": "Kết thúc cuộc nói chuyện lịch sự", "en": "End a conversation politely" } }
+      ] },
+    { "id": "disagree", "em": "🤝",
+      "title": { "vi": "Phản đối lịch sự", "en": "Disagreeing politely" },
+      "intro": { "vi": "Bạn có thể không đồng ý mà vẫn thân thiện: ghi nhận ý người kia trước, rồi nêu ý mình.", "en": "You can disagree and stay friendly: accept the other idea first, then give yours." },
+      "phrases": [
+        { "id": "see-your-point", "say": "I see your point, but…", "mean": { "vi": "Ghi nhận ý người kia rồi nêu ý khác", "en": "Accept the other view, then give yours" } },
+        { "id": "not-so-sure", "say": "I'm not so sure about that.", "mean": { "vi": "Phản đối nhẹ nhàng", "en": "Disagree softly" } },
+        { "id": "another-way", "say": "Maybe we can look at it another way.", "mean": { "vi": "Đề xuất góc nhìn khác", "en": "Suggest a different view" } },
+        { "id": "up-to-a-point", "say": "I agree up to a point.", "mean": { "vi": "Đồng ý một phần", "en": "Agree only partly" } },
+        { "id": "agree-to-disagree", "say": "Let's agree to disagree.", "mean": { "vi": "Kết thúc tranh luận vui vẻ", "en": "End a debate in a friendly way" } }
+      ] },
+    { "id": "noword", "em": "🧩",
+      "title": { "vi": "Khi bạn không biết từ đó", "en": "When you don't know the word" },
+      "intro": { "vi": "Quên từ là chuyện bình thường. Hãy mô tả: nó thuộc loại gì, giống cái gì, dùng để làm gì.", "en": "Forgetting a word is normal. Describe it: what type of thing it is, what it is like, what you use it for." },
+      "phrases": [
+        { "id": "whats-the-word", "say": "What's the word for…?", "mean": { "vi": "Hỏi từ bạn đang quên", "en": "Ask for a word you forgot" } },
+        { "id": "kind-of", "say": "It's a kind of tool.", "mean": { "vi": "Mô tả bằng loại của nó", "en": "Describe it by its type" } },
+        { "id": "its-like", "say": "It's like a bag, but smaller.", "mean": { "vi": "Mô tả bằng cách so sánh", "en": "Describe it by comparing it to something" } },
+        { "id": "use-it-to", "say": "You use it to open bottles.", "mean": { "vi": "Mô tả bằng công dụng", "en": "Describe what it is for" } },
+        { "id": "how-do-you-say", "say": "How do you say this in English?", "mean": { "vi": "Hỏi cách nói bằng tiếng Anh", "en": "Ask how to say something in English" } }
+      ] }
+  ]
+}

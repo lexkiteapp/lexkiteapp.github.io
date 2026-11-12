@@ -1,0 +1,91 @@
+# Xưởng nội dung (docs/CONTENT-FACTORY.md): mỗi đêm lấp khoảng trống bảng điểm (content/pipeline/SCORE.md) theo mảng, lô 25.
+# plan (khoảng trống × runner rảnh, giữ ≥ 16 trống) → gen (ma trận shard: tầng 0 luật → tầng 1 ai-pool gem/groq → 2 giám khảo → soát mẫu 5 %)
+# → collect (merge.mjs ghi nguồn + lo + lô content/qa/batches + Kokoro câu mới → npm test → MỘT PR bot vào main, bật auto-merge).
+# KHÔNG đẩy vào nhánh PR khác: pull_request = lượt thử (1 lô/kind, chỉ artifact). $0: không neuron CF (để cho ảnh), không AI tài khoản chính.
+name: Xưởng nội dung
+on:
+  schedule:
+    - cron: '50 17 * * *'   # 00:50 VN (xong trước word-packs 20:30 UTC – không chồng khóa Gemini, jobs-check) – sau explain/script-bank, khóa Gemini/Groq đã làm mới theo ngày
+  workflow_dispatch:
+    inputs:
+      area: { description: 'Mảng (all | comm | grammar)', default: 'all' }
+      max: { description: 'Số lô tối đa mỗi kind lượt này', default: '4' }
+      n: { description: 'Số hạt giống mỗi lô', default: '25' }
+  pull_request:
+    paths: ['scripts/factory/**', '.github/workflows/content-factory.yml']
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write   # OIDC cho ai-pool (GrabCast/lexai)
+concurrency:
+  group: content-factory-${{ github.event_name == 'pull_request' && github.head_ref || inputs.area || 'all' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs: { matrix: '${{ steps.p.outputs.matrix }}', parallel: '${{ steps.p.outputs.parallel }}', count: '${{ steps.p.outputs.count }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - id: p
+        env: { GITHUB_TOKEN: '${{ github.token }}' }
+        run: |
+          node scripts/factory/run.mjs --plan --area "${{ inputs.area || 'all' }}" --max "${{ inputs.max || '4' }}" --n "${{ inputs.n || '25' }}" ${{ github.event_name == 'pull_request' && '--pilot' || '' }} > plan.json
+          echo "matrix=$(node -e "console.log(JSON.stringify({include:require('./plan.json').include}))")" >> "$GITHUB_OUTPUT"
+          echo "parallel=$(node -p "require('./plan.json').parallel")" >> "$GITHUB_OUTPUT"
+          echo "count=$(node -p "require('./plan.json').include.length")" >> "$GITHUB_OUTPUT"
+  gen:
+    needs: plan
+    if: needs.plan.outputs.count != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJSON(needs.plan.outputs.parallel) }}
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Lô ${{ matrix.area }}/${{ matrix.kind }} s${{ matrix.shard }}
+        env:  # ai-pool: gem (GEMINI_POOL) → groq (GROQ_POOL) → GrabCast; cf2 = 0 neuron (kho CF để cho ảnh)
+          GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
+          GROQ_POOL: ${{ secrets.GROQ_POOL }}
+          GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
+          AI_POOL_GC_MAX: '2000'
+        run: node scripts/factory/run.mjs --area "${{ matrix.area }}" --kind "${{ matrix.kind }}" --shard "${{ matrix.shard }}" --shards "${{ matrix.shards }}" --n "${{ inputs.n || '25' }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'factory-${{ matrix.area }}-${{ matrix.kind }}-s${{ matrix.shard }}', path: out/factory/, retention-days: 14, if-no-files-found: ignore }
+  collect:
+    needs: [plan, gen]
+    if: ${{ !cancelled() && needs.plan.outputs.count != '0' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: "${{ github.event_name != 'pull_request' && secrets.BOT_DEPLOY_KEY || '' }}", ref: "${{ github.event_name == 'pull_request' && github.sha || 'main' }}" }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - uses: actions/download-artifact@v4
+        with: { pattern: 'factory-*', path: out/factory, merge-multiple: true }
+      - name: Gom lô → nguồn + lo + content/qa/batches + bảng điểm
+        run: node scripts/factory/merge.mjs out/factory --summary out/factory-summary.md
+      - name: Chuẩn hóa chính tả Việt do AI sinh (vi-lint --fix)
+        run: node scripts/vi-lint.mjs --fix || true   # AI hay ra hoá/khoẻ (kiểu cũ) → sửa tự động; npm test sau đó vẫn chặn lỗi còn lại
+      - name: Đồng bộ add-on (extension/app = web/) – merge.mjs ghi vào web/ nên phải dựng lại, nếu không ext-sync đỏ
+        run: bash scripts/build-extension.sh
+      - name: npm test
+        run: npm ci --no-audit --no-fund && npm test
+      - name: Bản vá lô (lượt thử PR – phiên chính áp vào PR, bot không đẩy vào nhánh PR)
+        if: always()
+        run: git add -A content web extension && git diff --cached --binary > out/factory.patch || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: factory-merged, path: "out/factory-summary.md\nout/factory.patch", retention-days: 14 }
+      - name: MỘT PR bot vào main + auto-merge
+        if: github.event_name != 'pull_request'
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: bash scripts/factory/open-pr.sh out/factory-summary.md

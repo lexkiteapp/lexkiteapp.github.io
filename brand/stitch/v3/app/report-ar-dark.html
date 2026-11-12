@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - الإبلاغ عن مشكلة</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans Arabic"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            night: {
+              bg: '#10191B',
+              surface: '#172427',
+              raised: '#1E2F33',
+              input: '#131E21',
+              border: '#26383D',
+              'border-subtle': '#1F3035',
+              'border-raised': '#2B3F44',
+              bottom: '#0D1517',
+            },
+            teal: {
+              mint: '#2DD4BF',
+              glow: '#38E1CA',
+              active: '#145550',
+              deep: '#134e4a',
+            },
+            ink: {
+              primary: '#E8F1F0',
+              secondary: '#A9BDBB',
+              muted: '#7A918F',
+            },
+            tactile: {
+              coral: '#F97316',
+              'coral-hover': '#EA580C',
+              'coral-ledge': '#9A3412',
+              'coral-ink': '#1A0F02',
+            }
+          },
+          boxShadow: {
+            'tactile-btn': '0 4px 0 0 #9A3412',
+            'tactile-btn-active': '0 1px 0 0 #9A3412',
+            'tactile-card': '0 3px 0 0 #121C1E',
+            'tactile-chip-active': '0 3px 0 0 #0C3431',
+            'tactile-chip': '0 2px 0 0 #121C1E',
+            'top-bar': '0 2px 0 0 #172427',
+            'tab-bar': '0 -3px 0 0 #080D0E',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .teacher-slot {
+      border: 2px dashed #2DD4BF;
+      background-color: rgba(45, 212, 191, 0.08);
+    }
+  </style>
+</head>
+<body class="bg-night-bg text-ink-primary font-sans antialiased min-h-screen selection:bg-teal-mint selection:text-[#00201e]">
+<!-- Outer Mobile Container: 390px native viewport edge-to-edge -->
+<div class="w-full max-w-[390px] mx-auto min-h-screen flex flex-col bg-night-bg relative pb-24">
+<!-- Top Bar (Header with back button flipped for RTL) -->
+<header class="sticky top-0 z-40 bg-night-bg/95 backdrop-blur-sm px-4 pt-3 pb-3 border-b-2 border-night-border flex items-center justify-between shadow-top-bar">
+<div class="flex items-center gap-3">
+<button aria-label="الرجوع" class="w-11 h-11 rounded-2xl bg-night-raised border-2 border-night-border-raised flex items-center justify-center text-teal-mint shadow-tactile-chip active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-rounded text-[24px]">arrow_forward</span>
+</button>
+<div>
+<h1 class="text-[19px] font-extrabold text-ink-primary tracking-tight leading-tight">الإبلاغ عن مشكلة</h1>
+<p class="text-[12px] font-semibold text-ink-secondary">ساعدنا في تحسين Lexkite</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 bg-night-raised border border-teal-mint/30 rounded-full shadow-sm">
+<span class="w-2 h-2 rounded-full bg-teal-mint animate-pulse"></span>
+<span class="text-[11px] font-bold text-teal-mint tracking-wide">V2.4 مباشر</span>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-4 pt-4 pb-4 flex flex-col gap-4">
+<!-- Teacher Slot & Guidance Banner -->
+<section class="bg-night-surface rounded-[20px] p-3.5 border-2 border-night-border shadow-tactile-card flex items-start gap-3">
+<!-- Mandatory empty teacher slot placeholder -->
+<div class="teacher-slot w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center" title="teacher-slot">
+<span class="text-[11px] font-extrabold text-teal-mint text-center leading-tight">المعلم</span>
+</div>
+<!-- Speech Bubble Context -->
+<div class="flex-1 pt-0.5">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-[13px] font-extrabold text-teal-mint">كارلوس</span>
+<span class="text-[11px] font-semibold text-ink-secondary">• روبوت الدعم</span>
+</div>
+<p class="text-[13px] font-semibold text-[#C8DCDA] leading-relaxed">"لاحظت ترجمة غير دقيقة، أو خطأ في معايير الاختبار، أو مشكلة تقنية؟ أخبرنا أدناه ليتمكن فريقنا الأكاديمي من حلها خلال 24 ساعة!"</p>
+</div>
+</section>
+<!-- Category Selection Chips -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="text-[13px] font-extrabold text-ink-primary">
+            نوع المشكلة <span class="text-tactile-coral">*</span>
+</label>
+<span class="text-[12px] font-semibold text-ink-secondary">اختر واحدة</span>
+</div>
+<!-- Chips Grid -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Chip 1: Bug (Active Default) -->
+<button class="min-h-[50px] px-3 py-2 rounded-2xl bg-teal-active border-2 border-teal-mint text-ink-primary shadow-tactile-chip-active flex items-center gap-2.5 justify-start text-right active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-rounded text-[20px] text-amber-300 flex-shrink-0">bug_report</span>
+<div class="flex flex-col">
+<span class="text-[13px] font-extrabold leading-tight text-teal-mint">خلل برمجي</span>
+<span class="text-[11px] font-medium text-[#C3E5DE] leading-none mt-0.5">توقف أو خطأ</span>
+</div>
+</button>
+<!-- Chip 2: Wrong Answer -->
+<button class="min-h-[50px] px-3 py-2 rounded-2xl bg-night-raised border-2 border-night-border-raised text-ink-primary shadow-tactile-chip flex items-center gap-2.5 justify-start text-right hover:bg-night-surface active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-rounded text-[20px] text-tactile-coral flex-shrink-0">cancel</span>
+<div class="flex flex-col">
+<span class="text-[13px] font-extrabold leading-tight text-ink-primary">إجابة خاطئة</span>
+<span class="text-[11px] font-medium text-ink-secondary leading-none mt-0.5">تمرين أو معيار تقييم</span>
+</div>
+</button>
+<!-- Chip 3: Translation -->
+<button class="min-h-[50px] px-3 py-2 rounded-2xl bg-night-raised border-2 border-night-border-raised text-ink-primary shadow-tactile-chip flex items-center gap-2.5 justify-start text-right hover:bg-night-surface active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-rounded text-[20px] text-teal-mint flex-shrink-0">translate</span>
+<div class="flex flex-col">
+<span class="text-[13px] font-extrabold leading-tight text-ink-primary">ترجمة</span>
+<span class="text-[11px] font-medium text-ink-secondary leading-none mt-0.5">واجهة أو مسرد</span>
+</div>
+</button>
+<!-- Chip 4: Idea / Feedback -->
+<button class="min-h-[50px] px-3 py-2 rounded-2xl bg-night-raised border-2 border-night-border-raised text-ink-primary shadow-tactile-chip flex items-center gap-2.5 justify-start text-right hover:bg-night-surface active:translate-y-0.5 active:shadow-none transition-all" type="button">
+<span class="material-symbols-rounded text-[20px] text-amber-400 flex-shrink-0">lightbulb</span>
+<div class="flex flex-col">
+<span class="text-[13px] font-extrabold leading-tight text-ink-primary">فكرة / اقتراح</span>
+<span class="text-[11px] font-medium text-ink-secondary leading-none mt-0.5">طلب ميزة</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Problem Description Text Area -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="text-[13px] font-extrabold text-ink-primary" for="issue-description">
+            الوصف التفصيلي <span class="text-tactile-coral">*</span>
+</label>
+<span class="text-[11px] font-bold text-[#C8DCDA]" dir="ltr">0 / 500 حرف</span>
+</div>
+<div class="relative bg-night-surface rounded-[20px] border-2 border-night-border focus-within:border-teal-mint shadow-tactile-card transition-all p-3">
+<textarea class="w-full bg-night-input rounded-xl p-2.5 text-[14px] font-semibold text-ink-primary placeholder-ink-muted/80 resize-none focus:outline-none leading-relaxed text-right border border-night-border-subtle" id="issue-description" placeholder="ما الذي حدث؟ مثال: أثناء القراءة في القسم 3 لاختبار IELTS، انقطع صوت السؤال رقم 14 بشكل غير متوقع..." rows="4"></textarea>
+<!-- Route line & change button -->
+<div class="pt-2.5 mt-2 border-t border-night-border flex items-center justify-between text-[11px] font-bold text-ink-secondary">
+<span class="flex items-center gap-1.5 text-ink-secondary">
+<span class="material-symbols-rounded text-[16px] text-teal-mint">info</span>
+<span>المسار الحالي:</span>
+<span class="font-extrabold text-teal-mint font-mono" dir="ltr">#/drill/cbt-reading-14</span>
+</span>
+<button class="text-teal-mint hover:underline inline-flex items-center justify-center font-bold min-h-[44px] min-w-[44px] px-2 py-1 -my-2 -mx-1" type="button">تغيير</button>
+</div>
+</div>
+</section>
+<!-- Attach Screenshot Toggle Card -->
+<section class="bg-night-surface rounded-[20px] p-3.5 border-2 border-night-border shadow-tactile-card flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 rounded-2xl bg-teal-active/50 border-2 border-teal-mint/40 flex items-center justify-center text-teal-mint flex-shrink-0">
+<span class="material-symbols-rounded text-[22px]">add_a_photo</span>
+</div>
+<div>
+<div class="text-[14px] font-extrabold text-ink-primary leading-snug">إرفاق لقطة شاشة حديثة</div>
+<div class="text-[12px] font-semibold text-ink-secondary leading-tight mt-0.5">التقاط تلقائي لشاشة التمرين الحالية (موصى به)</div>
+</div>
+</div>
+<!-- Mirrored Tactile Switch -->
+<label class="relative inline-flex items-center cursor-pointer flex-shrink-0 min-w-[48px] min-h-[48px] justify-center">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-12 h-7 bg-night-raised border border-night-border-raised peer-focus:outline-none rounded-full peer peer-checked:bg-teal-mint peer-checked:after:-translate-x-5 after:content-[''] after:absolute after:top-[12.5px] after:right-[4px] after:bg-[#10191B] peer-checked:after:bg-[#00201e] after:border-teal-mint after:border after:rounded-full after:h-6 after:w-6 after:transition-all after:shadow-sm"></div>
+</label>
+</section>
+<!-- Captured preview thumbnail card -->
+<div class="bg-night-raised rounded-2xl p-2.5 border-2 border-night-border-raised flex items-center justify-between">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-teal-mint/15 border border-teal-mint/30 flex items-center justify-center flex-shrink-0"><span class="material-symbols-rounded text-[22px] text-teal-mint">image</span></div>
+<div class="flex flex-col min-w-0">
+<span class="text-[12px] font-extrabold text-ink-primary truncate font-mono" dir="ltr">drill_reading_cbt_autosave.png</span>
+<span class="text-[11px] font-semibold text-ink-secondary">390 × 844 px • 248 KB • مُرفق تلقائياً</span>
+</div>
+</div>
+<button aria-label="إزالة لقطة الشاشة" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-xl hover:bg-night-border text-ink-secondary hover:text-red-400 flex items-center justify-center transition-colors flex-shrink-0" type="button"><span class="material-symbols-rounded text-[20px]">close</span></button>
+</div>
+<!-- Contact Email Input Field -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="text-[13px] font-extrabold text-ink-primary" for="contact-email">
+            بريدك الإلكتروني لمتابعة الحل
+          </label>
+<span class="text-[11px] font-bold text-teal-mint flex items-center gap-1 bg-teal-active/40 border border-teal-mint/30 px-2 py-0.5 rounded-full">
+<span class="material-symbols-rounded text-[14px]">verified</span> مُعبأ تلقائياً
+          </span>
+</div>
+<div class="relative bg-night-input rounded-[20px] border-2 border-night-border-raised focus-within:border-teal-mint shadow-tactile-card transition-all flex items-center px-3.5 py-1 min-h-[48px]">
+<span class="material-symbols-rounded text-[20px] text-ink-secondary ml-2.5 flex-shrink-0">mail</span>
+<input class="w-full bg-transparent text-[14px] font-bold text-ink-primary placeholder-ink-muted focus:outline-none py-2 text-left font-mono" dir="ltr" id="contact-email" placeholder="name@example.com" type="email" value="linh.prep@lexkite.learner.io"/>
+</div>
+</section>
+<!-- Primary Action CTA Button -->
+<section class="pt-2 flex flex-col gap-2.5">
+<button class="w-full min-h-[52px] px-5 py-3 rounded-[20px] bg-tactile-coral hover:bg-tactile-coral-hover text-tactile-ink font-extrabold text-[16px] tracking-wide shadow-tactile-btn active:translate-y-1 active:shadow-tactile-btn-active flex items-center justify-center gap-2 transition-all" type="button">
+<span>إرسال الملاحظات والتقرير</span>
+<span class="text-[18px] font-black leading-none">◂</span>
+</button>
+<!-- Privacy Note -->
+<p class="text-[12px] font-medium text-[#B8CECC] text-center leading-relaxed px-2"><span class="material-symbols-rounded text-[14px] align-middle text-teal-mint ml-0.5">lock</span> <strong class="text-ink-primary">ملاحظة الخصوصية:</strong> يتم إرسال سجلات التشخيص ومعلومات الجهاز بشكل آمن. لا يتم تضمين أي سجل محادثات شخصية أو تسجيلات للميكروفون.</p>
+</section>
+</main>
+<!-- Canonical 5-Tab Bottom Navigation Bar Mirrored Right-to-Left (اليوم, المفردات, المهارات, الاختبارات [Active], أنا) -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto z-50 bg-night-bottom border-t-2 border-night-border shadow-tab-bar px-2 py-1.5 flex items-center justify-between">
+<!-- 1. اليوم (Today) -->
+<a class="flex-1 min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-ink-secondary hover:text-ink-primary active:scale-95 transition-all" href="#/today">
+<span class="material-symbols-rounded text-[22px]">calendar_today</span>
+<span class="text-[11px] font-bold">اليوم</span>
+</a>
+<!-- 2. المفردات (Vocab) -->
+<a class="flex-1 min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-ink-secondary hover:text-ink-primary active:scale-95 transition-all" href="#/vocab">
+<span class="material-symbols-rounded text-[22px]">menu_book</span>
+<span class="text-[11px] font-bold">المفردات</span>
+</a>
+<!-- 3. المهارات (Skills) -->
+<a class="flex-1 min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-ink-secondary hover:text-ink-primary active:scale-95 transition-all" href="#/skills">
+<span class="material-symbols-rounded text-[22px]">psychology</span>
+<span class="text-[11px] font-bold">المهارات</span>
+</a>
+<!-- 4. الاختبارات (Tests) - Active highlighted state with warm amber/orange pill and dark ink -->
+<a class="flex-1 min-h-[48px] flex flex-col items-center justify-center gap-0.5 active:scale-95 transition-all" href="#/tests">
+<div class="px-3.5 py-1 bg-[#F59E0B] rounded-full flex flex-col items-center justify-center shadow-sm">
+<span class="material-symbols-rounded text-[22px] text-[#1A0F02] font-bold">assignment</span>
+<span class="text-[11px] font-extrabold text-[#1A0F02]">الاختبارات</span>
+</div>
+</a>
+<!-- 5. أنا (Me) -->
+<a class="flex-1 min-h-[48px] flex flex-col items-center justify-center gap-0.5 text-ink-secondary hover:text-ink-primary active:scale-95 transition-all" href="#/me">
+<span class="material-symbols-rounded text-[22px]">person</span>
+<span class="text-[11px] font-bold">أنا</span>
+</a>
+</nav>
+</div>
+</body></html>

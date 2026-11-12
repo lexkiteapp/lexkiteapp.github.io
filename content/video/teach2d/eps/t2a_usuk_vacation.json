@@ -1,0 +1,124 @@
+{
+ "id": "t2a_usuk_vacation",
+ "template": "usuk",
+ "series": "US or UK?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "U.S. or U.K.?",
+   "pause": 0.42
+  },
+  {
+   "id": "us",
+   "text": "In America, people say vacation.",
+   "pause": 0.42
+  },
+  {
+   "id": "uk",
+   "text": "In Britain, people say holiday. Same thing!",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "We're going on vacation next week.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! You're in Manchester. Which word do people use?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Holiday!",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "us": "vacation",
+  "uk": "holiday",
+  "ipa_us": "/veɪˈkeɪʃn/",
+  "ipa_uk": "/ˈhɑːlədeɪ/",
+  "same": "Same thing!",
+  "quiz": {
+   "options": [
+    "vacation",
+    "holiday"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/vacation",
+  "link": "https://lexkite.com/app/#/dict/vacation",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "US or UK?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Vacation or holiday? US vs UK English",
+  "keyword": "vacation vs holiday",
+  "value": "Americans say vacation. British people say holiday.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/vacation",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Vacation or holiday? US vs UK English",
+    "description": "Americans say vacation. British people say holiday.\n\nLook up any word, free: https://lexkite.com/app/#/dict/vacation\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "vacation vs holiday",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Vacation or holiday? US vs UK English\n\nAmericans say vacation. British people say holiday.\n\nLook up any word, free: https://lexkite.com/app/#/dict/vacation"
+   },
+   "instagram": {
+    "caption": "Vacation or holiday? US vs UK English\n\nAmericans say vacation. British people say holiday.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Vacation or holiday? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Holiday! Americans say vacation. British people say holiday. More practice like this (free): {link}"
+ }
+}

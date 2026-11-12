@@ -1,0 +1,21 @@
+/* UI pt – handoff (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["pt"] = Object.assign(D["pt"] || {}, {
+"Chuyển sang thiết bị khác":"Mover para outro dispositivo",
+"Chưa có thẻ nào để chuyển – hãy lưu vài từ trước nhé.":"Ainda não há cartas para mover – guarde algumas palavras primeiro.",
+"Chưa tạo được mã – kiểm tra kết nối mạng rồi thử lại.":"Não foi possível criar um código – verifique sua conexão e tente novamente.",
+"Không giải mã được – kiểm tra lại link/mã hoặc kết nối mạng.":"Não foi possível descriptografar – verifique o link/código ou sua conexão.",
+"Mã dùng 1 lần, hết hạn sau":"Código único, expira em",
+"Mã đã hết hạn hoặc đã được dùng – tạo mã mới trên máy gửi.":"O código expirou ou já foi usado – crie um novo no dispositivo remetente.",
+"Nhận dữ liệu":"Receber dados",
+"Quét mã bằng camera điện thoại (hoặc mở link trên máy kia) để nạp {n} thẻ – không cần đăng nhập.":"Digitalize o código com a câmera do seu telefone (ou abra o link no outro dispositivo) para carregar {n} cartões – não é necessário fazer login.",
+"Thử lại":"Tentar de novo",
+"Tạo mã gửi từ máy này":"Crie um código neste dispositivo",
+"dữ liệu được mã hóa – máy chủ không đọc được.":"seus dados estão criptografados – nosso servidor não consegue lê-los.",
+"{a} thẻ mới · {u} thẻ cập nhật tiến độ.":"{a} novos cartões · {u} cartões com progresso atualizado.",
+"Đang mã hóa dữ liệu trên máy của bạn…":"Criptografando seus dados neste dispositivo…",
+"Đang tải và giải mã…":"Baixando e descriptografando…",
+"Đã nhận dữ liệu":"Dados recebidos",
+"đã hết hạn":"expirou",
+"📲 Chuyển sang điện thoại (không cần đăng nhập)":"📲 Vá para o seu telefone (sem login)",
+});
+})(typeof self !== 'undefined' ? self : this);

@@ -1,0 +1,71 @@
+# Kho từ theo kỳ thi từ danh sách nguồn mở (NAWL → IELTS/TOEFL, BSL → TOEIC): làm giàu dữ liệu + kiểm chất lượng tự động.
+# Chạy dần mỗi đêm cho tới khi đủ; sửa script/CSV là chạy lại. Xem scripts/gen-wordlist.mjs, content/wordlists/README.md.
+name: Kho từ theo kỳ thi
+on:
+  schedule:
+    - cron: '0 21 * * *'   # 04:00 giờ VN
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [scripts/gen-wordlist.mjs, 'content/wordlists/*.csv', .github/workflows/wordlists.yml]
+permissions:
+  contents: write
+  actions: read     # đọc trạng thái word-packs/sent-packs (bước chờ)
+# 04/11: nhóm riêng (cùng cách lexicon-i18n #649). Trước đây chung nhóm google-translate với word-packs/sent-packs/…: GitHub chỉ giữ 1 lượt CHỜ/nhóm nên lượt đến sau đè lượt đến trước → wordlists cancelled 4/6 lượt gần nhất (31/10–04/11).
+# Vẫn không gọi Google Translate song song: bước chờ bên dưới đợi word-packs + sent-packs xong rồi mới chạy.
+concurrency: { group: wordlists, cancel-in-progress: false }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - name: Chờ word-packs + sent-packs xong (cùng gọi Google Translate; tối đa 90 phút, TRƯỚC checkout; quá hạn thì bỏ lượt)
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          for i in $(seq 1 90); do
+            t=0
+            for w in word-packs sent-packs; do
+              for st in in_progress queued; do
+                n=$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/$w.yml/runs?status=$st&per_page=5" --jq '.total_count' 2>/dev/null || echo 0)
+                t=$((t + n))
+              done
+            done
+            [ "$t" = "0" ] && exit 0
+            sleep 60
+          done
+          echo '::warning::word-packs/sent-packs còn chạy sau 90 phút → bỏ lượt wordlists'; echo SKIP=1 >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+        if: env.SKIP != '1'
+        with: { ssh-key: "${{ github.ref == 'refs/heads/main' && secrets.BOT_DEPLOY_KEY || '' }}" }   # chỉ main cầm khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: actions/setup-node@v4
+        if: env.SKIP != '1'
+        with: { node-version: 22 }
+      - name: Làm giàu & kiểm tra
+        if: env.SKIP != '1'
+        run: |
+          node scripts/gen-wordlist.mjs nawl --max 600
+          node scripts/gen-wordlist.mjs bsl --max 600
+          node scripts/vi-lint.mjs | tail -3
+      - name: Bổ sung phiên âm & ví dụ còn trống (chạy dần, có lưu đệm)
+        if: env.SKIP != '1'
+        run: |
+          node scripts/fill-vocab.mjs --max 1000 --minutes 25 | tail -3
+          if ! node scripts/test/content-check.mjs > "$RUNNER_TEMP/cc.txt"; then tail -20 "$RUNNER_TEMP/cc.txt"; echo 'content-check lỗi → bỏ thay đổi kho từ lần này'; git checkout web/js/lib web/js/data.js; fi
+      # 26/10: gen-wordlist ghi dòng KHÔNG có IPA Mỹ → commit thẳng làm dict-consistency đỏ (759 dòng, Prod release + vocab-img-scene hỏng).
+      # Luôn chuẩn hoá kho (IPA Mỹ, bản chép add-on, dist) + tab mới add-on rồi mới lưu; cổng còn đỏ → không commit.
+      - name: Chuẩn hoá kho + tab mới add-on (docs/LEXICON.md)
+        if: env.SKIP != '1'
+        run: |
+          node scripts/build-lexicon.mjs --write | tail -2
+          node scripts/gen-newtab.mjs | tail -1
+          node scripts/build-lexicon.mjs
+      - name: Lưu kết quả (thử lại tối đa 5 lần)
+        if: env.SKIP != '1' && github.ref == 'refs/heads/main'
+        run: |
+          bash scripts/ci/push-main.sh "Kho từ theo kỳ thi: cập nhật tự động" web/js/lib web/js/data.js content/wordlists extension/app/js extension/nt
+      - name: Nhánh khác main – artifact + summary (không đẩy vào nhánh; lấy về bằng bash scripts/ci/bot-output.sh wordlists <nhánh>)
+        if: env.SKIP != '1' && github.ref != 'refs/heads/main'
+        uses: ./.github/actions/bot-output
+        with:
+          name: wordlists
+          paths: web/js/lib web/js/data.js content/wordlists extension/app/js extension/nt

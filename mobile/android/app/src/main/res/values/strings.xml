@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">Lexkite</string>
     <string name="title_activity_main">Lexkite</string>
-    <string name="package_name">com.vocaband.app</string>
-    <string name="custom_url_scheme">com.vocaband.app</string>
+    <string name="package_name">com.lexkite.app</string>
+    <string name="custom_url_scheme">com.lexkite.app</string>
 </resources>

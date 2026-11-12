@@ -1,0 +1,213 @@
+{
+  "id": "salary",
+  "level": "B2",
+  "order": 15,
+  "em": "💰",
+  "rp": "salary",
+  "title": {
+    "vi": "Đàm phán lương",
+    "en": "Salary negotiation"
+  },
+  "goal": {
+    "vi": "Đưa ra mức lương có căn cứ, hỏi về sự linh hoạt, xin thêm thời gian và nhận lời một cách thiện chí.",
+    "en": "Ask for a fair number, check if there is room to move, ask for time and accept on good terms."
+  },
+  "dialogue": {
+    "a": "Karen",
+    "aRole": "an HR manager",
+    "lines": [
+      [
+        "a",
+        "We'd like to offer you the job at 70,000 a year."
+      ],
+      [
+        "b",
+        "Thank you! I'm really excited about this offer."
+      ],
+      [
+        "b",
+        "Based on my research, the range for this role is 70 to 80 thousand. I was hoping for something closer to 78."
+      ],
+      [
+        "a",
+        "I understand. 78 is above our budget, I'm afraid."
+      ],
+      [
+        "b",
+        "Is there any flexibility on the base salary?"
+      ],
+      [
+        "a",
+        "We could go up to 74."
+      ],
+      [
+        "b",
+        "If the salary is fixed at 74, could we talk about extra vacation days?"
+      ],
+      [
+        "a",
+        "We can add five more days."
+      ],
+      [
+        "b",
+        "That sounds fair. Could I have a day to think it over?"
+      ],
+      [
+        "a",
+        "Of course. Let us know by Friday."
+      ]
+    ]
+  },
+  "phrases": [
+    {
+      "id": "based-on-research",
+      "say": "Based on my research, the range for this role is 70 to 80 thousand.",
+      "not": "I want more money, please.",
+      "gap": "research",
+      "mean": {
+        "vi": "Đưa ra mức lương dựa trên tìm hiểu thị trường",
+        "en": "Give a number based on facts"
+      },
+      "why": {
+        "vi": "Dẫn số liệu khiến đề nghị của bạn nghe công bằng.",
+        "en": "Facts and numbers make your request sound fair."
+      }
+    },
+    {
+      "id": "was-hoping-for",
+      "say": "I was hoping for something closer to 78.",
+      "not": "This salary is too low for me.",
+      "gap": "hoping",
+      "mean": {
+        "vi": "Nói mức bạn mong muốn một cách mềm mỏng",
+        "en": "Say the number you want in a soft way"
+      },
+      "why": {
+        "vi": "\"I was hoping for…\" vừa kiên quyết vừa nhẹ nhàng.",
+        "en": "\"I was hoping for…\" is firm but soft."
+      }
+    },
+    {
+      "id": "any-flexibility",
+      "say": "Is there any flexibility on the base salary?",
+      "not": "You can give more or not?",
+      "gap": "flexibility",
+      "mean": {
+        "vi": "Hỏi xem còn thương lượng được không",
+        "en": "Ask if there is room to change the offer"
+      },
+      "why": {
+        "vi": "Câu hỏi mở này mở ra cuộc trao đổi, không chỉ có/không.",
+        "en": "This opens a talk, not just a yes or no."
+      }
+    },
+    {
+      "id": "excited-about",
+      "say": "I'm really excited about this offer.",
+      "not": "I am very exciting for this offer.",
+      "gap": "excited",
+      "mean": {
+        "vi": "Cảm ơn và thể hiện bạn rất vui với lời mời",
+        "en": "Thank them and show you are happy"
+      },
+      "why": {
+        "vi": "\"Excited\" là cảm xúc của bạn; \"exciting\" mô tả sự việc.",
+        "en": "\"Excited\" is how you feel; \"exciting\" describes the thing."
+      }
+    },
+    {
+      "id": "could-we-talk-about",
+      "say": "If the salary is fixed, could we talk about extra vacation days?",
+      "not": "Then give me more holiday.",
+      "gap": "talk",
+      "mean": {
+        "vi": "Đề nghị lợi ích khác khi lương không tăng được",
+        "en": "Ask for other things if the money can't change"
+      },
+      "why": {
+        "vi": "Nếu lương không đổi được, hãy hỏi về quyền lợi khác.",
+        "en": "If money can't move, ask for other things you value."
+      }
+    },
+    {
+      "id": "think-it-over",
+      "say": "Could I have a day or two to think it over?",
+      "not": "I must think. I answer later.",
+      "gap": "over",
+      "mean": {
+        "vi": "Xin thêm thời gian để suy nghĩ",
+        "en": "Ask for time to decide"
+      },
+      "why": {
+        "vi": "Xin thời gian suy nghĩ là bình thường và cho thấy bạn cẩn thận.",
+        "en": "Asking for time is normal and shows you are careful."
+      }
+    },
+    {
+      "id": "sounds-fair",
+      "say": "That sounds fair. I'm happy to accept the offer.",
+      "not": "OK, I agree your offer.",
+      "gap": "fair",
+      "mean": {
+        "vi": "Nhận lời mời làm việc một cách vui vẻ",
+        "en": "Accept the job offer warmly"
+      },
+      "why": {
+        "vi": "Nói \"agree to\" một đề nghị, hoặc đơn giản là \"accept\".",
+        "en": "Say \"agree to\" an offer, or simply say \"accept\"."
+      }
+    }
+  ],
+  "roleplay": {
+    "ai": {
+      "name": "Karen",
+      "role": "an HR manager at a marketing company",
+      "persona": "friendly but careful with the budget",
+      "goal": "agree on a salary inside the company's budget"
+    },
+    "you": "Thank her for the offer, ask for a higher number with a reason, ask if they can offer more or give other benefits, then ask for time to decide.",
+    "turns": [
+      {
+        "a": "We'd like to offer you the job at 70,000 a year.",
+        "h": "Thank you! I'm really excited about this offer.",
+        "br": [
+          [
+            "excited|thank|happy|great",
+            "We're excited too."
+          ]
+        ]
+      },
+      {
+        "a": "So, what do you think about the salary?",
+        "h": "Based on my research, I was hoping for something closer to 78.",
+        "br": [
+          [
+            "research|hoping|closer|range|78|75|80",
+            "I see. That's above our budget, I'm afraid."
+          ]
+        ]
+      },
+      {
+        "a": "We could go up to 74, but that's our limit.",
+        "h": "If the salary is fixed, could we talk about extra vacation days?",
+        "br": [
+          [
+            "vacation|days|benefits|flexib|remote|training|talk about",
+            "We could add five more days."
+          ]
+        ]
+      },
+      {
+        "a": "So, do we have a deal?",
+        "h": "That sounds fair. Could I have a day to think it over?",
+        "br": [
+          [
+            "think it over|day|time|fair|accept",
+            "Of course."
+          ]
+        ]
+      }
+    ],
+    "end": "Take your time. Just let us know by Friday. We really hope you'll join us!"
+  }
+}

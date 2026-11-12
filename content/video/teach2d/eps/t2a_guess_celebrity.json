@@ -1,0 +1,118 @@
+{
+ "id": "t2a_guess_celebrity",
+ "template": "guess",
+ "series": "Guess the Word",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess the word in three clues!",
+   "pause": 0.42
+  },
+  {
+   "id": "c1",
+   "text": "Clue one: a famous person.",
+   "pause": 0.42
+  },
+  {
+   "id": "c2",
+   "text": "Clue two: it has nine letters.",
+   "pause": 0.42
+  },
+  {
+   "id": "c3",
+   "text": "Clue three: it starts with C.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Got it? Comment your guess!",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Celebrity! A celebrity chef will open the new restaurant.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "celebrity",
+  "ipa": "/səˈlebrɪti/",
+  "clue": "A famous person.",
+  "n": 9,
+  "img": "celebrity#n",
+  "ex": "A celebrity chef will open the new restaurant."
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/celebrity",
+  "link": "https://lexkite.com/app/#/dict/celebrity",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess the word!"
+ },
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "\"A famous person.\" Guess the word!",
+  "keyword": "celebrity",
+  "value": "The answer: celebrity /səˈlebrɪti/. A celebrity chef will open the new restaurant.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/celebrity",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "\"A famous person.\" Guess the word!",
+    "description": "The answer: celebrity /səˈlebrɪti/. A celebrity chef will open the new restaurant.\n\nLook up any word, free: https://lexkite.com/app/#/dict/celebrity\n\nSeries: Guess the Word · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "celebrity",
+     "Guess the Word",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "\"A famous person.\" Guess the word!\n\nThe answer: celebrity /səˈlebrɪti/. A celebrity chef will open the new restaurant.\n\nLook up any word, free: https://lexkite.com/app/#/dict/celebrity"
+   },
+   "instagram": {
+    "caption": "\"A famous person.\" Guess the word!\n\nThe answer: celebrity /səˈlebrɪti/. A celebrity chef will open the new restaurant.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "\"A famous person.\" Guess the word! #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Celebrity! A celebrity chef will open the new restaurant. Try the full lesson and quiz here: {link}"
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "topic": "Office idiom: circle back vs textbook English",
+ "scene": "office",
+ "vars": {
+  "idiom": "circle back",
+  "hookLine": "Let's circle back on this.",
+  "textbook": "So in my textbook, that's: we'll discuss it later?",
+  "meaning": "Oh, circle back means come back to a topic later.",
+  "native": "Can we circle back to the budget on Monday?",
+  "tip": "circle back is for work. With friends, just say let's talk later.",
+  "textbookCard": "We'll discuss it later.",
+  "nativeCard": "Let's circle back."
+ },
+ "lines": {
+  "example": {
+   "expr": "curious"
+  }
+ },
+ "hashtags": [
+  "idioms",
+  "businessenglish",
+  "speakenglish"
+ ]
+}

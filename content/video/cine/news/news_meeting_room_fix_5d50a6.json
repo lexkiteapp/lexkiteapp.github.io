@@ -1,0 +1,106 @@
+{
+ "id": "news_meeting_room_fix_5d50a6",
+ "template": "fix",
+ "bg": "classroom",
+ "area": "grammar-check",
+ "cefr": "B1",
+ "point": "discuss + object, no about",
+ "hook": {
+  "card": "STOP SAYING THIS",
+  "line": "n_5d50a6_h"
+ },
+ "series": [
+  "WORK ENGLISH",
+  "discuss"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_5d50a6_1",
+   "card": {
+    "kind": "x",
+    "text": "Let's discuss about it.",
+    "sub": null,
+    "label": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_5d50a6_2",
+   "card": {
+    "kind": "v",
+    "text": "Let's discuss the plan.",
+    "sub": "discuss needs no about",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_5d50a6_3",
+   "card": {
+    "kind": "p",
+    "text": "discuss the budget",
+    "sub": null,
+    "label": "EXAMPLE"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_5d50a6_4",
+   "card": {
+    "kind": "v",
+    "text": "talk about the budget",
+    "sub": "talk + about is fine",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_5d50a6_5",
+   "card": {
+    "kind": "p",
+    "text": "discuss it / talk about it",
+    "sub": null,
+    "label": "RULE"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_5d50a6_rp",
+   "card": {
+    "kind": "v",
+    "text": "Let's discuss the plan.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "line": "n_5d50a6_r",
+  "rows": [
+   "Let's discuss the plan.",
+   "talk about the plan",
+   "discuss it / talk about it"
+  ],
+  "line_alt": "n_5d50a6_r2"
+ },
+ "end_line": "n_5d50a6_e",
+ "link": "https://lexkite.com/app/#/fix",
+ "cta": "Check your grammar on lexkite.com",
+ "est": 23.1,
+ "end_alt": "n_5d50a6_e2",
+ "publish": {
+  "title": "Stop saying \"discuss about\"",
+  "keyword": "discuss",
+  "value": "Discuss takes a direct object, with no \"about\".",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#b1english"
+  ],
+  "first_comment": "You discuss something, but you talk about something. Try a quick quiz before your next meeting: {link}"
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "topic": "Cafe English: 3 words for coffee taste",
+ "scene": "cafe",
+ "seed": "tw-coffee",
+ "vars": {
+  "topicWord": "coffee",
+  "basic": "good",
+  "hookLine": "Three words for coffee.",
+  "w1": "bitter",
+  "s1": "A sharp taste, like dark chocolate.",
+  "w2": "smooth",
+  "s2": "Soft and easy to drink.",
+  "w3": "rich",
+  "s3": "A deep, full flavor that stays with you."
+ },
+ "hashtags": [
+  "englishvocabulary",
+  "newwords",
+  "speakenglish"
+ ]
+}

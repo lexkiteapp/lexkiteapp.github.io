@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — My Decks (Offline Mode)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline-variant": "#bec9c7",
+            "on-surface": "#1f1b16",
+            "on-primary-container": "#9ce9e2",
+            "on-tertiary": "#ffffff",
+            "surface-bright": "#fff8f3",
+            "surface-tint": "#106a65",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "inverse-surface": "#34302a",
+            "on-background": "#1f1b16",
+            "secondary-fixed-dim": "#ffb86c",
+            "outline": "#6f7978",
+            "primary-container": "#136b66",
+            "on-primary-fixed-variant": "#00504c",
+            "primary": "#00514d",
+            "primary-fixed": "#a4f0e9",
+            "tertiary-container": "#b03224",
+            "inverse-primary": "#88d4cd",
+            "surface-container-high": "#f0e7de",
+            "on-tertiary-container": "#ffd0c9",
+            "tertiary-fixed": "#ffdad4",
+            "on-error": "#ffffff",
+            "background": "#fff8f3",
+            "surface-container-low": "#fcf2e9",
+            "on-secondary-fixed-variant": "#683c00",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#410000",
+            "on-secondary-container": "#663b00",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "surface": "#fff8f3",
+            "secondary-container": "#fe9d19",
+            "on-secondary-fixed": "#2c1600",
+            "surface-dim": "#e2d8d0",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed-dim": "#88d4cd",
+            "on-primary": "#ffffff",
+            "surface-container": "#f6ece4",
+            "secondary": "#895100",
+            "surface-container-highest": "#eae1d8",
+            "error": "#ba1a1a",
+            "secondary-fixed": "#ffdcbc",
+            "surface-variant": "#eae1d8",
+            "on-primary-fixed": "#00201e",
+            "tertiary": "#8e190f",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-surface-variant": "#3f4947",
+            "inverse-on-surface": "#f9efe6"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "margin-tablet": "1.5rem",
+            "margin": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "gutter-desktop": "1.5rem",
+            "gutter": "1rem",
+            "margin-desktop": "2.5rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Tactile plastic ledges */
+    .ledge-primary {
+      box-shadow: 0 4px 0 #00201e;
+    }
+    .ledge-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #00201e;
+    }
+    .ledge-secondary {
+      box-shadow: 0 4px 0 #895100;
+    }
+    .ledge-secondary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #895100;
+    }
+    .ledge-card {
+      box-shadow: 0 4px 0 #eae1d8;
+    }
+    .ledge-subtle {
+      box-shadow: 0 3px 0 #bec9c7;
+    }
+    .ledge-subtle:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #bec9c7;
+    }
+    .ledge-alert {
+      box-shadow: 0 4px 0 #ffdad6;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased font-body-md min-h-screen pb-24 selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Viewport Shell (390px Max Centered) -->
+<div class="w-full max-w-[390px] mx-auto min-h-screen bg-background relative flex flex-col">
+<!-- Top Navigation Anchor (Shared Component: TopAppBar) -->
+<header class="sticky top-0 z-40 bg-surface border-b-2 border-on-surface shadow-[0_2px_0_0_#1C1003] px-3 h-14 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<button aria-label="Go back" class="w-11 h-11 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-DEFAULT bg-surface-container border-2 border-on-surface shadow-[0_2px_0_0_#1C1003] active:translate-y-[2px] active:shadow-none transition-transform"><span class="material-symbols-outlined text-on-surface" data-icon="arrow_back">arrow_back</span></button>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-primary font-extrabold leading-none tracking-tight">Lexkite</span>
+<span class="font-label-sm text-[10px] text-on-surface-variant font-bold tracking-wider">MY DECKS</span>
+</div>
+</div>
+<!-- Streaks & Offline Indicators -->
+<div class="flex items-center gap-1.5">
+<!-- Streak Capsule -->
+<div class="flex items-center gap-1 bg-surface-container-high border-2 border-on-surface rounded-full px-2 py-0.5 shadow-[0_2px_0_0_#1C1003]"><span class="text-xs">🔥</span><span class="font-label-sm text-label-sm text-on-surface font-extrabold">14</span><span class="text-on-surface font-bold text-xs">|</span><span class="text-xs">💎</span><span class="font-label-sm text-label-sm text-primary font-extrabold">420</span></div>
+<!-- Search icon -->
+<button aria-label="Search decks" class="w-11 h-11 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-DEFAULT bg-surface border-2 border-on-surface shadow-[0_2px_0_0_#1C1003] active:translate-y-[2px] active:shadow-none transition-transform"><span class="material-symbols-outlined text-on-surface" data-icon="search">search</span></button>
+</div>
+</header>
+<!-- Main Content Container -->
+<main class="flex-1 px-4 py-3 space-y-4">
+<!-- OFFLINE / ERROR BANNER -->
+<section aria-live="polite" class="rounded-DEFAULT border-2 border-on-surface bg-surface-container-low p-3.5 ledge-card relative overflow-hidden" role="alert">
+<!-- Visual Accent Stripe -->
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-secondary-container"></div>
+<div class="flex items-start gap-3 mt-1">
+<!-- Tactile Warning Pill Glyph -->
+<div class="w-10 h-10 rounded-DEFAULT bg-secondary-fixed border-2 border-on-surface flex items-center justify-center shrink-0 shadow-[0_2px_0_0_#1C1003]">
+<span class="material-symbols-outlined text-on-secondary-container font-extrabold" data-icon="wifi_off">wifi_off</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-extrabold leading-tight">You are offline</h2>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface border border-outline text-[11px] font-label-sm text-on-surface-variant font-bold">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                Saved content
+              </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-snug">
+              Audio pronunciation and cloud sync require an active connection. Your cached cards and local study progress are ready.
+            </p>
+</div>
+</div>
+<!-- Sync Timestamp & Action Area -->
+<div class="mt-3 pt-3 border-t-2 border-surface-container-high flex flex-col gap-2"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface flex items-center gap-1 font-bold"><span class="material-symbols-outlined text-primary text-[16px]" data-icon="schedule">schedule</span>Last synced today at 08:42</span><span class="font-label-sm text-[11px] text-primary font-extrabold bg-primary-fixed px-2 py-0.5 rounded-full border border-primary">Local DB OK</span></div><button class="w-full min-h-[48px] h-12 flex items-center justify-center gap-2 bg-surface-bright text-on-surface font-label-md text-label-md rounded-DEFAULT border-2 border-on-surface ledge-subtle font-extrabold active:translate-y-[2px] transition-transform"><span class="material-symbols-outlined text-on-surface animate-spin-reverse" data-icon="sync">sync</span><span>Retry connection</span></button></div>
+</section>
+<!-- Section Title & Status Count -->
+<div class="flex items-center justify-between pt-1"><div><h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-extrabold leading-none">Bộ thẻ ghi nhớ</h1><p class="font-label-sm text-label-sm text-on-surface-variant mt-1 font-bold">4 Cached collections <span class="text-on-surface font-bold">•</span> Offline mode active</p></div><div class="relative group"><button class="opacity-60 cursor-not-allowed min-h-[44px] h-11 px-3.5 rounded-DEFAULT bg-surface-container border-2 border-outline flex items-center gap-1 text-on-surface font-label-md text-label-md font-bold" disabled="" title="Online only"><span class="material-symbols-outlined text-[18px] text-on-surface" data-icon="lock">lock</span><span>+ Deck</span></button><span class="absolute -top-2 -right-1 px-1.5 py-0.5 rounded-full bg-surface-container-highest border border-outline text-[9px] font-label-sm text-on-surface font-extrabold">Online only</span></div></div>
+<!-- Filter Pills Carousel -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar"><button class="min-h-[44px] px-4 rounded-full border-2 border-outline bg-surface-container-lowest text-on-surface font-label-sm text-label-sm whitespace-nowrap active:translate-y-0.5 font-bold">All (4)</button><button class="min-h-[44px] px-4 rounded-full border-2 border-primary bg-primary text-on-primary font-label-sm text-label-sm font-extrabold shadow-[0_2px_0_0_#00201e] flex items-center gap-1.5 whitespace-nowrap"><span class="material-symbols-outlined text-[16px]" data-icon="cloud_done">cloud_done</span><span>Cached only (3)</span></button><button class="min-h-[44px] px-4 rounded-full border-2 border-outline bg-surface-container-lowest text-on-surface font-label-sm text-label-sm whitespace-nowrap active:translate-y-0.5 font-bold">Due (2)</button><button class="min-h-[44px] px-4 rounded-full border-2 border-outline bg-surface-container-lowest text-on-surface font-label-sm text-label-sm whitespace-nowrap active:translate-y-0.5 font-bold">Mastered (1)</button><button aria-label="Sort decks" class="min-h-[44px] min-w-[44px] w-11 h-11 rounded-full border-2 border-on-surface bg-surface-container flex items-center justify-center text-on-surface shadow-[0_2px_0_0_#1C1003] shrink-0"><span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span></button></div>
+<!-- DAILY DRILL BANNER (Tactile Amber CTA) -->
+<section class="rounded-DEFAULT border-2 border-on-surface bg-secondary-fixed p-3.5 ledge-card"><div class="flex items-center justify-between mb-2"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-secondary font-extrabold" data-icon="flash_on">flash_on</span><span class="font-headline-sm text-headline-sm text-on-secondary-fixed font-extrabold">Offline Daily Drill</span></div><span class="px-2.5 py-1 rounded-full bg-surface-container-lowest border-2 border-on-surface text-[11px] font-label-sm text-on-surface font-extrabold">Ready</span></div><p class="font-body-sm text-body-sm text-on-secondary-fixed-variant font-medium mb-3">Review 24 cached cards due today. Results will be queued and synchronized automatically.</p><button class="w-full min-h-[48px] h-12 rounded-DEFAULT border-2 border-on-surface bg-secondary-container text-on-surface font-headline-sm text-headline-sm font-extrabold ledge-secondary flex items-center justify-center gap-2 active:translate-y-[3px]"><span>Review offline cards (~8 mins)</span><span class="material-symbols-outlined font-extrabold" data-icon="arrow_forward">arrow_forward</span></button></section>
+<!-- DECK LIST SECTION -->
+<section class="space-y-3"><div class="flex items-center justify-between"><span class="font-label-sm text-label-sm text-on-surface font-extrabold tracking-wider">AVAILABLE OFFLINE</span><span class="font-label-sm text-label-sm text-primary font-extrabold">3 READY</span></div><article class="rounded-DEFAULT border-2 border-on-surface bg-surface-container-lowest p-3.5 ledge-card"><div class="flex items-start justify-between gap-2"><div class="flex-1"><div class="flex items-center gap-1.5 mb-1"><span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary-fixed border border-primary text-[11px] font-label-sm text-on-primary-fixed font-extrabold"><span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>Cached</span><span class="font-label-sm text-label-sm text-tertiary-container font-extrabold bg-tertiary-fixed px-2.5 py-0.5 rounded-full border border-tertiary-container">14 due today</span></div><h3 class="font-headline-sm text-headline-sm text-on-surface font-extrabold leading-tight">IELTS Academic Band 7+ Collocations</h3><p class="font-body-sm text-body-sm text-on-surface-variant mt-1">240 words <span class="text-on-surface font-bold">•</span> Phrasal chunks, essay structures &amp; lexical bundles</p></div><button aria-label="Deck options" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface rounded-DEFAULT active:bg-surface-container"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button></div><div class="mt-3 pt-2.5 border-t-2 border-surface-container flex items-center justify-between gap-3"><div class="flex items-center gap-1 text-on-surface font-label-sm text-label-sm font-bold"><span class="material-symbols-outlined text-[16px] text-primary" data-icon="speed">speed</span><span>Spaced repetition</span></div><button class="min-h-[44px] h-11 px-4 rounded-DEFAULT border-2 border-on-surface bg-primary text-on-primary font-label-md text-label-md font-extrabold ledge-primary flex items-center gap-1.5"><span>Study Deck</span><span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span></button></div></article><article class="rounded-DEFAULT border-2 border-on-surface bg-surface-container-lowest p-3.5 ledge-card"><div class="flex items-start justify-between gap-2"><div class="flex-1"><div class="flex items-center gap-1.5 mb-1"><span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary-fixed border border-primary text-[11px] font-label-sm text-on-primary-fixed font-extrabold"><span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>Cached</span><span class="font-label-sm text-label-sm text-tertiary-container font-extrabold bg-tertiary-fixed px-2.5 py-0.5 rounded-full border border-tertiary-container">8 due today</span></div><h3 class="font-headline-sm text-headline-sm text-on-surface font-extrabold leading-tight">Work &amp; Office Idioms</h3><p class="font-body-sm text-body-sm text-on-surface-variant mt-1">120 words <span class="text-on-surface font-bold">•</span> Professional negotiation &amp; watercooler expressions</p></div><button aria-label="Deck options" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface rounded-DEFAULT active:bg-surface-container"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button></div><div class="mt-3 pt-2.5 border-t-2 border-surface-container flex items-center justify-between gap-3"><div class="flex items-center gap-1 text-on-surface font-label-sm text-label-sm font-bold"><span class="material-symbols-outlined text-[16px] text-primary" data-icon="bolt">bolt</span><span>Quick retention</span></div><button class="min-h-[44px] h-11 px-4 rounded-DEFAULT border-2 border-on-surface bg-primary text-on-primary font-label-md text-label-md font-extrabold ledge-primary flex items-center gap-1.5"><span>Study Deck</span><span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span></button></div></article><article class="rounded-DEFAULT border-2 border-on-surface bg-surface-container-lowest p-3.5 ledge-card"><div class="flex items-start justify-between gap-2"><div class="flex-1"><div class="flex items-center gap-1.5 mb-1"><span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-primary-fixed border border-primary text-[11px] font-label-sm text-on-primary-fixed font-extrabold"><span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>Cached</span><span class="font-label-sm text-label-sm text-on-surface font-extrabold bg-surface-container px-2.5 py-0.5 rounded-full border border-outline">Completed today</span></div><h3 class="font-headline-sm text-headline-sm text-on-surface font-extrabold leading-tight">Dining &amp; Social Small Talk</h3><p class="font-body-sm text-body-sm text-on-surface-variant mt-1">85 words <span class="text-on-surface font-bold">•</span> Restaurant ordering, travel etiquette &amp; greetings</p></div><button aria-label="Deck options" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center text-on-surface rounded-DEFAULT active:bg-surface-container"><span class="material-symbols-outlined" data-icon="more_vert">more_vert</span></button></div><div class="mt-3 pt-2.5 border-t-2 border-surface-container flex items-center justify-between gap-3"><div class="flex items-center gap-1 text-on-surface font-label-sm text-label-sm font-bold"><span class="material-symbols-outlined text-[16px] text-secondary" data-icon="done_all">done_all</span><span>100% Retained</span></div><button class="min-h-[44px] h-11 px-4 rounded-DEFAULT border-2 border-on-surface bg-surface-container-high text-on-surface font-label-md text-label-md font-extrabold ledge-subtle flex items-center gap-1.5"><span>Review Again</span><span class="material-symbols-outlined text-[18px]" data-icon="replay">replay</span></button></div></article><article class="rounded-DEFAULT border-2 border-outline bg-surface-container p-3.5 relative overflow-hidden"><div class="flex items-start justify-between gap-2"><div class="flex-1"><div class="flex items-center gap-1.5 mb-1"><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-highest border border-outline text-[11px] font-label-sm text-on-surface font-extrabold"><span class="material-symbols-outlined text-[14px]" data-icon="cloud_off">cloud_off</span>Not cached</span><span class="font-label-sm text-label-sm text-tertiary-container font-extrabold bg-tertiary-fixed px-2 py-0.5 rounded-full border border-tertiary-container">Audio requires connection</span></div><h3 class="font-headline-sm text-headline-sm text-on-surface font-extrabold leading-tight">Common Test Pitfalls (False Friends)</h3><p class="font-body-sm text-body-sm text-on-surface-variant mt-1 font-medium">160 words <span class="text-on-surface font-bold">•</span> Advanced deceptive pairs &amp; listening distractors</p></div><span class="material-symbols-outlined text-on-surface text-[20px]" data-icon="lock">lock</span></div><div class="mt-3 pt-2.5 border-t border-outline flex items-center justify-between gap-3"><div class="flex items-center gap-1 text-on-surface font-label-sm text-label-sm font-bold"><span class="material-symbols-outlined text-[16px]" data-icon="wifi_off">wifi_off</span><span>Needs sync to download</span></div><button class="min-h-[44px] h-11 px-3.5 rounded-DEFAULT border-2 border-outline bg-surface-dim text-on-surface font-label-md text-label-md font-bold cursor-not-allowed flex items-center gap-1" disabled=""><span class="material-symbols-outlined text-[16px]" data-icon="cloud_download">cloud_download</span><span>Needs sync</span></button></div></article></section>
+<!-- IMPORT & CLOUD SYNC MODULE (Offline notice) -->
+<section class="rounded-DEFAULT border-2 border-dashed border-outline bg-surface-container-low p-3.5 flex items-center justify-between gap-3"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-DEFAULT bg-surface-container border-2 border-outline flex items-center justify-center text-on-surface shrink-0"><span class="material-symbols-outlined" data-icon="file_upload">file_upload</span></div><div><h4 class="font-label-lg text-label-lg text-on-surface font-extrabold leading-tight">Import Anki (.apkg)</h4><p class="font-body-sm text-body-sm text-on-surface-variant leading-snug">Import requires connection to verify card templates.</p></div></div><button class="min-h-[44px] px-3.5 py-2 rounded-DEFAULT border-2 border-outline bg-surface text-on-surface font-label-sm text-label-sm font-bold" disabled="">Disabled</button></section>
+<!-- TEACHER SLOT (Canonical .teacher-slot container with dashed tactile border) -->
+<aside aria-label="Coach tip" class="teacher-slot rounded-DEFAULT border-2 border-dashed border-primary bg-primary-fixed/20 p-3.5" role="note">
+<div class="flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-[0_2px_0_0_#00201e]">
+<span class="material-symbols-outlined text-[16px]" data-icon="psychology">psychology</span>
+</div>
+<div class="flex-1">
+<span class="font-label-sm text-label-sm text-primary font-extrabold uppercase tracking-wider block mb-0.5">
+              Coach tip
+            </span>
+<p class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">
+              Spaced repetition drills work offline! We'll sync your streak and XP as soon as you reconnect. Keep the momentum going!
+            </p>
+</div>
+</div>
+</aside>
+</main>
+<!-- Docked Bottom Navigation Bar (Shared Component: BottomNavBar) -->
+<!-- Current Page Intent: 'Vocab' / Decks screen -> Vocab MUST be active -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 pb-safe bg-surface border-t-2 border-on-surface shadow-[0_-2px_0_0_#1C1003] max-w-[390px] mx-auto right-0">
+<!-- Tab 1: Today (Inactive) -->
+<button aria-label="Today tab" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-outline active:translate-y-1 transition-transform">
+<span class="material-symbols-outlined text-[22px]" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-sm text-label-sm mt-0.5">Today</span>
+</button>
+<!-- Tab 2: Vocab (ACTIVE STATE - EXACT MATCH for Decks/Vocab) -->
+<button aria-current="page" aria-label="Vocab tab" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 bg-primary-fixed text-primary border-2 border-primary rounded-xl shadow-[0_2px_0_0_#00201e] active:translate-y-1 transition-transform">
+<span class="material-symbols-outlined text-[22px] font-bold" data-icon="style" data-weight="fill" style="font-variation-settings: 'FILL' 1;">style</span>
+<span class="font-label-sm text-label-sm mt-0.5 font-extrabold text-primary">Vocab</span>
+</button>
+<!-- Tab 3: Skills (Inactive) -->
+<button aria-label="Skills tab" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-outline active:translate-y-1 transition-transform">
+<span class="material-symbols-outlined text-[22px]" data-icon="military_tech">military_tech</span>
+<span class="font-label-sm text-label-sm mt-0.5">Skills</span>
+</button>
+<!-- Tab 4: Tests (Inactive) -->
+<button aria-label="Tests tab" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-outline active:translate-y-1 transition-transform">
+<span class="material-symbols-outlined text-[22px]" data-icon="timer">timer</span>
+<span class="font-label-sm text-label-sm mt-0.5">Tests</span>
+</button>
+<!-- Tab 5: Me (Inactive) -->
+<button aria-label="Me profile tab" class="flex flex-col items-center justify-center min-w-[48px] min-h-[48px] px-3 py-1 text-outline active:translate-y-1 transition-transform">
+<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Me</span>
+</button>
+</nav>
+</div>
+</body></html>

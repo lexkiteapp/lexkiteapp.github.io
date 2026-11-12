@@ -1,0 +1,75 @@
+{
+ "id": "news_meeting_room_ways_23140c",
+ "scene": "news",
+ "template": "ways",
+ "area": "toeic",
+ "cefr": "B1",
+ "point": "disagreeing politely at work",
+ "series": "WORK ENGLISH / 3 ways to disagree",
+ "bg": "meeting_room",
+ "title": "3 ways to say it: polite to casual (3 ways to disagree)",
+ "description": "Disagreeing politely at work. Save this: I see your point, but... / I'm not sure about that. / I don't think so.\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_ways_23140c#/toeic",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#politeenglish",
+  "#englishphrases",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_meeting_room_ways_23140c/cine-news-meeting-room-ways-23140c-en.mp4",
+ "cover": "shorts/news/news_meeting_room_ways_23140c/cine-news-meeting-room-ways-23140c-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "3 ways to say it: polite to casual (3 ways to disagree)",
+   "caption": "Disagreeing politely at work. Save this: I see your point, but... / I'm not sure about that. / I don't think so.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_ways_23140c#/toeic",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_ways_23140c#/toeic",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#politeenglish",
+    "#englishphrases",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "Disagreeing politely at work. Save this: I see your point, but... / I'm not sure about that. / I don't think so.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_ways_23140c#/toeic\n#learnenglish #englishtips #politeenglish #englishphrases #americanenglish #esl"
+  },
+  "reels": {
+   "title": "3 ways to say it: polite to casual (3 ways to disagree)",
+   "caption": "Disagreeing politely at work. Save this: I see your point, but... / I'm not sure about that. / I don't think so.\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_ways_23140c#/toeic",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_ways_23140c#/toeic",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#politeenglish",
+    "#englishphrases",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Disagreeing politely at work. Save this: I see your point, but... / I'm not sure about that. / I don't think so.\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_ways_23140c#/toeic\n#learnenglish #englishtips #politeenglish #englishphrases #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "3 ways to say it: polite to casual (3 ways to disagree)",
+   "caption": "Disagreeing politely at work. Save this: I see your point, but... / I'm not sure about that. / I don't think so.\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_ways_23140c#/toeic",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_ways_23140c#/toeic",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#politeenglish",
+    "#englishphrases"
+   ],
+   "caption_with_tags": "Disagreeing politely at work. Save this: I see your point, but... / I'm not sure about that. / I don't think so.\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_ways_23140c#/toeic\n#shorts #learnenglish #englishtips #politeenglish #englishphrases"
+  }
+ },
+ "slot": {
+  "date": "2026-10-28",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

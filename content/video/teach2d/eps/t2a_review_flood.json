@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_flood",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: flood.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a large amount of water covering land that is usually dry.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "The flood damaged hundreds of homes.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "flood",
+  "ipa": "/flʌd/",
+  "mean": "a large amount of water covering land that is usually dry",
+  "ex": "The flood damaged hundreds of homes.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=flood",
+  "link": "https://lexkite.com/app/#/review?w=flood",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"flood\" mean?",
+  "keyword": "flood",
+  "value": "Flood means a large amount of water covering land that is usually dry.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=flood",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"flood\" mean?",
+    "description": "Flood means a large amount of water covering land that is usually dry.\n\nReview your words, free: https://lexkite.com/app/#/review?w=flood\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "flood",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"flood\" mean?\n\nFlood means a large amount of water covering land that is usually dry.\n\nReview your words, free: https://lexkite.com/app/#/review?w=flood"
+   },
+   "instagram": {
+    "caption": "What does \"flood\" mean?\n\nFlood means a large amount of water covering land that is usually dry.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"flood\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a large amount of water covering land that is usually dry. Flood means a large amount of water covering land that is usually dry. Try the full lesson and quiz here: {link}"
+ }
+}

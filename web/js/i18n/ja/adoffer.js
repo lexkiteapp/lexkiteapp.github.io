@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/ja/adoffer.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ja=Object.assign(D.ja||{},{_6cnn:"+{xp} XP が追加されました!",_geu:"ビデオが終了しませんでした – もう一度お試しください",_fnvu:"セカンドチャンス",_3ajs:"無料でやり直す",_5218:"{n} 個の間違った答えをやり直して、すべて正解してレッスンをクリアしましょう!",_z8a9:"{n} 個の間違った答えをやり直します。正解するとスコアが更新されます。",_ulpt:"XP 2倍",_xcrq:"2× XPをもらう",_gwqe:"短いビデオを見て +{xp} ボーナス XP を獲得してください。",_o3j:"動画を見てやり直す"});})(typeof self!=='undefined'?self:this);

@@ -1,0 +1,106 @@
+{
+  "_note": "Chữ hook + thông tin nhân vật cho bộ mẫu. Sửa rồi chạy: node scripts/build-social-templates.mjs",
+  "url": "lexkite.com",
+  "qrUrl": "https://lexkite.com",
+  "characters": {
+    "ama": {
+      "name": "Ama",
+      "role": "Your English teacher"
+    },
+    "carlos": {
+      "name": "Carlos",
+      "role": "Your English teacher"
+    }
+  },
+  "kit": {
+    "name": "Kit",
+    "role": "Memory coach · Lexkite"
+  },
+  "thumbs": {
+    "yt-dont-say": {
+      "char": "ama",
+      "kicker": "STOP SAYING",
+      "wrong": "I'm agree",
+      "right": "I agree"
+    },
+    "yt-big-hook": {
+      "char": "carlos",
+      "kicker": "Leo explains",
+      "lines": [
+        "SPILL",
+        "THE TEA"
+      ],
+      "tail": "(badly)"
+    },
+    "yt-quiz": {
+      "char": "ama",
+      "kicker": "90% GET THIS WRONG",
+      "a": "affect",
+      "b": "effect"
+    },
+    "short-pov": {
+      "char": "ama",
+      "kicker": "POV",
+      "lines": [
+        "Your boss says",
+        "“Let’s circle",
+        "back.”"
+      ]
+    },
+    "short-native": {
+      "char": "carlos",
+      "kicker": "TEXTBOOK vs REAL LIFE",
+      "textbook": "How are you?",
+      "real": "What’s up?"
+    },
+    "short-why": {
+      "char": "ama",
+      "kicker": "Wait, why though?",
+      "lines": [
+        "“an hour”",
+        "but",
+        "“a university”?"
+      ]
+    }
+  },
+  "posts": {
+    "post-word": {
+      "char": "ama",
+      "label": "WORD OF THE DAY",
+      "word": "resilient",
+      "ipa": "/rɪˈzɪliənt/",
+      "pos": "adjective",
+      "meaning": "able to recover quickly after something difficult"
+    },
+    "post-idiom": {
+      "char": "carlos",
+      "label": "IDIOM",
+      "say": "Here’s the thing…",
+      "idiom": "break the ice",
+      "meaning": "to make people feel relaxed when they first meet"
+    },
+    "post-dont-say": {
+      "char": "ama",
+      "label": "DON’T SAY · SAY",
+      "wrong": "Can you borrow me a pen?",
+      "right": "Can you lend me a pen?",
+      "note": "lend = give · borrow = take"
+    },
+    "post-quiz": {
+      "char": "carlos",
+      "label": "QUICK QUIZ",
+      "question": "“Can I get a latte ___ oat milk?”",
+      "options": [
+        "by",
+        "with",
+        "for"
+      ]
+    }
+  },
+  "endcard": {
+    "title": "Practice this free",
+    "sub": "Scan to start learning",
+    "crew": "Learn with Mia, Leo & Ama"
+  },
+  "_chars_note": "Nhân vật CHỈ từ web/teach/characters.json (2 giáo viên 2D Ama/Carlos) – build-social-templates.mjs cắt từ poster/avatar của registry."
+}

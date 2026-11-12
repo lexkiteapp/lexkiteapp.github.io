@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite IELTS - Reading Practice</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "surface-container-high": "#f0e7de",
+            "surface": "#fff8f3",
+            "secondary-fixed": "#ffdcbc",
+            "on-secondary-fixed-variant": "#683c00",
+            "inverse-primary": "#88d4cd",
+            "inverse-on-surface": "#f9efe6",
+            "surface-tint": "#106a65",
+            "primary-container": "#136b66",
+            "outline-variant": "#bec9c7",
+            "on-tertiary-fixed": "#410000",
+            "on-surface": "#1f1b16",
+            "on-primary-container": "#9ce9e2",
+            "on-surface-variant": "#3f4947",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "inverse-surface": "#34302a",
+            "tertiary-fixed": "#ffdad4",
+            "on-tertiary-container": "#ffd0c9",
+            "tertiary": "#8e190f",
+            "surface-variant": "#eae1d8",
+            "on-error": "#ffffff",
+            "background": "#fff8f3",
+            "surface-bright": "#fff8f3",
+            "secondary-container": "#fe9d19",
+            "outline": "#6f7978",
+            "on-primary-fixed": "#00201e",
+            "surface-container-highest": "#eae1d8",
+            "tertiary-container": "#b03224",
+            "primary-fixed": "#a4f0e9",
+            "secondary-fixed-dim": "#ffb86c",
+            "primary-fixed-dim": "#88d4cd",
+            "on-secondary-container": "#663b00",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed": "#2c1600",
+            "on-primary-fixed-variant": "#00504c",
+            "on-background": "#1f1b16",
+            "surface-container": "#f6ece4",
+            "surface-container-low": "#fcf2e9",
+            "primary": "#00514d",
+            "error": "#ba1a1a",
+            "on-error-container": "#93000a",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "surface-dim": "#e2d8d0",
+            "secondary": "#895100",
+            "on-secondary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-tablet": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "margin": "1rem",
+            "gutter": "1rem",
+            "space-sm": "0.5rem",
+            "gutter-desktop": "1.5rem"
+          },
+          "fontFamily": {
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen pb-44 selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Mobile Screen Container (390px centered or edge-to-edge mobile view) -->
+<div class="w-full max-w-[390px] mx-auto min-h-screen bg-background flex flex-col relative">
+<!-- Top App Bar (Shared Component Anchor Pattern) -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-4 h-16 flex items-center justify-between shadow-[0_4px_0_#eae1d8] transition-all">
+<div class="flex items-center gap-2">
+<button aria-label="Go back" class="rounded-full flex items-center justify-center text-primary bg-surface-container border border-surface-variant shadow-[0_3px_0_#eae1d8] active:translate-y-[2px] transition-transform min-h-[44px] px-3" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight leading-tight">Lexkite IELTS</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Academic Reading</span>
+</div>
+</div>
+<!-- Live Countdown Chip & Options -->
+<div class="flex items-center gap-1.5">
+<div class="flex items-center gap-1 bg-secondary-fixed text-on-secondary-fixed px-2.5 py-1.5 rounded-full border border-secondary-fixed-dim shadow-[0_2px_0_#ffb86c] min-h-[44px]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span class="font-label-sm text-label-sm tabular-nums">18:45 left</span>
+</div>
+<button aria-label="Bookmark session" class="rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container active:translate-y-[2px] transition-transform min-h-[44px] px-3" type="button">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-4 pt-4 pb-6 space-y-4">
+<!-- Module Indicator & Teacher Slot (Dashed Empty Placeholder per prompt) -->
+<div class="w-full border-2 border-dashed border-outline-variant rounded-2xl p-3 bg-surface-container-low/60 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-xl bg-surface-variant flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">co_present</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Assigned Academic Facilitator</p>
+<p class="font-label-md text-label-md text-on-surface">teacher-slot</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary bg-primary-fixed/40 px-2.5 py-1 rounded-full border border-primary-fixed min-h-[44px] inline-flex items-center">Unassigned</span>
+</div>
+<!-- Segment Switcher Tab Controls -->
+<div class="bg-surface-variant p-1.5 rounded-2xl flex items-center gap-1 shadow-inner" role="tablist">
+<button aria-selected="true" class="flex-1 py-2 px-3 rounded-xl bg-surface-container-lowest text-primary font-label-md text-label-md shadow-[0_3px_0_#d8cfc3] flex items-center justify-center gap-1.5 transition-all min-h-[44px]" role="tab" type="button">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span>Passage</span>
+</button>
+<button aria-selected="false" class="flex-1 py-2 px-3 rounded-xl text-on-surface-variant font-label-md text-label-md hover:bg-surface-container flex items-center justify-center gap-1.5 transition-all min-h-[44px]" role="tab" type="button">
+<span class="material-symbols-outlined text-[18px]">quiz</span>
+<span>Questions (1–3)</span>
+<span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+</button>
+</div>
+<!-- Passage Card -->
+<article class="bg-surface-container-lowest rounded-2xl border-2 border-[#EFE7DA] p-4 shadow-[0_4px_0_#E2D7C7] space-y-4">
+<!-- Header & Target Band Meta Tags -->
+<div class="space-y-2.5">
+<div class="flex flex-wrap gap-1.5">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm border border-primary-fixed-dim">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+              Band 7.5+ Target
+            </span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+              Academic Reading
+            </span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+              650 words · 6 mins
+            </span>
+</div>
+<h1 class="font-headline-md text-headline-md text-on-surface leading-tight">
+            The Secret Life of Urban Bees
+          </h1>
+</div>
+<!-- Stimulus Reading Well with Tactile Vocabulary Highlights -->
+<div class="bg-surface-container-low rounded-xl p-3.5 border border-surface-variant text-on-surface text-body-md font-body-md space-y-3 leading-relaxed">
+<p>
+            Recent entomological assessments have challenged conventional assumptions regarding pollinator viability in heavily built environments. Contrary to expectations, dense metropolitan centers often foster robust colonies that outlive their countryside counterparts. This divergence is largely attributed to altered 
+            <button class="inline-flex items-center gap-1 bg-primary-fixed/60 text-primary border border-primary/20 px-2 py-0.5 rounded-lg shadow-[0_2px_0_#bec9c7] active:translate-y-[1px] font-label-sm text-label-sm align-baseline my-0.5 min-h-[44px]" type="button">
+<span>foraging behavior</span>
+<span class="material-symbols-outlined text-[14px]">volume_up</span>
+</button>
+            where rooftop apiaries exploit fragmented yet continuous micro-flora.
+          </p>
+<p>
+            Whereas agricultural mono-cultures generate severe nutritional deficits after brief flowering windows, urban landscaping guarantees steady 
+            <button class="inline-flex items-center gap-1 bg-secondary-fixed text-on-secondary-fixed border border-secondary-fixed-dim px-2 py-0.5 rounded-lg shadow-[0_2px_0_#ffb86c] active:translate-y-[1px] font-label-sm text-label-sm align-baseline my-0.5 min-h-[44px]" type="button">
+<span>biodiversity</span>
+<span class="material-symbols-outlined text-[14px]">translate</span>
+</button>
+            across municipal parks and residential terraces. Such
+            <button class="inline-flex items-center gap-1 bg-primary-fixed/60 text-primary border border-primary/20 px-2 py-0.5 rounded-lg shadow-[0_2px_0_#bec9c7] active:translate-y-[1px] font-label-sm text-label-sm align-baseline my-0.5 min-h-[44px]" type="button">
+<span>nutritional variety</span>
+<span class="material-symbols-outlined text-[14px]">info</span>
+</button>
+            fortifies the immune profiles of 
+            <button class="inline-flex items-center gap-1 bg-primary-fixed/60 text-primary border border-primary/20 px-2 py-0.5 rounded-lg shadow-[0_2px_0_#bec9c7] active:translate-y-[1px] font-label-sm text-label-sm align-baseline my-0.5 min-h-[44px]" type="button">
+<span>subsequent colonies</span>
+<span class="material-symbols-outlined text-[14px]">volume_up</span>
+</button>
+            against widespread pathogen transmission.
+          </p>
+</div>
+<!-- Inline Pronunciation / Vocabulary Hint Drawer Pill -->
+<div class="flex items-center justify-between p-2.5 rounded-xl bg-surface-container border border-surface-variant min-h-[44px]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">school</span>
+<span class="font-label-sm text-label-sm text-on-surface">Tap underlined keywords to view lexical notes</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">4 Vocab</span>
+</div>
+</article>
+<!-- Section Title for IELTS Question Set -->
+<div class="pt-2 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Questions 1–3</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-variant px-2.5 py-1 rounded-full">True / False / Not Given</span>
+</div>
+<!-- Question 1 Card -->
+<section class="bg-surface-container-lowest rounded-2xl border-2 border-[#EFE7DA] p-4 shadow-[0_4px_0_#E2D7C7] space-y-3">
+<div class="flex items-start gap-2">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-label-sm text-label-sm shrink-0">1</span>
+<p class="font-body-md text-body-md text-on-surface">
+            Urban hives produce more honey than rural hives due to shorter travel distances.
+          </p>
+</div>
+<!-- Tactile 3-Option Pills -->
+<div aria-label="Question 1 choices" class="grid grid-cols-3 gap-2 pt-1" role="radiogroup">
+<button aria-checked="false" class="min-h-[48px] px-2 py-2.5 rounded-xl border-2 border-surface-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-[0_4px_0_#eae1d8] active:translate-y-[3px] active:shadow-[0_1px_0_#eae1d8] flex items-center justify-center text-center transition-all hover:bg-surface-container-low" role="radio" type="button">
+            True
+          </button>
+<button aria-checked="false" class="min-h-[48px] px-2 py-2.5 rounded-xl border-2 border-surface-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-[0_4px_0_#eae1d8] active:translate-y-[3px] active:shadow-[0_1px_0_#eae1d8] flex items-center justify-center text-center transition-all hover:bg-surface-container-low" role="radio" type="button">
+            False
+          </button>
+<!-- Simulated Selected State matching style guidance -->
+<button aria-checked="true" class="min-h-[48px] px-2 py-2.5 rounded-xl border-2 border-primary-container bg-surface-container text-primary font-label-md text-label-md shadow-[0_4px_0_#136b66] active:translate-y-[3px] active:shadow-[0_1px_0_#136b66] flex items-center justify-center text-center gap-1 transition-all" role="radio" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Not Given</span>
+</button>
+</div>
+</section>
+<!-- Question 2 Card -->
+<section class="bg-surface-container-lowest rounded-2xl border-2 border-[#EFE7DA] p-4 shadow-[0_4px_0_#E2D7C7] space-y-3">
+<div class="flex items-start gap-2">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-label-sm text-label-sm shrink-0">2</span>
+<p class="font-body-md text-body-md text-on-surface">
+            Varied flower types in cities provide more consistent food than rural crop fields.
+          </p>
+</div>
+<div aria-label="Question 2 choices" class="grid grid-cols-3 gap-2 pt-1" role="radiogroup">
+<button aria-checked="true" class="min-h-[48px] px-2 py-2.5 rounded-xl border-2 border-primary-container bg-surface-container text-primary font-label-md text-label-md shadow-[0_4px_0_#136b66] active:translate-y-[3px] active:shadow-[0_1px_0_#136b66] flex items-center justify-center text-center gap-1 transition-all" role="radio" type="button">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>True</span>
+</button>
+<button aria-checked="false" class="min-h-[48px] px-2 py-2.5 rounded-xl border-2 border-surface-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-[0_4px_0_#eae1d8] active:translate-y-[3px] active:shadow-[0_1px_0_#eae1d8] flex items-center justify-center text-center transition-all hover:bg-surface-container-low" role="radio" type="button">
+            False
+          </button>
+<button aria-checked="false" class="min-h-[48px] px-2 py-2.5 rounded-xl border-2 border-surface-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-[0_4px_0_#eae1d8] active:translate-y-[3px] active:shadow-[0_1px_0_#eae1d8] flex items-center justify-center text-center transition-all hover:bg-surface-container-low" role="radio" type="button">
+            Not Given
+          </button>
+</div>
+</section>
+<!-- Question 3 Card -->
+<section class="bg-surface-container-lowest rounded-2xl border-2 border-[#EFE7DA] p-4 shadow-[0_4px_0_#E2D7C7] space-y-3">
+<div class="flex items-start gap-2">
+<span class="w-6 h-6 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-label-sm text-label-sm shrink-0">3</span>
+<p class="font-body-md text-body-md text-on-surface">
+            Air pollution directly decreases the lifespan of queen bees in metropolitan centers.
+          </p>
+</div>
+<div aria-label="Question 3 choices" class="grid grid-cols-3 gap-2 pt-1" role="radiogroup">
+<button aria-checked="false" class="min-h-[48px] px-2 py-2.5 rounded-xl border-2 border-surface-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-[0_4px_0_#eae1d8] active:translate-y-[3px] active:shadow-[0_1px_0_#eae1d8] flex items-center justify-center text-center transition-all hover:bg-surface-container-low" role="radio" type="button">
+            True
+          </button>
+<button aria-checked="false" class="min-h-[48px] px-2 py-2.5 rounded-xl border-2 border-surface-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-[0_4px_0_#eae1d8] active:translate-y-[3px] active:shadow-[0_1px_0_#eae1d8] flex items-center justify-center text-center transition-all hover:bg-surface-container-low" role="radio" type="button">
+            False
+          </button>
+<button aria-checked="false" class="min-h-[48px] px-2 py-2.5 rounded-xl border-2 border-surface-variant bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-[0_4px_0_#eae1d8] active:translate-y-[3px] active:shadow-[0_1px_0_#eae1d8] flex items-center justify-center text-center transition-all hover:bg-surface-container-low" role="radio" type="button">
+            Not Given
+          </button>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom Practice Action Tray (Positioned above BottomNavBar) -->
+<div class="fixed bottom-[68px] left-0 right-0 z-40 w-full max-w-[390px] mx-auto px-4 py-2.5 bg-surface/90 backdrop-blur-md">
+<button class="w-full min-h-[50px] bg-secondary-container text-[#1C1003] font-headline-sm text-headline-sm rounded-2xl flex items-center justify-center gap-2 shadow-[0_4px_0_#D97B00] hover:brightness-105 active:translate-y-[3px] active:shadow-[0_1px_0_#D97B00] transition-transform" type="button">
+<span>Submit answers →</span>
+</button>
+</div>
+<!-- Docked 5-Tab Bottom Navigation Bar (Shared Component Anchor) -->
+<!-- Content & labels: ["Today", "Vocab", "Skills", "Tests", "Me"] with Skills active -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 max-w-[390px] left-1/2 -translate-x-1/2 bg-surface shadow-[0_-4px_0_#eae1d8]">
+<!-- Tab 1: Today -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 min-w-[54px] min-h-[44px] hover:bg-surface-container-high rounded-xl transition-colors" href="#today">
+<span class="material-symbols-outlined text-[22px]">today</span>
+<span class="font-label-sm text-label-sm mt-0.5">Today</span>
+</a>
+<!-- Tab 2: Vocab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 min-w-[54px] min-h-[44px] hover:bg-surface-container-high rounded-xl transition-colors" href="#vocab">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="font-label-sm text-label-sm mt-0.5">Vocab</span>
+</a>
+<!-- Tab 3: Skills (ACTIVE TAB per Context & Intent) -->
+<a aria-current="page" class="flex flex-col items-center justify-center bg-primary-container text-on-primary rounded-xl px-3 py-1 min-w-[58px] min-h-[44px] shadow-[0_3px_0_#0c4542] active:translate-y-[2px]" href="#skills">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-sm text-label-sm mt-0.5">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 min-w-[54px] min-h-[44px] hover:bg-surface-container-high rounded-xl transition-colors" href="#tests">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+<span class="font-label-sm text-label-sm mt-0.5">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 min-w-[54px] min-h-[44px] hover:bg-surface-container-high rounded-xl transition-colors" href="#me">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Me</span>
+</a>
+</nav>
+</div>
+</body></html>

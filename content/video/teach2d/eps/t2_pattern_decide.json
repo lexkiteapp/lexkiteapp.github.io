@@ -1,0 +1,132 @@
+{
+ "id": "t2_pattern_decide",
+ "template": "pattern",
+ "series": "Verb Patterns",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "verbs",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Decide going, or decide to go?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I decided going home.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I decided to go home.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After decide, use to plus verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To buy! They decided to buy a new car.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "verb": "decide",
+  "pat": "to + verb",
+  "good": "decided to go",
+  "bad": "decided going",
+  "wrong": "I decided going home.",
+  "right": "I decided to go home.",
+  "why": "After decide, use to plus verb.",
+  "aha": "Plan, hope and want also take to!",
+  "quiz": {
+   "stem": "They decided ___ a new car.",
+   "options": [
+    "to buy",
+    "buying"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "verbs",
+  "route": "#/verb/decide",
+  "link": "https://lexkite.com/app/#/verb/decide",
+  "say": "Practice verb patterns"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Decide + ?"
+ },
+ "src": {
+  "gold": "sb_05b65d49",
+  "pid": "u:v:decide:to"
+ },
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Decide going, or decide to go?",
+  "keyword": "decide",
+  "value": "Say \"I decided to go home\", not \"I decided going home\". After decide, use to plus verb.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/verb/decide",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "Decide going, or decide to go?",
+    "description": "Say \"I decided to go home\", not \"I decided going home\". After decide, use to plus verb.\n\nPractice verb patterns, free: https://lexkite.com/app/#/verb/decide\n\nSeries: Verb Patterns · Teacher: Carlos\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "decide",
+     "Verb Patterns",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Decide going, or decide to go?\n\nSay \"I decided to go home\", not \"I decided going home\". After decide, use to plus verb.\n\nPractice verb patterns, free: https://lexkite.com/app/#/verb/decide"
+   },
+   "instagram": {
+    "caption": "Decide going, or decide to go?\n\nSay \"I decided to go home\", not \"I decided going home\". After decide, use to plus verb.\n\nPractice verb patterns: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Decide going, or decide to go? #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Quiz answer: To buy! They decided to buy a new car. Say \"I decided to go home\", not \"I decided going home\". After decide, use to plus verb. Practice it with a free quiz: {link}"
+ }
+}

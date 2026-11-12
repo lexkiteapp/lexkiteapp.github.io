@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings — Lexkite Dark</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container": "#172427",
+            "surface-container-high": "#1E2F33",
+            "surface-container-highest": "#24373C",
+            "surface-container-low": "#131E21",
+            "surface-container-lowest": "#0D1517",
+            "background": "#10191B",
+            "surface": "#10191B",
+            "on-surface": "#E8F1F0",
+            "on-surface-variant": "#A9BDBB",
+            "outline": "#4D6366",
+            "outline-variant": "#233539",
+            "primary": "#2DD4BF",
+            "primary-container": "#0F766E",
+            "on-primary": "#042F2E",
+            "on-primary-container": "#CCFBF1",
+            "primary-fixed": "#2DD4BF",
+            "on-primary-fixed": "#042F2E",
+            "secondary": "#F59E0B",
+            "secondary-container": "#D97706",
+            "on-secondary": "#1C1003",
+            "on-secondary-container": "#1C1003",
+            "error": "#FB7185",
+            "tertiary": "#C23B22",
+            "tertiary-container": "#991B1B"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 22px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      min-height: max(884px, 100dvh);
+      background-color: #10191B;
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] antialiased font-body-md min-h-screen flex justify-center selection:bg-[#2DD4BF] selection:text-[#042F2E]">
+<!-- Main Mobile Canvas Container (Strict 390px portrait viewport) -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#10191B] relative flex flex-col pb-28">
+<!-- TopAppBar Component -->
+<header class="sticky top-0 z-40 bg-[#10191B]/95 backdrop-blur-md border-b-2 border-[#233539] shadow-[0_4px_0_#0C1416]">
+<div class="flex justify-between items-center w-full px-4 py-3 max-w-[390px] mx-auto">
+<!-- Back Navigation Touch Target >= 44x44px -->
+<button aria-label="Go Back" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1E2F33] border-2 border-[#233539] shadow-[0_3px_0_#0C1416] hover:bg-[#24373C] active:translate-y-[2px] active:shadow-[0_1px_0_#0C1416] transition-all text-[#E8F1F0]" type="button">
+<span class="material-symbols-outlined text-[#2DD4BF]">arrow_back</span>
+</button>
+<!-- Centered Screen Headline with i18n Resilience -->
+<div class="flex flex-col items-center text-center px-2">
+<h1 class="text-headline-sm font-headline-sm text-[#2DD4BF] tracking-tight">Settings / Cài đặt</h1>
+<span class="text-label-sm font-label-sm text-[#A9BDBB] text-[11px] leading-3 mt-0.5">Lexkite Tactile Night</span>
+</div>
+<!-- Trailing Action: Help / Settings (touch target >= 44x44px) -->
+<button aria-label="Help &amp; Support" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1E2F33] border-2 border-[#233539] shadow-[0_3px_0_#0C1416] hover:bg-[#24373C] active:translate-y-[2px] active:shadow-[0_1px_0_#0C1416] transition-all text-[#E8F1F0]" type="button">
+<span class="material-symbols-outlined text-[#2DD4BF]">help</span>
+</button>
+</div>
+</header>
+<!-- Main Scrollable Settings Content -->
+<main class="flex-1 px-4 pt-4 space-y-5">
+<!-- Profile & Account Quick Summary Card -->
+<section class="bg-[#172427] border-2 border-[#233539] rounded-2xl p-4 shadow-[0_4px_0_#0C1416]">
+<div class="flex items-start gap-3.5">
+<!-- Placeholder avatar slot with dashed teal border -->
+<div class="teacher-slot w-14 h-14 rounded-2xl border-2 border-dashed border-[#2DD4BF]/60 bg-[#1E2F33] flex flex-col items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[#2DD4BF] text-xl">account_circle</span>
+<span class="text-[9px] font-bold text-[#A9BDBB] tracking-wider uppercase">SLOT</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<h2 class="text-headline-sm font-headline-sm text-[#E8F1F0] truncate">Alex Nguyen</h2>
+<span class="inline-flex items-center gap-1 bg-[#F59E0B] text-[#1C1003] px-2.5 py-0.5 rounded-full text-label-sm font-label-sm border border-[#D97706] font-bold shadow-[0_1px_0_#92400E]">
+<span class="material-symbols-outlined text-xs">verified</span> PRO
+              </span>
+</div>
+<p class="text-body-sm font-body-sm text-[#A9BDBB] truncate mt-0.5">alex.nguyen@example.com</p>
+<div class="flex items-center gap-2 mt-2 flex-wrap">
+<span class="inline-flex items-center text-label-sm font-label-sm px-2.5 py-0.5 bg-[#1E2F33] rounded-lg border border-[#233539] text-[#2DD4BF] font-bold">
+                IELTS Academic 7.5
+              </span>
+<span class="inline-flex items-center gap-1.5 text-label-sm font-label-sm text-[#A9BDBB]">
+<span class="w-2 h-2 rounded-full bg-[#10B981] inline-block shadow-[0_0_6px_#10B981]"></span>
+<span class="material-symbols-outlined text-xs text-[#2DD4BF]">cloud_done</span> Synced
+              </span>
+</div>
+</div>
+</div>
+</section>
+<!-- GROUP 1: Learning -->
+<section class="space-y-2">
+<div class="flex items-center justify-between px-1">
+<h3 class="text-label-md font-label-md text-[#2DD4BF] tracking-wide uppercase">Learning</h3>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">4 Preferences</span>
+</div>
+<div class="bg-[#172427] border-2 border-[#233539] rounded-2xl shadow-[0_4px_0_#0C1416] divide-y-2 divide-[#1E2F33]">
+<!-- Daily goal row -->
+<button class="w-full min-h-[56px] px-4 py-3 flex items-center justify-between gap-3 text-left hover:bg-[#1E2F33] active:translate-y-[1px] transition-all" type="button">
+<div class="flex items-start gap-3 min-w-0 flex-1">
+<span class="material-symbols-outlined text-[#2DD4BF] mt-0.5 shrink-0">timer</span>
+<div class="min-w-0">
+<p class="text-label-lg font-label-lg text-[#E8F1F0]">Daily study goal</p>
+<p class="text-body-sm font-body-sm text-[#A9BDBB]">15 mins / day (32 target flashcards)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#4D6366] shrink-0">chevron_right</span>
+</button>
+<!-- Exam Target row -->
+<button class="w-full min-h-[56px] px-4 py-3 flex items-center justify-between gap-3 text-left hover:bg-[#1E2F33] active:translate-y-[1px] transition-all" type="button">
+<div class="flex items-start gap-3 min-w-0 flex-1">
+<span class="material-symbols-outlined text-[#2DD4BF] mt-0.5 shrink-0">school</span>
+<div class="min-w-0">
+<p class="text-label-lg font-label-lg text-[#E8F1F0]">Target examination</p>
+<div class="mt-1 flex flex-wrap gap-1.5">
+<span class="bg-[#0F766E]/40 text-[#2DD4BF] text-label-sm font-label-sm px-2.5 py-0.5 rounded-full border border-[#2DD4BF]/60 font-semibold">
+                    IELTS Academic · Target Band 7.5
+                  </span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#4D6366] shrink-0">chevron_right</span>
+</button>
+<!-- Study reminders row with Tactile Toggle Switch -->
+<div class="px-4 py-3 flex items-center justify-between gap-3">
+<div class="flex items-start gap-3 min-w-0 flex-1">
+<span class="material-symbols-outlined text-[#2DD4BF] mt-0.5 shrink-0">notifications_active</span>
+<div class="min-w-0">
+<p class="text-label-lg font-label-lg text-[#E8F1F0]">Study reminders</p>
+<p class="text-body-sm font-body-sm text-[#A9BDBB]">20:30 (Every evening alert)</p>
+</div>
+</div>
+<!-- Tactile toggle switch in vibrant teal with crisp white knob -->
+<label class="relative inline-flex items-center justify-center min-w-[48px] min-h-[44px] cursor-pointer">
+<input checked="" class="peer absolute inset-0 w-11 h-11 min-w-[44px] min-h-[44px] opacity-0 cursor-pointer z-10" type="checkbox"/>
+<div class="w-12 h-7 bg-[#1E2F33] peer-focus:outline-none rounded-full peer peer-checked:bg-[#14B8A6] border-2 border-[#233539] peer-checked:border-[#2DD4BF] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] transition-colors"></div>
+<div class="absolute left-1 top-[10px] w-5 h-5 bg-white rounded-full border border-[#233539] shadow-[0_2px_2px_rgba(0,0,0,0.4)] peer-checked:translate-x-5 transition-transform"></div>
+</label>
+</div>
+<!-- Review schedule algorithm row -->
+<div class="px-4 py-3 flex items-start gap-3">
+<span class="material-symbols-outlined text-[#2DD4BF] mt-0.5 shrink-0">insights</span>
+<div class="min-w-0 flex-1">
+<div class="flex items-center justify-between gap-2 flex-wrap">
+<p class="text-label-lg font-label-lg text-[#E8F1F0]">Spaced repetition schedule</p>
+<span class="text-label-sm font-label-sm bg-[#1E2F33] text-[#2DD4BF] font-bold px-2 py-0.5 rounded-md border border-[#233539]">
+                  Adaptive
+                </span>
+</div>
+<p class="text-body-sm font-body-sm text-[#A9BDBB] mt-0.5">SM-2 Spaced Repetition (Strict intervals)</p>
+</div>
+</div>
+</div>
+</section>
+<!-- GROUP 2: Appearance -->
+<section class="space-y-2">
+<div class="flex items-center justify-between px-1">
+<h3 class="text-label-md font-label-md text-[#2DD4BF] tracking-wide uppercase">Appearance</h3>
+<span class="text-label-sm font-label-sm text-[#2DD4BF]">Dark Theme</span>
+</div>
+<div class="bg-[#172427] border-2 border-[#233539] rounded-2xl p-4 shadow-[0_4px_0_#0C1416] space-y-4">
+<!-- Theme Segmented Tactile Control with Dark selected -->
+<div>
+<label class="text-label-lg font-label-lg text-[#E8F1F0] block mb-2">Display Theme</label>
+<div class="grid grid-cols-3 gap-2 bg-[#1E2F33] p-1 rounded-2xl border-2 border-[#233539]">
+<!-- Light (Inactive) -->
+<button class="py-2.5 px-2 rounded-xl bg-transparent border-2 border-transparent text-[#A9BDBB] font-bold text-label-md font-label-md hover:bg-[#24373C] transition-all flex items-center justify-center gap-1.5 min-h-[44px]" type="button">
+<span class="material-symbols-outlined text-sm">light_mode</span>
+<span>Light</span>
+</button>
+<!-- Dark (ACTIVE) -->
+<button class="py-2.5 px-2 rounded-xl bg-[#172427] border-2 border-[#2DD4BF] text-[#E8F1F0] font-bold text-label-md font-label-md shadow-[0_3px_0_#0F766E] flex items-center justify-center gap-1.5 min-h-[44px]" type="button">
+<span class="material-symbols-outlined text-sm text-[#2DD4BF]">dark_mode</span>
+<span>Dark</span>
+</button>
+<!-- System (Inactive) -->
+<button class="py-2.5 px-2 rounded-xl bg-transparent border-2 border-transparent text-[#A9BDBB] font-bold text-label-md font-label-md hover:bg-[#24373C] transition-all flex items-center justify-center gap-1.5 min-h-[44px]" type="button">
+<span class="material-symbols-outlined text-sm">settings_suggest</span>
+<span>System</span>
+</button>
+</div>
+</div>
+<!-- Text Size Selector with Visual Preview -->
+<div class="pt-2 border-t-2 border-[#1E2F33]">
+<div class="flex justify-between items-center mb-2">
+<label class="text-label-lg font-label-lg text-[#E8F1F0]">Reading Text Size</label>
+<span class="text-label-sm font-label-sm text-[#2DD4BF] font-bold">Default (16px)</span>
+</div>
+<!-- Segmented text size preview buttons with Default (A) selected in active teal -->
+<div class="grid grid-cols-3 gap-2">
+<button class="min-h-[44px] rounded-xl border-2 border-[#233539] bg-[#1E2F33] text-[#A9BDBB] font-bold text-sm shadow-[0_2px_0_#0C1416] flex items-center justify-center hover:bg-[#24373C]" type="button">
+                Small (A-)
+              </button>
+<button class="min-h-[44px] rounded-xl border-2 border-[#2DD4BF] bg-[#0E5E58] text-[#E8F1F0] font-bold text-base shadow-[0_3px_0_#0A3F3B] flex items-center justify-center" type="button">
+                Default (A)
+              </button>
+<button class="min-h-[44px] rounded-xl border-2 border-[#233539] bg-[#1E2F33] text-[#A9BDBB] font-bold text-lg shadow-[0_2px_0_#0C1416] flex items-center justify-center hover:bg-[#24373C]" type="button">
+                Large (A+)
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- GROUP 3: Language & Locale -->
+<section class="space-y-2">
+<div class="flex items-center justify-between px-1">
+<h3 class="text-label-md font-label-md text-[#2DD4BF] tracking-wide uppercase">Language &amp; Locale</h3>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">Bilingual UI</span>
+</div>
+<div class="bg-[#172427] border-2 border-[#233539] rounded-2xl shadow-[0_4px_0_#0C1416] divide-y-2 divide-[#1E2F33]">
+<!-- App Language Picker -->
+<button class="w-full min-h-[56px] px-4 py-3 flex items-center justify-between gap-3 text-left hover:bg-[#1E2F33] active:translate-y-[1px] transition-all" type="button">
+<div class="flex items-start gap-3 min-w-0 flex-1">
+<span class="material-symbols-outlined text-[#2DD4BF] mt-0.5 shrink-0">translate</span>
+<div class="min-w-0">
+<p class="text-label-lg font-label-lg text-[#E8F1F0]">Application Language</p>
+<div class="flex items-center gap-2 mt-0.5 flex-wrap">
+<span class="text-body-sm font-body-sm font-bold text-[#2DD4BF]">English (US)</span>
+<span class="bg-[#1E2F33] text-[#A9BDBB] text-[11px] font-bold px-2 py-0.5 rounded-full border border-[#233539]">
+                    15 languages available
+                  </span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#4D6366] shrink-0">expand_more</span>
+</button>
+<!-- Learner's Native Language -->
+<button class="w-full min-h-[56px] px-4 py-3 flex items-center justify-between gap-3 text-left hover:bg-[#1E2F33] active:translate-y-[1px] transition-all" type="button">
+<div class="flex items-start gap-3 min-w-0 flex-1">
+<span class="material-symbols-outlined text-[#2DD4BF] mt-0.5 shrink-0">flag</span>
+<div class="min-w-0">
+<p class="text-label-lg font-label-lg text-[#E8F1F0]">Native Language for Explanations</p>
+<p class="text-body-sm font-body-sm text-[#A9BDBB]">Tiếng Việt (Vietnamese) — Translations &amp; grammar hints active</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#4D6366] shrink-0">chevron_right</span>
+</button>
+<!-- Bilingual Pronunciation Tips Toggle -->
+<div class="px-4 py-3 flex items-center justify-between gap-3">
+<div class="flex items-start gap-3 min-w-0 flex-1">
+<span class="material-symbols-outlined text-[#2DD4BF] mt-0.5 shrink-0">record_voice_over</span>
+<div class="min-w-0">
+<p class="text-label-lg font-label-lg text-[#E8F1F0]">Bilingual pronunciation cues</p>
+<p class="text-body-sm font-body-sm text-[#A9BDBB]">Shows IPA + phonetic contrast tips for native speakers</p>
+</div>
+</div>
+<label class="relative inline-flex items-center justify-center min-w-[48px] min-h-[44px] cursor-pointer">
+<input checked="" class="peer absolute inset-0 w-11 h-11 min-w-[44px] min-h-[44px] opacity-0 cursor-pointer z-10" type="checkbox"/>
+<div class="w-12 h-7 bg-[#1E2F33] peer-focus:outline-none rounded-full peer peer-checked:bg-[#14B8A6] border-2 border-[#233539] peer-checked:border-[#2DD4BF] shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] transition-colors"></div>
+<div class="absolute left-1 top-[10px] w-5 h-5 bg-white rounded-full border border-[#233539] shadow-[0_2px_2px_rgba(0,0,0,0.4)] peer-checked:translate-x-5 transition-transform"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- GROUP 4: Audio & Speech -->
+<section class="space-y-2">
+<div class="flex items-center justify-between px-1">
+<h3 class="text-label-md font-label-md text-[#2DD4BF] tracking-wide uppercase">Audio &amp; Speech</h3>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">Coach Ama</span>
+</div>
+<div class="bg-[#172427] border-2 border-[#233539] rounded-2xl p-4 shadow-[0_4px_0_#0C1416] space-y-3.5">
+<!-- Voice Accent Selection with Preview Button -->
+<div class="flex items-center justify-between gap-3">
+<div class="min-w-0 flex-1">
+<p class="text-label-lg font-label-lg text-[#E8F1F0]">Preferred voice accent</p>
+<p class="text-body-sm font-body-sm text-[#A9BDBB]">UK Received Pronunciation (Coach Ama)</p>
+</div>
+<button aria-label="Listen to Audio Preview" class="min-w-[44px] min-h-[44px] px-3 bg-[#D97706] text-[#1C1003] border-2 border-[#F59E0B] rounded-xl shadow-[0_3px_0_#92400E] flex items-center justify-center gap-1 active:translate-y-[2px] active:shadow-[0_1px_0_#92400E] transition-all font-bold text-label-sm font-label-sm" type="button">
+<span class="material-symbols-outlined text-lg">play_arrow</span>
+<span>Test</span>
+</button>
+</div>
+<!-- Playback Speed (0.8x, 1.0x, 1.2x) -->
+<div class="pt-2 border-t-2 border-[#1E2F33]">
+<div class="flex justify-between items-center mb-2">
+<p class="text-label-lg font-label-lg text-[#E8F1F0]">Playback speed</p>
+<span class="text-label-sm font-label-sm text-[#2DD4BF] font-bold">1.0× (Normal)</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="min-h-[44px] rounded-xl border-2 border-[#233539] bg-[#1E2F33] text-[#A9BDBB] font-bold text-label-md font-label-md shadow-[0_2px_0_#0C1416] hover:bg-[#24373C]" type="button">
+                0.8×
+              </button>
+<button class="min-h-[44px] rounded-xl border-2 border-[#2DD4BF] bg-[#0E5E58] text-[#E8F1F0] font-bold text-label-md font-label-md shadow-[0_3px_0_#0A3F3B]" type="button">
+                1.0×
+              </button>
+<button class="min-h-[44px] rounded-xl border-2 border-[#233539] bg-[#1E2F33] text-[#A9BDBB] font-bold text-label-md font-label-md shadow-[0_2px_0_#0C1416] hover:bg-[#24373C]" type="button">
+                1.2×
+              </button>
+</div>
+</div>
+<!-- Microphone sensitivity -->
+<div class="pt-2 border-t-2 border-[#1E2F33] flex items-center justify-between">
+<div>
+<p class="text-label-lg font-label-lg text-[#E8F1F0]">Microphone sensitivity</p>
+<p class="text-body-sm font-body-sm text-[#A9BDBB]">Auto-calibrated for noisy spaces</p>
+</div>
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-[#042F2E] font-bold bg-[#2DD4BF] px-2.5 py-1 rounded-full border border-[#2DD4BF] shadow-[0_2px_0_#0F766E]">
+<span class="material-symbols-outlined text-sm">mic</span> Ready
+            </span>
+</div>
+</div>
+</section>
+<!-- GROUP 5: Privacy & Data -->
+<section class="space-y-2">
+<div class="flex items-center justify-between px-1">
+<h3 class="text-label-md font-label-md text-[#2DD4BF] tracking-wide uppercase">Privacy &amp; Data</h3>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">Strict Security</span>
+</div>
+<div class="bg-[#172427] border-2 border-[#233539] rounded-2xl shadow-[0_4px_0_#0C1416] divide-y-2 divide-[#1E2F33]">
+<!-- Zero Tracking Pledge -->
+<div class="p-4 flex items-start gap-3">
+<span class="material-symbols-outlined text-[#2DD4BF] mt-0.5 shrink-0">verified_user</span>
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<p class="text-label-lg font-label-lg text-[#E8F1F0]">Zero-tracking pledge</p>
+<span class="bg-[#1E2F33] text-[#2DD4BF] font-bold text-[11px] px-2 py-0.5 rounded-full border border-[#233539]">Active</span>
+</div>
+<p class="text-body-sm font-body-sm text-[#A9BDBB] mt-0.5">Audio processed locally on-device and purged within 240s.</p>
+</div>
+</div>
+<!-- Offline study cache -->
+<div class="p-4 flex items-center justify-between gap-3 flex-wrap">
+<div class="min-w-0">
+<p class="text-label-lg font-label-lg text-[#E8F1F0]">Offline study cache</p>
+<p class="text-body-sm font-body-sm text-[#A9BDBB]">128 MB audio &amp; flashcard assets</p>
+</div>
+<button class="min-h-[44px] px-3.5 bg-[#1E2F33] text-[#E8F1F0] border-2 border-[#233539] rounded-xl shadow-[0_2px_0_#0C1416] hover:bg-[#24373C] active:translate-y-[1px] transition-all text-label-sm font-label-sm font-bold" type="button">
+              Clear Cache
+            </button>
+</div>
+<!-- Export & Data Links -->
+<button class="w-full min-h-[56px] px-4 py-3 flex items-center justify-between gap-3 text-left hover:bg-[#1E2F33] transition-all" type="button">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#2DD4BF]">download</span>
+<span class="text-label-lg font-label-lg text-[#E8F1F0]">Export lexicon data (CSV / Anki)</span>
+</div>
+<span class="material-symbols-outlined text-[#4D6366]">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- GROUP 6: About & Community -->
+<section class="space-y-2">
+<div class="flex items-center justify-between px-1">
+<h3 class="text-label-md font-label-md text-[#2DD4BF] tracking-wide uppercase">About &amp; Community</h3>
+<span class="text-label-sm font-label-sm text-[#A9BDBB]">Build 9428</span>
+</div>
+<div class="bg-[#172427] border-2 border-[#233539] rounded-2xl shadow-[0_4px_0_#0C1416] divide-y-2 divide-[#1E2F33]">
+<div class="p-4 flex items-center justify-between">
+<div>
+<p class="text-label-lg font-label-lg text-[#E8F1F0]">Lexkite Engine</p>
+<p class="text-body-sm font-body-sm text-[#A9BDBB]">v2.4.0 (Build 9428) • Stable Channel</p>
+</div>
+<span class="material-symbols-outlined text-[#2DD4BF]">info</span>
+</div>
+<button class="w-full min-h-[52px] px-4 py-3 flex items-center justify-between text-left hover:bg-[#1E2F33] transition-all" type="button">
+<span class="text-label-md font-label-md text-[#E8F1F0]">Terms of Service &amp; Fair Use</span>
+<span class="material-symbols-outlined text-[#4D6366]">open_in_new</span>
+</button>
+<button class="w-full min-h-[52px] px-4 py-3 flex items-center justify-between text-left hover:bg-[#1E2F33] transition-all" type="button">
+<span class="text-label-md font-label-md text-[#E8F1F0]">Privacy Policy &amp; Security Standards</span>
+<span class="material-symbols-outlined text-[#4D6366]">open_in_new</span>
+</button>
+<button class="w-full min-h-[52px] px-4 py-3 flex items-center justify-between text-left hover:bg-[#1E2F33] transition-all" type="button">
+<span class="text-label-md font-label-md text-[#E8F1F0]">Editorial Standards &amp; Lexicon Authors</span>
+<span class="material-symbols-outlined text-[#4D6366]">open_in_new</span>
+</button>
+</div>
+</section>
+<!-- Sign Out / Dangerous Actions (Tactile Deep Coral button) -->
+<section class="pt-2 pb-4 space-y-3">
+<button class="w-full min-h-[52px] py-3 px-4 rounded-2xl bg-[#C23B22] text-white font-bold text-label-lg font-label-lg border-2 border-[#E11D48] shadow-[0_4px_0_#620E0E] active:translate-y-[3px] active:shadow-[0_1px_0_#620E0E] transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-xl">logout</span>
+<span>Sign Out / Đăng xuất</span>
+</button>
+<div class="text-center">
+<button class="min-h-[44px] px-3 py-2 text-label-sm font-label-sm text-[#FB7185] hover:text-[#FDA4AF] hover:underline inline-flex items-center gap-1 font-bold" type="button">
+<span class="material-symbols-outlined text-sm">delete_forever</span>
+<span>Request Account Deletion &amp; Purge</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Component -->
+<!-- Active State Logic: Mapping to 'Me' tab for Settings destination in elevated glowing amber pill -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 max-w-[390px] mx-auto bg-[#172427] border-t-2 border-[#233539] shadow-[0_-4px_0_#0C1416]">
+<!-- Tab 1: Today (Inactive) -->
+<button class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1.5 hover:bg-[#1E2F33] active:translate-y-[2px] transition-transform duration-100 min-h-[44px] min-w-[48px]" type="button">
+<span class="material-symbols-outlined text-xl">calendar_today</span>
+<span class="text-label-sm font-label-sm mt-0.5">Today</span>
+</button>
+<!-- Tab 2: Vocab (Inactive) -->
+<button class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1.5 hover:bg-[#1E2F33] active:translate-y-[2px] transition-transform duration-100 min-h-[44px] min-w-[48px]" type="button">
+<span class="material-symbols-outlined text-xl">menu_book</span>
+<span class="text-label-sm font-label-sm mt-0.5">Vocab</span>
+</button>
+<!-- Tab 3: Skills (Inactive) -->
+<button class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1.5 hover:bg-[#1E2F33] active:translate-y-[2px] transition-transform duration-100 min-h-[44px] min-w-[48px]" type="button">
+<span class="material-symbols-outlined text-xl">psychology</span>
+<span class="text-label-sm font-label-sm mt-0.5">Skills</span>
+</button>
+<!-- Tab 4: Tests (Inactive) -->
+<button class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1.5 hover:bg-[#1E2F33] active:translate-y-[2px] transition-transform duration-100 min-h-[44px] min-w-[48px]" type="button">
+<span class="material-symbols-outlined text-xl">quiz</span>
+<span class="text-label-sm font-label-sm mt-0.5">Tests</span>
+</button>
+<!-- Tab 5: Me (ACTIVE - Mapped to Settings) -->
+<button class="flex flex-col items-center justify-center bg-[#D97706] text-[#1C1003] rounded-full px-3.5 py-1.5 shadow-[0_2px_0_#92400E] active:translate-y-[2px] transition-transform duration-100 min-h-[44px] min-w-[48px]" type="button">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-bold">Me</span>
+</button>
+</nav>
+</div>
+</body></html>

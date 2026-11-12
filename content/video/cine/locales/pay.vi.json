@@ -1,0 +1,27 @@
+{
+ "lang": "vi",
+ "dir": "ltr",
+ "font": "BeVietnamPro-ExtraBold",
+ "name": "Tiếng Việt",
+ "lesson_file": "pay",
+ "lesson": "cafe-pay",
+ "goal": "Trả tiền ở quán",
+ "hook": "Nói “by cash” hay “in cash”?",
+ "lines": {
+  "c_four": "Của cháu hết bốn đô nhé.",
+  "a_card": "Cháu trả bằng thẻ được không ạ?",
+  "c_nopro": "Được chứ, không sao.",
+  "a_slow_card": "Cháu trả bằng thẻ được không ạ?",
+  "a_nowyou": "Đến lượt bạn. Nói theo mình nhé!",
+  "a_askcash": "Đến lượt bạn. Hỏi trả bằng tiền mặt nhé!",
+  "a_cash": "Cháu trả bằng tiền mặt được không ạ?",
+  "a_thanks": "Cảm ơn ạ!"
+ },
+ "why": "Nói “by card”, “by phone”, nhưng tiền mặt thì là “in cash”.",
+ "order": "sai",
+ "polite": "đúng",
+ "repeat": "Nói theo nhé",
+ "yourturn": "Hỏi trả tiền mặt",
+ "recap": "= các cách trả tiền",
+ "cta": "Đóng vai hội thoại này miễn phí trên"
+}

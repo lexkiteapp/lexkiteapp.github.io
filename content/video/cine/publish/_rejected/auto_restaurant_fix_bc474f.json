@@ -1,0 +1,75 @@
+{
+ "id": "auto_restaurant_fix_bc474f",
+ "scene": "restaurant",
+ "template": "fix",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "another plus singular",
+ "series": "Restaurant English #15",
+ "title": "Stop saying \"Can you bring me other napkin?\"",
+ "description": "Not \"other\". Say: \"Can you bring me another napkin?\"\nComment your answer below and follow for daily English (Restaurant English #15).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_bc474f#/grammar",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#restaurantenglish",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/restaurant/auto_restaurant_fix_bc474f/cine-auto-restaurant-fix-bc474f-en-v3.mp4",
+ "cover": "shorts/restaurant/auto_restaurant_fix_bc474f/cine-auto-restaurant-fix-bc474f-en-v3.jpg",
+ "ci_artifact": "cine-restaurant-21",
+ "run": "21",
+ "platforms": {
+  "tiktok": {
+   "title": "Stop saying \"Can you bring me other napkin?\"",
+   "caption": "Not \"other\". Say: \"Can you bring me another napkin?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_bc474f#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_bc474f#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Not \"other\". Say: \"Can you bring me another napkin?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_bc474f#/grammar\n#learnenglish #englishtips #restaurantenglish #commonmistakes #englishgrammar #travelenglish"
+  },
+  "reels": {
+   "title": "Stop saying \"Can you bring me other napkin?\"",
+   "caption": "Not \"other\". Say: \"Can you bring me another napkin?\"\nComment your answer below and follow for daily English (Restaurant English #15).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_bc474f#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_bc474f#/grammar",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Not \"other\". Say: \"Can you bring me another napkin?\"\nComment your answer below and follow for daily English (Restaurant English #15).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_bc474f#/grammar\n#learnenglish #englishtips #restaurantenglish #commonmistakes #englishgrammar #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Stop saying \"Can you bring me other napkin?\" #shorts",
+   "caption": "Not \"other\". Say: \"Can you bring me another napkin?\"\nComment your answer below and follow for daily English (Restaurant English #15).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_bc474f#/grammar",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_bc474f#/grammar",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#commonmistakes"
+   ],
+   "caption_with_tags": "Not \"other\". Say: \"Can you bring me another napkin?\"\nComment your answer below and follow for daily English (Restaurant English #15).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_fix_bc474f#/grammar\n#shorts #learnenglish #englishtips #restaurantenglish #commonmistakes"
+  }
+ },
+ "slot": {
+  "date": "2026-10-27",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

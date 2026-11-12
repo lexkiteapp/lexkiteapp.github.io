@@ -1,0 +1,75 @@
+{
+ "id": "auto_cafe_series_0c23b8",
+ "scene": "cafe",
+ "template": "series",
+ "area": "roleplay",
+ "cefr": "A2",
+ "point": "Yes, it was great. And you?",
+ "series": "Café English #13",
+ "title": "\"Did you have a good weekend?\" How would you answer?",
+ "description": "A real mini conversation at the coffee shop. Ama says: \"Yes, it was great. And you?\"\nComment your answer below and follow for daily English (Café English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_series_0c23b8#/roleplay",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#coffeeshopenglish",
+  "#englishconversation",
+  "#smalltalk",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/cafe/auto_cafe_series_0c23b8/cine-auto-cafe-series-0c23b8-en-v3.mp4",
+ "cover": "shorts/cafe/auto_cafe_series_0c23b8/cine-auto-cafe-series-0c23b8-en-v3.jpg",
+ "ci_artifact": "cine-cafe-16",
+ "run": "16",
+ "platforms": {
+  "tiktok": {
+   "title": "\"Did you have a good weekend?\" How would you answer?",
+   "caption": "A real mini conversation at the coffee shop. Ama says: \"Yes, it was great. And you?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_series_0c23b8#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_series_0c23b8#/roleplay",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#englishconversation",
+    "#smalltalk",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "A real mini conversation at the coffee shop. Ama says: \"Yes, it was great. And you?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_series_0c23b8#/roleplay\n#learnenglish #englishtips #coffeeshopenglish #englishconversation #smalltalk #travelenglish"
+  },
+  "reels": {
+   "title": "\"Did you have a good weekend?\" How would you answer?",
+   "caption": "A real mini conversation at the coffee shop. Ama says: \"Yes, it was great. And you?\"\nComment your answer below and follow for daily English (Café English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_series_0c23b8#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_series_0c23b8#/roleplay",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#englishconversation",
+    "#smalltalk",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "A real mini conversation at the coffee shop. Ama says: \"Yes, it was great. And you?\"\nComment your answer below and follow for daily English (Café English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_series_0c23b8#/roleplay\n#learnenglish #englishtips #coffeeshopenglish #englishconversation #smalltalk #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "\"Did you have a good weekend?\" How would you answer? #shorts",
+   "caption": "A real mini conversation at the coffee shop. Ama says: \"Yes, it was great. And you?\"\nComment your answer below and follow for daily English (Café English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_series_0c23b8#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_series_0c23b8#/roleplay",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#englishconversation"
+   ],
+   "caption_with_tags": "A real mini conversation at the coffee shop. Ama says: \"Yes, it was great. And you?\"\nComment your answer below and follow for daily English (Café English #13).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_series_0c23b8#/roleplay\n#shorts #learnenglish #englishtips #coffeeshopenglish #englishconversation"
+  }
+ },
+ "slot": {
+  "date": "2026-11-01",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

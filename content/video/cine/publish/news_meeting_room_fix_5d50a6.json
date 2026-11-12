@@ -1,0 +1,75 @@
+{
+ "id": "news_meeting_room_fix_5d50a6",
+ "scene": "news",
+ "template": "fix",
+ "area": "grammar-check",
+ "cefr": "B1",
+ "point": "discuss + object, no about",
+ "series": "WORK ENGLISH / discuss",
+ "bg": "meeting_room",
+ "title": "Stop saying \"Let's discuss about it\"",
+ "description": "Discuss + object, no about. Save this: Let's discuss the plan. / talk about the plan / discuss it / talk about it\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_fix_5d50a6#/fix",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_meeting_room_fix_5d50a6/cine-news-meeting-room-fix-5d50a6-en.mp4",
+ "cover": "shorts/news/news_meeting_room_fix_5d50a6/cine-news-meeting-room-fix-5d50a6-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "Stop saying \"Let's discuss about it\"",
+   "caption": "Discuss + object, no about. Save this: Let's discuss the plan. / talk about the plan / discuss it / talk about it\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_fix_5d50a6#/fix",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_fix_5d50a6#/fix",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "Discuss + object, no about. Save this: Let's discuss the plan. / talk about the plan / discuss it / talk about it\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_fix_5d50a6#/fix\n#learnenglish #englishtips #commonmistakes #englishgrammar #americanenglish #esl"
+  },
+  "reels": {
+   "title": "Stop saying \"Let's discuss about it\"",
+   "caption": "Discuss + object, no about. Save this: Let's discuss the plan. / talk about the plan / discuss it / talk about it\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_fix_5d50a6#/fix",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_fix_5d50a6#/fix",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Discuss + object, no about. Save this: Let's discuss the plan. / talk about the plan / discuss it / talk about it\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_fix_5d50a6#/fix\n#learnenglish #englishtips #commonmistakes #englishgrammar #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Stop saying \"Let's discuss about it\" #shorts",
+   "caption": "Discuss + object, no about. Save this: Let's discuss the plan. / talk about the plan / discuss it / talk about it\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_fix_5d50a6#/fix",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_fix_5d50a6#/fix",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#commonmistakes",
+    "#englishgrammar"
+   ],
+   "caption_with_tags": "Discuss + object, no about. Save this: Let's discuss the plan. / talk about the plan / discuss it / talk about it\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_meeting_room_fix_5d50a6#/fix\n#shorts #learnenglish #englishtips #commonmistakes #englishgrammar"
+  }
+ },
+ "slot": {
+  "date": "2026-10-29",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

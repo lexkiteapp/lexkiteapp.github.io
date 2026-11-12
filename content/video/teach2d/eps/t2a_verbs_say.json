@@ -1,0 +1,129 @@
+{
+ "id": "t2a_verbs_say",
+ "template": "verbs",
+ "series": "Verb Forms Challenge",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "verbs",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three forms of say. Ready?",
+   "pause": 0.42
+  },
+  {
+   "id": "b",
+   "text": "Base form: say.",
+   "pause": 0.42
+  },
+  {
+   "id": "p",
+   "text": "Past: said. It's time we said goodbye.",
+   "pause": 0.42
+  },
+  {
+   "id": "pp",
+   "text": "Past participle: said.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Not sayed! Say is irregular.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! She blank she was unlucky. Sayed, or said?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Said! She said she was unlucky.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "base": "say",
+  "past": "said",
+  "pp": "said",
+  "over": "sayed",
+  "quiz": {
+   "stem": "She ___ she was unlucky.",
+   "options": [
+    "sayed",
+    "said"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "verbs",
+  "route": "#/verb/say",
+  "link": "https://lexkite.com/app/#/verb/say",
+  "say": "Practice verb forms"
+ },
+ "hook": {
+  "line": "h",
+  "text": "say · said · said"
+ },
+ "est": {
+  "words": 50,
+  "seconds": 30.5,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Past of \"say\"? Not \"sayed\"",
+  "keyword": "say said said",
+  "value": "Say → said → said. Never \"sayed\".",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/verb/say",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Past of \"say\"? Not \"sayed\"",
+    "description": "Say → said → said. Never \"sayed\".\n\nPractice verb forms, free: https://lexkite.com/app/#/verb/say\n\nSeries: Verb Forms Challenge · Teacher: Carlos\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "say said said",
+     "Verb Forms Challenge",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Past of \"say\"? Not \"sayed\"\n\nSay → said → said. Never \"sayed\".\n\nPractice verb forms, free: https://lexkite.com/app/#/verb/say"
+   },
+   "instagram": {
+    "caption": "Past of \"say\"? Not \"sayed\"\n\nSay → said → said. Never \"sayed\".\n\nPractice verb forms: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Past of \"say\"? Not \"sayed\" #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Quiz answer: Said! She said she was unlucky. Practice it with a free quiz: {link}"
+ }
+}

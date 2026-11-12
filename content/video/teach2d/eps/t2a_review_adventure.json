@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_adventure",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: adventure.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means an exciting and often dangerous experience.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Our trip to the jungle was a real adventure.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "adventure",
+  "ipa": "/ædˈventʃər/",
+  "mean": "an exciting and often dangerous experience",
+  "ex": "Our trip to the jungle was a real adventure.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=adventure",
+  "link": "https://lexkite.com/app/#/review?w=adventure",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 42,
+  "seconds": 25.7,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"adventure\" mean?",
+  "keyword": "adventure",
+  "value": "Adventure means an exciting and often dangerous experience.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=adventure",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"adventure\" mean?",
+    "description": "Adventure means an exciting and often dangerous experience.\n\nReview your words, free: https://lexkite.com/app/#/review?w=adventure\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "adventure",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"adventure\" mean?\n\nAdventure means an exciting and often dangerous experience.\n\nReview your words, free: https://lexkite.com/app/#/review?w=adventure"
+   },
+   "instagram": {
+    "caption": "What does \"adventure\" mean?\n\nAdventure means an exciting and often dangerous experience.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"adventure\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means an exciting and often dangerous experience. Adventure means an exciting and often dangerous experience. Practice it with a free quiz: {link}"
+ }
+}

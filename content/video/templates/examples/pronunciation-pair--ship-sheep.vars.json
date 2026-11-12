@@ -1,0 +1,19 @@
+{
+ "topic": "Pronunciation: ship vs sheep",
+ "scene": "library",
+ "vars": {
+  "a": "ship",
+  "b": "sheep",
+  "mixup": "So I just told everyone I'm traveling by sheep?",
+  "how": "Ship is short and quick. Sheep is long, so stretch it and smile.",
+  "drill": "The sheep sleeps on the ship.",
+  "tip": "smile for sheep, relax for ship.",
+  "wrongCard": "I'm traveling by sheep",
+  "rightCard": "I'm traveling by ship"
+ },
+ "hashtags": [
+  "pronunciation",
+  "englishpronunciation",
+  "speakenglish"
+ ]
+}

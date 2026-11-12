@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Admin — Đăng nhập</title>
+<!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with forms & container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-container": "#fd6f4c",
+            "inverse-on-surface": "#e9f3f1",
+            "on-primary-fixed": "#00201e",
+            "primary": "#004340",
+            "tertiary-fixed": "#9ff1eb",
+            "error-container": "#ffdad6",
+            "surface-container-low": "#ecf6f4",
+            "on-surface-variant": "#3f4947",
+            "error": "#ba1a1a",
+            "on-error": "#ffffff",
+            "inverse-primary": "#8fd3cd",
+            "inverse-surface": "#293231",
+            "surface-container-highest": "#dbe5e2",
+            "surface-tint": "#216964",
+            "on-secondary": "#ffffff",
+            "outline": "#6f7978",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed-variant": "#8a1c00",
+            "surface-bright": "#f2fbf9",
+            "surface": "#f2fbf9",
+            "primary-container": "#0d5c58",
+            "on-tertiary-fixed": "#00201e",
+            "surface-container-high": "#e0eae8",
+            "on-error-container": "#93000a",
+            "on-secondary-container": "#661200",
+            "surface-variant": "#dbe5e2",
+            "primary-fixed": "#abefe9",
+            "on-background": "#141d1c",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#82d3cd",
+            "tertiary-fixed-dim": "#83d5ce",
+            "secondary-fixed": "#ffdad2",
+            "on-surface": "#141d1c",
+            "secondary-fixed-dim": "#ffb4a2",
+            "on-secondary-fixed": "#3c0700",
+            "on-primary": "#ffffff",
+            "tertiary": "#00433f",
+            "on-tertiary-fixed-variant": "#00504c",
+            "on-primary-fixed-variant": "#00504c",
+            "tertiary-container": "#005c58",
+            "secondary": "#ac3416",
+            "surface-container": "#e6f0ee",
+            "on-primary-container": "#8ed2cc",
+            "surface-dim": "#d2dcda",
+            "outline-variant": "#bec9c7",
+            "primary-fixed-dim": "#8fd3cd",
+            "background": "#f2fbf9"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "gutter-mobile": "0.75rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "code-sm": ["JetBrains Mono"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "title-sm": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "code-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    /* Tactile Paper Foundation & Layering */
+    body {
+      background-color: #FAF6F0;
+      color: #141d1c;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+    }
+    .tactile-gate-card {
+      background-color: #FFFFFF;
+      border: 1px solid #E6DDD2;
+      box-shadow: 0 4px 0 0 #DCD4C6, 0 16px 32px -6px rgba(13, 92, 88, 0.07);
+    }
+    .tactile-btn-primary {
+      background-color: #0D5C58;
+      border: 1px solid #084340;
+      box-shadow: 0 3px 0 0 #052B29, 0 6px 16px -2px rgba(13, 92, 88, 0.28);
+      transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .tactile-btn-primary:hover {
+      background-color: #116B66;
+      box-shadow: 0 4px 0 0 #052B29, 0 8px 20px -2px rgba(13, 92, 88, 0.32);
+      transform: translateY(-1px);
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #052B29, 0 2px 4px rgba(13, 92, 88, 0.15);
+    }
+  </style>
+</head>
+<body class="relative flex flex-col justify-between overflow-x-hidden selection:bg-primary-fixed selection:text-primary">
+<!-- Ambient Organic Architectural Background Canvas -->
+<div aria-hidden="true" class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+<!-- Soft warm radial glows -->
+<div class="absolute -top-40 -left-32 w-[620px] h-[620px] rounded-full bg-[#F3ECE1] opacity-70 blur-3xl"></div>
+<div class="absolute top-1/3 -right-40 w-[680px] h-[680px] rounded-full bg-[#EBF4F2] opacity-60 blur-3xl"></div>
+<div class="absolute -bottom-36 left-1/4 w-[540px] h-[540px] rounded-full bg-[#FFF0E8] opacity-50 blur-3xl"></div>
+<!-- Architectural subtle grid accents -->
+<div class="absolute inset-0 opacity-[0.025]" style="background-image: radial-gradient(#0D5C58 1px, transparent 1px); background-size: 32px 32px;"></div>
+</div>
+<!-- TopNavBar (Shared Minimal Auth Header as defined in Anchor JSON) -->
+<header class="w-full max-w-7xl mx-auto flex items-center justify-between px-6 py-6 z-10 docked full-width top-0 bg-transparent border-none">
+<div class="flex items-center gap-space-sm">
+<span class="text-title-md font-title-md font-bold text-primary tracking-tight">Lexkite Admin</span>
+</div>
+<div class="flex items-center">
+<a class="p-2 text-on-surface-variant hover:text-primary transition-colors duration-150 active:translate-y-px rounded-lg flex items-center justify-center" href="#help" title="Trợ giúp">
+<span class="material-symbols-outlined text-[22px]" data-icon="help_outline">help_outline</span>
+</a>
+</div>
+</header>
+<!-- Main Sign-in Gate Viewport Canvas -->
+<main class="relative z-10 flex-1 flex items-center justify-center px-4 py-8">
+<div class="w-full max-w-[440px]">
+<!-- Tactile Modern Auth Card -->
+<section class="tactile-gate-card rounded-3xl p-8 sm:p-10 text-center relative transition-all">
+<!-- Lexkite Geometric Kite Emblem -->
+<div class="inline-flex items-center justify-center mb-6">
+<div class="w-16 h-16 rounded-2xl bg-[#E8F3F1] border border-[#BDE0DA] flex items-center justify-center shadow-[inset_0_1px_2px_rgba(255,255,255,0.8),0_2px_0_0_#CDE4E0]">
+<svg class="transform -rotate-6" fill="none" height="36" viewbox="0 0 36 36" width="36" xmlns="http://www.w3.org/2000/svg">
+<!-- Deep Teal Upper Left facet -->
+<path d="M18 4L6 18L18 20L18 4Z" fill="#0D5C58"></path>
+<!-- Vibrant Teal Upper Right facet -->
+<path d="M18 4L30 18L18 20L18 4Z" fill="#1C7E78"></path>
+<!-- Warm Coral Lower Left facet -->
+<path d="M6 18L18 32L18 20L6 18Z" fill="#EA580C"></path>
+<!-- High-energy Warm Peach/Coral Lower Right facet -->
+<path d="M30 18L18 32L18 20L30 18Z" fill="#F06543"></path>
+<!-- Crisp kite tether knot -->
+<circle cx="18" cy="20" fill="#FFFFFF" r="1.75"></circle>
+</svg>
+</div>
+</div>
+<!-- Typography Cluster -->
+<h1 class="text-headline-md font-headline-md text-primary tracking-tight mb-2">
+          Lexkite Admin
+        </h1>
+<p class="text-body-md font-body-md text-on-surface-variant font-medium mb-8">
+          Chỉ dành cho quản trị viên
+        </p>
+<!-- Primary Action: Big Tactile Google Sign-in Button -->
+<button aria-label="Đăng nhập bằng Google" class="tactile-btn-primary w-full h-[52px] rounded-xl px-4 flex items-center justify-center gap-3 cursor-pointer select-none group" type="button">
+<!-- Official Google 'G' Emblem Container -->
+<span class="w-7 h-7 rounded-lg bg-white flex items-center justify-center flex-shrink-0 shadow-[0_1px_2px_rgba(0,0,0,0.12)]">
+<svg fill="none" height="18" viewbox="0 0 18 18" width="18" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.64 9.20455C17.64 8.56636 17.5827 7.95273 17.4764 7.36364H9V10.845H13.8436C13.635 11.97 13.0009 12.9232 12.0477 13.5614V15.8195H14.9564C16.6582 14.2527 17.64 11.9455 17.64 9.20455Z" fill="#4285F4"></path>
+<path d="M9 18C11.43 18 13.4673 17.1941 14.9564 15.8195L12.0477 13.5614C11.2418 14.1014 10.2109 14.4205 9 14.4205C6.65591 14.4205 4.67182 12.8373 3.96409 10.71H0.957275V13.0418C2.43818 15.9832 5.48182 18 9 18Z" fill="#34A853"></path>
+<path d="M3.96409 10.71C3.78409 10.17 3.68182 9.59318 3.68182 9C3.68182 8.40682 3.78409 7.83 3.96409 7.29V4.95818H0.957275C0.347727 6.17318 0 7.54773 0 9C0 10.4523 0.347727 11.8268 0.957275 13.0418L3.96409 10.71Z" fill="#FBBC05"></path>
+<path d="M9 3.57955C10.3214 3.57955 11.5077 4.03364 12.4405 4.92545L15.0218 2.34409C13.4632 0.891818 11.4259 0 9 0C5.48182 0 2.43818 2.01682 0.957275 4.95818L3.96409 7.29C4.67182 5.16273 6.65591 3.57955 9 3.57955Z" fill="#EA4335"></path>
+</svg>
+</span>
+<span class="text-body-md font-title-md font-bold text-on-primary tracking-wide">
+            Đăng nhập bằng Google
+          </span>
+</button>
+<!-- Security Note -->
+<p class="text-body-sm font-body-sm text-outline mt-6 flex items-center justify-center gap-1.5 select-none">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="lock">lock</span>
+<span>Quyền truy cập được giới hạn theo email</span>
+</p>
+</section>
+</div>
+</main>
+<!-- Discreet Architectural Baseline Anchor (No footer links or tabs as strictly mandated) -->
+<div aria-hidden="true" class="h-6 w-full pointer-events-none"></div>
+</body></html>

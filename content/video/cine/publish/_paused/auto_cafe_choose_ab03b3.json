@@ -1,0 +1,75 @@
+{
+ "id": "auto_cafe_choose_ab03b3",
+ "scene": "cafe",
+ "template": "choose",
+ "area": "listening",
+ "cefr": "A2",
+ "point": "listen name sam",
+ "series": "Café English #25",
+ "title": "What's the name on the cup? Listen once and choose!",
+ "description": "Listen once at the coffee shop and pick the right answer. Answer: \"The latte is for Sam.\"\nComment your answer below and follow for daily English (Café English #25).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_ab03b3#/listening",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#coffeeshopenglish",
+  "#listeningpractice",
+  "#englishlistening",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/cafe/auto_cafe_choose_ab03b3/cine-auto-cafe-choose-ab03b3-en-v3.mp4",
+ "cover": "shorts/cafe/auto_cafe_choose_ab03b3/cine-auto-cafe-choose-ab03b3-en-v3.jpg",
+ "ci_artifact": "cine-cafe-27",
+ "run": "27",
+ "platforms": {
+  "tiktok": {
+   "title": "What's the name on the cup? Listen once and choose!",
+   "caption": "Listen once at the coffee shop and pick the right answer. Answer: \"The latte is for Sam.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_ab03b3#/listening",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_ab03b3#/listening",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#listeningpractice",
+    "#englishlistening",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Listen once at the coffee shop and pick the right answer. Answer: \"The latte is for Sam.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_ab03b3#/listening\n#learnenglish #englishtips #coffeeshopenglish #listeningpractice #englishlistening #travelenglish"
+  },
+  "reels": {
+   "title": "What's the name on the cup? Listen once and choose!",
+   "caption": "Listen once at the coffee shop and pick the right answer. Answer: \"The latte is for Sam.\"\nComment your answer below and follow for daily English (Café English #25).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_ab03b3#/listening",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_ab03b3#/listening",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#listeningpractice",
+    "#englishlistening",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Listen once at the coffee shop and pick the right answer. Answer: \"The latte is for Sam.\"\nComment your answer below and follow for daily English (Café English #25).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_ab03b3#/listening\n#learnenglish #englishtips #coffeeshopenglish #listeningpractice #englishlistening #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "What's the name on the cup? Listen once and choose! #shorts",
+   "caption": "Listen once at the coffee shop and pick the right answer. Answer: \"The latte is for Sam.\"\nComment your answer below and follow for daily English (Café English #25).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_ab03b3#/listening",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_ab03b3#/listening",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#listeningpractice"
+   ],
+   "caption_with_tags": "Listen once at the coffee shop and pick the right answer. Answer: \"The latte is for Sam.\"\nComment your answer below and follow for daily English (Café English #25).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_choose_ab03b3#/listening\n#shorts #learnenglish #englishtips #coffeeshopenglish #listeningpractice"
+  }
+ },
+ "slot": {
+  "date": "2026-12-07",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

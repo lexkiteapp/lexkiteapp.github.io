@@ -1,0 +1,96 @@
+{
+ "id": "news_bank_ways_0ea920",
+ "template": "ways",
+ "bg": "post_office",
+ "area": "phrases",
+ "cefr": "A2",
+ "point": "asking for help: polite to casual",
+ "hook": {
+  "card": "NEED HELP?",
+  "line": "n_0ea920_h"
+ },
+ "series": [
+  "EVERYDAY ENGLISH",
+  "3 ways to ask"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_0ea920_1",
+   "card": {
+    "kind": "p",
+    "text": "Would you mind helping?",
+    "sub": null,
+    "label": "POLITE"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_0ea920_2",
+   "card": {
+    "kind": "p",
+    "text": "Could you help me?",
+    "sub": null,
+    "label": "NEUTRAL"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_0ea920_3",
+   "card": {
+    "kind": "p",
+    "text": "Can you give me a hand?",
+    "sub": null,
+    "label": "CASUAL"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_0ea920_4",
+   "card": {
+    "kind": "p",
+    "text": "polite = strangers, staff",
+    "sub": null,
+    "label": "TIP"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_0ea920_5",
+   "card": {
+    "kind": "p",
+    "text": "give me a hand = help me",
+    "sub": null,
+    "label": "TIP"
+   }
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "line": "n_0ea920_r",
+  "rows": [
+   "Would you mind helping me?",
+   "Could you help me?",
+   "Can you give me a hand?"
+  ],
+  "line_alt": "n_0ea920_r2"
+ },
+ "end_line": "n_0ea920_e",
+ "link": "https://lexkite.com/app/#/phrases",
+ "cta": "Save useful phrases on lexkite.com",
+ "est": 24.6,
+ "no_intro": true,
+ "end_alt": "n_0ea920_e2",
+ "publish": {
+  "title": "3 ways to ask for help in English",
+  "keyword": "asking for help",
+  "value": "From polite to casual, for any situation.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a2english"
+  ],
+  "first_comment": "Which one do you use most? \"Could you help me?\" is the safe choice almost everywhere. Practice all three with a short quiz: {link}"
+ }
+}

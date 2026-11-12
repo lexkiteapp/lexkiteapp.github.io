@@ -1,0 +1,22 @@
+# CI không chạm Worker/Functions prod (trần 100k lượt/ngày dùng chung – sự cố 01/11, docs/CAPACITY.md §A5):
+# chặn DNS các host prod về 127.0.0.1 + bật cờ cho Playwright chặn được fetch từ service worker.
+# Test vẫn có media thật: scripts/test/lib/no-prod.mjs chuyển media/audio sang GitHub TRƯỚC DNS. Kiểm: scripts/test/no-prod-hosts.mjs.
+name: no-prod
+description: Chặn host prod Lexkite trên runner (0 lượt Workers/Functions)
+inputs:
+  hosts:
+    description: Danh sách host chặn (cách nhau dấu cách). Bỏ lexkite.com chỉ khi test cần TRANG tĩnh live (Pages tĩnh không tính lượt) – /api vẫn bị no-prod.mjs mock.
+    default: lexkite.com www.lexkite.com lexkite.pages.dev audio.lexkite.com media.lexkite.com
+  sw:
+    description: "on = bật cờ Playwright route fetch từ service worker TRANG; off = không bật (SW của add-on MV3 hỏng khi bật – ext-e2e)"
+    default: 'on'
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env: { H: '${{ inputs.hosts }}', SW: '${{ inputs.sw }}' }
+      run: |
+        echo "127.0.0.1 $H" | sudo tee -a /etc/hosts >/dev/null
+        if [ "$SW" = on ]; then echo "PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS=1" >> "$GITHUB_ENV"; else echo "LEXKITE_NO_PROD_SW=off" >> "$GITHUB_ENV"; fi
+        echo "LEXKITE_NO_PROD=1" >> "$GITHUB_ENV"
+        echo "no-prod: chặn $H"

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=390, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Lexkite IELTS Full Mock Test Intro</title>
+  <!-- Plus Jakarta Sans Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <!-- Material Symbols Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            lexCream: '#FFF8F5',
+            lexCard: '#FFFFFF',
+            lexCardBorder: '#E6D7CD',
+            lexTeal: '#0F3D3E',
+            lexTealDark: '#0A2B2C',
+            lexTealLight: '#E6F4F2',
+            lexTealBorder: '#2BA39A',
+            lexAmber: '#D97300',
+            lexCoral: '#FF7A00',
+            lexCoralShadow: '#C85700',
+            lexInkDark: '#192425',
+            lexInkMuted: '#475A5B',
+            lexGreen: '#006B44',
+            lexGreenBg: '#E7F7EE',
+            lexGreenBorder: '#28A745',
+          },
+          boxShadow: {
+            'tactile-btn': '0 4px 0 #C85700',
+            'tactile-btn-sm': '0 3px 0 #C85700',
+            'tactile-card': '0 3px 0 #E6D7CD',
+            'tactile-teal': '0 3px 0 #0A2B2C',
+            'tactile-outline': '0 3px 0 #D5C2B5',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #FFF8F5;
+      color: #192425;
+      -webkit-font-smoothing: antialiased;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    .btn-tactile:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #C85700;
+    }
+    .btn-outline-tactile:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #D5C2B5;
+    }
+    .teacher-slot-dashed {
+      border: 2px dashed #0F3D3E;
+      background-color: #F0F9F8;
+    }
+  </style>
+</head>
+<body class="bg-lexCream min-h-screen text-lexInkDark flex flex-col items-center">
+  <!-- Mobile Container strictly 390px wide -->
+  <div class="w-full max-w-[390px] min-h-screen bg-lexCream flex flex-col pb-10">
+
+    <!-- TOP BAR (Inner Screen Variant: Back arrow 44x44 + Title + Right Badge) -->
+    <header class="sticky top-0 z-40 bg-lexCream/95 backdrop-blur border-b-2 border-lexCardBorder px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <button type="button" aria-label="Go back" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-white border-2 border-lexCardBorder flex items-center justify-center text-lexTeal hover:bg-lexTealLight transition-colors active:scale-95 shadow-sm">
+          <span class="material-symbols-rounded text-2xl">arrow_back</span>
+        </button>
+        <div class="flex flex-col">
+          <h1 class="text-base font-extrabold text-lexTeal tracking-tight leading-tight">IELTS Full Mock Test</h1>
+          <span class="text-xs font-semibold text-lexInkMuted leading-none">Exam Simulation</span>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <span class="px-2.5 py-1 rounded-full text-xs font-extrabold bg-lexTeal text-white tracking-wider uppercase border border-lexTealDark">
+          EXAM MODE
+        </span>
+      </div>
+    </header>
+
+    <!-- MAIN SCROLL CONTENT (16px side gutter) -->
+    <main class="flex-1 px-4 py-4 flex flex-col gap-4">
+
+      <!-- TEST HERO HEADER CARD -->
+      <section class="bg-white rounded-2xl p-4 border-2 border-lexCardBorder shadow-tactile-card flex flex-col gap-3">
+        <!-- Target Badge & Year standard -->
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-lexTealLight text-lexTeal font-bold text-xs border border-lexTealBorder/40">
+            <span class="w-2 h-2 rounded-full bg-lexTeal"></span>
+            Academic 2025 Standard
+          </span>
+          <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-[#FFF2E0] text-[#8F4700] font-bold text-xs border border-[#F2C99C]">
+            <span class="material-symbols-rounded text-sm text-[#D97300]">stars</span>
+            Target Band 7.5
+          </span>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-extrabold text-lexInkDark leading-snug tracking-tight">Official IELTS Academic Mock #15</h2>
+          <p class="text-xs font-medium text-lexInkMuted mt-1 leading-relaxed">
+            Complete standardized test simulation with genuine timed exam sequence, British Council scoring rubric, and verified acoustic benchmarks.
+          </p>
+        </div>
+
+        <!-- Key Meta Stats -->
+        <div class="grid grid-cols-2 gap-2 pt-1">
+          <div class="bg-lexCream rounded-xl p-2.5 border border-lexCardBorder flex items-center gap-2.5">
+            <div class="w-9 h-9 min-w-[36px] rounded-lg bg-lexTealLight flex items-center justify-center text-lexTeal">
+              <span class="material-symbols-rounded text-xl">schedule</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-lexInkMuted">Duration</span>
+              <span class="text-xs font-extrabold text-lexInkDark">2h 44m total</span>
+            </div>
+          </div>
+
+          <div class="bg-lexCream rounded-xl p-2.5 border border-lexCardBorder flex items-center gap-2.5">
+            <div class="w-9 h-9 min-w-[36px] rounded-lg bg-lexTealLight flex items-center justify-center text-lexTeal">
+              <span class="material-symbols-rounded text-xl">layers</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-lexInkMuted">Modules</span>
+              <span class="text-xs font-extrabold text-lexInkDark">4 Standardized</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEACHER SLOT / PROCTOR TIP (empty dashed placeholder as per system rules) -->
+      <section class="bg-white rounded-2xl p-3.5 border-2 border-lexCardBorder shadow-tactile-card flex items-start gap-3">
+        <!-- teacher-slot container: rounded-xl dashed border, empty of drawing/person -->
+        <div class="teacher-slot-dashed w-14 h-14 min-w-[56px] min-h-[56px] rounded-xl flex flex-col items-center justify-center text-center p-1">
+          <span class="material-symbols-rounded text-lexTeal text-xl leading-none">school</span>
+          <span class="text-[8px] font-extrabold text-lexTeal uppercase tracking-tighter mt-0.5 leading-none">teacher-slot</span>
+        </div>
+        <div class="flex-1 flex flex-col">
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <span class="text-xs font-bold text-lexTeal">Coach Carlos</span>
+            <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-lexCream text-lexInkMuted border border-lexCardBorder uppercase tracking-wide">Proctor Tip</span>
+          </div>
+          <p class="text-xs text-lexInkDark font-medium mt-1 leading-relaxed">
+            &ldquo;Simulate real exam conditions: silence your notifications and complete the 2h 44m sitting without pausing.&rdquo;
+          </p>
+        </div>
+      </section>
+
+      <!-- HEADPHONE & AUDIO CHECK ROW -->
+      <section class="bg-white rounded-2xl p-4 border-2 border-lexCardBorder shadow-tactile-card flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-lexTealLight flex items-center justify-center text-lexTeal">
+              <span class="material-symbols-rounded text-lg">headphones</span>
+            </div>
+            <h3 class="text-sm font-extrabold text-lexInkDark">Headphone &amp; Audio Check</h3>
+          </div>
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-extrabold bg-lexGreenBg text-lexGreen border border-lexGreenBorder/50">
+            <span class="material-symbols-rounded text-xs">check_circle</span>
+            Stereo OK
+          </span>
+        </div>
+        <p class="text-xs text-lexInkMuted leading-relaxed">
+          Listening module requires crisp audio. Verify balanced dual-channel sound before initiating this test sitting.
+        </p>
+        <button type="button" class="btn-outline-tactile w-full h-11 min-h-[44px] rounded-xl bg-lexCream hover:bg-lexTealLight/40 border-2 border-lexTeal text-lexTeal font-extrabold text-xs flex items-center justify-center gap-2 transition-all shadow-tactile-outline">
+          <span class="material-symbols-rounded text-base">volume_up</span>
+          <span>Test Audio Soundcheck</span>
+        </button>
+      </section>
+
+      <!-- EXAM MODULES SEQUENCE (Listening 30m, Reading 60m, Writing 60m, Speaking 14m) -->
+      <section class="flex flex-col gap-2.5">
+        <div class="flex items-center justify-between px-1">
+          <h3 class="text-sm font-extrabold text-lexInkDark uppercase tracking-wider">Exam Modules Sequence</h3>
+          <span class="text-xs font-bold text-lexTeal">4 of 4 Ready</span>
+        </div>
+
+        <!-- 1. Listening -->
+        <article class="bg-white rounded-2xl p-3.5 border-2 border-lexCardBorder shadow-tactile-card flex flex-col gap-2">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-full bg-lexTeal text-white font-extrabold text-xs flex items-center justify-center shadow-sm">
+                1
+              </div>
+              <div class="flex flex-col">
+                <h4 class="text-sm font-extrabold text-lexInkDark leading-tight">Listening</h4>
+                <span class="text-xs font-medium text-lexInkMuted">30 mins (+10m transfer) &bull; 40 questions</span>
+              </div>
+            </div>
+            <span class="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-lexGreenBg text-lexGreen text-xs font-bold border border-lexGreenBorder/40">
+              <span class="material-symbols-rounded text-xs">check</span>
+              Audio ready
+            </span>
+          </div>
+          <p class="text-xs text-lexInkMuted pl-10 leading-snug">
+            4 recorded sections, plays once only. Timed answer sheet transfer phase included.
+          </p>
+        </article>
+
+        <!-- 2. Reading -->
+        <article class="bg-white rounded-2xl p-3.5 border-2 border-lexCardBorder shadow-tactile-card flex flex-col gap-2">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-full bg-lexTeal text-white font-extrabold text-xs flex items-center justify-center shadow-sm">
+                2
+              </div>
+              <div class="flex flex-col">
+                <h4 class="text-sm font-extrabold text-lexInkDark leading-tight">Reading</h4>
+                <span class="text-xs font-medium text-lexInkMuted">60 mins &bull; 3 academic passages</span>
+              </div>
+            </div>
+            <span class="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-lexGreenBg text-lexGreen text-xs font-bold border border-lexGreenBorder/40">
+              <span class="material-symbols-rounded text-xs">check</span>
+              Passages loaded
+            </span>
+          </div>
+          <p class="text-xs text-lexInkMuted pl-10 leading-snug">
+            40 questions across biological, archaeological, and sociological academic texts.
+          </p>
+        </article>
+
+        <!-- 3. Writing -->
+        <article class="bg-white rounded-2xl p-3.5 border-2 border-lexCardBorder shadow-tactile-card flex flex-col gap-2">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-full bg-lexTeal text-white font-extrabold text-xs flex items-center justify-center shadow-sm">
+                3
+              </div>
+              <div class="flex flex-col">
+                <h4 class="text-sm font-extrabold text-lexInkDark leading-tight">Writing</h4>
+                <span class="text-xs font-medium text-lexInkMuted">60 mins &bull; 2 tasks</span>
+              </div>
+            </div>
+            <span class="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-lexGreenBg text-lexGreen text-xs font-bold border border-lexGreenBorder/40">
+              <span class="material-symbols-rounded text-xs">check</span>
+              Prompts active
+            </span>
+          </div>
+          <p class="text-xs text-lexInkMuted pl-10 leading-snug">
+            Task 1 (150 words report) + Task 2 (250 words academic argument essay).
+          </p>
+        </article>
+
+        <!-- 4. Speaking -->
+        <article class="bg-white rounded-2xl p-3.5 border-2 border-lexCardBorder shadow-tactile-card flex flex-col gap-2">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-full bg-lexTeal text-white font-extrabold text-xs flex items-center justify-center shadow-sm">
+                4
+              </div>
+              <div class="flex flex-col">
+                <h4 class="text-sm font-extrabold text-lexInkDark leading-tight">Speaking</h4>
+                <span class="text-xs font-medium text-lexInkMuted">11&ndash;14 mins &bull; 3 parts</span>
+              </div>
+            </div>
+            <span class="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-lexGreenBg text-lexGreen text-xs font-bold border border-lexGreenBorder/40">
+              <span class="material-symbols-rounded text-xs">mic</span>
+              Mic calibrated
+            </span>
+          </div>
+          <p class="text-xs text-lexInkMuted pl-10 leading-snug">
+            3 interactive parts with AI Examiner. Acoustic scoring for fluency &amp; pronunciation.
+          </p>
+        </article>
+      </section>
+
+      <!-- RULES & CONDITIONS CHECKLIST -->
+      <section class="bg-white rounded-2xl p-4 border-2 border-lexCardBorder shadow-tactile-card flex flex-col gap-2.5">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="material-symbols-rounded text-lexTeal text-lg">verified_user</span>
+          <h3 class="text-xs font-extrabold text-lexInkDark uppercase tracking-wider">Official Exam Condition Rules</h3>
+        </div>
+
+        <ul class="flex flex-col gap-2 text-xs font-semibold text-lexInkDark">
+          <li class="flex items-start gap-2.5">
+            <span class="material-symbols-rounded text-lexGreen text-base shrink-0 mt-0.5">check_circle</span>
+            <span class="leading-snug">No pause once timer starts to reflect real test centre criteria.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="material-symbols-rounded text-lexGreen text-base shrink-0 mt-0.5">check_circle</span>
+            <span class="leading-snug">Strict module time limits enforce automatic submission upon expiration.</span>
+          </li>
+          <li class="flex items-start gap-2.5">
+            <span class="material-symbols-rounded text-lexGreen text-base shrink-0 mt-0.5">check_circle</span>
+            <span class="leading-snug">Auto-saves every 10 seconds locally &amp; cloud sync so progress is never lost.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- PRIMARY CTA: START TEST (Coral with tactile bottom ledge, deep brown-black ink) -->
+      <section class="flex flex-col gap-1.5 pt-1">
+        <button type="button" class="btn-tactile w-full h-14 min-h-[56px] rounded-2xl bg-lexCoral border-2 border-[#AA4800] text-[#1A0D00] font-extrabold text-base flex items-center justify-center gap-2 shadow-tactile-btn transition-transform cursor-pointer">
+          <span>Start Full Mock Exam (2h 44m)</span>
+          <span class="material-symbols-rounded text-2xl font-black">arrow_forward</span>
+        </button>
+        <p class="text-[11px] font-semibold text-center text-lexInkMuted leading-tight">
+          Estimated finish: ~17:15 &bull; Uninterrupted sitting recommended
+        </p>
+      </section>
+
+      <!-- ALTERNATIVE OPTION: QUICK TEST 15 MIN -->
+      <section class="bg-[#FFF4EB] rounded-2xl p-4 border-2 border-[#F5D5C0] flex flex-col gap-2.5">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <span class="material-symbols-rounded text-lexAmber text-base">bolt</span>
+            <h4 class="text-xs font-extrabold text-lexInkDark">Short on time today?</h4>
+          </div>
+          <span class="text-[11px] font-extrabold px-2 py-0.5 rounded bg-white text-[#944200] border border-[#F2C99C]">
+            +50 XP
+          </span>
+        </div>
+        <p class="text-xs text-lexInkDark font-medium leading-relaxed">
+          Complete a 15-Minute Diagnostic Sprint covering high-frequency band 7+ traps. Refreshes predicted band score without full 2h 44m sitting.
+        </p>
+        <button type="button" class="btn-outline-tactile w-full h-11 min-h-[44px] rounded-xl bg-white hover:bg-lexCream border-2 border-lexTeal text-lexTeal font-extrabold text-xs flex items-center justify-center gap-2 transition-all shadow-tactile-outline">
+          <span class="material-symbols-rounded text-base">timer</span>
+          <span>Start Quick Test (15m)</span>
+        </button>
+      </section>
+
+    </main>
+
+    <!-- FOOTER TAB BAR (Mobile App Shell: exactly 5 tabs Today, Vocab, Skills, Tests, Me; Tests is active) -->
+    <nav class="sticky bottom-0 z-40 bg-white border-t-2 border-lexCardBorder px-2 h-16 flex items-center justify-around">
+      <!-- 1. Today -->
+      <a href="#today" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-lexInkMuted hover:text-lexTeal transition-colors">
+        <span class="material-symbols-rounded text-2xl">calendar_today</span>
+        <span class="text-[10px] font-bold mt-0.5">Today</span>
+      </a>
+
+      <!-- 2. Vocab -->
+      <a href="#vocab" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-lexInkMuted hover:text-lexTeal transition-colors">
+        <span class="material-symbols-rounded text-2xl">menu_book</span>
+        <span class="text-[10px] font-bold mt-0.5">Vocab</span>
+      </a>
+
+      <!-- 3. Skills -->
+      <a href="#skills" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-lexInkMuted hover:text-lexTeal transition-colors">
+        <span class="material-symbols-rounded text-2xl">psychology</span>
+        <span class="text-[10px] font-bold mt-0.5">Skills</span>
+      </a>
+
+      <!-- 4. Tests (ACTIVE TAB) -->
+      <a href="#tests" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-white">
+        <div class="px-3 py-1 rounded-xl bg-lexTeal border border-lexTealDark shadow-tactile-teal flex flex-col items-center">
+          <span class="material-symbols-rounded text-xl leading-none text-white">assignment</span>
+          <span class="text-[10px] font-extrabold mt-0.5 leading-none text-white">Tests</span>
+        </div>
+      </a>
+
+      <!-- 5. Me -->
+      <a href="#me" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-lexInkMuted hover:text-lexTeal transition-colors">
+        <span class="material-symbols-rounded text-2xl">person</span>
+        <span class="text-[10px] font-bold mt-0.5">Me</span>
+      </a>
+    </nav>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+ "topic": "Cafe English: spot the mistake in \"I'm waiting since one hour\"",
+ "scene": "cafe",
+ "seed": "stm-since",
+ "vars": {
+  "wrong": "I'm waiting since one hour",
+  "wrongShort": "waiting since",
+  "right": "I've been waiting for an hour",
+  "fix": "I've been waiting",
+  "rule": "if it started earlier and is still going on, say I've been waiting.",
+  "example": "I've been waiting for my latte since nine.",
+  "tip": "for plus a length of time. Since plus a starting point.",
+  "skill": "grammar"
+ },
+ "hashtags": [
+  "englishgrammar",
+  "commonmistakes",
+  "grammartips"
+ ]
+}

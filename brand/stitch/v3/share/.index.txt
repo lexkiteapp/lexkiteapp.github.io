@@ -1,0 +1,16 @@
+# Stitch v3 kho mẫu – share (scripts/stitch/batch.mjs, 5 khoá; mỗi khoá 1 project + design system Lexkite Kit). màn id-sáng id-tối thiết-bị verdict cờ | khoá · ghi chú QC
+15 La 222×42") · light: chỉ 1% sáng < 35% (bản sáng bị tối?) · dark: 3 vùng chạm < 44px (vd "Me 24×24") · dark: tương phản 1 chữ (vd "/" 1.61<4.5)
+EN (US)
+reel-mispro-45 ab5314595cb949039049247ad21eafab 37852aa54ab244db89cd5a54d54c5c35 MOBILE QC | key5 project 7022870386131391655
+reel-mispro-916 642b62d2e040428a85dc34fc77355515 449aee4bf3f643f793e8f6288b820ca1 MOBILE QC | key3 project 18075333702575270507
+reel-near-45 077b1770bd134cac864074e94308977b 7a874947c91241679528c524d7febd14 MOBILE QC | key2 project 10804635390057604965
+reel-near-916 8fdf0f7db6794c20a1cb575bba10f71d 73e2221a437b4f2aafce89487773492c MOBILE QC | key5 project 7022870386131391655
+reel-phrase-45 4c9a2e67b55f4b5fac9509e35eb982b0 ff8fbbbc1e4c4149ac00e500ca5efbd7 MOBILE QC | key4 project 16660982915050208874
+reel-phrase-916 94a568dfeb344751b4ebfe2370a6f152 1691e743d1e54df8999ccf4d122bbdbb MOBILE QC | key5 project 7022870386131391655
+reel-say-45 8a89a86a5b764e639c77860c519985cf 763c7326d3bd431daa19e42ada0e50c1 MOBILE QC | key2 project 10804635390057604965
+reel-say-916 ea42920cb0cb42619442bb5a35936f7d 0ab1abec24b74e23a0800308f3e6b3ce MOBILE QC | key3 project 18075333702575270507
+share-card e3e78a424e8243829dec18af848ab4ca 4f3d1f8387d34b33978a4ccd9e913cf6 MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 6 chữ (vd "→" 2.79<3) · dark: 3 vùng chạm < 44px (vd "arrow_back 40×40") · dark: tương phản 1 chữ (vd "C1 LEVEL" 4.37<4.5)
+share-card-ar d86dce97263a4fdb88ede74f3dfc3d24 a6542b28b9274c048daf66f7047d606b MOBILE QC | key1 project 7268539912208977707 · QC: light: 1 vùng chạm < 44px (vd "arrow_forward 40×40") · light: tương phản 8 chữ (vd "L" 3.04<4.5) · dark: 1 vùng chạm < 44px (vd "arrow_forward 40×40") · dark: tương phản 2 chữ (vd "+0.5" 3.4<4.5)
+share-card-de fff93960fb8c4c609a2e601687cbe8a3 5aedb6fa70af40559984354d4a584bf1 MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 6 chữ (vd "→" 2.79<3) · dark: tương phản 1 chữ (vd "STUFE C1" 4.37<4.5)
+share-card-desktop eb2a4f6c308844f69e743f571685f8c5 9538c2c09a3e4f76b3a188ada5971f4c DESKTOP QC | key1 project 7268539912208977707 · QC: light: 4 vùng chạm < 44px (vd "translate
+share-card-v4 7cd81822c0ac48b7905dc022b8e47ccc df406fb2089f4d42a617cef16f7527db MOBILE QC | key2 project 10804635390057604965

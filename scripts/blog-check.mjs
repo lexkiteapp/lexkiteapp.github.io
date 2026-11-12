@@ -1,0 +1,222 @@
+// Kiểm SEO on-page + chất lượng bài blog (SEO-PLAN §4 bước 7, định dạng §5).
+// Dùng: node scripts/blog-check.mjs [--root content/blog] [file.md …]   (không có file → mọi bài không phải draft)
+// Build gọi: import { checkPosts } from './blog-check.mjs' → { errors: string[], warnings: string[] } (mỗi dòng "file: [luật] thông điệp")
+import fs from 'node:fs'; import path from 'node:path'; import { fileURLToPath } from 'node:url';
+import { ROOT, CATEGORIES, plainText, wordCount, readPost, loadPostsAt, briefSlugs, mediaIds, FAQ_RE, publishTime } from './lib/blog-content.mjs';
+import { specOf, mediaId, wantedItems, altUntruths, appRoutes, routeName, validateItem } from './lib/blog-images.mjs';
+import { loadFacts, postExams, captionIssues } from './lib/blog-captions.mjs';
+import { loadYoutube } from './blog-youtube.mjs';
+
+const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/, TAG = /^[a-z0-9-]+$/, YT = /^[\w-]{11}$/;
+const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})$/, DAY = /^\d{4}-\d{2}-\d{2}$/;
+const RESERVED = new Set(['trang', 'chu-de', 'the', 'page', 'topic', 'tag', 'rss.xml', 'gioi-thieu', 'about', 'topik', 'halaman', 'tentang', 'tema', 'etiqueta', 'pagina', 'acerca-de', 'category', 'categoria', 'sobre', 'categorie', 'a-propos', 'kategorie', 'schlagwort', 'seite', 'ueber-uns', 'kategori', 'etiket', 'sayfa', 'hakkinda']); // /blog/<…>/ không phải bài
+const FAQ = FAQ_RE, LANG_GATE_FROM = '2026-11-05';
+const rel = f => (f && !path.relative(process.cwd(), f).startsWith('..') ? path.relative(process.cwd(), f) : f);
+const len = s => [...String(s ?? '')].length;
+const norm = s => String(s ?? '').normalize('NFC').toLowerCase().replace(/i\u0307/g, 'i').replace(/[^\p{L}\p{M}\p{N}]+/gu, ' ').trim();
+const isCJK = s => /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Thai}]/u.test(s); // ngôn ngữ không tách từ bằng khoảng trắng
+const has = (text, kw) => !!kw && (isCJK(kw) ? norm(kw).split(' ').every(w => norm(text).replace(/\s+/g, '').includes(w)) : (' ' + norm(text) + ' ').includes(' ' + norm(kw) + ' ')); // tiếng Nhật/Trung: so khớp bỏ khoảng trắng
+const words = s => s.match(/[\p{L}\p{N}][\p{L}\p{M}\p{N}'’.-]*/gu) || [];
+// Bỏ khối code để không bắt nhầm tiêu đề/liên kết bên trong (giữ số dòng)
+const noCode = body => body.replace(/```[\s\S]*?```/g, m => m.replace(/[^\n]/g, ''));
+
+// Cấu hình ảnh riêng từng bài (content/blog/config.json → images): enforce bật = bài mới (factChecked ≥ enforceFrom) BẮT BUỘC có ảnh riêng
+export const imagesConfig = (root = ROOT) => { const f = [path.join(root, 'config.json'), path.join(ROOT, 'config.json')].find(x => fs.existsSync(x)); return { enforce: false, enforceFrom: '9999-12-31', leadHours: 36, budgetKB: 60, covers: true, ...((f && JSON.parse(fs.readFileSync(f, 'utf8')).images) || {}) }; };
+
+// Tiêu đề ru/ar/zh/ja/ko/th phải viết bằng chữ bản ngữ: phiên âm Latin ("Kak Dumat…", "Muhadathat…") hại SEO ở thị trường đó.
+// Bỏ tên thương hiệu/kỳ thi (giữ Latin hợp lệ) rồi so số chữ Latin với chữ bản ngữ. hi cố ý dùng Hinglish → không xét.
+export const NATIVE_TITLE = { ru: /\p{Script=Cyrillic}/u, ar: /\p{Script=Arabic}/u, zh: /\p{Script=Han}/u, ja: /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u, ko: /\p{Script=Hangul}/u, th: /\p{Script=Thai}/u };
+// Được giữ Latin: thương hiệu/kỳ thi + thuật ngữ tiếng Anh người học tìm nguyên văn (tên phần thi, dạng câu hỏi, điểm ngữ pháp). Từ phiên âm (shablon, dalil, kak…) KHÔNG được thêm vào đây.
+const TITLE_LATIN_OK = new RegExp(`(?<![\\p{L}\\p{N}])(${['lexkite', 'ielts', 'toefl', 'ibt', 'toeic', 'pte', 'sat', 'gre', 'gmat', 'cambridge', 'duolingo', 'cefr', 'fsrs', 'sm-2', 'anki', 'ats', 'cv', 'band', '[a-c][12]',
+  'speaking', 'writing', 'reading', 'listening', 'part', 'task', 'academic', 'general', 'training', 'discussion', 'letter', 'essay', 'template', 'cue', 'card', 'complete', 'the', 'words', 'matching', 'headings', 'skimming', 'scanning', 'true', 'false', 'not', 'given',
+  'modal', 'verbs?', 'phrasal', 'relative', 'clauses?', 'who', 'which', 'that', 'can', 'could', 'should', 'must', 'in', 'on', 'at', 'present', 'past', 'future', 'perfect', 'simple', 'continuous', 'conditionals?', 'passive', 'voice', 'articles?', 'a', 'an', 'shadowing', 'collocations?', 'linking'].join('|')})(?![\\p{L}\\p{N}])`, 'giu');
+export function latinTitle(lang, title) {
+  const re = NATIVE_TITLE[lang]; if (!re) return null;
+  const rest = String(title ?? '').replace(TITLE_LATIN_OK, ' ');
+  const latin = (rest.match(/\p{Script=Latin}/gu) || []).length, native = [...rest].filter(c => re.test(c)).length * (/^(zh|ja|ko)$/.test(lang) ? 3 : 1); // 1 chữ Hán/kana/Hangul ≈ 3 chữ cái Latin
+  return latin && latin >= native ? { latin, native } : null;
+}
+
+export function checkPosts(posts, { all = posts, root = ROOT, now = Date.now() } = {}) {
+  const errors = [], warnings = [], IMG = imagesConfig(root), routes = appRoutes(), FACTS = loadFacts(root), YTOK = loadYoutube(path.join(root, 'youtube.json'));
+  const media = mediaIds(root), briefs = new Set((JSON.parse(fs.readFileSync(path.join(root, 'briefs.json'), 'utf8')).briefs || []).map(b => `${b.lang || 'vi'}/${b.slug}`));
+  const slugs = new Set([...all, ...posts].map(p => `${p.lang}/${p.slug}`));
+  if (media.fallback) warnings.push(`${rel(path.join(root, 'media.json'))}: [media] chưa có media.json – tạm kiểm id ảnh theo shots.json`);
+  // Đếm trùng giữa các bài cùng ngôn ngữ (gộp all + posts, theo đường dẫn file)
+  const uniq = new Map([...all, ...posts].map(p => [path.resolve(p.file), p]));
+  const seen = {}; for (const k of ['slug', 'title', 'description', 'keyword']) { seen[k] = new Map(); for (const p of uniq.values()) { const v = p[k] && `${p.lang}\u0000${norm(p[k])}`; if (v) seen[k].set(v, [...(seen[k].get(v) || []), p.file]); } }
+
+  for (const p of posts) {
+    const E = (rule, msg) => errors.push(`${rel(p.file)}: [${rule}] ${msg}`), W = (rule, msg) => warnings.push(`${rel(p.file)}: [${rule}] ${msg}`);
+    const body = noCode(p.body || ''), lines = body.split('\n'), draft = p.status === 'draft';
+    const fileSlug = path.basename(p.file, '.md'), folder = path.basename(path.dirname(p.file));
+    const kw = typeof p.keyword === 'string' ? p.keyword : '';
+    // Front matter
+    if (len(p.title) < 30 || len(p.title) > 65) E('title', `tiêu đề ${len(p.title)} ký tự (cần 30–65)`);
+    { const lt = latinTitle(p.lang, p.title); if (lt) E('title-script', `tiêu đề phần lớn là chữ Latin (${lt.latin} Latin > ${lt.native} bản ngữ) – viết lại bằng chữ ${p.lang}, chỉ giữ Latin cho tên kỳ thi/thương hiệu`); }
+    if (len(p.description) < 110 || len(p.description) > 160) E('description', `mô tả ${len(p.description)} ký tự (cần 110–160)`);
+    if (!SLUG.test(p.slug || '') || p.slug.length > 75) E('slug', `slug "${p.slug}" phải khớp a-z0-9-, ≤ 75 ký tự`);
+    if (p.slug !== fileSlug) E('slug', `slug "${p.slug}" khác tên file "${fileSlug}"`);
+    if (p.lang !== folder) E('lang', `lang "${p.lang}" khác thư mục "${folder}"`);
+    if (!Object.hasOwn(CATEGORIES, p.category || '')) E('category', `chuyên mục "${p.category ?? ''}" không hợp lệ (${Object.keys(CATEGORIES).join(' | ')})`);
+    const tags = Array.isArray(p.tags) ? p.tags : [];
+    if (tags.length < 2 || tags.length > 6) E('tags', `cần 2–6 thẻ, đang có ${tags.length}`);
+    for (const t of tags) if (!TAG.test(t)) E('tags', `thẻ "${t}" phải là a-z0-9-`);
+    if (!kw) E('keyword', 'thiếu keyword');
+    else if (kw !== kw.toLowerCase()) E('keyword', `keyword "${kw}" phải viết thường`);
+    if (p.status && !['ready', 'draft'].includes(p.status)) E('status', `status "${p.status}" phải là ready | draft`);
+    if (p.publishAt && !(ISO.test(p.publishAt) && !isNaN(Date.parse(p.publishAt)))) E('publishAt', `"${p.publishAt}" không phải ISO 8601 có múi giờ (vd 2026-10-16T08:17:00+07:00)`);
+    if (p.factChecked) { if (!DAY.test(p.factChecked) || isNaN(Date.parse(p.factChecked))) E('factChecked', `"${p.factChecked}" phải là ngày YYYY-MM-DD`); }
+    else if (!draft) E('factChecked', 'thiếu factChecked (bắt buộc khi không phải draft)');
+    // Điểm chất lượng từ bước chấm (prompts/6-review.md): bắt buộc ≥ 90/100 cho bài mới (bài kiểm chứng trước 16/10/2026 được miễn)
+    const qs = p.qualityScore === '' || p.qualityScore == null ? null : Number(p.qualityScore);
+    if (qs != null && !(qs >= 90 && qs <= 100)) E('quality', `qualityScore ${p.qualityScore} – cần 90–100 (chấm lại theo prompts/6-review.md)`);
+    else if (qs == null && !draft && !(p.lang === 'vi' && p.factChecked && p.factChecked <= '2026-10-15')) E('quality', 'thiếu qualityScore (chấm theo prompts/6-review.md, cần ≥ 90)');
+    if (!draft && /TODO-LOCALIZE|<!--\s*(Brief|Viết theo)/.test(p.body || '')) E('todo', 'còn ghi chú nháp (TODO-LOCALIZE / Brief) trong bài');
+    if (p.updated && (!DAY.test(p.updated) || isNaN(Date.parse(p.updated)))) E('updated', `"${p.updated}" phải là ngày YYYY-MM-DD`);
+    // Từ khóa
+    if (kw) {
+      if (!has(p.title, kw)) E('keyword', `từ khóa "${kw}" không có trong tiêu đề`);
+      if (!has(isCJK(kw) ? plainText(p.body || '').slice(0, 400) : words(plainText(p.body || '')).slice(0, 120).join(' '), kw)) E('keyword', `từ khóa "${kw}" không có trong 120 từ đầu`);
+      if (!has(p.description, kw)) W('keyword', 'mô tả không chứa từ khóa');
+    }
+    // Tiêu đề
+    const heads = []; lines.forEach((l, i) => { const m = l.match(/^(#{1,6})\s+(.*?)\s*#*\s*$/); if (m) heads.push({ lv: m[1].length, text: m[2], i }); });
+    if (heads.some(h => h.lv === 1)) E('h1', 'thân bài không được có H1 (# …) – tiêu đề đã là H1');
+    const h2 = heads.filter(h => h.lv === 2);
+    if (h2.length < 4) E('h2', `cần ≥ 4 H2, đang có ${h2.length}`);
+    if (kw && !h2.some(h => has(h.text, kw))) E('keyword', `từ khóa "${kw}" không có trong H2 nào`);
+    let prev = 1; for (const h of heads) { if (h.lv > prev + 1) E('heading', `nhảy cấp H${prev}→H${h.lv}: "${h.text}"`); prev = h.lv; }
+    const wc = wordCount(p.body || ''); if (wc < 1200) E('words', `${wc} từ (cần ≥ 1200)`);
+    // Ảnh
+    // Ảnh riêng của bài: đặc tả shots/diagrams/coverArt (scripts/lib/blog-images.mjs) – lỗi cú pháp/route không có trong app → lỗi
+    let spec = { shots: [], diagrams: [], errors: [] }; try { spec = specOf(p); } catch (e) { E('spec', e.message); }
+    for (const x of spec.errors) E('spec', x);
+    for (const o of spec.shots) if (o.route && !routes.has(routeName(o.route))) E('spec', `shots ${o.id}: route ${o.route} – trang "${routeName(o.route)}" không có trong app (web/js routes.*)`);
+    const shotIds = new Set(spec.shots.map(o => o.id)), diagIds = new Set(spec.diagrams.map(o => o.id)), usedShots = new Set(), usedDiags = new Set();
+    const imgId = src => (src.match(/^media:(@?[\w-]+)$/) || [])[1];
+    let pex; // kỳ thi bài nói tới (tính khi gặp ảnh dùng chung đầu tiên)
+    for (const m of body.matchAll(/!\[([^\]]*)\]\(\s*([^)\s]+)(?:\s+"([^"]*)")?\s*\)/g)) {
+      const id = imgId(m[2]);
+      if (!id) { E('image', `ảnh "${m[2]}" phải dùng dạng media:<id> hoặc media:@<id-trong-shots>`); continue; }
+      if (id.startsWith('@')) { // ảnh riêng: alt để trống = tự sinh từ ảnh chụp; viết alt thì không được khẳng định điều không có trên ảnh
+        const local = id.slice(1), rec = media.items?.[mediaId(p, local)];
+        if (!shotIds.has(local)) { E('image', `media:${id} chưa khai báo trong shots: (id ${[...shotIds].join(', ') || 'chưa có'})`); continue; }
+        usedShots.add(local);
+        if (m[1].trim() && len(m[1].trim()) < 10) E('image', `alt ảnh "${m[1]}" quá ngắn (≥ 10 ký tự, hoặc để trống để tự sinh)`);
+        if (rec && m[1].trim()) { const bad = altUntruths(m[1], rec, p.lang); if (bad.length) E('alt-truth', `alt media:${id} khẳng định ${bad.join(', ')} – không có trên ảnh chụp (${rec.cap?.route}); để trống alt hoặc chỉ tả chữ thấy trên màn hình`); }
+        continue;
+      }
+      if (!media.ids.has(id)) E('image', `ảnh media:${id} không có trong ${media.fallback ? 'shots.json' : 'media.json'}`);
+      if (len(m[1].trim()) < 10) E('image', `alt ảnh "${m[1]}" quá ngắn (cần ≥ 10 ký tự)`);
+      // Caption truth (content/blog/shot-facts.json): alt/chú thích không bịa tính năng, không hứa quá, đúng kỳ thi của màn hình
+      if (FACTS) for (const x of captionIssues(FACTS, { id, lang: p.lang, alt: m[1], caption: m[3] || '', postExams: pex ??= postExams(FACTS, p), keyword: kw })) (x.level === 'error' ? E : W)(x.rule, x.msg);
+    }
+    // Ảnh riêng đã render: bản ghi phải hợp schema + trong trần dung lượng
+    for (const it of wantedItems(p, { covers: IMG.covers !== false })) { const rec = media.items?.[it.id]; if (rec) for (const x of validateItem(it.id, rec, IMG)) E('media', x); }
+    // Số ảnh: ≥ 2 ảnh thân bài khác ảnh bìa và khác nhau (ảnh riêng @ và sơ đồ đều tính); bài dài (≥ 1.800 từ) nên ≥ 3
+    const bodyImgs = new Set([...body.matchAll(/!\[[^\]]*\]\(\s*media:(@?[\w-]+)/g)].map(m => m[1]).filter(id => id !== p.cover));
+    for (const m of body.matchAll(/\{\{\s*diagram:\s*([a-z][a-z0-9-]*)/g)) { bodyImgs.add('diagram:' + m[1]); usedDiags.add(m[1]); }
+    // Bật ảnh riêng (config images.enforce) → bài mới phải có ảnh chụp riêng + đủ 2 hình riêng; ảnh phải render xong trước giờ đăng
+    const scoped = IMG.enforce && !draft && (!p.factChecked || String(p.factChecked) >= IMG.enforceFrom);
+    if (scoped) {
+      if (!spec.shots.length) E('images', 'bài mới cần ≥ 1 ảnh chụp riêng: thêm shots: [{route: \'#/…\'}] vào front matter (gợi ý: node scripts/blog-images.mjs suggest <file>)');
+      if (usedShots.size + usedDiags.size < 2) E('images', `bài mới cần ≥ 2 hình riêng trong thân bài (![](media:@s1 "…") hoặc {{diagram: d1 | …}}), đang có ${usedShots.size + usedDiags.size}`);
+      for (const id of shotIds) if (!usedShots.has(id)) E('images', `shots ${id} khai báo nhưng không dùng trong bài (media:@${id})`);
+      for (const id of diagIds) if (!usedDiags.has(id)) E('images', `diagrams ${id} khai báo nhưng không dùng ({{diagram: ${id} | …}})`);
+      const t = publishTime(p);
+      if (!Number.isNaN(t) && t - now < IMG.leadHours * 3600e3) { const miss = wantedItems(p, { covers: IMG.covers !== false }).filter(it => !media.items?.[it.id] || media.items[it.id].in !== it.in).map(it => it.id.split('--')[1]); if (miss.length) E('images', `đăng lúc ${p.publishAt} nhưng ảnh riêng chưa render: ${miss.join(', ')} – chạy workflow "Blog images" (mode changed)`); }
+    }
+    if (bodyImgs.size < 2) E('image', `cần ≥ 2 ảnh trong thân bài (khác ảnh bìa, khác nhau), đang có ${bodyImgs.size}`);
+    else if (wc >= 1800 && bodyImgs.size < 3) W('image', `bài dài ${wc} từ nên có ≥ 3 ảnh thân bài (đang ${bodyImgs.size})`);
+    if (!p.cover) E('cover', 'thiếu cover'); else if (!media.ids.has(p.cover)) E('cover', `cover "${p.cover}" không có trong ${media.fallback ? 'shots.json' : 'media.json'}`);
+    if (len(String(p.coverAlt ?? '').trim()) < 10) E('cover', 'coverAlt cần ≥ 10 ký tự');
+    // Lô B5-R2 (5/11/2026): bài ngôn ngữ khác mang nhãn/alt tiếng Việt, trỏ /tu-vung/ (trang tiếng Việt), coverAlt tả sai ảnh bìa.
+    // Bài duyệt từ 5/11/2026 (factChecked ≥ LANG_GATE_FROM) → lỗi; bài cũ (112 bài hàng chờ + 51 bài live) → cảnh báo để sửa dần.
+    { const EF = String(p.factChecked || '') >= LANG_GATE_FROM ? E : W;
+      // Trang tĩnh thật: /en/{vocabulary,samples,speaking,grammar}/ và bản vi /tu-vung/, /samples/, /speaking/, /ngu-phap/ (build-landing.mjs).
+      // /vocabulary/, /<xx≠en>/vocabulary/ … không được build → 404; bài ngôn ngữ khác không trỏ trang tĩnh tiếng Việt.
+      for (const m of body.matchAll(/\]\(\/(?:([a-z]{2})\/)?(vocabulary|samples|speaking|grammar|tu-vung|ngu-phap)\//g)) {
+        const [, pre, sec] = m, viSec = ['tu-vung', 'samples', 'speaking', 'ngu-phap'].includes(sec), enSec = ['vocabulary', 'samples', 'speaking', 'grammar'].includes(sec);
+        if (pre ? pre !== 'en' || !enSec : !viSec) EF('dead-link', `liên kết ${m[0].slice(2)} không tồn tại – dùng /en/${enSec ? sec : 'vocabulary'}/${p.lang === 'vi' ? ' hoặc trang tiếng Việt' : ''}`);
+        else if (!pre && p.lang !== 'vi' && sec !== 'tu-vung') EF('lang-link', `liên kết ${m[0].slice(2)} là trang tiếng Việt – bài ${p.lang} dùng /en/${{ 'ngu-phap': 'grammar' }[sec] || sec}/`);
+      }
+      // Quiz cuối bài (lô B5-R2): ≥ 3 câu; đáp án đúng không được hầu như luôn là phương án dài nhất (người làm đoán được không cần đọc bài).
+      { const qs = Array.isArray(p.quiz) ? p.quiz : (p.quiz && p.quiz.items) || [];
+        if (qs.length && qs.length < 3) EF('quiz', `quiz chỉ ${qs.length} câu – cần ≥ 3`);
+        const tell = qs.filter(q => Array.isArray(q?.options) && q.options.length > 1 && q.options.every((o, i) => i === q.answer || len(o) < len(q.options[q.answer]))).length;
+        if (qs.length >= 3 && tell > qs.length / 2) EF('quiz', `đáp án đúng là phương án dài nhất ở ${tell}/${qs.length} câu – cân độ dài phương án nhiễu`); }
+      if (p.lang !== 'vi') {
+        if (/\]\(\/tu-vung\//.test(body)) E('lang-link', 'liên kết /tu-vung/ là trang tiếng Việt – bài ngôn ngữ khác dùng /en/vocabulary/');
+        const VI = /[ươạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđĐ]/;
+        const mixed = [p.coverAlt, ...[...body.matchAll(/!\[([^\]]*)\]\([^)\s]+(?:\s+"([^"]*)")?\)/g)].flatMap(m => [m[1], m[2]])].filter(x => x && VI.test(x));
+        if (mixed.length) EF('lang-mix', `alt/chú thích có chữ tiếng Việt trong bài ${p.lang}: "${mixed[0].slice(0, 60)}" – viết bằng ngôn ngữ của bài; nhãn app trích nguyên văn theo giao diện ${p.lang} (không có bản dịch → nhãn tiếng Anh)`);
+        const vline = body.split('\n').find(l => VI.test(l) && !/^\s*!\[/.test(l));
+        if (vline) EF('lang-mix', `thân bài có chữ tiếng Việt: "${vline.trim().slice(0, 60)}" – app ${p.lang} không hiện nhãn tiếng Việt`);
+      }
+      if (FACTS && p.cover && p.coverAlt) for (const x of captionIssues(FACTS, { id: p.cover, lang: p.lang, alt: String(p.coverAlt), caption: '', postExams: postExams(FACTS, p), keyword: '' })) (x.level === 'error' ? EF : W)('cover-truth', `coverAlt: ${x.msg}`);
+    }
+    // Shortcode
+    let yt = 0; const ctas = [];
+    for (const m of body.matchAll(/\{\{([\s\S]*?)\}\}/g)) {
+      const s = m[1].trim(), y = s.match(/^youtube:\s*([^|]*?)\s*(\|[\s\S]*)?$/), c = s.match(/^cta:\s*(\/\S*)\s*\|\s*(\S[\s\S]*)$/);
+      const dg = s.match(/^diagram:\s*([a-z][a-z0-9-]*)\s*(\|[\s\S]*)?$/);
+      if (dg) { if (!diagIds.has(dg[1])) E('diagram', `{{diagram: ${dg[1]}}} chưa khai báo trong diagrams: (id ${[...diagIds].join(', ') || 'chưa có'})`); continue; }
+      if (y) { yt++; if (y[1] && !YT.test(y[1])) E('youtube', `ID YouTube "${y[1]}" không hợp lệ (trống hoặc 11 ký tự)`); else if (y[1] && !YTOK[y[1]]) E('youtube', `ID YouTube "${y[1]}" chưa kiểm – chạy node scripts/blog-youtube.mjs add ${y[1]} (oEmbed: có thật + cho nhúng), xem đúng chủ đề rồi mới dùng; không có video phù hợp → để trống ID`); }
+      else if (c) ctas.push(c[1]);
+      else if (/^cta:/.test(s)) E('cta', `sai cú pháp "{{${s}}}" – cần {{cta: /đường-dẫn | chữ nút}}`);
+      else E('shortcode', `mã lạ "{{${s.slice(0, 40)}}}"`);
+    }
+    if (!yt) W('youtube', 'chưa có slot {{youtube: | …}}');
+    // Liên kết (kể cả nút CTA)
+    const hrefs = [...[...body.matchAll(/(?<!!)\[[^\]]*\]\(\s*([^)\s]+)(?:\s+"[^"]*")?\s*\)/g)].map(m => m[1]), ...ctas];
+    const internal = hrefs.filter(h => h.startsWith('/') && !h.startsWith('//')), isApp = h => /^\/(app\/(\?hl=[a-z]{2})?)?#\//.test(h), app = internal.filter(isApp); // /#/… (cũ, build tự đổi) hoặc /app/#/…
+    if (internal.length < 3) E('links', `cần ≥ 3 liên kết nội bộ, đang có ${internal.length}`);
+        if (app.length - ctas.filter(isApp).length < 2) E('links', `cần ≥ 2 liên kết vào app (/app/#/… hoặc /#/…) trong câu chữ (không tính nút CTA), đang có ${app.length - ctas.filter(isApp).length}`);
+    const blogOut = new Set(internal.map(h => (h.match(/^\/(?:[a-z]{2}(?:-[a-z]+)?\/)?blog\/([^/#?]+)\//) || [])[1]).filter(x => x && !RESERVED.has(x)));
+    if (blogOut.size < 4) E('links', `cần ≥ 4 liên kết tới bài blog khác (khác nhau), đang có ${blogOut.size}`);
+    if (!internal.some(h => /^\/(?:[a-z]{2}\/)?(samples|speaking|tu-vung|ngu-phap|viet-thu|vocabulary)\//.test(h))) W('links', 'nên có ≥ 1 liên kết tới trang tĩnh /tu-vung/, /samples/, /ngu-phap/, /speaking/ hoặc /viet-thu/');
+    for (const h of internal) {
+      const m = h.match(/^\/(?:([a-z]{2}(?:-[a-z]+)?)\/)?blog\/([^/#?]+)\/?(?:[#?].*)?$/);
+      if (!m || RESERVED.has(m[2])) continue;
+      const l = m[1] || 'vi';
+      if (!slugs.has(`${l}/${m[2]}`) && !briefs.has(`${l}/${m[2]}`)) E('links', `liên kết ${h} trỏ tới bài không tồn tại`);
+      if (!h.endsWith('/') && !/[#?]/.test(h)) W('links', `nên có "/" cuối: ${h}`);
+    }
+    for (const h of hrefs) if (!h.startsWith('/') && !h.startsWith('#') && !h.startsWith('mailto:') && !h.startsWith('https://') || h.startsWith('//')) E('links', `liên kết ngoài phải là https: ${h}`);
+    // FAQ: ≥ 2 H3, mỗi H3 có đoạn trả lời ngay sau
+    const faq = h2.find(h => FAQ.test(h.text.trim()));
+    if (faq) {
+      const end = h2.find(h => h.i > faq.i)?.i ?? lines.length, qs = heads.filter(h => h.lv === 3 && h.i > faq.i && h.i < end);
+      if (qs.length < 2) E('faq', `mục "${faq.text}" cần ≥ 2 câu hỏi H3`);
+      for (const q of qs) { const next = lines.slice(q.i + 1, end).find(l => l.trim()); if (!next || /^(#|\{\{|!\[)/.test(next.trim())) E('faq', `câu hỏi "${q.text}" thiếu đoạn trả lời`); }
+    }
+    // Đoạn quá dài
+    for (const para of body.split(/\n\s*\n/)) { const t = para.trim(); if (!t || /^(#|[-*+] |\d+\. |\||>|!\[|\{\{)/.test(t)) continue; const n = wordCount(t); if (n > 120) W('paragraph', `đoạn ${n} từ (> 120): "${t.slice(0, 50)}…"`); }
+    // Trùng giữa các bài (cùng ngôn ngữ)
+    for (const k of ['slug', 'title', 'description', 'keyword']) { const v = p[k] && `${p.lang}\u0000${norm(p[k])}`, fs_ = v ? seen[k].get(v) : null; if (fs_ && fs_.length > 1) E('duplicate', `${k} trùng với ${fs_.filter(f => path.resolve(f) !== path.resolve(p.file)).map(rel).join(', ')}`); }
+  }
+  // Chú thích ảnh phải viết theo ngữ cảnh từng bài – trùng nguyên văn giữa các bài là lỗi (nội dung rập khuôn)
+  const capSeen = new Map();
+  for (const p of all.filter(x => x.status !== 'draft')) for (const m of (p.body || '').matchAll(/!\[[^\]]*\]\(\s*media:@?[\w-]+\s+"([^"]+)"\s*\)/g)) { const k = `${p.lang}\u0000${m[1].trim().toLowerCase()}`; (capSeen.get(k) || capSeen.set(k, new Set()).get(k)).add(rel(p.file)); }
+  for (const p of posts) for (const m of (p.body || '').matchAll(/!\[[^\]]*\]\(\s*media:@?[\w-]+\s+"([^"]+)"\s*\)/g)) { const f = capSeen.get(`${p.lang}\u0000${m[1].trim().toLowerCase()}`); if (f && f.size > 1) errors.push(`${rel(p.file)}: [caption] chú thích "${m[1].slice(0, 60)}" trùng ${f.size - 1} bài khác – viết theo ngữ cảnh bài`); }
+  // Liên kết đến: bài không được bài nào trỏ tới là “bài mồ côi” (Google khó thấy, ít được chuyền sức mạnh)
+  const live = all.filter(p => p.status !== 'draft'), inbound = new Map();
+  for (const p of live) for (const m of new Set([...p.body.matchAll(/\]\(\/(?:[a-z]{2}(?:-[a-z]+)?\/)?blog\/([^/#?)]+)\//g)].map(m => `${p.lang}/${m[1]}`))) inbound.set(m, (inbound.get(m) || 0) + 1);
+  // ngôn ngữ mới (< 5 bài) chưa đủ bài để trỏ tới → bỏ qua cảnh báo
+  for (const p of posts) { if (live.filter(x => x.lang === p.lang).length < 5) continue; const n = inbound.get(`${p.lang}/${p.slug}`) || 0; if (n < 3) warnings.push(`${rel(p.file)}: [inbound] chỉ ${n} bài khác trỏ tới (nên ≥ 3) – thêm liên kết từ bài liên quan`); }
+  return { errors, warnings };
+}
+
+// ——— Dòng lệnh ———
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  const args = process.argv.slice(2); let root = ROOT; const files = [];
+  for (let i = 0; i < args.length; i++) args[i] === '--root' ? (root = args[++i]) : files.push(args[i]);
+  const all = loadPostsAt(root);
+  const posts = files.length ? files.map(readPost) : all.filter(p => p.status !== 'draft');
+  const { errors, warnings } = checkPosts(posts, { all, root });
+  for (const w of warnings) console.log(`⚠ ${w}`);
+  for (const e of errors) console.log(`✗ ${e}`);
+  console.log(`${errors.length ? '✗' : '✓'} blog-check: ${posts.length} bài, ${errors.length} lỗi, ${warnings.length} cảnh báo`);
+  process.exit(errors.length ? 1 : 0);
+}

@@ -1,0 +1,25 @@
+{
+ "topic": "Slang at the cafe: \"I'm down\" vs textbook English",
+ "scene": "cafe",
+ "vars": {
+  "idiom": "I'm down",
+  "hookLine": "Wait, \"I'm down\" means sad?",
+  "textbook": "My textbook says: I would be happy to join you?",
+  "meaning": "That's fine, but I'm down just means I'm in. Super casual.",
+  "native": "Like this: \"Pizza after work?\" \"I'm down!\"",
+  "tip": "I'm down is for friends. At work, say I'd love to.",
+  "textbookCard": "I would be happy to join you.",
+  "nativeCard": "I'm down!"
+ },
+ "lines": {
+  "hook": {
+   "expr": "surprised",
+   "gesture": "hands on cheeks"
+  }
+ },
+ "hashtags": [
+  "englishslang",
+  "speakenglish",
+  "learnenglish"
+ ]
+}

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite Placement Test — Question 7 of 20</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-dark': '#092526',
+              'teal-light': '#145953',
+              'teal-surface': '#E8F3F1',
+              coral: '#FF4757',
+              'coral-ledge': '#C92A39',
+              amber: '#D97706',
+              'amber-dark': '#92400E',
+            },
+            cream: {
+              50: '#FFFDF9',
+              100: '#FFF8F2',
+              200: '#FBF2E7',
+              300: '#F0E2D0',
+              ledge: '#DEC9B0',
+            },
+            ink: {
+              primary: '#141E20',
+              secondary: '#3A4D50',
+              muted: '#4D6266',
+              amberDark: '#1C1003',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-rounded.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-cream-100 text-ink-primary font-sans antialiased min-h-full flex flex-col justify-start items-center selection:bg-brand-teal selection:text-white">
+  <!-- Mobile Container: Phone 390px strict, no simulated device frame -->
+  <main class="w-full max-w-[390px] min-h-screen flex flex-col bg-cream-100 relative pb-6 px-4">
+
+    <!-- Top Focus Bar: Close button 44x44, Progress Bar, Exit Label / Question counter -->
+    <header class="w-full pt-3 pb-2 flex items-center gap-3">
+      <!-- 44x44px Accessible Close Button -->
+      <button type="button" aria-label="Exit Placement Test" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-white border-2 border-cream-300 shadow-[0_2px_0_0_#DEC9B0] flex items-center justify-center text-ink-primary hover:bg-cream-50 active:translate-y-0.5 active:shadow-none transition-all">
+        <span class="material-symbols-rounded text-2xl leading-none">close</span>
+      </button>
+
+      <!-- Slim Progress Bar + Question Indicator -->
+      <div class="flex-1 flex flex-col gap-1.5">
+        <div class="flex items-center justify-between text-xs font-extrabold text-ink-muted tracking-wide">
+          <span class="text-ink-primary font-black uppercase text-[11px] tracking-wider">Question 7 of 20</span>
+          <span class="text-brand-teal-light font-black">35%</span>
+        </div>
+        <div class="w-full h-2.5 bg-cream-300 rounded-full overflow-hidden p-0.5 shadow-inner">
+          <div class="h-full bg-brand-teal rounded-full transition-all duration-300" style="width: 35%;"></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Header Meta Strip: CEFR Level Target & Mode Pill -->
+    <section class="w-full mt-2 flex items-center justify-between gap-2" aria-label="Test Details">
+      <!-- Placement Target Pill -->
+      <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-cream-300 shadow-[0_2px_0_0_#DEC9B0]">
+        <span class="material-symbols-rounded text-brand-teal text-base leading-none filled">auto_awesome</span>
+        <span class="text-xs font-black text-brand-teal tracking-wide">ADAPTIVE PLACEMENT</span>
+      </div>
+
+      <!-- CEFR Level Bracket Pill -->
+      <div class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-brand-teal-surface border border-brand-teal/20">
+        <span class="text-xs font-bold text-ink-muted">Assessing:</span>
+        <span class="text-xs font-black text-brand-teal">CEFR B1 → B2</span>
+      </div>
+    </section>
+
+    <!-- Compact Teacher Slot (Empty rounded dashed placeholder for 2D mascot) -->
+    <section class="w-full mt-3 p-3 bg-white rounded-2xl border-2 border-dashed border-brand-teal/40 shadow-[0_3px_0_0_#DEC9B0] flex items-center gap-3" aria-label="Mentor Guidance">
+      <!-- 44x44px slot badge -->
+      <div class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl bg-brand-teal-surface border border-brand-teal/30 flex flex-col items-center justify-center text-brand-teal">
+        <span class="material-symbols-rounded text-xl leading-none">school</span>
+        <span class="text-[9px] font-black uppercase tracking-tighter leading-none mt-0.5">SLOT</span>
+      </div>
+
+      <!-- Guidance Copy with 40% expansion headroom -->
+      <div class="flex-1">
+        <div class="flex items-center gap-1.5">
+          <span class="text-[11px] font-black tracking-wider uppercase text-brand-amber">teacher-slot</span>
+          <span class="text-[11px] font-bold text-ink-muted">• Diagnostic Prompt</span>
+        </div>
+        <p class="text-xs font-bold text-ink-secondary leading-snug mt-0.5">
+          Choose the word that naturally connects the past event to now.
+        </p>
+      </div>
+    </section>
+
+    <!-- Grammar Question Card: High-contrast, tactile 3D border -->
+    <article class="w-full mt-3.5 p-4 bg-white rounded-2xl border-2 border-cream-300 shadow-[0_4px_0_0_#DEC9B0]">
+      <!-- Sub-label & grammar category -->
+      <div class="flex items-center justify-between pb-2 border-b border-cream-200">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-brand-teal">Verbal Tense Contrast</span>
+        <span class="inline-flex items-center gap-1 text-xs font-bold text-ink-muted">
+          <span class="material-symbols-rounded text-sm">schedule</span>
+          Since vs For
+        </span>
+      </div>
+
+      <!-- The Sentence Prompt with visual blank target -->
+      <div class="mt-3">
+        <p class="text-base sm:text-lg font-extrabold text-ink-primary leading-relaxed">
+          &ldquo;Our senior researcher has lived in Melbourne
+          <span class="inline-block px-3 py-0.5 mx-1 font-black text-brand-teal bg-brand-teal-surface border-2 border-dashed border-brand-teal rounded-lg align-baseline">
+            ______
+          </span>
+          nearly seven years.&rdquo;
+        </p>
+      </div>
+
+      <!-- Context note / translation cue with strong contrast -->
+      <div class="mt-3 pt-2.5 border-t border-cream-200 flex items-start gap-1.5">
+        <span class="material-symbols-rounded text-base text-brand-teal leading-tight mt-0.5">translate</span>
+        <p class="text-xs font-semibold text-ink-secondary leading-snug">
+          Indicates an ongoing duration of time spanning up to the current moment.
+        </p>
+      </div>
+    </article>
+
+    <!-- 4 Large Answer Cards: Interactive tactile pills with generous tap targets -->
+    <fieldset class="w-full mt-3.5 flex flex-col gap-2.5" aria-label="Select your answer">
+      <legend class="sr-only">Choose the correct answer</legend>
+
+      <!-- Option A -->
+      <label class="group relative flex items-center justify-between w-full min-h-[58px] p-3.5 bg-white rounded-2xl border-2 border-cream-300 shadow-[0_3px_0_0_#DEC9B0] hover:border-brand-teal active:translate-y-0.5 active:shadow-[0_1px_0_0_#DEC9B0] cursor-pointer transition-all">
+        <input type="radio" name="placement_q7" value="since" class="sr-only peer">
+        <div class="flex items-center gap-3 min-w-0">
+          <!-- Key letter badge: 44x44px tap zone alignment -->
+          <span class="w-8 h-8 min-w-[32px] rounded-lg bg-cream-200 text-ink-primary font-black text-sm flex items-center justify-center border border-cream-300 group-hover:bg-brand-teal group-hover:text-white transition-colors">
+            A
+          </span>
+          <span class="text-base font-extrabold text-ink-primary tracking-tight">since</span>
+        </div>
+        <div class="w-6 h-6 rounded-full border-2 border-cream-300 flex items-center justify-center peer-checked:border-brand-teal peer-checked:bg-brand-teal transition-all">
+          <span class="material-symbols-rounded text-white text-base opacity-0 peer-checked:opacity-100 font-bold">check</span>
+        </div>
+      </label>
+
+      <!-- Option B (Correct selected state visual preview) -->
+      <label class="group relative flex items-center justify-between w-full min-h-[58px] p-3.5 bg-brand-teal-surface/60 rounded-2xl border-2 border-brand-teal shadow-[0_3px_0_0_#0F3D3E] active:translate-y-0.5 active:shadow-[0_1px_0_0_#0F3D3E] cursor-pointer transition-all">
+        <input type="radio" name="placement_q7" value="for" checked class="sr-only peer">
+        <div class="flex items-center gap-3 min-w-0">
+          <span class="w-8 h-8 min-w-[32px] rounded-lg bg-brand-teal text-white font-black text-sm flex items-center justify-center border border-brand-teal-dark shadow-sm">
+            B
+          </span>
+          <span class="text-base font-black text-brand-teal-dark tracking-tight">for</span>
+        </div>
+        <div class="w-6 h-6 rounded-full border-2 border-brand-teal bg-brand-teal flex items-center justify-center shadow-sm">
+          <span class="material-symbols-rounded text-white text-base font-black">check</span>
+        </div>
+      </label>
+
+      <!-- Option C -->
+      <label class="group relative flex items-center justify-between w-full min-h-[58px] p-3.5 bg-white rounded-2xl border-2 border-cream-300 shadow-[0_3px_0_0_#DEC9B0] hover:border-brand-teal active:translate-y-0.5 active:shadow-[0_1px_0_0_#DEC9B0] cursor-pointer transition-all">
+        <input type="radio" name="placement_q7" value="during" class="sr-only peer">
+        <div class="flex items-center gap-3 min-w-0">
+          <span class="w-8 h-8 min-w-[32px] rounded-lg bg-cream-200 text-ink-primary font-black text-sm flex items-center justify-center border border-cream-300 group-hover:bg-brand-teal group-hover:text-white transition-colors">
+            C
+          </span>
+          <span class="text-base font-extrabold text-ink-primary tracking-tight">during</span>
+        </div>
+        <div class="w-6 h-6 rounded-full border-2 border-cream-300 flex items-center justify-center peer-checked:border-brand-teal peer-checked:bg-brand-teal transition-all">
+          <span class="material-symbols-rounded text-white text-base opacity-0 peer-checked:opacity-100 font-bold">check</span>
+        </div>
+      </label>
+
+      <!-- Option D -->
+      <label class="group relative flex items-center justify-between w-full min-h-[58px] p-3.5 bg-white rounded-2xl border-2 border-cream-300 shadow-[0_3px_0_0_#DEC9B0] hover:border-brand-teal active:translate-y-0.5 active:shadow-[0_1px_0_0_#DEC9B0] cursor-pointer transition-all">
+        <input type="radio" name="placement_q7" value="from" class="sr-only peer">
+        <div class="flex items-center gap-3 min-w-0">
+          <span class="w-8 h-8 min-w-[32px] rounded-lg bg-cream-200 text-ink-primary font-black text-sm flex items-center justify-center border border-cream-300 group-hover:bg-brand-teal group-hover:text-white transition-colors">
+            D
+          </span>
+          <span class="text-base font-extrabold text-ink-primary tracking-tight">from</span>
+        </div>
+        <div class="w-6 h-6 rounded-full border-2 border-cream-300 flex items-center justify-center peer-checked:border-brand-teal peer-checked:bg-brand-teal transition-all">
+          <span class="material-symbols-rounded text-white text-base opacity-0 peer-checked:opacity-100 font-bold">check</span>
+        </div>
+      </label>
+    </fieldset>
+
+    <!-- Secondary Action: "I don't know" skip button (min-h 44px, compliant contrast) -->
+    <div class="w-full mt-3 flex justify-center">
+      <button type="button" class="min-h-[44px] px-4 py-2 text-xs font-black uppercase tracking-wider text-ink-muted hover:text-ink-primary hover:bg-cream-200 rounded-xl transition-all flex items-center gap-1.5 active:translate-y-0.5">
+        <span class="material-symbols-rounded text-base">help_outline</span>
+        <span>I don&apos;t know this yet</span>
+      </button>
+    </div>
+
+    <!-- Pinned Primary Action: Coral Check CTA with authentic 3D physical ledge -->
+    <footer class="w-full mt-auto pt-2">
+      <button type="button" class="w-full min-h-[54px] px-6 py-3.5 rounded-2xl bg-brand-coral hover:bg-[#ff3b4d] text-white font-black text-base tracking-wide flex items-center justify-center gap-2 border-b-4 border-brand-coral-ledge shadow-[0_4px_12px_rgba(255,71,87,0.35)] active:translate-y-1 active:border-b-0 active:shadow-none transition-all">
+        <span>Check answer</span>
+        <span class="material-symbols-rounded text-xl leading-none">arrow_forward</span>
+      </button>
+      <p class="text-center text-[11px] font-bold text-ink-muted mt-2">
+        Diagnostic engine adapts question difficulty in real time
+      </p>
+    </footer>
+
+  </main>
+</body>
+</html>

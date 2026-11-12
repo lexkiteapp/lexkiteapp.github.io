@@ -1,0 +1,75 @@
+{
+ "id": "auto_restaurant_mistake_3dbd15",
+ "scene": "restaurant",
+ "template": "mistake",
+ "area": "grammar-check",
+ "cefr": "A2",
+ "point": "i'm finished",
+ "series": "Restaurant English #14",
+ "title": "Spot the mistake: \"No, I'm finish, thank you.\"",
+ "description": "A learner says \"No, I'm finish, thank you.\" at the restaurant. The fix: \"No, I'm finished, thank you.\"\nComment your answer below and follow for daily English (Restaurant English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_mistake_3dbd15#/fix",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#restaurantenglish",
+  "#commonmistakes",
+  "#englishgrammar",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/restaurant/auto_restaurant_mistake_3dbd15/cine-auto-restaurant-mistake-3dbd15-en-v3.mp4",
+ "cover": "shorts/restaurant/auto_restaurant_mistake_3dbd15/cine-auto-restaurant-mistake-3dbd15-en-v3.jpg",
+ "ci_artifact": "cine-restaurant-21",
+ "run": "21",
+ "platforms": {
+  "tiktok": {
+   "title": "Spot the mistake: \"No, I'm finish, thank you.\"",
+   "caption": "A learner says \"No, I'm finish, thank you.\" at the restaurant. The fix: \"No, I'm finished, thank you.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_mistake_3dbd15#/fix",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_mistake_3dbd15#/fix",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "A learner says \"No, I'm finish, thank you.\" at the restaurant. The fix: \"No, I'm finished, thank you.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_mistake_3dbd15#/fix\n#learnenglish #englishtips #restaurantenglish #commonmistakes #englishgrammar #travelenglish"
+  },
+  "reels": {
+   "title": "Spot the mistake: \"No, I'm finish, thank you.\"",
+   "caption": "A learner says \"No, I'm finish, thank you.\" at the restaurant. The fix: \"No, I'm finished, thank you.\"\nComment your answer below and follow for daily English (Restaurant English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_mistake_3dbd15#/fix",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_mistake_3dbd15#/fix",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#commonmistakes",
+    "#englishgrammar",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "A learner says \"No, I'm finish, thank you.\" at the restaurant. The fix: \"No, I'm finished, thank you.\"\nComment your answer below and follow for daily English (Restaurant English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_mistake_3dbd15#/fix\n#learnenglish #englishtips #restaurantenglish #commonmistakes #englishgrammar #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Spot the mistake: \"No, I'm finish, thank you.\" #shorts",
+   "caption": "A learner says \"No, I'm finish, thank you.\" at the restaurant. The fix: \"No, I'm finished, thank you.\"\nComment your answer below and follow for daily English (Restaurant English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_mistake_3dbd15#/fix",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_mistake_3dbd15#/fix",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#restaurantenglish",
+    "#commonmistakes"
+   ],
+   "caption_with_tags": "A learner says \"No, I'm finish, thank you.\" at the restaurant. The fix: \"No, I'm finished, thank you.\"\nComment your answer below and follow for daily English (Restaurant English #14).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_restaurant&utm_content=auto_restaurant_mistake_3dbd15#/fix\n#shorts #learnenglish #englishtips #restaurantenglish #commonmistakes"
+  }
+ },
+ "slot": {
+  "date": "2026-11-16",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

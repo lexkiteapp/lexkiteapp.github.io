@@ -1,0 +1,23 @@
+{
+ "topic": "Word of the day for the office: \"swamped\"",
+ "scene": "office",
+ "seed": "wotd-swamped",
+ "vars": {
+  "word": "swamped",
+  "hookLine": "I'm swamped today.",
+  "question": "Swamped? Is the office flooded?",
+  "meaning": "so busy you have no free time",
+  "example": "I'm swamped this week. Can we meet on Monday?",
+  "tip": "a swamp is full of water. Swamped means your day is full of work."
+ },
+ "lines": {
+  "example": {
+   "expr": "curious"
+  }
+ },
+ "hashtags": [
+  "wordoftheday",
+  "businessenglish",
+  "vocabulary"
+ ]
+}

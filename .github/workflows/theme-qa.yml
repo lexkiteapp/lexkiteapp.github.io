@@ -1,0 +1,50 @@
+# Nút giao diện Sáng/Tối/Tự động trên trang tĩnh ngoài app (landing, pháp lý, 404, blog, công cụ, SEO, từ điển, uy tín, video) – Chromium thật × 4 chế độ:
+# đúng data-theme, không nháy sáng, tương phản AA 0 lỗi, nút vòng/lưu/44 px, không tràn @360. Ảnh 390 px ở artifact theme-shots (cho chủ duyệt).
+# Kiểm tĩnh (chống nháy/luật CSS/nhãn 15 ngôn ngữ) chạy trong npm test + build-web.sh: scripts/test/theme-switch.mjs.
+name: Giao diện sáng/tối trang tĩnh
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['scripts/lib/site-layout.mjs', 'scripts/build-blog.mjs', 'scripts/build-landing.mjs', 'scripts/build-legal.mjs', 'scripts/build-tools.mjs', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-words.mjs', 'scripts/lib/blog-words.mjs', 'scripts/build-authority.mjs', 'scripts/build-video-pages.mjs', 'scripts/build-samples*.mjs', 'web/*.html', 'web/*/index.html', 'web/*/privacy.html', 'web/*/terms.html', 'brand/tokens.json', 'web/js/site-ui.js', 'web/js/lkt.js', 'web/js/app.js', 'web/css/style.css', 'scripts/test/theme-default.mjs', 'web/app/index.html', 'scripts/test/theme-*.mjs', '.github/workflows/theme-qa.yml']
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  theme:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci --no-audit --no-fund --ignore-scripts
+      - name: Dựng dist (mọi trang tĩnh)
+        run: bash scripts/build-web.sh
+      - timeout-minutes: 14
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-cjk fonts-noto-core }
+      - name: Kiểm sáng + tối
+        run: node scripts/test/theme-static.mjs dist --shots theme-shots
+      - name: Mặc định theo máy + nút sáng/tối trong màn học (như người dùng thật)
+        if: always()
+        run: node scripts/test/theme-default.mjs dist --shots theme-shots
+      # GIF chỉ là ảnh minh hoạ: ffmpeg qua action chung setup-ffmpeg (cache), hỏng = lỗi HẠ TẦNG → không làm đỏ check theme
+      - if: always()
+        continue-on-error: true
+        uses: ./.github/actions/setup-ffmpeg
+      - name: GIF app → blog (cho chủ duyệt)
+        if: always()
+        timeout-minutes: 4
+        continue-on-error: true
+        run: |
+          ls theme-shots/app-blog-*.png >/dev/null 2>&1 || exit 0
+          command -v ffmpeg >/dev/null || { echo "::warning title=Hạ tầng::không có ffmpeg – bỏ GIF minh hoạ (check theme không bị ảnh hưởng)"; exit 0; }
+          ffmpeg -loglevel error -y -framerate 0.7 -pattern_type glob -i 'theme-shots/app-blog-*.png' -vf "scale=640:-1:flags=lanczos,split[a][b];[a]palettegen[p];[b][p]paletteuse" -loop 0 theme-shots/app-blog.gif && ls -la theme-shots/app-blog.gif || echo "::warning title=Hạ tầng::ffmpeg lỗi khi dựng GIF minh hoạ"
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: theme-shots, path: theme-shots/, retention-days: 14, if-no-files-found: ignore }

@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_lab",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: lab.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a room for scientific work.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "The samples were sent to the lab for testing.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "lab",
+  "ipa": "/læb/",
+  "mean": "a room for scientific work",
+  "ex": "The samples were sent to the lab for testing.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=lab",
+  "link": "https://lexkite.com/app/#/review?w=lab",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 41,
+  "seconds": 25.2,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"lab\" mean?",
+  "keyword": "lab",
+  "value": "Lab means a room for scientific work.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=lab",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"lab\" mean?",
+    "description": "Lab means a room for scientific work.\n\nReview your words, free: https://lexkite.com/app/#/review?w=lab\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "lab",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"lab\" mean?\n\nLab means a room for scientific work.\n\nReview your words, free: https://lexkite.com/app/#/review?w=lab"
+   },
+   "instagram": {
+    "caption": "What does \"lab\" mean?\n\nLab means a room for scientific work.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"lab\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a room for scientific work. Lab means a room for scientific work. More practice like this (free): {link}"
+ }
+}

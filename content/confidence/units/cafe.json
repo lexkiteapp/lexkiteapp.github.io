@@ -1,0 +1,49 @@
+{
+  "id": "cafe", "level": "A1", "order": 2, "em": "☕", "rp": "cafe",
+  "title": { "vi": "Ở quán cà phê", "en": "At a café" },
+  "goal": { "vi": "Gọi đồ uống lịch sự, chọn cỡ và trả tiền.", "en": "Order a drink politely, choose a size and pay." },
+  "dialogue": { "a": "Alex", "aRole": "the barista", "lines": [
+    ["a", "Hi there! What can I get for you?"],
+    ["b", "Hi! Can I get a latte, please?"],
+    ["a", "Sure. What size would you like?"],
+    ["b", "A medium, please. Could I have it without sugar?"],
+    ["a", "No problem. For here or to go?"],
+    ["b", "To go, please. Can I pay by card?"],
+    ["a", "Of course. That's four fifty."],
+    ["b", "Here you go. Thanks!"]
+  ] },
+  "phrases": [
+    { "id": "can-i-get", "say": "Can I get a latte, please?", "not": "I want a latte.", "gap": "get",
+      "mean": { "vi": "Gọi đồ một cách lịch sự", "en": "Order something politely" },
+      "why": { "vi": "\"I want…\" nghe như ra lệnh; \"Can I get…, please?\" lịch sự và rất phổ biến.", "en": "\"I want…\" can sound rude; \"Can I get…, please?\" is polite and very common." } },
+    { "id": "id-like", "say": "I'd like a medium, please.", "not": "Give me a medium.", "gap": "like",
+      "mean": { "vi": "Nói điều bạn muốn một cách nhẹ nhàng", "en": "Say what you want in a soft way" },
+      "why": { "vi": "\"Give me\" nghe như mệnh lệnh; \"I'd like…\" lịch sự hơn nhiều.", "en": "\"Give me\" sounds like an order; \"I'd like…\" is much more polite." } },
+    { "id": "to-go-please", "say": "To go, please.", "not": "Take away it.", "gap": "go",
+      "mean": { "vi": "Nói bạn muốn mang đồ đi", "en": "Say you want to take your drink with you" },
+      "why": { "vi": "\"Take away it\" sai ngữ pháp. Nói \"To go, please\" (Mỹ) hoặc \"Takeaway, please\" (Anh).", "en": "\"Take away it\" is not correct. Say \"To go, please\" (US) or \"Takeaway, please\" (UK)." } },
+    { "id": "pay-by-card", "say": "Can I pay by card?", "not": "Can I pay with card?", "gap": "by",
+      "mean": { "vi": "Hỏi có trả bằng thẻ được không", "en": "Ask if you can pay with a card" },
+      "why": { "vi": "Nói \"by card\" hoặc \"with a card\"; \"with card\" thiếu \"a\" nghe sai.", "en": "Say \"by card\" or \"with a card\"; \"with card\" without \"a\" sounds wrong." } },
+    { "id": "here-you-go", "say": "Here you go.", "not": "Take it.", "gap": "go",
+      "mean": { "vi": "Câu nói khi đưa tiền hoặc đồ cho ai", "en": "What you say when you give money or something to someone" },
+      "why": { "vi": "\"Here you go\" thân thiện; \"Take it\" nghe lạnh lùng.", "en": "\"Here you go\" sounds friendly; \"Take it\" sounds cold." } },
+    { "id": "without-sugar", "say": "Could I have it without sugar?", "not": "No sugar for me, I don't want.", "gap": "without",
+      "mean": { "vi": "Đổi món theo ý mình một cách lịch sự", "en": "Change your order politely" },
+      "why": { "vi": "Dùng \"Could I have it without…?\" để bỏ bớt thứ gì đó.", "en": "Use \"Could I have it without…?\" to leave something out." } },
+    { "id": "not-what-i-ordered", "say": "Sorry, I think this isn't what I ordered.", "not": "This is wrong!", "gap": "think",
+      "mean": { "vi": "Báo nhầm món mà không gay gắt", "en": "Say there is a mistake without sounding angry" },
+      "why": { "vi": "Mở đầu bằng \"Sorry, I think…\" giúp sửa lỗi nhẹ nhàng.", "en": "Starting with \"Sorry, I think…\" fixes the problem gently." } }
+  ],
+  "roleplay": {
+    "ai": { "name": "Alex", "role": "a barista in a busy café", "persona": "cheerful and quick, but patient with learners", "goal": "take the learner's order and payment" },
+    "you": "Order a drink, choose a size, say for here or to go, and pay.",
+    "turns": [
+      { "a": "Hi there! What can I get for you?", "h": "Hi! Can I get a latte, please?", "br": [["latte|coffee|tea|cappuccino|espresso|water|juice|mocha|americano", "Sure."]] },
+      { "a": "What size would you like?", "h": "A medium, please.", "br": [["small", "Small, got it."], ["medium", "Medium, got it."], ["large", "Large, got it."]] },
+      { "a": "For here or to go?", "h": "To go, please.", "br": [["to go|take ?away", "Okay, to go."], ["here", "Okay, for here."]] },
+      { "a": "That's four fifty. How would you like to pay?", "h": "Can I pay by card?", "br": [["card", "Card is fine."], ["cash", "Cash is fine."]] }
+    ],
+    "end": "Here's your receipt. Have a nice day!"
+  }
+}

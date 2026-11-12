@@ -1,0 +1,1966 @@
+{
+ "_doc": "Tự sinh bởi scripts/lexicon/cefr-check.mjs – cờ cần người duyệt, KHÔNG tự đổi. Sửa qua content/lexicon/overrides.json.",
+ "count": 280,
+ "flags": [
+  {
+   "w": "but",
+   "pos": "conj",
+   "set": "ngsl1",
+   "level": "A1",
+   "why": "ví dụ 13 từ – dài cho A1"
+  },
+  {
+   "w": "spend",
+   "pos": "v",
+   "set": "ngsl1",
+   "level": "A1",
+   "why": "ví dụ không chứa từ khóa"
+  },
+  {
+   "w": "view",
+   "pos": "n",
+   "set": "ngsl2",
+   "level": "A2",
+   "why": "ví dụ 14 từ – dài cho A2"
+  },
+  {
+   "w": "concern",
+   "pos": "n",
+   "set": "ngsl2",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 303, AWL -)"
+  },
+  {
+   "w": "stand",
+   "pos": "v",
+   "set": "ngsl2",
+   "level": "A1",
+   "why": "ví dụ 13 từ – dài cho A1"
+  },
+  {
+   "w": "win",
+   "pos": "v",
+   "set": "ngsl2",
+   "level": "A1",
+   "why": "ví dụ không chứa từ khóa"
+  },
+  {
+   "w": "bear",
+   "pos": "v",
+   "set": "ngsl2",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 455, AWL -)"
+  },
+  {
+   "w": "approach",
+   "pos": "n",
+   "set": "ngsl2",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 495, AWL 1)"
+  },
+  {
+   "w": "regard",
+   "pos": "v",
+   "set": "ngsl2",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 511, AWL -)"
+  },
+  {
+   "w": "accord",
+   "pos": "n",
+   "set": "ngsl2",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 522, AWL -)"
+  },
+  {
+   "w": "fund",
+   "pos": "n",
+   "set": "ngsl2",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 527, AWL 3)"
+  },
+  {
+   "w": "demand",
+   "pos": "n",
+   "set": "ngsl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 570, AWL -)"
+  },
+  {
+   "w": "upon",
+   "pos": "prep",
+   "set": "ngsl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 579, AWL -)"
+  },
+  {
+   "w": "former",
+   "pos": "adj",
+   "set": "ngsl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 599, AWL -)"
+  },
+  {
+   "w": "firm",
+   "pos": "n",
+   "set": "ngsl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 628, AWL -)"
+  },
+  {
+   "w": "cell",
+   "pos": "n",
+   "set": "ngsl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 629, AWL -)"
+  },
+  {
+   "w": "pause",
+   "pos": "v",
+   "set": "ngsl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 649, AWL -)"
+  },
+  {
+   "w": "thus",
+   "pos": "adv",
+   "set": "ngsl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 684, AWL -)"
+  },
+  {
+   "w": "attempt",
+   "pos": "n",
+   "set": "ngsl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 686, AWL -)"
+  },
+  {
+   "w": "stock",
+   "pos": "n",
+   "set": "ngsl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 691, AWL -)"
+  },
+  {
+   "w": "establish",
+   "pos": "v",
+   "set": "ngsl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 696, AWL 1)"
+  },
+  {
+   "w": "contract",
+   "pos": "n",
+   "set": "ngsl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 714, AWL 1)"
+  },
+  {
+   "w": "significant",
+   "pos": "adj",
+   "set": "ngsl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 720, AWL 1)"
+  },
+  {
+   "w": "gain",
+   "pos": "v",
+   "set": "ngsl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 737, AWL -)"
+  },
+  {
+   "w": "military",
+   "pos": "adj",
+   "set": "ngsl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 758, AWL 9)"
+  },
+  {
+   "w": "strike",
+   "pos": "v",
+   "set": "ngsl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 776, AWL -)"
+  },
+  {
+   "w": "seek",
+   "pos": "v",
+   "set": "ngsl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 778, AWL 2)"
+  },
+  {
+   "w": "shoot",
+   "pos": "v",
+   "set": "ngsl4",
+   "level": "B1",
+   "why": "ví dụ không chứa từ khóa"
+  },
+  {
+   "w": "survey",
+   "pos": "n",
+   "set": "ngsl4",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "reform",
+   "pos": "n",
+   "set": "ngsl5",
+   "level": "C1",
+   "why": "CEFR C1 ≠ kỳ vọng A2 (hạng NGSL 1215, AWL -)"
+  },
+  {
+   "w": "blow",
+   "pos": "v",
+   "set": "ngsl5",
+   "level": "A2",
+   "why": "ví dụ không chứa từ khóa"
+  },
+  {
+   "w": "bind",
+   "pos": "v",
+   "set": "ngsl6",
+   "level": "C1",
+   "why": "CEFR C1 ≠ kỳ vọng A2 (hạng NGSL 1411, AWL -)"
+  },
+  {
+   "w": "provision",
+   "pos": "n",
+   "set": "ngsl6",
+   "level": "C1",
+   "why": "CEFR C1 ≠ kỳ vọng A2 (hạng NGSL 1540, AWL -)"
+  },
+  {
+   "w": "abuse",
+   "pos": "n",
+   "set": "ngsl6",
+   "level": "C1",
+   "why": "CEFR C1 ≠ kỳ vọng A2 (hạng NGSL 1553, AWL -)"
+  },
+  {
+   "w": "bottle",
+   "pos": "n",
+   "set": "ngsl6",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1614, AWL -)"
+  },
+  {
+   "w": "journey",
+   "pos": "n",
+   "set": "ngsl6",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1621, AWL -)"
+  },
+  {
+   "w": "dad",
+   "pos": "n",
+   "set": "ngsl6",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1632, AWL -)"
+  },
+  {
+   "w": "fruit",
+   "pos": "n",
+   "set": "ngsl6",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1640, AWL -)"
+  },
+  {
+   "w": "terrible",
+   "pos": "adj",
+   "set": "ngsl6",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1644, AWL -)"
+  },
+  {
+   "w": "fat",
+   "pos": "adj",
+   "set": "ngsl6",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1654, AWL -)"
+  },
+  {
+   "w": "ear",
+   "pos": "n",
+   "set": "ngsl6",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1664, AWL -)"
+  },
+  {
+   "w": "cat",
+   "pos": "n",
+   "set": "ngsl6",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1678, AWL -)"
+  },
+  {
+   "w": "steal",
+   "pos": "v",
+   "set": "ngsl7",
+   "level": "A2",
+   "why": "ví dụ không chứa từ khóa"
+  },
+  {
+   "w": "sad",
+   "pos": "adj",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1710, AWL -)"
+  },
+  {
+   "w": "sick",
+   "pos": "adj",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1716, AWL -)"
+  },
+  {
+   "w": "chart",
+   "pos": "n",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1741, AWL 8)"
+  },
+  {
+   "w": "east",
+   "pos": "n",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1749, AWL -)"
+  },
+  {
+   "w": "hat",
+   "pos": "n",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1750, AWL -)"
+  },
+  {
+   "w": "tall",
+   "pos": "adj",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1785, AWL -)"
+  },
+  {
+   "w": "milk",
+   "pos": "n",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1789, AWL -)"
+  },
+  {
+   "w": "online",
+   "pos": "adj",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1794, AWL -)"
+  },
+  {
+   "w": "phrase",
+   "pos": "n",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1795, AWL -)"
+  },
+  {
+   "w": "angry",
+   "pos": "adj",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1813, AWL -)"
+  },
+  {
+   "w": "breakfast",
+   "pos": "n",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1819, AWL -)"
+  },
+  {
+   "w": "hi",
+   "pos": "excl",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1826, AWL -)"
+  },
+  {
+   "w": "yellow",
+   "pos": "adj",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1827, AWL -)"
+  },
+  {
+   "w": "diet",
+   "pos": "n",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1847, AWL -)"
+  },
+  {
+   "w": "gray",
+   "pos": "adj",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1849, AWL -)"
+  },
+  {
+   "w": "coat",
+   "pos": "n",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1863, AWL -)"
+  },
+  {
+   "w": "meat",
+   "pos": "n",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1869, AWL -)"
+  },
+  {
+   "w": "dish",
+   "pos": "n",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1882, AWL -)"
+  },
+  {
+   "w": "shirt",
+   "pos": "n",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1907, AWL -)"
+  },
+  {
+   "w": "brown",
+   "pos": "adj",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1913, AWL -)"
+  },
+  {
+   "w": "tennis",
+   "pos": "n",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1917, AWL -)"
+  },
+  {
+   "w": "mouse",
+   "pos": "n",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1926, AWL -)"
+  },
+  {
+   "w": "snow",
+   "pos": "n",
+   "set": "ngsl7",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1950, AWL -)"
+  },
+  {
+   "w": "spell",
+   "pos": "v",
+   "set": "ngsl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1972, AWL -)"
+  },
+  {
+   "w": "bike",
+   "pos": "n",
+   "set": "ngsl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1979, AWL -)"
+  },
+  {
+   "w": "tooth",
+   "pos": "n",
+   "set": "ngsl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2026, AWL -)"
+  },
+  {
+   "w": "undertake",
+   "pos": "v",
+   "set": "ngsl8",
+   "level": "B2",
+   "why": "ví dụ không chứa từ khóa"
+  },
+  {
+   "w": "beer",
+   "pos": "n",
+   "set": "ngsl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2062, AWL -)"
+  },
+  {
+   "w": "false",
+   "pos": "adj",
+   "set": "ngsl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2098, AWL -)"
+  },
+  {
+   "w": "routine",
+   "pos": "n",
+   "set": "ngsl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2104, AWL -)"
+  },
+  {
+   "w": "nose",
+   "pos": "n",
+   "set": "ngsl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2114, AWL -)"
+  },
+  {
+   "w": "mom",
+   "pos": "n",
+   "set": "ngsl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2131, AWL -)"
+  },
+  {
+   "w": "apartment",
+   "pos": "n",
+   "set": "ngsl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2168, AWL -)"
+  },
+  {
+   "w": "cake",
+   "pos": "n",
+   "set": "ngsl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2173, AWL -)"
+  },
+  {
+   "w": "singer",
+   "pos": "n",
+   "set": "ngsl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2182, AWL -)"
+  },
+  {
+   "w": "festival",
+   "pos": "n",
+   "set": "ngsl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2215, AWL -)"
+  },
+  {
+   "w": "vegetable",
+   "pos": "n",
+   "set": "ngsl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2216, AWL -)"
+  },
+  {
+   "w": "overcome",
+   "pos": "v",
+   "set": "ngsl8",
+   "level": "B2",
+   "why": "ví dụ không chứa từ khóa"
+  },
+  {
+   "w": "sugar",
+   "pos": "n",
+   "set": "ngsl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2234, AWL -)"
+  },
+  {
+   "w": "pink",
+   "pos": "adj",
+   "set": "ngsl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2238, AWL -)"
+  },
+  {
+   "w": "exam",
+   "pos": "n",
+   "set": "ngsl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2244, AWL -)"
+  },
+  {
+   "w": "jacket",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2253, AWL -)"
+  },
+  {
+   "w": "dirty",
+   "pos": "adj",
+   "set": "ngsl9",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2255, AWL -)"
+  },
+  {
+   "w": "bread",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2262, AWL -)"
+  },
+  {
+   "w": "boot",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2282, AWL -)"
+  },
+  {
+   "w": "bath",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2294, AWL -)"
+  },
+  {
+   "w": "pen",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2320, AWL -)"
+  },
+  {
+   "w": "dig",
+   "pos": "v",
+   "set": "ngsl9",
+   "level": "B2",
+   "why": "ví dụ không chứa từ khóa"
+  },
+  {
+   "w": "chicken",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2339, AWL -)"
+  },
+  {
+   "w": "teenager",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2346, AWL -)"
+  },
+  {
+   "w": "shower",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2352, AWL -)"
+  },
+  {
+   "w": "cousin",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2361, AWL -)"
+  },
+  {
+   "w": "cream",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 2388, AWL -)"
+  },
+  {
+   "w": "permission",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2414, AWL -)"
+  },
+  {
+   "w": "valley",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2415, AWL -)"
+  },
+  {
+   "w": "electric",
+   "pos": "adj",
+   "set": "ngsl9",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2420, AWL -)"
+  },
+  {
+   "w": "architecture",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2427, AWL -)"
+  },
+  {
+   "w": "skirt",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2451, AWL -)"
+  },
+  {
+   "w": "salt",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2459, AWL -)"
+  },
+  {
+   "w": "brush",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2463, AWL -)"
+  },
+  {
+   "w": "gallery",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2465, AWL -)"
+  },
+  {
+   "w": "golf",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2478, AWL -)"
+  },
+  {
+   "w": "classical",
+   "pos": "adj",
+   "set": "ngsl9",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2480, AWL -)"
+  },
+  {
+   "w": "fantastic",
+   "pos": "adj",
+   "set": "ngsl9",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2492, AWL -)"
+  },
+  {
+   "w": "orange",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2499, AWL -)"
+  },
+  {
+   "w": "disagree",
+   "pos": "v",
+   "set": "ngsl9",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2503, AWL -)"
+  },
+  {
+   "w": "pig",
+   "pos": "n",
+   "set": "ngsl9",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2519, AWL -)"
+  },
+  {
+   "w": "chat",
+   "pos": "v",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2534, AWL -)"
+  },
+  {
+   "w": "clothing",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2535, AWL -)"
+  },
+  {
+   "w": "possession",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2541, AWL -)"
+  },
+  {
+   "w": "wooden",
+   "pos": "adj",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2544, AWL -)"
+  },
+  {
+   "w": "cow",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2551, AWL -)"
+  },
+  {
+   "w": "bin",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2556, AWL -)"
+  },
+  {
+   "w": "cheese",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2585, AWL -)"
+  },
+  {
+   "w": "guitar",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2589, AWL -)"
+  },
+  {
+   "w": "piano",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2591, AWL -)"
+  },
+  {
+   "w": "ski",
+   "pos": "v",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2594, AWL -)"
+  },
+  {
+   "w": "menu",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2597, AWL -)"
+  },
+  {
+   "w": "moon",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2599, AWL -)"
+  },
+  {
+   "w": "airline",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2602, AWL -)"
+  },
+  {
+   "w": "grandmother",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2604, AWL -)"
+  },
+  {
+   "w": "greet",
+   "pos": "v",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2614, AWL -)"
+  },
+  {
+   "w": "paragraph",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2618, AWL 8)"
+  },
+  {
+   "w": "chocolate",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2620, AWL -)"
+  },
+  {
+   "w": "belt",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2622, AWL -)"
+  },
+  {
+   "w": "potato",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2623, AWL -)"
+  },
+  {
+   "w": "invent",
+   "pos": "v",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2627, AWL -)"
+  },
+  {
+   "w": "tourism",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2628, AWL -)"
+  },
+  {
+   "w": "stair",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2630, AWL -)"
+  },
+  {
+   "w": "stomach",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2637, AWL -)"
+  },
+  {
+   "w": "nowhere",
+   "pos": "adv",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2638, AWL -)"
+  },
+  {
+   "w": "differently",
+   "pos": "adv",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2650, AWL -)"
+  },
+  {
+   "w": "stamp",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2654, AWL -)"
+  },
+  {
+   "w": "knife",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2657, AWL -)"
+  },
+  {
+   "w": "printer",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2664, AWL -)"
+  },
+  {
+   "w": "firstly",
+   "pos": "adv",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2665, AWL -)"
+  },
+  {
+   "w": "adventure",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2667, AWL -)"
+  },
+  {
+   "w": "ocean",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2671, AWL -)"
+  },
+  {
+   "w": "quietly",
+   "pos": "adv",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2672, AWL -)"
+  },
+  {
+   "w": "castle",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2673, AWL -)"
+  },
+  {
+   "w": "fiction",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2679, AWL -)"
+  },
+  {
+   "w": "carpet",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2680, AWL -)"
+  },
+  {
+   "w": "grammar",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2687, AWL -)"
+  },
+  {
+   "w": "uncle",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2694, AWL -)"
+  },
+  {
+   "w": "rice",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2695, AWL -)"
+  },
+  {
+   "w": "verb",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2700, AWL -)"
+  },
+  {
+   "w": "comedy",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2705, AWL -)"
+  },
+  {
+   "w": "sheep",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2710, AWL -)"
+  },
+  {
+   "w": "athlete",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2759, AWL -)"
+  },
+  {
+   "w": "website",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2764, AWL -)"
+  },
+  {
+   "w": "aunt",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2781, AWL -)"
+  },
+  {
+   "w": "listener",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2785, AWL -)"
+  },
+  {
+   "w": "autumn",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2792, AWL -)"
+  },
+  {
+   "w": "noun",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2799, AWL -)"
+  },
+  {
+   "w": "alright",
+   "pos": "adj",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2801, AWL -)"
+  },
+  {
+   "w": "lazy",
+   "pos": "adj",
+   "set": "ngsl10",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2802, AWL -)"
+  },
+  {
+   "w": "hello",
+   "pos": "excl",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2803, AWL -)"
+  },
+  {
+   "w": "blog",
+   "pos": "n",
+   "set": "ngsl10",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2808, AWL -)"
+  },
+  {
+   "w": "diet",
+   "pos": "n",
+   "set": "health",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1847, AWL -)"
+  },
+  {
+   "w": "infrastructure",
+   "pos": "n",
+   "set": "urban",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 8)"
+  },
+  {
+   "w": "significant",
+   "pos": "adj",
+   "set": "task1",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 720, AWL 1)"
+  },
+  {
+   "w": "overtake",
+   "pos": "v",
+   "set": "task1",
+   "level": "B2",
+   "why": "ví dụ không chứa từ khóa"
+  },
+  {
+   "w": "inevitable",
+   "pos": "adj",
+   "set": "task2",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 8)"
+  },
+  {
+   "w": "tradition",
+   "pos": "n",
+   "set": "culture",
+   "level": "A2",
+   "why": "ví dụ 14 từ – dài cho A2"
+  },
+  {
+   "w": "athlete",
+   "pos": "n",
+   "set": "sport",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2759, AWL -)"
+  },
+  {
+   "w": "reform",
+   "pos": "n",
+   "set": "government",
+   "level": "C1",
+   "why": "CEFR C1 ≠ kỳ vọng A2 (hạng NGSL 1215, AWL -)"
+  },
+  {
+   "w": "look after",
+   "pos": "phr v",
+   "set": "phrasal",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "eat out",
+   "pos": "phr v",
+   "set": "phrasal",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "go back to",
+   "pos": "phr v",
+   "set": "phrasal",
+   "level": "A2",
+   "why": "ví dụ 16 từ – dài cho A2"
+  },
+  {
+   "w": "likewise",
+   "pos": "adv",
+   "set": "linking",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 10)"
+  },
+  {
+   "w": "however",
+   "pos": "adv",
+   "set": "linking",
+   "level": "A1",
+   "why": "ví dụ 13 từ – dài cho A1"
+  },
+  {
+   "w": "thus",
+   "pos": "adv",
+   "set": "linking",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 684, AWL -)"
+  },
+  {
+   "w": "firstly",
+   "pos": "adv",
+   "set": "linking",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL 2665, AWL -)"
+  },
+  {
+   "w": "postcode",
+   "pos": "n",
+   "set": "ex-ielts-listen",
+   "level": "A2",
+   "why": "ví dụ 14 từ – dài cho A2"
+  },
+  {
+   "w": "return ticket",
+   "pos": "n",
+   "set": "ex-ielts-listen",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "car park",
+   "pos": "n",
+   "set": "ex-ielts-listen",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "it depends",
+   "pos": "phrase",
+   "set": "ex-ielts-speak",
+   "level": "A2",
+   "why": "ví dụ 14 từ – dài cho A2"
+  },
+  {
+   "w": "when I was a kid",
+   "pos": "phrase",
+   "set": "ex-ielts-speak",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "be a big fan of",
+   "pos": "phrase",
+   "set": "ex-ielts-speak",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "it's up to you",
+   "pos": "phrase",
+   "set": "ex-toeic-l",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "student ID card",
+   "pos": "n",
+   "set": "ex-toefl-campus",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "parcel",
+   "pos": "n",
+   "set": "ex-ielts-gt-life",
+   "level": "A2",
+   "why": "ví dụ 14 từ – dài cho A2"
+  },
+  {
+   "w": "uniform",
+   "pos": "n",
+   "set": "ex-ielts-gt-life",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "It was great to hear from you",
+   "pos": "phrase",
+   "set": "ex-ielts-gt-letter",
+   "level": "A2",
+   "why": "ví dụ 15 từ – dài cho A2"
+  },
+  {
+   "w": "Thanks for your letter",
+   "pos": "phrase",
+   "set": "ex-ielts-gt-letter",
+   "level": "A2",
+   "why": "ví dụ 14 từ – dài cho A2"
+  },
+  {
+   "w": "How are you doing?",
+   "pos": "phrase",
+   "set": "ex-ielts-gt-letter",
+   "level": "A1",
+   "why": "ví dụ 13 từ – dài cho A1"
+  },
+  {
+   "w": "Sorry I haven't written for so long",
+   "pos": "phrase",
+   "set": "ex-ielts-gt-letter",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "I'm writing to let you know",
+   "pos": "phrase",
+   "set": "ex-ielts-gt-letter",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "I hope you can forgive me",
+   "pos": "phrase",
+   "set": "ex-ielts-gt-letter",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "I would like to invite you to",
+   "pos": "phrase",
+   "set": "ex-ielts-gt-letter",
+   "level": "A2",
+   "why": "ví dụ 15 từ – dài cho A2"
+  },
+  {
+   "w": "Let me know if you can make it",
+   "pos": "phrase",
+   "set": "ex-ielts-gt-letter",
+   "level": "A2",
+   "why": "ví dụ 14 từ – dài cho A2"
+  },
+  {
+   "w": "It would be lovely to see you",
+   "pos": "phrase",
+   "set": "ex-ielts-gt-letter",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "Please reply by",
+   "pos": "phrase",
+   "set": "ex-ielts-gt-letter",
+   "level": "A2",
+   "why": "ví dụ 14 từ – dài cho A2"
+  },
+  {
+   "w": "If I were you, I would",
+   "pos": "phrase",
+   "set": "ex-ielts-gt-letter",
+   "level": "A2",
+   "why": "ví dụ 15 từ – dài cho A2"
+  },
+  {
+   "w": "I hope to hear from you soon",
+   "pos": "phrase",
+   "set": "ex-ielts-gt-letter",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "approach",
+   "pos": "n",
+   "set": "awl1",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 495, AWL 1)"
+  },
+  {
+   "w": "contract",
+   "pos": "n",
+   "set": "awl1",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 714, AWL 1)"
+  },
+  {
+   "w": "establish",
+   "pos": "v",
+   "set": "awl1",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 696, AWL 1)"
+  },
+  {
+   "w": "significant",
+   "pos": "adj",
+   "set": "awl1",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 720, AWL 1)"
+  },
+  {
+   "w": "seek",
+   "pos": "v",
+   "set": "awl2",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 778, AWL 2)"
+  },
+  {
+   "w": "fund",
+   "pos": "n",
+   "set": "awl3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 527, AWL 3)"
+  },
+  {
+   "w": "publish",
+   "pos": "v",
+   "set": "awl3",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL -, AWL 3)"
+  },
+  {
+   "w": "underlie",
+   "pos": "v",
+   "set": "awl6",
+   "level": "C2",
+   "why": "CEFR C2 ≠ kỳ vọng B1 (hạng NGSL 2130, AWL 6)"
+  },
+  {
+   "w": "definite",
+   "pos": "adj",
+   "set": "awl7",
+   "level": "B1",
+   "why": "CEFR B1 ≠ kỳ vọng C1 (hạng NGSL -, AWL 7)"
+  },
+  {
+   "w": "media",
+   "pos": "n",
+   "set": "awl7",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng C1 (hạng NGSL -, AWL 7)"
+  },
+  {
+   "w": "chart",
+   "pos": "n",
+   "set": "awl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B1 (hạng NGSL 1741, AWL 8)"
+  },
+  {
+   "w": "clarify",
+   "pos": "v",
+   "set": "awl8",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 8)"
+  },
+  {
+   "w": "exploit",
+   "pos": "v",
+   "set": "awl8",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 8)"
+  },
+  {
+   "w": "inevitable",
+   "pos": "adj",
+   "set": "awl8",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 8)"
+  },
+  {
+   "w": "infrastructure",
+   "pos": "n",
+   "set": "awl8",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 8)"
+  },
+  {
+   "w": "paragraph",
+   "pos": "n",
+   "set": "awl8",
+   "level": "A1",
+   "why": "CEFR A1 ≠ kỳ vọng B2 (hạng NGSL 2618, AWL 8)"
+  },
+  {
+   "w": "reinforce",
+   "pos": "v",
+   "set": "awl8",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 8)"
+  },
+  {
+   "w": "virtual",
+   "pos": "adj",
+   "set": "awl8",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 8)"
+  },
+  {
+   "w": "widespread",
+   "pos": "adj",
+   "set": "awl8",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 8)"
+  },
+  {
+   "w": "accommodate",
+   "pos": "v",
+   "set": "awl9",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 9)"
+  },
+  {
+   "w": "controversy",
+   "pos": "n",
+   "set": "awl9",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 9)"
+  },
+  {
+   "w": "duration",
+   "pos": "n",
+   "set": "awl9",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 9)"
+  },
+  {
+   "w": "ethic",
+   "pos": "n",
+   "set": "awl9",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 9)"
+  },
+  {
+   "w": "intermediate",
+   "pos": "adj",
+   "set": "awl9",
+   "level": "B1",
+   "why": "CEFR B1 ≠ kỳ vọng C2 (hạng NGSL -, AWL 9)"
+  },
+  {
+   "w": "manual",
+   "pos": "adj",
+   "set": "awl9",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 9)"
+  },
+  {
+   "w": "medium",
+   "pos": "n",
+   "set": "awl9",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 689, AWL 9)"
+  },
+  {
+   "w": "military",
+   "pos": "adj",
+   "set": "awl9",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 758, AWL 9)"
+  },
+  {
+   "w": "norm",
+   "pos": "n",
+   "set": "awl9",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 9)"
+  },
+  {
+   "w": "scenario",
+   "pos": "n",
+   "set": "awl9",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 9)"
+  },
+  {
+   "w": "likewise",
+   "pos": "adv",
+   "set": "awl10",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 10)"
+  },
+  {
+   "w": "ongoing",
+   "pos": "adj",
+   "set": "awl10",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 10)"
+  },
+  {
+   "w": "so-called",
+   "pos": "adj",
+   "set": "awl10",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 10)"
+  },
+  {
+   "w": "clever",
+   "pos": "adj",
+   "set": "nawl1",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "publish",
+   "pos": "v",
+   "set": "toeic1",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng B2 (hạng NGSL -, AWL 3)"
+  },
+  {
+   "w": "manual",
+   "pos": "n",
+   "set": "toeic1",
+   "level": "B1",
+   "why": "CEFR B1 ≠ kỳ vọng C2 (hạng NGSL -, AWL 9)"
+  },
+  {
+   "w": "contradict",
+   "pos": "v",
+   "set": "toeic1",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 8)"
+  },
+  {
+   "w": "media",
+   "pos": "n",
+   "set": "toeic1",
+   "level": "A2",
+   "why": "CEFR A2 ≠ kỳ vọng C1 (hạng NGSL -, AWL 7)"
+  },
+  {
+   "w": "cart",
+   "pos": "n",
+   "set": "toeic2",
+   "level": "A2",
+   "why": "ví dụ 14 từ – dài cho A2"
+  },
+  {
+   "w": "accommodate",
+   "pos": "v",
+   "set": "toeic2",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 9)"
+  },
+  {
+   "w": "duration",
+   "pos": "n",
+   "set": "toeic3",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 9)"
+  },
+  {
+   "w": "definite",
+   "pos": "adj",
+   "set": "toeic3",
+   "level": "B1",
+   "why": "CEFR B1 ≠ kỳ vọng C1 (hạng NGSL -, AWL 7)"
+  },
+  {
+   "w": "reinforce",
+   "pos": "v",
+   "set": "toeic4",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 8)"
+  },
+  {
+   "w": "anytime",
+   "pos": "adv",
+   "set": "toeic4",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "ongoing",
+   "pos": "adj",
+   "set": "toeic6",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 10)"
+  },
+  {
+   "w": "clarify",
+   "pos": "v",
+   "set": "toeic6",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 8)"
+  },
+  {
+   "w": "compatible",
+   "pos": "adj",
+   "set": "toeic7",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 9)"
+  },
+  {
+   "w": "likewise",
+   "pos": "adv",
+   "set": "toeic7",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 10)"
+  },
+  {
+   "w": "approximate",
+   "pos": "adj",
+   "set": "toeic7",
+   "level": "B1",
+   "why": "CEFR B1 ≠ kỳ vọng C1 (hạng NGSL -, AWL 4)"
+  },
+  {
+   "w": "sorry for the late reply",
+   "pos": "phrase",
+   "set": "office-email",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "does that work for you",
+   "pos": "phrase",
+   "set": "office-email",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "tell me about yourself",
+   "pos": "phrase",
+   "set": "office-interview",
+   "level": "A2",
+   "why": "ví dụ 15 từ – dài cho A2"
+  },
+  {
+   "w": "clock out",
+   "pos": "phrasal v",
+   "set": "office-hr",
+   "level": "A2",
+   "why": "ví dụ 14 từ – dài cho A2"
+  },
+  {
+   "w": "break room",
+   "pos": "n",
+   "set": "office-hr",
+   "level": "A2",
+   "why": "ví dụ 15 từ – dài cho A2"
+  },
+  {
+   "w": "live chat",
+   "pos": "n",
+   "set": "office-service",
+   "level": "A2",
+   "why": "ví dụ 16 từ – dài cho A2"
+  },
+  {
+   "w": "studio apartment",
+   "pos": "n",
+   "set": "us-housing",
+   "level": "A2",
+   "why": "ví dụ 14 từ – dài cho A2"
+  },
+  {
+   "w": "move-in date",
+   "pos": "n",
+   "set": "us-housing",
+   "level": "A2",
+   "why": "ví dụ 14 từ – dài cho A2"
+  },
+  {
+   "w": "smoke detector",
+   "pos": "n",
+   "set": "us-housing",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "ATM",
+   "pos": "n",
+   "set": "us-money",
+   "level": "A2",
+   "why": "ví dụ 14 từ – dài cho A2"
+  },
+  {
+   "w": "split the bill",
+   "pos": "phrase",
+   "set": "us-money",
+   "level": "A2",
+   "why": "ví dụ 15 từ – dài cho A2"
+  },
+  {
+   "w": "debit card",
+   "pos": "n",
+   "set": "us-money",
+   "level": "A2",
+   "why": "ví dụ 17 từ – dài cho A2"
+  },
+  {
+   "w": "self-checkout",
+   "pos": "n",
+   "set": "us-money",
+   "level": "A2",
+   "why": "ví dụ 14 từ – dài cho A2"
+  },
+  {
+   "w": "insurance card",
+   "pos": "n",
+   "set": "us-health",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "petrol",
+   "pos": "n",
+   "set": "bsl1",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "withhold",
+   "pos": "v",
+   "set": "bsl2",
+   "level": "B1",
+   "why": "ví dụ không chứa từ khóa"
+  },
+  {
+   "w": "function",
+   "pos": "n",
+   "set": "dom-it",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 702, AWL 1)"
+  },
+  {
+   "w": "class",
+   "pos": "n",
+   "set": "dom-it",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 362, AWL -)"
+  },
+  {
+   "w": "protocol",
+   "pos": "n",
+   "set": "dom-it",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 9)"
+  },
+  {
+   "w": "troubleshoot",
+   "pos": "v",
+   "set": "dom-it",
+   "level": "B2",
+   "why": "ví dụ không chứa từ khóa"
+  },
+  {
+   "w": "bit",
+   "pos": "n",
+   "set": "dom-it",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 352, AWL -)"
+  },
+  {
+   "w": "capital",
+   "pos": "n",
+   "set": "dom-biz",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 789, AWL -)"
+  },
+  {
+   "w": "discount",
+   "pos": "n",
+   "set": "dom-biz",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "stress",
+   "pos": "n",
+   "set": "dom-eng",
+   "level": "C1",
+   "why": "CEFR C1 ≠ kỳ vọng A2 (hạng NGSL 1044, AWL 4)"
+  },
+  {
+   "w": "infrastructure",
+   "pos": "n",
+   "set": "dom-eng",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng C2 (hạng NGSL -, AWL 8)"
+  },
+  {
+   "w": "current",
+   "pos": "n",
+   "set": "dom-eng",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 590, AWL -)"
+  },
+  {
+   "w": "judgment",
+   "pos": "n",
+   "set": "dom-law",
+   "level": "C1",
+   "why": "CEFR C1 ≠ kỳ vọng A2 (hạng NGSL 1573, AWL -)"
+  },
+  {
+   "w": "party",
+   "pos": "n",
+   "set": "dom-law",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 299, AWL -)"
+  },
+  {
+   "w": "will",
+   "pos": "n",
+   "set": "dom-law",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 28, AWL -)"
+  },
+  {
+   "w": "reach",
+   "pos": "n",
+   "set": "dom-mkt",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 380, AWL -)"
+  },
+  {
+   "w": "lead",
+   "pos": "n",
+   "set": "dom-mkt",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 241, AWL -)"
+  },
+  {
+   "w": "solution",
+   "pos": "n",
+   "set": "dom-env",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 788, AWL -)"
+  },
+  {
+   "w": "shuttle bus",
+   "pos": "n",
+   "set": "dom-hosp",
+   "level": "A2",
+   "why": "ví dụ 13 từ – dài cho A2"
+  },
+  {
+   "w": "claim",
+   "pos": "n",
+   "set": "dom-log",
+   "level": "B2",
+   "why": "CEFR B2 ≠ kỳ vọng A1 (hạng NGSL 501, AWL -)"
+  }
+ ]
+}

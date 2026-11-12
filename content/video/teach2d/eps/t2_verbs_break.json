@@ -1,0 +1,129 @@
+{
+ "id": "t2_verbs_break",
+ "template": "verbs",
+ "series": "Verb Forms Challenge",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "verbs",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Three forms of break. Ready?",
+   "pause": 0.42
+  },
+  {
+   "id": "b",
+   "text": "Base form: break.",
+   "pause": 0.42
+  },
+  {
+   "id": "p",
+   "text": "Past: broke. Yesterday, I broke my phone.",
+   "pause": 0.42
+  },
+  {
+   "id": "pp",
+   "text": "Past participle: broken.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Not breaked! Break is irregular.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! The window is broke, or broken?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Broken! The window is broken.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "base": "break",
+  "past": "broke",
+  "pp": "broken",
+  "over": "breaked",
+  "quiz": {
+   "stem": "The window is ___.",
+   "options": [
+    "broke",
+    "broken"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "verbs",
+  "route": "#/verb/break",
+  "link": "https://lexkite.com/app/#/verb/break",
+  "say": "Practice verb forms"
+ },
+ "hook": {
+  "line": "h",
+  "text": "break · broke · broken"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 29.0,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Past of \"break\"? Not \"breaked\"",
+  "keyword": "break broke broken",
+  "value": "Break → broke → broken. Never \"breaked\".",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/verb/break",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Past of \"break\"? Not \"breaked\"",
+    "description": "Break → broke → broken. Never \"breaked\".\n\nPractice verb forms, free: https://lexkite.com/app/#/verb/break\n\nSeries: Verb Forms Challenge · Teacher: Carlos\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "break broke broken",
+     "Verb Forms Challenge",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Past of \"break\"? Not \"breaked\"\n\nBreak → broke → broken. Never \"breaked\".\n\nPractice verb forms, free: https://lexkite.com/app/#/verb/break"
+   },
+   "instagram": {
+    "caption": "Past of \"break\"? Not \"breaked\"\n\nBreak → broke → broken. Never \"breaked\".\n\nPractice verb forms: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Past of \"break\"? Not \"breaked\" #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Quiz answer: Broken! The window is broken. Practice it with a free quiz: {link}"
+ }
+}

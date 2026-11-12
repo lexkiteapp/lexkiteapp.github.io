@@ -1,0 +1,75 @@
+{
+ "id": "auto_airport_gap_0f13c2",
+ "scene": "airport",
+ "template": "gap",
+ "area": "vocab-review",
+ "cefr": "A1",
+ "point": "word seat",
+ "series": "Airport English #1",
+ "title": "One word is missing: \"Could I have a window ___?\"",
+ "description": "Fill in the missing word, then say the full sentence: \"Could I have a window seat?\"\nComment your answer below and follow for daily English (Airport English #1).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_gap_0f13c2#/review",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#airportenglish",
+  "#englishvocabulary",
+  "#fillintheblank",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/airport/auto_airport_gap_0f13c2/cine-auto-airport-gap-0f13c2-en-v3.mp4",
+ "cover": "shorts/airport/auto_airport_gap_0f13c2/cine-auto-airport-gap-0f13c2-en-v3.jpg",
+ "ci_artifact": "cine-airport-11-14",
+ "run": "11-14",
+ "platforms": {
+  "tiktok": {
+   "title": "One word is missing: \"Could I have a window ___?\"",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have a window seat?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_gap_0f13c2#/review",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_gap_0f13c2#/review",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#englishvocabulary",
+    "#fillintheblank",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have a window seat?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_gap_0f13c2#/review\n#learnenglish #englishtips #airportenglish #englishvocabulary #fillintheblank #travelenglish"
+  },
+  "reels": {
+   "title": "One word is missing: \"Could I have a window ___?\"",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have a window seat?\"\nComment your answer below and follow for daily English (Airport English #1).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_gap_0f13c2#/review",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_gap_0f13c2#/review",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#englishvocabulary",
+    "#fillintheblank",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have a window seat?\"\nComment your answer below and follow for daily English (Airport English #1).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_gap_0f13c2#/review\n#learnenglish #englishtips #airportenglish #englishvocabulary #fillintheblank #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "One word is missing: \"Could I have a window ___?\" #shorts",
+   "caption": "Fill in the missing word, then say the full sentence: \"Could I have a window seat?\"\nComment your answer below and follow for daily English (Airport English #1).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_gap_0f13c2#/review",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_gap_0f13c2#/review",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#englishvocabulary"
+   ],
+   "caption_with_tags": "Fill in the missing word, then say the full sentence: \"Could I have a window seat?\"\nComment your answer below and follow for daily English (Airport English #1).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_gap_0f13c2#/review\n#shorts #learnenglish #englishtips #airportenglish #englishvocabulary"
+  }
+ },
+ "slot": {
+  "date": "2026-11-06",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

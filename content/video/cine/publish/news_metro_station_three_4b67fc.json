@@ -1,0 +1,75 @@
+{
+ "id": "news_metro_station_three_4b67fc",
+ "scene": "news",
+ "template": "three",
+ "area": "listening",
+ "cefr": "A2",
+ "point": "subway directions: which line, transfer, how many stops",
+ "series": "CITY ENGLISH / Subway questions",
+ "bg": "metro_station",
+ "title": "Subway Lost? 3 phrases you need",
+ "description": "Subway directions: which line, transfer, how many stops. Save this: Which line goes downtown? / Where do I transfer? / How many stops is it?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_metro_station_three_4b67fc#/listening",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#englishphrases",
+  "#speakenglish",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_metro_station_three_4b67fc/cine-news-metro-station-three-4b67fc-en.mp4",
+ "cover": "shorts/news/news_metro_station_three_4b67fc/cine-news-metro-station-three-4b67fc-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "Subway Lost? 3 phrases you need",
+   "caption": "Subway directions: which line, transfer, how many stops. Save this: Which line goes downtown? / Where do I transfer? / How many stops is it?\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_metro_station_three_4b67fc#/listening",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_metro_station_three_4b67fc#/listening",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishphrases",
+    "#speakenglish",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "Subway directions: which line, transfer, how many stops. Save this: Which line goes downtown? / Where do I transfer? / How many stops is it?\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_metro_station_three_4b67fc#/listening\n#learnenglish #englishtips #englishphrases #speakenglish #americanenglish #esl"
+  },
+  "reels": {
+   "title": "Subway Lost? 3 phrases you need",
+   "caption": "Subway directions: which line, transfer, how many stops. Save this: Which line goes downtown? / Where do I transfer? / How many stops is it?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_metro_station_three_4b67fc#/listening",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_metro_station_three_4b67fc#/listening",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishphrases",
+    "#speakenglish",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Subway directions: which line, transfer, how many stops. Save this: Which line goes downtown? / Where do I transfer? / How many stops is it?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_metro_station_three_4b67fc#/listening\n#learnenglish #englishtips #englishphrases #speakenglish #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Subway Lost? 3 phrases you need #shorts",
+   "caption": "Subway directions: which line, transfer, how many stops. Save this: Which line goes downtown? / Where do I transfer? / How many stops is it?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_metro_station_three_4b67fc#/listening",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_metro_station_three_4b67fc#/listening",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#englishphrases",
+    "#speakenglish"
+   ],
+   "caption_with_tags": "Subway directions: which line, transfer, how many stops. Save this: Which line goes downtown? / Where do I transfer? / How many stops is it?\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_metro_station_three_4b67fc#/listening\n#shorts #learnenglish #englishtips #englishphrases #speakenglish"
+  }
+ },
+ "slot": {
+  "date": "2026-11-01",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

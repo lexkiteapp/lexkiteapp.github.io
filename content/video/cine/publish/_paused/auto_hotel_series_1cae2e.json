@@ -1,0 +1,75 @@
+{
+ "id": "auto_hotel_series_1cae2e",
+ "scene": "hotel",
+ "template": "series",
+ "area": "roleplay",
+ "cefr": "A2",
+ "point": "Long, but it was okay. Thanks!",
+ "series": "Hotel English #11",
+ "title": "\"How was your flight?\" How would you answer?",
+ "description": "A real mini conversation at the hotel. Ama says: \"Long, but it was okay. Thanks!\"\nComment your answer below and follow for daily English (Hotel English #11).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_series_1cae2e#/roleplay",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#hotelenglish",
+  "#englishconversation",
+  "#smalltalk",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/hotel/auto_hotel_series_1cae2e/cine-auto-hotel-series-1cae2e-en-v3.mp4",
+ "cover": "shorts/hotel/auto_hotel_series_1cae2e/cine-auto-hotel-series-1cae2e-en-v3.jpg",
+ "ci_artifact": "cine-hotel-20",
+ "run": "20",
+ "platforms": {
+  "tiktok": {
+   "title": "\"How was your flight?\" How would you answer?",
+   "caption": "A real mini conversation at the hotel. Ama says: \"Long, but it was okay. Thanks!\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_series_1cae2e#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_series_1cae2e#/roleplay",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#englishconversation",
+    "#smalltalk",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "A real mini conversation at the hotel. Ama says: \"Long, but it was okay. Thanks!\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_series_1cae2e#/roleplay\n#learnenglish #englishtips #hotelenglish #englishconversation #smalltalk #travelenglish"
+  },
+  "reels": {
+   "title": "\"How was your flight?\" How would you answer?",
+   "caption": "A real mini conversation at the hotel. Ama says: \"Long, but it was okay. Thanks!\"\nComment your answer below and follow for daily English (Hotel English #11).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_series_1cae2e#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_series_1cae2e#/roleplay",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#englishconversation",
+    "#smalltalk",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "A real mini conversation at the hotel. Ama says: \"Long, but it was okay. Thanks!\"\nComment your answer below and follow for daily English (Hotel English #11).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_series_1cae2e#/roleplay\n#learnenglish #englishtips #hotelenglish #englishconversation #smalltalk #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "\"How was your flight?\" How would you answer? #shorts",
+   "caption": "A real mini conversation at the hotel. Ama says: \"Long, but it was okay. Thanks!\"\nComment your answer below and follow for daily English (Hotel English #11).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_series_1cae2e#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_series_1cae2e#/roleplay",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#hotelenglish",
+    "#englishconversation"
+   ],
+   "caption_with_tags": "A real mini conversation at the hotel. Ama says: \"Long, but it was okay. Thanks!\"\nComment your answer below and follow for daily English (Hotel English #11).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_hotel&utm_content=auto_hotel_series_1cae2e#/roleplay\n#shorts #learnenglish #englishtips #hotelenglish #englishconversation"
+  }
+ },
+ "slot": {
+  "date": "2026-11-01",
+  "time": "20:00",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

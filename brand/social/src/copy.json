@@ -1,0 +1,61 @@
+{
+  "_note": "Chữ trên ảnh bìa / mẫu bài đăng. Sửa ở đây rồi chạy lại: node scripts/build-social-kit.mjs",
+  "url": "lexkite.com",
+  "en": {
+    "tagline": "Words that lift you higher.",
+    "sub": "IELTS · TOEIC · TOEFL vocabulary — free",
+    "platforms": "Web · Chrome · iOS · Android",
+    "cta": "Start free",
+    "subscribe": "Subscribe",
+    "watchNext": "Keep learning with Kit"
+  },
+  "vi": {
+    "tagline": "Từ vựng chắp cánh, bạn bay xa.",
+    "sub": "Từ vựng IELTS · TOEIC · TOEFL — miễn phí",
+    "platforms": "Web · Chrome · iOS · Android",
+    "cta": "Học miễn phí"
+  },
+  "wordOfDay": {
+    "label": "WORD OF THE DAY",
+    "word": "resilient",
+    "ipa": "/rɪˈzɪliənt/",
+    "pos": "adjective",
+    "level": "IELTS · Band 7+",
+    "definition": "able to recover quickly after something difficult",
+    "example": "Kids are remarkably resilient after a setback.",
+    "vi": "kiên cường, mau hồi phục"
+  },
+  "quiz": {
+    "label": "QUICK QUIZ",
+    "question": "Which word means “to make something less severe”?",
+    "options": ["aggravate", "alleviate", "allocate"],
+    "answerHint": "Comment your answer"
+  },
+  "promo": {
+    "label": "FREE FOREVER",
+    "title": "10 new words a day.",
+    "title2": "Remember them for life.",
+    "body": "Spaced repetition, real exam passages, native audio."
+  },
+  "videoCover": {
+    "kicker": "IELTS VOCABULARY",
+    "big": "10",
+    "title": "words for",
+    "title2": "Travel",
+    "foot": "Part 1 · Band 7+"
+  },
+  "thumbnail": {
+    "big": "50",
+    "line1": "IELTS WORDS",
+    "line2": "you must know",
+    "badge": "Band 7+"
+  },
+  "highlights": [
+    { "key": "vocabulary", "label": "Từ vựng", "en": "Vocabulary", "icon": "aa" },
+    { "key": "ielts", "label": "IELTS", "en": "IELTS", "icon": "cap" },
+    { "key": "toeic", "label": "TOEIC", "en": "TOEIC", "icon": "case" },
+    { "key": "tips", "label": "Mẹo", "en": "Tips", "icon": "bulb" },
+    { "key": "app", "label": "Ứng dụng", "en": "App", "icon": "phone" },
+    { "key": "review", "label": "Review", "en": "Review", "icon": "star" }
+  ]
+}

@@ -1,0 +1,180 @@
+/* Multi-channel distribution engine (pure; tests: scripts/test/distribution.mjs). Used by functions/api/distribution.js.
+ * route(): ordered rules, first match wins, fallback = default channel · schedule(): per-channel daily cap, minimum spacing, posting windows in the channel's own time zone,
+ * ±20 min jitter, no repeated title / cover, no same template back-to-back · zoned time helpers (DST-safe). */
+const MIN = 60e3, DAY = 864e5;
+/** Chủ 10/11/2026 "đăng dần hiệu quả": kênh social tối đa 2 bài/ngày (embed = kho bài học, không đăng công khai → giữ trần 50). */
+export const SOCIAL_DAY_MAX = 2;
+export const DEFAULT_CFG = { role: 'social', types: [], topics: [], skills: [], cefr: [], regions: [], lang: '', daily_cap: 2, min_gap_min: 240, windows: [{ from: '09:00', to: '21:00' }], tz: 'America/New_York', active: 1 };
+const list = v => (Array.isArray(v) ? v : typeof v === 'string' ? v.split(/[,\s]+/) : []).map(x => String(x).trim()).filter(Boolean);
+const hm = t => { const m = /^(\d{2}):(\d{2})$/.exec(String(t)); return m && +m[1] < 24 && +m[2] < 60 ? +m[1] * 60 + +m[2] : null; };
+export const validTz = tz => { try { new Intl.DateTimeFormat('en-US', { timeZone: tz }); return typeof tz === 'string' && tz.length < 60; } catch (e) { return false; } };
+/** Untrusted channel settings → canonical (caps clamped, windows validated). */
+export function normCfg(c = {}) {
+  const d = DEFAULT_CFG, cap = Math.floor(+c.daily_cap), gap = Math.floor(+c.min_gap_min), embed = c.role === 'embed';
+  const wins = (Array.isArray(c.windows) ? c.windows : d.windows).map(w => ({ from: String(w && w.from), to: String(w && w.to) })).filter(w => hm(w.from) != null && hm(w.to) != null && hm(w.to) > hm(w.from)).slice(0, 6);
+  return { label: String(c.label || '').slice(0, 60), purpose: String(c.purpose || '').slice(0, 200), account: String(c.account || '').slice(0, 80), types: list(c.types).filter(x => ['short', 'long', 'podcast'].includes(x)), topics: list(c.topics).slice(0, 30), skills: list(c.skills).slice(0, 10), cefr: list(c.cefr).map(x => x.toUpperCase()).slice(0, 6),
+    regions: list(c.regions).map(x => x.toUpperCase()).slice(0, 40), role: embed ? 'embed' : 'social', lang: SOCIAL_LANGS.includes(String(c.lang || '').toLowerCase()) ? String(c.lang).toLowerCase() : '', daily_cap: cap >= 1 && cap <= 50 ? (embed ? cap : Math.min(cap, SOCIAL_DAY_MAX)) : d.daily_cap, min_gap_min: gap >= 0 && gap <= 1440 ? gap : d.min_gap_min,
+    windows: wins.length ? wins : d.windows, tz: validTz(c.tz) ? c.tz : d.tz, active: c.active === 0 || c.active === false ? 0 : 1 };
+}
+/** clip: {type, topic, sub, skill, cefr, exam, template, region?}. Empty list in a channel's settings = anything allowed. */
+export function blockOf(cfg, clip) {
+  if (!cfg) return 'no-channel'; if (!cfg.active) return 'paused'; // role: 'embed' = unlisted lesson host (never public), 'social' = growth channel (_role_meta.js)
+  if (cfg.types.length && !cfg.types.includes(clip.type)) return 'type';
+  if (cfg.topics.length && !cfg.topics.some(t => t === clip.topic || t === clip.sub)) return 'topic';
+  if (cfg.skills.length && !cfg.skills.includes(clip.skill)) return 'skill';
+  if (cfg.cefr.length && !cfg.cefr.includes(String(clip.cefr || '').toUpperCase())) return 'cefr';
+  if (cfg.lang && String(cfg.lang).toLowerCase() !== 'en' && String(clip.lang || 'en').toLowerCase() !== String(cfg.lang).toLowerCase()) return 'lang'; // page EN chung nhận mọi ngôn ngữ (fallback); page ngôn ngữ riêng chỉ nhận đúng ngôn ngữ // page tiếng X chỉ nhận clip cho người học tiếng X (EN chung nhận clip 'en')
+  return '';
+}
+export const allowed = (cfg, clip) => !blockOf(cfg, clip);
+const condOk = (cond, clip) => Object.entries(cond || {}).every(([k, want]) => {
+  if (k === 'shard') { const [i, n] = String(want).split('/').map(Number); return !(n > 1) || Math.floor(hash(clip.id) * n) === i; }   // luật ngầm: nhiều page EN cùng nền tảng chia nhau clip theo băm id (mỗi clip đúng 1 page)
+  const w = list(want).map(x => x.toLowerCase()); if (!w.length) return true;
+  const have = k === 'topic' ? [clip.topic, clip.sub] : k === 'region' ? list(clip.regions || clip.region) : k === 'lang' ? [clip.lang || 'en'] : [clip[k]];
+  return have.some(h => h && w.includes(String(h).toLowerCase()));
+});
+/** rules: [{cond, channel_id, active}] in order; cfgs: {channel_id: cfg}. → {channel_id, rule: index|-1(fallback)} or {channel_id:null, why}. */
+export function route(rules, cfgs, clip, fallback) {
+  for (let i = 0; i < rules.length; i++) { const r = rules[i]; if (r.active === 0 || !condOk(r.cond, clip)) continue; if (allowed(cfgs[r.channel_id], clip)) return { channel_id: r.channel_id, rule: i }; }
+  if (fallback && allowed(cfgs[fallback], clip)) return { channel_id: fallback, rule: -1 };
+  return { channel_id: null, why: fallback && cfgs[fallback] && !cfgs[fallback].active ? 'fallback-paused' : 'no-channel' };
+}
+/** Several embed channels share the lessons: pick one for a clip. embedCfgs {channel_id: cfg}, counts {channel_id: {today, total}}, clip may carry channel_id (already planned/uploaded there).
+ *  Sticky: a clip with a video stays on its channel; a planned clip stays while that channel is still usable. Otherwise: only active embed channels that allow the clip, least loaded today → in total → hash of the clip id. */
+export function pickEmbed(embedCfgs, counts, clip) {
+  const ok = Object.entries(embedCfgs || {}).filter(([, c]) => c && c.role === 'embed' && allowed(c, clip)).map(([id]) => id), cur = clip.channel_id;
+  if (cur && (clip.video_id ? embedCfgs && embedCfgs[cur] : ok.includes(cur))) return cur;
+  const n = (id, k) => ((counts || {})[id] || {})[k] || 0;
+  ok.sort((a, b) => n(a, 'today') - n(b, 'today') || n(a, 'total') - n(b, 'total') || hash(clip.id + a) - hash(clip.id + b) || (a < b ? -1 : 1));
+  return ok[0] || null;
+}
+/** Channel id → platform. YouTube = our OAuth channel ids (UC…); social channels mirrored from GrabCast use "gc-<platform>-<account id>". */
+export const platformOf = id => { const m = /^gc-([a-z_]+)-/.exec(String(id || '')); return m ? m[1] : 'youtube'; };
+/** Multi-platform routing: first match wins PER PLATFORM (a clip gets ≤ 1 channel per platform); the fallback channel only covers YouTube. */
+export function routeAll(rules, cfgs, clip, fallback) {
+  const out = {};
+  rules.forEach((r, i) => { const p = platformOf(r.channel_id); if (r.active === 0 || out[p] || !condOk(r.cond, clip) || !allowed(cfgs[r.channel_id], clip)) return; out[p] = { channel_id: r.channel_id, rule: i, platform: p }; });
+  if (!out.youtube && fallback && allowed(cfgs[fallback], clip)) out.youtube = { channel_id: fallback, rule: -1, platform: 'youtube' };
+  return Object.values(out);
+}
+/** Bộ 16 fanpage Lexkite: 1 page EN chung + 15 page theo ngôn ngữ người học. Tên kênh (GrabCast) → mã ngôn ngữ; không nhận ra = '' (page chung = 'en').
+ *  Khớp tên riêng ngôn ngữ (endonym), tên tiếng Anh, tên tiếng Việt, hoặc mã trong ngoặc/sau gạch: "Lexkite Español", "Lexkite (VI)", "Lexkite – Japanese". */
+const LANG_NAMES = { vi: ['tiếng việt', 'việt nam', 'vietnam', 'vietnamese'], es: ['español', 'espanol', 'spanish', 'tây ban nha'], pt: ['português', 'portugues', 'portuguese', 'brasil', 'bồ đào nha'],
+  fr: ['français', 'francais', 'french', 'tiếng pháp'], de: ['deutsch', 'german', 'tiếng đức'], id: ['indonesia', 'bahasa'], th: ['ไทย', 'thai', 'thái lan'], zh: ['中文', '汉语', '漢語', 'chinese', 'trung quốc', 'tiếng trung'],
+  ja: ['日本語', 'japanese', 'nhật bản', 'tiếng nhật'], ko: ['한국어', 'korean', 'hàn quốc', 'tiếng hàn'], hi: ['हिन्दी', 'हिंदी', 'hindi'], ar: ['العربية', 'arabic', 'ả rập'], ru: ['русский', 'russian', 'tiếng nga'],
+  tr: ['türkçe', 'turkce', 'turkish', 'thổ nhĩ kỳ'], en: ['english', 'global', 'tiếng anh'] };
+export const SOCIAL_LANGS = Object.keys(LANG_NAMES);
+/** Tên page nói người HỌC là ai: "Học tiếng Anh/Nhật…" = page cho người Việt (10/11: "Lexkite - Học Tiếng Anh" bị nhận nhầm 'en' vì chứa "tiếng anh"). Xét trước LANG_NAMES. */
+const LEARNER_VI = /(?:^|[^\p{L}])(?:học|hoc)\s+(?:tiếng|tieng)(?:[^\p{L}]|$)/u;
+export function langOfChannel(title) {
+  const t = String(title || '').toLowerCase().normalize('NFC'), code = /(?:\(|\[|[-–—|·]\s*)([a-z]{2})(?:\)|\]|\s*$)/.exec(t);
+  if (code && LANG_NAMES[code[1]]) return code[1];
+  if (LEARNER_VI.test(t)) return 'vi';
+  for (const [k, names] of Object.entries(LANG_NAMES)) if (names.some(n => t.includes(n))) return k;
+  return '';
+}
+/** Kênh social (gc-*) đang ok mà NỀN TẢNG chưa có luật nào (kể cả luật đã tắt – tắt là chủ ý dừng) → luật ngầm cho TỪNG ngôn ngữ của nền tảng đó:
+ *  mỗi kênh nhận clip cùng ngôn ngữ (cond.lang = cfg.lang, mặc định 'en'); nhiều kênh cùng ngôn ngữ → kênh đầu theo id. Nối kênh xong là có lịch, không phải tạo luật tay,
+ *  và clip EN không bao giờ rơi vào page tiếng Tây Ban Nha chỉ vì id đứng đầu bảng chữ cái (lỗi cũ: 1 kênh/nền tảng, bất kể ngôn ngữ). */
+export function implicitSocialRules(allRules, cfgs) {
+  // chỉ luật cho kênh GrabCast (gc-*) mới chặn luật ngầm: luật YouTube trực tiếp (UC…) không được làm câm kênh YouTube GrabCast (lỗi cũ: platformOf(UC…) = 'youtube')
+  const have = new Set((allRules || []).filter(r => /^gc-/.test(String(r.channel_id || ''))).map(r => platformOf(r.channel_id))), seen = new Set(), own = [], general = [], en = {};
+  for (const id of Object.keys(cfgs || {}).filter(x => /^gc-/.test(x)).sort()) {
+    const p = platformOf(id), lang = String((cfgs[id] && cfgs[id].lang) || 'en').toLowerCase(), k = p + '|' + lang;
+    if (have.has(p)) continue;
+    // page EN chung = mọi ngôn ngữ chưa có page riêng; NHIỀU page EN cùng nền tảng (Lexkite.com + Learn English, 11/11) chia nhau clip theo băm id thay vì chỉ page đứng đầu bảng chữ cái
+    if (lang === 'en') { (en[p] = en[p] || []).push(id); continue; }
+    if (seen.has(k)) continue; seen.add(k); own.push({ cond: { lang }, channel_id: id, active: 1 });
+  }
+  for (const ids of Object.values(en)) ids.forEach((id, i) => general.push({ cond: ids.length > 1 ? { shard: `${i}/${ids.length}` } : {}, channel_id: id, active: 1 }));
+  return [...own, ...general];
+}
+/** Tài khoản không phải của Lexkite trong workspace GrabCast (OAuth Meta kéo kèm Page/IG "Grabcast.click" vào ws4, 05/11) hoặc bị tạm dừng đăng → không bao giờ là đích autopilot. */
+export const foreignAccount = a => /grab\s*cast/i.test([a && a.name, a && a.title, a && a.username, a && a.handle].filter(Boolean).join(' '));
+export const pausedAccount = a => /^(paused|disabled|inactive)$/i.test(String((a && (a.publishing || a.status)) || '')) || (a && (a.paused === true || a.publishing_paused === true));
+/** Tài khoản GrabCast (GET accounts, hợp đồng đọc thật 05/11) → hàng ext_sync. MỘT mapper cho mọi đường đồng bộ (autopilot, nút Đồng bộ, lk/auto/channels/sync):
+ *  trước đây 3 bản chép tay chỉ truyền needs_reconnect → trạng thái Pause/health/avatar đầy đủ bị rơi. GrabCast chưa trả trạng thái "Pause publishing" (05/11) –
+ *  trường publishing/paused/publishing_paused được truyền nguyên nếu có (pausedAccount đọc), docs/GRABCAST-API-REQUESTS.md xin thêm. Không có email quản trị: chỉ tên FB người nối. */
+export function extAccount(a) {
+  a = a && typeof a === 'object' ? a : {}; const h = a.health && typeof a.health === 'object' ? a.health : {}, lim = a.limits && typeof a.limits === 'object' ? a.limits : {};
+  const p = String(a.platform || a.provider || '').toLowerCase().replace(/^facebook$/, 'facebook_page'), id = String(a.id == null ? '' : a.id);
+  const ms = v => { const t = Date.parse(String(v || '')); return Number.isFinite(t) ? t : null; }, num = k => (k && Number.isFinite(+lim[k]) && lim[k] !== null ? +lim[k] : null);
+  const usedK = Object.keys(lim).find(k => /_24h$|^used$/.test(k)), capK = Object.keys(lim).find(k => /_cap$|^cap$/.test(k));
+  const reconnect = !!(a.needs_reconnect || h.needs_reconnect) || /reauth|revoked|expired|disconnected|error/i.test(String(a.status || ''));
+  const out = { platform: p, id, name: String(a.display_name || a.name || a.username || id), handle: String(a.username || a.handle || ''), avatar: String(a.avatar_url || a.avatar || a.thumb || ''),
+    status: reconnect ? 'error' : pausedAccount(a) ? 'paused' : 'ok', ext_id: String(a.external_id || ''), connected_at: ms(a.connected_at || a.created_at), admin: String(a.owner_email || a.email || a.fb_user_name || ''),
+    admin_kind: a.owner_email || a.email ? 'email' : a.fb_user_name ? 'fb_user' : '', last_pub: ms(a.last_published_at), used: num(usedK), cap: num(capK), token_exp: ms(h.expires_at), token_soon: !!h.expiring_soon, reason: h.reason || h.error_code || null };
+  for (const k of ['publishing', 'paused', 'publishing_paused']) if (a[k] != null) out[k] = a[k];
+  return out;
+}
+/** Rules editor "test a clip": why each rule wins / misses (off · no-match:<cond> · blocked:<cfg field> · shadowed = platform already taken) + final routes. */
+export function explain(rules, cfgs, clip, fallback) {
+  const won = new Set(), trace = rules.map((r, i) => {
+    const p = platformOf(r.channel_id), base = { i, channel_id: r.channel_id, platform: p };
+    if (r.active === 0) return { ...base, result: 'off' };
+    const miss = Object.keys(r.cond || {}).find(k => !condOk({ [k]: r.cond[k] }, clip)); if (miss) return { ...base, result: 'no-match', why: miss };
+    const why = blockOf(cfgs[r.channel_id], clip); if (why) return { ...base, result: 'blocked', why };
+    if (won.has(p)) return { ...base, result: 'shadowed' };
+    won.add(p); return { ...base, result: 'win' };
+  });
+  return { trace, routes: routeAll(rules, cfgs, clip, fallback) };
+}
+// ---- time zones ----
+const fmt = new Map();
+const parts = (ms, tz) => { let f = fmt.get(tz); if (!f) { f = new Intl.DateTimeFormat('en-CA', { timeZone: tz, hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }); fmt.set(tz, f); } const o = {}; for (const p of f.formatToParts(new Date(ms))) o[p.type] = p.value; return o; };
+export const localDate = (ms, tz) => { const p = parts(ms, tz); return `${p.year}-${p.month}-${p.day}`; };
+export const localHM = (ms, tz) => { const p = parts(ms, tz); return `${p.hour}:${p.minute}`; };
+/** local 'YYYY-MM-DD' + 'HH:MM' in tz → UTC ms (two-pass offset; correct across DST except the non-existent hour). */
+export function zonedToMs(date, time, tz) {
+  const [y, mo, d] = date.split('-').map(Number), m = hm(time), guess = Date.UTC(y, mo - 1, d, Math.floor(m / 60), m % 60);
+  const off = ms => { const p = parts(ms, tz); return Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour, +p.minute) - ms; };
+  let t = guess - off(guess); t = guess - off(t); return t;
+}
+const addDays = (date, n) => { const d = new Date(date + 'T00:00:00Z'); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
+const hash = s => { let h = 2166136261; for (const c of String(s)) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return (h >>> 0) / 4294967296; };
+const norm = t => String(t || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+/**
+ * Plan slots for ONE channel. clips: ordered [{id, title, cover, template}] to place; existing: [{ms, clip?, template?, title?, cover?}] already planned/posted on this channel.
+ * Never exceeds daily_cap, keeps ≥ min_gap between any two posts (both directions), stays inside the windows (local time of cfg.tz), jitter ±20 min (deterministic per clip),
+ * skips a clip whose title/cover already exists on the channel, avoids the same template back-to-back (reorders when possible).
+ * → { slots: [{id, ms}], skipped: [{id, why}] }
+ */
+/** Chủ 10/11/2026: lên lịch sẵn vài tháng khi có nhiều clip – vẫn giữ daily_cap + min_gap từng kênh nên không dồn bài vào một ngày. */
+export const PLAN_DAYS = 120;
+export function schedule({ clips, cfg, existing = [], now = Date.now(), horizonDays = PLAN_DAYS, jitterMin = 20, rand = hash }) {
+  const gap = cfg.min_gap_min * MIN, taken = existing.map(e => e.ms).sort((a, b) => a - b), perDay = {}, titles = new Set(existing.map(e => norm(e.title)).filter(Boolean)), covers = new Set(existing.map(e => e.cover).filter(Boolean));
+  for (const ms of taken) { const d = localDate(ms, cfg.tz); perDay[d] = (perDay[d] || 0) + 1; }
+  let lastTpl = (existing.slice().sort((a, b) => a.ms - b.ms).pop() || {}).template || '';
+  const out = { slots: [], skipped: [] }, queue = clips.slice(), start = localDate(now + 15 * MIN, cfg.tz);
+  while (queue.length) {
+    let i = queue.findIndex(c => c.template !== lastTpl); if (i < 0) i = 0; const c = queue.splice(i, 1)[0];
+    if ((norm(c.title) && titles.has(norm(c.title))) || (c.cover && covers.has(c.cover))) { out.skipped.push({ id: c.id, why: 'duplicate' }); continue; }
+    let placed = null; const earliest = Math.max(now + 15 * MIN, out.slots.length ? out.slots[out.slots.length - 1].ms + gap : 0); // monotone inside one batch → template order = time order
+    for (let dd = 0; dd <= horizonDays && placed == null; dd++) {
+      const date = addDays(start, dd); if ((perDay[date] || 0) >= cfg.daily_cap) continue;
+      for (const w of cfg.windows) {
+        const ws = zonedToMs(date, w.from, cfg.tz), we = zonedToMs(date, w.to, cfg.tz); let t = Math.max(ws, earliest);
+        for (let k = 0; k < 60; k++) { const clash = taken.find(s => Math.abs(s - t) < gap); if (!clash) break; t = Math.max(t, clash + gap); }
+        if (t > we || taken.some(s => Math.abs(s - t) < gap)) continue;
+        const j = Math.round((rand(c.id + date) * 2 - 1) * jitterMin) * MIN, tj = t + (t + j < Math.max(ws, earliest) ? -j : j); // reflect instead of clamping so the spread stays natural
+        placed = tj >= Math.max(ws, earliest) && tj <= we && !taken.some(s => Math.abs(s - tj) < gap) ? tj : t; break;
+      }
+    }
+    if (placed == null) { out.skipped.push({ id: c.id, why: 'no-slot' }); continue; }
+    taken.push(placed); taken.sort((a, b) => a - b); const d = localDate(placed, cfg.tz); perDay[d] = (perDay[d] || 0) + 1;
+    if (norm(c.title)) titles.add(norm(c.title)); if (c.cover) covers.add(c.cover); lastTpl = c.template;
+    out.slots.push({ id: c.id, ms: placed });
+  }
+  return out;
+}
+/** Spread several channels fairly: clips already routed → {channel_id: [clips]}; each channel is planned independently so a burst on one channel never leaks into another. */
+export function planAll({ routed, cfgs, existing = {}, now }) {
+  const res = {}; for (const [ch, clips] of Object.entries(routed)) res[ch] = schedule({ clips, cfg: cfgs[ch], existing: existing[ch] || [], now }); return res;
+}
+/** Health: pause reasons from sync errors / failed uploads (called after sync). */
+export function healthVerdict({ error, failed = 0, limitFailed = 5 }) {
+  if (error === 'yt-forbidden') return 'YouTube refused access (possible strike / limited state) – paused';
+  if (error === 'yt-revoked') return 'Google access revoked – paused';
+  if (failed >= limitFailed) return `${failed} failed uploads – paused`;
+  return '';
+}

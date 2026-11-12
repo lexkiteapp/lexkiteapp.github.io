@@ -1,0 +1,214 @@
+{
+ "id": "20261031",
+ "source": "lexicon-expand",
+ "n": 428,
+ "checked": [
+  {
+   "id": "endeavor#v",
+   "ok": true
+  },
+  {
+   "id": "present#n",
+   "ok": true
+  },
+  {
+   "id": "doubt#v",
+   "ok": true
+  },
+  {
+   "id": "archaic#adj",
+   "ok": true
+  },
+  {
+   "id": "tailor#n",
+   "ok": true
+  },
+  {
+   "id": "fifth#adj",
+   "ok": true
+  },
+  {
+   "id": "monastery#n",
+   "ok": true
+  },
+  {
+   "id": "grenade#n",
+   "ok": true
+  },
+  {
+   "id": "lack#v",
+   "ok": true
+  },
+  {
+   "id": "promise#n",
+   "ok": true
+  },
+  {
+   "id": "emerald#n",
+   "ok": true
+  },
+  {
+   "id": "opposite#adv",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): pos: should be 'prep' or 'adj' · sense: face-to-face.r.02 does not match the headword 'opposite'"
+  },
+  {
+   "id": "repair#n",
+   "ok": true
+  },
+  {
+   "id": "today#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): ex: examples use adverbial usage, not the noun sense of ‘today’"
+  },
+  {
+   "id": "flame#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): sense: fire.n.03 does not exactly match the headword 'flame' · ex: 'My house went up in flames' uses 'flame' as a mass noun, not exactly matching the sense"
+  },
+  {
+   "id": "gigantic#adj",
+   "ok": true
+  },
+  {
+   "id": "imperialism#n",
+   "ok": true
+  },
+  {
+   "id": "pine#n",
+   "ok": true
+  },
+  {
+   "id": "agility#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): vi: not a noun, missing nominalizer"
+  },
+  {
+   "id": "mentality#n",
+   "ok": true
+  },
+  {
+   "id": "insomnia#n",
+   "ok": true
+  },
+  {
+   "id": "plaza#n",
+   "ok": true
+  },
+  {
+   "id": "midwife#n",
+   "ok": true
+  },
+  {
+   "id": "sportsman#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): sense: incorrect sense, should be athlete.n.01 or sportsman.n.01"
+  },
+  {
+   "id": "maze#n",
+   "ok": true
+  },
+  {
+   "id": "help#n",
+   "ok": true
+  },
+  {
+   "id": "witchcraft#n",
+   "ok": true
+  },
+  {
+   "id": "tiredness#n",
+   "ok": true
+  },
+  {
+   "id": "eagle#n",
+   "ok": true
+  },
+  {
+   "id": "riddle#n",
+   "ok": true
+  },
+  {
+   "id": "attempt#v",
+   "ok": true
+  },
+  {
+   "id": "sarcasm#n",
+   "ok": true
+  },
+  {
+   "id": "forensic#adj",
+   "ok": true
+  },
+  {
+   "id": "ore#n",
+   "ok": true
+  },
+  {
+   "id": "lick#v",
+   "ok": true
+  },
+  {
+   "id": "sniper#n",
+   "ok": true
+  },
+  {
+   "id": "celery#n",
+   "ok": true
+  },
+  {
+   "id": "row#v",
+   "ok": true
+  },
+  {
+   "id": "bald#adj",
+   "ok": true
+  },
+  {
+   "id": "owl#n",
+   "ok": true
+  },
+  {
+   "id": "consent#v",
+   "ok": true
+  },
+  {
+   "id": "peel#n",
+   "ok": true
+  },
+  {
+   "id": "patriot#n",
+   "ok": true
+  },
+  {
+   "id": "backyard#n",
+   "ok": true
+  },
+  {
+   "id": "quarrel#n",
+   "ok": true
+  },
+  {
+   "id": "bouquet#n",
+   "ok": true
+  },
+  {
+   "id": "locomotive#n",
+   "ok": true
+  },
+  {
+   "id": "shaman#n",
+   "ok": true
+  },
+  {
+   "id": "vapor#n",
+   "ok": true
+  },
+  {
+   "id": "pious#adj",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-01",
+ "status": "published"
+}

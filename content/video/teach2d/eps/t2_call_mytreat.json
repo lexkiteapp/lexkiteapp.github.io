@@ -1,0 +1,124 @@
+{
+ "id": "t2_call_mytreat",
+ "template": "call",
+ "series": "Ask Ama",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "call",
+ "lines": [
+  {
+   "id": "h",
+   "text": "What does my treat mean?",
+   "pause": 0.42
+  },
+  {
+   "id": "m",
+   "text": "Your teammate says: It's my treat today!",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "My treat means: I will pay for you.",
+   "pause": 0.42
+  },
+  {
+   "id": "o",
+   "text": "Say: Thank you so much!",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! You pay for a friend. What do you say?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "It's my treat! I will pay for you.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "title": "Coffee run for the team",
+  "em": "☕",
+  "line": "It's my treat today!",
+  "phrase": "my treat",
+  "mean": "I will pay for you",
+  "reply": "Thank you so much!",
+  "quiz": {
+   "options": [
+    "It's my treat!",
+    "No worries!"
+   ],
+   "answer": 0
+  }
+ },
+ "cta": {
+  "area": "call",
+  "route": "#/call/coffee",
+  "link": "https://lexkite.com/app/#/call/coffee",
+  "say": "Practice a real call"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“My treat”?"
+ },
+ "src": {
+  "call": "coffee",
+  "turn": 5
+ },
+ "est": {
+  "words": 50,
+  "seconds": 29.6,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "What does my treat mean?",
+  "keyword": "my treat",
+  "value": "\"My treat\" means I will pay for you.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/call/coffee",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does my treat mean?",
+    "description": "\"My treat\" means I will pay for you.\n\nPractice a real call, free: https://lexkite.com/app/#/call/coffee\n\nSeries: Ask Ama · Teacher: Ama\n\n#learnenglish #englishtips #speakenglish #englishteacher",
+    "tags": [
+     "my treat",
+     "Ask Ama",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "What does my treat mean?\n\n\"My treat\" means I will pay for you.\n\nPractice a real call, free: https://lexkite.com/app/#/call/coffee"
+   },
+   "instagram": {
+    "caption": "What does my treat mean?\n\n\"My treat\" means I will pay for you.\n\nPractice a real call: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#speakenglish",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does my treat mean? #learnenglish #englishtips #speakenglish"
+   }
+  },
+  "first_comment": "Quiz answer: It's my treat! I will pay for you. \"My treat\" means I will pay for you. Practice it with a free quiz: {link}"
+ }
+}

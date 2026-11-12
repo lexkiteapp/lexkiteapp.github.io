@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Mistake Notebook (Desktop 1280)</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Rounded -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-dark': '#092627',
+              'teal-light': '#175C5E',
+              'teal-subtle': '#E6F2F2',
+              coral: '#F26E23',
+              'coral-hover': '#DD5D15',
+              'coral-shadow': '#B84705',
+              cream: '#FFF9F5',
+              'cream-card': '#FFFFFF',
+              'cream-alt': '#F8EFE9',
+              'border-warm': '#ECDCD3',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: #FFF9F5;
+      color: #1A2729;
+    }
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-rounded.outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Tactile button ledges */
+    .tactile-btn-coral {
+      background-color: #F26E23;
+      color: #1A0D00;
+      box-shadow: 0 4px 0 0 #B84705;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-coral:hover {
+      background-color: #FA7930;
+      box-shadow: 0 4px 0 0 #B84705;
+    }
+    .tactile-btn-coral:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #B84705;
+    }
+
+    .tactile-card {
+      background-color: #FFFFFF;
+      border: 1.5px solid #ECDCD3;
+      box-shadow: 0 3px 0 0 #E3CFBE;
+    }
+
+    .tactile-card-raised {
+      background-color: #FFFFFF;
+      border: 1.5px solid #E5D5C8;
+      box-shadow: 0 4px 0 0 #DBC4B1;
+    }
+
+    .tactile-btn-ghost {
+      border: 1.5px solid #ECDCD3;
+      box-shadow: 0 2px 0 0 #E3CFBE;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-ghost:hover {
+      background-color: #FBF4EE;
+    }
+    .tactile-btn-ghost:active {
+      transform: translateY(1px);
+      box-shadow: 0 1px 0 0 #E3CFBE;
+    }
+
+    .teacher-slot {
+      border: 2px dashed #0F3D3E;
+      background-color: #F0F7F7;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 110px;
+      min-width: 110px;
+      position: relative;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#FFF9F5] text-[#1A2729] antialiased flex flex-col justify-between">
+<!-- Desktop Outer Wrapper (1280px optimized) -->
+<div class="w-full min-h-screen flex bg-[#FFF9F5]">
+<!-- LEFT SIDEBAR SHELL (Desktop standard 5 items: Today, Vocab, Skills, Tests, Me) -->
+<aside class="w-64 flex-shrink-0 bg-[#FFF9F5] border-r-2 border-[#ECDCD3] flex flex-col justify-between p-5 min-h-screen sticky top-0 h-screen select-none">
+<div class="flex flex-col gap-6">
+<!-- Brand Header -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-10 h-10 rounded-xl bg-[#0F3D3E] flex items-center justify-center text-white shadow-[0_3px_0_0_#092627]">
+<span class="material-symbols-rounded text-2xl">kitesurfing</span>
+</div>
+<div>
+<div class="text-xl font-extrabold tracking-tight text-[#0F3D3E] leading-tight">Lexkite</div>
+<div class="text-xs font-bold text-[#0F3D3E] tracking-wide uppercase">IELTS · TOEIC · CEFR</div>
+</div>
+</div>
+<!-- Exam Switcher Pill -->
+<div class="bg-[#F8EFE9] border border-[#ECDCD3] rounded-2xl p-2.5 flex items-center justify-between shadow-[0_2px_0_0_#E3CFBE] cursor-pointer hover:bg-[#F3E7DF] transition-colors">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-rounded text-[#0F3D3E] text-xl">school</span>
+<div>
+<div class="text-xs font-bold text-[#0F3D3E] leading-tight">IELTS Academic 2025</div>
+<div class="text-[11px] font-medium text-[#7C8F90]">Target Band 7.5</div>
+</div>
+</div>
+<span class="material-symbols-rounded text-[#7C8F90] text-lg">unfold_more</span>
+</div>
+<!-- 5 Standard Nav Tabs -->
+<nav class="flex flex-col gap-1.5 mt-1">
+<!-- 1. Today -->
+<a class="flex items-center gap-3.5 px-3.5 py-3 rounded-2xl font-bold text-[#4F6365] hover:bg-[#F8EFE9] hover:text-[#0F3D3E] transition-all min-h-[44px]" href="#/today">
+<span class="material-symbols-rounded outlined text-2xl">today</span>
+<span class="text-sm font-bold">Today</span>
+</a>
+<!-- 2. Vocab (Active Parent Section for Mistake Notebook) -->
+<a class="flex items-center justify-between px-3.5 py-3 rounded-2xl font-extrabold text-[#0F3D3E] bg-[#E7F3F3] border border-[#CDE3E3] shadow-[0_2px_0_0_#B6D3D3] transition-all min-h-[44px]" href="#/vocab">
+<div class="flex items-center gap-3.5">
+<span class="material-symbols-rounded text-2xl text-[#0F3D3E]">menu_book</span>
+<span class="text-sm font-extrabold">Vocab</span>
+</div>
+<span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-[#0F3D3E] text-white">Active</span>
+</a>
+<!-- 3. Skills -->
+<a class="flex items-center gap-3.5 px-3.5 py-3 rounded-2xl font-bold text-[#4F6365] hover:bg-[#F8EFE9] hover:text-[#0F3D3E] transition-all min-h-[44px]" href="#/skills">
+<span class="material-symbols-rounded outlined text-2xl">bolt</span>
+<span class="text-sm font-bold">Skills</span>
+</a>
+<!-- 4. Tests -->
+<a class="flex items-center gap-3.5 px-3.5 py-3 rounded-2xl font-bold text-[#4F6365] hover:bg-[#F8EFE9] hover:text-[#0F3D3E] transition-all min-h-[44px]" href="#/tests">
+<span class="material-symbols-rounded outlined text-2xl">assignment</span>
+<span class="text-sm font-bold">Tests</span>
+</a>
+<!-- 5. Me -->
+<a class="flex items-center gap-3.5 px-3.5 py-3 rounded-2xl font-bold text-[#4F6365] hover:bg-[#F8EFE9] hover:text-[#0F3D3E] transition-all min-h-[44px]" href="#/me">
+<span class="material-symbols-rounded outlined text-2xl">person</span>
+<span class="text-sm font-bold">Me</span>
+</a>
+</nav>
+</div>
+<!-- Bottom User & Session Diagnostics -->
+<div class="flex flex-col gap-3 pt-4 border-t border-[#ECDCD3]">
+<!-- Streak & XP Cards -->
+<div class="grid grid-cols-2 gap-2">
+<div class="bg-white border border-[#ECDCD3] rounded-xl p-2 text-center shadow-[0_2px_0_0_#E5D5C8]">
+<div class="flex items-center justify-center gap-1 text-[#F26E23] font-black text-sm">
+<span class="material-symbols-rounded text-base">local_fire_department</span>
+<span>14d</span>
+</div>
+<div class="text-xs font-bold text-[#0F3D3E] tracking-wide uppercase">IELTS · TOEIC · CEFR</div>
+</div>
+<div class="bg-white border border-[#ECDCD3] rounded-xl p-2 text-center shadow-[0_2px_0_0_#E5D5C8]">
+<div class="flex items-center justify-center gap-1 text-[#D97706] font-black text-sm">
+<span class="material-symbols-rounded text-base">star</span>
+<span>820</span>
+</div>
+<div class="text-xs font-bold text-[#0F3D3E] tracking-wide uppercase">IELTS · TOEIC · CEFR</div>
+</div>
+</div>
+<!-- Language / Help pill -->
+<div class="flex items-center justify-between text-xs font-bold text-[#465A5C]"><div class="flex items-center gap-1.5 hover:text-[#0F3D3E] cursor-pointer min-h-[44px] px-2 py-1"><span class="material-symbols-rounded text-base text-[#0F3D3E]">language</span><span>English (EN)</span></div><a class="hover:text-[#0F3D3E] min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-2 py-1" href="#/help">Help</a></div>
+</div>
+</aside>
+<!-- MAIN WORKSPACE -->
+<main class="flex-1 flex flex-col min-w-0 bg-[#FFF9F5]">
+<!-- Top Utility Header -->
+<header class="h-16 border-b border-[#ECDCD3] bg-[#FFF9F5]/90 backdrop-blur px-8 flex items-center justify-between sticky top-0 z-20">
+<!-- Breadcrumb & Back -->
+<div class="flex items-center gap-3">
+<a class="min-w-[44px] min-h-[44px] rounded-xl bg-white border border-[#ECDCD3] shadow-[0_2px_0_0_#E3CFBE] flex items-center justify-center text-[#0F3D3E] hover:bg-[#FBF5F0] transition-transform active:translate-y-0.5" href="#/vocab"><span class="material-symbols-rounded text-xl">arrow_back</span></a>
+<nav class="flex items-center gap-2 text-xs font-semibold text-[#677A7B]">
+<a class="hover:text-[#0F3D3E]" href="#/vocab">Vocabulary Hub</a>
+<span class="text-[#B9C6C7]">/</span>
+<span class="text-[#0F3D3E] font-bold">Mistake Notebook</span>
+</nav>
+</div>
+<!-- Search & Actions -->
+<div class="flex items-center gap-3">
+<div class="relative w-80">
+<span class="material-symbols-rounded text-[#7C8F90] absolute left-3 top-2.5 text-xl">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-white border border-[#ECDCD3] rounded-xl text-xs font-medium text-[#1A2729] placeholder-[#8E9F9F] focus:outline-none focus:border-[#0F3D3E] shadow-[0_2px_0_0_#EFE4DB]" placeholder="Search mistakes by word, rule or tag..." type="text"/>
+</div>
+<button class="min-h-[44px] px-3.5 rounded-xl bg-white border border-[#ECDCD3] text-xs font-bold text-[#0F3D3E] shadow-[0_2px_0_0_#E3CFBE] hover:bg-[#FBF5F0] flex items-center gap-1.5 active:translate-y-0.5"><span class="material-symbols-rounded text-base">bookmark</span><span>Saved Rules</span></button>
+<button class="min-h-[44px] px-3.5 rounded-xl bg-white border border-[#ECDCD3] text-xs font-bold text-[#0F3D3E] shadow-[0_2px_0_0_#E3CFBE] hover:bg-[#FBF5F0] flex items-center gap-1.5 active:translate-y-0.5"><span class="material-symbols-rounded text-base">ios_share</span><span>Export Anki</span></button>
+</div>
+</header>
+<!-- Content Area -->
+<div class="flex-1 max-w-5xl w-full mx-auto px-8 py-7 flex flex-col gap-6">
+<!-- HERO HEADER BANNER: Title + Coach Tip with empty teacher-slot -->
+<div class="bg-white border-2 border-[#ECDCD3] rounded-3xl p-6 shadow-[0_4px_0_0_#E3CFBE] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+<div class="flex items-start gap-5 flex-1 min-w-0">
+<!-- TEACHER SLOT: Empty rounded dashed placeholder (no faces, no photos) -->
+<div aria-label="Teacher Slot Placeholder" class="teacher-slot flex-shrink-0 w-24 h-24 rounded-2xl border-2 border-dashed border-[#0F3D3E] bg-[#EEF7F7] flex flex-col items-center justify-center p-2 text-center">
+<span class="material-symbols-rounded text-[#0F3D3E] text-3xl mb-1">school</span>
+<span class="text-[10px] font-black tracking-wider text-[#0F3D3E] uppercase leading-tight">teacher-slot</span>
+<span class="text-[9px] font-semibold text-[#5A7E80]">Ama / Carlos</span>
+</div>
+<!-- Title & Pedagogical Rationale -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2.5 flex-wrap">
+<h1 class="text-2xl font-black text-[#0F3D3E] tracking-tight">Mistake Notebook</h1>
+<span class="px-2.5 py-0.5 rounded-full bg-[#FFEADB] text-[#B84705] font-extrabold text-xs border border-[#FCD4BA]">
+                  25 Items Pending
+                </span>
+<span class="text-xs font-semibold text-[#7C8F90]">
+                  • Synced across IELTS &amp; General modules
+                </span>
+</div>
+<p class="text-sm font-medium text-[#465A5C] mt-1.5 leading-relaxed">
+                Reviewing flagged errors within <strong class="text-[#0F3D3E] font-bold">24 hours doubles retention</strong> and prevents repeating fossilized mistakes in IELTS Writing Task 2 and Speaking.
+              </p>
+<!-- Memory decay reminder badge -->
+<div class="mt-3 flex items-center gap-2 text-xs font-bold text-[#0F3D3E]">
+<span class="material-symbols-rounded text-base text-[#F26E23]">schedule</span>
+<span>Optimal spaced recovery window: <span class="text-[#B84705]">Next 4 hours</span></span>
+</div>
+</div>
+</div>
+<!-- PRIMARY ACTION CTA: Practise these 25 -->
+<div class="w-full lg:w-auto flex-shrink-0 flex flex-col items-stretch lg:items-end gap-2">
+<button class="tactile-btn-coral px-7 py-4 rounded-2xl font-extrabold text-base flex items-center justify-center gap-3 w-full lg:w-auto min-h-[52px] select-none" style="color: #1A0D00;">
+<span class="material-symbols-rounded text-2xl font-bold">bolt</span>
+<span>Practise these 25</span>
+<span class="material-symbols-rounded text-xl">arrow_forward</span>
+</button>
+<div class="text-[11px] font-semibold text-[#7C8F90] text-center lg:text-right">
+              Est. time: ~8 mins • +50 XP on completion
+            </div>
+</div>
+</div>
+<!-- SUMMARY CHIPS & DATE FILTER BAR -->
+<div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 bg-[#F8EFE9] border border-[#ECDCD3] p-3 rounded-2xl">
+<!-- Summary category chips (Grammar 12, Vocabulary 8, Pronunciation 5) -->
+<div class="flex items-center gap-2 flex-wrap">
+<span class="text-xs font-extrabold text-[#7C8F90] uppercase tracking-wider pl-1 mr-1">Filter:</span>
+<!-- All Chip -->
+<button class="px-4 py-2 rounded-xl text-xs font-black bg-[#0F3D3E] text-white shadow-[0_2px_0_0_#092627] flex items-center gap-2 min-h-[44px]">
+<span>All Errors</span>
+<span class="bg-[#175C5E] text-white text-[11px] font-extrabold px-2 py-0.5 rounded-full">25</span>
+</button>
+<!-- Grammar 12 -->
+<button class="px-4 py-2 rounded-xl text-xs font-extrabold bg-white text-[#0F3D3E] border border-[#ECDCD3] shadow-[0_2px_0_0_#E3CFBE] hover:bg-[#FFF9F5] flex items-center gap-2 min-h-[44px]">
+<span class="w-2.5 h-2.5 rounded-full bg-[#0F3D3E]"></span>
+<span>Grammar</span>
+<span class="bg-[#EEF7F7] text-[#0F3D3E] text-[11px] font-bold px-2 py-0.5 rounded-full border border-[#D5EAEA]">12</span>
+</button>
+<!-- Vocabulary 8 -->
+<button class="px-4 py-2 rounded-xl text-xs font-extrabold bg-white text-[#0F3D3E] border border-[#ECDCD3] shadow-[0_2px_0_0_#E3CFBE] hover:bg-[#FFF9F5] flex items-center gap-2 min-h-[44px]">
+<span class="w-2.5 h-2.5 rounded-full bg-[#F26E23]"></span>
+<span>Vocabulary</span>
+<span class="bg-[#FFF1E8] text-[#B84705] text-[11px] font-bold px-2 py-0.5 rounded-full border border-[#FCDAC4]">8</span>
+</button>
+<!-- Pronunciation 5 -->
+<button class="px-4 py-2 rounded-xl text-xs font-extrabold bg-white text-[#0F3D3E] border border-[#ECDCD3] shadow-[0_2px_0_0_#E3CFBE] hover:bg-[#FFF9F5] flex items-center gap-2 min-h-[44px]">
+<span class="w-2.5 h-2.5 rounded-full bg-[#2BA39A]"></span>
+<span>Pronunciation</span>
+<span class="bg-[#EAF7F6] text-[#126B64] text-[11px] font-bold px-2 py-0.5 rounded-full border border-[#CDEAE8]">5</span>
+</button>
+</div>
+<!-- Date Filter Dropdown Controls -->
+<div class="flex items-center gap-2 self-end md:self-auto">
+<div class="flex items-center bg-white border border-[#ECDCD3] rounded-xl px-3 py-2 shadow-[0_2px_0_0_#E3CFBE] min-h-[44px]">
+<span class="material-symbols-rounded text-[#7C8F90] text-lg mr-2">calendar_today</span>
+<span class="text-xs font-bold text-[#0F3D3E] mr-2">Timeline:</span>
+<select class="text-xs font-extrabold text-[#0F3D3E] bg-transparent focus:outline-none cursor-pointer">
+<option selected="">Past 7 days (25)</option>
+<option>Today only (6)</option>
+<option>Yesterday (11)</option>
+<option>Last 30 days (48)</option>
+<option>All time</option>
+</select>
+</div>
+<!-- Sort By button -->
+<button class="p-2.5 bg-white border border-[#ECDCD3] rounded-xl text-[#0F3D3E] shadow-[0_2px_0_0_#E3CFBE] hover:bg-[#FFF9F5] min-h-[44px] min-w-[44px] flex items-center justify-center" title="Sort by Frequency">
+<span class="material-symbols-rounded text-lg">sort</span>
+</button>
+</div>
+</div>
+<!-- MISTAKE CARDS CONTAINER (Showing wrong answer struck through, correct answer, rule tip) -->
+<div class="flex flex-col gap-4">
+<!-- CARD 1: GRAMMAR - IELTS Task 2 Preposition Trap -->
+<article class="tactile-card rounded-2xl p-5 flex flex-col gap-4">
+<!-- Card Header: Category Chip + Context Badge + Timestamp -->
+<div class="flex items-center justify-between border-b border-[#F2E5DC] pb-3">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-1 rounded-lg bg-[#E6F2F2] text-[#0F3D3E] text-xs font-black border border-[#CFE5E5] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-sm">edit_note</span>
+<span>Grammar • IELTS Writing Task 2</span>
+</span>
+<span class="px-2.5 py-1 rounded-lg bg-[#F8EFE9] text-[#7C8F90] text-xs font-bold">
+                  Context: Academic Argumentation
+                </span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-xs font-semibold text-[#465A5C]">Yesterday, 19:42</span>
+<button class="text-[#465A5C] hover:text-[#0F3D3E] transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center" title="Options"><span class="material-symbols-rounded text-lg">more_horiz</span></button>
+</div>
+</div>
+<!-- Context Sentence -->
+<div>
+<div class="text-[11px] font-extrabold uppercase tracking-wider text-[#7C8F90] mb-1">Context Sentence</div>
+<p class="text-sm font-semibold text-[#1A2729] leading-snug">
+                “<span class="text-[#B84705] font-black underline decoration-wavy decoration-[#F26E23]">Despite of the severe economic sanctions</span>, the regional symposium continued as scheduled.”
+              </p>
+</div>
+<!-- Side-by-side or stacked Answer Comparison -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<!-- Wrong Answer (Struck through) -->
+<div class="bg-[#FFF1ED] border-1.5 border-[#F8CBBF] rounded-xl p-3 flex items-start gap-2.5">
+<div class="w-6 h-6 rounded-full bg-[#F54A3B] text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-rounded text-base font-black">close</span>
+</div>
+<div>
+<div class="text-[10px] font-black uppercase tracking-wider text-[#C0392B]">Your Attempt (Incorrect)</div>
+<div class="text-sm font-bold text-[#8C1D18] line-through decoration-2 decoration-[#F54A3B] mt-0.5">
+                    Despite of
+                  </div>
+</div>
+</div>
+<!-- Correct Standard Answer -->
+<div class="bg-[#F0F9F5] border-1.5 border-[#BBE5D0] rounded-xl p-3 flex items-start gap-2.5">
+<div class="w-6 h-6 rounded-full bg-[#1B8354] text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-rounded text-base font-black">check</span>
+</div>
+<div>
+<div class="text-[10px] font-black uppercase tracking-wider text-[#1B8354]">Correct Standard</div>
+<div class="text-sm font-extrabold text-[#0D5936] mt-0.5">
+                    Despite <span class="text-xs font-semibold text-[#2E7D56]">/</span> In spite of
+                  </div>
+</div>
+</div>
+</div>
+<!-- Rule Tip Box -->
+<div class="bg-[#FFFBEA] border border-[#F6E29F] rounded-xl p-3.5 flex items-start gap-3">
+<span class="material-symbols-rounded text-[#D97706] text-xl flex-shrink-0 mt-0.5">lightbulb</span>
+<div class="text-xs text-[#633A00] leading-relaxed">
+<strong class="font-extrabold text-[#78350F]">Grammar Rule:</strong>
+<span class="font-bold">‘Despite’</span> is a preposition taking a noun or gerund directly <em class="font-semibold">without ‘of’</em>. Conversely, <span class="font-bold">‘In spite’</span> always requires the preposition <em class="font-semibold">‘of’</em>. Never combine the two into *"despite of"*.
+              </div>
+</div>
+<!-- Card Bottom Bar: Quick Audio Drill Action -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<button class="tactile-btn-ghost px-3 py-1.5 rounded-xl bg-white text-xs font-bold text-[#0F3D3E] flex items-center gap-1.5 min-h-[44px]">
+<span class="material-symbols-rounded text-base">volume_up</span>
+<span>Listen natural phrasing</span>
+</button>
+<button class="tactile-btn-ghost px-3 py-1.5 rounded-xl bg-white text-xs font-bold text-[#0F3D3E] flex items-center gap-1.5 min-h-[44px]">
+<span class="material-symbols-rounded text-base">bookmark_add</span>
+<span>Save Rule</span>
+</button>
+</div>
+<button class="tactile-btn-ghost px-4 py-2 rounded-xl bg-[#FFF9F5] text-xs font-extrabold text-[#0F3D3E] border-2 border-[#ECDCD3] flex items-center gap-1.5 min-h-[44px] hover:bg-[#F3E7DF]">
+<span class="material-symbols-rounded text-base">replay</span>
+<span>Drill 1× now</span>
+</button>
+</div>
+</article>
+<!-- CARD 2: VOCABULARY - Academic Lexis Band 7.5 Collocation -->
+<article class="tactile-card rounded-2xl p-5 flex flex-col gap-4">
+<div class="flex items-center justify-between border-b border-[#F2E5DC] pb-3">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-1 rounded-lg bg-[#FFF1E8] text-[#B84705] text-xs font-black border border-[#FCDAC4] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-sm">menu_book</span>
+<span>Vocabulary • Band 7.5 Collocation</span>
+</span>
+<span class="px-2.5 py-1 rounded-lg bg-[#F8EFE9] text-[#7C8F90] text-xs font-bold">
+                  Context: Institutional Policy Writing
+                </span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-xs font-semibold text-[#465A5C]">2 days ago</span>
+<button class="text-[#465A5C] hover:text-[#0F3D3E] transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center" title="Options"><span class="material-symbols-rounded text-lg">more_horiz</span></button>
+</div>
+</div>
+<div>
+<div class="text-[11px] font-extrabold uppercase tracking-wider text-[#7C8F90] mb-1">Context Sentence</div>
+<p class="text-sm font-semibold text-[#1A2729] leading-snug">
+                “After prolonged debates, the parliamentary committee decided to <span class="text-[#B84705] font-black underline decoration-wavy decoration-[#F26E23]">make a decision quickly</span>.”
+              </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<!-- Weak attempt -->
+<div class="bg-[#FFF1ED] border-1.5 border-[#F8CBBF] rounded-xl p-3 flex items-start gap-2.5">
+<div class="w-6 h-6 rounded-full bg-[#F54A3B] text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-rounded text-base font-black">close</span>
+</div>
+<div>
+<div class="text-[10px] font-black uppercase tracking-wider text-[#C0392B]">Weak Academic Register</div>
+<div class="text-sm font-bold text-[#8C1D18] line-through decoration-2 decoration-[#F54A3B] mt-0.5">
+                    make a decision
+                  </div>
+</div>
+</div>
+<!-- High-band Collocation -->
+<div class="bg-[#F0F9F5] border-1.5 border-[#BBE5D0] rounded-xl p-3 flex items-start gap-2.5">
+<div class="w-6 h-6 rounded-full bg-[#1B8354] text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-rounded text-base font-black">check</span>
+</div>
+<div>
+<div class="text-[10px] font-black uppercase tracking-wider text-[#1B8354]">Band 8.0 Natural Collocation</div>
+<div class="text-sm font-extrabold text-[#0D5936] mt-0.5">
+                    reach a consensus <span class="text-xs font-semibold text-[#2E7D56]">/</span> arrive at a decision
+                  </div>
+</div>
+</div>
+</div>
+<!-- Rule Tip Box -->
+<div class="bg-[#FFFBEA] border border-[#F6E29F] rounded-xl p-3.5 flex items-start gap-3">
+<span class="material-symbols-rounded text-[#D97706] text-xl flex-shrink-0 mt-0.5">lightbulb</span>
+<div class="text-xs text-[#633A00] leading-relaxed">
+<strong class="font-extrabold text-[#78350F]">Academic Lexis:</strong> 
+                While <em>"make a decision"</em> is grammatically valid, IELTS examiners score it as repetitive Band 5/6 colloquialism. Substituting nuanced verbs like <strong class="font-extrabold text-[#0F3D3E]">"reach a consensus"</strong> immediately raises your Lexical Resource mark to Band 7.5+.
+              </div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<button class="tactile-btn-ghost px-3 py-1.5 rounded-xl bg-white text-xs font-bold text-[#0F3D3E] flex items-center gap-1.5 min-h-[44px]">
+<span class="material-symbols-rounded text-base">volume_up</span>
+<span>Audio Sample</span>
+</button>
+<button class="tactile-btn-ghost px-3 py-1.5 rounded-xl bg-white text-xs font-bold text-[#0F3D3E] flex items-center gap-1.5 min-h-[44px]">
+<span class="material-symbols-rounded text-base">bookmark_add</span>
+<span>Save Collocation</span>
+</button>
+</div>
+<button class="tactile-btn-ghost px-4 py-2 rounded-xl bg-[#FFF9F5] text-xs font-extrabold text-[#0F3D3E] border-2 border-[#ECDCD3] flex items-center gap-1.5 min-h-[44px] hover:bg-[#F3E7DF]">
+<span class="material-symbols-rounded text-base">replay</span>
+<span>Drill 1× now</span>
+</button>
+</div>
+</article>
+<!-- CARD 3: PRONUNCIATION - Word Stress Shift -->
+<article class="tactile-card rounded-2xl p-5 flex flex-col gap-4">
+<div class="flex items-center justify-between border-b border-[#F2E5DC] pb-3">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-1 rounded-lg bg-[#EAF7F6] text-[#126B64] text-xs font-black border border-[#CDEAE8] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-sm">record_voice_over</span>
+<span>Pronunciation • Acoustic Word Stress</span>
+</span>
+<span class="px-2.5 py-1 rounded-lg bg-[#F8EFE9] text-[#7C8F90] text-xs font-bold">
+                  Target Word: photographer
+                </span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-xs font-semibold text-[#465A5C]">3 days ago</span>
+<button class="text-[#465A5C] hover:text-[#0F3D3E] transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center" title="Options"><span class="material-symbols-rounded text-lg">more_horiz</span></button>
+</div>
+</div>
+<div>
+<div class="text-[11px] font-extrabold uppercase tracking-wider text-[#7C8F90] mb-1">Target Word &amp; IPA Stress</div>
+<div class="flex items-center gap-3">
+<span class="text-xs font-semibold text-[#465A5C]">3 days ago</span>
+<span class="text-xs font-semibold text-[#465A5C]">3 days ago</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<!-- Incorrect Stress -->
+<div class="bg-[#FFF1ED] border-1.5 border-[#F8CBBF] rounded-xl p-3 flex items-start gap-2.5">
+<div class="w-6 h-6 rounded-full bg-[#F54A3B] text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-rounded text-base font-black">close</span>
+</div>
+<div>
+<div class="text-[10px] font-black uppercase tracking-wider text-[#C0392B]">Incorrect Stress Position</div>
+<div class="text-sm font-bold text-[#8C1D18] line-through decoration-2 decoration-[#F54A3B] mt-0.5">
+                    PHO-to-graph-er <span class="text-xs font-semibold">(1st syllable)</span>
+</div>
+</div>
+</div>
+<!-- Correct Syllable Stress -->
+<div class="bg-[#F0F9F5] border-1.5 border-[#BBE5D0] rounded-xl p-3 flex items-start gap-2.5">
+<div class="w-6 h-6 rounded-full bg-[#1B8354] text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-rounded text-base font-black">check</span>
+</div>
+<div>
+<div class="text-[10px] font-black uppercase tracking-wider text-[#1B8354]">Correct Syllable Stress</div>
+<div class="text-sm font-extrabold text-[#0D5936] mt-0.5">
+                    pho-TOG-ra-pher <span class="text-xs font-bold text-[#1B8354]">(2nd syllable)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Rule Tip Box -->
+<div class="bg-[#FFFBEA] border border-[#F6E29F] rounded-xl p-3.5 flex items-start gap-3">
+<span class="material-symbols-rounded text-[#D97706] text-xl flex-shrink-0 mt-0.5">lightbulb</span>
+<div class="text-xs text-[#633A00] leading-relaxed">
+<strong class="font-extrabold text-[#78350F]">Stress Shift Principle:</strong> 
+                Primary stress shifts from the first syllable in the base noun <em>‘PHO-to-graph’</em> to the second syllable upon adding the professional suffix <em>‘-er’</em>: <strong class="text-[#0F3D3E]">pho-TOG-ra-pher</strong>.
+              </div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<button class="tactile-btn-ghost px-3 py-1.5 rounded-xl bg-white text-xs font-bold text-[#0F3D3E] flex items-center gap-1.5 min-h-[44px]">
+<span class="material-symbols-rounded text-base">mic</span>
+<span>Record IPA Comparison</span>
+</button>
+<button class="tactile-btn-ghost px-3 py-1.5 rounded-xl bg-white text-xs font-bold text-[#0F3D3E] flex items-center gap-1.5 min-h-[44px]">
+<span class="material-symbols-rounded text-base">graphic_eq</span>
+<span>graphic_eq</span>
+</button>
+</div>
+<button class="tactile-btn-ghost px-4 py-2 rounded-xl bg-[#FFF9F5] text-xs font-extrabold text-[#0F3D3E] border-2 border-[#ECDCD3] flex items-center gap-1.5 min-h-[44px] hover:bg-[#F3E7DF]">
+<span class="material-symbols-rounded text-base">graphic_eq</span>
+<span>graphic_eq</span>
+</button>
+</div>
+</article>
+<!-- CARD 4: GRAMMAR - Subject-Verb Agreement with 'A number of' vs 'The number of' -->
+<article class="tactile-card rounded-2xl p-5 flex flex-col gap-4">
+<div class="flex items-center justify-between border-b border-[#F2E5DC] pb-3">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-1 rounded-lg bg-[#E6F2F2] text-[#0F3D3E] text-xs font-black border border-[#CFE5E5] flex items-center gap-1.5">
+<span class="material-symbols-rounded text-sm">rule</span>
+<span>Grammar • Subject-Verb Agreement</span>
+</span>
+<span class="px-2.5 py-1 rounded-lg bg-[#F8EFE9] text-[#7C8F90] text-xs font-bold">
+                  Context: IELTS Academic Task 1 Data Report
+                </span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-xs font-semibold text-[#465A5C]">4 days ago</span>
+<button class="text-[#465A5C] hover:text-[#0F3D3E] transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center" title="Options"><span class="material-symbols-rounded text-lg">more_horiz</span></button>
+</div>
+</div>
+<div>
+<div class="text-[11px] font-extrabold uppercase tracking-wider text-[#7C8F90] mb-1">Context Sentence</div>
+<p class="text-sm font-semibold text-[#1A2729] leading-snug">
+                “Over the ten-year period, <span class="text-[#B84705] font-black underline decoration-wavy decoration-[#F26E23]">the number of overseas applicants are increasing</span> dramatically.”
+              </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<div class="bg-[#FFF1ED] border-1.5 border-[#F8CBBF] rounded-xl p-3 flex items-start gap-2.5">
+<div class="w-6 h-6 rounded-full bg-[#F54A3B] text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-rounded text-base font-black">close</span>
+</div>
+<div>
+<div class="text-[10px] font-black uppercase tracking-wider text-[#C0392B]">Agreement Error</div>
+<div class="text-sm font-bold text-[#8C1D18] line-through decoration-2 decoration-[#F54A3B] mt-0.5">
+                    are increasing
+                  </div>
+</div>
+</div>
+<div class="bg-[#F0F9F5] border-1.5 border-[#BBE5D0] rounded-xl p-3 flex items-start gap-2.5">
+<div class="w-6 h-6 rounded-full bg-[#1B8354] text-white flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-rounded text-base font-black">check</span>
+</div>
+<div>
+<div class="text-[10px] font-black uppercase tracking-wider text-[#1B8354]">Singular Agreement Standard</div>
+<div class="text-sm font-extrabold text-[#0D5936] mt-0.5">
+                    is increasing
+                  </div>
+</div>
+</div>
+</div>
+<!-- Rule Tip Box -->
+<div class="bg-[#FFFBEA] border border-[#F6E29F] rounded-xl p-3.5 flex items-start gap-3">
+<span class="material-symbols-rounded text-[#D97706] text-xl flex-shrink-0 mt-0.5">lightbulb</span>
+<div class="text-xs text-[#633A00] leading-relaxed">
+<strong class="font-extrabold text-[#78350F]">Key IELTS Distinction:</strong>
+<span class="font-bold">‘The number of...’</span> acts as a singular collective subject requiring a singular verb (<em>is / was</em>). In contrast, <span class="font-bold">‘A number of...’</span> acts as a quantifier meaning <em>several / many</em> and takes a plural verb (<em>are / were</em>).
+              </div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<button class="tactile-btn-ghost px-3 py-1.5 rounded-xl bg-white text-xs font-bold text-[#0F3D3E] flex items-center gap-1.5 min-h-[44px]">
+<span class="material-symbols-rounded text-base">rule</span>
+<span>Full Agreement Chart</span>
+</button>
+<button class="tactile-btn-ghost px-3 py-1.5 rounded-xl bg-white text-xs font-bold text-[#0F3D3E] flex items-center gap-1.5 min-h-[44px]">
+<span class="material-symbols-rounded text-base">bookmark_add</span>
+<span>Save Rule</span>
+</button>
+</div>
+<button class="tactile-btn-ghost px-4 py-2 rounded-xl bg-[#FFF9F5] text-xs font-extrabold text-[#0F3D3E] border-2 border-[#ECDCD3] flex items-center gap-1.5 min-h-[44px] hover:bg-[#F3E7DF]">
+<span class="material-symbols-rounded text-base">replay</span>
+<span>Drill 1× now</span>
+</button>
+</div>
+</article>
+</div>
+<!-- BOTTOM STICKY / DOCKED BATCH ACTION CARD -->
+<div class="sticky bottom-4 z-10 bg-white border-2 border-[#0F3D3E] rounded-2xl p-4 shadow-[0_6px_0_0_#0F3D3E] flex items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#FFF1E8] border border-[#FCDAC4] flex items-center justify-center text-[#F26E23]">
+<span class="material-symbols-rounded text-2xl">fitness_center</span>
+</div>
+<div>
+<div class="text-sm font-extrabold text-[#0F3D3E] leading-tight">Ready to clear your pending mistakes?</div>
+<div class="text-xs font-semibold text-[#7C8F90]">Continuous error review increases exam confidence by +35%.</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="tactile-btn-ghost px-4 py-2.5 rounded-xl bg-white text-xs font-extrabold text-[#0F3D3E] min-h-[44px]">
+              Mark all as reviewed
+            </button>
+<button class="tactile-btn-coral px-6 py-2.5 rounded-xl text-xs font-extrabold flex items-center gap-2 min-h-[44px]" style="color: #1A0D00;">
+<span class="material-symbols-rounded text-lg font-bold">bolt</span>
+<span>Practise these 25</span>
+<span class="material-symbols-rounded text-base">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body>
+</html>

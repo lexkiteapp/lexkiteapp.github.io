@@ -1,0 +1,409 @@
+{
+ "_doc": "Màn Chuỗi (#/streak, cờ ux1) – ref Stitch streak-v5 (5/11, key1 ab37074e…; bản tối = cùng DOM, màu từ ref tối Stitch qua scripts/stitch/dark-from-light.mjs + dark-maps/streak.json). d do web/js/retention.js v2Data dựng. Đầu trang inner (§5d): Back 44px (#retBack) + tiêu đề + trợ giúp (#retHelp). Lửa = ST2.flame (Tactile Flame chung toàn app, 4 trạng thái). Ô giáo viên = Chars.slot. Lịch tuần/tháng: lặp theo trạng thái done/frozen/today/future(+miss)/pad. Mục tiêu = radiogroup [data-goal]. Rương: hàng ẩn khi không có rương. Bộ sưu tập: #retColl mở tấm khung/nhãn dán. CTA ghim đáy #retNext. parts.hero/cta cho màn chúc mừng mốc.",
+ "unwrap": ":scope > main",
+ "i18n": {
+  "Back": "Quay lại",
+  "Streak information & help": "Giải thích chuỗi ngày",
+  "This week": "Tuần này",
+  "Previous month": "Tháng trước",
+  "Next month": "Tháng sau",
+  "Streak freeze": "Đóng băng chuỗi",
+  "Protects your streak if you miss a day. Earn one free every 7 days.": "Giữ chuỗi khi bạn lỡ một ngày. Cứ 7 ngày học được tặng 1 lượt miễn phí.",
+  "Next milestone": "Mốc tiếp theo",
+  "Gift chest": "Rương quà",
+  "Collection: frames & stickers": "Bộ sưu tập: khung & nhãn dán"
+ },
+ "html": {
+  ":scope > header > h1": "e(t('Chuỗi học'))",
+  ":scope > div:nth-child(2) > section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1)": "ST2.flame(d.fl, 64)",
+  ":scope > div:nth-child(2) > section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": "e(d.n)",
+  ":scope > div:nth-child(2) > section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > span:nth-child(3)": "e(d.unit1)",
+  ":scope > div:nth-child(2) > section:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)": "d.teach",
+  ":scope > div:nth-child(2) > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > h3": "e(d.mon.title)",
+  ":scope > div:nth-child(2) > section:nth-child(3) > div:nth-child(2)": "d.dows.map(x => '<span>' + e(x) + '</span>').join('')",
+  ":scope > div:nth-child(2) > section:nth-child(3) > div:nth-child(4) > div:nth-child(1) > span:nth-child(2)": "e(t('Đã học'))",
+  ":scope > div:nth-child(2) > section:nth-child(3) > div:nth-child(4) > div:nth-child(2) > span:nth-child(2)": "e(t('Đã đóng băng'))",
+  ":scope > div:nth-child(2) > section:nth-child(3) > div:nth-child(4) > div:nth-child(3) > span:nth-child(2)": "e(t('Hôm nay'))",
+  ":scope > div:nth-child(2) > section:nth-child(5) > div:nth-child(1) > div:nth-child(1) > h3": "e(d.ms.title)",
+  ":scope > div:nth-child(2) > section:nth-child(5) > div:nth-child(2) > div:nth-child(1) > span:nth-child(1)": "e(d.ms.got)",
+  ":scope > div:nth-child(2) > section:nth-child(5) > div:nth-child(2) > div:nth-child(1) > span:nth-child(2)": "e(d.ms.left)",
+  ":scope > div:nth-child(2) > section:nth-child(5) > div:nth-child(3) > div:nth-child(1) > div > span:nth-child(1)": "e(d.ch.title)",
+  ":scope > div:nth-child(2) > section:nth-child(5) > div:nth-child(3) > div:nth-child(1) > div > span:nth-child(2)": "e(d.ch.sub)",
+  ":scope > div:nth-child(2) > section:nth-child(5) > div:nth-child(3) > button": "e(t('Mở quà'))",
+  ":scope > div:nth-child(2) > section:nth-child(6) > div:nth-child(1) > div:nth-child(1) > h3": "e(t('Mục tiêu học mỗi ngày'))",
+  ":scope > div:nth-child(2) > section:nth-child(6) > div:nth-child(1) > span": "e(d.goalLab)",
+  ":scope > div:nth-child(2) > section:nth-child(7) > div:nth-child(1) > div:nth-child(1) > span": "e(d.ev.icon)",
+  ":scope > div:nth-child(2) > section:nth-child(7) > div:nth-child(1) > div:nth-child(1) > div > span:nth-child(1)": "e(d.ev.title)",
+  ":scope > div:nth-child(2) > section:nth-child(7) > div:nth-child(1) > div:nth-child(1) > div > span:nth-child(2)": "e(d.ev.sub)",
+  ":scope > div:nth-child(3) > button > span:nth-child(1)": "e(t('Học tiếp'))"
+ },
+ "text": {
+  "5 of 7 completed": "d.wk",
+  "1 of 2 ready": "d.fz.lab",
+  "Nice rhythm – one short lesson keeps your streak.": "d.say"
+ },
+ "attr": {
+  ":scope > header > button:nth-child(1)": {
+   "id": "'retBack'",
+   "data-href": "d.back"
+  },
+  ":scope > header > button:nth-child(3)": {
+   "id": "'retHelp'"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(1)": {
+   "data-ret-say": "''"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(2)": {
+   "aria-label": "t('Tuần này')"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(2) > div:nth-child(2)": {
+   "role": "'list'"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(3) > div:nth-child(1) > div:nth-child(2) > button:nth-child(1)": {
+   "id": "'retMPrev'"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(3) > div:nth-child(1) > div:nth-child(2) > button:nth-child(2)": {
+   "id": "'retMNext'"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(3) > div:nth-child(3)": {
+   "role": "'list'",
+   "aria-label": "d.mon.al",
+   "id": "'retMonth'"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(3) > div:nth-child(2)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(4) > div:nth-child(1) > div:nth-child(2) > div": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(5) > div:nth-child(2) > div:nth-child(2)": {
+   "role": "'progressbar'",
+   "aria-valuemin": "0",
+   "aria-valuemax": "d.ms.next",
+   "aria-valuenow": "d.n",
+   "aria-label": "d.ms.title"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div": {
+   "style": "'width:' + d.ms.pct + '%'"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(5) > div:nth-child(3) > button": {
+   "id": "'retChest'"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(6) > div:nth-child(2)": {
+   "role": "'radiogroup'",
+   "aria-label": "t('Mục tiêu mỗi ngày')"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(7) > div:nth-child(1) > div:nth-child(2)": {
+   "role": "'img'",
+   "aria-label": "d.ev.al"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(7) > a": {
+   "href": "'#/streak'",
+   "id": "'retColl'",
+   "role": "'button'"
+  },
+  ":scope > div:nth-child(3) > button": {
+   "id": "'retNext'"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2)": {
+   "title": "d.teachName"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(6) > div:nth-child(1) > span": {
+   "role": "'progressbar'",
+   "aria-valuemin": "0",
+   "aria-valuemax": "d.goal.max",
+   "aria-valuenow": "d.goal.now",
+   "aria-label": "t('Mục tiêu mỗi ngày')"
+  }
+ },
+ "cls": {
+  ":scope > div:nth-child(2) > section:nth-child(5) > div:nth-child(2) > div:nth-child(2) > div": {
+   "[width:46.6%]": "''"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(5) > div:nth-child(3)": {
+   "flex": "d.ch.n ? 'flex' : 'hidden'"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(7) > div:nth-child(1)": {
+   "flex": "d.ev.on ? 'flex' : 'hidden'"
+  },
+  ":scope > div:nth-child(3)": {
+   "w-[390px]": "'w-full'"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(5) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": {
+   "lt:text-amber-600": "'lt:text-[#874A00]'"
+  },
+  ":scope > div:nth-child(2) > section:nth-child(7) > a > div > span:nth-child(1)": {
+   "lt:text-amber-600": "'lt:text-[#874A00]'"
+  },
+  ":scope": {
+   "w-[390px]": "'w-full'"
+  }
+ },
+ "parts": {
+  "hero": ":scope > div:nth-child(2) > section:nth-child(1)",
+  "cta": ":scope > div:nth-child(3) > button"
+ },
+ "repeat": [
+  {
+   "list": "d.week",
+   "as": "r",
+   "samples": ":scope > div:nth-child(2) > section:nth-child(2) > div:nth-child(2) > div",
+   "pick": "r.v",
+   "variants": {
+    "done": ":scope > div:nth-child(2) > section:nth-child(2) > div:nth-child(2) > div:nth-child(1)",
+    "frozen": ":scope > div:nth-child(2) > section:nth-child(2) > div:nth-child(2) > div:nth-child(4)",
+    "today": ":scope > div:nth-child(2) > section:nth-child(2) > div:nth-child(2) > div:nth-child(6)",
+    "future": ":scope > div:nth-child(2) > section:nth-child(2) > div:nth-child(2) > div:nth-child(7)"
+   },
+   "bind": {
+    "done": {
+     "attr": {
+      ":scope": {
+       "role": "'listitem'",
+       "aria-label": "r.al"
+      },
+      ":scope > div": {
+       "title": "r.al",
+       "aria-hidden": "'true'"
+      }
+     },
+     "html": {
+      ":scope > span": "e(r.l)"
+     },
+     "addClass": {
+      ":scope > div > span": "fill ![font-variation-settings:'FILL'_1,'wght'_600] !leading-none"
+     }
+    },
+    "frozen": {
+     "attr": {
+      ":scope": {
+       "role": "'listitem'",
+       "aria-label": "r.al"
+      },
+      ":scope > div": {
+       "title": "r.al",
+       "aria-hidden": "'true'"
+      }
+     },
+     "html": {
+      ":scope > span": "e(r.l)"
+     },
+     "addClass": {
+      ":scope > div > span": "fill ![font-variation-settings:'FILL'_1,'wght'_600] !leading-none"
+     }
+    },
+    "today": {
+     "attr": {
+      ":scope": {
+       "role": "'listitem'",
+       "aria-label": "r.al"
+      },
+      ":scope > div": {
+       "title": "r.al",
+       "aria-hidden": "'true'"
+      }
+     },
+     "html": {
+      ":scope > span": "e(r.l)"
+     }
+    },
+    "future": {
+     "attr": {
+      ":scope": {
+       "role": "'listitem'",
+       "aria-label": "r.al"
+      },
+      ":scope > div": {
+       "title": "r.al",
+       "aria-hidden": "'true'"
+      }
+     },
+     "html": {
+      ":scope > span": "e(r.l)"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.mon.cells",
+   "as": "r",
+   "samples": ":scope > div:nth-child(2) > section:nth-child(3) > div:nth-child(3) > *",
+   "pick": "r.v",
+   "variants": {
+    "pad": ":scope > div:nth-child(2) > section:nth-child(3) > div:nth-child(3) > span:nth-child(1)",
+    "done": ":scope > div:nth-child(2) > section:nth-child(3) > div:nth-child(3) > div:nth-child(7)",
+    "frozen": ":scope > div:nth-child(2) > section:nth-child(3) > div:nth-child(3) > div:nth-child(18)",
+    "today": ":scope > div:nth-child(2) > section:nth-child(3) > div:nth-child(3) > div:nth-child(20)",
+    "future": ":scope > div:nth-child(2) > section:nth-child(3) > div:nth-child(3) > div:nth-child(21)"
+   },
+   "bind": {
+    "pad": {
+     "html": {
+      ":scope": "''"
+     },
+     "attr": {
+      ":scope": {
+       "aria-hidden": "'true'"
+      }
+     }
+    },
+    "done": {
+     "attr": {
+      ":scope": {
+       "role": "'listitem'",
+       "aria-label": "r.al"
+      }
+     },
+     "html": {
+      ":scope > div": "e(r.day)"
+     }
+    },
+    "frozen": {
+     "attr": {
+      ":scope": {
+       "role": "'listitem'",
+       "aria-label": "r.al"
+      }
+     },
+     "html": {
+      ":scope > div": "e(r.day)"
+     }
+    },
+    "today": {
+     "attr": {
+      ":scope": {
+       "role": "'listitem'",
+       "aria-label": "r.al"
+      }
+     },
+     "html": {
+      ":scope > div": "e(r.day)"
+     }
+    },
+    "future": {
+     "attr": {
+      ":scope": {
+       "role": "'listitem'",
+       "aria-label": "r.al"
+      }
+     },
+     "html": {
+      ":scope > div": "e(r.day)"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.fz.slots",
+   "as": "r",
+   "samples": ":scope > div:nth-child(2) > section:nth-child(4) > div:nth-child(1) > div:nth-child(2) > div > span",
+   "pick": "r.v",
+   "variants": {
+    "on": ":scope > div:nth-child(2) > section:nth-child(4) > div:nth-child(1) > div:nth-child(2) > div > span:nth-child(1)",
+    "off": ":scope > div:nth-child(2) > section:nth-child(4) > div:nth-child(1) > div:nth-child(2) > div > span:nth-child(2)"
+   },
+   "bind": {
+    "on": {
+     "html": {
+      ":scope": "'ac_unit'"
+     },
+     "addClass": {
+      ":scope": "fill ![font-variation-settings:'FILL'_1,'wght'_600] !leading-none"
+     }
+    },
+    "off": {
+     "html": {
+      ":scope": "'ac_unit'"
+     },
+     "cls": {
+      ":scope": {
+       "lt:text-[#8ECAE6]": "'lt:text-[#0A4B75]'"
+      }
+     },
+     "addClass": {
+      ":scope": "![font-variation-settings:'FILL'_1,'wght'_600] !leading-none"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.goals",
+   "as": "r",
+   "samples": ":scope > div:nth-child(2) > section:nth-child(6) > div:nth-child(2) > button",
+   "pick": "r.v",
+   "variants": {
+    "off": ":scope > div:nth-child(2) > section:nth-child(6) > div:nth-child(2) > button:nth-child(1)",
+    "on": ":scope > div:nth-child(2) > section:nth-child(6) > div:nth-child(2) > button:nth-child(2)"
+   },
+   "bind": {
+    "off": {
+     "attr": {
+      ":scope": {
+       "data-goal": "r.k",
+       "role": "'radio'",
+       "aria-checked": "r.v === 'on' ? 'true' : 'false'",
+       "aria-label": "r.al"
+      }
+     },
+     "html": {
+      ":scope > span:nth-child(1)": "e(r.name)",
+      ":scope > span:nth-child(2)": "e(r.sub)"
+     }
+    },
+    "on": {
+     "attr": {
+      ":scope": {
+       "data-goal": "r.k",
+       "role": "'radio'",
+       "aria-checked": "r.v === 'on' ? 'true' : 'false'",
+       "aria-label": "r.al"
+      }
+     },
+     "html": {
+      ":scope > span:nth-child(1)": "e(r.name)",
+      ":scope > span:nth-child(2)": "e(r.sub)"
+     }
+    }
+   }
+  },
+  {
+   "list": "d.ev.pcs",
+   "as": "r",
+   "samples": ":scope > div:nth-child(2) > section:nth-child(7) > div:nth-child(1) > div:nth-child(2) > span",
+   "pick": "r.v",
+   "variants": {
+    "on": ":scope > div:nth-child(2) > section:nth-child(7) > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)",
+    "off": ":scope > div:nth-child(2) > section:nth-child(7) > div:nth-child(1) > div:nth-child(2) > span:nth-child(3)"
+   },
+   "bind": {
+    "on": {
+     "html": {
+      ":scope": "e(r.icon)"
+     },
+     "addClass": {
+      ":scope": "fill ![font-variation-settings:'FILL'_1,'wght'_600] !leading-none"
+     }
+    },
+    "off": {
+     "html": {
+      ":scope": "e(r.icon)"
+     },
+     "cls": {
+      ":scope": {
+       "lt:text-[#B5A895]": "'lt:text-[#365355]'"
+      }
+     },
+     "addClass": {
+      ":scope": "![font-variation-settings:'FILL'_0,'wght'_600] !leading-none"
+     }
+    }
+   }
+  }
+ ],
+ "addClass": {
+  ":scope .material-symbols-rounded:not(.outlined-icon)": "fill ![font-variation-settings:'FILL'_1,'wght'_600] !leading-none",
+  ":scope :is(h1,h2,h3,h4,p)": "m-0",
+  ":scope": "min-[1024px]:pb-0 min-[1024px]:overflow-x-clip",
+  ":scope > div:nth-child(3)": "min-[1024px]:sticky min-[1024px]:max-w-none"
+ }
+}

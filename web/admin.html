@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Lexkite Admin</title>
+  <link rel="icon" href="icons/icon.svg?v=3">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/adm.css">
+</head>
+<body class="adm adm-boot">
+  <a class="adm-skip" href="#main" data-l="Bỏ qua tới nội dung">Bỏ qua tới nội dung</a>
+  <header class="adm-top">
+    <button type="button" class="adm-ibtn adm-burger" id="navBtn" aria-controls="side" aria-expanded="false"><span aria-hidden="true">☰</span><span class="sr-only" data-l="Mở menu">Mở menu</span></button>
+    <a class="brand adm-brand" href="/app/#/home" title="Về trang chủ Lexkite"><img class="logo" src="icons/icon.svg?v=3" alt=""><span class="wordmark">lex<b>kite</b></span></a><span class="adm-tag">Admin</span>
+    <button type="button" class="adm-cmdk" id="cmdk"><span aria-hidden="true">⌕</span><span class="adm-cmdk-t" data-l="Đi tới…">Đi tới…</span><kbd id="cmdkKey">Ctrl K</kbd></button>
+    <span class="adm-me" id="me"></span>
+  </header>
+  <div class="adm-shell">
+    <aside class="adm-side" id="side" hidden>
+      <nav class="side-nav" id="tabs" aria-label="Admin"></nav>
+    </aside>
+    <div class="side-scrim" id="scrim" hidden></div>
+    <div class="adm-content">
+      <div class="pg-head" id="pgHead"></div>
+      <nav class="flow" id="flowStrip" hidden></nav>
+      <main class="adm-main" id="main" tabindex="-1"><div class="card center adm-login"><h1 class="adm-login-t" data-l="Trang quản trị Lexkite">Trang quản trị Lexkite</h1><p class="muted" data-l="Chỉ tài khoản quản trị được cấp quyền.">Chỉ tài khoản quản trị được cấp quyền.</p><button class="btn primary" id="signin" data-l="Đăng nhập bằng Google">Đăng nhập bằng Google</button><p class="small muted" id="loginMsg"></p></div></main>
+    </div>
+  </div>
+  <div class="adm-toasts" id="toasts" role="status" aria-live="polite"></div>
+  <script src="js/firebase-config.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="js/admin-chart.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/admin-growth.js"></script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/ko/lvideo.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ko=Object.assign(D.ko||{},{_39cs:"아쉬워요. 정답: {a} – 복습 카드에 추가했어요.",_kj2p:"영상 챕터",_vbgs:"빠른 퀴즈",_ifv9:"영상을 재생할 수 없어요. 나중에 다시 시도하세요.",_djl:"영상 재생: {t}",_qfll:"레슨 영상",_46hz:"오늘의 영상",_yrgg:"다음 영상",_nmea:"20초 보기",_5ws0:"영상 닫기",_k07p:"정답! 복습 카드에 추가했어요."});})(typeof self!=='undefined'?self:this);

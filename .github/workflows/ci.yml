@@ -1,0 +1,61 @@
+# Kiểm thử tự động mỗi lần đẩy code (miễn phí cho repo công khai): chính tả tiếng Việt, đủ bản dịch tiếng Anh,
+# chất lượng bản dịch 13 ngôn ngữ, chạy thử app (jsdom) + quét 487 trang nội dung. Lỗi → GitHub báo đỏ ngay.
+name: Kiểm thử tự động
+on:
+  push:
+    branches: [main]
+    paths: ['web/**', 'scripts/**', 'functions/**', 'types/**', 'tsconfig.check.json', '.github/workflows/ci.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Cài thư viện kiểm thử (package.json gốc)
+        run: npm ci --no-audit --no-fund
+      - name: Kiểm tra kiểu (TypeScript, chế độ JSDoc) cho phần lõi
+        run: node scripts/test/tsc-check.mjs
+      - name: Test riêng FSRS & API đồng bộ
+        run: node scripts/test/unit.mjs
+      - name: Test lõi Truyện & podcast + nội dung mẫu (docs/STORIES.md)
+        run: node scripts/test/stories.mjs
+      - name: Chính tả tiếng Việt
+        run: node scripts/vi-lint.mjs
+      - name: ci-triage + bỏ qua hạn mức D1 + workflow youtube/i18n
+        run: node scripts/test/ci-triage.mjs
+      - name: Chính sách workflow (timeout + concurrency + phạm vi)
+        run: node scripts/test/ci-policy.mjs
+      - name: Đủ bản tiếng Anh
+        run: node scripts/i18n-missing.mjs --strict
+      - name: Chất lượng bản dịch 13 ngôn ngữ (báo cáo)
+        run: node scripts/i18n-qa.mjs
+      - name: Cú pháp script build
+        run: node scripts/test/syntax-check.mjs
+      - name: Blog – cổng chất lượng (SEO on-page, chính tả, trùng lặp, điểm ≥ 90)
+        run: node scripts/blog-pipeline.mjs gate
+      - name: Chất lượng nội dung học (đáp án, lời giải, kho từ)
+        run: node scripts/test/content-check.mjs
+      - name: Cổng QA nội dung (bắt buộc – docs/CONTENT-QA.md)
+        run: node scripts/test/content-qa.mjs && node scripts/content-qa/gate.mjs --json
+      - name: Chạy thử app
+        run: |
+          OUT=$(node scripts/test/smoke.js "$PWD/web" 2>/dev/null | tail -1); echo "$OUT"
+          [ "$OUT" = "ERRORS none" ]
+      - name: Khả năng truy cập (nút phải có nhãn cho trình đọc màn hình)
+        run: |
+          OUT=$(node scripts/test/a11y.js "$PWD/web" 2>/dev/null | grep NOLABEL || true); echo "${OUT:-✓ mọi nút đều có nhãn}"
+          [ -z "$OUT" ]
+      - name: Quét toàn bộ trang nội dung
+        run: |
+          OUT=$(node scripts/test/crawl.js "$PWD/web" 2>/dev/null | tail -1); echo "$OUT"
+          [ "$OUT" = "ALL OK" ]

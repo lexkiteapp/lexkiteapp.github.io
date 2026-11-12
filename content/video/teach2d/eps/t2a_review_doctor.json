@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_doctor",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a person trained to treat people who are ill or injured.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "You should see a doctor if the pain continues.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "doctor",
+  "ipa": "/ˈdɑːktər/",
+  "mean": "a person trained to treat people who are ill or injured",
+  "ex": "You should see a doctor if the pain continues.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=doctor",
+  "link": "https://lexkite.com/app/#/review?w=doctor",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 47,
+  "seconds": 28.2,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"doctor\" mean?",
+  "keyword": "doctor",
+  "value": "Doctor means a person trained to treat people who are ill or injured.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=doctor",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"doctor\" mean?",
+    "description": "Doctor means a person trained to treat people who are ill or injured.\n\nReview your words, free: https://lexkite.com/app/#/review?w=doctor\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "doctor",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"doctor\" mean?\n\nDoctor means a person trained to treat people who are ill or injured.\n\nReview your words, free: https://lexkite.com/app/#/review?w=doctor"
+   },
+   "instagram": {
+    "caption": "What does \"doctor\" mean?\n\nDoctor means a person trained to treat people who are ill or injured.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"doctor\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a person trained to treat people who are ill or injured. Doctor means a person trained to treat people who are ill or injured. More practice like this (free): {link}"
+ }
+}

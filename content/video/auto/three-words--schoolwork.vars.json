@@ -1,0 +1,21 @@
+{
+ "topic": "Vocabulary in class: 3 words for schoolwork",
+ "scene": "classroom",
+ "seed": "tw-schoolwork",
+ "vars": {
+  "topicWord": "schoolwork",
+  "basic": "homework",
+  "hookLine": "Three words for schoolwork.",
+  "w1": "assignment",
+  "s1": "A task your teacher gives you.",
+  "w2": "deadline",
+  "s2": "The last day to hand it in.",
+  "w3": "draft",
+  "s3": "Your first try, before the final version."
+ },
+ "hashtags": [
+  "vocabulary",
+  "newwords",
+  "esl"
+ ]
+}

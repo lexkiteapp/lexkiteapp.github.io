@@ -1,0 +1,58 @@
+# Video giới thiệu add-on (scripts/store-video.mjs) – quay add-on thật, ghép bằng ffmpeg; 15 ngôn ngữ dựng song song
+# → gom vào nhánh "store-video" (tải về để đăng YouTube / Chrome Web Store).
+name: Video giới thiệu add-on
+on:
+  workflow_dispatch:
+    inputs:
+      langs: { description: 'Ngôn ngữ (JSON)', default: '["en","vi","es","pt","ja","ko","zh","id","de","fr","ar","hi","ru","th","tr"]' }
+  push:
+    branches: [main]
+    paths: ['.github/workflows/store-video.yml', 'scripts/store-video.mjs', 'scripts/store-copy.mjs']
+permissions:
+  contents: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  video:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      max-parallel: 6   # ngân sách runner nền (docs/METHODS.md §CI)
+      fail-fast: false
+      matrix:
+        lang: ${{ fromJSON(inputs.langs || '["en","vi","es","pt","ja","ko","zh","id","de","fr","ar","hi","ru","th","tr"]') }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: ./.github/actions/setup-ffmpeg
+      - name: Dựng video ${{ matrix.lang }}
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-cjk fonts-noto-core }
+      - name: Dựng video ${{ matrix.lang }} (tiếp)
+        run: |
+          bash scripts/build-extension.sh
+          LANG_V=${{ matrix.lang }} node scripts/store-video.mjs /tmp/store-video
+      - uses: actions/upload-artifact@v4
+        with: { name: 'video-${{ matrix.lang }}', path: /tmp/store-video/, retention-days: 7 }
+  publish:
+    needs: video
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 60   # ci-policy 2/11 (mặc định GitHub 360 giữ runner nếu treo)
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { path: /tmp/store-video, pattern: 'video-*', merge-multiple: true }
+      - name: Lưu vào nhánh store-video (giữ video ngôn ngữ khác đã có)
+        run: |
+          git clone -q --depth 1 -b store-video "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" /tmp/old 2>/dev/null || mkdir -p /tmp/old
+          mkdir -p /tmp/store-video && cp -n /tmp/old/*.mp4 /tmp/old/*.jpg /tmp/store-video/ 2>/dev/null || true
+          cd /tmp/store-video && ls -la && rm -rf .git && git init -q && git checkout -q -b store-video
+          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
+          git add . && git commit -qm "Video giới thiệu $(date -u +%F) [CF-Pages-Skip]"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" store-video

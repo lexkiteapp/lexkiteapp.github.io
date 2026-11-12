@@ -1,0 +1,18 @@
+{
+ "topic": "Grammar quiz: \"I'm bored\" or \"I'm boring\"?",
+ "scene": "library",
+ "vars": {
+  "question": "Bored or boring?",
+  "optionA": "I'm boring in class.",
+  "optionB": "I'm bored in class.",
+  "answer": "It's B! I'm bored is how you feel. I'm boring means I'm no fun.",
+  "example": "Exactly! The class was boring, so I was bored.",
+  "tip": "bored is how you feel. Boring is what makes you feel that way.",
+  "kw": "I'm bored"
+ },
+ "hashtags": [
+  "englishquiz",
+  "grammarquiz",
+  "learnenglish"
+ ]
+}

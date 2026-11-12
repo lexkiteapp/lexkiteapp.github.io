@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/es/rmodes.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.es=Object.assign(D.es||{},{_hcwb:"Modo de repaso",_gumz:"Tu frase",_en82:"Escríbela",_42cy:"Pista de letra",_4tgc:"Mostrar palabra",_8tl2:"No me acuerdo",_40h8:"No se pudo reproducir el audio – toca 🔊 para reintentar",_58ig:"Escucha y elige",_yt56:"Escuchar la palabra",_1xxw:"Fuente",_7883:"Cargando audio…",_s9a7:"Respuesta correcta"});})(typeof self!=='undefined'?self:this);

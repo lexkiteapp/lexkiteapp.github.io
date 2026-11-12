@@ -1,11 +1,12 @@
 .DS_Store
-node_modules/
+node_modules
 *.zip
 .firebase/
 firebase-debug.log
 .claude/
 store/.claude/
 qa/
+!content/qa/
 *.pdf
 
 dist/
@@ -13,3 +14,59 @@ dist-firefox/
 
 # Thông tin tài khoản hệ thống – chỉ lưu trên máy, không đưa lên GitHub (repo công khai)
 ACCOUNTS.local.md
+
+# Công cụ & ảnh gốc blog (ảnh phát hành nằm ở repo lexkite-media, không làm phình repo chính)
+.tools/
+.media/
+scripts/test/node_modules/
+
+# Ảnh cửa hàng theo thị trường (50 ảnh) – lưu ở nhánh store-shots, không làm nặng main
+store/chrome/screenshots/es-[1-5].png
+store/chrome/screenshots/pt-[1-5].png
+store/chrome/screenshots/ja-[1-5].png
+store/chrome/screenshots/ko-[1-5].png
+store/chrome/screenshots/zh-[1-5].png
+store/chrome/screenshots/id-[1-5].png
+store/chrome/screenshots/de-[1-5].png
+store/chrome/screenshots/fr-[1-5].png
+store/chrome/screenshots/ar-[1-5].png
+store/chrome/screenshots/hi-[1-5].png
+store/chrome/screenshots/ru-[1-5].png
+store/chrome/screenshots/th-[1-5].png
+store/chrome/screenshots/tr-[1-5].png
+store/chrome/anh-*.zip
+store/chrome/*.mp4
+store/chrome/lexkite-thumb-viral.jpg
+brand/characters/_candidates/
+
+# Video Studio – đầu ra dựng tạm (scripts/video/render.mjs)
+out/video/
+
+# Kho dựng video (scripts/video/library.mjs): file nhị phân gốc ở brand/library/ không commit – nguồn chính lexkite-media/library, sao lưu GrabCast.
+# Manifest content/video/library.json + hồ sơ sàn brand/library/rooms/*.json được commit.
+brand/library/**/*.png
+brand/library/**/*.webp
+brand/library/**/*.jpg
+brand/library/**/*.mp4
+brand/library/**/*.svg
+brand/library/**/*.src
+# crops.npz (89 MB, 26/10) đã lọt vào git – bản gốc ở Kho Drive theo brand/library/cine/archive-manifest.json (docs/STORAGE.md §6)
+brand/library/**/*.npz
+brand/library/_web/
+brand/library/_review/
+brand/library/_cache/
+*.local.md
+out/play/
+.tmp-lex/
+
+# Mảnh kho từ sinh lúc build/test (scripts/lexicon/shards.mjs --out web) – không commit
+web/data/lex/
+web/data/lex-index.json
+.seo-urls.txt
+.seo-urls-en.txt
+
+# Tệp media sinh trên CI – đẩy lên kho media (scripts/media/push.mjs), KHÔNG commit vào repo chính
+.media-out/
+dist-dict/
+.sa/
+reports/top1/

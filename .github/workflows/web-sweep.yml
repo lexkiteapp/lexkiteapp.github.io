@@ -1,0 +1,76 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
+# Cổng "lỗi ẩn" mọi loại trang công khai (docs/WEB-PAGES.md §Cổng): dựng dist (+ tầng tĩnh từ điển), rồi
+#  web-sweep.mjs (1 trang mẫu/loại × 390/1280 × sáng/tối: console, 4xx, tràn ngang, cắt/chồng chữ, vùng chạm, tương phản + axe AA,
+#  CLS/LCP, nền đúng giao diện, meta/OG, lang/dir) – ngưỡng web-sweep.known.json chỉ được giảm;
+#  seo-pages.mjs (canonical, hreflang hai chiều, title/description trùng, mồ côi) + links-js.mjs (link nội bộ kể cả do JS sinh).
+name: Web sweep
+on:
+  pull_request:
+    paths: ['web/**', '!web/app/**', 'scripts/build-*.mjs', 'scripts/build-web.sh', 'scripts/lib/**', 'scripts/dict/**', 'workers/dict/**', 'content/legal/**', 'content/authority/**', 'scripts/test/web-sweep.*', 'scripts/test/seo-pages.known.txt', 'scripts/test/seo-pages.mjs', 'scripts/test/links-js.mjs', 'scripts/test/seo-sitemap.mjs', 'content/seo-en/**', 'content/blog/**', '.github/workflows/web-sweep.yml']
+  workflow_dispatch:
+    inputs:
+      write_known: { description: '1 = ghi ngưỡng mới vào artifact (không commit)', required: false, default: '0' }
+permissions:
+  contents: read
+  actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ (docs/CI-RUNNERS.md › Máy gác)
+  checks: read
+concurrency: { group: 'web-sweep-${{ github.ref }}', cancel-in-progress: true }
+jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha → go=$go"
+  sweep:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - if: github.event_name == 'pull_request'
+        uses: ./.github/actions/fast-lane   # làn nhanh: npm test đỏ → huỷ lượt nặng
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Build dist
+        run: npm ci --no-audit --no-fund >/dev/null && bash scripts/build-web.sh | tail -3
+      - name: SEO (canonical, hreflang, duplicates, orphans) – only errors not in seo-pages.known.txt fail
+        run: |
+          N=500 node scripts/test/seo-pages.mjs dist > seo.txt || true; cat seo.txt | head -30
+          grep -E '^  ' seo.txt | sed 's/^  //' | sort -u > seo-now.txt
+          new=$(comm -23 seo-now.txt <(sort -u scripts/test/seo-pages.known.txt)); fixed=$(comm -13 seo-now.txt <(sort -u scripts/test/seo-pages.known.txt))
+          [ -n "$fixed" ] && echo "↓ đã hết – xoá khỏi seo-pages.known.txt:" && echo "$fixed"
+          [ -z "$new" ] || { echo "✗ lỗi SEO mới:"; echo "$new"; exit 1; }
+      - name: Sitemap (mọi URL – không noindex, canonical = chính nó, hreflang có chính nó)
+        if: ${{ !cancelled() }}
+        run: node scripts/test/seo-sitemap.mjs dist
+      - name: Internal links (incl. JS-generated)
+        if: ${{ !cancelled() }}
+        run: node scripts/test/links-js.mjs dist
+      - name: Latent UI sweep (every page type)
+        if: ${{ !cancelled() }}
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2 >/dev/null
+          bash scripts/ci/pw-install.sh --with-deps chromium
+          # tầng tĩnh từ điển (deploy riêng qua Worker) – chép 1 mẫu/loại vào dist sau cổng SEO để quét giao diện
+          node scripts/dict/build.mjs >/dev/null 2>&1 && for d in $(cd dist-dict && find . -name index.html | sort | awk -F/ '{k=$3"/"NF; if(!s[k]++) print}' | head -12); do mkdir -p "dist/$(dirname "$d")"; cp -n "dist-dict/$d" "dist/$d"; done; echo "dict mẫu: $(find dist/assets -name index.html 2>/dev/null | wc -l)"
+          (cd dist && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
+          W=""; [ "${{ github.event.inputs.write_known }}" = 1 ] && W=--write-known
+          node scripts/test/web-sweep.mjs http://localhost:8080 dist web-sweep-out $W
+          [ -n "$W" ] && cp scripts/test/web-sweep.known.json web-sweep-out/ || true
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: web-sweep, path: web-sweep-out, retention-days: 7 }

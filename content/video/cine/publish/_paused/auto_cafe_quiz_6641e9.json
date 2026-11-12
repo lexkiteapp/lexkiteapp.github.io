@@ -1,0 +1,75 @@
+{
+ "id": "auto_cafe_quiz_6641e9",
+ "scene": "cafe",
+ "template": "quiz",
+ "area": "word-usage",
+ "cefr": "A2",
+ "point": "sit here no preposition",
+ "series": "Café English #12",
+ "title": "Which is correct? \"Can I sit here?\" or \"Can I sit at here?\"",
+ "description": "Which one would you say at the coffee shop? Model answer: \"Excuse me, can I sit here?\"\nComment your answer below and follow for daily English (Café English #12).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_6641e9#/usage?c=pair",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#coffeeshopenglish",
+  "#englishquiz",
+  "#speakpolitely",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/cafe/auto_cafe_quiz_6641e9/cine-auto-cafe-quiz-6641e9-en-v3.mp4",
+ "cover": "shorts/cafe/auto_cafe_quiz_6641e9/cine-auto-cafe-quiz-6641e9-en-v3.jpg",
+ "ci_artifact": "cine-cafe-16",
+ "run": "16",
+ "platforms": {
+  "tiktok": {
+   "title": "Which is correct? \"Can I sit here?\" or \"Can I sit at here?\"",
+   "caption": "Which one would you say at the coffee shop? Model answer: \"Excuse me, can I sit here?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_6641e9#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_6641e9#/usage?c=pair",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#englishquiz",
+    "#speakpolitely",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "Which one would you say at the coffee shop? Model answer: \"Excuse me, can I sit here?\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_6641e9#/usage?c=pair\n#learnenglish #englishtips #coffeeshopenglish #englishquiz #speakpolitely #travelenglish"
+  },
+  "reels": {
+   "title": "Which is correct? \"Can I sit here?\" or \"Can I sit at here?\"",
+   "caption": "Which one would you say at the coffee shop? Model answer: \"Excuse me, can I sit here?\"\nComment your answer below and follow for daily English (Café English #12).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_6641e9#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_6641e9#/usage?c=pair",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#englishquiz",
+    "#speakpolitely",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Which one would you say at the coffee shop? Model answer: \"Excuse me, can I sit here?\"\nComment your answer below and follow for daily English (Café English #12).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_6641e9#/usage?c=pair\n#learnenglish #englishtips #coffeeshopenglish #englishquiz #speakpolitely #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "Which is correct? \"Can I sit here?\" or \"Can I sit at here?\"",
+   "caption": "Which one would you say at the coffee shop? Model answer: \"Excuse me, can I sit here?\"\nComment your answer below and follow for daily English (Café English #12).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_6641e9#/usage?c=pair",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_6641e9#/usage?c=pair",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#coffeeshopenglish",
+    "#englishquiz"
+   ],
+   "caption_with_tags": "Which one would you say at the coffee shop? Model answer: \"Excuse me, can I sit here?\"\nComment your answer below and follow for daily English (Café English #12).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_cafe&utm_content=auto_cafe_quiz_6641e9#/usage?c=pair\n#shorts #learnenglish #englishtips #coffeeshopenglish #englishquiz"
+  }
+ },
+ "slot": {
+  "date": "2026-11-15",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

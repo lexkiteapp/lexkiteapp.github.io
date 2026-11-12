@@ -1,0 +1,20 @@
+{
+ "topic": "Grammar: spot the mistake in \"Can you explain me?\"",
+ "scene": "classroom",
+ "seed": "stm-explain-me",
+ "vars": {
+  "wrong": "Can you explain me this?",
+  "wrongShort": "explain me",
+  "right": "Can you explain this to me?",
+  "fix": "to me",
+  "rule": "say explain it to me, not explain me. The person comes after to.",
+  "example": "My teacher explained the homework to me after class.",
+  "tip": "explain something to someone. The thing first, then to and the person.",
+  "skill": "grammar"
+ },
+ "hashtags": [
+  "englishgrammar",
+  "commonmistakes",
+  "learnenglish"
+ ]
+}

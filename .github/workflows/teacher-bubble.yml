@@ -1,0 +1,45 @@
+name: teacher-bubble
+# Cổng bong bóng lời giáo viên (TeacherBubble, docs/specs/teacher-bubble.md): gõ chữ không xô bố cục (CLS 0), chạm = hiện hết, giảm chuyển động, aria-live,
+# vòng nghỉ dừng khi ẩn/ngoài màn, khớp môi p95 ≤ 33 ms, khung giáo viên sạch + mũi nhọn thẳng miệng, tương phản, nút 🔊 ≥ 44 px, không tự đọc;
+# pop.mp3 đo −16 LUFS ±1,5. Phần tĩnh chạy cả trong npm test (suite.txt). Ảnh 360 px trước/sau → artifact.
+on:
+  pull_request:
+    paths: ['web/js/teacher-bubble.js', 'web/js/teacher-rig.js', 'web/js/teacher-slot.js', 'web/js/ux1.js', 'web/js/call/**', 'web/sfx/pop.mp3', 'scripts/sfx/make-pop.sh', 'scripts/test/teacher-bubble.mjs', 'web/js/teacher-mood.js', 'web/js/lesson/ui.js', 'scripts/test/teacher-mood.mjs', '.github/workflows/teacher-bubble.yml']
+  workflow_dispatch:
+permissions: { contents: read }
+concurrency:
+  group: teacher-bubble-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  bubble:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-ffmpeg
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Tĩnh – cụm ký tự, tốc độ, không tự đọc, giọng nữ, bản sao add-on, 15 ngôn ngữ
+        run: node scripts/test/teacher-bubble.mjs --static
+      - name: Playwright
+        timeout-minutes: 14
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - name: Âm lượng pop.mp3 (−16 LUFS ±1,5, đo trên bản lặp 10×)
+        timeout-minutes: 3
+        run: |
+          L=$(ffmpeg -nostats -stream_loop 9 -i web/sfx/pop.mp3 -af ebur128 -f null - 2>&1 | awk '/^ *I:/{v=$2} END{print v}')
+          echo "pop.mp3 = ${L} LUFS"
+          awk -v l="$L" 'BEGIN{ if (l < -17.5 || l > -14.5) { print "pop.mp3 ngoài -16 ±1,5 LUFS"; exit 1 } }'
+      - name: Trình duyệt – CLS, chiều cao, chạm, giảm chuyển động, ẩn/ngoài màn, khớp môi, khung, tương phản, khung giữ chỗ + bệ dưới thắt lưng
+        run: node scripts/test/teacher-bubble.mjs --out out/teacher-bubble
+      - name: Cảm xúc giáo viên (TeacherMood) – gợi ý khi đứng yên 1 lần/màn, CLS 0, không tiếng, giảm chuyển động, tương phản
+        run: node scripts/test/teacher-mood.mjs --out out/teacher-bubble/mood
+      - name: Tóm tắt
+        if: always()
+        run: |
+          { echo "### teacher-bubble"; echo '```'; cat out/teacher-bubble/result.txt out/teacher-bubble/mood/result.txt 2>/dev/null; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: teacher-bubble, path: out/teacher-bubble, retention-days: 14 }

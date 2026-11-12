@@ -1,0 +1,1746 @@
+[
+ {
+  "id": "account",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "account/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 6 chữ (vd \"LK\" 3.04<4.5)"
+ },
+ {
+  "id": "account",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "account/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"Lexkite\" 1.96<4.5)"
+ },
+ {
+  "id": "deck",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "deck/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"🔥\" 2.42<4.5)"
+ },
+ {
+  "id": "dict",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "dict/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 9 vùng chạm < 44px (vd \"pragmatic 92×36\") | light: tương phản 2 chữ (vd \"C1 • Advanced\" 4.43<4.5)"
+ },
+ {
+  "id": "dict",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "dict/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 12 vùng chạm < 44px (vd \"arrow_back 40×40\")"
+ },
+ {
+  "id": "games",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "games/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 16 chữ (vd \"820\" 3.01<4.5)"
+ },
+ {
+  "id": "games",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "games/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 20 chữ (vd \"140x170 LIVE\" 1.76<4.5) | dark: mảng sáng 40% > 12% (thẻ trắng trong nền tối?)"
+ },
+ {
+  "id": "grammar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "grammar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 5 vùng chạm < 44px (vd \"✓\n          A1 Beginner\n 168×34\") | light: tương phản 6 chữ (vd \"High Exam Frequency\" 4.03<4.5)"
+ },
+ {
+  "id": "grammar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "grammar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 5 vùng chạm < 44px (vd \"✓\nA1 Beginner\n100% 168×34\") | dark: tương phản 1 chữ (vd \"in 2021\" 1.9<4.5)"
+ },
+ {
+  "id": "home-v1",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "home-v1/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 6 chữ (vd \"Connectors\" 3.33<4.5)"
+ },
+ {
+  "id": "hub-skills",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-skills/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"notifications 40×40\")"
+ },
+ {
+  "id": "hub-skills",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-skills/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"notifications 40×40\") | dark: tương phản 1 chữ (vd \"AI\" 2.79<4.5)"
+ },
+ {
+  "id": "hub-tests",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-tests/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"coach\" 3.9<4.5) | light: tên icon hiện thành chữ \"drive_file_stream\" (1)"
+ },
+ {
+  "id": "hub-tests",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-tests/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tên icon hiện thành chữ \"drive_file_stream\" (1)"
+ },
+ {
+  "id": "hub-vocab",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-vocab/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 6 vùng chạm < 44px (vd \"INPUT 238×24\") | light: tương phản 41 chữ (vd \"140 x 170 Slot\" 2.74<4.5)"
+ },
+ {
+  "id": "hub-vocab",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-vocab/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 6 vùng chạm < 44px (vd \"INPUT 238×24\")"
+ },
+ {
+  "id": "lesson-feedback",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "lesson-feedback/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"bookmark 40×40\") | light: tương phản 1 chữ (vd \"She \n          \n            has lived\n  \" 2.36<3) | light: chỉ 1% sáng < 35% (bản sáng bị tối?)"
+ },
+ {
+  "id": "lesson-feedback",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "lesson-feedback/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 2 vùng chạm < 44px (vd \"close 40×40\")"
+ },
+ {
+  "id": "lesson-map",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "lesson-map/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"Повтор\" 4.1<4.5)"
+ },
+ {
+  "id": "lesson-question-v2",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "lesson-question-v2/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 7 vùng chạm < 44px (vd \"View hint 64×16\") | light: tương phản 1 chữ (vd \"slot\" 3.79<4.5)"
+ },
+ {
+  "id": "lesson-question-v2",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "lesson-question-v2/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 7 vùng chạm < 44px (vd \"View hint 64×16\")"
+ },
+ {
+  "id": "library",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "library/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"Study 20 words\" 3.11<4.5)"
+ },
+ {
+  "id": "library",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "library/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 2 chữ (vd \"Study 20 words\" 3.11<4.5)"
+ },
+ {
+  "id": "method-v3",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "method-v3/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"Empirical Pedagogy • No gimmicks • Evide\" 4.35<4.5)"
+ },
+ {
+  "id": "mistakes",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mistakes/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 4 chữ (vd \"Correct Standard\" 4.17<4.5)"
+ },
+ {
+  "id": "mock",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mock/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 11 chữ (vd \"•\" 4.38<4.5)"
+ },
+ {
+  "id": "placement",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "placement/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: chỉ 1% sáng < 35% (bản sáng bị tối?)"
+ },
+ {
+  "id": "practice-v3",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "practice-v3/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 7 chữ (vd \"Accuracy\" 4.03<4.5)"
+ },
+ {
+  "id": "report",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "report/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): sáng/tối lệch nội dung: 15 vs 145 chữ"
+ },
+ {
+  "id": "report",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "report/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 8 vùng chạm < 44px (vd \"arrow_back 40×40\") | sáng/tối lệch nội dung: 15 vs 145 chữ"
+ },
+ {
+  "id": "review",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "review/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"pending_actions\n        18 Due Today\" 2.24<4.5)"
+ },
+ {
+  "id": "stats",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "stats/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 256px | light: 5 vùng chạm < 44px (vd \"share\n        Share Prog 36×104\") | light: tương phản 34 chữ (vd \"Streak Record\" 4<4.5)"
+ },
+ {
+  "id": "stats",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "stats/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 7 chữ (vd \"09\" 4.21<4.5)"
+ },
+ {
+  "id": "story-quiz",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "story-quiz/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"restart_alt\n             49×20\") | light: tương phản 1 chữ (vd \"Hi\" 4.2<4.5)"
+ },
+ {
+  "id": "story-quiz",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "story-quiz/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"restart_altReset 49×20\")"
+ },
+ {
+  "id": "streak-modals",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "streak-modals/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"•\" 1.48<4.5)"
+ },
+ {
+  "id": "streak-modals",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "streak-modals/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"•\" 1.98<4.5)"
+ },
+ {
+  "id": "email-digest",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "email-digest/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 8 vùng chạm < 44px (vd \"Open in browser open_in_ 104×17\") | light: tương phản 15 chữ (vd \"Inbox Preview (1280px Workspace)\" 3.91<4.5)"
+ },
+ {
+  "id": "email-digest",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "email-digest/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 8 vùng chạm < 44px (vd \"Open in browser open_in_ 104×17\") | dark: tương phản 3 chữ (vd \"|\" 1.58<4.5)"
+ },
+ {
+  "id": "share-card",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "share-card/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 6 chữ (vd \"→\" 2.79<3)"
+ },
+ {
+  "id": "share-card",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "share-card/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 3 vùng chạm < 44px (vd \"arrow_back 40×40\") | dark: tương phản 1 chữ (vd \"C1 LEVEL\" 4.37<4.5)"
+ },
+ {
+  "id": "ext-newtab",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "ext-newtab/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"close 37×44\")"
+ },
+ {
+  "id": "ext-newtab",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "ext-newtab/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"close 37×44\") | dark: tương phản 1 chữ (vd \"⭐\" 1.12<4.5)"
+ },
+ {
+  "id": "ext-popup",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "ext-popup/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 8 vùng chạm < 44px (vd \"more_vert 32×32\") | light: tương phản 2 chữ (vd \"•\" 1.31<4.5)"
+ },
+ {
+  "id": "ext-popup",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "ext-popup/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 8 vùng chạm < 44px (vd \"more_vert 32×32\")"
+ },
+ {
+  "id": "ext-word",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "ext-word/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \"refresh 28×28\") | light: tương phản 2 chữ (vd \"Browser Assistant\" 3.67<4.5)"
+ },
+ {
+  "id": "ext-word",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "ext-word/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 2 vùng chạm < 44px (vd \"refresh 28×28\")"
+ },
+ {
+  "id": "ext-writecheck",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "ext-writecheck/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 5 vùng chạm < 44px (vd \"Ethics Guidelines 108×16\") | light: tương phản 4 chữ (vd \"Saved 2m ago\" 4.37<4.5)"
+ },
+ {
+  "id": "ext-writecheck",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "ext-writecheck/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 5 vùng chạm < 44px (vd \"Ethics Guidelines 108×16\") | dark: tương phản 9 chữ (vd \"PREP ENGINE\" 2.65<4.5)"
+ },
+ {
+  "id": "deck-empty",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "deck-empty/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 9 chữ (vd \"My decks\" 4.35<4.5)"
+ },
+ {
+  "id": "deck-empty",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "deck-empty/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"Tạo bộ thẻ đầu tiên\" 3.01<4.5)"
+ },
+ {
+  "id": "deck-error",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "deck-error/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 16 vùng chạm < 44px (vd \"arrow_back 36×36\") | light: tương phản 16 chữ (vd \"|\" 1.37<4.5)"
+ },
+ {
+  "id": "deck-error",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "deck-error/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 16 vùng chạm < 44px (vd \"arrow_back 36×36\") | dark: tương phản 8 chữ (vd \"+ Deck\" 2.02<4.5)"
+ },
+ {
+  "id": "deck-loading",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "deck-loading/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 6 vùng chạm < 44px (vd \"arrow_back 40×40\")"
+ },
+ {
+  "id": "deck-loading",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "deck-loading/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 6 vùng chạm < 44px (vd \"arrow_back 40×40\") | dark: tương phản 1 chữ (vd \"All (5)\" 3.36<4.5)"
+ },
+ {
+  "id": "hub-skills-empty",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-skills-empty/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"notifications 36×36\") | light: tương phản 4 chữ (vd \"Not assessed\" 2.5<4.5)"
+ },
+ {
+  "id": "hub-skills-empty",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-skills-empty/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"notifications 36×36\")"
+ },
+ {
+  "id": "hub-skills-error",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-skills-error/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"notifications 40×40\") | light: tương phản 10 chữ (vd \"14 essays graded\" 4.12<4.5)"
+ },
+ {
+  "id": "hub-skills-error",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-skills-error/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"notifications 40×40\") | dark: tương phản 10 chữ (vd \"14 essays graded\" 3.13<4.5)"
+ },
+ {
+  "id": "hub-skills-loading",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-skills-loading/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \" 32×32\")"
+ },
+ {
+  "id": "hub-skills-loading",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-skills-loading/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 2 vùng chạm < 44px (vd \" 32×32\")"
+ },
+ {
+  "id": "hub-tests-empty",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-tests-empty/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 7 vùng chạm < 44px (vd \"notifications 32×32\") | light: tương phản 2 chữ (vd \"Prep Hub\" 4.36<4.5)"
+ },
+ {
+  "id": "hub-tests-empty",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-tests-empty/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 7 vùng chạm < 44px (vd \"notifications 32×32\")"
+ },
+ {
+  "id": "hub-tests-error",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-tests-error/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 6 vùng chạm < 44px (vd \"notifications 32×32\") | light: tương phản 9 chữ (vd \"6.0\" 2.93<3)"
+ },
+ {
+  "id": "hub-tests-error",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-tests-error/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 6 vùng chạm < 44px (vd \"notifications 32×32\") | dark: tương phản 6 chữ (vd \"Official IELTS Academic • 2h 45m\" 3.23<4.5)"
+ },
+ {
+  "id": "hub-tests-loading",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-tests-loading/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 5 vùng chạm < 44px (vd \"notifications 32×32\") | light: tên icon hiện thành chữ \"drive_file_stream\" (1)"
+ },
+ {
+  "id": "hub-tests-loading",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-tests-loading/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 5 vùng chạm < 44px (vd \"notifications 32×32\") | dark: mảng sáng 14% > 12% (thẻ trắng trong nền tối?) | dark: tên icon hiện thành chữ \"drive_file_stream\" (1)"
+ },
+ {
+  "id": "hub-vocab-empty",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-vocab-empty/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: chỉ 1% sáng < 35% (bản sáng bị tối?)"
+ },
+ {
+  "id": "hub-vocab-error",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-vocab-error/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 3 vùng chạm < 44px (vd \"INPUT 188×20\") | light: tương phản 21 chữ (vd \"Slot\" 2.85<4.5)"
+ },
+ {
+  "id": "hub-vocab-error",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-vocab-error/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 3 vùng chạm < 44px (vd \"INPUT 188×20\") | dark: tương phản 15 chữ (vd \"Cloud Only\" 2.27<4.5)"
+ },
+ {
+  "id": "library-empty",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "library-empty/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 20 chữ (vd \"local_fire_department\n                IE\" 2.89<4.5)"
+ },
+ {
+  "id": "library-empty",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "library-empty/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"240\" 4.4<4.5)"
+ },
+ {
+  "id": "library-error",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "library-error/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 5 chữ (vd \"/dɪˈpɑːr.tʃər/\" 4.37<4.5)"
+ },
+ {
+  "id": "library-error",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "library-error/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"Show next 20 words\" 1.9<4.5)"
+ },
+ {
+  "id": "library-loading",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "library-loading/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \"arrow_back 40×40\") | light: tương phản 2 chữ (vd \"Study 20 words\" 1.42<4.5) | light: chỉ 4% sáng < 35% (bản sáng bị tối?)"
+ },
+ {
+  "id": "library-loading",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "library-loading/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 2 vùng chạm < 44px (vd \"arrow_back 40×40\")"
+ },
+ {
+  "id": "mistakes-empty",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mistakes-empty/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 6 vùng chạm < 44px (vd \"arrow_back 40×40\") | light: tương phản 1 chữ (vd \"All\" 4.43<4.5)"
+ },
+ {
+  "id": "mistakes-empty",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mistakes-empty/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 6 vùng chạm < 44px (vd \"arrow_back 40×40\")"
+ },
+ {
+  "id": "mistakes-error",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mistakes-error/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 14 vùng chạm < 44px (vd \"arrow_back 40×40\") | light: tương phản 9 chữ (vd \"●\" 4.38<4.5) | light: lỗi JS Failed to execute 'querySelector' on 'Document': 'button:has(.material-symbols-outlined:contains(\"refresh\")), button' is"
+ },
+ {
+  "id": "mistakes-error",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mistakes-error/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 14 vùng chạm < 44px (vd \"arrow_back 40×40\") | dark: tương phản 2 chữ (vd \"Word Stress\" 4.37<4.5)"
+ },
+ {
+  "id": "practice-empty",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "practice-empty/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"person\nMe 36×54\") | light: tương phản 4 chữ (vd \"•\" 4.12<4.5)"
+ },
+ {
+  "id": "practice-empty",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "practice-empty/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"•\" 2.52<4.5)"
+ },
+ {
+  "id": "practice-error",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "practice-error/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 9 vùng chạm < 44px (vd \"Practise offline\n➔ 326×40\") | light: tương phản 6 chữ (vd \"AI Study Orchestrator\" 4.38<4.5)"
+ },
+ {
+  "id": "practice-error",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "practice-error/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 9 vùng chạm < 44px (vd \"Practise offline\n➔ 326×40\") | dark: tương phản 5 chữ (vd \"READING • Academic Passage 2\" 4.01<4.5)"
+ },
+ {
+  "id": "practice-loading",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "practice-loading/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"person\n      Me 42×49\")"
+ },
+ {
+  "id": "practice-loading",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "practice-loading/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: mảng sáng 45% > 12% (thẻ trắng trong nền tối?)"
+ },
+ {
+  "id": "review-empty",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "review-empty/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"tune 36×36\") | light: tương phản 7 chữ (vd \"0d\" 4.44<4.5)"
+ },
+ {
+  "id": "review-empty",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "review-empty/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"tune 36×36\")"
+ },
+ {
+  "id": "review-error",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "review-error/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \"tune 36×36\") | light: tương phản 12 chữ (vd \"Online dictionary lookup unavailable off\" 3.63<4.5)"
+ },
+ {
+  "id": "review-error",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "review-error/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"volume_up\nCached audio ✓ 145×34\") | dark: tương phản 11 chữ (vd \"\"Academic research demands meticulous da\" 2.65<4.5)"
+ },
+ {
+  "id": "review-loading",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "review-loading/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"tune 36×36\") | light: tương phản 7 chữ (vd \"M\" 4.38<4.5)"
+ },
+ {
+  "id": "review-loading",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "review-loading/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"tune 36×36\") | dark: tương phản 7 chữ (vd \"M\" 1.92<4.5) | dark: mảng sáng 46% > 12% (thẻ trắng trong nền tối?)"
+ },
+ {
+  "id": "account-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "account-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"تعهد عدم التتبع: بيانات الصوت والدراسة م\" 3.82<4.5)"
+ },
+ {
+  "id": "account-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "account-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"Build 9428 · CEFR v2.4\" 4.01<4.5)"
+ },
+ {
+  "id": "account-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "account-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \"sync\nJetzt synchronisier 157×32\") | light: tương phản 7 chữ (vd \"LK\" 2.85<4.5)"
+ },
+ {
+  "id": "account-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "account-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 2 vùng chạm < 44px (vd \"syncJetzt synchronisiere 157×32\") | dark: tương phản 2 chữ (vd \"LK\" 1.23<4.5)"
+ },
+ {
+  "id": "deck-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "deck-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 10 chữ (vd \"5 مجموعات نشطة · التكرار المتباعد\" 4.35<4.5)"
+ },
+ {
+  "id": "deck-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "deck-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 10 chữ (vd \"5 aktive Sammlungen · Spaced Repetition\" 4.35<4.5)"
+ },
+ {
+  "id": "dict-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "dict-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 8 vùng chạm < 44px (vd \"INPUT 246×40\") | light: tương phản 4 chữ (vd \"🔥\" 2.07<4.5)"
+ },
+ {
+  "id": "dict-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "dict-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 8 vùng chạm < 44px (vd \"INPUT 246×40\")"
+ },
+ {
+  "id": "dict-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "dict-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 8 vùng chạm < 44px (vd \"pragmatic 92×36\") | light: tương phản 2 chữ (vd \"C1 • Fortgeschritten\" 4.43<4.5)"
+ },
+ {
+  "id": "dict-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "dict-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 8 vùng chạm < 44px (vd \"pragmatic 92×36\") | dark: tương phản 3 chữ (vd \"Zuletzt gesucht:\" 1.91<4.5) | dark: mảng sáng 15% > 12% (thẻ trắng trong nền tối?)"
+ },
+ {
+  "id": "games-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "games-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 16 chữ (vd \"820\" 3.01<4.5)"
+ },
+ {
+  "id": "games-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "games-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 22 chữ (vd \"140 × 170 متاح\" 1.76<4.5) | dark: mảng sáng 49% > 12% (thẻ trắng trong nền tối?)"
+ },
+ {
+  "id": "games-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "games-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 16 chữ (vd \"820\" 3.01<4.5)"
+ },
+ {
+  "id": "games-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "games-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 4 chữ (vd \"play_arrow\n                SPIELEN\" 3.04<4.5)"
+ },
+ {
+  "id": "grammar-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "grammar-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): sáng/tối lệch nội dung: 15 vs 273 chữ"
+ },
+ {
+  "id": "grammar-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "grammar-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 5 vùng chạm < 44px (vd \"✓\nA1 مبتدئ\n100% 150×34\") | dark: tương phản 3 chữ (vd \"in 2021\" 2.39<4.5) | sáng/tối lệch nội dung: 15 vs 273 chữ"
+ },
+ {
+  "id": "grammar-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "grammar-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 5 vùng chạm < 44px (vd \"✓\nA1 Anfänger\n100% 171×34\") | light: tương phản 6 chữ (vd \"Hohe Prüfungsrelevanz\" 4.03<4.5)"
+ },
+ {
+  "id": "grammar-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "grammar-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 5 vùng chạm < 44px (vd \"✓\nA1 Anfänger\n100% 171×34\")"
+ },
+ {
+  "id": "home-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "home-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 6 chữ (vd \"الروابط\" 3.33<4.5) | light: tên icon hiện thành chữ \"near_me\" (12)"
+ },
+ {
+  "id": "home-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "home-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"أنا\" 4.04<4.5)"
+ },
+ {
+  "id": "home-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "home-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 6 chữ (vd \"Konnektoren\" 3.33<4.5)"
+ },
+ {
+  "id": "hub-skills-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-skills-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"notifications 36×36\") | light: tương phản 3 chữ (vd \"AI\" 3.44<4.5)"
+ },
+ {
+  "id": "hub-skills-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-skills-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"notifications 36×36\")"
+ },
+ {
+  "id": "hub-skills-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-skills-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"notifications 40×40\")"
+ },
+ {
+  "id": "hub-skills-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-skills-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"notifications 40×40\") | dark: tương phản 1 chữ (vd \"KI\" 3.44<4.5)"
+ },
+ {
+  "id": "hub-tests-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-tests-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"مدرب\" 3.9<4.5) | light: tên icon hiện thành chữ \"drive_file_stream\" (1)"
+ },
+ {
+  "id": "hub-tests-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-tests-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tên icon hiện thành chữ \"drive_file_stream\" (1)"
+ },
+ {
+  "id": "hub-tests-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-tests-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"coach\" 3.9<4.5) | light: tên icon hiện thành chữ \"drive_file_stream\" (1)"
+ },
+ {
+  "id": "hub-tests-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-tests-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tên icon hiện thành chữ \"drive_file_stream\" (1)"
+ },
+ {
+  "id": "hub-vocab-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-vocab-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 7 vùng chạm < 44px (vd \"INPUT 238×24\") | light: tương phản 41 chữ (vd \"تنبيه التكرار المتباعد\" 3.33<4.5)"
+ },
+ {
+  "id": "hub-vocab-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-vocab-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 7 vùng chạm < 44px (vd \"INPUT 238×24\") | dark: tương phản 4 chữ (vd \"المعلم\" 3.75<4.5) | dark: mảng sáng 32% > 12% (thẻ trắng trong nền tối?)"
+ },
+ {
+  "id": "hub-vocab-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-vocab-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"INPUT 238×24\") | light: tương phản 29 chữ (vd \"WIEDERHOLUNGSERINNERUNG\" 4.16<4.5)"
+ },
+ {
+  "id": "hub-vocab-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-vocab-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"INPUT 238×24\")"
+ },
+ {
+  "id": "lesson-question-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "lesson-question-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 7 vùng chạm < 44px (vd \"عرض التلميح 83×16\") | light: tương phản 2 chữ (vd \"decision\" 1.91<4.5)"
+ },
+ {
+  "id": "lesson-question-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "lesson-question-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 7 vùng chạm < 44px (vd \"عرض التلميح 83×16\")"
+ },
+ {
+  "id": "lesson-question-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "lesson-question-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 4 vùng chạm < 44px (vd \"INPUT 1×1\") | light: tương phản 3 chữ (vd \"A\" 1.81<4.5)"
+ },
+ {
+  "id": "lesson-question-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "lesson-question-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 4 vùng chạm < 44px (vd \"INPUT 1×1\") | dark: tương phản 3 chữ (vd \"LEHRKRAFT-TIPP\" 1.67<4.5)"
+ },
+ {
+  "id": "library-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "library-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 12 vùng chạm < 44px (vd \"arrow_forward 40×40\") | light: tương phản 5 chữ (vd \"/dɪˈpɑː.tʃər/ • UK / US\" 4.37<4.5)"
+ },
+ {
+  "id": "library-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "library-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 12 vùng chạm < 44px (vd \"arrow_forward 40×40\")"
+ },
+ {
+  "id": "library-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "library-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 27 chữ (vd \"local_fire_department\n                IE\" 2.89<4.5) | sáng/tối lệch nội dung: 205 vs 15 chữ"
+ },
+ {
+  "id": "library-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "library-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: mảng sáng 99% > 12% (thẻ trắng trong nền tối?) | sáng/tối lệch nội dung: 205 vs 15 chữ"
+ },
+ {
+  "id": "method-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "method-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 7px | light: 2 vùng chạm < 44px (vd \"arrow_forward 28×44\") | light: tương phản 10 chữ (vd \"verified\n            مثبت علمياً\" 4.35<4.5) | light: tên icon hiện thành chữ \"drive_file_stream\" (1)"
+ },
+ {
+  "id": "method-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "method-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tràn ngang 17px | dark: 2 vùng chạm < 44px (vd \"arrow_forward 28×44\") | dark: tương phản 1 chữ (vd \"04\" 1.01<4.5) | dark: tên icon hiện thành chữ \"drive_file_stream\" (1)"
+ },
+ {
+  "id": "method-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "method-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"Empirische Pädagogik • Keine Spielereien\" 4.35<4.5)"
+ },
+ {
+  "id": "method-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "method-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 2 chữ (vd \"CA\" 4.34<4.5)"
+ },
+ {
+  "id": "mistakes-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mistakes-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 6 chữ (vd \"24 ساعة\" 2.3<4.5)"
+ },
+ {
+  "id": "mistakes-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mistakes-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 13 vùng chạm < 44px (vd \"arrow_back 40×40\") | light: tương phản 6 chữ (vd \"Sortiert nach Relevanz\" 4.36<4.5)"
+ },
+ {
+  "id": "mistakes-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mistakes-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 13 vùng chạm < 44px (vd \"arrow_back 40×40\") | dark: tương phản 5 chữ (vd \"Sortiert nach Relevanz\" 4.24<4.5)"
+ },
+ {
+  "id": "mock-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mock-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 11 chữ (vd \"•\" 4.38<4.5)"
+ },
+ {
+  "id": "mock-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mock-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 10 chữ (vd \"•\" 3.58<4.5)"
+ },
+ {
+  "id": "mock-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mock-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 10 chữ (vd \"•\" 4.38<4.5)"
+ },
+ {
+  "id": "mock-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mock-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 10 chữ (vd \"•\" 1.94<4.5)"
+ },
+ {
+  "id": "placement-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "placement-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"استمع\n🔊 77×34\") | light: tương phản 1 chữ (vd \"التخطي يضبط دقة مستوى CEFR دون أي خصم لل\" 4.16<4.5) | light: chỉ 1% sáng < 35% (bản sáng bị tối?)"
+ },
+ {
+  "id": "placement-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "placement-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"استمع\n🔊 77×34\")"
+ },
+ {
+  "id": "placement-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "placement-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: chỉ 1% sáng < 35% (bản sáng bị tối?)"
+ },
+ {
+  "id": "practice-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "practice-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 9 vùng chạm < 44px (vd \"تدرّب\n              arro 78×36\") | light: tương phản 31 chữ (vd \"تدريب تشخيصي متكيّف\" 3.7<4.5)"
+ },
+ {
+  "id": "practice-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "practice-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 9 vùng chạm < 44px (vd \"تدرّب\narrow_forward 78×36\") | dark: tương phản 1 chữ (vd \"14 معلّق\" 3.83<4.5)"
+ },
+ {
+  "id": "practice-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "practice-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 8 chữ (vd \"3 Prioritätsmodule\" 3.8<4.5)"
+ },
+ {
+  "id": "pron-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "pron-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"إعادة تشغيل الصوت المنفص 133×17\") | light: tương phản 1 chữ (vd \"think\" 1.92<4.5)"
+ },
+ {
+  "id": "pron-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "pron-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"إعادة تشغيل الصوت المنفص 133×17\")"
+ },
+ {
+  "id": "pron-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "pron-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"Getrenntes Audio erneut  192×17\") | light: tương phản 1 chữ (vd \"think\" 1.92<4.5)"
+ },
+ {
+  "id": "pron-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "pron-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"Getrenntes Audio erneut  192×17\")"
+ },
+ {
+  "id": "reading-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "reading-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 4 vùng chạm < 44px (vd \"foraging behavior\nvolume 136×24\")"
+ },
+ {
+  "id": "reading-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "reading-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 4 vùng chạm < 44px (vd \"foraging behaviorvolume_ 134×24\") | dark: tương phản 2 chữ (vd \"📝\" 1.92<4.5)"
+ },
+ {
+  "id": "reading-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "reading-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 29px | light: 7 vùng chạm < 44px (vd \"arrow_back 35×44\") | light: tương phản 1 chữ (vd \"schedule\n            650 Wörter · ca. 6 \" 4.37<4.5)"
+ },
+ {
+  "id": "reading-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "reading-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tràn ngang 56px | dark: 6 vùng chạm < 44px (vd \"📖\nLesetext 173×42\") | dark: tương phản 1 chữ (vd \"📝\" 1.92<4.5) | dark: mảng sáng 14% > 12% (thẻ trắng trong nền tối?) | dark: tên icon hiện thành chữ \"arrow_back\" (1)"
+ },
+ {
+  "id": "report-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "report-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 4 vùng chạm < 44px (vd \"تغيير 25×17\") | light: tương phản 10 chữ (vd \"• روبوت الدعم\" 4.38<4.5)"
+ },
+ {
+  "id": "report-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "report-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 4 vùng chạm < 44px (vd \"تغيير 25×17\") | dark: tương phản 3 chữ (vd \"توقف أو خطأ\" 4.4<4.5)"
+ },
+ {
+  "id": "report-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "report-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"•\" 1.37<4.5)"
+ },
+ {
+  "id": "review-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "review-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"pending_actions\n        18 مستحق اليوم\" 2.24<4.5)"
+ },
+ {
+  "id": "review-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "review-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"pending_actions\n        18 heute fällig\" 2.24<4.5)"
+ },
+ {
+  "id": "review-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "review-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"pending_actions\n        18 heute fällig\" 3.24<4.5)"
+ },
+ {
+  "id": "settings-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "settings-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \"INPUT 1×1\") | light: tương phản 1 chữ (vd \"SLOT\" 1.45<4.5)"
+ },
+ {
+  "id": "settings-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "settings-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 2 vùng chạm < 44px (vd \"INPUT 1×1\")"
+ },
+ {
+  "id": "settings-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "settings-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \"INPUT 1×1\") | light: tương phản 1 chữ (vd \"SLOT\" 1.45<4.5)"
+ },
+ {
+  "id": "settings-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "settings-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 2 vùng chạm < 44px (vd \"INPUT 1×1\") | dark: tương phản 2 chữ (vd \"SLOT\" 4.16<4.5)"
+ },
+ {
+  "id": "stats-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "stats-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 39 chữ (vd \"14\" 3.33<4.5)"
+ },
+ {
+  "id": "stats-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "stats-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 12 chữ (vd \"140 × 170\" 4.36<4.5) | dark: tên icon hiện thành chữ \"arrow_backward\" (1)"
+ },
+ {
+  "id": "stats-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "stats-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 50 chữ (vd \"LERNSTRÄHNE\" 4<4.5)"
+ },
+ {
+  "id": "stats-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "stats-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 54 chữ (vd \"Stufe 7 • Wortforscher\" 1.92<4.5) | dark: mảng sáng 61% > 12% (thẻ trắng trong nền tối?)"
+ },
+ {
+  "id": "streak-modals-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "streak-modals-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"•\" 1.48<4.5)"
+ },
+ {
+  "id": "streak-modals-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "streak-modals-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"•\" 2.63<4.5) | dark: mảng sáng 20% > 12% (thẻ trắng trong nền tối?)"
+ },
+ {
+  "id": "streak-modals-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "streak-modals-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 3 chữ (vd \"So\" 3.09<4.5)"
+ },
+ {
+  "id": "streak-modals-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "streak-modals-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 2 chữ (vd \"•\" 2.29<4.5)"
+ },
+ {
+  "id": "share-card-ar",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "share-card-ar/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"arrow_forward 40×40\") | light: tương phản 8 chữ (vd \"L\" 3.04<4.5)"
+ },
+ {
+  "id": "share-card-ar",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "share-card-ar/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"arrow_forward 40×40\") | dark: tương phản 2 chữ (vd \"+0.5\" 3.4<4.5)"
+ },
+ {
+  "id": "share-card-de",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "share-card-de/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 6 chữ (vd \"→\" 2.79<3)"
+ },
+ {
+  "id": "share-card-de",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "share-card-de/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"STUFE C1\" 4.37<4.5)"
+ },
+ {
+  "id": "account-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "account-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 7 chữ (vd \"18 due\" 2.55<4.5)"
+ },
+ {
+  "id": "account-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "account-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"Danger Zone\" 3.56<4.5)"
+ },
+ {
+  "id": "deck-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "deck-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"Blog 29×44\")"
+ },
+ {
+  "id": "deck-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "deck-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"1\" 3.36<4.5)"
+ },
+ {
+  "id": "dict-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "dict-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 26 vùng chạm < 44px (vd \"translate\nEnglish (EN)\n\n 238×36\") | light: tương phản 1 chữ (vd \"TEACHER-SLOT\" 1.66<4.5)"
+ },
+ {
+  "id": "dict-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "dict-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 26 vùng chạm < 44px (vd \"translate\nEnglish (EN)\n\n 238×36\")"
+ },
+ {
+  "id": "games-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "games-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 6 vùng chạm < 44px (vd \"settings\nSettings 222×36\") | light: tương phản 33 chữ (vd \"Target: IELTS 7.5\" 4.36<4.5)"
+ },
+ {
+  "id": "games-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "games-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 6 vùng chạm < 44px (vd \"settings\nSettings 222×36\")"
+ },
+ {
+  "id": "grammar-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "grammar-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"Skills 30×44\") | light: tương phản 10 chữ (vd \"Curriculum\" 4.15<4.5)"
+ },
+ {
+  "id": "grammar-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "grammar-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"Skills 38×44\") | dark: tương phản 5 chữ (vd \"Time Window\" 4.41<4.5)"
+ },
+ {
+  "id": "hub-skills-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-skills-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 3 chữ (vd \"14d\" 2.91<4.5)"
+ },
+ {
+  "id": "hub-skills-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-skills-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"Recommended Next\" 4.18<4.5)"
+ },
+ {
+  "id": "hub-tests-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-tests-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \"Blog 37×44\")"
+ },
+ {
+  "id": "hub-vocab-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-vocab-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \"tune 30×36\") | light: tương phản 19 chữ (vd \"HUB\" 3.04<4.5)"
+ },
+ {
+  "id": "hub-vocab-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "hub-vocab-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 2 vùng chạm < 44px (vd \"tune 30×36\") | dark: tương phản 1 chữ (vd \"14d\" 4.21<4.5)"
+ },
+ {
+  "id": "lesson-feedback-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "lesson-feedback-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"Present Continuous (Verlaufsform im gege\" 4.33<4.5)"
+ },
+ {
+  "id": "library-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "library-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 23 vùng chạm < 44px (vd \"calendar_today\nToday 222×40\")"
+ },
+ {
+  "id": "library-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "library-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 23 vùng chạm < 44px (vd \"calendar_today\nToday 222×40\") | dark: tương phản 1 chữ (vd \"⭐\" 1.18<4.5)"
+ },
+ {
+  "id": "mistakes-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mistakes-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 11 vùng chạm < 44px (vd \"Help 27×16\") | light: tương phản 29 chữ (vd \"IELTS · TOEIC · CEFR\" 4.38<4.5) | light: tên icon hiện thành chữ \"waveform\" (1)"
+ },
+ {
+  "id": "mistakes-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mistakes-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 11 vùng chạm < 44px (vd \"Help 27×16\") | dark: tương phản 1 chữ (vd \"/\" 2.03<4.5) | dark: tên icon hiện thành chữ \"waveform\" (1)"
+ },
+ {
+  "id": "mock-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mock-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 3 vùng chạm < 44px (vd \"language\nEnglish (EN) 95×24\") | light: tương phản 6 chữ (vd \"Streak\" 4.12<4.5)"
+ },
+ {
+  "id": "mock-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "mock-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 3 vùng chạm < 44px (vd \"language\nEnglish (EN) 95×24\") | dark: tương phản 1 chữ (vd \"⭐\" 1.18<4.5)"
+ },
+ {
+  "id": "placement-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "placement-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 7 vùng chạm < 44px (vd \"language\nEnglish (US) /  222×42\")"
+ },
+ {
+  "id": "placement-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "placement-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 7 vùng chạm < 44px (vd \"language\nEnglish (US) /  222×42\")"
+ },
+ {
+  "id": "pron-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "pron-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 14 vùng chạm < 44px (vd \"tune\nMic Calibrated 145×36\") | light: tương phản 26 chữ (vd \"Cross-Section\" 4.38<4.5)"
+ },
+ {
+  "id": "pron-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "pron-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 14 vùng chạm < 44px (vd \"tune\nMic Calibrated 145×36\") | dark: tương phản 12 chữ (vd \"vs\" 4.02<4.5)"
+ },
+ {
+  "id": "reading-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "reading-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 7 vùng chạm < 44px (vd \"format_size\nText +/- 96×36\") | light: tương phản 2 chữ (vd \"•\" 1.83<4.5)"
+ },
+ {
+  "id": "reading-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "reading-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 7 vùng chạm < 44px (vd \"format_size\nText +/- 96×36\") | dark: tương phản 1 chữ (vd \"•\" 2.68<4.5)"
+ },
+ {
+  "id": "report-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "report-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 9 vùng chạm < 44px (vd \"calendar_today\nToday 226×42\") | light: tương phản 8 chữ (vd \"Carlos (Linguist)\" 3.05<4.5)"
+ },
+ {
+  "id": "report-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "report-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 9 vùng chạm < 44px (vd \"calendar_today\nToday 226×42\")"
+ },
+ {
+  "id": "settings-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "settings-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 5 vùng chạm < 44px (vd \"swap_horiz 38×36\") | light: tương phản 37 chữ (vd \"Active Target\" 4.12<4.5)"
+ },
+ {
+  "id": "settings-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "settings-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 5 vùng chạm < 44px (vd \"swap_horiz 38×36\") | dark: tương phản 1 chữ (vd \"verified\n              IELTS Certified M\" 4.31<4.5)"
+ },
+ {
+  "id": "stats-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "stats-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 12 vùng chạm < 44px (vd \"Blog & Tips 63×18\") | light: tương phản 26 chữ (vd \"•\" 1.65<4.5)"
+ },
+ {
+  "id": "stats-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "stats-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 12 vùng chạm < 44px (vd \"Blog & Tips 63×18\") | dark: tương phản 11 chữ (vd \"31\" 4.35<4.5)"
+ },
+ {
+  "id": "streak-modals-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "streak-modals-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 21 chữ (vd \"Lexkite\" 1.37<3) | light: tên icon hiện thành chữ \"sparkles\" (1)"
+ },
+ {
+  "id": "streak-modals-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "streak-modals-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 22 chữ (vd \"IELTS · CEFR Prep\" 2.5<4.5) | dark: mảng sáng 13% > 12% (thẻ trắng trong nền tối?) | dark: tên icon hiện thành chữ \"sparkles\" (1)"
+ },
+ {
+  "id": "share-card-desktop",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "2",
+  "from": "share-card-desktop/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 4 vùng chạm < 44px (vd \"translate\nEN (US)\n\n15 La 222×42\") | light: chỉ 1% sáng < 35% (bản sáng bị tối?)"
+ },
+ {
+  "id": "share-card-desktop",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "2",
+  "from": "share-card-desktop/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 3 vùng chạm < 44px (vd \"Me 24×24\") | dark: tương phản 1 chữ (vd \"/\" 1.61<4.5)"
+ }
+]

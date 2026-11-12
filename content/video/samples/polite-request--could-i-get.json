@@ -1,0 +1,72 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/polite-request.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Cafe English: give me a latte or could I get a latte?",
+ "format": "short",
+ "template": "polite-request",
+ "script": {
+  "title": "Rude or polite: \"Give me a latte.\"",
+  "hook": "Rude or polite?",
+  "scene": "cafe",
+  "time": "day",
+  "format_id": "polite-vs-rude",
+  "template": "polite-request",
+  "lines": [
+   {
+    "who": "ama",
+    "beat": "hook",
+    "text": "Is \"give me\" rude?",
+    "expr": "thinking",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "Give me a latte.",
+    "expr": "deadpan",
+    "gesture": ""
+   },
+   {
+    "who": "carlos",
+    "beat": "explain",
+    "text": "It sounds a bit bossy. Could I get is friendly and still simple.",
+    "expr": "friendly",
+    "gesture": "open hands",
+    "punch": true
+   },
+   {
+    "who": "ama",
+    "beat": "example",
+    "text": "Could I get a latte, please?",
+    "expr": "happy smile",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: add please at the end. It makes almost any request softer.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Roleplay this free on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "Could I get"
+  ],
+  "wrong": "Give me a latte.",
+  "right": "Could I get a latte, please?",
+  "caption": "Sound friendly, not bossy: use \"Could I get\"",
+  "hashtags": [
+   "politeenglish",
+   "everydayenglish",
+   "learnenglish"
+  ],
+  "area": "roleplay",
+  "link": "https://lexkite.com/app/#/roleplay"
+ }
+}

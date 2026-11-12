@@ -2,16 +2,64 @@
  * điền từ (form/note/table/sentence/summary, có giới hạn số từ), trắc nghiệm A–D, nối (tiêu đề i/ii/iii, đoạn A–F, đặc điểm),
  * chọn 2 đáp án, TRUE/FALSE/NOT GIVEN, YES/NO/NOT GIVEN. Chấm điểm + đánh dấu đúng/sai + nút "xem chỗ có đáp án". */
 (function (g) {
+  // CSS câu hỏi .lq-* (chuyển từ style.css 25/10 – giữ khung app ≤377 KB gz); nạp 1 lần khi tải gói đề
+  try { if (!document.getElementById('lqCss')) { const st = document.createElement('style'); st.id = 'lqCss'; st.textContent = `
+.lq-group { margin-bottom: 1.3rem; }
+.lq-instr { background: var(--primary-soft); border-radius: 10px; padding: .6rem .8rem; margin-bottom: .6rem; font-size: .92rem; }
+.lq-item { padding: .45rem .3rem; border-radius: 10px; }
+.lq-item.ok { background: rgba(22, 163, 74, .08); } .lq-item.no { background: rgba(229, 72, 77, .08); } .lq-item.half { background: rgba(245, 158, 11, .1); }
+.lq-gap { line-height: 2.3; }
+.lq-gap .gap { min-width: 8rem; }
+.lq-opts { display: grid; gap: .55rem; margin: .55rem 0 0 1.2rem; }
+.lq-opts label { position: relative; display: flex; gap: .65rem; align-items: center; cursor: pointer; padding: .65rem .95rem; border-radius: 12px; border: 2px solid var(--line); border-bottom-width: 4px; background: var(--surface); font-weight: 500; box-shadow: 0 3px 0 color-mix(in srgb, var(--line) 75%, #000); transition: border-color .12s cubic-bezier(.2,.8,.4,1), background .12s cubic-bezier(.2,.8,.4,1), transform .12s cubic-bezier(.2,.8,.4,1), box-shadow .12s cubic-bezier(.2,.8,.4,1); user-select: none; }
+.lq-opts label input { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.lq-opts label:has(:focus-visible) { outline: 3px solid color-mix(in srgb, var(--primary) 70%, transparent); outline-offset: 2px; }
+@media (hover: hover) and (pointer: fine) { .lq-opts label:hover { border-color: var(--primary); box-shadow: 0 4px 12px rgba(0,0,0,.04); } }
+.lq-opts label:active { transform: translateY(2px); border-bottom-width: 2.5px; box-shadow: 0 1px 0 color-mix(in srgb, var(--line) 75%, #000); }
+.lq-opts label:has(:checked), .lq-opts label.sel { border-color: var(--primary); background: var(--primary-soft); font-weight: 700; border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); box-shadow: 0 3px 0 color-mix(in srgb, var(--primary) 70%, #000); }
+.lq-opts label:has(:checked):active, .lq-opts label.sel:active { transform: translateY(2px); box-shadow: 0 1px 0 color-mix(in srgb, var(--primary) 70%, #000); }
+.lq-opts label b { display: inline-grid; place-items: center; min-width: 26px; height: 26px; border-radius: 7px; background: var(--surface-2); font-size: .85rem; font-weight: 800; border: 1.5px solid var(--line); border-bottom-width: 2.5px; transition: all .12s ease; }
+@media (hover: hover) and (pointer: fine) { .lq-opts label:hover b { border-color: var(--primary); color: var(--primary); } }
+.lq-opts label:has(:checked) b, .lq-opts label.sel b { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); }
+.lq-opts label.struck { text-decoration: line-through; opacity: .5; filter: grayscale(.85); border-style: dashed; border-bottom-width: 2px; cursor: not-allowed; transform: none !important; }
+.lq-row { display: flex; align-items: center; gap: .4rem; flex-wrap: wrap; }
+.lq-row select { border: 2px solid var(--line); border-radius: 8px; padding: .3rem .4rem; font: inherit; background: var(--surface); color: inherit; }
+.lq-row .lq-fb { width: 100%; }
+.lq-box { border: 2px solid var(--line); border-radius: 12px; padding: .6rem .8rem; margin-bottom: .6rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: .25rem .8rem; font-size: .92rem; }
+.lq-table .lq-item { border-bottom: 1px dashed var(--line); border-radius: 0; }
+.lq-fb { font-size: .88rem; margin-top: .25rem; }
+.lq-tf { display: flex; flex-wrap: wrap; gap: .55rem .85rem; margin: .55rem 0 0 1.2rem; font-size: .92rem; }
+.lq-tf label { position: relative; display: flex; gap: .55rem; align-items: center; cursor: pointer; padding: .55rem .95rem; border-radius: 12px; border: 2px solid var(--line); border-bottom-width: 4px; background: var(--surface); font-weight: 600; box-shadow: 0 3px 0 color-mix(in srgb, var(--line) 75%, #000); transition: border-color .12s cubic-bezier(.2,.8,.4,1), background .12s cubic-bezier(.2,.8,.4,1), transform .12s cubic-bezier(.2,.8,.4,1), box-shadow .12s cubic-bezier(.2,.8,.4,1); user-select: none; }
+.lq-tf label input { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.lq-tf label:has(:focus-visible) { outline: 3px solid color-mix(in srgb, var(--primary) 70%, transparent); outline-offset: 2px; }
+@media (hover: hover) and (pointer: fine) { .lq-tf label:hover { border-color: var(--primary); box-shadow: 0 4px 12px rgba(0,0,0,.04); } }
+.lq-tf label:active { transform: translateY(2px); border-bottom-width: 2.5px; box-shadow: 0 1px 0 color-mix(in srgb, var(--line) 75%, #000); }
+.lq-tf label:has(input:checked), .lq-tf label.sel { border-color: var(--primary); background: var(--primary-soft); font-weight: 700; border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); box-shadow: 0 3px 0 color-mix(in srgb, var(--primary) 70%, #000); }
+.lq-tf label:has(input:checked):active, .lq-tf label.sel:active { transform: translateY(2px); box-shadow: 0 1px 0 color-mix(in srgb, var(--primary) 70%, #000); }
+.lq-tf label b { display: inline-grid; place-items: center; min-width: 24px; height: 24px; border-radius: 7px; background: var(--surface-2); font-size: .85rem; font-weight: 800; border: 1.5px solid var(--line); border-bottom-width: 2.5px; transition: all .12s ease; }
+@media (hover: hover) and (pointer: fine) { .lq-tf label:hover b { border-color: var(--primary); color: var(--primary); } }
+.lq-tf label:has(input:checked) b, .lq-tf label.sel b { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); border-bottom-color: color-mix(in srgb, var(--primary) 70%, #000); }
+.lq-tf label.struck { text-decoration: line-through; opacity: .5; filter: grayscale(.85); border-style: dashed; border-bottom-width: 2px; cursor: not-allowed; transform: none !important; }
+`; document.head.appendChild(st); } } catch (e) { /* không có DOM (kiểm thử) */ }
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const $ = (s, el = document) => el.querySelector(s), $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const L = 'ABCDEFGH';
   const code = o => String(o).split(' ')[0];
   const label = o => String(o).slice(code(o).length + 1);
+  // Lời giải dịch sẵn theo ngôn ngữ người học (i18n/explain/<lang>.json – scripts/gen-explain.mjs), tải lười khi mở phần thi.
+  // Chưa có bản dịch → giữ bản gốc. mv: hàm đổi chữ cái đáp án khi phương án đã được xoay vị trí (TOEIC).
+  const fnv = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0).toString(36); };
+  const XL = g.I18N && I18N.learnLang ? I18N.learnLang() : 'vi';
+  let XT = null;
+  if (XL !== 'vi' && g.fetch) fetch((/^https?:/.test(location.protocol) ? '' : 'https://lexkite.com/') + 'i18n/explain/' + XL + '.json').then(r => (r.ok ? r.json() : null)).then(j => { XT = j; }).catch(() => {});
+  const LETRE = /(→\s*|\(|[Đđ]áp án\s+|[Cc]họn\s+|[Pp]hương án\s+)([A-D])\b/g;
+  const exT = (s, mv) => { if (!s) return ''; const x = XT && XT[fnv(s)]; if (x) return x.replace(/\{([A-D])\}/g, (m, l) => (mv ? mv(l) : l)); return mv ? s.replace(LETRE, (m, pre, l) => pre + mv(l)) : s; };
   const TF = { tfng: ['TRUE', 'FALSE', 'NOT GIVEN'], ynng: ['YES', 'NO', 'NOT GIVEN'] };
 
   // ---------- Chấm ----------
   const norm = s => String(s || '').toLowerCase().replace(/[’‘`]/g, "'").replace(/[£$€]/g, '').replace(/(\d),(\d{3})/g, '$1$2').replace(/[.,!?;:"“”()]/g, ' ').replace(/\s+/g, ' ').trim().replace(/^(the|a|an) /, '');
-  const words = s => norm(s).split(' ').filter(Boolean).length;
+  // Số có dấu ngăn (7.45, 3.50, 10:30, 1/11) tính là MỘT số khi đếm giới hạn từ, như quy ước IELTS
+  const words = s => norm(String(s || '').replace(/(\d)[.:/](\d)/g, '$1$2')).split(' ').filter(Boolean).length;
   function gradeGap(it, limit, given) {
     if (!given || !given.trim()) return { ok: false, empty: true };
     const over = limit && words(given) > limit;
@@ -23,30 +71,42 @@
   function collect(p, root) {
     const res = {};
     p.groups.forEach((gr, gi) => {
+      const kind = g.QT ? g.QT.kindOf(gr) : gr.type; // dạng câu chi tiết (qtips.js) – thống kê tiến bộ theo dạng
       if (gr.type === 'multi') {
         const picked = $$(`[data-multi="${gi}"]:checked`, root).map(x => x.value);
         const correct = picked.filter(x => gr.a.includes(x));
-        gr.n.forEach((n, k) => { res[n] = { ok: k < correct.length, given: picked.join(', '), answer: gr.a.join(', '), cue: gr.cue, q: gr.q }; });
+        gr.n.forEach((n, k) => { res[n] = { ok: k < correct.length, given: picked.join(', '), answer: gr.a.join(', '), cue: gr.cue, q: gr.q, type: 'multi', kind, alts: gr.a }; });
         return;
       }
       gr.items.forEach(it => {
         const el = $(`[data-qn="${it.n}"]`, root);
-        if (gr.type === 'mcq') { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? +v.value : null; res[it.n] = { ok: given === it.a, given: given == null ? '' : L[given], answer: L[it.a] + '. ' + it.options[it.a], cue: it.cue, q: it.q }; }
-        else if (TF[gr.type]) { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? v.value : ''; res[it.n] = { ok: given === it.a, given, answer: it.a, cue: it.cue, q: it.text }; }
-        else if (gr.type === 'match') { const v = el ? el.value : ''; const opt = gr.options.find(o => code(o) === it.a); res[it.n] = { ok: v === it.a, given: v, answer: it.a + (opt && label(opt) ? ' – ' + label(opt) : ''), cue: it.cue, q: it.text }; }
-        else { const v = el ? el.value.trim() : ''; const r = gradeGap(it, gr.limit, v); res[it.n] = { ok: r.ok, over: r.over, given: v, answer: it.a[0], cue: it.cue, q: it.text }; }
+        if (gr.type === 'mcq') { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? +v.value : null; res[it.n] = { ok: given === it.a, given: given == null ? '' : L[given], answer: L[it.a] + '. ' + it.options[it.a], cue: it.cue, q: it.q, type: 'mcq', kind, alts: [String(it.a)], stm: gr.photo ? it.options : null }; }
+        else if (TF[gr.type]) { const v = $(`input[name="q${it.n}"]:checked`, root); const given = v ? v.value : ''; res[it.n] = { ok: given === it.a, given, answer: it.a, cue: it.cue, q: it.text, type: gr.type, kind, alts: [it.a] }; }
+        else if (gr.type === 'match') { const v = el ? el.value : ''; const opt = gr.options.find(o => code(o) === it.a); res[it.n] = { ok: v === it.a, given: v, answer: it.a + (opt && label(opt) ? ' – ' + label(opt) : ''), cue: it.cue, q: it.text, type: 'match', kind, alts: [it.a] }; }
+        else { const v = el ? el.value.trim() : ''; const r = gradeGap(it, gr.limit, v); res[it.n] = { ok: r.ok, over: r.over, given: v, answer: it.a[0], cue: it.cue, q: it.text, type: 'gap', kind, alts: it.a, limit: gr.limit }; }
       });
     });
     return res;
   }
 
   // ---------- Hiển thị ----------
-  function groupHtml(gr, gi) {
-    const head = `<div class="lq-instr">${gr.title ? `<b>${esc(gr.title)}</b><br>` : ''}<i>${esc(gr.instr)}</i></div>`;
+  // Ảnh Part 1: <picture> AVIF (it.avif = có bản .avif cùng tên) → .jpg dự phòng; width/height thật (it.w/it.h) giữ chỗ → CLS 0
+  const photoHtml = it => {
+    const src = (/^https?:/.test(location.protocol) ? '' : 'https://lexkite.com/') + it.img;
+    const wh = it.w && it.h ? ` width="${+it.w}" height="${+it.h}"` : '';
+    const img = `<img class="lq-photo" src="${esc(src)}"${wh} alt="${esc(t('Ảnh câu {n}', { n: it.n }))}" loading="lazy" decoding="async" style="display:block;max-width:100%;height:auto;border-radius:12px;margin:.4rem 0">`;
+    return it.avif ? `<picture><source type="image/avif" srcset="${esc(src.replace(/\.jpe?g$/i, '.avif'))}">${img}</picture>` : img;
+  };
+  function groupHtml(gr, gi, tips) {
+    const head = `<div class="lq-instr">${gr.title ? `<b>${esc(gr.title)}</b><br>` : ''}<i>${esc(gr.instr)}</i></div>${tips && g.QT ? g.QT.box(g.QT.kindOf(gr)) : ''}`;
+    // TOEIC Part 1 (photo): ảnh + chỉ chữ (A)–(D); 4 câu mô tả chỉ nghe, hiện lại sau khi nộp (mark)
+    if (gr.type === 'mcq' && gr.photo) return `<div class="lq-group">${head}${gr.items.map(it => `<div class="lq-item" data-item="${it.n}"><div><span class="qn">${it.n}</span> ${esc(it.q)}</div>
+      ${photoHtml(it)}
+      <div class="lq-opts">${it.options.map((o, k) => `<label><input type="radio" name="q${it.n}" value="${k}"> <b>(${L[k]})</b></label>`).join('')}</div><div class="lq-fb" hidden></div></div>`).join('')}</div>`;
     if (gr.type === 'mcq') return `<div class="lq-group">${head}${gr.items.map(it => `<div class="lq-item" data-item="${it.n}"><div><span class="qn">${it.n}</span> ${esc(it.q)}</div>
       <div class="lq-opts">${it.options.map((o, k) => `<label><input type="radio" name="q${it.n}" value="${k}"> <b>${L[k]}</b>${o === L[k] ? '' : ' ' + esc(o)}</label>`).join('')}</div><div class="lq-fb" hidden></div></div>`).join('')}</div>`;
     if (TF[gr.type]) return `<div class="lq-group">${head}${gr.items.map(it => `<div class="lq-item" data-item="${it.n}"><div><span class="qn">${it.n}</span> ${esc(it.text)}</div>
-      <div class="lq-tf">${TF[gr.type].map(v => `<label><input type="radio" name="q${it.n}" value="${v}"> ${v}</label>`).join('')}</div><div class="lq-fb" hidden></div></div>`).join('')}</div>`;
+      <div class="lq-tf">${TF[gr.type].map((v, k) => `<label><input type="radio" name="q${it.n}" value="${v}"> <b>${k + 1}</b> <span>${v}</span></label>`).join('')}</div><div class="lq-fb" hidden></div></div>`).join('')}</div>`;
     if (gr.type === 'match') {
       const box = gr.options.some(o => label(o)) ? `<div class="lq-box">${gr.options.map(o => `<div><b>${esc(code(o))}</b> ${esc(label(o))}</div>`).join('')}</div>` : '';
       return `<div class="lq-group">${head}${box}${gr.items.map(it => `<div class="lq-item lq-row" data-item="${it.n}"><span class="qn">${it.n}</span><span style="flex:1">${esc(it.text)}</span><select data-qn="${it.n}"><option value="">–</option>${gr.options.map(o => `<option>${esc(code(o))}</option>`).join('')}</select><div class="lq-fb" hidden></div></div>`).join('')}</div>`;
@@ -56,10 +116,12 @@
     const cls = gr.type === 'table' ? 'lq-table' : 'lq-notes';
     return `<div class="lq-group">${head}<div class="${cls}">${gr.items.map(it => `<div class="lq-item lq-gap" data-item="${it.n}">${esc(it.text).replace('___', `<span class="qn">${it.n}</span><input class="gap" data-qn="${it.n}" autocomplete="off" spellcheck="false" size="12">`)}<div class="lq-fb" hidden></div></div>`).join('')}</div></div>`;
   }
-  const questionsHtml = p => `<div class="lq">${p.groups.map(groupHtml).join('')}</div>`;
+  const questionsHtml = p => `<div class="lq">${p.groups.map((gr, gi) => groupHtml(gr, gi, p.tips)).join('')}</div>`; // p.tips: hiện ô mẹo theo dạng câu (chế độ luyện)
 
   // Chọn 2 đáp án: không cho tick quá 2
   function bind(root) {
+    if (root && root.dataset) root.dataset.qeT0 = Date.now(); // mốc thời gian làm bài (QT.record tính giây/câu – ước tính)
+    if (g.ChoiceKit && root) g.ChoiceKit.attach(root); // phím A–D/1–4 + gạch đáp án (choice-kit.js)
     $$('input[data-multi]', root).forEach(c => c.addEventListener('change', () => { const same = $$(`input[data-multi="${c.dataset.multi}"]:checked`, root); if (same.length > 2) c.checked = false; }));
     $$('input.gap', root).forEach((inp, k, arr) => inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); if (arr[k + 1]) arr[k + 1].focus(); } }));
   }
@@ -71,17 +133,60 @@
       const ok = ns.every(n => res[n].ok), part = ns.some(n => res[n].ok);
       item.classList.add(ok ? 'ok' : part ? 'half' : 'no');
       const fb = $('.lq-fb', item); fb.hidden = false;
-      fb.innerHTML = `${ok ? '✅' : '❌'} ${t('Đáp án: <b>{a}</b>', { a: esc(r.answer) })}${r.over ? ` <span class="tiny">(${t('vượt quá số từ cho phép')})</span>` : ''} ${r.cue && onEvidence ? `<button class="btn sm ghost" data-ev="${ns[0]}">${evLabel}</button>` : ''}`;
+      fb.innerHTML = `${ok ? '✅' : '❌'} ${t('Đáp án: <b>{a}</b>', { a: esc(r.answer) })}${r.over ? ` <span class="tiny">(${t('vượt quá số từ cho phép')})</span>` : ''} ${r.cue && onEvidence ? `<button class="btn sm ghost" data-ev="${ns[0]}">${evLabel}</button>` : ''}${r.stm ? `<div class="small" style="margin-top:.3rem">${r.stm.map((s, k) => `<div>${k === +r.alts[0] ? '✅ <b>' : ''}(${L[k]}) ${esc(s)}${k === +r.alts[0] ? '</b>' : ''}</div>`).join('')}</div>` : ''}`;
       $$('input, select', item).forEach(x => x.disabled = true);
     });
     if (onEvidence) $$('[data-ev]', root).forEach(b => b.onclick = () => onEvidence(+b.dataset.ev));
+    stats(root, res);
+  }
+
+  // Bảng độ chính xác theo dạng câu hỏi + nút "Làm lại câu sai" (chỉ mở lại câu sai, ẩn câu đúng, chấm lại tại chỗ)
+  const TYPE_NAME = () => ({ mcq: t('Trắc nghiệm'), multi: t('Chọn 2 đáp án'), match: t('Nối thông tin'), tfng: 'TRUE / FALSE / NOT GIVEN', ynng: 'YES / NO / NOT GIVEN', gap: t('Điền từ') });
+  function stats(root, res) {
+    const by = {};
+    Object.entries(res).forEach(([n, r]) => { const k = (g.QT && r.kind) || r.type || 'gap'; (by[k] = by[k] || { ok: 0, all: 0, wrong: [] }).all++; if (r.ok) by[k].ok++; else by[k].wrong.push(n); });
+    if (Object.keys(by).length < 1) return;
+    const old = root.querySelector('.qe-stats'); if (old) old.remove();
+    const wrongN = Object.values(res).filter(r => !r.ok).length;
+    root.insertAdjacentHTML('afterbegin', `<div class="card qe-stats"><div class="row between" style="gap:.5rem;flex-wrap:wrap"><b>📊 ${t('Kết quả theo dạng câu hỏi')}</b>${wrongN ? `<button type="button" class="btn sm primary" data-retake>↻ ${t('Làm lại {n} câu sai', { n: wrongN })}</button>` : ''}</div>
+      <table class="qe-tbl"><tr><th>${t('Dạng câu hỏi')}</th><th>${t('Đúng')}</th><th>%</th><th>${t('Câu sai')}</th></tr>${Object.entries(by).map(([k, v]) => `<tr><td translate="no">${esc((g.QT && g.QT.NAME[k]) || TYPE_NAME()[k] || k)}</td><td>${v.ok}/${v.all}</td><td><span class="qe-pct ${v.ok / v.all >= 0.75 ? 'ok' : v.ok / v.all >= 0.5 ? 'mid' : 'no'}">${Math.round(v.ok / v.all * 100)}%</span></td><td>${v.wrong.map(n => `<button type="button" class="qe-n" data-goq="${n}">${n}</button>`).join(' ') || '–'}</td></tr>`).join('')}</table>${g.QT ? `<div class="tiny" style="margin-top:.5rem"><a href="#/qstats">📊 ${t('Xem tiến bộ theo kỹ năng và dạng câu hỏi')} →</a></div>` : ''}</div>`);
+    $$('[data-goq]', root).forEach(b => b.onclick = () => { const el = itemOf(root, b.dataset.goq); if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.classList.add('qe-flash'); setTimeout(() => el.classList.remove('qe-flash'), 1200); } });
+    const rb = $('[data-retake]', root); if (rb) rb.onclick = () => retake(root, res);
+  }
+  function retake(root, res) {
+    const items = $$('.lq-item', root);
+    items.forEach(item => {
+      const ns = item.dataset.item.split(',').map(Number), ok = ns.every(n => res[n] && res[n].ok);
+      item.hidden = ok; if (ok) return;
+      item.classList.remove('no', 'half', 'ok'); const fb = $('.lq-fb', item); if (fb) { fb.hidden = true; fb.innerHTML = ''; }
+      $$('input, select', item).forEach(x => { x.disabled = false; if (x.type === 'radio' || x.type === 'checkbox') x.checked = false; else x.value = ''; });
+    });
+    const st = $('.qe-stats', root); if (st) st.innerHTML = `<div class="row between" style="gap:.5rem;flex-wrap:wrap"><b>↻ ${t('Làm lại các câu sai')}</b><span><button type="button" class="btn sm primary" data-recheck>${t('Kiểm tra')}</button> <button type="button" class="btn sm ghost" data-showall>${t('Hiện tất cả câu')}</button></span></div>`;
+    $('[data-showall]', root).onclick = () => items.forEach(i => { i.hidden = false; });
+    $('[data-recheck]', root).onclick = () => {
+      let right = 0, total = 0;
+      items.filter(i => !i.hidden).forEach(item => {
+        const ns = item.dataset.item.split(',').map(Number), r = res[ns[0]]; if (!r) return;
+        let ok;
+        if (r.type === 'multi') { const picked = $$('input[data-multi]:checked', item).map(x => x.value); ok = picked.length === r.alts.length && picked.every(x => r.alts.includes(x)); }
+        else if (r.type === 'mcq' || r.type === 'tfng' || r.type === 'ynng') { const v = $('input[type=radio]:checked', item); ok = !!v && String(v.value) === String(r.alts[0]); }
+        else if (r.type === 'match') { const v = $('select', item); ok = !!v && v.value === r.alts[0]; }
+        else { const v = $('input', item); ok = !!v && gradeGap({ a: r.alts }, r.limit, v.value).ok; }
+        total++; if (ok) right++;
+        item.classList.add(ok ? 'ok' : 'no'); const fb = $('.lq-fb', item); fb.hidden = false; fb.innerHTML = `${ok ? '✅' : '❌'} ${t('Đáp án: <b>{a}</b>', { a: esc(r.answer) })}`;
+        $$('input, select', item).forEach(x => x.disabled = true);
+      });
+      st.innerHTML = `<b>${t('Làm lại: đúng {right}/{total} câu', { right, total })}</b> <button type="button" class="btn sm ghost" data-showall2>${t('Hiện tất cả câu')}</button>`;
+      $('[data-showall2]', root).onclick = () => items.forEach(i => { i.hidden = false; });
+    };
+    const first = items.find(i => !i.hidden); if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   // Quy đổi điểm thô → band (thang công bố phổ biến, chỉ tham khảo)
   const BAND = {
-    listening: [[39, 9], [37, 8.5], [35, 8], [32, 7.5], [30, 7], [26, 6.5], [23, 6], [18, 5.5], [16, 5], [13, 4.5], [10, 4], [8, 3.5], [6, 3], [4, 2.5], [0, 0]],
-    'reading-gt': [[40, 9], [39, 8.5], [37, 8], [36, 7.5], [34, 7], [32, 6.5], [30, 6], [27, 5.5], [23, 5], [19, 4.5], [15, 4], [12, 3.5], [9, 3], [6, 2.5], [0, 0]], // General Training (khắt khe hơn Academic)
-    reading: [[39, 9], [37, 8.5], [35, 8], [33, 7.5], [30, 7], [27, 6.5], [23, 6], [19, 5.5], [15, 5], [13, 4.5], [10, 4], [8, 3.5], [6, 3], [4, 2.5], [0, 0]],
+    listening: [[39, 9], [37, 8.5], [35, 8], [32, 7.5], [30, 7], [26, 6.5], [23, 6], [18, 5.5], [16, 5], [13, 4.5], [10, 4], [8, 3.5], [6, 3], [4, 2.5], [3, 2], [1, 1], [0, 0]],
+    'reading-gt': [[40, 9], [39, 8.5], [37, 8], [36, 7.5], [34, 7], [32, 6.5], [30, 6], [27, 5.5], [23, 5], [19, 4.5], [15, 4], [12, 3.5], [9, 3], [6, 2.5], [3, 2], [1, 1], [0, 0]], // General Training (khắt khe hơn Academic)
+    reading: [[39, 9], [37, 8.5], [35, 8], [33, 7.5], [30, 7], [27, 6.5], [23, 6], [19, 5.5], [15, 5], [13, 4.5], [10, 4], [8, 3.5], [6, 3], [4, 2.5], [3, 2], [1, 1], [0, 0]],
   };
   const bandOf = (raw, skill = 'listening') => (BAND[skill].find(([m]) => raw >= m) || [0, 0])[1];
   // Điểm tổng IELTS: trung bình 4 kỹ năng, .25 làm tròn lên .5, .75 làm tròn lên số nguyên
@@ -90,5 +195,7 @@
   // Câu q đã được trả lời chưa (radio/checkbox đã chọn, ô điền/select có giá trị) – dùng cho bảng số câu
   const itemOf = (root, q) => [...root.querySelectorAll('[data-item]')].find(x => x.dataset.item.split(',').includes(String(q)));
   const answered = (root, q) => { const el = itemOf(root, q); return !!el && [...el.querySelectorAll('input, select')].some(i => i.type === 'radio' || i.type === 'checkbox' ? i.checked : i.value.trim()); };
-  g.QE = { itemOf, answered, norm, words, gradeGap, collect, groupHtml, questionsHtml, bind, mark, numsOf, bandOf, overall, code, label };
+  // Lời giải 3 phần chuẩn chữa đề: 📍 đoạn chứa đáp án · 🔁 từ khóa câu hỏi ↔ paraphrase trong bài · 💡 vì sao
+  const explainHtml = e => !e ? '' : `<div class="qx">${e.para ? `<div class="qx-r"><span class="qx-l">📍 ${t('Vị trí')}</span><span>${t('Đoạn {p}', { p: esc(e.para) })}</span></div>` : ''}${(e.keys || []).length ? `<div class="qx-r"><span class="qx-l">🔁 ${t('Từ khóa ↔ Paraphrase')}</span><span>${e.keys.map(k2 => `<i>${esc(k2[0])}</i> ≈ <b>${esc(k2[1])}</b>`).join('<br>')}</span></div>` : ''}${e.why ? `<div class="qx-r"><span class="qx-l">💡 ${t('Vì sao')}</span><span translate="${XL === 'vi' || (XT && XT[fnv(e.why)]) ? 'no' : 'yes'}"${XL !== 'vi' && !(XT && XT[fnv(e.why)]) ? ' class="tr-wait"' : ''}>${esc(exT(e.why))}</span></div>` : ''}</div>`;
+  g.QE = { exT, explainHtml, itemOf, answered, norm, words, gradeGap, collect, groupHtml, questionsHtml, bind, mark, numsOf, bandOf, overall, code, label };
 })(typeof self !== 'undefined' ? self : this);

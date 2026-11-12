@@ -1,0 +1,11 @@
+/* UI th – ota (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["th"] = Object.assign(D["th"] || {}, {
+"Bản cập nhật đã sẵn sàng":"อัปเดตพร้อมแล้ว",
+"Có bản Lexkite mới":"มี Lexkite เวอร์ชันใหม่",
+"Cần cập nhật để tiếp tục dùng Lexkite.":"โปรดอัปเดตเพื่อใช้ Lexkite ต่อ",
+"Cập nhật":"อัปเดต",
+"Cập nhật để có tính năng mới và bản sửa lỗi.":"อัปเดตเพื่อรับฟีเจอร์ใหม่และการแก้ไขข้อบกพร่อง",
+"Khởi động lại":"เริ่มใหม่",
+"Mở App Store":"เปิด App Store",
+});
+})(typeof self !== 'undefined' ? self : this);

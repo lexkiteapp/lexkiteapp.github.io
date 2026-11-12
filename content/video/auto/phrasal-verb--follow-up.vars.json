@@ -1,0 +1,23 @@
+{
+ "topic": "Phrasal verb at work: follow up after a meeting",
+ "scene": "office",
+ "seed": "pv-follow-up",
+ "vars": {
+  "verb": "follow up",
+  "hookLine": "I'll follow up.",
+  "literal": "Follow you up? Up where?",
+  "meaning": "Follow up means you check back later, like a second email after a meeting.",
+  "example": "Did you follow up with the client yet?",
+  "tip": "follow up on a topic, follow up with a person."
+ },
+ "lines": {
+  "example": {
+   "expr": "curious"
+  }
+ },
+ "hashtags": [
+  "phrasalverbs",
+  "businessenglish",
+  "englishvocabulary"
+ ]
+}

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=390, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Dictionary - Word Card (resilient) - Dark Theme</title>
+<!-- Material Symbols Outlined font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            // Specified Dark Theme Palette
+            "dark-bg": "#10191B",
+            "dark-card": "#172427",
+            "dark-raised": "#1E2F33",
+            "dark-border": "#283C41",
+            "dark-border-subtle": "#1F3135",
+            "dark-ledge": "#0A1012",
+            "text-primary": "#E8F1F0",
+            "text-secondary": "#A9BDBB",
+            "brand-teal": "#2DD4BF",
+            "brand-teal-light": "#5EEAD4",
+            "brand-teal-dark": "#134E48",
+            "brand-teal-bg": "#113236",
+            "coral-cta": "#fd9500",
+            "coral-cta-border": "#b86300",
+            "coral-cta-ledge": "#7a4000",
+            "amber-accent": "#f59e0b"
+          },
+          fontFamily: {
+            sans: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #10191B;
+      color: #E8F1F0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-1 {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-[#10191B] text-[#E8F1F0] min-h-screen flex justify-center selection:bg-[#2DD4BF]/20 selection:text-[#5EEAD4]">
+<!-- 390px Native Mobile Viewport (No device frame) -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#10191B] flex flex-col relative pb-28">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-40 bg-[#10191B]/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b-2 border-[#1E2F33] shadow-[0_4px_0_0_#0A1012]">
+<div class="flex items-center gap-2.5">
+<button aria-label="Go back" class="min-w-[44px] min-h-[44px] rounded-2xl bg-[#172427] border-2 border-[#283C41] shadow-[0_3px_0_0_#0A1012] active:translate-y-0.5 active:shadow-none flex items-center justify-center text-[#E8F1F0] hover:text-[#2DD4BF] transition-all" type="button"><span class="material-symbols-outlined text-[22px]">arrow_back</span></button>
+<div class="flex flex-col">
+<h1 class="text-[17px] font-extrabold text-[#E8F1F0] leading-tight tracking-tight">Vocabulary Hub</h1>
+<span class="text-[11px] font-semibold text-[#A9BDBB]">IELTS &amp; TOEIC Core</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Streak Chip -->
+<div class="flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-[#172427] border-2 border-[#283C41] shadow-[0_2px_0_0_#0A1012]">
+<span class="material-symbols-outlined text-[16px] text-amber-500 fill-1">local_fire_department</span>
+<span class="text-[12px] font-bold text-[#E8F1F0]">14</span>
+</div>
+<!-- XP Chip -->
+<div class="flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-[#172427] border-2 border-[#283C41] shadow-[0_2px_0_0_#0A1012]">
+<span class="material-symbols-outlined text-[16px] text-amber-400 fill-1">bolt</span>
+<span class="text-[12px] font-extrabold text-[#E8F1F0]">820 XP</span>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="px-4 pt-3.5 flex flex-col gap-3.5">
+<!-- Search Input Bar -->
+<section class="relative">
+<div class="w-full h-12 rounded-2xl bg-[#172427] border-2 border-[#283C41] shadow-[0_3px_0_0_#0A1012] flex items-center px-3.5 gap-2.5">
+<span class="material-symbols-outlined text-[20px] text-[#A9BDBB]">search</span>
+<input aria-label="Search dictionary" class="bg-transparent flex-1 text-[15px] font-bold text-[#E8F1F0] focus:outline-none border-none p-0 tracking-wide" type="text" value="resilient"/>
+<button aria-label="Clear search" class="text-[#A9BDBB] hover:text-[#E8F1F0] min-w-[44px] min-h-[44px] flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[18px]">cancel</span></button>
+<button aria-label="Voice search" class="text-[#2DD4BF] hover:text-[#5EEAD4] min-w-[44px] min-h-[44px] flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[20px]">mic</span></button>
+</div>
+</section>
+<!-- Recent Searches Row -->
+<section class="flex items-center gap-2 overflow-x-auto pb-0.5 scrollbar-none"><span class="text-[12px] font-bold text-[#A9BDBB] flex-shrink-0">Recent:</span><button class="px-3 min-h-[44px] inline-flex items-center justify-center rounded-full bg-[#1E2F33] border border-[#283C41] text-[12px] font-semibold text-[#E8F1F0] hover:border-[#2DD4BF] transition-colors whitespace-nowrap active:scale-95" type="button">pragmatic</button><button class="px-3 min-h-[44px] inline-flex items-center justify-center rounded-full bg-[#1E2F33] border border-[#283C41] text-[12px] font-semibold text-[#E8F1F0] hover:border-[#2DD4BF] transition-colors whitespace-nowrap active:scale-95" type="button">ubiquitous</button><button class="px-3 min-h-[44px] inline-flex items-center justify-center rounded-full bg-[#1E2F33] border border-[#283C41] text-[12px] font-semibold text-[#E8F1F0] hover:border-[#2DD4BF] transition-colors whitespace-nowrap active:scale-95" type="button">meticulous</button></section>
+<!-- Main Word Card Container -->
+<article class="bg-[#172427] rounded-3xl border-2 border-[#283C41] p-4 shadow-[0_5px_0_0_#0A1012] flex flex-col gap-4">
+<!-- Header Handle & Word Title Row -->
+<div>
+<!-- Top subtle grab handle bar -->
+<div class="w-10 h-1.5 rounded-full bg-[#283C41] mx-auto mb-3"></div>
+<div class="flex items-center justify-between flex-wrap gap-2">
+<h2 class="text-[28px] font-extrabold text-[#E8F1F0] tracking-tight leading-none">resilient</h2>
+<div class="flex items-center gap-1.5">
+<span class="px-2.5 py-1 rounded-xl bg-[#113236] border border-[#2DD4BF]/40 text-[#2DD4BF] text-[11px] font-extrabold tracking-wide flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2DD4BF]"></span>
+                C1 • Advanced
+              </span>
+<span class="px-2.5 py-1 rounded-xl bg-[#2e2311] border border-amber-500/40 text-amber-400 text-[11px] font-extrabold tracking-wide">
+                Band 7.5+
+              </span>
+</div>
+</div>
+</div>
+<!-- Pronunciation Audio Blocks (UK & US) -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- UK Pronunciation -->
+<div class="p-2.5 rounded-2xl bg-[#1E2F33] border-2 border-[#283C41] flex items-center justify-between shadow-[0_2px_0_0_#0A1012]">
+<div class="flex flex-col">
+<span class="text-[10px] font-extrabold text-[#A9BDBB] tracking-wider uppercase">UK</span>
+<span class="text-[13px] font-semibold text-[#E8F1F0] tracking-wide">/rɪˈzɪl.i.ənt/</span>
+</div>
+<button aria-label="Play UK audio" class="min-w-[44px] min-h-[44px] rounded-xl bg-[#113236] border border-[#2DD4BF]/50 text-[#2DD4BF] hover:bg-[#2DD4BF] hover:text-[#0A1012] flex items-center justify-center transition-all active:scale-90 shadow-[0_2px_0_0_#0A1012]" type="button"><span class="material-symbols-outlined text-[18px]">volume_up</span></button>
+</div>
+<!-- US Pronunciation -->
+<div class="p-2.5 rounded-2xl bg-[#1E2F33] border-2 border-[#283C41] flex items-center justify-between shadow-[0_2px_0_0_#0A1012]">
+<div class="flex flex-col">
+<span class="text-[10px] font-extrabold text-[#A9BDBB] tracking-wider uppercase">US</span>
+<span class="text-[13px] font-semibold text-[#E8F1F0] tracking-wide">/rəˈzɪl.jənt/</span>
+</div>
+<button aria-label="Play US audio" class="min-w-[44px] min-h-[44px] rounded-xl bg-[#2e2311] border border-amber-500/60 text-amber-400 hover:bg-amber-400 hover:text-[#0A1012] flex items-center justify-center transition-all active:scale-90 shadow-[0_2px_0_0_#0A1012]" type="button"><span class="material-symbols-outlined text-[18px]">volume_up</span></button>
+</div>
+</div>
+<!-- Part of Speech Filter Pills -->
+<div class="flex items-center gap-2 overflow-x-auto pb-0.5 scrollbar-none"><button class="px-3.5 min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-2xl bg-[#113236] border-2 border-[#2DD4BF] text-[#2DD4BF] text-[12px] font-extrabold shadow-[0_2px_0_0_#0A1012] whitespace-nowrap" type="button">adjective</button><button class="px-3.5 min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-2xl bg-[#1E2F33] border border-[#283C41] text-[#E8F1F0] text-[12px] font-semibold hover:border-[#2DD4BF]/50 transition-colors whitespace-nowrap" type="button">noun (resilience)</button><button class="px-3.5 min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-2xl bg-[#1E2F33] border border-[#283C41] text-[#E8F1F0] text-[12px] font-semibold hover:border-[#2DD4BF]/50 transition-colors whitespace-nowrap" type="button">adverb</button></div>
+<!-- Teacher / Coach Advice Box (Dashed slot without human face) -->
+<section class="rounded-2xl border-2 border-dashed border-[#2DD4BF]/40 bg-[#1E2F33]/60 p-3 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-extrabold text-[#2DD4BF] tracking-wider uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">school</span>
+              TEACHER-SLOT
+            </span>
+<span class="text-[10px] font-extrabold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">Task 2 Priority</span>
+</div>
+<p class="text-[12px] font-semibold text-[#E8F1F0] leading-snug">
+            “High-yield in IELTS Writing Task 2 when describing economies or climate adaptations!”
+          </p>
+</section>
+<!-- Core Meanings Section -->
+<section class="flex flex-col gap-2.5">
+<h3 class="text-[15px] font-extrabold text-[#E8F1F0] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-[#2DD4BF]">format_quote</span>
+            Core Meanings
+          </h3>
+<!-- Meaning Item 1 -->
+<div class="p-3 rounded-2xl bg-[#1E2F33] border border-[#283C41] flex flex-col gap-2">
+<div class="flex items-start gap-2.5">
+<span class="w-5 h-5 rounded-full bg-[#113236] border border-[#2DD4BF] text-[#2DD4BF] text-[11px] font-extrabold flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+<p class="text-[13px] font-semibold text-[#E8F1F0] leading-snug">
+                Able to quickly return to a previous good condition after damage or illness.
+              </p>
+</div>
+<!-- Vietnamese Translation Banner -->
+<div class="ml-7 p-2 rounded-xl bg-[#172427] border-l-2 border-[#2DD4BF] text-[12px] text-[#A9BDBB] font-medium leading-snug">
+<span class="text-[#2DD4BF] font-bold">Nghĩa:</span> Có khả năng phục hồi nhanh chóng, kiên cường.
+            </div>
+</div>
+<!-- Meaning Item 2 -->
+<div class="p-3 rounded-2xl bg-[#1E2F33] border border-[#283C41] flex flex-col gap-2">
+<div class="flex items-start gap-2.5">
+<span class="w-5 h-5 rounded-full bg-[#2e2311] border border-amber-500 text-amber-400 text-[11px] font-extrabold flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+<p class="text-[13px] font-semibold text-[#E8F1F0] leading-snug">
+                Able to withstand or recover quickly from difficult conditions.
+              </p>
+</div>
+<!-- Vietnamese Translation Banner -->
+<div class="ml-7 p-2 rounded-xl bg-[#172427] border-l-2 border-amber-500 text-[12px] text-[#A9BDBB] font-medium leading-snug">
+<span class="text-amber-400 font-bold">Nghĩa:</span> Bền bỉ, chịu đựng tốt trước nghịch cảnh.
+            </div>
+</div>
+</section>
+<!-- Exam Examples Section -->
+<section class="flex flex-col gap-2.5">
+<h3 class="text-[15px] font-extrabold text-[#E8F1F0] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-[#2DD4BF]">menu_book</span>
+            Exam Examples
+          </h3>
+<div class="flex flex-col gap-2">
+<!-- Example 1 -->
+<div class="p-2.5 rounded-2xl bg-[#1E2F33] border border-[#283C41] flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-[#2DD4BF] flex-shrink-0 mt-0.5">check_circle</span>
+<p class="text-[12px] text-[#E8F1F0] leading-snug">
+                “The local economy proved remarkably <span class="font-bold text-[#2DD4BF] underline decoration-[#2DD4BF]/40 underline-offset-2">resilient</span> despite global disruptions.”
+              </p>
+</div>
+<!-- Example 2 -->
+<div class="p-2.5 rounded-2xl bg-[#1E2F33] border border-[#283C41] flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-[#2DD4BF] flex-shrink-0 mt-0.5">check_circle</span>
+<p class="text-[12px] text-[#E8F1F0] leading-snug">
+                “Psychologists emphasize that <span class="font-bold text-[#2DD4BF] underline decoration-[#2DD4BF]/40 underline-offset-2">resilient</span> individuals view setbacks as learning opportunities.”
+              </p>
+</div>
+<!-- Example 3 -->
+<div class="p-2.5 rounded-2xl bg-[#1E2F33] border border-[#283C41] flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-[#2DD4BF] flex-shrink-0 mt-0.5">check_circle</span>
+<p class="text-[12px] text-[#E8F1F0] leading-snug">
+                “Engineers designed a <span class="font-bold text-[#2DD4BF] underline decoration-[#2DD4BF]/40 underline-offset-2">resilient</span> power grid to withstand extreme weather events.”
+              </p>
+</div>
+</div>
+</section>
+<!-- Essential Collocations -->
+<section class="flex flex-col gap-2">
+<h4 class="text-[13px] font-extrabold text-[#A9BDBB] tracking-wide uppercase">Essential Collocations</h4>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-3 py-1.5 rounded-xl bg-[#1E2F33] border border-[#283C41] text-[12px] font-bold text-[#E8F1F0]">highly resilient</span>
+<span class="px-3 py-1.5 rounded-xl bg-[#1E2F33] border border-[#283C41] text-[12px] font-bold text-[#E8F1F0]">resilient economy</span>
+<span class="px-3 py-1.5 rounded-xl bg-[#1E2F33] border border-[#283C41] text-[12px] font-bold text-[#E8F1F0]">climate-resilient</span>
+<span class="px-3 py-1.5 rounded-xl bg-[#1E2F33] border border-[#283C41] text-[12px] font-bold text-[#E8F1F0]">emotionally resilient</span>
+<span class="px-3 py-1.5 rounded-xl bg-[#1E2F33] border border-[#283C41] text-[12px] font-bold text-[#E8F1F0]">resilient materials</span>
+</div>
+</section>
+<!-- Primary Coral/Orange CTA Button with Tactile Ledge -->
+<div class="pt-1">
+<button class="w-full h-14 rounded-2xl bg-[#fd9500] hover:bg-[#ff9e1a] text-[#1a0d00] border-2 border-[#b86300] shadow-[0_4px_0_0_#7a4000] active:translate-y-1 active:shadow-none transition-all flex flex-col items-center justify-center" type="button">
+<div class="flex items-center gap-1.5 leading-none">
+<span class="material-symbols-outlined text-[20px] font-black">library_add</span>
+<span class="text-[16px] font-extrabold tracking-wide">+ Add to My Deck</span>
+</div>
+<span class="text-[11px] font-extrabold text-[#3d2000] mt-0.5">1st Review in 4h • +15 XP</span>
+</button>
+</div>
+</article>
+</div>
+<!-- Canonical Lexkite Bottom Navigation Bar (Docked bottom, 64px, 5 destinations) -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-3 py-2 bg-[#172427] border-t-2 border-[#283C41] max-w-[390px] mx-auto h-16 shadow-[0_-4px_0_0_#0A1012]">
+<!-- Tab 1: Learn -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#2DD4BF] px-2 py-1 min-w-[44px] min-h-[44px] transition-colors active:scale-95" href="#learn">
+<span class="material-symbols-outlined text-[22px]">school</span>
+<span class="text-[11px] font-bold mt-0.5">Learn</span>
+</a>
+<!-- Tab 2: Vocab (Active tab with tactile amber-orange pill) -->
+<a class="flex flex-col items-center justify-center bg-[#fd9500] text-[#1a0d00] rounded-2xl px-3 py-1 shadow-[0_3px_0_0_#7a4000] active:translate-y-0.5 active:shadow-none min-w-[44px] min-h-[44px] transition-all" href="#vocab">
+<span class="material-symbols-outlined text-[22px] fill-1 text-[#1a0d00]">menu_book</span>
+<span class="text-[11px] font-extrabold text-[#1a0d00] mt-0.5">Vocab</span>
+</a>
+<!-- Tab 3: Practice -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#2DD4BF] px-2 py-1 min-w-[44px] min-h-[44px] transition-colors active:scale-95" href="#practice">
+<span class="material-symbols-outlined text-[22px]">fitness_center</span>
+<span class="text-[11px] font-bold mt-0.5">Practice</span>
+</a>
+<!-- Tab 4: Stats -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#2DD4BF] px-2 py-1 min-w-[44px] min-h-[44px] transition-colors active:scale-95" href="#stats">
+<span class="material-symbols-outlined text-[22px]">bar_chart</span>
+<span class="text-[11px] font-bold mt-0.5">Stats</span>
+</a>
+<!-- Tab 5: Profile -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] hover:text-[#2DD4BF] px-2 py-1 min-w-[44px] min-h-[44px] transition-colors active:scale-95" href="#profile">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-[11px] font-bold mt-0.5">Profile</span>
+</a>
+</nav>
+</main>
+</body>
+</html>

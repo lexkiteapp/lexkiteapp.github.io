@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite IELTS - Travel &amp; Hospitality (Offline)</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed-variant": "#8c170e",
+            "surface-variant": "#eae1d8",
+            "secondary-container": "#fe9d19",
+            "on-secondary-fixed-variant": "#683c00",
+            "secondary": "#895100",
+            "secondary-fixed-dim": "#ffb86c",
+            "on-surface-variant": "#3f4947",
+            "inverse-primary": "#88d4cd",
+            "on-background": "#1f1b16",
+            "surface-dim": "#e2d8d0",
+            "outline": "#6f7978",
+            "surface-tint": "#106a65",
+            "surface-container-high": "#f0e7de",
+            "surface-container": "#f6ece4",
+            "on-primary-container": "#9ce9e2",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed": "#410000",
+            "on-surface": "#1f1b16",
+            "inverse-surface": "#34302a",
+            "on-primary": "#ffffff",
+            "primary-fixed": "#a4f0e9",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed": "#ffdcbc",
+            "on-primary-fixed-variant": "#00504c",
+            "on-secondary-container": "#663b00",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "error": "#ba1a1a",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "tertiary-container": "#b03224",
+            "primary": "#00514d",
+            "surface-bright": "#fff8f3",
+            "on-primary-fixed": "#00201e",
+            "background": "#fff8f3",
+            "surface": "#fff8f3",
+            "primary-container": "#136b66",
+            "surface-container-low": "#fcf2e9",
+            "on-tertiary-container": "#ffd0c9",
+            "inverse-on-surface": "#f9efe6",
+            "tertiary-fixed": "#ffdad4",
+            "on-secondary-fixed": "#2c1600",
+            "on-error": "#ffffff",
+            "primary-fixed-dim": "#88d4cd",
+            "tertiary": "#8e190f",
+            "outline-variant": "#bec9c7",
+            "surface-container-highest": "#eae1d8"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "gutter-desktop": "1.5rem",
+            "space-md": "1rem",
+            "margin-tablet": "1.5rem",
+            "space-lg": "1.5rem",
+            "margin-desktop": "2.5rem",
+            "gutter": "1rem",
+            "margin": "1rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen pb-32 font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed" style="background-color: #10191B; color: #E8F1F0;">
+<!-- Desktop & Shared TopAppBar Frame (centered, max-w-screen-md) -->
+<header class="sticky top-0 z-40 backdrop-blur-md" style="background-color: rgba(16, 25, 27, 0.95); box-shadow: 0 4px 0 #091012;">
+<div class="flex justify-between items-center w-full px-4 h-16 max-w-screen-md mx-auto">
+<!-- Back Action -->
+<button aria-label="Go Back" class="flex items-center justify-center w-11 h-11 rounded-xl transition-all" style="background-color: #172427; border: 2px solid #283d42; box-shadow: 0 3px 0 #0a1113; color: #2DD4BF;">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Center Context Pill -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full" style="background-color: #1E2F33; border: 2px solid #283d42; box-shadow: 0 2px 0 #0a1113;">
+<span class="material-symbols-outlined text-[18px]" data-icon="menu_book" style="color: #2DD4BF;">menu_book</span>
+<span class="font-label-sm text-label-sm tracking-wider" style="color: #2DD4BF;">B1 TOPIC VOCAB</span>
+</div>
+<!-- Right Action / Search -->
+<div class="flex items-center gap-2">
+<button aria-label="Search cached vocabulary" class="flex items-center justify-center w-11 h-11 rounded-xl transition-all" style="background-color: #172427; border: 2px solid #283d42; box-shadow: 0 3px 0 #0a1113; color: #2DD4BF;">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Viewport Canvas (Centered Max Width Screen MD like SCREEN_141) -->
+<main class="max-w-screen-md mx-auto px-4 pt-4 space-y-5"><!-- Prominent Offline Tactile Alert Banner -->
+<section aria-label="Offline Mode Notice" class="rounded-2xl p-4 sm:p-5 transition-all" role="region" style="background-color: #241D17; border: 2px solid rgba(217, 119, 6, 0.5); box-shadow: 0 4px 0 #130E0A;">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div class="flex items-start gap-3.5">
+<div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style="background-color: #D97706; color: #1C1003; box-shadow: 0 3px 0 #92400E;">
+<span class="material-symbols-outlined text-[26px]" data-icon="wifi_off">wifi_off</span>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<h2 class="font-headline-sm text-headline-sm" style="color: #FEF3C7;">You are offline – showing saved content</h2>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm" style="background-color: #38291B; color: #FDE68A; border: 1px solid rgba(217, 119, 6, 0.3);">
+<span class="w-2 h-2 rounded-full inline-block" style="background-color: #F59E0B;"></span>
+                Last synced today at 08:42
+              </span>
+</div>
+<p class="font-body-sm text-body-sm mt-1 max-w-xl" style="color: #D4BFA7;">
+              Audio pronunciation and new online deck syncing require an active connection. Your cached cards and local study progress are ready.
+            </p>
+</div>
+</div>
+<!-- Retry Action Pill -->
+<button class="w-full sm:w-auto self-stretch sm:self-center shrink-0 min-h-[44px] px-4 py-2.5 font-label-md text-label-md rounded-xl flex items-center justify-center gap-2 transition-all" style="background-color: #F59E0B; color: #1C1003; border: 2px solid rgba(28, 16, 3, 0.3); box-shadow: 0 4px 0 #B45309; font-weight: 700;">
+<span class="material-symbols-outlined text-[20px]" data-icon="sync">sync</span>
+<span>Retry connection</span>
+</button>
+</div>
+</section>
+<!-- Topic Hero Header -->
+<section class="rounded-2xl p-5 sm:p-6 transition-all" style="background-color: #172427; border: 2px solid #24383D; box-shadow: 0 4px 0 #091012;">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-5" style="border-bottom: 2px solid #24383D;">
+<div>
+<div class="flex items-center gap-2 mb-2 flex-wrap">
+<span class="px-2.5 py-1 font-label-sm text-label-sm rounded-lg flex items-center gap-1" style="background-color: #1E2F33; color: #2DD4BF; border: 1px solid #2E454B;">
+<span class="material-symbols-outlined text-[16px]" data-icon="flight_takeoff">flight_takeoff</span>
+              Travel &amp; Hospitality
+            </span>
+<span class="px-2.5 py-1 font-label-sm text-label-sm rounded-lg" style="background-color: #1E2F33; color: #A9BDBB; border: 1px solid #2E454B;">B1 CEFR</span>
+<span class="px-2.5 py-1 font-label-sm text-label-sm rounded-lg" style="background-color: #1E2F33; color: #A9BDBB; border: 1px solid #2E454B;">IELTS &amp; TOEIC</span>
+<span class="px-2 py-0.5 font-label-sm text-label-sm rounded-md font-bold" style="background-color: rgba(45, 212, 191, 0.2); color: #2DD4BF; border: 1px solid rgba(45, 212, 191, 0.3);">CACHED DECK</span>
+</div>
+<h1 class="font-headline-lg-mobile sm:font-headline-lg text-headline-lg-mobile sm:text-headline-lg tracking-tight" style="color: #E8F1F0;">
+            Travel &amp; Hospitality
+          </h1>
+<p class="font-body-md text-body-md mt-1" style="color: #A9BDBB;">
+            Airports, hotel check-ins, transit &amp; navigating international itineraries.
+          </p>
+</div>
+<!-- Mastery Badge -->
+<div class="rounded-xl p-3 flex items-center gap-3.5 min-w-[160px]" style="background-color: #1E2F33; border: 2px solid #283D42; box-shadow: 0 2px 0 #091012;">
+<div class="w-12 h-12 rounded-xl flex items-center justify-center font-headline-sm text-headline-sm font-bold" style="background-color: #14B8A6; color: #042F2C; box-shadow: 0 3px 0 #0F766E;">
+            28%
+          </div>
+<div>
+<div class="font-label-sm text-label-sm" style="color: #8CA3A1;">CURRICULUM</div>
+<div class="font-headline-sm text-headline-sm font-bold" style="color: #2DD4BF;">Mastered</div>
+</div>
+</div>
+</div>
+<!-- Stats Summary Strip -->
+<div class="grid grid-cols-3 gap-2 sm:gap-4 pt-4 text-center">
+<div class="rounded-xl p-2.5" style="background-color: #1E2F33; border: 1px solid #283D42;">
+<div class="font-label-sm text-label-sm" style="color: #8CA3A1;">TOTAL</div>
+<div class="font-headline-sm text-headline-sm font-bold" style="color: #E8F1F0;">240 <span class="font-body-sm text-body-sm" style="color: #8CA3A1;">cached</span></div>
+</div>
+<div class="rounded-xl p-2.5" style="background-color: #1E2F33; border: 1px solid #283D42;">
+<div class="font-label-sm text-label-sm" style="color: #8CA3A1;">MASTERED</div>
+<div class="font-headline-sm text-headline-sm font-bold" style="color: #2DD4BF;">68 <span class="font-body-sm text-body-sm" style="color: #8CA3A1;">words</span></div>
+</div>
+<div class="rounded-xl p-2.5" style="background-color: #1E2F33; border: 1px solid #283D42;">
+<div class="font-label-sm text-label-sm" style="color: #F59E0B;">DAILY GOAL</div>
+<div class="font-headline-sm text-headline-sm font-bold" style="color: #F59E0B;">+20 <span class="font-body-sm text-body-sm" style="color: #8CA3A1;">due</span></div>
+</div>
+</div>
+<!-- Tactile Progress Bar -->
+<div class="mt-4">
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-sm text-label-sm" style="color: #A9BDBB;">Overall Deck Completion</span>
+<span class="font-label-sm text-label-sm font-bold" style="color: #2DD4BF;">68 / 240 words</span>
+</div>
+<div class="h-3.5 w-full rounded-full overflow-hidden p-0.5 shadow-inner" style="background-color: #10191B; border: 1px solid #283D42;">
+<div class="h-full rounded-full relative" style="width: 28.3%; background-color: #14B8A6;">
+<!-- Specular 3D Highlight Strip -->
+<div class="absolute inset-x-0 top-0 h-1 rounded-full" style="background-color: rgba(255, 255, 255, 0.35);"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Coach Tip / Teacher Slot -->
+<div class="teacher-slot rounded-2xl p-4 flex items-start gap-3.5" style="background-color: rgba(23, 36, 39, 0.85); border: 2px dashed rgba(45, 212, 191, 0.45);">
+<div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style="background-color: #14B8A6; color: #042F2C; box-shadow: 0 2px 0 #0F766E;">
+<span class="material-symbols-outlined text-[22px]" data-icon="school">school</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm font-bold" style="color: #2DD4BF;">COACH TIP</span>
+<span class="text-xs px-2 py-0.2 rounded font-semibold" style="background-color: rgba(45, 212, 191, 0.2); color: #2DD4BF; border: 1px solid rgba(45, 212, 191, 0.3);">Offline Ready</span>
+</div>
+<p class="font-body-sm text-body-sm mt-0.5" style="color: #E8F1F0;">
+          Spaced repetition drills work offline! We'll sync your streak and XP as soon as you reconnect.
+        </p>
+</div>
+</div>
+<!-- Filter Tabs (Chunky Tactile Capsules) -->
+<nav aria-label="Vocabulary filter options" class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+<button class="shrink-0 min-h-[44px] px-4 py-2 font-label-md text-label-md rounded-xl transition-all" style="background-color: #172427; border: 2px solid #24383D; color: #E8F1F0; box-shadow: 0 3px 0 #091012;">
+        All words (240)
+      </button>
+<button class="shrink-0 min-h-[44px] px-4 py-2 font-label-md text-label-md rounded-xl transition-all" style="background-color: #172427; border: 2px solid #24383D; color: #E8F1F0; box-shadow: 0 3px 0 #091012;">
+        New (124)
+      </button>
+<button class="shrink-0 min-h-[44px] px-4 py-2 font-label-md text-label-md rounded-xl transition-all" style="background-color: #172427; border: 2px solid #24383D; color: #E8F1F0; box-shadow: 0 3px 0 #091012;">
+        Learning (48)
+      </button>
+<!-- Active Tab: Cached only -->
+<button class="shrink-0 min-h-[44px] px-4 py-2 font-label-md text-label-md rounded-xl transition-all flex items-center gap-1.5" style="background-color: #14B8A6; color: #042F2C; border: 2px solid #2DD4BF; box-shadow: 0 3px 0 #0B5C54; font-weight: 700;">
+<span class="material-symbols-outlined text-[18px]" data-icon="offline_pin">offline_pin</span>
+        Cached only (68)
+      </button>
+</nav>
+<!-- Vocabulary Cards List -->
+<div class="space-y-3.5">
+<!-- Card 1: departure (Cached & Crisp) -->
+<article class="rounded-2xl p-5 transition-all" style="background-color: #172427; border: 2px solid #24383D; box-shadow: 0 4px 0 #091012;">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h3 class="font-headline-md text-headline-md tracking-tight" style="color: #E8F1F0;">departure</h3>
+<span class="px-2 py-0.5 font-label-sm text-label-sm rounded-md" style="background-color: #1E2F33; color: #A9BDBB;">NOUN</span>
+<span class="text-xs font-body-sm" style="color: #8CA3A1;">/dɪˈpɑːr.tʃər/</span>
+<!-- Crisp cached status indicator -->
+<span class="inline-flex items-center gap-1 px-2 py-0.5 font-label-sm text-label-sm rounded-full" style="background-color: rgba(45, 212, 191, 0.15); color: #2DD4BF; border: 1px solid rgba(45, 212, 191, 0.3);">
+<span class="w-1.5 h-1.5 rounded-full inline-block" style="background-color: #2DD4BF;"></span>
+                Cached
+              </span>
+</div>
+<p class="font-body-md text-body-md mt-1.5" style="color: #E8F1F0;">
+              The act of leaving a place, especially at the start of a journey.
+            </p>
+<!-- Collocations Recessed Well -->
+<div class="mt-3 p-3 rounded-xl" style="background-color: #10191B; border: 1px solid #24383D;">
+<span class="font-label-sm text-label-sm block mb-1 font-bold" style="color: #2DD4BF;">COMMON COLLOCATIONS</span>
+<p class="font-body-sm text-body-sm font-medium" style="color: #D2E0DF;">
+                departure lounge · scheduled departure · terminal departure gates
+              </p>
+</div>
+</div>
+<!-- Tactile Audio Button (Cached / Functional) -->
+<div class="flex flex-col items-end gap-2">
+<button aria-label="Play pronunciation for departure" class="w-11 h-11 rounded-xl flex items-center justify-center transition-all" style="background-color: #1E2F33; border: 2px solid #283D42; box-shadow: 0 3px 0 #091012; color: #2DD4BF;">
+<span class="material-symbols-outlined text-[22px]" data-icon="volume_up">volume_up</span>
+</button>
+<div class="flex items-center gap-1" title="Memory Mastery: High">
+<span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: #2DD4BF;"></span>
+<span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: #2DD4BF;"></span>
+<span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: #2DD4BF;"></span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 2: itinerary (Cached & Crisp, Due) -->
+<article class="rounded-2xl p-5 transition-all" style="background-color: #172427; border: 2px solid #24383D; box-shadow: 0 4px 0 #091012;">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h3 class="font-headline-md text-headline-md tracking-tight" style="color: #E8F1F0;">itinerary</h3>
+<span class="px-2 py-0.5 font-label-sm text-label-sm rounded-md" style="background-color: #1E2F33; color: #A9BDBB;">NOUN</span>
+<span class="px-2 py-0.5 font-label-sm text-label-sm rounded-md font-bold" style="background-color: rgba(245, 158, 11, 0.2); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.4);">DUE TODAY</span>
+<span class="text-xs font-body-sm" style="color: #8CA3A1;">/aɪˈtɪn.ə.rer.i/</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 font-label-sm text-label-sm rounded-full" style="background-color: rgba(45, 212, 191, 0.15); color: #2DD4BF; border: 1px solid rgba(45, 212, 191, 0.3);">
+<span class="w-1.5 h-1.5 rounded-full inline-block" style="background-color: #2DD4BF;"></span>
+                Cached
+              </span>
+</div>
+<p class="font-body-md text-body-md mt-1.5" style="color: #E8F1F0;">
+              A detailed plan or route of a journey, listing dates, times, and destinations.
+            </p>
+<div class="mt-3 p-3 rounded-xl" style="background-color: #10191B; border: 1px solid #24383D;">
+<span class="font-label-sm text-label-sm block mb-1 font-bold" style="color: #2DD4BF;">EXAM CONTEXT (IELTS LISTENING SEC 2)</span>
+<p class="font-body-sm text-body-sm italic" style="color: #D2E0DF;">
+                “Please inspect the travel itinerary issued by your tour organizer before passing immigration.”
+              </p>
+</div>
+</div>
+<!-- Tactile Audio Button (Cached) -->
+<div class="flex flex-col items-end gap-2">
+<button aria-label="Play pronunciation for itinerary" class="w-11 h-11 rounded-xl flex items-center justify-center transition-all" style="background-color: #1E2F33; border: 2px solid #283D42; box-shadow: 0 3px 0 #091012; color: #2DD4BF;">
+<span class="material-symbols-outlined text-[22px]" data-icon="volume_up">volume_up</span>
+</button>
+<div class="flex items-center gap-1" title="Memory Mastery: Due for review">
+<span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: #F59E0B;"></span>
+<span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: #F59E0B;"></span>
+<span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: #2E454B;"></span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 3: accommodate (Cached & Crisp) -->
+<article class="rounded-2xl p-5 transition-all" style="background-color: #172427; border: 2px solid #24383D; box-shadow: 0 4px 0 #091012;">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h3 class="font-headline-md text-headline-md tracking-tight" style="color: #E8F1F0;">accommodate</h3>
+<span class="px-2 py-0.5 font-label-sm text-label-sm rounded-md" style="background-color: #1E2F33; color: #A9BDBB;">VERB</span>
+<span class="text-xs font-body-sm" style="color: #8CA3A1;">/əˈkɑː.mə.deɪt/</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 font-label-sm text-label-sm rounded-full" style="background-color: rgba(45, 212, 191, 0.15); color: #2DD4BF; border: 1px solid rgba(45, 212, 191, 0.3);">
+<span class="w-1.5 h-1.5 rounded-full inline-block" style="background-color: #2DD4BF;"></span>
+                Cached
+              </span>
+</div>
+<p class="font-body-md text-body-md mt-1.5" style="color: #E8F1F0;">
+              To provide lodging or sufficient space for someone; or to adapt to someone’s needs.
+            </p>
+<div class="mt-3 p-3 rounded-xl" style="background-color: #10191B; border: 1px solid #24383D;">
+<span class="font-label-sm text-label-sm block mb-1 font-bold" style="color: #2DD4BF;">HIGH-YIELD IELTS VOCAB</span>
+<p class="font-body-sm text-body-sm font-medium" style="color: #D2E0DF;">
+                “The resort can accommodate up to 400 international delegates during peak seasons.”
+              </p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<button aria-label="Play pronunciation for accommodate" class="w-11 h-11 rounded-xl flex items-center justify-center transition-all" style="background-color: #1E2F33; border: 2px solid #283D42; box-shadow: 0 3px 0 #091012; color: #2DD4BF;">
+<span class="material-symbols-outlined text-[22px]" data-icon="volume_up">volume_up</span>
+</button>
+<div class="flex items-center gap-1" title="Memory Mastery: Mastered">
+<span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: #2DD4BF;"></span>
+<span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: #2DD4BF;"></span>
+<span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: #2DD4BF;"></span>
+</div>
+</div>
+</div>
+</article>
+<!-- Card 4: complimentary (Partially cached / Dimmed Audio State) -->
+<article class="rounded-2xl p-5 transition-all" style="background-color: #172427; border: 2px solid #24383D; box-shadow: 0 4px 0 #091012; opacity: 0.95;">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h3 class="font-headline-md text-headline-md tracking-tight" style="color: #E8F1F0;">complimentary</h3>
+<span class="px-2 py-0.5 font-label-sm text-label-sm rounded-md" style="background-color: #1E2F33; color: #A9BDBB;">ADJECTIVE</span>
+<span class="px-2 py-0.5 font-label-sm text-label-sm rounded-md font-semibold" style="background-color: #2E454B; color: #A9BDBB;">NEW</span>
+<span class="text-xs font-body-sm" style="color: #8CA3A1;">/ˌkɑːm.pləˈmen.tər.i/</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 font-label-sm text-label-sm rounded-full" style="background-color: #1E2F33; color: #A9BDBB; border: 1px solid #283D42;">
+<span class="w-1.5 h-1.5 rounded-full inline-block" style="background-color: #6F8583;"></span>
+                Text only
+              </span>
+</div>
+<p class="font-body-md text-body-md mt-1.5" style="color: #E8F1F0;">
+              Given or supplied free of charge as part of a service or courtesy.
+            </p>
+<div class="mt-3 p-3 rounded-xl" style="background-color: #10191B; border: 1px solid #24383D;">
+<span class="font-label-sm text-label-sm block mb-1 font-bold" style="color: #2DD4BF;">HOSPITALITY USAGE</span>
+<p class="font-body-sm text-body-sm" style="color: #D2E0DF;">
+                “Guests receive a complimentary shuttle pass and hot buffet breakfast upon arrival.”
+              </p>
+</div>
+</div>
+<!-- Dimmed Audio Button with Tooltip Pill -->
+<div class="flex flex-col items-end gap-1.5 shrink-0">
+<button aria-label="Audio unavailable offline" class="w-11 h-11 rounded-xl cursor-not-allowed flex items-center justify-center relative" disabled="" style="background-color: #1E2F33; border: 2px solid #283D42; color: #6F8583; opacity: 0.6;">
+<span class="material-symbols-outlined text-[22px]" data-icon="volume_off">volume_off</span>
+</button>
+<span class="px-2 py-0.5 font-label-sm text-[11px] rounded whitespace-nowrap" style="background-color: #1E2F33; color: #A9BDBB; border: 1px solid #283D42;">
+              Audio needs connection
+            </span>
+</div>
+</div>
+</article>
+<!-- Card 5: layover (Cached & Crisp) -->
+<article class="rounded-2xl p-5 transition-all" style="background-color: #172427; border: 2px solid #24383D; box-shadow: 0 4px 0 #091012;">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<h3 class="font-headline-md text-headline-md tracking-tight" style="color: #E8F1F0;">layover</h3>
+<span class="px-2 py-0.5 font-label-sm text-label-sm rounded-md" style="background-color: #1E2F33; color: #A9BDBB;">NOUN</span>
+<span class="text-xs font-body-sm" style="color: #8CA3A1;">/ˈleɪˌoʊ.vər/</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 font-label-sm text-label-sm rounded-full" style="background-color: rgba(45, 212, 191, 0.15); color: #2DD4BF; border: 1px solid rgba(45, 212, 191, 0.3);">
+<span class="w-1.5 h-1.5 rounded-full inline-block" style="background-color: #2DD4BF;"></span>
+                Cached
+              </span>
+</div>
+<p class="font-body-md text-body-md mt-1.5" style="color: #E8F1F0;">
+              A period of rest or waiting between parts of a long journey, especially flights.
+            </p>
+<div class="mt-3 p-3 rounded-xl" style="background-color: #10191B; border: 1px solid #24383D;">
+<span class="font-label-sm text-label-sm block mb-1 font-bold" style="color: #2DD4BF;">COLLOCATIONS</span>
+<p class="font-body-sm text-body-sm font-medium" style="color: #D2E0DF;">
+                four-hour layover · international transit layover · overnight layover
+              </p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-2">
+<button aria-label="Play pronunciation for layover" class="w-11 h-11 rounded-xl flex items-center justify-center transition-all" style="background-color: #1E2F33; border: 2px solid #283D42; box-shadow: 0 3px 0 #091012; color: #2DD4BF;">
+<span class="material-symbols-outlined text-[22px]" data-icon="volume_up">volume_up</span>
+</button>
+<div class="flex items-center gap-1" title="Memory Mastery: High">
+<span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: #2DD4BF;"></span>
+<span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: #2DD4BF;"></span>
+<span class="w-2.5 h-2.5 rounded-full inline-block" style="background-color: #2DD4BF;"></span>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Bottom Actions: Show More -->
+<div class="pt-2 text-center">
+<button class="min-h-[48px] w-full sm:w-auto px-8 py-3 font-label-md text-label-md rounded-2xl transition-all inline-flex items-center justify-center gap-2" style="background-color: #172427; border: 2px solid #2DD4BF; color: #F0FDF4; box-shadow: 0 4px 0 #091012;">
+<span class="material-symbols-outlined text-[20px]" data-icon="expand_more" style="color: #2DD4BF;">expand_more</span>
+<span style="color: #F0FDF4; font-weight: 700;">Show next 20 words</span>
+</button>
+</div></main>
+<!-- Sticky Bottom Quick Study Trigger (Extruded Amber Action) -->
+<div class="fixed bottom-20 left-0 right-0 z-40 px-4 pointer-events-none">
+<div class="max-w-screen-md mx-auto flex justify-center">
+<button class="pointer-events-auto min-h-[52px] px-6 py-3 font-headline-sm text-headline-sm rounded-2xl flex items-center gap-3 transition-all" style="background-color: #F59E0B; color: #1C1003; border: 2px solid rgba(28, 16, 3, 0.35); box-shadow: 0 5px 0 #B45309; font-weight: 700;">
+<span class="material-symbols-outlined fill-icon text-[24px]" data-icon="bolt" style="color: #1C1003;">bolt</span>
+<span>Study 20 offline words (~4 MINS)</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward" style="color: #1C1003;">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Shared BottomNavBar Component (Destination Shell) -->
+<!-- Style Guidance: Pinned full width, no border-t/border-b, separated by shadow, max-w-screen-md centered -->
+<nav class="fixed bottom-0 left-0 w-full z-50 transition-transform" style="background-color: #10191B; box-shadow: 0 -4px 0 #080D0E; border-top: 1px solid #1E2F33;">
+<div class="flex justify-around items-center px-2 py-2 max-w-screen-md mx-auto">
+<!-- Destination 1: Today -->
+<a aria-label="Today" class="flex flex-col items-center justify-center px-3 py-1 rounded-xl transition-colors active:translate-y-[2px]" href="#today" style="color: #A9BDBB;">
+<span class="material-symbols-outlined text-[24px]" data-icon="today">today</span>
+<span class="text-label-sm font-label-sm mt-0.5">Today</span>
+</a>
+<!-- Destination 2: Vocab (MANDATORY ACTIVE STATE LOGIC) -->
+<a aria-current="page" aria-label="Vocab" class="flex flex-col items-center justify-center rounded-xl px-4 py-1.5 active:translate-y-[2px]" href="#vocab" style="background-color: #14B8A6; color: #042F2C; box-shadow: 0 3px 0 #0A5A53; font-weight: 700;">
+<span class="material-symbols-outlined fill-icon text-[24px]" data-icon="menu_book">menu_book</span>
+<span class="text-label-sm font-label-sm mt-0.5">Vocab</span>
+</a>
+<!-- Destination 3: Skills -->
+<a aria-label="Skills" class="flex flex-col items-center justify-center px-3 py-1 rounded-xl transition-colors active:translate-y-[2px]" href="#skills" style="color: #A9BDBB;">
+<span class="material-symbols-outlined text-[24px]" data-icon="psychology">psychology</span>
+<span class="text-label-sm font-label-sm mt-0.5">Skills</span>
+</a>
+<!-- Destination 4: Tests -->
+<a aria-label="Tests" class="flex flex-col items-center justify-center px-3 py-1 rounded-xl transition-colors active:translate-y-[2px]" href="#tests" style="color: #A9BDBB;">
+<span class="material-symbols-outlined text-[24px]" data-icon="assignment">assignment</span>
+<span class="text-label-sm font-label-sm mt-0.5">Tests</span>
+</a>
+<!-- Destination 5: Me -->
+<a aria-label="Me" class="flex flex-col items-center justify-center px-3 py-1 rounded-xl transition-colors active:translate-y-[2px]" href="#me" style="color: #A9BDBB;">
+<span class="material-symbols-outlined text-[24px]" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm mt-0.5">Me</span>
+</a>
+</div>
+</nav>
+<!-- Interactive feedback micro-script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Simulate audio fallback notification if an offline speaker is pressed
+      const unavailableAudios = document.querySelectorAll('[data-icon="volume_off"]');
+      unavailableAudios.forEach(btn => {
+        btn.closest('button')?.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert('Audio pronunciations are not stored offline. Please reconnect to Wi-Fi or cellular data.');
+        });
+      });
+    });
+  </script>
+</body></html>

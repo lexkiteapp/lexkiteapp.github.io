@@ -1,0 +1,70 @@
+{
+ "_note": "Sinh tự động từ content/video/templates/word-of-the-day.json + vars (node scripts/video/template.mjs build) – ĐỪNG sửa tay: sửa file vars rồi build lại.",
+ "topic": "Word of the day for the office: \"bandwidth\"",
+ "format": "short",
+ "template": "word-of-the-day",
+ "script": {
+  "title": "Word of the day: bandwidth",
+  "hook": "What does bandwidth mean?",
+  "scene": "office",
+  "time": "day",
+  "format_id": "word-of-day",
+  "template": "word-of-the-day",
+  "lines": [
+   {
+    "who": "carlos",
+    "beat": "hook",
+    "text": "No bandwidth.",
+    "expr": "deadpan",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "situation",
+    "text": "Bandwidth? Like the Wi-Fi?",
+    "expr": "confused",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "explain",
+    "text": "Ah, bandwidth means time and energy to take on more work.",
+    "expr": "confident",
+    "gesture": "open hands",
+    "punch": true
+   },
+   {
+    "who": "carlos",
+    "beat": "example",
+    "text": "Do you have the bandwidth to help on Friday?",
+    "expr": "curious",
+    "gesture": ""
+   },
+   {
+    "who": "kit",
+    "beat": "tip",
+    "text": "Kit's tip: no bandwidth is a polite way to say I'm too busy.",
+    "expr": "proud",
+    "gesture": ""
+   },
+   {
+    "who": "ama",
+    "beat": "cta",
+    "text": "Look up any word on lexkite.com",
+    "expr": "happy smile",
+    "gesture": "waving hello"
+   }
+  ],
+  "keywords": [
+   "bandwidth"
+  ],
+  "caption": "Word of the day: \"bandwidth\" = time and energy to take on more work",
+  "hashtags": [
+   "wordoftheday",
+   "businessenglish",
+   "englishvocabulary"
+  ],
+  "area": "dictionary",
+  "link": "https://lexkite.com/app/#/dict"
+ }
+}

@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_office",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: office.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a room or building where people work, usually at desks.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "Her office is on the fifth floor.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "office",
+  "ipa": "/ˈɔːfɪs/",
+  "mean": "a room or building where people work, usually at desks",
+  "ex": "Her office is on the fifth floor.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=office",
+  "link": "https://lexkite.com/app/#/review?w=office",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 44,
+  "seconds": 26.7,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"office\" mean?",
+  "keyword": "office",
+  "value": "Office means a room or building where people work, usually at desks.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=office",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"office\" mean?",
+    "description": "Office means a room or building where people work, usually at desks.\n\nReview your words, free: https://lexkite.com/app/#/review?w=office\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "office",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"office\" mean?\n\nOffice means a room or building where people work, usually at desks.\n\nReview your words, free: https://lexkite.com/app/#/review?w=office"
+   },
+   "instagram": {
+    "caption": "What does \"office\" mean?\n\nOffice means a room or building where people work, usually at desks.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"office\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a room or building where people work, usually at desks. Office means a room or building where people work, usually at desks. Practice it with a free quiz: {link}"
+ }
+}

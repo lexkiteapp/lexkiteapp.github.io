@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Learn English for Real. Free, Forever.</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            cream: {
+              50: '#FFFDF9',
+              100: '#FFF7EA',
+              200: '#FCEFD8',
+              300: '#F7E3C0',
+            },
+            teal: {
+              900: '#0F3D3E',
+              800: '#154E50',
+              700: '#1D6264',
+              100: '#E4F4F3',
+              50: '#F0F9F8',
+            },
+            ink: {
+              DEFAULT: '#142021',
+              muted: '#2A4345',
+              soft: '#415B5D',
+            },
+            coral: {
+              DEFAULT: '#FF6B4A',
+              hover: '#FF5731',
+              lip: '#C83B1B',
+              surface: '#FFF0EC',
+              darktext: '#2A1208',
+            }
+          },
+          boxShadow: {
+            'tactile-coral': '0 4px 0 0 #C83B1B',
+            'tactile-coral-active': '0 1px 0 0 #C83B1B',
+            'tactile-outline': '0 3px 0 0 #D4C3A3',
+            'card-warm': '0 8px 24px -4px rgba(60, 40, 10, 0.06), 0 2px 6px -1px rgba(60, 40, 10, 0.04)',
+            'card-warm-hover': '0 14px 32px -4px rgba(60, 40, 10, 0.1), 0 4px 10px -2px rgba(60, 40, 10, 0.05)',
+          },
+          borderRadius: {
+            '24': '24px',
+            '28': '28px',
+            '32': '32px',
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-rounded.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-cream-100 text-ink font-sans antialiased min-h-screen selection:bg-coral selection:text-white">
+<!-- Main Container constrained to 1280px desktop canvas -->
+<div class="max-w-[1280px] mx-auto min-h-screen flex flex-col px-6 md:px-12 lg:px-16 pt-4 pb-12">
+<!-- 1. TOP BAR -->
+<header class="w-full flex items-center justify-between py-4 mb-6">
+<!-- Left: Logo & Wordmark -->
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-3.5 group focus:outline-none focus:ring-2 focus:ring-teal-900 rounded-xl p-1" href="#">
+<!-- Kite geometric brand icon -->
+<div class="w-10 h-10 rounded-2xl bg-teal-900 flex items-center justify-center shadow-sm">
+<svg class="w-6 h-6" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2.5L19.5 10L12 21.5L4.5 10L12 2.5Z" fill="#FFF7EA" stroke="#FFF7EA" stroke-width="0.5"></path>
+<path d="M12 2.5V21.5" stroke="#0F3D3E" stroke-linecap="round" stroke-width="1.5"></path>
+<path d="M4.5 10H19.5" stroke="#0F3D3E" stroke-linecap="round" stroke-width="1.5"></path>
+<circle cx="12" cy="10" fill="#FF6B4A" r="1.5"></circle>
+</svg>
+</div>
+<span class="text-2xl font-bold tracking-tight text-teal-900">Lexkite</span>
+</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-2">
+<a class="px-4 py-2 min-h-[44px] inline-flex items-center rounded-xl text-[15px] font-semibold text-ink-muted hover:text-teal-900 hover:bg-cream-200 transition-colors" href="#blog">Blog</a>
+<a class="px-4 py-2 min-h-[44px] inline-flex items-center rounded-xl text-[15px] font-semibold text-ink-muted hover:text-teal-900 hover:bg-cream-200 transition-colors" href="#resources">Vocabulary</a>
+</nav>
+</div>
+<!-- Right controls -->
+<div class="flex items-center gap-3">
+<!-- Language selector pill -->
+<button class="min-h-[44px] px-3.5 py-2 inline-flex items-center gap-1.5 rounded-full bg-white border border-[#E8DAC2] text-[14px] font-semibold text-ink hover:border-teal-900 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-900" type="button">
+<span class="material-symbols-rounded text-teal-900 text-[18px]">language</span>
+<span>English</span>
+<span class="material-symbols-rounded text-[18px] text-ink-soft">expand_more</span>
+</button>
+<!-- Theme toggle icon button -->
+<button aria-label="Toggle theme mode" class="w-11 h-11 inline-flex items-center justify-center rounded-full bg-white border border-[#E8DAC2] text-ink hover:text-teal-900 hover:border-teal-900 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-900" type="button">
+<span class="material-symbols-rounded text-[20px]">light_mode</span>
+</button>
+<!-- Small outline button: Open app -->
+<a class="min-h-[44px] px-5 py-2.5 inline-flex items-center justify-center rounded-xl border-2 border-teal-900 text-teal-900 text-[14px] font-bold tracking-wide hover:bg-teal-900 hover:text-cream-100 transition-all shadow-[0_2px_0_0_#0F3D3E] active:translate-y-[1px] active:shadow-none focus:outline-none focus:ring-2 focus:ring-teal-900" href="#app">
+          Open app
+        </a>
+</div>
+</header>
+<!-- 2. HERO SECTION (fully visible above the fold) -->
+<section class="w-full pt-4 pb-12 mb-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Left copy and primary CTAs (7 columns) -->
+<div class="lg:col-span-7 flex flex-col items-start pr-2">
+<!-- Subtle badge -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-[#EADBC3] text-teal-900 text-[13px] font-bold uppercase tracking-wider mb-5 shadow-xs">
+<span class="w-2 h-2 rounded-full bg-[#10B981]"></span>
+          Free Web App + Chrome Extension
+        </div>
+<h1 class="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-teal-900 leading-[1.12] tracking-tight mb-5">
+          Learn English for real.<br/>Free, forever.
+        </h1>
+<p class="text-lg lg:text-[19px] text-ink-muted leading-relaxed max-w-[580px] mb-8 font-medium">
+          Flashcards that remember for you, an AI teacher you can call, exam practice and a lookup add-on for every page — no paywall, no hearts, no catch.
+        </p>
+<!-- Actions Row -->
+<div class="w-full flex flex-wrap items-center gap-3.5 mb-5">
+<!-- Primary CTA: Coral/Apricot tactile button with darker bottom lip & dark brown-black text (contrast >= 4.5:1) -->
+<a class="min-h-[50px] px-7 py-3 inline-flex items-center justify-center rounded-2xl bg-coral hover:bg-coral-hover text-coral-darktext font-extrabold text-[16px] tracking-wide shadow-tactile-coral hover:translate-y-[-1px] active:translate-y-[3px] active:shadow-tactile-coral-active transition-all focus:outline-none focus:ring-4 focus:ring-coral/40" href="#start">
+<span>Start learning free</span>
+<span class="material-symbols-rounded text-[20px] ml-2 text-coral-darktext">arrow_forward</span>
+</a>
+<!-- Secondary outline button: Add to Chrome -->
+<a class="min-h-[50px] px-5 py-3 inline-flex items-center justify-center rounded-2xl border-2 border-[#D8C6A5] bg-white text-teal-900 font-bold text-[15px] hover:border-teal-900 hover:bg-cream-50 shadow-tactile-outline active:translate-y-[2px] active:shadow-none transition-all focus:outline-none focus:ring-2 focus:ring-teal-900" href="#chrome">
+<span class="material-symbols-rounded text-[20px] mr-2 text-teal-800">extension</span>
+<span>Add to Chrome</span>
+</a>
+<!-- Secondary outline button: Get the app -->
+<a class="min-h-[50px] px-5 py-3 inline-flex items-center justify-center rounded-2xl border-2 border-[#D8C6A5] bg-white text-teal-900 font-bold text-[15px] hover:border-teal-900 hover:bg-cream-50 shadow-tactile-outline active:translate-y-[2px] active:shadow-none transition-all focus:outline-none focus:ring-2 focus:ring-teal-900" href="#get-app">
+<span class="material-symbols-rounded text-[20px] mr-2 text-teal-800">devices</span>
+<span>Get the app</span>
+</a>
+</div>
+<!-- Quiet text link -->
+<div class="pt-1">
+<a class="inline-flex items-center min-h-[44px] py-2 text-[14px] font-semibold text-ink-soft hover:text-teal-900 underline underline-offset-4 transition-colors" href="#login">
+            I already have an account
+          </a>
+</div>
+</div>
+<!-- Right illustration area for teacher Ama (5 columns) -->
+<!-- Explicitly EMPTY grounded spot for 2D teacher Ama: soft floor shadow ellipse + speech bubble, NO person/silhouette drawn -->
+<div class="lg:col-span-5 flex flex-col items-center justify-center relative min-h-[380px] lg:min-h-[440px]">
+<!-- Ambient sunny room glow ring -->
+<div class="absolute w-[360px] h-[360px] rounded-full bg-[#FCE8C7]/50 blur-2xl pointer-events-none -z-10"></div>
+<!-- Speech bubble for Ama -->
+<div class="relative z-10 mb-20 max-w-[280px] bg-white px-5 py-3.5 rounded-24 shadow-card-warm border border-[#EFE1CC] flex items-center gap-3 animate-pulse">
+<div class="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center shrink-0">
+<span class="material-symbols-rounded text-teal-900 text-[18px]">chat</span>
+</div>
+<p class="text-[15px] font-bold text-teal-900 leading-snug">
+            “Hi! Ready for 5 minutes today?”
+          </p>
+<!-- Speech bubble bottom tail pointing down toward the empty spot -->
+<div class="absolute -bottom-2.5 left-12 w-5 h-5 bg-white border-r border-b border-[#EFE1CC] transform rotate-45"></div>
+</div>
+<!-- Empty teacher figure space (Reserved for 2D illustration integration) -->
+<div class="w-full flex flex-col items-center justify-end relative h-40">
+<!-- Subtle dashed boundary indicator for editorial review (clean and unobtrusive) -->
+<div class="w-48 h-32 rounded-3xl border border-dashed border-[#DECCA8]/40 flex items-center justify-center">
+<span class="text-[12px] font-semibold text-[#8B6B38] tracking-wider uppercase">Ama • Spot</span>
+</div>
+<!-- Soft warm rounded floor shape / shadow ellipse -->
+<div class="w-64 sm:w-72 h-7 bg-[#EAD5B0]/70 rounded-[100%] blur-[2px] mt-2 shadow-inner"></div>
+</div>
+</div>
+</section>
+<!-- 3. TRUST STRIP -->
+<section class="w-full mb-16">
+<div class="w-full bg-white/90 border border-[#EFE1CC] rounded-24 px-6 py-4.5 shadow-card-warm flex flex-wrap items-center justify-between gap-4">
+<!-- Chip 1 -->
+<div class="flex items-center gap-3 min-w-[200px] flex-1 py-1">
+<div class="w-10 h-10 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center shrink-0">
+<span class="material-symbols-rounded text-teal-900 text-[22px]">verified</span>
+</div>
+<div>
+<div class="text-[15px] font-bold text-teal-900 leading-tight">100% free</div>
+<div class="text-[12px] font-medium text-ink-soft">Forever, no paywalls</div>
+</div>
+</div>
+<div class="hidden sm:block w-[1px] h-8 bg-[#EFE1CC]"></div>
+<!-- Chip 2 -->
+<div class="flex items-center gap-3 min-w-[200px] flex-1 py-1">
+<div class="w-10 h-10 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center shrink-0">
+<span class="material-symbols-rounded text-teal-900 text-[22px]">block</span>
+</div>
+<div>
+<div class="text-[15px] font-bold text-teal-900 leading-tight">No ads blocking lessons</div>
+<div class="text-[12px] font-medium text-ink-soft">Pure uninterrupted focus</div>
+</div>
+</div>
+<div class="hidden md:block w-[1px] h-8 bg-[#EFE1CC]"></div>
+<!-- Chip 3 -->
+<div class="flex items-center gap-3 min-w-[200px] flex-1 py-1">
+<div class="w-10 h-10 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center shrink-0">
+<span class="material-symbols-rounded text-teal-900 text-[22px]">translate</span>
+</div>
+<div>
+<div class="text-[15px] font-bold text-teal-900 leading-tight">15 interface languages</div>
+<div class="text-[12px] font-medium text-ink-soft">Learn in your native tongue</div>
+</div>
+</div>
+<div class="hidden lg:block w-[1px] h-8 bg-[#EFE1CC]"></div>
+<!-- Chip 4 -->
+<div class="flex items-center gap-3 min-w-[200px] flex-1 py-1">
+<div class="w-10 h-10 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center shrink-0">
+<span class="material-symbols-rounded text-teal-900 text-[22px]">stairs</span>
+</div>
+<div>
+<div class="text-[15px] font-bold text-teal-900 leading-tight">A1 to C2 levels</div>
+<div class="text-[12px] font-medium text-ink-soft">CEFR mapped curriculum</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. FEATURES (4 white cards in a row) -->
+<section class="w-full mb-20">
+<div class="mb-8">
+<h2 class="text-3xl font-extrabold text-teal-900 tracking-tight mb-2">Designed for how your brain retains English</h2>
+<p class="text-ink-muted font-medium text-base">Four thoughtfully calibrated tools built into one free daily routine.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Feature Card 1: Smart flashcards (FSRS) -->
+<div class="bg-white rounded-24 p-6 border border-[#EFE1CC] shadow-card-warm hover:shadow-card-warm-hover transition-all flex flex-col justify-between group">
+<div>
+<!-- UI-like illustration -->
+<div class="w-full h-36 bg-cream-100 rounded-2xl border border-[#EADBBE] p-3.5 mb-5 flex flex-col justify-between">
+<div class="flex items-center justify-between text-[11px] font-bold text-teal-900">
+<span class="px-2 py-0.5 rounded-md bg-white border border-[#E0D0B0]">FSRS-v5</span>
+<span class="text-emerald-700 font-bold">Optimal: 94%</span>
+</div>
+<div class="bg-white rounded-xl p-2.5 shadow-sm border border-[#EADBBE]">
+<div class="text-[13px] font-bold text-teal-900">ubiquitous</div>
+<div class="text-[11px] text-ink-soft">Review scheduled in 3 days</div>
+</div>
+<div class="flex gap-1.5">
+<div class="h-1.5 flex-1 bg-teal-900 rounded-full"></div>
+<div class="h-1.5 flex-1 bg-teal-900 rounded-full"></div>
+<div class="h-1.5 flex-1 bg-teal-900/30 rounded-full"></div>
+</div>
+</div>
+<h3 class="text-xl font-bold text-teal-900 mb-2">Smart flashcards (FSRS)</h3>
+<p class="text-[14px] text-ink-muted leading-relaxed font-medium">Review words at the exact right moment before you forget them.</p>
+</div>
+<div class="pt-4 flex items-center text-[13px] font-bold text-teal-900">
+<span>Free spaced repetition</span>
+<span class="material-symbols-rounded text-[18px] ml-1">sync</span>
+</div>
+</div>
+<!-- Feature Card 2: Call an AI teacher -->
+<div class="bg-white rounded-24 p-6 border border-[#EFE1CC] shadow-card-warm hover:shadow-card-warm-hover transition-all flex flex-col justify-between group">
+<div>
+<!-- UI-like illustration: Static Call Screen (NO autoplay) -->
+<div class="w-full h-36 bg-teal-50 rounded-2xl border border-teal-100 p-3.5 mb-5 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="text-[11px] font-bold text-teal-900">Audio Call · 02:14</span>
+</div>
+<span class="material-symbols-rounded text-teal-900 text-[18px]">volume_up</span>
+</div>
+<div class="bg-white rounded-xl p-2 shadow-xs border border-teal-100 text-center">
+<div class="text-[12px] font-bold text-teal-900">“Great sentence! Try ‘although’.”</div>
+<div class="text-[10px] text-emerald-800 font-semibold mt-0.5">Gentle grammar correction</div>
+</div>
+<div class="flex items-center justify-center gap-3">
+<div class="w-6 h-6 rounded-full bg-white border border-teal-200 flex items-center justify-center">
+<span class="material-symbols-rounded text-[14px] text-teal-900">mic</span>
+</div>
+<div class="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center">
+<span class="material-symbols-rounded text-[14px] text-red-700">call_end</span>
+</div>
+</div>
+</div>
+<h3 class="text-xl font-bold text-teal-900 mb-2">Call an AI teacher</h3>
+<p class="text-[14px] text-ink-muted leading-relaxed font-medium">Speak naturally anytime and get patient, friendly real-time corrections without judgment.</p>
+</div>
+<div class="pt-4 flex items-center text-[13px] font-bold text-teal-900">
+<span>Safe speaking room</span>
+<span class="material-symbols-rounded text-[18px] ml-1">headset_mic</span>
+</div>
+</div>
+<!-- Feature Card 3: IELTS · TOEIC · TOEFL practice -->
+<div class="bg-white rounded-24 p-6 border border-[#EFE1CC] shadow-card-warm hover:shadow-card-warm-hover transition-all flex flex-col justify-between group">
+<div>
+<!-- UI-like illustration -->
+<div class="w-full h-36 bg-cream-100 rounded-2xl border border-[#EADBBE] p-3.5 mb-5 flex flex-col justify-between">
+<div class="flex gap-1.5">
+<span class="px-2 py-0.5 rounded bg-white text-[10px] font-bold text-teal-900 border border-[#EADBBE]">IELTS</span>
+<span class="px-2 py-0.5 rounded bg-white text-[10px] font-bold text-teal-900 border border-[#EADBBE]">TOEIC</span>
+<span class="px-2 py-0.5 rounded bg-white text-[10px] font-bold text-teal-900 border border-[#EADBBE]">TOEFL</span>
+</div>
+<div class="bg-white rounded-xl p-2.5 shadow-sm border border-[#EADBBE] flex items-center justify-between">
+<div>
+<div class="text-[12px] font-bold text-teal-900">Task 2 Academic</div>
+<div class="text-[10px] text-ink-soft">Scored: Band 7.5</div>
+</div>
+<span class="text-xs font-extrabold text-teal-900 bg-teal-100 px-2 py-1 rounded-md">88%</span>
+</div>
+<div class="w-full bg-[#EADBBE] h-1.5 rounded-full overflow-hidden">
+<div class="bg-teal-900 h-full w-[78%]"></div>
+</div>
+</div>
+<h3 class="text-xl font-bold text-teal-900 mb-2">IELTS · TOEIC · TOEFL practice</h3>
+<p class="text-[14px] text-ink-muted leading-relaxed font-medium">Real-format exam mock tests, academic collocations, and instant objective score bands.</p>
+</div>
+<div class="pt-4 flex items-center text-[13px] font-bold text-teal-900">
+<span>Realistic score evaluation</span>
+<span class="material-symbols-rounded text-[18px] ml-1">assignment_turned_in</span>
+</div>
+</div>
+<!-- Feature Card 4: Lookup add-on -->
+<div class="bg-white rounded-24 p-6 border border-[#EFE1CC] shadow-card-warm hover:shadow-card-warm-hover transition-all flex flex-col justify-between group">
+<div>
+<!-- UI-like illustration -->
+<div class="w-full h-36 bg-cream-100 rounded-2xl border border-[#EADBBE] p-3.5 mb-5 flex flex-col justify-between">
+<div class="flex items-center gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-[#EADBBE]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#EADBBE]"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-[#EADBBE]"></div>
+<span class="text-[10px] font-semibold text-ink-soft ml-1">browser tab</span>
+</div>
+<div class="bg-white rounded-xl p-2 shadow-sm border border-teal-700/20">
+<div class="text-[11px] text-ink-soft leading-tight">...economic <span class="bg-teal-100 text-teal-900 px-1 font-bold rounded">disparities</span> continue...</div>
+<div class="mt-1 text-[10px] font-bold text-teal-900 flex items-center gap-1">
+<span class="material-symbols-rounded text-[12px] text-coral">bookmark_add</span> Added to your Deck
+                </div>
+</div>
+<div class="text-[10px] font-bold text-ink-soft flex items-center justify-between">
+<span>Double-click instant card</span>
+<span class="material-symbols-rounded text-[14px] text-teal-900">extension</span>
+</div>
+</div>
+<h3 class="text-xl font-bold text-teal-900 mb-2">Lookup add-on</h3>
+<p class="text-[14px] text-ink-muted leading-relaxed font-medium">Double-click any unfamiliar word on any website to see definitions and save it instantly.</p>
+</div>
+<div class="pt-4 flex items-center text-[13px] font-bold text-teal-900">
+<span>Chrome Web Store add-on</span>
+<span class="material-symbols-rounded text-[18px] ml-1">open_in_new</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. HOW IT WORKS (3 numbered steps next to EMPTY spot for 2D teacher Carlos) -->
+<section class="w-full mb-20 bg-white/60 border border-[#EFE1CC] rounded-32 p-8 lg:p-12 shadow-card-warm">
+<div class="mb-8">
+<h2 class="text-3xl font-extrabold text-teal-900 tracking-tight mb-2">How it works</h2>
+<p class="text-ink-muted font-medium text-base">A simple, bite-sized habit that fits effortlessly into your day.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- 3 Numbered Steps (7 columns) -->
+<div class="lg:col-span-7 space-y-4">
+<!-- Step 1 -->
+<div class="bg-white rounded-24 p-6 border border-[#EFE1CC] shadow-card-warm flex items-start gap-5">
+<div class="w-12 h-12 rounded-2xl bg-teal-900 text-cream-100 flex items-center justify-center font-extrabold text-xl shrink-0 shadow-sm">
+              1
+            </div>
+<div>
+<h3 class="text-xl font-bold text-teal-900 mb-1">Pick your level</h3>
+<p class="text-[15px] text-ink-muted font-medium leading-relaxed">
+                Take a quick 2-minute diagnostic or choose your target exam goal (General English, IELTS, TOEFL, or TOEIC).
+              </p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-white rounded-24 p-6 border border-[#EFE1CC] shadow-card-warm flex items-start gap-5">
+<div class="w-12 h-12 rounded-2xl bg-teal-900 text-cream-100 flex items-center justify-center font-extrabold text-xl shrink-0 shadow-sm">
+              2
+            </div>
+<div>
+<h3 class="text-xl font-bold text-teal-900 mb-1">Learn 5 minutes a day</h3>
+<p class="text-[15px] text-ink-muted font-medium leading-relaxed">
+                Review high-yield collocations and phrases calibrated to your exact forgetting curve without burn-out.
+              </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-white rounded-24 p-6 border border-[#EFE1CC] shadow-card-warm flex items-start gap-5">
+<div class="w-12 h-12 rounded-2xl bg-teal-900 text-cream-100 flex items-center justify-center font-extrabold text-xl shrink-0 shadow-sm">
+              3
+            </div>
+<div>
+<h3 class="text-xl font-bold text-teal-900 mb-1">Speak with your teacher</h3>
+<p class="text-[15px] text-ink-muted font-medium leading-relaxed">
+                Practice conversational topics or interview questions with Carlos and Ama. Receive friendly pointers in real time.
+              </p>
+</div>
+</div>
+</div>
+<!-- Right: EMPTY grounded spot for 2D teacher Carlos (5 columns) -->
+<div class="lg:col-span-5 flex flex-col items-center justify-center relative min-h-[340px]">
+<!-- Speech bubble for Carlos -->
+<div class="relative z-10 mb-16 bg-white px-5 py-3 rounded-24 shadow-card-warm border border-[#EFE1CC] flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center shrink-0">
+<span class="material-symbols-rounded text-teal-900 text-[18px]">favorite</span>
+</div>
+<p class="text-[15px] font-bold text-teal-900 leading-snug">
+              “Step by step, together.”
+            </p>
+<!-- Tail pointing down -->
+<div class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-5 h-5 bg-white border-r border-b border-[#EFE1CC] transform rotate-45"></div>
+</div>
+<!-- Empty teacher figure space (Reserved for Carlos 2D illustration) -->
+<div class="w-full flex flex-col items-center justify-end relative h-36">
+<div class="w-48 h-28 rounded-3xl border border-dashed border-[#DECCA8]/40 flex items-center justify-center">
+<span class="text-[12px] font-semibold text-[#8B6B38] tracking-wider uppercase">Carlos • Spot</span>
+</div>
+<!-- Soft floor shadow ellipse -->
+<div class="w-60 sm:w-68 h-7 bg-[#EAD5B0]/70 rounded-[100%] blur-[2px] mt-2 shadow-inner"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. FREE RESOURCES (Grid of 3 link cards) -->
+<section class="w-full mb-20" id="resources">
+<div class="mb-8">
+<h2 class="text-3xl font-extrabold text-teal-900 tracking-tight mb-2">Free resources</h2>
+<p class="text-ink-muted font-medium text-base">Open-access materials curated to boost your fluency and test scores.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Resource Card 1 -->
+<a class="bg-white rounded-24 p-7 border border-[#EFE1CC] shadow-card-warm hover:shadow-card-warm-hover hover:-translate-y-1 transition-all flex flex-col justify-between group focus:outline-none focus:ring-2 focus:ring-teal-900" href="#blog">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-teal-50 border border-teal-100 flex items-center justify-center mb-5 group-hover:bg-teal-100 transition-colors">
+<span class="material-symbols-rounded text-teal-900 text-[26px]">menu_book</span>
+</div>
+<h3 class="text-2xl font-bold text-teal-900 mb-2">Blog — study tips</h3>
+<p class="text-[15px] text-ink-muted leading-relaxed font-medium mb-6">Short, practical guides: IELTS and TOEIC strategies, grammar explained simply, words people often confuse.</p>
+</div>
+<div class="inline-flex items-center min-h-[44px] text-[15px] font-bold text-teal-900 group-hover:text-teal-700">
+<span>Explore</span>
+<span class="material-symbols-rounded text-[20px] ml-1.5 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</a>
+<!-- Resource Card 2 -->
+<a class="bg-white rounded-24 p-7 border border-[#EFE1CC] shadow-card-warm hover:shadow-card-warm-hover hover:-translate-y-1 transition-all flex flex-col justify-between group focus:outline-none focus:ring-2 focus:ring-teal-900" href="#tools">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-teal-50 border border-teal-100 flex items-center justify-center mb-5 group-hover:bg-teal-100 transition-colors">
+<span class="material-symbols-rounded text-teal-900 text-[26px]">description</span>
+</div>
+<h3 class="text-2xl font-bold text-teal-900 mb-2">Sample answers &amp; grammar</h3>
+<p class="text-[15px] text-ink-muted leading-relaxed font-medium mb-6">Band-scored IELTS speaking and writing samples plus a free A1–C2 grammar reference.</p>
+</div>
+<div class="inline-flex items-center min-h-[44px] text-[15px] font-bold text-teal-900 group-hover:text-teal-700">
+<span>Explore</span>
+<span class="material-symbols-rounded text-[20px] ml-1.5 group-hover:translate-x-1 transition-transform">description</span>
+</div>
+</a>
+<!-- Resource Card 3 -->
+<a class="bg-white rounded-24 p-7 border border-[#EFE1CC] shadow-card-warm hover:shadow-card-warm-hover hover:-translate-y-1 transition-all flex flex-col justify-between group focus:outline-none focus:ring-2 focus:ring-teal-900" href="#vocab-lists">
+<div>
+<div class="w-12 h-12 rounded-2xl bg-teal-50 border border-teal-100 flex items-center justify-center mb-5 group-hover:bg-teal-100 transition-colors">
+<span class="material-symbols-rounded text-teal-900 text-[26px]">format_list_bulleted</span>
+</div>
+<h3 class="text-2xl font-bold text-teal-900 mb-2">Vocabulary lists A1–C2</h3>
+<p class="text-[15px] text-ink-muted leading-relaxed font-medium mb-6">Word lists for every CEFR level with pronunciation, examples and pictures.</p>
+</div>
+<div class="inline-flex items-center min-h-[44px] text-[15px] font-bold text-teal-900 group-hover:text-teal-700">
+<span>Explore</span>
+<span class="material-symbols-rounded text-[20px] ml-1.5 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</a>
+</div>
+</section>
+<!-- 7. FAQ (5 collapsible rows with chevrons, first one open) -->
+<section class="w-full mb-20 max-w-4xl mx-auto">
+<div class="text-center mb-10">
+<h2 class="text-3xl font-extrabold text-teal-900 tracking-tight mb-2">Frequently asked questions</h2>
+<p class="text-ink-muted font-medium text-base">Everything you need to know about learning with Lexkite.</p>
+</div>
+<div class="space-y-4">
+<!-- FAQ Item 1 (Open with short answer) -->
+<div class="bg-white rounded-24 border border-[#EFE1CC] shadow-card-warm overflow-hidden">
+<button class="w-full px-7 py-5 min-h-[52px] text-left flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-teal-900" type="button">
+<span class="text-lg font-bold text-teal-900">Is Lexkite really free?</span>
+<span class="material-symbols-rounded text-teal-900 text-[24px]">expand_less</span>
+</button>
+<div class="px-7 pb-6 pt-1 text-[15px] text-ink-muted font-medium leading-relaxed border-t border-[#F5EBD9]/60">
+            Yes, 100% free forever. There are no paid tiers, no locked premium lessons, no subscription walls, and no pay-to-refill hearts. Our entire curriculum and browser add-on are free for every learner.
+          </div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="bg-white rounded-24 border border-[#EFE1CC] shadow-card-warm overflow-hidden">
+<button class="w-full px-7 py-5 min-h-[52px] text-left flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-teal-900 hover:bg-cream-50 transition-colors" type="button">
+<span class="text-lg font-bold text-teal-900">Do I need an account?</span>
+<span class="material-symbols-rounded text-teal-900 text-[24px]">expand_more</span>
+</button>
+</div>
+<!-- FAQ Item 3 -->
+<div class="bg-white rounded-24 border border-[#EFE1CC] shadow-card-warm overflow-hidden">
+<button class="w-full px-7 py-5 min-h-[52px] text-left flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-teal-900 hover:bg-cream-50 transition-colors" type="button">
+<span class="text-lg font-bold text-teal-900">Which exams can I practice?</span>
+<span class="material-symbols-rounded text-teal-900 text-[24px]">expand_more</span>
+</button>
+</div>
+<!-- FAQ Item 4 -->
+<div class="bg-white rounded-24 border border-[#EFE1CC] shadow-card-warm overflow-hidden">
+<button class="w-full px-7 py-5 min-h-[52px] text-left flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-teal-900 hover:bg-cream-50 transition-colors" type="button">
+<span class="text-lg font-bold text-teal-900">Does the add-on work on every site?</span>
+<span class="material-symbols-rounded text-teal-900 text-[24px]">expand_more</span>
+</button>
+</div>
+<!-- FAQ Item 5 -->
+<div class="bg-white rounded-24 border border-[#EFE1CC] shadow-card-warm overflow-hidden">
+<button class="w-full px-7 py-5 min-h-[52px] text-left flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-teal-900 hover:bg-cream-50 transition-colors" type="button">
+<span class="text-lg font-bold text-teal-900">Which languages is the interface in?</span>
+<span class="material-symbols-rounded text-teal-900 text-[24px]">expand_more</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 8. FINAL CTA BAND (LIGHT warm band, soft apricot-cream tint, NOT dark) -->
+<section class="w-full mb-16 bg-[#FFF2DE] border border-[#F2DEBF] rounded-32 p-10 lg:p-14 shadow-card-warm text-center flex flex-col items-center justify-center">
+<h2 class="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-teal-900 tracking-tight mb-4">
+        Ready for your first 5 minutes?
+      </h2>
+<p class="text-ink-muted text-base sm:text-lg max-w-xl mx-auto mb-8 font-medium">
+        Build a reliable vocabulary habit that lasts. No credit card, no sign-up wall, completely free.
+      </p>
+<!-- Primary CTA repeated -->
+<a class="min-h-[52px] px-8 py-3.5 inline-flex items-center justify-center rounded-2xl bg-coral hover:bg-coral-hover text-coral-darktext font-extrabold text-[16px] tracking-wide shadow-tactile-coral hover:translate-y-[-1px] active:translate-y-[3px] active:shadow-tactile-coral-active transition-all focus:outline-none focus:ring-4 focus:ring-coral/40" href="#start">
+<span>Start learning free</span>
+<span class="material-symbols-rounded text-[20px] ml-2 text-coral-darktext">arrow_forward</span>
+</a>
+</section>
+<!-- FOOTER on cream with link columns (Product, Learn, Company), language selector & Auto/Light/Dark pill -->
+<footer class="w-full pt-10 border-t border-[#EADBBE] mt-auto">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+<!-- Brand column (2 cols on md) -->
+<div class="col-span-2">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-xl bg-teal-900 flex items-center justify-center">
+<svg class="w-5 h-5" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2.5L19.5 10L12 21.5L4.5 10L12 2.5Z" fill="#FFF7EA"></path>
+<path d="M12 2.5V21.5" stroke="#0F3D3E" stroke-width="1.5"></path>
+<circle cx="12" cy="10" fill="#FF6B4A" r="1.5"></circle>
+</svg>
+</div>
+<span class="text-xl font-bold tracking-tight text-teal-900">Lexkite</span>
+</div>
+<p class="text-[14px] text-ink-muted max-w-sm leading-relaxed font-medium mb-4">
+            The free, calm, evidence-based English companion for test-takers and lifelong learners worldwide.
+          </p>
+<div class="text-[13px] text-ink-soft font-semibold">© Lexkite</div>
+</div>
+<!-- Product Column -->
+<div>
+<h4 class="text-[14px] font-bold text-teal-900 uppercase tracking-wider mb-4">Product</h4>
+<ul class="space-y-2.5">
+<li><a class="inline-flex items-center min-h-[44px] py-1 text-[14px] font-semibold text-ink-muted hover:text-teal-900 transition-colors" href="#app">Web App</a></li>
+<li><a class="inline-flex items-center min-h-[44px] py-1 text-[14px] font-semibold text-ink-muted hover:text-teal-900 transition-colors" href="#chrome">Chrome Extension</a></li>
+<li><a class="inline-flex items-center min-h-[44px] py-1 text-[14px] font-semibold text-ink-muted hover:text-teal-900 transition-colors" href="#spaced-repetition">FSRS Algorithm</a></li>
+<li><a class="inline-flex items-center min-h-[44px] py-1 text-[14px] font-semibold text-ink-muted hover:text-teal-900 transition-colors" href="#teachers">AI Teachers</a></li>
+</ul>
+</div>
+<!-- Learn Column -->
+<div>
+<h4 class="text-[14px] font-bold text-teal-900 uppercase tracking-wider mb-4">Learn</h4>
+<ul class="space-y-2.5">
+<li><a class="inline-flex items-center min-h-[44px] py-1 text-[14px] font-semibold text-ink-muted hover:text-teal-900 transition-colors" href="#blog">Study Blog</a></li>
+<li><a class="inline-flex items-center min-h-[44px] py-1 text-[14px] font-semibold text-ink-muted hover:text-teal-900 transition-colors" href="#vocab">Word Lists A1–C2</a></li>
+<li><a class="inline-flex items-center min-h-[44px] py-1 text-[14px] font-semibold text-ink-muted hover:text-teal-900 transition-colors" href="#ielts">IELTS Preparation</a></li>
+<li><a class="inline-flex items-center min-h-[44px] py-1 text-[14px] font-semibold text-ink-muted hover:text-teal-900 transition-colors" href="#toefl">TOEFL &amp; TOEIC</a></li>
+</ul>
+</div>
+<!-- Company Column -->
+<div>
+<h4 class="text-[14px] font-bold text-teal-900 uppercase tracking-wider mb-4">Company</h4>
+<ul class="space-y-2.5">
+<li><a class="inline-flex items-center min-h-[44px] py-1 text-[14px] font-semibold text-ink-muted hover:text-teal-900 transition-colors" href="#method">Our Method</a></li>
+<li><a class="inline-flex items-center min-h-[44px] py-1 text-[14px] font-semibold text-ink-muted hover:text-teal-900 transition-colors" href="#open">Why It's Free</a></li>
+<li><a class="inline-flex items-center min-h-[44px] py-1 text-[14px] font-semibold text-ink-muted hover:text-teal-900 transition-colors" href="#privacy">Privacy Policy</a></li>
+<li><a class="inline-flex items-center min-h-[44px] py-1 text-[14px] font-semibold text-ink-muted hover:text-teal-900 transition-colors" href="#contact">Contact</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Bar: Language Selector & Auto / Light / Dark Theme Pill -->
+<div class="pt-6 border-t border-[#EADBBE] flex flex-wrap items-center justify-between gap-4">
+<!-- Language Selector -->
+<div class="flex items-center gap-2">
+<span class="text-[13px] font-semibold text-ink-soft">Interface:</span>
+<button class="min-h-[44px] px-3 py-1.5 inline-flex items-center gap-1.5 rounded-lg bg-white border border-[#EADBBE] text-[13px] font-bold text-teal-900 hover:border-teal-900 transition-colors focus:outline-none focus:ring-2 focus:ring-teal-900" type="button">
+<span class="material-symbols-rounded text-[16px] text-teal-900">language</span>
+<span>English (US)</span>
+<span class="material-symbols-rounded text-[16px] text-ink-soft">expand_more</span>
+</button>
+</div>
+<!-- Theme Mode Switcher Pill (Auto / Light / Dark) -->
+<div class="flex items-center bg-white border border-[#EADBBE] rounded-full p-1 shadow-xs">
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-full text-[13px] font-semibold text-ink-soft hover:text-teal-900 transition-colors focus:outline-none" type="button">
+            Auto
+          </button>
+<button class="min-h-[44px] px-4 py-1.5 rounded-full bg-teal-900 text-cream-100 text-[13px] font-bold shadow-xs focus:outline-none" type="button">
+            Light
+          </button>
+<button class="min-h-[44px] px-3.5 py-1.5 rounded-full text-[13px] font-semibold text-ink-soft hover:text-teal-900 transition-colors focus:outline-none" type="button">
+            Dark
+          </button>
+</div>
+</div>
+</footer>
+</div>
+</body>
+</html>

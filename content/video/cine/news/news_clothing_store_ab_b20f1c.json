@@ -1,0 +1,107 @@
+{
+ "id": "news_clothing_store_ab_b20f1c",
+ "template": "ab",
+ "bg": "library",
+ "area": "grammar",
+ "cefr": "A2",
+ "point": "phrasal verb + pronoun: try it on",
+ "hook": {
+  "card": "TRY ON IT?",
+  "line": "n_b20f1c_h"
+ },
+ "series": [
+  "SHOPPING ENGLISH",
+  "try it on"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_b20f1c_1",
+   "card": {
+    "kind": "p",
+    "text": "Can I try on it?",
+    "sub": null,
+    "label": "A"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_b20f1c_2",
+   "card": {
+    "kind": "p",
+    "text": "Can I try it on?",
+    "sub": null,
+    "label": "B"
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_b20f1c_3",
+   "card": {
+    "kind": "p",
+    "text": "A or B?",
+    "sub": null,
+    "label": "COMMENT"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_b20f1c_4",
+   "card": {
+    "kind": "v",
+    "text": "Can I try it on?",
+    "sub": "it goes in the middle",
+    "label": null
+   }
+  },
+  {
+   "who": "ama",
+   "line": "n_b20f1c_5",
+   "card": {
+    "kind": "v",
+    "text": "try on this jacket",
+    "sub": "a noun can go after",
+    "label": null
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_b20f1c_rp",
+   "card": {
+    "kind": "v",
+    "text": "Try on this jacket.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "line": "n_b20f1c_r",
+  "rows": [
+   "Can I try it on?",
+   "try on this jacket",
+   "try it on"
+  ],
+  "line_alt": "n_b20f1c_r2"
+ },
+ "end_line": "n_b20f1c_e",
+ "link": "https://lexkite.com/app/#/grammar",
+ "cta": "Practice grammar free on lexkite.com",
+ "est": 24.6,
+ "no_intro": true,
+ "end_alt": "n_b20f1c_e2",
+ "publish": {
+  "title": "Try it on, not \"try on it\"",
+  "keyword": "try it on",
+  "value": "With a phrasal verb, the pronoun goes in the middle: try it on.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a2english"
+  ],
+  "first_comment": "Remember: \"try it on\", \"take it off\", \"put it on\". The pronoun goes in the middle. Practice phrasal verbs free here: {link}"
+ }
+}

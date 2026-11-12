@@ -1,0 +1,25 @@
+# D1 trong ngày (sự cố 03/11 – docs/CAPACITY.md §6): 20 phút/lần 1 truy vấn GraphQL (secret CF_ANALYTICS_TOKEN của CI) → POST /api/capacity op usage
+# → _d1guard thấy % dòng đọc/ghi thật (ngưỡng 85 % tiết kiệm, ngân sách Quản trị) + thư chủ ở 50 % / 75 % (1 thư/bậc/ngày). Lưới dự phòng khi Pages chưa có CF_ANALYTICS_TOKEN.
+# 72 lượt/ngày × 1 yêu cầu prod (scripts/test/no-prod-hosts.mjs PROD_OK) · ≈ 0,5 phút runner/lượt · thiếu khoá → bỏ qua trung tính.
+name: d1-usage-watch
+on:
+  schedule:
+    - cron: '7,27,47 * * * *'
+  workflow_dispatch:
+concurrency: { group: d1-usage-watch, cancel-in-progress: false }
+permissions: { contents: read }
+jobs:
+  usage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: 'scripts', sparse-checkout-cone-mode: true }
+      - uses: actions/setup-node@v4
+        with: { node-version: '24' }
+      - name: Đo D1 hôm nay & báo máy chủ
+        env:
+          CF_ANALYTICS_TOKEN: '${{ secrets.CF_ANALYTICS_TOKEN }}'
+          CF_ACCOUNT_ID: e34e14b7ab35eaf2b3d9d84fcce011f7
+          LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}'
+        run: node scripts/capacity/d1-usage.mjs

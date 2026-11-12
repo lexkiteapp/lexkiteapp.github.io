@@ -1,0 +1,212 @@
+{
+  "id": "job-interview",
+  "level": "B2",
+  "order": 14,
+  "em": "🎯",
+  "title": {
+    "vi": "Phỏng vấn: câu hỏi khó",
+    "en": "Job interviews: tough questions"
+  },
+  "goal": {
+    "vi": "Tóm tắt kinh nghiệm, nói về điểm yếu một cách thật lòng, đưa kết quả cụ thể và hỏi về bước tiếp theo.",
+    "en": "Sum up your experience, talk about a weakness honestly, give real results and ask about next steps."
+  },
+  "dialogue": {
+    "a": "Daniel",
+    "aRole": "a hiring manager at a software company",
+    "lines": [
+      [
+        "a",
+        "Thanks for coming in. Could you start by telling me about your background?"
+      ],
+      [
+        "b",
+        "Sure. Let me walk you through my background. In my last role, I was responsible for a team of five."
+      ],
+      [
+        "a",
+        "And what drew you to this position?"
+      ],
+      [
+        "b",
+        "What drew me to this role was the chance to lead bigger projects."
+      ],
+      [
+        "a",
+        "What would you say is your biggest weakness?"
+      ],
+      [
+        "b",
+        "One thing I'm working on is delegating more. I used to do everything myself, so now I share tasks earlier."
+      ],
+      [
+        "a",
+        "Can you give me an example of a result you're proud of?"
+      ],
+      [
+        "b",
+        "We changed our testing process. As a result, we cut bugs by 30 percent."
+      ],
+      [
+        "a",
+        "Impressive. Do you have any questions for me?"
+      ],
+      [
+        "b",
+        "Yes. What are the next steps in the process?"
+      ]
+    ]
+  },
+  "phrases": [
+    {
+      "id": "walk-you-through",
+      "say": "Let me walk you through my background.",
+      "not": "I will explain you my CV.",
+      "gap": "through",
+      "mean": {
+        "vi": "Mở đầu phần giới thiệu kinh nghiệm",
+        "en": "Start talking about your experience"
+      },
+      "why": {
+        "vi": "Không nói \"explain you\"; hãy nói \"explain to you\" hoặc \"walk you through\".",
+        "en": "Don't say \"explain you\"; say \"explain to you\" or \"walk you through\"."
+      }
+    },
+    {
+      "id": "what-drew-me",
+      "say": "What drew me to this role was the chance to lead projects.",
+      "not": "I apply because I need a job.",
+      "gap": "drew",
+      "mean": {
+        "vi": "Nói điều gì khiến bạn thích vị trí này",
+        "en": "Say what attracts you to the job"
+      },
+      "why": {
+        "vi": "Nói điều cuốn hút bạn, không chỉ điều bạn cần.",
+        "en": "Talk about what attracts you, not only what you need."
+      }
+    },
+    {
+      "id": "working-on",
+      "say": "One thing I'm working on is delegating more.",
+      "not": "My weakness is I am too perfectionist.",
+      "gap": "working",
+      "mean": {
+        "vi": "Nói về điểm yếu một cách thật lòng",
+        "en": "Talk about a weakness honestly"
+      },
+      "why": {
+        "vi": "Nêu một điểm yếu thật và cách bạn đang cải thiện nó.",
+        "en": "Name a real weakness and show how you are improving."
+      }
+    },
+    {
+      "id": "responsible-for",
+      "say": "In my last role, I was responsible for a team of five.",
+      "not": "In my last job I was responsible of five people.",
+      "gap": "responsible",
+      "mean": {
+        "vi": "Nói về trách nhiệm trong công việc trước",
+        "en": "Talk about your duties in your last job"
+      },
+      "why": {
+        "vi": "Nói \"responsible for\", không nói \"responsible of\".",
+        "en": "Say \"responsible for\", not \"responsible of\"."
+      }
+    },
+    {
+      "id": "as-a-result",
+      "say": "As a result, we cut costs by 20 percent.",
+      "not": "So the result was very good.",
+      "gap": "result",
+      "mean": {
+        "vi": "Nêu kết quả cụ thể của việc bạn làm",
+        "en": "Give a clear result of your work"
+      },
+      "why": {
+        "vi": "Kết quả có con số thuyết phục hơn lời khen chung chung.",
+        "en": "A result with numbers is stronger than \"very good\"."
+      }
+    },
+    {
+      "id": "tell-me-more-team",
+      "say": "Could you tell me more about the team I'd be working with?",
+      "not": "How many people in team?",
+      "gap": "tell",
+      "mean": {
+        "vi": "Hỏi thêm về đội nhóm để thể hiện bạn quan tâm",
+        "en": "Ask about the team to show real interest"
+      },
+      "why": {
+        "vi": "Câu hỏi hay cho thấy bạn thật sự quan tâm đến công việc.",
+        "en": "Good questions show you really care about the job."
+      }
+    },
+    {
+      "id": "next-steps",
+      "say": "What are the next steps in the process?",
+      "not": "When you will call me?",
+      "gap": "steps",
+      "mean": {
+        "vi": "Hỏi về bước tiếp theo sau buổi phỏng vấn",
+        "en": "Ask what happens after the interview"
+      },
+      "why": {
+        "vi": "\"Next steps\" nghe chuyên nghiệp; câu hỏi phải là \"when will you\".",
+        "en": "\"Next steps\" sounds professional; in questions, say \"when will you\"."
+      }
+    }
+  ],
+  "roleplay": {
+    "ai": {
+      "name": "Daniel",
+      "role": "a hiring manager at a software company",
+      "persona": "professional, direct, a little tough",
+      "goal": "find out the candidate's experience, weakness and results"
+    },
+    "you": "Walk the manager through your background, talk about a weakness, give a result with a number and ask about next steps.",
+    "turns": [
+      {
+        "a": "Thanks for coming in. Could you tell me about your background?",
+        "h": "Sure. Let me walk you through it. In my last role, I was responsible for a small team.",
+        "br": [
+          [
+            "walk you through|responsible|last role|worked|experience",
+            "Okay, thanks."
+          ]
+        ]
+      },
+      {
+        "a": "What would you say is your biggest weakness?",
+        "h": "One thing I'm working on is delegating more. I'm getting better at it.",
+        "br": [
+          [
+            "working on|weakness|improve|better|learning",
+            "That's honest. I like that."
+          ]
+        ]
+      },
+      {
+        "a": "Tell me about a result you're proud of.",
+        "h": "We changed our process. As a result, we cut costs by 20 percent.",
+        "br": [
+          [
+            "as a result|percent|result|cut|saved|increased",
+            "Impressive."
+          ]
+        ]
+      },
+      {
+        "a": "Do you have any questions for me?",
+        "h": "Yes. What are the next steps in the process?",
+        "br": [
+          [
+            "next steps|team|what|how|when",
+            "Good question."
+          ]
+        ]
+      }
+    ],
+    "end": "We'll talk with two more people this week, and you'll hear from us by Friday. Thanks for your time!"
+  }
+}

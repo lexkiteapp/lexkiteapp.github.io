@@ -15,6 +15,7 @@
   ];
   const done = () => state.game.pronDone || {};
   const accent = () => state.settings.accent;
+  const RHYTHM = ['weak-forms', 'word-stress', 'stress-shift', 'connected-speech', 'chunking', 'intonation'];
 
   routes.pron = function (id) {
     if (id) return lesson(decodeURIComponent(id));
@@ -83,6 +84,9 @@
           <button class="icon-btn sm pmic" data-k="${k}" title="${t('Nói & chấm điểm')}">🎙️</button><span class="pscore" data-s="${k}"></span></div>`).join('')}</div>
         <div class="small muted" id="pHint" style="margin-top:.5rem"></div></div>
 
+      ${window.PronPairs && PronPairs.forSkill(x.id).length ? `<div class="card" style="margin-top:1rem" id="sayIt"></div>` : ''}
+      ${window.PronRhythm && RHYTHM.includes(x.id) ? `<div class="card" style="margin-top:1rem" id="pRhythm"></div>` : ''}
+
       ${(x.pairs || []).length ? `<div class="card" style="margin-top:1rem"><h3>👂 ${t('Nghe & phân biệt cặp từ')}</h3><p class="small muted">${t('Nghe một từ trong cặp rồi chọn đúng từ bạn nghe được. Luyện tai trước, miệng sẽ chuẩn theo.')}</p>
         <div class="row">${x.pairs.map(p => `<span class="chip">${esc(p[0])} ↔ ${esc(p[1])}</span>`).join('')}</div>
         <div id="pairGame" style="margin-top:.8rem"><button class="btn primary" id="startPairs">▶️ ${t('Bắt đầu ({n} lượt)', { n: 8 })}</button></div></div>` : ''}
@@ -127,6 +131,9 @@
 
     // Trò chơi nghe – phân biệt cặp từ
     const sp = $('#startPairs');
+    // Luyện NÓI cặp từ (pron/sayit.js) – micro bị chặn → chuyển sang trò nghe ở trên
+    if (window.PronRhythm && $('#pRhythm')) PronRhythm.mount($('#pRhythm'), x); // nhịp câu, dạng yếu, shadowing (pron/rhythm.js)
+    if (window.PronSay) PronSay.mount($('#sayIt'), x, { fallback: () => { const pg = $('#pairGame'); if (pg) { pg.scrollIntoView({ behavior: 'smooth', block: 'center' }); if (sp) sp.click(); } } });
     if (sp) sp.onclick = () => {
       const rounds = shuffle(Array.from({ length: 8 }, (_, k) => x.pairs[k % x.pairs.length])).map(p => ({ p, ans: Math.random() < .5 ? 0 : 1 }));
       let r = 0, ok = 0;
@@ -134,9 +141,11 @@
       const step = () => {
         if (r >= rounds.length) {
           const pct = Math.round(ok / rounds.length * 100);
-          box.innerHTML = `<div class="feedback ${pct >= 75 ? 'ok' : 'no'}" style="position:static"><b>${t('Nghe đúng {ok}/{n}', { ok, n: rounds.length })}</b> – ${pct >= 75 ? t('tai bạn đã phân biệt tốt!') : t('nghe chậm lại từng cặp và thử lần nữa.')} <button class="btn sm" id="startPairs2">↺ ${t('Chơi lại')}</button></div>`;
-          App.reward({ quizzes: 1, pron: 1, xp: 5 + ok * 2 }); if (pct >= 75) Sfx.win();
-          $('#startPairs2').onclick = sp.onclick; return;
+          box.innerHTML = `<div class="feedback ${pct >= 75 ? 'ok' : 'no'}" style="position:static" data-lesson-done><b>${t('Nghe đúng {ok}/{n}', { ok, n: rounds.length })}</b> – ${pct >= 75 ? t('tai bạn đã phân biệt tốt!') : t('nghe chậm lại từng cặp và thử lần nữa.')} <button class="btn sm" id="startPairs2">↺ ${t('Chơi lại')}</button></div>`;
+          App.reward({ quizzes: 1, pron: 1, xp: 5 + ok * 2 });
+          $('#startPairs2').onclick = sp.onclick;
+          Sfx.finish({ pct, xp: 5 + ok * 2, good: 75, el: box });
+          return;
         }
         const { p, ans } = rounds[r];
         box.innerHTML = `<div class="row"><button class="btn" id="replay">🔊 ${t('Nghe lại ({i}/{n})', { i: r + 1, n: rounds.length })}</button></div>
@@ -161,13 +170,13 @@
       qa++; if (okk) qr++;
       $$('.opts button', item).forEach(b2 => { if (+b2.dataset.v === q.answer) b2.classList.add('right'); });
       if (!okk) btn.classList.add('wrong');
-      okk ? Sfx.correct() : Sfx.wrong();
+      Sfx.answer(okk);
       const ex = $('[data-explain]', item); ex.hidden = false; ex.innerHTML = `${okk ? '✅' : '❌'} ${esc(q.explain)}`;
       if (qa === x.quiz.length) {
         const pct = Math.round(qr / qa * 100);
         await App.reward({ quizzes: 1, pron: 1, perfect: pct === 100 ? 1 : 0, xp: 8 + qr * 3 });
         state.game = await Game.mutate(g => { g.pronDone = { ...(g.pronDone || {}), [x.id]: Math.max(pct, (g.pronDone || {})[x.id] || 0) }; });
-        if (pct >= 80) { Sfx.win(); confetti(80); }
+        Sfx.finish({ pct, xp: 8 + qr * 3, el: item.parentNode });
       }
     }));
   }

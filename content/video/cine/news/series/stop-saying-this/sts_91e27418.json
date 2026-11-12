@@ -1,0 +1,566 @@
+{
+ "id": "sts_91e27418",
+ "template": "mistake",
+ "title": "Stop Saying This #10 – Stop saying \"I don't rarely go out.\" – say \"I rarely go out.\"",
+ "teacher": "ama",
+ "set": "classroom_board",
+ "clips": [
+  "a05b_ama2",
+  "a05t2_ama2_present",
+  "a05e1_ama2_excited",
+  "a05e2_ama2_question",
+  "a05e3_ama2_wow"
+ ],
+ "listen": [
+  "a05l2_ama2_listen"
+ ],
+ "accent": "red",
+ "active": "cream",
+ "hook_style": "stop: red X badge + quoted error, stamp-in",
+ "motif": "red badges + quoted lines, green check on the fix",
+ "cta": {
+  "area": "grammar-check",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "caption_cap": 42,
+ "error_lines": [
+  "m_w"
+ ],
+ "error_re": "\\bi\\W+don't\\W+rarely\\b",
+ "lines": [
+  {
+   "id": "m_h",
+   "text": "Stop saying this.",
+   "gap": 0.5
+  },
+  {
+   "id": "m_w",
+   "text": "I don't rarely go out.",
+   "key": {
+    "red": [
+     1
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "m_k",
+   "text": "Just say: I rarely go out.",
+   "key": {
+    "green": [
+     2,
+     3
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "m_y",
+   "text": "Rarely is already negative. No don't.",
+   "key": {
+    "yellow": [
+     0
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "m_x",
+   "text": "She rarely eats meat. We rarely watch TV.",
+   "key": {
+    "green": [
+     1,
+     5
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "m_t",
+   "text": "Hardly and seldom work the same way!",
+   "gap": 0.65
+  },
+  {
+   "id": "m_q",
+   "text": "Quick quiz! I blank drink coffee.",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "m_q2",
+   "text": "Don't rarely, or rarely?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "m_a",
+   "text": "Rarely! I rarely drink coffee.",
+   "key": {
+    "green": [
+     0,
+     2
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "m_sh",
+   "text": "Send this to a friend who says it!",
+   "gap": 0.65
+  },
+  {
+   "id": "m_c",
+   "text": "Save this, and check your grammar on lexkite.com.",
+   "gap": 0.65
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ],
+     [
+      " Stop",
+      "white"
+     ]
+    ],
+    [
+     [
+      "“I ",
+      "white"
+     ],
+     [
+      "don't ",
+      "red"
+     ],
+     [
+      "rarely go out.”",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "m_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
+     ]
+    },
+    {
+     "st": "big",
+     "segs": [
+      [
+       "I rarely ",
+       "green"
+      ],
+      [
+       "go out."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "rarely",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/ˈrerli/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "don't",
+       "red"
+      ],
+      [
+       "”"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "m_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " don't",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " I rarely",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "She "
+      ],
+      [
+       "rarely ",
+       "green"
+      ],
+      [
+       "eats meat."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "We "
+      ],
+      [
+       "rarely ",
+       "green"
+      ],
+      [
+       "watch TV."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " RARELY ",
+       "hl"
+      ],
+      [
+       "= almost never"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "I "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "drink coffee."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "q": [
+    [
+     [
+      "I ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " drink coffee.",
+      "white"
+     ]
+    ]
+   ],
+   "a": "don't rarely",
+   "b": "rarely",
+   "correct": "b",
+   "reveal": [
+    "m_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "from": [
+    "m_q2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "m_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " don't",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " I rarely",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "rarely",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/ˈrerli/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "m_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "m_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "m_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Stop Saying This",
+  "ep": 10
+ },
+ "source": {
+  "bank": "sb_91e27418",
+  "pid": "u:a:rarely:m0",
+  "cefr": "C1",
+  "diff": "hard",
+  "ipa": "/ˈrerli/"
+ }
+}

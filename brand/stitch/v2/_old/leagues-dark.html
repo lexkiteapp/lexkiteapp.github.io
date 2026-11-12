@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite v2 — Leagues</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            lex: {
+              bg: '#0B171A',
+              card: '#16252B',
+              cardBorder: '#273C44',
+              cardLedge: '#0E191D',
+              teal: '#2BA39A',
+              tealDeep: '#1F7A75',
+              tealBorder: '#3ED2C6',
+              tealLedge: '#12514D',
+              coral: '#F2553B',
+              coralLedge: '#B53A22',
+              amber: '#FFB054',
+              gold: '#FFC94A',
+              goldLedge: '#C79216',
+              green: '#2FBF71',
+              greenLedge: '#197A44',
+              slate: '#8FA6AD',
+              textMuted: '#A0B4B9',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #060D0F;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Tactile button & card press dynamics */
+    .tactile-card {
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    .tactile-card:active {
+      transform: translateY(2px);
+    }
+
+    /* Specular glass shine */
+    .gloss-sheen {
+      background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.02) 60%, rgba(255,255,255,0) 100%);
+    }
+
+    /* Hide scrollbar */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-[#060D0F] text-[#EEF6F7]">
+
+  <!-- Mobile Frame 390px -->
+  <div class="w-[390px] h-[844px] bg-[#0B171A] rounded-[48px] overflow-hidden flex flex-col relative shadow-[0_25px_60px_rgba(0,0,0,0.85)] border-[8px] border-[#18272C]">
+    
+    <!-- TOP STATUS AREA / V2 HEADER (56px) -->
+    <header class="h-[56px] px-4 pt-2 pb-1 flex items-center justify-between bg-[#0B171A]/95 border-b border-[#1A2C33] z-20 shrink-0">
+      
+      <!-- 1) Exam Badge: IELTS Teal Shield -->
+      <div class="flex items-center gap-1.5 px-2.5 py-1 bg-[#122328] border border-[#234249] rounded-full shadow-[0_2px_0_#0A161A]">
+        <svg class="w-4 h-4 text-[#2BA39A] drop-shadow-[0_1px_1px_rgba(0,0,0,0.5)]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L4 5V11C4 16.55 7.42 21.74 12 23C16.58 21.74 20 16.55 20 11V5L12 2Z" fill="#2BA39A"/>
+          <path d="M12 4.2L18 6.5V11C18 15.2 15.4 19.3 12 20.6V4.2Z" fill="#49DBCF" opacity="0.65"/>
+        </svg>
+        <span class="text-[12px] font-extrabold tracking-wider text-[#2BA39A]">IELTS</span>
+      </div>
+
+      <!-- 2) Streak Flame Orange 14 with notification dot -->
+      <div class="relative flex items-center gap-1.5 px-2.5 py-1 bg-[#1A2222] border border-[#3A2E26] rounded-full shadow-[0_2px_0_#0A161A]">
+        <div class="relative">
+          <svg class="w-4 h-4 text-[#FF7A30]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 23C7.58 23 4 19.42 4 15C4 11.23 6.64 8.08 10.23 7.29C10.74 7.18 11.2 7.55 11.2 8.08C11.2 9.68 12.18 11.12 13.68 11.75C14.18 11.96 14.73 11.66 14.86 11.13C15.42 8.86 14.54 6.37 12.8 4.75C12.4 4.38 12.63 3.71 13.16 3.65C17.7 3.12 21 6.94 21 11.5C21 12.6 20.78 13.65 20.39 14.61C19.78 13.56 18.66 12.85 17.37 12.85C15.44 12.85 13.88 14.41 13.88 16.34C13.88 17.65 14.6 18.79 15.67 19.39C14.64 21.6 12.48 23 12 23Z"/>
+          </svg>
+          <!-- Red notification dot -->
+          <span class="absolute -top-0.5 -right-0.5 w-2 h-2 bg-[#F2553B] rounded-full ring-2 ring-[#0B171A]"></span>
+        </div>
+        <span class="text-[13px] font-extrabold text-[#FF8E4D]">14</span>
+      </div>
+
+      <!-- 3) XP Bolt Gold 820 -->
+      <div class="flex items-center gap-1.5 px-2.5 py-1 bg-[#1E221D] border border-[#3C3823] rounded-full shadow-[0_2px_0_#0A161A]">
+        <svg class="w-4 h-4 text-[#FFC94A] drop-shadow-[0_1px_2px_rgba(255,201,74,0.4)]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11 21L12.5 13H7L14 3L12.5 11H18L11 21Z"/>
+        </svg>
+        <span class="text-[13px] font-extrabold text-[#FFC94A]">820</span>
+      </div>
+
+      <!-- 4) Daily Goal Ring Teal 14/20 -->
+      <div class="flex items-center gap-1.5 px-2.5 py-1 bg-[#122328] border border-[#234249] rounded-full shadow-[0_2px_0_#0A161A]">
+        <div class="relative w-4 h-4 flex items-center justify-center">
+          <svg class="w-4 h-4 -rotate-90" viewBox="0 0 36 36">
+            <path class="text-[#1A333A]" stroke-width="5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            <path class="text-[#2BA39A]" stroke-dasharray="70, 100" stroke-linecap="round" stroke-width="5" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+          </svg>
+        </div>
+        <span class="text-[12px] font-extrabold text-[#2BA39A]">14/20</span>
+      </div>
+    </header>
+
+    <!-- SCROLLABLE BODY -->
+    <main class="flex-1 overflow-y-auto no-scrollbar px-4 pt-3 pb-6 flex flex-col">
+      
+      <!-- HERO: 3D Glossy Gold League Shield Badge & Timer -->
+      <div class="flex flex-col items-center justify-center pt-1 pb-3 text-center">
+        
+        <!-- Glossy 3D League Shield with Sparkles -->
+        <div class="relative w-24 h-24 mb-2 flex items-center justify-center">
+          
+          <!-- Ambient Glow behind shield -->
+          <div class="absolute inset-0 rounded-full bg-[#FFB054]/20 blur-xl"></div>
+          
+          <!-- Outer 3D Gold Shield Body -->
+          <svg class="w-20 h-20 drop-shadow-[0_8px_16px_rgba(0,0,0,0.6)]" viewBox="0 0 100 115" fill="none">
+            <defs>
+              <linearGradient id="shieldGold" x1="50" y1="0" x2="50" y2="115" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FFE072"/>
+                <stop offset="30%" stop-color="#FFB92D"/>
+                <stop offset="70%" stop-color="#D98A0F"/>
+                <stop offset="100%" stop-color="#9C5A02"/>
+              </linearGradient>
+              <linearGradient id="shieldRim" x1="0" y1="0" x2="100" y2="115" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FFF3B3"/>
+                <stop offset="50%" stop-color="#EAA11A"/>
+                <stop offset="100%" stop-color="#733F00"/>
+              </linearGradient>
+              <linearGradient id="innerGem" x1="50" y1="20" x2="50" y2="95" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#2CDFD2"/>
+                <stop offset="50%" stop-color="#19928A"/>
+                <stop offset="100%" stop-color="#0E5853"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Bottom 3D Ledge Shadow (extruded) -->
+            <path d="M50 115 L14 85 C14 40 18 15 50 5 C82 15 86 40 86 85 Z" fill="#6A3B00" transform="translate(0, 6)"/>
+
+            <!-- Main Shield Body -->
+            <path d="M50 110 C21 95 14 70 14 30 C14 18 30 10 50 4 C70 10 86 18 86 30 C86 70 79 95 50 110 Z" fill="url(#shieldGold)" stroke="url(#shieldRim)" stroke-width="4"/>
+            
+            <!-- Interior Sapphire Core (Sapphire League motif) -->
+            <path d="M50 96 C29 82 24 63 24 35 C33 30 42 24 50 16 C58 24 67 30 76 35 C76 63 71 82 50 96 Z" fill="url(#innerGem)" stroke="#45F6E9" stroke-width="2" opacity="0.95"/>
+            
+            <!-- Faceted Star Emblem in Center -->
+            <polygon points="50,30 55,44 70,44 58,54 62,69 50,59 38,69 42,54 30,44 45,44" fill="#FFFFFF" opacity="0.95" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.4))"/>
+
+            <!-- Specular Top Gloss Curve -->
+            <path d="M22 34 C25 24 37 16 50 12 C63 16 75 24 78 34 C70 28 58 24 50 24 C42 24 30 28 22 34 Z" fill="#FFFFFF" opacity="0.6"/>
+          </svg>
+
+          <!-- Top-Right Sparkle -->
+          <svg class="absolute -top-1 -right-1 w-6 h-6 text-[#FFF1A8] drop-shadow-[0_0_6px_rgba(255,241,168,0.8)] animate-pulse" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/>
+          </svg>
+          
+          <!-- Bottom-Left Small Sparkle -->
+          <svg class="absolute bottom-2 -left-1 w-4 h-4 text-[#47E5D9] drop-shadow-[0_0_4px_rgba(71,229,217,0.8)]" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/>
+          </svg>
+        </div>
+
+        <!-- League Title (one line) -->
+        <h1 class="text-[20px] font-extrabold text-[#EEF6F7] tracking-tight mb-1 flex items-center gap-1.5">
+          Sapphire League
+        </h1>
+
+        <!-- Time Remaining Chip -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-[#142328] border border-[#273F47] rounded-full shadow-[0_2px_0_#0D171A]">
+          <svg class="w-3.5 h-3.5 text-[#FFB054]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <span class="text-[11px] font-bold uppercase tracking-wider text-[#A0B4B9]">3 days left</span>
+        </div>
+      </div>
+
+      <!-- RANKED LIST OF 10 LEARNER ROWS -->
+      <div class="flex flex-col gap-2 mt-1">
+
+        <!-- ROW 1 (Gold Medal) -->
+        <div class="tactile-card h-[54px] px-3.5 bg-[#17272D] rounded-[16px] border-[2px] border-[#2C444D] border-b-[5px] border-b-[#0F1B1F] flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <!-- Rank / Medal -->
+            <div class="w-7 flex items-center justify-center">
+              <div class="w-6 h-6 rounded-full bg-gradient-to-b from-[#FFE376] to-[#D98A0F] border border-[#FFF3AD] flex items-center justify-center shadow-[0_2px_0_#825002]">
+                <span class="text-[12px] font-black text-[#5C3700]">1</span>
+              </div>
+            </div>
+            <!-- Avatar -->
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#FF9838] to-[#F2553B] flex items-center justify-center font-extrabold text-[12px] text-white border border-white/20 shadow-sm">
+              AN
+            </div>
+            <!-- Name -->
+            <span class="text-[14px] font-bold text-[#EEF6F7] truncate max-w-[140px]">An Nguyen</span>
+          </div>
+          <!-- XP -->
+          <div class="flex items-center gap-1">
+            <span class="text-[14px] font-extrabold text-[#EEF6F7]">1,420</span>
+            <span class="text-[11px] font-extrabold text-[#FFC94A]">XP</span>
+          </div>
+        </div>
+
+        <!-- ROW 2 (Silver Medal) -->
+        <div class="tactile-card h-[54px] px-3.5 bg-[#17272D] rounded-[16px] border-[2px] border-[#2C444D] border-b-[5px] border-b-[#0F1B1F] flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <!-- Rank / Medal -->
+            <div class="w-7 flex items-center justify-center">
+              <div class="w-6 h-6 rounded-full bg-gradient-to-b from-[#E7F0F3] to-[#8FA2A8] border border-white flex items-center justify-center shadow-[0_2px_0_#506065]">
+                <span class="text-[12px] font-black text-[#26353A]">2</span>
+              </div>
+            </div>
+            <!-- Avatar -->
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#4EBEFF] to-[#2563EB] flex items-center justify-center font-extrabold text-[12px] text-white border border-white/20 shadow-sm">
+              LK
+            </div>
+            <!-- Name -->
+            <span class="text-[14px] font-bold text-[#EEF6F7] truncate max-w-[140px]">Linh Khanh</span>
+          </div>
+          <!-- XP -->
+          <div class="flex items-center gap-1">
+            <span class="text-[14px] font-extrabold text-[#EEF6F7]">1,280</span>
+            <span class="text-[11px] font-extrabold text-[#FFC94A]">XP</span>
+          </div>
+        </div>
+
+        <!-- ROW 3 (Bronze Medal) -->
+        <div class="tactile-card h-[54px] px-3.5 bg-[#17272D] rounded-[16px] border-[2px] border-[#2C444D] border-b-[5px] border-b-[#0F1B1F] flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <!-- Rank / Medal -->
+            <div class="w-7 flex items-center justify-center">
+              <div class="w-6 h-6 rounded-full bg-gradient-to-b from-[#FFAA7D] to-[#BA5E30] border border-[#FFD0B8] flex items-center justify-center shadow-[0_2px_0_#692F13]">
+                <span class="text-[12px] font-black text-[#3D1807]">3</span>
+              </div>
+            </div>
+            <!-- Avatar -->
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#A855F7] to-[#7E22CE] flex items-center justify-center font-extrabold text-[12px] text-white border border-white/20 shadow-sm">
+              MR
+            </div>
+            <!-- Name -->
+            <span class="text-[14px] font-bold text-[#EEF6F7] truncate max-w-[140px]">Marcus Roy</span>
+          </div>
+          <!-- XP -->
+          <div class="flex items-center gap-1">
+            <span class="text-[14px] font-extrabold text-[#EEF6F7]">1,150</span>
+            <span class="text-[11px] font-extrabold text-[#FFC94A]">XP</span>
+          </div>
+        </div>
+
+        <!-- GREEN PROMOTION ZONE DIVIDER -->
+        <div class="flex items-center gap-2 my-1 px-1">
+          <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#2FBF71] to-[#2FBF71]"></div>
+          <div class="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#122B1E] border border-[#237045] shadow-sm">
+            <svg class="w-3 h-3 text-[#2FBF71]" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 4L4 12H9V20H15V12H20L12 4Z"/>
+            </svg>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-[#2FBF71]">Promotion Zone</span>
+          </div>
+          <div class="h-[2px] flex-1 bg-gradient-to-l from-transparent via-[#2FBF71] to-[#2FBF71]"></div>
+        </div>
+
+        <!-- ROW 4 -->
+        <div class="tactile-card h-[54px] px-3.5 bg-[#16252B] rounded-[16px] border-[2px] border-[#253941] border-b-[5px] border-b-[#0E181C] flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-7 flex items-center justify-center">
+              <span class="text-[13px] font-extrabold text-[#7A939A]">4</span>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#10B981] to-[#047857] flex items-center justify-center font-extrabold text-[12px] text-white border border-white/20 shadow-sm">
+              TC
+            </div>
+            <span class="text-[14px] font-bold text-[#EEF6F7] truncate max-w-[140px]">Tariq Chen</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="text-[14px] font-extrabold text-[#EEF6F7]">980</span>
+            <span class="text-[11px] font-extrabold text-[#FFC94A]">XP</span>
+          </div>
+        </div>
+
+        <!-- ROW 5: "YOU" HIGHLIGHTED ROW (Teal border & tint) -->
+        <div class="tactile-card h-[56px] px-3.5 bg-[#132E33] rounded-[16px] border-[2px] border-[#2BA39A] border-b-[5px] border-b-[#14534F] flex items-center justify-between shadow-[0_0_15px_rgba(43,163,154,0.2)] relative z-10">
+          <div class="flex items-center gap-3">
+            <div class="w-7 flex items-center justify-center">
+              <div class="w-6 h-6 rounded-full bg-[#2BA39A] flex items-center justify-center shadow-sm">
+                <span class="text-[12px] font-black text-[#0B171A]">5</span>
+              </div>
+            </div>
+            <!-- Avatar with glow ring -->
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#2BA39A] to-[#164E63] flex items-center justify-center font-extrabold text-[12px] text-white border-2 border-[#49DBCF] shadow-sm">
+              YO
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-[15px] font-extrabold text-[#49DBCF]">You</span>
+              <span class="px-1.5 py-0.2 text-[9px] font-black tracking-wider uppercase bg-[#2BA39A]/20 border border-[#2BA39A]/40 rounded text-[#3ED2C6]">Safe</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="text-[15px] font-black text-[#49DBCF]">820</span>
+            <span class="text-[11px] font-extrabold text-[#FFC94A]">XP</span>
+          </div>
+        </div>
+
+        <!-- ROW 6 -->
+        <div class="tactile-card h-[54px] px-3.5 bg-[#16252B] rounded-[16px] border-[2px] border-[#253941] border-b-[5px] border-b-[#0E181C] flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-7 flex items-center justify-center">
+              <span class="text-[13px] font-extrabold text-[#7A939A]">6</span>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#EC4899] to-[#BE185D] flex items-center justify-center font-extrabold text-[12px] text-white border border-white/20 shadow-sm">
+              SH
+            </div>
+            <span class="text-[14px] font-bold text-[#EEF6F7] truncate max-w-[140px]">Sara Hansen</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="text-[14px] font-extrabold text-[#EEF6F7]">760</span>
+            <span class="text-[11px] font-extrabold text-[#FFC94A]">XP</span>
+          </div>
+        </div>
+
+        <!-- ROW 7 -->
+        <div class="tactile-card h-[54px] px-3.5 bg-[#16252B] rounded-[16px] border-[2px] border-[#253941] border-b-[5px] border-b-[#0E181C] flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-7 flex items-center justify-center">
+              <span class="text-[13px] font-extrabold text-[#7A939A]">7</span>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#6366F1] to-[#4338CA] flex items-center justify-center font-extrabold text-[12px] text-white border border-white/20 shadow-sm">
+              DK
+            </div>
+            <span class="text-[14px] font-bold text-[#EEF6F7] truncate max-w-[140px]">Daiki Kato</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="text-[14px] font-extrabold text-[#EEF6F7]">690</span>
+            <span class="text-[11px] font-extrabold text-[#FFC94A]">XP</span>
+          </div>
+        </div>
+
+        <!-- CORAL DEMOTION ZONE DIVIDER -->
+        <div class="flex items-center gap-2 my-1 px-1">
+          <div class="h-[2px] flex-1 bg-gradient-to-r from-transparent via-[#F2553B] to-[#F2553B]"></div>
+          <div class="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#2A1715] border border-[#69251B] shadow-sm">
+            <svg class="w-3 h-3 text-[#F2553B]" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 20L20 12H15V4H9V12H4L12 20Z"/>
+            </svg>
+            <span class="text-[10px] font-extrabold uppercase tracking-wider text-[#F2553B]">Demotion Zone</span>
+          </div>
+          <div class="h-[2px] flex-1 bg-gradient-to-l from-transparent via-[#F2553B] to-[#F2553B]"></div>
+        </div>
+
+        <!-- ROW 8 -->
+        <div class="tactile-card h-[54px] px-3.5 bg-[#142025] rounded-[16px] border-[2px] border-[#22333A] border-b-[5px] border-b-[#0B1316] flex items-center justify-between opacity-90">
+          <div class="flex items-center gap-3">
+            <div class="w-7 flex items-center justify-center">
+              <span class="text-[13px] font-extrabold text-[#647C83]">8</span>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#F59E0B] to-[#B45309] flex items-center justify-center font-extrabold text-[12px] text-white border border-white/20 shadow-sm">
+              EM
+            </div>
+            <span class="text-[14px] font-bold text-[#C7D7DB] truncate max-w-[140px]">Elena Morales</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="text-[14px] font-extrabold text-[#A0B4B9]">540</span>
+            <span class="text-[11px] font-extrabold text-[#C79216]">XP</span>
+          </div>
+        </div>
+
+        <!-- ROW 9 -->
+        <div class="tactile-card h-[54px] px-3.5 bg-[#142025] rounded-[16px] border-[2px] border-[#22333A] border-b-[5px] border-b-[#0B1316] flex items-center justify-between opacity-85">
+          <div class="flex items-center gap-3">
+            <div class="w-7 flex items-center justify-center">
+              <span class="text-[13px] font-extrabold text-[#647C83]">9</span>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#14B8A6] to-[#0F766E] flex items-center justify-center font-extrabold text-[12px] text-white border border-white/20 shadow-sm">
+              JA
+            </div>
+            <span class="text-[14px] font-bold text-[#C7D7DB] truncate max-w-[140px]">Jonas Althaus</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="text-[14px] font-extrabold text-[#A0B4B9]">480</span>
+            <span class="text-[11px] font-extrabold text-[#C79216]">XP</span>
+          </div>
+        </div>
+
+        <!-- ROW 10 -->
+        <div class="tactile-card h-[54px] px-3.5 bg-[#142025] rounded-[16px] border-[2px] border-[#22333A] border-b-[5px] border-b-[#0B1316] flex items-center justify-between opacity-80">
+          <div class="flex items-center gap-3">
+            <div class="w-7 flex items-center justify-center">
+              <span class="text-[13px] font-extrabold text-[#647C83]">10</span>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-[#64748B] to-[#334155] flex items-center justify-center font-extrabold text-[12px] text-white border border-white/20 shadow-sm">
+              PK
+            </div>
+            <span class="text-[14px] font-bold text-[#C7D7DB] truncate max-w-[140px]">Priya Kapoor</span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="text-[14px] font-extrabold text-[#A0B4B9]">390</span>
+            <span class="text-[11px] font-extrabold text-[#C79216]">XP</span>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- V2 ICON-ONLY BOTTOM TAB BAR (5 Tabs, 30px Illustrated Glyphs, Leagues Active) -->
+    <nav class="h-[68px] bg-[#0E1B1F] border-t border-[#1C2F36] px-3 flex items-center justify-around z-20 shrink-0 shadow-[0_-4px_12px_rgba(0,0,0,0.4)]">
+      
+      <!-- Tab 1: Learn (Kite / Map - Teal) -->
+      <button class="w-[52px] h-[48px] rounded-[14px] flex items-center justify-center transition-all hover:bg-[#162930] active:scale-95">
+        <svg class="w-[30px] h-[30px]" viewBox="0 0 32 32" fill="none">
+          <path d="M16 3L27 14L16 29L5 14L16 3Z" fill="#1C383F" stroke="#2BA39A" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M16 3L27 14L16 19L5 14L16 3Z" fill="#2BA39A" opacity="0.6"/>
+          <path d="M16 19V29" stroke="#3ED2C6" stroke-width="2"/>
+        </svg>
+      </button>
+
+      <!-- Tab 2: Review (Cards stack - Violet with red notification dot) -->
+      <button class="relative w-[52px] h-[48px] rounded-[14px] flex items-center justify-center transition-all hover:bg-[#162930] active:scale-95">
+        <svg class="w-[30px] h-[30px]" viewBox="0 0 32 32" fill="none">
+          <rect x="7" y="5" width="18" height="14" rx="3.5" transform="rotate(-6 16 12)" fill="#582987" stroke="#7A3FBA" stroke-width="2"/>
+          <rect x="7" y="10" width="18" height="15" rx="3.5" fill="#8B4CE3" stroke="#B886FF" stroke-width="2"/>
+          <path d="M11 16H21" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+          <path d="M11 20H17" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+        </svg>
+        <!-- Red dot badge -->
+        <span class="absolute top-2 right-2 w-2 h-2 bg-[#F2553B] rounded-full ring-2 ring-[#0E1B1F]"></span>
+      </button>
+
+      <!-- Tab 3: Practice (Bolt Dumbbell - Coral) -->
+      <button class="w-[52px] h-[48px] rounded-[14px] flex items-center justify-center transition-all hover:bg-[#162930] active:scale-95">
+        <svg class="w-[30px] h-[30px]" viewBox="0 0 32 32" fill="none">
+          <path d="M14 6L6 17H15L13 26L25 14H16L19 6H14Z" fill="#F2553B" stroke="#FF7A63" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M14 6L11 17H16L14 23L22 14H16L18 6H14Z" fill="#FF8E4D" opacity="0.5"/>
+        </svg>
+      </button>
+
+      <!-- Tab 4: Leagues (Trophy - Gold) ACTIVE TAB -->
+      <button class="w-[52px] h-[48px] rounded-[14px] bg-[#163336] border-[2px] border-[#2BA39A] shadow-[0_0_12px_rgba(43,163,154,0.3)] flex items-center justify-center relative active:scale-95">
+        <svg class="w-[30px] h-[30px] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]" viewBox="0 0 32 32" fill="none">
+          <!-- Cup -->
+          <path d="M9 7H23V15C23 18.866 19.866 22 16 22C12.134 22 9 18.866 9 15V7Z" fill="url(#tabTrophyGold)" stroke="#FFE376" stroke-width="1.8"/>
+          <!-- Handles -->
+          <path d="M9 10H5C5 14 7 16 9 16V10Z" fill="#D98A0F" stroke="#FFE376" stroke-width="1.2"/>
+          <path d="M23 10H27C27 14 25 16 23 16V10Z" fill="#D98A0F" stroke="#FFE376" stroke-width="1.2"/>
+          <!-- Stem & Base -->
+          <path d="M14 22H18V25H14V22Z" fill="#9C5A02"/>
+          <rect x="11" y="25" width="10" height="3" rx="1.5" fill="#FFC94A" stroke="#FFE376" stroke-width="1.2"/>
+          <!-- Star on cup -->
+          <polygon points="16,11 17.2,13.8 20,14.1 17.8,16 18.5,18.8 16,17.3 13.5,18.8 14.2,16 12,14.1 14.8,13.8" fill="#FFFFFF"/>
+          
+          <defs>
+            <linearGradient id="tabTrophyGold" x1="16" y1="7" x2="16" y2="22" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#FFE376"/>
+              <stop offset="60%" stop-color="#FFB92D"/>
+              <stop offset="100%" stop-color="#C77D0A"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </button>
+
+      <!-- Tab 5: Me (Smiling Profile - Sky Blue) -->
+      <button class="w-[52px] h-[48px] rounded-[14px] flex items-center justify-center transition-all hover:bg-[#162930] active:scale-95">
+        <svg class="w-[30px] h-[30px]" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="11" r="5" fill="#38BDF8" stroke="#7DD3FC" stroke-width="2"/>
+          <path d="M8 26C8 21.5817 11.5817 18 16 18C20.4183 18 24 21.5817 24 26" fill="#0EA5E9" stroke="#7DD3FC" stroke-width="2"/>
+          <!-- Friendly wink/smile expression inside avatar head -->
+          <path d="M14 11C14.5 12 15.5 12.5 16 12.5C16.5 12.5 17.5 12 18 11" stroke="#0C4A6E" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+    </nav>
+    
+  </div>
+
+</body>
+</html>
+

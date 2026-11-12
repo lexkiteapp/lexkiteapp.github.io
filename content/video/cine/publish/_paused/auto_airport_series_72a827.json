@@ -1,0 +1,75 @@
+{
+ "id": "auto_airport_series_72a827",
+ "scene": "airport",
+ "template": "series",
+ "area": "roleplay",
+ "cefr": "A2",
+ "point": "To Seattle, for a work trip.",
+ "series": "Airport English #20",
+ "title": "\"Where are you headed today?\" How would you answer?",
+ "description": "A real mini conversation at the airport. Ama says: \"To Seattle, for a work trip.\"\nComment your answer below and follow for daily English (Airport English #20).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_72a827#/roleplay",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#airportenglish",
+  "#englishconversation",
+  "#smalltalk",
+  "#travelenglish",
+  "#esl"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/airport/auto_airport_series_72a827/cine-auto-airport-series-72a827-en-v3.mp4",
+ "cover": "shorts/airport/auto_airport_series_72a827/cine-auto-airport-series-72a827-en-v3.jpg",
+ "ci_artifact": "cine-airport-18",
+ "run": "18",
+ "platforms": {
+  "tiktok": {
+   "title": "\"Where are you headed today?\" How would you answer?",
+   "caption": "A real mini conversation at the airport. Ama says: \"To Seattle, for a work trip.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_72a827#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_72a827#/roleplay",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#englishconversation",
+    "#smalltalk",
+    "#travelenglish"
+   ],
+   "caption_with_tags": "A real mini conversation at the airport. Ama says: \"To Seattle, for a work trip.\"\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_72a827#/roleplay\n#learnenglish #englishtips #airportenglish #englishconversation #smalltalk #travelenglish"
+  },
+  "reels": {
+   "title": "\"Where are you headed today?\" How would you answer?",
+   "caption": "A real mini conversation at the airport. Ama says: \"To Seattle, for a work trip.\"\nComment your answer below and follow for daily English (Airport English #20).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_72a827#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_72a827#/roleplay",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#englishconversation",
+    "#smalltalk",
+    "#travelenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "A real mini conversation at the airport. Ama says: \"To Seattle, for a work trip.\"\nComment your answer below and follow for daily English (Airport English #20).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_72a827#/roleplay\n#learnenglish #englishtips #airportenglish #englishconversation #smalltalk #travelenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "\"Where are you headed today?\" How would you answer? #shorts",
+   "caption": "A real mini conversation at the airport. Ama says: \"To Seattle, for a work trip.\"\nComment your answer below and follow for daily English (Airport English #20).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_72a827#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_72a827#/roleplay",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#airportenglish",
+    "#englishconversation"
+   ],
+   "caption_with_tags": "A real mini conversation at the airport. Ama says: \"To Seattle, for a work trip.\"\nComment your answer below and follow for daily English (Airport English #20).\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_airport&utm_content=auto_airport_series_72a827#/roleplay\n#shorts #learnenglish #englishtips #airportenglish #englishconversation"
+  }
+ },
+ "slot": {
+  "date": "2026-11-02",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

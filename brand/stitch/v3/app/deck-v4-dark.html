@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — My Decks</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "tactile-bg": "#10191B",
+          "tactile-card": "#172427",
+          "tactile-surface": "#1E2F33",
+          "tactile-border": "#2A3E44",
+          "tactile-ledge": "#0B1417",
+          "tactile-teal": "#3BD4C7",
+          "tactile-teal-dark": "#2BA39A",
+          "tactile-text": "#E8F1F0",
+          "tactile-subtext": "#A9BDBB",
+          "primary": "#3BD4C7",
+          "surface": "#10191B"
+        },
+        borderRadius: {
+          "2xl": "16px"
+        },
+        fontFamily: {
+          body: ["Plus Jakarta Sans", "sans-serif"],
+          title: ["Plus Jakarta Sans", "sans-serif"],
+          display: ["Plus Jakarta Sans", "sans-serif"],
+          label: ["Plus Jakarta Sans", "sans-serif"]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    display: inline-block;
+    line-height: 1;
+    user-select: none;
+  }
+  .material-symbols-fill {
+    font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+  }
+  /* Tactile Physical Dimensions */
+  .tactile-container {
+    background-color: #172427;
+    border: 2px solid #2A3E44;
+    box-shadow: 0 4px 0 0 #0B1417;
+    border-radius: 16px;
+  }
+  .tactile-btn-primary {
+    background: linear-gradient(180deg, #F2553B 0%, #FFB054 100%);
+    box-shadow: 0 5px 0 0 #B53A22;
+    transition: transform 0.08s ease, box-shadow 0.08s ease;
+  }
+  .tactile-btn-primary:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 0 #B53A22;
+  }
+  .tactile-btn-teal {
+    background-color: #2BA39A;
+    box-shadow: 0 4px 0 0 #12514D;
+    transition: transform 0.08s ease, box-shadow 0.08s ease;
+  }
+  .tactile-btn-teal:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 0 #12514D;
+  }
+  .tactile-btn-secondary {
+    background-color: #1E2F33;
+    border: 1.5px solid #2A3E44;
+    box-shadow: 0 4px 0 0 #0B1417;
+    transition: transform 0.08s ease, box-shadow 0.08s ease;
+  }
+  .tactile-btn-secondary:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 0 #0B1417;
+  }
+  .top-shine {
+    box-shadow: inset 0 1.5px 0 0 rgba(255, 255, 255, 0.2);
+  }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+  }
+  body {
+    min-height: max(884px, 100dvh);
+  }
+</style>
+</head>
+<body class="bg-[#10191B] font-body text-[#E8F1F0] antialiased min-h-screen flex justify-center selection:bg-[#3BD4C7] selection:text-[#042220]">
+<!-- Mobile Viewport Container (390px max standard) -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#10191B] flex flex-col relative pb-24 shadow-2xl overflow-x-hidden border-x border-[#2A3E44]/40">
+<!-- TOP APP BAR -->
+<header class="flex justify-between items-center h-14 px-4 w-full z-50 fixed top-0 left-0 max-w-[390px] mx-auto right-0 bg-[#10191B] border-b-2 border-[#2A3E44]">
+<!-- Brand Kite Logo & Hub Title -->
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined material-symbols-fill text-[#3BD4C7] text-[24px]">change_history</span>
+<h1 class="font-title text-[20px] text-[#E8F1F0] font-bold tracking-tight">My Decks</h1>
+</div>
+<!-- Streak Badge & Filter Button -->
+<div class="flex items-center gap-2">
+<!-- Streak Flame Chip -->
+<div class="flex items-center gap-1.5 bg-[#1E2F33] px-2.5 py-1 rounded-xl border border-[#2A3E44] text-[#FFB054]">
+<span class="material-symbols-outlined material-symbols-fill text-[18px] text-[#FFB054]">local_fire_department</span>
+<span class="font-label text-[13px] font-extrabold text-[#FFB054]">14</span>
+</div>
+<!-- Sort/Filter Button (>= 44x44 touch target) -->
+<button aria-label="Filter and sort decks" class="w-11 h-11 flex items-center justify-center rounded-xl bg-[#1E2F33] text-[#E8F1F0] border border-[#2A3E44] hover:bg-[#2A3E44] active:translate-y-0.5 transition-transform">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+</header>
+<!-- MAIN CANVAS CONTENT -->
+<main class="flex-1 px-4 pt-18 mt-14 space-y-4">
+<!-- TEACHER COACH GUIDANCE: Coach Ama -->
+<section aria-label="Teacher coach guidance" class="w-full">
+<div class="border-2 border-dashed border-[#2BA39A] bg-[#172427] rounded-2xl p-3.5 relative overflow-hidden shadow-[0_4px_0_0_#0B1417]">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#1E2F33] border border-[#2A3E44] flex items-center justify-center shrink-0 text-[#3BD4C7]">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label text-[10px] tracking-wider uppercase font-extrabold text-[#3BD4C7] px-2 py-0.5 bg-[#1E2F33] rounded-md border border-[#2A3E44]">
+                Coach Ama • Retention
+              </span>
+<span class="font-label text-[11px] text-[#FFB054] font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span> 15m review
+              </span>
+</div>
+<p class="font-body text-[13px] leading-[19px] text-[#E8F1F0] font-semibold">
+              “Keep your active recall spaced for maximum IELTS exam retention. Tackle high-priority collocations early.”
+            </p>
+</div>
+</div>
+</div>
+</section>
+<!-- PRIMARY ACTION: Tactile Button "+ New deck" -->
+<section class="w-full">
+<button class="tactile-btn-primary top-shine w-full min-h-[52px] h-[52px] rounded-2xl flex items-center justify-center gap-2 text-[#1B0B04] font-display font-extrabold text-[16px] tracking-wide cursor-pointer select-none">
+<span class="material-symbols-outlined text-[24px] font-extrabold">add_circle</span>
+<span>New deck</span>
+</button>
+</section>
+<!-- IMPORT ANKI (.apkg) TACTILE CARD -->
+<section class="w-full">
+<div class="tactile-container p-3.5 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-11 h-11 rounded-xl bg-[#1E2F33] border border-[#2A3E44] flex items-center justify-center shrink-0 text-[#FFB054]">
+<span class="material-symbols-outlined text-[22px]">sync_alt</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<h2 class="font-title text-[15px] font-bold text-[#E8F1F0] leading-tight">Import Anki</h2>
+<span class="font-label text-[10px] px-1.5 py-0.5 rounded bg-[#1E2F33] text-[#A9BDBB] border border-[#2A3E44] font-extrabold">.apkg</span>
+</div>
+<p class="font-body text-[12px] text-[#A9BDBB] leading-tight mt-0.5">Sync external cards effortlessly</p>
+</div>
+</div>
+<!-- Sync Action CTA (min 44x44) -->
+<button class="tactile-btn-secondary min-w-[44px] h-11 px-3.5 rounded-xl flex items-center justify-center text-[#3BD4C7] font-label text-[12px] font-extrabold cursor-pointer shrink-0">
+<span class="material-symbols-outlined text-[18px] mr-1">file_upload</span>
+          Sync
+        </button>
+</div>
+</section>
+<!-- DECKS LIST HEADER -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<span class="font-title text-[18px] font-extrabold text-[#E8F1F0]">Active Decks</span>
+<span class="font-label text-[11px] px-2 py-0.5 rounded-full bg-[#1E2F33] text-[#3BD4C7] border border-[#2A3E44] font-extrabold">4 Decks</span>
+</div>
+<span class="font-label text-[12px] text-[#A9BDBB] flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px]">swap_vert</span> Due First
+      </span>
+</div>
+<!-- DECKS LIST CONTAINER -->
+<div class="space-y-3.5">
+<!-- DECK 1: IELTS Academic Collocations -->
+<article class="tactile-container p-4 flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap mb-1.5">
+<span class="font-label text-[11px] font-extrabold px-2 py-0.5 rounded-md bg-[#660800]/80 text-[#FFA493] border border-[#FFB4A6]/30 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#F2553B] animate-pulse"></span>
+                18 Due today
+              </span>
+<span class="font-label text-[11px] text-[#A9BDBB] font-medium">120 words total</span>
+</div>
+<h3 class="font-title text-[17px] font-bold text-[#E8F1F0] leading-snug">
+              IELTS Academic Collocations
+            </h3>
+</div>
+<button aria-label="Deck options" class="w-11 h-11 -mr-2 -mt-1 flex items-center justify-center rounded-xl text-[#A9BDBB] hover:text-[#E8F1F0] hover:bg-[#1E2F33] transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<!-- Progress Bar -->
+<div class="space-y-1">
+<div class="flex justify-between items-center text-[11px] font-label">
+<span class="text-[#A9BDBB] font-semibold">Mastery progress</span>
+<span class="text-[#3BD4C7] font-extrabold">35%</span>
+</div>
+<div class="w-full h-2.5 bg-[#1E2F33] rounded-full overflow-hidden p-[1px] border border-[#2A3E44]">
+<div class="h-full bg-[#3BD4C7] rounded-full" style="width: 35%;"></div>
+</div>
+</div>
+<!-- Footer / Action CTA -->
+<div class="pt-1 flex items-center justify-between gap-3">
+<span class="font-label text-[11px] text-[#A9BDBB] flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-[#3BD4C7]">check_circle</span>
+            Spaced Band 7.5+
+          </span>
+<button class="tactile-btn-teal top-shine min-h-[44px] h-11 px-5 rounded-xl flex items-center justify-center gap-1.5 text-[#042220] font-label text-[12px] font-extrabold cursor-pointer shrink-0">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+            Practice
+          </button>
+</div>
+</article>
+<!-- DECK 2: Task 2 Cohesion & Transition Connectors -->
+<article class="tactile-container p-4 flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap mb-1.5">
+<span class="font-label text-[11px] font-extrabold px-2 py-0.5 rounded-md bg-[#5B4300]/80 text-[#FFDF9E] border border-[#FFDF9E]/30">
+                6 Due today
+              </span>
+<span class="font-label text-[11px] text-[#A9BDBB] font-medium">44 words total</span>
+</div>
+<h3 class="font-title text-[17px] font-bold text-[#E8F1F0] leading-snug">
+              Task 2 Cohesion &amp; Transition Connectors
+            </h3>
+</div>
+<button aria-label="Deck options" class="w-11 h-11 -mr-2 -mt-1 flex items-center justify-center rounded-xl text-[#A9BDBB] hover:text-[#E8F1F0] hover:bg-[#1E2F33] transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between items-center text-[11px] font-label">
+<span class="text-[#A9BDBB] font-semibold">Mastery progress</span>
+<span class="text-[#FFB054] font-extrabold">80%</span>
+</div>
+<div class="w-full h-2.5 bg-[#1E2F33] rounded-full overflow-hidden p-[1px] border border-[#2A3E44]">
+<div class="h-full bg-[#FFB054] rounded-full" style="width: 80%;"></div>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between gap-3">
+<span class="font-label text-[11px] text-[#A9BDBB] flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-[#3BD4C7]">school</span>
+            Academic Writing
+          </span>
+<button class="tactile-btn-teal top-shine min-h-[44px] h-11 px-5 rounded-xl flex items-center justify-center gap-1.5 text-[#042220] font-label text-[12px] font-extrabold cursor-pointer shrink-0">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+            Practice
+          </button>
+</div>
+</article>
+<!-- DECK 3: Speaking Part 2 Idioms & High-Band Phrasals -->
+<article class="tactile-container p-4 flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap mb-1.5">
+<span class="font-label text-[11px] font-extrabold px-2 py-0.5 rounded-md bg-[#5B4300]/80 text-[#FFDF9E] border border-[#FFDF9E]/30">
+                4 Due today
+              </span>
+<span class="font-label text-[11px] text-[#A9BDBB] font-medium">52 words total</span>
+</div>
+<h3 class="font-title text-[17px] font-bold text-[#E8F1F0] leading-snug">
+              Speaking Part 2 Idioms &amp; High-Band Phrasals
+            </h3>
+</div>
+<button aria-label="Deck options" class="w-11 h-11 -mr-2 -mt-1 flex items-center justify-center rounded-xl text-[#A9BDBB] hover:text-[#E8F1F0] hover:bg-[#1E2F33] transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between items-center text-[11px] font-label">
+<span class="text-[#A9BDBB] font-semibold">Mastery progress</span>
+<span class="text-[#3BD4C7] font-extrabold">75%</span>
+</div>
+<div class="w-full h-2.5 bg-[#1E2F33] rounded-full overflow-hidden p-[1px] border border-[#2A3E44]">
+<div class="h-full bg-[#3BD4C7] rounded-full" style="width: 75%;"></div>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between gap-3">
+<span class="font-label text-[11px] text-[#A9BDBB] flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px] text-[#FFA493]">mic</span>
+            Fluency Polish
+          </span>
+<button class="tactile-btn-teal top-shine min-h-[44px] h-11 px-5 rounded-xl flex items-center justify-center gap-1.5 text-[#042220] font-label text-[12px] font-extrabold cursor-pointer shrink-0">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+            Practice
+          </button>
+</div>
+</article>
+<!-- DECK 4: Confused Pairs & False Friends -->
+<article class="tactile-container p-4 flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 flex-wrap mb-1.5">
+<span class="font-label text-[11px] font-extrabold px-2 py-0.5 rounded-md bg-[#1E2F33] text-[#3BD4C7] border border-[#2BA39A]/60 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] font-bold">done_all</span>
+                0 Due • Caught up
+              </span>
+<span class="font-label text-[11px] text-[#A9BDBB] font-medium">18 words total</span>
+</div>
+<h3 class="font-title text-[17px] font-bold text-[#E8F1F0] leading-snug">
+              Confused Pairs &amp; False Friends
+            </h3>
+</div>
+<button aria-label="Deck options" class="w-11 h-11 -mr-2 -mt-1 flex items-center justify-center rounded-xl text-[#A9BDBB] hover:text-[#E8F1F0] hover:bg-[#1E2F33] transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<div class="space-y-1">
+<div class="flex justify-between items-center text-[11px] font-label">
+<span class="text-[#A9BDBB] font-semibold">Mastery progress</span>
+<span class="text-[#3BD4C7] font-extrabold">100%</span>
+</div>
+<div class="w-full h-2.5 bg-[#1E2F33] rounded-full overflow-hidden p-[1px] border border-[#2A3E44]">
+<div class="h-full bg-[#3BD4C7] rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+<div class="pt-1 flex items-center justify-between gap-3">
+<span class="font-label text-[11px] text-[#A9BDBB] font-semibold">Review due in 3 days</span>
+<button class="tactile-btn-secondary min-h-[44px] h-11 px-4 rounded-xl flex items-center justify-center gap-1.5 text-[#E8F1F0] font-label text-[12px] cursor-pointer shrink-0 font-bold hover:text-[#3BD4C7]">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+            Review
+          </button>
+</div>
+</article>
+</div>
+<!-- CUSTOM DECK PROMPT SECTION -->
+<section class="mt-6 mb-4 border-2 border-dashed border-[#2A3E44] rounded-2xl p-5 bg-[#172427] text-center flex flex-col items-center shadow-[0_4px_0_0_#0B1417]">
+<!-- Tactile Geometric Vector Icon Illustration -->
+<div class="relative w-18 h-18 mb-3 flex items-center justify-center">
+<div class="w-16 h-14 bg-[#1E2F33] rounded-xl border-2 border-[#2BA39A]/60 shadow-[0_4px_0_0_#0B1417] flex items-center justify-center relative overflow-hidden">
+<div class="absolute top-0 inset-x-0 h-1.5 bg-[#3BD4C7]/20"></div>
+<span class="material-symbols-outlined text-[#3BD4C7] text-[30px]">inventory_2</span>
+</div>
+<span class="material-symbols-outlined material-symbols-fill text-[#FFB054] absolute -top-1 -right-1 text-[18px]">star</span>
+<span class="material-symbols-outlined text-[#3BD4C7] absolute bottom-1 -left-2 text-[15px]">arrow_back_ios_new</span>
+</div>
+<h4 class="font-title text-[16px] font-bold text-[#E8F1F0] mb-1">
+        Your custom deck is ready
+      </h4>
+<p class="font-body text-[13px] text-[#A9BDBB] max-w-[260px] mb-4 leading-relaxed">
+        Your custom deck is ready for new high-yield exam words. Add cards manually or paste lexical sets.
+      </p>
+<!-- CTA Button -->
+<button class="tactile-btn-secondary min-h-[44px] px-5 rounded-xl flex items-center justify-center gap-1.5 text-[#3BD4C7] font-label text-[12px] font-extrabold cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">add</span>
+        Add your first word
+      </button>
+</section>
+</main>
+<!-- BOTTOM NAVIGATION BAR (Fixed at bottom, 5 tabs >= 44px) -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 bg-[#10191B] pb-safe border-t-2 border-[#2A3E44] max-w-[390px] mx-auto right-0">
+<!-- Tab 1: Today -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1 hover:text-[#E8F1F0] transition-colors min-w-[44px] min-h-[44px]" href="#today">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="font-label text-[10px] mt-0.5 font-bold">Today</span>
+</a>
+<!-- Tab 2: Vocab (ACTIVE ITEM) -->
+<a aria-current="page" class="flex flex-col items-center justify-center bg-[#1E2F33] text-[#3BD4C7] rounded-xl px-3.5 py-1 border-2 border-[#3BD4C7] transition-colors min-w-[44px] min-h-[44px]" href="#vocab">
+<span class="material-symbols-outlined material-symbols-fill text-[22px]">menu_book</span>
+<span class="font-label text-[10px] font-extrabold mt-0.5">Vocab</span>
+</a>
+<!-- Tab 3: Skills -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1 hover:text-[#E8F1F0] transition-colors min-w-[44px] min-h-[44px]" href="#skills">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span class="font-label text-[10px] mt-0.5 font-bold">Skills</span>
+</a>
+<!-- Tab 4: Tests -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1 hover:text-[#E8F1F0] transition-colors min-w-[44px] min-h-[44px]" href="#tests">
+<span class="material-symbols-outlined text-[22px]">quiz</span>
+<span class="font-label text-[10px] mt-0.5 font-bold">Tests</span>
+</a>
+<!-- Tab 5: Me -->
+<a class="flex flex-col items-center justify-center text-[#A9BDBB] px-3 py-1 hover:text-[#E8F1F0] transition-colors min-w-[44px] min-h-[44px]" href="#me">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="font-label text-[10px] mt-0.5 font-bold">Me</span>
+</a>
+</nav>
+</div>
+</body></html>

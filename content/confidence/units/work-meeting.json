@@ -1,0 +1,204 @@
+{
+  "id": "work-meeting",
+  "level": "B2",
+  "order": 16,
+  "em": "🗂️",
+  "title": {
+    "vi": "Điều hành cuộc họp",
+    "en": "Running a work meeting"
+  },
+  "goal": {
+    "vi": "Mở đầu cuộc họp, mời mọi người phát biểu, giữ đúng giờ và chốt ai làm gì.",
+    "en": "Open a meeting, invite people to speak, keep to time and sum up who does what."
+  },
+  "dialogue": {
+    "a": "Sam",
+    "aRole": "a team member",
+    "lines": [
+      [
+        "b",
+        "Okay, let's get started. Thanks, everyone, for coming."
+      ],
+      [
+        "b",
+        "Today we'll discuss the budget and agree on next steps. Sam, I'd like to hear from you first."
+      ],
+      [
+        "a",
+        "Sure. I think we should spend more on ads. Also, what about the new office chairs?"
+      ],
+      [
+        "b",
+        "Good idea, but let's park the chairs for now and come back to them later."
+      ],
+      [
+        "a",
+        "Fine. So, more for ads?"
+      ],
+      [
+        "b",
+        "We're running short on time, so let's move on. Are we all on the same page about ads?"
+      ],
+      [
+        "a",
+        "Yes, I think so."
+      ],
+      [
+        "b",
+        "Great. To wrap up, Sam will send the new numbers by Friday."
+      ]
+    ]
+  },
+  "phrases": [
+    {
+      "id": "lets-get-started",
+      "say": "Let's get started. Thanks, everyone, for coming.",
+      "not": "We start now. Thank you for your coming.",
+      "gap": "started",
+      "mean": {
+        "vi": "Mở đầu cuộc họp thân thiện",
+        "en": "Open a meeting in a friendly way"
+      },
+      "why": {
+        "vi": "Nói \"thanks for coming\", không có \"your\".",
+        "en": "Say \"thanks for coming\", without \"your\"."
+      }
+    },
+    {
+      "id": "well-discuss",
+      "say": "Today we'll discuss the budget and agree on next steps.",
+      "not": "Today we will discuss about the budget.",
+      "gap": "discuss",
+      "mean": {
+        "vi": "Nói mục tiêu của cuộc họp",
+        "en": "Say the goal of the meeting"
+      },
+      "why": {
+        "vi": "\"Discuss\" không cần \"about\": discuss the plan.",
+        "en": "\"Discuss\" needs no \"about\": discuss the plan."
+      }
+    },
+    {
+      "id": "hear-from",
+      "say": "Sam, I'd like to hear from you on this.",
+      "not": "Sam, you speak now.",
+      "gap": "hear",
+      "mean": {
+        "vi": "Mời một người phát biểu",
+        "en": "Invite someone to speak"
+      },
+      "why": {
+        "vi": "Câu này mời người khác nói một cách thân thiện, không ép.",
+        "en": "This invites someone to speak in a friendly way."
+      }
+    },
+    {
+      "id": "park-that",
+      "say": "Let's park that for now and come back to it later.",
+      "not": "This is not important, stop talking.",
+      "gap": "park",
+      "mean": {
+        "vi": "Tạm gác một chủ đề để giữ đúng giờ",
+        "en": "Put a topic aside to stay on time"
+      },
+      "why": {
+        "vi": "\"Park\" một ý giúp giữ đúng giờ mà không làm ai mất lòng.",
+        "en": "\"Park\" an idea to save time without being rude."
+      }
+    },
+    {
+      "id": "move-on",
+      "say": "We're running short on time, so let's move on.",
+      "not": "Hurry up, no time.",
+      "gap": "move",
+      "mean": {
+        "vi": "Chuyển sang nội dung khác khi gần hết giờ",
+        "en": "Go to the next topic when time is short"
+      },
+      "why": {
+        "vi": "Nói lý do chuyển ý để không ai thấy bị cắt lời.",
+        "en": "Give the reason, so nobody feels cut off."
+      }
+    },
+    {
+      "id": "same-page",
+      "say": "Are we all on the same page?",
+      "not": "Everybody understand?",
+      "gap": "page",
+      "mean": {
+        "vi": "Kiểm tra mọi người đã thống nhất chưa",
+        "en": "Check that everyone agrees"
+      },
+      "why": {
+        "vi": "Kiểm tra sự đồng thuận mà không giống giáo viên hỏi bài.",
+        "en": "Checks agreement without sounding like a teacher."
+      }
+    },
+    {
+      "id": "to-wrap-up",
+      "say": "To wrap up, Lee will send the report by Friday.",
+      "not": "For finish, Lee sends report Friday.",
+      "gap": "wrap",
+      "mean": {
+        "vi": "Tóm tắt và chốt việc cần làm",
+        "en": "Sum up and agree on tasks"
+      },
+      "why": {
+        "vi": "Kết thúc bằng ai làm gì, trước khi nào.",
+        "en": "End with who does what, and by when."
+      }
+    }
+  ],
+  "roleplay": {
+    "ai": {
+      "name": "Sam",
+      "role": "a team member in a weekly meeting",
+      "persona": "friendly, talks a lot and likes new ideas",
+      "goal": "share ideas about the budget"
+    },
+    "you": "You lead the meeting. Open it, invite your coworker to speak, put one topic aside, check everyone agrees and sum up.",
+    "turns": [
+      {
+        "a": "Hi! Sorry, am I late?",
+        "h": "No problem. Let's get started. Thanks for coming.",
+        "br": [
+          [
+            "get started|thanks for coming|start|welcome",
+            "Thanks."
+          ]
+        ]
+      },
+      {
+        "a": "So, what are we talking about today?",
+        "h": "Today we'll discuss the budget. Sam, I'd like to hear from you first.",
+        "br": [
+          [
+            "discuss|budget|hear from|you first|what do you think",
+            "Sure. I think we need more money for ads. Oh, and new office chairs!"
+          ]
+        ]
+      },
+      {
+        "a": "The chairs are really old, you know.",
+        "h": "Good point, but let's park that for now and come back to it later.",
+        "br": [
+          [
+            "park|later|come back|for now|another time",
+            "Okay, fair enough."
+          ]
+        ]
+      },
+      {
+        "a": "So, more money for ads. Is that the plan?",
+        "h": "Yes. To wrap up, you'll send the new numbers by Friday. Are we all on the same page?",
+        "br": [
+          [
+            "wrap up|friday|same page|agree|send",
+            "Yes, I'm on it."
+          ]
+        ]
+      }
+    ],
+    "end": "Great meeting. Short and clear. See you next week!"
+  }
+}

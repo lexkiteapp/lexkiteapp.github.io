@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="light" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — مشاركة التقدم</title>
+<!-- Fonts: Cairo & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary-fixed-variant": "#900f00",
+            "primary": "#0F3D3E",
+            "outline": "#EADEC8",
+            "on-primary-fixed-variant": "#00504b",
+            "surface-container-highest": "#E6DBC6",
+            "surface-bright": "#FFFFFF",
+            "primary-container": "#2ba39a",
+            "inverse-primary": "#6bd8ce",
+            "on-primary-container": "#00322e",
+            "surface-variant": "#F3EBDD",
+            "tertiary-container": "#ba8b00",
+            "surface-dim": "#F0E4CE",
+            "secondary": "#4E6668",
+            "primary-fixed": "#88f5ea",
+            "background": "#FFF7EA",
+            "on-tertiary-container": "#392900",
+            "inverse-surface": "#091518",
+            "surface-container-high": "#FAF2E4",
+            "on-primary-fixed": "#00201e",
+            "on-secondary-fixed": "#3f0300",
+            "secondary-fixed-dim": "#ffb4a6",
+            "surface-container-lowest": "#FFFFFF",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-primary": "#FFFFFF",
+            "on-secondary": "#FFFFFF",
+            "on-tertiary": "#402e00",
+            "surface": "#FFF7EA",
+            "secondary-fixed": "#ffdad3",
+            "on-error": "#ffffff",
+            "on-error-container": "#ffdad6",
+            "error": "#BA1A1A",
+            "on-background": "#0F3D3E",
+            "surface-tint": "#2ba39a",
+            "surface-container-low": "#FFFDF9",
+            "inverse-on-surface": "#d8e5e9",
+            "surface-container": "#FFFFFF",
+            "on-surface": "#0F3D3E",
+            "tertiary-fixed": "#ffdf9e",
+            "tertiary-fixed-dim": "#f4bf40",
+            "outline-variant": "#D8CFBC",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-tertiary-fixed": "#261a00",
+            "tertiary": "#f4bf40",
+            "on-surface-variant": "#4E6668",
+            "on-secondary-container": "#ffa493",
+            "error-container": "#93000a",
+            "secondary-container": "#981201",
+            "brand-ledge": "#D8CFBC",
+            "brand-coral": "#F2553B",
+            "brand-amber": "#FFC94A",
+            "brand-coral-ledge": "#B53A22",
+            "brand-ink": "#1B0B04"
+          },
+          fontFamily: {
+            display: ["Cairo", "Plus Jakarta Sans", "sans-serif"],
+            body: ["Cairo", "Plus Jakarta Sans", "sans-serif"],
+            label: ["Cairo", "Plus Jakarta Sans", "sans-serif"],
+            title: ["Cairo", "Plus Jakarta Sans", "sans-serif"],
+            digits: ["Plus Jakarta Sans", "Cairo", "sans-serif"]
+          },
+          fontSize: {
+            display: ["32px", { lineHeight: "38px", fontWeight: "800" }],
+            body: ["16px", { lineHeight: "24px", fontWeight: "600" }],
+            label: ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "700" }],
+            title: ["22px", { lineHeight: "28px", fontWeight: "800" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Cairo', 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      user-select: none;
+      background-color: #FFF7EA;
+      color: #0F3D3E;
+    }
+    .latin-digits {
+      font-family: 'Plus Jakarta Sans', 'Cairo', sans-serif;
+      direction: ltr;
+      display: inline-block;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 var(--tw-shadow-color) !important;
+    }
+    .tactile-card {
+      box-shadow: 0 5px 0 0 #D8CFBC;
+    }
+    .tactile-card-coral {
+      box-shadow: 0 5px 0 0 #B53A22;
+    }
+    .tactile-card-teal {
+      box-shadow: 0 4px 0 0 #1B6C66;
+    }
+    .teacher-slot {
+      border: 2px dashed #BCC9C7;
+      background: #F8F5EE;
+    }
+    /* Hide scrollbar for neat mobile preview */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen text-on-surface antialiased flex justify-center selection:bg-primary-container selection:text-white pb-24">
+<!-- Mobile Viewport Wrapper (390px spec) -->
+<div class="w-full max-w-[390px] relative bg-background flex flex-col min-h-screen overflow-x-hidden border-x border-outline-variant">
+<!-- TOP APP BAR (56px) RTL Fixed Header -->
+<header class="h-14 w-full max-w-[390px] fixed top-0 z-50 bg-[#FFF7EA]/95 backdrop-blur-md px-4 flex items-center justify-between border-b-2 border-outline">
+<!-- Right Side: Back button + Title -->
+<div class="flex items-center gap-3">
+<button aria-label="رجوع" class="w-10 h-10 rounded-full bg-surface-container border-2 border-outline shadow-[0_3px_0_0_#D8CFBC] active:translate-y-0.5 active:shadow-[0_1px_0_0_#D8CFBC] flex items-center justify-center text-primary transition-all">
+<!-- RTL Mirrored chevron: points right -->
+<span class="material-symbols-outlined text-[20px] font-black">arrow_forward</span>
+</button>
+<h1 class="font-title text-[18px] text-primary font-black tracking-tight">مشاركة التقدم</h1>
+</div>
+<!-- Left Side: Gamified Pills (Streak & XP) -->
+<div class="flex items-center gap-2">
+<!-- Streak Pill -->
+<div class="h-8 px-2.5 bg-surface-container rounded-full border-2 border-outline flex items-center gap-1 shadow-[0_2px_0_0_#D8CFBC]">
+<span class="material-symbols-outlined text-amber-500 text-[18px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="latin-digits font-bold text-xs text-primary">32</span>
+</div>
+<!-- XP Pill -->
+<div class="h-8 px-2.5 bg-surface-container rounded-full border-2 border-outline flex items-center gap-1 shadow-[0_2px_0_0_#D8CFBC]">
+<span class="material-symbols-outlined text-primary-container text-[18px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="latin-digits font-bold text-xs text-primary">1,240</span>
+</div>
+</div>
+</header>
+<!-- MAIN SCROLLABLE CONTENT CANVAS -->
+<main class="pt-[68px] px-4 flex flex-col gap-4">
+<!-- HERO HEADLINE SECTION -->
+<section class="mt-1 flex flex-col gap-1 text-right">
+<div class="inline-flex items-center gap-2">
+<span class="text-xs font-black tracking-wider uppercase bg-[#FFDF9E] text-[#402E00] px-2 py-0.5 rounded-md border border-[#F4BF40]">إنجاز جديد</span>
+<span class="text-xs font-bold text-secondary">إتقان الأسبوع الرابع</span>
+</div>
+<h2 class="font-display text-[26px] leading-tight text-primary font-black">احتفل بإنجازك</h2>
+<p class="font-body text-[13px] leading-snug text-secondary font-medium">
+          صدّر أو شارك بطاقة تقدمك المعتمدة للاختبار مع الأصدقاء أو مجموعات الدراسة.
+        </p>
+</section>
+<!-- FORMAT TOGGLE BUTTONS (قصة / منشور) -->
+<section class="bg-surface-dim p-1 rounded-2xl border-2 border-outline flex gap-1.5" role="tablist">
+<!-- Tab 1: Story 9:16 -->
+<button aria-selected="false" class="flex-1 py-2 px-3 rounded-xl font-label text-xs flex items-center justify-center gap-1.5 text-secondary hover:text-primary transition-colors" role="tab">
+<span class="material-symbols-outlined text-[16px]">crop_portrait</span>
+<span>قصة <span class="latin-digits">(9:16)</span></span>
+</button>
+<!-- Tab 2: Post 4:5 (Active) -->
+<button aria-selected="true" class="flex-1 py-2 px-3 bg-surface-container rounded-xl font-label text-xs text-primary font-extrabold border-2 border-primary-container shadow-[0_2px_0_0_#2BA39A] flex items-center justify-center gap-1.5 transition-all" role="tab">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="material-symbols-outlined text-[16px] text-primary-container">crop_5_4</span>
+<span>منشور <span class="latin-digits">(4:5 / 1080×1350)</span></span>
+</button>
+</section>
+<!-- THE SHAREABLE CERTIFICATE CARD (CARD PREVIEW) -->
+<article class="bg-surface-container rounded-2xl border-2 border-outline tactile-card p-4 flex flex-col gap-3.5 relative overflow-hidden">
+<!-- Background Tactile Accent Header Pattern -->
+<div class="absolute top-0 right-0 left-0 h-2 bg-gradient-to-l from-primary-container via-brand-amber to-brand-coral"></div>
+<!-- Card Top Bar: Lexkite Logo + Accreditation Badge -->
+<div class="flex items-center justify-between pt-1 border-b border-[#F0E6D5] pb-2.5">
+<!-- Right: Lexkite Brand Logo -->
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary-container text-white flex items-center justify-center font-black text-base shadow-[0_2px_0_0_#1B6C66]">
+              L
+            </div>
+<div class="flex flex-col text-right">
+<span class="font-black text-sm text-primary tracking-tight leading-none">ليكسكايت</span>
+<span class="text-[10px] text-secondary font-bold tracking-wider">أكاديمية • ACADEMY</span>
+</div>
+</div>
+<!-- Left: Verified IELTS Academic Badge -->
+<div class="bg-[#E7F6F5] border border-primary-container/40 text-primary-container px-2 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-bold text-[11px]"><span class="latin-digits">IELTS</span> المعتمد • أكاديمي</span>
+</div>
+</div>
+<!-- SCORE PROJECTION BLOCK -->
+<div class="bg-gradient-to-b from-[#FAF6EE] to-[#F4EEE0] rounded-xl p-3 border-2 border-[#E7DCBF] flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-[11px] font-extrabold text-secondary tracking-wide uppercase">توقع درجة الـ <span class="latin-digits">Band</span></span>
+<span class="bg-brand-coral text-white text-[10px] font-black px-2 py-0.5 rounded-full flex items-center gap-1 shadow-sm">
+<span class="latin-digits font-black">+0.5</span>
+<span>قفزة في الدرجة</span>
+</span>
+</div>
+<!-- Big Score Display -->
+<div class="flex items-baseline justify-between py-0.5">
+<div class="flex items-center gap-2">
+<span class="font-black text-2xl text-primary latin-digits font-digits">Band 6.5</span>
+<!-- Forward arrow mirrored in RTL -->
+<span class="material-symbols-outlined text-primary-container text-xl font-black">arrow_back</span>
+<span class="font-black text-3xl text-primary-container latin-digits font-digits">7.0</span>
+</div>
+<!-- Level Badge -->
+<span class="bg-[#2BA39A]/15 text-[#1B6C66] border border-[#2BA39A]/40 text-xs font-black px-2.5 py-1 rounded-lg">
+              المستوى <span class="latin-digits">C1</span>
+</span>
+</div>
+<!-- Score Progression Meta -->
+<div class="grid grid-cols-2 gap-2 pt-1 border-t border-[#E8DEC7] text-[11px]">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-emerald-600 text-[14px]">check_circle</span>
+<span>السابق: <span class="latin-digits font-bold">6.5</span> كفء</span>
+</div>
+<div class="flex items-center gap-1 text-primary font-bold">
+<span class="material-symbols-outlined text-amber-500 text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>الهدف الحالي: <span class="latin-digits">7.0</span> مستخدم جيد</span>
+</div>
+</div>
+</div>
+<!-- TEACHER SLOT & RECOMMENDATION -->
+<div class="flex items-stretch gap-3">
+<!-- Empty Dashed Teacher Slot (140x170 standard ratio, NO MASCOTS / ZERO PEOPLE) -->
+<div class="teacher-slot w-[95px] h-[105px] rounded-xl flex flex-col items-center justify-center p-2 text-center text-outline-variant shrink-0 relative">
+<span class="material-symbols-outlined text-3xl text-secondary" style="font-variation-settings: 'FILL' 0;">school</span>
+<span class="text-[9px] font-bold text-secondary mt-1 leading-tight">معلم الذكاء الاصطناعي</span>
+<span class="text-[8px] text-outline mt-0.5">معتمد رسمياً</span>
+</div>
+<!-- Teacher Carlos Speech Bubble Quote -->
+<div class="flex-1 bg-[#F8F6F0] rounded-xl p-3 border-2 border-outline flex flex-col justify-between text-right relative">
+<div class="flex items-center justify-between pb-1 border-b border-[#ECE3D2]">
+<span class="text-xs font-black text-primary">المعلم كارلوس (Carlos)</span>
+<span class="text-[10px] text-secondary font-medium">التقييم التشخيصي</span>
+</div>
+<p class="text-[12px] leading-relaxed text-secondary font-semibold mt-1">
+              "زخم رائع! الترابط والمفردات اللغوية تترسخ لتحقيق درجة <span class="latin-digits font-bold text-primary">7.0</span>."
+            </p>
+<div class="flex items-center gap-1 text-[10px] text-primary-container font-bold mt-1">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+<span>تحليل استجابة دقيق بنسبة <span class="latin-digits">98%</span></span>
+</div>
+</div>
+</div>
+<!-- 3 STAT TILES -->
+<div class="grid grid-cols-3 gap-2">
+<!-- Stat Tile 1: Mastered Words -->
+<div class="bg-surface-bright rounded-xl p-2.5 border-2 border-outline flex flex-col items-center text-center shadow-[0_2px_0_0_#D8CFBC]">
+<div class="w-7 h-7 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+</div>
+<span class="latin-digits font-extrabold text-base text-primary">1,240</span>
+<span class="text-[10px] font-bold text-secondary leading-tight mt-0.5">مفردة متقنة</span>
+</div>
+<!-- Stat Tile 2: Study Streak -->
+<div class="bg-surface-bright rounded-xl p-2.5 border-2 border-outline flex flex-col items-center text-center shadow-[0_2px_0_0_#D8CFBC]">
+<div class="w-7 h-7 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<span class="latin-digits font-extrabold text-base text-primary">32 يوماً</span>
+<span class="text-[10px] font-bold text-secondary leading-tight mt-0.5">أيام متتالية</span>
+</div>
+<!-- Stat Tile 3: Accuracy Rate -->
+<div class="bg-surface-bright rounded-xl p-2.5 border-2 border-outline flex flex-col items-center text-center shadow-[0_2px_0_0_#D8CFBC]">
+<div class="w-7 h-7 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-[16px]">track_changes</span>
+</div>
+<span class="latin-digits font-extrabold text-base text-primary">91.8%</span>
+<span class="text-[10px] font-bold text-secondary leading-tight mt-0.5">نسبة الدقة</span>
+</div>
+</div>
+<!-- CARD FOOTER (Verification & Domain) -->
+<div class="pt-2 border-t border-[#EDE4D2] flex items-center justify-between text-[10px] text-secondary">
+<div class="flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined text-[14px] text-primary">gavel</span>
+<span>معتمد وفق معايير <span class="latin-digits">Cambridge</span> و <span class="latin-digits">IDP</span></span>
+</div>
+<div class="flex items-center gap-2 font-bold">
+<span class="bg-[#FFF0D4] text-[#9A6200] px-1.5 py-0.2 rounded font-black text-[9px]">ممارسة مجانية 100%</span>
+<span class="latin-digits text-primary font-black">lexkite.com</span>
+</div>
+</div>
+</article>
+<!-- PRIMARY & SECONDARY ACTION BUTTONS -->
+<section class="flex flex-col gap-2.5 mt-1">
+<!-- Primary Action Button: 56px, tactile coral-to-amber, 5px bottom ledge #B53A22 -->
+<button class="tactile-btn w-full h-14 rounded-2xl bg-gradient-to-r from-brand-coral to-brand-amber text-brand-ink font-display text-[17px] font-black border-2 border-[#D94228] shadow-[0_5px_0_0_#B53A22] active:shadow-[0_2px_0_0_#B53A22] active:translate-y-[3px] flex items-center justify-center gap-2 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-[22px] font-black">ios_share</span>
+<span>مشاركة التقدم</span>
+</button>
+<!-- Secondary Button: 52px, white card with 2px border, 4px bottom ledge #D8CFBC -->
+<button class="tactile-btn w-full h-[52px] rounded-2xl bg-surface-container text-primary font-title text-[15px] font-bold border-2 border-outline shadow-[0_4px_0_0_#D8CFBC] active:shadow-[0_1px_0_0_#D8CFBC] active:translate-y-[3px] flex items-center justify-center gap-2 hover:bg-surface-bright transition-all cursor-pointer">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span>حفظ الصورة</span>
+</button>
+</section>
+<!-- QUICK CHANNELS (قنوات سريعة) -->
+<section class="flex flex-col gap-2 pt-2">
+<h3 class="font-title text-[15px] text-primary font-black text-right">قنوات سريعة</h3>
+<!-- 4 Grid Action Tiles with Tactile Ledges -->
+<div class="grid grid-cols-4 gap-2">
+<!-- Channel 1: واتساب -->
+<button class="tactile-btn bg-surface-container rounded-xl p-2.5 border-2 border-outline shadow-[0_3px_0_0_#D8CFBC] active:translate-y-0.5 active:shadow-[0_1px_0_0_#D8CFBC] flex flex-col items-center justify-center gap-1.5 transition-all">
+<div class="w-9 h-9 rounded-full bg-[#E8F8F0] text-[#128C7E] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">chat</span>
+</div>
+<span class="text-[11px] font-bold text-primary">واتساب</span>
+</button>
+<!-- Channel 2: تيليجرام -->
+<button class="tactile-btn bg-surface-container rounded-xl p-2.5 border-2 border-outline shadow-[0_3px_0_0_#D8CFBC] active:translate-y-0.5 active:shadow-[0_1px_0_0_#D8CFBC] flex flex-col items-center justify-center gap-1.5 transition-all">
+<div class="w-9 h-9 rounded-full bg-[#EBF5FB] text-[#229ED9] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">send</span>
+</div>
+<span class="text-[11px] font-bold text-primary">تيليجرام</span>
+</button>
+<!-- Channel 3: قصص -->
+<button class="tactile-btn bg-surface-container rounded-xl p-2.5 border-2 border-outline shadow-[0_3px_0_0_#D8CFBC] active:translate-y-0.5 active:shadow-[0_1px_0_0_#D8CFBC] flex flex-col items-center justify-center gap-1.5 transition-all">
+<div class="w-9 h-9 rounded-full bg-[#FCEBF3] text-[#D82D7E] flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">auto_stories</span>
+</div>
+<span class="text-[11px] font-bold text-primary">قصص</span>
+</button>
+<!-- Channel 4: نسخ الرابط -->
+<button class="tactile-btn bg-surface-container rounded-xl p-2.5 border-2 border-outline shadow-[0_3px_0_0_#D8CFBC] active:translate-y-0.5 active:shadow-[0_1px_0_0_#D8CFBC] flex flex-col items-center justify-center gap-1.5 transition-all">
+<div class="w-9 h-9 rounded-full bg-[#F3EFE6] text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">link</span>
+</div>
+<span class="text-[11px] font-bold text-primary">نسخ الرابط</span>
+</button>
+</div>
+</section>
+<!-- Bottom Spacer for Fixed Navigation -->
+<div class="h-6"></div>
+</main>
+<!-- DOCKED 5-TAB BOTTOM NAVIGATION BAR (RTL) -->
+<!-- RTL Sequence: اليوم (Today) | المفردات (Vocab) | المهارات (Skills) | الاختبارات (Tests) | أنا (Me - ACTIVE) -->
+<nav aria-label="شريط التنقل السفلي" class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto h-16 bg-surface-container border-t-2 border-outline shadow-[0_-2px_10px_rgba(0,0,0,0.03)] px-2 z-50 flex items-center justify-around">
+<!-- Tab 1: اليوم (Today) -->
+<button class="min-w-[48px] h-12 flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-[22px]">today</span>
+<span class="font-label text-[10px] mt-0.5">اليوم</span>
+</button>
+<!-- Tab 2: المفردات (Vocab) -->
+<button class="min-w-[48px] h-12 flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-[22px]">menu_book</span>
+<span class="font-label text-[10px] mt-0.5">المفردات</span>
+</button>
+<!-- Tab 3: المهارات (Skills) -->
+<button class="min-w-[48px] h-12 flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+<span class="font-label text-[10px] mt-0.5">المهارات</span>
+</button>
+<!-- Tab 4: الاختبارات (Tests) -->
+<button class="min-w-[48px] h-12 flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:translate-y-0.5">
+<span class="material-symbols-outlined text-[22px]">quiz</span>
+<span class="font-label text-[10px] mt-0.5">الاختبارات</span>
+</button>
+<!-- Tab 5: أنا (Me) -> ACTIVE STATE with 2px teal border and subtle teal tint -->
+<button aria-current="page" class="min-w-[48px] h-12 flex flex-col items-center justify-center bg-[#2BA39A]/15 text-[#1B6C66] rounded-xl px-3 border-2 border-primary-container shadow-[0_2px_0_0_#2BA39A] active:translate-y-0.5">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label text-[10px] font-black mt-0.5">أنا</span>
+</button>
+</nav>
+</div>
+</body></html>

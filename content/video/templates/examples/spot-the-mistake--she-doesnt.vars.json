@@ -1,0 +1,19 @@
+{
+ "topic": "Grammar: spot the mistake in \"She don't like coffee\"",
+ "scene": "library",
+ "vars": {
+  "wrong": "She don't like coffee",
+  "wrongShort": "she don't",
+  "right": "She doesn't like coffee",
+  "fix": "doesn't",
+  "rule": "with he, she, or it, we say doesn't, not don't.",
+  "example": "My brother doesn't drink coffee, but he loves tea.",
+  "tip": "he, she, and it take does. I, you, we, and they take do.",
+  "skill": "grammar"
+ },
+ "hashtags": [
+  "englishgrammar",
+  "commonmistakes",
+  "learnenglish"
+ ]
+}

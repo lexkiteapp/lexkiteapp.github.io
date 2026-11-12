@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_atwork",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Which small word is right?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am on the work now.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am at work now.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say at work.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "At! She is at work today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am on the work now.",
+  "right": "I am at work now.",
+  "strike": "on the work",
+  "why": "Say at work.",
+  "memory": "At work.",
+  "quiz": {
+   "stem": "She is ___ work today.",
+   "options": [
+    "at",
+    "in the"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“On the work” — ошибка",
+   "tip": "Работа — “at work”, без “the” и без “on”.",
+   "caption": "Ты тоже говоришь “I am on the work now.”? 😅 По-русски «на работе», и в английский тянется “on”. Нужно “at work”. Правильно: “I am at work now.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “at”. На работе — at work. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Which small word is right?",
+   "tip": "For your job, say “at work”, with no “the” and no “on”.",
+   "caption": "Do you also say “I am on the work now.”? 😅 In Russian it is “na rabote”, so “on” sneaks in. You need “at work”. Correct: “I am at work now.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“On the work” — ошибка"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“On the work” — ошибка",
+  "keyword": "I am at work now.",
+  "value": "Работа — “at work”, без “the” и без “on”.",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“On the work” — ошибка",
+    "description": "Ты тоже говоришь “I am on the work now.”? 😅 По-русски «на работе», и в английский тянется “on”. Нужно “at work”. Правильно: “I am at work now.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "I am at work now.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I am on the work now.”? 😅 По-русски «на работе», и в английский тянется “on”. Нужно “at work”. Правильно: “I am at work now.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Ты тоже говоришь “I am on the work now.”? 😅 По-русски «на работе», и в английский тянется “on”. Нужно “at work”. Правильно: “I am at work now.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“On the work” — ошибка #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “at”. На работе — at work. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

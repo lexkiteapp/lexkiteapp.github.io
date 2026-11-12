@@ -4,7 +4,7 @@
 
 | Phần | Thư mục | Địa chỉ |
 |---|---|---|
-| Web app (PWA, cài được như app) | `web/` | https://vocaband.web.app |
+| Web app (PWA, cài được như app) | `web/` | https://lexkite.com |
 | Add-on Chrome | `extension/` (bản sao `web/` trong `extension/app`) | Chrome Web Store (xem `store/LISTING.md`) |
 
 ## Tính năng chính
@@ -70,3 +70,5 @@ Toàn bộ là HTML/CSS/JS thuần, local-first, nên có thể đóng gói thà
 
 ---
 “IELTS” là nhãn hiệu của British Council, IDP: IELTS Australia và Cambridge University Press & Assessment. Lexkite là sản phẩm độc lập, không liên kết với các tổ chức này.
+
+<!-- Pages: lexkiteapp.github.io -->

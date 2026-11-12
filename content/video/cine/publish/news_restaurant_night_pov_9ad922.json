@@ -1,0 +1,75 @@
+{
+ "id": "news_restaurant_night_pov_9ad922",
+ "scene": "news",
+ "template": "pov",
+ "area": "roleplay",
+ "cefr": "A2",
+ "point": "ordering food politely: I'll have",
+ "series": "RESTAURANT ENGLISH / Ordering food",
+ "bg": "restaurant_night",
+ "title": "POV: Ready to order? What do you say?",
+ "description": "Ordering food politely: I'll have. Save this: I'll have the salmon, please. / Could I get the pasta? / not: I want salmon.\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=social&utm_medium=social&utm_campaign=cine_news&utm_content=news_restaurant_night_pov_9ad922#/roleplay",
+ "hashtags": [
+  "#learnenglish",
+  "#englishtips",
+  "#englishconversation",
+  "#roleplay",
+  "#americanenglish",
+  "#esl",
+  "#englishlearning"
+ ],
+ "store": "github:lexkiteapp/lexkite-shorts",
+ "video": "shorts/news/news_restaurant_night_pov_9ad922/cine-news-restaurant-night-pov-9ad922-en.mp4",
+ "cover": "shorts/news/news_restaurant_night_pov_9ad922/cine-news-restaurant-night-pov-9ad922-en.jpg",
+ "ci_artifact": "cine-news-49-*",
+ "run": 49,
+ "platforms": {
+  "tiktok": {
+   "title": "POV: Ready to order? What do you say?",
+   "caption": "Ordering food politely: I'll have. Save this: I'll have the salmon, please. / Could I get the pasta? / not: I want salmon.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_restaurant_night_pov_9ad922#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_restaurant_night_pov_9ad922#/roleplay",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishconversation",
+    "#roleplay",
+    "#americanenglish",
+    "#esl"
+   ],
+   "caption_with_tags": "Ordering food politely: I'll have. Save this: I'll have the salmon, please. / Could I get the pasta? / not: I want salmon.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=tiktok&utm_medium=social&utm_campaign=cine_news&utm_content=news_restaurant_night_pov_9ad922#/roleplay\n#learnenglish #englishtips #englishconversation #roleplay #americanenglish #esl"
+  },
+  "reels": {
+   "title": "POV: Ready to order? What do you say?",
+   "caption": "Ordering food politely: I'll have. Save this: I'll have the salmon, please. / Could I get the pasta? / not: I want salmon.\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_restaurant_night_pov_9ad922#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_restaurant_night_pov_9ad922#/roleplay",
+   "hashtags": [
+    "#learnenglish",
+    "#englishtips",
+    "#englishconversation",
+    "#roleplay",
+    "#americanenglish",
+    "#esl",
+    "#englishlearning"
+   ],
+   "caption_with_tags": "Ordering food politely: I'll have. Save this: I'll have the salmon, please. / Could I get the pasta? / not: I want salmon.\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=instagram&utm_medium=social&utm_campaign=cine_news&utm_content=news_restaurant_night_pov_9ad922#/roleplay\n#learnenglish #englishtips #englishconversation #roleplay #americanenglish #esl #englishlearning"
+  },
+  "shorts": {
+   "title": "POV: Ready to order? What do you say? #shorts",
+   "caption": "Ordering food politely: I'll have. Save this: I'll have the salmon, please. / Could I get the pasta? / not: I want salmon.\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_restaurant_night_pov_9ad922#/roleplay",
+   "link": "https://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_restaurant_night_pov_9ad922#/roleplay",
+   "hashtags": [
+    "#shorts",
+    "#learnenglish",
+    "#englishtips",
+    "#englishconversation",
+    "#roleplay"
+   ],
+   "caption_with_tags": "Ordering food politely: I'll have. Save this: I'll have the salmon, please. / Could I get the pasta? / not: I want salmon.\nComment your answer below and follow for daily English.\nPractice free on lexkite.com\nhttps://lexkite.com/app/?utm_source=youtube&utm_medium=social&utm_campaign=cine_news&utm_content=news_restaurant_night_pov_9ad922#/roleplay\n#shorts #learnenglish #englishtips #englishconversation #roleplay"
+  }
+ },
+ "slot": {
+  "date": "2026-10-24",
+  "time": "11:30",
+  "tz": "Asia/Ho_Chi_Minh"
+ }
+}

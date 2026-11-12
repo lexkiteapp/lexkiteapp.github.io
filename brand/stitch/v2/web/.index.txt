@@ -1,0 +1,21 @@
+# Stitch v2.1 refs – web (factory, project 7268539912208977707, DS assets/1b7a8a3d3d52404bb332d9ba3f783547 Lexkite Kit). page light-id dark-id device verdict | note | prompt = scratchpad prompts.tsv line (copied in prompts.txt)
+legal 396adfb79aec4b7ba18bd531cf74a3b1 d0ed3d29ebe84825aa822a621af1e164 7268539912208977707 DESKTOP PASS | Stitch filler copy (dates, contact names) → real legal text from content/legal on port
+schools 55d9d2df68d94d8ba2353a2d7c6856e6 99d3e1d298474ea0ae77f8857db96ff8 7268539912208977707 DESKTOP PASS teacher-slot | 5 real steps from web/schools.html; teacher slot in hero
+about c185e89694a346ea90ca0a93658fef9c 224d0def97c04d738ad20adc3eb84a87 7268539912208977707 DESKTOP PASS teacher-slot | Ama+Carlos slots; Stitch surnames/titles ('Ama Osei', 'certified examiners', 'thousands') are filler → real copy
+editorial 69df24dfcf244383b18d7b23a703cde8 21fb85d73c7a48dfa60afb3879be68c9 7268539912208977707 DESKTOP PASS | dark recovered via REST after MCP 'service unavailable'; photo panel = Stitch art, keep or swap to illustration (owner call)
+research 8193d74246424288a271730a187a6593 95f929ee85124bcaa016d4b4ce5b4b61 7268539912208977707 DESKTOP PASS | stats/DOI/'1.42M essays' are filler → real dataset numbers (build-authority) on port
+embed f516378950de4bed9ae742625f905596 ca23f5a7d7894559b208831385648825 7268539912208977707 DESKTOP PASS | widget preview + CEFR badges = real /embed features
+word 703c8083c098437e909376bfbe0d3bdb 4192658c8b5d4cbcbab7b04fd0610477 7268539912208977707 DESKTOP PASS teacher-slot | dict template for /<lang>/words/<slug>; teacher tip slot
+# TODO(QC đỏ, chưa vào main) conversation a5c7de0e69c7426aad6cc29683a9a71e 0bb45696064c40d8bdd162f713518b06 7268539912208977707 DESKTOP PASS | speakers as initials (no faces) as asked
+cefr-test 358834f423a3411f871cc0d9ca612aee b4fd0223326f48c8b2f4cad74b9cacfc 7268539912208977707 DESKTOP PASS
+cefr-result 6242b5f330be4a2494c600880b61b688 8adf71beaec741f39dd11a5523fef31d 7268539912208977707 DESKTOP PASS teacher-slot | no confetti drawn (fine); teacher slot
+# TODO(QC đỏ, chưa vào main) cefr-level fd05334cef1641d089cf0ad35fa9b578 dad367b590014c83ad384c8e42d4ebb9 7268539912208977707 DESKTOP PASS
+# TODO(QC đỏ, chưa vào main) toeic-quiz 74790a815c8d4c11bc89e05cd2f7c2cd 9b7bb1532a134490aec795b0be5993ea 7268539912208977707 DESKTOP PASS | dark r1 rejected (white empty answer cards) → dark2 edit
+# TODO(QC đỏ, chưa vào main) vocab-topic d1589eff8e5b4dbd86598c92ef77d684 c4ab47cd39604d06a699d3f0bbc8bf64 7268539912208977707 DESKTOP PASS
+grammar be04a00c133c4702986118608f72b049 e07be536aadc4833b43241e2f40c4108 7268539912208977707 DESKTOP PASS teacher-slot | teacher slot in tip card
+letter a86fc5a3fddc42cd8d32091e23aa757a 149fefc1db4648ef83914c2106abcf69 7268539912208977707 DESKTOP PASS
+video bdccff6021f24733812d3c2de4606602 b220fd010fa849d6a1773a62bac3bc4e 7268539912208977707 DESKTOP PASS teacher-slot | dark transcript faded lines – CI contrast decides
+404 2005b4c9c1b046df85cb7c6b87bd3b15 56c5fb2a23db468e9f2eb61ba300826a 7268539912208977707 DESKTOP PASS | kite-in-tree art = Stitch illustration
+bye 4ac156d699404f898ed28f4eac96f48a 6a361eb89d5846528dd7dda4af90cf3e 7268539912208977707 DESKTOP PASS | dark r1 rejected (white card in dark) → dark2 edit
+blog-lang c3e7ad9fe8594b32a7c74d288e3c8483 fc6dd72ea3af4db79f963dac1313238d 7268539912208977707 DESKTOP PASS
+credits 53f31ebe930b41178449bc8694cac644 a7b039f23d8849fea0eec81cbce580e2 7268539912208977707 DESKTOP PASS

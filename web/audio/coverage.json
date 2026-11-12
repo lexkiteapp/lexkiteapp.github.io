@@ -1,0 +1,117 @@
+{
+ "note": "Sàn độ phủ giọng Kokoro – chỉ lên (scripts/audio/coverage.mjs --ratchet, audio.yml). KHÔNG sửa tay để hạ.",
+ "groups": {
+  "listening": {
+   "pct": 100,
+   "missing": 0
+  },
+  "cambridge-listening": {
+   "pct": 100,
+   "missing": 0
+  },
+  "lesson-stories": {
+   "pct": 100,
+   "missing": 0
+  },
+  "calls": {
+   "pct": 100,
+   "missing": 0
+  },
+  "cambridge-speaking": {
+   "pct": 100,
+   "missing": 0
+  },
+  "mediation-source": {
+   "pct": 100,
+   "missing": 0
+  },
+  "toefl-speaking": {
+   "pct": 100,
+   "missing": 0
+  },
+  "speaking-questions": {
+   "pct": 100,
+   "missing": 0
+  },
+  "readings": {
+   "pct": 100,
+   "missing": 0
+  },
+  "speaking-samples": {
+   "pct": 100,
+   "missing": 0
+  },
+  "confidence": {
+   "pct": 100,
+   "missing": 0
+  },
+  "roleplay": {
+   "pct": 100,
+   "missing": 0
+  },
+  "toeic-speaking": {
+   "pct": 100,
+   "missing": 0
+  },
+  "ui-lines": {
+   "pct": 100,
+   "missing": 0
+  },
+  "toefl-models": {
+   "pct": 100,
+   "missing": 0
+  },
+  "mock-speaking": {
+   "pct": 100,
+   "missing": 0
+  },
+  "pron": {
+   "pct": 100,
+   "missing": 0
+  },
+  "speak-situations": {
+   "pct": 100,
+   "missing": 0
+  },
+  "lesson-teacher": {
+   "pct": 100,
+   "missing": 0
+  },
+  "gold-examples": {
+   "pct": 100,
+   "missing": 0
+  },
+  "models": {
+   "pct": 100,
+   "missing": 0
+  },
+  "say-native": {
+   "pct": 100,
+   "missing": 0
+  },
+  "ideas": {
+   "pct": 100,
+   "missing": 0
+  },
+  "grammar": {
+   "pct": 100,
+   "missing": 0
+  },
+  "examples-uk": {
+   "pct": 100,
+   "missing": 0
+  },
+  "examples-us": {
+   "pct": 100,
+   "missing": 0
+  },
+  "words-uk": {
+   "pct": 100,
+   "missing": 0
+  },
+  "words-us": {
+   "pct": 100,
+   "missing": 0
+  }
+ }
+}

@@ -1,0 +1,227 @@
+{
+ "_note": "Ng\u01b0\u1ee1ng gi\u00e1m kh\u1ea3o \u1ea3nh C\u1ea2NH/b\u00eca/b\u00e0i h\u1ecdc (local_judge.py verdict_scene), do calibrate_scene.py sinh tr\u00ean nh\u00e3n tay vimg-labels-scene.json \u2013 kh\u00f4ng s\u1eeda tay.",
+ "groups": {
+  "scene": {
+   "kinds": [
+    "scene"
+   ],
+   "th": {
+    "missing_empty": 0,
+    "ask_conf": 80,
+    "ocr_max": 0,
+    "clip_ex_rank_max": 99,
+    "clip_ex_margin": -1,
+    "cap_ex_min": -1,
+    "clip_ex_min": 0.22,
+    "api_ex_min": 0.3,
+    "ask_text_block": true
+   },
+   "cal": {
+    "labelled": 116,
+    "ok": 56,
+    "accepted": 9,
+    "precision": 1.0,
+    "recall": 0.1607,
+    "meets_target": false,
+    "cv5_precision": 0.7692,
+    "cv5_accepted": 13,
+    "cv5_recall": 0.1786,
+    "by_kind": {
+     "scene": {
+      "n": 116,
+      "ok": 56,
+      "acc": 9,
+      "acc_ok": 9
+     }
+    },
+    "signals": {
+     "vision_yes": {
+      "n": 36,
+      "prec": 0.611,
+      "rec": 0.393
+     },
+     "vision_yes_conf80": {
+      "n": 36,
+      "prec": 0.611,
+      "rec": 0.393
+     },
+     "clip_sentence_rank1": {
+      "n": 30,
+      "prec": 0.633,
+      "rec": 0.339
+     },
+     "caption_sentence_ge_.4": {
+      "n": 9,
+      "prec": 0.778,
+      "rec": 0.125
+     },
+     "old_judge_object_signals": {
+      "n": 53,
+      "prec": 0.585,
+      "rec": 0.554
+     }
+    },
+    "false_accepts": []
+   },
+   "curve": [
+    {
+     "recall": 0.39,
+     "precision": 0.7097,
+     "accepted": 31
+    },
+    {
+     "recall": 0.27,
+     "precision": 0.8824,
+     "accepted": 17
+    },
+    {
+     "recall": 0.18,
+     "precision": 0.9091,
+     "accepted": 11
+    },
+    {
+     "recall": 0.16,
+     "precision": 1.0,
+     "accepted": 9
+    }
+   ]
+  },
+  "lesson": {
+   "kinds": [
+    "cover",
+    "lesson"
+   ],
+   "th": {
+    "missing_empty": 0,
+    "ask_conf": 90,
+    "ocr_max": 99,
+    "clip_ex_rank_max": 1,
+    "clip_ex_margin": 0.02,
+    "cap_ex_min": -1,
+    "clip_ex_min": 0.22,
+    "api_ex_min": -1,
+    "ask_text_block": true
+   },
+   "cal": {
+    "labelled": 278,
+    "ok": 134,
+    "accepted": 41,
+    "precision": 1.0,
+    "recall": 0.306,
+    "meets_target": false,
+    "cv5_precision": 1.0,
+    "cv5_accepted": 40,
+    "cv5_recall": 0.2985,
+    "by_kind": {
+     "lesson": {
+      "n": 93,
+      "ok": 51,
+      "acc": 2,
+      "acc_ok": 2
+     },
+     "cover": {
+      "n": 185,
+      "ok": 83,
+      "acc": 39,
+      "acc_ok": 39
+     }
+    },
+    "signals": {
+     "vision_yes": {
+      "n": 152,
+      "prec": 0.618,
+      "rec": 0.701
+     },
+     "vision_yes_conf80": {
+      "n": 152,
+      "prec": 0.618,
+      "rec": 0.701
+     },
+     "clip_sentence_rank1": {
+      "n": 110,
+      "prec": 0.736,
+      "rec": 0.604
+     },
+     "caption_sentence_ge_.4": {
+      "n": 30,
+      "prec": 0.733,
+      "rec": 0.164
+     },
+     "old_judge_object_signals": {
+      "n": 70,
+      "prec": 0.886,
+      "rec": 0.463
+     }
+    },
+    "false_accepts": []
+   },
+   "curve": [
+    {
+     "recall": 0.67,
+     "precision": 0.6522,
+     "accepted": 138
+    },
+    {
+     "recall": 0.61,
+     "precision": 0.8039,
+     "accepted": 102
+    },
+    {
+     "recall": 0.59,
+     "precision": 0.8404,
+     "accepted": 94
+    },
+    {
+     "recall": 0.58,
+     "precision": 0.8478,
+     "accepted": 92
+    },
+    {
+     "recall": 0.56,
+     "precision": 0.8523,
+     "accepted": 88
+    },
+    {
+     "recall": 0.52,
+     "precision": 0.875,
+     "accepted": 80
+    },
+    {
+     "recall": 0.51,
+     "precision": 0.8947,
+     "accepted": 76
+    },
+    {
+     "recall": 0.49,
+     "precision": 0.9028,
+     "accepted": 72
+    },
+    {
+     "recall": 0.46,
+     "precision": 0.9104,
+     "accepted": 67
+    },
+    {
+     "recall": 0.41,
+     "precision": 0.9167,
+     "accepted": 60
+    },
+    {
+     "recall": 0.35,
+     "precision": 0.9216,
+     "accepted": 51
+    },
+    {
+     "recall": 0.34,
+     "precision": 0.9388,
+     "accepted": 49
+    },
+    {
+     "recall": 0.31,
+     "precision": 1.0,
+     "accepted": 41
+    }
+   ]
+  }
+ }
+}

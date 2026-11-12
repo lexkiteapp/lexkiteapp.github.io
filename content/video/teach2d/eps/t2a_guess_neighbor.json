@@ -1,0 +1,118 @@
+{
+ "id": "t2a_guess_neighbor",
+ "template": "guess",
+ "series": "Guess the Word",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "dictionary",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Guess the word in three clues!",
+   "pause": 0.42
+  },
+  {
+   "id": "c1",
+   "text": "Clue one: a person who lives near you.",
+   "pause": 0.42
+  },
+  {
+   "id": "c2",
+   "text": "Clue two: it has eight letters.",
+   "pause": 0.42
+  },
+  {
+   "id": "c3",
+   "text": "Clue three: it starts with N.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Got it? Comment your guess!",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Neighbor! Our neighbor looks after our cat when we are away.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "neighbor",
+  "ipa": "/ˈneɪbər/",
+  "clue": "A person who lives near you.",
+  "n": 8,
+  "img": "neighbor#n",
+  "ex": "Our neighbor looks after our cat when we are away."
+ },
+ "cta": {
+  "area": "dictionary",
+  "route": "#/dict/neighbor",
+  "link": "https://lexkite.com/app/#/dict/neighbor",
+  "say": "Look up any word"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Guess the word!"
+ },
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "\"A person who lives near you.\" Guess the word!",
+  "keyword": "neighbor",
+  "value": "The answer: neighbor /ˈneɪbər/. Our neighbor looks after our cat when we are away.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/neighbor",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "\"A person who lives near you.\" Guess the word!",
+    "description": "The answer: neighbor /ˈneɪbər/. Our neighbor looks after our cat when we are away.\n\nLook up any word, free: https://lexkite.com/app/#/dict/neighbor\n\nSeries: Guess the Word · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "neighbor",
+     "Guess the Word",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "\"A person who lives near you.\" Guess the word!\n\nThe answer: neighbor /ˈneɪbər/. Our neighbor looks after our cat when we are away.\n\nLook up any word, free: https://lexkite.com/app/#/dict/neighbor"
+   },
+   "instagram": {
+    "caption": "\"A person who lives near you.\" Guess the word!\n\nThe answer: neighbor /ˈneɪbər/. Our neighbor looks after our cat when we are away.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "\"A person who lives near you.\" Guess the word! #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Neighbor! Our neighbor looks after our cat when we are away. Try the full lesson and quiz here: {link}"
+ }
+}

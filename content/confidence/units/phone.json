@@ -1,0 +1,50 @@
+{
+  "id": "phone", "level": "A2", "order": 7, "em": "📞", "rp": null,
+  "title": { "vi": "Gọi điện thoại", "en": "Phone calls" },
+  "goal": { "vi": "Giới thiệu mình qua điện thoại, xin gặp ai đó và để lại lời nhắn.", "en": "Say who you are on the phone, ask for someone and leave a message." },
+  "dialogue": { "a": "Grace", "aRole": "a dental office receptionist", "lines": [
+    ["a", "Good morning, Bright Smile Dental. Grace speaking."],
+    ["b", "Hi, this is Ana Silva. Could I speak to Dr. Patel, please?"],
+    ["a", "I'm afraid she's with a patient right now. Can I take a message?"],
+    ["b", "Yes, please. Could you ask her to call me back?"],
+    ["a", "Of course. What's your number?"],
+    ["b", "It's 555-0142."],
+    ["a", "Sorry, you're breaking up. Could you say that again?"],
+    ["b", "Sure: five-five-five, oh-one-four-two."],
+    ["a", "Got it. She'll call you this afternoon."]
+  ] },
+  "phrases": [
+    { "id": "this-is", "say": "Hi, this is Ana.", "not": "I am Ana.", "gap": "this",
+      "mean": { "vi": "Nói tên mình khi gọi điện", "en": "Say your name on the phone" },
+      "why": { "vi": "Trên điện thoại, dùng \"This is…\" để giới thiệu tên.", "en": "On the phone, say \"This is…\" to give your name." } },
+    { "id": "could-i-speak-to", "say": "Could I speak to Dr. Patel, please?", "not": "Give me Dr. Patel.", "gap": "speak",
+      "mean": { "vi": "Xin nói chuyện với một người", "en": "Ask to talk to a person" },
+      "why": { "vi": "\"Could I speak to…?\" là cách lịch sự để xin gặp ai đó.", "en": "\"Could I speak to…?\" is the polite way to ask for someone." } },
+    { "id": "call-me-back", "say": "Could you ask her to call me back?", "not": "Tell her call me.", "gap": "back",
+      "mean": { "vi": "Nhờ người kia gọi lại cho bạn", "en": "Ask someone to return your call" },
+      "why": { "vi": "\"Call back\" nghĩa là gọi lại; thêm \"ask her to\" cho lịch sự.", "en": "\"Call back\" means return a call; add \"ask her to\" to be polite." } },
+    { "id": "breaking-up", "say": "Sorry, you're breaking up.", "not": "I cannot listen you.", "gap": "up", "tk": "repair",
+      "mean": { "vi": "Báo tiếng bị rè, mất tiếng", "en": "Say the sound on the call is bad" },
+      "why": { "vi": "Nói \"You're breaking up\" khi tiếng không rõ; ở đây dùng \"hear\", không dùng \"listen\".", "en": "Say \"You're breaking up\" when the sound is not clear; here we use \"hear\", not \"listen\"." } },
+    { "id": "leave-a-message", "say": "Can I leave a message?", "not": "Can I give message?", "gap": "leave",
+      "mean": { "vi": "Xin để lại lời nhắn", "en": "Ask to leave a message" },
+      "why": { "vi": "Người ta nói \"leave a message\" cho ai đó.", "en": "We \"leave a message\" for someone." } },
+    { "id": "spell-that", "say": "Could you spell that for me?", "not": "How do you write?", "gap": "spell", "tk": "repair",
+      "mean": { "vi": "Nhờ đánh vần tên hoặc từ", "en": "Ask someone to say the letters of a word" },
+      "why": { "vi": "Tên rất khó nghe qua điện thoại; hãy nhờ đánh vần.", "en": "Names are hard to hear on the phone, so ask them to spell it." } },
+    { "id": "thanks-for-your-help", "say": "Thanks for your help. Bye!", "not": "OK.", "gap": "help",
+      "mean": { "vi": "Kết thúc cuộc gọi lịch sự", "en": "End a call politely" },
+      "why": { "vi": "Kết thúc bằng lời cảm ơn và \"Bye\"; chỉ nói \"OK\" rồi cúp máy nghe bất lịch sự.", "en": "End with thanks and \"Bye\"; just \"OK\" and hanging up sounds rude." } }
+  ],
+  "roleplay": {
+    "ai": { "name": "Grace", "role": "a receptionist at a dental office", "persona": "friendly and organized", "goal": "take a message for Dr. Patel" },
+    "you": "Say who you are, ask for Dr. Patel, leave your number and spell your name.",
+    "turns": [
+      { "a": "Good morning, Bright Smile Dental. Grace speaking. How can I help you?", "h": "Hi, this is Ana. Could I speak to Dr. Patel, please?", "br": [["speak to|talk to|doctor|patel", "Let me check."]] },
+      { "a": "I'm afraid she's with a patient right now. Can I take a message?", "h": "Yes, please. Could you ask her to call me back?", "br": [["call me back|call back|message", "Of course."]] },
+      { "a": "Could I have your name and number, please?", "h": "It's Ana Silva, and my number is 555-0142.", "br": [["\\d|five|oh|zero|number", "Thanks."]] },
+      { "a": "Sorry, you're breaking up a little. Could you spell your last name?", "h": "Sure. It's S-I-L-V-A.", "br": [["[a-z]-[a-z]|spell|silva", "Got it, thank you."]] }
+    ],
+    "end": "Dr. Patel will call you back this afternoon. Thanks for calling!"
+  }
+}

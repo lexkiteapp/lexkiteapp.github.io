@@ -1,0 +1,18 @@
+{
+ "topic": "Grammar: a little or a few?",
+ "scene": "library",
+ "seed": "cp-little-few",
+ "vars": {
+  "a": "a little",
+  "b": "a few",
+  "confession": "Oops, I just asked for a few milk.",
+  "aRule": "Use a little when you can't count it: a little milk, please.",
+  "bRule": "Use a few when you can count it: a few cookies, please.",
+  "tip": "can you count it? A few. If not, a little."
+ },
+ "hashtags": [
+  "englishgrammar",
+  "confusingwords",
+  "learnenglish"
+ ]
+}

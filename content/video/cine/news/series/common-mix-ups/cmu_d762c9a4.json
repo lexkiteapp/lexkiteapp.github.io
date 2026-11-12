@@ -1,0 +1,571 @@
+{
+ "id": "cmu_d762c9a4",
+ "template": "mistake",
+ "title": "Common Mix-ups #6 – miss vs lose",
+ "teacher": "ama",
+ "set": "classroom_board",
+ "clips": [
+  "a05b_ama2",
+  "a05t2_ama2_present",
+  "a05e1_ama2_excited",
+  "a05e2_ama2_question",
+  "a05e3_ama2_wow"
+ ],
+ "listen": [
+  "a05l2_ama2_listen"
+ ],
+ "accent": "yellow",
+ "active": "cream",
+ "hook_style": "mix-up: X badge + quoted error",
+ "motif": "meaning first, then the right sentence",
+ "cta": {
+  "area": "dictionary",
+  "link": "https://lexkite.com/app/#/dict",
+  "say": "Look up any word"
+ },
+ "speed": 0.75,
+ "display": {
+  "blank": "___"
+ },
+ "caption_cap": 42,
+ "error_lines": [
+  "u_w"
+ ],
+ "error_re": "\\bi\\W+lost\\W+the\\b",
+ "lines": [
+  {
+   "id": "u_h",
+   "text": "Most learners mix this up.",
+   "gap": 0.5
+  },
+  {
+   "id": "u_w",
+   "text": "I lost the bus today.",
+   "key": {
+    "red": [
+     1
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_k",
+   "text": "Natives say: I missed the bus today.",
+   "key": {
+    "green": [
+     3
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_y",
+   "text": "You miss a bus, a train or a class. You lose things, like keys.",
+   "key": {
+    "yellow": [
+     1,
+     3,
+     10
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_x",
+   "text": "Don't miss the train!",
+   "gap": 0.65,
+   "key": {
+    "green": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "u_t",
+   "text": "You can also miss a person you love!",
+   "key": {
+    "yellow": [
+     3
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_q",
+   "text": "Quick quiz! Don't blank your flight!",
+   "key": {
+    "yellow": [
+     0,
+     1
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_q2",
+   "text": "Miss, or lose?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "u_a",
+   "text": "Miss! Don't miss your flight!",
+   "key": {
+    "green": [
+     0,
+     2
+    ]
+   },
+   "gap": 0.65
+  },
+  {
+   "id": "u_sh",
+   "text": "Send this to a friend!",
+   "gap": 0.65
+  },
+  {
+   "id": "u_c",
+   "text": "Save this, and look up any word on lexkite.com.",
+   "gap": 0.65
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 84,
+   "rows": [
+    [
+     [
+      "@x"
+     ],
+     [
+      " Not",
+      "white"
+     ]
+    ],
+    [
+     [
+      "“I ",
+      "white"
+     ],
+     [
+      "lost ",
+      "red"
+     ],
+     [
+      "the bus today.”",
+      "white"
+     ]
+    ]
+   ],
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "u_k",
+    0,
+    "s",
+    -0.2
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAY THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "I "
+      ],
+      [
+       "missed ",
+       "green"
+      ],
+      [
+       "the bus today."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "missed",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/mɪst/"
+      ]
+     ]
+    },
+    {
+     "st": "small",
+     "segs": [
+      [
+       "not “"
+      ],
+      [
+       "lost",
+       "red"
+      ],
+      [
+       "”"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_k",
+    0,
+    "s",
+    -0.2
+   ],
+   "to": [
+    "u_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "why",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "WHY?"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " lost",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " missed",
+       "green"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_x",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "ex",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "EXAMPLE"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Don't "
+      ],
+      [
+       "miss ",
+       "green"
+      ],
+      [
+       "the train!"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_x",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "REMEMBER"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " MISS ",
+       "hl"
+      ],
+      [
+       "the bus"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "LOSE ",
+       "hl"
+      ],
+      [
+       "your keys"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_q",
+    1,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Don't "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "your flight!"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_q",
+    1,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "q": [
+    [
+     [
+      "Don't ",
+      "white"
+     ],
+     [
+      "___",
+      "yellow"
+     ],
+     [
+      " your flight!",
+      "white"
+     ]
+    ]
+   ],
+   "a": "miss",
+   "b": "lose",
+   "correct": "a",
+   "reveal": [
+    "u_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "from": [
+    "u_q2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "u_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "SAVE THIS"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " lost",
+       "red"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " missed",
+       "green"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "missed",
+       "green"
+      ],
+      [
+       "  "
+      ],
+      [
+       "@ipa:/mɪst/"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "u_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "u_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "u_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Common Mix-ups",
+  "ep": 6
+ },
+ "source": {
+  "bank": "sb_d762c9a4",
+  "pid": "c:mixup:miss-lose",
+  "cefr": "A2",
+  "diff": "easy",
+  "ipa": "/mɪst/"
+ }
+}

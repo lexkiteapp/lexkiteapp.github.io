@@ -1,0 +1,9 @@
+# Stitch v3 kho mẫu – ext (scripts/stitch/batch.mjs, 5 khoá; mỗi khoá 1 project + design system Lexkite Kit). màn id-sáng id-tối thiết-bị verdict cờ | khoá · ghi chú QC
+ext-newtab 8e17ea0a1bc04cdeaf9205749041ed7b bd9d41400dba49bcaa9b0880216d7976 DESKTOP QC | key2 project 10804635390057604965 · QC: light: 1 vùng chạm < 44px (vd "close 37×44") · dark: 1 vùng chạm < 44px (vd "close 37×44") · dark: tương phản 1 chữ (vd "⭐" 1.12<4.5)
+ext-newtab-v4 c292e116a30e460eb511ce99f596990f f895cb5ad2c145d395710a41778ac2ce DESKTOP QC | key5 project 7022870386131391655
+ext-popup 75c6bc5ab64a424d8359d8beca6a55ef cfbcc74ff926427ea6f57401acafbf41 MOBILE QC | key3 project 18075333702575270507 · QC: light: 8 vùng chạm < 44px (vd "more_vert 32×32") · light: tương phản 2 chữ (vd "•" 1.31<4.5) · dark: 8 vùng chạm < 44px (vd "more_vert 32×32")
+ext-popup-v4 f041539b47e546c6947ea3b6d8bf07ee 457992fe583041618ee2d96bf0685820 MOBILE QC | key4 project 16660982915050208874
+ext-word 299809b3e5134152ab5c0cf56b5e4ad2 3160c767b57e449e80f981e3695f3551 DESKTOP QC | key2 project 10804635390057604965 · QC: light: 2 vùng chạm < 44px (vd "refresh 28×28") · light: tương phản 2 chữ (vd "Browser Assistant" 3.67<4.5) · dark: 2 vùng chạm < 44px (vd "refresh 28×28")
+ext-word-v4 7805f8a544834a69950b62237994fd24 711897cc47a04ca3a3529c68db8d5d1e DESKTOP QC | key3 project 18075333702575270507
+ext-writecheck a70f536364b24ab293dd44c777b9c995 267c05a1dffc45d38ce162ff9c593a74 DESKTOP QC | key3 project 18075333702575270507 · QC: light: 5 vùng chạm < 44px (vd "Ethics Guidelines 108×16") · light: tương phản 4 chữ (vd "Saved 2m ago" 4.37<4.5) · dark: 5 vùng chạm < 44px (vd "Ethics Guidelines 108×16") · dark: tương phản 9 chữ (vd "PREP ENGINE" 2.65<4.5)
+ext-writecheck-v4 0610f3a51fff4338ad5d470273faf2a2 630b5f2607dc4b668f40aaa8bce067f1 DESKTOP QC | key4 project 16660982915050208874

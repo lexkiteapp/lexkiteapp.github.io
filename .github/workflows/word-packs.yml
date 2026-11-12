@@ -1,0 +1,38 @@
+# Gói nghĩa từ vựng dịch sẵn 13 ngôn ngữ (web/packs/<lang>.json) – miễn phí trên máy chủ GitHub.
+# Mỗi đêm: dịch từ mới + tinh chỉnh dần theo đúng từ loại (dữ liệu từ điển). Xem scripts/gen-word-packs.mjs.
+name: Gói nghĩa từ vựng đa ngôn ngữ
+on:
+  schedule:
+    - cron: '30 20 * * *'   # 03:30 giờ VN
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [scripts/gen-word-packs.mjs, scripts/lib/pack-gloss.mjs, content/wordlists/*.gloss.json, .github/workflows/word-packs.yml]
+permissions:
+  contents: write
+concurrency: { group: google-translate, cancel-in-progress: false }  # dùng chung hàng đợi: không gọi Google Translate song song (tránh bị chặn)
+jobs:
+  packs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+        with: { ssh-key: "${{ github.ref == 'refs/heads/main' && secrets.BOT_DEPLOY_KEY || '' }}" }   # chỉ main cầm khoá deploy (ruleset) – docs/CI-RUNNERS.md › required-gate
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Dịch & tinh chỉnh
+        run: |
+          for l in $(grep -v '^#' scripts/i18n-langs.txt); do node scripts/gen-word-packs.mjs "$l" --refine 450 || echo "lỗi $l"; done
+      - name: Đối chiếu ngược (mẫu 40 từ/ngôn ngữ) – báo mục nghi sai vào job summary, không chặn lưu
+        continue-on-error: true
+        run: node scripts/pack-backcheck.mjs all --sample 40 --max-bad 15
+      - name: Lưu kết quả (lấy bản mới nhất trước khi đẩy, thử lại tối đa 5 lần)
+        if: github.ref == 'refs/heads/main'
+        run: |
+          bash scripts/ci/push-main.sh "Gói nghĩa từ vựng: cập nhật tự động" web/packs
+      - name: Nhánh khác main – artifact + summary (không đẩy vào nhánh; lấy về bằng bash scripts/ci/bot-output.sh word-packs <nhánh>)
+        if: github.ref != 'refs/heads/main'
+        uses: ./.github/actions/bot-output
+        with:
+          name: word-packs
+          paths: web/packs

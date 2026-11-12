@@ -1,11 +1,179 @@
 {
  "appName": {
-  "message": "Lexkite – Dictionnaire et fiches IELTS"
+  "message": "Lexkite – Dictionnaire anglais, traducteur et flashcards de vocabulaire"
  },
  "appDesc": {
-  "message": "Double-clic sur un mot : sens, API et audio natif. Traduisez phrases et sous-titres YouTube. Enregistrez et révisez avec des fiches."
+  "message": "Double-cliquez sur un mot : sens, API et audio. Traduisez une sélection, gardez les mots en contexte, révisez pour l’IELTS/le TOEIC."
  },
  "openApp": {
   "message": "Ouvrir Lexkite"
+ },
+ "rateTitle": {
+  "message": "Lexkite vous plaît ?"
+ },
+ "rateBody": {
+  "message": "Si Lexkite vous aide à apprendre, un court avis sur la boutique aide d'autres apprenants à le découvrir."
+ },
+ "rateYes": {
+  "message": "Noter Lexkite"
+ },
+ "rateLater": {
+  "message": "Plus tard"
+ },
+ "rateNever": {
+  "message": "Ne plus demander"
+ },
+ "ntGot": {
+  "message": "✓ Je sais"
+ },
+ "ntAgain": {
+  "message": "↻ À revoir"
+ },
+ "ntGolden": {
+  "message": "Moment idéal"
+ },
+ "ntSaved": {
+  "message": "Enregistré récemment"
+ },
+ "ntToday": {
+  "message": "Mot du moment"
+ },
+ "ntSearch": {
+  "message": "Rechercher sur le Web…"
+ },
+ "ntSearchBtn": {
+  "message": "Rechercher"
+ },
+ "ntOff": {
+  "message": "Désactiver la carte du nouvel onglet"
+ },
+ "ntConf": {
+  "message": "Parle avec confiance"
+ },
+ "ntListen": {
+  "message": "Écouter"
+ },
+ "ntSlow": {
+  "message": "Lent"
+ },
+ "ntUK": {
+  "message": "R.-U."
+ },
+ "ntUS": {
+  "message": "É.-U."
+ },
+ "ntFamily": {
+  "message": "Famille de mots"
+ },
+ "ntColloc": {
+  "message": "Collocations"
+ },
+ "ntSyn": {
+  "message": "Synonymes"
+ },
+ "ntAnt": {
+  "message": "Antonymes"
+ },
+ "ntQuiz": {
+  "message": "Mode quiz"
+ },
+ "ntReveal": {
+  "message": "Voir le sens"
+ },
+ "ntTapTr": {
+  "message": "Touchez pour voir la traduction"
+ },
+ "ntMT": {
+  "message": "Traduction automatique"
+ },
+ "ntExample": {
+  "message": "Exemple"
+ },
+ "ntAdd": {
+  "message": "＋ Ajouter à mon paquet"
+ },
+ "ntAdded": {
+  "message": "✓ Dans mon paquet"
+ },
+ "ntNext": {
+  "message": "Mot suivant →"
+ },
+ "ntProgress": {
+  "message": "{n}/{g} mots aujourd'hui"
+ },
+ "ntShortcuts": {
+  "message": "Raccourcis clavier"
+ },
+ "ntKeys": {
+  "message": "Espace : voir · 1/2 : noter · N : suivant · P : écouter"
+ },
+ "posN": {
+  "message": "nom"
+ },
+ "posV": {
+  "message": "verbe"
+ },
+ "posAdj": {
+  "message": "adjectif"
+ },
+ "posAdv": {
+  "message": "adverbe"
+ },
+ "posPhrV": {
+  "message": "verbe à particule"
+ },
+ "posPhrase": {
+  "message": "expression"
+ },
+ "posIdiom": {
+  "message": "expression idiomatique"
+ },
+ "posPrep": {
+  "message": "préposition"
+ },
+ "posConj": {
+  "message": "conjonction"
+ },
+ "posPron": {
+  "message": "pronom"
+ },
+ "posDet": {
+  "message": "déterminant"
+ },
+ "posExcl": {
+  "message": "interjection"
+ },
+ "posNum": {
+  "message": "nombre"
+ },
+ "posAbbr": {
+  "message": "abréviation"
+ },
+ "posColl": {
+  "message": "collocation"
+ },
+ "ntMoreSenses": {
+  "message": "+{n} sens"
+ },
+ "ntQzTag": {
+  "message": "Quiz express"
+ },
+ "ntQzQ": {
+  "message": "Choisissez le bon sens"
+ },
+ "ntQzTime": {
+  "message": "{s} secondes"
+ },
+ "ntQzRight": {
+  "message": "Exact !"
+ },
+ "ntQzWrong": {
+  "message": "Pas tout à fait — le mot reviendra bientôt"
+ },
+ "ntQzTimeout": {
+  "message": "Temps écoulé, pas de souci"
+ },
+ "ntQzSkip": {
+  "message": "Passer"
  }
 }

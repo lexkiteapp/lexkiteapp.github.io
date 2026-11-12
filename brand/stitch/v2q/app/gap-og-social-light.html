@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite — Social Share Card</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "secondary-fixed": "#ffdad3",
+            "on-surface-variant": "#bcc9c7",
+            "on-error": "#690005",
+            "tertiary-fixed": "#ffdf9e",
+            "inverse-on-surface": "#263236",
+            "surface-container-highest": "#2b373a",
+            "tertiary": "#f4bf40",
+            "primary-fixed": "#88f5ea",
+            "on-tertiary-fixed": "#261a00",
+            "outline": "#879391",
+            "primary-container": "#2ba39a",
+            "on-primary-container": "#00322e",
+            "background": "#FFF7EA",
+            "surface-bright": "#2f3b3e",
+            "error": "#ffb4ab",
+            "surface-container-lowest": "#051013",
+            "secondary-fixed-dim": "#ffb4a6",
+            "surface-tint": "#6bd8ce",
+            "on-secondary": "#660800",
+            "surface": "#091518",
+            "surface-variant": "#2b373a",
+            "primary-fixed-dim": "#6bd8ce",
+            "primary": "#6bd8ce",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-tertiary": "#402e00",
+            "on-primary-fixed-variant": "#00504b",
+            "inverse-surface": "#d8e5e9",
+            "inverse-primary": "#006a64",
+            "error-container": "#93000a",
+            "surface-container-high": "#202c2f",
+            "on-secondary-fixed": "#3f0300",
+            "on-error-container": "#ffdad6",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "surface-container": "#162125",
+            "on-secondary-container": "#ffa493",
+            "outline-variant": "#3d4947",
+            "secondary-container": "#981201",
+            "surface-dim": "#091518",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-primary-fixed": "#00201e",
+            "on-primary": "#003733",
+            "on-background": "#d8e5e9",
+            "tertiary-container": "#ba8b00",
+            "surface-container-low": "#121d20",
+            "on-tertiary-container": "#392900",
+            "on-surface": "#d8e5e9",
+            "secondary": "#ffb4a6"
+          },
+          fontFamily: {
+            title: ["Plus Jakarta Sans"],
+            display: ["Plus Jakarta Sans"],
+            label: ["Plus Jakarta Sans"],
+            body: ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            title: ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            display: ["32px", { lineHeight: "38px", fontWeight: "800" }],
+            label: ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            body: ["16px", { lineHeight: "24px", fontWeight: "500" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Physical 3D bottom ledge effects */
+    .tactile-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 0 var(--ledge-color) !important;
+    }
+    .speech-pointer::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 32px;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid #FFF7EA;
+    }
+    .speech-pointer-border::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 31px;
+      width: 0;
+      height: 0;
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+      border-top: 10px solid #EADEC8;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#FFF7EA] text-[#0F3D3E] font-body min-h-screen antialiased selection:bg-[#2BA39A]/20">
+<div class="max-w-[390px] w-full min-h-screen mx-auto bg-[#FFF7EA] flex flex-col relative pb-24 shadow-none">
+<!-- 1. TOP APP BAR (56px) -->
+<header class="sticky top-0 z-40 bg-[#FFF7EA]/95 backdrop-blur-sm h-14 px-4 flex items-center justify-between border-b border-[#EADEC8]/60">
+<!-- Back Button -->
+<button aria-label="Go back" class="tactile-btn w-10 h-10 rounded-full bg-[#FFFFFF] border-2 border-[#EADEC8] flex items-center justify-center text-[#0F3D3E] shadow-[0_3px_0_0_#D8CFBC] active:translate-y-0.5 active:shadow-[0_1px_0_0_#D8CFBC] transition-all"><svg class="w-5 h-5 text-[#0F3D3E]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg></button>
+<!-- Center Action Pill -->
+<button class="tactile-btn flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FFFFFF] border-2 border-[#EADEC8] shadow-[0_3px_0_0_#D8CFBC] text-[#0F3D3E] active:translate-y-0.5 active:shadow-[0_1px_0_0_#D8CFBC] transition-all"><svg class="w-4 h-4 text-[#2BA39A]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"></line><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"></line></svg><span class="font-label text-[11px] tracking-wider text-[#0F3D3E] uppercase font-extrabold">SHARE MILESTONE</span></button>
+<!-- More Actions Button -->
+<button aria-label="More options" class="tactile-btn w-10 h-10 rounded-full bg-[#FFFFFF] border-2 border-[#EADEC8] flex items-center justify-center text-[#0F3D3E] shadow-[0_3px_0_0_#D8CFBC] active:translate-y-0.5 active:shadow-[0_1px_0_0_#D8CFBC] transition-all"><svg class="w-5 h-5 text-[#0F3D3E]" fill="currentColor" viewbox="0 0 24 24"><circle cx="12" cy="5" r="2"></circle><circle cx="12" cy="12" r="2"></circle><circle cx="12" cy="19" r="2"></circle></svg></button>
+</header>
+<!-- CONTENT CANVAS -->
+<main class="flex-1 px-4 pt-3 flex flex-col">
+<!-- 2. MAIN SOCIAL SHARE CARD -->
+<section class="bg-[#FFFFFF] border-2 border-[#EADEC8] rounded-2xl p-4 shadow-[0_5px_0_0_#D8CFBC] mb-4 relative overflow-hidden">
+<!-- Glossy specular top rim -->
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFFFFF]/80 to-transparent"></div>
+<!-- Card Header: Wordmark & Streak Badge -->
+<div class="flex items-center justify-between mb-3.5"><div class="flex items-center gap-2"><div class="w-8 h-8 rounded-xl bg-[#2BA39A] flex items-center justify-center shadow-[0_3px_0_0_#1E736D] text-white"><svg class="w-4 h-4 fill-white" viewbox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg></div><span class="font-display text-[19px] font-extrabold text-[#0F3D3E] tracking-tight">Lexkite</span></div><div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FFF3DC] border border-[#F4BF40]/70 text-[#402E00] text-xs font-bold shadow-sm"><svg class="w-4 h-4 fill-[#F2553B]" viewbox="0 0 24 24"><path d="M12 23c-4.97 0-9-4.03-9-9 0-4.14 3.05-8.48 5.75-10.97.48-.44 1.25-.13 1.25.53v2.85c1.64-2.52 3.86-4.92 5.03-5.32.55-.19 1.13.2 1.13.79 0 2.65-.67 4.96-1.51 6.54C16.92 6.83 19 9.38 19 14c0 4.97-4.03 9-9 9z"></path></svg><span class="font-bold text-[#3B2600]">12-day streak</span></div></div>
+<!-- Headline & Subtitle Chips -->
+<div class="mb-4"><h1 class="font-title text-[22px] leading-tight font-extrabold text-[#0F3D3E] tracking-tight mb-2">Learn English that sticks</h1><div class="flex flex-wrap items-center gap-1.5"><span class="px-2.5 py-0.5 rounded-lg bg-[#F5EFE3] text-[#1F4345] text-[11px] font-bold tracking-wide border border-[#EADEC8]/60">IELTS • TOEIC • everyday English</span><span class="px-2 py-0.5 rounded-md bg-[#00504B] text-[#FFF7EA] text-[10px] font-extrabold tracking-wider uppercase shadow-sm border border-[#003733]">FREE</span></div></div>
+<!-- Coach Dialogue & Teacher Slot Section -->
+<div class="mb-4 space-y-2.5">
+<!-- Speech Bubble -->
+<div class="relative bg-[#FFF7EA] border-2 border-[#EADEC8] rounded-xl p-3 shadow-sm">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="w-2 h-2 rounded-full bg-[#2BA39A]"></span>
+<span class="text-[10px] font-extrabold uppercase tracking-wider text-[#4E6668]">TEACHER AMA &amp; CARLOS</span>
+</div>
+<p class="text-[13px] leading-snug font-bold text-[#0F3D3E]">
+              “Practice 5 mins a day with us — no lockouts, zero paywalls!”
+            </p>
+</div>
+<!-- Empty Teacher Slot Container -->
+<div class="teacher-slot bg-[#EBF7F6] border-2 border-dashed border-[#2BA39A] rounded-xl p-4 flex flex-col items-center justify-center text-center transition-all"><div class="w-10 h-10 rounded-full bg-[#2BA39A]/15 flex items-center justify-center text-[#2BA39A] mb-1.5"><svg class="w-6 h-6 fill-[#2BA39A]" viewbox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 8.47L4.54 9 12 4.95 19.46 9 12 11.47zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"></path></svg></div><span class="font-label text-[11px] font-extrabold text-[#0F3D3E] uppercase tracking-wider">TEACHER SLOT</span><span class="text-[12px] font-semibold text-[#1F4345]">Teacher Ama &amp; Carlos</span></div>
+</div>
+<!-- 3 Feature Grid Tiles -->
+<div class="grid grid-cols-3 gap-2"><div class="rounded-xl border-2 border-[#EADEC8] bg-[#FAF6EE] p-2 text-center flex flex-col items-center justify-between min-h-[72px]"><svg class="w-5 h-5 fill-[#2BA39A]" viewbox="0 0 24 24"><path d="M12 2l2.4 2.4 3.4-.6 1.1 3.2 3.2 1.1-.6 3.4L24 14l-2.5 2.4.6 3.4-3.2 1.1-1.1 3.2-3.4-.6L12 26l-2.4-2.5-3.4.6-1.1-3.2-3.2-1.1.6-3.4L0 14l2.5-2.5-.6-3.4 3.2-1.1 1.1-3.2 3.4.6L12 2zm-1.5 13.5l6-6-1.4-1.4-4.6 4.6-2.1-2.1-1.4 1.4 3.5 3.5z"></path></svg><div><div class="font-extrabold text-[11px] text-[#0F3D3E] leading-tight">IELTS • TOEIC</div><div class="font-label text-[9px] uppercase tracking-wider text-[#1F4345] font-bold mt-0.5">EXAM PREP</div></div></div><div class="rounded-xl border-2 border-[#EADEC8] bg-[#FAF6EE] p-2 text-center flex flex-col items-center justify-between min-h-[72px]"><svg class="w-5 h-5 fill-[#F4BF40]" viewbox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg><div><div class="font-extrabold text-[11px] text-[#0F3D3E] leading-tight">5-Min</div><div class="font-label text-[9px] uppercase tracking-wider text-[#1F4345] font-bold mt-0.5">DAILY DRILLS</div></div></div><div class="rounded-xl border-2 border-[#EADEC8] bg-[#FAF6EE] p-2 text-center flex flex-col items-center justify-between min-h-[72px]"><svg class="w-5 h-5 fill-[#2BA39A]" viewbox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-9-2c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"></path></svg><div><div class="font-extrabold text-[11px] text-[#0F3D3E] leading-tight">100% Free</div><div class="font-label text-[9px] uppercase tracking-wider text-[#1F4345] font-bold mt-0.5">NO PAYWALLS</div></div></div></div>
+</section>
+<!-- 3. CALL TO ACTION & SHARING ACTIONS -->
+<section class="space-y-3 mb-4">
+<!-- Primary CTA: Coral-to-Amber with 5px Ledge -->
+<button class="tactile-btn w-full h-14 rounded-2xl flex items-center justify-center gap-2 border-0 shadow-[0_5px_0_0_#B53A22] active:translate-y-1 active:shadow-[0_1px_0_0_#B53A22] transition-all relative overflow-hidden" style="background: linear-gradient(180deg, #F2553B 0%, #FF9040 100%);">
+<!-- Top Gloss Edge -->
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-white/40"></div>
+<span class="font-title text-[16px] font-extrabold text-[#1B0B04] tracking-tight">
+            Start Learning Free →
+          </span>
+</button>
+<!-- Secondary Button Row -->
+<div class="grid grid-cols-2 gap-2.5"><button class="tactile-btn h-12 rounded-xl bg-[#FFFFFF] border-2 border-[#EADEC8] shadow-[0_4px_0_0_#D8CFBC] active:translate-y-0.5 active:shadow-[0_1px_0_0_#D8CFBC] transition-all flex items-center justify-center gap-1.5 px-3 text-[#0F3D3E]"><svg class="w-4 h-4 text-[#2BA39A]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" x2="12" y1="2" y2="15"></line></svg><span class="font-label text-[12px] font-extrabold tracking-wide">Share Story</span></button><button class="tactile-btn h-12 rounded-xl bg-[#FFFFFF] border-2 border-[#EADEC8] shadow-[0_4px_0_0_#D8CFBC] active:translate-y-0.5 active:shadow-[0_1px_0_0_#D8CFBC] transition-all flex items-center justify-center gap-1.5 px-3 text-[#0F3D3E]"><svg class="w-4 h-4 text-[#2BA39A]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"></path></svg><span class="font-label text-[12px] font-extrabold tracking-wide">Copy Link</span></button></div>
+<!-- Subtle Domain Caption -->
+<div class="text-center pt-1"><span class="text-[12px] font-extrabold tracking-wider text-[#1F4345]">lexkite.com</span></div>
+</section>
+</main>
+<!-- 4. FIXED BOTTOM TAB BAR (Docked, 5 destinations, Me active) -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto z-50 h-16 bg-[#FFFFFF] border-t-2 border-[#EADEC8] shadow-[0_-2px_10px_rgba(15,61,62,0.04)] px-2 flex justify-around items-center"><a aria-label="Today" class="flex flex-col items-center justify-center text-[#1F4345] px-2 py-1 transition-transform active:translate-y-0.5" href="#"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><rect height="18" rx="2" ry="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg><span class="font-label text-[10px] font-extrabold mt-0.5">Today</span></a><a aria-label="Vocab" class="flex flex-col items-center justify-center text-[#1F4345] px-2 py-1 transition-transform active:translate-y-0.5" href="#"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg><span class="font-label text-[10px] font-extrabold mt-0.5">Vocab</span></a><a aria-label="Skills" class="flex flex-col items-center justify-center text-[#1F4345] px-2 py-1 transition-transform active:translate-y-0.5" href="#"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg><span class="font-label text-[10px] font-extrabold mt-0.5">Skills</span></a><a aria-label="Tests" class="flex flex-col items-center justify-center text-[#1F4345] px-2 py-1 transition-transform active:translate-y-0.5" href="#"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" x2="8" y1="13" y2="13"></line><line x1="16" x2="8" y1="17" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg><span class="font-label text-[10px] font-extrabold mt-0.5">Tests</span></a><a aria-label="Me profile active" class="flex flex-col items-center justify-center bg-[#EBF7F6] text-[#00322E] rounded-xl px-3 py-1 border-2 border-[#2BA39A] shadow-[0_2px_0_0_#1E736D] transition-transform active:translate-y-0.5" href="#"><svg class="w-5 h-5 text-[#2BA39A] fill-[#2BA39A]" viewbox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg><span class="font-label text-[10px] font-extrabold text-[#00322E] mt-0.5">Me</span></a></nav>
+</div>
+</body></html>

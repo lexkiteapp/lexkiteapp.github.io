@@ -1,0 +1,41 @@
+{
+ "_doc": "B\u1ea3ng t\u1ed1i cho roleplay-brief (9/11, P07, Lexkite Kit Tactile Night): vai m\u00e0u x\u1ebfp theo \u0111\u1ed9 s\u00e1ng/s\u1eafc \u0111\u1ed9, c\u1eb7p ch\u1eef-n\u1ec1n ki\u1ec3m t\u01b0\u01a1ng ph\u1ea3n \u22654.5; khai b\u00e1o CSS trong <style> \u0111\u1ed5i theo t\u1eebng d\u00f2ng.",
+ "config": {},
+ "hex": {
+  " background-color: #e76f51": " background-color: #B4573F",
+  " border-bottom: 4px solid #b84328": " border-bottom: 4px solid #812F1C",
+  " background-color: #ffffff": " background-color: #172427",
+  " border: 1.5px solid #eadec8": " border: 1.5px solid #4A6870",
+  " box-shadow: 0 3px 0 0 #eadec8": " box-shadow: 0 3px 0 0 #0E1618",
+  " border: 1.5px solid #dcd1be": " border: 1.5px solid #7A5A2A",
+  " box-shadow: 0 2px 0 0 #dcd1be": " box-shadow: 0 2px 0 0 #0E1618",
+  " box-shadow: 0 1px 0 0 #dcd1be": " box-shadow: 0 1px 0 0 #0E1618",
+  " background-color: #0f3d3e": " background-color: #12514D",
+  " border: 1.5px solid #002627": " border: 1.5px solid #12514D",
+  " box-shadow: 0 2.5px 0 0 #002020": " box-shadow: 0 2.5px 0 0 #0B3230",
+  " color: #1c1c18": " color: #E8F1F0"
+ },
+ "cls": {
+  "bg-surface-container/60": "bg-[#2A3F45]/60",
+  "bg-surface-container-high": "bg-[#2A3F45]",
+  "hover:bg-surface-container": "hover:bg-[#2A3F45]",
+  "bg-surface-container": "bg-[#2A3F45]",
+  "bg-surface": "bg-[#1E2F33]",
+  "bg-surface-container-low": "bg-[#2A3F45]",
+  "bg-secondary-container/40": "bg-[#1F4A4E]/40",
+  "bg-primary-container": "bg-[#12514D]",
+  "bg-surface/95": "bg-[#1E2F33]/95",
+  "hover:bg-surface-container-high": "hover:bg-[#2A3F45]",
+  "border-surface-variant/50": "border-[#37525A]/50",
+  "border-surface-variant/30": "border-[#37525A]/30",
+  "text-secondary": "text-[#5EEAD4]",
+  "border-outline-variant": "border-[#4A6870]",
+  "text-primary": "text-[#5EEAD4]",
+  "border-surface-variant/70": "border-[#37525A]/70",
+  "border-surface-variant/40": "border-[#37525A]/40",
+  "text-on-surface": "text-[#E8F1F0]",
+  "border-surface-variant": "border-[#37525A]",
+  "text-on-secondary-container": "text-[#5EEAD4]",
+  "text-on-surface-variant": "text-[#E8F1F0]"
+ }
+}

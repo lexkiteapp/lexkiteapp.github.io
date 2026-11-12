@@ -1,0 +1,72 @@
+#!/usr/bin/env python3
+"""CI step for scene=news: voices for generated news lessons (0 credits).
+  python3 scripts/cine/news_voice.py <NEWS_DIR> <lesson-id,...>
+NEWS_DIR/ci/lines.json (from content/video/cine/news/lines.json) -> for every line used by the given lessons and missing vis3/<id>.wav:
+Kokoro (tts.mjs) -> Rhubarb 1.13 (vis3/<id>.json) -> faster-whisper word timings aligned to the EXACT caption tokens (vis3/<id>.words.json:
+whisper order + times, tokens whisper missed are interpolated between neighbours) + an unprompted ASR pass (asr, asr_words) for the pronunciation back-check. Env: KOKORO_NODE_PATH, RHUBARB."""
+import json, os, re, sys, shutil, subprocess, difflib
+ND, IDS = sys.argv[1], sys.argv[2].split(','); ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+V = f'{ND}/vis3'; os.makedirs(V, exist_ok=True)
+base = json.load(open(f'{ND}/ci/lines.json')); need = set()
+for i in IDS:
+    sp = json.load(open(f'{ND}/lessons/{i}.json')); need |= {sp['hook']['line'], sp['recap']['line'], sp['end_line'], sp['recap'].get('line_alt'), sp.get('end_alt'), sp.get('share_line')} - {None} | {b['line'] for b in sp['beats']} | {x for v in base.get('reactions', {}).values() for x in v}   # listener reaction lines (news_tpl picks them)
+need |= {l['id'] for l in base['lines'] if l.get('pilot')}   # edit-style pilot lines (cine-render edit_pilot: solo host re-voices the other host's lines, '<id>_a')
+todo = [l for l in base['lines'] if l['id'] in need and not os.path.exists(f'{V}/{l["id"]}.wav')]
+print(f'{len(need)} lines needed, synthesising {len(todo)}')
+RH_VER = None
+def rh_version():
+    RH = os.environ.get('RHUBARB') or ''
+    if not (RH and os.access(RH, os.X_OK)): sys.exit('RHUBARB is not set / not executable – lip-sync needs real Rhubarb (no estimated visemes)')
+    return 'rhubarb-' + (re.findall(r'\d+\.\d+\.\d+', subprocess.run([RH, '--version'], capture_output=True, text=True).stdout) or ['?'])[0]
+def synth(todo, tag):
+    global RH_VER
+    RH_VER = RH_VER or rh_version()
+    tmp = f'{ND}/tts_in_{tag}.json'; W = f'{ND}/tts_wav_{tag}'; json.dump(dict(voices=base['voices'], speed=base.get('speed', 0.92), lines=todo), open(tmp, 'w'))
+    subprocess.run(['node', f'{ROOT}/scripts/cine/tts.mjs', tmp, W], check=True)
+    for l in todo:
+        w, j = f'{W}/{l["id"]}.wav', f'{V}/{l["id"]}.json'
+        for rec in ([], ['-r', 'phonetic']):
+            if subprocess.run([os.environ['RHUBARB'], '-q', *rec, '--extendedShapes', 'GHX', '-f', 'json', '-d', f'{W}/{l["id"]}.txt', '-o', j, w]).returncode == 0: break
+        else: sys.exit(f'rhubarb failed: {l["id"]}')
+        cj = json.load(open(j)); cj['generator'] = RH_VER; json.dump(cj, open(j, 'w'))   # provenance: render_tpl.py / qc_tpl lipsync gate accept only Rhubarb cues
+        shutil.copy(w, V)
+def span(i): c = [x for x in json.load(open(f'{V}/{i}.json'))['mouthCues'] if x['value'] != 'X']; return c[-1]['end'] - c[0]['start']
+if todo:
+    synth(todo, 'a')
+    # caption reading speed: news.py may slow a line by atempo >= 0.84x only; lines spoken too fast for <= 15 cps are re-synthesised slower (natural TTS pace, not stretched audio)
+    redo = []
+    for l in (todo if not os.environ.get('NV_KEEP_SPEED') else []):   # NV_KEEP_SPEED=1: keep the requested TTS speed (pilot v8 paces by pauses, not slower speech)
+        nd = len(l['text']) / 14.0 - 0.2; sp = span(l['id'])
+        if sp < 0.9 * nd: redo.append(dict(l, speed=round(max(0.7, (l.get('speed') or base.get('speed', 0.92)) * sp / (0.97 * nd)), 3)))
+    if redo:
+        print('re-synthesising slower:', [(l['id'], l['speed']) for l in redo]); synth(redo, 'b')
+        for l in redo: print(f"  {l['id']} span {span(l['id']):.2f} s for {len(l['text'])} chars")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); from whisper_det import load, DECODE, load_audio, snap_onsets   # same words + times on every runner (asr_match)
+M = load('base.en'); norm = lambda x: re.sub(r"[^a-z0-9']", '', x.lower())
+for l in base['lines']:
+    if l['id'] not in need or os.path.exists(f'{V}/{l["id"]}.words.json'): continue
+    toks = l['text'].split(); segs, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, initial_prompt=l['text'], **DECODE)
+    hw = [w for s in segs for w in s.words]; a, b = [norm(x) for x in toks], [norm(w.word) for w in hw]
+    if sum(x in b for x in a) < 0.9 * len(a):   # base.en prompted with the exact script can return NOTHING for a short clip ("I'll look into it.", heard 0.0 x3) -> one unprompted retry, keep the better match
+        s2, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, condition_on_previous_text=False, **DECODE); hw2 = [w for s in s2 for w in s.words]; b2 = [norm(w.word) for w in hw2]
+        if sum(x in b2 for x in a) > sum(x in b for x in a): hw, b = hw2, b2
+    asr, _ = M.transcribe(f'{V}/{l["id"]}.wav', language='en', word_timestamps=True, beam_size=5, condition_on_previous_text=False, **DECODE)   # ASR back-check: NO script prompt (the prompt hides mispronunciations) -> qc_v9 asr_match
+    aw = [dict(w=w.word.strip(), s=round(w.start, 3), e=round(w.end, 3), p=round(w.probability, 3)) for s_ in asr for w in s_.words]
+    T = [None] * len(toks)
+    for blk in difflib.SequenceMatcher(None, a, b, autojunk=False).get_matching_blocks():
+        for k in range(blk.size): T[blk.a + k] = (hw[blk.b + k].start, hw[blk.b + k].end)
+    dur = float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f'{V}/{l["id"]}.wav']))
+    known = [i for i, t in enumerate(T) if t]; miss = len(toks) - len(known)
+    for i in range(len(toks)):   # interpolate gaps by character share between the surrounding known words
+        if T[i]: continue
+        lo = max([k for k in known if k < i], default=None); hi = min([k for k in known if k > i], default=None)
+        t0 = T[lo][1] if lo is not None else 0.05; t1 = T[hi][0] if hi is not None else dur - 0.05
+        run = [k for k in range((lo + 1) if lo is not None else 0, hi if hi is not None else len(toks))]; tot = sum(len(toks[k]) for k in run); acc = sum(len(toks[k]) for k in run if k < i)
+        T[i] = (t0 + (t1 - t0) * acc / tot, t0 + (t1 - t0) * (acc + len(toks[i])) / tot)
+    au = load_audio(f'{V}/{l["id"]}.wav'); snap_onsets(au, aw, s='s', e='e')   # whisper starts a word after a pause in the silence -> first voiced frame (ASR back-check + captions)
+    T = [(w['s'], w['e']) for w in snap_onsets(au, [dict(s=t[0], e=t[1]) for t in T], s='s', e='e')]
+    for i in range(1, len(T)):   # strictly increasing starts
+        if T[i][0] <= T[i - 1][0]: T[i] = (T[i - 1][0] + 0.05, max(T[i][1], T[i - 1][0] + 0.1))
+    json.dump(dict(words=[dict(w=w, s=round(t[0], 3), e=round(t[1], 3)) for w, t in zip(toks, T)], whisper=' '.join(w.word.strip() for w in hw), interpolated=miss, asr=' '.join(x['w'] for x in aw), asr_words=aw),
+              open(f'{V}/{l["id"]}.words.json', 'w'))
+    print(f'{l["id"]:28s} words {len(toks)} interp {miss}' + ('  WARN' if miss > 1 else ''))

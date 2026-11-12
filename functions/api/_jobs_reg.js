@@ -1,0 +1,1324 @@
+// SINH TỪ infra/jobs.json bởi scripts/jobs/gen.mjs — KHÔNG sửa tay
+export const REG = {
+ "priorities": [
+  "user",
+  "publishing",
+  "render",
+  "archive",
+  "reports",
+  "bulk"
+ ],
+ "resources": {
+  "d1_main": {
+   "label": "D1 chính (người dùng)",
+   "limit_reads": 5000000,
+   "exclusive": false
+  },
+  "d1_main_read": {
+   "label": "Đọc D1 chính",
+   "exclusive": false
+  },
+  "d1_internal": {
+   "label": "D1 nội bộ (tài khoản 2)",
+   "limit_reads": 5000000,
+   "exclusive": true
+  },
+  "drive_pool": {
+   "label": "Kho Drive (Google API)",
+   "exclusive": true
+  },
+  "youtube_api": {
+   "label": "YouTube API",
+   "exclusive": true
+  },
+  "gemini": {
+   "label": "Gemini (miễn phí)",
+   "exclusive": true
+  },
+  "workers_ai": {
+   "label": "Workers AI tài khoản CHÍNH (neuron) – dành cho AI người dùng; việc nền mặc định 0 neuron (reservations)",
+   "exclusive": true
+  },
+  "gh_minutes": {
+   "label": "Phút GitHub Actions",
+   "exclusive": false
+  },
+  "workers_ai_b": {
+   "label": "Workers AI tài khoản 2 (neuron, 10.000/ngày miễn phí) – dành cho việc nền",
+   "exclusive": true
+  },
+  "cf_pool": {
+   "label": "Kho tài khoản Workers AI miễn phí (secret CF_POOL, 116 × 10.000 neuron/ngày, scripts/lib/cf-pool.mjs) – dùng chung ảnh vocab-img-scene + văn bản ai-pool cf2; 4006 → tài khoản kế",
+   "exclusive": false
+  },
+  "grabcast_ai": {
+   "label": "GrabCast AI pool (ảnh + chữ – tuyến dự phòng của scripts/lib/ai-pool.mjs)",
+   "exclusive": false
+  },
+  "web_push": {
+   "label": "Nhắc học: Web Push + FCM (cron Worker lexkite-push, D1 nội bộ tra theo khóa, ≤ 40 thiết bị/lượt)",
+   "exclusive": false
+  },
+  "grabcast_social": {
+   "label": "GrabCast social API (đăng FB/IG qua autopilot – Neon free của GrabCast: ≤ 60 lượt/ngày, dừng khi 401/403/409/422/429/503)",
+   "exclusive": false
+  }
+ },
+ "budget_caps": {
+  "_note": "Trần dùng hạn mức D1 hôm nay (tỉ lệ) mà việc ưu tiên đó còn được khởi động; cao hơn → bỏ qua tới khung kế. user không bao giờ bị chặn.",
+  "user": 1,
+  "publishing": 0.7,
+  "render": 0.6,
+  "archive": 0.5,
+  "reports": 0.4,
+  "bulk": 0.3
+ },
+ "reservations": {
+  "_note": "Đặt chỗ cho đường người dùng: neuron Workers AI của tài khoản chính KHÔNG được việc nền tiêu. grants = số neuron việc nền được phép dùng (mặc định 0). Việc liệt kê tài nguyên workers_ai phải lease:true; acquire trả grants.workers_ai (workflow chuyển thành --neurons / VIMG_MAX_MAIN). Muốn cấp: thêm {\"<job>\": N} vào grants rồi node scripts/jobs/gen.mjs --write.",
+  "workers_ai": {
+   "account": "main",
+   "user_neurons": 10000,
+   "background_neurons": 0,
+   "grants": {}
+  },
+  "workers_ai_b": {
+   "account": "b",
+   "daily_neurons": 10000,
+   "safety_margin": 1000,
+   "grants": {
+    "news-auto": 3000,
+    "script-bank": 2000,
+    "lexicon-expand": 1500
+   },
+   "_note": "Việc nền dùng Workers AI tài khoản 2 (token cf-token-2: Account › Workers AI › Read + Edit; Pages: AI_B_TOKEN/AI_B_ACCOUNT_ID hoặc D1B_*). Tổng grants ≤ daily_neurons − safety_margin (jobs-check). 1 ảnh FLUX 4 bước ≈ 173 neuron."
+  }
+ },
+ "jobs": [
+  {
+   "id": "audio",
+   "workflow": "audio.yml",
+   "cron": [
+    "0 19 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 60,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "web-merge-daily",
+   "workflow": "web-merge-daily.yml",
+   "cron": [
+    "23 5 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "blog-daily",
+   "workflow": "blog-daily.yml",
+   "cron": [
+    "30 23 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gemini",
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "blog-publish",
+   "workflow": "blog-publish.yml",
+   "cron": [
+    "7 */3 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 10,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "capacity-sim",
+   "workflow": "capacity-sim.yml",
+   "cron": [
+    "40 4 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 10,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "capacity-watch",
+   "workflow": "capacity-watch.yml",
+   "cron": [
+    "25 1 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "d1_main",
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {
+    "d1_main_reads": 40
+   },
+   "lease": false
+  },
+  {
+   "id": "d1-usage-watch",
+   "workflow": "d1-usage-watch.yml",
+   "cron": [
+    "7,27,47 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "d1_main",
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_main_reads": 10,
+    "d1_main_writes": 2
+   },
+   "lease": false,
+   "_note": "03/11 sự cố D1: số Cloudflare trong ngày cho _d1guard (85 %) + thư 50/75 % khi Pages chưa có CF_ANALYTICS_TOKEN; 1 yêu cầu prod/lượt"
+  },
+  {
+   "id": "preview-site",
+   "workflow": "preview-site.yml",
+   "cron": [
+    "53 */3 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 8,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "pages-deploy",
+   "workflow": "pages-deploy.yml",
+   "cron": [
+    "23 */3 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "report-autofix",
+   "workflow": "report-autofix.yml",
+   "cron": [
+    "53 */3 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_main_reads": 200
+   },
+   "lease": false
+  },
+  {
+   "id": "report-shots",
+   "workflow": "report-shots.yml",
+   "cron": [
+    "41 4 * * 1"
+   ],
+   "priority": "archive",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "free-tier-guard",
+   "workflow": "free-tier-guard.yml",
+   "cron": [
+    "35 1 * * *",
+    "17 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "cdn-mirror",
+   "workflow": "cdn-mirror.yml",
+   "cron": [
+    "47 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "pr-unconflict",
+   "workflow": "pr-unconflict.yml",
+   "cron": [
+    "23,53 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "ci-triage",
+   "workflow": "ci-triage.yml",
+   "cron": [
+    "*/10 * * * *",
+    "12 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_internal_reads": 10
+   },
+   "lease": false
+  },
+  {
+   "id": "main-red-sweep",
+   "workflow": "main-red-sweep.yml",
+   "cron": [
+    "41 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "ci-filler",
+   "workflow": "ci-filler.yml",
+   "cron": [
+    "4-59/10 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "ci-autopilot",
+   "workflow": "ci-autopilot.yml",
+   "cron": [
+    "7-57/10 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "required-gate",
+   "workflow": "required-gate.yml",
+   "cron": [
+    "17,47 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "lease": false
+  },
+  {
+   "id": "content-protect",
+   "workflow": "content-protect.yml",
+   "cron": [
+    "17 2 * * 0"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 10,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "content-evidence",
+   "workflow": "content-evidence.yml",
+   "cron": [
+    "41 3 * * *",
+    "23 4 1 * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "contrast",
+   "workflow": "contrast.yml",
+   "cron": [
+    "50 1 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "d1b-migrate",
+   "workflow": "d1b-migrate.yml",
+   "cron": [
+    "30 5 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "d1_internal",
+    "d1_main_read",
+    "drive_pool"
+   ],
+   "minutes": 45,
+   "est": {
+    "d1_main_reads": 40000,
+    "d1_internal_reads": 2000
+   },
+   "lease": true
+  },
+  {
+   "id": "drive-shorts",
+   "workflow": "drive-shorts.yml",
+   "cron": [
+    "23 4 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool",
+    "d1_internal"
+   ],
+   "minutes": 20,
+   "est": {
+    "d1_internal_reads": 20000,
+    "drive_calls": 1500
+   },
+   "lease": true
+  },
+  {
+   "id": "explain",
+   "workflow": "explain.yml",
+   "cron": [
+    "30 7 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gemini",
+    "grabcast_ai",
+    "gh_minutes"
+   ],
+   "minutes": 40,
+   "est": {
+    "gemini_calls": 400,
+    "grabcast_text": 200
+   },
+   "lease": false
+  },
+  {
+   "id": "footage-archive",
+   "workflow": "footage-archive.yml",
+   "cron": [
+    "45 1,2,6,14,15,16,17,18,20,21,22 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool",
+    "d1_internal",
+    "gh_minutes"
+   ],
+   "minutes": 50,
+   "est": {
+    "d1_internal_reads": 3000,
+    "drive_calls": 700
+   },
+   "lease": true
+  },
+  {
+   "id": "footage-verify",
+   "workflow": "footage-verify.yml",
+   "cron": [
+    "20 6 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "drive_pool",
+    "d1_internal"
+   ],
+   "minutes": 20,
+   "est": {
+    "d1_internal_reads": 8000,
+    "drive_calls": 300
+   },
+   "lease": true
+  },
+  {
+   "id": "health",
+   "workflow": "health.yml",
+   "cron": [
+    "0 0 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 45,
+   "est": {
+    "d1_main_reads": 20000
+   },
+   "lease": false
+  },
+  {
+   "id": "i18n",
+   "workflow": "i18n.yml",
+   "cron": [
+    "30 2 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gemini",
+    "gh_minutes"
+   ],
+   "minutes": 90,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "i18n-leak",
+   "workflow": "i18n-leak.yml",
+   "cron": [
+    "0 22 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 20,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "lexicon-i18n",
+   "workflow": "lexicon-i18n.yml",
+   "cron": [
+    "30 21 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gemini",
+    "gh_minutes"
+   ],
+   "minutes": 60,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "lighthouse",
+   "workflow": "lighthouse.yml",
+   "cron": [
+    "0 1 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "seo-gsc",
+   "workflow": "seo-gsc.yml",
+   "cron": [
+    "0 0 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "store-reviews",
+   "workflow": "store-reviews.yml",
+   "cron": [
+    "20 1 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "ads-demo",
+   "workflow": "ads-demo.yml",
+   "cron": [
+    "17 4 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "ads-revenue",
+   "workflow": "ads-revenue.yml",
+   "cron": [
+    "3 6 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes",
+    "d1_main"
+   ],
+   "minutes": 2,
+   "est": {
+    "d1_main_reads": 1500,
+    "d1_main_writes": 300
+   },
+   "lease": false
+  },
+  {
+   "id": "ads-revenue-hourly",
+   "workflow": "ads-revenue-hourly.yml",
+   "cron": [
+    "41 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes",
+    "d1_main"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_main_reads": 1100,
+    "d1_main_writes": 500
+   },
+   "lease": false
+  },
+  {
+   "id": "nav-render",
+   "workflow": "nav-render.yml",
+   "cron": [
+    "10 2 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 20,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "pr-check",
+   "workflow": "pr-check.yml",
+   "cron": [
+    "30 1 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 10,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "screens",
+   "workflow": "screens.yml",
+   "cron": [
+    "30 1 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 25,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "script-bank",
+   "workflow": "script-bank.yml",
+   "cron": [
+    "50 0 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "workers_ai_b",
+    "grabcast_ai",
+    "gh_minutes"
+   ],
+   "minutes": 60,
+   "est": {
+    "workers_ai_b_neurons": 2000,
+    "grabcast_text": 60
+   },
+   "lease": true
+  },
+  {
+   "id": "storage-watch",
+   "workflow": "storage-watch.yml",
+   "cron": [
+    "41 3 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 5,
+   "est": {
+    "d1_internal_reads": 10
+   },
+   "lease": true
+  },
+  {
+   "id": "video-auto",
+   "workflow": "video-auto.yml",
+   "cron": [
+    "17 23 * * *",
+    "53 3,6 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 90,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "video-web",
+   "workflow": "video-web.yml",
+   "cron": [
+    "47 4 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes",
+    "drive_pool",
+    "d1_internal"
+   ],
+   "minutes": 40,
+   "est": {
+    "d1_internal_reads": 300,
+    "drive_calls": 100
+   },
+   "lease": true
+  },
+  {
+   "id": "visual-qa",
+   "workflow": "visual-qa.yml",
+   "cron": [
+    "20 3 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "mobile-qa",
+   "workflow": "mobile-qa.yml",
+   "cron": [
+    "40 3 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "word-audio",
+   "workflow": "word-audio.yml",
+   "cron": [
+    "20 */4 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 150,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "sentence-audio-asr",
+   "workflow": "sentence-audio-asr.yml",
+   "cron": [
+    "43 1-23/4 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 170,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "word-packs",
+   "workflow": "word-packs.yml",
+   "cron": [
+    "30 20 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes",
+    "gemini"
+   ],
+   "minutes": 45,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "sent-packs",
+   "workflow": "sent-packs.yml",
+   "cron": [
+    "50 21 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 60,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "wordlists",
+   "workflow": "wordlists.yml",
+   "cron": [
+    "0 21 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 20,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "youtube-manual",
+   "workflow": "youtube-manual.yml",
+   "cron": [
+    "7,37 * * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "youtube_api",
+    "d1_main_read"
+   ],
+   "minutes": 5,
+   "est": {
+    "d1_main_reads": 300
+   },
+   "lease": false
+  },
+  {
+   "id": "youtube-upload",
+   "workflow": "youtube-upload.yml",
+   "cron": [
+    "15 1,8,14,20 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "youtube_api",
+    "drive_pool",
+    "d1_internal"
+   ],
+   "minutes": 20,
+   "est": {
+    "d1_internal_reads": 200,
+    "d1_main_reads": 100,
+    "drive_calls": 60
+   },
+   "lease": true
+  },
+  {
+   "id": "mail-digest",
+   "worker": "workers/mail",
+   "cron": [
+    "0 1 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "d1_main_read"
+   ],
+   "minutes": 2,
+   "est": {
+    "d1_main_reads": 3000
+   },
+   "lease": false
+  },
+  {
+   "id": "news-auto",
+   "workflow": "news-auto.yml",
+   "cron": [
+    "53 8 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes",
+    "workers_ai_b",
+    "gemini",
+    "drive_pool"
+   ],
+   "minutes": 150,
+   "est": {
+    "clips": 6,
+    "gemini_calls": 12,
+    "drive_calls": 60,
+    "workers_ai_b_neurons": 3000
+   },
+   "lease": true,
+   "_note": "A->Z news shorts (docs/AUTOMATION.md 1-8); scheduled run is a no-op until content/video/cine/news/AUTO_APPROVED exists (owner approval gate) · Workers AI chính: 0 neuron nền (studio/lexai bỏ binding env.AI cho đường CI → cổng AI rơi sang Gemini)"
+  },
+  {
+   "id": "vocab-img",
+   "workflow": "vocab-img.yml",
+   "cron": [
+    "10 13 * * *"
+   ],
+   "priority": "bulk",
+   "resources": [
+    "grabcast_ai",
+    "gh_minutes"
+   ],
+   "minutes": 85,
+   "est": {
+    "grabcast_images": 400,
+    "grabcast_text": 220,
+    "senses": 220,
+    "images": 130
+   },
+   "lease": true,
+   "paused": false,
+   "_note": "Ảnh minh hoạ từ vựng – ĐANG CHẠY (24/10 chủ duyệt s1/pilot2). Ưu tiên bulk (thấp nhất). MỌI THỨ qua GrabCast (ảnh FLUX + thẻ văn bản; không Workers AI Lexkite). Chủ 24/10: GrabCast chưa có người dùng thật → dùng tối đa, chừa ~10 %: khoá CI 3.000 lượt/ngày × 90 % ≈ 2.700; lượt này ≤ 400 ảnh + 220 thẻ + thăm dò ≈ 1.100 lượt; trần thật = khung ảnh 10/≈65 s (≈ 6 ảnh/phút) trong 85 phút. 429 → chờ lùi, 6 lần liên tiếp = dừng nhà đó. Giám khảo: GrabCast thị giác (khi có vars.GRABCAST_AI_VISION_URL) → Gemini kho Lexkite → hàng chờ."
+  },
+  {
+   "id": "vocab-img-free",
+   "workflow": "vocab-img-free.yml",
+   "cron": [
+    "40 4 * * 1"
+   ],
+   "priority": "bulk",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 6,
+   "est": {
+    "images": 0
+   },
+   "lease": false,
+   "paused": false,
+   "_note": "Ảnh từ vựng tầng miễn phí, tất định: icon Noto/OpenMoji + ảnh Wikimedia (ánh xạ đã commit + soát tay) → lexkite-media; không AI, không neuron. Thứ Hai: đăng nghĩa mới nếu ánh xạ đổi."
+  },
+  {
+   "id": "cf-pool-probe",
+   "workflow": "cf-pool-probe.yml",
+   "cron": [
+    "3 0 * * *",
+    "33 */3 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "est": {
+    "neurons": 121
+   },
+   "lease": false,
+   "paused": false,
+   "_note": "27/10: dò kho CF_POOL ngay sau giờ nạp neuron (mỗi tài khoản 1 câu ~1 neuron) – kho có thật sự nạp lại lúc 00:00 UTC không, có ai khác dùng không. Kết quả ở tóm tắt run."
+  },
+  {
+   "id": "vocab-img-scene",
+   "workflow": "vocab-img-scene.yml",
+   "cron": [
+    "40 2,4,7,10,13,16,19,22 * * *"
+   ],
+   "priority": "bulk",
+   "resources": [
+    "grabcast_ai",
+    "gh_minutes"
+   ],
+   "minutes": 120,
+   "est": {
+    "grabcast_images": 6000,
+    "grabcast_text": 300,
+    "shards_max": 10,
+    "per_shard_images": "max_gc / shards",
+    "judge": "local CPU (0 token)",
+    "grabcast_vision": 6000
+   },
+   "lease": true,
+   "paused": false,
+   "_note": "26/10: GrabCast hỏng (500 ×700 ảnh) → provider cf = Workers AI thẳng (cf-direct.mjs: CF_POOL bỏ 5 đầu → tài khoản 2) cho vẽ + giám khảo thị giác; lịch chỉ chạy khi vars.VIMG_SCHEDULE=1. Ảnh mọi nghĩa – fill BẬT 24/10 (chủ: chất lượng trước, dùng tối đa GrabCast): 4 lượt/ngày, ma trận ≤ 10 việc, mỗi việc thuê riêng (LEASE_SHARD → run id -sN), trần ảnh việc = max_gc / shards (fill 6000/lượt). Mỗi nghĩa cảnh tới `variants` (4, ≤ 6) biến thể, nhận biến thể ĐẦU qua giám khảo cảnh ngưỡng độ chính xác cao (vimg-judge-scene.json); trượt hết → content/lexicon/vimg-scene-queue.json (sửa prompt sau). Ảnh → kho m4 (MEDIA4_DEPLOY_KEY) qua media.lexkite.com/vimg/. Mở dần 10 % (vocab_img_pct), dự phòng Noto/Wikimedia giữ. Sổ ảnh = git – không D1, không Pages."
+  },
+  {
+   "id": "d1-backup",
+   "workflow": "d1-backup.yml",
+   "cron": [
+    "15 0 * * 1,2"
+   ],
+   "priority": "archive",
+   "resources": [
+    "d1_main_read",
+    "drive_pool",
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {
+    "d1_main_reads": 60000,
+    "drive_calls": 80
+   },
+   "lease": true
+  },
+  {
+   "id": "release-archive",
+   "workflow": "release-archive.yml",
+   "cron": [
+    "30 11 * * 6"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool",
+    "gh_minutes"
+   ],
+   "minutes": 30,
+   "est": {
+    "drive_calls": 40
+   },
+   "lease": true
+  },
+  {
+   "id": "drive-repair",
+   "workflow": "drive-repair.yml",
+   "cron": [
+    "47 3 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool"
+   ],
+   "minutes": 30,
+   "est": {
+    "drive_calls": 100
+   },
+   "lease": false
+  },
+  {
+   "id": "code-bundle",
+   "workflow": "code-bundle.yml",
+   "cron": [
+    "0 12 * * 0"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool",
+    "gh_minutes"
+   ],
+   "minutes": 60,
+   "est": {
+    "drive_calls": 20
+   },
+   "lease": true
+  },
+  {
+   "id": "quality-sweep",
+   "workflow": "quality-sweep.yml",
+   "cron": [
+    "40 22 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 45,
+   "est": {},
+   "lease": true
+  },
+  {
+   "id": "audit-all",
+   "workflow": "audit-all.yml",
+   "cron": [
+    "17 19 * * 1,4"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 300,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "content-qa",
+   "workflow": "content-qa.yml",
+   "cron": [
+    "10 23 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 5,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "push",
+   "worker": "workers/push",
+   "cron": [
+    "*/10 * * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "web_push"
+   ],
+   "minutes": 1,
+   "est": {
+    "d1_internal_reads": 17000,
+    "d1_internal_writes": 2000
+   },
+   "lease": false
+  },
+  {
+   "id": "cron-kick",
+   "worker": "workers/cronkick",
+   "cron": [
+    "*/30 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [],
+   "minutes": 1,
+   "est": {},
+   "lease": false,
+   "_note": "3/11: lưới an toàn cuối – Worker ký HMAC gọi /api/cron-kick; Pages (có GH_DISPATCH_TOKEN) dispatch free-tier-guard/required-gate/ci-triage khi quá ngưỡng cron-watch, chống trùng, ≤ 5 lượt, ≤ 4 lượt/giờ. Không đụng D1."
+  },
+  {
+   "id": "lexicon-expand",
+   "workflow": "lexicon-expand.yml",
+   "cron": [
+    "17 */3 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "cf_pool",
+    "gh_minutes"
+   ],
+   "minutes": 120,
+   "est": {
+    "cf_pool_neurons": 600000
+   },
+   "lease": true,
+   "_note": "26/10: GrabCast hỏng → AI qua kho CF_POOL (ai-pool cf2 xoay ~120 tài khoản, 4006/429 → tài khoản kế; JSON bị cắt → chia đôi lô). Trần 600k neuron/lượt ≈ 50 % kho, chạy 00:12 UTC ngay sau giờ đặt lại neuron, trước lượt ảnh 01:40 (ảnh 8 lượt/ngày vắt kho). Kho Gemini rỗng → bỏ Gemini (calls 0) → chỉ cf_pool + gh_minutes, chạy được cả khi điều phối sập (d1-quota). 27/10: kho CF có vẻ tính theo cửa sổ 24 giờ trượt → lịch mỗi 3 giờ (kho cạn → dừng ~40 s); pilot theo lịch bỏ qua khi lô pilot hôm nay đã có."
+  },
+  {
+   "id": "video-tpl1b",
+   "workflow": "video-tpl1b.yml",
+   "cron": [
+    "5 13 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gh_minutes",
+    "grabcast_ai",
+    "drive_pool"
+   ],
+   "minutes": 45,
+   "est": {
+    "clips": 12,
+    "grabcast_calls": 6,
+    "drive_calls": 40
+   },
+   "lease": true,
+   "paused": true,
+   "_note": "tpl1b batch shorts (docs/VIDEO-TEMPLATES.md §9): dispatch only (lease --force) until the owner approves batch 1; cron = planned slot; the lease covers the store job (Drive pool, ≤ 45 min), render jobs use GitHub minutes only. Groq hook judge + ≤ 10 render jobs + store to lexkite-shorts/Drive; never publishes"
+  },
+  {
+   "id": "dict-stage",
+   "workflow": "dict-stage.yml",
+   "cron": [
+    "0 2 * * 2"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 5,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "font-audit",
+   "workflow": "font-audit.yml",
+   "cron": [
+    "20 2 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 10,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "social-auto",
+   "workflow": "social-auto.yml",
+   "cron": [
+    "52 */2 * * *"
+   ],
+   "priority": "publishing",
+   "resources": [
+    "grabcast_social",
+    "d1_main"
+   ],
+   "minutes": 3,
+   "est": {
+    "grabcast_social_calls": 60,
+    "d1_main_reads": 600,
+    "d1_main_writes": 120
+   },
+   "lease": false
+  },
+  {
+   "id": "upgrade-audit",
+   "workflow": "upgrade-audit.yml",
+   "cron": [
+    "0 2 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 2,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "world-scorecard",
+   "workflow": "world-scorecard.yml",
+   "cron": [
+    "30 2 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
+   "est": {},
+   "lease": false
+  },
+  {
+   "id": "content-factory",
+   "workflow": "content-factory.yml",
+   "cron": [
+    "50 17 * * *"
+   ],
+   "priority": "render",
+   "resources": [
+    "gemini",
+    "grabcast_ai",
+    "gh_minutes"
+   ],
+   "minutes": 90,
+   "est": {
+    "gemini_calls": 600,
+    "grabcast_text": 300
+   },
+   "lease": false
+  },
+  {
+   "id": "ci-queue-report",
+   "workflow": "ci-queue-report.yml",
+   "cron": [
+    "20 7 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
+   "lease": false,
+   "_note": "05/11 PR #719: đo hàng chờ CI mức job mỗi ngày (chờ p50/p90, phút, lượt trùng) so với mốc → issue ci-queue; chỉ đọc API"
+  }
+ ]
+};

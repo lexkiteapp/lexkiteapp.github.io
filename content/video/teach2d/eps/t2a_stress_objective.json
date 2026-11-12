@@ -1,0 +1,146 @@
+{
+ "id": "t2a_stress_objective",
+ "template": "stress",
+ "series": "Where's the Stress?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "pronunciation",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Where's the stress? Object!",
+   "pause": 0.42
+  },
+  {
+   "id": "a",
+   "text": "Object. Stress on the first part.",
+   "pause": 0.42
+  },
+  {
+   "id": "b",
+   "text": "Now say objective.",
+   "pause": 0.42
+  },
+  {
+   "id": "m",
+   "text": "The stress moves to the second part.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Say it with me: objective.",
+   "pause": 1.8,
+   "repeat": true
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Where's the stress?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "ans",
+   "text": "The second part. Objective.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "a": {
+   "word": "object",
+   "syl": [
+    "ob",
+    "ject"
+   ],
+   "stress": 0,
+   "say": "first",
+   "ipa": "/ˈɑːbdʒekt/"
+  },
+  "b": {
+   "word": "objective",
+   "syl": [
+    "ob",
+    "jec",
+    "tive"
+   ],
+   "stress": 1,
+   "say": "second",
+   "ipa": "/əbˈdʒektɪv/"
+  },
+  "quiz": {
+   "options": [
+    "OB",
+    "JEC"
+   ],
+   "answer": 1
+  }
+ },
+ "cta": {
+  "area": "pronunciation",
+  "route": "#/pron/stress-shift",
+  "link": "https://lexkite.com/app/#/pron/stress-shift",
+  "say": "Check word stress"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Where's the stress?"
+ },
+ "est": {
+  "words": 45,
+  "seconds": 29.4,
+  "wpm": 92
+ },
+ "publish": {
+  "title": "Object vs objective: where is the stress?",
+  "keyword": "object objective stress",
+  "value": "Object /ˈɑːbdʒekt/: stress on the 1st part. Objective /əbˈdʒektɪv/: the 2nd part.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#pronunciation",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/pron/stress-shift",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Object vs objective: where is the stress?",
+    "description": "Object /ˈɑːbdʒekt/: stress on the 1st part. Objective /əbˈdʒektɪv/: the 2nd part.\n\nCheck word stress, free: https://lexkite.com/app/#/pron/stress-shift\n\nSeries: Where's the Stress? · Teacher: Carlos\n\n#learnenglish #englishtips #pronunciation #englishteacher",
+    "tags": [
+     "object objective stress",
+     "Where's the Stress?",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Object vs objective: where is the stress?\n\nObject /ˈɑːbdʒekt/: stress on the 1st part. Objective /əbˈdʒektɪv/: the 2nd part.\n\nCheck word stress, free: https://lexkite.com/app/#/pron/stress-shift"
+   },
+   "instagram": {
+    "caption": "Object vs objective: where is the stress?\n\nObject /ˈɑːbdʒekt/: stress on the 1st part. Objective /əbˈdʒektɪv/: the 2nd part.\n\nCheck word stress: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#pronunciation",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Object vs objective: where is the stress? #learnenglish #englishtips #pronunciation"
+   }
+  },
+  "first_comment": "Answer: The second part. Objective. Try the full lesson and quiz here: {link}"
+ }
+}

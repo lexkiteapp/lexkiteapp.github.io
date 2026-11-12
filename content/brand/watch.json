@@ -1,0 +1,24 @@
+{
+  "_note": "THEO DÕI THƯƠNG HIỆU (repo CÔNG KHAI – không ghi email/mật khẩu). domains: tên miền na ná lexkite.com, kiểm DNS hằng ngày qua DoH (cloudflare-dns.com) – cảnh báo khi tên miền trước đó không có A/AAAA/MX bắt đầu phân giải, hoặc xuất hiện MX (nguy cơ lừa đảo qua thư). handles: tên tài khoản mạng xã hội mình nên giữ; status owned = đã là của mình, not-yet = chưa giữ (anh đổi trong Quản trị). Chỉ kiểm tự động nơi đọc được hồ sơ công khai không cần đăng nhập (GitHub API, Bluesky API, YouTube) – còn lại 'unknown', anh tự kiểm. Workflow: .github/workflows/pr-check.yml.",
+  "version": 1,
+  "own": ["lexkite.com"],
+  "domains": {
+    "base": "lexkite",
+    "tlds": ["net", "org", "app", "io", "co", "ai", "vn", "com.vn", "info", "xyz", "site", "online", "store"],
+    "typos": ["lexkit.com", "lexkites.com", "lex-kite.com", "lexklte.com", "iexkite.com", "lexkite-app.com"]
+  },
+  "handles": [
+    { "platform": "x", "handle": "lexkite", "status": "not-yet", "notes": "" },
+    { "platform": "facebook", "handle": "lexkite", "status": "not-yet", "notes": "Trang (Page), không phải hồ sơ cá nhân." },
+    { "platform": "instagram", "handle": "lexkite", "status": "not-yet", "notes": "" },
+    { "platform": "tiktok", "handle": "lexkite", "status": "not-yet", "notes": "" },
+    { "platform": "youtube", "handle": "lexkite", "status": "not-yet", "notes": "" },
+    { "platform": "threads", "handle": "lexkite", "status": "not-yet", "notes": "Đi kèm tài khoản Instagram." },
+    { "platform": "linkedin", "handle": "lexkite", "status": "not-yet", "notes": "Company Page (docs/PR-PLATFORMS.md mục 18)." },
+    { "platform": "pinterest", "handle": "lexkite", "status": "not-yet", "notes": "" },
+    { "platform": "reddit", "handle": "lexkite", "status": "not-yet", "notes": "u/lexkite – chỉ giữ tên, không tự quảng bá." },
+    { "platform": "github", "handle": "lexkiteapp", "status": "owned", "notes": "Tổ chức chứa repo lexkiteapp.github.io." },
+    { "platform": "github", "handle": "lexkite", "status": "not-yet", "notes": "Tên ngắn – giữ nếu còn trống." },
+    { "platform": "bluesky", "handle": "lexkite.bsky.social", "status": "not-yet", "notes": "Có thể dùng tên miền lexkite.com làm handle sau này." }
+  ]
+}

@@ -1,0 +1,477 @@
+{
+ "id": "sod_7432d6cb",
+ "template": "pair",
+ "title": "Same or Different? #2 – win (v) vs beat (v)",
+ "teacher": "carlos",
+ "set": "classroom_board",
+ "clips": [
+  "c05_carlos2",
+  "c05t2_carlos2_present",
+  "c05e1_carlos2_excited",
+  "c05t3_carlos2_talk3",
+  "c05e2_carlos2_question",
+  "c05e3_carlos2_wow"
+ ],
+ "listen": [
+  "c05l_carlos2_listen"
+ ],
+ "accent": "green",
+ "active": "green",
+ "hook_style": "versus: two tiles slide in from both sides with a VS disc",
+ "motif": "side-by-side twin tiles, the active one lit",
+ "cta": {
+  "area": "word-usage",
+  "link": "https://lexkite.com/app/#/usage?c=pair",
+  "say": "Compare tricky words"
+ },
+ "speed": 0.65,
+ "display": {
+  "blank": "___"
+ },
+ "caption_cap": 42,
+ "lines": [
+  {
+   "id": "p_h",
+   "text": "Win or beat? Quick lesson.",
+   "key": {
+    "yellow": [
+     0
+    ],
+    "green": [
+     2
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "p_y",
+   "text": "You beat people. You win games.",
+   "key": {
+    "yellow": [
+     4
+    ],
+    "green": [
+     1
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "p_w",
+   "text": "Not: We won the other team.",
+   "key": {
+    "red": [
+     2
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "p_k",
+   "text": "Say: We beat the other team.",
+   "key": {
+    "green": [
+     2
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "p_t",
+   "text": "You win a prize, but beat a player!",
+   "key": {
+    "yellow": [
+     1,
+     5
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "p_q",
+   "text": "Quiz! Our team blank them 3 to 1.",
+   "key": {
+    "yellow": [
+     0
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "p_q2",
+   "text": "Beat, or won?"
+  },
+  {
+   "id": "_count",
+   "beat": "count",
+   "dur": 3.0
+  },
+  {
+   "id": "p_a",
+   "text": "Beat! Our team beat them 3 to 1.",
+   "key": {
+    "green": [
+     0,
+     3
+    ]
+   },
+   "gap": 0.7
+  },
+  {
+   "id": "p_sh",
+   "text": "Send this to a friend!",
+   "gap": 0.7
+  },
+  {
+   "id": "p_c",
+   "text": "Save this, and compare tricky words on lexkite.com.",
+   "gap": 0.7
+  }
+ ],
+ "pops": [
+  {
+   "id": "hook",
+   "kind": "rich",
+   "role": "hook",
+   "anim": "stamp",
+   "size": 96,
+   "rows": [
+    [
+     [
+      "win",
+      "yellow"
+     ],
+     [
+      " or",
+      "white"
+     ]
+    ],
+    [
+     [
+      "beat",
+      "green"
+     ],
+     [
+      "?",
+      "white"
+     ]
+    ]
+   ],
+   "align": "l",
+   "from": [
+    "t",
+    0
+   ],
+   "to": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "lesson",
+   "kind": "lesson",
+   "anim": "spring",
+   "title": "WIN vs BEAT",
+   "items": [
+    {
+     "icon": "🏆",
+     "color": "green",
+     "word": "win",
+     "ipa": "/wɪn/",
+     "mean": "= come first in a game",
+     "ex": [
+      "“We ",
+      "won",
+      " the game.”"
+     ]
+    },
+    {
+     "icon": "🥁",
+     "color": "blue",
+     "word": "beat",
+     "ipa": "/biːt/",
+     "mean": "= defeat a person or team",
+     "ex": [
+      "“She ",
+      "beat",
+      " me at chess.”"
+     ],
+     "at": [
+      "p_y",
+      1,
+      "s",
+      -0.06
+     ]
+    }
+   ],
+   "from": [
+    "p_y",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_w",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "fix",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "NOT / SAY"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:❌"
+      ],
+      [
+       " We "
+      ],
+      [
+       "won ",
+       "red"
+      ],
+      [
+       "the other team."
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:✅"
+      ],
+      [
+       " We "
+      ],
+      [
+       "beat ",
+       "green"
+      ],
+      [
+       "the other team."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "p_w",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_t",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "trick",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "MEMORY TRICK"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "@emoji:💡"
+      ],
+      [
+       " WIN ",
+       "hl"
+      ],
+      [
+       "the game"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "BEAT ",
+       "hl"
+      ],
+      [
+       "the team"
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "p_t",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_q",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "qs",
+   "kind": "note",
+   "anim": "spring",
+   "lines": [
+    {
+     "st": "title",
+     "segs": [
+      [
+       "QUICK QUIZ"
+      ]
+     ]
+    },
+    {
+     "st": "text",
+     "segs": [
+      [
+       "Our team "
+      ],
+      [
+       "___ ",
+       "green"
+      ],
+      [
+       "them 3 to 1."
+      ]
+     ]
+    }
+   ],
+   "from": [
+    "p_q",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_q2",
+    0,
+    "s",
+    -0.06
+   ]
+  },
+  {
+   "id": "quiz",
+   "kind": "quiz",
+   "a": "beat",
+   "b": "won",
+   "correct": "a",
+   "reveal": [
+    "p_a",
+    0,
+    "s",
+    -0.04
+   ],
+   "from": [
+    "p_q2",
+    0,
+    "s",
+    -0.06
+   ],
+   "to": [
+    "p_a",
+    -1,
+    "e",
+    0.35
+   ]
+  },
+  {
+   "id": "save",
+   "kind": "lesson",
+   "anim": "spring",
+   "title": "SAVE THIS",
+   "save": true,
+   "items": [
+    {
+     "icon": "🏆",
+     "color": "green",
+     "word": "win",
+     "ipa": "/wɪn/",
+     "mean": "= a game · a prize",
+     "ex": [
+      "“We ",
+      "won",
+      " the game.”"
+     ]
+    },
+    {
+     "icon": "🥁",
+     "color": "blue",
+     "word": "beat",
+     "ipa": "/biːt/",
+     "mean": "= a person · a team",
+     "ex": [
+      "“She ",
+      "beat",
+      " me at chess.”"
+     ]
+    }
+   ],
+   "footer": "lexkite.com",
+   "from": [
+    "p_a",
+    -1,
+    "e",
+    0.35
+   ],
+   "to": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ]
+  },
+  {
+   "id": "cta",
+   "kind": "cta",
+   "from": [
+    "p_c",
+    0,
+    "s",
+    -0.05
+   ],
+   "to": [
+    "end"
+   ]
+  }
+ ],
+ "series": {
+  "name": "Same or Different?",
+  "ep": 2
+ },
+ "source": {
+  "bank": "sb_7432d6cb",
+  "pid": "u:c:win-beat",
+  "cefr": "A1",
+  "diff": "easy",
+  "ipa": "/biːt/"
+ }
+}

@@ -1,121 +1,4 @@
 {
-  "hosting": [
-    {
-      "public": "dist",
-      "ignore": [
-        "**/.*"
-      ],
-      "headers": [
-        {
-          "source": "/",
-          "headers": [
-            {
-              "key": "Cache-Control",
-              "value": "no-cache"
-            }
-          ]
-        },
-        {
-          "source": "**/*.@(js|css|html|webmanifest)",
-          "headers": [
-            {
-              "key": "Cache-Control",
-              "value": "no-cache"
-            }
-          ]
-        },
-        {
-          "source": "sw.js",
-          "headers": [
-            {
-              "key": "Cache-Control",
-              "value": "no-store"
-            }
-          ]
-        },
-        {
-          "source": "**/*.@(png|svg|jpg|webp|ico)",
-          "headers": [
-            {
-              "key": "Cache-Control",
-              "value": "public, max-age=604800"
-            }
-          ]
-        }
-      ],
-      "site": "lexkite"
-    },
-    {
-      "public": "dist",
-      "ignore": [
-        "**/.*"
-      ],
-      "headers": [
-        {
-          "source": "/",
-          "headers": [
-            {
-              "key": "Cache-Control",
-              "value": "no-cache"
-            }
-          ]
-        },
-        {
-          "source": "**/*.@(js|css|html|webmanifest)",
-          "headers": [
-            {
-              "key": "Cache-Control",
-              "value": "no-cache"
-            }
-          ]
-        },
-        {
-          "source": "sw.js",
-          "headers": [
-            {
-              "key": "Cache-Control",
-              "value": "no-store"
-            }
-          ]
-        },
-        {
-          "source": "**/*.@(png|svg|jpg|webp|ico)",
-          "headers": [
-            {
-              "key": "Cache-Control",
-              "value": "public, max-age=604800"
-            }
-          ]
-        }
-      ],
-      "site": "vocaband"
-    },
-    {
-      "site": "ielts-lexi-2026",
-      "public": "dist",
-      "ignore": [
-        "**/.*"
-      ],
-      "redirects": [
-        {
-          "source": "**",
-          "destination": "https://vocaband.web.app",
-          "type": 301
-        }
-      ],
-      "headers": [
-        {
-          "source": "/",
-          "headers": [
-            {
-              "key": "Cache-Control",
-              "value": "no-cache"
-            }
-          ]
-        }
-      ]
-    }
-  ],
   "firestore": {
     "rules": "firestore.rules"
   },
@@ -124,11 +7,12 @@
       "anonymous": false,
       "emailPassword": false,
       "googleSignIn": {
-        "oAuthBrandDisplayName": "Vocaband",
-        "supportEmail": "braydanamilio@gmail.com",
+        "oAuthBrandDisplayName": "Lexkite",
+        "supportEmail": "vintagezulilyjewelry@gmail.com",
         "authorizedRedirectUris": [
-          "https://vocaband.web.app",
-          "https://ielts-lexi-2026.web.app"
+          "https://lexkite.com",
+          "https://www.lexkite.com",
+          "https://lexkite.pages.dev"
         ]
       }
     }

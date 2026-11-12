@@ -1,0 +1,102 @@
+{
+ "id": "news_airplane_cabin_three_b5dc88",
+ "template": "three",
+ "bg": "airplane_cabin",
+ "area": "phrases",
+ "cefr": "A2",
+ "point": "on the plane: could I get, mind switching seats, overhead bin",
+ "hook": {
+  "card": "FLYING SOON?",
+  "line": "n_b5dc88_h"
+ },
+ "series": [
+  "TRAVEL ENGLISH",
+  "On the plane"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_b5dc88_in",
+   "card": null,
+   "intro": true
+  },
+  {
+   "who": "carlos",
+   "line": "n_b5dc88_in2",
+   "card": null,
+   "intro2": true
+  },
+  {
+   "who": "ama",
+   "line": "n_b5dc88_1",
+   "card": {
+    "kind": "p",
+    "text": "Could I get some water?",
+    "sub": "ask the flight attendant",
+    "label": "#1"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_b5dc88_2",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_b5dc88_3",
+   "card": {
+    "kind": "p",
+    "text": "Would you mind switching?",
+    "sub": "Would you mind + verb-ing?",
+    "label": "#2"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_b5dc88_4",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_b5dc88_5",
+   "card": {
+    "kind": "p",
+    "text": "Is there room up there?",
+    "sub": "overhead bin = bag space",
+    "label": "#3"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_b5dc88_6",
+   "card": null
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "line": "n_b5dc88_r",
+  "rows": [
+   "Could I get some water?",
+   "Would you mind switching seats?",
+   "Is there room in the overhead bin?"
+  ],
+  "line_alt": "n_b5dc88_r2"
+ },
+ "end_line": "n_b5dc88_e",
+ "link": "https://lexkite.com/app/#/phrases",
+ "cta": "Save useful phrases on lexkite.com",
+ "est": 24.0,
+ "end_alt": "n_b5dc88_e2",
+ "publish": {
+  "title": "Useful English phrases on the plane",
+  "keyword": "on the plane",
+  "value": "\"Could I get...\", asking to switch seats, and the overhead bin.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a2english"
+  ],
+  "first_comment": "One more for your next flight: \"Could I get a blanket, please?\" works for almost anything you need on board. Practice all the plane phrases here: {link}"
+ }
+}

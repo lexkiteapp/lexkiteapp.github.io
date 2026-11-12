@@ -1,0 +1,58 @@
+{
+ "note": "Pilot v5 (docs/VIDEO-TEMPLATES.md \u00a710). Lesson tpl1b_airport_gate_cc6fbe. B: the host (Carlos) speaks every line, as in tpl1b. Teacher lines = the reviewed tpl1b lines, word for word.",
+ "voices": {
+  "ama": "af_bella",
+  "carlos": "am_fenrir",
+  "mia": "af_heart",
+  "jake": "am_michael",
+  "mei": "af_sarah"
+ },
+ "speed": 0.88,
+ "lines": [
+  {
+   "id": "n_cc6fbe_h",
+   "who": "carlos",
+   "text": "Never say this."
+  },
+  {
+   "id": "n_cc6fbe_m",
+   "who": "carlos",
+   "text": "Many learners say: The gate is change?"
+  },
+  {
+   "id": "n_cc6fbe_g",
+   "who": "carlos",
+   "text": "Pause and guess. What sounds right?"
+  },
+  {
+   "id": "n_cc6fbe_k",
+   "who": "carlos",
+   "text": "Say: Excuse me, has the gate changed?"
+  },
+  {
+   "id": "n_cc6fbe_y",
+   "who": "carlos",
+   "text": "For a new change, ask: has it changed?"
+  },
+  {
+   "id": "n_cc6fbe_rn",
+   "who": "carlos",
+   "text": "Now at normal speed: Excuse me, has the gate changed?"
+  },
+  {
+   "id": "n_cc6fbe_r2",
+   "who": "carlos",
+   "text": "Teacher's tip: save these lines."
+  },
+  {
+   "id": "n_cc6fbe_e",
+   "who": "carlos",
+   "text": "Quiz: Excuse me, blank the gate changed? Has, or is? Comment below."
+  },
+  {
+   "id": "n_cc6fbe_s",
+   "who": "carlos",
+   "text": "Roleplay this free on lexkite.com."
+  }
+ ]
+}

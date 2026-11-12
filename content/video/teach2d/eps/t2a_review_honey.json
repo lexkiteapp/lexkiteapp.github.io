@@ -1,0 +1,117 @@
+{
+ "id": "t2a_review_honey",
+ "template": "review",
+ "series": "Remember This?",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "vocab-review",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Remember this word?",
+   "pause": 0.42
+  },
+  {
+   "id": "f",
+   "text": "Here's your card: honey.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Think! What does it mean?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "b",
+   "text": "It means a sweet yellow liquid made by bees.",
+   "pause": 0.42
+  },
+  {
+   "id": "x",
+   "text": "This honey is really good.",
+   "pause": 0.42
+  },
+  {
+   "id": "g",
+   "text": "Got it? Tap Good. Forgot? Tap Again.",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "word": "honey",
+  "ipa": "/ˈhʌni/",
+  "mean": "a sweet yellow liquid made by bees",
+  "ex": "This honey is really good.",
+  "grades": [
+   "Again",
+   "Hard",
+   "Good",
+   "Easy"
+  ]
+ },
+ "cta": {
+  "area": "vocab-review",
+  "route": "#/review?w=honey",
+  "link": "https://lexkite.com/app/#/review?w=honey",
+  "say": "Review your words"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Remember this word?"
+ },
+ "est": {
+  "words": 39,
+  "seconds": 24.2,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"honey\" mean?",
+  "keyword": "honey",
+  "value": "Honey means a sweet yellow liquid made by bees.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=honey",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"honey\" mean?",
+    "description": "Honey means a sweet yellow liquid made by bees.\n\nReview your words, free: https://lexkite.com/app/#/review?w=honey\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "honey",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"honey\" mean?\n\nHoney means a sweet yellow liquid made by bees.\n\nReview your words, free: https://lexkite.com/app/#/review?w=honey"
+   },
+   "instagram": {
+    "caption": "What does \"honey\" mean?\n\nHoney means a sweet yellow liquid made by bees.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"honey\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a sweet yellow liquid made by bees. Honey means a sweet yellow liquid made by bees. Try the full lesson and quiz here: {link}"
+ }
+}

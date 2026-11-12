@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Aussprache-Training /θ/</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-container": "#9ce9e2",
+            "secondary-fixed-dim": "#ffb86c",
+            "primary-fixed-dim": "#88d4cd",
+            "surface-variant": "#eae1d8",
+            "surface-container-highest": "#eae1d8",
+            "on-tertiary-fixed-variant": "#8c170e",
+            "on-surface-variant": "#3f4947",
+            "on-primary-fixed-variant": "#00504c",
+            "surface-bright": "#fff8f3",
+            "on-surface": "#1f1b16",
+            "primary": "#00514d",
+            "on-tertiary": "#ffffff",
+            "surface-tint": "#106a65",
+            "on-tertiary-fixed": "#410000",
+            "inverse-on-surface": "#f9efe6",
+            "error": "#ba1a1a",
+            "primary-container": "#136b66",
+            "on-secondary-fixed-variant": "#683c00",
+            "tertiary-fixed": "#ffdad4",
+            "outline": "#6f7978",
+            "on-tertiary-container": "#ffd0c9",
+            "secondary": "#895100",
+            "on-secondary-container": "#663b00",
+            "surface-container-high": "#f0e7de",
+            "surface-container-low": "#fcf2e9",
+            "tertiary-container": "#b03224",
+            "secondary-container": "#fe9d19",
+            "surface-container": "#f6ece4",
+            "outline-variant": "#bec9c7",
+            "on-secondary": "#ffffff",
+            "surface": "#fff8f3",
+            "on-primary-fixed": "#00201e",
+            "on-background": "#1f1b16",
+            "surface-container-lowest": "#ffffff",
+            "primary-fixed": "#a4f0e9",
+            "tertiary-fixed-dim": "#ffb4a8",
+            "on-error": "#ffffff",
+            "on-primary": "#ffffff",
+            "inverse-primary": "#88d4cd",
+            "secondary-fixed": "#ffdcbc",
+            "tertiary": "#8e190f",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed": "#2c1600",
+            "surface-dim": "#e2d8d0",
+            "error-container": "#ffdad6",
+            "inverse-surface": "#34302a",
+            "background": "#fff8f3"
+          },
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "margin-tablet": "1.5rem",
+            "space-md": "1rem",
+            "margin-desktop": "2.5rem",
+            "gutter-desktop": "1.5rem",
+            "margin": "1rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-xl-mobile": ["30px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "26px", "fontWeight": "500" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "800" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.2px", "fontWeight": "700" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.6px", "fontWeight": "800" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "800" }],
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.4px", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .icon-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 700;
+    }
+    /* Tactile mechanical press effects */
+    .tactile-btn {
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .tactile-btn:active {
+      transform: translateY(3px) !important;
+      box-shadow: 0 1px 0 currentColor !important;
+    }
+    /* Waveform visual styling */
+    .waveform-bar {
+      transition: height 0.2s ease;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex justify-center selection:bg-primary-fixed antialiased pb-32">
+<div class="w-full max-w-[390px] min-h-screen flex flex-col bg-background relative overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b-2 border-outline-variant shadow-[0_4px_0_theme(colors.outline-variant)]">
+<div class="flex items-center gap-2">
+<button aria-label="Zurück" class="tactile-btn min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-outline-variant shadow-[0_3px_0_theme(colors.outline-variant)] flex items-center justify-center text-primary active:translate-y-[2px]">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary tracking-wider uppercase font-bold">FERTIGKEITEN · AUSSPRACHE</span>
+<span class="font-headline-sm text-headline-sm text-on-surface leading-tight font-extrabold flex items-center gap-1.5">
+            Dental /θ/
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-secondary-fixed text-on-secondary-fixed border border-secondary">IELTS 7.0+</span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="Lesezeichen setzen" class="tactile-btn min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-outline-variant shadow-[0_3px_0_theme(colors.outline-variant)] flex items-center justify-center text-on-surface-variant active:translate-y-[2px]">
+<span class="material-symbols-outlined">bookmark</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-4 pt-4 space-y-4">
+<!-- Target Sound Hero Anatomy Card -->
+<section class="bg-surface-container-lowest rounded-DEFAULT border-2 border-[#EBDCC9] shadow-[0_4px_0_#DBC4AF] p-4 flex flex-col gap-3.5">
+<!-- Badge row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm border border-outline-variant">Dental</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm border border-outline-variant">Stimmlos</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm border border-outline-variant">Frikativ</span>
+</div>
+<span class="text-xs font-bold text-primary flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded-full border border-primary-fixed-dim">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+            Standard-RP/GA
+          </span>
+</div>
+<!-- Sound Title & Tactile Listen Trigger -->
+<div class="flex items-center justify-between gap-3 bg-surface-container-low p-3.5 rounded-DEFAULT border-2 border-[#EBDCC9]">
+<div class="flex-1">
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile text-primary font-black tracking-tight">/θ/</h1>
+<p class="font-headline-sm text-headline-sm text-on-surface font-extrabold mt-0.5">wie in <span class="text-secondary underline decoration-2 decoration-secondary font-black">think</span></p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Stimmloser dentaler Frikativ</p>
+</div>
+<!-- Big Audio Button -->
+<button aria-label="Ziel-Phonem anhören" class="tactile-btn min-w-[56px] min-h-[56px] w-14 h-14 rounded-full bg-primary-container text-on-primary border-2 border-[#0C4542] shadow-[0_4px_0_#0C4542] flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[30px]" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+</button>
+</div>
+<!-- Anatomical Cross-Section Diagram Box -->
+<div class="bg-surface-container p-3.5 rounded-DEFAULT border border-outline-variant/60 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-extrabold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">record_voice_over</span>
+              Mundstellung &amp; Artikulation
+            </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Querschnitt</span>
+</div>
+<div class="w-full h-24 bg-surface-container-lowest rounded-xl border border-outline-variant/80 p-2 relative flex items-center justify-between overflow-hidden">
+<!-- Clean Anatomical SVG Diagram -->
+<svg class="w-32 h-20 text-on-surface-variant flex-shrink-0" fill="none" viewbox="0 0 160 100" xmlns="http://www.w3.org/2000/svg">
+<!-- Upper Palate & Teeth -->
+<path d="M10 20 C50 18, 90 24, 110 35 L112 48 L104 48 L102 38 C80 30, 40 28, 10 28 Z" fill="#E2D8D0" stroke="#6F7978" stroke-width="1.5"></path>
+<rect fill="#FFFFFF" height="12" rx="2" stroke="#6F7978" stroke-width="1.5" width="9" x="104" y="38"></rect>
+<!-- Lower Jaw & Teeth -->
+<path d="M10 82 C50 82, 85 76, 106 65 L108 55 L100 55 L98 63 C75 70, 40 72, 10 72 Z" fill="#E2D8D0" stroke="#6F7978" stroke-width="1.5"></path>
+<rect fill="#FFFFFF" height="12" rx="2" stroke="#6F7978" stroke-width="1.5" width="9" x="99" y="52"></rect>
+<!-- Tongue reaching gently between incisors -->
+<path d="M20 62 C45 62, 70 56, 100 50 C110 48, 118 47, 122 51 C118 55, 108 54, 95 56 C70 64, 45 68, 20 68 Z" fill="#FE9D19" stroke="#895100" stroke-width="2"></path>
+<!-- Airflow arrows / unvoiced marker -->
+<path d="M112 44 C124 43, 136 44, 148 44" stroke="#136B66" stroke-dasharray="3 3" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M144 40 L150 44 L144 48" fill="none" stroke="#136B66" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+<!-- Guide Labels -->
+<div class="flex-1 pl-2 text-left flex flex-col justify-center">
+<div class="flex items-center gap-1 text-[11px] font-bold text-primary">
+<span class="w-2 h-2 rounded-full bg-secondary-container flex-shrink-0"></span>
+                Zungenspitze zwischen den Zähnen
+              </div>
+<p class="font-body-sm text-[12px] leading-tight text-on-surface mt-1">
+                Sanft ausatmen. Kein Stimmband-Vibrieren.
+              </p>
+<div class="mt-1 flex items-center gap-1 font-label-sm text-[11px] text-[#895100]">
+<span class="material-symbols-outlined text-[14px]">air</span>
+                Reine Reibelaut-Luftströmung
+              </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Coach Slot -->
+<section class="w-full rounded-DEFAULT border-2 border-dashed border-primary/50 bg-surface-container-low/70 p-3.5 flex items-start gap-3 relative">
+<div class="w-11 h-11 rounded-xl bg-surface-container-lowest border-2 border-primary-container/30 flex items-center justify-center flex-shrink-0 text-primary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">school</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm font-black text-primary uppercase tracking-wider">LEHRKRAFT-BEREICH</span>
+<span class="text-[11px] font-bold text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full border border-outline-variant">2D-Coach lädt hier</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-semibold leading-snug">
+            Coach Ama-Tipp: <span class="font-normal text-on-surface-variant">„Halte einen sauberen Finger 1 cm vor deine Lippen. Wenn du <span class="font-bold text-on-surface">think</span> sagst, sollte deine Zunge sanft deine Fingerspitze berühren!“</span>
+</p>
+</div>
+</section>
+<!-- Last Attempt Score & Waveform Analysis Block -->
+<section class="bg-surface-container-lowest rounded-DEFAULT border-2 border-[#EBDCC9] shadow-[0_4px_0_#DBC4AF] p-4 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-[#EAF3F2] border-2 border-primary text-primary flex items-center justify-center font-black text-sm shadow-[0_2px_0_#136B66]">
+              82%
+            </div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-extrabold leading-none">Ergebnis des letzten Versuchs</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Klares Reibegeräusch erkannt</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full text-xs font-bold bg-[#EAF3F2] text-primary border border-primary-container/40">
+            Guter Bereich
+          </span>
+</div>
+<!-- Metric Bars -->
+<div class="grid grid-cols-2 gap-2.5 pt-1">
+<div class="p-2.5 rounded-xl bg-surface-container-low border border-outline-variant/60">
+<div class="flex justify-between items-center text-xs font-bold mb-1">
+<span class="text-on-surface-variant">Phonem-Klarheit</span>
+<span class="text-primary font-black">88%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container rounded-full overflow-hidden border border-outline-variant">
+<div class="h-full bg-primary-container rounded-full" style="width: 88%;"></div>
+</div>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low border border-outline-variant/60">
+<div class="flex justify-between items-center text-xs font-bold mb-1">
+<span class="text-on-surface-variant">Rhythmus &amp; Betonung</span>
+<span class="text-secondary font-black">76%</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container rounded-full overflow-hidden border border-outline-variant">
+<div class="h-full bg-secondary-container rounded-full" style="width: 76%;"></div>
+</div>
+</div>
+</div>
+<!-- Interactive Waveform Strip -->
+<div class="bg-surface-container-high/60 rounded-xl p-3 border border-outline-variant flex flex-col gap-2">
+<div class="flex items-center justify-between text-xs font-bold">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span>Muttersprachliches Modell vs. Du</span>
+</div>
+<span class="font-mono text-on-surface text-[11px] bg-surface-container-lowest px-1.5 py-0.5 rounded border border-outline-variant">0:02 / 0:03</span>
+</div>
+<!-- Stylized Audio Waveform Bars -->
+<div class="h-12 w-full flex items-center justify-between gap-[3px] px-1 py-1 bg-surface-container-lowest rounded-lg border border-outline-variant/80">
+<div class="waveform-bar w-1.5 bg-primary-container/40 rounded-full h-3"></div>
+<div class="waveform-bar w-1.5 bg-primary-container/50 rounded-full h-5"></div>
+<div class="waveform-bar w-1.5 bg-primary-container/60 rounded-full h-7"></div>
+<div class="waveform-bar w-1.5 bg-primary-container rounded-full h-10"></div>
+<div class="waveform-bar w-1.5 bg-secondary-container rounded-full h-8"></div>
+<div class="waveform-bar w-1.5 bg-primary-container rounded-full h-11"></div>
+<div class="waveform-bar w-1.5 bg-primary-container rounded-full h-9"></div>
+<div class="waveform-bar w-1.5 bg-secondary-container rounded-full h-6"></div>
+<div class="waveform-bar w-1.5 bg-primary-container rounded-full h-8"></div>
+<div class="waveform-bar w-1.5 bg-primary-container rounded-full h-10"></div>
+<div class="waveform-bar w-1.5 bg-primary-container/70 rounded-full h-7"></div>
+<div class="waveform-bar w-1.5 bg-primary-container/50 rounded-full h-4"></div>
+<div class="waveform-bar w-1.5 bg-primary-container/40 rounded-full h-6"></div>
+<div class="waveform-bar w-1.5 bg-primary-container/30 rounded-full h-3"></div>
+<div class="waveform-bar w-1.5 bg-primary-container/60 rounded-full h-5"></div>
+<div class="waveform-bar w-1.5 bg-primary-container rounded-full h-9"></div>
+<div class="waveform-bar w-1.5 bg-secondary-container rounded-full h-7"></div>
+<div class="waveform-bar w-1.5 bg-primary-container/40 rounded-full h-4"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-bold text-on-surface-variant flex-wrap gap-1">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> ✓ Dentaler /θ/-Kontakt erkannt
+            </span>
+<button class="tactile-btn text-primary font-black underline hover:text-primary-container min-h-[44px] min-w-[44px] py-2 px-3 inline-flex items-center active:translate-y-[2px]">Getrenntes Audio erneut abspielen</button>
+</div>
+</div>
+</section>
+<!-- Minimal Pairs Practice Section -->
+<section class="space-y-3 pt-1">
+<div class="flex items-end justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-extrabold">Minimalpaare-Kontrast</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Unterscheide /θ/ von alveolarem /s/ und labiodentalem /f/</p>
+</div>
+<span class="text-xs font-bold text-secondary bg-secondary-fixed px-2 py-0.5 rounded-full border border-secondary flex-shrink-0">2 Paare</span>
+</div>
+<!-- Pair 1: think (/θɪŋk/) vs sink (/sɪŋk/) -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-[#EBDCC9] shadow-[0_4px_0_#DBC4AF] p-3.5 space-y-3">
+<div class="flex items-center justify-between border-b border-outline-variant/60 pb-2 flex-wrap gap-1">
+<span class="font-label-sm text-label-sm font-black text-primary">KONTRAST 1 · /θ/ vs /s/</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Zunge zwischen vs. hinter den Zähnen</span>
+</div>
+<!-- Target word: think -->
+<div class="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-[#EAF3F2] border-2 border-primary shadow-[0_2px_0_#136B66]">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-headline-sm text-headline-sm font-black text-on-surface">think</span>
+<span class="font-mono text-xs font-bold text-primary px-1.5 py-0.5 rounded bg-surface-container-lowest border border-primary/30">/θɪŋk/</span>
+<span class="text-[11px] font-bold text-primary bg-primary-fixed px-1.5 py-0.5 rounded">Ziel-Laut</span>
+</div>
+<p class="font-body-sm text-xs text-on-surface-variant mt-0.5 break-words">de: denken · en: have a particular belief</p>
+</div>
+<!-- Action buttons (min 44x44) -->
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<button aria-label="think Audio abspielen" class="tactile-btn min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-primary text-primary shadow-[0_2px_0_#136B66] flex items-center justify-center active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+<button aria-label="think Übung aufnehmen" class="tactile-btn min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-primary-container text-on-primary border-2 border-[#0C4542] shadow-[0_2px_0_#0C4542] flex items-center justify-center active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+</div>
+</div>
+<!-- Contrast word: sink -->
+<div class="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-surface-container-low border border-outline-variant">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">sink</span>
+<span class="font-mono text-xs font-semibold text-on-surface-variant px-1.5 py-0.5 rounded bg-surface-container-lowest border border-outline-variant">/sɪŋk/</span>
+<span class="text-[11px] font-semibold text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Alveolar /s/</span>
+</div>
+<p class="font-body-sm text-xs text-on-surface-variant mt-0.5 break-words">de: sinken, Spüle · en: go down below surface</p>
+</div>
+<!-- Action buttons (min 44x44) -->
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<button aria-label="sink Audio abspielen" class="tactile-btn min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-outline-variant text-on-surface shadow-[0_2px_0_#BEC9C7] flex items-center justify-center active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+<button aria-label="sink Vergleich aufnehmen" class="tactile-btn min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-surface-container border-2 border-outline text-outline shadow-[0_2px_0_#6F7978] flex items-center justify-center active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs font-bold pt-1 px-1">
+<span class="text-on-surface-variant">Vergleich des letzten Durchgangs:</span>
+<span class="text-primary font-black bg-[#EAF3F2] px-2 py-0.5 rounded-full border border-primary/30">94 % Kontrast-Klarheit</span>
+</div>
+</div>
+<!-- Pair 2: three (/θriː/) vs free (/friː/) -->
+<div class="bg-surface-container-lowest rounded-DEFAULT border-2 border-[#EBDCC9] shadow-[0_4px_0_#DBC4AF] p-3.5 space-y-3">
+<div class="flex items-center justify-between border-b border-outline-variant/60 pb-2 flex-wrap gap-1">
+<span class="font-label-sm text-label-sm font-black text-secondary">KONTRAST 2 · /θ/ vs /f/</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">Kein Lippenkontakt vs. untere Lippe</span>
+</div>
+<!-- Target word: three -->
+<div class="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-[#EAF3F2] border-2 border-primary shadow-[0_2px_0_#136B66]">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-headline-sm text-headline-sm font-black text-on-surface">three</span>
+<span class="font-mono text-xs font-bold text-primary px-1.5 py-0.5 rounded bg-surface-container-lowest border border-primary/30">/θriː/</span>
+<span class="text-[11px] font-bold text-primary bg-primary-fixed px-1.5 py-0.5 rounded">Ziel-Laut</span>
+</div>
+<p class="font-body-sm text-xs text-on-surface-variant mt-0.5 break-words">de: drei · en: number equivalent to the sum of 1 and 2</p>
+</div>
+<!-- Action buttons (min 44x44) -->
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<button aria-label="three Audio abspielen" class="tactile-btn min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-primary text-primary shadow-[0_2px_0_#136B66] flex items-center justify-center active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+<button aria-label="three Übung aufnehmen" class="tactile-btn min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-primary-container text-on-primary border-2 border-[#0C4542] shadow-[0_2px_0_#0C4542] flex items-center justify-center active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+</div>
+</div>
+<!-- Contrast word: free -->
+<div class="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-surface-container-low border border-outline-variant">
+<div class="flex-1">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">free</span>
+<span class="font-mono text-xs font-semibold text-on-surface-variant px-1.5 py-0.5 rounded bg-surface-container-lowest border border-outline-variant">/friː/</span>
+<span class="text-[11px] font-semibold text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">Labiodental /f/</span>
+</div>
+<p class="font-body-sm text-xs text-on-surface-variant mt-0.5 break-words">de: frei, kostenlos · en: not restricted</p>
+</div>
+<!-- Action buttons (min 44x44) -->
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<button aria-label="free Audio abspielen" class="tactile-btn min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-surface-container-lowest border-2 border-outline-variant text-on-surface shadow-[0_2px_0_#BEC9C7] flex items-center justify-center active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+<button aria-label="free Vergleich aufnehmen" class="tactile-btn min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-surface-container border-2 border-outline text-outline shadow-[0_2px_0_#6F7978] flex items-center justify-center active:translate-y-[2px]">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs font-bold pt-1 px-1">
+<span class="text-on-surface-variant">Vergleich des letzten Durchgangs:</span>
+<span class="text-secondary font-black bg-secondary-fixed px-2 py-0.5 rounded-full border border-secondary">86 % Übereinstimmung</span>
+</div>
+</div>
+</section>
+<!-- Sentence Practice Banner Challenge -->
+<section class="bg-surface-container p-3.5 rounded-DEFAULT border-2 border-[#EBDCC9] shadow-[0_3px_0_#DBC4AF] flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase">VOLLSTÄNDIGER SATZ-DRILL</span>
+<span class="text-xs font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">stars</span> +25 XP
+          </span>
+</div>
+<p class="font-body-lg text-body-lg font-bold text-on-surface leading-snug">
+          „I <span class="text-primary underline decoration-2 font-black">think</span> that <span class="text-primary underline decoration-2 font-black">three</span> authors wrote the article.“
+        </p>
+</section>
+<!-- Interactive Audio Recording Controller -->
+<section class="bg-surface-container-lowest rounded-2xl border-2 border-[#EBDCC9] shadow-[0_4px_0_#DBC4AF] p-4 flex flex-col items-center gap-3">
+<div class="w-full flex items-center justify-around gap-2">
+<!-- Secondary quick tool 1 (min 44x44, flexible height) -->
+<button class="tactile-btn min-h-[44px] py-2 px-3.5 rounded-full bg-surface-container border-2 border-outline-variant shadow-[0_3px_0_#BEC9C7] flex items-center gap-1.5 text-on-surface font-label-md text-label-md active:translate-y-[2px] text-center">
+<span class="material-symbols-outlined text-[18px]">speed</span>
+<span>Langsame Wiedergabe (0,8×)</span>
+</button>
+<!-- Secondary quick tool 2 (min 44x44, flexible height) -->
+<button class="tactile-btn min-h-[44px] py-2 px-3.5 rounded-full bg-surface-container border-2 border-outline-variant shadow-[0_3px_0_#BEC9C7] flex items-center gap-1.5 text-on-surface font-label-md text-label-md active:translate-y-[2px] text-center">
+<span class="material-symbols-outlined text-[18px]">graphic_eq</span>
+<span>Tonhöhen-Leitfaden</span>
+</button>
+</div>
+<!-- Big 64px Tactile Record Mic Button -->
+<div class="flex flex-col items-center gap-2 pt-1">
+<div class="relative flex items-center justify-center">
+<!-- Ripple ring -->
+<div class="absolute w-20 h-20 rounded-full bg-secondary-container/20 animate-ping pointer-events-none"></div>
+<button aria-label="Tippen zum Aufnehmen von /θ/ im Satz" class="tactile-btn w-16 h-16 rounded-full bg-secondary-container text-on-secondary-container border-2 border-secondary shadow-[0_5px_0_#895100] flex items-center justify-center active:translate-y-[3px] active:shadow-[0_1px_0_#895100] z-10">
+<span class="material-symbols-outlined text-[32px] text-[#1F1B16]" style="font-variation-settings: 'FILL' 1;">mic</span>
+</button>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-black mt-1 text-center">
+            Tippen zum Aufnehmen von /θ/ im Satz
+          </span>
+<span class="font-body-sm text-[12px] text-on-surface-variant text-center">
+            Echtzeit-KI-Akustikprüfung des Phonems
+          </span>
+</div>
+</section>
+<!-- Bottom Spacer for sticky nav -->
+<div class="h-6"></div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 max-w-[390px] mx-auto bg-surface-container-lowest shadow-[0_-4px_0_theme(colors.outline-variant)]">
+<!-- Tab 1: Heute -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:bg-surface-container active:translate-y-[2px] transition-transform duration-100 min-w-[48px] min-h-[44px]" href="#today">
+<span class="material-symbols-outlined text-[24px]">calendar_today</span>
+<span class="font-label-sm text-label-sm mt-0.5">Heute</span>
+</a>
+<!-- Tab 2: Wortschatz -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:bg-surface-container active:translate-y-[2px] transition-transform duration-100 min-w-[48px] min-h-[44px]" href="#vocab">
+<span class="material-symbols-outlined text-[24px]">menu_book</span>
+<span class="font-label-sm text-label-sm mt-0.5">Wortschatz</span>
+</a>
+<!-- Tab 3: Fertigkeiten (ACTIVE TAB) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-3 py-1.5 shadow-[0_2px_0_theme(colors.secondary)] active:translate-y-[2px] active:shadow-none transition-transform duration-100 min-w-[54px] min-h-[44px]" href="#skills">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-sm text-label-sm mt-0.5 font-black text-[#1F1B16]">Fertigkeiten</span>
+</a>
+<!-- Tab 4: Prüfungen -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:bg-surface-container active:translate-y-[2px] transition-transform duration-100 min-w-[48px] min-h-[44px]" href="#tests">
+<span class="material-symbols-outlined text-[24px]">quiz</span>
+<span class="font-label-sm text-label-sm mt-0.5">Prüfungen</span>
+</a>
+<!-- Tab 5: Mein Profil -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:bg-surface-container active:translate-y-[2px] transition-transform duration-100 min-w-[48px] min-h-[44px]" href="#me">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Mein Profil</span>
+</a>
+</nav>
+</div>
+</body></html>

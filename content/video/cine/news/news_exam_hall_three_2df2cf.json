@@ -1,0 +1,101 @@
+{
+ "id": "news_exam_hall_three_2df2cf",
+ "template": "three",
+ "bg": "exam_hall",
+ "area": "ielts",
+ "cefr": "B1",
+ "point": "IELTS Speaking: phrases to buy time and extend answers",
+ "hook": {
+  "card": "IELTS SPEAKING?",
+  "line": "n_2df2cf_h"
+ },
+ "series": [
+  "EXAM TIPS",
+  "IELTS Speaking"
+ ],
+ "beats": [
+  {
+   "who": "ama",
+   "line": "n_2df2cf_1",
+   "card": {
+    "kind": "p",
+    "text": "Interesting question.",
+    "sub": "buys you time to think",
+    "label": "#1"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_2df2cf_2",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_2df2cf_3",
+   "card": {
+    "kind": "p",
+    "text": "To be honest, ...",
+    "sub": "give your real opinion",
+    "label": "#2"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_2df2cf_4",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_2df2cf_5",
+   "card": {
+    "kind": "p",
+    "text": "For example, ...",
+    "sub": "always add an example",
+    "label": "#3"
+   }
+  },
+  {
+   "who": "carlos",
+   "line": "n_2df2cf_6",
+   "card": null
+  },
+  {
+   "who": "ama",
+   "line": "n_2df2cf_rp",
+   "card": {
+    "kind": "v",
+    "text": "Interesting question.",
+    "sub": null,
+    "label": "REPEAT"
+   },
+   "repeat": true
+  }
+ ],
+ "recap": {
+  "title": "TEACHER'S TIP",
+  "line": "n_2df2cf_r",
+  "rows": [
+   "That's an interesting question.",
+   "To be honest, ...",
+   "For example, ..."
+  ],
+  "line_alt": "n_2df2cf_r2"
+ },
+ "end_line": "n_2df2cf_e",
+ "link": "https://lexkite.com/app/#/mock",
+ "cta": "Try an IELTS mock on lexkite.com",
+ "est": 23.6,
+ "end_alt": "n_2df2cf_e2",
+ "publish": {
+  "title": "IELTS Speaking: phrases to buy time",
+  "keyword": "IELTS Speaking",
+  "value": "Phrases to buy time and extend your answers.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#b1english"
+  ],
+  "first_comment": "Use these to think for a second, not to fill a whole answer. Examiners notice! Practice IELTS Speaking phrases free: {link}"
+ }
+}

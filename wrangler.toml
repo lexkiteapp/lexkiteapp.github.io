@@ -1,0 +1,40 @@
+# Cấu hình Cloudflare Pages (dự án lexkite): web tĩnh trong dist/ + API đồng bộ functions/api/sync.js dùng D1
+name = "lexkite"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-10-01"
+
+# Smart Placement: chạy Functions gần máy chủ phụ thuộc (Google Gemini, D1) thay vì gần người dùng – tránh vùng Gemini chưa hỗ trợ (vd. Hồng Kông)
+[placement]
+mode = "smart"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "lexkite-sync"
+database_id = "7ce39cd0-9333-4843-bd6f-5ccbefbde670"
+
+[ai]
+binding = "AI"
+
+# Form liên hệ → Worker nội bộ workers/mail (gửi vào hộp thư support qua Email Routing)
+[[services]]
+binding = "MAIL"
+service = "lexkite-mail"
+
+# Proxy Gemini ghim tại Mỹ (workers/gemini) – tránh lỗi "User location is not supported"
+[[services]]
+binding = "GEM"
+service = "lexkite-gemini"
+
+# Thống kê phiên (functions/api/hit.js aeHit): Workers Analytics Engine – miễn phí, hạn mức riêng, không tốn dòng D1 (docs/CAPACITY.md §Kiến trúc A2).
+# CHƯA BẬT: tài khoản phải bấm "Enable Analytics Engine" ở dash.cloudflare.com › Workers › Analytics Engine trước, nếu không Pages từ chối triển khai
+# ("You need to enable Analytics Engine" – 23/10). Bật xong mới bỏ dấu # 3 dòng dưới. Thiếu binding → hit.js tự chạy chế độ d1 như cũ.
+# [[analytics_engine_datasets]]
+# binding = "HITS"
+# dataset = "lexkite_hits"
+
+# Ảnh chụp báo lỗi (functions/api/report.js, docs/REPORTS.md § Ảnh chụp): bucket R2 RIÊNG TƯ, nhị phân, khóa report/<id>, xóa 60 ngày sau khi đóng.
+# CHƯA BẬT: chạy Actions › "Ảnh báo lỗi R2" › action = setup (tạo bucket) rồi mới bỏ dấu # 3 dòng dưới – bucket chưa có thì Pages từ chối triển khai.
+# Thiếu binding → ảnh lưu D1 như cũ; thẻ Chất lượng admin báo "Ảnh chụp trên R2: thiếu".
+# [[r2_buckets]]
+# binding = "REPORT_SHOTS"
+# bucket_name = "lexkite-report-shots"
