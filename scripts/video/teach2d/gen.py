@@ -641,7 +641,10 @@ def chash(t, point): return hashlib.sha1(f'{t}:{point}'.lower().encode()).hexdig
 
 
 L1_F = f'{ROOT}/content/video/teach2d/l1.json'
-def load_l1(): return [dict(r, template='l1', area='grammar-check') for r in json.load(open(L1_F))['rows']] if os.path.exists(L1_F) else []
+def l1_rows():   # l1.json (first rows) + l1/<lang>.json (one file per language, content lane of the daily reels)
+    import glob
+    return [r for f in [L1_F] + sorted(glob.glob(f'{ROOT}/content/video/teach2d/l1/*.json')) if os.path.exists(f) for r in json.load(open(f))['rows']]
+def load_l1(): return [dict(r, template='l1', area='grammar-check') for r in l1_rows()]
 
 
 def l1_gate(row, F=None):   # level <= B1 for every spoken word (the taught words are exempt) + native text complete

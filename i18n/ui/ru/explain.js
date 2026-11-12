@@ -1,3 +1,14 @@
-/* UI ru – explain (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ru"] = Object.assign(D["ru"] || {}, {"Cấu trúc":"Конструкция","Xem giải thích chi tiết":"Подробное объяснение","Vì sao lựa chọn của bạn sai":"Почему ваш ответ неверен","Bằng chứng trong bài":"Подтверждение в тексте","Sắc thái nghĩa":"Оттенок значения","Ví dụ thêm":"Ещё примеры","Cùng nhóm":"Тот же шаблон","Thêm vào ôn tập":"В повторение","Báo lỗi giải thích":"Сообщить об ошибке в объяснении","Nghe ví dụ":"Прослушать пример"});
+/* UI ru – explain (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ru"] = Object.assign(D["ru"] || {}, {
+"Báo lỗi giải thích":"Сообщить об ошибке в объяснении",
+"Bằng chứng trong bài":"Подтверждение в тексте",
+"Cùng nhóm":"Тот же шаблон",
+"Cấu trúc":"Конструкция",
+"Nghe ví dụ":"Прослушать пример",
+"Sắc thái nghĩa":"Оттенок значения",
+"Thêm vào ôn tập":"В повторение",
+"Vì sao lựa chọn của bạn sai":"Почему ваш ответ неверен",
+"Ví dụ thêm":"Ещё примеры",
+"Xem giải thích chi tiết":"Подробное объяснение",
+});
 })(typeof self !== 'undefined' ? self : this);

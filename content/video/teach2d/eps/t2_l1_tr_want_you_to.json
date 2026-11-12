@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_want_you_to",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Want you to come!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want that you come.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I want you to come.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say want you to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To come! I want you to come here.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want that you come.",
+  "right": "I want you to come.",
+  "strike": "that you come",
+  "why": "Say want you to.",
+  "memory": "Want you to come.",
+  "quiz": {
+   "stem": "I want you ___ here.",
+   "options": [
+    "come",
+    "to come"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Want that” değil, “want you to”!",
+   "tip": "İsteme cümlesinde “want + kişi + to + fiil” kullan: “I want you to come.”",
+   "caption": "“I want that you come.” mi diyorsun? 😅 İngilizcede “that” ile istenmez, “to” gelir. Doğrusu “I want you to come.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “to come”. Want you to. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “want that”, but “want you to”!",
+   "tip": "Use want + person + to + verb: “I want you to come.”",
+   "caption": "Do you say “I want that you come.”? 😅 English does not use “that” after “want”. The right sentence is “I want you to come.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Want that” değil, “want you to”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Want that” değil, “want you to”!",
+  "keyword": "I want you to come.",
+  "value": "İsteme cümlesinde “want + kişi + to + fiil” kullan: “I want you to come.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“Want that” değil, “want you to”!",
+    "description": "“I want that you come.” mi diyorsun? 😅 İngilizcede “that” ile istenmez, “to” gelir. Doğrusu “I want you to come.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I want you to come.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I want that you come.” mi diyorsun? 😅 İngilizcede “that” ile istenmez, “to” gelir. Doğrusu “I want you to come.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I want that you come.” mi diyorsun? 😅 İngilizcede “that” ile istenmez, “to” gelir. Doğrusu “I want you to come.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Want that” değil, “want you to”! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “to come”. Want you to. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}

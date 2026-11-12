@@ -1,3 +1,29 @@
-/* UI ar – v2web (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {"Add-on trên Chrome Web Store":"إضافة على Chrome Web Store","Bấm đúp là có thẻ":"انقر مرتين لتحصل على بطاقة","Chấm điểm sát đề thật":"تقييم يحاكي الامتحان الحقيقي","Cuộc gọi thoại · 02:14":"مكالمة صوتية · 02:14","Giao diện 15 ngôn ngữ":"واجهة بـ 15 لغة","Học bằng tiếng mẹ đẻ":"تعلّم بلغتك الأم","Không gian luyện nói an toàn":"مساحة آمنة للتحدث","Không quảng cáo chặn bài học":"لا إعلانات تعيق الدروس","Lặp lại ngắt quãng miễn phí":"تكرار متباعد مجاني","Lộ trình theo khung CEFR":"منهج وفق إطار CEFR","Miễn phí 100%":"مجاني 100%","Mãi mãi, không tường phí":"للأبد، بلا جدار دفع","Mọi điều bạn cần biết khi học với Lexkite.":"كل ما تحتاج معرفته عن التعلّم مع Lexkite.","Một thói quen nhỏ, đơn giản, vừa vặn với ngày của bạn.":"عادة صغيرة وبسيطة تناسب يومك بسهولة.","Sửa ngữ pháp nhẹ nhàng":"تصحيح لطيف للقواعد","Thêm vào Chrome":"أضِف إلى Chrome","Trình độ A1 đến C2":"المستويات A1 إلى C2","Tập trung, không bị ngắt":"تركيز بلا انقطاع","Tối ưu: 94%":"مثالي: 94%","thẻ trình duyệt":"علامة تبويب المتصفح","Ôn lại sau 3 ngày":"مراجعة بعد 3 أيام","Điểm: Band 7.5":"النتيجة: Band 7.5","Đã thêm vào bộ thẻ":"أُضيفت إلى مجموعتك","“Chào bạn! Học 5 phút hôm nay nhé?”":"«مرحبًا! هل نبدأ 5 دقائق اليوم؟»","“Từng bước, cùng nhau.”":"«خطوة بخطوة، معًا.»"});
+/* UI ar – v2web (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {
+"Add-on trên Chrome Web Store":"إضافة على Chrome Web Store",
+"Bấm đúp là có thẻ":"انقر مرتين لتحصل على بطاقة",
+"Chấm điểm sát đề thật":"تقييم يحاكي الامتحان الحقيقي",
+"Cuộc gọi thoại · 02:14":"مكالمة صوتية · 02:14",
+"Giao diện 15 ngôn ngữ":"واجهة بـ 15 لغة",
+"Học bằng tiếng mẹ đẻ":"تعلّم بلغتك الأم",
+"Không gian luyện nói an toàn":"مساحة آمنة للتحدث",
+"Không quảng cáo chặn bài học":"لا إعلانات تعيق الدروس",
+"Lặp lại ngắt quãng miễn phí":"تكرار متباعد مجاني",
+"Lộ trình theo khung CEFR":"منهج وفق إطار CEFR",
+"Miễn phí 100%":"مجاني 100%",
+"Mãi mãi, không tường phí":"للأبد، بلا جدار دفع",
+"Mọi điều bạn cần biết khi học với Lexkite.":"كل ما تحتاج معرفته عن التعلّم مع Lexkite.",
+"Một thói quen nhỏ, đơn giản, vừa vặn với ngày của bạn.":"عادة صغيرة وبسيطة تناسب يومك بسهولة.",
+"Sửa ngữ pháp nhẹ nhàng":"تصحيح لطيف للقواعد",
+"Thêm vào Chrome":"أضِف إلى Chrome",
+"Trình độ A1 đến C2":"المستويات A1 إلى C2",
+"Tập trung, không bị ngắt":"تركيز بلا انقطاع",
+"Tối ưu: 94%":"مثالي: 94%",
+"thẻ trình duyệt":"علامة تبويب المتصفح",
+"Ôn lại sau 3 ngày":"مراجعة بعد 3 أيام",
+"Điểm: Band 7.5":"النتيجة: Band 7.5",
+"Đã thêm vào bộ thẻ":"أُضيفت إلى مجموعتك",
+"“Chào bạn! Học 5 phút hôm nay nhé?”":"«مرحبًا! هل نبدأ 5 دقائق اليوم؟»",
+"“Từng bước, cùng nhau.”":"«خطوة بخطوة، معًا.»",
+});
 })(typeof self !== 'undefined' ? self : this);

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_agree",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Agree is a verb!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Agree is already a verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Agree! I agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am agree with you.",
+  "right": "I agree with you.",
+  "strike": "am agree",
+  "why": "Agree is already a verb.",
+  "memory": "Do not add am.",
+  "quiz": {
+   "stem": "I ___ with you.",
+   "options": [
+    "agree",
+    "am agree"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “I am agree”?",
+   "tip": "“Agree” já é verbo. Não use “am” antes dele.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am agree with you.”. O certo é “I agree with you.”. Em português é “estou de acordo”, mas em inglês é só “agree”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “agree”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#inglesonline",
+    "#dicasdeingles",
+    "#aprenderingles",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I am agree”?",
+   "tip": "“Agree” is already a verb. Do not put “am” before it.",
+   "caption": "Watch out for this common mistake! Many people say “I am agree with you.”. The right way is “I agree with you.”. In Portuguese it is “estou de acordo”, but in English it is just “agree”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “I am agree”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Você diz “I am agree”?",
+  "keyword": "I agree with you.",
+  "value": "“Agree” já é verbo. Não use “am” antes dele.",
+  "hashtags": [
+   "#inglesonline",
+   "#dicasdeingles",
+   "#aprenderingles",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “I am agree”?",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “I am agree with you.”. O certo é “I agree with you.”. Em português é “estou de acordo”, mas em inglês é só “agree”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesonline #dicasdeingles #aprenderingles #lexkite",
+    "tags": [
+     "I agree with you.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I am agree with you.”. O certo é “I agree with you.”. Em português é “estou de acordo”, mas em inglês é só “agree”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am agree with you.”. O certo é “I agree with you.”. Em português é “estou de acordo”, mas em inglês é só “agree”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#inglesonline",
+     "#dicasdeingles",
+     "#aprenderingles",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “I am agree”? #inglesonline #dicasdeingles #aprenderingles"
+   }
+  },
+  "first_comment": "Resposta: “agree”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

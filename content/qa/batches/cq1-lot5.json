@@ -1,0 +1,28 @@
+{
+ "id": "cq1-lot5-20261111",
+ "source": "usage",
+ "n": 60,
+ "checked": [
+  {
+   "id": "usage:prep-noun:desire",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-noun:doubt",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-noun:exception",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-noun:fear",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-noun:focus",
+   "ok": true
+  }
+ ],
+ "status": "pending"
+}
