@@ -28,6 +28,7 @@ export function blockOf(cfg, clip) {
 }
 export const allowed = (cfg, clip) => !blockOf(cfg, clip);
 const condOk = (cond, clip) => Object.entries(cond || {}).every(([k, want]) => {
+  if (k === 'shard') { const [i, n] = String(want).split('/').map(Number); return !(n > 1) || Math.floor(hash(clip.id) * n) === i; }   // luật ngầm: nhiều page EN cùng nền tảng chia nhau clip theo băm id (mỗi clip đúng 1 page)
   const w = list(want).map(x => x.toLowerCase()); if (!w.length) return true;
   const have = k === 'topic' ? [clip.topic, clip.sub] : k === 'region' ? list(clip.regions || clip.region) : k === 'lang' ? [clip.lang || 'en'] : [clip[k]];
   return have.some(h => h && w.includes(String(h).toLowerCase()));
@@ -77,13 +78,15 @@ export function langOfChannel(title) {
  *  và clip EN không bao giờ rơi vào page tiếng Tây Ban Nha chỉ vì id đứng đầu bảng chữ cái (lỗi cũ: 1 kênh/nền tảng, bất kể ngôn ngữ). */
 export function implicitSocialRules(allRules, cfgs) {
   // chỉ luật cho kênh GrabCast (gc-*) mới chặn luật ngầm: luật YouTube trực tiếp (UC…) không được làm câm kênh YouTube GrabCast (lỗi cũ: platformOf(UC…) = 'youtube')
-  const have = new Set((allRules || []).filter(r => /^gc-/.test(String(r.channel_id || ''))).map(r => platformOf(r.channel_id))), seen = new Set(), own = [], general = [];
+  const have = new Set((allRules || []).filter(r => /^gc-/.test(String(r.channel_id || ''))).map(r => platformOf(r.channel_id))), seen = new Set(), own = [], general = [], en = {};
   for (const id of Object.keys(cfgs || {}).filter(x => /^gc-/.test(x)).sort()) {
     const p = platformOf(id), lang = String((cfgs[id] && cfgs[id].lang) || 'en').toLowerCase(), k = p + '|' + lang;
-    if (have.has(p) || seen.has(k)) continue; seen.add(k);
-    // page ngôn ngữ riêng chỉ nhận clip cùng ngôn ngữ (đứng trước); page EN chung = mọi ngôn ngữ chưa có page riêng (05/11: mới có 1 page "Lexkite.com")
-    (lang === 'en' ? general : own).push({ cond: lang === 'en' ? {} : { lang }, channel_id: id, active: 1 });
+    if (have.has(p)) continue;
+    // page EN chung = mọi ngôn ngữ chưa có page riêng; NHIỀU page EN cùng nền tảng (Lexkite.com + Learn English, 11/11) chia nhau clip theo băm id thay vì chỉ page đứng đầu bảng chữ cái
+    if (lang === 'en') { (en[p] = en[p] || []).push(id); continue; }
+    if (seen.has(k)) continue; seen.add(k); own.push({ cond: { lang }, channel_id: id, active: 1 });
   }
+  for (const ids of Object.values(en)) ids.forEach((id, i) => general.push({ cond: ids.length > 1 ? { shard: `${i}/${ids.length}` } : {}, channel_id: id, active: 1 }));
   return [...own, ...general];
 }
 /** Tài khoản không phải của Lexkite trong workspace GrabCast (OAuth Meta kéo kèm Page/IG "Grabcast.click" vào ws4, 05/11) hoặc bị tạm dừng đăng → không bao giờ là đích autopilot. */

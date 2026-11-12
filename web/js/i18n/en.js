@@ -167,6 +167,7 @@
 
 // core.js – review interval previews
 '{n} phút': '{n} min',
+'{a}/{b} bài': '{a}/{b} lessons',
 '1 ngày': '1 day',
 '{n} ngày': '{n} days',
 '{n} tháng': '{n} mo',
@@ -567,6 +568,7 @@
 "Thử thách 60 giây": "60-second challenge",
 "Ôn từ đến hạn, combo, thách đấu bạn bè": "Review due words, build combos, challenge friends",
 'Luyện tiếng Tây Ban Nha': 'Spanish practice', 'Luyện định dạng DELE/SIELE': 'DELE/SIELE format practice', 'Đọc, nghe, viết, nói theo cấu trúc đề thi': 'Reading, listening, writing and speaking in the exam format', 'Chia động từ và ngữ pháp, giải thích bằng ngôn ngữ của bạn': 'Verb conjugation and grammar, explained in your language',
+'Mini-test biến thể': 'Variant mini-test',
 }); })(typeof self !== 'undefined' ? self : this);
 
 /* English UI strings – study.js, plan.js, path.js, method.js, goal.js */

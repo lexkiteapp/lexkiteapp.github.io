@@ -15,6 +15,12 @@ for (const r of rows) {
   const N = r.in.native; ok(N.hook && N.tip && N.caption && N.comment && N.hashtags.length >= 3, `${r.id}: thiếu chữ bản địa`);
   ok(qa[r.id] && qa[r.id].ok && qa[r.id].lang === r.lang, `${r.id}: l1-qa.json chưa xanh (node scripts/video/teach2d/native-qa.mjs --write)`);
 }
+// 2 page EN cùng nền tảng (Lexkite.com = 6, Learn English = 12): clip en chia cho CẢ HAI (trước chỉ page đứng đầu bảng chữ cái), mỗi clip đúng 1 page, không bị rơi sang page ngôn ngữ
+{
+  const c2 = { 'gc-facebook_page-12': D.normCfg({ lang: 'en' }), 'gc-facebook_page-6': D.normCfg({ lang: 'en' }), 'gc-facebook_page-23': D.normCfg({ lang: 'ja', tz: 'Asia/Tokyo' }) }, r2 = D.implicitSocialRules([], c2), hit = {};
+  for (let i = 0; i < 200; i++) { const rt = D.routeAll(r2, c2, { id: 'en' + i, type: 'short', lang: 'en' }, null); ok(rt.length === 1, `clip en${i}: ${rt.length} page`); if (rt[0]) hit[rt[0].channel_id] = (hit[rt[0].channel_id] || 0) + 1; }
+  ok(hit['gc-facebook_page-6'] > 60 && hit['gc-facebook_page-12'] > 60 && !hit['gc-facebook_page-23'], `chia page EN lệch: ${JSON.stringify(hit)}`);
+}
 // lịch: ≤ 2 bài/ngày/page, trong 09–21 giờ địa phương
 for (const [l, tz] of Object.entries(TZ)) {
   const cfg = cfgs[`gc-fb-${l}`], now = Date.parse('2026-11-12T00:00:00Z'), clips = rows.filter(r => r.lang === l).concat(rows.filter(r => r.lang === l)).map((r, i) => ({ id: r.id + i, title: 't' + i, cover: 'c' + i }));

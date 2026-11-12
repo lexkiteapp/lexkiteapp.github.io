@@ -3,12 +3,21 @@
 // (dây chuyền workflow_run/check_suite). Phút-runner ≈ run_started_at → updated_at của lượt xong, không tính skipped (cận dưới với matrix).
 // Kết quả: 1 issue ci-failure "CI tốn runner bất thường" (marker ci-triage:hog) – cập nhật khi còn, tự đóng khi hết; + cảnh báo Quản trị kind ci_hog.
 // Ngưỡng: docs/CI-RUNNERS.md § Giám sát. Test: scripts/test/ci-hog.mjs.
+import fs from 'node:fs';
+import path from 'node:path';
 export const RUN_SHARE = 0.20, MIN_SHARE = 0.15, PER_SHA = 3, MIN_RUNS = 50;
 export const MARK = '<!-- ci-triage:hog -->', TITLE = 'CI tốn runner bất thường';
+export const SHARD_PER_SHA = 2;   // workflow chia shard có chủ đích: tối đa 1 lần chạy lại / sha (trung vị > 2 = lượt thừa thật)
+/** Tên workflow chia shard có chủ đích (thuần trên thư mục): file có dòng `# ci-policy: matrix – …` (cùng dấu hiệu luật 8 của ci-policy). */
+export function shardedNames(dir = '.github/workflows') {
+  const out = new Set();
+  try { for (const f of fs.readdirSync(dir)) { const t = fs.readFileSync(path.join(dir, f), 'utf8'); if (/^# ci-policy: matrix/m.test(t)) { const n = /^name:\s*["']?([^"'\n#]+?)["']?\s*$/m.exec(t); out.add(n ? n[1] : f); out.add(f); } } } catch { /* không có thư mục → không miễn trừ */ }
+  return out;
+}
 const median = a => { if (!a.length) return 0; const s = [...a].sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
 
 /** Hàm thuần: runs (REST workflow_runs, 24 h) → { bad: [{ name, why }], rows, total, minutes, md }. */
-export function hogReport(runs) {
+export function hogReport(runs, sharded = new Set()) {
   const by = new Map(); let total = 0, minutes = 0;
   for (const r of runs) {
     const k = r.name || r.path; if (!by.has(k)) by.set(k, { name: k, runs: 0, min: 0, sha: new Map() });
@@ -21,13 +30,16 @@ export function hogReport(runs) {
   for (const r of rows) {
     const why = [];
     if (r.runs >= MIN_RUNS && r.runShare > RUN_SHARE) why.push(`${Math.round(r.runShare * 100)} % số lượt (> ${RUN_SHARE * 100} %)`);
-    if (r.runs >= MIN_RUNS && r.minShare > MIN_SHARE) why.push(`${Math.round(r.minShare * 100)} % phút-runner (> ${MIN_SHARE * 100} %)`);
-    if (r.perSha > PER_SHA) why.push(`trung vị ${r.perSha} lượt / sha PR (> ${PER_SHA})`);
+    // 12/11 (#1076): npm test chia 8 shard có chủ đích (#1114: chờ 33–45 → 5 phút) → phút-runner cộng dồn các shard, 18 % là báo động giả. Workflow chia shard xét theo lượt/sha (≤ 2) và % lượt, không theo % phút thô.
+    const sh = sharded.has(r.name);
+    if (!sh && r.runs >= MIN_RUNS && r.minShare > MIN_SHARE) why.push(`${Math.round(r.minShare * 100)} % phút-runner (> ${MIN_SHARE * 100} %)`);
+    if (sh && r.perSha > SHARD_PER_SHA) why.push(`trung vị ${r.perSha} lượt / sha PR (> ${SHARD_PER_SHA}, workflow chia shard)`);
+    else if (!sh && r.perSha > PER_SHA) why.push(`trung vị ${r.perSha} lượt / sha PR (> ${PER_SHA})`);
     if (why.length) bad.push({ name: r.name, why: why.join('; ') });
   }
   const pct = x => Math.round(x * 100) + ' %';
   const md = `## 🏭 Runner 24 h theo workflow\n${total} lượt, ≈ ${Math.round(minutes)} phút-runner. ${bad.length ? `⚠️ ${bad.length} workflow vượt ngưỡng.` : '✓ Không workflow nào vượt ngưỡng.'}\n\n| Workflow | Lượt | % lượt | Phút | % phút | Lượt/sha PR |\n|---|---|---|---|---|---|\n` +
-    rows.slice(0, 10).map(r => `| ${r.name} | ${r.runs} | ${pct(r.runShare)} | ${r.min} | ${pct(r.minShare)} | ${r.perSha} |`).join('\n') +
+    rows.slice(0, 10).map(r => `| ${r.name}${sharded.has(r.name) ? ' (shard)' : ''} | ${r.runs} | ${pct(r.runShare)} | ${r.min} | ${pct(r.minShare)} | ${r.perSha} |`).join('\n') +
     (bad.length ? `\n\n${bad.map(b => `- **${b.name}**: ${b.why}`).join('\n')}` : '');
   return { bad, rows, total, minutes: Math.round(minutes), md };
 }
