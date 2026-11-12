@@ -2,6 +2,12 @@
 * English translations for UX1 "one app": 5 tabs, path map units, goal pick, practice hub, right rail (web/js/ux1.js) – docs/LEARNING-PATH.md
 */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
+"Hoàn thành {x} để mở": "Finish {x} to unlock",
+"Ôn lại": "Practise again",
+"Từ sẽ luyện": "Words you'll practise",
+"Ví dụ": "Example",
+"Xem toàn bộ lộ trình →": "See full path →",
+"Lộ trình học của bạn": "Your path",
 "Ôn": "Review",
 "Luyện": "Practice",
 "Đã xong": "Done",
@@ -112,4 +118,13 @@
 "Nghe Ama đọc": "Listen to Ama read this",
 "Dừng Ama đọc": "Stop Ama reading",
 "{g} Không sao đâu, ai cũng có ngày bận. Hôm nay mình bắt đầu lại cùng nhau nhé!": "{g} No worries – everyone has busy days. Let's start again together today!",
+"Nên bắt đầu từ đây để tiến tới mục tiêu {exam}": "Start here to move towards your {exam} goal",
+"Đã lâu bạn chưa luyện kỹ năng này": "You haven't practised this skill for a while",
+"Điểm thấp nhất ở lần thi thử gần nhất: {b}": "Lowest score in your last mock test: {b}",
+"Luyện gần nhất {n} ngày trước": "Last practised {n} days ago",
+"Luyện thêm để giữ nhịp": "Practise a bit more to keep your rhythm",
+"Chưa luyện": "Not practised yet",
+"{n} ngày đã luyện": "{n} days practised",
+"Bắt đầu luyện {x}": "Start practising {x}",
+"Đổi kỳ thi: {x}": "Change exam: {x}",
 }); })(typeof self !== 'undefined' ? self : this);

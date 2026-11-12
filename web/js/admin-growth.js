@@ -18,6 +18,9 @@
     'hoạt động kỳ trước nhưng không quay lại kỳ này': 'active last period but not this period', 'khách': 'visitors', 'người dùng': 'users',
     'Thuần tập theo tuần': 'Weekly cohorts', 'Tuần bắt đầu': 'Start week', 'Tuần {n}': 'Week {n}', 'Chưa có dữ liệu thuần tập': 'No cohort data yet',
     'Mỗi hàng: nhóm có lần đầu ghé (hoặc đăng ký) trong tuần đó; ô = % còn hoạt động ở tuần thứ n.': 'Each row: people who first visited (or signed up) that week; cell = % still active in week n.',
+    '🔁 Giữ chân theo nền tảng & quốc gia': '🔁 Retention by platform & country', 'Chạm thật ngày đầu': 'Engaged on day 1', 'Phiên/người/tuần': 'Sessions/user/week',
+    'D1 / D7 / D30 chính xác: có phiên đúng ngày +1 / +7 / +30 kể từ ngày đầu; chỉ tính nhóm đã đủ tuổi. Chạm thật = ≥ 2 trang hoặc ≥ 60 giây. Phiên/người/tuần tính trên 28 ngày gần nhất. Nhóm < 5 người gộp vào “khác”.': 'Exact D1 / D7 / D30: a session exactly +1 / +7 / +30 days after the first day; only mature cohorts count. Engaged = ≥ 2 pages or ≥ 60 s. Sessions/user/week over the last 28 days. Groups under 5 people are merged into “other”.', 'khác': 'other', 'Quốc gia': 'Country', 'Tổng': 'All',
+    'Thấy kế hoạch Hôm nay': 'Saw Today plan', 'máy·ngày, 7 ngày': 'device-days, 7 days', 'Bấm bắt đầu': 'Tapped start', '% số đã thấy': '% of those who saw it', 'Xong kế hoạch': 'Finished plan', 'Bấm “Tiếp tục”': 'Tapped “Continue”', '% số đã thấy nút': '% of those who saw it',
     '🧩 Add-on Chrome': '🧩 Chrome add-on', 'Cài đặt 30 ngày': 'Installs (30 days)', 'Gỡ 30 ngày': 'Uninstalls (30 days)', 'Đang dùng hôm nay': 'Active today', 'Đang dùng 7 ngày': 'Active (7 days)',
     'Tra từ hôm nay': 'Lookups today', 'Lưu thẻ hôm nay': 'Cards saved today', '{n} trong 14 ngày': '{n} in 14 days', 'mới': 'new', 'cập nhật: {n}': 'updates: {n}',
     'Cài / gỡ theo ngày (30 ngày)': 'Installs / uninstalls per day (30 days)', 'Cài': 'Installs', 'Gỡ': 'Uninstalls', 'Máy dùng add-on theo ngày (14 ngày)': 'Active add-on devices per day (14 days)',
@@ -65,7 +68,7 @@
     const G = (vi, vars) => { if (lang() !== 'en' || !Object.prototype.hasOwnProperty.call(EN, vi)) return L(vi, vars); const s = EN[vi]; return vars ? s.replace(/\{(\w+)\}/g, (m, k) => (vars[k] != null ? String(vars[k]) : m)) : s; };
     if (!document.getElementById('admGrowthCss')) { const st = document.createElement('style'); st.id = 'admGrowthCss'; st.textContent = CSS; document.head.appendChild(st); }
     let P = 30; try { P = [7, 30, 90].includes(+sessionStorage.getItem('adm.gdays')) ? +sessionStorage.getItem('adm.gdays') : 30; } catch (e) { /* bỏ qua */ }
-    let fp = 'all', cv = 'visitors', data = null;
+    let fp = 'all', cv = 'visitors', data = null, ret = null;
     const pct1 = (a, b) => (b ? Math.round(a / b * 1000) / 10 : null);
     const fmtP = x => (x == null ? '–' : x.toLocaleString(lang() === 'en' ? 'en-US' : 'vi-VN', { maximumFractionDigits: 1 }) + '%');
     // Mũi tên so sánh: bad = tăng là xấu (gỡ, tỉ lệ gỡ, rời bỏ); pts = so sánh theo điểm % thay vì % thay đổi
@@ -193,9 +196,22 @@
         <p class="small muted">${G('Đăng ký chỉ tính thiết bị đã đồng bộ sau bản cập nhật này (gắn mã khách ẩn danh với tài khoản 1 lần/máy).')}</p></div>`;
     };
 
+    // D1/D7/D30 chính xác theo nền tảng & quốc gia (op 'retention', functions/api/_retention.js)
+    const retBreak = r => {
+      if (!r) return '';
+      const row = (lab, x) => `<tr><td>${lab}</td><td>${num(x.n)}</td><td>${fmtP(pct1(x.eng, x.n))}</td>${[['r1', 'n1'], ['r7', 'n7'], ['r30', 'n30']].map(([a, b]) => `<td>${x[b] ? fmtP(pct1(x[a], x[b])) : '–'}</td>`).join('')}<td>${x.spw == null ? '–' : x.spw.toLocaleString(lang() === 'en' ? 'en-US' : 'vi-VN')}</td></tr>`;
+      const tbl = (head, rows, name) => `<div class="g-wrap"><table class="g-tbl"><tr><th>${head}</th><th>${G('Số người')}</th><th>${G('Chạm thật ngày đầu')}</th><th>D1</th><th>D7</th><th>D30</th><th>${G('Phiên/người/tuần')}</th></tr>${rows.map(x => row(esc(name(x)), x)).join('')}</table></div>`;
+      const h = r.hab || {}, hp = (a, b) => (h[b] ? fmtP(pct1(h[a] || 0, h[b])) : '–');
+      const habT = `<div class="g-tiles">${tile(G('Thấy kế hoạch Hôm nay'), num(h.plan_seen || 0), '', G('máy·ngày, 7 ngày'))}${tile(G('Bấm bắt đầu'), hp('plan_start', 'plan_seen'), '', G('% số đã thấy'))}${tile(G('Xong kế hoạch'), hp('plan_done', 'plan_seen'), '', G('% số đã thấy'))}${tile(G('Bấm “Tiếp tục”'), hp('resume_click', 'resume_seen'), '', G('% số đã thấy nút'))}</div>`;
+      return `<h3 class="sec-t">${G('🔁 Giữ chân theo nền tảng & quốc gia')}</h3>${habT}<div class="adm-grid">
+        <div class="card"><h3>${G('Nền tảng')}</h3>${tbl(G('Nền tảng'), [{ ...r.total, spw: r.spw }, ...r.plats], x => x.k === 'all' ? G('Tổng') : x.k)}</div>
+        <div class="card span2"><h3>${G('Quốc gia')}</h3>${tbl(G('Quốc gia'), r.countries, x => x.k === 'other' ? G('khác') : x.k)}</div></div>
+        <p class="small muted">${G('D1 / D7 / D30 chính xác: có phiên đúng ngày +1 / +7 / +30 kể từ ngày đầu; chỉ tính nhóm đã đủ tuổi. Chạm thật = ≥ 2 trang hoặc ≥ 60 giây. Phiên/người/tuần tính trên 28 ngày gần nhất. Nhóm < 5 người gộp vào “khác”.')}</p>`;
+    };
+
     const paint = () => {
       if (!data) return;
-      box.querySelector('#gBody').innerHTML = growthHtml(data) + ctaHtml(data) + addonHtml(data) + funnelHtml(data);
+      box.querySelector('#gBody').innerHTML = growthHtml(data) + retBreak(ret) + ctaHtml(data) + addonHtml(data) + funnelHtml(data);
       box.querySelectorAll('[data-gfp]').forEach(b => b.onclick = () => { fp = b.dataset.gfp; paint(); });
       box.querySelectorAll('[data-gcv]').forEach(b => b.onclick = () => { cv = b.dataset.gcv; paint(); });
     };
@@ -205,7 +221,7 @@
         <div class="tools"><b>${G('Kỳ')}</b>${[7, 30, 90].map(d => `<button class="btn sm ${d === P ? 'primary' : ''}" data-gp="${d}">${G('{n} ngày', { n: d })}</button>`).join('')}<span class="small muted">${G('so với {n} ngày trước đó', { n: P })}</span></div>
         <div id="gBody"><p class="small muted">${G('Đang tải số liệu tăng trưởng…')}</p></div>`;
       box.querySelectorAll('[data-gp]').forEach(b => b.onclick = () => { P = +b.dataset.gp; try { sessionStorage.setItem('adm.gdays', P); } catch (e) { /* bỏ qua */ } load(); });
-      try { const g = await api('growth', { days: P }); if (my !== gen || !box.isConnected) return; data = g; paint(); }
+      try { const [g, r] = await Promise.all([api('growth', { days: P }), api('retention', { days: P === 90 ? 90 : 30 }).catch(() => null)]); if (my !== gen || !box.isConnected) return; data = g; ret = r; paint(); }
       catch (e) { if (my === gen && box.isConnected) box.querySelector('#gBody').innerHTML = `<p class="bad-t">✗ ${G('Không tải được số liệu tăng trưởng')}: ${esc(e.message)}</p>`; }
     };
     load();

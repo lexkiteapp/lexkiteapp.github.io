@@ -1,3 +1,29 @@
-/* UI hi – v2web (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {"Add-on trên Chrome Web Store":"Chrome वेब स्टोर एक्सटेंशन","Bấm đúp là có thẻ":"डबल-क्लिक करें, कार्ड तैयार","Chấm điểm sát đề thật":"असली परीक्षा जैसा मूल्यांकन","Cuộc gọi thoại · 02:14":"वॉइस कॉल · 02:14","Giao diện 15 ngôn ngữ":"15 भाषाओं में इंटरफ़ेस","Học bằng tiếng mẹ đẻ":"अपनी भाषा में सीखें","Không gian luyện nói an toàn":"बोलने के लिए सुरक्षित जगह","Không quảng cáo chặn bài học":"पाठ रोकने वाले विज्ञापन नहीं","Lặp lại ngắt quãng miễn phí":"मुफ़्त स्पेस्ड रिपिटिशन","Lộ trình theo khung CEFR":"CEFR के अनुसार पाठ्यक्रम","Miễn phí 100%":"100% मुफ़्त","Mãi mãi, không tường phí":"हमेशा के लिए, कोई पेवॉल नहीं","Mọi điều bạn cần biết khi học với Lexkite.":"Lexkite के साथ सीखने के बारे में जानने योग्य सब कुछ।","Một thói quen nhỏ, đơn giản, vừa vặn với ngày của bạn.":"एक छोटी, आसान आदत जो आपके दिन में सहजता से फिट हो जाए।","Sửa ngữ pháp nhẹ nhàng":"नरमी से व्याकरण सुधार","Thêm vào Chrome":"Chrome में जोड़ें","Trình độ A1 đến C2":"A1 से C2 स्तर","Tập trung, không bị ngắt":"बिना रुकावट ध्यान","Tối ưu: 94%":"इष्टतम: 94%","thẻ trình duyệt":"ब्राउज़र टैब","Ôn lại sau 3 ngày":"3 दिन बाद दोहराएँ","Điểm: Band 7.5":"स्कोर: Band 7.5","Đã thêm vào bộ thẻ":"आपके डेक में जुड़ गया","“Chào bạn! Học 5 phút hôm nay nhé?”":"“नमस्ते! आज 5 मिनट के लिए तैयार?”","“Từng bước, cùng nhau.”":"“कदम दर कदम, साथ-साथ।”"});
+/* UI hi – v2web (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {
+"Add-on trên Chrome Web Store":"Chrome वेब स्टोर एक्सटेंशन",
+"Bấm đúp là có thẻ":"डबल-क्लिक करें, कार्ड तैयार",
+"Chấm điểm sát đề thật":"असली परीक्षा जैसा मूल्यांकन",
+"Cuộc gọi thoại · 02:14":"वॉइस कॉल · 02:14",
+"Giao diện 15 ngôn ngữ":"15 भाषाओं में इंटरफ़ेस",
+"Học bằng tiếng mẹ đẻ":"अपनी भाषा में सीखें",
+"Không gian luyện nói an toàn":"बोलने के लिए सुरक्षित जगह",
+"Không quảng cáo chặn bài học":"पाठ रोकने वाले विज्ञापन नहीं",
+"Lặp lại ngắt quãng miễn phí":"मुफ़्त स्पेस्ड रिपिटिशन",
+"Lộ trình theo khung CEFR":"CEFR के अनुसार पाठ्यक्रम",
+"Miễn phí 100%":"100% मुफ़्त",
+"Mãi mãi, không tường phí":"हमेशा के लिए, कोई पेवॉल नहीं",
+"Mọi điều bạn cần biết khi học với Lexkite.":"Lexkite के साथ सीखने के बारे में जानने योग्य सब कुछ।",
+"Một thói quen nhỏ, đơn giản, vừa vặn với ngày của bạn.":"एक छोटी, आसान आदत जो आपके दिन में सहजता से फिट हो जाए।",
+"Sửa ngữ pháp nhẹ nhàng":"नरमी से व्याकरण सुधार",
+"Thêm vào Chrome":"Chrome में जोड़ें",
+"Trình độ A1 đến C2":"A1 से C2 स्तर",
+"Tập trung, không bị ngắt":"बिना रुकावट ध्यान",
+"Tối ưu: 94%":"इष्टतम: 94%",
+"thẻ trình duyệt":"ब्राउज़र टैब",
+"Ôn lại sau 3 ngày":"3 दिन बाद दोहराएँ",
+"Điểm: Band 7.5":"स्कोर: Band 7.5",
+"Đã thêm vào bộ thẻ":"आपके डेक में जुड़ गया",
+"“Chào bạn! Học 5 phút hôm nay nhé?”":"“नमस्ते! आज 5 मिनट के लिए तैयार?”",
+"“Từng bước, cùng nhau.”":"“कदम दर कदम, साथ-साथ।”",
+});
 })(typeof self !== 'undefined' ? self : this);

@@ -6,6 +6,7 @@
   // Hình học (--fh/--fb, aspect-ratio, hip/HIP): một nguồn cho ảnh, clip, rig – số đo + lý do ở docs/CHARACTERS.md §Hình học chỗ giáo viên; cổng teacher-bubble.mjs
   const CSS = `.tslot{--h:112px;--fh:calc(var(--h)*1.2);--fb:calc(var(--h)*-.18);position:relative;display:inline-block;flex:none;width:calc(var(--h)*.9);height:var(--h);vertical-align:bottom;pointer-events:none;user-select:none;-webkit-user-select:none}
 .tslot-xs{--h:48px}.tslot-s{--h:72px}.tslot-m{--h:112px}.tslot-l{--h:152px}.tslot-xl{--h:208px}
+.overflow-hidden:has(.tslot){overflow:clip}/* khung Stitch cắt phần nhân vật lấn mép: clip vẫn cắt hình nhưng không tính là nội dung tràn (scrollWidth) */
 .tslot-fig{position:absolute;top:calc(var(--h)*-.1);left:calc(var(--h)*-.25);right:calc(var(--h)*-.25);bottom:0;overflow:hidden;overflow:clip}
 .tslot-img{position:absolute;left:50%;bottom:var(--fb);height:var(--fh);width:auto;max-width:none;transform:translateX(-50%);transform-origin:50% 100%}
 img.tslot-img{aspect-ratio:1108/960}

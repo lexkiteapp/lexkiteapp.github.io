@@ -83,7 +83,7 @@
     "gov.uk (approved English language tests)",
     "immigration.govt.nz"
    ],
-   "status": "writing"
+   "status": "planned"
   },
   {
    "id": "ielts-clb-score-canada",
@@ -127,7 +127,7 @@
    "factCheck": [
     "immi.homeaffairs.gov.au"
    ],
-   "status": "writing"
+   "status": "planned"
   },
   {
    "id": "ielts-ukvi-explained",
@@ -149,7 +149,7 @@
    "factCheck": [
     "gov.uk (approved English language tests)"
    ],
-   "status": "writing"
+   "status": "planned"
   },
   {
    "id": "ielts-new-zealand-skilled-migrant",
@@ -171,7 +171,7 @@
    "factCheck": [
     "immigration.govt.nz"
    ],
-   "status": "writing"
+   "status": "planned"
   },
   {
    "id": "ielts-general-letter-newcomers",
@@ -197,7 +197,7 @@
    "factCheck": [
     "ielts.org (test format)"
    ],
-   "status": "writing"
+   "status": "planned"
   },
   {
    "id": "pte-vs-ielts-australia",
@@ -222,7 +222,7 @@
     "immi.homeaffairs.gov.au",
     "pearsonpte.com"
    ],
-   "status": "writing"
+   "status": "planned"
   },
   {
    "id": "pte-academic-vocabulary-list",
@@ -246,7 +246,7 @@
    "factCheck": [
     "pearsonpte.com"
    ],
-   "status": "writing"
+   "status": "planned"
   },
   {
    "id": "pte-read-aloud-pronunciation",
@@ -269,7 +269,7 @@
    "factCheck": [
     "pearsonpte.com"
    ],
-   "status": "writing"
+   "status": "planned"
   },
   {
    "id": "celpip-vs-ielts-canada",
@@ -292,7 +292,7 @@
     "canada.ca (IRCC language test equivalency)",
     "celpip.ca"
    ],
-   "status": "writing"
+   "status": "planned"
   },
   {
    "id": "celpip-speaking-everyday-phrases",
@@ -314,7 +314,7 @@
    "factCheck": [
     "celpip.ca"
    ],
-   "status": "writing"
+   "status": "planned"
   },
   {
    "id": "english-for-newcomers-renting",
@@ -358,7 +358,7 @@
    "factCheck": [
     "app lesson content"
    ],
-   "status": "writing"
+   "status": "planned"
   },
   {
    "id": "english-for-newcomers-bank",
@@ -380,7 +380,7 @@
    "factCheck": [
     "app lesson content"
    ],
-   "status": "writing"
+   "status": "planned"
   },
   {
    "id": "job-interview-english-newcomers",
@@ -402,7 +402,7 @@
    "factCheck": [
     "app lesson content"
    ],
-   "status": "writing"
+   "status": "planned"
   },
   {
    "id": "salary-negotiation-english-phrases",
@@ -424,7 +424,7 @@
    "factCheck": [
     "app lesson content"
    ],
-   "status": "writing"
+   "status": "planned"
   },
   {
    "id": "confusing-words-affect-effect-meaning",
@@ -446,7 +446,7 @@
    "factCheck": [
     "app dictionary"
    ],
-   "status": "writing"
+   "status": "planned"
   },
   {
    "id": "academic-word-list-meanings",
@@ -468,7 +468,7 @@
    "factCheck": [
     "app word lists"
    ],
-   "status": "writing"
+   "status": "planned"
   },
   {
    "id": "phrasal-verbs-for-work-meanings",
@@ -490,7 +490,7 @@
    "factCheck": [
     "app dictionary"
    ],
-   "status": "writing"
+   "status": "planned"
   }
  ]
 }

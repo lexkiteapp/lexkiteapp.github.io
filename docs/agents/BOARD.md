@@ -80,20 +80,6 @@ Mẫu thẻ:
 - Nguồn: nhánh `antigravity`, các commit `feat(blog): add … article` (hash trong báo cáo cũ). Claude đã ghép thử 64 bài lên main: blog-check/dupes/vi-lint/captions/docs-budget/test ảnh đều qua TRỪ các lỗi ghi ở dưới. Quy tắc alt: `docs/BLOG-RUNBOOK.md` + `shots.json` (alt phải đúng ngôn ngữ bài và đúng `desc` màn hình, không thêm chi tiết ngoài ảnh). KHÔNG xóa bài, KHÔNG nới check.
 - Cần sửa: (1) PT 4 bài (como-usar-dicionario-monolingue-ingles [dict, read-article, review], ditado-em-ingles-dictation-listening [listening], frases-complexas-ielts-writing-task-2 [write, grammar], vocabulario-ielts-tecnologia-inteligencia-artificial [read-article]) và ID 5 bài (cara-menggunakan-kamus-…, kalimat-kompleks-…, kosakata-ielts-…, metode-dictation-…, tabel-simbol-ipa-…): alt nguyên văn `desc` TIẾNG VIỆT. (2) ID kalimat-kompleks, kosakata-ielts-tema-teknologi-ai, metode-dictation, rumus-kalimat-tanya: alt bằng TIẾNG BỒ ĐÀO NHA ('Central de jogos e exercícios…', 'Guia de gramática IELTS…') trong bài tiếng Indonesia. Viết lại alt đúng tiếng bài, bám `desc`. (3) Cảnh báo [inbound] ≥ 3.
 
-### [CQ1] Ghi chú + cặp ✗/✓ cho Cách dùng từ (300 mục ưu tiên) · @antigravity · ưu tiên: CAO
-- **Mục tiêu:** tỉ lệ mục có ghi chú/lỗi hay gặp 31% → ≥ 70% (số đo ở dòng cuối của `gate.mjs`).
-- **File:** chỉ `web/js/usage/{prep-verb,prep-adj,prep-noun,verb,adv,pair,struct}.js`, theo cú pháp ở đầu `web/js/usage-core.js`.
-- **Thêm vào mỗi mục:**
-  - 1 dòng `# vi | en`: ghi chú cách dùng ≤ 25 từ mỗi ngôn ngữ.
-  - 1–2 dòng `! câu sai => câu đúng | vi | en`: câu sai là lỗi THẬT người học hay mắc; câu đúng chứa cụm đích; lý do ≤ 20 từ.
-- **Thứ tự ưu tiên:** mục có trong đề TOEIC Part 5 / IELTS → mục giới từ → còn lại.
-- **Xong khi:**
-  - Có ≥ 300 mục mới có ghi chú.
-  - `usage/pair` và `usage/schema` không tăng; `node scripts/test/usage.mjs` xanh.
-  - Có 5 lô kèm tệp lô.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
 ### [CQ2] Nhánh kịch bản cho roleplay + "Tự tin" (75% lượt chưa có nhánh) · @antigravity · ưu tiên: CAO
 - **Mục tiêu:** khi offline hoặc hết lượt AI, mọi lượt thoại vẫn đáp đúng ý người học. Lượt có nhánh `br` 25% → ≥ 90%.
 - **File:** `content/confidence/units/*.json` (24 bài, trường `roleplay.turns[].br`) và `web/js/roleplay/data-*.js` (16 kịch bản).
@@ -118,20 +104,6 @@ Mẫu thẻ:
 - **Xong khi:**
   - `node scripts/test/content-check.mjs` + cổng QA xanh.
   - Claude soát 5% (chấm lại band) đạt.
-- Báo cáo:
-- Cần sửa / Nhận xét:
-
-### [CQ4] Phát âm: bản tiếng Anh gốc + bài B2–C1 · @antigravity · ưu tiên: VỪA
-- **Mục tiêu:**
-  - Bài phát âm hiện chỉ có tiếng Việt → cần bản tiếng Anh gốc để CI-gen dịch 13 ngôn ngữ.
-  - Lộ trình đang hết bài phát âm từ chặng C1.
-- **File:** `web/js/pron/skills.js`, `web/js/pron/sounds.js`.
-  - Thêm `titleEn`, `howEn`, `tipEn` (không đổi `id`).
-  - Thêm ≥ 6 bài cấp B2/C1: nối âm, nhấn câu, ngữ điệu câu phức, âm yếu, nhịp, câu hỏi đuôi.
-- **Từ ví dụ:** phải có trong kho từ, hoặc liệt kê vào Báo cáo để Claude thêm kho. `pron/lexicon` không được tăng.
-- **Xong khi:**
-  - Chạy lại `node scripts/path/build-mix.mjs` thì lộ trình chặng C1 có bài phát âm.
-  - `learn-flow.mjs` xanh.
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
@@ -211,6 +183,18 @@ Mẫu thẻ:
 
 ## CHỜ DUYỆT
 
+### [CQ4] Phát âm: bản tiếng Anh gốc + bài B2–C1 · @antigravity · ưu tiên: VỪA
+- **Mục tiêu:**
+  - Bài phát âm có bản tiếng Anh gốc (`titleEn`, `howEn`, `tipEn`) để CI-gen dịch 13 ngôn ngữ.
+  - Lộ trình chặng C1 có đủ bài phát âm nâng cao.
+- **Phạm vi hoàn thành:**
+  - `web/js/pron/skills.js` + `web/js/pron/sounds.js`: bổ sung đầy đủ `titleEn`, `howEn`, `tipEn`.
+  - Thêm 6 bài phát âm B2/C1 chuẩn ngữ âm: `linking-catenation`, `sentence-stress-focus`, `complex-intonation`, `advanced-weak-forms`, `stress-timed-rhythm`, `question-tag-intonation`.
+  - Đã chạy `node scripts/path/build-mix.mjs` cập nhật `web/js/path-mix.js` lên 62 bài phát âm, chặng C1 có bài đầy đủ.
+  - Từ ví dụ dùng 100% kho từ có sẵn, không tăng `pron/lexicon`.
+- **Báo cáo:** PR #1178 (nhánh `cq4/pron-c1-en`).
+- Cần sửa / Nhận xét:
+
 ### [B5-L7] Lô 7 Blog 12 bài chuẩn SEO (6 AR + 6 HI) · @antigravity · ưu tiên: RẤT CAO
 - **Mục tiêu:** Bổ sung 12 bài viết chuyên sâu chuẩn SEO cho 2 thị trường lớn: Tiếng Ả Rập (AR) và Tiếng Hindi (HI - 100% Devanagari bản địa). Chuẩn hóa 100% văn phong bản địa, giải quyết trúng nhu cầu ngữ âm & học thuật (IPA, cấu trúc câu hỏi 5W1H, tra từ điển Anh-Anh unilingual/एकभाषी, luyện nghe Dictation/डिक्टेशन, từ vựng IELTS AI/Technology và Câu phức/जटिल वाक्य Complex sentences).
 - **Báo cáo (Antigravity 31/10):**
@@ -243,6 +227,9 @@ Mẫu thẻ:
 - Cần sửa / Nhận xét:
 
 ## ĐÃ XONG
+
+### [CQ1] Ghi chú + cặp ✗/✓ cho Cách dùng từ (300 mục) · @antigravity · XONG 12/11
+- 5 lô (#1067–#1078) gộp qua #1078. Claude chấm độc lập: ~89 trước sửa → ~96; sửa 34 cặp ✗ sai/vốn đúng (vd. *admitted making*, *connected with*); totalJs nâng 11 490 498 → 11 540 000 (chữ thuần, tải lười). Ghi chú 31% → 80%.
 
 ### [B6-GAP] Lấp đủ SEO mọi ngôn ngữ: 17 bài en CPM cao + 57 bài bản địa còn thiếu · @antigravity · ưu tiên: RẤT CAO
 - **Bối cảnh (Claude 11/11, lệnh chủ "seo đều các ngôn ngữ, còn thiếu thì đẩy trước"):** số bài hiện tại: vi 117, en 97, ja/pt 79, es 74, de/id 71, fr/th 69, ko/tr/zh/hi 68, ar/ru 67. Danh sách cụ thể ở `content/blog/plan/2026-11-gap-fill.json`.

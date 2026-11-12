@@ -641,7 +641,10 @@ def chash(t, point): return hashlib.sha1(f'{t}:{point}'.lower().encode()).hexdig
 
 
 L1_F = f'{ROOT}/content/video/teach2d/l1.json'
-def load_l1(): return [dict(r, template='l1', area='grammar-check') for r in json.load(open(L1_F))['rows']] if os.path.exists(L1_F) else []
+def l1_rows():   # l1.json (first rows) + l1/<lang>.json (one file per language, content lane of the daily reels)
+    import glob
+    return [r for f in [L1_F] + sorted(glob.glob(f'{ROOT}/content/video/teach2d/l1/*.json')) if os.path.exists(f) for r in json.load(open(f))['rows']]
+def load_l1(): return [dict(r, template='l1', area='grammar-check') for r in l1_rows()]
 
 
 def l1_gate(row, F=None):   # level <= B1 for every spoken word (the taught words are exempt) + native text complete
@@ -740,6 +743,7 @@ if __name__ == '__main__':
     if '--pick' in A_:   # teach-video preqc: explicit ids > next N todo (ci-filler 'shards') > PR smoke (pilots + first auto ep of each template) > pilots
         i = A_.index('--pick'); ids, n, ev = [x.strip() for x in A_[i + 1].split(',') if x.strip()], int(A_[i + 2] or 0), A_[i + 3]
         par = int(A_[i + 4]) if len(A_) > i + 4 and A_[i + 4].isdigit() else 30
+        if len(ids) > 120: sys.exit(f'--pick: {len(ids)} explicit episodes > 120 (render matrix = 2 formats x episodes <= 256 jobs) - dispatch in chunks of <= 120 with distinct batch ids')
         if not ids and n > 0: ids = todo()[:min(n, 120, 4 * par)]   # render matrix = 2 x episodes <= 256 jobs; ~4 episodes per free runner per run
         if not ids:
             ids = [r['id'] for r in PIL['pilots']]

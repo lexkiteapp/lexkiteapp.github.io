@@ -103,8 +103,9 @@ public enum Vocab {
 
     // MARK: origin / phrases (web/js/app.js ORIGINS, origin(); phrases.js isPhrase)
     /// ids in display order
-    public static let originKeys = ["youtube", "web", "reading", "dict", "library", "anki"]
+    public static let originKeys = ["youtube", "web", "reading", "dict", "library", "anki", "doc"]
     public static func origin(_ c: JSON) -> String {
+        if c.s("topic") == "import" { return "doc" }
         if c.t("deck") || c.s("topic") == "anki" { return "anki" }
         let ctxs = c.list("contexts")
         let ctx = ctxs.first(where: { $0.t("source") }) ?? ctxs.last

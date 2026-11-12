@@ -8,6 +8,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { srcText } from './lib/i18n-pack.mjs'; // một định dạng nguồn (mỗi khóa một dòng, sắp xếp) – chống xung đột
 import { englishSegments, isEnglishKey, missingSegments, protectEnglish } from './i18n-english.mjs';
 
 const lang = process.argv[2];
@@ -89,13 +90,11 @@ for (const g of lazyList) {
   const gEn = lazyGroups[g] || {};
   const gDict = {};
   for (const k of Object.keys(gEn)) gDict[k] = out[k] !== undefined ? out[k] : gEn[k];
-  const b = `/* UI ${lang} – ${g} (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D[${JSON.stringify(lang)}] = Object.assign(D[${JSON.stringify(lang)}] || {}, ${JSON.stringify(gDict, null, 0)});\n})(typeof self !== 'undefined' ? self : this);\n`;
-  fs.writeFileSync(path.join(langDir, `${g}.js`), b);
+  fs.writeFileSync(path.join(langDir, `${g}.js`), srcText(lang, g, gDict));
 }
 const coreDict = {};
 for (const k of Object.keys(enCore)) coreDict[k] = out[k] !== undefined ? out[k] : enCore[k];
-const body = `/* UI ${lang} – SINH TỰ ĐỘNG từ en.js bằng scripts/gen-i18n.mjs (có thể hiệu đính tay; chạy lại chỉ dịch khóa mới). */\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D[${JSON.stringify(lang)}] = Object.assign(D[${JSON.stringify(lang)}] || {}, ${JSON.stringify(coreDict, null, 0)});\n})(typeof self !== 'undefined' ? self : this);\n`;
-fs.writeFileSync(outFile, body);
+fs.writeFileSync(outFile, srcText(lang, '', coreDict));
 { const { packAll } = await import('./lib/i18n-pack.mjs'); packAll(); } // nguồn → gói chạy khóa băm web/js/i18n/<lang>
 console.log(`\n✓ ${outFile}: dịch mới ${ok}, giữ nguyên mẫu tiếng Anh ${eng}, chưa dịch được ${kept} (sai định dạng/mất nội dung học/lỗi mạng), tổng ${Object.keys(out).length}`);
 

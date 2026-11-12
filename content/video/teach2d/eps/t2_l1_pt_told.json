@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_told",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say or tell?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He said me the truth.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He told me the truth.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Tell goes with a person.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Told! She told me a secret.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He said me the truth.",
+  "right": "He told me the truth.",
+  "strike": "said me",
+  "why": "Tell goes with a person.",
+  "memory": "Tell me. Say it.",
+  "quiz": {
+   "stem": "She ___ me a secret.",
+   "options": [
+    "told",
+    "said"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “said me”?",
+   "tip": "Com a pessoa logo depois do verbo, use “tell”: “told me”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “He said me the truth.”. O certo é “He told me the truth.”. “Disse-me” vira “told me”, não “said me”. Ouça o Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “told”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “said me”?",
+   "tip": "When a person comes right after the verb, use “tell”: “told me”.",
+   "caption": "Watch out for this common mistake! Many people say “He said me the truth.”. The right way is “He told me the truth.”. “Disse-me” becomes “told me”, not “said me”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “said me”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Você diz “said me”?",
+  "keyword": "He told me the truth.",
+  "value": "Com a pessoa logo depois do verbo, use “tell”: “told me”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “said me”?",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “He said me the truth.”. O certo é “He told me the truth.”. “Disse-me” vira “told me”, não “said me”. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "He told me the truth.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “He said me the truth.”. O certo é “He told me the truth.”. “Disse-me” vira “told me”, não “said me”. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “He said me the truth.”. O certo é “He told me the truth.”. “Disse-me” vira “told me”, não “said me”. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “said me”? #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “told”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}
