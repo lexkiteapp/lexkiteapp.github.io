@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_more_tall",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say taller, not more tall!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He is more tall than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He is taller than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Tall becomes taller.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Younger! She is younger than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He is more tall than me.",
+  "right": "He is taller than me.",
+  "strike": "more tall",
+  "why": "Tall becomes taller.",
+  "memory": "Tall, taller.",
+  "quiz": {
+   "stem": "My sister is ___ than me.",
+   "options": [
+    "more young",
+    "younger"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿Dices “more tall”? Es “taller”",
+   "tip": "Con adjetivos cortos añade “-er”: “taller”. “More” es para palabras largas.",
+   "caption": "En español “más alto”, pero en inglés cambia 😎 No digas “He is more tall than me.”, sino “He is taller than me.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “younger”. Adjetivo corto + “-er”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#comparativos",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “more tall”? It is “taller”",
+   "tip": "With short adjectives add “-er”: “taller”. “More” is for long words.",
+   "caption": "In Spanish “más alto”, but English changes. Do not say “He is more tall than me.”, say “He is taller than me.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿Dices “more tall”? Es “taller”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "¿Dices “more tall”? Es “taller”",
+  "keyword": "He is taller than me.",
+  "value": "Con adjetivos cortos añade “-er”: “taller”. “More” es para palabras largas.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#comparativos",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "¿Dices “more tall”? Es “taller”",
+    "description": "En español “más alto”, pero en inglés cambia 😎 No digas “He is more tall than me.”, sino “He is taller than me.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #comparativos #lexkite",
+    "tags": [
+     "He is taller than me.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "En español “más alto”, pero en inglés cambia 😎 No digas “He is more tall than me.”, sino “He is taller than me.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "En español “más alto”, pero en inglés cambia 😎 No digas “He is more tall than me.”, sino “He is taller than me.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#comparativos",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Dices “more tall”? Es “taller” #aprenderingles #inglesfacil #comparativos"
+   }
+  },
+  "first_comment": "Respuesta: “younger”. Adjetivo corto + “-er”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

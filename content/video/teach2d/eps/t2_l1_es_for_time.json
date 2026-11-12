@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_for_time",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say for two years!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I live here since two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have lived here for two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use for with an amount of time.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "For! I waited for two hours.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I live here since two years.",
+  "right": "I have lived here for two years.",
+  "strike": "since",
+  "why": "Use for with an amount of time.",
+  "memory": "For + time.",
+  "quiz": {
+   "stem": "I waited ___ two hours.",
+   "options": [
+    "since",
+    "for"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿Dices “since two years”? Ojo",
+   "tip": "Para una duración usa “for” (for two years). “Since” es para un punto de inicio.",
+   "caption": "En español “desde hace dos años”, pero en inglés no 😅 Di “I have lived here for two years.”, no “I live here since two years.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “for”. “For” + duración; “since” + fecha de inicio. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#tiempos",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “since two years”? Careful",
+   "tip": "For a length of time use “for” (for two years). “Since” is for a starting point.",
+   "caption": "In Spanish “desde hace dos años”, but not in English. Say “I have lived here for two years.”, not “I live here since two years.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿Dices “since two years”? Ojo"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "¿Dices “since two years”? Ojo",
+  "keyword": "I have lived here for two years.",
+  "value": "Para una duración usa “for” (for two years). “Since” es para un punto de inicio.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#tiempos",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "¿Dices “since two years”? Ojo",
+    "description": "En español “desde hace dos años”, pero en inglés no 😅 Di “I have lived here for two years.”, no “I live here since two years.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #tiempos #lexkite",
+    "tags": [
+     "I have lived here for two years.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "En español “desde hace dos años”, pero en inglés no 😅 Di “I have lived here for two years.”, no “I live here since two years.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "En español “desde hace dos años”, pero en inglés no 😅 Di “I have lived here for two years.”, no “I live here since two years.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#tiempos",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Dices “since two years”? Ojo #aprenderingles #inglesfacil #tiempos"
+   }
+  },
+  "first_comment": "Respuesta: “for”. “For” + duración; “since” + fecha de inicio. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

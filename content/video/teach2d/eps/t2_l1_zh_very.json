@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_very",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do not say very like!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I very like music.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I like music very much.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Very goes after: like it very much.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Like very much! I like it very much.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I very like music.",
+  "right": "I like music very much.",
+  "strike": "very like",
+  "why": "Very goes after: like it very much.",
+  "memory": "Like it very much.",
+  "quiz": {
+   "stem": "I ___ this song.",
+   "options": [
+    "very like",
+    "like very much"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "不能说 “I very like”！",
+   "tip": "very 不能直接放在 like 前面，要说 “like ... very much”。",
+   "caption": "你是不是也会说 “I very like music.”？😅 英语里 very 不修饰动词，要把 very much 放在句尾：“I like music very much.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“like ... very much”。very 不修饰动词！免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “I very like”!",
+   "tip": "Very cannot go before a verb. Say “like ... very much”.",
+   "caption": "Do you say “I very like music.”? 😅 In English, very does not describe a verb, so put “very much” at the end: “I like music very much.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "不能说 “I very like”！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "不能说 “I very like”！",
+  "keyword": "I like music very much.",
+  "value": "very 不能直接放在 like 前面，要说 “like ... very much”。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "不能说 “I very like”！",
+    "description": "你是不是也会说 “I very like music.”？😅 英语里 very 不修饰动词，要把 very much 放在句尾：“I like music very much.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I like music very much.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I very like music.”？😅 英语里 very 不修饰动词，要把 very much 放在句尾：“I like music very much.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "你是不是也会说 “I very like music.”？😅 英语里 very 不修饰动词，要把 very much 放在句尾：“I like music very much.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "不能说 “I very like”！ #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“like ... very much”。very 不修饰动词！免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

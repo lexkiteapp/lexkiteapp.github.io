@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_forstudy",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Use to before a verb!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I came here for study English.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I came here to study English.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Before a verb, use to. Not for.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! I went out to buy milk.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I came here for study English.",
+  "right": "I came here to study English.",
+  "strike": "for study",
+  "why": "Before a verb, use to. Not for.",
+  "memory": "To study English.",
+  "quiz": {
+   "stem": "I went out ___ buy milk.",
+   "options": [
+    "for",
+    "to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "目的用 to + 动词！",
+   "tip": "表示目的时，to 后面接动词原形，不用 for + 动词。",
+   "caption": "你是不是也会说 “I came here for study English.”？😅 说目的要用 to + 动词原形：“I came here to study English.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“to study”。目的用 to + 动词！免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“To” + verb for a goal!",
+   "tip": "To give a purpose, use “to” plus a verb, not “for” plus a verb.",
+   "caption": "Do you say “I came here for study English.”? 😅 To give a purpose, use to plus the base verb: “I came here to study English.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "目的用 to + 动词！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "目的用 to + 动词！",
+  "keyword": "I came here to study English.",
+  "value": "表示目的时，to 后面接动词原形，不用 for + 动词。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "目的用 to + 动词！",
+    "description": "你是不是也会说 “I came here for study English.”？😅 说目的要用 to + 动词原形：“I came here to study English.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I came here to study English.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I came here for study English.”？😅 说目的要用 to + 动词原形：“I came here to study English.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "你是不是也会说 “I came here for study English.”？😅 说目的要用 to + 动词原形：“I came here to study English.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "目的用 to + 动词！ #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“to study”。目的用 to + 动词！免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

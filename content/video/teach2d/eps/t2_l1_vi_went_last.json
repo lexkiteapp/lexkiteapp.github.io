@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_went_last",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Last year means past.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have been to Japan last year.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I went to Japan last year.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Last year needs simple past.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Went! I went there last week.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have been to Japan last year.",
+  "right": "I went to Japan last year.",
+  "strike": "have been",
+  "why": "Last year needs simple past.",
+  "memory": "Last year: went.",
+  "quiz": {
+   "stem": "I ___ there last week.",
+   "options": [
+    "have been",
+    "went"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“last year” + “have been”?",
+   "tip": "Mốc thời gian đã qua như “last year” dùng quá khứ đơn, không dùng hiện tại hoàn thành.",
+   "caption": "Bạn có hay nói “I have been to Japan last year.” không? 😅 Có mốc quá khứ thì dùng quá khứ đơn: “I went to Japan last year.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “went”. Kể chuyến đi gần nhất bằng “I went…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#thiquakhu",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“last year” phải dùng “went”!",
+   "tip": "A finished time like “last year” takes the simple past.",
+   "caption": "Do you often say “I have been to Japan last year.”? A past time takes the simple past: “I went to Japan last year.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“last year” + “have been”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“last year” + “have been”?",
+  "keyword": "I went to Japan last year.",
+  "value": "Mốc thời gian đã qua như “last year” dùng quá khứ đơn, không dùng hiện tại hoàn thành.",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#thiquakhu",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“last year” + “have been”?",
+    "description": "Bạn có hay nói “I have been to Japan last year.” không? 😅 Có mốc quá khứ thì dùng quá khứ đơn: “I went to Japan last year.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #thiquakhu #lexkite",
+    "tags": [
+     "I went to Japan last year.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I have been to Japan last year.” không? 😅 Có mốc quá khứ thì dùng quá khứ đơn: “I went to Japan last year.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Bạn có hay nói “I have been to Japan last year.” không? 😅 Có mốc quá khứ thì dùng quá khứ đơn: “I went to Japan last year.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#thiquakhu",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“last year” + “have been”? #hoctienganh #nguphaptienganh #thiquakhu"
+   }
+  },
+  "first_comment": "Đáp án: “went”. Kể chuyến đi gần nhất bằng “I went…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_giveexam",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Take an exam!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will give exam tomorrow.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will take an exam tomorrow.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Take an exam. Not give.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Take! She will take a test.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will give exam tomorrow.",
+  "right": "I will take an exam tomorrow.",
+  "strike": "give exam",
+  "why": "Take an exam. Not give.",
+  "memory": "Take a test.",
+  "quiz": {
+   "stem": "She will ___ a test.",
+   "options": [
+    "give",
+    "take"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“give exam” नहीं, “take an exam”",
+   "tip": "हिंदी के “परीक्षा देना” की नकल में give न बोलें; अंग्रेज़ी में “take an exam” कहें।",
+   "caption": "क्या आप भी कहते हैं “I will give exam tomorrow”? 😉 अंग्रेज़ी में “I will take an exam tomorrow” सही है, क्योंकि परीक्षा के साथ take आता है, give नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “take”। “give” की जगह “take an” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “give exam”, but “take an exam”",
+   "tip": "Do not copy the Hindi “pariksha dena” with give; in English say “take an exam”.",
+   "caption": "Do you say “I will give exam tomorrow”? 😉 In English “I will take an exam tomorrow” is right, because an exam goes with take, not give. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“give exam” नहीं, “take an exam”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“give exam” नहीं, “take an exam”",
+  "keyword": "I will take an exam tomorrow.",
+  "value": "हिंदी के “परीक्षा देना” की नकल में give न बोलें; अंग्रेज़ी में “take an exam” कहें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“give exam” नहीं, “take an exam”",
+    "description": "क्या आप भी कहते हैं “I will give exam tomorrow”? 😉 अंग्रेज़ी में “I will take an exam tomorrow” सही है, क्योंकि परीक्षा के साथ take आता है, give नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I will take an exam tomorrow.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “I will give exam tomorrow”? 😉 अंग्रेज़ी में “I will take an exam tomorrow” सही है, क्योंकि परीक्षा के साथ take आता है, give नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “I will give exam tomorrow”? 😉 अंग्रेज़ी में “I will take an exam tomorrow” सही है, क्योंकि परीक्षा के साथ take आता है, give नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“give exam” नहीं, “take an exam” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “take”। “give” की जगह “take an” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}
