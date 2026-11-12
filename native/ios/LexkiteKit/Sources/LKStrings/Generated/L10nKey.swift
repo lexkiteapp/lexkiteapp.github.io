@@ -1579,7 +1579,6 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case speakPronNhipCauShadowing = "speak.pron.nhipCauShadowing"
     case speakPronNoiDuoiLienTuc = "speak.pron.noiDuoiLienTuc"
     case speakPronMoBaiNoiDuoi = "speak.pron.moBaiNoiDuoi"
-    case speakPronNgheVaNoiTheoCa = "speak.pron.ngheVaNoiTheoCa"
     case speakPronGiongMy = "speak.pron.giongMy"
     case speakPronGiongAnh = "speak.pron.giongAnh"
     case speakPronTuInToDuoc = "speak.pron.tuInToDuoc"

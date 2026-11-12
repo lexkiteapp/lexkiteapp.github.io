@@ -9,7 +9,7 @@
 "Bạn nói: {s}":"Dijiste: {s}",
 "Bản đồ bài học":"Mapa de lecciones",
 "COMBO cao nhất":"Mejor COMBO",
-"COMBO ×{n}":"COMBINACIÓN ×{n}",
+"COMBO ×{n}":"COMBO ×{n}",
 "Chưa có giải thích riêng cho từ này.":"Aún no hay una explicación extra para esta palabra.",
 "Chưa rõ – thử lại nhé":"No se entendió bien, inténtalo de nuevo",
 "Chạm để nói":"Toca para hablar",

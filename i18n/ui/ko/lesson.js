@@ -9,7 +9,7 @@
 "Bạn nói: {s}":"말한 내용: {s}",
 "Bản đồ bài học":"레슨 지도",
 "COMBO cao nhất":"최고 COMBO",
-"COMBO ×{n}":"콤보 ×{n}",
+"COMBO ×{n}":"COMBO ×{n}",
 "Chưa có giải thích riêng cho từ này.":"이 단어에 대한 추가 설명이 아직 없어요.",
 "Chưa rõ – thử lại nhé":"아직 잘 안 들려요. 다시 해 보세요",
 "Chạm để nói":"눌러서 말하기",

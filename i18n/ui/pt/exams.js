@@ -218,7 +218,7 @@
 "Trả lời xong":"Terminei",
 "Trắc nghiệm A–D":"Múltipla escolha A–D",
 "Tài khoản, khóa, hạn mức miễn phí":"Contas, chaves, cotas gratuitas",
-"Tìm đoạn chứa thông tin":"Informações correspondentes",
+"Tìm đoạn chứa thông tin":"Matching information",
 "Tích <b>“Xem lại”</b> cho câu chưa chắc, cuối giờ bấm vào số câu có cờ 🚩 để quay lại.":"Marque <b>“Revisar”</b> para perguntas sobre as quais você não tem certeza e toque nos 🚩 números sinalizados no final para voltar.",
 "Tô sáng hồng":"Destaque rosa",
 "Tô sáng hồng (Bẫy/Mâu thuẫn)":"Destaque rosa (armadilhas)",

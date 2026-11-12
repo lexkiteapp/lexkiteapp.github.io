@@ -1,6 +1,6 @@
 /* UI pt – watch (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["pt"] = Object.assign(D["pt"] || {}, {
-"4–20 phút":"4–20 minutos",
+"4–20 phút":"4–20 min",
 "AI, Internet, máy tính, phát minh":"IA, internet, computadores, invenções",
 "Bài giảng học thuật, nói và nghe":"Aulas acadêmicas, speaking e listening",
 "Bài giảng, lịch sử, tâm lý, triết học":"Palestras, história, psicologia, filosofia",
@@ -38,7 +38,7 @@
 "Kinh doanh & kinh tế":"Negócios e economia",
 "Listening, Speaking mẫu band 7+, mẹo làm bài":"Listening, speaking band 7+, dicas para o exame",
 "Lùi 5 giây":"Voltar 5 segundos",
-"Lặp A–B":"Ciclo A – B",
+"Lặp A–B":"Loop A–B",
 "Lối sống, lễ hội, khác biệt văn hóa":"Estilos de vida, festivais, diferenças culturais",
 "Mọi giọng":"Qualquer sotaque",
 "Mọi tốc độ":"Qualquer velocidade",
@@ -66,7 +66,7 @@
 "Tất cả chủ đề":"Todos os temas",
 "Từ vựng & idiom":"Vocabulário e expressões",
 "Tự nhiên":"Velocidade natural",
-"Tự động ({l})":"Automático ({l})",
+"Tự động ({l})":"Auto ({l})",
 "Video YouTube":"Vídeo do YouTube",
 "Video này không phát được ở đây – hãy mở trên YouTube.":"Este vídeo não pode ser reproduzido aqui – abra-o no YouTube.",
 "Video phát bằng trình phát chính thức của YouTube; Lexkite không tải hay lưu video.":"Os vídeos tocam no player oficial do YouTube; o Lexkite nunca baixa nem armazena vídeos.",

@@ -64,7 +64,7 @@
 "Nên bắt đầu từ đây để tiến tới mục tiêu {exam}":"여기서 시작해 {exam} 목표에 다가가 보세요",
 "Nước rút ngày {a}/{b}":"일일 스프린트 {a}/{b}",
 "Sẵn sàng {p}%":"준비 {p}%",
-"TOEIC Part 5–7":"토익 파트 5-7",
+"TOEIC Part 5–7":"TOEIC Part 5–7",
 "Tham gia ngay":"지금 참가",
 "Thi thử {x} đầy đủ":"{x} 전체 모의고사",
 "Thu gọn lộ trình":"접기",

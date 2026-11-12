@@ -45,7 +45,7 @@
 "Mở để nhận khung hoặc nhãn dán mới":"Öffnen Sie es für einen neuen Rahmen oder Aufkleber",
 "Mục tiêu học mỗi ngày":"Tägliches Lernziel",
 "Mục tiêu mỗi ngày":"Tagesziel",
-"Nhãn dán":"Aufkleber",
+"Nhãn dán":"Sticker",
 "Nhận 1 mảnh sự kiện ({a}/{b})":"Event-Teil gesammelt ({a}/{b})",
 "Nhịp đều lắm – một bài nhỏ là giữ được chuỗi.":"Schöner Rhythmus – eine kurze Lektion hält die Serie aufrecht.",
 "Sự kiện: gom {n} bông tuyết":"Ereignis: Sammle {n} Schneeflocken",

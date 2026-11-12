@@ -7,7 +7,7 @@
 "Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.":"Hol dir einen Kaffee und wiederhole ein paar Karten ☕ – dann hast du etwas zum Zeigen.",
 "Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"Ich lerne jeden Tag Englisch mit Lexkite 🔥 Kostenlos lernen auf {url}",
 "Não bạn đang ở chế độ nghỉ dưỡng":"Dein Gehirn ist im Urlaubsmodus",
-"Story 9:16":"Geschichte 9:16",
+"Story 9:16":"Story 9:16",
 "Thẻ thành tích":"Erfolgskarte",
 "Thẻ ôn hôm nay":"Heute wiederholte Karten",
 "Trí nhớ siêu đỉnh!":"Starkes Gedächtnis!",

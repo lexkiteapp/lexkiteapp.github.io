@@ -83,7 +83,7 @@
 "Đã hủy – chưa nhập từ nào":"Annulé – aucun mot importé",
 "Đã nhập {n} từ vào bộ “{d}”":"{n} mots importés dans « {d} »",
 "Đã tạo file!":"Fichier prêt !",
-"Định dạng":"Formater",
+"Định dạng":"Format",
 "Định nghĩa (tiếng Anh)":"Définition (anglais)",
 "— Không dùng —":"— Non utilisé —",
 });

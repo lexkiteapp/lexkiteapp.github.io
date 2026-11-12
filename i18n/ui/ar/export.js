@@ -1,6 +1,6 @@
 /* UI ar – export (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {
-"Anki · CSV":"أنكي · CSV",
+"Anki · CSV":"Anki · CSV",
 "Bảng tính Excel (.xlsx)":"جدول Excel (.xlsx)",
 "Danh sách từ khổ A4 – trong hộp in chọn “Lưu thành PDF”":"قائمة كلمات بحجم A4 – اختر «حفظ بتنسيق PDF» في نافذة الطباعة",
 "Dữ liệu của bạn":"بياناتك",

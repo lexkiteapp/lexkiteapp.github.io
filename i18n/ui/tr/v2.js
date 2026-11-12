@@ -35,7 +35,7 @@
 "Hồ sơ người học":"Öğrenci profili",
 "Khám phá tất cả":"Hepsini keşfet",
 "Kết thúc":"Bitir",
-"Lexkite":"Lexkit",
+"Lexkite":"Lexkite",
 "Luyện nhanh · 1 phút":"Hızlı alıştırma · 1 dk",
 "Luyện nói câu này":"Bu cümleyi söylemeyi çalış",
 "Luyện nói theo câu":"Konuşma alıştırması",

@@ -1,6 +1,6 @@
 /* UI id – anki (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["id"] = Object.assign(D["id"] || {}, {
-"Bảng tính (.csv)":"Lembar Bentang (.csv)",
+"Bảng tính (.csv)":"Spreadsheet (.csv)",
 "Bấm đúp vào file vừa tải, hoặc chọn File → Import… rồi chọn file.":"Klik dua kali file yang diunduh, atau pilih File → Import… lalu pilih file.",
 "Bấm “Gửi sang ứng dụng Anki” rồi chọn AnkiDroid.":"Ketuk “Kirim ke aplikasi Anki” lalu pilih AnkiDroid.",
 "Bấm “Gửi sang ứng dụng Anki” rồi chọn AnkiMobile.":"Ketuk “Kirim ke aplikasi Anki” lalu pilih AnkiMobile.",

@@ -1,10 +1,8 @@
-/* Phát âm – "Nói đuổi liên tục" (spec upgrade-2026-11 #8): nghe câu 1 → nói theo ngay → tự sang câu 2… hết cả đoạn 3 câu, không bấm giữa chừng,
- * rồi tô từng TỪ (✓ đúng · ✗ sót/sai · ~ yếu) và, khi máy có mô hình âm vị (window.Gop → Speak.score trả r.phones), nêu cả ÂM yếu của từ; không có mô hình thì chỉ mức từ.
- * Tải lười: gói 'shadow' (speak/score.js + file này) khi bấm nút trong pron/rhythm.js. Dùng lại: PronCoach (SENTENCES, band) · Speak.score/align (speak/score.js) · UI.tts. Âm thanh không rời máy.
- * Không mic (từ chối / không hỗ trợ / người học chọn): nghe và đọc theo, chạm "Đã nói theo" để sang câu kế – không chấm, không thưởng.
- * Phần thuần (test: scripts/test/pron-shadow.mjs): passages · mark · summary. */
+/* Phát âm – "Nói đuổi liên tục" (spec upgrade-2026-11 #8): nghe câu → nói theo ngay → tự sang câu kế (3 câu/đoạn), rồi tô từ ✓/✗/~ và âm yếu khi có mô hình âm vị
+ * (Gop → Speak.score r.phones); không có thì mức từ. Gói lười 'shadow' (nút trong pron/rhythm.js). Dùng PronCoach, Speak, UI.tts. Không mic: nghe và đọc theo, không chấm.
+ * Phần thuần (scripts/test/pron-shadow.mjs): passages · mark · summary. */
 (function (g) {
-  const KEY = 'vb.pron.shadow', THR = 50, GAP = 500; // THR: âm có điểm < 50 bị coi là yếu
+  const KEY = 'vb.pron.shadow', THR = 50, GAP = 500; // THR: âm < 50 điểm = yếu
   const C = () => g.PronCoach;
 
   /** passages(SENTENCES) → [{ id, lv, sents:[câu] }] – 3 câu liên tiếp cùng danh sách với bài nhịp câu (không biên soạn trùng) */
@@ -48,7 +46,6 @@
     document.head.appendChild(st);
   }
 
-  // box: phần tử chứa · x: bài phát âm (để lấy id gợi ý, không bắt buộc)
   function mount(box) {
     if (!box || !C() || !g.UI) return;
     css();
@@ -57,15 +54,14 @@
     const dev = () => !!(g.Gop && g.Gop.score);
     const stop = () => { run++; clearTimeout(timer); phase = ''; cur = -1; if (g.Speak && Speak.stop) Speak.stop(); if (wake) wake(); wake = null; if (g.speechSynthesis) try { speechSynthesis.cancel(); } catch (e) { /* bỏ qua */ } };
 
-    const line = (r, i) => `<div class="shd-line" lang="en" translate="no">${r.map(x => `<span class="shd-w ${x.st}"><i aria-hidden="true">${MARK[x.st]}</i><span>${esc(x.w)}</span><span class="sr-only"> (${esc(LBL[x.st]())})</span>${x.ph.length ? `<span class="ph">${esc(x.ph.join(' '))}</span>` : ''}</span>`).join('')}</div>`;
-    const plain = s => `<div class="shd-line" lang="en" translate="no">${esc(s)}</div>`;
+    const line = r => `<div class="shd-line" lang="en" translate="no">${r.map(x => `<span class="shd-w ${x.st}"><i aria-hidden="true">${MARK[x.st]}</i><span>${esc(x.w)}</span><span class="sr-only"> (${esc(LBL[x.st]())})</span>${x.ph.length ? `<span class="ph">${esc(x.ph.join(' '))}</span>` : ''}</span>`).join('')}</div>`;
 
     function render(done) {
       const p = P[k], sm = done ? summary(rows) : null, working = !!phase;
       box.innerHTML = `<div class="row between"><h3 style="margin:0">${ic('repeat')} ${t('Nói đuổi liên tục')}</h3><span class="chip">${noMic ? t('Không dùng mic') : dev() ? t('Chấm từng âm trên máy') : t('Chấm theo từng từ')}</span></div>
         <p class="small muted">${t('Nghe câu rồi nói theo ngay, máy tự sang câu kế – không cần bấm giữa chừng. Cuối đoạn, các từ sai được đánh dấu.')}</p>
         <div class="shd-bar" role="group" aria-label="${t('Chọn đoạn')}">${P.map((x, i) => `<button type="button" class="btn sm ${i === k ? 'primary' : ''}" data-k="${i}" aria-pressed="${i === k}" ${working ? 'disabled' : ''}>${load()[i] >= 85 ? '✓' : i + 1}</button>`).join('')}</div>
-        <div id="shdList" aria-live="polite">${p.sents.map((s, i) => `<div class="shd-s" ${i === cur ? 'aria-current="true"' : ''}>${rows[i] ? line(rows[i], i) : plain(s)}</div>`).join('')}</div>
+        <div id="shdList" aria-live="polite">${p.sents.map((s, i) => `<div class="shd-s" ${i === cur ? 'aria-current="true"' : ''}>${rows[i] ? line(rows[i]) : `<div class="shd-line" lang="en" translate="no">${esc(s)}</div>`}</div>`).join('')}</div>
         <div id="shdMsg" role="status" aria-live="polite" class="small" style="margin:.4rem 0">${msg(sm)}</div>
         <div class="shd-bar">${working ? `<button type="button" class="btn" id="shdStop">${ic('x')} ${t('Dừng')}</button>`
           : `<button type="button" class="btn primary" id="shdGo">${ic(noMic ? 'headphones' : 'mic')} ${done ? t('Nói đuổi lại') : t('Bắt đầu nói đuổi')}</button>${canMic() ? `<button type="button" class="btn" id="shdMic">${noMic ? ic('mic') + ' ' + t('Dùng mic') : ic('circle-x') + ' ' + t('Không dùng mic')}</button>` : ''}`}</div>`;
@@ -76,14 +72,14 @@
     }
     function msg(sm) {
       if (sm) {
-        const b = { great: t('Rất tốt – bạn bắt kịp cả đoạn!'), close: t('Gần rồi! Nghe lại các từ đánh dấu rồi nói đuổi thêm một lần.'), again: t('Chưa sao – nghe chậm từng câu rồi thử lại nhé.') }[sm.band];
-        if (!sm.heardN) return t('Chưa nghe rõ câu nào – kiểm tra mic rồi thử lại, bạn không bị trừ điểm.');
+        const b = { great: t('Rất tốt – bạn bắt kịp cả đoạn!'), close: t('Gần rồi! Nghe lại các từ đánh dấu rồi thử thêm lần nữa.'), again: t('Chưa sao – nghe chậm từng câu rồi thử lại nhé.') }[sm.band];
+        if (!sm.heardN) return t('Chưa nghe rõ câu nào – kiểm tra mic rồi thử lại.');
         return `<b>${sm.score}/100 · ${esc(b)}</b>${sm.worst.length ? `<div lang="en" translate="no">${t('Luyện thêm')}: ${esc(sm.worst.join(', '))}</div>` : ''}<div class="muted">✓ ${t('đúng')} · ✗ ${t('sót hoặc sai')} · ~ ${t('âm yếu')}</div>`;
       }
       if (phase === 'tts') return t('Nghe câu mẫu…');
       if (phase === 'mic') return `<b>${ic('mic')} ${t('Nói theo ngay bây giờ…')}</b>`;
       if (phase === 'self') return t('Đọc to theo, xong thì chạm “Đã nói theo”.');
-      return noMic ? t('Không dùng mic: nghe và đọc to theo, không chấm điểm.') : t('Nhấn Bắt đầu: nghe rồi nói theo ngay, lần lượt 3 câu.');
+      return noMic ? t('Không dùng mic: nghe và đọc to theo, không chấm điểm.') : '';
     }
 
     async function start() {

@@ -35,7 +35,7 @@
 "Hồ sơ người học":"ملف المتعلم",
 "Khám phá tất cả":"استكشف الكل",
 "Kết thúc":"إنهاء",
-"Lexkite":"ليكسكايت",
+"Lexkite":"Lexkite",
 "Luyện nhanh · 1 phút":"تدريب سريع · دقيقة",
 "Luyện nói câu này":"تدرّب على نطق هذه العبارة",
 "Luyện nói theo câu":"تمرين التحدث",

@@ -88,7 +88,7 @@
     // Nói đuổi liên tục (pron/shadow.js) tải lười khi bấm – khung riêng, không đụng khung nhịp câu ở trên
     if (g.App && App.need && box.parentNode) {
       const sh = document.createElement('div'); sh.className = 'card'; sh.style.marginTop = '1rem';
-      sh.innerHTML = `<div class="row between"><h3 style="margin:0">${ic('repeat')} ${t('Nói đuổi liên tục')}</h3><button type="button" class="btn primary" style="min-height:44px">${t('Mở bài nói đuổi')}</button></div><p class="small muted">${t('Nghe và nói theo cả đoạn 3 câu liền nhau, máy đánh dấu từ sai.')}</p>`;
+      sh.innerHTML = `<div class="row between"><h3 style="margin:0">${ic('repeat')} ${t('Nói đuổi liên tục')}</h3><button type="button" class="btn primary" style="min-height:44px">${t('Mở bài nói đuổi')}</button></div>`;
       box.after(sh);
       const open = sh.querySelector('button');
       open.onclick = () => { open.disabled = true; App.need('shadow').then(() => { if (g.PronShadow && sh.isConnected) { sh.innerHTML = ''; g.PronShadow.mount(sh); } else open.disabled = false; }); };

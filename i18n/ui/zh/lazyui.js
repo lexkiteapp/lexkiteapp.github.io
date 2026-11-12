@@ -690,7 +690,7 @@
 "{hrs} giờ/tuần":"{hrs} 小时/周",
 "{h} giờ {m} phút":"{h} 小时 {m} 分钟",
 "{m} phút mỗi ngày.":"每天 {m} 分钟。",
-"{n} MB":"{n}MB",
+"{n} MB":"{n} MB",
 "{n} bài ngữ pháp đã làm":"{n} 语法课已完成",
 "{n} bài phát âm đã học":"{n} 发音课程已完成",
 "{n} chủ đề":"{n} 主题",

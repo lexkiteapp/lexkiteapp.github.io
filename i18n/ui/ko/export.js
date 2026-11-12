@@ -1,6 +1,6 @@
 /* UI ko – export (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ko"] = Object.assign(D["ko"] || {}, {
-"Anki · CSV":"안키 · CSV",
+"Anki · CSV":"Anki · CSV",
 "Bảng tính Excel (.xlsx)":"Excel 스프레드시트 (.xlsx)",
 "Danh sách từ khổ A4 – trong hộp in chọn “Lưu thành PDF”":"A4 단어 목록 – 인쇄 창에서 “PDF로 저장” 선택",
 "Dữ liệu của bạn":"내 데이터",

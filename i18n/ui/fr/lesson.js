@@ -61,7 +61,7 @@
 "Đã sao chép":"Copié",
 "Đúng rồi!":"Correct !",
 "Định nghĩa:":"Définition :",
-"Đối thoại":"Dialogues",
+"Đối thoại":"Dialogue",
 "Ảnh minh họa":"Image",
 });
 })(typeof self !== 'undefined' ? self : this);

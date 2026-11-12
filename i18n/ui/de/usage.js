@@ -15,7 +15,7 @@
 "Cấu trúc câu":"Satzstrukturen",
 "Cấu trúc câu hay (IELTS)":"Nützliche Satzstrukturen (IELTS)",
 "Danh từ + giới từ":"Nomen + Präposition",
-"Dạng":"Formular",
+"Dạng":"Form",
 "Dạng đặc biệt":"Sonderformen",
 "Dễ nhầm với":"Oft verwechselt mit",
 "Giới từ thay đổi thì nghĩa thay đổi – học cả cụm.":"Andere Präposition, andere Bedeutung – lerne die ganze Wendung.",

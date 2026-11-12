@@ -64,7 +64,7 @@
 "Nên bắt đầu từ đây để tiến tới mục tiêu {exam}":"เริ่มจากตรงนี้เพื่อไปให้ถึงเป้าหมาย {exam}",
 "Nước rút ngày {a}/{b}":"สปรินต์รายวัน {a}/{b}",
 "Sẵn sàng {p}%":"พร้อม {p}%",
-"TOEIC Part 5–7":"TOEIC ตอนที่ 5–7",
+"TOEIC Part 5–7":"TOEIC Part 5–7",
 "Tham gia ngay":"เข้าร่วมเลย",
 "Thi thử {x} đầy đủ":"สอบจำลอง {x} เต็มรูปแบบ",
 "Thu gọn lộ trình":"ย่อ",

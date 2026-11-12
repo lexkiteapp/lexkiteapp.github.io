@@ -35,7 +35,7 @@
 "Hồ sơ người học":"Perfil do aluno",
 "Khám phá tất cả":"Explorar tudo",
 "Kết thúc":"Encerrar",
-"Lexkite":"Lexquita",
+"Lexkite":"Lexkite",
 "Luyện nhanh · 1 phút":"Prática rápida · 1 min",
 "Luyện nói câu này":"Pratique falar esta frase",
 "Luyện nói theo câu":"Treino de fala",

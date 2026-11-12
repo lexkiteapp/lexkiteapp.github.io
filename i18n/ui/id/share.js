@@ -7,7 +7,7 @@
 "Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.":"Ngopi dulu lalu ulang beberapa kartu ☕ – setelah itu ada prestasi untuk dipamerkan.",
 "Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"Aku belajar bahasa Inggris setiap hari dengan Lexkite 🔥 Belajar gratis di {url}",
 "Não bạn đang ở chế độ nghỉ dưỡng":"Otakmu sedang mode liburan",
-"Story 9:16":"Cerita 9:16",
+"Story 9:16":"Story 9:16",
 "Thẻ thành tích":"Kartu pencapaian",
 "Thẻ ôn hôm nay":"Kartu diulang hari ini",
 "Trí nhớ siêu đỉnh!":"Ingatan luar biasa!",

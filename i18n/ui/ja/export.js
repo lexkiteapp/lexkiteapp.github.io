@@ -1,6 +1,6 @@
 /* UI ja – export (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {
-"Anki · CSV":"アンキ・CSV",
+"Anki · CSV":"Anki · CSV",
 "Bảng tính Excel (.xlsx)":"Excel スプレッドシート (.xlsx)",
 "Danh sách từ khổ A4 – trong hộp in chọn “Lưu thành PDF”":"A4サイズの単語リスト – 印刷画面で「PDFとして保存」を選択",
 "Dữ liệu của bạn":"あなたのデータ",

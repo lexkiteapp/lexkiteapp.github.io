@@ -218,7 +218,7 @@
 "Trả lời xong":"J'ai terminé",
 "Trắc nghiệm A–D":"QCM A–D",
 "Tài khoản, khóa, hạn mức miễn phí":"Comptes, clés, quotas gratuits",
-"Tìm đoạn chứa thông tin":"Informations correspondantes",
+"Tìm đoạn chứa thông tin":"Matching information",
 "Tích <b>“Xem lại”</b> cho câu chưa chắc, cuối giờ bấm vào số câu có cờ 🚩 để quay lại.":"Cochez <b>« Réviser »</b> pour les questions dont vous n'êtes pas sûr, puis appuyez sur les numéros 🚩 signalés à la fin pour revenir en arrière.",
 "Tô sáng hồng":"Surlignage rose",
 "Tô sáng hồng (Bẫy/Mâu thuẫn)":"Surlignage rose (pièges)",

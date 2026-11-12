@@ -64,7 +64,7 @@
 "Nên bắt đầu từ đây để tiến tới mục tiêu {exam}":"ابدأ من هنا لتقترب من هدفك في {exam}",
 "Nước rút ngày {a}/{b}":"سباق اليوم {a}/{b}",
 "Sẵn sàng {p}%":"الجاهزية {p}%",
-"TOEIC Part 5–7":"TOEIC الجزء 5-7",
+"TOEIC Part 5–7":"TOEIC Part 5–7",
 "Tham gia ngay":"انضم الآن",
 "Thi thử {x} đầy đủ":"اختبار {x} تجريبي كامل",
 "Thu gọn lộ trình":"عرض أقل",

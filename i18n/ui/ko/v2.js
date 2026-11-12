@@ -35,7 +35,7 @@
 "Hồ sơ người học":"학습자 프로필",
 "Khám phá tất cả":"전체 둘러보기",
 "Kết thúc":"종료",
-"Lexkite":"렉스카이트",
+"Lexkite":"Lexkite",
 "Luyện nhanh · 1 phút":"빠른 연습 · 1분",
 "Luyện nói câu này":"이 표현 말하기 연습",
 "Luyện nói theo câu":"말하기 연습",

@@ -30,7 +30,7 @@
 "Học thuật":"Akademik",
 "Học tiếng Anh qua cảnh phim, idiom đời thường":"Film sahneleri ve günlük deyimlerle İngilizce öğren",
 "Họp, email, phỏng vấn, thuyết trình":"Toplantılar, e-postalar, mülakatlar, sunumlar",
-"IELTS":"IELTS'ler",
+"IELTS":"IELTS",
 "Khoa học":"Bilim",
 "Khí hậu, năng lượng, động vật":"İklim, enerji, hayvanlar",
 "Không có mạng – thử lại khi có kết nối.":"Çevrimdışısın – bağlanınca tekrar dene.",

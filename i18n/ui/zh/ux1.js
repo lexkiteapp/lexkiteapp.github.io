@@ -64,7 +64,7 @@
 "Nên bắt đầu từ đây để tiến tới mục tiêu {exam}":"从这里开始,向你的 {exam} 目标迈进",
 "Nước rút ngày {a}/{b}":"每日冲刺 {a}/{b}",
 "Sẵn sàng {p}%":"就绪 {p}%",
-"TOEIC Part 5–7":"托业第 5-7 部分",
+"TOEIC Part 5–7":"TOEIC Part 5–7",
 "Tham gia ngay":"立即加入",
 "Thi thử {x} đầy đủ":"完整 {x} 模考",
 "Thu gọn lộ trình":"收起",

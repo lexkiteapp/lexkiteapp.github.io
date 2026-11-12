@@ -19,7 +19,7 @@
 "Hãy dùng lời của bạn – có đoạn chép nguyên văn từ nguồn:":"Gunakan kata-kata Anda sendiri – sebagian disalin kata demi kata dari sumbernya:",
 "Không tải được bài – thử lại sau":"Tidak dapat memuat tugas ini – coba lagi nanti",
 "Kiểm tra bài của tôi":"Periksa jawabanku",
-"Mẹo":"Kiat",
+"Mẹo":"Tips",
 "Nghe nguồn":"Dengarkan sumber",
 "Nghe trước: bấm loa để nghe nguồn, chữ sẽ hiện khi nghe xong.":"Dengarkan dulu: ketuk speaker untuk mendengarkan sumbernya. Teks muncul setelah selesai.",
 "Nhiệm vụ":"Tugas",

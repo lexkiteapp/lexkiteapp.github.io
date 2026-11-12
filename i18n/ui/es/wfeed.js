@@ -1,7 +1,7 @@
 /* UI es – wfeed (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["es"] = Object.assign(D["es"] || {}, {
 "1 giờ":"1 hora",
-"30 phút":"30 minutos",
+"30 phút":"30 min",
 "Android: chạm và giữ màn hình chính → Tiện ích → Lexkite → kéo “Từ mỗi giờ” ra màn hình. Chạm và giữ widget để đổi kích thước.":"Android: mantén pulsada la pantalla de inicio → Widgets → Lexkite → arrastra «Palabra de la hora» a la pantalla. Mantén pulsado el widget para cambiar su tamaño.",
 "Chạm để xem nghĩa":"Toca para ver el significado",
 "Cách thêm widget":"Cómo añadir el widget",

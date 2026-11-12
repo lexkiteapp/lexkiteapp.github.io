@@ -1581,7 +1581,6 @@ enum class L10nKey(val id: String) {
     speakPronNhipCauShadowing("speak.pron.nhipCauShadowing"),
     speakPronNoiDuoiLienTuc("speak.pron.noiDuoiLienTuc"),
     speakPronMoBaiNoiDuoi("speak.pron.moBaiNoiDuoi"),
-    speakPronNgheVaNoiTheoCa("speak.pron.ngheVaNoiTheoCa"),
     speakPronGiongMy("speak.pron.giongMy"),
     speakPronGiongAnh("speak.pron.giongAnh"),
     speakPronTuInToDuoc("speak.pron.tuInToDuoc"),

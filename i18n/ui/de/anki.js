@@ -83,7 +83,7 @@
 "Đã hủy – chưa nhập từ nào":"Abgebrochen – keine Wörter importiert",
 "Đã nhập {n} từ vào bộ “{d}”":"{n} Wörter in „{d}“ importiert",
 "Đã tạo file!":"Datei ist fertig!",
-"Định dạng":"Formatieren",
+"Định dạng":"Format",
 "Định nghĩa (tiếng Anh)":"Definition (Englisch)",
 "— Không dùng —":"— Nicht verwenden —",
 });

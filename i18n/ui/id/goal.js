@@ -17,7 +17,7 @@
 "Thi thử tiếp theo: {date}":"Tes latihan berikutnya: {date}",
 "Trôi chảy & từ nối":"Kelancaran & kata penghubung",
 "Trọng tâm:":"Fokus:",
-"Tối thiểu":"Minimal",
+"Tối thiểu":"Min",
 "Tối đa":"Maks",
 "{n} chọn cho bạn":"Dipilih oleh {n}",
 "{p}% sẵn sàng":"{p}% siap",

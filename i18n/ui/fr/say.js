@@ -8,7 +8,7 @@
 "Câu người bản xứ hay nói, kèm tình huống dùng và câu nên tránh. Chạm thẻ để lật.":"Phrases que les natifs utilisent réellement, quand les utiliser et ce qu'il faut éviter. Appuyez sur une carte pour la retourner.",
 "Câu thô lỗ – đã che":"Phrase impolie : masquée",
 "Cộc lốc":"Sec",
-"Dọc 4:5":"Portraits 4:5",
+"Dọc 4:5":"Portrait 4:5",
 "Giữ hòa khí":"Préserve la bonne ambiance",
 "Gần gũi":"Chaleureux",
 "Gần đúng rồi – {p}%. Nghe lại và thử lần nữa nhé.":"Presque – {p}%. Écoutez à nouveau et réessayez.",

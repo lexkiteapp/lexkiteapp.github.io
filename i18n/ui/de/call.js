@@ -63,7 +63,7 @@
 "Trước nghề nghiệp số ít cần mạo từ “a/an”.":"Verwenden Sie „a/an“ vor einer einzelnen Berufsbezeichnung.",
 "Trả lời bằng cách chạm gợi ý hoặc gõ phím.":"Antworten Sie, indem Sie auf einen Vorschlag tippen oder ihn eingeben.",
 "Trả lời đầy đủ hơn: thêm lý do hoặc ví dụ.":"Antworten Sie ausführlicher: Fügen Sie einen Grund oder ein Beispiel hinzu.",
-"Trực tiếp":"Lebe",
+"Trực tiếp":"Live",
 "Tôi nói xong":"Ich bin fertig",
 "Tải gói nhận dạng của Chrome (chạy trên máy)":"Laden Sie das Sprachpaket von Chrome herunter (läuft auf Ihrem Gerät)",
 "Tốc độ khoảng {wpm} từ/phút. Cứ thong thả, nhưng cố nói liền từng cụm thay vì từng từ.":"Ihr Tempo betrug etwa {wpm} Wörter pro Minute. Nehmen Sie sich Zeit, aber versuchen Sie, ganze Sätze statt einzelner Wörter zu sagen.",

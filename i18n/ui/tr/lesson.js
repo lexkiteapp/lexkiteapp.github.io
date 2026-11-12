@@ -9,7 +9,7 @@
 "Bạn nói: {s}":"Söylediğin: {s}",
 "Bản đồ bài học":"Ders haritası",
 "COMBO cao nhất":"En iyi COMBO",
-"COMBO ×{n}":"KOMBO ×{n}",
+"COMBO ×{n}":"COMBO ×{n}",
 "Chưa có giải thích riêng cho từ này.":"Bu kelime için henüz ek açıklama yok.",
 "Chưa rõ – thử lại nhé":"Henüz net değil, tekrar dene",
 "Chạm để nói":"Konuşmak için dokun",

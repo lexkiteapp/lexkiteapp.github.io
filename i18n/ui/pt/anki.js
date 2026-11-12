@@ -54,7 +54,7 @@
 "Thẻ đẹp có phiên âm, phát âm, ví dụ – mở bằng Anki, AnkiDroid, AnkiMobile.":"Cartões bonitos com IPA, áudio e exemplos – abrem no Anki, AnkiDroid e AnkiMobile.",
 "Tiến độ nhập":"Progresso da importação",
 "Trong Anki chọn bộ thẻ → File → Export.":"No Anki, selecione o baralho → File → Export.",
-"Trạng thái":"Estado",
+"Trạng thái":"Status",
 "Tên bộ từ trong Lexkite":"Nome da lista no Lexkite",
 "Tạo file":"Criar arquivo",
 "Tải lại":"Baixar de novo",

@@ -1,6 +1,6 @@
 /* UI es – watch (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["es"] = Object.assign(D["es"] || {}, {
-"4–20 phút":"4-20 minutos",
+"4–20 phút":"4–20 min",
 "AI, Internet, máy tính, phát minh":"IA, internet, ordenadores, inventos",
 "Bài giảng học thuật, nói và nghe":"Clases académicas, speaking y listening",
 "Bài giảng, lịch sử, tâm lý, triết học":"Conferencias, historia, psicología, filosofía",
@@ -66,7 +66,7 @@
 "Tất cả chủ đề":"Todos los temas",
 "Từ vựng & idiom":"Vocabulario y modismos",
 "Tự nhiên":"Velocidad natural",
-"Tự động ({l})":"Automático ({l})",
+"Tự động ({l})":"Auto ({l})",
 "Video YouTube":"Vídeo de YouTube",
 "Video này không phát được ở đây – hãy mở trên YouTube.":"Este vídeo no se puede reproducir aquí: ábrelo en YouTube.",
 "Video phát bằng trình phát chính thức của YouTube; Lexkite không tải hay lưu video.":"Los vídeos se reproducen en el reproductor oficial de YouTube; Lexkite nunca descarga ni guarda vídeos.",

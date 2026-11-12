@@ -53,7 +53,7 @@
 "Phát / dừng":"Воспроизведение / пауза",
 "Phụ đề song ngữ, chạm từ để tra, lặp từng câu: mở video này trên YouTube cùng add-on Lexkite.":"Двуязычные субтитры, нажмите на слово, чтобы узнать значение, повторяйте каждое предложение: откройте это видео на YouTube с расширением Lexkite.",
 "Sân bay, khách sạn, nhà hàng, đi lại":"Аэропорты, отели, рестораны, поездки",
-"TOEFL":"ТОЕФЛ",
+"TOEFL":"TOEFL",
 "TOEIC":"TOEIC",
 "Thì, mạo từ, câu điều kiện qua tình huống":"Времена, артикли, условные предложения в реальных ситуациях",
 "Thị trường, công ty, tiền bạc":"Рынки, компании, деньги",

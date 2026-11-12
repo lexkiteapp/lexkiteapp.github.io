@@ -66,7 +66,7 @@
 "Tất cả chủ đề":"Alle Themen",
 "Từ vựng & idiom":"Wortschatz & Redewendungen",
 "Tự nhiên":"Natürliches Tempo",
-"Tự động ({l})":"Automatisch ({l})",
+"Tự động ({l})":"Auto ({l})",
 "Video YouTube":"YouTube-Video",
 "Video này không phát được ở đây – hãy mở trên YouTube.":"Dieses Video kann hier nicht abgespielt werden – öffne es auf YouTube.",
 "Video phát bằng trình phát chính thức của YouTube; Lexkite không tải hay lưu video.":"Videos werden im offiziellen YouTube-Player abgespielt; Lexkite lädt nie Videos herunter und speichert sie nicht.",

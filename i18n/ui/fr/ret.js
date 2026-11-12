@@ -9,7 +9,7 @@
 "Bạn nhận 1 rương quà":"Vous avez gagné un coffre",
 "Bạn đã sưu tầm đủ mọi món!":"Vous avez tout collectionné !",
 "Bắt đầu chuỗi hôm nay – một bài nhỏ là đủ.":"Commencez votre séquence aujourd’hui – une courte leçon suffit.",
-"Bộ sưu tập":"Collecte",
+"Bộ sưu tập":"Collection",
 "Carlos: Thói quen tuyệt vời!":"Carlos : Belle habitude !",
 "Chuỗi học":"Série",
 "Chuỗi {n} ngày vẫn cháy!":"Votre série de {n} jours continue !",

@@ -30,7 +30,7 @@
 "Giữ chuỗi khi bạn lỡ một ngày. Cứ 7 ngày học được tặng 1 lượt miễn phí.":"Protège votre séquence si vous manquez une journée. Gagnez-en un gratuitement tous les 7 jours.",
 "Gọi cho giáo viên":"Appeler un prof",
 "Hôm nay hãy nói các từ này trong một câu":"Aujourd’hui, dis ces mots dans une phrase",
-"Hướng dẫn chặng":"Guider",
+"Hướng dẫn chặng":"Guide",
 "Học từng bước, 2.000 câu luyện: trắc nghiệm, viết lại câu, tìm lỗi sai":"Pas à pas, avec 2 000 exercices : choix multiples, réécriture de phrases, détection d'erreurs",
 "Hồ sơ người học":"Profil apprenant",
 "Khám phá tất cả":"Tout explorer",

@@ -73,7 +73,7 @@
 "Xem chi tiết":"Voir le détail",
 "affect/effect, say/tell, make/do, borrow/lend…":"affect/effect, say/tell, make/do, borrow/lend…",
 "chỗ trống":"blanc",
-"cấu trúc":"structures",
+"cấu trúc":"structure",
 "danh động từ (V-ing)":"gérondif (V-ing)",
 "dạng bị động":"forme passive",
 "dễ nhầm":"confusion",

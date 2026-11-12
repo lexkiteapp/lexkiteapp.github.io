@@ -64,7 +64,7 @@
 "Nên bắt đầu từ đây để tiến tới mục tiêu {exam}":"Начните отсюда, чтобы приблизиться к цели {exam}",
 "Nước rút ngày {a}/{b}":"Спринт дня {a}/{b}",
 "Sẵn sàng {p}%":"Готовность {p}%",
-"TOEIC Part 5–7":"TOEIC, часть 5–7",
+"TOEIC Part 5–7":"TOEIC Part 5–7",
 "Tham gia ngay":"Присоединиться",
 "Thi thử {x} đầy đủ":"Полный пробный {x}",
 "Thu gọn lộ trình":"Свернуть",

@@ -17,7 +17,7 @@
   // Kịch bản hằng ngày (data-everyday.js) dùng 3 cấp A1/A2/B1; công sở B1/B2/C1 – cùng chỉ số mức 0–2
   const nm = s => (NAME[s.id] ? NAME[s.id]() : s.name || s.title); // s.name: tên đã dịch do Giao tiếp tự tin truyền vào
   // Bài trong 🗣️ Giao tiếp tự tin (#/confidence) ứng với từng kịch bản – lối vào cuối hội thoại
-  const CONF = { neighbour: 'greetings', 'small-talk': 'greetings', cafe: 'cafe', shop: 'shopping', directions: 'directions', hotel: 'travel', doctor: 'doctor', manager: 'meetings', delay: 'meetings', 'marketing-interview': 'interview', 'dev-interview': 'interview', 'behavioural-interview': 'interview', complaint: 'complaints' };
+  const CONF = { neighbour: 'greetings', 'small-talk': 'greetings', cafe: 'cafe', shop: 'shopping', directions: 'directions', hotel: 'travel', doctor: 'doctor', manager: 'meetings', delay: 'meetings', 'marketing-interview': 'interview', 'dev-interview': 'interview', complaint: 'complaints' };
   const lvOf = s => s.lv || LV, daily = s => s.kind === 'everyday';
   const all = () => window.ROLEPLAY || [];
   const store = (k, v) => { try { if (v === undefined) return JSON.parse(localStorage.getItem('vb.rp.' + k) || 'null'); localStorage.setItem('vb.rp.' + k, JSON.stringify(v)); } catch (e) { return null; } };

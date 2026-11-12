@@ -64,7 +64,7 @@
 "Nên bắt đầu từ đây để tiến tới mục tiêu {exam}":"{exam} hedefine ilerlemek için buradan başla",
 "Nước rút ngày {a}/{b}":"Günlük sprint {a}/{b}",
 "Sẵn sàng {p}%":"%{p} hazır",
-"TOEIC Part 5–7":"TOEIC Bölüm 5–7",
+"TOEIC Part 5–7":"TOEIC Part 5–7",
 "Tham gia ngay":"Hemen katıl",
 "Thi thử {x} đầy đủ":"Tam {x} deneme",
 "Thu gọn lộ trình":"Daha az göster",

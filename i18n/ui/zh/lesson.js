@@ -9,7 +9,7 @@
 "Bạn nói: {s}":"你说的是：{s}",
 "Bản đồ bài học":"课程地图",
 "COMBO cao nhất":"最高连击",
-"COMBO ×{n}":"组合×{n}",
+"COMBO ×{n}":"COMBO ×{n}",
 "Chưa có giải thích riêng cho từ này.":"这个词暂时没有额外解释。",
 "Chưa rõ – thử lại nhé":"还不太清楚，再试一次吧",
 "Chạm để nói":"点按说话",

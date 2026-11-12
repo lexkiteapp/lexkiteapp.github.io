@@ -64,7 +64,7 @@
 "Nên bắt đầu từ đây để tiến tới mục tiêu {exam}":"{exam} के लक्ष्य की ओर बढ़ने के लिए यहीं से शुरू करें",
 "Nước rút ngày {a}/{b}":"दैनिक स्प्रिंट {a}/{b}",
 "Sẵn sàng {p}%":"तैयार {p}%",
-"TOEIC Part 5–7":"TOEIC भाग 5-7",
+"TOEIC Part 5–7":"TOEIC Part 5–7",
 "Tham gia ngay":"अभी जुड़ें",
 "Thi thử {x} đầy đủ":"पूर्ण {x} मॉक",
 "Thu gọn lộ trình":"कम दिखाएँ",

@@ -64,7 +64,7 @@
 "Nên bắt đầu từ đây để tiến tới mục tiêu {exam}":"Comece por aqui para avançar rumo à sua meta no {exam}",
 "Nước rút ngày {a}/{b}":"Sprint diário {a}/{b}",
 "Sẵn sàng {p}%":"Pronto {p}%",
-"TOEIC Part 5–7":"TOEIC Parte 5–7",
+"TOEIC Part 5–7":"TOEIC Part 5–7",
 "Tham gia ngay":"Entrar agora",
 "Thi thử {x} đầy đủ":"Simulado {x} completo",
 "Thu gọn lộ trình":"Mostrar menos",

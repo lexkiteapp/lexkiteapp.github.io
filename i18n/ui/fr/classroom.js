@@ -38,7 +38,7 @@
 "Lớp tôi dạy":"Classes que j’enseigne",
 "Lớp tôi đang học":"Mes classes",
 "Lớp đã đủ 300 học sinh.":"Cette classe compte déjà 300 élèves.",
-"Mã":"Coder",
+"Mã":"Code",
 "Mã lớp":"Code de classe",
 "Mã lớp gồm 6 chữ và số, ví dụ K7M2QX.":"Un code de classe comporte 6 lettres et chiffres, par exemple K7M2QX.",
 "Mỗi lớp giao tối đa 200 bài.":"Chaque classe peut avoir jusqu'à 200 devoirs.",
