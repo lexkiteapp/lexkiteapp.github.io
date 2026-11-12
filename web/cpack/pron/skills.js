@@ -500,11 +500,11 @@ P.push({
   tipEn: "Tip: If you hear an /r/ that the spelling does not have, it is an intrusive /r/: in British accents it appears only after /ə/, /ɑː/ or /ɔː/, before a vowel.",
   words: [
     { w: 'criteria', ipa: '/kraɪˈtɪəriə/', note: '/r/ chèn: criteria are' },
-    { w: 'phenomena', ipa: '/fəˈnɒmɪnə/', note: '/r/ chèn: phenomena of' },
+    { w: 'media', ipa: '/ˈmiːdiə/', note: '/r/ chèn: media are' },
     { w: 'formula', ipa: '/ˈfɔːmjʊlə/', note: '/r/ chèn: formula is' },
     { w: 'agenda', ipa: '/əˈdʒendə/', note: '/r/ chèn: agenda item' },
     { w: 'diploma', ipa: '/dɪˈpləʊmə/', note: '/r/ chèn: diploma in' },
-    { w: 'schema', ipa: '/ˈskiːmə/', note: '/r/ chèn: schema of' },
+    { w: 'area', ipa: '/ˈeəriə/', note: '/r/ chèn: area of' },
     { w: 'draw', ipa: '/drɔː/', note: '/r/ chèn: draw a conclusion; drawing' },
     { w: 'law', ipa: '/lɔː/', note: '/r/ chèn: law and order' },
     { w: 'withdrawal', ipa: '/wɪðˈdrɔːəl/', note: 'thường /wɪðˈdrɔːrəl/' },
@@ -512,7 +512,7 @@ P.push({
   ],
   sentences: [
     'The criteria are applied consistently to every application.',
-    'Several phenomena in the area of economics remain poorly understood.',
+    'Several media outlets in the area of economics remain poorly informed.',
     'A diploma in law and public administration opens many doors.'
   ],
   quiz: [
@@ -618,8 +618,8 @@ P.push({
     { w: 'would', ipa: '/wʊd/', note: 'dạng yếu: /wəd/' },
     { w: 'must', ipa: '/mʌst/', note: 'dạng yếu: /məst/' },
     { w: 'have', ipa: '/hæv/', note: 'dạng yếu: /əv/ (nghe như “of”)' },
-    { w: 'been', ipa: '/biːn/', note: 'dạng yếu: /bɪn/' },
-    { w: 'had', ipa: '/hæd/', note: 'dạng yếu: /həd/ hoặc /əd/' },
+    { w: 'to', ipa: '/tuː/', note: 'dạng yếu: /tə/' },
+    { w: 'of', ipa: '/ɒv/', note: 'dạng yếu: /əv/ (trùng /əv/ của have)' },
     { w: 'used to', ipa: '/ˈjuːst tuː/', note: 'thường: /ˈjuːst tə/' },
     { w: 'have to', ipa: '/ˈhæv tuː/', note: 'thường: /ˈhæf tə/' },
     { w: 'ought to', ipa: '/ˈɔːt tuː/', note: 'thường: /ˈɔːt tə/' }
@@ -645,19 +645,19 @@ P.push({
   rules: [
     { label: 'Nhịp = âm tiết nhấn', when: 'từ nội dung giữ nhịp chính của câu', ex: ['CATS CHASE MICE', 'The CATS are CHASing the MICE'] },
     { label: 'Nén âm tiết yếu', when: 'nhiều âm tiết không nhấn giữa hai nhịp: nói nhanh và giảm về /ə/', ex: ['The CATS have been CHASing the MICE'] },
-    { label: 'Âm tiết rụng', when: 'một số từ mất âm tiết yếu khi nói tự nhiên', ex: ['considerable /kənˈsɪdrəbl/', 'preferable /ˈprefrəbl/'] }
+    { label: 'Âm tiết rụng', when: 'một số từ mất âm tiết yếu khi nói tự nhiên', ex: ['considerable /kənˈsɪdrəbl/', 'different /ˈdɪfrənt/'] }
   ],
   vn: 'Lỗi gốc là dành thời lượng bằng nhau cho mọi âm tiết, khiến câu nghe đều như gõ máy chữ và khó nhận ra từ khóa. Hãy gõ nhịp tay theo các từ nội dung và nén các từ nhỏ vào giữa hai nhịp.',
   tip: 'Mẹo: Hình dung trọng âm là những bước chân đều khi đi bộ. Giữa hai bước dù có một hay ba từ nhỏ, bước chân vẫn chạm đất khá đều.',
   tipEn: "Tip: Think of stressed syllables as steady footsteps: whether one or three small words fall between two steps, the steps keep landing at fairly even intervals.",
   words: [
     { w: 'considerable', ipa: '/kənˈsɪdrəbl/', note: 'thường 4 âm tiết thay vì 5' },
-    { w: 'preferable', ipa: '/ˈprefrəbl/', note: 'thường 3 âm tiết' },
+    { w: 'different', ipa: '/ˈdɪfrənt/', note: 'thường 2 âm tiết' },
     { w: 'laboratory', ipa: '/ləˈbɒrətri/', note: 'giọng Anh: 4 âm tiết' },
     { w: 'literature', ipa: '/ˈlɪtrətʃə/', note: 'âm tiết giữa yếu' },
     { w: 'temperature', ipa: '/ˈtemprətʃə/', note: 'âm tiết giữa yếu' },
     { w: 'comfortable', ipa: '/ˈkʌmftəbl/', note: 'thường 3 âm tiết' },
-    { w: 'miserable', ipa: '/ˈmɪzrəbl/', note: 'thường 3 âm tiết' },
+    { w: 'chocolate', ipa: '/ˈtʃɒklət/', note: 'thường 2 âm tiết' },
     { w: 'average', ipa: '/ˈævrɪdʒ/', note: 'thường 2 âm tiết' },
     { w: 'corporate', ipa: '/ˈkɔːprət/', note: 'thường 2 âm tiết' },
     { w: 'reasonably', ipa: '/ˈriːznəbli/', note: 'thường 3 âm tiết' }
