@@ -77,7 +77,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
   }
   ok(bad.length === 0 && RV.scenarios.length === 24, `machine reference: ${RV.scenarios.length} scenarios (idle · emotions · gestures · speak cues/queue/live · listen, normal + reduced motion), inside LIMITS, calm = neck/breath still${bad.length ? ' – ' + bad.slice(0, 3).join('; ') : ''}`);
   const posesOf = who => new Set(RV.scenarios.find(s => s.who === who && s.id === 'gestures').rows.map(r => r[col('pose')]).filter(Boolean));
-  ok(['cheer', 'thumbs_up', 'clap', 'explain'].every(p => posesOf('ama').has(p)) && ['cheer', 'thumbs_up', 'hold_card'].every(p => posesOf('carlos').has(p)), 'gestures scenario: Ama clap + hold_card→explain (alt), Carlos hold_card + clap→cheer (alt)');
+  ok(['cheer', 'thumbs_up', 'clap', 'hold_card'].every(p => posesOf('ama').has(p)) && ['cheer', 'thumbs_up', 'hold_card', 'clap'].every(p => posesOf('carlos').has(p)), 'gestures scenario: both teachers show their own thumbs_up, clap and hold_card stills (gesture bank 12/11 – no alt left)');
   const rigid = RV.matrix.every(({ m }) => Math.abs(m[0] - m[3]) < 1e-5 && Math.abs(m[1] + m[2]) < 1e-5);
   ok(rigid && RV.matrix.length === 12, 'matrix vectors are rigid (rotation + uniform scale + translation, no shear)');
   ok(RV.paint.length === 2 * 14 && RV.paint.every(p => p.parts.length === 5 && p.parts[3].length > 3) && RV.paint.filter(p => p.who === 'ama').every(p => p.parts[4].length === 0) && RV.paint.filter(p => p.who === 'carlos').every(p => p.parts[4].length > 0), 'face paint ops: 5 layers per state (eyes×2, brows, mouth, moustache only for Carlos)');
@@ -275,12 +275,12 @@ const RV = T1.vectorJson, RD = T1.rigJson;
     if (!/^[0-9a-f]{12}$/.test(PK.v) || PK.schema !== 1) bp.push('v/schema');
     if (PK.speaking.bank.length < 30 || Object.keys(PK.speaking.samples).length < 300 || Object.keys(PK.speaking.parts).join() !== 'p1,p2,p3' || !PK.speaking.fillers.includes('you know')) bp.push('speaking');
     if (PK.pron.lessons.length !== 56 || PK.pron.pairs.contrasts.length !== 23 || Object.keys(PK.pron.pairs.tips).length !== 23 || PK.pron.coach.sentences.length !== 12 || Object.keys(PK.consts.weak).length < 35) bp.push('pron');
-    if (PK.roleplay.scripts.length !== 31 || PK.roleplay.guestAiPerDay !== 2 || PK.roleplay.rate.join() !== '0.82,0.92,1' || Object.keys(PK.roleplay.names).length < 16 || PK.roleplay.errors.length !== 11) bp.push('roleplay');
+    if (PK.roleplay.scripts.length !== 33 || PK.roleplay.guestAiPerDay !== 2 || PK.roleplay.rate.join() !== '0.82,0.92,1' || Object.keys(PK.roleplay.names).length < 16 || PK.roleplay.errors.length !== 11) bp.push('roleplay');
     const JS = x => JSON.stringify(x);
     if (V.data.pron.lessons.some(l => JS(PK.pron.lessons.find(q => q.id === l.id)) !== JS(l)) || JS(V.data.pron.pairs) !== JS(PK.pron.pairs) || V.data.roleplay.some(r => JS(PK.roleplay.scripts.find(q => q.id === r.id)) !== JS(r))) bp.push('data.* differs from the pack');
     if (JS(PK.consts.speakScore) !== JS(V.shared.speak.cal) || JS(PK.speaking.parts) !== JS(V.data.speaking.parts)) bp.push('consts vs vectors');
     if (ST.speaking.bank.length !== 8 || ST.pron.lessons.length !== 8 || ST.roleplay.scripts.length !== 6 || JS(ST.pron.pairs) !== JS(PK.pron.pairs) || ST.speaking.bank.some((b, i) => JS(b) !== JS(PK.speaking.bank[i]))) bp.push('starter is not a subset of the pack');
-    ok(bp.length === 0, `speak-pack.json: ${PK.speaking.bank.length} speaking topics + ${Object.keys(PK.speaking.samples).length} sample answers, 56 pronunciation lessons + pair/coach tables, 31 roleplay scripts + constants; shape = speak.json data.*; starter = 8 topics / 8 lessons / 6 scripts${bp.length ? ' – ' + bp.join('; ') : ''}`);
+    ok(bp.length === 0, `speak-pack.json: ${PK.speaking.bank.length} speaking topics + ${Object.keys(PK.speaking.samples).length} sample answers, 56 pronunciation lessons + pair/coach tables, 33 roleplay scripts + constants; shape = speak.json data.*; starter = 8 topics / 8 lessons / 6 scripts${bp.length ? ' – ' + bp.join('; ') : ''}`);
   }
   // strings: every t() key of the P07 screens (literal calls + keys that arrive as data) is mapped by strings.json
   {
