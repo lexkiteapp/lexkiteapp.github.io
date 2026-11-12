@@ -801,7 +801,7 @@
 "Đến giờ ôn từ vựng IELTS!":"Zeit für Ihre IELTS-Vokabularüberprüfung!",
 "ĐỀ BÀI":"AUFGABE",
 "Đề ngẫu nhiên":"Zufälliges Thema",
-"Đều đặn":"Regelmäßig",
+"Đều đặn":"Stetig",
 "Định nghĩa Oxford Languages · phiên âm UK/US · câu song ngữ · collocation · từ liên quan":"Oxford Languages-Definitionen · UK/US IPA · zweisprachige Beispiele · Kollokationen · verwandte Wörter",
 "Định nghĩa bổ sung":"Weitere Definitionen",
 "Định nghĩa tiếng Anh":"Englische Definitionen",
