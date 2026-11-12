@@ -37,12 +37,11 @@
   const speakIcon = b => { const i = b.querySelector('.material-symbols-outlined'); if (!i) return; i.textContent = 'graphic_eq'; setTimeout(() => { i.textContent = 'volume_up'; }, 800); };
   const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
   const err = view => { view.innerHTML = `<div class="empty"><p>${esc(t('Không tải được – thử lại sau'))}</p><a class="btn" href="#/irregular">${esc(t('Thử lại'))}</a></div>`; };
-  const navHtml = () => (g.ST2 && ST2.shell ? `<div class="lg:hidden">${ST2.shell({ hdr: ST2.hdr(), tabs: ST2.tabs('skills') }).nav}</div>` : '');
   const bodyOn = () => { document.body.classList.add('st', 'v2on'); App.onCleanup && App.onCleanup(() => document.body.classList.remove('st', 'v2on')); };
 
   // ---- lớp class Tailwind (sáng/tối theo Stitch irv-*) ----
-  const ROOT = 'st v2 v2-irregular antialiased min-h-screen flex justify-center lt:bg-[#FFF9F3] lt:text-[#141819] dk:bg-[#091518] dk:text-[#F0FDFA]';
-  const COL = 'w-full max-w-[390px] lg:max-w-[560px] min-h-screen flex flex-col relative pb-28';
+  const ROOT = 'st v2 v2-irregular antialiased';
+  const COL = 'w-full flex flex-col relative pb-6';
   const BTN = 'w-11 h-11 shrink-0 rounded-2xl border-2 flex items-center justify-center active:translate-y-[2px] transition-all lt:bg-[#ffffff] lt:border-[#EDE3D8] lt:shadow-[0_3px_0_0_#E2D5C7] lt:text-[#141819] dk:bg-[#10252B] dk:border-[#234E57] dk:shadow-[0_3px_0_0_#051013] dk:text-[#E2E8F0]';
   const CHIP_ON = 'min-h-[44px] shrink-0 inline-flex items-center px-4 py-2 rounded-full border-[1.5px] font-extrabold text-xs active:translate-y-[1px] transition-transform lt:bg-[#136B66] lt:border-[#136B66] lt:text-[#ffffff] lt:shadow-[0_2px_0_0_#0D4844] dk:bg-[#136B66] dk:border-[#2DD4BF] dk:text-[#ffffff] dk:shadow-[0_2px_0_0_#051013]';
   const CHIP_OFF = 'min-h-[44px] shrink-0 inline-flex items-center px-4 py-2 rounded-full border-[1.5px] font-bold text-xs active:translate-y-[1px] transition-transform lt:bg-[#ffffff] lt:border-[#EDE3D8] lt:text-[#4A3E35] lt:shadow-[0_2px_0_0_#E2D5C7] lt:hover:bg-[#FAF3EB] dk:bg-[#10252B] dk:border-[#234E57] dk:text-[#E2E8F0] dk:shadow-[0_2px_0_0_#051013]';
@@ -77,13 +76,12 @@
   function mount(view, D) {
     const l = D.l, back = S.back && !/^#\/irregular/.test(S.back) ? S.back : '#/grammar';
     const chip = (k, v, label, on, extra) => `<button type="button" data-${k}="${esc(v)}" aria-pressed="${on}" class="${on ? CHIP_ON : CHIP_OFF}">${label}${extra || ''}</button>`;
-    bodyOn();
     view.innerHTML = `<div class="v2s-irregular"><div class="${ROOT}" data-irv="table"><div class="${COL}">
-      <header class="sticky top-0 z-40 w-full px-4 h-16 pt-safe flex items-center justify-between gap-2 backdrop-blur-md border-b lt:bg-[#FFF9F3]/95 lt:border-[#EDE3D8] dk:bg-[#091518]/95 dk:border-[#1B383F]">
+      <header class="w-full h-14 flex items-center justify-between gap-2 border-b border-[var(--line)]">
         <button type="button" data-href="${esc(back)}" aria-label="${esc(t('Quay về'))}" class="${BTN}">${ms('arrow_back', 'text-[22px] rtl:-scale-x-100')}</button>
         <h1 class="text-xl font-extrabold tracking-tight text-center min-w-0 break-words leading-tight">${esc(t('Động từ bất quy tắc'))}</h1>
         <button type="button" id="irvAcc" class="${BTN} text-xs font-extrabold" aria-label="${esc(t('Giọng Anh') + ' / ' + t('Giọng Mỹ'))}"><span lang="en" translate="no" id="irvAccT"></span></button></header>
-      <div class="px-4 pt-3 space-y-4">
+      <div class="pt-3 space-y-4">
         <section aria-label="${esc(t('Động từ bất quy tắc'))}"><div class="relative flex items-center rounded-2xl border-2 ps-3.5 pe-1 py-1 transition-all lt:bg-[#ffffff] lt:border-[#EDE3D8] lt:shadow-[0_3px_0_0_#E2D5C7] lt:focus-within:border-[#136B66] dk:bg-[#0E1E22] dk:border-[#234E57] dk:shadow-[0_3px_0_0_#051013] dk:focus-within:border-[#2DD4BF]">
           ${ms('search', 'me-2 text-[22px] ' + TEAL)}<input id="irvQ" type="search" enterkeyhint="search" autocomplete="off" autocapitalize="off" spellcheck="false" value="${esc(S.q)}" placeholder="${esc(t('Tìm mọi dạng, ví dụ went hoặc gone'))}" aria-label="${esc(t('Tìm mọi dạng, ví dụ went hoặc gone'))}" class="w-full bg-transparent border-none font-medium text-sm focus:ring-0 focus:outline-none p-0 h-11 min-w-0 lt:text-[#141819] lt:placeholder:text-[#6b6159] dk:text-[#F0FDFA] dk:placeholder:text-[#94A3B8]">
           <button type="button" id="irvClr" aria-label="${esc(t('Xóa'))}" class="w-11 h-11 shrink-0 rounded-full flex items-center justify-center ${MUTED}" hidden>${ms('close', 'text-[18px]')}</button></div></section>
@@ -93,8 +91,8 @@
         <div class="flex items-center justify-between gap-2 flex-wrap text-xs font-bold px-1 pt-1"><span class="flex items-center gap-1.5">${ms('format_list_bulleted', 'text-[16px] ' + TEAL)}<span id="irvCnt" role="status" aria-live="polite"></span></span></div>
         <section aria-label="${esc(t('Động từ bất quy tắc'))}" class="pt-1"><div class="grid grid-cols-10 gap-2 ps-3.5 pe-[60px] pb-2 text-[11px] font-extrabold tracking-wider uppercase ${MUTED}" aria-hidden="true"><div class="col-span-4 min-w-0 break-words">${esc(t('Dạng gốc'))}</div><div class="col-span-3 min-w-0 break-words">${esc(t('Quá khứ'))}</div><div class="col-span-3 min-w-0 break-words">${esc(t('Quá khứ phân từ'))}</div></div>
           <div id="irvList" class="space-y-3"></div><p id="irvNone" class="py-8 text-center text-sm font-medium ${MUTED}" hidden>${esc(t('Không có động từ phù hợp.'))}</p></section></div>
-      <div class="sticky bottom-[76px] lg:bottom-4 z-30 px-4 pt-6 mt-auto pointer-events-none lt:bg-gradient-to-t lt:from-[#FFF9F3] lt:via-[#FFF9F3]/90 lt:to-transparent dk:bg-gradient-to-t dk:from-[#091518] dk:via-[#091518]/90 dk:to-transparent"><a id="irvGo" href="#/irregular/practice" class="pointer-events-auto w-full min-h-[52px] py-3.5 px-6 rounded-2xl font-extrabold text-base flex items-center justify-center gap-2 text-center active:translate-y-[2px] transition-all lt:bg-[#E11D48] lt:text-[#ffffff] lt:shadow-[0_4px_0_0_#9F1239] dk:bg-[#E11D48] dk:text-[#ffffff] dk:shadow-[0_4px_0_0_#881337]"><span id="irvGoT"></span>${ms('arrow_forward', 'text-[20px] rtl:-scale-x-100')}</a></div>
-      </div>${navHtml()}</div></div>`;
+      <div class="sticky bottom-[76px] lg:bottom-4 z-30 px-4 pt-6 mt-auto pointer-events-none bg-gradient-to-t from-[var(--bg)] to-transparent"><a id="irvGo" href="#/irregular/practice" class="pointer-events-auto w-full min-h-[52px] py-3.5 px-6 rounded-2xl font-extrabold text-base flex items-center justify-center gap-2 text-center active:translate-y-[2px] transition-all lt:bg-[#E11D48] lt:text-[#ffffff] lt:shadow-[0_4px_0_0_#9F1239] dk:bg-[#E11D48] dk:text-[#ffffff] dk:shadow-[0_4px_0_0_#881337]"><span id="irvGoT"></span>${ms('arrow_forward', 'text-[20px] rtl:-scale-x-100')}</a></div>
+      </div></div></div>`;
     const root = view.querySelector('[data-irv="table"]'), q = $('#irvQ', root), list = $('#irvList', root);
     const setOn = (box, attr, v) => box.querySelectorAll('button').forEach(b => { const on = b.dataset[attr] === v; b.setAttribute('aria-pressed', String(on)); b.className = box.id === 'irvSort' ? (on ? SEG_ON : SEG_OFF) : (on ? CHIP_ON : CHIP_OFF); });
     const paint = () => {
@@ -192,7 +190,7 @@
     const r = arg ? D.map[String(arg).toLowerCase()] : null;
     if (arg && !r) { location.replace('#/irregular'); return; }
     const live = view.querySelector('[data-irv="table"]');
-    if (live && S.rows === D) { bodyOn(); window.scrollTo(0, S.y || 0); } else { S.rows = D; mount(view, D); if (!r) S.pushed = false; }
+    if (live && S.rows === D) { window.scrollTo(0, S.y || 0); } else { S.rows = D; mount(view, D); if (!r) S.pushed = false; }
     if (r) { if (!S.sheet || S.sheet !== r || $('#modal').hidden) openSheet(D, r); } else { S.pushed = false; if (S.sheet && !$('#modal').hidden) UI.closeModal(); S.sheet = null; sheetCss(false); }
     App.onCleanup && App.onCleanup(() => { if (S.sheet && !$('#modal').hidden && !/^#\/irregular\/(?!practice)/.test(location.hash)) UI.closeModal(); sheetCss(false); });
   });
