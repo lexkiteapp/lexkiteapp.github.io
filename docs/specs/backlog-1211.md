@@ -10,7 +10,7 @@
 | 2 | Rung + sắc thái giờ | DONE | #665 (`c79b6577b`) |
 | 3 | Giáo viên cảm xúc | DONE | #829, `web/js/teacher-mood.js` |
 | 4 | % tiến độ thẻ | PARTIAL | #823/#826 (Today/Path) — cần xác nhận `st/v2/path.js` hiện % |
-| 5 | Nhập PDF/ePub/link → bộ thẻ | PARTIAL | M1 DONE #1167 (`cpack/importdeck-app`, cờ `importdeck` TẮT); còn `/api/readable` (link) + AI điền nghĩa, nhãn nguồn thẻ nhập |
+| 5 | Nhập PDF/ePub/link → bộ thẻ | PARTIAL | M1 DONE #1167 (`cpack/importdeck-app`, cờ `importdeck` TẮT); nhãn nguồn 'doc' #1202; M2 `/api/readable` (link, chống SSRF) + AI điền nghĩa (quota `import`) xong, cờ vẫn TẮT – còn bật cờ qua cổng |
 | 6 | Tab mới câu đố 10 s | DONE | #664; E2E sửa #852 |
 | 7 | Kiểm tra đầu vào vào luồng mới | DONE | #584 mời placement |
 | 8 | Nhập vai + shadowing | DONE | #1136: 2 tình huống mới + `pron/shadow.js` (nói đuổi liên tục); chấm mức âm chờ mô hình thiết bị `Gop` |
