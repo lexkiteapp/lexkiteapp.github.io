@@ -287,7 +287,7 @@ quiz: [
 P.push({
 id: 'stress-shift', group: 'stress', ipa: '/ˈfəʊtəɡrɑːf/ → /fəˈtɒɡrəfi/', title: 'Trọng âm “nhảy” trong họ từ', emoji: '🦘', level: 'B2', titleEn: "Stress Shift in Word Families",
 how: 'Khi thêm hậu tố, trọng âm có thể di chuyển sang âm tiết khác – và nguyên âm thay đổi theo: âm tiết được nhấn có nguyên âm đầy đủ, âm tiết mất trọng âm bị giảm thành /ə/. Ví dụ: ˈPHOtograph /ˈfəʊtəɡrɑːf/ → phoˈTOgraphy /fəˈtɒɡrəfi/ → photoˈGRAphic /ˌfəʊtəˈɡræfɪk/. Chữ “o” đầu tiên đổi từ /əʊ/ thành /ə/ rồi lại /əʊ/.',
-howEn: "When a suffix is added, stress often moves to a different syllable. The previously stressed syllable reduces, while the newly stressed syllable gets a full vowel. In British English the first “o” of photograph is /əʊ/ (/ˈfəʊtəɡrɑːf/), reduces to /ə/ in photography (/fəˈtɒɡrəfi/), and is /əʊ/ again in photographic (/ˌfəʊtəˈɡræfɪk/), where it has secondary stress. Keeping the stress of the base word (PHOtography) is an error that listeners notice easily.",
+howEn: "When a suffix is added, stress often moves to a different syllable. The previously stressed syllable often reduces (unless it keeps secondary stress), while the newly stressed syllable gets a full vowel. In British English the first “o” of photograph is /əʊ/ (/ˈfəʊtəɡrɑːf/), reduces to /ə/ in photography (/fəˈtɒɡrəfi/), and is /əʊ/ again in photographic (/ˌfəʊtəˈɡræfɪk/), where it has secondary stress. Keeping the stress of the base word (PHOtography) is an error that listeners notice easily.",
 rules: [
 { label: '-y, -ity, -ism (sau gốc nhiều âm tiết)', when: 'trọng âm thường lùi về âm thứ 3 từ cuối', ex: ['phoˈtography', 'eˈconomy', 'deˈmocracy'] },
 { label: '-ic, -ical', when: 'nhấn ngay trước hậu tố', ex: ['photoˈgraphic', 'ecoˈnomic', 'demoˈcratic'] },
@@ -296,7 +296,7 @@ rules: [
 ],
 vn: 'Người học thường “giữ nguyên” trọng âm của từ gốc cho cả họ từ: đọc “PHOtography”, “POlitical”, “ECOnomic”. Đây là lỗi đặc biệt dễ nghe thấy trong IELTS vì các từ economy/economic, technology/technological xuất hiện liên tục. Cách sửa: học họ từ theo bộ, đọc to cả bộ liền nhau và vỗ tay theo trọng âm.',
 tip: 'Mẹo: Đếm từ cuối lên. -y/-ity: nhấn âm thứ 3 từ cuối; -ic/-ian/-tion: nhấn âm thứ 2 từ cuối (ngay trước đuôi).',
-tipEn: "Tip: Count back from the end. -y/-ity usually put the stress on the third syllable from the end (phoˈtography, eˈconomy); -ic/-ian/-tion usually put it on the syllable just before the ending (photoˈgraphic, poliˈtician). IPA here is British; learn each word family as a set.",
+tipEn: "Tip: Count back from the end. -graphy/-logy/-ity usually put the stress on the third syllable from the end (phoˈtography, eˈconomy); -ic/-ian/-tion usually put it on the syllable just before the ending (photoˈgraphic, poliˈtician). IPA here is British; learn each word family as a set.",
 words: [
 { w: 'photograph', ipa: '/ˈfəʊtəɡrɑːf/', note: 'Ooo' },
 { w: 'photography', ipa: '/fəˈtɒɡrəfi/', note: 'oOoo' },
