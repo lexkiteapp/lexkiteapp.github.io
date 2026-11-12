@@ -1179,8 +1179,8 @@ html.has-banner .main { padding-bottom: calc(60px + env(safe-area-inset-bottom))
 html.native .crumb { display: none; }
 @media (max-width: 640px) {
   .modal { place-items: end stretch; padding: 0; }
-  .modal-box { position: relative; width: 100%; max-height: min(90dvh, 90vh); border-radius: 24px 24px 0 0; padding: 1.9rem 1.2rem calc(1.2rem + env(safe-area-inset-bottom)); overscroll-behavior: contain; animation: sheetUp .28s cubic-bezier(.2,.8,.2,1); }
-  .modal-box::before { content: ""; position: absolute; top: .55rem; left: 50%; width: 40px; height: 5px; margin-left: -20px; border-radius: 3px; background: var(--line); }
+  .modal-box { position: relative; width: 100%; max-height: min(90dvh, 90vh); border-radius: var(--r-xl) var(--r-xl) 0 0; padding: var(--sp-6) var(--sp-4) calc(var(--sp-4) + env(safe-area-inset-bottom)); overscroll-behavior: contain; animation: sheetUp .28s cubic-bezier(.2,.8,.2,1); }
+  .modal-box::before { content: ""; position: absolute; top: .55rem; left: 50%; width: 40px; height: 5px; transform: translateX(-50%); border-radius: 99px; background: var(--line); }
   .modal-box.drag { animation: none; } .modal-box.back { transition: transform .22s cubic-bezier(.2,.8,.2,1); }
 }
 @media (prefers-reduced-motion: reduce) { .modal-box { animation: none; } }

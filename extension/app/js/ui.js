@@ -129,6 +129,11 @@
   // Trả focus: phần tử cũ đã bị vẽ lại (vd. nút cuối bài học) → tiêu đề/nút chính của trang thay vì rơi về <body> (journey-e2e)
   const closeModal = () => { if ($('#modal').hidden) return; $('#modal').hidden = true; const f = lastFocus && lastFocus.isConnected && lastFocus !== document.body ? lastFocus : $('#view .btn.primary, #view h1, #view h2'); const put = el => { if (!el || !el.focus) return false; if (!el.matches('a[href],button,input,select,textarea,[tabindex]')) el.tabIndex = -1; try { el.focus({ preventScroll: true }); } catch (e) { /* bỏ qua */ } return document.activeElement === el; };
     if (!put(f)) put($('#view h1, #view h2') || $('#view')); };
+  // Vuốt xuống từ mép trên hộp thoại (bottom sheet trên điện thoại) → đóng; thả giữa chừng thì trượt về chỗ cũ
+  { let y0 = null, dy = 0; const box = () => document.getElementById('modalBox');
+    document.addEventListener('touchstart', e => { const m = box(); y0 = null; if (!m || !m.contains(e.target) || innerWidth > 640 || m.scrollTop > 0) return; const y = e.touches[0].clientY; if (y - m.getBoundingClientRect().top < 44) { y0 = y; dy = 0; } }, { passive: true });
+    document.addEventListener('touchmove', e => { const m = box(); if (y0 == null || !m) return; dy = Math.max(0, e.touches[0].clientY - y0); m.classList.add('drag'); m.style.transform = `translateY(${dy}px)`; }, { passive: true });
+    document.addEventListener('touchend', () => { const m = box(); if (y0 == null || !m) return; y0 = null; m.classList.remove('drag'); m.classList.add('back'); m.style.transform = ''; setTimeout(() => m.classList.remove('back'), 240); if (dy > 90) closeModal(); }); }
   document.addEventListener('keydown', e => {
     if ($('#modal').hidden) return;
     if (e.key === 'Escape') return closeModal();
