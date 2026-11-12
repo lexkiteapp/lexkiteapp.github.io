@@ -40513,5 +40513,35 @@
     "ar": "لقد هزمت الشبح! 🎉",
     "ru": "Ты победил призрака! 🎉",
     "tr": "Hayaleti yendin! 🎉"
+  },
+  "Từ tài liệu": {
+    "es": "De un documento",
+    "pt": "De um documento",
+    "fr": "D'un document",
+    "de": "Aus einem Dokument",
+    "id": "Dari dokumen",
+    "th": "จากเอกสาร",
+    "zh": "来自文档",
+    "ja": "ドキュメントから",
+    "ko": "문서에서",
+    "hi": "दस्तावेज़ से",
+    "ar": "من مستند",
+    "ru": "Из документа",
+    "tr": "Belgeden"
+  },
+  "Nhập từ văn bản, PDF, ePub, phụ đề": {
+    "es": "Importado de texto, PDF, ePub y subtítulos",
+    "pt": "Importado de texto, PDF, ePub e legendas",
+    "fr": "Importé depuis du texte, PDF, ePub et sous-titres",
+    "de": "Aus Text, PDF, ePub und Untertiteln importiert",
+    "id": "Diimpor dari teks, PDF, ePub, dan subtitel",
+    "th": "นำเข้าจากข้อความ PDF ePub และคำบรรยาย",
+    "zh": "从文本、PDF、ePub 和字幕导入",
+    "ja": "テキスト・PDF・ePub・字幕から取り込み",
+    "ko": "텍스트, PDF, ePub, 자막에서 가져옴",
+    "hi": "टेक्स्ट, PDF, ePub और सबटाइटल से आयात किया गया",
+    "ar": "مستورد من نص وPDF وePub وترجمات",
+    "ru": "Импорт из текста, PDF, ePub и субтитров",
+    "tr": "Metin, PDF, ePub ve altyazıdan içe aktarıldı"
   }
 }
