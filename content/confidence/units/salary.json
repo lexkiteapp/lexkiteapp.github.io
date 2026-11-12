@@ -174,6 +174,10 @@
           [
             "excited|thank|happy|great",
             "We're excited too."
+          ],
+          [
+            "pleased|delighted|honored|wonderful|glad|love|surprised",
+            "We're glad to hear that."
           ]
         ]
       },
@@ -184,6 +188,10 @@
           [
             "research|hoping|closer|range|78|75|80",
             "I see. That's above our budget, I'm afraid."
+          ],
+          [
+            "low|lower|experience|skills?|market|worth|expected|expecting|deserve|raise",
+            "I understand. Let me see what we can do."
           ]
         ]
       },
@@ -194,6 +202,10 @@
           [
             "vacation|days|benefits|flexib|remote|training|talk about",
             "We could add five more days."
+          ],
+          [
+            "bonus|review|raise|stock|equity|insurance|six months|promotion",
+            "That's something we can consider."
           ]
         ]
       },
@@ -204,6 +216,10 @@
           [
             "think it over|day|time|fair|accept",
             "Of course."
+          ],
+          [
+            "family|wife|husband|partner|talk to|discuss|sleep on",
+            "Of course, that's a big decision."
           ]
         ]
       }

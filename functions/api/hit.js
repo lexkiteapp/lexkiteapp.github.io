@@ -24,6 +24,7 @@ import { once } from './_schema.js';
 import { adRows, guardOf } from './_ads.js';
 import { purgeConfig } from './config.js';
 import { landKey, normRef } from './_cpm.js';
+import { DDL as FUN_DDL, attrStmts, funStmt } from './_funnel.js';
 const QUIZ_EV = ['quiz_view', 'quiz_done', 'quiz_cta'];
 const RET_EV = ['ret_on_seen', 'ret_off_seen', 'ret_on_d7', 'ret_off_d7']; // thử nghiệm cờ ret (web/js/app.js retTrack): nhóm bật/đối chứng – đã thấy / chuỗi chạm 7 → kind 'ret:<ev>' (D7 = d7/seen)
 const UX1_EV = ['on', 'off'].flatMap(a => ['seen', 'd1', 'd7'].map(e => `ux1_${a}_${e}`)); // thử nghiệm cờ ux1 (web/js/app.js ux1Track) → kind 'ux1:<ev>' (D1 = d1/seen, D7 = d7/seen)
@@ -125,7 +126,7 @@ const NOT_ROUTE = new Set(['admin']); // trang quản trị không phải "trang
 
 export async function setup(db) {
   if (ready) return;
-  await once(db, 'hit', 1, async () => { // lược đồ: chỉ chạy khi đổi phiên bản (_schema.js) – sửa CREATE/ALTER ở đây thì TĂNG số 1
+  await once(db, 'hit', 2, async () => { // lược đồ: chỉ chạy khi đổi phiên bản (_schema.js) – sửa CREATE/ALTER ở đây thì TĂNG số 1
     await db.batch([
       db.prepare('CREATE TABLE IF NOT EXISTS sessions (sid TEXT PRIMARY KEY, vid TEXT, day TEXT NOT NULL, at INTEGER NOT NULL, country TEXT, ref TEXT, dev TEXT, lang TEXT, plat TEXT, path TEXT, dur INTEGER, pages INTEGER, ret INTEGER) WITHOUT ROWID'),
       db.prepare('CREATE INDEX IF NOT EXISTS sessions_day ON sessions (day)'),
@@ -135,6 +136,7 @@ export async function setup(db) {
       db.prepare('CREATE TABLE IF NOT EXISTS ext_events (day TEXT NOT NULL, kind TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (day, kind)) WITHOUT ROWID'),
       db.prepare('CREATE TABLE IF NOT EXISTS vid_uid (vid TEXT PRIMARY KEY, uid TEXT NOT NULL, at INTEGER NOT NULL) WITHOUT ROWID'),
       db.prepare('CREATE TABLE IF NOT EXISTS hit_meta (k TEXT PRIMARY KEY, at INTEGER) WITHOUT ROWID'),
+      ...FUN_DDL.map(q => db.prepare(q)),
     ]);
     await db.prepare('ALTER TABLE sessions ADD COLUMN lcp INTEGER').run().catch(() => {}); // LCP thật (ms) – thêm sau
     await db.prepare('ALTER TABLE sessions ADD COLUMN last INTEGER').run().catch(() => {}); // lần cuối nhận tín hiệu (ms) – "đang online"
@@ -218,8 +220,11 @@ export async function onRequestPost({ request, env }) {
         const n = Math.min(Math.floor(+v || 0), 200); if (n > 0 && route(k)) batch.push(env.DB.prepare('INSERT INTO pageviews_day (day, path, n) VALUES (?1, ?2, ?3) ON CONFLICT (day, path) DO UPDATE SET n = n + ?3').bind(day, k, n));
       }
       await env.DB.batch(batch);
+      if (!bot && !late && (b.at || b.fl) && !(await limit('at:' + await sha('ip|' + (request.headers.get('CF-Connecting-IP') || '?')), 40, 3600))) { // phễu kênh (_funnel.js)
+        const st = attrStmts(env.DB, { vid, day, ret: b.ret, at: b.at, fl: b.fl, plat: b.plat, lang: b.lang }); if (st.length) await env.DB.batch(st);
+      }
       // Lưu giữ: ~1/500 lượt ghi phiên dọn số liệu quá 400 ngày (Quản trị xem tối đa 365 ngày) – chính sách riêng tư "chỉ giữ khi cần"
-      if (Math.random() < 0.002) await env.DB.batch([env.DB.prepare('DELETE FROM sessions WHERE day < ?').bind(dayOf(now - 400 * DAY)), /* theo chỉ mục sessions_day – at không có chỉ mục → quét cả bảng (docs/CAPACITY.md) */ env.DB.prepare('DELETE FROM pageviews_day WHERE day < ?').bind(dayOf(now - 400 * DAY))]);
+      if (Math.random() < 0.002) await env.DB.batch([env.DB.prepare('DELETE FROM sessions WHERE day < ?').bind(dayOf(now - 400 * DAY)), /* theo chỉ mục sessions_day – at không có chỉ mục → quét cả bảng (docs/CAPACITY.md) */ env.DB.prepare('DELETE FROM vid_attr WHERE day < ?').bind(dayOf(now - 400 * DAY)), env.DB.prepare('DELETE FROM pageviews_day WHERE day < ?').bind(dayOf(now - 400 * DAY))]);
     } else if (b.t === 'l') {
       // Khách từ ngoài vào trang tĩnh: sessions chỉ ghi app nên lượt Google vào blog/từ điển trước đây không để lại dấu. Không lưu URL/IP/vid; 1 dòng ghi/lượt, số dòng/ngày theo lượng khách thật.
       if (env.HIT_LAND === '0' || devOrigin(request)) return ok();
@@ -235,6 +240,7 @@ export async function onRequestPost({ request, env }) {
         if (lang) batch.push(env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, `cta:${b.ev}:lang:${lang}`));
         const page = CTA_PAGES.includes(String(b.page || '').toLowerCase()) ? String(b.page).toLowerCase() : '';
         if (page) batch.push(env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, `cta:${b.ev}:page:${page}`));
+        const fs_ = b.ev.startsWith('go_') && funStmt(env.DB, today, b.ev, b.at); if (fs_) batch.push(fs_);
         await env.DB.batch(batch);
       } else {
         await env.DB.prepare('INSERT INTO ext_events (day, kind, n) VALUES (?1, ?2, 1) ON CONFLICT (day, kind) DO UPDATE SET n = n + 1').bind(today, ((CTA_EV.includes(b.ev) || INST_EV.includes(b.ev)) ? 'cta:' : RET_EV.includes(b.ev) ? 'ret:' : UX1_EV.includes(b.ev) ? 'ux1:' : HAB_EV.includes(b.ev) ? 'hab:' : 'blog:') + b.ev).run();

@@ -1633,12 +1633,15 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     };
     // Nguồn thật: vào /app/ thường đi qua trang tĩnh nên document.referrer là chính mình → mất Google/blog. Ưu tiên: nguồn ngoài trực tiếp → nguồn ngoài trang tĩnh ghi lại ≤ 30 phút (lk.src, site-layout SRC_JS) → site:<đoạn đường dẫn> (máy chủ lọc, xem _cpm.js normRef)
     const ref = (() => { try { const r = document.referrer, u = r && new URL(r); if (u && u.hostname !== location.hostname) return r; const o = JSON.parse(localStorage.getItem('lk.src') || '0'); if (o && o.h && Date.now() - o.t < 18e5) return 'https://' + o.h; if (u) { const a = u.pathname.split('/').filter(Boolean); return 'site:' + ((/^[a-z]{2}$/.test(a[0]) ? a[1] : a[0]) || ''); } } catch (e) { /* bỏ qua */ } return ''; })();
+    // Phễu kênh (docs/specs/funnel.md): utm_source/medium/campaign + c (mã kênh/bài) hợp lệ → nhớ trên máy; gửi 1 lần ở beacon đầu phiên (máy chủ ghi lượt đầu của máy mới); fl = đã học xong bài đầu
+    let atSent = 0; const at = (() => { try { const q = new URLSearchParams(location.search), o = {}, g = (k, j) => { const v = q.get(k); if (/^[\w.~-]{1,40}$/.test(v || '')) o[j] = v; }; g('utm_source', 's'); g('utm_medium', 'm'); g('utm_campaign', 'c'); g('c', 'k'); if (o.s || o.k) localStorage.setItem('lk.at', JSON.stringify(o)); return JSON.parse(localStorage.getItem('lk.at') || 'null') || undefined; } catch (e) { /* bỏ qua */ } })();
+    const ax = () => { const o = {}; if (!at) return o; if (!atSent) { atSent = 1; o.at = at; } try { if (!localStorage.getItem('lk.fl') && (Object.values(state.stats.days).some(n => n > 0) || Object.values((state.game || {}).days || {}).some(x => x && x.xp > 0))) { o.fl = 1; localStorage.setItem('lk.fl', '1'); } } catch (e) { /* bỏ qua */ } return o; };
     let lastSent = 0, pv = { [path]: 1 }; // pv: lượt xem từng trang kể từ lần gửi trước (máy chủ cộng dồn vào pageviews_day)
     const flush = (force, hb) => { // hb: nhịp "đang online" 3 phút – máy chủ có thể chỉ ghi Analytics Engine (lượt xem dồn sang lần gửi sau)
       if (since) { dur += (Date.now() - since) / 1000; since = document.visibilityState === 'visible' ? Date.now() : 0; }
       if (!inSample || (!force && Date.now() - lastSent < 60000)) return;
       lastSent = Date.now(); const d = pv; if (!hb) pv = {};
-      (document.visibilityState === 'visible' ? sendS : send)({ t: 's', sid, vid, ret, path, cur: cur(), ref, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages, lcp, pv: Object.keys(d).length ? d : undefined, hb, t0 });
+      (document.visibilityState === 'visible' ? sendS : send)({ t: 's', sid, vid, ret, path, cur: cur(), ref, lang: window.I18N ? I18N.lang() : '', dev, plat, dur: Math.round(dur), pages, lcp, pv: Object.keys(d).length ? d : undefined, hb, t0, ...ax() });
     };
     addEventListener('hashchange', () => { pages++; const r = cur(); if (r in pv || Object.keys(pv).length < 20) pv[r] = (pv[r] || 0) + 1; });
     // "Đang online": gửi 1 lần sau 15 giây rồi nhịp 3 phút/lần khi tab đang hiển thị (ẩn tab → không gửi)
