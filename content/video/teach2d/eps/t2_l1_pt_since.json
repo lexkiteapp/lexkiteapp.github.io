@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_since",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Live here since when?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I live here since 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have lived here since 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Since needs have plus a past form.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Have! I have worked here since May.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I live here since 2020.",
+  "right": "I have lived here since 2020.",
+  "strike": "live",
+  "why": "Since needs have plus a past form.",
+  "memory": "Since means have lived.",
+  "quiz": {
+   "stem": "I ___ worked here since May.",
+   "options": [
+    "have",
+    "am"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “I live here since”?",
+   "tip": "Com “since” usamos o present perfect: “I have lived”, não “I live”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I live here since 2020.”. O certo é “I have lived here since 2020.”. Em português usamos o presente, mas o inglês pede outro tempo. Ouça o Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “have”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#inglesfacil",
+    "#falaringles",
+    "#inglesdodia",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I live here since”?",
+   "tip": "With “since” we use the present perfect: “I have lived”, not “I live”.",
+   "caption": "Watch out for this common mistake! Many people say “I live here since 2020.”. The right way is “I have lived here since 2020.”. Portuguese uses the present, but English needs another tense. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “I live here since”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Você diz “I live here since”?",
+  "keyword": "I have lived here since 2020.",
+  "value": "Com “since” usamos o present perfect: “I have lived”, não “I live”.",
+  "hashtags": [
+   "#inglesfacil",
+   "#falaringles",
+   "#inglesdodia",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “I live here since”?",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “I live here since 2020.”. O certo é “I have lived here since 2020.”. Em português usamos o presente, mas o inglês pede outro tempo. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesfacil #falaringles #inglesdodia #lexkite",
+    "tags": [
+     "I have lived here since 2020.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I live here since 2020.”. O certo é “I have lived here since 2020.”. Em português usamos o presente, mas o inglês pede outro tempo. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I live here since 2020.”. O certo é “I have lived here since 2020.”. Em português usamos o presente, mas o inglês pede outro tempo. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#inglesfacil",
+     "#falaringles",
+     "#inglesdodia",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “I live here since”? #inglesfacil #falaringles #inglesdodia"
+   }
+  },
+  "first_comment": "Resposta: “have”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

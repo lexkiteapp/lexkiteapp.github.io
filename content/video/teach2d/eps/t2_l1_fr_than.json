@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_than",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Than, not that!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is taller that me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is taller than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After taller, use than.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Than! He is older than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is taller that me.",
+  "right": "She is taller than me.",
+  "strike": "that",
+  "why": "After taller, use than.",
+  "memory": "Taller than.",
+  "quiz": {
+   "stem": "He is older ___ me.",
+   "options": [
+    "that",
+    "than"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Plus grand que » : “than”",
+   "tip": "On traduit « que » par “than” dans une comparaison, pas par “that”.",
+   "caption": "Tu dis “She is taller that me.” ? Dans une comparaison, c'est “than” ! Dis “She is taller than me.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
+   "comment": "Réponse : “than”. Dans une comparaison, « que » devient “than”. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Taller that”: wrong!",
+   "tip": "In a comparison, « que » becomes “than”, not “that”.",
+   "caption": "Do you say “She is taller that me.”? In a comparison, use “than”! Say “She is taller than me.”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Plus grand que » : “than”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "« Plus grand que » : “than”",
+  "keyword": "She is taller than me.",
+  "value": "On traduit « que » par “than” dans une comparaison, pas par “that”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "« Plus grand que » : “than”",
+    "description": "Tu dis “She is taller that me.” ? Dans une comparaison, c'est “than” ! Dis “She is taller than me.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "She is taller than me.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Tu dis “She is taller that me.” ? Dans une comparaison, c'est “than” ! Dis “She is taller than me.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Tu dis “She is taller that me.” ? Dans une comparaison, c'est “than” ! Dis “She is taller than me.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Plus grand que » : “than” #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “than”. Dans une comparaison, « que » devient “than”. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

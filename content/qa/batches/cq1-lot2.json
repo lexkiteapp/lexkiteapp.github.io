@@ -1,0 +1,28 @@
+{
+ "id": "cq1-lot2-20261111",
+ "source": "usage",
+ "n": 60,
+ "checked": [
+  {
+   "id": "usage:prep-verb:subscribe",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-verb:vote",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-verb:warn",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-verb:write",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-verb:happen",
+   "ok": true
+  }
+ ],
+ "status": "pending"
+}

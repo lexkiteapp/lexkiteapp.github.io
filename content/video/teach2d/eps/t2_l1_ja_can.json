@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_can",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can plus verb!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She can to speak English.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She can speak English.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After can, use the plain verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Speak! I can speak English.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She can to speak English.",
+  "right": "She can speak English.",
+  "strike": "can to speak",
+  "why": "After can, use the plain verb.",
+  "memory": "She can speak English.",
+  "quiz": {
+   "stem": "I can ___ English.",
+   "options": [
+    "speak",
+    "to speak"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "can のあとに to を入れてない？",
+   "tip": "can のあとは動詞の原形だけ。to はいりません。",
+   "caption": "“She can to speak English.”と言っていませんか？😅 can のような助動詞のあとには、to なしの動詞の原形が続きます。be able to と混ざらないように。 “She can speak English.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“speak”。can のあとは原形。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you put “to” after can?",
+   "tip": "After can, use the plain verb. No to.",
+   "caption": "Do you say “She can to speak English.”? 😅 After a modal like can, the base verb follows without to. Do not mix it with be able to. The natural way is “She can speak English.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "can のあとに to を入れてない？"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "can のあとに to を入れてない？",
+  "keyword": "She can speak English.",
+  "value": "can のあとは動詞の原形だけ。to はいりません。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "can のあとに to を入れてない？",
+    "description": "“She can to speak English.”と言っていませんか？😅 can のような助動詞のあとには、to なしの動詞の原形が続きます。be able to と混ざらないように。 “She can speak English.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "She can speak English.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“She can to speak English.”と言っていませんか？😅 can のような助動詞のあとには、to なしの動詞の原形が続きます。be able to と混ざらないように。 “She can speak English.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“She can to speak English.”と言っていませんか？😅 can のような助動詞のあとには、to なしの動詞の原形が続きます。be able to と混ざらないように。 “She can speak English.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "can のあとに to を入れてない？ #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“speak”。can のあとは原形。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

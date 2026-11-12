@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_listen",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Listen to music!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I listen music every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I listen to music every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Listen needs to before the thing.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! I listen to music.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I listen music every day.",
+  "right": "I listen to music every day.",
+  "strike": "listen music",
+  "why": "Listen needs to before the thing.",
+  "memory": "I listen to music every day.",
+  "quiz": {
+   "stem": "I listen ___ music.",
+   "options": [
+    "to",
+    "at"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "「音楽を聞く」で to が消えてる",
+   "tip": "listen は「listen to ～」の形。to を忘れずに！",
+   "caption": "“I listen music every day.”と言っていませんか？😅 日本語の「音楽を聞く」には「を」しかないので、to が抜けがち。listen のあとは to が必要です。 “I listen to music every day.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“to”。listen のあとは to。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is your “to” missing after listen?",
+   "tip": "Listen always needs to before the thing you hear.",
+   "caption": "Do you say “I listen music every day.”? 😅 Japanese uses wo only, so to gets lost. English needs listen to. The natural way is “I listen to music every day.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「音楽を聞く」で to が消えてる"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "「音楽を聞く」で to が消えてる",
+  "keyword": "I listen to music every day.",
+  "value": "listen は「listen to ～」の形。to を忘れずに！",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "「音楽を聞く」で to が消えてる",
+    "description": "“I listen music every day.”と言っていませんか？😅 日本語の「音楽を聞く」には「を」しかないので、to が抜けがち。listen のあとは to が必要です。 “I listen to music every day.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I listen to music every day.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I listen music every day.”と言っていませんか？😅 日本語の「音楽を聞く」には「を」しかないので、to が抜けがち。listen のあとは to が必要です。 “I listen to music every day.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I listen music every day.”と言っていませんか？😅 日本語の「音楽を聞く」には「を」しかないので、to が抜けがち。listen のあとは to が必要です。 “I listen to music every day.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「音楽を聞く」で to が消えてる #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“to”。listen のあとは to。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

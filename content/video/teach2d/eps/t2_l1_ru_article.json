@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_article",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do you forget a?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have dog.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have a dog.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say a before one thing.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "A! She is a doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have dog.",
+  "right": "I have a dog.",
+  "strike": "have dog",
+  "why": "Say a before one thing.",
+  "memory": "A dog.",
+  "quiz": {
+   "stem": "She is ___ doctor.",
+   "options": [
+    "a",
+    "no word"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Забываешь “a”? Это частая беда",
+   "tip": "Перед одним предметом ставь a: “I have a dog”.",
+   "caption": "Ты тоже говоришь “I have dog.”? 😅 В русском нет артиклей, поэтому “a” легко потерять: “I have a dog”. Правильно: “I have a dog.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “a”. Нет артиклей — частая беда. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you forget a?",
+   "tip": "Before one thing, put a: “I have a dog”.",
+   "caption": "Do you also say “I have dog.”? 😅 Russian has no articles, so “a” is easy to lose: “I have a dog”. Correct: “I have a dog.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Забываешь “a”? Это частая беда"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Забываешь “a”? Это частая беда",
+  "keyword": "I have a dog.",
+  "value": "Перед одним предметом ставь a: “I have a dog”.",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Забываешь “a”? Это частая беда",
+    "description": "Ты тоже говоришь “I have dog.”? 😅 В русском нет артиклей, поэтому “a” легко потерять: “I have a dog”. Правильно: “I have a dog.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "I have a dog.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I have dog.”? 😅 В русском нет артиклей, поэтому “a” легко потерять: “I have a dog”. Правильно: “I have a dog.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Ты тоже говоришь “I have dog.”? 😅 В русском нет артиклей, поэтому “a” легко потерять: “I have a dog”. Правильно: “I have a dog.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Забываешь “a”? Это частая беда #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “a”. Нет артиклей — частая беда. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}
