@@ -223,7 +223,7 @@
     },
     "answer_say": "It! It is cold today.",
     "native": {
-     "hook": "Thiếu “it” khi nói thời tiết!",
+     "hook": "Tiếng Anh cần “it” cho thời tiết!",
      "tip": "Tiếng Việt có thể bỏ chủ ngữ (“nóng quá”). Tiếng Anh luôn cần “it”.",
      "caption": "Bạn có hay nói “Is very hot today.” không? 😅 Câu tiếng Anh luôn cần chủ ngữ: “It is very hot today.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
      "comment": "Đáp án: “It”. Nói thời tiết hôm nay bắt đầu bằng “It is…” nhé. Luyện thêm miễn phí tại đây: {link}",
@@ -343,7 +343,7 @@
     },
     "answer_say": "Some! Give me some advice.",
     "native": {
-     "hook": "“Advices” không có đâu!",
+     "hook": "Đừng thêm “s” vào advice!",
      "tip": "“Advice” là danh từ không đếm được nên không thêm -s và không có “an”.",
      "caption": "Bạn có hay nói “She gave me many advices.” không? 😅 “Advice” không bao giờ thêm -s: “She gave me some advice.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
      "comment": "Đáp án: “some”. Xin một lời khuyên bằng “some advice” nhé. Luyện thêm miễn phí tại đây: {link}",
@@ -355,8 +355,8 @@
      ]
     },
     "en": {
-     "hook": "Đừng thêm “s” vào advice!",
-     "tip": "“Advice” is uncountable, so no -s.",
+     "hook": "Do not add “s” to advice!",
+     "tip": "“Advice” is uncountable, so no -s and no “an”.",
      "caption": "Do you often say “She gave me many advices.”? “Advice” never takes -s: “She gave me some advice.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
    }
@@ -423,7 +423,7 @@
     },
     "answer_say": "Do! What do you eat?",
     "native": {
-     "hook": "Hỏi “Where you live?” sai chỗ nào?",
+     "hook": "Câu hỏi thiếu “do”!",
      "tip": "Tiếng Anh cần trợ động từ “do” trong câu hỏi. Tiếng Việt chỉ đổi giọng.",
      "caption": "Bạn có hay nói “Where you live?” không? 😅 Câu hỏi cần thêm “do”: “Where do you live?” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
      "comment": "Đáp án: “do”. Hỏi bạn bè một câu bắt đầu bằng “Where do you…” nhé. Luyện thêm miễn phí tại đây: {link}",
@@ -435,7 +435,7 @@
      ]
     },
     "en": {
-     "hook": "Câu hỏi thiếu “do”!",
+     "hook": "Questions are missing “do”!",
      "tip": "English questions need “do”. Vietnamese just changes the tone.",
      "caption": "Do you often say “Where you live?”? Questions need “do”: “Where do you live?” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
@@ -463,7 +463,7 @@
     },
     "answer_say": "Home! I go home now.",
     "native": {
-     "hook": "Về nhà: “go to home”?",
+     "hook": "Đừng nói “go to home”!",
      "tip": "“Home” là trạng từ nên không cần “to”. Tiếng Việt “về nhà” dễ gây nhầm.",
      "caption": "Bạn có hay nói “I go to home.” không? 😅 “Home” không đi với “to”: “I go home.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
      "comment": "Đáp án: “home”. Nói “I go home” khi bạn tan làm nhé. Luyện thêm miễn phí tại đây: {link}",
@@ -475,8 +475,8 @@
      ]
     },
     "en": {
-     "hook": "Đừng nói “go to home”!",
-     "tip": "“Home” works like an adverb, so no “to”.",
+     "hook": "Do not say “go to home”!",
+     "tip": "“Home” works like an adverb, so no “to”. Vietnamese “về nhà” is easy to confuse.",
      "caption": "Do you often say “I go to home.”? “Home” takes no “to”: “I go home.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
     }
    }
@@ -623,7 +623,7 @@
     },
     "answer_say": "Do! Yes, I do.",
     "native": {
-     "hook": "Trả lời ngắn: “Yes, I like”?",
+     "hook": "Trả lời ngắn thiếu “do”!",
      "tip": "Trả lời ngắn cần trợ động từ: “Yes, I do.” Tiếng Việt chỉ lặp lại động từ.",
      "caption": "Bạn có hay nói “Do you like tea? Yes, I like.” không? 😅 Trả lời ngắn dùng “do”: “Do you like tea? Yes, I do.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
      "comment": "Đáp án: “do”. Trả lời bạn bè bằng “Yes, I do” hoặc “No, I don't”. Luyện thêm miễn phí tại đây: {link}",
@@ -635,7 +635,7 @@
      ]
     },
     "en": {
-     "hook": "Trả lời ngắn thiếu “do”!",
+     "hook": "Short answers are missing “do”!",
      "tip": "Short answers need “do”. Vietnamese just repeats the verb.",
      "caption": "Do you often say “Do you like tea? Yes, I like.”? Short answers use “do”: “Do you like tea? Yes, I do.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
     }
@@ -783,7 +783,7 @@
     },
     "answer_say": "She! She is a nurse.",
     "native": {
-     "hook": "Mẹ mà gọi “he”?",
+     "hook": "Nói về mẹ phải là “she”!",
      "tip": "Tiếng Việt dùng “ông/bà/cô…” theo ngữ cảnh. Tiếng Anh dùng he/she theo giới tính.",
      "caption": "Bạn có hay nói “My mom is nice. He cooks well.” không? 😅 Mẹ, chị, cô dùng “she”: “My mom is nice. She cooks well.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
      "comment": "Đáp án: “She”. Nói về người thân bằng he hoặc she cho đúng nhé. Luyện thêm miễn phí tại đây: {link}",
@@ -795,7 +795,7 @@
      ]
     },
     "en": {
-     "hook": "Nói về mẹ phải là “she”!",
+     "hook": "Talking about mom must be “she”!",
      "tip": "Vietnamese picks words by context. English uses he or she by gender.",
      "caption": "Do you often say “My mom is nice. He cooks well.”? Mom, sister, aunt take “she”: “My mom is nice. She cooks well.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
     }
