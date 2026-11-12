@@ -15,6 +15,10 @@ Rules (waist-up teachers, eye-level camera):
   apart    two teachers' torsos overlap ≤ 20 % of the narrower torso (arms may cross)
   light    layer grade == plate light (day | evening)
   furniture lower body over near forbidden cells (bg_zones grid 'N': table/counter right at the camera) ≤ 35 %
+  size     head (eye→mouth) 6–14 % of the frame height = a normal medium shot, never a giant or a doll in the room
+  proportion near furniture (grid 'N', same depth as the teacher) never reaches above the teacher's waist – a counter at
+           chest height means the teacher is too small for the room (real counters/desks are waist-high)
+  occlude  no teacher's body/arm covers more than 3 % of the other teacher's face
 
   python3 scene_fit.py slots <zones_dir> <bank.json>   -> plates[].fit {horizon, floor_top, valid, host_ok, slots}
   python3 scene_fit.py check <placement.json>          -> PASS/FAIL lines, exit 1 on FAIL
@@ -23,7 +27,7 @@ placement.json: {frame:[W,H], plate:{horizon, light, grid?}, hosts:[{layer:<png/
 import json, os, sys
 import numpy as np
 
-EYE_TOL, SCALE_TOL, OVERLAP, NEAR_MAX = 0.07, 0.08, 0.20, 0.35
+EYE_TOL, SCALE_TOL, OVERLAP, NEAR_MAX, HEAD, CHEST_NEAR, FACE_COVER = 0.07, 0.08, 0.20, 0.35, (0.06, 0.14), 0.10, 0.03
 HZ_OK = (0.30, 0.55)          # a horizon outside this makes a waist-up host absurdly big/small -> plate excluded from host shots
 SLOT_X = {1: [0.5], 2: [0.30, 0.70]}
 
@@ -45,14 +49,16 @@ def load_alpha(p):
 
 def check(frame, plate, hosts):
     """hosts: [{alpha (ndarray) | layer (path), eye:[x,y] layer px, eye_mouth layer px, x, y (layer top-left in frame px), s (scale), grade}] -> [(ok, rule, msg)]"""
-    W, H = frame; res = []; boxes = []; heads = []
+    W, H = frame; res = []; boxes = []; heads = []; A = []; faces = []
     for i, h in enumerate(hosts):
-        a = h['alpha'] if 'alpha' in h else load_alpha(h['layer'])
+        a = h['alpha'] if 'alpha' in h else load_alpha(h['layer']); A.append(a)
         sb, top = solid_bottom(a); s, x, y = h['s'], h['x'], h['y']
         rows = np.nonzero(a.max(1) > 0)[0]; cols = np.nonzero(a[int(top + 0.8 * (rows.max() - top))] > 0)[0]   # TORSO width (a raised/pointing arm may cross over)
         bx0, bx1 = x + cols.min() * s, x + (cols.max() + 1) * s
         by0 = y + top * s; ey = y + h['eye'][1] * s; ex = x + h['eye'][0] * s
-        boxes.append((bx0, bx1, ey)); heads.append(h['eye_mouth'] * s)
+        em = h['eye_mouth'] * s; boxes.append((bx0, bx1, ey)); heads.append(em); faces.append((ex - 1.2 * em, ey - 1.3 * em, ex + 1.2 * em, ey + 1.6 * em))
+        res.append((HEAD[0] <= em / H <= HEAD[1], 'size', f'host{i}: head {em / H:.3f} H (medium shot {HEAD[0]}–{HEAD[1]})'))
+        cut = y + ((sb or 0) + 1) * s; waist = ey + 0.45 * (cut - ey)
         res.append((sb is not None and y + (sb + 1) * s >= H - 2, 'ground', f'host{i}: solid body ends at y={y + ((sb or 0) + 1) * s:.0f}, frame bottom {H} (floating if above; fade must be off-frame)'))
         if plate.get('horizon') is not None:
             res.append((abs(ey / H - plate['horizon']) <= EYE_TOL, 'eye', f"host{i}: eye {ey / H:.3f} H vs horizon {plate['horizon']:.3f} (±{EYE_TOL})"))
@@ -65,12 +71,21 @@ def check(frame, plate, hosts):
             cells = [R[r][c] for r in range(r0, gh) for c in range(c0, max(c1, c0 + 1))]
             n = sum(ch == 'N' for ch in cells) / max(1, len(cells))
             res.append((n <= NEAR_MAX, 'furniture', f'host{i}: {n:.0%} of the lower body over near furniture'))
+            ch = [R[r][c] for r in range(int(ey / H * gh), min(gh, int(waist / H * gh))) for c in range(c0, max(c1, c0 + 1))]
+            n = sum(c == 'N' for c in ch) / max(1, len(ch))
+            res.append((n <= CHEST_NEAR, 'proportion', f'host{i}: {n:.0%} near furniture between eyes and waist (teacher too small for the room if high)'))
     if len(heads) > 1:
         r = max(heads) / min(heads) - 1; res.append((r <= SCALE_TOL, 'scale', f'head sizes differ {r:.0%}'))
         for i in range(len(boxes)):
             for j in range(i + 1, len(boxes)):
                 a, b = boxes[i], boxes[j]; ov = max(0, min(a[1], b[1]) - max(a[0], b[0])) / min(a[1] - a[0], b[1] - b[0])
                 res.append((ov <= OVERLAP, 'apart', f'host{i}/host{j} overlap {ov:.0%}'))
+        for i, (fx0, fy0, fx1, fy1) in enumerate(faces):
+            for j, h in enumerate(hosts):
+                if i == j: continue
+                X, Y = np.meshgrid(np.linspace(fx0, fx1, 40), np.linspace(fy0, fy1, 40)); u = ((X - h['x']) / h['s']).astype(int); v = ((Y - h['y']) / h['s']).astype(int)
+                m = (u >= 0) & (v >= 0) & (u < A[j].shape[1]) & (v < A[j].shape[0]); cov = float((A[j][v[m], u[m]] > 128).sum()) / u.size
+                res.append((cov <= FACE_COVER, 'occlude', f'host{j} covers {cov:.0%} of host{i} face'))
     return res
 
 

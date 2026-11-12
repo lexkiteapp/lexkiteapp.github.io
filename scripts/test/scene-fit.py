@@ -21,7 +21,12 @@ bad['eye'] = fails([a, c], dict(plate, horizon=0.60))
 bad['scale'] = fails([a, dict(c, eye_mouth=EM * 1.25)])
 bad['light'] = fails([a, dict(c, grade='day')])
 bad['apart'] = fails([a, host('carlos', 0.34)[0]])
+bad['size'] = fails([dict(a, eye_mouth=EM * 1.6), dict(c, eye_mouth=EM * 1.6)])          # giant teachers in a small room
+g = dict(w=54, h=96, rows=['.' * 54] * 96); g['rows'] = [('N' * 30 + '.' * 24) if 48 <= r < 70 else '.' * 54 for r in range(96)]
+bad['proportion'] = fails([a, c], dict(plate, grid=g))                                   # a near counter at chest height = teacher too small
+bad['clear_room'] = fails([a, c], dict(plate, grid=dict(w=54, h=96, rows=['.' * 54] * 60 + ['F' * 54] * 36)))
+bad['occlude'] = bad['apart']                                                             # standing too close: the face is covered too
 print(json.dumps(bad))
-assert bad['ok'] == [], bad['ok']
-for k, want in dict(floating='ground', fade='ground', eye='eye', scale='scale', light='light', apart='apart').items(): assert want in bad[k], (k, bad[k])
-print('scene-fit OK: good placement passes, 6 bad placements fail')
+assert bad['ok'] == [] and bad['clear_room'] == [], (bad['ok'], bad['clear_room'])
+for k, want in dict(floating='ground', fade='ground', eye='eye', scale='scale', light='light', apart='apart', size='size', proportion='proportion', occlude='occlude').items(): assert want in bad[k], (k, bad[k])
+print('scene-fit OK: good placement passes, 9 bad placements fail (float, fade, horizon, scale, light, overlap, size, room proportion, face covered)')
