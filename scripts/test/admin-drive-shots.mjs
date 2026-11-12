@@ -42,8 +42,9 @@ for (const state of STATES) for (const theme of THEMES) for (const [vp, size] of
   page.on('request', q => { const u = q.url(); if (!/^(data:|blob:|https:\/\/lexkite\.test\/)/.test(u)) ext.push(u); });
   page.on('pageerror', e => errs.push(e.message)); page.on('console', m => { if (m.type() === 'error' && !/favicon|Failed to load resource/.test(m.text())) errs.push(m.text()); });
   await page.route('https://lexkite.test/**', r => { const u = new URL(r.request().url()); if (u.pathname === '/admin.html') return r.fulfill({ contentType: 'text/html', body: PAGE }); const f = path.join(WEB, u.pathname); return fs.existsSync(f) && fs.statSync(f).isFile() ? r.fulfill({ path: f }) : r.fulfill({ status: 404, body: '' }); });
-  await page.addInitScript(([L, I, t]) => { document.documentElement.dataset.theme = t; window.__dapi = async op => (op === 'list' ? L : op === 'inventory' ? I : op === 'tidy_cfg' ? { cfg: I.cfg } : {}); }, [LIST, INV, theme]);
+  await page.addInitScript(([L, I]) => { window.__dapi = async op => (op === 'list' ? L : op === 'inventory' ? I : op === 'tidy_cfg' ? { cfg: I.cfg } : {}); }, [LIST, INV]); // (đặt theme SAU goto: lúc init script chạy document.documentElement còn null → ném lỗi, __dapi không bao giờ được gán)
   await page.goto('https://lexkite.test/admin.html#drive/stock');
+  await page.evaluate(t => { document.documentElement.dataset.theme = t; }, theme);
   await page.evaluate(() => { window.AdminDrive.render(document.getElementById('main'), window.__dapi, (s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, x) => (v[x] != null ? v[x] : m)) : s), { esc: s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])), lang: () => 'vi', when: t => new Date(t).toLocaleString('vi') }); });
   await page.waitForTimeout(500);
   if (TAG === 'after' && state === 'clean') { await page.click('[data-clean]'); await page.waitForTimeout(200); }

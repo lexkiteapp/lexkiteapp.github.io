@@ -106,7 +106,7 @@ async function clipsFor(env, ids) {
   const rv = new Map((await all(env.DB, `SELECT clip, state, deleted FROM clip_review WHERE clip IN (${qs})`, ...ids).catch(() => [])).map(r => [r.clip, r]));
   const out = new Map();
   for (const [id, it] of by) {
-    if (!q.has(id) || clipHeld(it, rv.get(id))) continue;
+    if (!q.has(id) || clipHeld({ ...it, paused: false }, rv.get(id))) continue; // đã nằm trong hàng đợi/bảng: clip bị owner 'paused' ở manifest (chỉ chặn nhận MỚI ở autoQueue) vẫn được đăng; chặn xoá/loại/master đã rời kho
     out.set(id, { id, title: it.title || it.lesson || id, description: it.description || '', hashtags: [], template: it.template || '', hook: field(it, 'hook'), cefr: field(it, 'diff') || it.cefr || '', duration: +it.duration || 0, video: it.video, cover: it.cover, _it: it });
   }
   return out;
