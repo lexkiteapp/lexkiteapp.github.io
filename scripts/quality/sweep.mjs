@@ -157,6 +157,19 @@ async function runCombo(c) {
     return r.fulfill({ status: 200, contentType: t === 'script' ? 'text/javascript' : t === 'stylesheet' ? 'text/css' : t === 'image' ? 'image/gif' : 'text/plain', body: t === 'image' ? Buffer.from('R0lGODlhAQABAAAAACw=', 'base64') : '' });
   });
   const page = await ctx.newPage();
+  // hồ sơ CPU (CDP) quanh mỗi route: chỉ để chỉ ra HÀM gây tác vụ dài > 200 ms (không đổi ngưỡng)
+  let cdp = null; try { cdp = await ctx.newCDPSession(page); await cdp.send('Profiler.enable'); await cdp.send('Profiler.setSamplingInterval', { interval: 1000 }); } catch { cdp = null; }
+  const profStart = async () => { if (cdp) await cdp.send('Profiler.start').catch(() => {}); };
+  const profTop = async want => {
+    if (!cdp) return '';
+    const r = await cdp.send('Profiler.stop').catch(() => null); if (!r || !want) return '';
+    const { nodes, samples, timeDeltas } = r.profile, by = new Map(), self = new Map();
+    for (const n of nodes) by.set(n.id, n);
+    samples.forEach((id, i) => self.set(id, (self.get(id) || 0) + (timeDeltas[i] || 0)));
+    const agg = new Map();
+    for (const [id, us] of self) { const f = by.get(id).callFrame; if (['(idle)', '(program)', '(garbage collector)'].includes(f.functionName) && f.functionName === '(idle)') continue; const k = `${f.functionName || '(anon)'} ${String(f.url || '').split('/').slice(-1)[0]}:${f.lineNumber + 1}`; agg.set(k, (agg.get(k) || 0) + us / 1000); }
+    return [...agg].sort((x, y) => y[1] - x[1]).slice(0, 4).map(([k, ms]) => `${k} ${Math.round(ms)}ms`).join(' | ');
+  };
   let cur = { id: '', kind: '' }, bag = [];
   const note = (type, key, msg) => bag.push({ type, key, msg });
   page.on('pageerror', e => note('pageerror', norm(e.message), norm(e.message) + ' @ ' + String(e.stack || '').split('\n')[1]?.trim().slice(0, 100)));
@@ -170,12 +183,13 @@ async function runCombo(c) {
     const p = { kind, id, tag, bad: 0 };
     const found = [...bag]; bag = [];
     const extra = await page.evaluate(() => ({ cls: window.__cls, src: (window.__clsSrc || []).slice(0, 4).join(', '), lt: window.__lt.slice(), loaf: (window.__loaf || []).slice(0, 2).join(' ; ') + ' || ' + (window.__ltRes || []).slice(0, 2).join(' ; '), rej: window.__rej.slice() })).catch(() => ({ cls: 0, src: '', lt: [], rej: [] }));
+    const ltMax = Math.max(0, ...extra.lt), top = kind === 'app' ? await profTop(ltMax > 200) : '';
     await page.evaluate(() => { window.__probeAt = performance.now(); window.__probeEnd = null; }).catch(() => {});
     const r = await page.evaluate(probe, !!vp.isMobile).catch(e => [{ t: 'probe-error', k: '', x: String(e.message).slice(0, 80) }]);
     await page.evaluate(() => { window.__probeEnd = performance.now() + 50; }).catch(() => {});
     for (const f of r) if (f.t !== 'probe-error') found.push({ type: f.t, key: f.k, msg: f.x });
     if (extra.cls > 0.1) found.push({ type: 'cls', key: 'layout-shift', msg: `CLS ${extra.cls.toFixed(3)} > 0.1 [${extra.src}]` });
-    const lt = Math.max(0, ...extra.lt); if (lt > 200) found.push({ type: 'longtask', key: 'longtask', msg: `tác vụ dài ${lt} ms > 200` + (extra.loaf ? ` [${extra.loaf}]` : '') });
+    const lt = Math.max(0, ...extra.lt); if (lt > 200) found.push({ type: 'longtask', key: 'longtask', msg: `tác vụ dài ${lt} ms > 200` + (top ? ` {CPU: ${top}}` : '') });
     for (const m of extra.rej) found.push({ type: 'rejection', key: norm(m), msg: norm(m) });
     let cvAll = null;
     try {
@@ -217,6 +231,7 @@ async function runCombo(c) {
   for (const route of (QUICK ? ROUTES.slice(0, 6) : ROUTES)) {
     cur = { kind: 'app', id: route };
     await page.evaluate(() => { window.__cls = 0; window.__clsSrc = []; window.__lt = []; window.__rej = []; window.__navAt = performance.now(); }).catch(() => {});
+    await profStart();
     await page.evaluate(h => { window.__navAt = performance.now(); location.hash = h; scrollTo(0, 0); }, '#/' + route).catch(() => {});
     await measure('app', route);
   }
