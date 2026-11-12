@@ -133,7 +133,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cafe/zones/cafe_p_2.zones.json"
+     }
     },
     {
      "id": "cafe_pn_1",
@@ -143,7 +152,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8125,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cafe/zones/cafe_pn_1.zones.json"
+     }
     },
     {
      "id": "cafe_pn_4",
@@ -153,7 +171,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8438,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cafe/zones/cafe_pn_4.zones.json"
+     }
     },
     {
      "id": "cafe_v_1",
@@ -163,7 +198,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.586,
+      "horizon_src": "depth",
+      "floor_top": 0.6979,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cafe/zones/cafe_v_1.zones.json"
+     }
     },
     {
      "id": "cafe_vn_1",
@@ -173,7 +217,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4375,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6562,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cafe/zones/cafe_vn_1.zones.json"
+     }
     },
     {
      "id": "cafe_vn_4",
@@ -183,6 +244,57 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6771,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cafe/zones/cafe_vn_4.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "cafe_amb_vn_1",
+     "src": "cafe/inserts/cafe_amb_vn_1.mp4",
+     "plate": "cafe_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "steam curls up from the coffee machine and the cup, warm sunlight shimmers softly on the wall, the plant leaves sway a little",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    },
+    {
+     "id": "cafe_amb_pn_1",
+     "src": "cafe/inserts/cafe_amb_pn_1.mp4",
+     "plate": "cafe_pn_1",
+     "aspect": "16:9",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "steam curls up from the coffee machine and the cup, warm sunlight shimmers softly on the wall, the plant leaves sway a little",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -318,7 +430,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.65,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8229,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/restaurant-order/zones/restaurant-order_p_1.zones.json"
+     }
     },
     {
      "id": "restaurant-order_pn_2",
@@ -328,7 +449,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.65,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8229,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/restaurant-order/zones/restaurant-order_pn_2.zones.json"
+     }
     },
     {
      "id": "restaurant-order_v_4",
@@ -338,7 +468,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3044,
+      "horizon_src": "depth",
+      "floor_top": 0.6562,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/restaurant-order/zones/restaurant-order_v_4.zones.json"
+     }
     },
     {
      "id": "restaurant-order_vn_1",
@@ -348,6 +495,49 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/restaurant-order/zones/restaurant-order_vn_1.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "restaurant-order_amb_vn_1",
+     "src": "restaurant-order/inserts/restaurant-order_amb_vn_1.mp4",
+     "plate": "restaurant-order_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the pendant lamps glow and sway very slightly, candle-like warm light flickers softly, the evening sky outside the window slowly shifts colour",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    },
+    {
+     "id": "restaurant-order_amb_pn_2",
+     "src": "restaurant-order/inserts/restaurant-order_amb_pn_2.mp4",
+     "plate": "restaurant-order_pn_2",
+     "aspect": "16:9",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the pendant lamps glow and sway very slightly, candle-like warm light flickers softly, the evening sky outside the window slowly shifts colour",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -481,7 +671,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3958,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/airport-checkin/zones/airport-checkin_p_2.zones.json"
+     }
     },
     {
      "id": "airport-checkin_pn_2",
@@ -491,7 +698,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3958,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/airport-checkin/zones/airport-checkin_pn_2.zones.json"
+     }
     },
     {
      "id": "airport-checkin_pn_4",
@@ -501,7 +725,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7292,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/airport-checkin/zones/airport-checkin_pn_4.zones.json"
+     }
     },
     {
      "id": "airport-checkin_v_4",
@@ -511,7 +744,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.325,
+      "horizon_src": "depth",
+      "floor_top": 0.8333,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/airport-checkin/zones/airport-checkin_v_4.zones.json"
+     }
     },
     {
      "id": "airport-checkin_vn_2",
@@ -521,6 +771,57 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4375,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6979,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/airport-checkin/zones/airport-checkin_vn_2.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "airport-checkin_amb_vn_2",
+     "src": "airport-checkin/inserts/airport-checkin_amb_vn_2.mp4",
+     "plate": "airport-checkin_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "a plane slowly taxis past outside the big window, clouds drift, the baggage belt rolls gently",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    },
+    {
+     "id": "airport-checkin_amb_pn_2",
+     "src": "airport-checkin/inserts/airport-checkin_amb_pn_2.mp4",
+     "plate": "airport-checkin_pn_2",
+     "aspect": "16:9",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the sun glows and clouds drift slowly outside the big windows, warm sunlight shifts softly across the floor",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -654,7 +955,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5729,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_p_1.zones.json"
+     }
     },
     {
      "id": "ask-directions_pn_1",
@@ -664,7 +982,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3929,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.5729,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_pn_1.zones.json"
+     }
     },
     {
      "id": "ask-directions_pn_4",
@@ -674,7 +1009,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6042,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_pn_4.zones.json"
+     }
     },
     {
      "id": "ask-directions_v_3",
@@ -684,7 +1028,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4242,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.6042,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_v_3.zones.json"
+     }
     },
     {
      "id": "ask-directions_vn_1",
@@ -694,7 +1055,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4138,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.5938,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_vn_1.zones.json"
+     }
     },
     {
      "id": "ask-directions_vn_4",
@@ -704,6 +1082,41 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.445,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.625,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/ask-directions/zones/ask-directions_vn_4.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "ask-directions_amb_vn_1",
+     "src": "ask-directions/inserts/ask-directions_amb_vn_1.mp4",
+     "plate": "ask-directions_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds drift across the sky, a gentle breeze moves the shop awnings, sunlight moves softly over the street",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -837,7 +1250,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3893,
+      "horizon_src": "depth",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/train-station/zones/train-station_p_2.zones.json"
+     }
     },
     {
      "id": "train-station_pn_1",
@@ -847,7 +1277,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.75,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/train-station/zones/train-station_pn_1.zones.json"
+     }
     },
     {
      "id": "train-station_pn_4",
@@ -857,7 +1304,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3281,
+      "horizon_src": "depth",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/train-station/zones/train-station_pn_4.zones.json"
+     }
     },
     {
      "id": "train-station_v_2",
@@ -867,7 +1331,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5324,
+      "horizon_src": "depth",
+      "floor_top": 0.6875,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/train-station/zones/train-station_v_2.zones.json"
+     }
     },
     {
      "id": "train-station_vn_4",
@@ -877,6 +1358,57 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5096,
+      "horizon_src": "depth",
+      "floor_top": 0.5833,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/train-station/zones/train-station_vn_4.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "train-station_amb_vn_4",
+     "src": "train-station/inserts/train-station_amb_vn_4.mp4",
+     "plate": "train-station_vn_4",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "a train slowly pulls in and stops behind the arch, the departure board icons blink softly",
+     "model": "kling-video-v4_0",
+     "uses": 0
+    },
+    {
+     "id": "train-station_amb_pn_1",
+     "src": "train-station/inserts/train-station_amb_pn_1.mp4",
+     "plate": "train-station_pn_1",
+     "aspect": "16:9",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds drift slowly in the sky beyond the arch, warm light shifts softly on the walls; the parked train stays still",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -1010,7 +1542,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6354,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/taxi/zones/taxi_p_2.zones.json"
+     }
     },
     {
      "id": "taxi_pn_2",
@@ -1020,7 +1569,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5208,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/taxi/zones/taxi_pn_2.zones.json"
+     }
     },
     {
      "id": "taxi_pn_3",
@@ -1030,7 +1596,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6771,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/taxi/zones/taxi_pn_3.zones.json"
+     }
     },
     {
      "id": "taxi_v_1",
@@ -1040,7 +1623,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3958,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5521,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/taxi/zones/taxi_v_1.zones.json"
+     }
     },
     {
      "id": "taxi_vn_2",
@@ -1050,6 +1650,41 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6771,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/taxi/zones/taxi_vn_2.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "taxi_amb_vn_2",
+     "src": "taxi/inserts/taxi_amb_vn_2.mp4",
+     "plate": "taxi_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds drift, soft sunlight glints move over the yellow taxi, leaves move in a light breeze",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -1182,7 +1817,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3125,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/supermarket/zones/supermarket_p_2.zones.json"
+     }
     },
     {
      "id": "supermarket_v_2",
@@ -1192,7 +1844,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.5625,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/supermarket/zones/supermarket_v_2.zones.json"
+     }
     },
     {
      "id": "supermarket_vn_1",
@@ -1202,7 +1863,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.4375,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/supermarket/zones/supermarket_vn_1.zones.json"
+     }
     },
     {
      "id": "supermarket_vn_4",
@@ -1212,6 +1882,41 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3125,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/supermarket/zones/supermarket_vn_4.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "supermarket_amb_vn_1",
+     "src": "supermarket/inserts/supermarket_amb_vn_1.mp4",
+     "plate": "supermarket_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the checkout screen glows, ceiling light reflections shimmer softly on the floor, a light price-tag mobile sways",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -1343,7 +2048,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3802,
+      "horizon_src": "depth",
+      "floor_top": 0.7917,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/shop-return/zones/shop-return_p_1.zones.json"
+     }
     },
     {
      "id": "shop-return_pn_1",
@@ -1353,7 +2075,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.362,
+      "horizon_src": "depth",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/shop-return/zones/shop-return_pn_1.zones.json"
+     }
     },
     {
      "id": "shop-return_pn_4",
@@ -1363,7 +2102,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3932,
+      "horizon_src": "depth",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/shop-return/zones/shop-return_pn_4.zones.json"
+     }
     },
     {
      "id": "shop-return_v_2",
@@ -1373,7 +2129,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4294,
+      "horizon_src": "depth",
+      "floor_top": 0.8229,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/shop-return/zones/shop-return_v_2.zones.json"
+     }
     },
     {
      "id": "shop-return_vn_4",
@@ -1383,6 +2156,41 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3408,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.5208,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/shop-return/zones/shop-return_vn_4.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "shop-return_amb_vn_4",
+     "src": "shop-return/inserts/shop-return_amb_vn_4.mp4",
+     "plate": "shop-return_vn_4",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "hanging clothes sway very gently, warm light shimmers on the mirror, a soft breeze from the door",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -1515,7 +2323,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/pharmacy/zones/pharmacy_p_2.zones.json"
+     }
     },
     {
      "id": "pharmacy_pn_3",
@@ -1525,7 +2342,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.8125,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/pharmacy/zones/pharmacy_pn_3.zones.json"
+     }
     },
     {
      "id": "pharmacy_v_2",
@@ -1535,7 +2361,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5632,
+      "horizon_src": "depth",
+      "floor_top": 0.9479,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/pharmacy/zones/pharmacy_v_2.zones.json"
+     }
     },
     {
      "id": "pharmacy_vn_4",
@@ -1545,6 +2380,41 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4066,
+      "horizon_src": "depth",
+      "floor_top": 0.7188,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/pharmacy/zones/pharmacy_vn_4.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "pharmacy_amb_vn_4",
+     "src": "pharmacy/inserts/pharmacy_amb_vn_4.mp4",
+     "plate": "pharmacy_vn_4",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "trees move gently outside the window, soft light shimmers on the shelves, a plant sways",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -1678,7 +2548,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/dentist/zones/dentist_p_4.zones.json"
+     }
     },
     {
      "id": "dentist_pn_2",
@@ -1688,7 +2567,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8021,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/dentist/zones/dentist_pn_2.zones.json"
+     }
     },
     {
      "id": "dentist_pn_4",
@@ -1698,7 +2594,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7708,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/dentist/zones/dentist_pn_4.zones.json"
+     }
     },
     {
      "id": "dentist_v_2",
@@ -1708,7 +2621,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6458,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/dentist/zones/dentist_v_2.zones.json"
+     }
     },
     {
      "id": "dentist_vn_2",
@@ -1718,6 +2648,41 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6771,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/dentist/zones/dentist_vn_2.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "dentist_amb_vn_2",
+     "src": "dentist/inserts/dentist_amb_vn_2.mp4",
+     "plate": "dentist_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the dental lamp glows and its light pulses softly, the chair's reflections shimmer, a calm clinic ambience",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -1851,7 +2816,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.65,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8021,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/bank/zones/bank_p_2.zones.json"
+     }
     },
     {
      "id": "bank_pn_2",
@@ -1861,7 +2835,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7917,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/bank/zones/bank_pn_2.zones.json"
+     }
     },
     {
      "id": "bank_pn_4",
@@ -1871,7 +2854,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.65,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8229,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/bank/zones/bank_pn_4.zones.json"
+     }
     },
     {
      "id": "bank_v_4",
@@ -1881,7 +2873,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4743,
+      "horizon_src": "depth",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/bank/zones/bank_v_4.zones.json"
+     }
     },
     {
      "id": "bank_vn_3",
@@ -1891,6 +2892,41 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4625,
+      "horizon_src": "depth",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/bank/zones/bank_vn_3.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "bank_amb_vn_3",
+     "src": "bank/inserts/bank_amb_vn_3.mp4",
+     "plate": "bank_vn_3",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds drift slowly past the window, soft light shifts gently across the floor",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -2025,7 +3061,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/job-interview/zones/job-interview_p_1.zones.json"
+     }
     },
     {
      "id": "job-interview_pn_1",
@@ -2035,7 +3088,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/job-interview/zones/job-interview_pn_1.zones.json"
+     }
     },
     {
      "id": "job-interview_pn_2",
@@ -2045,7 +3115,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/job-interview/zones/job-interview_pn_2.zones.json"
+     }
     },
     {
      "id": "job-interview_v_4",
@@ -2055,7 +3142,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6146,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/job-interview/zones/job-interview_v_4.zones.json"
+     }
     },
     {
      "id": "job-interview_vn_1",
@@ -2065,7 +3169,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/job-interview/zones/job-interview_vn_1.zones.json"
+     }
     },
     {
      "id": "job-interview_vn_3",
@@ -2075,6 +3188,33 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/job-interview/zones/job-interview_vn_3.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "job-interview_amb_vn_1",
+     "src": "job-interview/inserts/job-interview_amb_vn_1.mp4",
+     "plate": "job-interview_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "clouds and soft light move over the city skyline behind the glass, sunlight shifts on the table",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -2207,7 +3347,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5312,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/office-intro/zones/office-intro_p_1.zones.json"
+     }
     },
     {
      "id": "office-intro_pn_3",
@@ -2217,7 +3374,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5312,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/office-intro/zones/office-intro_pn_3.zones.json"
+     }
     },
     {
      "id": "office-intro_pn_4",
@@ -2227,7 +3401,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5312,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/office-intro/zones/office-intro_pn_4.zones.json"
+     }
     },
     {
      "id": "office-intro_v_1",
@@ -2237,7 +3428,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.2396,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/office-intro/zones/office-intro_v_1.zones.json"
+     }
     },
     {
      "id": "office-intro_v_4",
@@ -2247,7 +3447,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3958,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8229,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/office-intro/zones/office-intro_v_4.zones.json"
+     }
     },
     {
      "id": "office-intro_vn_1",
@@ -2257,7 +3474,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.3021,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/office-intro/zones/office-intro_vn_1.zones.json"
+     }
     },
     {
      "id": "office-intro_vn_3",
@@ -2267,7 +3493,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5729,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/office-intro/zones/office-intro_vn_3.zones.json"
+     }
     }
    ]
   },
@@ -2402,7 +3645,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6458,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/team-meeting/zones/team-meeting_p_2.zones.json"
+     }
     },
     {
      "id": "team-meeting_pn_1",
@@ -2412,7 +3664,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6042,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/team-meeting/zones/team-meeting_pn_1.zones.json"
+     }
     },
     {
      "id": "team-meeting_pn_4",
@@ -2422,7 +3683,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6458,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.9167,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/team-meeting/zones/team-meeting_pn_4.zones.json"
+     }
     },
     {
      "id": "team-meeting_vn_1",
@@ -2432,7 +3702,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4658,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.6458,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/team-meeting/zones/team-meeting_vn_1.zones.json"
+     }
     },
     {
      "id": "team-meeting_vn_3",
@@ -2442,6 +3729,41 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4138,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.5938,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/team-meeting/zones/team-meeting_vn_3.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "team-meeting_amb_vn_1",
+     "src": "team-meeting/inserts/team-meeting_amb_vn_1.mp4",
+     "plate": "team-meeting_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "trees sway outside the window, sunlight shifts on the table, a laptop screen glows",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -2576,7 +3898,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7292,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_p_1.zones.json"
+     }
     },
     {
      "id": "flat-viewing_p_3",
@@ -2586,7 +3925,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7292,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_p_3.zones.json"
+     }
     },
     {
      "id": "flat-viewing_pn_2",
@@ -2596,7 +3952,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7292,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_pn_2.zones.json"
+     }
     },
     {
      "id": "flat-viewing_pn_4",
@@ -2606,7 +3979,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7292,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_pn_4.zones.json"
+     }
     },
     {
      "id": "flat-viewing_v_1",
@@ -2616,7 +4006,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7188,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_v_1.zones.json"
+     }
     },
     {
      "id": "flat-viewing_v_2",
@@ -2626,7 +4033,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4375,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.5312,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_v_2.zones.json"
+     }
     },
     {
      "id": "flat-viewing_vn_2",
@@ -2636,6 +4060,41 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3081,
+      "horizon_src": "depth",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/flat-viewing/zones/flat-viewing_vn_2.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "flat-viewing_amb_vn_2",
+     "src": "flat-viewing/inserts/flat-viewing_amb_vn_2.mp4",
+     "plate": "flat-viewing_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "sunlight shifts slowly across the wooden floor and walls, tiny dust motes float in the light",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -2768,7 +4227,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5378,
+      "horizon_src": "depth",
+      "floor_top": 0.875,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/phone-plan/zones/phone-plan_p_1.zones.json"
+     }
     },
     {
      "id": "phone-plan_pn_3",
@@ -2778,7 +4254,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5599,
+      "horizon_src": "depth",
+      "floor_top": 0.875,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/phone-plan/zones/phone-plan_pn_3.zones.json"
+     }
     },
     {
      "id": "phone-plan_v_1",
@@ -2788,7 +4273,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.7708,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/phone-plan/zones/phone-plan_v_1.zones.json"
+     }
     },
     {
      "id": "phone-plan_v_3",
@@ -2798,7 +4292,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5283,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.7083,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/phone-plan/zones/phone-plan_v_3.zones.json"
+     }
     },
     {
      "id": "phone-plan_vn_2",
@@ -2808,6 +4319,33 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6042,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6458,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/phone-plan/zones/phone-plan_vn_2.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "phone-plan_amb_vn_2",
+     "src": "phone-plan/inserts/phone-plan_amb_vn_2.mp4",
+     "plate": "phone-plan_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the phone screens on the wall glow and change colours softly, light shimmers on the glass counters",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -2940,7 +4478,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.875,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_p_1.zones.json"
+     }
     },
     {
      "id": "lost-luggage_pn_2",
@@ -2950,7 +4505,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.875,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_pn_2.zones.json"
+     }
     },
     {
      "id": "lost-luggage_pn_4",
@@ -2960,7 +4524,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4792,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_pn_4.zones.json"
+     }
     },
     {
      "id": "lost-luggage_v_2",
@@ -2970,7 +4543,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.625,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_v_2.zones.json"
+     }
     },
     {
      "id": "lost-luggage_v_4",
@@ -2980,7 +4562,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_v_4.zones.json"
+     }
     },
     {
      "id": "lost-luggage_vn_2",
@@ -2990,7 +4589,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7604,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_vn_2.zones.json"
+     }
     },
     {
      "id": "lost-luggage_vn_3",
@@ -3000,6 +4616,33 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5625,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6354,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/lost-luggage/zones/lost-luggage_vn_3.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "lost-luggage_amb_vn_2",
+     "src": "lost-luggage/inserts/lost-luggage_amb_vn_2.mp4",
+     "plate": "lost-luggage_vn_2",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "the baggage carousel turns slowly, a plane moves far away outside the window, clouds drift",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -3131,7 +4774,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3125,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8542,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_p_1.zones.json"
+     }
     },
     {
      "id": "cinema-tickets_p_3",
@@ -3141,7 +4801,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8646,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_p_3.zones.json"
+     }
     },
     {
      "id": "cinema-tickets_pn_2",
@@ -3151,7 +4820,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6042,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.8542,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_pn_2.zones.json"
+     }
     },
     {
      "id": "cinema-tickets_pn_3",
@@ -3161,7 +4839,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3125,
+      "horizon_src": "vanishing point",
+      "floor_top": 1.0,
+      "valid": false,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_pn_3.zones.json"
+     }
     },
     {
      "id": "cinema-tickets_v_1",
@@ -3171,7 +4858,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.6042,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6562,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_v_1.zones.json"
+     }
     },
     {
      "id": "cinema-tickets_v_3",
@@ -3181,7 +4877,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4375,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.625,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_v_3.zones.json"
+     }
     },
     {
      "id": "cinema-tickets_vn_1",
@@ -3191,7 +4904,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_vn_1.zones.json"
+     }
     },
     {
      "id": "cinema-tickets_vn_4",
@@ -3201,6 +4923,41 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.5208,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.6042,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/cinema-tickets/zones/cinema-tickets_vn_4.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "cinema-tickets_amb_vn_1",
+     "src": "cinema-tickets/inserts/cinema-tickets_amb_vn_1.mp4",
+     "plate": "cinema-tickets_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "popcorn pops and bubbles in the machine, marquee lights twinkle softly, warm light glows",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -3331,7 +5088,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4219,
+      "horizon_src": "depth",
+      "floor_top": 0.8542,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/party-invite/zones/party-invite_p_4.zones.json"
+     }
     },
     {
      "id": "party-invite_pn_1",
@@ -3341,7 +5115,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.9271,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/party-invite/zones/party-invite_pn_1.zones.json"
+     }
     },
     {
      "id": "party-invite_pn_2",
@@ -3351,7 +5134,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.8438,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/party-invite/zones/party-invite_pn_2.zones.json"
+     }
     },
     {
      "id": "party-invite_v_3",
@@ -3361,6 +5153,33 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.6146,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/party-invite/zones/party-invite_v_3.zones.json"
+     }
+    }
+   ],
+   "inserts": [
+    {
+     "id": "party-invite_amb_v_3",
+     "src": "party-invite/inserts/party-invite_amb_v_3.mp4",
+     "plate": "party-invite_v_3",
+     "aspect": "9:16",
+     "light": "day",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "balloons bob gently in the breeze, leaves move, soft clouds drift over the park",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]
@@ -3494,7 +5313,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.7917,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/post-office/zones/post-office_p_1.zones.json"
+     }
     },
     {
      "id": "post-office_pn_1",
@@ -3504,7 +5332,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.7917,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/post-office/zones/post-office_pn_1.zones.json"
+     }
     },
     {
      "id": "post-office_pn_4",
@@ -3514,7 +5351,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3542,
+      "horizon_src": "vanishing point",
+      "floor_top": 0.7917,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/post-office/zones/post-office_pn_4.zones.json"
+     }
     },
     {
      "id": "post-office_v_1",
@@ -3524,7 +5378,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.4213,
+      "horizon_src": "depth",
+      "floor_top": 0.7812,
+      "valid": true,
+      "host_ok": true,
+      "slots": {
+       "1": [
+        0.5
+       ],
+       "2": [
+        0.3,
+        0.7
+       ]
+      },
+      "zones": "cine/scenes/post-office/zones/post-office_v_1.zones.json"
+     }
     },
     {
      "id": "post-office_v_4",
@@ -3534,7 +5405,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "vanishing point (above-floor rule)",
+      "floor_top": 0.4792,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/post-office/zones/post-office_v_4.zones.json"
+     }
     },
     {
      "id": "post-office_vn_1",
@@ -3544,7 +5424,16 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
-     "uses": 0
+     "uses": 0,
+     "fit": {
+      "horizon": 0.3,
+      "horizon_src": "depth",
+      "floor_top": 0.6875,
+      "valid": true,
+      "host_ok": false,
+      "slots": {},
+      "zones": "cine/scenes/post-office/zones/post-office_vn_1.zones.json"
+     }
     },
     {
      "id": "post-office_vn_3",
@@ -3554,6 +5443,24 @@
      "people": 0,
      "text": 0,
      "model": "kling-image-v3_0",
+     "uses": 0
+    }
+   ],
+   "inserts": [
+    {
+     "id": "post-office_amb_vn_1",
+     "src": "post-office/inserts/post-office_amb_vn_1.mp4",
+     "plate": "post-office_vn_1",
+     "aspect": "9:16",
+     "light": "evening",
+     "kind": "ambient_loop",
+     "loop": true,
+     "dur": 5,
+     "res": "1080p",
+     "people": 0,
+     "text": 0,
+     "motion": "light shifts across the floor, the scale display glows, a paper on the counter flutters slightly",
+     "model": "kling-video-v4_0",
      "uses": 0
     }
    ]

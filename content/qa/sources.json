@@ -99,7 +99,8 @@
   {
    "id": "pron",
    "paths": [
-    "web/js/pron"
+    "web/js/pron",
+    "web/cpack/pron"
    ],
    "owner": "claude",
    "gen": false,
@@ -152,6 +153,7 @@
    "id": "reading",
    "paths": [
     "web/js/readtest",
+    "web/cpack/readtest",
     "web/cpack/readings"
    ],
    "owner": "claude",
@@ -553,8 +555,10 @@
   { "id": "phrase-book", "paths": ["web/cpack/framework", "content/framework/functions.json"], "owner": "claude", "gen": true, "checks": ["schema"], "delegate": ["test/phrasebook.mjs", "test/content-factory.mjs"], "doc": "docs/CONTENT-FACTORY.md" }
  ],
  "skip": {
+  "web/cpack/ret-app": "MÃ giao diện thẻ trang chủ quay lại + tổng kết tuần (cards.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/retention.mjs",
   "web/cpack/es-app": "MÃ giao diện bài phát âm TBN (pron-ui.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu ở web/cpack/es (nguồn px), test scripts/test/es-pron.mjs",
   "web/cpack/play-app": "MÃ giao diện Thử thách 60 giây (play-blitz.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/play-blitz.mjs",
+  "web/cpack/importdeck-app": "MÃ giao diện Nhập tài liệu → bộ thẻ (importdeck.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/importdeck.mjs",
   "web/cpack/outcomes-app": "MÃ giao diện bài đo (outcomes.js, outcomes-core.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu đề ở web/cpack/outcomes (nguồn 'outcomes'), test scripts/test/outcomes.mjs",
   "content/seo": "sổ máy sinh lastmod.json (URL → băm nội dung chính + ngày sửa thật cho sitemap) – không phải nội dung học; scripts/lib/lastmod.mjs, test scripts/test/lastmod.mjs",
   "web/js/st": "khuôn giao diện 4 màn port thẳng từ Google Stitch (DOM + class Tailwind, chữ qua t()) – không phải nội dung học; kiểm bởi scripts/test/stitch-diff.mjs + build-stitch-css.mjs --check",
@@ -563,6 +567,7 @@
   "content/dict": "Chỉ chứa stage.json – trạng thái mở index trang từ điển do workflow dict-stage.yml ghi (không phải nội dung học); nội dung trang lấy từ kho từ vựng đã qua cổng vocab/lexicon",
   "content/brand": "tài sản thương hiệu, không phải nội dung học",
   "content/landing": "trang giới thiệu – build-landing.mjs --check",
+  "content/go": "trang đích /go – build-go.mjs --check + test go-landing (15 ngôn ngữ, chữ UI ngắn)",
   "content/legal": "văn bản pháp lý soạn tay",
   "content/pipeline": "hàng đợi/nhật ký pipeline",
   "content/pr": "bài PR/danh bạ",

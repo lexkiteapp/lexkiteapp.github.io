@@ -43,7 +43,7 @@
 "Viết một đoạn (10 phút)":"写一段话(10 分钟)",
 "Viết trong 10 phút":"写作 10 分钟",
 "Vốn từ":"词汇量",
-"Xem tiến bộ":"查看我的进步",
+"Xem tiến bộ":"查看进步",
 "Xóa ghi âm trên máy":"删除本设备上的录音",
 "Xóa mọi ghi âm bài đo trên máy này? Chỉ số và bài viết vẫn giữ.":"要删除本设备上所有测评录音吗?成绩和作文会保留。",
 "theo số từ bạn đã nói và viết":"基于你说和写的单词数",

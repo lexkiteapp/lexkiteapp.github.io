@@ -54,6 +54,7 @@ for (const r of rows) {
   const ok = Object.values(g).every(Boolean); if (!ok) red++;
   out[r.id] = { ok, lang: L, online: ONLINE, gates: g, ...(bt ? { back: bt } : {}), glosses: used };
   console.log(r.id, ok ? '✓' : '✗', ok ? '' : Object.entries(g).filter(([, v]) => !v).map(([k]) => k).join(','));
+  if (!ok && bt) console.log('    dịch ngược:', JSON.stringify(bt.slice(0, 3)), '| gốc en:', JSON.stringify([E.hook, E.tip, enCap]));   // đỏ thì in bản dịch ngược để sửa đúng chỗ
 }
 if (WRITE) { const f = ROOT + 'content/video/teach2d/l1-qa.json', old = fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : {}; fs.writeFileSync(f, JSON.stringify({ ...old, ...out }, null, 1) + '\n'); }
 process.exit(red ? 1 : 0);

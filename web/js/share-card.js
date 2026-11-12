@@ -8,6 +8,10 @@
   const d = document, URL_ = 'https://lexkite.com';
   const C = { teal: '#0F3D3E', teal2: '#17595A', coral: '#E5502F', orange: '#FFB054', gold: '#FFC94A', cream: '#FFF7EA', green: '#2FBF71' };
   const T = (k, v) => g.t(k, v);
+  // Liên kết đo được (docs/specs/funnel.md): trang đích /go/<ngôn ngữ>/ + UTM (nguồn share · phương tiện qr|link · chiến dịch = loại thẻ); không dữ liệu cá nhân
+  const kindOf = S => (S.streak >= 3 ? 'streak' : S.acc ? 'result' : S.today >= S.goal ? 'goal' : 'day');
+  // QR: bộ sinh qr.js chỉ chứa ≤ 62 byte → nguồn 'qr' + chiến dịch (không phương tiện/mã); liên kết chia sẻ: nguồn 'share' + phương tiện + mã giới thiệu tùy chọn
+  const link = (kind, medium, code) => `${URL_}/go/${(g.I18N && I18N.lang && I18N.lang()) || 'en'}/?utm_source=${medium === 'qr' ? 'qr' : 'share&utm_medium=' + medium}&utm_campaign=${kind}${medium !== 'qr' && code && /^[\w.~-]{1,40}$/.test(code) ? '&c=' + code : ''}`;
   let dictP = null;
   const have = l => (g.I18N && g.I18N.has ? g.I18N.has(l, 'Trí nhớ siêu đỉnh!') : !!(g.I18N_DICT && g.I18N_DICT[l] && g.I18N_DICT[l]['Trí nhớ siêu đỉnh!'])); // gói khóa băm → I18N.has (dự phòng: i18n.js cũ trong bộ đệm)
   const dict = () => dictP || (dictP = (!g.I18N || I18N.lang() === 'vi' || (have('en') && (I18N.lang() === 'en' || have(I18N.lang())))) ? Promise.resolve() : new Promise(r => {
@@ -91,14 +95,14 @@
     // Chân thẻ: QR + lexkite.com
     const qs = story ? 170 : 130, qy = H - qs - (story ? 120 : 70), qx = rtl ? W - P - qs : P;
     ctx.fillStyle = '#fff'; rr(ctx, qx, qy, qs, qs, 18); ctx.fill();
-    if (g.LKQR) try { const q = LKQR.make(URL_), n = q.size + 4, c = qs / n; ctx.fillStyle = C.teal; for (let r = 0; r < q.size; r++) for (let k = 0; k < q.size; k++) if (q.matrix[r][k]) ctx.fillRect(Math.floor(qx + (k + 2) * c), Math.floor(qy + (r + 2) * c), Math.ceil(c), Math.ceil(c)); } catch (e) { /* bỏ qua */ }
+    if (g.LKQR) try { const q = LKQR.make(link(kindOf(S), 'qr', S.ref)), n = q.size + 4, c = qs / n; ctx.fillStyle = C.teal; for (let r = 0; r < q.size; r++) for (let k = 0; k < q.size; k++) if (q.matrix[r][k]) ctx.fillRect(Math.floor(qx + (k + 2) * c), Math.floor(qy + (r + 2) * c), Math.ceil(c), Math.ceil(c)); } catch (e) { /* bỏ qua */ }
     const fx = rtl ? qx - 32 : qx + qs + 32, fw = W - 2 * P - qs - 32; ctx.textAlign = 'start';
     ctx.fillStyle = '#fff'; fit(ctx, 'lexkite.com', fx, qy + qs * 0.36, fw, story ? 48 : 40, 800, F);
     ctx.fillStyle = 'rgba(255,255,255,.75)'; fit(ctx, T('Học từ vựng & luyện thi miễn phí'), fx, qy + qs * 0.72, fw, story ? 30 : 26, 500, F);
   }
 
   const toBlob = cv => new Promise(r => { try { cv.toBlob(b => r(b), 'image/png'); } catch (e) { r(null); } });
-  const shareText = () => T('Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}', { url: URL_ });
+  const shareText = S => T('Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}', { url: link(kindOf(S), 'link', S.ref) });
 
   async function open(acc) {
     await dict(); css();
@@ -122,13 +126,13 @@
     // Web: navigator.share({files}) → không được thì tải ảnh + chép link. App gốc: bảng chia sẻ hệ điều hành (js/lib/save-file.js)
     box.querySelector('#scShare').onclick = async () => {
       const b = blob || await toBlob(cv); if (!b || !g.LKFile) return save();
-      let r; try { r = await LKFile.save(b, name(fmt), { share: true, title: T('Khoe thành tích'), text: shareText() }); } catch (e) { return toast(T('Không tải được – thử lại sau')); }
-      if (r === 'saved') try { await navigator.clipboard.writeText(shareText()); toast(T('Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé')); } catch (e) { /* bỏ qua */ }
+      let r; try { r = await LKFile.save(b, name(fmt), { share: true, title: T('Khoe thành tích'), text: shareText(S) }); } catch (e) { return toast(T('Không tải được – thử lại sau')); }
+      if (r === 'saved') try { await navigator.clipboard.writeText(shareText(S)); toast(T('Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé')); } catch (e) { /* bỏ qua */ }
     };
     // Đóng hộp → giải phóng bộ nhớ canvas (Safari iOS giới hạn tổng dung lượng canvas)
     const m = d.getElementById('modal'); if (m && 'MutationObserver' in g) { const mo = new MutationObserver(() => { if (m.hidden || !cv.isConnected) { cv.width = cv.height = 0; mo.disconnect(); } }); mo.observe(m, { attributes: true, attributeFilter: ['hidden'], childList: true, subtree: true }); }
     draw();
   }
 
-  g.ShareCard = { open, render, stats };
+  g.ShareCard = { open, render, stats, link, kindOf };
 })(typeof self !== 'undefined' ? self : this);

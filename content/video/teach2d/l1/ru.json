@@ -23,7 +23,7 @@
     },
     "answer_say": "On! It depends on you.",
     "native": {
-     "hook": "“Depend from” или “depend on”?",
+     "hook": "Какое маленькое слово верное?",
      "tip": "После depend ставь “on”: “It depends on the weather”.",
      "caption": "Ты тоже говоришь “It depends from the weather.”? 😅 Русское «зависит от» тянет за собой “from”, а нужно “on”. Правильно: “It depends on the weather.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
      "comment": "Ответ: “on”. После depend всегда on. Бесплатный тест для практики здесь: {link}",
@@ -103,7 +103,7 @@
     },
     "answer_say": "To! Please explain it to me.",
     "native": {
-     "hook": "“Explain me” — типичная ошибка",
+     "hook": "Скажи одним маленьким словом",
      "tip": "Не “explain me”, а “explain to me”: “Explain the rule to me”.",
      "caption": "Ты тоже говоришь “Explain me the rule.”? 😅 По-русски «объясни мне», вот и получается “explain me”. Нужно “explain … to me”. Правильно: “Explain the rule to me.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
      "comment": "Ответ: “to”. Объясняем кому-то через to. Бесплатный тест для практики здесь: {link}",
@@ -183,7 +183,7 @@
     },
     "answer_say": "Information! I need more information.",
     "native": {
-     "hook": "Информация — без “s”!",
+     "hook": "Одно или много?",
      "tip": "У слова information нет множественного числа: не “informations”.",
      "caption": "Ты тоже говоришь “Thanks for the informations.”? 😅 По-русски «сведения» бывают во множественном числе, но “information” — нет. Правильно: “Thanks for the information.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
      "comment": "Ответ: “information”. Information — без множественного числа. Бесплатный тест для практики здесь: {link}",
@@ -503,7 +503,7 @@
     },
     "answer_say": "At! She is at work today.",
     "native": {
-     "hook": "“On the work” — ошибка",
+     "hook": "Какое маленькое слово верное?",
      "tip": "Работа — “at work”, без “the” и без “on”.",
      "caption": "Ты тоже говоришь “I am on the work now.”? 😅 По-русски «на работе», и в английский тянется “on”. Нужно “at work”. Правильно: “I am at work now.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
      "comment": "Ответ: “at”. На работе — at work. Бесплатный тест для практики здесь: {link}",
@@ -623,7 +623,7 @@
     },
     "answer_say": "A! She is a doctor.",
     "native": {
-     "hook": "Забываешь “a”? Это частая беда",
+     "hook": "Ты забываешь “a”?",
      "tip": "Перед одним предметом ставь a: “I have a dog”.",
      "caption": "Ты тоже говоришь “I have dog.”? 😅 В русском нет артиклей, поэтому “a” легко потерять: “I have a dog”. Правильно: “I have a dog.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.",
      "comment": "Ответ: “a”. Нет артиклей — частая беда. Бесплатный тест для практики здесь: {link}",
@@ -743,7 +743,7 @@
     },
     "answer_say": "Shop! I buy milk in a shop.",
     "native": {
-     "hook": "“Magazine” — не магазин!",
+     "hook": "Магазин — это “shop”?",
      "tip": "“Magazine” — это журнал. Магазин по-английски — “shop”.",
      "caption": "Ты тоже говоришь “I bought bread in the magazine.”? 😅 “Magazine” похоже на «магазин», но это журнал. Магазин — “shop” или “store”. Правильно: “I bought bread in the shop.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
      "comment": "Ответ: “shop”. Магазин — shop, журнал — magazine. Бесплатный тест для практики здесь: {link}",
@@ -863,7 +863,7 @@
     },
     "answer_say": "Do! Where do you work?",
     "native": {
-     "hook": "Вопрос без “do” — ошибка",
+     "hook": "Порядок слов верный?",
      "tip": "В вопросе нужно “do”: “Where do you live?”",
      "caption": "Ты тоже говоришь “Where you live?”? 😅 В русском порядок слов свободный, а в английском вопрос нужен “do”. Правильно: “Where do you live?”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.",
      "comment": "Ответ: “do”. Вопрос — со словом do. Бесплатный тест для практики здесь: {link}",
@@ -903,7 +903,7 @@
     },
     "answer_say": "Taller! He is taller than me.",
     "native": {
-     "hook": "Более высокий — это taller",
+     "hook": "Это слово верное?",
      "tip": "С короткими словами добавь -er: “taller”, “bigger”.",
      "caption": "Ты тоже говоришь “He is more tall than me.”? 😅 По-русски «более высокий», вот и хочется сказать “more tall”. Короткие слова берут -er. Правильно: “He is taller than me.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
      "comment": "Ответ: “taller”. Короткие слова — с -er. Бесплатный тест для практики здесь: {link}",
@@ -1023,7 +1023,7 @@
     },
     "answer_say": "Is! He is tired.",
     "native": {
-     "hook": "Забываешь “is”?",
+     "hook": "Ты забываешь “is”?",
      "tip": "Не пропускай is: “She is very beautiful”.",
      "caption": "Ты тоже говоришь “She very beautiful.”? 😅 В русском нет «есть» в настоящем времени: «она красивая». В английском “is” нужен. Правильно: “She is very beautiful.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.",
      "comment": "Ответ: “is”. Без is — нельзя. Бесплатный тест для практики здесь: {link}",
@@ -1063,7 +1063,7 @@
     },
     "answer_say": "Went! Last week we went home.",
     "native": {
-     "hook": "“Yesterday I go” — ошибка",
+     "hook": "“Go” или “went”?",
      "tip": "Вчера — прошедшее время: “Yesterday I went to the shop”.",
      "caption": "Ты тоже говоришь “Yesterday I go to the shop.”? 😅 Со словом yesterday нужно прошедшее время: “went”, а не “go”. Правильно: “Yesterday I went to the shop.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
      "comment": "Ответ: “went”. Вчера — это went. Бесплатный тест для практики здесь: {link}",

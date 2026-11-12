@@ -215,3 +215,36 @@ scene post-office_fv kling-image-v3_0 4 cr (2473->2469) n=4
 scene post-office_fpn kling-image-v3_0 4 cr (2469->2465) n=4
 scene post-office_fvn kling-image-v3_0 4 cr (2465->2461) n=4
 B3a plates DONE: kling-image-v3_0 4 per variant (p/v day, pn/vn evening) × 20 sets = 320 imgs, 320 cr (2781->2461 incl. pilot 16). Eye-picked 110 clean plates (no people, no text/digits, set recognisable, style = scene): rejects = stray numbers/letters on signs, people sneaking in (v-variants), empty rooms losing the set, 'sky inside the shop' evenings. Picks in tools/plates_picks.txt → media cine/scenes/<sit>/plates/, bank.json situations.<sit>.plates (aspect, light, uses). Lesson: cheap Kling images = great for variety when generated 4× and eye-picked (~34 % keep), not for locked-character poses.
+TICKET 12/11 B3b reels inserts: v4 1080p 5 s ambient LOOP per set from an approved 9:16 plate (first = tail = plate → seamless, 0-cr reels splicing), no people/text; 75 cr each; pilot cafe vn_1; batch ≤ 20 sets (1,500) within floor 339.
+insert cafe_amb_vn_1 kling-video-v4_0 75 cr (2461->2386) ok=1
+VERDICT cafe_amb_vn_1 PASS 90 (seam 0.36, no cut, subtle steam/light, no people/text) → batch 19 sets, one 9:16 plate each, insqc gate (seam<3, step<6, 0.6<drift<25) + sheet; 2 consecutive fails → stop.
+insert restaurant-order_amb_vn_1 kling-video-v4_0 75 cr (2386->2311) ok=1
+insert airport-checkin_amb_vn_2 kling-video-v4_0 75 cr (2311->2236) ok=1
+insert ask-directions_amb_vn_1 kling-video-v4_0 75 cr (2236->2161) ok=1
+insert train-station_amb_vn_4 kling-video-v4_0 75 cr (2161->2086) ok=1
+insert taxi_amb_vn_2 kling-video-v4_0 75 cr (2086->2011) ok=1
+insert supermarket_amb_vn_1 kling-video-v4_0 75 cr (2011->1936) ok=1
+insert shop-return_amb_vn_4 kling-video-v4_0 75 cr (1936->1861) ok=1
+insert pharmacy_amb_vn_4 kling-video-v4_0 75 cr (1861->1786) ok=1
+insert dentist_amb_vn_2 kling-video-v4_0 75 cr (1786->1711) ok=1
+insert bank_amb_vn_3 kling-video-v4_0 75 cr (1711->1636) ok=1
+insert job-interview_amb_vn_1 kling-video-v4_0 75 cr (1636->1561) ok=1
+insert office-intro_amb_vn_1 kling-video-v4_0 75 cr (1561->1486) ok=1
+insert team-meeting_amb_vn_1 kling-video-v4_0 75 cr (1486->1411) ok=1
+insert flat-viewing_amb_vn_2 kling-video-v4_0 75 cr (1411->1336) ok=1
+insert phone-plan_amb_vn_2 kling-video-v4_0 75 cr (1336->1261) ok=1
+insert lost-luggage_amb_vn_2 kling-video-v4_0 75 cr (1261->1186) ok=1
+insert cinema-tickets_amb_vn_1 kling-video-v4_0 75 cr (1186->1111) ok=1
+insert party-invite_amb_v_3 kling-video-v4_0 75 cr (1111->1036) ok=1
+insert post-office_amb_vn_1 kling-video-v4_0 75 cr (1036->961) ok=1
+REJECT eye: bank_amb_vn_3 (monitor+plant pop in/out), flat-viewing_amb_vn_2 (curtain pops in), office-intro_amb_vn_1 (gate FAIL drift 0.52, static). Root cause: ambient phrase named objects NOT in the plate → model invents them / nothing to move. Fix: phrases name only things visible in the plate (light, clouds, dust). 16 batch + pilot = 17 banked → media cine/scenes/<s>/inserts/.
+TICKET 12/11 B3c: 3 redo (fixed phrases, same plates) + 5 x 16:9 evening loops (cafe pn1, restaurant-order pn2, airport-checkin pn2, train-station pn1, office-intro pn3) = 8 x 75 = 600 cr, floor 339 (961 -> ~361).
+insert bank_amb_vn_3 kling-video-v4_0 75 cr (961->886) ok=1
+insert flat-viewing_amb_vn_2 kling-video-v4_0 75 cr (886->811) ok=1
+insert office-intro_amb_vn_1 kling-video-v4_0 75 cr (811->736) ok=1
+insert cafe_amb_pn_1 kling-video-v4_0 75 cr (736->661) ok=1
+insert restaurant-order_amb_pn_2 kling-video-v4_0 75 cr (661->586) ok=1
+insert airport-checkin_amb_pn_2 kling-video-v4_0 75 cr (586->511) ok=1
+insert train-station_amb_pn_1 kling-video-v4_0 75 cr (511->436) ok=1
+insert office-intro_amb_pn_3 kling-video-v4_0 75 cr (436->361) ok=1
+B3c result: PASS gate+eye 6 → bank_amb_vn_3, flat-viewing_amb_vn_2 (fixed phrases worked), cafe/restaurant-order/airport-checkin/train-station 16:9 evening loops. REJECT office-intro_amb_vn_1 (2nd try: gate FAIL maxstep 7.35 drift 30.8 – plate too bare, model invents) + office-intro_amb_pn_3 (eye: ceiling panels pop in, phrase 'ceiling lights' not drawn in plate). office-intro has no insert yet – needs a richer plate first (image ~4 cr) before another 75-cr clip. Balance 361 = floor 339 + 22 → STOP spending. Inserts banked: 23 (19 of 20 sets; 4 sets also 16:9).

@@ -5,7 +5,7 @@ name: SEO IndexNow
 on:
   push:
     branches: [main]
-    paths: ['web/js/data.js', 'web/js/lib/**', 'web/packs/**', 'web/js/notes/**', 'content/confidence/**', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/seo-words.mjs', 'web/js/usage/**', 'content/dict/wordnet.json', 'web/js/models.js', 'web/cpack/speak/samples.js', 'scripts/lib/word-depth.mjs', 'scripts/dict/build.mjs']
+    paths: ['web/js/data.js', 'web/js/lib/**', 'web/packs/**', 'web/js/notes/**', 'content/confidence/**', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-pages-i18n.mjs', 'scripts/lib/seo-words.mjs', 'web/js/usage/**', 'content/dict/wordnet.json', 'web/cpack/write/models.js', 'web/cpack/speak/samples.js', 'scripts/lib/word-depth.mjs', 'scripts/dict/build.mjs']
   workflow_dispatch:
     inputs:
       all: { description: 'Gửi lại toàn bộ URL (bỏ qua so sánh)', type: boolean, default: false }
