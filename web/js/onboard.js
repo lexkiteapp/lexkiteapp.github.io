@@ -8,7 +8,7 @@
   const App = g.App, { state } = App, { esc } = UI;
   const BASE = ['goal', 'level', 'target', 'pace', 'ready'], STEPS = BASE.slice(), KEY = 'lk.onbPick'; // + 'lang' ở đầu khi có ≥ 2 ngôn ngữ chọn được (Target.avail, cờ W7)
   const readPick = () => { try { const p = JSON.parse(sessionStorage.getItem(KEY) || 'null'); return p && typeof p === 'object' ? p : null; } catch (e) { return null; } };
-  const savePick = p => { try { sessionStorage.setItem(KEY, JSON.stringify({ exam: p.exam, target: p.target, pace: p.pace, topics: [...p.topics], v: p.v, lv: p.lv, track: p.track, step: p.step, said: p.said, w: p.w })); } catch (e) { /* riêng tư/đầy: vẫn học bình thường */ } };
+  const savePick = p => { try { sessionStorage.setItem(KEY, JSON.stringify({ exam: p.exam, target: p.target, pace: p.pace, topics: [...p.topics], v: p.v, lv: p.lv, track: p.track, sn: STEPS[p.step], tl: p.tl, said: p.said, w: p.w })); } catch (e) { /* riêng tư/đầy: vẫn học bình thường */ } };
   const hashOf = i => '#/welcome/setup?s=' + STEPS[i];
   const urlOf = i => location.pathname + location.search + hashOf(i); // <base href="/">: đường dẫn tương đối sẽ ra khỏi /app/
   let live = null, runs = 0;
@@ -34,7 +34,7 @@
     const was = ex => (ex === state.settings.exam && fits(ex, state.settings.examTarget)) || ''; // đã có mục tiêu hợp thang → chọn sẵn, không hỏi lại
     const pick = { exam: (App.exam && state.settings.exam) || 'ielts', target: '', pace: 20, topics: new Set(), v: {}, lv: '', step: 0, said: '' };
     pick.target = was(pick.exam);
-    { const p = readPick(); if (p) { if (TARGETS[p.exam]) { pick.exam = p.exam; pick.target = fits(p.exam, p.target); } if (NEW_OF[p.pace]) pick.pace = p.pace; if (Array.isArray(p.topics)) pick.topics = new Set(p.topics); if (p.v && typeof p.v === 'object') pick.v = p.v; if (typeof p.lv === 'string') pick.lv = p.lv; if (typeof p.track === 'string') pick.track = p.track; if (typeof p.said === 'string') pick.said = p.said; if (STEPS[p.step]) pick.step = p.step; if (p.w) pick.w = 1; } }
+    { const p = readPick(); if (p) { if (TARGETS[p.exam]) { pick.exam = p.exam; pick.target = fits(p.exam, p.target); } if (NEW_OF[p.pace]) pick.pace = p.pace; if (Array.isArray(p.topics)) pick.topics = new Set(p.topics); if (p.v && typeof p.v === 'object') pick.v = p.v; if (typeof p.lv === 'string') pick.lv = p.lv; if (typeof p.track === 'string') pick.track = p.track; if (typeof p.said === 'string') pick.said = p.said; if (STEPS.includes(p.sn)) pick.step = STEPS.indexOf(p.sn); if (typeof p.tl === 'string' && Target.avail().includes(p.tl)) pick.tl = p.tl; if (p.w) pick.w = 1; } }
     if (fromW) pick.w = 1; // có mục Welcome ngay trước bước đầu trong lịch sử (finishOnboarding gỡ cùng các bước, app.js)
     if (STEPS.includes(s)) pick.step = STEPS.indexOf(s); // hash thắng bước đã lưu (tải lại, Tiến/Lùi); vào không có ?s= → tiếp bước đang dở
     if (location.hash !== hashOf(pick.step)) try { history.replaceState(null, '', urlOf(pick.step)); } catch (e) { /* bỏ qua */ }
@@ -111,11 +111,16 @@
       const nx = $('#obNext'); if (nx) nx.onclick = () => { pick.step++; pick.said = ''; try { history.pushState({ onb: pick.step, n: ((history.state && history.state.n) || 0) + 1 }, '', urlOf(pick.step)); } catch (e) { /* vẫn đi tiếp được */ } draw(); focusQ(); };
       // 🌍 bước chọn ngôn ngữ học (W7): chạm thẻ chỉ ghi vào pick.tl; Target.set chạy khi bấm Tiếp tục (Lùi/bỏ dở không đổi ngôn ngữ đang học).
       // Ngôn ngữ có `home` (không có gói thi tiếng Anh, vd TBN) → Tiếp tục kết thúc thiết lập, vào lộ trình riêng
-      $$('[data-lang]').forEach(c => { c.onclick = () => { if (c.dataset.lang !== (pick.tl || Target.cur())) { pick.tl = c.dataset.lang; pick.said = 'lang'; draw(); } }; c.onkeydown = ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); c.click(); } }; });
+      // radiogroup đúng chuẩn: chỉ thẻ đang chọn nằm trong thứ tự Tab (roving tabindex), mũi tên/Enter/Space chọn, vẽ lại xong trả tiêu điểm về thẻ đang chọn
+      const radios = $$('[data-lang]'), pickLang = id => { pick.tl = id; pick.said = 'lang'; draw(); const r = view.querySelector('[data-lang][aria-checked=true]'); if (r) r.focus(); };
+      radios.forEach((c, i) => { c.tabIndex = c.getAttribute('aria-checked') === 'true' ? 0 : -1;
+        c.onclick = () => { if (c.dataset.lang !== (pick.tl || Target.cur())) pickLang(c.dataset.lang); };
+        c.onkeydown = ev => { const d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[ev.key]; if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); c.click(); }
+          else if (d) { ev.preventDefault(); const o = radios[(i + d + radios.length) % radios.length]; if (o !== c) pickLang(o.dataset.lang); } }; });
       if (STEPS[n] === 'lang' && nx) {
         const next = nx.onclick, home = Target.table(pick.tl || Target.cur()).home;
-        nx.onclick = async () => { if (pick.tl) Target.set(pick.tl); if (!home) return next(); nx.disabled = true;
-          try { Object.assign(state.settings, { pace: 20, dailyGoal: 20, dailyNew: NEW_OF[20] }); await D.saveSettings(); await D.finish(true, home); } catch (e) { nx.disabled = false; } };
+        nx.onclick = async () => { const was = Target.cur(); if (pick.tl) Target.set(pick.tl); if (!home) return next(); nx.disabled = true;
+          try { Object.assign(state.settings, { pace: 20, dailyGoal: 20, dailyNew: NEW_OF[20] }); await D.saveSettings(); await D.finish(true, home); } catch (e) { Target.set(was); nx.disabled = false; } }; // lỗi lưu → trả ngôn ngữ cũ, ở lại bước
       }
       const acct = $('#setupIn'); if (acct) acct.onclick = e => { e.stopPropagation(); D.login(draw); }; // tài khoản trống: ở lại đúng bước, vẽ lại để ẩn liên kết đăng nhập
       if (TK()) TK().bindSetup(view, pick, id => { TR_ID = id; pick.said = 'goal'; setExam(pick.exam); }, () => { pick.said = 'level'; draw(); });
