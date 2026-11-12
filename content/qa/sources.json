@@ -152,6 +152,7 @@
    "id": "reading",
    "paths": [
     "web/js/readtest",
+    "web/cpack/readtest",
     "web/cpack/readings"
    ],
    "owner": "claude",
