@@ -33,7 +33,12 @@ async function run(tag, root, vn, scheme, gate) {
   const page = await ctx.newPage(); if (gate) page.on('pageerror', e => errs.push(`${vn}-${scheme}: ${e.message}`));
   const seen = new Set();
   for (let run = 0; run < 3 && seen.size < Object.keys(TYPES).length; run++) {
-    await page.goto(`https://lk.test/app/?sandbox=1&hl=vi#/lesson/go?demo=1`, { waitUntil: 'load' }); await page.waitForTimeout(2500);
+    await page.goto(`https://lk.test/app/?sandbox=1&hl=vi#/lesson?demo=1`, { waitUntil: 'load' }); await page.waitForFunction(() => window.App && App.need).catch(() => 0);
+    // đề Xếp câu cố định đứng đầu bài thử (bài demo mới không còn chắc chắn có dạng này trong 80 bước) – như word-arrange-e2e
+    await page.evaluate(async () => { await App.need('lesson'); const E = window.LessonEngine, orig = E.build, W = ['We', 'need', 'to', 'send', 'the', 'report', 'today'], tiles = W.concat(['soon', 'was']).sort();
+      E.build = (...a) => { const r = orig(...a), base = r.find(x => x.card) || r[0]; return [Object.assign({}, base, { id: 9001, type: 'build', noAudio: true, sent: W.join(' '), prompt: '', answer: W.join(' '), tiles, choice: false, retry: 0 }), ...r]; };
+      location.hash = '#/lesson/go?demo=1'; });
+    await page.waitForTimeout(2500);
     for (let i = 0; i < 80 && seen.size < Object.keys(TYPES).length; i++) {
       const cur = await page.evaluate(() => { const L = window.App && App._lsn, it = L && L.sess && L.sess.cur; return it && !L.checked ? it.type : null; });
       if (cur && TYPES[cur] && !seen.has(cur)) { seen.add(cur); await page.waitForTimeout(500);
