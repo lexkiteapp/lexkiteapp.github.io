@@ -268,6 +268,11 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     ok(violations('p.yml', pw.replace('ubuntu-latest', 'ubuntu-26.04')).some(v => /luật 14/.test(v)), 'luật 14: ubuntu-26.04 → lỗi');
     ok(!violations('p.yml', base).some(v => /luật 14/.test(v)), 'luật 14: job không Playwright dùng ubuntu-latest → đạt');
     ok(PW_SCRIPTS.length > 10, 'luật 14: quét được script có import playwright (' + PW_SCRIPTS.length + ')'); }
+  // luật 15 (13/11): ngưỡng fps của cổng sân khấu/rig KHÔNG được hạ dưới 50 (4×) / 55 (1×) – runner dao động thì đo bền hơn (warm-up + 15 mẫu + trung vị + 1 lần đo lại), không nới ngưỡng
+  { const ss = fs.readFileSync(path.join(ROOT, 'scripts/test/story-stage.mjs'), 'utf8'), rg = fs.readFileSync(path.join(ROOT, 'scripts/test/teacher-rig-browser.mjs'), 'utf8');
+    ok(+((ss.match(/const FPS_MIN = (\d+)/) || [])[1]) >= 50 && /m\.fps >= FPS_MIN/.test(ss), 'luật 15: story-stage FPS_MIN ≥ 50 và cổng dùng FPS_MIN');
+    const rm = rg.match(/const FPS_MIN = \{ 1: (\d+), 4: (\d+) \}/); ok(rm && +rm[1] >= 55 && +rm[2] >= 50 && /good = m => m\.fps >= min/.test(rg), 'luật 15: teacher-rig FPS_MIN 1× ≥ 55, 4× ≥ 50');
+    ok(/runSet\(15\)/.test(ss) && /runSet\(rate === 4 \? 15 : 5\)/.test(rg) && /fps-samples\.json/.test(ss) && /fps-samples\.json/.test(rg), 'luật 15: đo 15 mẫu + ghi fps-samples.json cho cả hai cổng'); }
   // --- quét repo
   const files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f)), srcs = files.map(f => [f, fs.readFileSync(path.join(WF, f), 'utf8')]);
   for (const [f, s] of srcs) for (const v of violations(f, s)) ok(false, v);
