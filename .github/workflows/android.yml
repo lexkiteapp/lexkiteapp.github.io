@@ -110,6 +110,12 @@ jobs:
           ./gradlew --no-daemon bundleRelease
           rm -f "$LEXKITE_KEYSTORE_FILE"
           cp app/build/outputs/bundle/release/app-release.aab "../../lexkite-$LEXKITE_VERSION_NAME-$LEXKITE_VERSION_CODE.aab"
+      - name: Dung lượng .aab theo thư mục (sổ để cắt nội dung nặng khỏi app → CDN)
+        if: env.HAS_KEY == 'true'
+        run: |
+          AAB=$(ls lexkite-*.aab); { echo "### Dung lượng $AAB: $(du -h "$AAB" | cut -f1)"; echo '| nén (MB) | thư mục trong .aab |'; echo '|---|---|'; } >> "$GITHUB_STEP_SUMMARY"
+          unzip -v "$AAB" | awk 'NR>3 && NF>=8 {n=split($8,a,"/"); k=(n>3)?a[1]"/"a[2]"/"a[3]:$8; if(a[1]=="base"&&a[2]=="assets"&&a[3]=="public"&&n>4)k=a[1]"/"a[2]"/"a[3]"/"a[4]; z[k]+=$3} END{for(k in z)printf "%.1f %s\n", z[k]/1048576, k}' | sort -rn | head -25 | awk '{print "| "$1" | "$2" |"}' >> "$GITHUB_STEP_SUMMARY"
+          echo '--- mobile/www lớn nhất ---'; du -sh mobile/www/* | sort -rh | head -15
       - uses: actions/upload-artifact@v4
         if: env.HAS_KEY == 'true'
         with:
