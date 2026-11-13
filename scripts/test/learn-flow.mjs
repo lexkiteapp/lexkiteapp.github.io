@@ -223,7 +223,7 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   const src = (...fs) => fs.map(f => fs0(f)).join('\n'), fs0 = f => { try { return fs.readFileSync(path.join(WEB, 'js', f), 'utf8'); } catch (e) { return ''; } };
   const dir = d => fs.readdirSync(path.join(WEB, 'js', d)).map(f => d + '/' + f);
   const C = { roleplay: src(...dir('roleplay')), call: src('call/calls.js', 'call/calls-exam.js'), listen: src(...dir('listen'), ...dir('../cpack/listen'), ...dir('toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
-    rtype: src('rtype.js'), toefl: src('toefl.js'), toeic: src('toeic.js'), treading: src(...dir('toeic')), grammar: src(...dir('grammar')) };
+    rtype: src('rtype.js'), toefl: src('toefl.js'), toeic: src('toeic.js'), treading: src(...dir('toeic')), grammar: src(...dir('grammar'), ...dir('../cpack/grammar')) };
   const has = (txt, id) => new RegExp(`id: '${id}'|T\\('${id}'`).test(txt);
   const exists = h => { const [, r, a = '', q = ''] = /^#\/([a-z0-9-]+)\/?([^?]*)\??(.*)$/.exec(h) || [];
     if (r === 'practice') { const id = decodeURIComponent(new URLSearchParams(q).get('src') || '').replace(/^topic:/, ''); return id === 'due' || (w.App.topicOf(id) || { words: [] }).words.length >= 3; }
