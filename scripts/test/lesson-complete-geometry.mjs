@@ -43,6 +43,7 @@ const MEASURE = () => {
     tiles_r: r(tiles), sub: r(sub), tch: r(img), hdr: r(hdr), x2: r(x2), sy: scrollY, sw: document.documentElement.scrollWidth, iw: innerWidth,
     sub_txt: sub.innerText.replace(/\s+/g, ' ').trim(), dir: document.documentElement.dir || cs(document.body).direction,
     again: { txt: again.innerText.replace(/\s+/g, ' ').trim(), icons: icons(again), focus: document.activeElement === again, outline: cs(again).outlineStyle, ow: cs(again).outlineWidth, ptr: root.classList.contains('lsn-ptr') },
+    ag: { ...r(again), pos: cs(again.parentElement).position }, subr: r(sub), docH: document.documentElement.scrollHeight,
     rev: { txt: rev.innerText.replace(/\s+/g, ' ').trim(), icons: icons(rev), href: rev.getAttribute('href') },
     s: { acc: s.accuracy, best: s.best, ok1: s.ok1, wrongN: s.wrong.size, weak: [...s.wrong.keys()].filter(k => k[0] !== '#'), picks: picks.map(p => p.card.word.toLowerCase()) },
     subIcons: icons(sub), cls: window.__cls, path: localStorage.getItem('lk.lsn.path.demo'), icon_ai: icons(root).includes('auto_awesome'),
@@ -97,6 +98,8 @@ for (const [name, vp, scheme, lang, wrongEvery, kbd] of CASES) {
   const dx = m.tch.cx - (m.tiles_r.l + m.tiles_r.w / 2); ok(Math.abs(dx) <= 2, `${tag}: Ama căn giữa cột (lệch ${dx.toFixed(1)} px)`);
   const vis = (Math.min(m.tch.b, m.sub.t) - m.tch.t) / m.tch.h; ok(vis >= 0.6 && vis <= 1.001, `${tag}: Ama thấy ${Math.round(vis * 100)} % thân (≥ 60 %)`);
   ok(m.tch.t >= m.tiles_r.b - 1, `${tag}: Ama không đè lên ô số liệu`);
+  // 5b · nút dưới đáy KHÔNG dính/che nội dung (bug desktop: thanh dính che thẻ 'Awesome!'): không sticky/fixed, nằm sau thẻ và thẻ chuỗi
+  ok(!/sticky|fixed/.test(m.ag.pos) && m.ag.t >= m.subr.b - 1, `${tag}: nút chính không dính đáy và không che thẻ (position ${m.ag.pos}, nút top ${m.ag.t.toFixed(0)} ≥ thẻ bottom ${m.subr.b.toFixed(0)})`);
   // 6 · ✕ không bị cắt mép trên; trang bắt đầu ở đỉnh
   ok(m.sy === 0 && m.x2.t >= 0 && m.x2.t >= m.hdr.b - 1, `${tag}: nút ✕ không bị cắt (cuộn ${m.sy}, ✕ top ${m.x2.t.toFixed(0)}, thanh trên đáy ${m.hdr.b.toFixed(0)})`);
   // 7 · 3 ô cùng hàng, chữ không tràn, không cuộn ngang
