@@ -17,7 +17,7 @@ concurrency: { group: word-audio, cancel-in-progress: false }
 env: { WORD_AUDIO_EXPAND: '1', WORD_AUDIO_PENDING: '1' }   # + từ của lô lexicon-expand chờ xuất: có giọng TRƯỚC khi vào kho (promote.mjs cổng giọng)
 jobs:
   plan:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 10
     outputs:
       left: ${{ steps.c.outputs.left }}
@@ -75,7 +75,7 @@ jobs:
   publish:
     needs: [plan, gen]
     if: always() && needs.plan.outputs.left != '0'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4

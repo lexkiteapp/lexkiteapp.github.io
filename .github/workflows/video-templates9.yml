@@ -69,7 +69,7 @@ jobs:
         with: { name: 'vo-${{ matrix.t }}-${{ github.run_number }}', path: vo/, retention-days: 3 }
   shard:
     needs: [setup, voice]
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 60
     strategy:
       fail-fast: false
@@ -113,7 +113,7 @@ jobs:
   merge:
     needs: [setup, shard]
     if: ${{ always() && needs.shard.result == 'success' && github.event.inputs.plan != 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 40
     strategy:
       fail-fast: false

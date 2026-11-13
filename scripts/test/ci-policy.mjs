@@ -115,7 +115,11 @@ const PW_SCRIPTS = (() => { const r = []; const walk = d => { for (const e of fs
   if (e.isDirectory()) { if (e.name !== 'node_modules') walk(f); } else if (/\.(mjs|cjs|js)$/.test(e.name) && /from ['"]playwright|require\(['"]playwright|playwright-core/.test(fs.readFileSync(f, 'utf8').slice(0, 4000))) r.push(path.relative(ROOT, f).split(path.sep).join('/')); } };
   try { walk(path.join(ROOT, 'scripts')); } catch (e) { /* không có thư mục scripts (test tổng hợp) */ } return r; })();
 // + job cài faster-whisper/scripts/cine/requirements.txt: PyAV (av 11) chưa có wheel cho Python của 26.04 → build từ nguồn lỗi "libavformat not found" (voice (t2_usuk_elevator) đỏ 13/11)
-export const usesPlaywright = jobText => /playwright|chromium|puppeteer|faster-whisper|scripts\/cine\/requirements/i.test(jobText) || PW_SCRIPTS.some(f => jobText.includes(f));
+const PW_RE = /playwright|chromium|puppeteer|faster-whisper|scripts\/cine\/requirements/i;
+const ACT = (() => { const m = {}; const d = path.join(ROOT, '.github/actions'); try { for (const n of fs.readdirSync(d)) { const f = path.join(d, n, 'action.yml'); if (fs.existsSync(f)) m[n] = fs.readFileSync(f, 'utf8'); } } catch (e) { /* không có thư mục actions */ } return m; })();
+// job dùng composite action nội bộ (./.github/actions/<tên>, tối đa 3 tầng) mà action đó cài/chạy những thứ trên cũng tính (video9-setup cài faster-whisper)
+const actUses = (text, depth = 0) => depth < 3 && [...text.matchAll(/uses:\s*\.\/\.github\/actions\/([\w-]+)/g)].some(x => ACT[x[1]] && (PW_RE.test(ACT[x[1]]) || actUses(ACT[x[1]], depth + 1)));
+export const usesPlaywright = jobText => PW_RE.test(jobText) || PW_SCRIPTS.some(f => jobText.includes(f)) || actUses(jobText);
 export const badRunner = jobText => { const m = jobText.match(/^    runs-on:\s*(.*)$/m); return !!m && (/ubuntu-latest|26\.04/.test(m[1]) || (/ubuntu/.test(m[1]) && !/vars\.PW_RUNNER/.test(m[1]))); }; // một chỗ đổi chung: repo variable PW_RUNNER (mặc định ubuntu-24.04)
 /** Lỗi chính sách của 1 workflow (thuần, có test) → [chuỗi]. */
 const SIGN_AUTO = /-allowProvisioningUpdates\b|CODE_SIGN_STYLE\s*=\s*"?Automatic|signingStyle<\/key>\s*<string>automatic/i;

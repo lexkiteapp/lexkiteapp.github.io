@@ -85,7 +85,7 @@ jobs:
     if: ${{ (inputs.native == '1') && needs.gate.outputs.go == 'true' }}
     name: android (${{ matrix.lang }})
     needs: gate
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 40
     # mỗi ngôn ngữ một emulator mới: 26/10–27/10 emulator chết ngẫu nhiên sau ~10–14' chạy liên tục (qemu biến mất, host còn 10 GB trống) → ngắn hơn + độc lập
     strategy:

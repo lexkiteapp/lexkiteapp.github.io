@@ -36,7 +36,7 @@ jobs:
   preqc:   # gate 1 (seconds): generator self-checks, reviewed script == spec, motion parity
     needs: gate
     if: needs.gate.outputs.go == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 5
     outputs: { list: '${{ steps.m.outputs.list }}', par: '${{ steps.p.outputs.par }}' }
     steps:
@@ -107,7 +107,7 @@ jobs:
   par:   # count free runners again before the render matrix (preqc's count is an hour old in a busy queue; 2/11 run 41380206879 was stuck at 1)
     needs: [preqc, voice, gate]
     if: ${{ (!cancelled() && needs.preqc.result == 'success') && needs.gate.outputs.go == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 3
     outputs: { par: '${{ steps.p.outputs.par }}' }
     steps:
@@ -245,7 +245,7 @@ jobs:
   sheet:   # one review sheet: every episode's frames + QC score, both themes; then the bank (only QC >= 90 with every gate green)
     needs: [preqc, render, embed, gate]
     if: ${{ !cancelled() && contains(fromJSON('["success","failure"]'), needs.render.result) && needs.gate.outputs.go == 'true' }}   # no render (preqc red) -> no sheet, no runner held
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
