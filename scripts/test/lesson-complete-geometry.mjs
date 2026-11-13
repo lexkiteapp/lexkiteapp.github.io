@@ -38,7 +38,7 @@ const MEASURE = () => {
   return {
     text: root ? root.innerText : '', chip: (q('#lsnX2').nextElementSibling || {}).innerText || '', chipCut: (() => { const c = q('#lsnX2').nextElementSibling, e = c && [...c.querySelectorAll('span')].pop(); return e ? e.scrollWidth - e.clientWidth : 0; })(),
     tiles: [...tiles.children].map(c => ({ ...r(c), txt: c.innerText.replace(/\s+/g, ' ').trim(), over: c.scrollWidth > c.clientWidth + 1 })),
-    xp: (q('.v2-lesson-complete main > div > div:nth-child(2)') || {}).innerText || '', ring: (q('.v2-lesson-complete main > div > div:nth-child(1) > div:nth-child(3) > div') || {}).innerText || '', week: [...document.querySelectorAll('.lsn-week > div:nth-child(2) > div')].map(c => c.innerText.trim()), weekTitle: (q('.lsn-week > div:nth-child(1)') || {}).innerText || '',
+    xp: (q('.v2-lesson-complete main > div > div:nth-child(2)') || {}).innerText || '', ring: (q('.v2-lesson-complete main > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(4)') || {}).innerText || '', week: [...document.querySelectorAll('.lsn-week > div:nth-child(2) > div')].map(c => c.innerText.trim()), weekTitle: (q('.lsn-week > div:nth-child(1)') || {}).innerText || '',
     rings: [...document.querySelectorAll('.v2-lesson-complete circle[stroke-dashoffset]')].map(c => +c.getAttribute('stroke-dashoffset')),
     tiles_r: r(tiles), sub: r(sub), tch: r(img), hdr: r(hdr), x2: r(x2), sy: scrollY, sw: document.documentElement.scrollWidth, iw: innerWidth,
     sub_txt: sub.innerText.replace(/\s+/g, ' ').trim(), dir: document.documentElement.dir || cs(document.body).direction,
