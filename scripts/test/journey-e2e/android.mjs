@@ -80,7 +80,18 @@ const imeTop = () => { // mép trên bàn phím (px màn hình): nguồn inset I
   const d = adb('shell', 'dumpsys', 'window');
   for (const m of d.matchAll(/InsetsSource[^\n]*?type=ime[^\n]*?frame=\[(\d+),(\d+)\]\[(\d+),(\d+)\][^\n]*?visible=true/g)) if (+m[2] > 0) return +m[2];
   const w = /Window\{[^}]*InputMethod\}[\s\S]{0,4000}?(?:mFrame|frame)=\[(\d+),(\d+)\]\[(\d+),(\d+)\]/.exec(d); return w && +w[2] > +w[4] / 3 ? +w[2] : 0; };
-const webBox = () => { adb('shell', 'uiautomator', 'dump', '/sdcard/kb.xml'); const m = /class="android\.webkit\.WebView"[^>]*bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/.exec(adb('shell', 'cat', '/sdcard/kb.xml')); return m ? m.slice(1).map(Number) : null; };
+// uiautomator dump hay báo "could not get idle state" khi app có chuyển động liên tục (13/11: vi/ar đo 0/3 ô) → thử lại 4 lần; hết cách thì
+// dùng kích thước màn (`wm size`): MainActivity edge-to-edge (SystemBars insetsHandling=disable) nên WebView phủ trọn màn, gốc (0,0).
+const WV = /class="android\.webkit\.WebView"[^>]*bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/;
+const webBox = async () => {
+  for (let t = 0; t < 4; t++) {
+    adb('shell', 'rm', '-f', '/sdcard/kb.xml'); const o = adb('shell', 'uiautomator', 'dump', '/sdcard/kb.xml'); const m = WV.exec(adb('shell', 'cat', '/sdcard/kb.xml'));
+    if (m) return m.slice(1).map(Number);
+    console.log('uiautomator dump lần ' + (t + 1) + ' không có WebView: ' + String(o).trim().slice(0, 120)); await sleep(1500);
+  }
+  const sz = /Physical size: (\d+)x(\d+)/.exec(adb('shell', 'wm', 'size')); if (sz) { console.log('khung WebView: dự phòng wm size ' + sz[1] + 'x' + sz[2]); return [0, 0, +sz[1], +sz[2]]; }
+  return null;
+};
 let kbRan = 0;
 for (const [route, css] of [['write', '#essay'], ['dict', '#q'], ['home', '#gq']]) {
   await clearAnr();
@@ -90,7 +101,7 @@ for (const [route, css] of [['write', '#essay'], ['dict', '#q'], ['home', '#gq']
     return { x, y, dpr: devicePixelRatio, ih: innerHeight, hit: !!h && (h === el || el.contains(h) || h.contains(el)) }`);
   if (!pos || pos.__err) { bad.push(`[bàn phím] #/${route}: không thấy ô ${css}`); continue; }
   if (!pos.hit) { console.log(`bàn phím #/${route}: ${css} không chạm tới được khi chưa có bàn phím (ẩn/che) – bỏ qua`); continue; }
-  const wb = webBox(); if (!wb) { bad.push('[bàn phím] không đọc được khung WebView (uiautomator)'); break; }
+  const wb = await webBox(); if (!wb) { bad.push('[bàn phím] không đọc được khung WebView (uiautomator)'); break; }
   const sx = wb[0] + pos.x * pos.dpr, sy = wb[1] + pos.y * pos.dpr;
   adb('shell', 'input', 'tap', String(Math.round(sx)), String(Math.round(sy)));
   let shown = false; for (let k = 0; k < 16 && !(shown = imeShown()); k++) await sleep(500);
