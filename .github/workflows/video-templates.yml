@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   render:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 90
     env:
       LID: ${{ inputs.lesson }}

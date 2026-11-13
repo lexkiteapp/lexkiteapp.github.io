@@ -1,11 +1,14 @@
 /* 🧭 Lộ trình MỘT component (khung Stitch path + path-sheet): thu gọn = chặng hiện tại, mở rộng = thêm chặng cùng hình, không có bản thứ hai.
  * Nội dung nút: cpack/lesson/path-nodes.js (tải lười). Chặng có ô truyện rỗng: ẩn nút và tự bỏ qua vị trí đó (bộ đếm đi theo số nút thấy được). */
 (function () {
-  const SLOTS = ['lesson', 'listen', 'speak', 'story', 'review', 'exam'], XS = [44, 66, 52, 66, 48, 60], H = 84, HC = 196, SPAN = 11, RING = 238.76;
+  const SLOTS = ['lesson', 'listen', 'speak', 'story', 'review', 'exam'], XS = [38, 44, 38, 32], H = 80, HC = 220, CYC = 44, SPAN = 11, RING = 207.35; // XS = sóng đều quanh trục 38 (±6) · CYC = nút hiện tại nằm cao trong thẻ · RING = chu vi vòng r33
   const unitC = id => ((self.LESSON_PATH_NODES || {}).units || {})[id] || null;
   const slotOf = (c, s) => c.nodes.find(x => x.slot === s) || null;
   const hidden = (u, i) => { const c = unitC(u.id); if (!c || SLOTS[i] !== 'story') return false; const s = slotOf(c, 'story'); return !!s && !s.story; };
-  const cell = (u, i, kind) => { const c = unitC(u.id); return c ? slotOf(c, kind === 'review' ? 'review' : SLOTS[i]) : null; }; // nextKind đổi nút thành ôn → dùng nội dung ô ôn
+  // Nút ôn chen chỗ (unitPlan mở chặng bằng ôn khi ≥ 3 thẻ đến hạn/hay quên, nextKind đổi Nói → ôn khi bài trước < 60 %): ôn THẺ đến hạn của người học,
+  // không mượn ô ôn cuối chặng (lỗi 13/11: cùng tên + cùng 4 từ với bài 5, và bỏ qua đúng các thẻ đã kích hoạt nó) → không có ô cố định.
+  const swapped = (i, kind) => kind === 'review' && SLOTS[i] !== 'review';
+  const cell = (u, i, kind) => { const c = unitC(u.id); return c && !swapped(i, kind) ? slotOf(c, SLOTS[i]) : null; };
   const skip = (n, unitAt) => { let m = n; for (let g = 0; g < SLOTS.length; g++) { if (!hidden(unitAt(m, SLOTS.length), m % SLOTS.length)) break; m++; } return m; };
   const wordsOf = (n, unitAt, kind) => { const u = unitAt(n, SLOTS.length), it = cell(u, n % SLOTS.length, kind); if (!it || !it.words.length) return null;
     return it.words.map(w => Object.assign({ word: w.w, pos: w.pos, vi: w.vi, def: w.def, ipa: w.ipa, ipaUS: w.ipaUS }, (u.words || []).find(x => x.word === w.w) || {}, { sentences: it.ex.filter(x => new RegExp('\\b' + w.w + '\\b', 'i').test(x.en)).map(x => ({ en: x.en, vi: x.vi })) })); };
@@ -18,8 +21,8 @@
       const dn = vis.filter(i => stOf(i) === 'done').length, stage = t('Chặng học {n}', { n: u.no }), unit = c ? t(c.theme) : u.name, xAt = j => XS[j % XS.length];
       rows.push({ v: 'head', stage, unit, can: c ? t(c.can) : o.can[u.id] || '', of: t('{a}/{b} bài', { a: dn, b: vis.length }), pct: Math.round(dn / vis.length * 100), guide: k === cu });
       vis.forEach((i, j) => { const st = stOf(i), kind = k === cu ? P[i].kind : SLOTS[i], it = cell(u, i, kind), x = xAt(j), a = j ? (xAt(j - 1) + x) / 2 : x, b = j < vis.length - 1 ? (xAt(j + 1) + x) / 2 : x, h = st === 'cur' ? HC : H, cy = h / 2, abs = k * L + i;
-        const label = it ? t(it.title) : u.name, min = it ? it.min : o.kmin[kind] || 4, minT = t('{n} phút', { n: min }), id = 'n' + abs;
-        const r = { v: st === 'done' ? 'done' : st === 'cur' ? 'cur' : SLOTS[i] === 'exam' ? 'chk' : 'lock', id, h, cy, x, pin: `M${a} 0 C${a} ${cy / 2} ${x} ${cy / 2} ${x} ${cy}`, pout: `M${x} ${cy} C${x} ${(cy + h) / 2} ${b} ${(cy + h) / 2} ${b} ${h}`, label, sub: it ? t(it.sub) : minT, aria: `${label} – ${t(st === 'done' ? 'Đã xong' : st === 'cur' ? 'Đang học' : 'Đã khóa')}` };
+        const sw = swapped(i, kind), label = it ? t(it.title) : sw ? t('Ôn lỗi trước bài mới') : u.name, min = it ? it.min : o.kmin[kind] || 4, minT = t('{n} phút', { n: min }), id = 'n' + abs;
+        const r = { v: st === 'done' ? 'done' : st === 'cur' ? 'cur' : SLOTS[i] === 'exam' ? 'chk' : 'lock', id, h, cy, x, pin: `M${a} 0 C${a} ${cy / 2} ${x} ${cy / 2} ${x} ${cy}`, pout: `M${x} ${cy} C${x} ${(cy + h) / 2} ${b} ${(cy + h) / 2} ${b} ${h}`, label, sub: it ? t(it.sub) : sw ? t('Những từ bạn hay quên') : minT, aria: `${label} – ${t(st === 'done' ? 'Đã xong' : st === 'cur' ? 'Đang học' : 'Đã khóa')}` };
         if (st === 'cur') Object.assign(r, { href: `#/lesson/go${Q}`, start: t('Bắt đầu'), min: minT, off: (RING * (1 - dn / vis.length)).toFixed(1), tch: o.tch() });
         const redo = SLOTS[i] === 'exam' ? o.check(abs).href : it && it.story ? `#/lesson/go${Q ? Q + '&' : '?'}story=${encodeURIComponent(it.story)}` : `#/lesson/go${Q ? Q + '&' : '?'}redo=${abs}`;
         by[id] = { st, label, sub: r.sub, minT, over: `${stage} · ${unit}`, words: it ? it.words.map(w => w.w) : [], ex: it ? it.ex.map(x => { const tr = t(x.vi); return { en: x.en, tr: tr === x.en ? '' : tr }; }) : [], href: st === 'cur' ? r.href : st === 'done' ? redo : '', before };
@@ -44,5 +47,5 @@
     if ('requestIdleCallback' in self) requestIdleCallback(() => App.need('psheet').catch(() => {})); // tấm chi tiết sẵn sàng trước khi bấm, không đội màn đầu
     return set;
   }
-  self.PathTrail = { SLOTS, hidden, skip, wordsOf, storyOf, build, wire };
+  self.PathTrail = { SLOTS, swapped, hidden, skip, wordsOf, storyOf, build, wire };
 })();

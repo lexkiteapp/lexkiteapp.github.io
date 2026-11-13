@@ -129,7 +129,7 @@ jobs:
   # Chụp màn hình demo trên Android giả lập (KVM của máy chủ GitHub) – xem nhanh mỗi bản build
   screens:
     needs: apk
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 30
     steps:
       - uses: actions/download-artifact@v4

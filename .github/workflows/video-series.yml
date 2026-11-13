@@ -36,7 +36,7 @@ jobs:
           PY
   render:
     needs: setup
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 60
     strategy:
       max-parallel: 6   # ngân sách runner nền (docs/METHODS.md §CI)
