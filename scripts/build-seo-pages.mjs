@@ -17,7 +17,7 @@ const toolLine = l => { const s = toolStrings(l); return s ? `<p><a href="${tool
 if (process.env.SEO_PAGES === '0') { console.log('· SEO pages: tắt (SEO_PAGES=0)'); process.exit(0); }
 const SITE = 'https://lexkite.com', D = process.env.SEO_DIST || 'dist';
 // Chọn trang + nội dung trang từ: scripts/lib/seo-words.mjs (dùng chung với hộp từ của build-blog.mjs) – nạp sau công tắc SEO_PAGES
-const { J, RTL, cap, setOf, idxW, slug, gloss, wPath, bodyOf, en, appLink, cta } = await import('./lib/seo-words.mjs');
+const { J, RTL, cap, setOf, idxW, slug, gloss, wPath, bodyOf, en, appLink, cta, goLine } = await import('./lib/seo-words.mjs');
 const today = new Date().toISOString().slice(0, 10);
 const gitDate = (...f) => { try { return execFileSync('git', ['log', '-1', '--format=%cs', '--', ...f], { encoding: 'utf8' }).trim() || today; } catch { return today; } };
 
@@ -88,7 +88,7 @@ for (const l of LANGS) {
   const body = `<article class="page"><header class="hero"><h1>${esc(title)}</h1><p>${esc(desc)}</p></header>
 <nav class="letters" aria-label="A–Z">${Object.keys(by).map(c => `<a href="#l-${c}">${c}</a>`).join('')}</nav>
 ${Object.entries(by).map(([c, es]) => `<section aria-labelledby="l-${c}"><h2 id="l-${c}">${c}</h2><ul class="az">${es.map(e => `<li><a href="${wPath(l, e)}" lang="en" dir="ltr">${esc(e.word)}</a> <small>${esc(clip(l === 'en' ? e.def : l === 'vi' ? e.vi : gloss(l, e)[0], 40))}</small></li>`).join('')}</ul></section>`).join('\n')}
-${cta(t.ctaB, t.ctaWn, appLink(l, 'vocab'), t.open)}${toolLine(l)}</article>`;
+${cta(t.ctaB, t.ctaWn, appLink(l, 'vocab'), t.open)}${goLine(l, 'hub')}${toolLine(l)}</article>`;
   const jl = { '@context': 'https://schema.org', '@type': 'DefinedTermSet', name: t.words, description: desc, inLanguage: l, url: url(hp) };
   write(hp, page({ lang: l, title: title + ' | Lexkite', desc, p: hp, alts, crumbs: [[t.home, landingHref(l)], [t.words, hp]], body, jsonld: [jl], langHref: x => `/${x}/words/`, section: hp }), { lm: lmW, alts, type: 'words', lang: l, index: true });
 }
@@ -117,7 +117,7 @@ for (const l of LANGS) {
 <header class="hero"><h1><span class="em" aria-hidden="true">${esc(u.em || '')}</span>${esc(ti)}</h1><p>${esc(goal)}</p><div class="sub"><span class="chip">${esc(fill(t.lv, { l: u.level }))}</span><span class="chip">${esc(t.phrases)}: ${u.phrases.length}</span></div></header>
 <section aria-labelledby="h-d"><h2 id="h-d">${esc(t.dlg)}</h2><div class="dlg" lang="en" dir="ltr">${dl.lines.map(([s, line]) => `<p><b>${esc(who(s))}:</b> ${esc(line)}</p>`).join('')}</div></section>
 <section aria-labelledby="h-ph"><h2 id="h-ph">${esc(t.phrases)}</h2>${u.phrases.map(ph => `<div class="ph"><p class="say" lang="en" dir="ltr">${esc(ph.say)}</p><p>${esc(tr(l, ph.mean, x))}</p>${ph.not ? `<p><b>${esc(t.not)}:</b> <span class="no" lang="en" dir="ltr">${esc(ph.not)}</span></p>` : ''}${ph.why ? `<p><b>${esc(t.why)}:</b> ${esc(tr(l, ph.why, x))}</p>` : ''}</div>`).join('')}</section>
-${cta(t.ctaC, t.ctaCn, appLink(l, 'confidence/' + u.id), t.ctaB)}
+${cta(t.ctaC, t.ctaCn, appLink(l, 'confidence/' + u.id), t.ctaB)}${goLine(l, 'conv')}
 <nav class="pager" aria-label="${esc(t.conv)}">${prev ? `<a href="${cPath(l, prev)}" rel="prev">← ${esc(tr(l, prev.title, { n: 0, t: 0 }))}</a>` : '<span></span>'}${next ? `<a href="${cPath(l, next)}" rel="next">${esc(tr(l, next.title, { n: 0, t: 0 }))} →</a>` : ''}</nav>
 </article>`;
     const jl = { '@context': 'https://schema.org', '@type': 'LearningResource', name: ti, description: goal, inLanguage: [l, 'en'], url: url(p), learningResourceType: 'Lesson', educationalLevel: u.level, isAccessibleForFree: true, teaches: u.phrases.map(q => q.say).slice(0, 8), isPartOf: { '@type': 'Course', name: t.conv, url: `${SITE}/${l}/conversations/` }, provider: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/' } };
@@ -128,7 +128,7 @@ ${cta(t.ctaC, t.ctaCn, appLink(l, 'confidence/' + u.id), t.ctaB)}
   const alts = withDefault(LANGS.map(y => [y, `/${y}/conversations/`]), '/en/conversations/');
   const body = `<article class="page"><header class="hero"><h1>${esc(title)}</h1><p>${esc(desc)}</p></header>
 ${LEVELS.map(lv => { const us = units.filter(u => u.level === lv); return us.length ? `<section class="grp" aria-labelledby="lv-${lv}"><h2 id="lv-${lv}">${esc(fill(t.lv, { l: lv }))}</h2><ul>${us.map(u => `<li><a href="${cPath(l, u)}">${esc(u.em || '')} ${esc(tr(l, u.title, { n: 0, t: 0 }))}</a> – ${esc(tr(l, u.goal, { n: 0, t: 0 }))}</li>`).join('')}</ul></section>` : ''; }).join('\n')}
-${cta(t.ctaC, t.ctaCn, appLink(l, 'confidence'), t.ctaB)}</article>`;
+${cta(t.ctaC, t.ctaCn, appLink(l, 'confidence'), t.ctaB)}${goLine(l, 'conv')}</article>`;
   const jl = { '@context': 'https://schema.org', '@type': 'Course', name: t.conv, description: desc, inLanguage: l, url: url(hp), isAccessibleForFree: true, provider: { '@type': 'Organization', name: 'Lexkite', url: SITE + '/' }, hasPart: units.map(u => ({ '@type': 'LearningResource', name: tr(l, u.title, { n: 0, t: 0 }), url: url(cPath(l, u)) })) };
   write(hp, page({ lang: l, title: title + ' | Lexkite', desc, p: hp, alts, crumbs: [[t.home, landingHref(l)], [t.conv, hp]], body, jsonld: [jl], langHref: y => `/${y}/conversations/`, section: hp }), { lm: lmC, alts, type: 'conversations', lang: l, index: true });
 }
