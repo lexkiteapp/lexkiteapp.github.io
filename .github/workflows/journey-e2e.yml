@@ -111,6 +111,8 @@ jobs:
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
           sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
       - name: Emulator + hành trình Android (tối đa 28')
+        id: emu1
+        continue-on-error: true
         timeout-minutes: 28
         uses: reactivecircus/android-emulator-runner@v2
         with:
@@ -128,6 +130,35 @@ jobs:
             for i in 1 2 3; do adb install -r lexkite.apk && break; echo "install lần $i lỗi"; sleep 15; done
             adb shell pm list packages | grep -q com.lexkite.app
             echo 2 > android-rc; timeout 26m node scripts/test/journey-e2e/android.mjs je-android; echo $? > android-rc
+      # qemu tự biến mất giữa chừng (26–27/10 và 13/11: leg ar chết ngay sau khi cài app, host còn ~11 GB) – hạ tầng, không phải kết quả của app: chạy lại ĐÚNG MỘT lần trên emulator mới.
+      # Chỉ lượt "máy ảo chết" mới được chạy lại; mọi lỗi của app (bad khác) giữ nguyên đỏ.
+      - name: Máy ảo chết giữa chừng? → quyết định chạy lại 1 lần
+        id: emudead
+        if: always()
+        run: |
+          if [ -s je-android/results.json ] && grep -q 'emulator mất kết nối' je-android/results.json; then echo "retry=1" >> "$GITHUB_OUTPUT"; echo "::warning::emulator chết giữa chừng – chạy lại 1 lần"; mkdir -p crash-1 && cp -r /tmp/android-runner/emu-crash-* crash-1/ 2>/dev/null || true; mv je-android je-android-lan1; else echo "retry=0" >> "$GITHUB_OUTPUT"; fi
+      - name: Emulator + hành trình Android – lần 2 (chỉ khi máy ảo chết ở lần 1)
+        if: steps.emudead.outputs.retry == '1'
+        timeout-minutes: 28
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          profile: pixel_7
+          ram-size: 4096M
+          heap-size: 576M
+          cores: 2
+          disable-animations: true
+          emulator-boot-timeout: 420
+          script: |
+            adb wait-for-device
+            for i in 1 2 3; do adb install -r lexkite.apk && break; echo "install lần $i lỗi"; sleep 15; done
+            adb shell pm list packages | grep -q com.lexkite.app
+            echo 2 > android-rc; timeout 26m node scripts/test/journey-e2e/android.mjs je-android; echo $? > android-rc
+      - uses: actions/upload-artifact@v4
+        if: always() && steps.emudead.outputs.retry == '1'
+        with: { name: 'emulator-crash-lan1-${{ matrix.lang }}', path: 'crash-1/', retention-days: 7, if-no-files-found: ignore }
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: 'journey-android-${{ matrix.lang }}', path: je-android/, retention-days: 7 }
