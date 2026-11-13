@@ -92,7 +92,8 @@ export function cfgFor(a, R) {
   const id = String(a.id), over = (R.cfgBy || {})[id] || {};
   return normCfg({ daily_cap: R.perDay[a.p] || 0, min_gap_min: R.minGapH * 60, tz: R.tzBy[id] || R.tz, windows: R.hours.map(h => ({ from: String(h).padStart(2, '0') + ':00', to: String(h).padStart(2, '0') + ':59' })), label: a.name || '', ...over });
 }
-export function planQueue({ clips = [], accounts = [], taken = [], history = [], rules, now = Date.now() }) {
+export function planQueue({ clips = [], accounts = [], taken = [], history = [], rules, now = Date.now(), weights = null, rand = Math.random }) {
+  if (weights) clips = rankClips(clips, weights, { rand }).order;
   const R = cleanRules(rules), slots = [], skipped = [], used = new Map();
   for (const h of history) used.set(h.clip + '|' + h.account_id, Math.max(used.get(h.clip + '|' + h.account_id) || 0, h.at || 0));
   const accs = accounts.map(a => ({ ...a, id: String(a.id), p: a.platform || platOf(a) })).filter(a => (R.perDay[a.p] || 0) > 0 && a.state !== 'reconnect' && a.state !== 'limit');
@@ -137,6 +138,16 @@ export function weightsFrom(rows, k = 500) {
   const mean = V ? E / V : 0, out = {};
   for (const [d, g] of Object.entries(by)) { out[d] = {}; for (const [key, o] of Object.entries(g)) { const rate = (o.eng + mean * k) / (o.views + k); out[d][key] = { w: mean ? Math.max(0.5, Math.min(2, Math.round(rate / mean * 100) / 100)) : 1, views: o.views, rate: Math.round(rate * 1e4) / 1e4, n: o.n }; } }
   return { mean: Math.round(mean * 1e4) / 1e4, by: out };
+}
+
+/** Xếp thứ tự clip theo trọng số (bandit ε-greedy, chỉ đổi ƯU TIÊN – không đụng luật QC): điểm = tích trọng số template × hook × độ khó (thiếu dữ liệu = 1);
+ *  mỗi vị trí có `explore` (sàn khám phá, mặc định 20 %) xác suất lấy ngẫu nhiên một clip còn lại để biến thể mới vẫn có số liệu. Ổn định khi bằng điểm. Trả { order, explored }. */
+export function rankClips(clips, weights, { explore = 0.2, rand = Math.random, fields = c => ({ template: c.template, hook: c.hook, cefr: c.cefr }) } = {}) {
+  const by = (weights && weights.by) || {}, e = Math.min(1, Math.max(0.2, +explore || 0.2)); // sàn 20 %: không cho tắt khám phá
+  const score = c => { const f = fields(c); let sc = 1; for (const d of ['template', 'hook', 'cefr']) { const o = f[d] && by[d] && by[d][f[d]]; if (o && o.w) sc *= o.w; } return sc; };
+  const pool = (clips || []).map((c, i) => ({ c, i, s: score(c) })).sort((a, b) => b.s - a.s || a.i - b.i), order = []; let explored = 0;
+  while (pool.length) { const k = pool.length > 1 && rand() < e ? 1 + Math.floor(rand() * (pool.length - 1)) : 0; if (k) explored++; order.push(pool.splice(k, 1)[0].c); }
+  return { order, explored };
 }
 
 // ---------------- D1 ----------------
@@ -348,7 +359,7 @@ export const OPS = {
     let clips = (await approvedClips(env)).map(({ _it, ...c }) => c);
     if (Array.isArray(b.clips) && b.clips.length) { const s = new Set(b.clips); clips = clips.filter(c => s.has(c.id)); }
     const lim = Math.max(1, Math.min(200, +b.max || 60));
-    const plan = planQueue({ clips: clips.slice(0, 300), accounts, taken, history, rules });
+    const plan = planQueue({ clips: clips.slice(0, 300), accounts, taken, history, rules, weights: await getMeta(db, 'weights', null) });
     return { ...plan, slots: plan.slots.slice(0, lim), clips: Object.fromEntries(clips.map(c => [c.id, { title: c.title, template: c.template, hook: c.hook }])) };
   },
   'POST queue/apply': async ({ db, env, b, who, gc, idem, request }) => { // ≤ 5 clip/lượt; mỗi clip 1 bài GrabCast NHÁP (nhiều kênh cùng giờ gộp) → chờ duyệt
@@ -377,7 +388,7 @@ export const OPS = {
     try { vmeta = await all(db, 'SELECT video_id, channel_id, clip, secs, publish_at, missing FROM yt_vmeta LIMIT 5000'); } catch (e) { /* chưa có số liệu YouTube */ }
     try { growth = await all(db, "SELECT c.video_id, c.views - COALESCE(w.views, 0) AS d7, c.views - COALESCE(m.views, 0) AS d30 FROM yt_stats c LEFT JOIN yt_stats w ON w.video_id = c.video_id AND w.day = (SELECT MAX(day) FROM yt_stats WHERE day <= date(c.day, '-7 day')) LEFT JOIN yt_stats m ON m.video_id = c.video_id AND m.day = (SELECT MAX(day) FROM yt_stats WHERE day <= date(c.day, '-30 day')) WHERE c.day = (SELECT MAX(day) FROM yt_stats) LIMIT 5000"); } catch (e) { /* chưa có yt_stats */ }
     let channels = []; try { channels = await all(db, 'SELECT channel_id, title FROM yt_channel'); } catch (e) { /* chưa kết nối YouTube */ }
-    return { rows, vmeta, growth, channels, alerts: await getMeta(db, 'ana_alerts', []), weights: await getMeta(db, 'weights', null), sync: await getMeta(db, 'metrics_sync', null) };
+    return { rows, vmeta, growth, channels, alerts: await getMeta(db, 'ana_alerts', []), rank: await getMeta(db, 'rank_last', null), weights: await getMeta(db, 'weights', null), sync: await getMeta(db, 'metrics_sync', null) };
   },
   'POST metrics/import': async ({ db, b }) => { // nhập tay / CSV (Meta Business Suite, TikTok Studio) khi API không cho đọc số liệu
     const rows = Array.isArray(b.rows) ? b.rows.slice(0, 500) : []; let n = 0;
@@ -439,6 +450,8 @@ export function analyticsAlerts({ channels = [], videos = [], zero3 = [], quota 
   if (quota && quota.limit && quota.used >= quota.limit * 0.8) A.push({ k: 'yt-quota', title: 'quota sắp cạn', text: `Quota YouTube hôm nay ${quota.used}/${quota.limit} (≥ 80 %).`, at: now });
   return A;
 }
+export async function rankLog(db, rec) { await setMeta(db, 'rank_last', rec); } // báo cáo tuần: lần xếp ưu tiên gần nhất (khám phá bao nhiêu, đầu danh sách)
+export const weightsOf = db => getMeta(db, 'weights', null);
 export async function saveAlerts(db, alerts) { await setMeta(db, 'ana_alerts', alerts.slice(0, 20)); return alerts; }
 /** YouTube (op stats): mỗi video → 1 dòng soc_metrics (platform youtube, account = kênh) + yt_vmeta (độ dài, giờ đăng, bị gỡ) cho bảng Phân tích; trọng số tính lại. */
 export async function ingestYouTube(db, videos, now = Date.now()) {
