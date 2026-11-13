@@ -1,0 +1,782 @@
+{
+ "prime": {
+  "n": "Prime sıfat olarak başlıca, en önemli ya da en iyi anlamına gelir: prime minister, prime suspect, a prime example. Matematikte prime number asal sayıdır, bu yüzden sözlükteki karşılık yalnızca bir anlamı yansıtır. Fiil olarak prime, bir şeyi önceden hazırlamak demektir: prime a wall before painting. In your prime deyimi hayatın en verimli dönemini anlatır.",
+  "x": [
+   [
+    "He is the prime suspect in the investigation of the robbery.",
+    "Soygunun soruşturmasında baş şüpheli o."
+   ],
+   [
+    "The old actor was in his prime during the nineteen eighties.",
+    "Yaşlı oyuncu seksenli yıllarda en verimli dönemindeydi."
+   ]
+  ]
+ },
+ "amenity": {
+  "n": "Amenity bir yerin yaşamı kolaylaştıran ve keyifli kılan olanaklarını anlatır, çoğu kez çoğul kullanılır: hotel amenities, local amenities. Eski ve yazınsal anlamı hoşluk ya da rahatlıktır; bugün ise çoğunlukla konut ve otel ilanlarında olanak anlamında okunur. Havuz, park, market gibi olanaklar bu gruba girer. Bu yüzden kelimeyi çoğul biçimde görmeniz daha olasıdır.",
+  "x": [
+   [
+    "A swimming pool is the main amenity of this small hotel.",
+    "Yüzme havuzu bu küçük otelin başlıca olanağı."
+   ],
+   [
+    "Every flat in the building has access to a shared amenity room.",
+    "Binadaki her daire ortak olanaklar odasından yararlanabiliyor."
+   ]
+  ]
+ },
+ "accommodate": {
+  "n": "Accommodate iki ana anlam taşır: yer sağlamak, a hotel that accommodates 200 guests gibi, ve isteklere uymak, accommodate special requests gibi. Resmî bir kelimedir, fit ya da house daha sade seçeneklerdir. Türk öğrenciler sıkça tek m ile yazar, oysa doğrusu iki c ve iki m taşır. İsim biçimi accommodation konaklama anlamında İngiliz İngilizcesinde genellikle sayılamaz (some accommodation), Amerikan İngilizcesinde ise çoğul accommodations sık kullanılır.",
+  "x": [
+   [
+    "The conference centre can accommodate up to two thousand delegates.",
+    "Kongre merkezi iki bine kadar delegeyi ağırlayabiliyor."
+   ],
+   [
+    "The airline tried to accommodate passengers with special dietary needs.",
+    "Havayolu, özel beslenme ihtiyacı olan yolcuların isteklerini karşılamaya çalıştı."
+   ]
+  ]
+ },
+ "allocate": {
+  "n": "Allocate, kaynak, para ya da zamanı belirli bir amaca ayırmak demektir: allocate funds, allocate time. Genellikle to ile kullanılır: allocate money to schools. Başka bir kalıp allocate something for a purpose biçimindedir. Türkçedeki tahsis etmek ile benzer bir resmî havaya sahiptir; günlük dilde set aside daha rahat durur. İsim biçimi allocation ayrılan payı anlatır.",
+  "x": [
+   [
+    "The government will allocate more money to rural schools this year.",
+    "Hükümet bu yıl kırsal okullara daha fazla para ayıracak."
+   ],
+   [
+    "We need to allocate enough time for testing before the launch.",
+    "Lansmandan önce test için yeterli zaman ayırmamız gerekiyor."
+   ]
+  ]
+ },
+ "abandon": {
+  "n": "Abandon, bir kişiyi, yeri ya da işi kesin olarak bırakmak demektir: abandon a plan, an abandoned house, abandon ship. Nötr give up kelimesinin aksine, insanlar ve hayvanlar söz konusu olduğunda çoğu zaman suçlayıcı bir ton taşır. Küçük bir alışkanlığı bırakmak için quit ya da give up daha doğaldır. İsim olarak with abandon, kendini tutmadan, coşkuyla anlamına gelir.",
+  "x": [
+   [
+    "The crew had to abandon the sinking ship in the middle of the night.",
+    "Mürettebat batan gemiyi gecenin ortasında terk etmek zorunda kaldı."
+   ],
+   [
+    "After years of losses, the company abandoned its plans to expand abroad.",
+    "Yıllarca süren zararların ardından şirket yurt dışına açılma planlarından vazgeçti."
+   ]
+  ]
+ },
+ "acknowledge": {
+  "n": "Acknowledge, bir gerçeği kabul etmek ya da bir şeyin alındığını onaylamak anlamına gelir: acknowledge a mistake, acknowledge receipt of a letter. Takdir bildirmek için de kullanılır: acknowledge their contribution; appreciate ise daha sıcak bir tondur. Kalıplar: acknowledge that ile yan cümle ya da acknowledge somebody as something. İş yazışmalarında sık görülen resmî bir kelimedir.",
+  "x": [
+   [
+    "The company finally acknowledged that the product had a serious fault.",
+    "Şirket sonunda ürünün ciddi bir kusuru olduğunu kabul etti."
+   ],
+   [
+    "Please acknowledge receipt of this email as soon as possible.",
+    "Lütfen bu e-postanın alındığını en kısa sürede onaylayın."
+   ]
+  ]
+ },
+ "acquire": {
+  "n": "Acquire, get sözcüğünün resmî karşılığıdır ve edinmek, elde etmek demektir: acquire skills, acquire a company, acquire a taste for something. Dil ve bilgi için kademeli bir süreci vurgular, bu yüzden language acquisition terimi yaygındır. Buy ile tamamen aynı değildir çünkü beceriler ve alışkanlıklar para ödemeden de acquire edilebilir. Günlük konuşmada get ya da pick up daha doğal durur.",
+  "x": [
+   [
+    "Children acquire a surprising amount of vocabulary before they start school.",
+    "Çocuklar okula başlamadan önce şaşırtıcı miktarda kelime edinir."
+   ],
+   [
+    "The software giant acquired the small start-up for a huge sum.",
+    "Yazılım devi küçük girişimi büyük bir bedelle satın aldı."
+   ]
+  ]
+ },
+ "adequate": {
+  "n": "Adequate, yeterli demektir ama coşku taşımaz: tam olması gerektiği kadar iyi. Bu yüzden an adequate meal övgü sayılmaz. Tipik eşdizimler: adequate funding, adequate protection, adequate for the purpose. Karşıt anlamlısı inadequate, yetersiz ya da uygun olmayan demektir. Bir şeyi övmek istiyorsanız good ya da excellent seçmek daha doğrudur.",
+  "x": [
+   [
+    "The room was small but adequate for a short stay.",
+    "Oda küçüktü ama kısa bir konaklama için yeterliydi."
+   ],
+   [
+    "Many villages still lack adequate access to clean drinking water.",
+    "Birçok köyde bugün bile temiz içme suyuna yeterli erişim yok."
+   ]
+  ]
+ },
+ "adjacent": {
+  "n": "Adjacent, yan yana ya da bitişik iki şeyi anlatır. Next to sözcüğünden daha resmîdir ve bina, oda ve arsa anlatımlarında uygundur. Sıfattan sonra edat olarak to gelir, of gelmez. Geometride adjacent angles komşu açılardır. Yaygın birliktelikler: adjacent rooms ve adjacent countries. Gündelik konuşmada çoğu kişi bunun yerine next door ya da beside der.",
+  "x": [
+   [
+    "Our hotel is adjacent to a quiet park with a small lake.",
+    "Otelimiz küçük bir gölü olan sakin bir parkın bitişiğinde."
+   ],
+   [
+    "Police closed the adjacent streets while the parade was passing.",
+    "Geçit töreni sürerken polis bitişik sokakları kapattı."
+   ]
+  ]
+ },
+ "albeit": {
+  "n": "Albeit, resmî bir bağlaçtır ve ise de, olsa bile anlamına gelir. Genellikle ardından sıfat, zarf ya da kısa bir öbek gelir; fiilli tam bir yan cümle gelmez: a good result, albeit a small one. Konuşmada nadiren duyulur, orada although ve though daha doğaldır. Kuralı akılda tutmak için: kısa, ana fikirden sonra ve fiilsiz.",
+  "x": [
+   [
+    "He finally agreed, albeit with obvious reluctance, to sign the contract.",
+    "Sonunda belirgin bir isteksizlikle de olsa sözleşmeyi imzalamayı kabul etti."
+   ],
+   [
+    "The film was a success, albeit a modest one.",
+    "Film mütevazı de olsa bir başarıydı."
+   ]
+  ]
+ },
+ "alter": {
+  "n": "Alter, bir şeyi küçük ölçüde değiştirmek demektir: alter a plan, alter a dress, alter the course. Change kadar köklü değildir; şey tümüyle yenilenmez, yalnızca düzeltilir. Terzilikte giysi tadilatına alterations denir. Change sözcüğünden daha resmîdir; günlük konuşmada change daha yaygındır. Altered sıfatı değişmiş anlamına gelir, mesela an altered state.",
+  "x": [
+   [
+    "Heavy rain forced the organisers to alter their plans for the weekend.",
+    "Şiddetli yağmur organizatörleri hafta sonu planlarını değiştirmeye zorladı."
+   ],
+   [
+    "Could you alter this jacket so that it fits a little better?",
+    "Bu ceketi biraz daha iyi otursun diye daraltabilir misiniz?"
+   ]
+  ]
+ },
+ "anticipate": {
+  "n": "Anticipate, bir şeyi önceden sezmek ve ona göre hazırlanmak demektir: yalnızca beklemekten fazlasıdır. Bir şeyi yalnızca olası görmek için expect kullanılır. Bu yüzden anticipate problems ve anticipate demand gibi eşdizimler öne çıkar. Ardından isim, ing biçimi ya da that ile yan cümle gelebilir. Sabırsızlıkla beklemek için günlük dilde look forward to daha yaygındır, eagerly anticipated ise yazıda görülür.",
+  "x": [
+   [
+    "Retailers anticipate a sharp rise in online sales before the holidays.",
+    "Perakendeciler bayramdan önce çevrim içi satışlarda keskin bir artış bekliyor."
+   ],
+   [
+    "A good driver learns to anticipate what other cars will do.",
+    "İyi bir sürücü diğer arabaların ne yapacağını önceden sezmeyi öğrenir."
+   ]
+  ]
+ },
+ "apparent": {
+  "n": "Apparent iki yönlüdür: belli, açık anlamında it became apparent, görünürdeki anlamında an apparent contradiction. Hangisinin kastedildiği bağlamdan anlaşılır. Apparently zarfı günlük dilde çoğunlukla sözde ya da görünüşe göre demektir, kesinlik bildirmez. Sık eşdizimler: become apparent, apparent to somebody ve no apparent reason. Sözlükteki belli karşılığı çoğu zaman yetmez.",
+  "x": [
+   [
+    "It soon became apparent that the plan would never work.",
+    "Planın asla işlemeyeceği kısa sürede ortaya çıktı."
+   ],
+   [
+    "The man left the meeting early for no apparent reason.",
+    "Adam toplantıdan görünür bir neden olmadan erken ayrıldı."
+   ]
+  ]
+ },
+ "approximate": {
+  "n": "Sıfat olarak approximate yaklaşık demektir ve yaklaşık değer için kullanılır: an approximate figure, approximate cost. Fiil olarak yaklaşmak anlamına gelir: the results approximate the real values. Günlük konuşmada rough ya da about daha doğaldır, approximate daha teknik durur. Zarf approximately sayıdan önce gelir, mesela approximately 200 people.",
+  "x": [
+   [
+    "The approximate cost of the repairs is around five thousand euros.",
+    "Onarımların yaklaşık maliyeti beş bin avro civarında."
+   ],
+   [
+    "This model only approximates the way the real system behaves.",
+    "Bu model gerçek sistemin davranışına yalnızca yaklaşıyor."
+   ]
+  ]
+ },
+ "assume": {
+  "n": "Assume, varsaymak, doğru kabul etmek demektir: I assume he is late. İkinci anlamı üstlenmektir: assume control, assume responsibility. Presume yakın anlamlıdır ama bazı ipuçlarına dayanır ve daha resmî durur. Kalıplar: assume that ve assuming that. Türkçedeki kabul etmek ile eşlemeyin: assume hiçbir şeyi kabul etmez, yalnızca varsayar ya da üstlenir.",
+  "x": [
+   [
+    "I assume you have already read the instructions before starting.",
+    "Başlamadan önce talimatları okuduğunu varsayıyorum."
+   ],
+   [
+    "Never assume that everyone in the room understands the plan.",
+    "Odadaki herkesin planı anladığını asla varsayma."
+   ]
+  ]
+ },
+ "behalf": {
+  "n": "Behalf neredeyse yalnızca tek kalıpta geçer: on behalf of somebody, bir de on somebody's behalf, yani adına. Mektup ve konuşmalarda çok yaygındır; bir takım adına teşekkür etmek gibi. Öğrencilerin sık hatası edatı değiştirmektir: from my behalf ya da for my behalf yanlıştır; günümüz İngilizcesinde standart olan on'dur. Tek başına bu sözcük günlük dilde neredeyse hiç kullanılmaz.",
+  "x": [
+   [
+    "I am writing on behalf of all the residents of this street.",
+    "Bu sokağın tüm sakinleri adına yazıyorum."
+   ],
+   [
+    "She accepted the award on behalf of her whole team.",
+    "Ödülü tüm ekibi adına o aldı."
+   ]
+  ]
+ },
+ "circumstance": {
+  "n": "Circumstance, bir durumun koşullarını anlatır ve çoğunlukla çoğul kullanılır: under the circumstances bu koşullarda demektir. Önemli bir kalıp da under no circumstances, yani hiçbir koşulda; ardından soru sırası gelir: under no circumstances should you open it. Yaşam koşulları için in difficult circumstances denir. Resmî bir kelimedir; konuşmada situation yeterli olur.",
+  "x": [
+   [
+    "Under the circumstances, we think the decision was entirely reasonable.",
+    "Bu koşullarda kararın tamamen makul olduğunu düşünüyoruz."
+   ],
+   [
+    "She grew up in difficult circumstances but never lost her humour.",
+    "Zor koşullarda büyüdü ama mizah anlayışını hiç yitirmedi."
+   ]
+  ]
+ },
+ "clarify": {
+  "n": "Clarify, bir şeyi netleştirmek, anlaşılmaz olanı açıklığa kavuşturmak demektir: clarify a point, clarify what you mean, could you clarify. Soru ve açıklamalarla kullanılır, bir sorunu çözmekle ilgisi yoktur; çözmek için settle ya da sort out gelir. İsim biçimi clarification iş yazışmalarında çok sıktır: I need some clarification.",
+  "x": [
+   [
+    "Could you clarify what you meant by that last comment?",
+    "Son yorumunla neyi kastettiğini açıklığa kavuşturabilir misin?"
+   ],
+   [
+    "The minister was asked to clarify the government's position on tax.",
+    "Bakandan hükümetin vergi konusundaki tutumunu netleştirmesi istendi."
+   ]
+  ]
+ },
+ "coherent": {
+  "n": "Coherent, tutarlı ve mantıksal olarak birbirine bağlı demektir: a coherent argument, a coherent plan. İnsan için anlaşılır konuşmak anlamı da vardır: he was barely coherent after the accident. Karşıtı incoherent. Consistent ile fark: coherent parçaların birbirine bağlanmasını, consistent çelişkisizliği anlatır. İsim biçimi coherence. Bir metin ya da konuşma için coherent demek, akıcı ve anlaşılır olduğunu söylemektir.",
+  "x": [
+   [
+    "The report presents a clear and coherent picture of the problem.",
+    "Rapor sorunun açık ve tutarlı bir resmini sunuyor."
+   ],
+   [
+    "After the accident, he was too shocked to give a coherent answer.",
+    "Kazadan sonra o kadar şok içindeydi ki tutarlı bir yanıt veremedi."
+   ]
+  ]
+ },
+ "coincide": {
+  "n": "Coincide, zamanda çakışmak ya da görüşlerde örtüşmek demektir. İkinci bir şey anılıyorsa with edatı gerekir: coincide with the holidays. Çoğul özneyle edatsız da kullanılır: our views coincide. Geçişsiz bir fiil olduğu için edilgen biçimi yoktur. Aynı kökten gelen coincidence tesadüf demektir. Sıfat biçimi coincidental, tesadüfi demektir.",
+  "x": [
+   [
+    "The festival coincides with the start of the school holidays.",
+    "Festival, okul tatilinin başlangıcıyla çakışıyor."
+   ],
+   [
+    "Our interests rarely coincide, so we argue about everything.",
+    "İlgi alanlarımız nadiren örtüşüyor, bu yüzden her şey hakkında tartışıyoruz."
+   ]
+  ]
+ },
+ "commodity": {
+  "n": "Commodity, alınıp satılan mal demektir, özellikle emtia olarak adlandırılan hammadde: oil, wheat, copper. Eşdizimler: commodity prices, commodity market. Genel olarak değerli bir şeyi de anlatabilir: time is a precious commodity. Ekonomide yalnızca fiyatın önemli olduğu, birbirinin yerine geçebilen sıradan ürünü de anlatır. Çoğul biçimi commodities. Gündelik dilde bunun yerine çoğunlukla goods ya da products denir.",
+  "x": [
+   [
+    "Oil is a commodity that is traded on markets all around the world.",
+    "Petrol dünyanın dört bir yanındaki piyasalarda işlem gören bir emtiadır."
+   ],
+   [
+    "In a busy city, quiet is a rare commodity.",
+    "Kalabalık bir şehirde sessizlik nadir bulunan bir nimettir."
+   ]
+  ]
+ },
+ "compensate": {
+  "n": "Compensate, telafi etmek ya da tazmin etmek demektir ve iki yapısı vardır: compensate somebody for something, birine bir şeyi tazmin etmek, ve compensate for something, bir şeyi telafi etmek. İkinci durumda edat hemen gelir, bu yüzden nesneyi doğrudan almaz. İsim biçimi compensation tazminat anlamına gelir.",
+  "x": [
+   [
+    "The airline will compensate passengers for the long delay.",
+    "Havayolu uzun gecikme nedeniyle yolculara tazminat ödeyecek."
+   ],
+   [
+    "Her enthusiasm more than compensates for her lack of experience.",
+    "Hevesi, deneyim eksikliğini fazlasıyla telafi ediyor."
+   ]
+  ]
+ },
+ "component": {
+  "n": "Component, daha büyük bir bütünün bir parçasıdır: makine, yazılım ya da bir argüman olabilir. Tipik eşdizimler: key component, electronic components, a major component of the plan. Soyut parçalar için de rahatça kullanılır: a key component of success. Üslup açısından nötr ya da resmîdir, konuşma diline ait değildir.",
+  "x": [
+   [
+    "Each component of the engine is tested before it leaves the factory.",
+    "Motorun her parçası fabrikadan çıkmadan önce test edilir."
+   ],
+   [
+    "Exercise is a key component of a healthy lifestyle.",
+    "Egzersiz sağlıklı bir yaşam tarzının temel bileşenidir."
+   ]
+  ]
+ },
+ "compound": {
+  "n": "İsim olan compound, bileşik demektir: chemical compound ve compound word, yani toothbrush gibi birleşik sözcük. Bir de çevrili alan anlamı vardır: a prison compound. Fiil olarak kötüleştirmek demektir: compound a problem. Sıfat olarak compound interest bileşik faizi anlatır. Anlam, sözcük türüne göre belirgin biçimde değişir.",
+  "x": [
+   [
+    "Water is a compound made of hydrogen and oxygen.",
+    "Su, hidrojen ve oksijenden oluşan bir bileşiktir."
+   ],
+   [
+    "Late payments only compound the financial problems of the company.",
+    "Geciken ödemeler şirketin mali sorunlarını yalnızca derinleştiriyor."
+   ]
+  ]
+ },
+ "comprehensive": {
+  "n": "Comprehensive, kapsamlı ve eksiksiz demektir: a comprehensive guide, comprehensive insurance, a comprehensive review. Önemli hiçbir şeyin atlanmadığını vurgular. Comprehensible ile karıştırmayın; o anlaşılır demektir. İngiltere'de comprehensive school, öğrenci seçmeyen devlet ortaöğretim okulunu anlatır. İsim biçimi comprehension, anlama anlamındadır: reading comprehension. Rapor, rehber ve sigorta gibi resmî belgelerde çok sık karşımıza çıkar.",
+  "x": [
+   [
+    "The museum offers a comprehensive guide to the history of the region.",
+    "Müze bölgenin tarihine dair kapsamlı bir rehber sunuyor."
+   ],
+   [
+    "We bought comprehensive insurance before our trip to Canada.",
+    "Kanada gezimizden önce kapsamlı bir sigorta aldık."
+   ]
+  ]
+ },
+ "concept": {
+  "n": "Concept, soyut bir fikir ya da kavramdır: concept of freedom, a new concept. İngilizcede proje taslağı anlamında pek kullanılmaz; bunun için plan veya proposal gelir. Tipik edat of'tur. Pazarlamada concept ana fikri anlatır ama uygulamayı değil. Günlük dilde idea daha gevşek durur, concept daha resmî.",
+  "x": [
+   [
+    "Young children often struggle with the concept of infinity.",
+    "Küçük çocuklar çoğu zaman sonsuzluk kavramını anlamakta zorlanır."
+   ],
+   [
+    "The restaurant is based on a simple concept: fresh local food.",
+    "Restoran basit bir fikre dayanıyor: taze yerel yemek."
+   ]
+  ]
+ },
+ "conduct": {
+  "n": "Conduct iki farklı biçimde kullanılır. Fiil olarak yürütmek demektir: conduct a survey, conduct an experiment; ayrıca orkestra yönetmek ve elektrik ya da ısıyı iletmek anlamları da vardır. İsim olarak davranış demektir, özellikle code of conduct içinde. Araştırma ve röportaj için conduct kullanılır, günlük sohbet için ise have a conversation.",
+  "x": [
+   [
+    "Scientists conducted a series of tests to check the new method.",
+    "Bilim insanları yeni yöntemi sınamak için bir dizi test yaptı."
+   ],
+   [
+    "Copper is widely used because it conducts electricity so well.",
+    "Bakır elektriği çok iyi ilettiği için yaygın olarak kullanılır."
+   ]
+  ]
+ },
+ "conflict": {
+  "n": "Conflict, anlaşmazlık ya da çatışma demektir; görüş ayrılığından silahlı çatışmaya kadar uzanır. Tipik kalıplar: conflict of interest, resolve a conflict. Fiil olarak iki etkinliğin çakıştığı durumlarda kullanılır: two dates conflict. Vurgu sözcük türünü ayırır: isim CONflict, fiil conFLICT. Sıfat biçimi conflicting ise çelişkili demektir: conflicting reports.",
+  "x": [
+   [
+    "The two countries have been in conflict over the border for decades.",
+    "İki ülke on yıllardır sınır yüzünden anlaşmazlık içinde."
+   ],
+   [
+    "My dentist appointment conflicts with the team meeting on Friday.",
+    "Diş hekimi randevum cuma günkü ekip toplantısıyla çakışıyor."
+   ]
+  ]
+ },
+ "conform": {
+  "n": "Conform, kurallara, normlara ya da beklentilere uymak demektir. Fiilden sonra çoğunlukla to gelir, yasalarda bazen with. Resmî bir sözcüktür ve sosyal baskıdan söz ederken hafif olumsuz bir ton taşır: pressure to conform. İsim biçimi conformity uyumu anlatır. Günlük konuşmada daha basit söyleyişler tercih edilir. Confirm ile karıştırılmamalı.",
+  "x": [
+   [
+    "All new buildings must conform to the strict safety regulations.",
+    "Tüm yeni binalar katı güvenlik düzenlemelerine uymak zorundadır."
+   ],
+   [
+    "Teenagers often feel strong pressure to conform to their friends.",
+    "Gençler çoğu zaman arkadaşlarına uyma yönünde güçlü bir baskı hisseder."
+   ]
+  ]
+ },
+ "consequent": {
+  "n": "Consequent, bir olayın sonucu olarak ortaya çıkan şey için kullanılan resmî sıfattır: consequent delays, consequent losses. Tutarlı anlamı taşımaz; tutarlı davranış için consistent kullanılır. Genellikle isimden önce gelir. Günlük dilde resulting daha yaygındır. Zarf biçimi consequently bu nedenle demektir. Yazılı haberlerde sık görülür, konuşmada pek duyulmaz.",
+  "x": [
+   [
+    "The factory fire and the consequent loss of jobs shocked the town.",
+    "Fabrika yangını ve onu izleyen iş kayıpları kasabayı şoke etti."
+   ],
+   [
+    "Higher fuel prices and the consequent rise in food costs worry many families.",
+    "Yakıt fiyatlarındaki artış ve bunun yol açtığı gıda maliyeti artışı birçok aileyi endişelendiriyor."
+   ]
+  ]
+ },
+ "constant": {
+  "n": "Constant, değişmeyen ya da kesintisiz süren şeyi anlatır: a constant temperature, constant noise. İkinci anlamda sık sık şikayet tonu taşır, mesela constant interruptions. İsim olarak constant, matematik ve fizikte sabit bir değerdir. Zarf constantly sürekli demektir ve çoğunlukla ana fiilden önce gelir. Karakter için sadakat anlamında loyal ya da steady daha uygundur.",
+  "x": [
+   [
+    "The engine needs to run at a constant speed to stay efficient.",
+    "Motorun verimli kalması için sabit bir hızda çalışması gerekiyor."
+   ],
+   [
+    "Constant noise from the road made it impossible to sleep.",
+    "Yoldan gelen sürekli gürültü uyumayı imkansız hale getirdi."
+   ]
+  ]
+ },
+ "constitute": {
+  "n": "Constitute, oluşturmak ya da teşkil etmek demektir ve resmî bir dil taşır: women constitute half of the workforce. Oran, pay ve hukuk kavramlarıyla birlikte gelir: constitute a crime, constitute a threat. Bir şirket ya da komite kurmak için establish veya set up kullanılır. What constitutes kalıbı neyin ne sayıldığını sormak için kullanılır. İsim biçimi constitution anayasa ve beden yapısı demektir.",
+  "x": [
+   [
+    "Young people constitute nearly a third of the local population.",
+    "Gençler yerel nüfusun neredeyse üçte birini oluşturuyor."
+   ],
+   [
+    "Such behaviour would constitute a serious breach of the agreement.",
+    "Böyle bir davranış anlaşmanın ciddi bir ihlali sayılırdı."
+   ]
+  ]
+ },
+ "contradict": {
+  "n": "Contradict, çelişmek ya da yalanlamak demektir; hem kişiler hem iddialar için kullanılır: contradict a witness, the results contradict the theory. Edatsız doğrudan nesne alır. Kendi kendine çelişmek için contradict oneself denir. Aynı kökten contradiction ve contradictory gelir. Disagree kelimesinden güçlüdür, çünkü bunun tersini ileri sürer.",
+  "x": [
+   [
+    "Her story directly contradicts what the other witness told the police.",
+    "Anlattığı hikaye, diğer tanığın polise söylediğiyle doğrudan çelişiyor."
+   ],
+   [
+    "He often contradicts himself within a single sentence.",
+    "Çoğu zaman tek bir cümle içinde bile kendisiyle çelişiyor."
+   ]
+  ]
+ },
+ "contrary": {
+  "n": "Contrary, tersi ya da aksi anlamına gelir ve çoğunlukla kalıp ifadelerde görülür, mesela contrary to popular belief. Bir başka kalıp olan on the contrary önceki söyleneni açıkça yalanlar; by contrast ise iki şeyi yalnızca karşılaştırır. Mekânda karşı anlamında opposite kullanılır, contrary kullanılmaz. Resmî yazıda ve haberlerde çok sık geçer.",
+  "x": [
+   [
+    "Contrary to popular belief, bats are not blind.",
+    "Yaygın inanışın aksine yarasalar kör değildir."
+   ],
+   [
+    "The results suggest otherwise, but we have no evidence to the contrary.",
+    "Sonuçlar başka bir şey düşündürüyor ama elimizde aksini gösteren bir kanıt yok."
+   ]
+  ]
+ },
+ "controversy": {
+  "n": "Controversy, halkın görüşünün keskin biçimde ayrıldığı kamusal tartışma anlamına gelir: cause controversy, a heated controversy. Disagreement sözcüğünden güçlüdür ve genellikle toplumu ilgilendiren konuları anlatır. Sıfat biçimi controversial tartışmalı demektir. Tipik edatlar: controversy over ve controversy surrounding. Türkçedeki tartışma sözcüğünden daha ağırdır. Küçük bir görüş ayrılığı için ise disagreement kelimesi daha uygundur.",
+  "x": [
+   [
+    "The new law has caused a great deal of controversy among voters.",
+    "Yeni yasa seçmenler arasında büyük tartışma yarattı."
+   ],
+   [
+    "There is still controversy over who should pay for the repairs.",
+    "Onarımları kimin ödeyeceği konusundaki tartışma bugün bile sürüyor."
+   ]
+  ]
+ },
+ "convert": {
+  "n": "Convert fiil olarak dönüştürmek ya da çevirmek demektir: convert euros into dollars, convert a barn into a house. Fiilden sonra into ya da to gelir. Dosyalar için convert dosya biçimini değiştirmek anlamında kullanılır: convert to PDF. İsim olarak convert, dinini ya da görüşünü değiştirmiş kişidir. İsim biçimi conversion dönüşüm demektir.",
+  "x": [
+   [
+    "They plan to convert the old factory into modern apartments.",
+    "Eski fabrikayı modern dairelere dönüştürmeyi planlıyorlar."
+   ],
+   [
+    "Can you convert this file into a PDF before you send it?",
+    "Göndermeden önce bu dosyayı PDF'ye çevirebilir misin?"
+   ]
+  ]
+ },
+ "cooperate": {
+  "n": "Cooperate, işbirliği yapmak demektir ve çoğunlukla with edatıyla kullanılır. Yardım etme isteğini vurgular: the witness refused to cooperate. Nesnesiz de kullanılabilir. İsim biçimi cooperation, sıfatı cooperative. Collaborate ile fark: o ortak bir eser üzerinde çalışmayı daha çok vurgular. Haberlerde sık geçen kalıp, polisle cooperate etmektir.",
+  "x": [
+   [
+    "The two companies agreed to cooperate on developing a cleaner engine.",
+    "İki şirket daha temiz bir motor geliştirmek için işbirliği yapmayı kabul etti."
+   ],
+   [
+    "The suspect refused to cooperate with the investigators.",
+    "Şüpheli soruşturmacılarla işbirliği yapmayı reddetti."
+   ]
+  ]
+ },
+ "coordinate": {
+  "n": "Fiil olan coordinate, bir şeyi birbirine uyumlu hale getirmek ya da organize etmek demektir: coordinate efforts, coordinate a project. Tipik edat with: coordinate with other departments. Çoğul isim coordinates koordinatlar demektir, mesela GPS coordinates. Giyimde birbirine yakışmak anlamı da vardır. Çalışmaları birleştiren kişiye coordinator denir.",
+  "x": [
+   [
+    "A single team coordinates the work of all the volunteers.",
+    "Tek bir ekip tüm gönüllülerin çalışmasını koordine ediyor."
+   ],
+   [
+    "Please coordinate with the other departments before you make any changes.",
+    "Lütfen herhangi bir değişiklik yapmadan önce diğer bölümlerle koordine olun."
+   ]
+  ]
+ },
+ "core": {
+  "n": "Core, çekirdek ya da özdür; hem isim hem sıfat olarak kullanılır: the core of the problem, core values, core subjects. Günlük dilde elmanın çekirdeği de apple core diye anılır. Spor jargonunda core gövde kaslarını anlatır. Sıfat olarak yalnızca isimden önce gelir ve derecelendirilmez. İş dünyasında core business ana faaliyet alanı demektir.",
+  "x": [
+   [
+    "Honesty is one of the core values of our company.",
+    "Dürüstlük şirketimizin temel değerlerinden biridir."
+   ],
+   [
+    "Maths and English are core subjects in most schools.",
+    "Matematik ve İngilizce çoğu okulda temel derslerdir."
+   ]
+  ]
+ },
+ "corporate": {
+  "n": "Corporate, şirketlerle, özellikle büyük şirketlerle ilgilidir: corporate tax, corporate culture, corporate governance. Türkçedeki kurumsal ile çoğunlukla örtüşür; nötr ya da resmî bir dil taşır. Kurumsal etkinlik için corporate event denir. İsim biçimi corporation, özellikle ABD'de büyük bir anonim şirketi anlatır. Çok küçük bir dükkan için bu sözcük alışılmadık durur.",
+  "x": [
+   [
+    "Many corporate offices have moved to smaller buildings since the pandemic.",
+    "Birçok kurumsal ofis salgından beri daha küçük binalara taşındı."
+   ],
+   [
+    "She gave up the corporate world to start her own bakery.",
+    "Kendi fırınını açmak için büyük şirketler dünyasını bıraktı."
+   ]
+  ]
+ },
+ "correspond": {
+  "n": "Correspond iki anlam taşır: uyuşmak, mesela iki hikayenin örtüşmesi, ve mektuplaşmak, mesela yıllarca yazışan iki arkadaş. Birinci anlamda edat to ya da with olur, ikincisinde yalnızca with. İsim biçimi correspondence yazışma ya da uyum demektir, correspondent ise muhabirdir. Yazımda iki r vardır ama tek s bulunur.",
+  "x": [
+   [
+    "The numbers in the report do not correspond to the official figures.",
+    "Raporun içindeki rakamlar resmî rakamlarla uyuşmuyor."
+   ],
+   [
+    "The two scientists corresponded regularly for more than twenty years.",
+    "İki bilim insanı yirmi yıldan fazla düzenli olarak mektuplaştı."
+   ]
+  ]
+ },
+ "criteria": {
+  "n": "Criteria, criterion sözcüğünün çoğuludur, yani kriterler: selection criteria, meet the criteria. Fiil de çoğul olur: the criteria are clear. Birçok anadil konuşuru criteria sözcüğünü tekil gibi de kullanır ama özenli metinlerde bu hata sayılır. Tekil criterion doğru biçimdir ve bilimsel metinlerde olağandır. Tipik fiiller: meet, fulfil, set. Bu çoğul kullanım özellikle başvuru ve seçme metinlerinde sık görülür.",
+  "x": [
+   [
+    "Applicants must meet all of the following criteria to qualify.",
+    "Adaylar hak kazanmak için aşağıdaki tüm kriterleri karşılamalıdır."
+   ],
+   [
+    "What criteria did the judges use to choose the winner?",
+    "Jüri kazananı seçerken hangi kriterleri kullandı?"
+   ]
+  ]
+ },
+ "debate": {
+  "n": "Debate, düzenli bir tartışma ya da uzun süren kamusal görüş alışverişidir: a heated debate, hold a debate, the debate over taxes. Argument kadar anlık değil, daha az saldırgandır. Fiil olarak debate, görüşmek, kararsız kalmak anlamına gelir: debate whether to move. Tipik edatlar over ve about, siyasi konularda on.",
+  "x": [
+   [
+    "There has been a long debate about the future of public transport.",
+    "Toplu taşımanın geleceği hakkında uzun bir tartışma yaşandı."
+   ],
+   [
+    "The two candidates will debate on television next Tuesday.",
+    "İki aday gelecek salı televizyonda tartışacak."
+   ]
+  ]
+ },
+ "deduce": {
+  "n": "Deduce, ipuçlarından mantıksal bir sonuç çıkarmak demektir: he deduced that she was lying. Yapı: deduce something from something. Dedektif hikayelerinde sık geçer. Deduct ile karıştırmayın; o bir miktarı çıkarmak, düşmek anlamına gelir, vergi ya da masraf gibi. Deduce ile genellikle that ile yan cümle kurulur.",
+  "x": [
+   [
+    "From the footprints, the detective deduced that the thief was tall.",
+    "Dedektif ayak izlerinden hırsızın uzun boylu olduğu sonucuna vardı."
+   ],
+   [
+    "We can deduce the age of the tree from its rings.",
+    "Ağacın yaşını yıllık halkalarından çıkarabiliriz."
+   ]
+  ]
+ },
+ "derive": {
+  "n": "Derive, türetmek, elde etmek ya da kaynaklanmak demektir: derive pleasure from music, be derived from Latin. Tipik yapılar: derive something from something ve be derived from. Come from sözcüğünden daha resmî durur. Türkçedeki türetmek ile örtüşür, bu yüzden dil bilgisi metinlerinde sıktır. Ürün üretmek için kullanılmaz; orada make veya produce gelir.",
+  "x": [
+   [
+    "Many English words are derived from Latin and French.",
+    "Birçok İngilizce sözcük Latince ve Fransızcadan türemiştir."
+   ],
+   [
+    "She derives great satisfaction from teaching young children to read.",
+    "Küçük çocuklara okumayı öğretmekten büyük bir tatmin duyuyor."
+   ]
+  ]
+ },
+ "devote": {
+  "n": "Devote, adamak demektir ve neredeyse her zaman to ile gelir: devote time to something, devote yourself to a cause. Dönüşlü yapı devote oneself kendini bir işe vermek anlamındadır. Devoted sıfatı bağlı ya da sadık demektir: a devoted fan. İsim biçimi devotion dinî ya da duygusal bir ton taşır. Dedicate yakın anlamlıdır ve kitap ya da anıt için de kullanılır.",
+  "x": [
+   [
+    "She devotes every Sunday morning to learning Spanish.",
+    "Her pazar sabahını İspanyolca öğrenmeye ayırıyor."
+   ],
+   [
+    "He devoted most of his career to protecting wild animals.",
+    "Kariyerinin büyük bölümünü yaban hayvanlarını korumaya adadı."
+   ]
+  ]
+ },
+ "differentiate": {
+  "n": "Differentiate, ayırt etmek anlamına gelir ve sıklıkla between ya da from ile kullanılır: differentiate between two products, differentiate A from B. Tell apart sözcüğünden daha resmîdir; pazar, ürün ve işlev anlatımlarında sık geçer. Matematikte türev almak demektir. Dönüşlü kullanım, differentiate oneself, öne çıkmak anlamına gelir.",
+  "x": [
+   [
+    "It is hard to differentiate between the two twins at first.",
+    "İlk başta iki ikizi birbirinden ayırt etmek zor."
+   ],
+   [
+    "Smart brands try to differentiate themselves from their competitors.",
+    "Akıllı markalar rakiplerinden sıyrılmaya çalışır."
+   ]
+  ]
+ },
+ "dimension": {
+  "n": "Dimension, hem somut ölçüyü, yani uzunluğu, genişliği ve yüksekliği, hem de bir sorunun boyutunu anlatır: a new dimension, human dimension. Çoğul biçimde sıkça görülür: dimensions of a room, yani odanın ölçüleri. Türkçedeki boyut ile örtüşür ama genel ölçü anlamı daha baskındır.",
+  "x": [
+   [
+    "The dimensions of the room are four metres by six.",
+    "Odanın ölçüleri dört metreye altı metre."
+   ],
+   [
+    "The pandemic added a new dimension to the debate about remote work.",
+    "Salgın, uzaktan çalışma tartışmasına yeni bir boyut kazandırdı."
+   ]
+  ]
+ },
+ "discriminate": {
+  "n": "Discriminate iki anlam taşır. Olumsuz olanı ayrımcılık yapmaktır ve against edatıyla kullanılır: discriminate against women. Tarafsız ve biraz eskimiş olanı ayırt etmektir: discriminate between good and bad. İsim biçimi discrimination hukuk ve haberlerde çok sık geçer. Discriminating sıfatı, ince zevkli ve seçici anlamına gelir: a discriminating customer.",
+  "x": [
+   [
+    "It is illegal to discriminate against people because of their religion.",
+    "İnsanlara dinleri yüzünden ayrımcılık yapmak yasa dışıdır."
+   ],
+   [
+    "Young children cannot always discriminate between real and imaginary events.",
+    "Küçük çocuklar gerçek ve hayali olayları her zaman ayırt edemez."
+   ]
+  ]
+ },
+ "displace": {
+  "n": "Displace, yerinden etmek, yerine geçmek ya da bastırmak demektir: displaced people, displace workers, displace water. Göç bağlamında displaced persons, yani yerinden edilmiş kişiler denir. Edilgen yapıda be displaced by kullanılır. İsim biçimi displacement fizik ve siyasette geçer. Yerinden etme anlamı olmadan sadece yerine koymak için replace kullanılır. Bir işin ya da insanın yerini başkasının alması durumunda da geçer.",
+  "x": [
+   [
+    "The war displaced millions of people from their homes.",
+    "Savaş milyonlarca insanı evlerinden etti."
+   ],
+   [
+    "Cheap imports have displaced local products in many shops.",
+    "Ucuz ithalat birçok dükkanda yerli ürünlerin yerini aldı."
+   ]
+  ]
+ },
+ "dispose": {
+  "n": "Dispose neredeyse yalnızca dispose of something kalıbında geçer ve bir şeyden kurtulmak, bertaraf etmek anlamına gelir: dispose of waste, dispose of evidence. Edatsız kullanımı nadirdir ve bir kişiyi bir şeye yatkın kılmak demektir: be disposed to help. Disposable sıfatı tek kullanımlık demektir: disposable cups. İsim biçimi disposal, waste disposal gibi, günlük dilde daha tanıdıktır.",
+  "x": [
+   [
+    "Please dispose of used batteries at a proper recycling point.",
+    "Lütfen kullanılmış pilleri uygun bir geri dönüşüm noktasına bırakın."
+   ],
+   [
+    "The police found the man trying to dispose of the evidence.",
+    "Polis adamı delilleri yok etmeye çalışırken yakaladı."
+   ]
+  ]
+ },
+ "distort": {
+  "n": "Distort, bozmak, çarpıtmak demektir; hem fiziksel hem mecazî anlamda kullanılır: distort the truth, a distorted image, distort the market. Distorted sıfatı sonucu anlatır, mesela görüntü ya da ses için. İsim biçimi distortion teknik ve medya metinlerinde sık geçer. Türkçedeki saptırmak gibi her zaman kasıt taşımaz, çünkü ayna da distort eder.",
+  "x": [
+   [
+    "The curved mirror distorts your face in a funny way.",
+    "Eğri ayna yüzünü komik biçimde bozuyor."
+   ],
+   [
+    "Critics say the article distorted the facts to suit its argument.",
+    "Eleştirmenler makalenin savına uysun diye gerçekleri çarpıttığını söylüyor."
+   ]
+  ]
+ },
+ "diverse": {
+  "n": "Diverse, çeşitli ve birbirinden farklı öğelerden oluşan bir grubu anlatır: a diverse population, a diverse range of opinions. Türkçedeki farklı sözcüğü yalnızca ayrılığı belirtirken diverse zenginliği de vurgular. İsim biçimi diversity, fiili diversify. Toplum yazılarında ethnically ya da culturally diverse sık kullanılır. Karşıt anlamlısı uniform, yani tekdüze ve aynı demektir.",
+  "x": [
+   [
+    "The city has a diverse population from more than a hundred countries.",
+    "Şehir, yüzden fazla ülkeden gelen çeşitli bir nüfusa sahip."
+   ],
+   [
+    "The shop sells a diverse range of products from around the world.",
+    "Dükkan dünyanın dört bir yanından çeşitli ürünler satıyor."
+   ]
+  ]
+ },
+ "domain": {
+  "n": "Domain birkaç anlam taşır: bir bilgi alanı, kişisel etki alanı ve internet adresi, yani domain name. Türkçedeki alan ya da alan adı kullanımına yakındır. Public domain ifadesinde eserler telif hakkı bittiği için serbestçe kullanılır. Mutfak için it is her domain denilerek kişinin alanı anlatılabilir. Website ile aynı değildir; o bütün siteyi anlatır.",
+  "x": [
+   [
+    "Cooking has always been her domain, so we never interfere.",
+    "Yemek yapmak hep onun alanı oldu, biz hiç karışmayız."
+   ],
+   [
+    "You need to register a domain name before you can launch the site.",
+    "Siteyi yayına almadan önce bir alan adı kaydettirmen gerekiyor."
+   ]
+  ]
+ },
+ "dominate": {
+  "n": "Dominate, hükmetmek ya da baskın olmak demektir; insanlar ve şeyler için kullanılır: dominate the conversation, dominate the market. Genellikle doğrudan nesne alır; dominate over daha seyrektir. Sıfatı dominant, isimleri domination ve dominance. Edilgen kullanım da yaygındır: a field dominated by men. Haberlerde bir şirketin ya da bir takımın dominate ettiği yazılır.",
+  "x": [
+   [
+    "Two large companies dominate the market for mobile phones.",
+    "İki büyük şirket cep telefonu pazarına hakim."
+   ],
+   [
+    "One loud speaker dominated the whole discussion for an hour.",
+    "Gürültülü bir konuşmacı tüm tartışmaya bir saat boyunca hakim oldu."
+   ]
+  ]
+ },
+ "duration": {
+  "n": "Duration, bir şeyin sürdüğü zaman aralığıdır, mesela bir uçuşun süresi. Önemli kalıp for the duration ifadesidir ve süre boyunca ya da sonuna kadar anlamına gelir. Olayın süresi anlatılırken length yerine duration tercih edilir; length uzunluk ölçüsü için kalır. Oldukça resmî bir sözcüktür; konuşmada genellikle how long does it take diye sorulur.",
+  "x": [
+   [
+    "The duration of the film is just over two hours.",
+    "Filmin süresi iki saati biraz geçiyor."
+   ],
+   [
+    "Mobile phones must stay switched off for the duration of the exam.",
+    "Cep telefonları sınav süresince kapalı kalmalıdır."
+   ]
+  ]
+ },
+ "edit": {
+  "n": "Edit, düzenlemek, redakte etmek ya da kurgulamak demektir: edit a document, edit a video, edit a newspaper. Metinde düzeltmek ve kısaltmak anlamına gelir, baştan yazmak değil; o rewrite olur. Videoda montaj yapmak anlamına da gelir. Editor editör ya da bir program demektir, edition ise baskı, yani basılı bir sayı ya da yayın.",
+  "x": [
+   [
+    "She spent the weekend editing the video before posting it online.",
+    "Hafta sonunu videoyu kurgulayarak geçirdi, sonra çevrim içi paylaştı."
+   ],
+   [
+    "Please edit the first paragraph so it is shorter and clearer.",
+    "Lütfen ilk paragrafı daha kısa ve açık olacak şekilde düzenleyin."
+   ]
+  ]
+ },
+ "eliminate": {
+  "n": "Eliminate, ortadan kaldırmak ya da elemek demektir: eliminate errors, eliminate the risk, be eliminated from the tournament. Reduce sözcüğünden güçlüdür çünkü geriye bir şey kalmaz. Oyun ve yarışmalarda edilgen be eliminated elenmek anlamında kullanılır. İsim biçimi elimination ortadan kaldırma ya da eleme demektir. İnsanlar için kullanıldığında sert durabilir ve öldürmek anlamına da gelebilir.",
+  "x": [
+   [
+    "The new system should eliminate most of the errors in our data.",
+    "Yeni sistem verilerimizdeki hataların çoğunu ortadan kaldırmalı."
+   ],
+   [
+    "Our team was eliminated from the competition in the first round.",
+    "Takımımız yarışmadan ilk turda elendi."
+   ]
+  ]
+ },
+ "emerge": {
+  "n": "Emerge, ortaya çıkmak, belirmek ya da anlaşılmak demektir: a new problem emerged, he emerged from the building. From edatı çıkış yerini ya da kaynağı gösterir. Raporlarda it emerged that, ortaya çıktı ki anlamına gelir. İsim biçimi emergence, sıfat biçimi emerging, mesela emerging markets. Emergency yani acil durum ile karıştırılmamalıdır.",
+  "x": [
+   [
+    "New evidence emerged that changed the whole direction of the case.",
+    "Davanın tüm yönünü değiştiren yeni kanıtlar ortaya çıktı."
+   ],
+   [
+    "The sun finally emerged from behind the clouds around noon.",
+    "Güneş öğleye doğru nihayet bulutların arkasından çıktı."
+   ]
+  ]
+ },
+ "enable": {
+  "n": "Enable, birine bir şeyi yapma olanağı vermek demektir: enable somebody to do something. Kişiyle birlikte to yapısı kullanılır: this tool enables users to work faster. Teknik dilde bir özelliği etkinleştirmek anlamına gelir: enable notifications; karşıtı disable. Allow ile fark: enable etkin yardım sunar, allow ise yalnızca engel olmaz.",
+  "x": [
+   [
+    "The new software enables teachers to share lessons with students instantly.",
+    "Yeni yazılım öğretmenlerin dersleri öğrencilerle anında paylaşmasını sağlıyor."
+   ],
+   [
+    "You can enable notifications in the settings menu of the app.",
+    "Bildirimleri uygulamanın ayarlar menüsünden etkinleştirebilirsin."
+   ]
+  ]
+ }
+}
