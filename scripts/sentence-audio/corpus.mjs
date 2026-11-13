@@ -79,7 +79,8 @@ export function collect() {
   // Nhóm tĩnh khác mà app đọc qua UI.tts / LessonTeacher.say (đo 1/11: trước đó luôn rơi về giọng máy). Mỗi file nạp trong ngữ cảnh riêng có window = self.
   {
     const ctx = () => { const x = { t: s => s, console }; x.self = x.window = x.globalThis = x; vm.createContext(x); return x; };
-    const L = (x, f) => { try { vm.runInContext(fs.readFileSync(f, 'utf8'), x); } catch (e) { console.error(`corpus: bỏ qua ${f}: ${e.message}`); } };
+    // Nguồn không tồn tại (dời/đổi tên tệp mà quên sửa đường dẫn) → LỖI CỨNG, không bỏ qua âm thầm (12/11: pron/skills.js dời cpack ở #1178 → 114 từ/câu mất khỏi đo độ phủ mà không ai biết).
+    const L = (x, f) => { if (!fs.existsSync(f)) throw new Error(`corpus: nguồn không tồn tại: ${f} (đã dời/đổi tên? sửa đường dẫn trong scripts/sentence-audio/corpus.mjs)`); try { vm.runInContext(fs.readFileSync(f, 'utf8'), x); } catch (e) { console.error(`corpus: bỏ qua ${f}: ${e.message}`); } };
     const strs = a => (Array.isArray(a) ? a : [a]).filter(v => typeof v === 'string' && /[A-Za-z]/.test(v));
     // Confidence (confidence.js: theo accent người học; người nói b đọc giọng còn lại → cả 2 giọng)
     { const x = ctx(); L(x, 'web/js/confidence/data.js'); const D = x.CONF || {};
@@ -102,7 +103,7 @@ export function collect() {
     { const sp = fs.readFileSync('web/js/speaking.js', 'utf8'), i0 = sp.indexOf('const BANK = [') + 13, B = vm.runInNewContext(sp.slice(i0, sp.indexOf('\n  ];', i0) + 4), { t: v => v });
       for (const b of [...B, ...(c.SPEAK_MORE || [])]) { const t = `Now I'd like you to talk about a topic for one to two minutes. You have one minute to prepare. ${b.p2.q}`; for (const sen of c.KVoice.split(t)) addOne(GEN['en-GB'], sen, 'mock-speaking'); } }
     // Phát âm: từ + cặp tối thiểu + câu (pron.js, data-speak-text bỏ ký hiệu ngữ điệu), Nói theo mẫu (sayit.js, giọng Mỹ), nhịp câu (rhythm.js)
-    { const x = ctx(); for (const f of ['sounds', 'skills', 'pairs', 'coach']) L(x, `web/js/pron/${f}.js`);
+    { const x = ctx(); for (const f of ['sounds', 'pairs', 'coach']) L(x, `web/js/pron/${f}.js`); L(x, 'web/cpack/pron/skills.js'); // skills.js ở cpack từ #1178
       for (const it of x.PRON || []) { for (const w of it.words || []) both(w.w, 'pron'); for (const w of (it.pairs || []).flat()) both(w, 'pron');
         for (const sn of it.sentences || []) bothSplit(String(sn).replace(/[↗↘‿]|\s\/\s/g, ' ').replace(/\s+/g, ' ').trim(), 'pron'); }
       for (const k of (x.PronPairs || {}).CONTRASTS || []) for (const p of String(k.pairs || '').split(/\s+/)) for (const w of p.split('/')) addOne(GEN['en-US'], w.split('=')[0], 'pron');
