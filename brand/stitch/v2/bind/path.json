@@ -118,7 +118,7 @@
        "data-pr": "r.id"
       },
       ":scope > button": {
-       "style": "'inset-inline-start:' + (r.x - 28) + 'px;top:' + (r.cy - 28) + 'px'",
+       "style": "'inset-inline-start:' + (r.x - 36) + 'px;top:' + (r.cy - 36) + 'px'",
        "aria-label": "r.aria",
        "aria-haspopup": "'dialog'"
       },
