@@ -121,6 +121,7 @@ node scripts/test/d1-cap.mjs
 node scripts/test/sessions-scan-gate.mjs
 node scripts/capacity/admin-sim.mjs
 node scripts/test/free-tier.mjs
+node scripts/test/vocab-img-free-sheet.mjs
 node scripts/test/pages-skip.mjs
 node scripts/test/sync-pack.mjs
 node scripts/test/target-lang.mjs
@@ -129,6 +130,7 @@ node scripts/test/sync-ctx.mjs
 node scripts/test/schema-lock.mjs
 node scripts/test/analytics.mjs
 node scripts/test/retention-admin.mjs
+node scripts/test/mail-digest.mjs
 node scripts/test/d1-scan.mjs
 node scripts/test/drive.mjs
 node scripts/test/ci-triage.mjs
@@ -269,6 +271,7 @@ node scripts/test/authority-pages.mjs
 node scripts/test/seo-twin.mjs
 node scripts/test/dict-pages.mjs
 node scripts/test/dict-stage.mjs
+node scripts/test/dict-enrich.mjs
 node scripts/test/native-auth.mjs
 node scripts/test/ota.mjs
 node scripts/test/crashlytics.mjs
@@ -401,3 +404,4 @@ node scripts/test/play-rhythm.mjs
 node scripts/test/play-rhythm-run.mjs
 node scripts/test/funnel.mjs
 node scripts/test/share-link.mjs
+node scripts/test/referral.mjs

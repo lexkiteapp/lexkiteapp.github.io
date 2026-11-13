@@ -271,7 +271,7 @@
   const G = 'js/grammar/', BUNDLES = {
     demo: ['js/app-demo.js'],
     mvar: ['js/mistake-variant.js'], // Mini-test biến thể từ Sổ lỗi sai (#/mistakes?variant=1 + gợi ý trên Hôm nay)
-    grammar: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'cpack/grammar/starter.js', 'cpack/grammar/lazy-a1.js', 'academic', 'cpack/grammar/lazy-c2.js', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'cpack/grammar/drills-own.js', 'bank-gen', 'check'].map(f => f.startsWith('cpack/') ? f : G + f + '.js'), 'js/grammar.js'],
+    grammar: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'cpack/grammar/starter.js', 'cpack/grammar/lazy-a1.js', 'cpack/grammar/academic.js', 'cpack/grammar/lazy-c2.js', 'chapters', 'cpack/grammar/book2.js', 'drills-a', 'drills-b', 'drills-c', 'cpack/grammar/drills-own.js', 'bank-gen', 'check'].map(f => f.startsWith('cpack/') ? f : G + f + '.js'), 'js/grammar.js'],
     // 12 bài A1 / 10 bài C2 (~29 KB nén mỗi gói): chỉ tải khi mở bài của cấp đó; gói 'grammar' mang mục lục gọn lazy-a1/c2.js (scripts/grammar/build-lazy-idx.mjs)
     grammarA1: ['cpack/grammar/starter2.js'],
     grammarC2: ['cpack/grammar/mastery.js'],
@@ -323,6 +323,7 @@
     ota: ['js/i18n/en/ota.js', 'js/ota-key.js', 'js/ota.js'], // 🔄 cập nhật OTA + nhắc cập nhật app (chỉ app gốc, docs/OTA.md)
     // ⚙️ Cài đặt (tách khỏi khung 23/10)
     remind: ['js/i18n/en/remind.js', 'js/remind.js'],
+    mail: ['cpack/mail-app/mail.js'], // email nhắc học (remind.js mailSync)
     install: ['js/i18n/en/install.js', 'js/install-sheet.js'], // 📲 mời cài app ở khoảnh khắc giá trị (docs/INSTALL-GROWTH.md)
     settings: ['js/settings.js'],
     // 🔥 lớp giữ thói quen – luôn nạp cùng gói 'streak' (mỗi file chỉ thuộc 1 gói) struct: ['js/structures.js'], // 🧩 nhận diện cấu trúc (tải lười, ra khỏi khung app 20/10)
@@ -1590,6 +1591,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       }, 2500);
     }
     setTimeout(() => idle(refreshIPA), 15000);
+    try { if (localStorage.getItem('lk.rc') || /"s":"ref"/.test(localStorage.getItem('lk.at') || '')) setTimeout(() => idle(() => App.need('share').then(() => ShareCard.refSync()).catch(() => {})), 20000); } catch (e) { /* bỏ qua */ }
     if (isIOS()) setTimeout(() => App.installNudge && App.installNudge(), 25000);
     if (!Store.isExtension && !isStandalone()) setTimeout(() => idle(() => App.getApp().then(() => showInstallBtn())), 3000); // menu "Tải app" + nút cài Android → Google Play
   };

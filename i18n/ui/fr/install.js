@@ -3,7 +3,9 @@
 "Bài đầu tiên xong rồi! Có app, bạn học nhanh hơn ngay từ màn hình chính.":"Première leçon terminée ! Avec l’appli, vous démarrez plus vite depuis votre écran d’accueil.",
 "Bạn đã lưu {n} từ. Có app, ôn chúng lúc nào cũng tiện.":"Vous avez enregistré {n} mots. Avec l’appli, les réviser est pratique à tout moment.",
 "Chuỗi {n} ngày thật tuyệt! Có app, việc học đều mỗi ngày nhẹ nhàng hơn.":"{n} jours d’affilée, bravo ! Avec l’appli, apprendre chaque jour devient plus simple.",
+"Mang Lexkite lên điện thoại":"Emportez Lexkite sur votre téléphone",
 "Mang Lexkite theo bên mình":"Emportez Lexkite partout",
+"Quét mã bằng camera điện thoại để tải app miễn phí.":"Scannez le code avec l’appareil photo de votre téléphone pour obtenir l’appli gratuitement.",
 "Tải trên App Store":"Télécharger sur l’App Store",
 "Tải trên Google Play":"Disponible sur Google Play",
 });

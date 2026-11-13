@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url';
 // Mở rộng kho từ (docs/LEXICON.md §Mở rộng 20k): cổng mục (gateEntry), dịch ngược, sổ việc hạ nguồn (infra/lexicon-consumers.json).
 import fs from 'fs';
 import path from 'path';
-import { defGrammarBad, mixPool, yieldSplit, quotaDry, viAnswer, thinPool, MIN_SAMPLE, shardOf, humanSrc } from '../lexicon/expand/lib.mjs';
+import { rescueSelect, defGrammarBad, mixPool, yieldSplit, quotaDry, viAnswer, thinPool, MIN_SAMPLE, shardOf, humanSrc } from '../lexicon/expand/lib.mjs';
 import { wsdUnwrap, gateEntry, btMatch, btOk, toIndex, LANGS, loadExpand, poolEmpty, queueable, breaker, sourceGap, hasGap, doneWords, defPosOk, viBtOk, wsdOk, lockSense, viAgreeSources, viContested, trTableAmbiguous, posShapeOk, omwHas, trIn, inflRe } from '../lexicon/expand/lib.mjs';
 import { grade, hasBad, applies } from '../lexicon/expand/grade.mjs';
 import { nativeOwners, nativeLine } from '../lexicon/expand/tatoeba-native.mjs';
@@ -497,4 +497,13 @@ ok(fs.readFileSync(new URL('../../.github/workflows/lexicon-expand.yml', import.
 // 08/11 xuất trong ngày: lô riêng mỗi lượt (plan → --batch <ngày>-r<số lượt>), soát/xuất mọi lô chờ đã khép trừ lô của chính lượt; concurrency không huỷ (lượt trước đã khép)
 { const wf = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8');
   ok(/batch=\$\(date -u \+%Y%m%d\)-r\$\{\{ github\.run_number \}\}/.test(wf) && /EXTRA\+=\(--batch "\$\{\{ needs\.plan\.outputs\.batch \}\}"\)/.test(wf) && /\[ "\$B" = "\$CUR" \] && continue/.test(wf) && /cancel-in-progress: false/.test(wf), 'workflow: lô riêng mỗi lượt + xuất lô đã khép trong ngày'); }
+// 13/11 rescue hàng duyệt theo lớp lỗi: cổng KHÔNG đổi, chỉ chọn mục; wd cần nhãn Wikidata + rớt trước ngày nguồn vào; mỗi mục 1 lần/lớp; có --limit
+{ const mk = (id, why, at = '2026-11-10') => ({ src: 'lexicon-expand', id, why, at }), VI = 'dịch vi: không phương án nào qua trắc nghiệm nghĩa 3 giám khảo', EX = 'ví dụ: không đủ 2 câu', WDV = { 'a#n': ['x'], 'b#n': ['y'], 'c#n': ['z'], 'd#n': ['w'] };
+  const Q = [mk('b#n', [VI, EX]), mk('a#n', [VI]), mk('c#n', [VI, 'cefr: lệch']), mk('e#n', [VI]), mk('d#n', [VI], '2026-11-12'), mk('f#n', ['nghĩa: sai']), mk('g#n', ['def: sai', EX]), mk('h#n', ['ví dụ: thiếu'])];
+  ok(rescueSelect(Q, 'wd', { wd: WDV, before: '2026-11-12' }).map(x => x.id).join() === 'a#n,b#n', 'rescue wd: chỉ rớt vi/ví dụ + có nhãn Wikidata + trước ngày nguồn (không cefr, không thiếu nhãn)');
+  ok(rescueSelect(Q, 'wd', { wd: WDV, before: '2026-11-12', limit: 1 }).map(x => x.id).join() === 'a#n' && rescueSelect(Q, 'wd', { wd: WDV, before: '2026-11-12', done: { 'a#n': 1 } }).map(x => x.id).join() === 'b#n', 'rescue: --limit pilot + mỗi mục 1 lần (rescued)');
+  ok(rescueSelect(Q, 'rewrite').map(x => x.id).join() === 'f#n,g#n,h#n', 'rescue rewrite: chỉ nghĩa/def/ví dụ, không dính vi');
+  let t = false; try { rescueSelect(Q, 'x'); } catch { t = true; } ok(t, 'rescue: chế độ lạ → lỗi');
+  const R = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/requeue.mjs'), 'utf8'), Y = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8');
+  ok(/rescueSelect/.test(R) && /requeue\.mjs --rescue/.test(Y) && !/requeue\.mjs --rescue[^\n]*\n[^\n]*schedule/.test(Y) && /rescue: \{ description/.test(Y), 'workflow: rescue là input dispatch (không chạy mỗi lượt cron)'); }
 if (fail) { console.error(`✗ lexicon-expand (pilot 7 fixes): ${fail} lỗi`); process.exit(1); }
