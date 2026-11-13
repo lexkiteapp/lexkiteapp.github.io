@@ -611,7 +611,7 @@
   ]
  },
  "dimension": {
-  "n": "Dimension, hem somut ölçüyü, yani uzunluğu, genişliği ve yüksekliği, hem de bir sorunun boyutunu anlatır: a new dimension, human dimension. Çoğul biçimde sıkça görülür: dimensions of a room, yani odanın ölçüleri. Türkçedeki boyut ile örtüşür ama genel ölçü anlamı daha baskındır.",
+  "n": "Dimension, hem somut ölçüyü, yani uzunluğu, genişliği ve yüksekliği, hem de bir sorunun boyutunu anlatır: a new dimension, human dimension. Çoğul biçimde sıkça görülür: dimensions of a room, yani odanın ölçüleri. Türkçedeki boyut ile örtüşür ama genel ölçü anlamı daha baskındır. Sıfat biçimi dimensional, örneğin two-dimensional, yani iki boyutlu demektir; üç boyutlu için three-dimensional kullanılır.",
   "x": [
    [
     "The dimensions of the room are four metres by six.",
