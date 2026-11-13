@@ -138,7 +138,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `(không rõ)`: a11y admin-video-shots ads-demo-android ads-demo app-lcp-probe clutter confidence-shots content-check contrast crawl d1-scan dispatch-guard docs-budget e2e explain-shots ffmpeg-setup-policy figure-layout final-qc i18n-switch icon-flash ios-audio-e2e ios-driver-watchdog lazyfix lip-shots listing-check mobile-nav mobile-qa-keyboard native-facade native-parity nav-render no-url-pathname perf-median phrasebook-shots profile-route pron-read qa-bot-diff review-done review-lookup review-modes-e2e review-modes-ui review-modes review-shots review-taps route-race route-vitals run-suite samples-visual screens seo-pages seo-sitemap seo-words-shots serve-web shell-responsive side-menu size-guard-pr smoke storage-audit suite-shards teacher-native-shots teacher-rig-browser theme-default toeic-read-e2e tools-ui topbar-lang tsc-check ux-cards ux-guard-lib ux-guard ux-public ux-shots ux-sweep ux1-guard video-web-e2e visual-qa web-sweep welcome-journey workflow-call-perms workflow-yaml
 - `functions/api`: accounts admin-ads-shots admin-dist-shots admin-gh admin-guard admin-prefs admin-rollup ai-pool aiearn analytics api-security capacity classroom clip-bulk community-api d1-cap dist-channels dist-roles distribution drive-repair drive funnel hit-retry img-api importdeck jobs keys live-check notices play-duel post-deploy-check pr-check quota readable referral report retention-admin root-lang schema-lock sessions-scan-gate social-admin social-auto social-first-comment social-meta-oauth social-meta social-mgr social-preview social-proxy static-routes sync-ctx sync-pack user-mgmt users-bulk ux1-rollout voice-source yt-manual
 - `scripts`: authority-pages axe blog-images blog-lang-gates blog-youtube bot-push-key brand-check build-hash codemap-budget cpack explain-check explain-let ext-version fmt-stable frame-consistency gen-guard i18n-english i18n-single journey-e2e lesson-content links-js mobile-polish mqa-parity-self mqa-parity native-strings-locked origin-fetch pack-gloss pages-lag pages-skip pr-unconflict protection samples-ui scan-roots self-fonts sentence-asr sw-cache-fixed teacher-mood theme-switch token-drift tools-pages ux1 word-ipa world-scorecard
-- `scripts/ci`: apt-install audio-coverage audio-pr-branch busy-gate ci-guards ci-hog ci-policy ci-queue-gate ci-shards-busy ci-triage cron-watch gh-api heavy-rerun no-pr-branch-push npm-retry-policy push-main qa-fill queue-report required-gate-stale retry5xx sparse-imports vimg-watch workflow-cd-paths zombie-pages
+- `scripts/ci`: apt-install audio-coverage audio-pr-branch busy-gate ci-guards ci-hog ci-policy ci-queue-gate ci-shards-busy ci-triage cron-watch gh-api heavy-rerun no-pr-branch-push npm-retry-policy push-main qa-fill queue-report required-gate-stale retry5xx sparse-imports workflow-cd-paths zombie-pages
 - `brand/stitch`: landing-v3 layout-guards stitch-coverage stitch-diff stitch-quality-qc stitch-refs-qc stitch-render stitch-screens stitch-today-contrast stitch-web-diff
 - `scripts/lib`: ci-header-scope font-audit is-main-guard json-dupkeys lastmod qa-classify syntax-check theme-static word-depth
 - `web`: adsense-hygiene brand-logo-stitch deep-links headers seo-twin site-footer size-budget skills-hub sw-storage
@@ -171,6 +171,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `content/lesson`: learnability
 - `content/lexicon`: vocab-img-strict
 - `content/protection`: commit-regen
+- `content/qa`: vimg-watch
 - `content/situations`: situations
 - `content/target`: es-pron
 - `mobile`: crashlytics
@@ -202,7 +203,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `workers/mail`: mail-prefs
 - `workers/push`: fcm-push
 
-## Mô-đun JS chính (14/2216, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
+## Mô-đun JS chính (13/2216, ngoài god nodes; phần còn lại trong json) – tên: export →nạp/import ←số nơi dùng
 - `functions/api/` drive.js: isFootageRow,isBackupRow,isShortsRow,shortsCapacity,sha256Hex… →_backup.js,_d1b.js,_d1guard.js ←8 (admin-shorts.js,capacity.js,callback.js)
 - `scripts/lexicon/` ipa.mjs: ALLOWED,badChars,ukStyle,ukStyleBad,fixBroken… →- ←12 (build-lexicon.mjs,gate.mjs,gen-wordlist.mjs) · shards.mjs: loadBrowserIndex,mergeExpand,buildShards,writeShards →lib.mjs,lib.mjs,app.js ←9 (build.mjs,wordnet.mjs,gen-newtab.mjs)
 - `scripts/lib/` i18n-pack.mjs: ROOT,SRC,OUT,LANGS,LAZY… →- ←11 (preview-resolve.mjs,build.mjs,fmt-stable.mjs) · is-main.mjs: isMain →- ←11 (build-hash.mjs,creds.mjs,cutover.mjs) · site-layout.mjs: EXT_STORE,EXT_JS,GETAPP_JS,LSW_CSS,LSW_JS… →authority-links.mjs,samples-visual.mjs,seo-pages-i18n.mjs ←14 (build-authority.mjs,build-blog.mjs,build-go.mjs)
@@ -210,5 +211,5 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `scripts/sentence-audio/` corpus.mjs: collect →scan-roots.mjs,gold.js,stories.js ←5 (coverage.mjs,gen-audio.mjs,merge.mjs)
 - `scripts/target/` lib.mjs: ROOT,MEAN_LANGS,POS,seedPath,coreFiles… →- ←14 (grammar-map-check.mjs,build.mjs,calls-check.mjs)
 - `scripts/vocab-img/` style.mjs: STYLE,PEOPLE,fnv,promptFor,altFor… →- ←12 (cards.mjs,concept.mjs,gen.mjs)
-- `web/js/` core.js →app.js ←9 (content-pack.mjs,gen-lesson.mjs,gen-sync.mjs) · export.js →app.js ←1 (app.js)
+- `web/js/` core.js →app.js ←9 (content-pack.mjs,gen-lesson.mjs,gen-sync.mjs)
 - `web/js/speak/` data.js →airport-checkin.js,ask-directions.js,bank.js ←3 (gen-speak.mjs,build.mjs,app.js)
