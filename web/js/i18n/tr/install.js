@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/tr/install.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.tr=Object.assign(D.tr||{},{_g5bq:"İlk ders tamam! Uygulamayla ana ekranınızdan daha hızlı başlarsınız.",_boam:"{n} kelime kaydettiniz. Uygulamayla istediğiniz an tekrar edebilirsiniz.",_b0g3:"{n} günlük seri, harika! Uygulamayla her gün çalışmak daha kolay.",_xatz:"Lexkite yanınızda olsun",_ecxd:"App Store’dan indirin",_fq4o:"Google Play’den edinin"});})(typeof self!=='undefined'?self:this);
