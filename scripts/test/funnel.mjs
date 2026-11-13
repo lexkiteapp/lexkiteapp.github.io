@@ -53,6 +53,13 @@ ok(t.d1 === 1 && t.n1 >= 1 && t.d7 === 1 && t.n7 === 1 && t.d7Pct === 100, `D1/D
 ok(d.summary.day === D(1) && d.summary.views >= 3 && d.summary.app === 2, 'tóm tắt hôm qua sai: ' + JSON.stringify(d.summary));
 ok(d.total.app >= 3 && d.rows.length <= 80, 'tổng/giới hạn dòng');
 
+// 5b) Phễu cài app theo nền tảng
+import { installData } from '../../functions/api/_funnel.js';
+const ins = installData([{ kind: 'cta:inst_first_v_play', n: 10 }, { kind: 'cta:inst_words_c_play', n: 3 }, { kind: 'cta:inst_first_x_play', n: 2 }, { kind: 'cta:app_top_ios', n: 5 }, { kind: 'cta:ext_land', n: 4 }, { kind: 'cta:inst_first_v_desk', n: 1 }]);
+const ip = ins.find(x => x.plat === 'play');
+ok(ip && ip.seen === 10 && ip.click === 3 && ip.later === 2 && ip.clickPct === 30, 'installData play sai: ' + JSON.stringify(ins));
+ok(ins.find(x => x.plat === 'ios').btn === 5 && ins.find(x => x.plat === 'ext').btn === 4, 'installData btn/ext sai');
+
 // 6) Đường đọc không quét bảng người dùng lớn (sessions): kiểm kế hoạch các câu của channelData
 const plan = be.sql.prepare("EXPLAIN QUERY PLAN SELECT src, COUNT(*) FROM vid_attr WHERE day >= ? GROUP BY src").all('2026-01-01').map(p => String(p.detail)).join(' ');
 ok(/vid_attr_day/.test(plan), 'đọc vid_attr phải đi theo chỉ mục day: ' + plan);

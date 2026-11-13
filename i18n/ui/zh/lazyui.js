@@ -480,7 +480,7 @@
 "Nhập sao lưu":"导入备份",
 "Nhập từ tiếng Anh, ví dụ: sustainable":"输入一个英文单词，例如可持续的",
 "Nhập từ tài liệu":"从文档导入",
-"Nhắc học qua email":"Email reminders",
+"Nhắc học qua email":"电子邮件提醒",
 "Nhắc “thời điểm vàng”":"“黄金时刻”提醒",
 "Nhẹ nhàng":"轻松",
 "Nhờ hàng xóm trông nhà khi đi du lịch":"请邻居在你旅行期间照看房子",

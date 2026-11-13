@@ -480,7 +480,7 @@
 "Nhập sao lưu":"बैकअप आयात करें",
 "Nhập từ tiếng Anh, ví dụ: sustainable":"एक अंग्रेजी शब्द टाइप करें, उदा. टिकाऊ",
 "Nhập từ tài liệu":"किसी दस्तावेज़ से आयात करें",
-"Nhắc học qua email":"Email reminders",
+"Nhắc học qua email":"ईमेल अनुस्मारक",
 "Nhắc “thời điểm vàng”":"“सही समय” अनुस्मारक",
 "Nhẹ nhàng":"आराम से",
 "Nhờ hàng xóm trông nhà khi đi du lịch":"यात्रा के दौरान पड़ोसी से घर का ध्यान रखने को कहना",

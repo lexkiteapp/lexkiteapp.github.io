@@ -110,6 +110,8 @@ jobs:
           python scripts/lexicon/expand/pick_words.py --existing "$RUNNER_TEMP/existing.json" --want content/lexicon/expand/retry/words.json ${{ github.event.inputs.words }} --cmu "$RUNNER_TEMP/cmu.dict" --bad "$RUNNER_TEMP/bad.txt" $(test -s "$RUNNER_TEMP/cefrj.csv" && echo --cefrj "$RUNNER_TEMP/cefrj.csv") $(test -s "$RUNNER_TEMP/octanove.csv" && echo --octanove "$RUNNER_TEMP/octanove.csv") --out "$RUNNER_TEMP/candidates.json"
           # nghĩa vi NGƯỜI VIẾT thứ hai (31/10, lớp L1 – rớt vi 178/600): Wiktionary tiếng Việt qua kaikki.org/viwiktionary (CC BY-SA 4.0, ~33 MB gz); tải lỗi = như cũ (chỉ Wiktionary tiếng Anh)
           curl -sfL --retry 2 -o "$RUNNER_TEMP/viwk.jsonl.gz" https://kaikki.org/viwiktionary/raw-wiktextract-data.jsonl.gz && python scripts/lexicon/expand/viwikt.py --raw "$RUNNER_TEMP/viwk.jsonl.gz" --candidates "$RUNNER_TEMP/candidates.json" --out "$RUNNER_TEMP/viwk.json" || echo "::warning::viwikt: không tải được Wiktionary tiếng Việt"
+          # 13/11 nguồn vi NGƯỜI VIẾT thứ ba (docs/LEXICON.md): nhãn vi Wikidata (CC0) của khoản mục có bài Wikipedia en trùng nhãn en = từ (danh từ; 69 % mục quét không có vi người viết). Gộp vào viwk.json (WV); cổng giữ nguyên (≥ 2 nguồn trùng + giám khảo); lỗi/không tới WDQS = như cũ
+          python scripts/lexicon/expand/wikidata_vi_labels.py --cands "$RUNNER_TEMP/candidates.json" --first content/lexicon/expand/retry/words.json --limit 2400 --merge "$RUNNER_TEMP/viwk.json" --out "$RUNNER_TEMP/viwk.json" || echo "::warning::wikidata_vi_labels: bỏ qua"
       - name: Sinh + 2 giám khảo + cổng
         if: ${{ steps.lease.outputs.skip != '1' && github.event.inputs.audit == '' }}
         env:  # ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite (nếu còn khóa) → cf2 = kho CF_POOL xoay vòng (gpt-oss-120b soạn/giám khảo A, llama-3.3-70b giám khảo B) 
@@ -170,8 +172,12 @@ jobs:
           for f in $CH; do mkdir -p "$O/$(dirname "$f")"; [ -f "$f" ] && cp "$f" "$O/$f"; done
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
           for i in 1 2 3 4 5; do
-            git fetch -q origin main && git reset -q --hard origin/main && node scripts/lexicon/expand/save-merge.mjs "$BASE" "$O" $CH && git add -A -- $CH
+            git fetch -q origin main && git reset -q --hard origin/main
+            # 13/11 máy gác (main đỏ do commit bot [skip ci] e122220be): commit dữ liệu không qua CI → chạy test kho từ TRƯỚC khi đẩy; chỉ chặn khi main đang xanh mà bản gộp làm nó đỏ
+            node scripts/test/lexicon-expand.mjs >/dev/null 2>&1 && MAIN_OK=1 || MAIN_OK=0
+            node scripts/lexicon/expand/save-merge.mjs "$BASE" "$O" $CH && git add -A -- $CH
             git diff --cached --quiet && { echo 'đã có trên main'; exit 0; }
+            if [ "$MAIN_OK" = 1 ] && ! node scripts/test/lexicon-expand.mjs >"$RUNNER_TEMP/lx-test.log" 2>&1; then grep -v '^✓' "$RUNNER_TEMP/lx-test.log" | head -20; echo "::error::bản gộp làm test lexicon-expand đỏ – KHÔNG đẩy (commit [skip ci] không qua CI)"; exit 1; fi
             git commit -qm "Mở rộng kho từ: lô chờ soát (lexicon-expand) [CF-Pages-Skip] [skip ci]" && git push -q origin HEAD:main && exit 0
             sleep $((i * 7)); done; exit 1
       - uses: actions/upload-artifact@v4

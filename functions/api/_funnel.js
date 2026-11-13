@@ -44,10 +44,11 @@ const pct = (a, b) => (b > 0 ? Math.round((a / b) * 1000) / 10 : null);
 export async function channelData(db, P, now = Date.now()) {
   P = [7, 30, 90].includes(+P) ? +P : 30;
   const from = dayOf(now - (P - 1) * DAY), today = dayOf(now), cut7 = dayOf(now - 7 * DAY), cut1 = dayOf(now - DAY);
-  const [att, fun, dd] = await Promise.all([
+  const [att, fun, dd, cta] = await Promise.all([
     db.prepare("SELECT src, camp, code, COUNT(*) AS app, SUM(fl IS NOT NULL) AS fl, SUM(CASE WHEN day <= ?2 THEN 1 ELSE 0 END) AS n1, SUM(CASE WHEN day <= ?2 AND d1 IS NOT NULL THEN 1 ELSE 0 END) AS d1, SUM(CASE WHEN day <= ?3 THEN 1 ELSE 0 END) AS n7, SUM(CASE WHEN day <= ?3 AND d7 IS NOT NULL THEN 1 ELSE 0 END) AS d7 FROM vid_attr WHERE day >= ?1 GROUP BY src, camp, code").bind(from, cut1, cut7).all(),
     db.prepare("SELECT day, kind, n FROM ext_events WHERE day >= ?1 AND kind LIKE 'fun:%'").bind(from).all(),
     db.prepare('SELECT day, COUNT(*) AS app, SUM(fl IS NOT NULL) AS fl FROM vid_attr WHERE day >= ?1 GROUP BY day').bind(dayOf(now - 2 * DAY)).all(),
+    db.prepare("SELECT kind, SUM(n) AS n FROM ext_events WHERE day >= ?1 AND kind LIKE 'cta:%' AND kind NOT LIKE '%:lang:%' AND kind NOT LIKE '%:page:%' GROUP BY kind").bind(from).all(),
   ]);
   const rows = new Map(), row = (s, c, k) => { const id = [s, c, k].join('|'); if (!rows.has(id)) rows.set(id, { src: s, camp: c, code: k, go_view: 0, go_start: 0, go_done: 0, go_cta: 0, app: 0, fl: 0, n1: 0, d1: 0, n7: 0, d7: 0 }); return rows.get(id); };
   const byDay = {};
@@ -60,7 +61,7 @@ export async function channelData(db, P, now = Date.now()) {
     .map(r => ({ ...r, startPct: pct(r.go_start, r.go_view), donePct: pct(r.go_done, r.go_start), ctaPct: pct(r.go_cta, r.go_done), flPct: pct(r.fl, r.app), d1Pct: pct(r.d1, r.n1), d7Pct: pct(r.d7, r.n7) }));
   const tot = list.reduce((t, r) => { for (const k of ['go_view', 'go_start', 'go_done', 'go_cta', 'app', 'fl', 'n1', 'd1', 'n7', 'd7']) t[k] = (t[k] || 0) + r[k]; return t; }, {});
   const y = dayOf(now - DAY), y2 = dayOf(now - 2 * DAY), A = Object.fromEntries((dd.results || []).map(r => [r.day, r]));
-  return { days: P, today, rows: list, total: { ...tot, flPct: pct(tot.fl, tot.app), d1Pct: pct(tot.d1, tot.n1), d7Pct: pct(tot.d7, tot.n7) }, summary: { day: y, views: (byDay[y] || {}).go_view || 0, prevViews: (byDay[y2] || {}).go_view || 0, ctas: (byDay[y] || {}).go_cta || 0, prevCtas: (byDay[y2] || {}).go_cta || 0, app: (A[y] || {}).app || 0, prevApp: (A[y2] || {}).app || 0, fl: (A[y] || {}).fl || 0, prevFl: (A[y2] || {}).fl || 0 } };
+  return { days: P, today, install: installData(cta.results || []), rows: list, total: { ...tot, flPct: pct(tot.fl, tot.app), d1Pct: pct(tot.d1, tot.n1), d7Pct: pct(tot.d7, tot.n7) }, summary: { day: y, views: (byDay[y] || {}).go_view || 0, prevViews: (byDay[y2] || {}).go_view || 0, ctas: (byDay[y] || {}).go_cta || 0, prevCtas: (byDay[y2] || {}).go_cta || 0, app: (A[y] || {}).app || 0, prevApp: (A[y2] || {}).app || 0, fl: (A[y] || {}).fl || 0, prevFl: (A[y2] || {}).fl || 0 } };
 }
 
 export const REF_PER_DAY = 3, REF_TOTAL = 10; // chống lạm dụng: mỗi mã mời được thưởng tối đa 3 bạn/ngày, 10 bạn tổng
@@ -69,4 +70,16 @@ export async function refCount(db, code) {
   if (!/^[a-z0-9]{8}$/.test(String(code || ''))) return 0;
   const r = await db.prepare("SELECT fl AS d, COUNT(*) AS n FROM vid_attr WHERE code = ?1 AND src = 'ref' AND fl IS NOT NULL GROUP BY fl").bind(code).all();
   return Math.min(REF_TOTAL, (r.results || []).reduce((s, x) => s + Math.min(REF_PER_DAY, x.n), 0));
+}
+
+/** Phễu cài app theo nền tảng: lời mời (inst_*_v xem · _c bấm · _x để sau) + nút "Tải app" (app_*) / add-on (ext_*). Lượt cài thật nằm ở store (App Store Connect / Play Console), không đo được ở đây. */
+export function installData(rows) {
+  const out = {}, at = k => (out[k] ||= { seen: 0, click: 0, later: 0, btn: 0 });
+  for (const r of rows) {
+    let m;
+    if ((m = /^cta:inst_\w+?_([vcx])_(play|ios|desk)$/.exec(r.kind))) at(m[2])[{ v: 'seen', c: 'click', x: 'later' }[m[1]]] += r.n;
+    else if ((m = /^cta:app_\w+?_(cws|play|ios|a2hs|dock|web)$/.exec(r.kind))) at(m[1]).btn += r.n;
+    else if (/^cta:ext_\w+$/.test(r.kind)) at('ext').btn += r.n;
+  }
+  return Object.entries(out).map(([plat, v]) => ({ plat, ...v, clickPct: pct(v.click, v.seen) })).sort((a, b) => (b.seen + b.btn) - (a.seen + a.btn));
 }

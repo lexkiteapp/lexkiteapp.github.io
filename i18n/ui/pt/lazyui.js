@@ -480,7 +480,7 @@
 "Nhập sao lưu":"Importar backup",
 "Nhập từ tiếng Anh, ví dụ: sustainable":"Digite uma palavra em inglês, por ex. sustentável",
 "Nhập từ tài liệu":"Importar de um documento",
-"Nhắc học qua email":"Email reminders",
+"Nhắc học qua email":"Lembretes por e-mail",
 "Nhắc “thời điểm vàng”":"Lembretes da “hora certa”",
 "Nhẹ nhàng":"Tranquilo",
 "Nhờ hàng xóm trông nhà khi đi du lịch":"Pedir a um vizinho que cuide da sua casa durante uma viagem",

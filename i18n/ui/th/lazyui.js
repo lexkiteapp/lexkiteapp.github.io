@@ -480,7 +480,7 @@
 "Nhập sao lưu":"นำเข้าข้อมูลสำรอง",
 "Nhập từ tiếng Anh, ví dụ: sustainable":"พิมพ์คำภาษาอังกฤษ เช่น ยั่งยืน",
 "Nhập từ tài liệu":"นำเข้าจากเอกสาร",
-"Nhắc học qua email":"Email reminders",
+"Nhắc học qua email":"อีเมล์เตือนความจำ",
 "Nhắc “thời điểm vàng”":"เตือน “ช่วงเวลาทอง”",
 "Nhẹ nhàng":"สบาย ๆ",
 "Nhờ hàng xóm trông nhà khi đi du lịch":"ขอให้เพื่อนบ้านดูแลบ้านระหว่างไปเที่ยว",

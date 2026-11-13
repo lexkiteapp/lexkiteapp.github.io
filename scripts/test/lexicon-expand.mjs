@@ -100,6 +100,12 @@ const Q = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/qa/review-queue.js
 ok(!Q.some(q => q.src === 'lexicon-expand' && /^gen:/.test((q.why || [])[0] || '') && !q.data), 'hàng duyệt không chứa mục lexicon-expand "gen" rỗng (lỗi hạ tầng)');
 ok(!Q.some(q => q.src === 'lexicon-expand' && hasGap({ ok: false, why: q.why || [] })), 'hàng duyệt không chứa mục lexicon-expand trượt vì lỗ dữ liệu nguồn (ipa) – node scripts/lexicon/expand/requeue.mjs --gaps');
 { const R = path.join(ROOT, 'content/lexicon/expand/retry/words.json'); if (fs.existsSync(R)) { const d = doneWords(), r = JSON.parse(fs.readFileSync(R, 'utf8')).items; ok(r.every(k => !d.has(k)), 'mục trong retry/words.json không bị doneWords() loại (khoá từ#loại)'); } }
+{ const { reconcileRetry } = await import('../lexicon/expand/save-merge.mjs'), tmp = path.join((await import('os')).tmpdir(), 'lx-retry-' + process.pid + '.json');
+  fs.writeFileSync(tmp, JSON.stringify({ items: ['a#n', 'b#n', 'c#v'] })); const r1 = reconcileRetry(tmp, () => new Set(['b#n'])), got = JSON.parse(fs.readFileSync(tmp, 'utf8')).items.join(), r2 = reconcileRetry(tmp, () => new Set(['b#n']));
+  ok(r1 === 1 && got === 'a#n,c#v' && r2 === 0, 'save-merge reconcileRetry: gỡ mục đã xử lý khỏi retry, lũy đẳng'); fs.unlinkSync(tmp);
+  ok(/node scripts\/test\/lexicon-expand\.mjs[^\n]*MAIN_OK/.test(fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8')) && /reconcileRetry\(/.test(fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/save-merge.mjs'), 'utf8')), 'lexicon-expand.yml: test chạy trước khi bot đẩy [skip ci]'); }
+{ const pr = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/promote.mjs'), 'utf8');
+  ok(/scripts\/content-score\.mjs/.test(pr) && /baseOk && !scoreOk\(\)/.test(pr) && /process\.exit\(5\)/.test(pr), 'promote.mjs: cổng điểm – xanh trước mà đỏ sau khi xuất → hoàn tác, lô nằm chờ (sàn không hạ)'); }
 // chủ đề (content/lexicon/topics.json): cây đủ tên 15 ngôn ngữ + nối 104 bộ; bộ học 10–20, nút 10–60, ≤ 2 chủ đề/từ, không mồ côi
 { const T = await import('../lexicon/expand/topics.mjs'), { TOPIC_CHOICES } = await import('../lexicon/expand/lib.mjs'), tax = T.TAX(), exs = T.existingSets();
   ok(exs.size === 104, `104 bộ hiện có (thấy ${exs.size})`);
@@ -152,6 +158,7 @@ if (REG.todo && Object.keys(REG.todo).length) console.log('⚠ lexicon-expand vi
   { const { mergeViSources: m } = await import('../lexicon/expand/lib.mjs'), W = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/lexicon/expand/wikidata-vi.json'), 'utf8'));
     ok(m({ 'a#n': ['x', 'y'] }, { 'a#n': ['y', 'z'], 'b#n': ['q'] })['a#n'].join() === 'x,y,z' && m({}, { 'b#n': ['q'] })['b#n'][0] === 'q', 'wikidata-vi: gộp nguồn không trùng');
     ok(Object.keys(W).length > 10000 && Object.entries(W).every(([k, v]) => /#(n|v|adj|adv)$/.test(k) && v.length && v.every(l => /[^\x00-\x7f]/.test(l))), 'wikidata-vi: khóa word#pos, nhãn có dấu tiếng Việt'); }
+  { const wf = fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8'); ok(/wikidata_vi_labels\.py --cands .*--merge "\$RUNNER_TEMP\/viwk\.json" --out "\$RUNNER_TEMP\/viwk\.json" \|\| echo/.test(wf) && fs.existsSync(path.join(ROOT, 'scripts/lexicon/expand/wikidata_vi_labels.py')), 'wikidata_vi_labels: nối vào viwk.json (lỗi = như cũ, không đỏ lượt)'); }
   { const { laneEmpty: e } = await import('../lexicon/expand/lib.mjs'), now = Date.parse('2026-11-10T12:00:00Z'), at = '2026-11-10T10:00:00Z', r = n => ({ n, retry: 700, at });
     ok(e([r(5), r(3)], 700, now) && !e([r(60), r(50)], 700, now) && !e([r(5)], 12000, now) && !e([{ n: 1, retry: 700, at: '2026-11-08T10:00:00Z' }], 700, now) && !e([], 0, now), 'laneEmpty: rỗng mới bỏ, retry tăng hoặc quá 24 h thì chạy lại');
   // 11/11: chỉ cộng các shard CÙNG lượt (run) – s0 lượt mới (37) + s1–s3 lượt cũ (6+11+10) không được tính chung; tổng một lượt ≥ EMPTY_RUN thì chạy

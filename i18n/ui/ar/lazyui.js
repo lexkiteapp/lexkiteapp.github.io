@@ -480,7 +480,7 @@
 "Nhập sao lưu":"استيراد نسخة احتياطية",
 "Nhập từ tiếng Anh, ví dụ: sustainable":"اكتب كلمة إنجليزية، على سبيل المثال. مستدام",
 "Nhập từ tài liệu":"استيراد من مستند",
-"Nhắc học qua email":"Email reminders",
+"Nhắc học qua email":"تذكيرات البريد الإلكتروني",
 "Nhắc “thời điểm vàng”":"تذكيرات «الوقت الذهبي»",
 "Nhẹ nhàng":"خفيف",
 "Nhờ hàng xóm trông nhà khi đi du lịch":"طلب من الجار رعاية المنزل أثناء السفر",
