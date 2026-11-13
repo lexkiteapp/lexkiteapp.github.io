@@ -6,12 +6,12 @@
  * Lựa chọn + bước ở sessionStorage lk.onbPick (qua được tải lại + I18N.set), xóa khi xong (finishOnboarding). Luật: docs/specs/welcome.md */
 (function (g) {
   const App = g.App, { state } = App, { esc } = UI;
-  const BASE = ['goal', 'level', 'target', 'pace', 'ready'], STEPS = BASE.slice(), KEY = 'lk.onbPick'; // + 'lang' ở đầu khi có ≥ 2 ngôn ngữ chọn được (Target.avail, cờ W7)
+  const BASE = ['goal', 'level', 'target', 'pace', 'ready'], KEY = 'lk.onbPick'; // + 'lang' ở đầu khi có ≥ 2 ngôn ngữ chọn được (Target.avail, cờ W7)
   const readPick = () => { try { const p = JSON.parse(sessionStorage.getItem(KEY) || 'null'); return p && typeof p === 'object' ? p : null; } catch (e) { return null; } };
   const savePick = p => { try { sessionStorage.setItem(KEY, JSON.stringify({ exam: p.exam, target: p.target, pace: p.pace, topics: [...p.topics], v: p.v, lv: p.lv, track: p.track, step: p.step, sn: STEPS[p.step], tl: p.tl, said: p.said, w: p.w })); } catch (e) { /* riêng tư/đầy: vẫn học bình thường */ } };
   const hashOf = i => '#/welcome/setup?s=' + STEPS[i];
   const urlOf = i => location.pathname + location.search + hashOf(i); // <base href="/">: đường dẫn tương đối sẽ ra khỏi /app/
-  let live = null, runs = 0;
+  let live = null, runs = 0, STEPS = BASE, busy = false; // STEPS gán 1 lần mỗi run; busy = đang await lưu → Lùi/Esc không chen
   function css() {
     if (document.getElementById('onbCss')) return;
     const s = document.createElement('style'); s.id = 'onbCss';
@@ -23,7 +23,7 @@
   // D = phần dùng chung từ app.js: { view, TOPICS, topicOf, inDeck, addWord, saveSettings, finish, login }
   function run(s, D) {
     css();
-    STEPS.length = 0; STEPS.push(...(g.Target && Target.avail().length > 1 ? ['lang'] : []), ...BASE);
+    STEPS = g.Target && Target.avail().length > 1 ? ['lang', ...BASE] : BASE; busy = false;
     const me = ++runs, fromW = /^#\/welcome(\/login)?\/?(\?|$)/.test(App.prevHash || ''), view = D.view, $ = s => view.querySelector(s), $$ = s => [...view.querySelectorAll(s)];
     const TARGETS = { ielts: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], ieltsgt: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], toeic: ['450', '550', '650', '750', '850', '900+'], toefl: ['3.5', '4.0', '4.5', '5.0', '5.5+'], general: ['A2', 'B1', 'B2', 'C1'] };
     const DEF_T = { ielts: '7.0', ieltsgt: '6.5', toeic: '650', toefl: '4.5', general: 'B1' };
@@ -99,6 +99,7 @@
     const focusQ = () => { const q = $('#onbQ'); if (q) { q.tabIndex = -1; q.focus({ preventScroll: true }); } };
     // Lùi đúng 1 bước: mục lịch sử do mình đẩy → history.back (như Back hệ thống); vào thẳng (tải lại, link) → thay bằng bước trước. Bước đầu về Welcome.
     const back = () => {
+      if (busy) return;
       if (!pick.step) { if (fromW && !history.state) history.back(); else App.replaceHash('#/welcome'); return; }
       if (history.state && history.state.onb === pick.step) history.back(); else App.replaceHash(hashOf(pick.step - 1));
     };
@@ -122,8 +123,9 @@
         const next = nx.onclick;
         nx.onclick = async () => { const was = Target.cur(), done = state.settings.onboarded, tl = pick.tl && Target.avail().includes(pick.tl) ? pick.tl : was, home = Target.table(tl).home; // cờ tắt giữa chừng → ở ngôn ngữ cũ
           if (!home) { Target.set(tl); return next(); } nx.disabled = true;
-          try { const S = state.settings; S.pace = S.pace || 20; S.dailyGoal = S.dailyGoal || S.pace; S.dailyNew = S.dailyNew || NEW_OF[S.pace] || NEW_OF[20]; // chỉ điền mặc định khi thiếu
-            await D.saveSettings(); Target.set(tl); await D.finish(true, home); } catch (e) { Target.set(was); state.settings.onboarded = done; nx.disabled = false; } }; // lỗi → trả ngôn ngữ cũ, ở lại bước
+          const S = state.settings, old = { pace: S.pace, dailyGoal: S.dailyGoal, dailyNew: S.dailyNew }; busy = true;
+          try { S.pace = S.pace || 20; S.dailyGoal = S.dailyGoal || S.pace; S.dailyNew = S.dailyNew || NEW_OF[S.pace] || NEW_OF[20]; // chỉ điền mặc định khi thiếu
+            await D.saveSettings(); Target.set(tl); await D.finish(true, home); } catch (e) { Target.set(was); Object.assign(S, old); S.onboarded = done; nx.disabled = false; g.UI && UI.toast(t('Không lưu được – thử lại sau')); } finally { busy = false; } }; // lỗi → trả ngôn ngữ + mặc định cũ, ở lại bước
       }
       const acct = $('#setupIn'); if (acct) acct.onclick = e => { e.stopPropagation(); D.login(draw); }; // tài khoản trống: ở lại đúng bước, vẽ lại để ẩn liên kết đăng nhập
       if (TK()) TK().bindSetup(view, pick, id => { TR_ID = id; pick.said = 'goal'; setExam(pick.exam); }, () => { pick.said = 'level'; draw(); });
@@ -146,5 +148,5 @@
   }
   // Back/Tiến/Esc khi đang trong thiết lập: vẽ lại đúng bước. false = màn thiết lập không còn trên trang → app.js chạy lại từ đầu
   const go = s => !!live && live(STEPS.indexOf(s));
-  g.Onboard = { run, go, STEPS };
+  g.Onboard = { run, go, get STEPS() { return STEPS; } };
 })(self);
