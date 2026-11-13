@@ -85,12 +85,13 @@ const imeTop = () => { // mép trên bàn phím (px màn hình): nguồn inset I
 const WV = /class="android\.webkit\.WebView"[^>]*bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/;
 const webBox = async () => {
   let x = '';
-  for (let t = 0; t < 5; t++) {
+  for (let t = 0; t < 8; t++) {
     adb('shell', 'rm', '-f', '/sdcard/kb.xml'); const o = adb('shell', 'uiautomator', 'dump', '/sdcard/kb.xml'); x = adb('shell', 'cat', '/sdcard/kb.xml');
     const m = WV.exec(x); if (m) return m.slice(1).map(Number);
     const pk = [...new Set([...x.matchAll(/package="([^"]+)"/g)].map(m => m[1]))].join(','), cl = [...new Set([...x.matchAll(/class="([^"]+)"/g)].map(m => m[1].split('.').pop()))].slice(0, 8).join(',');
-    console.log(`uiautomator dump lần ${t + 1}: không có WebView · package=${pk || '–'} · lớp=${cl || '–'} · ${String(o).trim().slice(0, 100)}`);
-    await clearAnr(); await sleep(2000);
+    const tx = [...x.matchAll(/ text="([^"]+)"/g)].map(m => m[1]).join(' | ').slice(0, 200);
+    console.log(`uiautomator dump lần ${t + 1}: không có WebView · package=${pk || '–'} · lớp=${cl || '–'} · chữ: ${tx || '–'} · ${String(o).trim().slice(0, 60)}`);
+    await clearAnr(); await sleep(3000);
   }
   try { fs.writeFileSync(path.join(OUT, 'kb-no-webview.xml'), x); } catch (e) { /* */ }
   return null;
