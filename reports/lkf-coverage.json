@@ -41,8 +41,8 @@
    "pct": 100
   },
   "toefl": {
-   "items": 159,
-   "tagged": 159,
+   "items": 194,
+   "tagged": 194,
    "pct": 100
   },
   "writing-model": {
@@ -96,14 +96,14 @@
    "pct": 100
   },
   "vocab": {
-   "items": 10191,
-   "tagged": 10191,
+   "items": 10201,
+   "tagged": 10201,
    "pct": 100
   }
  },
  "total": {
-  "items": 11079,
-  "tagged": 11079,
+  "items": 11124,
+  "tagged": 11124,
   "pct": 100
  },
  "errors": 0
