@@ -124,6 +124,7 @@
   ":scope > main > div > div:nth-child(4)": "lsn-tiles",
   ":scope > main > div > div:nth-child(6)": "relative z-10 lsn-sub",
   ":scope > main > div > div:nth-child(6) > div:nth-child(1) > span": "break-words",
+  ":scope > main > div > div:nth-child(6) > div:nth-child(1) > span:nth-child(2)": "[text-wrap:balance]",
   ":scope > main > div > div:nth-child(7) > button:nth-child(2)": "no-underline",
   ":scope > main > div > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "min-w-0 break-words text-center leading-tight"
  },
