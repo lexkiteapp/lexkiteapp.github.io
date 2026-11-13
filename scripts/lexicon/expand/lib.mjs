@@ -275,6 +275,17 @@ export function wsdUnwrap(o, ids) {
 export const RETRY_SHARE = 0.25;
 /** shard của mục (FNV-1a trên từ#loại) – job.mjs --shard i/n: các shard song song không trùng mục */
 export const shardOf = (k, n) => { let h = 2166136261; for (const c of String(k)) h = Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0; return h % n; };
+// 13/11 rescue hàng duyệt (9.750 mục «dịch vi» từ lô 10/11, trước nguồn Wikidata-vi #980): CHỌN mục làm lại theo lớp lỗi, cổng KHÔNG đổi (retry chạy lại đúng gateEntry).
+//  wd      = chỉ rớt vi/ví dụ VÀ nguồn mới (Wikidata) có nhãn vi cho mục đó VÀ rớt trước ngày nguồn vào (--before) → có thông tin mới để thử; mục không có nhãn Wikidata KHÔNG đổi nguồn → retry chỉ tốn neuron.
+//  rewrite = chỉ rớt nghĩa/def/ví dụ (không vi/IPA/CEFR/giám khảo): retry viết lại def/ví dụ qua AI rồi qua lại cổng.
+//  `done` = id đã rescue một lần (retry/rescued.json) → không vòng lặp; `limit` = cỡ pilot; thứ tự id tăng dần (tất định).
+export const RESCUE_ONLY = { wd: /^(dịch vi|ví dụ):/, rewrite: /^(nghĩa|def|ví dụ)(\/định nghĩa)?:/ };
+export function rescueSelect(items, mode, { wd = {}, before = '', done = {}, limit = Infinity } = {}) {
+  const re = RESCUE_ONLY[mode]; if (!re) throw new Error('rescue mode: wd | rewrite');
+  return items.filter(x => x.src === 'lexicon-expand' && (x.why || []).length > 0 && x.why.every(y => re.test(y)) && !done[x.id]
+    && (mode !== 'wd' || ((wd[x.id] || []).length > 0 && x.why.some(y => /^dịch vi:/.test(y)))) && (!before || String(x.at || '') < before))
+    .sort((a, b) => (a.id < b.id ? -1 : 1)).slice(0, limit);
+}
 export function mixPool(retryList, fresh, N, share = RETRY_SHARE) {
   const cap = Math.max(0, Math.min(retryList.length, Math.ceil(N * Math.min(1, Math.max(0, share)))));
   const f = fresh.slice(0, N - cap), r = retryList.slice(0, Math.max(cap, N - f.length));

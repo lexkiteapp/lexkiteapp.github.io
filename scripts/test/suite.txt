@@ -121,6 +121,7 @@ node scripts/test/d1-cap.mjs
 node scripts/test/sessions-scan-gate.mjs
 node scripts/capacity/admin-sim.mjs
 node scripts/test/free-tier.mjs
+node scripts/test/vocab-img-free-sheet.mjs
 node scripts/test/pages-skip.mjs
 node scripts/test/sync-pack.mjs
 node scripts/test/target-lang.mjs
