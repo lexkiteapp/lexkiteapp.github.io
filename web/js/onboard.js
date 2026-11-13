@@ -34,7 +34,7 @@
     const was = ex => (ex === state.settings.exam && fits(ex, state.settings.examTarget)) || ''; // đã có mục tiêu hợp thang → chọn sẵn, không hỏi lại
     const pick = { exam: (App.exam && state.settings.exam) || 'ielts', target: '', pace: 20, topics: new Set(), v: {}, lv: '', step: 0, said: '' };
     pick.target = was(pick.exam);
-    { const p = readPick(); if (p) { if (TARGETS[p.exam]) { pick.exam = p.exam; pick.target = fits(p.exam, p.target); } if (NEW_OF[p.pace]) pick.pace = p.pace; if (Array.isArray(p.topics)) pick.topics = new Set(p.topics); if (p.v && typeof p.v === 'object') pick.v = p.v; if (typeof p.lv === 'string') pick.lv = p.lv; if (typeof p.track === 'string') pick.track = p.track; if (typeof p.said === 'string') pick.said = p.said; if (STEPS.includes(p.sn)) pick.step = STEPS.indexOf(p.sn); else if (STEPS[p.step] && !STEPS.includes('lang')) pick.step = p.step; if (typeof p.tl === 'string' && Target.avail().includes(p.tl)) pick.tl = p.tl; if (p.w) pick.w = 1; } }
+    { const p = readPick(); if (p) { if (TARGETS[p.exam]) { pick.exam = p.exam; pick.target = fits(p.exam, p.target); } if (NEW_OF[p.pace]) pick.pace = p.pace; if (Array.isArray(p.topics)) pick.topics = new Set(p.topics); if (p.v && typeof p.v === 'object') pick.v = p.v; if (typeof p.lv === 'string') pick.lv = p.lv; if (typeof p.track === 'string') pick.track = p.track; if (typeof p.said === 'string') pick.said = p.said; if (STEPS.includes(p.sn)) pick.step = STEPS.indexOf(p.sn); else if (STEPS[p.step] && !STEPS.includes('lang')) pick.step = p.step; if (typeof p.tl === 'string' && g.Target && Target.avail().includes(p.tl)) pick.tl = p.tl; if (p.w) pick.w = 1; } }
     if (fromW) pick.w = 1; // có mục Welcome ngay trước bước đầu trong lịch sử (finishOnboarding gỡ cùng các bước, app.js)
     if (STEPS.includes(s)) pick.step = STEPS.indexOf(s); // hash thắng bước đã lưu (tải lại, Tiến/Lùi); vào không có ?s= → tiếp bước đang dở
     if (location.hash !== hashOf(pick.step)) try { history.replaceState(null, '', urlOf(pick.step)); } catch (e) { /* bỏ qua */ }
@@ -125,7 +125,7 @@
           if (!home) { Target.set(tl); return next(); } nx.disabled = true;
           const S = state.settings, old = { pace: S.pace, dailyGoal: S.dailyGoal, dailyNew: S.dailyNew }; busy = true;
           try { S.pace = S.pace || 20; S.dailyGoal = S.dailyGoal || S.pace; S.dailyNew = S.dailyNew || NEW_OF[S.pace] || NEW_OF[20]; // chỉ điền mặc định khi thiếu
-            Target.set(tl); await D.finish(true, home); } catch (e) { Target.set(was); Object.assign(S, old); S.onboarded = done; nx.disabled = false; savePick(pick); g.UI && UI.toast(t('Không lưu được – thử lại sau')); } finally { busy = false; } }; // lỗi → trả ngôn ngữ + mặc định cũ, ở lại bước
+            Target.set(tl); await D.finish(true, home); } catch (e) { Target.set(was); Object.assign(S, old); S.onboarded = done; nx.disabled = false; savePick(pick); try { history.replaceState(history.state, '', urlOf(pick.step)); } catch (e2) { /* Back hệ thống lúc đang lưu: đồng bộ lại URL */ } g.UI && UI.toast(t('Không lưu được – thử lại sau')); } finally { busy = false; } }; // lỗi → trả ngôn ngữ + mặc định cũ, ở lại bước
       }
       const acct = $('#setupIn'); if (acct) acct.onclick = e => { e.stopPropagation(); D.login(draw); }; // tài khoản trống: ở lại đúng bước, vẽ lại để ẩn liên kết đăng nhập
       if (TK()) TK().bindSetup(view, pick, id => { TR_ID = id; pick.said = 'goal'; setExam(pick.exam); }, () => { pick.said = 'level'; draw(); });
