@@ -80,16 +80,19 @@ const imeTop = () => { // mép trên bàn phím (px màn hình): nguồn inset I
   const d = adb('shell', 'dumpsys', 'window');
   for (const m of d.matchAll(/InsetsSource[^\n]*?type=ime[^\n]*?frame=\[(\d+),(\d+)\]\[(\d+),(\d+)\][^\n]*?visible=true/g)) if (+m[2] > 0) return +m[2];
   const w = /Window\{[^}]*InputMethod\}[\s\S]{0,4000}?(?:mFrame|frame)=\[(\d+),(\d+)\]\[(\d+),(\d+)\]/.exec(d); return w && +w[2] > +w[4] / 3 ? +w[2] : 0; };
-// uiautomator dump hay báo "could not get idle state" khi app có chuyển động liên tục (13/11: vi/ar đo 0/3 ô) → thử lại 4 lần; hết cách thì
-// dùng kích thước màn (`wm size`): MainActivity edge-to-edge (SystemBars insetsHandling=disable) nên WebView phủ trọn màn, gốc (0,0).
+// uiautomator dump đôi khi trả cây KHÔNG có WebView (cửa sổ khác đang trước: hộp thoại ANR/hệ thống) → xoá hộp thoại, chờ, thử lại 5 lần.
+// KHÔNG đoán toạ độ từ kích thước màn (13/11: gốc WebView ≠ 0 → chạm trượt, bàn phím không mở = đo sai). Hết cách → đỏ kèm lớp/cửa sổ thấy được + lưu kb.xml làm bằng chứng.
 const WV = /class="android\.webkit\.WebView"[^>]*bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/;
 const webBox = async () => {
-  for (let t = 0; t < 4; t++) {
-    adb('shell', 'rm', '-f', '/sdcard/kb.xml'); const o = adb('shell', 'uiautomator', 'dump', '/sdcard/kb.xml'); const m = WV.exec(adb('shell', 'cat', '/sdcard/kb.xml'));
-    if (m) return m.slice(1).map(Number);
-    console.log('uiautomator dump lần ' + (t + 1) + ' không có WebView: ' + String(o).trim().slice(0, 120)); await sleep(1500);
+  let x = '';
+  for (let t = 0; t < 5; t++) {
+    adb('shell', 'rm', '-f', '/sdcard/kb.xml'); const o = adb('shell', 'uiautomator', 'dump', '/sdcard/kb.xml'); x = adb('shell', 'cat', '/sdcard/kb.xml');
+    const m = WV.exec(x); if (m) return m.slice(1).map(Number);
+    const pk = [...new Set([...x.matchAll(/package="([^"]+)"/g)].map(m => m[1]))].join(','), cl = [...new Set([...x.matchAll(/class="([^"]+)"/g)].map(m => m[1].split('.').pop()))].slice(0, 8).join(',');
+    console.log(`uiautomator dump lần ${t + 1}: không có WebView · package=${pk || '–'} · lớp=${cl || '–'} · ${String(o).trim().slice(0, 100)}`);
+    await clearAnr(); await sleep(2000);
   }
-  const sz = /Physical size: (\d+)x(\d+)/.exec(adb('shell', 'wm', 'size')); if (sz) { console.log('khung WebView: dự phòng wm size ' + sz[1] + 'x' + sz[2]); return [0, 0, +sz[1], +sz[2]]; }
+  try { fs.writeFileSync(path.join(OUT, 'kb-no-webview.xml'), x); } catch (e) { /* */ }
   return null;
 };
 let kbRan = 0;
