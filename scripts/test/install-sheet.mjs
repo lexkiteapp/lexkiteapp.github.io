@@ -33,6 +33,31 @@ ok(pick({ days: days(0, 1, 2), cards: 30, rec: { shown: { first: 1, streak: 2, w
 ok(pick({ days: days(0, 1, 2), rec: { dismissed: 2, last: now - 40 * DAY } }) === '', '2 lần "để sau" → không bao giờ hỏi lại');
 ok(pick({ days: days(0, 1, 2), rec: { dismissed: 1, last: now - 40 * DAY } }) === 'streak', '1 lần "để sau" vẫn còn cơ hội');
 
+
+// Chạy thật consider() với nền tảng giả: máy tính → QR (đếm desk), Android → intent Play, iPhone → App Store; lần 2 trong 14 ngày không hiện lại
+async function run(kind, { coarse = false } = {}) {
+  const store = new Map(), beacons = [], shown = [], mods = { hidden: true };
+  const c = { document: { hidden: false, getElementById: () => mods, createElement: () => ({}), head: { appendChild() {} } }, navigator: { sendBeacon: (u, b) => beacons.push(JSON.parse(b).ev), standalone: false },
+    matchMedia: q => ({ matches: /coarse/.test(q) ? coarse : false }), addEventListener() {}, setTimeout() {}, MutationObserver: class { observe() {} disconnect() {} },
+    localStorage: { getItem: k => store.get(k) ?? null, setItem: (k, v) => store.set(k, v) }, LKQR: { svg: u => '<svg data-u="' + u + '"/>' },
+    LK_APPS: { play: 'https://play.google.com/store/apps/details?id=com.lexkite.app', ios: 'https://apps.apple.com/app/id6824714708' }, LKGetApp: { kind: () => kind },
+    state: { stats: { days: days(0) }, game: { days: days(0) }, cards: {} }, App: { getApp: async () => {} },
+    UI: { modal: html => { shown.push(html); return { setAttribute() {}, querySelector: () => ({ addEventListener() {} }) }; }, closeModal() {} } };
+  c.window = c; vm.createContext(c); vm.runInContext(rd('web/js/install-sheet.js'), c);
+  await c.Install.consider('lesson'); await c.Install.consider('lesson');
+  return { shown, beacons };
+}
+{ const r = await run('cws');
+  ok(r.shown.length === 1 && /data-u="https:\/\/lexkite\.com\/\?utm_source=qr&amp;|data-u="https:\/\/lexkite\.com\/\?utm_source=qr&/.test(r.shown[0]) && /utm_campaign=first/.test(r.shown[0]), 'Chrome máy tính: hiện QR trỏ lexkite.com (utm=qr), đúng 1 lần');
+  ok(r.beacons.join() === 'inst_first_v_desk', 'máy tính: đếm inst_first_v_desk (' + r.beacons + ')'); }
+{ const r = await run('play');
+  ok(r.shown.length === 1 && /href="intent:\/\/lexkite\.com\/app\//.test(r.shown[0]) && r.beacons.join() === 'inst_first_v_play', 'Android: tờ mời Play (intent), đếm inst_first_v_play'); }
+{ const r = await run('ios');
+  ok(r.shown.length === 1 && /href="https:\/\/apps\.apple\.com\/app\/id6824714708\?ct=install_sheet_first"/.test(r.shown[0]) && r.beacons.join() === 'inst_first_v_ios', 'iPhone: tờ mời App Store (ct), đếm inst_first_v_ios'); }
+{ const r = await run('a2hs'); ok(r.shown.length === 0, 'iPhone chưa có link App Store (a2hs): không mời'); }
+{ const r = await run('web', { coarse: true }); ok(r.shown.length === 0, 'máy cảm ứng không phải di động (kind web + coarse): không QR'); }
+{ const r = await run(''); ok(r.shown.length === 0, 'đang chạy như app/add-on (kind rỗng): không mời'); }
+
 // Link: Android intent (mở app nếu đã cài, không thì Play + referrer), iOS không dùng intent
 const play = 'https://play.google.com/store/apps/details?id=com.lexkite.app', a = I.androidHref(play, 'first');
 ok(a.startsWith('intent://lexkite.com/app/#Intent;scheme=https;package=com.lexkite.app;S.browser_fallback_url=') && a.endsWith(';end'), 'Android intent đúng package/scheme');

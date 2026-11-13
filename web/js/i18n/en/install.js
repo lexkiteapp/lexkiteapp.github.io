@@ -6,4 +6,6 @@
 "Bạn đã lưu {n} từ. Có app, ôn chúng lúc nào cũng tiện.": "You've saved {n} words. With the app, reviewing them anytime is easy.",
 "Tải trên Google Play": "Get it on Google Play",
 "Tải trên App Store": "Download on the App Store",
+"Mang Lexkite lên điện thoại": "Take Lexkite to your phone",
+"Quét mã bằng camera điện thoại để tải app miễn phí.": "Scan the code with your phone's camera to get the app for free.",
 });})(typeof self !== 'undefined' ? self : this);
