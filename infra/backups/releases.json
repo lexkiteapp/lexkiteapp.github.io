@@ -69,6 +69,27 @@
   ],
   "ios-ipa": [
    {
+    "run": 43375379367,
+    "run_number": 11,
+    "version": "1.1",
+    "build": 11,
+    "name": "lexkite-1.1-11.ipa",
+    "sha256": "816dd07e01eb42b1b3807271cf15c8d7d2ca3222d72507b5324ed99418ec8d52",
+    "size": 212752786,
+    "commit": "000f4abc03e6792a2617965206fb5a2384e05be9",
+    "at": "2026-11-13T06:10:11Z",
+    "copies": [
+     {
+      "driveId": 31,
+      "fileId": "1OXKDY1pln1peae2Jr-qzqPpCNo6ob0w5"
+     },
+     {
+      "driveId": 34,
+      "fileId": "1htvdcGBtr-mYQ2Z_2FYJbd6lefNVQITX"
+     }
+    ]
+   },
+   {
     "run": 41749543066,
     "run_number": 10,
     "version": "1.0.1",
@@ -156,5 +177,5 @@
    }
   ]
  },
- "updated": "2026-11-13T06:09:46.473Z"
+ "updated": "2026-11-13T06:11:20.244Z"
 }
