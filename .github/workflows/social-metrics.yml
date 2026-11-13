@@ -1,0 +1,21 @@
+# Số liệu social hằng ngày (chỉ đọc): YouTube statistics mọi kênh → snapshot D1 yt_stats (functions/api/youtube.js op stats) + bảng tóm tắt. ~10 units/ngày. $0.
+name: social-metrics
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '40 2 * * *'
+concurrency: { group: social-metrics, cancel-in-progress: false }
+permissions: { contents: read }
+jobs:
+  yt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/ci/quota-skip.mjs node scripts/social/yt-stats.mjs --json yt-stats.json
+      - uses: actions/upload-artifact@v4
+        if: ${{ hashFiles('yt-stats.json') != '' }}
+        with: { name: yt-stats, path: yt-stats.json, retention-days: 30 }

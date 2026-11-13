@@ -408,3 +408,5 @@ node scripts/test/referral.mjs
 node scripts/test/pwa-installable.mjs
 node scripts/test/addon-listings.mjs
 node scripts/test/rate-prompt.mjs
+node scripts/test/yt-stats.mjs
+node scripts/test/yt-stats-op.mjs
