@@ -41263,5 +41263,35 @@
     "ar": "🎉 أنهى {n} من أصدقائك المدعوين درسهم الأول – حصلت على +{xp} نقطة خبرة وتجميد سلسلة واحد",
     "ru": "🎉 {n} приглашённых друзей прошли первый урок – вы получаете +{xp} XP и 1 заморозку серии",
     "tr": "🎉 Davet ettiğin {n} arkadaşın ilk dersini bitirdi – +{xp} XP ve 1 seri dondurma kazandın"
+  },
+  "Ôn lỗi trước bài mới": {
+    "es": "Repasa tus fallos",
+    "pt": "Revise seus erros",
+    "fr": "Revoir vos erreurs",
+    "de": "Fehler wiederholen",
+    "id": "Ulang kata sulit",
+    "th": "ทบทวนคำที่พลาด",
+    "zh": "先复习易错词",
+    "ja": "苦手な単語を復習",
+    "ko": "틀린 단어 먼저 복습",
+    "hi": "पहले कमज़ोर शब्द दोहराएँ",
+    "ar": "راجع أخطاءك أولاً",
+    "ru": "Повторите ошибки",
+    "tr": "Önce hatalarını tekrarla"
+  },
+  "Những từ bạn hay quên": {
+    "es": "Palabras que sueles olvidar",
+    "pt": "Palavras que você costuma esquecer",
+    "fr": "Les mots que vous oubliez souvent",
+    "de": "Wörter, die du oft vergisst",
+    "id": "Kata yang sering kamu lupa",
+    "th": "คำที่คุณมักลืม",
+    "zh": "你常忘的单词",
+    "ja": "よく忘れる単語",
+    "ko": "자주 잊는 단어",
+    "hi": "वे शब्द जो आप अक्सर भूलते हैं",
+    "ar": "كلمات تنساها كثيرًا",
+    "ru": "Слова, которые вы часто забываете",
+    "tr": "Sık unuttuğun kelimeler"
   }
 }

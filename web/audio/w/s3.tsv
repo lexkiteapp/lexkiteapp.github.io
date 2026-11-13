@@ -9653,27 +9653,15 @@ bronc	cut_wordis: câu mang: "The word is bronchi." · dot100:"Bronch." 0.64s ·
 roundworm	ok	ok
 desalinization	ok	ok
 metalworker	ok	ok
-cafe	ok	ok
-barn	cut_wordis:"Bond." 0.68s · cut_wordis:"Bond." 0.63s · dot100:"Bonds." 0.90s · cut_wordis100:"Bond." 0.67s · cut_wordis100:"Bond." 0.62s · cut_next:"Bond." 0.66s · cut_next:"And he..." 0.40s · plain095:"Bond." 0.55s · dot090:"The bond." 1.01s	ok
-cellist	cut_wordis: câu mang: "The word is celesti." · dot100:"The Sellist" 0.69s · cut_wordis100: câu mang: "The word is Celeste." · cut_next: câu mang: "Next word, cellisty." · plain095:"zealous" 0.64s · dot090:"Zellist" 0.76s	cut_wordis: câu mang: "The word is Celeste." · dot100:"zealous" 0.65s · cut_wordis100:"Sellist" 0.65s · cut_wordis100:"Sellist" 0.53s · cut_next:"Celeste" 0.61s · cut_next:"Celeste" 0.58s · plain095:"A cellist." 0.66s · dot090:"A cellist." 0.68s
-anthropologist	ok	ok
-amnesia	ok	ok
-boar	cut_wordis:"Spore." 0.70s · cut_wordis:"both." 0.60s · dot100:"Duh." 0.68s · cut_wordis100:"Spore." 0.63s · cut_wordis100:"Buh." 0.55s · cut_next: câu mang: "Next word, bore." · plain095:"boys." 0.50s · dot090:"Duh." 0.72s	ok
-basalt	ok	ok
-antidepressant	ok	ok
-catechism	ok	ok
-crankshaft	ok	ok
-atherosclerosis	ok	ok
-apothecary	ok	ok
-analgesic	ok	ok
-antler	ok	ok
-antifreeze	ok	ok
-biochemist	ok	ok
-altimeter	ok	ok
-clef	ok	ok
-antihistamine	ok	ok
-comparability	ok	ok
 agronomist	ok	ok
+buyout	ok	ok
+metabolite	ok	ok
+rampart	ok	ok
+immunotherapy	ok	ok
+tetra	ok	ok
+immunodeficiency	ok	ok
+solvency	ok	ok
+monetarism	ok	ok
 retaliate	ok	ok
 alimony	ok	ok
 incoherent	ok	ok
@@ -9696,6 +9684,26 @@ gasification	ok	ok
 anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
 porpoise	ok	ok
 systematics	ok	ok
+cafe	ok	ok
+barn	cut_wordis:"Bond." 0.68s · cut_wordis:"Bond." 0.63s · dot100:"Bonds." 0.90s · cut_wordis100:"Bond." 0.67s · cut_wordis100:"Bond." 0.62s · cut_next:"Bond." 0.66s · cut_next:"And he..." 0.40s · plain095:"Bond." 0.55s · dot090:"The bond." 1.01s	ok
+cellist	cut_wordis: câu mang: "The word is celesti." · dot100:"The Sellist" 0.69s · cut_wordis100: câu mang: "The word is Celeste." · cut_next: câu mang: "Next word, cellisty." · plain095:"zealous" 0.64s · dot090:"Zellist" 0.76s	cut_wordis: câu mang: "The word is Celeste." · dot100:"zealous" 0.65s · cut_wordis100:"Sellist" 0.65s · cut_wordis100:"Sellist" 0.53s · cut_next:"Celeste" 0.61s · cut_next:"Celeste" 0.58s · plain095:"A cellist." 0.66s · dot090:"A cellist." 0.68s
+anthropologist	ok	ok
+amnesia	ok	ok
+boar	cut_wordis:"Spore." 0.70s · cut_wordis:"both." 0.60s · dot100:"Duh." 0.68s · cut_wordis100:"Spore." 0.63s · cut_wordis100:"Buh." 0.55s · cut_next: câu mang: "Next word, bore." · plain095:"boys." 0.50s · dot090:"Duh." 0.72s	ok
+basalt	ok	ok
+antidepressant	ok	ok
+catechism	ok	ok
+crankshaft	ok	ok
+atherosclerosis	ok	ok
+apothecary	ok	ok
+analgesic	ok	ok
+antler	ok	ok
+antifreeze	ok	ok
+biochemist	ok	ok
+altimeter	ok	ok
+clef	ok	ok
+antihistamine	ok	ok
+comparability	ok	ok
 daylight	ok	ok
 shopkeeper	ok	ok
 fiddle	ok	ok
@@ -9705,10 +9713,8 @@ vanguard	ok	ok
 odor	ok	ok
 strategist	ok	ok
 pulpit	ok	ok
-impedance	ok	ok
 czar	cut_wordis: câu mang: "The word is za." · dot100:"Zuh." 0.54s · cut_wordis100: câu mang: "The word is za." · cut_next: câu mang: "Next word is I." · plain095:"Zod" 0.52s · dot090:"Bizarre." 0.57s	ok
 predation	ok	ok
-endocrinology	ok	ok
 epithelium	ok	ok
 saxophonist	ok	ok
 phenomenology	ok	ok
@@ -9716,13 +9722,11 @@ hypertrophy	ok	ok
 thievery	ok	ok
 ecclesiastic	ok	ok
 eruption	ok	ok
-cuff	ok	ok
 transfusion	ok	ok
 seesaw	ok	ok
 exorcism	ok	ok
 eccentricity	ok	ok
 scam	ok	ok
-twilight	ok	ok
 rouge	ok	ok
 curfew	ok	ok
 enamel	ok	ok
@@ -9734,7 +9738,6 @@ staphylococcus	ok	ok
 senescence	ok	ok
 epidemiologist	ok	ok
 necropolis	ok	ok
-marsupial	ok	ok
 polyphony	ok	ok
 phagocyte	ok	ok
 grandpa	ok	ok
@@ -9749,7 +9752,6 @@ illustrator	ok	ok
 regent	ok	ok
 epoch	cut_wordis: câu mang: "The word is eparchy." · dot100:"Lepuck" 0.82s · cut_wordis100:"It's epic" 0.54s · cut_wordis100:"Epic." 0.49s · cut_next: câu mang: "Next word, eparchy." · plain095:"Lepock" 0.63s · dot090:"Zepok" 0.70s	ok
 fibrosis	ok	ok
-disarmament	ok	ok
 sorcery	ok	ok
 viceroy	ok	ok
 thyme	cut_wordis: câu mang: "The word is time." · dot100:"Time." 0.68s · cut_wordis100: câu mang: "The word is time." · cut_next: câu mang: "Next word, time." · plain095:"Time." 0.60s · dot090:"Time." 0.74s	cut_wordis: câu mang: "The word is time." · dot100:"Time." 0.56s · cut_wordis100: câu mang: "The word is time." · cut_next: câu mang: "Next word, time." · plain095:"Time." 0.59s · dot090:"Time." 0.65s
@@ -9771,7 +9773,6 @@ repute	ok	ok
 stigma	ok	ok
 dusk	ok	ok
 suffrage	cut_wordis: câu mang: "The word is suffragee." · dot100:"suffragie" 1.17s · cut_wordis100:"The suffrage." 0.83s · cut_next: câu mang: "Next word, suffragie." · plain095:"A suffrage." 0.75s · dot090:"Let's offer edgy." 0.86s	ok
-toxicology	ok	ok
 osteoporosis	ok	ok
 interferometer	ok	ok
 missal	cut_wordis: câu mang: "The word is missile." · dot100:"Missile." 1.01s · cut_wordis100: câu mang: "The word is missile." · cut_next: câu mang: "Next word missile" · plain095:"A missile." 0.62s · dot090:"We missle." 1.09s	cut_wordis: câu mang: "The word is missile." · dot100:"Missile" 0.63s · cut_wordis100: câu mang: "The word is missile." · cut_next: câu mang: "Next word, missile." · plain095:"Missile" 0.65s · dot090:"Missile" 0.69s
@@ -9779,6 +9780,3 @@ quartile	ok	cut_wordis:"Cordial." 0.97s · cut_wordis:"Cordial." 0.84s · dot100
 leukocyte	ok	ok
 monism	ok	ok
 plasterboard	ok	ok
-pharmacologist	ok	ok
-phosphorescence	ok	ok
-sporophyte	ok	ok

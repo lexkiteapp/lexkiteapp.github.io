@@ -476,7 +476,7 @@
 "Nhập sao lưu":"Импорт копии",
 "Nhập từ tiếng Anh, ví dụ: sustainable":"Введите английское слово, например sustainable",
 "Nhập từ tài liệu":"Импорт из документа",
-"Nhắc học qua email":"Email reminders",
+"Nhắc học qua email":"Напоминания по электронной почте",
 "Nhắc “thời điểm vàng”":"Напоминания «золотое время»",
 "Nhẹ nhàng":"Спокойно",
 "Nhờ hàng xóm trông nhà khi đi du lịch":"Просьба к соседу присмотреть за домом на время поездки",
