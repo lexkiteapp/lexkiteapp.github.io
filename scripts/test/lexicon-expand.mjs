@@ -100,6 +100,12 @@ const Q = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/qa/review-queue.js
 ok(!Q.some(q => q.src === 'lexicon-expand' && /^gen:/.test((q.why || [])[0] || '') && !q.data), 'hàng duyệt không chứa mục lexicon-expand "gen" rỗng (lỗi hạ tầng)');
 ok(!Q.some(q => q.src === 'lexicon-expand' && hasGap({ ok: false, why: q.why || [] })), 'hàng duyệt không chứa mục lexicon-expand trượt vì lỗ dữ liệu nguồn (ipa) – node scripts/lexicon/expand/requeue.mjs --gaps');
 { const R = path.join(ROOT, 'content/lexicon/expand/retry/words.json'); if (fs.existsSync(R)) { const d = doneWords(), r = JSON.parse(fs.readFileSync(R, 'utf8')).items; ok(r.every(k => !d.has(k)), 'mục trong retry/words.json không bị doneWords() loại (khoá từ#loại)'); } }
+{ const { reconcileRetry } = await import('../lexicon/expand/save-merge.mjs'), tmp = path.join((await import('os')).tmpdir(), 'lx-retry-' + process.pid + '.json');
+  fs.writeFileSync(tmp, JSON.stringify({ items: ['a#n', 'b#n', 'c#v'] })); const r1 = reconcileRetry(tmp, () => new Set(['b#n'])), got = JSON.parse(fs.readFileSync(tmp, 'utf8')).items.join(), r2 = reconcileRetry(tmp, () => new Set(['b#n']));
+  ok(r1 === 1 && got === 'a#n,c#v' && r2 === 0, 'save-merge reconcileRetry: gỡ mục đã xử lý khỏi retry, lũy đẳng'); fs.unlinkSync(tmp);
+  ok(/node scripts\/test\/lexicon-expand\.mjs[^\n]*MAIN_OK/.test(fs.readFileSync(path.join(ROOT, '.github/workflows/lexicon-expand.yml'), 'utf8')) && /reconcileRetry\(/.test(fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/save-merge.mjs'), 'utf8')), 'lexicon-expand.yml: test chạy trước khi bot đẩy [skip ci]'); }
+{ const pr = fs.readFileSync(path.join(ROOT, 'scripts/lexicon/expand/promote.mjs'), 'utf8');
+  ok(/scripts\/content-score\.mjs/.test(pr) && /baseOk && !scoreOk\(\)/.test(pr) && /process\.exit\(5\)/.test(pr), 'promote.mjs: cổng điểm – xanh trước mà đỏ sau khi xuất → hoàn tác, lô nằm chờ (sàn không hạ)'); }
 // chủ đề (content/lexicon/topics.json): cây đủ tên 15 ngôn ngữ + nối 104 bộ; bộ học 10–20, nút 10–60, ≤ 2 chủ đề/từ, không mồ côi
 { const T = await import('../lexicon/expand/topics.mjs'), { TOPIC_CHOICES } = await import('../lexicon/expand/lib.mjs'), tax = T.TAX(), exs = T.existingSets();
   ok(exs.size === 104, `104 bộ hiện có (thấy ${exs.size})`);
