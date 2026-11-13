@@ -652,7 +652,7 @@
     const load = async () => { try { D = await ctx.sapi('GET', 'lk/metrics'); paint(); } catch (e) { msg(err(e), false); } };
     const n = x => (+x || 0).toLocaleString();
     function al() { // cảnh báo phân tích (kênh 0 view, video bị gỡ, quota) – nằm trong Quản trị, không cần mở issue
-      const xs = D.alerts || []; return xs.length ? `<div class="card" role="alert" style="border-color:var(--a-warn,#b45309)"><b>⚠️ ${M('Cảnh báo phân tích')}</b><ul class="small" style="margin:.3rem 0 0;padding-left:1rem">${xs.map(a => `<li>${esc(a.text)}</li>`).join('')}</ul></div>` : '';
+      const xs = D.alerts || []; return xs.length ? `<div class="card" role="alert" style="border-color:var(--a-warn)"><b>⚠️ ${M('Cảnh báo phân tích')}</b><ul class="small" style="margin:.3rem 0 0;padding-left:1rem">${xs.map(a => `<li>${esc(a.text)}</li>`).join('')}</ul></div>` : '';
     }
     function tb() { // top/bottom 5 bài (video có số liệu) + video bị gỡ
       const vs = sumBy((D.rows || []).filter(r => r.platform !== 'web' && r.post_id), r => r.post_id).filter(x => x.k !== '–'), gone = (D.vmeta || []).filter(v => v.missing);
