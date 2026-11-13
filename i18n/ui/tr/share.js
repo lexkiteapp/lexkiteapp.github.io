@@ -1,15 +1,15 @@
 /* UI tr – share (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {
 "Bài đăng 1:1":"Gönderi 1:1",
-"Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu":"You and your friend both get +{xp} XP and 1 streak freeze when they finish their first lesson",
+"Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu":"Arkadaşın ilk dersini bitirince ikiniz de +{xp} XP ve 1 seri dondurma kazanırsınız",
 "Chia sẻ":"Paylaş",
 "Hôm nay mình đã học bài!":"Bugün çalıştım!",
 "Học từ vựng & luyện thi miễn phí":"Ücretsiz kelime ve sınav hazırlığı",
-"Link mời đã được chép – dán gửi bạn nhé":"Invite link copied – paste it to a friend",
+"Link mời đã được chép – dán gửi bạn nhé":"Davet bağlantısı kopyalandı – bir arkadaşına yapıştırıp gönder",
 "Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.":"Bir kahve al, birkaç kart tekrar et ☕ – sonra paylaşacak bir başarın olur.",
-"Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"I'm learning English for free with Lexkite. Try a 1-minute lesson – we both get a gift! {url}",
+"Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"Lexkite ile ücretsiz İngilizce öğreniyorum. 1 dakikalık bir ders dene – ikimiz de hediye kazanıyoruz! {url}",
 "Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"Lexkite ile her gün İngilizce öğreniyorum 🔥 Ücretsiz öğren: {url}",
-"Mời bạn học cùng":"Invite a friend",
+"Mời bạn học cùng":"Arkadaşını davet et",
 "Não bạn đang ở chế độ nghỉ dưỡng":"Beynin tatil modunda",
 "Story 9:16":"Hikâye 9:16",
 "Thẻ thành tích":"Başarı kartı",
@@ -19,7 +19,7 @@
 "Từng bước nhỏ mỗi ngày, tiến bộ lớn mỗi tháng.":"Her gün küçük adımlar, her ay büyük ilerleme.",
 "Xong mục tiêu hôm nay!":"Bugünün hedefi tamam!",
 "Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé":"Resim kaydedildi – bağlantı kopyalandı, gönderine yapıştır",
-"🎁 Bạn được bạn bè mời! Nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎁 A friend invited you! Get +{xp} XP and 1 streak freeze",
-"🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎉 {n} of your invited friends finished their first lesson – you get +{xp} XP and 1 streak freeze",
+"🎁 Bạn được bạn bè mời! Nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎁 Bir arkadaşın seni davet etti! +{xp} XP ve 1 seri dondurma kazan",
+"🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎉 Davet ettiğin {n} arkadaşın ilk dersini bitirdi – +{xp} XP ve 1 seri dondurma kazandın",
 });
 })(typeof self !== 'undefined' ? self : this);

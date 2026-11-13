@@ -1,15 +1,15 @@
 /* UI ar – share (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {
 "Bài đăng 1:1":"منشور 1:1",
-"Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu":"You and your friend both get +{xp} XP and 1 streak freeze when they finish their first lesson",
+"Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu":"عندما يُنهي صديقك درسه الأول تحصلان معًا على +{xp} نقطة خبرة وتجميد سلسلة واحد",
 "Chia sẻ":"مشاركة",
 "Hôm nay mình đã học bài!":"درستُ اليوم!",
 "Học từ vựng & luyện thi miễn phí":"مفردات وتحضير للاختبارات مجانًا",
-"Link mời đã được chép – dán gửi bạn nhé":"Invite link copied – paste it to a friend",
+"Link mời đã được chép – dán gửi bạn nhé":"تم نسخ رابط الدعوة – الصقه وأرسله إلى صديق",
 "Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.":"خذ فنجان قهوة وراجع بعض البطاقات ☕ – وسيكون لديك إنجاز تشاركه فورًا.",
-"Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"I'm learning English for free with Lexkite. Try a 1-minute lesson – we both get a gift! {url}",
+"Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"أتعلّم الإنجليزية مجانًا مع Lexkite. جرّب درسًا مدته دقيقة – وكلانا يحصل على هدية! {url}",
 "Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"أتعلم الإنجليزية كل يوم مع Lexkite 🔥 تعلّم مجانًا على {url}",
-"Mời bạn học cùng":"Invite a friend",
+"Mời bạn học cùng":"ادعُ صديقًا",
 "Não bạn đang ở chế độ nghỉ dưỡng":"عقلك في وضع الإجازة",
 "Story 9:16":"قصة 9:16",
 "Thẻ thành tích":"بطاقة الإنجاز",
@@ -19,7 +19,7 @@
 "Từng bước nhỏ mỗi ngày, tiến bộ lớn mỗi tháng.":"خطوات صغيرة كل يوم، تقدّم كبير كل شهر.",
 "Xong mục tiêu hôm nay!":"تم إنجاز هدف اليوم!",
 "Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé":"تم حفظ الصورة – ونُسخ الرابط، الصقه في منشورك",
-"🎁 Bạn được bạn bè mời! Nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎁 A friend invited you! Get +{xp} XP and 1 streak freeze",
-"🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎉 {n} of your invited friends finished their first lesson – you get +{xp} XP and 1 streak freeze",
+"🎁 Bạn được bạn bè mời! Nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎁 دعاك صديق! احصل على +{xp} نقطة خبرة وتجميد سلسلة واحد",
+"🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎉 أنهى {n} من أصدقائك المدعوين درسهم الأول – حصلت على +{xp} نقطة خبرة وتجميد سلسلة واحد",
 });
 })(typeof self !== 'undefined' ? self : this);

@@ -1,15 +1,15 @@
 /* UI pt – share (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["pt"] = Object.assign(D["pt"] || {}, {
 "Bài đăng 1:1":"Post 1:1",
-"Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu":"You and your friend both get +{xp} XP and 1 streak freeze when they finish their first lesson",
+"Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu":"Você e seu amigo ganham +{xp} XP e 1 proteção de sequência quando ele terminar a primeira lição",
 "Chia sẻ":"Compartilhar",
 "Hôm nay mình đã học bài!":"Hoje eu estudei!",
 "Học từ vựng & luyện thi miễn phí":"Vocabulário e preparação para provas grátis",
-"Link mời đã được chép – dán gửi bạn nhé":"Invite link copied – paste it to a friend",
+"Link mời đã được chép – dán gửi bạn nhé":"Link de convite copiado – cole e envie a um amigo",
 "Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.":"Tome um café e revise alguns cartões ☕ – aí você terá algo para mostrar.",
-"Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"I'm learning English for free with Lexkite. Try a 1-minute lesson – we both get a gift! {url}",
+"Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"Estou aprendendo inglês de graça com a Lexkite. Experimente uma lição de 1 minuto – nós dois ganhamos um presente! {url}",
 "Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"Estou aprendendo inglês todo dia com o Lexkite 🔥 Aprenda grátis em {url}",
-"Mời bạn học cùng":"Invite a friend",
+"Mời bạn học cùng":"Convidar um amigo",
 "Não bạn đang ở chế độ nghỉ dưỡng":"Seu cérebro está no modo férias",
 "Story 9:16":"Story 9:16",
 "Thẻ thành tích":"Cartão de conquista",
@@ -19,7 +19,7 @@
 "Từng bước nhỏ mỗi ngày, tiến bộ lớn mỗi tháng.":"Pequenos passos todo dia, grande progresso todo mês.",
 "Xong mục tiêu hôm nay!":"Meta de hoje concluída!",
 "Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé":"Imagem salva – link copiado, cole na sua publicação",
-"🎁 Bạn được bạn bè mời! Nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎁 A friend invited you! Get +{xp} XP and 1 streak freeze",
-"🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎉 {n} of your invited friends finished their first lesson – you get +{xp} XP and 1 streak freeze",
+"🎁 Bạn được bạn bè mời! Nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎁 Um amigo convidou você! Ganhe +{xp} XP e 1 proteção de sequência",
+"🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎉 {n} dos seus amigos convidados terminaram a primeira lição – você ganha +{xp} XP e 1 proteção de sequência",
 });
 })(typeof self !== 'undefined' ? self : this);
