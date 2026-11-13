@@ -139,7 +139,7 @@
   }
 
   // ===== Vòng giới thiệu (docs/specs/referral.md): link mời /go/<lang>/?utm_source=ref&c=<mã> → bạn mới học xong bài đầu → cả hai nhận XP + 1 lượt đóng băng ($0, chỉ trong app) =====
-  const LS = (() => { try { return localStorage; } catch (e) { return null; } })(), BASE = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : URL_;
+  const LS = (() => { try { return localStorage; } catch (e) { return null; } })(), BASE = typeof location !== 'undefined' && /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname) ? '' : URL_;
   const code = () => { let c = LS && LS.getItem('lk.rc'); if (!c || !/^[a-z0-9]{8}$/.test(c)) { c = Array.from(crypto.getRandomValues(new Uint8Array(8)), x => 'abcdefghijklmnopqrstuvwxyz0123456789'[x % 36]).join(''); try { LS.setItem('lk.rc', c); } catch (e) { /* bỏ qua */ } } return c; };
   const inviteLink = () => `${URL_}/go/${(g.I18N && I18N.lang && I18N.lang()) || 'en'}/?utm_source=ref&utm_medium=invite&c=${code()}`;
   async function invite() {
