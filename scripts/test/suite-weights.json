@@ -34,6 +34,7 @@
 "node scripts/test/ext-orphan.mjs": 2.8,
 "node scripts/test/ext-selection.mjs": 4.3,
 "node scripts/test/get-app.mjs": 3.0,
+"node scripts/test/install-sheet.mjs": 1.0,
 "node scripts/test/grammar-inventory.mjs": 3.0,
 "node scripts/test/i18n-leak.js web en --strict --gtx-down": 25.4,
 "node scripts/test/i18n-leak.js web en,pt --strict --gtx-down --slow-pre": 19.3,

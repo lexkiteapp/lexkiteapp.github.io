@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/es/install.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.es=Object.assign(D.es||{},{_g5bq:"¡Primera lección terminada! Con la app empiezas más rápido, desde tu pantalla de inicio.",_boam:"Has guardado {n} palabras. Con la app puedes repasarlas cuando quieras.",_b0g3:"¡Racha de {n} días, genial! Con la app, estudiar a diario resulta más fácil.",_xatz:"Lleva Lexkite contigo",_ecxd:"Descargar en App Store",_fq4o:"Disponible en Google Play"});})(typeof self!=='undefined'?self:this);
