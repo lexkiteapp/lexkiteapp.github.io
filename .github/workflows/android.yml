@@ -114,8 +114,8 @@ jobs:
         if: env.HAS_KEY == 'true'
         run: |
           AAB=$(ls lexkite-*.aab); { echo "### Dung lượng $AAB: $(du -h "$AAB" | cut -f1)"; echo '| nén (MB) | thư mục trong .aab |'; echo '|---|---|'; } >> "$GITHUB_STEP_SUMMARY"
-          unzip -v "$AAB" | awk 'NR>3 && NF>=8 {n=split($8,a,"/"); k=(n>3)?a[1]"/"a[2]"/"a[3]:$8; if(a[1]=="base"&&a[2]=="assets"&&a[3]=="public"&&n>4)k=a[1]"/"a[2]"/"a[3]"/"a[4]; z[k]+=$3} END{for(k in z)printf "%.1f %s\n", z[k]/1048576, k}' | sort -rn | head -25 | awk '{print "| "$1" | "$2" |"}' >> "$GITHUB_STEP_SUMMARY"
-          echo '--- mobile/www lớn nhất ---'; du -sh mobile/www/* | sort -rh | head -15
+          unzip -v "$AAB" | awk 'NR>3 && NF>=8 {n=split($8,a,"/"); k=(n>3)?a[1]"/"a[2]"/"a[3]:$8; if(a[1]=="base"&&a[2]=="assets"&&a[3]=="public"&&n>4)k=a[1]"/"a[2]"/"a[3]"/"a[4]; z[k]+=$3} END{for(k in z)printf "%.1f %s\n", z[k]/1048576, k}' | sort -rn | head -25 | tee "$RUNNER_TEMP/aab-dirs.txt" | awk '{print "| "$1" | "$2" |"}' >> "$GITHUB_STEP_SUMMARY"; echo '--- .aab nén MB theo thư mục ---'; cat "$RUNNER_TEMP/aab-dirs.txt"
+          echo '--- mobile/www lớn nhất ---'; du -sh mobile/www/* | sort -rh | head -15; echo '--- www/en ---'; du -sh mobile/www/en/* | sort -rh | head -15; echo '--- www/vi ---'; du -sh mobile/www/vi/* | sort -rh | head -10; ls mobile/www | head -60 | tr '\n' ' '
       - uses: actions/upload-artifact@v4
         if: env.HAS_KEY == 'true'
         with:
