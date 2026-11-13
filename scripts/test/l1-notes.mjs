@@ -1,4 +1,4 @@
-// Ghi chú lỗi theo tiếng mẹ đẻ (web/js/grammar/l1/<lang>.js, trục whyL1 của WORLD.md). Kiểm khuôn + sàn số mục (CHỈ TĂNG, scripts/test/l1-floors.json).
+// Ghi chú lỗi theo tiếng mẹ đẻ (web/cpack/grammar-l1/<lang>.js, trục whyL1 của WORLD.md). Kiểm khuôn + sàn số mục (CHỈ TĂNG, scripts/test/l1-floors.json).
 // Mỗi mục [✗ câu sai, ✓ câu đúng, vì sao, l1Form]: l1Form (BẮT BUỘC khi ngôn ngữ ≥ 100 mục) = câu/cấu trúc tiếng mẹ đẻ gây lỗi, dạng `<câu L1> → "<dịch sát>"`; D.because = nhãn dòng đó.
 // ✗ ≠ ✓, hai câu tiếng Anh, vì sao viết ĐÚNG chữ ngôn ngữ đó (không lẫn tiếng Việt/Anh), bài tồn tại, không trùng ✗.
 import fs from 'fs'; import path from 'path'; import vm from 'vm'; import { fileURLToPath } from 'url';
@@ -10,11 +10,13 @@ for (const d of ['web/js/grammar', 'web/cpack/grammar']) for (const f of fs.read
 const ids = new Set((g.GRAMMAR || []).map(x => x.id));
 const floors = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/test/l1-floors.json'), 'utf8'));
 const err = [], rows = [];
+const toks = x => new Set(String(x).toLowerCase().replace(/[^a-z0-9\s']/g, ' ').split(/\s+/).filter(Boolean));
+const jac = (a, b) => { const i = [...a].filter(t => b.has(t)).length; return i / (a.size + b.size - i); };
 for (const l of LANGS) {
-  const f = path.join(ROOT, `web/js/grammar/l1/${l}.js`); if (!fs.existsSync(f)) { err.push(`${l}: thiếu tệp`); continue; }
+  const f = path.join(ROOT, `web/cpack/grammar-l1/${l}.js`); if (!fs.existsSync(f)) { err.push(`${l}: thiếu tệp`); continue; }
   const w = {}; try { new Function('window', fs.readFileSync(f, 'utf8'))(w); } catch (e) { err.push(`${l}: lỗi cú pháp ${e.message}`); continue; }
   const D = w.GRAMMAR_L1; if (!D || D.lang !== l || !String(D.title || '').trim()) { err.push(`${l}: lang/title sai`); continue; }
-  const seen = new Set(); let n = 0; const need = Object.values(D.notes || {}).flat().length >= 100; if (need && !String(D.because || '').trim()) err.push(`${l}: thiếu because (nhãn dòng l1Form)`);
+  const seen = new Set(), pats = []; let n = 0; const need = Object.values(D.notes || {}).flat().length >= 100; if (need && !String(D.because || '').trim()) err.push(`${l}: thiếu because (nhãn dòng l1Form)`);
   for (const [id, list] of Object.entries(D.notes || {})) {
     if (!ids.has(id)) err.push(`${l}: bài không tồn tại "${id}"`);
     for (const x of list) {
@@ -42,6 +44,10 @@ for (const l of LANGS) {
           if (norm(lf) === norm(bad) || norm(lf) === norm(good)) err.push(`${at}: l1Form phải là câu tiếng mẹ đẻ, không phải câu tiếng Anh`);
         }
       }
+      // một mẫu lỗi = một mục tốt nhất: ✗ gần trùng (Jaccard ≥ 0.8) hoặc cùng câu L1 trong l1Form → đỏ (giữ mục hay nhất, bỏ mục thừa)
+      const bt = toks(bad), lq = f ? String(f).split('→')[0].trim() : '';
+      for (const p of pats) if (jac(bt, p.bt) >= 0.8 || (lq && lq === p.lq)) { err.push(`${at}: trùng mẫu lỗi với ${p.at} ("${bad}")`); break; }
+      pats.push({ bt, lq, at });
       const key = norm(bad); if (seen.has(key)) err.push(`${at}: trùng ✗ "${bad}"`); seen.add(key);
     }
   }

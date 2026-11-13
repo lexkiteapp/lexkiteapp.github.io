@@ -78,11 +78,11 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   const hx = o => o.exm ? esc(o.exm).replace(/\[\[(.+?)\]\]/g, '<mark class="g-hl">$1</mark>') : esc(o.ex || '');
   // CSS riêng của bài ngữ pháp: nạp cùng gói grammar (tải lười) – không làm nặng khung app (style.css nằm trong SHELL)
   if (!document.getElementById('gCss')) { const st = document.createElement('style'); st.id = 'gCss'; st.textContent = G_CSS; document.head.appendChild(st); }
-  // 🌐 Lỗi hay gặp theo tiếng mẹ đẻ (giao diện ≠ en): js/grammar/l1/<lang>.js, viết tay bằng chính ngôn ngữ đó, tải khi mở bài
+  // 🌐 Lỗi hay gặp theo tiếng mẹ đẻ (giao diện ≠ en): cpack/grammar-l1/<lang>.js, viết tay bằng chính ngôn ngữ đó, tải khi mở bài
   const L1_LANGS = 'vi es pt fr de id th zh ja ko hi ar ru tr'.split(' ');
   let l1P = null;
   const loadL1 = () => { const lg = I18N.lang(); if (!L1_LANGS.includes(lg)) return Promise.resolve(null); if (window.GRAMMAR_L1 && GRAMMAR_L1.lang === lg) return Promise.resolve(GRAMMAR_L1);
-    return l1P || (l1P = new Promise(res => { const s = document.createElement('script'); s.src = `js/grammar/l1/${lg}.js`; s.onload = () => res(window.GRAMMAR_L1 && GRAMMAR_L1.lang === lg ? GRAMMAR_L1 : null); s.onerror = () => { l1P = null; res(null); }; document.head.appendChild(s); })); };
+    return l1P || (l1P = new Promise(res => { const s = document.createElement('script'); s.src = `cpack/grammar-l1/${lg}.js`; s.onload = () => res(window.GRAMMAR_L1 && GRAMMAR_L1.lang === lg ? GRAMMAR_L1 : null); s.onerror = () => { l1P = null; res(null); }; document.head.appendChild(s); })); };
   // Mục L1: [✗, ✓, vì sao, l1Form?] – l1Form = câu/cấu trúc tiếng mẹ đẻ gây lỗi (“Vì bạn nghĩ theo tiếng …: <câu L1> → "<dịch sát>"”); D.because = nhãn viết bằng chính ngôn ngữ đó
   const l1It = ([w, r, why, f], D) => `<div class="g-l1-it"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en" dir="ltr">${esc(w)}</s></div>${sayLine(`<span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en" dir="ltr">${esc(r)}</b>`, r)}${f && D && D.because ? `<div class="g-l1-form small"><b>${esc(D.because)}</b> ${esc(f)}</div>` : ''}<div class="small muted">${esc(why)}</div></div>`;
   const l1Html = (x, D) => { const ns = D && D.notes[x.id]; if (!ns || !ns.length) return '';
