@@ -88,5 +88,6 @@
 "node scripts/test/ux1.mjs": 16.6,
 "node scripts/test/welcome-flow.mjs": 41.2,
 "node scripts/test/wordcard-ui.mjs": 5.4,
+"node scripts/test/mobile-www-slim.mjs": 0.2,
 "node scripts/vi-lint.mjs": 2.0
 }
