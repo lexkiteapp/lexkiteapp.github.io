@@ -2372,6 +2372,76 @@
      "native": 1,
      "video_est": 80
     }
+   },
+   {
+    "id": "ga11_question",
+    "who": "ama",
+    "pose": "question",
+    "model": "gemini-3-pro-image",
+    "src": "cine/teachers/green/ga11_question_still.png",
+    "qc": "qc_green still PASS + soát mắt (5 ngón, môi khép) – try1",
+    "date": "2026-11-13",
+    "reuse": {
+     "rig": 1,
+     "native": 1,
+     "video_est": 80
+    }
+   },
+   {
+    "id": "gc11_question",
+    "who": "carlos",
+    "pose": "question",
+    "model": "gemini-3-pro-image",
+    "src": "cine/teachers/green/gc11_question_still.png",
+    "qc": "qc_green still PASS + soát mắt (5 ngón, môi khép) – try1",
+    "date": "2026-11-13",
+    "reuse": {
+     "rig": 1,
+     "native": 1,
+     "video_est": 80
+    }
+   },
+   {
+    "id": "ga11_listen_ear",
+    "who": "ama",
+    "pose": "listen_ear",
+    "model": "gemini-3-pro-image",
+    "src": "cine/teachers/green/ga11_listen_ear_still.png",
+    "qc": "qc_green still PASS + soát mắt (5 ngón, môi khép) – try1",
+    "date": "2026-11-13",
+    "reuse": {
+     "rig": 1,
+     "native": 1,
+     "video_est": 80
+    }
+   },
+   {
+    "id": "gc11_listen_ear",
+    "who": "carlos",
+    "pose": "listen_ear",
+    "model": "gemini-3-pro-image",
+    "src": "cine/teachers/green/gc11_listen_ear_still.png",
+    "qc": "qc_green still PASS + soát mắt (5 ngón, môi khép) – try2",
+    "date": "2026-11-13",
+    "reuse": {
+     "rig": 1,
+     "native": 1,
+     "video_est": 80
+    }
+   },
+   {
+    "id": "ga11_welcome",
+    "who": "ama",
+    "pose": "welcome",
+    "model": "gemini-3-pro-image",
+    "src": "cine/teachers/green/ga11_welcome_still.png",
+    "qc": "qc_green still PASS + soát mắt (5 ngón, môi khép) – try1; nền: 0-cr làm phẳng vệt mờ xanh-trên-xanh",
+    "date": "2026-11-13",
+    "reuse": {
+     "rig": 1,
+     "native": 1,
+     "video_est": 80
+    }
    }
   ]
  },
@@ -2568,6 +2638,54 @@
     "res": "1080p",
     "sec": 5,
     "date": "2026-11-12",
+    "reuse": {
+     "video_est": 80
+    },
+    "uses": 0
+   },
+   {
+    "id": "ga11_question",
+    "who": "ama",
+    "pose": "question",
+    "kind": "keyframe",
+    "src": "cine/teachers/green/ga11_question.mp4",
+    "model": "kling-video-v4_0 (web: first=locked ref, middle=approved still, last=locked)",
+    "res": "1080p",
+    "sec": 5,
+    "date": "2026-11-13",
+    "qc": "qc_green clip PASS + sheet eye 90",
+    "reuse": {
+     "video_est": 80
+    },
+    "uses": 0
+   },
+   {
+    "id": "ga11_listen_ear",
+    "who": "ama",
+    "pose": "listen_ear",
+    "kind": "keyframe",
+    "src": "cine/teachers/green/ga11_listen_ear.mp4",
+    "model": "kling-video-v4_0 (web: first=locked ref, middle=approved still, last=locked)",
+    "res": "1080p",
+    "sec": 5,
+    "date": "2026-11-13",
+    "qc": "qc_green clip PASS + sheet eye 90",
+    "reuse": {
+     "video_est": 80
+    },
+    "uses": 0
+   },
+   {
+    "id": "ga11_welcome",
+    "who": "ama",
+    "pose": "welcome",
+    "kind": "keyframe",
+    "src": "cine/teachers/green/ga11_welcome.mp4",
+    "model": "kling-video-v4_0 (web: first=locked ref, middle=approved still, last=locked)",
+    "res": "1080p",
+    "sec": 5,
+    "date": "2026-11-13",
+    "qc": "qc_green clip PASS + sheet eye 90",
     "reuse": {
      "video_est": 80
     },
