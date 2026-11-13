@@ -406,3 +406,4 @@ node scripts/test/funnel.mjs
 node scripts/test/share-link.mjs
 node scripts/test/referral.mjs
 node scripts/test/pwa-installable.mjs
+node scripts/test/addon-listings.mjs
