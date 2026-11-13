@@ -167,6 +167,11 @@ ok($('[data-lang=en][aria-checked=true]') && $('[data-lang=en][tabindex="0"]') &
 w.sessionStorage.setItem('lk.onbPick', JSON.stringify({ sn: 'khong-co', step: 0 })); await go('#/home', 200); await go('#/welcome/setup', 900); await until(() => $('[data-lang]'));
 ok(/s=lang/.test(hash()) && $('[data-lang=en][aria-checked=true]'), 'tên bước cũ không còn trong STEPS: rơi về chỉ số step, không lỗi');
 click($('[data-lang=es]')); await tick();
+{ // lưu cài đặt lỗi lúc Tiếp tục: trả ngôn ngữ cũ + cờ onboarded, mở lại nút, ở lại bước (không kẹt)
+  const St = w.Core.Store, set0 = St.set; let thrown = 0; St.set = async () => { thrown++; throw new Error('lưu lỗi giả'); };
+  const was = S.settings.onboarded; click($('#obNext')); await tick(500); St.set = set0;
+  ok(thrown > 0 && w.Target.cur() === 'en' && S.settings.onboarded === was && !$('#obNext').disabled && /s=lang/.test(hash()), 'lưu lỗi: ngôn ngữ cũ, onboarded cũ, nút mở lại, còn ở bước chọn: ' + [thrown, w.Target.cur(), S.settings.onboarded, hash()]);
+}
 click($('#obNext')); await until(() => S.settings.onboarded && /practice\/esd/.test(hash()), 15000); await tick(300);
 ok(w.Target.cur() === 'es' && /practice\/esd/.test(hash()) && !w.sessionStorage.getItem('lk.onbPick'), 'Tiếp tục: Target.set(es) rồi vào lộ trình ngày TBN: ' + hash());
 w.Target.set('en'); w.localStorage.removeItem('lk.es'); S.settings.onboarded = true; w.sessionStorage.removeItem('lk.onbPick');
