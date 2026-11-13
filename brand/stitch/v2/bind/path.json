@@ -86,13 +86,13 @@
        "data-pr": "r.id"
       },
       ":scope > button": {
-       "style": "'left:' + r.x + 'px;top:' + r.cy + 'px'",
+       "style": "'inset-inline-start:' + (r.x - 28) + 'px;top:' + (r.cy - 28) + 'px'",
        "aria-label": "r.aria",
        "aria-haspopup": "'dialog'"
       },
       ":scope > svg": {
        "height": "r.h",
-       "viewBox": "'0 0 150 ' + r.h"
+       "viewBox": "'0 0 88 ' + r.h"
       },
       ":scope > svg > path:nth-child(1)": {
        "d": "r.pin"
@@ -118,13 +118,13 @@
        "data-pr": "r.id"
       },
       ":scope > button": {
-       "style": "'left:' + r.x + 'px;top:' + r.cy + 'px'",
+       "style": "'inset-inline-start:' + (r.x - 28) + 'px;top:' + (r.cy - 28) + 'px'",
        "aria-label": "r.aria",
        "aria-haspopup": "'dialog'"
       },
       ":scope > svg": {
        "height": "r.h",
-       "viewBox": "'0 0 150 ' + r.h"
+       "viewBox": "'0 0 88 ' + r.h"
       },
       ":scope > svg > path:nth-child(1)": {
        "d": "r.pin"
@@ -135,14 +135,14 @@
       ":scope > button > span > svg > circle:nth-child(2)": {
        "stroke-dashoffset": "r.off"
       },
-      ":scope > div:nth-child(3) > div > button": {
+      ":scope > div:nth-child(3) > div:nth-child(4) > button": {
        "data-href": "r.href",
        "data-cur": "'1'",
        "aria-label": "r.start"
       }
      },
      "html": {
-      ":scope > div:nth-child(4)": "r.tch"
+      ":scope > div:nth-child(3) > div:nth-child(5)": "r.tch"
      }
     },
     "lock": {
@@ -156,13 +156,13 @@
        "data-pr": "r.id"
       },
       ":scope > button": {
-       "style": "'left:' + r.x + 'px;top:' + r.cy + 'px'",
+       "style": "'inset-inline-start:' + (r.x - 28) + 'px;top:' + (r.cy - 28) + 'px'",
        "aria-label": "r.aria",
        "aria-haspopup": "'dialog'"
       },
       ":scope > svg": {
        "height": "r.h",
-       "viewBox": "'0 0 150 ' + r.h"
+       "viewBox": "'0 0 88 ' + r.h"
       },
       ":scope > svg > path:nth-child(1)": {
        "d": "r.pin"
@@ -186,13 +186,13 @@
        "data-pr": "r.id"
       },
       ":scope > button": {
-       "style": "'left:' + r.x + 'px;top:' + r.cy + 'px'",
+       "style": "'inset-inline-start:' + (r.x - 28) + 'px;top:' + (r.cy - 28) + 'px'",
        "aria-label": "r.aria",
        "aria-haspopup": "'dialog'"
       },
       ":scope > svg": {
        "height": "r.h",
-       "viewBox": "'0 0 150 ' + r.h"
+       "viewBox": "'0 0 88 ' + r.h"
       },
       ":scope > svg > path:nth-child(1)": {
        "d": "r.pin"
@@ -202,12 +202,6 @@
       },
       ":scope > div:nth-child(3)": {
        "style": "'top:' + r.cy + 'px'"
-      }
-     },
-     "cls": {
-      ":scope > button": {
-       "w-16": "'w-[72px]'",
-       "h-16": "'h-[72px]'"
       }
      }
     }
