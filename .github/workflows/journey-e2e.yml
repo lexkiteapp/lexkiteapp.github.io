@@ -91,8 +91,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        lang: [en, vi, ar]
-    env: { JE_LANGS: '${{ matrix.lang }}' }
+        lang: [en, vi, ar, ar-kbd]   # ar-kbd: chỉ đo bàn phím THẬT bằng tiếng Ả Rập (RTL); leg ar đủ hành trình bị emulator chết sau j1a (13/11)
+    env:
+      JE_LANGS: ${{ matrix.lang == 'ar-kbd' && 'ar' || matrix.lang }}
+      JE_ONLY_KBD: ${{ matrix.lang == 'ar-kbd' && '1' || '0' }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/no-prod  # app trong máy ảo Android: /api + media prod → không phân giải (app chạy nhánh offline như web)
@@ -169,7 +171,7 @@ jobs:
           echo "android rc=$rc"
           test "$rc" = 0
           test -s je-android/results.json
-          node -e "const r=JSON.parse(require('fs').readFileSync('je-android/results.json'));console.log('bước đã chạy:',r.ran);process.exit(r.ran>=6&&!r.bad.length?0:1)"
+          node -e "const r=JSON.parse(require('fs').readFileSync('je-android/results.json'));console.log('bước đã chạy:',r.ran);process.exit((r.ran>=6||process.env.JE_ONLY_KBD==='1')&&!r.bad.length?0:1)"
 
   ios:
     if: ${{ (inputs.native == '1') && needs.gate.outputs.go == 'true' }}
