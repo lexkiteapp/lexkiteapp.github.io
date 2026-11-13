@@ -83,13 +83,14 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
   let l1P = null;
   const loadL1 = () => { const lg = I18N.lang(); if (!L1_LANGS.includes(lg)) return Promise.resolve(null); if (window.GRAMMAR_L1 && GRAMMAR_L1.lang === lg) return Promise.resolve(GRAMMAR_L1);
     return l1P || (l1P = new Promise(res => { const s = document.createElement('script'); s.src = `js/grammar/l1/${lg}.js`; s.onload = () => res(window.GRAMMAR_L1 && GRAMMAR_L1.lang === lg ? GRAMMAR_L1 : null); s.onerror = () => { l1P = null; res(null); }; document.head.appendChild(s); })); };
-  const l1It = ([w, r, why]) => `<div class="g-l1-it"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en" dir="ltr">${esc(w)}</s></div>${sayLine(`<span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en" dir="ltr">${esc(r)}</b>`, r)}<div class="small muted">${esc(why)}</div></div>`;
+  // Mục L1: [✗, ✓, vì sao, l1Form?] – l1Form = câu/cấu trúc tiếng mẹ đẻ gây lỗi (“Vì bạn nghĩ theo tiếng …: <câu L1> → "<dịch sát>"”); D.because = nhãn viết bằng chính ngôn ngữ đó
+  const l1It = ([w, r, why, f], D) => `<div class="g-l1-it"><div><span class="bad" role="img" aria-label="${t('Sai')}">✗</span> <s lang="en" dir="ltr">${esc(w)}</s></div>${sayLine(`<span class="good" role="img" aria-label="${t('Đúng')}">✓</span> <b lang="en" dir="ltr">${esc(r)}</b>`, r)}${f && D && D.because ? `<div class="g-l1-form small"><b>${esc(D.because)}</b> ${esc(f)}</div>` : ''}<div class="small muted">${esc(why)}</div></div>`;
   const l1Html = (x, D) => { const ns = D && D.notes[x.id]; if (!ns || !ns.length) return '';
-    return `<section class="g-l1" translate="no" aria-labelledby="gL1h-${esc(x.id)}"><h3 id="gL1h-${esc(x.id)}">${UI.icon('globe')} ${esc(D.title)}</h3>${ns.map(l1It).join('')}</section>`; };
+    return `<section class="g-l1" translate="no" aria-labelledby="gL1h-${esc(x.id)}"><h3 id="gL1h-${esc(x.id)}">${UI.icon('globe')} ${esc(D.title)}</h3>${ns.map(n => l1It(n, D)).join('')}</section>`; };
   // Trả lời sai → hiện ghi chú tiếng mẹ đẻ của bài gần câu hỏi nhất (trùng từ tiếng Anh giữa ghi chú ✗/✓ và câu hỏi + đáp án); không trùng → ghi chú đầu bài
   const l1Words = s => new Set(String(s).toLowerCase().match(/[a-z']{3,}/g) || []);
   const l1Best = (ns, q) => { const qw = l1Words(q.q + ' ' + q.options.join(' ')); let b = ns[0], bs = -1; for (const n of ns) { let c = 0; for (const w of l1Words(n[0] + ' ' + n[1])) if (qw.has(w)) c++; if (c > bs) { bs = c; b = n; } } return b; };
-  const l1Wrong = (x, q, el) => loadL1().then(D => { const ns = D && D.notes[x.id]; if (!ns || !ns.length || !el.isConnected) return; el.insertAdjacentHTML('beforeend', `<section class="g-l1 g-l1-wa" translate="no"><h3>${UI.icon('globe')} ${esc(D.title)}</h3>${l1It(l1Best(ns, q))}</section>`); }).catch(() => {});
+  const l1Wrong = (x, q, el) => loadL1().then(D => { const ns = D && D.notes[x.id]; if (!ns || !ns.length || !el.isConnected) return; el.insertAdjacentHTML('beforeend', `<section class="g-l1 g-l1-wa" translate="no"><h3>${UI.icon('globe')} ${esc(D.title)}</h3>${l1It(l1Best(ns, q), D)}</section>`); }).catch(() => {});
   const fillL1 = x => loadL1().then(D => { const slot = document.querySelector(`.g-l1-slot[data-l1="${x.id}"]`); if (slot && !slot.childElementCount) { const h = l1Html(x, D); if (h) { slot.innerHTML = h; App.bindCommon(); } } });
   const l1Slot = x => `<div class="g-l1-slot" data-l1="${esc(x.id)}"></div>`;
 
