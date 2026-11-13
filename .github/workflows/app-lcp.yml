@@ -18,7 +18,7 @@ concurrency:   # ci-policy 2/11: push/lịch trùng gộp; chạy tay (mỗi lư
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   lh:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
@@ -67,7 +67,7 @@ jobs:
         with: { name: app-lcp, path: lh, retention-days: 5 }
   # 6 route chính trên bản thật lexkite.com (4G chậm, CPU×4): LCP/TBT/CLS/INP + byte + 10 tài nguyên nặng nhất – docs/PERF-SCROLL.md › Tải trang
   routes:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4

@@ -36,7 +36,7 @@ env:
 jobs:
   # 08/11 (util.tsv: runner bận TB 18/40, lexicon-expand quota_bound nên filler không dùng): shard song song – ci-filler dispatch shards=n (infra/ci-backlog.json)
   plan:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 3
     outputs: { shards: '${{ steps.p.outputs.shards }}', n: '${{ steps.p.outputs.n }}', batch: '${{ steps.p.outputs.batch }}', idle: '${{ steps.idle.outputs.idle }}' }
     steps:
@@ -59,7 +59,7 @@ jobs:
     needs: plan
     if: ${{ needs.plan.outputs.idle != '1' }}
     strategy: { fail-fast: false, max-parallel: 6, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 200   # 30/10 đo pilot 9: ~14 s/từ (Gemini 3.x chậm) → LX_N 600 ≈ 140 phút
     steps:
       - uses: actions/checkout@v4
