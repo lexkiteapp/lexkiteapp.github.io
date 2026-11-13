@@ -373,7 +373,11 @@ export const OPS = {
   },
   'GET metrics': async ({ db }) => {
     const rows = await all(db, 'SELECT * FROM soc_metrics ORDER BY at DESC LIMIT 2000');
-    return { rows, weights: await getMeta(db, 'weights', null), sync: await getMeta(db, 'metrics_sync', null) };
+    let vmeta = [], growth = [];
+    try { vmeta = await all(db, 'SELECT video_id, channel_id, clip, secs, publish_at, missing FROM yt_vmeta LIMIT 5000'); } catch (e) { /* chưa có số liệu YouTube */ }
+    try { growth = await all(db, "SELECT c.video_id, c.views - COALESCE(w.views, 0) AS d7, c.views - COALESCE(m.views, 0) AS d30 FROM yt_stats c LEFT JOIN yt_stats w ON w.video_id = c.video_id AND w.day = (SELECT MAX(day) FROM yt_stats WHERE day <= date(c.day, '-7 day')) LEFT JOIN yt_stats m ON m.video_id = c.video_id AND m.day = (SELECT MAX(day) FROM yt_stats WHERE day <= date(c.day, '-30 day')) WHERE c.day = (SELECT MAX(day) FROM yt_stats) LIMIT 5000"); } catch (e) { /* chưa có yt_stats */ }
+    let channels = []; try { channels = await all(db, 'SELECT channel_id, title FROM yt_channel'); } catch (e) { /* chưa kết nối YouTube */ }
+    return { rows, vmeta, growth, channels, weights: await getMeta(db, 'weights', null), sync: await getMeta(db, 'metrics_sync', null) };
   },
   'POST metrics/import': async ({ db, b }) => { // nhập tay / CSV (Meta Business Suite, TikTok Studio) khi API không cho đọc số liệu
     const rows = Array.isArray(b.rows) ? b.rows.slice(0, 500) : []; let n = 0;
@@ -425,6 +429,21 @@ async function upMetric(db, m) {
   await run(db, `INSERT INTO soc_metrics (k, post_id, platform, account_id, clip, template, hook, cefr, views, likes, comments, saves, shares, watch_s, src, at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ON CONFLICT(k) DO UPDATE SET views = excluded.views, likes = excluded.likes, comments = excluded.comments, saves = excluded.saves, shares = excluded.shares, watch_s = excluded.watch_s, template = excluded.template, hook = excluded.hook, cefr = excluded.cefr, src = excluded.src, at = excluded.at`,
   m.k, m.post_id, m.platform, m.account_id, m.clip, m.template, m.hook, m.cefr, m.views | 0, m.likes | 0, m.comments | 0, m.saves | 0, m.shares | 0, m.watch_s | 0, m.src, Date.now());
+}
+/** YouTube (op stats): mỗi video → 1 dòng soc_metrics (platform youtube, account = kênh) + yt_vmeta (độ dài, giờ đăng, bị gỡ) cho bảng Phân tích; trọng số tính lại. */
+export async function ingestYouTube(db, videos, now = Date.now()) {
+  await run(db, 'CREATE TABLE IF NOT EXISTS yt_vmeta (video_id TEXT PRIMARY KEY, channel_id TEXT, clip TEXT, secs REAL, publish_at TEXT, missing INTEGER, seen INTEGER)');
+  let n = 0;
+  for (const v of videos || []) {
+    if (!v || !v.video_id) continue;
+    await run(db, 'INSERT INTO yt_vmeta (video_id, channel_id, clip, secs, publish_at, missing, seen) VALUES (?, ?, ?, ?, ?, ?, ?) ON CONFLICT(video_id) DO UPDATE SET channel_id = excluded.channel_id, clip = excluded.clip, secs = excluded.secs, publish_at = excluded.publish_at, missing = excluded.missing, seen = excluded.seen',
+      v.video_id, v.channel_id || '', v.clip || '', Number.isFinite(+v.secs) ? +v.secs : null, v.publish_at || null, v.missing ? 1 : 0, now);
+    if (v.missing) continue;
+    const bd = (v.clip && await one(db, 'SELECT template, hook, cefr FROM soc_board WHERE clip = ? LIMIT 1', v.clip)) || {};
+    await upMetric(db, { k: 'youtube:' + v.video_id, post_id: v.video_id, platform: 'youtube', account_id: v.channel_id || '', clip: v.clip || '', template: bd.template || '', hook: bd.hook || '', cefr: bd.cefr || '',
+      ...mapMetrics('youtube', { viewCount: v.views, likeCount: v.likes, commentCount: v.comments }), src: 'youtube' }); n++;
+  }
+  return { n, weights: await recompute(db) };
 }
 async function recompute(db) { const w = weightsFrom((await all(db, "SELECT * FROM soc_metrics WHERE platform != 'web'"))); w.at = Date.now(); await setMeta(db, 'weights', w); return w; }
 
