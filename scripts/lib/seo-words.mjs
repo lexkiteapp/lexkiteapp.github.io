@@ -32,6 +32,9 @@ const IMG = fs.existsSync('content/lexicon/img.json') ? J('content/lexicon/img.j
 const VPIC = IMG && IMG.style && IMG.style.approved === true && Object.keys(IMG.items || {}).length ? (() => { const ctx = {}; ctx.self = ctx; vm.runInNewContext(fs.readFileSync('web/js/vocab-img.js', 'utf8'), ctx); return ctx.VImg.pic; })() : null;
 const vimgOf = (e, alt, label) => (VPIC ? seoPic(IMG, String(e.word).toLowerCase() + '#' + gpos(e.pos), alt, label, VPIC) : ''); // ảnh chụp (photo) nếu có, không thì h – scripts/lexicon/img.mjs
 const notes = {}; for (const f of fs.readdirSync('web/js/notes').filter(f => f.endsWith('.json'))) Object.assign(notes, J('web/js/notes/' + f));
+// Ghi chú dùng từ + ví dụ có bản dịch do người/AI soạn rồi chấm độc lập (content/dict/enrich/<lang>.json = { từ: { n, x: [[câu EN, bản dịch]] } }; cổng scripts/test/dict-enrich.mjs).
+// Là NỘI DUNG THẬT làm trang đủ DEPTH_MIN (không hạ ngưỡng); chọn từ theo số đo GSC (scripts/dict/enrich-queue.mjs).
+export const ENR = Object.fromEntries(LANGS.map(l => [l, fs.existsSync(`content/dict/enrich/${l}.json`) ? J(`content/dict/enrich/${l}.json`) : {}]));
 const gloss = (l, e) => { const p = packs[l], k = e.word.toLowerCase(); return (p && (p[k + '#' + gpos(e.pos)] || p[k])) || null; };
 
 // Điểm "giá trị tìm kiếm" (docs/SEO-ARCH.md §2): cấp CEFR + bộ thi + độ giàu nội dung; lọc cứng có định nghĩa + ví dụ
@@ -137,6 +140,7 @@ ${syn.length || ant.length ? sec('s', 'syn', syn.length && ant.length ? t.synAnt
 ${fam.length ? sec('w', 'fam', t.nf, `<p class="chips">${fam.map(([x, ps]) => `${link(x).replace(/<\/(a|span)>$/, ps ? ` <small lang="${l}"${RTL.has(l) ? ' dir="rtl"' : ''}>${esc(ps)}</small></$1>` : '</$1>')}`).join('')}</p>`) : ''}
 ${conf.length ? sec('k', 'conf', t.conf, conf.map(c => `<div class="cf"><ul>${c.items.map(x => { const [hw, ...rest] = x.h.split(/(?=\s*\()/); return `<li><b>${link(hw.trim())}</b>${rest.length ? esc(rest.join('')) : ''}${okL(l, x.m) ? ` – ${tx(l, x.m)}` : ''}${x.ex ? `<br><i lang="en" dir="ltr">${esc(x.ex)}</i>` : ''}</li>`; }).join('')}</ul>${okL(l, c.tip) ? `<p class="note"><b>${esc(t.tip)}:</b> ${tx(l, c.tip)}</p>` : ''}</div>`).join('')) : ''}
 ${mis.length ? sec('x', 'mis', t.mis, `<ul class="mis">${mis.map(x => `<li><span class="no" lang="en" dir="ltr">✗ ${esc(x.w)}</span> → <b lang="en" dir="ltr">✓ ${esc(x.r)}</b>${okL(l, x.why) ? `<br>${tx(l, x.why)}` : ''}</li>`).join('')}</ul>`) : ''}
+${ENR[l][k] ? sec('u', 'tip', t.ux, `<p class="note">${esc(ENR[l][k].n)}</p>${(ENR[l][k].x || []).length ? `<ul class="xt">${ENR[l][k].x.map(([s, tr]) => `<li><i lang="en" dir="ltr">${hiW(s, k)}</i>${tr ? `<br>${esc(tr)}` : ''}</li>`).join('')}</ul>` : ''}`) : ''}
 ${n ? sec('n', 'notes', t.notes, [['m', t.nm], ['e', t.ne], ['u', t.nu], ['f', t.nf]].filter(([q]) => n[q] && !(q === 'f' && famN.length)).map(([q, lb]) => `<p class="note"><b>${esc(lb)}:</b> ${esc(n[q])}</p>`).join('')) : ''}
 ${wnS.length ? sec('o', 'wn', t.wn, `<ol lang="en" dir="ltr">${wnS.map(x => `<li>${esc(x.g)}${x.x ? `<br><i>“${esc(x.x)}”</i>` : ''}</li>`).join('')}</ol><p class="mt">${esc(t.wnSrc)}: <a href="https://en-word.net/" rel="noopener">Open English WordNet</a> (<a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener">CC BY 4.0</a>)</p>`) : ''}
 ${faq.length >= 2 ? sec('q', 'faq', t.fq, faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')) : ''}

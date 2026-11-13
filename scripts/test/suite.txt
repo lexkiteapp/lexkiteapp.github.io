@@ -269,6 +269,7 @@ node scripts/test/authority-pages.mjs
 node scripts/test/seo-twin.mjs
 node scripts/test/dict-pages.mjs
 node scripts/test/dict-stage.mjs
+node scripts/test/dict-enrich.mjs
 node scripts/test/native-auth.mjs
 node scripts/test/ota.mjs
 node scripts/test/crashlytics.mjs
@@ -391,6 +392,7 @@ node scripts/test/phrasebook.mjs
 node scripts/test/native-strings-locked.mjs
 node scripts/audit/score.mjs --self-test
 node scripts/test/suite-shards.mjs
+node scripts/test/install-sheet.mjs
 node scripts/build-go.mjs --check
 node scripts/test/go-landing.mjs
 node scripts/test/mistake-variant.mjs
@@ -401,3 +403,4 @@ node scripts/test/play-rhythm-run.mjs
 node scripts/test/funnel.mjs
 node scripts/test/share-link.mjs
 node scripts/test/stitch-theme-lint.mjs
+node scripts/test/referral.mjs
