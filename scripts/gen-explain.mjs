@@ -10,9 +10,11 @@ JSON.stringify([g.LISTENING, g.READ_EXPLAIN, g.TOEIC, g.TOEFL], (k, v) => { if (
 export const hash = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return (h >>> 0).toString(36); };
 const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // trích dẫn tiếng Việt → dịch; tiếng Anh → giữ nguyên
 const LET = /(→\s*|\((?=[A-D]\))|[Đđ]áp án\s+|[Cc]họn\s+|[Pp]hương án\s+)([A-D])\b/g;
-const protect = s => { const keep = []; const t = s.replace(LET, (m, pre, L) => pre + `{${L}}`).replace(/\{[A-D]\}|“[^”]{1,120}”|"[^"]{1,120}"|‘[^’]{1,80}’/g, m => (VI.test(m) ? m : `[[${keep.push(m) - 1}]]`)); return { t, keep }; };
+// 13/11: chữ số cũng được bảo vệ ([[n]]) – máy dịch không được đổi/mất số (15 → 十五, 8/12 → 12月8日, ٢٠ …): gate explain-i18n so số với bản en từng chữ số (lỗi "số không khớp" 14 ngôn ngữ do bot 9d9483a20)
+const protect = s => { const keep = []; const t = s.replace(LET, (m, pre, L) => pre + `{${L}}`).replace(/\{[A-D]\}|“[^”]{1,120}”|"[^"]{1,120}"|‘[^’]{1,80}’|\d+/g, m => (/^\d+$/.test(m) || !VI.test(m) ? `[[${keep.push(m) - 1}]]` : m)); return { t, keep }; }; // một lượt (không bọc số 2 lần: chữ số trong [[n]] của trích dẫn)
 const restore = (t, keep) => t.replace(/\[\[\s*(\d+)\s*\]\]/g, (m, i) => keep[+i] ?? m);
-const tokensOk = (a, b) => (a.match(/\[\[\d+\]\]/g) || []).length === (b.match(/\[\[\s*\d+\s*\]\]/g) || []).length;
+// cả SỐ THỨ TỰ của [[n]] phải khớp (máy dịch từng đổi [[3]] → [[14]] khi gặp "3 p.m." → 15 giờ: restore ra chuỗi [[14]] trơ trên màn hình)
+const tokensOk = (a, b) => { const ix = (t, re) => (t.match(re) || []).map(x => +x.replace(/\D/g, '')).sort((x, y) => x - y).join(','); return ix(a, /\[\[\d+\]\]/g) === ix(b, /\[\[\s*\d+\s*\]\]/g); };
 // Ngân sách thời gian (CI): EXPLAIN_MIN=50 → dừng đúng hạn, lưu phần đã dịch, lần chạy sau làm tiếp
 const DEADLINE = Date.now() + (process.env.EXPLAIN_MIN ? +process.env.EXPLAIN_MIN : 1e6) * 60000;
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -33,7 +35,8 @@ for (const lang of process.argv.slice(2)) {
     const prot = batch.map(s => protect(s.replace(/\n/g, ' ')));
     let res = await tr(lang, prot.map(p => p.t));
     if (!res || res.length !== batch.length) { res = []; for (const p of prot) { const r1 = await tr(lang, [p.t]); res.push(r1 ? r1.join(' ') : ''); await sleep(300); } }
-    batch.forEach((s, j) => { const t = (res[j] || '').trim(); if (t && tokensOk(prot[j].t, t)) { out[hash(s)] = restore(t, prot[j].keep); ok++; } else fail++; });
+    const digits = x => (String(x).match(/\d+/g) || []).sort().join('|'); // bản en là chuẩn so sánh của mọi ngôn ngữ (gate explain-i18n): đổi/mất số (15 → "fifteen", 8/12 → "December 8") bị loại, lần sau dịch lại
+    batch.forEach((s, j) => { const t = (res[j] || '').trim(); if (t && tokensOk(prot[j].t, t) && (lang !== 'en' || digits(prot[j].t) === digits(t))) { out[hash(s)] = restore(t, prot[j].keep); ok++; } else fail++; });
     process.stdout.write(`\r${lang} ${i}/${todo.length}`); await sleep(400);
     if (ok && ok % 200 < batch.length) fs.writeFileSync(file, JSON.stringify(out)); // lưu dần, ngắt giữa chừng không mất
   }
