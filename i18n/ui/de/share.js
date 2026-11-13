@@ -1,11 +1,15 @@
 /* UI de – share (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {
 "Bài đăng 1:1":"Beitrag 1:1",
+"Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu":"You and your friend both get +{xp} XP and 1 streak freeze when they finish their first lesson",
 "Chia sẻ":"Teilen",
 "Hôm nay mình đã học bài!":"Heute gelernt!",
 "Học từ vựng & luyện thi miễn phí":"Kostenlos: Wortschatz & Prüfungsvorbereitung",
+"Link mời đã được chép – dán gửi bạn nhé":"Invite link copied – paste it to a friend",
 "Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.":"Hol dir einen Kaffee und wiederhole ein paar Karten ☕ – dann hast du etwas zum Zeigen.",
+"Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"I'm learning English for free with Lexkite. Try a 1-minute lesson – we both get a gift! {url}",
 "Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"Ich lerne jeden Tag Englisch mit Lexkite 🔥 Kostenlos lernen auf {url}",
+"Mời bạn học cùng":"Invite a friend",
 "Não bạn đang ở chế độ nghỉ dưỡng":"Dein Gehirn ist im Urlaubsmodus",
 "Story 9:16":"Story 9:16",
 "Thẻ thành tích":"Erfolgskarte",
@@ -15,5 +19,7 @@
 "Từng bước nhỏ mỗi ngày, tiến bộ lớn mỗi tháng.":"Jeden Tag kleine Schritte, jeden Monat große Fortschritte.",
 "Xong mục tiêu hôm nay!":"Tagesziel geschafft!",
 "Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé":"Bild gespeichert – Link kopiert, füge ihn in deinen Beitrag ein",
+"🎁 Bạn được bạn bè mời! Nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎁 A friend invited you! Get +{xp} XP and 1 streak freeze",
+"🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎉 {n} of your invited friends finished their first lesson – you get +{xp} XP and 1 streak freeze",
 });
 })(typeof self !== 'undefined' ? self : this);
