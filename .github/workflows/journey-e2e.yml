@@ -86,7 +86,7 @@ jobs:
     if: ${{ (inputs.native == '1') && needs.gate.outputs.go == 'true' }}
     name: android (${{ matrix.lang }})
     needs: gate
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # ghim: ubuntu-latest đổi sang 26.04 ngày 13/11 – nghi ngờ qemu emulator chết với image mới (leg ar); dùng chung ghim với #1249
     timeout-minutes: 40
     # mỗi ngôn ngữ một emulator mới: 26/10–27/10 emulator chết ngẫu nhiên sau ~10–14' chạy liên tục (qemu biến mất, host còn 10 GB trống) → ngắn hơn + độc lập
     strategy:
@@ -144,6 +144,8 @@ jobs:
         id: emudead
         if: always()
         run: |
+          lsb_release -ds; uname -r; free -m | head -2
+          if [ -s je-android/results.json ] && grep -q 'emulator mất kết nối' je-android/results.json; then echo '--- dmesg (OOM/qemu bị kill?) ---'; sudo dmesg 2>&1 | grep -iE 'oom|killed process|qemu|segfault|out of memory' | tail -20; echo '--- hết dmesg ---'; fi
           if [ -s je-android/results.json ] && grep -q 'emulator mất kết nối' je-android/results.json; then echo "retry=1" >> "$GITHUB_OUTPUT"; echo "::warning::emulator chết giữa chừng – chạy lại 1 lần"; mkdir -p crash-1 && cp -r /tmp/android-runner/emu-crash-* crash-1/ 2>/dev/null || true; mv je-android je-android-lan1; else echo "retry=0" >> "$GITHUB_OUTPUT"; fi
       - name: Emulator + hành trình Android – lần 2 (chỉ khi máy ảo chết ở lần 1)
         if: steps.emudead.outputs.retry == '1'
