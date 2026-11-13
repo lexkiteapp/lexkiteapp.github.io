@@ -125,7 +125,8 @@ for (const [route, css] of [['write', '#essay'], ['dict', '#q'], ['home', '#gq']
 }
 if (kbRan < 2) bad.push(`[bàn phím] chỉ đo được ${kbRan}/3 ô trên bàn phím thật (cần ≥ 2: Phòng viết + tra từ)`);
 if (ran < 6 * LANGS.length) bad.push(`chỉ chạy ${ran} bước (cần ≥ ${6 * LANGS.length} = ${LANGS.length} ngôn ngữ × ≥ 6 bước) – 0 bài chạy không được tính là xanh`);
-const fatal = adb('logcat', '-d', '-v', 'brief').split('\n').filter(x => /FATAL EXCEPTION/.test(x));
+// 'FATAL EXCEPTION: UiAutomation' = tiến trình `uiautomator dump` của CHÍNH bài đo (AccessibilityCache, binder 'Bad file descriptor') chết, không phải app (13/11 en) – chỉ loại luồng đó; mọi crash khác (main, …) vẫn làm đỏ.
+const fatal = adb('logcat', '-d', '-v', 'brief').split('\n').filter(x => /FATAL EXCEPTION/.test(x) && !/FATAL EXCEPTION: UiAutomation\b/.test(x));
 if (fatal.length) bad.push('Crash: ' + fatal.slice(0, 2).join(' / '));
 fs.writeFileSync(path.join(OUT, 'results.json'), JSON.stringify({ bad, errs, ran }, null, 1));
 console.log(bad.length ? '✗ FAIL Android journey: ' + bad.length + '\n' + bad.join('\n') : '✓ PASS Android journey 1–3 × ' + LANGS.join('/'));
