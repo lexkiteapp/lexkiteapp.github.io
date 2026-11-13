@@ -11,6 +11,9 @@ const bad = [], errs = []; let nShot = 0, ran = 0;
 // Canh chừng (CI 26/10: emulator chết giữa chừng → "device not found", harness lặp kết nối lại ~40' tới khi bị huỷ): thoát đỏ ngay khi máy ảo mất hoặc quá hạn tổng.
 try { const lg = fs.openSync(path.join(OUT, 'logcat.txt'), 'w'); spawn('adb', ['logcat', '-v', 'time'], { stdio: ['ignore', lg, 'ignore'], detached: false }).unref(); } catch (e) { /* */ } // logcat tới lúc máy ảo chết
 const DEADLINE = Date.now() + (+process.env.JE_ANDROID_MAX_MIN || 25) * 60000; let offline = 0;
+// Máy ảo CI KHÔNG có Play Store (com.android.vending): plugin AppUpdate.getAppUpdateInfo từ chối "Failed to bind to the service" → Capacitor ghi console.error(Object) (13/11: gốc 'console: Object' ở j1a/j2s, có cả trước bản 1.1).
+// Chỉ bỏ qua dạng lỗi đó KHI logcat xác nhận đúng nguyên nhân; Error thật có chữ ('exception:', 'console: TypeError…') vẫn làm đỏ.
+let _noStore; const noStore = () => _noStore ??= /Sending plugin error:.*"pluginId":"AppUpdate".*Failed to bind to the service/.test(adb('logcat', '-d', '-v', 'brief'));
 const abort = why => { bad.push(why); try { fs.writeFileSync(path.join(OUT, 'host-diag.txt'), execFileSync('sh', ['-c', 'free -m; dmesg 2>/dev/null | tail -30; ps aux --sort=-rss | head -8'], { encoding: 'utf8', timeout: 10000 })); } catch (e) { /* */ } console.log('✗ ' + why); try { fs.writeFileSync(path.join(OUT, 'results.json'), JSON.stringify({ bad, errs, ran }, null, 1)); } catch (e) { /* */ } process.exit(3); };
 setInterval(() => { let st = ''; try { st = execFileSync('adb', ['get-state'], { encoding: 'utf8', timeout: 15000 }).trim(); } catch (e) { st = 'ERR'; } offline = st === 'device' ? 0 : offline + 1; if (offline >= 3) abort('emulator mất kết nối (adb get-state=' + st + ') – máy ảo chết giữa chừng'); if (Date.now() > DEADLINE) abort('quá hạn tổng ' + (+process.env.JE_ANDROID_MAX_MIN || 25) + ' phút'); }, 20000).unref?.();
 const shot = n => { try { fs.writeFileSync(path.join(OUT, `${String(++nShot).padStart(2, '0')}-${n}.png`), execFileSync('adb', ['exec-out', 'screencap', '-p'], { maxBuffer: 64 << 20, timeout: 30000 })); } catch (e) { /* bỏ qua */ } };
@@ -66,7 +69,7 @@ for (const l of LANGS) {
     const e0 = errs.length, r = await ev(`return await LKJN.${f}()`);
     if (!Array.isArray(r) && !(r && r.__err)) { bad.push(`[${l}] ${f}: kịch bản không trả kết quả (trang tải lại/rời app giữa chừng?)`); console.log(`${l} ${f}: ✗ không có kết quả`); await reload(); continue; }
     if (r && r.__err) bad.push(`[${l}] ${f}: kịch bản dừng ${r.__err}`); else for (const m of r || []) bad.push(`[${l}] ${m}`);
-    for (const e of errs.slice(e0)) if (!/ResizeObserver|net::ERR|Failed to load resource/.test(e)) bad.push(`[${l}] ${f} ${e}`);
+    for (const e of errs.slice(e0)) if (!/ResizeObserver|net::ERR|Failed to load resource/.test(e) && !(e === 'console: Object' && noStore())) bad.push(`[${l}] ${f} ${e}`);
     ran++; shot(`${l}-${f}`); console.log(`${l} ${f}: ${r && !r.__err && !r.length ? '✓' : '✗ ' + JSON.stringify(r).slice(0, 300)}`);
   }
 }
