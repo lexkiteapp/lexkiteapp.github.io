@@ -49,8 +49,13 @@ const clearAnr = async () => {
   for (let k = 0; k < 3; k++) {
     adb('shell', 'uiautomator', 'dump', '/sdcard/anr.xml'); const x = adb('shell', 'cat', '/sdcard/anr.xml');
     if (!/isn.t responding|không phản hồi/i.test(x)) return;
-    const b = /text="(?:Wait|Đợi|Chờ)"[^>]*bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/.exec(x);
-    console.log('ANR hệ thống → bấm Wait'); if (b) adb('shell', 'input', 'tap', String((+b[1] + +b[3]) >> 1), String((+b[2] + +b[4]) >> 1)); await sleep(1500);
+    // Hộp thoại ANR của CHÍNH app (Lexkite) = lỗi thật → ghi đỏ rồi bấm Wait; ANR của ứng dụng máy ảo (Pixel Launcher, Google app…: 13/11 'Pixel Launcher isn't responding' che WebView
+    // mãi dù bấm Wait, swiftshader chậm) không phải của app → bấm "Close app" để hộp thoại biến mất thật sự.
+    const who = (/text="([^"]*?)(?: isn.t responding| không phản hồi)[^"]*"/i.exec(x) || [])[1] || '?', ours = /lexkite/i.test(who);
+    const b = (ours ? /text="(?:Wait|Đợi|Chờ)"/ : /text="(?:Close app|Đóng ứng dụng)"/);
+    const m = new RegExp(b.source + '[^>]*bounds="\\[(\\d+),(\\d+)\\]\\[(\\d+),(\\d+)\\]"', 'i').exec(x);
+    if (ours && !bad.some(v => v.startsWith('ANR của app'))) bad.push('ANR của app: ' + who + ' không phản hồi');
+    console.log(`ANR hệ thống (${who}${ours ? ' = APP' : ''}) → bấm ${ours ? 'Wait' : 'Close app'}`); if (m) adb('shell', 'input', 'tap', String((+m[1] + +m[3]) >> 1), String((+m[2] + +m[4]) >> 1)); await sleep(1500);
   }
 };
 // App ĐÃ khởi động = bộ định tuyến đã vẽ ≥ 1 lượt (App.routeToken() > 0). KHÔNG dựa vào "#view có con": index.html vẽ sẵn trang chào (#lkHero) trước khi app chạy

@@ -127,6 +127,8 @@ jobs:
           cores: 2
           disable-animations: true
           emulator-boot-timeout: 420
+          # leg ar*: emulator (swiftshader_indirect) chết lặp lại ngay khi app vẽ chữ Ả Rập (13/11, kể cả leg ar-kbd không chạy hành trình) → thử GPU phần mềm trong khách `-gpu off`
+          emulator-options: ${{ startsWith(matrix.lang, 'ar') && '-no-window -gpu off -no-snapshot -noaudio -no-boot-anim' || '-no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim' }}
           script: |
             adb wait-for-device
             for i in 1 2 3; do adb install -r lexkite.apk && break; echo "install lần $i lỗi"; sleep 15; done
@@ -153,6 +155,8 @@ jobs:
           cores: 2
           disable-animations: true
           emulator-boot-timeout: 420
+          # leg ar*: emulator (swiftshader_indirect) chết lặp lại ngay khi app vẽ chữ Ả Rập (13/11, kể cả leg ar-kbd không chạy hành trình) → thử GPU phần mềm trong khách `-gpu off`
+          emulator-options: ${{ startsWith(matrix.lang, 'ar') && '-no-window -gpu off -no-snapshot -noaudio -no-boot-anim' || '-no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim' }}
           script: |
             adb wait-for-device
             for i in 1 2 3; do adb install -r lexkite.apk && break; echo "install lần $i lỗi"; sleep 15; done
