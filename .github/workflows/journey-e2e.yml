@@ -176,7 +176,11 @@ jobs:
         with: { name: 'journey-android-${{ matrix.lang }}', path: je-android/, retention-days: 7 }
       - name: Kết luận
         if: always()
+        # tạm-không-chặn-tới: 2026-11-20 (issue #1250, owner duyệt 13/11) – CHỈ leg ar-1/ar-2: emulator qemu chết giữa chừng với chữ Ả Rập (cả ubuntu-24.04, dmesg trống; ar-kbd/en/vi/iOS xanh).
+        # scripts/test/ci-policy.mjs báo ĐỎ sau ngày này nếu dòng marker còn ở đây. ar-kbd, en, vi vẫn chặn gate.
+        continue-on-error: ${{ matrix.lang == 'ar-1' || matrix.lang == 'ar-2' }}
         run: |
+          if [ "${{ matrix.lang }}" = ar-1 ] || [ "${{ matrix.lang }}" = ar-2 ]; then echo "::warning::leg ${{ matrix.lang }} TẠM không chặn gate tới 20/11/2026 (issue #1250, owner duyệt 13/11)"; fi
           rc=$(cat android-rc 2>/dev/null || echo 'chưa chạy (emulator không lên / bước bị treo)')
           echo "android rc=$rc"
           test "$rc" = 0
