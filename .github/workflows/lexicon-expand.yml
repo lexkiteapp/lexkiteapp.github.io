@@ -172,8 +172,12 @@ jobs:
           for f in $CH; do mkdir -p "$O/$(dirname "$f")"; [ -f "$f" ] && cp "$f" "$O/$f"; done
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
           for i in 1 2 3 4 5; do
-            git fetch -q origin main && git reset -q --hard origin/main && node scripts/lexicon/expand/save-merge.mjs "$BASE" "$O" $CH && git add -A -- $CH
+            git fetch -q origin main && git reset -q --hard origin/main
+            # 13/11 máy gác (main đỏ do commit bot [skip ci] e122220be): commit dữ liệu không qua CI → chạy test kho từ TRƯỚC khi đẩy; chỉ chặn khi main đang xanh mà bản gộp làm nó đỏ
+            node scripts/test/lexicon-expand.mjs >/dev/null 2>&1 && MAIN_OK=1 || MAIN_OK=0
+            node scripts/lexicon/expand/save-merge.mjs "$BASE" "$O" $CH && git add -A -- $CH
             git diff --cached --quiet && { echo 'đã có trên main'; exit 0; }
+            if [ "$MAIN_OK" = 1 ] && ! node scripts/test/lexicon-expand.mjs >"$RUNNER_TEMP/lx-test.log" 2>&1; then grep -v '^✓' "$RUNNER_TEMP/lx-test.log" | head -20; echo "::error::bản gộp làm test lexicon-expand đỏ – KHÔNG đẩy (commit [skip ci] không qua CI)"; exit 1; fi
             git commit -qm "Mở rộng kho từ: lô chờ soát (lexicon-expand) [CF-Pages-Skip] [skip ci]" && git push -q origin HEAD:main && exit 0
             sleep $((i * 7)); done; exit 1
       - uses: actions/upload-artifact@v4
