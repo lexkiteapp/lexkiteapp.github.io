@@ -2,10 +2,10 @@
 
 Cách đo, nguồn, luật sàn: `docs/WORLD-SCORECARD.md` · trục & mốc Duolingo: `content/pipeline/world.axes.json` · sàn chỉ tăng: `content/pipeline/world.budget.json`.
 
-**Tổng Lexkite: 73.1 / 100** (mọi trục đo được) · **Trên 10 trục chung: Lexkite 75.5 vs Duolingo 29.9**
+**Tổng Lexkite: 74.2 / 100** (mọi trục đo được) · **Trên 10 trục chung: Lexkite 77.6 vs Duolingo 29.9**
 
 - Lõi (5 trục chung): Lexkite 89 vs Duolingo 63
-- Lợi thế khác biệt (5 trục chung): Lexkite 65.4 vs Duolingo 5
+- Lợi thế khác biệt (5 trục chung): Lexkite 69 vs Duolingo 5
 
 | Trục | Nhóm | Lexkite | Duolingo | Mục tiêu | Khoảng cách | Sàn | Đo |
 |---|---|---|---|---|---|---|---|
@@ -14,16 +14,16 @@ Cách đo, nguồn, luật sàn: `docs/WORLD-SCORECARD.md` · trục & mốc Duo
 | Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | lõi | **77.8** | – | 100 | 22.2 | 72.8 | 5.8 s · 9 chạm (probe 2026-11-13) |
 | Số chạm từ /app/ tới bài hôm nay (người quay lại) | lõi | **50** | – | 100 | 50 | 50 | 2 chạm |
 | Vòng thói quen: chuỗi · nhắc học · mục tiêu ngày · đóng băng chuỗi | lõi | **100** | 100 | 100 | 0 | 100 | ✓chuỗi ✓đóng băng ✓mục tiêu ngày ✓nhắc học |
-| Cá nhân hoá: SRS theo người (FSRS) + lỗi theo tiếng mẹ đẻ | lõi | **53.3** | 50* | 100 | 46.7 | 53.3 | ✓ FSRS theo người · lỗi L1 1/15 ngôn ngữ |
+| Cá nhân hoá: SRS theo người (FSRS) + lỗi theo tiếng mẹ đẻ | lõi | **53.3** | 50* | 100 | 46.7 | 53.3 | ✓ FSRS theo người · lỗi L1 1/15 ngôn ngữ (≥100 mục) |
 | Học khi mất mạng (SW shell · điều hướng dự phòng · gói từ offline) | lõi | **100** | 33* | 100 | 0 | 100 | ✓shell ✓điều hướng dự phòng ✓gói từ offline |
 | Cỡ tải khung app (KB gz; 100 khi ≤ 300, 0 ở trần 374) | lõi | **4.3** | – | 100 | 95.7 | 10.7 | 370.8 / 374.0 KB gz (đích 300) |
 | Tốc độ trang chủ di động (Lighthouse performance) | lõi | **98** | 35 | 98 | 0 | 97 | trang chủ di động: LCP 1.8 s, CLS 0, TBT 0 ms (2026-11-13) |
 | Truy cập (Lighthouse accessibility trang chủ + app) | lõi | **99** | 82 | 100 | 1 | 99 | Lighthouse trang chủ + /app/ (axe/a11y tĩnh chạy trong npm test) |
 | Màn theo Lexkite Kit/Stitch (stitch-coverage) | lõi | **24.6** | – | 100 | 75.4 | 24.6 | 17 Stitch / 69 màn (ref 49, tay 0) |
 | Chất lượng 15 ngôn ngữ giao diện (i18n-qa --strict) | lõi | **100** | – | 100 | 0 | 100 | 0 lỗi, 14 ngôn ngữ ngoài vi |
-| Cổng QA máy xanh trên main (visual-qa, new-ui-qa, mobile-qa, journey-e2e, npm test) | lõi | **77.8** | – | 100 | 22.2 | 68.9 | ✓npm-test ✓visual-qa ∅new-ui-qa ✓mobile-qa ✗journey-e2e ✓stitch-quality-qc ✓ext-e2e ✓native-auth-e2e ✓qa-bot · mobile-qa LCP 8894 ms, CLS 0.0757, INP 144 ms |
-| Giải thích "vì sao" + lỗi theo tiếng mẹ đẻ (15 ngôn ngữ) | **khác biệt** | **6.7** | 20* | 100 | 93.3 | 6.7 | 1/15 ngôn ngữ có "vì sao" (en 321; đích 200/ngôn ngữ) |
-| Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | **khác biệt** | **55** | 0 | 100 | 45 | 55 | IELTS 10 · TOEIC 7 · TOEFL 4 · Cambridge 1 đề (đích 10/kỳ) |
+| Cổng QA máy xanh trên main (visual-qa, new-ui-qa, mobile-qa, journey-e2e, npm test) | lõi | **77.8** | – | 100 | 22.2 | 68.9 | ✓npm-test ✓visual-qa ∅new-ui-qa ✓mobile-qa ✗journey-e2e ✓stitch-quality-qc ✓ext-e2e ✓native-auth-e2e ✓qa-bot · mobile-qa LCP 6441 ms, CLS 0.0757, INP 192 ms |
+| Giải thích "vì sao" + lỗi theo tiếng mẹ đẻ (15 ngôn ngữ) | **khác biệt** | **13.5** | 20* | 100 | 86.5 | 6.7 | 1/15 ngôn ngữ đạt đích; có "vì sao" (en 321, ar 7, de 11, es 12, fr 11, hi 8, id 85, ja 8, ko 7, pt 10, ru 8, th 9, tr 7, vi 12, zh 9; đích 200/ngôn ngữ) |
+| Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | **khác biệt** | **62.5** | 0 | 100 | 37.5 | 55 | IELTS 10 · TOEIC 7 · TOEFL 7 · Cambridge 1 đề (đích 10/kỳ) |
 | Tra từ ngay trong trình duyệt (add-on: chọn chữ → nghĩa) | **khác biệt** | **100** | 0* | 100 | 0 | 100 | ✓ chọn chữ → nghĩa · ✓ test ext-selection |
 | AI trên máy miễn phí (Chrome built-in AI / Gemini Nano, không gửi dữ liệu) | **khác biệt** | **100** | 0 | 100 | 0 | 100 | 7/7 API trình duyệt · ✓ plugin app gốc (Gemini Nano / Foundation Models) |
 | Không tim/không năng lượng – không chặn học | **khác biệt** | **100** | 0 | 100 | 0 | 100 | 0 cổng tim/năng lượng trong web/js |
@@ -34,8 +34,8 @@ Cách đo, nguồn, luật sàn: `docs/WORLD-SCORECARD.md` · trục & mốc Duo
 
 | Trục | Lexkite | Duolingo | Thắng? | Nguồn Duolingo (kiểm 2026-11-02) |
 |---|---|---|---|---|
-| Giải thích "vì sao" + lỗi theo tiếng mẹ đẻ (15 ngôn ngữ) | 6.7 | 20 | ❌ chưa | Explain My Answer: chỉ một số cặp khoá (nguồn mâu thuẫn), không phải 15 tiếng mẹ đẻ cho người học tiếng Anh – https://www.streetinsider.com/Investing/Duolingo+makes+Explain+My+Answer+feature+free+for+all+users/25788462.html |
-| Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | 55 | 0 | ✅ thắng | không luyện các kỳ này; có kỳ thi riêng Duolingo English Test – https://englishtest.duolingo.com/ |
+| Giải thích "vì sao" + lỗi theo tiếng mẹ đẻ (15 ngôn ngữ) | 13.5 | 20 | ❌ chưa | Explain My Answer: chỉ một số cặp khoá (nguồn mâu thuẫn), không phải 15 tiếng mẹ đẻ cho người học tiếng Anh – https://www.streetinsider.com/Investing/Duolingo+makes+Explain+My+Answer+feature+free+for+all+users/25788462.html |
+| Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | 62.5 | 0 | ✅ thắng | không luyện các kỳ này; có kỳ thi riêng Duolingo English Test – https://englishtest.duolingo.com/ |
 | Tra từ ngay trong trình duyệt (add-on: chọn chữ → nghĩa) | 100 | 0 | ✅ thắng | chưa thấy add-on tra từ chính thức (kiểm tay lại Chrome Web Store) |
 | AI trên máy miễn phí (Chrome built-in AI / Gemini Nano, không gửi dữ liệu) | 100 | 0 | ✅ thắng | AI = GPT-4 trên đám mây, gói Max trả phí – https://www.engadget.com/duolingos-max-plan-offers-ai-tutoring-for-30-per-month-203625446.html |
 | Không tim/không năng lượng – không chặn học | 100 | 0 | ✅ thắng | Energy (7/2025) chặn người dùng miễn phí khi cạn – https://blog.duolingo.com/duolingo-energy/ |
@@ -44,13 +44,13 @@ Cách đo, nguồn, luật sàn: `docs/WORLD-SCORECARD.md` · trục & mốc Duo
 
 | # | Trục | Lexkite → mục tiêu | Tác động | Chi phí | Ưu tiên | Hiện trạng |
 |---|---|---|---|---|---|---|
-| 1 | Giải thích "vì sao" + lỗi theo tiếng mẹ đẻ (15 ngôn ngữ) | 6.7 → 100 | 5 | 3 | 155.5 | 1/15 ngôn ngữ có "vì sao" (en 321; đích 200/ngôn ngữ) |
+| 1 | Giải thích "vì sao" + lỗi theo tiếng mẹ đẻ (15 ngôn ngữ) | 13.5 → 100 | 5 | 3 | 144.2 | 1/15 ngôn ngữ đạt đích; có "vì sao" (en 321, ar 7, de 11, es 12, fr 11, hi 8, id 85, ja 8, ko 7, pt 10, ru 8, th 9, tr 7, vi 12, zh 9; đích 200/ngôn ngữ) |
 | 2 | Số chạm từ /app/ tới bài hôm nay (người quay lại) | 50 → 100 | 4 | 2 | 100 | 2 chạm |
 | 3 | Cỡ tải khung app (KB gz; 100 khi ≤ 300, 0 ở trần 374) | 4.3 → 100 | 3 | 3 | 95.7 | 370.8 / 374.0 KB gz (đích 300) |
-| 4 | Cá nhân hoá: SRS theo người (FSRS) + lỗi theo tiếng mẹ đẻ | 53.3 → 100 | 5 | 3 | 77.8 | ✓ FSRS theo người · lỗi L1 1/15 ngôn ngữ |
+| 4 | Cá nhân hoá: SRS theo người (FSRS) + lỗi theo tiếng mẹ đẻ | 53.3 → 100 | 5 | 3 | 77.8 | ✓ FSRS theo người · lỗi L1 1/15 ngôn ngữ (≥100 mục) |
 | 5 | Màn theo Lexkite Kit/Stitch (stitch-coverage) | 24.6 → 100 | 3 | 4 | 56.6 | 17 Stitch / 69 màn (ref 49, tay 0) |
-| 6 | Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | 55 → 100 | 5 | 4 | 56.3 | IELTS 10 · TOEIC 7 · TOEFL 4 · Cambridge 1 đề (đích 10/kỳ) |
-| 7 | Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | 77.8 → 100 | 5 | 2 | 55.5 | 5.8 s · 9 chạm (probe 2026-11-13) |
-| 8 | Cổng QA máy xanh trên main (visual-qa, new-ui-qa, mobile-qa, journey-e2e, npm test) | 77.8 → 100 | 4 | 2 | 44.4 | ✓npm-test ✓visual-qa ∅new-ui-qa ✓mobile-qa ✗journey-e2e ✓stitch-quality-qc ✓ext-e2e ✓native-auth-e2e ✓qa-bot · mobile-qa LCP 8894 ms, CLS 0.0757, INP 144 ms |
+| 6 | Tới câu đúng đầu tiên từ màn đầu (giây máy, số chạm) | 77.8 → 100 | 5 | 2 | 55.5 | 5.8 s · 9 chạm (probe 2026-11-13) |
+| 7 | Luyện thi thật IELTS · TOEIC · TOEFL · Cambridge (đề chạy được, mục tiêu 10/kỳ) | 62.5 → 100 | 5 | 4 | 46.9 | IELTS 10 · TOEIC 7 · TOEFL 7 · Cambridge 1 đề (đích 10/kỳ) |
+| 8 | Cổng QA máy xanh trên main (visual-qa, new-ui-qa, mobile-qa, journey-e2e, npm test) | 77.8 → 100 | 4 | 2 | 44.4 | ✓npm-test ✓visual-qa ∅new-ui-qa ✓mobile-qa ✗journey-e2e ✓stitch-quality-qc ✓ext-e2e ✓native-auth-e2e ✓qa-bot · mobile-qa LCP 6441 ms, CLS 0.0757, INP 192 ms |
 | 9 | Độ phủ nội dung (content:score) | 66.2 → 90 | 5 | 4 | 29.8 | content/pipeline/SCORE.md |
 | 10 | Truy cập (Lighthouse accessibility trang chủ + app) | 99 → 100 | 3 | 1 | 3 | Lighthouse trang chủ + /app/ (axe/a11y tĩnh chạy trong npm test) |

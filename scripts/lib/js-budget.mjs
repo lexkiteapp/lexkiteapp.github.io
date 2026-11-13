@@ -67,6 +67,9 @@ export function langPacks(root = '.') {
   // gốc <id>.js (en) + các <id>.<lang>.js của MÌNH → thuộc gói ngôn ngữ đó, không phải nền. Đếm cả 14 ngôn ngữ như nền là tính 13 bản dịch không ai tải.
   const S = path.join(root, 'web/js/speak/s');
   if (fs.existsSync(S)) for (const e of fs.readdirSync(S)) { const m = e.match(/^[\w-]+\.([a-z]{2})\.js$/); if (m && m[1] !== 'en') packs[m[1]] = (packs[m[1]] || 0) + fs.statSync(path.join(S, e)).size; }
+  // 13/11: ghi chú lỗi tiếng mẹ đẻ web/js/grammar/l1/<lang>.js tải lười theo giao diện (grammar.js loadL1: chỉ file của MÌNH) → thuộc gói ngôn ngữ đó, không phải nền.
+  const L = path.join(root, 'web/js/grammar/l1');
+  if (fs.existsSync(L)) for (const e of fs.readdirSync(L)) { const m = e.match(/^([a-z]{2})\.js$/); if (m && m[1] !== 'en') packs[m[1]] = (packs[m[1]] || 0) + fs.statSync(path.join(L, e)).size; }
   return packs;
 }
 /** Thước mới: total (đã trừ admin + nguồn dựng) − Σ gói ngôn ngữ + gói LỚN NHẤT (người học xấu nhất, không phải trung bình). */
