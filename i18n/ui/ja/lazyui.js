@@ -476,7 +476,7 @@
 "Nhập sao lưu":"バックアップを読み込む",
 "Nhập từ tiếng Anh, ví dụ: sustainable":"英語の単語を入力します。例:持続可能な",
 "Nhập từ tài liệu":"ドキュメントからインポートする",
-"Nhắc học qua email":"Email reminders",
+"Nhắc học qua email":"電子メールによるリマインダー",
 "Nhắc “thời điểm vàng”":"「ゴールデンタイム」通知",
 "Nhẹ nhàng":"ゆったり",
 "Nhờ hàng xóm trông nhà khi đi du lịch":"旅行中の留守番を隣人に依頼",
