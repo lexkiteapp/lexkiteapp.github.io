@@ -241,6 +241,7 @@
   "lesson.again": "Ещё урок",
   "lesson.map": "Карта уроков",
   "lesson.mistakes": "Журнал ошибок",
+  "lesson.streakN": "{n}дневная серия",
   "lesson.share": "Я только что закончил урок Лекскита: {a}% правильно, +{x} опыта",
   "lesson.copied": "Скопировано",
   "lesson.story.lookup": "Ищем «{w}»…",

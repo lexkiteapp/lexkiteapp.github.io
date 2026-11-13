@@ -245,6 +245,7 @@ enum class L10nKey(val id: String) {
     lessonAgain("lesson.again"),
     lessonMap("lesson.map"),
     lessonMistakes("lesson.mistakes"),
+    lessonStreakN("lesson.streakN"),
     lessonShare("lesson.share"),
     lessonCopied("lesson.copied"),
     lessonStoryLookup("lesson.story.lookup"),
