@@ -555,6 +555,7 @@
   { "id": "phrase-book", "paths": ["web/cpack/framework", "content/framework/functions.json"], "owner": "claude", "gen": true, "checks": ["schema"], "delegate": ["test/phrasebook.mjs", "test/content-factory.mjs"], "doc": "docs/CONTENT-FACTORY.md" }
  ],
  "skip": {
+  "web/cpack/mail-app": "MÃ email nhắc học (mail.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/mail-digest.mjs",
   "web/cpack/ret-app": "MÃ giao diện thẻ trang chủ quay lại + tổng kết tuần (cards.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/retention.mjs",
   "web/cpack/es-app": "MÃ giao diện bài phát âm TBN (pron-ui.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu ở web/cpack/es (nguồn px), test scripts/test/es-pron.mjs",
   "web/cpack/play-app": "MÃ giao diện Thử thách 60 giây (play-blitz.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/play-blitz.mjs",
