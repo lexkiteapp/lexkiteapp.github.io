@@ -306,6 +306,7 @@
 "Không dùng viết tắt – đúng văn phong trang trọng.":"Pas de contractions – convenablement formelles.",
 "Không dịch được câu này.":"Impossible de traduire cette phrase.",
 "Không hỗ trợ thông báo":"Notifications non prises en charge",
+"Không lưu được – thử lại sau":"Enregistrement impossible – réessayez plus tard",
 "Không nghe rõ – thử lại hoặc bỏ qua.":"Pas bien entendu – réessayez ou passez.",
 "Không nêu ý kiến cá nhân (I think…).":"Ne donnez pas d’opinions personnelles (I think…).",
 "Không sao – FSRS tính đến thời gian thực tế đã trôi qua. Từ bạn vẫn nhớ sau thời gian dài sẽ được giãn lịch xa hơn; hãy ôn phần “Sắp quên” trước, giới hạn phiên ôn để không bị ngợp.":"Pas de problème – FSRS prend en compte le temps réel écoulé. Les mots dont vous vous souvenez encore après un long intervalle s'espacent davantage ; Révisez d'abord vos mots « Fading » et limitez votre session afin de ne pas vous laisser submerger.",

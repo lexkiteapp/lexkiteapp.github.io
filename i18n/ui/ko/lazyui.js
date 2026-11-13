@@ -306,6 +306,7 @@
 "Không dùng viết tắt – đúng văn phong trang trọng.":"수축 없음 – 적절하게 형식적입니다.",
 "Không dịch được câu này.":"이 문장을 번역할 수 없습니다.",
 "Không hỗ trợ thông báo":"알림 미지원",
+"Không lưu được – thử lại sau":"저장하지 못했어요 – 잠시 후 다시 시도하세요",
 "Không nghe rõ – thử lại hoặc bỏ qua.":"잘 들리지 않았습니다 – 다시 시도하거나 건너뛰세요.",
 "Không nêu ý kiến cá nhân (I think…).":"개인적인 의견을 제시하지 마세요(I think…).",
 "Không sao – FSRS tính đến thời gian thực tế đã trôi qua. Từ bạn vẫn nhớ sau thời gian dài sẽ được giãn lịch xa hơn; hãy ôn phần “Sắp quên” trước, giới hạn phiên ôn để không bị ngợp.":"문제 없습니다. FSRS는 실제로 경과한 시간을 계산합니다. 오랜 공백 후에도 여전히 기억하는 단어는 더 멀리 떨어져 있습니다. 먼저 \"페이딩\" 단어를 검토하고 압도당하지 않도록 세션을 제한하세요.",

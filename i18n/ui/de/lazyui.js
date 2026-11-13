@@ -306,6 +306,7 @@
 "Không dùng viết tắt – đúng văn phong trang trọng.":"Keine Kontraktionen – angemessen formell.",
 "Không dịch được câu này.":"Dieser Satz konnte nicht übersetzt werden.",
 "Không hỗ trợ thông báo":"Benachrichtigungen nicht unterstützt",
+"Không lưu được – thử lại sau":"Speichern fehlgeschlagen – bitte später erneut versuchen",
 "Không nghe rõ – thử lại hoặc bỏ qua.":"Nicht deutlich gehört – versuche es noch einmal oder überspringe.",
 "Không nêu ý kiến cá nhân (I think…).":"Geben Sie keine persönlichen Meinungen ab (I think…).",
 "Không sao – FSRS tính đến thời gian thực tế đã trôi qua. Từ bạn vẫn nhớ sau thời gian dài sẽ được giãn lịch xa hơn; hãy ôn phần “Sắp quên” trước, giới hạn phiên ôn để không bị ngợp.":"Kein Problem – FSRS berücksichtigt die tatsächlich verstrichene Zeit. Wörter, an die Sie sich nach einer langen Pause noch erinnern, werden weiter entfernt; Überprüfen Sie zuerst Ihre „verblassenden“ Wörter und schließen Sie Ihre Sitzung ab, damit Sie nicht überfordert werden.",

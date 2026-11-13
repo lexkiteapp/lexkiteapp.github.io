@@ -116,16 +116,16 @@
       // radiogroup đúng chuẩn: chỉ thẻ đang chọn nằm trong thứ tự Tab (roving tabindex), mũi tên/Enter/Space chọn, vẽ lại xong trả tiêu điểm về thẻ đang chọn
       const radios = $$('[data-lang]'), pickLang = id => { pick.tl = id; pick.said = 'lang'; draw(); const r = view.querySelector('[data-lang][aria-checked=true]'); if (r) r.focus(); };
       radios.forEach((c, i) => { c.tabIndex = c.getAttribute('aria-checked') === 'true' ? 0 : -1;
-        c.onclick = () => { if (c.dataset.lang !== (pick.tl || Target.cur())) pickLang(c.dataset.lang); };
+        c.onclick = () => { if (!busy && c.dataset.lang !== (pick.tl || Target.cur())) pickLang(c.dataset.lang); };
         c.onkeydown = ev => { const d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[ev.key]; if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); c.click(); }
-          else if (d) { ev.preventDefault(); const o = radios[(i + d + radios.length) % radios.length]; if (o !== c) pickLang(o.dataset.lang); } }; });
+          else if (d && !busy) { ev.preventDefault(); const o = radios[(i + d + radios.length) % radios.length]; if (o !== c) pickLang(o.dataset.lang); } }; });
       if (STEPS[n] === 'lang' && nx) {
         const next = nx.onclick;
         nx.onclick = async () => { const was = Target.cur(), done = state.settings.onboarded, tl = pick.tl && Target.avail().includes(pick.tl) ? pick.tl : was, home = Target.table(tl).home; // cờ tắt giữa chừng → ở ngôn ngữ cũ
           if (!home) { Target.set(tl); return next(); } nx.disabled = true;
           const S = state.settings, old = { pace: S.pace, dailyGoal: S.dailyGoal, dailyNew: S.dailyNew }; busy = true;
           try { S.pace = S.pace || 20; S.dailyGoal = S.dailyGoal || S.pace; S.dailyNew = S.dailyNew || NEW_OF[S.pace] || NEW_OF[20]; // chỉ điền mặc định khi thiếu
-            await D.saveSettings(); Target.set(tl); await D.finish(true, home); } catch (e) { Target.set(was); Object.assign(S, old); S.onboarded = done; nx.disabled = false; g.UI && UI.toast(t('Không lưu được – thử lại sau')); } finally { busy = false; } }; // lỗi → trả ngôn ngữ + mặc định cũ, ở lại bước
+            Target.set(tl); await D.finish(true, home); } catch (e) { Target.set(was); Object.assign(S, old); S.onboarded = done; nx.disabled = false; savePick(pick); g.UI && UI.toast(t('Không lưu được – thử lại sau')); } finally { busy = false; } }; // lỗi → trả ngôn ngữ + mặc định cũ, ở lại bước
       }
       const acct = $('#setupIn'); if (acct) acct.onclick = e => { e.stopPropagation(); D.login(draw); }; // tài khoản trống: ở lại đúng bước, vẽ lại để ẩn liên kết đăng nhập
       if (TK()) TK().bindSetup(view, pick, id => { TR_ID = id; pick.said = 'goal'; setExam(pick.exam); }, () => { pick.said = 'level'; draw(); });
@@ -143,7 +143,7 @@
         await D.finish(true, to); // Ngày 1 hoặc lời mời – chưa cần tài khoản
       };
     };
-    live = i => { if (!view.querySelector('#onbBack')) return false; if (STEPS[i] && i !== pick.step) { pick.step = i; pick.said = ''; } draw(); focusQ(); return true; };
+    live = i => { if (busy) return true; if (!view.querySelector('#onbBack')) return false; if (STEPS[i] && i !== pick.step) { pick.step = i; pick.said = ''; } draw(); focusQ(); return true; };
     setExam(pick.exam);
   }
   // Back/Tiến/Esc khi đang trong thiết lập: vẽ lại đúng bước. false = màn thiết lập không còn trên trang → app.js chạy lại từ đầu

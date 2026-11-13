@@ -306,6 +306,7 @@
 "Không dùng viết tắt – đúng văn phong trang trọng.":"短縮語はありません – 適切に形式的です。",
 "Không dịch được câu này.":"この文は翻訳できませんでした。",
 "Không hỗ trợ thông báo":"通知に非対応",
+"Không lưu được – thử lại sau":"保存できませんでした – 後でもう一度お試しください",
 "Không nghe rõ – thử lại hoặc bỏ qua.":"はっきり聞き取れませんでした – もう一度試すかスキップしてください。",
 "Không nêu ý kiến cá nhân (I think…).":"個人的な意見は述べないでください (I think…)。",
 "Không sao – FSRS tính đến thời gian thực tế đã trôi qua. Từ bạn vẫn nhớ sau thời gian dài sẽ được giãn lịch xa hơn; hãy ôn phần “Sắp quên” trước, giới hạn phiên ôn để không bị ngợp.":"問題ありません。FSRS は実際の経過時間を考慮します。長い時間が経ってもまだ覚えている単語は、さらに間隔が空いてしまいます。最初に「消えゆく」単語を見直して、圧倒されないようにセッションを終了します。",

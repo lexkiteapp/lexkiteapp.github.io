@@ -306,6 +306,7 @@
 "Không dùng viết tắt – đúng văn phong trang trọng.":"لا توجد تقلصات - رسمية بشكل مناسب.",
 "Không dịch được câu này.":"لم أستطع ترجمة هذه الجملة.",
 "Không hỗ trợ thông báo":"الإشعارات غير مدعومة",
+"Không lưu được – thử lại sau":"تعذّر الحفظ – حاول لاحقًا",
 "Không nghe rõ – thử lại hoặc bỏ qua.":"لم يتم التقاط الصوت بوضوح – حاول مجددًا أو تخطَّ.",
 "Không nêu ý kiến cá nhân (I think…).":"لا تبدي آراء شخصية (I think…).",
 "Không sao – FSRS tính đến thời gian thực tế đã trôi qua. Từ bạn vẫn nhớ sau thời gian dài sẽ được giãn lịch xa hơn; hãy ôn phần “Sắp quên” trước, giới hạn phiên ôn để không bị ngợp.":"لا توجد مشكلة – يقوم FSRS بحساب الوقت الفعلي الذي انقضى. الكلمات التي لا تزال تتذكرها بعد فجوة طويلة تصبح متباعدة أكثر؛ قم بمراجعة كلمات \"التلاشي\" أولاً ثم قم بتغطية جلستك حتى لا تشعر بالإرهاق.",

@@ -306,6 +306,7 @@
 "Không dùng viết tắt – đúng văn phong trang trọng.":"Tidak ada kontraksi – cukup formal.",
 "Không dịch được câu này.":"Tidak dapat menerjemahkan kalimat ini.",
 "Không hỗ trợ thông báo":"Notifikasi tidak didukung",
+"Không lưu được – thử lại sau":"Gagal menyimpan – coba lagi nanti",
 "Không nghe rõ – thử lại hoặc bỏ qua.":"Kurang jelas terdengar – coba lagi atau lewati.",
 "Không nêu ý kiến cá nhân (I think…).":"Jangan memberikan pendapat pribadi (I think…).",
 "Không sao – FSRS tính đến thời gian thực tế đã trôi qua. Từ bạn vẫn nhớ sau thời gian dài sẽ được giãn lịch xa hơn; hãy ôn phần “Sắp quên” trước, giới hạn phiên ôn để không bị ngợp.":"Tidak masalah – FSRS memperhitungkan waktu sebenarnya yang telah berlalu. Kata-kata yang masih Anda ingat setelah jeda yang panjang akan diberi jarak lebih jauh; tinjau kata-kata \"Memudar\" Anda terlebih dahulu dan batasi sesi Anda sehingga Anda tidak kewalahan.",

@@ -306,6 +306,7 @@
 "Không dùng viết tắt – đúng văn phong trang trọng.":"Kasılma yok - uygun şekilde resmi.",
 "Không dịch được câu này.":"Bu cümle tercüme edilemedi.",
 "Không hỗ trợ thông báo":"Bildirimler desteklenmiyor",
+"Không lưu được – thử lại sau":"Kaydedilemedi – daha sonra tekrar dene",
 "Không nghe rõ – thử lại hoặc bỏ qua.":"Net anlaşılamadı – tekrar deneyin veya atlayın.",
 "Không nêu ý kiến cá nhân (I think…).":"Kişisel görüş belirtmeyin (I think…).",
 "Không sao – FSRS tính đến thời gian thực tế đã trôi qua. Từ bạn vẫn nhớ sau thời gian dài sẽ được giãn lịch xa hơn; hãy ôn phần “Sắp quên” trước, giới hạn phiên ôn để không bị ngợp.":"Sorun değil – FSRS, geçen gerçek süreyi hesaba katar. Uzun bir aradan sonra hala hatırladığınız kelimeler daha da aralıklı hale geliyor; Önce \"Solup giden\" kelimelerinizi gözden geçirin ve bunalmamak için oturumunuzu sınırlayın.",

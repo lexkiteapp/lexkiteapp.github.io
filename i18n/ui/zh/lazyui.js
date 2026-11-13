@@ -306,6 +306,7 @@
 "Không dùng viết tắt – đúng văn phong trang trọng.":"没有缩写——适当正式。",
 "Không dịch được câu này.":"无法翻译这句话。",
 "Không hỗ trợ thông báo":"不支持通知",
+"Không lưu được – thử lại sau":"保存失败 – 请稍后再试",
 "Không nghe rõ – thử lại hoặc bỏ qua.":"未能听清 – 请重试或跳过。",
 "Không nêu ý kiến cá nhân (I think…).":"不要发表个人意见(I think…)。",
 "Không sao – FSRS tính đến thời gian thực tế đã trôi qua. Từ bạn vẫn nhớ sau thời gian dài sẽ được giãn lịch xa hơn; hãy ôn phần “Sắp quên” trước, giới hạn phiên ôn để không bị ngợp.":"没问题 – FSRS 会计算已过去的实际时间。隔了很长一段时间你仍然记得的单词会变得更间隔；首先回顾一下你的“褪色”单词并结束你的会话，这样你就不会不知所措。",
