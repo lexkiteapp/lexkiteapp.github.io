@@ -125,7 +125,7 @@
           if (!home) { Target.set(tl); return next(); } nx.disabled = true;
           const S = state.settings, old = { pace: S.pace, dailyGoal: S.dailyGoal, dailyNew: S.dailyNew }; busy = true;
           try { S.pace = S.pace || 20; S.dailyGoal = S.dailyGoal || S.pace; S.dailyNew = S.dailyNew || NEW_OF[S.pace] || NEW_OF[20]; // chỉ điền mặc định khi thiếu
-            Target.set(tl); await D.finish(true, home); } catch (e) { Target.set(was); Object.assign(S, old); S.onboarded = done; nx.disabled = false; savePick(pick); try { history.replaceState(history.state, '', urlOf(pick.step)); } catch (e2) { /* Back hệ thống lúc đang lưu: đồng bộ lại URL */ } g.UI && UI.toast(t('Không lưu được – thử lại sau')); } finally { busy = false; } }; // lỗi → trả ngôn ngữ + mặc định cũ, ở lại bước
+            Target.set(tl); await D.finish(true, home); } catch (e) { Target.set(was); Object.assign(S, old); S.onboarded = done; if (me === runs && view.querySelector('#onbBack')) { nx.disabled = false; savePick(pick); try { history.replaceState(history.state, '', urlOf(pick.step)); } catch (e2) { /* Back hệ thống lúc đang lưu: đồng bộ lại URL */ } g.UI && UI.toast(t('Không lưu được – thử lại sau')); } } finally { busy = false; } }; // lỗi → trả ngôn ngữ + mặc định cũ, ở lại bước
       }
       const acct = $('#setupIn'); if (acct) acct.onclick = e => { e.stopPropagation(); D.login(draw); }; // tài khoản trống: ở lại đúng bước, vẽ lại để ẩn liên kết đăng nhập
       if (TK()) TK().bindSetup(view, pick, id => { TR_ID = id; pick.said = 'goal'; setExam(pick.exam); }, () => { pick.said = 'level'; draw(); });
