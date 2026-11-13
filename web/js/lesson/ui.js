@@ -578,8 +578,13 @@
     const mins = Math.max(1, Math.round((Date.now() - L.t0) / 60000)), streak = App.streak ? App.streak() : 0, w = L.picks || [], q = Q(L.demo);
     const ic = n => `<span class="material-symbols-outlined text-[16px]" aria-hidden="true">${n}</span>`, ROW = 'flex flex-wrap items-center gap-x-3 gap-y-0.5 mt-1 text-[15px] leading-5 font-bold lt:text-[#0F3D3E] dk:text-[#EEF6F7]';
     const bad = new Set(weak.map(x => E.norm(x))), got = w.filter(p => !bad.has(E.norm(p.card.word))).length; // từ nhớ ngay: không sai lần nào trong cả bài
-    const more = `<span class="${ROW}"><span class="inline-flex items-center gap-1">${ic('timer')}${esc(t('Thời gian'))}: ${esc(unitFmt(mins, 'minute'))}</span></span>` +
-      (weak.length ? `<span class="${ROW} font-medium"><span class="inline-flex items-start gap-1">${ic('edit_note')}<span>${esc(t('Cần ôn lại:'))} <span lang="en">${esc(weak.join(', '))}</span></span></span></span>` : '');
+    const more = (weak.length ? `<span class="${ROW} font-medium"><span class="inline-flex items-start gap-1">${ic('edit_note')}<span>${esc(t('Cần ôn lại:'))} <span lang="en">${esc(weak.join(', '))}</span></span></span></span>` : '');
+    const lang = document.documentElement.lang || 'en', wk = (() => { // 7 chấm tuần này (thứ 2 → CN): sáng = ngày đã học (hôm nay tính luôn)
+      const act = App.activeDays ? App.activeDays() : new Set(), now = new Date(), mon = new Date(now); mon.setDate(now.getDate() - ((now.getDay() + 6) % 7)); const on = [], lt = [];
+      for (let i = 0; i < 7; i++) { const x = new Date(mon); x.setDate(mon.getDate() + i); on.push(Core.todayKey(x) === Core.todayKey(now) || act.has(Core.todayKey(x)));
+        try { lt.push(new Intl.DateTimeFormat(lang, { weekday: 'narrow' }).format(x)); } catch (e) { lt.push(''); } }
+      return { on, lt, n: on.filter(Boolean).length }; })();
+    let minsS = String(mins); try { minsS = new Intl.NumberFormat(lang, { style: 'unit', unit: 'minute', unitDisplay: 'narrow' }).format(mins); } catch (e) { /* bỏ qua */ }
     const d = {
       close: `#/lesson${q}`,
       mapL: t('Bản đồ bài học'),
@@ -590,6 +595,9 @@
       acc: s.accuracy + '%',
       first: got + '/' + w.length,
       combo: String(s.best),
+      mins: minsS,
+      streakT: t('Chuỗi {n} ngày', { n: streak }),
+      weekN: wk.n + '/7',
       streak: String(streak),
       off1: Math.round(490 * (1 - Math.min(100, s.accuracy) / 100)),
       off2: Math.round(414 * (1 - (w.length ? got / w.length : 1))),
@@ -604,9 +612,10 @@
     if (L.teacher) { try { L.teacher.destroy(); } catch (e) { /* bỏ qua */ } L.teacher = null; }
     const root = ST2.mount(view, 'lesson-complete', d, null); root.id = 'lsn'; root.classList.add('lsn-v2', 'lsn-end', 'st-end'); root.classList.toggle('lsn-ptr', !kbd);
     try { window.scrollTo(0, 0); } catch (e) { /* bỏ qua */ } // câu cuối kéo trang xuống (tấm phản hồi): màn kết luôn bắt đầu ở đỉnh, nút ✕ không bị thanh trên che
-    if (!w.length) { const lg = root.querySelectorAll('.lsn-legend > span')[1]; if (lg) lg.hidden = true; const r2 = root.querySelector(':scope > main > div > div:nth-child(3) > div > svg:nth-child(3)'); if (r2) r2.hidden = true; const ln = root.querySelector('.lsn-sub > div > span:nth-child(2)'); if (ln) ln.hidden = true; } // truyện/radio không có từ học: bỏ vòng + chú giải "từ nhớ ngay" + dòng "Bạn đã học"
+    { const wd = root.querySelectorAll('.lsn-week > div:nth-child(2) > div'); if (wd.length === 7) { const onC = wd[0].firstElementChild.className, onH = wd[0].firstElementChild.innerHTML, offC = wd[5].firstElementChild.className; wd.forEach((el, i) => { const dot = el.firstElementChild; dot.className = wk.on[i] ? onC : offC; dot.innerHTML = wk.on[i] ? onH : ''; el.lastElementChild.textContent = wk.lt[i]; }); } } // chấm tuần: lấy lớp "sáng/tắt" có sẵn từ khung Stitch (không thêm CSS)
+    if (!w.length) { const lg = root.querySelector('.lsn-tiles > div:nth-child(2)'); if (lg) lg.hidden = true; const r2 = root.querySelector(':scope > main > div > div:nth-child(1) > div:nth-child(3) > svg:nth-child(3)'); if (r2) r2.hidden = true; const ln = root.querySelector('.lsn-sub > div > span:nth-child(2)'); if (ln) ln.hidden = true; } // truyện/radio không có từ học: bỏ vòng + chú giải "từ nhớ ngay" + dòng "Bạn đã học"
     try { L.teacher = window.LessonTeacher ? LessonTeacher.mount($('#lsnTch'), 'ama') : null; if (L.teacher) { if (L.teacher.pose) L.teacher.pose(App.streak && App.streak() > L.s0 ? MOOD('streak', {}, 'cheer') : 'cheer'); L.teacher.say(cheer, { rate: 1, voice: VOICE('ama') }); } } catch (e) { L.teacher = null; }
-    if (window.Feel && Feel.on) { const x = root.querySelector('.lsn-tiles > div:nth-child(1) > span:nth-child(2)'); if (x && Feel.count) Feel.count(x, xp, { prefix: '+', from: 0 }); const b = root.querySelector('[role=progressbar]'); if (b && Feel.fill) Feel.fill(b, 100); }
+    if (window.Feel && Feel.on) { const x = root.querySelector(':scope > main > div > div:nth-child(2) > div:nth-child(2) > span:nth-child(1)'); if (x && Feel.count) Feel.count(x, xp, { prefix: '+', from: 0 }); const b = root.querySelector('[role=progressbar]'); if (b && Feel.fill) Feel.fill(b, 100); }
     if (s.accuracy >= 80 && !navigator.webdriver && typeof window.confetti === 'function') try { window.confetti(90); } catch (e) { /* bỏ qua */ } // ăn mừng 1 lần khi vào màn: pháo giấy dùng chung (game.js; reduced-motion → Kit đứng yên, không chặn chạm)
     const sh = $('#lsnShare'); if (sh) sh.onclick = async () => { const text = t('Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP', { a: s.accuracy, x: xp }); try { if (navigator.share) await navigator.share({ title: 'Lexkite', text, url: location.origin + '/' }); else if (navigator.clipboard) { await navigator.clipboard.writeText(text); UI.toast(t('Đã sao chép')); } } catch (e) { /* người dùng hủy */ } };
     $('#lsnAgain').onclick = againGo(L.xs, L.demo);

@@ -1,5 +1,5 @@
 {
- "_doc": "Màn Hoàn thành bài học (#/lesson/go, cờ ux1) – d do web/js/lesson/ui.js finishV2() dựng từ phiên thật. Chip = chặng + số bài (L.endChip). 2 vòng = Chính xác (ngoài, teal) + Đúng ngay lần đầu (trong, vàng), có chú giải ngay dưới. 3 ô: XP nhận được (bài này) · COMBO cao nhất · Chuỗi ngày. Ama (cheer, ảnh tĩnh) căn giữa, thò sau thẻ 'sub' đục. Thẻ sub: lời khen + từ đã học + thời gian + từ cần ôn (d.more). Bài tiếp theo = #lsnAgain; nút hai = Sổ lỗi sai (có câu sai) hoặc Bản đồ bài học (icon map); X (2 chỗ) = Bản đồ bài học; Chia sẻ = #lsnShare.",
+ "_doc": "Màn Hoàn thành bài học (#/lesson/go, cờ ux1) – d do web/js/lesson/ui.js finishV2() dựng từ phiên thật. Dải teal trên cùng: ✕ + chip chặng/bài + tiêu đề + 2 vòng (Chính xác ngoài, Đúng ngay lần đầu trong, nhãn 'Chính xác' ngay trong vòng). Thẻ XP (bài này) chồng mép dải. 3 ô: COMBO cao nhất · Từ nhớ ngay lần đầu · Thời gian. Ama (cheer, ảnh tĩnh) đứng sau thẻ 'sub' đục (chân khuất, bóng đổ mép thẻ). Thẻ sub: lời khen + từ đã học + từ cần ôn (d.more). Thẻ chuỗi: 'Chuỗi N ngày' + 5/7 + 7 chấm tuần (ui.js đổi sáng/tối theo ngày học thật). Nút dính đáy: Bài tiếp theo = #lsnAgain; Sổ lỗi sai/Bản đồ = #lsnRev; X = Bản đồ bài học; Chia sẻ = #lsnShare.",
  "i18n": {
   "Close lesson": "Thoát bài học",
   "Learner profile": "Hồ sơ người học",
@@ -8,23 +8,25 @@
   "Toggle theme": "Đổi giao diện sáng/tối",
   "XP EARNED": "XP nhận được",
   "BEST COMBO": "COMBO cao nhất",
-  "DAY STREAK": "Chuỗi ngày",
-  "Accuracy": "Chính xác",
-  "Recalled first try": "Từ nhớ ngay lần đầu"
+  "Recalled first try": "Từ nhớ ngay lần đầu",
+  "Time": "Thời gian",
+  "Accuracy": "Chính xác"
  },
  "text": {
   "Active Drill Session": "d.title",
   "100%": "d.pct",
   "Everyday English · Lesson 3/12": "d.chip",
+  "98%": "d.acc",
   "+33": "d.xp",
-  "14": "d.streak",
+  "9": "d.combo",
+  "4/4": "d.first",
+  "1m": "d.mins",
+  "14-day streak": "d.streakT",
+  "5/7": "d.weekN",
   "Awesome!": "d.sub",
   "You learned: afraid · consider · listening · decide": "d.learned",
   "NEXT LESSON": "t('Bài tiếp theo')",
-  "LESSON MAP": "d.rev",
-  "98%": "d.acc",
-  "4/4": "d.first",
-  "9": "d.combo"
+  "LESSON MAP": "d.rev"
  },
  "attr": {
   ":scope > header > div > button:nth-child(1)": {
@@ -50,20 +52,42 @@
    "type": "'button'",
    "aria-label": "t('Hồ sơ người học')"
   },
-  ":scope > main > div > div:nth-child(1) > button:nth-child(1)": {
+  ":scope .material-symbols-outlined": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > header > div > button:nth-child(3)": {
+   "id": "'lkTheme'",
+   "aria-label": "t('Đổi giao diện sáng/tối')"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > button:nth-child(1)": {
    "href": "d.close",
    "id": "'lsnX2'",
    "aria-label": "d.mapL"
   },
-  ":scope > main > div > div:nth-child(1) > button:nth-child(3)": {
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > button:nth-child(3)": {
    "id": "'lsnShare'",
    "type": "'button'"
   },
-  ":scope > main > div > div:nth-child(3) > div > svg:nth-child(2) > circle:nth-child(2)": {
+  ":scope > main > div > div:nth-child(1) > div:nth-child(3) > svg:nth-child(2) > circle:nth-child(2)": {
    "stroke-dashoffset": "d.off1"
   },
-  ":scope > main > div > div:nth-child(3) > div > svg:nth-child(3) > circle:nth-child(2)": {
+  ":scope > main > div > div:nth-child(1) > div:nth-child(3) > svg:nth-child(3) > circle:nth-child(2)": {
    "stroke-dashoffset": "d.off2"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(3) > div:nth-child(4) > span:nth-child(1)": {
+   "dir": "'ltr'"
+  },
+  ":scope > main > div > div:nth-child(2) > div:nth-child(2) > span:nth-child(1)": {
+   "dir": "'ltr'"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(1) > span:nth-child(2)": {
+   "dir": "'ltr'"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > span:nth-child(2)": {
+   "dir": "'ltr'"
+  },
+  ":scope > main > div > div:nth-child(3) > div:nth-child(3) > span:nth-child(2)": {
+   "dir": "'ltr'"
   },
   ":scope > main > div > div:nth-child(7) > button:nth-child(1)": {
    "id": "'lsnAgain'",
@@ -72,33 +96,11 @@
   ":scope > main > div > div:nth-child(7) > button:nth-child(2)": {
    "id": "'lsnRev'",
    "href": "d.revHref"
-  },
-  ":scope .material-symbols-outlined": {
-   "aria-hidden": "'true'"
-  },
-  ":scope > header > div > button:nth-child(3)": {
-   "id": "'lkTheme'",
-   "aria-label": "t('Đổi giao diện sáng/tối')"
-  },
-  ":scope > main > div > div:nth-child(4) > div:nth-child(1) > span:nth-child(2)": {
-   "dir": "'ltr'"
-  },
-  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > span:nth-child(1) > span:nth-child(3)": {
-   "dir": "'ltr'"
-  },
-  ":scope > main > div > div:nth-child(3) > div:nth-child(2) > span:nth-child(2) > span:nth-child(3)": {
-   "dir": "'ltr'"
   }
  },
  "cls": {
   ":scope > header > div > div:nth-child(2) > div:nth-child(2) > div": {
    "w-full": "''"
-  },
-  ":scope > main > div > div:nth-child(6) > div:nth-child(1) > span:nth-child(1)": {
-   "truncate": "''"
-  },
-  ":scope > main > div > div:nth-child(6) > div:nth-child(1) > span:nth-child(2)": {
-   "truncate": "''"
   }
  },
  "tag": {
@@ -108,7 +110,7 @@
   ":scope > header > div > div:nth-child(4)": {
    "to": "button"
   },
-  ":scope > main > div > div:nth-child(1) > button:nth-child(1)": {
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > button:nth-child(1)": {
    "to": "a"
   },
   ":scope > main > div > div:nth-child(7) > button:nth-child(2)": {
@@ -117,21 +119,19 @@
  },
  "addClass": {
   ":scope > header > div > div:nth-child(4)": "relative after:absolute after:-inset-1.5 after:content-['']",
-  ":scope > main > div > div:nth-child(1) > button:nth-child(1)": "relative after:absolute after:-inset-1 after:content-['']",
-  ":scope > main > div > div:nth-child(1) > button:nth-child(3)": "relative after:absolute after:-inset-1 after:content-['']",
-  ":scope > main > div > div:nth-child(1) > div:nth-child(2)": "max-w-[60%]",
-  ":scope > main > div > div:nth-child(3)": "-mt-[7px]",
-  ":scope > main > div > div:nth-child(4)": "lsn-tiles",
-  ":scope > main > div > div:nth-child(6)": "relative z-10 lsn-sub",
-  ":scope > main > div > div:nth-child(6) > div:nth-child(1) > span": "break-words",
-  ":scope > main > div > div:nth-child(6) > div:nth-child(1) > span:nth-child(2)": "[text-wrap:balance]",
-  ":scope > main > div > div:nth-child(7) > button:nth-child(2)": "no-underline",
-  ":scope > main > div > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "min-w-0 break-words text-center leading-tight"
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > button:nth-child(1)": "relative after:absolute after:-inset-1 after:content-['']",
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > button:nth-child(3)": "relative after:absolute after:-inset-1 after:content-['']",
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2)": "max-w-[60%]",
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "min-w-0 break-words text-center",
+  ":scope > main > div > div:nth-child(3)": "lsn-tiles",
+  ":scope > main > div > div:nth-child(5)": "lsn-sub",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(1) > span": "break-words",
+  ":scope > main > div > div:nth-child(6)": "lsn-week",
+  ":scope > main > div > div:nth-child(7) > button:nth-child(2)": "no-underline"
  },
  "html": {
-  ":scope > main > div > div:nth-child(5)": "'<div id=\"lsnTch\" class=\"relative w-[180px] h-[154px] max-w-full\"></div>'",
-  ":scope > main > div > div:nth-child(6) > div:nth-child(1) > span:nth-child(3)": "d.more",
-  ":scope > main > div > div:nth-child(4) > div:nth-child(3) > div:nth-child(1)": "ST2.flame(ST2.flameState(+d.streak), 26)",
+  ":scope > main > div > div:nth-child(4)": "'<div id=\"lsnTch\" class=\"relative w-[219px] h-[190px] max-w-full\"></div>'",
+  ":scope > main > div > div:nth-child(5) > div:nth-child(1) > span:nth-child(3)": "d.more",
   ":scope > main > div > div:nth-child(7) > button:nth-child(2) > span:nth-child(1)": "d.revIcon"
  }
 }

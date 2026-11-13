@@ -38,7 +38,7 @@ const MEASURE = () => {
   return {
     text: root ? root.innerText : '', chip: (q('#lsnX2').nextElementSibling || {}).innerText || '', chipCut: (() => { const c = q('#lsnX2').nextElementSibling, e = c && [...c.querySelectorAll('span')].pop(); return e ? e.scrollWidth - e.clientWidth : 0; })(),
     tiles: [...tiles.children].map(c => ({ ...r(c), txt: c.innerText.replace(/\s+/g, ' ').trim(), over: c.scrollWidth > c.clientWidth + 1 })),
-    legend: q('.lsn-legend') ? [...q('.lsn-legend').children].map(c => ({ txt: c.innerText.replace(/\s+/g, ' ').trim(), hidden: c.hidden || c.offsetParent === null })) : null,
+    xp: (q('.v2-lesson-complete main > div > div:nth-child(2)') || {}).innerText || '', ring: (q('.v2-lesson-complete main > div > div:nth-child(1) > div:nth-child(3) > div') || {}).innerText || '', week: [...document.querySelectorAll('.lsn-week > div:nth-child(2) > div')].map(c => c.innerText.trim()), weekTitle: (q('.lsn-week > div:nth-child(1)') || {}).innerText || '',
     rings: [...document.querySelectorAll('.v2-lesson-complete circle[stroke-dashoffset]')].map(c => +c.getAttribute('stroke-dashoffset')),
     tiles_r: r(tiles), sub: r(sub), tch: r(img), hdr: r(hdr), x2: r(x2), sy: scrollY, sw: document.documentElement.scrollWidth, iw: innerWidth,
     sub_txt: sub.innerText.replace(/\s+/g, ' ').trim(), dir: document.documentElement.dir || cs(document.body).direction,
@@ -103,23 +103,24 @@ for (const [name, vp, scheme, lang, wrongEvery, kbd] of CASES) {
   ok(m.tiles.length === 3 && m.tiles.every(t => Math.abs(t.t - m.tiles[0].t) <= 1 && !t.over), `${tag}: 3 ô số liệu cùng hàng, không tràn (${tx.join(' | ')})`);
   ok(m.sw <= m.iw, `${tag}: không cuộn ngang (${m.sw} ≤ ${m.iw})`);
   // 8 · nhãn ô
-  if (lang === 'vi') ok(!/tổng/i.test(tx[0]) && /nhận/i.test(tx[0]) && /combo/i.test(tx[1]) && /ngày/i.test(tx[2]), `${tag}: nhãn: XP nhận được · COMBO · Chuỗi ngày (“${tx.join(' | ')}”)`);
+  if (lang === 'vi') ok(!/tổng/i.test(m.xp) && /nhận/i.test(m.xp) && /combo/i.test(tx[0]) && /nhớ/i.test(tx[1]) && /thời gian/i.test(tx[2]) && /ngày/i.test(m.weekTitle) && /chính xác/i.test(m.ring), `${tag}: nhãn: XP nhận được · COMBO · Từ nhớ · Thời gian · Chuỗi ngày · Chính xác trong vòng (“${m.xp.replace(/\s+/g, ' ')} | ${tx.join(' | ')}”)`);
   // 9 · SỐ LIỆU NHẤT QUÁN giữa ô, vòng, thẻ và phiên thật
   const xpExp = 10 + S.ok1 * 2 + (S.wrongN ? 0 : 5); // thưởng +5 chỉ khi KHÔNG sai câu nào (kể cả câu ghép cặp/truyện)
-  ok(num(tx[0], /\+(\d+)/) === xpExp, `${tag}: XP trên ô = XP phiên (${num(tx[0], /\+(\d+)/)} = 10 + ${S.ok1}×2${S.wrongN ? '' : ' + 5'})`);
-  ok(num(tx[1], /(\d+)/) === S.best, `${tag}: COMBO trên ô = COMBO cao nhất phiên (${S.best})`);
-  const lg = (m.legend || []).filter(x => !x.hidden); ok(lg.length >= 1 && num(lg[0].txt, /(\d+)\s*%/) === S.acc, `${tag}: chú giải vòng ngoài = độ chính xác phiên (${S.acc}%)`);
+  ok(num(m.xp, /\+(\d+)/) === xpExp, `${tag}: XP trên thẻ = XP phiên (${num(m.xp, /\+(\d+)/)} = 10 + ${S.ok1}×2${S.wrongN ? '' : ' + 5'})`);
+  ok(num(tx[0], /(\d+)/) === S.best, `${tag}: COMBO trên ô = COMBO cao nhất phiên (${S.best})`);
+  ok(num(m.ring, /(\d+)\s*%/) === S.acc, `${tag}: số trong vòng = độ chính xác phiên (${S.acc}%)`);
+  ok(m.week.length === 7 && m.week.every(x => x.length > 0) && /\d/.test(m.weekTitle), `${tag}: thẻ chuỗi tuần có 7 ngày + số chuỗi (“${m.weekTitle.replace(/\s+/g, ' ')}”)`);
   ok(m.rings.length === 2 && Math.abs(m.rings[0] - Math.round(490 * (1 - Math.min(100, S.acc) / 100))) <= 1, `${tag}: vòng ngoài khớp ${S.acc}% (offset ${m.rings[0]})`);
   const got = S.picks.filter(p => !S.weak.includes(p)).length;
   if (S.picks.length) {
-    ok(lg.length === 2 && lg[1].txt.includes(`${got}/${S.picks.length}`), `${tag}: chú giải vòng trong = từ nhớ ngay ${got}/${S.picks.length}`);
+    ok(tx[1].includes(`${got}/${S.picks.length}`), `${tag}: ô vòng trong = từ nhớ ngay ${got}/${S.picks.length}`);
     ok(Math.abs(m.rings[1] - Math.round(414 * (1 - got / S.picks.length))) <= 1, `${tag}: vòng trong khớp ${got}/${S.picks.length} (offset ${m.rings[1]})`);
   }
   const low = m.sub_txt.toLowerCase();
   ok(S.picks.every(p => low.includes(p)), `${tag}: thẻ liệt kê đủ ${S.picks.length} từ đã học`);
-  ok(perfect ? m.subIcons.join() === 'timer' : m.subIcons.includes('edit_note') && S.weak.every(w => low.includes(w)), `${tag}: ${perfect ? 'không sai câu nào → không dòng từ cần ôn' : `thẻ liệt kê đủ ${S.weak.length} từ cần ôn: ${S.weak.join(', ')}`}`);
+  ok(perfect ? m.subIcons.length === 0 : m.subIcons.includes('edit_note') && S.weak.every(w => low.includes(w)), `${tag}: ${perfect ? 'không sai câu nào → không dòng từ cần ôn' : `thẻ liệt kê đủ ${S.weak.length} từ cần ôn: ${S.weak.join(', ')}`}`);
   // 10 · RTL
-  if (lang === 'ar') { ok(m.dir === 'rtl', `${tag}: RTL bật (dir=${m.dir})`); ok(m.tiles[0].l > m.tiles[2].l, `${tag}: RTL: ô XP nằm bên phải ô chuỗi`); }
+  if (lang === 'ar') { ok(m.dir === 'rtl', `${tag}: RTL bật (dir=${m.dir})`); ok(m.tiles[0].l > m.tiles[2].l, `${tag}: RTL: ô đầu (COMBO) nằm bên phải ô cuối (Thời gian)`); }
   // 11 · CLS từ lúc màn kết hiện
   ok((m.cls || 0) <= 0.02, `${tag}: CLS từ lúc hiện màn kết ${(m.cls || 0).toFixed(4)} ≤ 0.02`);
   // 12 · bài đã được đếm; nút chính dẫn sang bài KẾ TIẾP
