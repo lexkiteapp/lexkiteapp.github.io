@@ -409,4 +409,6 @@ node scripts/test/pwa-installable.mjs
 node scripts/test/addon-listings.mjs
 node scripts/test/rate-prompt.mjs
 node scripts/test/mobile-www-slim.mjs
+node scripts/test/yt-stats.mjs
+node scripts/test/yt-stats-op.mjs
 node scripts/test/l1-notes.mjs
