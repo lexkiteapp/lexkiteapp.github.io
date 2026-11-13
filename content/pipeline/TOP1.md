@@ -3,7 +3,7 @@
 <!-- top1-score -->
 ## 🏆 Top-1 score: **83.4 / 100** · trên 2 trục có mốc: Lexkite 91.4 vs Duolingo 58.5
 
-Gộp từ nguồn đã có, không quét lại – cách đo: [docs/TOP1-SCORE.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/docs/TOP1-SCORE.md) · sàn chỉ tăng: `content/pipeline/top1.budget.json` · lượt: https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43426699110 · quality-sweep: https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43355166628
+Gộp từ nguồn đã có, không quét lại – cách đo: [docs/TOP1-SCORE.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/docs/TOP1-SCORE.md) · sàn chỉ tăng: `content/pipeline/top1.budget.json` · lượt: https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43435918360 · quality-sweep: https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43355166628
 
 | Trục | Trọng số | Lexkite | Duolingo | Sàn | Thành phần |
 |---|---|---|---|---|---|
@@ -28,7 +28,7 @@ Gộp từ nguồn đã có, không quét lại – cách đo: [docs/TOP1-SCORE.
 |---|---|---|---|---|---|---|
 | 1 | ux | journey-e2e: 0 → 100 | +3 | 2 | 1.5 | failure 2026-11-13 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43424818603 |
 | 2 | ui | màn đã Stitch: 24.6 → 100 | +3.8 | 5 | 0.8 | [WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · 17 Stitch / 69 màn (ref 49, tay 0) |
-| 3 | perf | LCP máy yếu: 0 → 100 | +2.5 | 3 | 0.8 | mobile-qa (máy yếu, 4G chậm) 2026-11-13 – success 2026-11-13 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43403219694 |
+| 3 | perf | LCP máy yếu: 0 → 100 | +2.5 | 3 | 0.8 | mobile-qa (máy yếu, 4G chậm) 2026-11-13 – success 2026-11-13 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43426698765 |
 | 4 | ux | chạm tới bài hôm nay: 50 → 100 | +1.5 | 2 | 0.8 | [WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · 2 chạm |
 | 5 | ui | SSIM vs Stitch: 39.7 → 100 | +3 | 5 | 0.6 | [stitch-diff.json](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/scripts/test/stitch-diff.json) |
 | 6 | content | content-qa: 66.2 → 100 | +1.7 | 4 | 0.4 | [WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · content/pipeline/SCORE.md |
@@ -46,10 +46,10 @@ Gộp từ nguồn đã có, không quét lại – cách đo: [docs/TOP1-SCORE.
 - **ux/chạm tới bài hôm nay** 50 – 2 chạm ([WORLD.md](https://github.com/lexkiteapp/lexkiteapp.github.io/blob/main/content/pipeline/WORLD.md) · 2 chạm)
 - **ux/Thoát/Back + luồng học** 100 – ✓exit-guard.mjs ✓learn-flow.mjs
 - **perf/Lighthouse perf** 99.3 – / 99, /en/ 99, /app/?hl=en 98, /en/vocabulary/ 100, /en/blog/ 100, /en/blog/about/ 100 (quality-sweep › lighthouse (6 trang, điện thoại))
-- **perf/LCP máy yếu** 0 – LCP tối đa 8894 ms (tốt ≤ 2500, 0 điểm ≥ 6000) (mobile-qa (máy yếu, 4G chậm) 2026-11-13 – success 2026-11-13 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43403219694)
-- **perf/INP** 100 – INP tối đa 144 ms (tốt ≤ 200) (mobile-qa (máy yếu, 4G chậm) 2026-11-13 – success 2026-11-13 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43403219694)
-- **perf/CLS** 100 – CLS tối đa 0.0757 (tốt ≤ 0,1) (mobile-qa (máy yếu, 4G chậm) 2026-11-13 – success 2026-11-13 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43403219694)
-- **perf/TBT (tác vụ dài)** 100 – TBT tối đa 167 ms (tốt ≤ 200) (mobile-qa (máy yếu, 4G chậm) 2026-11-13 – success 2026-11-13 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43403219694)
+- **perf/LCP máy yếu** 0 – LCP tối đa 6441 ms (tốt ≤ 2500, 0 điểm ≥ 6000) (mobile-qa (máy yếu, 4G chậm) 2026-11-13 – success 2026-11-13 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43426698765)
+- **perf/INP** 100 – INP tối đa 192 ms (tốt ≤ 200) (mobile-qa (máy yếu, 4G chậm) 2026-11-13 – success 2026-11-13 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43426698765)
+- **perf/CLS** 100 – CLS tối đa 0.0757 (tốt ≤ 0,1) (mobile-qa (máy yếu, 4G chậm) 2026-11-13 – success 2026-11-13 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43426698765)
+- **perf/TBT (tác vụ dài)** 100 – TBT tối đa 110 ms (tốt ≤ 200) (mobile-qa (máy yếu, 4G chậm) 2026-11-13 – success 2026-11-13 https://github.com/lexkiteapp/lexkiteapp.github.io/actions/runs/43426698765)
 - **perf/CLS/long task quét đêm** 98 – quality-sweep: cls, layout-shift, longtask, ngân sách Lighthouse
 - **a11y/Lighthouse a11y** 99.7 – / 100, /en/ 100, /app/?hl=en 98, /en/vocabulary/ 100, /en/blog/ 100, /en/blog/about/ 100 (quality-sweep › lighthouse)
 - **a11y/axe AA (mọi route × vi/en/ar × sáng/tối)** 100 – quality-sweep: axe serious/critical (gồm tương phản)
