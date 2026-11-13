@@ -202,9 +202,14 @@
     }
     let hq = null;
     let capNow = null;
+    // bong bóng của sân khấu (stage): lời đang nói; o.show = chữ hiện thay lời (vd. '🔊 · · ·' khi câu là đáp án), false = giữ nguyên bong bóng
+    const sg = el.parentElement && el.parentElement.classList.contains('tstage') ? el.parentElement : null, bub = sg && sg.querySelector('.tstage-bub'), btx = bub && bub.firstChild;
+    if (sg) sg.dataset.who = who;
+    const line = s => { if (!bub) return null; const v = String(s == null ? '' : s); if (btx.textContent === v && !bub.hidden) return btx; btx.textContent = v; bub.hidden = !v; bub.classList.remove('in'); void bub.offsetWidth; bub.classList.add('in'); return btx; };
     const api = {
       who,
       lip: () => (fc ? fc.stats : null), // số khung mặt vẽ (test e2e đo fps)
+      line, // bong bóng sân khấu: đặt lời hiện (đề bài / lời khen) – null khi không ở sân khấu
       // pose('cheer'|'concern'…): ảnh tĩnh tư thế (đầu→hông) thay người đang đứng NGAY chỗ cũ (phản hồi đúng/sai); pose(null) → trả lại vòng nghe/nói sống
       // mặt vẽ: tư thế ảnh tĩnh (tài sản có sẵn) + biểu cảm tương ứng trên mặt vẽ; nói trong lúc đang tư thế → bỏ ảnh tĩnh để miệng vẽ khớp tiếng (không nói bằng ảnh tĩnh ngậm miệng)
       listen(on) { if (fc) fc.listen(on); },
@@ -217,8 +222,9 @@
         lastTxt = text; // mặt vẽ đang nạp (gate): nói NGAY (không trễ câu đầu); nạp xong → mặt vẽ bám phần tử đang phát (live)
         if (fc && rig.classList.contains('posed')) { const im = rig.querySelector('.tch-still'); if (im) im.remove(); rig.classList.remove('posed'); } // nói: bỏ ảnh tĩnh, mặt vẽ giữ biểu cảm tư thế (fc.hold) tới pose(null)
         const my = ++run, rate = o.rate || 0.95;
+        let back = null; if (bub && o.show !== false) { back = o.show != null ? btx.textContent : null; const tx = line(o.show != null ? o.show : text); if (!o.caption && o.show == null && g.SayText && g.SayText.prep) o = Object.assign({}, o, { caption: g.SayText.prep(tx) }); }
         if (capNow && capNow !== o.caption) capNow.all(); const cap = capNow = o.caption || null; // chữ chạy theo lời (SayText, say-text.js)
-        let ended = false; const end = () => { if (ended) return; ended = true; if (cap) cap.all(); if (my === run) { run++; talking(false); if (fc) fc.quiet(); } if (o.onEnd) o.onEnd(); };
+        let ended = false; const end = () => { if (ended) return; ended = true; if (cap) cap.all(); if (back !== null && btx.textContent === o.show) line(back); if (my === run) { run++; talking(false); if (fc) fc.quiet(); } if (o.onEnd) o.onEnd(); };
         talking(true);
         const tts = () => {
           if (my !== run) return;
@@ -245,8 +251,27 @@
     };
     return api;
   }
+  // 🎭 Sân khấu giáo viên (teacher-slot chuẩn, chủ 10/11 "to, tự nhiên, chuyên nghiệp"): người cao 192 px khung (~160 px thấy được) đứng SAU mặt thẻ Stitch kế tiếp
+  // (thẻ che hông – không bệ giả, không mặt nạ), bong bóng lời bên cạnh, đuôi trỏ đúng tầm miệng (0,4 khung), chữ chạy theo giọng (SayText). Lề theo dáng từng người
+  // (Carlos vai rộng ~0,9 khung, Ama ~0,4). Thở / khen (nhún) / sửa nhẹ (nghiêng) / đổi tư thế mờ dần: chỉ transform/opacity, tắt khi giảm chuyển động. Cổng: lesson.mjs, final-qc.
+  const STAGE_CSS = `.tstage{--th:192px;--tw:calc(var(--th)*1.154);position:relative;display:flex;align-items:flex-start;width:100%;height:var(--th)}
+.tstage>.tch.tstage-tch{position:relative;inset:auto;flex:none;width:var(--tw);height:var(--th);margin-block:0;margin-inline:-12px calc(var(--tw)*-.3 + 10px);transform-origin:50% 100%}
+.tstage[data-who=carlos]>.tch.tstage-tch{margin-inline-end:calc(var(--tw)*-.36 + 10px)}
+.tstage .tch-rig{filter:none;transform-origin:50% 100%}
+.tstage-bub{position:relative;z-index:1;flex:1 1 auto;min-width:0;margin:calc(var(--th)*.4 - 25px) 0 0;padding:10px 14px;border-radius:18px;border:2px solid #EADEC8;background:#fff;color:#10191B;box-shadow:0 3px 0 #D8CFBC;font-size:17px;line-height:1.35;font-weight:700;overflow-wrap:anywhere}
+.tstage-bub::before{content:"";position:absolute;inset-inline-start:-8.5px;top:18px;width:13px;height:13px;background:inherit;border:2px solid;border-color:inherit;border-top:0;border-right:0;border-bottom-left-radius:3px;transform:rotate(45deg)}
+[dir=rtl] .tstage-bub::before{transform:rotate(-135deg)}
+:root[data-theme=dark] .tstage-bub{background:#162528;border-color:#213438;color:#EAF2F2;box-shadow:0 3px 0 #0d1a1e}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .tstage-bub{background:#162528;border-color:#213438;color:#EAF2F2;box-shadow:0 3px 0 #0d1a1e}}
+@media (prefers-reduced-motion:no-preference){.tstage .tch-rig{animation:tst-br 4.2s ease-in-out infinite}.tstage>.tch.nod{animation:tst-hop .5s cubic-bezier(.3,1.5,.5,1)}.tstage>.tch.shake{animation:tst-sway .6s ease-in-out}
+.tstage-bub.in{animation:tst-pop .22s cubic-bezier(.2,.9,.3,1.2)}.tstage .tch-still{animation:tst-fade .2s ease-out}}
+@keyframes tst-br{50%{transform:scale(1.006,1.012)}}@keyframes tst-hop{40%{transform:translateY(-7px)}75%{transform:translateY(1px)}}
+@keyframes tst-sway{30%{transform:rotate(-2deg)}65%{transform:rotate(1.4deg)}}@keyframes tst-pop{from{opacity:0;transform:scale(.94) translateY(4px)}}@keyframes tst-fade{from{opacity:0}}`;
+  /** stage(id) → HTML khung sân khấu (đặt vào chỗ giáo viên của mẫu Stitch); mount(#id) sau đó tự nhận bong bóng (api.line, say hiện lời). Mặt thẻ ngay sau phải che 32 px đáy khung. */
+  const stageHTML = id => { if (!D.getElementById('tch-stage-css')) D.head.insertAdjacentHTML('beforeend', `<style id="tch-stage-css">${STAGE_CSS}</style>`);
+    return `<div class="tstage"><div id="${id}" class="tstage-tch"></div><p class="tstage-bub" aria-hidden="true" hidden><span class="tstage-txt"></span></p></div>`; };
   const VOICE = { ama: g.Chars.voice('ama'), carlos: g.Chars.voice('carlos') }; // giọng app của giáo viên – chỉ qua Chars (registry), cùng giọng scripts/gen-audio.mjs sinh cho truyện/radio
   /** prep(): nạp trước mặt vẽ + mốc ở màn ngay TRƯỚC khi giáo viên nói (đổ chuông Call, vào bài học) – Home/Today không gọi */
   const prep = () => { try { if (lipOn() && !saveData()) lipLoad().catch(() => {}); } catch (e) { /* bỏ qua */ } };
-  g.LessonTeacher = { mount, lite, VOICE, prep };
+  g.LessonTeacher = { mount, lite, VOICE, prep, stage: stageHTML };
 })(self);

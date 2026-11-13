@@ -41,14 +41,15 @@
 @media (max-width:360px){.ss{--ss-h:164px}}
 
 /* ===== Khung bài tập (Xếp câu · Nghe chọn · Điền từ · Chép chính tả = màn lesson-question) – cùng sàn/bệ như sân khấu Truyện ===== */
-.lsn-fx{--lf-plinth:#E4EBE9;--lf-edge:#CBD5D2;--ex-rule:#C9D3D1;--ex-dis-bg:#E2E8E7;--ex-dis-fg:#4E5F62;--ex-on-bg:#0D6964;--ex-on-fg:#FFFFFF;--ex-on-edge:#07423F;--ex-mut:#4E5F62}
-:root[data-theme="dark"] .lsn-fx{--lf-plinth:#1A2C33;--lf-edge:#0D1A1E;--ex-rule:#2E4650;--ex-dis-bg:#1A2C33;--ex-dis-fg:#9DB5BA;--ex-on-bg:#2BA39A;--ex-on-fg:#04201E;--ex-on-edge:#145A54;--ex-mut:#9DB5BA}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lsn-fx{--lf-plinth:#1A2C33;--lf-edge:#0D1A1E;--ex-rule:#2E4650;--ex-dis-bg:#1A2C33;--ex-dis-fg:#9DB5BA;--ex-on-bg:#2BA39A;--ex-on-fg:#04201E;--ex-on-edge:#145A54;--ex-mut:#9DB5BA}}
-/* Ama đứng GIỮA bệ: teacher.js thêm lớp .tch vào #lsnTch → ui.js `.lsn-v2 .tch{position:absolute;inset:0}` + w-[170px] ghim hộp vào mép TRÁI (Ama lệch trái, cả trên main); trả về dòng chảy flex để justify-center căn giữa */
+.lsn-fx{--lf-shade:rgb(16 25 27/.16);--ex-rule:#C9D3D1;--ex-dis-bg:#E2E8E7;--ex-dis-fg:#4E5F62;--ex-on-bg:#0D6964;--ex-on-fg:#FFFFFF;--ex-on-edge:#07423F;--ex-mut:#4E5F62}
+:root[data-theme="dark"] .lsn-fx{--lf-shade:rgb(0 0 0/.45);--ex-rule:#2E4650;--ex-dis-bg:#1A2C33;--ex-dis-fg:#9DB5BA;--ex-on-bg:#2BA39A;--ex-on-fg:#04201E;--ex-on-edge:#145A54;--ex-mut:#9DB5BA}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lsn-fx{--lf-shade:rgb(0 0 0/.45);--ex-rule:#2E4650;--ex-dis-bg:#1A2C33;--ex-dis-fg:#9DB5BA;--ex-on-bg:#2BA39A;--ex-on-fg:#04201E;--ex-on-edge:#145A54;--ex-mut:#9DB5BA}}
+/* Sân khấu giáo viên (lesson/teacher.js stage, chủ 10/11): hộp #lsnTch giữ position:relative (đè .lsn-v2 .tch{absolute;inset:0}); hàng giáo viên cao 192 px
+   kéo thẻ đề bài lên che 32 px đáy khung (hông + dải mờ khuất sau mặt thẻ đục – final-qc not-pasted-on), KHÔNG bệ/viên/sàn giả; bóng tiếp xúc mềm trên mép thẻ dưới người */
 .lsn-fx .ex-seat #lsnTch{position:relative;inset:auto;flex:none}
-.lsn-fx .ex-seat{position:relative;align-items:flex-end;padding-bottom:var(--sp-1)}
-/* bệ cao 28 px che dải mờ ở đáy ảnh (final-qc not-pasted-on: thân mờ phải khuất sau mặt đục): viên bo tròn có gờ đáy dưới chân Ama (không lơ lửng); cùng số đo với mẫu Stitch lesson-question (hàng giáo viên cao 150 px, KHÔNG chồng thẻ đề bài) */
-.lsn-fx .ex-seat .ss-floor{position:absolute;left:50%;bottom:0;width:200px;max-width:86%;height:28px;transform:translateX(-50%);border-radius:9999px;background:var(--lf-plinth);box-shadow:0 3px 0 var(--lf-edge);pointer-events:none}
+.lsn-fx .ex-seat{position:relative;display:block;height:auto;padding:0;margin-bottom:calc(-1*(var(--sp-5) + var(--sp-4)))}
+.lsn-fx #lsnBub>.sr-only+small{font-size:var(--fs-lg);line-height:1.35;font-weight:600;color:inherit;margin-top:0} /* đề bài đã lên bong bóng → câu cần dịch/nghĩa là nội dung chính của thẻ */
+.lsn-fx .ex-seat+.lsn-qcard::before{content:"";position:absolute;z-index:11;top:0;inset-inline-start:calc(var(--sp-5) + var(--sp-3) + 1px);width:120px;height:12px;background:radial-gradient(50% 100% at 50% 0,var(--lf-shade),transparent);pointer-events:none}
 /* đường kẻ trả lời: 2 dòng kẻ sẵn, thẻ từ bay vào ngồi trên dòng; ngân hàng giữ ô trống nên không xô bố cục */
 .lsn-fx div.lsn-ans{--p:3.5rem;min-height:calc(var(--p)*2);padding:0!important;gap:0 var(--sp-2)!important;align-content:flex-start;border:0!important;
  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent calc(var(--p) - 2px),var(--ex-rule) calc(var(--p) - 2px),var(--ex-rule) var(--p))}
