@@ -14,7 +14,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `.github/workflows/` (204 file): CI/CD + việc nền theo lịch (xem mục Workflows)
 - `infra/` (10 file): Sổ hạ tầng JSON: resources, jobs (nguồn của docs/JOBS.md), media-repos, schema.lock
 - `brand/` (1759 file): tokens.json (màu), logo, stitch/ (ref + DTCG), library/ (kho cảnh/clip video)
-- `content/` (3918 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
+- `content/` (3920 file): Nội dung nguồn: blog, authority, dict, confidence, explain, brand (dữ liệu lớn – bỏ khỏi map)
 - `mobile/` (216 file): Capacitor iOS/Android (ios/ android/ bỏ khỏi map)
 - `store/` (46 file): Hồ sơ listing Chrome/Edge/Apple/Play
 - `docs/` (236 file): Luật + tài liệu chủ đề (docs/README.md → INDEX.md); lịch sử ở docs/archive
@@ -47,8 +47,8 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 9. `functions/api/_quota.js` ←19 · DEFAULTS,PROVIDERS,BREAKER,STRIKE…
 10. `functions/api/admin.js` ←19 · adminAudit,adminCors,ghApi,_resetAdminMem…
 11. `web/js/data.js` ←19 · script
-12. `functions/api/_schema.js` ←15 · once,_resetSchema
-13. `scripts/lexicon/expand/lib.mjs` ←15 · LANGS,QUEUE,TOPIC_CHOICES,btMatch…
+12. `scripts/lexicon/expand/lib.mjs` ←16 · LANGS,QUEUE,TOPIC_CHOICES,btMatch…
+13. `functions/api/_schema.js` ←15 · once,_resetSchema
 14. `scripts/lib/ai-pool.mjs` ←15 · modelInfo,familyOf,pickModels,judgeKey…
 15. `scripts/lib/blog-content.mjs` ←14 · ROOT,CATEGORIES,config,parse…
 
