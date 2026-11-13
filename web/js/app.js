@@ -323,6 +323,7 @@
     ota: ['js/i18n/en/ota.js', 'js/ota-key.js', 'js/ota.js'], // 🔄 cập nhật OTA + nhắc cập nhật app (chỉ app gốc, docs/OTA.md)
     // ⚙️ Cài đặt (tách khỏi khung 23/10)
     remind: ['js/i18n/en/remind.js', 'js/remind.js'],
+    install: ['js/i18n/en/install.js', 'js/install-sheet.js'], // 📲 mời cài app ở khoảnh khắc giá trị (docs/INSTALL-GROWTH.md)
     settings: ['js/settings.js'],
     // 🔥 lớp giữ thói quen – luôn nạp cùng gói 'streak' (mỗi file chỉ thuộc 1 gói) struct: ['js/structures.js'], // 🧩 nhận diện cấu trúc (tải lười, ra khỏi khung app 20/10)
     streak: ['js/streak-ui.js'],
@@ -1516,6 +1517,8 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   App.installNudge = () => {
     try {
       if (Store.isExtension || isStandalone() || !matchMedia('(max-width: 900px)').matches || (!installEvt && !isIOS())) return;
+      if (!window.LKGetApp) { App.getApp().then(() => App.installNudge()); return; } // có app trên cửa hàng (Play/App Store) → js/install-sheet.js lo lời mời, nudge PWA này chỉ là dự phòng
+      if (/^(play|ios)$/.test(LKGetApp.kind())) return;
       const active = Object.values(state.game.days || {}).filter(d => d.xp || d.reviews).length, last = +localStorage.getItem('vb.nudgeAt') || 0;
       if (active < 3 || Date.now() - last < 14 * 864e5 || document.querySelector('.install-nudge')) return;
       localStorage.setItem('vb.nudgeAt', Date.now());
@@ -1554,6 +1557,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     if (!Store.isExtension && !(window.VBNative && VBNative.is) && 'serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('/sw.js', { scope: '/app/' }).catch(() => {}); // app ở /app/ (trang / là trang giới thiệu tĩnh) – sw.js gốc tự chuyển bản cài cũ (phạm vi /) sang chế độ chuyển tiếp, xem web/sw.js. Đăng ký lúc này = sau lần vẽ đầu (JS khung nạp sau khung hình đầu – scripts/app-loader.mjs) nên không làm chậm màn đầu
     setTimeout(() => Promise.all(BUNDLES.voice.map(f => fetch(f).catch(() => {}))).then(() => App.calm(() => { App.need('voice').catch(() => {}); App.need('klocal').catch(() => {}); })), 4000); /* giọng Kokoro cho phát âm từ ở mọi trang */
     App.offerRescue = offerRescue; applyFreeze().then(() => setTimeout(() => offerRescue().catch(() => {}), 1500)).catch(() => {});
+    App.painted.then(() => idle(() => App.need('install').catch(() => {}))); // 📲 mời cài app (chỉ sau khi đã học, js/install-sheet.js)
     App.painted.then(() => idle(() => App.need('remind').then(() => Remind.start()).catch(() => {}))); // ⏰ nhắc học (js/remind.js, docs/REMINDERS.md)
     // Bàn phím ảo kiểu "resizes-visual" (iOS WKWebView, Chrome Android): viewport bố cục giữ nguyên, chỉ visualViewport thấp lại → trang không còn chỗ cuộn để đưa ô nhập lên trên bàn phím (mqa kbd-visual: practice/test ô #ans bị che). --kb = chiều cao bàn phím → html thêm đệm đáy đúng cỡ đó (style.css)
     if (window.visualViewport) { const vv = window.visualViewport, root = document.documentElement, kb = () => { const h = Math.max(0, Math.round(innerHeight - vv.height - vv.offsetTop)); root.style.setProperty('--kb', (h > 80 ? h : 0) + 'px'); }; vv.addEventListener('resize', kb); vv.addEventListener('scroll', kb); }

@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/hi/install.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.hi=Object.assign(D.hi||{},{_g5bq:"पहला पाठ पूरा हुआ! ऐप से आप होम स्क्रीन से ही तेज़ी से शुरू कर सकते हैं।",_boam:"आपने {n} शब्द सेव किए हैं। ऐप में इन्हें कभी भी दोहराना आसान है।",_b0g3:"{n} दिन की लगातार स्ट्रीक – शानदार! ऐप के साथ रोज़ पढ़ना आसान हो जाता है।",_xatz:"Lexkite को अपने साथ रखें",_ecxd:"App Store से डाउनलोड करें",_fq4o:"Google Play पर पाएँ"});})(typeof self!=='undefined'?self:this);
