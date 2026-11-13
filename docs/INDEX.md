@@ -78,6 +78,7 @@
 - [DISTRIBUTION.md](DISTRIBUTION.md) — Kênh & phân phối (nhúng + social): vai trò kênh, định tuyến, hợp đồng cho tác tử social (GrabCast), hệ thống web/app; đọc khi: sửa phân phối/social
 - [EDGE-SUBMIT.md](EDGE-SUBMIT.md) — Gói hồ sơ đăng Lexkite lên Microsoft Edge Add-ons: dùng chung zip Chrome, các bước trên Partner Center, lưu ý chính sách; đọc khi: đăng/cập nhật add-on trên Edge
 - [EXPLAIN.md](EXPLAIN.md) — Lược đồ lời giải đáp án: một thẻ dùng chung explain-card.js, dữ liệu web/js/explain/<bộ>/<lang>.json, mặc định hiện Cấu trúc + Vì sao; đọc khi: sửa phản hồi bài luyện
+- [L1-NOTES](L1-NOTES.md) — ghi chú lỗi tiếng Anh theo tiếng mẹ đẻ (câu sai/đúng, vì sao, l1Form), checklist + quy trình; đọc khi thêm/sửa ghi chú L1 hoặc thêm ngôn ngữ
 - [GRABCAST-API-REQUESTS.md](GRABCAST-API-REQUESTS.md) — Danh sách endpoint GrabCast cần mở cho khóa API workspace để Lexkite quản lý 100% (connect, insights, comments, inbox…); đọc khi: làm việc với GrabCast API
 - [HANDOFF.md](HANDOFF.md) — Bàn giao ngắn: việc nền đang chạy (ảnh từ vựng hàng loạt qua kho CF, kho từ 20k), số liệu mới nhất, việc tiếp theo, việc chờ chủ; đọc khi: đầu phiên, trước khi nhận việc ảnh từ vựng / kho từ
 - [I18N-PIPELINE.md](I18N-PIPELINE.md) — Quy trình 15 ngôn ngữ giao diện: nguồn chuẩn duy nhất, quy tắc thêm chữ mới, kiểm tra tự động, mở thêm ngôn ngữ, SEO/blog theo ngôn ngữ; đọc khi: MỌI việc thêm chữ giao diện
