@@ -269,6 +269,7 @@ node scripts/test/authority-pages.mjs
 node scripts/test/seo-twin.mjs
 node scripts/test/dict-pages.mjs
 node scripts/test/dict-stage.mjs
+node scripts/test/dict-enrich.mjs
 node scripts/test/native-auth.mjs
 node scripts/test/ota.mjs
 node scripts/test/crashlytics.mjs

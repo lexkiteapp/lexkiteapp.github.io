@@ -1,0 +1,782 @@
+{
+ "abandon": {
+  "n": "abandon 常被译成「放弃」，但它比 give up 更强烈，往往带有彻底丢下、不再回头的意味，既可指抛弃人或地方（abandon a child），也可指中止计划（abandon a plan）。它是及物动词，直接接宾语，不说 abandon to a plan；只有固定说法 abandon oneself to（沉溺于）才带 to。形容词 abandoned 表示「被遗弃的」，如 abandoned house。重音在第二音节：a-BAN-don。",
+  "x": [
+   [
+    "The villagers abandoned their homes when the river began to flood.",
+    "河水开始泛滥时，村民们弃家而逃。"
+   ],
+   [
+    "We had to abandon the hike because of the heavy rain.",
+    "因为大雨，我们不得不放弃这次徒步。"
+   ]
+  ]
+ },
+ "accommodate": {
+  "n": "这个词最常见的拼写错误是少写一个 c 或 m，正确写法是两个 c、两个 m。它有两层意思：一是「容纳」人或物，如 accommodate 100 guests；二是「迎合、照顾」某人的需求。名词 accommodation 指住宿，英式英语常作不可数名词，美式常说 accommodations。作动词时正式程度偏高，口语里常用 fit 或 have room for 代替。表示「容纳、照顾」时直接接宾语，不加介词。",
+  "x": [
+   [
+    "The small hotel can accommodate up to forty guests at one time.",
+    "这家小旅馆一次最多能容纳四十位客人。"
+   ],
+   [
+    "Our teacher tries to accommodate students who learn at different speeds.",
+    "我们的老师努力照顾学习进度各不相同的学生。"
+   ]
+  ]
+ },
+ "acknowledge": {
+  "n": "中文常把它简单对应为「承认」，但 acknowledge 的语气比 admit 更中性，admit 多用于承认错误，acknowledge 则可以是认可某个事实、确认收到邮件，甚至对别人的帮助表示感谢。常见结构是 acknowledge that 加从句，或直接接名词。拼写要注意 c 和 k 连在一起，不能写成 aknowledge。名词 acknowledgement 常出现在论文的致谢部分。",
+  "x": [
+   [
+    "The manager acknowledged that the delay was caused by a planning mistake.",
+    "经理承认这次延误是计划上的失误造成的。"
+   ],
+   [
+    "Please acknowledge this message so we know you received it.",
+    "请回复确认这条消息，好让我们知道你已收到。"
+   ]
+  ]
+ },
+ "acquire": {
+  "n": "acquire 比 get 正式，通常暗示经过一段过程或努力才得到，常见搭配有 acquire a skill、acquire knowledge，以及企业「收购」另一家公司。语言学里的 language acquisition 指自然习得语言。不要用来说买杯咖啡之类的小事，听起来会很别扭。名词是 acquisition，重音在第三音节。拼写的难点是中间的 cq，很多人漏掉 c 而写成 aquire。",
+  "x": [
+   [
+    "Children acquire new words faster when they hear them in stories.",
+    "孩子在故事里听到新词时，学得更快。"
+   ],
+   [
+    "The software firm acquired a smaller rival for a large sum.",
+    "这家软件公司以一大笔钱收购了一个规模较小的对手。"
+   ]
+  ]
+ },
+ "adequate": {
+  "n": "adequate 表示「够用、合格」，但不带赞美，有时甚至暗示只是勉强达到最低标准，所以评价别人的作品说 adequate 并不算夸奖。它既可以说数量够（adequate funding），也可以说质量过得去（adequate housing）。常见结构是 adequate for something 或 adequate to do something，反义词是 inadequate。注意不要模仿 good enough 写成 adequate enough，意思重复。",
+  "x": [
+   [
+    "The room was small but adequate for a short stay.",
+    "房间不大，但住几天足够了。"
+   ],
+   [
+    "Many villages still lack an adequate supply of clean water.",
+    "许多村庄仍然缺乏充足的清洁水源。"
+   ]
+  ]
+ },
+ "adjacent": {
+  "n": "adjacent 表示「紧挨着的、相邻的」，后面常跟介词 to，如 adjacent to the park。它比 next to 正式，常见于地图说明、几何题和房产描述；数学里 adjacent angles 指邻角。不要写成 adjacent with 或 adjacent from。读音是 a-JAY-sent，中间的 j 要发出来，而不是硬 g。",
+  "x": [
+   [
+    "Our apartment is adjacent to a quiet public garden.",
+    "我们的公寓紧挨着一座安静的公园。"
+   ],
+   [
+    "The two adjacent rooms share a thin wall, so you can hear the noise.",
+    "两个相邻的房间只隔着一堵薄墙，所以能听到噪音。"
+   ]
+  ]
+ },
+ "albeit": {
+  "n": "albeit 是正式的连词，意思是「尽管、虽然」，但它后面通常只接形容词、副词或简短短语，一般不像 although 那样接完整的主谓从句。例如 a useful, albeit expensive, tool。它多见于书面语，口语很少用。发音是 ol-BEE-it，三个音节。中文「虽然……但是」习惯成对出现，用 albeit 时前面的主句里不要再加 but。",
+  "x": [
+   [
+    "She finished the marathon, albeit more slowly than she had hoped.",
+    "她跑完了马拉松，尽管比她希望的慢一些。"
+   ],
+   [
+    "It was a helpful, albeit short, introduction to the topic.",
+    "这是一份有帮助的入门介绍，尽管篇幅很短。"
+   ]
+  ]
+ },
+ "alter": {
+  "n": "alter 指「小幅改动或调整」，而不是彻底更换。所以 alter a plan、alter a dress 很自然，若要说彻底改造，用 transform 更合适。它比 change 正式，而且一般必须带宾语。名词是 alteration，指修改或衣服的改裁。注意不要和 alternate 混淆，后者意为「轮流」，读音也不同。",
+  "x": [
+   [
+    "The tailor altered the jacket so it fit me perfectly.",
+    "裁缝改了这件夹克，让它穿在我身上非常合身。"
+   ],
+   [
+    "Heavy traffic forced us to alter our route at the last minute.",
+    "交通拥堵迫使我们在最后一刻改变了路线。"
+   ]
+  ]
+ },
+ "anticipate": {
+  "n": "anticipate 不只是 expect，它强调事先预料到并做好准备，如 anticipate problems、anticipate demand。后面可接名词或动名词，但不能像 expect 那样接 to 加不定式，要说 anticipate seeing，而不是 anticipate to see。这个「预先考虑」的含义正是它和 expect 的区别，expect 只表示认为会发生，并不要求提前准备。",
+  "x": [
+   [
+    "The shop anticipated high demand and ordered extra stock early.",
+    "商店预料到需求会很旺，提前订购了额外的货。"
+   ],
+   [
+    "We anticipate having the results ready by the end of next week.",
+    "我们预计下周末前能拿到结果。"
+   ]
+  ]
+ },
+ "apparent": {
+  "n": "apparent 有两个几乎相反的意思：一是「明显的」，常用在 it is apparent that 或 become apparent 里；二是「表面上的、看似如此的」，放在名词前时多是这个意思，如 an apparent contradiction，实际未必如此。副词 apparently 现在最常表示「据说、看来」，并不等于「显然」，想说显然要用 obviously 或 clearly。读音是 a-PAIR-ent，重音在第二音节。",
+  "x": [
+   [
+    "It soon became apparent that nobody had read the instructions.",
+    "很快就能看出，没有人读过说明书。"
+   ],
+   [
+    "The apparent difference between the two reports disappears once you check the dates.",
+    "两份报告表面上的差异，一核对日期就不存在了。"
+   ]
+  ]
+ },
+ "approximate": {
+  "n": "approximate 作形容词时读 ap-PROK-si-mit，表示「大约的、近似的」；作动词时读法不同，词尾是 mate，表示「接近」，后面常跟介词 to。名词是 approximation，副词 approximately 多见于数据、时间和数量的描述。日常口语中更自然的说法是 about 或 around，用 approximate 会显得偏书面、偏正式，写报告时才比较合适。",
+  "x": [
+   [
+    "The approximate cost of the repair is around two hundred dollars.",
+    "维修的大致费用在两百美元左右。"
+   ],
+   [
+    "His rough sketch only approximates the real shape of the old bridge.",
+    "他的草图只是大致接近那座老桥的真实形状。"
+   ]
+  ]
+ },
+ "behalf": {
+  "n": "behalf 几乎从不单独出现，最常见的是固定短语 on behalf of，意思是「代表、以……的名义」，例如 I am writing on behalf of the team；也可以和物主代词连用，说 on my behalf、on her behalf。这是正式用语，常见于书信、演讲和声明。美式英语里偶尔见到 in behalf of，但 on behalf of 最通用。常见错误是写成 on behave of，把它和动词 behave（表现）混淆了。",
+  "x": [
+   [
+    "I am writing on behalf of everyone in the neighbourhood association.",
+    "我代表邻里协会的全体成员来写这封信。"
+   ],
+   [
+    "She accepted the award on behalf of her whole research team.",
+    "她代表整个研究团队领取了这个奖项。"
+   ]
+  ]
+ },
+ "circumstance": {
+  "n": "circumstance 指事情发生时的情况或条件，通常用复数 circumstances，如 under the circumstances（在这种情况下）。介词要留意：under 表示受制于某些情况，如 under no circumstances（绝不），而 in 则用在 in some circumstances（在某些情形下）。它常指具体的背景条件，不同于更宽泛的 situation。单数形式多指某一个具体的特殊情形。",
+  "x": [
+   [
+    "Under these circumstances, we decided to cancel the trip.",
+    "在这种情况下，我们决定取消这次旅行。"
+   ],
+   [
+    "He was late because of circumstances beyond his control.",
+    "他迟到是因为一些他无法控制的情况。"
+   ]
+  ]
+ },
+ "clarify": {
+  "n": "clarify 指把已经提到但让人困惑的地方讲得更清楚，常见搭配有 clarify a point（澄清一点）和 clarify what you mean（说明你的意思）。开会时一句礼貌的请求就是 Could you clarify，意思是请对方再解释一下。它和 explain 不同：explain 是提供新的信息，而 clarify 是消除模糊和误会。名词是 clarification，常见于 request clarification（请求说明）。",
+  "x": [
+   [
+    "Could you clarify what you mean by a flexible deadline?",
+    "你能说明一下所谓灵活的截止日期是什么意思吗？"
+   ],
+   [
+    "The teacher will clarify each rule with a simple example on the board.",
+    "老师会在黑板上用简单的例子把每条规则讲清楚。"
+   ]
+  ]
+ },
+ "coherent": {
+  "n": "coherent 指有条理、前后连贯、讲得通，如 a coherent essay、a coherent argument。如果一个人说话 not coherent，就是说话杂乱无章，或者因为受惊、醉酒而表达不清。不要总是译成「相干」，那是物理里的专业含义，日常多半说「连贯」或「有条理」。名词是 coherence，反义词是 incoherent。重音在第二音节：co-HEER-ent。",
+  "x": [
+   [
+    "Her essay was clear and coherent from the first paragraph to the last.",
+    "她的文章从第一段到最后一段都清晰连贯。"
+   ],
+   [
+    "After the accident he was too shaken to give a coherent answer.",
+    "事故之后，他惊魂未定，没法给出条理清楚的回答。"
+   ]
+  ]
+ },
+ "coincide": {
+  "n": "coincide 表示「同时发生」或「看法一致」，后面常接介词 with，如 The sale coincides with the holiday，不要写成 coincide to。名词 coincidence 意为「巧合」，在口语里出现得比动词多得多。读音是 co-in-SIDE，三个音节，重音在最后一个。当两件事只是碰巧同时发生时，用 coincide 比 happen at the same time 更简洁。",
+  "x": [
+   [
+    "The festival coincides with the first day of the school holidays.",
+    "这个节日恰逢学校假期的第一天。"
+   ],
+   [
+    "Their interests rarely coincide, so they seldom choose the same movie.",
+    "他们的兴趣很少一致，所以很少选同一部电影。"
+   ]
+  ]
+ },
+ "commodity": {
+  "n": "commodity 指可以大宗买卖的基础商品，如石油、咖啡、小麦，所以财经新闻里常说 commodity prices（大宗商品价格）。它也可以比喻为珍贵或稀缺的东西，如 time is a precious commodity。别把它理解成「日用品」，那更接近 goods。重音在第二音节：co-MOD-i-ty。",
+  "x": [
+   [
+    "Coffee is an important commodity that is bought and sold on markets around the world.",
+    "咖啡是一种重要的大宗商品，在世界各地的市场上买卖。"
+   ],
+   [
+    "In a busy city, quiet time is a precious commodity.",
+    "在繁忙的城市里，安静的时光是一种珍贵的东西。"
+   ]
+  ]
+ },
+ "compensate": {
+  "n": "compensate 有两种常见结构。第一种是 compensate someone for something，表示「赔偿某人」的损失；第二种是 compensate for something，表示「弥补、抵消」某种不足，这时不带人作宾语，例如速度可以弥补身高的缺陷。名词 compensation 在商务语境里也可以指薪酬和福利待遇。两种用法里介词 for 几乎总会出现，要特别记住。",
+  "x": [
+   [
+    "The airline will compensate passengers for the long delay.",
+    "航空公司将就这次长时间延误向乘客作出赔偿。"
+   ],
+   [
+    "Her energy more than compensates for her lack of experience.",
+    "她的干劲足以弥补经验上的不足。"
+   ]
+  ]
+ },
+ "component": {
+  "n": "component 指构成整体的一个部分，既可以是机器零件，也可以是计划或考试的组成部分，如 the speaking component of an exam。常见搭配是 a key component of something，介词用 of。拼写上词尾是 ent，不是 ant。重音在第二音节：com-PO-nent。比起 part，它更强调「必不可少的组成」。",
+  "x": [
+   [
+    "Trust is a key component of any good working relationship.",
+    "信任是任何良好工作关系的关键组成部分。"
+   ],
+   [
+    "The engineer replaced a faulty component inside the control panel.",
+    "工程师更换了控制面板里一个有故障的部件。"
+   ]
+  ]
+ },
+ "compound": {
+  "n": "compound 词性不同，意思和读音也不同。名词读 COM-pound，指化合物或复合词（compound word）；动词在英式英语里多读 com-POUND，美式两种读法都有，意为「使恶化」或「使复合」，如 compound the problem。金融里 compound interest 是复利。中文「复合」只覆盖其中一部分含义，「使问题更严重」这个用法尤其要记住。",
+  "x": [
+   [
+    "Water is a compound made of hydrogen and oxygen.",
+    "水是由氢和氧组成的化合物。"
+   ],
+   [
+    "His late reply only compounded the confusion about the schedule.",
+    "他迟到的回复只会让日程上的混乱更加严重。"
+   ]
+  ]
+ },
+ "comprehensive": {
+  "n": "comprehensive 表示「全面的、包罗万象的」，常见搭配有全面的指南和全险的保单。要小心形近词的陷阱：它并不是「能被理解的」，那个意思要用 comprehensible。日常口语里，用 complete 或 full 往往更自然、更简短。重音落在第三个音节：com-pre-HEN-sive。此外，comprehensive 还可以指英国的「综合中学」，但那是较特殊的用法。",
+  "x": [
+   [
+    "The museum offers a comprehensive guide to the history of the region.",
+    "博物馆提供了一份介绍该地区历史的全面指南。"
+   ],
+   [
+    "Her insurance is comprehensive, so it covers theft and storm damage.",
+    "她买的是全险，所以盗窃和风暴损失都在保障范围内。"
+   ]
+  ]
+ },
+ "concept": {
+  "n": "concept 指抽象的概念或观念，如 the concept of time，后面常跟 of 加名词或动名词。它和 idea 的区别在于：idea 更口语，也可以是临时起意；concept 更系统，常用于学术或设计，如 a new concept for a phone。形容词 conceptual 读 con-CEP-chu-al。常见搭配还有 grasp a concept（理解一个概念）和 basic concept（基本概念）。",
+  "x": [
+   [
+    "Young children often find the concept of infinity hard to grasp.",
+    "小孩子往往觉得无穷的概念很难理解。"
+   ],
+   [
+    "The designers presented a new concept for a more compact phone.",
+    "设计师们展示了一款更小巧的手机的新概念。"
+   ]
+  ]
+ },
+ "conduct": {
+  "n": "conduct 的读音随词性变化：动词读 con-DUCT，意为「开展、实施」，如 conduct a survey、conduct an experiment，也可以指指挥乐队或传导电流；名词读 CON-duct，意为「行为」，如 a code of conduct（行为准则）。正式的研究语境里用 conduct 比 do 更地道，说 do an experiment 听起来口语化。",
+  "x": [
+   [
+    "Researchers conducted a survey of more than two thousand households.",
+    "研究人员对两千多户家庭进行了问卷调查。"
+   ],
+   [
+    "The company has a strict code of conduct for all employees.",
+    "公司对所有员工都有严格的行为准则。"
+   ]
+  ]
+ },
+ "conflict": {
+  "n": "conflict 的名词和动词读音不同：名词重音在前，意为「冲突、矛盾」，如利益冲突；动词重音在后，意为「相冲突」，常用于日程安排或观点之间，后面接介词 with。名词的适用范围比 war 广得多，同事、家人、邻居之间的小矛盾也都可以叫 conflict。常见搭配有 resolve a conflict（化解冲突）和 in conflict with（与……冲突）。",
+  "x": [
+   [
+    "The two neighbours have been in conflict over the fence for years.",
+    "两家邻居为了那道围栏已经争执了好多年。"
+   ],
+   [
+    "My dentist appointment conflicts with the team meeting on Friday.",
+    "我周五看牙医的预约和团队会议撞车了。"
+   ]
+  ]
+ },
+ "conform": {
+  "n": "conform 表示「遵守、符合」规则、标准或习惯，介词多用 to 或 with，如 conform to the rules。用在人身上时，常带点贬义，指盲目从众，对应的 nonconformist 则是「不随大流的人」。工程领域里产品必须 conform to 安全标准。名词是 conformity。不要和 confirm（证实）弄混。",
+  "x": [
+   [
+    "All new buildings must conform to the national safety standards.",
+    "所有新建筑都必须符合国家安全标准。"
+   ],
+   [
+    "Teenagers often conform because they fear being left out.",
+    "青少年常常从众，因为他们害怕被排除在外。"
+   ]
+  ]
+ },
+ "consequent": {
+  "n": "consequent 是较正式的形容词，意为「随之而来的、作为后果的」，常见于 a consequent loss 这类结构；也可以说 consequent on 或 consequent upon 某事，这种说法更正式，多见于书面语。它的使用频率远低于副词 consequently（因此、所以），后者在议论文中非常常见。还要注意区分几个形近词：consistent 意为一致的，subsequent 意为后来的，不要混为一谈。",
+  "x": [
+   [
+    "The company reported a fall in sales and a consequent drop in profit.",
+    "公司报告销量下滑，利润随之下降。"
+   ],
+   [
+    "Heavy rain and the consequent flooding closed several roads for two days.",
+    "暴雨以及随之而来的洪水让几条道路封闭了两天。"
+   ]
+  ]
+ },
+ "constant": {
+  "n": "constant 作形容词有两层意思：「持续不断的」和「恒定不变的」，如 constant noise、a constant temperature。说抱怨、打扰这类反复发生的事时，如 constant complaints，常带有令人厌烦的意味。和 continuous 相比，continuous 更强调中间完全不停。副词形式是 constantly，表示总是。作名词时，在数学和科学里指「常数」。重音在第一个音节：CON-stant。",
+  "x": [
+   [
+    "The constant noise from the road made it hard to sleep.",
+    "马路上传来的持续噪音让人很难入睡。"
+   ],
+   [
+    "Keep the water at a constant temperature during the whole experiment.",
+    "实验全程请让水温保持恒定。"
+   ]
+  ]
+ },
+ "constitute": {
+  "n": "constitute 在正式文体里表示「构成、组成」，如 Women constitute about half the workforce。它也有「相当于、被视为」的意思，如 may constitute a crime。注意它在这个意义下不用进行时态。名词 constitution 可以指宪法，也可以指体质。别把它和 consist of 搞混，两者的句型不一样。",
+  "x": [
+   [
+    "Young people constitute nearly a third of the city population.",
+    "年轻人占这座城市人口的将近三分之一。"
+   ],
+   [
+    "Walking into a closed shop without permission may constitute a crime.",
+    "未经允许闯入已关门的商店可能构成犯罪。"
+   ]
+  ]
+ },
+ "contradict": {
+  "n": "contradict 意为「与……矛盾」或「反驳」，宾语可以是人，也可以是某种说法，例如反驳证人，或者让人自相矛盾（contradict yourself）。它和 deny 不同：deny 是否认事实，而 contradict 是说出相反的话，或者拿出相反的证据。名词是 contradiction，形容词是 contradictory。动词的重音落在最后一个音节上。",
+  "x": [
+   [
+    "The new data contradict the results of the earlier study.",
+    "新的数据与先前研究的结果相矛盾。"
+   ],
+   [
+    "Please do not contradict your manager in front of the clients.",
+    "请不要当着客户的面反驳你的经理。"
+   ]
+  ]
+ },
+ "contrary": {
+  "n": "最重要的搭配是 contrary to，意为「与……相反」，常放在句首，如 Contrary to the forecast，后面再接主句。另一个常用短语 on the contrary 用来否定前面的说法并强调恰恰相反，这和只是补充另一面看法的 on the other hand 完全不同。它也可以放在名词前，如 contrary evidence（相反的证据）、a contrary view。重音在第一个音节：CON-trar-y。",
+  "x": [
+   [
+    "Contrary to the forecast, it stayed sunny for the whole weekend.",
+    "与天气预报相反，整个周末都是晴天。"
+   ],
+   [
+    "You think I was angry, but on the contrary, I was relieved.",
+    "你以为我生气了，恰恰相反，我松了一口气。"
+   ]
+  ]
+ },
+ "controversy": {
+  "n": "controversy 指引起公众广泛关注、各方意见针锋相对的争论，常见搭配有 controversy over 或 controversy about，以及 cause controversy、spark controversy（引发争议）。形容词是 controversial（有争议的）。它与 debate 的区别是：debate 可以有条有理地进行，而 controversy 往往带有激烈的分歧和对立。读音有两种：美式重音在第一个音节，英式则常把重音放在第二个音节上，两种读法都正确。",
+  "x": [
+   [
+    "The mayor's new plan caused controversy among local shop owners.",
+    "市长的新计划在当地店主中引起了争议。"
+   ],
+   [
+    "There is still controversy over how the money should be spent.",
+    "这笔钱该怎么花，至今仍有争议。"
+   ]
+  ]
+ },
+ "convert": {
+  "n": "convert 的重音随词性而变：动词重音在后，意为「转换、改造」，常见结构是 convert A into B，或 convert from A to B；名词重音在前，指「改变信仰的人」。例如把欧元兑换成美元，或者把车库改成卧室，都可以用这个动词。和 change 相比，它强调系统性的转变。名词形式为 conversion。",
+  "x": [
+   [
+    "They converted the old barn into a small guesthouse.",
+    "他们把那座旧谷仓改造成了一家小民宿。"
+   ],
+   [
+    "You can convert miles into kilometres by multiplying by 1.6.",
+    "把英里乘以 1.6，就能换算成公里。"
+   ]
+  ]
+ },
+ "cooperate": {
+  "n": "cooperate 表示为共同目标而合作，常见结构是 cooperate with someone 或 cooperate on something。在正式语境里经常出现，例如配合警方调查，或者几家机构联合开展某个项目。名词是 cooperation，形容词是 cooperative，意思是「肯配合的」。和它形成对比的是 compete（竞争）。英式英语也写作 co-operate。读音为 co-OP-er-ate，共四个音节，重音在第二个音节。",
+  "x": [
+   [
+    "The two schools agreed to cooperate on a science project this spring.",
+    "两所学校同意今年春天合作开展一个科学项目。"
+   ],
+   [
+    "Witnesses were asked to cooperate fully with the police.",
+    "证人被要求全力配合警方。"
+   ]
+  ]
+ },
+ "coordinate": {
+  "n": "中文的「协调」对应 coordinate 时，常见句型有三种：直接接宾语，表示统筹安排某件事；后接 with 某人，表示与对方配合；或者后接 A and B，表示使两者相互协调。形容词 well-coordinated 可形容动作协调，也可形容安排周密。英式英语有时写成带连字符的形式。动词词尾读得清楚饱满，而复数名词 coordinates 指地图上的「坐标」，词尾读得较弱。",
+  "x": [
+   [
+    "She coordinates the volunteers who help at the weekend market.",
+    "她负责协调周末市集上的志愿者。"
+   ],
+   [
+    "Pilots coordinate with the tower before every takeoff.",
+    "每次起飞前，飞行员都要与塔台协调联络。"
+   ]
+  ]
+ },
+ "core": {
+  "n": "core 作形容词意为「核心的、最重要的」，只能放在名词前面，如 core values、core subjects、core business。作名词则指中心部分，如苹果核、地核。另外 core 还常见于 core skills、core principles 这类说法，适合正式写作。口语中可以用 main 或 central 来替换。健身领域里的 core muscles 指的是核心肌群，这是近年很常见的用法。",
+  "x": [
+   [
+    "Honesty is one of our core values as a team.",
+    "诚实是我们团队的核心价值观之一。"
+   ],
+   [
+    "Maths and English are core subjects at most secondary schools.",
+    "数学和英语是大多数中学的核心科目。"
+   ]
+  ]
+ },
+ "corporate": {
+  "n": "corporate 是形容词，意为「公司的、法人的、团体的」，只能放在名词前，如 corporate culture（企业文化）、corporate tax（企业税）。它与 company 不同：company 是名词，corporate 是用来修饰的形容词，不能说 a corporate 来指一家公司。名词 corporation 指大型公司或法人团体。读音是 COR-por-it，中间的 po 很轻。",
+  "x": [
+   [
+    "Many young graduates dream of a stable corporate career.",
+    "许多年轻毕业生向往一份稳定的企业工作。"
+   ],
+   [
+    "The corporate tax rate will fall next year.",
+    "明年的企业税率将会下调。"
+   ]
+  ]
+ },
+ "correspond": {
+  "n": "correspond 有两种用法，介词不同，意思也不同。correspond to 表示「与……相符、相当于」，如数字与页码相对应；correspond with 既可以表示「与某事一致」，也可以表示「与某人通信」，后者较旧式。这是较正式的词。名词 correspondence 指通信或相符，correspondent 则指通讯记者。拼写上要注意是两个 r，但只有一个 s。",
+  "x": [
+   [
+    "The numbers on the map correspond to the sights listed below.",
+    "地图上的数字对应下面列出的景点。"
+   ],
+   [
+    "She still corresponds with a pen friend in Canada.",
+    "她仍然和一位加拿大的笔友保持通信。"
+   ]
+  ]
+ },
+ "criteria": {
+  "n": "criteria 是 criterion 的复数，所以正确的说法是 these criteria are，而不是 this criteria is，这是一个很常见的错误，连母语者也会犯。只有一个标准时才用单数 criterion。这个词较正式，多出现在报名、评分和筛选场合，如 selection criteria（遴选标准）、assessment criteria（评估标准）。重音在第二个音节。",
+  "x": [
+   [
+    "The committee used three clear criteria to choose the winner.",
+    "评委会用三条明确的标准来选出获胜者。"
+   ],
+   [
+    "Applicants must meet all of the criteria before they can apply.",
+    "申请人必须满足所有标准才可以申请。"
+   ]
+  ]
+ },
+ "debate": {
+  "n": "debate 作名词意为「辩论、争论」，作动词意为「辩论、斟酌」。常见结构有 debate a topic（不加 about）和 a debate about 或 a debate over 某个话题。它既可以指学校、议会和电视节目里有规则的辩论，也可以指社会上持续的争论，如 a heated debate。open to debate 表示「尚有争议」，形容词 debatable 表示「值得商榷的」。词尾的 e 不发音。",
+  "x": [
+   [
+    "There is a lively debate about whether homework should be banned.",
+    "关于是否应该禁止家庭作业，有一场热烈的争论。"
+   ],
+   [
+    "The students debated the topic for almost an hour after class.",
+    "下课后学生们就这个话题辩论了将近一个小时。"
+   ]
+  ]
+ },
+ "deduce": {
+  "n": "deduce 指根据已知事实或线索，经过推理得出结论，就像侦探做的那样。常见结构有 deduce that 加从句，以及 deduce something from something。它强调逻辑推理，而不是随便猜测，意思更接近 infer。名词是 deduction，形容词是 deductive。注意 deduction 还有「扣除」的意思，对应动词是 deduct，不要拼混。重音在第二个音节：de-DUCE。",
+  "x": [
+   [
+    "From the muddy shoes, we deduced that he had walked across the field.",
+    "从那双沾满泥的鞋，我们推断他是走路穿过了田野。"
+   ],
+   [
+    "Scientists deduce the age of a tree from its rings.",
+    "科学家通过年轮推断一棵树的树龄。"
+   ]
+  ]
+ },
+ "derive": {
+  "n": "derive 有两个主要用法。derive something from something 表示「从某处获得」，如从阅读中获得乐趣。被动形式 be derived from 表示「源于、来自」，常用于词源和公式的说明。名词 derivation，形容词 derivative。它很正式，常见于学术文章。介词几乎总是 from，不要写成 derive of 或 derive by。",
+  "x": [
+   [
+    "Many English words are derived from Latin and French.",
+    "许多英语单词来源于拉丁语和法语。"
+   ],
+   [
+    "She derives great satisfaction from helping younger students.",
+    "她从帮助低年级学生中获得了极大的满足感。"
+   ]
+  ]
+ },
+ "devote": {
+  "n": "devote 几乎总是和介词 to 搭配，常见说法是把时间、精力或注意力投入到某件事上，也可以说 devote yourself to（致力于）。这里的 to 是介词，所以后面要用动名词：devote time to studying，而不是 devote time to study。形容词 devoted 意为「忠诚的、深爱的」。宗教语境里的「虔诚」则用另一个词 devout，形式并不相同。",
+  "x": [
+   [
+    "He devotes every weekend to restoring his old motorbike.",
+    "他每个周末都花在修复自己那辆旧摩托车上。"
+   ],
+   [
+    "The museum has devoted a whole room to local history.",
+    "博物馆专门用了一整个展厅来展示本地历史。"
+   ]
+  ]
+ },
+ "differentiate": {
+  "n": "differentiate 有两种常见句型：differentiate between A and B，或者 differentiate A from B，意思都是「区分」两者。也可以不带宾语，说「很难区分」。在数学里，它还指「求导数」。名词是 differentiation。商业里常用它表示让产品或品牌与众不同。它和 distinguish 意思接近，不过 distinguish 在日常口语中更常用。全词共五个音节，重音在第三个音节上。",
+  "x": [
+   [
+    "It is hard to differentiate between the twins at first.",
+    "起初很难分清这对双胞胎。"
+   ],
+   [
+    "Good branding helps shops differentiate themselves from their competitors.",
+    "好的品牌塑造帮助店铺与竞争对手区分开来。"
+   ]
+  ]
+ },
+ "dimension": {
+  "n": "dimension 指长、宽、高等「尺寸」，也指问题的某个「层面」或「方面」。复数 dimensions 常见于产品规格，如房间的尺寸、箱子的尺寸。它还可以比喻，如给故事增添新的维度，或者说某个问题有政治和经济两个层面。形容词 three-dimensional 常缩写为 3D。作动词的用法很少见。读音是 di-MEN-shun，重音在第二个音节。",
+  "x": [
+   [
+    "Please measure the dimensions of the table before you order a cover.",
+    "订桌罩之前，请先量一下桌子的尺寸。"
+   ],
+   [
+    "The new evidence adds a personal dimension to the whole story.",
+    "新证据为整个故事增添了个人层面的意味。"
+   ]
+  ]
+ },
+ "discriminate": {
+  "n": "discriminate 有两种意思，要靠后面的介词来区分。discriminate against 某人，表示因种族、性别或年龄而「歧视」对方；discriminate between A and B，则表示仔细「辨别」两者，没有任何负面含义。名词是 discrimination，使用频率很高。动词读 dis-CRIM-i-nate，词尾要读清楚，这一点和形容词 discriminating（有眼光的）不同。",
+  "x": [
+   [
+    "It is illegal to discriminate against workers because of their age.",
+    "因为年龄而歧视员工是违法的。"
+   ],
+   [
+    "Wine experts can discriminate between very similar flavours.",
+    "品酒专家能够分辨出非常相似的味道。"
+   ]
+  ]
+ },
+ "displace": {
+  "n": "displace 指把某物移出原来的位置，或者取而代之。新闻里常见 displaced people，指因战争或灾难被迫离开家园的人。另一种用法是新技术取代工人。名词是 displacement。与 replace 不同，displace 暗示某物被挤走或推出原位，而不只是简单换成别的东西。",
+  "x": [
+   [
+    "The flood displaced thousands of families from their homes.",
+    "洪水使数千个家庭流离失所。"
+   ],
+   [
+    "Cheap imports have displaced many local products from the shelves.",
+    "廉价进口商品把许多本地产品挤下了货架。"
+   ]
+  ]
+ },
+ "dispose": {
+  "n": "dispose 几乎总是和 of 连用，意为「处理、扔掉」垃圾、旧物或有害物质，如 dispose of batteries。没有 of 的用法较少见，意思是「布置」或「使倾向于」。名词是 disposal，disposable 意为「一次性的」。中文学习者常写成 dispose the rubbish 而漏掉 of，这是最常见的错误。",
+  "x": [
+   [
+    "Please dispose of used batteries at the special bins near the exit.",
+    "请把用过的电池扔到出口附近的专用回收箱里。"
+   ],
+   [
+    "The company was fined after workers began to dispose of chemicals in the river.",
+    "工人开始把化学品倒进河里后，这家公司被罚了款。"
+   ]
+  ]
+ },
+ "distort": {
+  "n": "distort 指把形状、声音或事实扭曲到不再准确或不再诚实，如 distort the truth、a distorted image（失真的图像）。这个词几乎总是贬义，与中性的 change 形成对比。名词是 distortion。后面直接接宾语，不需要介词。读音为 dis-TORT，重音在第二个音节。",
+  "x": [
+   [
+    "The old speakers distort the sound when the volume is too high.",
+    "音量太大时，这些旧音箱会让声音失真。"
+   ],
+   [
+    "Some headlines distort the facts to attract more readers.",
+    "有些标题为了吸引更多读者而歪曲事实。"
+   ]
+  ]
+ },
+ "diverse": {
+  "n": "diverse 意为「多样的、各种各样的」，常用来形容人口、团队或文化，如 a diverse population。不要把它简单理解成「不同的」，那个意思更适合用 different。名词是 diversity（多样性），动词是 diversify（使多样化），后者常用于企业经营，指拓展业务种类。读音是 di-VERSE，重音在第二个音节，词尾发 s 的音。",
+  "x": [
+   [
+    "London has a very diverse population from all over the world.",
+    "伦敦有来自世界各地的、非常多元的人口。"
+   ],
+   [
+    "Our teachers come from diverse backgrounds and bring different ideas.",
+    "我们的老师来自各种不同的背景，带来了不同的想法。"
+   ]
+  ]
+ },
+ "domain": {
+  "n": "domain 有几个常用含义，需要看语境。在网络上指「域名」，如网站的 domain；在学术上指「领域、范畴」，如 the domain of physics；在法律上，public domain 指「公共领域」，即不受版权保护的作品；in the public domain 还可表示已为公众所知。读音是 do-MAIN，重音在第二个音节。",
+  "x": [
+   [
+    "This knowledge was once the domain of a small group of experts.",
+    "这类知识曾经只属于一小群专家的领域。"
+   ],
+   [
+    "She bought a new domain for her small online bakery.",
+    "她为自己的网上烘焙小店买了一个新域名。"
+   ]
+  ]
+ },
+ "dominate": {
+  "n": "dominate 意为「支配、主导」，可以指比赛、市场，也可以指谈话，后面通常直接接宾语，如 dominate the market；dominate over 偶尔也能见到，但不如直接接宾语常见。形容词是 dominant，名词是 domination 或 dominance。用在运动队身上是褒义，用在爱抢话的人身上则是贬义，要看语境。读音是 DOM-i-nate，共三个音节，重音在第一个音节上。",
+  "x": [
+   [
+    "Two big companies dominate the market for mobile phones.",
+    "两家大公司主导着手机市场。"
+   ],
+   [
+    "He tends to dominate every meeting and rarely lets others speak.",
+    "他总爱主导每一场会议，很少让别人发言。"
+   ]
+  ]
+ },
+ "duration": {
+  "n": "duration 指某事持续的时间长度，常见短语有 for the duration of（在……期间）和 of short duration（持续时间短）。比如航班的时长或考试的时间。它比 length of time 正式，日常问时长时更常说 How long。中文学习者常把它和 during 混用：during 是介词，后面直接接名词；duration 是名词，前面要用 for the。读音是 dyoo-RAY-shun，重音在第二个音节。",
+  "x": [
+   [
+    "The duration of the film is almost three hours with a short break.",
+    "这部电影时长近三个小时，中间有一次短暂休息。"
+   ],
+   [
+    "Please keep your phone off for the duration of the exam.",
+    "考试期间请保持手机关机。"
+   ]
+  ]
+ },
+ "edit": {
+  "n": "edit 指在发布前修改、润色文字、图片、视频或数据，范围比单纯改错别字更广，包括删减、重新排序和使表达更清楚。做这件事的人是 editor。edit 也可以作名词，指一次修改，如 make a few edits；而书刊的「版本、版次」是 edition。edit out 表示「剪掉」某个部分。不要把它和 publish（出版）或 proofread（最后校对）混淆。",
+  "x": [
+   [
+    "I need to edit my essay again before I send it to the teacher.",
+    "把作文交给老师之前，我还得再修改一遍。"
+   ],
+   [
+    "She edits short videos for a travel channel on weekends.",
+    "她周末为一个旅行频道剪辑短视频。"
+   ]
+  ]
+ },
+ "eliminate": {
+  "n": "eliminate 表示彻底「消除」不想要的东西，例如消除浪费或消除错误。在体育比赛中，be eliminated 表示「被淘汰」，这是非常常见的用法。它比 reduce 更彻底，因为 reduce 只是减少一部分，而 eliminate 是完全去掉。名词是 elimination。读音是 e-LIM-i-nate，重音在第二个音节，词尾的 nate 要读清楚。",
+  "x": [
+   [
+    "The new system should eliminate most of the errors in our reports.",
+    "新系统应该能消除我们报告中的大部分错误。"
+   ],
+   [
+    "Our team was eliminated in the second round of the cup.",
+    "我们队在杯赛第二轮就被淘汰了。"
+   ]
+  ]
+ },
+ "emerge": {
+  "n": "emerge 指从隐蔽处或困境中「出现、浮现」，也指某个事实或趋势逐渐「显现」。常用结构是 emerge from 某个地方或某种处境，如从水中浮出、走出危机。形容词 emerging 常见于新兴市场这类说法。名词是 emergence，千万不要与 emergency（紧急情况）混淆。读音是 i-MERGE，重音在第二个音节。",
+  "x": [
+   [
+    "A small fox emerged from the bushes and crossed the road.",
+    "一只小狐狸从灌木丛里钻出来，穿过了马路。"
+   ],
+   [
+    "New questions emerged as the investigation continued over several weeks.",
+    "随着调查持续了几周，新的问题浮现出来。"
+   ]
+  ]
+ },
+ "enable": {
+  "n": "enable 表示「使能够、使成为可能」，常见结构是 enable someone to do something，注意后面接带 to 的不定式，不能说 enable someone do。它也可以用于设备或功能，如 enable notifications（开启通知）。反义词是 disable。名词是 enabler。与 allow 相比，enable 更强调提供了条件或能力，使事情可以实现。",
+  "x": [
+   [
+    "The new software enables teachers to share files with students quickly.",
+    "新软件让老师能够快速与学生共享文件。"
+   ],
+   [
+    "You can enable notifications in the settings menu.",
+    "你可以在设置菜单里开启通知。"
+   ]
+  ]
+ },
+ "encounter": {
+  "n": "encounter 指「遭遇」或「偶然遇到」，对象可以是人、困难或情况，如 encounter problems、encounter resistance。它是及物动词，后面直接接宾语，不加介词。比 meet 正式，并且往往暗示事先没有计划。作名词时指「遭遇、邂逅」，如 a chance encounter。读音是 en-COUN-ter，重音在第二个音节。",
+  "x": [
+   [
+    "We encountered several problems when we tried to install the app.",
+    "我们试着安装这个应用时遇到了几个问题。"
+   ],
+   [
+    "She had an unexpected encounter with an old classmate on the train.",
+    "她在火车上意外遇见了一位老同学。"
+   ]
+  ]
+ },
+ "enhance": {
+  "n": "enhance 意为「提高、增强」事物的质量、价值或效果，如 enhance performance、enhance flavour。宾语通常是已经存在的好东西，所以它带有褒义，比 increase 更强调「变得更好」，而不仅仅是「变多」。名词是 enhancement，如 photo enhancement（图像优化）。读音是 en-HANCE，重音在第二个音节，h 要读出来。",
+  "x": [
+   [
+    "A little lemon juice can enhance the flavour of the fish.",
+    "加一点柠檬汁可以提升这道鱼的风味。"
+   ],
+   [
+    "The new training programme aims to enhance the skills of young teachers.",
+    "这个新的培训项目旨在提高年轻教师的能力。"
+   ]
+  ]
+ },
+ "equate": {
+  "n": "equate 意为「把……等同于」，常见结构是 equate A with B，如 equate money with happiness（把金钱等同于幸福）。介词通常用 with。它常用在批评把两个不同的东西混为一谈的句子里。被动形式是 be equated with。同词根的 equation 是「方程式」，equal 是「相等的」。中文说「等于」时，日常算式用 equal，不用 equate。",
+  "x": [
+   [
+    "Many people equate success with a high salary.",
+    "很多人把成功等同于高薪。"
+   ],
+   [
+    "You cannot equate hard work with simply spending long hours at a desk.",
+    "你不能把努力工作简单等同于长时间坐在办公桌前。"
+   ]
+  ]
+ },
+ "assume": {
+  "n": "assume 有两个主要意思：一是「假定、认为」某事为真，但没有确凿证据，如 I assume you are hungry；二是「承担、接手」责任或职务，如 assume control、assume responsibility。后者比较正式。名词是 assumption，常说 make an assumption。它和 suppose 意思接近，presume 更正式，常暗示有一定依据。最常见的句型是 assume that 加从句，口语里 I assume 很自然。",
+  "x": [
+   [
+    "I assumed the meeting started at nine, but it began at ten.",
+    "我以为会议九点开始，结果十点才开。"
+   ],
+   [
+    "The new director will assume full responsibility for the budget next year.",
+    "新任主管明年将全面负责预算。"
+   ]
+  ]
+ }
+}
