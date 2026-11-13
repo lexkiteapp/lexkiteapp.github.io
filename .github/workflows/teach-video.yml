@@ -65,9 +65,9 @@ jobs:
       - run: node scripts/test/motion-core.mjs
       - run: node scripts/test/teach2d-rig.mjs   # rig host plan + lipsync_rig gate on the core rig (no browser) + stress-label regression
       - run: python3 scripts/test/media-origin.py   # pictures from GitHub origins, Worker last (2/11 429)
-      - id: p   # free runners, low priority (owner 13/11: video chạy lúc rảnh, UI/nội dung trước): min(6, 40 - busy - 8) per run, 8 kept for PR checks
+      - id: p   # owner 13/11: video ≤3 runners in total while other CI work runs; CI idle → all free runners (min(24, 40 - busy - 8)); scripts/ci/shards.mjs --video
         env: { GITHUB_TOKEN: '${{ github.token }}' }
-        run: echo "par=$(node scripts/ci/shards.mjs --left 48 --per 1 --cap 6 | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
+        run: echo "par=$(node scripts/ci/shards.mjs --left 48 --per 1 --cap 24 --video | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
       - id: m   # a batch takes only what the free runners finish in ~1.5 h (4 episodes per runner); ci-filler dispatches the next slice
         run: echo "list=$(python3 scripts/video/teach2d/gen.py --pick '${{ github.event.inputs.eps }}' '${{ github.event.inputs.shards }}' '${{ github.event_name }}' ${{ steps.p.outputs.par }})" >> "$GITHUB_OUTPUT"   # batch = facts re-verified live (gen.py --verify), not yet banked
   voice:
@@ -116,7 +116,7 @@ jobs:
       - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
       - id: p
         env: { GITHUB_TOKEN: '${{ github.token }}' }
-        run: echo "par=$(node scripts/ci/shards.mjs --left $(( $(echo '${{ needs.preqc.outputs.list }}' | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))') * 2 )) --per 1 --cap 6 | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
+        run: echo "par=$(node scripts/ci/shards.mjs --left $(( $(echo '${{ needs.preqc.outputs.list }}' | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))') * 2 )) --per 1 --cap 24 --video | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
   render:   # one red voice job no longer skips the whole batch: that episode's render fails on its missing voice artifact, the rest render
     needs: [preqc, voice, par, gate]
     if: ${{ (!cancelled() && needs.preqc.result == 'success' && needs.par.result == 'success') && needs.gate.outputs.go == 'true' }}
