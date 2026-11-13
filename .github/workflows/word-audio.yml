@@ -34,7 +34,7 @@ jobs:
   gen:
     needs: plan
     if: needs.plan.outputs.left != '0'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 170
     strategy: { max-parallel: 6, fail-fast: false, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }
     steps:
@@ -102,7 +102,7 @@ jobs:
           bash scripts/ci/push-main.sh "Giọng đọc từ vựng s3: thêm lô đã qua Whisper (còn ${{ needs.plan.outputs.left }} từ trước lượt này)" web/audio/w/index.txt web/audio/w/s3.tsv web/audio/w/s3-stats.json web/data/offline-pack.json
   sample:
     if: github.event_name == 'workflow_dispatch' && github.event.inputs.asr_sample != '0'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4

@@ -73,7 +73,7 @@ jobs:
   voice:
     needs: [preqc, gate]
     if: needs.gate.outputs.go == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 25
     strategy: { fail-fast: false, max-parallel: '${{ fromJSON(needs.preqc.outputs.par) }}', matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}' } }
     steps:

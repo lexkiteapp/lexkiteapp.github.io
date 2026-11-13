@@ -34,7 +34,7 @@ jobs:
   check:
     needs: plan
     if: needs.plan.outputs.left != '0'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 170
     strategy: { max-parallel: 6, fail-fast: false, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }
     steps:

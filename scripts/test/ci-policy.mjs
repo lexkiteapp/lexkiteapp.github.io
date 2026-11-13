@@ -114,7 +114,8 @@ export function installSteps(src) {
 const PW_SCRIPTS = (() => { const r = []; const walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const f = path.join(d, e.name);
   if (e.isDirectory()) { if (e.name !== 'node_modules') walk(f); } else if (/\.(mjs|cjs|js)$/.test(e.name) && /from ['"]playwright|require\(['"]playwright|playwright-core/.test(fs.readFileSync(f, 'utf8').slice(0, 4000))) r.push(path.relative(ROOT, f).split(path.sep).join('/')); } };
   try { walk(path.join(ROOT, 'scripts')); } catch (e) { /* không có thư mục scripts (test tổng hợp) */ } return r; })();
-export const usesPlaywright = jobText => /playwright|chromium|puppeteer/i.test(jobText) || PW_SCRIPTS.some(f => jobText.includes(f));
+// + job cài faster-whisper/scripts/cine/requirements.txt: PyAV (av 11) chưa có wheel cho Python của 26.04 → build từ nguồn lỗi "libavformat not found" (voice (t2_usuk_elevator) đỏ 13/11)
+export const usesPlaywright = jobText => /playwright|chromium|puppeteer|faster-whisper|scripts\/cine\/requirements/i.test(jobText) || PW_SCRIPTS.some(f => jobText.includes(f));
 export const badRunner = jobText => { const m = jobText.match(/^    runs-on:\s*(.*)$/m); return !!m && (/ubuntu-latest|26\.04/.test(m[1]) || (/ubuntu/.test(m[1]) && !/vars\.PW_RUNNER/.test(m[1]))); }; // một chỗ đổi chung: repo variable PW_RUNNER (mặc định ubuntu-24.04)
 /** Lỗi chính sách của 1 workflow (thuần, có test) → [chuỗi]. */
 const SIGN_AUTO = /-allowProvisioningUpdates\b|CODE_SIGN_STYLE\s*=\s*"?Automatic|signingStyle<\/key>\s*<string>automatic/i;
