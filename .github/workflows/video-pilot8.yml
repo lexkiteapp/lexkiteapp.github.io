@@ -14,7 +14,7 @@ env:
   O: out/pilot8
 jobs:
   pilot:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4

@@ -29,7 +29,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   plan:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 10
     outputs:
       left: ${{ steps.c.outputs.left }}
@@ -53,7 +53,7 @@ jobs:
   gen:
     needs: plan
     if: needs.plan.outputs.left != '0'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 170
     strategy: { max-parallel: 24, fail-fast: false, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }   # ngân sách runner nền: số shard đã tính động ở plan (chừa 8 cho PR – docs/CI-RUNNERS.md)
     steps:
@@ -89,7 +89,7 @@ jobs:
     # Mốc khớp miệng: Kokoro python sinh tiếng + mốc âm vị CÙNG một lần → <khóa>-ls.mp3 + mốc qua cổng từng câu (lệch ≤ 45 ms, đúng hình ≥ 80 %, 0 nháy)
     needs: plan
     if: needs.plan.outputs.cues != '0'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
@@ -118,7 +118,7 @@ jobs:
   publish:
     needs: [plan, gen, cues]
     if: always() && (needs.plan.outputs.left != '0' || needs.plan.outputs.cues != '0')
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
