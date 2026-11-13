@@ -120,6 +120,7 @@
   ":scope > main > div > div:nth-child(1) > button:nth-child(1)": "relative after:absolute after:-inset-1 after:content-['']",
   ":scope > main > div > div:nth-child(1) > button:nth-child(3)": "relative after:absolute after:-inset-1 after:content-['']",
   ":scope > main > div > div:nth-child(1) > div:nth-child(2)": "max-w-[60%]",
+  ":scope > main > div > div:nth-child(3)": "-mt-[7px]",
   ":scope > main > div > div:nth-child(4)": "lsn-tiles",
   ":scope > main > div > div:nth-child(6)": "relative z-10 lsn-sub",
   ":scope > main > div > div:nth-child(6) > div:nth-child(1) > span": "break-words",
