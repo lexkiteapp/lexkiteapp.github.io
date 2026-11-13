@@ -1,0 +1,782 @@
+{
+ "widespread": {
+  "n": "widespread는 어떤 현상이나 믿음이 넓은 지역이나 많은 사람들 사이에 퍼져 있다는 뜻의 형용사입니다. widespread support, widespread concern처럼 주로 명사 앞에 쓰며, 지지나 우려, 질병, 피해처럼 사회 전반에 퍼진 현상에 잘 어울립니다. 한국어의 널리 퍼진에 해당하지만, 사람 자체를 꾸미는 말로는 쓰지 않습니다. 비슷한 common보다 퍼진 범위가 넓다는 느낌이 강하고, 하이픈 없이 한 단어로 씁니다.",
+  "x": [
+   [
+    "There is widespread concern about the rising cost of housing.",
+    "주거비가 오르는 것에 대해 폭넓은 우려가 있다."
+   ],
+   [
+    "The new law received widespread support from local business owners.",
+    "새 법은 지역 상인들로부터 폭넓은 지지를 받았다."
+   ]
+  ]
+ },
+ "status": {
+  "n": "status는 사람이나 사물의 상태, 법적 지위, 사회적 신분을 두루 가리킵니다. marital status는 결혼 여부, legal status는 법적 신분, status symbol은 신분의 상징을 뜻합니다. 한국어에서 스테이터스라고 하면 게임 능력치를 떠올리기 쉽지만 영어에서는 의미가 훨씬 넓습니다. 발음은 미국식으로는 STAY-tus 또는 STAT-us 둘 다 쓰입니다. 불가산 명사처럼 쓰는 경우가 많아 복수형은 드뭅니다.",
+  "x": [
+   [
+    "Please check the status of your order on our website.",
+    "저희 웹사이트에서 주문 처리 상태를 확인해 주세요."
+   ],
+   [
+    "He enjoys the high status that comes with being a famous doctor.",
+    "그는 유명한 의사라는 데서 오는 높은 지위를 누리고 있다."
+   ]
+  ]
+ },
+ "artificial": {
+  "n": "artificial은 자연적으로 생긴 것이 아니라 사람이 만든 것을 뜻하며, artificial intelligence, artificial flavours처럼 중립적으로 쓰입니다. 하지만 artificial smile처럼 사람의 태도에 쓰면 꾸민 듯하고 진심이 없다는 부정적 뉘앙스가 됩니다. 이때는 인공적인보다 억지스러운, 부자연스러운으로 옮기는 편이 자연스럽습니다. 반대말은 natural이고, 발음은 아티피셜로 강세가 세 번째 음절에 옵니다.",
+  "x": [
+   [
+    "The drink contains no artificial colours or flavours.",
+    "이 음료에는 인공 색소나 인공 향료가 들어 있지 않다."
+   ],
+   [
+    "Her smile looked artificial, as if she did not really enjoy the party.",
+    "그녀의 미소는 파티를 정말 즐기지 않는 것처럼 꾸민 듯해 보였다."
+   ]
+  ]
+ },
+ "deduce": {
+  "n": "deduce는 이미 알고 있는 사실이나 단서를 바탕으로 논리적으로 결론을 이끌어 낸다는 뜻입니다. 구조는 deduce that 절, 또는 deduce something from something입니다. 탐정이 단서를 보고 범인을 추리하는 장면을 떠올리면 쉽습니다. 단순히 짐작하는 guess와 달리 근거가 있다는 점이 핵심이고, 의미는 infer와 가깝습니다. 명사는 deduction이며 발음은 디듀스로 둘째 음절에 강세가 옵니다.",
+  "x": [
+   [
+    "From the muddy shoes, we deduced that he had walked across the field.",
+    "진흙 묻은 신발을 보고 우리는 그가 들판을 걸어서 건너왔다고 추론했다."
+   ],
+   [
+    "Scientists deduce the age of a tree from its rings.",
+    "과학자들은 나이테로 나무의 나이를 추론한다."
+   ]
+  ]
+ },
+ "abandon": {
+  "n": "abandon은 사람이나 장소를 완전히 버리고 떠난다는 뜻과, 계획이나 습관을 포기한다는 뜻을 모두 가집니다. 사람을 대상으로 하면 매우 무거운 말이므로 abandon a child처럼 쓰면 심각한 상황이 됩니다. 반면 abandon a plan은 흔한 표현입니다. give up보다 격식 있고 단호한 느낌이며, 목적어를 바로 취합니다. 형용사 abandoned는 버려진 건물을 뜻할 때 자주 씁니다.",
+  "x": [
+   [
+    "The villagers abandoned their homes when the river began to flood.",
+    "강이 범람하기 시작하자 마을 사람들은 집을 버리고 떠났다."
+   ],
+   [
+    "We had to abandon the hike because of the heavy rain.",
+    "폭우 때문에 우리는 하이킹을 포기해야 했다."
+   ]
+  ]
+ },
+ "accommodate": {
+  "n": "accommodate는 철자를 틀리기 쉬운 대표적인 단어로, c와 m이 각각 두 개씩 들어갑니다. 첫째 뜻은 사람이나 물건을 수용한다는 것으로, 호텔이나 경기장의 수용 인원을 말할 때 씁니다. 둘째 뜻은 다른 사람의 요구에 맞춰 준다는 뜻입니다. 명사 accommodation은 숙소를 뜻하며 호텔이나 임대 광고에서 자주 보입니다. 이 두 뜻에서는 목적어를 바로 취하고, 구어에서는 fit이나 have room for로 바꿔 말하기도 합니다.",
+  "x": [
+   [
+    "The small hotel can accommodate up to forty guests at one time.",
+    "그 작은 호텔은 한 번에 최대 마흔 명의 손님을 수용할 수 있다."
+   ],
+   [
+    "Our teacher tries to accommodate students who learn at different speeds.",
+    "우리 선생님은 학습 속도가 다른 학생들에게 맞추려고 노력한다."
+   ]
+  ]
+ },
+ "acknowledge": {
+  "n": "acknowledge를 인정하다로만 외우기 쉽지만, admit보다 중립적입니다. admit은 주로 잘못을 시인할 때 쓰고, acknowledge는 사실을 받아들이거나, 이메일을 받았음을 확인하거나, 도움에 감사를 표시할 때도 쓰입니다. 구조는 acknowledge that 절 또는 명사 목적어입니다. 철자에서 c와 k가 이어지므로 aknowledge로 쓰지 않도록 주의하세요. 논문의 감사의 글은 acknowledgements라고 합니다.",
+  "x": [
+   [
+    "The manager acknowledged that the delay was caused by a planning mistake.",
+    "관리자는 지연이 계획상의 실수 때문이었음을 인정했다."
+   ],
+   [
+    "Please acknowledge this message so we know you received it.",
+    "저희가 수신 여부를 알 수 있도록 이 메시지에 확인 답장을 주세요."
+   ]
+  ]
+ },
+ "acquire": {
+  "n": "acquire는 get보다 격식 있는 단어로, 어느 정도 시간이나 노력을 들여 얻는다는 느낌을 줍니다. acquire a skill, acquire knowledge처럼 능력이나 지식에 자주 쓰고, 기업이 다른 기업을 인수할 때도 씁니다. 언어학의 language acquisition은 언어 습득을 뜻합니다. 커피 한 잔 사는 것처럼 사소한 일에 쓰면 어색합니다. 명사는 acquisition이고, 철자의 어려운 점은 가운데 cq이며, c를 빠뜨려 aquire로 쓰는 실수가 흔합니다.",
+  "x": [
+   [
+    "Children acquire new words faster when they hear them in stories.",
+    "아이들은 이야기 속에서 새 단어를 들으면 더 빨리 습득한다."
+   ],
+   [
+    "The software firm acquired a smaller rival for a large sum.",
+    "그 소프트웨어 회사는 큰돈을 들여 더 작은 경쟁사를 인수했다."
+   ]
+  ]
+ },
+ "adequate": {
+  "n": "adequate는 필요를 채우기에 충분하다는 뜻이지만, 칭찬의 느낌은 거의 없습니다. 때로는 최소한의 기준을 겨우 채웠다는 어감이라, 누군가의 작품을 adequate라고 평가하면 그리 좋은 말이 아닙니다. 양이 충분할 때도, 질이 괜찮을 때도 씁니다. 구조는 adequate for something 또는 adequate to do something이고, 반대말은 inadequate입니다. good enough를 흉내 내어 adequate enough라고 하면 뜻이 겹칩니다.",
+  "x": [
+   [
+    "The room was small but adequate for a short stay.",
+    "방은 작았지만 잠깐 묵기에는 충분했다."
+   ],
+   [
+    "Many villages still lack an adequate supply of clean water.",
+    "많은 마을이 여전히 충분한 깨끗한 물 공급을 받지 못하고 있다."
+   ]
+  ]
+ },
+ "adjacent": {
+  "n": "adjacent는 바로 옆에 붙어 있다는 뜻이며, 뒤에는 보통 전치사 to가 따라옵니다. 예를 들어 adjacent to the park는 공원에 인접한이라는 뜻입니다. next to보다 격식 있어서 지도 설명, 기하학 문제, 부동산 소개에서 자주 보입니다. 수학에서 adjacent angles는 이웃한 각입니다. 발음은 어제이슨트처럼 가운데에 j 소리가 나며, 강세는 둘째 음절에 있습니다. 전치사는 with보다 to가 표준입니다.",
+  "x": [
+   [
+    "Our apartment is adjacent to a quiet public garden.",
+    "우리 아파트는 조용한 공원과 맞닿아 있다."
+   ],
+   [
+    "The two adjacent rooms share a thin wall, so you can hear the noise.",
+    "인접한 두 방은 얇은 벽을 공유해서 소음이 들린다."
+   ]
+  ]
+ },
+ "albeit": {
+  "n": "albeit은 although와 비슷한 격식체 접속사이지만, 뒤에는 보통 완전한 절이 아니라 형용사, 부사, 짧은 구가 옵니다. 예를 들어 a useful, albeit expensive, tool처럼 쓰며, 주어와 동사를 갖춘 절은 거의 붙이지 않습니다. 주로 글에서 쓰고 말에서는 드뭅니다. 발음은 올비잇입니다. 한국어의 비록 ~지만처럼 앞 문장에 but을 다시 넣지 않도록 주의하세요.",
+  "x": [
+   [
+    "She finished the marathon, albeit more slowly than she had hoped.",
+    "그녀는 바라던 것보다는 느렸지만 마라톤을 완주했다."
+   ],
+   [
+    "It was a helpful, albeit short, introduction to the topic.",
+    "짧기는 했지만 그 주제에 대한 도움이 되는 소개였다."
+   ]
+  ]
+ },
+ "alter": {
+  "n": "alter는 완전히 바꾸는 것이 아니라 일부를 고치거나 조금 바꾼다는 뜻입니다. alter a plan이나 alter a dress처럼 쓰는 것이 자연스럽고, 아예 다른 것으로 만들 때는 transform이 더 어울립니다. change보다 격식 있고, 보통 목적어가 필요합니다. 옷 수선은 alteration이라고 하며, 수선집 간판에서 볼 수 있습니다. alternate와 혼동하지 마세요. 뜻도 발음도 다릅니다.",
+  "x": [
+   [
+    "The tailor altered the jacket so it fit me perfectly.",
+    "재단사가 재킷을 고쳐서 내게 딱 맞게 해 주었다."
+   ],
+   [
+    "Heavy traffic forced us to alter our route at the last minute.",
+    "교통 체증 때문에 우리는 마지막 순간에 경로를 바꿔야 했다."
+   ]
+  ]
+ },
+ "anticipate": {
+  "n": "anticipate는 expect와 달리, 어떤 일이 일어날 것을 미리 내다보고 대비한다는 뉘앙스가 있습니다. anticipate problems, anticipate demand처럼 쓰며, 뒤에는 명사나 동명사가 옵니다. expect와 달리 to 부정사를 직접 붙이지 않아서 anticipate to see는 틀리고 anticipate seeing이 맞습니다. 단순히 그렇게 될 것이라고 믿는 expect와 달리, 미리 준비한다는 점이 anticipate의 핵심입니다.",
+  "x": [
+   [
+    "The shop anticipated high demand and ordered extra stock early.",
+    "그 가게는 높은 수요를 예상하고 추가 재고를 일찍 주문했다."
+   ],
+   [
+    "We anticipate having the results ready by the end of next week.",
+    "우리는 다음 주 말까지 결과가 준비될 것으로 예상한다."
+   ]
+  ]
+ },
+ "apparent": {
+  "n": "apparent는 서로 거의 반대되는 두 가지 뜻이 있어 헷갈립니다. 하나는 분명한, 명백한이라는 뜻으로 it was apparent that he was tired처럼 주로 be 동사 뒤에 씁니다. 다른 하나는 겉으로 그렇게 보일 뿐 실제로는 아닐 수 있다는 뜻으로, 명사 앞에 오는 an apparent contradiction은 겉보기 모순입니다. 부사 apparently는 요즘 주로 듣자 하니, 보아하니라는 뜻이고 분명히라는 뜻으로는 잘 쓰지 않습니다. 강세는 둘째 음절입니다.",
+  "x": [
+   [
+    "It soon became apparent that nobody had read the instructions.",
+    "곧 아무도 설명서를 읽지 않았다는 사실이 분명해졌다."
+   ],
+   [
+    "The apparent difference between the two reports disappears once you check the dates.",
+    "두 보고서 사이의 겉보기 차이는 날짜를 확인하면 사라진다."
+   ]
+  ]
+ },
+ "approximate": {
+  "n": "approximate는 형용사일 때 어프록시멋으로 읽으며 대략적인, 근사한이라는 뜻입니다. 동사일 때는 끝이 메이트로 발음되고 비슷해지다, 근접하다라는 뜻이며 보통 to와 함께 씁니다. 명사는 approximation이고, 부사 approximately는 숫자나 시간을 말할 때 자주 나옵니다. 일상 대화에서는 about이나 around가 훨씬 자연스럽고, approximate는 보고서나 발표 같은 격식 있는 글에서 어울립니다.",
+  "x": [
+   [
+    "The approximate cost of the repair is around two hundred dollars.",
+    "수리 비용은 대략 이백 달러쯤 된다."
+   ],
+   [
+    "His rough sketch only approximates the real shape of the old bridge.",
+    "그의 대략적인 스케치는 옛 다리의 실제 모양에 겨우 근접할 뿐이다."
+   ]
+  ]
+ },
+ "assume": {
+  "n": "assume은 두 가지로 쓰입니다. 증거 없이 어떤 것이 사실이라고 가정하거나 생각한다는 뜻이 있고, 책임이나 통제권을 맡는다는 뜻도 있습니다. 앞쪽 예는 I assume you are hungry, 뒤쪽 예는 assume responsibility입니다. 한국어의 가정하다와 달리 일상 대화에서도 자주 쓰입니다. 명사는 assumption입니다. 가장 흔한 구조는 assume that 절이며, 구어에서는 I assume처럼 짧게 말해도 자연스럽습니다.",
+  "x": [
+   [
+    "I assumed the meeting started at nine, but it began at ten.",
+    "나는 회의가 아홉 시에 시작한다고 생각했는데 열 시에 시작했다."
+   ],
+   [
+    "The new director will assume full responsibility for the budget next year.",
+    "새 책임자는 내년에 예산 전체에 대한 책임을 맡게 된다."
+   ]
+  ]
+ },
+ "behalf": {
+  "n": "behalf는 단독으로 쓰이는 일이 거의 없고, 보통 on behalf of라는 고정 표현으로 나타납니다. 누군가를 대신해서, 대표하여라는 뜻이며 편지, 연설, 공식 성명에서 자주 보입니다. 예를 들어 I am writing on behalf of the team이라고 하면 팀을 대표해서 쓴다는 뜻입니다. 소유격과 함께 on my behalf, on her behalf처럼 쓸 수도 있습니다. on behave of처럼 behave와 섞어 쓰는 실수가 흔하니 주의하세요.",
+  "x": [
+   [
+    "I am writing on behalf of everyone in the neighbourhood association.",
+    "저는 이웃 모임의 모든 회원을 대표해서 이 글을 씁니다."
+   ],
+   [
+    "She accepted the award on behalf of her whole research team.",
+    "그녀는 연구팀 전체를 대표해서 상을 받았다."
+   ]
+  ]
+ },
+ "circumstance": {
+  "n": "circumstance는 어떤 일이 일어나는 상황이나 조건을 가리키며, 대개 circumstances처럼 복수형으로 씁니다. under the circumstances는 이런 상황에서라는 뜻이고, 전치사 under를 쓴다는 점이 한국인 학습자에게는 낯설 수 있습니다. 반면 in some circumstances는 어떤 경우에는이라는 의미입니다. situation보다 구체적인 배경과 조건을 강조하며, 단수형은 특정한 하나의 사정을 가리킬 때 씁니다.",
+  "x": [
+   [
+    "Under these circumstances, we decided to cancel the trip.",
+    "이런 상황에서 우리는 여행을 취소하기로 결정했다."
+   ],
+   [
+    "He was late because of circumstances beyond his control.",
+    "그는 자신이 통제할 수 없는 사정 때문에 늦었다."
+   ]
+  ]
+ },
+ "clarify": {
+  "n": "clarify는 이미 언급했지만 모호한 부분을 더 분명하게 만든다는 뜻입니다. clarify a point, clarify what you mean처럼 쓰고, 회의에서 Could you clarify는 상대에게 다시 설명해 달라고 정중히 부탁하는 표현입니다. explain은 새로운 정보를 제공하는 반면, clarify는 이미 나온 말의 혼란을 없앱니다. 명사는 clarification이며, 동사 끝의 ify가 ification으로 바뀌는 형태에 유의하세요.",
+  "x": [
+   [
+    "Could you clarify what you mean by a flexible deadline?",
+    "유연한 마감일이라는 게 무슨 뜻인지 설명해 주실 수 있나요?"
+   ],
+   [
+    "The teacher will clarify each rule with a simple example on the board.",
+    "선생님은 칠판에 간단한 예를 들어 각 규칙을 분명히 설명해 줄 것이다."
+   ]
+  ]
+ },
+ "coherent": {
+  "n": "coherent는 앞뒤가 맞고 조리 있게 이어진다는 뜻으로, a coherent essay, a coherent argument처럼 씁니다. 사람에게 쓸 때 not coherent는 말이 뒤죽박죽이거나, 충격이나 취기로 제대로 표현하지 못한다는 뜻입니다. 물리학에서는 결맞음을 뜻하는 전문 용어지만, 일상에서는 일관된, 논리적인으로 이해하면 됩니다. 명사는 coherence, 반대말은 incoherent이고 강세는 둘째 음절입니다.",
+  "x": [
+   [
+    "Her essay was clear and coherent from the first paragraph to the last.",
+    "그녀의 글은 첫 문단부터 마지막까지 명확하고 일관되었다."
+   ],
+   [
+    "After the accident he was too shaken to give a coherent answer.",
+    "사고 후 그는 너무 충격을 받아 조리 있는 대답을 할 수 없었다."
+   ]
+  ]
+ },
+ "coincide": {
+  "n": "coincide는 동시에 일어나다 또는 의견이 일치하다라는 뜻이며, 보통 전치사 with와 함께 씁니다. 예를 들어 the sale coincides with the holiday는 세일이 휴일과 겹친다는 뜻입니다. coincide to는 틀린 표현입니다. 명사 coincidence는 우연의 일치라는 뜻으로 대화에서 훨씬 자주 들립니다. 발음은 코인사이드로 세 음절이며 강세는 마지막 음절에 있습니다.",
+  "x": [
+   [
+    "The festival coincides with the first day of the school holidays.",
+    "그 축제는 학교 방학 첫날과 겹친다."
+   ],
+   [
+    "Their interests rarely coincide, so they seldom choose the same movie.",
+    "그들은 관심사가 거의 일치하지 않아서 같은 영화를 고르는 일이 드물다."
+   ]
+  ]
+ },
+ "commodity": {
+  "n": "commodity는 석유, 커피, 밀처럼 대량으로 사고팔 수 있는 기본 상품을 말합니다. 그래서 경제 뉴스에서 commodity prices는 원자재 가격이라는 뜻입니다. 비유적으로 time is a precious commodity처럼 귀하거나 부족한 것을 가리키기도 합니다. 일반 생활용품은 goods나 products가 더 적절합니다. 발음은 커마더티이고 강세는 둘째 음절에 있습니다.",
+  "x": [
+   [
+    "Coffee is an important commodity that is bought and sold on markets around the world.",
+    "커피는 세계 곳곳의 시장에서 사고팔리는 중요한 원자재 상품이다."
+   ],
+   [
+    "In a busy city, quiet time is a precious commodity.",
+    "바쁜 도시에서는 조용한 시간이 귀한 자원이다."
+   ]
+  ]
+ },
+ "compensate": {
+  "n": "compensate는 구조에 따라 뜻이 달라집니다. compensate someone for something은 누군가의 손해를 보상해 준다는 뜻입니다. compensate for something은 부족한 점을 메우거나 상쇄한다는 뜻이며, 이때는 사람을 목적어로 두지 않습니다. 예를 들어 his speed compensates for his lack of height처럼 씁니다. 명사 compensation은 직장에서는 급여와 복리후생을 가리키기도 합니다. 어느 경우든 전치사 for가 뒤따르는 점을 기억하세요.",
+  "x": [
+   [
+    "The airline will compensate passengers for the long delay.",
+    "항공사는 긴 지연에 대해 승객들에게 보상할 것이다."
+   ],
+   [
+    "Her energy more than compensates for her lack of experience.",
+    "그녀의 열정은 경험 부족을 충분히 메우고도 남는다."
+   ]
+  ]
+ },
+ "component": {
+  "n": "component는 전체를 이루는 부분이나 구성 요소를 가리키며, 기계의 부품이든 계획이나 시험의 한 영역이든 두루 쓰입니다. a key component of something이라고 하며 전치사는 of입니다. 예를 들어 the speaking component of an exam은 시험의 말하기 영역입니다. part보다 없어서는 안 되는 요소라는 느낌이 강합니다. 철자의 끝은 ent이고, 발음은 컴포넌트로 둘째 음절에 강세가 있습니다.",
+  "x": [
+   [
+    "Trust is a key component of any good working relationship.",
+    "신뢰는 모든 좋은 업무 관계의 핵심 요소다."
+   ],
+   [
+    "The engineer replaced a faulty component inside the control panel.",
+    "엔지니어는 제어판 안의 결함 있는 부품을 교체했다."
+   ]
+  ]
+ },
+ "compound": {
+  "n": "compound는 품사에 따라 뜻과 발음이 달라지므로 먼저 품사를 확인해야 합니다. 명사는 첫 음절을 세게 읽으며 화합물, 복합어를 뜻합니다. 동사는 영국식에서 주로 둘째 음절을 세게 읽고, 미국식에서는 첫 음절 강세도 흔합니다. 뜻은 상황을 악화시키다, 합치다이며 compound the problem처럼 씁니다. 금융에서 compound interest는 복리입니다. 한국어의 복합과 달리 악화시키다라는 의미까지 있다는 점을 알아 두세요.",
+  "x": [
+   [
+    "Water is a compound made of hydrogen and oxygen.",
+    "물은 수소와 산소로 이루어진 화합물이다."
+   ],
+   [
+    "His late reply only compounded the confusion about the schedule.",
+    "그의 늦은 답장은 일정에 대한 혼란을 더 키웠을 뿐이다."
+   ]
+  ]
+ },
+ "comprehensive": {
+  "n": "comprehensive는 거의 모든 것을 아우르는 포괄적인, 종합적인이라는 뜻입니다. 예를 들면 a comprehensive guide는 종합 안내서, comprehensive insurance는 종합 보험입니다. 헷갈리기 쉬운 점은 이해할 수 있는이라는 뜻이 아니라는 것으로, 그 뜻은 comprehensible입니다. 일상 대화에서는 complete나 full이 더 자연스럽습니다. 발음은 컴프리헨시브이며 강세는 세 번째 음절에 있습니다.",
+  "x": [
+   [
+    "The museum offers a comprehensive guide to the history of the region.",
+    "박물관은 그 지역의 역사에 관한 포괄적인 안내서를 제공한다."
+   ],
+   [
+    "Her insurance is comprehensive, so it covers theft and storm damage.",
+    "그녀의 보험은 종합 보험이라서 도난과 폭풍 피해까지 보장한다."
+   ]
+  ]
+ },
+ "concept": {
+  "n": "concept는 추상적인 개념이나 발상을 뜻하며, the concept of time처럼 뒤에 of와 명사 또는 동명사가 옵니다. idea는 더 일상적이고 즉흥적일 수 있는 반면, concept는 체계적이어서 학술이나 디자인에서 자주 쓰입니다. 형용사 conceptual은 컨셉추얼로 읽습니다. 한국어의 컨셉이 단순히 분위기나 테마를 뜻하는 일이 많지만 영어의 concept는 더 논리적인 개념에 가깝습니다.",
+  "x": [
+   [
+    "Young children often find the concept of infinity hard to grasp.",
+    "어린아이들은 무한이라는 개념을 이해하기 어려워하는 경우가 많다."
+   ],
+   [
+    "The designers presented a new concept for a more compact phone.",
+    "디자이너들은 더 작은 휴대폰을 위한 새로운 콘셉트를 선보였다."
+   ]
+  ]
+ },
+ "conduct": {
+  "n": "conduct는 품사에 따라 강세가 바뀝니다. 동사는 컨덕트로 둘째 음절을 세게 읽으며 수행하다, 실시하다라는 뜻이고 conduct a survey, conduct an experiment처럼 씁니다. 오케스트라를 지휘하거나 전기를 전도한다는 뜻도 있습니다. 명사는 첫 음절을 세게 읽으며 행동을 뜻하고 a code of conduct는 행동 강령입니다. 연구를 이야기할 때는 do보다 conduct가 더 전문적으로 들립니다.",
+  "x": [
+   [
+    "Researchers conducted a survey of more than two thousand households.",
+    "연구자들은 이천 가구가 넘는 가정을 대상으로 설문 조사를 실시했다."
+   ],
+   [
+    "The company has a strict code of conduct for all employees.",
+    "그 회사는 모든 직원에게 엄격한 행동 강령을 적용한다."
+   ]
+  ]
+ },
+ "conflict": {
+  "n": "conflict는 명사일 때 첫 음절에 강세가 오고 갈등, 충돌을 뜻하며 a conflict of interest는 이해 충돌입니다. 동사일 때는 둘째 음절에 강세가 오고 서로 충돌하다라는 뜻으로, 일정이나 의견에 주로 쓰며 뒤에 with가 따릅니다. 명사는 war보다 범위가 넓어서 직장 동료나 가족 사이의 작은 갈등에도 씁니다. 발음 때문에 품사를 구분해야 하니 강세까지 함께 외우세요.",
+  "x": [
+   [
+    "The two neighbours have been in conflict over the fence for years.",
+    "두 이웃은 울타리를 두고 몇 년째 갈등을 겪고 있다."
+   ],
+   [
+    "My dentist appointment conflicts with the team meeting on Friday.",
+    "금요일 치과 예약이 팀 회의와 겹친다."
+   ]
+  ]
+ },
+ "conform": {
+  "n": "conform은 규칙, 기준, 관습에 맞추다, 따르다라는 뜻으로 전치사는 to나 with를 씁니다. 예를 들어 conform to the rules는 규칙을 따르다입니다. 사람에게 쓰면 무비판적으로 다수를 따른다는 약간 부정적인 느낌이 있고, 반대말 격인 nonconformist는 틀에 얽매이지 않는 사람입니다. 제품이 안전 기준에 부합한다고 할 때도 씁니다. confirm과 철자가 비슷하니 헷갈리지 마세요.",
+  "x": [
+   [
+    "All new buildings must conform to the national safety standards.",
+    "모든 신축 건물은 국가 안전 기준에 부합해야 한다."
+   ],
+   [
+    "Teenagers often conform because they fear being left out.",
+    "십 대들은 소외될까 봐 두려워서 다수를 따르는 경우가 많다."
+   ]
+  ]
+ },
+ "consequent": {
+  "n": "consequent는 그 결과로 뒤따르는이라는 뜻의 격식 있는 형용사로, a consequent loss처럼 명사 앞에 쓰거나 consequent on 또는 consequent upon 형태로 나타납니다. 뒤의 두 형태는 특히 격식 있는 글에서 쓰입니다. 쓰이는 빈도는 부사 consequently보다 훨씬 낮고, 그래서라는 뜻의 consequently는 에세이에서 매우 흔합니다. consistent는 일관된, subsequent는 그다음의라는 뜻이니 서로 섞어 쓰지 마세요.",
+  "x": [
+   [
+    "The company reported a fall in sales and a consequent drop in profit.",
+    "회사는 매출 감소와 그에 따른 이익 하락을 보고했다."
+   ],
+   [
+    "Heavy rain and the consequent flooding closed several roads for two days.",
+    "폭우와 그로 인한 홍수 때문에 여러 도로가 이틀간 폐쇄되었다."
+   ]
+  ]
+ },
+ "constant": {
+  "n": "constant는 두 가지 뜻으로 쓰입니다. 끊임없이 계속되는이라는 뜻과 변하지 않는 일정한이라는 뜻입니다. constant noise는 그치지 않는 소음이고, a constant temperature는 일정한 온도입니다. constant complaints처럼 반복되는 일에 쓰면 짜증스럽다는 느낌이 묻어나기도 합니다. continuous는 중간에 끊김이 전혀 없다는 점을 더 강조합니다. 부사는 constantly이며, 수학이나 과학에서 명사로 쓰면 상수를 뜻합니다.",
+  "x": [
+   [
+    "The constant noise from the road made it hard to sleep.",
+    "도로에서 들려오는 끊임없는 소음 때문에 잠들기 어려웠다."
+   ],
+   [
+    "Keep the water at a constant temperature during the whole experiment.",
+    "실험 내내 물을 일정한 온도로 유지하세요."
+   ]
+  ]
+ },
+ "constitute": {
+  "n": "constitute는 격식 있는 글에서 구성하다, 이루다라는 뜻으로 쓰입니다. 예를 들어 Women constitute about half the workforce는 여성이 노동력의 절반 정도를 차지한다는 뜻입니다. 또 어떤 행위가 범죄에 해당한다고 말할 때도 씁니다. 이 뜻으로는 진행형을 쓰지 않습니다. 명사 constitution은 헌법이나 체질을 뜻합니다. consist of와는 문장 구조가 다르므로 구별해서 외우세요.",
+  "x": [
+   [
+    "Young people constitute nearly a third of the city population.",
+    "젊은 사람들이 그 도시 인구의 거의 삼분의 일을 차지한다."
+   ],
+   [
+    "Walking into a closed shop without permission may constitute a crime.",
+    "허락 없이 문 닫은 가게에 들어가는 것은 범죄가 될 수 있다."
+   ]
+  ]
+ },
+ "contradict": {
+  "n": "contradict는 어떤 말과 모순되거나 반박한다는 뜻이며, 목적어로 사람도 말도 올 수 있습니다. contradict a witness는 증인의 말을 반박하다, contradict yourself는 자기모순에 빠지다입니다. deny는 사실을 부인하는 것이고, contradict는 반대되는 말을 하거나 반대되는 증거를 보여 주는 것입니다. 명사는 contradiction, 형용사는 contradictory입니다. 동사의 강세는 마지막 음절에 옵니다.",
+  "x": [
+   [
+    "The new data contradict the results of the earlier study.",
+    "새 데이터는 앞선 연구의 결과와 모순된다."
+   ],
+   [
+    "Please do not contradict your manager in front of the clients.",
+    "고객들 앞에서 매니저의 말에 반박하지 마세요."
+   ]
+  ]
+ },
+ "contrary": {
+  "n": "contrary에서 가장 중요한 표현은 contrary to로, 와는 반대로라는 뜻이며 문장 앞에 자주 놓입니다. 또 다른 표현 on the contrary는 앞선 말을 부정하고 오히려 반대가 맞다고 강조할 때 쓰며, 단순히 다른 면을 덧붙이는 on the other hand와는 다릅니다. 형용사로 명사 앞에 쓸 수도 있어 contrary evidence는 반대되는 증거, a contrary view는 반대 의견입니다. 발음은 첫 음절에 강세가 오는 컨트레리입니다.",
+  "x": [
+   [
+    "Contrary to the forecast, it stayed sunny for the whole weekend.",
+    "일기 예보와는 반대로 주말 내내 맑았다."
+   ],
+   [
+    "You think I was angry, but on the contrary, I was relieved.",
+    "너는 내가 화났다고 생각하지만 오히려 안도했어."
+   ]
+  ]
+ },
+ "controversy": {
+  "n": "controversy는 많은 사람들 사이에서 의견이 크게 엇갈리는 논란을 가리킵니다. controversy over나 controversy about 뒤에 쟁점이 오고, cause controversy, spark controversy는 논란을 일으키다라는 뜻입니다. 형용사는 controversial입니다. debate는 차분하고 체계적으로 진행될 수 있지만 controversy에는 격한 대립의 느낌이 있습니다. 미국 영어에서는 첫 음절에, 영국 영어에서는 흔히 둘째 음절에 강세가 옵니다.",
+  "x": [
+   [
+    "The mayor's new plan caused controversy among local shop owners.",
+    "시장의 새 계획은 지역 상점 주인들 사이에서 논란을 일으켰다."
+   ],
+   [
+    "There is still controversy over how the money should be spent.",
+    "그 돈을 어떻게 써야 하는지를 두고 여전히 논란이 있다."
+   ]
+  ]
+ },
+ "convert": {
+  "n": "convert는 품사에 따라 강세가 달라집니다. 동사는 둘째 음절에 강세가 오고 바꾸다, 전환하다라는 뜻이며, convert A into B 또는 convert from A to B 형태로 씁니다. 명사는 첫 음절에 강세가 오며 개종한 사람을 가리킵니다. 유로를 달러로 환산하거나 차고를 침실로 개조한다고 할 때 쓸 수 있습니다. 평범한 change보다 체계적인 변화라는 느낌이 강하고, 명사는 conversion입니다.",
+  "x": [
+   [
+    "They converted the old barn into a small guesthouse.",
+    "그들은 낡은 헛간을 작은 게스트하우스로 개조했다."
+   ],
+   [
+    "You can convert miles into kilometres by multiplying by 1.6.",
+    "마일에 1.6을 곱하면 킬로미터로 환산할 수 있다."
+   ]
+  ]
+ },
+ "cooperate": {
+  "n": "cooperate는 공동의 목표를 위해 협력한다는 뜻이며, cooperate with someone 또는 cooperate on something 형태로 씁니다. 경찰 수사에 협조한다고 할 때도 자주 나옵니다. 명사는 cooperation, 형용사는 cooperative이며 협조적인이라는 뜻입니다. 경쟁하다라는 뜻의 compete와 대비해 기억하면 쉽습니다. 영국 영어에서는 co-operate로 쓰기도 합니다. 발음은 코아퍼레이트로 네 음절이며, 둘째 음절에 강세가 옵니다.",
+  "x": [
+   [
+    "The two schools agreed to cooperate on a science project this spring.",
+    "두 학교는 올봄 과학 프로젝트에서 협력하기로 했다."
+   ],
+   [
+    "Witnesses were asked to cooperate fully with the police.",
+    "목격자들은 경찰에 전적으로 협조해 달라는 요청을 받았다."
+   ]
+  ]
+ },
+ "coordinate": {
+  "n": "한국어 조율하다, 맞추다에 해당하는 coordinate는 세 가지 구조로 자주 씁니다. 목적어를 바로 두면 일정이나 행사를 조율하다, with를 붙이면 누군가와 손발을 맞추다, A and B를 두면 두 가지를 서로 어울리게 맞추다라는 뜻입니다. 영국 영어에서는 하이픈을 넣어 쓰기도 합니다. 형용사 well-coordinated는 동작이 잘 맞거나 계획이 치밀하다는 뜻입니다. 명사 coordinates는 좌표이며 끝소리가 약하게 납니다.",
+  "x": [
+   [
+    "She coordinates the volunteers who help at the weekend market.",
+    "그녀는 주말 시장에서 돕는 자원봉사자들을 조율한다."
+   ],
+   [
+    "Pilots coordinate with the tower before every takeoff.",
+    "조종사들은 이륙할 때마다 관제탑과 조율한다."
+   ]
+  ]
+ },
+ "core": {
+  "n": "core는 형용사일 때 핵심적인이라는 뜻이며 반드시 명사 앞에 놓입니다. core values는 핵심 가치, core subjects는 필수 과목, core business는 핵심 사업입니다. 명사일 때는 중심부를 뜻해서 사과 속심이나 지구의 핵을 말할 수 있습니다. core skills, core principles 같은 표현도 격식 있는 글에서 자주 보입니다. 구어에서는 main이나 central로 바꿀 수 있고, 운동에서 core muscles는 코어 근육을 가리킵니다.",
+  "x": [
+   [
+    "Honesty is one of our core values as a team.",
+    "정직함은 우리 팀의 핵심 가치 가운데 하나다."
+   ],
+   [
+    "Maths and English are core subjects at most secondary schools.",
+    "수학과 영어는 대부분의 중등학교에서 핵심 과목이다."
+   ]
+  ]
+ },
+ "correspond": {
+  "n": "correspond는 뒤에 오는 전치사에 따라 뜻이 갈립니다. correspond to는 과 일치하다, 에 해당하다라는 뜻입니다. correspond with는 일치하다라는 뜻으로도 쓰이고, 사람이 오면 편지를 주고받다라는 뜻이 됩니다. 격식 있는 단어입니다. 명사 correspondence는 서신 왕래나 일치를 뜻하고, correspondent는 특파원이나 통신원을 가리킵니다. 철자에서 r은 두 번이지만 s는 한 번뿐이라는 점에 주의하세요.",
+  "x": [
+   [
+    "The numbers on the map correspond to the sights listed below.",
+    "지도의 숫자는 아래에 나열된 명소와 서로 대응한다."
+   ],
+   [
+    "She still corresponds with a pen friend in Canada.",
+    "그녀는 아직도 캐나다에 있는 펜팔 친구와 편지를 주고받는다."
+   ]
+  ]
+ },
+ "criteria": {
+  "n": "criteria는 criterion의 복수형입니다. 그래서 these criteria are가 맞고 this criteria is는 틀린 문장인데, 원어민도 자주 실수하는 부분입니다. 기준이 하나일 때만 단수형 criterion을 씁니다. 지원, 평가, 선발 같은 격식 있는 장면에 어울려 selection criteria는 선발 기준, assessment criteria는 평가 기준입니다. 발음은 크라이티리아이며 둘째 음절에 강세가 옵니다.",
+  "x": [
+   [
+    "The committee used three clear criteria to choose the winner.",
+    "위원회는 우승자를 고르기 위해 세 가지 분명한 기준을 사용했다."
+   ],
+   [
+    "Applicants must meet all of the criteria before they can apply.",
+    "지원자는 지원하기 전에 모든 기준을 충족해야 한다."
+   ]
+  ]
+ },
+ "debate": {
+  "n": "debate는 명사로 토론, 논쟁을, 동사로 토론하다, 숙고하다를 뜻합니다. 동사는 debate a topic처럼 목적어를 바로 쓰는 것이 기본이고, 명사는 a debate about 또는 over 뒤에 주제가 옵니다. 학교, 의회, 방송의 규칙 있는 토론뿐 아니라 사회 전반의 논쟁에도 쓰여 a heated debate라고도 합니다. open to debate는 논란의 여지가 있다는 뜻이고, 형용사 debatable은 논란이 될 만한이라는 뜻입니다.",
+  "x": [
+   [
+    "There is a lively debate about whether homework should be banned.",
+    "숙제를 금지해야 하는지를 두고 활발한 토론이 벌어지고 있다."
+   ],
+   [
+    "The students debated the topic for almost an hour after class.",
+    "학생들은 수업 후 거의 한 시간 동안 그 주제로 토론했다."
+   ]
+  ]
+ },
+ "derive": {
+  "n": "derive는 두 가지 구조로 자주 나옵니다. derive something from something은 어떤 근원에서 얻는다는 뜻으로 derive pleasure from reading은 독서에서 즐거움을 얻다입니다. 수동태 be derived from은 에서 유래하다라는 뜻이며 어원이나 공식을 설명할 때 많이 씁니다. 명사는 derivation, 형용사는 derivative입니다. 격식 있는 글에서 쓰이고, 전치사는 거의 항상 from입니다.",
+  "x": [
+   [
+    "Many English words are derived from Latin and French.",
+    "많은 영어 단어가 라틴어와 프랑스어에서 유래했다."
+   ],
+   [
+    "She derives great satisfaction from helping younger students.",
+    "그녀는 어린 학생들을 도우면서 큰 만족감을 얻는다."
+   ]
+  ]
+ },
+ "devote": {
+  "n": "devote는 거의 항상 전치사 to와 함께 쓰여 시간, 노력, 관심을 어딘가에 쏟는다는 뜻이 됩니다. devote yourself to는 헌신하다입니다. 여기서 to는 전치사이므로 뒤에는 동명사가 와서 devote time to studying이 맞고 devote time to study는 틀립니다. 형용사 devoted는 헌신적인, 애정이 깊은이라는 뜻입니다. 종교적으로 독실하다는 뜻은 devout이라는 다른 단어를 씁니다.",
+  "x": [
+   [
+    "He devotes every weekend to restoring his old motorbike.",
+    "그는 주말마다 낡은 오토바이를 복원하는 데 시간을 쓴다."
+   ],
+   [
+    "The museum has devoted a whole room to local history.",
+    "박물관은 한 전시실 전체를 지역 역사에 할애했다."
+   ]
+  ]
+ },
+ "differentiate": {
+  "n": "differentiate는 구분하다라는 뜻으로 두 가지 구조가 흔합니다. differentiate between A and B 또는 differentiate A from B입니다. 목적어 없이 it is hard to differentiate처럼 쓸 수도 있습니다. 수학에서는 미분하다라는 뜻입니다. 명사는 differentiation입니다. 마케팅에서는 제품을 차별화하다라는 뜻으로 자주 씁니다. distinguish와 뜻이 비슷하지만 일상 대화에서는 distinguish가 더 흔합니다. 셋째 음절에 강세가 옵니다.",
+  "x": [
+   [
+    "It is hard to differentiate between the twins at first.",
+    "처음에는 그 쌍둥이를 구별하기가 어렵다."
+   ],
+   [
+    "Good branding helps shops differentiate themselves from their competitors.",
+    "좋은 브랜딩은 가게가 경쟁 업체와 차별화되도록 도와준다."
+   ]
+  ]
+ },
+ "dimension": {
+  "n": "dimension은 길이, 너비, 높이 같은 치수를 가리키며, 어떤 문제의 측면이라는 뜻으로도 씁니다. 복수형 dimensions는 제품 사양에서 자주 보이고, 비유적으로 이야기에 새로운 차원을 더한다고 말할 수도 있습니다. 형용사 three-dimensional은 흔히 3D로 줄입니다. 동사 용법은 드뭅니다. 발음은 디멘션이며 둘째 음절에 강세가 오고 첫 음절은 약하게 읽습니다.",
+  "x": [
+   [
+    "Please measure the dimensions of the table before you order a cover.",
+    "덮개를 주문하기 전에 탁자의 치수를 재 주세요."
+   ],
+   [
+    "The new evidence adds a personal dimension to the whole story.",
+    "새 증거는 이야기 전체에 개인적인 차원을 더해 준다."
+   ]
+  ]
+ },
+ "discriminate": {
+  "n": "discriminate는 뒤에 오는 전치사에 따라 뜻이 달라집니다. discriminate against someone은 인종, 성별, 나이 등을 이유로 차별하다라는 뜻입니다. discriminate between A and B는 둘을 신중하게 구별하다라는 뜻으로 부정적인 의미가 없습니다. 명사는 discrimination입니다. 동사는 디스크리미네이트로 끝을 분명하게 발음하며, 형용사 discriminating은 안목이 있는이라는 다른 뜻입니다.",
+  "x": [
+   [
+    "It is illegal to discriminate against workers because of their age.",
+    "나이를 이유로 근로자를 차별하는 것은 불법이다."
+   ],
+   [
+    "Wine experts can discriminate between very similar flavours.",
+    "와인 전문가는 매우 비슷한 맛도 구별해 낼 수 있다."
+   ]
+  ]
+ },
+ "displace": {
+  "n": "displace는 무언가를 원래 자리에서 밀어내거나 그 자리를 대신 차지한다는 뜻입니다. 뉴스에서 displaced people은 전쟁이나 재난 때문에 집을 떠나야 했던 사람들, 즉 이재민이나 난민을 가리킵니다. 새로운 기술이 노동자를 대체한다는 뜻으로도 쓰입니다. 명사는 displacement입니다. replace가 단순한 교체라면 displace는 기존의 것이 밀려난다는 느낌이 더 강합니다.",
+  "x": [
+   [
+    "The flood displaced thousands of families from their homes.",
+    "홍수로 수천 가구가 집을 잃고 떠나야 했다."
+   ],
+   [
+    "Cheap imports have displaced many local products from the shelves.",
+    "값싼 수입품이 많은 지역 제품을 진열대에서 밀어냈다."
+   ]
+  ]
+ },
+ "dispose": {
+  "n": "dispose는 거의 항상 of와 함께 쓰여 쓰레기, 폐기물, 유해 물질을 처리하거나 버린다는 뜻이 됩니다. 예를 들어 dispose of batteries는 건전지를 폐기하다입니다. of 없이 쓰면 배치하다, 마음이 기울게 하다라는 드문 뜻이 됩니다. 명사는 disposal, disposable은 일회용의라는 뜻입니다. 한국인 학습자는 dispose the rubbish처럼 of를 빠뜨리는 실수를 자주 하니 주의하세요.",
+  "x": [
+   [
+    "Please dispose of used batteries at the special bins near the exit.",
+    "사용한 건전지는 출구 근처의 전용 수거함에 버려 주세요."
+   ],
+   [
+    "The company was fined after workers began to dispose of chemicals in the river.",
+    "작업자들이 강에 화학 물질을 버리기 시작하자 회사는 벌금을 물었다."
+   ]
+  ]
+ },
+ "distort": {
+  "n": "distort는 모양, 소리, 사실을 원래와 달라지도록 왜곡한다는 뜻입니다. distort the truth는 진실을 왜곡하다, a distorted image는 일그러진 이미지입니다. 거의 항상 부정적인 뜻으로 쓰이므로 중립적인 change와 구별됩니다. 명사는 distortion입니다. 목적어를 바로 취하므로 전치사가 필요 없습니다. 발음은 디스토트로 둘째 음절에 강세가 오고 r이 약하게 들립니다.",
+  "x": [
+   [
+    "The old speakers distort the sound when the volume is too high.",
+    "낡은 스피커는 볼륨이 너무 크면 소리를 일그러뜨린다."
+   ],
+   [
+    "Some headlines distort the facts to attract more readers.",
+    "일부 헤드라인은 더 많은 독자를 끌려고 사실을 왜곡한다."
+   ]
+  ]
+ },
+ "diverse": {
+  "n": "diverse는 여러 종류가 섞여 있는 다양한이라는 뜻이며, a diverse population처럼 인구, 팀, 문화를 설명할 때 자주 씁니다. 단순히 서로 다르다는 뜻으로 쓰려면 different가 더 맞습니다. 명사는 diversity, 동사는 diversify입니다. 발음은 다이버스 또는 디버스이며 둘째 음절에 강세가 옵니다. 한국어에서 다이버시티라고 부르는 단어도 이 말의 명사형이라는 점을 알아 두면 기억하기 쉽습니다.",
+  "x": [
+   [
+    "London has a very diverse population from all over the world.",
+    "런던에는 세계 각지에서 온 매우 다양한 사람들이 산다."
+   ],
+   [
+    "Our teachers come from diverse backgrounds and bring different ideas.",
+    "우리 선생님들은 다양한 배경 출신이고 저마다 다른 생각을 가져온다."
+   ]
+  ]
+ },
+ "domain": {
+  "n": "domain은 문맥에 따라 뜻이 여러 가지입니다. 인터넷에서는 웹사이트 주소의 도메인, 학문에서는 영역이나 분야를 뜻하고 the domain of physics는 물리학 분야입니다. 법에서 public domain은 저작권이 적용되지 않는 공유 저작물입니다. in the public domain이라고 하면 이미 널리 알려졌다는 뜻이 되기도 합니다. 발음은 도메인으로 둘째 음절에 강세가 있습니다.",
+  "x": [
+   [
+    "This knowledge was once the domain of a small group of experts.",
+    "이 지식은 한때 소수 전문가들의 영역이었다."
+   ],
+   [
+    "She bought a new domain for her small online bakery.",
+    "그녀는 작은 온라인 제과점을 위해 새 도메인을 샀다."
+   ]
+  ]
+ },
+ "dominate": {
+  "n": "dominate는 지배하다, 우세하다라는 뜻으로 경기, 시장, 대화 모두에 쓰입니다. 목적어를 바로 취하며 dominate the market, dominate the conversation처럼 전치사가 필요 없습니다. 형용사는 dominant, 명사는 domination 또는 dominance입니다. 스포츠 팀에는 칭찬으로, 말을 독차지하는 사람에게는 부정적으로 쓰입니다. 발음은 도미네이트로 세 음절이며 첫 음절에 강세가 옵니다.",
+  "x": [
+   [
+    "Two big companies dominate the market for mobile phones.",
+    "두 대기업이 휴대폰 시장을 지배하고 있다."
+   ],
+   [
+    "He tends to dominate every meeting and rarely lets others speak.",
+    "그는 모든 회의를 주도하려 하고 다른 사람이 말할 기회를 거의 주지 않는다."
+   ]
+  ]
+ },
+ "duration": {
+  "n": "duration은 어떤 일이 계속되는 시간의 길이를 말하며, for the duration of는 동안 내내라는 뜻이고 of short duration은 지속 시간이 짧은이라는 뜻입니다. 항공편이나 시험의 소요 시간을 말할 때 쓰며, length of time보다 격식 있습니다. 한국인 학습자는 during과 혼동하기 쉬운데, during은 바로 명사를 붙이는 전치사이고 duration은 명사입니다. 발음은 듀레이션으로 둘째 음절에 강세가 옵니다.",
+  "x": [
+   [
+    "The duration of the film is almost three hours with a short break.",
+    "그 영화는 짧은 휴식 시간을 포함해 거의 세 시간 동안 이어진다."
+   ],
+   [
+    "Please keep your phone off for the duration of the exam.",
+    "시험이 진행되는 동안 휴대폰을 꺼 두세요."
+   ]
+  ]
+ },
+ "edit": {
+  "n": "edit은 글, 사진, 영상, 데이터를 공개하기 전에 다듬고 고친다는 뜻으로, 오탈자를 고치는 것보다 범위가 넓어 삭제, 순서 재배치, 표현 정리까지 포함합니다. 하는 사람은 editor입니다. edit은 명사로 한 번의 수정을 뜻하기도 해서 make a few edits라고 하지만, 간행물의 판은 edition입니다. edit out은 어떤 부분을 잘라내다라는 뜻입니다. 출판을 뜻하는 publish, 마지막 교정을 뜻하는 proofread와는 구별해서 쓰세요.",
+  "x": [
+   [
+    "I need to edit my essay again before I send it to the teacher.",
+    "선생님께 보내기 전에 에세이를 한 번 더 고쳐야 한다."
+   ],
+   [
+    "She edits short videos for a travel channel on weekends.",
+    "그녀는 주말마다 여행 채널의 짧은 영상을 편집한다."
+   ]
+  ]
+ },
+ "eliminate": {
+  "n": "eliminate는 원치 않는 것을 완전히 없앤다는 뜻으로, eliminate waste는 낭비를 없애다, eliminate errors는 오류를 제거하다입니다. 스포츠에서 be eliminated는 탈락하다라는 아주 흔한 표현입니다. 일부만 줄이는 reduce보다 훨씬 철저한 표현입니다. 명사는 elimination입니다. 발음은 일리미네이트로 둘째 음절에 강세가 오며, 끝의 네이트를 분명하게 읽어야 합니다.",
+  "x": [
+   [
+    "The new system should eliminate most of the errors in our reports.",
+    "새 시스템은 우리 보고서의 오류 대부분을 없애 줄 것이다."
+   ],
+   [
+    "Our team was eliminated in the second round of the cup.",
+    "우리 팀은 컵 대회 2라운드에서 탈락했다."
+   ]
+  ]
+ },
+ "emerge": {
+  "n": "emerge는 숨어 있던 곳이나 어려운 상황에서 모습을 드러낸다는 뜻이며, 사실이나 경향이 서서히 드러난다는 뜻으로도 씁니다. emerge from 뒤에 장소나 상황이 오며 emerge from the water, emerge from a crisis처럼 씁니다. 형용사 emerging은 emerging markets, 즉 신흥 시장 같은 표현에 자주 나옵니다. 명사 emergence를 emergency와 혼동하지 마세요. 발음은 이머지로 둘째 음절에 강세가 옵니다.",
+  "x": [
+   [
+    "A small fox emerged from the bushes and crossed the road.",
+    "작은 여우 한 마리가 덤불에서 나와 길을 건넜다."
+   ],
+   [
+    "New questions emerged as the investigation continued over several weeks.",
+    "조사가 몇 주 동안 이어지면서 새로운 의문들이 드러났다."
+   ]
+  ]
+ },
+ "enable": {
+  "n": "enable은 무언가를 가능하게 만든다는 뜻으로, enable someone to do something 형태가 가장 흔합니다. 그래서 enable someone do처럼 to를 빠뜨리면 안 됩니다. 기기나 기능을 켠다는 뜻으로 enable notifications처럼 쓰기도 합니다. 반대말은 disable이고 명사 enabler도 있습니다. allow보다 필요한 조건이나 능력을 제공해서 그 일이 가능해진다는 점에 초점이 있습니다.",
+  "x": [
+   [
+    "The new software enables teachers to share files with students quickly.",
+    "새 소프트웨어는 교사가 학생들과 파일을 빠르게 공유할 수 있게 해 준다."
+   ],
+   [
+    "You can enable notifications in the settings menu.",
+    "설정 메뉴에서 알림을 켤 수 있다."
+   ]
+  ]
+ },
+ "encounter": {
+  "n": "encounter는 우연히 마주치다 또는 어려움이나 상황을 겪다라는 뜻으로, 대상은 사람, 문제, 저항 등 다양합니다. encounter problems, encounter resistance처럼 목적어를 바로 취하고 전치사를 붙이지 않습니다. meet보다 격식 있으며 계획하지 않았다는 느낌이 있습니다. 명사로는 a chance encounter, 즉 우연한 만남이라고 씁니다. 발음은 인카운터로 둘째 음절에 강세가 옵니다.",
+  "x": [
+   [
+    "We encountered several problems when we tried to install the app.",
+    "우리는 앱을 설치하려고 할 때 몇 가지 문제를 만났다."
+   ],
+   [
+    "She had an unexpected encounter with an old classmate on the train.",
+    "그녀는 기차에서 옛 동창을 뜻밖에 마주쳤다."
+   ]
+  ]
+ }
+}

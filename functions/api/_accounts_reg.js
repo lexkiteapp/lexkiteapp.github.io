@@ -17,6 +17,7 @@ export const ROWS = [
    "REPORT_SHOT_KEY",
    "CRON_KICK_SECRET",
    "PUSH_CRON_SECRET",
+   "MAIL_SECRET",
    "STUDIO_CALLBACK_SECRET"
   ],
   "scope": "Danh sách admin, khóa mã hóa kho khóa/Drive, khóa CLI/CI, bí mật cron",

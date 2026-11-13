@@ -128,6 +128,7 @@ for (const [nm, y] of [['blog-publish', bp], ['content-protect', cp]]) {
   ok(y.indexOf('- name: OpenTimestamps') < y.indexOf('- name: Commit sổ đăng ký') && /(git add|commit-regen\.sh)[^\n]*content\/protection\/ots/.test(y), `${nm}: OTS chạy trước commit, commit kèm content/protection/ots`);   // content-protect sinh lại trên main mới nhất qua commit-regen.sh (sổ là chuỗi băm nối thêm, rebase luôn xung đột)
 }
 ok(bp.indexOf('- name: Sổ băm nội dung') < bp.indexOf('- name: OpenTimestamps'), 'blog-publish: đóng dấu sau khi ghi sổ bài mới');
+ok(/gh run list --workflow blog-publish\.yml --status success/.test(bp) && !/blog-due\.mjs --since 190 /.test(bp), 'blog-publish: cửa sổ bài đến hạn tính từ lần chạy xanh trước (cron bị bỏ lượt không làm rơi bài)');
 ok(/commit-regen\.sh/.test(step(cp, 'Commit sổ đăng ký')) && /release addon[\s\S]*release landing[\s\S]*ots\.mjs stamp/.test(step(cp, 'Commit sổ đăng ký')), 'content-protect: sổ sinh lại trên main mới nhất (commit-regen.sh) gồm release addon/landing + OTS');
 ok(/push:[\s\S]*'extension\/manifest\.json'[\s\S]*'content\/landing\/\*\*'/.test(cp) && /release addon/.test(cp) && /release landing/.test(cp), 'content-protect: push add-on lên bản/landing → ghi mốc phát hành');
 ok(/if: github\.event_name != 'push'/.test(step(cp, 'Dò bản sao chép')) && /if: github\.event_name != 'push'/.test(step(cp, 'WAF chống cào')), 'content-protect: lần chạy do push không dò bản sao/WAF');

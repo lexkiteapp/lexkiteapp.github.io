@@ -46,3 +46,8 @@ Trước lần gửi đầu, anh nên thử nhanh trên Edge: `edge://extensions
 - Mô tả không hứa tính năng không có, không "best / #1 / official", có câu không liên kết với British Council/IDP/Cambridge/ETS (đã có cuối mỗi mô tả). Kiểm: `node scripts/test/listing-check.mjs`.
 - Không thêm máy chủ/dịch vụ mới, nên `infra/resources.json` không đổi.
 - Cập nhật sau này: tăng version → build zip → Partner Center → extension Lexkite → **Update** → tải gói mới → Publish. (Có thể tự động hóa bằng Edge Add-ons API sau, cần API key do anh tạo trong Partner Center.)
+
+## Search terms 15 ngôn ngữ (Edge) + Firefox Add-ons (AMO)
+- Edge: Partner Center → Store listings → từng ngôn ngữ → dán `store/edge/search-terms.json` (≤ 7 cụm × ≤ 30 ký tự). Tên/mô tả = `store/chrome/listing.json`.
+- Firefox (miễn phí, cùng mã Chrome): `bash scripts/build-firefox.sh` → `store/lexkite-firefox.zip` (gecko id `lexkite@lexkite.com`, Firefox ≥ 128). Thông tin điền AMO: `store/firefox/amo.json` (tên ≤ 50 ký tự theo ngôn ngữ, tags, danh mục, ghi chú kiểm duyệt); tóm tắt/mô tả lấy từ `listing.json`.
+- 👤 Anh chủ: tạo tài khoản developer Firefox (addons.mozilla.org) và Edge Partner Center, tải zip, dán chữ, bấm gửi. Kiểm trước: `node scripts/test/addon-listings.mjs`.
