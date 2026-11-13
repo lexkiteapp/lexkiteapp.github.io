@@ -9,7 +9,7 @@
     'Nguồn': 'Source', 'Chiến dịch': 'Campaign', 'Mã bài': 'Post code', 'Vào trang': 'Landing views', 'Làm quiz': 'Started quiz', 'Xong quiz': 'Finished quiz', 'Bấm vào app': 'Tapped CTA',
     'Máy mới vào app': 'New app devices', 'Xong bài đầu': 'First lesson done', 'D1': 'D1', 'D7+': 'D7+', 'Tổng': 'Total', '(trực tiếp)': '(direct)',
     'Vào app (máy mới)': 'App visits (new devices)', 'D1 = quay lại đúng ngày kế; D7+ = quay lại từ ngày thứ 7 trở đi (chỉ tính nhóm đã đủ tuổi). Chỉ tính người thật: loại bot/CI/quản trị; không IP, không dữ liệu cá nhân trong link.': 'D1 = came back the next day; D7+ = came back on day 7 or later (mature cohorts only). Real people only: bots/CI/admin excluded; no IP and no personal data in links.',
-    'Cài app theo nền tảng': 'App installs by platform', 'Nền tảng': 'Platform', 'Lời mời hiện': 'Invite shown', 'Bấm cài': 'Tapped install', 'Để sau': 'Later', 'Nút Tải app': 'Get-app buttons',
+    'Cài app theo nền tảng': 'App installs by platform', 'Nền tảng': 'Platform', 'Lời mời hiện': 'Invite shown', 'Bấm cài': 'Tapped install', 'Để sau': 'Later', 'Nút Tải app': 'Get-app buttons', 'Máy tính': 'Desktop', 'Thêm vào màn hình chính': 'Add to home screen',
     'Lượt cài thật xem ở App Store Connect / Play Console (không đo được ở web).': 'Real installs: see App Store Connect / Play Console (not measurable on the web).',
     'Kỳ': 'Period', '{n} ngày': '{n} days',
   };
