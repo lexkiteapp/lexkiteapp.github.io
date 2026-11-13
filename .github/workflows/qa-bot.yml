@@ -45,7 +45,7 @@ jobs:
   bot:
     if: ${{ (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') && needs.gate.outputs.go == 'true' }}
     needs: gate
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     env:
       BASE_URL: ${{ inputs.base_url || (github.event.workflow_run.name == 'Preview site' && 'https://preview.lexkite-preview.pages.dev') || (github.event.workflow_run.name == 'Pages deploy' && 'https://lexkite.com') || '' }}
@@ -93,7 +93,7 @@ jobs:
   nav:
     if: ${{ (github.event_name != 'workflow_run') && needs.gate.outputs.go == 'true' }}
     needs: gate
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
@@ -116,7 +116,7 @@ jobs:
     # !cancelled(): vẫn so khi bot đỏ (có artifact), KHÔNG chạy khi lượt bị huỷ (bot huỷ = không có artifact qa-bot → đỏ giả; ci-policy luật 4)
     if: ${{ (!cancelled() && github.event_name == 'pull_request' && needs.bot.result != 'skipped') && needs.gate.outputs.go == 'true' }}
     needs: [bot, gate]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
