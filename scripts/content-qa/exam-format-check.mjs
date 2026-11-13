@@ -316,6 +316,10 @@ for (const [t, xs] of Object.entries(tl)) {
 const KNOWN_F = 'content/exams/spec/deviations.json';
 const KNOWN = fs.existsSync(P(KNOWN_F)) ? J(KNOWN_F).known || {} : {};
 if (ARG.has('--list')) { console.log(JSON.stringify(dev, null, 1)); process.exit(0); }
+// Họ đề ĐÃ đạt chuẩn (live, học viên đang làm): cấm có bất kỳ lệch nào trong danh sách "đã biết" – lệch ở đây = đề sai chuẩn đang phục vụ người học (13/11/2026).
+const STRICT = ['ielts-reading-gt/', 'toefl-2026/'];
+for (const k of Object.keys(KNOWN)) if (STRICT.some(x => k.startsWith(x))) fatal.push(`đề live sai chuẩn: "${k}" – sửa nội dung (đủ số câu/độ dài), không ghi vào ${KNOWN_F}`);
+for (const k of Object.keys(dev)) if (STRICT.some(x => k.startsWith(x)) && !fatal.some(m => m.includes(`"${k}"`))) fatal.push(`đề live sai chuẩn: "${k}" – ${dev[k]}`);
 const fresh = Object.keys(dev).filter(k => !(k in KNOWN)), fixed = Object.keys(KNOWN).filter(k => !(k in dev));
 for (const k of fresh) fatal.push(`LỆCH MỚI ${k}: ${dev[k]}`);
 for (const k of fixed) fatal.push(`đã hết lệch – xoá "${k}" khỏi ${KNOWN_F} (danh sách chỉ được bớt)`);
