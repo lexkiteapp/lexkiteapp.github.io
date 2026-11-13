@@ -19,7 +19,7 @@ concurrency:
 jobs:
   bench:
     if: github.event_name == 'pull_request' || inputs.action == 'bench'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4

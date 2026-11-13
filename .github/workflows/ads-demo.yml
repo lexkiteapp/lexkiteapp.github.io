@@ -16,7 +16,7 @@ concurrency: # theo ref: lượt PR và lượt main không huỷ nhau (2/11: PR
   cancel-in-progress: true
 jobs:
   web:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4

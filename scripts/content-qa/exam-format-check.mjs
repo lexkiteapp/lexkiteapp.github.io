@@ -264,8 +264,10 @@ for (const [t, xs] of Object.entries(tl)) {
     if (T.spec !== id || T.id !== `${T.level}-t${T.n}`) D(f, u, 'id', `id/spec "${T.id}"/"${T.spec}" ≠ "${T.level}-t${T.n}"/"${id}"`);
     if (seen.has(T.id)) D(f, u, 'dup', 'trùng id đề'); seen.add(T.id);
     const optsOf = p => (p.texts || []).map(x => x.code).concat((p.options || []).map(code => String(code).split(' ')[0]));
+    // B1 trở lên tách Reading / Writing thành 2 phần trong spec; dữ liệu đề vẫn là một bài "rw" – phần viết đánh số tiếp sau phần đọc (A2: 6 email, 7 story)
+    const rwParts = cid => { const rw = parts(cid, 'reading-writing'); if (rw.length) return rw; const r = parts(cid, 'reading'); return [...r, ...parts(cid, 'writing').map((x, i) => ({ ...x, n: r.length + i + 1 }))]; };
     const paper = (key, secId) => {
-      const sp = parts(id, secId), got = (T[key] || {}).parts || [];
+      const sp = secId === 'reading-writing' ? rwParts(id) : parts(id, secId), got = (T[key] || {}).parts || [];
       if (got.map(p => p.n).join() !== sp.map(p => p.n).join()) D(f, u, `${secId}.parts`, `phần ${got.map(p => p.n).join(',')} ≠ spec ${sp.map(p => p.n).join(',')}`);
       let all = [];
       for (const p of got) {
@@ -283,7 +285,7 @@ for (const [t, xs] of Object.entries(tl)) {
         const q = items.reduce((a, it) => a + qCount(it), 0);
         if (s.questions != null && q !== s.questions) D(f, u, `${secId}.part${p.n}.questions`, `Part ${p.n}: ${q} câu ≠ ${s.questions}`);
         const codes = optsOf(p);
-        const badA = items.filter(it => /mcq/.test(p.type) ? !((it.options || []).length >= 3 && it.options[it.a] != null) : /match/.test(p.type) ? !codes.includes(it.a) : !(Array.isArray(it.a) && it.a.length)).map(it => it.n);
+        const badA = items.filter(it => /mcq/.test(p.type) ? !((it.options || []).length >= 3 && it.options[it.a] != null) : /match|gapped/.test(p.type) ? !codes.includes(it.a) : !(Array.isArray(it.a) && it.a.length)).map(it => it.n);
         if (badA.length) D(f, u, `${secId}.part${p.n}.answer`, `${badA.length} câu đáp án không hợp lệ: ${badA.join(', ')}`);
         for (const x of units) {
           const src = key === 'listening' ? scriptText(x.script) : [txt(p.text), ...(p.texts || []).map(y => y.text), ...(x.items || []).map(it => txt(it.text))].join(' ');
@@ -316,6 +318,10 @@ for (const [t, xs] of Object.entries(tl)) {
 const KNOWN_F = 'content/exams/spec/deviations.json';
 const KNOWN = fs.existsSync(P(KNOWN_F)) ? J(KNOWN_F).known || {} : {};
 if (ARG.has('--list')) { console.log(JSON.stringify(dev, null, 1)); process.exit(0); }
+// Họ đề ĐÃ đạt chuẩn (live, học viên đang làm): cấm có bất kỳ lệch nào trong danh sách "đã biết" – lệch ở đây = đề sai chuẩn đang phục vụ người học (13/11/2026).
+const STRICT = ['ielts-reading-gt/', 'toefl-2026/'];
+for (const k of Object.keys(KNOWN)) if (STRICT.some(x => k.startsWith(x))) fatal.push(`đề live sai chuẩn: "${k}" – sửa nội dung (đủ số câu/độ dài), không ghi vào ${KNOWN_F}`);
+for (const k of Object.keys(dev)) if (STRICT.some(x => k.startsWith(x)) && !fatal.some(m => m.includes(`"${k}"`))) fatal.push(`đề live sai chuẩn: "${k}" – ${dev[k]}`);
 const fresh = Object.keys(dev).filter(k => !(k in KNOWN)), fixed = Object.keys(KNOWN).filter(k => !(k in dev));
 for (const k of fresh) fatal.push(`LỆCH MỚI ${k}: ${dev[k]}`);
 for (const k of fixed) fatal.push(`đã hết lệch – xoá "${k}" khỏi ${KNOWN_F} (danh sách chỉ được bớt)`);

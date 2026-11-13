@@ -36,7 +36,7 @@ jobs:
   preqc:   # gate 1 (seconds): generator self-checks, reviewed script == spec, motion parity
     needs: gate
     if: needs.gate.outputs.go == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 5
     outputs: { list: '${{ steps.m.outputs.list }}', par: '${{ steps.p.outputs.par }}' }
     steps:
@@ -73,7 +73,7 @@ jobs:
   voice:
     needs: [preqc, gate]
     if: needs.gate.outputs.go == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 25
     strategy: { fail-fast: false, max-parallel: '${{ fromJSON(needs.preqc.outputs.par) }}', matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}' } }
     steps:
@@ -107,7 +107,7 @@ jobs:
   par:   # count free runners again before the render matrix (preqc's count is an hour old in a busy queue; 2/11 run 41380206879 was stuck at 1)
     needs: [preqc, voice, gate]
     if: ${{ (!cancelled() && needs.preqc.result == 'success') && needs.gate.outputs.go == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 3
     outputs: { par: '${{ steps.p.outputs.par }}' }
     steps:
@@ -120,7 +120,7 @@ jobs:
   render:   # one red voice job no longer skips the whole batch: that episode's render fails on its missing voice artifact, the rest render
     needs: [preqc, voice, par, gate]
     if: ${{ (!cancelled() && needs.preqc.result == 'success' && needs.par.result == 'success') && needs.gate.outputs.go == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 60
     strategy: { fail-fast: false, max-parallel: '${{ fromJSON(needs.par.outputs.par) }}', matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}', fmt: [short, wide] } }
     env: { O: 'out/${{ matrix.ep }}/${{ matrix.fmt }}', E: 'content/video/teach2d/eps/${{ matrix.ep }}.json', MEDIA_ORIGIN_ONLY: '1' }   # pictures from the GitHub origins only, never media.lexkite.com (Workers cap)
@@ -207,7 +207,7 @@ jobs:
   embed:   # in-app embed preview screenshots (light + dark, phone + desktop) of every 16:9 lesson video
     needs: [render, gate]
     if: ${{ !cancelled() && contains(fromJSON('["success","failure"]'), needs.render.result) && needs.gate.outputs.go == 'true' }}   # nothing rendered (preqc red -> render skipped) = nothing to screenshot; never hold a runner / the concurrency slot
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 45   # 4 screenshots per episode; a 120-episode batch takes ~25 min
     steps:
       - uses: actions/checkout@v4
@@ -245,7 +245,7 @@ jobs:
   sheet:   # one review sheet: every episode's frames + QC score, both themes; then the bank (only QC >= 90 with every gate green)
     needs: [preqc, render, embed, gate]
     if: ${{ !cancelled() && contains(fromJSON('["success","failure"]'), needs.render.result) && needs.gate.outputs.go == 'true' }}   # no render (preqc red) -> no sheet, no runner held
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4

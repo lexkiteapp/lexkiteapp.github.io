@@ -108,10 +108,24 @@ export function installSteps(src) {
   }
   return out;
 }
+// (14) 13/11/2026 – ubuntu-latest chuyển sang 26.04, Playwright chưa hỗ trợ chromium ở đó ("Playwright does not support chromium on ubuntu26.04-x64"
+//     → shell/taps/topbar đỏ mọi PR): job dùng Playwright/Chromium phải ghim ubuntu-24.04 (không ubuntu-latest / 26.04) tới khi Playwright hỗ trợ
+//     (theo dõi: https://github.com/microsoft/playwright/issues?q=ubuntu+26.04). Job "dùng Playwright" = nhắc playwright/chromium/puppeteer hoặc chạy script có import playwright.
+const PW_SCRIPTS = (() => { const r = []; const walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const f = path.join(d, e.name);
+  if (e.isDirectory()) { if (e.name !== 'node_modules') walk(f); } else if (/\.(mjs|cjs|js)$/.test(e.name) && /from ['"]playwright|require\(['"]playwright|playwright-core/.test(fs.readFileSync(f, 'utf8').slice(0, 4000))) r.push(path.relative(ROOT, f).split(path.sep).join('/')); } };
+  try { walk(path.join(ROOT, 'scripts')); } catch (e) { /* không có thư mục scripts (test tổng hợp) */ } return r; })();
+// + job cài faster-whisper/scripts/cine/requirements.txt: PyAV (av 11) chưa có wheel cho Python của 26.04 → build từ nguồn lỗi "libavformat not found" (voice (t2_usuk_elevator) đỏ 13/11)
+const PW_RE = /playwright|chromium|puppeteer|faster-whisper|scripts\/cine\/requirements/i;
+const ACT = (() => { const m = {}; const d = path.join(ROOT, '.github/actions'); try { for (const n of fs.readdirSync(d)) { const f = path.join(d, n, 'action.yml'); if (fs.existsSync(f)) m[n] = fs.readFileSync(f, 'utf8'); } } catch (e) { /* không có thư mục actions */ } return m; })();
+// job dùng composite action nội bộ (./.github/actions/<tên>, tối đa 3 tầng) mà action đó cài/chạy những thứ trên cũng tính (video9-setup cài faster-whisper)
+const actUses = (text, depth = 0) => depth < 3 && [...text.matchAll(/uses:\s*\.\/\.github\/actions\/([\w-]+)/g)].some(x => ACT[x[1]] && (PW_RE.test(ACT[x[1]]) || actUses(ACT[x[1]], depth + 1)));
+export const usesPlaywright = jobText => PW_RE.test(jobText) || PW_SCRIPTS.some(f => jobText.includes(f)) || actUses(jobText);
+export const badRunner = jobText => { const m = jobText.match(/^    runs-on:\s*(.*)$/m); return !!m && (/ubuntu-latest|26\.04/.test(m[1]) || (/ubuntu/.test(m[1]) && !/vars\.PW_RUNNER/.test(m[1]))); }; // một chỗ đổi chung: repo variable PW_RUNNER (mặc định ubuntu-24.04)
 /** Lỗi chính sách của 1 workflow (thuần, có test) → [chuỗi]. */
 const SIGN_AUTO = /-allowProvisioningUpdates\b|CODE_SIGN_STYLE\s*=\s*"?Automatic|signingStyle<\/key>\s*<string>automatic/i;
 export function violations(file, src) {
   const out = [], t = triggers(src);
+  for (const j of jobs(src)) if (usesPlaywright(j.text) && badRunner(j.text)) out.push(`${file}: luật 14 – job "${j.id}" dùng Playwright/Chromium mà runs-on không phải vars.PW_RUNNER (mặc định ubuntu-24.04; ubuntu-latest = 26.04, Playwright chưa hỗ trợ, 13/11)`);
   for (const j of jobs(src)) if (!/^    uses:/m.test(j.text) && !/^    timeout-minutes:/m.test(j.text)) out.push(`${file}: job "${j.id}" thiếu timeout-minutes`);
   const hasConc = /^concurrency:/m.test(src) || jobs(src).some(j => /^    concurrency:/m.test(j.text));
   const auto = AUTO.filter(e => t.events.has(e));
@@ -252,6 +266,18 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     ok(sg('<key>signingStyle</key><string>automatic</string>') === 1, 'luật 13: ExportOptions automatic → lỗi');
     ok(sg('bash scripts/native/ios-sign.sh App.xcodeproj/project.pbxproj com.lexkite.app:P') === 0, 'luật 13: ký Manual qua ios-sign.sh → đạt');
     ok(sg('# không dùng -allowProvisioningUpdates') === 0, 'luật 13: dòng chú thích không tính'); }
+  { const pw = base.replace('    steps: []\n', '    steps:\n      - run: npx playwright install chromium\n');
+    ok(violations('p.yml', pw).some(v => /luật 14/.test(v)), 'luật 14: job Playwright trên ubuntu-latest → lỗi');
+    ok(violations('p.yml', pw.replace('ubuntu-latest', 'ubuntu-24.04')).some(v => /luật 14/.test(v)), 'luật 14: ghim ubuntu-24.04 trần (không qua vars.PW_RUNNER) → lỗi');
+    ok(!violations('p.yml', pw.replace('ubuntu-latest', "${{ vars.PW_RUNNER || 'ubuntu-24.04' }}")).some(v => /luật 14/.test(v)), 'luật 14: runs-on qua vars.PW_RUNNER → đạt');
+    ok(violations('p.yml', pw.replace('ubuntu-latest', 'ubuntu-26.04')).some(v => /luật 14/.test(v)), 'luật 14: ubuntu-26.04 → lỗi');
+    ok(!violations('p.yml', base).some(v => /luật 14/.test(v)), 'luật 14: job không Playwright dùng ubuntu-latest → đạt');
+    ok(PW_SCRIPTS.length > 10, 'luật 14: quét được script có import playwright (' + PW_SCRIPTS.length + ')'); }
+  // luật 15 (13/11): ngưỡng fps của cổng sân khấu/rig KHÔNG được hạ dưới 50 (4×) / 55 (1×) – runner dao động thì đo bền hơn (warm-up + 15 mẫu + trung vị + 1 lần đo lại), không nới ngưỡng
+  { const ss = fs.readFileSync(path.join(ROOT, 'scripts/test/story-stage.mjs'), 'utf8'), rg = fs.readFileSync(path.join(ROOT, 'scripts/test/teacher-rig-browser.mjs'), 'utf8');
+    ok(+((ss.match(/const FPS_MIN = (\d+)/) || [])[1]) >= 50 && /m\.fps >= FPS_MIN/.test(ss), 'luật 15: story-stage FPS_MIN ≥ 50 và cổng dùng FPS_MIN');
+    const rm = rg.match(/const FPS_MIN = \{ 1: (\d+), 4: (\d+) \}/); ok(rm && +rm[1] >= 55 && +rm[2] >= 50 && /good = m => m\.fps >= min/.test(rg), 'luật 15: teacher-rig FPS_MIN 1× ≥ 55, 4× ≥ 50');
+    ok(/runSet\(15\)/.test(ss) && /runSet\(rate === 4 \? 15 : 5\)/.test(rg) && /fps-samples\.json/.test(ss) && /fps-samples\.json/.test(rg), 'luật 15: đo 15 mẫu + ghi fps-samples.json cho cả hai cổng'); }
   // --- quét repo
   const files = fs.readdirSync(WF).filter(f => /\.ya?ml$/.test(f)), srcs = files.map(f => [f, fs.readFileSync(path.join(WF, f), 'utf8')]);
   for (const [f, s] of srcs) for (const v of violations(f, s)) ok(false, v);
