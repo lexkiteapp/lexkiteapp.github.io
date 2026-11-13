@@ -23,7 +23,7 @@ env:
 
 jobs:
   cws:
-    runs-on: ubuntu-24.04
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
@@ -43,7 +43,7 @@ jobs:
         with: { name: part-cws, path: /tmp/cws, retention-days: 3 }
 
   app:
-    runs-on: ubuntu-24.04
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
@@ -65,7 +65,7 @@ jobs:
         with: { name: part-app, path: /tmp/app, retention-days: 3 }
 
   video:
-    runs-on: ubuntu-24.04
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4

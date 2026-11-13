@@ -39,7 +39,7 @@ jobs:
     name: audit (${{ matrix.group.name }})
     needs: gate
     if: needs.gate.outputs.go == 'true'
-    runs-on: ubuntu-24.04
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 25
     strategy:
       fail-fast: false

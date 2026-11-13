@@ -14,7 +14,7 @@ concurrency:   # ci-policy 2/11: push/lịch trùng gộp; chạy tay (mỗi lư
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
   profile:
-    runs-on: ubuntu-24.04
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4

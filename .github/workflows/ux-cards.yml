@@ -41,7 +41,7 @@ jobs:
   shots:
     needs: gate
     if: needs.gate.outputs.go == 'true'
-    runs-on: ubuntu-24.04
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
@@ -80,7 +80,7 @@ jobs:
   ux1:
     needs: gate
     if: needs.gate.outputs.go == 'true'
-    runs-on: ubuntu-24.04
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 40
     strategy:
       fail-fast: false

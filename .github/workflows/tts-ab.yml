@@ -16,7 +16,7 @@ permissions: { contents: read, actions: read }
 concurrency: { group: tts-ab, cancel-in-progress: false }
 jobs:
   ab:
-    runs-on: ubuntu-24.04
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 120   # free: 3 cấu hình trình duyệt (≤ 20 phút/cấu hình) + chấm ~700 file
     env: { PHASE: '${{ github.event.inputs.phase }}', CAP: '${{ github.event.inputs.max_credits }}' }
     steps:
