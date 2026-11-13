@@ -120,7 +120,7 @@ export const badRunner = jobText => { const m = jobText.match(/^    runs-on:\s*(
 const SIGN_AUTO = /-allowProvisioningUpdates\b|CODE_SIGN_STYLE\s*=\s*"?Automatic|signingStyle<\/key>\s*<string>automatic/i;
 export function violations(file, src) {
   const out = [], t = triggers(src);
-  for (const j of jobs(src)) if (usesPlaywright(j.text) && badRunner(j.text)) out.push(`${file}: luật 14 – job "${j.id}" dùng Playwright/Chromium mà runs-on không phải ${{ vars.PW_RUNNER || 'ubuntu-24.04' }} (ubuntu-latest = 26.04, Playwright chưa hỗ trợ, 13/11)`);
+  for (const j of jobs(src)) if (usesPlaywright(j.text) && badRunner(j.text)) out.push(`${file}: luật 14 – job "${j.id}" dùng Playwright/Chromium mà runs-on không phải vars.PW_RUNNER (mặc định ubuntu-24.04; ubuntu-latest = 26.04, Playwright chưa hỗ trợ, 13/11)`);
   for (const j of jobs(src)) if (!/^    uses:/m.test(j.text) && !/^    timeout-minutes:/m.test(j.text)) out.push(`${file}: job "${j.id}" thiếu timeout-minutes`);
   const hasConc = /^concurrency:/m.test(src) || jobs(src).some(j => /^    concurrency:/m.test(j.text));
   const auto = AUTO.filter(e => t.events.has(e));
