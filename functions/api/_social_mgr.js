@@ -377,7 +377,7 @@ export const OPS = {
     try { vmeta = await all(db, 'SELECT video_id, channel_id, clip, secs, publish_at, missing FROM yt_vmeta LIMIT 5000'); } catch (e) { /* chưa có số liệu YouTube */ }
     try { growth = await all(db, "SELECT c.video_id, c.views - COALESCE(w.views, 0) AS d7, c.views - COALESCE(m.views, 0) AS d30 FROM yt_stats c LEFT JOIN yt_stats w ON w.video_id = c.video_id AND w.day = (SELECT MAX(day) FROM yt_stats WHERE day <= date(c.day, '-7 day')) LEFT JOIN yt_stats m ON m.video_id = c.video_id AND m.day = (SELECT MAX(day) FROM yt_stats WHERE day <= date(c.day, '-30 day')) WHERE c.day = (SELECT MAX(day) FROM yt_stats) LIMIT 5000"); } catch (e) { /* chưa có yt_stats */ }
     let channels = []; try { channels = await all(db, 'SELECT channel_id, title FROM yt_channel'); } catch (e) { /* chưa kết nối YouTube */ }
-    return { rows, vmeta, growth, channels, weights: await getMeta(db, 'weights', null), sync: await getMeta(db, 'metrics_sync', null) };
+    return { rows, vmeta, growth, channels, alerts: await getMeta(db, 'ana_alerts', []), weights: await getMeta(db, 'weights', null), sync: await getMeta(db, 'metrics_sync', null) };
   },
   'POST metrics/import': async ({ db, b }) => { // nhập tay / CSV (Meta Business Suite, TikTok Studio) khi API không cho đọc số liệu
     const rows = Array.isArray(b.rows) ? b.rows.slice(0, 500) : []; let n = 0;
@@ -430,6 +430,16 @@ async function upMetric(db, m) {
     ON CONFLICT(k) DO UPDATE SET views = excluded.views, likes = excluded.likes, comments = excluded.comments, saves = excluded.saves, shares = excluded.shares, watch_s = excluded.watch_s, template = excluded.template, hook = excluded.hook, cefr = excluded.cefr, src = excluded.src, at = excluded.at`,
   m.k, m.post_id, m.platform, m.account_id, m.clip, m.template, m.hook, m.cefr, m.views | 0, m.likes | 0, m.comments | 0, m.saves | 0, m.shares | 0, m.watch_s | 0, m.src, Date.now());
 }
+/** Cảnh báo phân tích (hàm thuần): kênh 0 view mới ≥ 3 ngày, video bị gỡ/hạn chế, quota ≥ 80 %. Hiện ở Quản trị › Phân tích; CI mở thêm issue cho coordinator. */
+export function analyticsAlerts({ channels = [], videos = [], zero3 = [], quota = null }, now = Date.now()) {
+  const A = [], name = id => (channels.find(c => c.channel_id === id) || {}).title || id;
+  for (const c of zero3) A.push({ k: 'yt-zero3:' + c, title: 'kênh 0 view mới 3 ngày', text: `Kênh ${name(c)} không có view mới trong ≥ 3 ngày dù có video đã đăng.`, at: now });
+  const gone = videos.filter(v => v.missing).map(v => v.video_id);
+  if (gone.length) A.push({ k: 'yt-gone', title: 'video bị gỡ/hạn chế', text: 'Video không còn đọc được trên YouTube (gỡ, riêng tư hoặc bị hạn chế): ' + gone.slice(0, 10).join(', '), at: now });
+  if (quota && quota.limit && quota.used >= quota.limit * 0.8) A.push({ k: 'yt-quota', title: 'quota sắp cạn', text: `Quota YouTube hôm nay ${quota.used}/${quota.limit} (≥ 80 %).`, at: now });
+  return A;
+}
+export async function saveAlerts(db, alerts) { await setMeta(db, 'ana_alerts', alerts.slice(0, 20)); return alerts; }
 /** YouTube (op stats): mỗi video → 1 dòng soc_metrics (platform youtube, account = kênh) + yt_vmeta (độ dài, giờ đăng, bị gỡ) cho bảng Phân tích; trọng số tính lại. */
 export async function ingestYouTube(db, videos, now = Date.now()) {
   await run(db, 'CREATE TABLE IF NOT EXISTS yt_vmeta (video_id TEXT PRIMARY KEY, channel_id TEXT, clip TEXT, secs REAL, publish_at TEXT, missing INTEGER, seen INTEGER)');

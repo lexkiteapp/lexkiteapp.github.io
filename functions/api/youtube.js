@@ -24,7 +24,7 @@ import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import { signState, verifyState, encryptToken, decryptToken, cliVerify, driveMedia } from './drive.js';
 import { manifest, signedPack } from './admin-shorts.js';
-import { setupMgr, ingestYouTube } from './_social_mgr.js';
+import { setupMgr, ingestYouTube, analyticsAlerts, saveAlerts } from './_social_mgr.js';
 
 export const REDIRECT = 'https://lexkite.com/api/youtube/callback';
 export const SCOPE_UP = 'https://www.googleapis.com/auth/youtube.upload', SCOPE_RO = 'https://www.googleapis.com/auth/youtube.readonly';
@@ -503,7 +503,9 @@ const CLI_OPS = {
       const old = await one(db, "SELECT SUM(views) AS v, COUNT(*) AS n FROM yt_stats WHERE channel_id = ? AND day = (SELECT MAX(day) FROM yt_stats WHERE channel_id = ? AND day <= date(?, '-3 day'))", c.channel_id, c.channel_id, day);
       if (old && old.n > 0 && now_ - (+old.v || 0) === 0 && videos.some(v => v.channel_id === c.channel_id && !v.missing)) zero3.push(c.channel_id);
     }
-    return { ok: true, day, zero3, scope: await getMeta(db, 'scope'), analytics: /yt-analytics/.test((await getMeta(db, 'scope')) || ''), channels, videos, errors, quota: await quotaInfo(db) };
+    const qi = await quotaInfo(db), alerts = analyticsAlerts({ channels, videos, zero3, quota: qi });
+    if (b.snapshot !== false) { try { await saveAlerts(db, alerts); } catch (e) { errors.push({ error: 'alerts' }); } }
+    return { ok: true, day, zero3, alerts, scope: await getMeta(db, 'scope'), analytics: /yt-analytics/.test((await getMeta(db, 'scope')) || ''), channels, videos, errors, quota: qi };
   },
   /** shorts-archive.mjs: Drive files of these hard-deleted clips are in the trash and the recipe is gone → deleted = 3 (purged, kept as a tombstone). */
   async purged(db, b) { const ids = (Array.isArray(b.ids) ? b.ids : []).map(String).filter(x => CLIP.test(x)).slice(0, 200); for (const id of ids) await run(db, 'UPDATE clip_review SET deleted = 3, updated = ? WHERE clip = ? AND deleted = 2', Date.now(), id); return { ok: true, count: ids.length }; },
