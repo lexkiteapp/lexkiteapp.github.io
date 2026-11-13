@@ -50,7 +50,7 @@ jobs:
 
   sweep:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 55
     strategy:
       max-parallel: 6   # ngân sách runner nền (docs/METHODS.md §CI)
@@ -115,7 +115,7 @@ jobs:
   ext:
     needs: lease
     if: needs.lease.outputs.skip != '1'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 35
     strategy:
       max-parallel: 6   # ngân sách runner nền (docs/METHODS.md §CI)
@@ -145,7 +145,7 @@ jobs:
   ext-heavy:
     needs: lease
     if: needs.lease.outputs.skip != '1'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4

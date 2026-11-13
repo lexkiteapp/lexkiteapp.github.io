@@ -34,7 +34,7 @@ jobs:
 
   scan:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     strategy:
       max-parallel: 12   # chừa runner cho PR (docs/CI-RUNNERS.md)
