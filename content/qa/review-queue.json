@@ -1050768,6 +1050768,755 @@
      "xw-time-place.n"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "disarmament#n",
+   "batch": "20261113-r231",
+   "why": [
+    "soát mẫu AI 1/3: ex: 'You should support the disarmament.' is unnatural; 'the' is unnecessary and 'support disarmament' is the standard phrasing."
+   ],
+   "at": "2026-11-13",
+   "data": {
+    "w": "disarmament",
+    "pos": "n",
+    "ipa": "/dɪsˈɑːməmənt/",
+    "ipaUS": "/dɪsˈɑːrməmənt/",
+    "def": "the reduction or removal of a country's military weapons",
+    "ex": [
+     "You should support the disarmament.",
+     "Do you believe in universal disarmament?"
+    ],
+    "col": [
+     "nuclear disarmament"
+    ],
+    "syn": [
+     "disarming"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 3.17,
+    "emoji": "",
+    "topic": "xw-military",
+    "vi": "giải trừ vũ khí",
+    "note_vi": "",
+    "m": {
+     "pt": "desarmamento",
+     "fr": "désarmement",
+     "ja": "軍縮",
+     "ar": "نزع السلاح"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:disarming.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.6-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "tatoeba:7779628",
+      "tatoeba:8785972"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "wiktionary+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "zh": "wiktionary+ai",
+      "ja": "wiktionary+omw+ai",
+      "ar": "wiktionary+omw+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "the reduction of military forces and armaments",
+     "col": "wordnet/tatoeba",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1",
+     "ipaFix": [
+      "Mỹ /dɪˈsɑːrməmənt/ → /dɪsˈɑːrməmənt/ (ranh giới tiền tố)"
+     ]
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5,
+       5
+      ],
+      "id": [],
+      "th": [],
+      "zh": [
+       5,
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [],
+      "hi": [],
+      "ar": [
+       5,
+       5,
+       5
+      ],
+      "ru": [
+       5,
+       5,
+       5
+      ],
+      "tr": []
+     },
+     "bt": 0.31,
+     "viBtw": [
+      "disarmament",
+      "disarmament; removal of weapons",
+      "removal of weapons"
+     ],
+     "viLem": [
+      "disarming"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "pt": true,
+       "fr": true,
+       "de": true,
+       "zh": true,
+       "ja": true,
+       "ar": true,
+       "ru": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "c"
+     ],
+     "trDrop": {
+      "es": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ru": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "tr": "rỗng"
+     },
+     "trKeep": [
+      "pt",
+      "fr",
+      "ja",
+      "ar"
+     ]
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "xw-military.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "impedance#n",
+   "batch": "20261113-r231",
+   "why": [
+    "soát mẫu AI 1/3: sense: synset refers to electric_resistance, not impedance"
+   ],
+   "at": "2026-11-13",
+   "data": {
+    "w": "impedance",
+    "pos": "n",
+    "ipa": "/ɪmˈpiːdəns/",
+    "ipaUS": "/ɪmˈpiːdəns/",
+    "def": "the degree to which a substance or circuit opposes the flow of electric current",
+    "ex": [
+     "Also important is the impedance.",
+     "Most have a rated minimum load impedance."
+    ],
+    "col": [
+     "acoustic impedance",
+     "impedance matching",
+     "input impedance"
+    ],
+    "syn": [
+     "resistance"
+    ],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "trBad": {
+     "tr": [
+      "empedans"
+     ]
+    },
+    "z": 3.15,
+    "emoji": "",
+    "topic": "science",
+    "vi": "trở kháng",
+    "note_vi": "",
+    "m": {
+     "pt": "impedância",
+     "fr": "impédance",
+     "ja": "インピーダンス"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:electric_resistance.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.6-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew80732.11",
+      "wikipedia:ew9931.29"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "wiktionary+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "id": "omw+ai",
+      "zh": "wiktionary+ai",
+      "ja": "wiktionary+omw+ai",
+      "ru": "wiktionary+ai",
+      "tr": "wiktionary+ai"
+     },
+     "trSense": "physics, measure of opposition to flow of current",
+     "col": "wordnet/tatoeba",
+     "syn": "wordnet",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-2+semcor"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "qwen:qwen/qwen3.8-27b": 5,
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5,
+       5
+      ],
+      "id": [
+       5,
+       5,
+       5
+      ],
+      "th": [],
+      "zh": [
+       5,
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [
+       5,
+       5,
+       5
+      ],
+      "tr": [
+       5,
+       5,
+       5
+      ]
+     },
+     "bt": 0.23,
+     "viBtw": [
+      "impedance; electrical resistance",
+      "impedance",
+      "resistance; impedance"
+     ],
+     "viLem": [
+      "electric resistance",
+      "electrical resistance",
+      "resistance",
+      "resistivity"
+     ],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C2",
+      "C1",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "pt": true,
+       "fr": true,
+       "de": true,
+       "id": true,
+       "zh": true,
+       "ja": true,
+       "ru": true,
+       "tr": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "b",
+      "c"
+     ],
+     "trDrop": {
+      "es": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "id": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "th": "rỗng",
+      "zh": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "tr": "cần 2 nguồn độc lập (Wiktionary / OMW / AI), từ không có thật (wordfreq: empedans)"
+     },
+     "trKeep": [
+      "pt",
+      "fr",
+      "ja"
+     ]
+    },
+    "senseLock": "wiktionary-2+semcor",
+    "tp": [
+     "science.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "endocrinology#n",
+   "batch": "20261113-r231",
+   "why": [
+    "soát mẫu AI 1/3: m.id: misspelled Indonesian term (should be endokrinologi)"
+   ],
+   "at": "2026-11-13",
+   "data": {
+    "w": "endocrinology",
+    "pos": "n",
+    "ipa": "/ˌendəkrɪˈnɒlədʒi/",
+    "ipaUS": "/ˌendoʊkrəˈnɑːlədʒi/",
+    "def": "the branch of medicine concerned with glands and the hormones they produce",
+    "ex": [
+     "Another field is behavioral endocrinology.",
+     "Endocrinology is on the third floor."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "trBad": {
+     "ko": [
+      "내분비학"
+     ]
+    },
+    "z": 2.76,
+    "emoji": "",
+    "topic": "health",
+    "vi": "nội tiết học",
+    "note_vi": "",
+    "m": {
+     "pt": "endocrinologia",
+     "fr": "endocrinologie",
+     "id": "endokrinologi"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:endocrinology.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.6-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "simplewiki:sw185094.5",
+      "tatoeba:12390991"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "wiktionary+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "id": "wiktionary+omw+ai",
+      "zh": "wiktionary+ai",
+      "ja": "omw+ai",
+      "ko": "wiktionary+ai",
+      "ru": "wiktionary+ai"
+     },
+     "trSense": "study of the endocrine glands",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5,
+       5
+      ],
+      "id": [
+       5,
+       5,
+       5
+      ],
+      "th": [],
+      "zh": [
+       5,
+       5,
+       5
+      ],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [
+       5,
+       5,
+       5
+      ],
+      "hi": [],
+      "ar": [],
+      "ru": [
+       5,
+       5,
+       5
+      ],
+      "tr": []
+     },
+     "bt": 0.23,
+     "viBtw": [
+      "endocrinology",
+      "endocrinology",
+      "nội tiết học"
+     ],
+     "viLem": [],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "pt": true,
+       "fr": true,
+       "de": true,
+       "id": true,
+       "zh": true,
+       "ja": true,
+       "ko": true,
+       "ru": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "a",
+      "b",
+      "c"
+     ],
+     "trDrop": {
+      "es": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "de": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "th": "rỗng",
+      "zh": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ja": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ko": "cần 2 nguồn độc lập (Wiktionary / OMW / AI), từ không có thật (wordfreq: 내분비학)",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "tr": "rỗng"
+     },
+     "trKeep": [
+      "pt",
+      "fr",
+      "id"
+     ]
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "health.n"
+    ]
+   }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "sporophyte#n",
+   "batch": "20261113-r231",
+   "why": [
+    "soát mẫu AI 1/3: vi: incorrect translation (means spore, not sporophyte)"
+   ],
+   "at": "2026-11-13",
+   "data": {
+    "w": "sporophyte",
+    "pos": "n",
+    "ipa": "/ˈspɔːrəˌfaɪt/",
+    "ipaUS": "/ˈspɔːrfaɪt/",
+    "def": "the diploid plant stage that makes spores to create the gametophyte generation",
+    "ex": [
+     "That structure is the sporophyte.",
+     "The common name refers to the elongated horn-like structure, which is the sporophyte."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "z": 1.71,
+    "emoji": "",
+    "topic": "science",
+    "vi": "thể bào tử",
+    "note_vi": "",
+    "m": {
+     "es": "esporófito",
+     "pt": "esporófito",
+     "fr": "sporophyte"
+    },
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:sporophyte.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "openai/gpt-oss-120b",
+     "ipaUS": "cmudict",
+     "ipaUK": "espeak",
+     "cefr": "freq",
+     "ex": [
+      "wikibooks:wb6453.3",
+      "wikiversity:wvs250589.1"
+     ],
+     "tr": {
+      "vi": "wiktionary-vi",
+      "es": "wiktionary+omw+ai",
+      "pt": "wiktionary+omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "ja": "omw+ai"
+     },
+     "trSense": "plant which produces spores by meiosis in order to produce gametophytes",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {
+     "n": 3,
+     "j": {
+      "gpt-oss:openai/gpt-oss-120b": 5,
+      "qwen:qwen/qwen3.8-27b": 5,
+      "llama:llama-3.3-70b-instruct-fp8-fast": 5
+     },
+     "f": [],
+     "tr": {
+      "es": [
+       5,
+       5,
+       5
+      ],
+      "pt": [
+       5,
+       5,
+       5
+      ],
+      "fr": [
+       5,
+       5,
+       5
+      ],
+      "de": [
+       5,
+       5,
+       5
+      ],
+      "id": [],
+      "th": [],
+      "zh": [],
+      "ja": [
+       5,
+       5,
+       5
+      ],
+      "ko": [],
+      "hi": [],
+      "ar": [],
+      "ru": [],
+      "tr": []
+     },
+     "bt": 0.23,
+     "viBtw": [
+      "sporophyte",
+      "spore-producing plant"
+     ],
+     "viLem": [],
+     "sense": [
+      "yes",
+      "yes",
+      "yes"
+     ],
+     "cefrJ": [
+      "C1",
+      "C2",
+      "C2"
+     ],
+     "bad": {},
+     "wsd": {
+      "ex": [
+       true,
+       true
+      ],
+      "vi": true,
+      "tr": {
+       "es": true,
+       "pt": true,
+       "fr": true,
+       "de": true,
+       "ja": true
+      }
+     },
+     "viSrc": [
+      "wv",
+      "b",
+      "c"
+     ],
+     "trDrop": {
+      "de": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "id": "rỗng",
+      "th": "rỗng",
+      "zh": "rỗng",
+      "ja": "cần 2 nguồn độc lập (Wiktionary / OMW / AI)",
+      "ko": "rỗng",
+      "hi": "rỗng",
+      "ar": "rỗng",
+      "ru": "rỗng",
+      "tr": "rỗng"
+     },
+     "trKeep": [
+      "es",
+      "pt",
+      "fr"
+     ]
+    },
+    "senseLock": "wiktionary-1",
+    "tp": [
+     "science.n"
+    ]
+   }
   }
  ]
 }
