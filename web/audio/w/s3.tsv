@@ -9761,3 +9761,24 @@ isomer	ok	ok
 hydrogenation	ok	ok
 polygyny	ok	ok
 gametophyte	ok	ok
+detective	ok	ok
+inventor	ok	ok
+marketplace	ok	ok
+transmitter	ok	ok
+euphoria	ok	ok
+philanthropist	ok	ok
+repute	ok	ok
+stigma	ok	ok
+dusk	ok	ok
+suffrage	cut_wordis: câu mang: "The word is suffragee." · dot100:"suffragie" 1.17s · cut_wordis100:"The suffrage." 0.83s · cut_next: câu mang: "Next word, suffragie." · plain095:"A suffrage." 0.75s · dot090:"Let's offer edgy." 0.86s	ok
+toxicology	ok	ok
+osteoporosis	ok	ok
+interferometer	ok	ok
+missal	cut_wordis: câu mang: "The word is missile." · dot100:"Missile." 1.01s · cut_wordis100: câu mang: "The word is missile." · cut_next: câu mang: "Next word missile" · plain095:"A missile." 0.62s · dot090:"We missle." 1.09s	cut_wordis: câu mang: "The word is missile." · dot100:"Missile" 0.63s · cut_wordis100: câu mang: "The word is missile." · cut_next: câu mang: "Next word, missile." · plain095:"Missile" 0.65s · dot090:"Missile" 0.69s
+quartile	ok	cut_wordis:"Cordial." 0.97s · cut_wordis:"Cordial." 0.84s · dot100:"Cordial." 0.69s · cut_wordis100:"It's quartile." 0.87s · cut_wordis100:"Cordial." 0.66s · cut_next:"Cordial." 0.70s · cut_next:"...for dial." 0.48s · plain095:"Cordial." 0.66s · dot090:"Cordial." 0.77s
+leukocyte	ok	ok
+monism	ok	ok
+plasterboard	ok	ok
+pharmacologist	ok	ok
+phosphorescence	ok	ok
+sporophyte	ok	ok
