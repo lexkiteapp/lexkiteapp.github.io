@@ -400,3 +400,4 @@ node scripts/test/play-rhythm.mjs
 node scripts/test/play-rhythm-run.mjs
 node scripts/test/funnel.mjs
 node scripts/test/share-link.mjs
+node scripts/test/stitch-theme-lint.mjs
