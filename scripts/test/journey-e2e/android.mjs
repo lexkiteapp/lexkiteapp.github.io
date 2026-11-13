@@ -91,6 +91,7 @@ const webBox = async () => {
     const pk = [...new Set([...x.matchAll(/package="([^"]+)"/g)].map(m => m[1]))].join(','), cl = [...new Set([...x.matchAll(/class="([^"]+)"/g)].map(m => m[1].split('.').pop()))].slice(0, 8).join(',');
     const tx = [...x.matchAll(/ text="([^"]+)"/g)].map(m => m[1]).join(' | ').slice(0, 200);
     console.log(`uiautomator dump lần ${t + 1}: không có WebView · package=${pk || '–'} · lớp=${cl || '–'} · chữ: ${tx || '–'} · ${String(o).trim().slice(0, 60)}`);
+    if (t === 0) { try { shot('kbd-khong-thay-webview'); fs.writeFileSync(path.join(OUT, 'kb-no-webview-0.xml'), x); } catch (e) { /* */ } } // ảnh + cây UI ngay lần đầu: hộp thoại gì đang che?
     await clearAnr(); await sleep(3000);
   }
   try { fs.writeFileSync(path.join(OUT, 'kb-no-webview.xml'), x); } catch (e) { /* */ }
