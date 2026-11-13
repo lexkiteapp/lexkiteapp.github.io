@@ -37,6 +37,8 @@
   const P = {
     reset,
     async j1a() { const t = mk('j1'); t.ok(!askOn(), 'không hỏi nhắc lúc mở app'); await go('#/welcome/setup');
+      // Người dùng MỚI chưa làm bài kiểm tra đầu vào: bộ chạy xoá kho rồi tải lại nhưng app có thể ghi lại hồ sơ cũ trước khi trang đóng (13/11 en: settings.placement còn → chọn 'kiểm tra' vào thẳng #/home). Chỉ làm sạch bộ nhớ của lượt này, không đổi mã app.
+      try { const st = W.App && W.App.state && W.App.state.settings; if (st && st.placement) delete st.placement; } catch (e) { /* */ }
       if (vis('#noAcct')) await click('#noAcct'); await click('[data-track]'); await click('#obNext', 250); await click('[data-lv="test"]'); await toLast(); await click('#go', 100);
       t.ok(await hashIs(/placement/), '→ #/placement'); await click('#go', 600);
       for (let i = 0; i < 26 && !vis('.pl-result'); i++) { const o = D.querySelectorAll('.pl-wrap .option[data-k]:not([data-k="-1"])'); if (o.length) o[i % 2 ? 1 : 0].click(); await sleep(520); }

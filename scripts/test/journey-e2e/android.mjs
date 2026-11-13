@@ -65,11 +65,14 @@ const booted = async () => { const t0 = Date.now(); const r = await ev(`for (let
 const reload = async () => { await clearAnr(); await cdp('Page.reload', {}); await sleep(3000); await booted(); };
 await clearAnr(); await booted();
 const LANGS = (process.env.JE_LANGS || 'en,vi,ar').split(',');
+const ALL_STEPS = ['j1a', 'R', 'j1b', 'reset', 'R', 'j2s', 'R', 'j2a', 'R', 'j2b', 'j3a', 'R', 'j3b'];
+// JE_STEPS: chạy một phần hành trình (leg ar-1/ar-2 của workflow: mỗi leg một emulator mới – leg ar đủ 13 bước bị emulator chết, 13/11). JE_MIN_RAN: số bước tối thiểu của leg.
+const STEPS = process.env.JE_STEPS ? process.env.JE_STEPS.split(',') : ALL_STEPS, MIN_RAN = +(process.env.JE_MIN_RAN || 6 * 1);
 const ONLY_KBD = process.env.JE_ONLY_KBD === '1'; // chỉ đo bàn phím thật cho ngôn ngữ này (không chạy hành trình): leg 'ar-kbd' – leg ar đủ hành trình bị emulator chết sau j1a (13/11)
 for (const l of LANGS) {
   await ev(`localStorage.setItem('vb.uiLang', ${JSON.stringify(l)}); return 1`);
   await ev('await LKJN.reset(); return 1'); await reload();
-  for (const f of ONLY_KBD ? [] : ['j1a', 'R', 'j1b', 'reset', 'R', 'j2s', 'R', 'j2a', 'R', 'j2b', 'j3a', 'R', 'j3b']) {
+  for (const f of ONLY_KBD ? [] : STEPS) {
     if (f === 'R') { await reload(); continue; }
     await clearAnr();
     const e0 = errs.length, r = await ev(`return await LKJN.${f}()`);
@@ -135,7 +138,7 @@ for (const [route, css] of [['write', '#essay'], ['dict', '#q'], ['home', '#gq']
   await ev('document.activeElement && document.activeElement.blur(); return 1');
 }
 if (kbRan < 2) bad.push(`[bàn phím] chỉ đo được ${kbRan}/3 ô trên bàn phím thật (cần ≥ 2: Phòng viết + tra từ)`);
-if (!ONLY_KBD && ran < 6 * LANGS.length) bad.push(`chỉ chạy ${ran} bước (cần ≥ ${6 * LANGS.length} = ${LANGS.length} ngôn ngữ × ≥ 6 bước) – 0 bài chạy không được tính là xanh`);
+if (!ONLY_KBD && ran < MIN_RAN * LANGS.length) bad.push(`chỉ chạy ${ran} bước (cần ≥ ${MIN_RAN * LANGS.length} = ${LANGS.length} ngôn ngữ × ≥ ${MIN_RAN} bước) – 0 bài chạy không được tính là xanh`);
 // 'FATAL EXCEPTION: UiAutomation' = tiến trình `uiautomator dump` của CHÍNH bài đo (AccessibilityCache, binder 'Bad file descriptor') chết, không phải app (13/11 en) – chỉ loại luồng đó; mọi crash khác (main, …) vẫn làm đỏ.
 const fatal = adb('logcat', '-d', '-v', 'brief').split('\n').filter(x => /FATAL EXCEPTION/.test(x) && !/FATAL EXCEPTION: UiAutomation\b/.test(x));
 if (fatal.length) bad.push('Crash: ' + fatal.slice(0, 2).join(' / '));
