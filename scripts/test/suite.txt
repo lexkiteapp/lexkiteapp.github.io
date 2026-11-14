@@ -214,6 +214,7 @@ node scripts/test/no-prod-hosts.mjs
 node scripts/test/gsc.mjs
 node scripts/audio-cdn-check.mjs --local
 node scripts/test/word-audio-s2.mjs
+node scripts/test/audio-loudness.mjs
 node scripts/test/klocal.mjs
 node scripts/test/ios-audio-unlock.mjs
 node scripts/test/ext-bundles.mjs
