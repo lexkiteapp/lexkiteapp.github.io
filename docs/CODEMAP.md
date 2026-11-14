@@ -138,7 +138,7 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `(không rõ)`: a11y admin-video-shots ads-demo-android ads-demo app-lcp-probe clutter confidence-shots content-check contrast crawl d1-scan dispatch-guard docs-budget e2e explain-shots ffmpeg-setup-policy figure-layout final-qc floor-guard i18n-switch icon-flash ios-audio-e2e ios-driver-watchdog lazyfix lesson-complete-geometry lip-shots listing-check mobile-nav mobile-qa-keyboard native-facade native-parity nav-render no-url-pathname perf-median phrasebook-shots profile-route pron-read pwa-installable qa-bot-diff rate-prompt review-done review-lookup review-modes-e2e review-modes-ui review-modes review-shots review-taps route-race route-vitals run-suite samples-visual screens seo-pages seo-sitemap seo-words-shots serve-web shell-responsive side-menu size-guard-pr smoke storage-audit suite-shards teacher-native-shots teacher-rig-browser theme-default toeic-read-e2e tools-ui topbar-lang tsc-check ux-cards ux-guard-lib ux-guard ux-public ux-shots ux-sweep ux1-guard video-web-e2e visual-qa web-sweep welcome-journey workflow-call-perms workflow-yaml
 - `functions/api`: accounts admin-ads-shots admin-dist-shots admin-gh admin-guard admin-prefs admin-rollup ai-pool aiearn analytics api-security capacity classroom clip-bulk community-api d1-cap dist-channels dist-roles distribution drive-repair drive funnel hit-retry img-api importdeck jobs keys live-check mail-digest notices play-duel post-deploy-check pr-check quota readable referral report retention-admin root-lang schema-lock sessions-scan-gate social-admin social-auto social-first-comment social-meta-oauth social-meta social-mgr social-preview social-proxy static-routes sync-ctx sync-pack user-mgmt users-bulk ux1-rollout voice-source yt-manual yt-stats-op
 - `scripts`: authority-pages axe blog-images blog-lang-gates blog-youtube bot-push-key brand-check build-hash codemap-budget cpack explain-check explain-let ext-version fmt-stable frame-consistency gen-guard i18n-english i18n-single journey-e2e lesson-content links-js mobile-polish mobile-www-slim mqa-parity-self mqa-parity native-strings-locked origin-fetch pack-gloss pages-lag pages-skip pr-unconflict protection samples-ui scan-roots self-fonts sentence-asr sw-cache-fixed teacher-mood theme-switch token-drift tools-pages word-ipa world-scorecard
-- `scripts/ci`: apt-install audio-coverage audio-pr-branch busy-gate ci-guards ci-hog ci-policy ci-queue-gate ci-shards-busy ci-triage cron-watch gh-api heavy-rerun no-pr-branch-push npm-retry-policy push-main qa-fill queue-report required-gate-stale retry5xx sparse-imports workflow-cd-paths zombie-pages
+- `scripts/ci`: apt-install audio-coverage audio-pr-branch busy-gate ci-guards ci-hog ci-policy ci-queue-gate ci-shards-busy ci-triage cron-watch gh-api no-pr-branch-push npm-retry-policy push-main qa-fill queue-report required-gate-stale retry5xx sparse-imports workflow-cd-paths zombie-pages
 - `brand/stitch`: landing-v3 layout-guards stitch-coverage stitch-diff stitch-quality-qc stitch-refs-qc stitch-render stitch-screens stitch-theme-lint stitch-today-contrast stitch-web-diff
 - `scripts/lib`: ci-header-scope font-audit is-main-guard json-dupkeys lastmod qa-classify syntax-check theme-static word-depth
 - `web`: adsense-hygiene brand-logo-stitch deep-links headers seo-twin site-footer size-budget skills-hub sw-storage
@@ -151,11 +151,11 @@ Tra json: `node -e "const g=require('./docs/codemap.json');console.log(g.nodes['
 - `scripts/native`: asc-signing ios-sign-patch native-compat native-one-source native-pick-sim native-visual
 - `web/css`: admin-map-colors card-actions cls-chrome css-lazy play-rhythm-shots wordcard-ui
 - `scripts/vocab-img`: vocab-img-free-sheet vocab-img-judge-budget vocab-img-worth vocab-img
+- `.github/workflows`: ci-autopilot heavy-rerun required-gate
 - `brand`: brand-shots png-rgba ux1
 - `content/blog`: blog-captions cpm-plan gsc
 - `infra`: ci-filler no-prod-hosts size-guard
 - `mobile/android`: android-ime android-xml-comments token-contrast
-- `.github/workflows`: ci-autopilot required-gate
 - `content/framework`: grammar-inventory lkf
 - `scripts/cine`: publish-meta whisper-det
 - `scripts/content-qa`: content-qa sense-check
