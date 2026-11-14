@@ -63,7 +63,7 @@ object Roleplay {
         val next = s.turns.getOrNull(i + 1); val beat = if (next != null) next.a[L] else s.end[L]
         return "Conversation so far:\n${transcript(hist, s)}\n\n" +
             (if (next != null) "Next point you must cover (say it in your own words, same meaning): \"$beat\"" else "This is the end: close the conversation politely, similar to: \"$beat\"") +
-            "\nIf the learner's last reply is unclear, off-topic or too short to understand, ask them to clarify instead and set \"advance\" to false (only once per point).\n" +
+            "\nIf the learner's last reply is unclear, off-topic, too short to understand, or does not actually answer your last question (e.g. just \"yes\" to a choice question), do NOT move on: kindly ask your last question again in simpler words and set \"advance\" to false (only once per point).\n" +
             "JSON: {\"reply\": string (what ${s.aiName} says next, under 45 words), \"advance\": boolean}"
     }
     fun scoringPrompt(s: RpScript, L: Int, hist: List<Bubble>, langNameEn: String): String =
