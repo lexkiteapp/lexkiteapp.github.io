@@ -80,7 +80,7 @@ Mẫu thẻ:
 - Nguồn: nhánh `antigravity`, các commit `feat(blog): add … article` (hash trong báo cáo cũ). Claude đã ghép thử 64 bài lên main: blog-check/dupes/vi-lint/captions/docs-budget/test ảnh đều qua TRỪ các lỗi ghi ở dưới. Quy tắc alt: `docs/BLOG-RUNBOOK.md` + `shots.json` (alt phải đúng ngôn ngữ bài và đúng `desc` màn hình, không thêm chi tiết ngoài ảnh). KHÔNG xóa bài, KHÔNG nới check.
 - Cần sửa: (1) PT 4 bài (como-usar-dicionario-monolingue-ingles [dict, read-article, review], ditado-em-ingles-dictation-listening [listening], frases-complexas-ielts-writing-task-2 [write, grammar], vocabulario-ielts-tecnologia-inteligencia-artificial [read-article]) và ID 5 bài (cara-menggunakan-kamus-…, kalimat-kompleks-…, kosakata-ielts-…, metode-dictation-…, tabel-simbol-ipa-…): alt nguyên văn `desc` TIẾNG VIỆT. (2) ID kalimat-kompleks, kosakata-ielts-tema-teknologi-ai, metode-dictation, rumus-kalimat-tanya: alt bằng TIẾNG BỒ ĐÀO NHA ('Central de jogos e exercícios…', 'Guia de gramática IELTS…') trong bài tiếng Indonesia. Viết lại alt đúng tiếng bài, bám `desc`. (3) Cảnh báo [inbound] ≥ 3.
 
-### [CQ2] Nhánh kịch bản cho roleplay + "Tự tin" (75% lượt chưa có nhánh) · @antigravity · ưu tiên: CAO
+### [CQ2] ✅ ĐÃ XONG 13/11 (PR #1127) · Nhánh kịch bản cho roleplay + "Tự tin" · @claude · ưu tiên: CAO
 - **Mục tiêu:** khi offline hoặc hết lượt AI, mọi lượt thoại vẫn đáp đúng ý người học. Lượt có nhánh `br` 25% → ≥ 90%.
 - **File:** `content/confidence/units/*.json` (24 bài, trường `roleplay.turns[].br`) và `web/js/roleplay/data-*.js` (16 kịch bản).
 - **Mỗi lượt có 2–3 nhánh:**
@@ -93,7 +93,7 @@ Mẫu thẻ:
 - Báo cáo:
 - Cần sửa / Nhận xét:
 
-### [CQ3] Bài mẫu Writing band 6 & 7 (hiện tất cả band 8) · @antigravity · ưu tiên: VỪA
+### [CQ3] ✅ ĐÃ XONG 13/11 (PR #1137 lô 1, #1162 lô 2, #1213 models→cpack) · Bài mẫu Writing band 6 & 7 · @claude · ưu tiên: VỪA
 - **Mục tiêu:** người học band 5–6 thấy được bậc thang lên band.
 - **Phạm vi:** mỗi đề Task 1 (30) và Task 2 (50) thêm 1 bài band 6 + 1 bài band 7.
 - **File:** `web/js/write/models*.js`, theo đúng cấu trúc mục `MODELS` hiện có, thêm trường `band`.
@@ -183,7 +183,7 @@ Mẫu thẻ:
 
 ## CHỜ DUYỆT
 
-### [CQ4] Phát âm: bản tiếng Anh gốc + bài B2–C1 · @antigravity · ưu tiên: VỪA
+### [CQ4] ✅ ĐÃ XONG 13/11 (PR #1178, #1206) · Phát âm: bản tiếng Anh gốc + bài B2–C1 · @claude · ưu tiên: VỪA
 - **Mục tiêu:**
   - Bài phát âm có bản tiếng Anh gốc (`titleEn`, `howEn`, `tipEn`) để CI-gen dịch 13 ngôn ngữ.
   - Lộ trình chặng C1 có đủ bài phát âm nâng cao.

@@ -1,6 +1,6 @@
 # L1-NOTES – ghi chú lỗi tiếng Anh theo tiếng mẹ đẻ (trục whyL1 của WORLD.md)
 
-> TL;DR: `web/js/grammar/l1/<lang>.js` = `notes[idBài] = [[câu sai, câu đúng, vì sao, l1Form]]` (+ `because` = nhãn dòng l1Form), ≥200 mục/ngôn ngữ, viết tay bằng chính ngôn ngữ đó. Hiện ở đầu bài và ngay dưới câu trả lời sai (`grammar.js`: `l1Wrong`). Test `scripts/test/l1-notes.mjs` (khuôn + sàn chỉ tăng `l1-floors.json`). Quy trình viết/chấm bên dưới.
+> TL;DR: `web/cpack/grammar-l1/<lang>.js` = `notes[idBài] = [[câu sai, câu đúng, vì sao, l1Form]]` (+ `because` = nhãn dòng l1Form), ≥200 mục/ngôn ngữ, viết tay bằng chính ngôn ngữ đó. Hiện ở đầu bài và ngay dưới câu trả lời sai (`grammar.js`: `l1Wrong`). Test `scripts/test/l1-notes.mjs` (khuôn + sàn chỉ tăng `l1-floors.json`). Quy trình viết/chấm bên dưới.
 > Đọc khi: thêm/sửa ghi chú L1, thêm ngôn ngữ.
 
 **Checklist từng mục (judge chấm đạt/trượt, mọi ý đều phải đạt):**
