@@ -2,15 +2,15 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 67.6 / 100**
+**Tổng: 68.3 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
 | Kho từ | **58.6** | 58.5 | 58.6% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
-| Giao tiếp | **68.3** | 68.3 | 68.3% | 100% | 0 |
+| Giao tiếp | **72.3** | 68.3 | 72.3% | 100% | 0 |
 | 4 kỹ năng | **62.9** | 62.9 | 62.9% | 100% | 0 |
-| Đề thi | **42.4** | 31.7 | 42.4% | 100% | 0 |
+| Đề thi | **43.8** | 31.7 | 43.8% | 100% | 0 |
 | Khung Can-do | **81.3** | 81.3 | 81.3% | 100% | 0 |
 | Dễ học – dễ nhớ | **91.7** | 91.7 | 91.7% | 100% | 0 |
 | i18n | **62.7** | 62.7 | 62.7% | 100% | 0 |
@@ -50,7 +50,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | cuộc gọi Ama/Carlos | 35 / 60 | 58% | 20 |
 | roleplay | 33 / 60 | 55% | 20 |
 | tình huống Play & Speak | 40 / 40 | 100% | 20 |
-| mục gold (giải thích cách dùng) | 284 / 1000 | 28% | 20 |
+| mục gold (giải thích cách dùng) | 484 / 1000 | 48% | 20 |
 | sổ mẫu câu theo chức năng (chưa làm) | 100 / 100 | 100% | 20 |
 
 ## 4 kỹ năng
@@ -89,7 +89,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Cambridge A2 (chưa làm) | 1 / 6 | 17% | 8 |
 | Cambridge B1 (chưa làm) | 3 / 6 | 50% | 8 |
 | Cambridge B2 (chưa làm) | 3 / 6 | 50% | 8 |
-| Cambridge C1 (chưa làm) | 0 / 6 | 0% | 8 |
+| Cambridge C1 (chưa làm) | 1 / 6 | 17% | 8 |
 | Cambridge C2 (chưa làm) | 0 / 6 | 0% | 8 |
 
 ## Khung Can-do
@@ -107,7 +107,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | Ngữ pháp | 96.9 / 100 | 97% | 25 |
 | Bài lộ trình | 100 / 100 | 100% | 25 |
-| Bộ từ | 74.1 / 100 | 74% | 25 |
+| Bộ từ | 74.2 / 100 | 74% | 25 |
 | Kỹ năng | 95.7 / 100 | 96% | 25 |
 
 ## i18n
