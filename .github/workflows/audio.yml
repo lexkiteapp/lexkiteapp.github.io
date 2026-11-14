@@ -1,7 +1,7 @@
 # Tạo giọng đọc Kokoro (AI giọng tự nhiên, mã nguồn mở Apache-2.0) cho câu còn thiếu – chạy trên máy chủ GitHub (miễn phí),
 # không tốn máy cá nhân. mp3 → kho media ngoài (infra/media-repos.json, scripts/media/push.mjs – KHÔNG vào repo chính), rồi mới commit chỉ mục
 # web/js/listen/audio-index.js (đẩy lỗi → không cập nhật chỉ mục → app không trỏ tới tệp chưa có). audio.lexkite.com dò các kho. Hết việc thì tự dừng sớm.
-# Ma trận shard động (scripts/ci/shards.mjs: ≤ 24, chừa 8 runner cho check PR) · sau khi gộp: đo độ phủ từng nhóm nội dung tĩnh và nâng sàn (scripts/audio/coverage.mjs --ratchet).
+# Ma trận shard động (scripts/ci/shards.mjs: ~200 câu/shard, ≤ 24, chừa 8 runner cho check PR, sàn 4 shard khi CI đầy – 14/11: 1 shard 1.200 câu = 1 giờ+) · sau khi gộp: đo độ phủ từng nhóm nội dung tĩnh và nâng sàn (scripts/audio/coverage.mjs --ratchet).
 # Chạy được trên NHÁNH PR (workflow_dispatch ref=nhánh): render Kokoro rồi commit chỉ mục vào chính nhánh (scripts/ci/commit-regen-pr.sh) – PR nội dung lớn không kẹt gà–trứng với cổng độ phủ.
 # Câu mới tạo ở đây được cổng ASR (sentence-audio-asr.yml) nghe ở lượt sau.
 name: Tạo giọng đọc Kokoro
@@ -18,14 +18,14 @@ on:
   workflow_dispatch:
     inputs:
       limit: { description: 'Số câu mỗi shard', default: '1500' }
-      shards: { description: 'Trần số shard (thực tế = min(trần, runner rảnh − 8, ⌈câu/500⌉))', default: '24' }
+      shards: { description: 'Trần số shard (thực tế = min(trần, runner rảnh − 8, ⌈câu/200⌉), sàn 4 shard khi CI đầy)', default: '24' }
       tl: { description: "'es' = chỉ câu tiếng TBN của bài luyện W2b (Kokoro fp32 + âm vị espeak es-419, giọng ef_dora); trống = lượt tiếng Anh như cũ", default: '' }
       only_call_cues: { description: 'Chỉ sinh mốc khớp miệng (bỏ qua giọng còn thiếu khác)', type: boolean, default: false }
 permissions:
   contents: write
   actions: read   # plan đếm job đang chạy để chia shard
 concurrency:
-  group: audio
+  group: audio-${{ github.ref }}   # theo nhánh: main xếp hàng riêng, mỗi nhánh PR chạy song song (trước: 1 nhóm chung → PR chờ cả giờ sau lượt main)
   cancel-in-progress: false
 jobs:
   plan:
@@ -48,7 +48,7 @@ jobs:
           # mốc khớp miệng câu giáo viên (Call + Truyện – docs/LESSON-ENGINE.md §Khớp miệng): job cues riêng, chạy song song với gen
           [ -n "$TL" ] && echo "cues=0" >> "$GITHUB_OUTPUT" || echo "cues=$(node scripts/lipsync/call_cues.mjs --count | grep -o 'cần tạo [0-9]*' | grep -o '[0-9]*')" >> "$GITHUB_OUTPUT"
           # số shard động: min(24, 40 − job đang chạy/xếp hàng − 8 chừa cho check PR, ⌈còn / 500⌉) – scripts/ci/shards.mjs (chủ 1/11: dùng hết runner rảnh)
-          echo "shards=$(node scripts/ci/shards.mjs --left "$left" --per 500 --cap "${{ github.event.inputs.shards || '24' }}")" >> "$GITHUB_OUTPUT"
+          echo "shards=$(node scripts/ci/shards.mjs --left "$left" --per 200 --min 4 --cap "${{ github.event.inputs.shards || '24' }}")" >> "$GITHUB_OUTPUT"
         env: { GITHUB_TOKEN: '${{ github.token }}', TL: '${{ github.event.inputs.tl }}' }
   gen:
     needs: plan
