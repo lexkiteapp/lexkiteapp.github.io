@@ -2,6 +2,11 @@
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
 // ---- shared ----
 'Đáp án: <b>{a}</b>': 'Answer: <b>{a}</b>',
+'Xem lại sau': 'Review later',
+'Câu cần xem lại': 'Questions to review',
+'Đi tới câu {n}': 'Go to question {n}',
+'Đánh dấu câu {n} để xem lại': 'Flag question {n} for review',
+'Bỏ đánh dấu câu {n}': 'Remove flag from question {n}',
 'vượt quá số từ cho phép': 'over the word limit',
 '(bạn: {a})': '(you: {a})',
 '{a}/{b} câu đúng': '{a}/{b} correct',

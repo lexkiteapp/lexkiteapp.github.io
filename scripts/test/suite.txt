@@ -412,3 +412,4 @@ node scripts/test/mobile-www-slim.mjs
 node scripts/test/yt-stats.mjs
 node scripts/test/yt-stats-op.mjs
 node scripts/test/l1-notes.mjs
+node scripts/test/qengine-flag.mjs

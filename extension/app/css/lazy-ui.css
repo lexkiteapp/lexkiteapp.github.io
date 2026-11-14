@@ -298,3 +298,15 @@ html.native .v2 .w-head { padding-top: env(safe-area-inset-top, 0px); height: au
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .passage.hl-link .tw.link { color: #5eead4; }
 }
 .annot.hl-mode { cursor: text; outline: 2px dashed rgba(245, 158, 11, .5); outline-offset: 6px; }
+
+/* 🚩 Xem lại sau (qengine.js): cờ từng câu + thanh câu cần xem lại */
+.lq-item { position: relative; }
+.qe-flag { position: absolute; inset-block-start: .3rem; inset-inline-end: .3rem; min-width: 44px; min-height: 44px; border: 1px solid var(--line); border-radius: var(--r-pill); background: var(--bg); color: var(--muted); font-size: 1rem; cursor: pointer; filter: grayscale(1); opacity: .7; }
+.qe-flag:hover, .qe-flag:focus-visible { opacity: 1; outline: 2px solid var(--primary); outline-offset: 2px; }
+.qe-flag[aria-pressed="true"] { filter: none; opacity: 1; border-color: var(--gold-text); }
+.qe-flagged { box-shadow: inset 3px 0 0 var(--gold-text); }
+.qe-rv { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; align-items: center; padding: .5rem .7rem; margin-bottom: .8rem; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--bg); font-size: var(--fs-sm); }
+.qe-n.fl { border-color: var(--gold-text); color: var(--gold-text); }
+.qe-n { min-height: 32px; min-width: 32px; }
+#mkMap .qe-fl { position: relative; }
+#mkMap .qe-fl::after { content: "🚩"; font-size: .6em; position: absolute; inset-block-start: -2px; inset-inline-end: -2px; }
