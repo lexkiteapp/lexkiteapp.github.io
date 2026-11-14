@@ -1222,7 +1222,7 @@ body.focus .shell, .lk-fo .shell { grid-template-columns: 1fr; }
   .w-feats, .w-foot { content-visibility: auto; contain-intrinsic-size: auto 400px; }
 }
 @media (max-width: 1023px) { body.v2pre .topbar, body.v2pre #bnav { display: none !important; } }
-body.v2pre #view { padding: 0; max-width: none; }
+body.v2pre #view, body.v2hold #view { padding: 0; max-width: none; } /* v2hold: rời màn v2 – giữ #view không đệm tới khi nội dung mới về, thanh trên hiện ngay (app.js route) */
 @media (min-width: 1024px) {
   body.ux1 .shell { grid-template-columns: 232px minmax(0, 1fr) 340px; }
   body.ux1.focus .shell, body.ux1.bare .shell { grid-template-columns: minmax(0, 1fr); }
