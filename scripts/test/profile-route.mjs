@@ -102,6 +102,7 @@ if (process.env.TAP) {
     for (const e of kids) { while (stack.length && stack[stack.length - 1].ts + stack[stack.length - 1].dur <= e.ts) stack.pop(); if (stack.length) stack[stack.length - 1].self -= e.dur; e.self = e.dur; stack.push(e); }
     for (const e of kids) self.set(key(e), (self.get(key(e)) || 0) + e.self);
     console.log(`-- task dài ${(task.dur / 1000).toFixed(0)} ms\n` + [...self].sort((a, b) => b[1] - a[1]).slice(0, 10).map(([k, v]) => `    ${(v / 1000).toFixed(1).padStart(6)} ms  ${k}`).join('\n'));
+    for (const e of kids.filter(e => /^(Layout|UpdateLayoutTree)$/.test(e.name) && e.dur > 5000)) console.log(`      ${e.name} ${(e.dur / 1000).toFixed(1)} ms ${JSON.stringify(e.args && (e.args.beginData || e.args.elementCount != null ? { b: e.args.beginData, n: e.args.elementCount, end: e.args.endData && { root: e.args.endData.root && e.args.endData.root.length, nodeId: e.args.endData.rootNode } } : e.args)).slice(0, 220)}`);
   }
   await ctx.close();
 }
