@@ -778,5 +778,785 @@
     "Bildirimleri uygulamanın ayarlar menüsünden etkinleştirebilirsin."
    ]
   ]
+ },
+ "encounter": {
+  "n": "Encounter fiil olarak doğrudan nesne alır, arada edat gerekmez: encounter problems, encounter resistance, encounter delays. En çok sorun ve zorluklarla birlikte kullanılır; run into'ya göre daha resmîdir. Beklenmedik bir karşılaşmayı da anlatır: encounter a bear in the woods. İsim olarak kullanıldığında with ile kurulur: an encounter with a stranger, a close encounter.",
+  "x": [
+   [
+    "Travellers may encounter delays at the border during the holiday season.",
+    "Tatil sezonunda yolcular sınırda gecikmelerle karşılaşabilir."
+   ],
+   [
+    "She encountered strong resistance when she proposed the new schedule.",
+    "Yeni takvimi önerdiğinde güçlü bir direnişle karşılaştı."
+   ]
+  ]
+ },
+ "enhance": {
+  "n": "Enhance çoğunlukla zaten iyi olan bir şeyi daha iyi, daha değerli ya da daha çekici yapmayı anlatır: enhance performance, enhance the flavour, enhance your skills. Bu yüzden sorun, risk ya da hata gibi olumsuz nesnelerle pek kullanılmaz; bir sorunu büyütmek için worsen, riski artırmak için increase denir. Fiyat ya da sayı artışında da increase daha doğaldır. Akademik ve reklam dilinde sıktır.",
+  "x": [
+   [
+    "A little lemon juice will enhance the flavour of the fish.",
+    "Biraz limon suyu balığın lezzetini artırır."
+   ],
+   [
+    "The new software is designed to enhance the security of online payments.",
+    "Yeni yazılım, çevrim içi ödemelerin güvenliğini artırmak için tasarlandı."
+   ]
+  ]
+ },
+ "equate": {
+  "n": "Equate iki şeyi birbirinin aynısı ya da eşdeğeri saymak demektir. En sık kalıp equate A with B'dir; equate A to B de görülür. Çoğu zaman bu eşitlemenin hatalı olduğunu ima eden bir bağlamda geçer: Many people equate wealth with happiness. Edilgen biçimi de yaygındır: success is often equated with money. Türkçede eşitlemek yerine bir tutmak ya da özdeşleştirmek çoğu zaman daha iyi karşılar.",
+  "x": [
+   [
+    "It is a mistake to equate silence with agreement in a meeting.",
+    "Toplantıda sessizliği onayla bir tutmak yanlıştır."
+   ],
+   [
+    "Some parents equate a high exam score with a bright future.",
+    "Bazı aileler yüksek sınav puanını parlak bir gelecekle bir tutar."
+   ]
+  ]
+ },
+ "erode": {
+  "n": "Rüzgâr, su ya da yağmurun toprağı ve kayayı yavaş yavaş aşındırması erode ile anlatılır: the coastline has eroded. Mecazi kullanımda güven, haklar ya da değer gibi soyut şeylerin zamanla zayıflamasını anlatır: erode trust, erode confidence. Ani bir yıkım için kullanılmaz; sürecin yavaş olduğu fikri kelimenin içindedir. Coğrafyada bu sürecin adı erosion, yani erozyondur.",
+  "x": [
+   [
+    "Constant criticism can slowly erode a young person's confidence.",
+    "Sürekli eleştiri, bir gencin özgüvenini yavaş yavaş aşındırabilir."
+   ],
+   [
+    "Heavy rain has eroded the soil on the hillside near the village.",
+    "Şiddetli yağmur köyün yakınındaki yamaçtaki toprağı aşındırdı."
+   ]
+  ]
+ },
+ "estimate": {
+  "n": "Estimate fiil olarak sonu -eɪt gibi okunur ve yaklaşık bir hesap yapmak demektir; isim olarak sonu daha zayıf okunur (an estimate). Türkçede guess ve estimate ikisi de tahmin etmek diye çevrilir, ama guess sezgiye dayanır, estimate ise eldeki verilerle yapılan yaklaşık hesaptır. Sık kalıplar: it is estimated that ... ve estimate at: costs were estimated at two million.",
+  "x": [
+   [
+    "Engineers estimate that the bridge will need repairs within ten years.",
+    "Mühendisler, köprünün on yıl içinde onarıma ihtiyaç duyacağını tahmin ediyor."
+   ],
+   [
+    "The cost of the new stadium was estimated at ninety million pounds.",
+    "Yeni stadyumun maliyetinin doksan milyon sterlin olduğu tahmin edildi."
+   ]
+  ]
+ },
+ "eventual": {
+  "n": "Eventual, Türkçe karşılık listesindeki olası anlamına gelmez; sonunda gerçekleşen demektir: the eventual winner, bir yarışı sonunda kazanan kişidir. Olasılık için possible ya da likely kullanılır. Zarfı eventually ise sonunda, nihayet anlamındadır ve sürecin uzun sürdüğünü sezdirir. Eventual daha çok isimden önce gelir; the outcome was eventual biçimi doğal durmaz.",
+  "x": [
+   [
+    "After many delays, the eventual cost of the tunnel was far higher than planned.",
+    "Birçok gecikmeden sonra tünelin nihai maliyeti planlanandan çok daha yüksek oldu."
+   ],
+   [
+    "Nobody expected the young player to be the eventual champion.",
+    "Kimse genç oyuncunun sonunda şampiyon olacağını beklemiyordu."
+   ]
+  ]
+ },
+ "evident": {
+  "n": "Evident bir şeyin açıkça görülebildiğini ya da anlaşılabildiğini anlatan bir sıfattır. Sık kalıplar: It is evident that ..., become evident, be evident in/from something. Obvious ile yakın anlamlıdır ama daha resmîdir. Aynı aileden evidence kanıt demektir ve sayılamaz bir isimdir: some evidence, a piece of evidence. Zarfı evidently çoğu zaman görünüşe göre anlamında kullanılır: Evidently, nobody had told him.",
+  "x": [
+   [
+    "It soon became evident that the plan could not work without more funding.",
+    "Planın daha fazla kaynak olmadan işlemeyeceği kısa sürede anlaşıldı."
+   ],
+   [
+    "Her disappointment was evident from the expression on her face.",
+    "Hayal kırıklığı yüzündeki ifadeden belliydi."
+   ]
+  ]
+ },
+ "evolve": {
+  "n": "Evolve çoğunlukla nesnesiz kullanılır ve yavaş yavaş gelişip değişmeyi anlatır: evolve from something, evolve into something. Canlılarda evrim geçirmek, fikir ve teknolojide kademeli gelişmek anlamına gelir. Ani değişim için kullanmayın; o durumda change ya da transform daha uygun olur. Geçişli kullanımı (evolve a theory) vardır ama daha az rastlanır.",
+  "x": [
+   [
+    "Small family shops have evolved into large national supermarket chains.",
+    "Küçük aile dükkânları büyük ulusal market zincirlerine dönüştü."
+   ],
+   [
+    "The rules of the game evolved over many decades.",
+    "Oyunun kuralları onlarca yıl boyunca yavaş yavaş gelişti."
+   ]
+  ]
+ },
+ "exclude": {
+  "n": "Exclude bir şeyi bilerek dışarıda bırakmaktır ve genellikle from ile kurulur: exclude someone from a meeting, exclude data from the analysis. Karşıtı include'dır, ismi exclusion'dır. Socially excluded, toplumun dışında kalmış kişileri anlatır. Reject ile farkı şudur: exclude bir şeyi baştan kapsamın dışında tutmaktır, reject ise sunulan bir şeyi geri çevirmektir. Exclude the possibility of, bir ihtimali dışlamak demektir.",
+  "x": [
+   [
+    "The report excludes people who work fewer than ten hours a week.",
+    "Rapor, haftada on saatten az çalışanları kapsam dışı bırakıyor."
+   ],
+   [
+    "No child should be excluded from school activities because of cost.",
+    "Hiçbir çocuk maliyet yüzünden okul etkinliklerinin dışında bırakılmamalı."
+   ]
+  ]
+ },
+ "explicit": {
+  "n": "Explicit bir şeyin dolaylı değil, açıkça ve eksiksiz söylendiğini anlatır; karşıtı implicit'tir: explicit instructions, an explicit reference. Türkçede açık sözcüğü ayrıca açık hava ya da açık kapı gibi anlamlara da gider, explicit bunların hiçbirine karşılık gelmez. Film, şarkı ya da görüntü için kullanıldığında cinsellik ya da şiddet içerdiğini bildirir: explicit lyrics.",
+  "x": [
+   [
+    "The contract contains an explicit ban on sharing customer data.",
+    "Sözleşmede müşteri verilerinin paylaşılmasına dair açık bir yasak var."
+   ],
+   [
+    "She gave explicit instructions that nobody should touch the machine.",
+    "Kimsenin makineye dokunmaması yönünde açık talimat verdi."
+   ]
+  ]
+ },
+ "expose": {
+  "n": "Expose iki ana kalıba girer. Expose someone to something, bir kişiyi tehlikeye ya da yeni bir etkiye açık bırakmak demektir: exposed to sunlight, exposed to risk. Expose a scandal ise gizlenen bir şeyi herkesin önüne çıkarmaktır. Bu ikinci anlamda expose genellikle bir suçu ya da yanlışı açığa vurmayı anlatır; reveal daha nötrdür. Fotoğrafçılıktaki pozlama da exposure'dur.",
+  "x": [
+   [
+    "Children who are exposed to two languages early often switch between them easily.",
+    "Erken yaşta iki dile maruz kalan çocuklar genellikle ikisi arasında kolayca geçiş yapar."
+   ],
+   [
+    "The newspaper exposed a corruption scheme inside the city council.",
+    "Gazete, belediye meclisindeki bir yolsuzluk düzenini ortaya çıkardı."
+   ]
+  ]
+ },
+ "external": {
+  "n": "External bir şeyin dışarıdan geldiğini ya da dışarıda olduğunu anlatır; karşıtı internal'dır: external factors, external funding, external pressure. Bir kurum için o kurumun dışından gelen kişi ya da kaynak demektir: an external examiner, external auditors. İlaç kutularındaki for external use only ifadesi, yalnızca haricen kullanılır anlamına gelir. Akademik ve iş yazılarında sık görülür.",
+  "x": [
+   [
+    "The university relies on external funding for most of its research projects.",
+    "Üniversite araştırma projelerinin çoğu için dış fona dayanıyor."
+   ],
+   [
+    "An external examiner marks a sample of the final exam papers.",
+    "Bir dış değerlendirici, final kâğıtlarından bir örneklemi puanlar."
+   ]
+  ]
+ },
+ "facilitate": {
+  "n": "Facilitate resmî bir fiildir ve bir süreci ya da eylemi kolaylaştırmak anlamına gelir. Nesnesi genellikle sürecin kendisidir: facilitate learning, facilitate trade, facilitate communication. Kolaylaştırılan kişiyi nesne yapmak pek doğal olmaz; kişiler için help ya da enable kullanılır. Günlük konuşmada make it easier daha rahat durur. Aynı kökten gelen facilitator, toplantı ya da atölyeyi yöneten kişidir.",
+  "x": [
+   [
+    "A shared online calendar can facilitate planning across different departments.",
+    "Ortak bir çevrim içi takvim, farklı bölümler arasında planlamayı kolaylaştırabilir."
+   ],
+   [
+    "The new law is meant to facilitate foreign investment in small businesses.",
+    "Yeni yasa, küçük işletmelere yapılan yabancı yatırımı kolaylaştırmayı amaçlıyor."
+   ]
+  ]
+ },
+ "format": {
+  "n": "Format hem isim hem fiildir. İsim olarak bir şeyin düzenini ya da türünü anlatır: a digital format, the format of the exam, a different format. Fiil olarak biçimlendirmek demektir: format a document, format a hard drive; geçmiş hali formatted, ing hali formatting biçimindedir, t çift yazılır. Türkçede disk silmek anlamıyla bilinir, ama İngilizcede anlam daha geniştir.",
+  "x": [
+   [
+    "The magazine is available in both print and digital format.",
+    "Dergi hem basılı hem dijital biçimde çıkıyor."
+   ],
+   [
+    "Please format your essay with double spacing and wide margins.",
+    "Lütfen kompozisyonunuzu çift satır aralığı ve geniş kenar boşluklarıyla biçimlendirin."
+   ]
+  ]
+ },
+ "formula": {
+  "n": "Formula'nın çoğulu iki biçimde gelir: formulas ya da daha bilimsel metinlerde formulae. Matematik, kimya ve fizikte kesin bir kural ya da işaret dizisini anlatır: a chemical formula. Mecazi olarak bir amaca götüren kalıp ya da yöntemdir: a formula for success, a winning formula. Bebek maması anlamında da kullanılır: baby formula.",
+  "x": [
+   [
+    "There is no magic formula for learning a language quickly.",
+    "Bir dili hızlı öğrenmek için sihirli bir formül yok."
+   ],
+   [
+    "The teacher wrote the formula for the area of a circle on the board.",
+    "Öğretmen tahtaya dairenin alanının formülünü yazdı."
+   ]
+  ]
+ },
+ "forthcoming": {
+  "n": "Forthcoming sıfat olarak yakında gerçekleşecek ya da çıkacak şeyleri anlatır ve bu anlamda isimden önce gelir: the forthcoming election, a forthcoming book. Yüklem konumunda ise istenen bilgi, yardım ya da paranın sağlanması demektir: no help was forthcoming. Kişi için kullanıldığında bilgi vermeye istekli, açık davranan anlamına gelir: He was not very forthcoming about his plans. Genel olarak resmî bir sözcüktür.",
+  "x": [
+   [
+    "The author will discuss her forthcoming novel at the festival next month.",
+    "Yazar, gelecek ay festivalde yakında çıkacak romanından söz edecek."
+   ],
+   [
+    "The company promised an explanation, but none was forthcoming.",
+    "Şirket bir açıklama sözü verdi, ama açıklama gelmedi."
+   ]
+  ]
+ },
+ "framework": {
+  "n": "Framework bir sistemin ya da düşüncenin temel yapısını kuran ilkeler, kurallar ve fikirler bütününü anlatır. Sıkça şu kalıplarla görülür: a legal framework, a theoretical framework, within the framework of. Yazılımda program geliştirmek için hazır yapı olarak geçer. Türkçede en doğal karşılığı çoğu zaman çerçevedir; somut anlamda bir yapının taşıyıcı iskeletini de anlatır: the metal framework of the building.",
+  "x": [
+   [
+    "The report proposes a new framework for assessing student progress.",
+    "Rapor, öğrenci gelişimini değerlendirmek için yeni bir çerçeve öneriyor."
+   ],
+   [
+    "Both sides agreed to work within the framework set by the court.",
+    "İki taraf da mahkemenin belirlediği çerçevede çalışmayı kabul etti."
+   ]
+  ]
+ },
+ "gender": {
+  "n": "Gender, kişinin toplumsal ve kültürel olarak tanımlanan cinsiyet rolünü ve kimliğini anlatır; biyolojik cinsiyet için çoğu zaman sex kullanılır, ancak formlarda gender sıkça görülür. Türkçedeki cinsiyet kelimesi ikisini birden kapsar. Sık kalıplar: gender equality, the gender gap, gender roles. Dilbilgisi anlamında da vardır: grammatical gender.",
+  "x": [
+   [
+    "Many companies are working to close the gender gap in leadership roles.",
+    "Birçok şirket, yönetim görevlerindeki cinsiyet farkını kapatmaya çalışıyor."
+   ],
+   [
+    "The survey asked about age, gender and level of education.",
+    "Anket yaş, cinsiyet ve eğitim düzeyi hakkında sorular sordu."
+   ]
+  ]
+ },
+ "globe": {
+  "n": "Globe hem dünyanın kendisini hem de onun yuvarlak modelini anlatır. Dünya anlamında genellikle the ile ve edat öbeklerinde gelir: across/around/all over the globe; bu kalıplarda the world ile yakın, ama daha yazınsaldır. Türkçedeki küre bazen yalnızca geometri terimidir, İngilizcede onun karşılığı sphere'dir. Sıfatı global ise küresel demektir.",
+  "x": [
+   [
+    "Fans from every corner of the globe travelled to see the final.",
+    "Dünyanın dört bir yanından hayranlar finali izlemek için yola çıktı."
+   ],
+   [
+    "On the teacher's desk stood an old globe with faded colours.",
+    "Öğretmenin masasında renkleri solmuş eski bir küre duruyordu."
+   ]
+  ]
+ },
+ "grant": {
+  "n": "Grant isim olarak devlet ya da bir kuruluşun belirli bir amaç için verdiği ve genellikle geri ödenmeyen parayı anlatır: a research grant, a government grant. Kredi (loan) ile karıştırmayın, çünkü loan geri ödenir. Fiil olarak da vardır: grant permission, grant a request; take something for granted ise bir şeyi kanıksamak, değerini bilmemek demektir.",
+  "x": [
+   [
+    "The museum received a large grant to restore its oldest paintings.",
+    "Müze, en eski tablolarını restore etmek için büyük bir hibe aldı."
+   ],
+   [
+    "She applied for a small grant to fund her field research.",
+    "Saha araştırmasını finanse etmek için küçük bir hibeye başvurdu."
+   ]
+  ]
+ },
+ "guarantee": {
+  "n": "Guarantee fiil olarak bir şeyin kesinlikle olacağına söz vermek demektir: guarantee success, cannot guarantee. Garanti edilen durum that cümleciğiyle verilebilir: We cannot guarantee that the train will be on time. İsim olarak hem söz hem garanti belgesidir: a two-year guarantee. Vurgu son hecededir: gua-ran-TEE. Yazılışta u harfi okunmaz ve sık unutulur: guarantee.",
+  "x": [
+   [
+    "The company cannot guarantee that every order will arrive before Christmas.",
+    "Şirket her siparişin Noel'den önce ulaşacağını garanti edemez."
+   ],
+   [
+    "The phone comes with a two-year guarantee against faults.",
+    "Telefon, arızalara karşı iki yıl garantiyle geliyor."
+   ]
+  ]
+ },
+ "hierarchy": {
+  "n": "Hierarchy insanları ya da şeyleri önem, yetki veya konuma göre sıralayan düzeni anlatır: a social hierarchy, a strict hierarchy, a hierarchy of needs. Sayılabilir bir isimdir, çoğulu hierarchies olur. Sıfatı hierarchical, Türkçedeki hiyerarşik ile aynı anlama gelir. Telaffuzda vurgu ilk hecededir ve ilk i harfi ay diye okunur: HAI-er-ar-ki.",
+  "x": [
+   [
+    "In a traditional kitchen, there is a clear hierarchy from head chef to assistant.",
+    "Geleneksel bir mutfakta, şef aşçıdan yardımcıya kadar net bir hiyerarşi vardır."
+   ],
+   [
+    "Some sociologists study how people move up the social hierarchy.",
+    "Bazı sosyologlar insanların toplumsal hiyerarşide nasıl yükseldiğini inceler."
+   ]
+  ]
+ },
+ "ideology": {
+  "n": "Ideology bir kişinin ya da grubun siyasi, ekonomik veya toplumsal inançlar bütünüdür: a political ideology, the dominant ideology. Sözcüğün tonu bağlama göre değişir; kimi yazarlar nötr kullanır, kimi eleştirel. Sıfatı ideological, kişi için ideologue'dur. Çoğulu ideologies. Dünya görüşü ya da fikir sözlerinden daha sistemli bir inanç çerçevesini anlatır.",
+  "x": [
+   [
+    "The party's ideology has changed a great deal over the past thirty years.",
+    "Partinin ideolojisi son otuz yılda büyük ölçüde değişti."
+   ],
+   [
+    "Each ideology offers a different answer to how much the state should control the economy.",
+    "Her ideoloji, devletin ekonomiyi ne kadar denetlemesi gerektiğine farklı bir yanıt verir."
+   ]
+  ]
+ },
+ "impose": {
+  "n": "Bir kuralı, vergiyi ya da cezayı resmî olarak koymak için impose kullanılır ve genellikle on ile kurulur: impose a tax on sugar, impose a ban on smoking. Kişiye yük olmak anlamında da vardır: I don't want to impose on you. Her iki durumda da çoğu kez karşı tarafın istemediği bir şey söz konusudur. Imposing sıfatı ise heybetli, göz dolduran demektir: an imposing building.",
+  "x": [
+   [
+    "The council imposed a strict speed limit on all roads near schools.",
+    "Belediye, okulların yakınındaki tüm yollara sıkı bir hız sınırı getirdi."
+   ],
+   [
+    "Parents should not impose their own career dreams on their children.",
+    "Ebeveynler kendi kariyer hayallerini çocuklarına dayatmamalı."
+   ]
+  ]
+ },
+ "incidence": {
+  "n": "Incidence bir olayın, özellikle hastalık ya da suçun belirli bir grupta ne sıklıkla görüldüğünü anlatır: the incidence of cancer, a high incidence of crime. Bu yüzden incident ile karıştırılmamalıdır; incident tek bir olay demektir. Incidence hemen her zaman of ile devam eder ve çoğu kez high, low, rising gibi sıfatlarla birlikte gelir. Tıp, istatistik ve sosyal bilim yazılarında sıktır.",
+  "x": [
+   [
+    "The incidence of asthma among children is higher in polluted cities.",
+    "Kirli şehirlerde çocuklar arasında astım görülme oranı daha yüksek."
+   ],
+   [
+    "Doctors reported a falling incidence of the disease after the vaccination campaign.",
+    "Doktorlar aşı kampanyasından sonra hastalığın görülme sıklığının düştüğünü bildirdi."
+   ]
+  ]
+ },
+ "incorporate": {
+  "n": "Incorporate bir parçayı bütünün içine katmak demektir ve kalıbı incorporate A into B ya da incorporate A in B biçimindedir: incorporate feedback into the design. Nesne çoğunlukla fikir, öneri ya da özellik olur. Pasif de sık görülür: The idea was incorporated into the plan. Şirket kurmak anlamı da var: the company was incorporated in 1990.",
+  "x": [
+   [
+    "The teacher tried to incorporate students' suggestions into the lesson plan.",
+    "Öğretmen, öğrencilerin önerilerini ders planına katmaya çalıştı."
+   ],
+   [
+    "Modern phones incorporate several sensors that older models did not have.",
+    "Modern telefonlar, eski modellerde olmayan birkaç sensörü bünyesinde barındırır."
+   ]
+  ]
+ },
+ "induce": {
+  "n": "Induce bir şeyin oluşmasına yol açmak ya da birini bir şey yapmaya ikna etmek demektir: induce sleep, induce someone to sign. Kişi nesne olduğunda to ile fiil gelir. Birleşik sıfatlarda -induced olarak görülür: stress-induced headaches. Tıpta doğumu başlatmak için de kullanılır: induce labour. Resmî bir kelimedir; günlük dilde cause ya da persuade tercih edilir.",
+  "x": [
+   [
+    "Certain medicines can induce drowsiness, so please do not drive.",
+    "Bazı ilaçlar uyku hali yapabilir, bu yüzden lütfen araç kullanmayın."
+   ],
+   [
+    "Nothing could induce him to change his mind about the project.",
+    "Hiçbir şey onu proje hakkındaki fikrini değiştirmeye ikna edemedi."
+   ]
+  ]
+ },
+ "inherent": {
+  "n": "Inherent bir şeyin ayrılmaz, doğal bir parçası olduğunu anlatır ve genellikle in ile kullanılır: the risks inherent in sailing, inherent in the system. İsimden önce de gelir: an inherent weakness, inherent risk. Inherent to biçimi de görülür, ama in daha yaygındır. Türkçede çoğu zaman doğasında olan ya da yapısından kaynaklanan diye çevrilir. Zarfı inherently, doğası gereği demektir.",
+  "x": [
+   [
+    "Every investment has some inherent risk, even when it seems safe.",
+    "Güvenli görünse bile her yatırımın doğasında bir miktar risk vardır."
+   ],
+   [
+    "The inherent problem with this design is that it uses too much energy.",
+    "Bu tasarımın yapısından kaynaklanan sorun, çok fazla enerji tüketmesidir."
+   ]
+  ]
+ },
+ "inhibit": {
+  "n": "Bir şeyin gelişmesini ya da gerçekleşmesini yavaşlatmak veya engellemek inhibit ile anlatılır: inhibit growth, inhibit development. Kişi nesne olduğunda from -ing ile kurulabilir: inhibit someone from speaking. Sıfatı inhibited çekingen kişiyi anlatır; karşıtı uninhibited, rahat ve çekinmeyen demektir. Resmî ve bilimsel yazıda sıktır; psikolojide inhibitions, insanın kendini tutmasına yol açan çekinceler demektir.",
+  "x": [
+   [
+    "Fear of failure can inhibit creativity in the classroom.",
+    "Başarısızlık korkusu sınıfta yaratıcılığı köstekleyebilir."
+   ],
+   [
+    "Some chemicals inhibit the growth of bacteria in food.",
+    "Bazı kimyasallar yiyeceklerde bakteri üremesini engeller."
+   ]
+  ]
+ },
+ "insert": {
+  "n": "Insert bir şeyi başka bir şeyin içine ya da arasına koymak demektir ve genellikle into ile kurulur: insert a coin into the machine, insert a clause into a contract. Metin için in ya da between de gelebilir: insert a comma between the two words. Vurgu fiilde ikinci hecede (in-SERT), isimde ilk hecededir (IN-sert). İsim olarak dergiye konan ek sayfa ya da broşür demektir.",
+  "x": [
+   [
+    "Please insert your card into the reader and wait for the screen to change.",
+    "Lütfen kartınızı okuyucuya takın ve ekranın değişmesini bekleyin."
+   ],
+   [
+    "The editor inserted a short paragraph at the end of the article.",
+    "Editör makalenin sonuna kısa bir paragraf ekledi."
+   ]
+  ]
+ },
+ "institute": {
+  "n": "Institute isim olarak araştırma ya da eğitim için kurulmuş bir kurumu anlatır: a research institute, the Institute of Technology. Büyük harfle yazıldığında kurumun resmî adının parçasıdır. Institution ile karıştırılabilir, ama o daha geniştir; bankalar, hastaneler ve gelenekler de institution sayılır. Fiil olarak da vardır: institute a new policy, yani yeni bir uygulama başlatmak.",
+  "x": [
+   [
+    "The institute publishes an annual report on the state of public health.",
+    "Enstitü, halk sağlığının durumu hakkında yıllık bir rapor yayımlıyor."
+   ],
+   [
+    "He studied marine biology at a well-known institute on the coast.",
+    "Kıyıdaki ünlü bir enstitüde deniz biyolojisi okudu."
+   ]
+  ]
+ },
+ "integral": {
+  "n": "Integral bir şeyin tamamlanması için gerekli olan parçayı anlatır ve genellikle to ile kurulur: integral to success, an integral part of the course. Türkçede çoğu zaman ayrılmaz ya da vazgeçilmez diye çevrilir. Matematikte ise isim olarak integral anlamına gelir. Essential ile yakındır, ama bir bütünün içinde yer almayı vurgular: bir parça çıkarılırsa bütün eksik kalır.",
+  "x": [
+   [
+    "Teamwork is an integral part of the training programme for new nurses.",
+    "Takım çalışması, yeni hemşireler için eğitim programının ayrılmaz bir parçasıdır."
+   ],
+   [
+    "Clean water is integral to the health of any community.",
+    "Temiz su, her toplumun sağlığı için vazgeçilmezdir."
+   ]
+  ]
+ },
+ "integrate": {
+  "n": "Integrate iki ana kalıba sahiptir. Parçaları birleştirmek için integrate A with B ya da integrate A into B kullanılır: integrate the new software into the system. Bir gruba uyum sağlamak için ise nesnesiz kullanılır: integrate into a community. Sıfat olarak fully integrated, tam entegre bir sistemi anlatır. Göçmenlerin topluma uyumu konuşulurken integration sözcüğü sık geçer.",
+  "x": [
+   [
+    "The school is trying to integrate technology into every subject.",
+    "Okul, teknolojiyi her derse entegre etmeye çalışıyor."
+   ],
+   [
+    "It took her a year to integrate into the local community.",
+    "Yerel topluluğa uyum sağlaması bir yılını aldı."
+   ]
+  ]
+ },
+ "interact": {
+  "n": "Interact nesne almayan bir fiildir ve çoğunlukla with ile kurulur: interact with customers, interact with the software. Özne çoğul olduğunda with olmadan da kullanılabilir: the two drugs interact. İnsanlar, maddeler ve yazılım için uygundur. İsmi interaction, sıfatı interactive'dir: an interactive map. Türkçede etkileşim kurmak ya da etkileşmek diye çevrilir.",
+  "x": [
+   [
+    "Young children learn language by interacting with adults every day.",
+    "Küçük çocuklar her gün yetişkinlerle etkileşim kurarak dil öğrenir."
+   ],
+   [
+    "Some medicines interact badly with alcohol and should be taken carefully.",
+    "Bazı ilaçlar alkolle kötü etkileşir ve dikkatli alınmalıdır."
+   ]
+  ]
+ },
+ "internal": {
+  "n": "Internal bir şeyin içeride olduğunu ya da bir kurumun kendi içinde gerçekleştiğini anlatır; karşıtı external'dır: an internal investigation, an internal memo. Vücut için de kullanılır: internal injuries, internal organs. Ülke içi konular için domestic daha yaygındır: domestic flights, domestic politics; internal affairs ise bir devletin ya da kurumun iç işleri demektir. Çoğunlukla isimden önce gelir.",
+  "x": [
+   [
+    "The airline set up an internal inquiry after the delay.",
+    "Havayolu şirketi gecikmenin ardından bir iç soruşturma başlattı."
+   ],
+   [
+    "The report describes the internal structure of the old building.",
+    "Rapor eski binanın iç yapısını anlatıyor."
+   ]
+  ]
+ },
+ "interval": {
+  "n": "Interval iki olay ya da iki an arasındaki süreyi anlatır: at regular intervals, a short interval. Kalıplarda at kullanılır: at intervals of ten minutes. İngiliz İngilizcesinde tiyatro ve konserdeki ara anlamına da gelir; Amerikan İngilizcesinde bunun karşılığı intermission'dır. Hava durumunda sunny intervals, aralıklı güneş demektir. Matematikte iki sayı arasındaki aralık, müzikte iki nota arasındaki ses aralığıdır.",
+  "x": [
+   [
+    "The nurse checked the patient's temperature at regular intervals during the night.",
+    "Hemşire, gece boyunca hastanın ateşini düzenli aralıklarla ölçtü."
+   ],
+   [
+    "There will be a twenty-minute interval between the two parts of the play.",
+    "Oyunun iki bölümü arasında yirmi dakikalık bir ara olacak."
+   ]
+  ]
+ },
+ "intervene": {
+  "n": "Intervene bir durumu değiştirmek ya da düzeltmek için araya girmeyi anlatır. Nesne almayan bir fiildir; karışılan olay ya da tartışma in ile verilir: intervene in the dispute. Amaç bildirmek için ardından to ve fiil gelir: intervene to stop the fight. İki taraf arasına girmeyi anlatırken between de kullanılabilir. Türkçede bağlama göre müdahale etmek, araya girmek ya da devreye girmek diye çevrilir.",
+  "x": [
+   [
+    "The teacher had to intervene when the argument became too heated.",
+    "Tartışma çok kızışınca öğretmenin araya girmesi gerekti."
+   ],
+   [
+    "The bank intervened to protect the value of the currency.",
+    "Banka, para biriminin değerini korumak için müdahale etti."
+   ]
+  ]
+ },
+ "invoke": {
+  "n": "Invoke resmî bir fiildir ve bir yasayı, ilkeyi ya da bir ismi savı desteklemek için anmayı, ona başvurmayı anlatır: invoke a law, invoke the principle of free speech. Bir ruhu ya da tanrıyı çağırmak anlamı da vardır. Ancak sözlükteki çağırmak, birini yanına çağırmayı karşılamaz; onun için call ya da summon denir. Bilişimde bir fonksiyonu çağırmak da invoke a function diye anlatılır.",
+  "x": [
+   [
+    "The defence lawyer invoked an old law to support her client's claim.",
+    "Savunma avukatı, müvekkilinin iddiasını desteklemek için eski bir yasaya başvurdu."
+   ],
+   [
+    "Speakers at the conference often invoke the idea of fairness to win support.",
+    "Konferanstaki konuşmacılar destek kazanmak için sık sık adalet fikrine başvurur."
+   ]
+  ]
+ },
+ "justify": {
+  "n": "Bir davranışın, kararın ya da harcamanın makul olduğunu göstermek justify ile anlatılır: justify the cost, justify a decision. Türkçedeki haklı çıkarmak ile yakındır; ancak bu fiil çoğu zaman gerekçe sunmayı anlatır. Kalıp: justify doing something. Sıfat hali justified haklı, yerinde demektir: Her anger was justified. Metin düzenlemede iki yana yaslamak anlamı da vardır: justify the text.",
+  "x": [
+   [
+    "The manager could not justify spending so much money on a single event.",
+    "Müdür, tek bir etkinliğe bu kadar çok para harcamayı gerekçelendiremedi."
+   ],
+   [
+    "Nothing can justify violence against innocent people.",
+    "Hiçbir şey masum insanlara karşı şiddeti haklı çıkaramaz."
+   ]
+  ]
+ },
+ "labour": {
+  "n": "Labour, İngiliz yazımıdır ve fiziksel çalışmayı ya da bir ülkedeki işçilerin tümünü anlatır: manual labour, the labour market, cheap labour. Amerikan İngilizcesinde labor yazılır. Bu anlamda sayılamaz bir isimdir. Büyük harfle Labour, Birleşik Krallık'taki İşçi Partisi'dir. Doğum sancısı için de kullanılır: be in labour. Fiil olarak yorucu bir çaba harcamak demektir.",
+  "x": [
+   [
+    "Many farms depend on seasonal labour during the harvest.",
+    "Birçok çiftlik hasat sırasında mevsimlik işgücüne bağımlı."
+   ],
+   [
+    "Manual labour was once the most common form of work in the region.",
+    "El emeği bir zamanlar bölgedeki en yaygın iş biçimiydi."
+   ]
+  ]
+ },
+ "licence": {
+  "n": "Licence, İngiliz İngilizcesinde ismin yazımıdır: a driving licence, apply for a licence. Fiil ise c ile değil s ile yazılır: license, be licensed to sell alcohol. Amerikan İngilizcesinde hem isim hem fiil license biçimindedir. İki biçim aynı okunduğu için yazarken kelimenin isim mi fiil mi olduğuna bakın; aynı ayrım practice (isim) ve practise (fiil) için de geçerlidir.",
+  "x": [
+   [
+    "You need a licence to sell food in the market.",
+    "Pazarda yemek satmak için ruhsat gerekir."
+   ],
+   [
+    "He lost his driving licence after being caught speeding.",
+    "Aşırı hız yaparken yakalandıktan sonra ehliyetini kaybetti."
+   ]
+  ]
+ },
+ "logic": {
+  "n": "Logic mantıklı düşünme ve akıl yürütme biçimini anlatır: flawed logic, follow the logic, the logic behind a decision. Genellikle sayılamaz bir isimdir, ama sıfatla birlikte a certain logic, a different logic de denir. Sıfatı logical, zarfı logically'dir. Mantık bilimi anlamında da kullanılır. Bir kararın gerekçesi için reason daha geneldir, logic ise adım adım ilerleyen düşünceyi vurgular.",
+  "x": [
+   [
+    "I cannot follow the logic of this argument at all.",
+    "Bu savın mantığını hiç anlayamıyorum."
+   ],
+   [
+    "There is a certain logic in closing the shop on Mondays.",
+    "Dükkânı pazartesi günleri kapatmanın belli bir mantığı var."
+   ]
+  ]
+ },
+ "manipulate": {
+  "n": "Manipulate bir kişiyi ya da bir şeyi ustalıkla, çoğu zaman haksız biçimde yönlendirmeyi anlatır. İnsan için olumsuz bir tonu vardır: manipulate public opinion. Veri bağlamında çoğu zaman sonuçları çarpıtmak demektir (bilişimde veriyi işlemek anlamında nötr de olabilir): manipulate data. Nötr kullanımda bir aleti ustaca kullanmak anlamına gelir. Sıfatı manipulative, insanları kendi çıkarı için yönlendiren, manipülatif kişiyi anlatır.",
+  "x": [
+   [
+    "The report accused the company of trying to manipulate customers with false offers.",
+    "Rapor, şirketi sahte tekliflerle müşterileri manipüle etmeye çalışmakla suçladı."
+   ],
+   [
+    "Researchers must never manipulate data to fit their theory.",
+    "Araştırmacılar, kuramlarına uysun diye verileri asla çarpıtmamalıdır."
+   ]
+  ]
+ },
+ "margin": {
+  "n": "Margin birkaç anlama gelir. Sayfanın kenarındaki boşluk: write notes in the margin. İki sayı (oy, puan) arasındaki fark: win by a narrow margin. Ticarette kâr payı: profit margin. Pay anlamında da kullanılır: a margin of error (hata payı), a safety margin (güvenlik payı). Sıfatı marginal, çok küçük ya da sınırda demektir: a marginal increase. Kenar anlamına gelen edge ile her zaman değiştirilemez.",
+  "x": [
+   [
+    "The candidate lost the election by a very small margin.",
+    "Aday seçimi çok küçük bir farkla kaybetti."
+   ],
+   [
+    "Shops with a low profit margin must sell large quantities to survive.",
+    "Düşük kâr marjlı dükkânlar ayakta kalmak için çok satış yapmak zorundadır."
+   ]
+  ]
+ },
+ "mature": {
+  "n": "Mature sıfatı kişi için mantıklı davranan, olgun ya da yetişkin gibi biri demektir: a mature attitude. Ayrıca tam gelişmiş anlamı vardır: a mature tree, a mature economy. İnsan yaşı için mature student (BrE), genellikle 21 yaşını geçmiş öğrenciyi anlatır. Fiil olarak da kullanılır: The fruit matured. Zıt anlamlısı immature'dür; isim hali maturity'dir.",
+  "x": [
+   [
+    "Mature students often return to university to change their careers.",
+    "Yetişkin öğrenciler çoğu zaman kariyerlerini değiştirmek için üniversiteye döner."
+   ],
+   [
+    "He handled the criticism in a very mature way.",
+    "Eleştiriyi çok olgun bir biçimde karşıladı."
+   ]
+  ]
+ },
+ "maximise": {
+  "n": "Maximise bir şeyi mümkün olan en üst düzeye çıkarmak demektir: maximise profits, maximise efficiency. Bu yazım İngiliz İngilizcesine aittir; Amerikan İngilizcesinde maximize yazılır, anlamı değişmez. Karşıtı minimise'dir. Aynı kökten gelen maximum, en üst sınır demektir. Akademik yazılarda sıktır; günlük konuşmada make the most of daha doğaldır.",
+  "x": [
+   [
+    "The shop changed its layout to maximise the space for customers.",
+    "Dükkân, müşterilere ayrılan alanı en üst düzeye çıkarmak için düzenini değiştirdi."
+   ],
+   [
+    "Farmers use better seeds to maximise their harvest.",
+    "Çiftçiler hasatlarından en yüksek verimi almak için daha iyi tohum kullanıyor."
+   ]
+  ]
+ },
+ "military": {
+  "n": "Military sıfattır ve silahlı kuvvetlerle ilgili şeyleri anlatır: military service, military spending, a military base. İsimden önce gelir. Genellikle the military olarak da isim gibi kullanılır ve orduyu bir kurum olarak anlatır. Army yalnızca kara kuvvetlerini anlatır, military ise tüm silahlı kuvvetleri kapsar. Zorunlu askerlik için compulsory military service denir.",
+  "x": [
+   [
+    "The country has reduced its military spending for the first time in years.",
+    "Ülke yıllar sonra ilk kez askeri harcamalarını azalttı."
+   ],
+   [
+    "Many young men were called up for military service in the spring.",
+    "Birçok genç, ilkbaharda askerlik için çağrıldı."
+   ]
+  ]
+ },
+ "minimal": {
+  "n": "Çok küçük bir miktar ya da derece için minimal kullanılır: minimal impact, minimal effort, minimal damage. Her küçük şey için kullanılmaz; asgari bir düzeyi, mümkün olan en küçük kadarını sezdirir. Karşıt anlamda genellikle considerable ya da significant kullanılır; maximal teknik ve nadirdir. Minimum ise isim ya da sıfat olarak sınır değerini anlatır: the minimum wage. Zarfı minimally'dir.",
+  "x": [
+   [
+    "The storm caused only minimal damage to the village.",
+    "Fırtına köye yalnızca çok az zarar verdi."
+   ],
+   [
+    "The job requires minimal training, so new staff can start quickly.",
+    "İş çok az eğitim gerektirdiği için yeni çalışanlar hızla başlayabilir."
+   ]
+  ]
+ },
+ "minimise": {
+  "n": "Minimise bir şeyi mümkün olan en küçük düzeye indirmek demektir: minimise the risk, minimise costs. Amerikan yazımı minimize'dır. Reduce'tan farkı, hedefin mümkün olan en alt sınıra inmesidir. Bir sorunun önemini küçümsemek anlamı da vardır: He tried to minimise the problem. Bilgisayarda bir pencereyi simge durumuna küçültmek için de kullanılır: minimise the window.",
+  "x": [
+   [
+    "Wearing a helmet helps to minimise the risk of serious injury.",
+    "Kask takmak ciddi yaralanma riskini en aza indirmeye yardımcı olur."
+   ],
+   [
+    "The firm moved its office to minimise travel costs for staff.",
+    "Firma, çalışanların ulaşım masraflarını en aza indirmek için ofisini taşıdı."
+   ]
+  ]
+ },
+ "ministry": {
+  "n": "Ministry bir bakanın başında bulunduğu devlet dairesini anlatır: the Ministry of Health, a government ministry. Büyük harfle yazıldığında resmî ad olur. Amerikan İngilizcesinde bu anlamda genellikle department kullanılır: the Department of Education. Din görevlisinin hizmeti anlamında the ministry de vardır, ama bu daha az görülür.",
+  "x": [
+   [
+    "The Ministry of Transport has announced new safety checks on trains.",
+    "Ulaştırma Bakanlığı trenlerde yeni güvenlik denetimleri yapılacağını duyurdu."
+   ],
+   [
+    "She has worked at the Ministry of Finance for ten years.",
+    "On yıldır Maliye Bakanlığı'nda çalışıyor."
+   ]
+  ]
+ },
+ "minor": {
+  "n": "Minor sıfat olarak küçük ya da önemsiz şeyleri anlatır: a minor change, a minor role. Karşıtı major'dır. İsim olarak yasal olarak reşit olmayan kişi demektir: alcohol cannot be sold to minors. Müzikte minör anlamındadır: a symphony in A minor. Amerikan üniversitelerinde yan dal demektir: a minor in history. Telaffuzu miner (madenci) ile aynıdır.",
+  "x": [
+   [
+    "The doctor said the injury was minor and would heal quickly.",
+    "Doktor yaralanmanın küçük olduğunu ve çabuk iyileşeceğini söyledi."
+   ],
+   [
+    "It is illegal to sell tobacco to a minor in most countries.",
+    "Çoğu ülkede reşit olmayan birine tütün satmak yasa dışıdır."
+   ]
+  ]
+ },
+ "mode": {
+  "n": "Bir şeyi yapmanın belirli bir yolu ya da biçimi mode ile anlatılır: a mode of transport, a mode of production. Türkçedeki moda sözcüğüne benzese de fashion anlamına gelmez; moda için fashion ya da trend kullanılır. Türkçedeki mod (cihaz modu) ile aynı anlamdadır: silent mode, flight mode (Amerikan İngilizcesinde airplane mode). İstatistikte bir veri dizisinde en sık görülen değere de mode denir.",
+  "x": [
+   [
+    "Cycling is a healthy and cheap mode of transport for short trips.",
+    "Bisiklet, kısa yolculuklar için sağlıklı ve ucuz bir ulaşım biçimidir."
+   ],
+   [
+    "Please put your phone in silent mode before the film starts.",
+    "Lütfen film başlamadan telefonunuzu sessiz moda alın."
+   ]
+  ]
+ },
+ "modify": {
+  "n": "Modify bir şeyi iyileştirmek ya da bir amaca uyarlamak için biraz değiştirmek demektir: modify a design, slightly modify. Change kadar geniş değildir; yapıyı korurken küçük ayarlamalar yapmayı anlatır. Genetically modified, tarım ve biyolojide sık görülen bir kalıptır. Gramerde de bir sözcüğü nitelemek anlamında geçer: adjectives modify nouns. Yapılan değişikliğin kendisine a modification denir.",
+  "x": [
+   [
+    "The company had to modify its recipe to reduce the amount of sugar.",
+    "Şirket şeker miktarını azaltmak için tarifini biraz değiştirmek zorunda kaldı."
+   ],
+   [
+    "Adjectives modify nouns by giving more information about them.",
+    "Sıfatlar, isimler hakkında daha fazla bilgi vererek onları niteler."
+   ]
+  ]
+ },
+ "monitor": {
+  "n": "Monitor fiil olarak bir şeyi belirli bir süre boyunca izleyip kontrol etmek demektir: monitor progress, closely monitor. Sürekli ya da düzenli gözleme dayanır; tek seferlik bakış için watch ya da check kullanılır. İsim olarak ekran ya da izleme cihazıdır: a computer monitor, a heart monitor. Okulda class monitor, öğretmene yardım eden görevli öğrencidir.",
+  "x": [
+   [
+    "Doctors closely monitor patients who have recently had surgery.",
+    "Doktorlar yakın zamanda ameliyat olmuş hastaları yakından izler."
+   ],
+   [
+    "The app lets parents monitor how long their children spend online.",
+    "Uygulama, ebeveynlerin çocuklarının çevrim içi geçirdiği süreyi izlemesini sağlıyor."
+   ]
+  ]
+ },
+ "motive": {
+  "n": "Motive bir kişiyi belirli bir davranışa iten nedeni anlatır: the profit motive, an ulterior motive. Suç soruşturmalarında sıkça geçer: motive for murder, yani cinayetin sebebi. Motivation ile karıştırılabilir; motivation isteği ya da hevesi, motive ise belirli bir eylemin gerekçesini anlatır. Ardından genellikle for gelir: a motive for leaving. Ulterior motive, gizli bir amaç demektir.",
+  "x": [
+   [
+    "Police could not find a clear motive for the robbery.",
+    "Polis soygun için açık bir neden bulamadı."
+   ],
+   [
+    "Her motive for moving abroad was to improve her English.",
+    "Yurt dışına taşınma nedeni İngilizcesini geliştirmekti."
+   ]
+  ]
+ },
+ "neutral": {
+  "n": "Neutral bir anlaşmazlıkta hiçbir tarafı tutmamayı anlatır: remain neutral, a neutral country. Bir sözcük ya da üslup için duygusal yük taşımayan demektir: neutral language. Renk için gösterişsiz, bej ve gri gibi tonları anlatır: neutral colours. Carbon neutral, salınan ve dengelenen karbonun eşit olduğunu anlatır. Araçta boş vitese de neutral denir: put the car in neutral.",
+  "x": [
+   [
+    "Switzerland stayed neutral during both world wars.",
+    "İsviçre iki dünya savaşı boyunca tarafsız kaldı."
+   ],
+   [
+    "The room was painted in neutral colours to look calm and bright.",
+    "Oda sakin ve aydınlık görünmesi için nötr renklere boyandı."
+   ]
+  ]
+ },
+ "norm": {
+  "n": "Norm bir toplumda ya da grupta yaygın olan, kabul görmüş davranış kalıbını ya da standardı anlatır. Çoğul biçimi çok sıktır: social norms, cultural norms. Tekil the norm, olağan durum demektir: Working from home has become the norm. Sık kalıplar: conform to norms, challenge social norms, a departure from the norm. Aynı kökten gelen normative, akademik dilde ne olması gerektiğini belirten demektir.",
+  "x": [
+   [
+    "In many offices, wearing a suit is no longer the norm.",
+    "Birçok ofiste takım elbise giymek artık olağan değil."
+   ],
+   [
+    "Social norms about politeness differ widely between cultures.",
+    "Nezaketle ilgili toplumsal normlar kültürden kültüre çok değişir."
+   ]
+  ]
+ },
+ "notion": {
+  "n": "Notion bir şey hakkındaki fikri ya da inancı anlatır ve çoğu zaman çok kesin olmayan, eleştirilebilir bir fikirdir. Ardından that gelebilir: the notion that money brings happiness. Reject the notion, challenge the notion gibi kalıplarla görülür. Idea ile yakındır, ama daha soyut ve tartışmaya açıktır. Amerikan İngilizcesinde notions, dikiş malzemeleri anlamına da gelir.",
+  "x": [
+   [
+    "Many experts reject the notion that children learn better in silence.",
+    "Birçok uzman, çocukların sessizlikte daha iyi öğrendiği fikrini reddediyor."
+   ],
+   [
+    "She has no notion of how difficult the exam will be.",
+    "Sınavın ne kadar zor olacağı hakkında hiçbir fikri yok."
+   ]
+  ]
+ },
+ "occupy": {
+  "n": "Occupy birkaç anlamda kullanılır. Yer ve zamanı doldurmak: occupy a room, occupy your time. Bir pozisyonu elinde bulundurmak: occupy a position. Bir bölgeyi askeri güçle ele geçirmek: occupy a country. Kişiler için be occupied with, meşgul olmak demektir. İsmi occupation, hem işgal hem meslek anlamına gelir.",
+  "x": [
+   [
+    "The new library will occupy the whole ground floor of the building.",
+    "Yeni kütüphane binanın tüm zemin katını kaplayacak."
+   ],
+   [
+    "Simple wooden blocks can occupy small children for hours.",
+    "Basit tahta bloklar küçük çocukları saatlerce meşgul edebilir."
+   ]
+  ]
+ },
+ "offset": {
+  "n": "Offset bir olumsuz etkiyi ters yöndeki bir etkiyle dengelemek demektir: offset the cost, offset the damage. Nesne çoğunlukla maliyet, kayıp ya da zarardır. Pasif biçimi de sık görülür: be offset by. Offset A against B, bir tutarı diğerinden düşmek demektir: offset losses against profits. Carbon offset isim olarak, salınan karbonu dengeleyen bir uygulamayı anlatır. Geçmiş hali de offset'tir.",
+  "x": [
+   [
+    "The airline planted trees to offset the carbon produced by its flights.",
+    "Havayolu şirketi uçuşlarının ürettiği karbonu dengelemek için ağaç dikti."
+   ],
+   [
+    "Rising prices were partly offset by a small increase in wages.",
+    "Artan fiyatlar, ücretlerdeki küçük bir artışla kısmen dengelendi."
+   ]
+  ]
  }
 }

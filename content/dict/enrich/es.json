@@ -778,5 +778,785 @@
     "El informe fue revisado con cuidado para eliminar errores antes de llegar al director."
    ]
   ]
+ },
+ "eliminate": {
+  "n": "Eliminate se usa con un objeto directo, sin preposición: «eliminate poverty», «eliminate errors». Implica quitar algo por completo, por eso suena natural con completely o entirely. Para «eliminar» un archivo en el ordenador se usa más bien delete, y para algo menos radical, reduce. Para decir «eliminar de una lista» se añade from: «eliminate a candidate from the list».",
+  "x": [
+   [
+    "The new software eliminates most of the manual errors in our accounts.",
+    "El nuevo programa elimina la mayoría de los errores manuales en nuestras cuentas."
+   ],
+   [
+    "Doctors hope to eliminate the disease from the region within ten years.",
+    "Los médicos esperan eliminar la enfermedad de la región en diez años."
+   ]
+  ]
+ },
+ "enable": {
+  "n": "Enable sigue la estructura enable + persona + to + infinitivo: «this enables students to learn faster». En español diríamos «permite que aprendan», con subjuntivo, pero en inglés no se usa una oración con that. Suena natural cuando el sujeto es una cosa o una herramienta; con una persona como sujeto, allow o let son más habituales. En informática significa activar una función, «enable notifications», y su contrario es disable.",
+  "x": [
+   [
+    "A good map enables hikers to plan a safe route through the mountains.",
+    "Un buen mapa permite a los excursionistas planificar una ruta segura por la montaña."
+   ],
+   [
+    "The grant will enable the school to buy new laboratory equipment.",
+    "La subvención permitirá a la escuela comprar equipo nuevo para el laboratorio."
+   ]
+  ]
+ },
+ "encounter": {
+  "n": "Encounter se parece a «encontrar», pero casi siempre habla de topar con algo difícil o inesperado: problemas, resistencia, obstáculos. Para encontrar un objeto perdido se dice find. Como verbo es transitivo: «we encountered delays», sin with. Como sustantivo sí admite with: «a brief encounter with a bear», un encuentro breve o fortuito. Con personas, encounter indica un encuentro casual y suena más formal que meet.",
+  "x": [
+   [
+    "Travellers may encounter heavy snow on the mountain road in winter.",
+    "En invierno, los viajeros pueden encontrarse con mucha nieve en la carretera de montaña."
+   ],
+   [
+    "We encountered several unexpected problems while building the website.",
+    "Nos topamos con varios problemas inesperados al crear el sitio web."
+   ]
+  ]
+ },
+ "enhance": {
+  "n": "Enhance significa mejorar algo que ya funciona, sobre todo su calidad, su valor o su atractivo; para reparar algo roto se usa fix o repair. Va seguido de un objeto directo: «enhance performance», «enhance the flavour». Aparece mucho en textos de marketing, ciencia y tecnología, y en español suele traducirse por «realzar», «potenciar» o «mejorar». Con -ment se forma enhancement, frecuente en «image enhancement».",
+  "x": [
+   [
+    "A little lemon juice can enhance the flavour of almost any fish dish.",
+    "Un poco de zumo de limón puede realzar el sabor de casi cualquier plato de pescado."
+   ],
+   [
+    "The company wants to enhance its reputation by improving customer service.",
+    "La empresa quiere mejorar su reputación perfeccionando la atención al cliente."
+   ]
+  ]
+ },
+ "equate": {
+  "n": "Equate se usa con dos preposiciones y conviene no mezclarlas: equate A with B significa considerar A igual que B, y equate to indica que una cantidad equivale a otra: «this equates to ten euros». Aparece a menudo en frases negativas, como «wealth does not always equate with happiness». Es un verbo formal, típico de la escritura académica y de opinión, y en español se traduce por «equiparar» o «equivaler».",
+  "x": [
+   [
+    "Many people equate a high salary with a successful career.",
+    "Mucha gente equipara un sueldo alto con una carrera de éxito."
+   ],
+   [
+    "Ten hours of practice a week equates to about five hundred hours a year.",
+    "Diez horas de práctica a la semana equivalen a unas quinientas horas al año."
+   ]
+  ]
+ },
+ "erode": {
+  "n": "Erode se usa tanto en sentido físico como figurado. En geología habla del desgaste de la tierra o la roca por el agua o el viento; en sentido figurado, de algo que se debilita poco a poco, como la confianza o los derechos. Suele aparecer en pasiva o con adverbios como gradually o slowly. De la misma raíz sale erosion, «erosión», como en soil erosion.",
+  "x": [
+   [
+    "Heavy rain has eroded the cliff and put several houses at risk.",
+    "Las fuertes lluvias han erosionado el acantilado y han puesto en riesgo varias casas."
+   ],
+   [
+    "Constant criticism can erode a young player's confidence over time.",
+    "Las críticas constantes pueden minar con el tiempo la confianza de un jugador joven."
+   ]
+  ]
+ },
+ "estimate": {
+  "n": "Estimate funciona como verbo y como sustantivo, y lo que cambia es la vocal final, no el acento, que en ambos casos va en la primera sílaba: el verbo suena /ˈestɪmeɪt/ y el sustantivo, /ˈestɪmət/. Como verbo se construye con that o con un objeto: «we estimate that…», «estimated at 500 people». Equivale a «calcular de forma aproximada», no a «estimar» en el sentido de «apreciar a alguien».",
+  "x": [
+   [
+    "Experts estimate that the new bridge will cost about two million pounds.",
+    "Los expertos calculan que el nuevo puente costará unos dos millones de libras."
+   ],
+   [
+    "It is hard to estimate how many tourists will visit the island this summer.",
+    "Es difícil calcular cuántos turistas visitarán la isla este verano."
+   ]
+  ]
+ },
+ "eventual": {
+  "n": "Eventual es un falso amigo claro: no significa «eventual» en el sentido de casual u ocasional, sino que describe lo que ocurre al final, como consecuencia de un proceso: «the eventual winner». El adverbio eventually equivale a «al final» o «con el tiempo». Para decir «posible» o «ocasional» se usa possible o occasional, según el caso.",
+  "x": [
+   [
+    "After months of debate, the eventual decision pleased almost nobody in the office.",
+    "Tras meses de debate, la decisión final no agradó casi a nadie en la oficina."
+   ],
+   [
+    "Nobody expected the young player to be the eventual champion of the tournament.",
+    "Nadie esperaba que el joven jugador acabara siendo el campeón del torneo."
+   ]
+  ]
+ },
+ "evident": {
+  "n": "Evident se emplea para algo que se percibe con claridad, sobre todo en estructuras como «it is evident that…» o «become evident». Es más formal que obvious y suena habitual en informes y artículos. Con la preposición in o from indica dónde o por qué se nota: «evident in her work». El adverbio evidently también puede significar «según parece», no solo «claramente».",
+  "x": [
+   [
+    "It soon became evident that the old system could not cope with so many users.",
+    "Pronto quedó claro que el sistema antiguo no podía con tantos usuarios."
+   ],
+   [
+    "Her nervousness was evident to everyone in the room during the interview.",
+    "Su nerviosismo era evidente para todos en la sala durante la entrevista."
+   ]
+  ]
+ },
+ "evolve": {
+  "n": "Evolve suele ser intransitivo: «the company evolved», «languages evolve». El uso transitivo, como «evolve a strategy», existe pero es mucho menos frecuente. Se combina con into o from para indicar el cambio: «evolve into a larger organisation». En biología describe el cambio de las especies a lo largo de generaciones, pero también sirve para ideas, empresas o idiomas. Su familia incluye evolution y evolutionary.",
+  "x": [
+   [
+    "Small family shops sometimes evolve into large national chains over several decades.",
+    "A veces, las pequeñas tiendas familiares evolucionan hasta convertirse en grandes cadenas nacionales."
+   ],
+   [
+    "Language continues to evolve as people invent new words and drop old ones.",
+    "El idioma sigue evolucionando a medida que la gente inventa palabras nuevas y abandona otras."
+   ]
+  ]
+ },
+ "exclude": {
+  "n": "Exclude se construye con from cuando indicas el lugar o grupo del que se aparta algo o a alguien: «excluded from the team». También puede significar descartar una posibilidad: «we cannot exclude the possibility». Es el opuesto de include. Ojo con exclusive: no significa «excluido» sino «exclusivo» o «selecto».",
+  "x": [
+   [
+    "The committee decided to exclude two candidates from the final round of interviews.",
+    "El comité decidió excluir a dos candidatos de la ronda final de entrevistas."
+   ],
+   [
+    "Police have not yet excluded the possibility of a connection between the two crimes.",
+    "La policía aún no ha descartado la posibilidad de que los dos delitos estén relacionados."
+   ]
+  ]
+ },
+ "explicit": {
+  "n": "Explicit describe algo dicho con total claridad, sin dejar nada a la interpretación: «explicit instructions», «an explicit reference». Su opuesto es implicit. En medios y entretenimiento aparece también con un sentido distinto, el de contenido gráfico o con lenguaje fuerte, como en explicit lyrics. El adverbio es explicitly: «he explicitly told me not to».",
+  "x": [
+   [
+    "The contract is explicit about who pays for repairs after the first year.",
+    "El contrato es explícito sobre quién paga las reparaciones después del primer año."
+   ],
+   [
+    "She gave us explicit instructions not to open the box until Friday.",
+    "Nos dio instrucciones explícitas de no abrir la caja hasta el viernes."
+   ]
+  ]
+ },
+ "expose": {
+  "n": "Expose tiene dos usos frecuentes. Con to significa poner a alguien en contacto con algo, a menudo dañino: «exposed to the sun», «exposed to new ideas». Sin preposición significa sacar a la luz algo oculto, como un escándalo o un fraude. Para «exponer» obras en un museo se usa exhibit o display, y para «exponer» una idea, present o explain. El adjetivo exposed también describe un lugar desprotegido: «an exposed hillside».",
+  "x": [
+   [
+    "Children who are exposed to music early often develop a stronger sense of rhythm.",
+    "Los niños que están expuestos a la música desde pequeños suelen desarrollar mejor el sentido del ritmo."
+   ],
+   [
+    "The newspaper wanted to expose the corruption inside the local council.",
+    "El periódico quería destapar la corrupción dentro del ayuntamiento."
+   ]
+  ]
+ },
+ "external": {
+  "n": "External sirve para lo que viene de fuera o está fuera de una organización, un objeto o una persona: external factors, external examiner. Su opuesto es internal. Suele ir delante del sustantivo. Se diferencia de outside, que es más general y funciona también como preposición o adverbio.",
+  "x": [
+   [
+    "An external consultant will review our accounts before the end of the year.",
+    "Un consultor externo revisará nuestras cuentas antes de que acabe el año."
+   ],
+   [
+    "The phone has an external battery that you can plug in when needed.",
+    "El teléfono tiene una batería externa que se puede conectar cuando hace falta."
+   ]
+  ]
+ },
+ "facilitate": {
+  "n": "Facilitate es un verbo formal que significa hacer que un proceso resulte más fácil, y su sujeto suele ser una cosa: «technology facilitates communication». Cuando el sujeto es una persona, como en el segundo ejemplo, se refiere a quien modera un taller o un debate sin dirigirlo. No se usa para «dar» algo a alguien, como en español «facilitar datos»; ahí se emplea provide o give.",
+  "x": [
+   [
+    "A shared calendar can facilitate the planning of meetings between different teams.",
+    "Un calendario compartido puede facilitar la organización de reuniones entre distintos equipos."
+   ],
+   [
+    "The teacher's job is to facilitate discussion, not to give the answers.",
+    "La tarea del profesor es facilitar el debate, no dar las respuestas."
+   ]
+  ]
+ },
+ "format": {
+  "n": "Como sustantivo, format equivale a «formato» y aparece con file, digital o standard. Como verbo significa dar formato a un texto o formatear un disco; el pasado es formatted, con dos t. No lo confundas con form, que designa un impreso o formulario, ni con shape, que es la forma física. En ambos usos el acento recae en la primera sílaba: /ˈfɔːmæt/.",
+  "x": [
+   [
+    "The report is available in both digital and printed format for all employees.",
+    "El informe está disponible en formato digital e impreso para todos los empleados."
+   ],
+   [
+    "The quiz show changed its format and now includes a final round for teams.",
+    "El concurso cambió de formato y ahora incluye una ronda final por equipos."
+   ]
+  ]
+ },
+ "forthcoming": {
+  "n": "Forthcoming tiene tres sentidos. El más habitual describe un hecho próximo, como una elección o un informe: «the forthcoming election». El segundo se aplica a algo que llega cuando se necesita, normalmente en negativo y detrás de be: «help was not forthcoming». El tercero describe a alguien dispuesto a dar información: «he wasn't very forthcoming about his plans». Los tres usos son algo formales.",
+  "x": [
+   [
+    "The forthcoming album will include several songs that she wrote during the tour.",
+    "El próximo álbum incluirá varias canciones que escribió durante la gira."
+   ],
+   [
+    "The money promised by the government was never forthcoming, so the project stopped.",
+    "El dinero prometido por el gobierno nunca llegó, así que el proyecto se detuvo."
+   ]
+  ]
+ },
+ "framework": {
+  "n": "Framework se refiere a una estructura básica de ideas, normas o herramientas sobre la que se construye algo, y no es solo un «marco» físico. Va con adjetivos como legal, theoretical o conceptual. En informática designa una base de código reutilizable. Es contable: a framework, two frameworks. La preposición habitual es within: «within this framework».",
+  "x": [
+   [
+    "The law sets out a clear framework for how companies must protect personal data.",
+    "La ley establece un marco claro sobre cómo las empresas deben proteger los datos personales."
+   ],
+   [
+    "Developers often use a framework to avoid writing the same code again and again.",
+    "Los desarrolladores suelen usar un framework (marco de trabajo) para no escribir el mismo código una y otra vez."
+   ]
+  ]
+ },
+ "gender": {
+  "n": "Gender en inglés se refiere sobre todo al sexo social o cultural, como en gender equality, y en muchos formularios aparece en lugar de sex. En gramática también designa el género gramatical: «Spanish nouns have gender», algo que el inglés moderno casi no tiene en los sustantivos. Es contable cuando se habla de categorías, aunque suele aparecer en singular en expresiones como «regardless of gender».",
+  "x": [
+   [
+    "The study found a clear gender gap in pay between men and women in the sector.",
+    "El estudio halló una clara brecha de género en los sueldos entre hombres y mujeres del sector."
+   ],
+   [
+    "The school wants every child to have equal opportunities, regardless of gender.",
+    "La escuela quiere que todos los niños tengan las mismas oportunidades, sin distinción de género."
+   ]
+  ]
+ },
+ "globe": {
+  "n": "Globe se usa en dos sentidos. Es un objeto físico, la esfera con un mapa del mundo, y también una forma literaria o periodística de decir el mundo entero: «across the globe». En ese segundo uso suena más enfático que world. Su adjetivo, global, aparece en expresiones como global warming. No se emplea para un «globo» de fiesta, que es balloon.",
+  "x": [
+   [
+    "Fans from across the globe travelled to the small town for the music festival.",
+    "Aficionados de todo el mundo viajaron a la pequeña ciudad para el festival de música."
+   ],
+   [
+    "She keeps an old globe on her desk and spins it when she thinks.",
+    "Tiene un globo terráqueo antiguo en el escritorio y lo hace girar mientras piensa."
+   ]
+  ]
+ },
+ "guarantee": {
+  "n": "Con la misma forma escrita, guarantee funciona como verbo y como sustantivo. El verbo se construye con un objeto o con that: «we guarantee that…». En frases negativas, «I can't guarantee» expresa que no se puede asegurar algo, y suena muy habitual. El sustantivo equivale a «garantía» de un producto, «a two-year guarantee», y suele ir con under: «still under guarantee». Ojo: la u no suena y el acento va al final: /ˌɡærənˈtiː/.",
+  "x": [
+   [
+    "The shop guarantees a full refund if you are not happy with the product.",
+    "La tienda garantiza el reembolso completo si no estás contento con el producto."
+   ],
+   [
+    "I can't guarantee that the train will arrive on time in this weather.",
+    "No puedo asegurar que el tren llegue puntual con este tiempo."
+   ]
+  ]
+ },
+ "hierarchy": {
+  "n": "Hierarchy describe un sistema organizado por niveles, desde el más alto hasta el más bajo, ya sea en una empresa, la sociedad o la naturaleza. Se usa con adjetivos como strict, rigid o social. Dentro de ella se habla de the top of the hierarchy o de move up the hierarchy para ascender de nivel. Para describir una organización así se usa el adjetivo hierarchical.",
+  "x": [
+   [
+    "In a strict hierarchy, junior staff rarely question decisions made by senior managers.",
+    "En una jerarquía estricta, el personal subalterno rara vez cuestiona las decisiones de los directivos."
+   ],
+   [
+    "Wolves live in packs with a clear hierarchy that keeps the group organised.",
+    "Los lobos viven en manadas con una jerarquía clara que mantiene organizado al grupo."
+   ]
+  ]
+ },
+ "ideology": {
+  "n": "Ideology se refiere a un conjunto coherente de ideas políticas o económicas, y a veces tiene un matiz algo crítico, como si fuera rígido. Es contable: different ideologies. Con political es muy frecuente. No equivale al español «ideas» sin más; para opiniones personales usa views o beliefs. Para el adjetivo se añade -ical: ideological differences.",
+  "x": [
+   [
+    "The party's ideology is based on free markets and low taxes for businesses.",
+    "La ideología del partido se basa en los mercados libres y los impuestos bajos para las empresas."
+   ],
+   [
+    "Some writers believe that the dominant ideology shapes what people think is normal.",
+    "Algunos autores creen que la ideología dominante determina lo que la gente considera normal."
+   ]
+  ]
+ },
+ "impose": {
+  "n": "Impose se construye con on o upon para indicar a quién se le impone: «impose a tax on imports», «impose restrictions on drivers». Es un verbo formal que suele implicar autoridad. Cuando se aplica a una persona, «impose on someone» significa abusar de su amabilidad: «I don't want to impose». De ahí viene imposition, que también puede ser «molestia»: «it is no imposition».",
+  "x": [
+   [
+    "The government decided to impose a new tax on sugary drinks next year.",
+    "El gobierno decidió imponer el año que viene un nuevo impuesto a las bebidas azucaradas."
+   ],
+   [
+    "I don't want to impose, but could I stay at your house for one night?",
+    "No quiero molestar, pero ¿podría quedarme en tu casa una noche?"
+   ]
+  ]
+ },
+ "incidence": {
+  "n": "Incidence se refiere a la frecuencia con la que ocurre algo, como una enfermedad o un delito: «the incidence of cancer». Se usa con of y suele ir con adjetivos como high o low. No es «incidente»; para un suceso aislado se dice incident. El plural, incidences, es poco habitual; lo común es el singular.",
+  "x": [
+   [
+    "The incidence of asthma among children has risen sharply in large cities.",
+    "La incidencia del asma entre los niños ha aumentado mucho en las grandes ciudades."
+   ],
+   [
+    "Researchers found a lower incidence of heart disease in people who walk daily.",
+    "Los investigadores hallaron una menor incidencia de enfermedades del corazón en quienes caminan a diario."
+   ]
+  ]
+ },
+ "incorporate": {
+  "n": "Incorporate se usa con into o in cuando incluyes un elemento dentro de un todo: «incorporate feedback into the plan». También puede significar constituir una empresa legalmente, de ahí la abreviatura Inc. después del nombre. No quiere decir «incorporarse a un trabajo» (join o start). La pronunciación del final es /eɪt/, con una vocal clara.",
+  "x": [
+   [
+    "The chef likes to incorporate local vegetables into every dish on the menu.",
+    "Al chef le gusta incorporar verduras locales a todos los platos del menú."
+   ],
+   [
+    "We tried to incorporate the customers' suggestions into the final design of the app.",
+    "Intentamos incorporar las sugerencias de los clientes en el diseño final de la aplicación."
+   ]
+  ]
+ },
+ "induce": {
+  "n": "Induce es un verbo formal que significa provocar un efecto o convencer a alguien de hacer algo: «induce sleep», «induce someone to sign». El segundo uso lleva to + infinitivo. En medicina, «induce labour» es provocar el parto. Como segundo elemento de adjetivos compuestos aparece muy a menudo: stress-induced, drug-induced. Hay dos sustantivos: induction, el acto de provocar, e inducement, un incentivo.",
+  "x": [
+   [
+    "Some medicines can induce drowsiness, so you should avoid driving after taking them.",
+    "Algunos medicamentos pueden provocar somnolencia, así que conviene no conducir tras tomarlos."
+   ],
+   [
+    "Nothing could induce him to sell the house where he grew up.",
+    "Nada podría convencerlo de vender la casa donde creció."
+   ]
+  ]
+ },
+ "inherent": {
+  "n": "Inherent describe una cualidad que forma parte natural y permanente de algo y no puede quitarse. Puede ir delante del sustantivo, «an inherent risk», o detrás, con in o to: «the risks inherent in the job», «inherent to the system». Es una palabra formal, frecuente en textos académicos y jurídicos. Aunque se parezca a inherit en la escritura, procede de otra raíz latina y no tiene que ver con heredar.",
+  "x": [
+   [
+    "Every investment has an inherent risk that you cannot completely avoid.",
+    "Toda inversión tiene un riesgo inherente que no se puede evitar por completo."
+   ],
+   [
+    "The problems inherent in a small team include limited time and fewer ideas.",
+    "Los problemas propios de un equipo pequeño incluyen poco tiempo y menos ideas."
+   ]
+  ]
+ },
+ "inhibit": {
+  "n": "Inhibit significa frenar o impedir algo, y es más formal que prevent o slow down. Va con un objeto: «inhibit growth». Con from y -ing se usa para impedir que alguien haga algo: «inhibit people from speaking». En psicología, inhibition describe la timidez que frena la conducta, y el adjetivo inhibited, a alguien cohibido. En biología y medicina es muy frecuente: «inhibit the growth of bacteria».",
+  "x": [
+   [
+    "Cold weather can inhibit the growth of plants in the early spring.",
+    "El tiempo frío puede frenar el crecimiento de las plantas a comienzos de la primavera."
+   ],
+   [
+    "Fear of making mistakes may inhibit students from asking questions in class.",
+    "El miedo a equivocarse puede impedir que los alumnos hagan preguntas en clase."
+   ]
+  ]
+ },
+ "insert": {
+  "n": "Con el verbo insert lo habitual es insert something into something: «insert a card into the slot». En ordenadores, «insert a row» es añadir una fila. Como sustantivo, un insert es un folleto o hoja adicional dentro de una revista. El acento cambia: el verbo recae en la segunda sílaba y el sustantivo suele llevarlo en la primera.",
+  "x": [
+   [
+    "Please insert your card into the machine and wait for the screen to change.",
+    "Introduce la tarjeta en la máquina y espera a que cambie la pantalla."
+   ],
+   [
+    "The lawyer asked the other side to insert a new clause about payment dates.",
+    "El abogado pidió a la otra parte que insertara una cláusula nueva sobre las fechas de pago."
+   ]
+  ]
+ },
+ "institute": {
+  "n": "Institute como sustantivo designa una organización dedicada a la investigación o la formación, como an institute of technology. No equivale al «instituto» español de enseñanza secundaria, para el que se usa secondary school o high school. También es un verbo formal: «institute a new policy», es decir, poner en marcha algo oficialmente. Research institute es una combinación muy típica.",
+  "x": [
+   [
+    "She works at a research institute that studies the effects of climate change.",
+    "Trabaja en un instituto de investigación que estudia los efectos del cambio climático."
+   ],
+   [
+    "The council plans to institute a new system for collecting household waste.",
+    "El ayuntamiento planea poner en marcha un nuevo sistema de recogida de residuos domésticos."
+   ]
+  ]
+ },
+ "integrate": {
+  "n": "Integrate se usa con into o with: «integrate into society», «integrate the app with other tools». Puede ser transitivo, con un objeto, o intransitivo, cuando alguien se adapta a un grupo. Con personas suele hablar de inmigrantes o de nuevos empleados que pasan a formar parte del grupo. De ahí vienen integration y el adjetivo integrated, como en «an integrated system».",
+  "x": [
+   [
+    "New employees usually need a few weeks to integrate into the team.",
+    "Los empleados nuevos suelen necesitar unas semanas para integrarse en el equipo."
+   ],
+   [
+    "The app can integrate with most calendars, so you never miss an appointment.",
+    "La aplicación se integra con la mayoría de los calendarios, así que nunca te pierdes una cita."
+   ]
+  ]
+ },
+ "interact": {
+  "n": "Interact lleva siempre with cuando mencionas con quién o con qué: «interact with customers», «interact with the software». Es un verbo intransitivo, así que no puede llevar un objeto directo. Se refiere a comunicarse o a influirse mutuamente, también entre cosas, como productos químicos o medicamentos. Lo verás a menudo en interactive whiteboard o social interaction.",
+  "x": [
+   [
+    "Teachers should find ways to interact with every student during a lesson.",
+    "Los profesores deberían buscar formas de interactuar con cada alumno durante una clase."
+   ],
+   [
+    "Some medicines interact badly with alcohol, so read the label carefully.",
+    "Algunos medicamentos interactúan mal con el alcohol, así que lee bien la etiqueta."
+   ]
+  ]
+ },
+ "internal": {
+  "n": "Internal describe lo que existe o sucede dentro de algo, como una empresa, un país o un cuerpo: internal affairs, internal structure. Su opuesto es external. En política, internal affairs son los asuntos que un gobierno resuelve dentro de sus fronteras. Casi siempre va delante del sustantivo. No lo confundas con inner, que se aplica más a lo físico o emocional, como inner peace.",
+  "x": [
+   [
+    "The company launched an internal investigation after several customers complained.",
+    "La empresa abrió una investigación interna después de varias quejas de clientes."
+   ],
+   [
+    "Foreign governments should not interfere in the internal affairs of other countries.",
+    "Los gobiernos extranjeros no deberían interferir en los asuntos internos de otros países."
+   ]
+  ]
+ },
+ "interval": {
+  "n": "Interval es un espacio de tiempo o de distancia entre dos momentos o puntos. Con at se forma la locución más frecuente: «at regular intervals». En el teatro británico, the interval es el descanso de una obra o concierto; en inglés americano se dice intermission. En música, interval designa la distancia entre dos notas, igual que «intervalo» en español.",
+  "x": [
+   [
+    "The lights flash at regular intervals to warn ships about the dangerous rocks.",
+    "Las luces parpadean a intervalos regulares para avisar a los barcos de las rocas peligrosas."
+   ],
+   [
+    "We bought ice cream during the interval and returned to our seats just in time.",
+    "Compramos helados durante el descanso y volvimos a los asientos justo a tiempo."
+   ]
+  ]
+ },
+ "intervene": {
+  "n": "Intervene lleva in cuando hablas de una situación y to + infinitivo cuando indicas el fin: «intervene in a dispute», «intervene to stop a fight». Es intransitivo, así que no lleva objeto directo. También significa interponerse en un momento o pasar entre dos hechos: «in the intervening years», en los años transcurridos. De él vienen intervention y la expresión military intervention.",
+  "x": [
+   [
+    "The teacher had to intervene when the two boys started arguing loudly.",
+    "La profesora tuvo que intervenir cuando los dos chicos empezaron a discutir a gritos."
+   ],
+   [
+    "Neighbours called the police to intervene in the fight outside the bar.",
+    "Los vecinos llamaron a la policía para que interviniera en la pelea a la salida del bar."
+   ]
+  ]
+ },
+ "invoke": {
+  "n": "Invoke es un verbo formal. Se usa para citar una ley, un principio o una autoridad como apoyo de un argumento: «invoke the law», «invoke a clause». En contexto religioso significa invocar a una deidad, y en informática, llamar a una función. Para despertar recuerdos o sentimientos, el verbo correcto es evoke, aunque se parezcan: «the song evoked memories of childhood».",
+  "x": [
+   [
+    "The defendant tried to invoke an old law to avoid paying the fine.",
+    "El acusado intentó invocar una ley antigua para no pagar la multa."
+   ],
+   [
+    "Politicians often invoke the memory of past heroes to win support for new plans.",
+    "Los políticos suelen invocar el recuerdo de héroes del pasado para ganar apoyo a nuevos planes."
+   ]
+  ]
+ },
+ "justify": {
+  "n": "Justify se refiere a demostrar que algo es razonable o necesario: «justify the cost», «justify a decision». Lleva objeto directo, y con -ing también es frecuente: «how can you justify spending so much?». En procesamiento de texto significa alinear un párrafo a ambos márgenes. La frase «the end justifies the means» equivale a «el fin justifica los medios».",
+  "x": [
+   [
+    "The manager had to justify the high cost of the new office equipment.",
+    "La directora tuvo que justificar el elevado coste del nuevo equipamiento de la oficina."
+   ],
+   [
+    "Nothing can justify the way he spoke to his colleagues at the meeting.",
+    "Nada puede justificar la forma en que habló a sus compañeros en la reunión."
+   ]
+  ]
+ },
+ "labour": {
+  "n": "Labour es la grafía británica; en inglés americano se escribe labor. Se refiere al trabajo, sobre todo físico, y a la mano de obra: «labour market», «cheap labour». Con the Labour Party designa al partido político británico, con mayúscula. También significa el parto: «go into labour», «in labour». En el sentido de mano de obra es incontable, así que no lleva a.",
+  "x": [
+   [
+    "Many farms rely on cheap seasonal labour during the busy harvest months.",
+    "Muchas granjas dependen de mano de obra estacional barata durante los meses de cosecha."
+   ],
+   [
+    "She went into labour late at night and reached the hospital just in time.",
+    "Se puso de parto a última hora de la noche y llegó al hospital justo a tiempo."
+   ]
+  ]
+ },
+ "licence": {
+  "n": "En inglés británico, licence es el sustantivo y license el verbo; en inglés americano se usa license para ambos. Un driving licence es el carné de conducir, que en Estados Unidos se llama driver's license. Se combina con apply for, hold o issue. No se debe confundir con licencia como «permiso de ausencia» en el trabajo, que en inglés sería leave.",
+  "x": [
+   [
+    "You need a special licence to sell alcohol in a shop or restaurant.",
+    "Se necesita una licencia especial para vender alcohol en una tienda o restaurante."
+   ],
+   [
+    "He passed his driving test and got his licence a week later.",
+    "Aprobó el examen de conducir y recibió el carné una semana después."
+   ]
+  ]
+ },
+ "manipulate": {
+  "n": "Manipulate puede ser neutro o negativo. Con objetos o datos, significa manejar o modificar con habilidad: «manipulate a tool». Con personas suele tener sentido negativo, como influir de forma poco honesta. Va con un objeto directo: «manipulate public opinion». A una persona que lo hace habitualmente se la llama manipulative.",
+  "x": [
+   [
+    "Some advertisers try to manipulate our emotions in order to sell more products.",
+    "Algunos anunciantes intentan manipular nuestras emociones para vender más productos."
+   ],
+   [
+    "The surgeon used a tiny instrument to manipulate the tissue without causing damage.",
+    "El cirujano usó un instrumento diminuto para manipular el tejido sin causar daño."
+   ]
+  ]
+ },
+ "margin": {
+  "n": "Margin tiene tres sentidos que conviene separar. En una página, es el espacio en blanco en los bordes. En economía, profit margin es la diferencia entre coste y precio de venta. En resultados, a narrow margin indica una victoria por poco: «won by a narrow margin». Se combina con by: «by a margin of ten votes». También existe la expresión margin of error, «margen de error».",
+  "x": [
+   [
+    "The team won the match by a narrow margin after a late goal.",
+    "El equipo ganó el partido por un estrecho margen tras un gol en los últimos minutos."
+   ],
+   [
+    "Supermarkets often work with a small profit margin on basic food products.",
+    "Los supermercados suelen trabajar con un margen de beneficio pequeño en los alimentos básicos."
+   ]
+  ]
+ },
+ "mature": {
+  "n": "Como adjetivo, mature describe a alguien sensato y responsable o algo plenamente desarrollado: «a mature economy». Con una persona joven indica buen juicio, pero en expresiones como mature student sí alude a la edad adulta, como en el segundo ejemplo. Como verbo equivale a madurar o desarrollarse: «the cheese matures for six months». En finanzas, un bono o un seguro matures cuando vence.",
+  "x": [
+   [
+    "She is very mature for her age and always stays calm in difficult situations.",
+    "Es muy madura para su edad y siempre mantiene la calma en situaciones difíciles."
+   ],
+   [
+    "The university offers special courses for mature students who return to study.",
+    "La universidad ofrece cursos especiales para estudiantes adultos que vuelven a estudiar."
+   ]
+  ]
+ },
+ "maximise": {
+  "n": "Maximise es la grafía más habitual en el Reino Unido, y maximize la americana, aunque también se acepta en inglés británico; ambas se pronuncian igual. Significa aumentar algo todo lo posible: «maximise profits», «maximise efficiency». Va con un objeto directo y se usa mucho en negocios. Su opuesto es minimise. En informática, maximise a window es agrandar una ventana a toda la pantalla.",
+  "x": [
+   [
+    "The shop reduced its prices to maximise sales before the end of the season.",
+    "La tienda bajó los precios para aumentar al máximo las ventas antes de acabar la temporada."
+   ],
+   [
+    "Good planning helps you maximise the time you have for studying each week.",
+    "Una buena planificación te ayuda a aprovechar al máximo el tiempo de estudio de cada semana."
+   ]
+  ]
+ },
+ "military": {
+  "n": "Military es adjetivo y se usa para lo relativo a las fuerzas armadas: military service, military spending. Como sustantivo, the military se refiere al conjunto de las fuerzas armadas y suele ir con the, con verbo singular o plural. No debe confundirse con soldier, que es la persona. Se pronuncia con acento en la primera sílaba.",
+  "x": [
+   [
+    "In some countries, young men must complete a year of military service.",
+    "En algunos países, los jóvenes deben hacer un año de servicio militar."
+   ],
+   [
+    "The military has been asked to help after the flood destroyed several bridges.",
+    "Se ha pedido ayuda al ejército después de que la inundación destruyera varios puentes."
+   ]
+  ]
+ },
+ "minimal": {
+  "n": "Minimal significa muy pequeño en cantidad o grado, casi lo mínimo posible: «minimal impact», «minimal effort». No equivale a minimum, que se refiere al límite más bajo permitido o exigido: «the minimum wage». También se usa en arte y diseño: minimal design. Su adverbio, minimally, aparece en expresiones como minimally invasive surgery, cirugía mínimamente invasiva.",
+  "x": [
+   [
+    "The new tool has a minimal effect on the speed of the computer.",
+    "La nueva herramienta tiene un efecto mínimo en la velocidad del ordenador."
+   ],
+   [
+    "With minimal training, most volunteers were able to use the system.",
+    "Con una formación mínima, la mayoría de los voluntarios pudo usar el sistema."
+   ]
+  ]
+ },
+ "minimise": {
+  "n": "Minimise es la grafía más habitual en el Reino Unido, y minimize la americana. Significa reducir algo a la cantidad más pequeña posible: «minimise the risk», «minimise costs». Es el opuesto de maximise. También puede significar restar importancia a algo, como cuando alguien dice que un problema es menor de lo que es. En informática, minimise a window es minimizar una ventana.",
+  "x": [
+   [
+    "Wearing a helmet can minimise the risk of serious injury when you cycle.",
+    "Llevar casco puede reducir al mínimo el riesgo de lesiones graves al ir en bicicleta."
+   ],
+   [
+    "The company tried to minimise the damage after the product failed safety tests.",
+    "La empresa intentó minimizar el daño después de que el producto no pasara las pruebas de seguridad."
+   ]
+  ]
+ },
+ "ministry": {
+  "n": "Ministry designa un departamento del gobierno dirigido por un ministro: the Ministry of Health. Es la palabra habitual para los gobiernos de muchos países, aunque el gobierno de Estados Unidos llama department a los suyos, como el Department of State. También significa la labor de un sacerdote o pastor: «enter the ministry». Se pronuncia /ˈmɪnɪstri/ y el plural es ministries.",
+  "x": [
+   [
+    "The Ministry of Education announced new rules for school exams this week.",
+    "El Ministerio de Educación anunció esta semana nuevas normas para los exámenes escolares."
+   ],
+   [
+    "He left his career in business to join the ministry and serve a small church.",
+    "Dejó su carrera empresarial para dedicarse al ministerio pastoral en una iglesia pequeña."
+   ]
+  ]
+ },
+ "minor": {
+  "n": "Minor es adjetivo, y significa pequeño o poco importante frente a major: «a minor change», «a minor role», «minor injuries». En derecho, también es sustantivo y designa a una persona menor de edad. Como verbo, minor in se usa en Estados Unidos para una especialidad secundaria universitaria. En música, minor equivale a «menor»: «A minor», la menor.",
+  "x": [
+   [
+    "The doctor said the injury was minor and he could return to training soon.",
+    "El médico dijo que la lesión era leve y que pronto podría volver a entrenar."
+   ],
+   [
+    "She plays a minor role in the film, but audiences remember her scene.",
+    "Tiene un papel secundario en la película, pero el público recuerda su escena."
+   ]
+  ]
+ },
+ "mode": {
+  "n": "Mode se usa para hablar de una forma o manera de hacer algo, y suele ir con of: «mode of transport», «mode of payment». En tecnología aparece en frases como airplane mode o silent mode, y en música significa modo, como el mayor o el menor. No equivale a moda en el sentido de tendencia, que se dice fashion. Es contable: different modes.",
+  "x": [
+   [
+    "Cycling is a cheap and healthy mode of transport for short trips in the city.",
+    "La bicicleta es un medio de transporte barato y saludable para trayectos cortos en la ciudad."
+   ],
+   [
+    "Please put your phone in silent mode before the concert begins.",
+    "Pon el teléfono en modo silencio antes de que empiece el concierto."
+   ]
+  ]
+ },
+ "modify": {
+  "n": "Modify significa cambiar algo un poco, normalmente para mejorarlo o adaptarlo: «modify a design». Es transitivo y no lleva preposición para el objeto. En gramática, un adjetivo modifies un sustantivo. Con genetically, el adjetivo modified describe organismos alterados por ingeniería genética, como en GM food. Frente a change, sugiere un ajuste parcial, no una transformación completa.",
+  "x": [
+   [
+    "We had to modify the plan after the budget was cut by twenty percent.",
+    "Tuvimos que modificar el plan después de que se recortara el presupuesto un veinte por ciento."
+   ],
+   [
+    "Teachers often modify the exercises when they see that students find them too hard.",
+    "Los profesores suelen modificar los ejercicios cuando ven que a los alumnos les resultan muy difíciles."
+   ]
+  ]
+ },
+ "monitor": {
+  "n": "Como verbo, monitor significa observar y comprobar algo de forma continua: «monitor progress», «closely monitor». No lleva preposición. También es sustantivo: puede ser una pantalla de ordenador o, en un hospital, un aparato como a heart monitor. En español equivale a «vigilar», «supervisar» o «hacer un seguimiento de»; no implica «controlar» en el sentido de dominar o mandar.",
+  "x": [
+   [
+    "Nurses monitor each patient closely during the first night after the operation.",
+    "Las enfermeras vigilan de cerca a cada paciente durante la primera noche tras la operación."
+   ],
+   [
+    "The school uses software to monitor how long students spend on each lesson.",
+    "La escuela usa un programa para hacer un seguimiento de cuánto tiempo pasan los alumnos en cada lección."
+   ]
+  ]
+ },
+ "motive": {
+  "n": "Motive es la razón que lleva a alguien a actuar, sobre todo cuando se investiga un delito: «the police are looking for a motive». Se combina con for o behind: «a motive for murder», «the real motive behind his offer». La expresión ulterior motive indica una razón oculta o interesada. En contextos policiales se traduce por «móvil», y en los demás, por «motivo». Si necesitas un verbo, recurre a motivate.",
+  "x": [
+   [
+    "Police could not find any motive for the attack on the shopkeeper.",
+    "La policía no pudo encontrar ningún móvil del ataque al tendero."
+   ],
+   [
+    "He claimed he was helping us, but I suspected an ulterior motive.",
+    "Decía que nos ayudaba, pero sospeché que tenía un motivo oculto."
+   ]
+  ]
+ },
+ "neutral": {
+  "n": "Neutral se utiliza en varios contextos. En política o en un conflicto, describe a quien no toma partido: «remain neutral». En química significa ni ácido ni básico, y en electricidad, sin carga. En conversaciones sobre el medio ambiente, carbon neutral indica que no se emite más carbono del que se compensa. En coches, neutral es el punto muerto de la caja de cambios.",
+  "x": [
+   [
+    "The referee must stay neutral and treat both teams in exactly the same way.",
+    "El árbitro debe mantenerse neutral y tratar a los dos equipos exactamente igual."
+   ],
+   [
+    "The airline promises to become carbon neutral by the end of the decade.",
+    "La aerolínea promete ser neutra en carbono antes de que acabe la década."
+   ]
+  ]
+ },
+ "norm": {
+  "n": "Norm es un sustantivo que se refiere a lo que se considera normal o aceptado en un grupo: social norms. Con the, el uso the norm significa lo habitual: «long hours are the norm». Es contable. No equivale siempre a «norma» como regla escrita o ley, para lo cual se usa rule o regulation. Con break o challenge se habla de romper con lo establecido: «challenge gender norms».",
+  "x": [
+   [
+    "In many offices, working from home has become the norm since the pandemic.",
+    "En muchas oficinas, trabajar desde casa se ha convertido en lo habitual desde la pandemia."
+   ],
+   [
+    "Social norms about greeting people differ a lot from one culture to another.",
+    "Las normas sociales sobre cómo saludar varían mucho de una cultura a otra."
+   ]
+  ]
+ },
+ "notion": {
+  "n": "Notion es una idea o creencia, a menudo vaga o discutible. Se emplea con that para explicarla: «the notion that money brings happiness». Con verbos como reject o challenge expresa duda sobre esa idea. No equivale a «noción» como conocimiento básico de una materia: para eso, se dice basic knowledge o idea. Es más formal que idea.",
+  "x": [
+   [
+    "Many scientists reject the notion that people only use ten percent of their brains.",
+    "Muchos científicos rechazan la idea de que las personas solo usen el diez por ciento del cerebro."
+   ],
+   [
+    "The notion of a four-day working week is becoming popular in some companies.",
+    "La idea de una semana laboral de cuatro días se está volviendo popular en algunas empresas."
+   ]
+  ]
+ },
+ "occupy": {
+  "n": "Occupy se usa con espacio, tiempo o cargos: «occupy a seat», «occupy a senior position», «occupy my time». También significa tomar un lugar por la fuerza: «troops occupied the city». En pasiva, be occupied with indica que alguien está ocupado en algo. Para decir que una persona está ocupada, se usa busy; occupied se aplica más a lugares, como un baño o un asiento.",
+  "x": [
+   [
+    "Offices occupy the first three floors of the building in the city centre.",
+    "Las oficinas ocupan las tres primeras plantas del edificio del centro de la ciudad."
+   ],
+   [
+    "A simple cardboard box can occupy young children for hours.",
+    "Una simple caja de cartón puede entretener a los niños pequeños durante horas."
+   ]
+  ]
+ },
+ "offset": {
+  "n": "Offset es un verbo transitivo con la misma forma en pasado: offset, offset. Significa compensar un efecto con otro contrario: «offset the cost». En contextos ambientales, también es sustantivo: a carbon offset. No debe confundirse con set off, que significa ponerse en camino o activar algo. Se usa con objeto directo y, a veces, con by o against.",
+  "x": [
+   [
+    "Higher ticket prices helped offset the rising cost of fuel for the airline.",
+    "Los precios más altos de los billetes ayudaron a compensar el aumento del coste del combustible de la aerolínea."
+   ],
+   [
+    "Planting trees is one way to offset the carbon produced by long flights.",
+    "Plantar árboles es una forma de compensar el carbono que producen los vuelos largos."
+   ]
+  ]
+ },
+ "ongoing": {
+  "n": "Ongoing describe algo que continúa en curso y aún no ha terminado: «ongoing research», «an ongoing debate». Va delante del sustantivo, aunque también puede ir tras be: «the investigation is ongoing». Se parece a continuing, pero suena más natural para procesos que siguen abiertos en el presente. En español suele traducirse por «en curso», «en marcha» o «abierto».",
+  "x": [
+   [
+    "The police say their investigation is ongoing and no one has been arrested yet.",
+    "La policía dice que su investigación sigue en marcha y que aún no hay detenidos."
+   ],
+   [
+    "There is an ongoing debate about whether schools should ban mobile phones.",
+    "Hay un debate abierto sobre si los colegios deberían prohibir los móviles."
+   ]
+  ]
+ },
+ "overlap": {
+  "n": "Para decir que dos cosas se solapan, overlap se usa con with: «my shift overlaps with yours». También puede ser transitivo o usarse sin complemento: «the two meetings overlap». Describe que dos cosas comparten parte del espacio, el tiempo o el contenido. Como sustantivo, «there is some overlap» es muy habitual. El sustantivo lleva el acento en la primera sílaba y el verbo, normalmente en la última.",
+  "x": [
+   [
+    "The two meetings overlap, so I will only be able to attend one of them.",
+    "Las dos reuniones coinciden en parte, así que solo podré asistir a una."
+   ],
+   [
+    "There is a lot of overlap between the two courses, so some lessons feel repeated.",
+    "Hay mucha coincidencia entre los dos cursos, así que algunas clases parecen repetidas."
+   ]
+  ]
  }
 }
