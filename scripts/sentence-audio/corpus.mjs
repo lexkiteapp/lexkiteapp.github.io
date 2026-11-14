@@ -83,7 +83,7 @@ export function collect() {
     const L = (x, f) => { if (!fs.existsSync(f)) throw new Error(`corpus: nguồn không tồn tại: ${f} (đã dời/đổi tên? sửa đường dẫn trong scripts/sentence-audio/corpus.mjs)`); try { vm.runInContext(fs.readFileSync(f, 'utf8'), x); } catch (e) { console.error(`corpus: bỏ qua ${f}: ${e.message}`); } };
     const strs = a => (Array.isArray(a) ? a : [a]).filter(v => typeof v === 'string' && /[A-Za-z]/.test(v));
     // Confidence (confidence.js: theo accent người học; người nói b đọc giọng còn lại → cả 2 giọng)
-    { const x = ctx(); L(x, 'web/js/confidence/data.js'); const D = x.CONF || {};
+    { const x = ctx(); L(x, 'web/cpack/confidence/data.js'); const D = x.CONF || {};
       for (const u of D.units || []) { for (const p of u.phrases || []) bothSplit(p.say, 'confidence'); for (const l of (u.dialogue || {}).lines || []) bothSplit(l[1], 'confidence'); }
       for (const k of D.toolkit || []) for (const p of k.phrases || []) bothSplit(p.say, 'confidence');
       for (const q of D.daily || []) bothSplit(q.q, 'confidence'); }
@@ -129,8 +129,7 @@ export function collect() {
     // Ngân hàng ý tưởng Task 2 (ideas.js: câu ví dụ, nút data-saysent → theo accent người học)
     { const x = ctx(); L(x, 'web/cpack/write/ideas.js'); for (const tp of x.IDEAS || []) for (const iss of tp.issues || []) for (const it of [...(iss.for || []), ...(iss.against || [])]) for (const t of strs(it.ex)) bothSplit(t, 'ideas'); }
     // Ngữ pháp: mọi câu ví dụ (trường ex) trong web/js/grammar + web/cpack/grammar (bài tải lười); bỏ mục lục lazy-*.js
-    { const x = ctx(), fl = d => (fs.existsSync(d) ? fs.readdirSync(d).filter(f => f.endsWith('.js') && !/^lazy-/.test(f)) : []).map(f => `${d}/${f}`), DC = 'web/cpack/grammar/drills-c.js'; // drills-c.js ở cpack từ #1319 nhưng giữ NGUYÊN thứ tự nạp cũ của corpus (cùng nhóm web/js, xếp theo tên) → độ phủ giọng không đổi
-      for (const f of [...[...fl('web/js/grammar'), DC].sort((p, q) => (p.split('/').pop() < q.split('/').pop() ? -1 : 1)), ...fl('web/cpack/grammar').filter(f => f !== DC).sort()]) L(x, f);
+    { const x = ctx(); for (const d of ['web/js/grammar', 'web/cpack/grammar']) if (fs.existsSync(d)) for (const f of fs.readdirSync(d).filter(f => f.endsWith('.js') && !/^lazy-/.test(f)).sort()) L(x, `${d}/${f}`);
       const seen = new Set(), walk = o => { if (!o || typeof o !== 'object' || seen.has(o)) return; seen.add(o); for (const [k, v] of Object.entries(o)) { if (k === 'ex') for (const t of strs(v)) bothSplit(t, 'grammar'); else walk(v); } };
       walk(x.GRAMMAR); walk(x.GRAMMAR_CHECK); }
   }

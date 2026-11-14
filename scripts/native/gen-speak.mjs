@@ -26,7 +26,7 @@ const cyc = a => { let i = 0; return () => a[i++ % a.length]; };
 const SPK_FILES = ['web/js/speak/data.js'];
 const SPEAK_FILES = ['web/cpack/speak/samples.js', 'web/cpack/speak/more2.js', 'web/cpack/speak/more3.js', 'web/js/speak/more.js'];
 const PRON_FILES = ['web/js/pron/sounds.js', 'web/cpack/pron/skills.js'];
-const RP_FILES = ['web/js/roleplay/data-everyday.js', 'web/js/roleplay/data-a.js', 'web/js/roleplay/data-b.js', 'web/js/roleplay/data-lot1.js'];
+const RP_FILES = ['web/js/roleplay/data-everyday.js', 'web/js/roleplay/data-a.js', 'web/js/roleplay/data-b.js', 'web/cpack/roleplay/data-lot1.js'];
 const sbox = (extra = {}) => { const sb = { console, Math, JSON, t: tt, ...extra }; sb.self = sb; sb.window = sb; sb.globalThis = sb; vm.createContext(sb); return sb; };
 const run = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 let CONTENT = null;
@@ -740,6 +740,8 @@ export async function speakVectors() {
   out.rtype = await rtypeVectors();
   out.roleplay = await roleplayVectors();
   out.handsfree = await handsfreeVectors();
+  // Số lượng nội dung THẬT của gói đầy đủ (speak-pack.json): test native đọc số kỳ vọng ở đây thay vì ghi cứng – thêm chủ đề/kịch bản không làm đỏ native; sàn tối thiểu vẫn nằm trong test (chỉ tăng).
+  out.counts = { bank: S.bank.length, lessons: C.PRON.length, contrasts: C.pairs.contrasts.length, coachSentences: C.coach.sentences.length, scripts: C.ROLEPLAY.length, daily: C.ROLEPLAY.filter(s => s.kind === 'everyday').length };
   const per = {}; for (const P of PAGES) for (const k of keysOf(P)) (per[P.route] ||= new Set()).add(k);
   out.persist = { _doc: 'What each screen WRITES, observed from the flows above (store:key). store = IndexedDB/Store key ("store:mistakes", logMistake), game = Game.mutate field (state.game.*, synced via sync.json), settings = App.saveSettings, localStorage = per-device only (NOT synced). XP / daily quests go through App.reward (M3) with the reward objects recorded in each case; cards go through App.addWord (vocab.json wordbook). Audio recordings are never stored.', ...Object.fromEntries(Object.entries(per).map(([k, v]) => [k, [...v].sort()])) };
   out.data = { _doc: 'REAL records cut down so the ports run every P07 screen with no web files: speaking = the first 3 merged topics + the sample answers of their questions; pron = lessons iː, th-sounds, weak-forms + ALL pair/coach tables; roleplay = scripts cafe + salary; say = the first series; situations = cafe + ask-directions (SPK_B bodies, English only); readtests = ONE group per question kind (the full IELTS reading tests are the P09 pack). The complete content is web/data/speak-pack.json.',

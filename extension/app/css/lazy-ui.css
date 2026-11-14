@@ -86,7 +86,7 @@ body.cbt-mode .view { max-width: none; padding: 0; }
 .bankw.used { opacity: .38; text-decoration: line-through; }
 .dr-part { background: none; border: 0; padding: .1rem .2rem; font: inherit; cursor: pointer; border-radius: 6px; color: inherit; }
 .dr-part:hover { background: var(--primary-soft); }
-.dr-part sub { font-size: .65rem; font-weight: 700; color: var(--brand, #E5502F); margin-left: 1px; }
+.dr-part sub { font-size: .65rem; font-weight: 700; color: var(--primary-text); margin-left: 1px; }
 .dr-part.right { background: rgba(22,163,74,.15); } .dr-part.wrong { background: rgba(229,72,77,.15); }
 .dr textarea.dr-in { width: 100%; border: 2px solid var(--line); border-radius: 10px; padding: .6rem .7rem; font: inherit; background: var(--surface); color: inherit; resize: vertical; }
 .dr .dr-in.ok { border-color: #16a34a; } .dr .dr-in.no { border-color: #e5484d; }
