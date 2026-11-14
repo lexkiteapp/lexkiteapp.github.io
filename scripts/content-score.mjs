@@ -68,7 +68,7 @@ const nativeAvg = native ? +(native.avg ?? native.mean ?? 0) : 0;
 // ---------- Thành phần: [tên, có, chuẩn, trọng số, future?] – future = chưa làm (được phép 0, chưa có nguồn) ----------
 const grammar = C.GRAMMAR || [], gLv = l => grammar.filter(g => g.level === l).length;
 const readLv = l => +(S['Bài đọc ngắn']?.[l] || 0);
-const roleplay = (() => { const w = { self: {} }; w.window = w.self; for (const f of ls('web/js/roleplay', /^data-.*\.js$/)) { try { new Function('self', 'window', rd('web/js/roleplay/' + f))(w.self, w.self); } catch {} } return (w.self.ROLEPLAY || []).length; })();
+const roleplay = (() => { const w = { self: {} }; w.window = w.self; for (const d of ['web/js/roleplay', 'web/cpack/roleplay']) for (const f of ls(d, /^data-.*\.js$/)) { try { new Function('self', 'window', rd(d + '/' + f))(w.self, w.self); } catch {} } // lô lớn ở web/cpack (tải lười, ngoài ngân sách web/js) return (w.self.ROLEPLAY || []).length; })();
 // Thành phần đếm tuyệt đối so với chuẩn cố định → thêm nội dung không bao giờ làm tụt điểm; chỉ xoá/lỗi/thiếu trường bắt buộc mới tụt.
 const VSTD = 20000; // kho đích 20k từ#loại (docs/CONTENT-WORLD-PLAN.md §2)
 // Chuẩn đề thi "đủ format + nhiều đề hoàn chỉnh" (≈ 20 đề IELTS, 10 TOEIC/TOEFL) – cố định, độc lập với targets.json
