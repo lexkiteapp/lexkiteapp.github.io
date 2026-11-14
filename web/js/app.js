@@ -377,6 +377,7 @@
     lesson: ['js/i18n/en/lesson.js', 'js/i18n/en/v2.js', 'js/st/common.js', 'js/st/lesson.js', 'js/st/v2/runtime.js', 'js/st/v2/lesson-question.js', 'js/st/v2/feedback-correct.js', 'js/st/v2/feedback-wrong.js', 'js/st/v2/lesson-complete.js', 'js/st/v2/story-duo.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/lesson/teacher.js', 'cpack/lesson/stories.js', 'cpack/lesson/path-nodes.js', 'js/lesson/ui.js'],
     lgold: ['cpack/lesson/gold.js'],
     vhub: ['js/st/v2/vocab-hub.js', 'js/vocab-hub.js'], // 📚 Tab Từ vựng
+    ghub: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/grammar.js'], // 📐 Hub Ngữ pháp (khung Stitch v2 grammar; mã dựng dữ liệu nằm trong gói grammar)
     confidence: ['js/i18n/en/confidence.js', 'cpack/confidence/data.js', 'js/speech-session.js', 'js/confidence.js'], // 🔥 Nhịp buổi học: chuỗi đúng liền, lỗi chính tả nhỏ, Giải thích, thẻ số liệu cuối lượt, tạm tắt nghe/nói, chế độ khó
   };
   const EXT_NO = ['klocal']; if (Store.isExtension) EXT_NO.forEach(n => { BUNDLES[n] = []; }); // gói mà build-extension.sh loại khỏi add-on (CWS cấm mã tải từ xa) → không nạp, khỏi 404 + nạp lại. Test: ext-bundles
@@ -402,7 +403,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     dictation: ['listening', 'toeic'],
     fix: ['fixer', 'uidx'],
     goal: 'goal',
-    grammar: ['grammar', 'lfx'],
+    grammar: ['ghub', 'grammar', 'lfx'],
     handoff: 'handoff',
     handsfree: ['words', 'tsl', 'voice', 'handsfree'],
     home: ['words', 'streak'],
@@ -490,6 +491,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     call: ['css/st-v2-teacher-call.css'],
     cambridge: 'css/exam.css',
     espr: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css'],
+    ghub: 'css/st-v2-grammar.css',
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
     league: 'css/league.css',
     lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'],

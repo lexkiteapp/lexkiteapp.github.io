@@ -1,6 +1,6 @@
 # Phủ Stitch – màn nào đã port, màn nào còn viết tay
 
-> TL;DR: 18 bề mặt đã port từ Stitch (id + cổng SSIM); còn 51 chia 18 lô ≤5 màn. Nguồn: `docs/stitch-coverage.json` (sinh bằng `node scripts/test/stitch-coverage.mjs --write`); CI cảnh báo route/màn thiếu id (chưa fail).
+> TL;DR: 19 bề mặt đã port từ Stitch (id + cổng SSIM); còn 50 chia 18 lô ≤5 màn. Nguồn: `docs/stitch-coverage.json` (sinh bằng `node scripts/test/stitch-coverage.mjs --write`); CI cảnh báo route/màn thiếu id (chưa fail).
 > Đọc khi: chọn lô port Stitch kế tiếp, thêm route/màn mới (phải thêm vào JSON), hoặc kiểm cổng.
 
 Chuẩn: Lexkite Kit (assets/1b7a8a3d3d52404bb332d9ba3f783547), cách port [STITCH-V2-PORT.md](STITCH-V2-PORT.md), trang web [WEB-PAGES.md](WEB-PAGES.md). Cổng `diff:k` = khóa trong `scripts/test/stitch-screens.mjs` (SSIM + tương phản + a11y).
@@ -26,6 +26,7 @@ Chuẩn: Lexkite Kit (assets/1b7a8a3d3d52404bb332d9ba3f783547), cách port [STIT
 | Chào mừng / thiết lập | #/welcome | d2c0773b / de3f3ff3… | diff:welcome |
 | Hub Từ vựng | #/vocab | 66a8a4f8 / 95826e15… | diff:vocab-hub |
 | Phát âm: thư viện (bài #/pron/<id> còn khung cũ) | #/pron | pron-hub-light / pron-hub-dark… | diff:pron-hub |
+| Hub Ngữ pháp | #/grammar | 9e62a2e8 / e5fec5b8… | diff:grammar |
 
 ## Còn thiếu – theo lô (thứ tự = lượt người dùng thấy)
 | Lô | Màn | Trạng thái |
@@ -34,7 +35,7 @@ Chuẩn: Lexkite Kit (assets/1b7a8a3d3d52404bb332d9ba3f783547), cách port [STIT
 | A2 Hub | Hub Kỹ năng · Hub Thi thử · Thư viện + chủ đề · Bộ thẻ của tôi (+Anki) | có screen Kit, chưa port |
 | A3 Từ điển & tra | Từ điển + thẻ từ (sheet) · Cụm từ / mẫu câu · Động từ + bảng chữ · Cách dùng / kết hợp từ · Sổ lỗi sai | có screen Kit, chưa port |
 | A4 Luyện kỹ năng | Nghe (hub, chép chính tả, rảnh tay) · Đọc · Viết (editor, task1, sửa văn) · Nói + nhập vai | có screen Kit, chưa port |
-| A5 Game · thống kê · ngữ pháp · lớp | Trò chơi từ vựng · Thống kê + huy hiệu · Độ tự tin · Ngữ pháp · Khóa học + lớp | có screen Kit, chưa port |
+| A5 Game · thống kê · ngữ pháp · lớp | Trò chơi từ vựng · Thống kê + huy hiệu · Độ tự tin · Khóa học + lớp | có screen Kit, chưa port |
 | A6 Thi + trang thông tin | Thi thử IELTS / quick · TOEIC · TOEFL · Thi trên máy (CBT) · Tài nguyên · phương pháp · liên hệ · ý tưởng | có screen Kit, chưa port |
 | A7 Cài đặt & tài khoản | Cài đặt · Tài khoản / đồng bộ (sheet) · Đăng xuất · xóa tài khoản · Bàn giao đăng nhập add-on · Báo lỗi / góp ý | có screen Kit, chưa port |
 | A8 Popup/sheet chung | Bảng thông báo · Popup chuỗi (đóng băng/mất/cột mốc) · Thẻ chia sẻ · Chọn ngôn ngữ · chọn kỳ thi · popup giải đấu · Modal/confirm/toast chung · cookie · banner add-on · tìm kiếm | có screen Kit, chưa port |

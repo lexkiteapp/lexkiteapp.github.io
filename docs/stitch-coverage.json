@@ -45,7 +45,7 @@
   {"id":"games","area":"app","name":"Trò chơi từ vựng","routes":["reflex","rtype"],"status":"ref","batch":"A5","stitch":["7444e407","a4a0f014"],"ref":"brand/stitch/v3/app/games"},
   {"id":"stats","area":"app","name":"Thống kê + huy hiệu","routes":["stats","qstats"],"status":"ref","batch":"A5","stitch":["3a35d2a5","9afe9189"],"ref":"brand/stitch/v3/app/stats"},
   {"id":"confidence","area":"app","name":"Độ tự tin","routes":["confidence"],"status":"ref","batch":"A5","refs":{"confidence":["9f9e1b57","1d808baa"]}},
-  {"id":"grammar","area":"app","name":"Ngữ pháp","routes":["grammar"],"status":"ref","batch":"A5","stitch":["9e62a2e8","e5fec5b8"],"ref":"brand/stitch/v3/app/grammar"},
+  {"id":"grammar","area":"app","name":"Hub Ngữ pháp","routes":["grammar"],"status":"stitch","stitch":["9e62a2e8","e5fec5b8"],"gate":"diff:grammar","batch":"-"},
   {"id":"courses","area":"app","name":"Khóa học + lớp","routes":["courses","course","class"],"status":"ref","batch":"A5","refs":{"courses":["d38a9685","7e887c16"]}},
 
   {"id":"mock","area":"app","name":"Thi thử IELTS / quick","routes":["mock","quick"],"status":"ref","batch":"A6","stitch":["3a6a64d0","fa723816"],"ref":"brand/stitch/v3/app/mock"},

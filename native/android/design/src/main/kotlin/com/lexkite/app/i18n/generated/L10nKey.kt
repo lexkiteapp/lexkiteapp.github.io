@@ -2485,6 +2485,8 @@ enum class L10nKey(val id: String) {
     learnStylePhongCachTiengAnh("learn.style.phongCachTiengAnh"),
     learnStyleDaChepLinkKet("learn.style.daChepLinkKet"),
     learnGrammarBaiHocTrucQuan("learn.grammar.baiHocTrucQuan"),
+    learnGrammarBaiHocTrucQuanNgan("learn.grammar.baiHocTrucQuanNgan"),
+    learnGrammarBaiDaDat("learn.grammar.baiDaDat"),
     learnGrammarLamLaiChoChac("learn.grammar.lamLaiChoChac"),
     learnGrammarBaiTiepTheo("learn.grammar.baiTiepTheo"),
     learnGrammarChuong("learn.grammar.chuong"),

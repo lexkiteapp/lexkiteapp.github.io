@@ -2481,6 +2481,8 @@
   "learn.style.phongCachTiengAnh": "Phong cách tiếng Anh của bạn",
   "learn.style.daChepLinkKet": "Đã chép link kết quả",
   "learn.grammar.baiHocTrucQuan": "{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.",
+  "learn.grammar.baiHocTrucQuanNgan": "{n} bài học trực quan",
+  "learn.grammar.baiDaDat": "{done}/{n} bài đã đạt",
   "learn.grammar.lamLaiChoChac": "Làm lại cho chắc · lần trước {pct}%",
   "learn.grammar.baiTiepTheo": "Bài tiếp theo",
   "learn.grammar.chuong": "Chương {n}",
