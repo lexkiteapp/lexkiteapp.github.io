@@ -1,0 +1,2 @@
+/* SINH từ i18n/ui/zh/rhythm.js – đừng sửa tay (scripts/i18n-pack.mjs) */
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.zh=Object.assign(D.zh||{},{_zznp:"取消静音",_544l:"点击",_f5bt:"正中！",_ixbl:"点击重读词",_l102:"重读词命中 {a}/{b}",_i6ql:"第 {a}/{b} 句",_nm5t:"按空格键或点大按钮。共 {n} 句，节奏逐渐加快。",_lyc0:"节奏不对",_v0sh:"静音",_cs92:"不错",_bj4m:"重读词（大号加粗、带 ●）要在节拍上点击；弱读词（a, the, to…）不要点。",_at4r:"漏掉的重读词",_6o81:"弱读词——不要点",_3mdh:"准确率 {n}%"});})(typeof self!=='undefined'?self:this);

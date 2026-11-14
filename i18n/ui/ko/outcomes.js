@@ -43,7 +43,7 @@
 "Viết một đoạn (10 phút)":"한 단락 쓰기 (10분)",
 "Viết trong 10 phút":"10분 동안 쓰기",
 "Vốn từ":"어휘 범위",
-"Xem tiến bộ":"내 향상 보기",
+"Xem tiến bộ":"진도 보기",
 "Xóa ghi âm trên máy":"이 기기의 녹음 삭제",
 "Xóa mọi ghi âm bài đo trên máy này? Chỉ số và bài viết vẫn giữ.":"이 기기의 점검 녹음을 모두 삭제할까요? 점수와 글은 그대로 남아요.",
 "theo số từ bạn đã nói và viết":"말하고 쓴 단어 수 기준",

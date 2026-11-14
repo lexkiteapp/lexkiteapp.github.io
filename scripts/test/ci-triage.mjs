@@ -6,7 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { digestDue, morning, mainRuns, classify, excerpt, digest, issueBody, issueTitle, redStreak, coreHealth, orphanIssueFile, CORE_TESTS, supersededWhy, scriptRefs, importRefs, pickFailures, scanSince } from '../ci/triage.mjs';
+import { digestDue, morning, mainRuns, classify, excerpt, digest, issueBody, issueTitle, redStreak, coreHealth, orphanIssueFile, staleManualDays, CORE_TESTS, supersededWhy, scriptRefs, importRefs, pickFailures, scanSince } from '../ci/triage.mjs';
 import { isQuota, run as quotaRun } from '../ci/quota-skip.mjs';
 import { isD1Limit, D1_LIMIT_BODY } from '../../functions/api/_d1limit.js';
 
@@ -28,6 +28,9 @@ ok(classify('Error on ZipFile unknown archive.', { attempt: 2 }).kind === 'real'
   ok(/ci\.yml/.test(CORE_TESTS['npm-test']) && fs.existsSync(path.join(ROOT, '.github/workflows', CORE_TESTS['ext-e2e'])), 'CORE_TESTS trỏ file thật (npm-test = ci.yml)');
   for (const [k, f] of Object.entries(CORE_TESTS)) if (k !== 'new-ui-qa') ok(fs.existsSync(path.join(ROOT, '.github/workflows', f)), `CORE_TESTS: ${k} → ${f} tồn tại`);
   ok(orphanIssueFile('<!-- ci-triage:wf=gone.yml -->', () => false) === 'gone.yml' && orphanIssueFile('<!-- ci-triage:wf=a.yml -->', () => true) === null && orphanIssueFile('x', () => false) === null, 'issue của workflow đã xóa'); }
+{ const N = new Date('2026-11-12T00:00:00Z'), old = '2026-10-24T00:00:00Z', md = "name: x\non:\n  workflow_dispatch:\n    inputs:\n      a: { default: '1' }\npermissions: {}\n";
+  ok(staleManualDays(md, old, N) === 19 && staleManualDays(md, '2026-11-08T00:00:00Z', N) === null, 'chạy-tay: > 10 ngày đóng, mới hơn giữ');
+  ok(staleManualDays("on:\n  push:\n    branches: [main]\n  workflow_dispatch:\n", old, N) === null && staleManualDays("on:\n  schedule:\n    - cron: '1 * * * *'\n  workflow_dispatch:\n", old, N) === null, 'có push/schedule → không bao giờ coi là bỏ ngang'); }
 
 // --- đỏ liên tiếp (3/11: quality-sweep đỏ 6 đêm 27/10–1/11, issue không nói "lặp lại")
 const R = (c, d, e = 'schedule') => ({ conclusion: c, status: 'completed', event: e, created_at: `2026-11-0${d}T23:00:00Z` });

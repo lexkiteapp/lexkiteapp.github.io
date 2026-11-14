@@ -53,6 +53,8 @@ Không đi qua module: file tĩnh, dữ liệu từ điển, bài học, ôn t�
 |---|---|---|---|---|---|
 | `ai` – chấm bài | 5 / 10 | 5 / 30 | 3 | D1 | `gemini`, `ai` (50 neuron/lượt) |
 | `chat` – Roleplay | 10 / 20 | 20 / 60 | 3 | D1 | `gemini`, `ai` (8 neuron/lượt) |
+| `import` – Nhập tài liệu: AI điền nghĩa (đếm theo từ, ≤ 20 từ/lời gọi) | – (cần đăng nhập) | 20 / 120 | 3 | D1 | `gemini`, `ai` (40 neuron/lượt) |
+| `readable` – `/api/readable` (đọc bài từ liên kết) | 3 / 20 | 6 / 60 | 3 | biên | – |
 | `handoff` – tạo mã QR | 3 / 10 | 3 / 10 | 3 | D1 | – |
 | `contact` – form liên hệ | 2 / 5 | 2 / 5 | 2 | D1 | `mail` |
 | `sync` | – (cần đăng nhập) | 6 / 1.500 | 10 | biên | – |

@@ -57,6 +57,14 @@
       while (cells.length % 7) cells.push(null);
       return { y, m: mo, cells, learned: cells.filter(c => c && (c.st === 'done' || c.st === 'frozen')).length };
     },
+    /** Số ngày kể từ ngày học gần nhất (hôm qua = 1); null nếu hôm nay đã học hoặc chưa từng học */
+    gap(days, now) {
+      const d = new Date(now || Date.now()); if (days.has(keyOf(d))) return null;
+      for (let i = 1; i <= 800; i++) { d.setDate(d.getDate() - 1); if (days.has(keyOf(d))) return i; }
+      return null;
+    },
+    /** Bậc chào mừng quay lại: 0 (chưa cần) · 3 · 7 · 14 ngày nghỉ */
+    backTier(gap) { return gap == null || gap < 3 ? 0 : gap < 7 ? 3 : gap < 14 ? 7 : 14; },
     next(streak) { return MILESTONES.find(m => m > streak) || Math.ceil((streak + 1) / 100) * 100; },
     /** Mốc chưa chúc mừng: chỉ mốc CAO nhất ≤ chuỗi (nhảy mốc khi đồng bộ máy khác → 1 màn, không dồn 3 màn) */
     pending(ret, streak) { const ms = (ret && ret.ms) || {}; const hit = MILESTONES.filter(m => m <= streak && !ms[m]); return hit.length ? hit[hit.length - 1] : 0; },
@@ -78,6 +86,7 @@
   const days = () => (App.activeDays ? App.activeDays() : Core.activeDays(state));
   const streakN = () => (App.streak ? App.streak() : Core.streak(days()));
   const today = () => keyOf(new Date());
+  const lsGet = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
   const reduce = () => g.matchMedia && g.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const teacherFor = n => (MILESTONES.indexOf(n) % 2 ? 'carlos' : 'ama');
   const teachImg = (who, size, pose) => Chars.slot(who, { pose: pose || 'encourage', size: size >= 128 ? 'm' : 's', cls: 'ret-teach', lazy: true }); // nhân vật: chỉ qua Chars (web/js/characters.js)
@@ -128,11 +137,13 @@ body[data-ret-frame] .avatar{padding:2px;background:var(--ret-frame)}
     const lab = { done: t('Đã học'), frozen: t('Đóng băng giữ chuỗi'), today: t('Hôm nay'), future: '', miss: t('Chưa học') };
     return `<div class="ret-days" role="list" data-noicon>${w.map(x => `<span class="ret-d ${x.st}" role="listitem" aria-label="${esc(L[x.dow] + (lab[x.st] ? ': ' + lab[x.st] : ''))}"><i aria-hidden="true">${ic[x.st]}</i>${esc(L[x.dow])}</span>`).join('')}</div>`;
   }
+  // ---------- Quay lại sau khi nghỉ 3/7/14 ngày: lời chào ấm, 1 nút ôn nhanh, KHÔNG nhắc chuỗi đã mất, hiện đúng 1 lần cho mỗi đợt nghỉ ----------
   Ret.home = () => {
     css(); applyFrame();
     if (g.StreakUI) g.StreakUI.checkSavedNotice(state.game); // cờ đã xem dùng chung → không hiện 2 lần
     const v = view(); if (!v || v.querySelector('.ret-week')) return;
     const anchor = v.querySelector('#todayPlan'); if (!anchor) return;
+    if (lsGet('lk.cd') !== today()) App.need('retcards').then(() => anchor.isConnected && g.RetCards(anchor, { Core, state, App, days, esc, t }), () => {}); // cpack/ret-app/cards.js: thẻ quay lại + tuần qua
     const n = streakN();
     anchor.insertAdjacentHTML('afterend', `<a class="card hover ret-week" href="#/streak" data-noicon aria-label="${esc(t('Chuỗi {n} ngày', { n }))}"><div class="center" style="min-width:52px"><div style="font-size:1.4rem;font-weight:800">🔥${n}</div></div>${weekHtml()}<span class="chev" aria-hidden="true">›</span></a>`);
     check();

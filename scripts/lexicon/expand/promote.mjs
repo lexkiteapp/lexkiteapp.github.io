@@ -7,6 +7,8 @@
 // Đạt → content/lexicon/expand/<lô>.json + content/qa/batches/lx-<lô>.json (status published). Loại → status rejected, mục vào hàng duyệt, không xuất.
 import fs from 'fs';
 import crypto from 'crypto';
+import { spawnSync } from 'child_process';
+import { fileURLToPath } from 'url';
 import { ROOT, rd, wr } from '../lib.mjs';
 import { spot } from '../../content-qa/lib.mjs';
 import { QUEUE, gateEntry } from './lib.mjs';
@@ -27,6 +29,9 @@ if (regate.length) console.error(regate.map(([k, r]) => `✗ ${k}: trượt cổ
 const AUDIO_MAX = +(process.env.LX_AUDIO_MAX || 10);
 if (!process.argv.includes('--no-audio-gate')) { const { wordsWithoutAudio } = await import('../../audio/coverage.mjs'); const no = wordsWithoutAudio([...new Set(keys.map(k => k.split('#')[0].trim()))].filter(w => /^[A-Za-z][A-Za-z' -]*$/.test(w) && w.split(/\s+/).length <= 3));
   if (no.length > AUDIO_MAX) { console.error(`⏳ chờ giọng: lô ${id} còn ${no.length} từ chưa có giọng Kokoro (> ${AUDIO_MAX}) – chưa xuất, word-audio sẽ render rồi lượt sau xuất (vd ${no.slice(0, 5).join(', ')})`); process.exit(4); } }
+// cổng ĐIỂM (13/11: lô r229/r230 xuất bằng commit bot [skip ci] kéo "Dễ học" 91,7 → 91,6 < sàn → main đỏ, chặn mọi PR): đo content-score TRƯỚC, xuất, đo SAU – xanh trước mà đỏ sau → hoàn tác, lô nằm chờ (ảnh/collocation/giọng bổ sung rồi lượt sau xuất). Sàn không đổi; main đã đỏ sẵn thì không chặn.
+const scoreOk = () => spawnSync('node', ['scripts/content-score.mjs'], { cwd: fileURLToPath(new URL('../../..', import.meta.url)), stdio: 'ignore' }).status === 0;
+const GATE = !process.argv.includes('--no-score-gate'), baseOk = GATE && scoreOk(), snap = { q: rd(QUEUE), p: rd(PEND) };
 const checked = JSON.parse(fs.readFileSync(arg('--checked'), 'utf8')), b = { id, source: 'lexicon-expand', n: keys.length, checked, at: new Date().toISOString().slice(0, 10) };
 const s = spot(b); b.status = s.ok ? 'published' : 'rejected'; if (!s.ok) b.why = s.why;
 fs.mkdirSync(new URL('content/qa/batches/', ROOT), { recursive: true });
@@ -40,4 +45,7 @@ if (s.ok) {
   wr(`content/lexicon/expand/${id}.json`, rd(PEND).length && JSON.stringify(P).replace(/,"(?=[^"]+#(n|v|adj|adv)":)/g, ',\n"') + '\n'); fs.unlinkSync(new URL(PEND, ROOT));
   // 31/10 đa từ loại: từ vừa xuất có TỪ LOẠI KHÁC ở retry (duck#n xuất → duck#v) GIỮ ở retry – job.mjs khoá trùng theo từ#loại, mục chính nhận `more` (shards.mjs)
 }
+if (s.ok && baseOk && !scoreOk()) {
+  wr(QUEUE, snap.q); wr(PEND, snap.p); for (const f of [`content/lexicon/expand/${id}.json`, `content/qa/batches/lx-${id}.json`]) if (fs.existsSync(new URL(f, ROOT))) fs.unlinkSync(new URL(f, ROOT));
+  console.error(`⏳ chờ điểm: xuất lô ${id} làm content-score tụt dưới sàn (content/pipeline/score.budget.json) – hoàn tác, lô nằm chờ (bổ sung ảnh/collocation/giọng cho mục mới); sàn không hạ`); process.exit(5); }
 console.log(`${s.ok ? '✓ xuất' : '✗ loại'} lô ${id}: ${keys.length} mục · soát ${checked.length} · sai ${bad.size}${s.ok ? '' : ' – ' + s.why}`);

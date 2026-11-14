@@ -1,11 +1,15 @@
 /* UI fr – share (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["fr"] = Object.assign(D["fr"] || {}, {
 "Bài đăng 1:1":"Publication 1:1",
+"Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu":"Vous et votre ami recevez +{xp} XP et 1 gel de série quand il termine sa première leçon",
 "Chia sẻ":"Partager",
 "Hôm nay mình đã học bài!":"J'ai étudié aujourd'hui !",
 "Học từ vựng & luyện thi miễn phí":"Vocabulaire et préparation aux examens gratuits",
+"Link mời đã được chép – dán gửi bạn nhé":"Lien d’invitation copié – collez-le pour l’envoyer à un ami",
 "Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.":"Prenez un café et révisez quelques cartes ☕ – vous aurez de quoi être fier.",
+"Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"J'apprends l'anglais gratuitement avec Lexkite. Essaie une leçon d'1 minute – on reçoit tous les deux un cadeau ! {url}",
 "Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"J'apprends l'anglais chaque jour avec Lexkite 🔥 Apprenez gratuitement sur {url}",
+"Mời bạn học cùng":"Inviter un ami",
 "Não bạn đang ở chế độ nghỉ dưỡng":"Votre cerveau est en mode vacances",
 "Story 9:16":"Story 9:16",
 "Thẻ thành tích":"Carte de réussite",
@@ -15,5 +19,7 @@
 "Từng bước nhỏ mỗi ngày, tiến bộ lớn mỗi tháng.":"De petits pas chaque jour, de grands progrès chaque mois.",
 "Xong mục tiêu hôm nay!":"Objectif du jour atteint !",
 "Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé":"Image enregistrée – lien copié, collez-le dans votre publication",
+"🎁 Bạn được bạn bè mời! Nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎁 Un ami vous a invité ! Recevez +{xp} XP et 1 gel de série",
+"🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎉 {n} de vos amis invités ont terminé leur première leçon – vous recevez +{xp} XP et 1 gel de série",
 });
 })(typeof self !== 'undefined' ? self : this);
