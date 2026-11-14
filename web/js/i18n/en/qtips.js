@@ -44,4 +44,6 @@
 "Tổng hợp từ các bài luyện và thi thử của bạn trên Lexkite. Đây là tỉ lệ đúng trong bài luyện của bạn – <b>không phải điểm thi chính thức</b>. Thời gian mỗi câu là ước tính: thời gian trên trang chia cho số câu.": "A summary of your practice tests and mock tests on Lexkite. This is your accuracy in practice – <b>not an official exam score</b>. Time per question is an estimate: time on the page divided by the number of questions.",
 "Chưa có dữ liệu. Làm một bài luyện Listening/Reading (IELTS, TOEIC hoặc TOEFL) để bắt đầu theo dõi.": "No data yet. Do a Listening or Reading practice test (IELTS, TOEIC or TOEFL) to start tracking.",
 "Xem tiến bộ theo kỹ năng và dạng câu hỏi": "See progress by skill and question type",
+"Tỉ lệ đúng 8 tuần gần nhất": "Accuracy over the last 8 weeks",
+"Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)": "Estimated band this week ≈ {b} (not an official exam score)",
 }); })(typeof self !== 'undefined' ? self : this);
