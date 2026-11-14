@@ -2581,6 +2581,18 @@
    "tries": 3,
    "refix": 2
   },
+  "agronomist#n": {
+   "ex": "Agronomists bred high-yielding varieties of corn, wheat, and rice.",
+   "ps": "a woman in a field holds a soil sample bag while looking at tall corn stalks",
+   "sc": "a woman in a field holds a soil sample bag while looking at tall corn stalks",
+   "check": "Is the person holding a soil sample and examining a field of crops?",
+   "cap": "a field worker inspecting soil and crops",
+   "key": "a person holding a soil sample bag; tall corn stalks in a field",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
+  },
   "agronomy#n": {
    "ex": "Agriculture, agricultural science, and agronomy are closely related.",
    "ps": "a farmer kneels in a field holding a handful of dark soil while looking at tall green crops",
@@ -9233,16 +9245,17 @@
   },
   "bomber#n": {
    "ex": "The guns claimed two or three bombers shot down.",
-   "ps": "a large gray bomber aircraft with a long nose and big wings flying over a blue sky",
-   "sc": "a large gray bomber aircraft with a long nose and big wings flying over a blue sky",
-   "check": "Is there a large military plane with a long nose and big wings?",
-   "cap": "a gray military plane soaring above clouds",
-   "key": "a large gray aircraft with a long nose; big wings extending outward",
+   "ps": "a large four-engine military plane flies high, its underside open as bomb-shaped objects drop",
+   "sc": "a large four-engine military plane flies high, its underside open as bomb-shaped objects drop",
+   "check": "Is there a large military aircraft designed to carry and drop explosives?",
+   "cap": "a big military aircraft releasing objects from its belly",
+   "key": "large four-engine military plane; bomb-shaped objects falling from its underside",
    "who": 0,
-   "draw": 5,
+   "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "tries": 3
+   "tries": 3,
+   "refix": 1
   },
   "bond#n": {
    "ex": "There is a strong bond between the two sisters.",
@@ -9358,8 +9371,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 5,
-   "badAt": "2026-11-09T16:30:02.898Z"
+   "e4bad": 6,
+   "badAt": "2026-11-14T00:29:26.505Z"
   },
   "boolean#n": {
    "ex": "The flag is stored as a boolean in the settings table.",
@@ -10789,6 +10802,19 @@
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "buyout#n": {
+   "ex": "The company expanded through buyouts of various department stores and companies.",
+   "ps": "a man hands a big bag of gold coins to another man holding a small office building model",
+   "sc": "a man hands a big bag of gold coins to another man holding a small office building model",
+   "check": "Is one person giving another a large amount of money to gain control of a company?",
+   "cap": "two men exchanging money for a company model",
+   "key": "a big bag of gold coins; a small office building model",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3
   },
   "by-law#n": {
    "ex": "The company by-laws require an annual meeting of all shareholders.",
@@ -17569,8 +17595,8 @@
    "by": "@cf/openai/gpt-oss-120b"
   },
   "consular#adj": {
-   "e4bad": 3,
-   "badAt": "2026-11-10T13:25:10.802Z"
+   "e4bad": 4,
+   "badAt": "2026-11-14T00:29:12.537Z"
   },
   "consult#v": {
    "ex": "You should consult a doctor before taking this medicine.",
@@ -42954,6 +42980,18 @@
    "tries": 3,
    "refix": 2
   },
+  "immunodeficiency#n": {
+   "ex": "Risk factors include age and immunodeficiency.",
+   "ps": "a child sits on a couch coughing while many tiny green germs float around the air",
+   "sc": "a child sits on a couch coughing while many tiny green germs float around the air",
+   "check": "Is the person shown with many germs around and looking weak?",
+   "cap": "a child coughing on a couch surrounded by floating germs",
+   "key": "many tiny green germ shapes around the child; the child's coughing posture",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
+  },
   "immunological#adj": {
    "ex": "The first four substances have protective immunological functions.",
    "ps": "a scientist in a lab coat examines a slide showing white blood cells under a microscope",
@@ -42980,6 +43018,18 @@
    "by": "openai/gpt-oss-120b",
    "tries": 3,
    "refix": 2
+  },
+  "immunotherapy#n": {
+   "ex": "Currently, research is being done in molecular-based immunotherapy.",
+   "ps": "a doctor holds a syringe and injects a patient whose body glows with bright small cells",
+   "sc": "a doctor holds a syringe and injects a patient whose body glows with bright small cells",
+   "check": "Is a person receiving an injection that makes their body glow with active cells?",
+   "cap": "a doctor giving an injection to a patient whose skin shines with tiny cells",
+   "key": "a syringe being used on the patient; bright small cell shapes glowing on the body",
+   "who": 2,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b"
   },
   "impact factor#n": {
    "ex": "Universities often reward publications in journals with a high impact factor.",
@@ -50152,16 +50202,17 @@
   },
   "lexicographer#n": {
    "ex": "Tom is a renowned lexicographer.",
-   "ps": "a man sits at a desk holding a stack of blank pages and a pen",
-   "sc": "a man sits at a desk holding a stack of blank pages and a pen",
-   "check": "Is the person creating a collection of word definitions?",
-   "cap": "a person with a pen and many blank pages",
-   "key": "a person holding a stack of blank pages; a pen in hand",
+   "ps": "a man holds a tall stack of blank sheets while examining them with a magnifying glass",
+   "sc": "a man holds a tall stack of blank sheets while examining them with a magnifying glass",
+   "check": "Is the person collecting words into a reference collection?",
+   "cap": "an adult reviewing many blank pages with a magnifying glass",
+   "key": "a man holding a stack of blank sheets; a magnifying glass in his hand",
    "who": 1,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "tries": 3
+   "tries": 3,
+   "refix": 1
   },
   "liability#n": {
    "ex": "The company accepts no liability for lost items.",
@@ -51590,17 +51641,17 @@
   },
   "lymphocyte#n": {
    "ex": "There are two kinds of lymphocyte.",
-   "ps": "a large round cell with a dark round nucleus floating in light background, magnified view",
-   "sc": "a large round cell with a dark round nucleus floating in light background, magnified view",
-   "check": "Is there a round white blood cell with a dark round nucleus?",
-   "cap": "a magnified view of a single white blood cell",
-   "key": "large round cell shape; dark round nucleus inside",
+   "ps": "a single round white cell with a dark round nucleus floating in clear fluid",
+   "sc": "a single round white cell with a dark round nucleus floating in clear fluid",
+   "check": "Is there a round white blood cell with a distinct round nucleus?",
+   "cap": "a single round cell with a dark nucleus in clear fluid",
+   "key": "a round cell with a dark round nucleus",
    "who": 0,
    "draw": 5,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "ma'am#n": {
    "ex": "May I see your passport and boarding pass, please, ma'am?",
@@ -53881,6 +53932,20 @@
    "by": "@cf/openai/gpt-oss-120b",
    "tries": 2
   },
+  "metabolite#n": {
+   "ex": "The first chemical responses are secondary metabolites.",
+   "ps": "a test tube with colored liquid sits beside a green leaf on a plain bench",
+   "sc": "a test tube with colored liquid sits beside a green leaf on a plain bench",
+   "check": "Is the colored liquid in the test tube a substance produced by a natural source?",
+   "cap": "a test tube with colored liquid beside a leaf on a bench",
+   "key": "a test tube with colored liquid; a leaf beside the test tube",
+   "who": 0,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
+  },
   "metal#n": {
    "ex": "The chair is made of metal and plastic.",
    "ps": "a woman sits on a chair that has a shiny metal frame and a plastic seat",
@@ -55456,6 +55521,20 @@
    "draw": 5,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "monetarism#n": {
+   "ex": "David Hume anticipated modern monetarism.",
+   "ps": "a man turns a large faucet, coins pour out into a line of small houses",
+   "sc": "a man turns a large faucet, coins pour out into a line of small houses",
+   "check": "Is a person turning a faucet that lets coins flow into houses?",
+   "cap": "a man turning a faucet that releases coins toward houses",
+   "key": "a person turning a faucet; coins flowing into a row of houses",
+   "who": 1,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "monetary policy#n": {
    "ex": "Tighter monetary policy slowed down bank lending to property developers.",
@@ -67209,16 +67288,17 @@
   },
   "primary#n": {
    "ex": "The next step was the primaries.",
-   "ps": "a man and a woman each raise a hand while standing among a small crowd",
-   "sc": "a man and a woman each raise a hand while standing among a small crowd",
-   "check": "Is there a group of people raising their hands to vote?",
-   "cap": "people raising hands together in a voting setting",
-   "key": "people raising hands to vote; a small crowd gathered",
+   "ps": "two adults raising one hand each, standing in front of a plain white podium",
+   "sc": "two adults raising one hand each, standing in front of a plain white podium",
+   "check": "Is there a group of people raising their hands as if voting?",
+   "cap": "two adults raise their hands while standing near a simple podium",
+   "key": "two adults raising one hand each; a plain white podium",
    "who": 2,
    "draw": 4,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 1
   },
   "primate#n": {
    "ex": "Chimpanzees are among the most intelligent primates on the planet.",
@@ -70410,6 +70490,20 @@
    "draw": 4,
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
+  },
+  "rampart#n": {
+   "ex": "This is all that remains of the old ramparts.",
+   "ps": "a stone wall with a wide top walkway, a man stands on it looking over a field",
+   "sc": "a stone wall with a wide top walkway, a man stands on it looking over a field",
+   "check": "Is there a thick stone wall with a flat walkway on top?",
+   "cap": "a stone wall with a walkway and a person on top",
+   "key": "a stone wall with wide top walkway; a man standing on the wall",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "random#adj": {
    "ex": "The winners will be chosen at random.",
@@ -80908,6 +81002,19 @@
    "v": "e6",
    "by": "openai/gpt-oss-120b"
   },
+  "solvency#n": {
+   "ex": "Tom dreams of financial solvency.",
+   "ps": "a person hands a bulging bag of many coins to another person",
+   "sc": "a person hands a bulging bag of many coins to another person",
+   "check": "Is the person giving a large amount of money to someone else?",
+   "cap": "a person giving a bag full of coins to another",
+   "key": "a bag overflowing with many coins; the giver's hand extending the bag",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
+  },
   "solvent#adj": {
    "ex": "The company must stay solvent to survive the crisis.",
    "ps": "a man stands beside an open safe overflowing with gold bars, looking confident",
@@ -87181,6 +87288,20 @@
    "v": "e6",
    "by": "@cf/openai/gpt-oss-120b"
   },
+  "tetra#n": {
+   "ex": "The bleeding heart tetra is readily available.",
+   "ps": "a small bright orange and black tetra fish swimming among green aquarium plants",
+   "sc": "a small bright orange and black tetra fish swimming among green aquarium plants",
+   "check": "Is there a small colorful tropical fish swimming in an aquarium?",
+   "cap": "a tiny colorful fish among green plants in a tank",
+   "key": "a small bright orange and black tetra fish; green aquarium plants",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
+  },
   "tetrahedron#n": {
    "ex": "Remember what a tetrahedron looks like ?",
    "ps": "a solid three‑dimensional shape with four triangular faces, shown from a slightly above angle",
@@ -88327,6 +88448,20 @@
   "tomorrow#adv": {
    "skip": "time adverb requires textual indication",
    "by": "openai/gpt-oss-120b"
+  },
+  "tomorrow#n": {
+   "ex": "What would you like to do tomorrow?",
+   "ps": "a person stands on a hill watching a bright sunrise over a calm horizon",
+   "sc": "a person stands on a hill watching a bright sunrise over a calm horizon",
+   "check": "Is there a sunrise that shows the start of a new day?",
+   "cap": "a figure gazes at the sunrise from a hilltop",
+   "key": "a bright sunrise over horizon; a person standing looking at sunrise",
+   "who": 1,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 2
   },
   "ton#n": {
    "skip": "weight unit is difficult to visualize concretely",
