@@ -1,16 +1,16 @@
 /* UI de – share (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {
 "Bài đăng 1:1":"Beitrag 1:1",
-"Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu":"Du und dein Freund bekommt je +{xp} XP und 1 Serien-Schutz, sobald er die erste Lektion abgeschlossen hat",
+"Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu":"Sie und die eingeladene Person erhalten je +{xp} XP und 1 Serien-Schutz, sobald die Person die erste Lektion abgeschlossen hat",
 "Chia sẻ":"Teilen",
 "Hôm nay mình đã học bài!":"Heute gelernt!",
 "Học từ vựng & luyện thi miễn phí":"Kostenlos: Wortschatz & Prüfungsvorbereitung",
-"Link mời đã được chép – dán gửi bạn nhé":"Einladungslink kopiert – füge ihn in eine Nachricht an einen Freund ein",
-"Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.":"Hol dir einen Kaffee und wiederhole ein paar Karten ☕ – dann hast du etwas zum Zeigen.",
-"Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"Ich lerne kostenlos Englisch mit Lexkite. Probier eine 1-Minuten-Lektion – wir beide bekommen ein Geschenk! {url}",
+"Link mời đã được chép – dán gửi bạn nhé":"Einladungslink kopiert – fügen Sie ihn in eine Nachricht an einen Freund ein",
+"Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.":"Holen Sie sich einen Kaffee und wiederholen Sie ein paar Karten ☕ – dann haben Sie etwas zum Zeigen.",
+"Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"Ich lerne kostenlos Englisch mit Lexkite. Eine 1-Minuten-Lektion ausprobieren – wir beide bekommen ein Geschenk! {url}",
 "Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"Ich lerne jeden Tag Englisch mit Lexkite 🔥 Kostenlos lernen auf {url}",
 "Mời bạn học cùng":"Freund einladen",
-"Não bạn đang ở chế độ nghỉ dưỡng":"Dein Gehirn ist im Urlaubsmodus",
+"Não bạn đang ở chế độ nghỉ dưỡng":"Ihr Gehirn ist im Urlaubsmodus",
 "Story 9:16":"Story 9:16",
 "Thẻ thành tích":"Erfolgskarte",
 "Thẻ ôn hôm nay":"Heute wiederholte Karten",
@@ -19,7 +19,7 @@
 "Từng bước nhỏ mỗi ngày, tiến bộ lớn mỗi tháng.":"Jeden Tag kleine Schritte, jeden Monat große Fortschritte.",
 "Xong mục tiêu hôm nay!":"Tagesziel geschafft!",
 "Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé":"Bild gespeichert – Link kopiert, füge ihn in deinen Beitrag ein",
-"🎁 Bạn được bạn bè mời! Nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎁 Ein Freund hat dich eingeladen! Du bekommst +{xp} XP und 1 Serien-Schutz",
-"🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎉 {n} deiner eingeladenen Freunde haben die erste Lektion geschafft – du bekommst +{xp} XP und 1 Serien-Schutz",
+"🎁 Bạn được bạn bè mời! Nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎁 Ein Freund hat Sie eingeladen! Sie erhalten +{xp} XP und 1 Serien-Schutz",
+"🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎉 {n} Ihrer eingeladenen Freunde haben die erste Lektion geschafft – Sie erhalten +{xp} XP und 1 Serien-Schutz",
 });
 })(typeof self !== 'undefined' ? self : this);

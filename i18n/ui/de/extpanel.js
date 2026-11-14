@@ -4,12 +4,12 @@
 "Chép bản dịch":"Übersetzung kopieren",
 "Không bật được AI trên máy – thử lại sau.":"Geräte-KI konnte nicht aktiviert werden – versuche es später erneut.",
 "Ngôn ngữ nhận diện → ngôn ngữ dịch":"Erkannte Sprache → Zielsprache",
-"Đoạn này đã là tiếng Anh – nghe, tra từng từ hoặc xem giải thích sâu bên dưới.":"Dieser Text ist bereits auf Englisch – hör ihn dir an, schlag Wörter nach oder hol dir unten eine ausführliche Erklärung.",
-"Đoạn này đã ở ngôn ngữ của bạn nên được dịch sang tiếng Anh.":"Dieser Text ist bereits in deiner Sprache, daher wurde er ins Englische übersetzt.",
+"Đoạn này đã là tiếng Anh – nghe, tra từng từ hoặc xem giải thích sâu bên dưới.":"Dieser Text ist bereits auf Englisch – hören Sie ihn an, schlagen Sie Wörter nach oder lassen Sie sich unten eine ausführliche Erklärung anzeigen.",
+"Đoạn này đã ở ngôn ngữ của bạn nên được dịch sang tiếng Anh.":"Dieser Text ist bereits in Ihrer Sprache, daher wurde er ins Englische übersetzt.",
 "⚡ Bật AI trên máy (miễn phí, riêng tư)":"⚡ KI auf dem Gerät aktivieren (kostenlos, privat)",
 "✓ AI trên máy đã sẵn sàng":"✓ Geräte-KI ist bereit",
 "⬇️ Đang tải AI trên máy… {pct}%":"⬇️ Geräte-KI wird heruntergeladen… {pct}%",
 "🎁 Còn {n} lượt AI miễn phí hôm nay":"🎁 Heute noch {n} kostenlose KI-Erklärungen",
-"💻 AI trên máy – riêng tư, không gửi đi đâu":"💻 KI auf dem Gerät – privat, nichts verlässt dein Gerät",
+"💻 AI trên máy – riêng tư, không gửi đi đâu":"💻 KI auf dem Gerät – privat, nichts verlässt Ihr Gerät",
 });
 })(typeof self !== 'undefined' ? self : this);

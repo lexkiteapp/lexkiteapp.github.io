@@ -1,6 +1,6 @@
 /* UI de – cambridge (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {
-"Bạn cùng thi nói:":"Dein Prüfungspartner sagt:",
+"Bạn cùng thi nói:":"Ihr Prüfungspartner sagt:",
 "Câu trả lời mẫu":"Musterantwort",
 "Kết quả: {a}/{b} câu đúng ({p}%)":"Ergebnis: {a}/{b} richtig ({p} %)",
 "Mẫu câu hữu ích:":"Nützliche Wendungen:",

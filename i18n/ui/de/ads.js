@@ -1,7 +1,7 @@
 /* UI de – ads (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {
-"Hết lượt hôm nay? Xem 1 video ngắn để nhận thêm {n} lượt.":"Heute keine freien Versuche mehr? Sieh dir ein kurzes Video an und erhalte {n} weitere.",
-"Nhờ ôn thẻ, bạn được thêm {n} lượt.":"Dank deiner Wiederholung hast du {n} weitere Versuche.",
+"Hết lượt hôm nay? Xem 1 video ngắn để nhận thêm {n} lượt.":"Heute keine freien Versuche mehr? Sehen Sie sich ein kurzes Video an und erhalten Sie {n} weitere.",
+"Nhờ ôn thẻ, bạn được thêm {n} lượt.":"Dank Ihrer Wiederholung haben Sie {n} weitere Versuche.",
 "Xem video":"Video ansehen",
 "Ôn 10 thẻ để mở thêm {n} lượt – miễn phí.":"Wiederhole 10 Karten, um {n} weitere Versuche freizuschalten – kostenlos.",
 "Ôn thẻ ngay":"Jetzt wiederholen",
