@@ -1,5 +1,5 @@
 {
- "total": 68.7,
+ "total": 68.8,
  "areas": {
   "vocab": {
    "name": "Kho từ",
@@ -284,8 +284,8 @@
   },
   "exam": {
    "name": "Đề thi",
-   "score": 43.8,
-   "coverage": 43.8,
+   "score": 45.1,
+   "coverage": 45.1,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -403,7 +403,7 @@
     },
     {
      "k": "Cambridge C2",
-     "have": 0,
+     "have": 1,
      "std": 6,
      "w": 8,
      "future": true

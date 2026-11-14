@@ -36,7 +36,7 @@
 "Band TOEFL mục tiêu?":"目標とする TOEFL バンドは何ですか?",
 "Band mục tiêu của bạn?":"ターゲットのバンドは何ですか？",
 "Band đầu vào {band}":"開始バンド {band}",
-"Beta":"Beta",
+"Beta":"ベータ版",
 "Biết nói gì khi gọi điện, nhờ giúp, xin lỗi… – 3 mức trang trọng, câu đáp, hội thoại mẫu.":"電話をかける、助けを求める、謝るときに何と言うか。3つの丁寧さのレベル、返答例、会話例つき。",
 "Biểu đồ đường":"折れ線グラフ",
 "Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC":"ビジネスサービスリスト：TOEICでよく出題される仕事、オフィス、ビジネス用語",
