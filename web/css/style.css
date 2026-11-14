@@ -718,7 +718,7 @@ html { scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
 .sheet-ex .ctx-say { background: #fff; color: var(--brand-ink); border: 0; margin-left: .2rem; opacity: 1; }
 .sheet-tr { margin-top: .3rem; opacity: .9; font-style: italic; }
 .sheet-next { margin-top: 1rem; background: #fff !important; color: #111 !important; border: 0 !important; box-shadow: 0 4px 0 rgba(0,0,0,.15); font-weight: 800; }
-.study-wrap:has(.sheet) { padding-bottom: calc(var(--sheet-h, 280px) + 1rem); }
+.study-wrap:has(.sheet-up) { padding-bottom: calc(var(--sheet-h, 280px) + 1rem); }
 /* Màn hình rộng có thanh bên: căn khung kết quả theo vùng nội dung (không theo cả cửa sổ) để thẳng hàng với thẻ học */
 @media (min-width: 1024px) { body:not(.bare):not(.focus) .sheet { left: var(--sidebar); } }
 @keyframes sheetUp { from { transform: translateY(100%); } to { transform: none; } }
@@ -1310,8 +1310,8 @@ button.avatar { border: 0; padding: 0; cursor: pointer; font: inherit; font-weig
   :is(div, th, dt) > a:not([class]), .deck-row a:not(.btn), .tabs a { min-width: var(--tap); justify-content: center; }
   .crumb a { margin-block: -12px; min-width: var(--tap); } /* "Tôi"/"Me" ngắn: rộng đủ 44 px */ summary { align-content: center; } input[type=range] { min-height: var(--tap); }
 }
-/* Thanh kết quả (.sheet) cố định đáy: chừa chỗ để cuộn thấy hết đáp án phía dưới, không bị che */
-body:has(.sheet) .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom)); }
+/* Thanh kết quả (.sheet) cố định đáy: chừa chỗ (khoá vào .sheet-up gắn SAU lần vẽ – :has(.sheet) lúc chèn từng tính lại style cả body trong lượt bấm, INP 200 ms) để cuộn thấy hết đáp án phía dưới, không bị che */
+body:has(.sheet-up) .view { padding-bottom: calc(18rem + env(safe-area-inset-bottom)); }
 /* Lời mời cài add-on trong trang Từ điển (web/js/ext-cta.js hiện/ẩn) */ /* giữ chỗ mục từ khi đang tra: thẻ add-on bên dưới không bị đẩy xuống khi kết quả hiện (visual-qa cls 0.30 #/dict 05/11) */
 .ext-card { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; margin-top: 1rem; padding: 12px 14px; border-radius: 14px; background: var(--accent-soft); border: 1px solid var(--line); }
 .ext-card > div { flex: 1 1 260px; min-width: 0; }
@@ -1457,7 +1457,7 @@ html.lk-fab{--fab-space:52px}
 body.bare .lk-rep,body.focus .lk-rep:not(.in-side),body.cbt-mode .lk-rep:not(.in-side),.lk-rep[hidden],.lk-rep.kb:not(.in-side){display:none}
 @media print{.lk-rep{display:none}
 }
-body:has(.learn-bar,.grade-bar,.sheet,.sel-bar,.install-nudge,#modal:not([hidden]),dialog[open],.acct-pop) .lk-rep:not(.in-side){display:none}
+body:has(.learn-bar,.grade-bar,.sheet-up,.sel-bar,.install-nudge,#modal:not([hidden]),dialog[open],.acct-pop) .lk-rep:not(.in-side){display:none}
 .side-foot:not(.sf-ok)>a:not([data-blog]):not([data-l=about]){display:none}.side-foot:not(.sf-ok) .lk-rep.in-side{margin-top:44px}.side-foot:not(.sf-ok):not(:has(.lk-rep.in-side:not([hidden])))::after{content:'';display:block;min-height:44px}
 /* side-menu (05/11): chân thanh bên gọn = 1 hàng hồ sơ + ⋯ menu (js/report-pill-ui.js). Trước khi JS chạy: ẩn link phụ, chừa ô ⋯ → CLS 0; lỗi tải → .sf-ok không .sp-on = chân cũ */
 @media (min-width:901px){.sidebar .side-foot:not(.sf-ok){display:none}.sp-row{position:relative;flex:none}.side-level{padding:var(--sp-2) calc(var(--sp-6) + var(--sp-5)) calc(var(--sp-2) + env(safe-area-inset-bottom,0px)) var(--sp-4)}[dir=rtl] .side-level{padding-left:calc(var(--sp-6) + var(--sp-5));padding-right:var(--sp-4)}.side-level .avatar{width:32px;height:32px;box-shadow:0 0 0 2px var(--surface),0 0 0 3.5px var(--primary)}.side-level .lv-row{gap:var(--sp-3)}.lv-top b{font-size:var(--fs-sm)}.side-level .lv-sub{font-size:var(--fs-xs)}.side-level .progress.thin{height:3px;margin-top:var(--sp-1)}

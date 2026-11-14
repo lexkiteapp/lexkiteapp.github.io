@@ -453,12 +453,12 @@
         <button class="btn lg block sheet-next" id="nextQ">${t('Tiếp tục')}<span class="kbd-hint" aria-hidden="true"> ↵</span></button></div></div>`;
       // chừa đáy đúng chiều cao bảng phản hồi
       const fit = () => { const sh = $('.sheet', fb), wrap = box.closest('.study-wrap'); if (sh && wrap) wrap.style.setProperty('--sheet-h', (sh.offsetHeight || 280) + 'px'); };
-      requestAnimationFrame(() => { fit(); const sh = $('.sheet', fb), tg = $('.option.right', box) || $('.q-card', box) || box; if (!sh || !tg) return; const top = sh.getBoundingClientRect().top, r = tg.getBoundingClientRect(); if (r.bottom > top - 12) scrollBy({ top: Math.min(r.bottom - top + 16, Math.max(0, r.top - 72)), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); }); // đáp án đúng không bị khung kết quả che
+      // INP (mqa 14/11: 200 ms @4×, style 39 + layout 46 ms ép đồng bộ): chèn .sheet (cố định đáy) KHÔNG đổi bố cục trang; chừa đáy (.sheet-up → luật :has trong style.css), đo chiều cao, cuộn, focus đều chạy SAU lần vẽ
+      later(() => { const s0 = $('.sheet', fb); if (s0) s0.classList.add('sheet-up'); fit(); $('#nextQ') && $('#nextQ').focus({ preventScroll: true }); const sh = $('.sheet', fb), tg = $('.option.right', box) || $('.q-card', box) || box; if (!sh || !tg) return; const top = sh.getBoundingClientRect().top, r = tg.getBoundingClientRect(); if (r.bottom > top - 12) scrollBy({ top: Math.min(r.bottom - top + 16, Math.max(0, r.top - 72)), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); }); // đáp án đúng không bị khung kết quả che
       if (FX && (!ok || (ty && ty.typo))) later(() => FX.explain(fb, w.word, fit)); // 💡 Giải thích: chỉ khi từ có ghi chú "Hiểu sâu"
       const tr = $('[data-tr]', fb); if (tr) tr.onclick = async () => { const t = $('.sheet-tr', fb); if (!t.hidden) { t.hidden = true; return; } t.hidden = false; t.textContent = '…'; const L = I18N.learnLang(); t.textContent = L === 'vi' ? await Dict.translateVi(w.ex) : await Dict.translateTo(w.ex, L); };
       $('[data-sayw]', fb).onclick = () => speak(w.word, accent(), UI.audioFor(w, accent()));
       if ((!ok || q.type.startsWith('type')) && !mute()) later(() => speak(w.word, accent(), UI.audioFor(w, accent())));
-      $('#nextQ').focus({ preventScroll: true });
       let went = false; const t1 = Date.now();
       $('#nextQ').onclick = () => { if (went || Date.now() - t1 < 250) return; went = true; onDone(ok, $('#nextQ')); };
     };

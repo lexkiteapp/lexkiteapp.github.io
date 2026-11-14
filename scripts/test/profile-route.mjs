@@ -1,6 +1,7 @@
 // ⏱ Hồ sơ CPU lần tải lạnh của 1 route (CPU chậm 4× như Lighthouse mobile) → các "task dài" > 50 ms và hàm ngốn thời gian trong từng task.
 // Chạy trên CI (perf-profile.yml) – không chạy trên Mac. Dùng bản web/ CHƯA rút gọn để còn tên hàm.
 // node scripts/test/profile-route.mjs http://localhost:8080 path [lần=2]
+// TAP=1: thêm hồ sơ TƯƠNG TÁC (INP) – chạm đáp án quiz như mobile-qa (CPU 4×), in Event Timing (trễ/xử lý/vẽ) + việc tự thân trong từng lượt chạm.
 import { chromium } from 'playwright';
 const BASE = process.argv[2] || 'http://localhost:8080', ROUTE = process.argv[3] || 'path', N = +process.argv[4] || 1;
 const UA = 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Mobile Safari/537.36';
@@ -72,6 +73,35 @@ for (let run = 0; run < N; run++) {
     for (const e of kids) self.set(key(e), (self.get(key(e)) || 0) + e.self);
     const top = [...self].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([k, v]) => `    ${(v / 1000).toFixed(1).padStart(6)} ms  ${k}`).join('\n');
     console.log(`-- task @${((task.ts - T0) / 1000).toFixed(0)} ms dài ${(task.dur / 1000).toFixed(0)} ms\n${top}`);
+  }
+  await ctx.close();
+}
+if (process.env.TAP) {
+  const ctx = await browser.newContext({ viewport: { width: 360, height: 740 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, userAgent: UA });
+  const page = await ctx.newPage(), cdp = await ctx.newCDPSession(page);
+  await page.addInitScript(() => { window.__et = []; new PerformanceObserver(l => { for (const e of l.getEntries()) if (e.interactionId) window.__et.push([e.name, Math.round(e.startTime), Math.round(e.processingStart - e.startTime), Math.round(e.processingEnd - e.processingStart), Math.round(e.startTime + e.duration - e.processingEnd), Math.round(e.duration), (e.target && e.target.className) || '']); }).observe({ type: 'event', durationThreshold: 16, buffered: true }); });
+  await page.goto(`${BASE}/app/?sandbox=1&hl=en#/home`, { waitUntil: 'load' }); await page.waitForTimeout(4000);
+  await page.evaluate(h => { location.hash = h; }, '#/' + ROUTE); await page.waitForTimeout(3000);
+  await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+  const ev = []; cdp.on('Tracing.dataCollected', d => ev.push(...d.value));
+  const done = new Promise(r => cdp.once('Tracing.tracingComplete', r));
+  await cdp.send('Tracing.start', { categories: 'devtools.timeline,disabled-by-default-devtools.timeline,v8.execute,toplevel,blink.user_timing', transferMode: 'ReportEvents' });
+  for (let i = 0; i < 6; i++) {
+    const n = await page.locator('#view .option').count(); if (!n) break;
+    await page.locator('#view .option').nth(i % 2 ? 0 : n - 1).tap().catch(() => {}); await page.waitForTimeout(1200);
+    await page.evaluate(() => { const b = document.getElementById('nextQ'); b && b.click(); }); await page.waitForTimeout(900);
+  }
+  await cdp.send('Tracing.end'); await done;
+  console.log(`\n===== TƯƠNG TÁC #/${ROUTE} (CPU 4×) – Event Timing [loại, t, trễ, xử lý, vẽ, tổng, đích] =====`);
+  for (const e of await page.evaluate(() => window.__et)) console.log('  ' + JSON.stringify(e));
+  const main = ev.filter(e => e.name === 'thread_name' && e.args.name === 'CrRendererMain').pop();
+  const th = ev.filter(e => main && e.pid === main.pid && e.tid === main.tid && e.ph === 'X' && e.dur != null).sort((a, b) => a.ts - b.ts || b.dur - a.dur);
+  const key = e => { const d = (e.args && (e.args.data || e.args.beginData)) || {}; return e.name + (d.url ? ' ' + short(d.url) : '') + (d.functionName ? ' ' + d.functionName + ':' + d.lineNumber : '') + (d.type ? ' ' + d.type : ''); };
+  for (const task of th.filter(e => e.name === 'RunTask' && e.dur > 16000)) {
+    const kids = th.filter(e => e !== task && e.ts >= task.ts && e.ts + e.dur <= task.ts + task.dur), self = new Map(), stack = [];
+    for (const e of kids) { while (stack.length && stack[stack.length - 1].ts + stack[stack.length - 1].dur <= e.ts) stack.pop(); if (stack.length) stack[stack.length - 1].self -= e.dur; e.self = e.dur; stack.push(e); }
+    for (const e of kids) self.set(key(e), (self.get(key(e)) || 0) + e.self);
+    console.log(`-- task dài ${(task.dur / 1000).toFixed(0)} ms\n` + [...self].sort((a, b) => b[1] - a[1]).slice(0, 10).map(([k, v]) => `    ${(v / 1000).toFixed(1).padStart(6)} ms  ${k}`).join('\n'));
   }
   await ctx.close();
 }
