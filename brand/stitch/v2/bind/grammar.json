@@ -1,5 +1,5 @@
 {
- "_doc": "Màn Ngữ pháp (#/grammar, hub + danh sách bài) – d do web/js/grammar.js (hubData) dựng từ dữ liệu thật. Khung \"inner\" (frame-variants.json): thanh trên + 5 tab chung của app (Back của thanh trên), KHÔNG dựng đầu trang/tab Stitch (tab = null, bỏ st/v2on như vocab-hub); nút Back riêng của mẫu bỏ (thanh trên đã có), giữ tiêu đề + số bài. Màu theo token v2.1 (frame-consistency). Chỗ mới của mục cũ không có trong mẫu: vòng tiến độ → thanh tiến độ; mô tả hub → đoạn chữ cuối thẻ tiến độ; tên Anh/mô tả bài kế → dòng phụ; chương gập mở (details) có mô tả + tiến độ; đề tổng hợp 40 câu + Chia động từ + Sửa ngữ pháp → cùng khuôn thẻ 'Mixed test' (d.cards, thẻ là liên kết).",
+ "_doc": "Màn Ngữ pháp (#/grammar, hub + danh sách bài) – d do web/js/grammar.js (hubData) dựng từ dữ liệu thật. Khung \"inner\" (frame-variants.json): thanh trên + 5 tab chung của app (Back của thanh trên), KHÔNG dựng đầu trang/tab Stitch (tab = null, bỏ st/v2on như vocab-hub); giữ nút Back + tiêu đề + số bài của mẫu (frame-consistency cần nút Back ≥ 44 px ở góc trên trái). Màu theo token v2.1 (frame-consistency). Chỗ mới của mục cũ không có trong mẫu: vòng tiến độ → thanh tiến độ; mô tả hub → đoạn chữ cuối thẻ tiến độ; tên Anh/mô tả bài kế → dòng phụ; chương gập mở (details) có mô tả + tiến độ; đề tổng hợp 40 câu + Chia động từ + Sửa ngữ pháp → cùng khuôn thẻ 'Mixed test' (d.cards, thẻ là liên kết).",
  "swap": {
   "w-[390px]": "w-full",
   "max-w-[390px]": "",
@@ -32,6 +32,10 @@
    "role": "'group'",
    "aria-label": "d.title",
    "id": "'gTabs'"
+  },
+  ":scope > main > header > button": {
+   "aria-label": "t('Quay lại')",
+   "data-gh": "'back'"
   }
  },
  "addClass": {
@@ -39,7 +43,9 @@
   ":scope > main > header > div > p": "[overflow-wrap:anywhere]",
   ":scope > main > div > div:nth-child(2)": "pb-1",
   ":scope > main > div > div:nth-child(1) > button": "min-h-[48px]",
-  ":scope > main > header > div > h1": "[font-family:var(--font-display)]"
+  ":scope > main > header > div > h1": "[font-family:var(--font-display)]",
+  ":scope > main > header > button > span": "rtl:-scale-x-100",
+  ":scope > main > header > button": "shrink-0"
  },
  "text": {
   "Grammar": "d.title",
@@ -276,9 +282,6 @@
     }
    }
   }
- ],
- "remove": [
-  ":scope > main > header > button"
  ],
  "setClass": {
   ":scope > main > header": "flex items-center gap-3 pb-3",

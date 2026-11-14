@@ -65,8 +65,10 @@ for (const [k, n] of [['ielts', 15], ['toeic', 12]]) {
   root.listeners.click({ target: { closest: () => ({ dataset: { gt: 'all' } }) } }); assert.equal(log.mount[2].ch.length, 10); }
 { const { routes, log } = mk({ tab: 'bậy' }); routes.grammar(); assert.equal(log.mount[0].chips[0].on, true, 'tab lạ → về Tất cả'); }
 
-// 6. Khung inner: bỏ st + v2on sau khi dựng (giữ thanh trên/5 tab/lề chung); bấm ngoài chip không làm gì
-{ const n = mk(); n.routes.grammar(); n.root.listeners.click({ target: { closest: () => null } }); assert.equal(n.log.mount.length, 1); assert.ok(n.removed.includes('st') && n.removed.includes('v2on'), 'bỏ st + v2on'); }
+// 6. Nút Back (đầu trang mẫu): có lịch sử → quay lại, mở thẳng liên kết → về Kỹ năng; khung inner bỏ st + v2on (giữ thanh trên/5 tab/lề chung)
+{ const a = mk({ hist: 3 }); a.routes.grammar(); a.root.listeners.click({ target: { closest: () => ({ dataset: { gh: 'back' } }) } }); assert.equal(a.log.back, 1); assert.deepEqual(a.log.hash, []);
+  const b = mk({ hist: 1 }); b.routes.grammar(); b.root.listeners.click({ target: { closest: () => ({ dataset: { gh: 'back' } }) } }); assert.equal(b.log.back, 0); assert.deepEqual(b.log.hash, ['#/skills']);
+  const n = mk(); n.routes.grammar(); n.root.listeners.click({ target: { closest: () => null } }); assert.equal(n.log.mount.length, 1, 'bấm ngoài nút: không làm gì'); assert.ok(n.removed.includes('st') && n.removed.includes('v2on'), 'bỏ st + v2on'); }
 
 // 7. Ngôn ngữ khác: không lẫn tiếng Việt – tên bài đã dịch hoặc tên Anh; tab "Tất cả" dịch; tên Anh phụ chỉ khi khác tên chính
 { const { routes, log } = mk({ lang: 'en' }); routes.grammar(); const d = log.mount[0], rows = d.ch.flatMap(c => c.rows).filter(r => !r.test);
@@ -76,7 +78,7 @@ for (const [k, n] of [['ielts', 15], ['toeic', 12]]) {
 // 8. Khung sinh dựng đủ mọi lối đi cũ cho dữ liệu thật; không còn class cũ trùng CSS chung (g-row/g-chap dùng chung với trang Khóa học)
 { const ST = { esc: s => String(s).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m]) }, c = { self: {}, ST }; c.self.ST = ST; vm.createContext(c); vm.runInContext(gen, c); const ST2 = c.self.ST2;
   const { routes, log } = mk(); routes.grammar(); const d = log.mount[0], o = ST2.grammar(d, s => s, ST.esc), h = o.main;
-  assert.ok(!h.includes('data-gh') && h.includes('role="progressbar"') && h.includes(`aria-valuenow="${d.pct}"`));
+  assert.ok(h.includes('data-gh="back"') && h.includes('aria-label="Quay lại"') && h.includes('role="progressbar"') && h.includes(`aria-valuenow="${d.pct}"`));
   assert.equal((h.match(/data-gt="/g) || []).length, 3); assert.equal((h.match(/aria-pressed="true"/g) || []).length, 1);
   assert.equal((h.match(/<details /g) || []).length, 10); assert.ok(h.includes('id="chap1"') && h.includes('data-open="1"'));
   assert.equal((h.match(/data-grow="/g) || []).length, d.ch.flatMap(ids).length, 'mọi bài có hook data-grow (e2e) + liên kết');
