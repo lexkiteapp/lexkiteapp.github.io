@@ -72,14 +72,13 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 // ---------- 1c) nhãn ngôn ngữ đích (W7a): en = rỗng; es = huy hiệu cờ+tên → Cài đặt; mark chèn đúng 1 lần ----------
 {
   const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
-  ok(T.chip() === '' && T.chip('en') === '' && T.mark({ querySelector: () => null }) === null, 'chip: en = chuỗi rỗng, không chèn gì (từng byte như cũ)');
+  ok(T.chip() === '' && T.chip('en') === '', 'chip: en = chuỗi rỗng, không chèn gì (từng byte như cũ)');
   const h = T.chip('es'); ok(/class="chip tl-chip"/.test(h) && /href="#\/settings"/.test(h) && /translate="no"/.test(h) && /lang="es"/.test(h) && !/<a [^>]*lang=/.test(h) && !/style=/.test(h) && /Español/.test(h) && /aria-label=/.test(h), 'chip es: cờ + tên, bấm → Cài đặt, không dịch, có nhãn đọc màn hình');
-  ls.set('lk.es', '1'); T.set('es'); let n = 0, ins = '';
-  const root = { querySelector: s => (s === '.tl-chip' ? (ins ? { x: 1 } : null) : { insertAdjacentHTML: (w, x) => { ins = x; n++; }, querySelector: () => ({ x: 2 }) }) };
-  T.mark(root, 'main'); T.mark(root, 'main'); ok(n === 1 && /tl-chip/.test(ins), 'mark: chèn đúng 1 huy hiệu dù vẽ lại');
+  const st = T.chip('es', true); ok(/^<span class="chip tl-chip"/.test(st) && !/href=/.test(st), 'chip tĩnh (trong phiên học) không là liên kết');
+  sb.t = x => '<' + x; ok(/aria-label="&lt;Ngôn ngữ đang học: Español"/.test(T.chip('es')), 'chip dùng g.t và escape nhãn');
   ok(T.chip('<img onerror=1>') === '' && !/<img/.test(T.chip('es')), 'chip: tl lạ → rỗng, không chèn HTML thô');
   ok(/window\.Target \? Target\.chip\('es'\)/.test(rd('web/cpack/es-app/day-ui.js')), 'day-ui: Target chưa nạp không làm vỡ trang');
-  for (const f of ['web/js/study.js', 'web/cpack/es-app/day-ui.js']) ok(/Target\.(mark|chip)\(/.test(rd(f)), `${f}: gắn nhãn ngôn ngữ đích`);
+  for (const f of ['web/js/study.js', 'web/cpack/es-app/day-ui.js']) ok(/Target\.chip\(/.test(rd(f)), `${f}: gắn nhãn ngôn ngữ đích`);
 }
 
 // ---------- 2) bảng giọng/lang: 'en' tái tạo đúng hành vi cũ ----------

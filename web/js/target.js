@@ -59,11 +59,10 @@
   const wordVoice = a => table(tlOfAccent(a)).wordFiles ? kokoroVoice(a) : '';
   const teacherVoice = (who, tl) => table(tl || cur()).voices[who] || '';
   const ofCard = c => (c && c.tl && TABLE[c.tl] ? c.tl : 'en');
-  // Nhãn ngôn ngữ ĐÍCH (W7a): huy hiệu cờ + tên, bấm → Cài đặt (nơi đổi). 'en' = '' (hành vi cũ từng byte). mark(root, sel) chèn đúng 1 huy hiệu (không trùng khi vẽ lại).
+  // Nhãn ngôn ngữ ĐÍCH (W7a): huy hiệu cờ + tên, bấm → Cài đặt (nơi đổi). 'en' = '' (hành vi cũ từng byte). chip(tl, tĩnh) = liên kết Cài đặt, hoặc nhãn tĩnh (span) trong phiên học để bấm nhầm không thoát bài.
   const esc = x => String(x).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const chip = tl => { tl = tl || cur(); if (tl === 'en' || !TABLE[tl]) return ''; const r = TABLE[tl], tt = esc(typeof g.t === 'function' ? g.t('Ngôn ngữ đang học') : 'Target language');
-    return `<a class="chip tl-chip" href="#/settings" data-tl="${tl}" aria-label="${tt}: ${esc(r.name)}"><span aria-hidden="true">${r.em}</span> <span translate="no" lang="${tl}">${esc(r.name)}</span></a>`; };
-  const mark = (root, sel) => { const h = chip(); if (!root || !h) return null; const old = root.querySelector('.tl-chip'); if (old) return old;
-    const host = (sel && root.querySelector(sel)) || root; host.insertAdjacentHTML('afterbegin', h); return host.querySelector('.tl-chip'); };
-  g.Target = { chip, mark, LANGS, TABLE, enabled, avail, speechLangs, cur, set, table, isEn, accent, speechLang, recLang, tlOfAccent, prefixFor, kokoroVoice, wordVoice, teacherVoice, ofCard };
+  const chip = (tl, tinh) => { tl = tl || cur(); if (tl === 'en' || !TABLE[tl]) return ''; const r = TABLE[tl], tt = esc(typeof g.t === 'function' ? g.t('Ngôn ngữ đang học') : 'Ngôn ngữ đang học');
+    const el = tinh ? 'span' : 'a', h = tinh ? '' : ' href="#/settings"';
+    return `<${el} class="chip tl-chip"${h} data-tl="${tl}" aria-label="${tt}: ${esc(r.name)}"><span aria-hidden="true">${r.em}</span> <span translate="no" lang="${tl}">${esc(r.name)}</span></${el}>`; };
+  g.Target = { chip, LANGS, TABLE, enabled, avail, speechLangs, cur, set, table, isEn, accent, speechLang, recLang, tlOfAccent, prefixFor, kokoroVoice, wordVoice, teacherVoice, ofCard };
 })(typeof self !== 'undefined' ? self : this);
