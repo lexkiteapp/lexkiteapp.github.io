@@ -146,7 +146,9 @@
   /** mount(el, who, o): o.cls = lớp CSS thêm cho canvas (host tự đặt khung, vd. 'tch-face') · o.bare = không thêm class .trig lên host · o.onFail = gọi khi thiếu tài sản (thay ảnh poster dự phòng) */
   function mount(el, who, o = {}) {
     who = g.Chars ? g.Chars.id(who) : who;
-    const stats = { frames: 0, long: 0, draws: 0, low: 0, fit: 0, ready: false, shape: 'X', open: 0, mode: 'idle', pose: null, emo: 'neutral', calm: reduced() };
+    const stats = {
+      frames: 0, long: 0, draws: 0, low: 0, fit: 0, ready: false, shape: 'X', open: 0, mode: 'idle', pose: null, emo: 'neutral', calm: reduced(),
+    };
     const ac = audioCtx(); let tok = 0, endPrev = null, node = null, mode = 'idle', M = null, cv = null, ctx = null, head = null, raf = 0, dead = false, paused = false, lastK = '', prev = 0, dpr = Math.min(2, g.devicePixelRatio || 1), ro = null;
     const poses = {}, scaled = {}, pend = {}; // poses[name]: 1 đang tải · Image · 2 lỗi · scaled[name]: bản thu sẵn về cỡ canvas (vẽ 1:1, không lấy mẫu lại ảnh 1108 px mỗi khung)
     let headC = null, faceC = null, lastT = '', lastP = [], boxes = null;
