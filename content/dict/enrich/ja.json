@@ -1558,5 +1558,785 @@
     "私たちの勤務時間が重なるのは、一日にたった二時間です。"
    ]
   ]
+ },
+ "overseas": {
+  "n": "overseas は「海外の・海外で」を表し、形容詞と副詞の両方で使えます。形容詞なら overseas students（留学生）や overseas trade（海外貿易）のように名詞の前に置きます。副詞のときは前置詞が要らず、go overseas、live overseas と言います（× go to overseas）。abroad もほぼ同じ意味の副詞ですが、名詞の前には置けないため、「海外の市場」なら overseas markets が自然です。foreign は「外国の・よその国の」で、overseas は「自国から見て外にある」という視点がはっきり出ます。",
+  "x": [
+   [
+    "Many companies are looking for overseas markets to grow their sales.",
+    "多くの企業が売上を伸ばすため海外市場を探しています。"
+   ],
+   [
+    "She spent two years working overseas before returning home.",
+    "彼女は海外で二年働いてから帰国しました。"
+   ]
+  ]
+ },
+ "parallel": {
+  "n": "parallel は形容詞で「平行な」のほか、「よく似た・同時に進む」の意味でも使われます。be parallel to A（Aと平行）の前置詞は to で、名詞を使った draw a parallel between A and B は「AとBの類似を指摘する」です。in parallel は「同時並行で」を表し、作業や処理の説明によく出ます。日本語の「パラレル」は主に並行・並列を指すので、名詞の「類似点」の用法は見落としがちです。",
+  "x": [
+   [
+    "The road runs parallel to the river for several kilometres.",
+    "その道は数キロにわたって川と平行に走っています。"
+   ],
+   [
+    "Critics drew a parallel between the two political crises.",
+    "批評家は二つの政治危機の類似点を指摘しました。"
+   ]
+  ]
+ },
+ "parameter": {
+  "n": "parameter は数学や統計の用語から広がった語で、今は「枠組みや条件を決める要素」の意味で報告書や会議によく出ます。この意味では複数形が多く、within the parameters of ...（〜の範囲内で）や set the parameters for ...（〜の条件を定める）が定番です。単数なら one parameter や a key parameter のように、特定の一つの要素を指すときに使います。日常会話で単に「限界」を言うなら limit の方が自然です。日本語の「パラメーター」はIT分野の「引数・設定値」の意味でもよく使われます。",
+  "x": [
+   [
+    "Temperature is the key parameter that controls how fast the reaction runs.",
+    "温度は反応の速さを左右する重要な条件です。"
+   ],
+   [
+    "You can change only one parameter at a time in this experiment.",
+    "この実験では一度に一つの条件しか変えられません。"
+   ]
+  ]
+ },
+ "perceive": {
+  "n": "perceive は「気づく・捉える」を表すやや硬い動詞で、see や notice より認識の過程そのものに焦点があります。perceive A as B（AをBと見なす）が基本形で、受け身の be perceived as ... は「周囲から〜と受け取られる」の意味で論文や報道に頻出です。日本語の「知覚する・認識する」に近く、日常会話では see や think of が普通です。",
+  "x": [
+   [
+    "Customers often perceive cheaper products as lower in quality.",
+    "客は安い商品を品質が低いと受け取りがちです。"
+   ],
+   [
+    "Few drivers perceive the danger until it is too late.",
+    "手遅れになるまで危険に気づかないドライバーがほとんどです。"
+   ]
+  ]
+ },
+ "philosophy": {
+  "n": "philosophy は学問としての「哲学」のほか、個人や組織の「基本的な考え方」も指します。後者は company philosophy や guiding philosophy のように使い、principle より体系的な響きです。学問名なので普通は数えない名詞ですが、考え方を指すときは a philosophy と数えられます。形容詞 philosophical には、be philosophical about ...（〜を達観して受け止める）という用法もあります。",
+  "x": [
+   [
+    "Her philosophy of teaching puts curiosity before exam results.",
+    "彼女の教育哲学は試験の結果より好奇心を重んじます。"
+   ],
+   [
+    "He studied philosophy and later became a journalist.",
+    "彼は哲学を学び、のちに記者になりました。"
+   ]
+  ]
+ },
+ "portion": {
+  "n": "portion は全体から切り分けた「一部」で、part と近いものの、分け前や一人前の量という含みがあります。a large portion of the budget のように後ろに of を続けるのが基本形です。食事の話では generous portions（たっぷりの量）や a child's portion（子ども用の一人前）のように使います。share は「誰かの取り分」に重点があり、portion は量そのものを言う点が違います。",
+  "x": [
+   [
+    "A portion of the profits is donated to local schools.",
+    "利益の一部は地元の学校に寄付されます。"
+   ],
+   [
+    "The restaurant serves a generous portion of rice with every meal.",
+    "そのレストランはどの料理にもたっぷりのご飯を付けます。"
+   ]
+  ]
+ },
+ "pose": {
+  "n": "pose は「問題・脅威・質問を提示する、生じさせる」意味で、pose a threat to ...（〜に脅威を与える）、pose a risk、pose a challenge、pose a question が定番の組み合わせです。主語は危険や困難を生み出す物事であることが多く、create や cause よりも書き言葉的です。pose a question は ask a question より改まっていて、議論や論文で「問いを投げかける」ときに向きます。もう一つ、pose for a photo（写真のためにポーズをとる）のように「姿勢をとる」意味もあります。",
+  "x": [
+   [
+    "The new law could pose problems for small businesses.",
+    "その新法は中小企業に問題を生じさせるかもしれません。"
+   ],
+   [
+    "The children had to pose for a family photograph.",
+    "子どもたちは家族写真のためにポーズをとらなければなりませんでした。"
+   ]
+  ]
+ },
+ "practitioner": {
+  "n": "practitioner は医療・法律・教育などの分野で実際に仕事をしている人を指し、研究者や理論家と対比されます。general practitioner（GP、一般開業医）、medical practitioner、legal practitioner が定番です。「実践者」の意味では yoga practitioner や martial arts practitioner とも言います。professional が職業人一般を指すのに対し、practitioner は実務を行う面に焦点があり、学会では researchers and practitioners のように並べて使われます。",
+  "x": [
+   [
+    "Every practitioner is expected to keep learning throughout their career.",
+    "実務に携わる人は誰でも、キャリアを通じて学び続けることが求められます。"
+   ],
+   [
+    "A skilled medical practitioner can often spot problems early.",
+    "腕の良い医療従事者は、問題を早い段階で見つけられることが多いです。"
+   ]
+  ]
+ },
+ "preliminary": {
+  "n": "preliminary は「本番の前の」を意味する硬い形容詞で、結果が確定していないことを示します。preliminary results や preliminary findings は、のちに変わりうる暫定的な結果です。名詞の preliminaries（予備的な手続き）という形もあります。initial は「最初の」というだけですが、preliminary は「本格的なものの準備段階」という含みを持ちます。",
+  "x": [
+   [
+    "The preliminary report was sent to the board last week.",
+    "予備報告書は先週、理事会に送られました。"
+   ],
+   [
+    "Candidates must pass a preliminary interview before the final round.",
+    "候補者は最終選考の前に、予備面接に合格する必要があります。"
+   ]
+  ]
+ },
+ "presume": {
+  "n": "presume は確証がないまま「〜だろうと思う」と推し量る動詞で、assume と近い意味です。presume that ... の形が多く、I presume (that) ... は相手に控えめに確認する言い方になります。法律の be presumed innocent（無罪と推定される）は有名な表現です。presume to do は「厚かましくも〜する」という別の意味なので、取り違えに注意してください。副詞 presumably（おそらく）も頻出です。",
+  "x": [
+   [
+    "I presume you have already read the instructions.",
+    "もう説明書は読んでいると思いますが。"
+   ],
+   [
+    "The law tells us to presume innocence until guilt is proven.",
+    "法は、有罪が証明されるまで無罪と推定するよう求めています。"
+   ]
+  ]
+ },
+ "prior": {
+  "n": "prior は「先の・事前の」を表す形容詞で、名詞の前に置きます。prior knowledge、prior experience（これまでの経験）、without prior notice（予告なしに）、a prior appointment（先約）が定番の組み合わせです。previous は「直前の一つ前の」を指すことが多く、the previous day は「前日」ですが、prior は「ある時点より前にあった」ことを広く言います。earlier は日常的で、prior は書類や案内文で好まれる硬めの語です。prior to ...（〜より前に）は before の改まった言い方で、後ろには名詞か -ing が続きます。",
+  "x": [
+   [
+    "Prior to the meeting, all members received a copy of the agenda.",
+    "会議の前に、全員が議題の写しを受け取りました。"
+   ],
+   [
+    "No prior experience is needed to join the beginner class.",
+    "初心者クラスへの参加に経験は必要ありません。"
+   ]
+  ]
+ },
+ "priority": {
+  "n": "priority は「優先すべきこと・優先順位」です。top priority や high priority、set priorities のように数えられる名詞として使う一方、give priority to ...（〜を優先する）では a を付けません。take priority over ...（〜より優先される）も重要な表現です。複数形 priorities で「人が大事にしていること全体」を表せるので、get your priorities right（大事なことを取り違えない）のような言い方もできます。",
+  "x": [
+   [
+    "Our first priority is to keep the staff safe.",
+    "私たちの最優先事項は職員の安全を守ることです。"
+   ],
+   [
+    "Emergency vehicles take priority over all other traffic.",
+    "緊急車両はほかのすべての交通より優先されます。"
+   ]
+  ]
+ },
+ "prospect": {
+  "n": "prospect は「見込み・将来の可能性」を表します。単数では「ある出来事が起こりそうな見込み」で、the prospect of -ing（〜する見通し）の形が非常によく使われ、期待にも不安にも使えます。there is little prospect of ...（〜の見込みはほとんどない）も定番です。複数形の prospects は「将来の展望」、特に job prospects や career prospects のように就職や昇進の見通しを指します。似た語の possibility は単に起こりうること、prospect は先を見通して考えている感じがあります。",
+  "x": [
+   [
+    "The prospect of moving abroad both excited and frightened her.",
+    "海外へ引っ越す見通しに、彼女は胸が弾むと同時に怖くもなりました。"
+   ],
+   [
+    "There is little prospect of finding a cheap flat in the city centre.",
+    "市の中心部で安い部屋を見つける見込みはほとんどありません。"
+   ]
+  ]
+ },
+ "protocol": {
+  "n": "protocol は「定められた手順・決まり事」を指す語で、医療の clinical protocol、研究の research protocol のように専門的な場面で使います。follow protocol と言えば、定められた手順に従う意味です。IT では通信の約束事（network protocol）も指します。さらに外交や式典の「儀礼・作法」の意味があり、diplomatic protocol（外交儀礼）は日本語の「プロトコル」ではあまり意識されない用法です。",
+  "x": [
+   [
+    "Staff must follow the safety protocol when entering the lab.",
+    "職員は研究室に入るとき、安全の手順に従わなければなりません。"
+   ],
+   [
+    "Computers exchange data using a standard network protocol.",
+    "コンピューターは標準的な通信プロトコルでデータをやり取りします。"
+   ]
+  ]
+ },
+ "psychology": {
+  "n": "psychology は「心理学」という学問名で、数えられない名詞です。child psychology（児童心理学）や social psychology（社会心理学）のように分野名を前に付けます。study psychology、a degree in psychology もよく使う形です。「ある集団や行動の心理」を指す用法もあり、the psychology of voters（有権者の心理）のように of を伴います。人を表す語は混同しやすく、a psychologist は心理学者・心理士、a psychiatrist は医師である精神科医です。形容詞は psychological で、psychological pressure（心理的な圧力）のように使います。",
+  "x": [
+   [
+    "She is studying psychology at a university in Osaka.",
+    "彼女は大阪の大学で心理学を学んでいます。"
+   ],
+   [
+    "The psychology of crowds is hard to predict.",
+    "群衆の心理は予測しにくいものです。"
+   ]
+  ]
+ },
+ "pursue": {
+  "n": "pursue は「目標や活動を粘り強く追い求める」動詞で、pursue a career や pursue a goal、pursue a degree が定番です。この意味では chase より硬く前向きです。「犯人や車を追跡する」という文字どおりの意味もあり、ニュースなどでは chase の硬い言い換えとして使われます。名詞は pursuit で、in pursuit of ...（〜を求めて）という形になります。",
+  "x": [
+   [
+    "He decided to pursue a degree in marine biology.",
+    "彼は海洋生物学の学位を目指すことにしました。"
+   ],
+   [
+    "Officers were ordered to pursue the stolen car.",
+    "警官たちは盗難車を追跡するよう命じられました。"
+   ]
+  ]
+ },
+ "radical": {
+  "n": "radical は「根本的な・抜本的な」を意味し、radical change、radical reform、a radical idea のように変化や考えの大きさを強調します。big や major よりも「土台から変える」という感じが強い語です。政治の話では「急進的な」と訳され、過激な印象を伴うこともありますが、いつも「過激な」と訳すと意味がずれるので文脈で判断します。名詞の a radical は「急進派の人」です。副詞の radically は radically different（根本的に異なる）の形でよく使われます。",
+  "x": [
+   [
+    "The company introduced a radical new design for its phones.",
+    "その会社は携帯電話に斬新なデザインを採り入れました。"
+   ],
+   [
+    "Radical measures may be needed to protect the forest.",
+    "森林を守るには思い切った対策が必要かもしれません。"
+   ]
+  ]
+ },
+ "ratio": {
+  "n": "ratio は二つの量の比べ方を表し、the ratio of A to B の形では A と B の順番がそのまま比の順番になります。3:1 は three to one と読みます。学校の「生徒と教師の比率」や財務の「負債比率」でよく使われます。全体に占める部分の割合は proportion、速度や頻度は rate で表し、ratio とは区別します。可算名詞なので、a high ratio のように冠詞が付きます。",
+  "x": [
+   [
+    "The ratio of boys to girls in the class is two to three.",
+    "クラスの男子と女子の比は二対三です。"
+   ],
+   [
+    "A high ratio of debt to income can make it hard to get a loan.",
+    "収入に対する負債の比率が高いと、融資を受けにくくなります。"
+   ]
+  ]
+ },
+ "rational": {
+  "n": "rational は「理性に基づいた」を表し、rational decision や rational explanation の形でよく見られます。反対語は irrational です。emotional と対比されることが多く、「冷静で筋が通っている」という評価を含みます。reasonable は「妥当な・手頃な」と広く使えるのに対し、rational は論理に従っている点を言う硬めの語です。数学の rational number は「有理数」です。",
+  "x": [
+   [
+    "It is not rational to spend more than you earn.",
+    "収入以上に使うのは合理的ではありません。"
+   ],
+   [
+    "The doctor gave a rational explanation for her symptoms.",
+    "医師は彼女の症状について筋の通った説明をしました。"
+   ]
+  ]
+ },
+ "refine": {
+  "n": "少しずつ手を加えて質を高めるのが refine で、refine a method、refine your search、refine the design のように使います。もう一つは不純物を取り除いて精製する意味で、refined sugar（精製糖）、refined oil、oil refinery（製油所）に出てきます。形容詞 refined は人や趣味について「洗練された」も表します。improve が広く「良くする」のに対し、refine はすでにあるものを細かく調整する感じです。名詞 refinement は「改良」と「上品さ」の両方を表します。",
+  "x": [
+   [
+    "The team continues to refine the design after each test.",
+    "チームは試験のたびに設計を磨き上げ続けています。"
+   ],
+   [
+    "Factories refine raw sugar into the white sugar sold in shops.",
+    "工場は原料糖を精製して、店で売られる白砂糖にします。"
+   ]
+  ]
+ },
+ "regime": {
+  "n": "regime は「体制・政権」を指し、military regime や authoritarian regime のように、民主的でない政府に対して批判的に使われることが多い語です。中立に「政府」と言うなら government が普通です。the fall of the regime（政権の崩壊）や overthrow a regime（政権を倒す）もよく見る組み合わせです。一方で、政治以外では中立的に「制度・管理の仕組み」を表し、tax regime（税制）や a strict training regime（厳しい練習の決まり）のように使います。",
+  "x": [
+   [
+    "The old regime fell after months of public protests.",
+    "旧体制は数か月に及ぶ抗議活動の末に倒れました。"
+   ],
+   [
+    "Under the new tax regime, small firms pay less.",
+    "新しい税制の下では、小さな会社の負担が軽くなります。"
+   ]
+  ]
+ },
+ "register": {
+  "n": "register は「正式に名簿や記録に登録する、届け出る」動詞です。register for a course（講座に登録する）、register to vote（有権者登録をする）、register a birth（出生を届け出る）が定番で、自動詞にも他動詞にもなります。sign up は日常的、register はより正式な手続きの感じです。register a complaint（正式に苦情を申し立てる）のような用法や、計器が数値を「示す」意味もあります。名詞では「登録簿」のほか、cash register（レジの機械）を指します。",
+  "x": [
+   [
+    "You must register online before attending the workshop.",
+    "ワークショップに参加する前に、オンラインで登録する必要があります。"
+   ],
+   [
+    "Parents have to register the birth of their baby within a few weeks.",
+    "親は数週間以内に赤ちゃんの出生を届け出なければなりません。"
+   ]
+  ]
+ },
+ "regulate": {
+  "n": "regulate には二つの使い方があります。一つは政府や機関が規則で管理する意味で、regulate the market、regulate the use of drones のほか、受け身の a heavily regulated industry や be strictly regulated がよく使われます。もう一つは体温や流れを一定に保つ「調節する」で、regulate body temperature、regulate the flow of water のように言います。名詞 regulation は可算なら「規則」、不可算なら「規制」です。control より制度的で公的な響きがあります。",
+  "x": [
+   [
+    "The agency was set up to regulate the sale of medicines across the country.",
+    "その機関は国内の医薬品販売を規制するために設立されました。"
+   ],
+   [
+    "The body can regulate its own temperature in cold weather.",
+    "体は寒いときでも、自分で体温を調節できます。"
+   ]
+  ]
+ },
+ "reinforce": {
+  "n": "reinforce は「すでにあるものを強める」動詞で、reinforce a message や reinforce stereotypes、reinforce a wall のように抽象にも物にも使えます。新しく作るのではなく、補強材や裏付けを加えて支える点が重要です。strengthen は単に強くすることで、reinforce には「後押しする・裏付ける」含みがあり、reinforced concrete（鉄筋コンクリート）という言い方もあります。",
+  "x": [
+   [
+    "Regular practice will reinforce what you learn in class.",
+    "定期的に練習すれば、授業で学んだことが強く定着します。"
+   ],
+   [
+    "Engineers had to reinforce the bridge before reopening it.",
+    "技術者は橋を再開する前に補強しなければなりませんでした。"
+   ]
+  ]
+ },
+ "resolve": {
+  "n": "resolve には主に二つの使い方があります。一つは「問題や対立を解決する」で、resolve a dispute、resolve an issue、resolve a conflict が定番です。solve はパズルや数学の問題を解くときによく使い、resolve は対立や懸念を収めて決着させる感じが強い語です。もう一つは resolve to do（〜しようと固く決意する）で、decide より改まった響きがあります。名詞の resolve は「決意・決心」で、strengthen one's resolve（決意を固める）のように使えます。",
+  "x": [
+   [
+    "The two countries tried to resolve the border dispute peacefully.",
+    "両国は国境紛争を平和的に解決しようとしました。"
+   ],
+   [
+    "Many people resolve to exercise more at the start of the new year.",
+    "多くの人が新年の初めに、もっと運動しようと決意します。"
+   ]
+  ]
+ },
+ "restore": {
+  "n": "restore は「元の状態に戻す」動詞で、restore a painting（絵を修復する）や restore confidence（信頼を回復する）のように使います。repair は壊れた部分を直す意味ですが、restore は本来の状態を取り戻すことに重点があります。電力や秩序にも使え、power was restored は「電気が復旧した」です。",
+  "x": [
+   [
+    "Volunteers worked to restore the old theatre to its former glory.",
+    "ボランティアは古い劇場をかつての姿に戻すため作業しました。"
+   ],
+   [
+    "It took hours to restore power after the storm.",
+    "嵐の後、電力を復旧させるのに何時間もかかりました。"
+   ]
+  ]
+ },
+ "reverse": {
+  "n": "reverse は動詞で「逆にする・覆す」、形容詞で「逆の」、名詞で「逆・裏」を表します。reverse a decision（決定を覆す）、reverse the trend（流れを逆転させる）、reverse the order（順序を入れ替える）が定番です。車を後ろに動かす意味でも使い、reverse into a parking space と言えます。in reverse order（逆順に）、the reverse is true（その逆が正しい）も便利な言い方です。単に「戻る」を言いたいときは go back が自然で、reverse は向きや結果を正反対にするときに使います。",
+  "x": [
+   [
+    "The court decided to reverse the earlier ruling.",
+    "裁判所は先の判決を覆すことを決めました。"
+   ],
+   [
+    "Drivers must reverse carefully out of the narrow driveway.",
+    "運転手は狭い私道から慎重にバックで出なければなりません。"
+   ]
+  ]
+ },
+ "rigid": {
+  "n": "rigid は「固くて曲がらない」と「融通が利かない」の両方を表します。物については a rigid frame や rigid plastic のように中立的に「硬い」と言えます。規則や考え方については rigid rules、a rigid schedule、rigid thinking のように「変える余地がない」という否定的な評価になりがちです。strict は「厳しい」で必ずしも悪くありませんが、rigid は柔軟さが足りないことを責める響きがあります。反対語は flexible です。人に使うと「頭が固い」という含みになるので注意しましょう。",
+  "x": [
+   [
+    "The school has rigid rules about uniforms and haircuts.",
+    "その学校には制服と髪型について厳しい決まりがあります。"
+   ],
+   [
+    "A rigid frame holds the glass panels in place.",
+    "硬い枠がガラスのパネルを固定しています。"
+   ]
+  ]
+ },
+ "scenario": {
+  "n": "「起こりうる状況の想定」が scenario の中心的な意味で、worst-case scenario（最悪の場合）や best-case scenario が定番です。in this scenario（この場合）、a likely scenario、consider several scenarios のように使います。日本語の「シナリオ」は脚本の意味でも使われますが、映画やドラマの脚本は英語では普通 script や screenplay です。ビジネスでは scenario planning（複数の未来を想定して計画を立てること）という言い方もあります。",
+  "x": [
+   [
+    "Each scenario in the plan assumes a different level of rainfall.",
+    "計画の各想定は、それぞれ異なる降水量を前提にしています。"
+   ],
+   [
+    "In the best-case scenario, the project will finish a month early.",
+    "最もうまくいった場合、プロジェクトは一か月早く終わります。"
+   ]
+  ]
+ },
+ "scope": {
+  "n": "scope は「扱う範囲」で、beyond the scope of this report（本報告の範囲外）、within the scope of ...、the scope of the project の形でよく使われます。scope for improvement と言えば「改善の余地」です。range が数値や種類の幅を示すのに対し、scope は調査・計画・権限が及ぶ領域を言います。expand the scope、narrow the scope のように動詞と組むことも多く、契約書や論文で目立つ硬めの語です。",
+  "x": [
+   [
+    "The new regulations widen the scope of the investigation.",
+    "新しい規則は調査の範囲を広げます。"
+   ],
+   [
+    "There is still scope for improvement in our customer service.",
+    "顧客サービスにはまだ改善の余地があります。"
+   ]
+  ]
+ },
+ "sector": {
+  "n": "sector は経済を大きく分けた「部門」で、public sector と private sector の対比が基本です。service sector、financial sector、energy sector のように業種名を前に付けます。「〜の分野で働く」は work in the ... sector と in を使います。industry は自動車産業のような個別の産業、sector はそれらをまとめた区分という違いがあります。都市や戦場の「地区」、数学の「扇形」という意味もあり、文脈で判断します。",
+  "x": [
+   [
+    "She has worked in the public sector for ten years.",
+    "彼女は十年間、公共部門で働いています。"
+   ],
+   [
+    "The technology sector created thousands of new jobs last year.",
+    "技術部門は昨年、数千の新たな雇用を生みました。"
+   ]
+  ]
+ },
+ "secure": {
+  "n": "secure は形容詞で「安全な・安定した」、動詞で「確保する」の両方があります。a secure job は失う心配のない安定した仕事、secure a loan は融資を取り付けることです。safe は危険がない状態ですが、secure は守られて揺らがない状態を強調します。名詞は security で、IT では「セキュリティ」です。",
+  "x": [
+   [
+    "The company managed to secure a large contract from the city.",
+    "その会社は市から大型の契約を取り付けることができました。"
+   ],
+   [
+    "Passwords should be kept in a secure place.",
+    "パスワードは安全な場所に保管してください。"
+   ]
+  ]
+ },
+ "select": {
+  "n": "select は「慎重に選ぶ」を表す動詞で、choose より書き言葉的です。受け身の be selected for ...（〜に選ばれる）がよく使われ、randomly selected（無作為に選ばれた）は研究の説明で定番です。形容詞の select は「厳選された」の意味で、a select group のように使います。ソフトウェアの「選択する」操作にも使います。",
+  "x": [
+   [
+    "Please select one option from the list below.",
+    "下の一覧から選択肢を一つ選んでください。"
+   ],
+   [
+    "Only a select group of students can join the exchange programme.",
+    "選ばれた少数の学生だけが交換留学に参加できます。"
+   ]
+  ]
+ },
+ "simulate": {
+  "n": "simulate には二つの使い方があります。一つは「現実に似た状況を模擬的に作り出す」で、simulate conditions、simulate an earthquake、computer-simulated のように実験・訓練・コンピューターの分野でよく使います。もう一つは「〜のふりをする」で、simulate surprise（驚いたふりをする）のように感情を装う意味です。imitate は他人の動きや声を真似ることで、simulate は仕組みや状況を再現して試すというニュアンスです。名詞は simulation で、a flight simulator（飛行訓練装置）もよく聞きます。",
+  "x": [
+   [
+    "The software can simulate the flow of traffic in a large city.",
+    "そのソフトは大都市の交通の流れを再現できます。"
+   ],
+   [
+    "Pilots train in machines that simulate real flight conditions.",
+    "パイロットは実際の飛行状況を再現する装置で訓練します。"
+   ]
+  ]
+ },
+ "so-called": {
+  "n": "so-called は名詞の前に置き、「いわゆる」を表します。ただし多くの場合、その呼び名が正しくない・当てにならないという疑いの含みがあります。so-called experts と言えば「専門家と呼ばれる人たち」という皮肉です。単に呼び名を紹介する中立的な「いわゆる」は、what is known as や what we call を使う方が安全です。",
+  "x": [
+   [
+    "The so-called miracle diet turned out to be a scam.",
+    "いわゆる奇跡のダイエットは詐欺だと分かりました。"
+   ],
+   [
+    "Many people distrust so-called experts on social media.",
+    "多くの人がソーシャルメディア上のいわゆる専門家を信用しません。"
+   ]
+  ]
+ },
+ "sole": {
+  "n": "sole は「唯一の」を表す形容詞で、名詞の前にだけ置きます。sole purpose や sole responsibility、sole survivor が定番です。only は広く使えますが、sole は「他に分け合う者がいない」という強調があります。副詞の solely（ただ〜だけ）もよく使われ、フォーマルな文書向きです。",
+  "x": [
+   [
+    "She is the sole owner of the small bakery.",
+    "彼女はその小さなパン屋の唯一の所有者です。"
+   ],
+   [
+    "His sole concern was getting home before dark.",
+    "彼の唯一の心配は暗くなる前に家へ帰ることでした。"
+   ]
+  ]
+ },
+ "somewhat": {
+  "n": "somewhat は「いくらか・やや」を表す副詞で、somewhat different、somewhat surprising、somewhat better のように形容詞や比較級の前に置きます。程度は控えめで、a little や slightly に近く、rather や quite ほど強くありません。会話では a bit がよく使われ、somewhat はやや改まった書き言葉寄りの語です。動詞も修飾でき、The situation has somewhat improved. のように言えます。名詞の前に直接は置けないので、× a somewhat problem ではなく a somewhat difficult problem とします。",
+  "x": [
+   [
+    "The weather was somewhat colder than we expected.",
+    "天気は思っていたより少し寒かったです。"
+   ],
+   [
+    "Her answer left me somewhat confused.",
+    "彼女の答えを聞いて、私は少し混乱しました。"
+   ]
+  ]
+ },
+ "specify": {
+  "n": "specify は「詳しく明示する」動詞で、specify the date や specify the requirements のように、契約や仕様書で頻繁に使われます。unless otherwise specified（別段の指定がない限り）は定型の表現です。他動詞なので、× specify about the date とは言わず、目的語を直接置きます。名詞は specification、形容詞は specific です。",
+  "x": [
+   [
+    "Applicants must specify which position they are applying for.",
+    "応募者はどの職に応募するか明記しなければなりません。"
+   ],
+   [
+    "The manual does not specify how long the battery will last.",
+    "取扱説明書には電池がどれだけ持つかは明記されていません。"
+   ]
+  ]
+ },
+ "sphere": {
+  "n": "sphere は「球体」のほか、活動や影響の「領域」を指します。後者は the political sphere や sphere of influence のように使い、field より抽象的な「勢力や活動の及ぶ範囲」を表します。public sphere（公共圏）は社会学の用語です。数学や理科では、平面の円（circle）ではなく立体の球を言う点に注意してください。",
+  "x": [
+   [
+    "The Earth is not a perfect sphere, but it is very close.",
+    "地球は完全な球体ではありませんが、それにかなり近い形です。"
+   ],
+   [
+    "Smaller nations also have a sphere of influence in their region.",
+    "小さな国にも、その地域に及ぼす影響の範囲があります。"
+   ]
+  ]
+ },
+ "status": {
+  "n": "status は「地位・立場」や「現在の状況」を表し、social status、legal status、marital status、status update などの形で使います。多くは a を付けずに使いますが、a special status のように数えることもあります。status symbol のように社会的地位の高さを含む言い方もありますが、status 自体は中立的で、日本語の「ステータスがある」ほど格好よさは含みません。",
+  "x": [
+   [
+    "Refugees receive legal status after a lengthy application process.",
+    "難民は長い申請手続きを経て、法的地位を得ます。"
+   ],
+   [
+    "You can check the status of your order on our website.",
+    "注文の状況は当社のウェブサイトで確認できます。"
+   ]
+  ]
+ },
+ "straightforward": {
+  "n": "straightforward は「分かりやすい・単純な」と「率直な」の二つの意味があります。straightforward process は手順が複雑でないこと、a straightforward answer は遠回しでない答えです。easy は難しくないこと、straightforward は筋道がはっきりしていて迷わないことを示します。fairly straightforward や relatively straightforward と程度を添える使い方もよく見られます。",
+  "x": [
+   [
+    "The application form is quite straightforward to fill in.",
+    "申請書の記入は比較的簡単です。"
+   ],
+   [
+    "I appreciate her straightforward advice about money.",
+    "お金についての彼女の率直な助言をありがたく思います。"
+   ]
+  ]
+ },
+ "subsequent": {
+  "n": "subsequent は「ある出来事より後の」を表す硬い形容詞で、subsequent years、subsequent research、subsequent generations のように名詞の前に置きます。subsequent to ...（〜の後で）は after の書き言葉版です。next は順番で直後の一つを指しますが、subsequent は直後とは限らず、それ以降に起きたものを広く指せます。副詞 subsequently（その後）も報告書でよく使われます。",
+  "x": [
+   [
+    "Subsequent research confirmed that the method was safe.",
+    "その後の研究で、この方法が安全であることが確かめられました。"
+   ],
+   [
+    "Events subsequent to the merger changed the company completely.",
+    "合併に続く出来事は会社を完全に変えました。"
+   ]
+  ]
+ },
+ "successor": {
+  "n": "successor は「後継者・後任」で、successor to ... の形をとり、前任者の役職や仕事を引き継ぐ人を指します。反対語は predecessor（前任者）です。appoint a successor（後任を任命する）や name a successor（後継者を指名する）がよく使われます。人だけでなく製品にも使え、「後継機・後継モデル」の意味にもなります。似た語の heir は血縁や法律によって財産・称号を相続する人で、選ばれて引き継ぐ successor とは観点が異なります。「社長の後任」は heir ではなく successor です。",
+  "x": [
+   [
+    "The board is searching for a successor to the retiring director.",
+    "取締役会は退任する所長の後任を探しています。"
+   ],
+   [
+    "The new phone is the successor to last year's model.",
+    "その新しい携帯電話は昨年のモデルの後継機です。"
+   ]
+  ]
+ },
+ "sufficient": {
+  "n": "sufficient は「必要を満たすだけの」を表すフォーマルな形容詞で、sufficient evidence（十分な証拠）や sufficient funds（十分な資金）が定番です。〜に十分である、〜するのに十分であるという形でも使います。enough より硬い語なので、日常会話では enough の方が自然です。否定には反対語の insufficient がよく使われ、self-sufficient は「自給自足の」という意味になります。",
+  "x": [
+   [
+    "Is the evidence sufficient to bring the case to court?",
+    "その証拠は裁判に持ち込むのに十分ですか。"
+   ],
+   [
+    "A sufficient amount of sleep is essential for children.",
+    "十分な睡眠は子どもにとって欠かせません。"
+   ]
+  ]
+ },
+ "supplement": {
+  "n": "supplement は「足りない部分を補う」動詞で、supplement your income や supplement a diet のように使います。add to より少し硬く、「あるものに追加して良くする」意味です。名詞では栄養補助食品を指し、vitamin supplement と言います。complement は「うまく引き立てる」で、綴りが似ている別の語です。",
+  "x": [
+   [
+    "She teaches evening classes to supplement her salary.",
+    "彼女は給料を補うために夜間の授業を教えています。"
+   ],
+   [
+    "You can supplement your diet with vitamin D in winter.",
+    "冬はビタミンDで食事を補うこともできます。"
+   ]
+  ]
+ },
+ "temporary": {
+  "n": "temporary は「一時的な」を表す形容詞で、temporary job や temporary measure が定番です。反対語は permanent です。「臨時」の意味合いが強く、いずれ終わる前提が含まれます。副詞は temporarily で、The road is temporarily closed. のように使います。期間の長さではなく期限があるかどうかの語なので、何年も続く temporary arrangement もありえます。",
+  "x": [
+   [
+    "The shop has opened a temporary stall in the main square.",
+    "その店は中央広場に臨時の屋台を出しました。"
+   ],
+   [
+    "This ban is only a temporary measure.",
+    "この禁止はあくまで一時的な措置です。"
+   ]
+  ]
+ },
+ "terminate": {
+  "n": "terminate は「終わらせる」を表す硬い動詞で、terminate a contract や terminate employment のように、法的・公式な文脈で使います。end の言い換えですが、日常会話では不自然です。自動詞では電車やバスが「〜止まりになる」の意味でも使います。名詞は termination で、「解雇」や「中絶」の意味もあるため、場面に注意してください。",
+  "x": [
+   [
+    "The landlord may terminate the lease with thirty days' notice.",
+    "大家は三十日前の通知で賃貸契約を終了できます。"
+   ],
+   [
+    "This bus will terminate at the next stop.",
+    "このバスは次の停留所止まりです。"
+   ]
+  ]
+ },
+ "thereby": {
+  "n": "「それによって」を表す硬い副詞で、前の節の行為がもたらした結果を続けます。最も多いのは、カンマの後に thereby reducing costs のように -ing 形を置く形です。thereby は副詞なので、それだけで二つの完全な文をつなぐことはできず、..., and thereby ... のように and を補います。thus や hence と近いものの、論文や法律文書向きで、会話ではまず使いません。",
+  "x": [
+   [
+    "The company cut its prices, thereby attracting more customers.",
+    "その会社は価格を下げ、それによってより多くの客を引きつけました。"
+   ],
+   [
+    "She saved a few hours each week, thereby gaining time to study.",
+    "彼女は毎週数時間を節約し、それによって勉強の時間を得ました。"
+   ]
+  ]
+ },
+ "thesis": {
+  "n": "大学の学位論文を指す thesis は、doctoral thesis、master's thesis、write a thesis on ... の形で使います。dissertation との使い分けは国や大学によって異なり、どちらを博士論文に使うかも一定ではありません。もう一つの意味は「中心となる主張」で、the central thesis of the book、support a thesis のように使います。複数形は theses です。授業で出す短い「レポート」は paper や essay で、thesis は学位のための長い論文に限られます。",
+  "x": [
+   [
+    "He is writing his master's thesis on climate policy.",
+    "彼は気候政策についての修士論文を書いています。"
+   ],
+   [
+    "The central thesis of the book is that cities shape our habits.",
+    "その本の中心的な主張は、都市が私たちの習慣を形づくるということです。"
+   ]
+  ]
+ },
+ "transform": {
+  "n": "transform は「姿・性質・機能を根本から変える」動詞で、change よりも変化の大きさと劇的さが強調されます。transform A into B（AをBに作り変える）が基本形で、completely transform や transform the way people work のような言い方も定番です。自動詞として「変わる」の意味でも使え、The caterpillar transforms into a butterfly. のように言えます。alter は部分的な修正、convert は用途や形式の切り替えに向き、transform は全体が生まれ変わる感じです。名詞は transformation です。",
+  "x": [
+   [
+    "Technology can transform education in remote villages.",
+    "技術は人里離れた村の教育を一変させる可能性があります。"
+   ],
+   [
+    "Volunteers hope to transform the old factory into an art gallery.",
+    "ボランティアたちは古い工場をアートギャラリーに生まれ変わらせたいと考えています。"
+   ]
+  ]
+ },
+ "trigger": {
+  "n": "trigger は「引き金となって何かを起こす」動詞で、trigger a reaction や trigger an alarm が代表的です。cause より突然のきっかけを示します。名詞では銃の引き金のほか、アレルギーや記憶、発作などを呼び起こすきっかけを指し、a trigger for ...（〜のきっかけ）の形で使います。日本語の「トリガー」とほぼ同じ感覚で使えます。",
+  "x": [
+   [
+    "Certain foods can trigger an allergic reaction in some people.",
+    "特定の食べ物は、人によってアレルギー反応を引き起こすことがあります。"
+   ],
+   [
+    "The news of the closure may trigger more protests.",
+    "閉鎖のニュースはさらなる抗議を引き起こすかもしれません。"
+   ]
+  ]
+ },
+ "ultimate": {
+  "n": "ultimate は「最終的な・究極の」を意味し、ultimate goal や ultimate responsibility が定番です。final と違い、「一連の過程の終点にある最も重要な」という含みがあります。口語では the ultimate pizza のように「最高の」という意味でも使います。副詞は ultimately で、文頭にも置けます。",
+  "x": [
+   [
+    "Her ultimate aim is to become a judge.",
+    "彼女の最終的な目標は裁判官になることです。"
+   ],
+   [
+    "The ultimate decision rests with the board of directors.",
+    "最終的な決定権は取締役会にあります。"
+   ]
+  ]
+ },
+ "undergo": {
+  "n": "undergo は「変化・検査・処置などを経る、受ける」を表す動詞で、それ自体は良い意味にも悪い意味にも偏りません。undergo surgery（手術を受ける）、undergo training（研修を受ける）、undergo a change（変化を経る）、undergo a test（検査を受ける）が代表的です。主語は経験をする側で、自分から何かを行うというより、ある過程を通り抜けるニュアンスがあります。have surgery より改まった言い方です。過去形は underwent、過去分詞は undergone と不規則に変化します。",
+  "x": [
+   [
+    "The patient will undergo surgery on Monday morning.",
+    "患者は月曜の朝に手術を受けます。"
+   ],
+   [
+    "The city center will undergo major changes over the next decade.",
+    "市の中心部は今後十年で大きく変わります。"
+   ]
+  ]
+ },
+ "undertake": {
+  "n": "責任を持って大きな仕事に着手するときに使う硬い動詞で、undertake research、undertake a survey、undertake a review のように調査や事業を目的語に取ります。undertake to do は「〜すると約束する」の意味で、契約文でよく見ます。日常の小さな作業には使わず、口語では take on や do で十分です。活用は undertake–undertook–undertaken の不規則変化です。名詞 undertaking は「事業」と「約束」の両方を表します。",
+  "x": [
+   [
+    "The university will undertake a study of local water quality.",
+    "大学は地元の水質についての調査を行います。"
+   ],
+   [
+    "Few companies would undertake such a risky project without government support.",
+    "政府の支援なしに、これほど危険な事業に乗り出す企業はほとんどないでしょう。"
+   ]
+  ]
+ },
+ "uniform": {
+  "n": "uniform は形容詞で「均一な・一定の」、名詞で「制服」の意味があります。形容詞は uniform standard や uniform rate のように、どこでも同じ状態を表します。名詞は a school uniform や police uniform、in uniform（制服姿で）のように使います。日本語では「ユニフォーム」はスポーツ、「制服」は学校の印象が強いですが、英語ではどちらも uniform です。",
+  "x": [
+   [
+    "The paint should be applied in a uniform layer.",
+    "塗料は均一な層になるように塗ってください。"
+   ],
+   [
+    "The nurse wore a clean white uniform.",
+    "その看護師は清潔な白い制服を着ていました。"
+   ]
+  ]
+ },
+ "unify": {
+  "n": "unify は「複数のものを一つにまとめる」動詞で、unify a country や unify a system のように使います。unite は人や集団が結びつく意味が強く、unify は異なる部分を一つの仕組みや体にまとめる印象です。名詞は unification、形容詞は unified で、a unified approach は「統一した取り組み」です。",
+  "x": [
+   [
+    "The leader tried to unify the divided party before the election.",
+    "指導者は選挙の前に分裂した党をまとめようとしました。"
+   ],
+   [
+    "The new software will unify all the company's databases.",
+    "新しいソフトは会社のすべてのデータベースを統合します。"
+   ]
+  ]
+ },
+ "vary": {
+  "n": "vary は「状況によって異なる」を表し、主に自動詞です。vary widely や vary considerably、vary from A to B が基本形で、Prices vary. のように一般的な事実を述べるのによく使います。他動詞では vary your diet（食事に変化をつける）のように「変化をもたせる」意味になります。名詞は variety や variation、形容詞は various です。",
+  "x": [
+   [
+    "Opinions vary widely on how to solve the problem.",
+    "その問題をどう解決するかについて、意見は大きく分かれています。"
+   ],
+   [
+    "Test scores vary from school to school.",
+    "テストの点数は学校によって異なります。"
+   ]
+  ]
+ },
+ "virtual": {
+  "n": "virtual は「コンピューター上の」を表すことが多く、virtual reality や virtual meeting が定番です。もう一つの意味は「ほぼ〜に等しい」で、a virtual monopoly（事実上の独占）のように使います。後者の副詞形 virtually は「ほとんど」という意味で、almost と近く、書き言葉でもよく使われます。",
+  "x": [
+   [
+    "The museum offers a virtual tour of its collection.",
+    "その博物館は所蔵品のバーチャルツアーを提供しています。"
+   ],
+   [
+    "The company has a virtual monopoly on local bus services.",
+    "その会社は地元のバス事業をほぼ独占しています。"
+   ]
+  ]
+ },
+ "visual": {
+  "n": "visual は「視覚の・目で見る」を表す形容詞で、visual aids（視覚教材）、visual impact（見た目の印象）、visual memory（視覚的な記憶）のように名詞の前に置きます。He is very visual. のように「目で見て理解するタイプ」と言うこともあります。visible は「目に見える」で、visual は「見ることに関する」という違いがあります。名詞の visuals は映像・図・写真などをまとめて指し、複数形で使うのが普通です。the visual arts は絵画や彫刻などの「視覚芸術」を指します。",
+  "x": [
+   [
+    "Teachers often use visual aids to explain difficult ideas.",
+    "教師は難しい考えを説明するのによく視覚教材を使います。"
+   ],
+   [
+    "The film has a strong visual style that people remember.",
+    "その映画は印象に残る強い視覚的な作風を持っています。"
+   ]
+  ]
+ },
+ "volume": {
+  "n": "volume は「量・総量」「音量」「本の巻」「体積」を表します。量の意味では the volume of traffic、sales volume、a large volume of data のように、全体としての大きな規模を示し、of を伴います。amount は量そのもの、volume は取引や流れの規模という感じです。音量は turn up the volume、turn down the volume と言い、at full volume（最大音量で）も便利です。本の巻は Volume 2（第二巻）のように数字と組み合わせます。",
+  "x": [
+   [
+    "The volume of online orders rose sharply during the holidays.",
+    "オンライン注文の量は休暇中に急増しました。"
+   ],
+   [
+    "Could you turn down the volume a little?",
+    "音量を少し下げてもらえますか。"
+   ]
+  ]
  }
 }

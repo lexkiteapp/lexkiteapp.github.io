@@ -28,6 +28,8 @@ else {
     for (const id of ids) if ((html.match(new RegExp(`data-g="${id}"`, 'g')) || []).length !== 1) errs.push(`${x.id} ${pp}: nhóm ${id} không có đúng 1 khung data-g`);
     const n = groups.reduce((a, [, , g]) => a + g.items.length, 0), boxes = (html.match(/data-item="\d+"/g) || []).length;
     if (boxes !== n) errs.push(`${x.id} ${pp}: ${n} câu nhưng ${boxes} ô trả lời`);
+    // lỗi 14/11: bài nghe nối hiện khung lựa chọn A–H 2 lần (khung của cambridge.js + khung của QE) → mỗi bài nghe tối đa 1 khung
+    for (const u of html.split('class="toeic-u"').slice(1)) if ((u.match(/class="lq-box"/g) || []).length > 1) errs.push(`${x.id} ${pp}: khung lựa chọn hiện trùng trong một bài nghe`);
   }
   for (const x of T) for (const p of (x.rw || {}).parts || []) if (p.model) {
     const miss = H.pointHits(p.model, p.checks).map((h, i) => h ? null : i + 1).filter(Boolean);
