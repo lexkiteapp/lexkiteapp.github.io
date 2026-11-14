@@ -1,7 +1,7 @@
 // Kiểm ci-autopilot (scripts/ci/autopilot.mjs + .github/workflows/ci-autopilot.yml): ngân sách runner, phân loại hạ tầng, quyết định theo PR (KHÔNG bao giờ gộp khi đỏ), nhật ký 24 h,
 // và workflow giữ concurrency + timeout + không workflow_run (fan-out) + không bỏ qua check.
 import fs from 'node:fs';
-import { budget, isInfraJob, shouldRerun, decide, tally, parseLog, renderIssue, BUSY_MAX, KEEP_FREE, TOTAL, MAX_RERUN_ATTEMPT } from '../ci/autopilot.mjs';
+import { behindOf, budget, isInfraJob, shouldRerun, decide, tally, parseLog, renderIssue, BUSY_MAX, KEEP_FREE, TOTAL, MAX_RERUN_ATTEMPT } from '../ci/autopilot.mjs';
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
 
 // --- ngân sách: chừa ≥ 16 runner trống, chỉ nạp khi busy < 24
@@ -26,6 +26,12 @@ ok(decide(P()).act === 'merge', 'xanh + gộp được → merge');
 for (const [o, m] of [[{ gate: 'FAILURE' }, 'đỏ'], [{ gate: 'ERROR' }, 'lỗi'], [{ gate: 'PENDING' }, 'đang chạy'], [{ gate: null }, 'thiếu status'], [{ mergeable: 'UNKNOWN' }, 'mergeable chưa rõ'], [{ mergeable: 'CONFLICTING' }, 'xung đột'], [{ labels: ['do-not-merge'] }, 'do-not-merge'], [{ labels: ['frozen'] }, 'frozen'], [{ draft: true }, 'draft']])
   ok(decide(P(o)).act !== 'merge', `không merge khi ${m}`);
 ok(decide(P({ mergeable: 'CONFLICTING' })).act === 'conflict' && decide(P({ gate: 'PENDING', behind: 3 })).act === 'update', 'xung đột → conflict; tụt + chưa xanh → update');
+// --- tụt chỉ vì commit bot codemap/báo cáo → KHÔNG gộp main (14/11: mỗi lần gộp kéo CI mọi PR chạy lại)
+const F = (...f) => f.map(filename => ({ filename }));
+ok(behindOf({ ahead_by: 3, files: F('docs/CODEMAP.md', 'docs/codemap.json') }) === 0, 'main chỉ đổi CODEMAP/codemap.json → tụt 0, không cập nhật nhánh');
+ok(behindOf({ ahead_by: 2, files: F('docs/CODEMAP.md', 'web/js/app.js') }) === 2, 'main đổi mã thật → vẫn tụt, vẫn cập nhật');
+ok(behindOf({ ahead_by: 4 }) === 4 && behindOf({ ahead_by: 4, files: F(...Array(300).fill('docs/CODEMAP.md')) }) === 4 && behindOf(null) === 0, 'thiếu files / API cắt 300 tệp → giữ ahead_by');
+ok(decide(P({ gate: 'PENDING', behind: behindOf({ ahead_by: 5, files: F('docs/codemap.json') }) })).act === 'wait', 'PR đang chạy check + main chỉ có commit codemap → chờ, không chạy lại CI');
 ok(decide(P({ gate: 'FAILURE' })).act === 'triage-red', 'đỏ → triage (chạy lại nếu hạ tầng)');
 // --- nhật ký 24 h + issue
 const now = Date.parse('2026-11-12T12:00:00Z'), ev = (k, h) => ({ k, n: 1, t: new Date(now - h * 3600e3).toISOString() });
@@ -37,6 +43,7 @@ ok(parseLog(body).length === 3 && /busy 9\/40/.test(body) && /#5/.test(body) && 
 const wf = fs.readFileSync(new URL('../../.github/workflows/ci-autopilot.yml', import.meta.url), 'utf8'), src = fs.readFileSync(new URL('../ci/autopilot.mjs', import.meta.url), 'utf8');
 ok(/concurrency:\s*\{[^}]*group: ci-autopilot/.test(wf) && /timeout-minutes:\s*\d+/.test(wf), 'workflow có concurrency + timeout-minutes');
 ok(/cron:/.test(wf) && /workflow_dispatch:/.test(wf) && !/workflow_run|check_suite|check_run|pull_request/.test(wf.replace(/^#.*$/gm, '')), 'lịch + dispatch, KHÔNG fan-out workflow_run/check_suite/PR');
+ok(/\(await listOne\(token, pr\.number\)\)\?\.sha !== pr\.sha\) break;\n\s*if \(dry \|\| \(await call\(token, 'POST', `\/repos\/\$\{REPO\}\/actions\/runs\/\$\{run\.id\}\/rerun-failed-jobs/.test(src), 'rerun: đọc lại head ngay trước POST – không chạy lại lượt sha cũ (huỷ lượt head mới, #1285)');
 ok(!/--no-verify|force|skip.?check|enable.?auto/i.test(src.replace(/^\s*\/?\*.*$/gm, '').replace(/\/\/.*$/gm, '').replace(/`[^`]*`/g, '')), 'mã không bỏ check / force');
 ok(/decide\(fresh\)\.act === 'merge'/.test(src) && /merge_method: 'squash'/.test(src) && /sha: pr\.sha/.test(src), 'gộp: đọc lại + quyết định lại ngay trước khi gộp, squash, ghim sha');
 ok(/process\.env\.AUTOPILOT_MERGE_TOKEN/.test(src) && /mergeToken && merges < MAX_MERGES/.test(src), 'chỉ gộp khi có token gộp riêng (github.token không kích workflow push-main)');
