@@ -83,7 +83,7 @@ export function collect() {
     const L = (x, f) => { if (!fs.existsSync(f)) throw new Error(`corpus: nguồn không tồn tại: ${f} (đã dời/đổi tên? sửa đường dẫn trong scripts/sentence-audio/corpus.mjs)`); try { vm.runInContext(fs.readFileSync(f, 'utf8'), x); } catch (e) { console.error(`corpus: bỏ qua ${f}: ${e.message}`); } };
     const strs = a => (Array.isArray(a) ? a : [a]).filter(v => typeof v === 'string' && /[A-Za-z]/.test(v));
     // Confidence (confidence.js: theo accent người học; người nói b đọc giọng còn lại → cả 2 giọng)
-    { const x = ctx(); L(x, 'web/js/confidence/data.js'); const D = x.CONF || {};
+    { const x = ctx(); L(x, 'web/cpack/confidence/data.js'); const D = x.CONF || {};
       for (const u of D.units || []) { for (const p of u.phrases || []) bothSplit(p.say, 'confidence'); for (const l of (u.dialogue || {}).lines || []) bothSplit(l[1], 'confidence'); }
       for (const k of D.toolkit || []) for (const p of k.phrases || []) bothSplit(p.say, 'confidence');
       for (const q of D.daily || []) bothSplit(q.q, 'confidence'); }
