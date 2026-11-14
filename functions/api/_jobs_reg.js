@@ -166,6 +166,21 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "video-junk",
+   "workflow": "video-junk.yml",
+   "cron": [
+    "37 5 * * 0"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
+   "est": {},
+   "lease": false,
+   "_note": "Dọn artifact Actions video rác (failed-run / superseded / gone-episode); lịch chỉ dry-run + manifest, xoá thật chỉ khi chạy tay apply=true (docs/VIDEO-STORAGE.md)"
+  },
+  {
    "id": "capacity-watch",
    "workflow": "capacity-watch.yml",
    "cron": [
