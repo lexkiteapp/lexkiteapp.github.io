@@ -219,6 +219,7 @@ ${alt}
 <meta property="og:locale" content="${OG_LOCALE[lang]}">${LANGS.filter(l => l !== lang).map(l => `<meta property="og:locale:alternate" content="${OG_LOCALE[l]}">`).join('')}
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(c.ogTitle || c.title)}"><meta name="twitter:image" content="${SITE}/og-default.png">
 <meta name="theme-color" content="#0F3D3E">
+<meta name="apple-itunes-app" content="app-id=6824714708">
 <link rel="icon" href="/icons/icon.svg?v=3" type="image/svg+xml"><link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=3">
 <style>${page.css}
 ${LCSS}</style>

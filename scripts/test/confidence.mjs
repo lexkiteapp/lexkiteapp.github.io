@@ -133,7 +133,7 @@ for (const lang of ['es', 'ja', 'ar']) {
 {
   const sw = fs.readFileSync('web/sw.js', 'utf8'), app = fs.readFileSync('web/js/app.js', 'utf8'), js = fs.readFileSync('web/js/confidence.js', 'utf8');
   ok(!/confidence/.test((sw.match(/const SHELL = \[([\s\S]*?)\];/) || [])[1] || ''), 'khung app không chứa file Giao tiếp tự tin (tải lười)');
-  ok(/confidence: \['js\/i18n\/en\/confidence\.js', 'js\/confidence\/data\.js', 'js\/confidence\.js'\]/.test(app), 'bundle confidence trong BUNDLES (prefetch → dùng offline)');
+  ok(/confidence: \['js\/i18n\/en\/confidence\.js', 'js\/confidence\/data\.js', 'js\/speech-session\.js', 'js\/confidence\.js'\]/.test(app), 'bundle confidence trong BUNDLES (prefetch → dùng offline)');
   ok(!/(?<!max-)width:\s*\d{3,}px/.test(js) && /min\(100%/.test(js), 'mobile: không bề rộng cố định, lưới co theo màn hình');
   ok((js.match(/min-(height|width):4[4-9]px|min-(height|width):5\dpx|min-(height|width):6\dpx/g) || []).length >= 4, 'vùng chạm ≥ 44 px');
   // t() lúc nạp module: i18n-switch.mjs --scan (npm test) quét cả file này

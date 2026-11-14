@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_tall",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Tall, not big!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am very big.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am very tall.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For height, use tall.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Tall! My brother is very tall.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am very big.",
+  "right": "I am very tall.",
+  "strike": "big",
+  "why": "For height, use tall.",
+  "memory": "Tall is high.",
+  "quiz": {
+   "stem": "My brother is very ___.",
+   "options": [
+    "big",
+    "tall"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Willst du sagen, jemand ist groß?",
+   "tip": "Für Körpergröße sagst du „tall“. „Big“ meint eher dick oder umfangreich.",
+   "caption": "Willst du sagen, dass jemand groß ist? 📏 Falsch: “I am very big.” Richtig: “I am very tall.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “tall”. Richtig heißt es: “I am very tall.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you want to say someone is tall?",
+   "tip": "For body height you say “tall”. “Big” means large in size.",
+   "caption": "Do you want to say someone is tall? Wrong: “I am very big.” Right: “I am very tall.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Willst du sagen, jemand ist groß?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Willst du sagen, jemand ist groß?",
+  "keyword": "I am very tall.",
+  "value": "Für Körpergröße sagst du „tall“. „Big“ meint eher dick oder umfangreich.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Willst du sagen, jemand ist groß?",
+    "description": "Willst du sagen, dass jemand groß ist? 📏 Falsch: “I am very big.” Richtig: “I am very tall.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I am very tall.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Willst du sagen, dass jemand groß ist? 📏 Falsch: “I am very big.” Richtig: “I am very tall.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Willst du sagen, dass jemand groß ist? 📏 Falsch: “I am very big.” Richtig: “I am very tall.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Willst du sagen, jemand ist groß? #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “tall”. Richtig heißt es: “I am very tall.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

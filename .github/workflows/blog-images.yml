@@ -38,7 +38,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   images:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 90
     env:
       MODE: ${{ inputs.mode || 'changed' }}
@@ -60,8 +60,8 @@ jobs:
         if: steps.plan.outputs.count != '0'
         run: |
           mkdir -p "$LEXKITE_TOOLS" && cd "$LEXKITE_TOOLS" && npm init -y >/dev/null
-          bash scripts/ci/npm-retry.sh i --no-audit --no-fund @resvg/resvg-js@2.6.2 sharp@0.33.5 playwright-core@1.50.1 >/dev/null
-          bash scripts/ci/apt-install.sh fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji
+          bash "$GITHUB_WORKSPACE/scripts/ci/npm-retry.sh" i --no-audit --no-fund @resvg/resvg-js@2.6.2 sharp@0.33.5 playwright-core@1.50.1 >/dev/null
+          bash "$GITHUB_WORKSPACE/scripts/ci/apt-install.sh" fonts-noto-core fonts-noto-cjk fonts-noto-color-emoji
           PLAYWRIGHT_BROWSERS_PATH="$LEXKITE_TOOLS/pw" node node_modules/playwright-core/cli.js install --with-deps chromium >/dev/null
       - name: Dựng ảnh
         id: render

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_people",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Is people? No, people are!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: The people is nice.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: The people are nice.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "People is plural. Use are.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Are! People are happy.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "The people is nice.",
+  "right": "The people are nice.",
+  "strike": "is",
+  "why": "People is plural. Use are.",
+  "memory": "People are.",
+  "quiz": {
+   "stem": "People ___ happy.",
+   "options": [
+    "is",
+    "are"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿Dices “people is”? Ojo",
+   "tip": "En español “la gente” es singular, pero en inglés “people” es plural: “people are”.",
+   "caption": "En español “la gente es”, ¡pero en inglés no! 😅 Di “The people are nice.”, no “The people is nice.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “are”. “People” siempre lleva verbo en plural. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “people is”? Watch out",
+   "tip": "In Spanish “la gente” is singular, but in English “people” is plural: “people are”.",
+   "caption": "In Spanish “la gente es”, but not in English! Say “The people are nice.”, not “The people is nice.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿Dices “people is”? Ojo"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "¿Dices “people is”? Ojo",
+  "keyword": "The people are nice.",
+  "value": "En español “la gente” es singular, pero en inglés “people” es plural: “people are”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "¿Dices “people is”? Ojo",
+    "description": "En español “la gente es”, ¡pero en inglés no! 😅 Di “The people are nice.”, no “The people is nice.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "The people are nice.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "En español “la gente es”, ¡pero en inglés no! 😅 Di “The people are nice.”, no “The people is nice.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "En español “la gente es”, ¡pero en inglés no! 😅 Di “The people are nice.”, no “The people is nice.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Dices “people is”? Ojo #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “are”. “People” siempre lleva verbo en plural. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

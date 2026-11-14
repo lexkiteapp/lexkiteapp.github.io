@@ -79,7 +79,11 @@
     "planTop": "Cara terus meningkat",
     "you": "Hasil tesmu: {lv}",
     "takeTest": "Cek levelmu – tes gratis 15 menit",
-    "otherLevels": "Semua level CEFR"
+    "otherLevels": "Semua level CEFR",
+    "wordsH": "Kosakata untuk level {lv}",
+    "wordsLead": "Kata-kata dari kamus Lexkite yang termasuk level {lv}, masing-masing dengan arti dan contoh kalimat. Buka sebuah kata untuk melihat pelafalan, kolokasi, dan kesalahan umum.",
+    "sampleH": "Contoh soal level {lv}",
+    "answer": "Lihat jawaban"
   },
   "toeic": {
     "title": "Latihan soal TOEIC Part 5 online – gratis, dengan pembahasan",

@@ -110,6 +110,15 @@ jobs:
           ./gradlew --no-daemon bundleRelease
           rm -f "$LEXKITE_KEYSTORE_FILE"
           cp app/build/outputs/bundle/release/app-release.aab "../../lexkite-$LEXKITE_VERSION_NAME-$LEXKITE_VERSION_CODE.aab"
+      - name: Dung lượng .aab theo thư mục (sổ để cắt nội dung nặng khỏi app → CDN)
+        if: env.HAS_KEY == 'true'
+        run: |
+          AAB=$(ls lexkite-*.aab); { echo "### Dung lượng $AAB: $(du -h "$AAB" | cut -f1)"; echo '| nén (MB) | thư mục trong .aab |'; echo '|---|---|'; } >> "$GITHUB_STEP_SUMMARY"
+          unzip -v "$AAB" | awk 'NR>3 && NF>=8 {n=split($8,a,"/"); k=(n>3)?a[1]"/"a[2]"/"a[3]:$8; if(a[1]=="base"&&a[2]=="assets"&&a[3]=="public"&&n>4)k=a[1]"/"a[2]"/"a[3]"/"a[4]; z[k]+=$3} END{for(k in z)printf "%.1f %s\n", z[k]/1048576, k}' | sort -rn | head -25 | tee "$RUNNER_TEMP/aab-dirs.txt" | awk '{print "| "$1" | "$2" |"}' >> "$GITHUB_STEP_SUMMARY"; echo '--- .aab nén MB theo thư mục ---'; cat "$RUNNER_TEMP/aab-dirs.txt"
+          # Máy gác dung lượng .aab (13/11: 225 MB vì đóng cả trang SEO 15 ngôn ngữ → build-mobile.sh loại → 74 MB; trần = 74 + ~15 %). Play: base ≤ 200 MB tải về, người dùng ngại app nặng.
+          if unzip -l "$AAB" | grep -E ' base/assets/public/(ar|de|en|es|fr|hi|id|ja|ko|pt|ru|th|tr|vi|zh)/[^/]+/' | head -3 | grep .; then echo "::error::.aab chứa dist/<mã ngôn ngữ>/<thư mục> (trang SEO) – build-mobile.sh LANG_EX bị bỏ?"; exit 1; fi
+          MB=$(( $(stat -c %s "$AAB") / 1048576 )); echo "aab=${MB} MB"; [ "$MB" -le 85 ] || { echo "::error::.aab ${MB} MB > trần 85 MB – tìm nội dung nặng ở bảng trên, dời lên CDN"; exit 1; }
+          echo '--- mobile/www lớn nhất ---'; du -sh mobile/www/* | sort -rh | head -15; echo '--- www/en ---'; du -sh mobile/www/en/* | sort -rh | head -15; echo '--- www/vi ---'; du -sh mobile/www/vi/* | sort -rh | head -10; ls mobile/www | head -60 | tr '\n' ' '
       - uses: actions/upload-artifact@v4
         if: env.HAS_KEY == 'true'
         with:
@@ -120,7 +129,7 @@ jobs:
   # Chụp màn hình demo trên Android giả lập (KVM của máy chủ GitHub) – xem nhanh mỗi bản build
   screens:
     needs: apk
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 30
     steps:
       - uses: actions/download-artifact@v4

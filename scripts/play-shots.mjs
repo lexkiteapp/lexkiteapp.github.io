@@ -1,57 +1,44 @@
-// Ảnh Google Play cho app Android (com.lexkite.app) từ app THẬT trên lexkite.com (?sandbox=1&demo=1 – dữ liệu mẫu tách riêng, không đăng nhập).
-// Ra: <thư-mục>/<lang>/phone-1..7.png (1080×1920, PNG 24-bit không alpha) + <lang>/feature-1024x500.png + icon-512.png (32-bit RGBA, mã hoá lại từ brand/ – file nguồn có thể là PNG bảng màu).
-// Thiết kế giống ảnh Chrome Web Store (scripts/store-shots.mjs): nền teal đậm thương hiệu, tiêu đề lớn có chữ nhấn, ảnh thật trong khung điện thoại.
-// Chỉ chạy trên GitHub Actions (.github/workflows/play-shots.yml) – nặng, cần mạng. Dùng: node scripts/play-shots.mjs <thư-mục-ra>
+// Ảnh cửa hàng app (Google Play + App Store) từ app THẬT (?sandbox=1&demo=1 – dữ liệu mẫu tách riêng, không đăng nhập). BASE = web/ phục vụ nội bộ trên CI
+// (giao diện đúng main) hoặc https://lexkite.com/app/. Chụp mỗi màn 1 lần (điện thoại 390×844 @3x, máy tính bảng 1024×1366 @2x), đóng khung chung
+// scripts/lib/store-frame.mjs (cùng phong cách ảnh Chrome Web Store scripts/store-shots.mjs). PNG 24-bit không alpha. Chỉ chạy trên CI (store-shots.yml).
+// Ra: <out>/play/<lang>/phone-N.png (1080×1920) + feature-1024x500.png, <out>/play/icon-512.png (RGBA – Play bắt buộc),
+//     <out>/appstore/<lang>/iphone-69-N.png (1320×2868), iphone-65-N.png (1284×2778), ipad-13-N.png (2064×2752).
+// Dùng: BASE=http://localhost:8080/ LANGS=en,vi node scripts/play-shots.mjs <thư-mục-ra>
 import { chromium } from 'playwright';
 import fs from 'fs';
 import path from 'path';
 import { toRgbaPng } from './lib/png-rgba.mjs';
+import { TARGETS, CAPTURE, framePortrait, checkPng } from './lib/store-frame.mjs';
 
 const OUT = path.resolve(process.argv[2] || 'play-shots');
 const BASE = process.env.BASE || 'https://lexkite.com/app/';
 const LANGS = (process.env.LANGS || 'en,vi').split(',');
-const W = 1080, H = 1920, sleep = ms => new Promise(r => setTimeout(r, ms));
-fs.mkdirSync(OUT, { recursive: true });
-import { ICON, KIT, FONT, SCREENS, FEATURE, HIDE, BASECSS } from './lib/app-shots-copy.mjs';
-const CSS = `${BASECSS}body{width:${W}px;height:${H}px}
-body:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1.5px,transparent 1.5px);background-size:30px 30px;mask-image:linear-gradient(180deg,#000,transparent 40%)}
-.brand{position:absolute;left:84px;top:84px;font-size:40px}.brand img{width:64px;height:64px}
-.txt{position:absolute;left:84px;right:84px;top:210px}.kick{display:inline-block;font-size:26px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#FFB054;background:rgba(255,176,84,.12);border:2px solid rgba(255,176,84,.35);padding:9px 22px;border-radius:99px}
-h1{font-size:80px;line-height:1.06;font-weight:800;letter-spacing:-.035em;margin-top:30px}p.sub{font-size:34px;line-height:1.4;color:rgba(255,255,255,.8);margin-top:24px}
-.phone{position:absolute;left:150px;top:760px;width:780px;padding:22px;border-radius:96px;background:linear-gradient(160deg,#2a3f40,#0b1617);box-shadow:0 60px 120px rgba(0,0,0,.55),0 0 0 3px rgba(255,255,255,.12) inset}
-.phone .scr{border-radius:76px;overflow:hidden;background:#fff;position:relative}.phone img{display:block;width:100%}
-.phone .cam{position:absolute;left:50%;top:22px;width:26px;height:26px;margin-left:-13px;border-radius:50%;background:#050909;box-shadow:0 0 0 3px rgba(255,255,255,.06)}
-.glow{position:absolute;left:140px;bottom:-260px;width:800px;height:520px;background:radial-gradient(closest-side,rgba(242,85,59,.35),transparent);filter:blur(12px)}`;
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+import { ICON, FONT, SCREENS, FEATURE, HIDE, BASECSS } from './lib/app-shots-copy.mjs';
 
-async function frame(page, lang, i, shot) {
-  const [kick, title, sub] = SCREENS[i][lang];
-  await page.setViewportSize({ width: W, height: H });
-  await page.setContent(`<!doctype html><html lang="${lang}"><head><meta charset="utf-8">${FONT}<style>${CSS}</style></head><body><div class="glow"></div>
-    <div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div>
-    <div class="txt"><span class="kick">${kick}</span><h1>${title}</h1><p class="sub">${sub}</p></div>
-    <div class="phone"><div class="scr"><img src="data:image/png;base64,${shot.toString('base64')}"></div><div class="cam"></div></div></body></html>`);
-  await page.evaluate(() => document.fonts.ready); await sleep(400);
-  await page.screenshot({ path: `${OUT}/${lang}/phone-${i + 1}.png`, clip: { x: 0, y: 0, width: W, height: H } });
-}
-
-async function feature(page, lang) {
+// Ảnh nổi bật Play 1024×500: cùng phong cách khung dọc – tiêu đề + nhãn bên trái, 2 màn thật (sáng: Hôm nay, tối: chuỗi) nghiêng bên phải
+async function feature(page, lang, light, dark) {
   const [title, tags] = FEATURE[lang];
-  const css = `${BASECSS}body{width:1024px;height:500px}
-    .kit{position:absolute;left:80px;top:95px;width:310px;height:310px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#FFF7EA,#FFE7C2);display:grid;place-items:center;box-shadow:0 30px 70px rgba(0,0,0,.4),0 0 0 10px rgba(255,201,74,.18)}
-    .r{position:absolute;left:440px;right:72px;top:100px}.brand{font-size:44px}.brand img{width:66px;height:66px}
-    h1{font-size:46px;line-height:1.1;font-weight:800;letter-spacing:-.03em;margin-top:26px}
-    .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}.tags span{font-size:19px;font-weight:700;padding:8px 16px;border-radius:99px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.22)}`;
+  const css = `${BASECSS}body{width:1024px;height:500px;background:radial-gradient(520px 420px at 100% 0,rgba(255,176,84,.20),transparent 62%),radial-gradient(600px 380px at 70% 120%,rgba(242,85,59,.30),transparent 62%),linear-gradient(165deg,#0A2E30,#0F3D3E 48%,#0C3436)}
+    .r{position:absolute;left:64px;top:92px;width:470px}.brand{font-size:34px}.brand img{width:52px;height:52px}
+    h1{font-size:46px;line-height:1.06;font-weight:800;letter-spacing:-.03em;margin-top:22px;text-wrap:balance}
+    .tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}.tags span{font-size:17px;font-weight:700;padding:7px 14px;border-radius:99px;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.22)}
+    .ph{position:absolute;width:230px;height:470px;padding:9px;border-radius:40px;background:linear-gradient(155deg,#33494a,#0b1617 55%,#1d2c2d);box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 1.5px rgba(255,255,255,.14) inset}
+    .ph div{width:100%;height:100%;border-radius:32px;overflow:hidden}.ph img{display:block;width:100%}
+    .a{left:570px;top:44px;transform:rotate(-6deg)}.b{left:760px;top:72px;transform:rotate(5deg)}`;
+  const ph = (c, img) => `<div class="ph ${c}"><div><img src="data:image/png;base64,${img.toString('base64')}"></div></div>`;
   await page.setViewportSize({ width: 1024, height: 500 });
   await page.setContent(`<!doctype html><html lang="${lang}"><head><meta charset="utf-8">${FONT}<style>${css}</style></head><body>
-    <div class="kit">${KIT}</div><div class="r"><div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div><h1>${title}</h1>
-    <div class="tags">${tags.map(x => `<span>${x}</span>`).join('')}</div></div></body></html>`);
+    <div class="r"><div class="brand"><img src="${ICON}"><span>lex<b>kite</b></span></div><h1>${title}</h1>
+    <div class="tags">${tags.map(x => `<span>${x}</span>`).join('')}</div></div>${ph('b', dark)}${ph('a', light)}</body></html>`);
   await page.evaluate(() => document.fonts.ready); await sleep(400);
-  await page.screenshot({ path: `${OUT}/${lang}/feature-1024x500.png`, clip: { x: 0, y: 0, width: 1024, height: 500 } });
+  await page.screenshot({ path: `${OUT}/play/${lang}/feature-1024x500.png`, clip: { x: 0, y: 0, width: 1024, height: 500 } });
 }
 
-// Chụp app thật: điện thoại 390×800 @3x → ảnh 1170×2400 thu vào khung (nét)
-async function appContext(browser, lang, dark) {
-  const ctx = await browser.newContext({ viewport: { width: 390, height: 800 }, isMobile: true, hasTouch: true, deviceScaleFactor: 3, colorScheme: dark ? 'dark' : 'light', locale: lang });
+// Chụp app thật ở cỡ máy kind (điện thoại / máy tính bảng), sáng hoặc tối theo hệ thống
+async function appContext(browser, lang, dark, kind) {
+  const cap = CAPTURE[kind];
+  const ctx = await browser.newContext({ viewport: { width: cap.width, height: cap.height }, isMobile: true, hasTouch: true, deviceScaleFactor: cap.dsf, colorScheme: dark ? 'dark' : 'light', locale: lang });
   await ctx.addInitScript(css => { addEventListener('DOMContentLoaded', () => { const s = document.createElement('style'); s.textContent = css; document.head.appendChild(s); }); }, HIDE);
   const page = await ctx.newPage();
   const url = r => `${BASE}?sandbox=1&demo=1&hl=${lang}#/${r}`;
@@ -69,42 +56,44 @@ async function shoot(page, url, s) {
     const b = await page.$('#flipBtn');
     if (b) { await b.click().catch(() => {}); await sleep(1500); } else console.warn('⚠ không có thẻ đến hạn ở #/review');
   }
+  for (const sel of s.tap || []) { // bấm thật (vd. bắt đầu bài học) – thiếu nút = ảnh sai màn → dừng
+    const el = await page.waitForSelector(sel, { timeout: 8000 }).catch(() => null);
+    if (!el) throw new Error(`✗ #/${s.r}: không thấy ${sel}`);
+    await el.evaluate(e => e.click()); await sleep(3000); // nút nhún liên tục (lsnBob) → Playwright click chờ 'ổn định' mãi
+  }
   await page.evaluate(() => scrollTo(0, 0)).catch(() => {}); await sleep(300);
   return page.screenshot();
 }
 
-// PNG phải đúng kích thước, kiểu màu 2 = RGB (không alpha) – Play từ chối ảnh có alpha
-function checkPng(f, w, h, colorType) {
-  const b = fs.readFileSync(f);
-  const ok = b.readUInt32BE(16) === w && b.readUInt32BE(20) === h && b[24] === 8 && b[25] === colorType;
-  if (!ok) throw new Error(`✗ ${path.relative(OUT, f)}: ${b.readUInt32BE(16)}×${b.readUInt32BE(20)} bit ${b[24]} type ${b[25]} (cần ${w}×${h}, type ${colorType})`);
-}
-
 const browser = await chromium.launch();
 const out = await browser.newPage({ deviceScaleFactor: 1 });
+let n = 0, phone;
 for (const lang of LANGS) {
   if (!SCREENS[0][lang]) throw new Error('Chưa có chữ cho ngôn ngữ ' + lang);
-  fs.mkdirSync(`${OUT}/${lang}`, { recursive: true });
-  const shots = [];
-  for (const dark of [false, true]) {
-    const list = SCREENS.map((s, i) => [s, i]).filter(([s]) => !!s.dark === dark);
-    if (!list.length) continue;
-    const { ctx, page, url } = await appContext(browser, lang, dark);
-    for (const [s, i] of list) { shots[i] = await shoot(page, url, s); console.log(`· ${lang} ${i + 1} #/${s.r}`); }
-    await ctx.close();
+  for (const d of ['play', 'appstore']) fs.mkdirSync(`${OUT}/${d}/${lang}`, { recursive: true });
+  for (const kind of ['phone', 'tablet']) {
+    const shots = []; if (kind === 'phone') phone = shots;
+    for (const dark of [false, true]) {
+      const list = SCREENS.map((s, i) => [s, i]).filter(([s]) => !!s.dark === dark);
+      if (!list.length) continue;
+      const { ctx, page, url } = await appContext(browser, lang, dark, kind);
+      for (const [s, i] of list) { shots[i] = await shoot(page, url, s); console.log(`· ${lang} ${kind} ${i + 1} #/${s.r}`); }
+      await ctx.close();
+    }
+    for (const [name, t] of Object.entries(TARGETS).filter(([, t]) => t.kind === kind)) {
+      for (let i = 0; i < SCREENS.length; i++) {
+        const [kick, title, sub] = SCREENS[i][lang], chip = SCREENS[i].chip?.[lang];
+        const file = t.os === 'android' ? `${OUT}/play/${lang}/phone-${i + 1}.png` : `${OUT}/appstore/${lang}/${name}-${i + 1}.png`;
+        await framePortrait(out, t, { lang, kick, title, sub, chip, shot: shots[i], file }); n++;
+      }
+    }
   }
-  for (let i = 0; i < SCREENS.length; i++) await frame(out, lang, i, shots[i]);
-  await feature(out, lang);
+  await feature(out, lang, phone[0], phone[SCREENS.findIndex(x => x.r === 'streak')]); checkPng(`${OUT}/play/${lang}/feature-1024x500.png`, 1024, 500, 2); n++;
 }
 await browser.close();
 // Play bắt buộc icon 32-bit có alpha; brand/ có thể là PNG bảng màu (kiểu 3) → đổi sang RGBA, giữ nguyên điểm ảnh
-fs.writeFileSync(`${OUT}/icon-512.png`, toRgbaPng(fs.readFileSync('brand/lexkite-icon-512.png')));
-
-checkPng(`${OUT}/icon-512.png`, 512, 512, 6); // Play: icon 512×512 PNG 32-bit (có alpha)
-let n = 0;
-for (const lang of LANGS) {
-  for (let i = 1; i <= SCREENS.length; i++) { checkPng(`${OUT}/${lang}/phone-${i}.png`, W, H, 2); n++; }
-  checkPng(`${OUT}/${lang}/feature-1024x500.png`, 1024, 500, 2); n++;
-}
-if (n !== LANGS.length * (SCREENS.length + 1)) throw new Error('✗ thiếu ảnh');
+fs.writeFileSync(`${OUT}/play/icon-512.png`, toRgbaPng(fs.readFileSync('brand/lexkite-icon-512.png')));
+checkPng(`${OUT}/play/icon-512.png`, 512, 512, 6);
+const want = LANGS.length * (SCREENS.length * Object.keys(TARGETS).length + 1);
+if (n !== want) throw new Error(`✗ chỉ có ${n}/${want} ảnh`);
 console.log(`✓ ${n} ảnh + icon → ${OUT}`);

@@ -1,0 +1,46 @@
+# 🧩 Ma trận hành trình trên thanh 5 tab: 390/1440 px × sáng/tối, Back/Esc/X, mạng chậm, ngoại tuyến, trạng thái rỗng, 15 ngôn ngữ – scripts/test/journey-matrix.mjs · docs/QUALITY-SWEEP.md § journey-matrix
+# Hermetic: dist cục bộ, /api/* giả lập trong tiến trình, host ngoài = rỗng, ?sandbox=1 hoặc tài khoản Firebase GIẢ → 0 lượt chạm prod, 0 tài khoản thật.
+# 3 shard (mỗi shard ~5–7 phút, tổng dưới ~20 phút runner). Đỏ khi có lỗi hoặc 0 bước được chạy. Ảnh lỗi + summary: artifact journey-matrix-<shard>.
+name: Journey matrix
+on:
+  pull_request:
+    paths: ['web/**', 'scripts/build-web.sh', 'scripts/test/journey-matrix.mjs', 'scripts/test/journey-matrix/**', 'scripts/test/journey-e2e/checks.js', 'scripts/quality/serve.mjs', '.github/workflows/journey-matrix.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: journey-matrix-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  matrix:
+    name: ${{ matrix.shard }}
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [phone, desktop, edge]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/no-prod
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - name: Build dist
+        run: |
+          npm ci --no-audit --no-fund
+          bash scripts/build-web.sh >/dev/null
+      - name: Cài Playwright
+        timeout-minutes: 15
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.50.1
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
+      - name: Ma trận ${{ matrix.shard }}
+        run: node scripts/test/journey-matrix.mjs --root dist --shard ${{ matrix.shard }} --out jm-out
+      - name: Tóm tắt
+        if: always()
+        run: cat jm-out/summary.md >> "$GITHUB_STEP_SUMMARY" 2>/dev/null || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: 'journey-matrix-${{ matrix.shard }}', path: jm-out/, retention-days: 7, if-no-files-found: ignore }

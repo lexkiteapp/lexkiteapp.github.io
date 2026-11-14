@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_two_brothers",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Two needs an s!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have two brother.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have two brothers.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After two, add s.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Cats! She has three cats.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have two brother.",
+  "right": "I have two brothers.",
+  "strike": "brother",
+  "why": "After two, add s.",
+  "memory": "Two brothers.",
+  "quiz": {
+   "stem": "She has three ___.",
+   "options": [
+    "cat",
+    "cats"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Sayıdan sonra -s unutulmasın!",
+   "tip": "Türkçede “iki kardeş” deriz ama İngilizcede sayıdan sonra çoğul gerekir.",
+   "caption": "“I have two brother.” mi diyorsun? 😅 Türkçede sayıdan sonra çoğul eki gelmez ama İngilizcede gelir. Doğrusu “I have two brothers.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “cats”. İkiden sonra s ekle. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do not forget -s after a number!",
+   "tip": "Turkish does not pluralize after numbers, but English does.",
+   "caption": "Do you say “I have two brother.”? 😅 Turkish skips the plural after a number, but English does not. The right sentence is “I have two brothers.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sayıdan sonra -s unutulmasın!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Sayıdan sonra -s unutulmasın!",
+  "keyword": "I have two brothers.",
+  "value": "Türkçede “iki kardeş” deriz ama İngilizcede sayıdan sonra çoğul gerekir.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Sayıdan sonra -s unutulmasın!",
+    "description": "“I have two brother.” mi diyorsun? 😅 Türkçede sayıdan sonra çoğul eki gelmez ama İngilizcede gelir. Doğrusu “I have two brothers.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I have two brothers.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I have two brother.” mi diyorsun? 😅 Türkçede sayıdan sonra çoğul eki gelmez ama İngilizcede gelir. Doğrusu “I have two brothers.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I have two brother.” mi diyorsun? 😅 Türkçede sayıdan sonra çoğul eki gelmez ama İngilizcede gelir. Doğrusu “I have two brothers.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Sayıdan sonra -s unutulmasın! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “cats”. İkiden sonra s ekle. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}

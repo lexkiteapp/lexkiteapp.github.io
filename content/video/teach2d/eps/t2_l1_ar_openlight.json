@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_openlight",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Turn on the light!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please open the light.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please turn on the light.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say turn on the light.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Turn! Please turn on the light.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please open the light.",
+  "right": "Please turn on the light.",
+  "strike": "open",
+  "why": "Say turn on the light.",
+  "memory": "Turn on the light.",
+  "quiz": {
+   "stem": "Please ___ on the light.",
+   "options": [
+    "open",
+    "turn"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “open the light”؟",
+   "tip": "للضوء نقول turn on وليس open: “Please turn on the light.” وليس “Please open the light.”.",
+   "caption": "هل تقول أحيانًا “Please open the light.” 😅 للضوء نقول turn on وليس open، فالجملة الصحيحة “Please turn on the light.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “turn”. للضوء نقول turn on وليس open. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “Please open the light”?",
+   "tip": "For a light we say turn on, not open: “Please turn on the light.” not “Please open the light.”.",
+   "caption": "Do you sometimes say “Please open the light.” 😅 For a light we say turn on, not open, so the right sentence is “Please turn on the light.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “open the light”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "هل تقول “open the light”؟",
+  "keyword": "Please turn on the light.",
+  "value": "للضوء نقول turn on وليس open: “Please turn on the light.” وليس “Please open the light.”.",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “open the light”؟",
+    "description": "هل تقول أحيانًا “Please open the light.” 😅 للضوء نقول turn on وليس open، فالجملة الصحيحة “Please turn on the light.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "Please turn on the light.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “Please open the light.” 😅 للضوء نقول turn on وليس open، فالجملة الصحيحة “Please turn on the light.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “Please open the light.” 😅 للضوء نقول turn on وليس open، فالجملة الصحيحة “Please turn on the light.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “open the light”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “turn”. للضوء نقول turn on وليس open. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

@@ -293,6 +293,8 @@
     if (r && r.gone) { ls.set(key, null); return resub().catch(() => {}); } // máy chủ đã xóa (hết hạn) → đăng ký lại
     if (!(r instanceof Error)) ls.set(key, n);
   }
+  // ---------- Email nhắc học / tổng kết tuần (opt-in): logic ở cpack/mail-app/mail.js, nạp khi có bật hoặc người dùng bật công tắc ----------
+  const mailSync = async force => { const s = state.settings; if (!force && s.emailRemind !== true && s.emailDigest !== true) return false; try { await App.need('mail'); return await g.MailSync({ state, ls, BASE, OFF, EXT, where, todayKey }, force); } catch (e) { return false; } };
   // ---------- App gốc: FCM (cờ FCM_ON) – chỉ kéo lại sau ≥ 3 ngày không mở app + tiến bộ tuần; nhắc hằng ngày vẫn là lịch cục bộ ----------
   // Chỉ dùng FCM khi CẢ BA: bản app có plugin (fcmCapable), máy chủ báo Worker gửi được (cfg.fcm), lấy được token trong 8 giây. Thiếu 1 → lịch cục bộ đủ 14 ngày.
   const FM = () => (NATIVE && fcmCapable(g.Capacitor) && g.Capacitor.Plugins.FirebaseMessaging) || null;
@@ -368,7 +370,7 @@
     if (EXT || NATIVE) return;
     if ('Notification' in g) permNote(Notification.permission); // người dùng chặn/mở lại trong cài đặt trình duyệt → đếm 1 lần
     if (!(tick.n++ % 30)) await nextLoad();
-    const p = build(Date.now(), false, true); syncMeta(p).catch(() => {}); touch().catch(() => {});
+    const p = build(Date.now(), false, true); syncMeta(p).catch(() => {}); touch().catch(() => {}); mailSync().catch(() => {});
     // Thời điểm vàng (giữ nguyên hành vi cũ, tôn trọng giờ yên lặng)
     const Golden = g.Core.Golden;
     if (s.goldenOn && Golden && !Golden.quiet(s) && 'Notification' in g && Notification.permission === 'granted') {
@@ -396,5 +398,5 @@
   tick.n = 0;
   let started = false;
   function start() { if (started) return; started = true; tick().catch(() => {}); setInterval(() => tick().catch(() => {}), 60e3); }
-  Object.assign(P, { native, notify, start, tick, build, noteStart, subscribe, unsubscribe, pushState, pushKey, softAsk, ev, touch, opened, permNote });
+  Object.assign(P, { mailSync, native, notify, start, tick, build, noteStart, subscribe, unsubscribe, pushState, pushKey, softAsk, ev, touch, opened, permNote });
 })(typeof self !== 'undefined' ? self : this);

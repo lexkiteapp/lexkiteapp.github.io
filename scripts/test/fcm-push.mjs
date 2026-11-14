@@ -104,7 +104,9 @@ ok(W.fcmResult(200) === 'ok' && W.fcmResult(404, '') === 'gone' && W.fcmResult(4
 'fcmResult: token chết → xóa; lỗi payload/tạm của ta → giữ người dùng (trước 05/11 mọi INVALID_ARGUMENT xóa đăng ký)');
 { const calls = []; const f1 = globalThis.fetch; globalThis.fetch = async (u, i) => { calls.push([String(u), i && i.body]); return new Response('{"web":[],"fcm":[]}', { status: 200 }); };
   await W.run({ API: 'https://x.test', PUSH_CRON_SECRET: 's' }); await W.run({ API: 'https://x.test', PUSH_CRON_SECRET: 's', FCM_SA: '{}' }); globalThis.fetch = f1;
-  ok(JSON.parse(calls[0][1]).fcm === 0 && JSON.parse(calls[1][1]).fcm === 1, 'Worker báo máy chủ có FCM_SA hay không (nhịp)'); }
+  const pc = calls.filter(c => c[0].endsWith('/api/push'));
+  ok(JSON.parse(pc[0][1]).fcm === 0 && JSON.parse(pc[1][1]).fcm === 1, 'Worker báo máy chủ có FCM_SA hay không (nhịp)');
+  ok(calls.filter(c => c[0].endsWith('/api/mail') && JSON.parse(c[1]).op === 'tick').length === 2, 'mỗi lượt cron gọi thêm /api/mail tick (email opt-in)'); }
 
 // ---------- Máy khách (web/js/remind.js phần app gốc, vm + giả lập Capacitor) ----------
 const RSRC = fs.readFileSync('web/js/remind.js', 'utf8');

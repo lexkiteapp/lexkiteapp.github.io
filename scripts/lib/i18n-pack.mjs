@@ -23,7 +23,7 @@ export const srcPath = (lang, group) => (group ? `${SRC}/${lang}/${group}.js` : 
 // Nhóm nội dung nút Lộ trình: gói chạy nằm ở web/cpack (giữ gói ngôn ngữ web/js dưới langPackMax; tiền lệ #788) – nguồn và bản en vẫn như mọi nhóm; đường dẫn đủ chữ ở App.pathnPack (web/js/app.js) để build-cpack thay mã băm.
 export const CPACK_GROUP = 'pathn';
 // 10/11: criteria + confidence (nhóm lazy nặng, chỉ nạp cùng gói màn của chúng) cũng ra web/cpack/i18n/<nhóm>-<lang>.js – gói hi/th trở lại dưới 90 % langPackMax (đường dẫn viết đủ ở App.cpackI18n, web/js/app.js)
-export const CPACK_I18N = ['criteria', 'confidence'];
+export const CPACK_I18N = ['criteria', 'confidence', 'rhythm'];
 export const outPath = (lang, group) => (group === CPACK_GROUP ? `web/cpack/lesson/pn-${lang}.js` : CPACK_I18N.includes(group) ? `web/cpack/i18n/${group}-${lang}.js` : group ? `${OUT}/${lang}/${group}.js` : `${OUT}/${lang}.js`);
 
 /** Chạy một tệp từ điển (định dạng D[l] = Object.assign(…)) → từ điển của ngôn ngữ đầu tiên trong tệp. */
@@ -47,8 +47,11 @@ export const loadSrc = (lang, group) => loadDictFile(srcPath(lang, group));
 export function srcText(lang, group, dict) {
   const head = group ? `/* UI ${lang} – ${group} (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */`
     : `/* UI ${lang} – nguồn (dịch máy từ en.js bằng scripts/gen-i18n.mjs, hiệu đính tay được; chạy lại chỉ dịch khóa mới). Sau khi sửa: node scripts/i18n-pack.mjs. */`;
-  return `${head}\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D[${JSON.stringify(lang)}] = Object.assign(D[${JSON.stringify(lang)}] || {}, ${JSON.stringify(dict, null, 0)});\n})(typeof self !== 'undefined' ? self : this);\n`;
+  return `${head}\n(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D[${JSON.stringify(lang)}] = Object.assign(D[${JSON.stringify(lang)}] || {}, {\n${srcBody(dict)}});\n})(typeof self !== 'undefined' ? self : this);\n`;
 }
+/** Thân từ điển nguồn: MỖI KHÓA MỘT DÒNG, sắp theo khóa, dòng nào cũng có dấu phẩy cuối – hai PR thêm khóa khác nhau không bao giờ sửa cùng dòng
+ *  (trước 10/11 cả tệp là MỘT dòng JSON → mọi PR thêm bản dịch xung đột nhau). Kiểm: node scripts/fmt-stable.mjs --check. */
+export const srcBody = dict => Object.keys(dict).sort().map(k => `${JSON.stringify(k)}:${JSON.stringify(dict[k])},\n`).join('');
 export const writeSrc = (lang, group, dict) => { const f = path.join(ROOT, srcPath(lang, group)); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, srcText(lang, group, dict)); };
 
 /** Khóa nguyên câu không được nằm trong không gian băm "_[0-9a-z]+": add-on tra băm TRƯỚC (nền en của nó giữ khóa nguyên câu). */

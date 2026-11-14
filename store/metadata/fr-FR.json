@@ -16,6 +16,8 @@
     ],
     "research": "2026-10-31 : suggestions de l'App Store (France), top 30 de Google Play (hl=fr, gl=FR) et Google suggest. Lexkite n'est pas dans le top 30 pour ces termes."
   },
+  "whatsNew": "Nouveautés de la 1.1\n• Aujourd'hui : un plan clair de 5 à 10 minutes chaque jour\n• Accueil chaleureux et révision rapide après une pause\n• Bilan hebdomadaire de ta progression\n• Nouveaux jeux de rôle : entretien d'embauche et demande d'augmentation\n• Carnet d'erreurs intelligent avec mini-test\n• Jeu de rythme : tape en cadence sur des phrases anglaises\n• Plus fluide et réactive, nombreux bugs corrigés",
+  "whatsNewNative": "Lexkite 2.0 : entièrement reconstruite en application native.\n• Plus rapide, plus fluide et plus économe en batterie\n• Nouveau design avec un programme clair pour aujourd'hui\n• Expression orale : retour sur la prononciation, jeux de rôle et mode mains libres\n• Appels d'entraînement avec votre professeur IA\n• Entraînement à l'écrit avec correction immédiate\n• Votre progression est conservée automatiquement\n• Nombreuses corrections de bugs",
   "play": {
     "title": "Lexkite : vocabulaire anglais",
     "shortDescription": "Vocabulaire anglais : flashcards, dictionnaire et mots pour l'IELTS et le TOEIC",

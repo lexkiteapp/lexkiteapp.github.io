@@ -30,6 +30,8 @@ node scripts/test/speak-split.mjs
 node scripts/test/speak.mjs
 node scripts/test/i18n-single.mjs
 node scripts/test/i18n-pack.mjs
+node scripts/test/fmt-stable.mjs
+node scripts/test/gen-guard.mjs
 node scripts/test/lexicon-expand.mjs
 node scripts/test/sentence-asr.mjs
 node scripts/test/i18n-english.mjs
@@ -74,6 +76,7 @@ node scripts/test/next-step.mjs
 node scripts/confidence/build.mjs
 node scripts/test/confidence.mjs
 node scripts/test/lesson.mjs
+node scripts/test/mic-exclusive.mjs
 node scripts/factory/build-grammar-bank.mjs --check
 node scripts/test/content-factory.mjs
 node scripts/test/ux1.mjs
@@ -81,6 +84,7 @@ node scripts/test/ux1-rollout.mjs
 node scripts/test/pron-gop.mjs
 node scripts/test/pron-pairs.mjs
 node scripts/test/pron-coach.mjs
+node scripts/test/pron-shadow.mjs
 node scripts/test/call-engine.mjs
 node scripts/test/feedback-eval.mjs
 node scripts/test/route-race.mjs
@@ -117,6 +121,7 @@ node scripts/test/d1-cap.mjs
 node scripts/test/sessions-scan-gate.mjs
 node scripts/capacity/admin-sim.mjs
 node scripts/test/free-tier.mjs
+node scripts/test/vocab-img-free-sheet.mjs
 node scripts/test/pages-skip.mjs
 node scripts/test/sync-pack.mjs
 node scripts/test/target-lang.mjs
@@ -124,6 +129,8 @@ node scripts/test/es-conjugate.mjs
 node scripts/test/sync-ctx.mjs
 node scripts/test/schema-lock.mjs
 node scripts/test/analytics.mjs
+node scripts/test/retention-admin.mjs
+node scripts/test/mail-digest.mjs
 node scripts/test/d1-scan.mjs
 node scripts/test/drive.mjs
 node scripts/test/ci-triage.mjs
@@ -131,7 +138,9 @@ node scripts/test/required-gate.mjs
 node scripts/test/drive-ui.mjs
 node scripts/test/jobs-check.mjs
 node scripts/test/ci-filler.mjs
+node scripts/test/ci-autopilot.mjs
 node scripts/test/cron-watch.mjs
+node scripts/test/vimg-watch.mjs
 node scripts/test/cron-kick.mjs
 node scripts/test/ci-hog.mjs
 node scripts/test/queue-report.mjs
@@ -167,6 +176,8 @@ node scripts/test/admin-gate.mjs
 node scripts/test/pr-check.mjs
 node scripts/test/library.mjs
 node scripts/test/anki.mjs
+node scripts/test/importdeck.mjs
+node scripts/test/readable.mjs
 node scripts/test/video.mjs
 node scripts/test/video-templates.mjs
 node scripts/test/capsplit.mjs
@@ -237,6 +248,7 @@ node scripts/test/brand-check.mjs
 node scripts/test/token-contrast.mjs
 node scripts/stitch-sync-palette.mjs --check
 node scripts/social/build-channel-kit.mjs --check
+node scripts/social/build-page-info.mjs --check
 node scripts/test/characters-gate.mjs
 node scripts/test/teacher-native.mjs
 node scripts/test/samples-ui.mjs
@@ -259,6 +271,7 @@ node scripts/test/authority-pages.mjs
 node scripts/test/seo-twin.mjs
 node scripts/test/dict-pages.mjs
 node scripts/test/dict-stage.mjs
+node scripts/test/dict-enrich.mjs
 node scripts/test/native-auth.mjs
 node scripts/test/ota.mjs
 node scripts/test/crashlytics.mjs
@@ -303,6 +316,7 @@ node scripts/test/whisper-det.mjs
 node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
 node scripts/test/vocab-img-judge-budget.mjs
+node scripts/test/vocab-img-worth.mjs
 node scripts/test/lastmod.mjs
 node scripts/test/outcomes.mjs
 node scripts/test/today-debt.mjs
@@ -319,6 +333,7 @@ node scripts/test/i18n-native-score.mjs
 node scripts/test/cambridge.mjs
 node scripts/test/teacher-rig.mjs
 node scripts/test/teach2d-rig.mjs
+node scripts/test/teach2d-l1.mjs
 node scripts/test/workflow-yaml.mjs
 node scripts/test/workflow-call-perms.mjs
 node scripts/test/push-main.mjs
@@ -355,6 +370,7 @@ node scripts/test/site-footer.mjs
 node scripts/test/v2pre-ring.mjs
 node scripts/test/zombie-pages.mjs
 node scripts/test/ci-guards.mjs
+node scripts/test/workflow-cd-paths.mjs
 node scripts/test/apt-install.mjs
 node scripts/test/perf-median.mjs
 node scripts/test/pr-unconflict.mjs
@@ -373,5 +389,28 @@ node scripts/test/es-practice.mjs
 node scripts/test/es-pron.mjs
 node scripts/test/es-path.mjs
 node scripts/test/ext-version.mjs
+node scripts/test/skills-hub.mjs
 node scripts/test/phrasebook.mjs
 node scripts/test/native-strings-locked.mjs
+node scripts/audit/score.mjs --self-test
+node scripts/test/suite-shards.mjs
+node scripts/test/install-sheet.mjs
+node scripts/build-go.mjs --check
+node scripts/test/go-landing.mjs
+node scripts/test/mistake-variant.mjs
+node scripts/test/adsense-hygiene.mjs
+node scripts/test/play-duel.mjs
+node scripts/test/play-rhythm.mjs
+node scripts/test/play-rhythm-run.mjs
+node scripts/test/funnel.mjs
+node scripts/test/share-link.mjs
+node scripts/test/stitch-theme-lint.mjs
+node scripts/test/referral.mjs
+node scripts/test/pwa-installable.mjs
+node scripts/test/addon-listings.mjs
+node scripts/test/rate-prompt.mjs
+node scripts/test/mobile-www-slim.mjs
+node scripts/test/yt-stats.mjs
+node scripts/test/yt-stats-op.mjs
+node scripts/test/social-stats-ui.mjs
+node scripts/test/l1-notes.mjs

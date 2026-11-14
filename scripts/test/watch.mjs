@@ -43,7 +43,7 @@ for (const lv of [1, 2, 3, 4, 5, 6]) ok(W.TOPICS.filter(tp => tp.lv[0] <= lv && 
 // ---------- Nối gói lười + i18n + luật điều khoản ----------
 const app = read('web/js/app.js'), b = (app.match(/\n\s+watch: (\[[^\]]+\])/) || [])[1];
 ok(b && JSON.parse(b.replace(/'/g, '"')).every(f => fs.existsSync(new URL('../../web/' + f, import.meta.url))), 'BUNDLES.watch tồn tại và mọi file có thật');
-ok(/ROUTE_BUNDLE = \{[^\n]*\bwatch: 'watch'/.test(app) && /BCSS = \{[^\n]*watch: 'css\/watch\.css'/.test(app), 'ROUTE_BUNDLE + BCSS cho watch');
+ok(/ROUTE_BUNDLE = \{[^}]*\bwatch: 'watch'/.test(app) && /BCSS = \{[^}]*watch: 'css\/watch\.css'/.test(app), 'ROUTE_BUNDLE + BCSS cho watch');
 ok(/^LAZY="[^"]*\bwatch\b/m.test(read('scripts/build-i18n.sh')), 'watch thuộc nhóm i18n tải lười');
 ok(/#\/watch/.test(read('web/js/hubs.js')), 'lối vào #/watch ở Kỹ năng → Nghe');
 const src = read('web/js/watch.js') + read('functions/api/watch.js');

@@ -1,3 +1,30 @@
-/* UI de – goal (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {"Điểm ước tính":"Geschätzte Punktzahl","{p}% sẵn sàng":"{p} % bereit","Chưa có điểm ước tính":"Noch keine geschätzte Punktzahl","Làm một bài thi thử để Lexkite ước tính điểm hiện tại, mức sẵn sàng và kỹ năng cần luyện.":"Mach eine Probeprüfung, damit Lexkite deine aktuelle Punktzahl, deine Bereitschaft und die zu übenden Fertigkeiten einschätzt.","Làm bài kiểm tra trình độ":"Einstufungstest machen","Thi thử ngay":"Jetzt Probeprüfung","Chẩn đoán từng kỹ năng":"Analyse je Fertigkeit","Cần luyện thêm":"Mehr üben","Đạt nhịp mục tiêu":"Auf Kurs","{n} chọn cho bạn":"Von {n} ausgewählt","Luyện {s} có trọng tâm":"Gezieltes Training: {s}","Kỹ năng thấp nhất của bạn – luyện 5 phút mỗi ngày để kéo điểm tổng lên.":"Deine schwächste Fertigkeit – übe 5 Minuten pro Tag, um deine Gesamtpunktzahl zu steigern.","Thi thử tiếp theo: {date}":"Nächste Probeprüfung: {date}","Thi thử ngay tuần này để đo điểm":"Mach diese Woche eine Probeprüfung, um deine Punktzahl zu messen","Còn {n} ngày đến kỳ thi":"Noch {n} Tage bis zur Prüfung","~{h} giờ luyện còn lại":"~{h} Std. Lernzeit übrig","Phần 3–4: bám ý người nói":"Teile 3–4: dem Sprecher folgen","Đọc lướt tìm ý nhanh":"Schnelles Überfliegen nach Hauptideen","Task 2: liên kết ý":"Task 2: Kohäsion","Trôi chảy & từ nối":"Flüssigkeit & Konnektoren","Khoảng cách":"Abstand","Trọng tâm:":"Schwerpunkt:","Đủ 4 kỹ năng":"Alle 4 Fertigkeiten","Dự báo tổng":"Gesamtprognose","Tối thiểu":"Min.","Tối đa":"Max."});
+/* UI de – goal (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {
+"Chưa có điểm ước tính":"Noch keine geschätzte Punktzahl",
+"Chẩn đoán từng kỹ năng":"Analyse je Fertigkeit",
+"Còn {n} ngày đến kỳ thi":"Noch {n} Tage bis zur Prüfung",
+"Cần luyện thêm":"Mehr üben",
+"Dự báo tổng":"Gesamtprognose",
+"Khoảng cách":"Abstand",
+"Kỹ năng thấp nhất của bạn – luyện 5 phút mỗi ngày để kéo điểm tổng lên.":"Deine schwächste Fertigkeit – übe 5 Minuten pro Tag, um deine Gesamtpunktzahl zu steigern.",
+"Luyện {s} có trọng tâm":"Gezieltes Training: {s}",
+"Làm bài kiểm tra trình độ":"Einstufungstest machen",
+"Làm một bài thi thử để Lexkite ước tính điểm hiện tại, mức sẵn sàng và kỹ năng cần luyện.":"Mach eine Probeprüfung, damit Lexkite deine aktuelle Punktzahl, deine Bereitschaft und die zu übenden Fertigkeiten einschätzt.",
+"Phần 3–4: bám ý người nói":"Teile 3–4: dem Sprecher folgen",
+"Task 2: liên kết ý":"Task 2: Kohäsion",
+"Thi thử ngay":"Jetzt Probeprüfung",
+"Thi thử ngay tuần này để đo điểm":"Mach diese Woche eine Probeprüfung, um deine Punktzahl zu messen",
+"Thi thử tiếp theo: {date}":"Nächste Probeprüfung: {date}",
+"Trôi chảy & từ nối":"Flüssigkeit & Konnektoren",
+"Trọng tâm:":"Schwerpunkt:",
+"Tối thiểu":"Min.",
+"Tối đa":"Max.",
+"{n} chọn cho bạn":"Von {n} ausgewählt",
+"{p}% sẵn sàng":"{p} % bereit",
+"~{h} giờ luyện còn lại":"~{h} Std. Lernzeit übrig",
+"Điểm ước tính":"Geschätzte Punktzahl",
+"Đạt nhịp mục tiêu":"Auf Kurs",
+"Đọc lướt tìm ý nhanh":"Schnelles Überfliegen nach Hauptideen",
+"Đủ 4 kỹ năng":"Alle 4 Fertigkeiten",
+});
 })(typeof self !== 'undefined' ? self : this);
