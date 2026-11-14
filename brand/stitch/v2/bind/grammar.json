@@ -1,19 +1,16 @@
 {
- "_doc": "Màn Ngữ pháp (#/grammar, hub + danh sách bài) – d do web/js/grammar.js (hubData) dựng từ dữ liệu thật. Đầu trang + thanh tab chung (tab Kỹ năng) do shell.js; đầu trang riêng của mẫu (Back + tiêu đề + số bài) giữ trong nội dung, không dính. Chỗ mới của mục cũ không có trong mẫu: vòng tiến độ → thanh tiến độ; mô tả hub → đoạn chữ cuối thẻ tiến độ; tên Anh/mô tả bài kế → dòng phụ; chương gập mở (details) có mô tả + tiến độ; đề tổng hợp 40 câu + Chia động từ + Sửa ngữ pháp → cùng khuôn thẻ 'Mixed test' (d.cards, thẻ là liên kết).",
+ "_doc": "Màn Ngữ pháp (#/grammar, hub + danh sách bài) – d do web/js/grammar.js (hubData) dựng từ dữ liệu thật. Khung \"inner\" (frame-variants.json): thanh trên + 5 tab chung của app (Back của thanh trên), KHÔNG dựng đầu trang/tab Stitch (tab = null, bỏ st/v2on như vocab-hub); nút Back riêng của mẫu bỏ (thanh trên đã có), giữ tiêu đề + số bài. Màu theo token v2.1 (frame-consistency). Chỗ mới của mục cũ không có trong mẫu: vòng tiến độ → thanh tiến độ; mô tả hub → đoạn chữ cuối thẻ tiến độ; tên Anh/mô tả bài kế → dòng phụ; chương gập mở (details) có mô tả + tiến độ; đề tổng hợp 40 câu + Chia động từ + Sửa ngữ pháp → cùng khuôn thẻ 'Mixed test' (d.cards, thẻ là liên kết).",
  "swap": {
   "w-[390px]": "w-full",
-  "max-w-[390px]": "max-w-3xl",
+  "max-w-[390px]": "",
   "min-h-screen": "min-h-0",
   "sticky": "",
   "top-0": "",
   "z-30": "",
-  "pb-10": "pt-14 pb-20"
+  "pb-10": "pb-4",
+  "text-[20px]": ""
  },
  "attr": {
-  ":scope > main > header > button": {
-   "aria-label": "t('Quay lại')",
-   "data-gh": "'back'"
-  },
   ":scope > main > div > div:nth-child(1) > div:nth-child(1)": {
    "role": "'progressbar'",
    "aria-valuemin": "0",
@@ -38,12 +35,11 @@
   }
  },
  "addClass": {
-  ":scope > main > header > button > span": "rtl:-scale-x-100",
   ":scope > main > header > div": "min-w-0",
   ":scope > main > header > div > p": "[overflow-wrap:anywhere]",
-  ":scope > main > div": "w-full",
   ":scope > main > div > div:nth-child(2)": "pb-1",
-  ":scope > main > div > div:nth-child(1) > button": "min-h-[48px]"
+  ":scope > main > div > div:nth-child(1) > button": "min-h-[48px]",
+  ":scope > main > header > div > h1": "[font-family:var(--font-display)]"
  },
  "text": {
   "Grammar": "d.title",
@@ -53,8 +49,8 @@
   "Start now": "d.cta"
  },
  "after": {
-  ":scope > main > div > div:nth-child(1) > h2": "d.nx && d.nx.sub ? '<p class=\"text-[13px] font-semibold leading-snug lt:text-[#496064] dk:text-[#BFD3D0]\">' + e(d.nx.sub) + '</p>' : ''",
-  ":scope > main > div > div:nth-child(1) > button": "'<p class=\"text-[12px] font-semibold leading-snug lt:text-[#496064] dk:text-[#BFD3D0]\">' + e(d.blurb) + '</p>'"
+  ":scope > main > div > div:nth-child(1) > h2": "d.nx && d.nx.sub ? '<p class=\"text-[13px] font-semibold leading-snug lt:text-[#45555A] dk:text-[#A3B9B7]\">' + e(d.nx.sub) + '</p>' : ''",
+  ":scope > main > div > div:nth-child(1) > button": "'<p class=\"text-[12px] font-semibold leading-snug lt:text-[#45555A] dk:text-[#A3B9B7]\">' + e(d.blurb) + '</p>'"
  },
  "repeat": [
   {
@@ -117,7 +113,7 @@
      "tag": {
       ":scope": {
        "to": "a",
-       "addClass": "block min-h-[44px] lt:active:[background-color:#FFF8F3] dk:active:[background-color:#1D2F33]"
+       "addClass": "block min-h-[44px] lt:active:[background-color:#FBF7F1] dk:active:[background-color:#0E191C]"
       }
      },
      "attr": {
@@ -177,7 +173,7 @@
           }
          },
          "html": {
-          ":scope > span:nth-child(1)": "e(r.t) + (r.s ? '<small class=\"block text-[12px] font-semibold lt:text-[#496064] dk:text-[#BFD3D0]\">' + e(r.s) + '</small>' : '')",
+          ":scope > span:nth-child(1)": "e(r.t) + (r.s ? '<small class=\"block text-[12px] font-semibold lt:text-[#45555A] dk:text-[#A3B9B7]\">' + e(r.s) + '</small>' : '')",
           ":scope > span:nth-child(2)": "e(r.lv)",
           ":scope > span:nth-child(3)": "'✓ ' + e(r.pct) + '%'"
          },
@@ -201,7 +197,7 @@
           }
          },
          "html": {
-          ":scope > span:nth-child(1)": "e(r.t) + (r.s ? '<small class=\"block text-[12px] font-semibold lt:text-[#496064] dk:text-[#BFD3D0]\">' + e(r.s) + '</small>' : '')",
+          ":scope > span:nth-child(1)": "e(r.t) + (r.s ? '<small class=\"block text-[12px] font-semibold lt:text-[#45555A] dk:text-[#A3B9B7]\">' + e(r.s) + '</small>' : '')",
           ":scope > span:nth-child(2)": "e(r.lv)",
           ":scope > span:nth-child(3)": "e(r.pct) + '%'"
          },
@@ -225,7 +221,7 @@
           }
          },
          "html": {
-          ":scope > span:nth-child(1)": "e(r.t) + (r.s ? '<small class=\"block text-[12px] font-semibold lt:text-[#496064] dk:text-[#BFD3D0]\">' + e(r.s) + '</small>' : '')",
+          ":scope > span:nth-child(1)": "e(r.t) + (r.s ? '<small class=\"block text-[12px] font-semibold lt:text-[#45555A] dk:text-[#A3B9B7]\">' + e(r.s) + '</small>' : '')",
           ":scope > span:nth-child(2)": "e(r.lv)"
          },
          "addClass": {
@@ -246,12 +242,12 @@
           }
          },
          "html": {
-          ":scope > span:nth-child(1)": "e(r.t) + '<small class=\"block text-[12px] font-semibold lt:text-[#496064] dk:text-[#BFD3D0]\">' + e(r.s) + '</small>'",
+          ":scope > span:nth-child(1)": "e(r.t) + '<small class=\"block text-[12px] font-semibold lt:text-[#45555A] dk:text-[#A3B9B7]\">' + e(r.s) + '</small>'",
           ":scope > span:nth-child(2)": "'›'"
          },
          "addClass": {
           ":scope": "min-h-[48px] py-1 border-b-0",
-          ":scope > span:nth-child(1)": "min-w-0 flex-1 [overflow-wrap:anywhere] lt:!text-[#0F3D3E] dk:!text-[#5EEAD4]",
+          ":scope > span:nth-child(1)": "min-w-0 flex-1 [overflow-wrap:anywhere] lt:!text-[#0F3D3E] dk:!text-[#5FD0C4]",
           ":scope > span:nth-child(2)": "shrink-0 text-[18px] rtl:-scale-x-100"
          }
         }
@@ -259,7 +255,7 @@
       }
      ],
      "html": {
-      ":scope > h2": "'<span class=\"block min-w-0 flex-1\"><h2 class=\"text-[16px] font-extrabold leading-tight [overflow-wrap:anywhere]\">' + e(c.h) + '</h2>' + (c.desc ? '<span class=\"mt-0.5 block text-[12px] font-semibold leading-snug lt:text-[#496064] dk:text-[#BFD3D0]\">' + e(c.desc) + '</span>' : '') + '</span><span class=\"flex shrink-0 flex-col items-end gap-1\"><span class=\"text-[12px] font-extrabold lt:text-[#496064] dk:text-[#BFD3D0]\">' + e(c.dn) + '/' + e(c.total) + '</span><span class=\"block h-1.5 w-14 overflow-hidden rounded-full lt:bg-[#ECE4D7] dk:bg-[#37525A]\"><i class=\"block h-full rounded-full lt:bg-[#0F3D3E] dk:bg-[#5EEAD4]\" style=\"width:' + e(c.pct) + '%\"></i></span></span><svg class=\"h-5 w-5 shrink-0 transition-transform group-open:rotate-90 rtl:-scale-x-100\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg>'"
+      ":scope > h2": "'<span class=\"block min-w-0 flex-1\"><h2 class=\"text-[16px] font-extrabold leading-tight [overflow-wrap:anywhere]\">' + e(c.h) + '</h2>' + (c.desc ? '<span class=\"mt-0.5 block text-[12px] font-semibold leading-snug lt:text-[#45555A] dk:text-[#A3B9B7]\">' + e(c.desc) + '</span>' : '') + '</span><span class=\"flex shrink-0 flex-col items-end gap-1\"><span class=\"text-[12px] font-extrabold lt:text-[#45555A] dk:text-[#A3B9B7]\">' + e(c.dn) + '/' + e(c.total) + '</span><span class=\"block h-1.5 w-14 overflow-hidden rounded-full lt:bg-[#ECE4D7] dk:bg-[#1D2F33]\"><i class=\"block h-full rounded-full lt:bg-[#0F3D3E] dk:bg-[#5FD0C4]\" style=\"width:' + e(c.pct) + '%\"></i></span></span><svg class=\"h-5 w-5 shrink-0 transition-transform group-open:rotate-90 rtl:-scale-x-100\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg>'"
      },
      "attr": {
       ":scope": {
@@ -280,5 +276,12 @@
     }
    }
   }
- ]
+ ],
+ "remove": [
+  ":scope > main > header > button"
+ ],
+ "setClass": {
+  ":scope > main > header": "flex items-center gap-3 pb-3",
+  ":scope > main > div": "flex flex-col gap-4 w-full"
+ }
 }

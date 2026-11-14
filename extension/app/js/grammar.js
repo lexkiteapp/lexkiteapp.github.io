@@ -132,11 +132,11 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     if (id) return lesson(id, q);
     let gtab = 'all'; try { gtab = sessionStorage.getItem('g.tab') || 'all'; } catch (e) { /* bỏ qua */ }
     if (!FOCUS[gtab]) gtab = 'all';
-    const root = ST2.mount(view, 'grammar', hubData(done(), gtab), 'skills');
+    const root = ST2.mount(view, 'grammar', hubData(done(), gtab), null);
+    document.body.classList.remove('st', 'v2on'); // khung "inner": giữ thanh trên (Back) + 5 tab + lề #view chung của app (cùng cách tab Từ vựng) – ST2.mount bật st + v2on
     root.querySelectorAll('details[data-open="1"]').forEach(x => { x.open = true; }); // chương nên học tiếp mở sẵn (thuộc tính open không gắn được theo dữ liệu)
     root.addEventListener('click', e => {
-      const b = e.target.closest && e.target.closest('[data-gt],[data-gh]'); if (!b) return;
-      if (b.dataset.gh) { if (history.length > 1) history.back(); else location.hash = '#/skills'; return; }
+      const b = e.target.closest && e.target.closest('[data-gt]'); if (!b) return;
       try { sessionStorage.setItem('g.tab', b.dataset.gt); } catch (er) { /* bỏ qua */ } routes.grammar(null, null, true);
     });
     if (keepFocus) { const on = root.querySelector('[data-gt][aria-pressed="true"]'); if (on) on.focus(); } // vẽ lại cả trang khi đổi tab → trả tiêu điểm bàn phím về viên vừa chọn

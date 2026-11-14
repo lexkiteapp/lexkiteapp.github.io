@@ -6,25 +6,25 @@ import { loadContent } from '../lib/content-load.mjs';
 const read = f => fs.readFileSync(f, 'utf8'), src = read('web/js/grammar.js'), app = read('web/js/app.js'), gen = read('web/js/st/v2/grammar.js');
 const dict = { 'Tất cả {n} bài': 'All {n} lessons' };
 const mk = ({ lang = 'vi', done = {}, tab = null, hist = 2 } = {}) => {
-  const log = { mount: [], hash: [], back: 0, store: {}, toast: [] }, routes = {}, view = { innerHTML: '' };
+  const removed = [], log = { mount: [], hash: [], back: 0, store: {}, toast: [] }, routes = {}, view = { innerHTML: '' };
   const root = { listeners: {}, addEventListener(n, f) { this.listeners[n] = f; }, querySelectorAll: () => [], querySelector: () => null };
   const c = { console, Date, Math, JSON, Object, Array, Set, Map, String, Number, RegExp, Promise, Error, setTimeout, clearTimeout, URLSearchParams, encodeURIComponent };
   c.self = c.window = c; c.GRAMMAR = []; c.GRAMMAR_CHECK = {};
   c.t = (s, v) => String(dict[s] && lang !== 'vi' ? dict[s] : s).replace(/\{(\w+)\}/g, (m, k) => (v && v[k] != null ? v[k] : m));
   c.I18N = { lang: () => lang }; c.UI = { addIcons() {}, icon: n => `<i ${n}></i>`, esc: s => String(s), speak() {}, $: () => null, $$: () => [], shuffle: a => a };
   c.App = { state: { game: { grammarDone: done } }, routes, view, bindCommon() {}, lazy: async () => {}, reneed: async () => {}, reward() {}, onCleanup() {} };
-  c.document = { getElementById: () => ({}), createElement: () => ({ style: {} }), head: { appendChild() {} }, querySelector: () => null, querySelectorAll: () => [] };
+  c.document = { body: { classList: { remove: (...n) => removed.push(...n) } }, getElementById: () => ({}), createElement: () => ({ style: {} }), head: { appendChild() {} }, querySelector: () => null, querySelectorAll: () => [] };
   c.sessionStorage = { getItem: k => (k in log.store ? log.store[k] : null), setItem: (k, v) => { log.store[k] = v; } }; if (tab) log.store['g.tab'] = tab;
   c.history = { length: hist, back() { log.back++; } }; c.location = { set hash(v) { log.hash.push(v); } };
-  c.ST2 = { mount: (v, k, d, tabArg) => { assert.equal(k, 'grammar'); assert.equal(tabArg, 'skills', 'hub ngữ pháp thuộc tab Kỹ năng: đầu trang + thanh tab chung (journey-matrix kiểm 5 tab, đánh dấu skills)'); assert.ok(!('tabs' in d) && !('hdr' in d), 'd.tabs/d.hdr là của shell (ST2.mount gộp đè): chip lọc dùng d.chips – trùng tên làm thanh tab chung mất nhãn/liên kết'); log.mount.push(JSON.parse(JSON.stringify(d))); log.root = root; return root; } };
+  c.ST2 = { mount: (v, k, d, tabArg) => { assert.equal(k, 'grammar'); assert.equal(tabArg, null, 'khung inner: thanh trên + 5 tab chung của app, không dựng đầu trang/tab Stitch'); removed.push('mounted'); assert.ok(!('tabs' in d) && !('hdr' in d), 'd.tabs/d.hdr là của shell (ST2.mount gộp đè): chip lọc dùng d.chips – trùng tên làm thanh tab chung mất nhãn/liên kết'); log.mount.push(JSON.parse(JSON.stringify(d))); log.root = root; return root; } };
   const { GRAMMAR } = loadContent(); c.GRAMMAR = GRAMMAR; c.window.GRAMMAR_CHECK = {};
   vm.createContext(c); vm.runInContext(src, c, { filename: 'grammar.js' });
-  return { c, routes, log, root };
+  return { c, routes, log, root, removed };
 };
 const ids = h => h.rows.filter(r => !r.test).map(r => r.id);
 
 // 1. Gói nạp: khung + runtime + en/v2 trong gói riêng ghub (đứng TRƯỚC gói grammar), CSS riêng; không kéo vào gói grammar nặng
-assert.match(app, /ghub: \['js\/i18n\/en\/v2\.js', 'js\/st\/v2\/runtime\.js', 'js\/st\/v2\/shell\.js', 'js\/st\/v2\/grammar\.js'\]/);
+assert.match(app, /ghub: \['js\/i18n\/en\/v2\.js', 'js\/st\/v2\/runtime\.js', 'js\/st\/v2\/grammar\.js'\]/);
 assert.match(app, /\n\s+grammar: \['ghub', 'grammar', 'lfx'\],/); assert.match(app, /ghub: 'css\/st-v2-grammar\.css'/);
 assert.equal(app.slice(app.indexOf('const ROUTE_BUNDLE'), app.indexOf('};', app.indexOf('const ROUTE_BUNDLE'))).match(/\bgrammar:/g).length, 1, 'ROUTE_BUNDLE chỉ một khóa grammar');
 
@@ -65,10 +65,8 @@ for (const [k, n] of [['ielts', 15], ['toeic', 12]]) {
   root.listeners.click({ target: { closest: () => ({ dataset: { gt: 'all' } }) } }); assert.equal(log.mount[2].ch.length, 10); }
 { const { routes, log } = mk({ tab: 'bậy' }); routes.grammar(); assert.equal(log.mount[0].chips[0].on, true, 'tab lạ → về Tất cả'); }
 
-// 6. Nút Back (đầu trang mẫu): có lịch sử → quay lại, mở thẳng liên kết → về Kỹ năng
-{ const a = mk({ hist: 3 }); a.routes.grammar(); a.root.listeners.click({ target: { closest: () => ({ dataset: { gh: 'back' } }) } }); assert.equal(a.log.back, 1); assert.deepEqual(a.log.hash, []);
-  const b = mk({ hist: 1 }); b.routes.grammar(); b.root.listeners.click({ target: { closest: () => ({ dataset: { gh: 'back' } }) } }); assert.equal(b.log.back, 0); assert.deepEqual(b.log.hash, ['#/skills']);
-  const n = mk(); n.routes.grammar(); n.root.listeners.click({ target: { closest: () => null } }); assert.equal(n.log.mount.length, 1, 'bấm ngoài nút: không làm gì'); }
+// 6. Khung inner: bỏ st + v2on sau khi dựng (giữ thanh trên/5 tab/lề chung); bấm ngoài chip không làm gì
+{ const n = mk(); n.routes.grammar(); n.root.listeners.click({ target: { closest: () => null } }); assert.equal(n.log.mount.length, 1); assert.ok(n.removed.includes('st') && n.removed.includes('v2on'), 'bỏ st + v2on'); }
 
 // 7. Ngôn ngữ khác: không lẫn tiếng Việt – tên bài đã dịch hoặc tên Anh; tab "Tất cả" dịch; tên Anh phụ chỉ khi khác tên chính
 { const { routes, log } = mk({ lang: 'en' }); routes.grammar(); const d = log.mount[0], rows = d.ch.flatMap(c => c.rows).filter(r => !r.test);
@@ -78,7 +76,7 @@ for (const [k, n] of [['ielts', 15], ['toeic', 12]]) {
 // 8. Khung sinh dựng đủ mọi lối đi cũ cho dữ liệu thật; không còn class cũ trùng CSS chung (g-row/g-chap dùng chung với trang Khóa học)
 { const ST = { esc: s => String(s).replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m]) }, c = { self: {}, ST }; c.self.ST = ST; vm.createContext(c); vm.runInContext(gen, c); const ST2 = c.self.ST2;
   const { routes, log } = mk(); routes.grammar(); const d = log.mount[0], o = ST2.grammar(d, s => s, ST.esc), h = o.main;
-  assert.ok(h.includes('data-gh="back"') && h.includes('role="progressbar"') && h.includes(`aria-valuenow="${d.pct}"`));
+  assert.ok(!h.includes('data-gh') && h.includes('role="progressbar"') && h.includes(`aria-valuenow="${d.pct}"`));
   assert.equal((h.match(/data-gt="/g) || []).length, 3); assert.equal((h.match(/aria-pressed="true"/g) || []).length, 1);
   assert.equal((h.match(/<details /g) || []).length, 10); assert.ok(h.includes('id="chap1"') && h.includes('data-open="1"'));
   assert.equal((h.match(/data-grow="/g) || []).length, d.ch.flatMap(ids).length, 'mọi bài có hook data-grow (e2e) + liên kết');
