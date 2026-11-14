@@ -3266,5 +3266,7 @@
   "learn.conf.hoiCachNoiBang": "Preguntar cómo se dice algo en inglés",
   "learn.quick.choiNhanh15Giay": "Juego rápido de 15 segundos",
   "learn.grammar.dungRoiChiSai": "Correcto: solo un pequeño error de escritura",
-  "learn.grammar.vietDungLa": "Se escribe: {a}"
+  "learn.grammar.vietDungLa": "Se escribe: {a}",
+  "verb.irregularVerbs": "Verbos irregulares",
+  "verb.openIrregularTable": "Abrir la tabla de verbos irregulares"
 }

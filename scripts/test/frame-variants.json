@@ -73,6 +73,7 @@
   "train": {"variant": "inner", "surface": ["practice"]},
   "usage": {"variant": "inner", "surface": ["usage"]},
   "outcome": {"variant": "inner", "surface": ["placement"]},
+  "irregular": {"variant": "inner", "surface": ["verbs"]},
   "verb": {"variant": "inner", "surface": ["verbs"]},
   "vocab": {"variant": "hub", "surface": ["hub-vocab"]},
   "watch": {"variant": "inner", "surface": ["listening"]},

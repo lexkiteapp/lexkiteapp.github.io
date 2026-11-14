@@ -3266,5 +3266,7 @@
   "learn.conf.hoiCachNoiBang": "Fragen, wie man etwas auf Englisch sagt",
   "learn.quick.choiNhanh15Giay": "15-Sekunden-Schnellspiel",
   "learn.grammar.dungRoiChiSai": "Richtig – nur ein kleiner Tippfehler",
-  "learn.grammar.vietDungLa": "Richtige Schreibweise: {a}"
+  "learn.grammar.vietDungLa": "Richtige Schreibweise: {a}",
+  "verb.irregularVerbs": "Unregelmäßige Verben",
+  "verb.openIrregularTable": "Tabelle der unregelmäßigen Verben öffnen"
 }

@@ -3266,5 +3266,7 @@
   "learn.conf.hoiCachNoiBang": "Tanyakan cara mengatakan sesuatu dalam bahasa Inggris",
   "learn.quick.choiNhanh15Giay": "Main Cepat 15 Detik",
   "learn.grammar.dungRoiChiSai": "Benar – hanya salah ketik kecil",
-  "learn.grammar.vietDungLa": "Ejaan yang benar: {a}"
+  "learn.grammar.vietDungLa": "Ejaan yang benar: {a}",
+  "verb.irregularVerbs": "Kata kerja tidak beraturan",
+  "verb.openIrregularTable": "Buka tabel kata kerja tidak beraturan"
 }

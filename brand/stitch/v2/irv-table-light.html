@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite - Irregular Verbs</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary-fixed": "#ffdf9e",
+            "on-tertiary-container": "#392900",
+            "on-tertiary-fixed": "#261a00",
+            "outline-variant": "#3d4947",
+            "on-primary-fixed-variant": "#00504b",
+            "on-surface-variant": "#bcc9c7",
+            "on-primary": "#003733",
+            "on-secondary-container": "#ffa493",
+            "on-secondary-fixed-variant": "#900f00",
+            "primary": "#6bd8ce",
+            "tertiary": "#f4bf40",
+            "primary-fixed": "#88f5ea",
+            "secondary-fixed-dim": "#ffb4a6",
+            "surface-bright": "#2f3b3e",
+            "surface-tint": "#6bd8ce",
+            "background": "#091518",
+            "on-error": "#690005",
+            "secondary-container": "#981201",
+            "error-container": "#93000a",
+            "error": "#ffb4ab",
+            "surface-container-high": "#202c2f",
+            "inverse-primary": "#006a64",
+            "secondary": "#ffb4a6",
+            "on-tertiary": "#402e00",
+            "primary-container": "#2ba39a",
+            "outline": "#879391",
+            "surface-container": "#162125",
+            "on-secondary": "#660800",
+            "on-surface": "#d8e5e9",
+            "secondary-fixed": "#ffdad3",
+            "on-primary-container": "#00322e",
+            "surface": "#091518",
+            "surface-container-highest": "#2b373a",
+            "inverse-on-surface": "#263236",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-primary-fixed": "#00201e",
+            "inverse-surface": "#d8e5e9",
+            "tertiary-container": "#ba8b00",
+            "on-background": "#d8e5e9",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-error-container": "#ffdad6",
+            "surface-variant": "#2b373a",
+            "surface-dim": "#091518",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-secondary-fixed": "#3f0300",
+            "surface-container-low": "#121d20",
+            "surface-container-lowest": "#051013",
+            // Lexkite Bright Day specific tactical tones
+            "brand-cream": "#FFF9F3",
+            "brand-cream-dark": "#FAF3EB",
+            "brand-ink": "#141819",
+            "brand-ink-muted": "#5A4E45",
+            "brand-teal": "#136B66",
+            "brand-teal-dark": "#0D4844",
+            "brand-teal-soft": "#E6F5F3",
+            "brand-border": "#EDE3D8",
+            "brand-shadow": "#E2D5C7",
+            "brand-coral": "#E11D48",
+            "brand-coral-shadow": "#9F1239"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "full": "9999px"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+            body: ["Plus Jakarta Sans", "sans-serif"],
+            label: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #EDE3D8;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex justify-center min-h-screen text-[#162124] antialiased p-0 sm:py-6">
+<!-- Mobile Portrait Container (390px fixed canvas) -->
+<main class="w-full max-w-[390px] min-h-screen sm:min-h-[844px] bg-[#FBF7F1] relative flex flex-col pb-28 sm:rounded-[36px] shadow-2xl overflow-x-hidden border border-[#E6DCCB]">
+<!-- 1. Top App Bar -->
+<header class="sticky top-0 z-40 bg-[#FBF7F1]/95 backdrop-blur-md px-4 py-3 border-b border-[#E6DCCB] flex items-center justify-between">
+<button aria-label="Go back" class="w-11 h-11 rounded-2xl bg-white border-2 border-[#E6DCCB] shadow-[0_3px_0_0_#E2D5C7] flex items-center justify-center text-[#162124] active:translate-y-[2px] active:shadow-[0_1px_0_0_#E2D5C7] transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<h1 class="text-xl font-headline font-extrabold tracking-tight text-[#162124]">
+        Irregular verbs
+      </h1>
+<button aria-label="Reference guide and settings" class="w-11 h-11 rounded-2xl bg-white border-2 border-[#E6DCCB] shadow-[0_3px_0_0_#E2D5C7] flex items-center justify-center text-[#45555A] active:translate-y-[2px] active:shadow-[0_1px_0_0_#E2D5C7] transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]">help_outline</span>
+</button>
+</header>
+<div class="px-4 pt-3 space-y-4">
+<!-- 2. Search Field -->
+<section aria-label="Search irregular verbs">
+<div class="relative flex items-center bg-white rounded-2xl border-2 border-[#E6DCCB] shadow-[0_3px_0_0_#E2D5C7] px-3.5 py-1.5 focus-within:border-[#0D6964] focus-within:shadow-[0_3px_0_0_#0D4844] transition-all">
+<span class="material-symbols-outlined text-[#45555A] mr-2 text-[22px]">search</span>
+<input class="w-full bg-transparent border-none text-[#162124] placeholder:text-[#7E9599] font-medium text-sm focus:ring-0 focus:outline-none p-0 h-10" placeholder="Search any form, like went or gone" type="text"/>
+<button aria-label="Clear search input" class="w-8 h-8 rounded-full flex items-center justify-center text-[#7E9599] hover:text-[#162124]" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</section>
+<!-- 3. CEFR Level Filter Chips -->
+<section aria-label="Filter by CEFR level">
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
+<button class="min-h-[44px] shrink-0 inline-flex items-center px-4 py-2 rounded-full bg-[#0D6964] text-white font-extrabold text-xs shadow-[0_2px_0_0_#0D4844] active:translate-y-[1px] transition-transform" type="button">
+            All levels
+          </button>
+<button class="min-h-[44px] shrink-0 inline-flex items-center px-4 py-2 rounded-full bg-white text-[#2A3F44] font-bold text-xs border-2 border-[#E6DCCB] shadow-[0_2px_0_0_#E2D5C7] hover:bg-[#F8F4EC] active:translate-y-[1px]" type="button">
+            A1
+          </button>
+<button class="min-h-[44px] shrink-0 inline-flex items-center px-4 py-2 rounded-full bg-white text-[#2A3F44] font-bold text-xs border-2 border-[#E6DCCB] shadow-[0_2px_0_0_#E2D5C7] hover:bg-[#F8F4EC] active:translate-y-[1px]" type="button">
+            A2
+          </button>
+<button class="min-h-[44px] shrink-0 inline-flex items-center px-4 py-2 rounded-full bg-white text-[#2A3F44] font-bold text-xs border-2 border-[#E6DCCB] shadow-[0_2px_0_0_#E2D5C7] hover:bg-[#F8F4EC] active:translate-y-[1px]" type="button">
+            B1
+          </button>
+<button class="min-h-[44px] shrink-0 inline-flex items-center px-4 py-2 rounded-full bg-white text-[#2A3F44] font-bold text-xs border-2 border-[#E6DCCB] shadow-[0_2px_0_0_#E2D5C7] hover:bg-[#F8F4EC] active:translate-y-[1px]" type="button">
+            B2
+          </button>
+<button class="min-h-[44px] shrink-0 inline-flex items-center px-4 py-2 rounded-full bg-white text-[#2A3F44] font-bold text-xs border-2 border-[#E6DCCB] shadow-[0_2px_0_0_#E2D5C7] hover:bg-[#F8F4EC] active:translate-y-[1px]" type="button">
+            C1
+          </button>
+</div>
+</section>
+<!-- 4. Conjugation Pattern Filter Chips -->
+<section aria-label="Filter by conjugation pattern">
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
+<button class="min-h-[44px] shrink-0 inline-flex items-center px-4 py-2 rounded-full bg-[#0D6964] text-white font-extrabold text-xs shadow-[0_2px_0_0_#0D4844] active:translate-y-[1px]" type="button">
+            All patterns
+          </button>
+<button class="min-h-[44px] shrink-0 inline-flex items-center px-3.5 py-2 rounded-full bg-white text-[#2A3F44] font-bold text-xs border-2 border-[#E6DCCB] shadow-[0_2px_0_0_#E2D5C7] hover:bg-[#F8F4EC] active:translate-y-[1px]" type="button">
+            A-B-C <span class="ml-1 text-[10px] text-[#7E9599] font-normal">(go-went-gone)</span>
+</button>
+<button class="min-h-[44px] shrink-0 inline-flex items-center px-3.5 py-2 rounded-full bg-white text-[#2A3F44] font-bold text-xs border-2 border-[#E6DCCB] shadow-[0_2px_0_0_#E2D5C7] hover:bg-[#F8F4EC] active:translate-y-[1px]" type="button">
+            A-B-B <span class="ml-1 text-[10px] text-[#7E9599] font-normal">(buy-bought)</span>
+</button>
+<button class="min-h-[44px] shrink-0 inline-flex items-center px-3.5 py-2 rounded-full bg-white text-[#2A3F44] font-bold text-xs border-2 border-[#E6DCCB] shadow-[0_2px_0_0_#E2D5C7] hover:bg-[#F8F4EC] active:translate-y-[1px]" type="button">
+            A-A-A <span class="ml-1 text-[10px] text-[#7E9599] font-normal">(cut-cut)</span>
+</button>
+<button class="min-h-[44px] shrink-0 inline-flex items-center px-3.5 py-2 rounded-full bg-white text-[#2A3F44] font-bold text-xs border-2 border-[#E6DCCB] shadow-[0_2px_0_0_#E2D5C7] hover:bg-[#F8F4EC] active:translate-y-[1px]" type="button">
+            A-B-A <span class="ml-1 text-[10px] text-[#7E9599] font-normal">(come-came)</span>
+</button>
+</div>
+</section>
+<!-- 5. Three-Way Segmented Control -->
+<section aria-label="Sorting and category selector">
+<div class="bg-[#ECE4D7] p-1.5 rounded-2xl flex border border-[#E6DCCB] gap-1">
+<button class="flex-1 min-h-[44px] bg-white text-[#0D6964] font-extrabold text-xs rounded-xl shadow-[0_2px_0_0_#D5C4B2] flex items-center justify-center transition-all" type="button">
+            Most common
+          </button>
+<button class="flex-1 min-h-[44px] text-[#45555A] font-bold text-xs rounded-xl flex items-center justify-center hover:bg-[#F8F4EC]/50 transition-all" type="button">
+            A to Z
+          </button>
+<button class="flex-1 min-h-[44px] text-[#45555A] font-bold text-xs rounded-xl flex items-center justify-center relative hover:bg-[#F8F4EC]/50 transition-all" type="button">
+<span>Tricky for me</span>
+<span class="w-1.5 h-1.5 rounded-full bg-[#D1343A] absolute top-2 right-2"></span>
+</button>
+</div>
+</section>
+<!-- 6. Verbs Count & Review Cue Line -->
+<div class="flex items-center justify-between text-xs text-[#45555A] font-bold px-1 pt-1">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-[#0D6964]">format_list_bulleted</span>
+          229 verbs
+        </span>
+<span class="flex items-center gap-1 text-[#0D6964] bg-[#F8F4EC] px-2.5 py-1 rounded-full border border-[#CFE9F2]">
+<span class="material-symbols-outlined text-[14px]">bookmark</span>
+          12 saved to review
+        </span>
+</div>
+<!-- 7. Teacher-Slot Banner (Empty dashed placeholder strictly without photo or drawing) -->
+<section aria-label="Teacher coach tip slot" class="border-2 border-dashed border-[#0D6964]/60 bg-[#FBF7F1] p-3.5 rounded-2xl flex items-center gap-3">
+<div class="w-11 h-11 shrink-0 rounded-2xl bg-[#0D6964] text-white flex items-center justify-center shadow-[0_2px_0_0_#0D4844]">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+<div class="flex-1 min-w-0">
+<span class="text-[10px] tracking-wider uppercase font-extrabold text-[#0D6964] block">
+            teacher-slot: Coach Ama
+          </span>
+<p class="text-xs font-semibold text-[#162124] leading-snug truncate">
+            Quick tip: V2 vs V3 drill available
+          </p>
+</div>
+<span class="material-symbols-outlined text-[#0D6964] text-[20px]">chevron_right</span>
+</section>
+<!-- 8. Card List of Irregular Verbs -->
+<section aria-label="Irregular verbs directory" class="pt-1">
+<!-- Column header row -->
+<div class="grid grid-cols-12 gap-1 px-3 pb-2 text-[11px] font-extrabold tracking-wider text-[#45555A] uppercase">
+<div class="col-span-4">Base (V1)</div>
+<div class="col-span-3">Past (V2)</div>
+<div class="col-span-3">Participle (V3)</div>
+<div class="col-span-2 text-right">Audio</div>
+</div>
+<!-- Cards List -->
+<div class="space-y-3">
+<!-- Verb 1: go -->
+<article class="bg-white border-2 border-[#E6DCCB] shadow-[0_3px_0_0_#E2D5C7] rounded-2xl p-3.5 active:translate-y-[2px] active:shadow-[0_1px_0_0_#E2D5C7] transition-all">
+<div class="grid grid-cols-12 gap-1 items-center">
+<div class="col-span-4">
+<span class="text-base font-extrabold text-[#162124] block leading-tight">go</span>
+<span class="text-[11px] font-medium text-[#0D6964] block">/ɡəʊ/</span>
+<span class="text-[10px] font-medium text-[#7E9599] truncate block mt-0.5">di chuyển / move</span>
+</div>
+<div class="col-span-3">
+<span class="text-sm font-bold text-[#162124] block">went</span>
+<span class="text-[11px] font-medium text-[#45555A] block">/went/</span>
+</div>
+<div class="col-span-3">
+<span class="text-sm font-bold text-[#162124] block">gone</span>
+<span class="text-[11px] font-medium text-[#45555A] block">/ɡɒn/</span>
+</div>
+<div class="col-span-2 flex justify-end">
+<button aria-label="Listen to pronunciation for go" class="w-11 h-11 rounded-full bg-[#F8F4EC] text-[#0D6964] flex items-center justify-center hover:bg-[#DDF1EE] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Verb 2: buy -->
+<article class="bg-white border-2 border-[#E6DCCB] shadow-[0_3px_0_0_#E2D5C7] rounded-2xl p-3.5 active:translate-y-[2px] active:shadow-[0_1px_0_0_#E2D5C7] transition-all">
+<div class="grid grid-cols-12 gap-1 items-center">
+<div class="col-span-4">
+<span class="text-base font-extrabold text-[#162124] block leading-tight">buy</span>
+<span class="text-[11px] font-medium text-[#0D6964] block">/baɪ/</span>
+<span class="text-[10px] font-medium text-[#7E9599] truncate block mt-0.5">mua sắm / purchase</span>
+</div>
+<div class="col-span-3">
+<span class="text-sm font-bold text-[#162124] block">bought</span>
+<span class="text-[11px] font-medium text-[#45555A] block">/bɔːt/</span>
+</div>
+<div class="col-span-3">
+<span class="text-sm font-bold text-[#162124] block">bought</span>
+<span class="text-[11px] font-medium text-[#45555A] block">/bɔːt/</span>
+</div>
+<div class="col-span-2 flex justify-end">
+<button aria-label="Listen to pronunciation for buy" class="w-11 h-11 rounded-full bg-[#F8F4EC] text-[#0D6964] flex items-center justify-center hover:bg-[#DDF1EE] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Verb 3: write -->
+<article class="bg-white border-2 border-[#E6DCCB] shadow-[0_3px_0_0_#E2D5C7] rounded-2xl p-3.5 active:translate-y-[2px] active:shadow-[0_1px_0_0_#E2D5C7] transition-all">
+<div class="grid grid-cols-12 gap-1 items-center">
+<div class="col-span-4">
+<span class="text-base font-extrabold text-[#162124] block leading-tight">write</span>
+<span class="text-[11px] font-medium text-[#0D6964] block">/raɪt/</span>
+<span class="text-[10px] font-medium text-[#7E9599] truncate block mt-0.5">viết / compose text</span>
+</div>
+<div class="col-span-3">
+<span class="text-sm font-bold text-[#162124] block">wrote</span>
+<span class="text-[11px] font-medium text-[#45555A] block">/rəʊt/</span>
+</div>
+<div class="col-span-3">
+<span class="text-sm font-bold text-[#162124] block">written</span>
+<span class="text-[11px] font-medium text-[#45555A] block">/ˈrɪt.ən/</span>
+</div>
+<div class="col-span-2 flex justify-end">
+<button aria-label="Listen to pronunciation for write" class="w-11 h-11 rounded-full bg-[#F8F4EC] text-[#0D6964] flex items-center justify-center hover:bg-[#DDF1EE] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Verb 4: take -->
+<article class="bg-white border-2 border-[#E6DCCB] shadow-[0_3px_0_0_#E2D5C7] rounded-2xl p-3.5 active:translate-y-[2px] active:shadow-[0_1px_0_0_#E2D5C7] transition-all">
+<div class="grid grid-cols-12 gap-1 items-center">
+<div class="col-span-4">
+<span class="text-base font-extrabold text-[#162124] block leading-tight">take</span>
+<span class="text-[11px] font-medium text-[#0D6964] block">/teɪk/</span>
+<span class="text-[10px] font-medium text-[#7E9599] truncate block mt-0.5">cầm, lấy / grasp</span>
+</div>
+<div class="col-span-3">
+<span class="text-sm font-bold text-[#162124] block">took</span>
+<span class="text-[11px] font-medium text-[#45555A] block">/tʊk/</span>
+</div>
+<div class="col-span-3">
+<span class="text-sm font-bold text-[#162124] block">taken</span>
+<span class="text-[11px] font-medium text-[#45555A] block">/ˈteɪ.kən/</span>
+</div>
+<div class="col-span-2 flex justify-end">
+<button aria-label="Listen to pronunciation for take" class="w-11 h-11 rounded-full bg-[#F8F4EC] text-[#0D6964] flex items-center justify-center hover:bg-[#DDF1EE] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Verb 5: cut -->
+<article class="bg-white border-2 border-[#E6DCCB] shadow-[0_3px_0_0_#E2D5C7] rounded-2xl p-3.5 active:translate-y-[2px] active:shadow-[0_1px_0_0_#E2D5C7] transition-all">
+<div class="grid grid-cols-12 gap-1 items-center">
+<div class="col-span-4">
+<span class="text-base font-extrabold text-[#162124] block leading-tight">cut</span>
+<span class="text-[11px] font-medium text-[#0D6964] block">/kʌt/</span>
+<span class="text-[10px] font-medium text-[#7E9599] truncate block mt-0.5">cắt, chia / divide</span>
+</div>
+<div class="col-span-3">
+<span class="text-sm font-bold text-[#162124] block">cut</span>
+<span class="text-[11px] font-medium text-[#45555A] block">/kʌt/</span>
+</div>
+<div class="col-span-3">
+<span class="text-sm font-bold text-[#162124] block">cut</span>
+<span class="text-[11px] font-medium text-[#45555A] block">/kʌt/</span>
+</div>
+<div class="col-span-2 flex justify-end">
+<button aria-label="Listen to pronunciation for cut" class="w-11 h-11 rounded-full bg-[#F8F4EC] text-[#0D6964] flex items-center justify-center hover:bg-[#DDF1EE] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Verb 6: come -->
+<article class="bg-white border-2 border-[#E6DCCB] shadow-[0_3px_0_0_#E2D5C7] rounded-2xl p-3.5 active:translate-y-[2px] active:shadow-[0_1px_0_0_#E2D5C7] transition-all">
+<div class="grid grid-cols-12 gap-1 items-center">
+<div class="col-span-4">
+<span class="text-base font-extrabold text-[#162124] block leading-tight">come</span>
+<span class="text-[11px] font-medium text-[#0D6964] block">/kʌm/</span>
+<span class="text-[10px] font-medium text-[#7E9599] truncate block mt-0.5">đến, tới / arrive</span>
+</div>
+<div class="col-span-3">
+<span class="text-sm font-bold text-[#162124] block">came</span>
+<span class="text-[11px] font-medium text-[#45555A] block">/keɪm/</span>
+</div>
+<div class="col-span-3">
+<span class="text-sm font-bold text-[#162124] block">come</span>
+<span class="text-[11px] font-medium text-[#45555A] block">/kʌm/</span>
+</div>
+<div class="col-span-2 flex justify-end">
+<button aria-label="Listen to pronunciation for come" class="w-11 h-11 rounded-full bg-[#F8F4EC] text-[#0D6964] flex items-center justify-center hover:bg-[#DDF1EE] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">volume_up</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+</section>
+</div>
+<!-- 9. Sticky Bottom Action Button -->
+<div class="fixed sm:absolute bottom-0 left-0 right-0 max-w-[390px] mx-auto p-4 bg-gradient-to-t from-[#FBF7F1] via-[#FBF7F1]/95 to-transparent backdrop-blur-sm z-30">
+<button class="w-full min-h-[52px] py-3.5 px-6 rounded-2xl bg-[#D1343A] text-white font-extrabold text-base flex items-center justify-center gap-2 shadow-[0_4px_0_0_#9F1239] active:translate-y-[2px] active:shadow-[0_2px_0_0_#9F1239] transition-all" type="button">
+<span>Quick practice · 10 verbs</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- Lightweight interaction helper -->
+<script>
+    // Audio button click feedback micro-interaction
+    document.querySelectorAll('button[aria-label^="Listen"]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.textContent = 'graphic_eq';
+          setTimeout(() => {
+            icon.textContent = 'volume_up';
+          }, 800);
+        }
+      });
+    });
+  </script>
+</body></html>

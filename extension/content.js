@@ -578,6 +578,7 @@
       b.querySelector('#close').onclick = hide;
       bindNav(b);
       b.querySelector('#more').onclick = () => send({ type: 'openApp', hash: '#/dict/' + encodeURIComponent(e.word) }).catch(() => {});
+      if (/^[a-z]+$/i.test(e.word)) send({ type: 'irv', w: e.word }).then(r => { if (!r || !r.trio || !b.isConnected) return; const a = document.createElement('button'); a.className = 'btn'; a.lang = 'en'; a.textContent = r.trio.replace(/\.$/, ''); a.onclick = () => send({ type: 'openApp', hash: '#/irregular/' + encodeURIComponent(r.base) }).catch(() => {}); b.querySelector('#more').before(a); }).catch(() => {}); // V1 · V2 · V3 → bảng động từ bất quy tắc
       const ub = b.querySelector('#usage'); if (ub) ub.onclick = () => send({ type: 'openApp', hash: '#/usage/' + encodeURIComponent(e.word.toLowerCase()) }).catch(() => {}); // 📘 Cách dùng từ (trang app trong gói add-on, không cần quyền mới)
       b.querySelector('#save').onclick = async ev => {
         const btn = ev.currentTarget;

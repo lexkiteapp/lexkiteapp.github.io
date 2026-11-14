@@ -49,6 +49,8 @@ const V2DATA = {
   'welcome-desk': ['web/js/welcome.js'],
 }; // file JS dựng dữ liệu d cho khung (class viết nguyên văn trong đó cũng được biên dịch)
 for (const k of V2) GROUPS['v2-' + k] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', `web/js/st/v2/${k}.js`, ...(V2DATA[k] || [])].filter(f => fs.existsSync(f));
+GROUPS['v2-irregular'] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', 'web/cpack/irregular/table.js']; // 🔤 Động từ bất quy tắc: giao diện port tay từ Stitch brand/stitch/v2/irv-*
+GROUPS['v2-irregular-drill'] = ['web/js/st/v2/runtime.js', 'web/js/st/v2/shell.js', 'web/cpack/irregular/drill.js'];
 // Trang web tĩnh Stitch (lexkite.com – khung TỰ SINH brand/stitch/web/gen/<trang>.js – chỉ dùng lúc build, không triển khai trong web/ (size-budget), `stitch-v2-convert.mjs --web`): mỗi trang 1 nhóm w-<trang>, CSS được generator NHÚNG vào <style> (scripts/lib/st-web.mjs).
 //   Nhóm w-* nạp cả file dựng dữ liệu (generator) vì nó có thể chèn class Tailwind viết tay; vỏ chung (đầu trang + chân trang) nằm trong brand/stitch/web/gen/chrome.js.
 const WEB = fs.existsSync('brand/stitch/web/gen') ? fs.readdirSync('brand/stitch/web/gen').filter(f => f.endsWith('.js') && f !== 'chrome.js').map(f => f.slice(0, -3)) : [];

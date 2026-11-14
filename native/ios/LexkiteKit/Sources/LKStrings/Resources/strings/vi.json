@@ -3266,5 +3266,7 @@
   "learn.conf.hoiCachNoiBang": "Hỏi cách nói bằng tiếng Anh",
   "learn.quick.choiNhanh15Giay": "Chơi nhanh 15 giây",
   "learn.grammar.dungRoiChiSai": "Đúng rồi – chỉ sai chính tả nhỏ",
-  "learn.grammar.vietDungLa": "Viết đúng là: {a}"
+  "learn.grammar.vietDungLa": "Viết đúng là: {a}",
+  "verb.irregularVerbs": "Động từ bất quy tắc",
+  "verb.openIrregularTable": "Mở bảng động từ bất quy tắc"
 }

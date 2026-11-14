@@ -336,6 +336,8 @@
     // 🔤 Chia động từ · ✍️ Sửa ngữ pháp
     vcore: ['js/verbs-core.js'],
     verbs: ['js/verbs.js'],
+    irregular: ['js/i18n/en/v2.js', 'js/characters.js', 'js/st/v2/runtime.js', 'js/st/v2/shell.js', 'cpack/irregular/table.js'], // 🔤 Động từ bất quy tắc: bảng + tờ chi tiết + luyện (dữ liệu web/js/irv)
+    irvdrill: ['cpack/irregular/drill.js'], // 🔤 luyện điền chỗ trống (nạp khi mở #/irregular/practice)
     fixer: ['js/writecheck-rules.js', 'js/fixer.js'],
     // 📘 Cách dùng từ (dữ liệu theo nhóm, usage.js tự gọi App.need)
     uidx: ['js/usage-index.js'],
@@ -407,6 +409,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     handsfree: ['words', 'tsl', 'voice', 'handsfree'],
     home: ['words', 'streak'],
     ideas: 'writing',
+    irregular: ['vcore', 'irregular'],
     league: 'league',
     lesson: 'lesson',
     letters: 'writing',
@@ -491,6 +494,8 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     cambridge: 'css/exam.css',
     espr: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css'],
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
+    irregular: 'css/st-v2-irregular.css',
+    irvdrill: 'css/st-v2-irregular-drill.css',
     league: 'css/league.css',
     lesson: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css', 'css/st-v2-story-duo.css'],
     listening: 'css/exam.css',

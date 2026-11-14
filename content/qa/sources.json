@@ -1,6 +1,7 @@
 {
  "_doc": "Sổ đăng ký MỌI nguồn nội dung học – cổng QA (docs/CONTENT-QA.md, scripts/content-qa/gate.mjs). Thư mục nội dung mới chưa có ở đây → CI đỏ. checks: schema · lexicon · pair (✗/✓) · cefr · judges (2 giám khảo) · translation · spot (≥5%/lô) · reports (tự ẩn). gen=true: có nội dung sinh tự động → bắt buộc judges + translation + spot.",
  "sources": [
+  {"id": "irregular-verbs", "paths": ["content/verbs", "web/js/irv"], "owner": "claude", "gen": false, "checks": ["schema", "cefr"], "delegate": ["test/verbs.mjs"], "doc": "docs/LEXICON.md"},
   {"id": "outcomes", "paths": ["web/cpack/outcomes"], "owner": "claude", "gen": false, "checks": ["schema", "cefr"], "delegate": ["test/outcomes.mjs"], "doc": "docs/specs/outcomes-3-6m.md"},
   {
    "id": "stories",
@@ -557,6 +558,7 @@
   { "id": "phrase-book", "paths": ["web/cpack/framework", "content/framework/functions.json"], "owner": "claude", "gen": true, "checks": ["schema"], "delegate": ["test/phrasebook.mjs", "test/content-factory.mjs"], "doc": "docs/CONTENT-FACTORY.md" }
  ],
  "skip": {
+  "web/cpack/irregular": "MÃ giao diện bảng động từ bất quy tắc (table.js, drill.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu ở web/js/irv + content/verbs (nguồn irregular-verbs, kiểm bởi scripts/test/verbs.mjs); giao diện kiểm bởi scripts/test/irregular-ui.mjs",
   "web/cpack/mail-app": "MÃ email nhắc học (mail.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/mail-digest.mjs",
   "web/cpack/ret-app": "MÃ giao diện thẻ trang chủ quay lại + tổng kết tuần (cards.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; test scripts/test/retention.mjs",
   "web/cpack/es-app": "MÃ giao diện bài phát âm TBN (pron-ui.js) dời khỏi web/js để vào ngân sách người học – không phải nội dung học; dữ liệu ở web/cpack/es (nguồn px), test scripts/test/es-pron.mjs",

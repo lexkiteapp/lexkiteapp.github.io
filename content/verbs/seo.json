@@ -1,0 +1,92 @@
+{
+"vi": {
+"h1": "Động từ bất quy tắc tiếng Anh",
+"d": "Bảng {n} động từ bất quy tắc tiếng Anh: V1, V2, V3, phiên âm Anh-Mỹ, nghĩa tiếng Việt và câu ví dụ. Miễn phí, có luyện nhanh.",
+"cta": "Mở bảng và luyện miễn phí",
+"mean": "Nghĩa và ví dụ"
+},
+"en": {
+"h1": "English irregular verbs",
+"d": "All {n} English irregular verbs: base, past and past participle with British and American IPA, meanings and examples. Free, with quick practice.",
+"cta": "Open the table and practise free",
+"mean": "Meaning and example"
+},
+"es": {
+"h1": "Verbos irregulares en inglés",
+"d": "Los {n} verbos irregulares en inglés: forma base, pasado y participio, con pronunciación británica y americana, significado y ejemplos. Gratis y con práctica rápida.",
+"cta": "Abrir la tabla y practicar gratis",
+"mean": "Significado y ejemplo"
+},
+"pt": {
+"h1": "Verbos irregulares em inglês",
+"d": "Os {n} verbos irregulares em inglês: forma base, passado e particípio, com pronúncia britânica e americana, significado e exemplos. Grátis e com prática rápida.",
+"cta": "Abrir a tabela e praticar grátis",
+"mean": "Significado e exemplo"
+},
+"fr": {
+"h1": "Verbes irréguliers anglais",
+"d": "Les {n} verbes irréguliers anglais : base, prétérit et participe passé, prononciation britannique et américaine, sens et exemples. Gratuit, avec entraînement rapide.",
+"cta": "Ouvrir le tableau et s’entraîner gratuitement",
+"mean": "Sens et exemple"
+},
+"de": {
+"h1": "Unregelmäßige Verben im Englischen",
+"d": "Alle {n} unregelmäßigen englischen Verben: Grundform, Past und Past Participle mit britischer und amerikanischer Aussprache, Bedeutung und Beispielen. Kostenlos, mit Schnellübung.",
+"cta": "Tabelle öffnen und kostenlos üben",
+"mean": "Bedeutung und Beispiel"
+},
+"id": {
+"h1": "Kata kerja tidak beraturan bahasa Inggris",
+"d": "{n} kata kerja tidak beraturan bahasa Inggris: bentuk dasar, lampau, dan participle, dengan pelafalan Inggris dan Amerika, arti, serta contoh. Gratis, ada latihan cepat.",
+"cta": "Buka tabel dan berlatih gratis",
+"mean": "Arti dan contoh"
+},
+"th": {
+"h1": "กริยาอปกติภาษาอังกฤษ",
+"d": "ตารางกริยาอปกติภาษาอังกฤษ {n} คำ ทั้งช่อง 1 ช่อง 2 ช่อง 3 พร้อมคำอ่านแบบบริติชและอเมริกัน ความหมาย และตัวอย่าง ใช้ฟรี มีแบบฝึกเร็ว",
+"cta": "เปิดตารางและฝึกฟรี",
+"mean": "ความหมายและตัวอย่าง"
+},
+"zh": {
+"h1": "英语不规则动词表",
+"d": "全部 {n} 个英语不规则动词：原形、过去式、过去分词，附英式和美式音标、释义与例句。免费，可快速练习。",
+"cta": "打开词表，免费练习",
+"mean": "释义与例句"
+},
+"ja": {
+"h1": "英語の不規則動詞一覧",
+"d": "英語の不規則動詞 {n} 語を原形・過去形・過去分詞で一覧に。イギリス式とアメリカ式の発音記号、意味、例文つき。無料でクイック練習もできます。",
+"cta": "一覧を開いて無料で練習",
+"mean": "意味と例文"
+},
+"ko": {
+"h1": "영어 불규칙 동사표",
+"d": "영어 불규칙 동사 {n}개의 원형, 과거형, 과거분사를 영국식·미국식 발음 기호, 뜻, 예문과 함께 정리했습니다. 무료이며 빠른 연습도 가능합니다.",
+"cta": "표 열고 무료로 연습하기",
+"mean": "뜻과 예문"
+},
+"hi": {
+"h1": "अंग्रेज़ी की अनियमित क्रियाएँ",
+"d": "अंग्रेज़ी की सभी {n} अनियमित क्रियाएँ: मूल रूप, भूतकाल और पास्ट पार्टिसिपल, ब्रिटिश और अमेरिकी उच्चारण, अर्थ और उदाहरणों के साथ। मुफ़्त, झटपट अभ्यास के साथ।",
+"cta": "तालिका खोलें और मुफ़्त अभ्यास करें",
+"mean": "अर्थ और उदाहरण"
+},
+"ar": {
+"h1": "الأفعال الشاذة في اللغة الإنجليزية",
+"d": "جميع الأفعال الشاذة الإنجليزية وعددها {n}: المصدر والماضي والتصريف الثالث مع النطق البريطاني والأمريكي والمعنى والأمثلة. مجانًا ومع تدريب سريع.",
+"cta": "افتح الجدول وتدرّب مجانًا",
+"mean": "المعنى والمثال"
+},
+"ru": {
+"h1": "Неправильные глаголы английского языка",
+"d": "Все {n} неправильных глаголов английского: три формы, британская и американская транскрипция, перевод и примеры. Бесплатно, с быстрой тренировкой.",
+"cta": "Открыть таблицу и тренироваться бесплатно",
+"mean": "Значение и пример"
+},
+"tr": {
+"h1": "İngilizce düzensiz fiiller",
+"d": "{n} İngilizce düzensiz fiil: yalın hâl, geçmiş zaman ve past participle; İngiliz ve Amerikan telaffuzu, anlam ve örneklerle. Ücretsiz, hızlı alıştırmalı.",
+"cta": "Tabloyu aç ve ücretsiz çalış",
+"mean": "Anlam ve örnek"
+}
+}

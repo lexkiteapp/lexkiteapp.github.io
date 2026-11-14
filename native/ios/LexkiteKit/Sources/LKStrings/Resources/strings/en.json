@@ -1138,7 +1138,7 @@
   "usage.q": "Q{n}",
   "usage.notQuite": "Not quite.",
   "usage.answer": "Answer:",
-  "usage.playSentence": "Play sentence",
+  "usage.playSentence": "Hear the sentence",
   "usage.excellentYouVeGot": "Excellent – you’ve got it!",
   "usage.veryGoodTakeAnother": "Very good! Take another look at the one you missed.",
   "usage.readTheExamplesAbove": "Read the examples above again, then try once more.",
@@ -3266,5 +3266,7 @@
   "learn.conf.hoiCachNoiBang": "Ask how to say something in English",
   "learn.quick.choiNhanh15Giay": "15-second Quick Play",
   "learn.grammar.dungRoiChiSai": "Correct – just a small typo",
-  "learn.grammar.vietDungLa": "Correct spelling: {a}"
+  "learn.grammar.vietDungLa": "Correct spelling: {a}",
+  "verb.irregularVerbs": "Irregular verbs",
+  "verb.openIrregularTable": "Open the irregular verbs table"
 }
