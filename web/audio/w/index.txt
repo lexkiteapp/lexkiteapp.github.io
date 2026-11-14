@@ -9476,7 +9476,6 @@ odor
 strategist
 pulpit
 czar
-predation
 epithelium
 saxophonist
 phenomenology
@@ -9486,7 +9485,6 @@ ecclesiastic
 eruption
 transfusion
 seesaw
-exorcism
 eccentricity
 scam
 rouge
@@ -9517,7 +9515,6 @@ sorcery
 viceroy
 nib
 deafness
-fen
 isomer
 hydrogenation
 polygyny
@@ -9529,7 +9526,6 @@ transmitter
 euphoria
 philanthropist
 repute
-stigma
 dusk
 suffrage
 osteoporosis
