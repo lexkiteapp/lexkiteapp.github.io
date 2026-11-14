@@ -233,6 +233,7 @@ node scripts/test/static-routes.mjs
 node scripts/test/layout-guards.mjs
 node scripts/test/home-logic.mjs
 node scripts/test/vocab-hub.mjs
+node scripts/test/pron-hub.mjs
 node scripts/test/inline-box.mjs
 node scripts/test/st2-href.mjs
 node scripts/test/card-actions.mjs

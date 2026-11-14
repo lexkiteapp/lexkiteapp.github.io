@@ -1,0 +1,322 @@
+{
+ "_doc": "Thư viện phát âm (#/pron, không có id) – d do web/js/pron.js dựng từ window.PRON (44 âm + cpack/pron/skills.js) + state.game.pronDone. Mẫu v2.1 pron-hub (native M4 #979): lưới 4 cột nguyên âm / 5 cột phụ âm / hàng kỹ năng. Nhóm trong app nhiều hơn mẫu → mỗi nhóm = 1 khối lặp (nguyên âm đơn + đôi dùng khuôn 4 cột, phụ âm khuôn 5 cột + ghi chú vô thanh, Sửa lỗi người Việt + Trọng âm dùng khuôn hàng). Ô 'focus' (nền hổ phách + chấm) = âm tiếp theo chưa học; ô có tick = đã xong; viền nét đứt = phụ âm vô thanh (mẫu vẽ nét đứt cho ô vô thanh; ô hữu thanh đổi sang nét liền). Ô giáo viên (nét đứt) = Ama qua Chars.slot; nút 'Check' (hiệu chỉnh mic – app không có) bỏ, ô 'Âm tiếp theo' + nút dưới cùng (Học tiếp) trỏ cùng bài. Bài #/pron/<id> giữ khung cũ (chưa port).",
+ "html": {
+  ":scope > main > header > h1": "e(d.title)",
+  ":scope > main > header > div > div > span:nth-child(1)": "e(d.count)",
+  ":scope > main > header > div > div > span:nth-child(2)": "e(d.doneL)",
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div > p": "e(d.intro)",
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(1)": "d.teacher",
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > div > span:nth-child(1)": "e(d.nextL)",
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > p": "e(d.nextS)",
+  ":scope > main > div:nth-child(3) button > span:nth-child(1)": "e(d.cta)"
+ },
+ "after": {
+  ":scope > main > div:nth-child(2) > section:nth-child(1)": "d.empty"
+ },
+ "attr": {
+  ":scope > main > header > button": {
+   "data-href": "d.back",
+   "aria-label": "d.backL"
+  },
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(1)": {
+   "aria-hidden": "'true'"
+  },
+  ":scope > main > div:nth-child(3) button": {
+   "data-href": "d.nextHref"
+  }
+ },
+ "cls": {
+  ":scope > main > div:nth-child(3)": {
+   "fixed": "d.next ? 'fixed' : 'hidden'"
+  }
+ },
+ "setClass": {
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(1)": "w-14 h-14 shrink-0 flex items-end justify-center"
+ },
+ "addClass": {
+  ":scope > main > header > h1": "min-w-0 flex-1",
+  ":scope > main > header > div": "shrink-0",
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2)": "[overflow-wrap:anywhere]",
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > p": "whitespace-normal"
+ },
+ "remove": [
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(2) > button"
+ ],
+ "repeat": [
+  {
+   "list": "d.groups",
+   "as": "g",
+   "samples": ":scope > main > div:nth-child(2) > section:nth-child(n+2)",
+   "pick": "g.v",
+   "variants": {
+    "v4": ":scope > main > div:nth-child(2) > section:nth-child(2)",
+    "c5": ":scope > main > div:nth-child(2) > section:nth-child(3)",
+    "rows": ":scope > main > div:nth-child(2) > section:nth-child(4)"
+   },
+   "bind": {
+    "v4": {
+     "html": {
+      ":scope > div:nth-child(1) > div > h2": "e(g.name)",
+      ":scope > div:nth-child(1) > div > span": "e(g.count)",
+      ":scope > div:nth-child(1) > p": "e(g.desc)"
+     },
+     "attr": {
+      ":scope": {
+       "aria-label": "g.name"
+      }
+     },
+     "repeat": [
+      {
+       "list": "g.items",
+       "as": "x",
+       "samples": ":scope > div:nth-child(2) > button",
+       "pick": "x.done ? 'done' : x.next ? 'focus' : 'plain'",
+       "variants": {
+        "done": ":scope > div:nth-child(2) > button:nth-child(1)",
+        "plain": ":scope > div:nth-child(2) > button:nth-child(4)",
+        "focus": ":scope > div:nth-child(2) > button:nth-child(12)"
+       },
+       "bind": {
+        "done": {
+         "html": {
+          ":scope > span:nth-child(2)": "e(x.ipa)",
+          ":scope > span:nth-child(3)": "e(x.w)"
+         },
+         "attr": {
+          ":scope": {
+           "href": "x.href",
+           "aria-label": "x.label",
+           "type": "null"
+          },
+          ":scope > span:nth-child(1)": {
+           "aria-hidden": "'true'"
+          }
+         },
+         "addClass": {
+          ":scope": "no-underline",
+          ":scope > span:nth-child(3)": "max-w-full truncate"
+         },
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         }
+        },
+        "plain": {
+         "html": {
+          ":scope > span:nth-child(1)": "e(x.ipa)",
+          ":scope > span:nth-child(2)": "e(x.w)"
+         },
+         "attr": {
+          ":scope": {
+           "href": "x.href",
+           "aria-label": "x.label",
+           "type": "null"
+          }
+         },
+         "addClass": {
+          ":scope": "no-underline",
+          ":scope > span:nth-child(2)": "max-w-full truncate"
+         },
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         }
+        },
+        "focus": {
+         "html": {
+          ":scope > span:nth-child(2)": "e(x.ipa)",
+          ":scope > span:nth-child(3)": "e(x.w)"
+         },
+         "attr": {
+          ":scope": {
+           "href": "x.href",
+           "aria-label": "x.label",
+           "type": "null"
+          },
+          ":scope > span:nth-child(1)": {
+           "aria-hidden": "'true'"
+          }
+         },
+         "addClass": {
+          ":scope": "no-underline",
+          ":scope > span:nth-child(3)": "max-w-full truncate"
+         },
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         }
+        }
+       }
+      }
+     ]
+    },
+    "c5": {
+     "html": {
+      ":scope > div:nth-child(1) > div > h2": "e(g.name)",
+      ":scope > div:nth-child(1) > div > span": "e(g.count)",
+      ":scope > div:nth-child(1) > p": "e(g.desc)",
+      ":scope > div:nth-child(3) > p": "e(g.note)"
+     },
+     "attr": {
+      ":scope": {
+       "aria-label": "g.name"
+      }
+     },
+     "repeat": [
+      {
+       "list": "g.items",
+       "as": "x",
+       "samples": ":scope > div:nth-child(2) > button",
+       "pick": "x.done ? 'done' : x.next ? 'focus' : 'plain'",
+       "variants": {
+        "done": ":scope > div:nth-child(2) > button:nth-child(1)",
+        "plain": ":scope > div:nth-child(2) > button:nth-child(3)",
+        "focus": ":scope > div:nth-child(2) > button:nth-child(5)"
+       },
+       "bind": {
+        "done": {
+         "html": {
+          ":scope > span:nth-child(2)": "e(x.ipa)",
+          ":scope > span:nth-child(3)": "e(x.w)"
+         },
+         "attr": {
+          ":scope": {
+           "href": "x.href",
+           "aria-label": "x.label",
+           "type": "null"
+          },
+          ":scope > span:nth-child(1)": {
+           "aria-hidden": "'true'"
+          }
+         },
+         "cls": {
+          ":scope": {
+           "border-dashed": "x.unv ? 'border-dashed' : 'border-solid'"
+          }
+         },
+         "addClass": {
+          ":scope": "no-underline"
+         },
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         }
+        },
+        "plain": {
+         "html": {
+          ":scope > span:nth-child(1)": "e(x.ipa)",
+          ":scope > span:nth-child(2)": "e(x.w)"
+         },
+         "attr": {
+          ":scope": {
+           "href": "x.href",
+           "aria-label": "x.label",
+           "type": "null"
+          }
+         },
+         "cls": {
+          ":scope": {
+           "border-dashed": "x.unv ? 'border-dashed' : 'border-solid'"
+          }
+         },
+         "addClass": {
+          ":scope": "no-underline"
+         },
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         }
+        },
+        "focus": {
+         "html": {
+          ":scope > span:nth-child(2)": "e(x.ipa)",
+          ":scope > span:nth-child(3)": "e(x.w)"
+         },
+         "attr": {
+          ":scope": {
+           "href": "x.href",
+           "aria-label": "x.label",
+           "type": "null"
+          },
+          ":scope > span:nth-child(1)": {
+           "aria-hidden": "'true'"
+          }
+         },
+         "addClass": {
+          ":scope": "no-underline"
+         },
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "cls": {
+          ":scope": {
+           "border-dashed": "x.unv ? 'border-dashed' : 'border-solid'"
+          }
+         }
+        }
+       }
+      }
+     ]
+    },
+    "rows": {
+     "html": {
+      ":scope > div:nth-child(1) > h2": "e(g.name)",
+      ":scope > div:nth-child(1) > span": "e(g.count)"
+     },
+     "attr": {
+      ":scope": {
+       "aria-label": "g.name"
+      }
+     },
+     "repeat": [
+      {
+       "list": "g.items",
+       "as": "x",
+       "samples": ":scope > div:nth-child(2) > button",
+       "variants": {
+        "row": ":scope > div:nth-child(2) > button:nth-child(1)"
+       },
+       "bind": {
+        "row": {
+         "html": {
+          ":scope > div:nth-child(1) > span": "x.icon",
+          ":scope > div:nth-child(2) > h3": "e(x.title)",
+          ":scope > div:nth-child(2) > p": "e(x.sub)",
+          ":scope > span": "x.end"
+         },
+         "attr": {
+          ":scope": {
+           "href": "x.href",
+           "type": "null"
+          },
+          ":scope > div:nth-child(1)": {
+           "aria-hidden": "'true'"
+          },
+          ":scope > span": {
+           "aria-hidden": "'true'"
+          }
+         },
+         "addClass": {
+          ":scope": "no-underline"
+         },
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         }
+        }
+       }
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

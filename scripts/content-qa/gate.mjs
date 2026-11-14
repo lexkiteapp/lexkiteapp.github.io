@@ -66,7 +66,7 @@ for (const r of K.READINGS || []) {
   if (!lvOk(r.level)) C('reading', 'cefr', r.id);
   for (const [i, q] of (r.questions || []).entries()) if (q.answer == null || !q.explain) C('reading', 'schema', `${r.id}#${i}`);
 }
-{ const g = {}; g.self = g; g.window = g; vm.createContext(g); for (const f of ['web/js/pron/sounds.js', 'web/cpack/pron/skills.js']) vm.runInContext(fs.readFileSync(P(f), 'utf8'), g);
+{ const g = {}; g.self = g; g.window = g; vm.createContext(g); for (const f of ['web/cpack/pron/sounds.js', 'web/cpack/pron/skills.js']) vm.runInContext(fs.readFileSync(P(f), 'utf8'), g);
   for (const x of g.PRON || []) { if (!lvOk(x.level)) C('pron', 'cefr', x.id); for (const w of (x.words || []).map(v => v.w || v)) if (typeof w === 'string' && /^[a-z]+$/i.test(w) && !known(w)) C('pron', 'lexicon', `${x.id}:${w}`); } }
 
 // ---------- Cách dùng từ: cặp ✗/✓ + đối chiếu kho từ + độ phủ ghi chú ----------

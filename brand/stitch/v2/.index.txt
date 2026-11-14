@@ -46,3 +46,4 @@ welcome-desk-dark 671614571b5c4fa48baf236253a112f8 (Lexkite Welcome desktop 1280
 onb-target-light 530752c4c1744ef58a8b0326694db7bf (Lexkite Onboarding band target, Bright Day, gen 4/11 fix round; key1)
 onb-target-dark 9fecefb53d8446febfd72bfa81271a1a (Lexkite Onboarding band target, Tactile Night, gen 4/11 fix round; key1)
 vocab-hub-light 66a8a4f81f144d6bbbd071c356ca2fde / vocab-hub-dark 95826e1508144909bd60043a426769a2 (Tab Từ vựng – key2)
+pron-hub-light / pron-hub-dark (Thư viện phát âm #/pron – mẫu v2.1 từ Native M4 #979; id Stitch chưa ghi; sound/pairs/rhythm/result chưa port)

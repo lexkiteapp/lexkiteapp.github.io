@@ -88,6 +88,7 @@
 "Âm cuối /s/ không rung cổ và nguyên âm trước nó ngắn: “rice” gọn, xì hơi rõ.":"Un /s/ final n'a pas de voix et la voyelle qui le précède est courte : dites « rice » d'une manière nette avec un sifflement clair.",
 "Âm cuối /z/ rung cổ và kéo dài nguyên âm trước nó: “riiise-zzz”.":"Un /z/ final est prononcé et la voyelle qui le précède est plus longue : « riiise-zzz ».",
 "Âm cần luyện thêm":"Vos sons faibles",
+"Âm tiếp theo":"Son suivant",
 "Âm “j” có chặn lưỡi và rung cổ, mạnh hơn “y”.":"Le son « j » a un stop de langue et une voix – il est plus fort que « y ».",
 "âm yếu":"son faible",
 "Đang xử lý…":"Analyse…",

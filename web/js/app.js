@@ -276,7 +276,7 @@
     grammarA1: ['cpack/grammar/starter2.js'],
     grammarC2: ['cpack/grammar/mastery.js'],
     pas: ['js/i18n/en/v2.js', 'js/i18n/en/speak.js', 'js/st/common.js', 'js/st/v2/runtime.js', 'js/st/v2/pas-sit.js', 'js/st/v2/pas-drill.js', 'js/characters.js', 'js/speak/data.js', 'js/speak/score.js', 'js/speak/app.js'], // 🎙️ Play & Speak (cờ speak_pack, docs/specs/play-and-speak.md)
-    pron: ['js/i18n/en/pron.js', 'js/pron/sounds.js', 'cpack/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/pron.js'],
+    pron: ['js/i18n/en/pron.js', 'cpack/pron/sounds.js', 'cpack/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/st/v2/runtime.js', 'js/st/v2/pron-hub.js', 'js/pron.js'],
     shadow: ['js/speak/score.js', 'js/pron/shadow.js'], // Nói đuổi liên tục (nút trong pron/rhythm.js)
     words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
     readings: ['js/reading.js', 'js/readings.js', 'cpack/readings/more.js', 'js/choice-kit.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
@@ -498,6 +498,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     onb: ['css/st-v2-onb-pre.css', 'css/st-v2-onb-goal.css', 'css/st-v2-onb-lang.css', 'css/st-v2-onb-level.css', 'css/st-v2-onb-target.css', 'css/st-v2-onb-pace.css', 'css/st-v2-onb-ready.css'],
     outcome: 'css/outcomes.css',
     pas: ['css/st-v2-speak-pre.css', 'css/st-v2-pas-sit.css', 'css/st-v2-pas-drill.css'],
+    pron: 'css/st-v2-pron-hub.css',
     psheet: ['css/st-v2-path-sheet.css', 'css/path-sheet.css'],
     readings: 'css/exam.css',
     say: ['css/st-v2-say-front.css', 'css/st-v2-say-back.css'],
