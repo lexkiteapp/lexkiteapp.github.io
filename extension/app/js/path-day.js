@@ -211,6 +211,7 @@
   }
 
   // ---------- Trang buổi học #/day/N ----------
+  // Khung = Stitch v2 (brand/stitch/v2/day-light|dark.html → bind/day.json → st/v2/day.js, gói 'dayv2'); chỉ dựng dữ liệu thật d ở đây.
   async function page(arg) {
     await load(); await TK().ready(curTr()); settleExt(); css();
     const view = App.view, ds = days();
@@ -218,19 +219,25 @@
     if (!d) { location.hash = '#/path'; return; }
     if (d.status === 'locked') { location.hash = '#/path'; setTimeout(() => open(d.n), 300); return; }
     await finishIf(d);
-    const st = plan(d), okN = st.filter(s => s.ok).length, nx = st.find(s => !s.ok), stage = d.unit.stage;
-    view.innerHTML = `<div class="page-head"><div class="day-hero" style="--sc:${stage.color}"><div class="dh-n" aria-hidden="true">${d.n}</div>
-        <div><div class="tiny muted" style="font-weight:700">${d.tr.em} ${esc(d.tr.name)} · ${esc(stage.name)}${stage.band === '' ? '' : ' · CEFR ' + stage.cefr}</div><h1 style="margin:.1rem 0">${t('Ngày {n}', { n: d.n })}: ${esc(d.unit.topic.name)}</h1>
-        <div class="small muted">${t('Hôm nay học {n} từ mới · ≈ {m} phút', { n: d.topic.words.length, m: minsOf(st) })}</div></div></div></div>
-      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="${st.length}" aria-valuenow="${okN}" aria-label="${esc(t('{a}/{b} hoạt động', { a: okN, b: st.length }))}"><i style="width:${okN / st.length * 100}%"></i></div>
-      <p class="small muted" style="margin:.4rem 0 0">${t('{a}/{b} hoạt động', { a: okN, b: st.length })} · ${t('Dễ trước, khó sau: nhận diện → ghép → nghe → dùng trong câu → nói.')}</p>
-      ${nx ? `<a class="btn primary lg block" style="margin-top:1rem" href="${nx.href}" data-step="${nx.k}">${okN ? t('Tiếp tục Ngày {n}', { n: d.n }) : t('Bắt đầu Ngày {n}', { n: d.n })}: ${esc(nx.name)} →</a>`
-        : `<div class="card center" role="status" style="margin-top:1rem"><div style="font-size:2rem" aria-hidden="true">${UI.icon('party-popper')}</div><h2 style="margin:.3rem 0">${t('Hoàn thành Ngày {n}!', { n: d.n })}</h2>${ds[d.n] && ds[d.n].status !== 'locked' ? `<a class="btn primary" href="#/day/${d.n + 1}">${t('Học tiếp Ngày {n}', { n: d.n + 1 })} →</a>` : ''}</div>${ds[d.n] ? '' : nextBox(d.tr)}`}
-      <ol class="day-steps">${st.map((s, i) => `<li><a class="${s.ok ? 'ok' : ''}${s === nx ? ' next' : ''}" href="${s.href}" data-step="${s.k}"${s === nx ? ' aria-current="step"' : ''}>
-        <span class="ds-em" aria-hidden="true">${s.ok ? '✅' : s.em}</span><span class="grow"><b>${i + 1}. ${esc(s.name)}</b><span class="small muted" style="display:block">${esc(s.sub || '')}</span></span>
-        ${s.ok ? `<span class="sr-only">${t('Đã hoàn thành')}</span>` : `<span class="ds-min">${t('{m} phút', { m: s.mins })}</span>`}</a></li>`).join('')}</ol>
-      <div class="lv-slot" hidden data-lv="${esc(JSON.stringify({ mode: 'day', seed: d.n, words: d.topic.words.map(w => String(w.word || '').toLowerCase()).slice(0, 12), level: stage.cefr || '' }))}"></div>
-      <div class="row between"><a class="btn sm ghost" href="#/path">🗺️ ${t('Lộ trình từ vựng')}</a><a class="btn sm ghost" href="#/topic/${encodeURIComponent(d.unit.topic.id)}">📚 ${t('Xem danh sách từ')}</a></div>`;
+    await App.need('dayv2');
+    const st = plan(d), okN = st.filter(s => s.ok).length, nx = st.find(s => !s.ok), stage = d.unit.stage, nextDay = ds[d.n], pct = Math.round(okN / st.length * 100), n = App.streak ? App.streak() : 0;
+    const cnt = t('{a}/{b} hoạt động', { a: okN, b: st.length }), more = nextDay && nextDay.status !== 'locked';
+    const chev = UI.icon('chevron-right', 'i-dir');
+    const IC = { review: 'repeat', learn: 'brain', match: 'zap', mcq: 'puzzle', listen: 'headphones', cloze: 'pen-line', test: 'flag', gl: 'book-a', pr: 'mic' };
+    const stepIco = s => { const g = IC[s.k] ? UI.icon(IC[s.k]) : UI.glyph(s.em); return g.startsWith('<svg') ? g : UI.icon('sparkles'); }; // luôn icon Lucide (emoji lạ như 😁 bị cắt trong vòng tròn 40 px)
+    const cta = nx ? { t: (okN ? t('Tiếp tục Ngày {n}', { n: d.n }) : t('Bắt đầu Ngày {n}', { n: d.n })) + ': ' + nx.name, href: nx.href, k: nx.k }
+      : { t: more ? t('Học tiếp Ngày {n}', { n: d.n + 1 }) : t('Lộ trình từ vựng'), href: more ? '#/day/' + (d.n + 1) : '#/path', k: null };
+    const done = !nx ? `<div role="status" class="mt-3 rounded-[0.75rem] border p-4 text-center font-bold lt:bg-[#ffffff] lt:border-[#e8e4da] dk:bg-[#162528] dk:border-[#213438]"><span aria-hidden="true">${UI.icon('party-popper')}</span> ${t('Hoàn thành Ngày {n}!', { n: d.n })}</div>${nextDay ? '' : nextBox(d.tr)}` : '';
+    const root = ST2.mount(view, 'day', {
+      title: t('Ngày {n}', { n: d.n }), sub: `${stage.name} · ${d.unit.topic.name}`, streak: t('{n} ngày', { n }), flame: ST2.flame(ST2.flameState(n), 16), back: t('Quay lại'),
+      lp: t('Tiến độ trong ngày'), la: t('Các hoạt động của ngày'), tn: t('Cô Ama'), teacher: Chars.slot('ama', { pose: 'point', size: 's', lazy: false }),
+      n: String(d.n), chip: `${d.tr.name} · ${stage.name}${stage.band === '' ? '' : ' · CEFR ' + stage.cefr}`, h1: `${t('Ngày {n}', { n: d.n })}: ${d.unit.topic.name}`,
+      words: t('{n} từ mới', { n: d.topic.words.length }), dur: t('≈ {m} phút', { m: minsOf(st) }),
+      pt: `${cnt} (${pct}%)`, cnt: `${okN}/${st.length}`, pct, okN, total: st.length, cta, extra: done,
+      steps: st.map((s, i) => ({ v: s.ok ? 'done' : s === nx ? 'next' : 'todo', k: s.k, href: s.href, t: `${i + 1}. ${s.name}`, s: s.sub || '', m: t('{m} phút', { m: s.mins }), tag: s.ok ? t('Đã xong') : t('Tiếp theo'), ico: stepIco(s), go: chev })),
+      lv: `<div class="lv-slot" hidden data-lv="${esc(JSON.stringify({ mode: 'day', seed: d.n, words: d.topic.words.map(w => String(w.word || '').toLowerCase()).slice(0, 12), level: stage.cefr || '' }))}"></div>`,
+      h: { path: '#/path', words: '#/topic/' + encodeURIComponent(d.unit.topic.id) } }, null);
+    root.classList.add('day-v2');
     $$('[data-step]', view).forEach(a => a.addEventListener('click', () => {
       ls('daySess', d.id);
       const s = st.find(x => x.k === a.dataset.step);

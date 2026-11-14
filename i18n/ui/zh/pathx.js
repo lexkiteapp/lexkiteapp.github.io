@@ -14,7 +14,9 @@
 "Chọn nghĩa đúng của từ vừa học":"为新词选出正确的意思",
 "Collocation & cấu trúc học thuật":"学术搭配与句型",
 "Cuộc gọi luyện nói":"口语通话练习",
+"Các hoạt động của ngày":"今日练习",
 "Câu hỏi kiểu đề thi, có giải thích ngay":"考试题型，即时讲解",
+"Cô Ama":"Ama 老师",
 "Dùng từ trong câu":"在句子中用词",
 "Dùng từ vừa học trong tình huống thật":"在真实情境中使用新词",
 "Dễ trước, khó sau: nhận diện → ghép → nghe → dùng trong câu → nói.":"先易后难：认词 → 配对 → 听写 → 造句 → 开口说。",
@@ -50,6 +52,7 @@
 "Theo dõi thêm":"添加方向",
 "Thi thử định kỳ":"阶段模拟测试",
 "Tiến độ bài":"课程进度",
+"Tiến độ trong ngày":"今日进度",
 "Tiếng Anh công sở":"职场英语",
 "Tiếp theo học gì?":"接下来学什么？",
 "Tiếp theo học gì? Chọn một hướng:":"接下来学什么？选择一个方向：",
@@ -77,5 +80,6 @@
 "Đặt mục tiêu rõ ràng giúp mình chọn đúng độ khó.":"明确的目标能帮我选对难度。",
 "Đề nghị lịch sự":"礼貌请求",
 "Đều đặn mỗi ngày là bí quyết nhớ lâu!":"每天坚持一点，就是长久记住的秘诀！",
+"≈ {m} phút":"约 {m} 分钟",
 });
 })(typeof self !== 'undefined' ? self : this);

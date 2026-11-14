@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite v2.1 — Day 12 Lesson</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with configuration -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#30312d",
+            "surface-dim": "#dcdad4",
+            "tertiary": "#00271a",
+            "on-tertiary-fixed-variant": "#00513a",
+            "on-background": "#1b1c18",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#8ad6b5",
+            "secondary": "#b42814",
+            "on-secondary": "#ffffff",
+            "on-primary-fixed-variant": "#224d4e",
+            "surface": "#fbf9f3",
+            "outline": "#717978",
+            "on-tertiary-fixed": "#002115",
+            "surface-container": "#f0eee8",
+            "on-secondary-fixed-variant": "#900f00",
+            "inverse-on-surface": "#f3f1eb",
+            "on-error": "#ffffff",
+            "inverse-primary": "#a3cfcf",
+            "primary-fixed-dim": "#a3cfcf",
+            "surface-variant": "#e4e2dd",
+            "on-primary-fixed": "#002020",
+            "tertiary-container": "#003f2d",
+            "tertiary-fixed": "#a6f2d0",
+            "surface-container-high": "#eae8e2",
+            "on-primary-container": "#7da8a8",
+            "surface-tint": "#3b6566",
+            "secondary-container": "#fe5d42",
+            "background": "#fbf9f3",
+            "primary": "#002627",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-tertiary-container": "#63ae8f",
+            "primary-container": "#0f3d3e",
+            "on-secondary-container": "#5e0700",
+            "primary-fixed": "#beebeb",
+            "on-tertiary": "#ffffff",
+            "surface-bright": "#fbf9f3",
+            "surface-container-highest": "#e4e2dd",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#3f0300",
+            "secondary-fixed": "#ffdad3",
+            "error": "#ba1a1a",
+            "on-surface": "#1b1c18",
+            "surface-container-low": "#f5f3ed",
+            "on-surface-variant": "#404848",
+            "outline-variant": "#c0c8c8"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "gutter-tablet": "1.5rem",
+            "gutter": "1rem",
+            "margin": "1rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "margin-tablet": "2rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-xl-mobile": ["Plus Jakarta Sans", "sans-serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-xl": ["Plus Jakarta Sans", "sans-serif"],
+            "label-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "title-md": ["Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"]
+          },
+          "fontSize": {
+            "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-lg": ["17px", { "lineHeight": "26px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "800" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-lg": ["15px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "700" }],
+            "title-md": ["17px", { "lineHeight": "24px", "fontWeight": "700" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom Material Symbols rendering rule */
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Tactile Press physics */
+    .btn-tactile-coral {
+      box-shadow: 0 4px 0 #900f00;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .btn-tactile-coral:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #900f00;
+    }
+
+    .btn-tactile-primary {
+      box-shadow: 0 4px 0 #002020;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .btn-tactile-primary:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #002020;
+    }
+
+    .btn-tactile-outline {
+      box-shadow: 0 3px 0 #dcdad4;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
+    }
+    .btn-tactile-outline:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #dcdad4;
+    }
+
+    .tactile-card {
+      box-shadow: 0 2px 4px rgba(15, 61, 62, 0.03), 0 6px 14px rgba(15, 61, 62, 0.06);
+    }
+    .tactile-card-active {
+      box-shadow: 0 4px 16px rgba(15, 61, 62, 0.12), 0 0 0 2px #0f3d3e;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex justify-center antialiased selection:bg-tertiary-fixed selection:text-tertiary">
+<!-- Mobile Screen Canvas (390px locked mobile wrapper) -->
+<div class="w-full max-w-[390px] min-h-screen flex flex-col bg-background pb-28 relative">
+<!-- 1. Top Bar (56px high) -->
+<header class="w-full h-14 px-margin flex items-center justify-between sticky top-0 bg-background/95 backdrop-blur-md z-40">
+<!-- Circular Tactile Back Button -->
+<button aria-label="Go Back" class="w-11 h-11 rounded-full bg-surface-container-lowest border border-outline-variant/60 flex items-center justify-center text-primary-container btn-tactile-outline">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<!-- Centered Title -->
+<div class="flex flex-col items-center">
+<span class="font-headline-md text-headline-md text-primary tracking-tight leading-tight">Day 12</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1 font-semibold">
+          Stage A2 · Food &amp; Drink
+        </span>
+</div>
+<!-- Trailing Streak Flame Chip -->
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant border border-secondary-container/30 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary-container" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-label-sm text-label-sm text-secondary font-extrabold tracking-normal">7 ngày</span>
+</div>
+</header>
+<!-- Main Content Container -->
+<main class="flex-1 px-margin flex flex-col gap-space-md pt-space-xs">
+<!-- 2. Hero Card -->
+<section class="tactile-card rounded-xl bg-surface-container-lowest border border-outline-variant/50 p-space-md relative overflow-hidden">
+<!-- Background subtle decorative pattern -->
+<div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-tertiary-fixed/10 pointer-events-none"></div>
+<!-- Mascot Avatar / Illustration Peeking in Top Corner -->
+<div class="absolute top-3 right-3 flex flex-col items-center">
+<div class="w-14 h-14 rounded-full bg-tertiary-fixed/40 border-2 border-surface-container-lowest shadow-sm flex items-center justify-center relative overflow-hidden">
+<!-- 2D Illustrated Female Teacher Avatar "Ama" SVG -->
+<svg class="w-12 h-12 translate-y-1" fill="none" viewbox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<circle cx="32" cy="24" fill="#FCD8B3" r="14"></circle>
+<!-- Hair -->
+<path d="M18 25C18 16 23 11 32 11C41 11 46 16 46 25C46 25 43 18 32 18C21 18 18 25 18 25Z" fill="#0F3D3E"></path>
+<path d="M17 24C16 28 17 34 20 37C21 34 20 28 20 28" stroke="#0F3D3E" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M47 24C48 28 47 34 44 37C43 34 44 28 44 28" stroke="#0F3D3E" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Friendly Glasses & Smile -->
+<circle cx="27" cy="24" fill="none" r="3.5" stroke="#0F3D3E" stroke-width="1.5"></circle>
+<circle cx="37" cy="24" fill="none" r="3.5" stroke="#0F3D3E" stroke-width="1.5"></circle>
+<line stroke="#0F3D3E" stroke-width="1.5" x1="30.5" x2="33.5" y1="24" y2="24"></line>
+<path d="M29 30C30.5 31.8 33.5 31.8 35 30" stroke="#B42814" stroke-linecap="round" stroke-width="1.5"></path>
+<!-- Cheerful Coral Blouse & Scarf -->
+<path d="M19 48C19 40 24 38 32 38C40 38 45 40 45 48L46 56H18L19 48Z" fill="#F2553B"></path>
+<path d="M28 38L32 44L36 38" fill="#7BC6A6"></path>
+<circle cx="32" cy="45" fill="#0F3D3E" r="2.5"></circle>
+</svg>
+</div>
+<span class="font-label-sm text-[9px] text-primary-container font-extrabold tracking-wide uppercase mt-0.5">Cô Ama</span>
+</div>
+<!-- Hero Card Content -->
+<div class="pr-16">
+<div class="flex items-center gap-space-sm mb-2">
+<!-- Rounded Square Badge with Teal Day Number -->
+<div class="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center text-on-primary font-headline-md text-headline-md font-bold shadow-sm">
+              12
+            </div>
+<!-- Educational Level Tag -->
+<div class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container border border-outline-variant/70 text-on-surface-variant font-label-sm text-label-sm">
+              General English · Stage A2
+            </div>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight mt-1 mb-1">
+            Day 12: Food &amp; Drink
+          </h1>
+<div class="flex items-center gap-3 text-on-surface-variant font-body-sm text-body-sm mt-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary-container">menu_book</span>
+              8 từ vựng mới
+            </span>
+<span class="text-outline-variant">•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-primary-container">schedule</span>
+              khoảng 9 phút
+            </span>
+</div>
+</div>
+</section>
+<!-- 3. Progress Section -->
+<section class="flex flex-col gap-1.5 bg-surface-container-lowest border border-outline-variant/50 rounded-xl p-3.5 tactile-card">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-primary font-bold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary-container">insights</span>
+            Tiến độ ngày
+          </span>
+<span class="font-label-md text-label-md text-secondary font-extrabold bg-secondary-fixed/50 px-2 py-0.5 rounded-md">
+            2 / 6 hoạt động (33%)
+          </span>
+</div>
+<!-- 8px Height Custom Progress Track -->
+<div class="w-full h-2 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden p-0.5">
+<div class="h-full bg-secondary-container rounded-full transition-all duration-300" style="width: 33.33%;"></div>
+</div>
+<p class="font-body-sm text-[12px] leading-tight text-on-surface-variant mt-0.5">
+          Easy first, hard later: <span class="text-primary font-medium">recognise → match → listen → use → speak</span>
+</p>
+</section>
+<!-- 4. Primary Action CTA Button -->
+<div>
+<button class="w-full h-13 py-3.5 px-space-md rounded-xl bg-[#CC3F1C] hover:bg-[#B53A22] text-white font-label-lg text-label-lg font-extrabold flex items-center justify-center gap-2 btn-tactile-coral tracking-wide">
+<span>Continue Day 12: Multiple choice</span>
+<span class="material-symbols-outlined text-[20px] font-bold">arrow_forward</span>
+</button>
+</div>
+<!-- 5. Vertical list of 6 Activity Rows -->
+<section class="flex flex-col gap-2.5 pt-1">
+<div class="flex items-center justify-between px-1">
+<h2 class="font-title-md text-title-md font-bold text-primary">Các hoạt động bài học</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Hoàn thành theo thứ tự</span>
+</div>
+<!-- Row 1: Completed -->
+<article class="tactile-card rounded-xl bg-surface-container-lowest border border-tertiary-fixed-dim/70 p-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed/30 border border-tertiary-fixed-dim text-on-tertiary-fixed-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-primary">1. Learn new words</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Flashcards &amp; từ vựng mới</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0 pl-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">3 min</span>
+<span class="font-label-sm text-[10px] text-on-tertiary-fixed-variant font-extrabold">Đã xong</span>
+</div>
+</article>
+<!-- Row 2: Completed -->
+<article class="tactile-card rounded-xl bg-surface-container-lowest border border-tertiary-fixed-dim/70 p-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed/30 border border-tertiary-fixed-dim text-on-tertiary-fixed-variant flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-primary">2. Match cards</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Nối từ và nghĩa tương ứng</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0 pl-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 min</span>
+<span class="font-label-sm text-[10px] text-on-tertiary-fixed-variant font-extrabold">Đã xong</span>
+</div>
+</article>
+<!-- Row 3: CURRENT ACTIVE NEXT -->
+<article class="tactile-card-active rounded-xl bg-surface-container-lowest border-2 border-primary-container p-3 flex items-center justify-between relative bg-gradient-to-r from-surface-container-lowest via-tertiary-fixed/10 to-surface-container-lowest">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">quiz</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg font-extrabold text-primary">3. Multiple choice</span>
+<span class="font-label-sm text-[10px] leading-tight px-1.5 py-0.5 rounded bg-[#CC3F1C] text-white font-black tracking-wide">
+                  TIẾP THEO
+                </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Chọn đáp án đúng theo ngữ cảnh</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0 pl-2">
+<span class="font-label-sm text-label-sm text-primary-container font-bold">2 min</span>
+<span class="material-symbols-outlined text-[18px] text-primary-container">play_circle</span>
+</div>
+</article>
+<!-- Row 4: Locked/Pending -->
+<article class="tactile-card rounded-xl bg-surface-container-low/70 border border-outline-variant/40 p-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container border border-outline-variant/60 text-outline flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">4. Fill the blank</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Điền từ vào chỗ trống câu thoại</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0 pl-2">
+<span class="font-label-sm text-label-sm text-outline">2 min</span>
+<span class="material-symbols-outlined text-[16px] text-outline">lock</span>
+</div>
+</article>
+<!-- Row 5: Locked -->
+<article class="tactile-card rounded-xl bg-surface-container-low/70 border border-outline-variant/40 p-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container border border-outline-variant/60 text-outline flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">auto_stories</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">5. Grammar of the day</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cấu trúc Some &amp; Any trong ẩm thực</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0 pl-2">
+<span class="font-label-sm text-label-sm text-outline">4 min</span>
+<span class="material-symbols-outlined text-[16px] text-outline">lock</span>
+</div>
+</article>
+<!-- Row 6: Locked -->
+<article class="tactile-card rounded-xl bg-surface-container-low/70 border border-outline-variant/40 p-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container border border-outline-variant/60 text-outline flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">record_voice_over</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">6. Pronunciation of the day</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Luyện phát âm /ʃ/ vs /tʃ/</span>
+</div>
+</div>
+<div class="flex flex-col items-end flex-shrink-0 pl-2">
+<span class="font-label-sm text-label-sm text-outline">3 min</span>
+<span class="material-symbols-outlined text-[16px] text-outline">lock</span>
+</div>
+</article>
+</section>
+<!-- 6. Video of the Day Card -->
+<section class="tactile-card rounded-xl bg-surface-container-lowest border border-outline-variant/50 p-3.5 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary-container" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<h3 class="font-label-lg text-label-lg font-bold text-primary">Video of the day</h3>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded-full">
+            Recommended
+          </span>
+</div>
+<!-- 16:9 Thumbnail Area -->
+<div class="relative w-full aspect-video rounded-lg overflow-hidden border border-outline-variant/40 bg-surface-container-high group cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A warm, cinematic wide view of a cozy sunlit cafe bistro in London where a friendly female waitress takes an order from a smiling customer. Soft ambient morning light casts golden highlights on rustic wooden tables and porcelain coffee cups. The atmosphere feels encouraging, elegant, and realistic with warm sand tones and muted teal accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyigzMmGzDBaL8qOLp571t2jjG7uDpMJSj-tTpc5aC_oExihcITJSicxZ8lckVC9kz-SEX4VpZXMqORjwGExMtmddjdh13Map8aRFYLK5dxrWELKm8IOSF8uHYMK0sGIHRRpRBg-ZvmOY3ea94lJDyHCyClnzb3SNCeyNceY3uV3vbdchZ4jWqL3T9B3pL--Bt8M1A3DoVDw2qh_LL6mRL6p7-paPpIxxrQ1XsB5xxIL132nmOfTt3SCVxdqiPFg7oPt9QJ1bBbAPm"/>
+<!-- Gradient scrim -->
+<div class="absolute inset-0 bg-primary/20 backdrop-brightness-95 flex items-center justify-center">
+<!-- Tactile Coral Frosted Play Button -->
+<div class="w-12 h-12 rounded-full bg-secondary-container/90 text-on-secondary shadow-lg flex items-center justify-center backdrop-blur-sm transform group-hover:scale-105 active:scale-95 transition-transform duration-150 border-2 border-on-secondary/40">
+<span class="material-symbols-outlined text-[26px] translate-x-0.5" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<!-- Video Duration Badge -->
+<div class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-label-sm text-label-sm backdrop-blur-sm">
+            3:45
+          </div>
+</div>
+<!-- Caption -->
+<div class="flex flex-col">
+<p class="font-label-md text-label-md font-bold text-primary leading-snug">
+            Ordering Food at a Restaurant (A2 real-world dialog)
+          </p>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Nghe người bản xứ gọi món và sử dụng mẫu câu lịch sự "I'd like...".
+          </span>
+</div>
+</section>
+<!-- 7. Secondary Action Buttons -->
+<section class="grid grid-cols-2 gap-space-sm pt-1">
+<button class="h-11 px-3 rounded-lg bg-surface-container-lowest border border-outline-variant/80 text-primary font-label-md text-label-md font-bold flex items-center justify-center gap-1.5 btn-tactile-outline">
+<span class="material-symbols-outlined text-[17px] text-primary-container">route</span>
+<span>Vocabulary path</span>
+</button>
+<button class="h-11 px-3 rounded-lg bg-surface-container-lowest border border-outline-variant/80 text-primary font-label-md text-label-md font-bold flex items-center justify-center gap-1.5 btn-tactile-outline">
+<span class="material-symbols-outlined text-[17px] text-primary-container">format_list_bulleted</span>
+<span>See word list</span>
+</button>
+</section>
+</main>
+<!-- 8. BottomNavBar Component (Destination Shell Filter applied: Active tab 'school' for Lesson/Learning journey) -->
+<nav class="fixed bottom-0 left-0 right-0 w-full z-50 flex items-center justify-around max-w-[390px] mx-auto px-margin py-space-xs bg-surface-container-lowest shadow-[0_-2px_12px_rgba(15,61,62,0.06)] border-t border-outline-variant/30">
+<!-- Destination 1: Translate / Practice -->
+<button aria-label="Translate" class="flex flex-col items-center justify-center text-on-surface-variant p-space-sm hover:text-primary transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[24px]">translate</span>
+<span class="font-label-sm text-[10px] mt-0.5">Luyện tập</span>
+</button>
+<!-- Destination 2: School / Lesson Path (ACTIVE STATE per JSON specification) -->
+<button aria-label="Study Path" class="flex flex-col items-center justify-center text-primary-container font-bold p-space-sm rounded-full bg-tertiary-fixed/30 hover:text-primary transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-sm text-[10px] mt-0.5">Lộ trình</span>
+</button>
+<!-- Destination 3: Account / Profile -->
+<button aria-label="Profile" class="flex flex-col items-center justify-center text-on-surface-variant p-space-sm hover:text-primary transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[24px]">account_circle</span>
+<span class="font-label-sm text-[10px] mt-0.5">Hồ sơ</span>
+</button>
+</nav>
+</div>
+</body></html>

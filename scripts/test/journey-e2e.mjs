@@ -191,7 +191,7 @@ async function j1(h) {
   h.ok(!(await softAskShown(h)), 'không hỏi nhắc học ngay sau kiểm tra đầu vào (chưa phải bài học)');
   await h.click('.pl-result a[href="#/path"]', { wait: 1200 });
   await h.click('a.path-cta', { wait: 1200 });
-  await h.click('ol.day-steps a[data-step="learn"]', { wait: 1200 });
+  await h.click('.dayv2-steps a[data-step="learn"]', { wait: 1200 });
   h.ok(await learnLesson(h), 'xong bài học đầu tiên (Học từ mới)');
   const stat = await page.locator('#learnStats').textContent().catch(() => '');
   h.ok(!/^\s*0\D/.test(stat || ''), 'học xong mà 0 câu trả lời → không hiện "0 câu trả lời · 0 lần sai": ' + stat);
@@ -215,10 +215,10 @@ async function j1(h) {
   if (await h.has('#again')) { await h.click('#again', { wait: 900 }); await learnLesson(h); await sleep(3500); h.ok(!(await softAskShown(h)), 'bài thứ 2: không hỏi lại'); }
   await h.reload();
   h.ok(!/welcome/.test(page.url()), 'tải lại: không quay về màn chào (đã lưu onboarded)');
-  await h.go('#/day/1'); await h.click('ol.day-steps a[data-step="learn"]', { wait: 1000 }); await learnLesson(h); await sleep(3500);
+  await h.go('#/day/1'); await h.click('.dayv2-steps a[data-step="learn"]', { wait: 1000 }); await learnLesson(h); await sleep(3500);
   h.ok(!(await softAskShown(h)), 'sau tải lại + bài mới: không hỏi lại');
   await h.audit('after-reload');
-  await h.offline('/day/1', () => page.locator('ol.day-steps a[data-step="learn"].ok').count().then(n => n > 0), 'Ngày 1 vẫn ghi "Học từ mới" đã xong');
+  await h.offline('/day/1', () => page.locator('.dayv2-steps a[data-step="learn"].ok').count().then(n => n > 0), 'Ngày 1 vẫn ghi "Học từ mới" đã xong');
 }
 
 // ---------- 2. Học viên quay lại: home → ngày lộ trình có ngữ pháp + phát âm → xong → "Tiếp theo" → bài tự tin B2 → nhập vai B2 ----------
@@ -229,28 +229,28 @@ async function j2(h) {
   h.ok(!/welcome/.test(page.url()) && await h.has('#view h1, #view .card'), 'quay lại: vào thẳng trang chủ');
   await h.audit('home');
   await h.go('#/day/1');
-  const gl = await page.locator('ol.day-steps a[data-step="gl"]').count(), pr = await page.locator('ol.day-steps a[data-step="pr"]').count();
+  const gl = await page.locator('.dayv2-steps a[data-step="gl"]').count(), pr = await page.locator('.dayv2-steps a[data-step="pr"]').count();
   h.ok(gl === 1, 'Ngày 1 có bước ngữ pháp (gl)'); h.ok(pr === 1, 'Ngày 1 có bước phát âm (pr)');
   if (gl) {
-    await h.click('ol.day-steps a[data-step="gl"]', { wait: 1200 });
+    await h.click('.dayv2-steps a[data-step="gl"]', { wait: 1200 });
     const u = new URL(page.url()); if (!/view=full/.test(u.hash)) await h.go(u.hash.split('?')[0] + '?view=full');
     const items = page.locator('#gQuiz .q-item');
     for (let i = 0; i < await items.count(); i++) { await items.nth(i).locator('.opts button').first().click().catch(() => {}); await sleep(250); }
     await h.audit('grammar');
     await h.go('#/day/1'); await sleep(600);
-    h.ok(await page.locator('ol.day-steps a[data-step="gl"].ok').count(), 'bước ngữ pháp được đánh dấu xong');
+    h.ok(await page.locator('.dayv2-steps a[data-step="gl"].ok').count(), 'bước ngữ pháp được đánh dấu xong');
   }
   if (pr) {
-    await h.click('ol.day-steps a[data-step="pr"]', { wait: 1200 });
+    await h.click('.dayv2-steps a[data-step="pr"]', { wait: 1200 });
     await h.wait('#view .q-item, #startPairs', 8000);
     const items = page.locator('#view .q-item');
     if (!(await items.count()) && await h.has('#startPairs')) { await h.click('#startPairs', { wait: 900 }); for (let r = 0; r < 10 && !(await h.has('#startPairs2')); r++) { await page.locator('#pairGame .option').first().click().catch(() => {}); await sleep(1100); } }
     for (let i = 0; i < await items.count(); i++) { await items.nth(i).locator('.opts button').first().click().catch(() => {}); await sleep(250); }
     await h.audit('pron');
     await h.go('#/day/1'); await sleep(600);
-    h.ok(await page.locator('ol.day-steps a[data-step="pr"].ok').count(), 'bước phát âm được đánh dấu xong');
+    h.ok(await page.locator('.dayv2-steps a[data-step="pr"].ok').count(), 'bước phát âm được đánh dấu xong');
   }
-  await h.click('ol.day-steps a[data-step="learn"]', { wait: 1000 });
+  await h.click('.dayv2-steps a[data-step="learn"]', { wait: 1000 });
   h.ok(await learnLesson(h), 'xong bước Học từ mới');
   h.ok(await h.wait('.celebrate .path-reward', 6000), 'màn "Tiếp theo" (path-reward) hiện');
   const next = await page.locator('.path-reward a.btn.primary').first().getAttribute('href').catch(() => null);
@@ -293,8 +293,8 @@ async function j2(h) {
   }
   await h.audit('roleplay');
   await h.reload(); await h.go('#/day/1');
-  h.ok(await page.locator('ol.day-steps a.ok').count() >= 1 + (gl ? 1 : 0) + (pr ? 1 : 0), 'tải lại: tiến độ Ngày 1 còn nguyên');
-  await h.offline('/day/1', () => page.locator('ol.day-steps a.ok').count().then(n => n >= 1), 'tiến độ Ngày 1 còn khi mất mạng');
+  h.ok(await page.locator('.dayv2-steps a.ok').count() >= 1 + (gl ? 1 : 0) + (pr ? 1 : 0), 'tải lại: tiến độ Ngày 1 còn nguyên');
+  await h.offline('/day/1', () => page.locator('.dayv2-steps a.ok').count().then(n => n >= 1), 'tiến độ Ngày 1 còn khi mất mạng');
 }
 
 // ---------- 3. Ôn tập trộn lật/gõ/nghe + thẻ "câu của bạn" (từ add-on) → điểm lưu → đồng bộ khứ hồi (giả lập) ----------
@@ -420,7 +420,7 @@ async function j6(h) {
   await h.click('#crJoin button[type="submit"], #crJoin .btn.primary', { wait: 1500 });
   h.ok(st.cls && st.cls.joined, 'vào lớp bằng mã (API giả lập)');
   h.ok((await h.ls('lk.edu')) === '1', 'đánh dấu tài khoản lớp học (lk.edu)');
-  await h.go('#/day/1'); await h.click('ol.day-steps a[data-step="learn"]', { wait: 1000 });
+  await h.go('#/day/1'); await h.click('.dayv2-steps a[data-step="learn"]', { wait: 1000 });
   h.ok(await learnLesson(h), 'học sinh làm xong 1 bài');
   await sleep(4000);
   h.ok(!(await softAskShown(h)), 'học sinh lớp học: KHÔNG hỏi nhắc học');

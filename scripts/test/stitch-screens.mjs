@@ -29,6 +29,7 @@ export const SEED_LEAGUE = () => {
 export const SCREENS = {
   call: 'call/coffee',
   complete: 'lesson/go?demo=1',
+  day: 'day/1',
   feedback: 'lesson/go?demo=1',
   'feedback-wrong': 'lesson/go?demo=1',
   home: 'home',
@@ -57,6 +58,7 @@ export const SCREENS = {
 export const V2REF = {
   call: 'teacher-call',
   complete: 'lesson-complete',
+  day: 'day',
   feedback: 'feedback-correct',
   'feedback-wrong': 'feedback-wrong',
   home: 'today',
