@@ -125,6 +125,7 @@
 - [specs/spanish-course.md](specs/spanish-course.md) — Khóa tiếng Tây Ban Nha (tl `es`) cho 14 ngôn ngữ: mở rộng Target, nguồn miễn phí + giấy phép, 8 đợt W0–W7, ước tính token/CI, 6 cổng QC, điểm chủ quyết.
 - [specs/spanish-exam-w5.md](specs/spanish-exam-w5.md) — W5 luyện định dạng DELE/SIELE (spec + trạng thái đợt 1); đọc khi làm thi thử TBN
 - [specs/report-scale.md](specs/report-scale.md) — Báo lỗi quy mô triệu người: cụm lỗi (chữ ký ngữ cảnh + embedding), trần AI riêng, Turnstile/hạn mức/chế độ bão/low-signal, repro Playwright + resolve/mở lại sau live; đọc khi: sửa gom trùng, AI phân loại, chống spam, workflow repro báo lỗi
+- [specs/content-private.md](specs/content-private.md) — Chuyển đề/lời giải/bài học/kho từ sang repo private lexkite-content ($0, runner public + deploy key, fixtures, cổng chống lộ); đọc khi: sửa dữ liệu nội dung, workflow sinh nội dung, build/deploy hoặc job đỏ content-leak
 - [REPORTS.md](REPORTS.md) — Báo lỗi người dùng (Report a problem): mã LX-xxxx, link #/report/<mã>, AI phân loại nền, ưu tiên và Claude Code xử lý; đọc khi: sửa luồng báo lỗi
 - [ROLLBACK.md](ROLLBACK.md) — Sao lưu & khôi phục nhanh: mục 0 làm đúng thứ tự khi có sự cố; rollback Pages, git, D1 Time Travel, app/add-on, kho âm thanh; đọc khi: CÓ SỰ CỐ hoặc cần khôi phục
 - [SCALING-PLAN.md](SCALING-PLAN.md) — Kế hoạch mở rộng Cloudflare Workers > 100k người học/ngày: giới hạn gói miễn phí, chốt phòng thủ, lộ trình nâng cấp, bước bật gói Paid; đọc khi: cân nhắc nâng gói
