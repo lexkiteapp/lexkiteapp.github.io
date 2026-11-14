@@ -184,6 +184,7 @@ label.field > span { display: block; font-weight: 600; margin-bottom: .35rem; fo
 
 .chip { display: inline-flex; align-items: center; gap: .25rem; padding: .14rem .6rem; border-radius: 999px; background: var(--surface-2); font-size: .78rem; color: var(--muted); font-weight: 600; white-space: nowrap; }
 @media (hover: hover) { a.chip:hover { background: var(--primary-soft); color: var(--primary-text); } }
+.tl-chip { margin-block: var(--sp-1) var(--sp-2); }
 .chip.lv { background: var(--primary-soft); color: var(--primary-text); }
 #lkHero .chip { white-space: normal; max-width: 100%; line-height: 1.35; padding-block: var(--sp-1); } /* câu giới thiệu dài (vi/de/fr…) bị cắt ngang ở điện thoại 375 px → xuống dòng */
 .chip.lv.B1 { background: var(--good-soft); color: var(--good-text); }
