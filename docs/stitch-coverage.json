@@ -40,7 +40,7 @@
   {"id":"reading","area":"app","name":"Đọc","routes":["reading","read"],"status":"ref","batch":"A4","stitch":["eab4c092","8d816d50"],"ref":"brand/stitch/v3/app/reading"},
   {"id":"writing","area":"app","name":"Viết (editor, task1, sửa văn)","routes":["write","task1","style","paraphrase","criteria","fix"],"status":"ref","batch":"A4","refs":{"task1":["99cefd7c","1252e9b7"],"rewrite":["c3d3a2d8","2db49dba"]}},
   {"id":"speaking","area":"app","name":"Nói + nhập vai","routes":["speaking","roleplay"],"status":"ref","batch":"A4","refs":{"roleplay":["8f65ebb7","4559fec2"]}},
-  {"id":"pron","area":"app","name":"Phát âm","routes":["pron"],"status":"ref","batch":"A4","stitch":["247f2e03","b32b9414"],"ref":"brand/stitch/v3/app/pron"},
+  {"id":"pron","area":"app","name":"Phát âm: thư viện (bài #/pron/<id> còn khung cũ)","routes":["pron"],"status":"stitch","stitch":["pron-hub-light","pron-hub-dark"],"gate":"diff:pron-hub","batch":"-","note":"hub đã port; bài từng âm (pron-sound/pairs/rhythm/result) chưa port"},
 
   {"id":"games","area":"app","name":"Trò chơi từ vựng","routes":["reflex","rtype"],"status":"ref","batch":"A5","stitch":["7444e407","a4a0f014"],"ref":"brand/stitch/v3/app/games"},
   {"id":"stats","area":"app","name":"Thống kê + huy hiệu","routes":["stats","qstats"],"status":"ref","batch":"A5","stitch":["3a35d2a5","9afe9189"],"ref":"brand/stitch/v3/app/stats"},
