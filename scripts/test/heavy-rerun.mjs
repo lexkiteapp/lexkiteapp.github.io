@@ -14,10 +14,11 @@ ok(pickReruns([run(1, 'qa-bot.yml', { event: 'push' })], { 1: J('success', 'skip
 ok(pickReruns([run(1, 'qa-bot.yml')], { 1: J('success') }, H).length === 0, 'không có job nặng nào → không chạy lại');
 // 14/11 #1285: chạy lại lượt sha cũ sau khi PR có commit mới = huỷ lượt của head trong nhóm concurrency → required-gate đỏ treo
 ok(!superseded('abc', 'abc'), 'sha vẫn là head → được chạy lại');
-ok(superseded('abc', 'def') && superseded('abc', undefined), 'head đã đổi / không đọc được head → KHÔNG chạy lại');
+ok(superseded('abc', 'def') && superseded('abc', undefined), 'tip nhánh đã đổi / lỗi API → KHÔNG chạy lại');
+ok(!superseded('abc', 'fork'), 'PR fork (nhánh không có trong repo, 404) → giữ hành vi cũ');
 { const src = (await import('node:fs')).readFileSync(new URL('../ci/heavy-rerun.mjs', import.meta.url), 'utf8'), wf = (await import('node:fs')).readFileSync(new URL('../../.github/workflows/npm-test.yml', import.meta.url), 'utf8');
   ok(src.split('superseded(sha, await head())').length === 3 && /dừng chạy lại`\); break;/.test(src), 'đọc lại head ngay trước MỖI lần POST rerun');
-  ok(/heavy-rerun\.mjs --sha "\$\{\{ github\.event\.pull_request\.head\.sha \}\}" --pr "\$\{\{ github\.event\.pull_request\.number \}\}"/.test(wf) && /pull-requests: read/.test(wf), 'npm-test.yml truyền --pr + quyền đọc PR'); }
+  ok(/heavy-rerun\.mjs --sha "\$\{\{ github\.event\.pull_request\.head\.sha \}\}" --ref "\$\{\{ github\.event\.pull_request\.head\.ref \}\}"/.test(wf), 'npm-test.yml truyền --ref (tip nhánh qua git/ref – không cần thêm quyền cho workflow gọi lại)'); }
 const hf = heavyFiles();
 ok(hf.length === 13 && ['teach-video.yml', 'video-motion.yml'].every(f => hf.includes(f)) && ['qa-bot.yml', 'journey-e2e.yml', 'scroll-perf.yml', 'size-guard.yml', 'mobile-qa.yml'].every(f => hf.includes(f)), `13 workflow nặng có dấu heavy-gate (${hf.length})`);
 if (bad) process.exit(1); console.log('✓ heavy-rerun: chỉ chạy lại lượt nặng đã bị gate bỏ qua, 13 workflow nặng có gate');
