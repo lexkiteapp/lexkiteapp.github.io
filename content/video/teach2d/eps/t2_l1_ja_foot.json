@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_foot",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "By walk? Use on foot!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I go there by walk.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I go there on foot.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say on foot for walking.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! I go to school on foot.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I go there by walk.",
+  "right": "I go there on foot.",
+  "strike": "by walk",
+  "why": "Say on foot for walking.",
+  "memory": "I go there on foot.",
+  "quiz": {
+   "stem": "I go to school ___ foot.",
+   "options": [
+    "on",
+    "by"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "「歩いて」は by walk じゃない",
+   "tip": "乗り物は by、歩きは on foot。決まったセットで言います。",
+   "caption": "“I go there by walk.”と言っていませんか？😅 電車は by train なので、歩きも by walk と言いたくなります。でも歩きは on foot が決まり文句です。 “I go there on foot.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“on”。歩きは on foot。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “by walk”?",
+   "tip": "For vehicles use by. For walking, say on foot.",
+   "caption": "Do you say “I go there by walk.”? 😅 By train works, so by walk feels logical. But for walking the set phrase is on foot. The natural way is “I go there on foot.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "「歩いて」は by walk じゃない"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "「歩いて」は by walk じゃない",
+  "keyword": "I go there on foot.",
+  "value": "乗り物は by、歩きは on foot。決まったセットで言います。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "「歩いて」は by walk じゃない",
+    "description": "“I go there by walk.”と言っていませんか？😅 電車は by train なので、歩きも by walk と言いたくなります。でも歩きは on foot が決まり文句です。 “I go there on foot.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I go there on foot.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I go there by walk.”と言っていませんか？😅 電車は by train なので、歩きも by walk と言いたくなります。でも歩きは on foot が決まり文句です。 “I go there on foot.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I go there by walk.”と言っていませんか？😅 電車は by train なので、歩きも by walk と言いたくなります。でも歩きは on foot が決まり文句です。 “I go there on foot.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "「歩いて」は by walk じゃない #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“on”。歩きは on foot。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_advice",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Advice has no plural.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She gave me many advices.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She gave me some advice.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Advice never takes s.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Some! Give me some advice.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She gave me many advices.",
+  "right": "She gave me some advice.",
+  "strike": "advices",
+  "why": "Advice never takes s.",
+  "memory": "Advice: no s.",
+  "quiz": {
+   "stem": "Can you give me ___ advice?",
+   "options": [
+    "some",
+    "an"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Đừng thêm “s” vào advice!",
+   "tip": "“Advice” là danh từ không đếm được nên không thêm -s và không có “an”.",
+   "caption": "Bạn có hay nói “She gave me many advices.” không? 😅 “Advice” không bao giờ thêm -s: “She gave me some advice.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “some”. Xin một lời khuyên bằng “some advice” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tuvungtienganh",
+    "#nguphaptienganh",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do not add “s” to advice!",
+   "tip": "“Advice” is uncountable, so no -s and no “an”.",
+   "caption": "Do you often say “She gave me many advices.”? “Advice” never takes -s: “She gave me some advice.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Đừng thêm “s” vào advice!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Đừng thêm “s” vào advice!",
+  "keyword": "She gave me some advice.",
+  "value": "“Advice” là danh từ không đếm được nên không thêm -s và không có “an”.",
+  "hashtags": [
+   "#hoctienganh",
+   "#tuvungtienganh",
+   "#nguphaptienganh",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Đừng thêm “s” vào advice!",
+    "description": "Bạn có hay nói “She gave me many advices.” không? 😅 “Advice” không bao giờ thêm -s: “She gave me some advice.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #tuvungtienganh #nguphaptienganh #lexkite",
+    "tags": [
+     "She gave me some advice.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “She gave me many advices.” không? 😅 “Advice” không bao giờ thêm -s: “She gave me some advice.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Bạn có hay nói “She gave me many advices.” không? 😅 “Advice” không bao giờ thêm -s: “She gave me some advice.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tuvungtienganh",
+     "#nguphaptienganh",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Đừng thêm “s” vào advice! #hoctienganh #tuvungtienganh #nguphaptienganh"
+   }
+  },
+  "first_comment": "Đáp án: “some”. Xin một lời khuyên bằng “some advice” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

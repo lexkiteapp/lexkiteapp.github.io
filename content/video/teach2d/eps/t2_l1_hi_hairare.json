@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_hairare",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Hair is long!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My hair are long.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My hair is long.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Hair is one thing. Use is.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! Her hair is black.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My hair are long.",
+  "right": "My hair is long.",
+  "strike": "are",
+  "why": "Hair is one thing. Use is.",
+  "memory": "Hair is.",
+  "quiz": {
+   "stem": "Her hair ___ black.",
+   "options": [
+    "is",
+    "are"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“My hair are” गलत है!",
+   "tip": "हिंदी में “बाल” बहुवचन लगता है, पर अंग्रेज़ी में hair के साथ is आता है।",
+   "caption": "क्या आप भी कहते हैं “My hair are long”? 🙈 अंग्रेज़ी में “My hair is long” सही है, क्योंकि hair एक समूह की तरह is के साथ चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “is”। are की जगह is बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“My hair are” is wrong!",
+   "tip": "In Hindi “baal” feels plural, but in English hair takes is.",
+   "caption": "Do you say “My hair are long”? 🙈 In English “My hair is long” is right, because hair takes is like one group. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“My hair are” गलत है!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“My hair are” गलत है!",
+  "keyword": "My hair is long.",
+  "value": "हिंदी में “बाल” बहुवचन लगता है, पर अंग्रेज़ी में hair के साथ is आता है।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "“My hair are” गलत है!",
+    "description": "क्या आप भी कहते हैं “My hair are long”? 🙈 अंग्रेज़ी में “My hair is long” सही है, क्योंकि hair एक समूह की तरह is के साथ चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "My hair is long.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “My hair are long”? 🙈 अंग्रेज़ी में “My hair is long” सही है, क्योंकि hair एक समूह की तरह is के साथ चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “My hair are long”? 🙈 अंग्रेज़ी में “My hair is long” सही है, क्योंकि hair एक समूह की तरह is के साथ चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“My hair are” गलत है! #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “is”। are की जगह is बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

@@ -6,6 +6,8 @@
   const { $, $$, esc } = UI;
   const App = window.App, { state, routes } = App, view = App.view;
   const LEVELS = [['a2', 'A2 Key'], ['b1', 'B1 Preliminary'], ['b2', 'B2 First'], ['c1', 'C1 Advanced'], ['c2', 'C2 Proficiency']];
+  const SPKN = { interview: 'Interview', 'long-turn': 'Long turn', collaborative: 'Collaborative task', discussion: 'Discussion' };
+  const WR = new Set(['email', 'story', 'article', 'essay', 'report', 'review', 'letter']); // phần viết sản sinh
   const PAPERS = { rw: ['📖', 'Reading & Writing'], listening: ['🎧', 'Listening'], speaking: ['🗣️', 'Speaking'] };
   const tests = () => self.CAMBRIDGE || [];
   const rub = l => (self.CAMBRIDGE_RUBRIC || {})[l] || { writing: [], speaking: [], linkers: [] };
@@ -17,12 +19,23 @@
   const linkersUsed = (text, L) => (L || []).filter(w => new RegExp(`\\b${w}\\b`, 'i').test(text));
   App.cambridge = { wc, pointHits, linkersUsed, build: (T, p) => build(T, p) };
   const passage = tx => (Array.isArray(tx) ? tx : String(tx || '').split('\n')).map(p => `<p style="margin:.35rem 0;white-space:pre-wrap">${esc(p).replace(/\((\d{1,2})\)/g, '<b class="qn">$1</b>')}</p>`).join('');
-  const QTYPE = { 'mcq': 'mcq', 'mcq-picture': 'mcq', 'mcq-gap': 'mcq', 'matching': 'match', 'gap': 'form', 'open-gap': 'form' };
+  const QTYPE = {
+    'gap': 'form',
+    'gapped-text': 'match',
+    'matching': 'match',
+    'mcq': 'mcq',
+    'mcq-gap': 'mcq',
+    'mcq-picture': 'mcq',
+    'open-gap': 'form',
+    'sentence': 'form',
+    'transformation': 'form',
+    'word-formation': 'form',
+  };
   // Nhóm câu theo định dạng QE (qengine.js) – chấm, đánh dấu và "xem chỗ có đáp án" dùng chung với IELTS/TOEIC/TOEFL
   const groupOf = (p, items) => {
     const type = QTYPE[p.type];
     if (type === 'match') return { type, options: p.texts ? p.texts.map(x => `${x.code} ${x.title}`) : p.options, items };
-    if (type === 'form') return { type, limit: p.type === 'open-gap' ? 1 : 3, items: items.map(it => ({ ...it, text: it.text || `(${it.n}) ___` })) };
+    if (type === 'form') return { type, limit: ({ 'open-gap': 1, 'word-formation': 1, transformation: 5 })[p.type] || 3, items: items.map(it => ({ ...it, text: it.text || `(${it.n}) ___` })) };
     return { type, items: items.map(it => ({ ...it, q: it.q || `(${it.n})`, options: it.pics ? it.options.map((o, k) => `${it.pics[k]} ${o}`) : it.options })) };
   };
   const head = (title, sub) => `<div class="page-head"><div><h1>${title}</h1>${sub ? `<p class="muted">${sub}</p>` : ''}</div></div>`;
@@ -60,7 +73,7 @@
     return { P, groups, html: P.map((x, k) => `<div class="card" data-part="${k}"><h3 style="margin-top:0">Part ${x.n}</h3><p class="lq-instr">${esc(x.instr || x.prompt || '')}</p>${partHtml(x, k, p, groups)}</div>`).join('') };
   }
   function partHtml(x, k, p, groups) {
-    if (x.type === 'email' || x.type === 'story') return `${x.points ? `<ul class="small">${x.points.map(s => `<li>${esc(s)}</li>`).join('')}</ul>` : ''}${x.pictures ? `<div class="grid g3">${x.pictures.map((pc, i) => `<div class="card" style="margin:0;text-align:center"><div style="font-size:2.4rem" aria-hidden="true">${pc.ic}</div><div class="tiny muted">${i + 1}. ${esc(pc.alt)}</div></div>`).join('')}</div>` : ''}
+    if (WR.has(x.type)) return `${x.points ? `<ul class="small">${x.points.map(s => `<li>${esc(s)}</li>`).join('')}</ul>` : ''}${x.pictures ? `<div class="grid g3">${x.pictures.map((pc, i) => `<div class="card" style="margin:0;text-align:center"><div style="font-size:2.4rem" aria-hidden="true">${pc.ic}</div><div class="tiny muted">${i + 1}. ${esc(pc.alt)}</div></div>`).join('')}</div>` : ''}
       <p class="small"><b>${esc(x.prompt)}</b> <span class="muted">${t('Viết {n} từ trở lên.', { n: x.min_words })}</span></p>
       <textarea class="input" data-w="${k}" style="min-height:160px;line-height:1.6" spellcheck="false" aria-label="Part ${x.n}"></textarea><div class="tiny muted" data-wc="${k}">${t('{n} từ', { n: 0 })}</div><div data-wfb="${k}"></div>`;
     if (p === 'listening') return x.units.map((u, j) => { const g = groupOf(x, u.items); groups.push([k, j, g]);
@@ -84,17 +97,18 @@
     }));
   }
   function submit(T, p, P, groups, body) {
-    let right = 0, total = 0;
+    let right = 0, total = 0; const all = {}, kind = p === 'listening' ? 'listening' : 'reading';
     for (const [k, j, g] of groups) {
       const root = $(`[data-g="${k}-${j}"]`, body); if (!root) continue; const res = QE.collect({ groups: [g] }, root);
       QE.mark(root, res);
-      for (const it of g.items) { total++; if (res[it.n] && res[it.n].ok) right++; const fb = $(`[data-item="${it.n}"] .lq-fb`, root); if (fb && it.explain) fb.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(QE.exT(it.explain))}</div>`); }
+      for (const it of g.items) { total++; if (res[it.n]) all[k + '-' + j + '-' + it.n] = res[it.n]; if (res[it.n] && res[it.n].ok) right++; else if (App.logMistake) App.logMistake({ kind, q: I18N.tk('Test {t} – Câu {n}: {q}', { t: T.title, n: it.n, q: (res[it.n] && res[it.n].q) || it.q || '' }), answer: res[it.n] ? res[it.n].answer : '', given: (res[it.n] && res[it.n].given) || I18N.tk('(bỏ trống)'), explain: it.explain ? QE.exT(it.explain) : '', ref: T.id }); const fb = $(`[data-item="${it.n}"] .lq-fb`, root); if (fb && it.explain) fb.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(QE.exT(it.explain))}</div>`); }
     }
     $$('details[data-tr]', body).forEach(d => { d.hidden = false; });
-    P.forEach((x, k) => { if (x.type === 'email' || x.type === 'story') writeFb(T, x, k, body); });
+    P.forEach((x, k) => { if (WR.has(x.type)) writeFb(T, x, k, body); });
     const pct = total ? Math.round(100 * right / total) : 0, b = best(), key = T.id + ':' + p;
     if (b[key] == null || pct > b[key]) b[key] = pct;
     $('#camRes').innerHTML = `<div class="card"><h3 style="margin-top:0">${t('Kết quả: {a}/{b} câu đúng ({p}%)', { a: right, b: total, p: pct })}</h3><p class="small muted" style="margin:0">${t('Xem lời giải dưới từng câu. Phần viết có nhận xét riêng ngay dưới bài.')}</p></div>`;
+    if (window.QT) QT.record('cb', all, p === 'listening' ? null : $('.lq-wrap', body));
     App.reward({ quizzes: 1, xp: 10 + right });
   }
   // Phản hồi viết: số từ, ý bắt buộc, từ nối, tiêu chí cấp, bài mẫu, AI (tùy chọn)
@@ -125,11 +139,11 @@
   function speaking(T, body) {
     const S = T.speaking || { parts: [] }, R = rub(T.level), qs = [];
     const qRow = (q, models) => { const i = qs.push([q, models[q]]) - 1; return `<div class="lq-item" data-sq="${i}"><div class="row between" style="gap:.4rem;flex-wrap:wrap"><span>${esc(q)}</span><span class="row nowrap"><button class="btn sm" data-hear="${i}" aria-label="${esc(t('Nghe'))}">🔊</button><button class="btn sm primary" data-rec="${i}">🎙️ ${t('Trả lời')}</button></span></div><div data-sfb="${i}" class="small"></div></div>`; };
-    body.innerHTML = S.parts.map(p => `<div class="card"><h3 style="margin-top:0">Part ${p.n} · ${p.type === 'interview' ? 'Interview' : 'Discussion'}</h3>
+    body.innerHTML = S.parts.map(p => `<div class="card"><h3 style="margin-top:0">Part ${p.n} · ${SPKN[p.type] || 'Discussion'}</h3>
       ${p.type === 'interview' ? p.phases.map(ph => `${ph.topic ? `<h4 style="margin:.6rem 0 .2rem">${esc(ph.topic)}</h4>` : ''}${[...ph.q, ...(ph.extended ? [ph.extended] : [])].map(q => qRow(q, p.models || {})).join('')}`).join('')
-        : `<p class="lq-instr">${esc(p.prompt)}</p><div class="grid g3">${p.options.map(o => `<div class="card" style="margin:0;text-align:center"><div style="font-size:2rem" aria-hidden="true">${o.ic}</div><div class="small">${esc(o.label)}</div></div>`).join('')}</div>
-        <div class="small" style="margin:.6rem 0"><b>${t('Bạn cùng thi nói:')}</b>${p.partnerLines.map(l => `<div class="row" style="gap:.4rem"><button class="btn sm" data-say="${esc(l)}" aria-label="${esc(t('Nghe'))}">🔊</button><i>${esc(l)}</i></div>`).join('')}</div>
-        ${[p.prompt, ...p.follow].map(q => qRow(q, p.models || {})).join('')}<div class="tiny muted">${t('Mẫu câu hữu ích:')} ${p.useful.map(esc).join(' · ')}</div>`}
+        : `<p class="lq-instr">${esc(p.prompt)}</p>${p.options ? `<div class="grid g3">${p.options.map(o => `<div class="card" style="margin:0;text-align:center"><div style="font-size:2rem" aria-hidden="true">${o.ic}</div><div class="small">${esc(o.label)}</div></div>`).join('')}</div>` : ''}
+        ${p.partnerLines ? `<div class="small" style="margin:.6rem 0"><b>${t('Bạn cùng thi nói:')}</b>${p.partnerLines.map(l => `<div class="row" style="gap:.4rem"><button class="btn sm" data-say="${esc(l)}" aria-label="${esc(t('Nghe'))}">🔊</button><i>${esc(l)}</i></div>`).join('')}</div>` : ''}
+        ${[p.prompt, ...p.follow].map(q => qRow(q, p.models || {})).join('')}<div class="tiny muted">${t('Mẫu câu hữu ích:')} ${(p.useful || []).map(esc).join(' · ')}</div>`}
       ${p.tips ? `<ul class="tiny muted">${p.tips.map(s => `<li>${esc(s)}</li>`).join('')}</ul>` : ''}</div>`).join('')
       + `<div class="card"><details><summary class="small"><b>📏 ${t('Tiêu chí chấm (0–5 mỗi tiêu chí)')}</b></summary>${R.speaking.map(c => `<div class="small" style="margin:.3rem 0"><b>${esc(c.name)}</b><div class="tiny">5 · ${esc(c.b5)}</div><div class="tiny">3 · ${esc(c.b3)}</div><div class="tiny">1 · ${esc(c.b1)}</div></div>`).join('')}</details></div>`;
     $$('[data-hear]', body).forEach(b => { b.onclick = () => UI.tts(qs[+b.dataset.hear][0], 'en-GB', 0.95); });

@@ -348,6 +348,20 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "ci-autopilot",
+   "workflow": "ci-autopilot.yml",
+   "cron": [
+    "7-57/10 * * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 3,
+   "est": {},
+   "lease": false
+  },
+  {
    "id": "required-gate",
    "workflow": "required-gate.yml",
    "cron": [
@@ -1305,6 +1319,24 @@ export const REG = {
    "minutes": 3,
    "lease": false,
    "_note": "05/11 PR #719: đo hàng chờ CI mức job mỗi ngày (chờ p50/p90, phút, lượt trùng) so với mốc → issue ci-queue; chỉ đọc API"
+  },
+  {
+   "id": "social-metrics",
+   "workflow": "social-metrics.yml",
+   "cron": [
+    "50 2 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "youtube_api",
+    "d1_main"
+   ],
+   "minutes": 2,
+   "est": {
+    "d1_main_reads": 200,
+    "d1_main_writes": 150
+   },
+   "lease": false
   }
  ]
 };

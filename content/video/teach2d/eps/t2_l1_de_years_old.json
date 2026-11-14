@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_years_old",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Age needs the verb be!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have 25 years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am 25 years old.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For age, use am and old.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! She is 30 years old.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have 25 years.",
+  "right": "I am 25 years old.",
+  "strike": "have",
+  "why": "For age, use am and old.",
+  "memory": "I am 25 years old.",
+  "quiz": {
+   "stem": "She ___ 30 years old.",
+   "options": [
+    "has",
+    "is"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Alter: „have“ ist falsch!",
+   "tip": "Im Deutschen „hast“ du kein Alter, im Englischen auch nicht: Du sagst „I am 25 years old“.",
+   "caption": "Sagst du auch „I have 25 years“? 😬 Falsch: “I have 25 years.” Richtig: “I am 25 years old.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “is”. Richtig heißt es: “I am 25 years old.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you also say “I have 25 years”?",
+   "tip": "For your age you say “I am 25 years old”, not “have”.",
+   "caption": "Do you also say “I have 25 years”? Wrong: “I have 25 years.” Right: “I am 25 years old.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Alter: „have“ ist falsch!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Alter: „have“ ist falsch!",
+  "keyword": "I am 25 years old.",
+  "value": "Im Deutschen „hast“ du kein Alter, im Englischen auch nicht: Du sagst „I am 25 years old“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Alter: „have“ ist falsch!",
+    "description": "Sagst du auch „I have 25 years“? 😬 Falsch: “I have 25 years.” Richtig: “I am 25 years old.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I am 25 years old.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagst du auch „I have 25 years“? 😬 Falsch: “I have 25 years.” Richtig: “I am 25 years old.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Sagst du auch „I have 25 years“? 😬 Falsch: “I have 25 years.” Richtig: “I am 25 years old.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Alter: „have“ ist falsch! #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “is”. Richtig heißt es: “I am 25 years old.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

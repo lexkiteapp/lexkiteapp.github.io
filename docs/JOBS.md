@@ -38,6 +38,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 00:04 | `ci-filler` | `4-59/10 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:07 | `blog-publish` | `7 */3 * * *` | publishing | gh_minutes | 10 | — | — |
 | 00:07 | `d1-usage-watch` | `7,27,47 * * * *` | reports | d1_main, gh_minutes | 1 | d1_main_reads≈10, d1_main_writes≈2 | — |
+| 00:07 | `ci-autopilot` | `7-57/10 * * * *` | reports | gh_minutes | 3 | — | — |
 | 00:07 | `youtube-manual` | `7,37 * * * *` | publishing | youtube_api, d1_main_read | 5 | d1_main_reads≈300 | — |
 | 00:15 | `d1-backup` | `15 0 * * 1,2` | archive | d1_main_read, drive_pool, gh_minutes | 30 | d1_main_reads≈60000, drive_calls≈80 | ✓ |
 | 00:17 | `free-tier-guard` | `35 1 * * *`<br>`17 * * * *` | reports | gh_minutes | 2 | — | — |
@@ -71,6 +72,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 02:30 | `i18n` | `30 2 * * *` | render | gemini, gh_minutes | 90 | — | — |
 | 02:30 | `world-scorecard` | `30 2 * * 1` | reports | gh_minutes | 15 | — | — |
 | 02:40 | `vocab-img-scene` | `40 2,4,7,10,13,16,19,22 * * *` | bulk | grabcast_ai, gh_minutes | 120 | grabcast_images≈6000, grabcast_text≈300, shards_max≈10, per_shard_images≈max_gc / shards, judge≈local CPU (0 token), grabcast_vision≈6000 | ✓ |
+| 02:50 | `social-metrics` | `50 2 * * *` | reports | youtube_api, d1_main | 2 | d1_main_reads≈200, d1_main_writes≈150 | — |
 | 03:20 | `visual-qa` | `20 3 * * 1` | reports | gh_minutes | 30 | — | — |
 | 03:40 | `mobile-qa` | `40 3 * * 1` | reports | gh_minutes | 30 | — | — |
 | 03:41 | `content-evidence` | `41 3 * * *`<br>`23 4 1 * *` | reports | gh_minutes | 30 | — | — |

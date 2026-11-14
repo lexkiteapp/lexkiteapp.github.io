@@ -21,4 +21,5 @@ dependencies {
     implementation(project(":design"))
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.1")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.9.1")
+    implementation("com.google.android.play:review:2.0.2") // in-app rating prompt (ReviewPrompt.kt; policy native/shared/review-prompt.json)
 }

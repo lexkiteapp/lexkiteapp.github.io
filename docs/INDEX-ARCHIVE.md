@@ -16,6 +16,7 @@
 - [DUO-GAP.md](agents/DUO-GAP.md) — Bảng khoảng trống UX bài học kiểu Duolingo (21/10): chỉ học mẫu tương tác, không chép tài sản/chữ; đọc khi: làm UX bài học
 - [dictionary-quality-2026-10.md](audits/dictionary-quality-2026-10.md) — Audit chất lượng từ điển 10/2026; đọc khi: tra chất lượng từ điển
 - [exams-2026-10.md](audits/exams-2026-10.md) — Audit đề thi 10/2026; đọc khi: tra chất lượng đề thi
+- [exams-2026-11.md](audits/exams-2026-11.md) — Kiểm kê kho đề thi 13/11 + kế hoạch ưu tiên (Cambridge, GT, TOEIC S&W tranh, giữ chân); đọc khi: chọn đợt đề thi tiếp theo
 - [grammar-2026-10.md](audits/grammar-2026-10.md) — Audit ngữ pháp 10/2026; đọc khi: tra chất lượng ngữ pháp
 - [path-2026-10.md](audits/path-2026-10.md) — Audit lộ trình học 10/2026; đọc khi: tra chất lượng lộ trình
 - [vocabulary-2026-10.md](audits/vocabulary-2026-10.md) — Audit từ vựng 10/2026; đọc khi: tra chất lượng từ vựng

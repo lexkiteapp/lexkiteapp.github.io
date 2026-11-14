@@ -76,7 +76,7 @@ enum StudyNames {
         ["youtube": "YouTube", "web": "Web", "reading": "Reading", "anki": "Anki"][k]
     }
     static func originIcon(_ k: String) -> String {
-        ["youtube": "play.rectangle.fill", "web": "globe", "reading": "book.fill", "dict": "magnifyingglass", "library": "books.vertical.fill", "anki": "rectangle.stack.fill"][k] ?? "tray.fill"
+        ["youtube": "play.rectangle.fill", "web": "globe", "reading": "book.fill", "dict": "magnifyingglass", "library": "books.vertical.fill", "anki": "rectangle.stack.fill", "doc": "tray.and.arrow.down.fill"][k] ?? "tray.fill"
     }
 }
 

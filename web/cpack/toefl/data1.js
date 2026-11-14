@@ -66,7 +66,7 @@ TF.reading.push({
 id: 'tf1-dl2', set: 1, task: 'daily', title: 'Email from Building Management',
 text: 'From: Marta Ruiz, Building Manager\nTo: All residents of Elm Court\nSubject: Water shut-off on Thursday\n\nDear residents,\n\nPlumbers will replace the main water valve this Thursday. Water will be turned off in all apartments from 10 a.m. until approximately 2 p.m. We recommend filling a few bottles the night before.\n\nThe laundry room will also be closed that day, but it will reopen on Friday morning. If you notice any leaks after the water is turned back on, please call the maintenance line rather than sending an email, so that we can respond quickly.\n\nThank you for your patience,\nMarta',
 groups: [mcq('Read the email and answer the questions.', [
-{ n: 4, q: 'What is the main purpose of the email?', options: ['To inform residents about a temporary loss of water', 'To announce new laundry room hours', 'To ask residents to report leaks by email', 'To introduce a new building manager'], a: 0,
+{ n: 4, q: 'What is the main purpose of the email?', options: ['To inform residents about a temporary loss of water', 'To announce new laundry room hours', 'To ask residents to report leaks by email', 'To introduce a new building manager'], a: 0, cue: 'Water will be turned off in all apartments',
 explain: 'Tiêu đề và đoạn đầu cho biết nước sẽ bị ngắt từ 10 giờ đến khoảng 2 giờ chiều thứ Năm → mục đích là báo việc cắt nước tạm thời. Phòng giặt chỉ là chi tiết phụ.' },
 { n: 5, q: 'What does Marta suggest residents do?', options: ['Store some water in advance', 'Do their laundry on Thursday', 'Leave their apartments by 10 a.m.', 'Check their own water valves'], a: 0,
 explain: '"We recommend filling a few bottles the night before" = nên đổ sẵn vài chai nước từ tối hôm trước → trữ nước trước. Phòng giặt đóng cửa thứ Năm nên không thể giặt hôm đó.' },
@@ -80,7 +80,7 @@ text: 'RIVERSIDE COMMUNITY CENTER\nBeginner Cooking: Meals Under 30 Minutes\n\nT
 groups: [mcq('Read the flyer and answer the questions.', [
 { n: 7, q: 'What are participants asked to bring?', options: ['A container for leftovers', 'Their own ingredients', 'A cooking knife', 'A membership card'], a: 0,
 explain: '"just bring a container to take your food home" = chỉ cần mang hộp đựng để mang đồ ăn về. Nguyên liệu và dụng cụ đã được cung cấp ("All ingredients and equipment are provided").' },
-{ n: 8, q: 'What can be inferred about the course?', options: ['Members pay less than non-members.', 'It is designed for professional chefs.', 'It meets twice a week.', 'Anyone who arrives can join without registering.'], a: 0,
+{ n: 8, q: 'What can be inferred about the course?', options: ['Members pay less than non-members.', 'It is designed for professional chefs.', 'It meets twice a week.', 'Anyone who arrives can join without registering.'], a: 0, cue: '$45 for center members',
 explain: 'Phí $60, thành viên trung tâm chỉ $45 → thành viên trả ít hơn. Khóa học dành cho người mới (Beginner), học mỗi thứ Ba (một lần/tuần) và giới hạn 12 người nên phải đăng ký.' },
 ])],
 });
@@ -90,7 +90,7 @@ text: 'Leo (4:12 p.m.): Hey, are you still driving to the conference tomorrow? M
 groups: [mcq('Read the messages and answer the questions.', [
 { n: 9, q: 'Why does Leo contact Nadia?', options: ['He needs another way to get to the conference.', 'He wants to change the meeting place.', 'He forgot when registration closes.', 'He wants to borrow her car.'], a: 0,
 explain: '"My train got cancelled" (chuyến tàu bị hủy) và hỏi Nadia có lái xe đi hội nghị không → Leo cần phương tiện khác. Anh không mượn xe mà đi nhờ.' },
-{ n: 10, q: 'What does Nadia mean when she writes "Deal"?', options: ['She accepts Leo\'s offer to pay for parking.', 'She thinks the price of parking is too high.', 'She wants to discuss the plan later.', 'She will register for Leo.'], a: 0,
+{ n: 10, q: 'What does Nadia mean when she writes "Deal"?', options: ['She accepts Leo\'s offer to pay for parking.', 'She thinks the price of parking is too high.', 'She wants to discuss the plan later.', 'She will register for Leo.'], a: 0, cue: 'I\'ll pay for the parking',
 explain: '"Deal" là cách nói thân mật nghĩa là "đồng ý/chốt vậy", đáp lại lời Leo "I\'ll pay for the parking" → cô chấp nhận đề nghị trả tiền gửi xe.' },
 ])],
 });
@@ -115,7 +115,7 @@ explain: 'Dạng FACTUAL (thông tin chi tiết). Đoạn 1: "the bees carry onl
 explain: 'Dạng VOCABULARY. "exposed position" = vị trí không được che chắn (cành cây ngoài trời) → "unprotected". "temporary" (tạm thời) đúng với tình huống nhưng không phải nghĩa của từ.' },
 { n: 3, q: 'According to paragraph 2, which bees become scouts?', options: ['Older bees with foraging experience', 'Bees that are newly hatched', 'Bees chosen by the queen', 'Bees that guard the nest entrance'], a: 0, type: 'factual',
 explain: 'Dạng FACTUAL. "A few hundred of the oldest and most experienced foragers become scouts" – trinh sát là những ong kiếm ăn lớn tuổi, nhiều kinh nghiệm nhất.' },
-{ n: 4, q: 'According to paragraph 2, all of the following are features that scouts prefer EXCEPT', options: ['a location close to flowers', 'a volume of about forty liters', 'a small entrance', 'an opening high above the ground'], a: 0, type: 'negative',
+{ n: 4, q: 'According to paragraph 2, all of the following are features that scouts prefer EXCEPT', options: ['a location close to flowers', 'a volume of about forty liters', 'a small entrance', 'an opening high above the ground'], a: 0, cue: "a volume of about forty liters … an entrance smaller than a few square centimeters", type: 'negative',
 explain: 'Dạng NEGATIVE FACTUAL (tìm ý KHÔNG được nhắc). Đoạn 2 liệt kê: thể tích ~40 lít, lối vào nhỏ, cửa ở cao. Việc "gần hoa" không hề được đề cập → đáp án.' },
 { n: 5, q: 'Why does the author mention "artificial nest boxes of different sizes" in paragraph 2?', options: ['To explain how scientists learned about scouts\' preferences', 'To suggest that bees prefer man-made nests', 'To show that scouts often choose the wrong site', 'To describe how beekeepers prevent swarming'], a: 0, type: 'purpose',
 explain: 'Dạng RHETORICAL PURPOSE (mục đích tu từ). Chi tiết hộp tổ nhân tạo được nêu để cho biết các nhà nghiên cứu đã phát hiện sở thích của ong trinh sát bằng cách nào ("have found that scouts strongly favor…").' },

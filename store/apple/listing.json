@@ -2,7 +2,7 @@
   "_note": "Phần chung cho App Store (scripts/asc-upload.mjs). Chữ từng ngôn ngữ: store/metadata/<locale>.json (khối \"apple\", nguồn duy nhất chung với Google Play). Sửa rồi chạy: node scripts/store-metadata.mjs --check --write-md && node scripts/asc-upload.mjs --check --write-md",
   "appId": "6824714708",
   "bundleId": "com.lexkite.app",
-  "version": "1.0",
+  "version": "1.1",
   "primaryCategory": "EDUCATION",
   "secondaryCategory": "REFERENCE",
   "copyright": "2026 MODIAN LUXURY JEWELRY LLC",
@@ -46,6 +46,7 @@
       "parentalControls": false,
       "ageAssurance": false,
       "userGeneratedContent": false,
+      "socialMedia": false,
       "advertising": false,
       "healthOrWellnessTopics": false,
       "ageRatingOverrideV2": "THIRTEEN_PLUS"

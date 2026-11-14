@@ -80,14 +80,18 @@
           ${links.length ? `<div class="card" style="margin-top:1rem"><h3 style="margin:0 0 .5rem">🔗 ${t('Từ nối & liên kết')}</h3><div class="row">${links.map(l => `<span class="md-lchip">${esc(l)}</span>`).join('')}</div></div>` : ''}
         </aside>
       </div>
-      ${m.band6 || m.outline || m.vocab || m.pitfalls ? `<div id="mExtra" class="grid g2" style="align-items:start;margin-top:1rem">
+      ${m.band6 || m.band7 || m.outline || m.vocab || m.pitfalls ? `<div id="mExtra" class="grid g2" style="align-items:start;margin-top:1rem">
         ${m.outline ? `<div class="card" style="margin:0"><h3 style="margin-top:0">${UI.icon('compass')} ${t('Dàn ý')}</h3><ol class="small" style="margin:0;padding-left:1.3rem;line-height:1.7">${m.outline.map(o => `<li>${esc(o)}</li>`).join('')}</ol></div>` : ''}
         ${m.vocab ? `<div class="card" style="margin:0"><h3 style="margin-top:0">${UI.icon('a-large-small')} ${t('Từ vựng chủ đề')}</h3><div class="md-list">${m.vocab.map(([en, vi]) => `<div class="md-item"><div><b>${esc(en)}</b><div class="small muted">${esc(vi)}</div></div></div>`).join('')}</div></div>` : ''}
         ${m.pitfalls ? `<div class="card" style="margin:0"><h3 style="margin-top:0">⚠️ ${t('Lỗi hay gặp')}</h3><ul class="small" style="margin:0;padding-left:1.2rem;line-height:1.7">${m.pitfalls.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
+        ${m.band7 ? `<details class="card" style="margin:0;grid-column:1/-1"><summary style="cursor:pointer;font-weight:700">📈 ${t('Bài band 7 để so sánh')} <span class="md-badge band">Band 7.0</span></summary>
+          <div style="white-space:pre-wrap;line-height:1.7;margin-top:.8rem">${esc(m.band7.text)}</div>
+          <h4 style="margin:1rem 0 .4rem">${UI.icon('search')} ${t('Vì sao chưa lên band trên')}</h4>
+          ${[['TA', 'Task Achievement'], ['TR', 'Task Response'], ['CC', 'Coherence & Cohesion'], ['LR', 'Lexical Resource'], ['GRA', 'Grammatical Range & Accuracy']].filter(([k]) => m.band7.notes && m.band7.notes[k]).map(([k, n]) => `<div class="tip small" style="margin:.4rem 0"><b>${k} · ${n}:</b> ${App.viHtml(m.band7.notes[k])}</div>`).join('')}</details>` : ''}
         ${m.band6 ? `<details class="card" style="margin:0;grid-column:1/-1"><summary style="cursor:pointer;font-weight:700">📉 ${t('Bài band 6 để so sánh')} <span class="md-badge band">Band 6.0</span></summary>
           <div style="white-space:pre-wrap;line-height:1.7;margin-top:.8rem">${esc(m.band6.text)}</div>
           <h4 style="margin:1rem 0 .4rem">${UI.icon('search')} ${t('Vì sao chỉ đạt band 6')}</h4>
-          ${[['TR', 'Task Response'], ['CC', 'Coherence & Cohesion'], ['LR', 'Lexical Resource'], ['GRA', 'Grammatical Range & Accuracy']].filter(([k]) => m.band6.notes && m.band6.notes[k]).map(([k, n]) => `<div class="tip small" style="margin:.4rem 0"><b>${k} · ${n}:</b> ${esc(m.band6.notes[k])}</div>`).join('')}</details>` : ''}
+          ${[['TA', 'Task Achievement'], ['TR', 'Task Response'], ['CC', 'Coherence & Cohesion'], ['LR', 'Lexical Resource'], ['GRA', 'Grammatical Range & Accuracy']].filter(([k]) => m.band6.notes && m.band6.notes[k]).map(([k, n]) => `<div class="tip small" style="margin:.4rem 0"><b>${k} · ${n}:</b> ${App.viHtml(m.band6.notes[k])}</div>`).join('')}</details>` : ''}
       </div>` : ''}`;
     $$('[data-sv]').forEach(b => b.onclick = async () => {
       const c = chunks[+b.dataset.sv]; if (App.inDeck(c.en)) return;
