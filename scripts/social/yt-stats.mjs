@@ -4,6 +4,17 @@ import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { ytApi } from '../video/yt-upload.mjs';
 
+/** Mở 1 issue nhãn social-alert (GitHub gửi email); trùng tiêu đề đang mở → thêm bình luận – cùng cơ chế scripts/social/auto.mjs. */
+export async function raise(a, env = process.env, fetcher = fetch) {
+  console.log('⚠️', a.k, '–', a.text);
+  const tok = env.GITHUB_TOKEN, repo = env.GITHUB_REPOSITORY; if (!tok || !repo) return false;
+  const gh = (path, init = {}) => fetcher('https://api.github.com/repos/' + repo + path, { ...init, headers: { Authorization: 'Bearer ' + tok, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json' } }).catch(() => null);
+  const title = '📉 Social analytics: ' + a.title + (a.k.includes(':') ? ' (' + a.k.split(':')[1] + ')' : ''), body = `${a.text}\n\n- khóa: \`${a.k}\`\n- Quản trị › Video & Social › Phân tích`;
+  const open = await gh('/issues?state=open&labels=social-alert&per_page=50'), list = open && open.ok ? await open.json() : [], ex = list.find(i => i.title === title);
+  const r = ex ? await gh(`/issues/${ex.number}/comments`, { method: 'POST', body: JSON.stringify({ body }) }) : await gh('/issues', { method: 'POST', body: JSON.stringify({ title, body, labels: ['social-alert'] }) });
+  return !!(r && r.ok);
+}
+
 /** Gộp kết quả `stats` thành số liệu báo cáo (hàm thuần, có test). Không suy đoán: thiếu số → null. */
 export function summarize(res, n = 5) {
   const vids = (res.videos || []).filter(v => !v.missing), gone = (res.videos || []).filter(v => v.missing);
@@ -18,7 +29,7 @@ export function summarize(res, n = 5) {
     day: res.day, videos: vids.length, views: sum(vids, 'views'), likes: sum(vids, 'likes'), comments: sum(vids, 'comments'),
     d7: known('d7').length ? sum(known('d7'), 'd7') : null, d30: known('d30').length ? sum(known('d30'), 'd30') : null,
     top: byViews.slice(0, n), bottom: byViews.slice(-n).reverse(), channels, zero_channels: channels.filter(c => c.zero).map(c => c.channel_id),
-    gone: gone.map(v => v.video_id), errors: res.errors || [], quota: res.quota || null,
+    gone: gone.map(v => v.video_id), zero3: res.zero3 || [], alerts: res.alerts || [], errors: res.errors || [], quota: res.quota || null,
     gaps: [...(res.analytics ? [] : ['YouTube Analytics (watch time, CTR, retention, giờ xem): thiếu scope yt-analytics.readonly — cần chủ kết nối lại']), ...(res.errors || []).map(e => `${e.channel_id}: ${e.error}`)],
   };
 }
@@ -33,7 +44,8 @@ export function table(s) {
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   try {
     const s = summarize(await ytApi('stats')), t = table(s); console.log(t);
+    for (const a of s.alerts) await raise(a);
     const j = process.argv.indexOf('--json'); if (j > 0) fs.writeFileSync(process.argv[j + 1], JSON.stringify(s, null, 1));
     if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, t + '\n');
-  } catch (e) { console.error('yt-stats:', e.code || e.message); process.exit(e.status === 429 ? 0 : 1); } // breaker/quota → trung tính, mai chạy tiếp
+  } catch (e) { console.error('yt-stats:', e.code || e.message); if (e.code === 'quota-breaker') await raise({ k: 'yt-quota', title: 'quota sắp cạn', text: 'Cầu dao stats: quota mặc định YouTube đã dùng ≥ 80 %, bỏ qua lượt đo.' }); process.exit(e.status === 429 ? 0 : 1); } // breaker/quota → trung tính, mai chạy tiếp
 }
