@@ -147,6 +147,8 @@
 "vòm miệng":"palatal",
 "vô thanh (không rung)":"stimmlos (keine Vibration)",
 "xem sau khi đã tự trả lời":"Sehen Sie es sich an, nachdem Sie selbst geantwortet haben",
+"{done}/{n} bài đã đạt":"{done}/{n} Lektionen bestanden",
+"{n} bài học trực quan":"{n} visuelle Lektionen",
 "{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.":"{n} visuelle Lektionen: Zeitleisten, farbcodierte Formeln, Satztransformationsdiagramme, häufige Lernfehler und sofort benotete Übungen.",
 "{right}/{total} câu đúng ({pct}%)":"{right}/{total} richtig ({pct}%)",
 "{score}% giống mẫu":"{score}% Übereinstimmung",

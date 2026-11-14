@@ -85,9 +85,11 @@
   const secsOf = root => { const t0 = root && +root.dataset.qeT0; return t0 ? Math.max(0, Math.min(10800, Math.round((Date.now() - t0) / 1000))) : 0; };
   // tally: { dạng: { r, t } }; secs chia theo số câu từng dạng
   async function save(sk, tally, secs) {
-    const tot = Object.values(tally).reduce((a, v) => a + v.t, 0); if (!tot || !g.Game || !g.App) return;
+    const sum = k => Object.values(tally).reduce((a, v) => a + v[k], 0), tot = sum('t'); if (!tot || !g.Game || !g.App) return;
     g.App.state.game = await Game.mutate(gs => {
       gs.qstat = gs.qstat || {};
+      const wk = Math.floor(Date.now() / 6048e5), W = (gs.qwk = gs.qwk || {})[sk] = gs.qwk[sk] || {}, o = W[wk] || {r:0,t:0};
+      W[wk] = {r:o.r+sum('r'),t:o.t+tot}; Object.keys(W).sort((x,y)=>y-x).slice(8).map(k=>delete W[k]);
       for (const [k, v] of Object.entries(tally)) { const key = sk + ':' + k, o = gs.qstat[key] || { r: 0, t: 0, s: 0 }; gs.qstat[key] = { r: o.r + v.r, t: o.t + v.t, s: (o.s || 0) + Math.round(secs * v.t / tot), d: Date.now() }; }
     });
   }
@@ -137,11 +139,13 @@
         <div class="qs-kpi"><span><b>${pct}%</b><span class="tiny muted">${t('tỉ lệ đúng')}</span></span><span><b>${N}</b><span class="tiny muted">${t('câu đã làm')}</span></span>${S ? `<span><b>${fmt(Math.round(S / N))}</b><span class="tiny muted">${t('mỗi câu (ước tính)')}</span></span>` : ''}</div>
         <div role="table" aria-label="${esc(SKILL()[sk][1])}"><div class="qs-row tiny muted" role="row"><span role="columnheader">${t('Dạng câu hỏi')}</span><span class="num" role="columnheader">${t('Đúng')}</span><span class="num" role="columnheader">⏱</span></div>
         ${rows.map(x => { const p = Math.round(x.r / x.t * 100); return `<div class="qs-row" role="row"><span role="cell"><a href="${practiceLink(sk, x.k)}" translate="no">${esc(NAME[x.k] || x.k)}</a><span class="tiny muted"> · ${t('{n} câu', { n: x.t })}</span><div class="bar"><i class="${p >= 75 ? 'ok' : p < 50 ? 'no' : ''}" style="width:${p}%"></i></div></span><span class="num" role="cell"><b>${p}%</b></span><span class="num tiny muted" role="cell">${x.s ? fmt(Math.round(x.s / x.t)) : '–'}</span></div>`; }).join('')}</div>
+        <p id="wk-${sk}"></p>
         ${weak ? `<div style="margin-top:.6rem"><div class="small"><b>🎯 ${t('Nên luyện tiếp:')}</b> <a href="${practiceLink(sk, weak.k)}" translate="no">${esc(NAME[weak.k] || weak.k)}</a></div>${box(weak.k)}</div>` : ''}</div>`;
     });
     view.innerHTML = `<div class="page-head"><div><h1>📊 ${t('Tiến bộ theo kỹ năng và dạng câu hỏi')}</h1><p class="muted">${t('Tổng hợp từ các bài luyện và thi thử của bạn trên Lexkite. Đây là tỉ lệ đúng trong bài luyện của bạn – <b>không phải điểm thi chính thức</b>. Thời gian mỗi câu là ước tính: thời gian trên trang chia cho số câu.')}</p></div></div>
       ${cards.length ? `<div class="qs-grid">${cards.join('')}</div>` : `<div class="card empty"><div class="em">📭</div><p>${t('Chưa có dữ liệu. Làm một bài luyện Listening/Reading (IELTS, TOEIC hoặc TOEFL) để bắt đầu theo dõi.')}</p></div>`}
       <div class="row" style="margin-top:1rem;flex-wrap:wrap"><a class="btn" href="#/rtype">🎯 ${t('Luyện Reading theo dạng câu hỏi')}</a><a class="btn" href="#/listening">🎧 IELTS Listening</a><a class="btn" href="#/toeic">💼 TOEIC</a><a class="btn" href="#/toefl">🎓 TOEFL iBT</a></div>`;
+    g.QWK&&g.QWK.draw(view);
   };
 
   g.QT = { kindOf, NAME, tip, box, record, recordRaw, secsOf, summary };
