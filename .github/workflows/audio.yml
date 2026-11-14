@@ -128,6 +128,9 @@ jobs:
         with: { node-version: 22 }
       - uses: actions/download-artifact@v4
         with: { pattern: 'au-*', merge-multiple: true, path: .media-out }
+      - uses: ./.github/actions/setup-ffmpeg
+      - name: Chuẩn hoá độ to (−16 LUFS, đỉnh ≤ −1 dBTP – scripts/audio/norm.mjs; lệch chuẩn → không đẩy)
+        run: '[ ! -d .media-out/audio/l ] || node scripts/audio/loudness.mjs normalize .media-out/audio/l'
       - name: Khoá deploy kho media
         env: { K: '${{ secrets.MEDIA2_DEPLOY_KEY }}' }
         run: |
