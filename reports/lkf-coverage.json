@@ -36,8 +36,8 @@
    "pct": 100
   },
   "toeic-sw": {
-   "items": 60,
-   "tagged": 60,
+   "items": 78,
+   "tagged": 78,
    "pct": 100
   },
   "toefl": {
@@ -91,8 +91,8 @@
    "pct": 100
   },
   "roleplay": {
-   "items": 33,
-   "tagged": 33,
+   "items": 60,
+   "tagged": 60,
    "pct": 100
   },
   "vocab": {
@@ -102,8 +102,8 @@
   }
  },
  "total": {
-  "items": 11124,
-  "tagged": 11124,
+  "items": 11169,
+  "tagged": 11169,
   "pct": 100
  },
  "errors": 0

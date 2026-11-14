@@ -26,7 +26,7 @@ const cyc = a => { let i = 0; return () => a[i++ % a.length]; };
 const SPK_FILES = ['web/js/speak/data.js'];
 const SPEAK_FILES = ['web/cpack/speak/samples.js', 'web/cpack/speak/more2.js', 'web/cpack/speak/more3.js', 'web/js/speak/more.js'];
 const PRON_FILES = ['web/js/pron/sounds.js', 'web/cpack/pron/skills.js'];
-const RP_FILES = ['web/js/roleplay/data-everyday.js', 'web/js/roleplay/data-a.js', 'web/js/roleplay/data-b.js', 'web/js/roleplay/data-lot1.js'];
+const RP_FILES = ['web/js/roleplay/data-everyday.js', 'web/js/roleplay/data-a.js', 'web/js/roleplay/data-b.js', 'web/js/roleplay/data-lot1.js', 'web/cpack/roleplay/lot2.js'];
 const sbox = (extra = {}) => { const sb = { console, Math, JSON, t: tt, ...extra }; sb.self = sb; sb.window = sb; sb.globalThis = sb; vm.createContext(sb); return sb; };
 const run = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
 let CONTENT = null;
