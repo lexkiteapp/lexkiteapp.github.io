@@ -1523,7 +1523,7 @@
   "Luyện nói": {
     "es": "Práctica oral",
     "pt": "Prática de fala",
-    "fr": "Pratique orale",
+    "fr": "Expression orale",
     "de": "Sprechübung",
     "id": "Latihan bicara",
     "th": "ฝึกพูด",
@@ -1913,7 +1913,7 @@
   "Giao diện theo hệ thống": {
     "es": "Tema del sistema",
     "pt": "Tema do sistema",
-    "fr": "Thème du système",
+    "fr": "Thème : suivre le système",
     "de": "Systemdesign",
     "id": "Tema sistem",
     "th": "ตามระบบ",
@@ -3338,7 +3338,7 @@
   "Ôn tập thẻ đến hạn": {
     "es": "Repasar tarjetas pendientes",
     "pt": "Revisar cartões pendentes",
-    "fr": "Réviser les cartes dues",
+    "fr": "Réviser les cartes à revoir",
     "de": "Fällige Karten wiederholen",
     "id": "Ulang kartu jatuh tempo",
     "th": "ทบทวนการ์ดที่ถึงกำหนด",
@@ -3698,7 +3698,7 @@
   "Chấm bằng AI": {
     "es": "Corregir con IA",
     "pt": "Corrigir com IA",
-    "fr": "Corriger par IA",
+    "fr": "Corriger avec l’IA",
     "de": "Mit KI bewerten",
     "id": "Nilai dengan AI",
     "th": "ตรวจด้วย AI",
@@ -4433,7 +4433,7 @@
   "Đề Listening": {
     "es": "Prueba de Listening",
     "pt": "Prova de Listening",
-    "fr": "Test de Listening",
+    "fr": "Épreuve de Listening",
     "de": "Listening-Test",
     "id": "Tes Listening",
     "th": "ข้อสอบ Listening",
@@ -4448,7 +4448,7 @@
   "Đề Reading": {
     "es": "Prueba de Reading",
     "pt": "Prova de Reading",
-    "fr": "Test de Reading",
+    "fr": "Épreuve de Reading",
     "de": "Reading-Test",
     "id": "Tes Reading",
     "th": "ข้อสอบ Reading",
@@ -4658,7 +4658,7 @@
   "Thi đề khác": {
     "es": "Otra prueba",
     "pt": "Outra prova",
-    "fr": "Un autre test",
+    "fr": "Passer un autre test",
     "de": "Anderen Test machen",
     "id": "Coba tes lain",
     "th": "ทำข้อสอบชุดอื่น",
@@ -5633,7 +5633,7 @@
   "Giảm cỡ chữ": {
     "es": "Reducir texto",
     "pt": "Diminuir texto",
-    "fr": "Réduire le texte",
+    "fr": "Réduire la taille du texte",
     "de": "Text verkleinern",
     "id": "Perkecil teks",
     "th": "ลดขนาดตัวอักษร",
@@ -5648,7 +5648,7 @@
   "Tăng cỡ chữ": {
     "es": "Aumentar texto",
     "pt": "Aumentar texto",
-    "fr": "Agrandir le texte",
+    "fr": "Augmenter la taille du texte",
     "de": "Text vergrößern",
     "id": "Perbesar teks",
     "th": "เพิ่มขนาดตัวอักษร",
@@ -5693,7 +5693,7 @@
   "Đã nộp bài": {
     "es": "Entregado",
     "pt": "Enviado",
-    "fr": "Copie rendue",
+    "fr": "Test soumis",
     "de": "Abgegeben",
     "id": "Sudah dikumpulkan",
     "th": "ส่งแล้ว",
@@ -5828,7 +5828,7 @@
   "nghe 1 lần": {
     "es": "se escucha una vez",
     "pt": "toca uma vez",
-    "fr": "écouté une fois",
+    "fr": "diffusé une seule fois",
     "de": "einmal abgespielt",
     "id": "diputar sekali",
     "th": "เล่นครั้งเดียว",
@@ -9683,7 +9683,7 @@
   "Phrasal verbs thông dụng": {
     "es": "Phrasal verbs comunes",
     "pt": "Phrasal verbs comuns",
-    "fr": "Phrasal verbs courants",
+    "fr": "Verbes à particule courants",
     "de": "Häufige Phrasal Verbs",
     "id": "Phrasal verb umum",
     "th": "Phrasal verb ที่ใช้บ่อย",
@@ -9713,7 +9713,7 @@
   "Collocation band 7+": {
     "es": "Colocaciones nivel band 7+",
     "pt": "Colocações band 7+",
-    "fr": "Collocations band 7+",
+    "fr": "Collocations Band 7+",
     "de": "Kollokationen Band 7+",
     "id": "Kolokasi band 7+",
     "th": "คำปรากฏร่วม band 7+",
@@ -10148,7 +10148,7 @@
   "Thuộc 10 từ": {
     "es": "Domina 10 palabras",
     "pt": "Domine 10 palavras",
-    "fr": "Maîtrisez 10 mots",
+    "fr": "Maîtriser 10 mots",
     "de": "10 Wörter gelernt",
     "id": "Kuasai 10 kata",
     "th": "จำได้ 10 คำ",
@@ -10178,7 +10178,7 @@
   "Thuộc 100 từ": {
     "es": "Domina 100 palabras",
     "pt": "Domine 100 palavras",
-    "fr": "Maîtrisez 100 mots",
+    "fr": "Maîtriser 100 mots",
     "de": "100 Wörter gelernt",
     "id": "Kuasai 100 kata",
     "th": "จำได้ 100 คำ",
@@ -10298,7 +10298,7 @@
   "Ôn 500 lượt": {
     "es": "Completa 500 repasos",
     "pt": "Faça 500 revisões",
-    "fr": "Faites 500 révisions",
+    "fr": "Faire 500 révisions",
     "de": "500 Wiederholungen",
     "id": "Selesaikan 500 ulangan",
     "th": "ทบทวนครบ 500 ครั้ง",
@@ -10358,7 +10358,7 @@
   "Đọc xong 5 bài đọc": {
     "es": "Termina 5 lecturas",
     "pt": "Conclua 5 leituras",
-    "fr": "Terminez 5 lectures",
+    "fr": "Terminer 5 lectures",
     "de": "5 Texte lesen",
     "id": "Selesaikan 5 bacaan",
     "th": "อ่านจบ 5 บท",
@@ -10403,7 +10403,7 @@
   "Đạt cấp độ 5": {
     "es": "Alcanza el nivel 5",
     "pt": "Alcance o nível 5",
-    "fr": "Atteignez le niveau 5",
+    "fr": "Atteindre le niveau 5",
     "de": "Level 5 erreichen",
     "id": "Capai level 5",
     "th": "ถึงระดับ 5",
@@ -10433,7 +10433,7 @@
   "Đạt cấp độ 10": {
     "es": "Alcanza el nivel 10",
     "pt": "Alcance o nível 10",
-    "fr": "Atteignez le niveau 10",
+    "fr": "Atteindre le niveau 10",
     "de": "Level 10 erreichen",
     "id": "Capai level 10",
     "th": "ถึงระดับ 10",
@@ -13418,7 +13418,7 @@
   "Bài luyện": {
     "es": "Ejercicios",
     "pt": "Exercícios",
-    "fr": "Exercices",
+    "fr": "Quiz",
     "de": "Übungen",
     "id": "Kuis",
     "th": "แบบฝึกหัด",
@@ -14783,7 +14783,7 @@
   "Dùng khiên cứu chuỗi": {
     "es": "Usar escudo de racha",
     "pt": "Usar escudo de sequência",
-    "fr": "Utiliser le bouclier",
+    "fr": "Utiliser le bouclier de série",
     "de": "Schutzschild nutzen",
     "id": "Pakai perisai streak",
     "th": "ใช้โล่รักษาสถิติ",
@@ -15645,7 +15645,7 @@
     "fr": "Voir un exemple de vue d'ensemble"
   },
   "Luyện Speaking 1 câu hỏi": {
-    "fr": "S'entraîner sur 1 question d'oral",
+    "fr": "Pratiquez 1 question de Speaking",
     "ko": "말하기 문제 1개 연습"
   },
   "Nghe lại ({i}/{n})": {
@@ -16352,7 +16352,7 @@
   "Xóa phần này": {
     "es": "Eliminar esto",
     "pt": "Remover isto",
-    "fr": "Supprimer ceci",
+    "fr": "Supprimer cette partie",
     "de": "Entfernen",
     "id": "Hapus ini",
     "th": "ลบส่วนนี้",
@@ -16487,7 +16487,7 @@
   "✍️ Soát lỗi viết": {
     "es": "✍️ Revisión de escritura",
     "pt": "✍️ Revisão de escrita",
-    "fr": "✍️ Correcteur d’écriture",
+    "fr": "✍️ Vérification d’écriture",
     "de": "✍️ Schreibprüfung",
     "id": "✍️ Pemeriksa tulisan",
     "th": "✍️ ตรวจงานเขียน",
@@ -19822,7 +19822,7 @@
   "Giới từ đi kèm, to-V/V-ing, trạng từ, từ dễ nhầm": {
     "es": "Preposiciones, to-V/V-ing, adverbios, palabras confusas",
     "pt": "Preposições, to-V/V-ing, advérbios, palavras confusas",
-    "fr": "Prépositions, to-V/V-ing, adverbes, mots confondus",
+    "fr": "Prépositions obligatoires",
     "de": "Präpositionen, to-V/V-ing, Adverbien, Verwechslungswörter",
     "id": "Preposisi, to-V/V-ing, adverbia, kata yang sering tertukar",
     "th": "คำบุพบทที่ใช้คู่กัน to-V/V-ing คำวิเศษณ์ คำที่สับสนง่าย",
@@ -21367,7 +21367,7 @@
   "Chưa có từ sắp quên": {
     "es": "Ninguna palabra por olvidar aún",
     "pt": "Nenhuma palavra sendo esquecida ainda",
-    "fr": "Aucun mot en train de s'oublier",
+    "fr": "Aucun mot sur le point d'être oublié",
     "de": "Noch keine Wörter, die verblassen",
     "id": "Belum ada kata yang mulai terlupa",
     "th": "ยังไม่มีคำที่กำลังจะลืม",
@@ -21817,7 +21817,7 @@
   "Học từ vựng & luyện thi miễn phí": {
     "es": "Vocabulario y preparación de exámenes gratis",
     "pt": "Vocabulário e preparação para provas grátis",
-    "fr": "Vocabulaire et préparation aux examens gratuits",
+    "fr": "Vocabulaire et préparation aux examens, gratuitement",
     "de": "Kostenlos: Wortschatz & Prüfungsvorbereitung",
     "id": "Belajar kosakata & persiapan ujian gratis",
     "th": "เรียนคำศัพท์และเตรียมสอบฟรี",
@@ -21862,7 +21862,7 @@
   "Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.": {
     "es": "Tómate un café y repasa unas tarjetas ☕ – y tendrás algo que presumir.",
     "pt": "Tome um café e revise alguns cartões ☕ – aí você terá algo para mostrar.",
-    "fr": "Prenez un café et révisez quelques cartes ☕ – vous aurez de quoi être fier.",
+    "fr": "Prenez un café et révisez quelques cartes ☕ – vous aurez de quoi vous vanter.",
     "de": "Hol dir einen Kaffee und wiederhole ein paar Karten ☕ – dann hast du etwas zum Zeigen.",
     "id": "Ngopi dulu lalu ulang beberapa kartu ☕ – setelah itu ada prestasi untuk dipamerkan.",
     "th": "ดื่มกาแฟสักแก้วแล้วทบทวนการ์ดสักหน่อย ☕ – แล้วจะมีผลงานให้อวดทันที",
@@ -22057,7 +22057,7 @@
   "Dữ liệu là của bạn – xuất bất cứ lúc nào, không bị giam giữ.": {
     "es": "Tus datos son tuyos: expórtalos cuando quieras, sin ataduras.",
     "pt": "Seus dados são seus – exporte quando quiser, sem amarras.",
-    "fr": "Vos données vous appartiennent – exportez-les à tout moment, sans enfermement.",
+    "fr": "Vos données vous appartiennent – exportez-les à tout moment, sans verrouillage.",
     "de": "Deine Daten gehören dir – jederzeit exportieren, ohne Bindung.",
     "id": "Datamu milikmu – ekspor kapan saja, tanpa terkunci.",
     "th": "ข้อมูลเป็นของคุณ – ส่งออกได้ทุกเมื่อ ไม่ถูกผูกมัด",
@@ -22117,7 +22117,7 @@
   "Từ, phiên âm, nghĩa, ví dụ, ngữ cảnh, cấp CEFR, lịch ôn – mở bằng Excel, Google Sheets, Numbers": {
     "es": "Palabra, IPA, significado, ejemplo, contexto, nivel CEFR, calendario de repaso: se abre en Excel, Google Sheets, Numbers",
     "pt": "Palavra, IPA, significado, exemplo, contexto, nível CEFR, agenda de revisão – abre no Excel, Google Sheets, Numbers",
-    "fr": "Mot, API, sens, exemple, contexte, niveau CEFR, calendrier de révision – s'ouvre dans Excel, Google Sheets, Numbers",
+    "fr": "Mot, transcription phonétique (API)",
     "de": "Wort, IPA, Bedeutung, Beispiel, Kontext, CEFR-Niveau, Wiederholungsplan – öffnet in Excel, Google Sheets, Numbers",
     "id": "Kata, IPA, arti, contoh, konteks, level CEFR, jadwal ulangan – buka di Excel, Google Sheets, Numbers",
     "th": "คำ, IPA, ความหมาย, ตัวอย่าง, บริบท, ระดับ CEFR, ตารางทบทวน – เปิดด้วย Excel, Google Sheets, Numbers",
@@ -22747,7 +22747,7 @@
   "Kiểm tra vượt": {
     "es": "Saltar con examen",
     "pt": "Pular com teste",
-    "fr": "Test pour sauter",
+    "fr": "Valider par un test",
     "de": "Überspringen per Test",
     "id": "Uji lompat",
     "th": "สอบข้าม",
@@ -23002,7 +23002,7 @@
   "Cuộc gọi luyện nói": {
     "es": "Llamada de práctica",
     "pt": "Chamada de prática",
-    "fr": "Appel d’entraînement",
+    "fr": "Appel d’expression orale",
     "de": "Sprechübung am Telefon",
     "id": "Panggilan latihan bicara",
     "th": "โทรฝึกพูด",
@@ -23077,7 +23077,7 @@
   "Học gói này": {
     "es": "Estudiar este plan",
     "pt": "Estudar este plano",
-    "fr": "Suivre ce parcours",
+    "fr": "Étudier ce parcours",
     "de": "Diesen Pfad lernen",
     "id": "Pelajari jalur ini",
     "th": "เรียนแผนนี้",
@@ -23182,7 +23182,7 @@
   "Theo dõi thêm": {
     "es": "Añadir plan",
     "pt": "Adicionar plano",
-    "fr": "Ajouter",
+    "fr": "Ajouter un parcours d'examen",
     "de": "Hinzufügen",
     "id": "Tambah jalur",
     "th": "เพิ่มแผน",
@@ -23887,7 +23887,7 @@
   "Giáo viên": {
     "es": "Profesor",
     "pt": "Professor",
-    "fr": "Enseignant",
+    "fr": "Professeur",
     "de": "Lehrkraft",
     "id": "Guru",
     "th": "ครู",
@@ -24112,7 +24112,7 @@
   "Bài đã giao": {
     "es": "Tareas asignadas",
     "pt": "Tarefas atribuídas",
-    "fr": "Devoirs donnés",
+    "fr": "Devoirs assignés",
     "de": "Gestellte Aufgaben",
     "id": "Tugas yang diberikan",
     "th": "งานที่มอบหมาย",
@@ -24127,7 +24127,7 @@
   "Giao bài": {
     "es": "Asignar",
     "pt": "Atribuir",
-    "fr": "Donner un devoir",
+    "fr": "Assigner",
     "de": "Aufgabe stellen",
     "id": "Beri tugas",
     "th": "มอบหมายงาน",
@@ -24142,7 +24142,7 @@
   "Giao trên Classroom": {
     "es": "Asignar en Classroom",
     "pt": "Atribuir no Classroom",
-    "fr": "Donner dans Classroom",
+    "fr": "Assigner dans Classroom",
     "de": "In Classroom zuweisen",
     "id": "Tugaskan di Classroom",
     "th": "มอบหมายใน Classroom",
@@ -24187,7 +24187,7 @@
   "Tiến độ học sinh": {
     "es": "Progreso de estudiantes",
     "pt": "Progresso dos alunos",
-    "fr": "Progrès des élèves",
+    "fr": "Progression des élèves",
     "de": "Fortschritt der Schüler",
     "id": "Progres siswa",
     "th": "ความคืบหน้าของนักเรียน",
@@ -24277,7 +24277,7 @@
   "Đã giao": {
     "es": "Asignada",
     "pt": "Atribuída",
-    "fr": "Donné",
+    "fr": "Assigné",
     "de": "Gestellt",
     "id": "Diberikan",
     "th": "มอบหมายแล้ว",
@@ -24307,7 +24307,7 @@
   "Đã giao bài": {
     "es": "Tarea asignada",
     "pt": "Tarefa atribuída",
-    "fr": "Devoir ajouté",
+    "fr": "Devoir assigné",
     "de": "Aufgabe gestellt",
     "id": "Tugas diberikan",
     "th": "มอบหมายงานแล้ว",
@@ -25457,7 +25457,7 @@
   "Nói tự tin trong tình huống thật · 5–8 phút/bài": {
     "es": "Habla en situaciones reales · 5–8 min por lección",
     "pt": "Fale com segurança em situações reais · 5–8 min por lição",
-    "fr": "Prends la parole dans des situations réelles · 5–8 min par leçon",
+    "fr": "Prenez la parole dans des situations réelles · 5–8 min par leçon",
     "de": "Sprich in echten Situationen · 5–8 Min. pro Lektion",
     "zh": "在真实场景中大胆开口 · 每节课 5–8 分钟",
     "ja": "実際の場面で話す力を · 1レッスン5～8分",
@@ -25982,7 +25982,7 @@
   "Ôn 5 phút là xong – nhớ lâu hơn hẳn.": {
     "es": "5 minutos y listo: lo recordarás mucho más.",
     "pt": "5 minutos e pronto: você vai lembrar por muito mais tempo.",
-    "fr": "5 minutes et c'est fini : tu retiendras bien plus longtemps.",
+    "fr": "5 minutes et c'est fini : vous retiendrez bien plus longtemps.",
     "de": "5 Minuten und fertig – so bleibt es viel länger hängen.",
     "id": "5 menit saja – ingatanmu jauh lebih awet.",
     "th": "แค่ 5 นาทีก็เสร็จ – จำได้นานขึ้นเยอะ",
@@ -26042,7 +26042,7 @@
   "Còn nhớ “{w}” không?": {
     "es": "¿Recuerdas «{w}»?",
     "pt": "Lembra de “{w}”?",
-    "fr": "Tu te souviens de « {w} » ?",
+    "fr": "Vous souvenez-vous de « {w} » ?",
     "de": "Erinnerst du dich an „{w}“?",
     "id": "Masih ingat “{w}”?",
     "th": "ยังจำ “{w}” ได้ไหม?",
@@ -26057,7 +26057,7 @@
   "“{c}” – bạn còn nhớ nghĩa chứ?": {
     "es": "«{c}»: ¿sigues sabiendo qué significa?",
     "pt": "“{c}” – ainda sabe o que significa?",
-    "fr": "« {c} » – tu sais encore ce que ça veut dire ?",
+    "fr": "« {c} » – vous savez encore ce que ça veut dire ?",
     "de": "„{c}“ – weißt du noch, was es bedeutet?",
     "id": "“{c}” – masih ingat artinya?",
     "th": "“{c}” – ยังจำความหมายได้ไหม?",
@@ -26072,7 +26072,7 @@
   "Từ của bạn hôm nay: {w}": {
     "es": "Tu palabra de hoy: {w}",
     "pt": "Sua palavra de hoje: {w}",
-    "fr": "Ton mot du jour : {w}",
+    "fr": "Votre mot du jour : {w}",
     "de": "Dein Wort für heute: {w}",
     "id": "Katamu hari ini: {w}",
     "th": "คำของคุณวันนี้: {w}",
@@ -26087,7 +26087,7 @@
   "“{c}” – chạm để ôn lại.": {
     "es": "«{c}»: toca para repasar.",
     "pt": "“{c}” – toque para revisar.",
-    "fr": "« {c} » – touche pour réviser.",
+    "fr": "« {c} » – touchez pour réviser.",
     "de": "„{c}“ – tippe zum Wiederholen.",
     "id": "“{c}” – ketuk untuk mengulang.",
     "th": "“{c}” – แตะเพื่อทบทวน",
@@ -26102,7 +26102,7 @@
   "“{w}” đang đợi bạn": {
     "es": "«{w}» te está esperando",
     "pt": "“{w}” está esperando por você",
-    "fr": "« {w} » t'attend",
+    "fr": "« {w} » vous attend",
     "de": "„{w}“ wartet auf dich",
     "id": "“{w}” sedang menunggumu",
     "th": "“{w}” กำลังรอคุณอยู่",
@@ -26117,7 +26117,7 @@
   "Bạn đã lưu từ này trong câu: “{c}”": {
     "es": "La guardaste de: «{c}»",
     "pt": "Você salvou de: “{c}”",
-    "fr": "Tu l'as enregistré depuis : « {c} »",
+    "fr": "Vous l'avez enregistré depuis : « {c} »",
     "de": "Du hast es gespeichert aus: „{c}“",
     "id": "Kamu menyimpannya dari: “{c}”",
     "th": "คุณบันทึกคำนี้จาก: “{c}”",
@@ -26147,7 +26147,7 @@
   "Luyện nói câu thật, không áp lực.": {
     "es": "Practica frases reales, sin presión.",
     "pt": "Pratique frases reais, sem pressão.",
-    "fr": "Entraîne-toi sur de vraies phrases, sans pression.",
+    "fr": "Entraînez-vous sur de vraies phrases, sans pression.",
     "de": "Übe echte Sätze, ganz ohne Druck.",
     "id": "Latih kalimat nyata, tanpa tekanan.",
     "th": "ฝึกพูดประโยคจริง ไม่กดดัน",
@@ -26162,7 +26162,7 @@
   "Nói tiếng Anh tự tin hơn mỗi ngày": {
     "es": "Habla inglés con más confianza cada día",
     "pt": "Fale inglês com mais confiança todo dia",
-    "fr": "Parle anglais avec plus d'assurance chaque jour",
+    "fr": "Parlez anglais avec plus d'assurance chaque jour",
     "de": "Jeden Tag selbstbewusster Englisch sprechen",
     "id": "Makin percaya diri bicara bahasa Inggris tiap hari",
     "th": "พูดภาษาอังกฤษมั่นใจขึ้นทุกวัน",
@@ -26177,7 +26177,7 @@
   "Một bài ngắn hôm nay – bạn làm được!": {
     "es": "Una lección corta hoy. ¡Tú puedes!",
     "pt": "Uma lição curta hoje – você consegue!",
-    "fr": "Une courte leçon aujourd'hui – tu vas y arriver !",
+    "fr": "Une courte leçon aujourd'hui – vous allez y arriver !",
     "de": "Heute eine kurze Lektion – du schaffst das!",
     "id": "Satu pelajaran singkat hari ini – kamu pasti bisa!",
     "th": "บทเรียนสั้น ๆ วันนี้ – คุณทำได้!",
@@ -26207,7 +26207,7 @@
   "Xem tiến bộ của bạn trong tuần.": {
     "es": "Mira cuánto has avanzado esta semana.",
     "pt": "Veja quanto você avançou esta semana.",
-    "fr": "Regarde tes progrès de la semaine.",
+    "fr": "Découvrez vos progrès de la semaine.",
     "de": "Sieh dir deinen Fortschritt der Woche an.",
     "id": "Lihat kemajuanmu minggu ini.",
     "th": "ดูความก้าวหน้าของคุณในสัปดาห์นี้",
@@ -26222,7 +26222,7 @@
   "Bạn đã học {d}/7 ngày tuần này": {
     "es": "Estudiaste {d}/7 días esta semana",
     "pt": "Você estudou {d}/7 dias esta semana",
-    "fr": "Tu as étudié {d}/7 jours cette semaine",
+    "fr": "Vous avez étudié {d}/7 jours cette semaine",
     "de": "Du hast diese Woche an {d}/7 Tagen gelernt",
     "id": "Kamu belajar {d}/7 hari minggu ini",
     "th": "สัปดาห์นี้คุณเรียน {d}/7 วัน",
@@ -26237,7 +26237,7 @@
   "Mở để xem bảng tiến bộ tuần.": {
     "es": "Abre para ver tu progreso semanal.",
     "pt": "Abra para ver seu progresso semanal.",
-    "fr": "Ouvre pour voir tes progrès de la semaine.",
+    "fr": "Ouvrez pour voir vos progrès de la semaine.",
     "de": "Öffnen, um deinen Wochenfortschritt zu sehen.",
     "id": "Buka untuk melihat kemajuan mingguanmu.",
     "th": "เปิดเพื่อดูความก้าวหน้ารายสัปดาห์",
@@ -26267,7 +26267,7 @@
   "Để không làm phiền bạn. Quay lại lúc nào cũng được – mọi thứ bạn đã học vẫn ở đây.": {
     "es": "Para no molestarte. Vuelve cuando quieras: todo lo que aprendiste sigue aquí.",
     "pt": "Para não te incomodar. Volte quando quiser – tudo o que você aprendeu continua aqui.",
-    "fr": "Pour ne pas te déranger. Reviens quand tu veux : tout ce que tu as appris est toujours là.",
+    "fr": "Pour ne pas vous déranger. Revenez quand vous voulez : tout ce que vous avez appris est toujours là.",
     "de": "Damit wir dich nicht stören. Komm jederzeit zurück – alles, was du gelernt hast, ist noch da.",
     "id": "Supaya tidak mengganggumu. Kembali kapan saja – semua yang sudah kamu pelajari tetap di sini.",
     "th": "เพื่อไม่ให้รบกวนคุณ กลับมาได้ทุกเมื่อ ทุกอย่างที่คุณเรียนไว้ยังอยู่ที่นี่",
@@ -26297,7 +26297,7 @@
   "Mở Lexkite để ôn vài từ nhé.": {
     "es": "Abre Lexkite y repasa unas palabras.",
     "pt": "Abra o Lexkite e revise algumas palavras.",
-    "fr": "Ouvre Lexkite et révise quelques mots.",
+    "fr": "Ouvrez Lexkite et révisez quelques mots.",
     "de": "Öffne Lexkite und wiederhole ein paar Wörter.",
     "id": "Buka Lexkite dan ulang beberapa kata.",
     "th": "เปิด Lexkite แล้วทบทวนคำศัพท์สักหน่อย",
@@ -26312,7 +26312,7 @@
   "Nhận lời nhắc học nhẹ nhàng?": {
     "es": "¿Quieres recordatorios de estudio suaves?",
     "pt": "Quer lembretes de estudo gentis?",
-    "fr": "Tu veux des rappels d'étude en douceur ?",
+    "fr": "Souhaitez-vous des rappels d'étude en douceur ?",
     "de": "Sanfte Lernerinnerungen erhalten?",
     "id": "Mau pengingat belajar yang santai?",
     "th": "รับการแจ้งเตือนเรียนแบบเบา ๆ ไหม?",
@@ -26357,7 +26357,7 @@
   "Nhắc 30 phút trước giờ bạn hay học nhất (sau vài ngày học).": {
     "es": "Te avisa 30 minutos antes de la hora a la que más estudias (tras unos días de uso).",
     "pt": "Avisa 30 minutos antes do horário em que você mais estuda (depois de alguns dias de uso).",
-    "fr": "Te rappelle 30 minutes avant l'heure où tu étudies le plus (après quelques jours d'utilisation).",
+    "fr": "Rappel envoyé 30 minutes avant l'heure où vous étudiez le plus (après quelques jours d'utilisation).",
     "de": "Erinnert dich 30 Minuten vor deiner häufigsten Lernzeit (nach ein paar Tagen Nutzung).",
     "id": "Mengingatkan 30 menit sebelum jam kamu paling sering belajar (setelah beberapa hari belajar).",
     "th": "เตือน 30 นาทีก่อนเวลาที่คุณเรียนบ่อยที่สุด (หลังจากเรียนไปสักสองสามวัน)",
@@ -26417,7 +26417,7 @@
   "Từ trong sổ của bạn": {
     "es": "Palabras de tu mazo",
     "pt": "Palavras do seu baralho",
-    "fr": "Mots de ton paquet",
+    "fr": "Mots de votre paquet",
     "de": "Wörter aus deinem Stapel",
     "id": "Kata dari dekmu",
     "th": "คำศัพท์ในชุดของคุณ",
@@ -26477,7 +26477,7 @@
   "Trên iPhone/iPad: thêm Lexkite vào Màn hình chính (Chia sẻ → Thêm vào MH chính) để nhận nhắc cả khi đóng app.": {
     "es": "En iPhone/iPad: añade Lexkite a la pantalla de inicio (Compartir → Añadir a pantalla de inicio) para recibir recordatorios con la app cerrada.",
     "pt": "No iPhone/iPad: adicione o Lexkite à Tela de Início (Compartilhar → Adicionar à Tela de Início) para receber lembretes com o app fechado.",
-    "fr": "Sur iPhone/iPad : ajoute Lexkite à l'écran d'accueil (Partager → Sur l'écran d'accueil) pour recevoir des rappels quand l'app est fermée.",
+    "fr": "Sur iPhone/iPad : ajoutez Lexkite à l'écran d'accueil (Partager → Sur l'écran d'accueil) pour recevoir des rappels même quand l'appli est fermée.",
     "de": "Auf iPhone/iPad: Füge Lexkite zum Home-Bildschirm hinzu (Teilen → Zum Home-Bildschirm), um auch bei geschlossener App erinnert zu werden.",
     "id": "Di iPhone/iPad: tambahkan Lexkite ke Layar Utama (Bagikan → Tambah ke Layar Utama) agar tetap dapat pengingat saat aplikasi ditutup.",
     "th": "บน iPhone/iPad: เพิ่ม Lexkite ไปที่หน้าจอโฮม (แชร์ → เพิ่มไปยังหน้าจอโฮม) เพื่อรับการแจ้งเตือนแม้ปิดแอป",
@@ -26507,7 +26507,7 @@
   "Nhắc cả khi đóng app": {
     "es": "Avisarme con la app cerrada",
     "pt": "Lembrar com o app fechado",
-    "fr": "Me rappeler quand l'app est fermée",
+    "fr": "Me rappeler quand l'appli est fermée",
     "de": "Auch bei geschlossener App erinnern",
     "id": "Ingatkan saat aplikasi ditutup",
     "th": "เตือนแม้ปิดแอป",
@@ -26522,7 +26522,7 @@
   "Dùng thông báo đẩy của trình duyệt. Nội dung học không gửi lên máy chủ.": {
     "es": "Usa las notificaciones push del navegador. Tu contenido de estudio nunca se envía a nuestro servidor.",
     "pt": "Usa as notificações push do navegador. Seu conteúdo de estudo nunca é enviado ao nosso servidor.",
-    "fr": "Utilise les notifications push du navigateur. Ton contenu d'étude n'est jamais envoyé à notre serveur.",
+    "fr": "Utilise les notifications push de votre navigateur. Votre contenu d'étude n'est jamais envoyé à notre serveur.",
     "de": "Nutzt die Push-Mitteilungen deines Browsers. Deine Lerninhalte werden nie an unseren Server gesendet.",
     "id": "Memakai notifikasi push browser. Materi belajarmu tidak pernah dikirim ke server kami.",
     "th": "ใช้การแจ้งเตือนแบบพุชของเบราว์เซอร์ เนื้อหาการเรียนของคุณจะไม่ถูกส่งไปยังเซิร์ฟเวอร์ของเรา",
@@ -26582,7 +26582,7 @@
   "Thêm {r} thẻ là xong mục tiêu {g} thẻ. Nhẹ nhàng thôi!": {
     "es": "{r} tarjetas más y completas tu meta de {g}. ¡Con calma!",
     "pt": "Mais {r} cartões e você completa a meta de {g}. Com calma!",
-    "fr": "Encore {r} cartes et votre objectif de {g} est atteint. Tranquillement !",
+    "fr": "Encore {r} cartes et votre objectif de {g} cartes est atteint. Doucement !",
     "de": "Noch {r} Karten, dann ist dein Ziel von {g} erreicht. Ganz entspannt!",
     "id": "{r} kartu lagi dan target {g} kartu tercapai. Santai saja!",
     "th": "อีก {r} ใบก็ครบเป้าหมาย {g} ใบ ค่อยๆ ทำนะ!",
@@ -27377,7 +27377,7 @@
   "Quyền riêng tư & quảng cáo": {
     "es": "Privacidad y anuncios",
     "pt": "Privacidade e anúncios",
-    "fr": "Confidentialité et annonces",
+    "fr": "Confidentialité et choix publicitaires",
     "de": "Datenschutz & Werbung",
     "id": "Privasi & iklan",
     "th": "ความเป็นส่วนตัวและโฆษณา",
@@ -28847,7 +28847,7 @@
   "Chọn 1 mục tiêu, đổi lúc nào cũng được.": {
     "es": "Elige una meta. Puedes cambiarla cuando quieras.",
     "pt": "Escolha uma meta. Você pode mudar quando quiser.",
-    "fr": "Choisissez un objectif. Modifiable à tout moment.",
+    "fr": "Choisissez un objectif. Vous pourrez le changer à tout moment.",
     "de": "Wähle ein Ziel. Du kannst es jederzeit ändern.",
     "id": "Pilih satu tujuan. Bisa diubah kapan saja.",
     "th": "เลือก 1 เป้าหมาย เปลี่ยนได้ทุกเมื่อ",
@@ -29822,7 +29822,7 @@
   "{n} chọn cho bạn": {
     "es": "Elegido por {n}",
     "pt": "Escolhido por {n}",
-    "fr": "Choisi par {n}",
+    "fr": "Choisi pour vous par {n}",
     "de": "Von {n} ausgewählt",
     "id": "Dipilih oleh {n}",
     "th": "{n} เลือกให้คุณ",
@@ -30152,7 +30152,7 @@
   "Luyện từng kỹ năng nhỏ theo nhịp của bạn": {
     "es": "Practica cada microhabilidad a tu ritmo",
     "pt": "Treine cada microhabilidade no seu ritmo",
-    "fr": "Travaille chaque micro-compétence à ton rythme",
+    "fr": "Travaillez chaque micro-compétence à votre rythme",
     "de": "Übe jede Teilfertigkeit in deinem Tempo",
     "id": "Latih tiap sub-keterampilan sesuai tempomu",
     "th": "ฝึกทักษะย่อยตามจังหวะของคุณ",
@@ -30332,7 +30332,7 @@
   "Ghi {n} thẻ vào trí nhớ dài hạn": {
     "es": "Fija {n} tarjetas en la memoria a largo plazo",
     "pt": "Fixe {n} cartões na memória de longo prazo",
-    "fr": "Ancre {n} cartes en mémoire à long terme",
+    "fr": "Ancrez {n} cartes en mémoire à long terme",
     "de": "Präge dir {n} Karten dauerhaft ein",
     "id": "Kunci {n} kartu ke ingatan jangka panjang",
     "th": "ฝัง {n} การ์ดลงความจำระยะยาว",
@@ -30602,7 +30602,7 @@
   "An toàn": {
     "es": "A salvo",
     "pt": "Seguro",
-    "fr": "Sûr",
+    "fr": "À l'abri",
     "de": "Sicher",
     "id": "Aman",
     "th": "ปลอดภัย",
@@ -30617,7 +30617,7 @@
   "Giữ vững vị trí": {
     "es": "Mantén tu puesto",
     "pt": "Mantenha a posição",
-    "fr": "Garde ta place",
+    "fr": "Gardez votre place",
     "de": "Platz halten",
     "id": "Pertahankan posisi",
     "th": "รักษาอันดับ",
@@ -30752,7 +30752,7 @@
   "Kiếm +{n} XP để leo hạng": {
     "es": "Gana +{n} XP para subir",
     "pt": "Ganhe +{n} XP para subir",
-    "fr": "Gagne +{n} XP pour monter",
+    "fr": "Gagnez +{n} XP pour monter",
     "de": "Hol dir +{n} XP zum Aufstieg",
     "id": "Raih +{n} XP untuk naik",
     "th": "รับ +{n} XP เพื่อไต่อันดับ",
@@ -31097,7 +31097,7 @@
   "Chạm loa để nghe lại câu.": {
     "es": "Toca el altavoz para volver a oír la frase.",
     "pt": "Toque no alto-falante para ouvir a frase de novo.",
-    "fr": "Touche le haut-parleur pour réécouter la phrase.",
+    "fr": "Touchez le haut-parleur pour réécouter la phrase.",
     "de": "Tippe auf den Lautsprecher, um den Satz erneut zu hören.",
     "id": "Ketuk speaker untuk mendengar kalimat lagi.",
     "th": "แตะลำโพงเพื่อฟังประโยคอีกครั้ง",
@@ -32507,7 +32507,7 @@
   "Bạn có thể làm gì ở đây": {
     "es": "Qué puedes hacer aquí",
     "pt": "O que você pode fazer aqui",
-    "fr": "Ce que tu peux faire ici",
+    "fr": "Ce que vous pouvez faire ici",
     "de": "Das kannst du hier tun",
     "id": "Yang bisa kamu lakukan di sini",
     "th": "สิ่งที่คุณทำได้ที่นี่",
@@ -32567,7 +32567,7 @@
   "Chỉ 5 phút mỗi ngày là giữ được chuỗi ngày.": {
     "es": "Solo 5 minutos al día mantienen viva tu racha.",
     "pt": "Apenas 5 minutos por dia mantêm sua sequência ativa.",
-    "fr": "Seulement 5 minutes par jour pour garder ta série.",
+    "fr": "Seulement 5 minutes par jour suffisent pour garder votre série.",
     "de": "Nur 5 Minuten täglich halten deine Serie am Leben.",
     "id": "Cukup 5 menit sehari untuk menjaga rentetanmu.",
     "th": "แค่วันละ 5 นาทีก็รักษาสตรีคไว้ได้",
@@ -32612,7 +32612,7 @@
   "Gọi cho giáo viên": {
     "es": "Llamar a un profesor",
     "pt": "Ligar para um professor",
-    "fr": "Appeler un prof",
+    "fr": "Appeler un professeur",
     "de": "Lehrer anrufen",
     "id": "Telepon guru",
     "th": "โทรหาครู",
@@ -33287,7 +33287,7 @@
   "Bạn sẽ học {n} từ:": {
     "es": "Aprenderás {n} palabras:",
     "pt": "Você vai aprender {n} palavras:",
-    "fr": "Tu vas apprendre {n} mots :",
+    "fr": "Vous allez apprendre {n} mots :",
     "de": "Du lernst {n} Wörter:",
     "id": "Kamu akan belajar {n} kata:",
     "th": "คุณจะได้เรียน {n} คำ:",
@@ -33347,7 +33347,7 @@
   "Chọn mục tiêu": {
     "es": "Elige tu meta",
     "pt": "Escolha sua meta",
-    "fr": "Choisis ton objectif",
+    "fr": "Choisissez votre objectif",
     "de": "Wähle dein Ziel",
     "id": "Pilih targetmu",
     "th": "เลือกเป้าหมายของคุณ",
@@ -33407,7 +33407,7 @@
   "Bài học đầu tiên": {
     "es": "Tu primera lección",
     "pt": "Sua primeira lição",
-    "fr": "Ta première leçon",
+    "fr": "Votre première leçon",
     "de": "Deine erste Lektion",
     "id": "Pelajaran pertamamu",
     "th": "บทเรียนแรกของคุณ",
@@ -33422,7 +33422,7 @@
   "Từ vựng thông dụng theo mục tiêu": {
     "es": "Palabras frecuentes para tu meta",
     "pt": "Palavras frequentes para sua meta",
-    "fr": "Mots courants pour ton objectif",
+    "fr": "Mots courants pour votre objectif",
     "de": "Häufige Wörter für dein Ziel",
     "id": "Kata yang sering dipakai untuk targetmu",
     "th": "คำที่ใช้บ่อยตามเป้าหมายของคุณ",
@@ -33437,7 +33437,7 @@
   "Chào bạn, mình là Ama! Cùng sẵn sàng qua 3 bước nhỏ nhé.": {
     "es": "¡Hola, soy Ama! Prepárate en 3 pasos sencillos.",
     "pt": "Oi, eu sou a Ama! Vamos nos preparar em 3 passinhos.",
-    "fr": "Salut, je suis Ama ! On se prépare en 3 petites étapes.",
+    "fr": "Bonjour, je suis Ama ! Préparons-nous en 3 petites étapes.",
     "de": "Hi, ich bin Ama! Machen wir dich in 3 kleinen Schritten startklar.",
     "id": "Hai, aku Ama! Yuk bersiap dalam 3 langkah kecil.",
     "th": "สวัสดี ฉันคือ Ama! มาเตรียมตัวใน 3 ขั้นตอนง่าย ๆ กัน",
@@ -33662,7 +33662,7 @@
   "Bài “{u}” đang chờ bạn": {
     "es": "Tu lección «{u}» te espera",
     "pt": "Sua lição “{u}” está esperando",
-    "fr": "Ta leçon « {u} » t’attend",
+    "fr": "Votre leçon « {u} » vous attend",
     "de": "Deine Lektion „{u}“ wartet",
     "id": "Pelajaran “{u}” menunggumu",
     "th": "บทเรียน “{u}” รอคุณอยู่",
@@ -33677,7 +33677,7 @@
   "Bạn đang học dở – thêm 5 phút cho bước tiếp theo.": {
     "es": "Vas a mitad de camino: 5 minutos más para el siguiente paso.",
     "pt": "Você está no meio do caminho – mais 5 minutos para o próximo passo.",
-    "fr": "Tu es à mi-chemin – encore 5 minutes pour l’étape suivante.",
+    "fr": "Vous êtes à mi-parcours – encore 5 minutes pour l'étape suivante.",
     "de": "Du bist mittendrin – noch 5 Minuten für den nächsten Schritt.",
     "id": "Kamu sudah setengah jalan – 5 menit lagi untuk langkah berikutnya.",
     "th": "คุณเรียนไปได้ครึ่งทางแล้ว – อีก 5 นาทีสำหรับขั้นต่อไป",
@@ -33707,7 +33707,7 @@
   "Bước tiếp theo đã sẵn sàng. 5 phút là đủ.": {
     "es": "Tu siguiente paso está listo. Con 5 minutos basta.",
     "pt": "Seu próximo passo está pronto. 5 minutos bastam.",
-    "fr": "Ta prochaine étape est prête. 5 minutes suffisent.",
+    "fr": "Votre prochaine étape est prête. 5 minutes suffisent.",
     "de": "Dein nächster Schritt ist bereit. 5 Minuten reichen.",
     "id": "Langkah berikutnya sudah siap. 5 menit sudah cukup.",
     "th": "ขั้นต่อไปพร้อมแล้ว แค่ 5 นาทีก็พอ",
@@ -33737,7 +33737,7 @@
   "Bắt đầu nhẹ nhàng – 5 phút là đủ.": {
     "es": "Empieza con calma: con 5 minutos basta.",
     "pt": "Comece devagar – 5 minutos bastam.",
-    "fr": "Commence doucement – 5 minutes suffisent.",
+    "fr": "Commencez doucement – 5 minutes suffisent.",
     "de": "Fang locker an – 5 Minuten reichen.",
     "id": "Mulai pelan-pelan – 5 menit sudah cukup.",
     "th": "เริ่มแบบสบาย ๆ แค่ 5 นาทีก็พอ",
@@ -33752,7 +33752,7 @@
   "{g} thẻ hôm nay – bạn làm được!": {
     "es": "{g} tarjetas hoy: ¡tú puedes!",
     "pt": "{g} cartões hoje – você consegue!",
-    "fr": "{g} cartes aujourd’hui – tu peux le faire !",
+    "fr": "{g} cartes aujourd'hui – vous pouvez le faire !",
     "de": "{g} Karten heute – du schaffst das!",
     "id": "{g} kartu hari ini – kamu pasti bisa!",
     "th": "วันนี้ {g} การ์ด – คุณทำได้!",
@@ -33782,7 +33782,7 @@
   "Muốn được nhắc học nhẹ nhàng không?": {
     "es": "¿Te ayudaría un recordatorio suave?",
     "pt": "Um lembrete gentil ajudaria?",
-    "fr": "Un petit rappel t’aiderait-il ?",
+    "fr": "Souhaitez-vous un petit rappel d'étude ?",
     "de": "Wäre eine sanfte Lernerinnerung hilfreich?",
     "id": "Mau pengingat belajar yang lembut?",
     "th": "อยากได้การแจ้งเตือนเบา ๆ ไหม?",
@@ -33797,7 +33797,7 @@
   "Người học đều đặn mỗi ngày nhớ từ lâu hơn hẳn. Lời nhắc sẽ trông như thế này:": {
     "es": "Quienes estudian un poco cada día recuerdan las palabras mucho más tiempo. Tu recordatorio se verá así:",
     "pt": "Quem estuda um pouco todo dia lembra das palavras por muito mais tempo. Seu lembrete ficará assim:",
-    "fr": "Les personnes qui étudient un peu chaque jour retiennent les mots bien plus longtemps. Ton rappel ressemblera à ceci :",
+    "fr": "Les personnes qui étudient un peu chaque jour retiennent les mots bien plus longtemps. Votre rappel ressemblera à ceci :",
     "de": "Wer jeden Tag ein wenig lernt, behält Wörter viel länger. So sieht deine Erinnerung aus:",
     "id": "Pelajar yang belajar sedikit setiap hari mengingat kata jauh lebih lama. Pengingatmu akan terlihat seperti ini:",
     "th": "ผู้เรียนที่เรียนทุกวันจำคำศัพท์ได้นานกว่ามาก การแจ้งเตือนของคุณจะมีหน้าตาแบบนี้:",
@@ -33827,7 +33827,7 @@
   "Đúng giờ bạn hay học": {
     "es": "A la hora en que sueles estudiar",
     "pt": "No horário em que você costuma estudar",
-    "fr": "À l’heure où tu étudies d’habitude",
+    "fr": "À l'heure où vous étudiez d'habitude",
     "de": "Zu deiner üblichen Lernzeit",
     "id": "Di jam kamu biasa belajar",
     "th": "ตรงเวลาที่คุณเรียนเป็นประจำ",
@@ -33977,7 +33977,7 @@
   "Chuỗi {s} ngày của bạn thật tuyệt": {
     "es": "Tu racha de {s} días va genial",
     "pt": "Sua sequência de {s} dias está ótima",
-    "fr": "Ta série de {s} jours est superbe",
+    "fr": "Votre série de {s} jours est superbe",
     "de": "Deine {s}-Tage-Serie sieht super aus",
     "id": "Rentetan {s} harimu keren sekali",
     "th": "สถิติ {s} วันของคุณยอดเยี่ยมมาก",
@@ -33992,7 +33992,7 @@
   "Vài thẻ hôm nay là nối dài thêm – Kit tin bạn!": {
     "es": "Unas tarjetas hoy y sigue creciendo – ¡Kit cree en ti!",
     "pt": "Alguns cartões hoje e ela continua crescendo – o Kit acredita em você!",
-    "fr": "Quelques cartes aujourd'hui et elle continue – Kit croit en toi !",
+    "fr": "Quelques cartes aujourd'hui et elle continue – Kit croit en vous !",
     "de": "Ein paar Karten heute und sie wächst weiter – Kit glaubt an dich!",
     "id": "Beberapa kartu hari ini dan terus bertambah – Kit percaya padamu!",
     "th": "ทำการ์ดสักไม่กี่ใบวันนี้ สถิติก็ยาวขึ้น – Kit เชื่อในตัวคุณ!",
@@ -34022,7 +34022,7 @@
   "Thông báo đang bị chặn – bật lại trong cài đặt trang web của trình duyệt.": {
     "es": "Las notificaciones están bloqueadas: actívalas de nuevo en la configuración del sitio de tu navegador.",
     "pt": "As notificações estão bloqueadas – reative-as nas configurações do site no navegador.",
-    "fr": "Les notifications sont bloquées – réactive-les dans les paramètres du site de ton navigateur.",
+    "fr": "Les notifications sont bloquées – réactivez-les dans les paramètres du site de votre navigateur.",
     "de": "Benachrichtigungen sind blockiert – aktiviere sie in den Website-Einstellungen deines Browsers.",
     "id": "Notifikasi diblokir – aktifkan lagi di pengaturan situs pada browsermu.",
     "th": "การแจ้งเตือนถูกบล็อก – เปิดอีกครั้งได้ในการตั้งค่าเว็บไซต์ของเบราว์เซอร์",
@@ -35807,7 +35807,7 @@
   "Theo bài kiểm tra, bạn bắt đầu từ {lv}. Muốn đổi thì chọn lại nhé.": {
     "es": "Según tu prueba, empiezas en {lv}. Elige otro nivel si lo prefieres.",
     "pt": "Pelo seu teste, você começa em {lv}. Escolha outro nível se preferir.",
-    "fr": "D’après ton test, tu commences au niveau {lv}. Choisis-en un autre si tu préfères.",
+    "fr": "D'après votre test, vous commencez au niveau {lv}. Choisissez-en un autre si vous préférez.",
     "de": "Laut deinem Test startest du bei {lv}. Wähle gern ein anderes Niveau.",
     "ru": "По результатам теста вы начинаете с {lv}. При желании выберите другой уровень.",
     "ja": "テストの結果、{lv} から始めます。変更したい場合は別のレベルを選んでください。",
@@ -35822,7 +35822,7 @@
   "Tiếp tục thiết lập lộ trình →": {
     "es": "Seguir configurando tu plan →",
     "pt": "Continuar a configurar seu plano →",
-    "fr": "Continuer à configurer ton parcours →",
+    "fr": "Continuer à configurer votre parcours →",
     "de": "Plan weiter einrichten →",
     "ru": "Продолжить настройку плана →",
     "ja": "プランの設定を続ける →",
@@ -36422,7 +36422,7 @@
   "Lộ trình đã sẵn sàng! Bước cuối: bài kiểm tra 5 phút để xếp đúng chặng – bỏ qua cũng được.": {
     "es": "¡Tu ruta está lista! Último paso: una prueba de 5 minutos para ubicarte en la etapa correcta; puedes omitirla.",
     "pt": "Seu percurso está pronto! Último passo: um teste de 5 minutos para colocar você na etapa certa – pode pular.",
-    "fr": "Ton parcours est prêt ! Dernière étape : un test de 5 minutes pour te placer à la bonne étape – tu peux le passer.",
+    "fr": "Votre parcours est prêt ! Dernière étape : un test de 5 minutes pour vous placer à la bonne étape – vous pouvez l’ignorer.",
     "de": "Dein Lernpfad ist bereit! Letzter Schritt: ein 5-Minuten-Test, der dich in die richtige Etappe einstuft – du kannst ihn überspringen.",
     "id": "Jalur belajarmu siap! Langkah terakhir: tes 5 menit untuk menempatkanmu di tahap yang tepat – boleh dilewati.",
     "th": "เส้นทางของคุณพร้อมแล้ว! ขั้นสุดท้าย: แบบทดสอบ 5 นาทีเพื่อจัดคุณไว้ในช่วงที่เหมาะสม – ข้ามได้",
@@ -36437,7 +36437,7 @@
   "Làm bài 5 phút để mình xếp bạn vào đúng chặng và chọn bộ từ vừa sức nhé!": {
     "es": "¡Haz esta prueba de 5 minutos para que te ubique en la etapa correcta y elija palabras de tu nivel!",
     "pt": "Faça este teste de 5 minutos para eu colocar você na etapa certa e escolher palavras do seu nível!",
-    "fr": "Fais ce test de 5 minutes pour que je te place à la bonne étape et choisisse des mots à ton niveau !",
+    "fr": "Faites ce test de 5 minutes pour que je vous place à la bonne étape et choisisse des mots à votre niveau !",
     "de": "Mach diesen 5-Minuten-Test, damit ich dich richtig einstufe und Wörter auf deinem Niveau auswähle!",
     "id": "Ikuti tes 5 menit ini agar aku bisa menempatkanmu di tahap yang tepat dan memilih kata sesuai levelmu!",
     "th": "ทำแบบทดสอบ 5 นาทีนี้ เพื่อให้ฉันจัดคุณไว้ในช่วงที่เหมาะสมและเลือกคำศัพท์ที่ตรงระดับของคุณ!",
@@ -36452,7 +36452,7 @@
   "Bỏ qua thì bạn học từ chặng đầu – làm bài sau ở Hôm nay cũng được.": {
     "es": "Si la omites, empiezas desde la primera etapa; puedes hacer la prueba más tarde desde Hoy.",
     "pt": "Se pular, você começa pela primeira etapa – pode fazer o teste depois em Hoje.",
-    "fr": "Si tu passes, tu commences à la première étape – tu pourras faire le test plus tard depuis Aujourd’hui.",
+    "fr": "Si vous passez, vous commencerez à la première étape – vous pourrez faire le test plus tard depuis Aujourd'hui.",
     "de": "Wenn du überspringst, startest du in der ersten Etappe – den Test kannst du später unter Heute machen.",
     "id": "Jika dilewati, kamu mulai dari tahap pertama – tesnya bisa dikerjakan nanti dari Hari ini.",
     "th": "ถ้าข้าม คุณจะเริ่มจากช่วงแรก – ทำแบบทดสอบภายหลังได้จากหน้าวันนี้",
@@ -36467,7 +36467,7 @@
   "Đã thêm {n} từ hợp trình độ {cefr} vào bộ thẻ.": {
     "es": "Se añadieron {n} palabras de tu nivel {cefr} a tu mazo.",
     "pt": "Adicionamos {n} palavras do seu nível {cefr} ao seu baralho.",
-    "fr": "{n} mots de ton niveau {cefr} ont été ajoutés à ton paquet.",
+    "fr": "{n} mots de votre niveau {cefr} ont été ajoutés à votre paquet.",
     "de": "{n} Wörter auf deinem Niveau {cefr} wurden deinem Stapel hinzugefügt.",
     "id": "{n} kata sesuai level {cefr}-mu ditambahkan ke dek.",
     "th": "เพิ่มคำศัพท์ระดับ {cefr} ของคุณ {n} คำลงในชุดบัตรแล้ว",
@@ -36512,7 +36512,7 @@
   "Cần giúp không? Cứ thử nhé – sai cũng không sao, mình học từ đó.": {
     "es": "¿Necesitas ayuda? Inténtalo: equivocarse también es aprender.",
     "pt": "Precisa de ajuda? Tente – errar também é aprender.",
-    "fr": "Besoin d’un coup de main ? Essaie – c’est en se trompant qu’on apprend.",
+    "fr": "Besoin d’un coup de pouce ? Essayez – c’est en se trompant qu’on apprend.",
     "de": "Brauchst du Hilfe? Probier es einfach – aus Fehlern lernt man.",
     "id": "Butuh bantuan? Coba saja – salah itu bagian dari belajar.",
     "th": "ต้องการตัวช่วยไหม? ลองดูเลย – ผิดก็ไม่เป็นไร เราเรียนรู้จากมัน",
@@ -37187,7 +37187,7 @@
   "Ôn từ đến hạn, combo, thách đấu bạn bè": {
     "es": "Repasa palabras pendientes, encadena combos y reta a tus amigos",
     "pt": "Revise palavras pendentes, faça combos e desafie amigos",
-    "fr": "Révise les mots à revoir, enchaîne les combos et défie tes amis",
+    "fr": "Révisez les mots à revoir, enchaînez les combos et défiez vos amis",
     "de": "Fällige Wörter wiederholen, Combos sammeln, Freunde herausfordern",
     "id": "Ulas kata yang jatuh tempo, raih combo, tantang teman",
     "th": "ทบทวนคำที่ถึงเวลา ทำคอมโบ และท้าเพื่อน",
@@ -37202,7 +37202,7 @@
   "Link thách đấu không còn dùng được – chơi bộ từ của bạn": {
     "es": "Este enlace de desafío ya no funciona: jugarás con tus propias palabras",
     "pt": "Este link de desafio não funciona mais – você vai jogar com suas próprias palavras",
-    "fr": "Ce lien de défi ne fonctionne plus – tu joues avec tes propres mots",
+    "fr": "Ce lien de défi n'est plus valide – vous jouez avec vos propres mots",
     "de": "Dieser Challenge-Link funktioniert nicht mehr – du spielst mit deinen eigenen Wörtern",
     "id": "Tautan tantangan ini sudah tidak berlaku – kamu akan bermain dengan kata-katamu sendiri",
     "th": "ลิงก์ชาเลนจ์นี้ใช้ไม่ได้แล้ว – เล่นด้วยคำของคุณเองแทน",
@@ -37247,7 +37247,7 @@
   "Bạn đã thắng thách đấu! 🎉": {
     "es": "¡Has ganado el desafío! 🎉",
     "pt": "Você venceu o desafio! 🎉",
-    "fr": "Tu as gagné le défi ! 🎉",
+    "fr": "Vous avez gagné le défi ! 🎉",
     "de": "Du hast die Challenge gewonnen! 🎉",
     "id": "Kamu memenangkan tantangan! 🎉",
     "th": "คุณชนะชาเลนจ์แล้ว! 🎉",
@@ -37292,7 +37292,7 @@
   "Kỷ lục của bạn: {best}": {
     "es": "Tu récord: {best}",
     "pt": "Seu recorde: {best}",
-    "fr": "Ton record : {best}",
+    "fr": "Votre record : {best}",
     "de": "Dein Rekord: {best}",
     "id": "Rekor terbaikmu: {best}",
     "th": "สถิติที่ดีที่สุดของคุณ: {best}",
@@ -37352,7 +37352,7 @@
   "Thách đấu bạn bè": {
     "es": "Reta a tus amigos",
     "pt": "Desafie amigos",
-    "fr": "Défie tes amis",
+    "fr": "Défiez vos amis",
     "de": "Freunde herausfordern",
     "id": "Tantang teman",
     "th": "ท้าเพื่อน",
@@ -37367,7 +37367,7 @@
   "Mình được {n} điểm trong Thử thách 60 giây trên Lexkite – bạn vượt được không?": {
     "es": "He conseguido {n} puntos en el desafío de 60 segundos de Lexkite. ¿Puedes superarme?",
     "pt": "Fiz {n} pontos no desafio de 60 segundos do Lexkite – você consegue me superar?",
-    "fr": "J'ai marqué {n} points au défi de 60 secondes sur Lexkite – tu peux me battre ?",
+    "fr": "J'ai marqué {n} points au défi de 60 secondes sur Lexkite – saurez-vous faire mieux ?",
     "de": "Ich habe {n} Punkte in der 60-Sekunden-Challenge auf Lexkite geholt – kannst du mich schlagen?",
     "id": "Aku dapat {n} poin di tantangan 60 detik Lexkite – bisakah kamu mengalahkanku?",
     "th": "ฉันได้ {n} คะแนนในชาเลนจ์ 60 วินาทีบน Lexkite – คุณเอาชนะฉันได้ไหม?",
@@ -37397,7 +37397,7 @@
   "Chào hỏi và một ngày của bạn": {
     "es": "Saludos y tu día",
     "pt": "Cumprimentos e o seu dia",
-    "fr": "Salutations et ta journée",
+    "fr": "Salutations et votre journée",
     "de": "Begrüßen und dein Tag",
     "id": "Sapaan dan harimu",
     "th": "ทักทายและวันของคุณ",
@@ -37442,7 +37442,7 @@
   "Nghe: bạn kể buổi sáng của mình": {
     "es": "Escucha: la mañana de un amigo",
     "pt": "Escuta: a manhã de um amigo",
-    "fr": "Écoute : la matinée d'un ami",
+    "fr": "Compréhension orale : la matinée d'un ami",
     "de": "Hören: der Morgen eines Freundes",
     "id": "Menyimak: pagi hari seorang teman",
     "th": "ฟัง: เช้าของเพื่อน",
@@ -37472,7 +37472,7 @@
   "Nói: kể một ngày của bạn": {
     "es": "Habla: cuenta tu día",
     "pt": "Fala: conte o seu dia",
-    "fr": "Expression orale : raconte ta journée",
+    "fr": "Expression orale : racontez votre journée",
     "de": "Sprechen: von deinem Tag erzählen",
     "id": "Berbicara: ceritakan harimu",
     "th": "พูด: เล่าเรื่องวันของคุณ",
@@ -37532,7 +37532,7 @@
   "Ôn: chào hỏi và buổi sáng": {
     "es": "Repaso: saludos y mañanas",
     "pt": "Revisão: cumprimentos e manhãs",
-    "fr": "Révision : salutations et matins",
+    "fr": "Révision : salutations et matinées",
     "de": "Wiederholen: Begrüßung und Morgen",
     "id": "Ulasan: sapaan dan pagi hari",
     "th": "ทบทวน: ทักทายและยามเช้า",
@@ -37547,7 +37547,7 @@
   "Nhắc lại những từ dễ quên nhất": {
     "es": "Repasa las palabras que más olvidas",
     "pt": "Revise as palavras que mais esquece",
-    "fr": "Revoir les mots que tu oublies le plus",
+    "fr": "Revoir les mots que vous oubliez le plus",
     "de": "Die Wörter wiederholen, die du am ehesten vergisst",
     "id": "Ulangi kata yang paling mudah terlupa",
     "th": "ทบทวนคำที่ลืมง่ายที่สุด",
@@ -37742,7 +37742,7 @@
   "Nghe: tư vấn học bổng, học phí": {
     "es": "Escucha: asesoría sobre becas y matrícula",
     "pt": "Escuta: conselhos sobre bolsas e propinas",
-    "fr": "Écoute : conseils sur bourses et frais",
+    "fr": "Compréhension orale : conseils sur les bourses et les frais",
     "de": "Hören: Beratung zu Stipendien und Gebühren",
     "id": "Menyimak: konsultasi beasiswa dan biaya kuliah",
     "th": "ฟัง: คำปรึกษาเรื่องทุนและค่าเล่าเรียน",
@@ -37787,7 +37787,7 @@
   "Nói: bạn thích học kiểu nào?": {
     "es": "Habla: ¿cómo te gusta aprender?",
     "pt": "Fala: como gosta de aprender?",
-    "fr": "Expression orale : comment aimes-tu apprendre ?",
+    "fr": "Expression orale : comment aimez-vous apprendre ?",
     "de": "Sprechen: wie lernst du am liebsten?",
     "id": "Berbicara: kamu suka belajar dengan cara apa?",
     "th": "พูด: คุณชอบเรียนแบบไหน",
@@ -38252,7 +38252,7 @@
   "Nghe, đọc và nói về công nghệ": {
     "es": "Escucha, lee y habla sobre tecnología",
     "pt": "Ouça, leia e fale sobre tecnologia",
-    "fr": "Écoutez, lisez et parlez de technologie",
+    "fr": "Écoutez, lisez et parlez de la technologie",
     "de": "Höre, lies und sprich über Technik",
     "id": "Simak, baca, dan bicara tentang teknologi",
     "th": "ฟัง อ่าน และพูดเกี่ยวกับเทคโนโลยี",
@@ -38447,7 +38447,7 @@
   "Nghe, đọc và nói về sức khỏe": {
     "es": "Escucha, lee y habla sobre salud",
     "pt": "Ouça, leia e fale sobre saúde",
-    "fr": "Écoutez, lisez et parlez de santé",
+    "fr": "Écoutez, lisez et parlez de la santé",
     "de": "Höre, lies und sprich über Gesundheit",
     "id": "Simak, baca, dan bicara tentang kesehatan",
     "th": "ฟัง อ่าน และพูดเกี่ยวกับสุขภาพ",
@@ -38867,7 +38867,7 @@
   "Nghe, đọc và nói về xã hội": {
     "es": "Escucha, lee y habla sobre la sociedad",
     "pt": "Ouça, leia e fale sobre sociedade",
-    "fr": "Écoutez, lisez et parlez de société",
+    "fr": "Écoutez, lisez et parlez de la société",
     "de": "Höre, lies und sprich über Gesellschaft",
     "id": "Simak, baca, dan bicara tentang masyarakat",
     "th": "ฟัง อ่าน และพูดเกี่ยวกับสังคม",
@@ -40097,7 +40097,7 @@
   "Bảng tin": {
     "es": "Aviso",
     "pt": "Aviso",
-    "fr": "Affiche",
+    "fr": "Avis / Annonce",
     "de": "Aushang",
     "id": "Pengumuman tertulis",
     "th": "ประกาศ",
@@ -40202,7 +40202,7 @@
   "Gửi tới": {
     "es": "Para",
     "pt": "Para",
-    "fr": "À",
+    "fr": "Destinataire",
     "de": "An",
     "id": "Kepada",
     "th": "ถึง",
@@ -40247,7 +40247,7 @@
   "Đã có:": {
     "es": "Incluido:",
     "pt": "Incluído:",
-    "fr": "Présent :",
+    "fr": "Inclus :",
     "de": "Enthalten:",
     "id": "Sudah ada:",
     "th": "มีแล้ว:",
@@ -40592,7 +40592,7 @@
   "Bạn lần trước: {n}": {
     "es": "Tú la última vez: {n}",
     "pt": "Você da última vez: {n}",
-    "fr": "Toi la dernière fois : {n}",
+    "fr": "Votre dernier score : {n}",
     "de": "Du beim letzten Mal: {n}",
     "id": "Kamu terakhir kali: {n}",
     "th": "คุณครั้งก่อน: {n}",
@@ -40607,7 +40607,7 @@
   "Bạn đã thắng bóng ma! 🎉": {
     "es": "¡Ganaste al fantasma! 🎉",
     "pt": "Você venceu o fantasma! 🎉",
-    "fr": "Tu as battu le fantôme ! 🎉",
+    "fr": "Vous avez battu le fantôme ! 🎉",
     "de": "Du hast den Geist besiegt! 🎉",
     "id": "Kamu mengalahkan hantu! 🎉",
     "th": "คุณชนะผีคู่แข่งแล้ว! 🎉",
@@ -40637,7 +40637,7 @@
   "Chạm đúng nhịp nhấn của câu tiếng Anh": {
     "es": "Toca al ritmo de la acentuación inglesa",
     "pt": "Toque no ritmo da acentuação do inglês",
-    "fr": "Frappe le rythme de l'accentuation anglaise",
+    "fr": "Marquez en tapant le rythme d'accentuation des phrases anglaises",
     "de": "Tippe im Takt der englischen Betonung",
     "id": "Ketuk sesuai ritme tekanan kalimat bahasa Inggris",
     "th": "แตะตามจังหวะเน้นเสียงของประโยคภาษาอังกฤษ",
@@ -41207,7 +41207,7 @@
   "Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}": {
     "es": "Estoy aprendiendo inglés gratis con Lexkite. Prueba una lección de 1 minuto: ¡los dos recibimos un regalo! {url}",
     "pt": "Estou aprendendo inglês de graça com a Lexkite. Experimente uma lição de 1 minuto – nós dois ganhamos um presente! {url}",
-    "fr": "J'apprends l'anglais gratuitement avec Lexkite. Essaie une leçon d'1 minute – on reçoit tous les deux un cadeau ! {url}",
+    "fr": "J'apprends l'anglais gratuitement avec Lexkite. Essayez une leçon d’1 minute – nous recevons tous les deux un cadeau ! {url}",
     "de": "Ich lerne kostenlos Englisch mit Lexkite. Probier eine 1-Minuten-Lektion – wir beide bekommen ein Geschenk! {url}",
     "id": "Aku belajar bahasa Inggris gratis dengan Lexkite. Coba pelajaran 1 menit – kita sama-sama dapat hadiah! {url}",
     "th": "ฉันเรียนภาษาอังกฤษฟรีกับ Lexkite ลองเรียน 1 นาที แล้วเราจะได้ของขวัญทั้งคู่! {url}",
@@ -41267,7 +41267,7 @@
   "Ôn lỗi trước bài mới": {
     "es": "Repasa tus fallos",
     "pt": "Revise seus erros",
-    "fr": "Revoir vos erreurs",
+    "fr": "Revoir d’abord les mots fragiles",
     "de": "Fehler wiederholen",
     "id": "Ulang kata sulit",
     "th": "ทบทวนคำที่พลาด",
