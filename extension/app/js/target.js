@@ -60,8 +60,9 @@
   const teacherVoice = (who, tl) => table(tl || cur()).voices[who] || '';
   const ofCard = c => (c && c.tl && TABLE[c.tl] ? c.tl : 'en');
   // Nhãn ngôn ngữ ĐÍCH (W7a): huy hiệu cờ + tên, bấm → Cài đặt (nơi đổi). 'en' = '' (hành vi cũ từng byte). mark(root, sel) chèn đúng 1 huy hiệu (không trùng khi vẽ lại).
-  const chip = tl => { tl = tl || cur(); if (tl === 'en') return ''; const r = table(tl), tt = typeof g.t === 'function' ? g.t('Ngôn ngữ đang học') : 'Target language';
-    return `<a class="chip tl-chip" href="#/settings" translate="no" lang="${tl}" data-tl="${tl}" title="${tt}" aria-label="${tt}: ${r.name}" style="text-decoration:none;margin:.25rem 0"><span aria-hidden="true">${r.em}</span> ${r.name}</a>`; };
+  const esc = x => String(x).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const chip = tl => { tl = tl || cur(); if (tl === 'en' || !TABLE[tl]) return ''; const r = TABLE[tl], tt = esc(typeof g.t === 'function' ? g.t('Ngôn ngữ đang học') : 'Target language');
+    return `<a class="chip tl-chip" href="#/settings" data-tl="${tl}" aria-label="${tt}: ${esc(r.name)}"><span aria-hidden="true">${r.em}</span> <span translate="no" lang="${tl}">${esc(r.name)}</span></a>`; };
   const mark = (root, sel) => { const h = chip(); if (!root || !h) return null; const old = root.querySelector('.tl-chip'); if (old) return old;
     const host = (sel && root.querySelector(sel)) || root; host.insertAdjacentHTML('afterbegin', h); return host.querySelector('.tl-chip'); };
   g.Target = { chip, mark, LANGS, TABLE, enabled, avail, speechLangs, cur, set, table, isEn, accent, speechLang, recLang, tlOfAccent, prefixFor, kokoroVoice, wordVoice, teacherVoice, ofCard };
