@@ -25,6 +25,7 @@
 "Trả lời thẳng câu hỏi trong 1–2 câu đầu, rồi thêm lý do và ví dụ của bản thân. Nói tự nhiên, không học thuộc; nếu vấp thì tự sửa và nói tiếp.":"처음 1~2개의 문장으로 질문에 직접 답한 다음 이유와 개인적인 예를 추가하세요. 암송하기보다는 자연스럽게 말하세요. 넘어졌다면 자신을 바로잡고 계속 나아가십시오.",
 "Trả lời đủ mọi ý đề yêu cầu, giọng văn hợp với người nhận; có mở – thân – kết rõ ràng. Dành 1–2 phút cuối soát ngữ pháp và chính tả.":"작업이 요구하는 모든 항목에 대해 독자에게 적합한 어조로 명확한 서두, 본문, 마무리로 답변합니다. 문법과 철자를 확인하는 데 마지막 1~2분을 투자하세요.",
 "Tìm và đánh dấu các tên (người, tổ chức, mốc thời gian) trong bài trước, rồi đọc kỹ quanh mỗi tên và so với nhận định đã được diễn đạt lại. Đáp án không theo thứ tự bài; một lựa chọn có thể dùng nhiều lần hoặc không dùng.":"먼저 구절에서 이름(사람, 조직, 날짜)을 찾아서 표시한 다음, 각 이름 주위를 자세히 읽고 의역된 진술과 비교하십시오. 답변은 통과 순서가 아닙니다. 옵션은 두 번 이상 사용되거나 전혀 사용되지 않을 수 있습니다.",
+"Tỉ lệ đúng 8 tuần gần nhất":"지난 8주 동안의 정확도",
 "Tổng hợp từ các bài luyện và thi thử của bạn trên Lexkite. Đây là tỉ lệ đúng trong bài luyện của bạn – <b>không phải điểm thi chính thức</b>. Thời gian mỗi câu là ước tính: thời gian trên trang chia cho số câu.":"Lexkite의 연습 테스트 및 모의 테스트 요약입니다. 이는 실제 정확도입니다. <b>공식 시험 점수가 아닙니다</b>. 질문당 시간은 추정치입니다. 페이지에 머문 시간을 질문 수로 나눈 값입니다.",
 "Xem tiến bộ theo kỹ năng và dạng câu hỏi":"기술 및 질문 유형별 진행 상황 보기",
 "Xác định chủ ngữ và động từ chính trước, rồi đặt trợ động từ/từ để hỏi, sau đó các cụm còn lại. Câu hỏi gián tiếp giữ trật tự câu khẳng định (…where the library is).":"주어와 본동사를 먼저 찾은 다음 보조 또는 질문 단어를 배치하고 나머지 덩어리를 배치합니다. 간접 질문은 진술 단어 순서(…where the library is)를 유지합니다.",
@@ -44,5 +45,6 @@
 "Đọc phần đầu câu và đoán phần còn thiếu cần gì (về nghĩa và ngữ pháp). Phần kết đúng phải khớp cả ngữ pháp lẫn nội dung bài. Câu hỏi theo thứ tự trong bài; luôn có nhiều phần kết hơn số câu.":"문장 시작 부분을 읽고 빠진 부분에 필요한 것이 무엇인지 예측해 보세요(의미와 문법 측면에서). 올바른 결말은 문법과 글의 내용 모두에 맞아야 합니다. 질문은 지문 순서를 따릅니다. 항상 질문보다 결말이 더 많습니다.",
 "Đọc trước 3 câu hỏi (và biểu đồ nếu có) trong lúc nghe hướng dẫn. Câu hỏi thường theo thứ tự hội thoại: chủ đề/nơi chốn → chi tiết → việc sẽ làm tiếp theo. Đáp án thường là cách diễn đạt khác của lời nói.":"지침을 읽는 동안 3가지 질문(및 그래픽)을 읽으십시오. 질문은 대개 대화 뒤에 나옵니다: 주제/장소 → 세부사항 → 다음에 일어날 일. 정답은 일반적으로 말한 내용을 의역한 것입니다.",
 "Đọc trước câu hỏi. Câu đầu thường hỏi mục đích hoặc người nghe là ai – đáp án nằm ở vài câu mở đầu. Chú ý lời yêu cầu, đề nghị, thay đổi lịch ở cuối bài nói.":"먼저 질문을 읽어보세요. 첫 번째 질문은 종종 목적이나 청중에 대해 묻습니다. 대답은 첫 문장에서 나옵니다. 강연이 끝날 무렵 요청, 제안 및 일정 변경에 귀를 기울이십시오.",
+"Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)":"이번 주 예상 밴드 ≒ {b} (공식 시험 점수 아님)",
 });
 })(typeof self !== 'undefined' ? self : this);

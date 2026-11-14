@@ -25,6 +25,7 @@
 "Trả lời thẳng câu hỏi trong 1–2 câu đầu, rồi thêm lý do và ví dụ của bản thân. Nói tự nhiên, không học thuộc; nếu vấp thì tự sửa và nói tiếp.":"直接用前 1-2 句话回答问题，然后添加原因和个人示例。自然地说话而不是背诵；如果你绊倒了，纠正自己并继续前进。",
 "Trả lời đủ mọi ý đề yêu cầu, giọng văn hợp với người nhận; có mở – thân – kết rõ ràng. Dành 1–2 phút cuối soát ngữ pháp và chính tả.":"以适合读者的语气，清晰的开头、正文和结尾，回答任务要求的每一点。留出最后 1-2 分钟检查语法和拼写。",
 "Tìm và đánh dấu các tên (người, tổ chức, mốc thời gian) trong bài trước, rồi đọc kỹ quanh mỗi tên và so với nhận định đã được diễn đạt lại. Đáp án không theo thứ tự bài; một lựa chọn có thể dùng nhiều lần hoặc không dùng.":"首先找到并标记文章中的名称（人物、组织、日期），然后仔细阅读每个名称并将其与释义的陈述进行比较。答案不按段落顺序；一个选项可以多次使用或根本不使用。",
+"Tỉ lệ đúng 8 tuần gần nhất":"过去 8 周的准确度",
 "Tổng hợp từ các bài luyện và thi thử của bạn trên Lexkite. Đây là tỉ lệ đúng trong bài luyện của bạn – <b>không phải điểm thi chính thức</b>. Thời gian mỗi câu là ước tính: thời gian trên trang chia cho số câu.":"Lexkite 上的练习测试和模拟测试摘要。这是您在练习中的准确性 - <b>而不是官方考试成绩</b>。每个问题的时间是估计值：页面上的时间除以问题数。",
 "Xem tiến bộ theo kỹ năng và dạng câu hỏi":"按技能和问题类型查看进度",
 "Xác định chủ ngữ và động từ chính trước, rồi đặt trợ động từ/từ để hỏi, sau đó các cụm còn lại. Câu hỏi gián tiếp giữ trật tự câu khẳng định (…where the library is).":"首先找到主语和主要动词，然后放置助词或疑问词，然后是其余的词块。间接疑问句保持陈述语序（…其中 the library is）。",
@@ -44,5 +45,6 @@
 "Đọc phần đầu câu và đoán phần còn thiếu cần gì (về nghĩa và ngữ pháp). Phần kết đúng phải khớp cả ngữ pháp lẫn nội dung bài. Câu hỏi theo thứ tự trong bài; luôn có nhiều phần kết hơn số câu.":"阅读句子开头并预测缺失部分需要什么（含义和语法）。正确的结尾必须符合语法和文章内容。问题遵循文章的顺序；结局总是比问题多。",
 "Đọc trước 3 câu hỏi (và biểu đồ nếu có) trong lúc nghe hướng dẫn. Câu hỏi thường theo thứ tự hội thoại: chủ đề/nơi chốn → chi tiết → việc sẽ làm tiếp theo. Đáp án thường là cách diễn đạt khác của lời nói.":"在阅读说明的同时阅读 3 个问题（以及任何图形）。问题通常跟随对话：主题/地点 → 细节 → 接下来会发生什么。正确答案通常是对所说内容的解释。",
 "Đọc trước câu hỏi. Câu đầu thường hỏi mục đích hoặc người nghe là ai – đáp án nằm ở vài câu mở đầu. Chú ý lời yêu cầu, đề nghị, thay đổi lịch ở cuối bài nói.":"首先阅读问题。第一个问题通常询问目的或受众——答案就在开头的句子中。在演讲即将结束时倾听请求、建议和日程安排的变化。",
+"Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)":"本周预计分数 ≈ {b}（不是官方考试分数）",
 });
 })(typeof self !== 'undefined' ? self : this);

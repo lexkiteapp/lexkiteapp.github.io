@@ -1357,6 +1357,8 @@ enum class L10nKey(val id: String) {
     skillQtMoiCauUocTinh("skill.qt.moiCauUocTinh"),
     skillQtNCau("skill.qt.nCau"),
     skillQtNenLuyenTiep("skill.qt.nenLuyenTiep"),
+    skillQtTiLeDung8Tuan("skill.qt.tiLeDung8Tuan"),
+    skillQtUocTinhBandTuan("skill.qt.uocTinhBandTuan"),
     skillQtTienBoTheoKy("skill.qt.tienBoTheoKy"),
     skillQtTongHopTuCac("skill.qt.tongHopTuCac"),
     skillQtChuaCoDuLieu("skill.qt.chuaCoDuLieu"),

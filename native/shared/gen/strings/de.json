@@ -1353,6 +1353,8 @@
   "skill.qt.moiCauUocTinh": "pro Frage (geschätzt)",
   "skill.qt.nCau": "{n} Fragen",
   "skill.qt.nenLuyenTiep": "Als Nächstes üben:",
+  "skill.qt.tiLeDung8Tuan": "Genauigkeit in den letzten 8 Wochen",
+  "skill.qt.uocTinhBandTuan": "Geschätzte Note für diese Woche ≈ {b} (kein offizielles Prüfungsergebnis)",
   "skill.qt.tienBoTheoKy": "Fortschritt nach Fertigkeit und Fragetyp",
   "skill.qt.tongHopTuCac": "Eine Zusammenfassung Ihrer Übungstests und Mock-Tests auf Lexkite. Dies ist Ihre Genauigkeit in der Praxis – <b>kein offizielles Prüfungsergebnis</b>. Die Zeit pro Frage ist eine Schätzung: Zeit auf der Seite geteilt durch die Anzahl der Fragen.",
   "skill.qt.chuaCoDuLieu": "Noch keine Daten. Machen Sie einen Hör- oder Lesetest (IELTS, TOEIC oder TOEFL), um mit dem Tracking zu beginnen.",

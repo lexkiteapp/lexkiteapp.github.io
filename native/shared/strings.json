@@ -1354,6 +1354,8 @@
   "skill.qt.moiCauUocTinh": "mỗi câu (ước tính)",
   "skill.qt.nCau": "{n} câu",
   "skill.qt.nenLuyenTiep": "Nên luyện tiếp:",
+  "skill.qt.tiLeDung8Tuan": "Tỉ lệ đúng 8 tuần gần nhất",
+  "skill.qt.uocTinhBandTuan": "Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)",
   "skill.qt.tienBoTheoKy": "Tiến bộ theo kỹ năng và dạng câu hỏi",
   "skill.qt.tongHopTuCac": "Tổng hợp từ các bài luyện và thi thử của bạn trên Lexkite. Đây là tỉ lệ đúng trong bài luyện của bạn – <b>không phải điểm thi chính thức</b>. Thời gian mỗi câu là ước tính: thời gian trên trang chia cho số câu.",
   "skill.qt.chuaCoDuLieu": "Chưa có dữ liệu. Làm một bài luyện Listening/Reading (IELTS, TOEIC hoặc TOEFL) để bắt đầu theo dõi.",
