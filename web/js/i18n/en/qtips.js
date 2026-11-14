@@ -49,4 +49,6 @@
 "Ôn 10 phút: dạng yếu nhất của bạn": "10-minute review: your weakest question type",
 "đúng {p}% ({n} câu). Dành 10 phút luyện riêng dạng này.": "{p}% correct ({n} questions). Spend 10 minutes practising this type.",
 "Bắt đầu ôn 10 phút": "Start a 10-minute review",
+"Dừng đếm giờ": "Stop the timer",
+"Hết 10 phút! Xem tiến bộ của bạn": "10 minutes are up! See your progress",
 }); })(typeof self !== 'undefined' ? self : this);
