@@ -25,7 +25,8 @@ const ONLY = opt('--only', 'all');
 const SHOTS = opt('--shots', 'store/apple/screenshots');
 const L = JSON.parse(fs.readFileSync('store/apple/listing.json', 'utf8'));
 // Chữ từng ngôn ngữ: một file một ngôn ngữ trong store/metadata/ (nguồn duy nhất, chung với Google Play)
-L.locales = Object.fromEntries(Object.entries(loadMetadata()).map(([loc, d]) => [loc, d.apple]));
+// whatsNew (ghi chú phát hành, cùng trường với Play) chỉ ghi cho bản cập nhật – Apple không cho đặt "What's New" ở bản đầu tiên 1.0
+L.locales = Object.fromEntries(Object.entries(loadMetadata()).map(([loc, d]) => [loc, { ...d.apple, ...(L.version !== '1.0' ? { whatsNew: d.whatsNew } : {}) }]));
 const MD = 'store/apple/LISTING.md';
 
 // ---------- Kiểm tra offline ----------
@@ -154,7 +155,7 @@ async function syncText(app, ver) {
       let b = vl.find(x => x.attributes.locale === loc);
       // Tạo appInfoLocalization xong, Apple tự tạo appStoreVersionLocalization rỗng cùng ngôn ngữ → đọc lại rồi PATCH (tránh 409)
       if (!b && !a && !DRY) { vl.splice(0, vl.length, ...(await get(`/v1/appStoreVersions/${ver.id}/appStoreVersionLocalizations?limit=200`)).data); b = vl.find(x => x.attributes.locale === loc); }
-      const wantB = { description: v.description, keywords: v.keywords, promotionalText: v.promotionalText, supportUrl: v.supportUrl, marketingUrl: v.marketingUrl };
+      const wantB = { description: v.description, keywords: v.keywords, promotionalText: v.promotionalText, supportUrl: v.supportUrl, marketingUrl: v.marketingUrl , ...(v.whatsNew ? { whatsNew: v.whatsNew } : {}) };
       if (!b) {
         const r = await write(`${loc}: tạo appStoreVersionLocalization`, 'POST', '/v1/appStoreVersionLocalizations', { data: { type: 'appStoreVersionLocalizations', attributes: { locale: loc, ...wantB }, relationships: { appStoreVersion: { data: { type: 'appStoreVersions', id: ver.id } } } } });
         if (r) vl.push(r.data);
@@ -338,8 +339,14 @@ async function main() {
   const app = (await get(`/v1/apps/${L.appId}`)).data;
   if (app.attributes.bundleId !== L.bundleId) throw new Error(`app ${L.appId} có bundleId ${app.attributes.bundleId}, không phải ${L.bundleId}`);
   const vers = (await get(`/v1/apps/${app.id}/appStoreVersions?filter[platform]=IOS&filter[versionString]=${L.version}`)).data;
-  const ver = vers[0];
-  if (!ver) throw new Error(`chưa có bản iOS ${L.version} trên App Store Connect`);
+  let ver = vers[0];
+  if (!ver) {
+    // Bản cập nhật mới (vd 1.1): tạo appStoreVersion ở PREPARE_FOR_SUBMISSION, phát hành THỦ CÔNG (anh chủ bấm Release sau khi Apple duyệt)
+    if (L.version === '1.0') throw new Error(`chưa có bản iOS ${L.version} trên App Store Connect`);
+    const created = await write(`appStoreVersion: tạo ${L.version} (IOS, phát hành thủ công)`, 'POST', '/v1/appStoreVersions', { data: { type: 'appStoreVersions', attributes: { platform: 'IOS', versionString: L.version, releaseType: 'MANUAL', copyright: L.copyright }, relationships: { app: { data: { type: 'apps', id: app.id } } } } });
+    if (!created) { console.log(`ℹ dry-run: bản ${L.version} chưa có – sẽ được tạo khi chạy thật; các bước sau cần bản này`); return; }
+    ver = created.data;
+  }
   const state = ver.attributes.appVersionState || ver.attributes.appStoreState;
   console.log(`App ${app.attributes.name} (${app.attributes.bundleId}) · bản ${L.version}: ${state}${DRY ? ' · DRY-RUN' : ''}`);
   if (!EDITABLE.includes(state) && !(ver.attributes.appStoreState && EDITABLE.includes(ver.attributes.appStoreState))) throw new Error(`bản ${L.version} đang ${state} – script chỉ sửa khi PREPARE_FOR_SUBMISSION`);

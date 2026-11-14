@@ -294,6 +294,10 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   for (const c of chainCycles(srcs)) ok(false, `vòng workflow_run: ${c}`);
   for (const k of ciParity(fs.readFileSync(path.join(WF, 'ci.yml'), 'utf8'), fs.readFileSync(path.join(ROOT, 'scripts/test/suite.txt'), 'utf8'))) ok(false, `ci.yml chạy "${k}" nhưng suite.txt (cổng PR) không có → PR xanh vẫn làm main đỏ`);
   ok(ciParity('run: node scripts/a.mjs\n- run: npx tsc -p x.json', 'node scripts/a.mjs').join() === 'tsc -p', 'ciParity bắt lệnh thiếu');
+  // luật 15 (13/11): "tạm không chặn" phải có hạn – dòng `# tạm-không-chặn-tới: YYYY-MM-DD (issue #N)`; quá hạn mà còn marker → đỏ (không để bỏ chặn thành vĩnh viễn)
+  const expiredTemp = (src, today) => [...src.matchAll(/^\s*# tạm-không-chặn-tới: (\d{4}-\d{2}-\d{2})/gm)].filter(m => m[1] < today).map(m => m[1]);
+  ok(expiredTemp('# tạm-không-chặn-tới: 2026-11-20 (issue #1)', '2026-11-21').length === 1 && expiredTemp('# tạm-không-chặn-tới: 2026-11-20 (issue #1)', '2026-11-20').length === 0, 'luật 15: marker quá hạn → lỗi, đúng hạn → đạt');
+  { const today = new Date().toISOString().slice(0, 10); for (const [f, s] of srcs) for (const d of expiredTemp(s, today)) ok(false, `${f}: "tạm không chặn" quá hạn ${d} – đưa leg về chặn gate hoặc gia hạn có OK của owner (luật 15)`); }
   console.log(fails ? `ci-policy: ${fails} lỗi` : `✓ ci-policy: ${files.length} workflow đạt (timeout + concurrency + phạm vi + workflow_run có cổng skip, không vòng)`);
   process.exit(fails ? 1 : 0);
 }
