@@ -188,7 +188,8 @@
   {
    "id": "toeic",
    "paths": [
-    "web/js/toeic"
+    "web/js/toeic",
+    "web/cpack/toeic"
    ],
    "owner": "claude",
    "gen": false,
