@@ -1,5 +1,5 @@
 {
- "_doc": "Thư viện phát âm (#/pron, không có id) – d do web/js/pron.js dựng từ window.PRON (44 âm + cpack/pron/skills.js) + state.game.pronDone. Mẫu v2.1 pron-hub (native M4 #979): lưới 4 cột nguyên âm / 5 cột phụ âm / hàng kỹ năng. Nhóm trong app nhiều hơn mẫu → mỗi nhóm = 1 khối lặp (nguyên âm đơn + đôi dùng khuôn 4 cột, phụ âm khuôn 5 cột + ghi chú vô thanh, Sửa lỗi người Việt + Trọng âm dùng khuôn hàng). Ô 'focus' (nền hổ phách + chấm) = âm tiếp theo chưa học; ô có tick = đã xong; viền nét đứt = phụ âm vô thanh (mẫu vẽ nét đứt cho ô vô thanh; ô hữu thanh đổi sang nét liền). Ô giáo viên (nét đứt) = Ama qua Chars.slot; nút 'Check' (hiệu chỉnh mic – app không có) bỏ, ô 'Âm tiếp theo' + nút dưới cùng (Học tiếp) trỏ cùng bài. Bài #/pron/<id> giữ khung cũ (chưa port).",
+ "_doc": "Thư viện phát âm (#/pron, không có id) – d do web/js/pron.js dựng từ window.PRON (44 âm + cpack/pron/skills.js) + state.game.pronDone. Mẫu v2.1 pron-hub (native M4 #979): lưới 4 cột nguyên âm / 5 cột phụ âm / hàng kỹ năng. Nhóm trong app nhiều hơn mẫu → mỗi nhóm = 1 khối lặp (nguyên âm đơn + đôi dùng khuôn 4 cột, phụ âm khuôn 5 cột + ghi chú vô thanh, Sửa lỗi người Việt + Trọng âm dùng khuôn hàng). Ô 'focus' (nền hổ phách + chấm) = âm tiếp theo chưa học; ô có tick = đã xong; viền nét đứt = phụ âm vô thanh (mẫu vẽ nét đứt cho ô vô thanh; ô hữu thanh đổi sang nét liền). Ô giáo viên (nét đứt) = Ama qua Chars.slot; nút 'Check' (hiệu chỉnh mic – app không có) bỏ, ô 'Âm tiếp theo' + nút dưới cùng (Học tiếp) trỏ cùng bài. Bài #/pron/<id> giữ khung cũ (chưa port). Khung chung kiểu vocab-hub: sau mount bỏ st+v2on → giữ thanh trên (Back), thanh 5 tab và lề #view chung; header Stitch (nút Back thừa) thành hàng tiêu đề + chip; nút Học tiếp nổi trên thanh tab.",
  "html": {
   ":scope > main > header > h1": "e(d.title)",
   ":scope > main > header > div > div > span:nth-child(1)": "e(d.count)",
@@ -14,10 +14,6 @@
   ":scope > main > div:nth-child(2) > section:nth-child(1)": "d.empty"
  },
  "attr": {
-  ":scope > main > header > button": {
-   "data-href": "d.back",
-   "aria-label": "d.backL"
-  },
   ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(1)": {
    "aria-hidden": "'true'"
   },
@@ -27,28 +23,32 @@
  },
  "cls": {
   ":scope > main > div:nth-child(3)": {
-   "fixed": "d.next ? 'fixed' : 'hidden'"
-  },
-  ":scope > main > header": {
-   "shadow-[0_3px_0_0_#eee0d6]": "'lt:shadow-[0_3px_0_0_#eee0d6] dk:shadow-[0_3px_0_0_#0A1517]'"
+   "fixed": "d.next ? 'fixed' : 'hidden'",
+   "bottom-0": "'bottom-[calc(64px+env(safe-area-inset-bottom,0px))] lg:bottom-0'"
   },
   ":scope > main > div:nth-child(2) > section:nth-child(1) > div > p": {
    "text-[16px]": "'text-[14px]'",
    "leading-[24px]": "'leading-[20px]'"
+  },
+  ":scope > main > header > h1": {
+   "text-[20px]": "''",
+   "leading-[28px]": "''",
+   "text-center": "'text-left'"
   }
  },
  "setClass": {
   ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(1)": "w-14 h-14 shrink-0 flex items-end justify-center"
  },
  "addClass": {
-  ":scope > main > header > h1": "min-w-0 flex-1",
+  ":scope > main > header > h1": "min-w-0 flex-1 [font-family:var(--font-display)]",
   ":scope > main > header > div": "shrink-0",
   ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2)": "[overflow-wrap:anywhere]",
   ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(2) > div:nth-child(2) > p": "whitespace-normal",
   ":scope > main > header": "gap-2"
  },
  "remove": [
-  ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(2) > button"
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(2) > button",
+  ":scope > main > header > button"
  ],
  "repeat": [
   {
@@ -342,5 +342,19 @@
     }
    }
   }
- ]
+ ],
+ "swap": {
+  "sticky": "",
+  "top-0": "",
+  "z-40": "",
+  "bg-surface/95": "",
+  "backdrop-blur-md": "",
+  "shadow-[0_3px_0_0_#eee0d6]": "",
+  "max-w-[390px]": "",
+  "min-h-screen": "min-h-0",
+  "bg-surface": "",
+  "px-space-md": "px-0",
+  "bg-[#1D2F33]/95": "",
+  "bg-[#1D2F33]": ""
+ }
 }
