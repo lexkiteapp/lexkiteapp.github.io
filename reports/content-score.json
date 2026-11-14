@@ -1,5 +1,5 @@
 {
- "total": 68.6,
+ "total": 68.7,
  "areas": {
   "vocab": {
    "name": "Kho từ",
@@ -191,10 +191,10 @@
   },
   "skills": {
    "name": "4 kỹ năng",
-   "score": 69.4,
+   "score": 69.5,
    "coverage": 69.5,
-   "pass": 99.9,
-   "errors": 1,
+   "pass": 100,
+   "errors": 0,
    "parts": [
     {
      "k": "Nghe: bộ bài",
@@ -449,8 +449,8 @@
   },
   "learn": {
    "name": "Dễ học – dễ nhớ",
-   "score": 91.4,
-   "coverage": 91.4,
+   "score": 91.8,
+   "coverage": 91.8,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -477,7 +477,7 @@
     },
     {
      "k": "Kỹ năng",
-     "have": 94.7,
+     "have": 96.1,
      "std": 100,
      "w": 25,
      "future": false
@@ -522,7 +522,5 @@
    ]
   }
  },
- "fails": [
-  "Dễ học – dễ nhớ: 91.4 < sàn 91.7 (điểm giảm)"
- ]
+ "fails": []
 }

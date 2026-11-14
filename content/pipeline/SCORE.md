@@ -2,17 +2,17 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 68.6 / 100**
+**Tổng: 68.7 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
 | Kho từ | **58.6** | 58.5 | 58.6% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
 | Giao tiếp | **68.3** | 68.3 | 68.3% | 100% | 0 |
-| 4 kỹ năng | **69.4** | 62.9 | 69.5% | 99.9% | 1 |
+| 4 kỹ năng | **69.5** | 62.9 | 69.5% | 100% | 0 |
 | Đề thi | **43.8** | 31.7 | 43.8% | 100% | 0 |
 | Khung Can-do | **81.7** | 81.3 | 81.7% | 100% | 0 |
-| Dễ học – dễ nhớ | **91.4** | 91.7 | 91.4% | 100% | 0 |
+| Dễ học – dễ nhớ | **91.8** | 91.7 | 91.8% | 100% | 0 |
 | i18n | **62.7** | 62.7 | 62.7% | 100% | 0 |
 
 ## Kho từ
@@ -108,7 +108,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Ngữ pháp | 96.9 / 100 | 97% | 25 |
 | Bài lộ trình | 100 / 100 | 100% | 25 |
 | Bộ từ | 74.1 / 100 | 74% | 25 |
-| Kỹ năng | 94.7 / 100 | 95% | 25 |
+| Kỹ năng | 96.1 / 100 | 96% | 25 |
 
 ## i18n
 

@@ -1,5 +1,5 @@
 {
- "total": 91.4,
+ "total": 91.8,
  "areas": {
   "grammar": {
    "name": "Ngữ pháp",
@@ -61,15 +61,15 @@
   "skills": {
    "name": "Kỹ năng",
    "units": 287,
-   "score": 94.7,
+   "score": 96.1,
    "crit": {
     "a": 83.8,
     "b": null,
     "c": 97.5,
     "d": 99.4,
     "e": 99.3,
-    "f": 89,
-    "g": 95.2,
+    "f": 100,
+    "g": 99.4,
     "h": null,
     "i": 100,
     "j": 85.2,
@@ -6494,7 +6494,7 @@
    "id": "read:urban-farming",
    "title": "The Rise of Urban Farming",
    "level": "B1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6502,7 +6502,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6511,7 +6511,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -6520,7 +6519,7 @@
    "id": "read:four-day-week",
    "title": "The Four-Day Working Week",
    "level": "B2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6528,7 +6527,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6537,7 +6536,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -6546,7 +6544,7 @@
    "id": "read:ocean-microplastics",
    "title": "Microplastics in the Ocean",
    "level": "B2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6554,7 +6552,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6563,7 +6561,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -6572,7 +6569,7 @@
    "id": "read:sleep-memory",
    "title": "How Sleep Affects Memory",
    "level": "B1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6580,7 +6577,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6589,7 +6586,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -6623,7 +6619,7 @@
    "id": "read:space-debris",
    "title": "The Growing Problem of Space Debris",
    "level": "C1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6631,7 +6627,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6640,7 +6636,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -6649,7 +6644,7 @@
    "id": "read:advertising-children",
    "title": "The Psychology of Advertising to Children",
    "level": "B2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6657,7 +6652,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6666,7 +6661,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -6675,7 +6669,7 @@
    "id": "read:ev-power-grid",
    "title": "Electric Vehicles and the Power Grid",
    "level": "B2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6683,7 +6677,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6692,7 +6686,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -6701,7 +6694,7 @@
    "id": "read:digital-museums",
    "title": "Museums in the Digital Age",
    "level": "B1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6709,7 +6702,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6718,7 +6711,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -6727,7 +6719,7 @@
    "id": "read:ageing-healthcare",
    "title": "Ageing Populations and Healthcare",
    "level": "C1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6735,7 +6727,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6744,7 +6736,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -6753,7 +6744,7 @@
    "id": "read:food-waste",
    "title": "Why We Throw Away So Much Food",
    "level": "A2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6761,7 +6752,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6770,7 +6761,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -6779,7 +6769,7 @@
    "id": "read:citizen-science",
    "title": "Science for Everyone: Citizen Scientists",
    "level": "A2",
-   "score": 83.1,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6787,7 +6777,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.9,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6804,7 +6794,7 @@
    "id": "read:remote-work",
    "title": "Working from Home: The New Normal?",
    "level": "B1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6812,7 +6802,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6821,7 +6811,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -6830,7 +6819,7 @@
    "id": "read:minimalism",
    "title": "Living with Less",
    "level": "B1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6838,7 +6827,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6847,7 +6836,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -6856,7 +6844,7 @@
    "id": "read:fast-fashion",
    "title": "The Hidden Cost of Cheap Clothes",
    "level": "B1",
-   "score": 83.1,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6864,7 +6852,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.9,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6881,7 +6869,7 @@
    "id": "read:gig-economy",
    "title": "The Gig Economy: Freedom or Insecurity?",
    "level": "B2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6889,7 +6877,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6898,7 +6886,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -6907,7 +6894,7 @@
    "id": "read:coral-restoration",
    "title": "Can We Rebuild Coral Reefs?",
    "level": "B2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6915,7 +6902,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6924,7 +6911,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -6933,7 +6919,7 @@
    "id": "read:sports-psychology",
    "title": "Winning in the Mind: Sports Psychology",
    "level": "B2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6941,7 +6927,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6950,7 +6936,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -6959,7 +6944,7 @@
    "id": "read:water-scarcity",
    "title": "A Thirsty Planet: Managing Water Scarcity",
    "level": "B2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6967,7 +6952,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -6976,7 +6961,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -6985,7 +6969,7 @@
    "id": "read:smart-cities",
    "title": "How Smart Should a City Be?",
    "level": "B2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -6993,7 +6977,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7002,7 +6986,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7011,7 +6994,7 @@
    "id": "read:bilingual-brains",
    "title": "The Bilingual Brain",
    "level": "B2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7019,7 +7002,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7028,7 +7011,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7037,7 +7019,7 @@
    "id": "read:volcano-monitoring",
    "title": "Listening to Volcanoes",
    "level": "B2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7045,7 +7027,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7054,7 +7036,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7063,7 +7044,7 @@
    "id": "read:overtourism",
    "title": "When Tourism Becomes Too Much",
    "level": "B2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7071,7 +7052,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7080,7 +7061,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7089,7 +7069,7 @@
    "id": "read:ai-medicine",
    "title": "Artificial Intelligence at the Bedside",
    "level": "C1",
-   "score": 83.1,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7097,7 +7077,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.9,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7114,7 +7094,7 @@
    "id": "read:silk-road",
    "title": "Beyond Silk: The Ancient Trade Routes of Asia",
    "level": "C1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7122,7 +7102,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7131,7 +7111,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7140,7 +7119,7 @@
    "id": "read:attention-economy",
    "title": "The Attention Economy",
    "level": "C1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7148,7 +7127,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7157,7 +7136,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7166,7 +7144,7 @@
    "id": "read:rewilding",
    "title": "Rewilding: Letting Nature Take the Lead",
    "level": "C1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7174,7 +7152,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7183,7 +7161,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7192,7 +7169,7 @@
    "id": "read:placebo-effect",
    "title": "The Curious Power of the Placebo",
    "level": "C1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7200,7 +7177,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7209,7 +7186,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7218,7 +7194,7 @@
    "id": "read:basic-income",
    "title": "Universal Basic Income: Utopia or Necessity?",
    "level": "C1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7226,7 +7202,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7235,7 +7211,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7244,7 +7219,7 @@
    "id": "read:antibiotic-resistance",
    "title": "The Slow Pandemic: Antibiotic Resistance",
    "level": "C1",
-   "score": 83.1,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7252,7 +7227,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.9,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7269,7 +7244,7 @@
    "id": "read:school-gardens",
    "title": "Learning in the School Garden",
    "level": "A2",
-   "score": 80.5,
+   "score": 84.4,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7277,7 +7252,7 @@
     "d": 0.96,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7286,7 +7261,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7295,7 +7269,7 @@
    "id": "read:libraries-today",
    "title": "What Do Libraries Do Today?",
    "level": "A2",
-   "score": 83.1,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7303,7 +7277,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.9,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7320,7 +7294,7 @@
    "id": "read:daily-walk",
    "title": "The Power of a Daily Walk",
    "level": "A2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7328,7 +7302,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7337,7 +7311,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7396,7 +7369,7 @@
    "id": "read:night-markets",
    "title": "The Magic of Night Markets",
    "level": "B1",
-   "score": 83.1,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7404,7 +7377,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.9,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7421,7 +7394,7 @@
    "id": "read:learning-apps",
    "title": "Can an App Teach You a Language?",
    "level": "B1",
-   "score": 83.1,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7429,7 +7402,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.9,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7446,7 +7419,7 @@
    "id": "read:first-job",
    "title": "My First Part-Time Job",
    "level": "A2",
-   "score": 83.1,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7454,7 +7427,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.9,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7496,7 +7469,7 @@
    "id": "read:learning-to-swim",
    "title": "Learning to Swim as an Adult",
    "level": "A2",
-   "score": 83.1,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7504,7 +7477,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.9,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7521,7 +7494,7 @@
    "id": "read:volunteering",
    "title": "Why People Volunteer",
    "level": "B1",
-   "score": 83.1,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7529,7 +7502,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.9,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7546,7 +7519,7 @@
    "id": "read:why-we-dream",
    "title": "Why Do We Dream?",
    "level": "B1",
-   "score": 83.1,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7554,7 +7527,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.9,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7596,7 +7569,7 @@
    "id": "read:bank-account",
    "title": "Opening a Bank Account",
    "level": "A2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7604,7 +7577,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7613,7 +7586,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7622,7 +7594,7 @@
    "id": "read:taking-the-bus",
    "title": "Taking the Bus in a New City",
    "level": "A2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7630,7 +7602,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7639,7 +7611,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7648,7 +7619,7 @@
    "id": "read:new-neighbors",
    "title": "Meeting the Neighbors",
    "level": "A2",
-   "score": 83.1,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7656,7 +7627,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.9,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7673,7 +7644,7 @@
    "id": "read:tipping-us",
    "title": "Tipping in the United States",
    "level": "B1",
-   "score": 83.1,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7681,7 +7652,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.9,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7698,7 +7669,7 @@
    "id": "read:interview-prep",
    "title": "Getting Ready for a Job Interview",
    "level": "B1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7706,7 +7677,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7715,7 +7686,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7724,7 +7694,7 @@
    "id": "read:learning-to-cook",
    "title": "Why It Pays to Learn to Cook",
    "level": "B1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7732,7 +7702,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7741,7 +7711,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7750,7 +7719,7 @@
    "id": "read:cafe-offices",
    "title": "When the Coffee Shop Becomes the Office",
    "level": "B1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7758,7 +7727,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7767,7 +7736,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7776,7 +7744,7 @@
    "id": "read:cost-of-a-car",
    "title": "The Hidden Cost of Owning a Car",
    "level": "B2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7784,7 +7752,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7793,7 +7761,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7802,7 +7769,7 @@
    "id": "read:habits-stick",
    "title": "Why Some Habits Stick",
    "level": "B2",
-   "score": 83.1,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7810,7 +7777,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.9,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7827,7 +7794,7 @@
    "id": "read:procrastination",
    "title": "Understanding Procrastination",
    "level": "B2",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7835,7 +7802,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7844,7 +7811,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7853,7 +7819,7 @@
    "id": "read:free-shipping",
    "title": "The Economics of \"Free\" Shipping",
    "level": "C1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7861,7 +7827,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7870,7 +7836,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7879,7 +7844,7 @@
    "id": "read:noise-pollution",
    "title": "Noise: The Invisible Pollutant",
    "level": "C1",
-   "score": 83.1,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7887,7 +7852,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.9,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7904,7 +7869,7 @@
    "id": "read:history-of-weekend",
    "title": "How the Weekend Was Invented",
    "level": "C1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7912,7 +7877,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7921,7 +7886,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7930,7 +7894,7 @@
    "id": "read:decision-fatigue",
    "title": "Too Many Choices?",
    "level": "C1",
-   "score": 81.2,
+   "score": 85.1,
    "crit": {
     "a": 0.63,
     "b": null,
@@ -7938,7 +7902,7 @@
     "d": 1,
     "e": null,
     "f": 1,
-    "g": 0.8,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7947,7 +7911,6 @@
    },
    "fix": [
     "truy hồi: 5 câu hỏi (cần ≥ 8)",
-    "phản hồi: giải thích chưa cụ thể",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7956,15 +7919,15 @@
    "id": "read:my-morning",
    "title": "My Morning",
    "level": "A1",
-   "score": 78.2,
+   "score": 93.5,
    "crit": {
     "a": 1,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
-    "g": 0.88,
+    "f": 1,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7972,8 +7935,6 @@
     "l": 1
    },
    "fix": [
-    "phản hồi: giải thích chưa cụ thể",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -7982,15 +7943,15 @@
    "id": "read:my-family",
    "title": "My Family",
    "level": "A1",
-   "score": 78.2,
+   "score": 93.5,
    "crit": {
     "a": 1,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
-    "g": 0.88,
+    "f": 1,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -7998,8 +7959,6 @@
     "l": 1
    },
    "fix": [
-    "phản hồi: giải thích chưa cụ thể",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8008,15 +7967,15 @@
    "id": "read:at-the-market",
    "title": "At the Market",
    "level": "A1",
-   "score": 75.8,
+   "score": 93.5,
    "crit": {
     "a": 1,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
-    "g": 0.75,
+    "f": 1,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -8024,8 +7983,6 @@
     "l": 1
    },
    "fix": [
-    "phản hồi: giải thích chưa cụ thể",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8034,15 +7991,15 @@
    "id": "read:weather-today",
    "title": "Weather Today",
    "level": "A1",
-   "score": 75.8,
+   "score": 93.5,
    "crit": {
     "a": 1,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
-    "g": 0.75,
+    "f": 1,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -8050,8 +8007,6 @@
     "l": 1
    },
    "fix": [
-    "phản hồi: giải thích chưa cụ thể",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8060,15 +8015,15 @@
    "id": "read:my-school-day",
    "title": "My School Day",
    "level": "A1",
-   "score": 75.8,
+   "score": 93.5,
    "crit": {
     "a": 1,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
-    "g": 0.75,
+    "f": 1,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -8076,8 +8031,6 @@
     "l": 1
    },
    "fix": [
-    "phản hồi: giải thích chưa cụ thể",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8086,15 +8039,15 @@
    "id": "read:a-day-at-the-beach",
    "title": "A Day at the Beach",
    "level": "A1",
-   "score": 73.6,
+   "score": 91.4,
    "crit": {
     "a": 1,
     "b": null,
     "c": null,
     "d": 0.87,
     "e": null,
-    "f": 0,
-    "g": 0.75,
+    "f": 1,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -8102,8 +8055,6 @@
     "l": 1
    },
    "fix": [
-    "phản hồi: giải thích chưa cụ thể",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8112,15 +8063,15 @@
    "id": "read:my-best-friend",
    "title": "My Best Friend",
    "level": "A1",
-   "score": 75.8,
+   "score": 93.5,
    "crit": {
     "a": 1,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
-    "g": 0.75,
+    "f": 1,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -8128,8 +8079,6 @@
     "l": 1
    },
    "fix": [
-    "phản hồi: giải thích chưa cụ thể",
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8138,15 +8087,15 @@
    "id": "read:in-the-kitchen",
    "title": "In the Kitchen",
    "level": "A1",
-   "score": 76.7,
+   "score": 93.5,
    "crit": {
     "a": 1,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0.07,
-    "g": 0.75,
+    "f": 1,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -8154,8 +8103,6 @@
     "l": 1
    },
    "fix": [
-    "phản hồi: giải thích chưa cụ thể",
-    "audio 7%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8164,14 +8111,14 @@
    "id": "read:my-bedroom",
    "title": "My Bedroom",
    "level": "A1",
-   "score": 80.6,
+   "score": 93.5,
    "crit": {
     "a": 1,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8180,7 +8127,6 @@
     "l": 1
    },
    "fix": [
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8189,14 +8135,14 @@
    "id": "read:a-birthday-party",
    "title": "A Birthday Party",
    "level": "A1",
-   "score": 78.1,
+   "score": 91,
    "crit": {
     "a": 1,
     "b": null,
     "c": null,
     "d": 0.84,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8205,7 +8151,6 @@
     "l": 1
    },
    "fix": [
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8214,14 +8159,14 @@
    "id": "read:at-the-doctor",
    "title": "At the Doctor",
    "level": "A1",
-   "score": 78.5,
+   "score": 91.4,
    "crit": {
     "a": 1,
     "b": null,
     "c": null,
     "d": 0.87,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8230,7 +8175,6 @@
     "l": 1
    },
    "fix": [
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8239,14 +8183,14 @@
    "id": "read:my-pet-dog",
    "title": "My Pet Dog",
    "level": "A1",
-   "score": 80.6,
+   "score": 93.5,
    "crit": {
     "a": 1,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8255,7 +8199,6 @@
     "l": 1
    },
    "fix": [
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8264,14 +8207,14 @@
    "id": "read:my-town",
    "title": "My Town",
    "level": "A1",
-   "score": 80.6,
+   "score": 93.5,
    "crit": {
     "a": 1,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8280,7 +8223,6 @@
     "l": 1
    },
    "fix": [
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8289,39 +8231,14 @@
    "id": "read:a-train-trip",
    "title": "A Train Trip",
    "level": "A1",
-   "score": 79.4,
+   "score": 93.5,
    "crit": {
     "a": 1,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
-    "g": 0.94,
-    "h": null,
-    "i": 1,
-    "j": 0.5,
-    "k": null,
-    "l": 1
-   },
-   "fix": [
-    "audio 0%",
-    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
-   ]
-  },
-  {
-   "area": "skills",
-   "id": "read:my-favourite-food",
-   "title": "My Favourite Food",
-   "level": "A1",
-   "score": 80.6,
-   "crit": {
-    "a": 1,
-    "b": null,
-    "c": null,
-    "d": 1,
-    "e": null,
-    "f": 0,
+    "f": 1,
     "g": 1,
     "h": null,
     "i": 1,
@@ -8330,7 +8247,30 @@
     "l": 1
    },
    "fix": [
-    "audio 0%",
+    "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
+   ]
+  },
+  {
+   "area": "skills",
+   "id": "read:my-favourite-food",
+   "title": "My Favourite Food",
+   "level": "A1",
+   "score": 93.5,
+   "crit": {
+    "a": 1,
+    "b": null,
+    "c": null,
+    "d": 1,
+    "e": null,
+    "f": 1,
+    "g": 1,
+    "h": null,
+    "i": 1,
+    "j": 0.5,
+    "k": null,
+    "l": 1
+   },
+   "fix": [
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
@@ -8339,15 +8279,15 @@
    "id": "read:my-weekend",
    "title": "My Weekend",
    "level": "A1",
-   "score": 79.4,
+   "score": 93.5,
    "crit": {
     "a": 1,
     "b": null,
     "c": null,
     "d": 1,
     "e": null,
-    "f": 0,
-    "g": 0.94,
+    "f": 1,
+    "g": 1,
     "h": null,
     "i": 1,
     "j": 0.5,
@@ -8355,7 +8295,6 @@
     "l": 1
    },
    "fix": [
-    "audio 0%",
     "đầu ra: chưa có nhiệm vụ tóm tắt/nói lại"
    ]
   },
