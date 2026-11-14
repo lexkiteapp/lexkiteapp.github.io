@@ -221,6 +221,7 @@ node scripts/test/img-api.mjs
 node scripts/test/ios-driver-watchdog.mjs
 node scripts/test/audio-coverage.mjs
 node scripts/test/audio-pr-branch.mjs
+node scripts/test/audio-shard-equiv.mjs
 node scripts/test/pages-lag.mjs
 node scripts/test/tts-sites.mjs
 node scripts/test/protection.mjs
