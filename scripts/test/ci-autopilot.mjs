@@ -1,7 +1,7 @@
 // Kiểm ci-autopilot (scripts/ci/autopilot.mjs + .github/workflows/ci-autopilot.yml): ngân sách runner, phân loại hạ tầng, quyết định theo PR (KHÔNG bao giờ gộp khi đỏ), nhật ký 24 h,
 // và workflow giữ concurrency + timeout + không workflow_run (fan-out) + không bỏ qua check.
 import fs from 'node:fs';
-import { budget, isInfraJob, shouldRerun, decide, tally, parseLog, renderIssue, BUSY_MAX, KEEP_FREE, TOTAL, MAX_RERUN_ATTEMPT, isPriority, isRecent, MAX_UPDATES, QUEUE_MAX, UPDATE_GAP_H, updatedRecently } from '../ci/autopilot.mjs';
+import { behindOf, budget, isInfraJob, shouldRerun, decide, tally, parseLog, renderIssue, BUSY_MAX, KEEP_FREE, TOTAL, MAX_RERUN_ATTEMPT, isPriority, isRecent, MAX_UPDATES, QUEUE_MAX, UPDATE_GAP_H, updatedRecently } from '../ci/autopilot.mjs';
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
 
 // --- ngân sách: chừa ≥ 16 runner trống, chỉ nạp khi busy < 24
@@ -26,6 +26,12 @@ ok(decide(P()).act === 'merge', 'xanh + gộp được → merge');
 for (const [o, m] of [[{ gate: 'FAILURE' }, 'đỏ'], [{ gate: 'ERROR' }, 'lỗi'], [{ gate: 'PENDING' }, 'đang chạy'], [{ gate: null }, 'thiếu status'], [{ mergeable: 'UNKNOWN' }, 'mergeable chưa rõ'], [{ mergeable: 'CONFLICTING' }, 'xung đột'], [{ labels: ['do-not-merge'] }, 'do-not-merge'], [{ labels: ['frozen'] }, 'frozen'], [{ draft: true }, 'draft']])
   ok(decide(P(o)).act !== 'merge', `không merge khi ${m}`);
 ok(decide(P({ mergeable: 'CONFLICTING' })).act === 'conflict' && decide(P({ gate: 'PENDING', behind: 3 })).act === 'update', 'xung đột → conflict; tụt + chưa xanh → update');
+// --- tụt chỉ vì commit bot codemap/báo cáo → KHÔNG gộp main (14/11: mỗi lần gộp kéo CI mọi PR chạy lại)
+const F = (...f) => f.map(filename => ({ filename }));
+ok(behindOf({ ahead_by: 3, files: F('docs/CODEMAP.md', 'docs/codemap.json') }) === 0, 'main chỉ đổi CODEMAP/codemap.json → tụt 0, không cập nhật nhánh');
+ok(behindOf({ ahead_by: 2, files: F('docs/CODEMAP.md', 'web/js/app.js') }) === 2, 'main đổi mã thật → vẫn tụt, vẫn cập nhật');
+ok(behindOf({ ahead_by: 4 }) === 4 && behindOf({ ahead_by: 4, files: F(...Array(300).fill('docs/CODEMAP.md')) }) === 4 && behindOf(null) === 0, 'thiếu files / API cắt 300 tệp → giữ ahead_by');
+ok(decide(P({ gate: 'PENDING', behind: behindOf({ ahead_by: 5, files: F('docs/codemap.json') }) })).act === 'wait', 'PR đang chạy check + main chỉ có commit codemap → chờ, không chạy lại CI');
 ok(decide(P({ gate: 'FAILURE' })).act === 'triage-red', 'đỏ → triage (chạy lại nếu hạ tầng)');
 // --- PR ưu tiên: chỉ PR sống (≤ 24 h) + xanh/hạ tầng được cập nhật nhánh; tối đa 6 PR/lượt (bão CI 12/11)
 { const N = Date.parse('2026-11-12T12:00:00Z'), at = h => new Date(N - h * 3600e3).toISOString(), Q = o => ({ draft: false, updatedAt: at(1), gate: 'SUCCESS', ...o });

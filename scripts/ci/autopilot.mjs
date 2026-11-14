@@ -12,6 +12,7 @@ import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { measure } from './filler.mjs';
 import { retry5xx } from '../lib/retry5xx.mjs';
+import { TAKE_MAIN } from '../pr-unconflict.mjs';
 
 export const TOTAL = 40, KEEP_FREE = 16, BUSY_MAX = TOTAL - KEEP_FREE;   // 24: dưới mức này mới nạp thêm việc
 export const QUEUE_MAX = 30, UPDATE_GAP_H = 3;   // 12/11 bão CI: hàng chờ > 30 → ngừng đẩy nhánh; mỗi PR tối đa 1 lần đẩy/3 giờ
@@ -93,7 +94,15 @@ export async function listPRs(token) {
   return nodes.map(n => ({ number: n.number, draft: n.isDraft, createdAt: n.createdAt, updatedAt: n.updatedAt, mergeable: n.mergeable, branch: n.headRefName, sha: n.headRefOid, fork: n.isCrossRepository,
     labels: n.labels.nodes.map(l => l.name), gate: n.commits.nodes[0]?.commit.status?.context?.state ?? null, behind: 0 }));
 }
-const behindBy = async (token, sha) => (await call(token, 'GET', `/repos/${REPO}/compare/${sha}...main`)).body?.ahead_by ?? 0;   // main có bao nhiêu commit mà head chưa có
+/** Số commit main mà head chưa có, TÍNH CHO VIỆC CẬP NHẬT (thuần, nhận body của compare head...main). 14/11: bot codemap đẩy main sau MỖI lần gộp
+ *  (~30 commit/ngày chỉ đổi docs/CODEMAP.md + codemap.json) → mọi PR đang chạy check thành "tụt" → autopilot gộp main → toàn bộ CI của PR chạy lại.
+ *  Main chỉ đổi tệp báo cáo bot sinh (TAKE_MAIN – không có cổng nào trên PR đọc chúng, gộp sau vẫn lấy bản main) → 0. Thiếu/≥300 tệp (API cắt) → giữ ahead_by. */
+export function behindOf(cmp, auto = TAKE_MAIN) {
+  const n = cmp?.ahead_by ?? 0, files = cmp?.files;
+  if (!n || !Array.isArray(files) || !files.length || files.length >= 300) return n;
+  return files.every(f => auto.includes(f.filename)) ? 0 : n;
+}
+const behindBy = async (token, sha) => behindOf((await call(token, 'GET', `/repos/${REPO}/compare/${sha}...main`)).body);   // main có bao nhiêu commit (đáng gộp) mà head chưa có
 
 async function ensureLabels(token) {
   for (const [name, color, description] of [[L_REBASE, 'd93f0b', 'Xung đột với main – người phụ trách gỡ'], [L_READY, '0e8a16', 'Xanh hẳn, sẵn sàng gộp'], [ISSUE_LABEL, '5319e7', 'Bản tin CI autopilot']])
