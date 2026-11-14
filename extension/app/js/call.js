@@ -279,7 +279,7 @@ body.call-on{overflow:hidden}
       if (!n.prep) log.push(Object.assign({ id, text, picked: !!picked, secs: extra.secs != null ? extra.secs : (picked ? 0 : secs) }, extra));
       if (!picked) $('#cYou', ov).textContent = '🗣️ ' + text;
       const fix = picked || n.prep ? null : E.correct(text, n.m), sl = picked || n.prep ? [] : E.slips(text, c, n);
-      if (tch && tch.react) tch.react(fix || sl.length ? 'encourage' : 'happy', 2200); // phản ứng đúng/sai trên mặt vẽ, câu đáp kế tiếp mang theo biểu cảm
+      if (tch && tch.react) { tch.react(fix || sl.length ? 'encourage' : 'praise', 2200); if (tch.gesture) tch.gesture(fix || sl.length ? 'nod' : turn % 3 === 2 ? 'thumbs_up' : 'nod'); } // khen / sửa nhẹ: biểu cảm + cử chỉ của TeacherRig (rig lười: chỉ khi mặt vẽ chạy), câu đáp kế tiếp mang theo biểu cảm
       if (fix && V2) tipBox.innerHTML = TIP_FIX(fix.bad, fix.good, fix.why);
       else if (sl.length && V2) tipBox.textContent = '👂 ' + t('Nghe giống “{said}” – bạn muốn nói “{meant}”? Hai từ này chỉ khác một âm.', { said: sl[0].said, meant: sl[0].meant });
       else if (fix) tipBox.innerHTML = `<div class="call-tip">💡 ${t('{name} hiểu ý bạn! Nói tự nhiên hơn:', { name: nm })}<div lang="${TLG}"><s>${esc(fix.bad)}</s> → <b>${esc(fix.good)}</b></div><div class="small">${esc(fix.why)}</div></div>`;

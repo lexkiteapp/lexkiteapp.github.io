@@ -100,9 +100,11 @@ for (const sc of SCREENS) for (const theme of ['light', 'dark']) for (const w of
     report[name] = await page.evaluate(() => ({
       canvas: !!document.querySelector('.tch-rig canvas.tch-face'),
       canvases: document.querySelectorAll('canvas.tch-face').length,
+      rig: !!(window.TeacherRig && document.querySelector('.tch-rig canvas.tch-face.trig-cv')), // Call + màn câu hỏi bài học đều chạy lõi TeacherRig (không còn bản face() riêng)
       lip: window.__callState ? (() => { try { return window.__callState().lip; } catch (e) { return 'err'; } })() : null,
     }));
     report[name].errors = errs.slice(0, 10);
+    if (!report[name].rig) throw new Error('màn ' + sc.id + ': giáo viên không chạy TeacherRig (canvas.tch-face.trig-cv)');
     console.log('✓ ' + name, JSON.stringify(report[name]));
   } catch (e) {
     report[name] = { error: String(e && e.message || e).slice(0, 300) }; console.log('✗ ' + name + ' ' + report[name].error);
