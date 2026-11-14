@@ -120,7 +120,6 @@
 "Hết phần nghe – kiểm tra đáp án":"Kayıt tamamlandı; yanıtlarınızı kontrol edin",
 "Học từ vựng bài “{title}”":"“{title}”dan kelime öğrenin",
 "Hỏi – đáp":"Soru–cevap",
-"Khoe kết quả":"Sonucu paylaş",
 "Không bị trừ điểm khi sai – <b>đừng bỏ trống</b> câu nào.":"Yanlış cevapların cezası yoktur – <b>asla soruyu boş bırakmayın</b>.",
 "Không nhận đủ lời nói để chấm – kiểm tra micro và dùng Chrome/Edge.":"Puanlama için yeterli konuşma kaydedilmedi; mikrofonunuzu kontrol edin ve Chrome/Edge'i kullanın.",
 "Kéo để đổi độ rộng cột":"Sütunları yeniden boyutlandırmak için sürükleyin",
