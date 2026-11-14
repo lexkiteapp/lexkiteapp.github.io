@@ -1,5 +1,5 @@
 {
- "_doc": "Thư viện phát âm (#/pron, không có id) – d do web/js/pron.js dựng từ window.PRON (44 âm + cpack/pron/skills.js) + state.game.pronDone. Mẫu v2.1 pron-hub (native M4 #979): lưới 4 cột nguyên âm / 5 cột phụ âm / hàng kỹ năng. Nhóm trong app nhiều hơn mẫu → mỗi nhóm = 1 khối lặp (nguyên âm đơn + đôi dùng khuôn 4 cột, phụ âm khuôn 5 cột + ghi chú vô thanh, Sửa lỗi người Việt + Trọng âm dùng khuôn hàng). Ô 'focus' (nền hổ phách + chấm) = âm tiếp theo chưa học; ô có tick = đã xong; viền nét đứt = phụ âm vô thanh (mẫu vẽ nét đứt cho ô vô thanh; ô hữu thanh đổi sang nét liền). Ô giáo viên (nét đứt) = Ama qua Chars.slot; nút 'Check' (hiệu chỉnh mic – app không có) bỏ, ô 'Âm tiếp theo' + nút dưới cùng (Học tiếp) trỏ cùng bài. Bài #/pron/<id> giữ khung cũ (chưa port). Khung chung kiểu vocab-hub: sau mount bỏ st+v2on → giữ thanh trên (Back), thanh 5 tab và lề #view chung; header Stitch (nút Back thừa) thành hàng tiêu đề + chip; nút Học tiếp nổi trên thanh tab.",
+ "_doc": "Thư viện phát âm (#/pron, không có id) – d do web/js/pron.js dựng từ window.PRON (44 âm + cpack/pron/skills.js) + state.game.pronDone. Mẫu v2.1 pron-hub (native M4 #979): lưới 4 cột nguyên âm / 5 cột phụ âm / hàng kỹ năng. Nhóm trong app nhiều hơn mẫu → mỗi nhóm = 1 khối lặp (nguyên âm đơn + đôi dùng khuôn 4 cột, phụ âm khuôn 5 cột + ghi chú vô thanh, Sửa lỗi người Việt + Trọng âm dùng khuôn hàng). Ô 'focus' (nền hổ phách + chấm) = âm tiếp theo chưa học; ô có tick = đã xong; viền nét đứt = phụ âm vô thanh (mẫu vẽ nét đứt cho ô vô thanh; ô hữu thanh đổi sang nét liền). Ô giáo viên (nét đứt) = Ama qua Chars.slot; nút 'Check' (hiệu chỉnh mic – app không có) bỏ, ô 'Âm tiếp theo' + nút dưới cùng (Học tiếp) trỏ cùng bài. Bài #/pron/<id> giữ khung cũ (chưa port). Khung chung kiểu vocab-hub: sau mount bỏ st+v2on → giữ thanh trên (Back), thanh 5 tab và lề #view chung; header Stitch (nút Back giữ: cổng khung cần Back ≥ 44 về #/skills) thành hàng tiêu đề + chip; nút Học tiếp nổi trên thanh tab. colors = bảng đổi màu Material của mẫu về token CSS của app (cổng frame-consistency color.non-token).",
  "html": {
   ":scope > main > header > h1": "e(d.title)",
   ":scope > main > header > div > div > span:nth-child(1)": "e(d.count)",
@@ -19,6 +19,10 @@
   },
   ":scope > main > div:nth-child(3) button": {
    "data-href": "d.nextHref"
+  },
+  ":scope > main > header > button": {
+   "data-href": "d.back",
+   "aria-label": "d.backL"
   }
  },
  "cls": {
@@ -47,8 +51,7 @@
   ":scope > main > header": "gap-2"
  },
  "remove": [
-  ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(2) > button",
-  ":scope > main > header > button"
+  ":scope > main > div:nth-child(2) > section:nth-child(1) > div > div:nth-child(2) > button"
  ],
  "repeat": [
   {
@@ -356,5 +359,24 @@
   "px-space-md": "px-0",
   "bg-[#1D2F33]/95": "",
   "bg-[#1D2F33]": ""
+ },
+ "colors": {
+  "lt:#003734": "#0F3D3E",
+  "lt:#1a0d00": "#1A0E0B",
+  "lt:#211a14": "#162124",
+  "lt:#2d1600": "#162124",
+  "lt:#3f4947": "#45555A",
+  "#8b5000": "#92400E",
+  "lt:#aeefe7": "#DDF1EE",
+  "lt:#faebe1": "#F5EFE6",
+  "lt:#fc9500": "#FFB054",
+  "lt:#ffdcbf": "#FFF3DA",
+  "lt:#fff1e8": "#F8F4EC",
+  "dk:#1f4a4e": "#10302F",
+  "dk:#3b3015": "#3A2E12",
+  "dk:#4a6870": "#6F878B",
+  "dk:#5eead4": "#5FD0C4",
+  "dk:#613800": "#0A1517",
+  "dk:#9a5b00": "#B53A22"
  }
 }

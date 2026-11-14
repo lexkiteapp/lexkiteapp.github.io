@@ -33,7 +33,7 @@
           : { id: x.id, href: href(x), icon: ICON[x.group] || 'graphic_eq', title: L(x, 'title'), done: d[x.id] || 0, sub: `${d[x.id] ? '✓ ' + d[x.id] + '% · ' : ''}${(L(x, 'how') || '').slice(0, 110)}${(L(x, 'how') || '').length > 110 ? '…' : ''}`, end: d[x.id] ? 'check_circle' : 'chevron_right' }) };
     }).filter(Boolean);
     ST2.mount(view, 'pron-hub', {
-      title: t('Thư viện phát âm'), intro: t('Luyện như ELSA: học khẩu hình từng âm IPA, nghe – phân biệt cặp từ dễ nhầm, nói và được chấm điểm, rồi sửa các lỗi người Việt hay mắc.'),
+      back: '#/skills', backL: t('Quay lại'), title: t('Thư viện phát âm'), intro: t('Luyện như ELSA: học khẩu hình từng âm IPA, nghe – phân biệt cặp từ dễ nhầm, nói và được chấm điểm, rồi sửa các lỗi người Việt hay mắc.'),
       count: `${n}/${all.length}`, pct: all.length ? n / all.length * 100 : 0, doneL: t('Đã xong'), groups, next: nx, nextHref: nx ? href(nx) : '#/pron',
       nextL: nx ? t('Âm tiếp theo') : t('Đã xong'), nextS: nx ? (nx.ipa ? `${nx.ipa} · ${(nx.words[0] || {}).w || ''}` : L(nx, 'title')) : `${n}/${all.length}`, cta: nx ? `${t('Học tiếp')}: ${nx.ipa || nx.title}` : '',
       teacher: Chars.slot('ama', { pose: nx ? 'point' : 'cheer', size: 'xs', lazy: false }),

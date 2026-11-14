@@ -20,7 +20,7 @@ assert.deepEqual(d.groups.flatMap(g => g.items.map(x => x.id)).sort(), [...ids].
 for (const x of d.groups.flatMap(g => g.items)) assert.equal(x.href, '#/pron/' + encodeURIComponent(x.id));
 // e: 0 vẫn là "có bản ghi" (chip + vòng đếm mọi bài đã chấm, như bản cũ); tick/hàng ✓ chỉ khi điểm > 0
 assert.equal(d.count, '4/62'); assert.ok(Math.abs(d.pct - 4 / 62 * 100) < 1e-9);
-assert.deepEqual(d.groups.map(g => g.count), ['1/12', '0/8', '1/24', '1/6', '0/12']); // e:0 không tính là xong
+assert.equal(d.back, '#/skills'); assert.match(html, /data-href="#\/skills"/); assert.deepEqual(d.groups.map(g => g.count), ['1/12', '0/8', '1/24', '1/6', '0/12']); // e:0 không tính là xong
 // âm kế tiếp = bài đầu chưa có bản ghi: /ɪ/ (iː đã có, ɪ chưa)
 const nx = PRON.find(x => !['iː', 'p', 'final-consonants', 'e'].includes(x.id));
 assert.equal(d.next.id, nx.id); assert.equal(d.nextHref, '#/pron/' + encodeURIComponent(nx.id)); assert.match(d.cta, /^Học tiếp: /); assert.match(d.nextL, /^Âm tiếp theo$/); assert.match(d.teacher, /data-who="ama" data-pose="point"/);
