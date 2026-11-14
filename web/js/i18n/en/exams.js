@@ -279,6 +279,7 @@
 'Đáp án & giải thích': 'Answers & explanations',
 'Bạn chọn:': 'Your answer:',
 'Làm đề khác': 'Try another test',
+'Khoe kết quả': 'Share result',
 'Học từ vựng bài “{title}”': 'Learn vocabulary from “{title}”',
 }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, {
