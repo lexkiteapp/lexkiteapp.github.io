@@ -1,5 +1,6 @@
 /* UI ar – qtips (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {
+"Bắt đầu ôn 10 phút":"ابدأ بمراجعة مدتها 10 دقائق",
 "Chưa có dữ liệu. Làm một bài luyện Listening/Reading (IELTS, TOEIC hoặc TOEFL) để bắt đầu theo dõi.":"لا توجد بيانات حتى الآن. قم بإجراء اختبار تدريبي على الاستماع أو القراءة (IELTS أو TOEIC أو TOEFL) لبدء التتبع.",
 "Chọn đủ 2 đáp án (thứ tự không quan trọng, mỗi đáp án đúng được 1 điểm). Đọc kỹ cả 5 phương án; loại phương án được nhắc tới nhưng bị phủ định hoặc thuộc về người/đối tượng khác.":"اختر إجابتين بالضبط (لا يهم الترتيب؛ كل إجابة صحيحة تحصل على درجة واحدة). اقرأ جميع الخيارات الخمسة بعناية واستبعد أي خيار تم ذكره ولكن تم رفضه، أو خيار يخص شخصًا أو شيئًا مختلفًا.",
 "Câu hỏi về quan điểm của tác giả, không phải sự thật chung. YES: tác giả đồng ý; NO: tác giả phản đối; NOT GIVEN: tác giả không nêu ý kiến về điều đó. Để ý từ thể hiện thái độ (argue, claim, unfortunately…). Đáp án theo thứ tự trong bài.":"هذه الأسئلة تسأل عن آراء الكاتب، وليس حقائق عامة. نعم: الكاتب يوافق؛ لا: الكاتب لا يوافق؛ NOT GIVEN: لم يذكر الكاتب فيه رأيا. ابحث عن كلمات الموقف (argue, claim, unfortunately…). الإجابات تتبع ترتيب المقطع.",
@@ -34,6 +35,7 @@
 "mỗi câu (ước tính)":"لكل سؤال (تقديري)",
 "tỉ lệ đúng":"نسبة الصواب",
 "{s} giây":"{s} س",
+"Ôn 10 phút: dạng yếu nhất của bạn":"مراجعة مدتها 10 دقائق: أضعف نوع سؤال لديك",
 "Đáp án không theo thứ tự trong bài và một đoạn có thể dùng nhiều lần. Xác định loại thông tin cần tìm (ví dụ, lý do, số liệu, so sánh…) rồi quét. Nên làm sau các dạng khác của cùng bài, khi bạn đã quen nội dung.":"الإجابات غير مرتبة، ويمكن استخدام الفقرة أكثر من مرة. حدد نوع المعلومات التي تحتاجها (مثال، سبب، شكل، مقارنة...) ثم قم بالمسح الضوئي. قم بهذه المهمة بعد المهام الأخرى في نفس المقطع، عندما تكون تعرف المحتوى بالفعل.",
 "Đọc câu chủ đề mỗi đoạn để nắm ý chính, rồi tìm chi tiết theo câu hỏi. Câu suy luận: chọn ý bài ngụ ý, không phải ý chỉ lặp từ. Câu từ vựng: thay phương án vào câu xem có giữ đúng nghĩa không.":"اقرأ الجملة الرئيسية لكل فقرة لتحصل على الفكرة الرئيسية، ثم ابحث عن تفاصيل كل سؤال. أسئلة الاستدلال: اختر ما يشير إليه المقطع، وليس خيارًا يكرر الكلمات فقط. أسئلة المفردات: ضع كل خيار في الجملة وتأكد من بقاء المعنى كما هو.",
 "Đọc câu hỏi trước rồi quét bài tìm từ khóa. Với nhóm nhiều văn bản, có câu phải ghép thông tin từ 2 văn bản. Câu “NOT true” và câu chèn câu tốn thời gian – có thể làm sau. Mục tiêu khoảng 1 phút mỗi câu.":"اقرأ الأسئلة أولاً، ثم قم بمسح النص بحثًا عن الكلمات الرئيسية. في مجموعات المقاطع المتعددة، تتطلب بعض الأسئلة دمج معلومات من نصين. تستغرق الأسئلة \"NOT true\" وأسئلة إدراج الجملة وقتًا أطول - يمكنك تركها لوقت لاحق. استهدف حوالي دقيقة واحدة لكل سؤال.",
@@ -45,6 +47,7 @@
 "Đọc phần đầu câu và đoán phần còn thiếu cần gì (về nghĩa và ngữ pháp). Phần kết đúng phải khớp cả ngữ pháp lẫn nội dung bài. Câu hỏi theo thứ tự trong bài; luôn có nhiều phần kết hơn số câu.":"اقرأ بداية الجملة وتنبأ بما يحتاجه الجزء المفقود (معنى ونحواً). يجب أن تتناسب النهاية الصحيحة مع القواعد النحوية ومحتوى المقطع. الأسئلة تتبع ترتيب المقطع؛ هناك دائمًا نهايات أكثر من الأسئلة.",
 "Đọc trước 3 câu hỏi (và biểu đồ nếu có) trong lúc nghe hướng dẫn. Câu hỏi thường theo thứ tự hội thoại: chủ đề/nơi chốn → chi tiết → việc sẽ làm tiếp theo. Đáp án thường là cách diễn đạt khác của lời nói.":"اقرأ الأسئلة الثلاثة (وأي رسم بياني) أثناء قراءة التوجيهات. عادة ما تتبع الأسئلة المحادثة: الموضوع/المكان ← التفاصيل ← ماذا سيحدث بعد ذلك. عادة ما تكون الإجابة الصحيحة عبارة عن إعادة صياغة لما يقال.",
 "Đọc trước câu hỏi. Câu đầu thường hỏi mục đích hoặc người nghe là ai – đáp án nằm ở vài câu mở đầu. Chú ý lời yêu cầu, đề nghị, thay đổi lịch ở cuối bài nói.":"اقرأ الأسئلة أولاً. غالبًا ما يسأل السؤال الأول عن الغرض أو الجمهور - وتأتي الإجابة في الجمل الافتتاحية. استمع للطلبات والاقتراحات وتغييرات الجدول الزمني قرب نهاية المحادثة.",
+"đúng {p}% ({n} câu). Dành 10 phút luyện riêng dạng này.":"{p}% صحيح ({n} سؤال). اقضِ 10 دقائق في التدرب على هذا النوع.",
 "Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)":"الفرقة المقدرة هذا الأسبوع ≈ {b} (ليست نتيجة اختبار رسمي)",
 });
 })(typeof self !== 'undefined' ? self : this);
