@@ -7,7 +7,7 @@
  *      GrabCast tự đăng lúc tới giờ. Không đủ → bài nằm ở cột Chờ duyệt, owner duyệt tay (board/approve lên lịch đúng slot).
  * An toàn tải (memory grabcast-budget): ≤ daily_calls lượt GrabCast/ngày (đếm ở D1), không thử lại vòng; 401/403/409/422/429/503/5xx = dừng CẢ lượt + cầu dao ghi D1.
  * D1: chỉ truy vấn theo khóa/chỉ mục (dist_social_slot, soc_board PK/clip/state) – không quét cả bảng. */
-import { setupMgr, boardSync, contentHash, pushClip, bodyFor, PLAT, platOf, healthOf, validateCompose, boardStateOf } from './_social_mgr.js';
+import { rankClips, rankLog, weightsOf, setupMgr, boardSync, contentHash, pushClip, bodyFor, PLAT, platOf, healthOf, validateCompose, boardStateOf } from './_social_mgr.js';
 import { setupDist, DIST, clipOf, socialSetup, socialChannels } from './distribution.js';
 import { previewClip, pickPreviewClip, PREVIEW_CLIP_RE } from './_social_preview.js';
 import { foreignAccount, pausedAccount, extAccount } from './_distribution.js';
@@ -228,6 +228,7 @@ export async function autoQueue(env, db, cfg, now, max = 30) {
   if (!await one(db, `SELECT 1 AS x FROM dist_ext WHERE platform IN (${plats.map(() => '?').join(',')}) AND status = 'ok' LIMIT 1`, ...plats)) return 0;
   const cand = (await manifest(env)).items.filter(it => it && it.qa && it.qa.status === 'pass' && !it.rejected && !it.paused && it.drive && it.drive.video && !it.drive.video.retired && CLIP.test(String(it.id)) && (it.title || it.point));
   if (!cand.length) return 0;
+  try { const w = await weightsOf(db); if (w) { const r = rankClips(cand, w, { fields: c => ({ template: c.template || '', hook: field(c, 'hook'), cefr: field(c, 'diff') || c.cefr || '' }) }); cand.splice(0, cand.length, ...r.order); await rankLog(db, { at: now, n: cand.length, explored: r.explored, head: cand.slice(0, 5).map(c => c.id) }); } } catch (e) { /* chưa có trọng số → giữ thứ tự cũ */ }
   const seen = new Set((await all(db, 'SELECT clip FROM yt_queue LIMIT 5000')).map(r => r.clip)), review = new Map((await all(db, 'SELECT clip, state, deleted FROM clip_review LIMIT 5000')).map(r => [r.clip, r]));
   let n = 0;
   for (const it of cand) {

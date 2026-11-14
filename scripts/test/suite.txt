@@ -411,4 +411,5 @@ node scripts/test/rate-prompt.mjs
 node scripts/test/yt-stats.mjs
 node scripts/test/yt-stats-op.mjs
 node scripts/test/social-stats-ui.mjs
+node scripts/test/social-bandit.mjs
 node scripts/test/l1-notes.mjs
