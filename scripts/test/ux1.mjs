@@ -383,4 +383,7 @@ ok(['Hôm nay', 'Từ vựng', 'Kỹ năng', 'Thi', 'Tham gia ngay', 'Ôn', 'Luy
 ok(!consoleErr.length, '0 lỗi console' + (consoleErr.length ? ': ' + consoleErr.slice(0, 3).join(' | ') : ''));
 
 console.log(`\n${total - fails}/${total} ux1`);
+// Lõi lộ trình v3 (PathV3) chạy cùng bộ ux1 cho tới khi package.json gắn thẳng scripts/test/path3.mjs (docs/specs/play-and-speak-path.md §8)
+const p3 = (await import('node:child_process')).spawnSync(process.execPath, ['scripts/test/path3.mjs'], { encoding: 'utf8' });
+if (p3.status !== 0) { process.stderr.write((p3.stdout || '') + (p3.stderr || '')); fails++; } else console.log('✓ path3:', (p3.stdout || '').trim().split('\n').pop());
 w.close(); process.exit(fails ? 1 : 0);

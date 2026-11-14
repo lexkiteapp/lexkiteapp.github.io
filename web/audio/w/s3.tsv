@@ -9714,7 +9714,6 @@ odor	ok	ok
 strategist	ok	ok
 pulpit	ok	ok
 czar	cut_wordis: câu mang: "The word is za." · dot100:"Zuh." 0.54s · cut_wordis100: câu mang: "The word is za." · cut_next: câu mang: "Next word is I." · plain095:"Zod" 0.52s · dot090:"Bizarre." 0.57s	ok
-predation	ok	ok
 epithelium	ok	ok
 saxophonist	ok	ok
 phenomenology	ok	ok
@@ -9724,7 +9723,6 @@ ecclesiastic	ok	ok
 eruption	ok	ok
 transfusion	ok	ok
 seesaw	ok	ok
-exorcism	ok	ok
 eccentricity	ok	ok
 scam	ok	ok
 rouge	ok	ok
@@ -9757,7 +9755,6 @@ viceroy	ok	ok
 thyme	cut_wordis: câu mang: "The word is time." · dot100:"Time." 0.68s · cut_wordis100: câu mang: "The word is time." · cut_next: câu mang: "Next word, time." · plain095:"Time." 0.60s · dot090:"Time." 0.74s	cut_wordis: câu mang: "The word is time." · dot100:"Time." 0.56s · cut_wordis100: câu mang: "The word is time." · cut_next: câu mang: "Next word, time." · plain095:"Time." 0.59s · dot090:"Time." 0.65s
 nib	cut_wordis: câu mang: "The word is nibby." · dot100:"NIBBA" 0.61s · cut_wordis100: câu mang: "The word is nibby." · cut_next: câu mang: "The next word, nibby." · plain095:"A nib." 0.53s · dot090:"The neighbor." 0.65s	ok
 deafness	ok	ok
-fen	ok	ok
 emcee	cut_wordis: câu mang: "The word is MC." · dot100:"MC" 0.72s · cut_wordis100: câu mang: "The word is MC." · cut_next: câu mang: "Next word MC" · plain095:"MC" 0.69s · dot090:"MC" 0.80s	cut_wordis: câu mang: "The word is MC." · dot100:"MC" 0.66s · cut_wordis100: câu mang: "The word is MC." · cut_next: câu mang: "Next word, MC." · plain095:"MC" 0.71s · dot090:"MC" 0.75s
 isomer	ok	ok
 hydrogenation	ok	ok
@@ -9770,7 +9767,6 @@ transmitter	ok	ok
 euphoria	ok	ok
 philanthropist	ok	ok
 repute	ok	ok
-stigma	ok	ok
 dusk	ok	ok
 suffrage	cut_wordis: câu mang: "The word is suffragee." · dot100:"suffragie" 1.17s · cut_wordis100:"The suffrage." 0.83s · cut_next: câu mang: "Next word, suffragie." · plain095:"A suffrage." 0.75s · dot090:"Let's offer edgy." 0.86s	ok
 osteoporosis	ok	ok
