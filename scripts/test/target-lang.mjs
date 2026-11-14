@@ -69,6 +69,13 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   for (const f of ['web/js/target.js', 'web/js/settings.js']) ok(!/[!=]==?\s*'(pt|es)'|'(pt|es)'\s*[!=]==?|lk\.pt'|pt_pilot\b(?!',)/.test(rd(f).replace(/^\s*(\/\/|\*|\/\*).*$/gm, '').replace(/const TABLE = \{[\s\S]*?\n {2}\};/, '') /* dữ liệu bảng được phép */), f + ': không còn nhánh if (pt) – tra bảng');
 }
 
+// ---------- 1d) W7b chống rò tiếng Anh: tl≠en thì Hôm nay chuyển sang lộ trình của ngôn ngữ đó; mỗi dòng bảng có home ----------
+{
+  const ux = rd('web/js/ux1.js'), { sb } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
+  ok(/Target\.cur\(\) !== 'en'[^;]*Target\.table\(Target\.cur\(\)\)\.home/.test(ux) && /location\.replace\(tlHome\)/.test(ux), 'ux1.map: tl≠en → vào lộ trình của ngôn ngữ đích, không vẽ lộ trình IELTS');
+  ok(T.LANGS.filter(k => k !== 'en').every(k => k === 'pt' || /^#\/practice\//.test(T.table(k).home || '')), 'mọi ngôn ngữ đích có trang chủ riêng (trừ pt thử nghiệm)');
+}
+
 // ---------- 2) bảng giọng/lang: 'en' tái tạo đúng hành vi cũ ----------
 {
   const { sb } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;

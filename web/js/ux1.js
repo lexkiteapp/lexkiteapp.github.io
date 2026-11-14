@@ -162,6 +162,9 @@
   const stars = () => { try { return JSON.parse(ls.get('lk.ux1.st') || '{}'); } catch (e) { return {}; } }; // sao thật mỗi nút đã học (lesson/ui.js ghi khi xong bài)
   function map(o) {
     const { demo, plan: P, n } = o;
+    // W7b: đang học ngôn ngữ đích ≠ en → "Hôm nay" = lộ trình ngày của chính ngôn ngữ đó (không vẽ lộ trình IELTS/TOEIC tiếng Anh); ?en=1 = xem bản tiếng Anh
+    const tlHome = !demo && window.Target && Target.cur() !== 'en' && !/[?&]en=1\b/.test(location.hash) ? Target.table(Target.cur()).home : '';
+    if (tlHome) { location.replace(tlHome); return; }
     const fresh = !demo && n === 0 && !((state.game || {}).xp > 0) && !!(self.ST2 && ST2['today-new'] && ST2.path); // người mới (chưa xong bài nào, 0 XP) → Hôm nay v2 trống: bước 1 = chọn mục tiêu (pick)
     if (!demo && !picked() && !fresh && !/[?&]all=1\b/.test(location.hash)) return pick();
     if (/[?&]pick=1\b/.test(location.hash)) return pick();
