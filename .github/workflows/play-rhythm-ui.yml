@@ -1,3 +1,4 @@
+# ci-policy: fast-lane – chỉ chạy khi PR đổi đúng play-rhythm.js hoặc script ảnh của nó (đường dẫn hẹp, không phải bộ giao diện nặng)
 # 🥁 Nhịp điệu – ảnh dựng thật 375 px (sáng/tối/RTL × mở đầu, đang chơi, kết quả) + chặn tràn ngang, chữ đè, lỗi JS. Ảnh: artifact play-rhythm-shots.
 name: Nhịp điệu – giao diện
 on:
