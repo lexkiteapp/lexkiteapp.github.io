@@ -218,7 +218,7 @@ async function j1(h) {
   await h.go('#/day/1'); await h.click('.dayv2-steps a[data-step="learn"]', { wait: 1000 }); await learnLesson(h); await sleep(3500);
   h.ok(!(await softAskShown(h)), 'sau tải lại + bài mới: không hỏi lại');
   await h.audit('after-reload');
-  await h.offline('/day/1', () => page.locator('.dayv2-steps a[data-step="learn"].ok').count().then(n => n > 0), 'Ngày 1 vẫn ghi "Học từ mới" đã xong');
+  await h.offline('/day/1', async () => { await page.waitForSelector('.dayv2-steps a', { timeout: 10000 }).catch(() => {}); return page.locator('.dayv2-steps a[data-step="learn"].ok').count().then(n => n > 0); }, 'Ngày 1 vẫn ghi "Học từ mới" đã xong');
 }
 
 // ---------- 2. Học viên quay lại: home → ngày lộ trình có ngữ pháp + phát âm → xong → "Tiếp theo" → bài tự tin B2 → nhập vai B2 ----------
@@ -294,7 +294,7 @@ async function j2(h) {
   await h.audit('roleplay');
   await h.reload(); await h.go('#/day/1');
   h.ok(await page.locator('.dayv2-steps a.ok').count() >= 1 + (gl ? 1 : 0) + (pr ? 1 : 0), 'tải lại: tiến độ Ngày 1 còn nguyên');
-  await h.offline('/day/1', () => page.locator('.dayv2-steps a.ok').count().then(n => n >= 1), 'tiến độ Ngày 1 còn khi mất mạng');
+  await h.offline('/day/1', async () => { await page.waitForSelector('.dayv2-steps a', { timeout: 10000 }).catch(() => {}); return page.locator('.dayv2-steps a.ok').count().then(n => n >= 1); }, 'tiến độ Ngày 1 còn khi mất mạng');
 }
 
 // ---------- 3. Ôn tập trộn lật/gõ/nghe + thẻ "câu của bạn" (từ add-on) → điểm lưu → đồng bộ khứ hồi (giả lập) ----------
