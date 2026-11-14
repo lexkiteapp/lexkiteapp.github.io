@@ -88,6 +88,7 @@
 "Âm cuối /s/ không rung cổ và nguyên âm trước nó ngắn: “rice” gọn, xì hơi rõ.":"Sondaki /s/'nin sesi yoktur ve öncesindeki sesli harf kısadır: “rice”ı net bir tıslamayla net bir şekilde söyleyin.",
 "Âm cuối /z/ rung cổ và kéo dài nguyên âm trước nó: “riiise-zzz”.":"Sonda /z/ sesi duyulur ve ondan önceki sesli harf daha uzundur: “riiise-zzz”.",
 "Âm cần luyện thêm":"Zayıf seslerin",
+"Âm tiếp theo":"Sonraki ses",
 "Âm “j” có chặn lưỡi và rung cổ, mạnh hơn “y”.":"“j” sesinin dil durağı ve sesi vardır; “y” sesinden daha güçlüdür.",
 "âm yếu":"zayıf ses",
 "Đang xử lý…":"İşleniyor…",

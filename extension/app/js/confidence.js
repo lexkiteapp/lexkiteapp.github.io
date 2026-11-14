@@ -1,5 +1,5 @@
 /* 🗣️ Giao tiếp tự tin (#/confidence) – lộ trình nói theo tình huống thật, A1 → B2 (docs/CONFIDENCE.md).
- * Dữ liệu: js/confidence/data.js (SINH từ content/confidence/*.json bằng scripts/confidence/build.mjs – đừng sửa tay).
+ * Dữ liệu: cpack/confidence/data.js (SINH từ content/confidence/*.json bằng scripts/confidence/build.mjs – đừng sửa tay).
  * Tái dùng: UI.tts / UI.recognize (Web Speech + Whisper trên máy), RP.chat của roleplay.js (Nano → /api/ai có hạn mức → kịch bản),
  * App.addWord (SRS), App.reward (XP/chuỗi). Âm thanh thử thách ngày chỉ ở bộ nhớ trình duyệt (không tải lên, không lưu).
  * Route: #/confidence · #/confidence/<bài>[#<cụm>] · #/confidence/toolkit[#<nhóm>-<cụm>] · #/confidence/daily */

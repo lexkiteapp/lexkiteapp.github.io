@@ -97,7 +97,7 @@ async function styleVectors(S) {
 
 // ================================================================== #/confidence ==================================================================
 function confData() {
-  const sb = {}; sb.window = sb; sb.self = sb; vm.createContext(sb); vm.runInContext(rd('web/js/confidence/data.js'), sb); return clone(sb.CONF);
+  const sb = {}; sb.window = sb; sb.self = sb; vm.createContext(sb); vm.runInContext(rd('web/cpack/confidence/data.js'), sb); return clone(sb.CONF);
 }
 function confVectors(C) {
   const src = rd('web/js/confidence.js');

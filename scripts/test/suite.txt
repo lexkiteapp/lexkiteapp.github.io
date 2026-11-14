@@ -156,6 +156,7 @@ node scripts/test/jobs.mjs
 node scripts/test/rollback.mjs
 node scripts/test/drive-repair.mjs
 node scripts/test/keys.mjs
+node scripts/test/ai-chain.mjs
 node scripts/test/admin-share.mjs
 node scripts/test/accounts.mjs
 node scripts/test/ios-sign-patch.mjs
@@ -221,6 +222,7 @@ node scripts/test/img-api.mjs
 node scripts/test/ios-driver-watchdog.mjs
 node scripts/test/audio-coverage.mjs
 node scripts/test/audio-pr-branch.mjs
+node scripts/test/audio-shard-equiv.mjs
 node scripts/test/pages-lag.mjs
 node scripts/test/tts-sites.mjs
 node scripts/test/protection.mjs
@@ -233,6 +235,7 @@ node scripts/test/static-routes.mjs
 node scripts/test/layout-guards.mjs
 node scripts/test/home-logic.mjs
 node scripts/test/vocab-hub.mjs
+node scripts/test/pron-hub.mjs
 node scripts/test/inline-box.mjs
 node scripts/test/st2-href.mjs
 node scripts/test/card-actions.mjs
@@ -347,6 +350,7 @@ node scripts/test/sync-cross-client.mjs
 node scripts/test/native-compat.mjs
 node scripts/native/content-publish.mjs check
 node scripts/test/native-pick-sim.mjs
+node scripts/test/native-ios-paths.mjs
 node scripts/test/native-visual.mjs --self-test
 node scripts/test/lip-clock.mjs
 node scripts/test/teacher-quality.mjs --static

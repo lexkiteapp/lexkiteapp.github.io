@@ -83,6 +83,7 @@
 - [GRABCAST-API-REQUESTS.md](GRABCAST-API-REQUESTS.md) — Danh sách endpoint GrabCast cần mở cho khóa API workspace để Lexkite quản lý 100% (connect, insights, comments, inbox…); đọc khi: làm việc với GrabCast API
 - [HANDOFF.md](HANDOFF.md) — Bàn giao ngắn: việc nền đang chạy (ảnh từ vựng hàng loạt qua kho CF, kho từ 20k), số liệu mới nhất, việc tiếp theo, việc chờ chủ; đọc khi: đầu phiên, trước khi nhận việc ảnh từ vựng / kho từ
 - [I18N-PIPELINE.md](I18N-PIPELINE.md) — Quy trình 15 ngôn ngữ giao diện: nguồn chuẩn duy nhất, quy tắc thêm chữ mới, kiểm tra tự động, mở thêm ngôn ngữ, SEO/blog theo ngôn ngữ; đọc khi: MỌI việc thêm chữ giao diện
+- [AI-CHAIN.md](AI-CHAIN.md) — AI người dùng trên máy chủ (/api/ai): chuỗi Gemini Flash → Groq gpt-oss-120b → báo bận, bộ golden ai-golden.yml, đồng bộ khóa ai-keys-sync, giám sát tỉ lệ model; đọc khi: sửa ai.js/_aichain.js, thêm model, cảnh báo ai:weak.
 - [AI-LOCAL.md](AI-LOCAL.md) — AI có sẵn trong trình duyệt (Prompt/Translator/Detector/Proofreader…): trạng thái API, quy tắc tải, fallback máy chủ; đọc khi: thêm/sửa tính năng AI
 - [INFRA-RULES.md](INFRA-RULES.md) — Quy tắc tài nguyên hệ thống: mọi dịch vụ/Worker/lưu trữ phải đăng ký ở infra/resources.json; hiện trạng lưu trữ, ngưỡng nâng cấp, mail; đọc khi: thêm dịch vụ/host/Worker/lưu trữ mới
 - [INDEX.md](INDEX.md) — mục lục chuẩn này; đọc khi: tìm tài liệu hoặc thêm doc mới (phải thêm 1 dòng ở đây)
@@ -125,6 +126,7 @@
 - [specs/spanish-course.md](specs/spanish-course.md) — Khóa tiếng Tây Ban Nha (tl `es`) cho 14 ngôn ngữ: mở rộng Target, nguồn miễn phí + giấy phép, 8 đợt W0–W7, ước tính token/CI, 6 cổng QC, điểm chủ quyết.
 - [specs/spanish-exam-w5.md](specs/spanish-exam-w5.md) — W5 luyện định dạng DELE/SIELE (spec + trạng thái đợt 1); đọc khi làm thi thử TBN
 - [specs/report-scale.md](specs/report-scale.md) — Báo lỗi quy mô triệu người: cụm lỗi (chữ ký ngữ cảnh + embedding), trần AI riêng, Turnstile/hạn mức/chế độ bão/low-signal, repro Playwright + resolve/mở lại sau live; đọc khi: sửa gom trùng, AI phân loại, chống spam, workflow repro báo lỗi
+- [specs/content-private.md](specs/content-private.md) — Chuyển đề/lời giải/bài học/kho từ sang repo private lexkite-content ($0, runner public + deploy key, fixtures, cổng chống lộ); đọc khi: sửa dữ liệu nội dung, workflow sinh nội dung, build/deploy hoặc job đỏ content-leak
 - [REPORTS.md](REPORTS.md) — Báo lỗi người dùng (Report a problem): mã LX-xxxx, link #/report/<mã>, AI phân loại nền, ưu tiên và Claude Code xử lý; đọc khi: sửa luồng báo lỗi
 - [ROLLBACK.md](ROLLBACK.md) — Sao lưu & khôi phục nhanh: mục 0 làm đúng thứ tự khi có sự cố; rollback Pages, git, D1 Time Travel, app/add-on, kho âm thanh; đọc khi: CÓ SỰ CỐ hoặc cần khôi phục
 - [SCALING-PLAN.md](SCALING-PLAN.md) — Kế hoạch mở rộng Cloudflare Workers > 100k người học/ngày: giới hạn gói miễn phí, chốt phòng thủ, lộ trình nâng cấp, bước bật gói Paid; đọc khi: cân nhắc nâng gói
