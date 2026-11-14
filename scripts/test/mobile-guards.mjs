@@ -51,5 +51,10 @@ ok(/notesMem\.get\(w\)/.test(app) && /await Promise\.race\(\[App\.notesReady\(fu
   ok(/later\(\(\) => \{\s*if \(!ok && App\.logMistake\)[\s\S]*?Sfx\.answer\(ok, \{ badge: false \}\);[^\n]*\n\s*\}\);/.test(fin), 'finish: ghi lỗi + âm/rung chạy trong later');
   ok(/later\(\(\) => FX\.explain\(/.test(fin) && /later\(\(\) => speak\(w\.word/.test(fin), 'finish: giải thích + đọc to chạy trong later');
   ok(!/offsetWidth|offsetHeight|getBoundingClientRect/.test(pk) && !/const fit = [^\n]*\}; fit\(\);/.test(fin), 'pick/finish không ép layout đồng bộ (offsetWidth/fit) trong lượt bấm'); }
+// INP 14/11 (hồ sơ CI perf-profile TAP=1: lượt bấm đầu 200 ms = style 39 + layout 46 ms): :has(.sheet) khiến CHÈN tấm phản hồi tính lại style toàn body + layout cả trang trong lượt bấm
+{ const css = (rd('web/css/style.css') + rd('web/css/lazy-ui.css')).replace(/\/\*[\s\S]*?\*\//g, ''), st = rd('web/js/study.js'), fin = st.slice(st.indexOf('const finish = (ok, given, ty) => {'), st.indexOf("if (q.type === 'mcq-vi' || q.type === 'mcq-en')"));
+  ok(!/:has\([^)]*\.sheet(?![\w-])/.test(css), 'không luật CSS nào :has(.sheet) – chỉ :has(.sheet-up) (gắn sau lần vẽ)');
+  ok(/later\(\(\) => \{ const s0 = \$\('\.sheet', fb\); if \(s0\) s0\.classList\.add\('sheet-up'\); fit\(\); \$\('#nextQ'\) && \$\('#nextQ'\)\.focus/.test(fin) && !/requestAnimationFrame\(\(\) => \{ fit\(\)/.test(fin), 'finish: sheet-up + fit + focus + cuộn chạy trong later (không trong khung của lượt bấm)');
+  ok(!/^\s*\$\('#nextQ'\)\.focus/m.test(fin), 'finish: không focus() đồng bộ (ép style/layout trong lượt bấm)'); }
 if (fail) { console.error(`✗ mobile-guards: ${fail} lỗi`); process.exit(1); }
 console.log('✓ mobile-guards: đạt');
