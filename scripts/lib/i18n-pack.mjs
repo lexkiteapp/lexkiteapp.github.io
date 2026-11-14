@@ -23,7 +23,7 @@ export const srcPath = (lang, group) => (group ? `${SRC}/${lang}/${group}.js` : 
 // Nhóm nội dung nút Lộ trình: gói chạy nằm ở web/cpack (giữ gói ngôn ngữ web/js dưới langPackMax; tiền lệ #788) – nguồn và bản en vẫn như mọi nhóm; đường dẫn đủ chữ ở App.pathnPack (web/js/app.js) để build-cpack thay mã băm.
 export const CPACK_GROUP = 'pathn';
 // 10/11: criteria + confidence (nhóm lazy nặng, chỉ nạp cùng gói màn của chúng) cũng ra web/cpack/i18n/<nhóm>-<lang>.js – gói hi/th trở lại dưới 90 % langPackMax (đường dẫn viết đủ ở App.cpackI18n, web/js/app.js)
-export const CPACK_I18N = ['criteria', 'confidence', 'rhythm'];
+export const CPACK_I18N = ['criteria', 'confidence', 'rhythm', 'qtips'];
 export const outPath = (lang, group) => (group === CPACK_GROUP ? `web/cpack/lesson/pn-${lang}.js` : CPACK_I18N.includes(group) ? `web/cpack/i18n/${group}-${lang}.js` : group ? `${OUT}/${lang}/${group}.js` : `${OUT}/${lang}.js`);
 
 /** Chạy một tệp từ điển (định dạng D[l] = Object.assign(…)) → từ điển của ngôn ngữ đầu tiên trong tệp. */
