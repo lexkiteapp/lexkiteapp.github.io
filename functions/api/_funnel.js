@@ -61,7 +61,7 @@ export async function channelData(db, P, now = Date.now()) {
     .map(r => ({ ...r, startPct: pct(r.go_start, r.go_view), donePct: pct(r.go_done, r.go_start), ctaPct: pct(r.go_cta, r.go_done), flPct: pct(r.fl, r.app), d1Pct: pct(r.d1, r.n1), d7Pct: pct(r.d7, r.n7) }));
   const tot = list.reduce((t, r) => { for (const k of ['go_view', 'go_start', 'go_done', 'go_cta', 'app', 'fl', 'n1', 'd1', 'n7', 'd7']) t[k] = (t[k] || 0) + r[k]; return t; }, {});
   const y = dayOf(now - DAY), y2 = dayOf(now - 2 * DAY), A = Object.fromEntries((dd.results || []).map(r => [r.day, r]));
-  return { days: P, today, install: installData(cta.results || []), rows: list, total: { ...tot, flPct: pct(tot.fl, tot.app), d1Pct: pct(tot.d1, tot.n1), d7Pct: pct(tot.d7, tot.n7) }, summary: { day: y, views: (byDay[y] || {}).go_view || 0, prevViews: (byDay[y2] || {}).go_view || 0, ctas: (byDay[y] || {}).go_cta || 0, prevCtas: (byDay[y2] || {}).go_cta || 0, app: (A[y] || {}).app || 0, prevApp: (A[y2] || {}).app || 0, fl: (A[y] || {}).fl || 0, prevFl: (A[y2] || {}).fl || 0 } };
+  return { days: P, today, install: installData(cta.results || []), share: shareData(cta.results || [], list), rows: list, total: { ...tot, flPct: pct(tot.fl, tot.app), d1Pct: pct(tot.d1, tot.n1), d7Pct: pct(tot.d7, tot.n7) }, summary: { day: y, views: (byDay[y] || {}).go_view || 0, prevViews: (byDay[y2] || {}).go_view || 0, ctas: (byDay[y] || {}).go_cta || 0, prevCtas: (byDay[y2] || {}).go_cta || 0, app: (A[y] || {}).app || 0, prevApp: (A[y2] || {}).app || 0, fl: (A[y] || {}).fl || 0, prevFl: (A[y2] || {}).fl || 0 } };
 }
 
 export const REF_PER_DAY = 3, REF_TOTAL = 10; // chống lạm dụng: mỗi mã mời được thưởng tối đa 3 bạn/ngày, 10 bạn tổng
@@ -82,4 +82,14 @@ export function installData(rows) {
     else if (/^cta:ext_\w+$/.test(r.kind)) at('ext').btn += r.n;
   }
   return Object.entries(out).map(([plat, v]) => ({ plat, ...v, clickPct: pct(v.click, v.seen) })).sort((a, b) => (b.seen + b.btn) - (a.seen + a.btn));
+}
+
+/** Thẻ chia sẻ: mở · gửi · tải ảnh · mời (cta:share_*) → lượt về trang /go từ link chia sẻ/QR/mời (utm_source share|qr|ref) → mở app → xong bài đầu. Tỷ lệ: gửi/mở, về/gửi. */
+export function shareData(rows, list = []) {
+  const o = { open: 0, send: 0, dl: 0, inv: 0 }, by = {}; let m;
+  for (const r of rows) if ((m = /^cta:share_(open|send|dl|inv)_(streak|result|goal|day)$/.exec(r.kind))) { o[m[1]] += r.n; (by[m[2]] ||= { open: 0, send: 0, dl: 0, inv: 0 })[m[1]] += r.n; }
+  const back = { views: 0, app: 0, fl: 0 };
+  for (const r of list) if (r.src === 'share' || r.src === 'qr' || r.src === 'ref') { back.views += r.go_view; back.app += r.app; back.fl += r.fl; }
+  const out = o.send + o.dl + o.inv;
+  return { ...o, byKind: by, ...back, sendPct: pct(out, o.open), backPct: pct(back.views, out) };
 }
