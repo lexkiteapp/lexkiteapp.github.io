@@ -88,7 +88,10 @@ function merge(L, D, RL, RD, doc) {
 // ---- gắn dữ liệu + dịch → chuỗi template JS ----
 const isIcon = el => /material-symbols/.test(el.getAttribute('class') || '');
 const needT = s => /[A-Za-zÀ-ỹ]{2,}/.test(s);
-const colorMap = bind => { const M = bind.colors || {}; return c => !Object.keys(M).length ? c : c.replace(/((?:lt|dk):)?([\w!:.\-]*)\[([^\]\s`]*)\]/g, (m, th, pre, val) => m.replace(/#[0-9a-fA-F]{6}\b/g, h => M[(th || '') + h.toLowerCase()] || M[h.toLowerCase()] || h)); };
+const colorMap = bind => { const M = bind.colors || {}; // khóa "lt:#hex" | "dk:#hex" | "#hex", thêm "/NN" để đổi riêng bản có độ mờ (giá trị không kèm /NN = bỏ độ mờ: viền đặc đúng token)
+  return c => !Object.keys(M).length ? c : c.replace(/((?:lt|dk):)?([\w!:.\-]*)\[([^\]\s`]*)\](\/\d+)?/g, (m, th, pre, val, op) => { let to = null; const h = (val.match(/#[0-9a-fA-F]{6}\b/) || [''])[0].toLowerCase(); if (!h) return m;
+    for (const k of [(th || '') + h + (op || ''), (th || '') + h, h + (op || ''), h]) if (M[k] != null) { to = M[k]; if (k.endsWith(op || '\0') && op) op = ''; break; }
+    return to == null ? m : (th || '') + pre + '[' + val.replace(/#[0-9a-fA-F]{6}\b/, to) + ']' + (op || ''); }); }; 
 function emit(root, bind, k) {
   const M = [], mark = expr => { M.push(expr); return `\u0001${M.length - 1}\u0002`; }, q = s => JSON.stringify(s);
   const tr = (s, where) => { const key = bind.i18n?.[s.trim()]; if (key == null) { errs.push(`${k}: thiếu khóa dịch ${where}: ${q(s.trim())}`); return mark(`e(${q(s.trim())})`); }
