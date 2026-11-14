@@ -9,7 +9,9 @@
   "z-30": "",
   "pb-10": "pb-4",
   "text-[20px]": "",
-  "overflow-x-auto": "flex-wrap"
+  "overflow-x-auto": "flex-wrap",
+  "gap-3": "gap-2",
+  "px-3.5": "px-3"
  },
  "attr": {
   ":scope > main > div > div:nth-child(1) > div:nth-child(1)": {
@@ -42,12 +44,15 @@
  "addClass": {
   ":scope > main > header > div": "min-w-0",
   ":scope > main > header > div > p": "[overflow-wrap:anywhere]",
-  ":scope > main > div > div:nth-child(1) > button": "min-h-[48px] md:w-auto md:self-start md:px-10",
+  ":scope > main > div > div:nth-child(1) > button": "min-h-[48px] lg:w-auto lg:px-12 lg:col-start-2 lg:row-start-3 lg:row-span-2 lg:self-center",
   ":scope > main > header > div > h1": "[font-family:var(--font-display)]",
   ":scope > main > header > button > span": "rtl:-scale-x-100",
   ":scope > main > header > button": "shrink-0",
-  ":scope > main > div > div:nth-child(1) > h2": "[overflow-wrap:break-word] [text-wrap:balance]",
-  ":scope > main": "lg:max-w-5xl lg:mx-auto"
+  ":scope > main > div > div:nth-child(1) > h2": "[overflow-wrap:break-word] [text-wrap:balance] lg:col-start-1",
+  ":scope > main": "lg:max-w-5xl lg:mx-auto",
+  ":scope > main > div > div:nth-child(1)": "lg:grid lg:grid-cols-[1fr_auto] lg:gap-x-8",
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1)": "lg:col-span-2",
+  ":scope > main > div > div:nth-child(1) > p": "lg:col-span-2"
  },
  "text": {
   "Grammar": "d.title",
@@ -57,8 +62,8 @@
   "Start now": "d.cta"
  },
  "after": {
-  ":scope > main > div > div:nth-child(1) > h2": "d.nx && d.nx.sub ? '<p class=\"text-[13px] font-semibold leading-snug lt:text-[#45555A] dk:text-[#A3B9B7]\">' + e(d.nx.sub) + '</p>' : ''",
-  ":scope > main > div > div:nth-child(1) > button": "'<p class=\"text-[12px] font-semibold leading-snug lt:text-[#45555A] dk:text-[#A3B9B7]\">' + e(d.blurb) + '</p>'"
+  ":scope > main > div > div:nth-child(1) > h2": "d.nx && d.nx.sub ? '<p class=\"text-[13px] font-semibold leading-snug lg:col-start-1 lt:text-[#45555A] dk:text-[#A3B9B7]\">' + e(d.nx.sub) + '</p>' : ''",
+  ":scope > main > div > div:nth-child(1) > button": "'<p class=\"text-[12px] font-semibold leading-snug lg:col-span-2 lt:text-[#45555A] dk:text-[#A3B9B7]\">' + e(d.blurb) + '</p>'"
  },
  "repeat": [
   {
