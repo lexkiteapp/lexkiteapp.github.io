@@ -46,4 +46,7 @@
 "Xem tiến bộ theo kỹ năng và dạng câu hỏi": "See progress by skill and question type",
 "Tỉ lệ đúng 8 tuần gần nhất": "Accuracy over the last 8 weeks",
 "Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)": "Estimated band this week ≈ {b} (not an official exam score)",
+"Ôn 10 phút: dạng yếu nhất của bạn": "10-minute review: your weakest question type",
+"đúng {p}% ({n} câu). Dành 10 phút luyện riêng dạng này.": "{p}% correct ({n} questions). Spend 10 minutes practising this type.",
+"Bắt đầu ôn 10 phút": "Start a 10-minute review",
 }); })(typeof self !== 'undefined' ? self : this);
