@@ -1353,6 +1353,8 @@
   "skill.qt.moiCauUocTinh": "per soal (perkiraan)",
   "skill.qt.nCau": "{n} pertanyaan",
   "skill.qt.nenLuyenTiep": "Latih berikutnya:",
+  "skill.qt.tiLeDung8Tuan": "Akurasi selama 8 minggu terakhir",
+  "skill.qt.uocTinhBandTuan": "Perkiraan band minggu ini ≈ {b} (bukan nilai ujian resmi)",
   "skill.qt.tienBoTheoKy": "Kemajuan berdasarkan keterampilan dan jenis pertanyaan",
   "skill.qt.tongHopTuCac": "Ringkasan tes latihan dan tes tiruan Anda di Lexkite. Ini adalah keakuratan Anda dalam latihan – <b>bukan nilai ujian resmi</b>. Waktu per pertanyaan adalah perkiraan: waktu pada halaman dibagi dengan jumlah pertanyaan.",
   "skill.qt.chuaCoDuLieu": "Belum ada datanya. Lakukan tes latihan Mendengarkan atau Membaca (IELTS, TOEIC atau TOEFL) untuk mulai melacak.",

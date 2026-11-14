@@ -1353,6 +1353,8 @@
   "skill.qt.moiCauUocTinh": "par question (estimation)",
   "skill.qt.nCau": "{n} question",
   "skill.qt.nenLuyenTiep": "À travailler ensuite :",
+  "skill.qt.tiLeDung8Tuan": "Précision sur les 8 dernières semaines",
+  "skill.qt.uocTinhBandTuan": "Bande estimée cette semaine ≈ {b} (pas une note d'examen officielle)",
   "skill.qt.tienBoTheoKy": "Progression par compétence et type de question",
   "skill.qt.tongHopTuCac": "Un résumé de vos tests pratiques et tests simulés sur Lexkite. Il s'agit de votre exactitude dans la pratique – <b>pas une note d'examen officielle</b>. Le temps par question est une estimation : le temps passé sur la page divisé par le nombre de questions.",
   "skill.qt.chuaCoDuLieu": "Aucune donnée pour l'instant. Faites un test pratique d'écoute ou de lecture (IELTS, TOEIC ou TOEFL) pour commencer le suivi.",

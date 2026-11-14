@@ -1353,6 +1353,8 @@
   "skill.qt.moiCauUocTinh": "每题（估计）",
   "skill.qt.nCau": "{n} 问题",
   "skill.qt.nenLuyenTiep": "接下来练习：",
+  "skill.qt.tiLeDung8Tuan": "过去 8 周的准确度",
+  "skill.qt.uocTinhBandTuan": "本周预计分数 ≈ {b}（不是官方考试分数）",
   "skill.qt.tienBoTheoKy": "按技能和问题类型划分的进度",
   "skill.qt.tongHopTuCac": "Lexkite 上的练习测试和模拟测试摘要。这是您在练习中的准确性 - <b>而不是官方考试成绩</b>。每个问题的时间是估计值：页面上的时间除以问题数。",
   "skill.qt.chuaCoDuLieu": "还没有数据。进行听力或阅读练习测试（雅思、托业或托福）以开始跟踪。",

@@ -1353,6 +1353,8 @@
   "skill.qt.moiCauUocTinh": "per question (estimate)",
   "skill.qt.nCau": "{n} questions",
   "skill.qt.nenLuyenTiep": "Practise next:",
+  "skill.qt.tiLeDung8Tuan": "Accuracy over the last 8 weeks",
+  "skill.qt.uocTinhBandTuan": "Estimated band this week ≈ {b} (not an official exam score)",
   "skill.qt.tienBoTheoKy": "Progress by skill and question type",
   "skill.qt.tongHopTuCac": "A summary of your practice tests and mock tests on Lexkite. This is your accuracy in practice – <b>not an official exam score</b>. Time per question is an estimate: time on the page divided by the number of questions.",
   "skill.qt.chuaCoDuLieu": "No data yet. Do a Listening or Reading practice test (IELTS, TOEIC or TOEFL) to start tracking.",

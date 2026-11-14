@@ -1353,6 +1353,8 @@
   "skill.qt.moiCauUocTinh": "문항당 (추정)",
   "skill.qt.nCau": "{n}개의 질문",
   "skill.qt.nenLuyenTiep": "다음 연습:",
+  "skill.qt.tiLeDung8Tuan": "지난 8주 동안의 정확도",
+  "skill.qt.uocTinhBandTuan": "이번 주 예상 밴드 ≒ {b} (공식 시험 점수 아님)",
   "skill.qt.tienBoTheoKy": "기술 및 질문 유형별 진행 상황",
   "skill.qt.tongHopTuCac": "Lexkite의 연습 테스트 및 모의 테스트 요약입니다. 이는 실제 정확도입니다. <b>공식 시험 점수가 아닙니다</b>. 질문당 시간은 추정치입니다. 페이지에 머문 시간을 질문 수로 나눈 값입니다.",
   "skill.qt.chuaCoDuLieu": "아직 데이터가 없습니다. 추적을 시작하려면 듣기 또는 읽기 연습 시험(IELTS, TOEIC 또는 TOEFL)을 수행하십시오.",

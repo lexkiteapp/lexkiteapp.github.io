@@ -25,6 +25,7 @@
 "Trả lời thẳng câu hỏi trong 1–2 câu đầu, rồi thêm lý do và ví dụ của bản thân. Nói tự nhiên, không học thuộc; nếu vấp thì tự sửa và nói tiếp.":"最初の 1 ～ 2 文で質問に直接答えてから、理由や個人的な例を追加します。暗唱するのではなく、自然に話してください。つまずいたら、修正して進み続けてください。",
 "Trả lời đủ mọi ý đề yêu cầu, giọng văn hợp với người nhận; có mở – thân – kết rõ ràng. Dành 1–2 phút cuối soát ngữ pháp và chính tả.":"タスクが要求するすべての点に、読者に適した口調で、明確な冒頭、本文、結びを付けて答えます。最後の 1 ～ 2 分をとって、文法とスペルをチェックしてください。",
 "Tìm và đánh dấu các tên (người, tổ chức, mốc thời gian) trong bài trước, rồi đọc kỹ quanh mỗi tên và so với nhận định đã được diễn đạt lại. Đáp án không theo thứ tự bài; một lựa chọn có thể dùng nhiều lần hoặc không dùng.":"まず文章内の名前 (人物、組織、日付) を見つけてマークし、次にそれぞれの名前の周囲をよく読んで、言い換えられたステートメントと比較します。答えは通過順ではありません。オプションは複数回使用することも、まったく使用しないこともできます。",
+"Tỉ lệ đúng 8 tuần gần nhất":"過去 8 週間の精度",
 "Tổng hợp từ các bài luyện và thi thử của bạn trên Lexkite. Đây là tỉ lệ đúng trong bài luyện của bạn – <b>không phải điểm thi chính thức</b>. Thời gian mỗi câu là ước tính: thời gian trên trang chia cho số câu.":"Lexkite の模擬テストと模擬テストの概要。これは実際の正確さであり、<b>公式の試験スコアではありません</b>。質問ごとの時間は推定値であり、ページの閲覧時間を質問数で割ったものです。",
 "Xem tiến bộ theo kỹ năng và dạng câu hỏi":"スキルと質問の種類ごとに進捗状況を確認する",
 "Xác định chủ ngữ và động từ chính trước, rồi đặt trợ động từ/từ để hỏi, sau đó các cụm còn lại. Câu hỏi gián tiếp giữ trật tự câu khẳng định (…where the library is).":"まず主語と主動詞を見つけて、次に補助語または疑問詞を配置し、それから残りのチャンクを配置します。間接疑問文ではステートメントの語順が維持されます (…where the library is)。",
@@ -44,5 +45,6 @@
 "Đọc phần đầu câu và đoán phần còn thiếu cần gì (về nghĩa và ngữ pháp). Phần kết đúng phải khớp cả ngữ pháp lẫn nội dung bài. Câu hỏi theo thứ tự trong bài; luôn có nhiều phần kết hơn số câu.":"文の冒頭を読んで、足りない部分に何が必要かを予測します（意味と文法において）。正しい語尾は文法と文章の内容の両方に適合している必要があります。質問は文章の順序に従います。常に疑問よりも多くの結末があります。",
 "Đọc trước 3 câu hỏi (và biểu đồ nếu có) trong lúc nghe hướng dẫn. Câu hỏi thường theo thứ tự hội thoại: chủ đề/nơi chốn → chi tiết → việc sẽ làm tiếp theo. Đáp án thường là cách diễn đạt khác của lời nói.":"指示を読みながら、3 つの質問 (および任意の図) を読みます。通常、会話の後に質問が続きます: トピック/場所→詳細→次に何が起こるか。正解は通常、言われたことの言い換えです。",
 "Đọc trước câu hỏi. Câu đầu thường hỏi mục đích hoặc người nghe là ai – đáp án nằm ở vài câu mở đầu. Chú ý lời yêu cầu, đề nghị, thay đổi lịch ở cuối bài nói.":"まず質問を読んでください。最初の質問では、目的や対象者について尋ねられることが多く、その答えは冒頭の文にあります。トークの終わり近くで、リクエスト、提案、スケジュールの変更に耳を傾けてください。",
+"Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)":"今週の推定バンド数 ≈ {b} (正式な試験スコアではありません)",
 });
 })(typeof self !== 'undefined' ? self : this);

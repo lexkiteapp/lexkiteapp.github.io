@@ -1355,6 +1355,8 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case skillQtMoiCauUocTinh = "skill.qt.moiCauUocTinh"
     case skillQtNCau = "skill.qt.nCau"
     case skillQtNenLuyenTiep = "skill.qt.nenLuyenTiep"
+    case skillQtTiLeDung8Tuan = "skill.qt.tiLeDung8Tuan"
+    case skillQtUocTinhBandTuan = "skill.qt.uocTinhBandTuan"
     case skillQtTienBoTheoKy = "skill.qt.tienBoTheoKy"
     case skillQtTongHopTuCac = "skill.qt.tongHopTuCac"
     case skillQtChuaCoDuLieu = "skill.qt.chuaCoDuLieu"
