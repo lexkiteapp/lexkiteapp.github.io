@@ -80,6 +80,7 @@
 "Từ này kết thúc bằng nguyên âm – không thêm phụ âm cuối, kéo dài nguyên âm tự nhiên.":"この単語は母音で終わります。最後に子音を追加しないでください。母音は自然に終わるようにしてください。",
 "Từ này ở dạng số ít – dừng sau phụ âm cuối, không thêm /s/.":"これは単数形です。余分な /s/ を付けずに、最後の音の後に停止します。",
 "Từ tiếp theo":"次の単語",
+"Viền nét đứt = phụ âm vô thanh":"破線の枠 = 無声子音",
 "Vẫn chưa rõ – chuyển sang từ tiếp theo.":"まだ不明瞭 – 次の単語に進みます (ペナルティなし)。",
 "sót hoặc sai":"見逃した、または間違っていた",
 "{n} cặp":"{n} ペア",

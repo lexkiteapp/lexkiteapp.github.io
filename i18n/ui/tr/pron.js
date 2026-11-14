@@ -80,6 +80,7 @@
 "Từ này kết thúc bằng nguyên âm – không thêm phụ âm cuối, kéo dài nguyên âm tự nhiên.":"Bu kelime sesli harfle bitiyor; son bir ünsüz eklemeyin; sesli harfin doğal bir şekilde bitmesine izin verin.",
 "Từ này ở dạng số ít – dừng sau phụ âm cuối, không thêm /s/.":"Bu tekil biçimdir; son sesten sonra durur, fazladan /s/ yoktur.",
 "Từ tiếp theo":"Sonraki kelime",
+"Viền nét đứt = phụ âm vô thanh":"Kesik çizgili kenar = sessiz ünsüz",
 "Vẫn chưa rõ – chuyển sang từ tiếp theo.":"Hala belirsiz – bir sonraki kelimeye geçiyoruz (ceza yok).",
 "sót hoặc sai":"kaçırılmış veya yanlış",
 "{n} cặp":"{n} çift",

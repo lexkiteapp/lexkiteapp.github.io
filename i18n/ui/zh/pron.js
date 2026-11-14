@@ -80,6 +80,7 @@
 "Từ này kết thúc bằng nguyên âm – không thêm phụ âm cuối, kéo dài nguyên âm tự nhiên.":"这个单词以元音结尾——不要添加最后的辅音；让元音自然完成。",
 "Từ này ở dạng số ít – dừng sau phụ âm cuối, không thêm /s/.":"这是单数形式——在最后一个声音之后停止，没有多余的/s/。",
 "Từ tiếp theo":"下一个词",
+"Viền nét đứt = phụ âm vô thanh":"虚线边框 = 清辅音",
 "Vẫn chưa rõ – chuyển sang từ tiếp theo.":"仍然不清楚——继续下一个单词（没有惩罚）。",
 "sót hoặc sai":"错过或错误",
 "{n} cặp":"{n} 对",

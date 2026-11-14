@@ -41308,5 +41308,20 @@
     "ar": "الصوت التالي",
     "hi": "अगली ध्वनि",
     "tr": "Sonraki ses"
+  },
+  "Viền nét đứt = phụ âm vô thanh": {
+    "es": "Borde discontinuo = consonante sorda",
+    "pt": "Borda tracejada = consoante surda",
+    "fr": "Bordure en pointillés = consonne sourde",
+    "de": "Gestrichelter Rand = stimmloser Konsonant",
+    "id": "Garis putus-putus = konsonan tak bersuara",
+    "th": "ขอบเส้นประ = พยัญชนะไม่ก้อง",
+    "zh": "虚线边框 = 清辅音",
+    "ja": "破線の枠 = 無声子音",
+    "ko": "점선 테두리 = 무성 자음",
+    "ru": "Пунктирная рамка = глухой согласный",
+    "ar": "إطار منقّط = صوت ساكن مهموس",
+    "hi": "बिंदीदार किनारा = अघोष व्यंजन",
+    "tr": "Kesik çizgili kenar = sessiz ünsüz"
   }
 }

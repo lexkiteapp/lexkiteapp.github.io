@@ -80,6 +80,7 @@
 "Từ này kết thúc bằng nguyên âm – không thêm phụ âm cuối, kéo dài nguyên âm tự nhiên.":"Ce mot se termine par une voyelle – n'ajoutez pas de consonne finale ; laissez simplement la voyelle se terminer naturellement.",
 "Từ này ở dạng số ít – dừng sau phụ âm cuối, không thêm /s/.":"C'est la forme singulière – s'arrête après le dernier son, sans /s/ supplémentaire.",
 "Từ tiếp theo":"Mot suivant",
+"Viền nét đứt = phụ âm vô thanh":"Bordure en pointillés = consonne sourde",
 "Vẫn chưa rõ – chuyển sang từ tiếp theo.":"Encore flou – passer au mot suivant (pas de pénalité).",
 "sót hoặc sai":"manqué ou erroné",
 "{n} cặp":"{n} paires",
