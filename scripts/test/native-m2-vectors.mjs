@@ -385,7 +385,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
   const ta = V.write.analyze.find(c => c.id === 'too-short').out; if (ta.reported || ta.writes.length || ta.rewards.length || ta.toast.length !== 1) b11.push('too-short');
   if (sc('good-line').band !== 8 || sc('under-100').band > 4.5 || sc('120-words').band > 5.5 || !sc('opinion').notes.some(n => /^Task 1 <b>không nêu/.test(n.k)) || !sc('process-active').notes.some(n => /^Với quy trình/.test(n.k)) || !sc('map-passive').notes.some(n => /^Với bản đồ/.test(n.k))) b11.push('task1 score rules');
   const fl = V.write.flow.find(c => c.id === 'saved-list').out; if (fl.keptAfter !== 20 || fl.newest !== 'p5' || fl.shownCount !== 6) b11.push('saved list');
-  const qs = id => V.qstats.cases.find(c => c.id === id).out; if (!qs('empty').empty || qs('unknown-skill').cards.length || qs('listening-reading').cards.map(c => c.name).join() !== 'IELTS Listening,IELTS Reading' || JSON.stringify(V.qstats.skills.map(s => s[0])) !== '["il","ir","tl","tr","fr","fl","fw"]') b11.push('qstats');
+  const qs = id => V.qstats.cases.find(c => c.id === id).out; if (!qs('empty').empty || qs('unknown-skill').cards.length || qs('listening-reading').cards.map(c => c.name).join() !== 'IELTS Listening,IELTS Reading' || JSON.stringify(V.qstats.skills.map(s => s[0])) !== '["il","ir","tl","tr","fr","fl","fw","cb"]') b11.push('qstats');
   ok(b11.length === 0, `write vectors obey the web rules (Lexis.analyze band caps + tips, saved essays, Task 1 score, qstats cards)${b11.length ? ' – ' + b11.slice(0, 4).join(' | ') : ''}`);
   // the downloadable pack (web/data/write-pack.json, https://lexkite.com/data/write-pack.json)
   {
@@ -395,7 +395,7 @@ const RV = T1.vectorJson, RD = T1.rigJson;
     if (!/^[0-9a-f]{12}$/.test(PK.v) || PK.schema !== 1) bp.push('v/schema');
     if (JSON.stringify(PK.write.outline) !== JSON.stringify(V.write.static.outline) || JSON.stringify(PK.write.trends) !== JSON.stringify(V.write.static.trends) || JSON.stringify(PK.task1.vocab) !== JSON.stringify(V.task1.static.vocab) || JSON.stringify(PK.lexis.stop) !== JSON.stringify(V.data.stop)) bp.push('tables differ from the vectors');
     for (const sk of ['writing', 'speaking']) { const d = PK.criteria[sk]; if (!d || d.criteria.length !== 4 || Object.keys(d.models).join() !== '5.0,6.5,8.0' || d.jumpTips.length < 2 || d.criteria.some(c => Object.keys(c.bands).join() !== '4,5,6,7,8,9') || PK.scoreKeys[sk].length !== 4) bp.push('criteria ' + sk); }
-    if (PK.qstats.skills.length !== 7 || !PK.write.connectors.includes('Firstly,') || PK.lexis.stop.length < 100) bp.push('qstats/connectors/stop');
+    if (PK.qstats.skills.length !== 8 || !PK.write.connectors.includes('Firstly,') || PK.lexis.stop.length < 100) bp.push('qstats/connectors/stop');
     ok(bp.length === 0, `write-pack.json: criteria (writing + speaking: 4 criteria × bands 4–9, 3 models, roadmap) + STOP table + page tables; shape = write.json criteria rules${bp.length ? ' – ' + bp.join(' | ') : ''}`);
   }
   // strings: every t() key of the P09 screens (write.js, task1.js, qtips.js #/qstats, criteria.js + their data) is mapped by strings.json
