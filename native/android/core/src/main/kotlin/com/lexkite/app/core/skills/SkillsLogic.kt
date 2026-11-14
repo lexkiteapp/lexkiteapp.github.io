@@ -129,8 +129,18 @@ object SkillsGame {
         return JsonObject(g)
     }
     /** game.qstat['<skill>:<type>'] += {r, t, s, d} (seconds stay 0: the listening time belongs to the audio). */
-    fun qstat(game: JsonElement?, skill: String, tally: Map<String, IntArray>, now: Long) = put(game, "qstat") { m ->
-        for ((k, v) in tally) { val key = "$skill:$k"; val o = m[key] as? JsonObject; m[key] = jo("r" to num(o?.get("r")) + v[0], "t" to num(o?.get("t")) + v[1], "s" to num(o?.get("s")), "d" to now) }
+    fun qstat(game: JsonElement?, skill: String, tally: Map<String, IntArray>, now: Long): JsonElement {
+        val g = Js.spread(put(game, "qstat") { m ->
+            for ((k, v) in tally) { val key = "$skill:$k"; val o = m[key] as? JsonObject; m[key] = jo("r" to num(o?.get("r")) + v[0], "t" to num(o?.get("t")) + v[1], "s" to num(o?.get("s")), "d" to now) }
+        })
+        val t = tally.values.sumOf { it[1] }
+        if (t > 0) { // game.qwk[skill][week] = {r, t} (week = floor(now / 7 days)), 8 newest weeks kept - qtips.js save()
+            val wk = (now / 604_800_000L).toString(); val qw = Js.spread(g["qwk"]); val w = Js.spread(qw[skill]); val o = w[wk] as? JsonObject
+            w[wk] = jo("r" to num(o?.get("r")) + tally.values.sumOf { it[0] }, "t" to num(o?.get("t")) + t)
+            w.keys.sortedByDescending { it.toLong() }.drop(8).forEach { w.remove(it) }
+            qw[skill] = JsonObject(w); g["qwk"] = JsonObject(qw)
+        }
+        return JsonObject(g)
     }
 }
 

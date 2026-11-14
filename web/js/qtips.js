@@ -83,11 +83,15 @@
   const practiceLink = (sk, k) => sk === 'ir' && RT[k] ? '#/rtype/' + RT[k] : sk[0] === 'f' && NAME[k] ? '#/toefl-p/' + (k === 'sentenceB' ? 'sentence' : k) : SKILL()[sk][2];
   // Thời gian làm: từ lúc QE.bind (data-qe-t0) tới lúc chấm, chặn 0–3 giờ
   const secsOf = root => { const t0 = root && +root.dataset.qeT0; return t0 ? Math.max(0, Math.min(10800, Math.round((Date.now() - t0) / 1000))) : 0; };
+  const weekNo = (d = Date.now()) => Math.floor(d / 6048e5), tot_r = tally => Object.values(tally).reduce((a, v) => a + v.r, 0);
   // tally: { dạng: { r, t } }; secs chia theo số câu từng dạng
   async function save(sk, tally, secs) {
     const tot = Object.values(tally).reduce((a, v) => a + v.t, 0); if (!tot || !g.Game || !g.App) return;
     g.App.state.game = await Game.mutate(gs => {
       gs.qstat = gs.qstat || {};
+      const wk = weekNo(), W = (gs.qwk = gs.qwk || {})[sk] = (gs.qwk || {})[sk] || {}; // qwk[kỹ năng][tuần] = {r,t}, giữ 8 tuần
+      W[wk] = { r: (W[wk] ? W[wk].r : 0) + tot_r(tally), t: (W[wk] ? W[wk].t : 0) + tot };
+      Object.keys(W).map(Number).sort((x, y) => y - x).slice(8).forEach(o => delete W[o]);
       for (const [k, v] of Object.entries(tally)) { const key = sk + ':' + k, o = gs.qstat[key] || { r: 0, t: 0, s: 0 }; gs.qstat[key] = { r: o.r + v.r, t: o.t + v.t, s: (o.s || 0) + Math.round(secs * v.t / tot), d: Date.now() }; }
     });
   }
@@ -120,10 +124,18 @@
 .qs-row{display:grid;grid-template-columns:minmax(0,1fr) 3.2rem 3.4rem;gap:.5rem;align-items:center;padding:.45rem 0;border-bottom:1px solid var(--line);font-size:.88rem}
 .qs-row:last-child{border-bottom:0}.qs-row .bar{height:6px;border-radius:4px;background:var(--line);margin-top:.25rem;overflow:hidden}.qs-row .bar i{display:block;height:100%;background:var(--primary)}
 .qs-row .bar i.ok{background:var(--good)}.qs-row .bar i.no{background:var(--again,#e5502f)}.qs-row .num{text-align:right;font-variant-numeric:tabular-nums}
+.qs-wk-box{margin:.6rem 0}.qs-wk{display:flex;align-items:flex-end;gap:4px;height:44px;margin:.25rem 0}.qs-wk i{flex:1;border-radius:3px 3px 0 0;background:var(--primary)}.qs-wk i.e{background:var(--line)}
 .qs-kpi{display:flex;gap:1rem;flex-wrap:wrap;margin:.3rem 0 .6rem}.qs-kpi b{font-size:1.25rem;display:block}`;
     document.head.appendChild(st);
   }
 
+  // Dải 8 tuần gần nhất (chỉ khi đã có lịch sử tuần) + ước tính band cho IELTS Listening/Reading (40 câu ≈ tỉ lệ đúng × 40)
+  const weekStrip = sk => {
+    const W = ((g.App.state.game || {}).qwk || {})[sk]; if (!W) return '';
+    const now = weekNo(), cols = Array.from({ length: 8 }, (_, i) => W[now - 7 + i]), cur = cols[7]; if (!cols.some(Boolean)) return '';
+    const band = cur && cur.t >= 10 && g.QE && (sk === 'il' || sk === 'ir') ? g.QE.bandOf(Math.round(cur.r / cur.t * 40), sk === 'il' ? 'listening' : 'reading') : 0;
+    return `<div class="qs-wk-box"><div class="tiny muted">${t('Tỉ lệ đúng 8 tuần gần nhất')}</div><div class="qs-wk" role="img" aria-label="${esc(t('Tỉ lệ đúng 8 tuần gần nhất'))}">${cols.map(c => `<i style="height:${c && c.t ? Math.max(6, Math.round(c.r / c.t * 100)) : 4}%" class="${c && c.t ? '' : 'e'}" title="${c && c.t ? Math.round(c.r / c.t * 100) + '%' : '–'}"></i>`).join('')}</div>${band ? `<div class="tiny muted">${t('Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)', { b: band })}</div>` : ''}</div>`;
+  };
   // ---------- Trang tổng quan #/qstats ----------
   if (g.App && g.App.routes) g.App.routes.qstats = function () {
     const view = g.App.view, q = (g.App.state.game || {}).qstat || {};
@@ -137,6 +149,7 @@
         <div class="qs-kpi"><span><b>${pct}%</b><span class="tiny muted">${t('tỉ lệ đúng')}</span></span><span><b>${N}</b><span class="tiny muted">${t('câu đã làm')}</span></span>${S ? `<span><b>${fmt(Math.round(S / N))}</b><span class="tiny muted">${t('mỗi câu (ước tính)')}</span></span>` : ''}</div>
         <div role="table" aria-label="${esc(SKILL()[sk][1])}"><div class="qs-row tiny muted" role="row"><span role="columnheader">${t('Dạng câu hỏi')}</span><span class="num" role="columnheader">${t('Đúng')}</span><span class="num" role="columnheader">⏱</span></div>
         ${rows.map(x => { const p = Math.round(x.r / x.t * 100); return `<div class="qs-row" role="row"><span role="cell"><a href="${practiceLink(sk, x.k)}" translate="no">${esc(NAME[x.k] || x.k)}</a><span class="tiny muted"> · ${t('{n} câu', { n: x.t })}</span><div class="bar"><i class="${p >= 75 ? 'ok' : p < 50 ? 'no' : ''}" style="width:${p}%"></i></div></span><span class="num" role="cell"><b>${p}%</b></span><span class="num tiny muted" role="cell">${x.s ? fmt(Math.round(x.s / x.t)) : '–'}</span></div>`; }).join('')}</div>
+        ${weekStrip(sk)}
         ${weak ? `<div style="margin-top:.6rem"><div class="small"><b>🎯 ${t('Nên luyện tiếp:')}</b> <a href="${practiceLink(sk, weak.k)}" translate="no">${esc(NAME[weak.k] || weak.k)}</a></div>${box(weak.k)}</div>` : ''}</div>`;
     });
     view.innerHTML = `<div class="page-head"><div><h1>📊 ${t('Tiến bộ theo kỹ năng và dạng câu hỏi')}</h1><p class="muted">${t('Tổng hợp từ các bài luyện và thi thử của bạn trên Lexkite. Đây là tỉ lệ đúng trong bài luyện của bạn – <b>không phải điểm thi chính thức</b>. Thời gian mỗi câu là ước tính: thời gian trên trang chia cho số câu.')}</p></div></div>

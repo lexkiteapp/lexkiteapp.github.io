@@ -1353,6 +1353,8 @@
   "skill.qt.moiCauUocTinh": "1問あたり（推定）",
   "skill.qt.nCau": "{n} 個の質問",
   "skill.qt.nenLuyenTiep": "次に練習：",
+  "skill.qt.tiLeDung8Tuan": "過去 8 週間の精度",
+  "skill.qt.uocTinhBandTuan": "今週の推定バンド数 ≈ {b} (正式な試験スコアではありません)",
   "skill.qt.tienBoTheoKy": "スキルと質問の種類に応じた進歩",
   "skill.qt.tongHopTuCac": "Lexkite の模擬テストと模擬テストの概要。これは実際の正確さであり、<b>公式の試験スコアではありません</b>。質問ごとの時間は推定値であり、ページの閲覧時間を質問数で割ったものです。",
   "skill.qt.chuaCoDuLieu": "まだデータがありません。追跡を開始するには、リスニングまたはリーディングの練習テスト (IELTS、TOEIC、または TOEFL) を実施してください。",

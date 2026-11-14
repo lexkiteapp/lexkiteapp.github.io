@@ -1353,6 +1353,8 @@
   "skill.qt.moiCauUocTinh": "soru başına (tahmini)",
   "skill.qt.nCau": "{n} soru",
   "skill.qt.nenLuyenTiep": "Sıradaki çalışma:",
+  "skill.qt.tiLeDung8Tuan": "Son 8 haftadaki doğruluk",
+  "skill.qt.uocTinhBandTuan": "Bu haftanın tahmini aralığı ≈ {b} (resmi bir sınav puanı değil)",
   "skill.qt.tienBoTheoKy": "Beceri ve soru türüne göre ilerleme",
   "skill.qt.tongHopTuCac": "Lexkite'taki pratik testlerinizin ve deneme testlerinizin bir özeti. Bu, pratikteki doğruluğunuzdur – <b>resmi bir sınav puanı değil</b>. Soru başına süre bir tahmindir: Sayfada geçirilen sürenin soru sayısına bölümü.",
   "skill.qt.chuaCoDuLieu": "Henüz veri yok. İzlemeye başlamak için bir Dinleme veya Okuma pratik testi (IELTS, TOEIC veya TOEFL) yapın.",
