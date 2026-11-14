@@ -14,5 +14,9 @@ for (const f of ['web/js/app.js', 'extension/app/js/app.js']) {
 const idx = read('web/app/index.html'), pre = /classList\.add\('v2pre'\)/.exec(idx);
 ok(!!pre, 'web/app/index.html: có đặt v2pre trước khi nạp');
 ok(!/n==='call'\|\|n==='lesson'/.test(idx), 'web/app/index.html: v2pre không đặt cho #/call/<id>');
+// CLS #/home 14/11 (mqa 0.0757 mọi lượt): rời màn v2 mà GIỮ v2pre tới khi nội dung mới về → thanh trên hiện muộn > 500 ms sau chạm, đẩy cả #view 56 px.
+{ const app = read('web/js/app.js'), css = read('web/css/style.css');
+  ok(/document\.body\.classList\.toggle\('v2pre', preNow\)/.test(app) && !/if \(!holdPre\) document\.body\.classList\.toggle\('v2pre'/.test(app), 'route(): v2pre = preNow ngay lúc chạm (thanh trên không bị giữ ẩn khi rời màn v2)');
+  ok(/classList\.toggle\('v2hold', holdPre\)/.test(app) && /body\.v2hold #view/.test(css) && !/body\.v2hold[^{]*\.topbar/.test(css), 'rời màn v2: chỉ giữ #view không đệm (v2hold), không ẩn thanh trên'); }
 if (bad) { console.log(`✗ v2pre-ring: ${bad} lỗi`); process.exit(1); }
 console.log('✓ v2pre-ring: đạt');
