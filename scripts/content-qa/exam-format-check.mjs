@@ -183,7 +183,7 @@ for (const [t, xs] of Object.entries(tl)) {
     const p = sp[1];
     if (s === 'speaking') {
       const qs = x.questions || [x];
-      const want = Array.isArray(p.resp_s) ? p.resp_s : [p.resp_s];
+      const want = Array.isArray(p.resp_s) ? p.resp_s : Array(Math.max(1, qs.length)).fill(p.resp_s); // resp_s đơn = mọi câu của dạng (Describe a picture: 2 câu × 30 s)
       if (x.questions ? qs.length !== p.questions : false) D(f, u, 'questions', `${qs.length} câu ≠ ${p.questions}`);
       const got = qs.map(q => q.secs), prep = qs.map(q => q.prep);
       if (got.join() !== want.slice(0, got.length).join()) D(f, u, 'resp_s', `thời gian nói ${got.join('/')} ≠ ${want.join('/')} giây`);
