@@ -2,14 +2,14 @@
 
 Tiêu chí & nguồn nghiên cứu: `docs/specs/learnability.md` · kế hoạch P0-H `docs/CONTENT-WORLD-PLAN.md` §5. Mỗi tiêu chí 0–100, "–" = không áp dụng cho loại bài.
 
-**Tổng: 91.7 / 100**
+**Tổng: 91.4 / 100**
 
 | Mảng | Đơn vị | Điểm | a | b | c | d | e | f | g | h | i | j | k | l |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Ngữ pháp | 102 | **96.9** | 99.5 | 96.1 | 99.8 | 96.2 | 100 | 99.5 | 91.3 | 100 | 97.1 | 100 | 100 | 75.8 |
 | Bài lộ trình | 5 | **100** | 100 | – | 100 | 100 | – | 100 | 100 | – | 100 | 100 | – | 100 |
 | Bộ từ | 117 | **74.1** | – | – | – | 96.6 | 56.3 | 80.6 | – | – | 99.3 | – | 4.1 | – |
-| Kỹ năng | 271 | **95.7** | 81.8 | – | 97.5 | 99.7 | 99.3 | 100 | 95.7 | – | 100 | 87.7 | – | 100 |
+| Kỹ năng | 287 | **94.7** | 83.8 | – | 97.5 | 99.4 | 99.3 | 89 | 95.2 | – | 100 | 85.2 | – | 100 |
 
 a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận thức · d = i+1 (từ không vượt cấp) · e = Ví dụ + cặp ✗/✓ · f = Mã hoá kép (audio + hình) · g = Phản hồi "vì sao" · h = Xen kẽ luật cũ · i = Ngữ cảnh (câu gốc) · j = Đầu ra nói/viết · k = Mẹo nhớ · l = Thời lượng vừa vòng 30′
 
@@ -52,15 +52,15 @@ a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận 
 
 | Tiêu chí | Ngữ pháp | Bài lộ trình | Bộ từ | Kỹ năng |
 |---|---|---|---|---|
-| a Truy hồi chủ động | 0/102 | 0/5 | – | 0/129 |
+| a Truy hồi chủ động | 0/102 | 0/5 | – | 0/145 |
 | b Lặp lại giãn cách | 3/102 | – | – | – |
 | c Tải nhận thức | 0/102 | 0/5 | – | 0/72 |
-| d i+1 (từ không vượt cấp) | 3/102 | 0/5 | 0/117 | 0/97 |
+| d i+1 (từ không vượt cấp) | 3/102 | 0/5 | 0/117 | 0/113 |
 | e Ví dụ + cặp ✗/✓ | 0/102 | – | 70/117 | 0/174 |
-| f Mã hoá kép (audio + hình) | 1/102 | 0/5 | 10/117 | 0/129 |
-| g Phản hồi "vì sao" | 0/102 | 0/5 | – | 0/239 |
+| f Mã hoá kép (audio + hình) | 1/102 | 0/5 | 10/117 | 16/145 |
+| g Phản hồi "vì sao" | 0/102 | 0/5 | – | 0/255 |
 | h Xen kẽ luật cũ | 0/102 | – | – | – |
-| i Ngữ cảnh (câu gốc) | 2/102 | 0/5 | 0/117 | 0/97 |
-| j Đầu ra nói/viết | 0/102 | 0/5 | – | 57/231 |
+| i Ngữ cảnh (câu gốc) | 2/102 | 0/5 | 0/117 | 0/113 |
+| j Đầu ra nói/viết | 0/102 | 0/5 | – | 73/247 |
 | k Mẹo nhớ | 0/102 | – | 106/106 | – |
-| l Thời lượng vừa vòng 30′ | 17/102 | 0/5 | – | 0/97 |
+| l Thời lượng vừa vòng 30′ | 17/102 | 0/5 | – | 0/113 |

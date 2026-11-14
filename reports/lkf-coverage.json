@@ -3,7 +3,7 @@
  "cells": 36,
  "cellsOk": 36,
  "minCell": 16,
- "objectivesUsed": 167,
+ "objectivesUsed": 176,
  "coverage": {
   "grammar": {
    "items": 102,
@@ -11,8 +11,8 @@
    "pct": 100
   },
   "reading": {
-   "items": 57,
-   "tagged": 57,
+   "items": 73,
+   "tagged": 73,
    "pct": 100
   },
   "ielts-reading": {
@@ -36,8 +36,8 @@
    "pct": 100
   },
   "toeic-sw": {
-   "items": 60,
-   "tagged": 60,
+   "items": 78,
+   "tagged": 78,
    "pct": 100
   },
   "toefl": {
@@ -102,8 +102,8 @@
   }
  },
  "total": {
-  "items": 11124,
-  "tagged": 11124,
+  "items": 11158,
+  "tagged": 11158,
   "pct": 100
  },
  "errors": 0
