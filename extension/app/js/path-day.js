@@ -220,7 +220,7 @@
     if (d.status === 'locked') { location.hash = '#/path'; setTimeout(() => open(d.n), 300); return; }
     await finishIf(d);
     await App.need('dayv2');
-    const st = plan(d), okN = st.filter(s => s.ok).length, nx = st.find(s => !s.ok), stage = d.unit.stage, nextDay = ds[d.n], pct = Math.round(okN / st.length * 100), n = App.streak ? App.streak() : 0;
+    const st = plan(d), okN = st.filter(s => s.ok).length, nx = st.find(s => !s.ok), stage = d.unit.stage, nextDay = ds[d.n], pct = Math.round(okN / st.length * 100);
     const cnt = t('{a}/{b} hoạt động', { a: okN, b: st.length }), more = nextDay && nextDay.status !== 'locked';
     const chev = UI.icon('chevron-right', 'i-dir');
     const IC = { review: 'repeat', learn: 'brain', match: 'zap', mcq: 'puzzle', listen: 'headphones', cloze: 'pen-line', test: 'flag', gl: 'book-a', pr: 'mic' };
@@ -229,7 +229,6 @@
       : { t: more ? t('Học tiếp Ngày {n}', { n: d.n + 1 }) : t('Lộ trình từ vựng'), href: more ? '#/day/' + (d.n + 1) : '#/path', k: null };
     const done = !nx ? `<div role="status" class="mt-3 rounded-[0.75rem] border p-4 text-center font-bold lt:bg-[#ffffff] lt:border-[#e8e4da] dk:bg-[#162528] dk:border-[#213438]"><span aria-hidden="true">${UI.icon('party-popper')}</span> ${t('Hoàn thành Ngày {n}!', { n: d.n })}</div>${nextDay ? '' : nextBox(d.tr)}` : '';
     const root = ST2.mount(view, 'day', {
-      title: t('Ngày {n}', { n: d.n }), sub: `${stage.name} · ${d.unit.topic.name}`, streak: t('{n} ngày', { n }), flame: ST2.flame(ST2.flameState(n), 16), back: t('Quay lại'),
       lp: t('Tiến độ trong ngày'), la: t('Các hoạt động của ngày'), tn: t('Cô Ama'), teacher: Chars.slot('ama', { pose: 'point', size: 's', lazy: false }),
       n: String(d.n), chip: `${d.tr.name} · ${stage.name}${stage.band === '' ? '' : ' · CEFR ' + stage.cefr}`, h1: `${t('Ngày {n}', { n: d.n })}: ${d.unit.topic.name}`,
       words: t('{n} từ mới', { n: d.topic.words.length }), dur: t('≈ {m} phút', { m: minsOf(st) }),
@@ -237,7 +236,7 @@
       steps: st.map((s, i) => ({ v: s.ok ? 'done' : s === nx ? 'next' : 'todo', k: s.k, href: s.href, t: `${i + 1}. ${s.name}`, s: s.sub || '', m: t('{m} phút', { m: s.mins }), tag: s.ok ? t('Đã xong') : t('Tiếp theo'), ico: stepIco(s), go: chev })),
       lv: `<div class="lv-slot" hidden data-lv="${esc(JSON.stringify({ mode: 'day', seed: d.n, words: d.topic.words.map(w => String(w.word || '').toLowerCase()).slice(0, 12), level: stage.cefr || '' }))}"></div>`,
       h: { path: '#/path', words: '#/topic/' + encodeURIComponent(d.unit.topic.id) } }, null);
-    root.classList.add('day-v2');
+    root.classList.add('day-v2'); document.body.classList.remove('st', 'v2on'); // trang con 'inner': thanh trên + #bnav + lề #view chung của app (như vocab-hub), khung Stitch chỉ là nội dung
     $$('[data-step]', view).forEach(a => a.addEventListener('click', () => {
       ls('daySess', d.id);
       const s = st.find(x => x.k === a.dataset.step);

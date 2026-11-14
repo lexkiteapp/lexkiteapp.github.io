@@ -1,13 +1,17 @@
 {
- "_doc": "Trang buổi học theo Ngày (#/day/N) – d do web/js/path-day.js page() dựng từ dữ liệu thật (plan/days). Khung riêng của Stitch: đầu trang có nút Quay lại + chip chuỗi (không dùng thanh tab, như màn bài học); thanh tab mẫu gỡ (tab app = shell chung ở máy tính). Hàng hoạt động = <a> thật (đủ bước, bấm theo thứ tự nào cũng được): xong / tiếp theo / chưa làm (mẫu 'khóa' → mũi tên, không có khóa thật). Video bài học = .lv-slot cũ (LessonVideo.scan) đặt sau danh sách (ẩn khi chưa có video; thẻ + ảnh mẫu bịa bị gỡ). Giáo viên = Chars (d.teacher).",
+ "_doc": "Trang buổi học theo Ngày (#/day/N) – d do web/js/path-day.js page() dựng từ dữ liệu thật (plan/days). Đầu trang (Quay lại + chip chuỗi) và thanh tab của mẫu GỠ: trang con 'inner' dùng thanh trên + #bnav + lề #view chung của app (frame-consistency), như vocab-hub. Hàng hoạt động = <a> thật (đủ bước, bấm theo thứ tự nào cũng được): xong / tiếp theo / chưa làm (mẫu 'khóa' → mũi tên, không có khóa thật). Video bài học = .lv-slot cũ (LessonVideo.scan) đặt sau danh sách (ẩn khi chưa có video; thẻ + ảnh mẫu bịa bị gỡ). Giáo viên = Chars (d.teacher).",
  "remove": [
+  ":scope > div > header",
   ":scope > div > nav",
   ":scope > div > main > section:nth-child(5)"
  ],
  "styles": true,
  "swap": {
-  "max-w-[390px]": "max-w-[480px] mx-auto",
-  "min-h-screen": "min-h-0"
+  "max-w-[390px]": "",
+  "min-h-screen": "min-h-0",
+  "pb-28": "pb-4",
+  "text-headline-lg": "",
+  "px-margin": ""
  },
  "i18n": {
   "Easy first, hard later:": "Dễ trước, khó sau:",
@@ -18,9 +22,6 @@
  "text": {
   "Tiến độ ngày": "d.lp",
   "Các hoạt động bài học": "d.la",
-  "Day 12": "d.title",
-  "Stage A2 · Food & Drink": "d.sub",
-  "7 ngày": "d.streak",
   "Cô Ama": "d.tn",
   "12": "d.n",
   "General English · Stage A2": "d.chip",
@@ -32,14 +33,9 @@
   "Hoàn thành theo thứ tự": "d.cnt"
  },
  "html": {
-  ":scope > div > header > div:nth-child(3) > span:nth-child(1)": "d.flame",
   ":scope > div > main > section:nth-child(1) > div:nth-child(2) > div:nth-child(1)": "d.teacher"
  },
  "attr": {
-  ":scope > div > header > button": {
-   "data-href": "'#/path'",
-   "aria-label": "d.back"
-  },
   ":scope > div > main > section:nth-child(2) > div:nth-child(2)": {
    "role": "'progressbar'",
    "aria-valuemin": "'0'",
@@ -77,10 +73,7 @@
   ":scope > div > main > section:nth-child(1) > div:nth-child(3) > div:nth-child(3)": "flex-wrap",
   ":scope > div > main > section:nth-child(6) > button:nth-child(1)": "min-h-[44px] min-w-0",
   ":scope > div > main > section:nth-child(6) > button:nth-child(2)": "min-h-[44px] min-w-0",
-  ":scope > div > main > section:nth-child(4)": "dayv2-steps",
-  ":scope > div > header > div:nth-child(2)": "min-w-0 flex-1 px-2",
-  ":scope > div > header > div:nth-child(2) > span:nth-child(2)": "max-w-full truncate",
-  ":scope > div > header > div:nth-child(3)": "shrink-0 whitespace-nowrap"
+  ":scope > div > main > section:nth-child(4)": "dayv2-steps"
  },
  "after": {
   ":scope > div > main > div:nth-child(3)": "d.extra",
