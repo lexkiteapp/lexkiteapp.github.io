@@ -41,7 +41,7 @@ li i{flex:none;width:26px;height:26px;border-radius:50%;background:linear-gradie
 .win img{display:block;width:100%}
 .pop{position:absolute;right:150px;top:70px;width:380px;border-radius:16px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.1)}.pop img{display:block;width:100%}
 .back{position:absolute;right:48px;top:150px;width:700px;border-radius:14px;overflow:hidden;opacity:.55;filter:blur(1.5px) saturate(.8);box-shadow:0 30px 60px rgba(0,0,0,.4)}.back img{display:block;width:100%}
-.thumb .txt{top:150px;width:430px}.thumb h1{font-size:60px;line-height:1.04}.thumb p.sub{font-size:20px}
+.thumb .txt{top:150px;width:400px}.thumb h1{font-size:60px;line-height:1.04}.thumb p.sub{font-size:20px}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}.stats div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 14px}
 .stats b{display:block;font-size:30px;font-weight:800;letter-spacing:-.02em;color:#FFC94A;line-height:1.1}.stats span{display:block;font-size:14px;line-height:1.35;color:rgba(255,255,255,.82);margin-top:4px}
 .glow{position:absolute;right:120px;bottom:-140px;width:520px;height:320px;background:radial-gradient(closest-side,rgba(242,85,59,.35),transparent);filter:blur(10px)}`;
@@ -68,6 +68,8 @@ async function run(lang) {
     args: [`--disable-extensions-except=${EXT}`, `--load-extension=${EXT}`, `--lang=${locale}`],
   });
   let [sw] = ctx.serviceWorkers(); if (!sw) sw = await ctx.waitForEvent('serviceworker');
+  // sự kiện serviceworker có thể đến trước khi Chrome gắn API add-on → chờ chrome.storage (cùng cách scripts/test/ext-e2e.mjs)
+  for (let i = 0; i < 75 && !(await sw.evaluate(() => !!(self.chrome && chrome.storage && chrome.storage.local)).catch(() => false)); i++) await sleep(200);
   const id = new URL(sw.url()).host, base = `chrome-extension://${id}/`;
   const setSettings = s => sw.evaluate(s => chrome.storage.local.get('settings').then(({ settings }) => chrome.storage.local.set({ settings: { ...(settings || {}), ...s } })), s);
   await sw.evaluate(l => chrome.storage.local.set({ uiLang: l }), lang);
@@ -116,7 +118,7 @@ async function promos(shot) {
   const br = await chromium.launch();
   const p = await br.newPage();
   const card = `<div class="wc"><div class="w">resilience <span>/rɪˈzɪliəns/</span></div><div class="m"><b>noun</b> the capacity to recover quickly from difficulties</div><div class="btn">+ Save flashcard</div></div>`;
-  const small = `<body class="s"><div class="l"><img src="${ICON}"><div class="n">lex<b>kite</b></div></div><div class="t">Double-click any word.<br><em>Learn it for good.</em></div>${card}</body>`;
+  const small = `<body class="s"><div class="l"><img src="${ICON}"><div class="n">lex<b>kite</b></div></div><div class="t">Double-click<br>any word.<br><em>Learn it for&nbsp;good.</em></div>${card}</body>`;
   const img = 'data:image/png;base64,' + shot.toString('base64');
   const big = `<body class="b"><div class="txt"><div class="l"><img src="${ICON}"><div class="n">lex<b>kite</b></div></div><h1>Learn English words<br><em>while you browse.</em></h1>
     <p>Double-click to look up · Save with context · Remember with FSRS</p><div class="tags"><span>Free</span><span>15 languages</span><span>IELTS · TOEIC</span></div></div>

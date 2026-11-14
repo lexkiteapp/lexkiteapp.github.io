@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_info",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Information has no s!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can you give me some informations?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you give me some information?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Information has no plural.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Information! I need some information.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can you give me some informations?",
+  "right": "Can you give me some information?",
+  "strike": "informations",
+  "why": "Information has no plural.",
+  "memory": "Some information.",
+  "quiz": {
+   "stem": "I need some ___.",
+   "options": [
+    "information",
+    "informations"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "information 没有复数！",
+   "tip": "information 是不可数名词，后面不加 s。",
+   "caption": "你是不是也会说 “Can you give me some informations?”？😅 information 是不可数名词，不能加 s：“Can you give me some information?”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“information”。information 不可数！免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No plural for information!",
+   "tip": "Information is uncountable, so never add an s.",
+   "caption": "Do you say “Can you give me some informations?”? 😅 Information is uncountable, so it never takes an s: “Can you give me some information?”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "information 没有复数！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "information 没有复数！",
+  "keyword": "Can you give me some information?",
+  "value": "information 是不可数名词，后面不加 s。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "information 没有复数！",
+    "description": "你是不是也会说 “Can you give me some informations?”？😅 information 是不可数名词，不能加 s：“Can you give me some information?”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "Can you give me some information?",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “Can you give me some informations?”？😅 information 是不可数名词，不能加 s：“Can you give me some information?”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "你是不是也会说 “Can you give me some informations?”？😅 information 是不可数名词，不能加 s：“Can you give me some information?”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "information 没有复数！ #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“information”。information 不可数！免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

@@ -1,3 +1,25 @@
-/* UI ko – share (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ko"] = Object.assign(D["ko"] || {}, {"Trí nhớ siêu đỉnh!":"기억력 최고!","Xong mục tiêu hôm nay!":"오늘 목표 달성!","Hôm nay mình đã học bài!":"오늘도 공부했어요!","Từng bước nhỏ mỗi ngày, tiến bộ lớn mỗi tháng.":"매일 작은 걸음, 매달 큰 발전.","Thẻ ôn hôm nay":"오늘 복습한 카드","Học từ vựng & luyện thi miễn phí":"무료 어휘 학습 & 시험 준비","Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"Lexkite로 매일 영어 공부 중 🔥 무료로 배우기: {url}","Não bạn đang ở chế độ nghỉ dưỡng":"뇌가 휴가 모드예요","Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.":"커피 한 잔 하고 카드 몇 장 복습해요 ☕ – 바로 자랑할 성과가 생겨요.","Story 9:16":"스토리 9:16","Bài đăng 1:1":"게시물 1:1","Thẻ thành tích":"성과 카드","Chia sẻ":"공유","Tải ảnh":"이미지 저장","Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé":"이미지 저장됨 – 링크가 복사되었어요, 게시물에 붙여 넣으세요"});
+/* UI ko – share (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ko"] = Object.assign(D["ko"] || {}, {
+"Bài đăng 1:1":"게시물 1:1",
+"Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu":"친구가 첫 수업을 마치면 둘 다 +{xp} XP와 연속 학습 보호 1회를 받아요",
+"Chia sẻ":"공유",
+"Hôm nay mình đã học bài!":"오늘도 공부했어요!",
+"Học từ vựng & luyện thi miễn phí":"무료 어휘 학습 & 시험 준비",
+"Link mời đã được chép – dán gửi bạn nhé":"초대 링크를 복사했어요 – 친구에게 붙여넣어 보내세요",
+"Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.":"커피 한 잔 하고 카드 몇 장 복습해요 ☕ – 바로 자랑할 성과가 생겨요.",
+"Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"Lexkite로 영어를 무료로 배우고 있어요. 1분 수업을 해 보면 우리 둘 다 선물을 받아요! {url}",
+"Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"Lexkite로 매일 영어 공부 중 🔥 무료로 배우기: {url}",
+"Mời bạn học cùng":"친구 초대하기",
+"Não bạn đang ở chế độ nghỉ dưỡng":"뇌가 휴가 모드예요",
+"Story 9:16":"스토리 9:16",
+"Thẻ thành tích":"성과 카드",
+"Thẻ ôn hôm nay":"오늘 복습한 카드",
+"Trí nhớ siêu đỉnh!":"기억력 최고!",
+"Tải ảnh":"이미지 저장",
+"Từng bước nhỏ mỗi ngày, tiến bộ lớn mỗi tháng.":"매일 작은 걸음, 매달 큰 발전.",
+"Xong mục tiêu hôm nay!":"오늘 목표 달성!",
+"Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé":"이미지 저장됨 – 링크가 복사되었어요, 게시물에 붙여 넣으세요",
+"🎁 Bạn được bạn bè mời! Nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎁 친구가 초대했어요! +{xp} XP와 연속 학습 보호 1회를 받으세요",
+"🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎉 초대한 친구 {n}명이 첫 수업을 마쳤어요 – +{xp} XP와 연속 학습 보호 1회를 받아요",
+});
 })(typeof self !== 'undefined' ? self : this);

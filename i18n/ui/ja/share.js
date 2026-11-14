@@ -1,3 +1,25 @@
-/* UI ja – share (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {"Trí nhớ siêu đỉnh!":"記憶力バツグン！","Xong mục tiêu hôm nay!":"今日の目標達成！","Hôm nay mình đã học bài!":"今日も勉強しました！","Từng bước nhỏ mỗi ngày, tiến bộ lớn mỗi tháng.":"毎日の小さな一歩が、毎月の大きな前進に。","Thẻ ôn hôm nay":"今日の復習カード","Học từ vựng & luyện thi miễn phí":"無料で単語学習・試験対策","Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"Lexkiteで毎日英語を勉強中 🔥 無料で学べます：{url}","Não bạn đang ở chế độ nghỉ dưỡng":"脳がバカンスモード中です","Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.":"コーヒーを飲んで、カードを少し復習しよう ☕ – すぐにシェアできる成果ができます。","Story 9:16":"ストーリーズ 9:16","Bài đăng 1:1":"投稿 1:1","Thẻ thành tích":"成果カード","Chia sẻ":"シェア","Tải ảnh":"画像を保存","Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé":"画像を保存しました – リンクをコピーしたので投稿に貼り付けてください"});
+/* UI ja – share (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {
+"Bài đăng 1:1":"投稿 1:1",
+"Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu":"お友だちが最初のレッスンを終えると、2人とも +{xp} XP とストリーク凍結1回がもらえます",
+"Chia sẻ":"シェア",
+"Hôm nay mình đã học bài!":"今日も勉強しました！",
+"Học từ vựng & luyện thi miễn phí":"無料で単語学習・試験対策",
+"Link mời đã được chép – dán gửi bạn nhé":"招待リンクをコピーしました。友だちに貼り付けて送ろう",
+"Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.":"コーヒーを飲んで、カードを少し復習しよう ☕ – すぐにシェアできる成果ができます。",
+"Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"LexkiteでEnglishを無料で勉強中！1分レッスンを試すと、2人ともプレゼントがもらえるよ！{url}",
+"Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"Lexkiteで毎日英語を勉強中 🔥 無料で学べます：{url}",
+"Mời bạn học cùng":"友だちを招待",
+"Não bạn đang ở chế độ nghỉ dưỡng":"脳がバカンスモード中です",
+"Story 9:16":"ストーリーズ 9:16",
+"Thẻ thành tích":"成果カード",
+"Thẻ ôn hôm nay":"今日の復習カード",
+"Trí nhớ siêu đỉnh!":"記憶力バツグン！",
+"Tải ảnh":"画像を保存",
+"Từng bước nhỏ mỗi ngày, tiến bộ lớn mỗi tháng.":"毎日の小さな一歩が、毎月の大きな前進に。",
+"Xong mục tiêu hôm nay!":"今日の目標達成！",
+"Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé":"画像を保存しました – リンクをコピーしたので投稿に貼り付けてください",
+"🎁 Bạn được bạn bè mời! Nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎁 友だちから招待されました！+{xp} XP とストリーク凍結1回をプレゼント",
+"🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎉 招待した友だち{n}人が最初のレッスンを終えました。+{xp} XP とストリーク凍結1回をプレゼント",
+});
 })(typeof self !== 'undefined' ? self : this);

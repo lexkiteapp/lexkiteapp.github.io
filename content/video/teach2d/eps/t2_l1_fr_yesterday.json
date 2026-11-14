@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_yesterday",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Yesterday needs past!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have seen him yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I saw him yesterday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "With yesterday, use the simple past.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Saw! I saw her last week.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have seen him yesterday.",
+  "right": "I saw him yesterday.",
+  "strike": "have seen",
+  "why": "With yesterday, use the simple past.",
+  "memory": "Yesterday: past simple.",
+  "quiz": {
+   "stem": "I ___ her last week.",
+   "options": [
+    "have seen",
+    "saw"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Hier » : pas de “have seen”",
+   "tip": "Le passé composé français devient “saw” avec hier, la semaine dernière, etc.",
+   "caption": "Tu dis “I have seen him yesterday.” ? Avec « hier », on utilise le passé simple : “I saw him yesterday.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
+   "comment": "Réponse : “saw”. Avec une date passée, on utilise le prétérit. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Have seen yesterday”: no!",
+   "tip": "The French passé composé becomes “saw” with yesterday, last week, and so on.",
+   "caption": "Do you say “I have seen him yesterday.”? With a past time, use the simple past: “I saw him yesterday.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Hier » : pas de “have seen”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "« Hier » : pas de “have seen”",
+  "keyword": "I saw him yesterday.",
+  "value": "Le passé composé français devient “saw” avec hier, la semaine dernière, etc.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "« Hier » : pas de “have seen”",
+    "description": "Tu dis “I have seen him yesterday.” ? Avec « hier », on utilise le passé simple : “I saw him yesterday.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I saw him yesterday.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Tu dis “I have seen him yesterday.” ? Avec « hier », on utilise le passé simple : “I saw him yesterday.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Tu dis “I have seen him yesterday.” ? Avec « hier », on utilise le passé simple : “I saw him yesterday.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Hier » : pas de “have seen” #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “saw”. Avec une date passée, on utilise le prétérit. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

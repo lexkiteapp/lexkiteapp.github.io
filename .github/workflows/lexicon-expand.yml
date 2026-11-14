@@ -20,6 +20,9 @@ on:
       neurons: { description: 'Trần neuron kho CF_POOL lượt này (ai-pool cf2; 4006 → tài khoản kế)', default: '600000' }
       retry: { description: 'Làm lại danh sách retry trước (0 = lượt kiểm nhỏ, bỏ qua)', default: '1' }
       shards: { description: 'Số shard song song (ci-filler lấp runner rảnh; mỗi shard phần ứng viên theo băm từ#loại, trần neuron chia đều)', default: '1' }
+      force: { description: 'Bỏ cổng «lượt gần rỗng» ở bước plan (1 = chạy dù last-run báo < EMPTY_RUN mục); soát/mẫu cố định không bị cổng', default: '0' }
+      rescue: { description: 'Rescue hàng duyệt theo lớp lỗi, cổng KHÔNG đổi (13/11): wd:300 = 300 mục rớt vi/ví dụ có nhãn Wikidata-vi · rewrite:300 = rớt nghĩa/def/ví dụ → viết lại qua AI; pilot nhỏ trước, đo yieldRetry, rồi nâng số', default: '' }
+      retry_share: { description: 'Phần N dành cho mục làm lại (mặc định 0.25; rescue pilot đặt 1)', default: '' }
       words: { description: 'Mẫu pilot CỐ ĐỊNH (vd content/lexicon/expand/pilot/hard.json): chỉ xử lý các từ đó, chấm tự động (grade.mjs), KHÔNG ghi repo', default: '' }
 permissions:
   contents: write
@@ -33,10 +36,18 @@ env:
 jobs:
   # 08/11 (util.tsv: runner bận TB 18/40, lexicon-expand quota_bound nên filler không dùng): shard song song – ci-filler dispatch shards=n (infra/ci-backlog.json)
   plan:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 3
-    outputs: { shards: '${{ steps.p.outputs.shards }}', n: '${{ steps.p.outputs.n }}', batch: '${{ steps.p.outputs.batch }}' }
+    outputs: { shards: '${{ steps.p.outputs.shards }}', n: '${{ steps.p.outputs.n }}', batch: '${{ steps.p.outputs.batch }}', idle: '${{ steps.idle.outputs.idle }}' }
     steps:
+      # 11/11 (48 h: mọi lượt nFresh 0, 4,2 % đạt, ~35 phút × 4 shard cho 7–16 mục/shard): cron/ci-filler/dispatch thường qua cổng laneEmpty (lib.mjs) TRƯỚC khi thuê 1–6 runner tải nguồn nặng
+      - uses: actions/checkout@v4
+        if: ${{ github.event.inputs.words == '' && github.event.inputs.audit == '' && github.event.inputs.force != '1' }}
+      - uses: ./.github/actions/no-prod
+        if: ${{ github.event.inputs.words == '' && github.event.inputs.audit == '' && github.event.inputs.force != '1' }}
+      - id: idle
+        if: ${{ github.event.inputs.words == '' && github.event.inputs.audit == '' && github.event.inputs.force != '1' }}
+        run: if node scripts/lexicon/expand/left.mjs --idle; then echo "idle=1" >> $GITHUB_OUTPUT; echo '⏹ lượt gần nhất gần rỗng (< EMPTY_RUN mục, retry chưa tăng, < 24 h) – bỏ lượt (force=1 để chạy)'; fi
       - id: p
         run: |
           n="${{ github.event.inputs.shards }}"; case "$n" in ''|*[!0-9]*) n=1;; esac; [ "$n" -gt 6 ] && n=6; [ "$n" -lt 1 ] && n=1
@@ -46,8 +57,9 @@ jobs:
           echo "n=$n" >> $GITHUB_OUTPUT; echo "shards=$(seq -s, 0 $((n-1)) | sed 's/^/[/;s/$/]/')" >> $GITHUB_OUTPUT
   expand:
     needs: plan
+    if: ${{ needs.plan.outputs.idle != '1' }}
     strategy: { fail-fast: false, max-parallel: 6, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 200   # 30/10 đo pilot 9: ~14 s/từ (Gemini 3.x chậm) → LX_N 600 ≈ 140 phút
     steps:
       - uses: actions/checkout@v4
@@ -65,6 +77,7 @@ jobs:
       - uses: ./.github/actions/no-prod
       - name: Nguồn miễn phí (wordfreq CC BY-SA 4.0 · WordNet · CMUdict BSD-2 · LDNOOBW CC BY 4.0)
         if: ${{ steps.lease.outputs.skip != '1' }}
+        env: { RESCUE: '${{ github.event.inputs.rescue }}' }
         run: |
           pip install -q 'wordfreq[cjk]==3.1.1' nltk==3.9.1 espeakng-loader==0.2.4   # cjk: trcheck --exist cho zh/ja/ko (lớp D2)   # espeak-ng en-gb: IPA Anh khi Wiktionary thiếu (hiệu chuẩn espeak-calib.mjs)
           python -c "import nltk; nltk.download('wordnet', quiet=True); nltk.download('averaged_perceptron_tagger_eng', quiet=True); nltk.download('omw-1.4', quiet=True)"   # OMW 1.4: lemma theo synset 8 ngôn ngữ (synset.py, lớp D1)
@@ -91,10 +104,14 @@ jobs:
           curl -sfL -o "$RUNNER_TEMP/octanove.csv" https://raw.githubusercontent.com/openlanguageprofiles/olp-en-cefrj/master/octanove-vocabulary-profile-c1c2-1.0.csv || true
           # 31/10 đa từ loại: mục hàng duyệt "keep: … từ loại khác" (chờ khoá từ#loại) → retry; lũy đẳng; mẫu cố định (words) không ghi repo
           if [ -z "${{ github.event.inputs.words }}" ]; then node scripts/lexicon/expand/requeue.mjs --pos; fi
+          # 13/11 rescue hàng duyệt (input rescue = <lớp>:<số mục>; cổng giữ nguyên, mỗi mục tối đa 1 lần/lớp – retry/rescued.json); tất định → mọi shard chọn cùng tập, save-merge gộp trùng; pilot chạy 1 shard
+          if [ -n "$RESCUE" ]; then node scripts/lexicon/expand/requeue.mjs --rescue "${RESCUE%%:*}" --limit "${RESCUE##*:}"; fi
           node scripts/lexicon/expand/existing.mjs "$RUNNER_TEMP/existing.json"
           python scripts/lexicon/expand/pick_words.py --existing "$RUNNER_TEMP/existing.json" --want content/lexicon/expand/retry/words.json ${{ github.event.inputs.words }} --cmu "$RUNNER_TEMP/cmu.dict" --bad "$RUNNER_TEMP/bad.txt" $(test -s "$RUNNER_TEMP/cefrj.csv" && echo --cefrj "$RUNNER_TEMP/cefrj.csv") $(test -s "$RUNNER_TEMP/octanove.csv" && echo --octanove "$RUNNER_TEMP/octanove.csv") --out "$RUNNER_TEMP/candidates.json"
           # nghĩa vi NGƯỜI VIẾT thứ hai (31/10, lớp L1 – rớt vi 178/600): Wiktionary tiếng Việt qua kaikki.org/viwiktionary (CC BY-SA 4.0, ~33 MB gz); tải lỗi = như cũ (chỉ Wiktionary tiếng Anh)
           curl -sfL --retry 2 -o "$RUNNER_TEMP/viwk.jsonl.gz" https://kaikki.org/viwiktionary/raw-wiktextract-data.jsonl.gz && python scripts/lexicon/expand/viwikt.py --raw "$RUNNER_TEMP/viwk.jsonl.gz" --candidates "$RUNNER_TEMP/candidates.json" --out "$RUNNER_TEMP/viwk.json" || echo "::warning::viwikt: không tải được Wiktionary tiếng Việt"
+          # 13/11 nguồn vi NGƯỜI VIẾT thứ ba (docs/LEXICON.md): nhãn vi Wikidata (CC0) của khoản mục có bài Wikipedia en trùng nhãn en = từ (danh từ; 69 % mục quét không có vi người viết). Gộp vào viwk.json (WV); cổng giữ nguyên (≥ 2 nguồn trùng + giám khảo); lỗi/không tới WDQS = như cũ
+          python scripts/lexicon/expand/wikidata_vi_labels.py --cands "$RUNNER_TEMP/candidates.json" --first content/lexicon/expand/retry/words.json --limit 2400 --merge "$RUNNER_TEMP/viwk.json" --out "$RUNNER_TEMP/viwk.json" || echo "::warning::wikidata_vi_labels: bỏ qua"
       - name: Sinh + 2 giám khảo + cổng
         if: ${{ steps.lease.outputs.skip != '1' && github.event.inputs.audit == '' }}
         env:  # ai-pool (scripts/lib/ai-pool.mjs): Gemini kho Lexkite (nếu còn khóa) → cf2 = kho CF_POOL xoay vòng (gpt-oss-120b soạn/giám khảo A, llama-3.3-70b giám khảo B) 
@@ -113,6 +130,7 @@ jobs:
           P="${{ github.event.inputs.pilot }}"; P="${P:-${{ vars.LX_PILOT }}}"
           RT="${{ github.event.inputs.retry }}"; RT="${RT:-${{ vars.LX_RETRY }}}"
           EXTRA=(); [ "$P" = 1 ] && EXTRA+=(--pilot); [ "$RT" = 0 ] && EXTRA+=(--no-retry)
+          RS="${{ github.event.inputs.retry_share }}"; [ -n "$RS" ] && EXTRA+=(--retry-share "$RS")
           B="${{ github.event.inputs.batch }}"; [ -n "$B" ] && EXTRA+=(--batch "$B")
           WD="${{ github.event.inputs.words }}"; [ -n "$WD" ] && { EXTRA+=(--words "$WD"); P=0; echo "LX_RUN_WORDS=$WD" >> "$GITHUB_ENV"; }
           [ -z "$B$WD" ] && [ "$P" != 1 ] && EXTRA+=(--batch "${{ needs.plan.outputs.batch }}")   # lô riêng của lượt (pilot giữ <ngày>-pilot)
@@ -154,8 +172,12 @@ jobs:
           for f in $CH; do mkdir -p "$O/$(dirname "$f")"; [ -f "$f" ] && cp "$f" "$O/$f"; done
           git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
           for i in 1 2 3 4 5; do
-            git fetch -q origin main && git reset -q --hard origin/main && node scripts/lexicon/expand/save-merge.mjs "$BASE" "$O" $CH && git add -A -- $CH
+            git fetch -q origin main && git reset -q --hard origin/main
+            # 13/11 máy gác (main đỏ do commit bot [skip ci] e122220be): commit dữ liệu không qua CI → chạy test kho từ TRƯỚC khi đẩy; chỉ chặn khi main đang xanh mà bản gộp làm nó đỏ
+            node scripts/test/lexicon-expand.mjs >/dev/null 2>&1 && MAIN_OK=1 || MAIN_OK=0
+            node scripts/lexicon/expand/save-merge.mjs "$BASE" "$O" $CH && git add -A -- $CH
             git diff --cached --quiet && { echo 'đã có trên main'; exit 0; }
+            if [ "$MAIN_OK" = 1 ] && ! node scripts/test/lexicon-expand.mjs >"$RUNNER_TEMP/lx-test.log" 2>&1; then grep -v '^✓' "$RUNNER_TEMP/lx-test.log" | head -20; echo "::error::bản gộp làm test lexicon-expand đỏ – KHÔNG đẩy (commit [skip ci] không qua CI)"; exit 1; fi
             git commit -qm "Mở rộng kho từ: lô chờ soát (lexicon-expand) [CF-Pages-Skip] [skip ci]" && git push -q origin HEAD:main && exit 0
             sleep $((i * 7)); done; exit 1
       - uses: actions/upload-artifact@v4

@@ -275,6 +275,17 @@ export function wsdUnwrap(o, ids) {
 export const RETRY_SHARE = 0.25;
 /** shard của mục (FNV-1a trên từ#loại) – job.mjs --shard i/n: các shard song song không trùng mục */
 export const shardOf = (k, n) => { let h = 2166136261; for (const c of String(k)) h = Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0; return h % n; };
+// 13/11 rescue hàng duyệt (9.750 mục «dịch vi» từ lô 10/11, trước nguồn Wikidata-vi #980): CHỌN mục làm lại theo lớp lỗi, cổng KHÔNG đổi (retry chạy lại đúng gateEntry).
+//  wd      = chỉ rớt vi/ví dụ VÀ nguồn mới (Wikidata) có nhãn vi cho mục đó VÀ rớt trước ngày nguồn vào (--before) → có thông tin mới để thử; mục không có nhãn Wikidata KHÔNG đổi nguồn → retry chỉ tốn neuron.
+//  rewrite = chỉ rớt nghĩa/def/ví dụ (không vi/IPA/CEFR/giám khảo): retry viết lại def/ví dụ qua AI rồi qua lại cổng.
+//  `done` = id đã rescue một lần (retry/rescued.json) → không vòng lặp; `limit` = cỡ pilot; thứ tự id tăng dần (tất định).
+export const RESCUE_ONLY = { wd: /^(dịch vi|ví dụ):/, rewrite: /^(nghĩa|def|ví dụ)(\/định nghĩa)?:/ };
+export function rescueSelect(items, mode, { wd = {}, before = '', done = {}, limit = Infinity } = {}) {
+  const re = RESCUE_ONLY[mode]; if (!re) throw new Error('rescue mode: wd | rewrite');
+  return items.filter(x => x.src === 'lexicon-expand' && (x.why || []).length > 0 && x.why.every(y => re.test(y)) && !done[x.id]
+    && (mode !== 'wd' || ((wd[x.id] || []).length > 0 && x.why.some(y => /^dịch vi:/.test(y)))) && (!before || String(x.at || '') < before))
+    .sort((a, b) => (a.id < b.id ? -1 : 1)).slice(0, limit);
+}
 export function mixPool(retryList, fresh, N, share = RETRY_SHARE) {
   const cap = Math.max(0, Math.min(retryList.length, Math.ceil(N * Math.min(1, Math.max(0, share)))));
   const f = fresh.slice(0, N - cap), r = retryList.slice(0, Math.max(cap, N - f.length));
@@ -298,9 +309,16 @@ export function yieldSplit(rows) {
 
 /** 08/11 lọc trước AI (job.mjs --no-prefilter để tắt): cận TRÊN số nguồn NGƯỜI VIẾT của một ứng viên – vi (Wiktionary en vi/bảng dịch · Wiktionary vi) và câu chứa từ
  *  (examples.py · ví dụ Wiktionary · ví dụ WordNet mọi nghĩa). vi = 0 hoặc ex < 2 → chắc trượt cổng (viKeep cần nguồn người viết; ví dụ cần 2 câu người viết). */
-/** ci-filler: các shard lượt gần nhất đều gần rỗng (tổng < EMPTY_RUN mục, retry chưa tăng, kết quả < 24 h) → không có việc, khỏi thuê runner */
-export const EMPTY_RUN = 40;
-export const laneEmpty = (runs, retryNow, now = Date.now()) => { const a = runs.filter(r => r && now - Date.parse(r.at) < 864e5); return a.length > 0 && a.reduce((t, r) => t + r.n, 0) < EMPTY_RUN && retryNow <= Math.max(...a.map(r => r.retry)) + 50; };
+/** gộp các bảng {word#pos:[vi…]} của nguồn đối chiếu, không trùng */
+export const mergeViSources = (...maps) => { const o = {}; for (const m of maps) for (const [k, v] of Object.entries(m)) o[k] = [...new Set([...(o[k] || []), ...v])]; return o; };
+/** Lượt gần như rỗng → không thuê runner / không dispatch (ci-filler, cron, bước plan của workflow, left.mjs).
+ *  11/11 (48 h: mọi lượt nFresh 0, 4,2 % đạt, ~35 phút × 4 shard cho 7–16 mục/shard): cộng CÁC SHARD CỦA CÙNG MỘT LƯỢT (last-run/s*.json có `run`) – trước đây s0 của lượt mới
+ *  trộn với s1–s3 của lượt cũ nên tổng vượt ngưỡng; ngưỡng 40 → 100 (4,2 % đạt ⇒ dưới 100 mục chỉ ~4 mục nhận). Retry tăng ≥ 50 hoặc kết quả > 24 h → chạy lại. */
+export const EMPTY_RUN = 100;
+export const laneEmpty = (runs, retryNow, now = Date.now()) => {
+  const a = runs.filter(r => r && now - Date.parse(r.at) < 864e5); if (!a.length) return false;
+  const last = a.reduce((m, r) => (Date.parse(r.at) > Date.parse(m.at) ? r : m)), g = a.filter(r => (r.run || '') === (last.run || ''));
+  return g.reduce((t, r) => t + r.n, 0) < EMPTY_RUN && retryNow <= Math.max(...g.map(r => r.retry)) + 50; };
 export const humanSrc = (e, k, wv, ext) => { if (k.err) return { vi: 1, ex: 2 }; const re = inflRe(e.w); // kaikki lỗi mạng = hạ tầng → không lọc (luồng cũ xử lý)
   const vi = (k.vi || []).length + (wv || []).length + (k.trg || []).reduce((n, g) => n + ((g.tr || {}).vi || []).length, 0);
   const ex = ((ext || {}).ex || []).length + (k.exs || []).filter(x => re.test(x.t)).length + Math.max(0, ...(e.senses && e.senses.length ? e.senses : [e]).map(s => (s.wnex || []).length));

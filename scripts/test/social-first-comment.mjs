@@ -43,8 +43,8 @@ const clip = { id: 'cine-news-shopping-stop-8cf065-en', first_comment: TPL, lang
   // /api/go
   ok(F.parseGo('/api/go/fb/cine-a-123') && F.parseGo('/api/go/fb/cine-a-123').plat === 'facebook_page' && F.parseGo('/api/go/ig/bio', '?l=vi').lang === 'vi' && !F.parseGo('/api/go/zz/cine-a') && !F.parseGo('/api/go/fb/../../x') && !F.parseGo('/api/go/fb/A%2F'), 'đường /api/go: chỉ mã nền tảng biết + id clip hợp lệ');
   const t1 = F.goTarget({ plat: 'facebook_page', clip: 'cine-a-123', lang: 'en' }, 'look-for-a59145'), t2 = F.goTarget({ plat: 'tiktok', clip: '', lang: 'vi' }), t3 = F.goTarget({ plat: 'youtube', clip: 'cine-b' }, 'evil.com/x');
-  ok(t1 === 'https://lexkite.com/video/look-for-a59145/?utm_source=facebook_page&utm_medium=social&utm_campaign=cine-a-123&utm_content=first_comment', 'đích = trang video + UTM (source nền tảng, medium social, campaign id bài)');
-  ok(t2 === 'https://lexkite.com/vi/?utm_source=tiktok&utm_medium=social&utm_campaign=bio&utm_content=bio' && t3.startsWith('https://lexkite.com/app/?'), 'bio → landing nhẹ /<lang>/; slug lạ → /app/ (không chuyển hướng ra ngoài)');
+  ok(t1 === 'https://lexkite.com/video/look-for-a59145/?utm_source=facebook_page&utm_medium=social&utm_campaign=cine-a-123&utm_content=first_comment&utm_term=en', 'đích = trang video + UTM (source nền tảng, medium social, campaign id bài)');
+  ok(t2 === 'https://lexkite.com/vi/?utm_source=tiktok&utm_medium=social&utm_campaign=bio&utm_content=bio&utm_term=vi' && t3.startsWith('https://lexkite.com/app/?'), 'bio → landing nhẹ /<lang>/; slug lạ → /app/ (không chuyển hướng ra ngoài)');
   ok(F.isBot('facebookexternalhit/1.1') && F.isBot('Twitterbot/1.0') && F.isBot('') && !F.isBot('Mozilla/5.0 (iPhone; CPU iPhone OS 18_0) Instagram 300'), 'bot xem trước link không tính click');
   const cs = F.clickStats([{ kind: 'soc:facebook_page:fc', n: 5 }, { kind: 'soc:youtube:fc', n: 2 }, { kind: 'soc:instagram:bio', n: 3 }, { kind: 'socc:facebook_page:cine-a', n: 4 }, { kind: 'socc:facebook_page:cine-b', n: 1 }, { kind: 'land:x', n: 99 }]);
   ok(cs.total === 10 && cs.kinds.fc === 7 && cs.kinds.bio === 3 && cs.plats[0].k === 'facebook_page' && cs.top[0].clip === 'cine-a' && cs.top[0].n === 4, 'số liệu Quản trị: tổng, theo nền tảng, bình luận/bio, top clip');
@@ -58,7 +58,7 @@ const clip = { id: 'cine-news-shopping-stop-8cf065-en', first_comment: TPL, lang
   const env = { DB, ASSETS }, ua = 'Mozilla/5.0 (iPhone) FBAN/FBIOS';
   const go = (path, o = {}) => G.onRequest({ request: new Request('https://lexkite.com' + path, { method: o.method || 'GET', headers: { 'User-Agent': o.ua == null ? ua : o.ua, 'CF-Connecting-IP': o.ip || '1.2.3.4' } }), env });
   const r1 = await go('/api/go/fb/cine-news-shopping-stop-8cf065-en');
-  ok(r1.status === 302 && r1.headers.get('Location') === 'https://lexkite.com/video/consider-buying-8cf065/?utm_source=facebook_page&utm_medium=social&utm_campaign=cine-news-shopping-stop-8cf065-en&utm_content=first_comment', '302 tới trang video của clip (slug từ videos.json) + UTM');
+  ok(r1.status === 302 && r1.headers.get('Location') === 'https://lexkite.com/video/consider-buying-8cf065/?utm_source=facebook_page&utm_medium=social&utm_campaign=cine-news-shopping-stop-8cf065-en&utm_content=first_comment&utm_term=en', '302 tới trang video của clip (slug từ videos.json) + UTM');
   const cnt = k => (sql.prepare('SELECT SUM(n) AS n FROM ext_events WHERE kind = ?').get(k) || {}).n || 0;
   ok(cnt('soc:facebook_page:fc') === 1 && cnt('socc:facebook_page:cine-news-shopping-stop-8cf065-en') === 1, 'đếm click theo nền tảng + theo clip');
   await go('/api/go/fb/cine-news-shopping-stop-8cf065-en', { ua: 'facebookexternalhit/1.1' }); await go('/api/go/fb/cine-news-shopping-stop-8cf065-en', { method: 'HEAD' });
@@ -205,6 +205,24 @@ ok(S.cfg.fc.per_ch_day === 2 && S.clicks && S.clicks.total >= 1 && S.clicks.plat
   ok(/fc_errors\(pub\.get\('first_comment'\)/.test(src('scripts/cine/publish_meta.py')) && /gate\('publish_meta'/.test(src('scripts/cine/qc_gate.py')), 'qc_gate chặn clip thiếu/sai bình luận đầu (publish_meta.validate)');
   ok(/SCOPES_OPT = \{ fb: 'pages_manage_engagement' \}/.test(src('functions/api/_meta_oauth.js')), 'Kết nối Meta xin thêm pages_manage_engagement (tùy chọn)');
   const doc = src('docs/DISTRIBUTION.md'); ok(/§6c|6c\./.test(doc) && /ghim/i.test(doc) && /developers\.facebook\.com/.test(doc) && /developers\.google\.com\/youtube/.test(doc), 'docs: bảng nền tảng → cách làm → ghim (có nguồn)');
+}
+// ---- 11/11: mọi bài page có link web (UTM theo ngôn ngữ); first_comment đúng chỗ ở CLI; không ghim (không có API) ----
+{
+  ok(F.clipLang('news_x_ab12cd-es') === 'es' && F.clipLang('news_x_ab12cd-xx') === 'en' && F.clipLang('abc', 'pt') === 'pt' && F.clipLang('') === 'en', 'clipLang: hậu tố id → ngôn ngữ, lạ → en');
+  const u = F.withUtm('https://lexkite.com/video/a/?x=1#f', { utm_source: 'facebook', utm_term: 'de' });
+  ok(u === 'https://lexkite.com/video/a/?x=1&utm_source=facebook&utm_term=de#f', 'withUtm giữ ?query và #fragment');
+  ok(F.withUtm('https://lexkite.com/?utm_source=keep', { utm_source: 'zz' }) === 'https://lexkite.com/?utm_source=keep' && F.withUtm('https://evil.example/', { utm_source: 'x' }) === 'https://evil.example/', 'withUtm không ghi đè utm có sẵn, không đụng link ngoài');
+  ok(/utm_term=es$/.test(F.goTarget({ plat: 'facebook_page', clip: 'news_x_ab12cd-es' })) && /utm_term=pt$/.test(F.goTarget({ plat: 'instagram', clip: '', lang: 'pt' })), 'link /api/go: utm_term = ngôn ngữ');
+  ok(/utm_source=facebook_page&utm_medium=social&utm_campaign=news_x_ab12cd-fr&utm_term=fr/.test(RM.lessonUrl({ id: 'news_x_ab12cd-fr', slug: 's' }, 'facebook_page')), 'lessonUrl trong caption có UTM + ngôn ngữ');
+  // bất biến: nền tảng có bình luận → link web nằm ở caption HOẶC bình luận đầu (không bao giờ thiếu cả hai)
+  for (const pl of ['facebook_page', 'youtube', 'threads', 'x']) {
+    const c = { id: 'news_x_ab12cd-vi', slug: 's', lang: 'vi', first_comment: 'Đáp án: bàn bạc kế hoạch. Bài đầy đủ miễn phí: {link}' }, f = F.firstComment(c, pl), cap = F.fcCaption(`Full lesson + quiz: ${RM.lessonUrl(c, pl)}`, pl);
+    ok(/lexkite\.com/.test(cap) || /lexkite\.com\/api\/go\//.test(f.text), pl + ': có link web trong caption hoặc bình luận đầu');
+  }
+  const fsx = await import('node:fs'), src = f => fsx.readFileSync(new URL('../../' + f, import.meta.url), 'utf8'), cli = src('scripts/video/publish-grabcast.mjs');
+  ok(!/\.\.\.\(m\.first_comment \? \{ first_comment/.test(cli) && /options: fcOptions\(a\)/.test(cli) && /capabilities/.test(cli), 'CLI: first_comment ở targets[].options và chỉ khi kênh có quyền (không còn ở cấp bài)');
+  ok(/utm_medium: 'page'/.test(cli), 'CLI: link caption/bình luận có UTM page + ngôn ngữ');
+  ok(/KHÔNG nền tảng nào có API ghim/.test(src('functions/api/_first_comment.js')), 'giới hạn ghim ghi rõ (không có API ghim)');
 }
 console.log(fails ? `✗ social-first-comment: ${fails}/${n} lỗi` : `✓ social-first-comment: ${n} kiểm tra đạt (bình luận đầu, link đếm click, chống trùng, hạn mức, duyệt tay bài đầu)`);
 process.exit(fails ? 1 : 0);

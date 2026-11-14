@@ -29,7 +29,7 @@ jobs:
       - name: Lưu kết quả (lấy bản mới nhất trước khi đẩy, thử lại tối đa 5 lần)
         if: github.ref == 'refs/heads/main'
         run: |
-          bash scripts/ci/push-main.sh "Gói nghĩa từ vựng: cập nhật tự động" web/packs
+          bash scripts/ci/push-packs.sh "Gói nghĩa từ vựng: cập nhật tự động"
       - name: Nhánh khác main – artifact + summary (không đẩy vào nhánh; lấy về bằng bash scripts/ci/bot-output.sh word-packs <nhánh>)
         if: github.ref != 'refs/heads/main'
         uses: ./.github/actions/bot-output

@@ -22,6 +22,8 @@ const DAY = 86400e3;
 export const DEFAULTS = {
   ai:        { anon: [5, 10],    free: [5, 30],    ipx: 3,  store: 'd1',   providers: ['ai', 'gemini', 'groq'], cost: 50 }, // chấm Writing/Speaking
   chat:      { anon: [10, 20],   free: [20, 60],   ipx: 3,  store: 'd1',   providers: ['ai', 'gemini', 'groq'], cost: 8 },  // Roleplay for Work (lượt thoại)
+  import:    { anon: [0, 0],     free: [20, 120],  ipx: 3,  store: 'd1',   providers: ['ai', 'gemini', 'groq'], cost: 40 }, // Nhập tài liệu: AI điền nghĩa (cần đăng nhập; đếm THEO TỪ, ≤ 20 từ/lời gọi) – docs/specs/import-to-deck.md
+  readable:  { anon: [3, 20],    free: [6, 60],    ipx: 3,  store: 'edge' },                                        // /api/readable: đọc bài từ liên kết (Nhập tài liệu)
   handoff:   { anon: [3, 10],    free: [3, 10],    ipx: 3,  store: 'd1' },                                          // chuyển máy bằng QR (lượt tạo mã)
   contact:   { anon: [2, 5],     free: [2, 5],     ipx: 2,  store: 'd1',   providers: ['mail'] },                   // form liên hệ → thư
   sync:      { anon: [0, 0],     free: [6, 1500],  ipx: 10, store: 'edge' },                                        // đồng bộ D1 (bắt buộc đăng nhập)

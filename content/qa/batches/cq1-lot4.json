@@ -1,0 +1,28 @@
+{
+ "id": "cq1-lot4-20261111",
+ "source": "usage",
+ "n": 60,
+ "checked": [
+  {
+   "id": "usage:prep-adj:vulnerable",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-adj:worthy",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-adj:equivalent",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-adj:specific",
+   "ok": true
+  },
+  {
+   "id": "usage:prep-adj:unique",
+   "ok": true
+  }
+ ],
+ "status": "pending"
+}

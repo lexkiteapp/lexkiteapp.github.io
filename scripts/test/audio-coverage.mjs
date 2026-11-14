@@ -25,6 +25,14 @@ console.log(`✓ audio-coverage: ${Object.keys(m).length} nhóm không tụt dư
 // Số shard động của audio.yml (scripts/ci/shards.mjs): chừa 8 runner cho check PR, trần 24, ít việc → ít shard, API lỗi (bận 40) → 1
 import { shardCount } from '../ci/shards.mjs';
 assert.deepEqual([shardCount({ left: 12939, busy: 13, per: 500 }), shardCount({ left: 12939, busy: 38, per: 500 }), shardCount({ left: 100, busy: 0, per: 500 }), shardCount({ left: 1e5, busy: 0, per: 500 }), shardCount({ left: 1e5, busy: 40, per: 500 })], [19, 1, 1, 24, 1]);
+// Nguồn corpus phải tồn tại (không bỏ qua âm thầm): mọi đường dẫn web/… viết thẳng trong corpus.mjs có thật, và hàm nạp ném lỗi khi thiếu tệp
+{
+  const src = fs.readFileSync('scripts/sentence-audio/corpus.mjs', 'utf8');
+  assert.ok(/nguồn không tồn tại/.test(src) && /!fs\.existsSync\(f\)\) throw/.test(src), 'corpus.mjs: nguồn thiếu phải là lỗi cứng');
+  const lit = [...new Set([...src.matchAll(/'(web\/[A-Za-z0-9_\-./]+\.(?:js|json|tsv))'/g)].map(m => m[1]))].filter(f => !f.includes('${'));
+  const gone = lit.filter(f => !fs.existsSync(f));
+  assert.deepEqual(gone, [], `corpus.mjs trỏ tới tệp không còn: ${gone.join(', ')}`);
+}
 // LessonTeacher.say: thiếu file cả câu → UI.tts phải được thử file từng câu (không noHq) – 1/11 lời giáo viên luôn rơi về giọng máy
 import fs from 'node:fs';
 assert.ok(!/noHq:\s*!!o\.voice/.test(fs.readFileSync('web/js/lesson/teacher.js', 'utf8')), 'web/js/lesson/teacher.js: dự phòng không được bỏ qua giọng Kokoro (noHq)');

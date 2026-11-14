@@ -204,5 +204,23 @@ const shapeOk = j => JSON.stringify(Object.keys(j).sort()) === JSON.stringify([.
   ok(!g.res, 'D1 hỏng → cho qua (không chặn nhầm người học)');
 }
 
+// Nhập tài liệu (docs/specs/import-to-deck.md #5): `import` = AI điền nghĩa (kind 'import' của /api/ai, đếm THEO TỪ, khách 0) · `readable` = đọc bài từ liên kết (biên, khách có hạn)
+{
+  const imp = (o = {}, n = 5) => AI.onRequestPost({ request: req('/api/ai', { prompt: 'Give a short meaning for each word.\n' + JSON.stringify([{ w: 'ab' + (++pn), s: 'x' }]), sys: 'glosser', kind: 'import', n }, o), env: ENV }).then(parse);
+  clearEdge(); const ip = freshIp(), d = dev('imp1');
+  const g = await imp({ dev: d, ip });
+  ok(g.s === 429 && g.j.feature === 'import' && g.j.msg === 'quota.daily' && g.j.signIn === true && shapeOk(g.j), 'import: khách (0 lượt) → 429 quota.daily, gợi ý đăng nhập');
+  const U = await tok('impuser', 'imp@x.co'), ip2 = freshIp(); let r;
+  for (let i = 0; i < 6; i++) { clearEdge(); r = await imp({ tk: U, ip: ip2 }, 20); }
+  ok(r.s === 200 && r.j.left === 0, 'import: đăng nhập 120 từ/ngày = 6 lô × 20 từ (đếm theo từ, left về 0)');
+  clearEdge(); r = await imp({ tk: U, ip: ip2 }, 1);
+  ok(r.s === 429 && r.j.feature === 'import' && r.j.tier === 'free', 'import: hết 120 từ → 429 (máy khách im lặng giữ "chưa có nghĩa")');
+  const used = sql.prepare('SELECT n FROM quota_count WHERE k = ?').get('import|u:impuser'); ok(used && used.n === 121, 'import: bộ đếm D1 theo từ (120 đã dùng + 1 lượt bị từ chối): ' + (used && used.n));
+  ok(Q.DEFAULTS.import.anon[1] === 0 && Q.DEFAULTS.import.free[0] === 20 && Q.DEFAULTS.import.free[1] === 120 && Q.DEFAULTS.import.store === 'd1' && Q.DEFAULTS.readable.store === 'edge', 'DEFAULTS.import 0 / 20 mỗi phút · 120 mỗi ngày (spec); readable ở biên (0 lượt ghi D1)');
+  clearEdge(); const ai0 = await ai({ tk: U, ip: freshIp() }); ok(ai0.s === 200, 'import dùng bộ đếm riêng: chấm bài (`ai`) không bị ảnh hưởng');
+  const w0 = writes, ipr = freshIp(); let last; for (let i = 0; i < 20; i++) { if (i % 3 === 0) clearEdge(); last = await Q.gate(req('/api/readable', {}, { ip: ipr }), ENV, 'readable'); }
+  ok(!last.res && writes === w0, 'readable: 0 lượt ghi D1');
+}
+
 console.log(fails ? `✗ quota: ${fails}/${n} kiểm tra lỗi` : `✓ quota: ${n} kiểm tra – bậc, danh sách không giới hạn, burst/ngày, chặn theo IP, cầu dao, dạng 429, quản trị, khóa tự động`);
 process.exit(fails ? 1 : 0);

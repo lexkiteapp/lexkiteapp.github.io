@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_didnt_go",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Did not go!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I didn't went there.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I didn't go there.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After did not, use go.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Go! She did not go home.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I didn't went there.",
+  "right": "I didn't go there.",
+  "strike": "went",
+  "why": "After did not, use go.",
+  "memory": "Did not go.",
+  "quiz": {
+   "stem": "She did not ___ home.",
+   "options": [
+    "went",
+    "go"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Didn’t went” değil, “didn’t go”!",
+   "tip": "“Didn’t” zaten geçmiş zamanı gösterir; fiil yalın kalır: “I didn’t go there.”",
+   "caption": "“I didn't went there.” mi diyorsun? 😅 “Didn’t”ten sonra fiil yalın hâlde gelir. Doğrusu “I didn't go there.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “go”. Didn't ardından yalın fiil. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “didn't went”, but “didn't go”!",
+   "tip": "“Didn’t” already shows the past, so the verb stays plain: “I didn’t go there.”",
+   "caption": "Do you say “I didn't went there.”? 😅 After “didn’t”, the verb stays in its base form. The right sentence is “I didn't go there.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Didn’t went” değil, “didn’t go”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“Didn’t went” değil, “didn’t go”!",
+  "keyword": "I didn't go there.",
+  "value": "“Didn’t” zaten geçmiş zamanı gösterir; fiil yalın kalır: “I didn’t go there.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "“Didn’t went” değil, “didn’t go”!",
+    "description": "“I didn't went there.” mi diyorsun? 😅 “Didn’t”ten sonra fiil yalın hâlde gelir. Doğrusu “I didn't go there.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I didn't go there.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I didn't went there.” mi diyorsun? 😅 “Didn’t”ten sonra fiil yalın hâlde gelir. Doğrusu “I didn't go there.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I didn't went there.” mi diyorsun? 😅 “Didn’t”ten sonra fiil yalın hâlde gelir. Doğrusu “I didn't go there.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Didn’t went” değil, “didn’t go”! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “go”. Didn't ardından yalın fiil. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}

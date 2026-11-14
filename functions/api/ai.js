@@ -76,10 +76,10 @@ export async function onRequestPost({ request, env, waitUntil }) {
   if (+(request.headers.get('Content-Length') || 0) > 65536) return json(request, 413, { error: 'size' }); // đề ≤ 14 000 + sys ≤ 4 000 ký tự
   let body; try { body = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
   if (!body || typeof body !== 'object') return json(request, 400, { error: 'json' });
-  const prompt = String(body.prompt || ''), sys = String(body.sys || '').slice(0, 4000), rp = body.kind === 'rp';
+  const prompt = String(body.prompt || ''), sys = String(body.sys || '').slice(0, 4000), rp = body.kind === 'rp', imp = body.kind === 'import'; // 'import' = AI điền nghĩa cho Nhập tài liệu (tính năng `import`, đếm theo từ)
   if (prompt.length < 40 || prompt.length > MAX_PROMPT) return json(request, 400, { error: 'size' });
   const who = await claims((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
-  const q = await gate(request, env, rp ? 'chat' : 'ai', { who, json }); // khóa/burst/hết lượt → 429 { error:'quota', … }
+  const q = await gate(request, env, rp ? 'chat' : imp ? 'import' : 'ai', { who, json }); // khóa/burst/hết lượt → 429 { error:'quota', … }
   if (q.res) return q.res;
   if (waitUntil) await maybeHealth(env, waitUntil); // kiểm sức khỏe khóa lười (> 24 h, chạy nền)
   try {
@@ -87,7 +87,7 @@ export async function onRequestPost({ request, env, waitUntil }) {
     const h = await sha(CACHE_V + sys + '\n' + prompt);
     const hit = await env.DB.prepare('SELECT out FROM ai_cache WHERE h = ?').bind(h).first();
     if (hit) return json(request, 200, { out: JSON.parse(hit.out), cached: true }); // bài đã chấm → không tốn lượt (không báo số lượt còn lại)
-    await q.take(); if (q.res) return q.res;
+    await q.take(imp ? Math.min(20, Math.max(1, Math.floor(+body.n) || 1)) : 1); if (q.res) return q.res;
     // Cầu dao: nhà cung cấp gần 80% trần (theo số khóa) → bỏ tuyến đó; không còn tuyến nào → báo bận (máy khách dùng phương án tại máy)
     const [gemN, groqN] = await Promise.all([poolCount(env, 'gemini'), poolCount(env, 'groq')]); // đếm, không giải mã
     const use = { gemini: gemN > 0 && !q.near('gemini', gemN), groq: groqN > 0 && !q.near('groq', groqN), wai: !!env.AI && !q.near('ai') };

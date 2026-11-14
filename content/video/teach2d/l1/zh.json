@@ -1,0 +1,965 @@
+{
+ "_note": "L1 clip rows for zh (Simplified Chinese), batch 2; same schema as ../l1.json.",
+ "rows": [
+  {
+   "id": "t2_l1_zh_very",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Do not say very like!",
+    "wrong": "I very like music.",
+    "right": "I like music very much.",
+    "strike": "very like",
+    "why": "Very goes after: like it very much.",
+    "memory": "Like it very much.",
+    "quiz": {
+     "stem": "I ___ this song.",
+     "options": [
+      "very like",
+      "like very much"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Like very much! I like it very much.",
+    "native": {
+     "hook": "不能说 “I very like”！",
+     "tip": "very 不能直接放在 like 前面，要说 “like ... very much”。",
+     "caption": "你是不是也会说 “I very like music.”？😅 英语里 very 不修饰动词，要把 very much 放在句尾：“I like music very much.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“like ... very much”。very 不修饰动词！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “I very like”!",
+     "tip": "Very cannot go before a verb. Say “like ... very much”.",
+     "caption": "Do you say “I very like music.”? 😅 In English, very does not describe a verb, so put “very much” at the end: “I like music very much.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_agree",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Agree is a verb!",
+    "wrong": "She is agree with me.",
+    "right": "She agrees with me.",
+    "strike": "is agree",
+    "why": "Agree is a verb. Do not add is.",
+    "memory": "She agrees with me.",
+    "quiz": {
+     "stem": "He ___ with my idea.",
+     "options": [
+      "is agree",
+      "agrees"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Agrees! He agrees with my idea.",
+    "native": {
+     "hook": "agree 前面不加 is！",
+     "tip": "agree 本身就是动词，不要再加 is/am/are。",
+     "caption": "你是不是也会说 “She is agree with me.”？😅 agree 本身是动词，前面不需要 is：“She agrees with me.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“agrees”。agree 本身是动词！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "No “is” before agree!",
+     "tip": "Agree is already a verb, so do not add is, am or are.",
+     "caption": "Do you say “She is agree with me.”? 😅 Agree is already a verb, so no is is needed: “She agrees with me.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_doesnt",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "He plus doesn't, not don't!",
+    "wrong": "He don't like tea.",
+    "right": "He doesn't like tea.",
+    "strike": "don't",
+    "why": "With he or she, use doesn't.",
+    "memory": "He doesn't like tea.",
+    "quiz": {
+     "stem": "She ___ like coffee.",
+     "options": [
+      "don't",
+      "doesn't"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Doesn't! She doesn't like coffee.",
+    "native": {
+     "hook": "he/she 后别用 don't！",
+     "tip": "主语是 he、she、it 时，否定要用 “doesn't”。",
+     "caption": "你是不是也会说 “He don't like tea.”？😅 主语是第三人称单数时，否定要用 doesn't：“He doesn't like tea.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“doesn't”。主语是 he/she/it 要用 doesn't！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "He, she, it: doesn't!",
+     "tip": "With he, she or it, the negative is “doesn't”.",
+     "caption": "Do you say “He don't like tea.”? 😅 With he, she or it as the subject, the negative is doesn't: “He doesn't like tea.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_info",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Information has no s!",
+    "wrong": "Can you give me some informations?",
+    "right": "Can you give me some information?",
+    "strike": "informations",
+    "why": "Information has no plural.",
+    "memory": "Some information.",
+    "quiz": {
+     "stem": "I need some ___.",
+     "options": [
+      "information",
+      "informations"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Information! I need some information.",
+    "native": {
+     "hook": "information 没有复数！",
+     "tip": "information 是不可数名词，后面不加 s。",
+     "caption": "你是不是也会说 “Can you give me some informations?”？😅 information 是不可数名词，不能加 s：“Can you give me some information?”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“information”。information 不可数！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "No plural for information!",
+     "tip": "Information is uncountable, so never add an s.",
+     "caption": "Do you say “Can you give me some informations?”? 😅 Information is uncountable, so it never takes an s: “Can you give me some information?”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_interested",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Interested or interesting?",
+    "wrong": "I am interesting in music.",
+    "right": "I am interested in music.",
+    "strike": "interesting",
+    "why": "I feel interested. Music is interesting.",
+    "memory": "I am interested.",
+    "quiz": {
+     "stem": "I am ___ in history.",
+     "options": [
+      "interesting",
+      "interested"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Interested! I am interested in history.",
+    "native": {
+     "hook": "“感兴趣”别说 interesting！",
+     "tip": "说人的感受用 interested，interesting 描述事物。",
+     "caption": "你是不是也会说 “I am interesting in music.”？😅 人感兴趣用 interested，事物有趣才用 interesting：“I am interested in music.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“interested”。人感兴趣用 interested！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "I am “interested”!",
+     "tip": "For how you feel, use interested. Interesting describes the thing.",
+     "caption": "Do you say “I am interesting in music.”? 😅 For your own feeling use interested; interesting describes the thing: “I am interested in music.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_discuss",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Discuss needs no about!",
+    "wrong": "We discussed about the plan.",
+    "right": "We discussed the plan.",
+    "strike": "about",
+    "why": "Discuss already means talk about.",
+    "memory": "Discuss the plan.",
+    "quiz": {
+     "stem": "Let us ___ the problem.",
+     "options": [
+      "discuss about",
+      "discuss"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Discuss! Let us discuss the problem.",
+    "native": {
+     "hook": "discuss 后面不加 about！",
+     "tip": "discuss 本身就有“谈论”的意思，直接接宾语。",
+     "caption": "你是不是也会说 “We discussed about the plan.”？😅 discuss 自带“谈论”的意思，后面直接接内容：“We discussed the plan.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“discuss”。discuss 后不加 about！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "No “about” after discuss!",
+     "tip": "Discuss already means “talk about”, so go straight to the object.",
+     "caption": "Do you say “We discussed about the plan.”? 😅 Discuss already means talk about, so no about is needed: “We discussed the plan.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_explain",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Explain needs to!",
+    "wrong": "He explained me the rule.",
+    "right": "He explained the rule to me.",
+    "strike": "explained me",
+    "why": "With explain, say to before the person.",
+    "memory": "Explain it to me.",
+    "quiz": {
+     "stem": "Please ___ it to me.",
+     "options": [
+      "explain",
+      "explain me"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Explain! Please explain it to me.",
+    "native": {
+     "hook": "explain 后面要用 “to”！",
+     "tip": "explain 后面先说事情，再用 “to + 人”。",
+     "caption": "你是不是也会说 “He explained me the rule.”？😅 explain 后要先说内容，再用 to 引出对象：“He explained the rule to me.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“explain ... to me”。explain 要用 to 接人！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Explain it “to” me!",
+     "tip": "After explain, say the thing first, then “to” the person.",
+     "caption": "Do you say “He explained me the rule.”? 😅 After explain, name the thing first, then use to for the person: “He explained the rule to me.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_bored",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Bored is how you feel!",
+    "wrong": "I am boring.",
+    "right": "I am bored.",
+    "strike": "boring",
+    "why": "Bored is a feeling. Boring is the thing.",
+    "memory": "I am bored.",
+    "quiz": {
+     "stem": "The film is ___. I am tired.",
+     "options": [
+      "bored",
+      "boring"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Boring! The film is boring.",
+    "native": {
+     "hook": "“我很无聊”别说 boring！",
+     "tip": "bored 表示人的感受，boring 表示事物让人觉得无聊。",
+     "caption": "你是不是也会说 “I am boring.”？😅 说自己无聊要用 bored，boring 描述的是事物：“I am bored.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“bored”。自己的感受用 bored！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“I am bored”, not “boring”!",
+     "tip": "Bored is how you feel. Boring describes the thing that bores you.",
+     "caption": "Do you say “I am boring.”? 😅 Bored is how you feel; boring describes the thing: “I am bored.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_onfoot",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Do not say by foot!",
+    "wrong": "I go to school by foot.",
+    "right": "I go to school on foot.",
+    "strike": "by foot",
+    "why": "Say on foot. Not by foot.",
+    "memory": "On foot.",
+    "quiz": {
+     "stem": "We went home ___ foot.",
+     "options": [
+      "by",
+      "on"
+     ],
+     "answer": 1
+    },
+    "answer_say": "On! We went home on foot.",
+    "native": {
+     "hook": "“步行”不是 by foot！",
+     "tip": "“步行”的固定说法是 “on foot”，不是 by foot。",
+     "caption": "你是不是也会说 “I go to school by foot.”？😅 “步行”要用固定搭配 on foot：“I go to school on foot.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“on foot”。on foot 是固定搭配！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “by foot”!",
+     "tip": "“On foot” is the fixed phrase for walking, not “by foot”.",
+     "caption": "Do you say “I go to school by foot.”? 😅 On foot is the fixed phrase for walking: “I go to school on foot.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_hair",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Hair has no s!",
+    "wrong": "She has long hairs.",
+    "right": "She has long hair.",
+    "strike": "hairs",
+    "why": "Hair has no plural s.",
+    "memory": "Long hair.",
+    "quiz": {
+     "stem": "He has short ___.",
+     "options": [
+      "hair",
+      "hairs"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Hair! He has short hair.",
+    "native": {
+     "hook": "头发不能加 s！",
+     "tip": "hair 指头发时是不可数名词，不加 s。",
+     "caption": "你是不是也会说 “She has long hairs.”？😅 hair 指整头头发时不可数，不加 s：“She has long hair.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“hair”。hair 不可数！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Hair has no “s”!",
+     "tip": "Hair is uncountable, so do not add an s.",
+     "caption": "Do you say “She has long hairs.”? 😅 Hair is uncountable when it means all the hair on the head: “She has long hair.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_athome",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "At home, not in!",
+    "wrong": "I am in the home.",
+    "right": "I am at home.",
+    "strike": "in the home",
+    "why": "Say at home. No the.",
+    "memory": "At home.",
+    "quiz": {
+     "stem": "She is ___ home now.",
+     "options": [
+      "in",
+      "at"
+     ],
+     "answer": 1
+    },
+    "answer_say": "At! She is at home now.",
+    "native": {
+     "hook": "“在家”是 at home！",
+     "tip": "“在家”的固定说法是 “at home”，不用 in the home。",
+     "caption": "你是不是也会说 “I am in the home.”？😅 “在家”要说 at home，不加 the：“I am at home.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“at home”。at home 是固定说法！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "It is “at home”!",
+     "tip": "The fixed phrase is “at home”, not “in the home”.",
+     "caption": "Do you say “I am in the home.”? 😅 The fixed phrase is at home, with no the: “I am at home.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_advice",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Advice has no a!",
+    "wrong": "Can you give me an advice?",
+    "right": "Can you give me some advice?",
+    "strike": "an advice",
+    "why": "Advice has no a and no s.",
+    "memory": "Some advice.",
+    "quiz": {
+     "stem": "I need some ___.",
+     "options": [
+      "advice",
+      "an advice"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Advice! I need some advice.",
+    "native": {
+     "hook": "advice 前不能加 an！",
+     "tip": "advice 是不可数名词，不能加 a/an，也不加 s。",
+     "caption": "你是不是也会说 “Can you give me an advice?”？😅 advice 不可数，不加 a/an，也不加 s：“Can you give me some advice?”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“some advice”。advice 不可数！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "No “an” before advice!",
+     "tip": "Advice is uncountable: no a, no an, no s.",
+     "caption": "Do you say “Can you give me an advice?”? 😅 Advice is uncountable, so no a, an or s: “Can you give me some advice?”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_moretall",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Do not say more taller!",
+    "wrong": "He is more taller than me.",
+    "right": "He is taller than me.",
+    "strike": "more taller",
+    "why": "Taller already means more tall.",
+    "memory": "Taller than me.",
+    "quiz": {
+     "stem": "She is ___ than her brother.",
+     "options": [
+      "more older",
+      "older"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Older! She is older than her brother.",
+    "native": {
+     "hook": "不能说 more taller！",
+     "tip": "短形容词比较级直接加 -er，前面不要再加 more。",
+     "caption": "你是不是也会说 “He is more taller than me.”？😅 短形容词加 -er 就够了，不用再加 more：“He is taller than me.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“taller”。短词加 -er 不加 more！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Not “more taller”!",
+     "tip": "Short adjectives take er, so do not add more.",
+     "caption": "Do you say “He is more taller than me.”? 😅 Short adjectives only need er, not more as well: “He is taller than me.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_goodnews",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "News has no a!",
+    "wrong": "I have a good news.",
+    "right": "I have good news.",
+    "strike": "a good news",
+    "why": "News has no a. Say good news.",
+    "memory": "Good news.",
+    "quiz": {
+     "stem": "I have ___ for you.",
+     "options": [
+      "good news",
+      "a good news"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Good news! I have good news for you.",
+    "native": {
+     "hook": "news 前不能加 a！",
+     "tip": "news 是不可数名词，不能加 a，也不加 s。",
+     "caption": "你是不是也会说 “I have a good news.”？😅 news 是不可数名词，前面不加 a：“I have good news.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“good news”。news 不可数！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "No “a” before news!",
+     "tip": "News is uncountable, so do not use a before it.",
+     "caption": "Do you say “I have a good news.”? 😅 News is uncountable, so it takes no a: “I have good news.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_amwork",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Do not add am to work!",
+    "wrong": "I am work in a bank.",
+    "right": "I work in a bank.",
+    "strike": "am work",
+    "why": "Work is a verb. Do not add am.",
+    "memory": "I work in a bank.",
+    "quiz": {
+     "stem": "My father ___ in a hospital.",
+     "options": [
+      "is work",
+      "works"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Works! My father works in a hospital.",
+    "native": {
+     "hook": "work 前面不加 am！",
+     "tip": "work 是动词，不要再加 am/is/are。",
+     "caption": "你是不是也会说 “I am work in a bank.”？😅 work 本身就是动词，前面不需要 am：“I work in a bank.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“work”。work 本身是动词！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "No “am” before work!",
+     "tip": "Work is already a verb, so do not add am, is or are.",
+     "caption": "Do you say “I am work in a bank.”? 😅 Work is already a verb, so no am is needed: “I work in a bank.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_lastnight",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Last night, not yesterday night!",
+    "wrong": "I slept late yesterday night.",
+    "right": "I slept late last night.",
+    "strike": "yesterday night",
+    "why": "Say last night. Not yesterday night.",
+    "memory": "Last night.",
+    "quiz": {
+     "stem": "I called her ___ night.",
+     "options": [
+      "yesterday",
+      "last"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Last! I called her last night.",
+    "native": {
+     "hook": "“昨晚”是 last night！",
+     "tip": "“昨晚”要说 “last night”，不说 yesterday night。",
+     "caption": "你是不是也会说 “I slept late yesterday night.”？😅 “昨晚”的固定说法是 last night：“I slept late last night.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“last night”。last night 是固定说法！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "It is “last night”!",
+     "tip": "The phrase for yesterday evening is “last night”, not “yesterday night”.",
+     "caption": "Do you say “I slept late yesterday night.”? 😅 The fixed phrase is last night, not yesterday night: “I slept late last night.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_dependon",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Depend takes on!",
+    "wrong": "It depends of the weather.",
+    "right": "It depends on the weather.",
+    "strike": "of",
+    "why": "Say depend on. Not depend of.",
+    "memory": "Depend on.",
+    "quiz": {
+     "stem": "It depends ___ you.",
+     "options": [
+      "of",
+      "on"
+     ],
+     "answer": 1
+    },
+    "answer_say": "On! It depends on you.",
+    "native": {
+     "hook": "“取决于”是 depend on！",
+     "tip": "“取决于”的固定搭配是 “depend on”，不是 depend of。",
+     "caption": "你是不是也会说 “It depends of the weather.”？😅 “取决于”要用 depend on：“It depends on the weather.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“depend on”。depend 后接 on！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Depend “on”, not “of”!",
+     "tip": "The fixed phrase is “depend on”, not “depend of”.",
+     "caption": "Do you say “It depends of the weather.”? 😅 The fixed phrase is depend on: “It depends on the weather.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_sincelive",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Since needs have lived!",
+    "wrong": "I live here since 2020.",
+    "right": "I have lived here since 2020.",
+    "strike": "live",
+    "why": "With since, use have lived.",
+    "memory": "Since: have lived.",
+    "quiz": {
+     "stem": "I ___ here since 2019.",
+     "options": [
+      "live",
+      "have lived"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Have lived! I have lived here since 2019.",
+    "native": {
+     "hook": "since 要搭配 “have lived”！",
+     "tip": "说“从某时起一直……”要用现在完成时：have lived。",
+     "caption": "你是不是也会说 “I live here since 2020.”？😅 “从某时起一直”要用现在完成时：“I have lived here since 2020.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“have lived”。since 用现在完成时！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Since + “have lived”!",
+     "tip": "For something that started in the past and continues, use the present perfect.",
+     "caption": "Do you say “I live here since 2020.”? 😅 For something that started in the past and continues, use present perfect: “I have lived here since 2020.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_marriedto",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Married to, not with!",
+    "wrong": "She is married with a doctor.",
+    "right": "She is married to a doctor.",
+    "strike": "with",
+    "why": "Say married to. Not married with.",
+    "memory": "Married to.",
+    "quiz": {
+     "stem": "He is married ___ my sister.",
+     "options": [
+      "with",
+      "to"
+     ],
+     "answer": 1
+    },
+    "answer_say": "To! He is married to my sister.",
+    "native": {
+     "hook": "“嫁给/和…结婚”是 married to！",
+     "tip": "“和某人结婚”要说 “be married to”，不是 married with。",
+     "caption": "你是不是也会说 “She is married with a doctor.”？😅 “和某人结婚”要用 be married to：“She is married to a doctor.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“married to”。结婚用 married to！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Married “to”, not “with”!",
+     "tip": "Say “be married to” someone, not “married with”.",
+     "caption": "Do you say “She is married with a doctor.”? 😅 To say who you are married to, use be married to: “She is married to a doctor.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_whenarrive",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "No will after when!",
+    "wrong": "I will call you when I will arrive.",
+    "right": "I will call you when I arrive.",
+    "strike": "will arrive",
+    "why": "After when, use arrive. No will.",
+    "memory": "When I arrive.",
+    "quiz": {
+     "stem": "Call me when you ___ home.",
+     "options": [
+      "will get",
+      "get"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Get! Call me when you get home.",
+    "native": {
+     "hook": "when 后面不用 will！",
+     "tip": "when 引导的时间从句，即使说将来的事，也用一般现在时。",
+     "caption": "你是不是也会说 “I will call you when I will arrive.”？😅 when 引导时间从句时，用现在时表示将来：“I will call you when I arrive.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“when I arrive”。时间从句用现在时！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "No “will” after when!",
+     "tip": "In a clause with when, use the present tense even for the future.",
+     "caption": "Do you say “I will call you when I will arrive.”? 😅 After when, use the present tense even for the future: “I will call you when I arrive.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_everyone",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Everyone is one person!",
+    "wrong": "Everyone are happy today.",
+    "right": "Everyone is happy today.",
+    "strike": "are",
+    "why": "Everyone is like one person. Use is.",
+    "memory": "Everyone is.",
+    "quiz": {
+     "stem": "Everyone ___ here.",
+     "options": [
+      "are",
+      "is"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Is! Everyone is here.",
+    "native": {
+     "hook": "everyone 后面用 is！",
+     "tip": "everyone 虽然指很多人，但语法上是单数，动词用 is。",
+     "caption": "你是不是也会说 “Everyone are happy today.”？😅 everyone 在语法上是单数，动词要用 is：“Everyone is happy today.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“is”。everyone 语法上是单数！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Everyone” takes is!",
+     "tip": "Everyone is grammatically singular, so use is.",
+     "caption": "Do you say “Everyone are happy today.”? 😅 Everyone is singular in grammar, so use is: “Everyone is happy today.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_manyhw",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Homework has no s!",
+    "wrong": "I have many homeworks today.",
+    "right": "I have a lot of homework today.",
+    "strike": "many homeworks",
+    "why": "Homework has no s. Say a lot of.",
+    "memory": "A lot of homework.",
+    "quiz": {
+     "stem": "I have a lot of ___.",
+     "options": [
+      "homework",
+      "homeworks"
+     ],
+     "answer": 0
+    },
+    "answer_say": "Homework! I have a lot of homework.",
+    "native": {
+     "hook": "homework 不能加 s！",
+     "tip": "homework 是不可数名词，不加 s，也不能用 many。",
+     "caption": "你是不是也会说 “I have many homeworks today.”？😅 homework 不可数，不加 s，要用 a lot of：“I have a lot of homework today.”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“a lot of homework”。homework 不可数！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "No “s” on homework!",
+     "tip": "Homework is uncountable, so no s and no many. Say “a lot of”.",
+     "caption": "Do you say “I have many homeworks today.”? 😅 Homework is uncountable, so no s and no many: “I have a lot of homework today.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_forstudy",
+   "lang": "zh",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Use to before a verb!",
+    "wrong": "I came here for study English.",
+    "right": "I came here to study English.",
+    "strike": "for study",
+    "why": "Before a verb, use to. Not for.",
+    "memory": "To study English.",
+    "quiz": {
+     "stem": "I went out ___ buy milk.",
+     "options": [
+      "for",
+      "to"
+     ],
+     "answer": 1
+    },
+    "answer_say": "To! I went out to buy milk.",
+    "native": {
+     "hook": "目的用 to + 动词！",
+     "tip": "表示目的时，to 后面接动词原形，不用 for + 动词。",
+     "caption": "你是不是也会说 “I came here for study English.”？😅 说目的要用 to + 动词原形：“I came here to study English.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“to study”。目的用 to + 动词！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“To” + verb for a goal!",
+     "tip": "To give a purpose, use “to” plus a verb, not “for” plus a verb.",
+     "caption": "Do you say “I came here for study English.”? 😅 To give a purpose, use to plus the base verb: “I came here to study English.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_zh_lend",
+   "lang": "zh",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Borrow means take!",
+    "wrong": "Can you borrow me a pen?",
+    "right": "Can you lend me a pen?",
+    "strike": "borrow",
+    "why": "Borrow is take. Lend is give.",
+    "memory": "Lend me, I borrow.",
+    "quiz": {
+     "stem": "Can you ___ me a pen?",
+     "options": [
+      "borrow",
+      "lend"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Lend! Can you lend me a pen?",
+    "native": {
+     "hook": "borrow 和 lend 别混淆！",
+     "tip": "borrow 是“借进”，lend 是“借出”；让别人借给你要说 lend me。",
+     "caption": "你是不是也会说 “Can you borrow me a pen?”？😅 borrow 是借入，lend 是借出，别搞反：“Can you lend me a pen?”。跟着 Carlos 老师读一读！在 Lexkite 应用里练习更多。",
+     "comment": "答案：“lend”。借给我用 lend！免费测验在这里：{link}",
+     "hashtags": [
+      "#学英语",
+      "#英语口语",
+      "#英语学习",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Borrow or lend?",
+     "tip": "Borrow means to take; lend means to give. Ask someone to lend you things.",
+     "caption": "Do you say “Can you borrow me a pen?”? 😅 Borrow means taking, lend means giving: “Can you lend me a pen?”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  }
+ ]
+}
