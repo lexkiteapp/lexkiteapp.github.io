@@ -113,6 +113,8 @@ async function rerunInfra(token, pr, dry) {
       failed.push({ name: j.name, infra: isInfraJob(j, ann) });
     }
     if (!shouldRerun(run, failed)) continue;
+    // 14/11 (#1285): ảnh PR chụp đầu lượt có thể đã cũ – chạy lại lượt của sha cũ sẽ HUỶ lượt của head mới (concurrency cancel-in-progress) → đọc lại head trước mỗi POST.
+    if (!dry && (await listOne(token, pr.number))?.sha !== pr.sha) break;
     if (dry || (await call(token, 'POST', `/repos/${REPO}/actions/runs/${run.id}/rerun-failed-jobs`)).ok) n++;
   }
   return n;
