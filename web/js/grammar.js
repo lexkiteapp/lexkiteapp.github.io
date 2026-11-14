@@ -121,7 +121,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
       title: t('Ngữ pháp'), sub: t('{n} bài học trực quan', { n: all.length }), blurb: t('{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.', { n: all.length }),
       pct: all.length ? Math.round(nDone / all.length * 100) : 0, prog: t('{done}/{n} bài đã đạt', { done: nDone, n: all.length }), cta: t('Học ngay'),
       nx: nx && { href: '#/grammar/' + nx.x.id, h: t('Bài tiếp theo') + ': ' + TTL(nx.x), sub: [d[nx.x.id] != null ? t('Làm lại cho chắc · lần trước {pct}%', { pct: d[nx.x.id] }) : '', t('Chương {n}', { n: nx.c.n }), SUM(nx.x)].filter(Boolean).join(' · ') },
-      tabs: ['all', 'ielts', 'toeic'].map(k => ({ k, l: lbl[k], on: gtab === k })),
+      chips: ['all', 'ielts', 'toeic'].map(k => ({ k, l: lbl[k], on: gtab === k })),
       ch: ch.length ? ch : [{ empty: true, h: t('Đang cập nhật bài học…') }],
       cards: [card('#/grammar/mix', t('Đề tổng hợp {n} câu', { n: 20 }), t('Trộn câu hỏi từ các bài đã học (hoặc mọi bài)')), card('#/grammar/mix?n=40', t('Đề tổng hợp {n} câu', { n: 40 }), t('Ôn toàn bộ chương trình – như bài thi cuối khóa')),
         card('#/verb', t('Chia động từ'), t('Mọi thì, bị động, cách đọc -ed/-s')), card('#/fix', t('Sửa ngữ pháp'), t('Dán đoạn văn – gạch chân lỗi, sửa 1 chạm'))],

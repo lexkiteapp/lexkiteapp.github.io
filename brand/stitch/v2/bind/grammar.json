@@ -58,7 +58,7 @@
  },
  "repeat": [
   {
-   "list": "d.tabs",
+   "list": "d.chips",
    "as": "r",
    "variants": {
     "on": ":scope > main > div > div:nth-child(2) > span:nth-child(1)",
@@ -259,7 +259,7 @@
       }
      ],
      "html": {
-      ":scope > h2": "'<span class=\"min-w-0 flex-1\"><h2 class=\"text-[16px] font-extrabold leading-tight [overflow-wrap:anywhere]\">' + e(c.h) + '</h2>' + (c.desc ? '<span class=\"mt-0.5 block text-[12px] font-semibold leading-snug lt:text-[#496064] dk:text-[#BFD3D0]\">' + e(c.desc) + '</span>' : '') + '</span><span class=\"flex shrink-0 flex-col items-end gap-1\"><span class=\"text-[12px] font-extrabold lt:text-[#496064] dk:text-[#BFD3D0]\">' + e(c.dn) + '/' + e(c.total) + '</span><span class=\"block h-1.5 w-14 overflow-hidden rounded-full lt:bg-[#ECE4D7] dk:bg-[#37525A]\"><i class=\"block h-full rounded-full lt:bg-[#0F3D3E] dk:bg-[#5EEAD4]\" style=\"width:' + e(c.pct) + '%\"></i></span></span><svg class=\"h-5 w-5 shrink-0 transition-transform group-open:rotate-90 rtl:-scale-x-100\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg>'"
+      ":scope > h2": "'<span class=\"block min-w-0 flex-1\"><h2 class=\"text-[16px] font-extrabold leading-tight [overflow-wrap:anywhere]\">' + e(c.h) + '</h2>' + (c.desc ? '<span class=\"mt-0.5 block text-[12px] font-semibold leading-snug lt:text-[#496064] dk:text-[#BFD3D0]\">' + e(c.desc) + '</span>' : '') + '</span><span class=\"flex shrink-0 flex-col items-end gap-1\"><span class=\"text-[12px] font-extrabold lt:text-[#496064] dk:text-[#BFD3D0]\">' + e(c.dn) + '/' + e(c.total) + '</span><span class=\"block h-1.5 w-14 overflow-hidden rounded-full lt:bg-[#ECE4D7] dk:bg-[#37525A]\"><i class=\"block h-full rounded-full lt:bg-[#0F3D3E] dk:bg-[#5EEAD4]\" style=\"width:' + e(c.pct) + '%\"></i></span></span><svg class=\"h-5 w-5 shrink-0 transition-transform group-open:rotate-90 rtl:-scale-x-100\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m9 6 6 6-6 6\"/></svg>'"
      },
      "attr": {
       ":scope": {

@@ -16,7 +16,7 @@ const mk = ({ lang = 'vi', done = {}, tab = null, hist = 2 } = {}) => {
   c.document = { getElementById: () => ({}), createElement: () => ({ style: {} }), head: { appendChild() {} }, querySelector: () => null, querySelectorAll: () => [] };
   c.sessionStorage = { getItem: k => (k in log.store ? log.store[k] : null), setItem: (k, v) => { log.store[k] = v; } }; if (tab) log.store['g.tab'] = tab;
   c.history = { length: hist, back() { log.back++; } }; c.location = { set hash(v) { log.hash.push(v); } };
-  c.ST2 = { mount: (v, k, d, tabArg) => { assert.equal(k, 'grammar'); assert.equal(tabArg, 'skills', 'hub ngữ pháp thuộc tab Kỹ năng: đầu trang + thanh tab chung (journey-matrix kiểm 5 tab, đánh dấu skills)'); log.mount.push(JSON.parse(JSON.stringify(d))); log.root = root; return root; } };
+  c.ST2 = { mount: (v, k, d, tabArg) => { assert.equal(k, 'grammar'); assert.equal(tabArg, 'skills', 'hub ngữ pháp thuộc tab Kỹ năng: đầu trang + thanh tab chung (journey-matrix kiểm 5 tab, đánh dấu skills)'); assert.ok(!('tabs' in d) && !('hdr' in d), 'd.tabs/d.hdr là của shell (ST2.mount gộp đè): chip lọc dùng d.chips – trùng tên làm thanh tab chung mất nhãn/liên kết'); log.mount.push(JSON.parse(JSON.stringify(d))); log.root = root; return root; } };
   const { GRAMMAR } = loadContent(); c.GRAMMAR = GRAMMAR; c.window.GRAMMAR_CHECK = {};
   vm.createContext(c); vm.runInContext(src, c, { filename: 'grammar.js' });
   return { c, routes, log, root };
@@ -31,7 +31,7 @@ assert.equal(app.slice(app.indexOf('const ROUTE_BUNDLE'), app.indexOf('};', app.
 // 2. Người mới (chưa học gì): bài đầu = bài nên học tiếp, chương 1 mở sẵn, đủ 10 chương + hàng "Kiểm tra chương", tab Tất cả
 { const { routes, log } = mk(); routes.grammar(); const d = log.mount[0];
   assert.equal(d.pct, 0); assert.match(d.prog, /^0\/\d+ bài đã đạt$/); assert.ok(d.nx && /^#\/grammar\/[\w-]+$/.test(d.nx.href)); assert.match(d.nx.h, /^Bài tiếp theo: /); assert.match(d.nx.sub, /^Chương 1/);
-  assert.deepEqual(d.tabs.map(x => x.k + (x.on ? '*' : '')), ['all*', 'ielts', 'toeic']);
+  assert.deepEqual(d.chips.map(x => x.k + (x.on ? '*' : '')), ['all*', 'ielts', 'toeic']);
   assert.equal(d.ch.length, 10); assert.deepEqual(d.ch.map(c => c.id), Array.from({ length: 10 }, (_, i) => 'chap' + (i + 1)));
   assert.deepEqual(d.ch.map(c => c.open), [true, ...Array(9).fill(false)]);
   for (const c of d.ch) { const t = c.rows[c.rows.length - 1]; assert.ok(t.test && /^#\/grammar\/mix\?ch=\d+$/.test(t.href), 'hàng cuối mỗi chương = Kiểm tra chương'); assert.equal(c.dn, 0); assert.equal(c.total, c.rows.length - 1); }
@@ -56,14 +56,14 @@ assert.equal(app.slice(app.indexOf('const ROUTE_BUNDLE'), app.indexOf('};', app.
 // 5. Tab trọng tâm IELTS/TOEIC: chỉ nhóm bài đó trong MỘT thẻ mở sẵn (không hàng Kiểm tra chương), nhớ trong sessionStorage, chọn tab → vẽ lại + trả tiêu điểm
 for (const [k, n] of [['ielts', 15], ['toeic', 12]]) {
   const { routes, log, root, c } = mk({ tab: k }); routes.grammar(); const d = log.mount[0];
-  assert.deepEqual(d.tabs.map(x => x.on), [k === 'all', k === 'ielts', k === 'toeic']); assert.equal(d.ch.length, 1); assert.equal(d.ch[0].id, 'gFocus'); assert.ok(d.ch[0].open);
+  assert.deepEqual(d.chips.map(x => x.on), [k === 'all', k === 'ielts', k === 'toeic']); assert.equal(d.ch.length, 1); assert.equal(d.ch[0].id, 'gFocus'); assert.ok(d.ch[0].open);
   assert.ok(d.ch[0].rows.every(r => !r.test), 'tab trọng tâm không có hàng Kiểm tra chương'); assert.equal(d.ch[0].total, n, `${k}: đủ ${n} bài trọng tâm`); assert.ok(d.nx, 'vẫn có bài nên học tiếp');
   assert.equal(d.ch[0].h, k === 'ielts' ? 'Trọng tâm IELTS 7.0+' : 'Bí kíp TOEIC Part 5 & 6');
 }
 { const { routes, log, root } = mk(); routes.grammar(); let focused = 0; root.querySelector = s => (/aria-pressed/.test(s) ? { focus() { focused++; } } : null);
   root.listeners.click({ target: { closest: () => ({ dataset: { gt: 'toeic' } }) } }); assert.equal(log.store['g.tab'], 'toeic'); assert.equal(log.mount.length, 2, 'đổi tab vẽ lại'); assert.equal(log.mount[1].ch[0].id, 'gFocus'); assert.equal(focused, 1, 'trả tiêu điểm bàn phím về viên đã chọn');
   root.listeners.click({ target: { closest: () => ({ dataset: { gt: 'all' } }) } }); assert.equal(log.mount[2].ch.length, 10); }
-{ const { routes, log } = mk({ tab: 'bậy' }); routes.grammar(); assert.equal(log.mount[0].tabs[0].on, true, 'tab lạ → về Tất cả'); }
+{ const { routes, log } = mk({ tab: 'bậy' }); routes.grammar(); assert.equal(log.mount[0].chips[0].on, true, 'tab lạ → về Tất cả'); }
 
 // 6. Nút Back (đầu trang mẫu): có lịch sử → quay lại, mở thẳng liên kết → về Kỹ năng
 { const a = mk({ hist: 3 }); a.routes.grammar(); a.root.listeners.click({ target: { closest: () => ({ dataset: { gh: 'back' } }) } }); assert.equal(a.log.back, 1); assert.deepEqual(a.log.hash, []);
@@ -72,7 +72,7 @@ for (const [k, n] of [['ielts', 15], ['toeic', 12]]) {
 
 // 7. Ngôn ngữ khác: không lẫn tiếng Việt – tên bài đã dịch hoặc tên Anh; tab "Tất cả" dịch; tên Anh phụ chỉ khi khác tên chính
 { const { routes, log } = mk({ lang: 'en' }); routes.grammar(); const d = log.mount[0], rows = d.ch.flatMap(c => c.rows).filter(r => !r.test);
-  assert.ok(rows.every(r => !r.s || r.s !== r.t), 'dòng phụ không lặp lại tên chính'); assert.match(d.tabs[0].l, /^All \d+ lessons$/);
+  assert.ok(rows.every(r => !r.s || r.s !== r.t), 'dòng phụ không lặp lại tên chính'); assert.match(d.chips[0].l, /^All \d+ lessons$/);
   assert.ok(rows.filter(r => /[à-ỹ]/i.test(r.t)).length === 0, 'giao diện en: tên bài không còn tiếng Việt'); }
 
 // 8. Khung sinh dựng đủ mọi lối đi cũ cho dữ liệu thật; không còn class cũ trùng CSS chung (g-row/g-chap dùng chung với trang Khóa học)
