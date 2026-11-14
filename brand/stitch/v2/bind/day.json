@@ -1,7 +1,7 @@
 {
- "_doc": "Trang buổi học theo Ngày (#/day/N) – d do web/js/path-day.js page() dựng từ dữ liệu thật (plan/days). Đầu trang (Quay lại + chip chuỗi) và thanh tab của mẫu GỠ: trang con 'inner' dùng thanh trên + #bnav + lề #view chung của app (frame-consistency), như vocab-hub. Hàng hoạt động = <a> thật (đủ bước, bấm theo thứ tự nào cũng được): xong / tiếp theo / chưa làm (mẫu 'khóa' → mũi tên, không có khóa thật). Video bài học = .lv-slot cũ (LessonVideo.scan) đặt sau danh sách (ẩn khi chưa có video; thẻ + ảnh mẫu bịa bị gỡ). Giáo viên = Chars (d.teacher).",
+ "_doc": "Trang buổi học theo Ngày (#/day/N) – d do web/js/path-day.js page() dựng từ dữ liệu thật (plan/days). Trang con 'inner' (frame-consistency): thanh trên + #bnav + lề #view chung của app; hàng đầu của mẫu giữ lại chỉ là nút Quay lại ≥ 44 px + tiêu đề (không còn <header>, không dính đỉnh), chip chuỗi + thanh tab mẫu gỡ (app có sẵn). Hàng hoạt động = <a> thật (đủ bước, bấm theo thứ tự nào cũng được): xong / tiếp theo / chưa làm (mẫu 'khóa' → mũi tên, không có khóa thật). Video bài học = .lv-slot cũ (LessonVideo.scan) đặt sau danh sách (ẩn khi chưa có video; thẻ + ảnh mẫu bịa bị gỡ). Giáo viên = Chars (d.teacher).",
  "remove": [
-  ":scope > div > header",
+  ":scope > div > :nth-child(1) > :nth-child(3)",
   ":scope > div > nav",
   ":scope > div > main > section:nth-child(5)"
  ],
@@ -11,7 +11,11 @@
   "min-h-screen": "min-h-0",
   "pb-28": "pb-4",
   "text-headline-lg": "",
-  "px-margin": ""
+  "px-margin": "",
+  "sticky": "",
+  "top-0": "",
+  "backdrop-blur-md": "",
+  "z-40": ""
  },
  "i18n": {
   "Easy first, hard later:": "Dễ trước, khó sau:",
@@ -30,7 +34,9 @@
   "khoảng 9 phút": "d.dur",
   "2 / 6 hoạt động (33%)": "d.pt",
   "Continue Day 12: Multiple choice": "d.cta.t",
-  "Hoàn thành theo thứ tự": "d.cnt"
+  "Hoàn thành theo thứ tự": "d.cnt",
+  "Day 12": "d.title",
+  "Stage A2 · Food & Drink": "d.sub"
  },
  "html": {
   ":scope > div > main > section:nth-child(1) > div:nth-child(2) > div:nth-child(1)": "d.teacher"
@@ -58,22 +64,35 @@
   },
   ":scope > div > main > section:nth-child(6) > button:nth-child(2)": {
    "data-href": "d.h.words"
+  },
+  ":scope > div > header > button": {
+   "data-href": "'#/path'",
+   "aria-label": "d.back"
+  },
+  ":scope > div > header > div:nth-child(2) > span:nth-child(2)": {
+   "title": "d.sub"
   }
  },
  "tag": {
   ":scope > div > main > div:nth-child(3) > button": {
    "to": "a"
+  },
+  ":scope > div > header": {
+   "to": "div"
   }
  },
  "addClass": {
   ":scope > div > main > div:nth-child(3) > button": "no-underline",
   ":scope > div > main > section:nth-child(1) > div:nth-child(3)": "min-w-0",
-  ":scope > div > main > section:nth-child(1) > div:nth-child(3) > h1": "[overflow-wrap:anywhere]",
+  ":scope > div > main > section:nth-child(1) > div:nth-child(3) > h1": "[overflow-wrap:anywhere] tk-display",
   ":scope > div > main > section:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2)": "min-w-0 max-w-full [overflow-wrap:anywhere]",
   ":scope > div > main > section:nth-child(1) > div:nth-child(3) > div:nth-child(3)": "flex-wrap",
   ":scope > div > main > section:nth-child(6) > button:nth-child(1)": "min-h-[44px] min-w-0",
   ":scope > div > main > section:nth-child(6) > button:nth-child(2)": "min-h-[44px] min-w-0",
-  ":scope > div > main > section:nth-child(4)": "dayv2-steps"
+  ":scope > div > main > section:nth-child(4)": "dayv2-steps",
+  ":scope > div > header > div:nth-child(2)": "min-w-0 flex-1 px-2",
+  ":scope > div > header > div:nth-child(2) > span:nth-child(2)": "max-w-full truncate",
+  ":scope > div > header": "pr-11"
  },
  "after": {
   ":scope > div > main > div:nth-child(3)": "d.extra",

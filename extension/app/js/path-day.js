@@ -227,9 +227,9 @@
     const stepIco = s => { const g = IC[s.k] ? UI.icon(IC[s.k]) : UI.glyph(s.em); return g.startsWith('<svg') ? g : UI.icon('sparkles'); }; // luôn icon Lucide (emoji lạ như 😁 bị cắt trong vòng tròn 40 px)
     const cta = nx ? { t: (okN ? t('Tiếp tục Ngày {n}', { n: d.n }) : t('Bắt đầu Ngày {n}', { n: d.n })) + ': ' + nx.name, href: nx.href, k: nx.k }
       : { t: more ? t('Học tiếp Ngày {n}', { n: d.n + 1 }) : t('Lộ trình từ vựng'), href: more ? '#/day/' + (d.n + 1) : '#/path', k: null };
-    const done = !nx ? `<div role="status" class="mt-3 rounded-[0.75rem] border p-4 text-center font-bold lt:bg-[#ffffff] lt:border-[#e8e4da] dk:bg-[#162528] dk:border-[#213438]"><span aria-hidden="true">${UI.icon('party-popper')}</span> ${t('Hoàn thành Ngày {n}!', { n: d.n })}</div>${nextDay ? '' : nextBox(d.tr)}` : '';
+    const done = !nx ? `<div role="status" class="mt-3 rounded-[0.75rem] border p-4 text-center font-bold bg-[color:var(--surface)] border-[color:var(--line)]"><span aria-hidden="true">${UI.icon('party-popper')}</span> ${t('Hoàn thành Ngày {n}!', { n: d.n })}</div>${nextDay ? '' : nextBox(d.tr)}` : '';
     const root = ST2.mount(view, 'day', {
-      lp: t('Tiến độ trong ngày'), la: t('Các hoạt động của ngày'), tn: t('Cô Ama'), teacher: Chars.slot('ama', { pose: 'point', size: 's', lazy: false }),
+      title: t('Ngày {n}', { n: d.n }), sub: `${stage.name} · ${d.unit.topic.name}`, back: t('Quay lại'), lp: t('Tiến độ trong ngày'), la: t('Các hoạt động của ngày'), tn: t('Cô Ama'), teacher: Chars.slot('ama', { pose: 'point', size: 's', lazy: false }),
       n: String(d.n), chip: `${d.tr.name} · ${stage.name}${stage.band === '' ? '' : ' · CEFR ' + stage.cefr}`, h1: `${t('Ngày {n}', { n: d.n })}: ${d.unit.topic.name}`,
       words: t('{n} từ mới', { n: d.topic.words.length }), dur: t('≈ {m} phút', { m: minsOf(st) }),
       pt: `${cnt} (${pct}%)`, cnt: `${okN}/${st.length}`, pct, okN, total: st.length, cta, extra: done,
