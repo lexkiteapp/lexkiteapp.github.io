@@ -161,7 +161,11 @@ body.call-on{overflow:hidden}
     let id = c.start, rec = null, dead = false, t0 = Date.now(), tick = 0, autoMic = false, showTr = pref('tr') !== '0' && I18N.lang() !== 'en', busy = false;
     let turn = 0, phase = 'talk', tAsk = 0, longBuf = [], longEnd = 0, prepEnd = 0, tch = null, sayRun = 0;
     const log = [], lat = [], tr = {};
-    const close = () => { dead = true; clearInterval(tick); sayRun++; if (tch) try { tch.stop(); tch.destroy && tch.destroy(); } catch (e) { /* bỏ qua */ } UI.stopSpeak(); stopRec(); if (!V2) ov.remove(); document.body.classList.remove('call-on'); document.removeEventListener('keydown', onKey); };
+    // Call RT (cờ lk.call_rt, docs/specs/call-realtime.md): VAD trên máy biết nói xong → dừng nhận dạng ngay · nói chen → giáo viên im · câu đệm che trễ
+    const RT = window.CallRT && CallRT.on() ? CallRT.session() : null;
+    let det = null, barge = null, filling = 0, fillT = 0, afterFill = null;
+    const rtOff = () => { clearTimeout(fillT); if (det) { det.stop(); det = null; } if (barge) { barge.stop(); barge = null; } };
+    const close = () => { dead = true; clearInterval(tick); sayRun++; rtOff(); if (RT) RT.stop(); if (tch) try { tch.stop(); tch.destroy && tch.destroy(); } catch (e) { /* bỏ qua */ } UI.stopSpeak(); stopRec(); if (!V2) ov.remove(); document.body.classList.remove('call-on'); document.removeEventListener('keydown', onKey); };
     App.cleanups.push(close);
     const onKey = e => { if (e.key === 'Escape') hang(); };
     document.addEventListener('keydown', onKey);
@@ -238,17 +242,30 @@ body.call-on{overflow:hidden}
       if (tch && window.SayText) caps = [...l1.children].map(sp => SayText.prep(sp, { wait: 0 }));
       paintTr(); if (canTr && showTr) setTimeout(() => alive() && fetchTr(cur), 1200);
       setPhase('talk');
-      const done = () => { if (my !== sayRun || !alive()) return; if (caps) caps.forEach(c => c && c.all()); setPhase('you'); if (then) then(); else if (autoMic && node() && !node().prep) listen(); };
+      const done = () => { if (my !== sayRun || !alive()) return; if (caps) caps.forEach(c => c && c.all()); if (barge) { barge.stop(); barge = null; } setPhase('you'); if (then) then(); else if (autoMic && node() && !node().prep) listen(); };
       const one = k => {
         if (my !== sayRun || !alive()) return;
         if (k >= cur.length) return done();
         const text = cur[k]; let fin = false; const next = () => { if (fin) return; fin = true; one(k + 1); };
+        if (RT && !k) RT.mark('say');
         if (tch) tch.say(text, { voice, accent: ACCENT, onEnd: next, caption: caps && caps[k] }); else UI.tts(text, ACCENT, undefined, { voice, onEnd: next });
         setTimeout(next, Math.min(15000, 1500 + text.length * 90)); // trình duyệt không báo kết thúc → vẫn đi tiếp
       };
-      one(0);
+      if (RT && autoMic && RT.live() && node() && /^(local|whisper|cloud)$/.test(mode())) { // người học nói chen → giáo viên im, mở nghe ngay
+        if (barge) barge.stop();
+        barge = RT.detect({ mode: 'barge' }, { start: () => { if (my !== sayRun || !alive()) return; barge.stop(); barge = null; hush(); RT.mark('hushed'); listen(); } });
+      }
+      if (filling) afterFill = () => one(0); else one(0); // câu đệm đang nói → câu đáp xếp ngay sau, không cắt
     }
-    const hush = () => { if (caps) caps.forEach(c => c && c.all()); sayRun++; if (tch) try { tch.stop(); } catch (e) { /* bỏ qua */ } UI.stopSpeak(); };
+    const hush = () => { if (caps) caps.forEach(c => c && c.all()); sayRun++; filling = 0; afterFill = null; clearTimeout(fillT); if (tch) try { tch.stop(); } catch (e) { /* bỏ qua */ } UI.stopSpeak(); };
+    // câu đệm Kokoro (call/fillers.js) đúng giọng giáo viên: 180 ms sau khi nói xong mà chưa có câu đáp
+    const fill = () => {
+      if (!RT || !alive() || phase === 'talk') return; const x = RT.filler(c.who); if (!x) return;
+      filling = 1; RT.mark('filler', { text: x });
+      const end = () => { if (!filling) return; filling = 0; clearTimeout(fillT); const f = afterFill; afterFill = null; if (f) f(); };
+      fillT = setTimeout(end, 1500);
+      if (tch) tch.say(x, { voice, accent: ACCENT, onEnd: end }); else UI.tts(x, ACCENT, undefined, { onEnd: end });
+    };
 
     const showOpts = () => {
       const box = $('#cOpts', ov), n = node(), cue = $('#cCue', ov);
@@ -270,7 +287,7 @@ body.call-on{overflow:hidden}
         return;
       }
       busy = true; setPhase('think'); prepEnd = 0;
-      const a0 = performance.now(); stopRec(); hush();
+      const a0 = performance.now(); stopRec(); if (RT) { if (det) { det.stop(); det = null; } RT.mark('result'); } if (!filling) hush();
       if (n.long && longBuf.length && !picked) text = longBuf.join(' ');
       if (n.long) { longEnd = 0; longBuf = []; }
       const tipBox = V2 ? $('#cTipT', ov) : $('#cTip', ov); if (V2) tipBox.textContent = t('Gợi ý trả lời'); else tipBox.innerHTML = '';
@@ -322,6 +339,15 @@ body.call-on{overflow:hidden}
       };
       if (m === 'local') cb.setup = r => { r.processLocally = true; if (n.long) r.continuous = false; if (typeof window.SpeechRecognitionPhrase === 'function' && 'phrases' in r) r.phrases = words.map(w => new window.SpeechRecognitionPhrase(w, 3)); };
       if (m === 'whisper') { cb.whisper = true; cb.maxMs = n.long ? 28000 : Math.min(15000, 3000 + (n.min || 8) * 450); }
+      if (RT) { // chữ tạm (interim) chỉ để chọn độ chờ im – UI.recognize vẫn chỉ nhận câu cuối
+        const s0u = cb.setup; cb.setup = r => { if (s0u) s0u(r); r.interimResults = true; let fn = null;
+          Object.defineProperty(r, 'onresult', { configurable: true, get: () => fn, set: f => { fn = f; } });
+          r.addEventListener('result', e => { const rs = [...e.results], fin = rs.length && rs.every(x => x.isFinal); if (det) det.hint(rs.map(x => x[0].transcript).join(' ')); if (fin && fn) fn(e); }); };
+        if (det) det.stop();
+        RT.start().then(() => { if (my !== turn || !alive()) return;
+          det = RT.detect({ mode: 'turn', long: !!n.long, minWords: n.min || 3 }, { end: () => { if (my !== turn || !alive()) return; det.stop(); det = null; try { if (rec) rec.stop(); } catch (e) { /* bỏ qua */ } if (!n.long) fillT = setTimeout(fill, 180); } });
+        }).catch(() => RT.mark('mic-fail'));
+      }
       rec = UI.recognize(n.o[0], ACCENT, cb);
       if (rec) rec._my = my; else setPhase('you');
     }

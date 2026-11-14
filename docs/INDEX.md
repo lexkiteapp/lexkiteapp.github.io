@@ -90,6 +90,7 @@
 - [LESSON-UX-V2.md](LESSON-UX-V2.md) — Bài học v2 kiểu Duolingo: gốc lỗi, ma trận dạng bài (đề → ô trả lời → gợi ý → chấm), luật nội dung CI, bản dịch câu 15 ngôn ngữ; đọc khi: sửa đề/gợi ý/dạng bài
 - [SAY-NATIVE.md](SAY-NATIVE.md) — Say it like a native: thẻ 2 mặt #/say (Stitch v2 say-front/back, Ama/Carlos 2D, nghĩa 15 ngôn ngữ trên CI, chia sẻ 1:1/4:5) + video react
 - [CALL.md](CALL.md) — Cuộc gọi Ama/Carlos #/call (kịch bản IELTS/TOEIC rẽ nhánh, nhận dạng trên máy, tổng kết sửa lỗi, luyện lại câu yếu) + nhịp câu/shadowing phát âm; đọc khi: sửa call*.js, pron/coach.js, pron/rhythm.js
+- [specs/call-realtime.md](specs/call-realtime.md) — Call thời gian thực (cờ lk.call_rt): Silero VAD trên máy, nói chen, câu đệm, phản hồi kiểu bản xứ, nói tự do có rào; đọc khi: sửa call/{endpoint,rt,fillers}.js, call-rt.yml
 - [LEARNING-PATH.md](LEARNING-PATH.md) — Lộ trình bản đồ chặng (cờ ux1): tâm lý người học → luật (SDT, flow, FSRS, i+1, chống nản), chặng theo mục tiêu thi + trình độ, nút kiểm tra kỹ năng thi; đọc khi: sửa thứ tự chặng/nút bản đồ hoặc 5 tab ux1
 - [LEXICON.md](LEXICON.md) — Kho từ vựng một nguồn sự thật: quy tắc chuẩn hóa build-lexicon, CEFR, nghĩa 13 ngôn ngữ, giọng đọc, hiển thị, ảnh minh họa; đọc khi: sửa từ vựng/nghĩa/ảnh từ
 - [MEDIA-QA-RUBRIC.md](MEDIA-QA-RUBRIC.md) — Thang chấm 100 cho tài nguyên nhân vật & video: ảnh nhân vật, bối cảnh, video, Call Mia, vòng lặp sau đăng; chỉ dùng khi ≥ 90; đọc khi: chấm lô ảnh/video
