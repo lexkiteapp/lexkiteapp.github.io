@@ -241,6 +241,7 @@
   "lesson.again": "Autre leçon",
   "lesson.map": "Carte des leçons",
   "lesson.mistakes": "Carnet d'erreurs",
+  "lesson.streakN": "{n}jours consécutifs",
   "lesson.share": "Je viens de terminer une leçon Lexkite : {a}% correct, +{x} XP",
   "lesson.copied": "Copié",
   "lesson.story.lookup": "Recherche de « {w} »…",

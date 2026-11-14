@@ -241,6 +241,7 @@
   "lesson.again": "再来一课",
   "lesson.map": "课程地图",
   "lesson.mistakes": "错题本",
+  "lesson.streakN": "{n} 天连续",
   "lesson.share": "我刚刚完成 Lexkite 课程：{a}% 正确，+{x} XP",
   "lesson.copied": "已复制",
   "lesson.story.lookup": "查找“{w}”...",

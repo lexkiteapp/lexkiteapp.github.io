@@ -241,6 +241,7 @@
   "lesson.again": "Başka ders",
   "lesson.map": "Ders haritası",
   "lesson.mistakes": "Hata defteri",
+  "lesson.streakN": "{n} günlük seri",
   "lesson.share": "Bir Lexkite dersini az önce bitirdim: %{a} doğru, +{x} XP",
   "lesson.copied": "Kopyalandı",
   "lesson.story.lookup": "“{w}” aranıyor…",

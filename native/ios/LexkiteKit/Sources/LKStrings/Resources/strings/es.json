@@ -241,6 +241,7 @@
   "lesson.again": "Otra lección",
   "lesson.map": "Mapa de lecciones",
   "lesson.mistakes": "Registro de errores",
+  "lesson.streakN": "{n} racha de días",
   "lesson.share": "Acabo de terminar una lección de Lexkite: {a}% correcto, +{x} XP",
   "lesson.copied": "Copiado",
   "lesson.story.lookup": "Buscando “{w}”…",

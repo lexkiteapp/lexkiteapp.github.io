@@ -241,6 +241,7 @@
   "lesson.again": "Bài khác",
   "lesson.map": "Bản đồ bài học",
   "lesson.mistakes": "Sổ lỗi sai",
+  "lesson.streakN": "Chuỗi {n} ngày",
   "lesson.share": "Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP",
   "lesson.copied": "Đã sao chép",
   "lesson.story.lookup": "Đang tra “{w}”…",

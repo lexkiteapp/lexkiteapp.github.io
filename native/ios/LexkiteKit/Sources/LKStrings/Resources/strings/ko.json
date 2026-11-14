@@ -241,6 +241,7 @@
   "lesson.again": "다른 레슨",
   "lesson.map": "레슨 지도",
   "lesson.mistakes": "오답 노트",
+  "lesson.streakN": "{n}일 연속",
   "lesson.share": "방금 Lexkite 수업을 마쳤습니다: {a}% 정답, +{x} XP",
   "lesson.copied": "복사됨",
   "lesson.story.lookup": "“{w}”을(를) 찾는 중…",

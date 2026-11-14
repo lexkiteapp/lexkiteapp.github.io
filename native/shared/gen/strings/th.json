@@ -241,6 +241,7 @@
   "lesson.again": "บทเรียนถัดไป",
   "lesson.map": "แผนที่บทเรียน",
   "lesson.mistakes": "สมุดจดข้อผิด",
+  "lesson.streakN": "{n}-วันต่อเนื่อง",
   "lesson.share": "ฉันเพิ่งจบบทเรียน Lexkite: ถูกต้อง {a}%, +{x} XP",
   "lesson.copied": "คัดลอกแล้ว",
   "lesson.story.lookup": "กำลังค้นหา \"{w}\"...",

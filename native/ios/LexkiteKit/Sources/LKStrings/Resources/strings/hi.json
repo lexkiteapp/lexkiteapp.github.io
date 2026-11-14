@@ -241,6 +241,7 @@
   "lesson.again": "अगला पाठ",
   "lesson.map": "पाठ का नक्शा",
   "lesson.mistakes": "गलतियों की सूची",
+  "lesson.streakN": "{n}-दिन का सिलसिला",
   "lesson.share": "मैंने अभी-अभी एक लेक्सकाइट पाठ समाप्त किया है: {a}% सही, +{x} एक्सपी",
   "lesson.copied": "कॉपी हो गया",
   "lesson.story.lookup": "\"{w}\" को देख रहे हैं...",
