@@ -39,6 +39,9 @@
    "leading-[28px]": "''",
    "text-center": "'text-left'",
    "truncate": "'leading-tight'"
+  },
+  ":scope > main > div:nth-child(3) button": {
+   "dk:text-[#EAF2F2]": "'dk:text-[#1A0E0B]'"
   }
  },
  "setClass": {
@@ -390,12 +393,12 @@
   "dk:#4a6870": "color:var(--faint)",
   "dk:#5eead4": "#5FD0C4",
   "dk:#613800": "#0A1517",
-  "dk:#9a5b00": "#B53A22",
+  "dk:#9a5b00": "#FFB054",
   "lt:#8b5000": "#92400E",
   "lt:#bec9c6/60": "color:var(--muted)",
   "lt:#bec9c6/70": "color:var(--muted)",
-  "lt:#bec9c6/80": "#DED4C4",
-  "lt:#bec9c6": "#DED4C4",
+  "lt:#bec9c6/80": "color:var(--faint)",
+  "lt:#bec9c6": "color:var(--faint)",
   "lt:#136a63": "#0D6964",
   "dk:#4a6870/60": "color:var(--faint)",
   "dk:#4a6870/70": "color:var(--faint)",
