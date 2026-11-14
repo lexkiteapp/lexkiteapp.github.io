@@ -1,5 +1,6 @@
 /* UI ja – qtips (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {
+"Bắt đầu ôn 10 phút":"10 分間の復習を始める",
 "Chưa có dữ liệu. Làm một bài luyện Listening/Reading (IELTS, TOEIC hoặc TOEFL) để bắt đầu theo dõi.":"まだデータがありません。追跡を開始するには、リスニングまたはリーディングの練習テスト (IELTS、TOEIC、または TOEFL) を実施してください。",
 "Chọn đủ 2 đáp án (thứ tự không quan trọng, mỗi đáp án đúng được 1 điểm). Đọc kỹ cả 5 phương án; loại phương án được nhắc tới nhưng bị phủ định hoặc thuộc về người/đối tượng khác.":"正確に 2 つの答えを選択してください (順序は関係ありません。正解ごとに 1 マークが加算されます)。 5 つの選択肢すべてを注意深く読み、言及されているが拒否されている選択肢、または別の人や物に属する選択肢を除外してください。",
 "Câu hỏi về quan điểm của tác giả, không phải sự thật chung. YES: tác giả đồng ý; NO: tác giả phản đối; NOT GIVEN: tác giả không nêu ý kiến về điều đó. Để ý từ thể hiện thái độ (argue, claim, unfortunately…). Đáp án theo thứ tự trong bài.":"これらの質問は、一般的な事実ではなく、筆者の見解について尋ねています。はい: 筆者も同意します。いいえ: 筆者は同意しません。 NOT GIVEN: 筆者はそれについて何も意見を述べていません。態度に関する単語 (argue, claim, unfortunately…) を探します。答えは文章の順序に従います。",
@@ -34,6 +35,7 @@
 "mỗi câu (ước tính)":"1問あたり（推定）",
 "tỉ lệ đúng":"正答率",
 "{s} giây":"{s}秒",
+"Ôn 10 phút: dạng yếu nhất của bạn":"10 分間の復習: 最も苦手な質問の種類",
 "Đáp án không theo thứ tự trong bài và một đoạn có thể dùng nhiều lần. Xác định loại thông tin cần tìm (ví dụ, lý do, số liệu, so sánh…) rồi quét. Nên làm sau các dạng khác của cùng bài, khi bạn đã quen nội dung.":"解答はパッセージ順ではなく、1 つの段落が複数回使用される場合があります。どのような種類の情報 (例、理由、図、比較など) が必要かを決定し、スキャンします。内容をすでに理解している場合は、同じパッセージの他のタスクの後にこのタスクを実行します。",
 "Đọc câu chủ đề mỗi đoạn để nắm ý chính, rồi tìm chi tiết theo câu hỏi. Câu suy luận: chọn ý bài ngụ ý, không phải ý chỉ lặp từ. Câu từ vựng: thay phương án vào câu xem có giữ đúng nghĩa không.":"各段落のトピックセンテンスを読んで主なアイデアを把握し、各質問の詳細を見つけてください。推論の質問: 単語を繰り返すだけの選択肢ではなく、文章が暗示する内容を選択してください。語彙の質問: 各選択肢を文に入れて、意味が同じであることを確認します。",
 "Đọc câu hỏi trước rồi quét bài tìm từ khóa. Với nhóm nhiều văn bản, có câu phải ghép thông tin từ 2 văn bản. Câu “NOT true” và câu chèn câu tốn thời gian – có thể làm sau. Mục tiêu khoảng 1 phút mỗi câu.":"まず質問を読んでから、テキストに目を通し、キーワードを探します。複数パッセージのセットでは、一部の質問では 2 つのテキストからの情報を組み合わせる必要があります。 「NOT true」の質問と文挿入の質問は時間がかかります。後で残しておくことができます。 1 つの質問につき約 1 分を目安にしてください。",
@@ -45,6 +47,7 @@
 "Đọc phần đầu câu và đoán phần còn thiếu cần gì (về nghĩa và ngữ pháp). Phần kết đúng phải khớp cả ngữ pháp lẫn nội dung bài. Câu hỏi theo thứ tự trong bài; luôn có nhiều phần kết hơn số câu.":"文の冒頭を読んで、足りない部分に何が必要かを予測します（意味と文法において）。正しい語尾は文法と文章の内容の両方に適合している必要があります。質問は文章の順序に従います。常に疑問よりも多くの結末があります。",
 "Đọc trước 3 câu hỏi (và biểu đồ nếu có) trong lúc nghe hướng dẫn. Câu hỏi thường theo thứ tự hội thoại: chủ đề/nơi chốn → chi tiết → việc sẽ làm tiếp theo. Đáp án thường là cách diễn đạt khác của lời nói.":"指示を読みながら、3 つの質問 (および任意の図) を読みます。通常、会話の後に質問が続きます: トピック/場所→詳細→次に何が起こるか。正解は通常、言われたことの言い換えです。",
 "Đọc trước câu hỏi. Câu đầu thường hỏi mục đích hoặc người nghe là ai – đáp án nằm ở vài câu mở đầu. Chú ý lời yêu cầu, đề nghị, thay đổi lịch ở cuối bài nói.":"まず質問を読んでください。最初の質問では、目的や対象者について尋ねられることが多く、その答えは冒頭の文にあります。トークの終わり近くで、リクエスト、提案、スケジュールの変更に耳を傾けてください。",
+"đúng {p}% ({n} câu). Dành 10 phút luyện riêng dạng này.":"{p}% 正解 ({n} 問)。このタイプを 10 分間練習してください。",
 "Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)":"今週の推定バンド数 ≈ {b} (正式な試験スコアではありません)",
 });
 })(typeof self !== 'undefined' ? self : this);

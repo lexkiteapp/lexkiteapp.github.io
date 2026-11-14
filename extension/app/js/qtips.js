@@ -148,5 +148,5 @@
     g.QWK&&g.QWK.draw(view);
   };
 
-  g.QT = { kindOf, NAME, tip, box, record, recordRaw, secsOf, summary };
+  g.QT = { kindOf, NAME, tip, box, record, recordRaw, secsOf, summary, SKILL, practiceLink };
 })(typeof self !== 'undefined' ? self : this);

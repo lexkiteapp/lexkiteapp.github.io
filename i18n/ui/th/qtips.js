@@ -1,5 +1,6 @@
 /* UI th – qtips (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["th"] = Object.assign(D["th"] || {}, {
+"Bắt đầu ôn 10 phút":"เริ่มทบทวน 10 นาที",
 "Chưa có dữ liệu. Làm một bài luyện Listening/Reading (IELTS, TOEIC hoặc TOEFL) để bắt đầu theo dõi.":"ยังไม่มีข้อมูล ทำแบบทดสอบการฟังหรือการอ่าน (IELTS, TOEIC หรือ TOEFL) เพื่อเริ่มการติดตาม",
 "Chọn đủ 2 đáp án (thứ tự không quan trọng, mỗi đáp án đúng được 1 điểm). Đọc kỹ cả 5 phương án; loại phương án được nhắc tới nhưng bị phủ định hoặc thuộc về người/đối tượng khác.":"เลือกคำตอบให้ตรงกัน 2 ข้อ (ไม่สำคัญว่าเรียงลำดับหรือไม่ ตอบถูกข้อละ 1 คะแนน) อ่านทั้ง 5 ตัวเลือกอย่างละเอียด และตัดตัวเลือกใดๆ ที่ถูกกล่าวถึงแต่ถูกปฏิเสธ หรือที่เป็นของบุคคลหรือสิ่งของอื่นออก",
 "Câu hỏi về quan điểm của tác giả, không phải sự thật chung. YES: tác giả đồng ý; NO: tác giả phản đối; NOT GIVEN: tác giả không nêu ý kiến về điều đó. Để ý từ thể hiện thái độ (argue, claim, unfortunately…). Đáp án theo thứ tự trong bài.":"คำถามเหล่านี้ถามเกี่ยวกับมุมมองของผู้เขียน ไม่ใช่ข้อเท็จจริงทั่วไป ใช่: ผู้เขียนเห็นด้วย; NO: ผู้เขียนไม่เห็นด้วย; NOT GIVEN: ผู้เขียนไม่ได้ให้ความเห็นเกี่ยวกับเรื่องนี้ มองหาคำที่แสดงทัศนคติ (argue, claim, unfortunately…) คำตอบเป็นไปตามลำดับของเนื้อเรื่อง",
@@ -34,6 +35,7 @@
 "mỗi câu (ước tính)":"ต่อข้อ (โดยประมาณ)",
 "tỉ lệ đúng":"ความแม่นยำ",
 "{s} giây":"{s} วิ",
+"Ôn 10 phút: dạng yếu nhất của bạn":"ทบทวน 10 นาที: ประเภทคำถามที่อ่อนแอที่สุดของคุณ",
 "Đáp án không theo thứ tự trong bài và một đoạn có thể dùng nhiều lần. Xác định loại thông tin cần tìm (ví dụ, lý do, số liệu, so sánh…) rồi quét. Nên làm sau các dạng khác của cùng bài, khi bạn đã quen nội dung.":"คำตอบไม่เรียงตามลำดับข้อความ และหนึ่งย่อหน้าสามารถใช้ได้มากกว่าหนึ่งครั้ง ตัดสินใจว่าคุณต้องการข้อมูลประเภทใด (ตัวอย่าง เหตุผล ตัวเลข การเปรียบเทียบ...) จากนั้นจึงสแกน ทำงานนี้หลังจากงานอื่นๆ ในส่วนเดียวกันเมื่อคุณรู้เนื้อหาแล้ว",
 "Đọc câu chủ đề mỗi đoạn để nắm ý chính, rồi tìm chi tiết theo câu hỏi. Câu suy luận: chọn ý bài ngụ ý, không phải ý chỉ lặp từ. Câu từ vựng: thay phương án vào câu xem có giữ đúng nghĩa không.":"อ่านประโยคหัวข้อของแต่ละย่อหน้าเพื่อหาแนวคิดหลัก จากนั้นดูรายละเอียดของแต่ละคำถาม คำถามอนุมาน: เลือกสิ่งที่ข้อความนั้นสื่อถึง ไม่ใช่ตัวเลือกที่ใช้เพียงคำซ้ำ คำถามคำศัพท์: ใส่แต่ละตัวเลือกลงในประโยคและตรวจสอบว่าความหมายยังคงเหมือนเดิม",
 "Đọc câu hỏi trước rồi quét bài tìm từ khóa. Với nhóm nhiều văn bản, có câu phải ghép thông tin từ 2 văn bản. Câu “NOT true” và câu chèn câu tốn thời gian – có thể làm sau. Mục tiêu khoảng 1 phút mỗi câu.":"อ่านคำถามก่อน จากนั้นจึงสแกนข้อความเพื่อหาคำสำคัญ ในชุดข้อความหลายตอน คำถามบางข้อจำเป็นต้องรวมข้อมูลจาก 2 ข้อความ คำถาม \"NOT true\" และคำถามที่มีการแทรกประโยคใช้เวลานานกว่า คุณสามารถทิ้งไว้ไว้ทีหลังได้ ตั้งเป้าไว้ประมาณ 1 นาทีต่อคำถาม",
@@ -45,6 +47,7 @@
 "Đọc phần đầu câu và đoán phần còn thiếu cần gì (về nghĩa và ngữ pháp). Phần kết đúng phải khớp cả ngữ pháp lẫn nội dung bài. Câu hỏi theo thứ tự trong bài; luôn có nhiều phần kết hơn số câu.":"อ่านจุดเริ่มต้นของประโยคและคาดเดาสิ่งที่ขาดหายไปต้องการ (ความหมายและไวยากรณ์) การลงท้ายที่ถูกต้องต้องเหมาะสมกับทั้งไวยากรณ์และเนื้อหาของเนื้อเรื่อง คำถามเป็นไปตามลำดับของข้อความ มีตอนจบมากกว่าคำถามเสมอ",
 "Đọc trước 3 câu hỏi (và biểu đồ nếu có) trong lúc nghe hướng dẫn. Câu hỏi thường theo thứ tự hội thoại: chủ đề/nơi chốn → chi tiết → việc sẽ làm tiếp theo. Đáp án thường là cách diễn đạt khác của lời nói.":"อ่านคำถาม 3 ข้อ (และกราฟิกใดๆ ก็ได้) ในขณะที่กำลังอ่านคำแนะนำ คำถามมักจะติดตามการสนทนา: หัวข้อ/สถานที่ → รายละเอียด → อะไรจะเกิดขึ้นต่อไป คำตอบที่ถูกต้องมักจะเป็นการถอดความจากสิ่งที่พูด",
 "Đọc trước câu hỏi. Câu đầu thường hỏi mục đích hoặc người nghe là ai – đáp án nằm ở vài câu mở đầu. Chú ý lời yêu cầu, đề nghị, thay đổi lịch ở cuối bài nói.":"อ่านคำถามก่อน คำถามแรกมักถามเกี่ยวกับจุดประสงค์หรือผู้ฟัง คำตอบจะมาในประโยคเปิด รับฟังคำขอ ข้อเสนอแนะ และการเปลี่ยนแปลงกำหนดการเมื่อใกล้จบการบรรยาย",
+"đúng {p}% ({n} câu). Dành 10 phút luyện riêng dạng này.":"{p}% ถูกต้อง ({n} คำถาม) ใช้เวลา 10 นาทีในการฝึกฝนประเภทนี้",
 "Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)":"วงโดยประมาณสัปดาห์นี้ ทึบ {b} (ไม่ใช่คะแนนสอบอย่างเป็นทางการ)",
 });
 })(typeof self !== 'undefined' ? self : this);

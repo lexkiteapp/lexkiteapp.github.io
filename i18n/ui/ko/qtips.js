@@ -1,5 +1,6 @@
 /* UI ko – qtips (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ko"] = Object.assign(D["ko"] || {}, {
+"Bắt đầu ôn 10 phút":"10분 복습 시작",
 "Chưa có dữ liệu. Làm một bài luyện Listening/Reading (IELTS, TOEIC hoặc TOEFL) để bắt đầu theo dõi.":"아직 데이터가 없습니다. 추적을 시작하려면 듣기 또는 읽기 연습 시험(IELTS, TOEIC 또는 TOEFL)을 수행하십시오.",
 "Chọn đủ 2 đáp án (thứ tự không quan trọng, mỗi đáp án đúng được 1 điểm). Đọc kỹ cả 5 phương án; loại phương án được nhắc tới nhưng bị phủ định hoặc thuộc về người/đối tượng khác.":"정확히 2개의 답을 선택하십시오(순서는 중요하지 않습니다. 각 정답은 1점을 얻습니다). 5가지 옵션을 모두 주의 깊게 읽고 언급되었으나 거부된 옵션이나 다른 사람이나 사물에 속한 옵션을 제외하세요.",
 "Câu hỏi về quan điểm của tác giả, không phải sự thật chung. YES: tác giả đồng ý; NO: tác giả phản đối; NOT GIVEN: tác giả không nêu ý kiến về điều đó. Để ý từ thể hiện thái độ (argue, claim, unfortunately…). Đáp án theo thứ tự trong bài.":"이러한 질문은 일반적인 사실이 아닌 작가의 견해에 대해 묻는 것입니다. 예: 작가도 동의합니다. 아니오: 작가는 동의하지 않습니다. NOT GIVEN: 작가는 이에 대해 아무런 의견도 제시하지 않습니다. 태도 단어(argue, claim, unfortunately…)를 찾으세요. 답변은 지문 순서를 따릅니다.",
@@ -34,6 +35,7 @@
 "mỗi câu (ước tính)":"문항당 (추정)",
 "tỉ lệ đúng":"정답률",
 "{s} giây":"{s}초",
+"Ôn 10 phút: dạng yếu nhất của bạn":"10분 복습: 가장 취약한 질문 유형",
 "Đáp án không theo thứ tự trong bài và một đoạn có thể dùng nhiều lần. Xác định loại thông tin cần tìm (ví dụ, lý do, số liệu, so sánh…) rồi quét. Nên làm sau các dạng khác của cùng bài, khi bạn đã quen nội dung.":"답변은 통과 순서가 아니며 한 단락이 두 번 이상 사용될 수 있습니다. 어떤 종류의 정보(예, 이유, 수치, 비교 등)가 필요한지 결정한 다음 스캔하세요. 내용을 이미 알고 있을 때 같은 구절의 다른 작업 다음에 이 작업을 수행하세요.",
 "Đọc câu chủ đề mỗi đoạn để nắm ý chính, rồi tìm chi tiết theo câu hỏi. Câu suy luận: chọn ý bài ngụ ý, không phải ý chỉ lặp từ. Câu từ vựng: thay phương án vào câu xem có giữ đúng nghĩa không.":"각 단락의 주제 문장을 읽고 주요 아이디어를 얻은 다음 각 질문에 대한 세부 사항을 찾으십시오. 추론 질문: 단지 단어를 반복하는 옵션이 아니라 구절이 의미하는 바를 선택하세요. 어휘 질문: 각 옵션을 문장에 넣고 의미가 동일하게 유지되는지 확인하세요.",
 "Đọc câu hỏi trước rồi quét bài tìm từ khóa. Với nhóm nhiều văn bản, có câu phải ghép thông tin từ 2 văn bản. Câu “NOT true” và câu chèn câu tốn thời gian – có thể làm sau. Mục tiêu khoảng 1 phút mỗi câu.":"먼저 질문을 읽은 다음 텍스트에서 핵심 단어를 찾아보세요. 여러 구절로 구성된 세트의 경우 일부 질문에는 두 텍스트의 정보를 결합해야 합니다. “NOT true” 질문과 문장 삽입 질문은 시간이 더 오래 걸립니다. 나중에 남겨두어도 됩니다. 한 문제당 약 1분을 목표로 하세요.",
@@ -45,6 +47,7 @@
 "Đọc phần đầu câu và đoán phần còn thiếu cần gì (về nghĩa và ngữ pháp). Phần kết đúng phải khớp cả ngữ pháp lẫn nội dung bài. Câu hỏi theo thứ tự trong bài; luôn có nhiều phần kết hơn số câu.":"문장 시작 부분을 읽고 빠진 부분에 필요한 것이 무엇인지 예측해 보세요(의미와 문법 측면에서). 올바른 결말은 문법과 글의 내용 모두에 맞아야 합니다. 질문은 지문 순서를 따릅니다. 항상 질문보다 결말이 더 많습니다.",
 "Đọc trước 3 câu hỏi (và biểu đồ nếu có) trong lúc nghe hướng dẫn. Câu hỏi thường theo thứ tự hội thoại: chủ đề/nơi chốn → chi tiết → việc sẽ làm tiếp theo. Đáp án thường là cách diễn đạt khác của lời nói.":"지침을 읽는 동안 3가지 질문(및 그래픽)을 읽으십시오. 질문은 대개 대화 뒤에 나옵니다: 주제/장소 → 세부사항 → 다음에 일어날 일. 정답은 일반적으로 말한 내용을 의역한 것입니다.",
 "Đọc trước câu hỏi. Câu đầu thường hỏi mục đích hoặc người nghe là ai – đáp án nằm ở vài câu mở đầu. Chú ý lời yêu cầu, đề nghị, thay đổi lịch ở cuối bài nói.":"먼저 질문을 읽어보세요. 첫 번째 질문은 종종 목적이나 청중에 대해 묻습니다. 대답은 첫 문장에서 나옵니다. 강연이 끝날 무렵 요청, 제안 및 일정 변경에 귀를 기울이십시오.",
+"đúng {p}% ({n} câu). Dành 10 phút luyện riêng dạng này.":"{p}% 정답입니다({n}개의 질문). 이 유형을 연습하는 데 10분을 투자하세요.",
 "Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)":"이번 주 예상 밴드 ≒ {b} (공식 시험 점수 아님)",
 });
 })(typeof self !== 'undefined' ? self : this);

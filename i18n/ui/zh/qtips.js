@@ -1,5 +1,6 @@
 /* UI zh – qtips (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["zh"] = Object.assign(D["zh"] || {}, {
+"Bắt đầu ôn 10 phút":"开始 10 分钟复习",
 "Chưa có dữ liệu. Làm một bài luyện Listening/Reading (IELTS, TOEIC hoặc TOEFL) để bắt đầu theo dõi.":"还没有数据。进行听力或阅读练习测试（雅思、托业或托福）以开始跟踪。",
 "Chọn đủ 2 đáp án (thứ tự không quan trọng, mỗi đáp án đúng được 1 điểm). Đọc kỹ cả 5 phương án; loại phương án được nhắc tới nhưng bị phủ định hoặc thuộc về người/đối tượng khác.":"准确选择 2 个答案（顺序无关紧要；每个正确答案得 1 分）。仔细阅读所有 5 个选项，并排除任何提到但被否认的选项，或者属于不同的人或事物的选项。",
 "Câu hỏi về quan điểm của tác giả, không phải sự thật chung. YES: tác giả đồng ý; NO: tác giả phản đối; NOT GIVEN: tác giả không nêu ý kiến về điều đó. Để ý từ thể hiện thái độ (argue, claim, unfortunately…). Đáp án theo thứ tự trong bài.":"这些问题询问的是作者的观点，而不是一般事实。是：作者同意； NO：作者不同意； NOT GIVEN：作者对此不发表任何意见。寻找态度词（argue, claim, unfortunately…）。答案按照文章的顺序进行。",
@@ -34,6 +35,7 @@
 "mỗi câu (ước tính)":"每题（估计）",
 "tỉ lệ đúng":"正确率",
 "{s} giây":"{s} 秒",
+"Ôn 10 phút: dạng yếu nhất của bạn":"10 分钟复习：你最薄弱的问题类型",
 "Đáp án không theo thứ tự trong bài và một đoạn có thể dùng nhiều lần. Xác định loại thông tin cần tìm (ví dụ, lý do, số liệu, so sánh…) rồi quét. Nên làm sau các dạng khác của cùng bài, khi bạn đã quen nội dung.":"答案不按段落顺序排列，一个段落可以多次使用。确定您需要什么类型的信息（示例、原因、数字、比较……），然后扫描。当您已经了解内容时，请在同一段落的其他任务之后执行此任务。",
 "Đọc câu chủ đề mỗi đoạn để nắm ý chính, rồi tìm chi tiết theo câu hỏi. Câu suy luận: chọn ý bài ngụ ý, không phải ý chỉ lặp từ. Câu từ vựng: thay phương án vào câu xem có giữ đúng nghĩa không.":"阅读每个段落的主题句以了解主要思想，然后找到每个问题的详细信息。推理题：选择文章暗示的内容，而不是仅仅重复单词的选项。词汇问题：将每个选项放入句子中，检查含义是否相同。",
 "Đọc câu hỏi trước rồi quét bài tìm từ khóa. Với nhóm nhiều văn bản, có câu phải ghép thông tin từ 2 văn bản. Câu “NOT true” và câu chèn câu tốn thời gian – có thể làm sau. Mục tiêu khoảng 1 phút mỗi câu.":"先阅读问题，然后浏览文本中的关键词。在多篇文章集中，有些问题需要结合两篇文章的信息。 “NOT true”问题和句子插入问题需要更长的时间 - 您可以稍后再处理。每个问题的时间约为 1 分钟。",
@@ -45,6 +47,7 @@
 "Đọc phần đầu câu và đoán phần còn thiếu cần gì (về nghĩa và ngữ pháp). Phần kết đúng phải khớp cả ngữ pháp lẫn nội dung bài. Câu hỏi theo thứ tự trong bài; luôn có nhiều phần kết hơn số câu.":"阅读句子开头并预测缺失部分需要什么（含义和语法）。正确的结尾必须符合语法和文章内容。问题遵循文章的顺序；结局总是比问题多。",
 "Đọc trước 3 câu hỏi (và biểu đồ nếu có) trong lúc nghe hướng dẫn. Câu hỏi thường theo thứ tự hội thoại: chủ đề/nơi chốn → chi tiết → việc sẽ làm tiếp theo. Đáp án thường là cách diễn đạt khác của lời nói.":"在阅读说明的同时阅读 3 个问题（以及任何图形）。问题通常跟随对话：主题/地点 → 细节 → 接下来会发生什么。正确答案通常是对所说内容的解释。",
 "Đọc trước câu hỏi. Câu đầu thường hỏi mục đích hoặc người nghe là ai – đáp án nằm ở vài câu mở đầu. Chú ý lời yêu cầu, đề nghị, thay đổi lịch ở cuối bài nói.":"首先阅读问题。第一个问题通常询问目的或受众——答案就在开头的句子中。在演讲即将结束时倾听请求、建议和日程安排的变化。",
+"đúng {p}% ({n} câu). Dành 10 phút luyện riêng dạng này.":"{p}% 正确（{n} 个问题）。花 10 分钟练习这种类型。",
 "Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)":"本周预计分数 ≈ {b}（不是官方考试分数）",
 });
 })(typeof self !== 'undefined' ? self : this);
