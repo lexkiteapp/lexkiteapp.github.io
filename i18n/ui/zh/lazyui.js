@@ -36,7 +36,7 @@
 "Band TOEFL mục tiêu?":"您的托福目标分数是多少？",
 "Band mục tiêu của bạn?":"您的目标乐队是什么？",
 "Band đầu vào {band}":"起始频段 {band}",
-"Beta":"Beta",
+"Beta":"贝塔",
 "Biết nói gì khi gọi điện, nhờ giúp, xin lỗi… – 3 mức trang trọng, câu đáp, hội thoại mẫu.":"打电话、求助、道歉时该说什么——分三种语体，附常见回应和示范对话。",
 "Biểu đồ đường":"折线图",
 "Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC":"商业服务列表：托业中常见的工作、办公室和商业词汇",
