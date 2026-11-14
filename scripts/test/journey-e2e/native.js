@@ -6,8 +6,10 @@
   const D = document, sleep = ms => new Promise(r => setTimeout(r, ms));
   const vis = s => { const e = typeof s === 'string' ? D.querySelector(s) : s; return !!(e && W.LKJC && LKJC.vis(e)); };
   const wait = async (s, ms = 10000) => { const end = Date.now() + ms; while (Date.now() < end) { if (vis(s)) return true; await sleep(200); } return false; };
-  const click = async (s, ms = 400) => { if (!(await wait(s, 8000))) throw new Error('không thấy ' + s); const e = D.querySelector(s); e.scrollIntoView({ block: 'center' }); e.click(); await sleep(ms); };
+  const click = async (s, ms = 400, w = 8000) => { if (!(await wait(s, w))) throw new Error('không thấy ' + s + ' (chờ ' + w / 1000 + ' s) · hash=' + location.hash + ' · ' + String((D.getElementById('view') || D.body).innerText || '').replace(/\s+/g, ' ').slice(0, 140)); const e = D.querySelector(s); e.scrollIntoView({ block: 'center' }); e.click(); await sleep(ms); };
   const toLast = async () => { for (let i = 0; i < 8 && !vis('#go'); i++) await click('#obNext', 250); }; // thiết lập từng bước (onboard.js)
+  // Chờ đích sau bước thiết lập: #go lưu cài đặt + thêm từ theo chủ đề trước khi chuyển (13/11: sleep cố định 1,5 s → '→ #/placement' đỏ ngẫu nhiên trên CI chậm)
+  const hashIs = async (re, ms = 20000) => { const end = Date.now() + ms; while (Date.now() < end && !re.test(location.hash)) await sleep(200); return re.test(location.hash); };
   const go = async h => { location.hash = h; await sleep(1100); };
   const ls = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
   const askOn = () => vis('#modal:not([hidden]) #raY');
@@ -25,15 +27,20 @@
   async function reset() { // hồ sơ mới cho hành trình 1 (giữ trạng thái bộ chạy __e2e + ngôn ngữ)
     const keep = {}; for (const k of ['__e2e', 'vb.uiLang', '__lkj']) if (ls(k) != null) keep[k] = ls(k);
     try { localStorage.clear(); for (const [k, v] of Object.entries(keep)) localStorage.setItem(k, v); localStorage.setItem('lk.e2e', '1'); } catch (e) { /* */ }
-    await new Promise(r => { try { const q = indexedDB.deleteDatabase('lexkite'); q.onsuccess = q.onerror = q.onblocked = () => r(); } catch (e) { r(); } setTimeout(r, 3000); });
+    // deleteDatabase bị CHẶN vì chính trang đang giữ kết nối 'lexkite' (core.js không có onversionchange) → hồ sơ cũ còn nguyên sau tải lại, setup chuyển thẳng #/home (13/11, iOS: 'không thấy [data-track]' · hash=#/home · "Day 2/3").
+    // Xoá SẠCH bảng kv bằng kết nối thứ hai (không bị chặn) thay vì xoá cả CSDL.
+    await new Promise(r => { try { const q = indexedDB.open('lexkite', 1); q.onupgradeneeded = () => q.result.createObjectStore('kv'); q.onerror = q.onblocked = () => r();
+      q.onsuccess = () => { const db = q.result, done = () => { try { db.close(); } catch (e) { /* */ } r(); }; try { const tx = db.transaction('kv', 'readwrite'); tx.objectStore('kv').clear(); tx.oncomplete = tx.onerror = tx.onabort = done; } catch (e) { done(); } }; } catch (e) { r(); } setTimeout(r, 5000); });
     return []; // bộ chạy Android coi kết quả không phải mảng = trang tải lại giữa chừng
   }
   const DAY = 864e5;
   const P = {
     reset,
     async j1a() { const t = mk('j1'); t.ok(!askOn(), 'không hỏi nhắc lúc mở app'); await go('#/welcome/setup');
-      if (vis('#noAcct')) await click('#noAcct'); await click('[data-track]'); await click('#obNext', 250); await click('[data-lv="test"]'); await toLast(); await click('#go', 1500);
-      t.ok(/placement/.test(location.hash), '→ #/placement'); await click('#go', 600);
+      // Người dùng MỚI chưa làm bài kiểm tra đầu vào: bộ chạy xoá kho rồi tải lại nhưng app có thể ghi lại hồ sơ cũ trước khi trang đóng (13/11 en: settings.placement còn → chọn 'kiểm tra' vào thẳng #/home). Chỉ làm sạch bộ nhớ của lượt này, không đổi mã app.
+      try { const st = W.App && W.App.state && W.App.state.settings; if (st && st.placement) delete st.placement; } catch (e) { /* */ }
+      if (vis('#noAcct')) await click('#noAcct'); await click('[data-track]'); await click('#obNext', 250); await click('[data-lv="test"]'); await toLast(); await click('#go', 100);
+      t.ok(await hashIs(/placement/), '→ #/placement'); await click('#go', 600);
       for (let i = 0; i < 26 && !vis('.pl-result'); i++) { const o = D.querySelectorAll('.pl-wrap .option[data-k]:not([data-k="-1"])'); if (o.length) o[i % 2 ? 1 : 0].click(); await sleep(520); }
       t.ok(await wait('.pl-result', 20000), 'kiểm tra đầu vào xong'); t.ok(!askOn(), 'không hỏi sau kiểm tra đầu vào');
       await go('#/day/1'); await click('ol.day-steps a[data-step="learn"]', 1200); t.ok(await learn(), 'xong bài đầu');
@@ -41,7 +48,7 @@
       if (asked) { await click('#raN', 500); t.ok(D.getElementById('modal').hidden, '"Để sau" đóng hộp'); { let r = ls('lk.reask'); try { r = typeof r === 'string' ? JSON.parse(r) : r; } catch (e) { r = null; } t.ok(r && r.n === 1 && r.no === 1 && r.at > 0, 'ghi lk.reask {n:1, "để sau"}'); } }
       return t.bad; },
     async j1b() { const t = mk('j1'); t.ok(!/welcome/.test(location.hash), 'tải lại: không về màn chào'); await go('#/day/1'); await click('ol.day-steps a[data-step="learn"]', 1000); await learn(); await sleep(3500); t.ok(!askOn(), 'sau tải lại: không hỏi lại'); t.audit('j1b'); return t.bad; },
-    async j2s() { const t = mk('j2'); await go('#/welcome/setup'); if (vis('#noAcct')) await click('#noAcct'); await click('[data-track]'); await click('#obNext', 250); await click('[data-lv]:not([data-lv="test"])'); await toLast(); await click('#go', 1500); t.ok(/#\/day/.test(location.hash), 'thiết lập → #/day'); return t.bad; },
+    async j2s() { const t = mk('j2'); await go('#/welcome/setup'); if (vis('#noAcct')) await click('#noAcct'); await click('[data-track]'); await click('#obNext', 250); await click('[data-lv]:not([data-lv="test"])'); await toLast(); await click('#go', 100); t.ok(await hashIs(/#\/day/), 'thiết lập → #/day'); return t.bad; },
     async j2a() { const t = mk('j2'); await go('#/home'); t.ok(!/welcome/.test(location.hash), 'quay lại: vào thẳng trang chủ'); t.audit('home'); await go('#/day/1');
       const gl = D.querySelector('ol.day-steps a[data-step="gl"]'), pr = D.querySelector('ol.day-steps a[data-step="pr"]'); t.ok(gl, 'có bước ngữ pháp'); t.ok(pr, 'có bước phát âm');
       if (gl) { await click('ol.day-steps a[data-step="gl"]', 1200); if (!/view=full/.test(location.hash)) await go(location.hash.split('?')[0] + '?view=full'); for (const it of D.querySelectorAll('#gQuiz .q-item')) { const b = it.querySelector('.opts button'); b && b.click(); await sleep(250); } await go('#/day/1'); t.ok(D.querySelector('ol.day-steps a[data-step="gl"].ok'), 'ngữ pháp xong'); }

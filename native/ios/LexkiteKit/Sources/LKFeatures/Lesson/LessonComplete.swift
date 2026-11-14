@@ -1,4 +1,5 @@
 import SwiftUI
+import StoreKit
 import LKDesign
 import LKStrings
 
@@ -10,6 +11,7 @@ struct LessonCompleteView: View {
     @Environment(\.colorScheme) private var scheme
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var shown = false
+    @Environment(\.requestReview) private var requestReview
 
     var body: some View {
         let s = model.summary
@@ -47,6 +49,11 @@ struct LessonCompleteView: View {
             .background(LKColor.background.resolve(scheme))
         }
         .onAppear { shown = true }
+        .task {   // happy moment → system rating prompt (policy: ReviewPolicy; the system may still decline to show it)
+            guard ReviewLedger().lessonFinished(accuracy: model.summary.accuracy) else { return }
+            try? await Task.sleep(nanoseconds: 1_800_000_000)
+            requestReview()
+        }
     }
 
     private func ring(_ s: LessonModel.Summary) -> some View {

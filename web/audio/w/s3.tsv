@@ -9630,6 +9630,38 @@ adroitly	ok	cut_wordis: câu mang: "The word is a-drightly." · dot100:"Edge rig
 transoceanic	ok	ok
 unaccountably	ok	ok
 intertribal	ok	ok
+grandparent	ok	ok
+stopwatch	ok	ok
+divination	ok	ok
+happenstance	cut_wordis:"Tap instance." 1.09s · cut_wordis:"Tap Instance" 1.08s · dot100:"Hap Instancy" 1.06s · cut_wordis100:"Tap Instance" 0.99s · cut_next: câu mang: "Next word, hap-instancy." · plain095:"A half instance." 0.99s · dot090:"Hap Instancy" 1.12s	ok
+courtroom	ok	ok
+warlord	ok	ok
+pituitary	ok	ok
+beltway	ok	ok
+grandstand	ok	ok
+firehouse	ok	ok
+jawbone	ok	ok
+mucosa	ok	ok
+cardiomyopathy	ok	ok
+aromatherapy	ok	ok
+microtubule	ok	ok
+thruway	ok	ok
+taxiway	ok	ok
+tonsillectomy	ok	ok
+leatherback	ok	ok
+bronc	cut_wordis: câu mang: "The word is bronchi." · dot100:"Bronch." 0.64s · cut_wordis100: câu mang: "The word is bronchi." · cut_next: câu mang: "Next word, bronchi." · plain095:"Brunk." 0.61s · dot090:"The Bronch." 0.72s	ok
+roundworm	ok	ok
+desalinization	ok	ok
+metalworker	ok	ok
+agronomist	ok	ok
+buyout	ok	ok
+metabolite	ok	ok
+rampart	ok	ok
+immunotherapy	ok	ok
+tetra	ok	ok
+immunodeficiency	ok	ok
+solvency	ok	ok
+monetarism	ok	ok
 retaliate	ok	ok
 alimony	ok	ok
 incoherent	ok	ok
@@ -9652,32 +9684,99 @@ gasification	ok	ok
 anoint	ok	cut_wordis: câu mang: "The word is a night." · dot100:"At night." 0.66s · cut_wordis100: câu mang: "The word is a night." · cut_next: câu mang: "Next word, a night." · plain095:"A night." 0.65s · dot090:"At night." 0.74s
 porpoise	ok	ok
 systematics	ok	ok
-grandparent	ok	ok
-stopwatch	ok	ok
-divination	ok	ok
-happenstance	cut_wordis:"Tap instance." 1.09s · cut_wordis:"Tap Instance" 1.08s · dot100:"Hap Instancy" 1.06s · cut_wordis100:"Tap Instance" 0.99s · cut_next: câu mang: "Next word, hap-instancy." · plain095:"A half instance." 0.99s · dot090:"Hap Instancy" 1.12s	ok
-courtroom	ok	ok
-shootout	ok	ok
-warlord	ok	ok
-pituitary	ok	ok
-nutritionist	ok	ok
-beltway	ok	ok
-grandstand	ok	ok
-firehouse	ok	ok
-hypoglycemia	ok	ok
-jawbone	ok	ok
-mucosa	ok	ok
-reenactment	ok	ok
-cardiomyopathy	ok	ok
-aromatherapy	ok	ok
-microtubule	ok	ok
-thruway	ok	ok
-ferryboat	ok	cut_wordis: câu mang: "The word is, fairy boat." · dot100:"Fairy boat" 0.77s · cut_wordis100: câu mang: "The word is, fairy boat." · cut_next: câu mang: "Next word, fairy boat." · plain095:"Faribout" 0.77s · dot090:"Fairy boat" 0.80s
-taxiway	ok	ok
-bradycardia	ok	ok
-tonsillectomy	ok	ok
-leatherback	ok	ok
-bronc	cut_wordis: câu mang: "The word is bronchi." · dot100:"Bronch." 0.64s · cut_wordis100: câu mang: "The word is bronchi." · cut_next: câu mang: "Next word, bronchi." · plain095:"Brunk." 0.61s · dot090:"The Bronch." 0.72s	ok
-roundworm	ok	ok
-desalinization	ok	ok
-metalworker	ok	ok
+cafe	ok	ok
+barn	cut_wordis:"Bond." 0.68s · cut_wordis:"Bond." 0.63s · dot100:"Bonds." 0.90s · cut_wordis100:"Bond." 0.67s · cut_wordis100:"Bond." 0.62s · cut_next:"Bond." 0.66s · cut_next:"And he..." 0.40s · plain095:"Bond." 0.55s · dot090:"The bond." 1.01s	ok
+cellist	cut_wordis: câu mang: "The word is celesti." · dot100:"The Sellist" 0.69s · cut_wordis100: câu mang: "The word is Celeste." · cut_next: câu mang: "Next word, cellisty." · plain095:"zealous" 0.64s · dot090:"Zellist" 0.76s	cut_wordis: câu mang: "The word is Celeste." · dot100:"zealous" 0.65s · cut_wordis100:"Sellist" 0.65s · cut_wordis100:"Sellist" 0.53s · cut_next:"Celeste" 0.61s · cut_next:"Celeste" 0.58s · plain095:"A cellist." 0.66s · dot090:"A cellist." 0.68s
+anthropologist	ok	ok
+amnesia	ok	ok
+boar	cut_wordis:"Spore." 0.70s · cut_wordis:"both." 0.60s · dot100:"Duh." 0.68s · cut_wordis100:"Spore." 0.63s · cut_wordis100:"Buh." 0.55s · cut_next: câu mang: "Next word, bore." · plain095:"boys." 0.50s · dot090:"Duh." 0.72s	ok
+basalt	ok	ok
+antidepressant	ok	ok
+catechism	ok	ok
+crankshaft	ok	ok
+atherosclerosis	ok	ok
+apothecary	ok	ok
+analgesic	ok	ok
+antler	ok	ok
+antifreeze	ok	ok
+biochemist	ok	ok
+altimeter	ok	ok
+clef	ok	ok
+antihistamine	ok	ok
+comparability	ok	ok
+daylight	ok	ok
+shopkeeper	ok	ok
+fiddle	ok	ok
+reverberation	ok	ok
+treason	ok	ok
+vanguard	ok	ok
+odor	ok	ok
+strategist	ok	ok
+pulpit	ok	ok
+czar	cut_wordis: câu mang: "The word is za." · dot100:"Zuh." 0.54s · cut_wordis100: câu mang: "The word is za." · cut_next: câu mang: "Next word is I." · plain095:"Zod" 0.52s · dot090:"Bizarre." 0.57s	ok
+predation	ok	ok
+epithelium	ok	ok
+saxophonist	ok	ok
+phenomenology	ok	ok
+hypertrophy	ok	ok
+thievery	ok	ok
+ecclesiastic	ok	ok
+eruption	ok	ok
+transfusion	ok	ok
+seesaw	ok	ok
+exorcism	ok	ok
+eccentricity	ok	ok
+scam	ok	ok
+rouge	ok	ok
+curfew	ok	ok
+enamel	ok	ok
+migraine	ok	ok
+dielectric	ok	ok
+larceny	ok	ok
+oceanography	ok	ok
+staphylococcus	ok	ok
+senescence	ok	ok
+epidemiologist	ok	ok
+necropolis	ok	ok
+polyphony	ok	ok
+phagocyte	ok	ok
+grandpa	ok	ok
+housewife	ok	ok
+softness	cut_wordis: câu mang: "The word is softnessy." · dot100:"Softness, eh?" 0.85s · cut_wordis100: câu mang: "The word is softnessy." · cut_next: câu mang: "Next word, softnessy." · plain095:"as often as..." 0.77s · dot090:"As often as so." 0.98s	ok
+leek	cut_wordis: câu mang: "The word is leaky." · dot100:"LEAK" 0.86s · cut_wordis100: câu mang: "The word is leak." · cut_next: câu mang: "The next word leaky" · plain095:"Leaker" 0.53s · dot090:"The leak." 0.68s	cut_wordis: câu mang: "The word is leak." · dot100:"Lika" 0.59s · cut_wordis100: câu mang: "The word is leak." · cut_next: câu mang: "Next word, leak." · plain095:"Leika" 0.58s · dot090:"A leak." 0.64s
+microcomputer	ok	ok
+habitation	ok	ok
+dice	ok	ok
+truce	cut_wordis: câu mang: "The word is trusa." · dot100:"truesa" 0.71s · cut_wordis100: câu mang: "The word is truces." · cut_next: câu mang: "The next word is trussi." · plain095:"The truth." 0.62s · dot090:"True, sir." 0.77s	ok
+illustrator	ok	ok
+regent	ok	ok
+epoch	cut_wordis: câu mang: "The word is eparchy." · dot100:"Lepuck" 0.82s · cut_wordis100:"It's epic" 0.54s · cut_wordis100:"Epic." 0.49s · cut_next: câu mang: "Next word, eparchy." · plain095:"Lepock" 0.63s · dot090:"Zepok" 0.70s	ok
+fibrosis	ok	ok
+sorcery	ok	ok
+viceroy	ok	ok
+thyme	cut_wordis: câu mang: "The word is time." · dot100:"Time." 0.68s · cut_wordis100: câu mang: "The word is time." · cut_next: câu mang: "Next word, time." · plain095:"Time." 0.60s · dot090:"Time." 0.74s	cut_wordis: câu mang: "The word is time." · dot100:"Time." 0.56s · cut_wordis100: câu mang: "The word is time." · cut_next: câu mang: "Next word, time." · plain095:"Time." 0.59s · dot090:"Time." 0.65s
+nib	cut_wordis: câu mang: "The word is nibby." · dot100:"NIBBA" 0.61s · cut_wordis100: câu mang: "The word is nibby." · cut_next: câu mang: "The next word, nibby." · plain095:"A nib." 0.53s · dot090:"The neighbor." 0.65s	ok
+deafness	ok	ok
+fen	ok	ok
+emcee	cut_wordis: câu mang: "The word is MC." · dot100:"MC" 0.72s · cut_wordis100: câu mang: "The word is MC." · cut_next: câu mang: "Next word MC" · plain095:"MC" 0.69s · dot090:"MC" 0.80s	cut_wordis: câu mang: "The word is MC." · dot100:"MC" 0.66s · cut_wordis100: câu mang: "The word is MC." · cut_next: câu mang: "Next word, MC." · plain095:"MC" 0.71s · dot090:"MC" 0.75s
+isomer	ok	ok
+hydrogenation	ok	ok
+polygyny	ok	ok
+gametophyte	ok	ok
+detective	ok	ok
+inventor	ok	ok
+marketplace	ok	ok
+transmitter	ok	ok
+euphoria	ok	ok
+philanthropist	ok	ok
+repute	ok	ok
+stigma	ok	ok
+dusk	ok	ok
+suffrage	cut_wordis: câu mang: "The word is suffragee." · dot100:"suffragie" 1.17s · cut_wordis100:"The suffrage." 0.83s · cut_next: câu mang: "Next word, suffragie." · plain095:"A suffrage." 0.75s · dot090:"Let's offer edgy." 0.86s	ok
+osteoporosis	ok	ok
+interferometer	ok	ok
+missal	cut_wordis: câu mang: "The word is missile." · dot100:"Missile." 1.01s · cut_wordis100: câu mang: "The word is missile." · cut_next: câu mang: "Next word missile" · plain095:"A missile." 0.62s · dot090:"We missle." 1.09s	cut_wordis: câu mang: "The word is missile." · dot100:"Missile" 0.63s · cut_wordis100: câu mang: "The word is missile." · cut_next: câu mang: "Next word, missile." · plain095:"Missile" 0.65s · dot090:"Missile" 0.69s
+quartile	ok	cut_wordis:"Cordial." 0.97s · cut_wordis:"Cordial." 0.84s · dot100:"Cordial." 0.69s · cut_wordis100:"It's quartile." 0.87s · cut_wordis100:"Cordial." 0.66s · cut_next:"Cordial." 0.70s · cut_next:"...for dial." 0.48s · plain095:"Cordial." 0.66s · dot090:"Cordial." 0.77s
+leukocyte	ok	ok
+monism	ok	ok
+plasterboard	ok	ok

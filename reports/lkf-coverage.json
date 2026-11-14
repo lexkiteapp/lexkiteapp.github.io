@@ -41,13 +41,13 @@
    "pct": 100
   },
   "toefl": {
-   "items": 159,
-   "tagged": 159,
+   "items": 194,
+   "tagged": 194,
    "pct": 100
   },
   "writing-model": {
-   "items": 128,
-   "tagged": 128,
+   "items": 142,
+   "tagged": 142,
    "pct": 100
   },
   "gt-letter": {
@@ -96,14 +96,14 @@
    "pct": 100
   },
   "vocab": {
-   "items": 10168,
-   "tagged": 10168,
+   "items": 10201,
+   "tagged": 10201,
    "pct": 100
   }
  },
  "total": {
-  "items": 11042,
-  "tagged": 11042,
+  "items": 11124,
+  "tagged": 11124,
   "pct": 100
  },
  "errors": 0

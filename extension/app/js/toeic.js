@@ -202,9 +202,11 @@
   const SW = () => window.TOEIC_SW || { speaking: [], writing: [] };
   const SWT = {
     read: { sec: 'speaking', name: 'Read a Text Aloud', ic: '📢', max: 3, get desc() { return t('Đọc to một đoạn thông báo hoặc quảng cáo: 45 giây chuẩn bị, 45 giây đọc.'); } },
+    picture: { sec: 'speaking', name: 'Describe a Picture', ic: '🖼️', max: 3, get desc() { return t('Mô tả một bức ảnh: 45 giây chuẩn bị, 30 giây nói (2 ảnh mỗi đề).'); } },
     respond: { sec: 'speaking', name: 'Respond to Questions', ic: '💬', max: 3, get desc() { return t('Trả lời 3 câu hỏi về một chủ đề quen thuộc (15, 15 và 30 giây).'); } },
     info: { sec: 'speaking', name: 'Respond to Questions Using Information Provided', ic: '📋', max: 3, get desc() { return t('Đọc lịch hoặc bảng thông tin rồi trả lời 3 câu hỏi của người gọi.'); } },
     opinion: { sec: 'speaking', name: 'Express an Opinion', ic: '🗣️', max: 5, get desc() { return t('Nêu và bảo vệ ý kiến: 45 giây chuẩn bị, 60 giây nói.'); } },
+    'picture-sentence': { sec: 'writing', name: 'Write a Sentence Based on a Picture', ic: '✏️', max: 3, get desc() { return t('Viết một câu cho mỗi ảnh (5 ảnh) với hai từ cho sẵn, trong 8 phút.'); } },
     request: { sec: 'writing', name: 'Respond to a Written Request', ic: '📧', max: 4, get desc() { return t('Trả lời một email công việc trong 10 phút.'); } },
     essay: { sec: 'writing', name: 'Write an Opinion Essay', ic: '📝', max: 5, get desc() { return t('Viết bài nêu ý kiến ít nhất 300 từ trong 30 phút.'); } },
   };
@@ -261,7 +263,7 @@
     if (!SWT[task]) {
       view.innerHTML = `<a href="#/toeic" class="small">← TOEIC</a>
         <div class="page-head" style="margin-top:.4rem"><div><h1>🎙️ TOEIC Speaking & Writing</h1><p class="muted">${t('Nói và viết theo các dạng bài của ETS: bài mẫu, tiêu chí chấm, chấm đọc to tự động.')}</p></div></div>
-        <div class="card small" style="margin-bottom:1rem">🗂️ ${t('Đề thật của ETS: Speaking 11 câu (khoảng 20 phút), Writing 8 câu (khoảng 60 phút), mỗi phần thang điểm 0–200. Ứng dụng chưa có dạng bài mô tả tranh (Speaking câu 3–4, Writing câu 1–5).')}</div>
+        <div class="card small" style="margin-bottom:1rem">🗂️ ${t('Đề thật của ETS: Speaking 11 câu (khoảng 20 phút), Writing 8 câu (khoảng 60 phút), mỗi phần thang điểm 0–200.')}</div>
         <div class="grid g2">${['speaking', 'writing'].map(sec => `<div class="card"><h2 style="margin-top:0">${sec === 'speaking' ? '🗣️ Speaking' : '✍️ Writing'}</h2>
           ${Object.entries(SWT).filter(([, v]) => v.sec === sec).map(([k, v]) => `<div style="margin:.8rem 0;padding-top:.6rem;border-top:1px solid var(--line)"><div class="row between"><b>${v.ic} ${esc(v.name)}</b><span class="chip">${swUnits(k).length}</span></div>
             <div class="small muted" style="margin:.2rem 0 .4rem">${v.desc}</div><a class="btn sm primary" href="#/toeic-sw/${k}">🎯 ${t('Luyện tập')}</a></div>`).join('')}</div>`).join('')}</div>`;
@@ -273,7 +275,7 @@
       <div class="row" style="margin-bottom:.8rem">${units.map((x, k) => `<a class="chip ${k === i ? 'lv' : ''}" href="#/toeic-sw/${task}?i=${k}">${esc(t('Đề {n}', { n: k + 1 }))} · ${esc(x.title)}</a>`).join('')}</div>
       <div id="swBody"></div>`;
     if (!u) { $('#swBody').innerHTML = `<div class="card muted">${t('Đang cập nhật.')}</div>`; return; }
-    ({ read: swRead, respond: swQs, info: swQs, opinion: swOpinion, request: swWrite, essay: swWrite })[task](u, $('#swBody'), T1);
+    ({ read: swRead, picture: swPic, respond: swQs, info: swQs, opinion: swOpinion, 'picture-sentence': swPS, request: swWrite, essay: swWrite })[task](u, $('#swBody'), T1);
   };
 
   function swRead(u, body, T1) {
@@ -349,18 +351,27 @@
     show();
   }
 
+  const swImg = (img, alt) => `<img src="img/toeic/${img}.jpg" width="800" height="533" loading="lazy" alt="${esc(alt)}" style="display:block;width:100%;max-width:560px;max-height:60vh;object-fit:contain;margin:.6rem auto;border-radius:12px">`;
+  // Mô tả tranh (Speaking câu 3–4): mỗi ảnh = một lượt như Express an Opinion (chuẩn bị 45 s + nói 30 s); bảng tiêu chí hiện ở ảnh cuối
+  function swPic(u, body, T1, qi = 0) {
+    const n = u.questions.length, go = d => { swStop(); swPic(u, body, T1, qi + d); };
+    swOpinion({ ...u.questions[qi], id: u.id, title: u.title, accent: u.accent, checklist: qi === n - 1 ? u.checklist : null }, body, T1);
+    body.insertAdjacentHTML('beforeend', `<div class="row between" style="margin-top:.8rem"><span class="chip">${t('Câu {i}/{n}', { i: qi + 1, n })}</span><span>${qi ? `<button class="btn ghost" id="pcPrev">← ${t('Câu trước')}</button>` : ''}${qi < n - 1 ? ` <button class="btn primary" id="pcNext">${t('Câu hỏi tiếp')} →</button>` : ''}</span></div>`);
+    const a = $('#pcPrev'), b = $('#pcNext'); if (a) a.onclick = () => go(-1); if (b) b.onclick = () => go(1);
+  }
+
   function swOpinion(u, body, T1) {
     const accent = u.accent || 'en-US';
-    body.innerHTML = `<div class="card"><div class="lq-instr"><i>Directions: In this part of the test, you will give your opinion about a specific topic. Be sure to say as much as you can in the time allowed. You will have ${u.prep} seconds to prepare. Then you will have ${u.secs} seconds to speak.</i></div>
-      <div class="row between"><span class="chip">${u.secs}s</span><button class="btn sm" id="ivHear">🔊 ${t('Nghe câu hỏi')}</button></div>
-      <div style="font-size:1.12rem;font-weight:700;margin:.8rem 0">${esc(u.q)}</div>
+    body.innerHTML = `<div class="card"><div class="lq-instr"><i>Directions: In this part of the test, you will ${u.img ? 'describe the picture on your screen in as much detail as you can' : 'give your opinion about a specific topic. Be sure to say as much as you can in the time allowed'}. You will have ${u.prep} seconds to prepare. Then you will have ${u.secs} seconds to speak.</i></div>
+      <div class="row between"><span class="chip">${u.secs}s</span>${u.img ? '' : `<button class="btn sm" id="ivHear">🔊 ${t('Nghe câu hỏi')}</button>`}</div>
+      ${u.img ? swImg(u.img, u.title) : `<div style="font-size:1.12rem;font-weight:700;margin:.8rem 0">${esc(u.q)}</div>`}
       <div style="text-align:center"><div class="small muted" id="swPhase">${t('Chuẩn bị')}</div><div class="timer" id="swClock" style="font-size:2.2rem">${mmss(u.prep)}</div>
         <div class="row center" style="margin-top:.6rem"><button class="btn" id="swPrepB">⏱ ${t('Bắt đầu chuẩn bị')}</button><button class="btn primary" id="swGo">🎙️ ${t('Nói ngay')}</button></div><div id="ivAudio" style="margin-top:.6rem"></div></div>
       <details style="margin-top:.8rem"><summary class="small"><b>📝 ${t('Câu trả lời mẫu & mẹo')}</b> <span class="tiny muted">– ${t('xem sau khi đã tự trả lời')}</span></summary>
-        <div style="margin-top:.5rem;line-height:1.7">${esc(u.model)} <button class="ctx-say sm" data-saysent="${esc(u.model)}">🔊</button></div>${extraHtml(u)}</details></div>
+        <div style="margin-top:.5rem;line-height:1.7">${esc(u.model)} <button class="ctx-say sm" data-saysent="${esc(u.model)}">🔊</button></div>${u.tip ? `<div class="tip small" style="margin-top:.5rem">💡 ${esc(u.tip)}</div>` : ''}${extraHtml(u)}</details></div>
       ${ckHtml(u, T1.max)}`;
     const clock = $('#swClock'), phase = $('#swPhase'), go = $('#swGo');
-    $('#ivHear').onclick = () => UI.tts(u.q, accent, 0.95);
+    if (!u.img) $('#ivHear').onclick = () => UI.tts(u.q, accent, 0.95);
     const start = async () => {
       swStop(); UI.stopSpeak(); $('#swPrepB').disabled = true;
       const ok = await swRecord(u.secs, left => { clock.textContent = mmss(left); clock.classList.toggle('warn', left <= 10); }, url => {
@@ -373,6 +384,34 @@
     go.onclick = () => { if (sw.media && sw.media.state === 'recording') { try { sw.media.stop(); } catch (e) { /* đã dừng */ } return; } start(); };
     $('#swPrepB').onclick = () => { swStop(); $('#swPrepB').disabled = true; swPrep(u.prep, left => { clock.textContent = mmss(left); }, start); };
     ckBind(u, T1.max);
+  }
+
+  // Viết câu theo tranh (Writing câu 1–5): máy kiểm tức thì 2 điều – đủ 2 từ cho sẵn (chịu đổi dạng từ) và đúng một câu; phần còn lại so với bài mẫu
+  const psHas = (s, w) => { w = w.toLowerCase().replace(/y$/, '').replace(/(ing|ed|es|s|e)$/, ''); return (s.toLowerCase().match(/[a-z']+/g) || []).some(x => w.length > 3 ? x.startsWith(w) : new RegExp('^' + w + '.?(s|es|ed|ing)?$').test(x)); };
+  const psOne = s => wc(s) >= 5 && /[.!?]$/.test(s) && (s.match(/[.!?]+(\s|$)/g) || []).length === 1;
+  function swPS(u, body, T1) {
+    body.innerHTML = `<div class="toeic-pass"><div class="small"><i>Directions: Write ONE sentence based on each picture. You must use the TWO words or phrases under the picture. You may change the forms of the words, and you may use them in any order. You have ${u.minutes} minutes to complete this part.</i></div></div>
+      <div class="row between" style="margin:.7rem 0"><span class="small muted">${t('Đồng hồ ({m} phút) chạy khi bạn bắt đầu gõ.', { m: u.minutes })}</span><span class="mk-clock timer" id="wClock" role="timer">${mmss(u.minutes * 60)}</span></div>
+      <div class="grid g2">${u.items.map((x, k) => `<div class="card" style="margin:0">${swImg(x.img, u.title + ' ' + (k + 1))}<div class="small"><b>${k + 1}.</b> ${x.words.map(w => `<span class="chip">${esc(w)}</span>`).join(' ')}</div>
+        <label class="tiny muted" for="ps${k}">${t('Câu của bạn')}</label><input class="input" id="ps${k}" data-ps="${k}" maxlength="240" autocomplete="off" spellcheck="false">
+        <div class="small" id="psR${k}" aria-live="polite" style="margin-top:.3rem"></div></div>`).join('')}</div>
+      <div class="row" style="margin-top:.8rem"><button class="btn primary" id="wModel">✅ ${t('Nộp & kiểm tra')}</button></div><div id="wOut" aria-live="polite" style="margin-top:1rem"></div>`;
+    let left = u.minutes * 60, started = false, rewarded = false;
+    $$('[data-ps]').forEach(el => el.addEventListener('input', () => {
+      if (started) return; started = true;
+      sw.timers.push(setInterval(() => { left--; const c = $('#wClock'); if (!c) return; c.textContent = left > 0 ? mmss(left) : '⏰ ' + t('Hết giờ'); c.classList.toggle('warn', left < 60); }, 1000));
+    }));
+    $('#wModel').onclick = () => {
+      let ok = 0;
+      u.items.forEach((x, k) => {
+        const s = $('#ps' + k).value.trim(), a = x.words.every(w => psHas(s, w)), b = psOne(s); if (a && b) ok++;
+        $('#psR' + k).innerHTML = `${a ? '✅' : '❌'} ${t('Có đủ 2 từ cho sẵn')} · ${b ? '✅' : '❌'} ${t('Một câu hoàn chỉnh (≥ 5 từ)')}<div class="tiny muted">${t('Bài mẫu')}: ${esc(x.model)}</div>`;
+      });
+      $('#wOut').innerHTML = `<div class="card" style="margin:0"><b>${t('{a}/{n} câu đạt cả hai kiểm tra tự động', { a: ok, n: u.items.length })}</b> · ${t('Ước tính: {s}/{m} theo thang ETS', { s: Math.round(ok / u.items.length * T1.max), m: T1.max })}
+        <div class="tiny muted" style="margin-top:.3rem">${t('Chỉ là ước tính để tự luyện, không phải điểm chính thức của ETS. Máy không chấm được ngữ pháp và độ khớp với ảnh – hãy so với bài mẫu.')}</div></div>${ckHtml(u, T1.max)}`;
+      ckBind(u, T1.max);
+      if (!rewarded && ok) { rewarded = true; App.reward({ xp: 10 }); }
+    };
   }
 
   function swWrite(u, body, T1) {

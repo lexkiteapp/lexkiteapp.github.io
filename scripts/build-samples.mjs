@@ -4,7 +4,7 @@
 // Bản tiếng Anh: build-samples-en.mjs (chạy sau, tự gắn hreflang vi↔en).
 import fs from 'node:fs'; import { execFileSync } from 'node:child_process';
 import { clip, esc, ld, seoPage, sectionNav, filterBox, setCard, ctaBox, extBox, pwaBox, audioBtn, SEO_L, FIND_I18N } from './lib/site-layout.mjs';
-import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, loadGrammar, loadLetters, loadPron } from './lib/seo-data.mjs';
+import { loadWriting, loadSpeaking, loadVocab, vocabMeta, relatedOf, relatedPron, loadGrammar, loadLetters, loadPron } from './lib/seo-data.mjs';
 import { embedWatermark } from '../content/protection/watermark.mjs';
 import { S as SU, parseDoc, docStats, mins, docHtml, sideHtml, stats, hero2, promptBox, phraseCards, saveBox, ctaKit, pager2, typeCls, toneCls, topicEmoji, topicCls, smpCard, group2, typeFilter, itemList, smpHead, smpTail } from './lib/samples-ui.mjs';
 import { art, typeArt, topicArt, toneArt, task1Art, vocabArt, unitArt, pronArt, t2Key, t1Key, catNav } from './lib/samples-visual.mjs';
@@ -35,7 +35,7 @@ const indexHero = (h1, lead, sec) => `${hero(esc(h1), { lead })}\n${sectionNav('
 const related = (items, card) => items.length ? `<section class="grp" aria-labelledby="rel"><h2 id="rel">${L.related}</h2><div class="grid">${items.map(card).join('')}</div></section>` : '';
 const group = (id, title, sub, cards) => `<section class="grp" aria-labelledby="g-${id}"><h2 id="g-${id}">${esc(title)} <small>${sub}</small></h2><div class="grid">${cards.join('')}</div></section>`;
 const short = (s, n) => s.length > n ? s.slice(0, n - 3).replace(/\s+\S*$/, '') + '…' : s;
-const wmDate = gitDate('web/js/models.js', 'web/js/write', 'web/cpack/write').replace(/-/g, '');
+const wmDate = gitDate('web/cpack/write/models.js', 'web/js/write', 'web/cpack/write').replace(/-/g, '');
 const wm = (html, id) => embedWatermark(html, `LK:${id}:${wmDate}`); // thủy ấn tàng hình (P1) trong bài mẫu – ngày = lần sửa dữ liệu cuối (build ổn định)
 
 // ===== Writing Task 2 =====
@@ -75,7 +75,7 @@ ${filterBox('vi')}
 ${catNav(types.map(([ty, xs], i) => [`t${i}`, ty, xs.length, typeCls(ty), typeArt(ty)]), done.length, 'vi', U.types, esc)}
 ${types.map(([ty, xs], i) => group2(`t${i}`, ty, `${xs.length} ${L.items}`, xs.map(t2Card), typeCls(ty), typeArt(ty))).join('\n')}</div>`, undefined, undefined,
     { smp: 1, ld: [itemList(`Bài mẫu IELTS Writing Task 2`, done.map(([p]) => `${SITE}samples/${p.id}`))] }));
-  addSm([`${SITE}samples/`, ...done.map(([p]) => `${SITE}samples/${p.id}`)], 'web/js/write.js', 'web/js/models.js', 'web/js/write');
+  addSm([`${SITE}samples/`, ...done.map(([p]) => `${SITE}samples/${p.id}`)], 'web/js/write.js', 'web/cpack/write/models.js', 'web/js/write');
   console.log(`✓ SEO: ${done.length} trang bài mẫu Task 2 + mục lục`);
 }
 
@@ -222,7 +222,7 @@ ${(x.sentences || []).length ? `<h2>Câu luyện tập</h2><ul class="uses">${x.
 ${qs.length ? `<h2>Kiểm tra nhanh</h2><ol class="uses">${qs.map(q => `<li><p><b>${esc(q.q)}</b></p><ol type="a">${q.options.map(o => `<li>${esc(o)}</li>`).join('')}</ol><details><summary>Xem đáp án</summary><p>✅ <b>${esc(q.options[q.answer])}</b>${q.explain ? ` – ${esc(q.explain)}` : ''}</p></details></li>`).join('')}</ol>` : ''}
 ${ctaBox(href, `🗣️ Tự ghi âm các từ có ${esc(x.ipa)}`, 'Luyện trong app')}
 <nav class="pager" aria-label="Bài trước / bài sau">${prev ? `<a rel="prev" href="/phat-am/${slugP(prev)}">← ${esc(prev.title)}</a>` : '<span></span>'}${next ? `<a rel="next" href="/phat-am/${slugP(next)}">${esc(next.title)} →</a>` : ''}</nav>
-${related(relatedOf(P, x, y => y.group === x.group, 4), pCard)}
+${related(relatedPron(P, x), pCard)}
 ${extBox('vi', 'pron')}
 ${pwaBox('vi', 'pron')}</article>`;
     const ex3 = ws.slice(0, 3).map(w => w.w).join(', ');
