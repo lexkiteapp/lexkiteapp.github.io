@@ -7,7 +7,7 @@
   const App = window.App, { state, routes } = App, view = App.view;
   const LEVELS = [['a2', 'A2 Key'], ['b1', 'B1 Preliminary'], ['b2', 'B2 First'], ['c1', 'C1 Advanced'], ['c2', 'C2 Proficiency']];
   const SPKN = { interview: 'Interview', 'long-turn': 'Long turn', collaborative: 'Collaborative task', discussion: 'Discussion' };
-  const WR = new Set(['email', 'story', 'article']); // phần viết sản sinh
+  const WR = new Set(['email', 'story', 'article', 'essay', 'report', 'review', 'letter']); // phần viết sản sinh
   const PAPERS = { rw: ['📖', 'Reading & Writing'], listening: ['🎧', 'Listening'], speaking: ['🗣️', 'Speaking'] };
   const tests = () => self.CAMBRIDGE || [];
   const rub = l => (self.CAMBRIDGE_RUBRIC || {})[l] || { writing: [], speaking: [], linkers: [] };
@@ -19,12 +19,12 @@
   const linkersUsed = (text, L) => (L || []).filter(w => new RegExp(`\\b${w}\\b`, 'i').test(text));
   App.cambridge = { wc, pointHits, linkersUsed, build: (T, p) => build(T, p) };
   const passage = tx => (Array.isArray(tx) ? tx : String(tx || '').split('\n')).map(p => `<p style="margin:.35rem 0;white-space:pre-wrap">${esc(p).replace(/\((\d{1,2})\)/g, '<b class="qn">$1</b>')}</p>`).join('');
-  const QTYPE = { 'mcq': 'mcq', 'mcq-picture': 'mcq', 'mcq-gap': 'mcq', 'matching': 'match', 'gap': 'form', 'open-gap': 'form', 'gapped-text': 'match' };
+  const QTYPE = { 'mcq': 'mcq', 'mcq-picture': 'mcq', 'mcq-gap': 'mcq', 'matching': 'match', 'gap': 'form', 'open-gap': 'form', 'gapped-text': 'match', 'word-formation': 'form', 'transformation': 'form', 'sentence': 'form' };
   // Nhóm câu theo định dạng QE (qengine.js) – chấm, đánh dấu và "xem chỗ có đáp án" dùng chung với IELTS/TOEIC/TOEFL
   const groupOf = (p, items) => {
     const type = QTYPE[p.type];
     if (type === 'match') return { type, options: p.texts ? p.texts.map(x => `${x.code} ${x.title}`) : p.options, items };
-    if (type === 'form') return { type, limit: p.type === 'open-gap' ? 1 : 3, items: items.map(it => ({ ...it, text: it.text || `(${it.n}) ___` })) };
+    if (type === 'form') return { type, limit: ({ 'open-gap': 1, 'word-formation': 1, transformation: 5 })[p.type] || 3, items: items.map(it => ({ ...it, text: it.text || `(${it.n}) ___` })) };
     return { type, items: items.map(it => ({ ...it, q: it.q || `(${it.n})`, options: it.pics ? it.options.map((o, k) => `${it.pics[k]} ${o}`) : it.options })) };
   };
   const head = (title, sub) => `<div class="page-head"><div><h1>${title}</h1>${sub ? `<p class="muted">${sub}</p>` : ''}</div></div>`;

@@ -183,7 +183,7 @@ for (const [t, xs] of Object.entries(tl)) {
     const p = sp[1];
     if (s === 'speaking') {
       const qs = x.questions || [x];
-      const want = Array.isArray(p.resp_s) ? p.resp_s : [p.resp_s];
+      const want = Array.isArray(p.resp_s) ? p.resp_s : Array(Math.max(1, qs.length)).fill(p.resp_s); // resp_s đơn = mọi câu của dạng (Describe a picture: 2 câu × 30 s)
       if (x.questions ? qs.length !== p.questions : false) D(f, u, 'questions', `${qs.length} câu ≠ ${p.questions}`);
       const got = qs.map(q => q.secs), prep = qs.map(q => q.prep);
       if (got.join() !== want.slice(0, got.length).join()) D(f, u, 'resp_s', `thời gian nói ${got.join('/')} ≠ ${want.join('/')} giây`);
@@ -265,7 +265,7 @@ for (const [t, xs] of Object.entries(tl)) {
     if (seen.has(T.id)) D(f, u, 'dup', 'trùng id đề'); seen.add(T.id);
     const optsOf = p => (p.texts || []).map(x => x.code).concat((p.options || []).map(code => String(code).split(' ')[0]));
     // B1 trở lên tách Reading / Writing thành 2 phần trong spec; dữ liệu đề vẫn là một bài "rw" – phần viết đánh số tiếp sau phần đọc (A2: 6 email, 7 story)
-    const rwParts = cid => { const rw = parts(cid, 'reading-writing'); if (rw.length) return rw; const r = parts(cid, 'reading'); return [...r, ...parts(cid, 'writing').map((x, i) => ({ ...x, n: r.length + i + 1 }))]; };
+    const rwParts = cid => { const rw = parts(cid, 'reading-writing'); if (rw.length) return rw; const r = parts(cid, 'reading').length ? parts(cid, 'reading') : parts(cid, 'reading-use-of-english'); return [...r, ...parts(cid, 'writing').map((x, i) => ({ ...x, n: r.length + i + 1 }))]; };
     const paper = (key, secId) => {
       const sp = secId === 'reading-writing' ? rwParts(id) : parts(id, secId), got = (T[key] || {}).parts || [];
       if (got.map(p => p.n).join() !== sp.map(p => p.n).join()) D(f, u, `${secId}.parts`, `phần ${got.map(p => p.n).join(',')} ≠ spec ${sp.map(p => p.n).join(',')}`);
@@ -300,6 +300,11 @@ for (const [t, xs] of Object.entries(tl)) {
       return all;
     };
     const rw = paper('rw', 'reading-writing'), li = paper('listening', 'listening');
+    // độ dài bài đọc (spec có text_words): tổng chữ của mọi bài/đoạn + câu nguồn của từng câu (word-formation, transformation) trong phần Đọc – chỉ họ cam-b2 trở lên có khoảng này
+    { const tw = ((SPEC[id].sections || []).find(x => /^reading/.test(x.id)) || {}).text_words;
+      if (tw) { let n = 0; for (const p of (T.rw || {}).parts || []) { if (WTYPES.has(p.type)) continue; n += words(txt(p.text)) + (p.texts || []).reduce((a_, x) => a_ + words(x.text), 0) + (p.items || []).reduce((a_, it) => a_ + words(it.text) + words(it.q), 0); }
+        const lo = tw.min || Math.round(0.85 * tw.about), hi = tw.max || Math.round(1.15 * tw.about);
+        if (n < lo || n > hi) D(f, u, 'rw.text_words', `bài đọc ${n} từ ngoài khoảng ${lo}–${hi}`); } }
     numbering(f, u, rw, 1, rw.length); numbering(f, u, li, 1, li.length);
     // Speaking: đủ phần theo spec, có câu hỏi + câu trả lời mẫu (phản hồi sản sinh nói)
     const ssp = parts(id, 'speaking'), sg = ((T.speaking || {}).parts || []);
