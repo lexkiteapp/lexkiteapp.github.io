@@ -147,6 +147,8 @@
 "vòm miệng":"palatal",
 "vô thanh (không rung)":"sorda (sin vibración)",
 "xem sau khi đã tự trả lời":"verlo después de responderte tú mismo",
+"{done}/{n} bài đã đạt":"{done}/{n} lecciones superadas",
+"{n} bài học trực quan":"{n} lecciones visuales",
 "{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.":"{n} lecciones visuales: líneas de tiempo, fórmulas codificadas por colores, diagramas de transformación de oraciones, errores comunes del alumno y ejercicios calificados al instante.",
 "{right}/{total} câu đúng ({pct}%)":"{right}/{total} correcto ({pct}%)",
 "{score}% giống mẫu":"{score}% de coincidencia",

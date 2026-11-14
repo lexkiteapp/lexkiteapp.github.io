@@ -147,6 +147,8 @@
 "vòm miệng":"硬口蓋音",
 "vô thanh (không rung)":"無声音（震えない）",
 "xem sau khi đã tự trả lời":"自分で答えてから見てください",
+"{done}/{n} bài đã đạt":"{done}/{n} レッスン合格",
+"{n} bài học trực quan":"{n} 本のビジュアルレッスン",
 "{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.":"{n} の視覚的なレッスン: タイムライン、色分けされた数式、文章変換図、学習者によくある間違い、即時に採点される演習。",
 "{right}/{total} câu đúng ({pct}%)":"{right}/{total} 正解 ({pct}%)",
 "{score}% giống mẫu":"{score}% 一致",

@@ -2480,6 +2480,8 @@
   "learn.style.phongCachTiengAnh": "Tu estilo de inglés",
   "learn.style.daChepLinkKet": "Resultado copiado",
   "learn.grammar.baiHocTrucQuan": "{n} lecciones visuales: líneas de tiempo, fórmulas codificadas por colores, diagramas de transformación de oraciones, errores comunes del alumno y ejercicios calificados al instante.",
+  "learn.grammar.baiHocTrucQuanNgan": "{n} lecciones visuales",
+  "learn.grammar.baiDaDat": "{done}/{n} lecciones superadas",
   "learn.grammar.lamLaiChoChac": "Rehacer para bloquearlo · última vez {pct}%",
   "learn.grammar.baiTiepTheo": "Siguiente lección",
   "learn.grammar.chuong": "Capítulo {n}",

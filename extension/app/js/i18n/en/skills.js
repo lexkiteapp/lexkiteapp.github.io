@@ -4,6 +4,8 @@
 'Ngữ pháp IELTS': 'IELTS Grammar',
 '{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.': '{n} visual lessons: timelines, color-coded formulas, sentence transformation diagrams, common learner mistakes and instantly graded exercises.',
 'Chương {n}': 'Chapter {n}',
+'{n} bài học trực quan': '{n} visual lessons',
+'{done}/{n} bài đã đạt': '{done}/{n} lessons passed',
 'Kiểm tra chương': 'Chapter test',
 'Đang cập nhật bài học…': 'Lessons coming soon…',
 'Kiểm tra tổng hợp': 'Review tests',

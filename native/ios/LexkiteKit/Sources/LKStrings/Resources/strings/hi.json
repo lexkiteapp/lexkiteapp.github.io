@@ -2480,6 +2480,8 @@
   "learn.style.phongCachTiengAnh": "आपकी अंग्रेज़ी शैली",
   "learn.style.daChepLinkKet": "नतीजा कॉपी हो गया",
   "learn.grammar.baiHocTrucQuan": "{n} दृश्य पाठ: समयरेखा, रंग-कोडित सूत्र, वाक्य परिवर्तन आरेख, सामान्य शिक्षार्थी गलतियाँ और तुरंत वर्गीकृत अभ्यास।",
+  "learn.grammar.baiHocTrucQuanNgan": "{n} दृश्य पाठ",
+  "learn.grammar.baiDaDat": "{done}/{n} पाठ पास",
   "learn.grammar.lamLaiChoChac": "इसे लॉक करने के लिए दोबारा करें · पिछली बार {pct}%",
   "learn.grammar.baiTiepTheo": "अगला पाठ",
   "learn.grammar.chuong": "अध्याय {n}",

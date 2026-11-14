@@ -147,6 +147,8 @@
 "vòm miệng":"غاري",
 "vô thanh (không rung)":"مهموس (بلا اهتزاز)",
 "xem sau khi đã tự trả lời":"مشاهدته بعد الإجابة على نفسك",
+"{done}/{n} bài đã đạt":"اجتزت {done}/{n} دروس",
+"{n} bài học trực quan":"{n} درسًا مرئيًا",
 "{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.":"{n} الدروس المرئية: الجداول الزمنية، والصيغ المرمزة بالألوان، ومخططات تحويل الجمل، والأخطاء الشائعة للمتعلمين، والتمارين ذات الدرجات الفورية.",
 "{right}/{total} câu đúng ({pct}%)":"{right}/{total} صحيح ({pct}%)",
 "{score}% giống mẫu":"{score}% تطابق",

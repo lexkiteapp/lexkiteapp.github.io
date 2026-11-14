@@ -2480,6 +2480,8 @@
   "learn.style.phongCachTiengAnh": "İngilizce tarzın",
   "learn.style.daChepLinkKet": "Sonuç kopyalandı",
   "learn.grammar.baiHocTrucQuan": "{n} görsel dersler: zaman çizelgeleri, renk kodlu formüller, cümle dönüştürme diyagramları, yaygın öğrenci hataları ve anında not verilen alıştırmalar.",
+  "learn.grammar.baiHocTrucQuanNgan": "{n} görsel ders",
+  "learn.grammar.baiDaDat": "{done}/{n} ders geçildi",
   "learn.grammar.lamLaiChoChac": "Kilitlemek için yeniden yap · son kez %{pct}",
   "learn.grammar.baiTiepTheo": "Sonraki ders",
   "learn.grammar.chuong": "Bölüm {n}",

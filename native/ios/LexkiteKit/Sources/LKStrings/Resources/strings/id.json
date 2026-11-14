@@ -2480,6 +2480,8 @@
   "learn.style.phongCachTiengAnh": "Gaya bahasa Inggrismu",
   "learn.style.daChepLinkKet": "Hasil disalin",
   "learn.grammar.baiHocTrucQuan": "{n} pelajaran visual: garis waktu, rumus berkode warna, diagram transformasi kalimat, kesalahan umum pelajar, dan latihan yang dinilai secara instan.",
+  "learn.grammar.baiHocTrucQuanNgan": "{n} pelajaran visual",
+  "learn.grammar.baiDaDat": "{done}/{n} pelajaran lulus",
   "learn.grammar.lamLaiChoChac": "Ulangi untuk menguncinya · terakhir kali {pct}%",
   "learn.grammar.baiTiepTheo": "Pelajaran berikutnya",
   "learn.grammar.chuong": "Bab {n}",

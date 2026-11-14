@@ -2480,6 +2480,8 @@
   "learn.style.phongCachTiengAnh": "あなたの英語スタイル",
   "learn.style.daChepLinkKet": "結果をコピーしました",
   "learn.grammar.baiHocTrucQuan": "{n} の視覚的なレッスン: タイムライン、色分けされた数式、文章変換図、学習者によくある間違い、即時に採点される演習。",
+  "learn.grammar.baiHocTrucQuanNgan": "{n} 本のビジュアルレッスン",
+  "learn.grammar.baiDaDat": "{done}/{n} レッスン合格",
   "learn.grammar.lamLaiChoChac": "やり直してロックします · 前回 {pct}%",
   "learn.grammar.baiTiepTheo": "次のレッスン",
   "learn.grammar.chuong": "章 {n}",
