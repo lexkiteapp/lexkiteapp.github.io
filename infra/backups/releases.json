@@ -4,6 +4,27 @@
  "kinds": {
   "android-aab": [
    {
+    "run": 43537978054,
+    "run_number": 997,
+    "version": "1.1.0",
+    "build": 1997,
+    "name": "lexkite-1.1.0-1997.aab",
+    "sha256": "a086063f9b71d53ba1d41bc9248e71a62cc8979a78917731b1e3721adc69fa67",
+    "size": 78837136,
+    "commit": "bc5f0b05fe96601a538b179f27cc8c477b7eb659",
+    "at": "2026-11-14T01:10:59Z",
+    "copies": [
+     {
+      "driveId": 50,
+      "fileId": "1ybIvPklln1hi7tDFFB-W2-hlwTFaVnSj"
+     },
+     {
+      "driveId": 33,
+      "fileId": "1PIkZrykr-NLjyiwPytkl_YHMQ01Vy7dn"
+     }
+    ]
+   },
+   {
     "run": 43535127161,
     "run_number": 995,
     "version": "1.1.0",
@@ -44,30 +65,30 @@
       "fileId": "1MHac2GYhT4aLDx8yUAmEWkRoTc3MbTqz"
      }
     ]
-   },
-   {
-    "run": 43454937509,
-    "run_number": 992,
-    "version": "1.1.0",
-    "build": 1992,
-    "name": "lexkite-1.1.0-1992.aab",
-    "sha256": "70e899a5330e73bb76d253c09ff223e1c1be1fb51302bcf07b180257526c8870",
-    "size": 245496233,
-    "commit": "c2921c7fb2ce988551a46a5feb4ff925a7648461",
-    "at": "2026-11-13T15:49:32Z",
-    "copies": [
-     {
-      "driveId": 49,
-      "fileId": "1vUJ-XIbAW1pBfRoC76wgUkNHTzerWEbx"
-     },
-     {
-      "driveId": 27,
-      "fileId": "16RwhZRCZFZMmx5okcyh9fa8WIZInueLB"
-     }
-    ]
    }
   ],
   "ios-ipa": [
+   {
+    "run": 43537974422,
+    "run_number": 12,
+    "version": "1.1",
+    "build": 12,
+    "name": "lexkite-1.1-12.ipa",
+    "sha256": "d9fee0e2ba979359b0b795bc2ef0af5d08fe6c9576152ccb9e38d887aa01fd48",
+    "size": 45895816,
+    "commit": "bc5f0b05fe96601a538b179f27cc8c477b7eb659",
+    "at": "2026-11-14T01:10:58Z",
+    "copies": [
+     {
+      "driveId": 41,
+      "fileId": "1x3k1TJS5JCpE_xV09Ufn2PhofGkTnW8u"
+     },
+     {
+      "driveId": 44,
+      "fileId": "1bEgHcP7LKxW7UU6g5ZjqPqVWiJKGF4rE"
+     }
+    ]
+   },
    {
     "run": 43375379367,
     "run_number": 11,
@@ -177,5 +198,5 @@
    }
   ]
  },
- "updated": "2026-11-14T00:52:59.107Z"
+ "updated": "2026-11-14T01:12:35.952Z"
 }
