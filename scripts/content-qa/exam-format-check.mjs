@@ -285,7 +285,8 @@ for (const [t, xs] of Object.entries(tl)) {
         const q = items.reduce((a, it) => a + qCount(it), 0);
         if (s.questions != null && q !== s.questions) D(f, u, `${secId}.part${p.n}.questions`, `Part ${p.n}: ${q} câu ≠ ${s.questions}`);
         const codes = optsOf(p);
-        const badA = items.filter(it => /mcq/.test(p.type) ? !((it.options || []).length >= 3 && it.options[it.a] != null) : /match|gapped/.test(p.type) ? !codes.includes(it.a) : !(Array.isArray(it.a) && it.a.length)).map(it => it.n);
+        // matching nghe 2 nhiệm vụ (C1/C2 Part 4): mỗi unit có thể khai `options` riêng (A–H cho từng nhiệm vụ)
+        const badA = units.flatMap(un => { const uc = un.options ? un.options.map(o => String(o).split(' ')[0]) : codes; return (un.items || [un]).filter(it => /mcq|cross-text/.test(p.type) ? !((it.options || []).length >= 3 && it.options[it.a] != null) : /match|gapped/.test(p.type) ? !uc.includes(it.a) : !(Array.isArray(it.a) && it.a.length)); }).map(it => it.n);
         if (badA.length) D(f, u, `${secId}.part${p.n}.answer`, `${badA.length} câu đáp án không hợp lệ: ${badA.join(', ')}`);
         for (const x of units) {
           const src = key === 'listening' ? scriptText(x.script) : [txt(p.text), ...(p.texts || []).map(y => y.text), ...(x.items || []).map(it => txt(it.text))].join(' ');
