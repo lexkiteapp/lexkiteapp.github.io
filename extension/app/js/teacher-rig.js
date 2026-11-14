@@ -236,7 +236,7 @@
           if (endPrev) endPrev(); // câu mới thay câu cũ: trả lời hứa của câu cũ, bỏ nối âm cũ
           const my = ++tok, t0 = performance.now(), LSy = g.LipSync, c = cuesOf(visemes), text = String(so.text || '');
           // đồng hồ hiển thị = tiếng THẬT tới tai (nội suy currentTime, − trễ loa, + 1 khung): lệch ≤ ±33 ms (lip-clock.mjs)
-          const clock = audio ? (LSy.clock ? LSy.clock(() => ({ t: audio.currentTime, playing: playing(audio), rate: audio.playbackRate }), () => (ac ? ac.outputLatency || ac.baseLatency || 0 : 0)) : () => audio.currentTime) : () => (performance.now() - t0) / 1000;
+          const clk = audio && LSy.clock ? LSy.clock(() => ({ t: audio.currentTime, playing: playing(audio), rate: audio.playbackRate }), () => (ac ? ac.outputLatency || ac.baseLatency || 0 : 0)) : null, clock = audio ? (clk ? () => clk(performance.now()) : () => audio.currentTime) : () => (performance.now() - t0) / 1000;
           const est = (c && c.dur) || so.dur || (audio && isFinite(audio.duration) ? audio.duration : Math.max(0.6, text.length * 0.065));
           const isPlay = audio ? () => playing(audio) : () => clock() < est, an = { n: null, buf: null }, vd = LSy.vad ? LSy.vad() : null;
           const drop = () => { if (node) { try { node.disconnect(); } catch (e) { /* bỏ qua */ } node = null; } };
