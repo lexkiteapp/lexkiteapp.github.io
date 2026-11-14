@@ -404,6 +404,7 @@ node scripts/test/play-rhythm.mjs
 node scripts/test/play-rhythm-run.mjs
 node scripts/test/funnel.mjs
 node scripts/test/share-link.mjs
+node scripts/test/stitch-theme-lint.mjs
 node scripts/test/referral.mjs
 node scripts/test/pwa-installable.mjs
 node scripts/test/addon-listings.mjs
@@ -411,5 +412,7 @@ node scripts/test/rate-prompt.mjs
 node scripts/test/mobile-www-slim.mjs
 node scripts/test/yt-stats.mjs
 node scripts/test/yt-stats-op.mjs
+node scripts/test/social-stats-ui.mjs
 node scripts/test/l1-notes.mjs
 node scripts/test/qengine-flag.mjs
+node scripts/test/es-native-bundle.mjs
