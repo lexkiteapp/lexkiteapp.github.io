@@ -1,5 +1,5 @@
 {
- "_doc": "Màn Ngữ pháp (#/grammar, hub + danh sách bài) – d do web/js/grammar.js (hubData) dựng từ dữ liệu thật. Không có đầu trang/tab chung: mẫu có đầu trang riêng (Back + tiêu đề) → giữ. Chỗ mới của mục cũ không có trong mẫu: vòng tiến độ → thanh tiến độ; mô tả hub → đoạn chữ cuối thẻ tiến độ; tên Anh/mô tả bài kế → dòng phụ; chương gập mở (details) có mô tả + tiến độ; đề tổng hợp 40 câu + Chia động từ + Sửa ngữ pháp → cùng khuôn thẻ 'Mixed test' (d.cards, thẻ là liên kết).",
+ "_doc": "Màn Ngữ pháp (#/grammar, hub + danh sách bài) – d do web/js/grammar.js (hubData) dựng từ dữ liệu thật. Đầu trang + thanh tab chung (tab Kỹ năng) do shell.js; đầu trang riêng của mẫu (Back + tiêu đề + số bài) giữ trong nội dung, không dính. Chỗ mới của mục cũ không có trong mẫu: vòng tiến độ → thanh tiến độ; mô tả hub → đoạn chữ cuối thẻ tiến độ; tên Anh/mô tả bài kế → dòng phụ; chương gập mở (details) có mô tả + tiến độ; đề tổng hợp 40 câu + Chia động từ + Sửa ngữ pháp → cùng khuôn thẻ 'Mixed test' (d.cards, thẻ là liên kết).",
  "swap": {
   "w-[390px]": "w-full",
   "max-w-[390px]": "max-w-3xl",
@@ -7,7 +7,7 @@
   "sticky": "",
   "top-0": "",
   "z-30": "",
-  "pb-10": "pb-6"
+  "pb-10": "pt-14 pb-20"
  },
  "attr": {
   ":scope > main > header > button": {

@@ -16,7 +16,7 @@ const mk = ({ lang = 'vi', done = {}, tab = null, hist = 2 } = {}) => {
   c.document = { getElementById: () => ({}), createElement: () => ({ style: {} }), head: { appendChild() {} }, querySelector: () => null, querySelectorAll: () => [] };
   c.sessionStorage = { getItem: k => (k in log.store ? log.store[k] : null), setItem: (k, v) => { log.store[k] = v; } }; if (tab) log.store['g.tab'] = tab;
   c.history = { length: hist, back() { log.back++; } }; c.location = { set hash(v) { log.hash.push(v); } };
-  c.ST2 = { mount: (v, k, d, tabArg) => { assert.equal(k, 'grammar'); assert.equal(tabArg, null, 'hub ngữ pháp có đầu trang Back riêng của mẫu, không dùng thanh tab chung'); log.mount.push(JSON.parse(JSON.stringify(d))); log.root = root; return root; } };
+  c.ST2 = { mount: (v, k, d, tabArg) => { assert.equal(k, 'grammar'); assert.equal(tabArg, 'skills', 'hub ngữ pháp thuộc tab Kỹ năng: đầu trang + thanh tab chung (journey-matrix kiểm 5 tab, đánh dấu skills)'); log.mount.push(JSON.parse(JSON.stringify(d))); log.root = root; return root; } };
   const { GRAMMAR } = loadContent(); c.GRAMMAR = GRAMMAR; c.window.GRAMMAR_CHECK = {};
   vm.createContext(c); vm.runInContext(src, c, { filename: 'grammar.js' });
   return { c, routes, log, root };
@@ -24,7 +24,7 @@ const mk = ({ lang = 'vi', done = {}, tab = null, hist = 2 } = {}) => {
 const ids = h => h.rows.filter(r => !r.test).map(r => r.id);
 
 // 1. Gói nạp: khung + runtime + en/v2 trong gói riêng ghub (đứng TRƯỚC gói grammar), CSS riêng; không kéo vào gói grammar nặng
-assert.match(app, /ghub: \['js\/i18n\/en\/v2\.js', 'js\/st\/v2\/runtime\.js', 'js\/st\/v2\/grammar\.js'\]/);
+assert.match(app, /ghub: \['js\/i18n\/en\/v2\.js', 'js\/st\/v2\/runtime\.js', 'js\/st\/v2\/shell\.js', 'js\/st\/v2\/grammar\.js'\]/);
 assert.match(app, /\n\s+grammar: \['ghub', 'grammar', 'lfx'\],/); assert.match(app, /ghub: 'css\/st-v2-grammar\.css'/);
 assert.equal(app.slice(app.indexOf('const ROUTE_BUNDLE'), app.indexOf('};', app.indexOf('const ROUTE_BUNDLE'))).match(/\bgrammar:/g).length, 1, 'ROUTE_BUNDLE chỉ một khóa grammar');
 

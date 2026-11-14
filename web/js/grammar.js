@@ -132,7 +132,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     if (id) return lesson(id, q);
     let gtab = 'all'; try { gtab = sessionStorage.getItem('g.tab') || 'all'; } catch (e) { /* bỏ qua */ }
     if (!FOCUS[gtab]) gtab = 'all';
-    const root = ST2.mount(view, 'grammar', hubData(done(), gtab), null);
+    const root = ST2.mount(view, 'grammar', hubData(done(), gtab), 'skills');
     root.querySelectorAll('details[data-open="1"]').forEach(x => { x.open = true; }); // chương nên học tiếp mở sẵn (thuộc tính open không gắn được theo dữ liệu)
     root.addEventListener('click', e => {
       const b = e.target.closest && e.target.closest('[data-gt],[data-gh]'); if (!b) return;
