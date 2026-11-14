@@ -120,6 +120,7 @@
 "Hết phần nghe – kiểm tra đáp án":"Aufnahme beendet – überprüfen Sie Ihre Antworten",
 "Học từ vựng bài “{title}”":"Lernen Sie Vokabeln von „{title}“",
 "Hỏi – đáp":"Frage–Antwort",
+"Khoe kết quả":"Ergebnis teilen",
 "Không bị trừ điểm khi sai – <b>đừng bỏ trống</b> câu nào.":"Es gibt keine Strafe für falsche Antworten – <b>lassen Sie niemals eine Frage leer</b>.",
 "Không nhận đủ lời nói để chấm – kiểm tra micro và dùng Chrome/Edge.":"Es wurde nicht genügend Sprache erfasst, um zu punkten – überprüfen Sie Ihr Mikrofon und verwenden Sie Chrome/Edge.",
 "Kéo để đổi độ rộng cột":"Ziehen Sie, um die Größe der Spalten zu ändern",

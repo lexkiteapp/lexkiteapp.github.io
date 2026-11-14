@@ -1008,6 +1008,36 @@ export const REG = {
    "_note": "27/10: dò kho CF_POOL ngay sau giờ nạp neuron (mỗi tài khoản 1 câu ~1 neuron) – kho có thật sự nạp lại lúc 00:00 UTC không, có ai khác dùng không. Kết quả ở tóm tắt run."
   },
   {
+   "id": "ai-golden",
+   "workflow": "ai-golden.yml",
+   "cron": [
+    "41 6 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
+   "lease": false,
+   "paused": false,
+   "_note": "03/11: cổng chất lượng AI người dùng (docs/AI-CHAIN.md §4) – ~20 bài IELTS + ~20 lượt roleplay × mỗi model Gemini/Groq/Llama, giám khảo khác họ; gọi thẳng nhà cung cấp bằng GEMINI_POOL/GROQ_POOL/CF_POOL (≈ 250 lượt/ngày, không chạm API của site)."
+  },
+  {
+   "id": "ai-keys-sync",
+   "workflow": "ai-keys-sync.yml",
+   "cron": [
+    "17 3 * * 1"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "lease": false,
+   "paused": false,
+   "_note": "03/11: đồng bộ GEMINI_POOL/GROQ_POOL vào kho khóa mã hóa của site (/api/keysync, OIDC) – 2 lượt gọi API/tuần (docs/AI-CHAIN.md §3)."
+  },
+  {
    "id": "vocab-img-scene",
    "workflow": "vocab-img-scene.yml",
    "cron": [

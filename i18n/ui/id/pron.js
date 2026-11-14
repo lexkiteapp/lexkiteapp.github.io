@@ -88,6 +88,7 @@
 "Âm cuối /s/ không rung cổ và nguyên âm trước nó ngắn: “rice” gọn, xì hơi rõ.":"Bunyi /s/ terakhir tidak bersuara dan vokal sebelumnya pendek: ucapkan “rice” dengan tegas dan disertai desisan yang jelas.",
 "Âm cuối /z/ rung cổ và kéo dài nguyên âm trước nó: “riiise-zzz”.":"Bunyi /z/ terakhir dibunyikan dan vokal sebelumnya lebih panjang: “riiise-zzz”.",
 "Âm cần luyện thêm":"Bunyi lemahmu",
+"Âm tiếp theo":"Bunyi berikutnya",
 "Âm “j” có chặn lưỡi và rung cổ, mạnh hơn “y”.":"Bunyi “j” memiliki penghentian lidah dan suara – lebih kuat dari “y”.",
 "âm yếu":"suara lemah",
 "Đang xử lý…":"Memproses…",

@@ -41413,5 +41413,20 @@
     "ar": "+{n} XP",
     "ru": "+{n} XP",
     "tr": "+{n} XP"
+  },
+  "Âm tiếp theo": {
+    "es": "Siguiente sonido",
+    "pt": "Próximo som",
+    "fr": "Son suivant",
+    "de": "Nächster Laut",
+    "id": "Bunyi berikutnya",
+    "th": "เสียงถัดไป",
+    "zh": "下一个发音",
+    "ja": "次の発音",
+    "ko": "다음 소리",
+    "ru": "Следующий звук",
+    "ar": "الصوت التالي",
+    "hi": "अगली ध्वनि",
+    "tr": "Sonraki ses"
   }
 }

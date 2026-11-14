@@ -88,6 +88,7 @@
 "Âm cuối /s/ không rung cổ và nguyên âm trước nó ngắn: “rice” gọn, xì hơi rõ.":"最后的 /s/ 没有声音，前面的元音很短：用清晰的嘶嘶声清脆地说“rice”。",
 "Âm cuối /z/ rung cổ và kéo dài nguyên âm trước nó: “riiise-zzz”.":"最后的 /z/ 是浊音，前面的元音较长：“riiise-zzz”。",
 "Âm cần luyện thêm":"你的薄弱音",
+"Âm tiếp theo":"下一个发音",
 "Âm “j” có chặn lưỡi và rung cổ, mạnh hơn “y”.":"“j”音有舌塞和声音——比“y”强。",
 "âm yếu":"微弱的声音",
 "Đang xử lý…":"正在识别…",
