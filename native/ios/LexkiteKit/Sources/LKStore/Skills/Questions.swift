@@ -174,6 +174,13 @@ public enum QE {
             q[key] = .obj([("r", .int(o.i("r") + v.r)), ("t", .int(o.i("t") + v.t)), ("s", .int(o.i("s") + Vocab.round(Double(secs * v.t) / Double(tot)))), ("d", .number(Double(now)))])
         }
         g["qstat"] = .object(q)
+        // game.qwk[skill][week] = {r, t} (week = floor(now / 7 days)), 8 newest weeks kept - qtips.js save()
+        let wk = String(Int(Double(now) / 604_800_000)), rr = tally.values.reduce(0) { $0 + $1.r }
+        var qw = game["qwk"]?.object ?? [:], w = qw[skill]?.object ?? [:]
+        let ow = w[wk] ?? .obj([("r", 0), ("t", 0)])
+        w[wk] = .obj([("r", .int(ow.i("r") + rr)), ("t", .int(ow.i("t") + tot))])
+        for k in w.keys.sorted(by: { (Int($0) ?? 0) > (Int($1) ?? 0) }).dropFirst(8) { w[k] = nil }
+        qw[skill] = .object(w); g["qwk"] = .object(qw)
         return g
     }
 }
