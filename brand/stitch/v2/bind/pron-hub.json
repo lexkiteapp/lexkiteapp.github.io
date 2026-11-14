@@ -115,6 +115,15 @@
           ":scope": {
            "to": "a"
           }
+         },
+         "cls": {
+          ":scope > span:nth-child(1)": {
+           "top-1": "'top-0'",
+           "right-1": "'right-0'"
+          },
+          ":scope > span:nth-child(1) > span": {
+           "text-[15px]": "'text-[16px]'"
+          }
          }
         },
         "plain": {
@@ -161,6 +170,12 @@
          "tag": {
           ":scope": {
            "to": "a"
+          }
+         },
+         "cls": {
+          ":scope > span:nth-child(1)": {
+           "top-1": "'top-2'",
+           "right-1": "'right-2'"
           }
          }
         }
@@ -288,8 +303,8 @@
            "border-dashed": "x.unv ? 'border-dashed' : 'border-solid'"
           },
           ":scope > span:nth-child(1)": {
-           "top-1": "'top-0'",
-           "right-1": "'right-0'"
+           "top-1": "'top-2'",
+           "right-1": "'right-2'"
           },
           ":scope > span:nth-child(3)": {
            "text-[11px]": "'text-[12px]'"
@@ -390,7 +405,7 @@
   "lt:#fff1e8": "#F8F4EC",
   "dk:#1f4a4e": "#10302F",
   "dk:#3b3015": "#3A2E12",
-  "dk:#4a6870": "color:var(--faint)",
+  "dk:#4a6870": "color:var(--muted)",
   "dk:#5eead4": "#5FD0C4",
   "dk:#613800": "#0A1517",
   "dk:#9a5b00": "#FFB054",
@@ -400,8 +415,8 @@
   "lt:#bec9c6/80": "color:var(--faint)",
   "lt:#bec9c6": "color:var(--faint)",
   "lt:#136a63": "#0D6964",
-  "dk:#4a6870/60": "color:var(--faint)",
-  "dk:#4a6870/70": "color:var(--faint)",
-  "dk:#4a6870/80": "color:var(--faint)"
+  "dk:#4a6870/60": "color:var(--muted)",
+  "dk:#4a6870/70": "color:var(--muted)",
+  "dk:#4a6870/80": "color:var(--muted)"
  }
 }
