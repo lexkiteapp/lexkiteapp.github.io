@@ -1,6 +1,6 @@
 # Spec: Mini-test 10 phút + ôn dạng yếu (qstats)
 
-Trạng thái: CHỜ DUYỆT (coordinator). Chủ: exam-bank. Liên quan: `web/js/qtips.js` (`#/qstats`), `web/js/plan.js` (Sổ lỗi sai), `docs/audits/exams-2026-11.md` §4.
+Trạng thái: ĐÃ DUYỆT (chủ 14/11, kèm bổ sung coordinator). Chủ: exam-bank. Liên quan: `web/js/qtips.js` (`#/qstats`), `web/js/plan.js` (Sổ lỗi sai), `docs/audits/exams-2026-11.md` §4.
 
 ## Vấn đề
 `#/qstats` chỉ liệt kê tỉ lệ đúng cộng dồn. Người học không thấy xu hướng theo tuần, và "Nên luyện tiếp" chỉ là một đường dẫn, không thành một phiên ôn ngắn có đồng hồ. Cambridge đã vào qstat + Sổ lỗi sai (PR #1281).
@@ -21,3 +21,8 @@ Không bộ SRS riêng, không dịch vụ máy chủ, không điểm band "chí
 
 ## Xong khi
 Làm 1 bài Cambridge/IELTS/TOEIC → thấy cột tuần tăng; thẻ yếu nhất trỏ đúng dạng; mini-test tự nộp ở 10′ và câu sai xuất hiện ở `#/mistakes`; mọi gate xanh, kiểm live.
+
+## Bổ sung (coordinator, chủ đã duyệt 14/11)
+1. **Thiết kế khoá ở nguồn**: dải tuần + thẻ dạng yếu dựng trên Stitch design system hiện có (token màu/font, cổng font/colour) TRƯỚC khi code UI; PR kèm ảnh QC sáng/tối + RTL.
+2. **Đồng hồ**: mini-test tái dùng đúng đồng hồ phòng thi (#512 nếu đã merge), không viết bản thứ hai.
+3. **Native**: PR 1–3 giữ web-only sau cờ; vectors/Compose/SwiftUI vào PR riêng ngay sau, không lệch quá 1 PR. Mã mới ≤3 KB vào `web/js`, phần dư lazy.
