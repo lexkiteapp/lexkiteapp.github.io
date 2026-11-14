@@ -37,6 +37,7 @@ ok(parseLog(body).length === 3 && /busy 9\/40/.test(body) && /#5/.test(body) && 
 const wf = fs.readFileSync(new URL('../../.github/workflows/ci-autopilot.yml', import.meta.url), 'utf8'), src = fs.readFileSync(new URL('../ci/autopilot.mjs', import.meta.url), 'utf8');
 ok(/concurrency:\s*\{[^}]*group: ci-autopilot/.test(wf) && /timeout-minutes:\s*\d+/.test(wf), 'workflow có concurrency + timeout-minutes');
 ok(/cron:/.test(wf) && /workflow_dispatch:/.test(wf) && !/workflow_run|check_suite|check_run|pull_request/.test(wf.replace(/^#.*$/gm, '')), 'lịch + dispatch, KHÔNG fan-out workflow_run/check_suite/PR');
+ok(/\(await listOne\(token, pr\.number\)\)\?\.sha !== pr\.sha\) break;\n\s*if \(dry \|\| \(await call\(token, 'POST', `\/repos\/\$\{REPO\}\/actions\/runs\/\$\{run\.id\}\/rerun-failed-jobs/.test(src), 'rerun: đọc lại head ngay trước POST – không chạy lại lượt sha cũ (huỷ lượt head mới, #1285)');
 ok(!/--no-verify|force|skip.?check|enable.?auto/i.test(src.replace(/^\s*\/?\*.*$/gm, '').replace(/\/\/.*$/gm, '').replace(/`[^`]*`/g, '')), 'mã không bỏ check / force');
 ok(/decide\(fresh\)\.act === 'merge'/.test(src) && /merge_method: 'squash'/.test(src) && /sha: pr\.sha/.test(src), 'gộp: đọc lại + quyết định lại ngay trước khi gộp, squash, ghim sha');
 ok(/process\.env\.AUTOPILOT_MERGE_TOKEN/.test(src) && /mergeToken && merges < MAX_MERGES/.test(src), 'chỉ gộp khi có token gộp riêng (github.token không kích workflow push-main)');
