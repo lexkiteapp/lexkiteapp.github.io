@@ -32,7 +32,7 @@ assert.deepEqual(d.groups.flatMap(g => g.items).filter(x => x.unv).map(x => x.id
 assert.equal((html.match(/border-dashed/g) || []).length, unv.length, 'mỗi ô vô thanh một viền nét đứt (kể cả ô đã xong)');
 assert.equal((html.match(/ href="#\/pron\//g) || []).length, 62, 'mọi bài là liên kết thật (mở tab mới được)');
 assert.equal((html.match(/<a class="/g) || []).length, 62); assert.doesNotMatch(html, /teacher-slot|Acoustic|Calibrate|Foundational|Pronunciation library/, 'không sót chữ giữ chỗ của mẫu');
-assert.match(html, /aria-label="\/iː\/ · [^"]*· ✓ 100%"/, 'ô đã xong đọc được cả điểm'); assert.match(html, /check_circle/);
+assert.match(html, /aria-label="\/iː\/ · [a-z]+ · Đã xong 100%"/, 'ô đã xong đọc được cả điểm, không chữ Việt cứng trong aria-label (i18n-leak)'); assert.match(html, /check_circle/);
 assert.match(html, /Ô viền xám nhạt = phụ âm vô thanh/); assert.match(html, /✓ 80% · /, 'hàng chuyên đề đã xong hiện %');
 assert.match(html, /data-href="#\/skills"/); assert.match(html, new RegExp('data-href="' + d.nextHref.replace(/[/?]/g, '\\$&') + '"'));
 assert.doesNotMatch(html, /class="fixed [^"]*hidden|hidden bottom-0/, 'có bài kế tiếp → nút Học tiếp hiện');

@@ -28,7 +28,7 @@
       if (!ls.length) return null;
       const chart = CHART.includes(gr.id);
       return { v: !chart ? 'rows' : gr.id === 'consonants' ? 'c5' : 'v4', name: t(gr.name), desc: t(gr.desc), note: t('Ô viền xám nhạt = phụ âm vô thanh · Mỗi bài: khẩu hình → nghe mẫu → phân biệt cặp từ → nói & chấm điểm.'), count: `${ls.filter(x => d[x.id]).length}/${ls.length}`,
-        items: ls.map(x => chart ? { id: x.id, href: href(x), ipa: x.ipa, w: (x.words[0] || {}).w || '', done: d[x.id] || 0, next: x === nx, unv: !!(x.mouth && x.mouth.voiced === false), label: `${x.ipa} · ${x.title}${d[x.id] ? ' · ✓ ' + d[x.id] + '%' : ''}` }
+        items: ls.map(x => chart ? { id: x.id, href: href(x), ipa: x.ipa, w: (x.words[0] || {}).w || '', done: d[x.id] || 0, next: x === nx, unv: !!(x.mouth && x.mouth.voiced === false), label: `${x.ipa} · ${(x.words[0] || {}).w || ''}${d[x.id] ? ' · ' + t('Đã xong') + ' ' + d[x.id] + '%' : ''}` }
           : { id: x.id, href: href(x), icon: ICON[x.group] || 'graphic_eq', title: x.title, done: d[x.id] || 0, sub: `${d[x.id] ? '✓ ' + d[x.id] + '% · ' : ''}${(x.how || '').slice(0, 110)}${(x.how || '').length > 110 ? '…' : ''}`, end: d[x.id] ? 'check_circle' : 'chevron_right' }) };
     }).filter(Boolean);
     ST2.mount(view, 'pron-hub', {
