@@ -1051517,6 +1051517,67 @@
      "science.n"
     ]
    }
+  },
+  {
+   "src": "lexicon-expand",
+   "id": "turnstile#n",
+   "batch": "20261114-r238",
+   "why": [
+    "dịch vi: phương án Wiktionary bị AI họ khác phản bác (ủng hộ ≤ phản bác)"
+   ],
+   "at": "2026-11-14",
+   "data": {
+    "w": "turnstile",
+    "pos": "n",
+    "ipa": "/ˈtəːnstaɪl/",
+    "ipaUS": "/ˈtɜːrnstaɪl/",
+    "def": "a gate with revolving arms that allows one person through at a time",
+    "ex": [
+     "The public passes through turnstiles.",
+     "Tom tried to hop the turnstile without paying."
+    ],
+    "col": [],
+    "syn": [],
+    "level": "C2",
+    "cefrF": "C2",
+    "cefrSrc": "freq",
+    "perLang": true,
+    "z": 2.39,
+    "emoji": "",
+    "topic": "urban",
+    "vi": "",
+    "note_vi": "",
+    "m": {},
+    "src": {
+     "freq": "wordfreq-3.1",
+     "sense": "wordnet-3.0:turnstile.n.01",
+     "def": "wordnet-gloss+ai-simplify",
+     "defGen": "gemini-3.6-flash",
+     "ipaUS": "cmudict",
+     "ipaUK": "wiktionary",
+     "cefr": "freq",
+     "ex": [
+      "wikipedia:ew30059.24",
+      "tatoeba:11207492"
+     ],
+     "tr": {
+      "es": "wiktionary+omw+ai",
+      "pt": "omw+ai",
+      "fr": "wiktionary+omw+ai",
+      "de": "wiktionary+ai",
+      "zh": "wiktionary+ai",
+      "ru": "wiktionary+ai",
+      "tr": "wiktionary+ai"
+     },
+     "trSense": "rotating mechanical device",
+     "col": "",
+     "syn": "",
+     "lic": "WordNet 3.0 (Princeton licence) · Tatoeba CC BY 2.0 FR · Simple English Wikipedia CC BY-SA 4.0 · Common Voice en sentences CC0 · English Wikivoyage CC BY-SA 4.0 · English Wikinews CC BY 2.5/4.0 · English Wikibooks CC BY-SA 4.0 · English Wikiversity CC BY-SA 4.0 · English Wikipedia CC BY-SA 4.0 · Wiktionary en + vi CC BY-SA 4.0 · Wikidata CC0 (kaikki.org) · CMUdict BSD-2 · CEFR-J 1.5 / Octanove CC BY-SA 4.0 · wordfreq CC BY-SA 4.0",
+     "senseLock": "wiktionary-1"
+    },
+    "qa": {},
+    "senseLock": "wiktionary-1"
+   }
   }
  ]
 }
