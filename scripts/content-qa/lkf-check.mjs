@@ -83,7 +83,7 @@ const items = { // nhóm → [{id, level, ...thuộc tính cho luật gợi ý}]
   story: (ex('content/lesson/stories.json') ? JSON.parse(rd('content/lesson/stories.json')).items : []).map(s => ({ id: s.id, level: s.cefr, kind: s.kind })),
   situation: jsonDir('content/situations').map(s => ({ id: s.id, level: s.cefr })),
   call: vmFiles('web/js/call', /^calls.*\.js$/, 'CALLS').map(c => ({ id: c.id, level: c.lv, exam: c.exam || '' })),
-  roleplay: vmFiles('web/js/roleplay', /^data-.*\.js$/, 'ROLEPLAY').map(r => ({ id: r.id, level: Array.isArray(r.lv) ? r.lv[1] || r.lv[0] : 'B2' })), // công sở: mỗi lượt 3 bậc B1/B2/C1 → lấy giữa; đời sống: level [A1,A2,B1] → giữa
+  roleplay: [...vmFiles('web/js/roleplay', /^data-.*\.js$/, 'ROLEPLAY'), ...vmFiles('web/cpack/roleplay', /\.js$/, 'ROLEPLAY')].map(r => ({ id: r.id, level: Array.isArray(r.lv) ? r.lv[1] || r.lv[0] : 'B2' })), // công sở: mỗi lượt 3 bậc B1/B2/C1 → lấy giữa; đời sống: level [A1,A2,B1] → giữa
 };
 for (const [col, list] of Object.entries(items)) { const s = new Set(); for (const it of list) { if (s.has(it.id)) E(`${col}/${it.id}: khoá trùng – không gắn lo được`); s.add(it.id); } }
 
