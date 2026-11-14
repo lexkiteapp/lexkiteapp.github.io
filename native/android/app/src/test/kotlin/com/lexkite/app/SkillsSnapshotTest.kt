@@ -280,7 +280,7 @@ class SkillsSnapshotTest {
     private val spText = "However, I think living in a big city is a good thing. For example, there are many opportunities for young people. In addition, public transport is convenient. As a result, many residents prefer the urban lifestyle because it offers significant benefits and a sustainable future for everyone."
 
     @Composable private fun speakScreen(name: String, lang: String) {
-        val pg = SpeakingRoom.page(spack, "p1/7"); val partNames = listOf("p1", "p2", "p3").map { Tr(spack.parts.getValue(it).name) }; val topics = spack.bank.map { it.title }; val sample = SpeakingRoom.sample(spack, pg, 0)
+        val pg = SpeakingRoom.page(spack, "p1/7"); val partNames = listOf("p1", "p2", "p3").map { Tr(spack.parts.getValue(it).name) }; val topics = spack.bank.take(40).map { it.title } // fixture: first 40 topics so the reference images stay stable when the bank grows; val sample = SpeakingRoom.sample(spack, pg, 0)
         val sugg = listOf("congestion" to "sự tắc nghẽn", "commuter" to "người đi làm xa", "pedestrian" to "người đi bộ")
         fun speaking(phase: String, clock: String, tone: String, hint: Tr, live: String, a: SpeakingRoom.Analysis?) = SpeakingUi(pg, partNames, topics, 0, phase, clock, tone, hint, live, a, if (a != null) spText else "", sugg, SpeakingRoom.tips(spack, "p1"), sample, sample?.let { SpeakingRoom.sentences(it) } ?: emptyList(), canNext = pg.questions.size > 1)
         val s = sayData.series[0]; val l10n = Locale.forLanguageTag(lang)
