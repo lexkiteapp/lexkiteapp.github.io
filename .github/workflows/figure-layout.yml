@@ -8,6 +8,7 @@ on:
     paths:
       - 'web/js/task1.js'
       - 'web/js/write/task1-more*.js'
+      - 'web/cpack/write/task1-more.js'
       - 'web/css/style.css'
       - 'web/css/lazy-ui.css'
       - 'scripts/test/figure-layout.mjs'
@@ -19,6 +20,7 @@ on:
     paths:
       - 'web/js/task1.js'
       - 'web/js/write/task1-more*.js'
+      - 'web/cpack/write/task1-more.js'
       - 'web/css/style.css'
       - 'web/css/lazy-ui.css'
       - 'scripts/test/figure-layout.mjs'
@@ -52,7 +54,7 @@ jobs:
   figure-layout:
     needs: gate
     if: needs.gate.outputs.go == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4

@@ -89,7 +89,7 @@
     groups: [mcq('Read the messages and answer the questions.', [
       { n: 29, q: 'Why does Leo want to leave at 6:30?', options: ['Construction on the highway may cause long delays.', "Mai's flight has been moved to an earlier time.", 'He has to be at work by 8 a.m.', 'They need time to eat breakfast at the airport.'], a: 0,
         explain: "Leo nói \"there's road work on the highway this month, so traffic gets really bad\" và tuần trước mất gần hai tiếng → cần đi sớm vì công trình trên đường cao tốc gây kẹt xe. Giờ bay của Mai không đổi." },
-      { n: 30, q: "What does Mai mean when she writes, \"I'll take you up on that\"?", options: ["She accepts Leo's offer to buy breakfast.", 'She wants Leo to drive faster.', 'She will pay for the gas.', 'She will take a taxi instead.'], a: 0,
+      { n: 30, q: "What does Mai mean when she writes, \"I'll take you up on that\"?", options: ["She accepts Leo's offer to buy breakfast.", 'She wants Leo to drive faster.', 'She will pay for the gas.', 'She will take a taxi instead.'], a: 0, cue: 'I\'ll take you up on that … pick up coffee and breakfast',
         explain: "\"take sb up on (an offer)\" = nhận lời đề nghị của ai. Mai đồng ý với lời đề nghị mua cà phê và bữa sáng trên đường của Leo, đồng thời chấp nhận đi lúc 6:30." },
     ])],
   });

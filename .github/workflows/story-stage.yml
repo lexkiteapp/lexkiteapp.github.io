@@ -31,7 +31,8 @@ jobs:
   stage:
     needs: gate
     if: needs.gate.outputs.go == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 18
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4

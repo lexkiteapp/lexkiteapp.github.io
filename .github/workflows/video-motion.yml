@@ -47,7 +47,7 @@ jobs:
   voice:
     needs: [setup, gate]
     if: needs.gate.outputs.go == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 30
     strategy:
       fail-fast: false
@@ -86,7 +86,7 @@ jobs:
   render:
     needs: [setup, voice, gate]
     if: needs.gate.outputs.go == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 75
     strategy:
       fail-fast: false

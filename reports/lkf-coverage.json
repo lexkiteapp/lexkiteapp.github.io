@@ -3,11 +3,11 @@
  "cells": 36,
  "cellsOk": 36,
  "minCell": 16,
- "objectivesUsed": 142,
+ "objectivesUsed": 167,
  "coverage": {
   "grammar": {
-   "items": 80,
-   "tagged": 80,
+   "items": 102,
+   "tagged": 102,
    "pct": 100
   },
   "reading": {
@@ -41,13 +41,13 @@
    "pct": 100
   },
   "toefl": {
-   "items": 159,
-   "tagged": 159,
+   "items": 194,
+   "tagged": 194,
    "pct": 100
   },
   "writing-model": {
-   "items": 128,
-   "tagged": 128,
+   "items": 142,
+   "tagged": 142,
    "pct": 100
   },
   "gt-letter": {
@@ -91,19 +91,19 @@
    "pct": 100
   },
   "roleplay": {
-   "items": 31,
-   "tagged": 31,
+   "items": 33,
+   "tagged": 33,
    "pct": 100
   },
   "vocab": {
-   "items": 9759,
-   "tagged": 9759,
+   "items": 10201,
+   "tagged": 10201,
    "pct": 100
   }
  },
  "total": {
-  "items": 10609,
-  "tagged": 10609,
+  "items": 11124,
+  "tagged": 11124,
   "pct": 100
  },
  "errors": 0

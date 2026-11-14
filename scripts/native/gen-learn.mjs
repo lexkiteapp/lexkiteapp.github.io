@@ -183,11 +183,11 @@ async function methodContent() {
 
 // ================================================================== #/grammar ==================================================================
 const GRAMMAR_FILES = ['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'drills-own', 'bank-gen', 'check'];
-const CPACK = new Set(['starter', 'drills-own']); // dời sang cpack để trả byte người học
+const CPACK = new Set(['starter', 'drills-own', 'academic', 'book2']); // dời sang cpack để trả byte người học
 function grammarSource() {
   const sb = { console }; sb.window = sb; sb.self = sb; vm.createContext(sb);
   for (const f of GRAMMAR_FILES) vm.runInContext(rd(CPACK.has(f) ? `web/cpack/grammar/${f}.js` : `web/js/grammar/${f}.js`), sb, { filename: f });
-  const l1 = {}; for (const f of fs.readdirSync(path.join(ROOT, 'web/js/grammar/l1')).filter(x => x.endsWith('.js')).sort()) { sb.GRAMMAR_L1 = undefined; vm.runInContext(rd('web/js/grammar/l1/' + f), sb); l1[sb.GRAMMAR_L1.lang] = sb.GRAMMAR_L1; }
+  const l1 = {}; for (const f of fs.readdirSync(path.join(ROOT, 'web/cpack/grammar-l1')).filter(x => x.endsWith('.js')).sort()) { sb.GRAMMAR_L1 = undefined; vm.runInContext(rd('web/cpack/grammar-l1/' + f), sb); l1[sb.GRAMMAR_L1.lang] = sb.GRAMMAR_L1; }
   const gs = rd('web/js/grammar.js');
   const units = sliceLit(gs, 'UNITS', '\n  ];'), chapters = sliceLit(gs, 'CHAPTERS', '\n  ];'), fb = sliceLit(gs, 'UNIT_FALLBACK', ' };');
   const FOCUS = (() => { const a = gs.indexOf('const FOCUS = {'), b = gs.indexOf('\n    };', a); return vm.runInNewContext('(' + gs.slice(a + 'const FOCUS = '.length, b + 6) + ')'.replace('\n    }', '}')).valueOf; })();

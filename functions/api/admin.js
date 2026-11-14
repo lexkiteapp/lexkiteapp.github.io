@@ -1,11 +1,13 @@
 /* API trang quản trị (/admin.html). Chỉ email trong biến bí mật ADMIN_EMAILS (Cloudflare Pages) được dùng.
  * POST /api/admin  (Authorization: Bearer <Firebase ID token>)  { op, ... }
- * op: usage · services · serviceSet · serviceDelete · overview · users · usersStats · usersBulk · usersExport · user · userDelete · inbox · inboxMark · analytics · live · growth · errors · errorsClear · config · configSet · alerts
+ * op: usage · services · serviceSet · serviceDelete · overview · users · usersStats · usersBulk · usersExport · user · userDelete · inbox · inboxMark · analytics · live · growth · channels · retention · errors · errorsClear · config · configSet · alerts
  * (alerts gồm cả Backlink, PR & Thương hiệu – bảng bw_* do functions/api/backlinks.js ghi) */
 import { claims, limit, userDocs } from './sync.js';
 import { geminiKeys, geminiCall, isCooling, resetGeminiCache, gemFetch } from './ai.js';
 import { setup as hitSetup, dayOf as vday, TZ, hitMode, aeOnline } from './hit.js';
 import { growthData, growthRoll } from './growth.js';
+import { retentionData } from './_retention.js';
+import { channelData } from './_funnel.js';
 import { tierShare, landStats } from './_cpm.js';
 import { loadDays, merge, top, distinctBy, sumOf, freqOf, perDay, unkey, vidsHash } from './_rollup.js';
 import { purgeNotices } from './notices.js';
@@ -30,7 +32,7 @@ export const ghApi = async (env, u, f = fetch) => {
 };
 // Quảng cáo (docs/ADS.md): cờ công khai + khóa chỉ quản trị (eCPM ước tính USD/1000 lượt, ngưỡng cổng giữ chân %, cỡ mẫu tối thiểu, checklist sẵn sàng)
 const ADS_KEYS = [...ADS_PUBLIC, 'ads_ecpm_web', 'ads_ecpm_android', 'ads_ecpm_ios', 'ads_guard_pct', 'ads_guard_min', 'ads_ready']; // ads_ready = JSON trạng thái nhập tay của thẻ "Sẵn sàng bật quảng cáo" (duyệt AdSense/AdMob, IRS, CMP…) – không phải cờ, không tới /api/config
-const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate', 'vocab_img', 'vocab_img_pct', 'ret', 'ret_pct', 'ux1', 'ux1_pct', 'offline_pack', 'pt_pilot', 'es_course', ...ADS_KEYS];
+const CONFIG_KEYS = ['banner', 'banner_url', 'banner_level', 'ai_user', 'ai_anon', 'ai_global', 'alert_errors', 'note', 'hit_rate', 'vocab_img', 'vocab_img_pct', 'ret', 'ret_pct', 'ux1', 'ux1_pct', 'offline_pack', 'pt_pilot', 'es_course', 'es_course_pct', 'es_kill', 'importdeck', ...ADS_KEYS];
 const DAY = 86400e3;
 // Ngôn ngữ giao diện quản trị: máy khách gửi ui: 'vi' | 'en' (thiếu = 'vi', tương thích cũ) – chỉ áp cho vài câu hiển thị
 const tx = (b, vi, en) => (b && b.ui === 'en' ? en : vi);
@@ -643,6 +645,16 @@ export const OPS = {
     if (rollOff(env)) return cached('growth-v1?d=' + P, 600, () => growthData(db, P));
     const { vids } = await humanWhere(db, env);
     return cached(`growth-r1?d=${P}&x=${vidsHash(vids)}`, 600, () => growthRoll(db, P, new Set(vids)));
+  },
+  // Giữ chân D1/D7/D30 theo nền tảng & quốc gia (functions/api/_retention.js) – đệm 10 phút
+  async retention(db, b, who, env) {
+    const P = [30, 90].includes(+b.days) ? +b.days : 30, { vids } = await humanWhere(db, env);
+    return cached(`retention-v1?d=${P}&x=${vidsHash(vids)}`, 600, () => retentionData(db, P, vids));
+  },
+  // Phễu theo kênh/mã bài UTM (functions/api/_funnel.js, docs/specs/funnel.md) – đệm 10 phút theo kỳ
+  async channels(db, b) {
+    const P = [7, 30, 90].includes(+b.days) ? +b.days : 30;
+    return cached('channels-v1?d=' + P, 600, () => channelData(db, P));
   },
   async errors(db) { return { rows: await all(db, 'SELECT * FROM errors ORDER BY last DESC LIMIT 200') }; },
   async errorsClear(db, b) { if (b.h) await db.prepare('DELETE FROM errors WHERE h = ?').bind(String(b.h)).run(); else await db.prepare('DELETE FROM errors').run(); return { ok: true }; },

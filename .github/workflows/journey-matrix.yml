@@ -34,7 +34,7 @@ jobs:
     needs: gate
     if: needs.gate.outputs.go == 'true'
     name: ${{ matrix.shard }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 15
     strategy:
       fail-fast: false

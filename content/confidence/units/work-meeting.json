@@ -165,6 +165,10 @@
           [
             "get started|thanks for coming|start|welcome",
             "Thanks."
+          ],
+          [
+            "on time|take a seat|sit|seat|just in time|coffee|water",
+            "Oh good, thanks."
           ]
         ]
       },
@@ -175,6 +179,10 @@
           [
             "discuss|budget|hear from|you first|what do you think",
             "Sure. I think we need more money for ads. Oh, and new office chairs!"
+          ],
+          [
+            "project|plan|schedule|sales|launch|results|goals?|ideas?|update|agenda",
+            "Okay. We need more money for ads. And new chairs!"
           ]
         ]
       },
@@ -185,6 +193,10 @@
           [
             "park|later|come back|for now|another time",
             "Okay, fair enough."
+          ],
+          [
+            "focus|priority|agenda|topic|ads|marketing|stay on",
+            "Okay, got it."
           ]
         ]
       },
@@ -195,6 +207,10 @@
           [
             "wrap up|friday|same page|agree|send",
             "Yes, I'm on it."
+          ],
+          [
+            "plan|exactly|correct|notes|minutes|email|follow-?up|meeting|finish",
+            "Sounds good to me."
           ]
         ]
       }

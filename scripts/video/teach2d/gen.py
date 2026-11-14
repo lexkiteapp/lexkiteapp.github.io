@@ -743,6 +743,7 @@ if __name__ == '__main__':
     if '--pick' in A_:   # teach-video preqc: explicit ids > next N todo (ci-filler 'shards') > PR smoke (pilots + first auto ep of each template) > pilots
         i = A_.index('--pick'); ids, n, ev = [x.strip() for x in A_[i + 1].split(',') if x.strip()], int(A_[i + 2] or 0), A_[i + 3]
         par = int(A_[i + 4]) if len(A_) > i + 4 and A_[i + 4].isdigit() else 30
+        if len(ids) > 120: sys.exit(f'--pick: {len(ids)} explicit episodes > 120 (render matrix = 2 formats x episodes <= 256 jobs) - dispatch in chunks of <= 120 with distinct batch ids')
         if not ids and n > 0: ids = todo()[:min(n, 120, 4 * par)]   # render matrix = 2 x episodes <= 256 jobs; ~4 episodes per free runner per run
         if not ids:
             ids = [r['id'] for r in PIL['pilots']]
