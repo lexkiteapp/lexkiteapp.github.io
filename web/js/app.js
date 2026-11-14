@@ -305,7 +305,7 @@
     pbook: ['cpack/framework/functions.js', 'cpack/framework/phrase-book.js'], // 🗣️ Sổ mẫu câu theo chức năng: nạp khi mở mục trong #/phrases lần đầu (scripts/framework/build-functions.mjs)
     mediate: ['js/i18n/en/mediate.js', 'js/characters.js', 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/mediate-core.js', 'cpack/mediation/index.js', 'js/mediate.js'], // 🤝 Trung gian (docs/specs/mediation.md §2): bài mở thêm cpack/mediation/<id>.js lúc vào
     retcards: ['cpack/ret-app/cards.js'], // thẻ quay lại + tuần qua của trang chủ (retention.js Ret.home)
-    cambridge: ['js/i18n/en/cambridge.js', 'js/choice-kit.js', 'js/qengine.js', 'cpack/cambridge/rubric.js', 'cpack/cambridge/a2/t1.js', 'cpack/cambridge/b1/t1.js', 'cpack/cambridge/b1/t2.js', 'cpack/cambridge/b1/t3.js', 'cpack/cambridge/b2/t1.js', 'cpack/cambridge/b2/t2.js', 'cpack/cambridge/b2/t3.js', 'cpack/cambridge/c1/t1.js', 'cpack/cambridge/c2/t1.js', 'js/cambridge.js'], // Cambridge A2–C2 (docs/specs/cambridge.md): thêm đề mới = thêm 1 đường dẫn ở đây
+    cambridge: ['js/i18n/en/cambridge.js', 'js/choice-kit.js', 'js/qengine.js', 'cpack/cambridge/rubric.js', 'cpack/cambridge/a2/t1.js', 'cpack/cambridge/a2/t2.js', 'cpack/cambridge/a2/t3.js', 'cpack/cambridge/b1/t1.js', 'cpack/cambridge/b1/t2.js', 'cpack/cambridge/b1/t3.js', 'cpack/cambridge/b2/t1.js', 'cpack/cambridge/b2/t2.js', 'cpack/cambridge/b2/t3.js', 'cpack/cambridge/c1/t1.js', 'cpack/cambridge/c2/t1.js', 'js/cambridge.js'], // Cambridge A2–C2 (docs/specs/cambridge.md): thêm đề mới = thêm 1 đường dẫn ở đây
     toefl: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'cpack/toefl/data1.js', 'cpack/toefl/data2.js', 'cpack/toefl/data3.js', 'cpack/toefl/data4.js', 'cpack/toefl/data5.js', 'cpack/toefl/data6.js', 'cpack/toefl/data7.js', 'js/toefl.js'],
     toeic: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/toeic/reading1.js', 'js/toeic/reading2.js', 'js/toeic/listening1.js', 'js/toeic/listening2.js', 'js/toeic/reading3.js', 'js/toeic/listening3.js', 'js/toeic/reading4.js', 'js/toeic/listening4.js', 'js/toeic/reading5.js', 'js/toeic/listening5.js', 'js/toeic/reading6.js', 'js/toeic/listening6.js', 'js/toeic/reading7.js', 'js/toeic/listening7.js', 'js/toeic/sw1.js', 'cpack/toeic/sw2.js', 'js/toeic.js'],
     // 🏫 Lớp học (giáo viên/học sinh)
@@ -642,10 +642,8 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     const reviewHub = ux1 && name === 'review' && query.get('hub') === '1';
     document.body.classList.toggle('focus', !reviewHub && (name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg) || !!(window.ExitGuard && ExitGuard.focusFor(name, arg, query.toString())))); document.documentElement.classList.remove('lk-fo'); // màn học mở thẳng từ link: gỡ lớp ẩn khung của script đầu trang (data-lkf) khi route() đã đặt focus
     // v2pre = #view không đệm (màn Stitch tràn khung). Đang hiện màn v2 mà đi sang trang thường: GIỮ v2pre tới khi nội dung mới thay vào, không thì màn cũ dịch ~26 px lúc đệm quay lại (CLS sweep #/speak)
-    const preNow = ux1 && (reviewHub || V2_ROUTES.has(name) || (name === 'lesson' && !!arg) || (name === 'league' && !!state.user)), holdPre = !preNow && /\bv2(pre|hold|on)\b/.test(document.body.className), first0 = view.firstElementChild;
-    // CLS #/home (mqa 0.0757 = cả #view dịch 56 px): giữ v2pre tới khi nội dung mới về làm THANH TRÊN hiện muộn > 500 ms sau chạm. Tách: thanh trên hiện NGAY (trong cửa sổ chạm),
-    // chỉ giữ phần "#view không đệm" (v2hold) tới khi nội dung mới thay vào.
-    document.body.classList.toggle('v2hold', holdPre); document.body.classList.toggle('v2pre', preNow); if (holdPre) document.body.classList.remove('v2on'); // v2on (ST2.mount) cũng ẩn thanh trên < 1024 px; cleanup chỉ gỡ SAU khi nạp gói trang mới (> 500 ms) → gỡ ngay lúc chạm
+    const preNow = ux1 && (reviewHub || V2_ROUTES.has(name) || (name === 'lesson' && !!arg) || (name === 'league' && !!state.user)), holdPre = !preNow && document.body.classList.contains('v2pre'), first0 = view.firstElementChild;
+    if (!holdPre) document.body.classList.toggle('v2pre', preNow);
     try { localStorage.setItem('lk.ux1c', ux1 ? '1' : '0'); } catch (e) { /* bỏ qua */ }
     if (!ux1) document.body.classList.remove('ux1');
     if (name !== 'welcome') document.body.classList.remove('bare'); // thanh trên hiện ngay lúc chạm (CLS #/home)
@@ -679,8 +677,8 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
       const mo = new MutationObserver(crumb); mo.observe(view, { childList: true });
       try { await fn(arg, query); } catch (e) { if (my !== routeSeq || (e && e.name === 'AbortError')) return; if (!view.querySelector(':scope > :not(.skel-page):not(.skel-study)')) errState(); throw e; } finally { mo.disconnect(); } // lượt cũ lỗi vì bị hủy → im lặng
       crumb(); // trang vẽ .page-head sau bước bất đồng bộ
-      if (holdPre && my === routeSeq && view.firstElementChild !== first0) document.body.classList.remove('v2hold'); // nội dung mới đã thay → nhả đệm (giữ nếu chỉ chuyển hướng)
-      setTimeout(() => { if (my === routeSeq) document.body.classList.remove('v2hold'); }, 1500);
+      if (holdPre && my === routeSeq && view.firstElementChild !== first0) document.body.classList.remove('v2pre'); // nội dung mới đã thay → nhả v2pre (giữ nếu chỉ chuyển hướng)
+      setTimeout(() => { if (my === routeSeq) document.body.classList.remove('v2pre'); }, 1500);
       if (backY && my === routeSeq) Scroll.restore(backY, () => my === routeSeq);
       if (late.length) App.calm(() => App.need(...late).catch(() => {}), 2500); // sau lần vẽ đầu (kể cả khi đã sang trang khác: gói dùng chung)
       if (my === routeSeq) { drawn = { tok: my, hash: location.hash }; markActivity(name, arg); a11yRoute(name, preTitle); if (App.afterRoute) App.afterRoute(name); if (drawnRes) { const r = drawnRes; drawnRes = null; afterPaint(() => { r(); dispatchEvent(new Event('lk:drawn')); }); } }
