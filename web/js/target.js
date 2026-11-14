@@ -43,6 +43,7 @@
     return cur();
   }
   const table = tl => TABLE[tl] || TABLE.en;
+  const homeOf = tl => table(tl).home || ''; // trang chủ riêng của ngôn ngữ đích ('' = dùng Hôm nay chung)
   const isEn = accent => !accent || /^en(-|$)/i.test(String(accent));
   // accent dùng cho thẻ của ngôn ngữ đích hiện tại: 'en' → đúng accent tiếng Anh trong Cài đặt (như cũ)
   const accent = (enAccent, tl) => table(tl || cur()).speech || enAccent;
@@ -59,5 +60,5 @@
   const wordVoice = a => table(tlOfAccent(a)).wordFiles ? kokoroVoice(a) : '';
   const teacherVoice = (who, tl) => table(tl || cur()).voices[who] || '';
   const ofCard = c => (c && c.tl && TABLE[c.tl] ? c.tl : 'en');
-  g.Target = { LANGS, TABLE, enabled, avail, speechLangs, cur, set, table, isEn, accent, speechLang, recLang, tlOfAccent, prefixFor, kokoroVoice, wordVoice, teacherVoice, ofCard };
+  g.Target = { homeOf, LANGS, TABLE, enabled, avail, speechLangs, cur, set, table, isEn, accent, speechLang, recLang, tlOfAccent, prefixFor, kokoroVoice, wordVoice, teacherVoice, ofCard };
 })(typeof self !== 'undefined' ? self : this);
