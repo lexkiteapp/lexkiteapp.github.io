@@ -778,5 +778,785 @@
     "В течение первой недели мы столкнулись с несколькими неожиданными проблемами."
    ]
   ]
+ },
+ "enhance": {
+  "n": "Enhance применяют к тому, что уже есть и становится лучше: качеству, репутации, возможностям, опыту. Типичные дополнения: enhance performance, enhance the flavour, enhance your reputation. Это слово чуть более формальное, чем improve, и обычно подразумевает усиление положительных свойств, а не исправление недостатков. Если нужно починить то, что сломано, лучше подойдёт fix или repair.",
+  "x": [
+   [
+    "The new software is designed to enhance security across the whole network.",
+    "Новая программа создана, чтобы повысить безопасность во всей сети."
+   ],
+   [
+    "A little salt can enhance the natural flavour of fresh vegetables.",
+    "Немного соли может подчеркнуть естественный вкус свежих овощей."
+   ]
+  ]
+ },
+ "equate": {
+  "n": "Equate означает ставить знак равенства между двумя вещами. Обычно equate A with B: equate success with money; оборот A equates to B значит «равняется»: That equates to a 10% rise. Часто глагол стоит в страдательной конструкции или в обороте с отрицанием: Fame should not be equated with talent. По-русски ближе всего «приравнивать», но в английском слово звучит книжно и встречается в рассуждениях, статьях и спорах, а не в бытовой речи.",
+  "x": [
+   [
+    "Some employers still equate long hours at the office with real productivity.",
+    "Некоторые работодатели до сих пор приравнивают долгие часы в офисе к настоящей продуктивности."
+   ],
+   [
+    "It would be unfair to equate a small mistake with deliberate fraud.",
+    "Было бы несправедливо ставить на одну доску небольшую ошибку и намеренное мошенничество."
+   ]
+  ]
+ },
+ "erode": {
+  "n": "Erode описывает медленное разрушение: сначала речь шла о береге, почве, камне, а затем и об уверенности, доверии, правах. Глагол работает и без дополнения (the soil eroded), и с ним (erode trust). Ударение падает на второй слог: и-РОУД. Существительное erosion даёт тот же образ постепенного износа, а в переносном смысле часто стоит в сочетании erosion of trust. Для резкого, одномоментного ущерба erode не подходит: ему нужен процесс, растянутый во времени.",
+  "x": [
+   [
+    "Constant criticism can slowly erode a young person's confidence.",
+    "Постоянная критика способна медленно подточить уверенность молодого человека."
+   ],
+   [
+    "Heavy rain has eroded the soil on the steep hillside.",
+    "Сильные дожди размыли почву на крутом склоне холма."
+   ]
+  ]
+ },
+ "estimate": {
+  "n": "Глагол estimate и существительное estimate пишутся одинаково, но произносятся по-разному: в глаголе последний слог звучит как эйт, в существительном ближе к ит. Глагол употребляют с that-придаточным или прямым дополнением: We estimate that the work will take a week. Часто встречается страдательная форма it is estimated that. Estimate говорит о приблизительной оценке на основе данных, поэтому точных цифр от него ждать не стоит.",
+  "x": [
+   [
+    "Experts estimate that the repairs will cost around fifty thousand pounds.",
+    "По оценкам экспертов, ремонт обойдётся примерно в пятьдесят тысяч фунтов."
+   ],
+   [
+    "It is hard to estimate how many visitors will come this summer.",
+    "Трудно прикинуть, сколько посетителей приедет этим летом."
+   ]
+  ]
+ },
+ "eventual": {
+  "n": "Eventual — это тот результат, который наступит в конце длительного процесса, часто после трудностей: the eventual winner, the eventual outcome. Русские ученики путают его с похожим на вид словом «эвентуальный», которое означает возможный. В английском же речь идёт о том, что в итоге действительно случилось или случится. Наречие eventually значит в конце концов, а не «возможно». Если исход лишь вероятен и может не наступить, берите possible или potential.",
+  "x": [
+   [
+    "The eventual cost of the project was twice the original budget.",
+    "Окончательная стоимость проекта вдвое превысила первоначальный бюджет."
+   ],
+   [
+    "After many setbacks, the eventual winner crossed the line alone.",
+    "После множества неудач гонщик, который в итоге победил, пересёк финиш в одиночестве."
+   ]
+  ]
+ },
+ "evident": {
+  "n": "Evident характеризует то, что видно или понятно без доказательств. Частые модели: it is evident that…, become evident, clearly evident. Можно сказать evident to someone, когда нужно указать, кому это ясно: The problem was evident to everyone. По сравнению с obvious оно книжнее и типично для отчётов и статей. Перед существительным оно употребляется реже, чем после глагола-связки.",
+  "x": [
+   [
+    "It soon became evident that the old bridge could no longer carry heavy traffic.",
+    "Вскоре стало очевидно, что старый мост больше не выдержит тяжёлый транспорт."
+   ],
+   [
+    "Her disappointment was evident to everyone in the room.",
+    "Её разочарование было заметно всем в комнате."
+   ]
+  ]
+ },
+ "exclude": {
+  "n": "Exclude значит намеренно не включать или не допускать. С предлогом from указывают, откуда исключают: exclude someone from the team. Оборот exclude the possibility of something означает исключить возможность чего-либо. В счетах и объявлениях часто видно excluding VAT, то есть «без НДС». Причастие excluded в социальном контексте передаёт чувство изоляции: feel excluded, когда человека не берут в компанию. Противоположное слово здесь include, а для «без учёта» в ценах ещё встречается exclusive of.",
+  "x": [
+   [
+    "Students who miss the deadline will be excluded from the final competition.",
+    "Студентов, пропустивших срок, не допустят до финального конкурса."
+   ],
+   [
+    "The price excludes tax, so the final total will be higher.",
+    "Цена не включает налог, поэтому итоговая сумма будет выше."
+   ]
+  ]
+ },
+ "explicit": {
+  "n": "Explicit говорит о том, что выражено прямо и подробно, без намёков: explicit instructions, an explicit rule. Противоположное по смыслу слово здесь implicit, то есть подразумеваемый. Пометка explicit content на песнях и фильмах предупреждает о грубой лексике или откровенных сценах, и это значение стоит учитывать, чтобы фраза не прозвучала двусмысленно. Предложная модель explicit about something: She was explicit about her reasons. Наречие explicitly часто сочетается с глаголами речи: explicitly state, explicitly mention.",
+  "x": [
+   [
+    "The contract is explicit about who must pay for any damage.",
+    "В договоре прямо указано, кто должен оплачивать любой ущерб."
+   ],
+   [
+    "He gave explicit instructions not to open the door for anyone.",
+    "Он дал чёткие указания никому не открывать дверь."
+   ]
+  ]
+ },
+ "expose": {
+  "n": "Expose имеет два главных смысла. Первый связан с риском: expose someone to danger, где предлог to обязателен, часто в страдательной форме be exposed to. Второй означает раскрыть что-то скрытое: expose a lie, expose corruption. В русском эти значения расходятся на подвергать и разоблачать, а в английском один глагол. Для детей и учёбы встречается мягкий смысл ознакомления: exposed to a second language.",
+  "x": [
+   [
+    "Workers who are exposed to loud noise every day may lose their hearing.",
+    "Работники, которые каждый день подвергаются сильному шуму, могут потерять слух."
+   ],
+   [
+    "The newspaper exposed a plan to hide the company's real losses.",
+    "Газета разоблачила план скрыть настоящие убытки компании."
+   ]
+  ]
+ },
+ "external": {
+  "n": "External описывает то, что находится или приходит извне: external factors, external funding, external examiner. Противоположное слово — internal. Прилагательное чаще стоит перед существительным, но возможно и после глагола-связки: The pressure was external. Оборот external to звучит формально: The cause was external to the company. Для бытовой речи нередко достаточно outside. Русское внешний совпадает по значению в большинстве случаев.",
+  "x": [
+   [
+    "The company relies on external advisers for all of its legal questions.",
+    "Компания обращается за всеми юридическими вопросами к внешним консультантам."
+   ],
+   [
+    "External factors such as weather can easily delay the harvest.",
+    "Внешние факторы, например погода, легко могут задержать урожай."
+   ]
+  ]
+ },
+ "facilitate": {
+  "n": "Facilitate означает облегчать процесс или помогать ему идти. Подлежащим часто служит средство или условие: Good software facilitates communication. Но бывает и человек, который организует процесс, не руководя им напрямую, отсюда facilitator — ведущий обсуждения или тренинга. После глагола стоит существительное, а не инфинитив: не facilitate to learn, а facilitate learning. В разговоре вместо него говорят make easier или help.",
+  "x": [
+   [
+    "A shared online calendar can facilitate planning between several departments.",
+    "Общий онлайн-календарь может облегчить планирование между несколькими отделами."
+   ],
+   [
+    "The teacher's role is to facilitate discussion rather than give long lectures.",
+    "Роль учителя в том, чтобы направлять обсуждение, а не читать длинные лекции."
+   ]
+  ]
+ },
+ "federal": {
+  "n": "Federal относится к центральной власти в государстве, где регионы тоже имеют свои права: federal law, the federal government. В американском контексте слово противопоставляют state, то есть власти штата. В русском есть похожее федеральный, и значение совпадает. Ударение различается: FED-er-al, но fed-er-AY-tion. Частые сочетания: federal budget, federal agency, federal court.",
+  "x": [
+   [
+    "The federal government has promised more money for rural hospitals.",
+    "Федеральное правительство пообещало выделить больше денег на сельские больницы."
+   ],
+   [
+    "Federal law applies across the whole country, while each state also makes its own rules.",
+    "Федеральный закон действует по всей стране, а каждый штат ещё и принимает свои правила."
+   ]
+  ]
+ },
+ "format": {
+  "n": "Format бывает существительным и глаголом. Существительное означает способ организации или представления чего-либо: file format, the format of the exam. Глагол значит оформлять документ, а для диска или флешки ещё и стирать данные: format a disk. Обратите внимание на формы formatted и formatting с удвоенной t. Ударение в обоих случаях на первом слоге: ФОР-мат. Предлог чаще всего in: in a different format, in PDF format.",
+  "x": [
+   [
+    "The report is available in digital format and as a printed booklet.",
+    "Отчёт доступен в цифровом формате и в виде печатной брошюры."
+   ],
+   [
+    "Please format your essay with double spacing and wide margins.",
+    "Пожалуйста, оформите эссе с двойным интервалом и широкими полями."
+   ]
+  ]
+ },
+ "formula": {
+  "n": "Formula в математике и химии означает запись из символов: a chemical formula. В переносном смысле это проверенный способ добиться чего-то: a formula for success. Множественное число бывает двух видов: formulas употребляют чаще в обычной речи, а formulae встречается в научных текстах. В значении «питательная смесь для младенцев» слово тоже употребляется: baby formula. Предлог после существительного обычно for.",
+  "x": [
+   [
+    "There is no simple formula for building a successful business.",
+    "Нет простой формулы для создания успешного бизнеса."
+   ],
+   [
+    "The students learned the formula for calculating the area of a circle.",
+    "Студенты выучили формулу для вычисления площади круга."
+   ]
+  ]
+ },
+ "forthcoming": {
+  "n": "Forthcoming имеет несколько смыслов. Самое частое: предстоящий, о событии или публикации: the forthcoming election. Второй смысл касается чего-то, что будет предоставлено, и чаще встречается в отрицательной фразе: Help was not forthcoming. Третий применяют к человеку, который охотно делится сведениями: She was not very forthcoming about her plans. Прилагательное звучит формально, в разговоре обычно говорят upcoming или coming.",
+  "x": [
+   [
+    "The author is working on a forthcoming book about ancient trade routes.",
+    "Автор работает над готовящейся к выходу книгой о древних торговых путях."
+   ],
+   [
+    "The money promised by the council was never forthcoming.",
+    "Деньги, обещанные советом, так и не поступили."
+   ]
+  ]
+ },
+ "framework": {
+  "n": "Framework обозначает основу из идей, правил или структуры, на которой строится что-то большее: a legal framework, a theoretical framework. Чтобы сказать «в рамках», используют within: within the framework of the law, work within a framework. Назначение показывают через for: a framework for cooperation. В программировании у слова есть узкий смысл (готовая платформа для разработки), но в обычном тексте главным остаётся значение «рамки, основа». Буквально слово означает каркас здания.",
+  "x": [
+   [
+    "The new law provides a clear framework for protecting personal data.",
+    "Новый закон создаёт чёткие рамки для защиты личных данных."
+   ],
+   [
+    "We need a theoretical framework before we can analyse the results.",
+    "Нам нужна теоретическая база, прежде чем анализировать результаты."
+   ]
+  ]
+ },
+ "gender": {
+  "n": "Gender в современном английском чаще говорит о социальных и культурных ролях, связанных с полом: gender equality, gender roles. Слово sex используют, когда речь идёт о биологических различиях, но в анкетах сейчас чаще встречается именно gender. Есть и грамматическое значение: grammatical gender, то есть род существительных, как в русском, хотя у английских существительных рода нет. Слово часто работает как определение перед другим существительным: gender gap, gender pay gap.",
+  "x": [
+   [
+    "Many companies are trying to reduce the gender pay gap.",
+    "Многие компании пытаются сократить разрыв в оплате труда между мужчинами и женщинами."
+   ],
+   [
+    "The survey asked people to state their age and gender.",
+    "В опросе просили указать возраст и пол."
+   ]
+  ]
+ },
+ "globe": {
+  "n": "Globe может означать модель Земли, но чаще встречается в выражениях о мире в целом: across the globe, around the globe. Такие фразы звучат чуть книжнее и газетнее, чем all over the world, и часто попадают в новостные заголовки. Прилагательное global образовано от того же корня и значит всемирный. Для круглой модели с картой подходит именно globe, а для плоской карты нужно слово map. В значении «весь мир» артикль обязателен: the globe.",
+  "x": [
+   [
+    "Fans from across the globe travelled to watch the final match.",
+    "Болельщики со всего земного шара приехали посмотреть финальный матч."
+   ],
+   [
+    "She turned the old globe slowly and pointed to the Pacific Ocean.",
+    "Она медленно повернула старый глобус и указала на Тихий океан."
+   ]
+  ]
+ },
+ "grant": {
+  "n": "Как существительное grant означает деньги, которые выделяют на конкретную цель и не требуют возврата: a research grant, a student grant. Типичные глаголы: apply for a grant, receive a grant, award a grant. Цель показывают через for или инфинитив: a grant for research, a grant to study pollution. Глагол grant значит предоставлять или признавать: grant permission, grant a visa. Выражение take something for granted значит воспринимать как должное.",
+  "x": [
+   [
+    "The university received a large grant to study ocean pollution.",
+    "Университет получил крупный грант на изучение загрязнения океана."
+   ],
+   [
+    "Young farmers can apply for a government grant to buy new equipment.",
+    "Молодые фермеры могут подать заявку на государственный грант на покупку нового оборудования."
+   ]
+  ]
+ },
+ "guarantee": {
+  "n": "Глагол guarantee означает твёрдо обещать или ручаться, что что-то произойдёт: We cannot guarantee success. Он принимает прямое дополнение или that-придаточное: guarantee that the goods will arrive. Существительное с тем же написанием обозначает гарантию на товар: a two-year guarantee, under guarantee. Ударение падает на последний слог: гэ-рэн-ТИ, а буква u после g не читается. В разговоре часто звучит I guarantee you, то есть уверяю вас.",
+  "x": [
+   [
+    "The company guarantees that every order will arrive within three days.",
+    "Компания гарантирует, что каждый заказ придёт в течение трёх дней."
+   ],
+   [
+    "Nobody can guarantee good weather on the day of the picnic.",
+    "Никто не может гарантировать хорошую погоду в день пикника."
+   ]
+  ]
+ },
+ "hierarchy": {
+  "n": "Hierarchy — это система, где люди или вещи расположены по уровням важности: a strict hierarchy, a social hierarchy. Слово часто встречается с предлогами within и in: within the hierarchy, at the top of the hierarchy. Русское иерархия совпадает по смыслу, и этот перевод надёжен. Произношение отличается от русского: первый слог звучит как «хай», ударение на нём: ХАЙ-э-рар-ки. Прилагательное hierarchical, во множественном числе hierarchies.",
+  "x": [
+   [
+    "In a large company, decisions usually move down through the hierarchy.",
+    "В крупной компании решения обычно спускаются вниз по иерархии."
+   ],
+   [
+    "Ants live in a clear hierarchy with the queen at the top.",
+    "Муравьи живут в чёткой иерархии во главе с маткой."
+   ]
+  ]
+ },
+ "ideology": {
+  "n": "Ideology означает систему политических, экономических или социальных убеждений: a political ideology, the dominant ideology. В английском слово часто звучит критически, когда им описывают жёсткие взгляды, которые человек принимает без сомнений: driven by ideology. Прилагательное ideological встречается в сочетаниях ideological differences, ideological battle. Чтобы сказать, какие идеи стоят за движением или решением, используют behind: the ideology behind the movement. Первый слог можно произносить и как «ай», и как «и».",
+  "x": [
+   [
+    "The party changed its ideology after losing three elections in a row.",
+    "Партия изменила свою идеологию после трёх проигранных подряд выборов."
+   ],
+   [
+    "Young people today are less loyal to any single political ideology than their parents were.",
+    "Сегодняшняя молодёжь меньше привязана к какой-то одной политической идеологии, чем их родители."
+   ]
+  ]
+ },
+ "impose": {
+  "n": "Impose значит официально вводить правило, налог или наказание, а также навязывать что-либо другим. Обычно используют on или upon: impose a tax on imports, impose your views on others. По-русски это то «вводить», когда речь об официальных мерах, то «навязывать», когда речь о давлении на людей, а в английском оба смысла передаёт один глагол. Выражение impose on someone без прямого дополнения означает беспокоить, злоупотреблять чьей-то добротой: I don't want to impose on you.",
+  "x": [
+   [
+    "The government imposed a new tax on sugary drinks last year.",
+    "В прошлом году правительство ввело новый налог на сладкие напитки."
+   ],
+   [
+    "Parents should not impose their own dreams on their children.",
+    "Родителям не стоит навязывать детям собственные мечты."
+   ]
+  ]
+ },
+ "incidence": {
+  "n": "Incidence — термин статистики и медицины: как часто что-то случается в определённой группе людей. По-русски это заболеваемость, частота или уровень: the incidence of cancer, a high incidence of crime. Модель почти всегда одна: the incidence of something among/in a group. Уровень описывают через high, low, rising, а меняют глаголами reduce, increase. Ловушка: incidence звучит почти так же, как incidents (несколько происшествий). В физике angle of incidence — угол падения.",
+  "x": [
+   [
+    "The incidence of asthma among children has risen in many cities.",
+    "Распространённость астмы среди детей выросла во многих городах."
+   ],
+   [
+    "Researchers found a low incidence of crime in the quiet neighbourhood.",
+    "Исследователи обнаружили низкий уровень преступности в тихом районе."
+   ]
+  ]
+ },
+ "incorporate": {
+  "n": "Incorporate означает включать что-то как органичную часть целого. Чаще всего после слова идут into или in: incorporate new ideas into the plan, incorporate feedback. Глагол звучит формально и встречается в рабочих и учебных текстах, а в разговоре вместо него говорят include, add или build in. В юридическом смысле incorporate a company значит зарегистрировать компанию как юридическое лицо, отсюда сокращение Inc. в названиях американских фирм.",
+  "x": [
+   [
+    "The architect incorporated old stone walls into the design of the new hotel.",
+    "Архитектор сделал старые каменные стены частью нового отеля."
+   ],
+   [
+    "Teachers are encouraged to incorporate games into their weekly lessons.",
+    "Учителям рекомендуют включать игры в еженедельные уроки."
+   ]
+  ]
+ },
+ "induce": {
+  "n": "Induce значит вызывать какое-то состояние или побуждать кого-то к действию. В медицине это часто о родах или сне: induce labour, induce sleep. Структура с побуждением: induce someone to do something, и здесь нужен инфинитив с to; по-русски чаще «заставить» или «склонить». В сложных прилагательных встречается induced: stress-induced, drug-induced. В живой речи его заменяют на cause или make. Существительное induction, а для «стимула, приманки» есть inducement.",
+  "x": [
+   [
+    "Some medicines can induce sleep within half an hour.",
+    "Некоторые лекарства могут вызвать сон в течение получаса."
+   ],
+   [
+    "Nothing could induce him to sell the old family house.",
+    "Ничто не могло заставить его продать старый семейный дом."
+   ]
+  ]
+ },
+ "inherent": {
+  "n": "Inherent описывает свойство, которое является естественной и неотделимой частью чего-то: inherent risk, inherent weakness. Перед существительным — an inherent flaw; в позиции после глагола или существительного обычно с in: risks inherent in deep-sea diving, the dangers are inherent in the job. Типично для письменной речи. Не путайте с inherit, который значит наследовать: слова похожи, но по происхождению не связаны. По-русски подходят присущий, изначальный, заложенный.",
+  "x": [
+   [
+    "There are risks inherent in any long journey across the mountains.",
+    "Любое долгое путешествие через горы сопряжено с рисками."
+   ],
+   [
+    "Every new technology carries inherent risks that can never be removed completely.",
+    "Любая новая технология несёт в себе неизбежные риски, которые нельзя устранить полностью."
+   ]
+  ]
+ },
+ "inhibit": {
+  "n": "Inhibit значит замедлять или не давать чему-то происходить. После глагола стоит существительное: inhibit growth, inhibit development. Модель inhibit someone from doing something тоже возможна и означает мешать кому-то сделать что-то. Чаще всего оно встречается в науке и медицине. Существительное inhibition бывает и психологическим: человек без inhibitions ведёт себя раскованно. Prohibit же означает запрещать правилом или законом, а inhibit только сдерживает.",
+  "x": [
+   [
+    "Cold weather can inhibit the growth of many garden plants.",
+    "Холодная погода может подавлять рост многих садовых растений."
+   ],
+   [
+    "Fear of making mistakes often inhibits students from speaking in class.",
+    "Страх ошибок часто мешает студентам говорить на уроке."
+   ]
+  ]
+ },
+ "insert": {
+  "n": "Insert — это глагол о том, что вкладывают внутрь чего-то. Предлог: insert something into something или insert something in. Для документа можно сказать insert a paragraph, а для договора insert a clause. Существительное insert тоже есть и означает вкладыш, но с другим ударением: на первом слоге. Глагол произносится с ударением на втором слоге.",
+  "x": [
+   [
+    "Insert the card into the machine and wait for the green light.",
+    "Вставьте карту в аппарат и дождитесь зелёного огонька."
+   ],
+   [
+    "The editor inserted a short paragraph at the end of the article.",
+    "Редактор вставил короткий абзац в конец статьи."
+   ]
+  ]
+ },
+ "institute": {
+  "n": "Institute как существительное — организация для научной или учебной работы: a research institute, the Massachusetts Institute of Technology. Русское «учусь в институте» обычно переводят как I'm at university или I'm at college, а institute ставят только в названиях. Institution шире: учреждения вроде банков и больниц и социальные институты: the institution of marriage. Глагол institute означает официально вводить, начинать: institute reforms, institute legal proceedings, то есть возбудить дело.",
+  "x": [
+   [
+    "She works at a research institute that studies climate change.",
+    "Она работает в научном институте, который изучает изменение климата."
+   ],
+   [
+    "The institute offers short courses for adults who want to learn programming.",
+    "Институт предлагает короткие курсы для взрослых, которые хотят научиться программированию."
+   ]
+  ]
+ },
+ "integral": {
+  "n": "Integral как прилагательное значит необходимый как часть целого, без которого целое не работает: an integral part of the team. Чтобы указать, частью чего что-то является, используют to: Music is integral to our culture. Русское интегральный в основном математическое, а английское слово в обычной речи говорит о неотъемлемости. В математике integral — существительное интеграл. Близкие по смыслу слова: essential, vital. Ударение возможно на первом слоге (ИН-ти-грал) или на втором (ин-ТЕ-грал).",
+  "x": [
+   [
+    "Teamwork is integral to the success of every large project.",
+    "Слаженная работа команды — неотъемлемое условие успеха любого крупного проекта."
+   ],
+   [
+    "Sport is an integral part of life at our school.",
+    "Спорт — неотъемлемая часть жизни нашей школы."
+   ]
+  ]
+ },
+ "integrate": {
+  "n": "Integrate значит объединять части в единое целое или самому становиться частью группы. Конструкции: integrate A into B, integrate A with B, а для людей без дополнения: Newcomers find it hard to integrate. По-русски в социальном смысле лучше «влиться», «адаптироваться», чем «интегрироваться». Для техники: The app integrates with your calendar. Integrated часто значит комплексный: an integrated approach. Ударение на первом слоге: ИН-ти-грейт.",
+  "x": [
+   [
+    "The school tries to integrate new students into the class as quickly as possible.",
+    "Школа старается как можно быстрее вовлечь новых учеников в жизнь класса."
+   ],
+   [
+    "The app can integrate with most popular calendar programs.",
+    "Приложение умеет интегрироваться с большинством популярных календарных программ."
+   ]
+  ]
+ },
+ "interact": {
+  "n": "Interact требует предлога with: interact with customers, interact with the environment. Нельзя сказать interact someone без предлога. Глагол показывает взаимное воздействие, поэтому подлежащее может быть множественным: The two chemicals interact. От него образованы interaction и interactive; прилагательное описывает вещи, которые реагируют на действия пользователя. Слово нейтрального регистра и годится для речи и письма.",
+  "x": [
+   [
+    "Young children learn language by interacting with the adults around them.",
+    "Маленькие дети учат язык, общаясь со взрослыми вокруг."
+   ],
+   [
+    "Some medicines interact badly with alcohol.",
+    "Некоторые лекарства плохо взаимодействуют с алкоголем."
+   ]
+  ]
+ },
+ "internal": {
+  "n": "Internal означает находящийся или происходящий внутри: internal structure, internal organs. Противоположное слово external. Сочетание internal affairs относится к внутренним делам страны или организации, а internal investigation к проверке внутри компании. Когда речь о стране в целом, часто выбирают domestic: domestic flights, the domestic market, domestic policy. Internal чаще описывает организацию или тело: internal memo, internal bleeding.",
+  "x": [
+   [
+    "The company started an internal investigation after the data was lost.",
+    "Компания начала внутреннее расследование после потери данных."
+   ],
+   [
+    "Doctors found no signs of internal bleeding after the accident.",
+    "Врачи не нашли признаков внутреннего кровотечения после аварии."
+   ]
+  ]
+ },
+ "interval": {
+  "n": "Interval — промежуток времени или пространства между двумя событиями или предметами: at regular intervals. Предлог чаще at: Take the medicine at intervals of four hours. В британском английском перерыв в театре или на концерте называется interval, а в американском чаще intermission. В музыке и математике у слова есть узкие значения. Межстрочный интервал в тексте по-английски line spacing, а не interval.",
+  "x": [
+   [
+    "The nurse checked the patient's temperature at regular intervals.",
+    "Медсестра измеряла температуру пациента через равные промежутки времени."
+   ],
+   [
+    "There will be a twenty-minute interval between the two parts of the play.",
+    "Между двумя частями спектакля будет двадцатиминутный перерыв."
+   ]
+  ]
+ },
+ "intervene": {
+  "n": "Intervene значит вступать в ситуацию, чтобы изменить её или остановить. Обычно после глагола идёт in: intervene in a dispute. Если указывают цель, используют инфинитив: The police intervened to stop the fight. Обратите внимание на написание: глагол оканчивается на -vene, а существительное — intervention. Слово нейтрально-формальное, в разговоре часто говорят step in. Interfere отличается: это вмешательство непрошеное и мешающее, с отрицательным оттенком.",
+  "x": [
+   [
+    "The teacher had to intervene when the argument became too loud.",
+    "Учителю пришлось вмешаться, когда спор стал слишком громким."
+   ],
+   [
+    "The government intervened to prevent the bank from collapsing.",
+    "Правительство вмешалось, чтобы не допустить краха банка."
+   ]
+  ]
+ },
+ "invoke": {
+  "n": "Invoke значит ссылаться на закон, принцип или авторитетное имя, чтобы подкрепить свою позицию: invoke the law, invoke the principle of fairness. Слово встречается в юридических и политических текстах. В программировании invoke a function означает вызвать функцию. Частая ошибка — путать invoke и evoke: воспоминания и чувства пробуждает evoke (evoke memories), а invoke относится к ссылкам и обращениям.",
+  "x": [
+   [
+    "The lawyer invoked an old rule to protect her client from the fine.",
+    "Адвокат сослалась на старое правило, чтобы защитить клиента от штрафа."
+   ],
+   [
+    "Politicians often invoke the memory of past heroes during speeches.",
+    "Политики часто обращаются к памяти прошлых героев в своих речах."
+   ]
+  ]
+ },
+ "justify": {
+  "n": "Justify означает показать, что что-то разумно или правильно. После глагола идёт существительное: justify the cost, justify a decision. Структура justify doing something: How can you justify spending so much? Причастие justified значит обоснованный: fully justified concerns. «Оправдать подсудимого» в суде — acquit, а не justify. В текстовых редакторах justify означает выровнять текст по ширине.",
+  "x": [
+   [
+    "How can the school justify charging parents so much for one trip?",
+    "Как школа может оправдать такую высокую плату с родителей за одну поездку?"
+   ],
+   [
+    "The results justify the extra time we spent on the experiment.",
+    "Результаты оправдывают дополнительное время, потраченное на эксперимент."
+   ]
+  ]
+ },
+ "labour": {
+  "n": "Labour — это труд, особенно физический, или рабочая сила как ресурс: manual labour, cheap labour, skilled labour. Слово несчётное: не a labour, а labour или a lot of labour. Частые экономические сочетания: the labour market, labour costs, a labour shortage. В американском варианте пишут labor, отсюда Labor Day. Labour Party с заглавной — партия. Отдельное значение — роды: go into labour, be in labour. О своей обычной работе говорят work, а не labour.",
+  "x": [
+   [
+    "The factory relies on cheap labour from nearby villages.",
+    "Фабрика использует дешёвую рабочую силу из соседних деревень."
+   ],
+   [
+    "Building the stone wall by hand was hard manual labour.",
+    "Строительство каменной стены вручную было тяжёлым физическим трудом."
+   ]
+  ]
+ },
+ "liberal": {
+  "n": "Liberal в политике означает поддерживающий личную свободу и терпимый к разным взглядам: liberal democracy. В США слово часто означает левый, а в Европе может относиться к сторонникам свободного рынка, поэтому смысл зависит от страны. Для характеристики человека: liberal attitudes, liberal views. Есть и бытовое значение «щедрый, обильный»: a liberal amount of butter, liberal use of colour. Русское либеральный совпадает только с политическим и общественным значением.",
+  "x": [
+   [
+    "Her parents have fairly liberal views about how teenagers should spend their time.",
+    "У её родителей довольно либеральные взгляды на то, как подростки должны проводить время."
+   ],
+   [
+    "The country has a long tradition of liberal democracy.",
+    "У страны давняя традиция либеральной демократии."
+   ]
+  ]
+ },
+ "licence": {
+  "n": "В британском английском существительное пишется licence, а глагол license; в американском и то и другое пишется license. Licence означает официальное разрешение: a driving licence, a fishing licence. Типичные глаголы: apply for, hold, issue, renew a licence. Предлог после слова for: a licence for the software. Русское лицензия подходит, но слово разрешение нередко ближе, когда речь об обычных документах.",
+  "x": [
+   [
+    "You need a licence to sell food from a market stall.",
+    "Чтобы продавать еду на рынке, нужна лицензия."
+   ],
+   [
+    "He passed his driving test and received his licence last week.",
+    "Он сдал экзамен по вождению и на прошлой неделе получил права."
+   ]
+  ]
+ },
+ "logic": {
+  "n": "Logic — это разумный способ рассуждать или сама внутренняя последовательность чего-либо: flawed logic, follow the logic. Слово несчётное, поэтому артикль a перед ним обычно не ставят. Прилагательные: logical и illogical. Чтобы сказать, что стоит за решением, используют behind: the logic behind the decision. Оборот there is no logic in doing something означает, что в действии нет смысла. В разговоре вместо этого часто говорят it makes no sense.",
+  "x": [
+   [
+    "I cannot follow the logic of this argument at all.",
+    "Я совсем не могу уловить логику этого довода."
+   ],
+   [
+    "There is no logic in building a road that leads nowhere.",
+    "Нет никакой логики в строительстве дороги, которая никуда не ведёт."
+   ]
+  ]
+ },
+ "manipulate": {
+  "n": "Manipulate означает контролировать человека или предмет, часто нечестно или умело. С людьми слово звучит негативно: manipulate public opinion. С данными или инструментами оттенок может быть нейтральным: manipulate the figures звучит критично, а manipulate a machine описывает ловкое обращение. Прилагательное manipulative описывает человека, склонного манипулировать: a manipulative partner.",
+  "x": [
+   [
+    "Some advertisements try to manipulate how people feel about their own bodies.",
+    "Некоторые рекламные ролики пытаются манипулировать тем, как люди воспринимают собственное тело."
+   ],
+   [
+    "The surgeon learned to manipulate the tiny instruments with great care.",
+    "Хирург научился очень бережно обращаться с крошечными инструментами."
+   ]
+  ]
+ },
+ "margin": {
+  "n": "Margin имеет несколько значений: край страницы, разница между двумя величинами и запас. Примеры: the margin of the page, a narrow margin, a profit margin. Выражение win by a narrow margin значит победить с небольшим перевесом. Слово часто встречается с предлогом by: by a margin of two votes. Ещё есть margin of error, то есть допустимая погрешность. Русское маржа относится в основном к финансам.",
+  "x": [
+   [
+    "The candidate won the election by a margin of only two hundred votes.",
+    "Кандидат выиграл выборы с перевесом всего в двести голосов."
+   ],
+   [
+    "The teacher wrote short comments in the margin of my essay.",
+    "Учитель написал короткие замечания на полях моего эссе."
+   ]
+  ]
+ },
+ "mature": {
+  "n": "Mature как прилагательное описывает человека, который ведёт себя разумно, как взрослый, или нечто полностью развитое: a mature student, a mature economy. Mature student в британском английском означает взрослого, поступившего в университет позже обычного. Глагол mature значит взрослеть или созревать. Часто сочетание mature for your age. Слово не имеет отрицательного оттенка, но mature content означает материалы для взрослых.",
+  "x": [
+   [
+    "For his age, he is very mature and handles problems calmly.",
+    "Для своего возраста он очень зрелый и спокойно решает проблемы."
+   ],
+   [
+    "The cheese is left to mature for at least six months.",
+    "Сыр оставляют дозревать не меньше шести месяцев."
+   ]
+  ]
+ },
+ "maximise": {
+  "n": "Maximise значит увеличить что-то до предела: maximise profits, maximise efficiency, maximise your chances. Так слово пишется в британском варианте, в американском maximize, и разница касается только буквы s или z. Противоположное слово minimise, а maximum — само наибольшее значение: at maximum speed. В разговоре часто говорят make the most of something, что ближе к «использовать по полной».",
+  "x": [
+   [
+    "Shops try to maximise sales by offering big discounts before the holidays.",
+    "Магазины стараются довести продажи до максимума, предлагая большие скидки перед праздниками."
+   ],
+   [
+    "We should maximise the use of natural light in the new office.",
+    "Нам следует как можно полнее использовать естественный свет в новом офисе."
+   ]
+  ]
+ },
+ "military": {
+  "n": "Military как прилагательное значит относящийся к вооружённым силам: military service, military spending. Как существительное с артиклем the military обозначает армию как институт, причём глагол после него бывает и в единственном, и во множественном числе: The military has taken control. Служить в армии — be in the military или serve in the army. Army — это именно сухопутные войска, а military охватывает все рода войск. Для военнослужащего есть soldier.",
+  "x": [
+   [
+    "Many young men had to complete two years of military service.",
+    "Многим молодым людям приходилось отслужить два года в армии."
+   ],
+   [
+    "The country has increased its military spending for the third year.",
+    "Страна в третий год подряд увеличила военные расходы."
+   ]
+  ]
+ },
+ "minimal": {
+  "n": "Minimal описывает очень малую величину или степень: minimal impact, minimal effort. Оно сильнее, чем small, и подчёркивает, что меньше уже почти некуда. После глагола-связки оно тоже уместно: The damage was minimal. Minimum тоже бывает прилагательным, но означает установленный нижний предел: minimum wage, minimum age. Поэтому «минимальная зарплата» — minimum wage, а не minimal wage.",
+  "x": [
+   [
+    "The storm caused minimal damage to the small fishing village.",
+    "Шторм нанёс рыбацкой деревне минимальный ущерб."
+   ],
+   [
+    "You can get good results with minimal effort if you practise every day.",
+    "Можно добиться хороших результатов с минимальными усилиями, если заниматься каждый день."
+   ]
+  ]
+ },
+ "ministry": {
+  "n": "Ministry — государственное ведомство, которым руководит министр: the Ministry of Health. В Великобритании многие ведомства называются Department (Department for Education), хотя есть и Ministry of Defence, а в США используют только Department. Слово обозначает и учреждение, и его сотрудников. В религиозном контексте ministry означает служение священника: enter the ministry. В обычных текстах это значение встречается реже. Множественное число ministries.",
+  "x": [
+   [
+    "A spokesperson for the ministry said the new rules would start in September.",
+    "Представитель министерства сообщил, что новые правила вступят в силу в сентябре."
+   ],
+   [
+    "The Ministry of Education plans to build more schools in rural areas.",
+    "Министерство образования планирует построить больше школ в сельской местности."
+   ]
+  ]
+ },
+ "minor": {
+  "n": "Minor описывает нечто небольшое или не очень важное: a minor change, a minor role. Противоположное слово major. В юридическом смысле minor значит несовершеннолетний, и тогда оно становится существительным: Minors must be accompanied by an adult. В американских университетах minor — дополнительная специальность: a minor in history. В музыке minor — минор: a minor key.",
+  "x": [
+   [
+    "The company made only minor changes to the original design.",
+    "Компания внесла в первоначальный проект лишь небольшие изменения."
+   ],
+   [
+    "Minors are not allowed to buy tickets without a parent.",
+    "Несовершеннолетним нельзя покупать билеты без родителей."
+   ]
+  ]
+ },
+ "mode": {
+  "n": "Mode — это способ или режим работы: mode of transport, airplane mode. Предлог of идёт после существительного: a mode of production, a mode of thinking. В технике слово значит режим устройства: switch to silent mode. Во множественном числе modes. Для обычной речи подойдёт way или method, но mode звучит формальнее и точнее описывает именно тип или режим действия. Не путайте с mood, которое означает настроение.",
+  "x": [
+   [
+    "Switch your phone to silent mode before the concert begins.",
+    "Переведите телефон в беззвучный режим до начала концерта."
+   ],
+   [
+    "Cycling is a cheap and healthy mode of transport in many cities.",
+    "Велосипед — дешёвый и полезный вид транспорта во многих городах."
+   ]
+  ]
+ },
+ "modify": {
+  "n": "Modify означает немного изменять что-то, чтобы улучшить его или приспособить. Типично modify the plan, modify a design. Если указать цель, можно использовать to: modify it to suit your needs. Причастие modified встречается в названиях: genetically modified food. Слово формальнее, чем change, и подчёркивает небольшие правки. Для значительных перемен лучше transform.",
+  "x": [
+   [
+    "We had to modify our plans when the weather turned bad.",
+    "Нам пришлось изменить планы, когда погода испортилась."
+   ],
+   [
+    "You can modify the settings to make the text easier to read.",
+    "Вы можете изменить настройки, чтобы текст было легче читать."
+   ]
+  ]
+ },
+ "monitor": {
+  "n": "Monitor как глагол значит следить за чем-либо в течение некоторого времени и проверять его: monitor progress, closely monitor. Как существительное monitor означает экран компьютера или прибор наблюдения: a heart monitor, a baby monitor. Глагол особенно часто встречается в медицине, науке и управлении. В бытовой речи то же самое передаёт keep an eye on: keep an eye on the soup.",
+  "x": [
+   [
+    "Doctors will monitor her blood pressure throughout the night.",
+    "Врачи будут следить за её давлением всю ночь."
+   ],
+   [
+    "The school uses software to monitor how students are progressing.",
+    "Школа использует программу, чтобы отслеживать успехи учеников."
+   ]
+  ]
+ },
+ "motive": {
+  "n": "Motive — конкретная причина поступка, часто личная или скрытая: the motive for the crime, an ulterior motive, a profit motive. После слова идёт for: a motive for doing something. Это любимое слово детективов: police look for a motive. Motivation шире: это желание и энергия что-то делать (lack motivation). Ложный друг: русский «мотив» в значении мелодии — tune, а повторяющийся мотив в искусстве — motif.",
+  "x": [
+   [
+    "The police could not find any motive for the robbery.",
+    "Полиция так и не смогла установить мотив ограбления."
+   ],
+   [
+    "She suspected that he had an ulterior motive for being so generous.",
+    "Она подозревала, что за его щедростью кроется скрытый мотив."
+   ]
+  ]
+ },
+ "neutral": {
+  "n": "Neutral описывает человека или страну, которые не поддерживают ни одну сторону: remain neutral, a neutral country. В других контекстах слово значит ничем не выделяющийся, например neutral colours или a neutral tone of voice. В химии и физике у него есть технические значения. Выражение carbon neutral значит, что выбросы углерода полностью компенсированы. О машине говорят put the car in neutral, то есть поставить передачу в нейтраль.",
+  "x": [
+   [
+    "The referee must remain neutral and treat both teams fairly.",
+    "Судья должен оставаться нейтральным и справедливо относиться к обеим командам."
+   ],
+   [
+    "They painted the room in neutral colours like grey and cream.",
+    "Они покрасили комнату в нейтральные цвета, такие как серый и кремовый."
+   ]
+  ]
+ },
+ "norm": {
+  "n": "Norm — это обычный или принятый стандарт поведения: social norms, cultural norms. Выражение be the norm значит быть обычным делом: Working from home is now the norm. Отклонение от привычного передают через from: depart from the norm. Прилагательное normal образовано от того же корня. Ложный друг: русская «норма» как количество (дневная норма воды, норма выработки) обычно переводится как recommended amount или quota, а не norm.",
+  "x": [
+   [
+    "In many countries, tipping in restaurants is the norm.",
+    "Во многих странах чаевые в ресторанах — обычное дело."
+   ],
+   [
+    "Young people sometimes break social norms to show their independence.",
+    "Молодые люди иногда нарушают общественные нормы, чтобы показать самостоятельность."
+   ]
+  ]
+ },
+ "notion": {
+  "n": "Notion — это идея или представление о чём-то, иногда расплывчатое. Частая модель: the notion that…, reject the notion. Предлог of тоже возможен: the notion of freedom. Слово звучит чуть более формально, чем idea, и нередко несёт оттенок сомнения. Выражение have no notion of значит совсем не понимать. Русское понятие близко, но в английском notion чаще означает общее представление, а не термин.",
+  "x": [
+   [
+    "Many scientists reject the notion that the climate is not changing.",
+    "Многие учёные отвергают представление о том, что климат не меняется."
+   ],
+   [
+    "She has no notion of how much the repairs will cost.",
+    "Она понятия не имеет, во сколько обойдётся ремонт."
+   ]
+  ]
+ },
+ "occupy": {
+  "n": "Occupy значит занимать место или время, а также захватывать территорию. Можно occupy a seat, occupy a position, occupy the whole day. Оборот be occupied with значит быть занятым чем-то: She was occupied with her homework. Для войск это значит оккупировать. Существительное occupation означает и профессию (в анкетах), и оккупацию. Надпись Occupied на двери туалета значит «занято». В повседневной речи место и время чаще take up.",
+  "x": [
+   [
+    "The meeting will occupy most of the afternoon, so I'll answer emails in the morning.",
+    "Совещание займёт большую часть дня, так что на письма я отвечу утром."
+   ],
+   [
+    "The army plans to occupy the bridge before the enemy can reach it.",
+    "Армия собирается занять мост раньше, чем к нему подойдёт противник."
+   ]
+  ]
+ },
+ "offset": {
+  "n": "Offset значит уравновесить что-то противоположным эффектом, чтобы итог не ухудшился: offset the cost, offset losses. Главные модели: A offsets B и B is offset by A: the price rise was offset by lower taxes. Формы не меняются: offset, offset, offset. Если пострадавшему возмещают ущерб, нужен compensate someone for a loss, а не offset. Существительное a carbon offset — плата за компенсацию выбросов. Русская «офсетная печать» — offset printing.",
+  "x": [
+   [
+    "Higher sales in summer helped offset the losses of the winter months.",
+    "Более высокие летние продажи помогли возместить убытки зимних месяцев."
+   ],
+   [
+    "Many travellers pay extra to offset the carbon emissions of their flights.",
+    "Многие путешественники доплачивают, чтобы компенсировать выбросы углерода от перелётов."
+   ]
+  ]
+ },
+ "ongoing": {
+  "n": "Ongoing описывает то, что уже идёт и продолжает развиваться: ongoing research, an ongoing debate. Слово пишется слитно. Возможна и позиция после глагола-связки: The investigation is ongoing. Оно сообщает, что процесс ещё не завершён, и поэтому любимо новостями. Наречием оно не бывает: «продолжается» передают через still going on или is continuing. Ongoing также подчёркивает длительность: ongoing support, то есть постоянная поддержка.",
+  "x": [
+   [
+    "The police say the investigation is still ongoing.",
+    "В полиции говорят, что расследование всё ещё продолжается."
+   ],
+   [
+    "There is an ongoing debate about how much homework children should do.",
+    "Продолжаются споры о том, сколько домашних заданий должны делать дети."
+   ]
+  ]
  }
 }

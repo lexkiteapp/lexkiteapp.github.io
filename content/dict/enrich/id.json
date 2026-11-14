@@ -778,5 +778,785 @@
     "Pertanyaan-pertanyaan baru muncul seiring penyelidikan berlanjut selama beberapa minggu."
    ]
   ]
+ },
+ "enable": {
+  "n": "Enable biasanya memakai pola enable + orang/benda + to + kata kerja dasar, misalnya enable students to learn. Pola lain adalah enable + benda langsung, seperti enable access. Subjeknya sering berupa teknologi, kebijakan, atau aturan yang menjadi sebab sesuatu bisa terjadi. Kata ini terasa lebih formal daripada let atau allow di percakapan sehari-hari. Hindari menulis enable for someone to do something; objek langsung cukup diletakkan setelah enable tanpa for.",
+  "x": [
+   [
+    "A scholarship enabled her to study abroad without worrying about money.",
+    "Beasiswa itu memungkinkan dia kuliah di luar negeri tanpa memikirkan biaya."
+   ],
+   [
+    "New software enables doctors to share test results within seconds.",
+    "Perangkat lunak baru memungkinkan para dokter berbagi hasil tes dalam hitungan detik."
+   ]
+  ]
+ },
+ "encounter": {
+  "n": "Encounter berarti bertemu atau mengalami sesuatu yang tidak direncanakan, terutama masalah, hambatan, atau orang dan hewan yang tak terduga. Sebagai kata kerja, encounter langsung diikuti objek: encounter difficulties, encounter resistance. Sebagai kata benda, preposisinya with: an encounter with a stranger, a chance encounter. Kata kerja ini agak formal; dalam percakapan, run into atau come across lebih santai.",
+  "x": [
+   [
+    "Hikers in this region occasionally encounter bears near the lower trails.",
+    "Para pendaki di wilayah ini sesekali berpapasan dengan beruang di dekat jalur bawah."
+   ],
+   [
+    "We encountered heavy traffic on the way to the airport.",
+    "Kami mengalami kemacetan parah dalam perjalanan ke bandara."
+   ]
+  ]
+ },
+ "enhance": {
+  "n": "Kata kerja enhance dipakai untuk meningkatkan mutu, nilai, atau daya tarik sesuatu yang sudah ada, jadi objeknya biasanya hal yang memang sudah baik, seperti enhance quality atau enhance the flavour. Kata ini transitif dan tidak memakai preposisi setelahnya. Dibandingkan improve, enhance lebih sering dipakai untuk menambah segi tertentu, bukan memperbaiki kekurangan. Nuansanya positif dan agak formal, sehingga cocok untuk esai dan laporan.",
+  "x": [
+   [
+    "Good lighting can enhance the atmosphere of a small restaurant.",
+    "Pencahayaan yang baik dapat mempercantik suasana restoran kecil."
+   ],
+   [
+    "The company hopes the update will enhance the user experience.",
+    "Perusahaan berharap pembaruan itu akan meningkatkan pengalaman pengguna."
+   ]
+  ]
+ },
+ "equate": {
+  "n": "Equate hampir selalu muncul dalam pola equate A with B, artinya menganggap A sama dengan B. Preposisi to juga mungkin, tetapi equate with lebih umum. Kata ini sering dipakai untuk menunjukkan anggapan yang keliru, misalnya equate silence with agreement. Bentuk pasifnya, be equated with, juga lazim. Karena terdengar formal, kata ini cocok untuk esai dan diskusi, bukan percakapan santai.",
+  "x": [
+   [
+    "Some employers equate long hours with real commitment to the job.",
+    "Sebagian pemberi kerja menyamakan jam kerja panjang dengan komitmen yang sesungguhnya."
+   ],
+   [
+    "It would be unfair to equate this small mistake with deliberate fraud.",
+    "Tidak adil menyamakan kesalahan kecil ini dengan penipuan yang disengaja."
+   ]
+  ]
+ },
+ "erode": {
+  "n": "Erode dipakai secara harfiah untuk tanah, batu, atau pantai yang terkikis, dan secara kiasan untuk hal abstrak yang perlahan melemah, seperti erode trust atau erode support. Kata ini menekankan proses bertahap, sehingga sering ditemani gradually, steadily, atau slowly. Bentuk bendanya erosion juga umum. Bentuk pasifnya, be eroded, wajar untuk menggambarkan sesuatu yang sudah terkikis.",
+  "x": [
+   [
+    "Years of heavy rain have eroded the soil on the hillside.",
+    "Hujan deras selama bertahun-tahun telah mengikis tanah di lereng bukit itu."
+   ],
+   [
+    "Constant delays could erode public trust in the railway.",
+    "Keterlambatan terus-menerus dapat mengikis kepercayaan publik pada kereta api."
+   ]
+  ]
+ },
+ "estimate": {
+  "n": "Estimate bisa menjadi kata kerja maupun kata benda dengan lafal akhir yang berbeda: kata kerjanya berakhir dengan bunyi seperti mate (/meɪt/), sedangkan kata bendanya berakhir dengan bunyi lemah /mət/. Pola yang umum adalah estimate that, estimate the cost of, atau be estimated at. Hasil perkiraan biasanya disebut an estimate atau a rough estimate. Kata ini cocok untuk angka yang belum pasti, berbeda dari calculate yang menyiratkan hitungan tepat.",
+  "x": [
+   [
+    "Engineers estimate that the bridge will take three years to finish.",
+    "Para insinyur memperkirakan jembatan itu akan memakan waktu tiga tahun untuk selesai."
+   ],
+   [
+    "Can you give me a rough estimate of the repair costs?",
+    "Bisakah Anda memberi saya perkiraan kasar biaya perbaikannya?"
+   ]
+  ]
+ },
+ "eventual": {
+  "n": "Eventual adalah kata sifat yang dipakai sebelum kata benda, misalnya the eventual winner atau an eventual solution. Maknanya hasil akhir yang tercapai setelah proses panjang atau banyak kejadian, bukan sesuatu yang sekadar mungkin terjadi; untuk makna mungkin, pakai possible atau potential. Bentuk keterangannya eventually berarti pada akhirnya. Contoh: his eventual success berarti keberhasilan yang akhirnya ia raih setelah berusaha lama.",
+  "x": [
+   [
+    "The eventual outcome of the negotiations surprised almost everyone.",
+    "Hasil akhir perundingan itu mengejutkan hampir semua orang."
+   ],
+   [
+    "Their eventual aim is to open branches in five countries.",
+    "Tujuan akhir mereka adalah membuka cabang di lima negara."
+   ]
+  ]
+ },
+ "evident": {
+  "n": "Evident berarti jelas terlihat atau terbukti dari fakta yang ada, dan sering dipakai dalam pola it is evident that atau be evident in. Kata ini lebih formal daripada obvious dan cocok untuk tulisan akademik. Bentuk keterangannya evidently dan kata bendanya evidence perlu dibedakan: evidence adalah bukti, sedangkan evident menggambarkan sesuatu yang sudah tampak. Kata sifat ini biasanya mengikuti kata kerja be atau become.",
+  "x": [
+   [
+    "It soon became evident that the old system could not cope.",
+    "Segera terlihat jelas bahwa sistem lama tidak sanggup mengatasinya."
+   ],
+   [
+    "Her frustration was evident from the tone of her email.",
+    "Kekesalannya terlihat jelas dari nada emailnya."
+   ]
+  ]
+ },
+ "evolve": {
+  "n": "Evolve dipakai untuk perubahan bertahap dalam jangka panjang, baik dalam biologi maupun dalam bidang lain seperti teknologi, bahasa, atau organisasi. Kata kerja ini umumnya intransitif: ideas evolve, species evolve. Pemakaian transitif seperti evolve a strategy ada, tetapi jauh lebih jarang. Preposisi yang sering menyertainya adalah evolve from (asal) dan evolve into (hasil). Bentuk bendanya evolution, dan kata ini menekankan perubahan yang berlangsung sedikit demi sedikit.",
+  "x": [
+   [
+    "The small workshop evolved into a successful national company.",
+    "Bengkel kecil itu berkembang menjadi perusahaan nasional yang sukses."
+   ],
+   [
+    "Birds are believed to have evolved from small dinosaurs.",
+    "Burung diyakini telah berevolusi dari dinosaurus kecil."
+   ]
+  ]
+ },
+ "exclude": {
+  "n": "Makna dasar exclude adalah sengaja tidak menyertakan atau tidak mengizinkan seseorang atau sesuatu ikut serta. Polanya exclude A from B, dengan from sebagai preposisi tetap, misalnya exclude children from the study. Antonimnya include. Kata ini juga dipakai untuk menyingkirkan kemungkinan, seperti exclude the possibility of error. Bentuk bendanya exclusion, dan kata sifat exclusive punya arti tambahan yang berbeda, yaitu eksklusif atau khusus.",
+  "x": [
+   [
+    "The offer excludes drinks and any additional service charges.",
+    "Penawaran itu tidak termasuk minuman dan biaya layanan tambahan apa pun."
+   ],
+   [
+    "Doctors cannot exclude the possibility that the infection will return.",
+    "Para dokter tidak dapat menyingkirkan kemungkinan bahwa infeksinya akan kambuh."
+   ]
+  ]
+ },
+ "explicit": {
+  "n": "Explicit menggambarkan sesuatu yang dinyatakan secara terang-terangan sehingga tidak ada keraguan, misalnya explicit instructions atau an explicit promise. Lawannya implicit, yaitu tersirat. Kata ini netral dalam laporan dan aturan, tetapi explicit content di media berarti materi yang terang-terangan menampilkan kekerasan atau seksualitas, sehingga konteks penting. Dalam dokumen resmi sering muncul frasa explicitly stated, yaitu dinyatakan secara tegas.",
+  "x": [
+   [
+    "The contract gives explicit permission to use the photographs online.",
+    "Kontrak itu memberikan izin yang jelas untuk memakai foto-foto tersebut secara daring."
+   ],
+   [
+    "She was explicit about what she expected from the team.",
+    "Dia sangat terus terang tentang apa yang diharapkannya dari tim."
+   ]
+  ]
+ },
+ "expose": {
+  "n": "Expose punya dua arah makna yang umum. Pertama, membiarkan seseorang atau sesuatu terkena bahaya atau pengaruh, dengan pola expose someone to something, seperti expose children to music. Kedua, membongkar kebenaran yang disembunyikan, seperti expose corruption. Perhatikan preposisi to pada makna pertama dan bentuk pasif be exposed to. Paparan semacam itu disebut exposure, misalnya exposure to sunlight.",
+  "x": [
+   [
+    "Long periods outdoors expose the skin to harmful ultraviolet rays.",
+    "Berada lama di luar ruangan membuat kulit terpapar sinar ultraviolet yang berbahaya."
+   ],
+   [
+    "A newspaper investigation exposed the mayor's secret payments.",
+    "Penyelidikan sebuah surat kabar membongkar pembayaran rahasia sang wali kota."
+   ]
+  ]
+ },
+ "external": {
+  "n": "External adalah kata sifat untuk hal yang berada di luar suatu organisasi, benda, atau diri seseorang, misalnya external factors atau an external examiner. Lawannya internal. Kata ini biasanya diletakkan sebelum kata benda dan terdengar netral-formal. Pada kemasan obat, for external use only berarti hanya untuk pemakaian luar. Contoh lain: external pressure, tekanan dari pihak luar, dan external debt, utang luar negeri suatu negara.",
+  "x": [
+   [
+    "Several external factors affected the results of the survey.",
+    "Beberapa faktor eksternal memengaruhi hasil survei itu."
+   ],
+   [
+    "The school invited an external speaker to talk about careers.",
+    "Sekolah itu mengundang pembicara dari luar untuk berbicara tentang karier."
+   ]
+  ]
+ },
+ "facilitate": {
+  "n": "Facilitate berarti membuat suatu proses lebih mudah atau lebih lancar tanpa melakukannya sendiri. Subjeknya biasanya hal atau pihak yang membantu, seperti technology, a policy, atau a teacher, dan objeknya proses, misalnya facilitate discussion atau facilitate learning. Kata ini formal. Orang yang memandu diskusi disebut facilitator. Untuk objek orang, pola help someone do something lebih alami daripada facilitate someone to do something.",
+  "x": [
+   [
+    "The new app facilitates communication between patients and nurses.",
+    "Aplikasi baru itu memudahkan komunikasi antara pasien dan perawat."
+   ],
+   [
+    "A good teacher facilitates discussion rather than dominating it.",
+    "Guru yang baik memandu diskusi dan tidak mendominasinya."
+   ]
+  ]
+ },
+ "formula": {
+  "n": "Formula punya dua penggunaan utama. Dalam sains dan matematika, a formula adalah rumus, misalnya the chemical formula for water. Dalam arti umum, kata ini berarti cara atau resep tertentu untuk mencapai sesuatu, seperti a formula for success. Jamaknya ada dua: formulas yang umum, dan formulae yang lebih ilmiah. Preposisi yang paling lazim adalah for. Formula juga dipakai untuk susu formula bayi dan balapan Formula One.",
+  "x": [
+   [
+    "Scientists use a simple formula to calculate the speed of the wave.",
+    "Para ilmuwan memakai rumus sederhana untuk menghitung kecepatan gelombang itu."
+   ],
+   [
+    "There is no magic formula for becoming fluent in a language.",
+    "Tidak ada resep ajaib untuk menjadi fasih dalam suatu bahasa."
+   ]
+  ]
+ },
+ "forthcoming": {
+  "n": "Forthcoming punya tiga makna. Pertama, akan segera terjadi atau terbit, seperti a forthcoming book atau the forthcoming elections; dalam makna ini kata ini dipakai sebelum kata benda. Kedua, setelah be, terutama dalam kalimat negatif, berarti diberikan atau tersedia saat diminta, misalnya no help was forthcoming. Ketiga, untuk orang, berarti bersedia memberi informasi, juga sering dalam bentuk negatif: he was not very forthcoming. Nuansanya agak formal.",
+  "x": [
+   [
+    "The author's forthcoming novel is set in a small fishing village.",
+    "Novel sang penulis yang akan segera terbit berlatar sebuah desa nelayan kecil."
+   ],
+   [
+    "No explanation was forthcoming from the company after the accident.",
+    "Pihak perusahaan tidak memberikan penjelasan apa pun setelah kecelakaan itu."
+   ]
+  ]
+ },
+ "framework": {
+  "n": "Framework adalah kata benda yang berarti kerangka, baik berupa struktur fisik maupun sistem gagasan dan aturan, seperti a legal framework atau a framework for discussion. Preposisi yang lazim adalah for atau within: within this framework berarti dalam kerangka ini. Kata ini ditulis sebagai satu kata, bukan frame work. Dalam dunia teknologi, framework juga berarti kerangka perangkat lunak yang dipakai pengembang.",
+  "x": [
+   [
+    "The report sets out a framework for evaluating new teaching methods.",
+    "Laporan itu memaparkan kerangka untuk menilai metode pengajaran yang baru."
+   ],
+   [
+    "Each country works within its own legal framework.",
+    "Setiap negara bekerja dalam kerangka hukumnya sendiri."
+   ]
+  ]
+ },
+ "gender": {
+  "n": "Dalam bahasa Inggris modern, gender biasanya merujuk pada peran dan identitas sosial sebagai laki-laki, perempuan, atau lainnya, sedangkan sex lebih sering dipakai untuk ciri biologis. Dalam formulir, gender sering dipakai untuk kolom jenis kelamin. Kata ini juga muncul dalam gender equality, gender gap, dan gender roles. Dalam tata bahasa, gender berarti kategori seperti maskulin dan feminin pada kata benda di bahasa tertentu.",
+  "x": [
+   [
+    "The school promotes gender equality in sports and science classes.",
+    "Sekolah itu mendorong kesetaraan gender dalam kelas olahraga dan sains."
+   ],
+   [
+    "Job advertisements should not mention age or gender.",
+    "Iklan lowongan kerja sebaiknya tidak menyebutkan usia atau jenis kelamin."
+   ]
+  ]
+ },
+ "globe": {
+  "n": "Globe berarti bola dunia atau, secara kiasan, seluruh dunia. Ungkapan yang paling umum adalah across the globe dan around the globe, yang terdengar agak lebih jurnalistik daripada around the world. Ketika dipakai secara harfiah, a globe adalah bola dunia di meja belajar. Dari globe lahir kata sifat global dan kata globalisation, yaitu proses keterhubungan ekonomi dan budaya antarnegara.",
+  "x": [
+   [
+    "Fans from across the globe gathered to watch the final match.",
+    "Para penggemar dari seluruh penjuru dunia berkumpul untuk menonton pertandingan final."
+   ],
+   [
+    "She spun the globe and pointed at a tiny island.",
+    "Dia memutar bola dunia lalu menunjuk sebuah pulau kecil."
+   ]
+  ]
+ },
+ "grant": {
+  "n": "Sebagai kata benda, grant adalah dana yang diberikan, biasanya oleh pemerintah atau lembaga, untuk tujuan tertentu seperti penelitian atau pendidikan, dan tidak perlu dikembalikan. Pola umum: a grant for research, a grant of 5,000 pounds, atau apply for a grant. Kata ini juga sering dipakai sebagai kata kerja yang berarti mengabulkan, misalnya grant permission, dan dalam ungkapan take something for granted.",
+  "x": [
+   [
+    "The museum received a grant to restore its oldest paintings.",
+    "Museum itu menerima hibah untuk memulihkan lukisan-lukisan tertuanya."
+   ],
+   [
+    "Local farmers can apply for a grant to buy new equipment.",
+    "Petani setempat dapat mengajukan permohonan hibah untuk membeli peralatan baru."
+   ]
+  ]
+ },
+ "guarantee": {
+  "n": "Guarantee bisa menjadi kata kerja dan kata benda. Sebagai kata kerja, artinya menjamin bahwa sesuatu pasti terjadi, dengan pola guarantee + benda atau guarantee that. Sebagai kata benda, a guarantee sering berarti garansi produk, misalnya a two-year guarantee. Perhatikan ejaannya: diawali gua- dengan u yang tidak dibaca, diakhiri -ee, dan tekanannya di suku terakhir. Karena maknanya kuat, kata ini sering muncul dalam kalimat negatif seperti there is no guarantee that.",
+  "x": [
+   [
+    "No teacher can guarantee that every student will pass the exam.",
+    "Tidak ada guru yang bisa menjamin bahwa setiap siswa akan lulus ujian."
+   ],
+   [
+    "The phone comes with a one-year guarantee against faults.",
+    "Ponsel itu dilengkapi garansi satu tahun terhadap kerusakan."
+   ]
+  ]
+ },
+ "hierarchy": {
+  "n": "Hierarchy berarti sistem tingkatan dari yang tertinggi sampai terendah, misalnya dalam organisasi atau masyarakat. Kata ini dipakai dengan preposisi in atau within, seperti high up in the hierarchy. Bentuk kata sifatnya hierarchical. Perhatikan lafalnya: awalan hi- dibaca seperti hai, jadi bunyi pertamanya mirip bahasa Inggris high. Kata ini umum dalam konteks bisnis, sosiologi, dan biologi.",
+  "x": [
+   [
+    "Junior staff rarely meet people at the top of the hierarchy.",
+    "Staf junior jarang bertemu orang-orang di puncak hierarki."
+   ],
+   [
+    "Some animals live in groups with a clear social hierarchy.",
+    "Beberapa hewan hidup berkelompok dengan hierarki sosial yang jelas."
+   ]
+  ]
+ },
+ "ideology": {
+  "n": "Ideology adalah sistem gagasan dan kepercayaan, terutama di bidang politik dan ekonomi, yang membentuk cara sekelompok orang memandang dunia. Kata ini bisa netral, seperti dalam political ideology, tetapi kadang berkesan negatif bila dipakai untuk menyebut pandangan kaku yang tidak mau diuji, misalnya driven by ideology. Kata sifatnya ideological, dan penutur asli sering memadukannya dengan kata seperti dominant atau prevailing.",
+  "x": [
+   [
+    "The party's ideology shaped its policies on housing and welfare.",
+    "Ideologi partai itu membentuk kebijakannya tentang perumahan dan kesejahteraan."
+   ],
+   [
+    "Critics say the policy is driven by ideology rather than evidence.",
+    "Para pengkritik mengatakan kebijakan itu digerakkan oleh ideologi, bukan bukti."
+   ]
+  ]
+ },
+ "incidence": {
+  "n": "Incidence adalah istilah formal untuk seberapa sering sesuatu terjadi, terutama penyakit, kejahatan, atau kecelakaan, dalam kelompok tertentu. Polanya the incidence of + benda, misalnya the incidence of crime. Awas, kata ini jarang dipakai untuk satu peristiwa; untuk itu pakai incident. Penutur Indonesia mungkin tergoda menulis insiden untuk keduanya, padahal bahasa Inggris membedakan incidence (tingkat kejadian) dan incident (peristiwa).",
+  "x": [
+   [
+    "The incidence of heart disease is lower in people who exercise.",
+    "Angka kejadian penyakit jantung lebih rendah pada orang yang rutin berolahraga."
+   ],
+   [
+    "Researchers recorded a high incidence of allergies among city children.",
+    "Para peneliti mencatat tingkat kejadian alergi yang tinggi pada anak-anak kota."
+   ]
+  ]
+ },
+ "incorporate": {
+  "n": "Dengan incorporate, penutur memasukkan sesuatu sebagai bagian dari keseluruhan sehingga menjadi satu kesatuan. Pola yang umum adalah incorporate A into B atau incorporate A in B. Objeknya sering berupa gagasan, bahan, atau fitur, misalnya incorporate feedback into the design. Kata ini juga dipakai dalam konteks hukum untuk mendirikan badan usaha. Terdengar lebih formal daripada include dan menekankan penyatuan, bukan sekadar daftar.",
+  "x": [
+   [
+    "The chef incorporates local spices into traditional European dishes.",
+    "Sang koki memadukan rempah-rempah lokal ke dalam hidangan Eropa tradisional."
+   ],
+   [
+    "We tried to incorporate the students' suggestions into the final plan.",
+    "Kami berusaha memasukkan saran para siswa ke dalam rencana akhir."
+   ]
+  ]
+ },
+ "induce": {
+  "n": "Induce berarti menyebabkan sesuatu terjadi atau membujuk seseorang melakukan sesuatu. Dengan benda, polanya induce + benda, seperti induce sleep atau induce labour. Dengan orang, polanya induce someone to do something. Kata ini terdengar formal dan ilmiah, sedangkan cause lebih umum. Dalam kata majemuk, -induced berarti disebabkan oleh sesuatu, misalnya stress-induced headaches atau drug-induced sleep.",
+  "x": [
+   [
+    "Certain medicines can induce drowsiness, so drivers should be careful.",
+    "Beberapa obat dapat menimbulkan rasa kantuk, jadi pengemudi perlu berhati-hati."
+   ],
+   [
+    "Nothing could induce him to sell the family farm.",
+    "Tidak ada yang bisa membujuknya menjual pertanian keluarga."
+   ]
+  ]
+ },
+ "inherent": {
+  "n": "Inherent menggambarkan sifat yang melekat dan tak terpisahkan dari sesuatu, sehingga tidak bisa dihilangkan tanpa mengubah hal itu sendiri. Pola yang umum: inherent in sesuatu atau an inherent risk. Misalnya, the dangers inherent in mountaineering. Kata ini terdengar formal dan biasanya diletakkan sebelum kata benda atau diikuti in. Berbeda dari natural, inherent menekankan bahwa sifat itu bagian dari hakikat sesuatu.",
+  "x": [
+   [
+    "Every investment carries some inherent risk of losing money.",
+    "Setiap investasi mengandung risiko bawaan berupa kehilangan uang."
+   ],
+   [
+    "The problems inherent in large organisations are hard to avoid.",
+    "Masalah yang melekat pada organisasi besar sulit dihindari."
+   ]
+  ]
+ },
+ "inhibit": {
+  "n": "Kata kerja formal inhibit dipakai untuk menghambat atau mencegah sesuatu berkembang atau terjadi, dan objeknya sering proses, seperti inhibit growth atau inhibit learning. Dalam pola inhibit someone from doing something, kata ini berarti menahan seseorang agar tidak melakukan sesuatu. Kata sifat inhibited berarti pemalu atau tertahan, sedangkan lawannya uninhibited. Dalam biologi dan kimia, inhibit dipakai untuk menekan reaksi atau kerja enzim.",
+  "x": [
+   [
+    "Fear of failure can inhibit creativity in the classroom.",
+    "Rasa takut gagal dapat menghambat kreativitas di dalam kelas."
+   ],
+   [
+    "Cold temperatures inhibit the growth of many bacteria.",
+    "Suhu dingin menghambat pertumbuhan banyak bakteri."
+   ]
+  ]
+ },
+ "insert": {
+  "n": "Insert berarti menyelipkan atau memasukkan sesuatu ke dalam sesuatu yang lain, biasanya dengan preposisi into atau in: insert a card into the machine. Dalam tulisan, kata ini juga berarti menambahkan teks atau gambar, misalnya insert a sentence. Perhatikan tekanan: kata kerja insert diucapkan dengan tekanan pada suku kedua, sedangkan kata benda an insert (lembaran sisipan) ditekankan di suku pertama.",
+  "x": [
+   [
+    "Please insert your ticket into the slot before the barrier opens.",
+    "Silakan masukkan tiket Anda ke dalam celah sebelum palang terbuka."
+   ],
+   [
+    "The editor inserted a short paragraph at the end of the article.",
+    "Editor menyisipkan satu paragraf pendek di akhir artikel itu."
+   ]
+  ]
+ },
+ "institute": {
+  "n": "Institute sebagai kata benda berarti lembaga yang didirikan untuk tujuan tertentu seperti penelitian, pendidikan, atau profesi, misalnya a research institute. Perhatikan perbedaannya dengan institution, yang berarti lembaga atau pranata dalam arti lebih luas, misalnya bank atau sekolah. Dalam nama resmi, kata ini ditulis dengan huruf besar. Institute juga bisa menjadi kata kerja formal yang berarti memulai, misalnya institute a new policy.",
+  "x": [
+   [
+    "The institute publishes a yearly report on air quality in the region.",
+    "Lembaga itu menerbitkan laporan tahunan tentang kualitas udara di kawasan tersebut."
+   ],
+   [
+    "He studied at an institute of technology before joining the firm.",
+    "Dia belajar di institut teknologi sebelum bergabung dengan perusahaan itu."
+   ]
+  ]
+ },
+ "integrate": {
+  "n": "Integrate berarti menyatukan bagian-bagian atau menyatu ke dalam kelompok. Dalam pola integrate A into B atau integrate A with B, kata ini memadukan dua hal. Sebagai kata kerja intransitif, new arrivals integrate into a community artinya membaur. Bentuk bendanya integration. Dalam tulisan sosial, kata ini sering dipakai untuk imigran, siswa baru, atau budaya yang membaur ke dalam masyarakat.",
+  "x": [
+   [
+    "The school helps new pupils integrate into the community quickly.",
+    "Sekolah itu membantu murid baru membaur ke dalam komunitas dengan cepat."
+   ],
+   [
+    "Engineers integrated the sensors with the existing control system.",
+    "Para insinyur memadukan sensor-sensor itu dengan sistem kendali yang sudah ada."
+   ]
+  ]
+ },
+ "interact": {
+  "n": "Interact, yaitu saling berhubungan atau saling memengaruhi, hampir selalu diikuti with: interact with others, interact with the environment. Kata kerja ini intransitif, jadi tidak boleh langsung diikuti objek tanpa with. Bentuk bendanya interaction, dan kata sifatnya interactive, yaitu bersifat dua arah. Dalam konteks komputer, interact with a system berarti menggunakan sistem dan mendapat tanggapan darinya.",
+  "x": [
+   [
+    "Young children learn language by interacting with adults every day.",
+    "Anak kecil belajar bahasa dengan berinteraksi bersama orang dewasa setiap hari."
+   ],
+   [
+    "Some chemicals interact with each other and become dangerous.",
+    "Beberapa bahan kimia saling bereaksi dan menjadi berbahaya."
+   ]
+  ]
+ },
+ "internal": {
+  "n": "Internal berarti berada di bagian dalam suatu organisasi, benda, atau tubuh, misalnya an internal investigation atau internal organs. Kata ini sering menjadi lawan external. Untuk urusan dalam negeri suatu negara, bahasa Inggris memakai internal affairs atau domestic affairs. Untuk penerbangan dalam negeri, domestic flights paling umum, meski internal flights juga dipakai di Inggris. Kata ini paling sering muncul sebelum kata benda.",
+  "x": [
+   [
+    "The manager ordered an internal review of the safety procedures.",
+    "Manajer itu memerintahkan peninjauan internal atas prosedur keselamatan."
+   ],
+   [
+    "Doctors found internal bleeding after the accident.",
+    "Para dokter menemukan perdarahan dalam setelah kecelakaan itu."
+   ]
+  ]
+ },
+ "interval": {
+  "n": "Interval berarti jarak waktu atau ruang antara dua peristiwa atau titik, dan paling sering muncul dalam at regular intervals atau at intervals of five minutes; dalam pola ini preposisinya at. Kata ini juga dipakai untuk jeda di antara babak pertunjukan dalam bahasa Inggris Britania, sedangkan di Amerika lebih sering dipakai intermission. Dalam musik, interval adalah jarak antara dua nada.",
+  "x": [
+   [
+    "The trains leave the station at intervals of ten minutes.",
+    "Kereta berangkat dari stasiun dengan selang sepuluh menit."
+   ],
+   [
+    "There was a long interval between the two lectures.",
+    "Ada jeda yang panjang di antara kedua kuliah itu."
+   ]
+  ]
+ },
+ "intervene": {
+  "n": "Intervene berarti ikut campur dalam suatu situasi untuk memengaruhi atau menghentikannya, baik dengan niat baik maupun tidak. Kata ini intransitif dan lazim diikuti in: intervene in a dispute. Pola lain adalah intervene to + kata kerja dasar, misalnya intervene to stop a fight. Bentuk bendanya intervention. Untuk makna turut campur secara negatif, interfere with lebih tepat.",
+  "x": [
+   [
+    "The teacher intervened when the argument became too heated.",
+    "Guru itu turun tangan ketika perdebatan itu memanas."
+   ],
+   [
+    "Central banks may intervene in currency markets to stabilise prices.",
+    "Bank sentral dapat melakukan intervensi di pasar mata uang untuk menstabilkan harga."
+   ]
+  ]
+ },
+ "invoke": {
+  "n": "Invoke berarti menyebut atau merujuk sesuatu, seperti hukum, hak, prinsip, atau nama tokoh, sebagai dasar atau pembenaran tindakan, misalnya invoke the law atau invoke a right. Kata ini juga dipakai untuk memohon bantuan kekuatan gaib dalam doa atau ritual. Terdengar formal, jadi lebih cocok dalam tulisan dan pidato. Jangan campur dengan evoke, yang berarti membangkitkan kenangan atau emosi, dan involve, yang berarti melibatkan.",
+  "x": [
+   [
+    "The defendant invoked his right to remain silent during the trial.",
+    "Terdakwa menggunakan haknya untuk tetap diam selama persidangan."
+   ],
+   [
+    "The minister invoked national security to justify the new law.",
+    "Menteri itu berdalih demi keamanan nasional untuk membenarkan undang-undang baru tersebut."
+   ]
+  ]
+ },
+ "justify": {
+  "n": "Justify berarti memberi alasan atau bukti yang menunjukkan bahwa suatu tindakan atau keputusan itu benar atau masuk akal. Objeknya biasanya sesuatu yang dipertanyakan, misalnya justify the cost atau justify a decision, dan kata ini bisa diikuti bentuk -ing: justify spending more. Kata sifatnya justified, dan kata bendanya justification. Dalam pengolah kata, justify text berarti membuat teks rata kiri dan kanan.",
+  "x": [
+   [
+    "Nothing can justify violence against innocent people.",
+    "Tidak ada yang dapat membenarkan kekerasan terhadap orang-orang tak bersalah."
+   ],
+   [
+    "The manager had to justify the extra spending to the board.",
+    "Manajer itu harus mempertanggungjawabkan pengeluaran tambahan itu di hadapan dewan."
+   ]
+  ]
+ },
+ "labour": {
+  "n": "Labour adalah ejaan Inggris Britania; di Amerika kata ini ditulis labor. Sebagai kata benda tak terhitung, labour berarti kerja, terutama kerja fisik, atau para pekerja secara kolektif, seperti cheap labour dan labour costs. Frasa the labour market berarti pasar tenaga kerja. Kata ini juga berarti proses persalinan, dan Labour dengan huruf besar adalah partai politik di Inggris.",
+  "x": [
+   [
+    "Many factories moved overseas in search of cheaper labour.",
+    "Banyak pabrik pindah ke luar negeri untuk mencari tenaga kerja yang lebih murah."
+   ],
+   [
+    "Manual labour can be exhausting if you do it every day.",
+    "Kerja kasar bisa sangat melelahkan jika dilakukan setiap hari."
+   ]
+  ]
+ },
+ "licence": {
+  "n": "Licence adalah ejaan Inggris Britania untuk kata benda yang berarti izin resmi, misalnya a driving licence. Dalam bahasa Inggris Amerika, kata bendanya ditulis license, sama seperti kata kerjanya. Di Inggris, kata kerjanya license dengan s, sehingga dibedakan: to license a product. Frasa lazim: hold a licence, apply for a licence, dan issue a licence. Kata ini mirip dengan lisensi dalam bahasa Indonesia.",
+  "x": [
+   [
+    "You need a licence to drive a taxi in this city.",
+    "Anda membutuhkan izin untuk mengemudikan taksi di kota ini."
+   ],
+   [
+    "The authorities refused to renew the restaurant's licence.",
+    "Pihak berwenang menolak memperpanjang izin restoran itu."
+   ]
+  ]
+ },
+ "logic": {
+  "n": "Logic berarti cara berpikir yang runtut dan masuk akal, atau alasan di balik suatu tindakan. Kata ini tak terhitung, jadi tidak ada logics dalam arti biasa. Frasa yang berguna: follow the logic, flawed logic, dan there is no logic in doing something. Bentuk kata sifatnya logical dan keterangannya logically. Untuk menyebut argumen yang tidak masuk akal, bahasa Inggris memakai illogical atau lacks logic.",
+  "x": [
+   [
+    "I cannot follow the logic behind this decision at all.",
+    "Saya sama sekali tidak bisa mengikuti logika di balik keputusan ini."
+   ],
+   [
+    "Her argument is clear, and the logic is hard to dispute.",
+    "Argumennya jelas, dan logikanya sulit dibantah."
+   ]
+  ]
+ },
+ "manipulate": {
+  "n": "Manipulate bisa bermakna netral, yaitu menangani atau menggerakkan sesuatu dengan tangan secara terampil, misalnya manipulate the controls atau manipulate tiny instruments. Namun untuk orang, opini, atau angka, kata ini hampir selalu berkonotasi negatif, yaitu memengaruhi atau mengubah secara licik demi keuntungan sendiri. Polanya manipulate someone into doing something. Kata sifat manipulative menggambarkan orang yang suka memanipulasi, dan kata bendanya manipulation.",
+  "x": [
+   [
+    "The report accuses the company of trying to manipulate sales figures.",
+    "Laporan itu menuduh perusahaan tersebut berusaha memanipulasi angka penjualan."
+   ],
+   [
+    "Skilled surgeons manipulate tiny instruments with great precision.",
+    "Ahli bedah yang terampil mengendalikan instrumen kecil dengan sangat presisi."
+   ]
+  ]
+ },
+ "margin": {
+  "n": "Margin punya beberapa arti yang berbeda. Dalam tulisan, margin adalah ruang kosong di tepi halaman. Dalam bisnis, profit margin adalah selisih antara pendapatan dan biaya, sedangkan dalam hasil lomba atau pemilu, margin adalah selisih skor atau suara, misalnya by a narrow margin. Ada pula margin of error, yaitu batas kesalahan yang diterima. Preposisi yang sering dipakai: by a margin of.",
+  "x": [
+   [
+    "The party won the election by a margin of just two seats.",
+    "Partai itu memenangi pemilu dengan selisih hanya dua kursi."
+   ],
+   [
+    "Supermarkets work with very small profit margins on basic food.",
+    "Supermarket bekerja dengan margin keuntungan yang sangat kecil pada bahan makanan pokok."
+   ]
+  ]
+ },
+ "mature": {
+  "n": "Sebagai kata sifat, mature berarti dewasa secara fisik atau sikap, dan sering dipakai untuk orang yang bersikap bijak, misalnya a mature attitude. Untuk keju atau anggur, mature berarti matang karena disimpan lama; untuk buah, ripe lebih umum. Kata matang dalam arti sudah dimasak bukan mature, melainkan cooked atau done. Di Inggris, mature students adalah mahasiswa yang lebih tua. Kata kerjanya juga mature.",
+  "x": [
+   [
+    "He is very mature for a fifteen-year-old and rarely loses his temper.",
+    "Dia sangat dewasa untuk anak lima belas tahun dan jarang kehilangan kesabaran."
+   ],
+   [
+    "Mature cheese has a stronger and sharper flavour.",
+    "Keju yang telah matang memiliki rasa yang lebih kuat dan tajam."
+   ]
+  ]
+ },
+ "maximise": {
+  "n": "Maximise adalah ejaan Inggris Britania, sedangkan Amerika menulis maximize. Kata kerja ini berarti membuat sesuatu sebesar atau sebanyak mungkin, dan objeknya biasanya hal yang diinginkan, misalnya maximise profits atau maximise the use of space. Lawannya minimise, dan bentuk bendanya maximisation. Sesuatu yang dimaksimalkan bisa berupa peluang, hasil, atau efisiensi, sehingga kata ini sering muncul dalam bisnis.",
+  "x": [
+   [
+    "Smart planning helps farmers maximise their harvest each season.",
+    "Perencanaan yang cerdas membantu petani memaksimalkan panen mereka setiap musim."
+   ],
+   [
+    "We rearranged the room to maximise the available light.",
+    "Kami menata ulang ruangan itu untuk memaksimalkan cahaya yang masuk."
+   ]
+  ]
+ },
+ "military": {
+  "n": "Military dipakai sebagai kata sifat, seperti military service, military base, dan military spending. Sebagai kata benda, the military berarti angkatan bersenjata sebuah negara, misalnya the military took control, dan dapat diikuti kata kerja tunggal maupun jamak. Perhatikan perbedaannya dengan army, yang hanya merujuk pada angkatan darat, sedangkan military mencakup semua matra. Frasa compulsory military service berarti wajib militer.",
+  "x": [
+   [
+    "The country introduced compulsory military service for young adults.",
+    "Negara itu memberlakukan wajib militer bagi orang dewasa muda."
+   ],
+   [
+    "Military spending increased sharply during the conflict.",
+    "Pengeluaran militer meningkat tajam selama konflik itu."
+   ]
+  ]
+ },
+ "minimal": {
+  "n": "Minimal berarti sangat kecil atau sedikit, dan sering dipakai dalam minimal impact, minimal risk, atau minimal effort. Berbeda dari kata minimal dalam bahasa Indonesia yang biasa berarti paling sedikit, dalam bahasa Inggris minimal menyiratkan jumlah yang sangat kecil, bukan batas terendah. Untuk batas terendah, bahasa Inggris memakai at least atau minimum. Kata sifat ini lebih formal daripada very small.",
+  "x": [
+   [
+    "The storm caused only minimal damage to the old harbour.",
+    "Badai itu hanya menimbulkan kerusakan yang sangat kecil pada pelabuhan lama."
+   ],
+   [
+    "With minimal effort, you can keep your garden tidy all year.",
+    "Dengan usaha yang sangat sedikit, Anda dapat menjaga kebun tetap rapi sepanjang tahun."
+   ]
+  ]
+ },
+ "minimise": {
+  "n": "Di Amerika, kata ini ditulis minimize; minimise adalah ejaan Britania. Maknanya memperkecil sesuatu yang tidak diinginkan sampai sekecil mungkin, misalnya minimise risk atau minimise costs. Di komputer, minimise a window berarti mengecilkan jendela ke taskbar. Kata ini juga berarti meremehkan atau menganggap kecil, seperti minimise the problem. Lawannya maximise, dan prosesnya disebut minimisation.",
+  "x": [
+   [
+    "Regular maintenance helps minimise the risk of equipment failure.",
+    "Perawatan rutin membantu meminimalkan risiko kegagalan peralatan."
+   ],
+   [
+    "Some people tend to minimise the seriousness of the problem.",
+    "Sebagian orang cenderung meremehkan keseriusan masalah itu."
+   ]
+  ]
+ },
+ "ministry": {
+  "n": "Ministry adalah kementerian, yaitu departemen pemerintah yang dipimpin seorang menteri, dan dalam nama resmi ditulis dengan huruf besar: the Ministry of Education. Di Amerika Serikat, lembaga yang setara biasanya disebut department, bukan ministry. Dalam konteks agama, the ministry berarti pelayanan atau profesi pendeta. Sebutan untuk orangnya adalah minister, yang bisa berarti menteri atau pendeta.",
+  "x": [
+   [
+    "A spokesperson for the ministry denied the rumours about school closures.",
+    "Juru bicara kementerian itu membantah desas-desus tentang penutupan sekolah."
+   ],
+   [
+    "She worked at the Ministry of Transport for ten years.",
+    "Dia bekerja di Kementerian Perhubungan selama sepuluh tahun."
+   ]
+  ]
+ },
+ "minor": {
+  "n": "Minor berarti kecil atau kurang penting, seperti minor injuries, minor changes, atau a minor role. Lawannya major. Sebagai kata benda, a minor adalah orang di bawah usia dewasa menurut hukum, dan dalam konteks pendidikan Amerika, a minor berarti bidang studi pendamping di samping jurusan utama. Kata ini juga muncul di musik, seperti C minor. Biasanya diletakkan sebelum kata benda dan nuansanya netral.",
+  "x": [
+   [
+    "Only minor repairs were needed after the small fire.",
+    "Hanya perbaikan kecil yang diperlukan setelah kebakaran kecil itu."
+   ],
+   [
+    "Minors are not allowed to buy tickets for this film.",
+    "Anak di bawah umur tidak boleh membeli tiket untuk film ini."
+   ]
+  ]
+ },
+ "modify": {
+  "n": "Makna modify adalah mengubah sesuatu sedikit agar lebih sesuai atau lebih baik, bukan mengganti seluruhnya. Polanya modify + benda, sering disusul to + kata kerja untuk tujuan: modify it to suit your needs. Bentuk pasif modified muncul dalam genetically modified food. Kata bendanya modification. Dalam tata bahasa, adjectives modify nouns, artinya kata sifat menerangkan kata benda. Kata ini lebih formal daripada change.",
+  "x": [
+   [
+    "Engineers had to modify the design to make the engine quieter.",
+    "Para insinyur harus memodifikasi rancangan itu agar mesinnya lebih senyap."
+   ],
+   [
+    "You can modify the settings at any time from the menu.",
+    "Anda dapat mengubah pengaturan kapan saja melalui menu."
+   ]
+  ]
+ },
+ "monitor": {
+  "n": "Monitor sebagai kata kerja berarti memantau atau mengawasi sesuatu dalam jangka waktu tertentu untuk melihat perkembangannya. Polanya monitor + benda tanpa preposisi: monitor progress, monitor air quality. Kata bendanya berarti layar komputer atau alat pemantau, misalnya a heart monitor. Dibandingkan watch, monitor menekankan pengawasan yang sistematis dan berkelanjutan, sering dengan alat atau data. Keterangan yang umum: closely monitor.",
+  "x": [
+   [
+    "Nurses monitor the patient's heart rate throughout the night.",
+    "Para perawat memantau detak jantung pasien sepanjang malam."
+   ],
+   [
+    "Scientists have monitored the volcano for more than twenty years.",
+    "Para ilmuwan telah memantau gunung berapi itu selama lebih dari dua puluh tahun."
+   ]
+  ]
+ },
+ "motive": {
+  "n": "Kata benda motive merujuk pada alasan atau dorongan di balik suatu tindakan, dan sering dipakai dalam konteks kejahatan: the motive for the crime. Pola yang umum adalah motive for atau motive behind. Kata ini berbeda dari motivation, yang lebih berarti semangat atau dorongan untuk berusaha. Frasa ulterior motive berarti maksud tersembunyi yang biasanya kurang baik, dan profit motive berarti dorongan mencari untung.",
+  "x": [
+   [
+    "The police could not find a clear motive for the robbery.",
+    "Polisi tidak dapat menemukan motif yang jelas atas perampokan itu."
+   ],
+   [
+    "Her kindness made me wonder whether she had an ulterior motive.",
+    "Kebaikannya membuat saya bertanya-tanya apakah dia punya maksud tersembunyi."
+   ]
+  ]
+ },
+ "neutral": {
+  "n": "Neutral berarti tidak berpihak pada salah satu pihak dalam perselisihan, seperti remain neutral atau a neutral country. Kata ini juga berarti tidak mencolok, misalnya neutral colours seperti krem atau abu-abu. Dalam kimia, neutral berarti tidak asam dan tidak basa. Dalam mobil, in neutral berarti persneling di posisi netral. Sikap tidak memihak itu disebut neutrality, misalnya political neutrality.",
+  "x": [
+   [
+    "Switzerland has stayed neutral in most international conflicts.",
+    "Swiss tetap bersikap netral dalam sebagian besar konflik internasional."
+   ],
+   [
+    "The living room is painted in soft neutral colours.",
+    "Ruang tamu itu dicat dengan warna-warna netral yang lembut."
+   ]
+  ]
+ },
+ "norm": {
+  "n": "Norm adalah kata benda untuk standar perilaku yang diterima atau dianggap biasa oleh suatu kelompok. Kata ini sering dipakai dalam bentuk jamak, social norms, dan juga dengan the: the norm berarti hal yang lazim. Misalnya, long working hours are the norm. Kata sifatnya normative, yang bernuansa akademik. Jangan tertukar dengan normal, yaitu kata sifat yang berarti biasa atau wajar.",
+  "x": [
+   [
+    "In many countries, working from home is now the norm.",
+    "Di banyak negara, bekerja dari rumah kini menjadi hal yang lazim."
+   ],
+   [
+    "Young people often challenge the social norms of older generations.",
+    "Anak muda sering menantang norma sosial generasi yang lebih tua."
+   ]
+  ]
+ },
+ "notion": {
+  "n": "Dalam esai, notion merujuk pada gagasan atau pemahaman, sering yang agak samar atau belum tentu benar. Pola yang paling umum adalah the notion that + klausa, misalnya the notion that money brings happiness. Kata ini cocok dalam esai untuk membahas anggapan yang dipertanyakan, dengan kata kerja seperti challenge, reject, atau support the notion. Dibandingkan idea, notion lebih abstrak dan lebih formal.",
+  "x": [
+   [
+    "Few scientists support the notion that the climate is unchanged.",
+    "Hanya sedikit ilmuwan yang mendukung anggapan bahwa iklim tidak berubah."
+   ],
+   [
+    "She rejected the notion that age limits creativity.",
+    "Dia menolak anggapan bahwa usia membatasi kreativitas."
+   ]
+  ]
+ },
+ "occupy": {
+  "n": "Occupy punya dua penggunaan utama. Pertama, menempati ruang, waktu, atau jabatan: occupy a seat, occupy a position. Kedua, menyibukkan seseorang, dengan pola occupy oneself with something. Dalam konteks militer atau protes, occupy berarti menduduki suatu tempat. Kata occupation, yang seakar, berarti pekerjaan atau pendudukan, sedangkan be occupied berarti sedang dipakai atau sibuk.",
+  "x": [
+   [
+    "Our offices occupy the top two floors of the building.",
+    "Kantor kami menempati dua lantai teratas gedung itu."
+   ],
+   [
+    "She tried to occupy the children with puzzles all afternoon.",
+    "Dia berusaha menyibukkan anak-anak dengan teka-teki sepanjang sore."
+   ]
+  ]
+ },
+ "offset": {
+  "n": "Offset sebagai kata kerja berarti mengimbangi kerugian atau biaya dengan sesuatu yang berlawanan, sehingga dampaknya berkurang. Bentuknya offset + benda, atau be offset by + benda: costs were offset by savings. Dalam lingkungan, carbon offset adalah kompensasi emisi. Kata kerja ini tak beraturan: bentuk lampaunya tetap offset. Sebagai kata benda, an offset adalah pengimbang atau kompensasi.",
+  "x": [
+   [
+    "Rising prices were partly offset by higher wages.",
+    "Kenaikan harga sebagian diimbangi oleh upah yang lebih tinggi."
+   ],
+   [
+    "The airline plans to offset its emissions by planting forests.",
+    "Maskapai itu berencana mengimbangi emisinya dengan menanam hutan."
+   ]
+  ]
+ },
+ "ongoing": {
+  "n": "Ongoing berarti sedang berlangsung dan belum selesai, misalnya an ongoing investigation atau ongoing research. Kata ini ditulis dalam satu kata dan hampir selalu diletakkan sebelum kata benda atau sesudah be. Nuansanya netral dan sangat biasa dalam berita serta laporan. Jika maksudnya terjadi tanpa putus, continuous atau constant lebih tepat, sedangkan ongoing menekankan bahwa prosesnya belum berakhir.",
+  "x": [
+   [
+    "There is an ongoing debate about the use of phones in schools.",
+    "Ada perdebatan yang masih berlangsung tentang penggunaan ponsel di sekolah."
+   ],
+   [
+    "The police said their investigation was still ongoing.",
+    "Polisi mengatakan penyelidikan mereka masih berjalan."
+   ]
+  ]
+ },
+ "overlap": {
+  "n": "Overlap berarti bertumpang tindih, yaitu sebagian saling menutupi dalam ruang, waktu, atau isi. Polanya overlap with, misalnya the two courses overlap with each other. Overlap tidak berarti sama persis; kata ini menyiratkan hanya sebagian yang sama. Sebagai kata benda, an overlap berarti bagian yang tumpang tindih, misalnya there is some overlap between the two jobs.",
+  "x": [
+   [
+    "The two meetings overlap, so I cannot attend both of them.",
+    "Kedua rapat itu jadwalnya bentrok, jadi saya tidak bisa menghadiri keduanya."
+   ],
+   [
+    "Their research interests overlap in several important areas.",
+    "Minat penelitian mereka bertumpang tindih di beberapa bidang penting."
+   ]
+  ]
+ },
+ "overseas": {
+  "n": "Overseas bisa menjadi kata keterangan dan kata sifat. Sebagai keterangan, kata ini berarti di atau ke luar negeri tanpa preposisi, misalnya she lives overseas. Sebagai kata sifat, ia berada sebelum kata benda: overseas students, overseas markets. Abroad hampir selalu berfungsi sebagai keterangan, termasuk dalam from abroad, dan tidak dipakai sebelum kata benda. Karena itu, overseas students tidak bisa diganti abroad students.",
+  "x": [
+   [
+    "Many families rely on money sent by relatives working overseas.",
+    "Banyak keluarga bergantung pada uang kiriman kerabat yang bekerja di luar negeri."
+   ],
+   [
+    "The university attracts overseas students from more than fifty countries.",
+    "Universitas itu menarik mahasiswa asing dari lebih dari lima puluh negara."
+   ]
+  ]
  }
 }
