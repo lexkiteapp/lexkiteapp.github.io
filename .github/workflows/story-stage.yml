@@ -33,7 +33,6 @@ jobs:
     if: needs.gate.outputs.go == 'true'
     runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 18
-    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
