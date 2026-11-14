@@ -155,7 +155,8 @@
     if (!o.bare) el.classList.add('trig'); // CSS mặc định :where() = độ ưu tiên 0: host tự đặt vị trí (vd. .tb-rig absolute trong chỗ giáo viên) luôn thắng – .trig{relative} chèn sau từng đè absolute → rig tụt 0,1 khung sau khi tải
     if (!D.getElementById('trig-css')) D.head.insertAdjacentHTML('beforeend', '<style id="trig-css">:where(.trig){position:relative}:where(.trig>canvas){display:block;width:100%;height:auto;aspect-ratio:1108/960;pointer-events:none}</style>');
     const shrink = im => { const c = D.createElement('canvas'); c.width = cv.width; c.height = cv.height; const x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(im, 0, 0, c.width, c.height); return c; };
-    const fit = () => { const w = Math.max(el.clientWidth || 240, (cv.getBoundingClientRect().width || 0)), W = Math.round(Math.min(1108, w * dpr)); if (cv.width !== W) { cv.width = W; cv.height = Math.round(W * 960 / 1108); headC = shrink(head); for (const k in scaled) scaled[k] = shrink(poses[k]); lastK = lastT = ''; } };
+    // offsetWidth (cỡ bố cục, KHÔNG tính transform): getBoundingClientRect đổi theo hoạt cảnh phóng to người đang nói → đổi cỡ canvas + thu lại đầu và mọi tư thế mỗi nhịp
+    const fit = () => { const w = Math.max(el.clientWidth || 240, (cv.offsetWidth || 0)), W = Math.round(Math.min(1108, w * dpr)); if (cv.width !== W) { cv.width = W; cv.height = Math.round(W * 960 / 1108); headC = shrink(head); for (const k in scaled) scaled[k] = shrink(poses[k]); lastK = lastT = ''; } };
     // thu nhỏ KHÔNG chặn luồng chính (createImageBitmap resize, ngoài luồng vẽ) – bản canvas đồng bộ chỉ là dự phòng
     const shrinkAsync = im => (g.createImageBitmap ? g.createImageBitmap(im, { resizeWidth: cv.width, resizeHeight: cv.height, resizeQuality: 'high' }).catch(() => shrink(im)) : Promise.resolve(shrink(im)));
     const loadPose = name => {
