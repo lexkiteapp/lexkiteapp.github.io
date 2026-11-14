@@ -13,6 +13,7 @@
  * Không bao giờ ghi log / trả về giá trị khóa. */
 import { PROVIDERS as QP, nextMidnight, dayKey } from './_quota.js';
 import { once } from './_schema.js';
+import { aiMix, mixAlerts } from './_aimix.js';
 
 const DAY = 86400e3, POOL_TTL = 60e3, NET_STRIKES = 3, NET_COOL = 15 * 60e3, HEALTH_LAZY = 6 * 3600e3, HEALTH_DAILY = DAY;
 export const ALERT_MIN = 0.2; // < 20 % dung lượng còn lại → cảnh báo
@@ -187,10 +188,12 @@ async function valueOf(env, r) {
   if (r.source !== 'db' || !r.enc_key) return '';
   try { const v = await decryptKey(env, r.id, r.enc_key); P.vals.set(r.id, v); return v; } catch (e) { return ''; }
 }
-/** Danh sách { id, key } theo thứ tự thử (bỏ trùng giá trị env/db). Dùng cho vòng thử dự phòng. */
-export async function candidates(env, provider) {
+/** Danh sách { id, key } theo thứ tự thử (bỏ trùng giá trị env/db). Dùng cho vòng thử dự phòng.
+ *  limit: chỉ giải mã n khóa đầu (kho ~200 khóa – giải mã hết mỗi lượt tốn CPU vô ích). */
+export async function candidates(env, provider, limit = Infinity) {
   const p = await loadPool(env), out = [], fps = new Set();
   for (const r of rank(p.rows, provider)) {
+    if (out.length >= limit) break;
     if (r.fp && fps.has(r.fp)) continue;
     const key = await valueOf(env, r); if (!key) continue;
     fps.add(r.fp); out.push({ id: r.id, key, provider });
@@ -204,6 +207,12 @@ export async function poolKeys(env, provider) {
   const p = await loadPool(env), out = new Set();
   for (const r of p.rows) if (r.provider === provider && r.status !== 'disabled' && r.status !== 'dead') { const v = await valueOf(env, r); if (v) out.add(v); }
   return [...out];
+}
+/** Số khóa chưa tắt/chưa chết (kể cả đang nghỉ, bỏ trùng dấu vân tay) – như poolKeys().length nhưng KHÔNG giải mã */
+export async function poolCount(env, provider) {
+  const p = await loadPool(env), fps = new Set(); let n = 0;
+  for (const r of p.rows) if (r.provider === provider && r.status !== 'disabled' && r.status !== 'dead' && (r.id === 'env:AI' || r.source !== 'db' || r.enc_key)) { if (r.fp && fps.has(r.fp)) continue; if (r.fp) fps.add(r.fp); n++; }
+  return n;
 }
 /** Khóa (giá trị) đang nghỉ/hỏng theo bộ nhớ isolate – cho hộp thoại Gemini cũ */
 export function coolingValue(v, now = Date.now()) { for (const [id, x] of P.vals) if (x === v) { const r = P.rows.find(y => y.id === id); if (r && !usable(r, now)) return true; } return false; }
@@ -285,11 +294,15 @@ export const PING = {
   'cloudflare-ai': (env, k) => fetch('https://api.cloudflare.com/client/v4/user/tokens/verify', bearer(k)),
 };
 const timeout = (p, ms) => Promise.race([p, new Promise((y, n) => setTimeout(() => n(new Error('timeout')), ms))]);
-/** Kiểm các khóa (ids hoặc mọi khóa chưa tắt) – song song tối đa 4. → [{ id, status, kind }] */
+/** Kiểm các khóa (ids hoặc mọi khóa chưa tắt) – song song tối đa 4, tối đa HEALTH_BATCH khóa/lần (kiểm lâu nhất trước).
+ *  03/11: kho có ~200 khóa (GEMINI_POOL + GROQ_POOL nhập từ CI) – Pages Functions miễn phí chỉ cho 50 subrequest + 50 truy vấn D1/lượt,
+ *  nên mỗi lượt kiểm 1 lô; 'keys:health' chỉ cập nhật khi lô đã phủ hết → lần kiểm lười sau (≥ 1 giờ) làm tiếp lô kế. → [{ id, status, kind }] */
+export const HEALTH_BATCH = 16;
 export async function healthCheck(env, { ids = null } = {}) {
   const p = await loadPool(env, { force: true }), now = Date.now();
-  if (!ids && env.DB) { P.health = now; await setMeta(env.DB, 'keys:health', now).catch(() => {}); }
-  const want = ids ? new Set(ids) : null, list = p.rows.filter(r => (want ? want.has(r.id) : r.status !== 'disabled')), out = [];
+  const want = ids ? new Set(ids) : null, all = p.rows.filter(r => (want ? want.has(r.id) : r.status !== 'disabled')).sort((a, b) => (+a.checked || 0) - (+b.checked || 0)), out = [];
+  const list = all.slice(0, HEALTH_BATCH);
+  if (!ids && env.DB && all.length <= HEALTH_BATCH) { P.health = now; await setMeta(env.DB, 'keys:health', now).catch(() => {}); }
   let i = 0;
   const one = async r => {
     let res;
@@ -391,6 +404,6 @@ export async function syncAlerts(env, alerts, now = Date.now()) {
 }
 /** Đánh giá + đồng bộ cảnh báo từ trạng thái hiện tại */
 export async function refreshAlerts(env, now = Date.now()) {
-  const p = await loadPool(env, { force: true }), alerts = evalAlerts(summarize(p.rows, now, await errCounts(env.DB, now)));
+  const p = await loadPool(env, { force: true }), alerts = [...evalAlerts(summarize(p.rows, now, await errCounts(env.DB, now))), ...mixAlerts(await aiMix(env.DB, 3600e3, now))];
   return { alerts, mailed: await syncAlerts(env, alerts, now) };
 }

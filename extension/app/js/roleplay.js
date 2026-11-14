@@ -26,7 +26,8 @@
   const signedIn = () => !!(window.Sync && Sync.user);
   const aiLeft = () => { if (signedIn()) return 99; const u = store('day'); return GUEST_AI - (u && u.d === today() ? u.n : 0); };
   const useAi = () => { const u = store('day'), n = u && u.d === today() ? u.n : 0; store('day', { d: today(), n: n + 1 }); };
-  const langName = () => { const l = I18N.lang(); try { return new Intl.DisplayNames(['en'], { type: 'language' }).of(l) || 'English'; } catch (e) { return 'English'; } };
+  const langName = () => { const l = I18N.learnLang ? I18N.learnLang() : I18N.lang(); // lời nhận xét theo ngôn ngữ người học
+    try { return new Intl.DisplayNames(['en'], { type: 'language' }).of(l) || 'English'; } catch (e) { return 'English'; } };
   const words = s => (String(s).match(/[A-Za-z][A-Za-z'’-]*/g) || []);
 
   function css() {
@@ -73,6 +74,8 @@ Your character: ${s.ai.name}, ${s.ai.role}. Personality: ${s.ai.persona}. Your g
 Scenario: ${s.title}. The learner's goal: ${s.you}
 Rules: stay in character; speak natural spoken English at ${lvOf(s)[L]} level (${(daily(s) ? ['very short, simple sentences with the most common words', 'short, simple sentences with common everyday words', 'natural everyday English'] : ['short simple sentences, common words', 'natural everyday business English', 'fluent, idiomatic professional English'])[L]}); never correct the learner during the conversation; never mention you are an AI; keep each reply under 45 words.`;
   const transcript = (hist, s) => hist.map(m => (m.who === 'ai' ? s.ai.name : 'Learner') + ': ' + m.text).join('\n');
+  // Lời nhắn một lượt thoại qua máy chủ (/api/ai) – dùng chung với bộ golden scripts/ai-golden (RP._p)
+  const turnPrompt = (s, hist, next, beat) => `Conversation so far:\n${transcript(hist, s)}\n\n${next ? `Next point you must cover (say it in your own words, same meaning): "${beat}"` : `This is the end: close the conversation politely, similar to: "${beat}"`}\nIf the learner's last reply is unclear, off-topic, too short to understand, or does not actually answer your last question (e.g. just "yes" to a choice question), do NOT move on: kindly ask your last question again in simpler words and set "advance" to false (only once per point).\nJSON: {"reply": string (what ${s.ai.name} says next, under 45 words), "advance": boolean}`;
 
   // ---------- Chọn câu trả lời theo kịch bản cố định (c) ----------
   const ACK = [['Okay.', 'I see.', 'Right.'], ['Okay, I see.', 'Got it.', 'Right, thanks.'], ['Understood.', 'That makes sense.', 'Fair enough.']];
@@ -158,7 +161,7 @@ Rules: stay in character; speak natural spoken English at ${lvOf(s)[L]} level ($
       }
       if (mode === 'server') {
         try {
-          const out = await proxy(sysOf(s, L) + '\nReturn JSON only.', `Conversation so far:\n${transcript(hist, s)}\n\n${next ? `Next point you must cover (say it in your own words, same meaning): "${beat}"` : `This is the end: close the conversation politely, similar to: "${beat}"`}\nIf the learner's last reply is unclear, off-topic or too short to understand, ask them to clarify instead and set "advance" to false (only once per point).\nJSON: {"reply": string (what ${s.ai.name} says next, under 45 words), "advance": boolean}`);
+          const out = await proxy(sysOf(s, L) + '\nReturn JSON only.', turnPrompt(s, hist, next, beat));
           if (out && out.reply) return { text: String(out.reply).slice(0, 400), advance: retried || out.advance !== false };
         } catch (e) { downgrade(e.message === 'QUOTA' ? t('Đã hết lượt AI hôm nay – tiếp tục bằng kịch bản soạn sẵn.') : t('AI đang bận – tiếp tục bằng kịch bản soạn sẵn.')); }
       }
@@ -293,5 +296,5 @@ Assess ONLY the learner's lines. Return JSON: {"natural": 0-100, "polite": 0-100
     });
   }
   // Dùng chung bộ não hội thoại cho 🗣️ Giao tiếp tự tin: RP.chat(kịch bản cùng định dạng data-*.js, mức 0–2, { help, done(kết quả) })
-  window.RP = { chat: (s, L, opts) => { css(); return chat(s, L, opts); } };
+  window.RP = { chat: (s, L, opts) => { css(); return chat(s, L, opts); }, _p: { sysOf, turnPrompt } };
 })();

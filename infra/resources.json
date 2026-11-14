@@ -263,7 +263,7 @@
       "key": "gemini",
       "name": "Gemini API",
       "kind": "ai",
-      "purpose": "AI chấm bài viết/nói, duyệt bản dịch; nhiều khóa xoay vòng, quản lý ở Quản trị → Dịch vụ",
+      "purpose": "AI người dùng tuyến 1 (chấm Writing/Speaking, Roleplay… – functions/api/_aichain.js, docs/AI-CHAIN.md) + duyệt bản dịch; kho khóa mã hóa (Quản trị → Khóa API, đồng bộ từ secret CI GEMINI_POOL bằng ai-keys-sync.yml)",
       "console": "https://aistudio.google.com/apikey",
       "free": "Khoảng 20 lượt/ngày/khóa (gói miễn phí, tự xoay khóa khi 429)",
       "upgrade": "Thêm khóa ở Quản trị hoặc bật trả phí Google AI",
@@ -274,6 +274,24 @@
       ],
       "cap": {
         "day": 20,
+        "unit": "call/key"
+      }
+    },
+    {
+      "key": "groq",
+      "name": "Groq API",
+      "kind": "ai",
+      "purpose": "AI người dùng tuyến 2: gpt-oss-120b (chỉ model đạt bộ golden ai-golden.yml) – functions/api/_aichain.js, docs/AI-CHAIN.md; khóa trong kho mã hóa (đồng bộ từ secret CI GROQ_POOL bằng ai-keys-sync.yml); CI dùng GROQ_POOL trực tiếp (scripts/lib/ai-pool.mjs)",
+      "console": "https://console.groq.com/keys",
+      "free": "Gói miễn phí: ~1.000 lượt/ngày/khóa (gpt-oss-120b; còn trần token/ngày), tự nghỉ khóa khi 429",
+      "upgrade": "Nạp thêm khóa vào secret GROQ_POOL rồi chạy ai-keys-sync",
+      "status": "Đang dùng",
+      "match": [
+        "api.groq.com",
+        "console.groq.com"
+      ],
+      "cap": {
+        "day": 1000,
         "unit": "call/key"
       }
     },
@@ -797,7 +815,6 @@
       "upgrade": "Thêm khóa (tài khoản khác) hoặc nâng gói ở nhà cung cấp",
       "status": "Chờ đặt secret KEYS_ENC_KEY",
       "match": [
-        "api.groq.com",
         "openrouter.ai",
         "api.anthropic.com",
         "api.openai.com"

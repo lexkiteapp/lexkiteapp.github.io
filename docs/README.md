@@ -25,6 +25,7 @@
 | Báo lỗi người dùng LX-xxxx · hạn mức & chống lạm dụng | `REPORTS.md` · `QUOTAS.md` · quy mô/cụm/repro: `specs/report-scale.md` |
 | Chi phí/trần DAU · free-tier guard · mở rộng · dung lượng repo | `CAPACITY.md` · `FREE-TIER.md` · `SCALING-PLAN.md` · `STORAGE.md` |
 | Đồng bộ Drive · AI trên máy · OTA | `SYNC-DRIVE.md` · `AI-LOCAL.md` · `OTA.md` |
+| AI người dùng trên máy chủ: chuỗi model, golden, giám sát | `AI-CHAIN.md` |
 | Add-on Chrome / Edge | `CWS-RULES.md` (+ `CWS-FEATURED.md`) · `EDGE-SUBMIT.md` |
 | Mobile & cửa hàng · quảng cáo | `STORE-READINESS.md` · `INSTALL-GROWTH.md` · `ADS.md` |
 | Video: nguồn sự thật (+ luật dựng §9) | `VIDEO.md` · `VIDEO-QC.md` · `VIDEO-SCALE-PLAN.md` · `VIDEO-SERIES.md` · `VIDEO-TEMPLATES.md` · `AUTOMATION.md` |
