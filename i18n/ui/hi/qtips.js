@@ -45,6 +45,6 @@
 "Đọc phần đầu câu và đoán phần còn thiếu cần gì (về nghĩa và ngữ pháp). Phần kết đúng phải khớp cả ngữ pháp lẫn nội dung bài. Câu hỏi theo thứ tự trong bài; luôn có nhiều phần kết hơn số câu.":"वाक्य की शुरुआत पढ़ें और अनुमान लगाएं कि छूटे हुए हिस्से को क्या चाहिए (अर्थ और व्याकरण में)। सही अंत व्याकरण और अनुच्छेद की सामग्री दोनों में फिट होना चाहिए। प्रश्न परिच्छेद के क्रम का पालन करते हैं; हमेशा प्रश्नों से अधिक अंत होते हैं।",
 "Đọc trước 3 câu hỏi (và biểu đồ nếu có) trong lúc nghe hướng dẫn. Câu hỏi thường theo thứ tự hội thoại: chủ đề/nơi chốn → chi tiết → việc sẽ làm tiếp theo. Đáp án thường là cách diễn đạt khác của lời nói.":"निर्देश पढ़ते समय 3 प्रश्न (और कोई भी ग्राफ़िक) पढ़ें। प्रश्न आमतौर पर बातचीत के बाद आते हैं: विषय/स्थान → विवरण → आगे क्या होता है। सही उत्तर आमतौर पर जो कहा गया है उसका एक संक्षिप्त विवरण होता है।",
 "Đọc trước câu hỏi. Câu đầu thường hỏi mục đích hoặc người nghe là ai – đáp án nằm ở vài câu mở đầu. Chú ý lời yêu cầu, đề nghị, thay đổi lịch ở cuối bài nói.":"पहले प्रश्न पढ़ें. पहला प्रश्न अक्सर उद्देश्य या दर्शकों के बारे में पूछता है - उत्तर शुरुआती वाक्यों में आता है। बातचीत के अंत में अनुरोधों, सुझावों और शेड्यूल में बदलावों को सुनें।",
-"Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)":"इस सप्ताह अनुमानित बैंड ≈ {b} (आधिकारिक परीक्षा स्कोर नहीं)",
+"Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)":"अनुमानित बैंड ≈ {b} (आधिकारिक स्कोर नहीं)",
 });
 })(typeof self !== 'undefined' ? self : this);
