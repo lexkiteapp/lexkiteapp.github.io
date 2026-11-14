@@ -82,7 +82,8 @@
    "id": "grammar",
    "paths": [
     "web/js/grammar",
-    "web/cpack/grammar"
+    "web/cpack/grammar",
+    "web/cpack/grammar-l1"
    ],
    "owner": "claude",
    "gen": false,
