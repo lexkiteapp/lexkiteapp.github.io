@@ -46,6 +46,10 @@ const r = run({}); assert.equal(r.d.empty, ''); assert.equal(r.d.count, '0/62');
 { const c = { UI: { $: () => null, $$: () => [], esc, speak() {}, tts() {}, shuffle: a => a, stopRecognize() {} }, t: s => s, ST2: { mount() { throw new Error('bài không dùng khung hub'); } }, Chars: {}, setTimeout() {}, innerWidth: 1200 }; c.self = c; c.window = c;
   c.App = { state: { game: {}, settings: {} }, routes: {}, view: { innerHTML: '' }, bindCommon() {} }; for (const f of ['web/cpack/pron/sounds.js', 'web/js/pron.js']) vm.runInNewContext(rd(f), c);
   assert.doesNotThrow(() => c.App.routes.pron('iː')); assert.match(c.App.view.innerHTML, /Quy tắc|Luyện từ/); }
+// giao diện English: chuyên đề có titleEn/howEn thì hiện bản Anh (không lộ tiếng Việt, cổng stitch-diff 'lẫn tiếng Việt'); âm IPA không có titleEn → thẻ 'Âm tiếp theo' chỉ IPA + từ mẫu
+{ const VI = /[ăâđêôơưáàảãạéèẻẽẹíìỉĩịóòỏõọúùủũụýỳỷỹỵ]/i, c = { UI: { $: () => null, $$: () => [], esc, speak() {}, tts() {}, shuffle: a => a }, Chars: { slot: () => '' }, t: s => s, I18N: { lang: () => 'en' }, setTimeout() {}, innerWidth: 1200 }; let d; c.self = c; c.window = c; c.ST2 = { mount: (v, k, x) => { d = x; return {}; } };
+  c.App = { state: { game: { pronDone: { 'final-consonants': 80 } }, settings: {} }, routes: {}, view: {}, bindCommon() {} }; for (const f of ['web/cpack/pron/sounds.js', 'web/cpack/pron/skills.js', 'web/js/pron.js']) vm.runInNewContext(rd(f), c); c.App.routes.pron('');
+  for (const g of d.groups.filter(g => g.v === 'rows')) for (const x of g.items) assert.ok(!VI.test(x.title + x.sub), 'English UI: ' + x.id + ' không lộ tiếng Việt: ' + x.title); assert.ok(!VI.test(d.nextS), d.nextS); }
 // CSS ≤ 10 KB gz (ngân sách màn Stitch)
 import zlib from 'node:zlib'; assert.ok(zlib.gzipSync(rd('web/css/st-v2-pron-hub.css')).length <= 10 * 1024, 'CSS pron-hub ≤ 10 KB gz');
 console.log('✓ pron-hub');

@@ -20,6 +20,7 @@
   // Khung Stitch v2 pron-hub (brand/stitch/v2/bind/pron-hub.json): d = dữ liệu thật; nhóm lưới (nguyên âm/phụ âm) và nhóm hàng (lỗi người Việt, trọng âm) cùng một danh sách d.groups
   const ICON = { vn: 'tips_and_updates', stress: 'graphic_eq' };
   const CHART = ['vowels', 'diphthongs', 'consonants'];
+  const L = (x, k) => (window.I18N && I18N.lang() === 'en' && x[k + 'En']) || x[k]; // giao diện English: chuyên đề có sẵn bản tiếng Anh (titleEn/howEn) thì dùng, khỏi lộ tiếng Việt
   routes.pron = function (id) {
     if (id) return lesson(decodeURIComponent(id));
     const d = done(), all = P(), nx = all.find(x => d[x.id] == null), n = Object.keys(d).length, href = x => '#/pron/' + encodeURIComponent(x.id);
@@ -29,12 +30,12 @@
       const chart = CHART.includes(gr.id);
       return { v: !chart ? 'rows' : gr.id === 'consonants' ? 'c5' : 'v4', name: t(gr.name), desc: t(gr.desc), note: t('Ô viền xám nhạt = phụ âm vô thanh · Mỗi bài: khẩu hình → nghe mẫu → phân biệt cặp từ → nói & chấm điểm.'), count: `${ls.filter(x => d[x.id]).length}/${ls.length}`,
         items: ls.map(x => chart ? { id: x.id, href: href(x), ipa: x.ipa, w: (x.words[0] || {}).w || '', done: d[x.id] || 0, next: x === nx, unv: !!(x.mouth && x.mouth.voiced === false), label: `${x.ipa} · ${(x.words[0] || {}).w || ''}${d[x.id] ? ' · ' + t('Đã xong') + ' ' + d[x.id] + '%' : ''}` }
-          : { id: x.id, href: href(x), icon: ICON[x.group] || 'graphic_eq', title: x.title, done: d[x.id] || 0, sub: `${d[x.id] ? '✓ ' + d[x.id] + '% · ' : ''}${(x.how || '').slice(0, 110)}${(x.how || '').length > 110 ? '…' : ''}`, end: d[x.id] ? 'check_circle' : 'chevron_right' }) };
+          : { id: x.id, href: href(x), icon: ICON[x.group] || 'graphic_eq', title: L(x, 'title'), done: d[x.id] || 0, sub: `${d[x.id] ? '✓ ' + d[x.id] + '% · ' : ''}${(L(x, 'how') || '').slice(0, 110)}${(L(x, 'how') || '').length > 110 ? '…' : ''}`, end: d[x.id] ? 'check_circle' : 'chevron_right' }) };
     }).filter(Boolean);
     ST2.mount(view, 'pron-hub', {
       back: '#/skills', backL: t('Quay lại'), title: t('Thư viện phát âm'), intro: t('Luyện như ELSA: học khẩu hình từng âm IPA, nghe – phân biệt cặp từ dễ nhầm, nói và được chấm điểm, rồi sửa các lỗi người Việt hay mắc.'),
       count: `${n}/${all.length}`, pct: all.length ? n / all.length * 100 : 0, doneL: t('Đã xong'), groups, next: nx, nextHref: nx ? href(nx) : '#/pron',
-      nextL: nx ? t('Âm tiếp theo') : t('Đã xong'), nextS: nx ? `${nx.ipa || ''} ${nx.title}`.trim() : `${n}/${all.length}`, cta: nx ? `${t('Học tiếp')}: ${nx.ipa || nx.title}` : '',
+      nextL: nx ? t('Âm tiếp theo') : t('Đã xong'), nextS: nx ? (nx.ipa ? `${nx.ipa} · ${(nx.words[0] || {}).w || ''}` : L(nx, 'title')) : `${n}/${all.length}`, cta: nx ? `${t('Học tiếp')}: ${nx.ipa || nx.title}` : '',
       teacher: Chars.slot('ama', { pose: nx ? 'point' : 'cheer', size: 'xs', lazy: false }),
       empty: all.length ? '' : `<div class="rounded-2xl border-2 p-4 text-center"><p>${t('Đang cập nhật bài học…')}</p></div>`,
     }, null);
