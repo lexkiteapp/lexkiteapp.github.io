@@ -642,10 +642,10 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     const reviewHub = ux1 && name === 'review' && query.get('hub') === '1';
     document.body.classList.toggle('focus', !reviewHub && (name === 'review' || (name === 'lesson' && !(ux1 && arg !== 'go')) || (name === 'practice' && !!arg) || !!(window.ExitGuard && ExitGuard.focusFor(name, arg, query.toString())))); document.documentElement.classList.remove('lk-fo'); // màn học mở thẳng từ link: gỡ lớp ẩn khung của script đầu trang (data-lkf) khi route() đã đặt focus
     // v2pre = #view không đệm (màn Stitch tràn khung). Đang hiện màn v2 mà đi sang trang thường: GIỮ v2pre tới khi nội dung mới thay vào, không thì màn cũ dịch ~26 px lúc đệm quay lại (CLS sweep #/speak)
-    const preNow = ux1 && (reviewHub || V2_ROUTES.has(name) || (name === 'lesson' && !!arg) || (name === 'league' && !!state.user)), holdPre = !preNow && /\bv2(pre|hold)\b/.test(document.body.className), first0 = view.firstElementChild;
+    const preNow = ux1 && (reviewHub || V2_ROUTES.has(name) || (name === 'lesson' && !!arg) || (name === 'league' && !!state.user)), holdPre = !preNow && /\bv2(pre|hold|on)\b/.test(document.body.className), first0 = view.firstElementChild;
     // CLS #/home (mqa 0.0757 = cả #view dịch 56 px): giữ v2pre tới khi nội dung mới về làm THANH TRÊN hiện muộn > 500 ms sau chạm. Tách: thanh trên hiện NGAY (trong cửa sổ chạm),
     // chỉ giữ phần "#view không đệm" (v2hold) tới khi nội dung mới thay vào.
-    document.body.classList.toggle('v2hold', holdPre); document.body.classList.toggle('v2pre', preNow);
+    document.body.classList.toggle('v2hold', holdPre); document.body.classList.toggle('v2pre', preNow); if (holdPre) document.body.classList.remove('v2on'); // v2on (ST2.mount) cũng ẩn thanh trên < 1024 px; cleanup chỉ gỡ SAU khi nạp gói trang mới (> 500 ms) → gỡ ngay lúc chạm
     try { localStorage.setItem('lk.ux1c', ux1 ? '1' : '0'); } catch (e) { /* bỏ qua */ }
     if (!ux1) document.body.classList.remove('ux1');
     if (name !== 'welcome') document.body.classList.remove('bare'); // thanh trên hiện ngay lúc chạm (CLS #/home)
