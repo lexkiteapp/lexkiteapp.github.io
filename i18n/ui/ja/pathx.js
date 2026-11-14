@@ -14,7 +14,9 @@
 "Chọn nghĩa đúng của từ vừa học":"新しい単語の正しい意味を選ぶ",
 "Collocation & cấu trúc học thuật":"アカデミックなコロケーションと構文",
 "Cuộc gọi luyện nói":"通話で会話練習",
+"Các hoạt động của ngày":"今日のアクティビティ",
 "Câu hỏi kiểu đề thi, có giải thích ngay":"試験形式の問題・すぐに解説",
+"Cô Ama":"Ama 先生",
 "Dùng từ trong câu":"文の中で使う",
 "Dùng từ vừa học trong tình huống thật":"新しい単語を実際の場面で使う",
 "Dễ trước, khó sau: nhận diện → ghép → nghe → dùng trong câu → nói.":"やさしい順に：見て覚える → 組み合わせる → 聞く → 文で使う → 話す。",
@@ -50,6 +52,7 @@
 "Theo dõi thêm":"コースを追加",
 "Thi thử định kỳ":"定期模試",
 "Tiến độ bài":"レッスンの進み具合",
+"Tiến độ trong ngày":"今日の進捗",
 "Tiếng Anh công sở":"ビジネス英語",
 "Tiếp theo học gì?":"次は何を学ぶ？",
 "Tiếp theo học gì? Chọn một hướng:":"次は何を学ぶ？方向を選びましょう：",
@@ -77,5 +80,6 @@
 "Đặt mục tiêu rõ ràng giúp mình chọn đúng độ khó.":"目標がはっきりしていると、ちょうどいい難しさを選べるよ。",
 "Đề nghị lịch sự":"丁寧な依頼",
 "Đều đặn mỗi ngày là bí quyết nhớ lâu!":"毎日少しずつが、長く覚えるコツだよ！",
+"≈ {m} phút":"約 {m} 分",
 });
 })(typeof self !== 'undefined' ? self : this);

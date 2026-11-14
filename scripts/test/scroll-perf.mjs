@@ -26,7 +26,7 @@ export const SCREENS = [
   { id: 'vocab', hash: '#/vocab' }, { id: 'dict', hash: '#/dict/hello' }, { id: 'me', hash: '#/me' }, { id: 'stats', hash: '#/stats' },
   // Đang trong phiên học (điện thoại nhỏ 360×640: màn focus mới cuộn được, đúng máy dễ giật nhất)
   { id: 'map', hash: '#/lesson' }, { id: 'review-hub', hash: '#/review?hub=1' }, { id: 'lesson-s', hash: '#/lesson/go', small: 1 }, { id: 'review-s', hash: '#/review', small: 1 }, { id: 'say-s', hash: '#/say', enter: '#sayList a', small: 1 },
-  { id: 'learn', hash: '#/day/1', enter: 'ol.day-steps a[data-step="learn"]', small: 1 }, { id: 'read-item', hash: '#/reading', enter: '#view a[href^="#/read/"]' }, { id: 'listen-item', hash: '#/listening', enter: '#view a[href^="#/listen/"]' },
+  { id: 'learn', hash: '#/day/1', enter: '.dayv2-steps a[data-step="learn"]', small: 1 }, { id: 'read-item', hash: '#/reading', enter: '#view a[href^="#/read/"]' }, { id: 'listen-item', hash: '#/listening', enter: '#view a[href^="#/listen/"]' },
   { id: 'grammar-item', hash: '#/grammar', enter: '#view a[href^="#/grammar/"]' }, { id: 'role-item', hash: '#/roleplay', enter: '#view a[href^="#/roleplay/"]', small: 1 }, { id: 'call-item', hash: '#/call', enter: '#view a[href^="#/call/"]', small: 1 },
   { id: 'mock-run', hash: '#/mock', enter: '#view a[href^="#/mock"]:not([href="#/mock"]), #view a[href^="#/toeic-test"], #view a[href^="#/cbt"], #view button.primary', small: 1 }, { id: 'goal', hash: '#/goal' }, { id: 'league', hash: '#/league' }, { id: 'library', hash: '#/library' }, { id: 'topic', hash: '#/topic/environment' }, { id: 'mistakes', hash: '#/mistakes' },
 ];

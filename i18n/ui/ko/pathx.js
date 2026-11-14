@@ -14,7 +14,9 @@
 "Chọn nghĩa đúng của từ vừa học":"새 단어의 알맞은 뜻 고르기",
 "Collocation & cấu trúc học thuật":"학술 연어와 구조",
 "Cuộc gọi luyện nói":"말하기 통화 연습",
+"Các hoạt động của ngày":"오늘의 활동",
 "Câu hỏi kiểu đề thi, có giải thích ngay":"시험 유형 문제, 바로 해설 제공",
+"Cô Ama":"Ama 선생님",
 "Dùng từ trong câu":"문장 속에서 쓰기",
 "Dùng từ vừa học trong tình huống thật":"새 단어를 실제 상황에서 써 보기",
 "Dễ trước, khó sau: nhận diện → ghép → nghe → dùng trong câu → nói.":"쉬운 것부터: 알아보기 → 짝 맞추기 → 듣기 → 문장에서 쓰기 → 말하기.",
@@ -50,6 +52,7 @@
 "Theo dõi thêm":"코스 추가",
 "Thi thử định kỳ":"정기 모의고사",
 "Tiến độ bài":"레슨 진행 상황",
+"Tiến độ trong ngày":"오늘의 진도",
 "Tiếng Anh công sở":"직장 영어",
 "Tiếp theo học gì?":"다음엔 무엇을?",
 "Tiếp theo học gì? Chọn một hướng:":"다음엔 무엇을 배울까요? 방향을 고르세요:",
@@ -77,5 +80,6 @@
 "Đặt mục tiêu rõ ràng giúp mình chọn đúng độ khó.":"목표가 분명하면 알맞은 난이도를 고를 수 있어요.",
 "Đề nghị lịch sự":"공손한 요청",
 "Đều đặn mỗi ngày là bí quyết nhớ lâu!":"매일 조금씩이 오래 기억하는 비결이에요!",
+"≈ {m} phút":"약 {m}분",
 });
 })(typeof self !== 'undefined' ? self : this);

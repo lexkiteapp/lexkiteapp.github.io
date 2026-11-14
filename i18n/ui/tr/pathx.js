@@ -14,7 +14,9 @@
 "Chọn nghĩa đúng của từ vừa học":"Yeni kelimelerin doğru anlamını seç",
 "Collocation & cấu trúc học thuật":"Akademik eşdizimler ve yapılar",
 "Cuộc gọi luyện nói":"Konuşma araması",
+"Các hoạt động của ngày":"Bugünkü etkinlikler",
 "Câu hỏi kiểu đề thi, có giải thích ngay":"Sınav tarzı sorular, anında açıklamalı",
+"Cô Ama":"Ama Öğretmen",
 "Dùng từ trong câu":"Kelimeleri cümlede kullan",
 "Dùng từ vừa học trong tình huống thật":"Yeni kelimeleri gerçek bir durumda kullan",
 "Dễ trước, khó sau: nhận diện → ghép → nghe → dùng trong câu → nói.":"Önce kolay, sonra zor: tanı → eşleştir → dinle → cümlede kullan → konuş.",
@@ -50,6 +52,7 @@
 "Theo dõi thêm":"Yol ekle",
 "Thi thử định kỳ":"Dönemsel deneme sınavı",
 "Tiến độ bài":"Ders ilerlemesi",
+"Tiến độ trong ngày":"Bugünkü ilerleme",
 "Tiếng Anh công sở":"İş İngilizcesi",
 "Tiếp theo học gì?":"Sırada ne var?",
 "Tiếp theo học gì? Chọn một hướng:":"Sırada ne var? Bir yön seçin:",
@@ -77,5 +80,6 @@
 "Đặt mục tiêu rõ ràng giúp mình chọn đúng độ khó.":"Net bir hedef, doğru zorluk seviyesini seçmeme yardımcı olur.",
 "Đề nghị lịch sự":"Kibar ricalar",
 "Đều đặn mỗi ngày là bí quyết nhớ lâu!":"Her gün biraz, uzun süre hatırlamanın sırrıdır!",
+"≈ {m} phút":"≈ {m} dk",
 });
 })(typeof self !== 'undefined' ? self : this);

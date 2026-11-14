@@ -1,0 +1,178 @@
+{
+ "_doc": "Trang buổi học theo Ngày (#/day/N) – d do web/js/path-day.js page() dựng từ dữ liệu thật (plan/days). Khung riêng của Stitch: đầu trang có nút Quay lại + chip chuỗi (không dùng thanh tab, như màn bài học); thanh tab mẫu gỡ (tab app = shell chung ở máy tính). Hàng hoạt động = <a> thật (đủ bước, bấm theo thứ tự nào cũng được): xong / tiếp theo / chưa làm (mẫu 'khóa' → mũi tên, không có khóa thật). Video bài học = .lv-slot cũ (LessonVideo.scan) đặt sau danh sách (ẩn khi chưa có video; thẻ + ảnh mẫu bịa bị gỡ). Giáo viên = Chars (d.teacher).",
+ "remove": [
+  ":scope > div > nav",
+  ":scope > div > main > section:nth-child(5)"
+ ],
+ "styles": true,
+ "swap": {
+  "max-w-[390px]": "max-w-[480px] mx-auto",
+  "min-h-screen": "min-h-0"
+ },
+ "i18n": {
+  "Easy first, hard later:": "Dễ trước, khó sau:",
+  "recognise → match → listen → use → speak": "nhận diện → ghép → nghe → dùng trong câu → nói.",
+  "Vocabulary path": "Lộ trình từ vựng",
+  "See word list": "Xem từ vựng của ngày"
+ },
+ "text": {
+  "Tiến độ ngày": "d.lp",
+  "Các hoạt động bài học": "d.la",
+  "Day 12": "d.title",
+  "Stage A2 · Food & Drink": "d.sub",
+  "7 ngày": "d.streak",
+  "Cô Ama": "d.tn",
+  "12": "d.n",
+  "General English · Stage A2": "d.chip",
+  "Day 12: Food & Drink": "d.h1",
+  "8 từ vựng mới": "d.words",
+  "khoảng 9 phút": "d.dur",
+  "2 / 6 hoạt động (33%)": "d.pt",
+  "Continue Day 12: Multiple choice": "d.cta.t",
+  "Hoàn thành theo thứ tự": "d.cnt"
+ },
+ "html": {
+  ":scope > div > header > div:nth-child(3) > span:nth-child(1)": "d.flame",
+  ":scope > div > main > section:nth-child(1) > div:nth-child(2) > div:nth-child(1)": "d.teacher"
+ },
+ "attr": {
+  ":scope > div > header > button": {
+   "data-href": "'#/path'",
+   "aria-label": "d.back"
+  },
+  ":scope > div > main > section:nth-child(2) > div:nth-child(2)": {
+   "role": "'progressbar'",
+   "aria-valuemin": "'0'",
+   "aria-valuemax": "d.total",
+   "aria-valuenow": "d.okN",
+   "aria-label": "d.pt"
+  },
+  ":scope > div > main > section:nth-child(2) > div:nth-child(2) > div": {
+   "style": "'width:' + d.pct + '%'"
+  },
+  ":scope > div > main > div:nth-child(3) > button": {
+   "href": "d.cta.href",
+   "data-step": "d.cta.k"
+  },
+  ":scope > div > main > section:nth-child(4)": {
+   "aria-label": "d.cnt"
+  },
+  ":scope > div > main > section:nth-child(6) > button:nth-child(1)": {
+   "data-href": "d.h.path"
+  },
+  ":scope > div > main > section:nth-child(6) > button:nth-child(2)": {
+   "data-href": "d.h.words"
+  }
+ },
+ "tag": {
+  ":scope > div > main > div:nth-child(3) > button": {
+   "to": "a"
+  }
+ },
+ "addClass": {
+  ":scope > div > main > div:nth-child(3) > button": "no-underline",
+  ":scope > div > main > section:nth-child(1) > div:nth-child(3)": "min-w-0",
+  ":scope > div > main > section:nth-child(1) > div:nth-child(3) > h1": "[overflow-wrap:anywhere]",
+  ":scope > div > main > section:nth-child(1) > div:nth-child(3) > div:nth-child(1) > div:nth-child(2)": "min-w-0 max-w-full [overflow-wrap:anywhere]",
+  ":scope > div > main > section:nth-child(1) > div:nth-child(3) > div:nth-child(3)": "flex-wrap",
+  ":scope > div > main > section:nth-child(6) > button:nth-child(1)": "min-h-[44px] min-w-0",
+  ":scope > div > main > section:nth-child(6) > button:nth-child(2)": "min-h-[44px] min-w-0",
+  ":scope > div > main > section:nth-child(4)": "dayv2-steps"
+ },
+ "after": {
+  ":scope > div > main > div:nth-child(3)": "d.extra",
+  ":scope > div > main > section:nth-child(4)": "d.lv"
+ },
+ "repeat": [
+  {
+   "list": "d.steps",
+   "as": "r",
+   "samples": ":scope > div > main > section:nth-child(4) > article",
+   "variants": {
+    "done": ":scope > div > main > section:nth-child(4) > article:nth-child(2)",
+    "next": ":scope > div > main > section:nth-child(4) > article:nth-child(4)",
+    "todo": ":scope > div > main > section:nth-child(4) > article:nth-child(5)"
+   },
+   "pick": "r.v",
+   "bind": {
+    "done": {
+     "tag": {
+      ":scope": {
+       "to": "a"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "data-step": "r.k"
+      }
+     },
+     "addClass": {
+      ":scope": "no-underline min-h-[64px] ok",
+      ":scope > div:nth-child(1) > div:nth-child(2)": "min-w-0"
+     },
+     "text": {
+      "1. Learn new words": "r.t",
+      "Flashcards & từ vựng mới": "r.s",
+      "3 min": "r.m",
+      "Đã xong": "r.tag"
+     }
+    },
+    "next": {
+     "tag": {
+      ":scope": {
+       "to": "a"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "data-step": "r.k",
+       "aria-current": "'step'"
+      }
+     },
+     "addClass": {
+      ":scope": "no-underline min-h-[64px] next",
+      ":scope > div:nth-child(1) > div:nth-child(2)": "min-w-0"
+     },
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(1) > span": "r.ico",
+      ":scope > div:nth-child(2) > span:nth-child(2)": "r.go"
+     },
+     "text": {
+      "3. Multiple choice": "r.t",
+      "Chọn đáp án đúng theo ngữ cảnh": "r.s",
+      "2 min": "r.m",
+      "TIẾP THEO": "r.tag"
+     }
+    },
+    "todo": {
+     "tag": {
+      ":scope": {
+       "to": "a"
+      }
+     },
+     "attr": {
+      ":scope": {
+       "href": "r.href",
+       "data-step": "r.k"
+      }
+     },
+     "addClass": {
+      ":scope": "no-underline min-h-[64px]",
+      ":scope > div:nth-child(1) > div:nth-child(2)": "min-w-0"
+     },
+     "html": {
+      ":scope > div:nth-child(1) > div:nth-child(1) > span": "r.ico",
+      ":scope > div:nth-child(2) > span:nth-child(2)": "r.go"
+     },
+     "text": {
+      "4. Fill the blank": "r.t",
+      "Điền từ vào chỗ trống câu thoại": "r.s",
+      "2 min": "r.m"
+     }
+    }
+   }
+  }
+ ]
+}

@@ -14,7 +14,9 @@
 "Chọn nghĩa đúng của từ vừa học":"Pilih arti yang benar dari kata baru",
 "Collocation & cấu trúc học thuật":"Kolokasi & struktur akademik",
 "Cuộc gọi luyện nói":"Panggilan latihan bicara",
+"Các hoạt động của ngày":"Aktivitas hari ini",
 "Câu hỏi kiểu đề thi, có giải thích ngay":"Soal gaya ujian dengan penjelasan langsung",
+"Cô Ama":"Bu Ama",
 "Dùng từ trong câu":"Pakai kata dalam kalimat",
 "Dùng từ vừa học trong tình huống thật":"Pakai kata baru dalam situasi nyata",
 "Dễ trước, khó sau: nhận diện → ghép → nghe → dùng trong câu → nói.":"Mudah dulu, lalu lebih sulit: kenali → pasangkan → dengarkan → pakai dalam kalimat → ucapkan.",
@@ -50,6 +52,7 @@
 "Theo dõi thêm":"Tambah jalur",
 "Thi thử định kỳ":"Tes uji berkala",
 "Tiến độ bài":"Kemajuan pelajaran",
+"Tiến độ trong ngày":"Kemajuan hari ini",
 "Tiếng Anh công sở":"Bahasa Inggris kerja",
 "Tiếp theo học gì?":"Selanjutnya apa?",
 "Tiếp theo học gì? Chọn một hướng:":"Selanjutnya apa? Pilih satu arah:",
@@ -77,5 +80,6 @@
 "Đặt mục tiêu rõ ràng giúp mình chọn đúng độ khó.":"Target yang jelas membantuku memilih tingkat kesulitan yang tepat.",
 "Đề nghị lịch sự":"Permintaan sopan",
 "Đều đặn mỗi ngày là bí quyết nhớ lâu!":"Sedikit setiap hari adalah rahasia ingat lebih lama!",
+"≈ {m} phút":"≈ {m} mnt",
 });
 })(typeof self !== 'undefined' ? self : this);

@@ -14,7 +14,9 @@
 "Chọn nghĩa đúng của từ vừa học":"Choisissez le bon sens des nouveaux mots",
 "Collocation & cấu trúc học thuật":"Collocations et structures académiques",
 "Cuộc gọi luyện nói":"Appel d’entraînement",
+"Các hoạt động của ngày":"Activités du jour",
 "Câu hỏi kiểu đề thi, có giải thích ngay":"Questions type examen, avec explications immédiates",
+"Cô Ama":"Prof Ama",
 "Dùng từ trong câu":"Utilisez les mots en contexte",
 "Dùng từ vừa học trong tình huống thật":"Utilisez vos nouveaux mots dans une situation réelle",
 "Dễ trước, khó sau: nhận diện → ghép → nghe → dùng trong câu → nói.":"Du plus facile au plus difficile : reconnaître → associer → écouter → employer dans une phrase → parler.",
@@ -50,6 +52,7 @@
 "Theo dõi thêm":"Ajouter",
 "Thi thử định kỳ":"Test blanc d’étape",
 "Tiến độ bài":"Progression de la leçon",
+"Tiến độ trong ngày":"Progrès du jour",
 "Tiếng Anh công sở":"Anglais professionnel",
 "Tiếp theo học gì?":"Et ensuite ?",
 "Tiếp theo học gì? Chọn một hướng:":"Et ensuite ? Choisissez une direction :",
@@ -77,5 +80,6 @@
 "Đặt mục tiêu rõ ràng giúp mình chọn đúng độ khó.":"Un objectif clair m'aide à choisir la bonne difficulté.",
 "Đề nghị lịch sự":"Demandes polies",
 "Đều đặn mỗi ngày là bí quyết nhớ lâu!":"Un peu chaque jour, c'est le secret d'une mémoire durable !",
+"≈ {m} phút":"≈ {m} min",
 });
 })(typeof self !== 'undefined' ? self : this);

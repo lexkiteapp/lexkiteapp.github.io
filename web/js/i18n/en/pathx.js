@@ -35,6 +35,10 @@ D.en = Object.assign(D.en || {}, {
 "Nhắc tôi lúc {time}": "Remind me at {time}",
 // Lộ trình theo ngày (path-day.js)
 "Ngày {n}": "Day {n}",
+"Tiến độ trong ngày": "Today's progress",
+"Các hoạt động của ngày": "Today's activities",
+"Cô Ama": "Ms Ama",
+"≈ {m} phút": "≈ {m} min",
 "Bắt đầu Ngày {n}": "Start Day {n}",
 "Tiếp tục Ngày {n}": "Continue Day {n}",
 "Học tiếp Ngày {n}": "Go on to Day {n}",

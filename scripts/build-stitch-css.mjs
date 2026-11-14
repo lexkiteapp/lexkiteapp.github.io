@@ -20,6 +20,7 @@ const V2DATA = {
   'exam-readiness': ['web/js/goal.js'],
   'feedback-correct': ['web/js/lesson/ui.js'],
   'feedback-wrong': ['web/js/lesson/ui.js'],
+  day: ['web/js/path-day.js'],
   'lesson-complete': ['web/js/lesson/ui.js'],
   'lesson-question': ['web/js/lesson/ui.js'],
   me: ['web/js/ux1-me.js'],
