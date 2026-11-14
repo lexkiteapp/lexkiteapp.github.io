@@ -8,12 +8,12 @@
   // kokoro = mã giọng dựng sẵn theo accent, voices = giọng giáo viên (Ama nữ, Carlos nam), prefix = lọc giọng máy, wordFiles = có file audio/w dựng sẵn,
   // fallback = lang dự phòng khi máy không có giọng/nhận giọng `speech`, flag/ls = cờ bật thử, label = tên ở Cài đặt (chuỗi thông báo: settings.js TL_TOAST).
   const TABLE = {
-    en: { speech: null, rec: null, prefix: 'en', kokoro: { 'en-GB': 'bf_emma', 'en-US': 'af_heart' }, voices: {} /* = Chars.voice() như cũ */, wordFiles: true },
+    en: { em: '🇬🇧', name: 'English', speech: null, rec: null, prefix: 'en', kokoro: { 'en-GB': 'bf_emma', 'en-US': 'af_heart' }, voices: {} /* = Chars.voice() như cũ */, wordFiles: true },
     // pt-BR: Kokoro-82M + âm vị espeak-ng pt-br (kokoro-js chỉ tự phiên âm tiếng Anh) – lý do + lượt mẫu: spec §Giọng. Chưa dựng file từ → giọng máy pt-BR.
-    pt: { speech: 'pt-BR', rec: 'pt-BR', fallback: [], prefix: 'pt', kokoro: { 'pt-BR': 'pf_dora' }, voices: { ama: 'pf_dora', carlos: 'pm_alex' }, wordFiles: false,
+    pt: { em: '🇧🇷', name: 'Português', speech: 'pt-BR', rec: 'pt-BR', fallback: [], prefix: 'pt', kokoro: { 'pt-BR': 'pf_dora' }, voices: { ama: 'pf_dora', carlos: 'pm_alex' }, wordFiles: false,
       flag: 'pt_pilot', ls: 'lk.pt', label: 'Português (beta)' },
     // es: tiếng TBN Mỹ Latinh trung tính (seseo – spanish-course.md §8): es-419, máy thiếu giọng es-419 → es-MX → es-US. Kokoro ef_dora/em_alex chờ lượt mẫu W0.
-    es: { speech: 'es-419', rec: 'es-MX' /* Web Speech nhận giọng chưa có es-419 ổn định → es-MX (chuẩn trung tính gần nhất) */, fallback: ['es-MX', 'es-US'], prefix: 'es', kokoro: { 'es-419': 'ef_dora', 'es-MX': 'ef_dora', 'es-US': 'ef_dora' }, voices: { ama: 'ef_dora', carlos: 'em_alex' }, wordFiles: false,
+    es: { em: '🇪🇸', name: 'Español', home: '#/practice/esd', speech: 'es-419', rec: 'es-MX' /* Web Speech nhận giọng chưa có es-419 ổn định → es-MX (chuẩn trung tính gần nhất) */, fallback: ['es-MX', 'es-US'], prefix: 'es', kokoro: { 'es-419': 'ef_dora', 'es-MX': 'ef_dora', 'es-US': 'ef_dora' }, voices: { ama: 'ef_dora', carlos: 'em_alex' }, wordFiles: false,
       flag: 'es_course', pct: 'es_course_pct', kill: 'es_kill', ls: 'lk.es', label: 'Español (beta)' },
   };
   const LANGS = Object.keys(TABLE), KEY = 'lk.tl';
