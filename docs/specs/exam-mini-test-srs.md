@@ -1,5 +1,7 @@
 # Spec: Mini-test 10 phút + ôn dạng yếu (qstats)
 
+> TL;DR: Thêm vào #/qstats: dải tỉ lệ đúng 8 tuần + ước tính band (có nhãn), thẻ "dạng yếu nhất", và mini-test 10 phút tái dùng đồng hồ phòng thi; 3 PR web-only rồi native riêng.
+
 Trạng thái: ĐÃ DUYỆT (chủ 14/11, kèm bổ sung coordinator). Chủ: exam-bank. Liên quan: `web/js/qtips.js` (`#/qstats`), `web/js/plan.js` (Sổ lỗi sai), `docs/audits/exams-2026-11.md` §4.
 
 ## Vấn đề
