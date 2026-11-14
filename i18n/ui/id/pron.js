@@ -80,6 +80,7 @@
 "Từ này kết thúc bằng nguyên âm – không thêm phụ âm cuối, kéo dài nguyên âm tự nhiên.":"Kata ini diakhiri dengan vokal – jangan tambahkan konsonan akhir; biarkan saja vokalnya selesai secara alami.",
 "Từ này ở dạng số ít – dừng sau phụ âm cuối, không thêm /s/.":"Ini adalah bentuk tunggal – berhenti setelah bunyi terakhir, tanpa tambahan /s/.",
 "Từ tiếp theo":"Kata berikutnya",
+"Viền nét đứt = phụ âm vô thanh":"Garis putus-putus = konsonan tak bersuara",
 "Vẫn chưa rõ – chuyển sang từ tiếp theo.":"Masih belum jelas – beralih ke kata berikutnya (tidak ada penalti).",
 "sót hoặc sai":"terlewatkan atau salah",
 "{n} cặp":"{n} berpasangan",

@@ -80,6 +80,7 @@
 "Từ này kết thúc bằng nguyên âm – không thêm phụ âm cuối, kéo dài nguyên âm tự nhiên.":"Esta palavra termina em vogal – não adicione uma consoante final; apenas deixe a vogal terminar naturalmente.",
 "Từ này ở dạng số ít – dừng sau phụ âm cuối, không thêm /s/.":"Esta é a forma singular – parada após o último som, sem /s/ extra.",
 "Từ tiếp theo":"Próxima palavra",
+"Viền nét đứt = phụ âm vô thanh":"Borda tracejada = consoante surda",
 "Vẫn chưa rõ – chuyển sang từ tiếp theo.":"Ainda não está claro – passando para a próxima palavra (sem penalidade).",
 "sót hoặc sai":"faltou ou errou",
 "{n} cặp":"{n} pares",

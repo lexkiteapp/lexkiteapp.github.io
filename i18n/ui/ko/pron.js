@@ -80,6 +80,7 @@
 "Từ này kết thúc bằng nguyên âm – không thêm phụ âm cuối, kéo dài nguyên âm tự nhiên.":"이 단어는 모음으로 끝나므로 마지막 자음을 추가하지 마세요. 모음이 자연스럽게 끝나도록 놔두세요.",
 "Từ này ở dạng số ít – dừng sau phụ âm cuối, không thêm /s/.":"이것은 단수형입니다. 추가 /s/ 없이 마지막 소리 다음에 중지합니다.",
 "Từ tiếp theo":"다음 단어",
+"Viền nét đứt = phụ âm vô thanh":"점선 테두리 = 무성 자음",
 "Vẫn chưa rõ – chuyển sang từ tiếp theo.":"여전히 불분명합니다. 다음 단어로 넘어갑니다(페널티 없음).",
 "sót hoặc sai":"놓쳤거나 틀렸어",
 "{n} cặp":"{n} 쌍",

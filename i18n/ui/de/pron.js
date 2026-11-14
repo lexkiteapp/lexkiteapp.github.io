@@ -80,6 +80,7 @@
 "Từ này kết thúc bằng nguyên âm – không thêm phụ âm cuối, kéo dài nguyên âm tự nhiên.":"Dieses Wort endet mit einem Vokal – fügen Sie keinen Endkonsonanten hinzu; Lassen Sie den Vokal einfach natürlich enden.",
 "Từ này ở dạng số ít – dừng sau phụ âm cuối, không thêm /s/.":"Dies ist die Singularform – Stopp nach dem letzten Laut, ohne zusätzliches /s/.",
 "Từ tiếp theo":"Nächstes Wort",
+"Viền nét đứt = phụ âm vô thanh":"Gestrichelter Rand = stimmloser Konsonant",
 "Vẫn chưa rõ – chuyển sang từ tiếp theo.":"Noch unklar – weiter zum nächsten Wort (keine Strafe).",
 "sót hoặc sai":"verpasst oder falsch",
 "{n} cặp":"{n} Paare",
