@@ -30,7 +30,7 @@ assert.equal(app.slice(app.indexOf('const ROUTE_BUNDLE'), app.indexOf('};', app.
 
 // 2. Người mới (chưa học gì): bài đầu = bài nên học tiếp, chương 1 mở sẵn, đủ 10 chương + hàng "Kiểm tra chương", tab Tất cả
 { const { routes, log } = mk(); routes.grammar(); const d = log.mount[0];
-  assert.equal(d.pct, 0); assert.match(d.prog, /^0\/\d+ bài đã đạt$/); assert.ok(d.nx && /^#\/grammar\/[\w-]+$/.test(d.nx.href)); assert.match(d.nx.h, /^Bài tiếp theo: /); assert.match(d.nx.sub, /^Chương 1/);
+  assert.equal(d.pct, 0); assert.match(d.prog, /^0\/\d+ bài đã đạt$/); assert.ok(d.nx && /^#\/grammar\/[\w-]+$/.test(d.nx.href)); assert.ok(d.nx.h.length > 2); assert.match(d.nx.sub, /^Bài tiếp theo · Chương 1/);
   assert.deepEqual(d.chips.map(x => x.k + (x.on ? '*' : '')), ['all*', 'ielts', 'toeic']);
   assert.equal(d.ch.length, 10); assert.deepEqual(d.ch.map(c => c.id), Array.from({ length: 10 }, (_, i) => 'chap' + (i + 1)));
   assert.deepEqual(d.ch.map(c => c.open), [true, ...Array(9).fill(false)]);
@@ -43,7 +43,7 @@ assert.equal(app.slice(app.indexOf('const ROUTE_BUNDLE'), app.indexOf('};', app.
 // 3. Đang học dở: bài < 80% là bài nên học tiếp (nhãn "Làm lại cho chắc"), chương của nó mở; ≥ 80% = đã đạt, đếm tiến độ
 { const probe = mk(); probe.routes.grammar(); const d0 = probe.log.mount[0], a = d0.ch[2].rows[0].id, b = d0.ch[2].rows[1].id, z = d0.ch[0].rows[0].id;
   const { routes, log } = mk({ done: { [z]: 90, [a]: 60, [b]: 80 } }); routes.grammar(); const d = log.mount[0];
-  assert.equal(d.nx.href, '#/grammar/' + a); assert.match(d.nx.sub, /^Làm lại cho chắc · lần trước 60%/); assert.match(d.nx.sub, /Chương 3/);
+  assert.equal(d.nx.href, '#/grammar/' + a); assert.match(d.nx.sub, /^Bài tiếp theo · Làm lại cho chắc · lần trước 60%/); assert.match(d.nx.sub, /Chương 3/);
   assert.deepEqual(d.ch.map(c => c.open), d.ch.map((_, i) => i === 2), 'chỉ chương của bài kế tiếp mở sẵn');
   assert.equal(d.ch[0].dn, 1); assert.equal(d.ch[2].dn, 1); assert.match(d.prog, /^2\/\d+ bài đã đạt$/); assert.ok(d.pct > 0);
   const r = x => d.ch.flatMap(c => c.rows).find(y => y.id === x); assert.equal(r(z).pct, 90); assert.equal(r(a).pct, 60); assert.equal(r(b).pct, 80);
@@ -58,7 +58,7 @@ for (const [k, n] of [['ielts', 15], ['toeic', 12]]) {
   const { routes, log, root, c } = mk({ tab: k }); routes.grammar(); const d = log.mount[0];
   assert.deepEqual(d.chips.map(x => x.on), [k === 'all', k === 'ielts', k === 'toeic']); assert.equal(d.ch.length, 1); assert.equal(d.ch[0].id, 'gFocus'); assert.ok(d.ch[0].open);
   assert.ok(d.ch[0].rows.every(r => !r.test), 'tab trọng tâm không có hàng Kiểm tra chương'); assert.equal(d.ch[0].total, n, `${k}: đủ ${n} bài trọng tâm`); assert.ok(d.nx, 'vẫn có bài nên học tiếp');
-  assert.equal(d.ch[0].h, k === 'ielts' ? 'Trọng tâm IELTS 7.0+' : 'Bí kíp TOEIC Part 5 & 6');
+  assert.equal(d.ch[0].h, k === 'ielts' ? 'Trọng tâm IELTS 7.0+' : 'Bí kíp TOEIC Part 5 & 6'); assert.equal(d.chips[1].l, 'IELTS 7.0+'); assert.equal(d.chips[2].l, 'TOEIC');
 }
 { const { routes, log, root } = mk(); routes.grammar(); let focused = 0; root.querySelector = s => (/aria-pressed/.test(s) ? { focus() { focused++; } } : null);
   root.listeners.click({ target: { closest: () => ({ dataset: { gt: 'toeic' } }) } }); assert.equal(log.store['g.tab'], 'toeic'); assert.equal(log.mount.length, 2, 'đổi tab vẽ lại'); assert.equal(log.mount[1].ch[0].id, 'gFocus'); assert.equal(focused, 1, 'trả tiêu điểm bàn phím về viên đã chọn');
