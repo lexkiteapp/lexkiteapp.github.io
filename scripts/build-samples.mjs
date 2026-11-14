@@ -236,7 +236,7 @@ ${sectionNav('vi', '/phat-am/')}
 ${filterBox('vi')}
 ${catNav(Object.entries(by).map(([k, xs]) => [k, GN[k] || k, xs.length, '', pronArt(k)]), P.length, 'vi', L.sectionsL, esc)}
 ${Object.entries(by).map(([k, xs]) => group2(k, GN[k] || k, `${xs.length} ${L.lessons}`, xs.map(pCard), '', pronArt(k))).join('\n')}</div>`));
-  addSm([`${SITE}phat-am/`, ...P.map(x => `${SITE}phat-am/${slugP(x)}`)], 'web/js/pron', 'content/seo-en/pron.json');
+  addSm([`${SITE}phat-am/`, ...P.map(x => `${SITE}phat-am/${slugP(x)}`)], 'web/js/pron', 'web/cpack/pron', 'content/seo-en/pron.json');
   console.log(`✓ SEO: ${P.length} trang phát âm + mục lục`);
 }
 

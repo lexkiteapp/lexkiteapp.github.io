@@ -88,6 +88,7 @@
 "Âm cuối /s/ không rung cổ và nguyên âm trước nó ngắn: “rice” gọn, xì hơi rõ.":"마지막 /s/에는 유성음이 없고 단모음 앞에만 있습니다. “rice”을 명확한 쉿소리와 함께 또렷하게 말합니다.",
 "Âm cuối /z/ rung cổ và kéo dài nguyên âm trước nó: “riiise-zzz”.":"마지막 /z/가 발음되고 그 앞의 모음이 더 길어집니다: “riiise-zzz”.",
 "Âm cần luyện thêm":"약한 발음",
+"Âm tiếp theo":"다음 소리",
 "Âm “j” có chặn lưỡi và rung cổ, mạnh hơn “y”.":"“j” 소리에는 혀 정지와 음성이 있습니다. “y”보다 더 강합니다.",
 "âm yếu":"약한 소리",
 "Đang xử lý…":"인식 중…",

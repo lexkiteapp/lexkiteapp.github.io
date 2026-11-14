@@ -219,7 +219,7 @@ ${order.map(k => group2(k, UN[k] || k, `${units[k].length} ${L.lessons}`, units[
 
 // ---- Pronunciation ----
 {
-  lm = gitDate('web/js/pron', 'content/seo-en/pron.json');
+  lm = gitDate('web/js/pron', 'web/cpack/pron', 'content/seo-en/pron.json');
   const P = loadPron(), MAP = enMap('content/seo-en/pron.json'), META = MAP._meta || {}, { audioKey } = loadVocab();
   const GN = { vowels: 'Short and long vowels', diphthongs: 'Diphthongs', consonants: 'Consonants', vn: 'Common problem areas', stress: 'Stress, rhythm and intonation' };
   const slugP = x => (META[x.id] || {}).slug || x.id, nameP = x => (META[x.id] || {}).name || x.ipa;

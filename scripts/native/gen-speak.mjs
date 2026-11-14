@@ -25,7 +25,7 @@ const cyc = a => { let i = 0; return () => a[i++ % a.length]; };
 // ---------- the data files (same load order as the web bundles pas/speak/pron/roleplay) ----------
 const SPK_FILES = ['web/js/speak/data.js'];
 const SPEAK_FILES = ['web/cpack/speak/samples.js', 'web/cpack/speak/more2.js', 'web/cpack/speak/more3.js', 'web/js/speak/more.js'];
-const PRON_FILES = ['web/js/pron/sounds.js', 'web/cpack/pron/skills.js'];
+const PRON_FILES = ['web/cpack/pron/sounds.js', 'web/cpack/pron/skills.js'];
 const RP_FILES = ['web/js/roleplay/data-everyday.js', 'web/js/roleplay/data-a.js', 'web/js/roleplay/data-b.js', 'web/js/roleplay/data-lot1.js'];
 const sbox = (extra = {}) => { const sb = { console, Math, JSON, t: tt, ...extra }; sb.self = sb; sb.window = sb; sb.globalThis = sb; vm.createContext(sb); return sb; };
 const run = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
@@ -254,7 +254,7 @@ const PFILES = [...PRON_FILES, 'web/js/pron/pairs.js', 'web/js/pron/coach.js'];
 const mouthOf = (() => { const src = rd('web/js/pron.js'); const fn = vm.runInNewContext(`(function(t){ ${slice(src, /function mouthSvg\(m\) \{/)}\n return mouthSvg; })`)(RT); return m => { const h = fn(m); const num = (re, i = 1) => +re.exec(h)[i]; const ell = [...h.matchAll(/<ellipse cx="([\d.]+)" cy="([\d.]+)" rx="([\d.]+)" ry="([\d.]+)"/g)].map(x => x.slice(1).map(Number)); return { outerLip: ell[0], innerMouth: ell[1], tongue: ell[2], caption: [...h.matchAll(/<text[^>]*>([^<]*)<\/text>/g)].map(x => x[1])[0] }; }; })();
 async function pronPage(arg, o = {}) {
   const x = arg && content().PRON.find(l => l.id === arg), cache = {}, cl = (key, n, f) => (cache[key] ||= Array.from({ length: n }, (_, i) => f(i)));
-  const P = await pg({ hash: '#/pron', game: o.game, settings: o.settings, files: PFILES, sets: sb => { sb.innerWidth = 1200; sb.PronSay = { mount(box, lx, op) { sb._say = { box, lx, op }; } }; sb.PronRhythm = { mount(box, lx) { sb._rhythm = { box, lx }; } }; sb.Audio = class { constructor(src) { this.src = src; } play() { return Promise.resolve(); } }; }, late: ['web/js/pron.js'] });
+  const P = await pg({ hash: '#/pron', game: o.game, settings: o.settings, files: PFILES, sets: sb => { pronStubs(sb); sb.innerWidth = 1200; sb.PronSay = { mount(box, lx, op) { sb._say = { box, lx, op }; } }; sb.PronRhythm = { mount(box, lx) { sb._rhythm = { box, lx }; } }; sb.Audio = class { constructor(src) { this.src = src; } play() { return Promise.resolve(); } }; }, late: ['web/js/pron.js'] });
   const D = P.E.dom;
   if (x) {
     D.resolveList('[data-slow]', () => cl('slow', x.words.length, i => el(P, 'b', { dataset: { slow: x.words[i].w } })));
@@ -268,16 +268,15 @@ async function pronPage(arg, o = {}) {
   }
   await P.routes.pron(arg); await settle(4); return { P, x };
 }
-const pronHubOut = h => { const groups = [], re = /<div class="section-title"><h2>([^<]*)<\/h2><span class="muted small">([^<]*)<\/span><\/div>\s*([\s\S]*?)(?=<div class="section-title">|<p class="tiny muted"|$)/g; let m;
-  while ((m = re.exec(h))) { const body = m[3], tiles = body.split(/<a class="/).slice(1).map(a => ({ id: decodeURIComponent(/href="#\/pron\/([^"]*)"/.exec(a)[1]), cls: /^([^"]*)"/.exec(a)[1], done: /<i>✓<\/i>/.test(a) ? true : (x => (x ? +x[1] : null))(/✓ (\d+)%/.exec(a)) }));
-    groups.push({ title: tk(unesc(m[1]).replace(/^\S+ /, '')), desc: tk(unesc(m[2])), chart: /ipa-grid/.test(body), lessons: tiles.map(t => t.id), done: Object.fromEntries(tiles.filter(t => t.done).map(t => [t.id, t.done])), unvoiced: tiles.filter(t => /\bunv\b/.test(t.cls)).map(t => t.id) }); }
-  return { ring: /--p:(\d+)/.exec(h) ? +/--p:(\d+)/.exec(h)[1] : null, groups }; };
+// Hub = ST2.mount('pron-hub', d) (web/js/pron.js): d.groups[].v 'rows' = hàng chủ đề, còn lại = lưới ô IPA; d.pct = % vòng tiến độ, d.count = nhãn "n/tổng"
+const pronHubOut = hd => ({ ring: Math.round(hd.pct), groups: hd.groups.map(g => { const chart = g.v !== 'rows'; return { title: tk(g.name), desc: tk(g.desc), chart, lessons: g.items.map(x => x.id), done: Object.fromEntries(g.items.filter(x => x.done).map(x => [x.id, chart ? true : x.done])), unvoiced: g.items.filter(x => x.unv).map(x => x.id) }; }) });
+const pronStubs = sb => { sb.Chars = { slot: () => '' }; sb.ST2 = { mount: (v, name, d) => { sb._hub = d; v.innerHTML = `<h1>${d.title}</h1>`; return {}; } }; };
 async function pronVectors() {
   const C = content(), out = { hub: [], lesson: [], mouth: [], pairGame: [] };
   // ---- hub ----
   for (const [id, why, game] of [['fresh', 'no progress: ring 0; five groups in this order: vowels (12), diphthongs (8), consonants (24) as IPA tiles; vn (Sửa lỗi người Việt) and stress as topic cards; a group with no lessons is skipped', {}], ['progress', 'game.pronDone = { lessonId: best % } ⇒ ✓ on the tile / "✓ n%" chip on the card; ring = number of lessons with an entry ÷ all lessons (rounded %), label "n/N"', { pronDone: { 'iː': 90, 'th-sounds': 60, 'weak-forms': 100 } }]]) {
-    const P = await pg({ hash: '#/pron', game: { xp: 0, days: {}, total: {}, ...game }, files: PFILES, sets: sb => { sb.PronSay = {}; sb.PronRhythm = {}; }, ui: { ring: (p, l, c) => `<div class="ring" style="--p:${Math.round(p)}"><b>${l}</b></div>` }, late: ['web/js/pron.js'] });
-    await P.routes.pron(''); const h = P.view.innerHTML, o = pronHubOut(h); o.lessonCount = C.PRON.length; o.ringLabel = /<div class="ring"[^>]*><b>([^<]*)<\/b>/.exec(h)[1]; o.counts = Object.fromEntries(o.groups.map(g => [g.title.k, g.lessons.length])); o.groups.forEach(g => { g.lessons = g.lessons.length > 6 ? [...g.lessons.slice(0, 3), '…'] : g.lessons; });
+    const P = await pg({ hash: '#/pron', game: { xp: 0, days: {}, total: {}, ...game }, files: PFILES, sets: sb => { pronStubs(sb); sb.PronSay = {}; sb.PronRhythm = {}; }, late: ['web/js/pron.js'] });
+    await P.routes.pron(''); const hd = P.sb._hub, o = pronHubOut(hd); o.lessonCount = C.PRON.length; o.ringLabel = hd.count; o.counts = Object.fromEntries(o.groups.map(g => [g.title.k, g.lessons.length])); o.groups.forEach(g => { g.lessons = g.lessons.length > 6 ? [...g.lessons.slice(0, 3), '…'] : g.lessons; });
     out.hub.push({ id, why, input: { pronDone: game.pronDone || {} }, out: o }); }
   // ---- mouth figure geometry (vowels): the SVG numbers come from lips/jaw/tongue ----
   const combos = [...new Map(C.PRON.filter(l => l.mouth && l.mouth.lips).map(l => [JSON.stringify([l.mouth.lips, l.mouth.jaw, l.mouth.tongue]), l.mouth])).values()];

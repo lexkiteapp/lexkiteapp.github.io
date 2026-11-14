@@ -1,40 +1,43 @@
 /* Thư viện phát âm (kiểu ELSA): bảng 44 âm IPA, khẩu hình, cặp từ dễ nhầm (nghe – chọn), luyện nói có chấm điểm,
  * chuyên đề cho người Việt: âm cuối, -ed/-s, trọng âm, ngữ điệu, nối âm. */
 (function () {
-  const { $, $$, esc, speak, tts, ring, shuffle } = UI;
+  const { $, $$, esc, speak, tts, shuffle } = UI;
   const App = window.App;
   const { state, routes } = App;
   const view = App.view;
   const P = () => window.PRON || [];
   const GROUPS = [
-    { id: 'vowels', name: 'Nguyên âm đơn', emoji: '🅰️', desc: '12 nguyên âm – phân biệt âm dài/ngắn (ship – sheep)' },
-    { id: 'diphthongs', name: 'Nguyên âm đôi', emoji: '🔀', desc: '8 nguyên âm đôi – trượt từ âm này sang âm kia' },
-    { id: 'consonants', name: 'Phụ âm', emoji: '🅱️', desc: '24 phụ âm – vô thanh/hữu thanh, vị trí cấu âm' },
-    { id: 'vn', name: 'Sửa lỗi người Việt', emoji: '🇻🇳', desc: 'Âm cuối, đuôi -ed/-s, /θ ð/, /ʃ s/, cụm phụ âm' },
-    { id: 'stress', name: 'Trọng âm & ngữ điệu', emoji: '🎵', desc: 'Trọng âm từ, câu, ngữ điệu, nối âm – điểm Pronunciation band 7+' },
+    { id: 'vowels', name: 'Nguyên âm đơn', desc: '12 nguyên âm – phân biệt âm dài/ngắn (ship – sheep)' },
+    { id: 'diphthongs', name: 'Nguyên âm đôi', desc: '8 nguyên âm đôi – trượt từ âm này sang âm kia' },
+    { id: 'consonants', name: 'Phụ âm', desc: '24 phụ âm – vô thanh/hữu thanh, vị trí cấu âm' },
+    { id: 'vn', name: 'Sửa lỗi người Việt', desc: 'Âm cuối, đuôi -ed/-s, /θ ð/, /ʃ s/, cụm phụ âm' },
+    { id: 'stress', name: 'Trọng âm & ngữ điệu', desc: 'Trọng âm từ, câu, ngữ điệu, nối âm – điểm Pronunciation band 7+' },
   ];
   const done = () => state.game.pronDone || {};
   const accent = () => state.settings.accent;
   const RHYTHM = ['weak-forms', 'word-stress', 'stress-shift', 'connected-speech', 'chunking', 'intonation'];
 
+  // Khung Stitch v2 pron-hub (brand/stitch/v2/bind/pron-hub.json): d = dữ liệu thật; nhóm lưới (nguyên âm/phụ âm) và nhóm hàng (lỗi người Việt, trọng âm) cùng một danh sách d.groups
+  const ICON = { vn: 'tips_and_updates', stress: 'graphic_eq' };
+  const CHART = ['vowels', 'diphthongs', 'consonants'];
   routes.pron = function (id) {
     if (id) return lesson(decodeURIComponent(id));
-    const d = done(), all = P();
-    view.innerHTML = `
-      <div class="page-head"><div><h1>🔤 ${t('Thư viện phát âm')}</h1><p class="muted">${t('Luyện như ELSA: học khẩu hình từng âm IPA, nghe – phân biệt cặp từ dễ nhầm, nói và được chấm điểm, rồi sửa các lỗi người Việt hay mắc.')}</p></div>
-        ${ring(all.length ? Object.keys(d).length / all.length * 100 : 0, `${Object.keys(d).length}/${all.length}`, 'var(--good)')}</div>
-      ${GROUPS.map(gr => {
-        const ls = all.filter(x => x.group === gr.id);
-        if (!ls.length) return '';
-        const isChart = ['vowels', 'diphthongs', 'consonants'].includes(gr.id);
-        return `<div class="section-title"><h2>${gr.emoji} ${esc(t(gr.name))}</h2><span class="muted small">${esc(t(gr.desc))}</span></div>
-          ${isChart ? `<div class="ipa-grid">${ls.map(x => `<a class="ipa-tile ${d[x.id] ? 'ok' : ''} ${x.mouth && x.mouth.voiced === false ? 'unv' : ''}" href="#/pron/${encodeURIComponent(x.id)}" title="${esc(x.title)}">
-              <b>${esc(x.ipa.replace(/\//g, ''))}</b><span>${esc((x.words[0] || {}).w || '')}</span>${d[x.id] ? '<i>✓</i>' : ''}</a>`).join('')}</div>`
-          : `<div class="grid auto">${ls.map(x => `<a class="card hover topic-card" href="#/pron/${encodeURIComponent(x.id)}" style="color:var(--text)">
-              <div class="row between"><span class="em">${x.emoji}</span>${d[x.id] ? `<span class="chip ok">✓ ${d[x.id]}%</span>` : `<span class="chip">${esc(x.ipa || '')}</span>`}</div>
-              <h3>${esc(x.title)}</h3><div class="muted small">${esc((x.how || '').slice(0, 110))}${(x.how || '').length > 110 ? '…' : ''}</div></a>`).join('')}</div>`}`;
-      }).join('') || `<div class="card empty"><div class="em">🔤</div>${t('Đang cập nhật bài học…')}</div>`}
-      <p class="tiny muted" style="margin-top:1rem">${t('Ô viền xám nhạt = phụ âm vô thanh · Mỗi bài: khẩu hình → nghe mẫu → phân biệt cặp từ → nói & chấm điểm.')}</p>`;
+    const d = done(), all = P(), nx = all.find(x => d[x.id] == null), n = Object.keys(d).length, href = x => '#/pron/' + encodeURIComponent(x.id);
+    const groups = GROUPS.map(gr => {
+      const ls = all.filter(x => x.group === gr.id);
+      if (!ls.length) return null;
+      const chart = CHART.includes(gr.id);
+      return { v: !chart ? 'rows' : gr.id === 'consonants' ? 'c5' : 'v4', name: t(gr.name), desc: t(gr.desc), note: t('Ô viền xám nhạt = phụ âm vô thanh · Mỗi bài: khẩu hình → nghe mẫu → phân biệt cặp từ → nói & chấm điểm.'), count: `${ls.filter(x => d[x.id]).length}/${ls.length}`,
+        items: ls.map(x => chart ? { id: x.id, href: href(x), ipa: x.ipa, w: (x.words[0] || {}).w || '', done: d[x.id] || 0, next: x === nx, unv: !!(x.mouth && x.mouth.voiced === false), label: `${x.ipa} · ${(x.words[0] || {}).w || ''}${d[x.id] ? ' · ' + t('Đã xong') + ' ' + d[x.id] + '%' : ''}` }
+          : { id: x.id, href: href(x), icon: ICON[x.group] || 'graphic_eq', title: x.title, done: d[x.id] || 0, sub: `${d[x.id] ? '✓ ' + d[x.id] + '% · ' : ''}${(x.how || '').slice(0, 110)}${(x.how || '').length > 110 ? '…' : ''}`, end: d[x.id] ? 'check_circle' : 'chevron_right' }) };
+    }).filter(Boolean);
+    ST2.mount(view, 'pron-hub', {
+      back: '#/skills', backL: t('Quay lại'), title: t('Thư viện phát âm'), intro: t('Luyện như ELSA: học khẩu hình từng âm IPA, nghe – phân biệt cặp từ dễ nhầm, nói và được chấm điểm, rồi sửa các lỗi người Việt hay mắc.'),
+      count: `${n}/${all.length}`, pct: all.length ? n / all.length * 100 : 0, doneL: t('Đã xong'), groups, next: nx, nextHref: nx ? href(nx) : '#/pron',
+      nextL: nx ? t('Âm tiếp theo') : t('Đã xong'), nextS: nx ? `${nx.ipa || ''} ${nx.title}`.trim() : `${n}/${all.length}`, cta: nx ? `${t('Học tiếp')}: ${nx.ipa || nx.title}` : '',
+      teacher: Chars.slot('ama', { pose: nx ? 'point' : 'cheer', size: 'xs', lazy: false }),
+      empty: all.length ? '' : `<div class="rounded-2xl border-2 p-4 text-center"><p>${t('Đang cập nhật bài học…')}</p></div>`,
+    }, null);
   };
 
   // Hình khẩu hình đơn giản (SVG) cho nguyên âm
