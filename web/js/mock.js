@@ -9,7 +9,7 @@
   const RT = () => window.READTESTS || [];
   const round5 = x => Math.round(x * 2) / 2;
   const clock = s => `${String(Math.floor(Math.max(0, s) / 60)).padStart(2, '0')}:${String(Math.floor(Math.max(0, s) % 60)).padStart(2, '0')}`;
-  const SKILLS = () => [['listening', '🎧', 'Listening', t('~30 phút · 40 câu')], ['reading', '📖', 'Reading', t('60 phút · 40 câu')], ['writing', '✍️', 'Writing', t('60 phút · Task 1 + Task 2')], ['speaking', '🗣️', 'Speaking', t('~12 phút · 3 phần')]];
+  const SKILLS = () => [['listening', '🎧', t('Nghe hiểu'), t('~30 phút · 40 câu')], ['reading', '📖', t('Đọc hiểu'), t('60 phút · 40 câu')], ['writing', '✍️', t('Viết'), t('60 phút · Task 1 + Task 2')], ['speaking', '🗣️', t('Nói'), t('~12 phút · 3 phần')]];
   const pick = a => a[Math.floor(Math.random() * a.length)];
 
   // ================= CHẤM WRITING TASK 2 & SPEAKING (ước tính, tham khảo) =================
