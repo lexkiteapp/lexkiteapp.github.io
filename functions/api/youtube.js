@@ -24,6 +24,7 @@ import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import { signState, verifyState, encryptToken, decryptToken, cliVerify, driveMedia } from './drive.js';
 import { manifest, signedPack } from './admin-shorts.js';
+import { setupMgr, ingestYouTube, analyticsAlerts, saveAlerts } from './_social_mgr.js';
 
 export const REDIRECT = 'https://lexkite.com/api/youtube/callback';
 export const SCOPE_UP = 'https://www.googleapis.com/auth/youtube.upload', SCOPE_RO = 'https://www.googleapis.com/auth/youtube.readonly';
@@ -493,9 +494,18 @@ const CLI_OPS = {
       }
     }
     if (b.snapshot !== false) for (const v of videos) if (!v.missing) await run(db, 'INSERT INTO yt_stats (day, video_id, channel_id, views, likes, comments) VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT(day, video_id) DO UPDATE SET views = excluded.views, likes = excluded.likes, comments = excluded.comments', day, v.video_id, v.channel_id, v.views, v.likes, v.comments);
+    if (b.snapshot !== false) { try { await setupMgr(db); await ingestYouTube(db, videos); } catch (e) { errors.push({ error: 'ingest' }); } } // vào bảng Phân tích + trọng số tuần sau
     const prev = {}; for (const [d, n] of [[7, 'w'], [30, 'm']]) for (const r of await all(db, 'SELECT video_id, views FROM yt_stats WHERE day = (SELECT MAX(day) FROM yt_stats WHERE day <= date(?, ?))', day, `-${d} day`)) (prev[r.video_id] = prev[r.video_id] || {})[n] = r.views;
     for (const v of videos) { const p = prev[v.video_id] || {}; v.d7 = p.w == null ? null : v.views - p.w; v.d30 = p.m == null ? null : v.views - p.m; }
-    return { ok: true, day, scope: await getMeta(db, 'scope'), analytics: /yt-analytics/.test((await getMeta(db, 'scope')) || ''), channels, videos, errors, quota: await quotaInfo(db) };
+    const zero3 = []; // kênh có video nhưng 0 view mới trong ≥ 3 ngày (cần snapshot cũ ≥ 3 ngày – không đoán)
+    for (const c of channels) {
+      const now_ = videos.filter(v => v.channel_id === c.channel_id && !v.missing).reduce((a, v) => a + v.views, 0);
+      const old = await one(db, "SELECT SUM(views) AS v, COUNT(*) AS n FROM yt_stats WHERE channel_id = ? AND day = (SELECT MAX(day) FROM yt_stats WHERE channel_id = ? AND day <= date(?, '-3 day'))", c.channel_id, c.channel_id, day);
+      if (old && old.n > 0 && now_ - (+old.v || 0) === 0 && videos.some(v => v.channel_id === c.channel_id && !v.missing)) zero3.push(c.channel_id);
+    }
+    const qi = await quotaInfo(db), alerts = analyticsAlerts({ channels, videos, zero3, quota: qi });
+    if (b.snapshot !== false) { try { await saveAlerts(db, alerts); } catch (e) { errors.push({ error: 'alerts' }); } }
+    return { ok: true, day, zero3, alerts, scope: await getMeta(db, 'scope'), analytics: /yt-analytics/.test((await getMeta(db, 'scope')) || ''), channels, videos, errors, quota: qi };
   },
   /** shorts-archive.mjs: Drive files of these hard-deleted clips are in the trash and the recipe is gone → deleted = 3 (purged, kept as a tombstone). */
   async purged(db, b) { const ids = (Array.isArray(b.ids) ? b.ids : []).map(String).filter(x => CLIP.test(x)).slice(0, 200); for (const id of ids) await run(db, 'UPDATE clip_review SET deleted = 3, updated = ? WHERE clip = ? AND deleted = 2', Date.now(), id); return { ok: true, count: ids.length }; },
