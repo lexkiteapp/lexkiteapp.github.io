@@ -230,6 +230,7 @@ node scripts/test/dictlookup.mjs
 node scripts/test/client-security.mjs
 node scripts/test/headers.mjs
 node scripts/test/static-routes.mjs
+node scripts/test/words-r2-fn.mjs
 node scripts/test/layout-guards.mjs
 node scripts/test/home-logic.mjs
 node scripts/test/vocab-hub.mjs

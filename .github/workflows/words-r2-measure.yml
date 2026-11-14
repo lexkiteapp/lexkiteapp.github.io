@@ -1,0 +1,25 @@
+# 📏 Đo ngân sách file dist (Pages ≤ 20k/deploy) + cỡ trang /words/ – nền cho docs/specs/words-off-pages.md (chạy trên CI, không trên Mac).
+# In: số file dist theo thư mục, cỡ TB trang words mỗi ngôn ngữ, tốc độ thêm bài blog/ngày (git), Functions/ngày (web/free-tier-state.json).
+name: Words R2 measure
+on:
+  workflow_dispatch:
+  push:
+    branches: ['words-r2-**']
+    paths: ['.github/workflows/words-r2-measure.yml', 'scripts/seo/dist-measure.mjs']
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.run_id }}
+  cancel-in-progress: false
+jobs:
+  measure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0, filter: 'blob:none' }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm ci --no-audit --no-fund && bash scripts/build-web.sh
+        timeout-minutes: 25
+      - run: node scripts/seo/dist-measure.mjs | tee "$GITHUB_STEP_SUMMARY"
