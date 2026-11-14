@@ -2,15 +2,15 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 67.6 / 100**
+**Tổng: 69.1 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
 | Kho từ | **58.6** | 58.5 | 58.6% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
-| Giao tiếp | **68.3** | 68.3 | 68.3% | 100% | 0 |
+| Giao tiếp | **77.3** | 68.3 | 77.3% | 100% | 0 |
 | 4 kỹ năng | **62.9** | 62.9 | 62.9% | 100% | 0 |
-| Đề thi | **42.4** | 31.7 | 42.4% | 100% | 0 |
+| Đề thi | **45.1** | 31.7 | 45.1% | 100% | 0 |
 | Khung Can-do | **81.3** | 81.3 | 81.3% | 100% | 0 |
 | Dễ học – dễ nhớ | **91.7** | 91.7 | 91.7% | 100% | 0 |
 | i18n | **62.7** | 62.7 | 62.7% | 100% | 0 |
@@ -48,7 +48,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | cuộc gọi Ama/Carlos | 35 / 60 | 58% | 20 |
-| roleplay | 33 / 60 | 55% | 20 |
+| roleplay | 60 / 60 | 100% | 20 |
 | tình huống Play & Speak | 40 / 40 | 100% | 20 |
 | mục gold (giải thích cách dùng) | 284 / 1000 | 28% | 20 |
 | sổ mẫu câu theo chức năng (chưa làm) | 100 / 100 | 100% | 20 |
@@ -89,8 +89,8 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Cambridge A2 (chưa làm) | 1 / 6 | 17% | 8 |
 | Cambridge B1 (chưa làm) | 3 / 6 | 50% | 8 |
 | Cambridge B2 (chưa làm) | 3 / 6 | 50% | 8 |
-| Cambridge C1 (chưa làm) | 0 / 6 | 0% | 8 |
-| Cambridge C2 (chưa làm) | 0 / 6 | 0% | 8 |
+| Cambridge C1 (chưa làm) | 1 / 6 | 17% | 8 |
+| Cambridge C2 (chưa làm) | 1 / 6 | 17% | 8 |
 
 ## Khung Can-do
 
@@ -98,7 +98,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 11142 / 11142 | 100% | 35 |
+| nội dung có lo hợp lệ | 11169 / 11169 | 100% | 35 |
 | mục tiêu đã có nội dung luyện | 167 / 600 | 28% | 25 |
 
 ## Dễ học – dễ nhớ
