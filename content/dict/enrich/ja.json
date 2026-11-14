@@ -778,5 +778,785 @@
     "嘘を重ねると、友人同士の信頼が少しずつ損なわれます。"
    ]
   ]
+ },
+ "estimate": {
+  "n": "estimate は動詞と名詞で発音が違い、動詞は語尾が「エイト」、名詞は「イット」に近くなります。estimate that ... や estimate A at B（AをBと見積もる）の形が基本です。「見積書」の意味では名詞で get an estimate と言います。確定した金額ではなく概算なので、正確な数字には calculate を使います。",
+  "x": [
+   [
+    "Engineers estimate that the bridge will take two years to build.",
+    "技術者たちは、その橋の完成に二年かかると見積もっています。"
+   ],
+   [
+    "Can you give me an estimate before you start the repairs?",
+    "修理を始める前に、見積もりを出していただけますか。"
+   ]
+  ]
+ },
+ "eventual": {
+  "n": "eventual は「最終的な」という意味の形容詞で、名詞の前に置きます。「結局〜した」と副詞的に言いたいときは eventually を使い、形が違います。eventual winner や eventual outcome のように、長い経過の末に決まる結果を指します。the eventual cost のように、最初の予想と比べる文脈でもよく使われます。",
+  "x": [
+   [
+    "The eventual winner of the race was a young runner from Kenya.",
+    "そのレースの最終的な勝者は、ケニア出身の若い選手でした。"
+   ],
+   [
+    "Nobody predicted the eventual collapse of the company.",
+    "その会社が最終的に破綻するとは、誰も予想していませんでした。"
+   ]
+  ]
+ },
+ "evident": {
+  "n": "evident は「見ればわかる」という意味で、It is evident that ... の形がよく使われます。obvious より少し硬く、論文やニュースでよく見かけます。become evident（明らかになる）、clearly evident などの組み合わせも覚えましょう。人を主語にせず、物事や事実を主語にします。",
+  "x": [
+   [
+    "It soon became evident that the old system could not cope.",
+    "古いシステムでは対応できないことが、すぐに明らかになりました。"
+   ],
+   [
+    "Her disappointment was evident from the look on her face.",
+    "彼女の失望は、表情からはっきりと見て取れました。"
+   ]
+  ]
+ },
+ "evolve": {
+  "n": "evolve は主に自動詞として使い、「少しずつ発展する、進化する」という意味を表します。evolve from A into B（AからBへ発展する）の形が便利です。生物学だけでなく、考え方や技術、会社などが時間をかけて変わっていく場面でも広く使えます。theory of evolution（進化論）の evolution は、この動詞の名詞形です。",
+  "x": [
+   [
+    "The small shop gradually evolved into a national chain of stores.",
+    "その小さな店は、次第に全国チェーンへと成長していきました。"
+   ],
+   [
+    "Our understanding of the disease has evolved a great deal.",
+    "この病気についての私たちの理解は、大きく進歩してきました。"
+   ]
+  ]
+ },
+ "exclude": {
+  "n": "「BからAを除く」は exclude A from B で表します。反対語は include で、名詞は exclusion、形容詞 exclusive は「独占的な、高級な」の意味にもなります。気持ちの面で「仲間外れにする」場合にも使え、受け身の be excluded from もよく見かけます。",
+  "x": [
+   [
+    "Children under twelve are excluded from the competition.",
+    "十二歳未満の子どもは、その大会への参加が認められていません。"
+   ],
+   [
+    "The price excludes tax and delivery charges.",
+    "この価格には、税金と配送料は含まれていません。"
+   ]
+  ]
+ },
+ "explicit": {
+  "n": "explicit は「はっきり言葉で述べている」という意味で、反対語は implicit（暗黙の）です。explicit instructions は誤解の余地がない指示のことです。また explicit content のように、性的・暴力的な表現が露骨であることも指すので、場面によって意味に注意しましょう。",
+  "x": [
+   [
+    "The contract gives explicit instructions on how to report a problem.",
+    "契約書には、問題を報告する方法がはっきりと書かれています。"
+   ],
+   [
+    "He made an explicit promise to finish the work by Friday.",
+    "彼は金曜日までに仕事を終えると、明確に約束しました。"
+   ]
+  ]
+ },
+ "expose": {
+  "n": "expose は expose A to B（AをBにさらす）の形が基本で、前置詞は to です。有害なものにさらす場合に限らず、expose children to music（子どもに音楽に触れさせる）のように経験させる意味でも使います。また、隠された不正を暴くという意味もあり、名詞は exposure です。",
+  "x": [
+   [
+    "Do not expose the medicine to direct sunlight or moisture.",
+    "その薬は、直射日光や湿気にさらさないでください。"
+   ],
+   [
+    "The newspaper exposed a corruption scandal at city hall.",
+    "その新聞は、市役所の汚職を暴きました。"
+   ]
+  ]
+ },
+ "external": {
+  "n": "external は「外部の」という意味で、反対語は internal です。external factors（外的要因）や external examiner（外部の試験官）のように、名詞の前に置いて使うのが普通です。物理的に外側にあるものにも、組織の外にあるものにも使えます。薬の説明書の for external use only は「外用のみ」の意味です。",
+  "x": [
+   [
+    "External pressure forced the company to change its policy.",
+    "外部からの圧力で、その会社は方針を変えざるを得ませんでした。"
+   ],
+   [
+    "You can connect an external hard drive to the laptop.",
+    "このノートパソコンには、外付けのハードディスクを接続できます。"
+   ]
+  ]
+ },
+ "facilitate": {
+  "n": "facilitate は「物事を進めやすくする」という意味の硬い語で、主語には人だけでなく、制度や技術などもよく来ます。facilitate A（Aを円滑にする）の形で使い、facilitate a meeting は「会議の進行役を務める」の意味になります。進行役は facilitator です。日常会話では help や make it easier のほうが自然です。",
+  "x": [
+   [
+    "The new app is designed to facilitate communication between doctors.",
+    "この新しいアプリは、医師同士の連絡をやりやすくするために作られました。"
+   ],
+   [
+    "A good teacher facilitates discussion rather than lecturing all the time.",
+    "よい教師は、ずっと講義をするのではなく、議論を促します。"
+   ]
+  ]
+ },
+ "federal": {
+  "n": "federal は、アメリカやドイツのように、州や邦が権限を持つ連邦制の国で使う形容詞です。federal government は州政府ではなく、連邦（国）の政府を指します。名詞の前に置いて使い、federal law（連邦法）、federal court（連邦裁判所）などの組み合わせがよく出てきます。",
+  "x": [
+   [
+    "Federal law overrides local rules in cases of conflict.",
+    "対立がある場合は、連邦法が地方の規則よりも優先されます。"
+   ],
+   [
+    "She works for a federal agency in Washington.",
+    "彼女はワシントンにある連邦政府の機関で働いています。"
+   ]
+  ]
+ },
+ "format": {
+  "n": "format は名詞では「形式、構成」、動詞では「書式を整える」という意味です。日本語の「フォーマットする」と同じく、format a disk（ディスクを初期化する）とも言います。in a ... format（〜の形式で）が定番の形で、アクセントは第一音節です。過去形は formatted と t を重ねます。",
+  "x": [
+   [
+    "The interview will be in a question-and-answer format.",
+    "インタビューは、質疑応答の形式で行われます。"
+   ],
+   [
+    "Please format your essay with double spacing and wide margins.",
+    "エッセイは、行間を二倍にし、余白を広くとって整えてください。"
+   ]
+  ]
+ },
+ "formula": {
+  "n": "formula は数学や化学の「式」だけでなく、成功や問題解決の「決まった方法」の意味でもよく使います。複数形は formulas と formulae のどちらもあり、一般的な文章では formulas が自然です。a formula for success のように for を使うのが基本です。粉ミルクの意味もあります。",
+  "x": [
+   [
+    "Chemists write the formula for water as H2O.",
+    "化学者は、水の化学式を H2O と書きます。"
+   ],
+   [
+    "There is no magic formula for learning a language quickly.",
+    "外国語を短期間で身につけるための魔法の方法はありません。"
+   ]
+  ]
+ },
+ "forthcoming": {
+  "n": "forthcoming には三つの使い方があります。名詞の前では「近く行われる、近刊の」、述語では「(求められたものが)出てくる、提供される」の意味で、否定文が多いです。人について be forthcoming about A と言うと「Aについて進んで話す、率直な」の意味です。文脈で意味を見分けましょう。",
+  "x": [
+   [
+    "The author will discuss her forthcoming novel at the festival.",
+    "その作家は、近く出版される小説について、フェスティバルで語ります。"
+   ],
+   [
+    "The money promised by the committee was never forthcoming.",
+    "委員会が約束した資金は、結局支払われませんでした。"
+   ]
+  ]
+ },
+ "framework": {
+  "n": "framework は、考え方や規則の土台となる「枠組み」を指します。a framework for ... や within the framework of ...（〜の枠内で）の形で使います。policy framework や legal framework のように、抽象的な意味でよく使われる一方、建物や機械の骨組みの意味もあります。プログラミングでも「フレームワーク」として使われます。",
+  "x": [
+   [
+    "The report sets out a framework for improving public health.",
+    "その報告書は、公衆衛生を改善するための枠組みを示しています。"
+   ],
+   [
+    "Teachers can adapt the framework to suit their own classes.",
+    "教師は、自分のクラスに合わせてその枠組みを調整できます。"
+   ]
+  ]
+ },
+ "gender": {
+  "n": "gender は生物学的な sex に対し、社会的・文化的な性別を表すときによく使われます。a gender-neutral term のように複合語で使うことも多く、gender gap（男女格差）や gender equality（男女平等）が頻出です。書類の性別欄では gender と sex の両方が見られます。",
+  "x": [
+   [
+    "Schools should treat students equally regardless of gender.",
+    "学校は、性別に関係なく、生徒を平等に扱うべきです。"
+   ],
+   [
+    "The survey found a clear gender gap in average salaries.",
+    "その調査では、平均給与に明らかな男女差があることが分かりました。"
+   ]
+  ]
+ },
+ "globe": {
+  "n": "globe は「地球」の意味では the globe と定冠詞を付けて使い、around the globe や across the globe は「世界中で」を表します。world よりやや文章的で、ニュースや広告でよく見かけます。「地球儀」の意味では a globe と数えられる名詞になります。形容詞は global です。",
+  "x": [
+   [
+    "Travellers from every corner of the globe visit the museum.",
+    "世界の隅々から、旅行者がその博物館を訪れます。"
+   ],
+   [
+    "She kept a small globe on her desk to plan her trips.",
+    "彼女は旅行の計画を立てるために、机の上に小さな地球儀を置いていました。"
+   ]
+  ]
+ },
+ "grant": {
+  "n": "grant は名詞では「助成金、補助金」で、返済が不要なお金を指します。動詞の grant は「与える、認める」という硬い語で、grant permission（許可を与える）や grant A B（AにBを与える）のように使います。take A for granted（Aを当然のことと思う）という決まった表現も重要です。",
+  "x": [
+   [
+    "The university received a large grant to study ocean currents.",
+    "その大学は、海流を研究するための多額の助成金を受け取りました。"
+   ],
+   [
+    "The council refused to grant permission for the new building.",
+    "市議会は、その新しい建物の建設許可を出しませんでした。"
+   ]
+  ]
+ },
+ "guarantee": {
+  "n": "guarantee は動詞でも名詞でも使い、動詞では guarantee A（Aを保証する）や guarantee that ... の形をとります。商品の保証はイギリスでは a two-year guarantee のように言い、アメリカでは warranty が一般的です。発音は「ギャランティー」に近く、アクセントは最後の音節です。つづりは u の位置に注意が必要です。",
+  "x": [
+   [
+    "No one can guarantee that the weather will stay fine all week.",
+    "天気が一週間ずっとよいままだと、誰にも保証はできません。"
+   ],
+   [
+    "The washing machine comes with a five-year guarantee.",
+    "その洗濯機には、五年間の保証が付いています。"
+   ]
+  ]
+ },
+ "hierarchy": {
+  "n": "hierarchy は、会社や社会などの「序列、階層構造」を指す名詞で、形容詞は hierarchical です。発音は「ハイアラーキー」で、最初の音節にアクセントがあり、日本語の「ヒエラルキー」とは違います。the hierarchy of needs のように、順位づけされた体系にも使えます。",
+  "x": [
+   [
+    "Everyone in the military understands the strict hierarchy of ranks.",
+    "軍隊の誰もが、階級による厳格な序列を理解しています。"
+   ],
+   [
+    "The new manager wanted to flatten the hierarchy in the office.",
+    "新しい管理職は、職場の階層を減らして、もっとフラットにしたいと考えていました。"
+   ]
+  ]
+ },
+ "ideology": {
+  "n": "ideology は、政治や社会についての体系的な考え方を指す名詞で、形容詞は ideological です。文脈によっては「偏った思想」という否定的な響きを持つこともあります。発音はふつう「アイディオロジー」で、アクセントは第三音節の -ol- に来ます。political ideology の形でよく見かけます。",
+  "x": [
+   [
+    "The party's ideology is based on individual freedom and low taxes.",
+    "その政党の理念は、個人の自由と低い税金に基づいています。"
+   ],
+   [
+    "Education should not be used to spread a particular ideology.",
+    "教育は、特定の思想を広めるために使われるべきではありません。"
+   ]
+  ]
+ },
+ "impose": {
+  "n": "税金や規則、罰など、上から押しつけるものを「BにAを課す」と言うときは impose A on B を使います。impose on A だけだと「Aに迷惑をかける、甘える」の意味です。名詞は imposition で、「課すこと」のほかに「迷惑、負担」の意味でも使います。",
+  "x": [
+   [
+    "The school imposed a strict ban on mobile phones in class.",
+    "学校は、授業中の携帯電話の使用を厳しく禁止しました。"
+   ],
+   [
+    "I did not want to impose my opinions on my friends.",
+    "私は、自分の意見を友人たちに押しつけたくありませんでした。"
+   ]
+  ]
+ },
+ "incidence": {
+  "n": "病気や犯罪などの「発生率、頻度」を表す専門的な名詞が incidence で、the incidence of A（Aの発生率）の形で使います。incident（出来事）や accident との混同に注意してください。発生した「件数」そのものではなく、割合や頻度を言います。",
+  "x": [
+   [
+    "The incidence of heart disease is higher in older men.",
+    "心臓病の発症率は、高齢の男性のほうが高くなっています。"
+   ],
+   [
+    "Researchers noted a sharp fall in the incidence of burglary.",
+    "研究者たちは、空き巣の発生率が急に下がったことに注目しました。"
+   ]
+  ]
+ },
+ "incorporate": {
+  "n": "incorporate は incorporate A into B（AをBに組み込む）の形がよく使われ、into の代わりに in も使えます。新しい要素を全体の一部として取り入れる場面向きで、include より「組み込む」意味が強いです。会社を法人化するという別の意味もあり、米国の社名の Inc. はここから来ています。",
+  "x": [
+   [
+    "The chef incorporates local herbs into every dish on the menu.",
+    "そのシェフは、メニューのどの料理にも地元のハーブを取り入れています。"
+   ],
+   [
+    "We should incorporate your suggestions into the final plan.",
+    "あなたの提案を、最終的な計画に盛り込むべきです。"
+   ]
+  ]
+ },
+ "induce": {
+  "n": "induce は「引き起こす」と「説得して〜させる」の二つの意味があります。後者は induce A to do（Aに〜する気にさせる）の形で使います。病気や状態を引き起こす場合は、stress-induced illness のように複合形容詞にもなります。名詞は二つあり、inducement は「誘因、報奨」、induction は医療で「誘発」を指し、陣痛誘発は induction of labour と言います。",
+  "x": [
+   [
+    "The doctors decided to induce labour two weeks after the due date.",
+    "医師たちは、出産予定日から二週間過ぎた時点で、陣痛を誘発することにしました。"
+   ],
+   [
+    "Nothing could induce him to change his mind.",
+    "どんなことがあっても、彼の考えを変えさせることはできませんでした。"
+   ]
+  ]
+ },
+ "inherent": {
+  "n": "inherent は「そのものに生まれつき備わっている」という意味で、inherent in A（Aに内在する）の形がよく使われます。inherent risk（本来的なリスク）や inherent weakness のように、取り除けない特性を述べます。後ろには in か to が続き、名詞を直接修飾することも多いです。",
+  "x": [
+   [
+    "Some danger is inherent in any kind of mountain climbing.",
+    "どんな登山にも、ある程度の危険が本質的に伴います。"
+   ],
+   [
+    "The inherent weakness of the plan was its high cost.",
+    "その計画の根本的な弱点は、費用の高さでした。"
+   ]
+  ]
+ },
+ "inhibit": {
+  "n": "inhibit は「抑える、妨げる」という意味の硬い語で、inhibit A（Aを妨げる）の形で使います。inhibit A from doing は「Aが〜するのを妨げる」の形です。名詞の inhibition は、人が恥ずかしさなどで自由に行動できない「抑制、ためらい」にも使います。反対の意味に近い語は encourage です。",
+  "x": [
+   [
+    "Cold weather can inhibit the growth of many garden plants.",
+    "寒い気候は、多くの庭の植物の成長を妨げることがあります。"
+   ],
+   [
+    "Shyness may inhibit children from speaking up in class.",
+    "内気な性格のせいで、子どもが授業中に発言しにくくなることがあります。"
+   ]
+  ]
+ },
+ "insert": {
+  "n": "カードを機械に入れる、文章に語句を挿入するなど、隙間や内部に入れる場面では insert A into B（AをBに差し込む）を使います。名詞のときは第一音節、動詞では第二音節にアクセントが来ます。put in よりも少し改まった響きがあります。",
+  "x": [
+   [
+    "Insert your card into the machine and enter your PIN.",
+    "カードを機械に差し込み、暗証番号を入力してください。"
+   ],
+   [
+    "The editor inserted a new paragraph near the end of the article.",
+    "編集者は、記事の終わりのほうに新しい段落を挿入しました。"
+   ]
+  ]
+ },
+ "institute": {
+  "n": "institute は研究機関や専門学校などの名前によく使われる名詞で、Massachusetts Institute of Technology のように固有名詞の一部にもなります。動詞の institute は「制度や手続きなどを設ける」の意味の硬い語です。似た institution は「機関、施設、制度」全般を指す、より広い語です。",
+  "x": [
+   [
+    "The institute publishes a report on climate change every year.",
+    "その研究所は、毎年気候変動についての報告書を発表しています。"
+   ],
+   [
+    "He studied design at a technical institute in Osaka.",
+    "彼は大阪にある専門学校でデザインを学びました。"
+   ]
+  ]
+ },
+ "integral": {
+  "n": "integral は「全体にとって欠かせない」という意味で、an integral part of A（Aに不可欠な部分）の形が定番です。essential の硬い言い方に近いですが、全体の中に組み込まれているという含みがあります。補語として integral to A の形も使え、名詞の前に置く用法も一般的です。",
+  "x": [
+   [
+    "Teamwork is an integral part of working in a hospital.",
+    "チームワークは、病院で働くうえで欠かせない要素です。"
+   ],
+   [
+    "Exercise is integral to the treatment programme.",
+    "運動は、その治療計画に不可欠なものです。"
+   ]
+  ]
+ },
+ "integrate": {
+  "n": "integrate は integrate A into B（AをBに統合する）や integrate with B の形で使い、人が社会に溶け込む意味では integrate into の形が多いです。integrated circuit（集積回路）の integrated もこの語から来ています。アクセントは第一音節で、「インテグレイト」と発音します。",
+  "x": [
+   [
+    "The school helps new students integrate into the community.",
+    "その学校は、新入生が地域に溶け込めるよう支援しています。"
+   ],
+   [
+    "The software can integrate with most email programs.",
+    "そのソフトは、ほとんどのメールソフトと連携できます。"
+   ]
+  ]
+ },
+ "interact": {
+  "n": "interact は自動詞で、interact with A（Aと交流する、相互に作用する）の形で使います。with を落として interact A とは言いません。人どうしの交流だけでなく、薬が体に作用する、機械が人と対話するといった場面でも使えます。interactive（双方向の）は、この動詞から生まれた形容詞です。",
+  "x": [
+   [
+    "Young children learn language by interacting with their parents.",
+    "幼い子どもは、親と関わりながら言葉を身につけます。"
+   ],
+   [
+    "This medicine may interact with other drugs you are taking.",
+    "この薬は、服用中の他の薬と相互作用を起こす場合があります。"
+   ]
+  ]
+ },
+ "internal": {
+  "n": "internal は「内部の」という意味の形容詞で、反対語は external です。internal affairs は「内政、内部の問題」、internal investigation は組織内の調査を指します。体の内側については internal injuries（内臓の損傷）や internal organs（内臓）のように言えます。名詞の前に置いて使うのが一般的です。",
+  "x": [
+   [
+    "The firm set up an internal review of its safety procedures.",
+    "その会社は、安全手順についての内部調査を始めました。"
+   ],
+   [
+    "Other countries should not interfere in the internal affairs of a nation.",
+    "他国は、ある国の内政に干渉すべきではありません。"
+   ]
+  ]
+ },
+ "interval": {
+  "n": "interval は、二つの出来事のあいだの時間や空間を指し、at regular intervals（一定の間隔で）の形が頻出です。イギリス英語では、劇場や映画館の休憩時間も interval と呼びます。アメリカ英語では intermission がよく使われます。アクセントは第一音節です。",
+  "x": [
+   [
+    "The nurse checked the patient's pulse at ten-minute intervals.",
+    "看護師は、十分おきに患者の脈拍を確認しました。"
+   ],
+   [
+    "There was a long interval between the two world tours.",
+    "二回のワールドツアーのあいだには、長い期間が空きました。"
+   ]
+  ]
+ },
+ "intervene": {
+  "n": "intervene は自動詞で、intervene in A（Aに介入する）の形がよく使われます。in の後ろには対立や問題が来ます。仲裁のために入る意味では intervene between A and B も使います。名詞は intervention で、軍事介入や医療的な処置を指すこともあります。アクセントは第三音節です。",
+  "x": [
+   [
+    "Teachers should intervene quickly when a student is being bullied.",
+    "生徒がいじめられているときは、教師がすぐに介入すべきです。"
+   ],
+   [
+    "The police had to intervene to stop the argument.",
+    "警察は、口論を止めるために仲裁に入らなければなりませんでした。"
+   ]
+  ]
+ },
+ "invoke": {
+  "n": "invoke は、法律や原則などを根拠として持ち出す意味の硬い語で、invoke a law（法律を引き合いに出す）のように使います。もとは神に祈るという意味で、プログラミングで関数を呼び出す意味でも使われます。記憶や感情を「呼び起こす」には evoke が普通なので、つづりの似た二語を混同しないようにしましょう。",
+  "x": [
+   [
+    "The lawyer invoked an old rule to delay the trial.",
+    "弁護士は、裁判を遅らせるために古い規則を持ち出しました。"
+   ],
+   [
+    "The government invoked emergency powers to deal with the floods.",
+    "政府は洪水に対処するため、緊急時の権限を発動しました。"
+   ]
+  ]
+ },
+ "justify": {
+  "n": "justify は「正当だと示す」という意味で、justify A（Aを正当化する）や justify doing の形をとります。The end justifies the means. は有名な表現です。名詞は justification で、「〜の理由」は justification for A と言います。文書の「両端揃え」の意味でも使われます。",
+  "x": [
+   [
+    "Nothing can justify the use of violence against children.",
+    "子どもに暴力を振るうことは、何があっても正当化できません。"
+   ],
+   [
+    "The manager had to justify the extra cost to the board.",
+    "その管理職は、追加費用が妥当であることを、役員会に説明しなければなりませんでした。"
+   ]
+  ]
+ },
+ "labour": {
+  "n": "be in labour は「陣痛中である」という意味で、go into labour は「陣痛が始まる」です。一般には「労働」「労働力」を指し、この意味では数えられない名詞です。つづりはイギリス式で、アメリカでは labor と書きます。Labour と大文字で書くとイギリスの労働党を指し、manual labour や child labour もよく使われます。",
+  "x": [
+   [
+    "Many factories moved abroad to take advantage of cheap labour.",
+    "多くの工場は、安い労働力を求めて海外に移転しました。"
+   ],
+   [
+    "Child labour is still a serious problem in some regions.",
+    "児童労働は、いくつかの地域でいまも深刻な問題です。"
+   ]
+  ]
+ },
+ "liberal": {
+  "n": "liberal は政治では「自由主義的な」、一般には「寛容な」の意味です。ただしアメリカでは、リベラルは進歩的・左派寄りの立場を指しますので、国によって含みが違います。liberal arts は「教養科目」です。a liberal amount of ... のように「たっぷりの」という意味もあります。",
+  "x": [
+   [
+    "The professor holds fairly liberal views on education.",
+    "その教授は、教育についてかなりリベラルな考え方を持っています。"
+   ],
+   [
+    "She studied liberal arts at a small college.",
+    "彼女は小さな大学で教養科目を学びました。"
+   ]
+  ]
+ },
+ "licence": {
+  "n": "licence はイギリス英語の名詞のつづりで、アメリカ英語では license と書きます。イギリスでは動詞の「許可する」は license と書き、名詞と動詞でつづりが分かれます。driving licence（運転免許証）や a licence to do ... の形で使い、「許可証」全般を表します。",
+  "x": [
+   [
+    "You need a licence to sell food at the market.",
+    "市場で食べ物を売るには、許可証が必要です。"
+   ],
+   [
+    "He lost his driving licence after being caught speeding.",
+    "彼はスピード違反で捕まり、運転免許を失いました。"
+   ]
+  ]
+ },
+ "logic": {
+  "n": "logic は「筋道だった考え方」を指す数えられない名詞で、形容詞は logical です。There is no logic in ... は「〜には筋が通らない」という意味です。論理学という学問の名前にもなります。logic と reason は近いですが、logic は考えの組み立て方を強く指します。",
+  "x": [
+   [
+    "I cannot follow the logic behind this decision.",
+    "この決定の背景にある筋道が、私には理解できません。"
+   ],
+   [
+    "Computers work by following strict logic.",
+    "コンピューターは、厳密な論理に従って動作します。"
+   ]
+  ]
+ },
+ "manipulate": {
+  "n": "manipulate には二つの使い方があります。一つは人を巧みに操るという否定的な意味、もう一つは manipulate data（データを処理する）のように、道具や情報を上手に扱う中立的な意味です。manipulative（人を操るのがうまい）は悪い響きの語なので、人を評するときは注意しましょう。",
+  "x": [
+   [
+    "He tried to manipulate his friends into lending him money.",
+    "彼は友人たちを言いくるめて、お金を貸してもらおうとしました。"
+   ],
+   [
+    "Surgeons manipulate tiny instruments during the operation.",
+    "外科医は、手術中に小さな器具を巧みに操作します。"
+   ]
+  ]
+ },
+ "margin": {
+  "n": "margin は「余白」「差」「利益率」など、使われる場面の幅が広い名詞です。by a narrow margin（僅差で）や profit margin（利益率）が頻出です。ノートの余白は in the margin と言います。margin of error（誤差の範囲）という表現は調査結果の説明でよく使います。",
+  "x": [
+   [
+    "The team won the match by a margin of two goals.",
+    "そのチームは、二点差で試合に勝ちました。"
+   ],
+   [
+    "She wrote a short comment in the margin of the page.",
+    "彼女は、ページの余白に短いコメントを書き込みました。"
+   ]
+  ]
+ },
+ "mature": {
+  "n": "mature は形容詞では「成熟した」、動詞では「成熟する」の意味です。人に対して使うと「大人びた、分別がある」という褒め言葉になり、年齢の高さを遠回しに言う場合にも使えます。mature cheese（熟成したチーズ）のように食べ物にも使います。名詞は maturity です。",
+  "x": [
+   [
+    "He is very mature for a fifteen-year-old boy.",
+    "彼は十五歳の少年にしては、とても大人びています。"
+   ],
+   [
+    "Oak trees take many years to mature.",
+    "オークの木は、成熟するまでに何年もかかります。"
+   ]
+  ]
+ },
+ "maximise": {
+  "n": "maximise はイギリス式のつづりで、アメリカ式は maximize です。maximise A（Aを最大にする）の形で、利益や効率など、増やしたいものが目的語になります。反対語は minimise です。関連語の maximum（名詞・形容詞）と動詞の maximise を取り違えないようにしましょう。",
+  "x": [
+   [
+    "The company wants to maximise profits without raising prices.",
+    "その会社は、値上げをせずに利益を最大にしたいと考えています。"
+   ],
+   [
+    "Farmers use new methods to maximise the yield of their crops.",
+    "農家は、作物の収穫量を最大にするために新しい方法を使っています。"
+   ]
+  ]
+ },
+ "military": {
+  "n": "military は「軍の、軍事的な」という意味の形容詞で、military service（兵役）や military force（軍事力）の形でよく使われます。the military と定冠詞を付けて名詞として「軍隊」を指すこともあります。army は陸軍を指す語ですが、military は全体的な軍事を表します。",
+  "x": [
+   [
+    "The country spends a large share of its budget on military equipment.",
+    "その国は、予算の多くを軍事装備に使っています。"
+   ],
+   [
+    "The military has been sent to help after the earthquake.",
+    "地震のあと、救援のために軍が派遣されました。"
+   ]
+  ]
+ },
+ "minimal": {
+  "n": "minimal は「ごくわずかな、最小限の」という意味の形容詞で、minimal effort（最小限の労力）や minimal damage のように名詞の前に置きます。minimum は名詞や形容詞で「最小値」を指し、形が似ていますが違う語です。デザインで使う「ミニマルな」はこの語から来ています。",
+  "x": [
+   [
+    "The storm caused only minimal damage to the village.",
+    "嵐が村に与えた被害は、ごくわずかでした。"
+   ],
+   [
+    "The test requires minimal preparation.",
+    "そのテストには、ほとんど準備が要りません。"
+   ]
+  ]
+ },
+ "minimise": {
+  "n": "パソコンで「ウィンドウを最小化する」は minimise the window と言います。一般には minimise A（Aを最小限に抑える）の形で、リスクや費用など、減らしたいものが目的語になります。つづりはイギリス式で、アメリカでは minimize と書きます。関連する語に minimum（最小限）や minimal があります。",
+  "x": [
+   [
+    "Wearing a helmet helps minimise the risk of head injuries.",
+    "ヘルメットをかぶると、頭のけがをする危険を最小限にできます。"
+   ],
+   [
+    "Please minimise the window if you want to see the desktop.",
+    "デスクトップを見たいときは、ウィンドウを最小化してください。"
+   ]
+  ]
+ },
+ "ministry": {
+  "n": "ministry は、イギリスなどで政府の「省」を指す名詞で、the Ministry of Defence のように固有名詞でも使います。アメリカでは、省は department と呼ぶことが多いので、国によって呼び方が違います。聖職者の務めや牧師の職を指す意味もあります。大臣は minister です。",
+  "x": [
+   [
+    "The Ministry of Finance released new figures on national debt.",
+    "財務省は、国の借金に関する新しい数字を発表しました。"
+   ],
+   [
+    "An official from the ministry visited the school last week.",
+    "先週、その省の職員が学校を訪れました。"
+   ]
+  ]
+ },
+ "minor": {
+  "n": "minor は「小さい、重要でない」という意味の形容詞で、反対語は major です。a minor injury（軽いけが）や a minor role（端役）のように、名詞の前に置いて使います。名詞では「未成年者」の意味もあり、音楽では「短調」も表します。",
+  "x": [
+   [
+    "Only minor repairs were needed after the accident.",
+    "事故のあとに必要だったのは、軽い修理だけでした。"
+   ],
+   [
+    "He plays a minor role in the film.",
+    "彼はその映画で、端役を演じています。"
+   ]
+  ]
+ },
+ "mode": {
+  "n": "mode は、物事の「方式、状態」を表す名詞です。mode of transport（交通手段）や、機械の設定を指す sleep mode（スリープモード）などで使います。日本語の「モード」のように流行の意味はあまりなく、その意味では fashion を使います。統計では最頻値を指します。",
+  "x": [
+   [
+    "Cycling is a cheap and healthy mode of travel in the city.",
+    "自転車は、都市で安くて健康的な移動手段です。"
+   ],
+   [
+    "Switch the phone to silent mode before the meeting starts.",
+    "会議が始まる前に、携帯電話をマナーモードにしてください。"
+   ]
+  ]
+ },
+ "modify": {
+  "n": "modify は「少し変えて改良する」という意味で、modify A（Aを修正する）の形で使います。名詞は modification で、遺伝子組み換えの意味では genetically modified と言います。文法では、形容詞が名詞を「修飾する」の意味でも使います。change より、小さな調整の響きがあります。",
+  "x": [
+   [
+    "The team had to modify the engine to meet the new rules.",
+    "チームは、新しい規則に合わせて、エンジンを改造しなければなりませんでした。"
+   ],
+   [
+    "You can modify these settings at any time.",
+    "これらの設定は、いつでも変更できます。"
+   ]
+  ]
+ },
+ "monitor": {
+  "n": "monitor は動詞では「継続して観察する」、名詞では「画面、監視装置」の意味です。monitor A（Aを監視する）の形で使い、時間をかけて確認し続けるという点が watch との違いです。パソコンの「モニター」も同じ名詞の monitor です。",
+  "x": [
+   [
+    "Doctors will monitor her blood pressure for the next few days.",
+    "医師たちは、今後数日間、彼女の血圧を観察します。"
+   ],
+   [
+    "The teacher monitors each student's progress every month.",
+    "教師は、毎月、一人ひとりの生徒の進み具合を確認しています。"
+   ]
+  ]
+ },
+ "motive": {
+  "n": "motive は、行動の背後にある「動機」を指し、a motive for A（Aの動機）の形で使います。for の後には名詞のほか、動名詞も来ます。犯罪の話でよく使われ、a motive for the murder のように言います。動詞の motivate や名詞の motivation（やる気）と混同しやすく、形に注意しましょう。",
+  "x": [
+   [
+    "The police could not find a clear motive for the robbery.",
+    "警察は、その強盗の明確な動機を見つけられませんでした。"
+   ],
+   [
+    "Her motive for moving abroad was to learn a new language.",
+    "彼女が海外へ引っ越した動機は、新しい言語を学ぶことでした。"
+   ]
+  ]
+ },
+ "neutral": {
+  "n": "neutral は、対立のどちらにも味方しない「中立の」という意味で、remain neutral（中立を保つ）の形がよく使われます。色や言葉が目立たない場合にも使い、neutral colours は地味な色合いのことです。電気や化学では「中性」の意味になり、carbon neutral は CO2 を実質ゼロにすることです。",
+  "x": [
+   [
+    "Switzerland stayed neutral during both world wars.",
+    "スイスは、二度の世界大戦のあいだ、中立を保ちました。"
+   ],
+   [
+    "She wore a neutral colour to the interview.",
+    "彼女は面接に、落ち着いた色の服を着ていきました。"
+   ]
+  ]
+ },
+ "norm": {
+  "n": "norm は、社会で当たり前とされる行動の「規範、標準」を指します。複数形の social norms（社会規範）がよく使われます。the norm と定冠詞を付けて「普通のこと」を表す形も便利です。形容詞は normative ですが、これはかなり硬い専門語です。",
+  "x": [
+   [
+    "In some cultures, arranged marriage is still the norm.",
+    "文化によっては、お見合い結婚がいまも普通のことです。"
+   ],
+   [
+    "Teenagers often break the social norms of their parents' generation.",
+    "十代の若者は、親の世代の社会規範を破りがちです。"
+   ]
+  ]
+ },
+ "notion": {
+  "n": "notion は「考え、概念」を表し、the notion that ... や the notion of A の形で使います。idea より少し硬く、漠然とした考えや、人が信じている説を指すことが多いです。reject the notion（その考えを退ける）のように、疑う文脈でもよく見かけます。",
+  "x": [
+   [
+    "Many people share the notion that older workers learn more slowly.",
+    "高齢の労働者は覚えが遅いという考えは、多くの人に共有されています。"
+   ],
+   [
+    "He had no notion of how difficult the journey would be.",
+    "彼は、その旅がどれほど大変かまったく分かっていませんでした。"
+   ]
+  ]
+ },
+ "occupy": {
+  "n": "occupy は、場所や時間を「占める」という意味で、be occupied with A（Aで忙しい）の形も大切です。部屋が使用中のときは occupied と表示されます。軍が土地を占領するという意味もあり、名詞は occupation で、「職業」の意味でも使います。",
+  "x": [
+   [
+    "The meeting will occupy most of the morning.",
+    "その会議は、午前中のほとんどを占めることになります。"
+   ],
+   [
+    "Enemy troops continued to occupy the city for almost three years.",
+    "敵軍は、約三年間その都市を占領し続けました。"
+   ]
+  ]
+ },
+ "offset": {
+  "n": "offset は、損失や影響を別のもので「相殺する」という意味で、offset A by B の形のほか、A is offset by B のように受け身でもよく使われます。名詞では carbon offset（カーボンオフセット）のように使います。過去形と過去分詞も同じ offset の形です。",
+  "x": [
+   [
+    "Savings on fuel will offset the higher price of the car.",
+    "燃料代の節約が、その車の高い価格を相殺してくれるでしょう。"
+   ],
+   [
+    "Many airlines let passengers offset the emissions from their flights.",
+    "多くの航空会社は、乗客が飛行による排出量を相殺できるようにしています。"
+   ]
+  ]
+ },
+ "ongoing": {
+  "n": "ongoing は「現在進行中の」という意味の形容詞で、名詞の前に置いて ongoing research（継続中の研究）のように使います。the research is ongoing と述語の位置でも使えます。まだ終わっていないことを強調し、current より、続いている点に重きがあります。",
+  "x": [
+   [
+    "The two countries are engaged in ongoing talks about trade.",
+    "両国は、貿易についての協議を続けています。"
+   ],
+   [
+    "Repairs to the road are ongoing and may take months.",
+    "道路の補修は進行中で、数か月かかるかもしれません。"
+   ]
+  ]
+ },
+ "overlap": {
+  "n": "overlap は自動詞でも他動詞でも使え、A overlaps B と A overlaps with B のどちらの形もあります。範囲や内容が部分的に重なる場面向きで、完全に同じという意味ではありません。名詞では an overlap between A and B の形が便利です。時間が重なる場合にも使い、ぴったり一致するなら coincide を使います。",
+  "x": [
+   [
+    "The two courses overlap in several important topics.",
+    "その二つの講座は、いくつかの重要な話題で内容が重なっています。"
+   ],
+   [
+    "Our working hours overlap for only two hours a day.",
+    "私たちの勤務時間が重なるのは、一日にたった二時間です。"
+   ]
+  ]
  }
 }
