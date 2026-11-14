@@ -4,10 +4,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
 <title>Admin › Thông báo | Lexkite Console</title>
-<!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+<!-- Google Fonts: Plus Jakarta Sans & monospace -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <!-- Material Symbols Outlined -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <!-- Tailwind CDN -->
@@ -78,7 +78,7 @@
             "display": ["Plus Jakarta Sans"],
             "body": ["Plus Jakarta Sans"],
             "label": ["Plus Jakarta Sans"],
-            "code-sm": ["JetBrains Mono"]
+            "code-sm": ["monospace"]
           }
         },
       },
@@ -131,7 +131,7 @@
 </head>
 <body class="bg-background text-on-surface antialiased font-body min-h-screen flex flex-col justify-between items-center selection:bg-primary-container selection:text-on-primary overflow-x-hidden">
 <!-- Mobile Viewport Container: Strictly 390px Native Phone Canvas -->
-<div class="w-full max-w-[390px] min-h-screen flex flex-col bg-background relative shadow-2xl border-x border-[#1a3036] pb-24">
+<div class="w-full max-w-[390px] min-h-screen flex flex-col bg-background relative shadow-2xl border-x border-[#1D2F33] pb-24">
 <!-- 1. Shared Component: TopAppBar -->
 <header class="bg-surface-container-low text-primary shadow-[0_1px_0_0_#1a3036] fixed top-0 left-0 right-0 max-w-[390px] mx-auto w-full z-50 flex items-center justify-between px-3 h-14 select-none">
 <button aria-label="Menu điều hướng" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-primary hover:bg-surface-container active:translate-y-px transition-transform duration-100" type="button">
@@ -164,7 +164,7 @@
 <label class="block text-[13px] text-primary font-bold mb-1.5">
             Loại thông báo
           </label>
-<div class="grid grid-cols-3 gap-1.5 p-1 bg-surface-container-lowest rounded-lg border border-[#1f3d45]">
+<div class="grid grid-cols-3 gap-1.5 p-1 bg-surface-container-lowest rounded-lg border border-[#263A3F]">
 <button class="min-h-[44px] rounded-md text-[13px] font-bold text-center transition-all bg-primary text-[#00201e] shadow-sm" id="tab-tintuc" onclick="selectType('Tin tức')" type="button">Tin tức</button>
 <button class="min-h-[44px] rounded-md text-[13px] font-semibold text-on-surface-variant hover:text-primary transition-all" id="tab-capnhat" onclick="selectType('Cập nhật')" type="button">
               Cập nhật
@@ -179,14 +179,14 @@
 <label class="block text-[13px] text-primary font-bold mb-1" for="input-title">
             Tiêu đề thông báo <span class="text-secondary">*</span>
 </label>
-<input class="w-full h-11 px-3 text-[14px] text-on-surface bg-surface-container-lowest border border-[#1f3d45] rounded-lg focus:border-primary focus:ring-1 focus:ring-primary placeholder:text-outline/70 transition-colors outline-none" id="input-title" oninput="updatePreviewTitle(this.value)" placeholder="Nhập tiêu đề ngắn gọn..." type="text" value="Thêm 50 collocation chủ đề IELTS Environment"/>
+<input class="w-full h-11 px-3 text-[14px] text-on-surface bg-surface-container-lowest border border-[#263A3F] rounded-lg focus:border-primary focus:ring-1 focus:ring-primary placeholder:text-outline/70 transition-colors outline-none" id="input-title" oninput="updatePreviewTitle(this.value)" placeholder="Nhập tiêu đề ngắn gọn..." type="text" value="Thêm 50 collocation chủ đề IELTS Environment"/>
 </div>
 <!-- Nội dung chi tiết -->
 <div>
 <label class="block text-[13px] text-primary font-bold mb-1" for="input-body">
             Nội dung chi tiết <span class="text-secondary">*</span>
 </label>
-<textarea class="w-full p-3 text-[14px] text-on-surface bg-surface-container-lowest border border-[#1f3d45] rounded-lg focus:border-primary focus:ring-1 focus:ring-primary placeholder:text-outline/70 transition-colors outline-none resize-none leading-relaxed" id="input-body" oninput="updatePreviewBody(this.value)" placeholder="Nội dung thông báo học viên..." rows="3">Bộ từ vựng và bài đọc luyện phản xạ mới đã sẵn sàng trong mục Từ vựng. Hãy mở ứng dụng ôn 10 phút hôm nay!</textarea>
+<textarea class="w-full p-3 text-[14px] text-on-surface bg-surface-container-lowest border border-[#263A3F] rounded-lg focus:border-primary focus:ring-1 focus:ring-primary placeholder:text-outline/70 transition-colors outline-none resize-none leading-relaxed" id="input-body" oninput="updatePreviewBody(this.value)" placeholder="Nội dung thông báo học viên..." rows="3">Bộ từ vựng và bài đọc luyện phản xạ mới đã sẵn sàng trong mục Từ vựng. Hãy mở ứng dụng ôn 10 phút hôm nay!</textarea>
 </div>
 <!-- Liên kết điều hướng (tuỳ chọn) -->
 <div>
@@ -195,7 +195,7 @@
           </label>
 <div class="relative flex items-center">
 <span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none text-[18px]">link</span>
-<input class="w-full h-11 pl-9 pr-3 text-[12px] font-mono text-on-surface bg-surface-container-lowest border border-[#1f3d45] rounded-lg focus:border-primary focus:ring-1 focus:ring-primary placeholder:text-outline/70 transition-colors outline-none" id="input-link" placeholder="/khoa-hoc/bai-hoc" type="text" value="/vocab/environment-collocations"/>
+<input class="w-full h-11 pl-9 pr-3 text-[12px] font-mono text-on-surface bg-surface-container-lowest border border-[#263A3F] rounded-lg focus:border-primary focus:ring-1 focus:ring-primary placeholder:text-outline/70 transition-colors outline-none" id="input-link" placeholder="/khoa-hoc/bai-hoc" type="text" value="/vocab/environment-collocations"/>
 </div>
 </div>
 <!-- Đối tượng người nhận (Audience chips) -->
@@ -205,13 +205,13 @@
           </label>
 <div class="flex flex-wrap gap-1.5">
 <button class="min-h-[44px] px-3.5 py-2 rounded-full border border-primary bg-primary/20 text-[#88f5ea] text-[13px] font-bold flex items-center gap-1.5 transition-colors" onclick="toggleChip(this)" type="button"><span class="material-symbols-outlined text-[16px]">check</span>Tất cả học viên</button>
-<button class="min-h-[44px] px-3.5 py-2 rounded-full border border-[#1f3d45] bg-surface-container-lowest text-on-surface-variant text-[13px] font-medium flex items-center gap-1.5 hover:border-primary transition-colors" onclick="toggleChip(this)" type="button">
+<button class="min-h-[44px] px-3.5 py-2 rounded-full border border-[#263A3F] bg-surface-container-lowest text-on-surface-variant text-[13px] font-medium flex items-center gap-1.5 hover:border-primary transition-colors" onclick="toggleChip(this)" type="button">
               Mới 7 ngày
             </button>
-<button class="min-h-[44px] px-3.5 py-2 rounded-full border border-[#1f3d45] bg-surface-container-lowest text-on-surface-variant text-[13px] font-medium flex items-center gap-1.5 hover:border-primary transition-colors" onclick="toggleChip(this)" type="button">
+<button class="min-h-[44px] px-3.5 py-2 rounded-full border border-[#263A3F] bg-surface-container-lowest text-on-surface-variant text-[13px] font-medium flex items-center gap-1.5 hover:border-primary transition-colors" onclick="toggleChip(this)" type="button">
               Đang học IELTS
             </button>
-<button class="min-h-[44px] px-3.5 py-2 rounded-full border border-[#1f3d45] bg-surface-container-lowest text-on-surface-variant text-[13px] font-medium flex items-center gap-1.5 hover:border-primary transition-colors" onclick="toggleChip(this)" type="button">
+<button class="min-h-[44px] px-3.5 py-2 rounded-full border border-[#263A3F] bg-surface-container-lowest text-on-surface-variant text-[13px] font-medium flex items-center gap-1.5 hover:border-primary transition-colors" onclick="toggleChip(this)" type="button">
               Đang học TOEIC
             </button>
 </div>
@@ -221,7 +221,7 @@
 <label class="block text-[13px] text-primary font-bold mb-1.5">
             Thời gian gửi
           </label>
-<div class="grid grid-cols-2 gap-2"><label class="min-h-[48px] flex items-center gap-1 px-2 py-1 bg-surface-container border border-primary/50 rounded-lg cursor-pointer transition-colors"><input checked="" class="min-w-[44px] min-h-[44px] text-primary bg-surface-container-lowest focus:ring-primary border-[#1f3d45] cursor-pointer p-2" name="send-time" style="min-width: 44px; min-height: 44px; width: 44px; height: 44px; cursor: pointer;" type="radio"/><span class="text-[13px] font-bold text-on-surface pr-2">Gửi ngay</span></label><label class="min-h-[48px] flex items-center gap-1 px-2 py-1 bg-surface-container-lowest border border-[#1f3d45] rounded-lg cursor-pointer hover:border-primary/50 transition-colors"><input class="min-w-[44px] min-h-[44px] text-primary bg-surface-container-lowest focus:ring-primary border-[#1f3d45] cursor-pointer p-2" name="send-time" style="min-width: 44px; min-height: 44px; width: 44px; height: 44px; cursor: pointer;" type="radio"/><span class="text-[13px] text-on-surface-variant pr-2">Lên lịch gửi</span></label></div>
+<div class="grid grid-cols-2 gap-2"><label class="min-h-[48px] flex items-center gap-1 px-2 py-1 bg-surface-container border border-primary/50 rounded-lg cursor-pointer transition-colors"><input checked="" class="min-w-[44px] min-h-[44px] text-primary bg-surface-container-lowest focus:ring-primary border-[#263A3F] cursor-pointer p-2" name="send-time" style="min-width: 44px; min-height: 44px; width: 44px; height: 44px; cursor: pointer;" type="radio"/><span class="text-[13px] font-bold text-on-surface pr-2">Gửi ngay</span></label><label class="min-h-[48px] flex items-center gap-1 px-2 py-1 bg-surface-container-lowest border border-[#263A3F] rounded-lg cursor-pointer hover:border-primary/50 transition-colors"><input class="min-w-[44px] min-h-[44px] text-primary bg-surface-container-lowest focus:ring-primary border-[#263A3F] cursor-pointer p-2" name="send-time" style="min-width: 44px; min-height: 44px; width: 44px; height: 44px; cursor: pointer;" type="radio"/><span class="text-[13px] text-on-surface-variant pr-2">Lên lịch gửi</span></label></div>
 </div>
 <!-- Action Buttons -->
 <div class="pt-2 flex flex-col gap-2">
@@ -237,7 +237,7 @@
 </section>
 <!-- 3. Live Preview Card (Mô phỏng dropdown chuông thông báo học viên) -->
 <section class="bg-surface-container-low rounded-xl p-4 tactile-card flex flex-col gap-2.5">
-<div class="flex items-center justify-between pb-1 border-b border-[#1f3d45]">
+<div class="flex items-center justify-between pb-1 border-b border-[#263A3F]">
 <span class="text-[13px] text-primary font-bold flex items-center gap-1.5">
 <span class="material-symbols-outlined text-primary text-[18px]">preview</span>
             Bản xem trước trong chuông app
@@ -245,20 +245,20 @@
 <span class="text-[12px] font-mono text-outline">iOS / Android</span>
 </div>
 <!-- Simulated Phone Notification Dropdown Frame -->
-<div class="bg-surface-container-lowest border border-[#1f3d45] rounded-lg p-2.5 shadow-inner">
+<div class="bg-surface-container-lowest border border-[#263A3F] rounded-lg p-2.5 shadow-inner">
 <!-- Bell Header Mock -->
-<div class="flex items-center justify-between px-2.5 py-2 border-b border-[#1f3d45] bg-[#0d1c20] rounded-t-md">
+<div class="flex items-center justify-between px-2.5 py-2 border-b border-[#263A3F] bg-[#0E191C] rounded-t-md">
 <div class="flex items-center gap-2">
 <div class="relative flex items-center">
 <span class="material-symbols-outlined text-primary text-[20px]">notifications</span>
-<span class="absolute -top-0.5 -right-0.5 w-2 h-2 bg-secondary-container rounded-full ring-1 ring-[#0d1c20]"></span>
+<span class="absolute -top-0.5 -right-0.5 w-2 h-2 bg-secondary-container rounded-full ring-1 ring-[#0E191C]"></span>
 </div>
 <span class="text-[14px] font-bold text-on-surface">Thông báo mới (1)</span>
 </div>
 <span class="text-[12px] text-primary font-bold hover:underline cursor-pointer">Xem tất cả</span>
 </div>
 <!-- Notification Item inside Bell Dropdown -->
-<div class="bg-surface-container p-3 rounded-b-md border-t border-t-[#1f3d45] flex items-start gap-2.5 relative">
+<div class="bg-surface-container p-3 rounded-b-md border-t border-t-[#263A3F] flex items-start gap-2.5 relative">
 <div class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center shrink-0 mt-0.5 border border-primary/30">
 <span class="material-symbols-outlined text-[16px]">campaign</span>
 </div>
@@ -281,7 +281,7 @@
 </section>
 <!-- 4. Bảng 'Đã gửi gần đây' (Lịch sử thông báo đã gửi) -->
 <section class="bg-surface-container-low rounded-xl p-4 tactile-card flex flex-col gap-3">
-<div class="flex items-center justify-between pb-1 border-b border-[#1f3d45]">
+<div class="flex items-center justify-between pb-1 border-b border-[#263A3F]">
 <h2 class="text-[16px] font-bold text-on-surface">
             Lịch sử thông báo đã gửi
           </h2>
@@ -289,7 +289,7 @@
 </div>
 <div class="flex flex-col gap-3">
 <!-- Item 1 -->
-<div class="p-3 bg-surface-container rounded-lg border border-[#1f3d45] flex flex-col gap-2">
+<div class="p-3 bg-surface-container rounded-lg border border-[#263A3F] flex flex-col gap-2">
 <div class="flex items-start justify-between gap-2">
 <h3 class="text-[14px] font-bold text-on-surface leading-snug">
                 Sửa lỗi phát âm bài nghe Part 1
@@ -301,11 +301,11 @@
 <span class="material-symbols-outlined text-[15px]">group</span>
 <span>Tất cả (Học viên TOEIC)</span>
 </div>
-<div class="text-[12px] font-mono font-semibold text-primary bg-surface-container-lowest px-2 py-0.5 rounded border border-[#1f3d45]">
+<div class="text-[12px] font-mono font-semibold text-primary bg-surface-container-lowest px-2 py-0.5 rounded border border-[#263A3F]">
                 34 / 78 đã đọc
               </div>
 </div>
-<div class="flex items-center justify-between pt-1 border-t border-[#1f3d45]/60">
+<div class="flex items-center justify-between pt-1 border-t border-[#263A3F]/60">
 <span class="text-[11px] text-outline">Hôm nay, 08:30</span>
 <button class="min-h-[44px] px-2 text-[#ffb4a6] text-[13px] font-bold hover:underline flex items-center gap-1 active:translate-y-px" type="button">
 <span class="material-symbols-outlined text-[15px]">undo</span>
@@ -314,23 +314,23 @@
 </div>
 </div>
 <!-- Item 2 -->
-<div class="p-3 bg-surface-container rounded-lg border border-[#1f3d45] flex flex-col gap-2">
+<div class="p-3 bg-surface-container rounded-lg border border-[#263A3F] flex flex-col gap-2">
 <div class="flex items-start justify-between gap-2">
 <h3 class="text-[14px] font-bold text-on-surface leading-snug">
                 Nhắc nhở chuỗi học tập 7 ngày
               </h3>
-<span class="px-2 py-0.5 rounded-full text-[11px] font-bold uppercase bg-[#4a1c14] text-[#ffdad3] border border-[#7a2a1a] shrink-0">Đang gửi</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold uppercase bg-[#3A1A1C] text-[#ffdad3] border border-[#92400E] shrink-0">Đang gửi</span>
 </div>
 <div class="flex items-center justify-between text-[12px] text-on-surface-variant">
 <div class="flex items-center gap-1 truncate text-outline">
 <span class="material-symbols-outlined text-[15px]">schedule</span>
 <span>Mới 7 ngày</span>
 </div>
-<div class="text-[12px] font-mono font-semibold text-primary bg-surface-container-lowest px-2 py-0.5 rounded border border-[#1f3d45]">
+<div class="text-[12px] font-mono font-semibold text-primary bg-surface-container-lowest px-2 py-0.5 rounded border border-[#263A3F]">
                 18 / 46 đã đọc
               </div>
 </div>
-<div class="flex items-center justify-between pt-1 border-t border-[#1f3d45]/60">
+<div class="flex items-center justify-between pt-1 border-t border-[#263A3F]/60">
 <span class="text-[11px] text-outline">Hôm qua, 19:15</span>
 <button class="min-h-[44px] px-2 text-[#ffb4a6] text-[13px] font-bold hover:underline flex items-center gap-1 active:translate-y-px" type="button">
 <span class="material-symbols-outlined text-[15px]">undo</span>
@@ -339,23 +339,23 @@
 </div>
 </div>
 <!-- Item 3 -->
-<div class="p-3 bg-surface-container rounded-lg border border-[#1f3d45] flex flex-col gap-2">
+<div class="p-3 bg-surface-container rounded-lg border border-[#263A3F] flex flex-col gap-2">
 <div class="flex items-start justify-between gap-2">
 <h3 class="text-[14px] font-bold text-on-surface leading-snug">
                 Khảo sát giao diện luyện từ vựng
               </h3>
-<span class="px-2 py-0.5 rounded-full text-[11px] font-bold uppercase bg-[#2b373a] text-on-surface-variant border border-[#3d4947] shrink-0">Đã kết thúc</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold uppercase bg-[#263A3F] text-on-surface-variant border border-[#33494F] shrink-0">Đã kết thúc</span>
 </div>
 <div class="flex items-center justify-between text-[12px] text-on-surface-variant">
 <div class="flex items-center gap-1 truncate text-outline">
 <span class="material-symbols-outlined text-[15px]">group</span>
 <span>Tất cả học viên</span>
 </div>
-<div class="text-[12px] font-mono font-semibold text-primary bg-surface-container-lowest px-2 py-0.5 rounded border border-[#1f3d45]">
+<div class="text-[12px] font-mono font-semibold text-primary bg-surface-container-lowest px-2 py-0.5 rounded border border-[#263A3F]">
                 52 / 112 đã đọc
               </div>
 </div>
-<div class="flex items-center justify-between pt-1 border-t border-[#1f3d45]/60">
+<div class="flex items-center justify-between pt-1 border-t border-[#263A3F]/60">
 <span class="text-[11px] text-outline">02/10/2023</span>
 <button class="min-h-[44px] px-2 text-on-surface-variant text-[13px] font-medium flex items-center gap-1 cursor-default" disabled="" type="button"><span class="material-symbols-outlined text-[15px]">inventory_2</span>Đã lưu</button>
 </div>
@@ -422,7 +422,7 @@
     function toggleChip(btn) {
       const isSelected = btn.classList.contains('border-primary');
       if (isSelected) {
-        btn.className = 'min-h-[44px] px-3.5 py-2 rounded-full border border-[#1f3d45] bg-surface-container-lowest text-on-surface-variant text-[13px] font-medium flex items-center gap-1.5 hover:border-primary transition-colors';
+        btn.className = 'min-h-[44px] px-3.5 py-2 rounded-full border border-[#263A3F] bg-surface-container-lowest text-on-surface-variant text-[13px] font-medium flex items-center gap-1.5 hover:border-primary transition-colors';
         const checkIcon = btn.querySelector('.material-symbols-outlined');
         if (checkIcon) checkIcon.remove();
       } else {
