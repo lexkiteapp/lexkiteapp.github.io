@@ -103,7 +103,7 @@ export function collect() {
     { const sp = fs.readFileSync('web/js/speaking.js', 'utf8'), i0 = sp.indexOf('const BANK = [') + 13, B = vm.runInNewContext(sp.slice(i0, sp.indexOf('\n  ];', i0) + 4), { t: v => v });
       for (const b of [...B, ...(c.SPEAK_MORE || [])]) { const t = `Now I'd like you to talk about a topic for one to two minutes. You have one minute to prepare. ${b.p2.q}`; for (const sen of c.KVoice.split(t)) addOne(GEN['en-GB'], sen, 'mock-speaking'); } }
     // Phát âm: từ + cặp tối thiểu + câu (pron.js, data-speak-text bỏ ký hiệu ngữ điệu), Nói theo mẫu (sayit.js, giọng Mỹ), nhịp câu (rhythm.js)
-    { const x = ctx(); for (const f of ['sounds', 'pairs', 'coach']) L(x, `web/js/pron/${f}.js`); L(x, 'web/cpack/pron/skills.js'); // skills.js ở cpack từ #1178
+    { const x = ctx(); for (const f of ['pairs', 'coach']) L(x, `web/js/pron/${f}.js`); L(x, 'web/cpack/pron/sounds.js'); L(x, 'web/cpack/pron/skills.js'); // sounds.js + skills.js ở cpack (#1178)
       for (const it of x.PRON || []) { for (const w of it.words || []) both(w.w, 'pron'); for (const w of (it.pairs || []).flat()) both(w, 'pron');
         for (const sn of it.sentences || []) bothSplit(String(sn).replace(/[↗↘‿]|\s\/\s/g, ' ').replace(/\s+/g, ' ').trim(), 'pron'); }
       for (const k of (x.PronPairs || {}).CONTRASTS || []) for (const p of String(k.pairs || '').split(/\s+/)) for (const w of p.split('/')) addOne(GEN['en-US'], w.split('=')[0], 'pron');
