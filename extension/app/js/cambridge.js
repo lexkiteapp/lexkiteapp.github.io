@@ -19,7 +19,18 @@
   const linkersUsed = (text, L) => (L || []).filter(w => new RegExp(`\\b${w}\\b`, 'i').test(text));
   App.cambridge = { wc, pointHits, linkersUsed, build: (T, p) => build(T, p) };
   const passage = tx => (Array.isArray(tx) ? tx : String(tx || '').split('\n')).map(p => `<p style="margin:.35rem 0;white-space:pre-wrap">${esc(p).replace(/\((\d{1,2})\)/g, '<b class="qn">$1</b>')}</p>`).join('');
-  const QTYPE = { 'mcq': 'mcq', 'mcq-picture': 'mcq', 'mcq-gap': 'mcq', 'matching': 'match', 'gap': 'form', 'open-gap': 'form', 'gapped-text': 'match', 'word-formation': 'form', 'transformation': 'form', 'sentence': 'form' };
+  const QTYPE = {
+    'gap': 'form',
+    'gapped-text': 'match',
+    'matching': 'match',
+    'mcq': 'mcq',
+    'mcq-gap': 'mcq',
+    'mcq-picture': 'mcq',
+    'open-gap': 'form',
+    'sentence': 'form',
+    'transformation': 'form',
+    'word-formation': 'form',
+  };
   // Nhóm câu theo định dạng QE (qengine.js) – chấm, đánh dấu và "xem chỗ có đáp án" dùng chung với IELTS/TOEIC/TOEFL
   const groupOf = (p, items) => {
     const type = QTYPE[p.type];
