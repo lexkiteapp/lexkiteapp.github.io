@@ -110,17 +110,18 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     // Không lẫn tiếng: giao diện tiếng Việt → tên Việt + tên Anh; ngôn ngữ khác → tên đã dịch, chưa dịch thì dùng tên tiếng Anh
     const vi = I18N.lang() === 'vi', SUB = x => vi ? x.en : (TTL(x) !== x.en ? x.en : '');
     const SUM = x => vi || t(x.summary) !== x.summary ? t(x.summary) : '';
-    const row = x => ({ id: x.id, href: '#/grammar/' + x.id, t: TTL(x), s: SUB(x), lv: x.level || '', pct: d[x.id] != null ? d[x.id] : null });
+    const nb = s => String(s).replace(/(^|[\s(,])-(?=\w)/g, '$1\u2011').replace(/ ([/·]) /g, '\u00a0$1 '); // dấu gạch đầu "-ing" + " / " + " · " không bị tách dòng (360 px)
+    const row = x => ({ id: x.id, href: '#/grammar/' + x.id, t: nb(TTL(x)), s: SUB(x), lv: x.level || '', pct: d[x.id] != null ? d[x.id] : null });
     const grp = (id, h, desc, ls, open, extra) => { const dn = ls.filter(x => d[x.id] >= 80).length; return { id, h, desc, dn, total: ls.length, pct: Math.round(dn / ls.length * 100), open, rows: ls.map(row).concat(extra || []) }; };
     const lbl = { all: t('Tất cả {n} bài', { n: all.length }), ielts: t('Trọng tâm IELTS 7.0+'), toeic: t('Bí kíp TOEIC Part 5 & 6') };
     let ch;
     if (gtab !== 'all') ch = [grp('gFocus', lbl[gtab], '', FOCUS[gtab].map(id => all.find(x => x.id === id)).filter(Boolean), true)];
-    else ch = CHAPTERS.map(c => { const ls = lessonsOf(c); return ls.length ? grp('chap' + c.n, t('Chương {n}', { n: c.n }) + ' · ' + t(c.name), t(c.desc), ls, !!(nx && nx.c === c), [{ test: true, href: '#/grammar/mix?ch=' + c.n, t: t('Kiểm tra chương'), s: t('Trộn câu hỏi của cả chương') }]) : null; }).filter(Boolean);
+    else ch = CHAPTERS.map(c => { const ls = lessonsOf(c); return ls.length ? grp('chap' + c.n, nb(t('Chương {n}', { n: c.n }) + ' · ' + t(c.name)), t(c.desc), ls, !!(nx && nx.c === c), [{ test: true, href: '#/grammar/mix?ch=' + c.n, t: t('Kiểm tra chương'), s: t('Trộn câu hỏi của cả chương') }]) : null; }).filter(Boolean);
     const card = (href, h, s) => ({ href, t: h, s });
     return {
       title: t('Ngữ pháp'), sub: t('{n} bài học trực quan', { n: all.length }), blurb: t('{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.', { n: all.length }),
       pct: all.length ? Math.round(nDone / all.length * 100) : 0, prog: t('{done}/{n} bài đã đạt', { done: nDone, n: all.length }), cta: t('Học ngay'),
-      nx: nx && { href: '#/grammar/' + nx.x.id, h: t('Bài tiếp theo') + ': ' + TTL(nx.x), sub: [d[nx.x.id] != null ? t('Làm lại cho chắc · lần trước {pct}%', { pct: d[nx.x.id] }) : '', t('Chương {n}', { n: nx.c.n }), SUM(nx.x)].filter(Boolean).join(' · ') },
+      nx: nx && { href: '#/grammar/' + nx.x.id, h: nb(t('Bài tiếp theo') + ': ' + TTL(nx.x)), sub: [d[nx.x.id] != null ? t('Làm lại cho chắc · lần trước {pct}%', { pct: d[nx.x.id] }) : '', t('Chương {n}', { n: nx.c.n }), SUM(nx.x)].filter(Boolean).join(' · ') },
       chips: ['all', 'ielts', 'toeic'].map(k => ({ k, l: lbl[k], on: gtab === k })),
       ch: ch.length ? ch : [{ empty: true, h: t('Đang cập nhật bài học…') }],
       cards: [card('#/grammar/mix', t('Đề tổng hợp {n} câu', { n: 20 }), t('Trộn câu hỏi từ các bài đã học (hoặc mọi bài)')), card('#/grammar/mix?n=40', t('Đề tổng hợp {n} câu', { n: 40 }), t('Ôn toàn bộ chương trình – như bài thi cuối khóa')),
