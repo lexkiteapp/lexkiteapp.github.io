@@ -147,7 +147,7 @@
   function mount(el, who, o = {}) {
     who = g.Chars ? g.Chars.id(who) : who;
     const stats = {
-      frames: 0, long: 0, draws: 0, low: 0, fit: 0, ready: false, shape: 'X', open: 0, mode: 'idle', pose: null, emo: 'neutral', calm: reduced(),
+      frames: 0, long: 0, draws: 0, low: 0, fit: 0, rs: 0, ready: false, shape: 'X', open: 0, mode: 'idle', pose: null, emo: 'neutral', calm: reduced(),
     };
     const ac = audioCtx(); let tok = 0, endPrev = null, node = null, mode = 'idle', M = null, cv = null, ctx = null, head = null, raf = 0, dead = false, paused = false, lastK = '', prev = 0, dpr = Math.min(2, g.devicePixelRatio || 1), ro = null;
     const poses = {}, scaled = {}, pend = {}; // poses[name]: 1 đang tải · Image · 2 lỗi · scaled[name]: bản thu sẵn về cỡ canvas (vẽ 1:1, không lấy mẫu lại ảnh 1108 px mỗi khung)
@@ -156,7 +156,7 @@
     if (!D.getElementById('trig-css')) D.head.insertAdjacentHTML('beforeend', '<style id="trig-css">:where(.trig){position:relative}:where(.trig>canvas){display:block;width:100%;height:auto;aspect-ratio:1108/960;pointer-events:none}</style>');
     const shrink = im => { const c = D.createElement('canvas'); c.width = cv.width; c.height = cv.height; const x = c.getContext('2d'); x.imageSmoothingQuality = 'high'; x.drawImage(im, 0, 0, c.width, c.height); return c; };
     // offsetWidth (cỡ bố cục, KHÔNG tính transform): getBoundingClientRect đổi theo hoạt cảnh phóng to người đang nói → đổi cỡ canvas + thu lại đầu và mọi tư thế mỗi nhịp
-    const fit = () => { const w = Math.max(el.clientWidth || 240, (cv.offsetWidth || 0)), W = Math.round(Math.min(1108, w * dpr)); if (cv.width !== W) { cv.width = W; cv.height = Math.round(W * 960 / 1108); headC = shrink(head); for (const k in scaled) scaled[k] = shrink(poses[k]); lastK = lastT = ''; } };
+    const fit = () => { const w = Math.max(el.clientWidth || 240, (cv.offsetWidth || 0)), W = Math.round(Math.min(1108, w * dpr)); if (cv.width !== W) { stats.rs++; cv.width = W; cv.height = Math.round(W * 960 / 1108); headC = shrink(head); for (const k in scaled) scaled[k] = shrink(poses[k]); lastK = lastT = ''; } };
     // thu nhỏ KHÔNG chặn luồng chính (createImageBitmap resize, ngoài luồng vẽ) – bản canvas đồng bộ chỉ là dự phòng
     const shrinkAsync = im => (g.createImageBitmap ? g.createImageBitmap(im, { resizeWidth: cv.width, resizeHeight: cv.height, resizeQuality: 'high' }).catch(() => shrink(im)) : Promise.resolve(shrink(im)));
     const loadPose = name => {
@@ -170,6 +170,7 @@
       const ex = R.eyes.flatMap(e => [e.c[0] - e.rx - 24, e.c[0] + e.rx + 24]), by = R.brows.flatMap(b => [b.i[1], b.p[1], b.o[1]]);
       return [[Math.min(...ex), Math.min(...by) - 48, Math.max(...ex), Math.max(...R.eyes.map(e => e.c[1] + e.ry + 16))], [R.mouth[0] - 100, R.mouth[1] - 60, R.mouth[0] + 100, R.mouth[1] + 80]];
     };
+    (g.__lkRigs || (g.__lkRigs = [])).push({ who, stats }); // sổ đo cho cổng CI (story-stage in chi phí từng rig); destroy() gỡ
     const prof = stats.prof = { n: 0, js: 0, paint: 0, full: 0, part: 0, skip: 0 };
     const paint = (T, f, P, pi) => {
       ctx.setTransform(T[0], T[1], T[2], T[3], T[4], T[5]);
@@ -277,7 +278,7 @@
       gesture(name) { const G = GESTURES[name]; return ready.then(() => (G && G.kind === 'pose' ? loadPose(poseOf(G, g.Chars && g.Chars.has ? p => g.Chars.has(who, p) : null)) : null)).then(() => !dead && M.gesture(name, performance.now() / 1000)); }, // ảnh tư thế tải XONG mới mờ chéo (không bật hình)
       listen(on) { return ready.then(() => { M.setEmotion(on ? 'listen' : 'neutral'); }); },
       state: () => (M ? M.last() : null),
-      destroy() { dead = true; tok++; if (endPrev) endPrev(); cancelAnimationFrame(raf); if (ro) ro.disconnect(); if (cv) cv.remove(); if (!o.bare) el.classList.remove('trig'); },
+      destroy() { dead = true; if (g.__lkRigs) g.__lkRigs = g.__lkRigs.filter(r => r.stats !== stats); tok++; if (endPrev) endPrev(); cancelAnimationFrame(raf); if (ro) ro.disconnect(); if (cv) cv.remove(); if (!o.bare) el.classList.remove('trig'); },
     };
     ready.catch(() => { stats.failed = true; if (o.onFail) { if (!dead) o.onFail(); return; } if (!dead && g.Chars) el.insertAdjacentHTML('beforeend', g.Chars.slot ? g.Chars.slot(who, { size: 'xl', cls: 'trig-poster', ground: false }) : ''); }); // thiếu tài sản → ảnh 2D tĩnh qua chỗ giáo viên chung (Chars.slot), không bao giờ trống
     return api;
