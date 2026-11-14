@@ -186,7 +186,7 @@
          "addClass": {
           ":scope": "min-h-[48px] py-1",
           ":scope > span:nth-child(1)": "min-w-0 flex-1 [overflow-wrap:anywhere]",
-          ":scope > span:nth-child(2)": "shrink-0",
+          ":scope > span:nth-child(2)": "shrink-0 font-bold dk:!text-[#EAF2F2] lt:!text-[#0F3D3E]",
           ":scope > span:nth-child(3)": "shrink-0"
          }
         },
@@ -210,7 +210,7 @@
          "addClass": {
           ":scope": "min-h-[48px] py-1",
           ":scope > span:nth-child(1)": "min-w-0 flex-1 [overflow-wrap:anywhere]",
-          ":scope > span:nth-child(2)": "shrink-0",
+          ":scope > span:nth-child(2)": "shrink-0 font-bold dk:!text-[#EAF2F2] lt:!text-[#0F3D3E]",
           ":scope > span:nth-child(3)": "shrink-0"
          }
         },
@@ -233,7 +233,7 @@
          "addClass": {
           ":scope": "min-h-[48px] py-1",
           ":scope > span:nth-child(1)": "min-w-0 flex-1 [overflow-wrap:anywhere]",
-          ":scope > span:nth-child(2)": "shrink-0"
+          ":scope > span:nth-child(2)": "shrink-0 font-bold dk:!text-[#EAF2F2] lt:!text-[#0F3D3E]"
          }
         },
         "test": {
