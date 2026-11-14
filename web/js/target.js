@@ -43,6 +43,7 @@
     return cur();
   }
   const table = tl => TABLE[tl] || TABLE.en;
+  const homeOf = tl => table(tl).home || ''; // trang chủ riêng của ngôn ngữ đích ('' = dùng Hôm nay chung)
   const isEn = accent => !accent || /^en(-|$)/i.test(String(accent));
   // accent dùng cho thẻ của ngôn ngữ đích hiện tại: 'en' → đúng accent tiếng Anh trong Cài đặt (như cũ)
   const accent = (enAccent, tl) => table(tl || cur()).speech || enAccent;
@@ -64,5 +65,5 @@
   const chip = (tl, tinh) => { tl = tl || cur(); if (tl === 'en' || !TABLE[tl]) return ''; const r = TABLE[tl], tt = esc(typeof g.t === 'function' ? g.t('Ngôn ngữ đang học') : 'Ngôn ngữ đang học');
     const el = tinh ? 'span' : 'a', h = tinh ? '' : ' href="#/settings"';
     return `<${el} class="chip tl-chip"${h} data-tl="${tl}" aria-label="${tt}: ${esc(r.name)}"><span aria-hidden="true">${r.em}</span> <span translate="no" lang="${tl}">${esc(r.name)}</span></${el}>`; };
-  g.Target = { chip, LANGS, TABLE, enabled, avail, speechLangs, cur, set, table, isEn, accent, speechLang, recLang, tlOfAccent, prefixFor, kokoroVoice, wordVoice, teacherVoice, ofCard };
+  g.Target = { homeOf, chip, LANGS, TABLE, enabled, avail, speechLangs, cur, set, table, isEn, accent, speechLang, recLang, tlOfAccent, prefixFor, kokoroVoice, wordVoice, teacherVoice, ofCard };
 })(typeof self !== 'undefined' ? self : this);
