@@ -77,7 +77,10 @@
   ":scope > div > main > section:nth-child(1) > div:nth-child(3) > div:nth-child(3)": "flex-wrap",
   ":scope > div > main > section:nth-child(6) > button:nth-child(1)": "min-h-[44px] min-w-0",
   ":scope > div > main > section:nth-child(6) > button:nth-child(2)": "min-h-[44px] min-w-0",
-  ":scope > div > main > section:nth-child(4)": "dayv2-steps"
+  ":scope > div > main > section:nth-child(4)": "dayv2-steps",
+  ":scope > div > header > div:nth-child(2)": "min-w-0 flex-1 px-2",
+  ":scope > div > header > div:nth-child(2) > span:nth-child(2)": "max-w-full truncate",
+  ":scope > div > header > div:nth-child(3)": "shrink-0 whitespace-nowrap"
  },
  "after": {
   ":scope > div > main > div:nth-child(3)": "d.extra",

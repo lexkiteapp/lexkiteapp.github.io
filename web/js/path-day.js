@@ -223,6 +223,8 @@
     const st = plan(d), okN = st.filter(s => s.ok).length, nx = st.find(s => !s.ok), stage = d.unit.stage, nextDay = ds[d.n], pct = Math.round(okN / st.length * 100), n = App.streak ? App.streak() : 0;
     const cnt = t('{a}/{b} hoạt động', { a: okN, b: st.length }), more = nextDay && nextDay.status !== 'locked';
     const chev = UI.icon('chevron-right', 'i-dir');
+    const IC = { review: 'repeat', learn: 'brain', match: 'zap', mcq: 'puzzle', listen: 'headphones', cloze: 'pen-line', test: 'flag', gl: 'book-a', pr: 'mic' };
+    const stepIco = s => { const g = IC[s.k] ? UI.icon(IC[s.k]) : UI.glyph(s.em); return g.startsWith('<svg') ? g : UI.icon('sparkles'); }; // luôn icon Lucide (emoji lạ như 😁 bị cắt trong vòng tròn 40 px)
     const cta = nx ? { t: (okN ? t('Tiếp tục Ngày {n}', { n: d.n }) : t('Bắt đầu Ngày {n}', { n: d.n })) + ': ' + nx.name, href: nx.href, k: nx.k }
       : { t: more ? t('Học tiếp Ngày {n}', { n: d.n + 1 }) : t('Lộ trình từ vựng'), href: more ? '#/day/' + (d.n + 1) : '#/path', k: null };
     const done = !nx ? `<div role="status" class="mt-3 rounded-[0.75rem] border p-4 text-center font-bold lt:bg-[#ffffff] lt:border-[#e8e4da] dk:bg-[#162528] dk:border-[#213438]"><span aria-hidden="true">${UI.icon('party-popper')}</span> ${t('Hoàn thành Ngày {n}!', { n: d.n })}</div>${nextDay ? '' : nextBox(d.tr)}` : '';
@@ -232,7 +234,7 @@
       n: String(d.n), chip: `${d.tr.name} · ${stage.name}${stage.band === '' ? '' : ' · CEFR ' + stage.cefr}`, h1: `${t('Ngày {n}', { n: d.n })}: ${d.unit.topic.name}`,
       words: t('{n} từ mới', { n: d.topic.words.length }), dur: t('≈ {m} phút', { m: minsOf(st) }),
       pt: `${cnt} (${pct}%)`, cnt: `${okN}/${st.length}`, pct, okN, total: st.length, cta, extra: done,
-      steps: st.map((s, i) => ({ v: s.ok ? 'done' : s === nx ? 'next' : 'todo', k: s.k, href: s.href, t: `${i + 1}. ${s.name}`, s: s.sub || '', m: t('{m} phút', { m: s.mins }), tag: s.ok ? t('Đã xong') : t('Tiếp theo'), ico: UI.glyph(s.em), go: chev })),
+      steps: st.map((s, i) => ({ v: s.ok ? 'done' : s === nx ? 'next' : 'todo', k: s.k, href: s.href, t: `${i + 1}. ${s.name}`, s: s.sub || '', m: t('{m} phút', { m: s.mins }), tag: s.ok ? t('Đã xong') : t('Tiếp theo'), ico: stepIco(s), go: chev })),
       lv: `<div class="lv-slot" hidden data-lv="${esc(JSON.stringify({ mode: 'day', seed: d.n, words: d.topic.words.map(w => String(w.word || '').toLowerCase()).slice(0, 12), level: stage.cefr || '' }))}"></div>`,
       h: { path: '#/path', words: '#/topic/' + encodeURIComponent(d.unit.topic.id) } }, null);
     root.classList.add('day-v2');
