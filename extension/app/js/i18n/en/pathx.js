@@ -38,6 +38,7 @@ D.en = Object.assign(D.en || {}, {
 "Tiến độ trong ngày": "Today's progress",
 "Các hoạt động của ngày": "Today's activities",
 "Cô Ama": "Ms Ama",
+"+{n} XP": "+{n} XP",
 "≈ {m} phút": "≈ {m} min",
 "Bắt đầu Ngày {n}": "Start Day {n}",
 "Tiếp tục Ngày {n}": "Continue Day {n}",

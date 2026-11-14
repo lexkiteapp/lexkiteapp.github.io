@@ -1,5 +1,6 @@
 /* UI ja – pathx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {
+"+{n} XP":"+{n} XP",
 "+{xp} XP hôm nay":"今日 +{xp} XP",
 "Bài mới đã mở: {name}":"新しいレッスンが解放されました：{name}",
 "Bài ngữ pháp hôm nay":"今日の文法",

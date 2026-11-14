@@ -1,5 +1,6 @@
 /* UI ru – pathx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ru"] = Object.assign(D["ru"] || {}, {
+"+{n} XP":"+{n} XP",
 "+{xp} XP hôm nay":"+{xp} XP сегодня",
 "Bài mới đã mở: {name}":"Открыт новый урок: {name}",
 "Bài ngữ pháp hôm nay":"Грамматика дня",

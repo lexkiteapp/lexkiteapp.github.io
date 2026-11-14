@@ -1,5 +1,6 @@
 /* UI ar – pathx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {
+"+{n} XP":"+{n} XP",
 "+{xp} XP hôm nay":"+{xp} XP اليوم",
 "Bài mới đã mở: {name}":"تم فتح درس جديد: {name}",
 "Bài ngữ pháp hôm nay":"قواعد اليوم",

@@ -1,5 +1,6 @@
 /* UI ko – pathx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ko"] = Object.assign(D["ko"] || {}, {
+"+{n} XP":"+{n} XP",
 "+{xp} XP hôm nay":"오늘 +{xp} XP",
 "Bài mới đã mở: {name}":"새 레슨이 열렸어요: {name}",
 "Bài ngữ pháp hôm nay":"오늘의 문법",

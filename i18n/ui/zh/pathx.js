@@ -1,5 +1,6 @@
 /* UI zh – pathx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["zh"] = Object.assign(D["zh"] || {}, {
+"+{n} XP":"+{n} XP",
 "+{xp} XP hôm nay":"今天 +{xp} XP",
 "Bài mới đã mở: {name}":"新课程已解锁：{name}",
 "Bài ngữ pháp hôm nay":"今日语法",

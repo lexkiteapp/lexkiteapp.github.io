@@ -1,5 +1,6 @@
 /* UI hi – pathx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["hi"] = Object.assign(D["hi"] || {}, {
+"+{n} XP":"+{n} XP",
 "+{xp} XP hôm nay":"आज +{xp} XP",
 "Bài mới đã mở: {name}":"नया पाठ खुल गया: {name}",
 "Bài ngữ pháp hôm nay":"आज का व्याकरण",
