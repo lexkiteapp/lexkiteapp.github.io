@@ -8,7 +8,7 @@
 "AI đang đọc bài (10–30 giây)…":"KI liest Ihre Antwort (10–30 Sekunden)…",
 "Bài mức trung bình":"Antwort auf mittlerem Niveau",
 "Bài quá ngắn để AI nhận xét (cần ≥ 30 từ)":"Zu kurz für KI-Feedback (mindestens 30 Wörter erforderlich)",
-"Bài thi ngắn hơn (khoảng 1,5 giờ làm bài); Reading và Listening <b>thích ứng</b>: độ khó thay đổi theo câu trả lời của bạn.":"Der Test ist kürzer (etwa 1,5 Stunden Prüfungszeit), und Reading und Listening sind <b>adaptiv</b>: Die Schwierigkeit ändert sich je nach deinen Antworten.",
+"Bài thi ngắn hơn (khoảng 1,5 giờ làm bài); Reading và Listening <b>thích ứng</b>: độ khó thay đổi theo câu trả lời của bạn.":"Der Test ist kürzer (etwa 1,5 Stunden Prüfungszeit), und Reading und Listening sind <b>adaptiv</b>: Die Schwierigkeit ändert sich je nach Ihren Antworten.",
 "Bấm Nghe để phát bài (giọng đọc máy). Ở bài thi thật, bạn chỉ được nghe 1 lần.":"Drücken Sie „Anhören“, um den Ton (synthetisierte Stimmen) abzuspielen. Im realen Test hört man es nur einmal.",
 "Bấm cụm từ để đưa vào câu, bấm lại để bỏ ra; kéo để chèn vào giữa hoặc đổi chỗ.":"Tippe auf eine Wortgruppe, um sie in den Satz zu setzen, und erneut, um sie zu entfernen; zieh sie, um sie einzufügen oder die Reihenfolge zu ändern.",
 "Bấm cụm từ để đưa vào câu; bấm lại để bỏ ra.":"Tippen Sie auf eine Wortgruppe, um sie dem Satz hinzuzufügen. Tippen Sie erneut darauf, um es zu entfernen.",

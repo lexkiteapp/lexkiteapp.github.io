@@ -7,7 +7,7 @@
 "Nghe ví dụ":"Beispiel anhören",
 "Sắc thái nghĩa":"Bedeutungsnuance",
 "Thêm vào ôn tập":"Zur Wiederholung",
-"Vì sao lựa chọn của bạn sai":"Warum deine Wahl falsch ist",
+"Vì sao lựa chọn của bạn sai":"Warum Ihre Wahl falsch ist",
 "Ví dụ thêm":"Weitere Beispiele",
 "Xem giải thích chi tiết":"Ausführliche Erklärung",
 });

@@ -69,7 +69,7 @@
 "Răng trên chạm môi dưới, rung cổ “vvv” – không tròn môi.":"Setzen Sie die oberen Zähne auf Ihre Unterlippe und summen Sie „vvv“ – keine Lippenrundung.",
 "Răng trên chạm nhẹ môi dưới, thổi hơi và rung cổ – môi không khép lại.":"Obere Zähne leicht auf der Unterlippe, drücken Sie mit eingeschalteter Stimme die Luft heraus – Ihre Lippen schließen sich nicht.",
 "Rất giống giọng mẫu – nhịp tự nhiên!":"Ganz nah am Vorbild – natürlicher Rhythmus!",
-"Rất tốt – bạn bắt kịp cả đoạn!":"Großartig – du hast die ganze Passage mitverfolgt!",
+"Rất tốt – bạn bắt kịp cả đoạn!":"Großartig – Sie haben die ganze Passage mitverfolgt!",
 "Shadowing":"Shadowing",
 "Thiết bị này chưa hỗ trợ nhận dạng giọng nói – hãy luyện phần nghe phân biệt bên dưới.":"Dieses Gerät unterstützt noch keine Spracherkennung – üben Sie stattdessen die folgende Hörübung.",
 "Thè đầu lưỡi giữa hai hàm răng, thổi hơi và rung cổ (đặt tay lên cổ để cảm nhận).":"Stecken Sie Ihre Zungenspitze zwischen Ihre Zähne, drücken Sie die Luft heraus und nutzen Sie Ihre Stimme (berühren Sie Ihren Hals, um das Summen zu spüren).",
