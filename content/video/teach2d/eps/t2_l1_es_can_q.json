@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_can_q",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Can needs no do!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Do you can swim?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you swim?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Can already makes the question.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Drive! Can she drive?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Do you can swim?",
+  "right": "Can you swim?",
+  "strike": "Do",
+  "why": "Can already makes the question.",
+  "memory": "Can you…?",
+  "quiz": {
+   "stem": "Can she ___?",
+   "options": [
+    "drives",
+    "drive"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Do you can”? Sobra el “do”",
+   "tip": "“Can” ya forma la pregunta solo: “Can you swim?”, sin “do”.",
+   "caption": "¿Mezclas “do” y “can”? 🏊 No digas “Do you can swim?”, sino “Can you swim?”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “drive”. Tras “can”, el verbo va sin “s”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#verbosmodales",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Do you can”? You do not need “do”",
+   "tip": "“Can” makes the question by itself: “Can you swim?”, without “do”.",
+   "caption": "Mixing “do” and “can”? Do not say “Do you can swim?”, say “Can you swim?”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Do you can”? Sobra el “do”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "¿“Do you can”? Sobra el “do”",
+  "keyword": "Can you swim?",
+  "value": "“Can” ya forma la pregunta solo: “Can you swim?”, sin “do”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#verbosmodales",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Do you can”? Sobra el “do”",
+    "description": "¿Mezclas “do” y “can”? 🏊 No digas “Do you can swim?”, sino “Can you swim?”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #verbosmodales #lexkite",
+    "tags": [
+     "Can you swim?",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Mezclas “do” y “can”? 🏊 No digas “Do you can swim?”, sino “Can you swim?”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿Mezclas “do” y “can”? 🏊 No digas “Do you can swim?”, sino “Can you swim?”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#verbosmodales",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Do you can”? Sobra el “do” #aprenderingles #inglesfacil #verbosmodales"
+   }
+  },
+  "first_comment": "Respuesta: “drive”. Tras “can”, el verbo va sin “s”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

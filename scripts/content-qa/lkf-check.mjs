@@ -95,7 +95,7 @@ const RULES = {
   'ielts-listening': it => ({ 1: 'L.B1.03', 2: 'L.B1p.04', 3: 'L.B2.06', 4: ['L.B2.05', 'L.B2p.03'] })[it.part],
   'toeic-reading': it => ({ 5: 'R.B1.09', 6: 'R.B1p.05', 7: ['R.B1.04', 'R.B1p.06'] })[it.part],
   'toeic-listening': it => ({ 1: 'L.B1.11', 2: 'L.B1.12', 3: 'L.B1.09', 4: 'L.B1p.05' })[it.part],
-  'toeic-sw': it => ({ read: 'S.B1.11', respond: 'I.B1.08', info: 'I.B1p.05', opinion: 'S.B1.04', request: 'W.B1.09', essay: 'W.B1p.03', picture: 'S.A2.05', sentence: 'W.A2.02' })[it.task],
+  'toeic-sw': it => ({ read: 'S.B1.11', respond: 'I.B1.08', info: 'I.B1p.05', opinion: 'S.B1.04', request: 'W.B1.09', essay: 'W.B1p.03', picture: 'S.A2.05', sentence: 'W.A2.02', 'picture-sentence': 'W.A2.02' })[it.task],
   toefl: it => ({ cw: 'R.B1p.02', daily: 'R.B1.05', academic: 'R.B2.05', response: 'L.B1.12', conversation: 'L.B1.09', announcement: 'L.B1p.05', talk: 'L.B2.05',
     sentence: 'W.B1.01', email: 'W.B1.05', discussion: 'W.B1p.03', repeat: 'S.B1.12', interview: 'I.B1.08' })[it.task],
   'writing-model': it => ({ 1: 'W.B2.06', 2: 'W.B2.05', gt: 'W.B2.02' })[it.task],

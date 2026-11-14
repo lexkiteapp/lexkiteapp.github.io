@@ -22,7 +22,7 @@ const tk = str => {
   return { k: unesc(m[1]), v };
 };
 const round = n => Math.round(n * 1e9) / 1e9;
-const FILES = ['web/js/lexis.js', 'web/js/qengine.js', 'web/js/qtips.js', 'web/cpack/write/task2-more.js', 'web/js/write.js', 'web/js/write/task1-more.js', 'web/js/write/task1-more2.js', 'web/js/task1.js', 'web/js/criteria.js'];
+const FILES = ['web/js/lexis.js', 'web/js/qengine.js', 'web/js/qtips.js', 'web/cpack/write/task2-more.js', 'web/js/write.js', 'web/cpack/write/task1-more.js', 'web/js/write/task1-more2.js', 'web/js/task1.js', 'web/js/criteria.js'];
 const NOW = Date.UTC(2026, 0, 5, 9, 0, 0);
 
 /** the web page env with a t() that keeps keys, toast + reward recorders */

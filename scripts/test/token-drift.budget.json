@@ -18,10 +18,10 @@
   "font": 5
  },
  "web/css/lazy-ui.css": {
-  "color": 49,
-  "space": 165,
-  "radius": 43,
-  "font": 57
+  "color": 62,
+  "space": 170,
+  "radius": 46,
+  "font": 58
  },
  "web/css/league.css": {
   "color": 0,
@@ -36,10 +36,10 @@
   "font": 25
  },
  "web/css/style.css": {
-  "color": 165,
-  "space": 460,
-  "radius": 107,
-  "font": 164
+  "color": 152,
+  "space": 455,
+  "radius": 104,
+  "font": 163
  },
  "web/css/tactile-x.css": {
   "color": 0,

@@ -87,6 +87,11 @@ function score(refFile, ourBuf) { const r = gray(toPng(refFile)), o = gray(ourBu
 
 // ---- vẽ app ----
 const browser = await chromium.launch(), res = {}, errs = [];
+// Ảnh trạng thái Lộ trình (điều phối duyệt trước khi gộp): mở rộng + tấm chi tiết. Lái bằng thao tác thật; không tới được trạng thái = ĐỎ.
+const shotPath = async (page, scheme) => { const R = ':is(.v2-today, .v2-today-desk) ', px = R + '[data-act="pathx"]', full = async n => { const h = await page.evaluate(() => Math.max(document.documentElement.scrollHeight, 844)); await page.setViewportSize({ width: W, height: Math.min(2600, Math.ceil(h)) }); await page.waitForTimeout(300); fs.writeFileSync(path.join(OUT, `app-${n}-${scheme}.png`), await page.screenshot()); await page.setViewportSize({ width: W, height: 844 }); };
+  const sheet = async (sel, n) => { const b = await page.$(R + sel); if (!b) { errs.push(`${n}: không có nút ${sel}`); return; } await b.click(); if (!(await page.waitForSelector('#modalBox [data-act="pgo"]', { timeout: 6000 }).catch(() => null))) { errs.push(`${n}: tấm chi tiết không mở`); return; } await page.waitForTimeout(400); fs.writeFileSync(path.join(OUT, `app-${n}-${scheme}.png`), await page.screenshot()); await page.evaluate(() => UI.closeModal()); await page.waitForTimeout(200); };
+  await page.evaluate(() => scrollTo(0, 0)); await sheet('[data-pr]:has([data-cur]) button[aria-haspopup="dialog"]', 'path-sheet-cur'); await sheet('[data-pv] [data-pr]:last-child button[aria-haspopup="dialog"]', 'path-sheet-lock');
+  await page.click(px); await page.waitForTimeout(500); if (await page.getAttribute(px, 'aria-expanded') !== 'true') errs.push('path-open: không mở rộng được'); await full('path-open'); await page.click(px); await page.waitForTimeout(200); };
 for (const scheme of ['dark', 'light']) {
   const ctx = await browser.newContext({ viewport: { width: W, height: 844 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true, colorScheme: scheme, serviceWorkers: 'block' });
   await ctx.route('**/*', r => { const u = new URL(r.request().url()); if (u.hostname !== 'lk.test') return r.abort(); let p = decodeURIComponent(u.pathname); if (p.startsWith('/api/')) return r.fulfill({ status: 200, body: '{}', contentType: 'application/json' }); if (p.endsWith('/')) p += 'index.html'; const f = path.join(ROOT, p); if (!fs.existsSync(f) || fs.statSync(f).isDirectory()) return r.fulfill({ status: 404, body: '' }); r.fulfill({ status: 200, body: fs.readFileSync(f), contentType: MIME[path.extname(f)] || 'application/octet-stream' }); });
@@ -107,6 +112,7 @@ for (const scheme of ['dark', 'light']) {
     const fullH = await page.evaluate(() => { if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); const v = document.getElementById('view'); return Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0); });
     await page.setViewportSize({ width: W, height: Math.min(2600, Math.max(844, Math.ceil(fullH))) }); await page.waitForTimeout(300);
     const buf = await page.screenshot(); await auditContrast(page, buf, `${k}-${scheme}-390`); ph[`${k}-${scheme}`] = await page.evaluate(PHSCAN).catch(() => []); await page.setViewportSize({ width: W, height: 844 }); fs.writeFileSync(path.join(OUT, `app-${k}-${scheme}.png`), buf);
+    if (k === 'home') await shotPath(page, scheme); // Lộ trình: thêm ảnh mở rộng + tấm chi tiết (nút đang học, nút khoá)
     await page.addScriptTag({ path: AXE }).catch(() => {});
     a11y[`${k}-${scheme}`] = await page.evaluate(async () => { if (!window.axe || !document.querySelector('.st')) return { skipped: true };
       const r = await axe.run({ include: [...document.querySelectorAll('.st')] }, { runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] } });

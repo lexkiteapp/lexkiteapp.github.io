@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_agree",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Agree is a verb!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Agree is a verb. Do not add am.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Agrees! She agrees with me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am agree with you.",
+  "right": "I agree with you.",
+  "strike": "am",
+  "why": "Agree is a verb. Do not add am.",
+  "memory": "I agree. No am.",
+  "quiz": {
+   "stem": "She ___ with me.",
+   "options": [
+    "is agree",
+    "agrees"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« D'accord » ≠ “I am agree”",
+   "tip": "En français : « je suis d'accord ». En anglais, “agree” est un verbe : “I agree”.",
+   "caption": "Tu dis “I am agree with you.” ? Pas de “am” ! Dis “I agree with you.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
+   "comment": "Réponse : “agrees”. “Agree” est un verbe, pas besoin de “be”. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“I am agree”: no “am”!",
+   "tip": "French says « je suis d'accord ». In English, “agree” is a verb: “I agree”.",
+   "caption": "Do you say “I am agree with you.”? No “am”! Say “I agree with you.”. Listen to Ama and repeat with her! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« D'accord » ≠ “I am agree”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "« D'accord » ≠ “I am agree”",
+  "keyword": "I agree with you.",
+  "value": "En français : « je suis d'accord ». En anglais, “agree” est un verbe : “I agree”.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "« D'accord » ≠ “I am agree”",
+    "description": "Tu dis “I am agree with you.” ? Pas de “am” ! Dis “I agree with you.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I agree with you.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Tu dis “I am agree with you.” ? Pas de “am” ! Dis “I agree with you.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Tu dis “I am agree with you.” ? Pas de “am” ! Dis “I agree with you.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« D'accord » ≠ “I am agree” #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “agrees”. “Agree” est un verbe, pas besoin de “be”. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

@@ -9,12 +9,13 @@ import fs from 'node:fs'; import path from 'node:path';
 import { chromium } from 'playwright';
 import { noProd } from './lib/no-prod.mjs';
 import { serve, scan } from './ux-guard-lib.mjs';
+import { pathGeom } from './lib/path-geom.mjs';
 const args = process.argv.slice(2), flags = args.filter(a => a.startsWith('--')), pos = args.filter((a, i) => !a.startsWith('--') && !(args[i - 1] || '').startsWith('--part'));
 const [ROOT = 'web', OUT = 'out/ux1-guard'] = pos, SHOTS = flags.includes('--shots');
 const part = (args[args.indexOf('--part') + 1] || '0/1').split('/').map(Number);
 fs.mkdirSync(OUT, { recursive: true });
 const ROUTES = ['review', 'train', 'league', 'me', 'goal', 'streak', 'stats', 'mistakes', 'grammar'];
-const ALL = [[360, 'light', 'en'], [360, 'dark', 'vi'], [390, 'dark', 'en'], [390, 'light', 'ar'], [412, 'light', 'de'], [412, 'dark', 'ru'], [1366, 'light', 'en'], [1366, 'dark', 'ar'], [1920, 'dark', 'vi'], [1920, 'light', 'en']];
+const ALL = [[360, 'light', 'en'], [360, 'dark', 'vi'], [360, 'light', 'de'], [390, 'dark', 'en'], [390, 'light', 'ar'], [412, 'light', 'de'], [412, 'dark', 'ru'], [1366, 'light', 'en'], [1366, 'dark', 'ar'], [1920, 'dark', 'vi'], [1920, 'light', 'en'], [375, 'light', 'en'], [375, 'dark', 'en'], [375, 'light', 'ar']]; // 375 chỉ chạy tới phần hình học lộ trình (gác bố cục lộ trình, xem path-geom.mjs)
 const CONFIGS = ALL.filter((c, i) => i % part[1] === part[0]);
 const OPT = { roots: ['#view', '#ux1Rail', '#nav', '#bnav', '#lsnFoot'], layers: true, cover: true };
 const browser = await chromium.launch();
@@ -69,10 +70,12 @@ async function run(width, scheme, lang) {
   await go('home?pick=1'); await check('goal-pick');
   await click('.ux1-pk-tg .chip'); await page.waitForTimeout(1600); await check('home-map');
   await page.evaluate(() => localStorage.setItem('lk.lsn.path', '4')); await go('home'); await page.reload({ waitUntil: 'load' }); await page.waitForTimeout(1800); // cùng URL → goto không vẽ lại
-  { const c = await page.evaluate(() => { const b = document.querySelector(':is(.v2-today, .v2-today-desk) [data-act="pathx"]'); if (!b) return null; const pv = document.querySelector(':is(.v2-today, .v2-today-desk) [data-pv]'); return { exp: b.getAttribute('aria-expanded'), n: pv ? pv.querySelectorAll('[data-pn]').length : 0, full: !!document.querySelector(':is(.v2-today, .v2-today-desk) [data-pathfull] [data-st]') }; });
-    if (c && !(c.exp === 'false' && c.n >= 5 && c.n <= 7 && !c.full)) errs.push(`${tag}: khối Your path thu gọn phải đủ 5–7 nút, aria-expanded=false, chưa vẽ lộ trình đầy đủ (${JSON.stringify(c)})`); } // điện thoại + máy tính: gác trạng thái thu gọn
-  await page.evaluate(() => { const b = document.querySelector(':is(.v2-today, .v2-today-desk) [data-act="pathx"][aria-expanded="false"]'); if (b) b.click(); }); await page.waitForTimeout(300); // điện thoại: khối Your path thu gọn 5–7 nút → mở lộ trình đầy đủ tại chỗ rồi mới kiểm nút đã xong
-  if (!await page.evaluate(() => !!document.querySelector('.ux1-n.done, .v2 [data-st="done"]'))) errs.push(`${tag}: bản đồ n4 không có nút đã xong`);
+  { const c = await page.evaluate(() => { const b = document.querySelector(':is(.v2-today, .v2-today-desk) [data-act="pathx"]'); if (!b) return null; const pv = document.querySelector(':is(.v2-today, .v2-today-desk) [data-pv]'); return { exp: b.getAttribute('aria-expanded'), n: pv ? pv.querySelectorAll('[data-pr]').length : 0, heads: pv ? pv.querySelectorAll('[role="progressbar"]').length : 0 }; });
+    if (c && !(c.exp === 'false' && c.n >= 5 && c.n <= 6 && c.heads === 1)) errs.push(`${tag}: khối Your path thu gọn phải là đúng chặng hiện tại, 5–6 nút, aria-expanded=false (${JSON.stringify(c)})`); } // điện thoại + máy tính: gác trạng thái thu gọn
+  await page.evaluate(() => { const b = document.querySelector(':is(.v2-today, .v2-today-desk) [data-act="pathx"][aria-expanded="false"]'); if (b) b.click(); }); await page.waitForTimeout(300); // điện thoại: khối Your path thu gọn → mở lộ trình đầy đủ tại chỗ rồi mới kiểm nút đã xong
+  if (!await page.evaluate(() => !!document.querySelector('.ux1-n.done, .v2 [data-pr] button polyline'))) errs.push(`${tag}: bản đồ n4 không có nút đã xong`);
+  { const g = await page.evaluate(pathGeom).catch(e => [`pathGeom ${e.message}`]); if (g.length) errs.push(`${tag}: hình học lộ trình (đường liền, giáo viên trong thẻ, nút cách chữ ≥ 12 px, thanh tab): ${g.slice(0, 8).join(' | ')}`); // thay phép đo nút↔chữ cũ (left-[120px]): cột chữ mới = [data-ptx]/[data-pcard], đo theo chiều chữ nên đúng cả RTL
+    if (width === 375) { await ctx.close(); return; } }
   await check('home-map-n4');
   for (const r of ROUTES) { await go(r); await check(r); }
 
@@ -128,6 +131,6 @@ await browser.close();
 fs.writeFileSync(path.join(OUT, 'report.json'), JSON.stringify({ found, errs, seen }, null, 1));
 for (const [k, v] of Object.entries(found)) { console.log(`\n✗ ${k}: ${v.length}`); for (const x of v.slice(0, 60)) console.log('  ' + x); }
 console.log(`\nđã quét ${seen.length} màn; lỗi JS/kịch bản:`, errs.length, JSON.stringify(errs.slice(0, 20)));
-if (seen.length < CONFIGS.length * 20) { console.log('✗ quá ít màn được quét – kịch bản hỏng'); process.exit(1); }
+if (seen.length < CONFIGS.filter(c => c[0] !== 375).length * 20) { console.log('✗ quá ít màn được quét – kịch bản hỏng'); process.exit(1); }
 if (Object.keys(found).length || errs.length) process.exit(1);
 console.log(`✓ ux1-guard: ${seen.length} màn × ${CONFIGS.length} cấu hình – không chồng lấn, không cắt, không tràn chữ, không lặp IPA/loa, không nút bị che`);

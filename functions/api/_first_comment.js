@@ -16,6 +16,15 @@ export const CLIP_RE = /^[a-z0-9][a-z0-9_-]{2,119}$/;
 export const LANDING_LANGS = ['en', 'vi', 'es', 'pt', 'fr', 'de', 'id', 'ja', 'ko', 'zh', 'ar', 'hi', 'ru', 'th', 'tr'];
 export const FC_DEFAULT = { on: true, per_ch_day: 6, max_tries: 3 }; // ≤ 6 bình luận/kênh/ngày (bằng số bài), ≤ 3 lần thử/bài
 
+/** Ngôn ngữ của clip: hậu tố id (…-<hex6>-<lang>) → 'vi'|'es'|…; không có/không hỗ trợ → 'en'. */
+export const clipLang = (id, fallback = 'en') => { const m = /-([a-z]{2})$/.exec(String(id || '')); return m && LANDING_LANGS.includes(m[1]) ? m[1] : (LANDING_LANGS.includes(fallback) ? fallback : 'en'); };
+/** Gắn UTM vào link lexkite.com (giữ #fragment, không ghi đè utm_* đã có). Link ngoài lexkite.com → giữ nguyên. */
+export function withUtm(url, utm) {
+  const u = String(url || ''), i = u.indexOf('#'), base = i < 0 ? u : u.slice(0, i), frag = i < 0 ? '' : u.slice(i);
+  if (!/^https:\/\/lexkite\.com(\/|$|\?)/.test(base)) return u;
+  const add = Object.entries(utm).filter(([k, v]) => v && !new RegExp('[?&]' + k + '=').test(base)).map(([k, v]) => k + '=' + encodeURIComponent(v)).join('&');
+  return add ? base + (base.includes('?') ? '&' : '?') + add + frag : u;
+}
 /** Link đếm click (functions/api/go/[[path]].js đếm rồi 302 kèm UTM). Ngắn, cùng tên miền lexkite.com (không rút gọn bên thứ ba). */
 export const goUrl = (platform, clip) => `${SITE}/api/go/${FC_CODE[platform]}/${encodeURIComponent(clip)}`;
 export const bioUrl = (platform, lang = 'en') => `${SITE}/api/go/${FC_CODE[platform]}/bio${lang && lang !== 'en' && LANDING_LANGS.includes(lang) ? '?l=' + lang : ''}`;
@@ -75,7 +84,7 @@ export function parseGo(pathname, search = '') {
  *  slug có trang /video/<slug>/ → trang đó; không → /app/. Bio → landing nhẹ /<lang>/ (en: /en/). */
 export function goTarget({ plat, clip, lang = 'en' }, slug = '') {
   const base = clip ? (slug && /^[a-z0-9-]{1,120}$/.test(slug) ? `${SITE}/video/${slug}/` : `${SITE}/app/`) : `${SITE}/${LANDING_LANGS.includes(lang) ? lang : 'en'}/`;
-  return `${base}?utm_source=${plat}&utm_medium=social&utm_campaign=${encodeURIComponent(clip || 'bio')}&utm_content=${clip ? 'first_comment' : 'bio'}`;
+  return `${base}?utm_source=${plat}&utm_medium=social&utm_campaign=${encodeURIComponent(clip || 'bio')}&utm_content=${clip ? 'first_comment' : 'bio'}&utm_term=${clip ? clipLang(clip) : (LANDING_LANGS.includes(lang) ? lang : 'en')}`;
 }
 /** Khóa đếm ext_events (theo ngày): tổng theo nền tảng + loại · theo clip (chỉ bình luận). */
 export const clickKeys = ({ plat, clip }) => (clip ? [`soc:${plat}:fc`, `socc:${plat}:${clip}`] : [`soc:${plat}:bio`]);

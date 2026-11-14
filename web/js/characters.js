@@ -3,7 +3,7 @@
 (function (g) {
   const NAME = { ama: 'Ama', carlos: 'Carlos' }, POSES = ['talk', 'listen', 'explain', 'happy', 'encourage', 'thinking', 'laugh', 'wave', 'cheer', 'concern', 'surprise', 'point', 'empathy'];
   const PENDING = {}; // clip đang tạo → tạm dùng 'talk' cùng người (không bao giờ đổi kiểu/nhân vật)
-  const STILLS = { ama: ['thumbs_up', 'clap'], carlos: ['thumbs_up', 'hold_card'] }; // tư thế CHỈ có ảnh (gesture bank ảnh chuẩn 05/11, scripts/teach/still_img.py) = characters.json people.<who>.stills
+  const STILLS = { ama: ['thumbs_up', 'clap', 'hold_card', 'count'], carlos: ['thumbs_up', 'hold_card', 'clap', 'count'] }; // tư thế CHỈ có ảnh (gesture bank ảnh chuẩn 05/11, scripts/teach/still_img.py) = characters.json people.<who>.stills
   const VOICE = { ama: 'af_heart', carlos: 'am_michael' }; // = characters.json people.<who>.voice.app (cổng characters-gate kiểm khớp) – giáo viên hiện trên màn nói bằng ĐÚNG giọng này
   const id = w => (NAME[w] ? w : 'ama'), f = (w, x) => 'teach/' + id(w) + '/' + x, ok = (w, p) => POSES.includes(p) && !(PENDING[id(w)] || []).includes(p) ? p : 'talk';
   g.Chars = Object.assign(g.Chars || {}, { // nạp lại (gói lười 'pas' có characters.js) KHÔNG xóa phần mở rộng đã gắn (Chars.slot – teacher-slot.js)

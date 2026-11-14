@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_fr_pass",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Spend your holiday!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will pass my holidays in Spain.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will spend my holidays in Spain.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For time, use spend.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Spend! I spend my weekend at home.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will pass my holidays in Spain.",
+  "right": "I will spend my holidays in Spain.",
+  "strike": "pass",
+  "why": "For time, use spend.",
+  "memory": "Time: spend it.",
+  "quiz": {
+   "stem": "I ___ my weekend at home.",
+   "options": [
+    "pass",
+    "spend"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "« Passer » ≠ “pass”",
+   "tip": "« Passer ses vacances » se dit “spend”. “Pass” veut dire donner ou réussir.",
+   "caption": "Tu dis “I will pass my holidays in Spain.” ? Faux ami ! Dis “I will spend my holidays in Spain.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
+   "comment": "Réponse : “spend”. Pour du temps, on dit “spend”. Teste d'autres pièges avec un quiz gratuit : {link}",
+   "hashtags": [
+    "#apprendrelanglais",
+    "#anglaisfacile",
+    "#coursdanglais",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Passer” is not “pass”!",
+   "tip": "« Passer ses vacances » is “spend”. “Pass” means hand over or succeed.",
+   "caption": "Do you say “I will pass my holidays in Spain.”? False friend! Say “I will spend my holidays in Spain.”. Listen to Carlos and repeat with him! More exercises in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "« Passer » ≠ “pass”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "fr",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "« Passer » ≠ “pass”",
+  "keyword": "I will spend my holidays in Spain.",
+  "value": "« Passer ses vacances » se dit “spend”. “Pass” veut dire donner ou réussir.",
+  "hashtags": [
+   "#apprendrelanglais",
+   "#anglaisfacile",
+   "#coursdanglais",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "« Passer » ≠ “pass”",
+    "description": "Tu dis “I will pass my holidays in Spain.” ? Faux ami ! Dis “I will spend my holidays in Spain.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
+    "tags": [
+     "I will spend my holidays in Spain.",
+     "learn english",
+     "fr"
+    ]
+   },
+   "facebook": {
+    "text": "Tu dis “I will pass my holidays in Spain.” ? Faux ami ! Dis “I will spend my holidays in Spain.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Tu dis “I will pass my holidays in Spain.” ? Faux ami ! Dis “I will spend my holidays in Spain.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#apprendrelanglais",
+     "#anglaisfacile",
+     "#coursdanglais",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "« Passer » ≠ “pass” #apprendrelanglais #anglaisfacile #coursdanglais"
+   }
+  },
+  "first_comment": "Réponse : “spend”. Pour du temps, on dit “spend”. Teste d'autres pièges avec un quiz gratuit : {link}",
+  "lang": "fr"
+ }
+}

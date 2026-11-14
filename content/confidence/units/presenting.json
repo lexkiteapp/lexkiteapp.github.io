@@ -176,6 +176,10 @@
           [
             "talking about|divided into|parts|today|first",
             "Sounds good."
+          ],
+          [
+            "welcome|everyone|introduc\\w*|slides?|begin",
+            "Welcome. We're listening."
           ]
         ]
       },
@@ -186,6 +190,10 @@
           [
             "key point|remember|main|save|most important thing",
             "Interesting."
+          ],
+          [
+            "goal|purpose|idea|help|faster|easier|improve|team",
+            "That sounds useful."
           ]
         ]
       },
@@ -196,6 +204,10 @@
           [
             "find out|good question|numbers|check|get back",
             "Thanks, please send it to me."
+          ],
+          [
+            "dollars?|cheap|free|around|expensive|euros?|thousand|hundred",
+            "Good to know."
           ]
         ]
       },
@@ -206,6 +218,10 @@
           [
             "thank|listening|that's all|questions",
             "Thank you. Great talk!"
+          ],
+          [
+            "report|slides?|summary|email|handout|follow-?up",
+            "Thanks, we'll look at it."
           ]
         ]
       }

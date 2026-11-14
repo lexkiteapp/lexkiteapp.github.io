@@ -154,7 +154,7 @@
     const pill = (v, l, col) => `<div class="rev-pill"><b${col ? ` style="color:var(${col})"` : ''}>${v}</b><span class="tiny muted">${l}</span></div>`;
     view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate rev-done">
       <div class="em kit-cele" aria-hidden="true">${window.Kit ? Kit.svg(mood, 120) : (nothing ? '🎉' : '🏆')}</div>
-      <h2>${nothing ? t('Hôm nay bạn đã ôn hết!') : t('Hoàn thành {n} lượt ôn!', { n: session.done })}</h2>
+      <h2>${nothing ? (Object.keys(state.cards).length ? t('Hôm nay bạn đã ôn hết!') : t('Chưa có flashcard nào')) : t('Hoàn thành {n} lượt ôn!', { n: session.done })}</h2>
       ${nothing ? '' : `<div class="rev-stats" role="group" aria-label="${t('Kết quả phiên ôn')}">
         ${pill('+' + session.xp, 'XP', '--gold')}${pill(acc + '%', t('Nhớ ngay'), '--good-text')}${pill('🔥 ' + streak, t('Chuỗi ngày'))}${pill('⏱ ' + t('{m} phút', { m: Math.max(1, Math.round((Date.now() - (session.t0 || Date.now())) / 6e4)) }), t('Thời gian'))}
       </div>
@@ -395,7 +395,7 @@
   // ⚡ Ghép thẻ & 🎙️ Phát âm: study-games.js (tải lười)
   let games = null;
   const lazyGame = k => (...a) => { const h = location.hash; return App.lazy('pgames').then(() => { if (location.hash !== h || !window.StudyGames) return; games = games || StudyGames({ accent, emptySource, haptic, head, mean, norm, picOk, pool, practiceDone, runQuiz, srcName }); games[k](...a); }).catch(() => toast(t('Không tải được – thử lại sau'))); };
-  const runMatch = lazyGame('runMatch'), runSpeak = lazyGame('runSpeak'), runBlitz = lazyGame('runBlitz');
+  const runMatch = lazyGame('runMatch'), runSpeak = lazyGame('runSpeak'), runBlitz = lazyGame('runBlitz'), runRhythm = lazyGame('runRhythm');
 
   // ================= TRUNG TÂM LUYỆN TẬP =================
   const MODES = {
@@ -405,6 +405,7 @@
     listen: { em: '🎧', get name() { return t('Nghe & chép'); }, run: src => runQuiz(src, 'listen') },
     test: { em: '📝', get name() { return t('Bài kiểm tra'); }, run: src => runQuiz(src, 'test') },
     blitz: { em: '⏱️', get name() { return t('Thử thách 60 giây'); }, run: runBlitz },
+    rhythm: { em: '🥁', get name() { return t('Nhịp điệu'); }, run: runRhythm },
     match: { em: '⚡', get name() { return t('Ghép thẻ'); }, run: runMatch },
     speak: { em: '🎙️', get name() { return t('Luyện phát âm'); }, run: runSpeak },
     esp: { em: '🇪🇸', get name() { return t('Luyện phát âm'); }, run: (src, q) => App.need('espr').then(() => App.espron && App.espron(q.get('tp'), q.get('m'))) }, // phát âm TBN W3 (js/cpack/es-app/pron-ui.js; danh sách chủ đề khi không có m)

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_adj_order",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Color words go first, no s!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have two cats blacks.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have two black cats.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put the color word before the thing.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Blue dress! She has a blue dress.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have two cats blacks.",
+  "right": "I have two black cats.",
+  "strike": "blacks",
+  "why": "Put the color word before the thing.",
+  "memory": "Black cats.",
+  "quiz": {
+   "stem": "She has a ___.",
+   "options": [
+    "dress blue",
+    "blue dress"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Cats blacks”? Al revés",
+   "tip": "En inglés el adjetivo va antes del sustantivo y nunca lleva “s”.",
+   "caption": "En español decimos “gatos negros”, ¡pero en inglés va al revés! 🐱 No “I have two cats blacks.”, sino “I have two black cats.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “blue dress”. Adjetivo + sustantivo, sin plural. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Cats blacks”? It goes the other way",
+   "tip": "In English the adjective comes before the noun and never takes “s”.",
+   "caption": "In Spanish we say “gatos negros”, but English goes the other way! Not “I have two cats blacks.”, but “I have two black cats.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Cats blacks”? Al revés"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "¿“Cats blacks”? Al revés",
+  "keyword": "I have two black cats.",
+  "value": "En inglés el adjetivo va antes del sustantivo y nunca lleva “s”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Cats blacks”? Al revés",
+    "description": "En español decimos “gatos negros”, ¡pero en inglés va al revés! 🐱 No “I have two cats blacks.”, sino “I have two black cats.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "I have two black cats.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "En español decimos “gatos negros”, ¡pero en inglés va al revés! 🐱 No “I have two cats blacks.”, sino “I have two black cats.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "En español decimos “gatos negros”, ¡pero en inglés va al revés! 🐱 No “I have two cats blacks.”, sino “I have two black cats.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Cats blacks”? Al revés #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “blue dress”. Adjetivo + sustantivo, sin plural. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

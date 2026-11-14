@@ -1,0 +1,15 @@
+{
+ "id": "cf-mcq-2026-11-12-s0",
+ "source": "content-factory",
+ "kind": "mcq",
+ "n": 15,
+ "checked": [
+  {
+   "id": "pronouns-a1#0",
+   "ok": false,
+   "note": "q3: ambiguous correct answer (both “My” and “Your” are grammatically possible)",
+   "by": "openai/gpt-oss-120b"
+  }
+ ],
+ "status": "rejected"
+}

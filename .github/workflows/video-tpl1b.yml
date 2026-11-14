@@ -58,7 +58,7 @@ jobs:
   render:
     needs: plan
     if: needs.plan.outputs.n != '0' && needs.plan.outputs.n != ''
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 120
     strategy:
       fail-fast: false

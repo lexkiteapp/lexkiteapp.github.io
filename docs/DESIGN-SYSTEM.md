@@ -14,9 +14,9 @@ Sources: colour tokens in `brand/tokens.json` (generated into `web/css/style.css
 | Shape · depth · type | `web/css/tactile.css :root` (`--r-card --r-pill2 --r-tile --lip-h --press --hi --elev-card --elev-sheet --cta-grad --font-display --track`) | all |
 | Core components (app shell) | `web/css/tactile.css`: `.tk-card` `.tk-tile` `.tk-btn`(`.wide`; = `.btn.primary` in app) `.tk-chip`(`.gold .ok .bad`) `.tk-bar`(`style="--seg:n"` = segmented) `.tk-display` `.tk-num` | app now; add-on/web/embeds next |
 | Extra components (lazy) | `web/css/tactile-x.css`: `.tk-opts/.tk-opt`(A–D, `aria-pressed`) `.tk-sheet`(`.ok .bad`) `.tk-teacher`(img + name + small) – app loads with lesson/goal via `BCSS` | same |
-- No hex in `tactile*.css` (brand-check). Light = B "Bright Day" (warm paper `--bg`, white cards, `--heading` deep teal), dark = A "Tactile Night" (values: §2a); Settings › theme Auto/Light/Dark. Hosts supply colour vars; fonts: Bricolage Grotesque 700/800 `display=optional` (has Vietnamese; Figtree has none).
+- No hex in `tactile*.css` (brand-check). Light = B "Bright Day" (warm paper `--bg`, white cards, `--heading` deep teal), dark = A "Tactile Night" (values: §2a); Settings › theme Auto/Light/Dark. Hosts supply colour vars; fonts: see §2b (one family; Bricolage only on not-yet-ported screens).
 - Style options from the owner = change `tactile.css :root` + tokens only.
-- `--font-display` only for headings/numbers (`.tk-display`, `.tk-num`); buttons and form controls keep the page font (Font audit gate).
+- `--font-display` (legacy, §2b) only for headings/numbers (`.tk-display`, `.tk-num`); buttons and form controls keep the page font (Font audit gate).
 - Characters: in the app ONLY the 2D green-screen Ama/Carlos set (`teach/<w>/poster.webp`, clips via `LessonTeacher.mount`), never mixed with 3D; one source `App.teacherImg(w)` in `ux1.js`.
 - Motion: only subtle 150–200 ms fades; no bounce, pulse, glow, shake or confetti.
 
@@ -41,11 +41,18 @@ Sources: colour tokens in `brand/tokens.json` (generated into `web/css/style.css
 | Spacing | `--sp-1..6` = 4 / 8 / 12 / 16 / 24 / 32 px | gaps, padding. Card 24 (phones 16), button 10×16, small 6×12, large 14×24 |
 | Radius | `--r-xs` 8 · `--r-sm` 12 · `--r-md` 14 · `--r-lg` 18 (= `--radius`) · `--r-xl` 24 · `--r-pill` | chips 8, buttons 12, large 14, cards 18, sheets 24 |
 | Type | `--fs-xs` .75 · `--fs-sm` .875 · `--fs-base` 1 · `--fs-md` 1.0625 · `--fs-lg` 1.3125 · `--fs-xl` 1.75 · `--fs-2xl` 2.25 rem | h3 = md, h2 = lg, h1 = xl (phones 1.45). Body 15.5 px / 1.6 |
-| Font | Be Vietnam Pro 400–800 (already loaded, metric-matched fallback) | no new web font. Weights: 400 body, 600 nav, 700 buttons and h2/h3, 800 h1 and brand |
+| Font | see §2b | no new web font. Weights: 400 body, 600 nav, 700 buttons and h2/h3, 800 h1 and brand |
 | Elevation | `--elev-1` rest (card) · `--elev-2` hover/raised · `--elev-3` modal/sheet | dark mode has its own, stronger shadow values |
 | Icon size | 16 (pills, small) · 18 (icon buttons, search) · 20 `--ic` (sidebar) · 24 (bottom nav) | stroke 2 (nav 1.9 → 2.2 when active) |
 
 Colour: only the brand palette and semantic tokens (`--primary*` = CTA, `--accent*`, `--done/--done-ink/--on-done` = progress, done nodes, earned badges, `--good/again/gold*`, `--surface*`, `--text`, `--muted`, `--line`, `--line-2`). Never write a new hex value outside `docs/BRAND-RULES.md`. The streak flame uses #F2553B and #FFB054; the XP star uses `--gold`.
+
+## 2b. Type system + Stitch design system (ONE, 13/11)
+- Source: `brand/tokens.json` → `typography`. **Plus Jakarta Sans 400–800** (variable, self-hosted `web/fonts/pjs-{latin,latin-ext,vietnamese}.woff2`, metric-matched fallback) for body AND headings/numbers (weight 800); icons Material Symbols Rounded/Outlined; ar/hi/ja/ko/ru/th/zh use system or Noto Sans fallbacks, never a Stitch pick. Why: every Stitch export and the whole `st-*.css` port already use it, it covers Vietnamese, and one variable file per subset is lighter than Be Vietnam Pro's 5 weights. No new web font.
+- Legacy until `ux1` is the default, then delete: Be Vietnam Pro (`style.css`) and Bricolage Grotesque (`tactile.css --font-display`). Do not add either to new screens.
+- Stitch: ONE design system **"Lexkite Design System (brand/tokens.json)", id `6304905654321795514`**, built from `brand/stitch/DESIGN.md` (generated: `node scripts/build-stitch-design-md.mjs`, colours = roles, type = above, shape/spacing = `tokens.dtcg.json`). Applied to the 7 active projects (ES, Games, Exam Prep, Admin, Mediate, Native M2, Landing v3) with `update_design_system`.
+- RULE: every new Stitch project applies design system `6304905654321795514` at creation (`update_design_system`, name `assets/6304905654321795514`); never pick fonts or colours in Stitch.
+- Gates: `scripts/test/stitch-theme-lint.mjs` (DESIGN.md in sync; new `brand/stitch/**` exports fail on a font family or `-[#HEX]` class outside the tokens; old files listed in `brand/stitch/lint-legacy.txt`, which may only shrink) + `stitch-sync-palette --check`.
 
 ## 2a. Colour tokens: ONE palette for web, add-on, Stitch screens, iOS, Android (5/11)
 - **Source:** `brand/tokens.json` only (`light`/`dark` = web vars, `roles` = Material-3 roles shared by Stitch `--st-*`, SwiftUI `LKColor`, Compose). `node scripts/build-tokens.mjs` writes `style.css`, every `st-*.css` (vars + neutral `lt:`/`dk:` classes snapped to roles by `scripts/lib/st-theme-snap.mjs`), `brand/stitch/tokens.dtcg.json` (→ `scripts/native/gen.mjs` → `Tokens.swift`/`Tokens.kt`), Capacitor window/WebView background and the table below. `--check` runs in `brand-check`; `scripts/test/token-contrast.mjs` (npm test) checks every text/surface pair in both themes. The Stitch v2 exports (`brand/stitch/v2/*.html` + `bind/`) use the same roles via `node scripts/stitch-sync-palette.mjs` (same `pick()`; `--check` in npm test), so stitch-render references and the app share one scale.
@@ -183,7 +190,7 @@ If a Lottie is added later: lazy-load it with `App.need`, keep it out of the `SH
 
 ## 5b. Tactile (Google Stitch "Lexkite English Exam Prep", owner-approved 28/10; source out/stitch/v1)
 - Colors only from `brand/tokens.json`: CTA gradient `--cta-1`→`--cta-2`, text `--cta-ink`, lip `--cta-lip`; floating tiles get a bottom ledge `--ledge`; stars/XP graphics `--sun` (text uses `--gold-text`). Contrast is checked in brand-check.
-- Shape/type/components: §0. Body text stays Be Vietnam Pro.
+- Shape/type/components: §0. Body text: §2b.
 - Screens: home path (`ux1.js` map: unit card + step/XP-to-checkpoint, S-trail, real stars from `lk.ux1.st`, START pill, milestone, sticky Continue CTA), lesson (`lesson/ui.js`: 720 px focus, segmented bar, question counter, prompt card, audio row, A–D options, full-width Check, feedback sheet with chips + teacher card + gold-bank booster), readiness (`goal.js`: estimate vs target, readiness bar, skill tiles, picked drill, mock schedule; empty state without real scores).
 - Owner overrides: no hearts/lives, 5 tabs, 3D Ama/Carlos only, UK/US IPA via `UI.pronHtml`, light + dark from tokens. QA: one `.lsn-foot`, answers disabled after Check, `dir=ltr` on +XP/% values.
 - Bundle CSS outside the shell: `BCSS` in `app.js` (`exam.css`, `adm.css`, `league.css`, `tactile-x.css`).
@@ -192,7 +199,7 @@ If a Lottie is added later: lazy-load it with `App.need`, keep it out of the `SH
 The 4 core screens (Learn path, Lesson drill, Feedback sheet, Exam readiness) use **Google Stitch's exported DOM + Tailwind classes verbatim** – no reinterpretation.
 - Templates: `web/js/st/{common,home,lesson,goal}.js` (only these are Tailwind content; write classes literally). Data + `t()` replace static text; 2D teachers only; no hearts/gems; motion = 150–200 ms fades, reduced-motion respected.
 - Tokens: `brand/stitch/tokens.dtcg.json` (W3C DTCG; `$value` = dark A, `$extensions.com.lexkite.mode.light` = light B, text roles darkened for WCAG 2.2 AA). Colours become `rgb(var(--st-*) / α)` so one DOM serves both themes; `lt:` = light-only borders/soft shadows (Option B).
-- Build: `node scripts/build-stitch-css.mjs` → `web/css/st-{home,lesson,goal}.css` (Tailwind 3.4.17, no preflight, ≤ 10 KB gz each, lazy via BCSS). `--check` on CI = drift gate; `--fonts` re-downloads self-hosted Plus Jakarta Sans (latin/latin-ext/vietnamese WOFF2, swap) + Material Symbols subset (icon names from `ms('…')` / `@icons`).
+- Build: `node scripts/build-stitch-css.mjs` → `web/css/st-{home,lesson,goal}.css` (Tailwind 3.4.17, no preflight, ≤ 10 KB gz each, lazy via BCSS). `--check` on CI = drift gate; `--fonts` re-downloads self-hosted Plus Jakarta Sans (§2b) (latin/latin-ext/vietnamese WOFF2, swap) + Material Symbols subset (icon names from `ms('…')` / `@icons`).
 - Gate: `scripts/test/stitch-diff.mjs` (SSIM + row rhythm vs `brand/stitch/*.jpg`, thresholds only go up, axe WCAG 2.2 AA inside `.st`), owner sheets `side-*.jpg` / `desk-*.jpg`. Gallery: `web/design/gallery.html` (light/dark/RTL).
 
 ## 5d. ONE app frame (HARD, 31/10) – paste the prompt block into every Stitch prompt
@@ -203,6 +210,7 @@ The 4 core screens (Learn path, Lesson drill, Feedback sheet, Exam readiness) us
 - Rhythm: 16 px side gutter, 12/16/24 px vertical steps, rounded tactile cards (§0/§5b), every touch target ≥ 44 px, text ≥ 4.5:1 (large 3:1) in both themes.
 - Teacher slot: an empty rounded "teacher-slot" box (Stitch draws no people); code fills it with the 2D Ama/Carlos (`Chars.*`), same light and scale as the UI, grounded, no crop/halo.
 - i18n: labels must survive +40 % (de/ru) and RTL (ar): wrap, never truncate or shrink buttons.
+- Theme: apply Lexkite design system `6304905654321795514` (§2b) before the first prompt; the prompt never names fonts or colours.
 - Prompt block (verbatim): "Mobile phone, portrait, a single 390 px app screen of Lexkite (English learning for IELTS, TOEIC, TOEFL). Feel: friendly, tactile, game-like but calm; Lexkite Kit design system. Top bar: <hub | inner with back arrow | focus with close X and slim progress bar>; back/close buttons at least 44 px. <Five bottom tabs Today, Vocab, Skills, Tests, Me with X highlighted | no bottom tabs>. One primary button. No hearts, lives or gems; no photos or drawn people: show an empty rounded 'teacher-slot' where the teacher goes. All text strongly readable (4.5:1), every tap target at least 44 px, labels wrap for 40 % longer text."
 - Tools: `scripts/stitch/batch.mjs` (3-key queue runner, state + credits per key), `qc-pick.mjs` / `queue-fix.mjs` (machine-QC fix rounds), CI "Stitch quality QC" + `stitch-diff`.
 

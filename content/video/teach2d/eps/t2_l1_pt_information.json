@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_information",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Information has no plural!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She gave me many informations.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She gave me a lot of information.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Information has no plural s.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Information! I need some information.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She gave me many informations.",
+  "right": "She gave me a lot of information.",
+  "strike": "many informations",
+  "why": "Information has no plural s.",
+  "memory": "No s on information.",
+  "quiz": {
+   "stem": "I need some ___.",
+   "options": [
+    "information",
+    "informations"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “informations”?",
+   "tip": "“Information” não tem plural em inglês. Use “a lot of information”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She gave me many informations.”. O certo é “She gave me a lot of information.”. Em português é “informações”, mas inglês não aceita o s. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “information”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “informations”?",
+   "tip": "“Information” has no plural in English. Say “a lot of information”.",
+   "caption": "Watch out for this common mistake! Many people say “She gave me many informations.”. The right way is “She gave me a lot of information.”. In Portuguese it is plural, but English does not allow the s. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “informations”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Você diz “informations”?",
+  "keyword": "She gave me a lot of information.",
+  "value": "“Information” não tem plural em inglês. Use “a lot of information”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “informations”?",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “She gave me many informations.”. O certo é “She gave me a lot of information.”. Em português é “informações”, mas inglês não aceita o s. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "She gave me a lot of information.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “She gave me many informations.”. O certo é “She gave me a lot of information.”. Em português é “informações”, mas inglês não aceita o s. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She gave me many informations.”. O certo é “She gave me a lot of information.”. Em português é “informações”, mas inglês não aceita o s. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “informations”? #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “information”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

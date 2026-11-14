@@ -43,7 +43,7 @@ concurrency:
 jobs:
   gate:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
@@ -58,7 +58,7 @@ jobs:
         run: |
           test -f reports/content-qa.json && node -e "const r=require('./reports/content-qa.json');const t=Object.entries(r.counts).sort((a,b)=>b[1]-a[1]).slice(0,15);console.log('## Content QA\n\nLỗi cứng: '+r.hard.length+'\n\n| nguồn/loại | số | baseline |\n|---|---|---|\n'+t.map(([k,n])=>'| '+k+' | '+n+' | '+(r.base[k]||0)+' |').join('\n')+'\n\nCách dùng từ có ghi chú: '+r.info.usage.pct+'%')" >> "$GITHUB_STEP_SUMMARY" || true
   score:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 8
     permissions:
       contents: write

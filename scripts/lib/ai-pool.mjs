@@ -407,7 +407,7 @@ export function createPool(opts = {}) {
     async call(_m, req) {
       if (used.gc >= budget.gc) throw new PoolErr('budget', 'GrabCast budget'); used.gc++;
       await pace('vision');
-      const r = await F(env.GRABCAST_AI_VISION_URL || GC + '/api/owner-ai/vision', { method: 'POST', headers: { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt: req.question, image_b64: req.image, mime: 'jpeg' }) }).catch(() => null);
+      const r = await F(env.GRABCAST_AI_VISION_URL || GC + '/api/owner-ai/vision', { method: 'POST', headers: { 'X-API-Key': env.GRABCAST_AI_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt: req.question, image_b64: req.image, mime: 'image/jpeg' }) }).catch(() => null);
       if (!r) throw new PoolErr('net', 'gc-vision net'); if (r.status === 429) throw new PoolErr('route', 'GrabCast vision 429', retryAfter(r));
       const j = await r.json().catch(() => ({})), code = (j.detail && j.detail.code) || '';
       if (code === 'ai_exhausted') throw new PoolErr('route', 'GrabCast vision ai_exhausted', 10 * 60e3);

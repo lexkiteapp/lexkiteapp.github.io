@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_interested_in",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Which little word is right?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am interested at art.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am interested in art.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say interested in.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! I am interested in music.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am interested at art.",
+  "right": "I am interested in art.",
+  "strike": "at",
+  "why": "Say interested in.",
+  "memory": "Interested in.",
+  "quiz": {
+   "stem": "I am interested ___ music.",
+   "options": [
+    "in",
+    "at"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "„Interessiert“ = „interested in“",
+   "tip": "„Interessiert an“ heißt im Englischen „interested in“. Merk dir die feste Verbindung.",
+   "caption": "Welche Präposition passt zu „interested“? 🎨 Falsch: “I am interested at art.” Richtig: “I am interested in art.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “in”. Richtig heißt es: “I am interested in art.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Which preposition goes with “interested”?",
+   "tip": "In German it is “interessiert an”, but in English it is “interested in”.",
+   "caption": "Which preposition goes with “interested”? Wrong: “I am interested at art.” Right: “I am interested in art.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "„Interessiert“ = „interested in“"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "„Interessiert“ = „interested in“",
+  "keyword": "I am interested in art.",
+  "value": "„Interessiert an“ heißt im Englischen „interested in“. Merk dir die feste Verbindung.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "„Interessiert“ = „interested in“",
+    "description": "Welche Präposition passt zu „interested“? 🎨 Falsch: “I am interested at art.” Richtig: “I am interested in art.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I am interested in art.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Welche Präposition passt zu „interested“? 🎨 Falsch: “I am interested at art.” Richtig: “I am interested in art.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Welche Präposition passt zu „interested“? 🎨 Falsch: “I am interested at art.” Richtig: “I am interested in art.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "„Interessiert“ = „interested in“ #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “in”. Richtig heißt es: “I am interested in art.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

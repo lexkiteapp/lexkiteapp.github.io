@@ -186,3 +186,9 @@ Lịch sử đầy đủ (bài học 17–22/10, Kling, chroma key, kho, video):
 
 ## Chuyển từ METHODS.md §4 (2/11, nguyên văn – nguồn chính nay là docs/CI-RUNNERS.md)
 - **Runner GitHub (1/11, Pro = 40 runner):** chừa 8 cho PR/prod-release, phần rảnh `ci-filler` tự lấp từ `infra/ci-backlog.json` (`max-parallel` bắt buộc; repo giữ CÔNG KHAI để phút Actions miễn phí), PR hủy lượt cũ, prod-release 1 lượt chờ – `docs/CI-RUNNERS.md`.
+
+## Chuyển từ METHODS 10/11 (nhường chỗ cho §2b Chống xung đột)
+- Clone tạm luôn tên riêng (`$TMPDIR/lk-<việc>-$$`), lưu bản vá vào scratchpad → archive § Lỗi Kling.
+- Video IPA lấy theo từ gốc (waiting /weɪt/) + whisper có prompt kịch bản che lỗi phát âm → IPA chỉ từ kho theo đúng token (`pron.mjs`), ASR không prompt (28/10).
+- `i18n-leak` chập chờn khi chạy cả bộ → chạy riêng.
+- Lỗi Kling/footage (script, cả lô, nhiều lượt) → `docs/archive/METHODS-HISTORY.md` § Lỗi Kling; dry-run, thử 1 trước.

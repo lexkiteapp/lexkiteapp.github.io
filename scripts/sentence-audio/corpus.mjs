@@ -50,6 +50,16 @@ export function collect() {
     for (const q of [...(p.phases || []).flatMap(x => [...(x.q || []), ...(x.extended ? [x.extended] : [])]), p.prompt, ...(p.follow || [])]) if (q) addOne(GEN['en-GB'], q, 'cambridge-speaking');
     for (const l of p.partnerLines || []) addOne(GEN['en-US'], l, 'cambridge-speaking');
   }
+  // Trung gian (#/mediate, docs/specs/mediation.md): nguồn đọc/nói/hội thoại đọc to bằng giọng cố định của MediateCore.voices (web/js/mediate.js play()) – biểu đồ không đọc
+  if (fs.existsSync('web/cpack/mediation')) {
+    vm.runInContext(fs.readFileSync('web/js/mediate-core.js', 'utf8'), c);
+    for (const f of fs.readdirSync('web/cpack/mediation').filter(f => /^m\d+\.js$/.test(f)).sort()) vm.runInContext(fs.readFileSync('web/cpack/mediation/' + f, 'utf8'), c);
+    for (const X of Object.values(c.MEDIATION || {})) {
+      const S = X.source, V = c.MediateCore.voices(S);
+      if (S.kind === 'dialogue') for (const l of S.lines || []) oneSplit(V[l.s], l.t, 'mediation-source');
+      else if (S.kind !== 'chart') oneSplit(V._narrator, c.MediateCore.sourceText(S), 'mediation-source');
+    }
+  }
   for (const u of (c.TOEFL || {}).speaking || []) { const v = GEN[u.accent] || GEN['en-GB']; for (const x of u.sentences || []) x.t && addOne(v, x.t, 'toefl-speaking'); for (const x of u.questions || []) x.q && addOne(v, x.q, 'toefl-speaking'); }
   {
     const sp = fs.readFileSync('web/js/speaking.js', 'utf8'), i0 = sp.indexOf('const BANK = [') + 13;
@@ -69,7 +79,8 @@ export function collect() {
   // Nhóm tĩnh khác mà app đọc qua UI.tts / LessonTeacher.say (đo 1/11: trước đó luôn rơi về giọng máy). Mỗi file nạp trong ngữ cảnh riêng có window = self.
   {
     const ctx = () => { const x = { t: s => s, console }; x.self = x.window = x.globalThis = x; vm.createContext(x); return x; };
-    const L = (x, f) => { try { vm.runInContext(fs.readFileSync(f, 'utf8'), x); } catch (e) { console.error(`corpus: bỏ qua ${f}: ${e.message}`); } };
+    // Nguồn không tồn tại (dời/đổi tên tệp mà quên sửa đường dẫn) → LỖI CỨNG, không bỏ qua âm thầm (12/11: pron/skills.js dời cpack ở #1178 → 114 từ/câu mất khỏi đo độ phủ mà không ai biết).
+    const L = (x, f) => { if (!fs.existsSync(f)) throw new Error(`corpus: nguồn không tồn tại: ${f} (đã dời/đổi tên? sửa đường dẫn trong scripts/sentence-audio/corpus.mjs)`); try { vm.runInContext(fs.readFileSync(f, 'utf8'), x); } catch (e) { console.error(`corpus: bỏ qua ${f}: ${e.message}`); } };
     const strs = a => (Array.isArray(a) ? a : [a]).filter(v => typeof v === 'string' && /[A-Za-z]/.test(v));
     // Confidence (confidence.js: theo accent người học; người nói b đọc giọng còn lại → cả 2 giọng)
     { const x = ctx(); L(x, 'web/js/confidence/data.js'); const D = x.CONF || {};
@@ -92,7 +103,7 @@ export function collect() {
     { const sp = fs.readFileSync('web/js/speaking.js', 'utf8'), i0 = sp.indexOf('const BANK = [') + 13, B = vm.runInNewContext(sp.slice(i0, sp.indexOf('\n  ];', i0) + 4), { t: v => v });
       for (const b of [...B, ...(c.SPEAK_MORE || [])]) { const t = `Now I'd like you to talk about a topic for one to two minutes. You have one minute to prepare. ${b.p2.q}`; for (const sen of c.KVoice.split(t)) addOne(GEN['en-GB'], sen, 'mock-speaking'); } }
     // Phát âm: từ + cặp tối thiểu + câu (pron.js, data-speak-text bỏ ký hiệu ngữ điệu), Nói theo mẫu (sayit.js, giọng Mỹ), nhịp câu (rhythm.js)
-    { const x = ctx(); for (const f of ['sounds', 'skills', 'pairs', 'coach']) L(x, `web/js/pron/${f}.js`);
+    { const x = ctx(); for (const f of ['sounds', 'pairs', 'coach']) L(x, `web/js/pron/${f}.js`); L(x, 'web/cpack/pron/skills.js'); // skills.js ở cpack từ #1178
       for (const it of x.PRON || []) { for (const w of it.words || []) both(w.w, 'pron'); for (const w of (it.pairs || []).flat()) both(w, 'pron');
         for (const sn of it.sentences || []) bothSplit(String(sn).replace(/[↗↘‿]|\s\/\s/g, ' ').replace(/\s+/g, ' ').trim(), 'pron'); }
       for (const k of (x.PronPairs || {}).CONTRASTS || []) for (const p of String(k.pairs || '').split(/\s+/)) for (const w of p.split('/')) addOne(GEN['en-US'], w.split('=')[0], 'pron');
@@ -108,7 +119,7 @@ export function collect() {
       // câu ví dụ của thẻ giải thích (grammar.js / usage.js ExplainCard → UI.speak theo accent người học)
       for (const t of strs(Object.values(x.LESSON_GOLD || {}).flat().flatMap(g => (g && g.ex) || []))) bothSplit(t, 'gold-examples'); }
     // Bài mẫu (phrases.js, bỏ đánh dấu) + câu cố định trong Cài đặt
-    { const x = ctx(); for (const f of fs.readdirSync('web/js').filter(f => /^models.*\.js$/.test(f))) L(x, `web/js/${f}`);
+    { const x = ctx(); for (const f of fs.readdirSync('web/js').filter(f => /^models.*\.js$/.test(f))) L(x, `web/js/${f}`); L(x, 'web/cpack/write/models.js'); // models.js ở cpack từ #1213
       const plain = t => t.replace(/<<[^>]*>>/g, '').replace(/\[\[([^|\]]*)\|[^\]]*\]\]/g, '$1').replace(/\{\{([^}]*)\}\}/g, '$1');
       for (const m of x.MODELS || []) if (m.text) bothSplit(plain(m.text), 'models');
       for (const t of ['This is how I will read words and sentences to you.', 'Many people believe that renewable energy is the key to a sustainable future. However, the transition will not happen overnight.']) bothSplit(t, 'ui-lines'); }

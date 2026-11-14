@@ -1,0 +1,45 @@
+{
+ "id": "20261113-r232",
+ "source": "lexicon-expand",
+ "n": 9,
+ "checked": [
+  {
+   "id": "rampart#n",
+   "ok": true
+  },
+  {
+   "id": "monetarism#n",
+   "ok": true
+  },
+  {
+   "id": "solvency#n",
+   "ok": true
+  },
+  {
+   "id": "tetra#n",
+   "ok": true
+  },
+  {
+   "id": "immunotherapy#n",
+   "ok": true
+  },
+  {
+   "id": "tomorrow#n",
+   "ok": true
+  },
+  {
+   "id": "immunodeficiency#n",
+   "ok": true
+  },
+  {
+   "id": "buyout#n",
+   "ok": true
+  },
+  {
+   "id": "metabolite#n",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-13",
+ "status": "published"
+}

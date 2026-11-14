@@ -62,6 +62,33 @@ def fc_from_bank(b):
     return out if len(out.replace('{link}', '')) <= 260 else form.format(a=a, x='', link='{link}').replace('  ', ' ')
 
 
+# Cổng chính sách (YPP + Meta, kế hoạch tăng trưởng 12/11): chặn câu mồi tương tác, tiêu đề/ảnh bìa gây hiểu lầm, nhãn AI thiếu.
+BAIT = re.compile(r'\b(like|share|comment|tag|subscribe|follow)\b.{0,25}\b(to (win|get|unlock|see)|or else|if you|for part)|\b(tag a friend|share (this |it |us )?if|share (this|it) with|comment (yes|below|your|"?\w+"?)|1m views|hack(s)? the system)\b|\b(guaranteed|100% fluent|fluent in \d+ (days|hours|weeks)|secret (that )?teachers? (won.t|don.t))\b', re.I)
+CLICKBAIT = re.compile(r'you won.t believe|shocking|gone wrong|\bscam\b|free (iphone|money|cash)|doctors hate|before it.s deleted|\bviral\b', re.I)
+
+
+def policy_errors(pub):
+    """Lỗi chính sách đăng; rỗng = đạt: không mồi like/share/tag, không tiêu đề giật gân/hứa quá, ai_content=True thì bắt buộc ai_label=True."""
+    if not isinstance(pub, dict): return ['missing']
+    e = []; txt = ' '.join(str(pub.get(k) or '') for k in ('title', 'value', 'first_comment'))
+    if BAIT.search(txt): e.append('policy-engagement-bait')
+    if CLICKBAIT.search(str(pub.get('title') or '')): e.append('policy-misleading-title')
+    if pub.get('ai_content') and not pub.get('ai_label'): e.append('policy-ai-label')
+    return e
+
+
+def dup_errors(items):
+    """Chặn đăng hàng loạt: items = [(kênh, khối publish)]; hai kênh khác nhau không được trùng tiêu đề hoặc bình luận đầu (chỉ đổi phụ đề). Trả 'dup:<kênh>|<kênh>:<trường>'."""
+    seen = {}; out = []
+    for ch, pub in items:
+        for k in ('title', 'first_comment'):
+            v = re.sub(r'\W+', ' ', str(pub.get(k) or '')).strip().lower()
+            if not v: continue
+            o = seen.setdefault((k, v), ch)
+            if o != ch: out.append(f'dup:{o}|{ch}:{k}')
+    return out
+
+
 def validate(pub):
     """Danh sách lỗi; rỗng = đạt. Chặn cả tiêu đề cụt, tiêu đề còn mẫu hoặc là id, không chỉ thiếu trường."""
     if not isinstance(pub, dict): return ['missing']
@@ -72,10 +99,10 @@ def validate(pub):
     if len(str(pub.get('keyword') or '')) < 2: e.append('keyword')
     if len(str(pub.get('value') or '')) < 12: e.append('value')
     if re.search(r'\.\.$|\."\.$', str(pub.get('value') or '')): e.append('value-punct')
-    if not 3 <= len(h) <= 5 or not all(re.fullmatch(r'#[a-z0-9]+', str(x)) for x in h): e.append('hashtags')
+    if not 3 <= len(h) <= 5 or not all(re.fullmatch(r'#[a-z0-9_\u00e0-\u1eff\u0400-\u04ff\u0600-\u06ff\u0900-\u097f\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]+', str(x)) for x in h): e.append('hashtags')
     lang = pub.get('lang') or 'en'
     if not re.fullmatch(r'[a-z]{2}', str(lang)): e.append('lang')
-    return e + fc_errors(pub.get('first_comment'), lang)
+    return e + fc_errors(pub.get('first_comment'), lang) + policy_errors(pub)
 
 
 if __name__ == '__main__':

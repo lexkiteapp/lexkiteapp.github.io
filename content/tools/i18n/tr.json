@@ -79,7 +79,11 @@
     "planTop": "Gelişmeye nasıl devam edilir",
     "you": "Test sonucun: {lv}",
     "takeTest": "Seviyeni kontrol et – 15 dakikalık ücretsiz test",
-    "otherLevels": "Tüm CEFR seviyeleri"
+    "otherLevels": "Tüm CEFR seviyeleri",
+    "wordsH": "{lv} seviyesinde öğrenilecek kelimeler",
+    "wordsLead": "Lexkite sözlüğünde {lv} seviyesine ayrılmış kelimeler; her biri anlamı ve örnek cümlesiyle. Telaffuz, eşdizimler ve sık yapılan hatalar için bir kelimeyi açın.",
+    "sampleH": "{lv} seviyesi örnek sorular",
+    "answer": "Cevabı göster"
   },
   "toeic": {
     "title": "TOEIC Part 5 online pratik testi – ücretsiz, açıklamalı",

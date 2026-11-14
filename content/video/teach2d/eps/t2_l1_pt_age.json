@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_age",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Age in English: careful!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have twenty years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am twenty years old.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "For age, use am, not have.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is! She is twenty years old.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have twenty years.",
+  "right": "I am twenty years old.",
+  "strike": "have",
+  "why": "For age, use am, not have.",
+  "memory": "Age: I am, not I have.",
+  "quiz": {
+   "stem": "She ___ twenty years old.",
+   "options": [
+    "has",
+    "is"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Você diz “I have 20 years”?",
+   "tip": "Em inglês, para falar a idade usamos “I am”, não “I have”.",
+   "caption": "Você também diz “I have twenty years”? 😅 Em inglês o certo é “I am twenty years old”. Ouça o Carlos falar e repita com ele! Treine mais no app Lexkite.",
+   "comment": "Resposta: “is”. Em inglês a idade usa o verbo ser. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesonline",
+    "#inglesfacil",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I have 20 years”?",
+   "tip": "In English, to say your age we use “I am”, not “I have”.",
+   "caption": "Do you also say “I have twenty years”? In English the right way is “I am twenty years old”. Listen to Carlos say it and repeat with him! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “I have 20 years”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Você diz “I have 20 years”?",
+  "keyword": "I am twenty years old.",
+  "value": "Em inglês, para falar a idade usamos “I am”, não “I have”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesonline",
+   "#inglesfacil",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “I have 20 years”?",
+    "description": "Você também diz “I have twenty years”? 😅 Em inglês o certo é “I am twenty years old”. Ouça o Carlos falar e repita com ele! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesonline #inglesfacil #lexkite",
+    "tags": [
+     "I am twenty years old.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Você também diz “I have twenty years”? 😅 Em inglês o certo é “I am twenty years old”. Ouça o Carlos falar e repita com ele! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Você também diz “I have twenty years”? 😅 Em inglês o certo é “I am twenty years old”. Ouça o Carlos falar e repita com ele! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesonline",
+     "#inglesfacil",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “I have 20 years”? #aprenderingles #inglesonline #inglesfacil"
+   }
+  },
+  "first_comment": "Resposta: “is”. Em inglês a idade usa o verbo ser. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}
