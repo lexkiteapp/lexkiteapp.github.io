@@ -2,15 +2,15 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 66.2 / 100**
+**Tổng: 67.6 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **58.5** | 58.5 | 58.5% | 100% | 0 |
+| Kho từ | **58.6** | 58.5 | 58.6% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
 | Giao tiếp | **68.3** | 68.3 | 68.3% | 100% | 0 |
 | 4 kỹ năng | **62.9** | 62.9 | 62.9% | 100% | 0 |
-| Đề thi | **31.7** | 31.7 | 31.7% | 100% | 0 |
+| Đề thi | **42.4** | 31.7 | 42.4% | 100% | 0 |
 | Khung Can-do | **81.3** | 81.3 | 81.3% | 100% | 0 |
 | Dễ học – dễ nhớ | **91.7** | 91.7 | 91.7% | 100% | 0 |
 | i18n | **62.7** | 62.7 | 62.7% | 100% | 0 |
@@ -19,14 +19,14 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
-| từ#loại duy nhất | 10191 / 20000 | 51% | 25 |
-| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 10191 / 10191 | 100% | 20 |
-| collocation | 4973 / 20000 | 25% | 12 |
-| đồng nghĩa | 3080 / 20000 | 15% | 8 |
-| IPA Mỹ | 6814 / 20000 | 34% | 5 |
-| ảnh theo nghĩa | 7897 / 20000 | 39% | 15 |
-| C2 | 960 / 1000 | 96% | 10 |
-| A1 | 867 / 1000 | 87% | 5 |
+| từ#loại duy nhất | 10201 / 20000 | 51% | 25 |
+| IPA·nghĩa·định nghĩa·ví dụ·CEFR | 10201 / 10201 | 100% | 20 |
+| collocation | 4979 / 20000 | 25% | 12 |
+| đồng nghĩa | 3081 / 20000 | 15% | 8 |
+| IPA Mỹ | 6822 / 20000 | 34% | 5 |
+| ảnh theo nghĩa | 7920 / 20000 | 40% | 15 |
+| C2 | 969 / 1000 | 97% | 10 |
+| A1 | 868 / 1000 | 87% | 5 |
 
 ## Ngữ pháp
 
@@ -81,14 +81,14 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | IELTS Writing Task 1 Academic | 38 / 80 | 48% | 5 |
 | TOEIC Listening | 700 / 1000 | 70% | 5 |
 | TOEIC Reading | 700 / 1000 | 70% | 5 |
-| TOEIC Speaking & Writing | 60 / 190 | 32% | 5 |
-| TOEFL Reading | 240 / 500 | 48% | 5 |
-| TOEFL Listening | 200 / 400 | 50% | 5 |
-| TOEFL Writing | 100 / 200 | 50% | 5 |
-| TOEFL Speaking | 150 / 300 | 50% | 5 |
+| TOEIC Speaking & Writing | 78 / 190 | 41% | 5 |
+| TOEFL Reading | 300 / 500 | 60% | 5 |
+| TOEFL Listening | 282 / 400 | 71% | 5 |
+| TOEFL Writing | 104 / 200 | 52% | 5 |
+| TOEFL Speaking | 183 / 300 | 61% | 5 |
 | Cambridge A2 (chưa làm) | 1 / 6 | 17% | 8 |
-| Cambridge B1 (chưa làm) | 0 / 6 | 0% | 8 |
-| Cambridge B2 (chưa làm) | 0 / 6 | 0% | 8 |
+| Cambridge B1 (chưa làm) | 3 / 6 | 50% | 8 |
+| Cambridge B2 (chưa làm) | 3 / 6 | 50% | 8 |
 | Cambridge C1 (chưa làm) | 0 / 6 | 0% | 8 |
 | Cambridge C2 (chưa làm) | 0 / 6 | 0% | 8 |
 
@@ -98,7 +98,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 11079 / 11079 | 100% | 35 |
+| nội dung có lo hợp lệ | 11142 / 11142 | 100% | 35 |
 | mục tiêu đã có nội dung luyện | 167 / 600 | 28% | 25 |
 
 ## Dễ học – dễ nhớ
