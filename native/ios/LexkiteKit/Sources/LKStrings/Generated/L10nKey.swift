@@ -243,6 +243,7 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case lessonAgain = "lesson.again"
     case lessonMap = "lesson.map"
     case lessonMistakes = "lesson.mistakes"
+    case lessonStreakN = "lesson.streakN"
     case lessonShare = "lesson.share"
     case lessonCopied = "lesson.copied"
     case lessonStoryLookup = "lesson.story.lookup"

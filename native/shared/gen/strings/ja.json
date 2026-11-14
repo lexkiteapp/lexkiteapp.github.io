@@ -241,6 +241,7 @@
   "lesson.again": "次のレッスン",
   "lesson.map": "レッスンマップ",
   "lesson.mistakes": "ミスノート",
+  "lesson.streakN": "{n} 日の連続記録",
   "lesson.share": "Lexkite レッスンを終了しました: {a}% 正解、+{x} XP",
   "lesson.copied": "コピーしました",
   "lesson.story.lookup": "「{w}」を検索中…",

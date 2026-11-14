@@ -241,6 +241,7 @@
   "lesson.again": "Next lesson",
   "lesson.map": "Lesson map",
   "lesson.mistakes": "Mistake log",
+  "lesson.streakN": "{n}-day streak",
   "lesson.share": "I just finished a Lexkite lesson: {a}% correct, +{x} XP",
   "lesson.copied": "Copied",
   "lesson.story.lookup": "Looking up “{w}”…",

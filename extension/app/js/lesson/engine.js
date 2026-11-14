@@ -154,7 +154,7 @@
       const it = this.q.shift(); if (!it) return null;
       if (it.free) { this.solved++; return { ok: true, combo: this.combo, free: true }; } // câu thoại của truyện: chỉ tiến độ, không chấm
       this.n++;
-      const k = norm(it.word); this.log.push({ id: it.id, type: it.type, word: it.word, ok, retry: it.retry });
+      const k = it.card ? norm(it.word) : '#' + norm(it.word); this.log.push({ id: it.id, type: it.type, word: it.word, ok, retry: it.retry });
       this.miss = ok ? 0 : this.miss + 1;
       // chống nản (ease): sai 2 câu liền → câu kế tiếp là dạng dễ (chọn đáp án) nếu còn trong hàng
       if (!ok && this.ease && this.miss >= 2 && this.q.length > 1 && HARD(this.q[0])) { const j = this.q.findIndex(x => !HARD(x) && !x.free); if (j > 0) { const [e] = this.q.splice(j, 1); this.q.unshift(e); } }

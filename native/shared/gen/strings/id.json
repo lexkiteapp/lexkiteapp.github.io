@@ -241,6 +241,7 @@
   "lesson.again": "Pelajaran lain",
   "lesson.map": "Peta pelajaran",
   "lesson.mistakes": "Catatan kesalahan",
+  "lesson.streakN": "{n}-hari berturut-turut",
   "lesson.share": "Saya baru saja menyelesaikan pelajaran Lexkite: {a}% benar, +{x} XP",
   "lesson.copied": "Tersalin",
   "lesson.story.lookup": "Mencari “{w}”…",

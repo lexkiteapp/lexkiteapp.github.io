@@ -241,6 +241,7 @@
   "lesson.again": "درس آخر",
   "lesson.map": "خريطة الدروس",
   "lesson.mistakes": "سجل الأخطاء",
+  "lesson.streakN": "{n}-خط يوم",
   "lesson.share": "لقد انتهيت للتو من درس Lexkite: {a}% صحيح، +{x} XP",
   "lesson.copied": "تم النسخ",
   "lesson.story.lookup": "البحث عن \"{w}\"...",
