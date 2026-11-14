@@ -344,6 +344,7 @@
    "id": "roleplay",
    "paths": [
     "web/js/roleplay",
+    "web/cpack/roleplay",
     "web/js/call"
    ],
    "owner": "antigravity",
@@ -360,7 +361,8 @@
    "id": "confidence",
    "paths": [
     "content/confidence",
-    "web/js/confidence"
+    "web/js/confidence",
+    "web/cpack/confidence"
    ],
    "owner": "claude",
    "gen": false,
