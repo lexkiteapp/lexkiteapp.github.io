@@ -156,6 +156,7 @@ node scripts/test/jobs.mjs
 node scripts/test/rollback.mjs
 node scripts/test/drive-repair.mjs
 node scripts/test/keys.mjs
+node scripts/test/ai-chain.mjs
 node scripts/test/admin-share.mjs
 node scripts/test/accounts.mjs
 node scripts/test/ios-sign-patch.mjs
