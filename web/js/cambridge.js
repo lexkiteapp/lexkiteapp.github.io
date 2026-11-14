@@ -97,17 +97,18 @@
     }));
   }
   function submit(T, p, P, groups, body) {
-    let right = 0, total = 0;
+    let right = 0, total = 0; const all = {}, kind = p === 'listening' ? 'listening' : 'reading';
     for (const [k, j, g] of groups) {
       const root = $(`[data-g="${k}-${j}"]`, body); if (!root) continue; const res = QE.collect({ groups: [g] }, root);
       QE.mark(root, res);
-      for (const it of g.items) { total++; if (res[it.n] && res[it.n].ok) right++; const fb = $(`[data-item="${it.n}"] .lq-fb`, root); if (fb && it.explain) fb.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(QE.exT(it.explain))}</div>`); }
+      for (const it of g.items) { total++; if (res[it.n]) all[k + '-' + j + '-' + it.n] = res[it.n]; if (res[it.n] && res[it.n].ok) right++; else if (App.logMistake) App.logMistake({ kind, q: I18N.tk('Test {t} – Câu {n}: {q}', { t: T.title, n: it.n, q: (res[it.n] && res[it.n].q) || it.q || '' }), answer: res[it.n] ? res[it.n].answer : '', given: (res[it.n] && res[it.n].given) || I18N.tk('(bỏ trống)'), explain: it.explain ? QE.exT(it.explain) : '', ref: T.id }); const fb = $(`[data-item="${it.n}"] .lq-fb`, root); if (fb && it.explain) fb.insertAdjacentHTML('beforeend', `<div class="tiny muted" style="margin-top:.2rem">💡 ${esc(QE.exT(it.explain))}</div>`); }
     }
     $$('details[data-tr]', body).forEach(d => { d.hidden = false; });
     P.forEach((x, k) => { if (WR.has(x.type)) writeFb(T, x, k, body); });
     const pct = total ? Math.round(100 * right / total) : 0, b = best(), key = T.id + ':' + p;
     if (b[key] == null || pct > b[key]) b[key] = pct;
     $('#camRes').innerHTML = `<div class="card"><h3 style="margin-top:0">${t('Kết quả: {a}/{b} câu đúng ({p}%)', { a: right, b: total, p: pct })}</h3><p class="small muted" style="margin:0">${t('Xem lời giải dưới từng câu. Phần viết có nhận xét riêng ngay dưới bài.')}</p></div>`;
+    if (window.QT) QT.record('cb', all, p === 'listening' ? null : $('.lq-wrap', body));
     App.reward({ quizzes: 1, xp: 10 + right });
   }
   // Phản hồi viết: số từ, ý bắt buộc, từ nối, tiêu chí cấp, bài mẫu, AI (tùy chọn)
