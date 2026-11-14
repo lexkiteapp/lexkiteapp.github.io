@@ -2480,6 +2480,8 @@
   "learn.style.phongCachTiengAnh": "أسلوبك في الإنجليزية",
   "learn.style.daChepLinkKet": "تم نسخ النتيجة",
   "learn.grammar.baiHocTrucQuan": "{n} الدروس المرئية: الجداول الزمنية، والصيغ المرمزة بالألوان، ومخططات تحويل الجمل، والأخطاء الشائعة للمتعلمين، والتمارين ذات الدرجات الفورية.",
+  "learn.grammar.baiHocTrucQuanNgan": "{n} درسًا مرئيًا",
+  "learn.grammar.baiDaDat": "اجتزت {done}/{n} دروس",
   "learn.grammar.lamLaiChoChac": "أعد الإجراء لقفله · آخر مرة {pct}%",
   "learn.grammar.baiTiepTheo": "الدرس التالي",
   "learn.grammar.chuong": "الفصل {n}",

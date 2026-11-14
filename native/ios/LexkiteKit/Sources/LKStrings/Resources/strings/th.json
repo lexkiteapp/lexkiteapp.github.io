@@ -2480,6 +2480,8 @@
   "learn.style.phongCachTiengAnh": "สไตล์ภาษาอังกฤษของคุณ",
   "learn.style.daChepLinkKet": "คัดลอกผลลัพธ์แล้ว",
   "learn.grammar.baiHocTrucQuan": "{n} บทเรียนแบบเห็นภาพ: เส้นเวลา สูตรที่ใช้รหัสสี แผนภาพการแปลงประโยค ข้อผิดพลาดทั่วไปของผู้เรียน และแบบฝึกหัดให้คะแนนทันที",
+  "learn.grammar.baiHocTrucQuanNgan": "{n} บทเรียนแบบภาพ",
+  "learn.grammar.baiDaDat": "ผ่านแล้ว {done}/{n} บทเรียน",
   "learn.grammar.lamLaiChoChac": "ทำซ้ำเพื่อล็อค · ครั้งสุดท้าย {pct}%",
   "learn.grammar.baiTiepTheo": "บทเรียนถัดไป",
   "learn.grammar.chuong": "บทที่ {n}",

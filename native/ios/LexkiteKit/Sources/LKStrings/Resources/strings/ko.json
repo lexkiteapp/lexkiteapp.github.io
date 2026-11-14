@@ -2480,6 +2480,8 @@
   "learn.style.phongCachTiengAnh": "나의 영어 스타일",
   "learn.style.daChepLinkKet": "결과를 복사했어요",
   "learn.grammar.baiHocTrucQuan": "{n} 시각적 수업: 타임라인, 색상으로 구분된 공식, 문장 변환 다이어그램, 학습자의 일반적인 실수 및 즉시 채점되는 연습 문제.",
+  "learn.grammar.baiHocTrucQuanNgan": "시각 레슨 {n}개",
+  "learn.grammar.baiDaDat": "{done}/{n}개 레슨 통과",
   "learn.grammar.lamLaiChoChac": "다시 풀어서 확실히 굳히기 · 지난번 {pct}%",
   "learn.grammar.baiTiepTheo": "다음 레슨",
   "learn.grammar.chuong": "장 {n}",

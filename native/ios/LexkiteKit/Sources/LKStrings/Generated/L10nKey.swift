@@ -2482,6 +2482,8 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case learnStylePhongCachTiengAnh = "learn.style.phongCachTiengAnh"
     case learnStyleDaChepLinkKet = "learn.style.daChepLinkKet"
     case learnGrammarBaiHocTrucQuan = "learn.grammar.baiHocTrucQuan"
+    case learnGrammarBaiHocTrucQuanNgan = "learn.grammar.baiHocTrucQuanNgan"
+    case learnGrammarBaiDaDat = "learn.grammar.baiDaDat"
     case learnGrammarLamLaiChoChac = "learn.grammar.lamLaiChoChac"
     case learnGrammarBaiTiepTheo = "learn.grammar.baiTiepTheo"
     case learnGrammarChuong = "learn.grammar.chuong"

@@ -2480,6 +2480,8 @@
   "learn.style.phongCachTiengAnh": "Ваш стиль английского",
   "learn.style.daChepLinkKet": "Результат скопирован",
   "learn.grammar.baiHocTrucQuan": "{n} Наглядные уроки: временные шкалы, формулы с цветовой кодировкой, диаграммы преобразования предложений, типичные ошибки учащихся и упражнения с мгновенной оценкой.",
+  "learn.grammar.baiHocTrucQuanNgan": "{n} наглядных уроков",
+  "learn.grammar.baiDaDat": "пройдено уроков: {done}/{n}",
   "learn.grammar.lamLaiChoChac": "Повторить, чтобы заблокировать · в последний раз {pct}%",
   "learn.grammar.baiTiepTheo": "Следующий урок",
   "learn.grammar.chuong": "Глава {n}",

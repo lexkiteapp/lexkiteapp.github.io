@@ -2480,6 +2480,8 @@
   "learn.style.phongCachTiengAnh": "你的英语风格",
   "learn.style.daChepLinkKet": "结果已复制",
   "learn.grammar.baiHocTrucQuan": "{n} 视觉课程：时间线、颜色编码公式、句子转换图、常见学习者错误和即时评分练习。",
+  "learn.grammar.baiHocTrucQuanNgan": "{n} 节图解课程",
+  "learn.grammar.baiDaDat": "已通过 {done}/{n} 节课",
   "learn.grammar.lamLaiChoChac": "重做以锁定上次 {pct}%",
   "learn.grammar.baiTiepTheo": "下一课",
   "learn.grammar.chuong": "第{n}章",

@@ -2480,6 +2480,8 @@
   "learn.style.phongCachTiengAnh": "Your English Style",
   "learn.style.daChepLinkKet": "Result copied",
   "learn.grammar.baiHocTrucQuan": "{n} visual lessons: timelines, color-coded formulas, sentence transformation diagrams, common learner mistakes and instantly graded exercises.",
+  "learn.grammar.baiHocTrucQuanNgan": "{n} visual lessons",
+  "learn.grammar.baiDaDat": "{done}/{n} lessons passed",
   "learn.grammar.lamLaiChoChac": "Redo to lock it in · last time {pct}%",
   "learn.grammar.baiTiepTheo": "Next lesson",
   "learn.grammar.chuong": "Chapter {n}",
