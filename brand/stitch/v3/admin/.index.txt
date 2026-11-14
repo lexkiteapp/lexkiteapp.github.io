@@ -1,32 +1,47 @@
 # Stitch v3 kho mẫu – admin (scripts/stitch/batch.mjs, 5 khoá; mỗi khoá 1 project + design system Lexkite Kit). màn id-sáng id-tối thiết-bị verdict cờ | khoá · ghi chú QC
-adm-ads 7c90c3b783204d8b834fc618fee214ed 8cc92d068e054686bb48d378bd911e8f DESKTOP QC | key3 project 18075333702575270507
-adm-alerts 5d525f7f4da649e9a4862110fc938374 37e47588c8124bef805611da9bacf741 DESKTOP QC | key4 project 16660982915050208874
-adm-alerts-m 595a34b7eaaf4536be430d00cc2b3d75 d6d5a69ee95d4d52a041ef3eb37ed744 MOBILE QC | key5 project 7022870386131391655
-adm-analytics 6c2011834a5949e0a17183709b9f84e5 7974c57259564b04929a9874a2622751 DESKTOP QC | key1 project 7268539912208977707
-adm-analytics-details 7d13f47519e04f22a5fac9eb4797bd20 b001d4fe51bb46c3aa409f9e36e09303 DESKTOP QC | key5 project 7022870386131391655
-adm-analytics-details-m 60002a39600142a2a23de15f79b05c71 d7f299c7e2304b23ad5bb49fe49f3373 MOBILE QC | key4 project 16660982915050208874
-adm-analytics-m 656aa1fe9340495fb4beb6bbe139ff2d bb5ba0787fb545279f6a18f678447071 MOBILE QC | key1 project 7268539912208977707
-adm-backlinks a2b21706cead4977b9b8bf091a5b610d a5e212ebd3d44e0082272ba59accb327 DESKTOP QC | key1 project 7268539912208977707
-adm-backlinks-m c3f71055b87f4c5894895ddb42d189c0 d23b73841a9a45cdb1a5b5ae1ebde27b MOBILE QC | key5 project 7022870386131391655
-adm-dist 382bd70726904cf7831af043e9958bbe 0ea11703e6d04b64af73241611a03abc DESKTOP QC | key5 project 7022870386131391655
-adm-drive 2357160653af4b52a5acc6cd585b236e 8b40fd269bbf45e8925e5c790d57abb3 DESKTOP QC | key1 project 7268539912208977707
-adm-growth 7b0738bceb354a4c8b9ad96e5935a849 fb1f0d54582a425da76bcf42fa29f74e DESKTOP QC | key4 project 16660982915050208874
-adm-inbox 8da8adb06f974551a31eff4a409f6bad 5189b8a276594208947f915b28939118 DESKTOP QC | key3 project 18075333702575270507
-adm-keys 7405c71be0944545a6eb0c91f8cf3c91 48390c19f40344de9a2d7153c895712b DESKTOP QC | key4 project 16660982915050208874
-adm-notices 45ff056927f0430f8d9e0fb8d8bd5e09 97523a281d314c9899fac1bd05ffb78a DESKTOP QC | key5 project 7022870386131391655
-adm-overview bef908bba4b5426daef10653b0502af5 4d946bfb0c834b2293946783ecea932a DESKTOP QC | key3 project 18075333702575270507
-adm-overview-m 9d5f42b1c71b475ca66e0b95931937b5 0511ab5cb79642858a7e6f1f04fbb14a MOBILE QC | key5 project 7022870386131391655
-adm-quality f22693015e8f46f0a292461714d31a95 8854e109960e457c97b94ad482ef4d82 DESKTOP QC | key4 project 16660982915050208874
-adm-quota 14ded40ce4644955995d10dc503efc5a 6d30d652761e4dfb92c51f20b7288a2e DESKTOP QC | key4 project 16660982915050208874
-adm-reports c64a6cde318c421bad8651fdc5ed6260 85f1e92e9858477bb59c0eb87981e79e DESKTOP QC | key3 project 18075333702575270507
-adm-reports-m d0b4746674e6481e9316be0ccd42f7da 0b0b5ebec2b84c79aed3bbcf8208e383 MOBILE QC | key5 project 7022870386131391655
-adm-services a1b55dfa728d484bb095b78b3abc03c2 fd439b2291ee48bcbc5c9c177450a242 DESKTOP QC | key4 project 16660982915050208874
-adm-settings 45809cf994e34a228f18d0e733f7b3f2 f20c1488807c4b7c97be4e3fa397b1d7 DESKTOP QC | key5 project 7022870386131391655
-adm-signin 83d806dc5c9c4f17836a08f501b29bb5 0c0ed5922395456380e5a1a724be0f79 DESKTOP QC | key4 project 16660982915050208874
-adm-social 5771bc8ebac545f39f3f0ce367842456 4dfb3afb6a7149cdbbb8ab53382fc8c8 DESKTOP QC | key5 project 7022870386131391655
-adm-storage c6c17bf9f36c45beb5a9006d9db38161 2c6171669a264070b97f9ce5e0f6b933 DESKTOP QC | key3 project 18075333702575270507
-adm-studio a25d4df7160a4a19bedc324c9a162004 679def48c90a4435b701aba4e88d5b47 DESKTOP QC | key5 project 7022870386131391655
-adm-users2-confirm 22ef3a4957034e2fa7bb38bf96734ca1 175f1fb8798842f191941b3ceedd1026 DESKTOP QC | key2 project 10804635390057604965
-adm-users2-drawer aaf2b56606bb4c0cbd68fe0fbd3e5f64 907f9108ff774a86b5e4381e30e7c10f DESKTOP QC | key1 project 7268539912208977707
-adm-users2-table 916da91d9633428fbc8ae7f49e3272b0 48244c4461bc45b4a0f1b3e078c0c06c DESKTOP QC | key1 project 7268539912208977707
-adm-video b58f665ad0194d9d8ef2994711a58822 8b07853bb2fa46f2981e6dca93927b01 DESKTOP QC | key5 project 7022870386131391655
+adm-ads 681597af94cd418ab4859fa2dea666a3 72352cf54dad49a4949a159a0268283c DESKTOP QC | key1 project 7268539912208977707 · QC: light: 16 vùng chạm < 44px (vd "INPUT 1×1") · light: tương phản 1 chữ (vd "$8.10" 3.33<4.5) · dark: 32 vùng chạm < 44px (vd "INPUT 240×36") · dark: tương phản 2 chữ (vd "ADMIN" 3.4<4.5)
+adm-ads-m f33b471cf0354e2292d859c099ac8c37 7bcaaf04e27140c39d1a13d3dba3bc0e MOBILE PASS | key5 project 7022870386131391655
+adm-alerts 0d3e552f26af4916887a943606b326f8 92f6c043cd054bf6b36bbafa84009e82 DESKTOP PASS | key4 project 16660982915050208874
+adm-alerts-m be742f8e012746d1b1edba9f797cb7c0 8e3e41abb274482685ae994f1fa9516b MOBILE PASS | key5 project 7022870386131391655
+adm-analytics 39e0cf9e38dd4560bfe6a8b97df09f0b cb15fd99b60f4145950a8e27b5f3c45a DESKTOP QC | key1 project 7268539912208977707 · QC: light: tương phản 1 chữ (vd "New Ticket" 4.28<4.5) · dark: 2 vùng chạm < 44px (vd "VI 36×36") · sáng/tối lệch nội dung: 270 vs 478 chữ
+adm-analytics-details 99be1cfba1164e9ea3efc4e9e7634403 47f0abc5515f4cea99b54b909ef9c627 DESKTOP QC | key5 project 7022870386131391655 · QC: light: tương phản 3 chữ (vd "Báo cáo mới" 3.12<4.5) · sáng/tối lệch nội dung: 535 vs 870 chữ
+adm-analytics-details-m 972968f12f3643e8b8403a7fd8dbf1d4 7f736c4d510d4fc2b56321960f2cbaff MOBILE PASS | key4 project 16660982915050208874
+adm-analytics-m 6911bf225632423b85c1194419c588c1 fbbade9509a14b329dffb206c92be272 MOBILE QC | key1 project 7268539912208977707 · QC: sáng/tối lệch nội dung: 165 vs 90 chữ
+adm-backlinks 4c24c73ae9d94454820feff20fd5d19d 35a3be3cb7484c5f88f041393f8f8578 DESKTOP QC | key2 project 10804635390057604965 · QC: light: 11 vùng chạm < 44px (vd "INPUT 16×16") · light: tương phản 16 chữ (vd "Quản trị SEO" 4.36<4.5) · dark: 6 vùng chạm < 44px (vd "INPUT 16×16") · sáng/tối lệch nội dung: 335 vs 267 chữ
+adm-backlinks-m 1378c3cbba004476b0ee66aafec4e1aa 75a75da6ef6c418aba8dab90d71c6963 MOBILE PASS | key5 project 7022870386131391655
+adm-dist 8e0b95829aa743cea0352e63a419351b eb17506e164448adae8bf6c227085b4a DESKTOP PASS | key5 project 7022870386131391655
+adm-dist-m d77b050ad5714820b24a9221600cd69d b70bf354c120423e9db96a3f111d324b MOBILE PASS | key4 project 16660982915050208874
+adm-drive 3e26fd18d1bb4a8296976e05d9ea9ea7 7360927fa1754e86a81543e9ccc934fe DESKTOP QC | key2 project 10804635390057604965 · QC: light: 8 vùng chạm < 44px (vd "INPUT 256×34") · dark: 5 vùng chạm < 44px (vd "INPUT 16×16") · sáng/tối lệch nội dung: 261 vs 181 chữ
+adm-drive-m 041e8d91e53f4b62a27961511579e5c6 711807c119b34a1f9e7e18dc061c6104 MOBILE PASS | key4 project 16660982915050208874
+adm-growth dfd0f1143b8147be9a2f4573b4831f6a 4ddb1ed3d97c4a80827ca5f25df85796 DESKTOP QC | key4 project 16660982915050208874 · QC: dark: 3 vùng chạm < 44px (vd "logout 18×25") · dark: tương phản 18 chữ (vd "Tổng quan & Vận hành" 4.02<4.5) · sáng/tối lệch nội dung: 731 vs 471 chữ
+adm-growth-m cd14418bd6674db6a8a36431b890a216 172533c85b774f78ba78791877ce2197 MOBILE PASS | key5 project 7022870386131391655
+adm-inbox dfa659f1ebcc4299ad7c449aa0dae21b 601392a464f046589e41712cbb4f8c34 DESKTOP QC | key3 project 18075333702575270507 · QC: light: 1 vùng chạm < 44px (vd "INPUT 16×16") · dark: 7 vùng chạm < 44px (vd "settings 36×36") · dark: tương phản 3 chữ (vd "3" 3.35<4.5)
+adm-keys 8f571de00acf43499f7e262b7276b8b9 dfa07d8376a747a7bc1dd2fc149aaff8 DESKTOP PASS | key4 project 16660982915050208874
+adm-keys-m 757e4258212e4a7597110a5cd1895309 663e5478e9464a08a0763fa2c958c6ac MOBILE PASS | key4 project 16660982915050208874
+adm-notices 4556d31b14a44b16999bed88df05bacb 02c3d8593a694ae6a42bb06b17c5d19f DESKTOP QC | key5 project 7022870386131391655 · QC: dark: 8 vùng chạm < 44px (vd "INPUT 1×1") · dark: tương phản 13 chữ (vd "Tổng quan" 3.68<4.5)
+adm-notices-m 14670246596e430b9049d4db5bf36a2b 0bc9a069a3d74215b8f59a0851208337 MOBILE PASS | key4 project 16660982915050208874
+adm-overview e727ebcce60e47ac9391aa5fea434d7c 24f287bf349743b8a48ced85dd155482 DESKTOP QC | key1 project 7268539912208977707 · QC: light: tương phản 1 chữ (vd "Làm mới dữ liệu" 2.84<4.5) · dark: 10 vùng chạm < 44px (vd "VI 40×40") · dark: tương phản 1 chữ (vd "Trang trước" 3.91<4.5)
+adm-overview-m fc98254c2f764f758a012d4b8f95ff7b b2f06cb9c14942eabf152232ebff5012 MOBILE PASS | key5 project 7022870386131391655
+adm-quality 1377752647284a5890f6d2c5eb66656f 55b0527a988a415d8ebedbdb1bbf47d0 DESKTOP PASS | key4 project 16660982915050208874
+adm-quality-m 0921fdfbd43a4189a663607a20187be0 6737bf7b95ef41969096086e5b02aab1 MOBILE PASS | key4 project 16660982915050208874
+adm-quota f613dd77b0a4492a9f287c02d996b320 766d7ee8dcc74db7b31c3f0300d4fa96 DESKTOP PASS | key4 project 16660982915050208874
+adm-quota-m d31347b7b2444fe194a0e084c851e7df ee647ad0ba49450fa830af86454fc42c MOBILE PASS | key4 project 16660982915050208874
+adm-reports 33cce5a7622f4b13a1eb489b0f882bad 6fdd959e9cbd433a919653f0f978d04d DESKTOP QC | key3 project 18075333702575270507 · QC: light: 1 vùng chạm < 44px (vd "INPUT 222×40") · dark: 11 vùng chạm < 44px (vd "INPUT 278×16") · dark: tương phản 4 chữ (vd "4 mới" 3.4<4.5)
+adm-reports-m 7a2635c63c9243b99015d77d2311d947 1ca0902a1f0644ada44d7a22c9c77f25 MOBILE PASS | key5 project 7022870386131391655
+adm-services f363f43929e24a619445e58c1b1c67e7 8f1a4e0b58834a22801b6686153bb86e DESKTOP PASS | key4 project 16660982915050208874
+adm-services-m 10e8ac93edd241f38da256cf2ce4c5ed 50a9f6923b5f4a8eabb1327b6a999a4c MOBILE QC | key1 project 7268539912208977707 · QC: light: tương phản 1 chữ (vd "Lexkite Ops Engine v2.4.2 • 100% Free-Ti" 3.82<4.5)
+adm-settings 46d2fc3de6f74aa099304af29a518e87 2c3106f0fcfb4efdbea6f1564b71a678 DESKTOP QC | key5 project 7022870386131391655 · QC: light: 13 vùng chạm < 44px (vd "INPUT 24×24") · light: tương phản 3 chữ (vd "0.5×" 4.01<4.5) · dark: 9 vùng chạm < 44px (vd "INPUT 1×1") · sáng/tối lệch nội dung: 516 vs 659 chữ
+adm-settings-m 27418ae7835d41bd99e8ccae4a2d822b 96be6ca580ef4b03b2438bdc1a2a9c3f MOBILE PASS | key4 project 16660982915050208874
+adm-signin b4945da534a845fabc8271bb565cfc8c 2c7be74453dc44b3ab955d9e7bb20290 DESKTOP PASS | key4 project 16660982915050208874
+adm-social 17273f4231e0421989d289ed83d68d96 4aaf89756e1d4bbd9bd06294a2e68b46 DESKTOP QC | key4 project 16660982915050208874 · QC: light: 5 vùng chạm < 44px (vd "INPUT 448×40") · light: tương phản 4 chữ (vd "›" 4.37<4.5) · dark: 3 vùng chạm < 44px (vd "INPUT 20×20") · dark: tương phản 3 chữ (vd "TT" 3.12<4.5) · sáng/tối lệch nội dung: 380 vs 535 chữ
+adm-social-m 5d499676fdf54ebe9074f2ae9a2d67a2 07cfafacf42e4b2b8980ae52cebbea1a MOBILE PASS | key4 project 16660982915050208874
+adm-storage a8c62e326957435696012c4a66ad2ff3 c2a11a3da2e04ed1b871eb3d9437c7e0 DESKTOP QC | key4 project 16660982915050208874 · QC: light: 14 vùng chạm < 44px (vd "Nâng cấp gói 77×16") · dark: tương phản 2 chữ (vd "2" 3.62<4.5)
+adm-storage-m f0711bef61b84193828a53517cb7cf52 3b502cb7903d415f9ebf897657b89b3c MOBILE QC | key1 project 7268539912208977707 · QC: dark: tương phản 1 chữ (vd "100% Free-Tier Cloud Architecture • SQLi" 4.13<4.5)
+adm-studio 60348740afae446fb16afd7e5fd213df da69cd81e6774e7a8125af696de923d6 DESKTOP QC | key5 project 7022870386131391655 · QC: sáng/tối lệch nội dung: 384 vs 714 chữ
+adm-studio-m 35c0974cc08c4d16a97cb687d983be59 7f96d0ec5b2d48c1893e1ba1145f9787 MOBILE PASS | key4 project 16660982915050208874
+adm-users2-confirm 8730957840b24958bc65088344d285cc cff06bfb1f064822ac3b413b53d1ef76 DESKTOP QC | key2 project 10804635390057604965 · QC: light: 26 vùng chạm < 44px (vd "kitesurfing Lexkite Ad 170×36") · light: tương phản 15 chữ (vd "Admin" 1.59<4.5) · dark: tràn ngang 160px · dark: 6 vùng chạm < 44px (vd "INPUT 16×16") · dark: tương phản 5 chữ (vd "/" 1.98<4.5)
+adm-users2-drawer 59889cc6f30e448cb12e93ce0f14ed96 bebb16554074498499c463e008d9203d DESKTOP QC | key1 project 7268539912208977707 · QC: light: 11 vùng chạm < 44px (vd "INPUT 20×20") · light: tương phản 12 chữ (vd "Thêm học viên mới" 2.34<4.5) · dark: 26 vùng chạm < 44px (vd "INPUT 384×36") · sáng/tối lệch nội dung: 523 vs 361 chữ
+adm-users2-table 683962452cdf4bdbb081139292b1e29f 08fb183955f347939c6b844a1c763e11 DESKTOP QC | key1 project 7268539912208977707 · QC: light: 10 vùng chạm < 44px (vd "INPUT 20×20") · dark: tràn ngang 94px · dark: 60 vùng chạm < 44px (vd "space_dashboard Tổng qua 206×40") · dark: tương phản 1 chữ (vd "HN" 3.97<4.5) · sáng/tối lệch nội dung: 336 vs 436 chữ
+adm-users2-table-m 37d7f6ee1e574512a1a8174911e067d4 dc80e54bbca842e0bdfc71b40612a9a5 MOBILE PASS | key4 project 16660982915050208874
+adm-video 026a0f5d3a934c6d9e5f59b7043115d1 e55ac4221311481482ade8ae62ca1498 DESKTOP QC | key5 project 7022870386131391655 · QC: light: 9 vùng chạm < 44px (vd "Admin 64×30") · light: tương phản 1 chữ (vd "|" 2.12<4.5) · sáng/tối lệch nội dung: 481 vs 688 chữ
+adm-video-m ba020f4a545643b09beaa096be80577e 44561a61fc7d4aa1a36ffc9f56644f0a MOBILE PASS | key5 project 7022870386131391655

@@ -1,0 +1,731 @@
+[
+ {
+  "id": "adm-ads",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-ads/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 33 vùng chạm < 44px (vd \"INPUT 213×36\")\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-ads",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-ads/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 32 vùng chạm < 44px (vd \"INPUT 240×36\") | dark: tương phản 2 chữ (vd \"ADMIN\" 3.4<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-ads-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-ads-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 6 vùng chạm < 44px (vd \"menu 40×40\") | light: tương phản 17 chữ (vd \"Admin › Quản lý quảng cáo\" 4.36<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-ads-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-ads-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 6 vùng chạm < 44px (vd \"menu 40×40\") | dark: tương phản 3 chữ (vd \"HM\" 3.04<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-alerts",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-alerts/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 17 chữ (vd \"Production\" 4.06<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-alerts",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-alerts/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 2 vùng chạm < 44px (vd \"VI 33×38\") | dark: tương phản 1 chữ (vd \"Chạy tác vụ thủ công\" 3.44<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-alerts-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-alerts-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 4 vùng chạm < 44px (vd \"close 32×32\") | light: tương phản 2 chữ (vd \"•\" 2.99<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-alerts-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-alerts-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 3 vùng chạm < 44px (vd \"smart_toy\nTác vụ tự động 255×38\")\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-analytics",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-analytics/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 791px | light: 20 vùng chạm < 44px (vd \"dashboard\n               231×36\") | light: tương phản 57 chữ (vd \"Admin Console\" 3.32<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-analytics",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-analytics/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 24 vùng chạm < 44px (vd \"dashboard\nTổng quan 231×36\") | dark: tương phản 8 chữ (vd \"Tổng quan\" 4.24<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-analytics-details",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-analytics-details/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \"VI 38×38\") | light: tương phản 8 chữ (vd \"›\" 2.46<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-analytics-details",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-analytics-details/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 7 vùng chạm < 44px (vd \"VI 37×36\") | dark: tương phản 12 chữ (vd \"Xuất dữ liệu CSV\" 3.24<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-analytics-details-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-analytics-details-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 3 chữ (vd \"72\" 3.08<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-analytics-details-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-analytics-details-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"Xuất báo cáo chi tiết 30 ngày (.csv)\" 3.11<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-analytics-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-analytics-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 14 chữ (vd \"KL\" 3.04<4.5) | light: tên icon hiện thành chữ \"drive_file_stream\" (1)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-analytics-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-analytics-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"menu 40×40\") | dark: tương phản 1 chữ (vd \"1\" 4.33<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-backlinks",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-backlinks/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 60 vùng chạm < 44px (vd \"dashboard\nTổng quan 234×30\") | light: tương phản 18 chữ (vd \"NỘI DUNG & VIDEO\" 3.01<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-backlinks",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-backlinks/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 60 vùng chạm < 44px (vd \"dashboard\nTổng quan 234×30\") | dark: tương phản 5 chữ (vd \"›\" 2.59<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-backlinks-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-backlinks-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 13 chữ (vd \"/\" 3.41<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-dist",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-dist/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"INPUT 286×38\") | light: tương phản 27 chữ (vd \"v2.4.1\" 4.36<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-dist",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-dist/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 7 chữ (vd \"Tạo luật phân phối mới\" 3.12<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-dist-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-dist-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \"menu 40×40\") | light: tương phản 1 chữ (vd \"+ Thêm kênh phân phối\" 3.44<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-dist-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-dist-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 1 vùng chạm < 44px (vd \"LM 36×36\") | dark: tương phản 10 chữ (vd \"+ Thêm kênh phân phối\" 3.44<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-drive",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-drive/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 57 vùng chạm < 44px (vd \"space_dashboard\nTổng qua 230×36\") | light: tương phản 54 chữ (vd \"ADMIN\" 3.4<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-drive",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-drive/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 57 vùng chạm < 44px (vd \"space_dashboard\nTổng qua 230×36\") | dark: tương phản 12 chữ (vd \"›\" 2.84<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-drive-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-drive-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 13 vùng chạm < 44px (vd \"menu 36×36\") | light: tương phản 32 chữ (vd \"Hạ tầng Google Drive pool\" 4.25<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-drive-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-drive-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 13 vùng chạm < 44px (vd \"menu 36×36\") | dark: tương phản 1 chữ (vd \"Nối thêm Drive\" 3.11<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-growth",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-growth/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 6 chữ (vd \"Xuất báo cáo cohort (.csv)\" 3.11<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-growth",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-growth/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 4 vùng chạm < 44px (vd \"Tất cả 57×30\") | dark: tương phản 9 chữ (vd \"3\" 3.44<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-growth-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-growth-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 5 vùng chạm < 44px (vd \"menu 40×40\") | light: tương phản 32 chữ (vd \"verified_user\n          Dữ liệu ẩn danh \" 4.34<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-growth-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-growth-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 5 vùng chạm < 44px (vd \"menu 40×40\") | dark: tương phản 6 chữ (vd \"verified_user\n          Dữ liệu ẩn danh \" 4.14<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-keys",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-keys/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"Thêm khóa mới\" 3.44<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-keys",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-keys/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 14 vùng chạm < 44px (vd \"help 14×20\") | dark: tương phản 13 chữ (vd \"Thêm khóa mới\" 3.44<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-keys-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-keys-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 5 vùng chạm < 44px (vd \"Tất cả (9) 77×28\") | light: tương phản 1 chữ (vd \"add_circle\n          + Thêm khóa mới\" 2.84<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-keys-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-keys-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 5 vùng chạm < 44px (vd \"Tất cả (9) 79×30\") | dark: tương phản 1 chữ (vd \"add_circle\n          + Thêm khóa mới\" 3.44<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-notices",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-notices/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 4 vùng chạm < 44px (vd \"VI 40×40\") | light: tương phản 5 chữ (vd \"*\" 2.99<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-notices",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-notices/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 5 vùng chạm < 44px (vd \"VI 37×36\") | dark: tương phản 3 chữ (vd \"Gửi thông báo\" 3.12<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-notices-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-notices-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \"INPUT 16×16\") | light: tương phản 12 chữ (vd \"send\n            Gửi thông báo ngay\" 3.11<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-notices-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-notices-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 2 vùng chạm < 44px (vd \"INPUT 16×16\") | dark: tương phản 4 chữ (vd \"Tin tức\" 4.33<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-overview",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-overview/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tràn ngang 447px | light: 9 vùng chạm < 44px (vd \"VI 32×24\") | light: tương phản 10 chữ (vd \"Admin\" 2.03<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-overview",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-overview/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 7 vùng chạm < 44px (vd \"INPUT 288×40\")\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-overview-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-overview-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 1 vùng chạm < 44px (vd \"Xem tất cả 60×36\")\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-overview-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-overview-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"build\n          Xử lý & Khắc phục hạ tần\" 3.12<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-quality",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-quality/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 6 chữ (vd \"|\" 2.39<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-quality",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-quality/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 13 vùng chạm < 44px (vd \"Xem mục từ 43×38\") | dark: tương phản 5 chữ (vd \"3\" 3.11<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-quality-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-quality-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 7 vùng chạm < 44px (vd \"Hôm nay 75×32\") | light: tương phản 2 chữ (vd \"/\" 1.55<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-quality-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-quality-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 7 vùng chạm < 44px (vd \"Hôm nay 77×32\") | dark: tương phản 2 chữ (vd \"/\" 1.62<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-quota",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-quota/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 6 vùng chạm < 44px (vd \"BẬT 48×28\") | light: tương phản 2 chữ (vd \"Khóa an toàn khẩn cấp\" 3.44<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-quota",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-quota/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 2 chữ (vd \"|\" 3.76<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-quota-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-quota-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 8 vùng chạm < 44px (vd \"sync 40×40\") | light: tương phản 49 chữ (vd \"Hệ thống\" 4.06<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-quota-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-quota-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 8 vùng chạm < 44px (vd \"sync 40×40\") | dark: tương phản 1 chữ (vd \"Khóa an toàn khẩn cấp\" 3.11<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-reports",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-reports/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 11 vùng chạm < 44px (vd \"INPUT 278×16\") | light: tương phản 31 chữ (vd \"TỔNG QUAN\" 3.83<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-reports",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-reports/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 11 vùng chạm < 44px (vd \"INPUT 278×16\") | dark: tương phản 4 chữ (vd \"4 mới\" 3.4<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-reports-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-reports-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 2 chữ (vd \"HM\" 3.24<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-reports-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-reports-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 10 vùng chạm < 44px (vd \"menu 36×36\")\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-services",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-services/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 4 vùng chạm < 44px (vd \"VI 36×36\") | light: tương phản 20 chữ (vd \"Đồng bộ & Kiểm tra kết nối\" 3.11<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-services",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-services/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 2 vùng chạm < 44px (vd \"VI 34×40\") | dark: tương phản 2 chữ (vd \"Đồng bộ & Kiểm tra kết nối\" 3.44<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-services-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-services-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"Lexkite Ops Engine v2.4.2 • 100% Free-Ti\" 3.82<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-services-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-services-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 2 chữ (vd \"7 DỊCH VỤ OK\" 2.45<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-settings",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-settings/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 10 vùng chạm < 44px (vd \"INPUT 1×1\") | light: tương phản 1 chữ (vd \"Lưu thay đổi\" 3.12<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-settings",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-settings/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 12 vùng chạm < 44px (vd \"VI 36×36\") | dark: tương phản 1 chữ (vd \"Lưu thay đổi\" 3.12<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-settings-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-settings-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 22 vùng chạm < 44px (vd \"INPUT 1×1\") | light: tương phản 18 chữ (vd \"Kích hoạt trên toàn bộ miền Lexkite\" 4.37<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-settings-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-settings-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 22 vùng chạm < 44px (vd \"INPUT 1×1\") | dark: tương phản 19 chữ (vd \"LM\" 3.04<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-social",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-social/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 5 vùng chạm < 44px (vd \"VI 35×36\") | light: tương phản 32 chữ (vd \"Thứ 2\" 3.13<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-social",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-social/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 35 vùng chạm < 44px (vd \"dashboard\nTổng quan 231×30\") | dark: tương phản 16 chữ (vd \"Tổng quan\" 4.39<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-social-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-social-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 4 vùng chạm < 44px (vd \"menu 40×40\") | light: tương phản 41 chữ (vd \"Lên lịch & Kênh GrabCast\" 4.37<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-social-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-social-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 4 vùng chạm < 44px (vd \"menu 40×40\") | dark: tương phản 4 chữ (vd \"LM\" 3.04<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-storage-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-storage-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: tương phản 1 chữ (vd \"An toàn\" 2.39<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-storage-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-storage-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: tương phản 1 chữ (vd \"100% Free-Tier Cloud Architecture • SQLi\" 4.13<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-studio",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-studio/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 2 vùng chạm < 44px (vd \"VI 35×40\") | light: tương phản 32 chữ (vd \"Tạo video tự động\" 2.98<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-studio",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-studio/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 2 vùng chạm < 44px (vd \"VI 37×36\") | dark: tương phản 15 chữ (vd \"Tạo video tự động\" 3.12<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-studio-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-studio-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 10 vùng chạm < 44px (vd \"menu 40×40\") | light: tương phản 5 chữ (vd \"/20\" 4.37<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-studio-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-studio-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 10 vùng chạm < 44px (vd \"menu 40×40\") | dark: tương phản 4 chữ (vd \"/20\" 4.08<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-users2-confirm",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-users2-confirm/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 10 vùng chạm < 44px (vd \"logout 32×32\") | light: tương phản 30 chữ (vd \"Lexkite\" 1.5<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-users2-confirm",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-users2-confirm/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 10 vùng chạm < 44px (vd \"logout 32×32\") | dark: tương phản 25 chữ (vd \"Streak trung bình\" 4.41<4.5) | dark: mảng sáng 18% > 12% (thẻ trắng trong nền tối?)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-users2-table-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-users2-table-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 22 vùng chạm < 44px (vd \"menu 40×40\") | light: tương phản 11 chữ (vd \"+ Thêm học viên\" 2.59<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-users2-table-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-users2-table-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 22 vùng chạm < 44px (vd \"menu 40×40\") | dark: tương phản 6 chữ (vd \"·\" 2.16<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-video",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-video/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 18 vùng chạm < 44px (vd \"INPUT 240×32\") | light: tương phản 40 chữ (vd \"Tạo kịch bản mới\" 3.12<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-video",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-video/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 33 vùng chạm < 44px (vd \"dashboard\nTổng quan 220×32\") | dark: tương phản 4 chữ (vd \"v2.4.1\" 4.15<4.5)\nLayout: fit a 1280-wide browser window with zero horizontal scroll (flexible widths). Every sidebar nav item, tab, chip, table action and icon button at least 44 px tall. Small helper text uses the main ink colour, not faint grey. Fix only what is listed; keep everything that already works.",
+  "device": "DESKTOP"
+ },
+ {
+  "id": "adm-video-m",
+  "mode": "light",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-video-m/light",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (light): light: 12 vùng chạm < 44px (vd \"refresh 40×40\") | light: tương phản 37 chữ (vd \"Admin › Trung tâm video\" 4.35<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ },
+ {
+  "id": "adm-video-m",
+  "mode": "dark",
+  "kind": "edit",
+  "fix": "4",
+  "from": "adm-video-m/dark",
+  "prompt": "Fix ONLY these machine-QC failures and keep layout, content, language and theme identical: every text at least 4.5:1 contrast (large text 3:1; no light-grey or low-opacity text, no text on saturated chips without enough contrast); every link, chip, icon button and text button has a tap area at least 44x44 px (min-height 44px, padding); nothing wider than the viewport; only valid Material Symbols Rounded icon names (no \"sparkles\", \"waveform\", \"near_me\" ligatures that fail – use auto_awesome, graphic_eq, navigation); dark theme has no large light panels.\nFailures (dark): dark: 12 vùng chạm < 44px (vd \"refresh 40×40\") | dark: tương phản 2 chữ (vd \"add\n          + Tạo kịch bản mới\" 3.24<4.5)\nEvery button, chip, icon button and list action at least 44 px tall; small helper text uses the main ink colour, not faint grey. Keep the narrow phone canvas. Fix only what is listed; keep everything that already works.",
+  "device": "MOBILE"
+ }
+]

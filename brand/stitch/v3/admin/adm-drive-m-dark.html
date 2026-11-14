@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Admin › Kho Drive - Lexkite Storage Pool</title>
+<!-- Typography & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-high": "#202c2f",
+            "surface-tint": "#6bd8ce",
+            "surface-variant": "#2b373a",
+            "surface-container-lowest": "#051013",
+            "secondary-fixed": "#ffdad3",
+            "on-surface-variant": "#a3c7c3",
+            "error-container": "#93000a",
+            "primary-fixed-dim": "#6bd8ce",
+            "surface-bright": "#2f3b3e",
+            "surface-container-highest": "#2b373a",
+            "on-primary-container": "#00322e",
+            "on-secondary-fixed-variant": "#900f00",
+            "on-primary-fixed-variant": "#00504b",
+            "tertiary-fixed-dim": "#f4bf40",
+            "outline": "#86b0aa",
+            "surface-container-low": "#0f2125",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-primary-fixed": "#00201e",
+            "error": "#ff8577",
+            "surface": "#091518",
+            "primary": "#2dd4bf",
+            "tertiary-fixed": "#ffdf9e",
+            "on-secondary-fixed": "#3f0300",
+            "background": "#091518",
+            "on-surface": "#f1fdfb",
+            "tertiary": "#f4bf40",
+            "on-tertiary-container": "#392900",
+            "on-secondary": "#ffffff",
+            "inverse-on-surface": "#263236",
+            "surface-container": "#13272c",
+            "secondary": "#f06543",
+            "surface-dim": "#091518",
+            "primary-container": "#14b8a6",
+            "outline-variant": "#1c383f",
+            "on-tertiary": "#402e00",
+            "secondary-fixed-dim": "#ffb4a6",
+            "inverse-surface": "#d8e5e9",
+            "secondary-container": "#f06543",
+            "primary-fixed": "#88f5ea",
+            "on-primary": "#003733",
+            "on-tertiary-fixed": "#261a00",
+            "on-background": "#f1fdfb",
+            "on-error": "#690005",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#ba8b00",
+            "on-secondary-container": "#ffffff",
+            "inverse-primary": "#006a64"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "margin": "1rem",
+            "gutter": "1rem",
+            "margin-tablet": "1.5rem",
+            "gutter-desktop": "2rem",
+            "gutter-tablet": "1.5rem",
+            "space-xl": "2rem",
+            "margin-desktop": "2.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["1rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.005em", "fontWeight": "500" }],
+            "body-md": ["0.875rem", { "lineHeight": "1.375rem", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-sm": ["0.75rem", { "lineHeight": "1.125rem", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-lg": ["0.875rem", { "lineHeight": "1.125rem", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "label-md": ["0.75rem", { "lineHeight": "1.0rem", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "label-sm": ["0.6875rem", { "lineHeight": "0.875rem", "letterSpacing": "0.06em", "fontWeight": "700" }],
+            "headline-sm": ["1.125rem", { "lineHeight": "1.5rem", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-md": ["1.25rem", { "lineHeight": "1.625rem", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-lg": ["1.75rem", { "lineHeight": "2.125rem", "letterSpacing": "-0.025em", "fontWeight": "600" }],
+            "headline-xl": ["2.25rem", { "lineHeight": "2.625rem", "letterSpacing": "-0.03em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      vertical-align: middle;
+    }
+    body {
+      background-color: #091518;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    .tactile-bevel {
+      box-shadow: 0 3px 0 0 #ba391a, 0 6px 14px -2px rgba(240, 101, 67, 0.4);
+    }
+    .tactile-bevel:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #ba391a, 0 2px 4px rgba(240, 101, 67, 0.3);
+    }
+    .tactile-card {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.25);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-container selection:text-white">
+<!-- Mobile Viewport Shell (iPhone Max 390px bounded) -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col relative pb-28">
+<!-- Top App Bar (Shared Components standard implementation) -->
+<header class="sticky top-0 z-40 bg-[#0A1517]/90 backdrop-blur-md border-b border-outline-variant px-margin h-14 flex items-center justify-between shadow-sm"><div class="flex items-center gap-2">
+<button aria-label="Menu điều hướng" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-xl flex items-center justify-center text-primary hover:bg-surface-container active:translate-y-0.5 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+<div class="flex flex-col">
+<h1 class="text-headline-sm font-headline-sm text-on-surface tracking-tight leading-tight">Admin › Kho Drive</h1>
+<span class="text-label-sm font-label-sm text-outline tracking-wider">Hạ tầng Google Drive pool</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="Làm mới trạng thái" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-lg flex items-center justify-center text-outline hover:text-primary active:rotate-180 transition-transform duration-300" type="button">
+<span class="material-symbols-outlined text-[20px]">sync</span>
+</button>
+<div class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-xl bg-primary text-on-primary flex items-center justify-center font-label-md text-label-md font-bold shadow-xs">
+          LM
+        </div>
+</div></header>
+<!-- Sub-header Live Status Pill -->
+<div class="px-margin pt-3 pb-1">
+<div class="bg-surface-container-low border border-outline-variant rounded-xl px-3 py-1.5 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-label-md text-label-md text-primary font-bold">3 Drive kết nối · Đồng bộ liên tục</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline bg-surface-container px-2 py-0.5 rounded-full border border-outline-variant">v2.4.1</span>
+</div>
+</div>
+<!-- MAIN SCROLLABLE CONTENT CANVAS -->
+<main class="px-margin flex flex-col gap-4 mt-2">
+<!-- CARD 1: DUNG LƯỢNG KHO (Capacity & Multi-drive bar) -->
+<section class="bg-surface-container border border-outline-variant rounded-2xl p-4 tactile-card flex flex-col gap-3.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">cloud_queue</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Dung lượng kho tổng hợp</h2>
+</div>
+<span class="bg-[#3A221C] text-[#ffb4a6] font-label-md text-label-md px-2 py-0.5 rounded-md border border-[#900f00]/50 font-semibold">
+            71% đã dùng
+          </span>
+</div>
+<!-- Big Metric display -->
+<div class="flex items-baseline justify-between pt-0.5">
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-xl text-headline-xl text-on-surface tracking-tight">31,9</span>
+<span class="font-headline-sm text-headline-sm text-outline">/ 45,0 GB</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium">3 × 15 GB Free Tier</span>
+</div>
+<!-- Segmented Multi-Drive Progress Bar -->
+<div class="flex flex-col gap-1.5">
+<div class="w-full h-3 bg-surface-container-low rounded-full overflow-hidden flex p-0.5 gap-0.5 border border-outline-variant">
+<!-- Drive 1: 13.8 / 45.0 = 30.6% -->
+<div class="h-full bg-secondary rounded-l-full transition-all duration-500" style="width: 30.6%;" title="Drive 01 (92%)"></div>
+<!-- Drive 2: 11.2 / 45.0 = 24.8% -->
+<div class="h-full bg-primary-container transition-all duration-500" style="width: 24.8%;" title="Drive 02 (74%)"></div>
+<!-- Drive 3: 6.9 / 45.0 = 15.3% -->
+<div class="h-full bg-tertiary-fixed-dim rounded-r-xs transition-all duration-500" style="width: 15.3%;" title="Drive 03 (46%)"></div>
+</div>
+<div class="flex justify-between items-center text-label-sm font-label-sm text-outline px-0.5">
+<span>0 GB</span>
+<span class="text-primary font-bold">13,1 GB còn trống</span>
+<span>45 GB</span>
+</div>
+</div>
+<!-- Breakdown Drive Ledger Chips -->
+<div class="bg-surface-container-low rounded-xl p-2.5 border border-outline-variant flex flex-col gap-2">
+<!-- Drive 01 -->
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">lexkite-assets-01</span>
+<span class="text-[10px] font-label-sm bg-[#3A1A1C] text-[#ffb4ab] px-1 rounded border border-[#93000a]">Cận trần</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-on-surface font-bold">13,8 / 15 GB</span>
+<span class="font-label-sm text-label-sm text-outline">(92%)</span>
+</div>
+</div>
+<!-- Drive 02 -->
+<div class="flex items-center justify-between text-body-sm font-body-sm border-t border-outline-variant/60 pt-1.5">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">lexkite-assets-02</span>
+<span class="text-[10px] font-label-sm bg-surface-container text-primary font-medium px-1 rounded border border-primary/30">Đang dùng</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-on-surface font-bold">11,2 / 15 GB</span>
+<span class="font-label-sm text-label-sm text-outline">(74%)</span>
+</div>
+</div>
+<!-- Drive 03 -->
+<div class="flex items-center justify-between text-body-sm font-body-sm border-t border-outline-variant/60 pt-1.5">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">lexkite-assets-03</span>
+<span class="text-[10px] font-label-sm bg-surface-container text-tertiary font-medium px-1 rounded border border-tertiary/30">Khả dụng</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-on-surface font-bold">6,9 / 15 GB</span>
+<span class="font-label-sm text-label-sm text-outline">(46%)</span>
+</div>
+</div>
+</div>
+<!-- Primary Warm Coral Tactile CTA -->
+<button class="w-full min-h-[48px] h-12 bg-[#CC3F1C] text-white font-label-lg text-label-lg rounded-xl flex items-center justify-center gap-2 tactile-bevel transition-all duration-150 font-bold tracking-wide" style="box-shadow: 0 3px 0 0 #9a3412, 0 6px 14px -2px rgba(194, 65, 12, 0.4);" type="button">
+<span class="material-symbols-outlined text-[20px] text-white">add_to_drive</span>
+<span class="text-white font-bold">Nối thêm Drive</span>
+</button>
+</section>
+<!-- CARD 2: TÌNH TRẠNG BẢN SAO (Replicas Health) -->
+<section class="bg-surface-container border border-outline-variant rounded-2xl p-4 tactile-card flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">security</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Sức khỏe bản sao (Replicas)</h2>
+</div>
+<span class="bg-[#0F3D3E] text-primary border border-primary/40 font-label-md text-label-md px-2 py-0.5 rounded-md font-semibold">
+            98.6% an toàn
+          </span>
+</div>
+<!-- 3 Micro-Metric Tiles -->
+<div class="grid grid-cols-3 gap-2">
+<!-- Tile 1 -->
+<div class="bg-surface-container-low rounded-xl p-2.5 border border-outline-variant flex flex-col">
+<span class="font-label-sm text-label-sm text-outline leading-tight">Đã 2 bản sao</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold mt-1">142</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/ 144 tệp</span>
+</div>
+<!-- Tile 2 -->
+<div class="bg-surface-container-low rounded-xl p-2.5 border border-outline-variant flex flex-col">
+<span class="font-label-sm text-label-sm text-error leading-tight">Chưa đủ sao</span>
+<span class="font-headline-sm text-headline-sm text-error font-bold mt-1">02</span>
+<span class="font-label-sm text-label-sm text-outline">Đang đẩy D3</span>
+</div>
+<!-- Tile 3 -->
+<div class="bg-surface-container-low rounded-xl p-2.5 border border-outline-variant flex flex-col">
+<span class="font-label-sm text-label-sm text-outline leading-tight">Chu kỳ quét</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1">15m</span>
+<span class="font-label-sm text-label-sm text-outline">Cron Worker</span>
+</div>
+</div>
+<!-- High-clarity operational policy disclaimer -->
+<div class="bg-surface-container-low rounded-xl p-2.5 flex items-start gap-2 border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">verified_user</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+<strong class="text-primary font-semibold">Quy tắc vàng:</strong> Mỗi file audio MP3 và backup JSON bắt buộc duy trì tối thiểu 2 Drive độc lập để chống mất mát dữ liệu học viên.
+          </p>
+</div>
+</section>
+<!-- CARD 3: DANH SÁCH TỆP (File Browser Table / Card List) -->
+<section class="bg-surface-container border border-outline-variant rounded-2xl p-4 tactile-card flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">folder_open</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Trình duyệt tệp</h2>
+</div>
+<span class="font-label-sm text-label-sm text-outline">144 tệp tổng</span>
+</div>
+<!-- Search Bar -->
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full min-h-[44px] h-11 pl-9 pr-3 rounded-xl border border-outline-variant bg-surface-container-low text-on-surface text-body-sm font-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder:text-outline/70" placeholder="Lọc tệp theo tên hoặc SHA-256..." type="text"/>
+</div>
+<!-- Filter Pills Strip (compact, wraps gracefully if needed) -->
+<div class="flex flex-wrap gap-1.5 pt-0.5"><button class="min-h-[44px] px-3.5 py-2 rounded-full bg-primary text-[#003733] font-label-sm text-label-sm flex items-center shadow-xs font-bold active:scale-95 transition-all" type="button">
+            Tất cả (144)
+          </button>
+<button class="min-h-[44px] px-3.5 py-2 rounded-full bg-surface-container-low border border-outline-variant text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high active:scale-95 transition-all" type="button">
+            Audio MP3
+          </button>
+<button class="min-h-[44px] px-3.5 py-2 rounded-full bg-surface-container-low border border-outline-variant text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high active:scale-95 transition-all" type="button">
+            Bản sao lưu
+          </button>
+<button class="min-h-[44px] px-3.5 py-2 rounded-full bg-surface-container-low border border-outline-variant text-on-surface-variant font-label-sm text-label-sm hover:bg-surface-container-high active:scale-95 transition-all" type="button">
+            Dữ liệu từ vựng
+          </button></div>
+<!-- Structured Responsive File Rows (No horizontal overflow) -->
+<div class="flex flex-col divide-y divide-outline-variant border-t border-b border-outline-variant mt-1"><!-- Row 1 -->
+<div class="py-2.5 flex items-start justify-between gap-2 hover:bg-surface-container-low/70 active:bg-surface-container-low transition-colors rounded-lg px-1">
+<div class="flex items-start gap-2 flex-1 min-w-0">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5 flex-shrink-0">audiotrack</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold break-all line-clamp-2">ielts-cambridge-listening-p1.mp3</span>
+<div class="flex items-center gap-2 mt-1 text-label-sm font-label-sm text-outline">
+<span>Audio · 14.2 MB</span>
+<span>·</span>
+<span class="text-tertiary font-medium">18p trước</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1 flex-shrink-0 ml-1">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-[#0F3D3E] text-primary border border-primary/40 font-bold">2/2 (D1, D2)</span>
+<button aria-label="Tải về file" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center text-outline hover:text-primary active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">cloud_download</span>
+</button>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="py-2.5 flex items-start justify-between gap-2 hover:bg-surface-container-low/70 active:bg-surface-container-low transition-colors rounded-lg px-1">
+<div class="flex items-start gap-2 flex-1 min-w-0">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5 flex-shrink-0">folder_zip</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold break-all line-clamp-2">awl-570-pronunciation-bundle.zip</span>
+<div class="flex items-center gap-2 mt-1 text-label-sm font-label-sm text-outline">
+<span>Zip · 42.8 MB</span>
+<span>·</span>
+<span>2h trước</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1 flex-shrink-0 ml-1">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-[#0F3D3E] text-primary border border-primary/40 font-bold">2/2 (D2, D3)</span>
+<button aria-label="Tải về file" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center text-outline hover:text-primary active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">cloud_download</span>
+</button>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="py-2.5 flex items-start justify-between gap-2 hover:bg-surface-container-low/70 active:bg-surface-container-low transition-colors rounded-lg px-1">
+<div class="flex items-start gap-2 flex-1 min-w-0">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5 flex-shrink-0">audiotrack</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold break-all line-clamp-2">toeic-listening-drill-q1-10.mp3</span>
+<div class="flex items-center gap-2 mt-1 text-label-sm font-label-sm text-outline">
+<span>Audio · 8.5 MB</span>
+<span>·</span>
+<span>Hôm qua</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1 flex-shrink-0 ml-1">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-[#0F3D3E] text-primary border border-primary/40 font-bold">2/2 (D1, D3)</span>
+<button aria-label="Tải về file" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center text-outline hover:text-primary active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">cloud_download</span>
+</button>
+</div>
+</div>
+<!-- Row 4 (Warning sync required) -->
+<div class="py-2.5 flex items-start justify-between gap-2 bg-[#3A1A1C]/30 px-1 rounded-lg border border-[#93000a]/50">
+<div class="flex items-start gap-2 flex-1 min-w-0">
+<span class="material-symbols-outlined text-error text-[20px] mt-0.5 flex-shrink-0">database</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold break-all line-clamp-2">d1-database-snapshot-202503.sql.gz</span>
+<div class="flex items-center gap-2 mt-1 text-label-sm font-label-sm text-error font-medium">
+<span>Sao lưu · 31.4 MB</span>
+<span>·</span>
+<span>04:00 sáng</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1 flex-shrink-0 ml-1">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-[#93000a] text-[#ffdad6] font-bold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">warning</span> 1/2 Sync
+              </span>
+<button aria-label="Kích hoạt đồng bộ thủ công" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center text-secondary hover:text-secondary-fixed active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+</button>
+</div>
+</div>
+<!-- Row 5 -->
+<div class="py-2.5 flex items-start justify-between gap-2 hover:bg-surface-container-low/70 active:bg-surface-container-low transition-colors rounded-lg px-1">
+<div class="flex items-start gap-2 flex-1 min-w-0">
+<span class="material-symbols-outlined text-outline text-[20px] mt-0.5 flex-shrink-0">dataset</span>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold break-all line-clamp-2">collocation-corpus-vi-en.parquet</span>
+<div class="flex items-center gap-2 mt-1 text-label-sm font-label-sm text-outline">
+<span>Data · 19.6 MB</span>
+<span>·</span>
+<span>2 ngày trước</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1 flex-shrink-0 ml-1">
+<span class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-[#0F3D3E] text-primary border border-primary/40 font-bold">2/2 (D1, D2)</span>
+<button aria-label="Tải về file" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center text-outline hover:text-primary active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">cloud_download</span>
+</button>
+</div>
+</div></div>
+<!-- Ledger Footer Summary -->
+<div class="flex items-center justify-between pt-1 text-label-sm font-label-sm text-outline">
+<span>Hiển thị 5 / 144 tệp</span>
+<span class="text-right truncate ml-2">Tổng 1.482 file audio băm SHA-256</span>
+</div>
+</section>
+<!-- CARD 4: SỔ KHO HOẠT ĐỘNG (Ledger & Activity Log) -->
+<section class="bg-surface-container border border-outline-variant rounded-2xl p-4 tactile-card flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">history_edu</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Sổ kho hoạt động</h2>
+</div>
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-primary font-bold bg-surface-container-low border border-primary/30 px-2 py-0.5 rounded">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            Thời gian thực
+          </span>
+</div>
+<!-- Event Timeline Stream -->
+<div class="relative pl-5 border-l-2 border-outline-variant flex flex-col gap-3.5 my-1">
+<!-- Event 1 -->
+<div class="relative flex flex-col gap-0.5">
+<span class="absolute -left-[26px] top-1 w-3 h-3 rounded-full bg-primary border-2 border-surface-container"></span>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-primary font-bold">09:15</span>
+<span class="font-label-sm text-label-sm text-outline">Hôm nay</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+              Nhân bản <code class="text-[11px] bg-surface-container-low px-1 py-0.5 rounded font-mono text-primary font-bold border border-outline-variant">ielts-cambridge-listening-p1.mp3</code> sang <strong>Drive 02</strong> thành công. Checksum SHA-256 khớp tuyệt đối.
+            </p>
+</div>
+<!-- Event 2 -->
+<div class="relative flex flex-col gap-0.5">
+<span class="absolute -left-[26px] top-1 w-3 h-3 rounded-full bg-secondary border-2 border-surface-container"></span>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-bold">08:30</span>
+<span class="font-label-sm text-label-sm text-outline">Hôm nay</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+              Sao lưu tự động <code class="text-[11px] bg-surface-container-low px-1 py-0.5 rounded font-mono text-on-surface-variant border border-outline-variant">d1-database-snapshot</code> được đẩy lên <strong>Drive 01</strong>. Đang xếp hàng đồng bộ sang Drive 03.
+            </p>
+</div>
+<!-- Event 3 -->
+<div class="relative flex flex-col gap-0.5">
+<span class="absolute -left-[26px] top-1 w-3 h-3 rounded-full bg-outline border-2 border-surface-container"></span>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline font-bold">07:00</span>
+<span class="font-label-sm text-label-sm text-outline">Định kỳ</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Quét kiểm tra toàn vẹn định kỳ: <strong class="text-on-surface">142 / 144 tệp</strong> đạt chuẩn 2 bản sao độc lập. Tỉ lệ bảo vệ đạt 98.6%.
+            </p>
+</div>
+<!-- Event 4 -->
+<div class="relative flex flex-col gap-0.5">
+<span class="absolute -left-[26px] top-1 w-3 h-3 rounded-full bg-outline border-2 border-surface-container"></span>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline font-bold">Hôm qua</span>
+<span class="font-label-sm text-label-sm text-outline">Auto-balance</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Tự động cân bằng tải: Di chuyển 12 tệp audio từ <strong class="text-on-surface">Drive 01</strong> sang <strong class="text-on-surface">Drive 03</strong> do Drive 01 chạm ngưỡng 90%.
+            </p>
+</div>
+</div>
+<button class="w-full min-h-[44px] py-2.5 bg-surface-container-low hover:bg-surface-container-high rounded-xl text-primary font-label-md text-label-md flex items-center justify-center gap-1 transition-colors border border-outline-variant font-medium active:scale-95" type="button">
+<span>Xem lịch sử chi tiết</span>
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</section>
+</main>
+<!-- DOCKED BOTTOM NAVIGATION BAR (Shared Components Executed Verbatim) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin py-2 pb-safe bg-[#0A1517]/95 backdrop-blur-md border-t border-outline-variant shadow-md"><!-- Tab 1: Tổng quan -->
+<button class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-outline hover:text-on-surface px-3 py-1 active:translate-y-0.5 transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="text-label-sm font-label-sm mt-0.5">Tổng quan</span>
+</button>
+<!-- Tab 2: Kho Drive (ACTIVE DESTINATION - Matches Primary Intent) -->
+<button class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center bg-primary text-[#003733] rounded-xl px-3.5 py-1 active:translate-y-0.5 transition-all duration-150 shadow-xs" type="button">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">cloud</span>
+<span class="text-label-sm font-label-sm font-bold mt-0.5">Kho Drive</span>
+</button>
+<!-- Tab 3: Hạn mức -->
+<button class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-outline hover:text-on-surface px-3 py-1 active:translate-y-0.5 transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]">speed</span>
+<span class="text-label-sm font-label-sm mt-0.5">Hạn mức</span>
+</button>
+<!-- Tab 4: Cài đặt -->
+<button class="min-w-[44px] min-h-[44px] flex flex-col items-center justify-center text-outline hover:text-on-surface px-3 py-1 active:translate-y-0.5 transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+<span class="text-label-sm font-label-sm mt-0.5">Cài đặt</span>
+</button></nav>
+</div>
+</body></html>

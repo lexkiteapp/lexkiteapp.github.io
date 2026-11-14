@@ -179,7 +179,44 @@
       background: #3d4947;
     }
   </style>
-</head>
+<style>
+/* Accessibility & Touch Target Enforcement */
+aside a, aside button, header button, header a, header input, main button, main a, table button, table a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+aside a {
+  display: flex !important;
+  align-items: center;
+  padding-top: 0.625rem !important;
+  padding-bottom: 0.625rem !important;
+  color: #cbd5e1 !important;
+}
+aside a:hover {
+  color: #ffffff !important;
+}
+aside a[aria-current="page"] {
+  color: #ffffff !important;
+}
+/* Contrast boosting for category labels, subtitles and muted metrics */
+.text-\[\#697977\], .text-\[\#879391\], .text-\[\#526462\], .text-\[\#6e807e\] {
+  color: #a0b2b5 !important;
+}
+.text-\[\#9cb0b4\] {
+  color: #cbd5e1 !important;
+}
+th {
+  color: #cbd5e1 !important;
+}
+/* Minimum tap sizing for table action buttons */
+table td button, table td a {
+  min-height: 44px !important;
+  min-width: 44px !important;
+  padding: 0.5rem 0.75rem !important;
+  justify-content: flex-end;
+}
+</style><style>/* QC Touch Target & Contrast Enhancements */ .tactile-card a { min-height: 44px; display: inline-flex; align-items: center; padding-top: 0.5rem; padding-bottom: 0.5rem; } table td button { min-height: 44px !important; min-width: 44px !important; display: inline-flex; align-items: center; justify-content: flex-end; } .tactile-button-coral { background-color: #ea580c !important; color: #ffffff !important; } </style></head>
 <body class="bg-[#060e10] text-on-surface antialiased min-h-screen flex flex-col font-body-md text-body-md selection:bg-primary-container selection:text-white">
 <!-- ========================================================================= -->
 <!-- LEFT DOCKED SIDEBAR (Shared Component: SideNavBar)                      -->
@@ -200,7 +237,7 @@
 </div>
 </div>
 <!-- Quick Action / CTA -->
-<button class="w-full flex items-center justify-center gap-space-xs py-2 px-space-md rounded-lg tactile-button-secondary font-label-md text-label-md active:scale-[0.98] transition-transform" type="button">
+<button class="w-full flex items-center justify-center gap-space-xs min-h-[44px] py-2.5 px-space-md rounded-lg tactile-button-secondary font-label-md text-label-md active:scale-[0.98] transition-transform" type="button">
 <span class="material-symbols-outlined text-[18px]" data-icon="add_task">add_task</span>
 <span>Tạo tác vụ</span>
 </button>
@@ -351,7 +388,7 @@
 </div>
 <div class="relative w-80">
 <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#6e807e] text-[18px]" data-icon="search">search</span>
-<input class="w-full h-9 pl-9 pr-14 bg-[#051013] border border-[#1a333a] rounded-lg text-body-sm font-body-sm text-[#f8fafc] placeholder:text-[#526462] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Tìm dịch vụ, API, tài khoản..." type="text"/>
+<input class="w-full min-h-[44px] h-11 pl-9 pr-14 bg-[#051013] border border-[#1a333a] rounded-lg text-body-sm font-body-sm text-[#f8fafc] placeholder:text-[#a0b2b5] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Tìm dịch vụ, API, tài khoản..." type="text"/>
 <kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded bg-[#12252b] border border-[#22434d] text-[10px] font-code-sm text-[#879391]">Ctrl K</kbd>
 </div>
 </div>
@@ -363,30 +400,19 @@
 <span class="text-[11px] font-bold text-[#6ee7b7] tracking-wide">7/7 dịch vụ hoạt động bình thường</span>
 </div>
 <!-- Language Toggle Pill -->
-<div class="flex items-center p-0.5 rounded-lg bg-[#051013] border border-[#1a333a]">
-<button class="px-2 py-0.5 rounded font-label-sm text-label-sm font-bold bg-[#12252b] text-primary border border-[#22434d]" type="button">VI</button>
-<button class="px-2 py-0.5 rounded font-label-sm text-label-sm text-[#879391] hover:text-[#f8fafc]" type="button">EN</button>
-</div>
+<div class="flex items-center p-0.5 rounded-lg bg-[#051013] border border-[#1a333a] min-h-[44px]"><button class="min-w-[44px] min-h-[44px] px-3 rounded font-label-sm text-label-sm font-bold bg-[#12252b] text-primary border border-[#22434d] flex items-center justify-center" type="button">VI</button><button class="min-w-[44px] min-h-[44px] px-3 rounded font-label-sm text-label-sm text-[#cbd5e1] hover:text-white flex items-center justify-center" type="button">EN</button></div>
 <!-- Refresh / Sync Action -->
-<button class="w-9 h-9 flex items-center justify-center rounded-lg border border-[#1a333a] bg-[#0f2126] text-[#9cb0b4] hover:text-primary hover:bg-[#152b31] transition-colors" title="Làm mới trạng thái" type="button">
-<span class="material-symbols-outlined text-[19px]" data-icon="refresh">refresh</span>
+<button class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg border border-[#1a333a] bg-[#0f2126] text-[#cbd5e1] hover:text-primary hover:bg-[#152b31] transition-colors" title="Làm mới trạng thái" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="refresh">refresh</span>
 </button>
 <!-- Notifications -->
-<button class="relative w-9 h-9 flex items-center justify-center rounded-lg border border-[#1a333a] bg-[#0f2126] text-[#9cb0b4] hover:text-primary hover:bg-[#152b31] transition-colors" title="Thông báo hệ thống" type="button">
-<span class="material-symbols-outlined text-[19px]" data-icon="notifications">notifications</span>
-<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-secondary-container rounded-full"></span>
+<button class="relative min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg border border-[#1a333a] bg-[#0f2126] text-[#cbd5e1] hover:text-primary hover:bg-[#152b31] transition-colors" title="Thông báo hệ thống" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2.5 h-2.5 bg-secondary-container rounded-full"></span>
 </button>
 <div class="h-5 w-px bg-[#1a333a]"></div>
 <!-- Profile Section -->
-<div class="flex items-center gap-space-sm pl-1">
-<div class="w-8 h-8 rounded-full bg-[#10383b] text-primary border border-primary/30 flex items-center justify-center font-label-md text-label-md font-bold shadow-xs">
-          MA
-        </div>
-<div class="flex flex-col text-left">
-<span class="font-label-md text-label-md text-[#f8fafc] leading-tight">Minh Anh</span>
-<span class="text-[11px] text-[#879391] leading-none">Vận hành kỹ thuật</span>
-</div>
-</div>
+<div class="flex items-center gap-space-sm pl-1"><div class="w-9 h-9 min-w-[36px] rounded-full bg-[#10383b] text-primary border border-primary/30 flex items-center justify-center font-label-md text-label-md font-bold shadow-xs">MA</div><div class="flex flex-col text-left"><span class="font-label-md text-label-md text-[#f8fafc] leading-tight">Minh Anh</span><span class="text-[11px] text-[#cbd5e1] leading-none">Vận hành kỹ thuật</span></div></div>
 </div>
 </header>
 <!-- ========================================================================= -->
@@ -409,15 +435,12 @@
 </div>
 <!-- Action cluster -->
 <div class="flex items-center gap-space-sm shrink-0">
-<button class="h-10 px-4 rounded-lg tactile-button-secondary font-label-md text-label-md flex items-center gap-2" type="button">
+<button class="min-h-[44px] px-4 rounded-lg tactile-button-secondary font-label-md text-label-md flex items-center gap-2" type="button">
 <span class="material-symbols-outlined text-[18px]" data-icon="file_download">file_download</span>
 <span>Xuất cấu hình (.json)</span>
 </button>
 <!-- Signature Tactile Warm Coral Primary CTA -->
-<button class="h-10 px-5 rounded-lg tactile-button-coral font-label-md text-label-md flex items-center gap-2" type="button">
-<span class="material-symbols-outlined text-[18px]" data-icon="sync">sync</span>
-<span>Đồng bộ &amp; Kiểm tra kết nối</span>
-</button>
+<button class="min-h-[44px] px-5 py-2.5 rounded-lg bg-[#b93815] hover:bg-[#9a3412] text-white border border-[#7c2d12] font-label-md text-label-md font-bold flex items-center gap-2 shadow-sm transition-colors active:scale-[0.98]" style="background-color: #b93815 !important; color: #ffffff !important;" type="button"><span class="material-symbols-outlined text-[18px] text-white" data-icon="sync">sync</span><span class="text-white tracking-wide">Đồng bộ &amp; Kiểm tra kết nối</span></button>
 </div>
 </div>
 <!-- Notice Banner / Summary Box -->
@@ -980,10 +1003,7 @@
 <span class="material-symbols-outlined text-[16px]" data-icon="volume_up">volume_up</span>
 <span>Nghe mẫu thử</span>
 </button>
-<button class="h-9 px-3 rounded-lg bg-primary-container text-white font-label-md text-label-md hover:bg-primary-container/80 transition-colors inline-flex items-center gap-1.5 shadow-sm border border-primary/30" type="button">
-<span class="material-symbols-outlined text-[16px]" data-icon="tune">tune</span>
-<span>Điều chỉnh tham số TTS</span>
-</button>
+<button class="min-h-[44px] px-3.5 rounded-lg bg-[#042f2e] text-[#ecfdf5] border border-[#115e59] font-label-md text-label-md hover:bg-[#064e3b] transition-colors inline-flex items-center gap-1.5 shadow-sm font-semibold" style="background-color: #042f2e !important; color: #ecfdf5 !important; min-height: 44px;" type="button"><span class="material-symbols-outlined text-[18px] text-[#2dd4bf]" data-icon="tune">tune</span><span class="text-[#ecfdf5]">Điều chỉnh tham số TTS</span></button>
 </div>
 </div>
 </div>
@@ -1001,8 +1021,8 @@
 </div>
 <div class="flex items-center gap-2">
 <span class="text-body-sm text-[#879391]">Lần kiểm tra tự động kế tiếp: <strong class="text-primary font-code-sm">06 phút nữa</strong></span>
-<button class="h-8 px-2.5 rounded bg-[#12252b] hover:bg-[#162e35] text-primary border border-[#22434d] font-label-sm text-label-sm font-semibold flex items-center gap-1" type="button">
-<span class="material-symbols-outlined text-[14px]" data-icon="sync">sync</span>
+<button class="min-h-[44px] px-3.5 rounded bg-[#12252b] hover:bg-[#162e35] text-primary border border-[#22434d] font-label-sm text-label-sm font-semibold flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="sync">sync</span>
 <span>Kiểm tra ngay</span>
 </button>
 </div>

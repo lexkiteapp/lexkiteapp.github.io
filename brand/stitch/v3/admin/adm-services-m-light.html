@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite Admin › Dịch vụ & API</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary": "#003733",
+            "outline-variant": "#3d4947",
+            "outline": "#879391",
+            "surface": "#091518",
+            "surface-tint": "#6bd8ce",
+            "surface-bright": "#2f3b3e",
+            "on-background": "#d8e5e9",
+            "tertiary": "#f4bf40",
+            "primary-container": "#2ba39a",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-tertiary-fixed": "#261a00",
+            "on-tertiary": "#402e00",
+            "error-container": "#93000a",
+            "surface-container-low": "#121d20",
+            "error": "#ffb4ab",
+            "on-secondary-container": "#ffa493",
+            "primary-fixed": "#88f5ea",
+            "on-error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#00504b",
+            "on-error": "#690005",
+            "inverse-on-surface": "#263236",
+            "secondary-container": "#981201",
+            "on-tertiary-container": "#392900",
+            "on-secondary": "#660800",
+            "on-surface-variant": "#bcc9c7",
+            "on-surface": "#d8e5e9",
+            "on-secondary-fixed-variant": "#900f00",
+            "surface-container-lowest": "#051013",
+            "surface-container": "#162125",
+            "primary": "#6bd8ce",
+            "tertiary-container": "#ba8b00",
+            "primary-fixed-dim": "#6bd8ce",
+            "on-primary-container": "#00322e",
+            "surface-container-highest": "#2b373a",
+            "secondary": "#ffb4a6",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "tertiary-fixed-dim": "#f4bf40",
+            "secondary-fixed": "#ffdad3",
+            "surface-container-high": "#202c2f",
+            "tertiary-fixed": "#ffdf9e",
+            "inverse-primary": "#006a64",
+            "inverse-surface": "#d8e5e9",
+            "on-secondary-fixed": "#3f0300",
+            "surface-variant": "#2b373a",
+            "surface-dim": "#091518",
+            "on-primary-fixed": "#00201e",
+            "background": "#091518",
+            "bright-canvas": "#FFF8F0",
+            "bright-card": "#FFFFFF",
+            "bright-border": "#EADEC8",
+            "bright-ledge": "#D8CFBC",
+            "bright-ink": "#0F3D3E",
+            "bright-ink-sub": "#265453",
+            "bright-coral": "#F2553B",
+            "bright-coral-ledge": "#B53A22",
+            "bright-gold": "#FFC94A"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "16px",
+            "space-sm": "8px",
+            "space-md": "16px",
+            "space-lg": "24px",
+            "margin": "16px",
+            "space-xs": "4px",
+            "space-xl": "32px"
+          },
+          "fontFamily": {
+            "label": ["Plus Jakarta Sans"],
+            "title": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label": ["12px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "800" }],
+            "title": ["22px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "display": ["32px", { "lineHeight": "38px", "fontWeight": "800" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    
+    /* Tactile 3D Ledges & Gloss effect */
+    .tactile-card {
+      background-color: #FFFFFF;
+      border: 2px solid #EADEC8;
+      border-bottom: 5px solid #D8CFBC;
+      border-radius: 16px;
+      transition: transform 0.1s ease, border-bottom-width 0.1s ease;
+    }
+    
+    .tactile-btn-primary {
+      background: linear-gradient(135deg, #F2553B 0%, #FF9F38 60%, #FFC94A 100%);
+      border: 2px solid #B53A22;
+      border-bottom: 5px solid #8C2612;
+      border-radius: 16px;
+      color: #1B0B04;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.08s ease, border-bottom-width 0.08s ease;
+    }
+    .tactile-btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 35%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+      pointer-events: none;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      border-bottom-width: 2px;
+    }
+    
+    .tactile-btn-secondary {
+      background-color: #FFFFFF;
+      border: 2px solid #EADEC8;
+      border-bottom: 5px solid #D8CFBC;
+      border-radius: 16px;
+      color: #0F3D3E;
+      transition: transform 0.08s ease, border-bottom-width 0.08s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(3px);
+      border-bottom-width: 2px;
+    }
+    
+    .tactile-node {
+      border: 2px solid rgba(0, 0, 0, 0.08);
+      border-bottom: 4px solid rgba(0, 0, 0, 0.18);
+      border-radius: 12px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-bright-canvas text-bright-ink font-body min-h-screen flex justify-center selection:bg-primary selection:text-on-primary">
+<!-- Mobile Viewport Container (390px locked portrait phone screen) -->
+<div class="w-full max-w-[390px] min-h-screen flex flex-col bg-bright-canvas shadow-2xl relative overflow-x-hidden pb-12">
+<!-- Top App Bar (Slim 56px chrome) -->
+<header class="sticky top-0 z-40 bg-bright-canvas/95 backdrop-blur-md h-14 px-margin flex items-center justify-between border-b border-bright-border/60">
+<!-- Hamburger Menu Button -->
+<button aria-label="Mở menu quản trị" class="w-11 h-11 flex items-center justify-center rounded-xl bg-bright-card border border-bright-border border-b-2 border-b-bright-ledge active:translate-y-0.5 text-bright-ink focus:outline-none">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<!-- Center Title & Status Badge -->
+<div class="flex flex-col items-center">
+<div class="flex items-center gap-1.5">
+<span class="font-title text-base leading-none tracking-tight font-extrabold text-bright-ink">Dịch vụ & API</span>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-[10px] font-extrabold tracking-wider text-emerald-800 uppercase">7 DỊCH VỤ OK</span>
+</div>
+</div>
+<!-- Right Admin Profile / Initials -->
+<div class="w-11 h-11 flex items-center justify-center rounded-xl bg-bright-card border border-bright-border border-b-2 border-b-bright-ledge shadow-sm cursor-pointer active:translate-y-0.5">
+<span class="font-display text-xs font-black text-bright-ink tracking-tight">KL</span>
+</div>
+</header>
+<!-- Main Content Canvas (Single Column) -->
+<main class="flex-1 px-margin pt-4 space-y-4">
+<!-- Overview Banner Card: Hạ tầng Free-tier -->
+<div class="tactile-card p-4 relative overflow-hidden bg-gradient-to-br from-white via-white to-[#F8F4EC]">
+<!-- Watermark icon accent -->
+<span class="material-symbols-outlined absolute -right-2 -bottom-2 text-7xl text-bright-border/30 select-none pointer-events-none" style="font-variation-settings: 'FILL' 1;">cloud_sync</span>
+<div class="flex items-start justify-between relative z-10 mb-2">
+<div>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-[10px] font-extrabold tracking-wide mb-1.5">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>100% FREE-TIER</span>
+</div>
+<h2 class="text-base font-extrabold text-bright-ink leading-tight">Tổng quan hạ tầng Free-tier</h2>
+</div>
+<div class="w-9 h-9 rounded-xl bg-[#EAF2F2] border border-[#2BA39A]/30 flex items-center justify-center text-[#12514D]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">savings</span>
+</div>
+</div>
+<p class="text-[12.5px] leading-relaxed text-bright-ink-sub mb-3.5 relative z-10 font-medium">
+          Hạ tầng zero-cost phục vụ <strong class="text-bright-ink font-bold">1.284 học viên</strong> & <strong class="text-bright-ink font-bold">400–500 lượt drill/ngày</strong>
+</p>
+<!-- KPI Tiles Bento Grid -->
+<div class="grid grid-cols-3 gap-2 relative z-10">
+<div class="p-2.5 rounded-xl bg-bright-canvas border border-bright-border border-b-2 border-b-bright-ledge flex flex-col">
+<span class="text-[10px] font-bold text-bright-ink-sub uppercase tracking-wider">Chi phí</span>
+<span class="text-xs font-black text-emerald-700 mt-0.5">0 đ/th</span>
+<span class="text-[9px] font-semibold text-bright-ink-sub/80 mt-0.5">Zero-Cost</span>
+</div>
+<div class="p-2.5 rounded-xl bg-bright-canvas border border-bright-border border-b-2 border-b-bright-ledge flex flex-col">
+<span class="text-[10px] font-bold text-bright-ink-sub uppercase tracking-wider">Dịch vụ</span>
+<span class="text-xs font-black text-bright-ink mt-0.5">7 / 7</span>
+<span class="text-[9px] font-semibold text-emerald-700 mt-0.5">Online 100%</span>
+</div>
+<div class="p-2.5 rounded-xl bg-bright-canvas border border-bright-border border-b-2 border-b-bright-ledge flex flex-col">
+<span class="text-[10px] font-bold text-bright-ink-sub uppercase tracking-wider">Mức tải TB</span>
+<span class="text-xs font-black text-bright-ink mt-0.5">34%</span>
+<span class="text-[9px] font-semibold text-bright-ink-sub/80 mt-0.5">Buffer an toàn</span>
+</div>
+</div>
+</div>
+<!-- Primary Action CTA Button -->
+<button class="tactile-btn-primary w-full min-h-[50px] py-3 px-4 flex items-center justify-center gap-2 cursor-pointer shadow-sm">
+<span class="material-symbols-outlined text-lg font-black" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label text-xs tracking-wide uppercase text-[#1A0E0B] drop-shadow-sm">+ Kiểm tra kết nối API</span>
+</button>
+<!-- Section Header -->
+<div class="flex items-center justify-between pt-2 pb-0.5">
+<div class="flex items-center gap-2">
+<h3 class="font-title text-sm font-extrabold text-bright-ink">Danh sách cụm dịch vụ</h3>
+<span class="px-2 py-0.5 rounded-full bg-bright-border text-bright-ink font-bold text-[10px]">7</span>
+</div>
+<div class="flex items-center gap-1 text-[11px] font-semibold text-bright-ink-sub">
+<span class="material-symbols-outlined text-[14px]">history</span>
+<span>Làm mới: Vừa xong</span>
+</div>
+</div>
+<!-- Service Stack Cards (7 tactile items) -->
+<div class="space-y-3">
+<!-- 1. Cloudflare Pages -->
+<article class="tactile-card p-3.5">
+<div class="flex items-start justify-between gap-2 mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-600 tactile-node">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">web</span>
+</div>
+<div>
+<h4 class="text-xs font-extrabold text-bright-ink leading-tight">Cloudflare Pages</h4>
+<span class="inline-block text-[11px] font-medium text-bright-ink-sub">lexkite-web</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-[10px] font-extrabold">Miễn phí</span>
+</div>
+<div class="space-y-1.5 mt-2">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-bright-ink-sub">Giới hạn Build</span>
+<span class="text-bright-ink">42 / 500 build (8,4%)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-stone-100 overflow-hidden border border-bright-border/60">
+<div class="h-full bg-emerald-500 rounded-full" style="width: 8.4%;"></div>
+</div>
+</div>
+<div class="mt-2.5 pt-2 border-t border-bright-border/50 flex items-center justify-between text-[11px] text-bright-ink-sub">
+<span class="flex items-center gap-1 text-emerald-700 font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Hoạt động
+            </span>
+<span class="font-medium">Unlimited traffic</span>
+</div>
+</article>
+<!-- 2. Cloudflare Workers -->
+<article class="tactile-card p-3.5">
+<div class="flex items-start justify-between gap-2 mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-orange-50 border border-orange-200 flex items-center justify-center text-orange-600 tactile-node">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div>
+<h4 class="text-xs font-extrabold text-bright-ink leading-tight">Cloudflare Workers</h4>
+<span class="inline-block text-[11px] font-medium text-bright-ink-sub">api-proxy-edge</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-[10px] font-extrabold">Miễn phí</span>
+</div>
+<div class="space-y-1.5 mt-2">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-bright-ink-sub">API requests</span>
+<span class="text-bright-ink">34.200 / 100k (34,2%)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-stone-100 overflow-hidden border border-bright-border/60">
+<div class="h-full bg-teal-600 rounded-full" style="width: 34.2%;"></div>
+</div>
+</div>
+<div class="mt-2.5 pt-2 border-t border-bright-border/50 flex items-center justify-between text-[11px] text-bright-ink-sub">
+<span>Reset lúc 00:00 UTC</span>
+<span class="font-semibold text-bright-ink">Edge hit 91,2%</span>
+</div>
+</article>
+<!-- 3. Cloudflare D1 Database -->
+<article class="tactile-card p-3.5">
+<div class="flex items-start justify-between gap-2 mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-cyan-50 border border-cyan-200 flex items-center justify-center text-cyan-700 tactile-node">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">database</span>
+</div>
+<div>
+<h4 class="text-xs font-extrabold text-bright-ink leading-tight">Cloudflare D1 Database</h4>
+<span class="inline-block text-[11px] font-medium text-bright-ink-sub">lexkite-db-prod</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-[10px] font-extrabold">Miễn phí</span>
+</div>
+<div class="space-y-1.5 mt-2">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-bright-ink-sub">Read / Write rows</span>
+<span class="text-bright-ink">1.18M / 5.0M (23,6%)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-stone-100 overflow-hidden border border-bright-border/60">
+<div class="h-full bg-cyan-600 rounded-full" style="width: 23.6%;"></div>
+</div>
+</div>
+<div class="mt-2.5 pt-2 border-t border-bright-border/50 flex items-center justify-between text-[11px] text-bright-ink-sub">
+<span>Serverless SQLite</span>
+<span class="font-semibold text-bright-ink">Dung lượng: 142 MB / 5.0 GB</span>
+</div>
+</article>
+<!-- 4. Cloudflare R2 Storage -->
+<article class="tactile-card p-3.5">
+<div class="flex items-start justify-between gap-2 mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center text-blue-600 tactile-node">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">folder_zip</span>
+</div>
+<div>
+<h4 class="text-xs font-extrabold text-bright-ink leading-tight">Cloudflare R2 Storage</h4>
+<span class="inline-block text-[11px] font-medium text-bright-ink-sub">lexkite-media-assets</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-[10px] font-extrabold">Miễn phí</span>
+</div>
+<div class="space-y-1.5 mt-2">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-bright-ink-sub">Storage</span>
+<span class="text-bright-ink">3,4 GB / 10 GB (34,0%)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-stone-100 overflow-hidden border border-bright-border/60">
+<div class="h-full bg-blue-500 rounded-full" style="width: 34%;"></div>
+</div>
+</div>
+<div class="mt-2.5 pt-2 border-t border-bright-border/50 flex items-center justify-between text-[11px] text-bright-ink-sub">
+<span>Class B reqs</span>
+<span class="font-semibold text-bright-ink">18.400 / 10M</span>
+</div>
+</article>
+<!-- 5. GitHub Actions -->
+<article class="tactile-card p-3.5">
+<div class="flex items-start justify-between gap-2 mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-purple-50 border border-purple-200 flex items-center justify-center text-purple-700 tactile-node">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div>
+<h4 class="text-xs font-extrabold text-bright-ink leading-tight">GitHub Actions</h4>
+<span class="inline-block text-[11px] font-medium text-bright-ink-sub">lexkite/lexkite-app</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-[10px] font-extrabold">Miễn phí</span>
+</div>
+<div class="space-y-1.5 mt-2">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-bright-ink-sub">Runner time</span>
+<span class="text-bright-ink">480 / 2.000 phút (24,0%)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-stone-100 overflow-hidden border border-bright-border/60">
+<div class="h-full bg-purple-600 rounded-full" style="width: 24%;"></div>
+</div>
+</div>
+<div class="mt-2.5 pt-2 border-t border-bright-border/50 flex items-center justify-between text-[11px] text-bright-ink-sub">
+<span class="truncate">Chạy cron kiểm tra backlink & build video hàng ngày</span>
+</div>
+</article>
+<!-- 6. Google Drive Pool (Warning state) -->
+<article class="tactile-card p-3.5 border-amber-300 bg-amber-50/30">
+<div class="flex items-start justify-between gap-2 mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-800 tactile-node">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">add_to_drive</span>
+</div>
+<div>
+<h4 class="text-xs font-extrabold text-bright-ink leading-tight">Google Drive Pool</h4>
+<span class="inline-block text-[11px] font-medium text-bright-ink-sub">4 cụm Drive phân tán</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-amber-200 border border-amber-400 text-amber-900 text-[10px] font-black">71% Cao</span>
+</div>
+<div class="space-y-1.5 mt-2">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-bright-ink-sub">Storage Pool</span>
+<span class="text-amber-800 font-extrabold">42,6 GB / 60,0 GB (71,0%)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-stone-100 overflow-hidden border border-bright-border/60">
+<div class="h-full bg-amber-500 rounded-full" style="width: 71%;"></div>
+</div>
+</div>
+<div class="mt-2.5 pt-2 border-t border-amber-200/60 flex items-center gap-1.5 text-[11px] text-amber-900 font-medium">
+<span class="material-symbols-outlined text-[15px] text-amber-700">warning</span>
+<span>Cảnh báo nhẹ: 1 Drive chạm 92% • Tự động chuyển tải</span>
+</div>
+</article>
+<!-- 7. Kokoro TTS Engine -->
+<article class="tactile-card p-3.5">
+<div class="flex items-start justify-between gap-2 mb-2">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-teal-50 border border-teal-200 flex items-center justify-center text-teal-700 tactile-node">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
+</div>
+<div>
+<h4 class="text-xs font-extrabold text-bright-ink leading-tight">Kokoro TTS Engine</h4>
+<span class="inline-block text-[11px] font-medium text-bright-ink-sub">huggingface-edge</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-[10px] font-extrabold">Miễn phí</span>
+</div>
+<div class="space-y-1.5 mt-2">
+<div class="flex justify-between text-[11px] font-bold">
+<span class="text-bright-ink-sub">Tạo âm thanh phát âm</span>
+<span class="text-bright-ink">2.140 / 10.000 câu (21,4%)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-stone-100 overflow-hidden border border-bright-border/60">
+<div class="h-full bg-teal-500 rounded-full" style="width: 21.4%;"></div>
+</div>
+</div>
+<div class="mt-2.5 pt-2 border-t border-bright-border/50 flex items-center justify-between text-[11px] text-bright-ink-sub">
+<span>IPA chuẩn Cambridge</span>
+<span class="font-semibold text-bright-ink">Web Speech Fallback</span>
+</div>
+</article>
+</div>
+<!-- Latency Check Card -->
+<section class="tactile-card p-3.5 mt-2">
+<div class="flex items-center justify-between mb-2.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-teal-700">network_check</span>
+<h3 class="text-xs font-extrabold text-bright-ink uppercase tracking-wider">Kiểm tra độ trễ mạng (Ping)</h3>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-[10px] font-extrabold">Tất cả OK</span>
+</div>
+<div class="divide-y divide-bright-border/60 text-xs">
+<div class="py-2 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="font-bold text-bright-ink">pages.dev</span>
+<span class="text-[11px] text-bright-ink-sub">Singapore</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-extrabold text-bright-ink">24 ms</span>
+<span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">Tốt</span>
+</div>
+</div>
+<div class="py-2 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="font-bold text-bright-ink">worker-api</span>
+<span class="text-[11px] text-bright-ink-sub">Tokyo</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-extrabold text-bright-ink">38 ms</span>
+<span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">Tốt</span>
+</div>
+</div>
+<div class="py-2 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="font-bold text-bright-ink">drive-pool</span>
+<span class="text-[11px] text-bright-ink-sub">Hà Nội</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-extrabold text-bright-ink">18 ms</span>
+<span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">Tốt</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Action -->
+<button class="tactile-btn-secondary w-full min-h-[48px] py-2.5 px-4 flex items-center justify-center gap-2 cursor-pointer font-bold text-xs uppercase tracking-wider">
+<span class="material-symbols-outlined text-base">refresh</span>
+<span>Làm mới dữ liệu hạn mức</span>
+</button>
+<!-- Engine Tag -->
+<footer class="pt-3 pb-6 text-center">
+<p class="text-[10px] font-bold text-bright-ink-sub/70 leading-relaxed uppercase tracking-widest">
+          Lexkite Ops Engine v2.4.2 • 100% Free-Tier Architecture • Zero Cloud Cost
+        </p>
+</footer>
+</main>
+</div>
+</body></html>

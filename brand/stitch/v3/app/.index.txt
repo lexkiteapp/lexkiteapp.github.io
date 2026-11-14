@@ -1,22 +1,8 @@
-# Stitch v3 kho mẫu – app (scripts/stitch/batch.mjs, 5 khoá; mỗi khoá 1 project + design system Lexkite Kit). màn id-sáng id-tối thiết-bị verdict cờ | khoá · ghi chú QC
-             49×20") · light: tương phản 1 chữ (vd "Hi" 4.2<4.5) · dark: 1 vùng chạm < 44px (vd "restart_altReset 49×20")
-100% 171×34")
-A1 Anfänger
-Cached audio ✓ 145×34") · dark: tương phản 11 chữ (vd ""Academic research demands meticulous da" 2.65<4.5)
-English (US) /  222×42")
-Jetzt synchronisier 157×32") · light: tương phản 7 chữ (vd "LK" 2.85<4.5) · dark: 2 vùng chạm < 44px (vd "syncJetzt synchronisiere 157×32") · dark: tương phản 2 chữ (vd "LK" 1.23<4.5)
-Lesetext 173×42") · dark: tương phản 1 chữ (vd "📝" 1.92<4.5) · dark: mảng sáng 14%
-Lexkite 117×40") · dark: tương phản 1 chữ (vd "“The committee will 
-Me 36×54") · light: tương phản 4 chữ (vd "•" 4.12<4.5) · dark: tương phản 1 chữ (vd "•" 2.52<4.5)
-Mic Calibrated 145×36") · dark: tương phản 12 chữ (vd "vs" 4.02<4.5)
-Settings 222×36")
-Text +/- 96×36") · dark: tương phản 1 chữ (vd "•" 2.68<4.5)
-Today 226×42")
+# Stitch v3 kho mẫu – app (scripts/stitch/batch.mjs, 5 khoá; mỗi khoá 1 project + design system Lexkite Kit). màn id-sáng id-tối thiết-bị verdict cờ | khoá · ghi chú QC              49×20") · light: tương phản 1 chữ (vd "Hi" 4.2<4.5) · dark: 1 vùng chạm < 44px (vd "restart_altReset 49×20") 100% 171×34") A1 Anfänger Cached audio ✓ 145×34") · dark: tương phản 11 chữ (vd ""Academic research demands meticulous da" 2.65<4.5) English (US) /  222×42") Jetzt synchronisier 157×32") · light: tương phản 7 chữ (vd "LK" 2.85<4.5) · dark: 2 vùng chạm < 44px (vd "syncJetzt synchronisiere 157×32") · dark: tương phản 2 chữ (vd "LK" 1.23<4.5) Lesetext 173×42") · dark: tương phản 1 chữ (vd "📝" 1.92<4.5) · dark: mảng sáng 14% Lexkite 117×40") · dark: tương phản 1 chữ (vd "“The committee will  Me 36×54") · light: tương phản 4 chữ (vd "•" 4.12<4.5) · dark: tương phản 1 chữ (vd "•" 2.52<4.5) Mic Calibrated 145×36") · dark: tương phản 12 chữ (vd "vs" 4.02<4.5) Settings 222×36") Text +/- 96×36") · dark: tương phản 1 chữ (vd "•" 2.68<4.5) Today 226×42")
 account ce5c6a3f0d6f40189426dc50c42b61a7 ed1deb2699b848f5b2dc8ac8e46711eb MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 6 chữ (vd "LK" 3.04<4.5) · dark: tương phản 1 chữ (vd "Lexkite" 1.96<4.5)
 account-ar ca344b3da7ef4c7795fe9f379c206c4f 9fd352844b264ef1a7f276484012bf4d MOBILE QC | key3 project 18075333702575270507 · QC: light: tương phản 2 chữ (vd "تعهد عدم التتبع: بيانات الصوت والدراسة م" 3.82<4.5) · dark: tương phản 1 chữ (vd "Build 9428 · CEFR v2.4" 4.01<4.5)
 account-de 3a4da13cf66048668060a9116e99a53c 896cbb7091ba40f5bddcf16a9f5a6d28 MOBILE QC | key3 project 18075333702575270507 · QC: light: 2 vùng chạm < 44px (vd "sync
 account-desktop 2d21588d139a41c8914f458b8f465b87 978fdd4573d8457b94af2d41c35dab13 DESKTOP QC | key3 project 18075333702575270507 · QC: light: tương phản 7 chữ (vd "18 due" 2.55<4.5) · dark: tương phản 1 chữ (vd "Danger Zone" 3.56<4.5)
-arrow_forward 78×36") · dark: tương phản 1 chữ (vd "14 معلّق" 3.83<4.5)
 community-chat 0ff73629a2c94066a915c05e277777bd ad739f2ae9364aeba43c5d1386a87c79 MOBILE QC | key4 project 16660982915050208874
 community-hub 238963ac9e3d43748ae915e8a6e82597 11671e9f92b34c4f84882a554ca03b1a MOBILE QC | key1 project 7268539912208977707
 community-invite eac459ebe33a4821abb035937a38f15f 36e8e449c2cf413da2f23867d9902f41 MOBILE QC | key5 project 7022870386131391655
@@ -193,7 +179,4 @@ streak-modals 8003bd9a65d34346bd50d70fe85b5b3b 3a2810751ea44da3af229c9ec62d63b2 
 streak-modals-ar ea2806fce0734b8d861df7304d6bb609 5cf2b511e582486b8cf8acdbaf2be14b MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 1 chữ (vd "•" 1.48<4.5) · dark: tương phản 1 chữ (vd "•" 2.63<4.5) · dark: mảng sáng 20% > 12% (thẻ trắng trong nền tối?)
 streak-modals-de 04cf457d50c242c883980418cae267a3 ff7e3bea78884d1981e82c2ef2003dde MOBILE QC | key2 project 10804635390057604965 · QC: light: tương phản 3 chữ (vd "So" 3.09<4.5) · dark: tương phản 2 chữ (vd "•" 2.29<4.5)
 streak-modals-desktop 4108a4487987472a9206bfbcc805fcc9 b967ea6e87f34503b3c5a4a687d52142 DESKTOP QC | key3 project 18075333702575270507 · QC: light: tương phản 21 chữ (vd "Lexkite" 1.37<3) · light: tên icon hiện thành chữ "sparkles" (1) · dark: tương phản 22 chữ (vd "IELTS · CEFR Prep" 2.5<4.5) · dark: mảng sáng 13% > 12% (thẻ trắng trong nền tối?) · dark: tên icon hiện thành chữ "sparkles" (1)
-streak-modals-v4 6b9288cbf2dc4dfb94c13f7b4d6781a3 efe2c4a815fb4475a83ca87a7357d67b MOBILE QC | key4 project 16660982915050208874
-volume 136×24") · dark: 4 vùng chạm < 44px (vd "foraging behaviorvolume_ 134×24") · dark: tương phản 2 chữ (vd "📝" 1.92<4.5)
-➔ 326×40") · dark: tương phản 5 chữ (vd "READING • Academic Passage 2" 4.01<4.5)
-🔊 77×34")
+streak-modals-v4 6b9288cbf2dc4dfb94c13f7b4d6781a3 efe2c4a815fb4475a83ca87a7357d67b MOBILE QC | key4 project 16660982915050208874 volume 136×24") · dark: 4 vùng chạm < 44px (vd "foraging behaviorvolume_ 134×24") · dark: tương phản 2 chữ (vd "📝" 1.92<4.5) ➔ 326×40") · dark: tương phản 5 chữ (vd "READING • Academic Passage 2" 4.01<4.5) 🔊 77×34")

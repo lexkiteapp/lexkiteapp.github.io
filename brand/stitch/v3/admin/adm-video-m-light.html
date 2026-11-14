@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Lexkite Quản trị — Trung tâm video</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#f5fafa",
+            "on-primary-fixed": "#002020",
+            "on-error-container": "#93000a",
+            "secondary-container": "#ff775f",
+            "surface-dim": "#d5dbdb",
+            "on-surface": "#171d1d",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed": "#00201e",
+            "error-container": "#ffdad6",
+            "tertiary-fixed": "#abefe8",
+            "outline-variant": "#c0c8c8",
+            "background": "#f5fafa",
+            "primary-container": "#0f3d3e",
+            "outline": "#717978",
+            "primary-fixed-dim": "#a3cfcf",
+            "tertiary": "#002624",
+            "on-error": "#ffffff",
+            "surface-container-low": "#eff5f4",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#dee4e3",
+            "tertiary-fixed-dim": "#8fd3cc",
+            "inverse-primary": "#a3cfcf",
+            "inverse-on-surface": "#ecf2f1",
+            "secondary-fixed": "#ffdad3",
+            "on-secondary": "#ffffff",
+            "surface-tint": "#3b6566",
+            "on-primary-container": "#7da8a8",
+            "on-tertiary-fixed-variant": "#00504b",
+            "on-secondary-container": "#710f03",
+            "surface-container-lowest": "#ffffff",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-secondary-fixed-variant": "#872010",
+            "on-secondary-fixed": "#3f0300",
+            "on-tertiary-container": "#68aba5",
+            "on-primary": "#ffffff",
+            "surface-variant": "#dee4e3",
+            "inverse-surface": "#2b3231",
+            "tertiary-container": "#003e3a",
+            "surface-container": "#e9efee",
+            "surface-container-high": "#e4e9e9",
+            "primary-fixed": "#beebeb",
+            "on-surface-variant": "#404848",
+            "primary": "#002627",
+            "on-primary-fixed-variant": "#224d4e",
+            "surface-bright": "#f5fafa",
+            "secondary": "#a83825",
+            "on-background": "#171d1d"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-md": "1.5rem",
+            "margin": "1rem",
+            "space-xl": "1.75rem",
+            "gutter": "1rem",
+            "space-lg": "1.25rem",
+            "space-md": "0.75rem",
+            "gutter-sm": "0.75rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+            "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+            "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "fontWeight": "800"}],
+            "headline-lg": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "fontWeight": "700"}],
+            "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+            "headline-xl-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "800"}],
+            "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "18px", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    .card-ledge {
+      box-shadow: 0 2px 0 0 #d9d4c9, 0 4px 12px -2px rgba(15, 61, 62, 0.05);
+    }
+    .btn-ledge-coral {
+      box-shadow: 0 2px 0 0 #cf4933;
+    }
+    .btn-ledge-teal {
+      box-shadow: 0 2px 0 0 #002624;
+    }
+    .btn-ledge-neutral {
+      box-shadow: 0 2px 0 0 #d9d4c9;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased font-body-md text-body-md min-h-screen pb-24 max-w-[390px] mx-auto relative overflow-x-hidden selection:bg-secondary-fixed">
+<!-- TOP APP BAR -->
+<header class="bg-surface-container-lowest sticky top-0 z-40 w-full px-margin py-space-sm shadow-[0_2px_0_0_rgba(217,212,201,0.6)]">
+<div class="flex justify-between items-center w-full">
+<!-- Leading Menu Button & Context Title -->
+<div class="flex items-center gap-space-sm min-w-0">
+<button aria-label="Menu" class="w-11 h-11 flex items-center justify-center rounded-lg text-primary hover:bg-surface-container active:translate-y-0.5 transition-transform duration-100 flex-shrink-0">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-headline-md font-headline-md font-bold text-primary truncate tracking-tight">Trung tâm video</span>
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-surface-container-low text-primary text-label-sm font-label-sm font-bold border border-outline-variant/40 flex-shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              Kokoro TTS: Sẵn sàng
+            </span>
+</div>
+<span class="text-body-sm font-body-sm text-primary-container font-medium truncate">Admin › Trung tâm video</span>
+</div>
+</div>
+<!-- Trailing Controls -->
+<div class="flex items-center gap-space-xs flex-shrink-0 ml-1"><button aria-label="Làm mới dữ liệu" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg text-primary hover:bg-surface-container active:translate-y-0.5 transition-transform"><span class="material-symbols-outlined">refresh</span></button><div class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-full bg-primary-container text-on-primary font-bold text-label-md flex items-center justify-center border border-primary-container shadow-sm" title="Hoàng Minh">HM</div></div>
+</div>
+</header>
+<!-- MAIN CANVAS -->
+<main class="px-margin pt-space-md space-y-space-md">
+<!-- 1. OVERVIEW & PRODUCTION HEADER CARD -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/40 card-ledge space-y-space-md">
+<div class="space-y-1">
+<p class="text-body-md font-body-md text-on-surface-variant leading-snug">
+          Điều phối sản xuất short video 9:16, kịch bản IELTS/TOEIC, kiểm định chất lượng (QC) và phân phối.
+        </p>
+</div>
+<div class="flex flex-col gap-space-sm pt-0.5">
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant font-medium px-space-xs"><div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-primary text-[18px]">sync</span><span class="text-on-surface">Đồng bộ GrabCast (vừa xong)</span></div><span class="font-label-sm font-bold text-primary px-1.5 py-0.5 rounded bg-surface-container">v2.4.1 HD</span></div>
+<button class="w-full min-h-[44px] flex items-center justify-center gap-2 bg-secondary text-on-secondary rounded-lg font-label-lg font-label-lg border border-secondary active:translate-y-0.5 transition-all btn-ledge-coral">
+<span class="material-symbols-outlined text-[20px]">add</span>
+          + Tạo kịch bản mới
+        </button>
+</div>
+</section>
+<!-- 2. TO-DO KPI STRIP (METRIC CARDS) -->
+<section class="space-y-space-xs"><div class="flex items-center justify-between px-space-xs"><h2 class="text-label-lg font-label-lg text-primary tracking-tight font-bold">Chỉ số tiến độ trong tuần</h2><span class="text-label-sm font-label-sm text-primary-container font-semibold bg-surface-container px-2 py-0.5 rounded-full">Chu kỳ W12</span></div><div class="grid grid-cols-2 gap-space-sm"><div class="bg-surface-container-lowest rounded-xl p-space-sm border border-outline-variant/40 card-ledge flex flex-col justify-between min-h-[96px]"><div class="flex items-center justify-between"><span class="text-body-sm font-body-sm font-semibold text-on-surface-variant">Cần duyệt</span><span class="w-2.5 h-2.5 rounded-full bg-secondary-container ring-2 ring-secondary-fixed"></span></div><div class="flex items-baseline gap-1 my-0.5"><span class="text-headline-lg font-headline-lg text-primary tracking-tight">3</span><span class="text-body-sm font-body-sm font-medium text-on-surface-variant">video</span></div><p class="text-label-sm font-label-sm text-primary-container font-semibold truncate">2 bài Carlos, 1 bài Ama</p></div><div class="bg-surface-container-lowest rounded-xl p-space-sm border border-outline-variant/40 card-ledge flex flex-col justify-between min-h-[96px]"><div class="flex items-center justify-between"><span class="text-body-sm font-body-sm font-semibold text-on-surface-variant">Đang dựng</span><span class="material-symbols-outlined text-primary text-[16px] animate-spin">progress_activity</span></div><div class="flex items-baseline gap-1 my-0.5"><span class="text-headline-lg font-headline-lg text-primary tracking-tight">2</span><span class="text-body-sm font-body-sm font-medium text-on-surface-variant">video</span></div><p class="text-label-sm font-label-sm text-primary-container font-semibold truncate">Remotion 1080×1920</p></div><div class="bg-surface-container-lowest rounded-xl p-space-sm border border-outline-variant/40 card-ledge flex flex-col justify-between min-h-[96px]"><div class="flex items-center justify-between"><span class="text-body-sm font-body-sm font-semibold text-on-surface-variant">Lỗi QC</span><span class="w-2.5 h-2.5 rounded-full bg-error ring-2 ring-error-container"></span></div><div class="flex items-baseline gap-1 my-0.5"><span class="text-headline-lg font-headline-lg text-error tracking-tight">1</span><span class="text-body-sm font-body-sm font-bold text-error">cần sửa</span></div><p class="text-label-sm font-label-sm text-error font-bold truncate">Độ tương phản phụ đề</p></div><div class="bg-surface-container-lowest rounded-xl p-space-sm border border-outline-variant/40 card-ledge flex flex-col justify-between min-h-[96px]"><div class="flex items-center justify-between"><span class="text-body-sm font-body-sm font-semibold text-on-surface-variant">Mục tiêu tuần</span><span class="material-symbols-outlined text-primary text-[16px]">verified</span></div><div class="flex items-baseline gap-1 my-0.5"><span class="text-headline-lg font-headline-lg text-primary tracking-tight">14</span><span class="text-body-sm font-body-sm font-medium text-on-surface-variant">/14 video</span></div><div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden"><div class="bg-primary h-full rounded-full w-full"></div></div></div></div></section>
+<!-- 3. HÀNG CHỜ KIỂM DUYỆT 9:16 (REVIEW QUEUE) -->
+<section class="space-y-space-sm">
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-1.5">
+<h2 class="text-headline-md font-headline-md text-primary">Hàng chờ kiểm duyệt 9:16</h2>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm font-label-sm font-bold">
+          3 video sẵn sàng
+        </span>
+</div>
+<!-- Stack of 9:16 Video Review Cards -->
+<div class="space-y-space-md"><article class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 card-ledge overflow-hidden"><div class="p-space-md space-y-space-sm"><div class="flex items-center justify-between border-b border-outline-variant/20 pb-2"><span class="font-mono text-label-sm font-label-sm text-primary font-bold bg-surface-container px-2 py-0.5 rounded">LXK-REEL-101</span><div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface-variant font-medium"><span class="material-symbols-outlined text-[16px] text-primary">timer</span><span>0:28 • 9:16 HD</span></div></div><div class="grid grid-cols-12 gap-space-sm items-start"><div class="col-span-5 aspect-[9/16] bg-primary-container rounded-lg p-2.5 flex flex-col justify-between relative overflow-hidden text-surface shadow-inner"><div class="flex items-center justify-between z-10"><span class="text-[9px] font-bold tracking-wider px-1 py-0.5 rounded bg-black/60 text-surface uppercase">B1 Prep</span><span class="material-symbols-outlined text-[14px] text-primary-fixed">graphic_eq</span></div><div class="flex flex-col items-center justify-center my-auto z-10 text-center"><div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary-container mb-1 shadow"><span class="material-symbols-outlined text-[24px]">smart_toy</span></div><span class="text-[10px] font-bold text-surface-container-low">Carlos TTS</span><div class="mt-1 px-1.5 py-0.5 bg-black/60 rounded text-[9px] font-medium leading-tight">"Have you ever eaten sushi?"</div></div><div class="flex items-center justify-center gap-0.5 h-3 z-10 opacity-80"><span class="w-1 h-2 bg-secondary rounded-full"></span><span class="w-1 h-3.5 bg-surface rounded-full"></span><span class="w-1 h-1.5 bg-secondary rounded-full"></span><span class="w-1 h-3 bg-surface rounded-full"></span><span class="w-1 h-1 bg-surface rounded-full"></span></div><div class="absolute -right-4 -bottom-4 w-20 h-20 rounded-full bg-surface-tint/20 pointer-events-none"></div></div><div class="col-span-7 space-y-2"><div><span class="inline-block px-2 py-0.5 rounded text-label-sm font-label-sm font-bold bg-surface-container text-primary mb-1">Ngữ pháp phản xạ • B1</span><h3 class="font-headline-md text-[16px] leading-tight text-primary font-bold">Present Perfect vs Past Simple</h3></div><div class="p-2 rounded-lg bg-surface-container-low border border-outline-variant/30 text-body-sm font-body-sm text-on-surface"><p class="font-bold text-label-sm text-primary-container mb-0.5">Preview Phụ Đề:</p><p class="italic leading-snug text-on-surface-variant font-medium">"Have you ever eaten sushi?" vs "Did you eat sushi yesterday?"</p></div><div class="flex items-center gap-1.5 text-label-sm font-label-sm font-bold text-primary-container"><span class="material-symbols-outlined text-[16px] text-primary">verified</span><span>Đạt QA 9.4/10 • WCAG AAA</span></div></div></div><div class="pt-1 flex items-center gap-space-xs"><button class="flex-1 min-h-[44px] flex items-center justify-center gap-1.5 bg-secondary text-on-secondary rounded-lg font-label-lg font-label-lg active:translate-y-0.5 transition-all btn-ledge-coral"><span class="material-symbols-outlined text-[18px]">publish</span>Duyệt xuất bản</button><button aria-label="Nghe thử âm thanh" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg bg-surface-container-low text-primary border border-outline-variant/40 hover:bg-surface-container active:translate-y-0.5 transition-transform"><span class="material-symbols-outlined">volume_up</span></button></div></div></article><article class="bg-surface-container-lowest rounded-xl border border-outline-variant/40 card-ledge overflow-hidden"><div class="p-space-md space-y-space-sm"><div class="flex items-center justify-between border-b border-outline-variant/20 pb-2"><span class="font-mono text-label-sm font-label-sm text-primary font-bold bg-surface-container px-2 py-0.5 rounded">LXK-REEL-104</span><div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface-variant font-medium"><span class="material-symbols-outlined text-[16px] text-primary">timer</span><span>0:15 • 9:16 HD</span></div></div><div class="grid grid-cols-12 gap-space-sm items-start"><div class="col-span-5 aspect-[9/16] bg-tertiary-container rounded-lg p-2.5 flex flex-col justify-between relative overflow-hidden text-surface shadow-inner"><div class="flex items-center justify-between z-10"><span class="text-[9px] font-bold tracking-wider px-1 py-0.5 rounded bg-black/60 text-surface uppercase">IPA Sound</span><span class="material-symbols-outlined text-[14px] text-tertiary-fixed">music_note</span></div><div class="flex flex-col items-center justify-center my-auto z-10 text-center"><div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed mb-1 shadow"><span class="material-symbols-outlined text-[24px]">face_3</span></div><span class="text-[10px] font-bold text-surface-container-low">Ama TTS</span><div class="mt-1 px-1 py-0.5 bg-black/60 rounded text-[9px] font-mono font-medium">/ʃɪp/ vs /ʃiːp/</div></div><div class="flex items-center justify-center gap-0.5 h-3 z-10 opacity-80"><span class="w-1 h-3 bg-tertiary-fixed rounded-full"></span><span class="w-1 h-2 bg-surface rounded-full"></span><span class="w-1 h-4 bg-tertiary-fixed rounded-full"></span><span class="w-1 h-1.5 bg-surface rounded-full"></span></div></div><div class="col-span-7 space-y-2"><div><span class="inline-block px-2 py-0.5 rounded text-label-sm font-label-sm font-bold bg-surface-container text-primary mb-1">Phát âm IPA • A1</span><h3 class="font-headline-md text-[16px] leading-tight text-primary font-bold">Pronounce: Ship vs Sheep</h3></div><div class="p-2 rounded-lg bg-surface-container-low border border-outline-variant/30 text-body-sm font-body-sm text-on-surface"><p class="font-bold text-label-sm text-primary-container mb-0.5">Cặp âm chuẩn IPA:</p><p class="font-mono text-[13px] text-primary font-bold">/ʃɪp/ (con tàu) vs /ʃiːp/ (con cừu)</p></div><div class="flex items-center gap-1.5 text-label-sm font-label-sm font-bold text-primary-container"><span class="material-symbols-outlined text-[16px] text-primary">check_circle</span><span>Đạt QA 9.1/10 • Âm chuẩn</span></div></div></div><div class="pt-1 flex items-center gap-space-xs"><button class="flex-1 min-h-[44px] flex items-center justify-center gap-1.5 bg-primary-container text-on-primary rounded-lg font-label-lg font-label-lg active:translate-y-0.5 transition-all btn-ledge-teal"><span class="material-symbols-outlined text-[18px]">publish</span>Duyệt xuất bản</button><button aria-label="Nghe thử âm thanh" class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-lg bg-surface-container-low text-primary border border-outline-variant/40 hover:bg-surface-container active:translate-y-0.5 transition-transform"><span class="material-symbols-outlined">volume_up</span></button></div></div></article><article class="bg-surface-container-lowest rounded-xl border border-secondary-container/40 card-ledge overflow-hidden"><div class="p-space-md space-y-space-sm"><div class="flex items-center justify-between border-b border-outline-variant/20 pb-2"><span class="font-mono text-label-sm font-label-sm text-primary font-bold bg-surface-container px-2 py-0.5 rounded">LXK-REEL-103</span><div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface-variant font-medium"><span class="material-symbols-outlined text-[16px] text-primary">timer</span><span>0:35 • 9:16 HD</span></div></div><div class="grid grid-cols-12 gap-space-sm items-start"><div class="col-span-5 aspect-[9/16] bg-primary-container rounded-lg p-2.5 flex flex-col justify-between relative overflow-hidden text-surface shadow-inner"><div class="flex items-center justify-between z-10"><span class="text-[9px] font-bold tracking-wider px-1 py-0.5 rounded bg-black/60 text-surface uppercase">Idiom B2</span><span class="material-symbols-outlined text-[14px] text-secondary-fixed">warning</span></div><div class="flex flex-col items-center justify-center my-auto z-10 text-center"><div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary-container mb-1 shadow"><span class="material-symbols-outlined text-[24px]">smart_toy</span></div><span class="text-[10px] font-bold text-surface-container-low">Carlos TTS</span><div class="mt-1 px-1 py-0.5 bg-black/60 rounded text-[9px] font-medium leading-tight">"Once in a blue moon..."</div></div><div class="flex items-center justify-center gap-0.5 h-3 z-10 opacity-80"><span class="w-1 h-1 bg-surface rounded-full"></span><span class="w-1 h-2.5 bg-secondary-fixed rounded-full"></span><span class="w-1 h-3 bg-surface rounded-full"></span></div></div><div class="col-span-7 space-y-2"><div><span class="inline-block px-2 py-0.5 rounded text-label-sm font-label-sm font-bold bg-surface-container text-primary mb-1">Collocations • B2</span><h3 class="font-headline-md text-[16px] leading-tight text-primary font-bold">'Once in a blue moon' dùng khi nào?</h3></div><div class="p-2 rounded-lg bg-error-container/40 border border-error/20 text-body-sm font-body-sm text-on-error-container leading-snug"><div class="flex items-center gap-1 font-bold text-label-sm text-error mb-0.5"><span class="material-symbols-outlined text-[14px]">report_problem</span>Cần chỉnh visual:</div>Bổ sung hiệu ứng visual trăng xanh ở 0:08 để tối ưu retention rate.</div><div class="flex items-center gap-1.5 text-label-sm font-label-sm font-bold text-secondary"><span class="material-symbols-outlined text-[16px]">info</span><span>Chờ duyệt phụ đề • 8.8/10</span></div></div></div><div class="pt-1 flex items-center gap-space-xs"><button class="w-full min-h-[44px] flex items-center justify-center gap-1.5 bg-surface-container-lowest text-on-surface rounded-lg font-label-lg font-label-lg border border-outline-variant/60 active:translate-y-0.5 transition-all btn-ledge-neutral"><span class="material-symbols-outlined text-[18px]">edit_note</span>Xem chi tiết &amp; Sửa</button></div></div></article></div>
+</section>
+<!-- 4. THƯ VIỆN KỊCH BẢN & PHÂN PHỐI -->
+<section class="bg-surface-container-lowest rounded-xl p-space-md border border-outline-variant/40 card-ledge space-y-space-md">
+<!-- Section Header -->
+<div class="space-y-space-xs"><div class="flex items-center justify-between"><h2 class="text-headline-md font-headline-md text-primary font-bold">Thư viện kịch bản</h2><span class="text-label-sm font-label-sm text-primary-container font-bold bg-surface-container px-2 py-0.5 rounded-full">16 kịch bản</span></div><div class="flex flex-wrap gap-1.5 pt-1"><button class="min-h-[44px] px-3.5 py-2 rounded-full bg-primary-container text-on-primary text-label-sm font-label-sm font-bold">Tất cả (16)</button><button class="min-h-[44px] px-3.5 py-2 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high text-label-sm font-label-sm font-semibold">Đã lên lịch (6)</button><button class="min-h-[44px] px-3.5 py-2 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high text-label-sm font-label-sm font-semibold">Đã đăng (8)</button><button class="min-h-[44px] px-3.5 py-2 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high text-label-sm font-label-sm font-semibold">Bản nháp (2)</button></div><div class="grid grid-cols-2 gap-2 pt-1"><button class="min-h-[44px] px-3 py-2 rounded-lg border border-outline-variant/50 bg-surface-container-lowest text-left text-body-sm font-body-sm font-medium text-on-surface flex items-center justify-between"><span class="truncate">Tất cả mẫu</span><span class="material-symbols-outlined text-[18px] text-primary">arrow_drop_down</span></button><button class="min-h-[44px] px-3 py-2 rounded-lg border border-outline-variant/50 bg-surface-container-lowest text-left text-body-sm font-body-sm font-medium text-on-surface flex items-center justify-between"><span class="truncate">Tất cả trình độ</span><span class="material-symbols-outlined text-[18px] text-primary">arrow_drop_down</span></button></div></div>
+<!-- Script List Items (Stacked Mobile-First Card Rows) -->
+<div class="divide-y divide-outline-variant/30 -mx-space-md px-space-md"><div class="py-space-sm space-y-1"><div class="flex items-center justify-between gap-2"><span class="font-mono text-label-sm font-label-sm text-primary font-bold bg-surface-container px-1.5 py-0.5 rounded">LXK-REEL-101</span><span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm font-label-sm font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Đã lên lịch</span></div><p class="font-label-lg font-label-lg text-on-surface font-bold leading-tight">Present perfect vs Past simple</p><div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant pt-0.5"><span>Ngữ pháp B1 • Carlos</span><span class="font-bold text-primary">QC: 9.4 (AAA)</span></div><p class="text-label-sm font-label-sm text-primary-container font-semibold text-right">Lên lịch: 18/03 19:30</p></div><div class="py-space-sm space-y-1"><div class="flex items-center justify-between gap-2"><span class="font-mono text-label-sm font-label-sm text-primary font-bold bg-surface-container px-1.5 py-0.5 rounded">LXK-REEL-102</span><span class="px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-sm font-label-sm font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Đã lên lịch</span></div><p class="font-label-lg font-label-lg text-on-surface font-bold leading-tight">Âm câm trong 'Doubt', 'Debt'</p><div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant pt-0.5"><span>Phát âm A2 • Carlos</span><span class="font-bold text-primary">QC: 9.2 (AAA)</span></div><p class="text-label-sm font-label-sm text-primary-container font-semibold text-right">Lên lịch: 19/03 12:00</p></div><div class="py-space-sm space-y-1"><div class="flex items-center justify-between gap-2"><span class="font-mono text-label-sm font-label-sm text-primary font-bold bg-surface-container px-1.5 py-0.5 rounded">LXK-REEL-103</span><span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm font-label-sm font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>Chờ duyệt</span></div><p class="font-label-lg font-label-lg text-on-surface font-bold leading-tight">'Once in a blue moon'</p><div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant pt-0.5"><span>Collocations B2 • Ama</span><span class="font-bold text-secondary">QC: 8.9 (AA)</span></div></div><div class="py-space-sm space-y-1"><div class="flex items-center justify-between gap-2"><span class="font-mono text-label-sm font-label-sm text-primary font-bold bg-surface-container px-1.5 py-0.5 rounded">LXK-REEL-104</span><span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm font-label-sm font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[12px] animate-spin">sync</span>Đang dựng</span></div><p class="font-label-lg font-label-lg text-on-surface font-bold leading-tight">Ship vs Sheep (Nguyên âm)</p><div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant pt-0.5"><span>Cặp âm A1 • Carlos</span><span class="font-bold text-primary">QC: 9.5 (AAA)</span></div></div><div class="py-space-sm space-y-1"><div class="flex items-center justify-between gap-2"><span class="font-mono text-label-sm font-label-sm text-primary font-bold bg-surface-container px-1.5 py-0.5 rounded">LXK-REEL-105</span><span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm font-label-sm font-bold">Đã xuất bản</span></div><p class="font-label-lg font-label-lg text-on-surface font-bold leading-tight">'Pay attention' vs 'Draw attention'</p><div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant pt-0.5"><span>Writing B2 • Ama</span><span class="font-bold text-primary">QC: 9.0 (AAA)</span></div><p class="text-label-sm font-label-sm text-primary-container font-semibold text-right">82 lượt xem</p></div></div>
+<!-- Pagination Controls -->
+<div class="pt-space-xs border-t border-outline-variant/30 flex items-center justify-between text-body-sm font-body-sm"><span class="text-primary-container font-semibold text-label-sm">5 / 16 video</span><div class="flex items-center gap-1"><button aria-label="Trang trước" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded border border-outline-variant/40 flex items-center justify-center text-primary font-bold hover:bg-surface-container">‹</button><button class="w-11 h-11 min-w-[44px] min-h-[44px] rounded bg-primary-container text-on-primary font-bold flex items-center justify-center">1</button><button class="w-11 h-11 min-w-[44px] min-h-[44px] rounded border border-outline-variant/40 text-on-surface font-semibold flex items-center justify-center hover:bg-surface-container">2</button><button class="w-11 h-11 min-w-[44px] min-h-[44px] rounded border border-outline-variant/40 text-on-surface font-semibold flex items-center justify-center hover:bg-surface-container">3</button><button aria-label="Trang sau" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded border border-outline-variant/40 flex items-center justify-center text-primary font-bold hover:bg-surface-container">›</button></div></div>
+</section>
+<!-- 5. KÊNH XUẤT BẢN & WEBHOOK QUICK STATUS -->
+<section class="space-y-space-xs"><h2 class="text-label-lg font-label-lg text-primary font-bold px-space-xs">Kênh phân phối &amp; Tự động hoá</h2><div class="space-y-2"><div class="bg-surface-container-lowest rounded-xl p-space-sm border border-outline-variant/40 card-ledge flex items-center justify-between"><div class="flex items-center gap-2.5 min-w-0"><div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0"><span class="material-symbols-outlined text-[20px]">music_video</span></div><div class="min-w-0"><p class="font-label-md font-label-md text-primary font-bold truncate">TikTok: @lexkite.app</p><p class="text-body-sm font-body-sm text-on-surface-variant font-medium">5 video/tuần • Tự động gắn tag</p></div></div><span class="inline-flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-full bg-surface-container text-primary text-label-sm font-label-sm font-bold flex-shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>Kết nối</span></div><div class="bg-surface-container-lowest rounded-xl p-space-sm border border-outline-variant/40 card-ledge flex items-center justify-between"><div class="flex items-center gap-2.5 min-w-0"><div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary flex-shrink-0"><span class="material-symbols-outlined text-[20px]">play_arrow</span></div><div class="min-w-0"><p class="font-label-md font-label-md text-primary font-bold truncate">YouTube Shorts: @lexkite.ielts</p><p class="text-body-sm font-body-sm text-on-surface-variant font-medium">3 video/tuần • 1080×1920 60fps</p></div></div><span class="inline-flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-full bg-surface-container text-primary text-label-sm font-label-sm font-bold flex-shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>Kết nối</span></div><div class="bg-surface-container-lowest rounded-xl p-space-sm border border-outline-variant/40 card-ledge flex items-center justify-between"><div class="flex items-center gap-2.5 min-w-0"><div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary flex-shrink-0"><span class="material-symbols-outlined text-[20px]">send</span></div><div class="min-w-0"><p class="font-label-md font-label-md text-primary font-bold truncate">Telegram Bot Alert</p><p class="text-body-sm font-body-sm text-on-surface-variant font-medium">Thông báo QC &amp; Duyệt video tức thì</p></div></div><span class="inline-flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-full bg-surface-container text-primary text-label-sm font-label-sm font-bold flex-shrink-0"><span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>Đang chạy</span></div></div></section>
+</main>
+<!-- DOCKED BOTTOM NAVIGATION BAR (Shared Component Exact Mirror) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin py-space-xs min-h-[56px] bg-surface-container-lowest shadow-[0_-4px_16px_-4px_rgba(15,61,62,0.06)]"><a class="flex flex-col items-center justify-center bg-primary-container text-on-primary rounded-xl px-space-md py-1 active:scale-95 transition-transform duration-100 min-h-[48px] min-w-[64px]" href="#tong-quan"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span><span class="text-label-sm font-label-sm font-bold">Tổng quan</span></a><a class="flex flex-col items-center justify-center text-primary-container hover:text-primary px-space-md py-1 active:scale-95 transition-transform duration-100 min-h-[48px] min-w-[64px]" href="#canh-bao"><span class="material-symbols-outlined">warning</span><span class="text-label-sm font-label-sm font-bold">Cảnh báo</span></a><a class="flex flex-col items-center justify-center text-primary-container hover:text-primary px-space-md py-1 active:scale-95 transition-transform duration-100 min-h-[48px] min-w-[64px]" href="#bao-loi"><span class="material-symbols-outlined">report_problem</span><span class="text-label-sm font-label-sm font-bold">Báo lỗi</span></a><a class="flex flex-col items-center justify-center text-primary-container hover:text-primary px-space-md py-1 active:scale-95 transition-transform duration-100 min-h-[48px] min-w-[64px]" href="#cai-dat"><span class="material-symbols-outlined">settings</span><span class="text-label-sm font-label-sm font-bold">Cài đặt</span></a></nav>
+</body></html>

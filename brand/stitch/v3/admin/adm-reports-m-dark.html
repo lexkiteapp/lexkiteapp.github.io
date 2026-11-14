@@ -130,7 +130,7 @@
 <!-- Mobile Viewport Shell (Strictly 390px Native Layout) -->
 <div class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col relative pb-24 border-x border-[#213a42]/60">
 <!-- TopAppBar (Dark Tactile Night Header) -->
-<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-4 max-w-[390px] mx-auto bg-[#091518]/95 backdrop-blur-md border-b-2 border-[#213a42] docked full-width top-0 h-14 right-0"><div class="flex items-center space-x-2"><button aria-label="Menu" class="w-9 h-9 rounded-lg bg-[#132428] border border-[#213a42] flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-[#182e34] active:translate-y-0.5 transition-all"><span class="material-symbols-outlined text-[20px]">menu</span></button><div class="flex items-center space-x-1.5"><div class="w-6 h-6 rounded-md bg-primary-container flex items-center justify-center text-primary font-headline font-extrabold text-xs border border-primary/30">L</div><div><div class="flex items-center gap-1.5"><span class="font-headline font-bold text-base text-[#e2f1f0] tracking-tight leading-none">Báo lỗi</span><span class="px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-[#132428] text-primary border border-primary/30 leading-none">v2.4.1</span></div><p class="text-[10px] text-[#93aab0] font-medium leading-tight">Admin › Báo lỗi</p></div></div></div><div class="flex items-center space-x-2"><button aria-label="Bộ lọc" class="w-8 h-8 rounded-lg bg-[#132428] border border-[#213a42] flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">tune</span></button><div class="w-8 h-8 rounded-full bg-[#3d130e] text-[#ffb4a6] font-headline font-bold text-xs flex items-center justify-center shadow-inner border border-[#ff6347]/50" title="Hoàng Minh (Admin)">HM</div></div></header>
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-4 max-w-[390px] mx-auto bg-[#091518]/95 backdrop-blur-md border-b-2 border-[#213a42] docked full-width top-0 h-14 right-0"><div class="flex items-center space-x-2"><button aria-label="Menu" class="w-11 h-11 rounded-lg bg-[#132428] border border-[#213a42] flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-[#182e34] active:translate-y-0.5 transition-all"><span class="material-symbols-outlined text-[20px]">menu</span></button><div class="flex items-center space-x-1.5"><div class="w-7 h-7 rounded-md bg-primary-container flex items-center justify-center text-primary font-headline font-extrabold text-xs border border-primary/30">L</div><div><div class="flex items-center gap-1.5"><span class="font-headline font-bold text-base text-[#e2f1f0] tracking-tight leading-none">Báo lỗi</span><span class="px-1.5 py-0.5 rounded-full text-[10px] font-bold bg-[#132428] text-primary border border-primary/30 leading-none">v2.4.1</span></div><p class="text-[10px] text-[#c4dade] font-medium leading-tight">Admin › Báo lỗi</p></div></div></div><div class="flex items-center space-x-1.5"><button aria-label="Bộ lọc" class="w-11 h-11 rounded-lg bg-[#132428] border border-[#213a42] flex items-center justify-center text-[#c4dade] hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">tune</span></button><div class="w-11 h-11 rounded-full bg-[#3d130e] text-[#ffb4a6] font-headline font-bold text-xs flex items-center justify-center shadow-inner border border-[#ff6347]/50" title="Hoàng Minh (Admin)">HM</div></div></header>
 <!-- Main Scrollable Canvas -->
 <main class="flex-1 mt-14 px-4 pt-3.5 space-y-4">
 <section class="space-y-2.5">
@@ -143,15 +143,7 @@
 </div>
 <p class="text-xs text-[#93aab0]">24 báo cáo tổng số · Cần phân loại ưu tiên học vụ</p>
 </div>
-<div class="flex flex-wrap gap-1.5">
-<button class="px-2.5 py-1 rounded-lg text-xs font-bold bg-[#14423e] text-[#6bd8ce] border border-[#2ba39a]/60 shadow-sm flex items-center gap-1">
-<span>Mới</span>
-<span class="bg-[#0b2825] text-primary px-1.5 py-0.2 rounded-full text-[10px] border border-primary/30">4</span>
-</button>
-<button class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#132428] text-[#c4dade] hover:text-[#e2f1f0] border border-[#213a42] transition-colors">Đang xử lý (2)</button>
-<button class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#132428] text-[#c4dade] hover:text-[#e2f1f0] border border-[#213a42] transition-colors">Đã sửa (18)</button>
-<button class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-[#132428] text-[#c4dade] hover:text-[#e2f1f0] border border-[#213a42] transition-colors">Tất cả (24)</button>
-</div>
+<div class="flex flex-wrap gap-1.5"><button class="min-h-[44px] px-3 py-2 rounded-lg text-xs font-bold bg-[#14423e] text-[#6bd8ce] border border-[#2ba39a]/60 shadow-sm flex items-center gap-1.5"><span>Mới</span><span class="bg-[#0b2825] text-primary px-1.5 py-0.5 rounded-full text-[10px] border border-primary/30">4</span></button><button class="min-h-[44px] px-3 py-2 rounded-lg text-xs font-semibold bg-[#132428] text-[#c4dade] hover:text-[#e2f1f0] border border-[#213a42] transition-colors flex items-center justify-center">Đang xử lý (2)</button><button class="min-h-[44px] px-3 py-2 rounded-lg text-xs font-semibold bg-[#132428] text-[#c4dade] hover:text-[#e2f1f0] border border-[#213a42] transition-colors flex items-center justify-center">Đã sửa (18)</button><button class="min-h-[44px] px-3 py-2 rounded-lg text-xs font-semibold bg-[#132428] text-[#c4dade] hover:text-[#e2f1f0] border border-[#213a42] transition-colors flex items-center justify-center">Tất cả (24)</button></div>
 </section>
 <section class="space-y-2">
 <div class="flex items-center justify-between px-0.5">
@@ -161,20 +153,9 @@
 <div class="space-y-2">
 <!-- Item 1 - Active / Selected -->
 <article class="p-3 rounded-xl bg-[#0f1d21] border-2 border-primary tactile-card-selected relative cursor-pointer">
-<div class="flex items-center justify-between gap-1 mb-1.5">
-<div class="flex items-center gap-1.5 flex-wrap">
-<span class="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-[#441614] text-[#ffb4a6] border border-[#ff6347]/40">Lỗi âm thanh</span>
-<code class="px-1.5 py-0.5 rounded bg-[#050e11] text-[10px] text-primary font-mono font-medium border border-[#213a42]">#/study/flashcard</code>
-</div>
-<span class="text-[10px] text-[#93aab0] whitespace-nowrap">14p trước</span>
-</div>
+<div class="flex items-center justify-between text-[11px] pt-1"><span class="inline-flex items-center gap-1.5 font-bold text-[#ffb4a6]"><span class="w-1.5 h-1.5 rounded-full bg-[#ff6347] shadow-[0_0_6px_#ff6347]"></span>Chờ nhận</span><button class="min-h-[44px] px-2 text-primary font-bold text-[11px] flex items-center hover:text-[#e2f1f0] transition-colors">Đang xem chi tiết<span class="material-symbols-outlined text-[16px] ml-0.5">arrow_downward</span></button></div>
 <p class="text-xs font-semibold text-[#e2f1f0] line-clamp-2 leading-relaxed mb-1.5">"Bấm nút nghe phát âm từ 'ubiquitous' thì bị đơ khoảng 3 giây không có tiếng."</p>
-<div class="flex items-center justify-between text-[11px]">
-<span class="inline-flex items-center gap-1.5 font-bold text-[#ffb4a6]">
-<span class="w-1.5 h-1.5 rounded-full bg-[#ff6347] shadow-[0_0_6px_#ff6347]"></span>Chờ nhận
-</span>
-<span class="text-primary font-bold text-[11px] flex items-center">Đang xem chi tiết<span class="material-symbols-outlined text-[14px] ml-0.5">arrow_downward</span></span>
-</div>
+<div class="flex items-center justify-between text-[11px] pt-1"><span class="inline-flex items-center gap-1.5 font-bold text-[#ffb4a6]"><span class="w-1.5 h-1.5 rounded-full bg-[#ff6347] shadow-[0_0_6px_#ff6347]"></span>Chờ nhận</span><button class="min-h-[44px] px-2 text-primary font-bold text-[11px] flex items-center hover:text-[#e2f1f0] transition-colors">Đang xem chi tiết<span class="material-symbols-outlined text-[16px] ml-0.5">arrow_downward</span></button></div>
 </article>
 <!-- Item 2 -->
 <article class="p-3 rounded-xl bg-[#0f1d21] border border-[#213a42] tactile-card hover:border-[#2ba39a]/50 transition-colors cursor-pointer">
@@ -276,52 +257,15 @@
 <div class="space-y-1.5 pt-1">
 <label class="text-[11px] font-bold text-[#93aab0] block">Người phụ trách xử lý</label>
 <div class="relative">
-<select class="w-full bg-[#132428] border-2 border-[#213a42] text-[#e2f1f0] text-xs font-bold rounded-xl py-2.5 px-3 appearance-none focus:outline-none focus:border-primary">
-<option selected="">👤 Lê Nam (Kỹ thuật âm thanh &amp; Edge)</option>
-<option>👤 Minh (Admin)</option>
-<option>👤 Ama (Nội dung)</option>
-</select>
+<select class="w-full min-h-[44px] bg-[#132428] border-2 border-[#213a42] text-[#e2f1f0] text-xs font-bold rounded-xl py-2.5 px-3 appearance-none focus:outline-none focus:border-primary"><option selected="">👤 Lê Nam (Kỹ thuật âm thanh &amp; Edge)</option><option>👤 Minh (Admin)</option><option>👤 Ama (Nội dung)</option></select>
 <span class="material-symbols-outlined absolute right-3 top-2.5 text-[#93aab0] pointer-events-none text-[18px]">expand_more</span>
 </div>
 </div>
-<div class="pt-2 space-y-2">
-<button class="w-full h-12 rounded-xl bg-gradient-to-r from-[#ff5c38] to-[#f9735b] text-[#050e11] font-headline font-extrabold text-sm flex items-center justify-center gap-2 tactile-cta">
-<span class="material-symbols-outlined text-[18px] text-[#050e11]">check_circle</span>Đánh dấu đã sửa
-</button>
-<div class="grid grid-cols-2 gap-2">
-<button class="h-10 rounded-xl bg-[#143e3a] text-primary font-headline font-bold text-xs flex items-center justify-center gap-1.5 border border-[#2ba39a]/40 tactile-secondary">
-<span class="material-symbols-outlined text-[16px]">reply</span>Trả lời học viên
-</button>
-<button class="h-10 rounded-xl bg-[#132428] text-[#c4dade] font-headline font-bold text-xs flex items-center justify-center gap-1.5 border border-[#213a42] tactile-quiet">
-<span class="material-symbols-outlined text-[16px]">archive</span>Lưu trữ
-</button>
-</div>
-</div>
+<div class="pt-2 space-y-2"><button class="w-full h-12 rounded-xl bg-gradient-to-r from-[#ff5c38] to-[#f9735b] text-[#050e11] font-headline font-extrabold text-sm flex items-center justify-center gap-2 tactile-cta"><span class="material-symbols-outlined text-[20px] text-[#050e11]">check_circle</span>Đánh dấu đã sửa</button><div class="grid grid-cols-2 gap-2"><button class="min-h-[44px] h-11 rounded-xl bg-[#143e3a] text-primary font-headline font-bold text-xs flex items-center justify-center gap-1.5 border border-[#2ba39a]/40 tactile-secondary"><span class="material-symbols-outlined text-[18px]">reply</span>Trả lời học viên</button><button class="min-h-[44px] h-11 rounded-xl bg-[#132428] text-[#c4dade] font-headline font-bold text-xs flex items-center justify-center gap-1.5 border border-[#213a42] tactile-quiet"><span class="material-symbols-outlined text-[18px]">archive</span>Lưu trữ</button></div></div>
 </div>
 </section>
 </main>
 <!-- BottomNavBar (Docked Tactile Night Nav) -->
-<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-1 max-w-[390px] mx-auto bg-[#091518]/95 backdrop-blur-md border-t-2 border-[#213a42] docked full-width bottom-0 h-16 right-0">
-<a class="flex flex-col items-center justify-center text-[#93aab0] px-2 py-1 hover:text-primary active:scale-95 transition-transform duration-150" href="#learn">
-<span class="material-symbols-outlined text-[20px]">route</span>
-<span class="font-label text-xs font-bold tracking-wider mt-0.5">Learn</span>
-</a>
-<a aria-current="page" class="flex flex-col items-center justify-center border-2 border-primary bg-[#133c38] text-primary rounded-xl px-2 py-1 active:scale-95 transition-transform duration-150" href="#review">
-<span class="material-symbols-outlined fill text-[20px]">layers</span>
-<span class="font-label text-xs font-bold tracking-wider mt-0.5">Review</span>
-</a>
-<a class="flex flex-col items-center justify-center text-[#93aab0] px-2 py-1 hover:text-primary active:scale-95 transition-transform duration-150" href="#practice">
-<span class="material-symbols-outlined text-[20px]">bolt</span>
-<span class="font-label text-xs font-bold tracking-wider mt-0.5">Practice</span>
-</a>
-<a class="flex flex-col items-center justify-center text-[#93aab0] px-2 py-1 hover:text-primary active:scale-95 transition-transform duration-150" href="#leagues">
-<span class="material-symbols-outlined text-[20px]">trophy</span>
-<span class="font-label text-xs font-bold tracking-wider mt-0.5">Leagues</span>
-</a>
-<a class="flex flex-col items-center justify-center text-[#93aab0] px-2 py-1 hover:text-primary active:scale-95 transition-transform duration-150" href="#me">
-<span class="material-symbols-outlined text-[20px]">person</span>
-<span class="font-label text-xs font-bold tracking-wider mt-0.5">Me</span>
-</a>
-</nav>
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-1 max-w-[390px] mx-auto bg-[#091518]/95 backdrop-blur-md border-t-2 border-[#213a42] docked full-width bottom-0 h-16 right-0"><a class="min-h-[48px] min-w-[48px] flex flex-col items-center justify-center text-[#c4dade] px-2 py-1 hover:text-primary active:scale-95 transition-transform duration-150" href="#learn"><span class="material-symbols-outlined text-[20px]">route</span><span class="font-label text-xs font-bold tracking-wider mt-0.5">Learn</span></a><a aria-current="page" class="min-h-[48px] min-w-[48px] flex flex-col items-center justify-center border-2 border-primary bg-[#133c38] text-primary rounded-xl px-2 py-1 active:scale-95 transition-transform duration-150" href="#review"><span class="material-symbols-outlined fill text-[20px]">layers</span><span class="font-label text-xs font-bold tracking-wider mt-0.5">Review</span></a><a class="min-h-[48px] min-w-[48px] flex flex-col items-center justify-center text-[#c4dade] px-2 py-1 hover:text-primary active:scale-95 transition-transform duration-150" href="#practice"><span class="material-symbols-outlined text-[20px]">bolt</span><span class="font-label text-xs font-bold tracking-wider mt-0.5">Practice</span></a><a class="min-h-[48px] min-w-[48px] flex flex-col items-center justify-center text-[#c4dade] px-2 py-1 hover:text-primary active:scale-95 transition-transform duration-150" href="#leagues"><span class="material-symbols-outlined text-[20px]">trophy</span><span class="font-label text-xs font-bold tracking-wider mt-0.5">Leagues</span></a><a class="min-h-[48px] min-w-[48px] flex flex-col items-center justify-center text-[#c4dade] px-2 py-1 hover:text-primary active:scale-95 transition-transform duration-150" href="#me"><span class="material-symbols-outlined text-[20px]">person</span><span class="font-label text-xs font-bold tracking-wider mt-0.5">Me</span></a></nav>
 </div>
 </body></html>

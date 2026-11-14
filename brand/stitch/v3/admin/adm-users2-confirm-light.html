@@ -1,919 +1,816 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lexkite Admin - Quản lý người dùng</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <script>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite Admin - Quản lý Người dùng</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
     tailwind.config = {
+      darkMode: "class",
       theme: {
         extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          "colors": {
+            "surface-container-highest": "#efe0d6",
+            "surface-bright": "#fff8f5",
+            "shadow-ledge-secondary": "#8c5000",
+            "outline-variant": "#bec9c6",
+            "on-primary-container": "#9be7de",
+            "tertiary-container": "#5b4300",
+            "on-secondary": "#ffffff",
+            "surface-tint": "#266863",
+            "error-container": "#ffdad6",
+            "shadow-ledge-primary": "#136a63",
+            "primary-fixed": "#aeefe7",
+            "on-surface-variant": "#3f4947",
+            "surface-container": "#faebe1",
+            "surface-container-lowest": "#ffffff",
+            "inverse-on-surface": "#fdeee4",
+            "outline": "#6f7977",
+            "surface-container-low": "#fff1e8",
+            "shadow-ledge-neutral": "#bec9c6",
+            "on-secondary-container": "#623700",
+            "surface-container-high": "#f4e5db",
+            "secondary-fixed-dim": "#ffb872",
+            "background": "#fff8f5",
+            "secondary": "#8b5000",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed": "#2d1600",
+            "on-error-container": "#93000a",
+            "surface": "#fff8f5",
+            "button-text-contrast": "#1a0d00",
+            "primary-container": "#00504b",
+            "tertiary-fixed": "#ffdf9b",
+            "on-primary-fixed": "#00201d",
+            "inverse-surface": "#372f28",
+            "tertiary": "#3f2e00",
+            "surface-dim": "#e6d7cd",
+            "secondary-container": "#fd9500",
+            "on-error": "#ffffff",
+            "surface-variant": "#eee0d6",
+            "primary": "#003734",
+            "on-surface": "#211a14",
+            "on-tertiary-container": "#e1ad1c",
+            "tertiary-fixed-dim": "#f5bf31",
+            "on-tertiary-fixed": "#251a00",
+            "inverse-primary": "#92d2cb",
+            "secondary-fixed": "#ffdcbf",
+            "primary-fixed-dim": "#92d2cb",
+            "on-secondary-fixed-variant": "#6a3b00",
+            "on-background": "#211a14",
+            "error": "#ba1a1a",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-primary-fixed-variant": "#00504b"
           },
-          colors: {
-            brand: {
-              teal: '#136a63',
-              'teal-dark': '#0c4944',
-              'teal-light': '#e6f4f2',
-              'teal-border': '#9cd4cd',
-              coral: '#f05a28',
-              'coral-hover': '#d94716',
-              amber: '#b45309',
-            },
-            surface: {
-              cream: '#fff8f5',
-              'cream-card': '#ffffff',
-              'cream-alt': '#fdf2eb',
-              'border': '#edd5c7',
-              'border-subtle': '#faeae0',
-            }
+          "borderRadius": {
+            "DEFAULT": "1rem",
+            "lg": "2rem",
+            "xl": "3rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-md": "2rem",
+            "space-lg": "1.5rem",
+            "margin": "1rem",
+            "gutter-lg": "2rem",
+            "space-md": "1rem",
+            "gutter-md": "1.5rem",
+            "space-xs": "0.25rem",
+            "gutter": "1rem",
+            "margin-lg": "3rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem"
+          },
+          "fontFamily": {
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-md": ["14px", { "lineHeight": "18px", "letterSpacing": "0.03em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "500" }],
+            "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "800" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "label-lg": ["16px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "800" }],
+            "display-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }]
           }
         }
       }
     }
   </script>
-  <style>
-    .material-symbols-rounded {
+<style>
+    .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
       display: inline-block;
       vertical-align: middle;
       line-height: 1;
     }
-    .material-symbols-rounded.filled {
-      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    .custom-scroll::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
     }
-    /* Lexkite tactile drop shadow */
-    .tactile-card {
-      background: #ffffff;
-      border: 1.5px solid #edd5c7;
-      border-radius: 14px;
-      box-shadow: 0 3px 0 0 #e4c5b3;
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #faebe1;
     }
-    .tactile-button-primary {
-      background: #f05a28;
-      border: 1.5px solid #c83d10;
-      color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 3px 0 0 #b33209;
-      font-weight: 700;
-      transition: all 0.1s ease;
-    }
-    .tactile-button-primary:hover {
-      background: #e24b1a;
-      transform: translateY(1px);
-      box-shadow: 0 2px 0 0 #b33209;
-    }
-    .tactile-button-danger {
-      background: #dc2626;
-      border: 1.5px solid #b91c1c;
-      color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 3px 0 0 #991b1b;
-      font-weight: 700;
-    }
-    .tactile-button-danger:disabled {
-      background: #fca5a5;
-      border-color: #f87171;
-      box-shadow: 0 2px 0 0 #ef4444;
-      cursor: not-allowed;
-      opacity: 0.8;
-    }
-    .tactile-button-secondary {
-      background: #ffffff;
-      border: 1.5px solid #edd5c7;
-      color: #1f2937;
-      border-radius: 10px;
-      box-shadow: 0 2px 0 0 #e4c5b3;
-      font-weight: 600;
-      transition: all 0.1s ease;
-    }
-    .tactile-button-secondary:hover {
-      background: #fff5ee;
-      transform: translateY(1px);
-      box-shadow: 0 1px 0 0 #e4c5b3;
-    }
-    /* custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #fff8f5;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #edd5c7;
-      border-radius: 3px;
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #bec9c6;
+      border-radius: 4px;
     }
   </style>
 </head>
-<body class="bg-[#fff8f5] text-[#1e293b] font-sans antialiased min-h-screen relative overflow-hidden select-none" style="width: 1440px; margin: 0 auto; height: 100vh;">
-
-  <!-- APP SHELL CONTAINER (1440px wide layout) -->
-  <div class="flex h-screen w-full overflow-hidden bg-[#fff8f5]">
-
-    <!-- SIDEBAR NAVIGATION (Width: 260px) -->
-    <aside class="w-[260px] flex-shrink-0 bg-[#ffffff] border-r-2 border-[#edd5c7] flex flex-col justify-between z-20">
-      <div>
-        <!-- Brand Header -->
-        <div class="h-[72px] px-5 flex items-center gap-3 border-b border-[#f3e3d8]">
-          <div class="w-10 h-10 rounded-xl bg-[#136a63] flex items-center justify-center text-white shadow-[0_2px_0_0_#0c4944]">
-            <span class="material-symbols-rounded text-[24px]">school</span>
-          </div>
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="font-extrabold text-[19px] tracking-tight text-[#0f3d39]">Lexkite</span>
-              <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#fcedea] text-[#f05a28] border border-[#fbd0c6]">ADMIN</span>
-            </div>
-            <p class="text-[11px] text-[#64748b] font-medium leading-none mt-0.5">Hệ thống quản lý trung tâm</p>
-          </div>
+<body class="bg-background text-[#132226] font-body-md antialiased min-h-screen flex flex-col selection:bg-primary-fixed selection:text-primary">
+<!-- TOP BAR (Desktop Admin Shell) -->
+<header class="fixed top-0 left-0 w-full h-16 bg-surface z-30 border-b-2 border-outline-variant/80 shadow-[0_2px_0_0_#bec9c6] flex items-center px-6 justify-between">
+<!-- Brand / Identity -->
+<div class="flex items-center gap-6">
+<a class="min-h-[44px] min-w-[44px] flex items-center gap-2.5 group rounded-xl px-2 py-1 hover:bg-surface-container transition-colors focus:outline-none focus:ring-2 focus:ring-primary-container" href="#">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-primary-fixed shadow-[0_2px_0_0_#136a63]">
+<span class="material-symbols-outlined text-[24px]">kitesurfing</span>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-sm text-headline-sm font-extrabold text-[#00504B] tracking-tight">Lexkite</span>
+<span class="font-headline-sm text-headline-sm font-bold text-[#132226]">Admin</span>
+</div>
+</a>
+<!-- Global Search -->
+<div class="relative hidden lg:block">
+<label class="sr-only" for="global-search">Tìm kiếm hệ thống</label>
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#132226]">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="h-[44px] w-[384px] pl-10 pr-4 rounded-xl border-2 border-outline-variant bg-surface text-[#132226] font-body-sm text-body-sm placeholder:text-[#3f4947] focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container shadow-inner" id="global-search" placeholder="Tìm chiến dịch, thành viên, tệp tin..." type="text"/>
+</div>
+</div>
+<!-- Header Actions (Right) -->
+<div class="flex items-center gap-3">
+<!-- Language Switcher -->
+<button aria-label="Đổi ngôn ngữ giao diện" class="min-h-[44px] h-[44px] px-3.5 rounded-xl border border-outline-variant bg-surface-container-low flex items-center gap-1.5 text-[#132226] font-label-md text-label-md font-bold hover:bg-surface-container transition-all active:translate-y-0.5 shadow-[0_2px_0_0_#bec9c6]" type="button">
+<span class="material-symbols-outlined text-[20px]">language</span>
+<span>VIE</span>
+<span class="material-symbols-outlined text-[18px]">arrow_drop_down</span>
+</button>
+<!-- Notifications -->
+<button aria-label="Thông báo hệ thống" class="min-h-[44px] min-w-[44px] w-[44px] h-[44px] rounded-xl border border-outline-variant bg-surface-container-lowest flex items-center justify-center text-[#132226] hover:bg-surface-container transition-all active:translate-y-0.5 shadow-[0_2px_0_0_#bec9c6] relative" type="button">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-2 right-2 w-2.5 h-2.5 bg-secondary-container rounded-full border-2 border-white"></span>
+</button>
+<!-- User Profile Badge -->
+<button aria-label="Tài khoản người dùng: Trần Minh Vũ" class="min-h-[44px] h-[44px] pl-1.5 pr-3.5 rounded-xl border border-outline-variant bg-surface-container-low flex items-center gap-2.5 hover:bg-surface-container transition-all active:translate-y-0.5 shadow-[0_2px_0_0_#bec9c6]" type="button">
+<div class="w-8 h-8 rounded-lg bg-[#00504B] text-white font-label-md text-label-md font-extrabold flex items-center justify-center">
+          TMV
         </div>
-
-        <!-- Section List -->
-        <div class="p-3 space-y-6">
-          <!-- Main Nav Group -->
-          <div>
-            <div class="px-3 pb-2 text-[11px] font-bold tracking-wider text-[#94a3b8] uppercase">Quản trị cốt lõi</div>
-            <nav class="space-y-1">
-              <!-- Tổng quan -->
-              <a href="#" class="flex items-center gap-3 px-3 h-[46px] rounded-xl text-[#334155] font-semibold text-[14px] hover:bg-[#fff4ed] transition-colors">
-                <span class="material-symbols-rounded text-[22px] text-[#64748b]">dashboard</span>
-                <span>Tổng quan</span>
-              </a>
-
-              <!-- Người dùng (Active Selected) -->
-              <a href="#" class="flex items-center justify-between px-3 h-[46px] rounded-xl bg-[#136a63] text-white font-bold text-[14px] shadow-[0_2px_0_0_#0c4944]">
-                <div class="flex items-center gap-3">
-                  <span class="material-symbols-rounded text-[22px]">group</span>
-                  <span>Người dùng</span>
-                </div>
-                <span class="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-[#1b8179] text-white">1.284</span>
-              </a>
-
-              <!-- Nội dung học -->
-              <a href="#" class="flex items-center gap-3 px-3 h-[46px] rounded-xl text-[#334155] font-semibold text-[14px] hover:bg-[#fff4ed] transition-colors">
-                <span class="material-symbols-rounded text-[22px] text-[#64748b]">menu_book</span>
-                <span>Nội dung</span>
-                <span class="ml-auto text-[10px] font-bold px-1.5 py-0.5 rounded bg-[#e2f3f1] text-[#136a63]">24 gói</span>
-              </a>
-
-              <!-- Doanh thu -->
-              <a href="#" class="flex items-center gap-3 px-3 h-[46px] rounded-xl text-[#334155] font-semibold text-[14px] hover:bg-[#fff4ed] transition-colors">
-                <span class="material-symbols-rounded text-[22px] text-[#64748b]">payments</span>
-                <span>Doanh thu</span>
-              </a>
-
-              <!-- Hệ thống -->
-              <a href="#" class="flex items-center gap-3 px-3 h-[46px] rounded-xl text-[#334155] font-semibold text-[14px] hover:bg-[#fff4ed] transition-colors">
-                <span class="material-symbols-rounded text-[22px] text-[#64748b]">settings</span>
-                <span>Hệ thống</span>
-              </a>
-            </nav>
-          </div>
-
-          <!-- Secondary Group -->
-          <div>
-            <div class="px-3 pb-2 text-[11px] font-bold tracking-wider text-[#94a3b8] uppercase">Kiểm định & Giám sát</div>
-            <nav class="space-y-1">
-              <a href="#" class="flex items-center gap-3 px-3 h-[44px] rounded-xl text-[#475569] font-medium text-[13.5px] hover:bg-[#fff4ed] transition-colors">
-                <span class="material-symbols-rounded text-[20px] text-[#94a3b8]">history_edu</span>
-                <span>Nhật ký kiểm toán</span>
-              </a>
-              <a href="#" class="flex items-center gap-3 px-3 h-[44px] rounded-xl text-[#475569] font-medium text-[13.5px] hover:bg-[#fff4ed] transition-colors">
-                <span class="material-symbols-rounded text-[20px] text-[#94a3b8]">report</span>
-                <span>Báo cáo sự cố</span>
-                <span class="ml-auto w-2 h-2 rounded-full bg-[#f05a28]"></span>
-              </a>
-            </nav>
-          </div>
-        </div>
-      </div>
-
-      <!-- User Profile in Sidebar -->
-      <div class="p-3 border-t border-[#f3e3d8] bg-[#fdfbf9]">
-        <div class="flex items-center gap-3 p-2 rounded-xl bg-white border border-[#edd5c7]">
-          <div class="w-9 h-9 rounded-lg bg-[#e2f3f1] border border-[#a2d8d2] flex items-center justify-center font-bold text-[#136a63] text-[13px]">
-            AD
-          </div>
-          <div class="flex-1 min-w-0">
-            <p class="text-[13px] font-bold text-[#0f172a] truncate">Admin Quản Trị</p>
-            <p class="text-[11px] text-[#64748b] truncate">root@lexkite.app</p>
-          </div>
-          <button class="w-8 h-8 rounded-lg flex items-center justify-center text-[#94a3b8] hover:text-[#0f172a] hover:bg-[#f1f5f9]">
-            <span class="material-symbols-rounded text-[18px]">logout</span>
-          </button>
-        </div>
-      </div>
-    </aside>
-
-    <!-- MAIN CONTENT AREA (Width: 1180px) -->
-    <main class="flex-1 flex flex-col h-screen overflow-hidden bg-[#fff8f5]">
-
-      <!-- TOP BAR / HEADER -->
-      <header class="h-[72px] px-8 bg-white border-b-2 border-[#edd5c7] flex items-center justify-between flex-shrink-0 z-10">
-        <!-- Breadcrumb & Title Area -->
-        <div class="flex items-center gap-4">
-          <div class="flex items-center gap-2 text-[13px] text-[#64748b] font-medium">
-            <span>Admin</span>
-            <span class="text-[#cbd5e1]">/</span>
-            <span class="text-[#136a63] font-bold">Người dùng</span>
-          </div>
-          <div class="h-4 w-[1px] bg-[#e2e8f0]"></div>
-          <div class="flex items-baseline gap-2">
-            <h1 class="text-[22px] font-extrabold text-[#0f172a] tracking-tight">Người dùng</h1>
-            <span class="text-[14px] text-[#64748b] font-bold bg-[#f1f5f9] px-2 py-0.5 rounded-md border border-[#e2e8f0]">1.284 tài khoản</span>
-          </div>
-        </div>
-
-        <!-- Top Right Actions -->
-        <div class="flex items-center gap-3">
-          <!-- Live Indicator -->
-          <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#e6f7f4] border border-[#a7e3d8] text-[#136a63] text-[12px] font-semibold mr-1">
-            <span class="w-2 h-2 rounded-full bg-[#10b981] animate-pulse"></span>
-            <span>Đồng bộ máy chủ: Sẵn sàng</span>
-          </div>
-
-          <!-- Secondary Action -->
-          <button class="h-[44px] px-4 rounded-xl tactile-button-secondary text-[13px] flex items-center gap-2">
-            <span class="material-symbols-rounded text-[19px] text-[#64748b]">download</span>
-            <span>Xuất dữ liệu CSV</span>
-          </button>
-
-          <!-- Primary CTA Button (Lexkite Coral) -->
-          <button class="h-[44px] px-4 rounded-xl tactile-button-primary text-[13px] flex items-center gap-2">
-            <span class="material-symbols-rounded text-[20px]">person_add</span>
-            <span>+ Thêm học viên</span>
-          </button>
-        </div>
-      </header>
-
-      <!-- SCROLLABLE DASHBOARD BODY -->
-      <div class="flex-1 overflow-y-auto px-8 py-6 space-y-6">
-
-        <!-- 5 KPI CARDS ROW (With Mini Sparklines) -->
-        <div class="grid grid-cols-5 gap-4">
-          <!-- KPI 1: Tổng người dùng -->
-          <div class="tactile-card p-4 flex flex-col justify-between">
-            <div class="flex items-center justify-between">
-              <span class="text-[12px] font-bold text-[#64748b] uppercase tracking-wider">Tổng người dùng</span>
-              <span class="p-1 rounded bg-[#e8f5f3] text-[#136a63]">
-                <span class="material-symbols-rounded text-[18px]">group</span>
-              </span>
-            </div>
-            <div class="mt-2 flex items-baseline justify-between">
-              <div>
-                <span class="text-[24px] font-extrabold text-[#0f172a] leading-none">1.284</span>
-                <div class="flex items-center gap-1 mt-1 text-[11px] font-bold text-[#15803d]">
-                  <span class="material-symbols-rounded text-[14px]">trending_up</span>
-                  <span>+12.4% tháng này</span>
-                </div>
-              </div>
-              <!-- Sparkline SVG -->
-              <svg class="w-16 h-8 text-[#136a63]" viewBox="0 0 64 32" fill="none">
-                <path d="M2 26 L12 22 L22 24 L32 17 L42 19 L52 10 L62 4" stroke="#136a63" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2 26 L12 22 L22 24 L32 17 L42 19 L52 10 L62 4 L62 30 L2 30 Z" fill="#136a63" fill-opacity="0.08"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- KPI 2: Hoạt động 7 ngày -->
-          <div class="tactile-card p-4 flex flex-col justify-between">
-            <div class="flex items-center justify-between">
-              <span class="text-[12px] font-bold text-[#64748b] uppercase tracking-wider">Hoạt động 7 ngày</span>
-              <span class="p-1 rounded bg-[#eff6ff] text-[#2563eb]">
-                <span class="material-symbols-rounded text-[18px]">offline_bolt</span>
-              </span>
-            </div>
-            <div class="mt-2 flex items-baseline justify-between">
-              <div>
-                <span class="text-[24px] font-extrabold text-[#0f172a] leading-none">892</span>
-                <div class="flex items-center gap-1 mt-1 text-[11px] font-bold text-[#15803d]">
-                  <span class="material-symbols-rounded text-[14px]">trending_up</span>
-                  <span>69.4% DAU/WAU</span>
-                </div>
-              </div>
-              <svg class="w-16 h-8 text-[#2563eb]" viewBox="0 0 64 32" fill="none">
-                <path d="M2 22 L14 18 L24 20 L36 12 L46 16 L56 6 L62 8" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2 22 L14 18 L24 20 L36 12 L46 16 L56 6 L62 8 L62 30 L2 30 Z" fill="#2563eb" fill-opacity="0.08"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- KPI 3: Mới tuần này -->
-          <div class="tactile-card p-4 flex flex-col justify-between">
-            <div class="flex items-center justify-between">
-              <span class="text-[12px] font-bold text-[#64748b] uppercase tracking-wider">Mới tuần này</span>
-              <span class="p-1 rounded bg-[#fef3c7] text-[#b45309]">
-                <span class="material-symbols-rounded text-[18px]">person_add</span>
-              </span>
-            </div>
-            <div class="mt-2 flex items-baseline justify-between">
-              <div>
-                <span class="text-[24px] font-extrabold text-[#0f172a] leading-none">146</span>
-                <div class="flex items-center gap-1 mt-1 text-[11px] font-bold text-[#15803d]">
-                  <span class="material-symbols-rounded text-[14px]">trending_up</span>
-                  <span>+18 học viên/ngày</span>
-                </div>
-              </div>
-              <svg class="w-16 h-8 text-[#b45309]" viewBox="0 0 64 32" fill="none">
-                <path d="M2 28 L14 26 L26 21 L38 18 L48 11 L56 14 L62 6" stroke="#b45309" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2 28 L14 26 L26 21 L38 18 L48 11 L56 14 L62 6 L62 30 L2 30 Z" fill="#b45309" fill-opacity="0.08"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- KPI 4: Streak trung bình -->
-          <div class="tactile-card p-4 flex flex-col justify-between">
-            <div class="flex items-center justify-between">
-              <span class="text-[12px] font-bold text-[#64748b] uppercase tracking-wider">Streak trung bình</span>
-              <span class="p-1 rounded bg-[#ffedd5] text-[#ea580c]">
-                <span class="material-symbols-rounded text-[18px]">local_fire_department</span>
-              </span>
-            </div>
-            <div class="mt-2 flex items-baseline justify-between">
-              <div>
-                <span class="text-[24px] font-extrabold text-[#0f172a] leading-none">8,4 ngày</span>
-                <div class="flex items-center gap-1 mt-1 text-[11px] font-bold text-[#15803d]">
-                  <span class="material-symbols-rounded text-[14px]">trending_up</span>
-                  <span>Đỉnh: 142 ngày</span>
-                </div>
-              </div>
-              <svg class="w-16 h-8 text-[#ea580c]" viewBox="0 0 64 32" fill="none">
-                <path d="M2 24 L14 20 L24 22 L36 15 L46 16 L54 10 L62 5" stroke="#ea580c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2 24 L14 20 L24 22 L36 15 L46 16 L54 10 L62 5 L62 30 L2 30 Z" fill="#ea580c" fill-opacity="0.08"/>
-              </svg>
-            </div>
-          </div>
-
-          <!-- KPI 5: Đã trả phí -->
-          <div class="tactile-card p-4 flex flex-col justify-between">
-            <div class="flex items-center justify-between">
-              <span class="text-[12px] font-bold text-[#64748b] uppercase tracking-wider">Đã trả phí</span>
-              <span class="p-1 rounded bg-[#f3e8ff] text-[#9333ea]">
-                <span class="material-symbols-rounded text-[18px]">verified</span>
-              </span>
-            </div>
-            <div class="mt-2 flex items-baseline justify-between">
-              <div>
-                <span class="text-[24px] font-extrabold text-[#0f172a] leading-none">384</span>
-                <div class="flex items-center gap-1 mt-1 text-[11px] font-bold text-[#15803d]">
-                  <span class="material-symbols-rounded text-[14px]">trending_up</span>
-                  <span>Tỷ lệ chuyển: 29.9%</span>
-                </div>
-              </div>
-              <svg class="w-16 h-8 text-[#9333ea]" viewBox="0 0 64 32" fill="none">
-                <path d="M2 26 L12 25 L24 19 L36 17 L46 13 L56 11 L62 3" stroke="#9333ea" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2 26 L12 25 L24 19 L36 17 L46 13 L56 11 L62 3 L62 30 L2 30 Z" fill="#9333ea" fill-opacity="0.08"/>
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <!-- FILTER STRIP & CONTROLS (All >= 44px) -->
-        <div class="tactile-card p-3 flex flex-col gap-3">
-          <div class="flex items-center justify-between gap-3">
-            <!-- Search Input -->
-            <div class="relative w-[340px]">
-              <span class="absolute inset-y-0 left-3 flex items-center text-[#94a3b8]">
-                <span class="material-symbols-rounded text-[20px]">search</span>
-              </span>
-              <input type="text" placeholder="Tìm tên, email, nhãn hoặc ID..." value="" class="w-full h-[44px] pl-10 pr-4 text-[13.5px] rounded-xl border border-[#edd5c7] bg-[#fdfbf9] focus:bg-white focus:outline-none focus:border-[#136a63] focus:ring-1 focus:ring-[#136a63] font-medium text-[#1e293b]">
-            </div>
-
-            <!-- Filter Chips Row -->
-            <div class="flex items-center gap-2 flex-wrap flex-1">
-              <!-- Chip 1: Quốc gia -->
-              <button class="h-[44px] px-3.5 rounded-xl border border-[#edd5c7] bg-[#fdfbf9] hover:bg-white text-[13px] font-semibold text-[#334155] flex items-center gap-1.5 transition-colors">
-                <span class="text-[#64748b]">Quốc gia:</span>
-                <span class="text-[#0f172a] font-bold">Tất cả</span>
-                <span class="material-symbols-rounded text-[18px] text-[#94a3b8]">arrow_drop_down</span>
-              </button>
-
-              <!-- Chip 2: Nền tảng -->
-              <button class="h-[44px] px-3.5 rounded-xl border border-[#edd5c7] bg-[#fdfbf9] hover:bg-white text-[13px] font-semibold text-[#334155] flex items-center gap-1.5 transition-colors">
-                <span class="text-[#64748b]">Nền tảng:</span>
-                <span class="text-[#0f172a] font-bold">4 loại</span>
-                <span class="material-symbols-rounded text-[18px] text-[#94a3b8]">arrow_drop_down</span>
-              </button>
-
-              <!-- Chip 3: Ngày tham gia -->
-              <button class="h-[44px] px-3.5 rounded-xl border border-[#edd5c7] bg-[#fdfbf9] hover:bg-white text-[13px] font-semibold text-[#334155] flex items-center gap-1.5 transition-colors">
-                <span class="text-[#64748b]">Ngày tham gia:</span>
-                <span class="text-[#0f172a] font-bold">30 ngày qua</span>
-                <span class="material-symbols-rounded text-[18px] text-[#94a3b8]">arrow_drop_down</span>
-              </button>
-
-              <!-- Chip 4: Hoạt động -->
-              <button class="h-[44px] px-3.5 rounded-xl border border-[#edd5c7] bg-[#fdfbf9] hover:bg-white text-[13px] font-semibold text-[#334155] flex items-center gap-1.5 transition-colors">
-                <span class="text-[#64748b]">Hoạt động:</span>
-                <span class="text-[#136a63] font-bold">Gần đây</span>
-                <span class="material-symbols-rounded text-[18px] text-[#94a3b8]">arrow_drop_down</span>
-              </button>
-
-              <!-- Chip 5: Cấp độ -->
-              <button class="h-[44px] px-3.5 rounded-xl border border-[#edd5c7] bg-[#fdfbf9] hover:bg-white text-[13px] font-semibold text-[#334155] flex items-center gap-1.5 transition-colors">
-                <span class="text-[#64748b]">Cấp độ:</span>
-                <span class="text-[#0f172a] font-bold">A1–C1</span>
-                <span class="material-symbols-rounded text-[18px] text-[#94a3b8]">arrow_drop_down</span>
-              </button>
-
-              <!-- Chip 6: Streak -->
-              <button class="h-[44px] px-3.5 rounded-xl border border-[#edd5c7] bg-[#fdfbf9] hover:bg-white text-[13px] font-semibold text-[#334155] flex items-center gap-1.5 transition-colors">
-                <span class="text-[#64748b]">Streak:</span>
-                <span class="text-[#ea580c] font-bold">&gt; 7 ngày</span>
-                <span class="material-symbols-rounded text-[18px] text-[#94a3b8]">arrow_drop_down</span>
-              </button>
-
-              <!-- Chip 7: Nhãn -->
-              <button class="h-[44px] px-3.5 rounded-xl border border-[#edd5c7] bg-[#fdfbf9] hover:bg-white text-[13px] font-semibold text-[#334155] flex items-center gap-1.5 transition-colors">
-                <span class="material-symbols-rounded text-[18px] text-[#64748b]">label</span>
-                <span>Nhãn</span>
-                <span class="material-symbols-rounded text-[18px] text-[#94a3b8]">arrow_drop_down</span>
-              </button>
-            </div>
-
-            <!-- Right Controls: Chế độ xem & Tuỳ biến cột -->
-            <div class="flex items-center gap-2">
-              <button class="h-[44px] px-3.5 rounded-xl border border-[#edd5c7] bg-white hover:bg-[#fff7f2] text-[13px] font-bold text-[#136a63] flex items-center gap-1.5 shadow-[0_1px_0_0_#edd5c7]">
-                <span class="material-symbols-rounded text-[19px]">bookmark</span>
-                <span>Chế độ xem đã lưu</span>
-              </button>
-
-              <button class="h-[44px] w-[44px] rounded-xl border border-[#edd5c7] bg-white hover:bg-[#fff7f2] flex items-center justify-center text-[#475569] shadow-[0_1px_0_0_#edd5c7]" title="Chọn cột hiển thị">
-                <span class="material-symbols-rounded text-[20px]">view_column</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Selection Action Ribbon (Triggered by 3 selected users) -->
-          <div class="h-[42px] px-3 rounded-lg bg-[#fff1ea] border border-[#fcd2be] flex items-center justify-between text-[13px]">
-            <div class="flex items-center gap-3">
-              <span class="font-bold text-[#c2410c] flex items-center gap-1.5">
-                <span class="material-symbols-rounded text-[18px]">check_box</span>
-                Đang chọn 3 người dùng (trong tổng số 37 cần thao tác lô)
-              </span>
-              <span class="text-[#cbd5e1]">|</span>
-              <button class="text-[#64748b] hover:text-[#0f172a] font-semibold text-[12px] underline">Chọn tất cả 37 mục phù hợp bộ lọc</button>
-            </div>
-            <div class="flex items-center gap-2">
-              <button class="px-2.5 py-1 rounded-md bg-white border border-[#fcd2be] text-[#334155] font-semibold text-[12px] hover:bg-[#fafafa]">
-                Gán nhãn
-              </button>
-              <button class="px-2.5 py-1 rounded-md bg-white border border-[#fcd2be] text-[#334155] font-semibold text-[12px] hover:bg-[#fafafa]">
-                Gửi thông báo
-              </button>
-              <button class="px-2.5 py-1 rounded-md bg-[#fee2e2] border border-[#fca5a5] text-[#b91c1c] font-bold text-[12px] hover:bg-[#fecaca] flex items-center gap-1">
-                <span class="material-symbols-rounded text-[16px]">delete</span>
-                Xoá 37 người dùng
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- MAIN DATA TABLE CARD -->
-        <div class="tactile-card overflow-hidden bg-white">
-          <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse">
-              <thead>
-                <tr class="h-[48px] bg-[#fbf5f1] border-b-2 border-[#edd5c7] text-[12px] font-bold text-[#475569] uppercase tracking-wider">
-                  <th class="w-[48px] px-4 text-center">
-                    <input type="checkbox" checked class="w-4 h-4 rounded border-[#cbd5e1] text-[#136a63] focus:ring-[#136a63] accent-[#136a63] cursor-pointer">
-                  </th>
-                  <th class="px-4 py-3">Học viên & Email</th>
-                  <th class="px-3 py-3 w-[80px]">Quốc gia</th>
-                  <th class="px-4 py-3 w-[150px]">Nền tảng</th>
-                  <th class="px-4 py-3 w-[100px]">Cấp độ</th>
-                  <th class="px-4 py-3 w-[110px]">Streak</th>
-                  <th class="px-4 py-3 w-[140px]">Hoạt động cuối</th>
-                  <th class="px-4 py-3 w-[130px]">Trạng thái</th>
-                  <th class="w-[50px] px-3 py-3 text-center"></th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-[#f1dfd5] text-[13.5px]">
-
-                <!-- ROW 1 (Checked & Highlighted) -->
-                <tr class="h-[58px] bg-[#fff6f1] hover:bg-[#ffede2] transition-colors border-l-4 border-l-[#f05a28]">
-                  <td class="px-4 text-center">
-                    <input type="checkbox" checked class="w-4 h-4 rounded accent-[#136a63] cursor-pointer">
-                  </td>
-                  <td class="px-4">
-                    <div class="flex items-center gap-3">
-                      <!-- Initials avatar -->
-                      <div class="w-8 h-8 rounded-full bg-[#fed7aa] border border-[#fb923c] text-[#9a3412] font-bold text-[12px] flex items-center justify-center flex-shrink-0">
-                        NL
-                      </div>
-                      <div class="min-w-0">
-                        <div class="font-bold text-[#0f172a] hover:text-[#136a63] cursor-pointer">Nguyễn Linh</div>
-                        <div class="text-[12px] text-[#64748b]">linh.prep@lexkite.learner.io</div>
-                      </div>
+<div class="text-left hidden sm:block">
+<div class="font-label-md text-label-md text-[#132226] font-bold">Trần Minh Vũ</div>
+<div class="font-label-sm text-[11px] text-[#00504B] font-semibold -mt-0.5">Quản trị viên Cấp cao</div>
+</div>
+<span class="material-symbols-outlined text-[#132226] text-[18px]">arrow_drop_down</span>
+</button>
+</div>
+</header>
+<!-- APP CONTAINER -->
+<div class="pt-16 flex min-h-[calc(100vh-64px)]">
+<!-- SIDEBAR NAVIGATION -->
+<aside aria-label="Thanh điều hướng chính" class="w-64 flex-shrink-0 bg-surface-container-low border-r-2 border-outline-variant/80 shadow-[2px_0_0_0_#bec9c6] fixed top-16 left-0 bottom-0 z-20 flex flex-col justify-between p-4 overflow-y-auto">
+<!-- Top Section -->
+<div class="space-y-6">
+<!-- Sidebar Brand Sub-banner -->
+<div class="px-2 py-1">
+<div class="font-headline-sm text-headline-sm font-bold text-primary">Lexkite Admin</div>
+<p class="font-body-sm text-body-sm text-[#132226] font-medium">Bảng điều khiển &amp; Giám sát</p>
+</div>
+<!-- Primary Navigation List -->
+<nav aria-label="Menu chức năng" class="space-y-1.5">
+<!-- Item 1: Backlink PR & Thương hiệu -->
+<a class="min-h-[44px] flex items-center gap-3 px-3 py-2 rounded-xl text-[#132226] font-label-md text-label-md hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px] text-[#132226]">link</span>
+<div class="flex flex-col leading-tight">
+<span class="font-bold">Backlink</span>
+<span class="text-[11px] text-[#132226] font-medium">PR &amp; Thương hiệu</span>
+</div>
+</a>
+<!-- Item 2: Kho Drive -->
+<a class="min-h-[44px] flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#132226] font-label-md text-label-md hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px] text-[#132226]">cloud</span>
+<span class="font-bold">Kho Drive</span>
+</a>
+<!-- Item 3: Người dùng (Active Tab) -->
+<a aria-current="page" class="min-h-[44px] flex items-center gap-3 px-3 py-2.5 rounded-xl bg-surface-container text-[#003833] border-2 border-primary-container font-label-md text-label-md shadow-[0_2px_0_0_#136a63]" href="#">
+<span class="material-symbols-outlined text-[22px] text-[#003833]">group</span>
+<span class="font-extrabold text-[#003833]">Người dùng</span>
+<span class="ml-auto bg-[#00504B] text-white text-[11px] font-bold px-2 py-0.5 rounded-full">1.28k</span>
+</a>
+<!-- Item 4: Phân tích -->
+<a class="min-h-[44px] flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#132226] font-label-md text-label-md hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px] text-[#132226]">bar_chart</span>
+<span class="font-bold">Phân tích</span>
+</a>
+<!-- Item 5: Cài đặt -->
+<a class="min-h-[44px] flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#132226] font-label-md text-label-md hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px] text-[#132226]">settings</span>
+<span class="font-bold">Cài đặt</span>
+</a>
+</nav>
+<!-- CTA Inside Sidebar -->
+<div class="pt-2">
+<button class="w-full min-h-[44px] py-2.5 px-4 rounded-xl bg-surface-container-lowest text-primary border-2 border-outline-variant shadow-[0_3px_0_0_#bec9c6] font-label-md text-label-md font-bold flex items-center justify-center gap-2 hover:bg-surface-container transition-all active:translate-y-1 active:shadow-none" type="button">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+<span>Tạo chiến dịch</span>
+</button>
+</div>
+</div>
+<!-- Bottom Sidebar Items -->
+<div class="pt-4 border-t-2 border-outline-variant/60 space-y-1.5">
+<a class="min-h-[44px] flex items-center gap-3 px-3 py-2.5 rounded-xl text-[#132226] font-label-md text-label-md hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px] text-[#132226]">help</span>
+<span class="font-bold">Trợ giúp &amp; Hỗ trợ</span>
+</a>
+<a class="min-h-[44px] flex items-center gap-3 px-3 py-2.5 rounded-xl text-error font-label-md text-label-md hover:bg-error-container transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="font-bold">Đăng xuất</span>
+</a>
+</div>
+</aside>
+<!-- MAIN CONTENT CANVAS -->
+<main class="ml-64 flex-1 p-6 md:p-8 max-w-[1440px] mx-auto w-full space-y-6">
+<!-- BREADCRUMB & HEADER -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<nav aria-label="Đường dẫn trang" class="flex items-center gap-2 text-body-sm font-body-sm text-[#132226] mb-1">
+<span class="font-semibold">Hệ thống</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="font-extrabold text-[#00504B]">Tài khoản &amp; Phân quyền</span>
+</nav>
+<h1 class="font-headline-md text-headline-md font-extrabold text-[#132226] tracking-tight">Quản lý Người dùng</h1>
+<p class="font-body-sm text-body-sm text-[#132226] mt-0.5">Giám sát tài khoản học viên, quản trị viên đối tác và phân quyền chứng chỉ IELTS.</p>
+</div>
+<!-- Quick Summary Mini Cards -->
+<div class="flex items-center gap-3">
+<div class="bg-surface-container-lowest border-2 border-outline-variant/80 rounded-2xl px-4 py-2 shadow-[0_3px_0_0_#bec9c6] flex items-center gap-3 min-h-[52px]">
+<div class="w-9 h-9 rounded-xl bg-primary-container text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">group</span>
+</div>
+<div>
+<div class="font-body-sm text-xs text-[#132226] font-semibold">Tổng số</div>
+<div class="font-headline-sm text-headline-sm font-extrabold text-[#132226] leading-none">1,280 <span class="font-label-sm text-xs font-bold text-[#00504B]">người dùng</span></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest border-2 border-outline-variant/80 rounded-2xl px-4 py-2 shadow-[0_3px_0_0_#bec9c6] flex items-center gap-3 min-h-[52px]">
+<div class="w-9 h-9 rounded-xl bg-[#FD9500] text-[#1A0D00] flex items-center justify-center shadow-[0_2px_0_0_#8c5000]">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+<div>
+<div class="font-body-sm text-xs text-[#132226] font-semibold">Đang hoạt động</div>
+<div class="font-headline-sm text-headline-sm font-extrabold text-[#132226] leading-none">1,142 <span class="font-label-sm text-xs font-bold text-[#00504B]">(89.2%)</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- BENTO STATS METRICS ROW -->
+<section aria-label="Chỉ số tổng hợp" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 border-2 border-outline-variant/80 shadow-[0_3px_0_0_#bec9c6] flex flex-col justify-between min-h-[108px]">
+<div class="flex items-center justify-between text-[#132226]">
+<span class="font-label-md text-label-md font-bold">Học viên Đăng ký Mới</span>
+<span class="material-symbols-outlined text-[#00504B] text-[20px]">person_add</span>
+</div>
+<div class="flex items-baseline justify-between mt-2">
+<span class="font-headline-md text-headline-md font-extrabold text-[#132226]">+94</span>
+<span class="bg-[#E6F4EA] text-[#0D652D] font-label-sm text-xs font-bold px-2 py-0.5 rounded-full border border-[#CEEAD6]">+14.2% tuần này</span>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 border-2 border-outline-variant/80 shadow-[0_3px_0_0_#bec9c6] flex flex-col justify-between min-h-[108px]">
+<div class="flex items-center justify-between text-[#132226]">
+<span class="font-label-md text-label-md font-bold">Dung lượng Lưu trữ Drive</span>
+<span class="material-symbols-outlined text-[#00504B] text-[20px]">cloud_sync</span>
+</div>
+<div class="flex items-baseline justify-between mt-2">
+<span class="font-headline-md text-headline-md font-extrabold text-[#132226]">428.6 GB</span>
+<span class="font-label-sm text-xs text-[#132226] font-bold">/ 1,000 GB</span>
+</div>
+<!-- Tiny bar -->
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden mt-1">
+<div class="bg-primary-container h-full rounded-full" style="width: 42.8%;"></div>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 border-2 border-outline-variant/80 shadow-[0_3px_0_0_#bec9c6] flex flex-col justify-between min-h-[108px]">
+<div class="flex items-center justify-between text-[#132226]">
+<span class="font-label-md text-label-md font-bold">IELTS Band 7.0+ Target</span>
+<span class="material-symbols-outlined text-[#00504B] text-[20px]">school</span>
+</div>
+<div class="flex items-baseline justify-between mt-2">
+<span class="font-headline-md text-headline-md font-extrabold text-[#132226]">630</span>
+<span class="bg-surface-container text-[#132226] font-label-sm text-xs font-bold px-2 py-0.5 rounded-full border border-outline-variant">49.2% học viên</span>
+</div>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 border-2 border-outline-variant/80 shadow-[0_3px_0_0_#bec9c6] flex flex-col justify-between min-h-[108px]">
+<div class="flex items-center justify-between text-[#132226]">
+<span class="font-label-md text-label-md font-bold">Cảnh báo Cần Duyệt</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">error</span>
+</div>
+<div class="flex items-baseline justify-between mt-2">
+<span class="font-headline-md text-headline-md font-extrabold text-[#132226]">18</span>
+<span class="bg-surface-container text-secondary font-label-sm text-xs font-extrabold px-2 py-0.5 rounded-full border border-secondary/30">Cần xác thực</span>
+</div>
+</div>
+</section>
+<!-- ACTION BAR & FILTER CONTROLS -->
+<section aria-label="Bộ lọc và Thao tác" class="bg-surface-container-low border-2 border-outline-variant/80 rounded-2xl p-4 shadow-[0_2px_0_0_#bec9c6] space-y-3">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<!-- Filter Cluster (Left) -->
+<div class="flex flex-wrap items-center gap-3">
+<!-- Search Inside User Table -->
+<div class="relative">
+<label class="sr-only" for="table-search">Tìm kiếm theo họ tên hoặc email</label>
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#132226]">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="min-h-[44px] h-[44px] w-[288px] pl-10 pr-3.5 rounded-xl border border-outline-variant bg-white text-[#132226] font-body-sm text-body-sm placeholder:text-[#3f4947] focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container" id="table-search" placeholder="Tìm theo tên, email, SĐT..." type="text"/>
+</div>
+<!-- Filter: Thời gian -->
+<button aria-label="Lọc thời gian tham gia" class="min-h-[44px] h-[44px] px-3.5 rounded-xl border border-outline-variant bg-white text-[#132226] font-label-md text-label-md font-bold flex items-center gap-1.5 hover:bg-surface-container-lowest transition-all active:translate-y-0.5 shadow-[0_2px_0_0_#bec9c6]" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#00504B]">calendar_today</span>
+<span>Thời gian:</span>
+<span class="font-semibold">Tất cả thời gian</span>
+<span class="material-symbols-outlined text-[18px]">arrow_drop_down</span>
+</button>
+<!-- Filter: Nhãn -->
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold text-[#132226]">Nhãn:</span>
+<button aria-label="Lọc nhãn người dùng" class="min-h-[44px] h-[44px] px-3.5 rounded-xl border border-outline-variant bg-white text-[#132226] font-label-md text-label-md font-bold flex items-center gap-1.5 hover:bg-surface-container-lowest transition-all active:translate-y-0.5 shadow-[0_2px_0_0_#bec9c6]" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#00504B]">label</span>
+<span>Tất cả nhãn</span>
+<span class="material-symbols-outlined text-[18px]">arrow_drop_down</span>
+</button>
+</div>
+<!-- Filter: Vai trò -->
+<button aria-label="Lọc theo vai trò" class="min-h-[44px] h-[44px] px-3.5 rounded-xl border border-outline-variant bg-white text-[#132226] font-label-md text-label-md font-bold flex items-center gap-1.5 hover:bg-surface-container-lowest transition-all active:translate-y-0.5 shadow-[0_2px_0_0_#bec9c6]" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#00504B]">badge</span>
+<span>Vai trò: Tất cả</span>
+<span class="material-symbols-outlined text-[18px]">arrow_drop_down</span>
+</button>
+</div>
+<!-- Primary CTA Button (Right) -->
+<div class="flex items-center gap-2">
+<button class="min-h-[44px] h-[44px] px-5 rounded-2xl bg-secondary-container text-button-text-contrast border-2 border-secondary font-label-md text-label-md font-extrabold flex items-center gap-2 shadow-[0_4px_0_0_#8c5000] hover:brightness-105 active:translate-y-1 active:shadow-none transition-all" type="button">
+<span class="material-symbols-outlined text-[20px] text-button-text-contrast">person_add</span>
+<span>Thêm người dùng</span>
+</button>
+</div>
+</div>
+<!-- BATCH ACTIONS TOOLBAR (Visible state demonstrating selection) -->
+<div class="pt-3 border-t-2 border-outline-variant/60 flex flex-wrap items-center justify-between gap-3 bg-surface-container/60 -mx-4 -mb-4 p-3 rounded-b-2xl">
+<div class="flex items-center gap-3 pl-2">
+<span class="w-3 h-3 rounded-full bg-[#00504B]"></span>
+<span class="font-label-md text-label-md font-extrabold text-[#132226]">Đã chọn 37 mục</span>
+<span class="text-xs text-[#132226] font-medium hidden sm:inline">(Áp dụng hành động hàng loạt trên trang này)</span>
+</div>
+<div class="flex flex-wrap items-center gap-2">
+<!-- Action: Gửi thông báo -->
+<button class="min-h-[44px] h-[44px] px-3.5 rounded-xl border-2 border-outline-variant bg-white text-[#132226] font-label-md text-label-md font-bold flex items-center gap-1.5 shadow-[0_2px_0_0_#bec9c6] hover:bg-surface-container transition-all active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#00504B]">mail</span>
+<span>Gửi thông báo</span>
+</button>
+<!-- Action: Gán nhãn -->
+<button class="min-h-[44px] h-[44px] px-3.5 rounded-xl border-2 border-outline-variant bg-white text-[#132226] font-label-md text-label-md font-bold flex items-center gap-1.5 shadow-[0_2px_0_0_#bec9c6] hover:bg-surface-container transition-all active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#00504B]">label</span>
+<span>Gán nhãn</span>
+</button>
+<!-- Action: Xuất danh sách -->
+<button class="min-h-[44px] h-[44px] px-3.5 rounded-xl border-2 border-outline-variant bg-white text-[#132226] font-label-md text-label-md font-bold flex items-center gap-1.5 shadow-[0_2px_0_0_#bec9c6] hover:bg-surface-container transition-all active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#00504B]">download</span>
+<span>Xuất CSV</span>
+</button>
+<!-- Action: Xoá đã chọn -->
+<button class="min-h-[44px] h-[44px] px-3.5 rounded-xl border-2 border-[#ffdad6] bg-[#fff0ee] text-[#7F1D1D] font-label-md text-label-md font-extrabold flex items-center gap-1.5 shadow-[0_2px_0_0_#ba1a1a] hover:bg-[#ffe5e2] transition-all active:translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#7F1D1D]">delete</span>
+<span>Xoá đã chọn (37)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- USER DATA TABLE CONTAINER -->
+<section aria-label="Bảng dữ liệu người dùng" class="bg-surface-container-lowest border-2 border-outline-variant/80 rounded-2xl shadow-[0_3px_0_0_#bec9c6] overflow-hidden">
+<div class="overflow-x-auto custom-scroll">
+<table class="w-full text-left border-collapse min-w-[980px]">
+<thead>
+<tr class="bg-surface-container border-b-2 border-outline-variant/80 text-[#132226] font-label-md text-label-md">
+<!-- Col Checkbox -->
+<th class="w-[56px] px-2 py-1 text-center" scope="col">
+<label class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center cursor-pointer mx-auto">
+<input aria-label="Chọn tất cả người dùng trong trang" checked="" class="w-5 h-5 rounded cursor-pointer accent-[#00504B] text-[#00504B] focus:ring-offset-0 focus:ring-0" type="checkbox"/>
+</label>
+</th>
+<!-- Col Tên & Email -->
+<th class="py-3 px-4 font-extrabold text-[#132226]" scope="col">
+<div class="flex items-center gap-1.5 cursor-pointer">
+<span>Tên &amp; Email</span>
+<span class="material-symbols-outlined text-[16px] text-[#00504B]">unfold_more</span>
+</div>
+</th>
+<!-- Col Vai trò -->
+<th class="py-3 px-4 font-extrabold text-[#132226]" scope="col">Vai trò</th>
+<!-- Col Nhãn -->
+<th class="py-3 px-4 font-extrabold text-[#132226]" scope="col">Nhãn phân loại</th>
+<!-- Col Ngày tham gia -->
+<th class="py-3 px-4 font-extrabold text-[#132226]" scope="col">
+<div class="flex items-center gap-1">
+<span>Ngày tham gia:</span>
+<span class="material-symbols-outlined text-[16px] text-[#00504B]">arrow_downward</span>
+</div>
+</th>
+<!-- Col Trạng thái -->
+<th class="py-3 px-4 font-extrabold text-[#132226]" scope="col">Trạng thái</th>
+<!-- Col Thao tác -->
+<th class="py-3 px-4 text-right font-extrabold text-[#132226] pr-6" scope="col">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y-2 divide-outline-variant/40 text-body-sm font-body-sm text-[#132226]">
+<!-- ROW 1: Nguyễn Văn An (Selected) -->
+<tr class="hover:bg-surface-container-low transition-colors bg-surface-container/30">
+<td class="px-2 py-1 text-center">
+<label class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center cursor-pointer mx-auto">
+<input aria-label="Chọn Nguyễn Văn An" checked="" class="w-5 h-5 rounded cursor-pointer accent-[#00504B] text-[#00504B]" type="checkbox"/>
+</label>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#00504B] text-[#9be7de] font-label-md text-label-md font-extrabold flex items-center justify-center flex-shrink-0 shadow-[0_2px_0_0_#136a63]">
+                      NA
                     </div>
-                  </td>
-                  <td class="px-3">
-                    <span class="inline-flex items-center gap-1 text-[13px] font-semibold text-[#1e293b]">
-                      <span class="text-[16px]">🇻🇳</span>
-                      <span>VN</span>
-                    </span>
-                  </td>
-                  <td class="px-4">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#e0f2fe] text-[#0369a1] text-[12px] font-bold">
-                      <span class="material-symbols-rounded text-[16px]">language</span>
-                      Web App
-                    </span>
-                  </td>
-                  <td class="px-4">
-                    <span class="font-extrabold text-[#136a63] px-2 py-0.5 rounded bg-[#e6f4f2] text-[12px]">B2.2</span>
-                  </td>
-                  <td class="px-4">
-                    <div class="flex items-center gap-1 font-extrabold text-[#ea580c]">
-                      <span class="material-symbols-rounded text-[17px] filled">local_fire_department</span>
-                      <span>14 ngày</span>
+<div>
+<div class="font-label-md text-label-md font-bold text-[#132226] hover:underline cursor-pointer">Nguyễn Văn An</div>
+<div class="font-body-sm text-xs text-[#132226] font-semibold">vanan.nguyen@lexkite.edu.vn</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high border border-outline-variant/80 font-label-sm text-xs font-bold text-[#132226]">
+<span class="w-2 h-2 rounded-full bg-[#00504B]"></span>
+                    Học viên VIP
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-[#FFF1E8] text-[#8C5000] border border-[#ffdcbf] px-2.5 py-0.5 rounded-full font-label-sm text-xs font-bold">IELTS 7.5 Target</span>
+<span class="bg-surface-container text-[#132226] border border-outline-variant px-2 py-0.5 rounded-full font-label-sm text-[11px] font-bold">Lớp K32</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-medium text-[#132226]">
+                  12/03/2024
+                  <div class="text-[11px] text-[#3f4947] font-semibold">14:20 chiều</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E6F4EA] text-[#0D652D] font-label-sm text-xs font-extrabold border border-[#CEEAD6]">
+<span class="w-2 h-2 rounded-full bg-[#0D652D]"></span>
+                    Hoạt động
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right pr-6">
+<div class="flex items-center justify-end gap-1">
+<button aria-label="Xem chi tiết Nguyễn Văn An" class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center rounded-xl hover:bg-surface-container-high text-[#132226] transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button aria-label="Tác vụ khác cho Nguyễn Văn An" class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center rounded-xl hover:bg-surface-container-high text-[#132226] transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 2: Lê Thị Mai -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-2 py-1 text-center">
+<label class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center cursor-pointer mx-auto">
+<input aria-label="Chọn Lê Thị Mai" class="w-5 h-5 rounded cursor-pointer accent-[#00504B] text-[#00504B]" type="checkbox"/>
+</label>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#FD9500] text-[#1A0D00] font-label-md text-label-md font-extrabold flex items-center justify-center flex-shrink-0 shadow-[0_2px_0_0_#8c5000]">
+                      LM
                     </div>
-                  </td>
-                  <td class="px-4 text-[#475569] font-medium text-[12.5px]">
-                    12 phút trước
-                  </td>
-                  <td class="px-4">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#dcfce7] text-[#15803d] text-[12px] font-extrabold border border-[#bbf7d0]">
-                      <span class="w-1.5 h-1.5 rounded-full bg-[#15803d]"></span>
-                      Hoạt động
-                    </span>
-                  </td>
-                  <td class="px-3 text-center">
-                    <button class="w-8 h-8 rounded-lg text-[#94a3b8] hover:text-[#0f172a] hover:bg-white flex items-center justify-center">
-                      <span class="material-symbols-rounded text-[20px]">more_horiz</span>
-                    </button>
-                  </td>
-                </tr>
-
-                <!-- ROW 2 (Checked & Highlighted) -->
-                <tr class="h-[58px] bg-[#fff6f1] hover:bg-[#ffede2] transition-colors border-l-4 border-l-[#f05a28]">
-                  <td class="px-4 text-center">
-                    <input type="checkbox" checked class="w-4 h-4 rounded accent-[#136a63] cursor-pointer">
-                  </td>
-                  <td class="px-4">
-                    <div class="flex items-center gap-3">
-                      <div class="w-8 h-8 rounded-full bg-[#e0e7ff] border border-[#a5b4fc] text-[#3730a3] font-bold text-[12px] flex items-center justify-center flex-shrink-0">
-                        TH
-                      </div>
-                      <div class="min-w-0">
-                        <div class="font-bold text-[#0f172a] hover:text-[#136a63] cursor-pointer">Trần Huy Hoàng</div>
-                        <div class="text-[12px] text-[#64748b]">hoang.tran99@gmail.com</div>
-                      </div>
+<div>
+<div class="font-label-md text-label-md font-bold text-[#132226] hover:underline cursor-pointer">Lê Thị Mai</div>
+<div class="font-body-sm text-xs text-[#132226] font-semibold">mai.le@partner-school.vn</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high border border-outline-variant/80 font-label-sm text-xs font-bold text-[#132226]">
+<span class="w-2 h-2 rounded-full bg-[#FD9500]"></span>
+                    Giảng viên Đối tác
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-surface-container text-[#132226] border border-outline-variant px-2.5 py-0.5 rounded-full font-label-sm text-xs font-bold">Speaking Mentor</span>
+<span class="bg-[#FFF1E8] text-[#8C5000] border border-[#ffdcbf] px-2 py-0.5 rounded-full font-label-sm text-[11px] font-bold">Hà Nội</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-medium text-[#132226]">
+                  08/03/2024
+                  <div class="text-[11px] text-[#3f4947] font-semibold">09:15 sáng</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E6F4EA] text-[#0D652D] font-label-sm text-xs font-extrabold border border-[#CEEAD6]">
+<span class="w-2 h-2 rounded-full bg-[#0D652D]"></span>
+                    Hoạt động
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right pr-6">
+<div class="flex items-center justify-end gap-1">
+<button aria-label="Xem chi tiết Lê Thị Mai" class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center rounded-xl hover:bg-surface-container-high text-[#132226] transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button aria-label="Tác vụ khác cho Lê Thị Mai" class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center rounded-xl hover:bg-surface-container-high text-[#132226] transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 3: Trần Tuấn Anh -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-2 py-1 text-center">
+<label class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center cursor-pointer mx-auto">
+<input aria-label="Chọn Trần Tuấn Anh" class="w-5 h-5 rounded cursor-pointer accent-[#00504B] text-[#00504B]" type="checkbox"/>
+</label>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-high text-[#132226] font-label-md text-label-md font-extrabold flex items-center justify-center flex-shrink-0 border-2 border-outline-variant shadow-[0_2px_0_0_#bec9c6]">
+                      TA
                     </div>
-                  </td>
-                  <td class="px-3">
-                    <span class="inline-flex items-center gap-1 text-[13px] font-semibold text-[#1e293b]">
-                      <span class="text-[16px]">🇻🇳</span>
-                      <span>VN</span>
-                    </span>
-                  </td>
-                  <td class="px-4">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#f3e8ff] text-[#7e22ce] text-[12px] font-bold">
-                      <span class="material-symbols-rounded text-[16px]">phone_iphone</span>
-                      iOS
-                    </span>
-                  </td>
-                  <td class="px-4">
-                    <span class="font-extrabold text-[#136a63] px-2 py-0.5 rounded bg-[#e6f4f2] text-[12px]">C1.1</span>
-                  </td>
-                  <td class="px-4">
-                    <div class="flex items-center gap-1 font-extrabold text-[#ea580c]">
-                      <span class="material-symbols-rounded text-[17px] filled">local_fire_department</span>
-                      <span>28 ngày</span>
+<div>
+<div class="font-label-md text-label-md font-bold text-[#132226] hover:underline cursor-pointer">Trần Tuấn Anh</div>
+<div class="font-body-sm text-xs text-[#132226] font-semibold">tuananh.tran@gmail.com</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high border border-outline-variant/80 font-label-sm text-xs font-bold text-[#132226]">
+<span class="w-2 h-2 rounded-full bg-[#132226]"></span>
+                    Học viên Thường
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-surface-container text-[#132226] border border-outline-variant px-2.5 py-0.5 rounded-full font-label-sm text-xs font-bold">Writing Task 2</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-medium text-[#132226]">
+                  02/03/2024
+                  <div class="text-[11px] text-[#3f4947] font-semibold">16:45 chiều</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFF4E5] text-[#8C5000] font-label-sm text-xs font-extrabold border border-[#FFE2BF]">
+<span class="w-2 h-2 rounded-full bg-[#8C5000]"></span>
+                    Chờ kích hoạt
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right pr-6">
+<div class="flex items-center justify-end gap-1">
+<button aria-label="Xem chi tiết Trần Tuấn Anh" class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center rounded-xl hover:bg-surface-container-high text-[#132226] transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button aria-label="Tác vụ khác cho Trần Tuấn Anh" class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center rounded-xl hover:bg-surface-container-high text-[#132226] transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 4: Phạm Quỳnh Nga -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-2 py-1 text-center">
+<label class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center cursor-pointer mx-auto">
+<input aria-label="Chọn Phạm Quỳnh Nga" class="w-5 h-5 rounded cursor-pointer accent-[#00504B] text-[#00504B]" type="checkbox"/>
+</label>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#00504B] text-[#9be7de] font-label-md text-label-md font-extrabold flex items-center justify-center flex-shrink-0 shadow-[0_2px_0_0_#136a63]">
+                      QN
                     </div>
-                  </td>
-                  <td class="px-4 text-[#475569] font-medium text-[12.5px]">
-                    2 giờ trước
-                  </td>
-                  <td class="px-4">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#dcfce7] text-[#15803d] text-[12px] font-extrabold border border-[#bbf7d0]">
-                      <span class="w-1.5 h-1.5 rounded-full bg-[#15803d]"></span>
-                      Hoạt động
-                    </span>
-                  </td>
-                  <td class="px-3 text-center">
-                    <button class="w-8 h-8 rounded-lg text-[#94a3b8] hover:text-[#0f172a] hover:bg-white flex items-center justify-center">
-                      <span class="material-symbols-rounded text-[20px]">more_horiz</span>
-                    </button>
-                  </td>
-                </tr>
-
-                <!-- ROW 3 (Checked & Highlighted) -->
-                <tr class="h-[58px] bg-[#fff6f1] hover:bg-[#ffede2] transition-colors border-l-4 border-l-[#f05a28]">
-                  <td class="px-4 text-center">
-                    <input type="checkbox" checked class="w-4 h-4 rounded accent-[#136a63] cursor-pointer">
-                  </td>
-                  <td class="px-4">
-                    <div class="flex items-center gap-3">
-                      <div class="w-8 h-8 rounded-full bg-[#fee2e2] border border-[#fca5a5] text-[#991b1b] font-bold text-[12px] flex items-center justify-center flex-shrink-0">
-                        SK
-                      </div>
-                      <div class="min-w-0">
-                        <div class="font-bold text-[#0f172a] hover:text-[#136a63] cursor-pointer">Siti Kusuma</div>
-                        <div class="text-[12px] text-[#64748b]">siti.kusuma@unid.ac.id</div>
-                      </div>
+<div>
+<div class="font-label-md text-label-md font-bold text-[#132226] hover:underline cursor-pointer">Phạm Quỳnh Nga</div>
+<div class="font-body-sm text-xs text-[#132226] font-semibold">quynhnga.p@lexkite.edu.vn</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high border border-outline-variant/80 font-label-sm text-xs font-bold text-[#132226]">
+<span class="w-2 h-2 rounded-full bg-[#00504B]"></span>
+                    Học viên VIP
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-[#FFF1E8] text-[#8C5000] border border-[#ffdcbf] px-2.5 py-0.5 rounded-full font-label-sm text-xs font-bold">IELTS 8.0 Master</span>
+<span class="bg-surface-container text-[#132226] border border-outline-variant px-2 py-0.5 rounded-full font-label-sm text-[11px] font-bold">Listening Max</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-medium text-[#132226]">
+                  28/02/2024
+                  <div class="text-[11px] text-[#3f4947] font-semibold">11:00 trưa</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E6F4EA] text-[#0D652D] font-label-sm text-xs font-extrabold border border-[#CEEAD6]">
+<span class="w-2 h-2 rounded-full bg-[#0D652D]"></span>
+                    Hoạt động
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right pr-6">
+<div class="flex items-center justify-end gap-1">
+<button aria-label="Xem chi tiết Phạm Quỳnh Nga" class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center rounded-xl hover:bg-surface-container-high text-[#132226] transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button aria-label="Tác vụ khác cho Phạm Quỳnh Nga" class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center rounded-xl hover:bg-surface-container-high text-[#132226] transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 5: Đặng Hoàng Khang -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-2 py-1 text-center">
+<label class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center cursor-pointer mx-auto">
+<input aria-label="Chọn Đặng Hoàng Khang" class="w-5 h-5 rounded cursor-pointer accent-[#00504B] text-[#00504B]" type="checkbox"/>
+</label>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest text-[#132226] font-label-md text-label-md font-extrabold flex items-center justify-center flex-shrink-0 border-2 border-outline-variant shadow-[0_2px_0_0_#bec9c6]">
+                      HK
                     </div>
-                  </td>
-                  <td class="px-3">
-                    <span class="inline-flex items-center gap-1 text-[13px] font-semibold text-[#1e293b]">
-                      <span class="text-[16px]">🇮🇩</span>
-                      <span>ID</span>
-                    </span>
-                  </td>
-                  <td class="px-4">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#dcfce7] text-[#15803d] text-[12px] font-bold">
-                      <span class="material-symbols-rounded text-[16px]">android</span>
-                      Android
-                    </span>
-                  </td>
-                  <td class="px-4">
-                    <span class="font-extrabold text-[#475569] px-2 py-0.5 rounded bg-[#f1f5f9] text-[12px]">B1.3</span>
-                  </td>
-                  <td class="px-4">
-                    <div class="flex items-center gap-1 font-bold text-[#94a3b8]">
-                      <span class="material-symbols-rounded text-[17px]">local_fire_department</span>
-                      <span>0 ngày</span>
+<div>
+<div class="font-label-md text-label-md font-bold text-[#132226] hover:underline cursor-pointer">Đặng Hoàng Khang</div>
+<div class="font-body-sm text-xs text-[#132226] font-semibold">khang.dang@outlook.com</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high border border-outline-variant/80 font-label-sm text-xs font-bold text-[#132226]">
+<span class="w-2 h-2 rounded-full bg-[#132226]"></span>
+                    Học viên Thường
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-surface-container text-[#132226] border border-outline-variant px-2.5 py-0.5 rounded-full font-label-sm text-xs font-bold">General Training</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-medium text-[#132226]">
+                  22/02/2024
+                  <div class="text-[11px] text-[#3f4947] font-semibold">08:30 sáng</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FDE8E8] text-[#9B1C1C] font-label-sm text-xs font-extrabold border border-[#F8B4B4]">
+<span class="w-2 h-2 rounded-full bg-[#9B1C1C]"></span>
+                    Tạm khóa
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right pr-6">
+<div class="flex items-center justify-end gap-1">
+<button aria-label="Xem chi tiết Đặng Hoàng Khang" class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center rounded-xl hover:bg-surface-container-high text-[#132226] transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button aria-label="Tác vụ khác cho Đặng Hoàng Khang" class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center rounded-xl hover:bg-surface-container-high text-[#132226] transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 6: Vũ Bích Phương -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-2 py-1 text-center">
+<label class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center cursor-pointer mx-auto">
+<input aria-label="Chọn Vũ Bích Phương" class="w-5 h-5 rounded cursor-pointer accent-[#00504B] text-[#00504B]" type="checkbox"/>
+</label>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-[#00504B] text-[#9be7de] font-label-md text-label-md font-extrabold flex items-center justify-center flex-shrink-0 shadow-[0_2px_0_0_#136a63]">
+                      BP
                     </div>
-                  </td>
-                  <td class="px-4 text-[#475569] font-medium text-[12.5px]">
-                    3 ngày trước
-                  </td>
-                  <td class="px-4">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#fef3c7] text-[#b45309] text-[12px] font-extrabold border border-[#fde68a]">
-                      <span class="w-1.5 h-1.5 rounded-full bg-[#b45309]"></span>
-                      Ngủ đông
-                    </span>
-                  </td>
-                  <td class="px-3 text-center">
-                    <button class="w-8 h-8 rounded-lg text-[#94a3b8] hover:text-[#0f172a] hover:bg-white flex items-center justify-center">
-                      <span class="material-symbols-rounded text-[20px]">more_horiz</span>
-                    </button>
-                  </td>
-                </tr>
-
-                <!-- ROW 4 (Unchecked) -->
-                <tr class="h-[58px] hover:bg-[#faf5f0] transition-colors">
-                  <td class="px-4 text-center">
-                    <input type="checkbox" class="w-4 h-4 rounded accent-[#136a63] cursor-pointer">
-                  </td>
-                  <td class="px-4">
-                    <div class="flex items-center gap-3">
-                      <div class="w-8 h-8 rounded-full bg-[#ccfbf1] border border-[#5eead4] text-[#115e59] font-bold text-[12px] flex items-center justify-center flex-shrink-0">
-                        ML
-                      </div>
-                      <div class="min-w-0">
-                        <div class="font-bold text-[#0f172a] hover:text-[#136a63] cursor-pointer">Min-jun Lee</div>
-                        <div class="text-[12px] text-[#64748b]">minjun.ielts@kakao.com</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-3">
-                    <span class="inline-flex items-center gap-1 text-[13px] font-semibold text-[#1e293b]">
-                      <span class="text-[16px]">🇰🇷</span>
-                      <span>KR</span>
-                    </span>
-                  </td>
-                  <td class="px-4">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#fef3c7] text-[#b45309] text-[12px] font-bold">
-                      <span class="material-symbols-rounded text-[16px]">extension</span>
-                      Add-on
-                    </span>
-                  </td>
-                  <td class="px-4">
-                    <span class="font-extrabold text-[#136a63] px-2 py-0.5 rounded bg-[#e6f4f2] text-[12px]">B2.1</span>
-                  </td>
-                  <td class="px-4">
-                    <div class="flex items-center gap-1 font-extrabold text-[#ea580c]">
-                      <span class="material-symbols-rounded text-[17px] filled">local_fire_department</span>
-                      <span>5 ngày</span>
-                    </div>
-                  </td>
-                  <td class="px-4 text-[#475569] font-medium text-[12.5px]">
-                    Hôm nay, 08:30
-                  </td>
-                  <td class="px-4">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#e0f2fe] text-[#0369a1] text-[12px] font-extrabold border border-[#bae6fd]">
-                      <span class="w-1.5 h-1.5 rounded-full bg-[#0369a1]"></span>
-                      Mới
-                    </span>
-                  </td>
-                  <td class="px-3 text-center">
-                    <button class="w-8 h-8 rounded-lg text-[#94a3b8] hover:text-[#0f172a] hover:bg-[#f1f5f9] flex items-center justify-center">
-                      <span class="material-symbols-rounded text-[20px]">more_horiz</span>
-                    </button>
-                  </td>
-                </tr>
-
-                <!-- ROW 5 (Unchecked) -->
-                <tr class="h-[58px] hover:bg-[#faf5f0] transition-colors">
-                  <td class="px-4 text-center">
-                    <input type="checkbox" class="w-4 h-4 rounded accent-[#136a63] cursor-pointer">
-                  </td>
-                  <td class="px-4">
-                    <div class="flex items-center gap-3">
-                      <div class="w-8 h-8 rounded-full bg-[#e2e8f0] border border-[#cbd5e1] text-[#334155] font-bold text-[12px] flex items-center justify-center flex-shrink-0">
-                        DJ
-                      </div>
-                      <div class="min-w-0">
-                        <div class="font-bold text-[#0f172a] hover:text-[#136a63] cursor-pointer">David Jenkins</div>
-                        <div class="text-[12px] text-[#64748b]">d.jenkins@oxford.edu</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-3">
-                    <span class="inline-flex items-center gap-1 text-[13px] font-semibold text-[#1e293b]">
-                      <span class="text-[16px]">🇬🇧</span>
-                      <span>UK</span>
-                    </span>
-                  </td>
-                  <td class="px-4">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#e0f2fe] text-[#0369a1] text-[12px] font-bold">
-                      <span class="material-symbols-rounded text-[16px]">language</span>
-                      Web App
-                    </span>
-                  </td>
-                  <td class="px-4">
-                    <span class="font-extrabold text-[#7c3aed] px-2 py-0.5 rounded bg-[#f5f3ff] text-[12px]">C2 Master</span>
-                  </td>
-                  <td class="px-4">
-                    <div class="flex items-center gap-1 font-extrabold text-[#ea580c]">
-                      <span class="material-symbols-rounded text-[17px] filled">local_fire_department</span>
-                      <span>180 ngày</span>
-                    </div>
-                  </td>
-                  <td class="px-4 text-[#475569] font-medium text-[12.5px]">
-                    Hôm qua
-                  </td>
-                  <td class="px-4">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#f3e8ff] text-[#7e22ce] text-[12px] font-extrabold border border-[#e9d5ff]">
-                      <span class="w-1.5 h-1.5 rounded-full bg-[#7e22ce]"></span>
-                      Admin
-                    </span>
-                  </td>
-                  <td class="px-3 text-center">
-                    <button class="w-8 h-8 rounded-lg text-[#94a3b8] hover:text-[#0f172a] hover:bg-[#f1f5f9] flex items-center justify-center">
-                      <span class="material-symbols-rounded text-[20px]">more_horiz</span>
-                    </button>
-                  </td>
-                </tr>
-
-                <!-- ROW 6 (Unchecked) -->
-                <tr class="h-[58px] hover:bg-[#faf5f0] transition-colors">
-                  <td class="px-4 text-center">
-                    <input type="checkbox" class="w-4 h-4 rounded accent-[#136a63] cursor-pointer">
-                  </td>
-                  <td class="px-4">
-                    <div class="flex items-center gap-3">
-                      <div class="w-8 h-8 rounded-full bg-[#fecdd3] border border-[#fda4af] text-[#9f1239] font-bold text-[12px] flex items-center justify-center flex-shrink-0">
-                        PV
-                      </div>
-                      <div class="min-w-0">
-                        <div class="font-bold text-[#0f172a] hover:text-[#136a63] cursor-pointer">Phạm Vũ Anh</div>
-                        <div class="text-[12px] text-[#64748b]">vuanh.spam@outlook.com</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="px-3">
-                    <span class="inline-flex items-center gap-1 text-[13px] font-semibold text-[#1e293b]">
-                      <span class="text-[16px]">🇻🇳</span>
-                      <span>VN</span>
-                    </span>
-                  </td>
-                  <td class="px-4">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#f3e8ff] text-[#7e22ce] text-[12px] font-bold">
-                      <span class="material-symbols-rounded text-[16px]">phone_iphone</span>
-                      iOS
-                    </span>
-                  </td>
-                  <td class="px-4">
-                    <span class="font-extrabold text-[#475569] px-2 py-0.5 rounded bg-[#f1f5f9] text-[12px]">A2</span>
-                  </td>
-                  <td class="px-4">
-                    <div class="flex items-center gap-1 font-bold text-[#94a3b8]">
-                      <span class="material-symbols-rounded text-[17px]">local_fire_department</span>
-                      <span>0 ngày</span>
-                    </div>
-                  </td>
-                  <td class="px-4 text-[#475569] font-medium text-[12.5px]">
-                    24 ngày trước
-                  </td>
-                  <td class="px-4">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#fee2e2] text-[#b91c1c] text-[12px] font-extrabold border border-[#fca5a5]">
-                      <span class="w-1.5 h-1.5 rounded-full bg-[#b91c1c]"></span>
-                      Bị khoá
-                    </span>
-                  </td>
-                  <td class="px-3 text-center">
-                    <button class="w-8 h-8 rounded-lg text-[#94a3b8] hover:text-[#0f172a] hover:bg-[#f1f5f9] flex items-center justify-center">
-                      <span class="material-symbols-rounded text-[20px]">more_horiz</span>
-                    </button>
-                  </td>
-                </tr>
-
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Table Footer Pagination -->
-          <div class="h-[52px] px-6 bg-[#fbf5f1] border-t border-[#edd5c7] flex items-center justify-between text-[13px] text-[#64748b]">
-            <div class="flex items-center gap-4">
-              <span>Hiển thị <strong>1 – 6</strong> trong số <strong>1.284</strong> học viên</span>
-              <div class="flex items-center gap-1">
-                <span>Số dòng:</span>
-                <select class="h-7 px-2 text-[12px] rounded border border-[#edd5c7] bg-white font-bold text-[#0f172a]">
-                  <option>10 dòng</option>
-                  <option selected>25 dòng</option>
-                  <option>50 dòng</option>
-                </select>
-              </div>
-            </div>
-            <div class="flex items-center gap-2">
-              <button class="h-[36px] px-3 rounded-lg border border-[#edd5c7] bg-white text-[#94a3b8] font-bold text-[12px] cursor-not-allowed flex items-center gap-1">
-                <span class="material-symbols-rounded text-[16px]">chevron_left</span> Trước
-              </button>
-              <div class="flex items-center gap-1 text-[12px] font-bold">
-                <span class="w-8 h-8 rounded-lg bg-[#136a63] text-white flex items-center justify-center">1</span>
-                <span class="w-8 h-8 rounded-lg hover:bg-white text-[#334155] flex items-center justify-center cursor-pointer">2</span>
-                <span class="w-8 h-8 rounded-lg hover:bg-white text-[#334155] flex items-center justify-center cursor-pointer">3</span>
-                <span>...</span>
-                <span class="w-8 h-8 rounded-lg hover:bg-white text-[#334155] flex items-center justify-center cursor-pointer">52</span>
-              </div>
-              <button class="h-[36px] px-3 rounded-lg border border-[#edd5c7] bg-white text-[#1e293b] font-bold text-[12px] hover:bg-[#fff5ee] flex items-center gap-1 shadow-[0_1px_0_0_#edd5c7]">
-                Tiếp <span class="material-symbols-rounded text-[16px]">chevron_right</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </main>
-  </div>
-
-  <!-- DESTRUCTIVE CONFIRMATION MODAL OVERLAY (DIMMED BACKGROUND) -->
-  <div class="fixed inset-0 bg-[#0f172a]/60 backdrop-blur-[2px] z-50 flex items-center justify-center p-4">
-    <!-- Center Modal Box (Tactile design, 480px width) -->
-    <div class="w-[500px] bg-white rounded-2xl border-2 border-[#edd5c7] shadow-[0_20px_25px_-5px_rgba(0,0,0,0.25),0_8px_10px_-6px_rgba(0,0,0,0.2),0_4px_0_0_#dcb8a3] overflow-hidden animate-in fade-in zoom-in-95 duration-150">
-      
-      <!-- Modal Header -->
-      <div class="p-6 pb-4 flex items-start gap-4">
-        <!-- Danger Warning Icon -->
-        <div class="w-12 h-12 rounded-xl bg-[#fee2e2] border-2 border-[#fca5a5] flex items-center justify-center text-[#dc2626] flex-shrink-0 shadow-[0_2px_0_0_#ef4444]">
-          <span class="material-symbols-rounded text-[28px] filled">warning</span>
-        </div>
-
-        <div class="flex-1 min-w-0">
-          <div class="flex items-center justify-between">
-            <h2 class="text-[18px] font-extrabold text-[#0f172a] tracking-tight">Xoá dữ liệu 37 người dùng</h2>
-            <button class="w-8 h-8 rounded-lg text-[#94a3b8] hover:text-[#0f172a] hover:bg-[#f1f5f9] flex items-center justify-center" title="Đóng">
-              <span class="material-symbols-rounded text-[20px]">close</span>
+<div>
+<div class="font-label-md text-label-md font-bold text-[#132226] hover:underline cursor-pointer">Vũ Bích Phương</div>
+<div class="font-body-sm text-xs text-[#132226] font-semibold">bichphuong.vu@lexkite.edu.vn</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high border border-outline-variant/80 font-label-sm text-xs font-bold text-[#132226]">
+<span class="w-2 h-2 rounded-full bg-[#00504B]"></span>
+                    Chuyên viên Kiểm định
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-[#FFF1E8] text-[#8C5000] border border-[#ffdcbf] px-2.5 py-0.5 rounded-full font-label-sm text-xs font-bold">Chấm bài Writing</span>
+<span class="bg-surface-container text-[#132226] border border-outline-variant px-2 py-0.5 rounded-full font-label-sm text-[11px] font-bold">Admin Zone</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-medium text-[#132226]">
+                  15/02/2024
+                  <div class="text-[11px] text-[#3f4947] font-semibold">10:10 sáng</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#E6F4EA] text-[#0D652D] font-label-sm text-xs font-extrabold border border-[#CEEAD6]">
+<span class="w-2 h-2 rounded-full bg-[#0D652D]"></span>
+                    Hoạt động
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right pr-6">
+<div class="flex items-center justify-end gap-1">
+<button aria-label="Xem chi tiết Vũ Bích Phương" class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center rounded-xl hover:bg-surface-container-high text-[#132226] transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+<button aria-label="Tác vụ khác cho Vũ Bích Phương" class="min-w-[44px] min-h-[44px] w-[44px] h-[44px] flex items-center justify-center rounded-xl hover:bg-surface-container-high text-[#132226] transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- PAGINATION BAR -->
+<div class="p-4 bg-surface-container-low border-t-2 border-outline-variant/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="font-body-sm text-body-sm text-[#132226] font-medium flex items-center gap-2">
+<span>Hiển thị</span>
+<span class="font-extrabold text-[#132226]">1 - 6</span>
+<span>trong tổng số</span>
+<span class="font-extrabold text-[#00504B]">1,280</span>
+<span>người dùng</span>
+</div>
+<!-- Page Navigation Buttons -->
+<div class="flex items-center gap-1.5">
+<!-- Prev Button -->
+<button aria-label="Trang trước" class="min-w-[44px] min-h-[44px] h-[44px] px-3 rounded-xl border border-outline-variant bg-white text-[#132226] font-bold flex items-center justify-center hover:bg-surface-container transition-all active:translate-y-0.5 shadow-[0_2px_0_0_#bec9c6]" type="button">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<!-- Page 1 (Active) -->
+<button aria-current="page" aria-label="Trang 1, hiện tại" class="min-w-[44px] min-h-[44px] h-[44px] px-3.5 rounded-xl border-2 border-primary-container bg-primary-container text-white font-label-md text-label-md font-extrabold flex items-center justify-center shadow-[0_2px_0_0_#136a63]" type="button">
+              1
             </button>
-          </div>
-          <p class="text-[13.5px] text-[#475569] font-medium mt-1.5 leading-relaxed">
-            Hành động này sẽ tạm vô hiệu hoá tài khoản, thu hồi quyền truy cập khóa học và lưu trữ toàn bộ tiến độ làm bài thi IELTS/TOEIC của <strong class="text-[#0f172a] font-bold">37 học viên đã chọn</strong>.
-          </p>
-        </div>
-      </div>
-
-      <!-- Modal Body -->
-      <div class="px-6 py-3 space-y-4">
-        <!-- Verification Input Prompt -->
-        <div class="p-3.5 rounded-xl bg-[#fff7ed] border border-[#ffedd5] text-[#9a3412]">
-          <label class="block text-[13px] font-bold text-[#7c2d12] mb-1.5">
-            Nhập số <span class="px-2 py-0.5 rounded bg-[#fed7aa] text-[#7c2d12] font-black font-mono">37</span> vào ô bên dưới để xác nhận thao tác:
-          </label>
-          <input type="text" placeholder="Nhập 37..." class="w-full h-[46px] px-3.5 text-[15px] font-bold font-mono rounded-xl border-2 border-[#fdba74] bg-white text-[#0f172a] focus:outline-none focus:border-[#ea580c] focus:ring-2 focus:ring-[#fdba74]" autofocus>
-        </div>
-
-        <!-- Audit & Soft-delete notice badge -->
-        <div class="flex items-start gap-2.5 p-3 rounded-xl bg-[#f0fdf4] border border-[#bbf7d0] text-[#166534] text-[12.5px] leading-snug">
-          <span class="material-symbols-rounded text-[18px] text-[#15803d] flex-shrink-0 mt-0.5">verified_user</span>
-          <div>
-            <span class="font-bold">Xoá mềm</span> – Dữ liệu có thể hoàn tác trong vòng <span class="font-bold underline">30 ngày</span> và mọi thay đổi được ghi nhật ký kiểm toán quản trị viên tự động.
-          </div>
-        </div>
-      </div>
-
-      <!-- Modal Footer (Actions >= 44px) -->
-      <div class="p-5 mt-2 bg-[#fdfbf9] border-t border-[#f1dfd5] flex items-center justify-end gap-3">
-        <!-- Huỷ -->
-        <button class="h-[46px] px-5 rounded-xl tactile-button-secondary text-[14px]">
-          Huỷ
-        </button>
-
-        <!-- Red Destructive CTA (Disabled state until '37' is typed) -->
-        <button disabled class="h-[46px] px-5 rounded-xl tactile-button-danger text-[14px] flex items-center gap-2">
-          <span class="material-symbols-rounded text-[19px]">delete_forever</span>
-          <span>Xoá 37 người dùng</span>
-        </button>
-      </div>
-
-    </div>
-  </div>
-
-</body>
-</html>
+<!-- Page 2 -->
+<button aria-label="Chuyển đến trang 2" class="min-w-[44px] min-h-[44px] h-[44px] px-3.5 rounded-xl border border-outline-variant bg-white text-[#132226] font-label-md text-label-md font-bold flex items-center justify-center hover:bg-surface-container transition-all active:translate-y-0.5 shadow-[0_2px_0_0_#bec9c6]" type="button">
+              2
+            </button>
+<!-- Page 3 -->
+<button aria-label="Chuyển đến trang 3" class="min-w-[44px] min-h-[44px] h-[44px] px-3.5 rounded-xl border border-outline-variant bg-white text-[#132226] font-label-md text-label-md font-bold flex items-center justify-center hover:bg-surface-container transition-all active:translate-y-0.5 shadow-[0_2px_0_0_#bec9c6]" type="button">
+              3
+            </button>
+<span class="px-1 text-[#132226] font-bold">...</span>
+<!-- Last Page (128) -->
+<button aria-label="Chuyển đến trang cuối 128" class="min-w-[44px] min-h-[44px] h-[44px] px-3 rounded-xl border border-outline-variant bg-white text-[#132226] font-label-md text-label-md font-bold flex items-center justify-center hover:bg-surface-container transition-all active:translate-y-0.5 shadow-[0_2px_0_0_#bec9c6]" type="button">
+              128
+            </button>
+<!-- Next Button -->
+<button aria-label="Trang tiếp theo" class="min-w-[44px] min-h-[44px] h-[44px] px-3 rounded-xl border border-outline-variant bg-white text-[#132226] font-bold flex items-center justify-center hover:bg-surface-container transition-all active:translate-y-0.5 shadow-[0_2px_0_0_#bec9c6]" type="button">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- EXTRA CONTEXT CARD: ACADEMIC IELTS AUDIT HINT -->
+<section aria-label="Ghi chú quy trình kiểm định" class="bg-surface-container-high/60 border-2 border-outline-variant/80 rounded-2xl p-5 shadow-[0_2px_0_0_#bec9c6] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-2xl bg-primary-container text-white flex items-center justify-center flex-shrink-0 shadow-[0_3px_0_0_#136a63]">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-extrabold text-[#132226]">Tiêu chuẩn Đánh giá IDP &amp; British Council</h2>
+<p class="font-body-sm text-body-sm text-[#132226] mt-0.5">Tất cả dữ liệu điểm thi thử mô phỏng được đồng bộ tự động với bảng điểm Lexkite Band Radar 2024.</p>
+</div>
+</div>
+<button class="min-h-[44px] h-[44px] px-4 rounded-xl border-2 border-outline-variant bg-white text-[#132226] font-label-md text-label-md font-extrabold flex items-center gap-2 hover:bg-surface-container transition-all active:translate-y-0.5 shadow-[0_2px_0_0_#bec9c6] flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#00504B]">rule</span>
+<span>Xem quy chế cấp chứng chỉ</span>
+</button>
+</section>
+</main>
+</div>
+</body></html>

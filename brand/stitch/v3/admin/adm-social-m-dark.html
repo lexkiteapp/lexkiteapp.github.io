@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Admin › Video &amp; Social – GrabCast</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Plus Jakarta Sans Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration Token Injection -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#879391",
+            "on-tertiary-fixed-variant": "#5b4300",
+            "on-secondary": "#660800",
+            "surface-variant": "#2b373a",
+            "surface": "#091518",
+            "inverse-on-surface": "#263236",
+            "primary": "#6bd8ce",
+            "on-tertiary": "#402e00",
+            "inverse-surface": "#d8e5e9",
+            "primary-container": "#2ba39a",
+            "surface-container": "#162125",
+            "secondary-fixed-dim": "#ffb4a6",
+            "on-primary-container": "#00322e",
+            "surface-tint": "#6bd8ce",
+            "surface-container-lowest": "#051013",
+            "secondary-fixed": "#ffdad3",
+            "on-error-container": "#ffdad6",
+            "surface-bright": "#2f3b3e",
+            "on-tertiary-fixed": "#261a00",
+            "surface-dim": "#091518",
+            "surface-container-highest": "#2b373a",
+            "tertiary": "#f4bf40",
+            "primary-fixed-dim": "#6bd8ce",
+            "tertiary-fixed-dim": "#f4bf40",
+            "on-tertiary-container": "#392900",
+            "error-container": "#93000a",
+            "tertiary-container": "#ba8b00",
+            "surface-container-low": "#121d20",
+            "outline-variant": "#3d4947",
+            "inverse-primary": "#006a64",
+            "primary-fixed": "#88f5ea",
+            "on-background": "#d8e5e9",
+            "on-primary-fixed": "#00201e",
+            "on-secondary-container": "#ffa493",
+            "secondary-container": "#981201",
+            "secondary": "#ffb4a6",
+            "on-surface-variant": "#bcc9c7",
+            "background": "#091518",
+            "on-secondary-fixed-variant": "#900f00",
+            "surface-container-high": "#202c2f",
+            "on-secondary-fixed": "#3f0300",
+            "on-surface": "#d8e5e9",
+            "on-error": "#690005",
+            "on-primary-fixed-variant": "#00504b",
+            "on-primary": "#003733",
+            "error": "#ffb4ab",
+            "tertiary-fixed": "#ffdf9e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.25rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-xl": "1.5rem",
+            "gutter": "1rem",
+            "margin": "1rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "title-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-md": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-lg": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "title-lg": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Material Icon utility */
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      vertical-align: middle;
+    }
+
+    /* Tactile Ledge Elevation Tokens - Tactile Night */
+    .tactile-card {
+      background-color: #0f2126;
+      border: 1px solid rgba(43, 163, 154, 0.22);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 3px 0 0 #071518;
+    }
+    
+    .tactile-btn-primary {
+      background-color: #ea580c;
+      color: #ffffff;
+      box-shadow: 0 3px 0 0 #9a3412;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #9a3412;
+    }
+
+    .tactile-btn-secondary {
+      background-color: #142a30;
+      border: 1.5px solid #2ba39a;
+      color: #6bd8ce;
+      box-shadow: 0 2px 0 0 #0a171a;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(1.5px);
+      box-shadow: 0 0.5px 0 0 #0a171a;
+    }
+
+    /* Hide standard scrollbars cleanly for mobile presentation */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-[#0A1517] text-on-surface antialiased min-h-screen selection:bg-surface-variant selection:text-primary pb-28">
+<!-- ========================================== -->
+<!-- 1. TOP APP BAR (Tactile Night)            -->
+<!-- ========================================== -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin h-14 max-w-md mx-auto bg-[#122023]/95 backdrop-blur-md border-b border-[#213438] shadow-sm">
+<div class="flex items-center gap-2.5">
+<button aria-label="Menu" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-xl text-primary hover:bg-[#0F2B2E] transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-primary text-[24px]" data-icon="menu">menu</span>
+</button>
+<div class="flex flex-col">
+<span class="text-title-md font-title-md text-[#F4FBF8] font-semibold tracking-tight">Admin › Video &amp; Social</span>
+<span class="text-body-sm font-body-sm text-[#D5DEDC] -mt-0.5 font-medium">Lên lịch &amp; Kênh GrabCast</span>
+</div>
+</div>
+<div class="flex items-center">
+<div aria-label="Hồ sơ người dùng" class="min-w-[44px] min-h-[44px] w-11 h-11 rounded-full bg-[#187770] text-white flex items-center justify-center text-[13px] font-bold tracking-wider shadow-sm ring-2 ring-[#5FD0C4] border border-[#17595A] cursor-pointer select-none">
+        LM
+      </div>
+</div>
+</header>
+<!-- Viewport Container strictly capped at mobile 390-420px, no overflow -->
+<main class="max-w-md mx-auto pt-16 px-margin space-y-4">
+<!-- ========================================== -->
+<!-- 2. CHANNEL HEALTH STRIP (GrabCast Protocol) -->
+<!-- ========================================== -->
+<section aria-label="Thanh trạng thái kênh GrabCast" class="mt-2">
+<div class="flex items-center justify-between mb-2 px-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="hub">hub</span>
+<span class="text-label-md font-label-md text-primary font-bold">Cổng GrabCast v1.8</span>
+</div>
+<button class="min-h-[44px] px-3 py-2 inline-flex items-center justify-center text-[11px] uppercase tracking-wider font-bold rounded-xl bg-[#0F2B2E] text-[#6bd8ce] border border-[#213438] hover:bg-[#213438] transition-colors active:scale-95 cursor-pointer" type="button">
+          Auto-distribute
+        </button>
+</div>
+<!-- Horizontal scrollable platform chips -->
+<div class="flex gap-2 overflow-x-auto no-scrollbar pb-1">
+<!-- YouTube Shorts Chip -->
+<div class="flex-shrink-0 bg-[#122023] border border-[#213438] rounded-xl px-2.5 py-2 flex items-center gap-2 shadow-xs">
+<div class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+<div>
+<div class="flex items-center gap-1">
+<span class="text-body-sm font-body-sm font-bold text-[#F4FBF8]">YouTube Shorts</span>
+<span class="text-[10px] font-semibold text-emerald-300 bg-emerald-950/80 border border-emerald-800/50 px-1 rounded">Sẵn sàng</span>
+</div>
+<p class="text-[10px] text-[#A3B9B7]">Quota 12/25 video</p>
+</div>
+</div>
+<!-- TikTok Chip -->
+<div class="flex-shrink-0 bg-[#122023] border border-[#213438] rounded-xl px-2.5 py-2 flex items-center gap-2 shadow-xs">
+<div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+<div>
+<div class="flex items-center gap-1">
+<span class="text-body-sm font-body-sm font-bold text-[#F4FBF8]">TikTok</span>
+<span class="text-[10px] font-semibold text-emerald-300 bg-emerald-950/80 border border-emerald-800/50 px-1 rounded">Đã liên kết</span>
+</div>
+<p class="text-[10px] text-[#A3B9B7]">@lexkite_english</p>
+</div>
+</div>
+<!-- Facebook Reels Chip (Requires token refresh) -->
+<div class="flex-shrink-0 bg-[#122023] border border-amber-600/40 rounded-xl px-2.5 py-2 flex items-center gap-2 shadow-xs bg-amber-950/20">
+<div class="w-2 h-2 rounded-full bg-amber-400"></div>
+<div>
+<div class="flex items-center gap-1">
+<span class="text-body-sm font-body-sm font-bold text-[#F4FBF8]">FB Reels</span>
+<span class="text-[10px] font-semibold text-amber-300 bg-amber-950/80 border border-amber-800/60 px-1 rounded">Cấp lại 3d</span>
+</div>
+<p class="text-[10px] text-amber-300 font-medium">Lexkite Fluency</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 3. WEEKLY POSTING CALENDAR (Thứ 2 → CN)   -->
+<!-- ========================================== -->
+<section class="tactile-card rounded-2xl p-4">
+<div class="flex items-center justify-between mb-3.5 pb-2.5 border-b border-[#213438]">
+<div>
+<h2 class="text-title-md font-title-md text-primary font-bold">Lịch phát hành tuần này</h2>
+<p class="text-body-sm font-body-sm text-[#A3B9B7]">Kế hoạch nội dung micro-learning</p>
+</div>
+<span class="text-label-sm font-label-sm px-2.5 py-1 rounded-full bg-[#0F2B2E] text-primary border border-[#213438] font-bold">
+          Tuần 14 · 5 bài đã xếp
+        </span>
+</div>
+<!-- Schedule Stack (Vertical Days List) -->
+<div class="space-y-2.5">
+<!-- THỨ 2 -->
+<div class="p-2.5 rounded-xl bg-[#0F2B2E]/80 border border-[#213438] flex items-start gap-2.5">
+<div class="w-9 text-center flex-shrink-0 pt-0.5">
+<span class="text-label-sm font-label-sm uppercase font-bold text-[#A3B9B7] block">T2</span>
+<span class="text-body-sm font-body-sm font-extrabold text-[#F4FBF8]">01</span>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex items-center justify-between gap-1 mb-0.5">
+<span class="text-body-sm font-body-sm font-bold text-[#F4FBF8] truncate">3 Collocations with 'Make' &amp; 'Do'</span>
+<span class="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-300 bg-emerald-950/80 border border-emerald-800/50 px-1.5 py-0.2 rounded-md">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Đã đăng
+              </span>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-[#A3B9B7]">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px] text-[#A3B9B7]" data-icon="schedule">schedule</span> 08:30</span>
+<span>•</span>
+<span class="px-1 py-0.2 rounded bg-[#213438] text-[#6BD8CE] font-medium text-[10px]">TikTok &amp; Reels</span>
+</div>
+</div>
+</div>
+<!-- THỨ 3 -->
+<div class="p-2.5 rounded-xl bg-[#0F2B2E]/80 border border-[#213438] flex items-start gap-2.5">
+<div class="w-9 text-center flex-shrink-0 pt-0.5">
+<span class="text-label-sm font-label-sm uppercase font-bold text-[#A3B9B7] block">T3</span>
+<span class="text-body-sm font-body-sm font-extrabold text-[#F4FBF8]">02</span>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex items-center justify-between gap-1 mb-0.5">
+<span class="text-body-sm font-body-sm font-bold text-[#F4FBF8] truncate">Miss The Bus vs Lose The Bus</span>
+<span class="inline-flex items-center gap-1 text-[10px] font-bold text-[#6BD8CE] bg-[#0F2B2E] border border-[#213438] px-1.5 py-0.2 rounded-md">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Đã lên lịch
+              </span>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-[#A3B9B7]">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px] text-[#A3B9B7]" data-icon="schedule">schedule</span> 20:30</span>
+<span>•</span>
+<span class="px-1 py-0.2 rounded bg-[#213438] text-[#6BD8CE] font-medium text-[10px]">Shorts &amp; TikTok</span>
+</div>
+</div>
+</div>
+<!-- THỨ 4 (Rest day) -->
+<div class="px-2.5 py-2 rounded-xl bg-[#122023]/60 border border-dashed border-[#213438] flex items-center justify-between text-[#A3B9B7]">
+<div class="flex items-center gap-3">
+<div class="w-9 text-center flex-shrink-0">
+<span class="text-label-sm font-label-sm uppercase font-bold text-[#A3B9B7]">T4 · 03</span>
+</div>
+<span class="text-body-sm font-body-sm italic text-[#A3B9B7]">Nghỉ nhịp giữ chân tương tác</span>
+</div>
+<span class="text-[10px] text-[#A3B9B7] px-2 py-0.5 rounded bg-[#0F2B2E] border border-[#213438]">Tự do</span>
+</div>
+<!-- THỨ 5 (ACTIVE FOCUS ITEM) -->
+<div class="p-3 rounded-xl bg-[#0F2B2E] border-2 border-primary shadow-sm flex items-start gap-2.5 ring-2 ring-primary/20">
+<div class="w-9 text-center flex-shrink-0 pt-0.5">
+<span class="text-label-sm font-label-sm uppercase font-bold text-primary block">T5</span>
+<span class="text-body-sm font-body-sm font-black text-primary text-base">04</span>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="text-body-sm font-body-sm font-bold text-[#F4FBF8] truncate">Pronounce 'Comfortable' like a native</span>
+<span class="inline-flex items-center gap-1 text-[10px] font-bold text-[#FFA582] bg-[#900F00]/30 border border-[#900F00]/50 px-1.5 py-0.5 rounded-md">
+                Đang xem xét
+              </span>
+</div>
+<div class="flex items-center flex-wrap gap-1.5 text-[11px] text-[#A3B9B7]">
+<span class="flex items-center gap-0.5 font-semibold text-primary"><span class="material-symbols-outlined text-[14px]" data-icon="alarm">alarm</span> 08:30 sáng</span>
+<span>•</span>
+<span class="px-1.5 py-0.2 rounded bg-[#003733] text-[#6BD8CE] border border-[#17595A] font-semibold text-[10px]">3 kênh đồng bộ</span>
+<span class="text-[10px] text-[#A3B9B7] font-medium">(IPA /'kʌmftəbl/)</span>
+</div>
+</div>
+</div>
+<!-- THỨ 6 -->
+<div class="p-2.5 rounded-xl bg-[#0F2B2E]/80 border border-[#213438] flex items-start gap-2.5">
+<div class="w-9 text-center flex-shrink-0 pt-0.5">
+<span class="text-label-sm font-label-sm uppercase font-bold text-[#A3B9B7] block">T6</span>
+<span class="text-body-sm font-body-sm font-extrabold text-[#F4FBF8]">05</span>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex items-center justify-between gap-1 mb-0.5">
+<span class="text-body-sm font-body-sm font-bold text-[#F4FBF8] truncate">50 Collocations IELTS Environment</span>
+<span class="text-[10px] font-semibold text-[#A3B9B7]">Lên lịch tự động</span>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-[#A3B9B7]">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px] text-[#A3B9B7]" data-icon="schedule">schedule</span> 20:30 tối</span>
+<span>•</span>
+<span class="px-1 py-0.2 rounded bg-[#213438] text-[#6BD8CE] font-medium text-[10px]">Remotion Cloud</span>
+</div>
+</div>
+</div>
+<!-- THỨ 7 -->
+<div class="p-2.5 rounded-xl bg-[#0F2B2E]/80 border border-[#213438] flex items-start gap-2.5">
+<div class="w-9 text-center flex-shrink-0 pt-0.5">
+<span class="text-label-sm font-label-sm uppercase font-bold text-[#A3B9B7] block">T7</span>
+<span class="text-body-sm font-body-sm font-extrabold text-[#F4FBF8]">06</span>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex items-center justify-between gap-1 mb-0.5">
+<span class="text-body-sm font-body-sm font-bold text-[#F4FBF8] truncate">Speaking Part 1: Food &amp; Cooking</span>
+<span class="text-[10px] font-semibold text-[#A3B9B7]">Hàng đợi</span>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-[#A3B9B7]">
+<span class="flex items-center gap-0.5"><span class="material-symbols-outlined text-[13px] text-[#A3B9B7]" data-icon="schedule">schedule</span> 08:30 sáng</span>
+</div>
+</div>
+</div>
+<!-- CHỦ NHẬT -->
+<div class="p-2.5 rounded-xl bg-[#0F2B2E]/80 border border-[#213438] flex items-start gap-2.5">
+<div class="w-9 text-center flex-shrink-0 pt-0.5">
+<span class="text-label-sm font-label-sm uppercase font-bold text-[#A3B9B7] block">CN</span>
+<span class="text-body-sm font-body-sm font-extrabold text-[#F4FBF8]">07</span>
+</div>
+<div class="flex-grow min-w-0">
+<div class="flex items-center justify-between gap-1 mb-0.5">
+<span class="text-body-sm font-body-sm font-bold text-[#F4FBF8] truncate">Tổng hợp mini-drill tuần</span>
+<span class="text-[10px] font-semibold text-[#A3B9B7]">Review tuần</span>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-[#A3B9B7]">
+<span>Đố vui tương tác Story &amp; Community post</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 4. COMPOSE & SELECTED POST EDITOR MODULE  -->
+<!-- ========================================== -->
+<section class="tactile-card rounded-2xl p-4 space-y-4">
+<!-- Module Header -->
+<div class="flex items-start justify-between pb-3 border-b border-[#213438]">
+<div>
+<div class="flex items-center gap-1.5 mb-0.5">
+<span class="text-label-sm font-label-sm bg-[#0F2B2E] text-primary border border-[#213438] px-2 py-0.5 rounded font-mono font-bold">#VID-2024-B1-12</span>
+<span class="text-label-sm font-label-sm bg-emerald-950/80 text-emerald-300 border border-emerald-800/50 px-2 py-0.5 rounded font-semibold">CEFR B2</span>
+</div>
+<h3 class="text-title-md font-title-md font-bold text-[#F4FBF8]">Soạn &amp; Tinh chỉnh bài đăng</h3>
+</div>
+<span class="text-body-sm font-body-sm font-medium text-[#F4FBF8] flex items-center gap-1.5"><span class="text-[10px] bg-amber-400 text-[#0A1517] px-2 py-0.5 rounded font-black tracking-wide">IPA 3-SYLL</span><span class="text-[#F4FBF8] font-semibold">Soạn thảo</span></span>
+</div>
+<!-- Preview Hero: 9:16 aspect ratio mini preview banner with Flat 2D vector style -->
+<div class="rounded-xl overflow-hidden border border-[#213438] bg-[#122023] relative">
+<div class="flex items-center justify-between px-3 py-2 bg-[#0F2B2E] text-primary font-bold text-body-sm border-b border-[#213438]">
+<span class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="videocam">videocam</span> Xem trước 9:16
+          </span>
+<span class="text-[11px] font-mono bg-primary text-[#003733] px-2 py-0.5 rounded font-bold">00:28</span>
+</div>
+<!-- 2D Thumbnail Showcase -->
+<div class="p-3 bg-gradient-to-b from-[#122023] to-[#0A1517] flex gap-3 items-center">
+<!-- Mock 9:16 mini phone card -->
+<div class="w-20 h-32 rounded-lg bg-[#0F3D3E] text-white flex flex-col justify-between p-2 shadow-inner relative flex-shrink-0 overflow-hidden border border-primary/40">
+<div class="absolute -right-4 -bottom-4 w-16 h-16 rounded-full bg-white/10 pointer-events-none"></div>
+<div class="flex justify-between items-start">
+<span class="text-[8px] bg-[#FFC94A] text-[#402e00] px-1 py-0.2 rounded font-extrabold">IPA 3-SYLL</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="mic">mic</span>
+</div>
+<div class="my-auto text-center">
+<p class="text-[11px] font-extrabold leading-tight text-white">COMFORT-ABLE</p>
+<p class="text-[9px] text-primary font-mono">/'kʌmftəbl/</p>
+</div>
+<div class="flex items-center justify-between text-[8px] text-[#DDF1EE]">
+<span class="font-medium">Lexkite B2</span>
+<button aria-label="Nghe phát âm mẫu" class="min-w-[44px] min-h-[44px] -mr-3 -mb-3 flex items-center justify-center text-primary hover:text-white transition-colors cursor-pointer" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="volume_up">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Video Specs -->
+<div class="space-y-1 min-w-0">
+<h4 class="text-body-md font-body-md font-bold text-[#F4FBF8] leading-snug truncate">
+              Pronounce 'Comfortable' like a native
+            </h4>
+<p class="text-body-sm font-body-sm text-[#A3B9B7]">
+              Thời lượng micro-drill 28 giây · Định dạng chuẩn MP4 H.264 vertical · 1080x1920
+            </p>
+<div class="flex items-center gap-1.5 pt-1">
+<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#0F2B2E] text-primary border border-[#213438]">Tốc độ 1.0x</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#0F2B2E] text-primary border border-[#213438]">Giọng Anh - Mỹ</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Caption Textarea -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center">
+<label class="text-label-md font-label-md text-[#A3B9B7] font-bold" for="post-caption">
+            Văn bản mô tả bài đăng (Bilingual Caption)
+          </label>
+<span class="text-[11px] text-[#A3B9B7]">214 / 2,200 ký tự</span>
+</div>
+<textarea class="w-full text-body-md font-body-md rounded-xl border border-[#213438] bg-[#122023] text-[#F4FBF8] p-3 focus:border-primary focus:ring-1 focus:ring-primary outline-none leading-relaxed transition-colors shadow-xs placeholder-[#7E9599]" id="post-caption" rows="6">Học cách phát âm 'Comfortable' chuẩn tự nhiên chỉ trong 28 giây! Nhiều bạn hay đọc thành 4 âm tiết, nhưng người bản xứ chỉ nói 3 âm: /ˈkʌmftəbl/.
+
+Lưu lại ôn trước khi thi IELTS Speaking nhé! 🎧
+#Lexkite #IELTSSpeaking #Pronunciation #LearnEnglish</textarea>
+</div>
+<!-- Platform Distribution Checkboxes / Switches -->
+<div class="space-y-2 pt-1">
+<label class="text-label-md font-label-md text-[#A3B9B7] font-bold block">
+          Chọn nền tảng phân phối qua GrabCast:
+        </label>
+<div class="space-y-2">
+<!-- YouTube Shorts Toggle -->
+<label class="flex items-center justify-between p-3 rounded-xl bg-[#0F2B2E]/80 border border-[#213438] active:bg-[#1D2F33] transition-colors cursor-pointer min-h-[48px]">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center -m-3 mr-0"><input checked="" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-md text-primary bg-[#122023] border-[#213438] focus:ring-primary focus:ring-offset-[#0A1517] transition cursor-pointer p-2.5" style="width: 44px; height: 44px;" type="checkbox"/></div>
+<div class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center -m-3 mr-0"><input checked="" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-md text-primary bg-[#122023] border-[#213438] focus:ring-primary focus:ring-offset-[#0A1517] transition cursor-pointer p-2.5" style="width: 44px; height: 44px;" type="checkbox"/></div>
+</div>
+<span class="material-symbols-outlined text-[#7E9599] text-[20px]" data-icon="smart_display">smart_display</span>
+</label>
+<!-- TikTok Toggle -->
+<label class="flex items-center justify-between p-3 rounded-xl bg-[#0F2B2E]/80 border border-[#213438] active:bg-[#1D2F33] transition-colors cursor-pointer min-h-[48px]">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center -m-3 mr-0"><input checked="" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-md text-primary bg-[#122023] border-[#213438] focus:ring-primary focus:ring-offset-[#0A1517] transition cursor-pointer p-2.5" style="width: 44px; height: 44px;" type="checkbox"/></div>
+<div class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center -m-3 mr-0"><input checked="" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-md text-primary bg-[#122023] border-[#213438] focus:ring-primary focus:ring-offset-[#0A1517] transition cursor-pointer p-2.5" style="width: 44px; height: 44px;" type="checkbox"/></div>
+</div>
+<span class="material-symbols-outlined text-[#7E9599] text-[20px]" data-icon="music_note">music_note</span>
+</label>
+<!-- Facebook Reels Toggle -->
+<label class="flex items-center justify-between p-3 rounded-xl bg-[#0F2B2E]/80 border border-[#213438] active:bg-[#1D2F33] transition-colors cursor-pointer min-h-[48px]">
+<div class="flex items-center gap-3">
+<div class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center -m-3 mr-0"><input checked="" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-md text-primary bg-[#122023] border-[#213438] focus:ring-primary focus:ring-offset-[#0A1517] transition cursor-pointer p-2.5" style="width: 44px; height: 44px;" type="checkbox"/></div>
+<div class="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center -m-3 mr-0"><input checked="" class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-md text-primary bg-[#122023] border-[#213438] focus:ring-primary focus:ring-offset-[#0A1517] transition cursor-pointer p-2.5" style="width: 44px; height: 44px;" type="checkbox"/></div>
+</div>
+<span class="material-symbols-outlined text-[#7E9599] text-[20px]" data-icon="video_library">video_library</span>
+</label>
+</div>
+</div>
+<!-- Schedule Time Settings Grid -->
+<div class="grid grid-cols-2 gap-2.5 pt-1">
+<div class="p-2.5 rounded-xl bg-[#122023] border border-[#213438]">
+<span class="text-label-sm font-label-sm text-[#A3B9B7] uppercase block font-bold">Ngày đăng</span>
+<div class="flex items-center gap-1.5 mt-1 text-[#F4FBF8] font-semibold text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="calendar_month">calendar_month</span>
+<span>Thứ 5, 04/04/2025</span>
+</div>
+</div>
+<div class="p-2.5 rounded-xl bg-[#122023] border border-[#213438]">
+<span class="text-label-sm font-label-sm text-[#A3B9B7] uppercase block font-bold">Khung giờ vàng</span>
+<div class="flex items-center gap-1.5 mt-1 text-primary font-bold text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-[#FFA582]" data-icon="schedule">schedule</span>
+<span>08:30 (GMT+7)</span>
+</div>
+</div>
+</div>
+<!-- Action Button Triggers -->
+<div class="space-y-2 pt-2">
+<!-- Primary Action -->
+<button class="w-full h-12 rounded-xl tactile-btn-primary flex items-center justify-center gap-2 font-bold text-body-md min-h-[48px]" style="background-color: #c2410c; color: #ffffff; box-shadow: 0 3px 0 0 #7c2d12;" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="calendar_today">calendar_today</span>
+<span>Lên lịch bài đăng</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<!-- Secondary Action -->
+<button class="h-11 rounded-xl tactile-btn-secondary flex items-center justify-center gap-1.5 font-bold text-body-sm min-h-[44px]" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="send">send</span>
+<span>Đăng ngay</span>
+</button>
+<!-- Tertiary Action -->
+<button class="h-11 rounded-xl bg-[#0F2B2E] border border-[#213438] text-[#A3B9B7] hover:text-[#F4FBF8] hover:bg-[#213438] flex items-center justify-center gap-1.5 font-bold text-body-sm min-h-[44px] transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark_border">bookmark_border</span>
+<span>Lưu bản nháp</span>
+</button>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- 5. REALISTIC LEAN METRICS DASHBOARD TILES  -->
+<!-- ========================================== -->
+<section aria-label="Số liệu hoạt động thực tế" class="tactile-card rounded-2xl p-4 space-y-3">
+<div class="flex items-center justify-between pb-2 border-b border-[#213438]">
+<h3 class="text-title-md font-title-md font-bold text-[#F4FBF8]">Hiệu suất vận hành thực tế</h3>
+<span class="text-[11px] text-[#A3B9B7] font-medium">Cập nhật 5 phút trước</span>
+</div>
+<div class="grid grid-cols-3 gap-2 text-center">
+<!-- Metric 1 -->
+<div class="p-2.5 rounded-xl bg-[#0F2B2E]/80 border border-[#213438] flex flex-col justify-between">
+<span class="text-label-sm font-label-sm text-[#A3B9B7] font-semibold">Lượt chạm tuần</span>
+<p class="text-title-lg font-title-lg font-bold text-primary mt-1">184</p>
+<span class="text-[10px] text-emerald-300 font-bold">+12% tự nhiên</span>
+</div>
+<!-- Metric 2 -->
+<div class="p-2.5 rounded-xl bg-[#0F2B2E]/80 border border-[#213438] flex flex-col justify-between">
+<span class="text-label-sm font-label-sm text-[#A3B9B7] font-semibold">Tỉ lệ xem hết</span>
+<p class="text-title-lg font-title-lg font-bold text-primary mt-1">68%</p>
+<span class="text-[10px] text-[#6BD8CE] font-semibold">Mục tiêu 65%</span>
+</div>
+<!-- Metric 3 -->
+<div class="p-2.5 rounded-xl bg-[#0F2B2E]/80 border border-[#213438] flex flex-col justify-between">
+<span class="text-label-sm font-label-sm text-[#A3B9B7] font-semibold">Remotion Quota</span>
+<p class="text-title-lg font-title-lg font-bold text-[#FFA582] mt-1">19/20</p>
+<span class="text-[10px] text-amber-300 font-bold">Gần chạm ngưỡng</span>
+</div>
+</div>
+<p class="text-[11px] text-[#A3B9B7] text-center">
+        Hạ tầng: Cloud Run Rendering Engine · Không phát sinh chi phí phát sinh
+      </p>
+</section>
+</main>
+<!-- ========================================== -->
+<!-- 6. BOTTOM NAVIGATION BAR (Tactile Night)   -->
+<!-- ========================================== -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex items-center justify-around px-gutter py-2 pb-safe max-w-md mx-auto bg-[#122023]/95 backdrop-blur-md border-t border-[#213438] shadow-[0_-3px_0_0_#071518]"><!-- Item 0: Tổng quan (Inactive) -->
+<a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center text-[#D5DEDC] px-3 py-1 font-medium hover:text-primary transition-colors duration-150 active:translate-y-0.5" href="#tong-quan">
+<span class="material-symbols-outlined text-[22px] mb-0.5" data-icon="dashboard">dashboard</span>
+<span class="text-[11px] font-semibold">Tổng quan</span>
+</a>
+<!-- Item 1: Kênh & Social (ACTIVE) -->
+<a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center text-primary bg-[#0F2B2E] border border-[#213438] rounded-xl px-3 py-1 font-bold shadow-sm hover:text-primary transition-colors duration-150 active:translate-y-0.5" href="#kenh-social">
+<span class="material-symbols-outlined text-[22px] mb-0.5 text-primary" data-icon="video_library" data-weight="fill" style="font-variation-settings: 'FILL' 1;">video_library</span>
+<span class="text-[11px] font-bold">Kênh &amp; Social</span>
+</a>
+<!-- Item 2: Lưu trữ (Inactive) -->
+<a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center text-[#D5DEDC] px-3 py-1 font-medium hover:text-primary transition-colors duration-150 active:translate-y-0.5" href="#luu-tru">
+<span class="material-symbols-outlined text-[22px] mb-0.5" data-icon="folder">folder</span>
+<span class="text-[11px] font-semibold">Lưu trữ</span>
+</a>
+<!-- Item 3: Cài đặt (Inactive) -->
+<a class="min-h-[44px] min-w-[44px] flex flex-col items-center justify-center text-[#D5DEDC] px-3 py-1 font-medium hover:text-primary transition-colors duration-150 active:translate-y-0.5" href="#cai-dat">
+<span class="material-symbols-outlined text-[22px] mb-0.5" data-icon="settings">settings</span>
+<span class="text-[11px] font-semibold">Cài đặt</span>
+</a></nav>
+<!-- Interactive feedback micro-script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Tactile button click feedback
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          if (!this.classList.contains('active:scale-95')) {
+            this.style.opacity = '0.9';
+            setTimeout(() => {
+              this.style.opacity = '1';
+            }, 100);
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

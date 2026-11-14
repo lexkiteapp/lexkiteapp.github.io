@@ -63,14 +63,17 @@ async function run(job, k) {
   if (job.from && !base) return 'wait';
   // Khoá gốc hết lượt → vẽ lại bản tối trên project khoá khác: sinh mới = prompt bản sáng + yêu cầu tối (không sửa được chéo project).
   const moved = base && base.key !== k.name; let lightPrompt = '';
-  if (moved) { lightPrompt = queue.find(x => tag(x) === job.from)?.prompt || ''; if (!lightPrompt || job.kind !== 'edit') return 'otherkey'; }
+  // Chỉ bản TỐI được vẽ lại trên khoá khác (từ prompt bản sáng). Việc sửa bản sáng (from = chính nó, vòng sửa QC) phải về đúng khoá gốc –
+  // 3/11: thiếu điều kiện này khiến việc sửa users2-confirm/light bị sinh thành màn TỐI trên key4 và ghi đè bản sáng.
+  if (moved) { const src = job.from !== tag(job) && job.mode === 'dark' && queue.find(x => tag(x) === job.from && (x.kind || 'gen') === 'gen'); lightPrompt = src?.prompt || ''; if (!lightPrompt || job.kind !== 'edit') return 'otherkey'; }
   const args = { projectId: k.project, prompt: job.prompt, deviceType: job.device || 'MOBILE' };
   let tool = 'generate_screen_from_text';
   if (moved) { args.prompt = `${lightPrompt}\n\nRender this screen in its DARK theme. ${job.prompt}`; args.designSystem = k.ds; }
   else if (job.kind === 'edit') { tool = 'edit_screens'; args.selectedScreenIds = [base.screenId]; }
   else if (job.kind === 'variants') { tool = 'generate_variants'; args.selectedScreenIds = [base.screenId]; args.variantOptions = { variantCount: job.count || 3, creativeRange: 'EXPLORE', aspects: ['LAYOUT', 'COLOR_SCHEME', 'TEXT_FONT'] }; }
   else args.designSystem = k.ds;
-  if (DRY) { log('DRY', k.name, tool, tag(job)); return 'done'; }
+  // --dry: đánh dấu đã xem (chỉ trong bộ nhớ, không ghi state) – trước đây trả 'done' mà không đánh dấu nên worker lặp mãi một việc.
+  if (DRY) { log('DRY', k.name, tool, tag(job)); dryDone.add(h); return 'done'; }
   log('START', k.name, tool, tag(job)); const c = cred(k.name); c.used++; save();
   const r = await rpc(k, tool, args);
   if (r.limit) { c.used--; c.fail++; c.limitedAt = new Date().toISOString(); save(); log('LIMIT', k.name, r.err); return 'limit'; }
@@ -85,11 +88,18 @@ async function run(job, k) {
   if (!sc.length) { c.fail++; const tries = (st.jobs[h]?.tries || 0) + 1;
     st.jobs[h] = { tag: tag(job), key: k.name, status: tries >= 2 ? 'failed' : 'error', tries, err: 'no screen in response', at: new Date().toISOString() }; save(); log('ERR', k.name, tag(job), 'no screen', 'try', tries); return 'error'; }
   const pick = job.kind === 'variants' ? sc.filter(s => sid(s) !== base.screenId) : sc.slice(-1), ids = [];
+  // Cổng lệch nội dung (3/11): edit chạy song song trên cùng project có lúc trả về màn KHÁC (users2-table-m/dark ra nội dung
+  // services-m). Bản edit phải giữ ≥50% từ của màn gốc; lệch → lỗi (tính lượt hỏng), giữ nguyên file cũ.
+  const words = f => { try { return new Set((fs.readFileSync(f, 'utf8').replace(/<style[\s\S]*?<\/style>|<script[\s\S]*?<\/script>|<[^>]+>/g, ' ').toLowerCase().match(/\p{L}{3,}/gu) || [])); } catch { return null; } };
+  const baseWords = job.kind === 'edit' ? words(path.join(dir, job.from.split('/')[1] + '.html')) : null, target = path.join(dir, job.mode + '.html'), old = fs.existsSync(target) ? fs.readFileSync(target) : null;
   for (const [i, s] of pick.entries()) {
     const stem = job.kind === 'variants' ? `${job.mode}-v${i + 1}` : job.mode;
     await grab(k, s.htmlCode?.downloadUrl, path.join(dir, stem + '.html')); await grab(k, s.screenshot?.downloadUrl, path.join(dir, stem + '.png'));
     ids.push(sid(s));
   }
+  if (baseWords?.size) { const nw = words(target), sim = nw ? [...nw].filter(w => baseWords.has(w)).length / Math.max(1, Math.min(nw.size, baseWords.size)) : 0;
+    if (sim < 0.5) { if (old) fs.writeFileSync(target, old); c.fail++; const tries = (st.jobs[h]?.tries || 0) + 1;
+      st.jobs[h] = { tag: tag(job), key: k.name, status: tries >= 2 ? 'failed' : 'error', tries, err: `content drift ${sim.toFixed(2)} (${ids[0]})`, at: new Date().toISOString() }; save(); log('ERR', k.name, tag(job), 'content drift', sim.toFixed(2)); return 'error'; } }
   st.jobs[h] = { tag: tag(job), key: k.name, project: k.project, status: 'done', screenId: ids[0], variants: job.kind === 'variants' ? ids : undefined, at: new Date().toISOString() };
   save(); if (job.kind === 'variants') registerVariants(); log('DONE', k.name, tag(job), ids.join(','));
   return 'done';
@@ -109,17 +119,19 @@ registerVariants();
 // Dừng êm: tạo file <out>/STOP → không nhận việc mới, chờ việc đang chạy xong.
 const stopped = () => fs.existsSync(path.join(OUT, 'STOP'));
 const queue = JSON.parse(fs.readFileSync(QUEUE, 'utf8')).filter(j => !ONLY?.length || ONLY.includes(j.id));
-const isDone = j => st.jobs[hash(j)]?.status === 'done' || ['timeout', 'failed'].includes(st.jobs[hash(j)]?.status);
+const dryDone = new Set(), isDone = j => dryDone.has(hash(j)) || st.jobs[hash(j)]?.status === 'done' || ['timeout', 'failed'].includes(st.jobs[hash(j)]?.status);
 let started = 0; const busy = new Set();
 async function worker(k) {
   for (;;) {
     const c = cred(k.name);
-    if (c.limitedAt && Date.now() - Date.parse(c.limitedAt) < REST_MS) { await new Promise(r => setTimeout(r, 60e3)); if (allLimited()) return; continue; }
+    if (c.limitedAt && Date.now() - Date.parse(c.limitedAt) < REST_MS) { await new Promise(r => setTimeout(r, 60e3)); if (allLimited() || stopped()) return; continue; }
     if (c.used >= DAILY || started >= MAX || stopped()) return;
     // Việc gen tự do chọn khoá; edit/variants phải về đúng khoá của màn gốc.
     const job = queue.find(j => !isDone(j) && !busy.has(hash(j)) && (() => {
-      if (!j.from) return true; const b = latest(j.from); if (!b) return false; if (b.key === k.name) return true;
-      const bc = cred(b.key); return j.kind === 'edit' && !!bc.limitedAt && Date.now() - Date.parse(bc.limitedAt) < REST_MS && queue.some(x => tag(x) === j.from); })());
+      // Màn gốc còn việc chưa xong trong hàng (vd vẽ lại bản sáng) → chờ, kẻo bản tối dựng trên bản sáng cũ (3/11: adm-ads, overview, reports).
+      if (!j.from) return true; if (queue.some(x => tag(x) === j.from && x !== j && !isDone(x))) return false;
+      const b = latest(j.from); if (!b) return false; if (b.key === k.name) return true;
+      const bc = cred(b.key); return j.kind === 'edit' && j.mode === 'dark' && j.from !== tag(j) && !!bc.limitedAt && Date.now() - Date.parse(bc.limitedAt) < REST_MS && queue.some(x => tag(x) === j.from); })());
     if (!job) { if (queue.some(j => !isDone(j) && busy.size)) { await new Promise(r => setTimeout(r, 20e3)); continue; } return; }
     busy.add(hash(job)); started++;
     const r = await run(job, k); busy.delete(hash(job));

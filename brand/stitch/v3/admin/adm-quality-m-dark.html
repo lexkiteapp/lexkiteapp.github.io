@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Admin › Chất lượng</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface-dim": "#071316",
+          "surface": "#071316",
+          "background": "#071316",
+          "surface-container-lowest": "#050e10",
+          "surface-container-low": "#0b191c",
+          "surface-container": "#0f2126",
+          "surface-container-high": "#142a30",
+          "surface-container-highest": "#19333a",
+          "outline-border": "#1f3d45",
+          "outline-border-subtle": "#162f36",
+          "primary": "#6bd8ce",
+          "primary-coral": "#f97316",
+          "on-surface": "#f0fdfa",
+          "on-surface-muted": "#94a3b8",
+          "on-surface-teal": "#5eead4",
+          "accent-teal": "#2dd4bf",
+          "accent-coral": "#fb7185",
+          "chip-red-bg": "#3f1418",
+          "chip-red-text": "#fca5a5",
+          "chip-amber-bg": "#362208",
+          "chip-amber-text": "#fcd34d",
+          "chip-teal-bg": "#0d3133",
+          "chip-teal-text": "#5eead4"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "fontFamily": {
+          "sans": ["Plus Jakarta Sans", "sans-serif"],
+          "headline": ["Plus Jakarta Sans", "sans-serif"]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    font-size: 20px;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  body {
+    background-color: #071316;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    min-height: max(884px, 100dvh);
+  }
+</style>
+</head>
+<body class="bg-[#071215] text-[#F4FBF8] antialiased flex justify-center min-h-screen overflow-x-hidden selection:bg-[#5FD0C4] selection:text-[#071215]">
+<!-- Mobile Viewport Canvas Container: Locked to 390px iPhone baseline with zero sideways scroll -->
+<div class="w-full max-w-[390px] min-h-screen flex flex-col bg-[#071215] relative pb-24 shadow-2xl">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-4 h-14 bg-[#0E191C]/95 backdrop-blur-md border-b border-[#263A3F] max-w-[390px] mx-auto right-0">
+<div class="flex items-center gap-2">
+<button aria-label="Menu" class="w-11 h-11 flex items-center justify-center rounded-lg text-[#6BD8CE] hover:bg-[#0F2B2E] transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="flex flex-col">
+<h1 class="text-[16px] leading-[22px] font-bold text-[#F4FBF8] tracking-tight">Admin › Chất lượng</h1>
+<span class="text-[11px] font-semibold text-[#6BD8CE] -mt-0.5 truncate max-w-[200px]">Kiểm định chất lượng &amp; Bản dịch</span>
+</div>
+</div>
+<div class="flex items-center">
+<!-- Admin initials avatar pill 'MA' (Minh Anh) -->
+<button aria-label="Hồ sơ người dùng" class="w-11 h-11 rounded-full bg-[#0F3D3E] text-[#6BD8CE] border border-[#5FD0C4]/40 flex items-center justify-center font-bold text-sm shadow-[0_2px_0_0_#071f22] cursor-pointer active:scale-95 transition-transform min-w-[44px] min-h-[44px]">
+        MA
+      </button>
+</div>
+</header>
+<!-- Main Content Stream -->
+<main class="flex-1 px-4 pt-16 flex flex-col gap-3.5">
+<!-- Breadcrumb sub-header -->
+<div class="pt-2 flex items-center justify-between text-xs text-[#A3B9B7]">
+<div class="flex items-center gap-1.5 truncate">
+<span>Hệ thống</span>
+<span class="text-[#A3B9B7]">/</span>
+<span class="font-semibold text-[#5FD0C4]">Kiểm định chất lượng &amp; Bản dịch tự động</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#0F2B2E] text-[#6BD8CE] border border-[#5FD0C4]/30 font-semibold text-[11px] shrink-0">
+<span class="w-1.5 h-1.5 rounded-full bg-[#5FD0C4] animate-pulse"></span> Sẵn sàng
+      </span>
+</div>
+<!-- Header & Notice Card (Automated audit banner) -->
+<section class="bg-[#122023] rounded-xl border border-[#263A3F] p-4 shadow-[0_2px_0_0_#081619] flex flex-col gap-3">
+<div class="flex items-start justify-between gap-2.5">
+<div class="flex items-start gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-[#0F2B2E] border border-[#263A3F] flex items-center justify-center text-[#5FD0C4] shrink-0">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline font-semibold text-[17px] text-[#F4FBF8]">Kiểm định máy</span>
+<span class="px-2 py-0.5 rounded-full bg-[#3A1A1C] border border-[#F2553B]/40 text-[#FFB4A6] font-bold text-[11px]">5 vấn đề tồn đọng</span>
+</div>
+<p class="text-xs text-[#A3B9B7] mt-1 leading-snug">
+              Hệ thống máy kiểm định tự động hoàn tất lúc <strong class="text-[#F4FBF8]">06:00 sáng nay (GMT+7)</strong>.
+            </p>
+</div>
+</div>
+</div>
+<!-- Time Range Filter Pills -->
+<div class="flex items-center gap-2 pt-2 border-t border-[#263A3F]"><span class="text-[11px] font-semibold text-[#A3B9B7] pr-1">Kỳ xem:</span>
+<button class="px-3.5 py-2.5 min-h-[44px] min-w-[44px] rounded-lg bg-[#0F3D3E] border border-[#5FD0C4]/50 text-[#6BD8CE] font-semibold text-xs shadow-[0_2px_0_0_#061b1e] flex items-center justify-center active:translate-y-[1px] transition-transform">
+          Hôm nay
+        </button>
+<button class="px-3.5 py-2.5 min-h-[44px] min-w-[44px] rounded-lg bg-[#0E191C] border border-[#263A3F] text-[#A3B9B7] font-semibold text-xs hover:text-[#F4FBF8] hover:bg-[#0F2B2E] flex items-center justify-center transition-colors">
+          7 ngày
+        </button>
+<button class="px-3.5 py-2.5 min-h-[44px] min-w-[44px] rounded-lg bg-[#0E191C] border border-[#263A3F] text-[#A3B9B7] font-semibold text-xs hover:text-[#F4FBF8] hover:bg-[#0F2B2E] flex items-center justify-center transition-colors">
+          30 ngày
+        </button></div>
+<!-- Primary Warm Coral CTA Button -->
+<button class="w-full h-12 bg-[#CC3F1C] hover:bg-[#E5502F] text-[#ffffff] font-headline font-bold text-[16px] rounded-lg flex items-center justify-center gap-2 shadow-[0_3px_0_0_#7c2d12] active:translate-y-[2px] active:shadow-[0_1px_0_0_#7c2d12] transition-all duration-100 min-h-[48px]">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span>Chạy kiểm định ngay</span>
+</button>
+</section>
+<!-- Score Dials Section (2x2 Grid of Tactile Metric Cards) -->
+<section class="flex flex-col gap-2">
+<div class="flex items-center justify-between px-1">
+<h2 class="font-headline font-semibold text-[17px] text-[#F4FBF8]">Chỉ số chất lượng (SLA)</h2>
+<span class="text-xs font-medium text-[#A3B9B7]">Mục tiêu: ≥ 90</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Metric 1: Bố cục & Khung hình -->
+<div class="bg-[#122023] rounded-xl border border-[#263A3F] p-3 shadow-[0_2px_0_0_#081619] flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-lg bg-[#0F2B2E] border border-[#263A3F] flex items-center justify-center text-[#5FD0C4]">
+<span class="material-symbols-outlined" data-icon="aspect_ratio">aspect_ratio</span>
+</span>
+<span class="text-[11px] font-bold text-[#6BD8CE] bg-[#10302F] border border-[#5FD0C4]/30 px-1.5 py-0.5 rounded">+2%</span>
+</div>
+<div class="my-2 flex items-baseline gap-1.5">
+<span class="font-headline font-bold text-[26px] leading-[32px] text-[#F4FBF8]">94</span>
+<span class="text-xs text-[#A3B9B7]">/100</span>
+</div>
+<!-- Tactile Mini Progress Track -->
+<div class="w-full bg-[#0F2B2E] h-1.5 rounded-full overflow-hidden mb-1.5">
+<div class="bg-[#5FD0C4] h-full rounded-full" style="width: 94%"></div>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-[#F4FBF8] truncate">Bố cục &amp; Khung hình</span>
+<p class="text-[#A3B9B7] leading-tight mt-0.5 text-[11px]">1 màn bị tràn viền 390px, 0 đè chữ.</p>
+</div>
+</div>
+<!-- Metric 2: Độ tương phản (WCAG) -->
+<div class="bg-[#122023] rounded-xl border border-[#263A3F] p-3 shadow-[0_2px_0_0_#081619] flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-lg bg-[#0F2B2E] border border-[#263A3F] flex items-center justify-center text-[#5FD0C4]">
+<span class="material-symbols-outlined" data-icon="contrast">contrast</span>
+</span>
+<span class="text-[11px] font-bold text-[#6BD8CE] bg-[#10302F] border border-[#5FD0C4]/30 px-1.5 py-0.5 rounded">+4%</span>
+</div>
+<div class="my-2 flex items-baseline gap-1.5">
+<span class="font-headline font-bold text-[26px] leading-[32px] text-[#F4FBF8]">91</span>
+<span class="text-xs text-[#A3B9B7]">/100</span>
+</div>
+<div class="w-full bg-[#0F2B2E] h-1.5 rounded-full overflow-hidden mb-1.5">
+<div class="bg-[#5FD0C4] h-full rounded-full" style="width: 91%"></div>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-[#F4FBF8] truncate">Độ tương phản (WCAG)</span>
+<p class="text-[#A3B9B7] leading-tight mt-0.5 text-[11px]">2 nhãn &lt; 4.5:1, đạt AA trên 98%.</p>
+</div>
+</div>
+<!-- Metric 3: Giọng đọc & Ngữ âm -->
+<div class="bg-[#122023] rounded-xl border border-[#263A3F] p-3 shadow-[0_2px_0_0_#081619] flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-lg bg-[#0F2B2E] border border-[#263A3F] flex items-center justify-center text-[#5FD0C4]">
+<span class="material-symbols-outlined" data-icon="record_voice_over">record_voice_over</span>
+</span>
+<span class="text-[11px] font-semibold text-[#A3B9B7] bg-[#0F2B2E] border border-[#263A3F] px-1.5 py-0.5 rounded">— 0%</span>
+</div>
+<div class="my-2 flex items-baseline gap-1.5">
+<span class="font-headline font-bold text-[26px] leading-[32px] text-[#F4FBF8]">97</span>
+<span class="text-xs text-[#A3B9B7]">/100</span>
+</div>
+<div class="w-full bg-[#0F2B2E] h-1.5 rounded-full overflow-hidden mb-1.5">
+<div class="bg-[#5FD0C4] h-full rounded-full" style="width: 97%"></div>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-[#F4FBF8] truncate">Giọng đọc &amp; Ngữ âm</span>
+<p class="text-[#A3B9B7] leading-tight mt-0.5 text-[11px]">54 audio R2, bitrate 64kbps chuẩn.</p>
+</div>
+</div>
+<!-- Metric 4: Độ chính xác dịch nghĩa -->
+<div class="bg-[#122023] rounded-xl border border-[#263A3F] p-3 shadow-[0_2px_0_0_#081619] flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="w-8 h-8 rounded-lg bg-[#3A1A1C] border border-[#F2553B]/40 flex items-center justify-center text-[#FF7B7F]">
+<span class="material-symbols-outlined" data-icon="translate">translate</span>
+</span>
+<span class="text-[11px] font-bold text-[#FF7B7F] bg-[#3A1A1C] border border-[#F2553B]/40 px-1.5 py-0.5 rounded">↓ -1%</span>
+</div>
+<div class="my-2 flex items-baseline gap-1.5">
+<span class="font-headline font-bold text-[26px] leading-[32px] text-[#F4FBF8]">88</span>
+<span class="text-xs text-[#A3B9B7]">/100</span>
+</div>
+<div class="w-full bg-[#0F2B2E] h-1.5 rounded-full overflow-hidden mb-1.5">
+<div class="bg-[#E5502F] h-full rounded-full" style="width: 88%"></div>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-semibold text-[#F4FBF8] truncate">Độ chính xác dịch nghĩa</span>
+<p class="text-[#A3B9B7] leading-tight mt-0.5 text-[11px]">18 từ đa nghĩa cần BTV duyệt thêm.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Translation Meaning Audit (Kiểm nghĩa bản dịch song ngữ) -->
+<section class="bg-[#122023] rounded-xl border border-[#263A3F] p-4 shadow-[0_2px_0_0_#081619] flex flex-col gap-3">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline font-semibold text-[17px] text-[#F4FBF8]">Kiểm nghĩa song ngữ</h2>
+<span class="px-2 py-0.5 rounded-full bg-[#10302F] border border-[#5FD0C4]/40 text-[#6BD8CE] font-bold text-[11px]">15 ngôn ngữ đích</span>
+</div>
+<p class="text-xs text-[#A3B9B7] mt-1 leading-snug">
+            Kiểm tra tự động nghĩa tiếng Anh học thuật (IELTS/TOEIC/AWL) sang các ngôn ngữ người học phổ biến.
+          </p>
+</div>
+</div>
+<!-- Filter bar inside card with 44px touch targets -->
+<div class="flex items-center gap-2 pt-1">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[#A3B9B7]" data-icon="search">search</span>
+<input class="w-full h-11 pl-9 pr-3 rounded-lg bg-[#0A1517] border border-[#263A3F] text-sm text-[#F4FBF8] focus:outline-none focus:border-[#5FD0C4] focus:ring-1 focus:ring-[#5FD0C4] placeholder:text-[#A3B9B7]/70" placeholder="Lọc ngôn ngữ..." type="text"/>
+</div>
+<button class="h-11 px-3.5 rounded-lg border border-[#263A3F] bg-[#0F2B2E] hover:bg-[#213438] text-[#F4FBF8] font-semibold text-xs flex items-center gap-1.5 shadow-[0_2px_0_0_#07171a] active:translate-y-[1px] transition-transform shrink-0">
+<span class="material-symbols-outlined text-sm" data-icon="file_download">file_download</span>
+<span>Xuất CSV</span>
+</button>
+</div>
+<!-- Mobile Optimized Table Card List (Zero horizontal scrolling) -->
+<div class="divide-y divide-[#263A3F] border-t border-b border-[#263A3F] mt-1">
+<!-- Row 1: Tiếng Việt -->
+<div class="py-2.5 flex items-center justify-between gap-2">
+<div class="flex flex-col min-w-0">
+<span class="text-sm font-semibold text-[#F4FBF8] truncate">Tiếng Việt (VN)</span>
+<span class="text-xs text-[#A3B9B7]">570 từ · 0 cảnh báo · 99.6%</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#0A2C2D] text-[#6BD8CE] font-semibold text-xs border border-[#5FD0C4]/40 shrink-0">
+            Đạt chuẩn
+          </span>
+</div>
+<!-- Row 2: Tây Ban Nha -->
+<div class="py-2.5 flex items-center justify-between gap-2">
+<div class="flex flex-col min-w-0">
+<span class="text-sm font-semibold text-[#F4FBF8] truncate">Tây Ban Nha (ES)</span>
+<span class="text-xs text-[#A3B9B7]">570 từ · 1 lệch nghĩa · 98.2%</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#372700] text-[#FFC94A] font-semibold text-xs border border-[#f59e0b]/40 shrink-0">
+            Cần duyệt 1
+          </span>
+</div>
+<!-- Row 3: Tiếng Nhật -->
+<div class="py-2.5 flex items-center justify-between gap-2">
+<div class="flex flex-col min-w-0">
+<span class="text-sm font-semibold text-[#F4FBF8] truncate">Tiếng Nhật (JA)</span>
+<span class="text-xs text-[#A3B9B7]">554 từ · 3 cảnh báo · 94.4%</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#3A1A1C] text-[#FFB4A6] font-semibold text-xs border border-[#F2553B]/40 shrink-0">
+            Cần duyệt 3
+          </span>
+</div>
+<!-- Row 4: Tiếng Hàn -->
+<div class="py-2.5 flex items-center justify-between gap-2">
+<div class="flex flex-col min-w-0">
+<span class="text-sm font-semibold text-[#F4FBF8] truncate">Tiếng Hàn (KO)</span>
+<span class="text-xs text-[#A3B9B7]">542 từ · 2 cảnh báo · 95.8%</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#372700] text-[#FFC94A] font-semibold text-xs border border-[#f59e0b]/40 shrink-0">
+            Cần duyệt 2
+          </span>
+</div>
+<!-- Row 5: Tiếng Trung -->
+<div class="py-2.5 flex items-center justify-between gap-2">
+<div class="flex flex-col min-w-0">
+<span class="text-sm font-semibold text-[#F4FBF8] truncate">Tiếng Trung (ZH)</span>
+<span class="text-xs text-[#A3B9B7]">560 từ · 1 cảnh báo · 97.5%</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#372700] text-[#FFC94A] font-semibold text-xs border border-[#f59e0b]/40 shrink-0">
+            Cần duyệt 1
+          </span>
+</div>
+<!-- Row 6: Tiếng Pháp -->
+<div class="py-2.5 flex items-center justify-between gap-2">
+<div class="flex flex-col min-w-0">
+<span class="text-sm font-semibold text-[#F4FBF8] truncate">Tiếng Pháp (FR)</span>
+<span class="text-xs text-[#A3B9B7]">530 từ · 0 cảnh báo · 99.2%</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#0A2C2D] text-[#6BD8CE] font-semibold text-xs border border-[#5FD0C4]/40 shrink-0">
+            Đạt chuẩn
+          </span>
+</div>
+</div>
+<button class="w-full h-11 rounded-lg border border-[#263A3F] bg-[#0F2B2E] hover:bg-[#213438] text-[#6BD8CE] font-semibold text-xs flex items-center justify-center gap-1 shadow-[0_2px_0_0_#07171a] active:translate-y-[1px] transition-transform">
+<span>Xem tất cả 15 ngôn ngữ</span>
+<span class="material-symbols-outlined" data-icon="expand_more">expand_more</span>
+</button>
+</section>
+<!-- Section: Danh sách màn cần sửa (Screens Needing Fix List) -->
+<section class="flex flex-col gap-2.5 mb-4">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<h2 class="font-headline font-semibold text-[17px] text-[#F4FBF8]">Màn hình cần sửa</h2>
+<span class="px-2 py-0.5 rounded-full bg-[#3A1A1C] border border-[#F2553B]/40 text-[#FFB4A6] font-bold text-[11px]">3 phát hiện</span>
+</div>
+<button class="min-h-[44px] min-w-[44px] px-2 flex items-center justify-center text-xs font-semibold text-[#5FD0C4] hover:underline active:scale-95 transition-transform">Chi tiết HIG</button>
+</div>
+<!-- Issue Card 1 -->
+<article class="bg-[#122023] rounded-xl border border-[#263A3F] p-3.5 shadow-[0_2px_0_0_#081619] flex flex-col gap-2.5">
+<div class="flex items-start gap-2.5">
+<!-- 2D Wireframe Thumbnail Placeholder (Tactile Dark) -->
+<div class="w-16 h-16 rounded-lg bg-[#071215] border border-[#263A3F] flex flex-col items-center justify-center p-1 shrink-0 relative overflow-hidden">
+<div class="w-10 h-2 bg-[#0F2B2E] rounded mb-1"></div>
+<div class="w-11 h-4 bg-[#3A1A1C] border border-[#F2553B]/60 rounded flex items-center justify-center">
+<span class="text-[9px] font-bold text-[#FFB4A6] leading-none">3.2:1</span>
+</div>
+<div class="w-8 h-1.5 bg-[#0F2B2E] rounded mt-1"></div>
+</div>
+<div class="flex-1 min-w-0">
+<span class="text-xs font-mono font-bold text-[#5FD0C4] block truncate">/vocab/irregular-verbs</span>
+<p class="text-xs text-[#A3B9B7] leading-snug mt-0.5">
+              Nút “Quiz me on 10” tương phản nhãn chữ 3.2:1 trên nền phụ, chạm 42px.
+            </p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1.5 border-t border-[#263A3F]">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded bg-[#3A1A1C] text-[#FFB4A6] border border-[#F2553B]/30 text-[11px] font-bold">Tương phản AA</span>
+<span class="px-2 py-0.5 rounded bg-[#0F2B2E] text-[#A3B9B7] border border-[#263A3F] text-[11px] font-semibold">Chạm &lt; 44px</span>
+</div>
+<button class="min-h-[44px] min-w-[44px] px-3.5 bg-[#0F3D3E] hover:bg-[#12514D] text-[#6BD8CE] border border-[#5FD0C4]/40 rounded-lg text-xs font-bold shadow-[0_2px_0_0_#071f22] active:translate-y-[1px] transition-transform flex items-center justify-center gap-1 shrink-0">
+<span class="material-symbols-outlined text-[15px]" data-icon="edit">edit</span>
+<span>Mở sửa</span>
+</button>
+</div>
+</article>
+<!-- Issue Card 2 -->
+<article class="bg-[#122023] rounded-xl border border-[#263A3F] p-3.5 shadow-[0_2px_0_0_#081619] flex flex-col gap-2.5">
+<div class="flex items-start gap-2.5">
+<!-- 2D Wireframe Thumbnail Placeholder (Tactile Dark) -->
+<div class="w-16 h-16 rounded-lg bg-[#071215] border border-[#263A3F] flex flex-col items-center justify-center p-1 shrink-0 relative overflow-hidden">
+<div class="w-full flex justify-end pr-1 mb-1">
+<div class="w-4 h-4 bg-[#3A1A1C] border border-[#F2553B]/60 rounded flex items-center justify-center">
+<span class="text-[8px] font-bold text-[#FFB4A6]">40</span>
+</div>
+</div>
+<div class="w-10 h-2 bg-[#0F2B2E] rounded mb-1"></div>
+<div class="w-12 h-2 bg-[#0F2B2E] rounded"></div>
+</div>
+<div class="flex-1 min-w-0">
+<span class="text-xs font-mono font-bold text-[#5FD0C4] block truncate">/tests/toeic-part-1</span>
+<p class="text-xs text-[#A3B9B7] leading-snug mt-0.5">
+              Nút đóng (close) kích thước vùng chạm 40×40px (&lt; 44px tối thiểu theo HIG/Material).
+            </p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1.5 border-t border-[#263A3F]">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded bg-[#3A1A1C] text-[#FFB4A6] border border-[#F2553B]/30 text-[11px] font-bold">Touch Target</span>
+<span class="px-2 py-0.5 rounded bg-[#0F2B2E] text-[#A3B9B7] border border-[#263A3F] text-[11px] font-semibold">Modal Header</span>
+</div>
+<button class="min-h-[44px] min-w-[44px] px-3.5 bg-[#0F3D3E] hover:bg-[#12514D] text-[#6BD8CE] border border-[#5FD0C4]/40 rounded-lg text-xs font-bold shadow-[0_2px_0_0_#071f22] active:translate-y-[1px] transition-transform flex items-center justify-center gap-1 shrink-0">
+<span class="material-symbols-outlined text-[15px]" data-icon="edit">edit</span>
+<span>Mở sửa</span>
+</button>
+</div>
+</article>
+<!-- Issue Card 3 -->
+<article class="bg-[#122023] rounded-xl border border-[#263A3F] p-3.5 shadow-[0_2px_0_0_#081619] flex flex-col gap-2.5">
+<div class="flex items-start gap-2.5">
+<!-- 2D Wireframe Thumbnail Placeholder (Tactile Dark) -->
+<div class="w-16 h-16 rounded-lg bg-[#071215] border border-[#263A3F] flex flex-col items-center justify-center p-1 shrink-0 relative overflow-hidden">
+<div class="w-12 h-3 border border-dashed border-[#F2553B] bg-[#3A1A1C] rounded px-0.5 flex items-center mb-1">
+<span class="text-[7.5px] font-bold text-[#FFB4A6] truncate">[Interac...]</span>
+</div>
+<div class="w-11 h-2 bg-[#0F2B2E] rounded mb-1"></div>
+<div class="w-9 h-1.5 bg-[#0F2B2E] rounded"></div>
+</div>
+<div class="flex-1 min-w-0">
+<span class="text-xs font-mono font-bold text-[#5FD0C4] block truncate">/blog/ielts-academic-word-list</span>
+<p class="text-xs text-[#A3B9B7] leading-snug mt-0.5">
+              Nhãn “Interactive Practice” bị tràn dòng ở chiều rộng 360px (iPhone SE).
+            </p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1.5 border-t border-[#263A3F]">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded bg-[#3A1A1C] text-[#FFB4A6] border border-[#F2553B]/30 text-[11px] font-bold">Text Truncate</span>
+<span class="px-2 py-0.5 rounded bg-[#0F2B2E] text-[#A3B9B7] border border-[#263A3F] text-[11px] font-semibold">Màn hình 360px</span>
+</div>
+<button class="min-h-[44px] min-w-[44px] px-3.5 bg-[#0F3D3E] hover:bg-[#12514D] text-[#6BD8CE] border border-[#5FD0C4]/40 rounded-lg text-xs font-bold shadow-[0_2px_0_0_#071f22] active:translate-y-[1px] transition-transform flex items-center justify-center gap-1 shrink-0">
+<span class="material-symbols-outlined text-[15px]" data-icon="edit">edit</span>
+<span>Mở sửa</span>
+</button>
+</div>
+</article>
+</section>
+<!-- Footer system status -->
+<footer class="py-2 text-center text-xs font-medium text-[#A3B9B7]">
+<p>v2.4.2 · prod · Múi giờ GMT+7</p>
+</footer>
+</main>
+<!-- Bottom Navigation Bar (Tactile Dark) -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-1 py-1.5 min-h-[64px] bg-[#0A1517]/95 backdrop-blur-md border-t border-[#263A3F] max-w-[390px] mx-auto right-0">
+<!-- Tab 1: Bảng tin -->
+<a class="flex flex-col items-center justify-center text-[#A3B9B7] px-3 py-1 hover:text-[#6BD8CE] transition-colors active:scale-95 min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[11px] font-semibold mt-0.5">Bảng tin</span>
+</a>
+<!-- Tab 2: Chất lượng (ACTIVE: Tactile Teal highlight) -->
+<a aria-current="page" class="flex flex-col items-center justify-center bg-[#0F3D3E] text-[#6BD8CE] border border-[#5FD0C4]/40 rounded-xl px-3.5 py-1 shadow-[0_2px_0_0_#061a1d] active:scale-95 transition-transform min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-outlined font-bold" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-[11px] font-bold mt-0.5">Chất lượng</span>
+</a>
+<!-- Tab 3: Hạn mức -->
+<a class="flex flex-col items-center justify-center text-[#A3B9B7] px-3 py-1 hover:text-[#6BD8CE] transition-colors active:scale-95 min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+<span class="text-[11px] font-semibold mt-0.5">Hạn mức</span>
+</a>
+<!-- Tab 4: Cài đặt -->
+<a class="flex flex-col items-center justify-center text-[#A3B9B7] px-3 py-1 hover:text-[#6BD8CE] transition-colors active:scale-95 min-w-[56px] min-h-[44px]" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-[11px] font-semibold mt-0.5">Cài đặt</span>
+</a>
+</nav>
+</div>
+</body></html>

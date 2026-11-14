@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Admin › Khóa API - Lexkite Vault</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#00433f",
+            "surface-variant": "#dbe5e2",
+            "on-primary": "#ffffff",
+            "error": "#ba1a1a",
+            "inverse-surface": "#293231",
+            "on-error": "#ffffff",
+            "on-surface-variant": "#3f4947",
+            "on-primary-fixed-variant": "#00504c",
+            "surface-container-high": "#e0eae8",
+            "tertiary-container": "#005c58",
+            "inverse-primary": "#8fd3cd",
+            "background": "#f2fbf9",
+            "on-secondary-fixed-variant": "#8a1c00",
+            "on-secondary-fixed": "#3c0700",
+            "primary-fixed-dim": "#8fd3cd",
+            "surface": "#f2fbf9",
+            "on-tertiary-container": "#82d3cd",
+            "on-tertiary-fixed-variant": "#00504c",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-container": "#8ed2cc",
+            "tertiary-fixed": "#9ff1eb",
+            "outline-variant": "#bec9c7",
+            "on-tertiary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-secondary-container": "#661200",
+            "error-container": "#ffdad6",
+            "on-tertiary-fixed": "#00201e",
+            "inverse-on-surface": "#e9f3f1",
+            "primary": "#004340",
+            "on-secondary": "#ffffff",
+            "surface-container": "#e6f0ee",
+            "on-background": "#141d1c",
+            "surface-container-highest": "#dbe5e2",
+            "secondary-fixed": "#ffdad2",
+            "secondary-container": "#fd6f4c",
+            "surface-dim": "#d2dcda",
+            "surface-container-low": "#ecf6f4",
+            "on-surface": "#141d1c",
+            "outline": "#6f7978",
+            "surface-tint": "#216964",
+            "secondary-fixed-dim": "#ffb4a2",
+            "primary-container": "#0d5c58",
+            "on-primary-fixed": "#00201e",
+            "tertiary-fixed-dim": "#83d5ce",
+            "surface-bright": "#f2fbf9",
+            "primary-fixed": "#abefe9",
+            "secondary": "#ac3416"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1rem",
+            "margin": "2rem",
+            "gutter-mobile": "0.75rem"
+          },
+          "fontFamily": {
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "code-sm": ["monospace"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "title-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "code-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "title-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Tactile Elevation Shadows according to design tokens */
+    .tactile-card {
+      background-color: #ffffff;
+      border: 1px solid #bec9c7;
+      border-radius: 0.75rem;
+      box-shadow: 0 1px 0 0 #bec9c7, 0 2px 4px -1px rgba(20, 29, 28, 0.05);
+    }
+    .tactile-btn-primary {
+      background-color: #fd6f4c;
+      color: #ffffff;
+      border: 1px solid #ac3416;
+      box-shadow: 0 2px 0 0 #8a1c00, 0 3px 6px rgba(172, 52, 22, 0.2);
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(1px);
+      box-shadow: 0 0 0 0 transparent;
+    }
+    .tactile-btn-secondary {
+      background-color: #ffffff;
+      color: #004340;
+      border: 1.5px solid #004340;
+      box-shadow: 0 2px 0 0 #dbe5e2;
+    }
+    .tactile-btn-secondary:active {
+      transform: translateY(1px);
+      box-shadow: 0 0 0 0 transparent;
+    }
+    .action-icon-btn {
+      min-width: 44px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      border: 1px solid #bec9c7;
+      background-color: #ffffff;
+      box-shadow: 0 1px 0 0 #bec9c7;
+      transition: all 0.1s ease;
+    }
+    .action-icon-btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 0 0 0 transparent;
+      background-color: #e6f0ee;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-surface-variant">
+<!-- Mobile Screen Container (narrow ~390px portrait) -->
+<div class="relative w-full max-w-[390px] mx-auto min-h-screen pb-24 flex flex-col bg-surface shadow-md">
+<!-- 1. Top App Bar (Docked small mobile header, height 56px / h-14) -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md shadow-sm border-b border-surface-container-highest px-margin-mobile h-14 flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Menu" class="w-11 h-11 flex items-center justify-center rounded-lg text-primary hover:bg-surface-container active:translate-y-px transition-transform" type="button">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="flex flex-col">
+<h1 class="font-headline-sm text-headline-sm text-primary leading-tight font-bold tracking-tight">Admin › Khóa API</h1>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-primary" data-icon="lock">lock</span>
+            Két mã hóa bảo mật
+          </span>
+</div>
+</div>
+<!-- Trailing Initials Avatar Badge -->
+<div class="flex items-center min-w-[44px] min-h-[44px] justify-center"><div class="w-9 h-9 rounded-full bg-primary text-on-primary font-headline-sm text-xs flex items-center justify-center font-bold ring-2 ring-surface shadow-sm">LM</div></div>
+</header>
+<!-- 2. System Status & Breadcrumb Strip -->
+<section class="px-margin-mobile pt-3 pb-2 bg-surface-container-low border-b border-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px] text-tertiary-container" data-icon="dns">dns</span>
+<span class="font-label-md text-label-md truncate max-w-[190px]">Hệ thống / Vault bảo mật</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-label-sm text-label-sm border border-outline-variant/60 shadow-xs">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container animate-pulse"></span>
+<span>9 Khóa đang theo dõi</span>
+</div>
+</section>
+<!-- Main Content Canvas -->
+<main class="px-margin-mobile pt-4 space-y-4">
+<!-- 3. Overview Summary KPI Cards (Responsive Mobile Stack) -->
+<section class="space-y-2.5">
+<!-- KPI 1 -->
+<div class="tactile-card p-3.5 border-l-4 border-l-primary-container bg-surface-container-lowest">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="verified_user">verified_user</span>
+              Tình trạng bảo mật
+            </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-bold">Chuẩn SOC2</span>
+</div>
+<div class="font-headline-md text-headline-md text-primary font-bold tracking-tight">100% AES-256-GCM</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Lưu trữ server-side trong Cloudflare Encrypted Secrets.</p>
+</div>
+<!-- KPI 2 & 3 in compact 2-column or stacked grid -->
+<div class="grid grid-cols-1 gap-2.5">
+<!-- KPI 2 (Warning) -->
+<div class="tactile-card p-3 border-l-4 border-l-secondary bg-surface-container-lowest">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="alarm">alarm</span>
+                Sắp hết hạn trong 14 ngày
+              </span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold">Cảnh báo</span>
+</div>
+<div class="flex items-baseline justify-between">
+<div class="font-headline-md text-headline-md text-secondary font-bold">1 khóa</div>
+<span class="font-code-sm text-code-sm text-on-surface-variant font-medium">Hạn 24/03/2025</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">ElevenLabs TTS • Đã kích hoạt cảnh báo Telegram</p>
+</div>
+<!-- KPI 3 -->
+<div class="tactile-card p-3 border-l-4 border-l-outline bg-surface-container-lowest">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="sync">sync</span>
+                Lần kiểm tra gần nhất
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">10 phút trước</span>
+</div>
+<div class="font-title-md text-title-md text-primary font-bold">09:15 sáng nay</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container" data-icon="check_circle">check_circle</span>
+              9/9 endpoint phản hồi HTTP 200 OK
+            </p>
+</div>
+</div>
+</section>
+<!-- 4. Primary CTA Buttons -->
+<section class="space-y-2 pt-1">
+<button class="tactile-btn-primary w-full h-11 px-4 rounded-xl flex items-center justify-center gap-2 font-title-sm text-title-sm font-bold tracking-wide" style="min-height: 44px; background-color: #b43410; color: #ffffff; border: 1.5px solid #852207; box-shadow: 0 2px 0 0 #5f1502;" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="add_circle">add_circle</span>
+          + Thêm khóa mới
+        </button>
+<button class="tactile-btn-secondary w-full h-11 px-4 rounded-xl flex items-center justify-center gap-2 font-title-sm text-title-sm font-semibold" style="min-height: 44px; color: #003633; border: 1.5px solid #004340;" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="network_check">network_check</span>
+          Kiểm tra tất cả
+        </button>
+</section>
+<!-- 5. Security Policy Note Card -->
+<section class="tactile-card p-3.5 bg-surface-container-low border border-surface-container-highest">
+<div class="flex items-center gap-2 mb-1.5 text-primary">
+<span class="material-symbols-outlined text-[20px] text-primary-container" data-icon="shield">shield</span>
+<h2 class="font-title-sm text-title-sm font-bold">Chính sách bảo mật khóa API Lexkite</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Tất cả khóa API được mã hóa nguyên khối phía máy chủ. Giao diện chỉ hiển thị 4 ký tự cuối (<span class="font-code-sm text-code-sm bg-surface-container-lowest px-1 py-0.5 rounded border border-outline-variant">••••3f2a</span>) nhằm đối chiếu. Khi xoay vòng hoặc cập nhật, worker tự động nạp lại trong 5 giây mà không làm gián đoạn luồng xử lý.
+        </p>
+</section>
+<!-- 6. Provider Key List & Filters -->
+<section class="space-y-3">
+<div class="flex items-center justify-between pt-1">
+<h2 class="font-title-md text-title-md font-bold text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px]" data-icon="key">key</span>
+            Danh sách khóa tích hợp
+          </h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">9 nhà cung cấp</span>
+</div>
+<!-- Filter Chips (Horizontal scrollable without ugly bar) -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar -mx-margin-mobile px-margin-mobile"><button class="shrink-0 min-h-[44px] px-4 py-2.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-bold shadow-xs flex items-center justify-center active:translate-y-px" type="button">Tất cả (9)</button><button class="shrink-0 min-h-[44px] px-4 py-2.5 rounded-full bg-surface-container-lowest border border-outline text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container active:translate-y-px flex items-center justify-center" type="button">AI &amp; Ngôn ngữ (4)</button><button class="shrink-0 min-h-[44px] px-4 py-2.5 rounded-full bg-surface-container-lowest border border-outline text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container active:translate-y-px flex items-center justify-center" type="button">Hạ tầng &amp; Cloud (3)</button><button class="shrink-0 min-h-[44px] px-4 py-2.5 rounded-full bg-surface-container-lowest border border-outline text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container active:translate-y-px flex items-center justify-center" type="button">Email &amp; SMS (2)</button></div>
+<!-- Responsive Card List for Mobile Phone -->
+<div class="space-y-3">
+<!-- Row 1: Google Gemini 1.5 Flash -->
+<div class="tactile-card p-3.5 bg-surface-container-lowest space-y-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-title-sm text-title-sm font-bold text-primary truncate">Google Gemini 1.5 Flash</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-primary font-semibold bg-surface-container px-1.5 py-0.5 rounded">AIFa••••3f2a</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">linh***@lexkite.com</span>
+</div>
+</div>
+<span class="shrink-0 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-label-sm text-label-sm font-bold border border-outline-variant/40">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                Hoạt động
+              </span>
+</div>
+<div class="pt-2 border-t border-surface-container-highest flex items-center justify-between text-on-surface-variant">
+<div class="text-left space-y-0.5">
+<div class="font-body-sm text-body-sm flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container" data-icon="check">check</span>
+                  09:15 <span class="text-on-surface-variant font-code-sm text-code-sm">(142ms, 200 OK)</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Hạn: Không thời hạn</div>
+</div>
+<!-- Action buttons touch targets >= 44px -->
+<div class="flex items-center gap-1.5">
+<button aria-label="Kiểm tra Google Gemini" class="action-icon-btn text-primary" title="Kiểm tra kết nối" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+</button>
+<button aria-label="Xoay vòng khóa Google Gemini" class="action-icon-btn text-on-surface-variant" title="Xoay vòng khóa" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Row 2: OpenAI GPT-4o mini -->
+<div class="tactile-card p-3.5 bg-surface-container-lowest space-y-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<span class="font-title-sm text-title-sm font-bold text-primary truncate block">OpenAI GPT-4o mini</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-primary font-semibold bg-surface-container px-1.5 py-0.5 rounded">sk-proj-••••98b1</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">admin***@lexkite.com</span>
+</div>
+</div>
+<span class="shrink-0 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-label-sm text-label-sm font-bold border border-outline-variant/40">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                Hoạt động
+              </span>
+</div>
+<div class="pt-2 border-t border-surface-container-highest flex items-center justify-between text-on-surface-variant">
+<div class="text-left space-y-0.5">
+<div class="font-body-sm text-body-sm flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container" data-icon="check">check</span>
+                  09:12 <span class="text-on-surface-variant font-code-sm text-code-sm">(210ms)</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Hạn mức $200/tháng</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Kiểm tra OpenAI" class="action-icon-btn text-primary" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+</button>
+<button aria-label="Xoay vòng khóa OpenAI" class="action-icon-btn text-on-surface-variant" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Row 3: ElevenLabs TTS (Warning Row) -->
+<div class="tactile-card p-3.5 bg-secondary-fixed/20 border-l-4 border-l-secondary space-y-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-title-sm text-title-sm font-bold text-secondary truncate">ElevenLabs TTS</span>
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="warning">warning</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-secondary font-semibold bg-surface-container-lowest px-1.5 py-0.5 rounded border border-secondary/30">el-prod-••••e412</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">dev***@lexkite.internal</span>
+</div>
+</div>
+<span class="shrink-0 inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold border border-secondary/20">
+                Hết hạn sớm (12 ngày)
+              </span>
+</div>
+<div class="pt-2 border-t border-secondary/20 flex items-center justify-between">
+<div class="text-left space-y-0.5">
+<div class="font-body-sm text-body-sm flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container" data-icon="check">check</span>
+                  09:00 <span class="text-on-surface-variant font-code-sm text-code-sm">(180ms)</span>
+</div>
+<div class="font-label-sm text-label-sm text-secondary font-semibold">Hạn: 24/03/2025 • Nhắc trước 14 ngày</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Kiểm tra ElevenLabs" class="action-icon-btn text-primary" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+</button>
+<button aria-label="Xoay vòng khóa ElevenLabs" class="action-icon-btn bg-secondary text-on-secondary border-secondary" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Row 4: Resend API -->
+<div class="tactile-card p-3.5 bg-surface-container-lowest space-y-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<span class="font-title-sm text-title-sm font-bold text-primary truncate block">Resend API</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-primary font-semibold bg-surface-container px-1.5 py-0.5 rounded">re-••••7c90</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">admin***@lexkite.com</span>
+</div>
+</div>
+<span class="shrink-0 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-label-sm text-label-sm font-bold border border-outline-variant/40">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                Hoạt động
+              </span>
+</div>
+<div class="pt-2 border-t border-surface-container-highest flex items-center justify-between text-on-surface-variant">
+<div class="text-left space-y-0.5">
+<div class="font-body-sm text-body-sm flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container" data-icon="check">check</span>
+                  08:45 <span class="text-on-surface-variant font-code-sm text-code-sm">(98ms)</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">DKIM Verified</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Kiểm tra Resend API" class="action-icon-btn text-primary" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+</button>
+<button aria-label="Xoay vòng khóa Resend API" class="action-icon-btn text-on-surface-variant" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Row 5: Cloudflare API Token -->
+<div class="tactile-card p-3.5 bg-surface-container-lowest space-y-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<span class="font-title-sm text-title-sm font-bold text-primary truncate block">Cloudflare API Token</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-primary font-semibold bg-surface-container px-1.5 py-0.5 rounded">cf-tok-••••1a55</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">infra***@lexkite.com</span>
+</div>
+</div>
+<span class="shrink-0 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-label-sm text-label-sm font-bold border border-outline-variant/40">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                Hoạt động
+              </span>
+</div>
+<div class="pt-2 border-t border-surface-container-highest flex items-center justify-between text-on-surface-variant">
+<div class="text-left space-y-0.5">
+<div class="font-body-sm text-body-sm flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container" data-icon="check">check</span>
+                  09:14 <span class="text-on-surface-variant font-code-sm text-code-sm">(65ms)</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Hạn: 15/06/2025</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Kiểm tra Cloudflare Token" class="action-icon-btn text-primary" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+</button>
+<button aria-label="Xoay vòng khóa Cloudflare Token" class="action-icon-btn text-on-surface-variant" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Row 6: Upstash Redis -->
+<div class="tactile-card p-3.5 bg-surface-container-lowest space-y-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<span class="font-title-sm text-title-sm font-bold text-primary truncate block">Upstash Redis</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-primary font-semibold bg-surface-container px-1.5 py-0.5 rounded">redis-••••88fd</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">infra***@lexkite.com</span>
+</div>
+</div>
+<span class="shrink-0 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-label-sm text-label-sm font-bold border border-outline-variant/40">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                Hoạt động
+              </span>
+</div>
+<div class="pt-2 border-t border-surface-container-highest flex items-center justify-between text-on-surface-variant">
+<div class="text-left space-y-0.5">
+<div class="font-body-sm text-body-sm flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container" data-icon="check">check</span>
+                  09:10 <span class="text-on-surface-variant font-code-sm text-code-sm">(42ms)</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Hạn: Không thời hạn</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Kiểm tra Upstash Redis" class="action-icon-btn text-primary" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+</button>
+<button aria-label="Xoay vòng khóa Upstash Redis" class="action-icon-btn text-on-surface-variant" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Row 7: DeepL API Pro -->
+<div class="tactile-card p-3.5 bg-surface-container-lowest space-y-2.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1 min-w-0">
+<span class="font-title-sm text-title-sm font-bold text-primary truncate block">DeepL API Pro</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-code-sm text-code-sm text-primary font-semibold bg-surface-container px-1.5 py-0.5 rounded">deepl-••••4b2e</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">linh***@lexkite.com</span>
+</div>
+</div>
+<span class="shrink-0 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-tertiary font-label-sm text-label-sm font-bold border border-outline-variant/40">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                Hoạt động
+              </span>
+</div>
+<div class="pt-2 border-t border-surface-container-highest flex items-center justify-between text-on-surface-variant">
+<div class="text-left space-y-0.5">
+<div class="font-body-sm text-body-sm flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container" data-icon="check">check</span>
+                  07:00 <span class="text-on-surface-variant font-code-sm text-code-sm">(195ms)</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Gói 1M ký tự/tháng</div>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Kiểm tra DeepL API" class="action-icon-btn text-primary" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+</button>
+<button aria-label="Xoay vòng khóa DeepL API" class="action-icon-btn text-on-surface-variant" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="refresh">refresh</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Audit Log / Nhật ký xoay vòng gần nhất -->
+<section class="space-y-3 pt-2">
+<div class="flex items-center justify-between">
+<h2 class="font-title-md text-title-md font-bold text-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px]" data-icon="history">history</span>
+            Nhật ký kiểm tra &amp; xoay vòng
+          </h2>
+<button class="text-primary hover:underline font-label-sm text-label-sm font-bold min-h-[44px] min-w-[44px] px-2 py-2 flex items-center justify-center rounded-lg" type="button">Xem thêm</button>
+</div>
+<div class="tactile-card divide-y divide-surface-container-high bg-surface-container-lowest">
+<!-- Log 1 -->
+<div class="p-3 flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[15px]" data-icon="done_all">done_all</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">Kiểm tra tự động toàn bộ 9 khóa API hoàn tất</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">Hôm nay, 09:15</span>
+</div>
+</div>
+<!-- Log 2 -->
+<div class="p-3 flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[15px]" data-icon="forward_to_inbox">forward_to_inbox</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">Đã gửi email nhắc nhở hết hạn khóa ElevenLabs TTS đến đội DevOps</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">Hôm nay, 08:00</span>
+</div>
+</div>
+<!-- Log 3 -->
+<div class="p-3 flex items-start gap-2.5">
+<div class="w-7 h-7 rounded-full bg-surface-container text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[15px]" data-icon="edit">edit</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="font-body-sm text-body-sm text-on-surface font-medium leading-snug">Linh Mai cập nhật hạn mức truy vấn cho Google Gemini 1.5 Flash</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">Hôm qua, 17:42</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- 8. Docked Bottom Navigation Bar (Executed exactly from Shared Components JSON spec) -->
+<!-- Active Destination: "Khóa API" (Security/Key tab) matches current screen -->
+<nav class="fixed bottom-0 left-0 right-0 w-full max-w-[390px] mx-auto z-50 flex justify-around items-center h-16 px-gutter pb-safe bg-surface-container-lowest shadow-[0_-4px_16px_rgba(7,56,54,0.08)]"><a class="flex flex-col items-center justify-center text-on-surface px-3 py-1.5 min-w-[44px] min-h-[44px] font-label-sm hover:bg-surface-container-low active:translate-y-px transition-transform duration-100" href="#tong-quan"><span class="material-symbols-outlined" data-icon="dashboard">dashboard</span><span class="font-label-sm text-label-sm font-semibold">Tổng quan</span></a><a class="flex flex-col items-center justify-center text-on-surface px-3 py-1.5 min-w-[44px] min-h-[44px] font-label-sm hover:bg-surface-container-low active:translate-y-px transition-transform duration-100" href="#kenh"><span class="material-symbols-outlined" data-icon="hub">hub</span><span class="font-label-sm text-label-sm font-semibold">Kênh</span></a><a class="flex flex-col items-center justify-center text-secondary bg-secondary-container/20 rounded-xl px-3 py-1.5 min-w-[44px] min-h-[44px] font-label-sm font-bold hover:bg-secondary-container/30 active:translate-y-px transition-transform duration-100" href="#khoa-api"><span class="material-symbols-outlined text-secondary" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span><span class="font-label-sm text-label-sm text-secondary font-bold">Khóa API</span></a><a class="flex flex-col items-center justify-center text-on-surface px-3 py-1.5 min-w-[44px] min-h-[44px] font-label-sm hover:bg-surface-container-low active:translate-y-px transition-transform duration-100" href="#cai-dat"><span class="material-symbols-outlined" data-icon="settings">settings</span><span class="font-label-sm text-label-sm font-semibold">Cài đặt</span></a></nav>
+</div>
+</body></html>
