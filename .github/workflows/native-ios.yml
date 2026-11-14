@@ -2,12 +2,15 @@
 # Kiểm: vector chuẩn chấm điểm/FSRS khớp web, đủ 15 ngôn ngữ, khung 5 tab, snapshot 390 pt sáng/tối × en/vi/ar/de, build app (XcodeGen, không ký).
 # Spec: docs/specs/native-apps.md. Bản Capacitor đang live vẫn ở mobile/ (ios.yml, ios-testflight.yml) cho tới khi native đạt parity.
 name: Native iOS (SwiftUI)
+# paths (14/11, CI nghẽn ~200 lượt; 5 job macOS/lượt, macOS chỉ 5 máy song song): KHÔNG theo scripts/native/** – bộ sinh gen-*.mjs chỉ đổi kết quả
+# qua file sinh trong native/ios|native/shared (đã theo dõi); file sinh lệch nguồn → `gen.mjs --check` của Native Android (ubuntu, theo scripts/native/**) đỏ.
+# Theo dõi đúng phần job macOS dùng: ios-*.sh, pick-sim.py, xctest.sh, gen.mjs. Gác: scripts/test/native-ios-paths.mjs.
 on:
   pull_request:
-    paths: ['native/ios/**', 'native/shared/**', 'scripts/native/**', '.github/workflows/native-ios.yml', 'mobile/ios/App/App/GoogleService-Info.plist', 'web/js/ota-key.js']
+    paths: ['native/ios/**', 'native/shared/**', 'scripts/native/ios-*', 'scripts/native/pick-sim.py', 'scripts/native/xctest.sh', 'scripts/native/gen.mjs', '.github/workflows/native-ios.yml', 'mobile/ios/App/App/GoogleService-Info.plist', 'web/js/ota-key.js']
   push:
     branches: [main]
-    paths: ['native/ios/**', 'native/shared/**', 'scripts/native/**', '.github/workflows/native-ios.yml', 'mobile/ios/App/App/GoogleService-Info.plist', 'web/js/ota-key.js']
+    paths: ['native/ios/**', 'native/shared/**', 'scripts/native/ios-*', 'scripts/native/pick-sim.py', 'scripts/native/xctest.sh', 'scripts/native/gen.mjs', '.github/workflows/native-ios.yml', 'mobile/ios/App/App/GoogleService-Info.plist', 'web/js/ota-key.js']
   workflow_dispatch:
     inputs:
       record: { description: 'Ghi lại ảnh snapshot chuẩn (khi đổi giao diện có chủ đích)', type: boolean, default: false }
