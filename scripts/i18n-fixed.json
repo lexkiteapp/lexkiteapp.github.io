@@ -41293,5 +41293,35 @@
     "ar": "كلمات تنساها كثيرًا",
     "ru": "Слова, которые вы часто забываете",
     "tr": "Sık unuttuğun kelimeler"
+  },
+  "{n} bài học trực quan": {
+    "es": "{n} lecciones visuales",
+    "pt": "{n} lições visuais",
+    "fr": "{n} leçons visuelles",
+    "de": "{n} visuelle Lektionen",
+    "id": "{n} pelajaran visual",
+    "th": "{n} บทเรียนแบบภาพ",
+    "zh": "{n} 节图解课程",
+    "ja": "{n} 本のビジュアルレッスン",
+    "ko": "시각 레슨 {n}개",
+    "hi": "{n} दृश्य पाठ",
+    "ar": "{n} درسًا مرئيًا",
+    "ru": "{n} наглядных уроков",
+    "tr": "{n} görsel ders"
+  },
+  "{done}/{n} bài đã đạt": {
+    "es": "{done}/{n} lecciones superadas",
+    "pt": "{done}/{n} lições concluídas",
+    "fr": "{done}/{n} leçons réussies",
+    "de": "{done}/{n} Lektionen bestanden",
+    "id": "{done}/{n} pelajaran lulus",
+    "th": "ผ่านแล้ว {done}/{n} บทเรียน",
+    "zh": "已通过 {done}/{n} 节课",
+    "ja": "{done}/{n} レッスン合格",
+    "ko": "{done}/{n}개 레슨 통과",
+    "hi": "{done}/{n} पाठ पास",
+    "ar": "اجتزت {done}/{n} دروس",
+    "ru": "пройдено уроков: {done}/{n}",
+    "tr": "{done}/{n} ders geçildi"
   }
 }

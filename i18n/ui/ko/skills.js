@@ -147,6 +147,8 @@
 "vòm miệng":"경구개음",
 "vô thanh (không rung)":"무성음(울림 없음)",
 "xem sau khi đã tự trả lời":"스스로 답변한 후 보기",
+"{done}/{n} bài đã đạt":"{done}/{n}개 레슨 통과",
+"{n} bài học trực quan":"시각 레슨 {n}개",
 "{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.":"{n} 시각적 수업: 타임라인, 색상으로 구분된 공식, 문장 변환 다이어그램, 학습자의 일반적인 실수 및 즉시 채점되는 연습 문제.",
 "{right}/{total} câu đúng ({pct}%)":"{right}/{total} 문항 정답 ({pct}%)",
 "{score}% giống mẫu":"{score}% 일치",

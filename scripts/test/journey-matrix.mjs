@@ -213,8 +213,8 @@ async function jTrain(h) {
   await h.step('tab Kỹ năng', async () => { await h.boot('/home'); await h.tab('skills'); h.ok(/^#\/skills/.test(await h.hash()), 'tab Kỹ năng → #/skills'); await h.screen('kỹ năng', { tab: 'skills' }); });
   await h.step('Luyện', async () => { await h.click('#view a[href="#/train"]'); h.ok(await h.wait('.v2s-practice'), '#/train phải là màn Luyện'); await h.screen('luyện', { tab: 'skills' }); });
   await h.step('1 bài', async () => {
-    await h.click('#view a[href="#/grammar"]'); h.ok(await h.wait('a.g-row[href^="#/grammar/"]'), 'Ngữ pháp phải có bài'); await h.screen('ngữ pháp', { tab: 'skills' });
-    await h.click('a.g-row[href^="#/grammar/"]:not([href*="mix"])'); const u = await h.hash(); await h.go(u.split('?')[0].slice(1) + '?view=full');
+    await h.click('#view a[href="#/grammar"]'); h.ok(await h.wait('a[data-grow][href^="#/grammar/"]'), 'Ngữ pháp phải có bài'); await h.screen('ngữ pháp', { tab: 'skills' });
+    await h.click('a[data-grow][href^="#/grammar/"]:not([href*="mix"])'); const u = await h.hash(); await h.go(u.split('?')[0].slice(1) + '?view=full');
     h.ok(await h.wait('#gQuiz .q-item', 15000), 'bài ngữ pháp phải có câu hỏi'); const it = h.page.locator('#gQuiz .q-item'), n = await it.count();
     for (let i = 0; i < n; i++) { await it.nth(i).locator('.opts button').first().click({ timeout: 4000 }).catch(() => {}); await sleep(120); }
     await h.page.waitForFunction(() => !document.querySelector('#toast.show'), null, { timeout: 8000 }).catch(() => {}); // toast thưởng (lên cấp) tự tắt sau vài giây: thông báo tạm, không phải lớp phủ của màn
@@ -266,7 +266,7 @@ async function jTabs(h) {
 // Back / Esc / X: mọi màn học thoát được, không bị nhốt; đang làm dở → hỏi nhẹ
 async function jExit(h) {
   let gram = '/grammar/x';
-  await h.step('chuẩn bị', async () => { await h.boot('/home'); await h.go('/grammar'); const a = await h.locator('a.g-row[href^="#/grammar/"]:not([href*="mix"])').getAttribute('href'); gram = a.slice(1); });
+  await h.step('chuẩn bị', async () => { await h.boot('/home'); await h.go('/grammar'); const a = await h.locator('a[data-grow][href^="#/grammar/"]:not([href*="mix"])').getAttribute('href'); gram = a.slice(1); });
   const scr = [['/review', 'ôn'], ['/placement', 'kiểm tra đầu vào'], ['/lesson/go', 'bài học'], [gram, 'ngữ pháp'], ['/quick', 'chơi nhanh'], ['/mock/run?s=reading&r=1', 'thi thử']];
   const left = async (start, label) => {
     const go = h.page.locator('#modal:not([hidden]) [data-exit-go]'); if (await go.isVisible().catch(() => false)) { await go.click(); await sleep(200); }

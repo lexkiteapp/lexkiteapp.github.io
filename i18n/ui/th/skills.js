@@ -147,6 +147,8 @@
 "vòm miệng":"เพดานแข็ง",
 "vô thanh (không rung)":"ไม่ก้อง (คอไม่สั่น)",
 "xem sau khi đã tự trả lời":"ดูหลังจากตอบตัวเองแล้ว",
+"{done}/{n} bài đã đạt":"ผ่านแล้ว {done}/{n} บทเรียน",
+"{n} bài học trực quan":"{n} บทเรียนแบบภาพ",
 "{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.":"{n} บทเรียนแบบเห็นภาพ: เส้นเวลา สูตรที่ใช้รหัสสี แผนภาพการแปลงประโยค ข้อผิดพลาดทั่วไปของผู้เรียน และแบบฝึกหัดให้คะแนนทันที",
 "{right}/{total} câu đúng ({pct}%)":"{right}/{total} ถูกต้อง ({pct}%)",
 "{score}% giống mẫu":"{score}% ตรงกัน",

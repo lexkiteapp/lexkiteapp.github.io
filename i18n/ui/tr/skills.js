@@ -147,6 +147,8 @@
 "vòm miệng":"damak",
 "vô thanh (không rung)":"ötümsüz (titreşimsiz)",
 "xem sau khi đã tự trả lời":"kendinize cevap verdikten sonra görüntüleyin",
+"{done}/{n} bài đã đạt":"{done}/{n} ders geçildi",
+"{n} bài học trực quan":"{n} görsel ders",
 "{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.":"{n} görsel dersler: zaman çizelgeleri, renk kodlu formüller, cümle dönüştürme diyagramları, yaygın öğrenci hataları ve anında not verilen alıştırmalar.",
 "{right}/{total} câu đúng ({pct}%)":"{right}/{total} doğru (%{pct})",
 "{score}% giống mẫu":"%{score} eşleşme",

@@ -68,7 +68,7 @@ export function sources() {
   if (SRC) return SRC;
   globalThis.self = globalThis.self || globalThis;
   require(R('web/js/usage-core.js')); for (const f of fs.readdirSync(R('web/js/usage')).sort()) require(R('web/js/usage/' + f));
-  for (const f of ['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'starter2', 'academic', 'mastery', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'drills-own', 'bank-gen', 'check']) require(R(/^(drills-own|starter|starter2|mastery|academic|book2)$/.test(f) ? `web/cpack/grammar/${f}.js` : `web/js/grammar/${f}.js`));
+  for (const f of ['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'starter2', 'academic', 'mastery', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'drills-own', 'bank-gen', 'check']) require(R(/^(drills-own|drills-c|starter|starter2|mastery|academic|book2)$/.test(f) ? `web/cpack/grammar/${f}.js` : `web/js/grammar/${f}.js`));
   const lex = new Map(); for (const e of [...loadAll(), ...expandRows()]) { const k = lexKey(e.row); if (!lex.has(k)) lex.set(k, e.row); }
   const byWord = new Map(); for (const r of lex.values()) { const w = r[0].toLowerCase(); if (!byWord.has(w)) byWord.set(w, r); }
   return (SRC = { U: self.LK_USAGE, G: self.GRAMMAR, lex, byWord });
