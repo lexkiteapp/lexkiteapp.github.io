@@ -29,6 +29,7 @@ export const SEED_LEAGUE = () => {
 export const SCREENS = {
   call: 'call/coffee',
   complete: 'lesson/go?demo=1',
+  day: 'day/1',
   feedback: 'lesson/go?demo=1',
   'feedback-wrong': 'lesson/go?demo=1',
   home: 'home',
@@ -40,7 +41,6 @@ export const SCREENS = {
   'onb-pace': 'welcome/setup?s=pace',
   'onb-ready': 'welcome/setup?s=ready',
   'onb-target': 'welcome/setup?s=target',
-  day: 'day/1',
   practice: 'train',
   readiness: 'goal',
   review: 'review?hub=1',
@@ -58,6 +58,7 @@ export const SCREENS = {
 export const V2REF = {
   call: 'teacher-call',
   complete: 'lesson-complete',
+  day: 'day',
   feedback: 'feedback-correct',
   'feedback-wrong': 'feedback-wrong',
   home: 'today',
@@ -69,7 +70,6 @@ export const V2REF = {
   'onb-pace': 'onb-pace',
   'onb-ready': 'onb-ready',
   'onb-target': 'onb-target',
-  day: 'day',
   practice: 'practice',
   readiness: 'exam-readiness',
   review: 'review',

@@ -17,10 +17,10 @@ const GROUPS = { home: ['web/js/st/common.js', 'web/js/st/home.js'], lesson: ['w
 //   Cấu hình Tailwind MẶC ĐỊNH thuần (như Stitch): tên màu/cỡ chữ/bo góc của Stitch đã được bộ chuyển đổi ra giá trị thật.
 const V2 = fs.existsSync('web/js/st/v2') ? fs.readdirSync('web/js/st/v2').filter(f => f.endsWith('.js') && !/^(shell|runtime)\.js$/.test(f)).map(f => f.slice(0, -3)) : [];
 const V2DATA = {
+  day: ['web/js/path-day.js'],
   'exam-readiness': ['web/js/goal.js'],
   'feedback-correct': ['web/js/lesson/ui.js'],
   'feedback-wrong': ['web/js/lesson/ui.js'],
-  day: ['web/js/path-day.js'],
   'lesson-complete': ['web/js/lesson/ui.js'],
   'lesson-question': ['web/js/lesson/ui.js'],
   me: ['web/js/ux1-me.js'],

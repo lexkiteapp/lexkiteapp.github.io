@@ -490,6 +490,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   const BCSS = {
     call: ['css/st-v2-teacher-call.css'],
     cambridge: 'css/exam.css',
+    dayv2: 'css/st-v2-day.css',
     espr: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css'],
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
     league: 'css/league.css',
@@ -506,7 +507,6 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     toefl: 'css/exam.css',
     toeic: 'css/exam.css',
     ux1: ['css/st-home.css', 'css/st-v2-ux1-pre.css', 'css/st-v2-path.css', 'css/st-v2-today.css'] /* Home lần đầu chỉ Lộ trình + Hôm nay; màn khác tải theo màn (st/v2/runtime.js LZ) */,
-    dayv2: 'css/st-v2-day.css',
     vhub: 'css/st-v2-vocab-hub.css',
     watch: 'css/watch.css',
     welcome: self.matchMedia && matchMedia('(min-width:1024px)').matches ? 'css/st-v2-welcome-desk.css' : 'css/st-v2-welcome.css',
