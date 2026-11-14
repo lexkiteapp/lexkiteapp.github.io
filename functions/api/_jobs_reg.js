@@ -455,6 +455,24 @@ export const REG = {
    "lease": true
   },
   {
+   "id": "drive-tidy",
+   "workflow": "drive-tidy.yml",
+   "cron": [
+    "43 7,19 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool",
+    "d1_internal"
+   ],
+   "minutes": 5,
+   "est": {
+    "d1_internal_reads": 4000,
+    "drive_calls": 300
+   },
+   "lease": true
+  },
+  {
    "id": "explain",
    "workflow": "explain.yml",
    "cron": [
