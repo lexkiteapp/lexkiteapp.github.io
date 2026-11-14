@@ -1,5 +1,6 @@
 /* GET /api/funnel-digest – số phễu hôm qua cho bản tóm tắt hằng ngày (.github/workflows/funnel-digest.yml → scripts/growth/funnel-digest.mjs).
  * Xác thực: X-Studio-Secret = STUDIO_CALLBACK_SECRET (như /api/ads-report), chỉ đọc, đệm 10 phút. Chỉ SỐ ĐẾM đã tổng hợp – không vid/email.
+ * (bot lấy từ sessions của đúng ngày đầu máy → dùng chỉ mục sessions_day, không quét bảng)
  * Người thật: lượt cài app (vid_attr) bỏ máy tự động (sessions.bot: ci · ci-app · ua · bot · dc); lượt xem/bấm trang /go chỉ là bộ đếm theo kênh nên không tách được. */
 import { channelData } from './_funnel.js';
 import { limit } from './sync.js';
@@ -12,7 +13,7 @@ async function secretOk(env, given) {
 }
 export async function digest(db, now = Date.now()) {
   const c = await channelData(db, 7, now), s = c.summary;
-  const bots = async day => { try { const r = await db.prepare('SELECT COUNT(*) AS n FROM vid_attr WHERE day = ?1 AND vid IN (SELECT vid FROM sessions WHERE bot IS NOT NULL)').bind(day).first(); return (r && r.n) || 0; } catch (e) { return 0; } };
+  const bots = async day => { try { const r = await db.prepare('SELECT COUNT(*) AS n FROM vid_attr WHERE day = ?1 AND vid IN (SELECT vid FROM sessions WHERE day = ?1 AND bot IS NOT NULL)').bind(day).first(); return (r && r.n) || 0; } catch (e) { return 0; } };
   const day2 = new Date(Date.parse(s.day + 'T00:00:00Z') - 864e5).toISOString().slice(0, 10);
   const [b1, b2] = await Promise.all([bots(s.day), bots(day2)]);
   return {
