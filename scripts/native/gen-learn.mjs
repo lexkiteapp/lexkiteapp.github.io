@@ -183,7 +183,7 @@ async function methodContent() {
 
 // ================================================================== #/grammar ==================================================================
 const GRAMMAR_FILES = ['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'academic', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'drills-own', 'bank-gen', 'check'];
-const CPACK = new Set(['starter', 'drills-own', 'academic', 'book2']); // dời sang cpack để trả byte người học
+const CPACK = new Set(['starter', 'drills-own', 'academic', 'book2', 'drills-c']); // dời sang cpack để trả byte người học
 function grammarSource() {
   const sb = { console }; sb.window = sb; sb.self = sb; vm.createContext(sb);
   for (const f of GRAMMAR_FILES) vm.runInContext(rd(CPACK.has(f) ? `web/cpack/grammar/${f}.js` : `web/js/grammar/${f}.js`), sb, { filename: f });

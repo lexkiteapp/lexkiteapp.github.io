@@ -271,7 +271,7 @@
   const G = 'js/grammar/', BUNDLES = {
     demo: ['js/app-demo.js'],
     mvar: ['js/mistake-variant.js'], // Mini-test biến thể từ Sổ lỗi sai (#/mistakes?variant=1 + gợi ý trên Hôm nay)
-    grammar: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'cpack/grammar/starter.js', 'cpack/grammar/lazy-a1.js', 'cpack/grammar/academic.js', 'cpack/grammar/lazy-c2.js', 'chapters', 'cpack/grammar/book2.js', 'drills-a', 'drills-b', 'drills-c', 'cpack/grammar/drills-own.js', 'bank-gen', 'check'].map(f => f.startsWith('cpack/') ? f : G + f + '.js'), 'js/grammar.js'],
+    grammar: ['js/i18n/en/arrange.js', 'js/word-arrange.js', 'js/structures.js', ...['tenses', 'verbs', 'sentences', 'foundation', 'cpack/grammar/starter.js', 'cpack/grammar/lazy-a1.js', 'cpack/grammar/academic.js', 'cpack/grammar/lazy-c2.js', 'chapters', 'cpack/grammar/book2.js', 'drills-a', 'drills-b', 'cpack/grammar/drills-c.js', 'cpack/grammar/drills-own.js', 'bank-gen', 'check'].map(f => f.startsWith('cpack/') ? f : G + f + '.js'), 'js/grammar.js'],
     // 12 bài A1 / 10 bài C2 (~29 KB nén mỗi gói): chỉ tải khi mở bài của cấp đó; gói 'grammar' mang mục lục gọn lazy-a1/c2.js (scripts/grammar/build-lazy-idx.mjs)
     grammarA1: ['cpack/grammar/starter2.js'],
     grammarC2: ['cpack/grammar/mastery.js'],
@@ -287,7 +287,7 @@
     reflex: ['js/reflex.js'],
     watch: ['js/i18n/en/watch.js', 'js/watch-topics.js', 'js/watch.js'], // 🎬 Học qua video (#/watch) – docs/specs/video-learn.md
     handoff: ['js/lib/qr.js', 'js/handoff.js'], // 📲 chuyển dữ liệu bằng mã QR, không cần đăng nhập (mã hóa trên máy)
-    roleplay: ['js/i18n/en/rpbasic.js', 'js/roleplay/data-everyday.js', 'js/roleplay/data-a.js', 'js/roleplay/data-b.js', 'js/roleplay/data-lot1.js', 'js/roleplay/data-lot2.js', 'js/roleplay.js'], // Roleplay: 6 tình huống hằng ngày A1–A2 + 10 kịch bản công sở
+    roleplay: ['js/i18n/en/rpbasic.js', 'js/roleplay/data-everyday.js', 'js/roleplay/data-a.js', 'js/roleplay/data-b.js', 'js/roleplay/data-lot1.js', 'cpack/roleplay/lot2.js', 'js/roleplay.js'], // Roleplay: 6 tình huống hằng ngày A1–A2 + 10 kịch bản công sở
     say: ['js/i18n/en/v2.js', 'js/i18n/en/say.js', 'js/i18n/en/share.js', 'js/st/v2/runtime.js', 'js/st/v2/shell.js', 'js/st/v2/say-front.js', 'js/st/v2/say-back.js', 'js/say.js'], // 🗣️ Say it like a native: thẻ phản xạ 2 mặt, khung Stitch v2 say-front/back (docs/SAY-NATIVE.md)
     call: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/teacher-call.js', 'js/pron/pairs.js', 'js/listen/kvoice.js', 'js/lesson/engine.js', 'js/say-text.js', 'js/lesson/teacher.js', 'js/call/calls.js', 'js/call/calls-exam.js', 'js/call/calls-lot1.js', 'js/call/calls-lot2.js', 'js/call/engine.js', 'js/call.js'], // Call Ama/Carlos: cuộc gọi luyện nói rẽ nhánh, giáo viên khớp môi (docs/CALL.md); khung Stitch v2 teacher-call
     struct: ['js/structures.js'], // VBStruct cho popup dịch (phrases.js) – thiếu khóa này App.need('struct') ném TypeError
