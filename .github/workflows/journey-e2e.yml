@@ -1,3 +1,4 @@
+# ci-policy: matrix – android: mỗi nhánh một emulator độc lập (emulator chết giữa chừng khi chạy dài, 26/10 + 13/11); chỉ chạy khi native=1 (tay/quality-sweep), không trên PR
 # ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
 # 🧭 Hành trình người dùng đầu-cuối (Playwright) – scripts/test/journey-e2e.mjs · docs/QUALITY-SWEEP.md § journey-e2e
 # 7 hành trình × vi/en/ar × máy tính/điện thoại (+ add-on), mỗi hành trình kiểm: lỗi console, lớp nổi chồng nhau, hỏi 2 lần, focus, còn sau tải lại, chạy khi mất mạng.
@@ -91,8 +92,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        lang: [en, vi, ar]
-    env: { JE_LANGS: '${{ matrix.lang }}' }
+        # Ả Rập (RTL) tách thành leg ngắn, mỗi leg một emulator mới: leg ar đủ 13 bước bị emulator (qemu) biến mất sau j1a (13/11, 6/6 lần). ar-kbd: chỉ đo bàn phím THẬT.
+        lang: [en, vi, ar-1, ar-2, ar-kbd]
+    env:
+      JE_LANGS: ${{ startsWith(matrix.lang, 'ar') && 'ar' || matrix.lang }}
+      JE_STEPS: ${{ matrix.lang == 'ar-1' && 'j1a,R,j1b' || matrix.lang == 'ar-2' && 'reset,R,j2s,R,j2a,R,j2b,j3a,R,j3b' || '' }}
+      JE_MIN_RAN: ${{ matrix.lang == 'ar-1' && '2' || matrix.lang == 'ar-2' && '6' || '6' }}
+      JE_ONLY_KBD: ${{ matrix.lang == 'ar-kbd' && '1' || '0' }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/no-prod  # app trong máy ảo Android: /api + media prod → không phân giải (app chạy nhánh offline như web)
@@ -111,6 +117,8 @@ jobs:
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
           sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
       - name: Emulator + hành trình Android (tối đa 28')
+        id: emu1
+        continue-on-error: true
         timeout-minutes: 28
         uses: reactivecircus/android-emulator-runner@v2
         with:
@@ -123,22 +131,61 @@ jobs:
           cores: 2
           disable-animations: true
           emulator-boot-timeout: 420
+          # leg ar*: emulator (swiftshader_indirect) chết lặp lại ngay khi app vẽ chữ Ả Rập (13/11, kể cả leg ar-kbd không chạy hành trình) → thử GPU phần mềm trong khách `-gpu off`
+          emulator-options: ${{ startsWith(matrix.lang, 'ar') && '-no-window -gpu off -no-snapshot -noaudio -no-boot-anim' || '-no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim' }}
+          script: |
+            adb wait-for-device
+            for i in 1 2 3; do adb install -r lexkite.apk && break; echo "install lần $i lỗi"; sleep 15; done
+            adb shell pm list packages | grep -q com.lexkite.app
+            echo 2 > android-rc; timeout 26m node scripts/test/journey-e2e/android.mjs je-android; echo $? > android-rc
+      # qemu tự biến mất giữa chừng (26–27/10 và 13/11: leg ar chết ngay sau khi cài app, host còn ~11 GB) – hạ tầng, không phải kết quả của app: chạy lại ĐÚNG MỘT lần trên emulator mới.
+      # Chỉ lượt "máy ảo chết" mới được chạy lại; mọi lỗi của app (bad khác) giữ nguyên đỏ.
+      - name: Máy ảo chết giữa chừng? → quyết định chạy lại 1 lần
+        id: emudead
+        if: always()
+        run: |
+          lsb_release -ds; uname -r; free -m | head -2
+          if [ -s je-android/results.json ] && grep -q 'emulator mất kết nối' je-android/results.json; then echo '--- dmesg (OOM/qemu bị kill?) ---'; sudo dmesg 2>&1 | grep -iE 'oom|killed process|qemu|segfault|out of memory' | tail -20; echo '--- hết dmesg ---'; fi
+          if [ -s je-android/results.json ] && grep -q 'emulator mất kết nối' je-android/results.json; then echo "retry=1" >> "$GITHUB_OUTPUT"; echo "::warning::emulator chết giữa chừng – chạy lại 1 lần"; mkdir -p crash-1 && cp -r /tmp/android-runner/emu-crash-* crash-1/ 2>/dev/null || true; mv je-android je-android-lan1; else echo "retry=0" >> "$GITHUB_OUTPUT"; fi
+      - name: Emulator + hành trình Android – lần 2 (chỉ khi máy ảo chết ở lần 1)
+        if: steps.emudead.outputs.retry == '1'
+        timeout-minutes: 28
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          profile: pixel_7
+          ram-size: 4096M
+          heap-size: 576M
+          cores: 2
+          disable-animations: true
+          emulator-boot-timeout: 420
+          # leg ar*: emulator (swiftshader_indirect) chết lặp lại ngay khi app vẽ chữ Ả Rập (13/11, kể cả leg ar-kbd không chạy hành trình) → thử GPU phần mềm trong khách `-gpu off`
+          emulator-options: ${{ startsWith(matrix.lang, 'ar') && '-no-window -gpu off -no-snapshot -noaudio -no-boot-anim' || '-no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim' }}
           script: |
             adb wait-for-device
             for i in 1 2 3; do adb install -r lexkite.apk && break; echo "install lần $i lỗi"; sleep 15; done
             adb shell pm list packages | grep -q com.lexkite.app
             echo 2 > android-rc; timeout 26m node scripts/test/journey-e2e/android.mjs je-android; echo $? > android-rc
       - uses: actions/upload-artifact@v4
+        if: always() && steps.emudead.outputs.retry == '1'
+        with: { name: 'emulator-crash-lan1-${{ matrix.lang }}', path: 'crash-1/', retention-days: 7, if-no-files-found: ignore }
+      - uses: actions/upload-artifact@v4
         if: always()
         with: { name: 'journey-android-${{ matrix.lang }}', path: je-android/, retention-days: 7 }
       - name: Kết luận
         if: always()
+        # tạm-không-chặn-tới: 2026-11-20 (issue #1250, owner duyệt 13/11) – CHỈ leg ar-1/ar-2: emulator qemu chết giữa chừng với chữ Ả Rập (cả ubuntu-24.04, dmesg trống; ar-kbd/en/vi/iOS xanh).
+        # scripts/test/ci-policy.mjs báo ĐỎ sau ngày này nếu dòng marker còn ở đây. ar-kbd, en, vi vẫn chặn gate.
+        continue-on-error: ${{ matrix.lang == 'ar-1' || matrix.lang == 'ar-2' }}
         run: |
+          if [ "${{ matrix.lang }}" = ar-1 ] || [ "${{ matrix.lang }}" = ar-2 ]; then echo "::warning::leg ${{ matrix.lang }} TẠM không chặn gate tới 20/11/2026 (issue #1250, owner duyệt 13/11)"; fi
           rc=$(cat android-rc 2>/dev/null || echo 'chưa chạy (emulator không lên / bước bị treo)')
           echo "android rc=$rc"
           test "$rc" = 0
           test -s je-android/results.json
-          node -e "const r=JSON.parse(require('fs').readFileSync('je-android/results.json'));console.log('bước đã chạy:',r.ran);process.exit(r.ran>=6&&!r.bad.length?0:1)"
+          node -e "const r=JSON.parse(require('fs').readFileSync('je-android/results.json'));console.log('bước đã chạy:',r.ran);process.exit((r.ran>=+(process.env.JE_MIN_RAN||6)||process.env.JE_ONLY_KBD==='1')&&!r.bad.length?0:1)"
 
   ios:
     if: ${{ (inputs.native == '1') && needs.gate.outputs.go == 'true' }}

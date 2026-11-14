@@ -50,6 +50,13 @@ jobs:
             DEVELOPMENT_TEAM="$TEAM" MARKETING_VERSION="${VER:-1.0}" CURRENT_PROJECT_VERSION="$GITHUB_RUN_NUMBER" DEBUG_INFORMATION_FORMAT=dwarf-with-dsym \
             archive | tail -60
           test -d "$RUNNER_TEMP/Lexkite.xcarchive"
+      - name: Máy gác dung lượng bản archive (không đóng trang SEO theo ngôn ngữ; ghi dung lượng www)
+        run: |
+          W=$(find "$RUNNER_TEMP/Lexkite.xcarchive/Products/Applications/App.app" -maxdepth 2 -name public -type d | head -1); [ -n "$W" ] || { echo "::error::Không thấy thư mục public (www) trong App.app"; exit 1; }
+          BAD=$(find "$W" -mindepth 2 -maxdepth 2 -type d \( -path "$W/ar/*" -o -path "$W/de/*" -o -path "$W/en/*" -o -path "$W/es/*" -o -path "$W/fr/*" -o -path "$W/hi/*" -o -path "$W/id/*" -o -path "$W/ja/*" -o -path "$W/ko/*" -o -path "$W/pt/*" -o -path "$W/ru/*" -o -path "$W/th/*" -o -path "$W/tr/*" -o -path "$W/vi/*" -o -path "$W/zh/*" \) | head -3)
+          [ -z "$BAD" ] || { echo "$BAD"; echo "::error::App.app chứa dist/<mã ngôn ngữ>/<thư mục> (trang SEO) – build-mobile.sh LANG_EX bị bỏ?"; exit 1; }
+          KB=$(du -sk "$W" | cut -f1); echo "public (www) = $((KB/1024)) MB (chưa nén)"; echo "✓ App.app/public = $((KB/1024)) MB chưa nén, không có trang SEO theo ngôn ngữ" >> "$GITHUB_STEP_SUMMARY"
+          [ "$KB" -le 307200 ] || { echo "::error::public $((KB/1024)) MB > 300 MB"; exit 1; }
       - name: Kiểm entitlements bản archive (Sign in with Apple, App Groups)
         run: |
           APP="$RUNNER_TEMP/Lexkite.xcarchive/Products/Applications/App.app"
