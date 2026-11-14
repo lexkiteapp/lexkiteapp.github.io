@@ -102,4 +102,5 @@
 "Không dùng mic: nghe và đọc to theo, không chấm điểm.": "No mic: listen and read aloud along; nothing is scored.",
 "Đã nói theo": "I said it",
 "Không dùng được mic – chuyển sang nghe và đọc theo.": "The mic is not available – switching to listen-and-read-along.",
+"Âm tiếp theo": "Next sound",
 }); })(typeof self !== 'undefined' ? self : this);
