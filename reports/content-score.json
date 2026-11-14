@@ -1,65 +1,65 @@
 {
- "total": 61.5,
+ "total": 69,
  "areas": {
   "vocab": {
    "name": "Kho từ",
-   "score": 54.7,
-   "coverage": 54.7,
+   "score": 58.6,
+   "coverage": 58.6,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "từ#loại duy nhất",
-     "have": 9775,
+     "have": 10201,
      "std": 20000,
      "w": 25,
      "future": false
     },
     {
      "k": "IPA·nghĩa·định nghĩa·ví dụ·CEFR",
-     "have": 9775,
-     "std": 9775,
+     "have": 10201,
+     "std": 10201,
      "w": 20,
      "future": false
     },
     {
      "k": "collocation",
-     "have": 4818,
+     "have": 4979,
      "std": 20000,
      "w": 12,
      "future": false
     },
     {
      "k": "đồng nghĩa",
-     "have": 2923,
+     "have": 3081,
      "std": 20000,
      "w": 8,
      "future": false
     },
     {
      "k": "IPA Mỹ",
-     "have": 6486,
+     "have": 6822,
      "std": 20000,
      "w": 5,
      "future": false
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 7481,
+     "have": 7920,
      "std": 20000,
      "w": 15,
      "future": false
     },
     {
      "k": "C2",
-     "have": 685,
+     "have": 969,
      "std": 1000,
      "w": 10,
      "future": false
     },
     {
      "k": "A1",
-     "have": 862,
+     "have": 868,
      "std": 1000,
      "w": 5,
      "future": false
@@ -68,14 +68,14 @@
   },
   "grammar": {
    "name": "Ngữ pháp",
-   "score": 54.5,
-   "coverage": 54.5,
+   "score": 72.8,
+   "coverage": 72.8,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "bài A1",
-     "have": 3,
+     "have": 15,
      "std": 15,
      "w": 8,
      "future": false
@@ -110,21 +110,21 @@
     },
     {
      "k": "bài C2",
-     "have": 0,
+     "have": 10,
      "std": 10,
      "w": 8,
      "future": true
     },
     {
      "k": "trắc nghiệm",
-     "have": 1056,
+     "have": 1320,
      "std": 3000,
      "w": 20,
      "future": false
     },
     {
      "k": "tự luận",
-     "have": 1125,
+     "have": 1461,
      "std": 3000,
      "w": 20,
      "future": false
@@ -138,7 +138,7 @@
     },
     {
      "k": "điểm đã có bài đúng cấp",
-     "have": 157,
+     "have": 209,
      "std": 300,
      "w": 12,
      "future": false
@@ -147,8 +147,8 @@
   },
   "comm": {
    "name": "Giao tiếp",
-   "score": 67.7,
-   "coverage": 67.7,
+   "score": 68.3,
+   "coverage": 68.3,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -161,7 +161,7 @@
     },
     {
      "k": "roleplay",
-     "have": 31,
+     "have": 33,
      "std": 60,
      "w": 20,
      "future": false
@@ -191,8 +191,8 @@
   },
   "skills": {
    "name": "4 kỹ năng",
-   "score": 49.2,
-   "coverage": 49.2,
+   "score": 71.7,
+   "coverage": 71.7,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -254,28 +254,28 @@
     },
     {
      "k": "Nói: chủ đề",
-     "have": 32,
+     "have": 60,
      "std": 60,
      "w": 10,
      "future": false
     },
     {
      "k": "Nói: câu trả lời mẫu",
-     "have": 343,
+     "have": 594,
      "std": 600,
      "w": 10,
      "future": false
     },
     {
      "k": "Viết: bài mẫu",
-     "have": 232,
+     "have": 246,
      "std": 400,
      "w": 18,
      "future": false
     },
     {
      "k": "trung gian (mediation)",
-     "have": 2,
+     "have": 30,
      "std": 30,
      "w": 14,
      "future": true
@@ -284,8 +284,8 @@
   },
   "exam": {
    "name": "Đề thi",
-   "score": 31.7,
-   "coverage": 31.7,
+   "score": 45.1,
+   "coverage": 45.1,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -340,35 +340,35 @@
     },
     {
      "k": "TOEIC Speaking & Writing",
-     "have": 60,
+     "have": 78,
      "std": 190,
      "w": 5,
      "future": false
     },
     {
      "k": "TOEFL Reading",
-     "have": 240,
+     "have": 300,
      "std": 500,
      "w": 5,
      "future": false
     },
     {
      "k": "TOEFL Listening",
-     "have": 200,
+     "have": 282,
      "std": 400,
      "w": 5,
      "future": false
     },
     {
      "k": "TOEFL Writing",
-     "have": 100,
+     "have": 104,
      "std": 200,
      "w": 5,
      "future": false
     },
     {
      "k": "TOEFL Speaking",
-     "have": 150,
+     "have": 183,
      "std": 300,
      "w": 5,
      "future": false
@@ -382,28 +382,28 @@
     },
     {
      "k": "Cambridge B1",
-     "have": 0,
+     "have": 3,
      "std": 6,
      "w": 8,
      "future": true
     },
     {
      "k": "Cambridge B2",
-     "have": 0,
+     "have": 3,
      "std": 6,
      "w": 8,
      "future": true
     },
     {
      "k": "Cambridge C1",
-     "have": 0,
+     "have": 1,
      "std": 6,
      "w": 8,
      "future": true
     },
     {
      "k": "Cambridge C2",
-     "have": 0,
+     "have": 1,
      "std": 6,
      "w": 8,
      "future": true
@@ -412,8 +412,8 @@
   },
   "lkf": {
    "name": "Khung Can-do",
-   "score": 80.3,
-   "coverage": 80.3,
+   "score": 81.3,
+   "coverage": 81.3,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -433,14 +433,14 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 10625,
-     "std": 10625,
+     "have": 11170,
+     "std": 11170,
      "w": 35,
      "future": false
     },
     {
      "k": "mục tiêu đã có nội dung luyện",
-     "have": 142,
+     "have": 167,
      "std": 600,
      "w": 25,
      "future": false
@@ -449,14 +449,14 @@
   },
   "learn": {
    "name": "Dễ học – dễ nhớ",
-   "score": 91.5,
-   "coverage": 91.5,
+   "score": 91.4,
+   "coverage": 91.4,
    "pass": 100,
    "errors": 0,
    "parts": [
     {
      "k": "Ngữ pháp",
-     "have": 96.4,
+     "have": 96.9,
      "std": 100,
      "w": 25,
      "future": false
@@ -470,14 +470,14 @@
     },
     {
      "k": "Bộ từ",
-     "have": 74.3,
+     "have": 74.1,
      "std": 100,
      "w": 25,
      "future": false
     },
     {
      "k": "Kỹ năng",
-     "have": 95.4,
+     "have": 94.5,
      "std": 100,
      "w": 25,
      "future": false
@@ -500,7 +500,7 @@
     },
     {
      "k": "nhãn ngắn dịch tay",
-     "have": 12.4,
+     "have": 12.3,
      "std": 13,
      "w": 10,
      "future": false
@@ -522,5 +522,7 @@
    ]
   }
  },
- "fails": []
+ "fails": [
+  "Dễ học – dễ nhớ: 91.4 < sàn 91.7 (điểm giảm)"
+ ]
 }
