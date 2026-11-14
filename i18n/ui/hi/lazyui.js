@@ -36,7 +36,7 @@
 "Band TOEFL mục tiêu?":"आपका लक्ष्य TOEFL बैंड?",
 "Band mục tiêu của bạn?":"आपका लक्ष्य बैंड क्या है?",
 "Band đầu vào {band}":"आरंभिक बैंड {band}",
-"Beta":"Beta",
+"Beta":"बीटा",
 "Biết nói gì khi gọi điện, nhờ giúp, xin lỗi… – 3 mức trang trọng, câu đáp, hội thoại mẫu.":"फ़ोन करते, मदद माँगते या माफ़ी माँगते समय क्या कहें – तीन स्तरों में, जवाबों और एक नमूना बातचीत के साथ।",
 "Biểu đồ đường":"रेखा ग्राफ़",
 "Business Service List: từ vựng công việc, văn phòng, kinh doanh hay gặp trong TOEIC":"व्यवसाय सेवा सूची: TOEIC में सामान्य कार्य, कार्यालय और व्यवसाय शब्दावली",
