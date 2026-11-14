@@ -1287,6 +1287,20 @@
    "lease": false
   },
   {
+   "id": "funnel-digest",
+   "workflow": "funnel-digest.yml",
+   "cron": [
+    "5 1 * * *"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 1,
+   "lease": false,
+   "_note": "14/11: tóm tắt phễu tăng trưởng 1 tin/ngày (08:05 VN) → issue growth-funnel; 1 GET /api/funnel-digest (chỉ đọc D1, đệm), không ghi"
+  },
+  {
    "id": "ci-queue-report",
    "workflow": "ci-queue-report.yml",
    "cron": [
