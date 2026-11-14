@@ -3,7 +3,7 @@
 name: Perf profile
 on:
   workflow_dispatch:
-    inputs: { route: { description: 'route (vd. path, home)', default: 'path' } }
+    inputs: { route: { description: 'route (vd. path, home)', default: 'path' }, tap: { description: 'thêm hồ sơ tương tác INP (chạm đáp án quiz, vd. route practice/mcq?src=topic:education)', type: boolean, default: false } }
   push:
     branches: ['perf-**']
     paths: ['web/js/**', 'web/app/**', 'scripts/test/profile-route.mjs', '.github/workflows/perf-profile.yml']
@@ -29,4 +29,4 @@ jobs:
           rm -rf out/site && mkdir -p out && cp -R web out/site && rm -rf out/site/audio
           node scripts/app-loader.mjs out/site/app/index.html
           (node scripts/test/serve-web.mjs out/site 8080 >/dev/null 2>&1 &) ; sleep 1
-          node scripts/test/profile-route.mjs http://localhost:8080 "${{ inputs.route || 'path' }}" 1
+          TAP=${{ inputs.tap && '1' || '' }} node scripts/test/profile-route.mjs http://localhost:8080 "${{ inputs.route || 'path' }}" 1
