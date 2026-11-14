@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_where_do",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Questions need do.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Where you live?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Where do you live?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Questions need do after where.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Do! What do you eat?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Where you live?",
+  "right": "Where do you live?",
+  "strike": "Where you",
+  "why": "Questions need do after where.",
+  "memory": "Where do you...?",
+  "quiz": {
+   "stem": "What ___ you eat?",
+   "options": [
+    "do",
+    "are"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Câu hỏi thiếu “do”!",
+   "tip": "Tiếng Anh cần trợ động từ “do” trong câu hỏi. Tiếng Việt chỉ đổi giọng.",
+   "caption": "Bạn có hay nói “Where you live?” không? 😅 Câu hỏi cần thêm “do”: “Where do you live?” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “do”. Hỏi bạn bè một câu bắt đầu bằng “Where do you…” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Questions are missing “do”!",
+   "tip": "English questions need “do”. Vietnamese just changes the tone.",
+   "caption": "Do you often say “Where you live?”? Questions need “do”: “Where do you live?” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Câu hỏi thiếu “do”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "Câu hỏi thiếu “do”!",
+  "keyword": "Where do you live?",
+  "value": "Tiếng Anh cần trợ động từ “do” trong câu hỏi. Tiếng Việt chỉ đổi giọng.",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "Câu hỏi thiếu “do”!",
+    "description": "Bạn có hay nói “Where you live?” không? 😅 Câu hỏi cần thêm “do”: “Where do you live?” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "Where do you live?",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “Where you live?” không? 😅 Câu hỏi cần thêm “do”: “Where do you live?” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Bạn có hay nói “Where you live?” không? 😅 Câu hỏi cần thêm “do”: “Where do you live?” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Câu hỏi thiếu “do”! #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “do”. Hỏi bạn bè một câu bắt đầu bằng “Where do you…” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

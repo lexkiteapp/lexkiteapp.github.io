@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_since",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Since needs have lived!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I live here since 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have lived here since 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Since needs have plus a verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Have lived! I have lived here since 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I live here since 2020.",
+  "right": "I have lived here since 2020.",
+  "strike": "live",
+  "why": "Since needs have plus a verb.",
+  "memory": "Have lived since.",
+  "quiz": {
+   "stem": "I ___ here since 2020.",
+   "options": [
+    "live",
+    "have lived"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "since 앞엔 현재완료예요!",
+   "tip": "since와 함께는 현재완료! “I have lived here since 2020”이에요.",
+   "caption": "“I live here since 2020”라고 말하고 있나요? 😅 since가 나오면 과거부터 지금까지를 뜻해서 현재완료를 써요. “I have lived here since 2020”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “have lived”. since엔 have lived! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Use present perfect with since!",
+   "tip": "Use present perfect with since. Say “I have lived here since 2020”.",
+   "caption": "Do you say “I live here since 2020”? 😅 Since means from then until now, so use the present perfect. “I have lived here since 2020” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "since 앞엔 현재완료예요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 49,
+  "seconds": 29.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "since 앞엔 현재완료예요!",
+  "keyword": "I have lived here since 2020.",
+  "value": "since와 함께는 현재완료! “I have lived here since 2020”이에요.",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "since 앞엔 현재완료예요!",
+    "description": "“I live here since 2020”라고 말하고 있나요? 😅 since가 나오면 과거부터 지금까지를 뜻해서 현재완료를 써요. “I have lived here since 2020”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I have lived here since 2020.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I live here since 2020”라고 말하고 있나요? 😅 since가 나오면 과거부터 지금까지를 뜻해서 현재완료를 써요. “I have lived here since 2020”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I live here since 2020”라고 말하고 있나요? 😅 since가 나오면 과거부터 지금까지를 뜻해서 현재완료를 써요. “I have lived here since 2020”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "since 앞엔 현재완료예요! #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “have lived”. since엔 have lived! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "lang": "ko"
+ }
+}

@@ -16,7 +16,7 @@ concurrency: { group: 'word-audio-tl-${{ github.ref }}-${{ github.event.inputs.t
 jobs:
   sample:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.label.name == 'word-audio-pt' || github.event.label.name == 'word-audio-es' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 60
     env:
       TL: "${{ github.event.inputs.tl || (github.event.label.name == 'word-audio-es' && 'es') || 'pt' }}"

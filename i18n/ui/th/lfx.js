@@ -1,3 +1,32 @@
-/* UI th – lfx (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["th"] = Object.assign(D["th"] || {}, {"{n} đúng liền":"ถูกติดกัน {n} ข้อ","Tỉ lệ đúng":"ความแม่นยำ","{n} câu đúng liền!":"ตอบถูกติดกัน {n} ข้อ!","Câu khó · +{n} XP":"ข้อยาก · +{n} XP","Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"ดูเหมือนจะง่ายเกินไปสำหรับคุณ ลองข้อที่ยากขึ้น (พิมพ์แทนการเลือก) เพื่อรับ XP เพิ่มไหม?","Thử mức khó":"ยากขึ้น","Giữ mức này":"ระดับเดิม","Đúng rồi – chỉ sai chính tả nhỏ":"ถูกต้อง – แค่พิมพ์ผิดเล็กน้อย","Viết đúng là: {a}":"สะกดที่ถูกต้อง: {a}","Ẩn giải thích":"ซ่อนคำอธิบาย","Không trượt câu nào – Kit phải ngả mũ!":"ไม่พลาดสักข้อ – Kit ขอยกนิ้วให้!","Tuyệt đối 100%! Bộ não bạn đang chạy hết công suất.":"100% เต็ม! สมองของคุณทำงานเต็มกำลัง","Phong độ rất cao hôm nay!":"วันนี้ฟอร์มดีสุด ๆ!","Gần như hoàn hảo – chỉ còn chút xíu nữa!":"เกือบสมบูรณ์แบบ – อีกนิดเดียว!","Đang lên tay rồi đấy!":"กำลังเข้าที่เลย!","Câu sai hôm nay là điểm cộng ngày mai.":"ข้อที่พลาดวันนี้คือชัยชนะของพรุ่งนี้","Kết quả lượt học":"ผลการเรียนรอบนี้","Chuỗi dài nhất":"ติดกันสูงสุด","Khoe kết quả":"แชร์ผลลัพธ์","Tắt âm thanh 15 phút":"ปิดเสียง 15 นาที","Tắt micro 15 phút":"ปิดไมค์ 15 นาที","Đã tạm tắt bài nghe 15 phút – câu nghe đổi sang dạng gõ nghĩa.":"หยุดการฟัง 15 นาที – ข้อเสียงจะเปลี่ยนเป็นข้อพิมพ์","Đã tạm tắt bài nói 15 phút – làm trắc nghiệm nghĩa thay thế.":"หยุดการพูด 15 นาที – ทำแบบทดสอบความหมายแทน","Bật lại":"เปิดอีกครั้ง","Cần gợi ý?":"ต้องการคำใบ้ไหม?","Thêm gợi ý":"คำใบ้เพิ่ม","Hiện bản dịch":"แสดงคำแปล","Ẩn bản dịch":"ซ่อนคำแปล"});
+/* UI th – lfx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["th"] = Object.assign(D["th"] || {}, {
+"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"ดูเหมือนจะง่ายเกินไปสำหรับคุณ ลองข้อที่ยากขึ้น (พิมพ์แทนการเลือก) เพื่อรับ XP เพิ่มไหม?",
+"Bật lại":"เปิดอีกครั้ง",
+"Chuỗi dài nhất":"ติดกันสูงสุด",
+"Câu khó · +{n} XP":"ข้อยาก · +{n} XP",
+"Câu sai hôm nay là điểm cộng ngày mai.":"ข้อที่พลาดวันนี้คือชัยชนะของพรุ่งนี้",
+"Cần gợi ý?":"ต้องการคำใบ้ไหม?",
+"Giữ mức này":"ระดับเดิม",
+"Gần như hoàn hảo – chỉ còn chút xíu nữa!":"เกือบสมบูรณ์แบบ – อีกนิดเดียว!",
+"Hiện bản dịch":"แสดงคำแปล",
+"Khoe kết quả":"แชร์ผลลัพธ์",
+"Không trượt câu nào – Kit phải ngả mũ!":"ไม่พลาดสักข้อ – Kit ขอยกนิ้วให้!",
+"Kết quả lượt học":"ผลการเรียนรอบนี้",
+"Phong độ rất cao hôm nay!":"วันนี้ฟอร์มดีสุด ๆ!",
+"Thêm gợi ý":"คำใบ้เพิ่ม",
+"Thử mức khó":"ยากขึ้น",
+"Tuyệt đối 100%! Bộ não bạn đang chạy hết công suất.":"100% เต็ม! สมองของคุณทำงานเต็มกำลัง",
+"Tắt micro 15 phút":"ปิดไมค์ 15 นาที",
+"Tắt âm thanh 15 phút":"ปิดเสียง 15 นาที",
+"Tỉ lệ đúng":"ความแม่นยำ",
+"Viết đúng là: {a}":"สะกดที่ถูกต้อง: {a}",
+"{n} câu đúng liền!":"ตอบถูกติดกัน {n} ข้อ!",
+"{n} đúng liền":"ถูกติดกัน {n} ข้อ",
+"Đang lên tay rồi đấy!":"กำลังเข้าที่เลย!",
+"Đã tạm tắt bài nghe 15 phút – câu nghe đổi sang dạng gõ nghĩa.":"หยุดการฟัง 15 นาที – ข้อเสียงจะเปลี่ยนเป็นข้อพิมพ์",
+"Đã tạm tắt bài nói 15 phút – làm trắc nghiệm nghĩa thay thế.":"หยุดการพูด 15 นาที – ทำแบบทดสอบความหมายแทน",
+"Đúng rồi – chỉ sai chính tả nhỏ":"ถูกต้อง – แค่พิมพ์ผิดเล็กน้อย",
+"Ẩn bản dịch":"ซ่อนคำแปล",
+"Ẩn giải thích":"ซ่อนคำอธิบาย",
+});
 })(typeof self !== 'undefined' ? self : this);

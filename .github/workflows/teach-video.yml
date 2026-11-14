@@ -9,11 +9,12 @@ on:
   workflow_dispatch:
     inputs:
       eps: { description: 'comma list of episode ids (content/video/teach2d/eps), empty = shards / pilots', default: '' }
+      batch: { description: 'optional batch id (own concurrency group; default = run id, so parallel dispatches never cancel each other)', default: '' }
       shards: { description: 'render the next N gated episodes not yet in bank.json (gen.py --todo; ci-filler fills idle runners with this), 0 = pilots', default: '0' }
   pull_request:
     paths: ['scripts/video/teach2d/**', 'scripts/video/teach2d/rig_host.mjs', 'web/js/teacher-rig.js', 'web/js/call/**', 'web/js/characters.js', 'scripts/test/teach2d-rig.mjs', 'scripts/media/origin.py', 'scripts/cine/publish_meta.py', 'brand/library/sfx/**', 'scripts/video/synth.mjs', 'web/teach/characters.json', 'scripts/test/media-origin.py', 'scripts/ci/shards.mjs', 'scripts/lib/i18n-rules.mjs', 'scripts/video/remotion/src/teach/**', 'content/video/teach2d/**', '.github/workflows/teach-video.yml']
 permissions: { contents: read, actions: read }   # actions: read = count busy runners (scripts/ci/shards.mjs)
-concurrency: { group: 'teach-video-${{ github.ref }}-${{ github.event_name }}', cancel-in-progress: "${{ github.event_name == 'pull_request' || github.ref != 'refs/heads/main' }}" }   # a batch on main is never cancelled by the next one (it queues); on a branch the newest sample run wins (5/11: an old run held the slot for hours)
+concurrency: { group: "${{ github.event_name == 'workflow_dispatch' && format('teach-video-batch-{0}', github.event.inputs.batch || github.run_id) || format('teach-video-{0}-{1}', github.ref, github.event_name) }}", cancel-in-progress: "${{ github.event_name == 'pull_request' }}" }   # 12/11: GitHub keeps ONE pending run per group and cancels the older pending one – 3 of 4 dispatches vanished silently. Every dispatch now has its own group (batch id or run id) and is never cancelled; PR smoke runs: newest wins (5/11)
 jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha – đỏ/chưa xong thì mọi job dưới là skipped
   # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
@@ -35,7 +36,7 @@ jobs:
   preqc:   # gate 1 (seconds): generator self-checks, reviewed script == spec, motion parity
     needs: gate
     if: needs.gate.outputs.go == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 5
     outputs: { list: '${{ steps.m.outputs.list }}', par: '${{ steps.p.outputs.par }}' }
     steps:
@@ -64,15 +65,15 @@ jobs:
       - run: node scripts/test/motion-core.mjs
       - run: node scripts/test/teach2d-rig.mjs   # rig host plan + lipsync_rig gate on the core rig (no browser) + stress-label regression
       - run: python3 scripts/test/media-origin.py   # pictures from GitHub origins, Worker last (2/11 429)
-      - id: p   # free runners, not a fixed 10/12 (owner 2/11: use idle CI for video): min(24, 40 - busy - 8), 8 kept for PR checks
+      - id: p   # owner 13/11: video ≤3 runners in total while other CI work runs; CI idle → all free runners (min(24, 40 - busy - 8)); scripts/ci/shards.mjs --video
         env: { GITHUB_TOKEN: '${{ github.token }}' }
-        run: echo "par=$(node scripts/ci/shards.mjs --left 48 --per 1 --cap 24 | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
+        run: echo "par=$(node scripts/ci/shards.mjs --left 48 --per 1 --cap 24 --video | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
       - id: m   # a batch takes only what the free runners finish in ~1.5 h (4 episodes per runner); ci-filler dispatches the next slice
         run: echo "list=$(python3 scripts/video/teach2d/gen.py --pick '${{ github.event.inputs.eps }}' '${{ github.event.inputs.shards }}' '${{ github.event_name }}' ${{ steps.p.outputs.par }})" >> "$GITHUB_OUTPUT"   # batch = facts re-verified live (gen.py --verify), not yet banked
   voice:
     needs: [preqc, gate]
     if: needs.gate.outputs.go == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 25
     strategy: { fail-fast: false, max-parallel: '${{ fromJSON(needs.preqc.outputs.par) }}', matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}' } }
     steps:
@@ -106,7 +107,7 @@ jobs:
   par:   # count free runners again before the render matrix (preqc's count is an hour old in a busy queue; 2/11 run 41380206879 was stuck at 1)
     needs: [preqc, voice, gate]
     if: ${{ (!cancelled() && needs.preqc.result == 'success') && needs.gate.outputs.go == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 3
     outputs: { par: '${{ steps.p.outputs.par }}' }
     steps:
@@ -115,11 +116,11 @@ jobs:
       - uses: ./.github/actions/no-prod   # chặn DNS host prod (scripts/test/no-prod-hosts.mjs, #409)
       - id: p
         env: { GITHUB_TOKEN: '${{ github.token }}' }
-        run: echo "par=$(node scripts/ci/shards.mjs --left $(( $(echo '${{ needs.preqc.outputs.list }}' | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))') * 2 )) --per 1 --cap 24 | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
+        run: echo "par=$(node scripts/ci/shards.mjs --left $(( $(echo '${{ needs.preqc.outputs.list }}' | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))') * 2 )) --per 1 --cap 24 --video | python3 -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
   render:   # one red voice job no longer skips the whole batch: that episode's render fails on its missing voice artifact, the rest render
     needs: [preqc, voice, par, gate]
     if: ${{ (!cancelled() && needs.preqc.result == 'success' && needs.par.result == 'success') && needs.gate.outputs.go == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 60
     strategy: { fail-fast: false, max-parallel: '${{ fromJSON(needs.par.outputs.par) }}', matrix: { ep: '${{ fromJSON(needs.preqc.outputs.list) }}', fmt: [short, wide] } }
     env: { O: 'out/${{ matrix.ep }}/${{ matrix.fmt }}', E: 'content/video/teach2d/eps/${{ matrix.ep }}.json', MEDIA_ORIGIN_ONLY: '1' }   # pictures from the GitHub origins only, never media.lexkite.com (Workers cap)
@@ -206,7 +207,7 @@ jobs:
   embed:   # in-app embed preview screenshots (light + dark, phone + desktop) of every 16:9 lesson video
     needs: [render, gate]
     if: ${{ !cancelled() && contains(fromJSON('["success","failure"]'), needs.render.result) && needs.gate.outputs.go == 'true' }}   # nothing rendered (preqc red -> render skipped) = nothing to screenshot; never hold a runner / the concurrency slot
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 45   # 4 screenshots per episode; a 120-episode batch takes ~25 min
     steps:
       - uses: actions/checkout@v4
@@ -244,7 +245,7 @@ jobs:
   sheet:   # one review sheet: every episode's frames + QC score, both themes; then the bank (only QC >= 90 with every gate green)
     needs: [preqc, render, embed, gate]
     if: ${{ !cancelled() && contains(fromJSON('["success","failure"]'), needs.render.result) && needs.gate.outputs.go == 'true' }}   # no render (preqc red) -> no sheet, no runner held
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4

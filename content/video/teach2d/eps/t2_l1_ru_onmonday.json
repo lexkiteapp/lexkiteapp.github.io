@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_onmonday",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "In or on?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I see him in Monday.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I see him on Monday.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Days go with on.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! The class is on Monday.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I see him in Monday.",
+  "right": "I see him on Monday.",
+  "strike": "in",
+  "why": "Days go with on.",
+  "memory": "On Monday.",
+  "quiz": {
+   "stem": "The class is ___ Monday.",
+   "options": [
+    "in",
+    "on"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“In Monday” — ошибка!",
+   "tip": "Перед днём недели ставим on: “on Monday”.",
+   "caption": "Ты тоже говоришь “I see him in Monday.”? 😅 По-русски «в понедельник», и в английском хочется “in”. Но дни недели идут с “on”. Правильно: “I see him on Monday.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “on”. Дни недели — с on. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "In or on?",
+   "tip": "Before a day, use “on”: “on Monday”.",
+   "caption": "Do you also say “I see him in Monday.”? 😅 In Russian it is “v ponedel'nik”, so “in” sneaks in. Days go with “on”. Correct: “I see him on Monday.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“In Monday” — ошибка!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“In Monday” — ошибка!",
+  "keyword": "I see him on Monday.",
+  "value": "Перед днём недели ставим on: “on Monday”.",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“In Monday” — ошибка!",
+    "description": "Ты тоже говоришь “I see him in Monday.”? 😅 По-русски «в понедельник», и в английском хочется “in”. Но дни недели идут с “on”. Правильно: “I see him on Monday.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "I see him on Monday.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I see him in Monday.”? 😅 По-русски «в понедельник», и в английском хочется “in”. Но дни недели идут с “on”. Правильно: “I see him on Monday.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Ты тоже говоришь “I see him in Monday.”? 😅 По-русски «в понедельник», и в английском хочется “in”. Но дни недели идут с “on”. Правильно: “I see him on Monday.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“In Monday” — ошибка! #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “on”. Дни недели — с on. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

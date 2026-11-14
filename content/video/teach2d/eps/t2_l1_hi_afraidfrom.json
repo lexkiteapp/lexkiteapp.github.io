@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_afraidfrom",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Afraid of!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am afraid from dogs.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am afraid of dogs.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Afraid takes of.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Of! She is afraid of spiders.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am afraid from dogs.",
+  "right": "I am afraid of dogs.",
+  "strike": "from",
+  "why": "Afraid takes of.",
+  "memory": "Afraid of.",
+  "quiz": {
+   "stem": "She is afraid ___ spiders.",
+   "options": [
+    "of",
+    "from"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“afraid from” नहीं, “afraid of”",
+   "tip": "हिंदी के “कुत्तों से डर” की नकल में from न बोलें; अंग्रेज़ी में “afraid of” कहें।",
+   "caption": "क्या आप भी कहते हैं “I am afraid from dogs”? 😉 अंग्रेज़ी में “I am afraid of dogs” सही है, क्योंकि afraid के बाद of आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “of”। from की जगह of बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “afraid from”, but “afraid of”",
+   "tip": "Do not copy the Hindi “kutton se darr” with from; say “afraid of”.",
+   "caption": "Do you say “I am afraid from dogs”? 😉 In English “I am afraid of dogs” is right, because afraid takes of. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“afraid from” नहीं, “afraid of”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "“afraid from” नहीं, “afraid of”",
+  "keyword": "I am afraid of dogs.",
+  "value": "हिंदी के “कुत्तों से डर” की नकल में from न बोलें; अंग्रेज़ी में “afraid of” कहें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "“afraid from” नहीं, “afraid of”",
+    "description": "क्या आप भी कहते हैं “I am afraid from dogs”? 😉 अंग्रेज़ी में “I am afraid of dogs” सही है, क्योंकि afraid के बाद of आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I am afraid of dogs.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “I am afraid from dogs”? 😉 अंग्रेज़ी में “I am afraid of dogs” सही है, क्योंकि afraid के बाद of आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “I am afraid from dogs”? 😉 अंग्रेज़ी में “I am afraid of dogs” सही है, क्योंकि afraid के बाद of आता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“afraid from” नहीं, “afraid of” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “of”। from की जगह of बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

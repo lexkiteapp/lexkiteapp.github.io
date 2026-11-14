@@ -78,7 +78,7 @@
   const box = (k, open) => { const s = tip(k); return s ? `<details class="qtip"${open ? ' open' : ''}><summary>💡 ${t('Mẹo làm bài')}${NAME[k] ? ` · <span translate="no">${esc(NAME[k])}</span>` : ''}</summary><p>${esc(s)}</p></details>` : ''; };
 
   // ---------- Ghi nhận tiến bộ: state.game.qstat['<kỹ năng>:<dạng>'] = { r: đúng, t: tổng, s: giây, d: lần cuối } ----------
-  const SKILL = () => ({ il: ['🎧', 'IELTS Listening', '#/listening'], ir: ['📖', 'IELTS Reading', '#/rtype'], tl: ['🎧', 'TOEIC Listening', '#/toeic'], tr: ['📖', 'TOEIC Reading', '#/toeic'], fr: ['📖', 'TOEFL Reading', '#/toefl'], fl: ['🎧', 'TOEFL Listening', '#/toefl'], fw: ['✍️', 'TOEFL Writing', '#/toefl'] });
+  const SKILL = () => ({ il: ['🎧', 'IELTS Listening', '#/listening'], ir: ['📖', 'IELTS Reading', '#/rtype'], tl: ['🎧', 'TOEIC Listening', '#/toeic'], tr: ['📖', 'TOEIC Reading', '#/toeic'], fr: ['📖', 'TOEFL Reading', '#/toefl'], fl: ['🎧', 'TOEFL Listening', '#/toefl'], fw: ['✍️', 'TOEFL Writing', '#/toefl'], cb: ['🎓', 'Cambridge English', '#/cambridge'] });
   const RT = { notes: 'completion', rnotes: 'completion', summary: 'completion', sentence: 'completion', tfng: 'tfng', ynng: 'ynng', mcq: 'mcq', multi: 'multi', headings: 'headings', info: 'info', features: 'features', endings: 'features' };
   const practiceLink = (sk, k) => sk === 'ir' && RT[k] ? '#/rtype/' + RT[k] : sk[0] === 'f' && NAME[k] ? '#/toefl-p/' + (k === 'sentenceB' ? 'sentence' : k) : SKILL()[sk][2];
   // Thời gian làm: từ lúc QE.bind (data-qe-t0) tới lúc chấm, chặn 0–3 giờ

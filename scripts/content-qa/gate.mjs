@@ -66,7 +66,7 @@ for (const r of K.READINGS || []) {
   if (!lvOk(r.level)) C('reading', 'cefr', r.id);
   for (const [i, q] of (r.questions || []).entries()) if (q.answer == null || !q.explain) C('reading', 'schema', `${r.id}#${i}`);
 }
-{ const g = {}; g.self = g; g.window = g; vm.createContext(g); for (const f of ['sounds', 'skills']) vm.runInContext(fs.readFileSync(P('web/js/pron', f + '.js'), 'utf8'), g);
+{ const g = {}; g.self = g; g.window = g; vm.createContext(g); for (const f of ['web/js/pron/sounds.js', 'web/cpack/pron/skills.js']) vm.runInContext(fs.readFileSync(P(f), 'utf8'), g);
   for (const x of g.PRON || []) { if (!lvOk(x.level)) C('pron', 'cefr', x.id); for (const w of (x.words || []).map(v => v.w || v)) if (typeof w === 'string' && /^[a-z]+$/i.test(w) && !known(w)) C('pron', 'lexicon', `${x.id}:${w}`); } }
 
 // ---------- Cách dùng từ: cặp ✗/✓ + đối chiếu kho từ + độ phủ ghi chú ----------
@@ -153,7 +153,7 @@ if (!/op":"hidden"/.test(fs.readFileSync(P('web/js/explain-card.js'), 'utf8')) |
 // ---------- Lời giải đề thi dịch sẵn (web/i18n/explain/<lang>.json – bot dịch đêm): QA dịch, lỗi CŨ theo ngôn ngữ ----------
 { const en = J('web/i18n/explain/en.json');
   for (const l of LANGS.filter(l => l !== 'en')) { const f = `web/i18n/explain/${l}.json`; if (!ex(f)) continue; const d = J(f);
-    for (const [k, v] of Object.entries(d)) { const is = trIssues(en[k] || '', v, l); for (const i of is) C('explain-i18n', `${l}:${i}`, k); } } }
+    for (const [k, v] of Object.entries(d)) { if (!en[k]) continue; /* chưa có bản en (đang chờ dịch/viết tay) → không có gì để so, tránh báo số 'không khớp' giả (13/11) */ const is = trIssues(en[k], v, l); for (const i of is) C('explain-i18n', `${l}:${i}`, k); } } }
 
 // ---------- Lô nội dung (content/qa/batches/*.json): kiểm mẫu ≥ 5%, sai ≤ 2% – lỗi CỨNG ----------
 if (ex('content/qa/batches')) for (const f of fs.readdirSync(P('content/qa/batches')).filter(f => f.endsWith('.json'))) {
