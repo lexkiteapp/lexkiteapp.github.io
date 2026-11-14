@@ -414,4 +414,5 @@ node scripts/test/yt-stats.mjs
 node scripts/test/yt-stats-op.mjs
 node scripts/test/social-stats-ui.mjs
 node scripts/test/l1-notes.mjs
+node scripts/test/qengine-flag.mjs
 node scripts/test/es-native-bundle.mjs
