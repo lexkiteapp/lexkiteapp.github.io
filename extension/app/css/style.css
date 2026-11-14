@@ -624,7 +624,7 @@ html { scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px)); }
 @media (hover: hover) { .tl:hover { background: rgba(229, 80, 47, .06); } }
 .tl.now { background: rgba(229, 80, 47, .14); box-shadow: inset 3px 0 0 var(--brand, #E5502F); }
 .tl.say { color: var(--muted); font-size: .9rem; }
-.tl .spk { display: inline-block; font-weight: 800; font-size: .78rem; color: var(--brand, #E5502F); margin-right: .45rem; text-transform: uppercase; letter-spacing: .02em; }
+.tl .spk { display: inline-block; font-weight: 800; font-size: .78rem; color: var(--primary-text); margin-right: .45rem; text-transform: uppercase; letter-spacing: .02em; }
 .tl .evn { display: inline-block; margin-left: .4rem; font-size: .7rem; font-weight: 800; background: #facc15; color: #422006; border-radius: 99px; padding: .05rem .45rem; }
 /* .lq-* (câu hỏi đề nghe/đọc) nằm trong js/qengine.js – tải lười cùng gói đề, không tính vào khung app */
 .qn { display: inline-grid; place-items: center; min-width: 1.6rem; height: 1.6rem; padding: 0 .3rem; border-radius: 7px; background: var(--text, #111); color: var(--bg, #fff); font-weight: 800; font-size: .78rem; margin: 0 .35rem; }
