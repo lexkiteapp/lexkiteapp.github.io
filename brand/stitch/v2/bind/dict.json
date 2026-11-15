@@ -52,9 +52,8 @@
   },
   ":scope > main > div > div:nth-child(1) > div:nth-child(1) > span": {
    "id": "'qGo'",
-   "role": "'button'",
-   "tabindex": "'0'",
-   "aria-label": "d.goL"
+   "tabindex": "'-1'",
+   "aria-hidden": "'true'"
   },
   ":scope > main > div > div:nth-child(1) > div:nth-child(1) > button": {
    "id": "'qClear'",
@@ -118,7 +117,8 @@
      "attr": {
       ":scope > div:nth-child(1) > button": {
        "id": "'recClear'",
-       "type": "'button'"
+       "type": "'button'",
+       "aria-label": "d.recentL + ' · ' + d.recClearL"
       }
      },
      "cls": {
@@ -226,6 +226,9 @@
   },
   ":scope > main > div > div:nth-child(1) > div:nth-child(1) > span": {
    "left-3.5": "''"
+  },
+  ":scope > main > div > div:nth-child(1) > div:nth-child(1) > input": {
+   "focus:outline-none": "''"
   }
  },
  "styles": true,
