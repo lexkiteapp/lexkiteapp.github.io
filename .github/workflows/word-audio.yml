@@ -85,6 +85,9 @@ jobs:
         with: { node-version: 22 }
       - uses: actions/download-artifact@v4
         with: { pattern: 'wa-*', merge-multiple: true, path: . }
+      - uses: ./.github/actions/setup-ffmpeg
+      - name: Chuẩn hoá độ to (−16 LUFS, đỉnh ≤ −1 dBTP – scripts/audio/norm.mjs; lệch chuẩn → không đẩy)
+        run: '[ ! -d .media-out/audio/w ] || node scripts/audio/loudness.mjs normalize .media-out/audio/w'
       - name: Gộp kết quả → s3.tsv + index.txt
         run: ls .wa-res/ && node scripts/word-audio/merge.mjs .wa-res/*.json && node scripts/audio/offline-pack.mjs # gói nghe offline theo s3.tsv mới
       - name: Khoá deploy kho media
