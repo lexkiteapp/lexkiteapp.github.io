@@ -62,7 +62,7 @@
         const m = miss();
         if (ok) { if (m[it.b]) { m[it.b]--; if (!m[it.b]) delete m[it.b]; setMiss(m); } if (!it.again) results.push(1); chk.focus(); return; }
         m[it.b] = (m[it.b] || 0) + 1; setMiss(m);
-        if (!it.again) { results.push(0); wrong.push(it); queue.push(Object.assign({}, it, { again: true })); }
+        if (!it.again) { results.push(0); wrong.push(it); if (wrong.length <= 5) queue.push(Object.assign({}, it, { again: true })); } // hỏi lại ngay tối đa 5 câu sai (cả buổi ≤ 15 câu); câu sai còn lại vào nút 'Luyện lại câu sai' ở màn kết
         if (!saved(it.b)) App.addWord({ word: it.b, vi: it.row.m, def: it.row.g, ipa: ipaOf(it.row, it.b), ex: it.row.p, pos: 'verb', emoji: '🔤', topic: 'irregular' }, { text: it.row.p, title: 'Irregular verbs' }, { silent: true }).catch(() => {});
         chk.focus();
       };
@@ -81,6 +81,7 @@
         ${wrong.length ? '' : `<p class="text-base font-bold lt:text-[#00504b] dk:text-[#4dd0c5]">${esc(t('Không có câu nào sai, giỏi lắm!'))}</p>`}</div>
         <div class="w-full pt-6 pb-6 flex flex-col gap-3">${wrong.length ? `<a href="#/irregular/practice?retry=${enc(retryQ)}" data-lk-primary class="w-full min-h-[56px] px-6 py-3 rounded-2xl text-lg font-extrabold flex items-center justify-center text-center lt:bg-[#f06400] lt:text-[#1a0d00] lt:shadow-[0_4px_0_#ba4c00] dk:bg-[#f25c05] dk:text-[#1a0d00] dk:shadow-[0_4px_0_#9a3800]">${esc(t('Luyện lại câu sai'))}</a>` : ''}
           <a href="#/irregular" ${wrong.length ? '' : 'data-lk-primary'} class="w-full min-h-[56px] px-6 py-3 rounded-2xl border-2 text-lg font-extrabold flex items-center justify-center text-center ${wrong.length ? 'lt:border-[#e6d7cd] lt:text-[#132226] dk:border-[#1e3338] dk:text-[#ffffff]' : 'lt:bg-[#f06400] lt:border-[#f06400] lt:text-[#1a0d00] lt:shadow-[0_4px_0_#ba4c00] dk:bg-[#f25c05] dk:border-[#f25c05] dk:text-[#1a0d00] dk:shadow-[0_4px_0_#9a3800]'}">${esc(t('Xong'))}</a></div></main>`, 100, total);
+      const root = view.querySelector('[data-irv]'); root && root.setAttribute('data-lesson-done', ''); // màn kết (nav-sweep nhận diện)
       const a = view.querySelector('[data-lk-primary]'); a && a.focus({ preventScroll: true });
     }
     ask();
