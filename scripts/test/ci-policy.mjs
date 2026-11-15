@@ -32,6 +32,7 @@
 //  13) (08/11 – native-m1 đỏ: ký Automatic + -allowProvisioningUpdates tạo 1 chứng chỉ Development mỗi máy CI → tài khoản Apple đầy hạn mức)
 //     cấm ký iOS Automatic trên CI (`-allowProvisioningUpdates`, `CODE_SIGN_STYLE=Automatic`, ExportOptions signingStyle automatic): ký Manual
 //     bằng chứng chỉ Distribution cố định – scripts/native/ios-sign.sh, docs/CI-SIGNING-IOS.md.
+//  17) (15/11 – bot lexicon-expand đẩy main [skip ci] làm lex.mjs đỏ) workflow commit [skip ci] vào main phải qua máy gác bot-test-gate.mjs (hoặc push-main.sh / commit-regen.sh), hoặc `# ci-policy: bot-test – <lý do>`.
 // Không có danh sách miễn trừ ngầm: ngoại lệ nằm ngay trong file workflow, kèm lý do. Chạy: node scripts/test/ci-policy.mjs
 import fs from 'node:fs';
 import path from 'node:path';
@@ -352,6 +353,9 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     const calls = [], mk = existing => async (m, p, b) => { calls.push(m); return m === 'GET' ? existing : { id: 7 }; };
     await M.upsertComment(mk([{ id: 5, body: 'x' }, { id: 9, body: M.MARKER + ' cũ' }]), 'o/r', 1, 'b'); ok(calls.join() === 'GET,PATCH', 'luật 16: có bình luận cũ → PATCH (không đăng mới)');
     calls.length = 0; await M.upsertComment(mk([{ id: 5, body: 'x' }]), 'o/r', 1, 'b'); ok(calls.join() === 'GET,POST', 'luật 16: chưa có → đăng đúng một bình luận'); }
+  { // luật 17 (15/11): workflow bot commit [skip ci] vào main (không qua CI) phải qua máy gác test theo tệp đổi (scripts/ci/bot-test-gate.mjs) – 9c4e52d158 làm lex.mjs đỏ, mọi PR kẹt shard 4
+    const { ungated } = await import('../ci/bot-test-gate.mjs');
+    for (const [f, s] of srcs) for (const why of ungated(s)) ok(false, `luật 17: ${f}: ${why}`); }
   for (const c of chainCycles(srcs)) ok(false, `vòng workflow_run: ${c}`);
   for (const k of ciParity(fs.readFileSync(path.join(WF, 'ci.yml'), 'utf8'), fs.readFileSync(path.join(ROOT, 'scripts/test/suite.txt'), 'utf8'))) ok(false, `ci.yml chạy "${k}" nhưng suite.txt (cổng PR) không có → PR xanh vẫn làm main đỏ`);
   ok(ciParity('run: node scripts/a.mjs\n- run: npx tsc -p x.json', 'node scripts/a.mjs').join() === 'tsc -p', 'ciParity bắt lệnh thiếu');
