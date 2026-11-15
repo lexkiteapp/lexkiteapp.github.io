@@ -24,6 +24,7 @@ const INIT = () => {
   document.addEventListener('securitypolicyviolation', post, true);
   addEventListener('securitypolicyviolation', post, true);
 };
+const NOISE = /frame-ancestors' is ignored|Content Security Policy '[^']*' was delivered in report-only mode/i; // WebKit: frame-ancestors không áp dụng ở Report-Only (sẽ có hiệu lực khi enforce) – không phải vi phạm
 const CSP_MSG = /Content[- ]Security[- ]Policy|\[Report Only\]|report-only policy|unsafe-eval|wasm-eval/i;
 
 const ENGINES = { chromium: await chromium.launch({ args: ['--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream', '--autoplay-policy=no-user-gesture-required'] }), webkit: await webkit.launch() };
@@ -34,17 +35,18 @@ async function session(label0, fn) {
   await routeCiHeader(ctx, BASE, CI);
   await ctx.addInitScript(INIT);
   const page = await ctx.newPage();
-  page.on('console', m => { const t = m.text(); if (CSP_MSG.test(t)) { const l = m.location(); add(label, { directive: (t.match(/directive[^"']*["']([^"']+)/i) || t.match(/(script-src[-\w]*|unsafe-eval)/i) || [])[1] || 'console', blocked: 'console', file: l.url || '', line: l.lineNumber, col: l.columnNumber, sample: t.slice(0, 200), disp: 'report' }); } });
+  page.on('console', m => { const t = m.text(); if (CSP_MSG.test(t) && !NOISE.test(t)) { const l = m.location(); add(label, { directive: (t.match(/directive[^"']*["']([^"']+)/i) || t.match(/(script-src[-\w]*|unsafe-eval)/i) || [])[1] || 'console', blocked: 'console', file: l.url || '', line: l.lineNumber, col: l.columnNumber, sample: t.slice(0, 200), disp: 'report' }); } });
   page.on('pageerror', e => log.push(`${label}: exception ${String(e.message).slice(0, 160)}`));
   try { await fn(page); } catch (e) { log.push(`${label}: ${String(e.message).slice(0, 200)}`); }
   for (const f of page.frames()) { try { for (const v of await f.evaluate(() => window.__csp || [])) add(label + (f === page.mainFrame() ? '' : ' (frame)'), v); } catch (e) { /* frame đã đóng */ } }
   await ctx.close();
 }
-const RIG = page => page.waitForFunction(() => (window.__lkRigs || []).some(r => r.stats.ready && r.stats.frames > 20), null, { timeout: 40000 }).catch(() => log.push('rig chưa sẵn sàng sau 40 s'));
+// KHÔNG dùng page.waitForFunction: Playwright dựng hàm bằng eval → chính nó gây "unsafe-eval" mỗi lần thăm dò (2617 lần ở lượt đầu; scripts/test/rig-live.mjs IGNORE vì thế) – thăm dò bằng evaluate
+const RIG = async page => { for (let i = 0; i < 40; i++) { if (await page.evaluate(() => (window.__lkRigs || []).some(r => r.stats.ready && r.stats.frames > 20)).catch(() => false)) return; await page.waitForTimeout(1000); } log.push('rig chưa sẵn sàng sau 40 s'); };
 for (eng of ['chromium', 'webkit']) {
   browser = ENGINES[eng];
   // ĐỐI CHỨNG: new Function() phải bị báo (không có 'unsafe-eval') – nếu không thì cách nghe bị mù, kết quả "0 vi phạm" vô nghĩa
-  await session('đối chứng new Function', async page => { await page.goto(APP, { waitUntil: 'load', timeout: 60000 }); await page.evaluate(() => { try { new Function('return 1')(); } catch (e) { /* bị chặn cũng là báo */ } }); await page.waitForTimeout(1500); });
+  await session('đối chứng new Function', async page => { await page.goto(APP, { waitUntil: 'load', timeout: 60000 }); await page.addScriptTag({ content: "try { new Function('return 1')(); } catch (e) {}" }); await page.waitForTimeout(1500); });
   CONTROL[eng] = [...found.values()].some(e => e.where.has(eng + ' đối chứng new Function'));
   for (const r of ROUTES) await session('route ' + (r || '/'), async page => { await page.goto(APP + r, { waitUntil: 'load', timeout: 60000 }); if (/lesson|call/.test(r)) await RIG(page); await page.waitForTimeout(r.includes('call') || r.includes('lesson') ? 6000 : 5000); });
   if (eng === 'chromium') for (const [name, code] of LAZY) await session('lazy ' + name, async page => { await page.goto(APP, { waitUntil: 'load', timeout: 60000 }); await page.waitForTimeout(2000); log.push(`lazy ${name}: ${JSON.stringify(await page.evaluate(code).catch(e => 'lỗi ' + String(e.message).slice(0, 120)))}`); await page.waitForTimeout(4000); });
