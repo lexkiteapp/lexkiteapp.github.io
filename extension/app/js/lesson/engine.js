@@ -78,7 +78,7 @@
       const c = p.card, s = sentenceOf(c), types = [];
       // câu song ngữ riêng cho dạng dịch (câu add-on thường không có bản dịch)
       // bản dịch phải theo ngôn ngữ người học: gloss(câu EN) trước; x.vi chỉ khi người học dùng tiếng Việt (opts.viOk) – không bao giờ hiện tiếng Việt cho es/en/…
-      const pair = (c.sentences || []).map(x => { const tr = x && x.en && ((opts.gloss && opts.gloss(c, x.en)) || (opts.viOk ? x.vi : '')); return tr && findWord(x.en, c.word) && toks(x.en).length >= 3 && toks(x.en).length <= 10 ? { text: x.en, tr, own: false, at: findWord(x.en, c.word) } : null; }).find(Boolean);
+      const pair = (c.sentences || []).map(x => { const tr = x && x.en && ((opts.viOk && x.vi) || (opts.gloss && opts.gloss(c, x.en)) || ''); return tr && findWord(x.en, c.word) && toks(x.en).length >= 3 && toks(x.en).length <= 10 ? { text: x.en, tr, own: false, at: findWord(x.en, c.word) } : null; }).find(Boolean);
       if (s && !s.tr && opts.gloss) s.tr = opts.gloss(c, s.text) || ''; // bản dịch câu (gói web/packs/sent) – câu add-on thường không có
       if (s) types.push('gap');
       if (s && s.at && s.at.toks.length <= 10 && (s.tr || !off.listen)) types.push('build'); // không nghe được + không có bản dịch câu → không có đề → không sinh

@@ -109,7 +109,7 @@ export function lessonVectors() {
   const run = bc => {
     const { cs, st } = cardSets(), m = refOf(cs, st), picks = picksOf(bc.pick, cs, st);
     const opts = { seed: bc.seed, pool: cs.concat(st), off: bc.off, only: bc.only, calm: !!bc.calm, perWord: bc.perWord, match: bc.match,
-      hasImg: bc.img ? (w => imgWords.includes(w)) : () => false, gloss: bc.gloss ? ((c, en) => gloss[en] || '') : undefined, mean: bc.mean === 'vi' ? meanVi : () => '' };
+      hasImg: bc.img ? (w => imgWords.includes(w)) : () => false, gloss: bc.gloss ? ((c, en) => gloss[en] || '') : undefined, mean: bc.mean === 'vi' ? meanVi : () => '', viOk: bc.mean === 'vi' };
     Object.keys(opts).forEach(k => opts[k] === undefined && delete opts[k]);
     return { items: E.build(picks, opts), m, cs, st, picks };
   };

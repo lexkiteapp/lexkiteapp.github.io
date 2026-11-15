@@ -161,7 +161,7 @@ object LessonEngine {
             val c = p.card; val s = sentenceOf(c); val types = ArrayList<String>()
             val pair = c.arr("sentences").mapNotNull { x ->
                 val e = x.obj(); val en = e?.s("en").orEmpty(); val n = toks(en).size
-                val tr = if (e != null && e.truthy("en")) (o.gloss?.invoke(c, en).orEmpty().ifEmpty { if (o.viOk) e.s("vi") else "" }) else ""
+                val tr = if (e != null && e.truthy("en")) ((if (o.viOk) e.s("vi") else "").ifEmpty { o.gloss?.invoke(c, en).orEmpty() }) else ""
                 if (e != null && tr.isNotEmpty() && findWord(en, c.s("word")) != null && n in 3..10) Sent(en, false, tr, findWord(en, c.s("word"))!!) else null
             }.firstOrNull()
             var st = s

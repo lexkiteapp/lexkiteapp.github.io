@@ -187,8 +187,8 @@ public enum LessonEngine {
             var s = sentenceOf(c), types: [String] = []
             var pair: LessonSentenceHit?
             for x in c.sentences where !x.en.isEmpty {
-                var tr = o.gloss?(c, x.en) ?? ""
-                if tr.isEmpty && o.viOk { tr = x.vi }
+                var tr = o.viOk ? x.vi : ""
+                if tr.isEmpty { tr = o.gloss?(c, x.en) ?? "" }
                 if tr.isEmpty { continue }
                 if let f = findWord(x.en, c.word) {
                     let n = toks(x.en).count

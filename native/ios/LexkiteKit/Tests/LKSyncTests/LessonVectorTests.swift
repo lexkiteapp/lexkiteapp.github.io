@@ -78,7 +78,7 @@ enum LessonVectorCheck {
             let img = c["img"]?.truthy == true, gl = c["gloss"]?.truthy == true, vi = c["mean"]?.string == "vi"
             if img { o.hasImg = { w, _ in cx.imgWords.contains(w) } }
             if gl { o.gloss = { _, en in cx.gloss[en] ?? "" } }
-            o.mean = { vi ? $0.vi : "" }
+            o.mean = { vi ? $0.vi : "" }; o.viOk = vi
             let items = LessonEngine.build(picks(cx, pc), o)
             cx.built[id] = items
             let want = c["out"]?.array ?? []
