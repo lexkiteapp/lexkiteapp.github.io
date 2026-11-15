@@ -10,7 +10,7 @@ node scripts/test/json-dupkeys.mjs | tail -1   # khoá JSON trùng sau khi gộp
 node scripts/ci/required-gate.mjs --check  # gate = bộ canh lịch, không quay lại workflow_run (docs/CI-RUNNERS.md)
 node scripts/path/build-mix.mjs          # sửa ngữ pháp/phát âm → web/js/path-mix.js
 node scripts/grammar/build-lazy-idx.mjs --write >/dev/null   # sửa starter2.js/mastery.js → web/js/grammar/lazy-a1.js, lazy-c2.js (mục lục gói ngữ pháp A1/C2 tải lười)
-node scripts/confidence/build.mjs        # sửa content/confidence → web/js/confidence/data.js
+node scripts/confidence/build.mjs        # sửa content/confidence → web/cpack/confidence/data.js
 node scripts/speak/build.mjs --write    # sửa content/situations → web/js/speak/data.js + s/ (Play & Speak, tải lười theo tình huống × ngôn ngữ)
 node scripts/lesson/build-gold.mjs       # sửa gold bank → web/cpack/lesson/gold.js (Giải thích của #/lesson)
 node scripts/lesson/build-stories.mjs    # sửa content/lesson/stories.json → web/cpack/lesson/stories.js (Truyện + Radio)

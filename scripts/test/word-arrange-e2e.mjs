@@ -205,9 +205,9 @@ async function otherScreens(width, scheme) {
   ok(await it.evaluate(el => el.classList.contains('ok') || el.classList.contains('no')), T('TOEFL: nộp bài vẫn chấm theo thứ tự trong câu'));
   // Ngữ pháp "Xếp câu": tìm bài có ví dụ phù hợp qua route thật, đi tới bước Xếp câu
   await page.goto(`https://lk.test/app/?sandbox=1&hl=en#/grammar`, { waitUntil: 'load' });
-  await page.waitForSelector('a.g-row[href^="#/grammar/"]', { timeout: 25000 });
+  await page.waitForSelector('a[data-grow][href^="#/grammar/"]', { timeout: 25000 });
   let found = false;
-  const ids = await page.evaluate(() => [...document.querySelectorAll('a.g-row[href^="#/grammar/"]')].map(a => a.getAttribute('href')).filter(h => !/mix/.test(h)).slice(0, 8));
+  const ids = await page.evaluate(() => [...document.querySelectorAll('a[data-grow][href^="#/grammar/"]')].map(a => a.getAttribute('href')).filter(h => !/mix/.test(h)).slice(0, 8));
   for (const h of ids) {
     await page.evaluate(x => { location.hash = x; }, h); await page.waitForTimeout(700);
     for (let i = 0; i < 10 && !await page.$('[data-build]'); i++) { // đi tuần tự qua các bước; bước có cổng thì bấm Bỏ qua như người học

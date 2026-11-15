@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // 🗣️ Giao tiếp tự tin – MỘT NGUỒN: content/confidence/{units/*.json,toolkit.json,daily.json,ui.json,i18n/<lang>.json} (docs/CONFIDENCE.md §1).
 //   node scripts/confidence/build.mjs            cổng kiểm (npm test): nội dung, id vĩnh viễn, tiếng Anh hướng dẫn ≤ B1, đủ 13 bản dịch, bản sinh khớp nguồn
-//   node scripts/confidence/build.mjs --write    sinh web/js/confidence/data.js, web/js/i18n/en/confidence.js, nguồn i18n/ui/<lang>/confidence.js (+ gói khóa băm qua i18n-pack),
+//   node scripts/confidence/build.mjs --write    sinh web/cpack/confidence/data.js, web/js/i18n/en/confidence.js, nguồn i18n/ui/<lang>/confidence.js (+ gói khóa băm qua i18n-pack),
 //                                               khóa lõi/nhãn ngắn → scripts/i18n-fixed.json, content/confidence/i18n/_source.json (đầu vào người dịch), ids.lock.json
 //   Sau --write: bash scripts/build-i18n.sh && node scripts/i18n-fix.mjs
 import fs from 'node:fs';
@@ -131,7 +131,7 @@ for (const l of LANGS) {
 // ---------- Sinh ----------
 const data = { v: 1, units: outUnits, toolkit: outTk, daily: daily.map(({ id, q, tip }) => ({ id, q, tip })) };
 const OUT = {
-  'web/js/confidence/data.js': `/* 🗣️ Giao tiếp tự tin – FILE SINH TỰ ĐỘNG từ content/confidence/*.json bằng scripts/confidence/build.mjs. Đừng sửa tay. */\nself.CONF = ${JSON.stringify(data)};\n`,
+  'web/cpack/confidence/data.js': `/* 🗣️ Giao tiếp tự tin – FILE SINH TỰ ĐỘNG từ content/confidence/*.json bằng scripts/confidence/build.mjs. Đừng sửa tay. */\nself.CONF = ${JSON.stringify(data)};\n`,
   'web/js/i18n/en/confidence.js': `/* English UI – confidence (lazy group, LAZY in scripts/build-i18n.sh). GENERATED from content/confidence by scripts/confidence/build.mjs – do not edit. */\n(function (g) {\n  const D = g.I18N_DICT = g.I18N_DICT || {};\n  D.en = Object.assign(D.en || {}, ${JSON.stringify(GROUP, null, 1).replace(/\n/g, '\n  ')});\n})(typeof self !== 'undefined' ? self : this);\n`,
 };
 for (const l of LANGS) OUT[`i18n/ui/${l}/confidence.js`] = srcText(l, 'confidence', Object.fromEntries(Object.keys(GROUP).map(k => [k, TR[l][k] ?? GROUP[k]]))); // định dạng nguồn chung (scripts/lib/i18n-pack.mjs)
