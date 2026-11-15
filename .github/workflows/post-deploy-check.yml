@@ -34,12 +34,17 @@ jobs:
         timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
-          bash scripts/ci/pw-install.sh --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium webkit
       - name: Soát tuyến live (console / exception / request / ảnh vỡ)
         id: routes
         timeout-minutes: 8
         env: { WAIT_SW: "${{ github.event_name == 'workflow_run' && '1' || '0' }}" }
         run: node scripts/test/post-deploy-check.mjs "$BASE" out/post-deploy
+      - name: Icon rỗng (WebKit iPhone + Chromium, scripts/test/icon-blank.mjs)
+        id: iconblank
+        if: ${{ !cancelled() }}
+        timeout-minutes: 8
+        run: node scripts/test/icon-blank.mjs "$BASE" --strict --max=25 --shots=out/post-deploy/icons
       - name: Tương phản màu (contrast.mjs, màn chính)
         id: contrast
         if: ${{ !cancelled() }}

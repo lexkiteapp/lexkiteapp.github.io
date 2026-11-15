@@ -423,3 +423,4 @@ node scripts/test/l1-notes.mjs
 node scripts/test/qengine-flag.mjs
 node scripts/test/qwk.mjs
 node scripts/test/es-native-bundle.mjs
+node scripts/test/ms-icons.mjs
