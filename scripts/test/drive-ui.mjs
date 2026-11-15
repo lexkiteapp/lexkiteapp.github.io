@@ -39,6 +39,13 @@ const ITEMS = [
 ];
 const SCAN = { dry_run: true, count: 3, total: 3000, refs_synced: true, by: { duplicate: { files: 1, bytes: 1000 }, orphan: { files: 1, bytes: 1500 }, old_reject: { files: 0, bytes: 0 }, temp: { files: 0, bytes: 0 }, partial: { files: 0, bytes: 0 }, trashed: { files: 1, bytes: 500 } },
   groups: { duplicate: [{ id: 'DUP_aaaaaaaaaaa', name: 'a (1).png', path: 'originals', size: 1000, reason: 'dup-keep-referenced', keep: { id: 'IMG_aaaaaaaaaaa', name: 'ama.png', path: 'originals' } }], orphan: [{ id: 'ORP_aaaaaaaaaaa', name: 'lost.webp', path: 'originals', size: 1500, reason: 'orphan-unknown' }], old_reject: [], temp: [], partial: [], trashed: [{ id: 'TR_aaaaaaaaaaaa', name: 'old.png', size: 500, reason: 'in-trash' }] } };
+const INV = { drive_id: 1, summary: { published: { files: 1, bytes: 9000 }, draft: { files: 2, bytes: 200 }, junk: { files: 1, bytes: 300 }, stale: { files: 1, bytes: 400 }, active: { files: 1, bytes: 500 } }, scheduled: 1, plan: {}, more: 0, signals_ok: true, truncated: false, cfg: { on: true, stale_on: false, stale_days: 90, every_days: 7 }, last: { at: 1, trashed: 2, bytes: 10, undo: ['JUNK_aaaaaaaaaa'] }, items: [
+  { id: 'PUB_aaaaaaaaaaa', name: 'pub.mp4', path: 'shorts/a', size: 9000, mime: 'video/mp4', modified: '2026-10-01T00:00:00Z', state: 'published', lock: 'published', clean: null, posts: [{ p: 'youtube', u: 'https://youtu.be/x', t: 1 }, { p: 'tiktok', u: 'javascript:alert(1)', t: 2 }] },
+  { id: 'SCH_aaaaaaaaaaa', name: 'sched.mp4', path: 'shorts/a', size: 100, mime: 'video/mp4', state: 'draft', lock: 'scheduled', clean: null, scheduled: 1893456000000 },
+  { id: 'DRF_aaaaaaaaaaa', name: 'draft.mp4', path: 'shorts/a', size: 100, mime: 'video/mp4', state: 'draft', lock: 'clip', clean: null },
+  { id: 'JUNK_aaaaaaaaaa', name: 'x<b>.tmp', path: 'tmp', size: 300, mime: 'text/plain', state: 'junk', lock: null, clean: 'junk', reason: 'temp-older' },
+  { id: 'STL_aaaaaaaaaaa', name: 'lost.webm', path: 'misc', size: 400, mime: 'video/webm', state: 'stale', lock: null, clean: 'stale', reason: 'orphan-unreferenced' },
+  { id: 'ACT_aaaaaaaaaaa', name: 'foot.mp4', path: 'footage', size: 500, mime: 'video/mp4', state: 'active', lock: 'footage', clean: null }] };
 const dapi = async (op, b = {}) => {
   calls.push({ op, b });
   if (op === 'list') return { drives: DR, total: 400 * G, used: 237 * G, free: 163 * G, configured: { client: true, secret: true, key: true, cli: true }, alerts: [{ kind: 'conn:2', level: 'crit', t: 'conn', p: { email: 'beta@gmail.com' } }, { kind: 'quota:4', level: 'warn', t: 'quota', p: { email: 'delta@gmail.com', pct: 85 } }] };
@@ -47,6 +54,9 @@ const dapi = async (op, b = {}) => {
   if (op === 'trash' || op === 'restore' || op === 'cleanup_apply') return { ok: true, done: b.file_ids, failed: [], undo: b.file_ids };
   if (op === 'delete') return { ok: true, done: b.file_ids, failed: [], bytes: 500 };
   if (op === 'cleanup_scan') return SCAN;
+  if (op === 'inventory') return INV;
+  if (op === 'tidy_cfg') return { ok: true, cfg: { ...INV.cfg, ...b.set } };
+  if (op === 'tidy_run') return { ok: true, trashed: 2, remaining: 0 };
   if (op === 'ledger') return b.format === 'csv' ? { csv: 'file,asset\r\n', count: 1 } : { rows: [{ drive_id: 1, email: 'alpha@gmail.com', file_id: 'IMG_aaaaaaaaaaa', sha256: 'ab', name: 'ama.png', folder: 'originals', size: 2048, status: 'ok', copies: 1, want: 2, lib: 'approved', at: 1, web: 'https://drive.google.com/x' }], total: 1, bytes: 2048 };
   if (op === 'audit_list') return { rows: [{ id: 1, at: 1, who: 'boss@lexkite.com', act: 'trash', name: 'ama.png', email: 'alpha@gmail.com', size: 10, ok: 1 }], next: null };
   if (op === 'connect') return { url: 'https://accounts.google.com/x' };
@@ -157,6 +167,36 @@ ok(/Private Drive storage/.test(main.textContent) && /Reconnect|Disconnected/.te
   ok(rb && /took too long/.test(main.textContent) && !/Loading/.test(main.textContent), 'list quá hạn → báo "server took too long" + nút Thử lại (không kẹt Loading): ' + main.textContent.trim().slice(0, 90));
   rb && rb.click(); await tick(10);
   ok(/Private Drive storage/.test(main.textContent) && !main.querySelector('[data-retry]'), 'bấm Thử lại → tải lại và vẽ Kho Drive');
+}
+
+// --- Kho video + Dọn kho
+H.lang = () => 'vi'; await go('#drive/stock'); await tick(12);
+{ const chips = () => [...main.querySelectorAll('[data-st]')], rows = () => [...main.querySelectorAll('.stk-rw')].map(r => r.dataset.id), q = s => main.querySelector(s);
+  ok(last('inventory') && chips().length === 6 && /Đã đăng/.test(chips()[1].textContent) && /1 file/.test(chips()[1].textContent), 'chip nhóm có số + dung lượng');
+  ok(rows().length === 6 && rows()[0] === 'PUB_aaaaaaaaaaa', 'mặc định: tất cả, lớn trước');
+  ok(q('.stk-posts a').href === 'https://youtu.be/x' && q('.stk-posts a').rel.includes('noopener') && main.querySelectorAll('.stk-posts a').length === 1, 'link bài đăng; link không https bị bỏ');
+  ok(q('[data-id="JUNK_aaaaaaaaaa"] b').textContent === 'x<b>.tmp', 'tên file được thoát HTML');
+  chips()[2].click(); await tick(); ok(rows().join() === 'SCH_aaaaaaaaaaa,DRF_aaaaaaaaaaa' && /Lên lịch/.test(q('.stk-rw').textContent) && /#drive\/stock\?.*st=draft/.test(w.location.hash), 'chip Nháp: phân biệt đã/chưa lên lịch, giữ trong địa chỉ');
+  chips()[0].click(); await tick(); q('#sVid').checked = true; q('#sVid').onchange(); await tick(); ok(!rows().includes('JUNK_aaaaaaaaaa'), 'lọc chỉ video');
+  q('#sVid').checked = false; q('#sVid').onchange(); await tick(); q('#sSort').value = 'name'; q('#sSort').onchange(); await tick(); ok(rows()[0] === 'DRF_aaaaaaaaaaa', 'sắp xếp tên');
+  q('#sQ').value = 'lost'; q('#sQ').oninput(); await new Promise(r => setTimeout(r, 300)); await tick(); ok(rows().join() === 'STL_aaaaaaaaaaa', 'tìm theo tên');
+  q('#sQ').value = ''; q('#sQ').oninput(); await new Promise(r => setTimeout(r, 300)); await tick();
+  calls.length = 0; q('[data-clean]').click(); await tick();
+  const m = doc.querySelector('.drv-modal'), idsIn = () => [...m.querySelectorAll('input[data-id]')].map(i => i.dataset.id);
+  ok(idsIn().sort().join() === 'JUNK_aaaaaaaaaa,STL_aaaaaaaaaaa', 'Dọn kho: chỉ file được dọn – không đã đăng/lên lịch/nháp/footage');
+  ok(!calls.some(c => c.op === 'cleanup_apply' || c.op === 'trash'), 'xem trước không gọi thao tác ghi');
+  ok(m.querySelector('input[data-id="JUNK_aaaaaaaaaa"]').checked && !m.querySelector('input[data-id="STL_aaaaaaaaaaa"]').checked, 'Rác tích sẵn, Lâu không dùng phải tự chọn');
+  ok(/1 file/.test(m.querySelector('[data-sum]').textContent) && /300 B/.test(m.querySelector('[data-sum]').textContent), 'tổng dung lượng lấy lại');
+  m.querySelector('[data-apply]').click(); await tick(12);
+  ok(last('cleanup_apply').b.file_ids.join() === 'JUNK_aaaaaaaaaa', 'áp dụng đúng file đã chọn');
+  const un = doc.querySelector('.drv-toast [data-undo]'); ok(!!un, 'có nút Hoàn tác'); un.click(); await tick(12); ok(last('restore').b.file_ids.join() === 'JUNK_aaaaaaaaaa', 'Hoàn tác = restore');
+  await tick(12);
+  const a = s => main.querySelector('.stk-auto ' + s);
+  ok(a('#tOn').checked && !a('#tStale').checked, 'công tắc tự dọn: Lâu không dùng mặc định tắt');
+  a('#tStale').checked = true; a('#tDays').value = '120'; a('[data-save]').click(); await tick(12); ok(last('tidy_cfg').b.set.stale_on === true && last('tidy_cfg').b.set.stale_days === 120, 'lưu công tắc + số ngày');
+  await tick(12); main.querySelector('.stk-auto [data-run]').click(); await tick(12); ok(last('tidy_run').b.drive_id === 1, 'nút Chạy ngay');
+  await tick(12); main.querySelector('.stk-auto [data-undo]').click(); await tick(12); ok(last('restore').b.file_ids.join() === 'JUNK_aaaaaaaaaa', 'Hoàn tác lần tự dọn');
+  const css = doc.getElementById('drvCss').textContent; ok(/\.stk-act \.btn[^{]*\{min-height:44px/.test(css) && /stk-tabs \.chip-f\{min-height:44px/.test(css), 'nút/chip ≥ 44 px');
 }
 
 if (fails) { console.log(`✗ drive-ui: ${fails}/${n} kiểm thất bại`); process.exit(1); }
