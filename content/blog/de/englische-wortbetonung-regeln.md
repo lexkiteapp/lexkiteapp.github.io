@@ -26,7 +26,7 @@ diagrams: [
 quiz: [
   {
     q: "Welche Betonung hat das englische Nomen document?",
-    options: ["do-cu-MENT", "DOC-u-ment", "do-CU-ment", "DOC-u-MENT"],
+    options: ["Auf der letzten Silbe (do-cu-MENT)", "Auf der ersten Silbe (DOC-u-ment)", "Auf der mittleren Silbe (do-CU-ment)", "Auf keiner Silbe, alle sind gleich stark"],
     answer: 1,
     explain: "Die Endung -ment ist neutral und verschiebt die Betonung nicht. Anders als im Deutschen (Dokument) liegt sie auf der ersten Silbe."
   },
@@ -38,7 +38,7 @@ quiz: [
   },
   {
     q: "Wie spricht man die Zahl 13 im Englischen?",
-    options: ["THIR-teen", "thir-TEEN", "THIR-TEEN ohne Unterschied zu 30", "thir-ty mit langem Vokal"],
+    options: ["Die erste Silbe ist betont (THIR-teen)", "Die Endung ist betont (thir-TEEN)", "13 und 30 klingen im Englischen gleich", "Beide Silben sind schwach"],
     answer: 1,
     explain: "Für thirteen wird die Endung -teen lang und betont (anders als dreizehn im Deutschen), bei thirty ist die Endung kurz und schwach."
   }

@@ -35,7 +35,7 @@ quiz: [
 ]
 publishAt: 2026-11-26T07:44:00+01:00
 ---
-Kennen Sie diesen Frust? Sie schauen eine englische Serie mit Untertiteln und verstehen scheinbar jedes Wort mühelos. Doch schalten Sie die Untertitel aus oder sprechen Sie mit einem echten Muttersprachler in London oder New York, verwandeln sich die Sätze plötzlich in einen ununterbrochenen, verwaschenen Klangteppich. Wörter, die Sie auf dem Papier seit Jahren kennen, scheinen im schnellen Redefluss schlichtweg zu verschwinden. Wie Sie das genaue Hören auf die Fragetypen im IELTS übertragen, steht in den [IELTS Listening Aufgabentypen](/de/blog/ielts-listening-aufgabentypen/).
+Kennen Sie diesen Frust? Sie schauen eine englische Serie mit Untertiteln und verstehen scheinbar jedes Wort mühelos. Doch schalten Sie die Untertitel aus oder sprechen Sie mit einem echten Muttersprachler in London oder New York, verwandeln sich die Sätze plötzlich in einen ununterbrochenen, verwaschenen Klangteppich. Wörter, die Sie auf dem Papier seit Jahren kennen, scheinen im schnellen Redefluss schlichtweg zu verschwinden.
 
 Der Grund dafür ist eine verbreitete Illusion: **Passives Hören täuscht Verständnis vor**. Unser Gehirn ist ein Meister darin, aus vagen Bruchstücken, Mimik und Allgemeinwissen den ungefähren Sinn zu erraten.
 
@@ -143,6 +143,8 @@ Integrieren Sie Dictation nahtlos in Ihre Lernroutine:
 {{youtube: | Gợi ý video hướng dẫn phương pháp luyện nghe chép chính tả Dictation tiếng Anh}}
 
 {{cta: /#/listening | Starten Sie Ihr erstes 15-Minuten-Diktat im Lexkite Hörverstehens-Raum}}
+
+Wie Sie das genaue Hören auf die Fragetypen im IELTS übertragen, steht in den [IELTS Listening Aufgabentypen](/de/blog/ielts-listening-aufgabentypen/).
 
 ## Häufig gestellte Fragen zu englischen Diktaten (FAQ)
 
