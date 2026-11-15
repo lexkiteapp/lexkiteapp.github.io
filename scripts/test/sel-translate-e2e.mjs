@@ -40,7 +40,7 @@ async function open(vp, scheme, lang = 'vi') {
   for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); }
   const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(1200); }
   await page.evaluate(() => { try { localStorage.setItem('vb.learnLang', 'vi'); } catch (e) { /* */ } location.hash = '#/dict/promotion'; });
-  await page.waitForSelector('.example-box', { timeout: 20000 }).catch(() => {});
+  await page.waitForSelector('.example-box.entry-ex', { timeout: 20000 }).catch(() => {});
   await page.addStyleTag({ content: STILL });
   return { ctx, page, errs };
 }
@@ -48,7 +48,7 @@ async function open(vp, scheme, lang = 'vi') {
 async function selectAndTranslate(page, free) {
   await page.keyboard.press('Escape');
   const okSel = await page.evaluate(free => {
-    const box = document.querySelector('.example-box'); if (!box) return false;
+    const box = document.querySelector('.example-box.entry-ex'); if (!box) return false;
     let target = box;
     if (free) { let p = document.getElementById('e2eFree'); if (!p) { p = document.createElement('p'); p.id = 'e2eFree'; box.after(p); } p.textContent = free; target = p; }
     const r = document.createRange();
@@ -74,7 +74,7 @@ const waitResult = (page, ms = 6000) => page.evaluate(ms => new Promise(res => {
 const firstPaint = page => page.evaluate(() => { const p = document.querySelector('.sel-pop'); return !!(p && !p.hidden && (p.querySelector('[data-busy]') || p.querySelector('[data-tr]'))); });
 const geom = page => page.evaluate(() => {
   const p = document.querySelector('.sel-pop'), pr = p.getBoundingClientRect(), vw = document.documentElement.clientWidth;
-  const def = [...document.querySelectorAll('#view *')].find(e => e.children.length === 0 && /a move to a more important job/i.test(e.textContent)) || null, dr = def && def.getBoundingClientRect();
+  const def = document.querySelector('#view .entry-mean') || [...document.querySelectorAll('#view *')].find(e => e.children.length === 0 && /a move to a more important job/i.test(e.textContent)) || null, dr = def && def.getBoundingClientRect();
   const sel = getSelection().rangeCount ? getSelection().getRangeAt(0).getBoundingClientRect() : null;
   const hit = (a, b) => a && b && a.left < b.right && b.left < a.right && a.top < b.bottom && b.top < a.bottom;
   return { pop: [pr.left, pr.top, pr.right, pr.bottom].map(Math.round), defR: dr ? [dr.top, dr.bottom].map(Math.round) : null, defTag: def ? def.tagName + '.' + def.className + '@' + (def.closest('[id]') || {}).id : null, selR: sel ? [sel.top, sel.bottom, sel.width].map(Math.round) : null, vw, sw: document.documentElement.scrollWidth, defFound: !!def, coversDef: hit(pr, dr), coversSel: hit(pr, sel), defAbove: !!(dr && sel && dr.bottom <= sel.top) };
@@ -83,7 +83,7 @@ const geom = page => page.evaluate(() => {
 const matrix = [[{ width: 390, height: 844 }, 'light'], [{ width: 390, height: 844 }, 'dark'], [{ width: 1280, height: 800 }, 'light'], [{ width: 1280, height: 800 }, 'dark']];
 for (const [vp, scheme] of matrix) {
   const tag = `${vp.width}-${scheme}`, { ctx, page, errs } = await open(vp, scheme);
-  if (!(await page.$('.example-box'))) { ok(false, `[${tag}] mở được trang từ promotion (${(await page.evaluate(() => document.body.innerText)).replace(/\s+/g, ' ').slice(0, 160)})`); await ctx.close(); continue; }
+  if (!(await page.$('.example-box.entry-ex'))) { ok(false, `[${tag}] mở được trang từ promotion (${(await page.evaluate(() => document.body.innerText)).replace(/\s+/g, ' ').slice(0, 160)})`); await ctx.close(); continue; }
   // Ảnh chính (trước/sau): mạng Google chậm 6 s (như máy chủ của chủ), chụp sau 1,2 s – bản cũ còn "⏳ Đang dịch", bản mới đã có bản dịch dịch sẵn
   await net(ctx, { gtx: 6000, mm: 6000 });
   await selectAndTranslate(page); await page.waitForTimeout(1200);
@@ -133,9 +133,9 @@ for (const [vp, scheme] of matrix) {
     await page.waitForTimeout(150);
     ok(await page.evaluate(() => document.querySelector('.sel-pop').hidden), 'bấm ra ngoài → đóng bảng');
     // (f) Câu sát mép dưới màn hình → bảng tự lật lên, vẫn trong khung
-    await page.evaluate(() => { const b = document.querySelector('.example-box'); b.scrollIntoView({ block: 'end' }); window.scrollBy(0, 0); });
+    await page.evaluate(() => { const b = document.querySelector('.example-box.entry-ex'); b.scrollIntoView({ block: 'end' }); window.scrollBy(0, 0); });
     await net(ctx, { gtx: 'block', mm: 'block' });
-    await page.evaluate(() => { const box = document.querySelector('.example-box'), r = document.createRange(); r.selectNodeContents(box.querySelector('[lang=en]') || box); const s = getSelection(); s.removeAllRanges(); s.addRange(r); document.dispatchEvent(new MouseEvent('mouseup', { bubbles: true })); });
+    await page.evaluate(() => { const box = document.querySelector('.example-box.entry-ex'), r = document.createRange(); r.selectNodeContents(box.querySelector('[lang=en]') || box); const s = getSelection(); s.removeAllRanges(); s.addRange(r); document.dispatchEvent(new MouseEvent('mouseup', { bubbles: true })); });
     await page.waitForSelector('.sel-bar:not([hidden]) [data-act=tr]', { timeout: 3000 }).catch(() => {}); await page.click('.sel-bar [data-act=tr]').catch(() => {}); await page.waitForTimeout(400);
     const g1 = await geom(page); ok(!g1.coversSel && g1.pop[1] >= 7.5 && g1.pop[3] <= vp.height - 7.5, `sát mép dưới → bảng lật lên/thu gọn, không che câu, trong khung (${g1.pop})`);
   }
