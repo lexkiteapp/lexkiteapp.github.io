@@ -164,3 +164,6 @@ To move from passive memorization to effortless conversational delivery, impleme
 For broader fluency development, explore our guides on [how to think in English without translating](/en/blog/how-to-think-in-english-without-translating/), mastering the [shadowing technique](/en/blog/shadowing-technique/), developing [daily English habits for IELTS](/en/blog/daily-english-habits-for-ielts/), improving listening with [how to catch fast speech](/en/blog/how-to-catch-fast-speech-in-ielts-listening/), and applying the [feedback loop method](/en/blog/the-feedback-loop-method-for-ielts/). You can also broaden your lexical inventory through [/tu-vung/](/en/vocabulary/).
 
 By internalizing 5 to 10 practical sentence chunks each week, you will eliminate hesitation and converse with calm, natural fluency wherever you go.
+
+For two high-stakes everyday settings, see [English phrases at the doctor](/en/blog/english-for-newcomers-doctor/) and [English phrases at the bank](/en/blog/english-for-newcomers-bank/).
+
