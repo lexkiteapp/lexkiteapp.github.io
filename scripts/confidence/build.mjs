@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { missingSegments } from '../i18n-english.mjs';
 import { known } from '../scriptbank/lib.mjs';
 import { srcText } from '../lib/i18n-pack.mjs';
+import { writeFixed } from '../lib/fixed-json.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const R = p => path.join(ROOT, p), rd = p => fs.readFileSync(R(p), 'utf8'), J = p => JSON.parse(rd(p));
@@ -141,7 +142,7 @@ for (const [k, en] of Object.entries(ALL)) if (EXTRA[k] != null || short(en)) fi
 const SRC = { _note: 'Đầu vào cho người dịch: khóa (vi) → bản tiếng Anh. Dịch từ tiếng Anh; giữ nguyên {biến} và mọi cụm tiếng Anh trong ngoặc kép.', ...ALL };
 if (WRITE) {
   for (const [f, c] of Object.entries(OUT)) { fs.mkdirSync(path.dirname(R(f)), { recursive: true }); fs.writeFileSync(R(f), c); }
-  fs.writeFileSync(R(FIX), JSON.stringify(fixed, null, 2) + '\n');
+  writeFixed(R(FIX), fixed);
   fs.writeFileSync(R('content/confidence/i18n/_source.json'), JSON.stringify(SRC, null, 1) + '\n');
   { const { packAll } = await import('../lib/i18n-pack.mjs'); packAll(); } // nguồn i18n/ui → gói chạy khóa băm web/js/i18n/<lang>
   if (!errs.length) fs.writeFileSync(R(LOCK), JSON.stringify([...new Set([...lock, ...ids])], null, 0).replace(/","/g, '",\n"') + '\n');
