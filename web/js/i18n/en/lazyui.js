@@ -911,9 +911,4 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   'Tiếng TBN Mỹ Latinh · DELE/SIELE A1–C2': 'Latin American Spanish · DELE/SIELE A1–C2',
   'Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.': 'Pick one language – you can change it any time in Settings.',
   'Không lưu được – thử lại sau': 'Couldn’t save – please try again later',
-  // ← en/core.js
-  '{a}/{b} bài': '{a}/{b} lessons',
-  // ← en/xcore.js
-  'Mức sẵn sàng thi': 'Exam readiness',
-  'Mục tiêu hôm nay': "Today's goal",
 }); })(typeof self !== 'undefined' ? self : this);
