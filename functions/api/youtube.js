@@ -44,7 +44,9 @@ const configured = env => { const c = client(env); return { client: !!c.id, secr
 const ready = env => Object.values(configured(env)).every(Boolean);
 const CLIP = /^[a-z0-9-]{3,120}$/, CHID = /^[A-Za-z0-9_-]{8,64}$/;
 
+const SETUP_DONE = new WeakSet(); // one DDL batch per D1 binding per isolate (it used to run on EVERY request)
 export async function setup(db) {
+  if (SETUP_DONE.has(db)) return;
   await db.batch([
     db.prepare('CREATE TABLE IF NOT EXISTS yt_channel (id INTEGER PRIMARY KEY, channel_id TEXT UNIQUE, title TEXT, email TEXT, enc_token TEXT, iv TEXT, status TEXT, created INTEGER, last_ok INTEGER, err TEXT, by_who TEXT)'),
     db.prepare('CREATE TABLE IF NOT EXISTS yt_queue (clip TEXT PRIMARY KEY, lesson TEXT, status TEXT, privacy TEXT, publish_at TEXT, approved_by TEXT, approved_at INTEGER, video_id TEXT, upload_url TEXT, session_at INTEGER, attempts INTEGER DEFAULT 0, err TEXT, updated INTEGER, thumb INTEGER, title TEXT)'),
@@ -58,6 +60,7 @@ export async function setup(db) {
     db.prepare('CREATE TABLE IF NOT EXISTS yt_pack (clip TEXT PRIMARY KEY, file_id TEXT, drive_id TEXT, sha TEXT, bytes INTEGER, title TEXT, description TEXT, tags TEXT, at INTEGER, retired INTEGER DEFAULT 0, seen TEXT)'),
   ]);
   await addCols(db);
+  SETUP_DONE.add(db);
 }
 
 let COLS = false; // additive columns (idempotent: duplicate-column errors are expected after the first run)
@@ -319,6 +322,8 @@ export async function unqueueClip(db, id) {
 }
 
 // ---------- distribution hooks (config lives in yt_chan_cfg; engine in _distribution.js, ops in distribution.js) ----------
+/** All channel configs in ONE query (the admin list did 1 D1 round trip per channel: ~400 ms each → 16 s for 32 channels). Map id → same shape as chanCfg(). */
+export async function chanCfgs(db) { const m = new Map(); for (const r of await all(db, 'SELECT channel_id, cfg, paused_reason FROM yt_chan_cfg')) { let c = {}; try { c = JSON.parse(r.cfg || '{}'); } catch (e) { /* default */ } m.set(r.channel_id, { cfg: normCfg(c), explicit_lang: !!(c && typeof c.lang === 'string' && c.lang.trim()), paused_reason: r.paused_reason || '' }); } return m; }
 export async function chanCfg(db, id) { const r = await one(db, 'SELECT cfg, paused_reason FROM yt_chan_cfg WHERE channel_id = ?', id); let c = {}; try { c = JSON.parse((r && r.cfg) || '{}'); } catch (e) { /* default */ } return { cfg: normCfg(c), explicit_lang: !!(c && typeof c.lang === 'string' && c.lang.trim()), paused_reason: (r && r.paused_reason) || '' }; } // explicit_lang: chủ đã chọn ngôn ngữ kênh → không đoán theo tên
 /** Pause a channel (cfg.active = 0) and raise an admin alert (yt_meta 'alerts', newest first, ≤ 20). */
 export async function pauseChannel(db, id, reason) {
