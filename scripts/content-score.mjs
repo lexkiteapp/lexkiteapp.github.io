@@ -55,8 +55,8 @@ const LN = ex('reports/learnability.json') ? JSON.parse(rd('reports/learnability
 
 // ---------- Cổng 3: i18n-qa (15 ngôn ngữ) ----------
 const qa = spawnSync('node', ['scripts/i18n-qa.mjs'], { encoding: 'utf8' }).stdout || '';
-const qaRows = [...qa.matchAll(/^[✓✗] ([\w-]+): thiếu (\d+) · sai biến\/thẻ (\d+) · lẫn tiếng Việt (\d+) · dịch sai đã biết (\d+) · mất tiếng Anh mẫu (\d+) · nhãn ngắn chưa dịch tay (\d+)/gm)]
-  .map(m => ({ l: m[1], hard: +m[2] + +m[3] + +m[4] + +m[5] + +m[6], short: +m[7] }));
+const qaRows = [...qa.matchAll(/^[✓✗] ([\w-]+): thiếu (\d+) · sai biến\/thẻ (\d+) · lẫn tiếng Việt (\d+) · dịch sai đã biết (\d+) · mất tiếng Anh mẫu (\d+)(?: · lẫn xưng hô (\d+))? · nhãn ngắn chưa dịch tay (\d+)/gm)]
+  .map(m => ({ l: m[1], hard: +m[2] + +m[3] + +m[4] + +m[5] + +m[6] + +(m[7] || 0), short: +m[8] }));
 const LANGS = rd('scripts/i18n-langs.txt').split('\n').map(x => x.trim()).filter(x => x && !x.startsWith('#'));
 const enDict = (() => { const g = {}; new Function('self', rd('web/js/i18n/en.js'))(g); return g.I18N_DICT.en; })();
 const lazy = ((rd('scripts/build-i18n.sh').match(/^LAZY="([^"]*)"/m) || [])[1] || '').split(/\s+/).filter(Boolean);
