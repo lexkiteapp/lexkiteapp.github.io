@@ -4,6 +4,7 @@
   const { Store, SRS, todayKey } = Core;
   // 🎨 CSS riêng trang Cài đặt (mục lục + trang con) – nạp cùng gói lười, không vào khung app (DESIGN-SYSTEM §6)
   try { if (!document.getElementById('setCss')) { const st = document.createElement('style'); st.id = 'setCss'; st.textContent = `.set-wrap.idx{display:none}
+.v2s-settings>.v2{font-family:inherit}.v2s-settings [data-go]{color:inherit;text-decoration:none}
 .set-wrap.idx>.set-sec{display:none}
 .set-wrap.one>.set-sec:not([data-on]){display:none}
 .set-wrap.one>.set-sec>.set-h{display:none}
@@ -134,7 +135,7 @@
       ${sec('help', UI.icon('info') + t('Pháp lý & hỗ trợ'), row(t('Pháp lý & hỗ trợ'), `<span class="set-btns"><a class="btn sm" href="${App.legalUrl('privacy')}">${t('Chính sách quyền riêng tư')}</a><a class="btn sm" href="${App.legalUrl('terms')}">${t('Điều khoản sử dụng')}</a><a class="btn sm" href="#/contact">${t('Liên hệ')}</a><a class="btn sm" id="sBlog" href="${App.blogHref(0)}"${xt}>${UI.icon('newspaper')} ${t('Blog')}</a><a class="btn sm" href="${App.aboutUrl()}"${xt}>${t('Trang giới thiệu')}</a></span>`))}
       </div>`;
     // 🎨 Khung Stitch v2 (web/js/st/v2/settings.js, tự sinh): Back + tiêu đề + nhóm hàng mục lục; trang con = groups rỗng + các nhóm điều khiển cũ chèn cuối khung
-    const root = ST2.mount(view, 'settings', { title: open ? SUBT[open] : t('Cài đặt'), back: back[1], backHref: back[0], groups: open ? [] : groups }, null);
+    const root = ST2.mount(view, 'settings', { title: open ? SUBT[open] : t('Cài đặt'), backL: t('Quay lại') + ' · ' + back[1], backHref: back[0], groups: open ? [] : groups }, null);
     document.body.classList.remove('st', 'v2on'); // khung "inner": giữ thanh trên + 5 tab + lề #view chung của app (cùng cách Hub Ngữ pháp)
     root.querySelector(':scope > main > div').insertAdjacentHTML('beforeend', sections);
     if (open) { const os = $('#set-' + open); if (os) { os.setAttribute('data-on', ''); } }
