@@ -9,7 +9,7 @@ import fs from 'fs';
 import path from 'path';
 
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
-const RUN_MS = +arg('--run-ms', 420000);
+const RUN_MS = +arg('--run-ms', 330000);
 const OUT = path.resolve(arg('--out', 'qa-rt')), FX = path.resolve(arg('--fx', 'fx')), ROOT = path.resolve(arg('--root', 'web'));
 const FIN = +arg('--fin', 150), EP = +arg('--ep', 1000), CPU = +arg('--cpu', 4);
 fs.mkdirSync(OUT, { recursive: true });
@@ -101,7 +101,7 @@ async function run(tag, cfg, calls, o = {}) {
   const cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: CPU });
   const res = { first: [], reply: [], barge: [], fps: 0, src: '', turns: 0 };
   let w = 0;
-  // Mỗi chế độ có ngân sách thời gian (7 phút) + nhật ký từng bước: kẹt ở đâu thấy ngay trong log CI, không im lặng tới khi job bị huỷ ở phút 25
+  // Mỗi chế độ có ngân sách thời gian (5,5 phút) + nhật ký từng bước: kẹt ở đâu thấy ngay trong log CI, không im lặng tới khi job bị huỷ ở phút 25
   const T0 = Date.now(), DEADLINE = T0 + RUN_MS, lg = m => console.log(`  [${tag} +${((Date.now() - T0) / 1000).toFixed(0)}s] ${m}`);
   const state = () => page.evaluate(() => { const s = window.__callState && window.__callState(); return s ? `phase=${s.phase} turn=${s.turn} log=${s.log.length}` : 'no __callState · hash=' + location.hash; }).catch(() => 'page?');
   for (const id of calls) {
