@@ -11,7 +11,7 @@ export function loadContent() {
   const noop = () => {}, ctx = { console: { log: noop, warn: noop, error: noop }, Date, Math, JSON, setTimeout: noop, clearTimeout: noop, localStorage: { getItem: () => null, setItem: noop }, navigator: {} };
   ctx.self = ctx; ctx.window = ctx; ctx.t = (s, v) => (v ? s.replace(/\{(\w+)\}/g, (m, k) => (v[k] != null ? v[k] : m)) : s);
   vm.createContext(ctx);
-  const files = ['data.js', 'lexis.js', 'structures.js', 'readings.js', '../cpack/readings/more.js', '../cpack/readings/c2.js'];
+  const files = ['data.js', 'lexis.js', 'structures.js', 'readings.js', '../cpack/readings/more.js'];
   // grammar: đúng thứ tự app nạp (web/js/app.js) – drills-*.js gắn bài tập vào chương đã có
   const GORDER = ['tenses', 'verbs', 'sentences', 'foundation', 'starter', 'starter2', 'academic', 'mastery', 'chapters', 'book2', 'drills-a', 'drills-b', 'drills-c', 'drills-own', 'bank-gen', 'check'];
   // grammar có thể nằm ở web/js/grammar và web/cpack/grammar (drills-own.js): gộp rồi xếp đúng thứ tự app nạp

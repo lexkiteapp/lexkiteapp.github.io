@@ -7,7 +7,7 @@ const load = files => { const c = ctx(); for (const f of files) run(c, f); retur
 
 // Writing Task 2: đề (write.js PROMPTS + WRITE_MORE) + bài mẫu (MODELS)
 export function loadWriting() {
-  const c = load(['write/task2-more', 'write/task2-more2', 'write/models', 'write/models2', 'write/models3', 'write/models4', 'write/models5']);
+  const c = load(['write/task2-more', 'write/models', 'write/models2', 'write/models3', 'write/models4', 'write/models5']);
   const w = fs.readFileSync('web/js/write.js', 'utf8'), T = (id, type, topic, text) => ({ id, type, topic, text });
   const P = vm.runInNewContext(w.slice(w.indexOf('const PROMPTS = [') + 16, w.indexOf('];', w.indexOf('const PROMPTS = [')) + 1), { T });
   for (const a of c.WRITE_MORE || []) if (!P.some(p => p.id === a[0])) P.push(T(...a));
