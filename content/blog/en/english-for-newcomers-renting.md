@@ -200,6 +200,8 @@ Reading is not the same as speaking under pressure. Open the [renting lesson](/a
 
 {{youtube: | Suggested video: a short role-play of a flat viewing with an agent and a tenant}}
 
+Health is another early need: see [English phrases at the doctor](/en/blog/english-for-newcomers-doctor/) and [English phrases at the bank](/en/blog/english-for-newcomers-bank/).
+
 ## Frequently asked questions
 
 ### What is the difference between a lease and a tenancy agreement?

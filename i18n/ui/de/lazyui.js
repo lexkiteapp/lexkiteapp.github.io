@@ -821,6 +821,7 @@
 "Đã thêm {n} cụm vào sổ":"{n} Sätze zu Ihrem Buch hinzugefügt",
 "Đã thêm {n} từ hợp trình độ {cefr} vào bộ thẻ.":"{n} Wörter auf Ihrem Niveau {cefr} wurden Ihrem Stapel hinzugefügt.",
 "Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ":"{n} portugiesische Wörter zu Ihrer Wortliste hinzugefügt",
+"Đã thêm {n} từ tiếng Pháp vào Sổ từ":"{n} französische Wörter zu Ihrer Wortliste hinzugefügt",
 "Đã thêm {n} từ tiếng Tây Ban Nha vào Sổ từ":"{n} spanische Wörter zu Ihrer Wortliste hinzugefügt",
 "Đã tạo bộ “{d}” với {n} thẻ":"Erstellt das Deck „{d}“ mit {n} Karten",
 "Đã tải {done}/{total} · {mb} MB":"Heruntergeladen {done}/{total} · {mb} MB",
