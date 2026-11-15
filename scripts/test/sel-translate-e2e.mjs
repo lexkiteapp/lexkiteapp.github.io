@@ -52,7 +52,7 @@ async function selectAndTranslate(page, free) {
     let target = box;
     if (free) { let p = document.getElementById('e2eFree'); if (!p) { p = document.createElement('p'); p.id = 'e2eFree'; box.after(p); } p.textContent = free; target = p; }
     const r = document.createRange();
-    if (free) r.selectNodeContents(target); else { const lab = box.firstElementChild, btn = box.querySelector('button'); r.setStartAfter(lab); r.setEndBefore(btn); }
+    if (free) r.selectNodeContents(target); else r.selectNodeContents(box.querySelector('[lang=en]') || box); // câu ví dụ tiếng Anh (dict-page.js: div[lang=en] sau hàng nhãn + nút nghe)
     target.scrollIntoView({ block: 'center' });
     const s = getSelection(); s.removeAllRanges(); s.addRange(r);
     document.dispatchEvent(new MouseEvent('mouseup', { bubbles: true })); return true;
@@ -135,7 +135,7 @@ for (const [vp, scheme] of matrix) {
     // (f) Câu sát mép dưới màn hình → bảng tự lật lên, vẫn trong khung
     await page.evaluate(() => { const b = document.querySelector('.example-box'); b.scrollIntoView({ block: 'end' }); window.scrollBy(0, 0); });
     await net(ctx, { gtx: 'block', mm: 'block' });
-    await page.evaluate(() => { const box = document.querySelector('.example-box'), r = document.createRange(); r.setStartAfter(box.firstElementChild); r.setEndBefore(box.querySelector('button')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); document.dispatchEvent(new MouseEvent('mouseup', { bubbles: true })); });
+    await page.evaluate(() => { const box = document.querySelector('.example-box'), r = document.createRange(); r.selectNodeContents(box.querySelector('[lang=en]') || box); const s = getSelection(); s.removeAllRanges(); s.addRange(r); document.dispatchEvent(new MouseEvent('mouseup', { bubbles: true })); });
     await page.waitForSelector('.sel-bar:not([hidden]) [data-act=tr]', { timeout: 3000 }).catch(() => {}); await page.click('.sel-bar [data-act=tr]').catch(() => {}); await page.waitForTimeout(400);
     const g1 = await geom(page); ok(!g1.coversSel && g1.pop[1] >= 7.5 && g1.pop[3] <= vp.height - 7.5, `sát mép dưới → bảng lật lên/thu gọn, không che câu, trong khung (${g1.pop})`);
   }
