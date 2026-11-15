@@ -108,8 +108,9 @@
   // ================= CHẠY BÀI THI =================
   function run(query) {
     const order = (query.get('s') || 'listening,reading,writing,speaking').split(',').filter(k => SKILLS().some(s => s[0] === k));
-    const M = { order, i: 0, bands: {}, detail: {}, lt: +query.get('l') || 1, rt: +query.get('r') || 1, timers: [], clocks: [], run: null, player: null, rec: null };
-    const clearAll = () => { M.timers.forEach(clearInterval); M.timers = []; M.clocks.forEach(c => c.stop()); M.clocks = []; if (M.run) { M.run.stop(); M.run = null; } if (M.player) M.player.stop(); if (M.rec) M.rec.cancel(); UI.stopSpeak(); };
+    const M = { order, i: 0, bands: {}, detail: {}, lt: +query.get('l') || 1, rt: +query.get('r') || 1, timers: [], player: null, rec: null };
+    M.clocks = []; // đồng hồ ExamClock đang chạy (clearAll dừng hết)
+    const clearAll = () => { M.timers.forEach(clearInterval); M.timers = []; M.clocks.forEach(c => c.stop()); M.clocks = []; if (M.player) M.player.stop(); if (M.rec) M.rec.cancel(); UI.stopSpeak(); };
     document.body.classList.add('bare');
     window.onbeforeunload = () => t('Bạn đang làm bài thi – rời trang sẽ mất kết quả.');
     App.cleanup = () => { clearAll(); document.body.classList.remove('bare'); window.onbeforeunload = null; };
