@@ -1,13 +1,16 @@
 /* UI ja – qtips (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ja"] = Object.assign(D["ja"] || {}, {
+"Bắt đầu ôn 10 phút":"10 分間の復習を始める",
 "Chưa có dữ liệu. Làm một bài luyện Listening/Reading (IELTS, TOEIC hoặc TOEFL) để bắt đầu theo dõi.":"まだデータがありません。追跡を開始するには、リスニングまたはリーディングの練習テスト (IELTS、TOEIC、または TOEFL) を実施してください。",
 "Chọn đủ 2 đáp án (thứ tự không quan trọng, mỗi đáp án đúng được 1 điểm). Đọc kỹ cả 5 phương án; loại phương án được nhắc tới nhưng bị phủ định hoặc thuộc về người/đối tượng khác.":"正確に 2 つの答えを選択してください (順序は関係ありません。正解ごとに 1 マークが加算されます)。 5 つの選択肢すべてを注意深く読み、言及されているが拒否されている選択肢、または別の人や物に属する選択肢を除外してください。",
 "Câu hỏi về quan điểm của tác giả, không phải sự thật chung. YES: tác giả đồng ý; NO: tác giả phản đối; NOT GIVEN: tác giả không nêu ý kiến về điều đó. Để ý từ thể hiện thái độ (argue, claim, unfortunately…). Đáp án theo thứ tự trong bài.":"これらの質問は、一般的な事実ではなく、筆者の見解について尋ねています。はい: 筆者も同意します。いいえ: 筆者は同意しません。 NOT GIVEN: 筆者はそれについて何も意見を述べていません。態度に関する単語 (argue, claim, unfortunately…) を探します。答えは文章の順序に従います。",
 "Còn {n} phút":"残り {n} 分",
 "Dùng thời gian trước khi nghe để đọc câu hỏi và đoán loại thông tin cần điền (tên, số, ngày, giá…). Người nói hay tự sửa (“…no, sorry, it’s 15”) – ghi thông tin cuối cùng. Viết đúng chính tả và không vượt giới hạn số từ; đáp án theo thứ tự bài nghe.":"録音前の時間を利用して質問を読み、必要な情報の種類 (名前、番号、日付、価格など) を予測します。講演者はしばしば自分自身を修正します (「…no, sorry, it’s 15」) - 最終情報を書きます。スペルを正しく入力し、文字数制限内に収めてください。回答は録音の順序に従います。",
+"Dừng đếm giờ":"タイマーを停止する",
 "Ghi chú theo cấu trúc: chủ đề chính → các ý phụ → ví dụ. Câu hỏi thường về ý chính, chi tiết quan trọng và vì sao giảng viên nhắc tới một ví dụ.":"メイントピック→サポートポイント→例という構造でメモを取ります。質問は通常、主なアイデア、重要な詳細、および講師が例に言及した理由について尋ねます。",
 "Giống Part 5 nhưng phải đọc câu trước và sau chỗ trống, nhất là với từ nối, thì của động từ và đại từ. Câu điền cả câu: chọn câu nối mạch ý với cả câu đứng trước và câu đứng sau.":"パート 5 と同様ですが、特に単語、動詞時制、代名詞の接続については、ギャップの前後の文を読む必要があります。文の挿入ギャップについては、前の文と後の文の両方につながる文を選択します。",
 "Gạch chân từ khóa trong câu hỏi trước khi đọc/nghe. Phương án lặp đúng từ trong bài thường là bẫy; đáp án đúng thường được diễn đạt lại. Trong Listening, người nói hay nhắc nhiều phương án – chọn ý cuối cùng được khẳng định.":"読んだり聞いたりする前に、質問内のキーワードに下線を引いてください。テキストの単語をそのまま繰り返すオプションは、多くの場合罠です。正解は通常、言い換えられます。リスニングでは、講演者がいくつかの選択肢について言及することがよくありますが、最終的に確認されたものを選択してください。",
+"Hết 10 phút! Xem tiến bộ của bạn":"10分が経過しました！進捗状況を確認する",
 "Mẹo làm bài":"解き方のコツ",
 "Nghe thật kỹ từ để hỏi ở đầu câu (Who, When, Where, Why, How…). Loại câu trả lời lặp từ hoặc dùng từ phát âm giống câu hỏi. Câu trả lời gián tiếp (“Let me check”, “Ask Mr. Kim”) thường là đáp án đúng; câu hỏi Wh- không trả lời bằng Yes/No.":"冒頭の疑問詞 (誰が、いつ、どこで、なぜ、どのように…) を注意深く聞いてください。単語を繰り返したり、質問と同じように聞こえる単語を使用した回答を除外します。間接的な答え (「Let me check」、「Ask Mr. Kim」) は多くの場合正しいです。 Wh- 質問には Yes/No では答えられません。",
 "Nghe trọn câu và nhớ theo cụm ý, không nhớ từng từ. Nhắc lại đúng thứ tự, giữ trọng âm và ngữ điệu; nói rõ ràng quan trọng hơn nói nhanh.":"文全体を聞いて、単語ごとではなく意味の塊として覚えてください。強勢とイントネーションを保ちながら、同じ順序で繰り返します。速く話すことよりも、はっきりと話すことが重要です。",
@@ -25,6 +28,7 @@
 "Trả lời thẳng câu hỏi trong 1–2 câu đầu, rồi thêm lý do và ví dụ của bản thân. Nói tự nhiên, không học thuộc; nếu vấp thì tự sửa và nói tiếp.":"最初の 1 ～ 2 文で質問に直接答えてから、理由や個人的な例を追加します。暗唱するのではなく、自然に話してください。つまずいたら、修正して進み続けてください。",
 "Trả lời đủ mọi ý đề yêu cầu, giọng văn hợp với người nhận; có mở – thân – kết rõ ràng. Dành 1–2 phút cuối soát ngữ pháp và chính tả.":"タスクが要求するすべての点に、読者に適した口調で、明確な冒頭、本文、結びを付けて答えます。最後の 1 ～ 2 分をとって、文法とスペルをチェックしてください。",
 "Tìm và đánh dấu các tên (người, tổ chức, mốc thời gian) trong bài trước, rồi đọc kỹ quanh mỗi tên và so với nhận định đã được diễn đạt lại. Đáp án không theo thứ tự bài; một lựa chọn có thể dùng nhiều lần hoặc không dùng.":"まず文章内の名前 (人物、組織、日付) を見つけてマークし、次にそれぞれの名前の周囲をよく読んで、言い換えられたステートメントと比較します。答えは通過順ではありません。オプションは複数回使用することも、まったく使用しないこともできます。",
+"Tỉ lệ đúng 8 tuần gần nhất":"過去 8 週間の精度",
 "Tổng hợp từ các bài luyện và thi thử của bạn trên Lexkite. Đây là tỉ lệ đúng trong bài luyện của bạn – <b>không phải điểm thi chính thức</b>. Thời gian mỗi câu là ước tính: thời gian trên trang chia cho số câu.":"Lexkite の模擬テストと模擬テストの概要。これは実際の正確さであり、<b>公式の試験スコアではありません</b>。質問ごとの時間は推定値であり、ページの閲覧時間を質問数で割ったものです。",
 "Xem tiến bộ theo kỹ năng và dạng câu hỏi":"スキルと質問の種類ごとに進捗状況を確認する",
 "Xác định chủ ngữ và động từ chính trước, rồi đặt trợ động từ/từ để hỏi, sau đó các cụm còn lại. Câu hỏi gián tiếp giữ trật tự câu khẳng định (…where the library is).":"まず主語と主動詞を見つけて、次に補助語または疑問詞を配置し、それから残りのチャンクを配置します。間接疑問文ではステートメントの語順が維持されます (…where the library is)。",
@@ -33,6 +37,7 @@
 "mỗi câu (ước tính)":"1問あたり（推定）",
 "tỉ lệ đúng":"正答率",
 "{s} giây":"{s}秒",
+"Ôn 10 phút: dạng yếu nhất của bạn":"10 分間の復習: 最も苦手な質問の種類",
 "Đáp án không theo thứ tự trong bài và một đoạn có thể dùng nhiều lần. Xác định loại thông tin cần tìm (ví dụ, lý do, số liệu, so sánh…) rồi quét. Nên làm sau các dạng khác của cùng bài, khi bạn đã quen nội dung.":"解答はパッセージ順ではなく、1 つの段落が複数回使用される場合があります。どのような種類の情報 (例、理由、図、比較など) が必要かを決定し、スキャンします。内容をすでに理解している場合は、同じパッセージの他のタスクの後にこのタスクを実行します。",
 "Đọc câu chủ đề mỗi đoạn để nắm ý chính, rồi tìm chi tiết theo câu hỏi. Câu suy luận: chọn ý bài ngụ ý, không phải ý chỉ lặp từ. Câu từ vựng: thay phương án vào câu xem có giữ đúng nghĩa không.":"各段落のトピックセンテンスを読んで主なアイデアを把握し、各質問の詳細を見つけてください。推論の質問: 単語を繰り返すだけの選択肢ではなく、文章が暗示する内容を選択してください。語彙の質問: 各選択肢を文に入れて、意味が同じであることを確認します。",
 "Đọc câu hỏi trước rồi quét bài tìm từ khóa. Với nhóm nhiều văn bản, có câu phải ghép thông tin từ 2 văn bản. Câu “NOT true” và câu chèn câu tốn thời gian – có thể làm sau. Mục tiêu khoảng 1 phút mỗi câu.":"まず質問を読んでから、テキストに目を通し、キーワードを探します。複数パッセージのセットでは、一部の質問では 2 つのテキストからの情報を組み合わせる必要があります。 「NOT true」の質問と文挿入の質問は時間がかかります。後で残しておくことができます。 1 つの質問につき約 1 分を目安にしてください。",
@@ -44,5 +49,7 @@
 "Đọc phần đầu câu và đoán phần còn thiếu cần gì (về nghĩa và ngữ pháp). Phần kết đúng phải khớp cả ngữ pháp lẫn nội dung bài. Câu hỏi theo thứ tự trong bài; luôn có nhiều phần kết hơn số câu.":"文の冒頭を読んで、足りない部分に何が必要かを予測します（意味と文法において）。正しい語尾は文法と文章の内容の両方に適合している必要があります。質問は文章の順序に従います。常に疑問よりも多くの結末があります。",
 "Đọc trước 3 câu hỏi (và biểu đồ nếu có) trong lúc nghe hướng dẫn. Câu hỏi thường theo thứ tự hội thoại: chủ đề/nơi chốn → chi tiết → việc sẽ làm tiếp theo. Đáp án thường là cách diễn đạt khác của lời nói.":"指示を読みながら、3 つの質問 (および任意の図) を読みます。通常、会話の後に質問が続きます: トピック/場所→詳細→次に何が起こるか。正解は通常、言われたことの言い換えです。",
 "Đọc trước câu hỏi. Câu đầu thường hỏi mục đích hoặc người nghe là ai – đáp án nằm ở vài câu mở đầu. Chú ý lời yêu cầu, đề nghị, thay đổi lịch ở cuối bài nói.":"まず質問を読んでください。最初の質問では、目的や対象者について尋ねられることが多く、その答えは冒頭の文にあります。トークの終わり近くで、リクエスト、提案、スケジュールの変更に耳を傾けてください。",
+"đúng {p}% ({n} câu). Dành 10 phút luyện riêng dạng này.":"{p}% 正解 ({n} 問)。このタイプを 10 分間練習してください。",
+"Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)":"今週の推定バンド数 ≈ {b} (正式な試験スコアではありません)",
 });
 })(typeof self !== 'undefined' ? self : this);

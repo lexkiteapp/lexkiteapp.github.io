@@ -1,0 +1,39 @@
+# Cổng chất lượng AI người dùng (docs/AI-CHAIN.md §Golden): ~20 bài chấm IELTS có lỗi đã biết + ~20 lượt roleplay có giám khảo khác họ.
+# Model nào ĐANG trong chuỗi (_aichain.js) mà không đạt → đỏ. Hằng ngày + khi PR đụng chuỗi AI / lời nhắn máy khách. Không gọi API của site (gọi thẳng nhà cung cấp bằng kho khóa CI).
+name: ai-golden
+on:
+  schedule:
+    - cron: '41 6 * * *'
+  workflow_dispatch:
+    inputs:
+      only: { description: 'Tuyến: gem,groq,wai', default: 'gem,groq,wai' }
+  pull_request:
+    paths:
+      - 'functions/api/_aichain.js'
+      - 'functions/api/ai.js'
+      - 'web/js/ai.js'
+      - 'web/js/roleplay.js'
+      - 'scripts/ai-golden/**'
+      - '.github/workflows/ai-golden.yml'
+permissions: { contents: read }
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  golden:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/ai-golden/run.mjs --only "${{ github.event.inputs.only || 'gem,groq,wai' }}" --out reports/ai-golden.json
+        env:
+          GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
+          GROQ_POOL: ${{ secrets.GROQ_POOL }}
+          CF_POOL: ${{ secrets.CF_POOL }}
+          CF_POOL_HOLD: ${{ vars.CF_POOL_HOLD }}
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: ai-golden, path: reports/ai-golden.json, retention-days: 14, if-no-files-found: ignore }

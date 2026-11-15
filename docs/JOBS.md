@@ -73,6 +73,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 02:30 | `world-scorecard` | `30 2 * * 1` | reports | gh_minutes | 15 | — | — |
 | 02:40 | `vocab-img-scene` | `40 2,4,7,10,13,16,19,22 * * *` | bulk | grabcast_ai, gh_minutes | 120 | grabcast_images≈6000, grabcast_text≈300, shards_max≈10, per_shard_images≈max_gc / shards, judge≈local CPU (0 token), grabcast_vision≈6000 | ✓ |
 | 02:50 | `social-metrics` | `50 2 * * *` | reports | youtube_api, d1_main | 2 | d1_main_reads≈200, d1_main_writes≈150 | — |
+| 03:17 | `ai-keys-sync` | `17 3 * * 1` | reports | gh_minutes | 1 | — | — |
 | 03:20 | `visual-qa` | `20 3 * * 1` | reports | gh_minutes | 30 | — | — |
 | 03:40 | `mobile-qa` | `40 3 * * 1` | reports | gh_minutes | 30 | — | — |
 | 03:41 | `content-evidence` | `41 3 * * *`<br>`23 4 1 * *` | reports | gh_minutes | 30 | — | — |
@@ -89,6 +90,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 05:30 | `d1b-migrate` | `30 5 * * *` | archive | d1_internal, d1_main_read, drive_pool | 45 | d1_main_reads≈40000, d1_internal_reads≈2000 | ✓ |
 | 06:03 | `ads-revenue` | `3 6 * * *` | reports | gh_minutes, d1_main | 2 | d1_main_reads≈1500, d1_main_writes≈300 | — |
 | 06:20 | `footage-verify` | `20 6 * * 1` | reports | drive_pool, d1_internal | 20 | d1_internal_reads≈8000, drive_calls≈300 | ✓ |
+| 06:41 | `ai-golden` | `41 6 * * *` | reports | gh_minutes | 15 | — | — |
 | 07:20 | `ci-queue-report` | `20 7 * * *` | reports | gh_minutes | 3 | — | — |
 | 07:30 | `explain` | `30 7 * * *` | render | gemini, grabcast_ai, gh_minutes | 40 | gemini_calls≈400, grabcast_text≈200 | — |
 | 08:53 | `news-auto` | `53 8 * * *` | render | gh_minutes, workers_ai_b, gemini, drive_pool | 150 | clips≈6, gemini_calls≈12, drive_calls≈60, workers_ai_b_neurons≈3000 | ✓ |
