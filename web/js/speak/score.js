@@ -1,6 +1,6 @@
 /* 🎙️ Play & Speak – Speak.score: MỘT chỗ chấm nói (docs/specs/play-and-speak.md §5). Bọc UI.recognize (Web Speech / Whisper trên máy),
  * không sửa file của #281/#286 (GOP: khi có window.Gop.score thì engine 'gop' cộng thêm điểm âm vị). Âm thanh không rời máy.
- *   Speak.score({target, mode:'drill'|'free'|'game', intents?, accent?, onStart?}) → Promise<{engine, text:0–1, gop?, words:[{w,ok}], fluency:{wpm,pauses}, intent?, conf, ms, heard, unclear?, error?}>
+ *   Speak.score({target, mode:'drill'|'free'|'game', intents?, accent?, onStart?}) → Promise<{engine, text:0–1, gop?, words:[{w,ok}], fluency:{wpm,pauses}, intent?, conf, ms, heard, audio?, phones?:[{w:chỉ số từ, p, score 0–100}] (khi có Gop), unclear?, error?}>
  *   Speak.align(target, heard) → words[{w,ok}] (thuần, test scripts/test/speak.mjs) · Speak.intentOf(heard, intents) · Speak.pass(r) · Speak.stop()
  * Ngưỡng đạt: CAL (hồi quy logistic trên tập hiệu chuẩn CI – §5). Chưa có số đo thì dùng mục tiêu tỉ lệ đạt 80% của LEARNING-PATH (calibrated:false). */
 (function (g) {
@@ -24,17 +24,18 @@
     o = o || {}; const target = String(o.target || ''), t0 = Date.now(); let tEnd = 0, began = 0;
     return new Promise(res => {
       const UI = g.UI; if (!UI || !UI.recognize) return res({ engine: 'webspeech', text: 0, words: align(target, ''), fluency: { wpm: 0, pauses: null }, conf: 0, ms: 0, heard: '', unclear: true, error: 'unsupported' });
-      const done = (heard, conf, err) => {
+      const done = (heard, conf, err, audio) => {
         cur = null; const words = align(target, heard), okN = words.filter(w => w.ok).length, dur = Math.max(1, (tEnd || Date.now()) - (began || t0)) / 1000, n = toks(heard).length;
         const r = { engine: ctl && ctl._whisper ? 'whisper' : 'webspeech', text: words.length ? okN / words.length : 0, words, fluency: { wpm: n ? Math.round(n / dur * 60) : 0, pauses: null }, conf: conf || 0, ms: tEnd ? Date.now() - tEnd : 0, heard: heard || '' };
+        if (audio) r.audio = audio;
         if (!heard) { r.unclear = true; if (err) r.error = err; }
         if (o.intents) r.intent = intentOf(heard, o.intents);
-        if (g.Gop && g.Gop.score && r.audio) try { const p = g.Gop.score(target, r.audio); if (p && p.gop != null) { r.engine = 'gop'; r.gop = p.gop; } } catch (e) { /* GOP chưa sẵn (#286) */ }
+        if (g.Gop && g.Gop.score && r.audio) try { const p = g.Gop.score(target, r.audio); if (p && p.gop != null) { r.engine = 'gop'; r.gop = p.gop; if (Array.isArray(p.phones)) r.phones = p.phones; } } catch (e) { /* GOP chưa sẵn (#286) */ }
         res(r);
       };
       ctl = UI.recognize(target, o.accent || 'en-US', {
         start: () => { began = Date.now(); o.onStart && o.onStart(); },
-        result: x => done(x && x.heard, x && x.score != null ? x.score / 100 : 0),
+        result: x => done(x && x.heard, x && x.score != null ? x.score / 100 : 0, undefined, x && x.audio),
         error: c => done('', 0, c || 'error'),
         end: () => { tEnd = tEnd || Date.now(); },
       });

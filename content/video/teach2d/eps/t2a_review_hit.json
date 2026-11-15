@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"hit\" mean?",
+  "keyword": "hit",
+  "value": "Hit means to touch someone or something quickly and with force.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=hit",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"hit\" mean?",
+    "description": "Hit means to touch someone or something quickly and with force.\n\nReview your words, free: https://lexkite.com/app/#/review?w=hit\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "hit",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"hit\" mean?\n\nHit means to touch someone or something quickly and with force.\n\nReview your words, free: https://lexkite.com/app/#/review?w=hit"
+   },
+   "instagram": {
+    "caption": "What does \"hit\" mean?\n\nHit means to touch someone or something quickly and with force.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"hit\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to touch someone or something quickly and with force. Hit means to touch someone or something quickly and with force. Try the full lesson and quiz here: {link}"
  }
 }

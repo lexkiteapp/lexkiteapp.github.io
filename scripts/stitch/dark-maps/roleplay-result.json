@@ -1,0 +1,42 @@
+{
+ "_doc": "B\u1ea3ng t\u1ed1i cho roleplay-result (9/11, P07, Lexkite Kit Tactile Night): vai m\u00e0u x\u1ebfp theo \u0111\u1ed9 s\u00e1ng/s\u1eafc \u0111\u1ed9, c\u1eb7p ch\u1eef-n\u1ec1n ki\u1ec3m t\u01b0\u01a1ng ph\u1ea3n \u22654.5; khai b\u00e1o CSS trong <style> \u0111\u1ed5i theo t\u1eebng d\u00f2ng.",
+ "config": {},
+ "hex": {
+  " background-color: #f4eee9": " background-color: #2A3F45"
+ },
+ "cls": {
+  "bg-surface-container-high": "bg-[#2A3F45]",
+  "hover:bg-surface-container": "hover:bg-[#2A3F45]",
+  "bg-error-container/60": "bg-[#4A2A22]/60",
+  "bg-surface-container-lowest": "bg-[#172427]",
+  "bg-surface-container": "bg-[#2A3F45]",
+  "bg-surface": "bg-[#1E2F33]",
+  "bg-surface-container-highest": "bg-[#2A3F45]",
+  "bg-surface-container-low": "bg-[#2A3F45]",
+  "bg-primary-container": "bg-[#12514D]",
+  "dark:hover:bg-surface-container": "dark:hover:bg-[#2A3F45]",
+  "bg-background": "bg-[#1E2F33]",
+  "hover:bg-surface-container-high": "hover:bg-[#2A3F45]",
+  "dark:bg-inverse-surface": "dark:bg-[#0E1618]",
+  "border-outline-variant/60": "border-[#4A6870]/60",
+  "dark:border-outline-variant/40": "dark:border-[#4A6870]/40",
+  "border-secondary/40": "border-[#613800]/40",
+  "text-outline": "text-[#E8F1F0]",
+  "border-error/30": "border-[#821212]/30",
+  "border-outline-variant/50": "border-[#4A6870]/50",
+  "border-secondary": "border-[#613800]",
+  "border-outline-variant/40": "border-[#4A6870]/40",
+  "text-secondary": "text-[#FFC94A]",
+  "border-outline-variant": "border-[#4A6870]",
+  "text-primary": "text-[#5EEAD4]",
+  "text-error": "text-[#FF9A86]",
+  "dark:text-inverse-primary": "dark:text-[#5EEAD4]",
+  "text-on-surface": "text-[#E8F1F0]",
+  "text-outline-variant": "text-[#A9BDBB]",
+  "border-outline-variant/30": "border-[#4A6870]/30",
+  "border-outline-variant/70": "border-[#4A6870]/70",
+  "text-on-secondary-container": "text-[#FFC94A]",
+  "border-outline-variant/80": "border-[#4A6870]/80",
+  "text-on-surface-variant": "text-[#E8F1F0]"
+ }
+}

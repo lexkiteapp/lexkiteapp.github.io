@@ -303,7 +303,7 @@
         <div class="row between"><span class="chip">Test ${n} · Part ${p.part}/4 · ${t('Câu {a}–{b}', { a: qNums(p)[0], b: qNums(p).slice(-1)[0] })}</span><span class="small muted" id="tState"></span></div>
         <div class="progress" style="margin:.6rem 0"><i style="width:${k / parts.length * 100}%"></i></div>
         <div class="card lplayer"><b id="tCount">${UI.icon('hourglass')} ${t('{n} giây đọc câu hỏi', { n: 30 })}</b><button class="btn sm ghost" id="tSkip">${t('Bắt đầu nghe ngay')}</button><span class="lnow small muted" id="lNow"></span></div>
-        <div class="card" id="lQs">${questionsHtml(p)}<div class="row" style="margin-top:1rem"><button class="btn primary" id="tNext" disabled>${k < parts.length - 1 ? t('Sang phần tiếp') + ' →' : UI.icon('circle-check') + ' ' + t('Nộp bài')}</button></div></div>`;
+        <div class="card" id="lQs">${questionsHtml(p)}<div class="row" style="margin-top:1rem"><button class="btn primary" id="tNext" aria-describedby="tNextWhy" disabled>${k < parts.length - 1 ? t('Sang phần tiếp') + ' →' : UI.icon('circle-check') + ' ' + t('Nộp bài')}</button><p class="next-why" id="tNextWhy">${t('Nghe hết phần này để mở nút tiếp')}</p></div></div>`;
       let left = 30, started = false;
       const tick = setInterval(() => { if (started || !document.body.contains($('#tCount') || document.createElement('i'))) return clearInterval(tick); left--; $('#tCount').textContent = '⏳ ' + t('{n} giây đọc câu hỏi', { n: left }); if (left <= 0) start(); }, 1000);
       const start = () => {
@@ -314,10 +314,10 @@
           onSound: () => { if (c()) c().textContent = '🔊 ' + t('Đang phát – chỉ nghe 1 lần'); },
           onBlocked: () => { if (!c()) return; c().innerHTML = `<button class="btn primary" id="tTap">▶ ${t('Chạm ▶ để nghe')}</button> <span class="small muted">${t('Âm thanh chưa phát được – chạm để nghe (chưa tính lượt nghe)')}</span>`; $('#tTap').onclick = () => { c().textContent = '⏳ ' + t('Đang tải…'); player.play(); }; },
           onLine: i => { const l = p.script[i]; $('#lNow') && ($('#lNow').textContent = !l ? '' : l.say ? '🎙️ ' + t('Lời dẫn') : l.pause != null ? '' : '🗣️ ' + ((p.speakers[l.s] || {}).name || '')); },
-          onEnd: () => { if (!$('#tCount')) return; $('#tCount').textContent = '✓ ' + t('Hết phần nghe – kiểm tra lại đáp án'); $('#tNext').disabled = false; },
+          onEnd: () => { if (!$('#tCount')) return; $('#tCount').textContent = '✓ ' + t('Hết phần nghe – kiểm tra lại đáp án'); $('#tNext').disabled = false; $('#tNextWhy')?.remove(); },
         });
         player.play(0);
-        setTimeout(() => { const b = $('#tNext'); if (b) b.disabled = false; }, 20000); // cho phép đi tiếp nếu giọng đọc lỗi
+        setTimeout(() => { const b = $('#tNext'); if (b) { b.disabled = false; $('#tNextWhy')?.remove(); } }, 20000); // cho phép đi tiếp nếu giọng đọc lỗi
       };
       $('#tSkip').onclick = start;
       $('#tNext').onclick = () => {

@@ -254,7 +254,8 @@ object LessonEngine {
             val it = if (q.isEmpty()) return null else q.removeAt(0)
             if (it.free == true) { solved++; return AnswerRes(true, combo, free = true) }
             n++
-            val k = norm(it.word); log.add(LogEntry(it.id, it.type, it.word, ok, it.retry))
+            val k = if (it.card != null) norm(it.word) else "#" + norm(it.word) // câu không thuộc từ nào (#match/#story): khóa '#…' như web/js/lesson/engine.js
+            log.add(LogEntry(it.id, it.type, it.word, ok, it.retry))
             miss = if (ok) 0 else miss + 1
             if (!ok && ease && miss >= 2 && q.size > 1 && q[0].hard) { val j = q.indexOfFirst { !it.hard && it.free != true }; if (j > 0) q.add(0, q.removeAt(j)) }
             if (ok) { solved++; combo++; best = max(best, combo); if (it.retry == 0) { ok1++; if (!wrong.containsKey(k)) firstOk.add(k) }; return AnswerRes(true, combo) }
@@ -352,7 +353,7 @@ object LessonEngine {
                         val extra = shuffle(words.filter { w -> t.none { it.lowercase() == w } }, r).take(2)
                         out.add(base.copy(type = "build", sent = ln.s("en"), who = ln.s("who"), answer = t.joinToString(" "), tiles = shuffle(t + extra, r)))
                     }
-                    "q" -> { val opts = c.arr("options").map { (it as JsonPrimitive).content }; out.add(base.copy(type = "q", prompt = c.s("q"), answer = opts[num(c["answer"]).toInt()], options = if (c.truthy("keep")) opts else shuffle(opts, r))) }
+                    "q" -> { val opts = c.arr("options").map { (it as JsonPrimitive).content }; out.add(base.copy(type = "q", prompt = c.s("q"), answer = opts[num(c["answer"]).toInt()], why = c.s("why"), options = if (c.truthy("keep")) opts else shuffle(opts, r))) }
                     "match" -> out.add(base.copy(type = "match", pairs = c.arr("pairs").map { p -> val po = p as JsonObject; val m = po["m"].obj(); MatchPair(po.s("en"), (m?.get(lang)?.takeIf { Js.truthy(it) } ?: m?.get("en")).let { e -> (e as? JsonPrimitive)?.content ?: "" }) }))
                 }
             }

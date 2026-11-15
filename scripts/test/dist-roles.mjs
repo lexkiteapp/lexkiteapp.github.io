@@ -109,6 +109,10 @@ ok(retired.length === 2 && reported.join() === 'gone-clip' && idx.items.map(x =>
 // ---- 16 fanpage: định tuyến theo ngôn ngữ (lỗi cũ: mọi clip vào kênh gc- đầu bảng chữ cái của nền tảng, bất kể ngôn ngữ) ----
 {
   const L = D.langOfChannel;
+  { const src = (await import('node:fs')).readFileSync('web/js/admin-dist.js', 'utf8'), m = /const PAGE_LANGS = (\[[^\]]*\])/.exec(src);
+    ok(m && JSON.stringify(JSON.parse(m[1].replace(/'/g, '"')).sort()) === JSON.stringify([...D.SOCIAL_LANGS].sort()) && /id="cf-lang"/.test(src) && /lang: q\('#cf-lang'\)\.value/.test(src), '⚙ #dist: ô Ngôn ngữ trang = SOCIAL_LANGS + "Tự nhận từ tên", lưu vào cfg.lang'); }
+  ok(L('Lexkite - Học Tiếng Anh') === 'vi' && L('Lexkite – học tiếng anh') === 'vi' && L('Lexkite Hoc Tieng Anh') === 'vi' && L('Học tiếng Nhật cùng Lexkite') === 'vi' && L('Lexkite - Learn English') === 'en' && L('Lexkite Tiếng Anh') === 'en' && L('Lexkite - Học Tiếng Anh (EN)') === 'en', 'langOfChannel: "học tiếng X" = page cho người Việt (vi), xét trước "tiếng anh"; mã ngoặc vẫn thắng');
+  ok(D.normCfg({}).lang === '' && D.normCfg({ lang: 'VI' }).lang === 'vi' && D.normCfg({ lang: 'xx' }).lang === '' && D.blockOf(D.normCfg({}), { lang: 'vi' }) === '', 'normCfg: lang trống = tự nhận từ tên (lưu ⚙ không còn ép en), mã lạ bị bỏ');
   ok(L('Lexkite Español') === 'es' && L('Lexkite Tiếng Việt') === 'vi' && L('Lexkite (JA)') === 'ja' && L('Lexkite – ko') === 'ko' && L('Lexkite 日本語') === 'ja', 'langOfChannel: endonym, mã trong ngoặc, sau gạch');
   ok(L('Lexkite') === '' && L('Lexkite English') === 'en' && L('Lexkite Global') === 'en' && L('Lexkite Français') === 'fr' && L('Lexkite Português') === 'pt', 'langOfChannel: page chung / tên Âu');
   ok(D.SOCIAL_LANGS.length === 15, '15 ngôn ngữ + en chung = 16 page (vi,es,pt,fr,de,id,th,zh,ja,ko,hi,ar,ru,tr + en) – có ' + D.SOCIAL_LANGS.length);

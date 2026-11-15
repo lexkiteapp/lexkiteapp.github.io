@@ -45,6 +45,7 @@
   function pickWords(cards, opts = {}) {
     const now = opts.now || Date.now(), n = opts.n || 6, list = (Array.isArray(cards) ? cards : Object.values(cards || {})).filter(c => c && c.word && (c.vi || c.def));
     const out = [], seen = new Set(), add = (c, why) => { const k = norm(c.word); if (out.length < n && !seen.has(k)) { seen.add(k); out.push({ card: c, why }); } };
+    if (opts.fixed) { const byK = new Map(list.map(c => [norm(c.word), c])); (opts.starter || []).slice(0, n).forEach(c => add(byK.get(norm(c.word)) || c, byK.has(norm(c.word)) ? 'due' : 'start')); if (out.length >= n) return out; } // nút Lộ trình đã chốt từ: xem trước khớp bài thật
     if (opts.mode === 'review') list.filter(c => c.srs && c.srs.lapses > 0 && (c.srs.reps === 0 || isDue(c, now))).sort((a, b) => b.srs.lapses - a.srs.lapses).forEach(c => add(c, 'due')); // nút Ôn lỗi: từ hay quên trước
     list.filter(c => isDue(c, now)).sort((a, b) => a.srs.due - b.srs.due).forEach(c => add(c, 'due'));
     list.filter(c => !isDue(c, now) && fromExt(c)).sort((a, b) => (b.mod || 0) - (a.mod || 0)).forEach(c => add(c, 'ext'));
@@ -155,7 +156,7 @@
       const it = this.q.shift(); if (!it) return null;
       if (it.free) { this.solved++; return { ok: true, combo: this.combo, free: true }; } // câu thoại của truyện: chỉ tiến độ, không chấm
       this.n++;
-      const k = norm(it.word); this.log.push({ id: it.id, type: it.type, word: it.word, ok, retry: it.retry });
+      const k = it.card ? norm(it.word) : '#' + norm(it.word); this.log.push({ id: it.id, type: it.type, word: it.word, ok, retry: it.retry });
       this.miss = ok ? 0 : this.miss + 1;
       // chống nản (ease): sai 2 câu liền → câu kế tiếp là dạng dễ (chọn đáp án) nếu còn trong hàng
       if (!ok && this.ease && this.miss >= 2 && this.q.length > 1 && HARD(this.q[0])) { const j = this.q.findIndex(x => !HARD(x) && !x.free); if (j > 0) { const [e] = this.q.splice(j, 1); this.q.unshift(e); } }
@@ -240,7 +241,7 @@
       (st.checks || []).filter(c => c.at === i).forEach(c => {
         const base = { id: ++id, word: '#story', card: null, retry: 0 };
         if (c.type === 'tap') { const T = toks(st.lines[c.line].en), extra = c.extra || shuffle(words.filter(w => !T.some(x => x.toLowerCase() === w)), r).slice(0, 2); out.push(Object.assign(base, { type: 'build', sent: st.lines[c.line].en, who: st.lines[c.line].who, answer: T.join(' '), tiles: shuffle(T.concat(extra), r) })); }
-        else if (c.type === 'q') out.push(Object.assign(base, { type: 'q', prompt: c.q, answer: c.options[c.answer], options: c.keep ? c.options.slice() : shuffle(c.options.slice(), r) }));
+        else if (c.type === 'q') out.push(Object.assign(base, { type: 'q', prompt: c.q, answer: c.options[c.answer], why: c.why || '', options: c.keep ? c.options.slice() : shuffle(c.options.slice(), r) }));
         else if (c.type === 'match') out.push(Object.assign(base, { type: 'match', pairs: c.pairs.map(p => ({ word: p.en, mean: p.m[lang] || p.m.en })) }));
       });
     });

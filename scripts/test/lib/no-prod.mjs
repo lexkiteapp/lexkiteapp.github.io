@@ -8,7 +8,7 @@
 import { githubCandidates, typeOf, PROD_CDN, PROD_API } from '../../media/origin.mjs';
 if (process.env.LEXKITE_NO_PROD_SW !== 'off') process.env.PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS ||= '1'; // off: ext-e2e (SW add-on)
 
-import { makeOriginFetcher } from './origin-fetch.mjs';
+import { makeOriginFetcher, sliceRange } from './origin-fetch.mjs';
 export const origin = makeOriginFetcher(); // memo theo promise + hedge (origin-fetch.mjs): một URL media chỉ tải 1 lần dù nhiều context cùng xin
 export const stats = { cdn: 0, github: 0, api: 0, miss: 0 };
 // KHÔNG chép content-encoding/content-length/transfer-encoding: body() đã giải nén → header gốc làm hỏng ảnh/âm thanh (onerror → chữ cái thay ảnh)
@@ -29,10 +29,12 @@ export async function noProd(ctx, opts = {}) {
   await ctx.route(PROD_CDN, async route => {
     stats.cdn++;
     const req = route.request(), url = req.url(), range = req.headers().range;
-    const get = g => { stats.github++; return route.fetch({ url: g, headers: range ? { range } : {}, maxRedirects: 5 }).then(r => toRes(r, url)); };
+    // Range cũng lấy từ bản đầy đủ đã memo rồi tự cắt: trước đây mỗi lượt video tải lại GitHub riêng, gặp lúc GitHub chập chờn là 404 giả → "video không phát" (Visual QA 09/11: 8/18 lượt, cùng clip lúc đạt lúc hỏng)
+    const get = g => { stats.github++; return route.fetch({ url: g, headers: {}, maxRedirects: 5 }).then(r => toRes(r, url)); };
     // lần 2: promise dùng chung có thể thuộc context đã đóng giữa chừng (lỗi → null, không được nhớ) → tự tải bằng route của mình
-    const res = (await origin.load(range ? '' : url, githubCandidates(url), get)) || (await origin.load(range ? '' : url, githubCandidates(url), get));
-    if (res) return route.fulfill(res);
+    const res = (await origin.load(url, githubCandidates(url), get)) || (await origin.load(url, githubCandidates(url), get));
+    if (res) return route.fulfill(range ? sliceRange(res, range) : res);
+    console.warn(`no-prod: không tải được từ GitHub: ${url}`); // máy đo không mù: log nêu đúng file, không để test chỉ thấy "video không phát"
     stats.miss++;
     return route.fulfill({ status: 404, headers: { 'access-control-allow-origin': '*' }, body: '' });
   });

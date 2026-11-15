@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_excited",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Excited or exciting?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am very exciting about the trip.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am very excited about the trip.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "I feel excited. A trip is exciting.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Excited! I am excited about the party.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am very exciting about the trip.",
+  "right": "I am very excited about the trip.",
+  "strike": "exciting",
+  "why": "I feel excited. A trip is exciting.",
+  "memory": "Feeling: ed. Thing: ing.",
+  "quiz": {
+   "stem": "I am ___ about the party.",
+   "options": [
+    "excited",
+    "exciting"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “I am exciting”?",
+   "tip": "Para sentimentos usamos “-ed”: “excited”. Para coisas, “-ing”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am very exciting about the trip.”. O certo é “I am very excited about the trip.”. Quem sente é “excited”; o que causa a emoção é “exciting”. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “excited”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#inglesfacil",
+    "#falaringles",
+    "#inglesdodia",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I am exciting”?",
+   "tip": "For feelings we use “-ed”: “excited”. For things, “-ing”.",
+   "caption": "Watch out for this common mistake! Many people say “I am very exciting about the trip.”. The right way is “I am very excited about the trip.”. The person who feels is “excited”; the thing that causes it is “exciting”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “I am exciting”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "Você diz “I am exciting”?",
+  "keyword": "I am very excited about the trip.",
+  "value": "Para sentimentos usamos “-ed”: “excited”. Para coisas, “-ing”.",
+  "hashtags": [
+   "#inglesfacil",
+   "#falaringles",
+   "#inglesdodia",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “I am exciting”?",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “I am very exciting about the trip.”. O certo é “I am very excited about the trip.”. Quem sente é “excited”; o que causa a emoção é “exciting”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesfacil #falaringles #inglesdodia #lexkite",
+    "tags": [
+     "I am very excited about the trip.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I am very exciting about the trip.”. O certo é “I am very excited about the trip.”. Quem sente é “excited”; o que causa a emoção é “exciting”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I am very exciting about the trip.”. O certo é “I am very excited about the trip.”. Quem sente é “excited”; o que causa a emoção é “exciting”. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#inglesfacil",
+     "#falaringles",
+     "#inglesdodia",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “I am exciting”? #inglesfacil #falaringles #inglesdodia"
+   }
+  },
+  "first_comment": "Resposta: “excited”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

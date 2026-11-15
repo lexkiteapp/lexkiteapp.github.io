@@ -1,0 +1,141 @@
+{
+ "id": "m19",
+ "level": "B2",
+ "lo": "M.B2p.05",
+ "activity": "facilitate",
+ "title": "Closing the street on Sundays",
+ "scenario": "You chair a residents' meeting. Rosa and Ivan disagree about closing the high street to traffic on Sundays. The talk is getting heated. Speak to them and the room to find common ground.",
+ "source": {
+  "kind": "dialogue",
+  "lines": [
+   {
+    "s": "Rosa",
+    "t": "My children cannot even cross the road safely on a Sunday. Closing the street would give them a safe place to play and ride their bikes."
+   },
+   {
+    "s": "Ivan",
+    "t": "And who pays for that? Sunday is my best day. If drivers cannot reach my shop, my customers will simply go elsewhere."
+   },
+   {
+    "s": "Rosa",
+    "t": "You only care about money. This is about children."
+   },
+   {
+    "s": "Ivan",
+    "t": "I care about a street that has shops left in ten years. I would love families to come. I just do not want them to be turned away at the corner."
+   },
+   {
+    "s": "Rosa",
+    "t": "Nobody would be turned away. People can walk."
+   },
+   {
+    "s": "Ivan",
+    "t": "Not everyone can walk, Rosa. My regular customers are elderly and many drive."
+   }
+  ]
+ },
+ "task": {
+  "mode": "speak",
+  "audience": "two neighbours with opposing views, and the room",
+  "prompt": "Speak as the chair (85–135 words). Do justice to both positions, point to what they share, and suggest a compromise to test.",
+  "min_words": 85,
+  "max_words": 135
+ },
+ "points": [
+  {
+   "id": "rosa",
+   "idea": "Rosa's concern is the safety of children on the road.",
+   "checks": [
+    [
+     "rosa"
+    ],
+    [
+     "safe",
+     "safety",
+     "children"
+    ]
+   ]
+  },
+  {
+   "id": "ivan",
+   "idea": "Ivan fears his customers, many elderly, cannot reach the shops.",
+   "checks": [
+    [
+     "ivan"
+    ],
+    [
+     "customer",
+     "shop",
+     "reach",
+     "elderly",
+     "business"
+    ]
+   ]
+  },
+  {
+   "id": "common",
+   "idea": "Both want a lively, welcoming street for families.",
+   "checks": [
+    [
+     "both"
+    ],
+    [
+     "want",
+     "care",
+     "share",
+     "agree"
+    ]
+   ]
+  },
+  {
+   "id": "trial",
+   "idea": "Try a time-limited trial (e.g. three months, afternoons only).",
+   "checks": [
+    [
+     "trial",
+     "try"
+    ],
+    [
+     "month",
+     "afternoon",
+     "hours"
+    ]
+   ]
+  },
+  {
+   "id": "check",
+   "idea": "Check whether both can accept it.",
+   "checks": [
+    [
+     "would that",
+     "could you both",
+     "is that",
+     "can we",
+     "would you both"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "The accusation about money.",
+   "checks": [
+    [
+     "money"
+    ]
+   ]
+  }
+ ],
+ "model": "Thank you, Rosa and Ivan. I think we are hearing two sincere concerns. Rosa, you want children to be safe on the road and to have room to play. Ivan, you are worried that elderly customers who drive will not be able to reach your shop. In fact, you both want the same thing: a lively street where families feel welcome. So let me suggest a small trial. We could close the street for three months, but only on Sunday afternoons, keep a few parking spaces for older drivers at the end of the road, and then look at the results together. Would that be something you could both accept?",
+ "useful": [
+  "I think we are hearing two sincere concerns.",
+  "In fact, you both want …",
+  "So let me suggest a small trial.",
+  "Would that be something you could both accept?"
+ ],
+ "tips": [
+  "Name the value behind each position (safety, access) in words both speakers would accept, then say what they share before you suggest anything.",
+  "Propose a limited, time-boxed trial rather than a permanent change. People agree to experiments more easily than to rules."
+ ],
+ "explain": "The chair states Rosa's and Ivan's concerns fairly, names the shared goal, proposes a time-limited trial and checks acceptance. Repeating \"you only care about money\" would not help find common ground."
+}

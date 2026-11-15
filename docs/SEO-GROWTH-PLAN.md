@@ -63,3 +63,12 @@ Cơ cấu mỗi nước: evergreen ≥ 1/3 · luyện thi ≥ 1/3 · giao tiếp
 | 15/12 | ≥ 30 bài/ngôn ngữ; GSC: mọi ngôn ngữ có hiển thị |
 | 15/01 | ≥ 40 bài/ngôn ngữ (mục tiêu tháng 3) |
 | 04/2027 | ≥ 80 bài/ngôn ngữ + công cụ; đánh giá top long-tail từng nước |
+
+## 8. Kế hoạch "lên top" (14/11/2026) – dựa trên số đo, ưu tiên thị trường CPM cao
+**Số đo:** /words/ là phần lớn hiển thị GSC; sau #1224 sitemap-words: en 104→254, th 106→186, fr 42→102 (đo live 13/11). Chặn lớn nhất = trang bị noindex vì mỏng, không phải thiếu liên kết.
+1. **Pillar + cluster theo ngôn ngữ (en, de, fr, ja, ko trước, rồi es/pt):** mỗi ngôn ngữ chọn 5 cụm từ khóa bản địa (kỳ thi §3 + "từ vựng X theo chủ đề"); mỗi cụm = 1 bài trụ cột + 6–10 vệ tinh liên kết hai chiều, và liên kết xuống các trang /words/ đã index cùng chủ đề. Từ khóa chọn theo GSC (hạng 8–20 trước), không đoán.
+2. **E-E-A-T:** trang tác giả/biên tập có tên vai trò thật, ngày cập nhật hiển thị, nguồn chuẩn (từ điển, giáo trình) khi nêu quy tắc; không khẳng định không chắc. Mọi nội dung làm giàu qua audit độc lập ≥ 90.
+3. **Cập nhật bài cũ hằng tuần:** bài vị trí 8–20 → bổ sung nội dung + liên kết nội bộ; CTR thấp → viết lại title/description; ghi lastmod thật.
+4. **Làm giàu /words/ theo lô (§11 SEO-DICT-PAGES):** mỗi lô 60 từ/ngôn ngữ theo `enrich-queue` (GSC mới nhất), viết → audit → chấm ≥ 90 → 1 PR; đo lại sitemap sau deploy. Thứ tự ngôn ngữ: en, de, fr, ja, ko, rồi es, pt, ru, tr, còn lại.
+5. **Không làm:** hạ ngưỡng độ dày, trang mỏng hàng loạt, mua liên kết, dịch máy.
+**Chỉ số theo dõi (hằng tuần):** URL trong sitemap-words/ngôn ngữ, số trang index (GSC), hiển thị/nhấp/vị trí theo ngôn ngữ; mục tiêu đầu: en ≥ 500, mỗi ngôn ngữ CPM cao ≥ 250 URL index được trước 15/12.

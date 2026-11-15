@@ -1,0 +1,916 @@
+{
+ "id": "bus-ticket",
+ "group": "transport",
+ "cefr": "A2",
+ "title": {
+  "en": "Bus ticket",
+  "vi": "Mua vé xe buýt",
+  "es": "Comprar un billete de autobús",
+  "pt": "Comprar uma passagem de ônibus",
+  "fr": "Acheter un billet de bus",
+  "de": "Eine Busfahrkarte kaufen",
+  "id": "Beli tiket bus",
+  "th": "ซื้อตั๋วรถเมล์",
+  "zh": "买公交车票",
+  "ja": "バスの切符を買う",
+  "ko": "버스표 사기",
+  "hi": "बस का टिकट खरीदना",
+  "ar": "شراء تذكرة حافلة",
+  "ru": "Купить билет на автобус",
+  "tr": "Otobüs bileti alma"
+ },
+ "goal": {
+  "en": "Buy a ticket and get on the right bus!",
+  "vi": "Mua vé và lên đúng chuyến xe buýt!",
+  "es": "¡Compra tu billete y sube al autobús correcto!",
+  "pt": "Compre a passagem e entre no ônibus certo!",
+  "fr": "Achetez votre billet et montez dans le bon bus !",
+  "de": "Kauf dein Ticket und steig in den richtigen Bus!",
+  "id": "Beli tiket dan naik bus yang benar!",
+  "th": "ซื้อตั๋วแล้วขึ้นรถให้ถูกสาย!",
+  "zh": "买好票，上对车！",
+  "ja": "切符を買って、正しいバスに乗ろう！",
+  "ko": "표를 사서 알맞은 버스를 타요!",
+  "hi": "टिकट खरीदें और सही बस में चढ़ें!",
+  "ar": "اشترِ تذكرتك واركب الحافلة الصحيحة!",
+  "ru": "Купи билет и сядь на нужный автобус!",
+  "tr": "Bilet al, doğru otobüse bin!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "ticket",
+   "title": {
+    "en": "Buy a ticket",
+    "vi": "Mua vé",
+    "es": "Comprar el billete",
+    "pt": "Comprar a passagem",
+    "fr": "Acheter le billet",
+    "de": "Das Ticket kaufen",
+    "id": "Beli tiket",
+    "th": "ซื้อตั๋ว",
+    "zh": "买票",
+    "ja": "切符を買う",
+    "ko": "표 사기",
+    "hi": "टिकट खरीदना",
+    "ar": "شراء التذكرة",
+    "ru": "Купить билет",
+    "tr": "Bilet alma"
+   },
+   "lines": [
+    "t1",
+    "t2",
+    "t3",
+    "t4"
+   ]
+  },
+  {
+   "id": "find",
+   "title": {
+    "en": "Find your bus",
+    "vi": "Tìm đúng xe buýt",
+    "es": "Encontrar tu autobús",
+    "pt": "Achar seu ônibus",
+    "fr": "Trouver votre bus",
+    "de": "Den richtigen Bus finden",
+    "id": "Cari bus kamu",
+    "th": "หารถเมล์ของคุณ",
+    "zh": "找到你的车",
+    "ja": "乗るバスを探す",
+    "ko": "탈 버스 찾기",
+    "hi": "अपनी बस ढूँढ़ना",
+    "ar": "العثور على حافلتك",
+    "ru": "Найти свой автобус",
+    "tr": "Otobüsü bulma"
+   },
+   "lines": [
+    "b1",
+    "b2",
+    "b3",
+    "b4"
+   ]
+  },
+  {
+   "id": "onboard",
+   "title": {
+    "en": "On the bus",
+    "vi": "Trên xe buýt",
+    "es": "En el autobús",
+    "pt": "No ônibus",
+    "fr": "Dans le bus",
+    "de": "Im Bus",
+    "id": "Di dalam bus",
+    "th": "บนรถเมล์",
+    "zh": "在车上",
+    "ja": "バスの中で",
+    "ko": "버스 안에서",
+    "hi": "बस में",
+    "ar": "في الحافلة",
+    "ru": "В автобусе",
+    "tr": "Otobüste"
+   },
+   "lines": [
+    "o1",
+    "o2",
+    "o3",
+    "o4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "t1",
+   "who": "customer",
+   "en": "Hi, I'd like a ticket to the city centre, please.",
+   "variants": {
+    "polite": "Hello, could I have a ticket to the city centre, please?",
+    "casual": "One ticket to the city centre, please."
+   },
+   "gloss": {
+    "en": "Asking for a ticket to your destination.",
+    "vi": "Xin mua vé đến nơi bạn muốn đi.",
+    "es": "Pedir un billete para tu destino.",
+    "pt": "Pedir uma passagem para o seu destino.",
+    "fr": "Demander un billet pour votre destination.",
+    "de": "Ein Ticket zu deinem Ziel verlangen.",
+    "id": "Meminta tiket ke tempat tujuanmu.",
+    "th": "ขอซื้อตั๋วไปยังที่หมาย",
+    "zh": "买一张去目的地的票。",
+    "ja": "目的地までの切符を頼みます。",
+    "ko": "목적지까지 가는 표를 달라고 해요.",
+    "hi": "अपने गंतव्य का टिकट माँगना।",
+    "ar": "طلب تذكرة إلى وجهتك.",
+    "ru": "Попросить билет до нужного места.",
+    "tr": "Gideceğiniz yer için bilet isteme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "ticket",
+     "ipa": "/ˈtɪk.ɪt/",
+     "hi": "TICK",
+     "note": {
+      "en": "Stress the first syllable: TICK-it. The vowel is short, not \"ee\".",
+      "vi": "Nhấn âm đầu: TÍCH-ịt. Nguyên âm ngắn, không phải \"i\" kéo dài.",
+      "es": "Acentúa la primera sílaba: TICK-it. La vocal es corta, no \"i\" larga.",
+      "pt": "Acentue a primeira sílaba: TIK-it. A vogal é curta, não um \"i\" longo.",
+      "fr": "Accentuez la première syllabe : TICK-it. La voyelle est brève, pas un « i » long.",
+      "de": "Betone die erste Silbe: TICK-it. Der Vokal ist kurz, kein langes „i“.",
+      "id": "Tekankan suku kata pertama: TIK-it. Vokalnya pendek, bukan \"i\" panjang.",
+      "th": "เน้นพยางค์แรก: ทิก-คิท สระสั้น ไม่ใช่เสียงอีที่ยาว",
+      "zh": "重音在第一音节：TICK-it。元音要短，不是长的“衣”。",
+      "ja": "最初を強く：TICK・it。母音は短く、長い「イー」にはしません。",
+      "ko": "첫 음절에 강세: TICK-it. 모음은 짧게, 길게 '이~' 하지 않아요.",
+      "hi": "पहले अक्षर पर ज़ोर: TICK-it। स्वर छोटा है, लंबी \"ई\" नहीं।",
+      "ar": "النبر على المقطع الأول: TICK-it. الحرف المتحرك قصير وليس \"إي\" طويلة.",
+      "ru": "Ударение на первый слог: ТИК-ит. Гласная короткая, не долгое «и».",
+      "tr": "Vurgu ilk hecede: TİK-it. Ünlü kısadır, uzun \"i\" değildir."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t2",
+   "who": "barista",
+   "en": "Do you want a single or a return?",
+   "variants": {
+    "polite": "Would you like a single or a return ticket?",
+    "casual": "Single or return?"
+   },
+   "gloss": {
+    "en": "The clerk asks which kind of ticket you want.",
+    "vi": "Nhân viên hỏi bạn muốn loại vé nào.",
+    "es": "El empleado pregunta qué tipo de billete quieres.",
+    "pt": "O atendente pergunta que tipo de passagem você quer.",
+    "fr": "L'employé demande quel type de billet vous voulez.",
+    "de": "Der Verkäufer fragt, welches Ticket du möchtest.",
+    "id": "Petugas menanyakan jenis tiket yang kamu mau.",
+    "th": "พนักงานถามว่าต้องการตั๋วแบบไหน",
+    "zh": "售票员问你要哪种票。",
+    "ja": "係員がどの種類の切符か尋ねます。",
+    "ko": "직원이 어떤 표를 원하는지 물어봐요.",
+    "hi": "कर्मचारी पूछता है कि आपको कौन-सा टिकट चाहिए।",
+    "ar": "الموظف يسأل عن نوع التذكرة التي تريدها.",
+    "ru": "Кассир спрашивает, какой билет вам нужен.",
+    "tr": "Görevli hangi tür bilet istediğinizi sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "return",
+     "ipa": "/rɪˈtɝːn/",
+     "hi": "TURN",
+     "note": {
+      "en": "Stress the second syllable: ri-TURN. The first vowel is short and weak.",
+      "vi": "Nhấn âm sau: ri-TƠN. Nguyên âm đầu ngắn và nhẹ.",
+      "es": "Acentúa la segunda sílaba: ri-TURN. La primera vocal es corta y débil.",
+      "pt": "Acentue a segunda sílaba: ri-TÂRN. A primeira vogal é curta e fraca.",
+      "fr": "Accentuez la deuxième syllabe : ri-TURN. La première voyelle est brève et faible.",
+      "de": "Betone die zweite Silbe: ri-TURN. Der erste Vokal ist kurz und schwach.",
+      "id": "Tekankan suku kata kedua: ri-TÖRN. Vokal pertama pendek dan lemah.",
+      "th": "เน้นพยางค์ที่สอง: ริ-เทิร์น สระแรกสั้นและเบา",
+      "zh": "重音在第二音节：ri-TURN。第一个元音又短又轻。",
+      "ja": "2番目を強く：リ・TURN。最初の母音は短く弱くします。",
+      "ko": "두 번째 음절에 강세: ri-TURN. 첫 모음은 짧고 약해요.",
+      "hi": "दूसरे अक्षर पर ज़ोर: ri-TURN। पहला स्वर छोटा और हल्का है।",
+      "ar": "النبر على المقطع الثاني: ri-TURN. الحرف المتحرك الأول قصير وخفيف.",
+      "ru": "Ударение на второй слог: ри-ТЁРН. Первая гласная короткая и слабая.",
+      "tr": "Vurgu ikinci hecede: ri-TÖRN. İlk ünlü kısa ve zayıftır."
+     }
+    }
+   ]
+  },
+  {
+   "id": "t3",
+   "who": "customer",
+   "en": "Actually, a day pass sounds better. How much is it?",
+   "variants": {
+    "polite": "Actually, could I have a day pass instead? How much is it?",
+    "casual": "Day pass instead. How much?"
+   },
+   "gloss": {
+    "en": "Choosing a day pass and asking the price.",
+    "vi": "Chọn vé ngày và hỏi giá.",
+    "es": "Elegir un abono de un día y preguntar el precio.",
+    "pt": "Escolher um passe diário e perguntar o preço.",
+    "fr": "Choisir un pass journée et demander le prix.",
+    "de": "Eine Tageskarte wählen und nach dem Preis fragen.",
+    "id": "Memilih tiket harian dan menanyakan harganya.",
+    "th": "เลือกตั๋วรายวันและถามราคา",
+    "zh": "选择一日票并问价格。",
+    "ja": "1日乗車券を選び、値段を尋ねます。",
+    "ko": "일일권을 고르고 가격을 물어봐요.",
+    "hi": "डे पास चुनना और कीमत पूछना।",
+    "ar": "اختيار تذكرة يومية والسؤال عن السعر.",
+    "ru": "Выбрать дневной проездной и спросить цену.",
+    "tr": "Günlük bileti seçip fiyatını sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "t4",
+   "who": "barista",
+   "en": "It's nine fifty, and it's valid all day.",
+   "variants": {
+    "polite": "A day pass is nine fifty. It's valid all day.",
+    "casual": "Nine fifty. Valid all day."
+   },
+   "gloss": {
+    "en": "The clerk tells you the price.",
+    "vi": "Nhân viên cho biết giá vé.",
+    "es": "El empleado te dice el precio.",
+    "pt": "O atendente diz o preço.",
+    "fr": "L'employé vous indique le prix.",
+    "de": "Der Verkäufer nennt den Preis.",
+    "id": "Petugas menyebutkan harganya.",
+    "th": "พนักงานบอกราคา",
+    "zh": "售票员告诉你价格。",
+    "ja": "係員が値段を伝えます。",
+    "ko": "직원이 가격을 알려 줘요.",
+    "hi": "कर्मचारी कीमत बताता है।",
+    "ar": "الموظف يخبرك بالسعر.",
+    "ru": "Кассир называет цену.",
+    "tr": "Görevli fiyatı söyler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b1",
+   "who": "customer",
+   "en": "Which bus goes to the station?",
+   "variants": {
+    "polite": "Excuse me, could you tell me which bus goes to the station?",
+    "casual": "Which bus goes to the station?"
+   },
+   "gloss": {
+    "en": "Asking which bus to take.",
+    "vi": "Hỏi nên đi xe buýt nào.",
+    "es": "Preguntar qué autobús tomar.",
+    "pt": "Perguntar que ônibus pegar.",
+    "fr": "Demander quel bus prendre.",
+    "de": "Fragen, welchen Bus man nehmen soll.",
+    "id": "Menanyakan bus mana yang harus dinaiki.",
+    "th": "ถามว่าต้องขึ้นรถสายไหน",
+    "zh": "问该坐哪路车。",
+    "ja": "どのバスに乗ればいいか尋ねます。",
+    "ko": "어떤 버스를 타야 하는지 물어봐요.",
+    "hi": "पूछना कि कौन-सी बस लेनी है।",
+    "ar": "السؤال عن الحافلة التي يجب ركوبها.",
+    "ru": "Спросить, на какой автобус сесть.",
+    "tr": "Hangi otobüse binileceğini sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "station",
+     "ipa": "/ˈsteɪ.ʃən/",
+     "hi": "STAY",
+     "note": {
+      "en": "Stress the first syllable: STAY-shun. The ending \"-tion\" sounds like \"shun\".",
+      "vi": "Nhấn âm đầu: XTÂY-shần. Đuôi \"-tion\" đọc như \"shần\".",
+      "es": "Acentúa la primera sílaba: STAY-shun. El final \"-tion\" suena como \"shun\".",
+      "pt": "Acentue a primeira sílaba: STEY-shan. O final \"-tion\" soa como \"shan\".",
+      "fr": "Accentuez la première syllabe : STAY-shun. La finale « -tion » se prononce « shun ».",
+      "de": "Betone die erste Silbe: STAY-shun. Die Endung „-tion“ klingt wie „shun“.",
+      "id": "Tekankan suku kata pertama: STEY-syen. Akhiran \"-tion\" dibaca \"syen\".",
+      "th": "เน้นพยางค์แรก: สเตย์-เชิน ท้ายคำ \"-tion\" อ่านว่า \"เชิน\"",
+      "zh": "重音在第一音节：STAY-shun。词尾 -tion 读作“shun”。",
+      "ja": "最初を強く：STAY・shun。語尾の「-tion」は「シュン」のように読みます。",
+      "ko": "첫 음절에 강세: STAY-shun. 끝의 -tion은 '션'처럼 소리 나요.",
+      "hi": "पहले अक्षर पर ज़ोर: STAY-shun। अंत का \"-tion\" \"शन\" जैसा बोला जाता है।",
+      "ar": "النبر على المقطع الأول: STAY-shun. النهاية -tion تُنطق \"شن\".",
+      "ru": "Ударение на первый слог: СТЭЙ-шн. Окончание «-tion» звучит как «шн».",
+      "tr": "Vurgu ilk hecede: STEY-şın. \"-tion\" sonu \"şın\" gibi okunur."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b2",
+   "who": "barista",
+   "en": "The 42. It leaves from stop B, over there.",
+   "variants": {
+    "polite": "You need the number 42. It leaves from stop B, over there.",
+    "casual": "The 42, from stop B."
+   },
+   "gloss": {
+    "en": "Telling you the bus number and the stop.",
+    "vi": "Cho biết số xe và trạm đón.",
+    "es": "Te dice el número del autobús y la parada.",
+    "pt": "Diz o número do ônibus e o ponto.",
+    "fr": "Vous indique le numéro du bus et l'arrêt.",
+    "de": "Nennt dir die Buslinie und die Haltestelle.",
+    "id": "Menyebutkan nomor bus dan halte.",
+    "th": "บอกหมายเลขรถและป้ายที่ต้องรอ",
+    "zh": "告诉你车号和站台。",
+    "ja": "バスの番号と乗り場を教えます。",
+    "ko": "버스 번호와 정류장을 알려 줘요.",
+    "hi": "बस का नंबर और स्टॉप बताना।",
+    "ar": "إخبارك برقم الحافلة والموقف.",
+    "ru": "Назвать номер автобуса и остановку.",
+    "tr": "Otobüs numarasını ve durağı söyler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "b3",
+   "who": "customer",
+   "en": "How often does it run?",
+   "variants": {
+    "polite": "Could you tell me how often it runs?",
+    "casual": "How often does it come?"
+   },
+   "gloss": {
+    "en": "Asking how often the bus comes.",
+    "vi": "Hỏi bao lâu có một chuyến.",
+    "es": "Preguntar cada cuánto pasa el autobús.",
+    "pt": "Perguntar com que frequência o ônibus passa.",
+    "fr": "Demander la fréquence du bus.",
+    "de": "Fragen, wie oft der Bus fährt.",
+    "id": "Menanyakan seberapa sering bus lewat.",
+    "th": "ถามว่ารถมาบ่อยแค่ไหน",
+    "zh": "问多久来一班。",
+    "ja": "バスが何分おきに来るか尋ねます。",
+    "ko": "버스가 얼마나 자주 오는지 물어봐요.",
+    "hi": "पूछना कि बस कितनी देर में आती है।",
+    "ar": "السؤال عن عدد مرات مرور الحافلة.",
+    "ru": "Спросить, как часто ходит автобус.",
+    "tr": "Otobüsün ne sıklıkla geldiğini sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "often",
+     "ipa": "/ˈɔː.fən/",
+     "hi": "OFF",
+     "note": {
+      "en": "The \"t\" is usually silent: OFF-en. Say it like \"off\" plus \"en\".",
+      "vi": "Âm \"t\" thường không đọc: Ó-phần. Đọc như \"off\" cộng \"en\".",
+      "es": "La \"t\" casi siempre es muda: OFF-en. Suena como \"off\" más \"en\".",
+      "pt": "O \"t\" geralmente é mudo: OF-en. Soa como \"off\" mais \"en\".",
+      "fr": "Le « t » est généralement muet : OFF-en. Comme « off » plus « en ».",
+      "de": "Das „t“ ist meist stumm: OFF-en. Wie „off“ plus „en“.",
+      "id": "Huruf \"t\" biasanya tidak dibaca: OF-en. Seperti \"off\" plus \"en\".",
+      "th": "ตัว t มักไม่ออกเสียง: ออฟ-เฟิน เหมือน \"off\" รวม \"en\"",
+      "zh": "t 通常不发音：OFF-en，像 off 加 en。",
+      "ja": "「t」は普通発音しません：OFF・en。off と en をつなげた音です。",
+      "ko": "t는 보통 소리 나지 않아요: OFF-en. off와 en을 이은 소리예요.",
+      "hi": "\"t\" आमतौर पर नहीं बोला जाता: OFF-en। off और en जोड़कर बोलें।",
+      "ar": "حرف t غالبًا لا يُنطق: OFF-en، أي off ثم en.",
+      "ru": "Буква «t» обычно не произносится: ОФ-ен. Как «off» плюс «en».",
+      "tr": "\"t\" genelde okunmaz: OF-ın. \"off\" ve \"en\" birleşimi gibi."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b4",
+   "who": "barista",
+   "en": "Every ten minutes. The next one leaves at two fifteen.",
+   "variants": {
+    "polite": "It runs every ten minutes. The next one leaves at two fifteen.",
+    "casual": "Every ten minutes. Next one's at two fifteen."
+   },
+   "gloss": {
+    "en": "The clerk gives the timetable.",
+    "vi": "Nhân viên cho biết giờ xe chạy.",
+    "es": "El empleado te da el horario.",
+    "pt": "O atendente informa o horário.",
+    "fr": "L'employé donne les horaires.",
+    "de": "Der Verkäufer nennt die Abfahrtszeiten.",
+    "id": "Petugas menyebutkan jadwalnya.",
+    "th": "พนักงานบอกเวลารถออก",
+    "zh": "售票员告诉你发车时间。",
+    "ja": "係員が運行間隔と時刻を伝えます。",
+    "ko": "직원이 배차 시간을 알려 줘요.",
+    "hi": "कर्मचारी समय-सारणी बताता है।",
+    "ar": "الموظف يعطيك مواعيد الحافلات.",
+    "ru": "Кассир сообщает расписание.",
+    "tr": "Görevli sefer saatlerini söyler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "o1",
+   "who": "customer",
+   "en": "Does this bus go to the station?",
+   "variants": {
+    "polite": "Excuse me, does this bus go to the station?",
+    "casual": "This one go to the station?"
+   },
+   "gloss": {
+    "en": "Checking that the bus goes where you want.",
+    "vi": "Kiểm tra xe có đến nơi bạn cần không.",
+    "es": "Comprobar que el autobús va adonde quieres.",
+    "pt": "Conferir se o ônibus vai aonde você quer.",
+    "fr": "Vérifier que le bus va où vous voulez.",
+    "de": "Prüfen, ob der Bus dein Ziel anfährt.",
+    "id": "Memastikan bus menuju tempat yang kamu tuju.",
+    "th": "ตรวจสอบว่ารถไปยังที่ที่ต้องการ",
+    "zh": "确认这辆车去你要去的地方。",
+    "ja": "このバスが目的地に行くか確かめます。",
+    "ko": "이 버스가 가려는 곳에 가는지 확인해요.",
+    "hi": "जाँचना कि बस आपकी मंज़िल तक जाती है।",
+    "ar": "التأكد من أن الحافلة تذهب إلى وجهتك.",
+    "ru": "Уточнить, идёт ли автобус туда, куда нужно.",
+    "tr": "Otobüsün gideceğiniz yere gidip gitmediğini kontrol etme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "o2",
+   "who": "barista",
+   "en": "Yes, it does. Show your ticket, please.",
+   "variants": {
+    "polite": "Yes, it does. Could I see your ticket, please?",
+    "casual": "Yep. Ticket, please."
+   },
+   "gloss": {
+    "en": "The driver confirms and checks your ticket.",
+    "vi": "Tài xế xác nhận và kiểm tra vé của bạn.",
+    "es": "El conductor lo confirma y revisa tu billete.",
+    "pt": "O motorista confirma e confere sua passagem.",
+    "fr": "Le chauffeur confirme et contrôle votre billet.",
+    "de": "Der Fahrer bestätigt es und kontrolliert dein Ticket.",
+    "id": "Sopir membenarkan dan memeriksa tiketmu.",
+    "th": "คนขับยืนยันและตรวจตั๋วของคุณ",
+    "zh": "司机确认后查看你的票。",
+    "ja": "運転手が答えて、切符を確認します。",
+    "ko": "기사가 확인해 주고 표를 확인해요.",
+    "hi": "ड्राइवर पुष्टि करता है और आपका टिकट देखता है।",
+    "ar": "السائق يؤكد ويفحص تذكرتك.",
+    "ru": "Водитель подтверждает и проверяет билет.",
+    "tr": "Şoför onaylar ve biletinizi kontrol eder."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "o3",
+   "who": "customer",
+   "en": "Could you tell me when we get to the station?",
+   "variants": {
+    "polite": "Would you mind telling me when we reach the station?",
+    "casual": "Can you tell me my stop?"
+   },
+   "gloss": {
+    "en": "Asking the driver to tell you your stop.",
+    "vi": "Nhờ tài xế báo khi đến trạm của bạn.",
+    "es": "Pedir al conductor que te avise de tu parada.",
+    "pt": "Pedir ao motorista que avise o seu ponto.",
+    "fr": "Demander au chauffeur de vous prévenir pour votre arrêt.",
+    "de": "Den Fahrer bitten, dir deine Haltestelle zu sagen.",
+    "id": "Meminta sopir memberi tahu halte tujuanmu.",
+    "th": "ขอให้คนขับบอกเมื่อถึงป้ายของคุณ",
+    "zh": "请司机在你的站点提醒你。",
+    "ja": "降りる停留所に着いたら教えてほしいと頼みます。",
+    "ko": "내릴 정류장에 도착하면 알려 달라고 기사에게 부탁해요.",
+    "hi": "ड्राइवर से अपना स्टॉप आने पर बताने को कहना।",
+    "ar": "طلب من السائق أن يخبرك عند موقف نزولك.",
+    "ru": "Попросить водителя подсказать вашу остановку.",
+    "tr": "Şoförden durağınızı söylemesini isteme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "o4",
+   "who": "barista",
+   "en": "Sure. It's the fifth stop. I'll let you know.",
+   "variants": {
+    "polite": "Of course. It's the fifth stop. I'll let you know.",
+    "casual": "Sure. Fifth stop. I'll tell you."
+   },
+   "gloss": {
+    "en": "The driver promises to let you know.",
+    "vi": "Tài xế hứa sẽ báo cho bạn.",
+    "es": "El conductor promete avisarte.",
+    "pt": "O motorista promete avisar você.",
+    "fr": "Le chauffeur promet de vous prévenir.",
+    "de": "Der Fahrer verspricht, dir Bescheid zu sagen.",
+    "id": "Sopir berjanji akan memberi tahu.",
+    "th": "คนขับสัญญาว่าจะบอกคุณ",
+    "zh": "司机答应会提醒你。",
+    "ja": "運転手が知らせてくれると約束します。",
+    "ko": "기사가 알려 주겠다고 약속해요.",
+    "hi": "ड्राइवर बताने का वादा करता है।",
+    "ar": "السائق يعدك بأن يخبرك.",
+    "ru": "Водитель обещает сообщить.",
+    "tr": "Şoför size haber vereceğini söyler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "fifth",
+     "ipa": "/fɪfθ/",
+     "hi": "th",
+     "note": {
+      "en": "Put your tongue between your teeth for \"th\": fifth. Say fif + th.",
+      "vi": "Đặt lưỡi giữa hai hàm răng cho âm \"th\": fifth. Đọc fif + th.",
+      "es": "Pon la lengua entre los dientes para la \"th\": fifth. Di fif + th.",
+      "pt": "Ponha a língua entre os dentes para o \"th\": fifth. Diga fif + th.",
+      "fr": "Placez la langue entre les dents pour le « th » : fifth. Dites fif + th.",
+      "de": "Leg die Zunge für „th“ zwischen die Zähne: fifth. Sprich fif + th.",
+      "id": "Letakkan lidah di antara gigi untuk bunyi \"th\": fifth. Ucapkan fif + th.",
+      "th": "วางลิ้นระหว่างฟันสำหรับเสียง \"th\": fifth อ่านว่า ฟิฟ + th",
+      "zh": "“th”要把舌尖放在上下齿之间：fifth，读作 fif + th。",
+      "ja": "「th」は舌を歯の間に置いて：fifth。fif + th と発音します。",
+      "ko": "th는 혀를 윗니와 아랫니 사이에 두고: fifth. fif + th로 말해요.",
+      "hi": "\"th\" के लिए जीभ को दाँतों के बीच रखें: fifth। fif + th बोलें।",
+      "ar": "ضع لسانك بين أسنانك لنطق \"th\": fifth، أي fif ثم th.",
+      "ru": "Для «th» поставьте язык между зубами: fifth. Скажите fif + th.",
+      "tr": "\"th\" için dilinizi dişlerinizin arasına koyun: fifth. fif + th deyin."
+     }
+    }
+   ]
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "en": "Where are you going today?",
+   "variants": {
+    "polite": "Where would you like to go today?",
+    "casual": "Where to?"
+   },
+   "gloss": {
+    "en": "Asking where you are going.",
+    "vi": "Hỏi bạn muốn đi đâu.",
+    "es": "Preguntar adónde vas.",
+    "pt": "Perguntar aonde você vai.",
+    "fr": "Demander où vous allez.",
+    "de": "Fragen, wohin du fährst.",
+    "id": "Menanyakan ke mana tujuanmu.",
+    "th": "ถามว่าจะไปไหน",
+    "zh": "问你要去哪里。",
+    "ja": "行き先を尋ねます。",
+    "ko": "어디로 가는지 물어봐요.",
+    "hi": "पूछना कि आप कहाँ जा रहे हैं।",
+    "ar": "السؤال عن وجهتك.",
+    "ru": "Спросить, куда вы едете.",
+    "tr": "Nereye gittiğinizi sorma."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [],
+   "open": true,
+   "keywords": [
+    "station",
+    "airport",
+    "city centre",
+    "center",
+    "hospital",
+    "museum",
+    "university",
+    "beach",
+    "market",
+    "hotel",
+    "downtown",
+    "school"
+   ]
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "en": "Would you like to pay by card or cash?",
+   "variants": {
+    "polite": "How would you like to pay, by card or cash?",
+    "casual": "Card or cash?"
+   },
+   "gloss": {
+    "en": "Asking how you want to pay.",
+    "vi": "Hỏi bạn muốn trả tiền bằng cách nào.",
+    "es": "Preguntar cómo quieres pagar.",
+    "pt": "Perguntar como você quer pagar.",
+    "fr": "Demander comment vous voulez payer.",
+    "de": "Fragen, wie du bezahlen möchtest.",
+    "id": "Menanyakan cara pembayaranmu.",
+    "th": "ถามว่าจะจ่ายเงินแบบไหน",
+    "zh": "问你想怎么付款。",
+    "ja": "支払い方法を尋ねます。",
+    "ko": "어떻게 계산할지 물어봐요.",
+    "hi": "पूछना कि आप भुगतान कैसे करना चाहते हैं।",
+    "ar": "السؤال عن طريقة الدفع.",
+    "ru": "Спросить, как вы будете платить.",
+    "tr": "Nasıl ödeyeceğinizi sorma."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [],
+   "open": true,
+   "keywords": [
+    "card",
+    "cash",
+    "contactless",
+    "coins",
+    "phone",
+    "change",
+    "credit card"
+   ]
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Hello. Where would you like to go?"
+  },
+  {
+   "who": "customer",
+   "en": "The city centre, please. How much is a ticket?"
+  },
+  {
+   "who": "barista",
+   "en": "A single is five fifty, and a return is nine."
+  },
+  {
+   "who": "customer",
+   "en": "A return, please. Which bus should I take?"
+  },
+  {
+   "who": "barista",
+   "en": "Take the 42 from stop B. It runs every ten minutes."
+  },
+  {
+   "who": "customer",
+   "en": "Thanks. Can I pay by card?"
+  },
+  {
+   "who": "barista",
+   "en": "Of course. Here's your return ticket."
+  },
+  {
+   "who": "customer",
+   "en": "Thank you. Where is stop B?"
+  },
+  {
+   "who": "barista",
+   "en": "Just outside, on your left."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Where are you going?"
+    },
+    {
+     "who": "customer",
+     "en": "To the museum. A single, please."
+    },
+    {
+     "who": "barista",
+     "en": "That's three twenty."
+    },
+    {
+     "who": "customer",
+     "en": "Here you go. Thanks."
+    }
+   ],
+   "q": {
+    "en": "How much is the ticket?",
+    "vi": "Vé giá bao nhiêu?",
+    "es": "¿Cuánto cuesta el billete?",
+    "pt": "Quanto custa a passagem?",
+    "fr": "Combien coûte le billet ?",
+    "de": "Wie viel kostet das Ticket?",
+    "id": "Berapa harga tiketnya?",
+    "th": "ตั๋วราคาเท่าไร",
+    "zh": "车票多少钱？",
+    "ja": "切符はいくらですか？",
+    "ko": "표는 얼마인가요?",
+    "hi": "टिकट कितने का है?",
+    "ar": "كم سعر التذكرة؟",
+    "ru": "Сколько стоит билет?",
+    "tr": "Bilet ne kadar?"
+   },
+   "answer": "three twenty"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Excuse me, does this bus go to the hospital?"
+    },
+    {
+     "who": "barista",
+     "en": "No, you need the number 15. It leaves from stop D."
+    },
+    {
+     "who": "customer",
+     "en": "Stop D? Where is that?"
+    },
+    {
+     "who": "barista",
+     "en": "Across the road, next to the bank."
+    }
+   ],
+   "q": {
+    "en": "Which stop does the number 15 leave from?",
+    "vi": "Xe số 15 khởi hành từ trạm nào?",
+    "es": "¿De qué parada sale el número 15?",
+    "pt": "De que ponto sai o número 15?",
+    "fr": "De quel arrêt part le numéro 15 ?",
+    "de": "Von welcher Haltestelle fährt die Linie 15 ab?",
+    "id": "Bus nomor 15 berangkat dari halte mana?",
+    "th": "รถสาย 15 ออกจากป้ายไหน",
+    "zh": "15 路车从哪个站点出发？",
+    "ja": "15番のバスはどの乗り場から出ますか？",
+    "ko": "15번 버스는 어느 정류장에서 출발하나요?",
+    "hi": "नंबर 15 की बस किस स्टॉप से चलती है?",
+    "ar": "من أي موقف تنطلق الحافلة رقم 15؟",
+    "ru": "С какой остановки отправляется автобус № 15?",
+    "tr": "15 numaralı otobüs hangi duraktan kalkıyor?"
+   },
+   "answer": "stop D"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "buy-ticket",
+    "title": {
+     "en": "Buy a ticket",
+     "vi": "Mua một tấm vé",
+     "es": "Compra un billete",
+     "pt": "Compre uma passagem",
+     "fr": "Achète un billet",
+     "de": "Kauf ein Ticket",
+     "id": "Beli tiket",
+     "th": "ซื้อตั๋ว",
+     "zh": "买一张票",
+     "ja": "切符を買う",
+     "ko": "표 사기",
+     "hi": "टिकट खरीदें",
+     "ar": "اشترِ تذكرة",
+     "ru": "Купи билет",
+     "tr": "Bilet al"
+    },
+    "intents": [
+     "t1",
+     "t2",
+     "t3"
+    ]
+   },
+   {
+    "id": "find-bus",
+    "title": {
+     "en": "Find the right bus",
+     "vi": "Tìm đúng xe buýt",
+     "es": "Encuentra el autobús correcto",
+     "pt": "Ache o ônibus certo",
+     "fr": "Trouve le bon bus",
+     "de": "Finde den richtigen Bus",
+     "id": "Temukan bus yang benar",
+     "th": "หารถเมล์สายที่ถูกต้อง",
+     "zh": "找到正确的车",
+     "ja": "正しいバスを見つける",
+     "ko": "알맞은 버스 찾기",
+     "hi": "सही बस ढूँढ़ें",
+     "ar": "اعثر على الحافلة الصحيحة",
+     "ru": "Найди нужный автобус",
+     "tr": "Doğru otobüsü bul"
+    },
+    "intents": [
+     "b1",
+     "b3",
+     "o1"
+    ]
+   },
+   {
+    "id": "your-stop",
+    "title": {
+     "en": "Ask the driver for your stop",
+     "vi": "Nhờ tài xế báo trạm của bạn",
+     "es": "Pide al conductor que te avise de tu parada",
+     "pt": "Peça ao motorista que avise seu ponto",
+     "fr": "Demande au chauffeur de t'annoncer ton arrêt",
+     "de": "Bitte den Fahrer, dir deine Haltestelle zu sagen",
+     "id": "Minta sopir memberi tahu halte tujuanmu",
+     "th": "ขอให้คนขับบอกป้ายของคุณ",
+     "zh": "请司机提醒你下车",
+     "ja": "運転手に降りる停留所を教えてもらう",
+     "ko": "기사에게 내릴 정류장 알려 달라고 하기",
+     "hi": "ड्राइवर से अपना स्टॉप बताने को कहें",
+     "ar": "اطلب من السائق أن يخبرك بموقفك",
+     "ru": "Попроси водителя подсказать остановку",
+     "tr": "Şoförden durağını söylemesini iste"
+    },
+    "intents": [
+     "o3"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "Rules differ from place to place. In many countries you buy a ticket at a kiosk or tap a card as you board. In the UK you often pay the driver, and in the US you usually need exact change or a card. Drivers are happy to tell you your stop if you ask.",
+  "vi": "Quy định mỗi nơi một khác. Ở nhiều nước, bạn mua vé ở quầy hoặc quẹt thẻ khi lên xe. Ở Anh, bạn thường trả tiền cho tài xế; ở Mỹ, bạn thường cần tiền lẻ đúng số hoặc thẻ. Nếu bạn nhờ, tài xế sẵn lòng báo cho bạn biết khi tới trạm của mình.",
+  "es": "Las normas cambian según el lugar. En muchos países se compra el billete en un quiosco o se pasa una tarjeta al subir. En el Reino Unido suele pagarse al conductor, y en Estados Unidos normalmente hace falta el importe exacto en monedas o una tarjeta. Si se lo pides, los conductores te avisan encantados de cuál es tu parada.",
+  "pt": "As regras mudam de lugar para lugar. Em muitos países, compra-se a passagem num quiosque ou aproxima-se um cartão ao entrar. No Reino Unido costuma-se pagar ao motorista, e nos Estados Unidos geralmente é preciso ter o valor exato em moedas ou um cartão. Se você pedir, os motoristas avisam com prazer qual é o seu ponto.",
+  "fr": "Les règles changent d'un endroit à l'autre. Dans de nombreux pays, on achète son billet à un guichet ou on valide une carte en montant. Au Royaume-Uni, on paie souvent le chauffeur ; aux États-Unis, il faut généralement l'appoint ou une carte. Si vous le demandez, les chauffeurs vous préviennent volontiers de votre arrêt.",
+  "de": "Die Regeln sind überall anders. In vielen Ländern kauft man das Ticket am Kiosk oder hält beim Einsteigen eine Karte an das Lesegerät. In Großbritannien zahlt man oft beim Fahrer, in den USA braucht man meist passendes Kleingeld oder eine Karte. Fahrer sagen dir gern Bescheid, wenn du an deiner Haltestelle bist – frag einfach.",
+  "id": "Aturannya berbeda di tiap tempat. Di banyak negara, tiket dibeli di kios atau kartu ditempelkan saat naik. Di Inggris, penumpang sering membayar ke sopir, sedangkan di AS biasanya perlu uang pas atau kartu. Sopir senang memberi tahu halte tujuanmu kalau kamu minta.",
+  "th": "กฎเกณฑ์แต่ละที่ไม่เหมือนกัน หลายประเทศซื้อตั๋วที่ตู้หรือเคาน์เตอร์ หรือแตะบัตรตอนขึ้นรถ ในอังกฤษมักจ่ายเงินกับคนขับ ส่วนในสหรัฐฯ มักต้องเตรียมเหรียญให้พอดีหรือใช้บัตร ถ้าขอ คนขับยินดีบอกเมื่อถึงป้ายของคุณ",
+  "zh": "各地规定不同。在许多国家，人们在售票亭买票，或上车时刷卡。在英国，乘客常常向司机付款；在美国，通常需要准备好零钱，或者刷卡。你开口请求的话，司机很乐意在到站时提醒你。",
+  "ja": "決まりは場所によって違います。多くの国では、売り場で切符を買うか、乗るときにカードをタッチします。イギリスでは運転手に直接払うことが多く、アメリカでは小銭をぴったり用意するかカードを使うのが普通です。頼めば、運転手は喜んで降りる停留所を教えてくれます。",
+  "ko": "규칙은 곳마다 달라요. 많은 나라에서는 매표소에서 표를 사거나 탈 때 카드를 대요. 영국에서는 기사에게 직접 내는 경우가 많고, 미국에서는 보통 잔돈을 딱 맞게 내거나 카드를 써요. 부탁하면 기사가 내릴 정류장을 기꺼이 알려 줘요.",
+  "hi": "नियम जगह-जगह अलग होते हैं। कई देशों में टिकट काउंटर से खरीदा जाता है या चढ़ते समय कार्ड टैप किया जाता है। ब्रिटेन में अक्सर ड्राइवर को ही पैसे देते हैं, और अमेरिका में आमतौर पर सही खुले पैसे या कार्ड चाहिए होता है। कहने पर ड्राइवर खुशी से आपका स्टॉप बता देते हैं।",
+  "ar": "تختلف القواعد من مكان لآخر. في كثير من البلدان تشتري التذكرة من كشك أو تمرّر بطاقة عند الصعود. في بريطانيا غالبًا تدفع للسائق، وفي الولايات المتحدة تحتاج عادةً إلى المبلغ بالضبط أو إلى بطاقة. يسعد السائقون بإخبارك بموقف نزولك إذا طلبت منهم.",
+  "ru": "Правила зависят от места. Во многих странах билет покупают в кассе или в киоске либо прикладывают карту при посадке. В Великобритании часто платят водителю, а в США обычно нужны точная сумма мелочью или карта. Если попросить, водитель с радостью подскажет вашу остановку.",
+  "tr": "Kurallar yerden yere değişir. Birçok ülkede bilet gişeden ya da büfeden alınır veya binerken kart okutulur. Birleşik Krallık'ta çoğunlukla şoföre ödenir; ABD'de genelde bozuk para tam olarak verilir ya da kart kullanılır. İsterseniz şoförler inmeniz gereken durağı memnuniyetle söyler."
+ }
+}

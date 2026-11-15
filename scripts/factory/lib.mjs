@@ -16,7 +16,7 @@ export const words = s => String(s || '').trim().split(/\s+/).filter(Boolean).le
 export const AREAS = ['comm', 'grammar']; // mảng có xưởng (đợt 2: skills, exam; đợt 3: vocab, i18n)
 export const loadKinds = async area => (await import(`./${area}.mjs`)).KINDS;
 export const MAX_TRIES = 2; // luật "dừng sau 2 lần trượt": hạt giống trượt 2 lần → hàng duyệt người, không sinh lại
-const chunks = (a, n) => Array.from({ length: Math.ceil(a.length / n) }, (_, i) => a.slice(i * n, i * n + n));
+export const chunks = (a, n) => Array.from({ length: Math.ceil(a.length / n) }, (_, i) => a.slice(i * n, i * n + n));
 
 // ---------- luật tầng 0 dùng chung (tiếng Anh mẫu) ----------
 const VI = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
@@ -41,13 +41,13 @@ export function pick(K, { n, shard = 0, shards = 1, state = loadState() }) {
   return K.seeds().filter(s => !state.done[tk + s.k] && (state.tries[tk + s.k] || 0) < MAX_TRIES && parseInt(h8(K.kind + s.k), 16) % shards === shard).slice(0, n);
 }
 
-const JUDGE_SYS = rubric => 'You are a strict senior ELT editor (Cambridge/British Council level) reviewing NEW learning items written by another model for an English app used by learners of 15 languages. ' +
+export const JUDGE_SYS = rubric => 'You are a strict senior ELT editor (Cambridge/British Council level) reviewing NEW learning items written by another model for an English app used by learners of 15 languages. ' +
   'Score each item 1-5: 5 = publishable as is; 4 = correct and natural, tiny style issues only; 3 = one real problem; 1-2 = wrong, misleading or unnatural. ' +
   'Any factual/grammar error, wrong answer key, more than one defensible answer, wrong CEFR level, unnatural English or culturally offensive content caps the score at 3. ' + rubric +
   ' Return JSON {"<k>": {"s": <1-5>, "why": "short reason"}} with one key per item.';
 const AUDIT_SYS = rubric => 'You are the final auditor of an English learning content batch. Flag ONLY real errors a teacher would correct (wrong answer, ambiguous key, ungrammatical or unnatural English, wrong level, wrong function/register). ' + rubric +
   ' Return JSON {"<k>": {"ok": true|false, "bad": ["field: short reason"]}} with one key per item.';
-const score = (o, k) => { const v = o && o[k], s = +(v && typeof v === 'object' ? v.s : v); return Number.isFinite(s) && s >= 1 && s <= 5 ? s : null; };
+export const score = (o, k) => { const v = o && o[k], s = +(v && typeof v === 'object' ? v.s : v); return Number.isFinite(s) && s >= 1 && s <= 5 ? s : null; };
 const verdict = (o, k) => { const v = o && o[k]; if (!v || typeof v !== 'object') return null; return v.ok === false || v.ok === 'false' ? [].concat(v.bad || 'lỗi') : v.ok === true || v.ok === 'true' ? [] : null; };
 
 /** chạy MỘT lô cho kind K → { accepted, review, rejected, stats } (không ghi nguồn – merge.mjs ghi) */

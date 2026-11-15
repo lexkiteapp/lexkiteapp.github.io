@@ -1,0 +1,117 @@
+{
+ "id": "m06",
+ "level": "A2",
+ "lo": "M.A2.10",
+ "activity": "summarise",
+ "title": "A customer with a noisy bike",
+ "scenario": "You work in a bike shop. You took a phone call from a customer. Your colleague Dan repairs the bikes and is not in the shop today. Leave him a short note.",
+ "source": {
+  "kind": "dialogue",
+  "lines": [
+   {
+    "s": "Customer",
+    "t": "Hello, I bought a red bike from you last month."
+   },
+   {
+    "s": "Shop",
+    "t": "Yes, how can I help?"
+   },
+   {
+    "s": "Customer",
+    "t": "The front brake is very loud, and the bell does not work."
+   },
+   {
+    "s": "Shop",
+    "t": "I am sorry to hear that. Would you like to bring it in?"
+   },
+   {
+    "s": "Customer",
+    "t": "Yes. I can come on Thursday after work, at about six. Please call my mobile, 555 0142, not my home number."
+   },
+   {
+    "s": "Shop",
+    "t": "Fine. My colleague Dan will look at it."
+   },
+   {
+    "s": "Customer",
+    "t": "Thank you. By the way, your shop window looks lovely this week!"
+   }
+  ]
+ },
+ "task": {
+  "mode": "write",
+  "audience": "a colleague who repairs bikes",
+  "prompt": "Write a note to Dan (30–50 words). Say what the customer wants and the details he needs.",
+  "min_words": 30,
+  "max_words": 50
+ },
+ "points": [
+  {
+   "id": "problem",
+   "idea": "The brake is noisy and the bell is broken.",
+   "checks": [
+    [
+     "brake"
+    ],
+    [
+     "bell"
+    ]
+   ]
+  },
+  {
+   "id": "time",
+   "idea": "The customer brings it on Thursday at about six.",
+   "checks": [
+    [
+     "thursday"
+    ],
+    [
+     "about 6",
+     "at 6",
+     "six",
+     "6 pm"
+    ]
+   ]
+  },
+  {
+   "id": "phone",
+   "idea": "Call her mobile number.",
+   "checks": [
+    [
+     "mobile",
+     "0142"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "The compliment about the shop window.",
+   "checks": [
+    [
+     "window",
+     "lovely"
+    ]
+   ]
+  },
+  {
+   "idea": "The colour of the bike.",
+   "checks": [
+    [
+     "red"
+    ]
+   ]
+  }
+ ],
+ "model": "Dan, a customer is bringing her bike in on Thursday at about 6 in the evening. The front brake makes a very loud noise and the bell is broken. Please call her mobile on 555 0142 if you have any questions.",
+ "useful": [
+  "A customer is bringing in …",
+  "The … is broken.",
+  "Please call … on …"
+ ],
+ "tips": [
+  "A note for a colleague is a list of facts in sentences: what, when, how to contact. Skip the polite chat from the call.",
+  "Copy numbers and times exactly as you heard them. A wrong digit makes the whole note useless."
+ ],
+ "explain": "Dan needs the two problems, the day and time, and the number. He does not need the bike colour or the compliment about the window."
+}

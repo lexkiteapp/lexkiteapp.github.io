@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"create\" mean?",
+  "keyword": "create",
+  "value": "Create means to make, cause, or bring into existence.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=create",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"create\" mean?",
+    "description": "Create means to make, cause, or bring into existence.\n\nReview your words, free: https://lexkite.com/app/#/review?w=create\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "create",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"create\" mean?\n\nCreate means to make, cause, or bring into existence.\n\nReview your words, free: https://lexkite.com/app/#/review?w=create"
+   },
+   "instagram": {
+    "caption": "What does \"create\" mean?\n\nCreate means to make, cause, or bring into existence.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"create\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to make, cause, or bring into existence. Create means to make, cause, or bring into existence. Try the full lesson and quiz here: {link}"
  }
 }

@@ -23,7 +23,10 @@ const serve = route => {
   let p = decodeURIComponent(new URL(route.request().url()).pathname); if (p.endsWith('/')) p += 'index.html';
   const f = path.join(ROOT, path.normalize(p));
   if (!f.startsWith(ROOT) || !fs.existsSync(f) || !fs.statSync(f).isFile()) return route.fulfill({ status: 404, body: '' });
-  const body = fs.readFileSync(f); served += /\.(js|css|json|html)$/.test(f) ? zlib.gzipSync(body).length : body.length;
+  const body = fs.readFileSync(f);
+  // Tải sẵn nền (App.prefetchAll: <link rel=prefetch> mọi gói, ưu tiên thấp) KHÔNG phải chi phí vào cuộc gọi → không tính; nếu tính, kết quả phụ thuộc đúng lúc hàng đợi prefetch chạy (28 KB ↔ 1 MB cùng mã).
+  const rq = route.request(), pf = /prefetch/i.test((rq.headers()['sec-purpose'] || '') + (rq.headers().purpose || '')) || (rq.resourceType() === 'other' && /\.js$/.test(f));
+  if (!pf) served += /\.(js|css|json|html)$/.test(f) ? zlib.gzipSync(body).length : body.length;
   return route.fulfill({ status: 200, contentType: MIME[path.extname(f)] || 'application/octet-stream', body });
 };
 
@@ -260,14 +263,14 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
 {
   // Home/Today (gói ux1 có teacher.js) KHÔNG tải mặt vẽ/mốc: chỉ nạp khi mount giáo viên (ngân sách web/js tạm nâng cho #293 kèm điều kiện này)
   {
-    const { ctx, page } = await open({ vp: { width: 375, height: 812 } }), LIP = /\/js\/call\/(cues|face|lipsync|mouths|paint)\.js/, got = [];
+    const { ctx, page } = await open({ vp: { width: 375, height: 812 } }), LIP = /\/js\/(call\/(cues|face|lipsync|mouths|paint)|teacher-rig)\.js/, got = [];
     page.on('request', r => { if (LIP.test(r.url())) got.push(r.url().split('/').pop()); });
     await page.evaluate(() => { localStorage.setItem('lk.lipsync', '1'); localStorage.setItem('lk.ux1', '1'); });
     for (const h of ['#/home', '#/today']) { await go(page, h); await page.waitForTimeout(2500); }
     ok(!got.length, `Home/Today: không tải mặt vẽ/mốc khớp miệng (${got.join(', ') || '0 tệp'})`);
     await go(page, '#/call/coffee'); await page.waitForSelector('#callGo'); await page.click('#callGo');
     await until(page, () => document.querySelector('.tch-rig canvas.tch-face'), null, 15000).catch(() => {});
-    ok(got.includes('cues.js') && got.includes('face.js'), `vào Call mới nạp mặt vẽ + mốc (${got.join(', ')})`);
+    ok(got.includes('cues.js') && got.includes('face.js') && got.includes('teacher-rig.js'), `vào Call mới nạp mặt vẽ + mốc (${got.join(', ')})`);
     await ctx.close();
   }
   // fps đo ở ngữ cảnh KHÔNG quay màn hình (bộ quay chiếm CPU trình duyệt); video gửi duyệt quay ở lượt sau, cùng màn
@@ -280,6 +283,8 @@ if (BEFORE) { // bản cũ: chỉ chụp ảnh để so sánh
   await page.click('#callGo');
   const on = await until(page, () => document.querySelector('.tch-rig canvas.tch-face'), null, 15000).then(() => true, () => false);
   ok(on, 'mặt vẽ: đầu trơn + mắt/mày/miệng vector (canvas) thay clip');
+  ok(await page.evaluate(() => !!(window.TeacherRig && document.querySelector('.tch-rig canvas.tch-face.trig-cv'))), 'Call chạy TeacherRig (lõi rig dùng chung), không còn bản face() riêng');
+  ok(await page.evaluate(() => { const l = window.__callState().lip; return !!(l && l.frames > 0 && 'mode' in l && 'open' in l); }), 'TeacherRig: số khung + chế độ (live/pre/idle) + độ mở miệng đo được');
   ok(!(await page.$('.tch-cv')) && !(await page.$('.tch-rig video')), 'mặt vẽ: không tải clip WebGL');
   if (!rec) {
   const cdp = await ctx.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });

@@ -36,7 +36,7 @@ Cập nhật 15/10/2026. Không chứa mật khẩu/khóa bí mật. Chi tiết 
 - `/blog/*` → 301 `/vi/blog/*` (`web/_redirects`). Sitemap index `/sitemap.xml` → `sitemap-pages.xml` + `sitemap-blog-<lang>.xml`.
 
 ## Tự động (GitHub Actions, miễn phí)
-- `blog-publish.yml` – mỗi giờ: có bài đến giờ → gọi deploy hook → IndexNow.
+- `blog-publish.yml` – mỗi giờ: có bài đến giờ → gọi deploy hook → IndexNow. **Đo 13/11/2026:** lịch đăng đủ 1 bài/ngôn ngữ/ngày (375 bài live, 825 đã xếp lịch; live khớp sitemap) nhưng cron GitHub chỉ chạy ~3–4/8 lượt mỗi ngày → cửa sổ "bài đến hạn" nay tính từ lần chạy xanh trước (190–1.440 phút), không còn rơi IndexNow/WebSub của lượt bị bỏ.
 - `blog-daily.yml` – 06:30 VN: xếp lịch bài `status: ready` chưa có giờ (2–3 bài/ngày/ngôn ngữ) + commit; mở issue `blog-health` khi < 7 ngày bài chờ hoặc bài kiểm chứng > 12 tháng.
 - `seo-gsc.yml` – thứ Hai 07:00 VN (trước lượt viết 9h): `scripts/seo/gsc.mjs` kéo Search Console 28 ngày → `reports/seo/gsc-<ngày>.{json,md}` + `content/blog/plan/gsc-priority.json` (commit `[CF-Pages-Skip]`) + issue `seo-weekly`. Xem § Vòng dữ liệu GSC.
 - Build Cloudflare tự chạy `blog-check` → bài lỗi làm build dừng (site giữ bản cũ).

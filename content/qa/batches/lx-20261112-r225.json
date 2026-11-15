@@ -1,0 +1,101 @@
+{
+ "id": "20261112-r225",
+ "source": "lexicon-expand",
+ "n": 23,
+ "checked": [
+  {
+   "id": "pituitary#n",
+   "ok": true
+  },
+  {
+   "id": "leatherback#n",
+   "ok": true
+  },
+  {
+   "id": "aromatherapy#n",
+   "ok": true
+  },
+  {
+   "id": "beltway#n",
+   "ok": true
+  },
+  {
+   "id": "mucosa#n",
+   "ok": true
+  },
+  {
+   "id": "cardiomyopathy#n",
+   "ok": true
+  },
+  {
+   "id": "courtroom#n",
+   "ok": true
+  },
+  {
+   "id": "jawbone#n",
+   "ok": true
+  },
+  {
+   "id": "divination#n",
+   "ok": true
+  },
+  {
+   "id": "grandstand#n",
+   "ok": true
+  },
+  {
+   "id": "warlord#n",
+   "ok": true
+  },
+  {
+   "id": "bronc#n",
+   "ok": true
+  },
+  {
+   "id": "grandparent#n",
+   "ok": true
+  },
+  {
+   "id": "taxiway#n",
+   "ok": true
+  },
+  {
+   "id": "roundworm#n",
+   "ok": true
+  },
+  {
+   "id": "happenstance#n",
+   "ok": true
+  },
+  {
+   "id": "desalinization#n",
+   "ok": true
+  },
+  {
+   "id": "microtubule#n",
+   "ok": true
+  },
+  {
+   "id": "stopwatch#n",
+   "ok": true
+  },
+  {
+   "id": "tonsillectomy#n",
+   "ok": true
+  },
+  {
+   "id": "firehouse#n",
+   "ok": true
+  },
+  {
+   "id": "thruway#n",
+   "ok": true
+  },
+  {
+   "id": "metalworker#n",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-12",
+ "status": "published"
+}

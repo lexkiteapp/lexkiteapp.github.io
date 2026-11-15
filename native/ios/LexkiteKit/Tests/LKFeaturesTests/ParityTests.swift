@@ -99,7 +99,8 @@ final class ParityTests: XCTestCase {
         let auth = TestAuth(uid: "abc123")
         let m = AuthModel(auth: auth, engine: nil, crash: crash)
         let task = Task { await m.observe() }
-        try await Task.sleep(nanoseconds: 50_000_000)
+        // observe() runs in its own task: wait (≤ 3 s) until it has delivered, never a fixed 50 ms nap (red on slow simulators, P08 / #1001)
+        for _ in 0..<150 where m.user == nil || crash.userID == nil { try await Task.sleep(nanoseconds: 20_000_000) }
         XCTAssertEqual(m.user?.uid, "abc123")
         XCTAssertEqual(crash.userID, LKCrashPrivacy.hashedUserID("abc123"))
         XCTAssertNotEqual(crash.userID, "abc123", "only a hash of the uid reaches crash reports")

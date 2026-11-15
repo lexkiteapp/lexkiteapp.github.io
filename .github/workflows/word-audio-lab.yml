@@ -8,7 +8,7 @@ on:
 permissions: { contents: read }
 jobs:
   lab:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 60
     strategy: { fail-fast: false, matrix: { dtype: [q8, fp32] } }
     env: { KOKORO_DTYPE: '${{ matrix.dtype }}' }

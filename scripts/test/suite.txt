@@ -30,6 +30,8 @@ node scripts/test/speak-split.mjs
 node scripts/test/speak.mjs
 node scripts/test/i18n-single.mjs
 node scripts/test/i18n-pack.mjs
+node scripts/test/fmt-stable.mjs
+node scripts/test/gen-guard.mjs
 node scripts/test/lexicon-expand.mjs
 node scripts/test/sentence-asr.mjs
 node scripts/test/i18n-english.mjs
@@ -39,6 +41,8 @@ node scripts/test/syntax-check.mjs
 node scripts/blog-pipeline.mjs gate
 node scripts/test/ci-header-scope.mjs
 node scripts/test/feel.mjs
+node scripts/test/sfx-loudness.mjs
+node scripts/test/play-blitz.mjs
 node scripts/test/review-modes.mjs
 node scripts/test/review-modes-ui.js web
 node scripts/build-lexicon.mjs
@@ -72,6 +76,7 @@ node scripts/test/next-step.mjs
 node scripts/confidence/build.mjs
 node scripts/test/confidence.mjs
 node scripts/test/lesson.mjs
+node scripts/test/mic-exclusive.mjs
 node scripts/factory/build-grammar-bank.mjs --check
 node scripts/test/content-factory.mjs
 node scripts/test/ux1.mjs
@@ -79,6 +84,7 @@ node scripts/test/ux1-rollout.mjs
 node scripts/test/pron-gop.mjs
 node scripts/test/pron-pairs.mjs
 node scripts/test/pron-coach.mjs
+node scripts/test/pron-shadow.mjs
 node scripts/test/call-engine.mjs
 node scripts/test/feedback-eval.mjs
 node scripts/test/route-race.mjs
@@ -100,6 +106,7 @@ node scripts/test/social-ui.mjs
 node scripts/test/social-mgr.mjs
 node scripts/test/social-auto.mjs
 node scripts/test/social-preview.mjs
+node scripts/test/dist-channels.mjs
 node scripts/test/social-admin.mjs
 node scripts/test/social-meta.mjs
 node scripts/test/social-meta-oauth.mjs
@@ -114,6 +121,7 @@ node scripts/test/d1-cap.mjs
 node scripts/test/sessions-scan-gate.mjs
 node scripts/capacity/admin-sim.mjs
 node scripts/test/free-tier.mjs
+node scripts/test/vocab-img-free-sheet.mjs
 node scripts/test/pages-skip.mjs
 node scripts/test/sync-pack.mjs
 node scripts/test/target-lang.mjs
@@ -121,17 +129,23 @@ node scripts/test/es-conjugate.mjs
 node scripts/test/sync-ctx.mjs
 node scripts/test/schema-lock.mjs
 node scripts/test/analytics.mjs
+node scripts/test/retention-admin.mjs
+node scripts/test/mail-digest.mjs
 node scripts/test/d1-scan.mjs
 node scripts/test/drive.mjs
 node scripts/test/ci-triage.mjs
 node scripts/test/required-gate.mjs
 node scripts/test/drive-ui.mjs
+node scripts/test/drive-state.mjs
 node scripts/test/jobs-check.mjs
 node scripts/test/ci-filler.mjs
+node scripts/test/ci-autopilot.mjs
 node scripts/test/cron-watch.mjs
+node scripts/test/vimg-watch.mjs
 node scripts/test/cron-kick.mjs
 node scripts/test/ci-hog.mjs
 node scripts/test/queue-report.mjs
+node scripts/test/busy-gate.mjs
 node scripts/test/reminders.mjs
 node scripts/test/notify-ux.mjs
 node scripts/test/fcm-push.mjs
@@ -143,8 +157,10 @@ node scripts/test/jobs.mjs
 node scripts/test/rollback.mjs
 node scripts/test/drive-repair.mjs
 node scripts/test/keys.mjs
+node scripts/test/ai-chain.mjs
 node scripts/test/admin-share.mjs
 node scripts/test/accounts.mjs
+node scripts/test/ios-sign-patch.mjs
 node scripts/test/asc-signing.mjs
 node scripts/test/ai-pool.mjs
 node scripts/test/ai-local.mjs
@@ -162,6 +178,8 @@ node scripts/test/admin-gate.mjs
 node scripts/test/pr-check.mjs
 node scripts/test/library.mjs
 node scripts/test/anki.mjs
+node scripts/test/importdeck.mjs
+node scripts/test/readable.mjs
 node scripts/test/video.mjs
 node scripts/test/video-templates.mjs
 node scripts/test/capsplit.mjs
@@ -174,6 +192,7 @@ node scripts/test/qa-classify.mjs
 node scripts/test/shorts-scale.mjs
 node scripts/test/yt-manual.mjs
 node scripts/test/clip-bulk.mjs
+node scripts/test/admin-flow.mjs
 node scripts/test/distribution.mjs
 node scripts/test/dist-roles.mjs
 node scripts/test/motion.mjs
@@ -204,6 +223,7 @@ node scripts/test/img-api.mjs
 node scripts/test/ios-driver-watchdog.mjs
 node scripts/test/audio-coverage.mjs
 node scripts/test/audio-pr-branch.mjs
+node scripts/test/audio-shard-equiv.mjs
 node scripts/test/pages-lag.mjs
 node scripts/test/tts-sites.mjs
 node scripts/test/protection.mjs
@@ -213,8 +233,12 @@ node scripts/test/dictlookup.mjs
 node scripts/test/client-security.mjs
 node scripts/test/headers.mjs
 node scripts/test/static-routes.mjs
+node scripts/test/words-r2-fn.mjs
 node scripts/test/layout-guards.mjs
 node scripts/test/home-logic.mjs
+node scripts/test/vocab-hub.mjs
+node scripts/test/grammar-hub.mjs
+node scripts/test/pron-hub.mjs
 node scripts/test/inline-box.mjs
 node scripts/test/st2-href.mjs
 node scripts/test/card-actions.mjs
@@ -230,6 +254,7 @@ node scripts/test/brand-check.mjs
 node scripts/test/token-contrast.mjs
 node scripts/stitch-sync-palette.mjs --check
 node scripts/social/build-channel-kit.mjs --check
+node scripts/social/build-page-info.mjs --check
 node scripts/test/characters-gate.mjs
 node scripts/test/teacher-native.mjs
 node scripts/test/samples-ui.mjs
@@ -252,6 +277,7 @@ node scripts/test/authority-pages.mjs
 node scripts/test/seo-twin.mjs
 node scripts/test/dict-pages.mjs
 node scripts/test/dict-stage.mjs
+node scripts/test/dict-enrich.mjs
 node scripts/test/native-auth.mjs
 node scripts/test/ota.mjs
 node scripts/test/crashlytics.mjs
@@ -261,11 +287,16 @@ node scripts/content-qa/exam-format-check.mjs
 node scripts/test/lesson-why.mjs
 node scripts/test/lesson-card.mjs
 node scripts/test/sentence-punct.mjs
+node scripts/test/toeic-photos.mjs
 node scripts/content-qa/lkf-check.mjs
 node scripts/test/lkf.mjs
 node scripts/content-qa/grammar-map-check.mjs
 node scripts/target/drill-pack.mjs --check
+node scripts/target/exam-es-check.mjs
+node scripts/test/es-exam.mjs
 node scripts/test/grammar-inventory.mjs
+node scripts/grammar/build-lazy-idx.mjs
+node scripts/test/grammar-lazy.mjs
 node scripts/test/explain-let.mjs
 node scripts/content-qa/sense-check.mjs
 node scripts/test/sense-check.mjs
@@ -294,6 +325,7 @@ node scripts/test/whisper-det.mjs
 node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
 node scripts/test/vocab-img-judge-budget.mjs
+node scripts/test/vocab-img-worth.mjs
 node scripts/test/lastmod.mjs
 node scripts/test/outcomes.mjs
 node scripts/test/today-debt.mjs
@@ -306,9 +338,14 @@ node scripts/test/probe-cta.mjs
 node scripts/test/haptics.mjs
 node scripts/test/aiearn.mjs
 node scripts/test/ext-newtab-quiz.mjs
+node scripts/test/i18n-native-score.mjs
 node scripts/test/cambridge.mjs
 node scripts/test/teacher-rig.mjs
+node scripts/test/teach2d-rig.mjs
+node scripts/test/teach2d-l1.mjs
 node scripts/test/workflow-yaml.mjs
+node scripts/test/workflow-call-perms.mjs
+node scripts/test/push-main.mjs
 node scripts/test/samples-seo-parity.mjs --self-test
 node scripts/native/gen.mjs --check
 node scripts/test/native-one-source.mjs --self-test
@@ -319,10 +356,12 @@ node scripts/test/sync-cross-client.mjs
 node scripts/test/native-compat.mjs
 node scripts/native/content-publish.mjs check
 node scripts/test/native-pick-sim.mjs
+node scripts/test/native-ios-paths.mjs
 node scripts/test/native-visual.mjs --self-test
 node scripts/test/lip-clock.mjs
 node scripts/test/teacher-quality.mjs --static
 node scripts/test/legal-i18n.mjs
+node scripts/test/android-ime.mjs
 node scripts/test/store-reviews.mjs
 node scripts/test/cpack.mjs
 node scripts/test/scan-roots.mjs
@@ -341,6 +380,9 @@ node scripts/test/site-footer.mjs
 node scripts/test/v2pre-ring.mjs
 node scripts/test/zombie-pages.mjs
 node scripts/test/ci-guards.mjs
+node scripts/test/workflow-cd-paths.mjs
+node scripts/test/apt-install.mjs
+node scripts/test/perf-median.mjs
 node scripts/test/pr-unconflict.mjs
 node scripts/test/main-red-sweep.mjs
 node scripts/test/ci-queue-gate.mjs
@@ -354,4 +396,35 @@ node scripts/test/heavy-rerun.mjs
 node scripts/test/json-dupkeys.mjs
 node scripts/test/cls-chrome.mjs
 node scripts/test/es-practice.mjs
+node scripts/test/es-pron.mjs
+node scripts/test/es-path.mjs
 node scripts/test/ext-version.mjs
+node scripts/test/skills-hub.mjs
+node scripts/test/phrasebook.mjs
+node scripts/test/native-strings-locked.mjs
+node scripts/audit/score.mjs --self-test
+node scripts/test/suite-shards.mjs
+node scripts/test/install-sheet.mjs
+node scripts/build-go.mjs --check
+node scripts/test/go-landing.mjs
+node scripts/test/mistake-variant.mjs
+node scripts/test/adsense-hygiene.mjs
+node scripts/test/play-duel.mjs
+node scripts/test/play-rhythm.mjs
+node scripts/test/play-rhythm-run.mjs
+node scripts/test/funnel.mjs
+node scripts/test/share-link.mjs
+node scripts/test/stitch-theme-lint.mjs
+node scripts/test/referral.mjs
+node scripts/test/pwa-installable.mjs
+node scripts/test/addon-listings.mjs
+node scripts/test/rate-prompt.mjs
+node scripts/test/mobile-www-slim.mjs
+node scripts/test/yt-stats.mjs
+node scripts/test/yt-stats-op.mjs
+node scripts/test/social-stats-ui.mjs
+node scripts/test/l1-notes.mjs
+node scripts/test/qengine-flag.mjs
+node scripts/test/qwk.mjs
+node scripts/test/es-native-bundle.mjs
+node scripts/test/video-junk.mjs

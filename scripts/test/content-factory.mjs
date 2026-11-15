@@ -6,9 +6,14 @@ import { runBatch, pick, MAX_TRIES } from '../factory/lib.mjs';
 import { KINDS as COMM } from '../factory/comm.mjs';
 import { KINDS as GRAM } from '../factory/grammar.mjs';
 import { render } from '../factory/build-grammar-bank.mjs';
+import { judgeStored } from '../factory/judge-stored.mjs';
 
 let bad = 0;
 const t = (ok, msg) => { if (!ok) { bad++; console.error('✗ ' + msg); } };
+{ const f = (id, j) => ({ id, name: id, level: 'B1', situations: [], qa: { gen: 'x', ...(j ? { j } : {}) } }), S = { functions: [f('a'), f('b'), f('c'), f('d', { m: 5 })] };
+  const out = { a: { s: 5 }, b: { s: 3 } }, AI = { judgePair: async () => ({ a: { model: 'm1', out }, b: { model: 'm2', out } }) };
+  const r = await judgeStored(S, AI, () => {});
+  t(r.todo === 3 && r.ok === 1 && r.low.length === 1 && r.nojudge === 1 && S.functions[0].qa.j && !S.functions[1].qa.j && !S.functions[2].qa.j, 'judge-stored: đạt ghi qa.j, thấp không ghi, thiếu GK để lượt sau, mục đã chấm bỏ qua'); }
 const quiet = () => {};
 
 /** pool giả: gen trả items[k]; điểm giám khảo = score; soát mẫu = audit(k) */

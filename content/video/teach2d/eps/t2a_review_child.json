@@ -72,5 +72,46 @@
   "words": 47,
   "seconds": 28.2,
   "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"child\" mean?",
+  "keyword": "child",
+  "value": "Child means a very young person, between about 2 and 15.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=child",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"child\" mean?",
+    "description": "Child means a very young person, between about 2 and 15.\n\nReview your words, free: https://lexkite.com/app/#/review?w=child\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "child",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"child\" mean?\n\nChild means a very young person, between about 2 and 15.\n\nReview your words, free: https://lexkite.com/app/#/review?w=child"
+   },
+   "instagram": {
+    "caption": "What does \"child\" mean?\n\nChild means a very young person, between about 2 and 15.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"child\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a very young person, between about 2 and 15. Child means a very young person, between about 2 and 15. More practice like this (free): {link}"
  }
 }

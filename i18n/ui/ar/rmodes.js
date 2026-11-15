@@ -1,3 +1,16 @@
-/* UI ar – rmodes (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {"Gõ từ":"اكتبها","Đang tải âm thanh…":"جارٍ تحميل الصوت…","Không phát được âm thanh – bấm 🔊 thử lại":"تعذّر تشغيل الصوت – اضغط 🔊 للمحاولة مرة أخرى","Hiện từ":"إظهار الكلمة","Nghe chọn nghĩa":"استمع واختر","Câu của bạn":"جملتك","Nguồn":"المصدر","Chế độ ôn":"وضع المراجعة","Gợi ý chữ cái":"تلميح حرف","Nghe từ":"استمع إلى الكلمة","Không nhớ":"نسيتها","Đáp án đúng":"الإجابة الصحيحة"});
+/* UI ar – rmodes (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {
+"Chế độ ôn":"وضع المراجعة",
+"Câu của bạn":"جملتك",
+"Gõ từ":"اكتبها",
+"Gợi ý chữ cái":"تلميح حرف",
+"Hiện từ":"إظهار الكلمة",
+"Không nhớ":"نسيتها",
+"Không phát được âm thanh – bấm 🔊 thử lại":"تعذّر تشغيل الصوت – اضغط 🔊 للمحاولة مرة أخرى",
+"Nghe chọn nghĩa":"استمع واختر",
+"Nghe từ":"استمع إلى الكلمة",
+"Nguồn":"المصدر",
+"Đang tải âm thanh…":"جارٍ تحميل الصوت…",
+"Đáp án đúng":"الإجابة الصحيحة",
+});
 })(typeof self !== 'undefined' ? self : this);

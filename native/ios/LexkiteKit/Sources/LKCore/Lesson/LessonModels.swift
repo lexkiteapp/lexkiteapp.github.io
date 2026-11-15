@@ -135,7 +135,7 @@ public struct LessonStory: Decodable, Equatable, Sendable {
     public struct Pair: Decodable, Equatable, Sendable { public var en: String, m: [String: String] }
     public struct Check: Decodable, Equatable, Sendable {
         public var at: Int, type: String
-        public var line: Int?, q: String?, options: [String]?, answer: Int?, keep: Bool?, pairs: [Pair]?
+        public var line: Int?, q: String?, options: [String]?, answer: Int?, keep: Bool?, why: String?, pairs: [Pair]?
     }
     public var id: String, kind: String
     public var title: String?, cefr: String?

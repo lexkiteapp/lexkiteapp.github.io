@@ -30,14 +30,14 @@ for (const tp of g.IELTS_DATA.TOPICS) for (const w of tp.words || []) add('ex', 
 // 2) Truyện/Radio + câu hỏi
 for (const s of J('content/lesson/stories.json').items) { s.lines.forEach(l => add('stories', l.en)); (s.checks || []).filter(c => c.type === 'q').forEach(c => add('stories-q', c.q)); }
 // 3) Kho gold
-for (const L of Object.values(J('web/packs/lesson/gold.json'))) for (const g2 of L) { (g2.ex || []).forEach(x => add('gold', x)); if (g2.r && !/^[A-Za-z]+(-[A-Za-z]+)+$/.test(g2.r)) add('gold', g2.r); } // r dạng "ad-ver-TISE-ment" = cách nhấn âm, không phải câu
+for (const L of Object.values(JSON.parse(fs.readFileSync('web/cpack/lesson/gold.js', 'utf8').replace(/^[\s\S]*?self\.LESSON_GOLD = /, '').replace(/;\s*$/, '')))) for (const g2 of L) { (g2.ex || []).forEach(x => add('gold', x)); if (g2.r && !/^[A-Za-z]+(-[A-Za-z]+)+$/.test(g2.r)) add('gold', g2.r); } // r dạng "ad-ver-TISE-ment" = cách nhấn âm, không phải câu
 // 4) Ngữ pháp: mọi ví dụ/câu xếp (GRAMMAR.*.blocks)
 { const ctx = { self: {}, t: s => s }; ctx.globalThis = ctx.self; vm.createContext(ctx);
   for (const f of fs.readdirSync('web/js/grammar').filter(f => /\.js$/.test(f))) { try { vm.runInContext(fs.readFileSync('web/js/grammar/' + f, 'utf8'), ctx); } catch (e) { /* tệp phụ thuộc */ } }
   const walk = (o, k) => { if (typeof o === 'string') { if (/^(ex|en|s|sent|right|correct|good|sentence)$/.test(k || '') && /\s/.test(o) && /^[A-Za-z"“]/.test(o) && !/[À-ỹ]/.test(o) && !/[_+…/→]|\b(S|V|Ving|V-ing)\b/.test(o)) add('grammar', o); return; } if (Array.isArray(o)) o.forEach(x => walk(x, k)); else if (o && typeof o === 'object') Object.entries(o).forEach(([a, b]) => { if (!(a === 'en' && o.title)) walk(b, a); }); }; // en cạnh title = tên bài, không phải câu
   walk(ctx.self.GRAMMAR || [], ''); }
 // 5) Giao tiếp tự tin + kho mẫu câu thẻ kết quả
-{ const ctx = { self: {} }; ctx.globalThis = ctx.self; vm.createContext(ctx); vm.runInContext(fs.readFileSync('web/js/confidence/data.js', 'utf8'), ctx);
+{ const ctx = { self: {} }; ctx.globalThis = ctx.self; vm.createContext(ctx); vm.runInContext(fs.readFileSync('web/cpack/confidence/data.js', 'utf8'), ctx);
   const walk = (o, k) => { if (typeof o === 'string') { if (/^(say|not|en|ex|model|line|ai|t)$/.test(k || '') && /\s/.test(o) && !/[À-ỹ]/.test(o) && !/[_…]/.test(o)) add('confidence', o); return; } if (Array.isArray(o)) o.forEach(x => walk(x, k)); else if (o && typeof o === 'object') Object.entries(o).forEach(([a, b]) => walk(b, a)); };
   walk(ctx.self.CONF.units.map(u => ({ say: u.phrases, dialogue: u.dialogue, roleplay: u.roleplay })), ''); }
 // 6) Lời thoại Nghe (chép chính tả, câu hỏi nghe)

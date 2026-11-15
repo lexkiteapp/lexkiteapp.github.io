@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite — IELTS Reading</title>
+  <!-- Plus Jakarta Sans Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Material Symbols Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-dark': '#092627',
+              'teal-light': '#136B66',
+              mint: '#2DD4BF',
+              coral: '#F2553B',
+              'coral-dark': '#B8321D',
+              amber: '#F59E0B',
+              'amber-dark': '#B45309',
+              cream: '#FFF9F3',
+              surface: '#FFFFFF',
+              border: '#E8DED1',
+              ledge: '#D4C4B0',
+              ink: '#141819',
+              'ink-muted': '#4A5558',
+              'ink-soft': '#64748B'
+            }
+          },
+          boxShadow: {
+            'tactile-card': '0 4px 0 0 #D4C4B0',
+            'tactile-card-active': '0 2px 0 0 #D4C4B0',
+            'tactile-btn': '0 4px 0 0 #B8321D',
+            'tactile-chip': '0 3px 0 0 #092627',
+            'tactile-chip-inactive': '0 2px 0 0 #D4C4B0',
+            'tactile-chip-green': '0 2px 0 0 #047857',
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    /* Hide scrollbar for clean horizontal level tabs */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-[#FBF7F1] text-brand-ink font-sans antialiased min-h-screen flex justify-center selection:bg-brand-mint selection:text-brand-teal">
+
+  <!-- Mobile Screen Container: 390px fixed width, no outer frame/mockup bezels -->
+  <div class="w-full max-w-[390px] min-h-screen flex flex-col bg-[#FBF7F1] relative pb-10">
+
+    <!-- Top App Bar (Lexkite §5d Inner Screen: Back arrow 44px + Title, NO bottom tabs) -->
+    <header class="sticky top-0 z-30 bg-[#FBF7F1]/95 backdrop-blur-md px-4 pt-3 pb-2 border-b border-[#E6DCCB] flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <button type="button" aria-label="Go back" class="min-w-[44px] min-h-[44px] h-11 w-11 flex items-center justify-center rounded-2xl bg-white border-2 border-[#E6DCCB] shadow-[0_2px_0_0_#D4C4B0] active:translate-y-0.5 active:shadow-none transition-all text-brand-teal hover:bg-[#F8F4EC] focus:outline-none focus:ring-2 focus:ring-brand-teal">
+          <span class="material-symbols-rounded text-[24px]">arrow_back</span>
+        </button>
+        <div class="flex flex-col">
+          <h1 class="text-[20px] font-extrabold tracking-tight text-brand-teal leading-none">IELTS Reading</h1>
+          <span class="text-[11px] font-bold text-brand-ink-muted uppercase tracking-wider mt-1">Academic Passages</span>
+        </div>
+      </div>
+      <!-- Right bookmark / search indicator target (min 44x44) -->
+      <button type="button" aria-label="Filter or search readings" class="min-w-[44px] min-h-[44px] h-11 w-11 flex items-center justify-center rounded-2xl bg-white border-2 border-[#E6DCCB] shadow-[0_2px_0_0_#D4C4B0] active:translate-y-0.5 active:shadow-none transition-all text-brand-teal hover:bg-[#F8F4EC] focus:outline-none focus:ring-2 focus:ring-brand-teal">
+        <span class="material-symbols-rounded text-[22px]">search</span>
+      </button>
+    </header>
+
+    <!-- Subtitle & Orientation Cue -->
+    <div class="px-4 pt-3 pb-2">
+      <div class="flex items-start gap-2.5 bg-white/80 p-3 rounded-2xl border border-[#E6DCCB] shadow-[0_2px_0_0_#E8DED1]">
+        <span class="material-symbols-rounded text-brand-teal text-[20px] mt-0.5 shrink-0">menu_book</span>
+        <p class="text-[13px] font-semibold text-brand-ink-muted leading-relaxed">
+          Read in IELTS Academic style — tap any word to look it up and save it with its sentence.
+        </p>
+      </div>
+    </div>
+
+    <!-- Horizontally Scrollable Level Filter Bar (44px min tap targets, clear spacing) -->
+    <section class="pt-2 pb-3" aria-label="Level filters">
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar px-4">
+        <!-- Tab: All 30 -->
+        <button type="button" class="shrink-0 min-h-[44px] px-4 py-2 rounded-2xl bg-white border-2 border-[#E6DCCB] text-brand-ink-muted font-bold text-[13px] shadow-[0_3px_0_0_#D4C4B0] active:translate-y-0.5 active:shadow-[0_1px_0_0_#D4C4B0] transition-all flex items-center gap-1.5 hover:border-brand-teal-light">
+          <span>All</span>
+          <span class="text-[11px] font-extrabold px-1.5 py-0.5 rounded-full bg-[#F8F4EC] text-[#6B5A49]">30</span>
+        </button>
+
+        <!-- Tab: A2 4 -->
+        <button type="button" class="shrink-0 min-h-[44px] px-4 py-2 rounded-2xl bg-white border-2 border-[#E6DCCB] text-brand-ink-muted font-bold text-[13px] shadow-[0_3px_0_0_#D4C4B0] active:translate-y-0.5 active:shadow-[0_1px_0_0_#D4C4B0] transition-all flex items-center gap-1.5 hover:border-brand-teal-light">
+          <span>A2</span>
+          <span class="text-[11px] font-extrabold px-1.5 py-0.5 rounded-full bg-[#F8F4EC] text-[#6B5A49]">4</span>
+        </button>
+
+        <!-- Tab: B1 9 (SELECTED - High contrast deep teal brand badge) -->
+        <button type="button" aria-current="page" class="shrink-0 min-h-[44px] px-4 py-2 rounded-2xl bg-brand-teal border-2 border-brand-teal-dark text-white font-extrabold text-[13px] shadow-[0_3px_0_0_#092627] active:translate-y-0.5 active:shadow-[0_1px_0_0_#092627] transition-all flex items-center gap-1.5">
+          <span>B1</span>
+          <span class="text-[11px] font-extrabold px-2 py-0.5 rounded-full bg-brand-mint text-brand-teal-dark shadow-sm">9</span>
+        </button>
+
+        <!-- Tab: B2 12 -->
+        <button type="button" class="shrink-0 min-h-[44px] px-4 py-2 rounded-2xl bg-white border-2 border-[#E6DCCB] text-brand-ink-muted font-bold text-[13px] shadow-[0_3px_0_0_#D4C4B0] active:translate-y-0.5 active:shadow-[0_1px_0_0_#D4C4B0] transition-all flex items-center gap-1.5 hover:border-brand-teal-light">
+          <span>B2</span>
+          <span class="text-[11px] font-extrabold px-1.5 py-0.5 rounded-full bg-[#F8F4EC] text-[#6B5A49]">12</span>
+        </button>
+
+        <!-- Tab: C1 5 -->
+        <button type="button" class="shrink-0 min-h-[44px] px-4 py-2 rounded-2xl bg-white border-2 border-[#E6DCCB] text-brand-ink-muted font-bold text-[13px] shadow-[0_3px_0_0_#D4C4B0] active:translate-y-0.5 active:shadow-[0_1px_0_0_#D4C4B0] transition-all flex items-center gap-1.5 hover:border-brand-teal-light">
+          <span>C1</span>
+          <span class="text-[11px] font-extrabold px-1.5 py-0.5 rounded-full bg-[#F8F4EC] text-[#6B5A49]">5</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Bookshelf Article List: Vertical stack of 5 cards -->
+    <main class="px-4 space-y-3.5 flex-1">
+
+      <!-- Card 1: The Rise of Urban Farming (Has green ✓ 6/8 score chip) -->
+      <article class="bg-white rounded-2xl p-4 border-2 border-[#E6DCCB] shadow-[0_4px_0_0_#D4C4B0] hover:border-brand-teal-light transition-all flex flex-col gap-3 group">
+        <div class="flex items-start gap-3">
+          <!-- Emoji Tile with Tactile 3D Ledge -->
+          <div class="w-12 h-12 rounded-2xl bg-[#E6F7F5] border-2 border-[#BCEAE4] flex items-center justify-center text-[24px] shadow-[0_2px_0_0_#A8DDD6] shrink-0">
+            🌱
+          </div>
+          <!-- Title & Level Chip -->
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#F8F4EC] border border-[#E6DCCB] text-[11px] font-extrabold text-[#78350F] tracking-wide uppercase">
+                B1 Core
+              </span>
+              <!-- Score Chip: Green ✓ 6/8 -->
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-[#ECFDF5] border border-[#A7F3D0] text-[#065F46] text-[12px] font-extrabold shadow-[0_2px_0_0_#6EE7B7]">
+                <span class="material-symbols-rounded text-[14px]">check</span>
+                <span>6/8</span>
+              </span>
+            </div>
+            <h2 class="text-[16px] font-bold text-brand-ink tracking-tight group-hover:text-brand-teal transition-colors leading-snug">
+              The Rise of Urban Farming
+            </h2>
+          </div>
+        </div>
+
+        <!-- Two-line summary -->
+        <p class="text-[13px] font-medium text-brand-ink-muted leading-relaxed line-clamp-2">
+          Rooftop greenhouses and hydroponic towers are transforming food supply logistics across densely populated metropolitan hubs.
+        </p>
+
+        <!-- Metadata Chips & Action Row (Min 44px tap target on Read button) -->
+        <div class="flex items-center justify-between pt-1 border-t border-[#E6DCCB]">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="inline-flex items-center gap-1 text-[12px] font-bold text-brand-ink-muted bg-[#F8F4EC] px-2.5 py-1 rounded-xl border border-[#E6DCCB]">
+              <span class="material-symbols-rounded text-[15px] text-brand-teal">timer</span>
+              <span>5 min</span>
+            </span>
+            <span class="inline-flex items-center gap-1 text-[12px] font-bold text-brand-ink-muted bg-[#F8F4EC] px-2.5 py-1 rounded-xl border border-[#E6DCCB]">
+              <span class="material-symbols-rounded text-[15px] text-brand-teal">quiz</span>
+              <span>8 questions</span>
+            </span>
+          </div>
+          <button type="button" class="min-h-[44px] px-3.5 py-2 rounded-xl bg-[#F8F4EC] hover:bg-brand-teal hover:text-white border border-[#E6DCCB] text-brand-teal font-extrabold text-[13px] flex items-center gap-1 transition-all active:translate-y-0.5">
+            <span>Review</span>
+            <span class="material-symbols-rounded text-[16px]">chevron_right</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 2: Why We Sleep (Not completed yet) -->
+      <article class="bg-white rounded-2xl p-4 border-2 border-[#E6DCCB] shadow-[0_4px_0_0_#D4C4B0] hover:border-brand-teal-light transition-all flex flex-col gap-3 group">
+        <div class="flex items-start gap-3">
+          <!-- Emoji Tile -->
+          <div class="w-12 h-12 rounded-2xl bg-[#EEF2FF] border-2 border-[#C7D2FE] flex items-center justify-center text-[24px] shadow-[0_2px_0_0_#A5B4FC] shrink-0">
+            🌙
+          </div>
+          <!-- Title & Level Chip -->
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#F8F4EC] border border-[#E6DCCB] text-[11px] font-extrabold text-[#78350F] tracking-wide uppercase">
+                B1 Academic
+              </span>
+              <span class="inline-flex items-center gap-1 text-[11px] font-extrabold text-brand-teal bg-[#E6F7F5] px-2 py-0.5 rounded-lg border border-[#BCEAE4]">
+                New
+              </span>
+            </div>
+            <h2 class="text-[16px] font-bold text-brand-ink tracking-tight group-hover:text-brand-teal transition-colors leading-snug">
+              Why We Sleep
+            </h2>
+          </div>
+        </div>
+
+        <!-- Two-line summary -->
+        <p class="text-[13px] font-medium text-brand-ink-muted leading-relaxed line-clamp-2">
+          Neurological discoveries illustrate how deep cellular sleep phases purge cognitive toxins and consolidate memory retention.
+        </p>
+
+        <!-- Metadata Chips & Action Row -->
+        <div class="flex items-center justify-between pt-1 border-t border-[#E6DCCB]">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="inline-flex items-center gap-1 text-[12px] font-bold text-brand-ink-muted bg-[#F8F4EC] px-2.5 py-1 rounded-xl border border-[#E6DCCB]">
+              <span class="material-symbols-rounded text-[15px] text-brand-teal">timer</span>
+              <span>5 min</span>
+            </span>
+            <span class="inline-flex items-center gap-1 text-[12px] font-bold text-brand-ink-muted bg-[#F8F4EC] px-2.5 py-1 rounded-xl border border-[#E6DCCB]">
+              <span class="material-symbols-rounded text-[15px] text-brand-teal">quiz</span>
+              <span>8 questions</span>
+            </span>
+          </div>
+          <button type="button" class="min-h-[44px] px-3.5 py-2 rounded-xl bg-brand-coral hover:bg-brand-coral-dark text-white font-extrabold text-[13px] shadow-[0_3px_0_0_#B8321D] active:translate-y-0.5 active:shadow-none flex items-center gap-1 transition-all">
+            <span>Read</span>
+            <span class="material-symbols-rounded text-[16px]">menu_book</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 3: The Plastic Problem (Has green ✓ 6/8 score chip) -->
+      <article class="bg-white rounded-2xl p-4 border-2 border-[#E6DCCB] shadow-[0_4px_0_0_#D4C4B0] hover:border-brand-teal-light transition-all flex flex-col gap-3 group">
+        <div class="flex items-start gap-3">
+          <!-- Emoji Tile -->
+          <div class="w-12 h-12 rounded-2xl bg-[#ECFDF5] border-2 border-[#A7F3D0] flex items-center justify-center text-[24px] shadow-[0_2px_0_0_#6EE7B7] shrink-0">
+            🌊
+          </div>
+          <!-- Title & Level Chip -->
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#F8F4EC] border border-[#E6DCCB] text-[11px] font-extrabold text-[#78350F] tracking-wide uppercase">
+                B1 Environment
+              </span>
+              <!-- Score Chip: Green ✓ 6/8 -->
+              <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-[#ECFDF5] border border-[#A7F3D0] text-[#065F46] text-[12px] font-extrabold shadow-[0_2px_0_0_#6EE7B7]">
+                <span class="material-symbols-rounded text-[14px]">check</span>
+                <span>6/8</span>
+              </span>
+            </div>
+            <h2 class="text-[16px] font-bold text-brand-ink tracking-tight group-hover:text-brand-teal transition-colors leading-snug">
+              The Plastic Problem
+            </h2>
+          </div>
+        </div>
+
+        <!-- Two-line summary -->
+        <p class="text-[13px] font-medium text-brand-ink-muted leading-relaxed line-clamp-2">
+          Global maritime treaties debate synthetic polymer degradation rates and emerging circular economy alternatives in packaging.
+        </p>
+
+        <!-- Metadata Chips & Action Row -->
+        <div class="flex items-center justify-between pt-1 border-t border-[#E6DCCB]">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="inline-flex items-center gap-1 text-[12px] font-bold text-brand-ink-muted bg-[#F8F4EC] px-2.5 py-1 rounded-xl border border-[#E6DCCB]">
+              <span class="material-symbols-rounded text-[15px] text-brand-teal">timer</span>
+              <span>5 min</span>
+            </span>
+            <span class="inline-flex items-center gap-1 text-[12px] font-bold text-brand-ink-muted bg-[#F8F4EC] px-2.5 py-1 rounded-xl border border-[#E6DCCB]">
+              <span class="material-symbols-rounded text-[15px] text-brand-teal">quiz</span>
+              <span>8 questions</span>
+            </span>
+          </div>
+          <button type="button" class="min-h-[44px] px-3.5 py-2 rounded-xl bg-[#F8F4EC] hover:bg-brand-teal hover:text-white border border-[#E6DCCB] text-brand-teal font-extrabold text-[13px] flex items-center gap-1 transition-all active:translate-y-0.5">
+            <span>Review</span>
+            <span class="material-symbols-rounded text-[16px]">chevron_right</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 4: Cities of the Future -->
+      <article class="bg-white rounded-2xl p-4 border-2 border-[#E6DCCB] shadow-[0_4px_0_0_#D4C4B0] hover:border-brand-teal-light transition-all flex flex-col gap-3 group">
+        <div class="flex items-start gap-3">
+          <!-- Emoji Tile -->
+          <div class="w-12 h-12 rounded-2xl bg-[#FBF7F1] border-2 border-[#FDE68A] flex items-center justify-center text-[24px] shadow-[0_2px_0_0_#FCD34D] shrink-0">
+            🏙️
+          </div>
+          <!-- Title & Level Chip -->
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#F8F4EC] border border-[#E6DCCB] text-[11px] font-extrabold text-[#78350F] tracking-wide uppercase">
+                B1 Society
+              </span>
+              <span class="inline-flex items-center gap-1 text-[11px] font-extrabold text-[#B45309] bg-[#FEF3C7] px-2 py-0.5 rounded-lg border border-[#FDE68A]">
+                Popular
+              </span>
+            </div>
+            <h2 class="text-[16px] font-bold text-brand-ink tracking-tight group-hover:text-brand-teal transition-colors leading-snug">
+              Cities of the Future
+            </h2>
+          </div>
+        </div>
+
+        <!-- Two-line summary -->
+        <p class="text-[13px] font-medium text-brand-ink-muted leading-relaxed line-clamp-2">
+          Autonomous transit corridors and green vertical architecture reshape urbanization models in fast-growing coastal capitals.
+        </p>
+
+        <!-- Metadata Chips & Action Row -->
+        <div class="flex items-center justify-between pt-1 border-t border-[#E6DCCB]">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="inline-flex items-center gap-1 text-[12px] font-bold text-brand-ink-muted bg-[#F8F4EC] px-2.5 py-1 rounded-xl border border-[#E6DCCB]">
+              <span class="material-symbols-rounded text-[15px] text-brand-teal">timer</span>
+              <span>5 min</span>
+            </span>
+            <span class="inline-flex items-center gap-1 text-[12px] font-bold text-brand-ink-muted bg-[#F8F4EC] px-2.5 py-1 rounded-xl border border-[#E6DCCB]">
+              <span class="material-symbols-rounded text-[15px] text-brand-teal">quiz</span>
+              <span>8 questions</span>
+            </span>
+          </div>
+          <button type="button" class="min-h-[44px] px-3.5 py-2 rounded-xl bg-brand-coral hover:bg-brand-coral-dark text-white font-extrabold text-[13px] shadow-[0_3px_0_0_#B8321D] active:translate-y-0.5 active:shadow-none flex items-center gap-1 transition-all">
+            <span>Read</span>
+            <span class="material-symbols-rounded text-[16px]">menu_book</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- Card 5: How Memory Works -->
+      <article class="bg-white rounded-2xl p-4 border-2 border-[#E6DCCB] shadow-[0_4px_0_0_#D4C4B0] hover:border-brand-teal-light transition-all flex flex-col gap-3 group">
+        <div class="flex items-start gap-3">
+          <!-- Emoji Tile -->
+          <div class="w-12 h-12 rounded-2xl bg-[#FDF2F8] border-2 border-[#FBCFE8] flex items-center justify-center text-[24px] shadow-[0_2px_0_0_#F472B6] shrink-0">
+            🧠
+          </div>
+          <!-- Title & Level Chip -->
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-lg bg-[#F8F4EC] border border-[#E6DCCB] text-[11px] font-extrabold text-[#78350F] tracking-wide uppercase">
+                B1 Cognitive
+              </span>
+              <span class="inline-flex items-center gap-1 text-[11px] font-extrabold text-[#475569] bg-[#F8F4EC] px-2 py-0.5 rounded-lg border border-[#E2E8F0]">
+                CEFR Standard
+              </span>
+            </div>
+            <h2 class="text-[16px] font-bold text-brand-ink tracking-tight group-hover:text-brand-teal transition-colors leading-snug">
+              How Memory Works
+            </h2>
+          </div>
+        </div>
+
+        <!-- Two-line summary -->
+        <p class="text-[13px] font-medium text-brand-ink-muted leading-relaxed line-clamp-2">
+          Synaptic elasticity and spaced rehearsal strategies explain why deliberate recall beats continuous rote memorisation every time.
+        </p>
+
+        <!-- Metadata Chips & Action Row -->
+        <div class="flex items-center justify-between pt-1 border-t border-[#E6DCCB]">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="inline-flex items-center gap-1 text-[12px] font-bold text-brand-ink-muted bg-[#F8F4EC] px-2.5 py-1 rounded-xl border border-[#E6DCCB]">
+              <span class="material-symbols-rounded text-[15px] text-brand-teal">timer</span>
+              <span>5 min</span>
+            </span>
+            <span class="inline-flex items-center gap-1 text-[12px] font-bold text-brand-ink-muted bg-[#F8F4EC] px-2.5 py-1 rounded-xl border border-[#E6DCCB]">
+              <span class="material-symbols-rounded text-[15px] text-brand-teal">quiz</span>
+              <span>8 questions</span>
+            </span>
+          </div>
+          <button type="button" class="min-h-[44px] px-3.5 py-2 rounded-xl bg-brand-coral hover:bg-brand-coral-dark text-white font-extrabold text-[13px] shadow-[0_3px_0_0_#B8321D] active:translate-y-0.5 active:shadow-none flex items-center gap-1 transition-all">
+            <span>Read</span>
+            <span class="material-symbols-rounded text-[16px]">menu_book</span>
+          </button>
+        </div>
+      </article>
+
+    </main>
+
+    <!-- Calm Bookshelf Pedagogical Note / Teacher Slot Placeholder (Empty rounded placeholder per guidelines) -->
+    <div class="px-4 mt-4">
+      <div class="border-2 border-dashed border-brand-teal-light/50 bg-[#F8F4EC]/60 rounded-2xl p-3.5 flex items-center gap-3">
+        <!-- Strictly empty teacher slot placeholder -->
+        <div class="w-10 h-10 rounded-xl border border-dashed border-brand-teal-light flex items-center justify-center shrink-0 bg-white/60">
+          <span class="text-[9px] font-extrabold uppercase tracking-tight text-brand-teal/80 text-center leading-tight">teacher<br>slot</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-[12px] font-semibold text-brand-ink-muted leading-tight">
+            IELTS Academic texts updated weekly. Tap underlined collocations to practice active recall.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

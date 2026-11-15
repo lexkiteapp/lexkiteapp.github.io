@@ -15,7 +15,9 @@ final class TeacherSnapshotTests: XCTestCase {
     }
 
     static let schemes: [ColorScheme] = [.light, .dark]
-    static let frame = ViewImageConfig(safeArea: .zero, size: CGSize(width: 390, height: (390 * 960 / 1108.0).rounded()), traits: UITraitCollection(displayScale: 2))
+    static let frame = ViewImageConfig(safeArea: .zero, size: CGSize(width: 390, height: (390 * 960 / 1108.0).rounded()))
+    /// The render scale comes from the `traits:` argument of `.image(on:)`; a displayScale inside ViewImageConfig is ignored (images stayed 3×).
+    static let scale2 = UITraitCollection(displayScale: 2)
     static let states: [(name: String, shape: String, pose: String?)] = [
         ("rest", "X", nil), ("speak-D", "D", nil), ("speak-E", "E", nil), ("pose-cheer", "X", "cheer"), ("pose-concern", "X", "concern"),
     ]
@@ -36,7 +38,7 @@ final class TeacherSnapshotTests: XCTestCase {
         for st in Self.states {
             for scheme in Self.schemes {
                 assertSnapshot(of: host(TeacherView(controller: .frozen(who: who, shape: st.shape, pose: st.pose)), scheme: scheme),
-                               as: .image(on: Self.frame, precision: 0.99, perceptualPrecision: 0.98),
+                               as: .image(on: Self.frame, precision: 0.99, perceptualPrecision: 0.98, traits: Self.scale2),
                                named: "\(st.name)-\(scheme == .dark ? "dark" : "light")", testName: testName)
             }
         }

@@ -79,7 +79,11 @@
     "planTop": "さらに上達するには",
     "you": "あなたのテスト結果：{lv}",
     "takeTest": "レベルをチェック – 15分の無料テスト",
-    "otherLevels": "すべてのCEFRレベル"
+    "otherLevels": "すべてのCEFRレベル",
+    "wordsH": "{lv}レベルで覚えたい単語",
+    "wordsLead": "Lexkite 辞書で {lv} レベルに分類された単語を、意味と例文つきで紹介します。単語を開くと、発音・コロケーション・よくある間違いを確認できます。",
+    "sampleH": "{lv}レベルの例題",
+    "answer": "答えを見る"
   },
   "toeic": {
     "title": "TOEIC Part 5 練習問題 オンライン – 無料・解説つき",

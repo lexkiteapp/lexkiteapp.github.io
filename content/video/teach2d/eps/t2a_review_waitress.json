@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"waitress\" mean?",
+  "keyword": "waitress",
+  "value": "Waitress means a woman who serves food in a restaurant.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=waitress",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"waitress\" mean?",
+    "description": "Waitress means a woman who serves food in a restaurant.\n\nReview your words, free: https://lexkite.com/app/#/review?w=waitress\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "waitress",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"waitress\" mean?\n\nWaitress means a woman who serves food in a restaurant.\n\nReview your words, free: https://lexkite.com/app/#/review?w=waitress"
+   },
+   "instagram": {
+    "caption": "What does \"waitress\" mean?\n\nWaitress means a woman who serves food in a restaurant.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"waitress\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a woman who serves food in a restaurant. Waitress means a woman who serves food in a restaurant. More practice like this (free): {link}"
  }
 }

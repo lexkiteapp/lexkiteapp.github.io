@@ -7,7 +7,7 @@
 name: QA bot
 on:
   pull_request:
-    paths: ['web/**', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/qa-bot.mjs', 'scripts/test/exit-sweep.mjs', 'scripts/test/nav-sweep.mjs', 'scripts/test/nav-sweep.known.json', 'scripts/test/lib/learn-samples.mjs', 'scripts/test/qa-bot/**', 'scripts/test/qa-bot-diff.mjs', 'scripts/test/qa-bot-baseline.json', '.github/workflows/qa-bot.yml']
+    paths: ['web/**', '!web/**/*.md', '!web/**/*.txt', 'extension/app/**', 'scripts/build-web.sh', 'scripts/test/qa-bot.mjs', 'scripts/test/exit-sweep.mjs', 'scripts/test/nav-sweep.mjs', 'scripts/test/nav-sweep.known.json', 'scripts/test/lib/learn-samples.mjs', 'scripts/test/qa-bot/**', 'scripts/test/qa-bot-diff.mjs', 'scripts/test/qa-bot-baseline.json', '.github/workflows/qa-bot.yml']
   workflow_run:
     workflows: ['Pages deploy', 'Preview site']
     types: [completed]
@@ -34,10 +34,10 @@ jobs:
     outputs: { go: '${{ steps.g.outputs.go }}' }
     steps:
       - id: g
-        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}' }
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
         run: |
           go=true
-          if [ "$EV" = pull_request ]; then
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
             n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
             [ "${n:-1}" -ge 1 ] || go=false
           fi
@@ -45,7 +45,7 @@ jobs:
   bot:
     if: ${{ (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') && needs.gate.outputs.go == 'true' }}
     needs: gate
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 45
     env:
       BASE_URL: ${{ inputs.base_url || (github.event.workflow_run.name == 'Preview site' && 'https://preview.lexkite-preview.pages.dev') || (github.event.workflow_run.name == 'Pages deploy' && 'https://lexkite.com') || '' }}
@@ -63,7 +63,8 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.50.1
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
       - name: Chặn lexkite.com khi chạy dist cục bộ (0 lượt chạm prod)
         if: env.BASE_URL == ''
         run: echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
@@ -92,7 +93,7 @@ jobs:
   nav:
     if: ${{ (github.event_name != 'workflow_run') && needs.gate.outputs.go == 'true' }}
     needs: gate
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
@@ -115,7 +116,7 @@ jobs:
     # !cancelled(): vẫn so khi bot đỏ (có artifact), KHÔNG chạy khi lượt bị huỷ (bot huỷ = không có artifact qa-bot → đỏ giả; ci-policy luật 4)
     if: ${{ (!cancelled() && github.event_name == 'pull_request' && needs.bot.result != 'skipped') && needs.gate.outputs.go == 'true' }}
     needs: [bot, gate]
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
@@ -134,7 +135,11 @@ jobs:
           npm ci --no-audit --no-fund
           npm i --no-save --no-audit --no-fund playwright@1.50.1
           bash scripts/ci/pw-install.sh --with-deps chromium
-          sudo apt-get install -y -qq fonts-noto-color-emoji fonts-noto-core >/dev/null
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-color-emoji fonts-noto-core }
+      - name: Cài Playwright (tiếp)
+        timeout-minutes: 14
+        run: |
           echo "127.0.0.1 lexkite.com www.lexkite.com audio.lexkite.com media.lexkite.com" | sudo tee -a /etc/hosts >/dev/null
       - name: Chụp + quét nhánh gốc (cùng bot, cùng đầu dò của PR)
         run: node scripts/test/qa-bot.mjs --root base/dist --out out/base --only ui || true

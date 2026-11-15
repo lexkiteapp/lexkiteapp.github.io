@@ -1,10 +1,11 @@
-// Gold bank (content/video/scripts/bank/*.jsonl) → web/packs/lesson/gold.json (dữ liệu, ngoài ngân sách web/js; ui.js nạp khi cần): chỉ mục THEO TỪ cho nút "Giải thích" của #/lesson (0 AI).
+// Gold bank (content/video/scripts/bank/*.jsonl) → web/cpack/lesson/gold.js: chỉ mục THEO TỪ cho nút "Giải thích" của #/lesson (0 AI).
 // Dùng: node scripts/lesson/build-gold.mjs [--check]  (--check: đỏ khi file sinh ra cũ hơn nguồn – chạy trong npm test)
 import fs from 'node:fs';
 import path from 'node:path';
-const SRC = 'content/video/scripts/bank', OUT = 'web/packs/lesson/gold.json';
+const SRC = 'content/video/scripts/bank', OUT = 'web/cpack/lesson/gold.js';
 const keyOf = pid => { const p = String(pid || '').split(':'); // u:v:consider:m0 · u:c:see-look-watch · w:sleeping bag#n · m:hang#v · p:x#n · u:p:cope:with
   if (p[0] === 'u') return p[1] === 'c' ? (p[2] || '').split('-') : [p[2]];
+  if (p[0] === 'c' && p[1] === 'mixup') return (p[2] || '').split('-'); // c:mixup:say-tell – cặp dễ nhầm soạn tay (mixups.jsonl); trước 02/11 bị bỏ sót, không vào nút "Giải thích"
   if (['w', 'm', 'p'].includes(p[0])) return [String(p[1] || '').split('#')[0]];
   return []; };
 const m = {};
@@ -19,10 +20,10 @@ for (const f of fs.readdirSync(SRC).filter(f => f.endsWith('.jsonl')).sort()) {
   }
 }
 const keys = Object.keys(m).sort(), body = {}; keys.forEach(k => { body[k] = m[k]; });
-const out = JSON.stringify(body);
+const out = `/* FILE SINH TỰ ĐỘNG – scripts/lesson/build-gold.mjs từ gold bank (${SRC}). Đừng sửa tay. Chỉ mục theo từ cho "Giải thích" của #/lesson (docs/LESSON-ENGINE.md). */\nself.LESSON_GOLD = ${JSON.stringify(body)};\n`;
 if (process.argv.includes('--check')) {
   const cur = fs.existsSync(OUT) ? fs.readFileSync(OUT, 'utf8') : '';
   if (cur !== out) { console.error(`✗ ${OUT} cũ – chạy node scripts/lesson/build-gold.mjs`); process.exit(1); }
   console.log(`✓ lesson gold: ${keys.length} từ`); process.exit(0);
 }
-fs.mkdirSync('web/packs/lesson', { recursive: true }); fs.writeFileSync(OUT, out); console.log(`lesson gold: ${keys.length} từ → ${OUT} (${out.length} B)`);
+fs.writeFileSync(OUT, out); console.log(`lesson gold: ${keys.length} từ → ${OUT} (${out.length} B)`);

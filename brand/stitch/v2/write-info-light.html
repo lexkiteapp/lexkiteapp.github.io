@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite - write-info</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              teal: '#0F3D3E',
+              'teal-dark': '#092627',
+              'teal-light': '#E6F3F3',
+              coral: '#F26D21',
+              'coral-hover': '#DE5D14',
+              'coral-shadow': '#A63F05',
+              cream: '#FFF8F3',
+              'card-border': '#ECD8C9',
+              'ink-dark': '#152528',
+              'ink-muted': '#496064',
+            }
+          },
+          boxShadow: {
+            'tactile': '0 4px 0 #ECD8C9',
+            'tactile-coral': '0 4px 0 #A63F05',
+            'tactile-subtle': '0 3px 0 #E2CCC0',
+            'tactile-press': '0 1px 0 #A63F05',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+    body {
+      background-color: #FFF8F3;
+      color: #152528;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Touch target guarantee */
+    .touch-target-44 {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  </style>
+</head>
+<body class="flex justify-center bg-[#FBF7F1] min-h-screen text-[#152528]">
+  <main class="w-[390px] max-w-[390px] min-h-screen flex flex-col bg-[#FBF7F1] pb-10">
+    <header class="sticky top-0 z-30 bg-[#FBF7F1]/95 backdrop-blur-md border-b-2 border-[#ECD8C9] px-4 py-2 flex items-center gap-3">
+      <button type="button" aria-label="Back" class="touch-target-44 flex items-center justify-center rounded-xl bg-white border-2 border-[#ECD8C9] shadow-tactile-subtle text-[#0F3D3E]"><span class="material-symbols-rounded text-2xl">arrow_back</span></button>
+      <div><h1 class="text-[20px] font-extrabold text-[#0F3D3E] leading-tight">Criteria & progress</h1><p class="text-[12px] font-semibold text-[#496064]">IELTS band guide · method · progress</p></div>
+    </header>
+    <div class="px-4 pt-3 flex flex-col gap-4">
+ <div class="flex gap-2 overflow-x-auto"><span class="touch-target-44 inline-flex items-center px-3.5 py-2 rounded-full bg-[#E6F3F3] border-2 border-[#0F3D3E] text-[#0F3D3E] font-bold text-[14px]">Writing</span><span class="touch-target-44 inline-flex items-center px-3.5 py-2 rounded-full bg-white border-2 border-[#ECD8C9] text-[#152528] font-bold text-[14px]">Speaking</span><span class="touch-target-44 inline-flex items-center px-3.5 py-2 rounded-full bg-[#E6F3F3] border-2 border-[#0F3D3E] text-[#0F3D3E] font-bold text-[14px]">Band 7</span></div>
+ <div class="bg-white rounded-2xl border-2 border-[#ECD8C9] p-4 shadow-tactile flex flex-col gap-3"><h2 class="text-[16px] font-extrabold text-[#152528] leading-tight">Task Response</h2><p class="text-[13px] font-semibold text-[#496064] leading-snug">Band 7: addresses all parts with a clear position.</p><span class="text-[12px] font-extrabold text-[#1E7039] bg-[#E7F6EB] px-2 py-0.5 rounded-md border border-[#BCE7C7]">Weight 25%</span></div>
+ <div class="bg-white rounded-2xl border-2 border-[#ECD8C9] p-4 shadow-tactile flex flex-col gap-3"><h2 class="text-[16px] font-extrabold text-[#152528] leading-tight">Progress by question type</h2><div class="flex items-center justify-between gap-2 touch-target-44 border-b border-[#E6DCCB]"><span class="text-[14px] font-bold text-[#152528]">True/False</span><span class="text-[12px] font-semibold text-[#496064]">78% · 9 q</span></div><div class="w-full h-2 rounded-full bg-[#ECE4D7]"><div class="h-2 rounded-full bg-[#0F3D3E]" style="width:78%"></div></div><div class="flex items-center justify-between gap-2 touch-target-44 border-b border-[#E6DCCB]"><span class="text-[14px] font-bold text-[#152528]">Matching</span><span class="text-[12px] font-semibold text-[#496064]">45% · 4 q</span></div><div class="w-full h-2 rounded-full bg-[#ECE4D7]"><div class="h-2 rounded-full bg-[#0F3D3E]" style="width:45%"></div></div></div>
+ <div class="bg-white rounded-2xl border-2 border-[#ECD8C9] p-4 shadow-tactile flex flex-col gap-3"><h2 class="text-[16px] font-extrabold text-[#152528] leading-tight">Learning method</h2><p class="text-[13px] font-semibold text-[#496064] leading-snug">Spaced repetition: review just before you forget.</p><div class="w-full h-2 rounded-full bg-[#ECE4D7]"><div class="h-2 rounded-full bg-[#0F3D3E]" style="width:70%"></div></div><button type="button" class="touch-target-44 w-full rounded-full bg-[#F26D21] text-[#1A0D00] font-extrabold text-[15px] px-4 py-3 shadow-tactile-coral border-b-4 border-[#A63F05]">Review 12 cards now</button></div></div>
+  </main>
+</body>
+</html>

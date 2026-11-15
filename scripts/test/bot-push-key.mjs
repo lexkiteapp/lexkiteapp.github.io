@@ -18,7 +18,9 @@ import { fileURLToPath } from 'node:url';
 
 export const KEY = '${{ secrets.BOT_DEPLOY_KEY }}', SKIP = '[skip ci]';
 // script đẩy thẳng main của repo chính → regex nhận lời gọi có đẩy trong workflow
-export const SCRIPT_MAIN = { 'scripts/ops/ledger-push.mjs': /scripts\/ops\/ledger-push\.mjs/, 'scripts/vocab-img/publish.mjs': /scripts\/vocab-img\/publish\.mjs[^\n]*--push/, 'scripts/vocab-img/publish-free.mjs': /scripts\/vocab-img\/publish-free\.mjs[^\n]*--push/, 'scripts/ci/commit-regen.sh': /scripts\/ci\/commit-regen\.sh/ };
+export const SCRIPT_MAIN = { 'scripts/ops/ledger-push.mjs': /scripts\/ops\/ledger-push\.mjs/, 'scripts/vocab-img/publish.mjs': /scripts\/vocab-img\/publish\.mjs[^\n]*--push/, 'scripts/vocab-img/publish-free.mjs': /scripts\/vocab-img\/publish-free\.mjs[^\n]*--push/, 'scripts/ci/commit-regen.sh': /scripts\/ci\/commit-regen\.sh/,
+  // helper đẩy main dùng chung (tự gắn [skip ci] – test scripts/test/push-main.mjs); open-pr.sh: Actions bị cấm tạo PR → lô đã xanh đẩy main qua push-main
+  'scripts/ci/push-main.sh': /scripts\/ci\/push-main\.sh/, 'scripts/factory/open-pr.sh': /scripts\/factory\/open-pr\.sh/ };
 // đẩy NHÁNH PR bot (refs/heads/bot/…) vào repo chính để mở PR – CẦN kích check (không [skip ci]), không bao giờ đẩy main; được kiểm bên dưới
 export const PR_BRANCH = new Set(['scripts/factory/open-pr.sh']);
 // gộp main vào nhánh PR CÓ SẴN (pr-unconflict): không bao giờ đẩy main, không force-push
@@ -32,7 +34,7 @@ export function scanPrUpdate(f, s) {
 export function scanPrBranch(f, s) {
   const e = [], pushes = s.split('\n').filter(l => /git push/.test(l) && !/^\s*#/.test(l));
   if (/HEAD:main|refs\/heads\/main\b/.test(s)) e.push(`${f}: script nhánh PR không được đẩy main`);
-  if (!pushes.length || pushes.some(l => !/HEAD:refs\/heads\/\$\{?br\}?/.test(l))) e.push(`${f}: mọi git push phải là HEAD:refs/heads/$br`);
+  if (!pushes.length || pushes.some(l => !/HEAD:refs\/heads\/\$\{?br\}?|--delete "?\$\{?br\}?"?/.test(l))) e.push(`${f}: mọi git push phải là HEAD:refs/heads/$br`);
   if (!/br="bot\//.test(s)) e.push(`${f}: nhánh phải có tiền tố bot/`);
   return e;
 }

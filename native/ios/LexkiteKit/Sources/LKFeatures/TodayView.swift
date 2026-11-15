@@ -69,7 +69,8 @@ struct LKCard<Content: View>: View {
         self.fill = fill; self.padding = padding; self.content = content()
     }
     var body: some View {
-        content
+        // one card for the whole builder: modifiers on a multi-view builder would give every child its own card
+        VStack(alignment: .leading, spacing: LKSpacing.spaceSm) { content }
             .padding(padding)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background {

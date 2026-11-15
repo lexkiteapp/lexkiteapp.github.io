@@ -93,7 +93,7 @@ export async function runUploads({ index, max = 6, dry = false, api = ytApi, fet
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const a = process.argv.slice(2), opt = n => { const i = a.indexOf('--' + n); return i >= 0 ? a[i + 1] : undefined; };
   const rep = await runUploads({ index: opt('index') || '/tmp/shorts/shorts/index.json', max: +(opt('max') || 6), dry: a.includes('--dry-run') });
-  const q = rep.quota || {}, line = `YouTube: ${rep.uploaded.length} lên · ${rep.failed.length} lỗi · hạn mức còn ${q.left ?? '?'} / ${q.limit ?? 10000} đơn vị (≈ ${q.uploads_left ?? '?'} video) hôm nay (${q.day || ''} PT)`;
+  const q = rep.quota || {}, line = `YouTube: ${rep.uploaded.length} lên · ${rep.failed.length} lỗi · hạn mức còn ${q.left ?? '?'} / ${q.limit ?? 60000} đơn vị (≈ ${q.uploads_left ?? '?'} video) hôm nay (${q.day || ''} PT)`;
   console.log(line);
   if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `### YouTube upload\n${line}\n`);
   process.exit(rep.failed.length && !rep.uploaded.length ? 1 : 0);

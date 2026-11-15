@@ -64,7 +64,7 @@ for (const d of fs.readdirSync('web/teach')) if (!IDS.includes(d) && d !== 'char
 const REF = /(?<![\w-])(?:teach\/(?:ama|carlos|\$\{)|img\/teach\/|img\/call\/|cine\/teachers|teachers3d|sprite\.json|mouths\.webp|(?:teach|chars)\/[\w-]*poster\.jpe?g|brand\/characters\/(?!_candidates\/rooms\/))/g;
 const OTHER = /(?<![a-z])(?:mia|jake|leo|diane|daniel|mei|kai|ruth|priya)[\w-]*\.(?:png|jpe?g|webp|avif|gif|mp4|webm|mov)\b/gi;
 const ALLOW = new Set(['web/js/characters.js', 'scripts/teach/build.py', 'scripts/teach/sheet.py', 'scripts/build-extension.sh', 'scripts/test/characters-gate.mjs', 'scripts/test/characters-shots.mjs']);
-const LANDING = /^web\/(?:[a-z]{2}\/)?index\.html$/; // web/index.html + web/<lang>/index.html (scripts/build-landing.mjs fileOf)
+const LANDING = /^web\/(?:(?:go\/)?[a-z]{2}\/)?index\.html$/; // web/index.html + web/<lang>/index.html (scripts/build-landing.mjs fileOf)
 const WAIVE = {}; // miễn trừ tạm (có hạn): { 'tệp': [regex, 'PR thay'] } – hết tham chiếu → cổng đỏ "miễn trừ cũ" → xoá mục. Call (Mia) đã xong #194: KHÔNG thêm lại.
 const ROOTS = ['web', 'extension', 'functions', 'workers', 'store', 'mobile/www', 'brand/social/templates/templates.json', 'scripts/build-social-templates.mjs', 'scripts/build-social-kit.mjs', 'scripts/video/render.mjs', 'scripts/video/tpl/tokens.py'];
 const SKIP = /(^|\/)(node_modules|\.git|archive|i18n|data|lib|packs|dict|blog|audio)(\/|$)|\.min\.js$/;

@@ -166,6 +166,10 @@
           [
             "returning|calling back|call|this is",
             "Oh yes, thanks for calling back."
+          ],
+          [
+            "voicemail|message|missed|appointment",
+            "Right, thanks for getting back to me."
           ]
         ]
       },
@@ -176,6 +180,10 @@
           [
             "works|okay|fine|yes|good|hold on|check",
             "Great."
+          ],
+          [
+            "sure|perfect|great|sounds|alright",
+            "Wonderful, thank you."
           ]
         ]
       },
@@ -186,6 +194,10 @@
           [
             "thursday|three|right|confirm",
             "That's right."
+          ],
+          [
+            "correct|exactly|sure",
+            "Yes, that's correct."
           ]
         ]
       },
@@ -196,6 +208,10 @@
           [
             "thanks|thank you|let you go|bye|that's all",
             "You're welcome."
+          ],
+          [
+            "nothing|appreciate|see you|take care|later|goodbye",
+            "Okay, take care."
           ]
         ]
       }

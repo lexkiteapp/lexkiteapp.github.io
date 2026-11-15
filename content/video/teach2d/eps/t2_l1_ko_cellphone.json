@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_cellphone",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say cell phone!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I lost my hand phone.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I lost my cell phone.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Hand phone is not English.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Cell phone! I lost my cell phone.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I lost my hand phone.",
+  "right": "I lost my cell phone.",
+  "strike": "hand phone",
+  "why": "Hand phone is not English.",
+  "memory": "Cell phone.",
+  "quiz": {
+   "stem": "I lost my ___.",
+   "options": [
+    "hand phone",
+    "cell phone"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "휴대폰, 영어로 뭐라고 해요?",
+   "tip": "휴대폰을 hand phone이라고 하는 건 콩글리시예요. 영어로는 “cell phone”이에요!",
+   "caption": "“I lost my hand phone”라고 말하고 있나요? 😅 우리가 쓰는 핸드폰이라는 말은 영어가 아니에요. 영어에서는 cell phone이나 mobile phone이라고 해요. “I lost my cell phone”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “cell phone”. 정답은 휴대폰을 뜻하는 cell phone! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Hand phone” is not English!",
+   "tip": "Say cell phone, not hand phone. “I lost my cell phone”.",
+   "caption": "Do you say “I lost my hand phone”? 😅 Hand phone is not English. Say cell phone or mobile phone. “I lost my cell phone” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "휴대폰, 영어로 뭐라고 해요?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "휴대폰, 영어로 뭐라고 해요?",
+  "keyword": "I lost my cell phone.",
+  "value": "휴대폰을 hand phone이라고 하는 건 콩글리시예요. 영어로는 “cell phone”이에요!",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "휴대폰, 영어로 뭐라고 해요?",
+    "description": "“I lost my hand phone”라고 말하고 있나요? 😅 우리가 쓰는 핸드폰이라는 말은 영어가 아니에요. 영어에서는 cell phone이나 mobile phone이라고 해요. “I lost my cell phone”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I lost my cell phone.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I lost my hand phone”라고 말하고 있나요? 😅 우리가 쓰는 핸드폰이라는 말은 영어가 아니에요. 영어에서는 cell phone이나 mobile phone이라고 해요. “I lost my cell phone”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I lost my hand phone”라고 말하고 있나요? 😅 우리가 쓰는 핸드폰이라는 말은 영어가 아니에요. 영어에서는 cell phone이나 mobile phone이라고 해요. “I lost my cell phone”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "휴대폰, 영어로 뭐라고 해요? #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “cell phone”. 정답은 휴대폰을 뜻하는 cell phone! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "lang": "ko"
+ }
+}

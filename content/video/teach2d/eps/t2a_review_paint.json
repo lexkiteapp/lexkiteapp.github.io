@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"paint\" mean?",
+  "keyword": "paint",
+  "value": "Paint means to cover a surface with paint.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=paint",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"paint\" mean?",
+    "description": "Paint means to cover a surface with paint.\n\nReview your words, free: https://lexkite.com/app/#/review?w=paint\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "paint",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"paint\" mean?\n\nPaint means to cover a surface with paint.\n\nReview your words, free: https://lexkite.com/app/#/review?w=paint"
+   },
+   "instagram": {
+    "caption": "What does \"paint\" mean?\n\nPaint means to cover a surface with paint.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"paint\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to cover a surface with paint. Paint means to cover a surface with paint. More practice like this (free): {link}"
  }
 }

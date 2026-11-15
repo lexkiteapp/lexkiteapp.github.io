@@ -137,7 +137,7 @@
       "key": "ai",
       "name": "Cloudflare Workers AI",
       "kind": "ai",
-      "purpose": "Dự phòng chấm Writing/Speaking & hội thoại Roleplay công sở (/api/ai) khi Gemini gần trần; hạn mức theo người ở functions/api/_quota.js (docs/QUOTAS.md), cầu dao giữ < 80% gói miễn phí · AI phân loại báo lỗi (functions/api/_triage.js, @cf/meta/llama-4-scout-17b-16e-instruct, binding AI; không có binding → REST api.cloudflare.com với secret CF_AI_TOKEN + CF_ACCOUNT_ID tùy chọn)",
+      "purpose": "Dự phòng chấm Writing/Speaking & hội thoại Roleplay công sở · AI điền nghĩa cho Nhập tài liệu, tính năng `import` (/api/ai) khi Gemini gần trần; hạn mức theo người ở functions/api/_quota.js (docs/QUOTAS.md), cầu dao giữ < 80% gói miễn phí · AI phân loại báo lỗi (functions/api/_triage.js, @cf/meta/llama-4-scout-17b-16e-instruct, binding AI; không có binding → REST api.cloudflare.com với secret CF_AI_TOKEN + CF_ACCOUNT_ID tùy chọn)",
       "console": "https://dash.cloudflare.com/e34e14b7ab35eaf2b3d9d84fcce011f7/ai/workers-ai",
       "free": "10.000 neuron/ngày",
       "upgrade": "Workers Paid",
@@ -263,7 +263,7 @@
       "key": "gemini",
       "name": "Gemini API",
       "kind": "ai",
-      "purpose": "AI chấm bài viết/nói, duyệt bản dịch; nhiều khóa xoay vòng, quản lý ở Quản trị → Dịch vụ",
+      "purpose": "AI người dùng tuyến 1 (chấm Writing/Speaking, Roleplay… – functions/api/_aichain.js, docs/AI-CHAIN.md) + duyệt bản dịch; kho khóa mã hóa (Quản trị → Khóa API, đồng bộ từ secret CI GEMINI_POOL bằng ai-keys-sync.yml)",
       "console": "https://aistudio.google.com/apikey",
       "free": "Khoảng 20 lượt/ngày/khóa (gói miễn phí, tự xoay khóa khi 429)",
       "upgrade": "Thêm khóa ở Quản trị hoặc bật trả phí Google AI",
@@ -274,6 +274,24 @@
       ],
       "cap": {
         "day": 20,
+        "unit": "call/key"
+      }
+    },
+    {
+      "key": "groq",
+      "name": "Groq API",
+      "kind": "ai",
+      "purpose": "AI người dùng tuyến 2: gpt-oss-120b (chỉ model đạt bộ golden ai-golden.yml) – functions/api/_aichain.js, docs/AI-CHAIN.md; khóa trong kho mã hóa (đồng bộ từ secret CI GROQ_POOL bằng ai-keys-sync.yml); CI dùng GROQ_POOL trực tiếp (scripts/lib/ai-pool.mjs)",
+      "console": "https://console.groq.com/keys",
+      "free": "Gói miễn phí: ~1.000 lượt/ngày/khóa (gpt-oss-120b; còn trần token/ngày), tự nghỉ khóa khi 429",
+      "upgrade": "Nạp thêm khóa vào secret GROQ_POOL rồi chạy ai-keys-sync",
+      "status": "Đang dùng",
+      "match": [
+        "api.groq.com",
+        "console.groq.com"
+      ],
+      "cap": {
+        "day": 1000,
         "unit": "call/key"
       }
     },
@@ -575,6 +593,19 @@
       ]
     },
     {
+      "key": "cf-doh",
+      "name": "Cloudflare DNS-over-HTTPS (cloudflare-dns.com)",
+      "kind": "api",
+      "purpose": "/api/readable (Nhập tài liệu từ liên kết) phân giải DNS để chặn SSRF: mọi địa chỉ phải là IP công khai, kiểm lại từng bước chuyển hướng (functions/api/readable.js). Lỗi → từ chối liên kết (không bao giờ cho qua)",
+      "console": "",
+      "free": "Miễn phí, không khóa API",
+      "upgrade": "Không cần",
+      "status": "Đang dùng",
+      "match": [
+        "cloudflare-dns.com"
+      ]
+    },
+    {
       "key": "gtx",
       "name": "Google Translate (gtx) & từ điển mở",
       "kind": "api",
@@ -620,8 +651,8 @@
       "kind": "video",
       "purpose": "Đăng TAY (mặc định, tới khi qua kiểm định API): clip chủ duyệt → gói đăng (scripts/video/yt-pack.mjs, Kho Drive shorts/_ytpack, bảng D1 yt_pack) → chủ tải lên YouTube Studio ở chế độ Unlisted → youtube-manual.yml + nút Đồng bộ đọc kênh (chỉ quyền youtube.readonly, playlistItems ≈ 1 đơn vị) tìm dòng lk:<clip> → youtube_id lên web. Đăng API (cờ yt_meta mode=api): hàng chờ D1 yt_queue → youtube-upload.yml (scripts/video/yt-upload.mjs) – docs/YOUTUBE-SETUP.md.",
       "console": "https://console.cloud.google.com/apis/api/youtube.googleapis.com/quotas",
-      "free": "10.000 đơn vị/ngày (videos.insert ≈ 1.600 + thumbnails.set 50 → ≈ 6 video/ngày); dự án chưa qua kiểm định (API compliance audit) → video tải lên bị khoá private",
-      "upgrade": "Gửi YouTube API Services audit + xin tăng hạn mức (miễn phí) – docs/YOUTUBE-SETUP.md §3",
+      "free": "Đã duyệt 10/11/2026 (project 813846697347): nhóm videos.insert 1.000 lượt/ngày (1 đơn vị/lượt) + nhóm mặc định 60.000 đơn vị/ngày (thumbnails.set 50, list 1) → ≤ 1.000 video/ngày; từ 02/11/2026 không còn khoá private",
+      "upgrade": "Đã cấp; xin lại nếu đổi mục đích sử dụng hoặc khi hết hạn cấp phép – docs/YOUTUBE-SETUP.md §3",
       "status": "Đăng tay – chờ chủ kết nối (youtube.readonly)",
       "match": [
         "youtube.googleapis.com",
@@ -663,7 +694,7 @@
       "key": "jsdelivr",
       "name": "jsDelivr CDN (thư viện AI chạy trên máy; CI: Noto Emoji/OpenMoji/CLDR cho ảnh từ vựng)",
       "kind": "cdn",
-      "purpose": "Tải transformers.js để chạy AI ngay trên máy người dùng (không tốn máy chủ)",
+      "purpose": "Tải transformers.js để chạy AI ngay trên máy người dùng (không tốn máy chủ) · pdf.js 3.11.174 (SRI) đọc PDF trên máy khi nhập tài liệu → bộ thẻ (web/js/importdeck.js, chỉ khi chọn PDF, không có trong add-on)",
       "console": "",
       "free": "Miễn phí",
       "upgrade": "—",
@@ -784,7 +815,6 @@
       "upgrade": "Thêm khóa (tài khoản khác) hoặc nâng gói ở nhà cung cấp",
       "status": "Chờ đặt secret KEYS_ENC_KEY",
       "match": [
-        "api.groq.com",
         "openrouter.ai",
         "api.anthropic.com",
         "api.openai.com"

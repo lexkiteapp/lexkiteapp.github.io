@@ -43,7 +43,7 @@ object AudioLogic {
             while (p.length > 220) {
                 val comma = p.lastIndexOf(',', 200)
                 var cut = if (comma > 60) comma + 1 else p.lastIndexOf(' ', 200)
-                if (cut <= 0) cut = 200
+                if (cut < 0) cut += p.length // JS slice(0, -1) quirk of the web: no comma/space ≤ 200 cuts one char off the end
                 out.add(p.substring(0, cut).trim()); p = p.substring(cut).trim()
             }
             out.add(p)

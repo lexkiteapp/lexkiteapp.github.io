@@ -1,4 +1,4 @@
-> TL;DR: Lược đồ chính xác của vector M2 (lesson/rig/audio), định nghĩa rig giáo viên và ảnh giáo viên đóng gói – hợp đồng mà bản port Swift/Kotlin phải khớp. Sinh bởi `scripts/native/gen-{lesson,teach,audio}.mjs`; kiểm bằng `scripts/test/native-m2-vectors.mjs`.
+> TL;DR: Lược đồ chính xác của vector M2 (lesson/rig/audio), định nghĩa rig giáo viên và ảnh giáo viên đóng gói – hợp đồng mà bản port Swift/Kotlin phải khớp. Sinh bởi `scripts/native/gen-{lesson,teach,audio,vocab}.mjs`; kiểm bằng `scripts/test/native-m2-vectors.mjs`. Mục cuối "M3 vectors" = vector + kiểm kê 15 màn từ vựng (P04/P05).
 > Đọc khi: port hoặc sửa trình học bài, giáo viên, âm thanh trên iOS/Android, hoặc đổi các file gen trên.
 
 # Native M2 – lớp chung: ghi chú bàn giao cho người port iOS / Android
@@ -170,3 +170,8 @@ Nguồn = `web/js/vocab-img.js` thật (VImg v3). App tải đầu `https://lexk
 
 ## teach/cues.json – mốc khẩu hình sinh sẵn (như web)
 = `window.LK_CUES` của `web/js/call/cues.js` (CI sinh từ audio Kokoro): `{v, k, dict}`. Khi giáo viên đọc một câu có giọng `voice`: `key = lineKey(voice, text)` (vectors/audio.json) → `k[key]` có → `LipSync.unpack` (vectors/rig.json `lipsync.unpack`) → `machine.speak({cues, env, dur})`; không có → `fromEnv` (độ lớn tiếng của file) rồi `fromText(text, dur, dict)`. Đúng thứ tự `web/js/lesson/teacher.js` (`cue(key)`). Android: asset `teach/cues.json`; iOS: LKDesign `teach/cues.json`. Chuỗi mới: `lesson.hint` ("Gợi ý") cho nút gợi ý.
+
+
+---------------------------------------------------------------------------------------------------
+
+Vector M3 (từ vựng, P04/P05): xem [native-m3-vectors.md](native-m3-vectors.md).

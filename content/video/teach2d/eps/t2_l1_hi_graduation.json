@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_graduation",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say graduated!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I did my graduation in 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I graduated in 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say graduated.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Graduated! She graduated in 2019.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I did my graduation in 2020.",
+  "right": "I graduated in 2020.",
+  "strike": "did my graduation",
+  "why": "Say graduated.",
+  "memory": "I graduated.",
+  "quiz": {
+   "stem": "She ___ in 2019.",
+   "options": [
+    "did graduation",
+    "graduated"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“did my graduation” न कहें!",
+   "tip": "हिंदी के “ग्रेजुएशन किया” की जगह अंग्रेज़ी में सीधे “I graduated” बोलें।",
+   "caption": "क्या आप भी कहते हैं “I did my graduation in 2020”? 🙈 अंग्रेज़ी में “I graduated in 2020” सही है, क्योंकि graduated अपने आप में पूरी क्रिया है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “graduated”। “did my graduation” की जगह graduated बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do not say “did my graduation”!",
+   "tip": "Instead of the Hindi “graduation kiya”, just say “I graduated” in English.",
+   "caption": "Do you say “I did my graduation in 2020”? 🙈 In English “I graduated in 2020” is right, because graduated is a full verb on its own. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“did my graduation” न कहें!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 39,
+  "seconds": 24.7,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "“did my graduation” न कहें!",
+  "keyword": "I graduated in 2020.",
+  "value": "हिंदी के “ग्रेजुएशन किया” की जगह अंग्रेज़ी में सीधे “I graduated” बोलें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "“did my graduation” न कहें!",
+    "description": "क्या आप भी कहते हैं “I did my graduation in 2020”? 🙈 अंग्रेज़ी में “I graduated in 2020” सही है, क्योंकि graduated अपने आप में पूरी क्रिया है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I graduated in 2020.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “I did my graduation in 2020”? 🙈 अंग्रेज़ी में “I graduated in 2020” सही है, क्योंकि graduated अपने आप में पूरी क्रिया है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “I did my graduation in 2020”? 🙈 अंग्रेज़ी में “I graduated in 2020” सही है, क्योंकि graduated अपने आप में पूरी क्रिया है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“did my graduation” न कहें! #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “graduated”। “did my graduation” की जगह graduated बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

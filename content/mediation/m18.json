@@ -1,0 +1,135 @@
+{
+ "id": "m18",
+ "level": "B2",
+ "lo": "M.B2.10",
+ "activity": "explain-data",
+ "title": "What does it cost to cancel?",
+ "scenario": "You work in the office of a craft centre. A customer, Ms Adams, has emailed to cancel her pottery workshop booking for 20 June. It is now 11 June. She asks what she will have to pay. Reply politely, using the fee chart.",
+ "source": {
+  "kind": "chart",
+  "caption": "Cancellation fees for workshop bookings (% of the ticket price)",
+  "unit": "%",
+  "cols": [
+   "Fee"
+  ],
+  "rows": [
+   [
+    "14 days or more before",
+    0
+   ],
+   [
+    "7 to 13 days before",
+    25
+   ],
+   [
+    "2 to 6 days before",
+    50
+   ],
+   [
+    "Less than 2 days before",
+    100
+   ]
+  ],
+  "note": "Fees apply to the ticket price. A booking can be transferred to another person free of charge at any time."
+ },
+ "task": {
+  "mode": "write",
+  "audience": "a customer who wants to cancel",
+  "prompt": "Write a reply to Ms Adams (70–110 words). Say what her fee would be, explain the alternative, and be polite and clear.",
+  "min_words": 70,
+  "max_words": 110
+ },
+ "points": [
+  {
+   "id": "fee",
+   "idea": "Cancelling now (nine days before) costs 25%.",
+   "checks": [
+    [
+     "25%",
+     "25 per",
+     "quarter"
+    ]
+   ]
+  },
+  {
+   "id": "later",
+   "idea": "Waiting would raise the fee, to 50% from 2 to 6 days before.",
+   "checks": [
+    [
+     "50%",
+     "half"
+    ],
+    [
+     "later",
+     "wait",
+     "closer",
+     "nearer"
+    ]
+   ]
+  },
+  {
+   "id": "transfer",
+   "idea": "She can pass the booking to someone else at no cost.",
+   "checks": [
+    [
+     "transfer",
+     "friend",
+     "someone else",
+     "another person"
+    ],
+    [
+     "free",
+     "no charge",
+     "no cost",
+     "at no"
+    ]
+   ]
+  },
+  {
+   "id": "next",
+   "idea": "Ask her to tell you what she decides.",
+   "checks": [
+    [
+     "let me know",
+     "please reply",
+     "tell me",
+     "let us know",
+     "get back to"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "The 100% fee for very late cancellations.",
+   "checks": [
+    [
+     "100%",
+     "full price",
+     "whole price"
+    ]
+   ]
+  },
+  {
+   "idea": "The free-cancellation rule for 14 days or more.",
+   "checks": [
+    [
+     "14 days",
+     "fourteen"
+    ]
+   ]
+  }
+ ],
+ "model": "Dear Ms Adams, thank you for your message. Your workshop is nine days away, so if you cancel today the fee would be 25% of the ticket price. Please note that this would rise to 50% if you cancel later this week, so it is better to decide soon. Another option is to transfer your booking to a friend or someone else, which is free at any time. Please let me know what you would like to do, and I will arrange it. Kind regards, the booking office.",
+ "useful": [
+  "Your workshop is … days away, so …",
+  "the fee would be …",
+  "Another option is to …",
+  "Please let me know what you would like to do."
+ ],
+ "tips": [
+  "Apply the table to this person's date before you write. Telling Ms Adams \"25%\" is clearer than reading out four lines of a chart.",
+  "In a customer reply, offer the cheaper choice (a free transfer) clearly, not buried at the end, and close with the next step."
+ ],
+ "explain": "Ms Adams needs her own fee, the warning that it grows, the free transfer and a next step. The extreme end of the chart (100%, free cancellation) does not apply to her situation."
+}

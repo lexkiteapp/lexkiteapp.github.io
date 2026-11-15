@@ -23,7 +23,7 @@
 - Câu từ vựng dùng lại `web/packs/sent` (có sẵn) và `c.sentences`. Bản dịch trùng tiếng Anh coi như thiếu.
 - Tấm phản hồi Stitch giữ nguyên: thẻ chèn vào slot `extra`, màu theo panel `lsn-dict` của chính khuôn. Không vẽ màn mới, không tốn lượt Stitch.
 - Lưu ôn tập: `App.addWord({ word: 'Can I have …, please?', pos: 'phrase', ex, vi|def })`. Dấu `…` để giọng đọc không đọc gạch dưới; lesson engine nhận thẻ mẫu và ra bài `build`/`say` từ `ex`.
-- **Ngân sách:** `lesson/gold.js` (dữ liệu 56 KB) chuyển sang `web/packs/lesson/gold.json`, nạp khi cần, nhường chỗ cho `card.js` + `why.js` + i18n. Không cắt nội dung, không nới trần.
+- **Ngân sách:** gold bank đã ra khỏi `web/js` (nay là gói lười `lgold` = `web/cpack/lesson/gold.js`, nạp khi cần); `card.js` + `why.js` + i18n ở gói lười `lcard`. Không cắt nội dung, không nới trần.
 
 ## Cách dựng và điểm hỏng
 | Điểm hỏng | Chặn |

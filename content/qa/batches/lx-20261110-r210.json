@@ -1,0 +1,212 @@
+{
+ "id": "20261110-r210",
+ "source": "lexicon-expand",
+ "n": 97,
+ "checked": [
+  {
+   "id": "heed#v",
+   "ok": true
+  },
+  {
+   "id": "consular#adj",
+   "ok": true
+  },
+  {
+   "id": "reliant#adj",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): vi: translation is a verb phrase, not an adjective"
+  },
+  {
+   "id": "inorganic#adj",
+   "ok": true
+  },
+  {
+   "id": "choreographer#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): vi: should be a noun phrase like “biên đạo viên”, not the verb “biên đạo”"
+  },
+  {
+   "id": "neuroscience#n",
+   "ok": true
+  },
+  {
+   "id": "waiver#n",
+   "ok": true
+  },
+  {
+   "id": "lineage#n",
+   "ok": true
+  },
+  {
+   "id": "serpent#n",
+   "ok": true
+  },
+  {
+   "id": "duchy#n",
+   "ok": true
+  },
+  {
+   "id": "meritorious#adj",
+   "ok": true
+  },
+  {
+   "id": "condemnation#n",
+   "ok": true
+  },
+  {
+   "id": "progeny#n",
+   "ok": true
+  },
+  {
+   "id": "supplementary#adj",
+   "ok": true
+  },
+  {
+   "id": "checkmate#n",
+   "ok": true
+  },
+  {
+   "id": "infirmary#n",
+   "ok": true
+  },
+  {
+   "id": "unnamed#adj",
+   "ok": true
+  },
+  {
+   "id": "spore#n",
+   "ok": true
+  },
+  {
+   "id": "toxicity#n",
+   "ok": true
+  },
+  {
+   "id": "feral#adj",
+   "ok": true
+  },
+  {
+   "id": "goblin#n",
+   "ok": true
+  },
+  {
+   "id": "normalize#v",
+   "ok": true
+  },
+  {
+   "id": "cholera#n",
+   "ok": true
+  },
+  {
+   "id": "oxidation#n",
+   "ok": true
+  },
+  {
+   "id": "collusion#n",
+   "ok": true
+  },
+  {
+   "id": "nothingness#n",
+   "ok": true
+  },
+  {
+   "id": "asymmetric#adj",
+   "ok": true
+  },
+  {
+   "id": "arbitrator#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): ex: 'Louis, was appointed arbitrator of the committee' is ungrammatical (comma after subject) and 'arbitrator of the committee' is an unnatural collocation (arbitrators settle disputes, they are not appointed 'of' a committee)."
+  },
+  {
+   "id": "perpetually#adv",
+   "ok": true
+  },
+  {
+   "id": "implant#v",
+   "ok": true
+  },
+  {
+   "id": "rebuttal#n",
+   "ok": true
+  },
+  {
+   "id": "merciless#adj",
+   "ok": true
+  },
+  {
+   "id": "extracellular#adj",
+   "ok": true
+  },
+  {
+   "id": "conical#adj",
+   "ok": true
+  },
+  {
+   "id": "boundless#adj",
+   "ok": true
+  },
+  {
+   "id": "audacious#adj",
+   "ok": true
+  },
+  {
+   "id": "secretion#n",
+   "ok": true
+  },
+  {
+   "id": "observable#adj",
+   "ok": true
+  },
+  {
+   "id": "invisibility#n",
+   "ok": true
+  },
+  {
+   "id": "confiscation#n",
+   "ok": true
+  },
+  {
+   "id": "inhalation#n",
+   "ok": true
+  },
+  {
+   "id": "resettlement#n",
+   "ok": true
+  },
+  {
+   "id": "postwar#adj",
+   "ok": true
+  },
+  {
+   "id": "accuser#n",
+   "ok": true
+  },
+  {
+   "id": "uncensored#adj",
+   "ok": true
+  },
+  {
+   "id": "enigmatic#adj",
+   "ok": true
+  },
+  {
+   "id": "ungrateful#adj",
+   "ok": true
+  },
+  {
+   "id": "horribly#adv",
+   "ok": true
+  },
+  {
+   "id": "sturgeon#n",
+   "ok": true
+  },
+  {
+   "id": "skunk#n",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-10",
+ "status": "published"
+}

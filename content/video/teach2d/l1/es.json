@@ -1,0 +1,1125 @@
+{
+ "_note": "L1 Spanish batch 2: 28 common mistakes of Spanish speakers (grammar/vocab, family-safe).",
+ "rows": [
+  {
+   "id": "t2_l1_es_depend",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Depend of? No, depend on!",
+    "wrong": "It depends of the weather.",
+    "right": "It depends on the weather.",
+    "strike": "of",
+    "why": "After depend, use on.",
+    "memory": "Depend on.",
+    "quiz": {
+     "stem": "She depends ___ her mother.",
+     "options": [
+      "of",
+      "on"
+     ],
+     "answer": 1
+    },
+    "answer_say": "On! She depends on her mother.",
+    "native": {
+     "hook": "¿Dices “depends of”? ¡Error común!",
+     "tip": "En español “depende de”, pero en inglés va con “on”: “depends on”.",
+     "caption": "¿Dices “It depends of the weather.”? 🙈 En inglés “depender de” se traduce como “depend on”: “It depends on the weather.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “on”. Siempre “depend on”, nunca “depend of”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#preposiciones",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “depends of”? Common mistake!",
+     "tip": "In Spanish it is “depende de”, but English uses “on”: “depends on”.",
+     "caption": "Do you say “It depends of the weather.”? In English “depender de” becomes “depend on”: “It depends on the weather.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_not_be",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Don't say he no is!",
+    "wrong": "He no is here.",
+    "right": "He is not here.",
+    "strike": "no",
+    "why": "Put not after am, is, or are.",
+    "memory": "Is not.",
+    "quiz": {
+     "stem": "She ___ here.",
+     "options": [
+      "no is",
+      "is not"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Is not! She is not here.",
+    "native": {
+     "hook": "¿Dices “he no is”? Cuidado",
+     "tip": "En inglés el “not” va después de “is”, “am” o “are”, no antes.",
+     "caption": "¿Has dicho “He no is here.”? 😅 En español “no” va antes del verbo, pero en inglés: “He is not here.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “is not”. El “not” va después de “to be”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#gramatica",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “he no is”? Careful",
+     "tip": "In English “not” goes after “is”, “am” or “are”, not before.",
+     "caption": "Have you said “He no is here.”? In Spanish “no” goes before the verb, but in English: “He is not here.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_actually",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Actually does not mean now!",
+    "wrong": "Actually, I am studying English now.",
+    "right": "Right now, I am studying English.",
+    "strike": "Actually",
+    "why": "Actually means in fact, not now.",
+    "memory": "Actually = in fact.",
+    "quiz": {
+     "stem": "I am busy ___.",
+     "options": [
+      "actually",
+      "right now"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Right now! I am busy right now.",
+    "native": {
+     "hook": "“Actually” no es “actualmente”",
+     "tip": "Falso amigo: “actually” significa “en realidad”. Para “ahora” usa “right now”.",
+     "caption": "¡Cuidado con este falso amigo! 😬 No digas “Actually, I am studying English now.”, mejor: “Right now, I am studying English.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “right now”. “Actually” es “en realidad”, no “actualmente”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#falsosamigos",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Actually” does not mean “actualmente”",
+     "tip": "False friend: “actually” means “en realidad”. For “now”, use “right now”.",
+     "caption": "Careful with this false friend! Do not say “Actually, I am studying English now.”, say: “Right now, I am studying English.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_library",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Library is not a bookstore!",
+    "wrong": "I bought a book in the library.",
+    "right": "I bought a book in the bookstore.",
+    "strike": "library",
+    "why": "You buy books in a bookstore.",
+    "memory": "Library = biblioteca.",
+    "quiz": {
+     "stem": "I buy books in a ___.",
+     "options": [
+      "library",
+      "bookstore"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Bookstore! I buy books in a bookstore.",
+    "native": {
+     "hook": "“Library” no es “librería”",
+     "tip": "Falso amigo: “library” es “biblioteca”. Una “librería” es “bookstore”.",
+     "caption": "Falso amigo clásico 📚 No digas “I bought a book in the library.”, sino “I bought a book in the bookstore.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “bookstore”. “Library” significa biblioteca. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#falsosamigos",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Library” is not “librería”",
+     "tip": "False friend: “library” is “biblioteca”. A “librería” is a “bookstore”.",
+     "caption": "Classic false friend! Do not say “I bought a book in the library.”, say “I bought a book in the bookstore.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_people",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Is people? No, people are!",
+    "wrong": "The people is nice.",
+    "right": "The people are nice.",
+    "strike": "is",
+    "why": "People is plural. Use are.",
+    "memory": "People are.",
+    "quiz": {
+     "stem": "People ___ happy.",
+     "options": [
+      "is",
+      "are"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Are! People are happy.",
+    "native": {
+     "hook": "¿Dices “people is”? Ojo",
+     "tip": "En español “la gente” es singular, pero en inglés “people” es plural: “people are”.",
+     "caption": "En español “la gente es”, ¡pero en inglés no! 😅 Di “The people are nice.”, no “The people is nice.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “are”. “People” siempre lleva verbo en plural. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#gramatica",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “people is”? Watch out",
+     "tip": "In Spanish “la gente” is singular, but in English “people” is plural: “people are”.",
+     "caption": "In Spanish “la gente es”, but not in English! Say “The people are nice.”, not “The people is nice.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_news",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "News is one thing, not many!",
+    "wrong": "The news are bad.",
+    "right": "The news is bad.",
+    "strike": "are",
+    "why": "News takes is, not are.",
+    "memory": "News is.",
+    "quiz": {
+     "stem": "The news ___ good.",
+     "options": [
+      "are",
+      "is"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Is! The news is good.",
+    "native": {
+     "hook": "¿Dices “the news are”? No",
+     "tip": "“News” parece plural por la “s”, pero es singular: “the news is”.",
+     "caption": "¿Las noticias “son”? En inglés es singular 📰 No digas “The news are bad.”, sino “The news is bad.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “is”. “News” es singular aunque termine en “s”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#gramatica",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “the news are”? No",
+     "tip": "“News” looks plural because of the “s”, but it is singular: “the news is”.",
+     "caption": "Are the news “son”? In English it is singular. Do not say “The news are bad.”, say “The news is bad.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_information",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Information has no a or an!",
+    "wrong": "I need an information.",
+    "right": "I need some information.",
+    "strike": "an",
+    "why": "Information has no a or an.",
+    "memory": "Some information.",
+    "quiz": {
+     "stem": "I need ___ advice.",
+     "options": [
+      "an",
+      "some"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Some! I need some advice.",
+    "native": {
+     "hook": "¿Pides “an information”? ¡No!",
+     "tip": "“Information” no se cuenta: no lleva “a/an” ni plural. Usa “some information”.",
+     "caption": "En español “una información”, en inglés no 🙈 No digas “I need an information.”, mejor “I need some information.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “some”. “Advice” e “information” no llevan “a/an”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#vocabulario",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you ask for “an information”? No!",
+     "tip": "“Information” is uncountable: no “a/an” and no plural. Use “some information”.",
+     "caption": "In Spanish “una información”, not in English. Do not say “I need an information.”, say “I need some information.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_for_time",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Say for two years!",
+    "wrong": "I live here since two years.",
+    "right": "I have lived here for two years.",
+    "strike": "since",
+    "why": "Use for with an amount of time.",
+    "memory": "For + time.",
+    "quiz": {
+     "stem": "I waited ___ two hours.",
+     "options": [
+      "since",
+      "for"
+     ],
+     "answer": 1
+    },
+    "answer_say": "For! I waited for two hours.",
+    "native": {
+     "hook": "¿Dices “since two years”? Ojo",
+     "tip": "Para una duración usa “for” (for two years). “Since” es para un punto de inicio.",
+     "caption": "En español “desde hace dos años”, pero en inglés no 😅 Di “I have lived here for two years.”, no “I live here since two years.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “for”. “For” + duración; “since” + fecha de inicio. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#tiempos",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “since two years”? Careful",
+     "tip": "For a length of time use “for” (for two years). “Since” is for a starting point.",
+     "caption": "In Spanish “desde hace dos años”, but not in English. Say “I have lived here for two years.”, not “I live here since two years.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_do_homework",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Make homework? Say do!",
+    "wrong": "I make my homework.",
+    "right": "I do my homework.",
+    "strike": "make",
+    "why": "Say do with homework.",
+    "memory": "Do homework.",
+    "quiz": {
+     "stem": "She ___ her homework.",
+     "options": [
+      "makes",
+      "does"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Does! She does her homework.",
+    "native": {
+     "hook": "¿“Make homework”? ¡Es “do”!",
+     "tip": "Con tareas y quehaceres usa “do”: “do homework”. “Make” es para crear algo.",
+     "caption": "En español “hacer” sirve para todo, pero en inglés no 😉 Di “I do my homework.”, no “I make my homework.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “does”. “Do” para tareas; “make” para crear cosas. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#vocabulario",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Make” homework? It is “do”!",
+     "tip": "With homework and chores use “do”. “Make” is for creating something.",
+     "caption": "In Spanish “hacer” works for everything, but not in English. Say “I do my homework.”, not “I make my homework.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_say_tell",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Say me? No, tell me!",
+    "wrong": "He said me the truth.",
+    "right": "He told me the truth.",
+    "strike": "said",
+    "why": "Use told before the person.",
+    "memory": "Tell me.",
+    "quiz": {
+     "stem": "She ___ me a story.",
+     "options": [
+      "said",
+      "told"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Told! She told me a story.",
+    "native": {
+     "hook": "¿Dices “said me”? Es “told me”",
+     "tip": "Con la persona (“me”) usa “tell”. “Say” va sin persona: “He said hello”.",
+     "caption": "En español “me dijo”, pero en inglés cambia 🤔 No digas “He said me the truth.”, sino “He told me the truth.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “told”. “Tell” + persona; “say” + palabras. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#vocabulario",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “said me”? It is “told me”",
+     "tip": "With the person (“me”) use “tell”. “Say” has no person: “He said hello”.",
+     "caption": "In Spanish “me dijo”, but English changes. Do not say “He said me the truth.”, say “He told me the truth.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_anything",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Two nos? Not in English!",
+    "wrong": "I don't know nothing.",
+    "right": "I don't know anything.",
+    "strike": "nothing",
+    "why": "After don't, use anything.",
+    "memory": "Not anything.",
+    "quiz": {
+     "stem": "I don't see ___.",
+     "options": [
+      "nothing",
+      "anything"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Anything! I don't see anything.",
+    "native": {
+     "hook": "“No sé nada” no es “nothing”",
+     "tip": "En inglés no se doblan los negativos: “don't” + “anything”, no “nothing”.",
+     "caption": "En español “no sé nada” lleva dos negaciones, pero en inglés solo una 🤓 Di “I don't know anything.”, no “I don't know nothing.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “anything”. Una sola negación por frase. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#gramatica",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“No sé nada” is not “nothing”",
+     "tip": "English does not double negatives: “don't” + “anything”, not “nothing”.",
+     "caption": "In Spanish “no sé nada” has two negatives, but English has only one. Say “I don't know anything.”, not “I don't know nothing.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_it_is",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Don't forget the word It!",
+    "wrong": "Is raining today.",
+    "right": "It is raining today.",
+    "strike": "Is",
+    "why": "English needs a subject: it.",
+    "memory": "It is.",
+    "quiz": {
+     "stem": "___ is cold today.",
+     "options": [
+      "Is",
+      "It"
+     ],
+     "answer": 1
+    },
+    "answer_say": "It! It is cold today.",
+    "native": {
+     "hook": "¿Dices “is raining”? Falta algo",
+     "tip": "En español “llueve” no necesita sujeto, pero en inglés sí: “It is raining”.",
+     "caption": "¿“Llueve” sin sujeto? 🌧️ En inglés hace falta “it”: no digas “Is raining today.”, sino “It is raining today.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “It”. En inglés toda frase necesita sujeto. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#gramatica",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “is raining”? Something is missing",
+     "tip": "In Spanish “llueve” needs no subject, but in English it does: “It is raining”.",
+     "caption": "“Llueve” with no subject? English needs “it”: do not say “Is raining today.”, say “It is raining today.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_adj_order",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Color words go first, no s!",
+    "wrong": "I have two cats blacks.",
+    "right": "I have two black cats.",
+    "strike": "blacks",
+    "why": "Put the color word before the thing.",
+    "memory": "Black cats.",
+    "quiz": {
+     "stem": "She has a ___.",
+     "options": [
+      "dress blue",
+      "blue dress"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Blue dress! She has a blue dress.",
+    "native": {
+     "hook": "¿“Cats blacks”? Al revés",
+     "tip": "En inglés el adjetivo va antes del sustantivo y nunca lleva “s”.",
+     "caption": "En español decimos “gatos negros”, ¡pero en inglés va al revés! 🐱 No “I have two cats blacks.”, sino “I have two black cats.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “blue dress”. Adjetivo + sustantivo, sin plural. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#gramatica",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Cats blacks”? It goes the other way",
+     "tip": "In English the adjective comes before the noun and never takes “s”.",
+     "caption": "In Spanish we say “gatos negros”, but English goes the other way! Not “I have two cats blacks.”, but “I have two black cats.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_more_tall",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Say taller, not more tall!",
+    "wrong": "He is more tall than me.",
+    "right": "He is taller than me.",
+    "strike": "more tall",
+    "why": "Tall becomes taller.",
+    "memory": "Tall, taller.",
+    "quiz": {
+     "stem": "My sister is ___ than me.",
+     "options": [
+      "more young",
+      "younger"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Younger! She is younger than me.",
+    "native": {
+     "hook": "¿Dices “more tall”? Es “taller”",
+     "tip": "Con adjetivos cortos añade “-er”: “taller”. “More” es para palabras largas.",
+     "caption": "En español “más alto”, pero en inglés cambia 😎 No digas “He is more tall than me.”, sino “He is taller than me.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “younger”. Adjetivo corto + “-er”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#comparativos",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "Do you say “more tall”? It is “taller”",
+     "tip": "With short adjectives add “-er”: “taller”. “More” is for long words.",
+     "caption": "In Spanish “más alto”, but English changes. Do not say “He is more tall than me.”, say “He is taller than me.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_want_you",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Say want you to!",
+    "wrong": "I want that you help me.",
+    "right": "I want you to help me.",
+    "strike": "that you",
+    "why": "Use want + person + to.",
+    "memory": "Want you to.",
+    "quiz": {
+     "stem": "She wants me ___ her.",
+     "options": [
+      "help",
+      "to help"
+     ],
+     "answer": 1
+    },
+    "answer_say": "To help! She wants me to help her.",
+    "native": {
+     "hook": "¿“I want that you”? No existe",
+     "tip": "En español “quiero que me ayudes”, pero en inglés: “want + persona + to + verbo”.",
+     "caption": "El subjuntivo no existe aquí 😅 No digas “I want that you help me.”, sino “I want you to help me.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “to help”. Estructura: want + persona + to + verbo. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#gramatica",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“I want that you”? It does not exist",
+     "tip": "In Spanish “quiero que me ayudes”, but in English: want + person + to + verb.",
+     "caption": "There is no subjunctive here. Do not say “I want that you help me.”, say “I want you to help me.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_the_life",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Life needs no the!",
+    "wrong": "The life is hard.",
+    "right": "Life is hard.",
+    "strike": "The",
+    "why": "No the for things in general.",
+    "memory": "No the.",
+    "quiz": {
+     "stem": "___ is beautiful.",
+     "options": [
+      "The life",
+      "Life"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Life! Life is beautiful.",
+    "native": {
+     "hook": "¿“The life is”? Sobra el “the”",
+     "tip": "Para ideas en general, el inglés no usa “the”: “Life is hard”.",
+     "caption": "En español “la vida es dura”, pero en inglés sin artículo 💭 Di “Life is hard.”, no “The life is hard.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “Life”. Sin “the” cuando hablas en general. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#articulos",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“The life is”? You do not need “the”",
+     "tip": "For general ideas, English uses no “the”: “Life is hard”.",
+     "caption": "In Spanish “la vida es dura”, but English has no article. Say “Life is hard.”, not “The life is hard.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_possessive",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Use 's, not “of”!",
+    "wrong": "The car of my father is old.",
+    "right": "My father's car is old.",
+    "strike": "The car of my father",
+    "why": "Use 's for people's things.",
+    "memory": "Ana's book.",
+    "quiz": {
+     "stem": "This is ___ car.",
+     "options": [
+      "of my mom",
+      "my mom's"
+     ],
+     "answer": 1
+    },
+    "answer_say": "My mom's! This is my mom's car.",
+    "native": {
+     "hook": "“The car of my father”: suena raro",
+     "tip": "Para el dueño usa “'s”: “my father's car”. “Of” casi no se usa con personas.",
+     "caption": "En español “el coche de mi padre”, pero en inglés usamos 's 🚗 No “The car of my father is old.”, sino “My father's car is old.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “Ana's”. Dueño + 's + cosa. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#posesivos",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“The car of my father” sounds odd",
+     "tip": "For the owner use “'s”: “my father's car”. “Of” is rare with people.",
+     "caption": "In Spanish “el coche de mi padre”, but English uses 's. Not “The car of my father is old.”, but “My father's car is old.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_q_order",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Question word, then are you!",
+    "wrong": "Where you are going?",
+    "right": "Where are you going?",
+    "strike": "you are",
+    "why": "In questions, put are before you.",
+    "memory": "Are you…?",
+    "quiz": {
+     "stem": "Where ___ from?",
+     "options": [
+      "you are",
+      "are you"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Are you! Where are you from?",
+    "native": {
+     "hook": "¿“Where you are”? Cambia el orden",
+     "tip": "En preguntas el verbo va antes del sujeto: “Where are you going?”.",
+     "caption": "En español “¿adónde vas?”, pero en inglés el verbo auxiliar va antes 🧭 Di “Where are you going?”, no “Where you are going?”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “are you”. Pregunta + verbo + sujeto. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#preguntas",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Where you are”? Change the order",
+     "tip": "In questions the verb goes before the subject: “Where are you going?”.",
+     "caption": "In Spanish “¿adónde vas?”, but in English the helper verb comes first. Say “Where are you going?”, not “Where you are going?”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_can_q",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Can needs no do!",
+    "wrong": "Do you can swim?",
+    "right": "Can you swim?",
+    "strike": "Do",
+    "why": "Can already makes the question.",
+    "memory": "Can you…?",
+    "quiz": {
+     "stem": "Can she ___?",
+     "options": [
+      "drives",
+      "drive"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Drive! Can she drive?",
+    "native": {
+     "hook": "¿“Do you can”? Sobra el “do”",
+     "tip": "“Can” ya forma la pregunta solo: “Can you swim?”, sin “do”.",
+     "caption": "¿Mezclas “do” y “can”? 🏊 No digas “Do you can swim?”, sino “Can you swim?”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “drive”. Tras “can”, el verbo va sin “s”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#verbosmodales",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Do you can”? You do not need “do”",
+     "tip": "“Can” makes the question by itself: “Can you swim?”, without “do”.",
+     "caption": "Mixing “do” and “can”? Do not say “Do you can swim?”, say “Can you swim?”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_on_monday",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "On Monday, not in!",
+    "wrong": "I work in Monday.",
+    "right": "I work on Monday.",
+    "strike": "in",
+    "why": "Use on with days.",
+    "memory": "On Monday.",
+    "quiz": {
+     "stem": "We meet ___ Monday.",
+     "options": [
+      "in",
+      "on"
+     ],
+     "answer": 1
+    },
+    "answer_say": "On! We meet on Monday.",
+    "native": {
+     "hook": "¿“In Monday”? Los días llevan “on”",
+     "tip": "En español no usamos preposición con el día, pero en inglés sí: “on Monday”.",
+     "caption": "¡Los días llevan “on”! 📅 No digas “I work in Monday.”, sino “I work on Monday.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “on”. “On” + día; “in” + mes o año. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#preposiciones",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“In Monday”? Days take “on”",
+     "tip": "In Spanish there is no preposition before the day, but in English there is: “on Monday”.",
+     "caption": "Days take “on”! Do not say “I work in Monday.”, say “I work on Monday.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_like_as",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Jobs take as, not like!",
+    "wrong": "I work like a teacher.",
+    "right": "I work as a teacher.",
+    "strike": "like",
+    "why": "Use as for a job.",
+    "memory": "As = job.",
+    "quiz": {
+     "stem": "He works ___ a doctor.",
+     "options": [
+      "like",
+      "as"
+     ],
+     "answer": 1
+    },
+    "answer_say": "As! He works as a doctor.",
+    "native": {
+     "hook": "¿“Work like” profesor? Es “as”",
+     "tip": "Para profesión o función usa “as”. “Like” significa “parecido a”.",
+     "caption": "En español “como” sirve para todo 👩‍🏫 En inglés no digas “I work like a teacher.”, sino “I work as a teacher.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “as”. “As” = profesión; “like” = parecido. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#preposiciones",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Work like” a teacher? It is “as”",
+     "tip": "For a job or role use “as”. “Like” means “similar to”.",
+     "caption": "In Spanish “como” works for both. In English do not say “I work like a teacher.”, say “I work as a teacher.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_if_will",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "After if, don't use will",
+    "wrong": "If I will see her, I will call.",
+    "right": "If I see her, I will call.",
+    "strike": "will see",
+    "why": "After if, use the present.",
+    "memory": "If + present.",
+    "quiz": {
+     "stem": "If he ___ late, call me.",
+     "options": [
+      "will be",
+      "is"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Is! If he is late, call me.",
+    "native": {
+     "hook": "¿“If I will see”? Sin “will”",
+     "tip": "Después de “if” se usa el presente: “If I see her…”, aunque hablemos del futuro.",
+     "caption": "En español usamos presente tras “si” y en inglés también 📞 No digas “If I will see her, I will call.”, sino “If I see her, I will call.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “is”. “If” + presente, luego “will”. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#condicionales",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“If I will see”? Drop the “will”",
+     "tip": "After “if” use the present: “If I see her…”, even for the future.",
+     "caption": "Use the present after if. Do not say “If I will see her, I will call.”, say “If I see her, I will call.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_saw_yesterday",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Yesterday? Use the past!",
+    "wrong": "Yesterday I have seen Ana.",
+    "right": "Yesterday I saw Ana.",
+    "strike": "have seen",
+    "why": "With yesterday, use the past.",
+    "memory": "Yesterday: saw.",
+    "quiz": {
+     "stem": "Last night I ___ a movie.",
+     "options": [
+      "have seen",
+      "saw"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Saw! Last night I saw a movie.",
+    "native": {
+     "hook": "¿“Yesterday I have seen”? No",
+     "tip": "Con ayer, la semana pasada, etc., usa pasado simple: “I saw”, no “have seen”.",
+     "caption": "En español “ayer he visto” suena normal, ¡en inglés no! 🎬 Di “Yesterday I saw Ana.”, no “Yesterday I have seen Ana.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “saw”. Tiempo terminado, pasado simple. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#tiempos",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Yesterday I have seen”? No",
+     "tip": "With yesterday, last week, etc., use the simple past: “I saw”, not “have seen”.",
+     "caption": "In Spanish “ayer he visto” sounds fine, but not in English! Say “Yesterday I saw Ana.”, not “Yesterday I have seen Ana.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_many",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Many for things you count",
+    "wrong": "I have much friends.",
+    "right": "I have many friends.",
+    "strike": "much",
+    "why": "Use many with things you can count.",
+    "memory": "Many friends.",
+    "quiz": {
+     "stem": "She has ___ books.",
+     "options": [
+      "much",
+      "many"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Many! She has many books.",
+    "native": {
+     "hook": "¿“Much friends”? Es “many”",
+     "tip": "En español “muchos” vale para todo, pero en inglés “many” es para lo contable.",
+     "caption": "“Muchos amigos”: ¡cuidado con “much”! 👫 Di “I have many friends.”, no “I have much friends.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “many”. “Many” + contables; “much” + incontables. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#cantidades",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Much friends”? It is “many”",
+     "tip": "In Spanish “muchos” works for everything, but in English “many” is for countable things.",
+     "caption": "“Muchos amigos”: careful with “much”! Say “I have many friends.”, not “I have much friends.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_attend",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Assist? No, attend!",
+    "wrong": "I assisted the class yesterday.",
+    "right": "I attended the class yesterday.",
+    "strike": "assisted",
+    "why": "Assist means help. Attend means go to.",
+    "memory": "Attend = asistir.",
+    "quiz": {
+     "stem": "I ___ the meeting.",
+     "options": [
+      "assisted",
+      "attended"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Attended! I attended the meeting.",
+    "native": {
+     "hook": "“Assist” no es “asistir”",
+     "tip": "Falso amigo: “assist” es “ayudar”. Para “asistir a clase” usa “attend”.",
+     "caption": "Falso amigo traicionero 🎓 No digas “I assisted the class yesterday.”, sino “I attended the class yesterday.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “attended”. “Assist” = ayudar; “attend” = asistir. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#falsosamigos",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Assist” is not “asistir”",
+     "tip": "False friend: “assist” means “ayudar”. For “asistir a clase” use “attend”.",
+     "caption": "A sneaky false friend! Do not say “I assisted the class yesterday.”, say “I attended the class yesterday.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_gerund_subject",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Swim is fun? Use swimming",
+    "wrong": "Swim is fun.",
+    "right": "Swimming is fun.",
+    "strike": "Swim",
+    "why": "Use swimming, not swim, here.",
+    "memory": "Swimming is fun.",
+    "quiz": {
+     "stem": "___ is fun.",
+     "options": [
+      "Dance",
+      "Dancing"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Dancing! Dancing is fun.",
+    "native": {
+     "hook": "¿“Swim is fun”? Usa “-ing”",
+     "tip": "Si un verbo es el sujeto, añade “-ing”. En español usamos el infinitivo: “nadar es”.",
+     "caption": "En español “nadar es divertido”, pero en inglés va con -ing 🏊 No “Swim is fun.”, sino “Swimming is fun.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “Dancing”. Verbo como sujeto: -ing. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#gramatica",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Swim is fun”? Use “-ing”",
+     "tip": "When a verb is the subject, add “-ing”. Spanish uses the infinitive: “nadar es”.",
+     "caption": "In Spanish “nadar es divertido”, but English uses -ing. Not “Swim is fun.”, but “Swimming is fun.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_very_much",
+   "lang": "es",
+   "teacher": "ama",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Very much goes at the end",
+    "wrong": "I like very much pizza.",
+    "right": "I like pizza very much.",
+    "strike": "very much",
+    "why": "Put very much after the object.",
+    "memory": "Pizza very much.",
+    "quiz": {
+     "stem": "I like ___.",
+     "options": [
+      "very much music",
+      "music very much"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Music very much! I like music very much.",
+    "native": {
+     "hook": "¿“Like very much pizza”? Orden",
+     "tip": "En inglés “very much” va al final, no entre el verbo y el objeto.",
+     "caption": "En español “me gusta mucho la pizza”, pero el orden en inglés cambia 🍕 No “I like very much pizza.”, sino “I like pizza very much.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “music very much”. “Very much” al final. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#ordendepalabras",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Like very much pizza”? Word order",
+     "tip": "In English “very much” goes at the end, not between the verb and the object.",
+     "caption": "In Spanish “me gusta mucho la pizza”, but English word order changes. Not “I like very much pizza.”, but “I like pizza very much.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+    }
+   }
+  },
+  {
+   "id": "t2_l1_es_miss_bus",
+   "lang": "es",
+   "teacher": "carlos",
+   "theme": "dusk",
+   "in": {
+    "hook_say": "Lost the bus? You missed it!",
+    "wrong": "I lost the bus.",
+    "right": "I missed the bus.",
+    "strike": "lost",
+    "why": "Miss the bus, not lose the bus.",
+    "memory": "Miss the bus.",
+    "quiz": {
+     "stem": "He ___ the train.",
+     "options": [
+      "lost",
+      "missed"
+     ],
+     "answer": 1
+    },
+    "answer_say": "Missed! He missed the train.",
+    "native": {
+     "hook": "¿“Lost the bus”? Es “missed”",
+     "tip": "En español “perder el autobús”, pero en inglés es “miss”. “Lose” es para objetos.",
+     "caption": "En español “perdí el bus”, pero en inglés no se pierde 🚌 Di “I missed the bus.”, no “I lost the bus.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+     "comment": "Respuesta: “missed”. “Miss” = perder el transporte; “lose” = perder cosas. Practica más con un quiz gratis aquí: {link}",
+     "hashtags": [
+      "#aprenderingles",
+      "#inglesfacil",
+      "#vocabulario",
+      "#lexkite"
+     ]
+    },
+    "en": {
+     "hook": "“Lost the bus”? It is “missed”",
+     "tip": "In Spanish “perder el autobús”, but in English you “miss” it. “Lose” is for objects.",
+     "caption": "In Spanish “perdí el bus”, but English says miss. Say “I missed the bus.”, not “I lost the bus.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+    }
+   }
+  }
+ ]
+}

@@ -27,10 +27,10 @@ jobs:
     outputs: { go: '${{ steps.g.outputs.go }}' }
     steps:
       - id: g
-        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}' }
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
         run: |
           go=true
-          if [ "$EV" = pull_request ]; then
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
             n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
             [ "${n:-1}" -ge 1 ] || go=false
           fi
@@ -39,7 +39,7 @@ jobs:
     name: audit (${{ matrix.group.name }})
     needs: gate
     if: needs.gate.outputs.go == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 25
     strategy:
       fail-fast: false
@@ -54,7 +54,9 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           bash scripts/ci/pw-install.sh chromium   # không --with-deps: runner đã có thư viện của Chrome; apt hay kẹt khoá do cập nhật nền
-          sudo timeout 300 apt-get -o DPkg::Lock::Timeout=120 install -y -qq fonts-noto-cjk fonts-noto-core >/dev/null || true
+      - uses: ./.github/actions/apt
+        with: { packages: fonts-noto-cjk fonts-noto-core }
+        if: matrix.group.parts != 'static'
       - if: contains(format(' {0} ', matrix.group.parts), ' blog ')
         run: node scripts/build-blog.mjs
       - name: Kiểm ${{ matrix.group.parts }}

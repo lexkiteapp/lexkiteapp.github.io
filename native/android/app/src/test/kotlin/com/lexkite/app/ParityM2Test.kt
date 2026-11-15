@@ -158,4 +158,47 @@ class ParityM2Test {
         val s = TeacherSignal(); s.pose("cheer"); s.speak("Hi", 1.0, { 0.0 }, { true }); assertTrue(s.pending)
         assertTrue(s.poll() is TeacherSignal.Cmd.Pose); assertTrue(s.poll() is TeacherSignal.Cmd.Speak); assertNull(s.poll())
     }
+
+    // ------------------------------------------------------------------ M3 (P04 review & practice, P05 vocabulary)
+    private fun appleEntry() = JsonObject(mapOf("word" to JsonPrimitive("apple"), "ipa" to JsonPrimitive("ˈæpəl"), "pos" to JsonPrimitive("n"), "vi" to JsonPrimitive("quả táo"),
+        "def" to JsonPrimitive("a round fruit"), "ex" to JsonPrimitive("I eat an apple."), "level" to JsonPrimitive("A1"), "emoji" to JsonPrimitive("🍎")))
+
+    /** P04: grade a due card (the FSRS state is written), grade it Again, then undo - the card, the queue and the counters are back. */
+    @Test fun parity_P04() {
+        val t0 = 1_760_000_000_000L
+        val st = com.lexkite.app.core.vocab.WordBook.add(com.lexkite.app.core.vocab.WordBook.Store(emptyMap(), emptyMap()), appleEntry(), null, t0)
+        val card0 = st.cards.getValue("apple")
+        val cards = st.cards.toMutableMap()
+        val s = com.lexkite.app.core.vocab.Review.Session(listOf("apple"), cards, JsonObject(emptyMap()))
+        val r = s.grade(2, t0)!!
+        val srs = cards.getValue("apple")["srs"] as JsonObject
+        assertTrue("last review is written", Js.truthy(srs["last"]))
+        assertTrue("next due is in the future", Js.num(srs["due"]) > t0)
+        assertEquals(1, r.reviews); assertEquals(1, s.done); assertTrue(s.canUndo)
+        val back = s.undo(t0 + 1)!!
+        assertEquals(r.xp, back.xp)
+        assertEquals(card0["srs"], cards.getValue("apple")["srs"])
+        assertEquals(listOf("apple"), s.queue); assertEquals(0, s.done); assertEquals(false, s.canUndo)
+        // Again puts the card back in the queue and counts the miss
+        s.grade(0, t0)
+        assertEquals(1, s.again); assertEquals(listOf("apple"), s.queue)
+    }
+
+    /** P05: look a word up in the dictionary, save it with an own sentence, and it is in the deck list with its meaning. */
+    @Test fun parity_P05() = kotlinx.coroutines.runBlocking {
+        val t0 = 1_760_000_000_000L
+        val index = mapOf("apple" to appleEntry())
+        val dict = com.lexkite.app.core.dict.Dict(com.lexkite.app.core.dict.DictNet { _, _ -> null }, com.lexkite.app.core.dict.Lex(com.lexkite.app.core.dict.IndexLexSource(index)), index, com.lexkite.app.core.dict.DictCfg(), clock = { t0 })
+        val e = dict.lookup("Apple")!!
+        assertEquals("apple", (e["word"] as JsonPrimitive).content)
+        val ctx = JsonObject(mapOf("text" to JsonPrimitive("An apple a day."), "source" to JsonPrimitive(""), "title" to JsonPrimitive("Ghi chú của bạn")))
+        val st = com.lexkite.app.core.vocab.WordBook.add(com.lexkite.app.core.vocab.WordBook.Store(emptyMap(), emptyMap()), e, ctx, t0)
+        val rows = com.lexkite.app.core.vocab.Deck.rows(st.cards.values, com.lexkite.app.core.vocab.Deck.Filter(), t0)
+        assertEquals(listOf("apple"), rows.map { (it["word"] as JsonPrimitive).content })
+        val row = com.lexkite.app.core.vocab.Deck.row(rows[0], t0)
+        assertEquals("apple", row.word); assertTrue(row.note.contains("An apple a day."))
+        // saving the same word again keeps one card
+        val again = com.lexkite.app.core.vocab.WordBook.add(st, e, null, t0 + 1)
+        assertEquals(1, again.cards.size)
+    }
 }

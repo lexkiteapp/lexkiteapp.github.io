@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"flu\" mean?",
+  "keyword": "flu",
+  "value": "Flu means a common illness with fever and aches.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=flu",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"flu\" mean?",
+    "description": "Flu means a common illness with fever and aches.\n\nReview your words, free: https://lexkite.com/app/#/review?w=flu\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "flu",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"flu\" mean?\n\nFlu means a common illness with fever and aches.\n\nReview your words, free: https://lexkite.com/app/#/review?w=flu"
+   },
+   "instagram": {
+    "caption": "What does \"flu\" mean?\n\nFlu means a common illness with fever and aches.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"flu\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a common illness with fever and aches. Flu means a common illness with fever and aches. More practice like this (free): {link}"
  }
 }

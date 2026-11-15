@@ -44,7 +44,7 @@ Nội dung soạn tay trước cổng (24/10/2026) có 2.183 lỗi cũ / 49 lo�
 ## 6. Format đề thi – `content/exams/spec/` (P0.5)
 - 10 spec máy đọc (`ielts-ac`, `ielts-gt`, `toeic-lr`, `toeic-sw`, `toefl-2026`, `cam-a2`…`cam-c2`): phần, số câu, thời gian, dạng câu, độ dài bài, thang điểm, tiêu chí chấm tự diễn đạt. Chỉ cấu trúc; số liệu đối chiếu trang chính thức ghi ở `verified` (01/11/2026). Đổi format → sửa spec + `verified`.
 - `node scripts/content-qa/exam-format-check.mjs [--json] [--md f] [--list]` (trong `npm test` + `content:gate`): đếm phần/câu/thời gian/độ dài của đề IELTS (listen, readtest, write, speak, mock), TOEIC L&R + S&W, TOEFL theo spec; mọi câu phải có đáp án + lời giải + căn cứ (cue hoặc câu trích tìm thấy trong bài/lời thoại).
-- Lệch đã biết: `content/exams/spec/deviations.json` – chỉ được xoá dòng khi đã sửa đề; lệch mới hoặc dòng đã hết lệch → đỏ. Đếm 0 đề ở họ đề có dữ liệu → đỏ.
+- Lệch đã biết: `content/exams/spec/deviations.json` – chỉ được xoá dòng khi đã sửa đề; lệch mới hoặc dòng đã hết lệch → đỏ. Đếm 0 đề ở họ đề có dữ liệu → đỏ. Họ `ielts-reading-gt/` và `toefl-2026/` là STRICT (từ 13/11): MỌI lệch (độ dài bài đọc ngoài khoảng spec, thiếu câu, thiếu căn cứ) → đỏ, không được ghi vào deviations.json; đề chưa đủ chuẩn thì sửa hoặc đưa ra khỏi gói app.
 - Hàng chờ sửa (01/11): IELTS GT 5 đề ngắn 1.189–1.943 từ (cần 2.150–2.375); AC rt7–9 dài 2.752–2.836 (≤ 2.750); TOEFL bộ 1–5 Listening 32/47 câu, bộ 5–6 thiếu Reading/Speaking/Build a Sentence; 17 câu TOEFL Reading chưa trích căn cứ; TOEIC S&W chưa có 2 dạng tranh (Describe a picture, Write a sentence based on a picture); Cambridge A2–C2 chưa có đề (P1). Chống trùng n-gram với nguồn công khai: chưa có (cần kho nguồn tham chiếu).
 
 ## 7. Bố cục hình đề – `figure-layout.yml` (3/11)

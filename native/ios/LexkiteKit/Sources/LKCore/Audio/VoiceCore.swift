@@ -48,7 +48,7 @@ public enum VoiceCore {
                 func last(_ ch: UInt16) -> Int? { u[0...200].lastIndex(of: ch) }
                 var cut: Int
                 if let c = last(44), c > 60 { cut = c + 1 } else { cut = last(32) ?? -1 }
-                if cut < 0 { cut = u.count + cut + 1 }   // JS slice(0, -1) semantics when no space (never happens with real text)
+                if cut < 0 { cut = u.count + cut }   // JS slice(0, -1) semantics: no comma/space within 200 cuts one unit off the end (vector kvoice.split)
                 out.append(String(utf16CodeUnits: Array(u[0..<cut]), count: cut).trimmingCharacters(in: .whitespacesAndNewlines))
                 p = String(utf16CodeUnits: Array(u[cut...]), count: u.count - cut).trimmingCharacters(in: .whitespacesAndNewlines)
             }

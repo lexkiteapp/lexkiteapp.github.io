@@ -166,7 +166,7 @@ ok(untilPacificMidnight(Date.UTC(2026, 9, 24, 7, 30)) > 23 * 3600e3 - 120e3, 'ng
   ok(rc && rc.route === 'gc-cf' && rc.model === '@cf/openai/gpt-oss-120b', 'cờ bật: CF gpt-oss-120b là dự phòng CUỐI chuỗi');
   const mv = mock({ gc: b => J({ text: '{"name":"apple"}', provider: 'cloudflare', model: '@cf/meta/llama-4-scout-17b-16e-instruct' }) });
   const v = await mk(mv).vision({ question: 'q', image: 'AAAA' });
-  ok(v && v.route === 'gc-vision' && mv.calls[0].url === GC + '/api/owner-ai/vision' && mv.calls[0].body.image_b64 === 'AAAA' && v.out.name === 'apple', 'vision: GrabCast /api/owner-ai/vision');
+  ok(v && v.route === 'gc-vision' && mv.calls[0].url === GC + '/api/owner-ai/vision' && mv.calls[0].body.image_b64 === 'AAAA' && mv.calls[0].body.mime === 'image/jpeg' && v.out.name === 'apple', 'vision: GrabCast /api/owner-ai/vision');
 }
 // 8d) chuẩn hình trả lời
 { const { normOut } = await import('../lib/ai-pool.mjs');

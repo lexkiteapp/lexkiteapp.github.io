@@ -424,7 +424,7 @@ public enum LessonEngine {
                     let extra = Array(shuffle(words.filter { w in !T.contains { $0.lowercased() == w } }, &r).prefix(2))
                     it.type = "build"; it.sent = st.lines[li].en; it.who = st.lines[li].who; it.answer = T.joined(separator: " "); it.tiles = shuffle(T + extra, &r)
                 } else if c.type == "q", let opts = c.options, let a = c.answer {
-                    it.prompt = c.q; it.answer = opts[a]; it.options = c.keep == true ? opts : shuffle(opts, &r)
+                    it.prompt = c.q; it.answer = opts[a]; it.why = c.why ?? ""; it.options = c.keep == true ? opts : shuffle(opts, &r)
                 } else if c.type == "match", let ps = c.pairs {
                     it.pairs = ps.map { LessonPair(card: nil, word: $0.en, mean: $0.m[lang] ?? $0.m["en"] ?? "") }
                 } else { id -= 1; continue }
@@ -465,7 +465,7 @@ public struct LessonSession: Sendable {
         let it = q.removeFirst()
         if it.free == true { solved += 1; return Answered(ok: true, combo: combo, requeued: nil, free: true) }
         n += 1
-        let k = LessonEngine.norm(it.word)
+        let k = it.card != nil ? LessonEngine.norm(it.word) : "#" + LessonEngine.norm(it.word) // câu không thuộc từ nào (#match/#story): khóa '#…' như web/js/lesson/engine.js
         log.append(Log(id: it.id, type: it.type, word: it.word, ok: ok, retry: it.retry, skip: nil))
         miss = ok ? 0 : miss + 1
         if !ok && ease && miss >= 2 && q.count > 1 && LessonEngine.isHard(q[0]) {

@@ -10,12 +10,13 @@
 import { setupMgr, boardSync, contentHash, pushClip, bodyFor, PLAT, platOf, healthOf, validateCompose, boardStateOf } from './_social_mgr.js';
 import { setupDist, DIST, clipOf, socialSetup, socialChannels } from './distribution.js';
 import { previewClip, pickPreviewClip, PREVIEW_CLIP_RE } from './_social_preview.js';
-import { foreignAccount, pausedAccount } from './_distribution.js';
+import { foreignAccount, pausedAccount, extAccount } from './_distribution.js';
 import { setup as ytSetup } from './youtube.js';
 import { field } from './_clip_logic.js';
 import { gcClient, gcConfigured } from './_grabcast.js';
 import { manifest, signed } from './admin-shorts.js';
 import { once } from './_schema.js';
+import { clipHeld } from './_drive_state.js';
 import { encReady } from './_keys.js';
 import { metaClient, tokenHealth, fbReel, fbStatus, igContainer, igStatus, igQuota, igPublish, fbComment, fbFindComment } from './_meta.js';
 import { firstComment, fcCaption, fcLeft, fcCount, cleanFc, clickStats, FC_DEFAULT } from './_first_comment.js';
@@ -24,13 +25,18 @@ import { metaChannels, tokenOf, refreshIg, igNeedsRefresh, markToken, setToken, 
 
 // ---------------- Hàm thuần (test: scripts/test/social-auto.mjs) ----------------
 export const AUTO_PLATS = ['facebook_page', 'instagram', 'tiktok', 'youtube', 'threads'];
-/** on = kill switch (TẮT → không gọi GrabCast gì cả) · auto_approve mặc định TẮT · TikTok BẬT (Direct Post duyệt 03/11/2026) · YouTube TẮT tới khi Google duyệt app. plan_daily BẬT: lịch tự xếp mỗi ngày (chỉ D1, không đăng gì khi chưa duyệt). */
+/** on = kill switch (TẮT → không gọi GrabCast gì cả) · auto_approve mặc định TẮT · TikTok BẬT (Direct Post duyệt 03/11/2026) · YouTube qua GrabCast tự bật khi workspace có kênh YouTube ok (yt_gc_auto; GrabCast qua audit YouTube 10/11/2026), plats.youtube = đường API trực tiếp. plan_daily BẬT: lịch tự xếp mỗi ngày (chỉ D1, không đăng gì khi chưa duyệt). */
 export const AUTO_DEFAULT = { on: true, auto_approve: false, auto_queue: false, manual_first: 1, plats: { facebook_page: true, instagram: true, tiktok: true, youtube: false, threads: false }, max_per_run: 3, lookahead_h: 30, lead_min: 20, sync_h: 3, daily_calls: 60, plan_daily: true, provider: 'auto', meta_daily: 80, meta_map: {}, yt_gc_auto: true, fc: FC_DEFAULT };
 export const PROVIDERS = ['auto', 'grabcast', 'meta'];
+/** Chủ 10/11/2026: "e tự duyệt tự đăng luôn … lên lịch sẵn … vài tháng". Áp MỘT lần lên cấu hình đang lưu (live có thể còn manual_first 1, autopub tắt):
+ *  bỏ duyệt tay bài đầu, tự vào hàng, tự duyệt, autopub YouTube bật. Sau đó cấu hình mang policy → anh đổi gì ở Quản trị thì giữ nguyên. Công tắc khẩn `on` không đụng. */
+export const POLICY = 'owner-1011';
+export const ownerPolicy = a => { a = a && typeof a === 'object' ? a : {}; return a.policy === POLICY ? a : { ...a, policy: POLICY, auto_approve: true, auto_queue: true, manual_first: 0, autopub: { ...(a.autopub && typeof a.autopub === 'object' ? a.autopub : {}), youtube: true } }; };
+const loadAuto = async db => cleanAuto(ownerPolicy(await getMeta(db, 'auto', AUTO_DEFAULT)));
 const clamp = (v, lo, hi, d) => { const n = Math.round(+v); return Number.isFinite(n) ? Math.max(lo, Math.min(hi, n)) : d; };
 export function cleanAuto(a) {
   a = a && typeof a === 'object' ? a : {}; const d = AUTO_DEFAULT, pl = a.plats && typeof a.plats === 'object' ? a.plats : {};
-  return { on: a.on == null ? d.on : !!a.on, auto_approve: !!a.auto_approve, auto_queue: !!a.auto_queue, manual_first: clamp(a.manual_first, 1, 50, d.manual_first),
+  return { on: a.on == null ? d.on : !!a.on, auto_approve: !!a.auto_approve, auto_queue: !!a.auto_queue, manual_first: clamp(a.manual_first, 0, 50, d.manual_first), policy: a.policy === POLICY ? POLICY : undefined, autopub: Object.fromEntries(AUTO_PLATS.map(p => [p, !!a.autopub && a.autopub[p] === true])),
     plats: Object.fromEntries(AUTO_PLATS.map(p => [p, pl[p] == null ? d.plats[p] : !!pl[p]])),
     max_per_run: clamp(a.max_per_run, 1, 5, d.max_per_run), lookahead_h: clamp(a.lookahead_h, 2, 72, d.lookahead_h), lead_min: clamp(a.lead_min, 10, 180, d.lead_min),
     sync_h: clamp(a.sync_h, 3, 24, d.sync_h), daily_calls: clamp(a.daily_calls, 10, 120, d.daily_calls), plan_daily: a.plan_daily == null ? d.plan_daily : !!a.plan_daily,
@@ -40,7 +46,7 @@ export function cleanAuto(a) {
 }
 /** Mã GrabCast buộc dừng cả lượt (không thử lại) → thời gian mở cầu dao (ms); 0 = không dừng. */
 /** YouTube qua GrabCast TỰ BẬT (yt_gc_auto, mặc định bật): công tắc YouTube tắt nhưng workspace đã có kênh YouTube GrabCast đang ok
- *  (chủ chỉ nối YouTube trên GrabCast sau khi GrabCast qua audit YouTube) → coi như bật trong lượt này. Bài đầu vẫn chờ duyệt tay (manual_first).
+ *  (chủ chỉ nối YouTube trên GrabCast sau khi GrabCast qua audit YouTube) → coi như bật trong lượt này. Từ 10/11 không còn duyệt tay bài đầu (ownerPolicy: manual_first 0, autopub.youtube).
  *  Video lên YouTube qua GrabCast mang marker lk:<clip> → đồng bộ kênh (youtube.js sync) khớp clip, đường tay/API không đăng lại. */
 export const ytViaGc = (cfg, ytChannels) => !cfg.plats.youtube && !!cfg.yt_gc_auto && (ytChannels || []).length > 0;
 export const effPlats = (cfg, ytChannels) => (ytViaGc(cfg, ytChannels) ? { ...cfg, plats: { ...cfg.plats, youtube: true } } : cfg);
@@ -55,7 +61,7 @@ export const dayOf = t => new Date(t).toISOString().slice(0, 10);
 /** Còn bao nhiêu lượt GrabCast hôm nay (UTC). */
 export const budgetLeft = (st, cfg, now) => Math.max(0, cfg.daily_calls - ((st.calls && st.calls.day === dayOf(now)) ? +st.calls.n || 0 : 0));
 /** Tự duyệt được cho nền tảng p? – cần công tắc BẬT và đã có ≥ manual_first bài duyệt TAY trên nền tảng đó. */
-export const canAutoApprove = (cfg, p, manual) => !!cfg.auto_approve && (+(manual || {})[p] || 0) >= cfg.manual_first;
+export const canAutoApprove = (cfg, p, manual) => !!cfg.auto_approve && !!cfg.autopub && cfg.autopub[p] === true && (+(manual || {})[p] || 0) >= cfg.manual_first; // autopub: cờ riêng từng nền tảng (mặc định tắt) – auto_approve một mình không bao giờ đủ để tự đăng
 /** Hàng social_due → việc của lượt này: nền tảng bật, có account_id, slot trong cửa sổ; sớm nhất trước. */
 export function pickDue(rows, cfg, now) {
   const lo = now + cfg.lead_min * 60e3, hi = now + cfg.lookahead_h * 36e5;
@@ -100,7 +106,7 @@ async function clipsFor(env, ids) {
   const rv = new Map((await all(env.DB, `SELECT clip, state, deleted FROM clip_review WHERE clip IN (${qs})`, ...ids).catch(() => [])).map(r => [r.clip, r]));
   const out = new Map();
   for (const [id, it] of by) {
-    const r = rv.get(id) || {}; if (!q.has(id) || r.deleted || ['rejected', 'paused'].includes(r.state) || it.rejected) continue;
+    if (!q.has(id) || clipHeld({ ...it, paused: false }, rv.get(id))) continue; // đã nằm trong hàng đợi/bảng: clip bị owner 'paused' ở manifest (chỉ chặn nhận MỚI ở autoQueue) vẫn được đăng; chặn xoá/loại/master đã rời kho
     out.set(id, { id, title: it.title || it.lesson || id, description: it.description || '', hashtags: [], template: it.template || '', hook: field(it, 'hook'), cefr: field(it, 'diff') || it.cefr || '', duration: +it.duration || 0, video: it.video, cover: it.cover, _it: it });
   }
   return out;
@@ -180,7 +186,7 @@ const setLock = (db, clip, ch, f) => { const k = Object.keys(f); return run(db, 
 /** Trạng thái cho thẻ Quản trị. */
 export async function autoStatus(env, now = Date.now()) {
   const db = env.DB; await setupMgr(db); await setupDist(db); await setupLock(db, env);
-  const cfg = cleanAuto(await getMeta(db, 'auto', AUTO_DEFAULT)), st = await getMeta(db, 'auto_state', {});
+  const cfg = await loadAuto(db), st = await getMeta(db, 'auto_state', {});
   const up = await all(db, 'SELECT s.clip, s.channel_id, s.platform, s.slot_ms, s.state, s.post_id, s.err, e.title AS channel FROM dist_social s LEFT JOIN dist_ext e ON e.channel_id = s.channel_id WHERE s.slot_ms BETWEEN ? AND ? ORDER BY s.slot_ms LIMIT 40', now - 6 * 36e5, now + 72 * 36e5);
   const ids = await Promise.all(up.map(r => boardId(r.clip, r.channel_id)));
   const qs = ids.map(() => '?').join(','), bs = ids.length ? new Map((await all(db, `SELECT id, state, note, err FROM soc_board WHERE id IN (${qs})`, ...ids)).map(r => [r.id, r])) : new Map();
@@ -227,7 +233,7 @@ export async function autoQueue(env, db, cfg, now, max = 30) {
   let n = 0;
   for (const it of cand) {
     if (n >= max) break;
-    const rv = review.get(it.id); if (seen.has(it.id) || (rv && (rv.deleted || ['rejected', 'paused'].includes(rv.state)))) continue;
+    if (seen.has(it.id) || clipHeld(it, review.get(it.id))) continue;
     const r = await run(db, "INSERT INTO yt_queue (clip, lesson, status, privacy, approved_by, approved_at, attempts, updated, title) VALUES (?, ?, 'social', 'unlisted', ?, ?, 0, ?, ?) ON CONFLICT(clip) DO NOTHING", it.id, it.lesson || '', 'autopilot-qc', now, now, String(it.title || '').slice(0, 100));
     n += (r && r.meta && r.meta.changes) || 0;
   }
@@ -265,7 +271,7 @@ export const metaLeft = (st, cfg, now) => Math.max(0, cfg.meta_daily - (((st.met
 /** Một lượt autopilot. → bản ghi lượt (cũng lưu ở soc_meta 'auto_state'.last_run). */
 export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = fetch, origin = 'https://lexkite.com/api/social-auto', force_sync = false, sleep = ms => new Promise(r => setTimeout(r, ms)) } = {}) {
   const db = env.DB; await setupMgr(db); await setupDist(db); await setupLock(db, env);
-  const cfg = cleanAuto(await getMeta(db, 'auto', AUTO_DEFAULT)), st = await getMeta(db, 'auto_state', {});
+  const cfg = await loadAuto(db), st = await getMeta(db, 'auto_state', {});
   const rec = { at: now, src, due: 0, created: 0, scheduled: 0, review: 0, skipped: [], calls: 0, stop: null, synced: null, provider: null, meta: { calls: 0, posted: 0, scheduled: 0, containers: 0, stop: null }, alerts: [], fc: { attached: 0, posted: 0, skipped: [] } };
   const save = async () => {
     const today = dayOf(now), calls = st.calls && st.calls.day === today ? +st.calls.n || 0 : 0;
@@ -390,7 +396,7 @@ export async function runAuto(env, { src = 'cron', now = Date.now(), fetcher = f
     // 1) Đồng bộ trạng thái nền (thưa: ≥ sync_h giờ)
     if (force_sync || now - (+(st.last_sync && st.last_sync.at) || 0) >= cfg.sync_h * 36e5) {
       const accs = await getAccounts(), hadCh = +(st.last_sync && st.last_sync.channels) || 0;
-      await DIST.ext_sync(db, { accounts: accs.map(a => ({ platform: platOf(a), id: String(a.id), name: a.display_name || a.username || String(a.id), avatar: a.avatar_url || a.avatar || '', status: a.needs_reconnect ? 'error' : 'ok' })) });
+      await DIST.ext_sync(db, { accounts: accs.map(extAccount) }, env); // MỘT mapper (extAccount): Pause/health/avatar/ngày nối đầy đủ
       const pr = await call('GET', 'posts', null, { limit: 100 });
       if (pr.status < 400) await boardSync(db, (pr.data && pr.data.posts) || []);
       const pub = await mirrorPublished(db, (+(st.last_sync && st.last_sync.at) || 0) - 36e5);
@@ -720,12 +726,12 @@ export async function onWebhook(env, ev) {
 export const clearCh = async (db, ch) => { const st = await getMeta(db, 'auto_state', {}); if (st.meta) { if (st.meta.br) delete st.meta.br[ch]; if (st.meta.th) delete st.meta.th[ch]; } for (const k of Object.keys(st.fails || {})) if (k.startsWith('m|') && k.endsWith('|' + ch)) delete st.fails[k]; await setMeta(db, 'auto_state', st); };
 const AUTO_OPS = {
   'GET auto': async ({ env }) => autoStatus(env),
-  'POST auto/save': async ({ db, b }) => { const c = cleanAuto({ ...(await getMeta(db, 'auto', AUTO_DEFAULT)), ...(b.cfg && typeof b.cfg === 'object' ? b.cfg : {}) }); await setMeta(db, 'auto', c); return { cfg: c }; },
+  'POST auto/save': async ({ db, b }) => { const c = cleanAuto({ ...ownerPolicy(await getMeta(db, 'auto', AUTO_DEFAULT)), ...(b.cfg && typeof b.cfg === 'object' ? b.cfg : {}) }); await setMeta(db, 'auto', c); return { cfg: c }; },
   'POST auto/reset': async ({ db }) => { const st = await getMeta(db, 'auto_state', {}); delete st.breaker; delete st.fails; delete st.gc_err_runs; if (st.meta) { delete st.meta.br; delete st.meta.th; /* Mở lại sau khi thay token → kiểm token ngay lượt sau */ } await setMeta(db, 'auto_state', st); return { ok: true }; },
   /** Tạm dừng TOÀN BỘ: tắt autopilot (cfg.on) + gỡ lịch các bài autopilot đã xếp trên GrabCast (về nháp, KHÔNG xóa) ≤ 20 bài/lần bấm.
    *  Trước đây công tắc chỉ bỏ qua lượt sau: bài đã lên lịch trên GrabCast vẫn tự đăng. Lỗi dừng (401/403/409/422/429) → ngừng ngay, báo rõ. */
   'POST auto/pause_all': async ({ env, db }) => {
-    const c = cleanAuto({ ...(await getMeta(db, 'auto', AUTO_DEFAULT)), on: false }); await setMeta(db, 'auto', c); await setupMgr(db);
+    const c = cleanAuto({ ...ownerPolicy(await getMeta(db, 'auto', AUTO_DEFAULT)), on: false }); await setMeta(db, 'auto', c); await setupMgr(db);
     const rows = await all(db, "SELECT id, post_id FROM soc_board WHERE by_who = ? AND state = 'scheduled' AND post_id IS NOT NULL ORDER BY want_at LIMIT 21", AUTO_WHO);
     const out = { ok: true, on: false, unscheduled: 0, left: Math.max(0, rows.length - 20), errors: [] };
     if (!rows.length || !gcConfigured(env)) return { ...out, left: gcConfigured(env) ? 0 : rows.length };
@@ -745,17 +751,21 @@ const AUTO_OPS = {
     return { preview: previewClip({ ...c, cover: c.cover || it.cover || '' }, await socialSetup(db).catch(() => ({}))), posted: 0, grabcast_calls: 0 };
   },
   /** Làm mới bảng Kênh sau khi nối kênh trên grabcast.click: 1 lượt GET accounts (API GrabCast có sẵn) → dist_ext (DIST.ext_sync, như bước đồng bộ của runAuto). Không tạo/đăng bài. */
-  'POST auto/channels/sync': async ({ env, db, gc }) => {
+  'POST auto/channels/sync': async ({ env, db, gc, b }) => {
     if (!gcConfigured(env)) throw Object.assign(new Error('no-key'), { status: 412, code: 'no-key' });
-    await setupDist(db); const ar = await (gc || gcClient(env))('GET', 'accounts');
+    await setupDist(db); const t = Date.now(), last = await getMeta(db, 'ch_sync', {}), lim = b && b.force ? 20e3 : 5 * 60e3, gap = t - (+last.at || 0);
+    // Giới hạn: tự Sync khi mở trang ≤ 1 lần/5 phút, bấm tay (force) ≤ 1 lần/20 giây → trả dữ liệu đã lưu, 0 lượt GrabCast (ngân sách ≤ 3000 lượt/ngày)
+    if (gap >= 0 && gap < lim) return { n: null, cached: true, at: +last.at || null, retry_s: Math.ceil((lim - gap) / 1000), channels: await socialChannels(db) };
+    await setMeta(db, 'ch_sync', { at: t });
+    const ar = await (gc || gcClient(env))('GET', 'accounts');
     if (ar.status >= 400) throw Object.assign(new Error('grabcast'), { status: ar.status === 401 || ar.status === 403 ? 502 : ar.status, code: ar.code || 'grabcast-' + ar.status }); // lỗi → KHÔNG ext_sync (danh sách rỗng sẽ đánh dấu mọi kênh 'gone')
     const accs = (ar.data && ar.data.accounts) || [];
-    await DIST.ext_sync(db, { accounts: accs.map(a => ({ platform: platOf(a), id: String(a.id), name: a.display_name || a.username || String(a.id), avatar: a.avatar_url || a.avatar || '', status: a.needs_reconnect ? 'error' : 'ok' })) });
-    return { n: accs.length, channels: await socialChannels(db) };
+    await DIST.ext_sync(db, { accounts: accs.map(extAccount) }, env); // MỘT mapper (extAccount): Pause/health/avatar/ngày nối đầy đủ
+    return { n: accs.length, at: t, channels: await socialChannels(db) };
   },
   'POST auto/run': async ({ env, request, b }) => ({ run: await runAuto(env, { src: 'admin', origin: request.url, force_sync: !!b.sync }) }),
   /** Nút chuyển tay provider: auto (failover tự động) | grabcast | meta. */
-  'POST auto/provider': async ({ db, b }) => { if (!PROVIDERS.includes(b.mode)) throw Object.assign(new Error('bad-input'), { status: 400, code: 'bad-input' }); const c = cleanAuto({ ...(await getMeta(db, 'auto', AUTO_DEFAULT)), provider: b.mode }); await setMeta(db, 'auto', c); return { cfg: c }; },
+  'POST auto/provider': async ({ db, b }) => { if (!PROVIDERS.includes(b.mode)) throw Object.assign(new Error('bad-input'), { status: 400, code: 'bad-input' }); const c = cleanAuto({ ...ownerPolicy(await getMeta(db, 'auto', AUTO_DEFAULT)), provider: b.mode }); await setMeta(db, 'auto', c); return { cfg: c }; },
   /** Token Meta theo kênh (đổi Page/IG ở Quản trị): kiểm bằng 1 lượt Graph rồi lưu mã hóa; xóa cầu dao + sức khỏe của kênh đó. */
   'POST auto/token': async ({ env, db, b }) => { await setupLock(db, env); const out = await setToken(env, db, b); await clearCh(db, out.channel_id); return out; },
   /** Kết nối một chạm (functions/api/_meta_oauth.js): start → { url } + cookie lk_meta; Page chờ chọn; App Secret dán 1 lần (mã hóa). */

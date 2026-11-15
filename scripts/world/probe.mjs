@@ -41,14 +41,17 @@ async function toLesson(c, { list = ANSWER, max = 8 } = {}) {
   return arrived(list);
 }
 
+const PICK = '[data-track]';
 const res = { at: new Date().toISOString(), lang: LANG, device: 'Pixel 7', firstRun: { ok: false }, today: { ok: false }, errors: errs };
 try {
   const c = counter(), t0 = Date.now();
   await page.route(/\/app\/\?hl=/, r => r.request().isNavigationRequest() && !/sandbox=1/.test(r.request().url()) ? r.fulfill({ status: 302, headers: { location: r.request().url().replace('/app/?', '/app/?sandbox=1&') } }) : r.fallback());
   await page.goto(`${O}/${LANG === 'vi' ? '' : LANG + '/'}`, { waitUntil: 'load' });
   if (!(await c.tap(CTA, 1200))) throw new Error('không thấy nút chính trang giới thiệu');
-  await page.waitForSelector('button.trk-opt, #noAcct', { timeout: 15000 });
-  await c.tap('#noAcct'); await c.tap('button.trk-opt'); await c.tap('#obNext', 250);
+  // bước đầu thiết lập = chọn mục tiêu ([data-track]: thẻ radio ở s=goal, nút .trk-opt ở chọn lộ trình) – cùng bộ chọn với journey-e2e
+  // (09/11: bộ chọn cũ 'button.trk-opt' không còn ở s=goal → World scorecard đỏ 10 lượt). Khoá bởi scripts/test/probe-cta.mjs
+  await page.waitForSelector(`${PICK}, #noAcct`, { timeout: 15000 });
+  await c.tap('#noAcct'); await c.tap(PICK); await c.tap('#obNext', 250);
   await c.tap('.trk-lv [data-lv]:not([data-lv="test"])');
   for (let i = 0; i < 8 && !(await vis('#go')); i++) if (!(await c.tap('#obNext', 250))) await sleep(300);
   if (!(await c.tap('#go', 1500))) throw new Error('không tới nút Bắt đầu (#go)');

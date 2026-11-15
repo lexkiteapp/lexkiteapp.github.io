@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // 🎙️ Play & Speak – content/situations/*.json (MỘT nguồn, cổng scripts/test/situations.mjs) → gói lười 'pas':
-//   web/js/speak/data.js          mục lục nhẹ SPK_IDX {id: {g, c, l}} + SPK_P {id|id.lang: đường dẫn cpack, có chữ cpack/… đủ để build-cpack băm tên} + SPK_fill (ghép bản dịch) – nạp cùng gói 'pas'
+//   web/js/speak/data.js          mục lục nhẹ SPK_IDX {id: {g, c, l}} + SPK_P {id: đường dẫn gói gốc, có chữ cpack/… đủ để build-cpack băm tên; đường dẫn bản dịch nằm trong gói gốc (SPK_L)} + SPK_fill (ghép bản dịch) – nạp cùng gói 'pas'
 //   web/cpack/speak/s/<id>.js     tình huống, chuỗi nhiều ngôn ngữ chỉ giữ {en} – nạp khi mở #/speak/<id>
 //   web/cpack/speak/s/<id>.<lang>.js bản dịch của MỘT ngôn ngữ: mảng chuỗi theo thứ tự duyệt các nút {en} – nạp khi mở, chỉ ngôn ngữ đang dùng
 // 3/11: trước đây MỘT gói chứa mọi tình huống × 15 ngôn ngữ (35 tình huống → 984 KB, gzip 517 KB > trần file) dù người học chỉ cần en + 1 ngôn ngữ của 1 tình huống.
@@ -48,9 +48,11 @@ export function build(all) {
   for (const s of all) {
     const { base, tr } = split(s);
     idx[s.id] = { g: s.group, c: s.cefr, l: Object.keys(tr).join(' ') };
-    files[`${s.id}.js`] = `(self.SPK_B || (self.SPK_B = {}))[${JSON.stringify(s.id)}] = ${JSON.stringify(base)};\n`;
+    const P = f => 'cpack/speak/s/' + f, lp = Object.fromEntries(Object.keys(tr).map(l => [l, P(`${s.id}.${l}.js`)]));
+    // gốc (en) mang luôn đường dẫn các bản dịch (chữ cpack/… đủ để build-cpack băm tên: lá trước, gói tham chiếu sau) → data.js không phình theo số ngôn ngữ
+    files[`${s.id}.js`] = `(self.SPK_B || (self.SPK_B = {}))[${JSON.stringify(s.id)}] = ${JSON.stringify(base)};\n(self.SPK_L || (self.SPK_L = {}))[${JSON.stringify(s.id)}] = ${JSON.stringify(lp)};\n`;
+    paths[s.id] = P(`${s.id}.js`);
     for (const [l, a] of Object.entries(tr)) files[`${s.id}.${l}.js`] = `(self.SPK_T || (self.SPK_T = {}))[${JSON.stringify(s.id + '.' + l)}] = ${JSON.stringify(a)};\n`;
-    for (const f of Object.keys(files)) if (f.startsWith(s.id + '.')) paths[f.slice(0, -3)] = 'cpack/speak/s/' + f;
     for (const l of LANGS) { // ghép lại phải đúng nguyên bản (en + l) – không mất chuỗi nào
       const got = l === 'en' ? base : SPK_fill(base, tr[l] || [], l);
       if (!isDeepStrictEqual(got, only(s, l))) throw new Error(`${s.id}: ghép lại ${l} khác nguồn`);

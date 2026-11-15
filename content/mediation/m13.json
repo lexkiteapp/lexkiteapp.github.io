@@ -1,0 +1,118 @@
+{
+ "id": "m13",
+ "level": "B2",
+ "lo": "M.B2.01",
+ "activity": "summarise",
+ "title": "The case for a real lunch break",
+ "scenario": "Your manager Elena is thinking about encouraging a lunchtime walk in her team. She has no time to read the article below. Summarise it for her, including what the writer thinks.",
+ "source": {
+  "kind": "text",
+  "text": [
+   "Few of us now leave the desk at lunchtime. A recent survey of 2,000 office workers in one region found that fewer than one in four take a proper break away from the screen, and nearly half admit to eating while answering messages. Many managers see this as dedication. I think it is a false economy.",
+   "Studies of attention are consistent: after about ninety minutes of concentrated work, performance falls, and a real break, ideally outdoors, restores it. In a trial at a small design studio, staff who walked for twenty minutes at midday made around a third fewer errors in the afternoon than colleagues who stayed at their desks.",
+   "Critics argue that a walk is a luxury when deadlines are tight. But the studio saw no drop in output: the walkers finished the same work in the same time, with fewer corrections. The real obstacle is cultural, because nobody wants to be the first to leave. Leaders therefore have to go first, and say openly that breaks are expected, not merely tolerated.",
+   "Of course, a lunch walk will not fix an unrealistic workload, and it is no substitute for fair deadlines. But as a cheap, quick change it deserves a fairer trial in more workplaces than it gets."
+  ]
+ },
+ "task": {
+  "mode": "write",
+  "audience": "a manager deciding whether to try a new habit",
+  "prompt": "Write a summary for Elena (90–140 words). Keep the writer's main argument, the key evidence and the limits the writer admits.",
+  "min_words": 90,
+  "max_words": 140
+ },
+ "points": [
+  {
+   "id": "stance",
+   "idea": "The writer thinks skipping breaks is a false economy.",
+   "checks": [
+    [
+     "false economy",
+     "counterproductive",
+     "does not pay",
+     "doesn't pay",
+     "a mistake",
+     "backfires"
+    ]
+   ]
+  },
+  {
+   "id": "evidence",
+   "idea": "In a studio trial, walkers made about a third fewer errors with the same output.",
+   "checks": [
+    [
+     "third",
+     "33%"
+    ],
+    [
+     "error",
+     "mistake"
+    ]
+   ]
+  },
+  {
+   "id": "leaders",
+   "idea": "The obstacle is culture, so leaders must go first.",
+   "checks": [
+    [
+     "leader",
+     "manager",
+     "boss"
+    ],
+    [
+     "first"
+    ]
+   ]
+  },
+  {
+   "id": "limit",
+   "idea": "A walk will not fix an unrealistic workload.",
+   "checks": [
+    [
+     "workload",
+     "deadline"
+    ],
+    [
+     "won't",
+     "will not",
+     "no substitute",
+     "doesn't",
+     "cannot",
+     "not solve"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "The survey sample size (2,000 workers).",
+   "checks": [
+    [
+     "2,000",
+     "2000"
+    ]
+   ]
+  },
+  {
+   "idea": "The ninety-minute attention figure.",
+   "checks": [
+    [
+     "ninety",
+     "90"
+    ]
+   ]
+  }
+ ],
+ "model": "Elena, the writer argues that working through lunch is a false economy. Staff rarely take real breaks, and managers often mistake this for commitment. The key evidence comes from a design studio: employees who took a twenty-minute walk at midday made about a third fewer errors in the afternoon, and still produced the same amount of work. According to the writer, the main obstacle is culture, since nobody wants to leave first, so leaders must set the example and make breaks normal. However, the writer admits that a walk will not solve an unrealistic workload. It is a cheap change that is worth a proper trial, and your team could be a good place to start.",
+ "useful": [
+  "The writer argues that …",
+  "The key evidence comes from …",
+  "According to the writer, …",
+  "However, the writer admits that …"
+ ],
+ "tips": [
+  "A summary keeps the author's position, not only the facts. Say what the writer thinks (\"argues\", \"admits\") so the reader knows what is opinion.",
+  "Keep one piece of evidence with its main figure and leave out the supporting statistics that the argument does not depend on."
+ ],
+ "explain": "The summary needs the stance, the best evidence, the point about leaders and the writer's limit. The survey size and the ninety-minute figure are supporting detail that Elena does not need to decide."
+}

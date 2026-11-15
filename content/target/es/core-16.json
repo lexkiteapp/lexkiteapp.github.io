@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -134,13 +134,13 @@
    "pos": "adv",
    "ipa": "ˈmal",
    "gl": {
-    "vi": "tồi tệ, sai",
+    "vi": "tệ, không tốt",
     "en": "badly",
     "es": "mal",
     "pt": "mal",
     "fr": "mal",
     "de": "schlecht",
-    "id": "dengan buruk",
+    "id": "buruk",
     "th": "อย่างแย่",
     "zh": "糟糕地",
     "ja": "悪く",
@@ -152,7 +152,7 @@
    },
    "ex": {
     "es": "Hoy me siento muy mal.",
-    "en": "Today I feel very sick."
+    "en": "Today I feel very bad."
    },
    "rank": 219,
    "qa": {
@@ -292,7 +292,7 @@
   {
    "word": "entre",
    "pos": "prep",
-   "ipa": "ˈɛntɾe",
+   "ipa": "ˈentɾe",
    "gl": {
     "vi": "giữa",
     "en": "between",
@@ -377,7 +377,7 @@
    "plural": "hermanos",
    "ipa": "eɾˈmano",
    "gl": {
-    "vi": "anh em trai",
+    "vi": "anh trai, em trai",
     "en": "brother",
     "es": "hermano",
     "pt": "irmão",
@@ -540,7 +540,7 @@
     "vi": "về phía",
     "en": "towards",
     "es": "hacia",
-    "pt": "para",
+    "pt": "em direção a",
     "fr": "vers",
     "de": "nach",
     "id": "ke arah",
@@ -932,5 +932,13 @@
     ]
    }
   }
- ]
+ ],
+ "review": {
+  "by": "sonnet-review-B",
+  "at": "2026-11-09",
+  "checked": 23,
+  "fixed": 4,
+  "dropped": 0,
+  "sample": 6
+ }
 }

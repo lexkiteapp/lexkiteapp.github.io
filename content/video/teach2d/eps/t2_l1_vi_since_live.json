@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_since_live",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Since needs have.",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I live here since 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have lived here since 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Since needs have plus a verb.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Lived! I have lived here for years.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I live here since 2020.",
+  "right": "I have lived here since 2020.",
+  "strike": "live",
+  "why": "Since needs have plus a verb.",
+  "memory": "Since: have lived.",
+  "quiz": {
+   "stem": "I have ___ here for years.",
+   "options": [
+    "live",
+    "lived"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Nói “since” mà dùng “live”?",
+   "tip": "Với “since/for” cần hiện tại hoàn thành: have + quá khứ phân từ.",
+   "caption": "Bạn có hay nói “I live here since 2020.” không? 😅 Có “since” thì dùng have + V3: “I have lived here since 2020.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “lived”. Kể bạn sống ở đâu bao lâu bằng “I have lived…”. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#hientaihoanthanh",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“since” cần “have lived”!",
+   "tip": "With “since” you need the present perfect: have plus past participle.",
+   "caption": "Do you often say “I live here since 2020.”? With “since” use have + past participle: “I have lived here since 2020.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Nói “since” mà dùng “live”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "Nói “since” mà dùng “live”?",
+  "keyword": "I have lived here since 2020.",
+  "value": "Với “since/for” cần hiện tại hoàn thành: have + quá khứ phân từ.",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#hientaihoanthanh",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "Nói “since” mà dùng “live”?",
+    "description": "Bạn có hay nói “I live here since 2020.” không? 😅 Có “since” thì dùng have + V3: “I have lived here since 2020.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #hientaihoanthanh #lexkite",
+    "tags": [
+     "I have lived here since 2020.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I live here since 2020.” không? 😅 Có “since” thì dùng have + V3: “I have lived here since 2020.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Bạn có hay nói “I live here since 2020.” không? 😅 Có “since” thì dùng have + V3: “I have lived here since 2020.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#hientaihoanthanh",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Nói “since” mà dùng “live”? #hoctienganh #nguphaptienganh #hientaihoanthanh"
+   }
+  },
+  "first_comment": "Đáp án: “lived”. Kể bạn sống ở đâu bao lâu bằng “I have lived…”. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

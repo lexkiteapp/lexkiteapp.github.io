@@ -92,7 +92,7 @@ public protocol SpeechScoring: AnyObject {
         return .heard(text: best.0, score: Int((best.1 * 100 + 0.5).rounded(.down)))
     }
 
-    private static func authorized() async -> Bool {
+    static func authorized() async -> Bool {
         let speech: Bool = await withCheckedContinuation { c in
             SFSpeechRecognizer.requestAuthorization { c.resume(returning: $0 == .authorized) }
         }

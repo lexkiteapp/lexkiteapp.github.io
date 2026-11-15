@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_say_tell",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say me? No, tell me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He said me the truth.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He told me the truth.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use told before the person.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Told! She told me a story.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He said me the truth.",
+  "right": "He told me the truth.",
+  "strike": "said",
+  "why": "Use told before the person.",
+  "memory": "Tell me.",
+  "quiz": {
+   "stem": "She ___ me a story.",
+   "options": [
+    "said",
+    "told"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿Dices “said me”? Es “told me”",
+   "tip": "Con la persona (“me”) usa “tell”. “Say” va sin persona: “He said hello”.",
+   "caption": "En español “me dijo”, pero en inglés cambia 🤔 No digas “He said me the truth.”, sino “He told me the truth.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “told”. “Tell” + persona; “say” + palabras. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#vocabulario",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “said me”? It is “told me”",
+   "tip": "With the person (“me”) use “tell”. “Say” has no person: “He said hello”.",
+   "caption": "In Spanish “me dijo”, but English changes. Do not say “He said me the truth.”, say “He told me the truth.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿Dices “said me”? Es “told me”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "¿Dices “said me”? Es “told me”",
+  "keyword": "He told me the truth.",
+  "value": "Con la persona (“me”) usa “tell”. “Say” va sin persona: “He said hello”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#vocabulario",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "¿Dices “said me”? Es “told me”",
+    "description": "En español “me dijo”, pero en inglés cambia 🤔 No digas “He said me the truth.”, sino “He told me the truth.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #vocabulario #lexkite",
+    "tags": [
+     "He told me the truth.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "En español “me dijo”, pero en inglés cambia 🤔 No digas “He said me the truth.”, sino “He told me the truth.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "En español “me dijo”, pero en inglés cambia 🤔 No digas “He said me the truth.”, sino “He told me the truth.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#vocabulario",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Dices “said me”? Es “told me” #aprenderingles #inglesfacil #vocabulario"
+   }
+  },
+  "first_comment": "Respuesta: “told”. “Tell” + persona; “say” + palabras. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

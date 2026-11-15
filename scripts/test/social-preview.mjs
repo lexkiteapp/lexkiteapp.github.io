@@ -38,7 +38,7 @@ const clip = { id: 'news_taxi_ab_123', lang: 'en', title: 'Get in or get on a ta
   ok(pv.posts.every(x => x.body.media_ids[0] === PV.MEDIA_PLACEHOLDER && x.body.targets.length === 1), 'body đúng hình autopilot (media giữ chỗ, 1 đích)');
   const tk = pv.posts.find(x => x.platform === 'tiktok').body.targets[0].options, yt = pv.posts.find(x => x.platform === 'youtube');
   ok(tk.privacy_level === 'PUBLIC_TO_EVERYONE' && tk.is_aigc === true, 'TikTok: công khai + gắn nhãn AI');
-  ok(yt.title && yt.title.length <= 100 && yt.body.targets[0].options.privacy_status === 'private' && yt.body.targets[0].options.contains_synthetic_media === true, 'YouTube: có title, private, công bố AI');
+  ok(yt.title && yt.title.length <= 100 && yt.body.targets[0].options.privacy_status === 'public' && yt.body.targets[0].options.contains_synthetic_media === true, 'YouTube: có title, công khai, công bố AI');
   ok(pv.posts.find(x => x.platform === 'threads').caption_max === 500 && pv.posts.every(x => x.caption_len <= x.caption_max), 'giới hạn ký tự đúng từng nền tảng');
   ok(pv.posts.every(x => !x.issues.some(i => i.startsWith('error:'))), 'clip đủ metadata: không lỗi chặn – ' + pv.posts.map(x => x.issues.join(',')).join('|'));
   ok(/cover_url/.test(pv.posts.find(x => x.platform === 'instagram').cover), 'bìa: IG ghi cover_url');

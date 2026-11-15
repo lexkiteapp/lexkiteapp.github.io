@@ -1,7 +1,7 @@
 // ci-hog: giám sát chống mù runner (ci-triage sweep mỗi 3 giờ). Hồi quy 03/11: required-gate ~20 lượt workflow_run / sha PR,
 // 43 % số lượt, 771 phút-runner / 2 h → phải báo. Không gọi mạng (gh giả).
 import assert from 'node:assert/strict';
-import { hogReport, syncIssue, fetchRuns, RUN_SHARE, MIN_SHARE, PER_SHA, MARK } from '../ci/ci-hog.mjs';
+import { shardedNames, hogReport, syncIssue, fetchRuns, RUN_SHARE, MIN_SHARE, PER_SHA, MARK } from '../ci/ci-hog.mjs';
 const T0 = Date.parse('2026-11-03T00:00:00Z');
 const run = (name, i, { event = 'pull_request', sha = 's' + i, min = 5, conclusion = 'success', pr = false } = {}) => ({ name, event, head_sha: sha, status: 'completed', conclusion,
   run_started_at: new Date(T0 + i * 6e4).toISOString(), updated_at: new Date(T0 + i * 6e4 + min * 6e4).toISOString(), pull_requests: pr ? [{ number: 1 }] : [] });
@@ -36,4 +36,11 @@ assert.equal(await syncIssue(gh, { bad: [], md: '' }), 'closed');
 const seen = []; const gh2 = async p => { seen.push(p); return { workflow_runs: Array.from({ length: seen.length === 1 ? 100 : 3 }, () => ({})) }; };
 const all = await fetchRuns(gh2, T0, 24, 2);
 assert.equal(seen.length, 13, '12 cửa sổ 2 giờ + 1 trang thêm'); assert.equal(all.length, 100 + 12 * 3);
+// #1076 (12/11): workflow chia shard có chủ đích không bị báo vì % phút thô, nhưng lượt thừa (> 2 lượt/sha) và phút của workflow KHÔNG chia shard vẫn bị bắt
+const sh = [...ok]; for (let i = 0; i < 60; i++) sh.push(run('npm test', i, { min: 60 }));
+assert.ok(hogReport(sh).bad.some(b => b.name === 'npm test' && /phút-runner/.test(b.why)), 'không khai báo shard → % phút vẫn báo');
+assert.equal(hogReport(sh, new Set(['npm test'])).bad.length, 0, 'khai báo shard, 1 lượt/sha → không báo');
+const shr = [...ok]; for (let s = 0; s < 10; s++) for (let k = 0; k < 3; k++) shr.push(run('npm test', 200 + s * 3 + k, { sha: 'q' + s }));
+assert.ok(hogReport(shr, new Set(['npm test'])).bad.some(b => /lượt \/ sha/.test(b.why)), 'chia shard mà 3 lượt/sha → vẫn báo lượt thừa');
+assert.ok(shardedNames().has('npm test'), 'npm-test.yml có dấu "ci-policy: matrix" → được nhận là chia shard');
 console.log('✓ ci-hog: ngưỡng lượt/phút/lượt-sha, issue tự mở/đóng, đọc 24 h theo cửa sổ');

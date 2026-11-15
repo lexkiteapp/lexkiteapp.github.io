@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_plane",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "By plane, no the!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I went there by the plane.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I went there by plane.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "With by, do not add the.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Plane! We travel by plane.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I went there by the plane.",
+  "right": "I went there by plane.",
+  "strike": "by the plane",
+  "why": "With by, do not add the.",
+  "memory": "I went there by plane.",
+  "quiz": {
+   "stem": "We travel by ___.",
+   "options": [
+    "plane",
+    "the plane"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "by the plane？ the はいらない",
+   "tip": "乗り物の手段を言う by のあとには the も a も付けません。",
+   "caption": "“I went there by the plane.”と言っていませんか？😅 「〜で行く」と手段を言うときは by plane、by train のように冠詞なしで言います。 “I went there by plane.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“plane”。by のあとは冠詞なし。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Is it “by the plane”?",
+   "tip": "After by, name the vehicle with no a or the.",
+   "caption": "Do you say “I went there by the plane.”? 😅 To say how you travel, use by plane or by train with no article. The natural way is “I went there by plane.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "by the plane？ the はいらない"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "by the plane？ the はいらない",
+  "keyword": "I went there by plane.",
+  "value": "乗り物の手段を言う by のあとには the も a も付けません。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "by the plane？ the はいらない",
+    "description": "“I went there by the plane.”と言っていませんか？😅 「〜で行く」と手段を言うときは by plane、by train のように冠詞なしで言います。 “I went there by plane.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "I went there by plane.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“I went there by the plane.”と言っていませんか？😅 「〜で行く」と手段を言うときは by plane、by train のように冠詞なしで言います。 “I went there by plane.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I went there by the plane.”と言っていませんか？😅 「〜で行く」と手段を言うときは by plane、by train のように冠詞なしで言います。 “I went there by plane.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "by the plane？ the はいらない #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“plane”。by のあとは冠詞なし。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

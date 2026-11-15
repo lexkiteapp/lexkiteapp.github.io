@@ -90,4 +90,29 @@ class AndroidTtsBackend(ctx: Context) : TtsBackend {
         }
     }
     override fun stop() { runCatching { engine?.stop() } }
+
+    private val casts = HashMap<String, TtsCallback>()
+    private val castListener = object : UtteranceProgressListener() {
+        override fun onStart(utteranceId: String?) { casts[utteranceId]?.let { main.post { it.onStart() } } }
+        override fun onDone(utteranceId: String?) { casts.remove(utteranceId)?.let { main.post { it.onEnd() } } }
+        @Deprecated("API 15") override fun onError(utteranceId: String?) { casts.remove(utteranceId)?.let { main.post { it.onError() } } }
+        override fun onError(utteranceId: String?, errorCode: Int) { casts.remove(utteranceId)?.let { main.post { it.onError() } } }
+    }
+
+    /** Listening cast: queued sentences, each with its own voice / pitch (the engine reads the settings at speak time). */
+    override fun speakCast(text: String, voice: String?, lang: String, pitch: Float, rate: Float, cb: TtsCallback): PlayHandle {
+        val id = "lkc${++serial}"
+        fun go() {
+            val e = engine
+            if (!ready || e == null) { cb.onError(); return }
+            val v = voice?.let { n -> runCatching { e.voices }.getOrNull()?.firstOrNull { it.name == n } }
+            if (v != null) e.voice = v else e.language = Locale.forLanguageTag(lang)
+            e.setSpeechRate(rate); e.setPitch(pitch)
+            casts[id] = cb; e.setOnUtteranceProgressListener(castListener)
+            if (e.speak(text, TextToSpeech.QUEUE_ADD, null, id) == TextToSpeech.ERROR) { casts.remove(id); cb.onError() }
+        }
+        if (ready) go() else queue.add { go() }
+        return object : PlayHandle { override fun stop() { casts.remove(id); runCatching { engine?.stop() } }; override fun positionSec() = 0.0 }
+    }
+    override fun voiceNames(lang: String): List<String> = if (!ready) emptyList() else runCatching { engine?.voices.orEmpty().filter { it.locale.toLanguageTag() == lang }.map { it.name } }.getOrDefault(emptyList())
 }

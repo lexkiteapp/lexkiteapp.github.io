@@ -6,6 +6,7 @@
 // Dùng: node scripts/ci/preview-resolve.mjs [--dry]   (--dry: chỉ phân loại, không ghi)
 import { execFileSync, spawnSync } from 'node:child_process';
 import fs from 'node:fs';
+import { loadDictFile, srcText } from '../lib/i18n-pack.mjs';
 
 export const GENERATED = [
   /^web\/js\/i18n\/[A-Za-z_]+\.js$/,                 // gói dịch lõi (build-i18n.sh / gen-i18n / i18n-fix)
@@ -15,7 +16,7 @@ export const GENERATED = [
   /^web\/css\/st-[^/]+\.css$/,                       // scripts/build-stitch-css.mjs
   /^docs\/CODEMAP\.md$/, /^docs\/codemap\.json$/,
   /^infra\/jobs\.json$/, /^docs\/JOBS\.md$/, /^functions\/api\/_jobs_reg\.js$/, // scripts/jobs/gen.mjs --write
-  /^web\/js\/(path-mix|confidence\/data|lesson\/gold|lesson\/stories)\.js$/, // scripts/path|confidence|lesson build (prepush)
+  /^web\/js\/(path-mix|confidence\/data|lesson\/stories)\.js$/, // scripts/path|confidence|lesson build (prepush)
 ];
 const UNION_TEXT = [/^docs\/STITCH-V2-PORT\.md$/]; // tài liệu liệt kê thêm mục: hợp hai bên (tệp mã như stitch-v2-convert.mjs KHÔNG nằm đây)
 const isGen = f => GENERATED.some(r => r.test(f)), isUnion = f => UNION_TEXT.some(r => r.test(f));
@@ -29,6 +30,13 @@ const DICT = /(Object\.assign\(D\[["'][^"']+["']\]\s*\|\|\s*\{\},\s*)(\{.*\})(\)
 function unionDict(ours, theirs) {
   const a = ours.match(DICT), b = theirs.match(DICT); if (!a || !b) return null;
   try { return theirs.replace(DICT, (_, p, __, s) => p + JSON.stringify({ ...JSON.parse(a[2]), ...JSON.parse(b[2]) }) + s); } catch { return null; }
+}
+
+// Nguồn i18n/ui (mỗi khóa một dòng từ 10/11, regex 1 dòng ở trên không còn khớp): nạp cả hai bằng vm, hợp khóa (bên PR đến thắng), ghi lại đúng định dạng chung.
+function unionSrc(f, ours, theirs) {
+  const d = fs.mkdtempSync((process.env.TMPDIR || '/tmp') + '/pvs-'), [, lang, group] = /^i18n\/ui\/([a-z]{2})(?:\/([^/]+)\.js|\.js)$/.exec(f);
+  fs.writeFileSync(d + '/o.js', ours); fs.writeFileSync(d + '/t.js', theirs);
+  return srcText(lang, group || '', { ...loadDictFile(d + '/o.js'), ...loadDictFile(d + '/t.js') });
 }
 
 const unmerged = [...new Set(git('diff', '--name-only', '--diff-filter=U').split('\n').filter(Boolean))];
@@ -53,7 +61,8 @@ for (const f of unmerged) {
   } else if (f === 'web/fonts/msym.json') {
     out = Buffer.from(JSON.stringify([...new Set([...JSON.parse(ours.toString()), ...JSON.parse(theirs.toString())])].sort()) + '\n'); fonts = true;
   } else if (/^web\/fonts\/msymr?\.woff2$/.test(f)) { out = theirs; fonts = true; } // dựng lại theo danh sách hợp ở bước sinh
-  else if (/^web\/js\/i18n\//.test(f) || I18N_SRC.test(f)) out = unionDict(ours.toString(), theirs.toString()) ? Buffer.from(unionDict(ours.toString(), theirs.toString())) : theirs;
+  else if (I18N_SRC.test(f)) out = Buffer.from(unionSrc(f, ours, theirs));
+  else if (/^web\/js\/i18n\//.test(f)) out = unionDict(ours.toString(), theirs.toString()) ? Buffer.from(unionDict(ours.toString(), theirs.toString())) : theirs;
   else if (isUnion(f)) {
     const d = fs.mkdtempSync((process.env.TMPDIR || '/tmp') + '/pv-'); fs.writeFileSync(d + '/o', ours); fs.writeFileSync(d + '/b', base || ''); fs.writeFileSync(d + '/t', theirs);
     spawnSync('git', ['merge-file', '--union', d + '/o', d + '/b', d + '/t']); out = fs.readFileSync(d + '/o'); fs.rmSync(d, { recursive: true });

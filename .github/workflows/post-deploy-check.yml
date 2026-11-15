@@ -20,8 +20,8 @@ concurrency:
 jobs:
   check:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 45
     env:
       LEXKITE_CI_HEADER: ${{ secrets.LEXKITE_CI_HEADER }}
       BASE: ${{ inputs.base_url || 'https://lexkite.com' }}
@@ -34,12 +34,17 @@ jobs:
         timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 axe-core@4.10.2
-          bash scripts/ci/pw-install.sh --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium webkit
       - name: Soát tuyến live (console / exception / request / ảnh vỡ)
         id: routes
         timeout-minutes: 8
         env: { WAIT_SW: "${{ github.event_name == 'workflow_run' && '1' || '0' }}" }
         run: node scripts/test/post-deploy-check.mjs "$BASE" out/post-deploy
+      - name: Rig giáo viên trên bản live (rig-live.mjs, Call + câu hỏi bài học, Chromium + WebKit, 390/1280, sáng/tối, fps, khớp miệng, giảm chuyển động)
+        id: rig
+        if: ${{ !cancelled() }}
+        timeout-minutes: 25
+        run: node scripts/test/rig-live.mjs "$BASE" out/post-deploy
       - name: Tương phản màu (contrast.mjs, màn chính)
         id: contrast
         if: ${{ !cancelled() }}

@@ -20,7 +20,4 @@ jobs:
       - run: node scripts/ci/upgrade-audit.mjs --measure --check
       - name: Lưu số đo
         run: |
-          git config user.name "lexkite-bot"; git config user.email "lexkite-bot@users.noreply.github.com"
-          git add docs/specs/upgrade-audit.md; git diff --cached --quiet && exit 0
-          git commit -qm "Kiểm toán nâng cấp: cập nhật số đo Lighthouse [CF-Pages-Skip] [skip ci]"
-          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep 5; done; echo "::error::không đẩy được lên main (BOT_DEPLOY_KEY / ruleset?)"; exit 1
+          bash scripts/ci/push-main.sh "Kiểm toán nâng cấp: cập nhật số đo Lighthouse" docs/specs/upgrade-audit.md

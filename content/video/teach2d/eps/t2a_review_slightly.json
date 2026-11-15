@@ -72,5 +72,46 @@
   "words": 37,
   "seconds": 23.3,
   "wpm": 95
+ },
+ "publish": {
+  "title": "What does \"slightly\" mean?",
+  "keyword": "slightly",
+  "value": "Slightly means a little.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=slightly",
+  "script_words": 31,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"slightly\" mean?",
+    "description": "Slightly means a little.\n\nReview your words, free: https://lexkite.com/app/#/review?w=slightly\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "slightly",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"slightly\" mean?\n\nSlightly means a little.\n\nReview your words, free: https://lexkite.com/app/#/review?w=slightly"
+   },
+   "instagram": {
+    "caption": "What does \"slightly\" mean?\n\nSlightly means a little.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"slightly\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a little. Slightly means a little. Try the full lesson and quiz here: {link}"
  }
 }

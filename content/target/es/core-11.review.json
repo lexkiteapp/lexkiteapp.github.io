@@ -1,0 +1,82 @@
+{
+ "fixed": [
+  {
+   "word": "ya",
+   "field": "gl.vi",
+   "from": "đã",
+   "to": "đã, rồi",
+   "why": "thiếu \"rồi\""
+  },
+  {
+   "word": "ni",
+   "field": "gl.vi",
+   "from": "cũng không",
+   "to": "cũng không; không … cũng không",
+   "why": "nghĩa en/vi mơ hồ; hi \"नही\" sai"
+  },
+  {
+   "word": "ni",
+   "field": "gl.en",
+   "from": "neither",
+   "to": "neither, nor",
+   "why": "nghĩa en/vi mơ hồ; hi \"नही\" sai"
+  },
+  {
+   "word": "ni",
+   "field": "gl.id",
+   "from": "juga tidak",
+   "to": "tidak … maupun",
+   "why": "nghĩa en/vi mơ hồ; hi \"नही\" sai"
+  },
+  {
+   "word": "ni",
+   "field": "gl.hi",
+   "from": "नही",
+   "to": "न ... न",
+   "why": "nghĩa en/vi mơ hồ; hi \"नही\" sai"
+  },
+  {
+   "word": "ni",
+   "field": "gl.tr",
+   "from": "ne",
+   "to": "ne ... ne",
+   "why": "nghĩa en/vi mơ hồ; hi \"नही\" sai"
+  },
+  {
+   "word": "luego",
+   "field": "ipa",
+   "from": "luˈeɣo",
+   "to": "ˈlweɣo",
+   "why": "theo es-g2p (ʝ yeísmo / bán nguyên âm / ɛ→e / ˈ nhấn)"
+  },
+  {
+   "word": "luego",
+   "field": "gl.en",
+   "from": "later",
+   "to": "then, later",
+   "why": "ví dụ nghĩa \"then\""
+  },
+  {
+   "word": "mucho",
+   "field": "gl.en",
+   "from": "many",
+   "to": "much, a lot of; many",
+   "why": "chỉ nêu many"
+  },
+  {
+   "word": "esperar",
+   "field": "gl.vi",
+   "from": "chờ đợi",
+   "to": "chờ; hy vọng",
+   "why": "thiếu nghĩa hope"
+  },
+  {
+   "word": "esperar",
+   "field": "gl.en",
+   "from": "to wait",
+   "to": "to wait; to hope",
+   "why": "thiếu nghĩa hope"
+  }
+ ],
+ "dropped": []
+}
