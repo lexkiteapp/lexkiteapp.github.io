@@ -1,0 +1,802 @@
+{
+ "deduction": {
+  "ipaUS": "/dɪˈdʌkʃn/",
+  "col": [
+   "tax deduction",
+   "salary deduction",
+   "make a deduction",
+   "deduction from your pay",
+   "tax-deductible expenses",
+   "logical deduction"
+  ],
+  "syn": [
+   "subtraction",
+   "reduction",
+   "withholding"
+  ]
+ },
+ "delegate": {
+  "ipaUS": "/ˈdeləɡeɪt/",
+  "col": [
+   "delegate a task",
+   "delegate responsibility",
+   "delegate authority",
+   "conference delegate",
+   "delegate to someone",
+   "elected delegate"
+  ],
+  "syn": [
+   "representative",
+   "assign",
+   "entrust"
+  ]
+ },
+ "delicate": {
+  "ipaUS": "/ˈdeləkət/",
+  "col": [
+   "delicate fabric",
+   "delicate matter",
+   "delicate balance",
+   "delicate flavor",
+   "delicate operation",
+   "delicate situation"
+  ],
+  "syn": [
+   "fragile",
+   "sensitive",
+   "subtle"
+  ]
+ },
+ "depart": {
+  "ipaUS": "/dɪˈpɑːrt/",
+  "col": [
+   "depart from",
+   "depart on time",
+   "depart for",
+   "depart at noon",
+   "depart this life",
+   "depart from the norm"
+  ],
+  "syn": [
+   "leave",
+   "set off",
+   "go"
+  ]
+ },
+ "departmental": {
+  "ipaUS": "/ˌdiːpɑːrtˈmentl/",
+  "col": [
+   "departmental meeting",
+   "departmental budget",
+   "departmental head",
+   "departmental policy",
+   "departmental store",
+   "departmental review"
+  ],
+  "syn": [
+   "sectional",
+   "divisional",
+   "unit-level"
+  ]
+ },
+ "dependable": {
+  "ipaUS": "/dɪˈpendəbl/",
+  "col": [
+   "dependable service",
+   "dependable worker",
+   "dependable source",
+   "dependable car",
+   "dependable partner",
+   "prove dependable"
+  ],
+  "syn": [
+   "reliable",
+   "trustworthy",
+   "steady"
+  ]
+ },
+ "designate": {
+  "ipaUS": "/ˈdezɪɡneɪt/",
+  "col": [
+   "designated area",
+   "designate a representative",
+   "designate as",
+   "designated driver",
+   "designated hitter",
+   "designate a successor"
+  ],
+  "syn": [
+   "appoint",
+   "assign",
+   "nominate"
+  ]
+ },
+ "desirable": {
+  "ipaUS": "/dɪˈzaɪrəbl/",
+  "col": [
+   "highly desirable",
+   "desirable location",
+   "desirable outcome",
+   "desirable quality",
+   "most desirable",
+   "socially desirable"
+  ],
+  "syn": [
+   "attractive",
+   "appealing",
+   "advantageous"
+  ]
+ },
+ "desperate": {
+  "ipaUS": "/ˈdesprət/",
+  "col": [
+   "desperate for",
+   "desperate need",
+   "desperate attempt",
+   "desperate situation",
+   "desperate measures",
+   "desperate to leave"
+  ],
+  "syn": [
+   "despairing",
+   "urgent",
+   "frantic"
+  ]
+ },
+ "deteriorate": {
+  "ipaUS": "/dɪˈtɪriəreɪt/",
+  "col": [
+   "deteriorate rapidly",
+   "conditions deteriorate",
+   "health deteriorates",
+   "deteriorate into",
+   "relations deteriorate",
+   "deteriorate further"
+  ],
+  "syn": [
+   "worsen",
+   "decline",
+   "degrade"
+  ]
+ },
+ "developer": {
+  "ipaUS": "/dɪˈveləpər/",
+  "col": [
+   "software developer",
+   "property developer",
+   "web developer",
+   "game developer",
+   "real estate developer",
+   "app developer"
+  ],
+  "syn": [
+   "builder",
+   "programmer",
+   "creator"
+  ]
+ },
+ "diagnose": {
+  "ipaUS": "/ˌdaɪəɡˈnoʊs/",
+  "col": [
+   "diagnose a problem",
+   "be diagnosed with",
+   "diagnose an illness",
+   "correctly diagnose",
+   "diagnose the cause",
+   "diagnose a fault"
+  ],
+  "syn": [
+   "identify",
+   "detect",
+   "determine"
+  ]
+ },
+ "diagnostic": {
+  "ipaUS": "/ˌdaɪəɡˈnɑːstɪk/",
+  "col": [
+   "diagnostic test",
+   "diagnostic tool",
+   "diagnostic software",
+   "diagnostic imaging",
+   "diagnostic error",
+   "run a diagnostic"
+  ],
+  "syn": [
+   "analytical",
+   "investigative",
+   "testing"
+  ]
+ },
+ "diner": {
+  "ipaUS": "/ˈdaɪnər/",
+  "col": [
+   "local diner",
+   "roadside diner",
+   "a diner on the corner",
+   "diner food",
+   "diner booth",
+   "fellow diners"
+  ],
+  "syn": [
+   "restaurant guest",
+   "customer",
+   "eatery"
+  ]
+ },
+ "directory": {
+  "ipaUS": "/dəˈrektəri/",
+  "col": [
+   "phone directory",
+   "staff directory",
+   "online directory",
+   "root directory",
+   "business directory",
+   "directory of services"
+  ],
+  "syn": [
+   "listing",
+   "index",
+   "register"
+  ]
+ },
+ "disable": {
+  "ipaUS": "/dɪsˈeɪbl/",
+  "col": [
+   "disable an account",
+   "disable the alarm",
+   "disable a feature",
+   "temporarily disable",
+   "disable notifications",
+   "disable the setting"
+  ],
+  "syn": [
+   "deactivate",
+   "turn off",
+   "switch off"
+  ]
+ },
+ "discard": {
+  "ipaUS": "/dɪˈskɑːrd/",
+  "col": [
+   "discard old files",
+   "discard packaging",
+   "discard a card",
+   "carefully discard",
+   "discard evidence",
+   "discard unwanted items"
+  ],
+  "syn": [
+   "throw away",
+   "dispose of",
+   "get rid of"
+  ]
+ },
+ "discontinue": {
+  "ipaUS": "/ˌdɪskənˈtɪnjuː/",
+  "col": [
+   "discontinue a product",
+   "discontinue service",
+   "discontinue use",
+   "discontinued model",
+   "discontinue production",
+   "officially discontinued"
+  ],
+  "syn": [
+   "stop",
+   "cease",
+   "withdraw"
+  ]
+ },
+ "disposal": {
+  "ipaUS": "/dɪˈspoʊzl/",
+  "col": [
+   "waste disposal",
+   "at your disposal",
+   "disposal of waste",
+   "safe disposal",
+   "disposal unit",
+   "garbage disposal"
+  ],
+  "syn": [
+   "removal",
+   "clearance",
+   "availability"
+  ]
+ },
+ "disruption": {
+  "ipaUS": "/dɪsˈrʌpʃn/",
+  "col": [
+   "cause disruption",
+   "minimize disruption",
+   "major disruption",
+   "disruption to services",
+   "avoid disruption",
+   "supply chain disruption"
+  ],
+  "syn": [
+   "disturbance",
+   "interruption",
+   "upheaval"
+  ]
+ },
+ "dissatisfy": {
+  "ipaUS": "/dɪsˈsætəsfaɪ/",
+  "col": [
+   "dissatisfied customers",
+   "be dissatisfied with",
+   "deeply dissatisfied",
+   "dissatisfy clients",
+   "leave customers dissatisfied",
+   "dissatisfied with the service"
+  ],
+  "syn": [
+   "displease",
+   "disappoint",
+   "let down"
+  ]
+ },
+ "donation": {
+  "ipaUS": "/doʊˈneɪʃn/",
+  "col": [
+   "make a donation",
+   "charitable donation",
+   "donation to charity",
+   "donation box",
+   "generous donation",
+   "accept donations"
+  ],
+  "syn": [
+   "gift",
+   "contribution",
+   "offering"
+  ]
+ },
+ "downtown": {
+  "ipaUS": "/ˌdaʊnˈtaʊn/",
+  "col": [
+   "go downtown",
+   "downtown area",
+   "downtown office",
+   "live downtown",
+   "downtown Chicago",
+   "head downtown"
+  ],
+  "syn": [
+   "city center",
+   "in town",
+   "central"
+  ]
+ },
+ "drastically": {
+  "ipaUS": "/ˈdræstɪkli/",
+  "col": [
+   "drastically reduce",
+   "drastically change",
+   "drop drastically",
+   "drastically different",
+   "fall drastically",
+   "drastically improve"
+  ],
+  "syn": [
+   "dramatically",
+   "sharply",
+   "radically"
+  ]
+ },
+ "drawback": {
+  "ipaUS": "/ˈdrɔːbæk/",
+  "col": [
+   "major drawback",
+   "main drawback",
+   "serious drawback",
+   "potential drawback",
+   "drawback of",
+   "the only drawback"
+  ],
+  "syn": [
+   "disadvantage",
+   "downside",
+   "shortcoming"
+  ]
+ },
+ "duplicate": {
+  "ipaUS": "/ˈduːplɪkət/",
+  "col": [
+   "duplicate copy",
+   "duplicate a file",
+   "duplicate key",
+   "in duplicate",
+   "duplicate entry",
+   "exact duplicate"
+  ],
+  "syn": [
+   "copy",
+   "replica",
+   "double"
+  ]
+ },
+ "eager": {
+  "ipaUS": "/ˈiːɡər/",
+  "col": [
+   "eager to learn",
+   "eager to please",
+   "eager for",
+   "eagerly awaited",
+   "eager beaver",
+   "eager anticipation"
+  ],
+  "syn": [
+   "keen",
+   "enthusiastic",
+   "impatient"
+  ]
+ },
+ "economical": {
+  "ipaUS": "/ˌekəˈnɑːmɪkl/",
+  "col": [
+   "economical choice",
+   "economical use",
+   "economical car",
+   "economical to run",
+   "economical with the truth",
+   "economical way"
+  ],
+  "syn": [
+   "cheap",
+   "thrifty",
+   "frugal"
+  ]
+ },
+ "economically": {
+  "ipaUS": "/ˌekəˈnɑːmɪkli/",
+  "col": [
+   "economically viable",
+   "economically efficient",
+   "economically disadvantaged",
+   "grow economically",
+   "economically sound",
+   "economically active"
+  ],
+  "syn": [
+   "financially",
+   "thriftily",
+   "cost-effectively"
+  ]
+ },
+ "economist": {
+  "ipaUS": "/ɪˈkɑːnəmɪst/",
+  "col": [
+   "chief economist",
+   "leading economist",
+   "economist predicts",
+   "economist warns",
+   "labor economist",
+   "trained economist"
+  ],
+  "syn": [
+   "analyst",
+   "expert",
+   "academic"
+  ]
+ },
+ "economize": {
+  "ipaUS": "/ɪˈkɑːnəmaɪz/",
+  "col": [
+   "economize on",
+   "need to economize",
+   "economize on fuel",
+   "economize on costs",
+   "try to economize",
+   "economize by"
+  ],
+  "syn": [
+   "save",
+   "cut back",
+   "scrimp"
+  ]
+ },
+ "effectiveness": {
+  "ipaUS": "/ɪˈfektɪvnəs/",
+  "col": [
+   "cost effectiveness",
+   "improve effectiveness",
+   "measure effectiveness",
+   "overall effectiveness",
+   "effectiveness of",
+   "reduce effectiveness"
+  ],
+  "syn": [
+   "efficacy",
+   "impact",
+   "usefulness"
+  ]
+ },
+ "efficiently": {
+  "ipaUS": "/ɪˈfɪʃntli/",
+  "col": [
+   "work efficiently",
+   "run efficiently",
+   "use resources efficiently",
+   "efficiently handle",
+   "operate efficiently",
+   "efficiently and effectively"
+  ],
+  "syn": [
+   "productively",
+   "smoothly",
+   "competently"
+  ]
+ },
+ "electronically": {
+  "ipaUS": "/ˌɪlekˈtrɑːnɪkli/",
+  "col": [
+   "sent electronically",
+   "electronically signed",
+   "submit electronically",
+   "electronically stored",
+   "file electronically",
+   "pay electronically"
+  ],
+  "syn": [
+   "digitally",
+   "online",
+   "by email"
+  ]
+ },
+ "eligible": {
+  "ipaUS": "/ˈelɪdʒəbl/",
+  "col": [
+   "eligible for",
+   "eligible to apply",
+   "eligible employees",
+   "eligible candidate",
+   "be eligible",
+   "eligible bachelor"
+  ],
+  "syn": [
+   "qualified",
+   "entitled",
+   "permitted"
+  ]
+ },
+ "enclose": {
+  "ipaUS": "/ɪnˈkloʊz/",
+  "col": [
+   "enclose a check",
+   "please find enclosed",
+   "enclose a copy",
+   "enclosed document",
+   "enclose with a letter",
+   "enclosed herewith"
+  ],
+  "syn": [
+   "attach",
+   "include",
+   "insert"
+  ]
+ },
+ "energy": {
+  "ipaUS": "/ˈenərdʒi/",
+  "col": [
+   "renewable energy",
+   "energy consumption",
+   "save energy",
+   "solar energy",
+   "energy drink",
+   "full of energy"
+  ],
+  "syn": [
+   "power",
+   "vitality",
+   "stamina"
+  ]
+ },
+ "enjoyable": {
+  "ipaUS": "/ɪnˈdʒɔɪəbl/",
+  "col": [
+   "enjoyable experience",
+   "highly enjoyable",
+   "enjoyable evening",
+   "most enjoyable",
+   "enjoyable read",
+   "an enjoyable time"
+  ],
+  "syn": [
+   "pleasant",
+   "fun",
+   "entertaining"
+  ]
+ },
+ "enormous": {
+  "ipaUS": "/ɪˈnɔːrməs/",
+  "col": [
+   "enormous impact",
+   "enormous amount",
+   "enormous success",
+   "enormous pressure",
+   "enormous task",
+   "absolutely enormous"
+  ],
+  "syn": [
+   "huge",
+   "immense",
+   "vast"
+  ]
+ },
+ "enroll": {
+  "ipaUS": "/ɪnˈroʊl/",
+  "col": [
+   "enroll in a course",
+   "enroll online",
+   "enroll at university",
+   "enroll students",
+   "enroll for classes",
+   "enroll as a member"
+  ],
+  "syn": [
+   "register",
+   "sign up",
+   "join"
+  ]
+ },
+ "enrollment": {
+  "ipaUS": "/ɪnˈroʊlmənt/",
+  "col": [
+   "enrollment form",
+   "open enrollment",
+   "enrollment in",
+   "enrollment figures",
+   "student enrollment",
+   "enrollment period"
+  ],
+  "syn": [
+   "registration",
+   "admission",
+   "sign-up"
+  ]
+ },
+ "enthusiasm": {
+  "ipaUS": "/ɪnˈθuːziæzəm/",
+  "col": [
+   "great enthusiasm",
+   "with enthusiasm",
+   "enthusiasm for",
+   "lack of enthusiasm",
+   "show enthusiasm",
+   "boundless enthusiasm"
+  ],
+  "syn": [
+   "passion",
+   "eagerness",
+   "zeal"
+  ]
+ },
+ "enthusiastic": {
+  "ipaUS": "/ɪnˌθuːziˈæstɪk/",
+  "col": [
+   "enthusiastic about",
+   "enthusiastic response",
+   "enthusiastic supporter",
+   "wildly enthusiastic",
+   "enthusiastic team",
+   "less than enthusiastic"
+  ],
+  "syn": [
+   "eager",
+   "excited",
+   "keen"
+  ]
+ },
+ "enthusiastically": {
+  "ipaUS": "/ɪnˌθuːziˈæstɪkli/",
+  "col": [
+   "respond enthusiastically",
+   "welcome enthusiastically",
+   "nod enthusiastically",
+   "applaud enthusiastically",
+   "enthusiastically received",
+   "enthusiastically support"
+  ],
+  "syn": [
+   "eagerly",
+   "energetically",
+   "keenly"
+  ]
+ },
+ "environmentally": {
+  "ipaUS": "/ɪnˌvaɪrənˈmentəli/",
+  "col": [
+   "environmentally friendly",
+   "environmentally safe",
+   "environmentally conscious",
+   "environmentally sustainable",
+   "environmentally responsible",
+   "environmentally damaging"
+  ],
+  "syn": [
+   "ecologically",
+   "green",
+   "sustainably"
+  ]
+ },
+ "escort": {
+  "ipaUS": "/ɪˈskɔːrt/",
+  "col": [
+   "escort visitors",
+   "security escort",
+   "police escort",
+   "under escort",
+   "escort someone to",
+   "armed escort"
+  ],
+  "syn": [
+   "accompany",
+   "guide",
+   "chaperone"
+  ]
+ },
+ "evacuate": {
+  "ipaUS": "/ɪˈvækjueɪt/",
+  "col": [
+   "evacuate the building",
+   "evacuate staff",
+   "evacuate residents",
+   "evacuate immediately",
+   "evacuate from",
+   "mass evacuation"
+  ],
+  "syn": [
+   "clear",
+   "empty",
+   "remove"
+  ]
+ },
+ "exceptional": {
+  "ipaUS": "/ɪkˈsepʃənl/",
+  "col": [
+   "exceptional quality",
+   "exceptional service",
+   "exceptional circumstances",
+   "exceptional talent",
+   "exceptional case",
+   "truly exceptional"
+  ],
+  "syn": [
+   "outstanding",
+   "remarkable",
+   "extraordinary"
+  ]
+ },
+ "exclusive": {
+  "ipaUS": "/ɪkˈskluːsɪv/",
+  "col": [
+   "exclusive offer",
+   "exclusive rights",
+   "exclusive interview",
+   "exclusive club",
+   "exclusive of tax",
+   "exclusive to members"
+  ],
+  "syn": [
+   "sole",
+   "private",
+   "select"
+  ]
+ },
+ "exclusively": {
+  "ipaUS": "/ɪksˈkluːsɪvli/",
+  "col": [
+   "exclusively for",
+   "sold exclusively",
+   "available exclusively",
+   "exclusively online",
+   "focus exclusively on",
+   "exclusively male"
+  ],
+  "syn": [
+   "solely",
+   "only",
+   "entirely"
+  ]
+ }
+}
