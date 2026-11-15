@@ -1,5 +1,7 @@
 /* AI chấm bài miễn phí cho mọi người (không cần tự lấy khóa) – Cloudflare Pages Functions.
- * POST /api/ai  { prompt, sys, kind? }  (Authorization: Bearer <Firebase ID token> – không bắt buộc)
+ * POST /api/ai  { prompt, task: 'grade'|'explain'|'rp'|'rpcoach'|'import', lang?, rp?: { kind, lv, L, name, role, persona, goal, title, you }, n? }
+ *   Prompt hệ thống do MÁY CHỦ chọn theo task (functions/api/_aitask.js) – trường `sys` cũ bị bỏ qua (máy khách cũ: suy task từ kind/sys, vẫn dùng bản của máy chủ).
+ *   Khách: header X-Lexkite-Human = vé người thật (web/js/human.js → /api/human, docs/HUMAN.md); đăng nhập (Authorization: Bearer <Firebase ID token>) thì khỏi cần.
  *   → { out: <JSON kết quả>, left: lượt còn lại hôm nay, model, tier }
  * Chuỗi model theo chất lượng: functions/api/_aichain.js (Gemini Flash → Groq gpt-oss-120b → [Llama 8B chỉ khi golden đạt]) – docs/AI-CHAIN.md.
  * Hạn mức: functions/api/_quota.js (tính năng 'ai' = chấm bài, 'chat' = Roleplay kind 'rp') – theo người + theo IP + cầu dao nhà cung cấp
@@ -12,13 +14,16 @@ import { candidates, report, poolKeys, poolCount, resetPool, coolingValue, gemFe
 import { runChain, gemModels, GEM_FALLBACK } from './_aichain.js';
 import { mixStmt, pruneStmt, WEAK } from './_aimix.js';
 import { once } from './_schema.js';
+import { readJSON, bodyFail } from './_body.js';
+import { humanGate } from './_human.js';
+import { pickSys, enforceHuman } from './_aitask.js';
 
 const MAX_PROMPT = 14000;
 const CACHE_V = 'v2|'; // 03/11: đổi chuỗi model → bỏ đệm cũ (có câu chấm sai của Llama 8B)
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 let ready = false;
 
-const cors = req => { const o = req.headers.get('Origin') || ''; return ORIGINS.test(o) ? { 'Access-Control-Allow-Origin': o, 'Access-Control-Allow-Headers': 'Authorization, Content-Type, X-Lexkite-Device', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Max-Age': '86400', Vary: 'Origin' } : {}; };
+const cors = req => { const o = req.headers.get('Origin') || ''; return ORIGINS.test(o) ? { 'Access-Control-Allow-Origin': o, 'Access-Control-Allow-Headers': 'Authorization, Content-Type, X-Lexkite-Device, X-Lexkite-Human', 'Access-Control-Allow-Methods': 'POST, OPTIONS', 'Access-Control-Max-Age': '86400', Vary: 'Origin' } : {}; };
 const json = (req, status, data) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', ...cors(req) } });
 const sha = async s => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)))].map(b => b.toString(16).padStart(2, '0')).join('');
 
@@ -73,18 +78,21 @@ export const onRequestOptions = ({ request }) => new Response(null, { status: 20
 
 export async function onRequestPost({ request, env, waitUntil }) {
   if (!env.DB) return json(request, 500, { error: 'no-db' });
-  if (+(request.headers.get('Content-Length') || 0) > 65536) return json(request, 413, { error: 'size' }); // đề ≤ 14 000 + sys ≤ 4 000 ký tự
-  let body; try { body = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
-  if (!body || typeof body !== 'object') return json(request, 400, { error: 'json' });
-  const prompt = String(body.prompt || ''), sys = String(body.sys || '').slice(0, 4000), rp = body.kind === 'rp', imp = body.kind === 'import'; // 'import' = AI điền nghĩa cho Nhập tài liệu (tính năng `import`, đếm theo từ)
+  let body; try { body = await readJSON(request, 65536); } catch (e) { const f = bodyFail(e, 'size'); return json(request, f.status, { error: f.error }); } // đề ≤ 14 000 ký tự + tham số roleplay; đếm byte thật, không tin Content-Length
+  if (!body || typeof body !== 'object' || Array.isArray(body)) return json(request, 400, { error: 'json' });
+  const prompt = String(body.prompt || '');
   if (prompt.length < 40 || prompt.length > MAX_PROMPT) return json(request, 400, { error: 'size' });
+  const pick = pickSys(body); if (pick.error) return json(request, 400, { error: pick.error });
+  const { sys, rp, imp } = pick; // 'import' = AI điền nghĩa cho Nhập tài liệu (tính năng `import`, đếm theo từ)
   const who = await claims((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
-  const q = await gate(request, env, rp ? 'chat' : imp ? 'import' : 'ai', { who, json }); // khóa/burst/hết lượt → 429 { error:'quota', … }
+  const hg = await humanGate(request, env, { who }); // đăng nhập → bỏ qua; khách → vé X-Lexkite-Human (web/js/human.js)
+  if (!hg.ok && enforceHuman(env)) return json(request, hg.status, { error: hg.error });
+  const q = await gate(request, env, rp ? 'chat' : imp ? 'import' : 'ai', { who, json, lowTrust: !hg.ok }); // khóa/burst/hết lượt → 429 { error:'quota', … }
   if (q.res) return q.res;
   if (waitUntil) await maybeHealth(env, waitUntil); // kiểm sức khỏe khóa lười (> 24 h, chạy nền)
   try {
     await setup(env.DB);
-    const h = await sha(CACHE_V + sys + '\n' + prompt);
+    const h = await sha(CACHE_V + pick.task + '\n' + sys + '\n' + prompt); // đệm theo task + prompt hệ thống (máy chủ dựng) + đề
     const hit = await env.DB.prepare('SELECT out FROM ai_cache WHERE h = ?').bind(h).first();
     if (hit) return json(request, 200, { out: JSON.parse(hit.out), cached: true }); // bài đã chấm → không tốn lượt (không báo số lượt còn lại)
     await q.take(imp ? Math.min(20, Math.max(1, Math.floor(+body.n) || 1)) : 1); if (q.res) return q.res;
