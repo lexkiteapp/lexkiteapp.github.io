@@ -279,7 +279,7 @@
     pron: ['js/i18n/en/pron.js', 'cpack/pron/sounds.js', 'cpack/pron/skills.js', 'js/pron/pairs.js', 'js/pron/sayit.js', 'js/pron/coach.js', 'js/pron/rhythm.js', 'js/st/v2/runtime.js', 'js/st/v2/pron-hub.js', 'js/pron.js'],
     shadow: ['js/speak/score.js', 'js/pron/shadow.js'], // Nói đuổi liên tục (nút trong pron/rhythm.js)
     words: ['js/lib/topics-more.js', 'js/lib/skills.js', 'js/lib/awl.js', 'js/lib/ngsl.js', 'js/lib/ngsl2.js', 'js/lib/office.js', 'js/distract.js'], // 4 kho từ (~145 KB nén) – không chặn trang đầu, tải khi cần/lúc rảnh
-    readings: ['js/reading.js', 'js/readings.js', 'cpack/readings/more.js', 'js/choice-kit.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
+    readings: ['js/reading.js', 'js/readings.js', 'cpack/readings/more.js', 'js/choice-kit.js', 'js/exam-clock.js', 'js/cbt.js', 'js/method.js'], // 30 bài đọc – chỉ tải khi cần (trang chủ tự điền mục "Bài đọc hôm nay")
     l1: ['cpack/grammar-l1/ar.js', 'cpack/grammar-l1/de.js', 'cpack/grammar-l1/es.js', 'cpack/grammar-l1/fr.js', 'cpack/grammar-l1/hi.js', 'cpack/grammar-l1/id.js', 'cpack/grammar-l1/ja.js', 'cpack/grammar-l1/ko.js', 'cpack/grammar-l1/pt.js', 'cpack/grammar-l1/ru.js', 'cpack/grammar-l1/th.js', 'cpack/grammar-l1/tr.js', 'cpack/grammar-l1/vi.js', 'cpack/grammar-l1/zh.js'], // ghi chú "vì sao sai" theo tiếng mẹ đẻ – grammar.js nạp đúng 1 gói theo ngôn ngữ giao diện (L1_PACK), KHÔNG prefetch cả 14
     klocal: ['js/klocal.js'], // Kokoro trên máy cho chữ chưa có file dựng sẵn (docs/specs/kokoro-on-device.md) – tự quyết có nạp mô hình hay không
     voice: ['js/listen/kvoice.js', 'js/listen/audio-index.js'], // danh mục giọng Kokoro: mọi lần phát âm từ/câu dùng giọng chất lượng cao nếu có
@@ -295,7 +295,7 @@
     courses: ['js/courses.js'],
     goal: ['js/i18n/en/goal.js', 'js/st/common.js', 'js/st/goal.js', 'js/goal.js'],
     paraphrase: ['js/lib/paraphrase-data.js', 'js/paraphrase.js'],
-    listening: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', ...[1, 2, 3, 4, 5, 6, 7, 8].map(n => `js/listen/test${n}.js`), 'cpack/listen/test9.js', 'cpack/listen/test10.js', 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/listening.js'],
+    listening: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', ...[1, 2, 3, 4, 5, 6, 7, 8].map(n => `js/listen/test${n}.js`), 'cpack/listen/test9.js', 'cpack/listen/test10.js', 'js/listen/kvoice.js', 'js/listen/audio-index.js', 'js/exam-clock.js', 'js/listening.js'],
     writing: ['js/i18n/en/ideast.js', 'cpack/write/task2-more.js', 'cpack/write/task1-more.js', 'js/write/task1-more2.js', 'cpack/write/ideas.js', 'js/write.js', 'js/task1.js', 'cpack/write/models.js', 'cpack/write/models2.js', 'cpack/write/models3.js', 'cpack/write/models4.js', 'cpack/write/models5.js', 'js/write/gt-letters.js', 'js/letters.js', 'js/ideas.js', 'js/phrases-model.js'], // phrases-model.js: #/model #/models #/phrases (tách khỏi phrases.js 01/11)
     mock: ['js/choice-kit.js', 'js/qengine.js', 'js/i18n/en/qtips.js', 'js/qtips.js', 'js/readtest/_i.js', 'js/readtest/test1.js', 'js/readtest/test2.js', 'js/readtest/test3.js', 'js/readtest/test4.js', 'js/readtest/test5.js', 'js/readtest/test6.js', 'js/readtest/test7.js', 'js/readtest/test8.js', 'js/readtest/test9.js', 'js/readtest/test10.js', 'js/readtest/explain-a.js', 'js/readtest/explain-b.js', 'js/readtest/explain-c.js', 'js/readtest/explain-d.js', 'js/readtest/explain-e.js', 'js/readtest/explain-f.js', 'js/readtest/explain-g.js', 'js/readtest/gt1.js', 'js/readtest/gt2.js', 'js/readtest/explain-gt.js', 'cpack/readtest/gt3.js', 'js/mock.js', 'js/rtype.js', 'js/speech-session.js'],
     dist: ['js/distract.js'],
@@ -331,7 +331,7 @@
     streak: ['js/streak-ui.js'],
     ret: ['js/i18n/en/ret.js', 'js/retention.js'],
     // 📖 trang Từ điển #/dict (tách khỏi app.js 01/11)
-    dictp: ['js/dict-page.js'],
+    dictp: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/dict.js', 'js/dict-page.js'],
     statsp: ['js/stats-page.js'],
     // 🔤 Chia động từ · ✍️ Sửa ngữ pháp
     vcore: ['js/verbs-core.js'],
@@ -493,6 +493,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     call: ['css/st-v2-teacher-call.css'],
     cambridge: 'css/exam.css',
     dayv2: 'css/st-v2-day.css',
+    dictp: 'css/st-v2-dict.css',
     espr: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css'],
     ghub: 'css/st-v2-grammar.css',
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
