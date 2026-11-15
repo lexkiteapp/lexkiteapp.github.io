@@ -171,6 +171,8 @@ To work on individual sounds such as /ə/ before tackling whole phrases, open th
 
 For phrases to practise these sounds in real situations, see [speak English with confidence](/en/blog/speak-english-with-confidence/).
 
+Linking and pausing also matter when reading text aloud; see [PTE read aloud pronunciation tips](/en/blog/pte-read-aloud-pronunciation/).
+
 ## Frequently asked questions
 
 ### Do I need connected speech to get a high IELTS Speaking score?

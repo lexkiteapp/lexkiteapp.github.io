@@ -152,6 +152,8 @@ Because Task 2 carries more weight, read our [IELTS Writing Task 2 structure](/e
 
 {{youtube: | Video idea: writing a line graph overview in under three minutes, using an invented three-line chart}}
 
+Task 1 is a graph in Academic but a letter in General Training; [IELTS General vs Academic for immigration](/en/blog/ielts-general-vs-academic-immigration/) explains the difference.
+
 ## Frequently asked questions
 
 ### Should the overview go at the start or the end?
