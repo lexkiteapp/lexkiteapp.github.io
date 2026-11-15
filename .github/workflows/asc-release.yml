@@ -1,0 +1,39 @@
+# Nộp bản cập nhật iOS lên App Store Connect bằng API chính thức (scripts/asc-upload.mjs, secret ASC_*; JWT không in ra log):
+#   1) tạo version store/apple/listing.json › version (vd 1.1, phát hành THỦ CÔNG) nếu chưa có · chữ niêm yết 15 ngôn ngữ + whatsNew (store/metadata/<mã>.json) + ghi chú người duyệt
+#   2) cài đặt nộp duyệt (quyền nội dung, độ tuổi, giá, quốc gia, liên hệ duyệt – idempotent)
+#   3) gắn build VALID mới nhất (hoặc `build`) + reviewSubmission; submit=true mới GỬI DUYỆT thật (owner đồng ý 13/11).
+# Build lên TestFlight trước bằng "iOS → TestFlight" (version = listing.json › version). dry=true: chỉ in việc sẽ làm, không ghi.
+name: iOS → App Store Connect (nộp duyệt)
+on:
+  workflow_dispatch:
+    inputs:
+      build: { description: 'Số build gắn vào bản (trống = VALID mới nhất)', required: false, default: '' }
+      submit: { description: 'GỬI DUYỆT thật (Submit for Review)', type: boolean, default: false }
+      dry: { description: 'Chỉ in việc sẽ làm, không ghi gì', type: boolean, default: true }
+permissions:
+  contents: read
+concurrency: { group: asc-release, cancel-in-progress: false }
+jobs:
+  asc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+      ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+      ASC_KEY_P8: ${{ secrets.ASC_KEY_P8 }}
+      ASC_REVIEW_PHONE: ${{ secrets.ASC_REVIEW_PHONE }}   # số liên hệ người duyệt – chỉ ở secret, không ở repo
+      ASC_BUILD: ${{ inputs.build }}
+      ASC_SUBMIT: ${{ inputs.submit && 'yes' || 'no' }}
+      DRY: ${{ inputs.dry && '--dry-run' || '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Kiểm listing offline
+        run: node scripts/asc-upload.mjs --check
+      - name: 1/3 Tạo bản + chữ niêm yết + whatsNew
+        run: set -o pipefail; node scripts/asc-upload.mjs $DRY --only text | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: 2/3 Cài đặt nộp duyệt
+        run: set -o pipefail; node scripts/asc-upload.mjs $DRY --only settings | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: 3/3 Gắn build + (tuỳ chọn) gửi duyệt
+        run: set -o pipefail; node scripts/asc-upload.mjs $DRY --only review | tee -a "$GITHUB_STEP_SUMMARY"

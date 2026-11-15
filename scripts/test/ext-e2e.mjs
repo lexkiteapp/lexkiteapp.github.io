@@ -61,6 +61,7 @@ await ctx.route('https://t7.example.com/**', r => r.fulfill({ contentType: 'text
 await ctx.route('https://t4.example.com/**', r => r.fulfill({ contentType: 'text/html', body: RTL }));
 const OURS = /^(chrome-extension:|about:|https:\/\/t\d\.example\.com\/|https:\/\/(www\.)?lexkite\.com\/)/;
 ctx.on('page', p => {
+  p.on('response', r => { if (r.status() >= 500) { const q = r.request(); console.log(`(chẩn đoán ${r.status()}: ${q.method()} ${q.url().slice(0, 120)} loại=${q.resourceType()} sw=${r.fromServiceWorker()} server=${r.headers().server || '-'} cf-ray=${r.headers()['cf-ray'] || '-'} frame=${(q.frame() ? q.frame().url() : '').slice(0, 80)} từ=${(q.headers().referer || '').slice(0, 80)})`); } });
   // Trang thật của mục 6 (Guardian…) tự ném lỗi của nó (video autoplay) → chỉ tính khi vết lỗi trỏ về add-on; trang test + trang add-on luôn tính
   p.on('pageerror', e => { if (OURS.test(p.url()) || /chrome-extension:/.test(e.stack || '')) errors.push(`page ${p.url().slice(0, 60)}: ${e.message}`); else console.log(`(bỏ qua lỗi riêng của ${p.url().slice(0, 60)}: ${e.message.slice(0, 100)})`); });
   p.on('console', m => { if (m.type() === 'error' && /chrome-extension|lexkite|Lexkite/.test(m.text() + (m.location().url || '')) && !(/Failed to load resource/.test(m.text()) && /audio\.lexkite\.com\/audio\/w\/[a-z0-9]+\.mp3/.test(m.location().url || ''))) errors.push(`console ${p.url().slice(0, 50)}: ${m.text().slice(0, 160)} @ ${(m.location().url || '').slice(0, 120)}`); });

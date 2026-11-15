@@ -437,7 +437,6 @@
 "Xin để lại lời nhắn":"Minta meninggalkan pesan",
 "Xong {a}/{b} câu.":"Selesai: {a} dari {b} kalimat.",
 "Xử lý khi lỡ chuyến, chuyến bay bị hủy, mất hành lý hoặc đổi cổng.":"Hadapi penerbangan yang ketinggalan atau dibatalkan, tas hilang, atau perubahan gerbang.",
-"{a}/{b} bài":"{a}/{b} pelajaran",
 "{n} ngày liên tiếp – giữ nhịp nhé!":"{n} hari berturut-turut – pertahankan!",
 "{n} trên 5":"{n} dari 5",
 "Âm thanh chỉ ở trong trình duyệt này và bị xóa khi rời trang. Chữ được chuyển bằng trình nhận dạng của trình duyệt (hoặc Whisper ngay trên máy nếu bạn đã bật).":"Audiomu tetap di browser ini dan dihapus saat kamu meninggalkan halaman. Ucapan diubah menjadi teks oleh pengenalan suara browsermu (atau oleh Whisper di perangkat ini jika kamu mengaktifkannya).",

@@ -66,7 +66,7 @@
    "answer": 1
   },
   "native": {
-   "hook": "« Il m'a dit » : “told me”",
+   "hook": "“Said me” : pas de l’anglais !",
    "tip": "Avec une personne, on dit “told me”. “Said me” n'existe pas.",
    "caption": "Tu dis “He said me the truth.” ? Avec « me », il faut “told”. Dis “He told me the truth.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.",
    "comment": "Réponse : “told”. Avec une personne, on utilise “tell”. Teste d'autres pièges avec un quiz gratuit : {link}",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "« Il m'a dit » : “told me”"
+  "text": "“Said me” : pas de l’anglais !"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 99
  },
  "publish": {
-  "title": "« Il m'a dit » : “told me”",
+  "title": "“Said me” : pas de l’anglais !",
   "keyword": "He told me the truth.",
   "value": "Avec une personne, on dit “told me”. “Said me” n'existe pas.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 42,
   "platforms": {
    "youtube": {
-    "title": "« Il m'a dit » : “told me”",
+    "title": "“Said me” : pas de l’anglais !",
     "description": "Tu dis “He said me the truth.” ? Avec « me », il faut “told”. Dis “He told me the truth.”. Écoute Carlos et répète avec lui ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "He told me the truth.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "« Il m'a dit » : “told me” #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "“Said me” : pas de l’anglais ! #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
   "first_comment": "Réponse : “told”. Avec une personne, on utilise “tell”. Teste d'autres pièges avec un quiz gratuit : {link}",

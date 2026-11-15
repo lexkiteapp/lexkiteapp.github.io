@@ -65,6 +65,7 @@ object CardMath {
 
     /** app.js origin(c): anki > youtube > web > reading > dict > library. */
     fun origin(c: JsonObject): String {
+        if (c.gs("topic") == "import") return "doc"
         if (c.gt("deck") || c.gs("topic") == "anki") return "anki"
         val ctxs = c.ga("contexts").mapNotNull { it as? JsonObject }
         val ctx = ctxs.firstOrNull { it.gt("source") } ?: ctxs.lastOrNull()
@@ -76,10 +77,10 @@ object CardMath {
         return "library"
     }
     /** Personal-collection keys in display order (web ORIGINS); name/desc keys are the web's Vietnamese source strings. */
-    val ORIGINS = listOf("youtube", "web", "reading", "dict", "library", "anki")
-    val ORIGIN_EMOJI = mapOf("youtube" to "▶️", "web" to "🌐", "reading" to "📖", "dict" to "🔎", "library" to "📚", "anki" to "🃏")
-    val ORIGIN_NAME = mapOf("youtube" to "Từ YouTube & video", "web" to "Từ trang web", "reading" to "Từ bài đọc", "dict" to "Từ tra từ điển", "library" to "Từ thư viện", "anki" to "Từ Anki")
-    val ORIGIN_DESC = mapOf("youtube" to "Lưu khi xem video có phụ đề", "web" to "Lưu bằng add-on khi đọc báo, blog…", "reading" to "Lưu khi đọc bài trong Lexkite", "dict" to "Từ bạn tự tra và lưu", "library" to "Thêm từ các bộ từ IELTS", "anki" to "Nhập từ bộ thẻ Anki")
+    val ORIGINS = listOf("youtube", "web", "reading", "dict", "library", "anki", "doc")
+    val ORIGIN_EMOJI = mapOf("youtube" to "▶️", "web" to "🌐", "reading" to "📖", "dict" to "🔎", "library" to "📚", "anki" to "🃏", "doc" to "📥")
+    val ORIGIN_NAME = mapOf("youtube" to "Từ YouTube & video", "web" to "Từ trang web", "reading" to "Từ bài đọc", "dict" to "Từ tra từ điển", "library" to "Từ thư viện", "anki" to "Từ Anki", "doc" to "Từ tài liệu")
+    val ORIGIN_DESC = mapOf("youtube" to "Lưu khi xem video có phụ đề", "web" to "Lưu bằng add-on khi đọc báo, blog…", "reading" to "Lưu khi đọc bài trong Lexkite", "dict" to "Từ bạn tự tra và lưu", "library" to "Thêm từ các bộ từ IELTS", "anki" to "Nhập từ bộ thẻ Anki", "doc" to "Nhập từ văn bản, PDF, ePub, phụ đề")
 
     /** phrases.js isPhrase */
     fun isPhrase(c: JsonObject): Boolean = Regex(JSWS).containsMatchIn(c.gs("word").jsTrim()) || c.gs("pos") == "phrase" || c.gs("topic") == "phrases"

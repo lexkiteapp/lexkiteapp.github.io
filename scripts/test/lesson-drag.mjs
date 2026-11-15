@@ -109,5 +109,20 @@ ok(!/ChoiceKit\.tiles|TileDrag|lesson\/drag\.js/.test(SRC('web/js/app.js') + SRC
 const app = SRC('web/js/app.js');
 ok(['lesson', 'grammar', 'toefl'].every(k => new RegExp(`\\b${k}: \\[[^\\]]*'js/word-arrange\\.js'`).test(app)), 'gói lesson/grammar/toefl nạp word-arrange.js');
 
+// D. ResizeObserver: đo lại bề rộng KHÔNG đổi minHeight ngay trong callback (gây "ResizeObserver loop completed with undelivered notifications", qa-bot journey@1440d) mà ở khung kế
+{
+  const d2 = new jsdom.JSDOM('<div id="a"></div><div id="b"></div>', { runScripts: 'outside-only', pretendToBeVisual: true }), w2 = d2.window; let cb = null;
+  w2.ResizeObserver = class { constructor(f) { cb = f; } observe() {} disconnect() {} };
+  w2.eval(fs.readFileSync('web/js/word-arrange.js', 'utf8'));
+  const a = w2.document.getElementById('a'), b = w2.document.getElementById('b'); let wd = 400;
+  Object.defineProperty(a, 'offsetWidth', { get: () => wd }); Object.defineProperty(a, 'offsetHeight', { get: () => 90 }); Object.defineProperty(w2.HTMLElement.prototype, 'offsetHeight', { get: () => 90, configurable: true });
+  b.innerHTML = '<button class="lsn-tile" data-i="0">x</button>'; a.getBoundingClientRect = () => ({ left: 0, top: 0, width: wd, height: 40, right: wd, bottom: 40 });
+  w2.WordArrange.bind({ ans: a, bank: b, get: () => [], set() {}, draw() {}, locked: () => false, word: () => 'x', say() {}, t: x => x });
+  a.style.minHeight = ''; wd = 300; cb && cb();
+  ok(cb && a.style.minHeight === '', 'ResizeObserver: callback không đổi minHeight ngay (tránh vòng RO)');
+  await new Promise(r => w2.requestAnimationFrame(() => setTimeout(r, 30)));
+  ok(a.style.minHeight === '90px', 'ResizeObserver: khung kế đo lại bề rộng mới');
+}
+
 console.log(`\n${total - fails}/${total} lesson-drag`);
 process.exit(fails ? 1 : 0);

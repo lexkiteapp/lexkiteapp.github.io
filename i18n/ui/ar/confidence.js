@@ -437,7 +437,6 @@
 "Xin để lại lời nhắn":"اطلب ترك رسالة",
 "Xong {a}/{b} câu.":"تم: {a} من {b} جمل.",
 "Xử lý khi lỡ chuyến, chuyến bay bị hủy, mất hành lý hoặc đổi cổng.":"تعامل مع رحلة فائتة أو ملغاة، وحقيبة مفقودة، أو تغيير البوابة.",
-"{a}/{b} bài":"{a}/{b} دروس",
 "{n} ngày liên tiếp – giữ nhịp nhé!":"{n} أيام متتالية – واصل!",
 "{n} trên 5":"{n} من 5",
 "Âm thanh chỉ ở trong trình duyệt này và bị xóa khi rời trang. Chữ được chuyển bằng trình nhận dạng của trình duyệt (hoặc Whisper ngay trên máy nếu bạn đã bật).":"يبقى صوتك في هذا المتصفح ويُحذف عند مغادرة الصفحة. يتحول الكلام إلى نص بواسطة التعرف على الكلام في متصفحك (أو بواسطة Whisper على هذا الجهاز إذا فعّلته).",

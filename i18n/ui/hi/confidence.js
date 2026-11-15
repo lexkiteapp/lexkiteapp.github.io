@@ -437,7 +437,6 @@
 "Xin để lại lời nhắn":"संदेश छोड़ने को कहें",
 "Xong {a}/{b} câu.":"पूरा हुआ: {b} में से {a} वाक्य।",
 "Xử lý khi lỡ chuyến, chuyến bay bị hủy, mất hành lý hoặc đổi cổng.":"छूटी या रद्द फ़्लाइट, खोए बैग या गेट बदलने से निपटें।",
-"{a}/{b} bài":"{a}/{b} पाठ",
 "{n} ngày liên tiếp – giữ nhịp nhé!":"लगातार {n} दिन – बनाए रखिए!",
 "{n} trên 5":"5 में से {n}",
 "Âm thanh chỉ ở trong trình duyệt này và bị xóa khi rời trang. Chữ được chuyển bằng trình nhận dạng của trình duyệt (hoặc Whisper ngay trên máy nếu bạn đã bật).":"आपकी आवाज़ इसी ब्राउज़र में रहती है और पेज छोड़ते ही मिटा दी जाती है। आपकी बोली को ब्राउज़र की स्पीच रिकग्निशन (या इस डिवाइस पर Whisper, अगर आपने चालू किया हो) टेक्स्ट में बदलती है।",

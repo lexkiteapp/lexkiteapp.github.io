@@ -231,6 +231,7 @@
         <div class="muted small" style="margin-top:1rem">${t('Đoán nghĩa, rồi chạm để lật')} <span class="kbd kbd-hint">Space</span></div>`;
 
     view.innerHTML = `<div class="study-wrap">
+      ${window.Target ? Target.chip(null, true) : ''}
       <div class="study-top">
         <a class="icon-btn" href="${App.backHref().replace(/^#\/practice$/, "#/home")}" title="${t('Thoát')}" aria-label="${t('Thoát')}">✕</a>
         ${session.last ? `<button class="icon-btn" id="undoBtn" title="${t('Hoàn tác lần chấm vừa rồi (Z)')}" aria-label="${t('Hoàn tác lần chấm vừa rồi (Z)')}" aria-keyshortcuts="Z">↶</button>` : ''}
@@ -395,7 +396,7 @@
   // ⚡ Ghép thẻ & 🎙️ Phát âm: study-games.js (tải lười)
   let games = null;
   const lazyGame = k => (...a) => { const h = location.hash; return App.lazy('pgames').then(() => { if (location.hash !== h || !window.StudyGames) return; games = games || StudyGames({ accent, emptySource, haptic, head, mean, norm, picOk, pool, practiceDone, runQuiz, srcName }); games[k](...a); }).catch(() => toast(t('Không tải được – thử lại sau'))); };
-  const runMatch = lazyGame('runMatch'), runSpeak = lazyGame('runSpeak'), runBlitz = lazyGame('runBlitz');
+  const runMatch = lazyGame('runMatch'), runSpeak = lazyGame('runSpeak'), runBlitz = lazyGame('runBlitz'), runRhythm = lazyGame('runRhythm');
 
   // ================= TRUNG TÂM LUYỆN TẬP =================
   const MODES = {
@@ -405,6 +406,7 @@
     listen: { em: '🎧', get name() { return t('Nghe & chép'); }, run: src => runQuiz(src, 'listen') },
     test: { em: '📝', get name() { return t('Bài kiểm tra'); }, run: src => runQuiz(src, 'test') },
     blitz: { em: '⏱️', get name() { return t('Thử thách 60 giây'); }, run: runBlitz },
+    rhythm: { em: '🥁', get name() { return t('Nhịp điệu'); }, run: runRhythm },
     match: { em: '⚡', get name() { return t('Ghép thẻ'); }, run: runMatch },
     speak: { em: '🎙️', get name() { return t('Luyện phát âm'); }, run: runSpeak },
     esp: { em: '🇪🇸', get name() { return t('Luyện phát âm'); }, run: (src, q) => App.need('espr').then(() => App.espron && App.espron(q.get('tp'), q.get('m'))) }, // phát âm TBN W3 (js/cpack/es-app/pron-ui.js; danh sách chủ đề khi không có m)
@@ -446,18 +448,18 @@
       });
       const fb = $('#fb', box);
       fb.innerHTML = `<div class="sheet ${ok ? 'ok' : 'no'}"><div class="sheet-in">
-        <div class="sheet-head">${ty && ty.typo ? FX.typoHead(ty.marks) : ok ? ['✅ ' + t('Chính xác!'), '🎉 ' + t('Tuyệt vời!'), '👏 ' + t('Giỏi lắm!')][Math.floor(Math.random() * 3)] : '❌ ' + (q.answer && q.answer.toLowerCase() !== w.word.toLowerCase() ? t('Chưa đúng · Đáp án: {answer}', { answer: esc(q.answer) }) : t('Chưa đúng'))}</div>
+        <div class="sheet-head">${ty && ty.typo ? FX.typoHead(ty.marks) : ok ? [UI.icon('circle-check') + ' ' + t('Chính xác!'), UI.icon('party-popper') + ' ' + t('Tuyệt vời!'), UI.icon('sparkles') + ' ' + t('Giỏi lắm!')][Math.floor(Math.random() * 3)] : UI.icon('circle-x') + ' ' + (q.answer && q.answer.toLowerCase() !== w.word.toLowerCase() ? t('Chưa đúng · Đáp án: {answer}', { answer: esc(q.answer) }) : t('Chưa đúng'))}</div>
         <div class="sheet-word"><button class="sheet-say" data-sayw aria-label="${t('Nghe')}">🔊</button><div style="min-width:0"><div><b class="sw">${esc(w.word)}</b>${w.pos ? ` <span class="sp">(${esc(w.pos)})</span>` : ''}</div>${w.ipa ? `<div class="sipa">${esc(w.ipa)}</div>` : ''}<div class="svi">${esc(mean(w))}</div></div>${(v => v ? `<div style="margin-inline-start:auto">${v}</div>` : '')(App.vimg(w.word, w.pos, mean(w), 'quiz', (x => [].concat(x || [])[0] || '')(w.ex)))}</div>
         ${w.ex ? `<div class="sheet-ex"><div class="say-line" data-sent="${esc(w.ex)}"><span class="say-tx">${highlight(w.ex, w.word)}</span><button class="ctx-say sm" data-saysent="${esc(w.ex)}" title="${t('Nghe câu')}" aria-label="${t('Nghe câu')}">🔊</button><button class="ctx-say sm" data-tr title="${t('Dịch câu')}" aria-label="${t('Dịch câu')}">🌐</button></div><div class="sheet-tr" hidden></div></div>` : ''}
         <button class="btn lg block sheet-next" id="nextQ">${t('Tiếp tục')}<span class="kbd-hint" aria-hidden="true"> ↵</span></button></div></div>`;
       // chừa đáy đúng chiều cao bảng phản hồi
       const fit = () => { const sh = $('.sheet', fb), wrap = box.closest('.study-wrap'); if (sh && wrap) wrap.style.setProperty('--sheet-h', (sh.offsetHeight || 280) + 'px'); };
-      requestAnimationFrame(() => { fit(); const sh = $('.sheet', fb), tg = $('.option.right', box) || $('.q-card', box) || box; if (!sh || !tg) return; const top = sh.getBoundingClientRect().top, r = tg.getBoundingClientRect(); if (r.bottom > top - 12) scrollBy({ top: Math.min(r.bottom - top + 16, Math.max(0, r.top - 72)), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); }); // đáp án đúng không bị khung kết quả che
+      // INP (mqa 14/11: 200 ms @4×, style 39 + layout 46 ms ép đồng bộ): chèn .sheet (cố định đáy) KHÔNG đổi bố cục trang; chừa đáy (.sheet-up → luật :has trong style.css), đo chiều cao, cuộn, focus đều chạy SAU lần vẽ
+      later(() => { const s0 = $('.sheet', fb); if (s0) s0.classList.add('sheet-up'); fit(); $('#nextQ') && $('#nextQ').focus({ preventScroll: true }); const sh = $('.sheet', fb), tg = $('.option.right', box) || $('.q-card', box) || box; if (!sh || !tg) return; const top = sh.getBoundingClientRect().top, r = tg.getBoundingClientRect(); if (r.bottom > top - 12) scrollBy({ top: Math.min(r.bottom - top + 16, Math.max(0, r.top - 72)), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); }); // đáp án đúng không bị khung kết quả che
       if (FX && (!ok || (ty && ty.typo))) later(() => FX.explain(fb, w.word, fit)); // 💡 Giải thích: chỉ khi từ có ghi chú "Hiểu sâu"
       const tr = $('[data-tr]', fb); if (tr) tr.onclick = async () => { const t = $('.sheet-tr', fb); if (!t.hidden) { t.hidden = true; return; } t.hidden = false; t.textContent = '…'; const L = I18N.learnLang(); t.textContent = L === 'vi' ? await Dict.translateVi(w.ex) : await Dict.translateTo(w.ex, L); };
       $('[data-sayw]', fb).onclick = () => speak(w.word, accent(), UI.audioFor(w, accent()));
       if ((!ok || q.type.startsWith('type')) && !mute()) later(() => speak(w.word, accent(), UI.audioFor(w, accent())));
-      $('#nextQ').focus({ preventScroll: true });
       let went = false; const t1 = Date.now();
       $('#nextQ').onclick = () => { if (went || Date.now() - t1 < 250) return; went = true; onDone(ok, $('#nextQ')); };
     };

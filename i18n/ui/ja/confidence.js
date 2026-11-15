@@ -437,7 +437,6 @@
 "Xin để lại lời nhắn":"伝言を残したいと頼む",
 "Xong {a}/{b} câu.":"完了：{b} 文中 {a} 文。",
 "Xử lý khi lỡ chuyến, chuyến bay bị hủy, mất hành lý hoặc đổi cổng.":"欠航や乗り遅れ、荷物の紛失、搭乗口の変更に対応します。",
-"{a}/{b} bài":"{a}/{b} レッスン",
 "{n} ngày liên tiếp – giữ nhịp nhé!":"{n}日連続、この調子！",
 "{n} trên 5":"5段階中 {n}",
 "Âm thanh chỉ ở trong trình duyệt này và bị xóa khi rời trang. Chữ được chuyển bằng trình nhận dạng của trình duyệt (hoặc Whisper ngay trên máy nếu bạn đã bật).":"音声はこのブラウザ内にだけ残り、ページを離れると削除されます。音声はブラウザの音声認識（オンにした場合はこの端末上の Whisper）でテキストに変換されます。",

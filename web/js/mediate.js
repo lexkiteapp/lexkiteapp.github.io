@@ -27,7 +27,7 @@
 
   // ---------- Một bài ----------
   async function open(id) {
-    view.innerHTML = `<div class="card"><p class="muted">${t('Đang tải…')}</p></div>`;
+    view.innerHTML = UI.skelPage(t('Đang tải…'));
     try { if (!(self.MEDIATION || {})[id]) await App.loadScript((list().find(x => x.id === id) || {}).src); } catch (e) { /* báo dưới */ }
     const X = (self.MEDIATION || {})[id];
     if (!X) { view.innerHTML = `<div class="card"><p>${t('Không tải được bài – thử lại sau')}</p><a class="btn" href="#/mediate">${t('Danh sách bài')}</a></div>`; return; }

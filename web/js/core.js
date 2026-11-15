@@ -90,6 +90,7 @@
     reminderOn: true,
     reminderTime: '20:00',
     reminderAuto: true,   // tự đặt giờ nhắc theo giờ hay học (tắt khi người dùng tự chọn giờ)
+    emailRemind: false,   // email nhắc học (khi nghỉ ≥ 2 ngày, tối đa 1/ngày): mặc định TẮT – người dùng tự bật (functions/api/mail.js)
     emailDigest: false,   // email Báo cáo não bộ hằng tuần: mặc định TẮT – người dùng tự bật (opt-in, đúng GDPR & chính sách gửi mail)
     dailyNew: 10,
     dailyGoal: 20,

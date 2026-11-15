@@ -437,7 +437,6 @@
 "Xin để lại lời nhắn":"Bitte darum, eine Nachricht zu hinterlassen",
 "Xong {a}/{b} câu.":"Geschafft: {a} von {b} Sätzen.",
 "Xử lý khi lỡ chuyến, chuyến bay bị hủy, mất hành lý hoặc đổi cổng.":"Bewältige einen verpassten oder gestrichenen Flug, ein verlorenes Gepäckstück oder einen Gate-Wechsel.",
-"{a}/{b} bài":"{a}/{b} Lektionen",
 "{n} ngày liên tiếp – giữ nhịp nhé!":"{n} Tage in Folge – bleib dran!",
 "{n} trên 5":"{n} von 5",
 "Âm thanh chỉ ở trong trình duyệt này và bị xóa khi rời trang. Chữ được chuyển bằng trình nhận dạng của trình duyệt (hoặc Whisper ngay trên máy nếu bạn đã bật).":"Deine Aufnahme bleibt in diesem Browser und wird gelöscht, wenn du die Seite verlässt. Die Sprache wird von der Spracherkennung deines Browsers in Text umgewandelt (oder von Whisper auf diesem Gerät, wenn du es aktiviert hast).",

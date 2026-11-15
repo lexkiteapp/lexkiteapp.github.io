@@ -66,7 +66,7 @@
    "answer": 1
   },
   "native": {
-   "hook": "« Sensible » ≠ sensible !",
+   "hook": "« Sensible » n’est pas “sensible”!",
    "tip": "« Sensible » veut dire raisonnable. Pour « sensible » en français, dis “sensitive”.",
    "caption": "Tu dis “My brother is very sensible.” ? Faux ami ! Pour parler de quelqu'un de sensible, dis “My brother is very sensitive.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.",
    "comment": "Réponse : “sensitive”. En anglais, “sensible” veut dire raisonnable. Teste d'autres pièges avec un quiz gratuit : {link}",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "« Sensible » ≠ sensible !"
+  "text": "« Sensible » n’est pas “sensible”!"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 99
  },
  "publish": {
-  "title": "« Sensible » ≠ sensible !",
+  "title": "« Sensible » n’est pas “sensible”!",
   "keyword": "My brother is very sensitive.",
   "value": "« Sensible » veut dire raisonnable. Pour « sensible » en français, dis “sensitive”.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 41,
   "platforms": {
    "youtube": {
-    "title": "« Sensible » ≠ sensible !",
+    "title": "« Sensible » n’est pas “sensible”!",
     "description": "Tu dis “My brother is very sensible.” ? Faux ami ! Pour parler de quelqu'un de sensible, dis “My brother is very sensitive.”. Écoute Ama et répète avec elle ! Plus d'exercices dans l'appli Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#apprendrelanglais #anglaisfacile #coursdanglais #lexkite",
     "tags": [
      "My brother is very sensitive.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "« Sensible » ≠ sensible ! #apprendrelanglais #anglaisfacile #coursdanglais"
+    "caption": "« Sensible » n’est pas “sensible”! #apprendrelanglais #anglaisfacile #coursdanglais"
    }
   },
   "first_comment": "Réponse : “sensitive”. En anglais, “sensible” veut dire raisonnable. Teste d'autres pièges avec un quiz gratuit : {link}",

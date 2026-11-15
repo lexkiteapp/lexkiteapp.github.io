@@ -66,7 +66,7 @@
    "answer": 1
   },
   "native": {
-   "hook": "„Art von“ = „kind of“",
+   "hook": "Fragst du nach der „Art“ Musik?",
    "tip": "„Welche Art von Musik“ sagst du auf Englisch mit „kind of“. „Art“ ist Kunst.",
    "caption": "Fragst du nach der Art von Musik? 🎵 Falsch: “What art of music do you like?” Richtig: “What kind of music do you like?” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.",
    "comment": "Lösung: “kind”. Richtig heißt es: “What kind of music do you like?” Übe mehr mit einem kostenlosen Quiz: {link}",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "„Art von“ = „kind of“"
+  "text": "Fragst du nach der „Art“ Musik?"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 101
  },
  "publish": {
-  "title": "„Art von“ = „kind of“",
+  "title": "Fragst du nach der „Art“ Musik?",
   "keyword": "What kind of music do you like?",
   "value": "„Welche Art von Musik“ sagst du auf Englisch mit „kind of“. „Art“ ist Kunst.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 47,
   "platforms": {
    "youtube": {
-    "title": "„Art von“ = „kind of“",
+    "title": "Fragst du nach der „Art“ Musik?",
     "description": "Fragst du nach der Art von Musik? 🎵 Falsch: “What art of music do you like?” Richtig: “What kind of music do you like?” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "What kind of music do you like?",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "„Art von“ = „kind of“ #englischlernen #englischtipps #sprachenlernen"
+    "caption": "Fragst du nach der „Art“ Musik? #englischlernen #englischtipps #sprachenlernen"
    }
   },
   "first_comment": "Lösung: “kind”. Richtig heißt es: “What kind of music do you like?” Übe mehr mit einem kostenlosen Quiz: {link}",

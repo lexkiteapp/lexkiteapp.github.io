@@ -78,4 +78,6 @@ ok(fl({ type: 'short' }, {}) && !fl({ type: 'long' }, {}) && fl({ topic: 'travel
 ok(!L.normFilter({ topic: 'evil/x' }).topic && !L.normFilter({ type: 'movie' }).type && L.normFilter({ exam: 'ielts' }).exam === 'ielts', 'taxonomy values are whitelisted');
 ok(V({ chapters: [{}, {}], series: 's', episode: 3 }).chapters === 2 && V({ type: 'long' }).orientation === '' && V({}).orientation === 'vertical', 'forward-compatible fields: chapters, series/episode, orientation');
 ok(T.TOPICS.every(t => t.sub.length && t.vi && t.en) && T.SKILLS.length === 5, 'taxonomy shape');
+{ const D = await import(new URL('../../functions/api/_distribution.js', import.meta.url)); // tên kênh kiểu "Aprende Inglés" (12/11): phải ra đúng ngôn ngữ, không rơi về 'en'
+  for (const [t, l] of [['Lexkite – Aprende Inglés', 'es'], ["Lexkite – Apprendre l'anglais", 'fr'], ['Lexkite – Aprenda Inglês', 'pt'], ['Lexkite - Englisch lernen', 'de'], ['Lexkite - İngilizce Öğren', 'tr'], ['Lexkite – Học Tiếng Anh', 'vi'], ['Lexkite – Learn English', 'en']]) ok(D.langOfChannel(t) === l, 'langOfChannel ' + t + ' = ' + l); }
 console.log(`distribution: ${n - fails}/${n} ok`); process.exit(fails ? 1 : 0);

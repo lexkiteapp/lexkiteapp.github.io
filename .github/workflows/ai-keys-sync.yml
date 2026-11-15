@@ -1,0 +1,26 @@
+# Đồng bộ kho khóa AI miễn phí của CI (GEMINI_POOL / GROQ_POOL) vào kho khóa mã hóa của site → chuỗi AI người dùng (docs/AI-CHAIN.md §Khóa).
+# 03/11: site chỉ có 1 khóa Gemini (chết) và 0 khóa Groq → mọi lượt rơi về Llama 8B. Chạy tay khi chủ nạp khóa mới + mỗi tuần (khóa bị gỡ khỏi secret → xóa khỏi site).
+name: ai-keys-sync
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 3 * * 1'
+permissions: { contents: read, id-token: write }
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  sync:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: { sparse-checkout: scripts }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/ai-keys-sync.mjs
+        env:
+          GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
+          GROQ_POOL: ${{ secrets.GROQ_POOL }}
+          LEXKITE_CI_HEADER: ${{ secrets.LEXKITE_CI_HEADER }}

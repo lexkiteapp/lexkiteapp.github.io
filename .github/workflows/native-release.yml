@@ -124,7 +124,7 @@ jobs:
         run: echo "::notice::Chưa có secret PLAY_SERVICE_ACCOUNT_JSON – .aab ở artifact lexkite-native-aab, chưa tự đẩy Play (owner làm 5 bước docs/STORE-READINESS.md § A3)"
       - name: Ghi chú phát hành 15 ngôn ngữ (store/metadata → whatsnew-<mã Play>)
         if: env.HAS_PLAY == 'true'
-        run: node scripts/store-metadata.mjs --check && node scripts/store-metadata.mjs --whatsnew "$RUNNER_TEMP/whatsnew"
+        run: node scripts/store-metadata.mjs --check && node scripts/store-metadata.mjs --whatsnew "$RUNNER_TEMP/whatsnew" --field whatsNewNative
       - name: Đẩy Play Internal testing
         if: env.HAS_PLAY == 'true' && inputs.track != 'production'
         uses: r0adkll/upload-google-play@v1

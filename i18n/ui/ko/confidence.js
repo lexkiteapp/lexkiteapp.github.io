@@ -437,7 +437,6 @@
 "Xin để lại lời nhắn":"메시지를 남기고 싶다고 말하기",
 "Xong {a}/{b} câu.":"완료: {b}문장 중 {a}문장.",
 "Xử lý khi lỡ chuyến, chuyến bay bị hủy, mất hành lý hoặc đổi cổng.":"놓치거나 취소된 항공편, 분실된 가방, 탑승구 변경에 대처해요.",
-"{a}/{b} bài":"{a}/{b} 레슨",
 "{n} ngày liên tiếp – giữ nhịp nhé!":"{n}일 연속, 계속 이어 가요!",
 "{n} trên 5":"5점 중 {n}점",
 "Âm thanh chỉ ở trong trình duyệt này và bị xóa khi rời trang. Chữ được chuyển bằng trình nhận dạng của trình duyệt (hoặc Whisper ngay trên máy nếu bạn đã bật).":"내 목소리는 이 브라우저에만 있고 페이지를 떠나면 삭제돼요. 음성은 브라우저의 음성 인식(켜 두었다면 이 기기의 Whisper)으로 텍스트로 바뀌어요.",

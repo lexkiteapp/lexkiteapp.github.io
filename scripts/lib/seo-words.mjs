@@ -9,6 +9,7 @@ import { loadVocab } from './seo-data.mjs';
 import { esc, appHref } from './site-layout.mjs';
 import { LANGS, S, POS, fill } from './seo-pages-i18n.mjs';
 import { toolPath, toolStrings } from './tools-links.mjs';
+import { copyOf as goCopy } from '../build-go.mjs';
 import { loadSources, enrich } from '../dict/build.mjs';
 import { measure, deep } from './word-depth.mjs';
 import { PRIORITY_LANGS } from '../../functions/api/_cpm.js';
@@ -32,6 +33,9 @@ const IMG = fs.existsSync('content/lexicon/img.json') ? J('content/lexicon/img.j
 const VPIC = IMG && IMG.style && IMG.style.approved === true && Object.keys(IMG.items || {}).length ? (() => { const ctx = {}; ctx.self = ctx; vm.runInNewContext(fs.readFileSync('web/js/vocab-img.js', 'utf8'), ctx); return ctx.VImg.pic; })() : null;
 const vimgOf = (e, alt, label) => (VPIC ? seoPic(IMG, String(e.word).toLowerCase() + '#' + gpos(e.pos), alt, label, VPIC) : ''); // ảnh chụp (photo) nếu có, không thì h – scripts/lexicon/img.mjs
 const notes = {}; for (const f of fs.readdirSync('web/js/notes').filter(f => f.endsWith('.json'))) Object.assign(notes, J('web/js/notes/' + f));
+// Ghi chú dùng từ + ví dụ có bản dịch do người/AI soạn rồi chấm độc lập (content/dict/enrich/<lang>.json = { từ: { n, x: [[câu EN, bản dịch]] } }; cổng scripts/test/dict-enrich.mjs).
+// Là NỘI DUNG THẬT làm trang đủ DEPTH_MIN (không hạ ngưỡng); chọn từ theo số đo GSC (scripts/dict/enrich-queue.mjs).
+export const ENR = Object.fromEntries(LANGS.map(l => [l, fs.existsSync(`content/dict/enrich/${l}.json`) ? J(`content/dict/enrich/${l}.json`) : {}]));
 const gloss = (l, e) => { const p = packs[l], k = e.word.toLowerCase(); return (p && (p[k + '#' + gpos(e.pos)] || p[k])) || null; };
 
 // Điểm "giá trị tìm kiếm" (docs/SEO-ARCH.md §2): cấp CEFR + bộ thi + độ giàu nội dung; lọc cứng có định nghĩa + ví dụ
@@ -71,14 +75,16 @@ export { setOf, idxW, inSet, slug, gloss, topicOf };
 
 export const en = s => `<span lang="en" dir="ltr">${esc(s)}</span>`;
 export const appLink = (lang, route) => `${appHref(lang)}#/${route}`;
+// Liên kết nội bộ → trang đích học thử /go/<lang>/ (docs/specs/funnel.md): đưa khách SEO vào bài 60 giây không đăng ký; UTM seo/<loại trang> hiện trong Quản trị › Kênh & mã bài
+export const goLine = (l, medium = 'word') => `<p class="golink"><a href="/go/${l}/?utm_source=seo&amp;utm_medium=${medium}&amp;utm_campaign=${l}">${esc(goCopy(l).h1)} →</a></p>`;
 export const cta = (title, note, href, btn) => `<div class="cta"><p><strong>${esc(title)}</strong><small>${esc(note)}</small></p><a class="btn" href="${href}">${esc(btn)} →</a></div>`;
 export const wPath = (l, e) => `/${l}/words/${slug.get(e)}`;
 const DX = loadSources(LANGS); // "Cách dùng từ", kho câu tự soạn, WordNet, bài blog đã đăng – cùng nguồn trang từ điển (scripts/dict/build.mjs)
 const VI_RE = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
-// Câu tiếng Anh tự soạn khác của app (bài mẫu IELTS Writing web/js/models.js, câu trả lời mẫu Speaking web/cpack/speak/samples.js – CONTENT-RULES) → ví dụ thật cho từ ít ví dụ
+// Câu tiếng Anh tự soạn khác của app (bài mẫu IELTS Writing web/cpack/write/models.js, câu trả lời mẫu Speaking web/cpack/speak/samples.js – CONTENT-RULES) → ví dụ thật cho từ ít ví dụ
 const MORE_EX = (() => {
   const ctx = {}; ctx.self = ctx; ctx.window = ctx; vm.createContext(ctx);
-  for (const f of ['web/js/models.js', 'web/cpack/speak/samples.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), ctx, { filename: f });
+  for (const f of ['web/cpack/write/models.js', 'web/cpack/speak/samples.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), ctx, { filename: f });
   const texts = [...(ctx.MODELS || []).map(m => String(m.text || '').replace(/<<[^>]*>>/g, '').replace(/\[\[([^|\]]+)\|[^\]]*\]\]/g, '$1').replace(/\{\{([^}]*)\}\}/g, '$1')), ...Object.values(ctx.SPEAK_SAMPLES || {}).map(x => String(x.a || ''))];
   const by = new Map();
   for (const tx0 of texts) for (const s0 of tx0.split(/(?<=[.!?])\s+/)) { const s = s0.replace(/\s+/g, ' ').trim(); if (s.length < 25 || s.length > 130 || VI_RE.test(s) || /[[\]{}<>_|]/.test(s) || !/^[A-Z“"']/.test(s)) continue; for (const t of new Set(s.toLowerCase().match(/[a-z]+/g) || [])) { const a = by.get(t) || by.set(t, []).get(t); if (a.length < 20 && !a.includes(s)) a.push(s); } }
@@ -127,7 +133,7 @@ export function bodyOf(l, e) {
     const ts = toolStrings(l), lvU = String(e.level || '').toUpperCase();
     const tools = ts ? [ts.levels && ts.levels[lvU] && [toolPath(l, 'test', lvU), fill(ts.level.h1, { lv: lvU, name: ts.levels[lvU].name })], [toolPath(l, 'test'), ts.nav.levelTest], [toolPath(l, 'toeic'), ts.nav.toeic]].filter(Boolean) : [];
     const body = `<article class="page wd">
-<header class="hero"><h1>${en(W)}</h1>${vimgOf(e, `${w} – ${m}`, t.ph)}<div class="sub">${pos ? `<span class="chip">${esc(pos)}</span>` : ''}${e.level ? `<span class="chip">${esc(t.level)} ${esc(e.level)}</span>` : ''}${tp ? `<span class="chip">${en(tp.name || tp.id)}</span>` : ''}</div></header>
+<header class="hero"><h1>${en(W)}</h1>${vimgOf(e, `${w} – ${m}`, t.ph)}<div class="sub">${pos ? `<span class="chip">${esc(pos)}</span>` : ''}${e.level ? `<span class="chip">${esc(t.level)} ${esc(e.level)}</span>` : ''}${tp && l === 'vi' ? `<span class="chip">${esc(tp.name || tp.id)}</span>` : ''}</div></header>
 ${sec('m', 'mean', senses.length > 1 ? t.means : t.mean, meanHtml)}
 ${sec('p', 'pron', t.pron, `<p class="pr"><span>${esc(t.uk)} <span class="ipa" dir="ltr">${esc(e.ipa || '')}</span></span>${ipaUS ? `<span>${esc(t.us)} <span class="ipa" dir="ltr">${esc(ipaUS)}</span></span>` : ''}${au ? `<button type="button" class="au" data-a="${esc(au)}" aria-label="${esc(t.pron)}: ${esc(w)}"></button>` : ''}</p>`)}
 ${sec('e', 'ex', exs.length > 1 ? t.exs : t.ex, exs.map(s => `<blockquote lang="en" dir="ltr">${hiW(s, k)}</blockquote>`).join(''))}
@@ -137,10 +143,11 @@ ${syn.length || ant.length ? sec('s', 'syn', syn.length && ant.length ? t.synAnt
 ${fam.length ? sec('w', 'fam', t.nf, `<p class="chips">${fam.map(([x, ps]) => `${link(x).replace(/<\/(a|span)>$/, ps ? ` <small lang="${l}"${RTL.has(l) ? ' dir="rtl"' : ''}>${esc(ps)}</small></$1>` : '</$1>')}`).join('')}</p>`) : ''}
 ${conf.length ? sec('k', 'conf', t.conf, conf.map(c => `<div class="cf"><ul>${c.items.map(x => { const [hw, ...rest] = x.h.split(/(?=\s*\()/); return `<li><b>${link(hw.trim())}</b>${rest.length ? esc(rest.join('')) : ''}${okL(l, x.m) ? ` – ${tx(l, x.m)}` : ''}${x.ex ? `<br><i lang="en" dir="ltr">${esc(x.ex)}</i>` : ''}</li>`; }).join('')}</ul>${okL(l, c.tip) ? `<p class="note"><b>${esc(t.tip)}:</b> ${tx(l, c.tip)}</p>` : ''}</div>`).join('')) : ''}
 ${mis.length ? sec('x', 'mis', t.mis, `<ul class="mis">${mis.map(x => `<li><span class="no" lang="en" dir="ltr">✗ ${esc(x.w)}</span> → <b lang="en" dir="ltr">✓ ${esc(x.r)}</b>${okL(l, x.why) ? `<br>${tx(l, x.why)}` : ''}</li>`).join('')}</ul>`) : ''}
+${ENR[l][k] ? sec('u', 'tip', t.ux, `<p class="note">${esc(ENR[l][k].n)}</p>${(ENR[l][k].x || []).length ? `<ul class="xt">${ENR[l][k].x.map(([s, tr]) => `<li><i lang="en" dir="ltr">${hiW(s, k)}</i>${tr ? `<br>${esc(tr)}` : ''}</li>`).join('')}</ul>` : ''}`) : ''}
 ${n ? sec('n', 'notes', t.notes, [['m', t.nm], ['e', t.ne], ['u', t.nu], ['f', t.nf]].filter(([q]) => n[q] && !(q === 'f' && famN.length)).map(([q, lb]) => `<p class="note"><b>${esc(lb)}:</b> ${esc(n[q])}</p>`).join('')) : ''}
 ${wnS.length ? sec('o', 'wn', t.wn, `<ol lang="en" dir="ltr">${wnS.map(x => `<li>${esc(x.g)}${x.x ? `<br><i>“${esc(x.x)}”</i>` : ''}</li>`).join('')}</ol><p class="mt">${esc(t.wnSrc)}: <a href="https://en-word.net/" rel="noopener">Open English WordNet</a> (<a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener">CC BY 4.0</a>)</p>`) : ''}
 ${faq.length >= 2 ? sec('q', 'faq', t.fq, faq.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')) : ''}
-${cta(fill(t.ctaW, { w }), t.ctaWn, appLink(l, 'dict/' + encodeURIComponent(w)), t.ctaB)}
+${cta(fill(t.ctaW, { w }), t.ctaWn, appLink(l, 'dict/' + encodeURIComponent(w)), t.ctaB)}${goLine(l, 'word')}
 ${tools.length ? sec('t', '', t.tools, `<ul>${tools.map(([h, x]) => `<li><a href="${h}">${esc(x)}</a></li>`).join('')}</ul>`) : ''}
 ${dx.blogs.length ? sec('b', '', t.blog, `<ul>${dx.blogs.map(b => `<li><a href="${b.href}">${esc(b.t)}</a></li>`).join('')}</ul>`) : ''}
 ${near.length ? sec('r', '', t.rel, `<p class="chips">${near.map(x => `<a href="${wPath(l, x)}" lang="en" dir="ltr">${esc(x.word)}</a>`).join('')}</p>`) : ''}

@@ -40,120 +40,37 @@
   const lipOn = () => { try { const f = localStorage.getItem('lk.lipsync'); if (f === '1' || f === '0') return f === '1'; const c = JSON.parse(localStorage.getItem('lk.cfg') || 'null'), v = c && c.v && c.v.lipsync; return !(v === false || v === '0' || v === 'false'); } catch (e) { return true; } };
   // nạp lười (chỉ khi cờ bật – khung app không đổi), tuần tự vì face.js đọc LipSync/LipMouth lúc nạp
   let lipP = null;
-  // tải SONG SONG, chạy ĐÚNG THỨ TỰ (async=false) – face.js đọc LipSync/LipMouth lúc nạp; nhanh hơn nạp nối tiếp để câu đầu kịp mốc CI (pre)
-  const lipLoad = () => lipP || (lipP = Promise.all(['lipsync', 'mouths', 'face', 'paint', 'cues'].map(f => new Promise((ok, no) => { const s = D.createElement('script'); s.async = false; s.src = 'js/call/' + f + '.js'; s.onload = ok; s.onerror = no; D.head.appendChild(s); })))
+  // tải SONG SONG, chạy ĐÚNG THỨ TỰ (async=false; teacher-rig.js cuối) – face.js đọc LipSync/LipMouth lúc nạp; nhanh hơn nạp nối tiếp để câu đầu kịp mốc CI (pre)
+  const lipLoad = () => lipP || (lipP = Promise.all(['call/lipsync', 'call/mouths', 'call/face', 'call/paint', 'call/cues', 'teacher-rig'].map(f => new Promise((ok, no) => { const s = D.createElement('script'); s.async = false; s.src = 'js/' + f + '.js'; s.onload = ok; s.onerror = no; D.head.appendChild(s); })))
     .then(() => { if (g.LK_CUES && g.LK_CUES.dict) g.LipSync.setDict(g.LK_CUES.dict); }, e => { lipP = null; throw e; }));
-  let uid = 0, actx = null;
-  const motionLow = () => { try { return g.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } };
-  // 1 AudioContext dùng chung cho mọi mặt vẽ trên trang (trình duyệt giới hạn số context; nhiều giáo viên trên 1 trang không tranh nhau)
-  const audioCtx = () => { if (actx) return actx; try { const A = g.AudioContext || g.webkitAudioContext; if (A) actx = new A(); } catch (e) { actx = null; } return actx; };
-  // Lớp mặt vẽ trong rig: MỘT <canvas> (đầu trơn + lớp vector LipFace qua LipPaint, nghiêng/gật quanh cổ) phủ đúng khung poster (contain, căn đáy). onFail → vòng clip.
-  // Gốc fps (call-e2e 4b, CPU 4×): vá DOM SVG mỗi khung → tính lại style + MutationObserver của app mỗi khung. Canvas: 0 thay đổi DOM mỗi khung, chỉ vẽ khi trạng thái đổi.
+  // Lớp mặt vẽ = TeacherRig (web/js/teacher-rig.js, MỘT lõi dùng chung Call/bài học/video; spec docs/specs/teacher-rive-rig.md): MỘT <canvas> phủ đúng khung poster
+  // (contain, căn đáy – CSS .tch-face), đầu trơn + lớp vector, khớp xương cứng, 0 thay đổi DOM mỗi khung, chỉ vẽ khi trạng thái đổi. Mặt này chỉ là bộ chuyển (adapter): onFail → vòng clip.
+  // Biểu cảm cũ (cheer/concern) → tên của rig (praise/sad)
+  const EMO = { cheer: 'praise', concern: 'sad' };
   function face(rig, who, onFail) {
-    const LS = g.LipSync, LF = g.LipFace, LM = g.LipMouth, R = LF.RIG[who], id = 'tf' + (++uid), pic = new Image(), hi = Math.min(2, g.devicePixelRatio || 1) * (rig.clientWidth || 200) > 320;
-    let dpr = Math.min(2, g.devicePixelRatio || 1); // let: máy yếu hạ về 1 (frame)
-    const seed = s => { let h = 7; for (const ch of String(s)) h = (h * 31 + ch.charCodeAt(0)) | 0; return h; };
-    const calm = motionLow(); // giảm chuyển động: giữ khớp miệng + chớp mắt (thông tin), bỏ nghiêng/gật/liếc
-    const stats = { frames: 0, long: 0, draws: 0, t0: 0, mode: 'idle', emo: '' };
-    let idleEmo = '', idle = LF.machine(who, { dur: 120, seed: seed(who), calm }), emoUntil = 0;
-    let cv = null, hb = null, ctx = null, box = null, S = null, raf = 0, dead = false, last = '', prev = 0, openK = 0;
-    const ac = audioCtx();
-    const fit = () => { // canvas = đúng khung poster 1108×960 (CSS bài học/Call đặt canvas y như ảnh poster: contain căn đáy, hay phóng 172 % kiểu bán thân) – chỉ khi đổi cỡ
-      const w = Math.max(rig.clientWidth || 200, cv.getBoundingClientRect().width || 0), W = Math.round(Math.min(1108, w * dpr));
-      cv.width = W; cv.height = Math.round(W * 960 / 1108); box = [W / 1108, 0, 0]; last = '';
-      // lag 05/11: vẽ đầu trơn 1108 px THU NHỎ lại mỗi khung (lấy mẫu lại ~1 M điểm ảnh) → thu nhỏ 1 lần theo cỡ canvas, mỗi khung chỉ chép 1:1
-      hb = D.createElement('canvas'); hb.width = cv.width; hb.height = cv.height; const hx = hb.getContext('2d'); if (hx) { hx.imageSmoothingQuality = 'high'; hx.drawImage(pic, 0, 0, hb.width, hb.height); } else hb = null;
-    };
-    const playing = a => !!(a && !a.paused && !a.ended && a.readyState >= 2);
-    const frame = now => {
-      if (dead) return;
-      const dt = prev ? (now - prev) / 1000 : 1 / 60; prev = now; stats.frames++; if (dt > 0.05) stats.long++;
-      // máy yếu (> 15 % khung dài sau 1,5 s): vẽ ở độ phân giải CSS (dpr 1) – ít điểm ảnh hơn tới 4×, miệng vẫn khớp đủ khung
-      if (!stats.low && dpr > 1 && stats.frames >= 90 && stats.long > stats.frames * 0.15) { stats.low = 1; dpr = 1; if (cv) fit(); }
-      let s, talking = false;
-      if (emoUntil && now > emoUntil) { emoUntil = 0; if (idleEmo !== 'listen') setIdle(held ? held[0] : ''); } // phản ứng ngắn đã hết → về tư thế đang giữ / nghỉ thường (câu đang nói giữ biểu cảm tới hết câu)
-      stats.mode = S ? (S.L ? 'live' : 'pre') : 'idle';
-      if (S) {
-        const t = S.clk(now); talking = S.a ? playing(S.a) : (performance.now() - S.t0) / 1000 < S.dur;
-        if (S.L) { S.L.tick(t, talking && S.voiced(), Math.min(dt, 0.1)); s = S.M.at(Math.max(0, t - LS.LEAD)); } else s = S.M.at(t);
-      } else s = idle.at((now / 1000) % 120);
-      // miệng ngậm khi không phát (tạm dừng, hết, chờ tải, tab quay lại sau khi tiếng tắt): trộn về X trong ~80 ms, mở lại ~40 ms – không bao giờ đứng hình giữa âm
-      openK = talking ? Math.min(1, openK + dt / 0.04) : Math.max(0, openK - dt / 0.08);
-      if (openK < 1) { s.mouth = LM.mix('X', s.mouth, openK); if (openK < 0.5) s.shape = 'X'; s.open *= openK; }
-      // chỉ vẽ lại khi trạng thái đổi thấy được (bước 1/100)
-      const m = s.mouth, k = [m.w, m.u, m.d, m.a, m.s, m.tt, m.tb, m.tg, m.tu, m.bite, m.lip, s.blink, s.look.x, s.look.y, s.brow, s.knit, s.open, s.tilt / 10, s.nod / 10].map(v => Math.round((v || 0) * 100)).join();
-      if (k !== last && ctx) {
-        last = k; stats.draws++;
-        ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height);
-        ctx.setTransform(box[0], 0, 0, box[0], box[1], box[2]);
-        if (s.tilt || s.nod) { ctx.translate(R.pivot[0], R.pivot[1]); ctx.rotate(-s.tilt * Math.PI / 180); ctx.translate(-R.pivot[0], -R.pivot[1] - s.nod); }
-        ctx.drawImage(hb || pic, 0, 0, 1108, 960);
-        for (const p of LF.parts(who, s, id)) if (p) g.LipPaint.draw(ctx, p);
-      }
-      cur = s; stats.shape = s.shape; stats.open = Math.round(s.open * 100) / 100; stats.blink = Math.round((s.blink || 0) * 100) / 100; raf = requestAnimationFrame(frame); // blink: test mắt mở trên khung ghép (call-e2e)
-    };
-    let cur = null, held = null; // held = [biểu cảm, tên tư thế] do pose(p) giữ tới pose(null) – như ảnh tư thế, nhưng miệng vẫn khớp khi nói
-    const talkEmo = () => (emoUntil && idleEmo && idleEmo !== 'listen' ? idleEmo : held ? held[0] : undefined); // vừa phản ứng xong mà nói luôn → giữ biểu cảm khi nói
-    const setIdle = emo => { idleEmo = emo; stats.emo = emo; const ps = held && held[0] === emo ? held[1] : emo; if (ps && ps !== 'listen') rig.dataset.pose = ps; else delete rig.dataset.pose; // QA (final-qc): tư thế của mặt vẽ = biểu cảm đang thể hiện
- idle = LF.machine(who, { dur: 120, seed: seed(who + emo), emo: emo || undefined, calm }); };
-    let ro = null;
-    pic.onerror = () => { if (!dead) { dead = true; onFail(); } };
-    pic.onload = () => {
-      if (dead) return;
-      cv = D.createElement('canvas'); cv.className = 'tch-face'; cv.setAttribute('aria-hidden', 'true');
-      ctx = cv.getContext('2d'); if (!ctx || !g.Path2D) { dead = true; return onFail(); }
-      rig.appendChild(cv); rig.dataset.face = who; fit(); stats.t0 = performance.now(); // data-face (không thêm class: giữ khóa bố cục .tch-rig của các cổng QA)
-      if (g.ResizeObserver) { ro = new ResizeObserver(() => { if (!dead) fit(); }); ro.observe(rig); ro.observe(cv); }
-      raf = requestAnimationFrame(frame);
-    };
+    let held = null, idleEmo = '', timer = 0, dead = false;
     if (!D.getElementById('tch-face-css')) D.head.insertAdjacentHTML('beforeend', '<style id="tch-face-css">.tch-rig .tch-face{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 100%;pointer-events:none}.tch-rig[data-face]>img.tch-poster{visibility:hidden}.tch-rig.posed .tch-face{visibility:hidden}</style>');
-    pic.src = Chars.head(who, hi);
+    const R = g.TeacherRig.mount(rig, who, { bare: true, cls: 'tch-face', onFail: () => { if (!dead) { dead = true; onFail(); } } }), name = e => (e ? EMO[e] || (g.TeacherRig.core.EMOTIONS[e] ? e : '') : '') || 'neutral';
+    R.ready.then(() => { if (!dead) rig.dataset.face = who; }, () => {}); // data-face (không thêm class: giữ khóa bố cục .tch-rig của các cổng QA) · ẩn poster khi canvas đã sẵn sàng
+    // QA (final-qc): tư thế của mặt vẽ = biểu cảm đang thể hiện
+    const setIdle = emo => { idleEmo = emo; const ps = held && held[0] === emo ? held[1] : emo; if (ps && ps !== 'listen') rig.dataset.pose = ps; else delete rig.dataset.pose; R.setEmotion(name(emo)); };
+    const rest = () => setIdle(held ? held[0] : '');
     const self = {
-      stats,
+      stats: R.stats,
       cue: key => { const c = g.LK_CUES && g.LK_CUES.k[key]; return c || null; },
-      // iOS/iPadOS: KHÔNG nối <audio> vào Web Audio (createMediaElementSource) – Web Audio bị công tắc im lặng tắt tiếng còn <audio> thì không,
-      // và nối rồi không gỡ được → phần tử dùng chung (LKAudio.el) im lặng mãi (gốc lỗi 5/11 "Truyện › Xếp thành câu" không tiếng). Khẩu hình theo lúc đang phát.
-      tap: () => !IOS_WA && !!(ac && ac.state === 'running'),
+      tap: () => R.tap(),
       /** src: { audio?, cue?, text, dur? } – audio + cue → pre; còn lại → live (năng lượng tiếng qua AnalyserNode nếu nối được, không thì theo lúc đang phát) */
-      speak(src) {
-        if (dead) return; self.quiet();
-        if (ac && ac.state !== 'running') ac.resume().catch(() => {});
-        const a = src.audio, t0 = performance.now(); // đồng hồ hiển thị = tiếng THẬT tới tai (LipSync.clock: nội suy currentTime, − trễ loa, + 1 khung) – lệch ≤ ±33 ms (lip-clock.mjs)
-        const clk = a && LS.clock ? LS.clock(() => ({ t: a.currentTime, playing: playing(a), rate: a.playbackRate }), () => (ac ? ac.outputLatency || ac.baseLatency || 0 : 0)) : a ? () => a.currentTime : () => (performance.now() - t0) / 1000;
-        let an = null, buf = null, node = null; const vd = LS.vad();
-        const live = () => {
-          if (!node && a && a.crossOrigin && self.tap()) { try { node = ac.createMediaElementSource(a); a._lkWA = 1; an = ac.createAnalyser(); an.fftSize = 1024; node.connect(an); an.connect(ac.destination); buf = new Float32Array(an.fftSize); } catch (e) { an = null; } }
-          const est = src.dur || Math.max(0.6, String(src.text || '').length * 0.065), L = LS.live(src.text || '', { dur: a && isFinite(a.duration) ? a.duration : est });
-          S = { clk, L, node, a, t0, dur: est, M: LF.machine(who, { cues: L.cues, dur: Math.max(30, est), seed: seed(src.text), text: src.text, emo: talkEmo(), calm }),
-            voiced: () => { if (a && !playing(a)) return false; if (!an) return true; an.getFloatTimeDomainData(buf); let e = 0; for (const x of buf) e += x * x; return vd(Math.sqrt(e / buf.length)); } };
-          // chưa biết độ dài tiếng lúc bắt đầu → dựng lại con trỏ theo độ dài thật khi có (trước khi phát)
-          if (a && !isFinite(a.duration)) a.addEventListener('loadedmetadata', () => { if (S && S.L === L && a.currentTime < 0.05) live(); }, { once: true });
-          if (a && !refined) refine();
-        };
-        // câu có file tiếng nhưng chưa có mốc CI (bài học: mọi câu đọc từ kho mp3) → giải mã đúng file đang phát, căn âm vị theo độ lớn tiếng thật (LS.fromEnv)
-        // rồi chuyển sang chế độ mốc (môi mím M/B/P, tròn O/U đúng lúc); trong lúc chờ (vài chục ms) con trỏ live chạy; lỗi CORS/giải mã → giữ live
-        let refined = false;
-        const refine = () => { const url = a.currentSrc || a.src; if (!url || !ac || !g.fetch || !LS.fromEnv) return; refined = true;
-          g.fetch(url).then(r => (r.ok ? r.arrayBuffer() : Promise.reject(r.status))).then(b => new Promise((ok, no) => { const p = ac.decodeAudioData(b, ok, no); if (p && p.catch) p.catch(no); }))
-            .then(buf => { if (dead || !S || !S.L || S.a !== a || (isFinite(a.duration) && Math.abs(a.duration - buf.duration) > 0.12)) return;
-              const env = LS.envOf(buf), dur = buf.duration, cues = LS.fromEnv(src.text || '', dur, env);
-              S = { clk, a, t0, dur, node: S.node, M: LF.machine(who, { cues, env, dur, seed: seed(src.text), text: src.text, emo: talkEmo(), calm }) }; stats.fit = (stats.fit || 0) + 1; })
-            .catch(() => {}); };
-        if (a && src.cue) {
-          const { dur, cues: q, env } = LS.unpack(src.cue); // mốc + độ lớn tiếng nén (call_cues.mjs)
-          S = { clk, a, t0, dur, M: LF.machine(who, { cues: q, env, dur, seed: seed(src.text), text: src.text, emo: talkEmo(), calm }) };
-          // mp3 đệm cũ / sai bản → độ dài lệch mốc > 120 ms thì chuyển live (không bao giờ khớp sai)
-          a.addEventListener('loadedmetadata', () => { if (S && S.clk === clk && isFinite(a.duration) && Math.abs(a.duration - dur) > 0.12) live(); }, { once: true });
-        } else live();
-      },
-      quiet() { if (S && S.node) try { S.node.disconnect(); } catch (e) { /* bỏ qua */ } S = null; },
-      /** listen(true): người học đang nói → mắt nhìn người học, mày hơi nhướng, gật nhẹ theo nhịp (máy nghỉ 'listen'); false → nghỉ thường */
-      listen(on) { if (dead) return; if (on) self.quiet(); emoUntil = 0; setIdle(on ? 'listen' : held ? held[0] : ''); },
-      hold(emo, name) { if (dead) return; held = emo && LF.EMO[emo] ? [emo, name || emo] : null; emoUntil = 0; setIdle(held ? emo : ''); },
-      /** react('happy'|'encourage'|'cheer'|'concern'|'thinking', ms): biểu cảm ngắn trên mặt vẽ (đúng/sai) – câu nói kế tiếp mang theo biểu cảm đó */
-      react(emo, ms = 1800) { if (dead || !LF.EMO[emo]) return; setIdle(emo); emoUntil = performance.now() + ms; },
-      state: () => cur,
-      destroy() { dead = true; self.quiet(); cancelAnimationFrame(raf); if (ro) ro.disconnect(); if (cv) cv.remove(); delete rig.dataset.face; }
+      speak(src) { if (!dead) R.speak(src.audio || null, src.cue || null, { text: src.text, dur: src.dur }); },
+      quiet() { R.quiet(); },
+      /** listen(true): người học đang nói → mắt nhìn người học, mày hơi nhướng, gật nhẹ theo nhịp; false → nghỉ thường */
+      listen(on) { if (dead) return; if (on) R.quiet(); clearTimeout(timer); setIdle(on ? 'listen' : held ? held[0] : ''); },
+      hold(emo, nm) { if (dead) return; held = emo && name(emo) !== 'neutral' ? [emo, nm || emo] : null; clearTimeout(timer); setIdle(held ? emo : ''); },
+      /** react('happy'|'encourage'|'praise'|'sad'|'thinking', ms): biểu cảm ngắn (đúng/sai) – câu nói kế tiếp mang theo biểu cảm đó */
+      react(emo, ms = 1800) { if (dead || name(emo) === 'neutral') return; clearTimeout(timer); setIdle(emo); timer = setTimeout(() => { if (!dead && idleEmo !== 'listen') rest(); }, ms); },
+      /** gesture(nod|shake|thumbs_up|clap|…): cử chỉ của rig (thủ tục hoặc ảnh tư thế đã duyệt; đang nói thì xếp hàng tới hết câu) */
+      gesture(nm) { return dead ? null : R.gesture(nm); },
+      state: () => { const f = R.state(); return f && f.s; },
+      destroy() { dead = true; clearTimeout(timer); R.destroy(); delete rig.dataset.face; delete rig.dataset.pose; }
     };
     return self;
   }
@@ -213,6 +130,7 @@
       // pose('cheer'|'concern'…): ảnh tĩnh tư thế (đầu→hông) thay người đang đứng NGAY chỗ cũ (phản hồi đúng/sai); pose(null) → trả lại vòng nghe/nói sống
       // mặt vẽ: tư thế ảnh tĩnh (tài sản có sẵn) + biểu cảm tương ứng trên mặt vẽ; nói trong lúc đang tư thế → bỏ ảnh tĩnh để miệng vẽ khớp tiếng (không nói bằng ảnh tĩnh ngậm miệng)
       listen(on) { if (fc) fc.listen(on); },
+      gesture(nm) { return fc ? fc.gesture(nm) : null; }, // cử chỉ rig (nod/thumbs_up/…) – chỉ khi mặt vẽ đang chạy (vòng clip/poster: không đổi)
       react(emo, ms) { if (fc) fc.react(emo, ms); },
       pose(p) { let im = rig.querySelector('.tch-still'); if (fc) fc.hold(p ? g.Chars.POSE_EMO[p] || p : null, p); if (!p) { if (im) im.remove(); rig.classList.remove('posed'); return; }
         if (im) im.src = Chars.still(who, p); else { rig.insertAdjacentHTML('beforeend', Chars.img(who, { kind: 'still', pose: p, cls: 'tch-still', alt: '', size: 384 })); }

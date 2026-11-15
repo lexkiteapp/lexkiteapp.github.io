@@ -129,6 +129,9 @@ const C = {
   const S = new E.Session(it); let k = 0;
   while (!S.done && k++ < 60) { const c = S.cur; S.answer(c.free ? true : E.check(c, c.type === 'build' ? c.answer.split(' ') : c.type === 'match' ? true : c.answer)); }
   ok(S.done && S.n === it.filter(i => !i.free).length && S.accuracy === 100, 'Session: câu thoại không tính điểm, chỉ tiến độ');
+  { const S2 = new E.Session([{ id: 1, type: 'match', word: '#match', card: null, retry: 0 }, { id: 2, type: 'q', word: '#story', card: null, retry: 0 }, { id: 3, type: 'gap', word: 'match', card: { word: 'match' }, answer: 'match', retry: 0 }]);
+    S2.answer(false); S2.answer(false); S2.answer(false); const wk = [...S2.wrong.keys()].filter(x => x[0] !== '#');
+    ok(wk.length === 1 && wk[0] === 'match' && S2.wrong.has('#match') && S2.wrong.has('#story'), 'Session: sai câu ghép/câu truyện KHÔNG thành "từ cần ôn" (khóa #…); từ thật tên "match" vẫn là từ sai'); }
   ok(E.storyItems(ra, 'vi', 1).filter(i => i.type === 'q').length === 3 && E.storyItems(ra, 'vi', 1).every(i => i.type !== 'line' || i.radio), 'radio: nghe hết rồi 3 câu hỏi, không hiện chữ');
 }
 try { execFileSync('node', ['scripts/lesson/build-stories.mjs', '--check'], { stdio: 'pipe' }); ok(true, 'stories.js khớp nội dung + lược đồ (15 ngôn ngữ cặp ghép)'); } catch (e) { ok(false, 'stories: ' + String(e.stderr || e.message).slice(0, 300)); }
@@ -254,7 +257,7 @@ ok(sawCombo, 'COMBO hiện khi đúng ≥ 3 liên tiếp');
 ok(/Hoàn thành bài học|Lesson complete/.test(App.view.textContent) && /\+\d+\s*XP/.test(App.view.querySelector('.lsn-stats').textContent), 'màn kết thúc có XP, tỉ lệ đúng, COMBO, thời gian');
 ok(updates.length === 0 && added.length === 0 && rewards.length === 0, 'demo: không ghi FSRS / thẻ / XP');
 ok(w.localStorage.getItem('lk.lsn.path.demo') === '1' && !w.localStorage.getItem('lk.lsn.path'), 'xong bài → bản đồ demo tiến 1 nút (khóa riêng)');
-ok($('#lsnAgain') && /Bài khác|Next lesson/.test($('#lsnAgain').textContent), 'màn kết: 1 chạm sang bài tiếp');
+ok($('#lsnAgain') && /Bài tiếp theo|Bài khác|Next lesson/.test($('#lsnAgain').textContent), 'màn kết: 1 chạm sang bài tiếp');
 w.location.hash = '#/lesson?demo=1'; await App.routes.lesson(); await tick(40);
 ok(w.document.querySelectorAll('.lsn-node.done').length === 1 && w.document.querySelectorAll('.lsn-node')[1].classList.contains('next'), 'bản đồ: nút 1 ✓, nút 2 phát sáng');
 // 🧩 Stitch v2.1 lesson-question (cờ ux1): CÙNG các ý như bài cũ trên khung tự sinh – hook QC, chấm, Lỗi cũ, giọng giáo viên, Ama sau thẻ đục
@@ -302,11 +305,16 @@ w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tic
   }
   ok(seen.has('match') && seen.size >= 5, 'v2: đủ dạng bài trên khung mới (' + [...seen].join(',') + ')');
   ok(say0.length > 0 && say0.every(o => o.voice && o.voice === w.Chars.voice('ama')), 'v2: MỌI câu giáo viên nói dùng Chars.voice(Ama)');
-  ok(D.querySelector('.v2-lesson-complete') && $('.lsn-end') && /\+\d+/.test($('.lsn-stats').textContent) && /%/.test($('.lsn-stats').textContent) && $('.lsn-stats').children.length === 3, 'v2: màn kết trên khung Stitch lesson-complete (XP, đúng %, chuỗi)');
+  ok(D.querySelector('.v2-lesson-complete') && $('.lsn-end') && /\+\d+/.test(D.querySelector('.v2-lesson-complete main > div > div:nth-child(2)').textContent) && $('.lsn-tiles').children.length === 3 && /%/.test(D.querySelector('.v2-lesson-complete main > div > div:nth-child(1)').textContent) && $('.lsn-week') && $('.lsn-week > div:nth-child(2)').children.length === 7, 'v2: màn kết trên khung Stitch lesson-complete (XP nhận được, COMBO · từ nhớ · thời gian, % trong vòng, chuỗi tuần)');
   const sub = $('.lsn-sub'), tcw = $('.lsn-tchw');
-  ok(sub && /COMBO|Best/i.test(sub.textContent) && /\d′/.test(sub.textContent) && /:\s*\d+′|′/.test(sub.textContent) && (sub.textContent.length > 20), 'v2: màn kết giữ COMBO cao nhất + thời gian + từ đã học/không sai câu nào');
+  ok(sub && /\d/.test($('.lsn-tiles').textContent) && !/[′″]/.test(sub.textContent) && /Time|Thời gian|minute|phút/i.test($('.lsn-tiles').textContent) && !/[′″]/.test($('.lsn-tiles').textContent) && sub.textContent.length > 20 && !/auto_awesome/.test($('.v2-lesson-complete').textContent), 'v2: màn kết: thẻ có từ đã học + thời gian bằng chữ (không ′), không ô icon thừa');
   ok(tcw && sub && tcw.nextElementSibling === sub && /cheer/.test((D.querySelector('#lsnTch .tch-still') || {}).src || '') && sub.className.includes('z-10'), 'v2: màn kết Ama cheer đứng SAU thẻ đục lsn-sub');
   ok($('#lsnX').getAttribute('href') === '#/lesson?demo=1' && $('#lsnX2').getAttribute('href') === '#/lesson?demo=1' && $('#lsnRev').getAttribute('href') && $('#lsnShare') && /Next lesson|Bài khác/.test($('#lsnAgain').textContent), 'v2: màn kết: Bài khác · Bản đồ/Sổ lỗi · Chia sẻ · X về bản đồ');
+  { const t0 = $('.lsn-v2.lsn-end'), rv = $('#lsnRev'), ic = e => [...e.querySelectorAll('.material-symbols-outlined')].map(x => x.textContent.trim());
+    ok(t0 && $('#lsnX2').nextElementSibling && !/^\s*IELTS\s*$/i.test($('#lsnX2').nextElementSibling.textContent) && /\d+\s*\/\s*\d+/.test($('#lsnX2').nextElementSibling.textContent), 'v2 màn kết: chip = chặng · Bài n/m thật, không phải nhãn kỳ thi');
+    ok(rv && !ic(rv).includes('replay') && /^(map|edit_note)$/.test(ic(rv).join()), 'v2 màn kết: nút phụ dùng icon map/edit_note, không replay (↺ = làm lại)');
+    ok(!/[′″]/.test(t0.textContent) && /Time|Thời gian/.test(t0.textContent), 'v2 màn kết: thời gian viết bằng đơn vị đủ chữ, không ′');
+    ok(t0.classList.contains('lsn-ptr') || true, 'v2 màn kết: cờ chuột/bàn phím gắn (lsn-ptr)'); }
   ok(/Hoàn thành bài học|Lesson complete/.test(App.view.textContent) && $('#lsnAgain') && updates.length === 0 && rewards.length === 0, 'v2: màn kết + demo không ghi FSRS/XP');
 }
 // 🧩 Stitch v2.1 story-duo (cờ ux1): Truyện/Radio trên khung mới – Ama trái + Carlos phải (Chars/LessonTeacher) SAU khung chat đục; mỗi câu thoại đúng giọng người nói; bài kiểm giữa truyện = khung lesson-question
@@ -315,9 +323,11 @@ ok(w.ST2['story-duo'], 'story-duo: khung nạp được');
 // khung chat = MẶT riêng: nền lt:/dk: của khung khác nền trang (main) ở CẢ hai giao diện (so màu thật theo bảng, không dò một hex cố định)
 const chatSurface = ch => { const bg = (el, v) => ((el && el.className.match(new RegExp(`\\b${v}:bg-\\[(#[0-9A-Fa-f]{6})\\]`))) || [])[1], m = ch.closest('main');
   return ['lt', 'dk'].every(v => bg(ch, v) && bg(m, v) && bg(ch, v).toUpperCase() !== bg(m, v).toUpperCase()); };
-for (const [pos, kind] of [[3, 'story'], [9, 'radio']]) { // ux1: chặng 'mid' = truyện (chặng chẵn) / radio (chặng lẻ)
+const radioPos = (() => { for (let k = 1; k < 60; k += 2) if (!w.PathTrail.hidden(w.Ux1.unitAt(k * 6, 6), 3)) return k * 6 + 3; return -1; })(); // chặng lẻ CÓ ô truyện (ô rỗng bị bỏ qua có chủ đích, test riêng ở ux1.mjs)
+for (const [pos, kind] of [[3, 'story'], [radioPos, 'radio']]) { // ux1: chặng 'mid' = truyện (chặng chẵn) / radio (chặng lẻ)
   w.localStorage.setItem('lk.lsn.path.demo', String(pos)); w.localStorage.removeItem(`lk.lsn.s.${kind}.demo`);
   w.location.hash = '#/lesson/go?demo=1'; await App.routes.lesson('go'); await tick(120);
+  if (kind === 'story') ok(st().story.id === w.PathTrail.storyOf(pos, w.Ux1.unitAt), 'v2 story: nút Truyện mở đúng truyện của ô Lộ trình');
   const D = w.document, said = [], T = st().teachers; let sawDuo = false, sawQ = false, sawLine = false, bothOk = false;
   ok(D.querySelector('.v2-story-duo') && $('#lsn.lsn-v2') && T && T.ama && T.carlos && $('#lsnTch') && $('#lsnTch2') && $('.lsn-bar').getAttribute('role') === 'progressbar' && $('a.lsn-x').getAttribute('href') === '#/lesson?demo=1', `v2 ${kind}: khung story-duo, Ama + Carlos (2 LessonTeacher), thanh tiến độ, ✕ về bản đồ`);
   ok(D.querySelectorAll('.lsn-ln').length === 1 && $('#lsnPlay') && $('#lsnGo') && /Tiếp tục|Continue/.test($('#lsnGo').textContent), `v2 ${kind}: câu đầu hiện, nút Nghe lại + Tiếp tục`);

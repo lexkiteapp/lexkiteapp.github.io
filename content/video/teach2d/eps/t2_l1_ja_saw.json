@@ -66,7 +66,7 @@
    "answer": 0
   },
   "native": {
-   "hook": "yesterday に現在完了は使えない",
+   "hook": "yesterday と have seen？注意！",
    "tip": "「昨日」など過去の時を言うなら、過去形 saw を使います。",
    "caption": "“I have seen him yesterday.”と言っていませんか？😅 yesterday のように過去の時がはっきりしているときは、現在完了ではなく過去形を使います。 “I saw him yesterday.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
    "comment": "答え：“saw”。yesterday には過去形。無料クイズで練習：{link}",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "yesterday に現在完了は使えない"
+  "text": "yesterday と have seen？注意！"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 97
  },
  "publish": {
-  "title": "yesterday に現在完了は使えない",
+  "title": "yesterday と have seen？注意！",
   "keyword": "I saw him yesterday.",
   "value": "「昨日」など過去の時を言うなら、過去形 saw を使います。",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 37,
   "platforms": {
    "youtube": {
-    "title": "yesterday に現在完了は使えない",
+    "title": "yesterday と have seen？注意！",
     "description": "“I have seen him yesterday.”と言っていませんか？😅 yesterday のように過去の時がはっきりしているときは、現在完了ではなく過去形を使います。 “I saw him yesterday.” が自然な言い方です。Amaの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
     "tags": [
      "I saw him yesterday.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "yesterday に現在完了は使えない #英語学習 #英会話 #英語勉強"
+    "caption": "yesterday と have seen？注意！ #英語学習 #英会話 #英語勉強"
    }
   },
   "first_comment": "答え：“saw”。yesterday には過去形。無料クイズで練習：{link}",
