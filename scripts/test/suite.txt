@@ -422,3 +422,4 @@ node scripts/test/social-stats-ui.mjs
 node scripts/test/l1-notes.mjs
 node scripts/test/qwk.mjs
 node scripts/test/es-native-bundle.mjs
+node scripts/test/workflow-injection.mjs

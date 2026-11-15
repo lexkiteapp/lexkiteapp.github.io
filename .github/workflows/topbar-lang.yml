@@ -49,10 +49,12 @@ jobs:
         if: github.event_name == 'pull_request'
         continue-on-error: true
         run: |
-          git fetch -q --depth=1 origin "${{ github.base_ref }}"
+          git fetch -q --depth=1 origin "$LX_IN1"
           mkdir -p out/base && git archive FETCH_HEAD web | tar -x -C out/base
           node scripts/test/topbar-lang.mjs out/base/web out/topbar-lang --label truoc --report-only
           cat out/topbar-lang/truoc.md >> "$GITHUB_STEP_SUMMARY"
+        env:
+          LX_IN1: ${{ github.base_ref }}
       - name: Đo bản này
         run: |
           node scripts/test/topbar-lang.mjs web out/topbar-lang --label sau && s=0 || s=$?

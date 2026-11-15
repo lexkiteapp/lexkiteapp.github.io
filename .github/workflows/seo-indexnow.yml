@@ -33,9 +33,11 @@ jobs:
       - name: URL mới/đổi
         run: |
           touch prev-seo-urls.txt
-          if [ "${{ github.event.inputs.all }}" = "true" ]; then : > prev-seo-urls.txt; fi
+          if [ "$LX_IN1" = "true" ]; then : > prev-seo-urls.txt; fi
           grep -vxFf prev-seo-urls.txt "$RUNNER_TEMP/now.txt" | cut -d' ' -f1 | head -10000 > changed.txt || true
           echo "$(wc -l < changed.txt) URL mới/đổi"; head -5 changed.txt
+        env:
+          LX_IN1: ${{ github.event.inputs.all }}
       - name: Chờ deploy rồi báo IndexNow
         if: hashFiles('changed.txt') != ''
         env: { CI_HDR: '${{ secrets.LEXKITE_CI_HEADER }}' }

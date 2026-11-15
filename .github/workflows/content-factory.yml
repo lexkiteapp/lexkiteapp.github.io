@@ -30,9 +30,13 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - id: p
-        env: { GITHUB_TOKEN: '${{ github.token }}' }
+        env:
+          GITHUB_TOKEN: '${{ github.token }}'
+          LX_IN1: ${{ inputs.area || 'all' }}
+          LX_IN2: ${{ inputs.max || '4' }}
+          LX_IN3: ${{ inputs.n || '25' }}
         run: |
-          node scripts/factory/run.mjs --plan --area "${{ inputs.area || 'all' }}" --max "${{ inputs.max || '4' }}" --n "${{ inputs.n || '25' }}" ${{ github.event_name == 'pull_request' && '--pilot' || '' }} > plan.json
+          node scripts/factory/run.mjs --plan --area "$LX_IN1" --max "$LX_IN2" --n "$LX_IN3" ${{ github.event_name == 'pull_request' && '--pilot' || '' }} > plan.json
           echo "matrix=$(node -e "console.log(JSON.stringify({include:require('./plan.json').include}))")" >> "$GITHUB_OUTPUT"
           echo "parallel=$(node -p "require('./plan.json').parallel")" >> "$GITHUB_OUTPUT"
           echo "count=$(node -p "require('./plan.json').include.length")" >> "$GITHUB_OUTPUT"
@@ -51,11 +55,12 @@ jobs:
         with: { node-version: 22 }
       - name: Lô ${{ matrix.area }}/${{ matrix.kind }} s${{ matrix.shard }}
         env:  # ai-pool: gem (GEMINI_POOL) → groq (GROQ_POOL) → GrabCast; cf2 = 0 neuron (kho CF để cho ảnh)
+          LX_IN1: ${{ inputs.n || '25' }}
           GEMINI_POOL: ${{ secrets.GEMINI_POOL }}
           GROQ_POOL: ${{ secrets.GROQ_POOL }}
           GRABCAST_AI_KEY: ${{ secrets.GRABCAST_AI_KEY }}
           AI_POOL_GC_MAX: '2000'
-        run: node scripts/factory/run.mjs --area "${{ matrix.area }}" --kind "${{ matrix.kind }}" --shard "${{ matrix.shard }}" --shards "${{ matrix.shards }}" --n "${{ inputs.n || '25' }}"
+        run: node scripts/factory/run.mjs --area "${{ matrix.area }}" --kind "${{ matrix.kind }}" --shard "${{ matrix.shard }}" --shards "${{ matrix.shards }}" --n "$LX_IN1"
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: 'factory-${{ matrix.area }}-${{ matrix.kind }}-s${{ matrix.shard }}', path: out/factory/, retention-days: 14, if-no-files-found: ignore }

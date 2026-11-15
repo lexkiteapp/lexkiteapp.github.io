@@ -68,9 +68,11 @@ jobs:
           # tầng tĩnh từ điển (deploy riêng qua Worker) – chép 1 mẫu/loại vào dist sau cổng SEO để quét giao diện
           node scripts/dict/build.mjs >/dev/null 2>&1 && for d in $(cd dist-dict && find . -name index.html | sort | awk -F/ '{k=$3"/"NF; if(!s[k]++) print}' | head -12); do mkdir -p "dist/$(dirname "$d")"; cp -n "dist-dict/$d" "dist/$d"; done; echo "dict mẫu: $(find dist/assets -name index.html 2>/dev/null | wc -l)"
           (cd dist && python3 -m http.server 8080 >/dev/null 2>&1 &) ; sleep 1
-          W=""; [ "${{ github.event.inputs.write_known }}" = 1 ] && W=--write-known
+          W=""; [ "$LX_IN1" = 1 ] && W=--write-known
           node scripts/test/web-sweep.mjs http://localhost:8080 dist web-sweep-out $W
           [ -n "$W" ] && cp scripts/test/web-sweep.known.json web-sweep-out/ || true
+        env:
+          LX_IN1: ${{ github.event.inputs.write_known }}
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: web-sweep, path: web-sweep-out, retention-days: 7 }
