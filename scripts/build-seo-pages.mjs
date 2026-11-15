@@ -16,6 +16,7 @@ const toolLine = l => { const s = toolStrings(l); return s ? `<p><a href="${tool
 
 if (process.env.SEO_PAGES === '0') { console.log('· SEO pages: tắt (SEO_PAGES=0)'); process.exit(0); }
 const SITE = 'https://lexkite.com', D = process.env.SEO_DIST || 'dist';
+const { r2Langs, WORDS_DIR } = await import('./lib/words-r2.mjs'), R2L = new Set(r2Langs()); // trang /<lang>/words/** của các ngôn ngữ này ghi ra dist-words/ (đồng bộ R2, Function đọc ra)
 // Chọn trang + nội dung trang từ: scripts/lib/seo-words.mjs (dùng chung với hộp từ của build-blog.mjs) – nạp sau công tắc SEO_PAGES
 const { J, RTL, cap, setOf, idxW, slug, gloss, wPath, bodyOf, en, appLink, cta, goLine } = await import('./lib/seo-words.mjs');
 const today = new Date().toISOString().slice(0, 10);
@@ -26,7 +27,7 @@ const urls = []; // [url, lastmod, alts, type, lang]
 const hashes = [];
 const LM = lastmodStore();
 const url = p => SITE + p;
-const fileOf = p => path.join(D, p.endsWith('/') ? p + 'index.html' : p + '.html');
+const fileOf = p => path.join(R2L.has(p.split('/')[1]) && p.split('/')[2] === 'words' ? WORDS_DIR : D, p.endsWith('/') ? p + 'index.html' : p + '.html');
 const usedT = new Set(), usedD = new Set(); // tiêu đề/mô tả duy nhất trong mỗi ngôn ngữ (cổng seo-pages)
 const uniq = (set, l, s, alt) => { let v = s; if (set.has(l + v)) v = alt; set.add(l + v); return v; };
 const write = (p, html, { lm, alts, type, lang, index }) => {
