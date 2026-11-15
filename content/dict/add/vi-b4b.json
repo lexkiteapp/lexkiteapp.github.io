@@ -197,9 +197,9 @@
   "constitution": {
     "mis": [
       {
-        "w": "The rights are guaranteed in the constitution of Vietnam.",
-        "r": "The rights are guaranteed by the constitution of Vietnam.",
-        "why": "Dùng 'by' cho chủ thể bảo đảm; 'in' chỉ nói quyền được ghi ở đâu."
+        "w": "The rights are guaranteed in constitution of Vietnam.",
+        "r": "The rights are guaranteed in the constitution of Vietnam.",
+        "why": "Văn bản cụ thể cần mạo từ 'the'."
       },
       {
         "w": "Vietnam's constitution have been amended several times.",
@@ -324,7 +324,7 @@
       {
         "w": "Dermatology are my favorite subject.",
         "r": "Dermatology is my favorite subject.",
-        "why": "Tên các ngành học kết thúc bằng -y hay -s dùng như danh từ số ít."
+        "why": "Tên một ngành học là danh từ số ít nên động từ là is, không phải are."
       }
     ],
     "u": "Dermatology là ngành y học về da, tóc và móng, bao gồm các vấn đề như mụn, chàm và ung thư da. Bác sĩ chuyên khoa là dermatologist, tính từ liên quan là dermatological. Bệnh viện có dermatology department hoặc clinic, và bệnh nhân được referred to dermatology. Cosmetic dermatology tập trung vào vẻ ngoài, chẳng hạn điều trị sẹo hoặc lão hoá."
@@ -357,7 +357,7 @@
         "why": "Số nhiều của diagnosis là diagnoses, phát âm /-siːz/."
       }
     ],
-    "u": "Diagnosis là việc xác định bệnh từ triệu chứng và kết quả xét nghiệm. Ta make hoặc confirm a diagnosis, còn bệnh nhân receive a diagnosis. Từ có số nhiều bất quy tắc gốc Hy Lạp là diagnoses, động từ là diagnose, dùng với tên bệnh hoặc ở bị động: he was diagnosed with asthma. Chẩn đoán sớm thường cải thiện kết quả điều trị. Prognosis thì ngược lại, là dự báo diễn tiến của bệnh."
+    "u": "Diagnosis là việc xác định bệnh từ triệu chứng và kết quả xét nghiệm. Ta make hoặc confirm a diagnosis, còn bệnh nhân receive a diagnosis. Từ có số nhiều bất quy tắc gốc Hy Lạp là diagnoses, động từ là diagnose, dùng với tên bệnh hoặc ở bị động: he was diagnosed with asthma. Chẩn đoán sớm thường cải thiện kết quả điều trị. Prognosis thì khác: đó là dự báo diễn tiến của bệnh."
   },
   "dialysis": {
     "mis": [
@@ -457,9 +457,9 @@
         "why": "Equity nghĩa là giá trị sở hữu thì không đếm được; 'equities' chỉ nhóm cổ phiếu."
       },
       {
-        "w": "The company raised equity from the debt.",
-        "r": "The company raised equity instead of debt.",
-        "why": "Equity và debt là hai lựa chọn thay thế nhau; 'from the debt' lại nói nợ là nguồn vốn."
+        "w": "He wants to invest on equity.",
+        "r": "He wants to invest in equity.",
+        "why": "Invest đi với 'in' trước thứ bạn bỏ tiền vào."
       }
     ],
     "u": "Trong tài chính, equity là giá trị quyền sở hữu một công ty, bằng tài sản trừ nợ phải trả, nên shareholder equity là phần còn lại cho chủ sở hữu. Doanh nghiệp raise equity bằng cách bán cổ phần, thay vì vay nợ. Các quỹ private equity mua lại công ty. Home equity là phần giá trị căn nhà bạn thực sự sở hữu. Equity còn nghĩa là sự công bằng, như gender equity."
@@ -624,7 +624,7 @@
       {
         "w": "The integrations of the two systems is easy.",
         "r": "The integration of the two systems is easy.",
-        "why": "Ở đây integration là số ít; số nhiều cần động từ số nhiều và nghĩa khác."
+        "why": "Chủ ngữ là số ít nên dùng is; số nhiều integrations mới đi với are."
       }
     ],
     "u": "Integration là hành động kết hợp các bộ phận hoặc hệ thống riêng lẻ thành một thể thống nhất. Trong CNTT, nghĩa là kết nối phần mềm để trao đổi dữ liệu, ví dụ integration with payment services. Danh từ đi với with hoặc of: the integration of two systems. Trong ngữ cảnh xã hội, nghĩa là đưa các nhóm người hoà nhập, như the integration of immigrants. Động từ là integrate, tính từ là integrated."

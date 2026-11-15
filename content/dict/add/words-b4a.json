@@ -577,8 +577,8 @@
       "push a wheelchair"
     ],
     "syn": [
-      "mobility chair",
-      "wheeled chair"
+      "mobility aid",
+      "power chair"
     ]
   },
   "wireless": {
@@ -749,8 +749,8 @@
       "bearing failure"
     ],
     "syn": [
-      "bush",
-      "support part"
+      "bushing",
+      "support"
     ]
   },
   "benchmark": {

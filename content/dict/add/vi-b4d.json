@@ -447,7 +447,7 @@
         "why": "Oil là danh từ không đếm được khi chỉ dầu ăn nên dùng much oil, không dùng oils."
       }
     ],
-    "u": "Fry nghĩa là nấu thức ăn trong dầu hoặc mỡ nóng trên chảo. Deep fry dùng nhiều dầu để ngập thức ăn, còn stir-fry là xào nhanh các miếng nhỏ khi đảo liên tục. Saute dùng ít dầu và mang tính chuyên môn hơn. Fry theo quy tắc: fries, fried. Hãy nhớ fry là nấu bằng chất béo, còn boil dùng nước và bake dùng lò nướng. Fried rice và french fries đều xuất phát từ động từ này."
+    "u": "Fry nghĩa là nấu thức ăn trong dầu hoặc mỡ nóng trên chảo. Deep fry dùng nhiều dầu để ngập thức ăn, còn stir-fry là xào nhanh các miếng nhỏ khi đảo liên tục. Sear và pan-fry dùng ít dầu và mang tính chuyên môn hơn. Fry theo quy tắc: fries, fried. Hãy nhớ fry là nấu bằng chất béo, còn boil dùng nước và bake dùng lò nướng. Fried rice và french fries đều xuất phát từ động từ này."
   },
   "glove": {
     "mis": [
@@ -552,7 +552,7 @@
         "why": "Ingredient đếm được nên sau số lượng cần dạng số nhiều."
       }
     ],
-    "u": "Ingredient là một trong các thực phẩm hoặc chất được trộn lại để làm món ăn hay sản phẩm. Công thức bắt đầu bằng danh sách ingredients, và nhãn bao bì cũng liệt kê chúng. Danh từ đếm được. Mẫu hay dùng: the main ingredient in a cake, hoặc the key ingredient of success khi dùng nghĩa bóng. Component là từ kỹ thuật chung, còn ingredient hầu như dùng cho thực phẩm, mỹ phẩm và những công thức thành công trừu tượng."
+    "u": "Ingredient là một trong các thực phẩm hoặc chất được trộn lại để làm món ăn hay sản phẩm. Công thức bắt đầu bằng danh sách ingredients, và nhãn bao bì cũng liệt kê chúng. Danh từ đếm được. Mẫu hay dùng: the main ingredient in a cake, hoặc the key ingredient of success khi dùng nghĩa bóng. Component là từ kỹ thuật chung, còn ingredient dùng cho thực phẩm, mỹ phẩm, và nghĩa bóng là yếu tố làm nên thành công."
   },
   "invoice": {
     "mis": [
@@ -697,9 +697,9 @@
         "why": "Khi nói từng chiếc bánh riêng lẻ, pastry đếm được và có số nhiều pastries."
       },
       {
-        "w": "The bakery sells pastries and breads.",
-        "r": "The bakery sells pastries and bread.",
-        "why": "Bread là danh từ không đếm được và không thêm -s."
+        "w": "She rolled out the pastries for the pie.",
+        "r": "She rolled out the pastry for the pie.",
+        "why": "Bột làm bánh nướng là pastry không đếm được; pastries nghĩa là nhiều chiếc bánh ngọt nhỏ."
       }
     ],
     "u": "Pastry có hai nghĩa. Là danh từ không đếm được, đó là bột nhào từ bột mì, bơ và nước dùng làm bánh nướng và tart: puff pastry, shortcrust pastry. Là danh từ đếm được, a pastry là chiếc bánh ngọt nướng nhỏ như croissant hay bánh Danish. Từ đó có pastry chef, đầu bếp chuyên làm bánh tráng miệng. Khác với bread, pastry nhiều chất béo và ngọt hoặc có nhân."

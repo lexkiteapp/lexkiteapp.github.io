@@ -92,9 +92,9 @@
  "salary": {
   "mis": [
    {
-    "w": "She has a big salary.",
-    "r": "She has a high salary.",
-    "why": "Lương được mô tả là high hoặc low, không dùng big hay small."
+    "w": "My salary is very cheap.",
+    "r": "My salary is very low.",
+    "why": "Lương được mô tả là high hoặc low, không dùng cheap hay expensive."
    },
    {
     "w": "She asked for an increase of salary.",
@@ -102,7 +102,7 @@
     "why": "Sau increase dùng giới từ 'in'; 'of' dùng cho số lượng tăng."
    }
   ],
-  "u": "Salary là khoản tiền cố định do chủ lao động trả, thường theo tháng hoặc năm, cho công việc văn phòng hay chuyên môn. Wage thường tính theo giờ hoặc tuần, cho công việc chân tay hoặc thời vụ. Tin tuyển dụng hay ghi 'a salary of $60,000 a year'. Pay là từ chung nhất. Lương được earn hoặc receive, và là high hay low chứ không bao giờ là big."
+  "u": "Salary là khoản tiền cố định do chủ lao động trả, thường theo tháng hoặc năm, cho công việc văn phòng hay chuyên môn. Wage thường tính theo giờ hoặc tuần, cho công việc chân tay hoặc thời vụ. Tin tuyển dụng hay ghi 'a salary of $60,000 a year'. Pay là từ chung nhất. Lương được earn hoặc receive, và thường được gọi là high hay low thay vì big."
  },
  "scenery": {
   "mis": [

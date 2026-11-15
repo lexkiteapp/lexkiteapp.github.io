@@ -87,7 +87,7 @@
     "why": "Danh từ đếm được số ít cần mạo từ; ở đây cần the."
    }
   ],
-  "u": "Notary, hay notary public, là người có thẩm quyền chứng kiến chữ ký, chứng thực bản sao và nhận lời tuyên thệ. Vai trò khác nhau theo nước: ở Mỹ notary chủ yếu xác minh danh tính, còn ở nhiều nước theo luật dân sự, trong đó có Việt Nam, công chứng viên có nhiệm vụ pháp lý rộng hơn và thường phải là luật sư. Người là a notary; hành động là to notarize. Nói go to the notary hoặc see a notary."
+  "u": "Notary, hay notary public, là người có thẩm quyền chứng kiến chữ ký, chứng thực bản sao và nhận lời tuyên thệ. Vai trò khác nhau theo nước: ở Mỹ notary chủ yếu xác minh danh tính, còn ở nhiều nước theo luật dân sự, trong đó có Việt Nam, công chứng viên có nhiệm vụ pháp lý rộng hơn và thường cần được đào tạo về luật. Người là a notary; hành động là to notarize. Nói go to the notary hoặc see a notary."
  },
  "oncology": {
   "mis": [
@@ -132,7 +132,7 @@
     "why": "Many cần danh từ số nhiều và động từ số nhiều."
    }
   ],
-  "u": "Outpatient là người đến bệnh viện hay phòng khám để điều trị hoặc xét nghiệm nhưng không ở lại qua đêm; trái nghĩa là inpatient. Từ này còn làm tính từ: outpatient surgery, outpatient clinic. Ở Anh, day patient có nghĩa tương tự. Bệnh viện thường báo cáo riêng số outpatient và inpatient, nên cần nhớ sự đối lập giữa hai từ này."
+  "u": "Outpatient là người đến bệnh viện hay phòng khám để điều trị hoặc xét nghiệm nhưng không ở lại qua đêm; trái nghĩa là inpatient. Từ này còn làm tính từ: outpatient surgery, outpatient clinic. Ở Anh, day patient có nghĩa tương tự. Bệnh viện thường báo cáo riêng số outpatient và inpatient."
  },
  "overhaul": {
   "mis": [
@@ -257,9 +257,9 @@
  "plaintiff": {
   "mis": [
    {
-    "w": "The plaintiff accused the court of fraud.",
-    "r": "The plaintiff accused the defendant of fraud.",
-    "why": "Trong vụ dân sự, plaintiff kiện defendant; court là nơi xét xử, không phải bên bị buộc tội."
+    "w": "The defendant filed the lawsuit against the company.",
+    "r": "The plaintiff filed the lawsuit against the company.",
+    "why": "Plaintiff là bên khởi kiện vụ dân sự; defendant là bên bị kiện."
    },
    {
     "w": "The plaintiff sued to the company for damages.",
@@ -477,7 +477,7 @@
     "why": "Three cần danh từ số nhiều; repository thành repositories."
    }
   ],
-  "u": "Repository là nơi lưu trữ đồ vật. Trong phần mềm, đó là nơi, thường quản lý bằng Git, chứa mã nguồn của dự án cùng toàn bộ lịch sử thay đổi; lập trình viên gọi tắt là repo. Bạn clone, push to và pull from một repository, có thể là cục bộ hoặc từ xa. Trong tiếng Anh thông thường, a repository of knowledge là người hay nơi giữ nhiều thông tin. Trọng âm rơi vào âm tiết thứ hai."
+  "u": "Repository là nơi lưu trữ đồ vật. Trong phần mềm, đó là nơi, thường quản lý bằng Git, chứa mã nguồn của dự án cùng toàn bộ lịch sử thay đổi; lập trình viên gọi tắt là repo. Bạn clone, push to và pull from một repository, có thể là cục bộ hoặc từ xa. Trong tiếng Anh thông thường, a repository of knowledge là người hay nơi giữ nhiều thông tin. Trọng âm chính rơi vào âm tiết thứ hai."
  },
  "respiratory": {
   "mis": [
@@ -537,7 +537,7 @@
     "why": "Go down đi thẳng với tân ngữ như shaft, không dùng in."
    }
   ],
-  "u": "Shaft có nhiều nghĩa. Trong cơ khí, đó là thanh quay truyền lực, như drive shaft. Nó còn chỉ lối đi hẹp thẳng đứng, như mine shaft hay lift shaft (thang máy, tiếng Anh Anh), và một tia sáng: a shaft of sunlight. Cần xem ngữ cảnh vì từ này cũng có nghĩa lóng thô tục. Trong văn bản kỹ thuật, chỉ có các nghĩa chuyên môn xuất hiện."
+  "u": "Shaft có nhiều nghĩa. Trong cơ khí, đó là thanh quay truyền lực, như drive shaft. Nó còn chỉ lối đi hẹp thẳng đứng, như mine shaft hay lift shaft (thang máy, tiếng Anh Anh), và một tia sáng: a shaft of sunlight. Cần xem ngữ cảnh vì từ này cũng có nghĩa lóng thô tục."
  },
  "sterile": {
   "mis": [
@@ -549,7 +549,7 @@
    {
     "w": "The instruments must be sterile by heating.",
     "r": "The instruments must be sterilized by heating.",
-    "why": "Sterile là trạng thái; quá trình with by heating cần bị động sterilized."
+    "why": "Sterile là trạng thái; quá trình 'by heating' cần bị động sterilized."
    }
   ],
   "u": "Sterile nghĩa là hoàn toàn không còn vi khuẩn và mầm bệnh sống, như dụng cụ phẫu thuật, kim tiêm và băng gạc. Động từ là sterilize, danh từ là sterility. Từ còn có nghĩa thứ hai là không có khả năng sinh sản, và nghĩa bóng chỉ thứ khô khan, thiếu sáng tạo, như a sterile debate. Sterile mạnh hơn clean hay hygienic vì đồ sạch vẫn có thể mang vi khuẩn."
@@ -582,7 +582,7 @@
     "why": "Ten cần danh từ số nhiều."
    }
   ],
-  "u": "Suture là mũi khâu hoặc chỉ mà bác sĩ phẫu thuật dùng để đóng vết thương hay nối mô; cũng dùng như động từ. Từ này trang trọng, mang tính lâm sàng, nhân viên y tế dùng, còn bệnh nhân thường nói stitches. Chỉ khâu có thể absorbable, tự tiêu, hoặc non-absorbable, phải cắt chỉ. Bạn được khâu sutures và bác sĩ tháo ra sau khoảng một tuần."
+  "u": "Suture là mũi khâu hoặc chỉ mà bác sĩ phẫu thuật dùng để đóng vết thương hay nối mô; cũng dùng như động từ. Từ này trang trọng, mang tính lâm sàng, nhân viên y tế dùng, còn bệnh nhân thường nói stitches. Chỉ khâu có thể absorbable, tự tiêu, hoặc non-absorbable, phải cắt chỉ. Bạn được khâu chỉ (get sutures put in) và bác sĩ tháo chỉ sau khoảng một tuần."
  },
  "testimony": {
   "mis": [
@@ -687,7 +687,7 @@
     "why": "Uptime là lúc hệ thống chạy; khoảng thời gian người dùng không đăng nhập được là downtime."
    }
   ],
-  "u": "Uptime là lượng hoặc tỷ lệ thời gian một hệ thống, website hay máy móc hoạt động và sẵn sàng. Nhà cung cấp cam kết uptime trong hợp đồng dịch vụ, thường 99,9 phần trăm, tức cho phép khoảng chín giờ ngừng hoạt động mỗi năm. Trái nghĩa là downtime. Từ không đếm được và mang tính kỹ thuật thân mật. Nó chỉ khác availability chút ít: uptime là số đo, availability là thuộc tính khách hàng được hưởng."
+  "u": "Uptime là lượng hoặc tỷ lệ thời gian một hệ thống, website hay máy móc hoạt động và sẵn sàng. Nhà cung cấp cam kết uptime trong hợp đồng dịch vụ, thường 99,9 phần trăm, tức cho phép khoảng chín giờ ngừng hoạt động mỗi năm. Trái nghĩa là downtime. Từ không đếm được và mang tính kỹ thuật thân mật. Nó chỉ khác availability chút ít: uptime là thời gian đo được, còn availability là mức độ sẵn sàng dùng của dịch vụ."
  },
  "valuation": {
   "mis": [

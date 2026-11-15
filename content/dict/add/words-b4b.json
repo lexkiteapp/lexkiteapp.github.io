@@ -327,7 +327,7 @@
     ],
     "syn": [
       "skin medicine",
-      "skin care medicine"
+      "skin specialty"
     ]
   },
   "diabetes": {
@@ -447,7 +447,7 @@
     ],
     "syn": [
       "access point",
-      "interface address"
+      "API address"
     ]
   },
   "equity": {

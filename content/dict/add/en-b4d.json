@@ -447,7 +447,7 @@
         "why": "Oil is uncountable when it means cooking fat, so much oil, not oils."
       }
     ],
-    "u": "Fry means to cook food in hot oil or fat in a pan. Deep fry uses a lot of oil so that the food is covered, while stir-fry means cooking small pieces quickly while moving them. Sear and pan-fry use little oil and are more technical. Fry is regular: fries, fried. Remember that fry is dry-heat cooking in fat, whereas boil uses water and bake uses an oven. Fried rice and french fries come from it."
+    "u": "Fry means to cook food in hot oil or fat in a pan. Deep fry uses a lot of oil so that the food is covered, while stir-fry means cooking small pieces quickly while moving them. Sear and pan-fry use little oil and are more technical. Fry is regular: fries, fried. Remember that fry cooks food in fat, whereas boil uses water and bake uses an oven. Fried rice and french fries come from it."
   },
   "glove": {
     "mis": [
@@ -552,7 +552,7 @@
         "why": "Ingredient is countable, so a number needs the plural form."
       }
     ],
-    "u": "An ingredient is one of the foods or substances you combine to make a dish or product. Recipes begin with a list of ingredients, and labels on packets list them too. The noun is countable. Common patterns: the main ingredient in a cake, or the key ingredient of success when it is used figuratively. Component is a general technical word, while ingredient is nearly always used for food, cosmetics and abstract recipes for success."
+    "u": "An ingredient is one of the foods or substances you combine to make a dish or product. Recipes begin with a list of ingredients, and labels on packets list them too. The noun is countable. Common patterns: the main ingredient in a cake, or the key ingredient of success when it is used figuratively. Component is a general technical word, while ingredient is used for food and cosmetics, and figuratively for what makes something succeed."
   },
   "invoice": {
     "mis": [
@@ -697,9 +697,9 @@
         "why": "For individual cakes, pastry is countable and takes the plural pastries."
       },
       {
-        "w": "The bakery sells pastries and breads.",
-        "r": "The bakery sells pastries and bread.",
-        "why": "Bread is uncountable and does not take a plural -s."
+        "w": "She rolled out the pastries for the pie.",
+        "r": "She rolled out the pastry for the pie.",
+        "why": "Dough for pies is uncountable pastry; pastries means several small cakes."
       }
     ],
     "u": "Pastry has two senses. As an uncountable noun it is the dough of flour, butter and water used to make pies and tarts: puff pastry, shortcrust pastry. As a countable noun, a pastry is a small sweet baked item such as a croissant or a Danish. Hence pastry chef, the cook who specialises in desserts. Unlike bread, pastry is rich in fat and sweet or filled."

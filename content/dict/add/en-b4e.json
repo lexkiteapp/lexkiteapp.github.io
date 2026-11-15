@@ -92,9 +92,9 @@
  "salary": {
   "mis": [
    {
-    "w": "She has a big salary.",
-    "r": "She has a high salary.",
-    "why": "Salary is described as high or low, not big or small."
+    "w": "My salary is very cheap.",
+    "r": "My salary is very low.",
+    "why": "A salary is described as high or low, not cheap or expensive."
    },
    {
     "w": "She asked for an increase of salary.",
@@ -102,7 +102,7 @@
     "why": "After increase, the preposition is 'in'; 'of' gives the amount."
    }
   ],
-  "u": "A salary is a fixed payment from an employer, usually given monthly or yearly, for office or professional work. A wage is normally paid by the hour or week for manual or casual jobs. Job adverts say 'a salary of $60,000 a year'. Pay is the general word. Salaries are earned or received, and they are high or low, never big."
+  "u": "A salary is a fixed payment from an employer, usually given monthly or yearly, for office or professional work. A wage is normally paid by the hour or week for manual or casual jobs. Job adverts say 'a salary of $60,000 a year'. Pay is the general word. Salaries are earned or received, and they are usually called high or low rather than big."
  },
  "scenery": {
   "mis": [

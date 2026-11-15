@@ -87,7 +87,7 @@
     "why": "A singular countable noun needs an article; here the specific notary needs 'the'."
    }
   ],
-  "u": "A notary, or notary public, is an official authorized to witness signatures, certify copies and administer oaths. The role differs by country: in the US a notary mainly checks identity, while in many civil-law countries, including Vietnam, a notary has wider legal duties and often must be a lawyer. The person is a notary; the act is to notarize. Say go to the notary or see a notary."
+  "u": "A notary, or notary public, is an official authorized to witness signatures, certify copies and administer oaths. The role differs by country: in the US a notary mainly checks identity, while in many civil-law countries, including Vietnam, a notary has wider legal duties and usually needs legal training. The person is a notary; the act is to notarize. Say go to the notary or see a notary."
  },
  "oncology": {
   "mis": [
@@ -132,7 +132,7 @@
     "why": "Many needs a plural noun and a plural verb."
    }
   ],
-  "u": "An outpatient is someone who visits a hospital or clinic for treatment or tests but does not stay overnight; the opposite is an inpatient. The word also works as an adjective: outpatient surgery, an outpatient clinic. In the UK a day patient is similar. Hospitals report numbers of outpatients and inpatients separately, so the contrast between the two is worth remembering."
+  "u": "An outpatient is someone who visits a hospital or clinic for treatment or tests but does not stay overnight; the opposite is an inpatient. The word also works as an adjective: outpatient surgery, an outpatient clinic. In the UK a day patient is similar. Hospitals report numbers of outpatients and inpatients separately."
  },
  "overhaul": {
   "mis": [
@@ -257,9 +257,9 @@
  "plaintiff": {
   "mis": [
    {
-    "w": "The plaintiff accused the court of fraud.",
-    "r": "The plaintiff accused the defendant of fraud.",
-    "why": "In a civil case the plaintiff sues the defendant; the court judges, it is not accused."
+    "w": "The defendant filed the lawsuit against the company.",
+    "r": "The plaintiff filed the lawsuit against the company.",
+    "why": "The plaintiff starts a civil case; the defendant is the party being sued."
    },
    {
     "w": "The plaintiff sued to the company for damages.",
@@ -477,7 +477,7 @@
     "why": "Three needs a plural noun; repository becomes repositories."
    }
   ],
-  "u": "A repository is a place where things are stored. In software it is the location, usually managed with Git, that holds a project's code and its full change history; developers shorten it to repo. You clone, push to and pull from a repository, which may be local or remote. In general English a repository of knowledge means a person or place that holds a lot of information. The first stress falls on the second syllable."
+  "u": "A repository is a place where things are stored. In software it is the location, usually managed with Git, that holds a project's code and its full change history; developers shorten it to repo. You clone, push to and pull from a repository, which may be local or remote. In general English a repository of knowledge means a person or place that holds a lot of information. The main stress falls on the second syllable."
  },
  "respiratory": {
   "mis": [
@@ -537,7 +537,7 @@
     "why": "Go down takes a direct object like the shaft without 'in'."
    }
   ],
-  "u": "A shaft has several senses. In machinery it is a rotating rod that transmits power, as in a drive shaft. It can also mean a narrow vertical passage, such as a mine shaft or a lift shaft in British English, and a beam of light: a shaft of sunlight. Check context, since the word is also used as a rude slang term. In engineering texts, only the technical senses appear."
+  "u": "A shaft has several senses. In machinery it is a rotating rod that transmits power, as in a drive shaft. It can also mean a narrow vertical passage, such as a mine shaft or a lift shaft in British English, and a beam of light: a shaft of sunlight. Check context, since the word is also used as a rude slang term."
  },
  "sterile": {
   "mis": [
@@ -687,7 +687,7 @@
     "why": "Uptime is when the system works; a period when users cannot log in is downtime."
    }
   ],
-  "u": "Uptime is the amount or percentage of time a system, website or machine is working and available. Providers promise uptime in service agreements, often 99.9 percent, which allows roughly nine hours of downtime a year. The opposite is downtime. Uptime is uncountable and informal-technical. It differs from availability only slightly: uptime is the measurement, availability the property a customer enjoys."
+  "u": "Uptime is the amount or percentage of time a system, website or machine is working and available. Providers promise uptime in service agreements, often 99.9 percent, which allows roughly nine hours of downtime a year. The opposite is downtime. Uptime is uncountable and informal-technical. It differs from availability only slightly: uptime is the measured time, while availability is how usable the service is."
  },
  "valuation": {
   "mis": [

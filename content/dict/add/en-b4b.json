@@ -197,9 +197,9 @@
   "constitution": {
     "mis": [
       {
-        "w": "The rights are guaranteed in the constitution of Vietnam.",
-        "r": "The rights are guaranteed by the constitution of Vietnam.",
-        "why": "Use 'by' for the agent that guarantees; 'in' only says where it is written."
+        "w": "The rights are guaranteed in constitution of Vietnam.",
+        "r": "The rights are guaranteed in the constitution of Vietnam.",
+        "why": "A specific document needs the article 'the'."
       },
       {
         "w": "Vietnam's constitution have been amended several times.",
@@ -324,7 +324,7 @@
       {
         "w": "Dermatology are my favorite subject.",
         "r": "Dermatology is my favorite subject.",
-        "why": "Names of fields ending in -s or -y behave as singular nouns."
+        "why": "A field of study is a singular noun, so the verb is 'is', not 'are'."
       }
     ],
     "u": "Dermatology is the branch of medicine that deals with the skin, hair and nails, covering problems such as acne, eczema and skin cancer. A doctor in this field is a dermatologist, and the related adjective is dermatological. Hospitals have a dermatology department or clinic, and patients are referred to dermatology. Cosmetic dermatology focuses on appearance, for example treating scars or ageing."
@@ -342,7 +342,7 @@
         "why": "Disease names like diabetes take no article."
       }
     ],
-    "u": "Diabetes is a long-term disease in which the body cannot control blood sugar properly. In type 1 the body makes too little insulin; in type 2 it cannot use insulin well. The word ends in -s but is singular and uncountable, so it takes no article and a singular verb. People say they have diabetes or were diagnosed with diabetes. A sufferer is diabetic, and the adjective is also diabetic."
+    "u": "Diabetes is a long-term disease in which the body cannot control blood sugar properly. In type 1 the body makes too little insulin; in type 2 it cannot use insulin well. The word ends in -s but is singular and uncountable, so it takes no article and a singular verb. People say they have diabetes or were diagnosed with diabetes. A person with the disease is a diabetic, and the adjective is also diabetic."
   },
   "diagnosis": {
     "mis": [
@@ -457,9 +457,9 @@
         "why": "Equity meaning ownership value is uncountable; 'equities' means shares as a category."
       },
       {
-        "w": "The company raised equity from the debt.",
-        "r": "The company raised equity instead of debt.",
-        "why": "Equity and debt are alternatives; 'from the debt' says debt was the source."
+        "w": "He wants to invest on equity.",
+        "r": "He wants to invest in equity.",
+        "why": "Invest takes 'in' before what you put money into."
       }
     ],
     "u": "In finance, equity is the value of ownership in a company, equal to assets minus liabilities, so shareholder equity is what remains for owners. Companies raise equity by selling shares, as opposed to taking on debt. Private equity firms buy companies. Home equity is the part of a house you own outright. Equity also means fairness, as in gender equity."
@@ -624,7 +624,7 @@
       {
         "w": "The integrations of the two systems is easy.",
         "r": "The integration of the two systems is easy.",
-        "why": "Integration is singular here; plural forms need a plural verb and a different meaning."
+        "why": "The subject is singular, so use 'is'; the plural integrations would need 'are'."
       }
     ],
     "u": "Integration is the act of combining separate parts or systems into a unified whole. In IT it means connecting software so they exchange data, for example integration with payment services. The noun is followed by with or of: the integration of two systems. In social contexts it means bringing groups together, as in the integration of immigrants. Its verb is integrate and its adjective is integrated."
