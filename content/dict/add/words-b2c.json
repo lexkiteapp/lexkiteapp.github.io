@@ -1,0 +1,848 @@
+{
+ "realistic": {
+  "ipaUS": "/ˌriːəˈlɪstɪk/",
+  "col": [
+   "realistic goal",
+   "realistic expectations",
+   "realistic budget",
+   "realistic timeline",
+   "realistic portrayal",
+   "be realistic about"
+  ],
+  "syn": [
+   "practical",
+   "sensible",
+   "achievable",
+   "down-to-earth"
+  ]
+ },
+ "realtor": {
+  "ipaUS": "/ˈriːltər/",
+  "col": [
+   "hire a realtor",
+   "a licensed realtor",
+   "realtor commission",
+   "local realtor",
+   "contact a realtor",
+   "realtor fee"
+  ],
+  "syn": [
+   "real estate agent",
+   "estate agent",
+   "property agent"
+  ]
+ },
+ "reassure": {
+  "ipaUS": "/ˌriːəˈʃʊr/",
+  "col": [
+   "reassure customers",
+   "reassure someone that",
+   "reassure the public",
+   "reassure investors",
+   "reassure yourself",
+   "reassure about safety"
+  ],
+  "syn": [
+   "comfort",
+   "calm",
+   "put someone's mind at rest",
+   "soothe"
+  ]
+ },
+ "reconsider": {
+  "ipaUS": "/ˌriːkənˈsɪdər/",
+  "col": [
+   "reconsider a decision",
+   "reconsider an offer",
+   "reconsider your position",
+   "ask someone to reconsider",
+   "reconsider whether",
+   "worth reconsidering"
+  ],
+  "syn": [
+   "rethink",
+   "review",
+   "revisit",
+   "think over"
+  ]
+ },
+ "recreational": {
+  "ipaUS": "/ˌrekriˈeɪʃənl/",
+  "col": [
+   "recreational activities",
+   "recreational facilities",
+   "recreational use",
+   "recreational drug",
+   "recreational vehicle",
+   "recreational sports"
+  ],
+  "syn": [
+   "leisure",
+   "pastime",
+   "relaxing",
+   "non-professional"
+  ]
+ },
+ "recruiter": {
+  "ipaUS": "/rɪˈkruːtər/",
+  "col": [
+   "hire a recruiter",
+   "corporate recruiter",
+   "recruiter contacted me",
+   "technical recruiter",
+   "recruiter call",
+   "work as a recruiter"
+  ],
+  "syn": [
+   "headhunter",
+   "talent scout",
+   "staffing agent",
+   "hiring agent"
+  ]
+ },
+ "recruitment": {
+  "ipaUS": "/rɪˈkruːtmənt/",
+  "col": [
+   "recruitment process",
+   "recruitment agency",
+   "recruitment drive",
+   "staff recruitment",
+   "recruitment campaign",
+   "recruitment officer"
+  ],
+  "syn": [
+   "hiring",
+   "staffing",
+   "enlistment",
+   "employment drive"
+  ]
+ },
+ "recur": {
+  "ipaUS": "/rɪˈkɜːr/",
+  "col": [
+   "recur regularly",
+   "problem recurs",
+   "recurring theme",
+   "recurring payment",
+   "recurring nightmare",
+   "likely to recur"
+  ],
+  "syn": [
+   "happen again",
+   "reappear",
+   "return",
+   "repeat"
+  ]
+ },
+ "referral": {
+  "ipaUS": "/rɪˈfɜːrəl/",
+  "col": [
+   "referral program",
+   "referral fee",
+   "doctor's referral",
+   "referral from",
+   "referral bonus",
+   "by referral"
+  ],
+  "syn": [
+   "recommendation",
+   "reference",
+   "introduction",
+   "direction"
+  ]
+ },
+ "refinery": {
+  "ipaUS": "/rɪˈfaɪnəri/",
+  "col": [
+   "oil refinery",
+   "sugar refinery",
+   "refinery capacity",
+   "refinery workers",
+   "refinery fire",
+   "metal refinery"
+  ],
+  "syn": [
+   "processing plant",
+   "oil plant",
+   "distillery"
+  ]
+ },
+ "reflexive": {
+  "ipaUS": "/rɪˈfleksɪv/",
+  "col": [
+   "reflexive pronoun",
+   "reflexive verb",
+   "reflexive action",
+   "reflexive reaction",
+   "reflexive form",
+   "a reflexive response"
+  ],
+  "syn": [
+   "automatic",
+   "involuntary",
+   "instinctive"
+  ]
+ },
+ "refreshment": {
+  "ipaUS": "/rɪˈfreʃmənt/",
+  "col": [
+   "light refreshments",
+   "refreshments will be served",
+   "refreshment stand",
+   "refreshment break",
+   "free refreshments",
+   "refreshment area"
+  ],
+  "syn": [
+   "snack",
+   "drink",
+   "beverage",
+   "light meal"
+  ]
+ },
+ "refundable": {
+  "ipaUS": "/rɪˈfʌndəbl/",
+  "col": [
+   "fully refundable",
+   "non-refundable",
+   "refundable deposit",
+   "refundable ticket",
+   "refundable fee",
+   "refundable within 30 days"
+  ],
+  "syn": [
+   "returnable",
+   "repayable",
+   "reimbursable"
+  ]
+ },
+ "rehearsal": {
+  "ipaUS": "/rɪˈhɜːrsl/",
+  "col": [
+   "dress rehearsal",
+   "final rehearsal",
+   "rehearsal schedule",
+   "rehearsal space",
+   "attend a rehearsal",
+   "rehearsal for"
+  ],
+  "syn": [
+   "practice",
+   "run-through",
+   "trial run",
+   "preparation"
+  ]
+ },
+ "rehearse": {
+  "ipaUS": "/rɪˈhɜːrs/",
+  "col": [
+   "rehearse a speech",
+   "rehearse a scene",
+   "rehearse for a show",
+   "rehearse lines",
+   "rehearse the presentation",
+   "well rehearsed"
+  ],
+  "syn": [
+   "practise",
+   "run through",
+   "prepare",
+   "go over"
+  ]
+ },
+ "reimburse": {
+  "ipaUS": "/ˌriːɪmˈbɜːrs/",
+  "col": [
+   "reimburse expenses",
+   "reimburse someone for",
+   "reimburse the cost",
+   "fully reimbursed",
+   "reimburse travel costs",
+   "reimburse employees"
+  ],
+  "syn": [
+   "repay",
+   "refund",
+   "compensate",
+   "pay back"
+  ]
+ },
+ "reimbursement": {
+  "ipaUS": "/ˌriːɪmˈbɜːrsmənt/",
+  "col": [
+   "expense reimbursement",
+   "reimbursement claim",
+   "request reimbursement",
+   "reimbursement policy",
+   "travel reimbursement",
+   "full reimbursement"
+  ],
+  "syn": [
+   "repayment",
+   "refund",
+   "compensation",
+   "payback"
+  ]
+ },
+ "reliability": {
+  "ipaUS": "/rɪˌlaɪəˈbɪləti/",
+  "col": [
+   "high reliability",
+   "reliability of the data",
+   "product reliability",
+   "improve reliability",
+   "reliability test",
+   "system reliability"
+  ],
+  "syn": [
+   "dependability",
+   "trustworthiness",
+   "consistency",
+   "stability"
+  ]
+ },
+ "relocate": {
+  "ipaUS": "/ˌriːloʊˈkeɪt/",
+  "col": [
+   "relocate to",
+   "relocate the office",
+   "relocate staff",
+   "willing to relocate",
+   "relocate overseas",
+   "relocate headquarters"
+  ],
+  "syn": [
+   "move",
+   "transfer",
+   "resettle",
+   "shift"
+  ]
+ },
+ "relocation": {
+  "ipaUS": "/ˌriːloʊˈkeɪʃn/",
+  "col": [
+   "relocation package",
+   "relocation costs",
+   "office relocation",
+   "relocation assistance",
+   "relocation to",
+   "relocation expenses"
+  ],
+  "syn": [
+   "move",
+   "transfer",
+   "resettlement",
+   "removal"
+  ]
+ },
+ "remainder": {
+  "ipaUS": "/rɪˈmeɪndər/",
+  "col": [
+   "the remainder of",
+   "the remainder of the day",
+   "pay the remainder",
+   "remainder of the year",
+   "remainder of the budget",
+   "the remainder is"
+  ],
+  "syn": [
+   "rest",
+   "balance",
+   "remnant",
+   "leftover"
+  ]
+ },
+ "reminder": {
+  "ipaUS": "/rɪˈmaɪndər/",
+  "col": [
+   "gentle reminder",
+   "send a reminder",
+   "set a reminder",
+   "reminder email",
+   "reminder of",
+   "friendly reminder"
+  ],
+  "syn": [
+   "prompt",
+   "nudge",
+   "memo",
+   "cue"
+  ]
+ },
+ "remodel": {
+  "ipaUS": "/ˌriːˈmɑːdl/",
+  "col": [
+   "remodel the kitchen",
+   "remodel a store",
+   "remodel an office",
+   "remodeling project",
+   "home remodel",
+   "fully remodeled"
+  ],
+  "syn": [
+   "renovate",
+   "redesign",
+   "refurbish",
+   "revamp"
+  ]
+ },
+ "removal": {
+  "ipaUS": "/rɪˈmuːvl/",
+  "col": [
+   "removal of",
+   "stain removal",
+   "tree removal",
+   "removal company",
+   "hair removal",
+   "removal from office"
+  ],
+  "syn": [
+   "elimination",
+   "extraction",
+   "clearance",
+   "deletion"
+  ]
+ },
+ "renew": {
+  "ipaUS": "/rɪˈnuː/",
+  "col": [
+   "renew a contract",
+   "renew a subscription",
+   "renew your passport",
+   "renew a license",
+   "renew membership",
+   "automatically renew"
+  ],
+  "syn": [
+   "extend",
+   "continue",
+   "refresh",
+   "restart"
+  ]
+ },
+ "renewal": {
+  "ipaUS": "/rɪˈnuːəl/",
+  "col": [
+   "contract renewal",
+   "renewal date",
+   "renewal notice",
+   "membership renewal",
+   "automatic renewal",
+   "renewal fee"
+  ],
+  "syn": [
+   "extension",
+   "continuation",
+   "revival",
+   "resumption"
+  ]
+ },
+ "renovation": {
+  "ipaUS": "/ˌrenəˈveɪʃn/",
+  "col": [
+   "home renovation",
+   "renovation project",
+   "undergo renovation",
+   "closed for renovation",
+   "renovation work",
+   "renovation costs"
+  ],
+  "syn": [
+   "restoration",
+   "refurbishment",
+   "makeover",
+   "repair"
+  ]
+ },
+ "rental": {
+  "ipaUS": "/ˈrentl/",
+  "col": [
+   "car rental",
+   "rental agreement",
+   "rental income",
+   "rental property",
+   "short-term rental",
+   "rental fee"
+  ],
+  "syn": [
+   "lease",
+   "hire",
+   "let",
+   "tenancy"
+  ]
+ },
+ "repetition": {
+  "ipaUS": "/ˌrepəˈtɪʃn/",
+  "col": [
+   "constant repetition",
+   "avoid repetition",
+   "repetition of",
+   "repetition of words",
+   "repetition in writing",
+   "needless repetition"
+  ],
+  "syn": [
+   "recurrence",
+   "duplication",
+   "redundancy",
+   "reiteration"
+  ]
+ },
+ "reproduce": {
+  "ipaUS": "/ˌriːprəˈduːs/",
+  "col": [
+   "reproduce the results",
+   "reproduce a document",
+   "reproduce a painting",
+   "reproduce sexually",
+   "faithfully reproduce",
+   "reproduce the error"
+  ],
+  "syn": [
+   "copy",
+   "duplicate",
+   "replicate",
+   "recreate"
+  ]
+ },
+ "research": {
+  "ipaUS": "/ˈriːsɜːrtʃ/",
+  "col": [
+   "conduct research",
+   "research findings",
+   "market research",
+   "research paper",
+   "do research on",
+   "research and development"
+  ],
+  "syn": [
+   "study",
+   "investigation",
+   "inquiry",
+   "analysis"
+  ]
+ },
+ "resemble": {
+  "ipaUS": "/rɪˈzembl/",
+  "col": [
+   "resemble closely",
+   "strongly resemble",
+   "resemble each other",
+   "resemble a scene from",
+   "vaguely resemble",
+   "resemble in appearance"
+  ],
+  "syn": [
+   "look like",
+   "be similar to",
+   "take after",
+   "echo"
+  ]
+ },
+ "resignation": {
+  "ipaUS": "/ˌrezɪɡˈneɪʃn/",
+  "col": [
+   "letter of resignation",
+   "tender your resignation",
+   "accept a resignation",
+   "resignation from",
+   "resignation letter",
+   "hand in resignation"
+  ],
+  "syn": [
+   "departure",
+   "quitting",
+   "stepping down",
+   "retirement"
+  ]
+ },
+ "respond": {
+  "ipaUS": "/rɪˈspɑːnd/",
+  "col": [
+   "respond to",
+   "respond quickly",
+   "respond to a request",
+   "respond positively",
+   "respond by email",
+   "fail to respond"
+  ],
+  "syn": [
+   "reply",
+   "answer",
+   "react",
+   "get back to"
+  ]
+ },
+ "respondent": {
+  "ipaUS": "/rɪˈspɑːndənt/",
+  "col": [
+   "survey respondent",
+   "respondents were asked",
+   "majority of respondents",
+   "respondent said",
+   "online respondents",
+   "respondent age"
+  ],
+  "syn": [
+   "participant",
+   "interviewee",
+   "survey taker",
+   "answerer"
+  ]
+ },
+ "restatement": {
+  "ipaUS": "/ˌriːˈsteɪtmənt/",
+  "col": [
+   "restatement of",
+   "restatement of earnings",
+   "brief restatement",
+   "a restatement of the problem",
+   "financial restatement",
+   "restatement of facts"
+  ],
+  "syn": [
+   "rephrasing",
+   "summary",
+   "reformulation",
+   "paraphrase"
+  ]
+ },
+ "reviewer": {
+  "ipaUS": "/rɪˈvjuːər/",
+  "col": [
+   "film reviewer",
+   "peer reviewer",
+   "book reviewer",
+   "reviewer comments",
+   "anonymous reviewer",
+   "a reviewer for"
+  ],
+  "syn": [
+   "critic",
+   "evaluator",
+   "assessor",
+   "commentator"
+  ]
+ },
+ "revision": {
+  "ipaUS": "/rɪˈvɪʒn/",
+  "col": [
+   "make revisions",
+   "revision history",
+   "major revision",
+   "revision notes",
+   "final revision",
+   "revision for exams"
+  ],
+  "syn": [
+   "amendment",
+   "edit",
+   "modification",
+   "update"
+  ]
+ },
+ "revolutionize": {
+  "ipaUS": "/ˌrevəˈluːʃənaɪz/",
+  "col": [
+   "revolutionize the industry",
+   "revolutionize the way",
+   "revolutionize communication",
+   "set to revolutionize",
+   "revolutionize healthcare",
+   "revolutionize education"
+  ],
+  "syn": [
+   "transform",
+   "overhaul",
+   "reinvent",
+   "reshape"
+  ]
+ },
+ "role": {
+  "ipaUS": "/roʊl/",
+  "col": [
+   "play a role",
+   "key role",
+   "leading role",
+   "role model",
+   "role in",
+   "job role"
+  ],
+  "syn": [
+   "part",
+   "function",
+   "position",
+   "duty"
+  ]
+ },
+ "rubber": {
+  "ipaUS": "/ˈrʌbər/",
+  "col": [
+   "rubber band",
+   "rubber gloves",
+   "rubber stamp",
+   "rubber duck",
+   "natural rubber",
+   "synthetic rubber"
+  ],
+  "syn": [
+   "elastic",
+   "latex",
+   "gum",
+   "eraser"
+  ]
+ },
+ "satisfactory": {
+  "ipaUS": "/ˌsætɪsˈfæktəri/",
+  "col": [
+   "satisfactory result",
+   "satisfactory performance",
+   "satisfactory condition",
+   "entirely satisfactory",
+   "less than satisfactory",
+   "satisfactory explanation"
+  ],
+  "syn": [
+   "adequate",
+   "acceptable",
+   "sufficient",
+   "fine"
+  ]
+ },
+ "schedule": {
+  "ipaUS": "/ˈskedʒuːl/",
+  "col": [
+   "on schedule",
+   "behind schedule",
+   "ahead of schedule",
+   "busy schedule",
+   "schedule a meeting",
+   "tight schedule"
+  ],
+  "syn": [
+   "timetable",
+   "agenda",
+   "plan",
+   "programme"
+  ]
+ },
+ "seasonal": {
+  "ipaUS": "/ˈsiːzənl/",
+  "col": [
+   "seasonal work",
+   "seasonal demand",
+   "seasonal fruit",
+   "seasonal changes",
+   "seasonal workers",
+   "seasonal sales"
+  ],
+  "syn": [
+   "periodic",
+   "time-of-year",
+   "cyclical",
+   "occasional"
+  ]
+ },
+ "seeker": {
+  "ipaUS": "/ˈsiːkər/",
+  "col": [
+   "job seeker",
+   "asylum seeker",
+   "thrill seeker",
+   "attention seeker",
+   "seeker of truth",
+   "bargain seeker"
+  ],
+  "syn": [
+   "searcher",
+   "applicant",
+   "hunter",
+   "pursuer"
+  ]
+ },
+ "series": {
+  "ipaUS": "/ˈsɪriːz/",
+  "col": [
+   "a series of",
+   "TV series",
+   "limited series",
+   "series of events",
+   "world series",
+   "documentary series"
+  ],
+  "syn": [
+   "sequence",
+   "succession",
+   "run",
+   "string"
+  ]
+ },
+ "sewer": {
+  "ipaUS": "/ˈsuːər/",
+  "col": [
+   "sewer system",
+   "sewer pipe",
+   "sewer rat",
+   "storm sewer",
+   "sewer line",
+   "sewer overflow"
+  ],
+  "syn": [
+   "drain",
+   "sewage pipe",
+   "sewerage",
+   "gutter"
+  ]
+ },
+ "sharply": {
+  "ipaUS": "/ˈʃɑːrpli/",
+  "col": [
+   "fall sharply",
+   "rise sharply",
+   "sharply higher",
+   "sharply critical",
+   "sharply divided",
+   "decline sharply"
+  ],
+  "syn": [
+   "steeply",
+   "abruptly",
+   "dramatically",
+   "suddenly"
+  ]
+ },
+ "shortly": {
+  "ipaUS": "/ˈʃɔːrtli/",
+  "col": [
+   "shortly after",
+   "shortly before",
+   "shortly afterwards",
+   "will arrive shortly",
+   "shortly thereafter",
+   "be with you shortly"
+  ],
+  "syn": [
+   "soon",
+   "presently",
+   "in a moment",
+   "before long"
+  ]
+ },
+ "signify": {
+  "ipaUS": "/ˈsɪɡnɪfaɪ/",
+  "col": [
+   "signify agreement",
+   "signify approval",
+   "signify the end of",
+   "signify a change",
+   "does not signify",
+   "signify intent"
+  ],
+  "syn": [
+   "indicate",
+   "mean",
+   "denote",
+   "represent"
+  ]
+ }
+}

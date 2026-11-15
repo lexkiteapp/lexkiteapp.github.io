@@ -1558,5 +1558,330 @@
     "Продолжаются споры о том, сколько домашних заданий должны делать дети."
    ]
   ]
+ },
+ "overlap": {
+  "n": "Overlap значит частично совпадать по времени, площади или содержанию: our schedules overlap, the two courses overlap. Чаще всего после глагола идёт with: my shift overlaps with yours, но возможно и прямое дополнение: the tiles overlap each other. Не путайте с «повторять»: речь о частичном наложении, а не о полном совпадении. Ударение различает части речи: в существительном OH-ver-lap, в глаголе oh-ver-LAP. Частые сочетания: overlapping responsibilities, overlapping interests, a slight overlap.",
+  "x": [
+   [
+    "Our lunch breaks overlap by about fifteen minutes.",
+    "Наши обеденные перерывы пересекаются примерно на пятнадцать минут."
+   ],
+   [
+    "Make sure the two paragraphs do not overlap in meaning.",
+    "Следите, чтобы два абзаца не пересекались по смыслу."
+   ]
+  ]
+ },
+ "overseas": {
+  "n": "Overseas пишется слитно и не требует предлога: travel overseas, а не travel to overseas. Как наречие слово стоит после глагола (work overseas), как прилагательное перед существительным (overseas students). Буквально это «за морем», то есть в другой стране, куда добираются через море или океан, но в речи слово означает просто «за границей, зарубеж». Близкое слово abroad тоже наречие и не ставится перед существительным: нельзя сказать abroad students. Ударение в наречии на последнем слоге: o-ver-SEAS.",
+  "x": [
+   [
+    "She spent two years working overseas before returning home.",
+    "Она два года проработала за границей, прежде чем вернуться домой."
+   ],
+   [
+    "The company has opened three overseas offices this year.",
+    "В этом году компания открыла три зарубежных офиса."
+   ]
+  ]
+ },
+ "parallel": {
+  "n": "Parallel как прилагательное чаще всего сочетается с to или with: a road parallel to the river. Как существительное означает сходство, и тогда говорят draw a parallel between two things. Орфографическая ловушка: в середине слова две буквы l подряд, а в конце одна (paral-lel). Ударение на первом слоге: PA-ra-lel. Слово применимо не только к линиям, но и к событиям и процессам, которые идут одновременно и независимо, например parallel universes или parallel lives.",
+  "x": [
+   [
+    "The railway runs parallel to the main road for several miles.",
+    "Железная дорога на несколько миль идёт параллельно главному шоссе."
+   ],
+   [
+    "Historians often draw a parallel between the two economic crises.",
+    "Историки часто проводят параллель между двумя экономическими кризисами."
+   ]
+  ]
+ },
+ "parameter": {
+  "n": "Parameter русскому «периметр» не соответствует, хотя слова звучат похоже: perimeter означает длину границы фигуры или участка. В обычной речи parameter чаще всего стоит во множественном числе и означает заданные условия или рамки: within these parameters, outside the parameters. В технических текстах слово сохраняет значение переменной величины в формуле или функции. Ударение на втором слоге: pa-RAM-e-ter. Помните, что в середине слова после r идёт a, а не e.",
+  "x": [
+   [
+    "The software lets you change every parameter of the simulation.",
+    "Программа позволяет менять любой параметр моделирования."
+   ],
+   [
+    "We have to work within the parameters set by the client.",
+    "Мы должны работать в рамках условий, заданных клиентом."
+   ]
+  ]
+ },
+ "perceive": {
+  "n": "Perceive чаще всего встречается в конструкции perceive somebody or something as something: she is perceived as honest. Слово подчёркивает субъективное восприятие, то есть как это выглядит в чьих-то глазах, а не как есть на самом деле. В написании легко ошибиться с порядком букв: правильно perceive, потому что действует правило i before e except after c. Существительное perception означает восприятие и часто стоит в сочетании public perception. Для простого «видеть» используют see, а perceive звучит формальнее.",
+  "x": [
+   [
+    "Many customers perceive cheaper products as lower in quality.",
+    "Многие покупатели воспринимают более дешёвые товары как менее качественные."
+   ],
+   [
+    "It is hard to perceive small changes in colour without a reference.",
+    "Трудно заметить небольшие изменения цвета без образца для сравнения."
+   ]
+  ]
+ },
+ "persist": {
+  "n": "Глагол persist употребляется в двух значениях. Первое: что-то продолжает существовать, хотя должно бы прекратиться (the symptoms persist). Второе: человек упорно продолжает делать что-то, обычно с предлогом in: persist in doing something или persist with a plan. Не стоит переводить его как «упорствовать» во всех контекстах, поскольку русский глагол несёт негативный оттенок, а в английском persist нередко одобрительное. Родственные слова: persistent, persistence. Ударение падает на второй слог: per-SIST.",
+  "x": [
+   [
+    "If the pain persists, you should see a doctor.",
+    "Если боль не проходит, вам следует обратиться к врачу."
+   ],
+   [
+    "She persisted in her studies even when the course became difficult.",
+    "Она продолжала учиться, даже когда курс стал трудным."
+   ]
+  ]
+ },
+ "philosophy": {
+  "n": "Philosophy в английском пишется с ph и оканчивается на -phy, а не на -fy и не на -fia. Слово неисчисляемое, когда речь о науке (study philosophy), но может стоять с артиклем в значении системы взглядов: a philosophy of life или the company's philosophy. Ударение на втором слоге: phi-LOS-o-phy. Прилагательное philosophical означает философский, а также спокойный перед лицом неудач: be philosophical about a defeat. Профессия называется philosopher.",
+  "x": [
+   [
+    "He studied philosophy and later became a high school teacher.",
+    "Он изучал философию, а потом стал школьным учителем."
+   ],
+   [
+    "Our team's philosophy is to listen before we make a decision.",
+    "Принцип нашей команды в том, чтобы выслушать, прежде чем принимать решение."
+   ]
+  ]
+ },
+ "portion": {
+  "n": "Portion часто означает порцию еды: a large portion of chips. В формальном письме то же слово обозначает долю чего-либо: a portion of the profits, a significant portion of the population. После portion обычно следует of. Не путайте с proportion, которое означает соотношение, а не часть. По смыслу portion чуть ближе к «отмеренной, выделенной части», чем нейтральное part, поэтому о случайной части целого (part of the day) лучше сказать part. Произношение: POR-shun.",
+  "x": [
+   [
+    "The restaurant serves generous portions at reasonable prices.",
+    "Ресторан подаёт большие порции по разумным ценам."
+   ],
+   [
+    "A small portion of the income is saved for emergencies.",
+    "Небольшая часть дохода откладывается на непредвиденные случаи."
+   ]
+  ]
+ },
+ "pose": {
+  "n": "У глагола pose два главных значения, и русский перевод «позировать» подходит только для одного: pose for a photo. В сочетаниях pose a threat, pose a risk, pose a problem он значит «создавать угрозу или трудность», причём подлежащее обычно предмет или явление, а не человек; кому угрожают, вводится через to: pose a threat to wildlife. Pose a question значит «задать вопрос» и звучит формальнее, чем ask. Ещё одно значение: pose as, то есть выдавать себя за кого-то: he posed as a doctor.",
+  "x": [
+   [
+    "Plastic waste poses a serious risk to marine life.",
+    "Пластиковые отходы создают серьёзную опасность для морских обитателей."
+   ],
+   [
+    "The guide asked us to pose for a group photo.",
+    "Гид попросил нас сфотографироваться всей группой."
+   ]
+  ]
+ },
+ "practitioner": {
+  "n": "Practitioner относится к тем, кто ежедневно работает в профессии, особенно в медицине, праве и образовании: medical practitioner, legal practitioner. В британском английском general practitioner, или GP, означает врача общей практики, к которому записываются первым делом. Слово формальное, в разговоре чаще говорят doctor или lawyer. Орфография коварна: после c стоит t и затем i, а в конце -er. Ударение на втором слоге: prak-TI-shuh-ner. Не путайте с practice, которое означает практику или кабинет.",
+  "x": [
+   [
+    "She is an experienced practitioner of traditional medicine.",
+    "Она опытный практик традиционной медицины."
+   ],
+   [
+    "Practitioners and researchers often disagree about the best method.",
+    "Практики и исследователи часто расходятся во мнении о лучшем методе."
+   ]
+  ]
+ },
+ "preliminary": {
+  "n": "Preliminary означает «предварительный» и чаще всего стоит перед существительным: preliminary results, a preliminary report, preliminary talks. Подразумевается, что главные действия или итоговые данные ещё впереди, так что слово указывает на неполный, но уже существующий этап. Не путайте с primary, которое означает главный или первичный. В написании запомните окончание -ary, а не -ery. Ударение на втором слоге: pre-LIM-i-nair-ee в американском варианте. Существительное preliminaries означает подготовительные шаги.",
+  "x": [
+   [
+    "The preliminary findings will be published next month.",
+    "Предварительные выводы будут опубликованы в следующем месяце."
+   ],
+   [
+    "After some preliminary talks, the two sides agreed to meet again.",
+    "После предварительных переговоров стороны договорились встретиться ещё раз."
+   ]
+  ]
+ },
+ "presume": {
+  "n": "Presume означает предполагать на основании вероятности, без доказательств: I presume you are tired. Это более уверенное слово, чем suppose, и часто звучит как ожидание, что собеседник подтвердит. Оборот presumed innocent соответствует русскому «презумпция невиновности» (по-английски presumption of innocence), но глагол в нём обычно стоит в страдательном залоге. Не путайте с assume, которое нейтральнее, и с presumptuous, то есть самонадеянный. Ударение на втором слоге: pre-ZOOM.",
+  "x": [
+   [
+    "I presume you have already read the instructions.",
+    "Полагаю, вы уже прочли инструкцию."
+   ],
+   [
+    "Anyone accused of a crime is presumed innocent until proven guilty.",
+    "Любого обвиняемого считают невиновным, пока не доказана его вина."
+   ]
+  ]
+ },
+ "prior": {
+  "n": "Prior как прилагательное стоит перед существительным: prior experience, a prior engagement. Самый частый оборот prior to означает «до» и принадлежит формальному стилю: prior to departure. В разговоре вместо него обычно говорят before. После prior to глагол принимает форму -ing или идёт существительное: prior to signing, а не prior to sign. Слово не изменяется и не принимает степеней сравнения. Ударение на первом слоге: PRI-or. Не путайте с priority, которое означает приоритет.",
+  "x": [
+   [
+    "No prior knowledge of the subject is necessary.",
+    "Предварительные знания по предмету не нужны."
+   ],
+   [
+    "Please call the office prior to your visit.",
+    "Пожалуйста, позвоните в офис до своего визита."
+   ]
+  ]
+ },
+ "priority": {
+  "n": "Priority относится к исчисляемым существительным: a priority, two priorities. Типичные сочетания: top priority, give priority to, set priorities, high priority. Предлог после give priority всегда to: give priority to safety. Фраза «приоритет перед чем-то» в английском выражается через over: take priority over everything else. Не путайте с prior, хотя слова связаны по смыслу. Ударение падает на второй слог: pri-OR-i-ty, а в американском английском возможен вариант pri-AW-ri-ty.",
+  "x": [
+   [
+    "Our first priority is to keep the children safe.",
+    "Наш главный приоритет в том, чтобы дети были в безопасности."
+   ],
+   [
+    "Emergency cases take priority over routine appointments.",
+    "Экстренные случаи имеют приоритет перед плановыми приёмами."
+   ]
+  ]
+ },
+ "prospect": {
+  "n": "Prospect в значении «возможность» или «перспектива» часто стоит с of и герундием: the prospect of winning. Для работы и карьеры говорят множественное число: job prospects, career prospects. Не путайте с английским глаголом prospect, то есть искать полезные ископаемые, а также с prospective, что значит возможный будущий (a prospective buyer). Ударение у существительного на первом слоге: PROS-pekt. Русское «проспект» в смысле улицы по-английски avenue, а не prospect.",
+  "x": [
+   [
+    "The prospect of moving abroad both excites and frightens her.",
+    "Перспектива переезда за границу и радует, и пугает её."
+   ],
+   [
+    "Graduates with language skills have better job prospects.",
+    "У выпускников со знанием языков больше шансов найти работу."
+   ]
+  ]
+ },
+ "protocol": {
+  "n": "Protocol означает свод правил и принятых процедур: diplomatic protocol, medical protocol, а в IT это технический стандарт обмена данными (network protocol). Кроме того, так называют общепринятые нормы поведения: it is against protocol to interrupt. В русском есть ложный друг: «протокол собрания» по-английски называется minutes, а не protocol. Ударение на первом слоге: PRO-tuh-kol. Устойчивые сочетания: follow protocol и a breach of protocol, то есть нарушение порядка.",
+  "x": [
+   [
+    "Doctors must follow strict protocol when treating infectious diseases.",
+    "Врачи обязаны строго соблюдать протокол при лечении инфекционных заболеваний."
+   ],
+   [
+    "It would be a breach of protocol to start the meeting without the director.",
+    "Начинать собрание без директора было бы нарушением протокола."
+   ]
+  ]
+ },
+ "psychology": {
+  "n": "Psychology в английском начинается с буквы p, которая не произносится: звучит sy-KOL-o-jee. Слово неисчисляемое, поэтому нельзя сказать a psychology или psychologies в обычном значении науки. В переносном смысле допустима фраза the psychology of fear, то есть психологические механизмы чего-либо. Не путайте с psychiatry, где занимаются лечением болезней, и с psychologist, то есть специалистом. Типичные сочетания: study psychology, child psychology, social psychology, а прилагательное психологический передаётся как psychological.",
+  "x": [
+   [
+    "She is studying psychology at a university in Manchester.",
+    "Она изучает психологию в университете в Манчестере."
+   ],
+   [
+    "Understanding the psychology of shoppers helps stores increase sales.",
+    "Понимание психологии покупателей помогает магазинам увеличивать продажи."
+   ]
+  ]
+ },
+ "pursue": {
+  "n": "Pursue после себя ставит прямое дополнение без предлога: pursue a career, pursue a degree, pursue a goal. Типичная ошибка русскоговорящих: pursue for something. Глагол выражает не только «преследовать» убегающего (the police pursued the car), но и стремление к цели в течение долгого времени. Родственные слова: pursuit (стремление, погоня) и in pursuit of. Ударение на втором слоге: pur-SUE. Фраза pursue a case означает довести судебное дело до конца.",
+  "x": [
+   [
+    "He decided to pursue a degree in architecture after leaving the army.",
+    "Он решил получить степень по архитектуре после ухода из армии."
+   ],
+   [
+    "Police pursued the stolen car through the narrow streets.",
+    "Полиция преследовала угнанную машину по узким улицам."
+   ]
+  ]
+ },
+ "radical": {
+  "n": "Radical как прилагательное означает коренной, резкий: a radical change, radical measures. Оно описывает масштаб изменений, а не их оценку. В политике слово указывает на крайние взгляды, и тогда оно звучит сильнее, чем в русском «радикальный». Как существительное оно означает сторонника крайних взглядов, а в химии встречается термин free radical, то есть свободный радикал. Ударение на первом слоге: RAD-i-kal. Наречие radically часто идёт с глаголами change и differ: radically different.",
+  "x": [
+   [
+    "The new law brought radical changes to the tax system.",
+    "Новый закон внёс коренные изменения в налоговую систему."
+   ],
+   [
+    "Her radical approach to teaching surprised many parents.",
+    "Её радикальный подход к преподаванию удивил многих родителей."
+   ]
+  ]
+ },
+ "ratio": {
+  "n": "Ratio всегда выражает отношение двух величин, и в английском его обычно записывают с двоеточием или читают через to: a ratio of three to one, the ratio of men to women. Предлог of стоит после слова ratio, а to разделяет сравниваемые величины. Не путайте с rate, которое означает скорость или уровень, и с proportion, то есть долю. Произношение: RAY-shee-oh, а не как в русском «рацио». Устойчивые сочетания: student-teacher ratio, in a ratio of, the ratio between.",
+  "x": [
+   [
+    "The ratio of boys to girls in the class is three to two.",
+    "Соотношение мальчиков и девочек в классе три к двум."
+   ],
+   [
+    "Mix flour and water in a ratio of two to one.",
+    "Смешайте муку и воду в пропорции два к одному."
+   ]
+  ]
+ },
+ "rational": {
+  "n": "Rational означает основанный на разуме и логике: a rational decision, a rational explanation. Противоположность irrational, с приставкой ir-, а не un-. Слово не равно «рациональный» как «экономный»: в английском такое значение передаётся словами efficient или practical. Существительное rationale (ra-sho-NAL) означает логическое обоснование и произносится иначе, чем rational (RA-sho-nal). Наречие rationally и существительное rationality образуются регулярно. Часто слово стоит рядом с emotional, чтобы подчеркнуть контраст.",
+  "x": [
+   [
+    "It is hard to make a rational choice when you are very tired.",
+    "Трудно сделать разумный выбор, когда сильно устал."
+   ],
+   [
+    "There must be a rational explanation for the strange noise.",
+    "Должно быть разумное объяснение этому странному шуму."
+   ]
+  ]
+ },
+ "refine": {
+  "n": "Refine означает улучшать, доводя до совершенства небольшими поправками: refine a method, refine your skills. Второе значение, очищать от примесей, применяется к сырью: refine oil, refined sugar. Из-за него в русском возникает сочетание «рафинированный», но английское refined применительно к человеку означает «утончённый», с хорошими манерами. Ударение на втором слоге: re-FINE. Существительное refinement означает улучшение или изысканность, а refinery пишется как нефтеперерабатывающий завод.",
+  "x": [
+   [
+    "The engineers will refine the design before production begins.",
+    "Инженеры доработают проект до начала производства."
+   ],
+   [
+    "Oil is refined into petrol and other products.",
+    "Нефть перерабатывают в бензин и другие продукты."
+   ]
+  ]
+ },
+ "regime": {
+  "n": "Regime обозначает форму правления и часто имеет негативный оттенок: an authoritarian regime, the old regime. О демократически избранной власти обычно говорят government, а не regime. Второе значение нейтрально: система правил или режим, например tax regime, a strict exercise regime. Не путайте с русским «режим дня», для которого по-английски используют routine или schedule. Ударение на втором слоге: ray-ZHEEM, причём конечное g звучит как мягкий ж, как в слове vision. Обратите внимание на написание: пишется regime, а не regim.",
+  "x": [
+   [
+    "The regime was overthrown after months of public protests.",
+    "Режим был свергнут после нескольких месяцев народных протестов."
+   ],
+   [
+    "Her doctor recommended a healthy diet and a regular exercise regime.",
+    "Врач порекомендовал ей здоровое питание и регулярный режим тренировок."
+   ]
+  ]
+ },
+ "register": {
+  "n": "Глагол register употребляется с for, когда вы записываетесь на курс или мероприятие: register for a course, и с with, когда вас вносят в официальный список организации: register with a doctor. Ударение в глаголе на первом слоге в американском и британском варианте: REJ-is-ter. Не путайте со значением «заметить»: it did not register означает «до меня не дошло». Существительное registration означает регистрацию, а register как существительное означает реестр или журнал.",
+  "x": [
+   [
+    "You must register for the exam at least two weeks in advance.",
+    "Вам нужно записаться на экзамен минимум за две недели."
+   ],
+   [
+    "Newcomers have to register with a local doctor.",
+    "Новоприбывшие должны встать на учёт у местного врача."
+   ]
+  ]
+ },
+ "regulate": {
+  "n": "Regulate означает контролировать с помощью правил, и подлежащим обычно выступает государство или орган надзора: regulate the market, regulate prices. Второе значение, регулировать механизм или процесс, возможно в быту: regulate the temperature. Существительные: regulation (правило, норма) и regulator (надзорный орган). Не путайте с «регулярный», по-английски regular. Ударение на первом слоге: REG-yu-late. Употребление в форме страдательного залога частотно: the industry is heavily regulated.",
+  "x": [
+   [
+    "The government plans to regulate the sale of energy drinks to children.",
+    "Правительство планирует регулировать продажу энергетических напитков детям."
+   ],
+   [
+    "The thermostat helps regulate the temperature in the house.",
+    "Термостат помогает регулировать температуру в доме."
+   ]
+  ]
  }
 }
