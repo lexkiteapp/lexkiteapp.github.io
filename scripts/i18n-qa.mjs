@@ -10,7 +10,7 @@
 //       node scripts/i18n-qa.mjs --short    → liệt kê nhãn ngắn chưa có bản dịch tay
 import fs from 'fs';
 import { missingSegments } from './i18n-english.mjs';
-import { VI, BAD } from './lib/i18n-rules.mjs';
+import { VI, BAD, INFORMAL } from './lib/i18n-rules.mjs';
 const root = new URL('../web/js/i18n/', import.meta.url), src = new URL('../i18n/ui/', import.meta.url); // en: web/js/i18n · 13 ngôn ngữ: NGUỒN i18n/ui (gói chạy khóa băm kiểm riêng ở dưới)
 const langs = fs.readFileSync(new URL('./i18n-langs.txt', import.meta.url), 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'));
 const fixed = JSON.parse(fs.readFileSync(new URL('./i18n-fixed.json', import.meta.url), 'utf8'));
@@ -21,6 +21,7 @@ for (const g of lazyGroups) Object.assign(EN, load(`en/${g}.js`).en);
 const vars = s => (String(s).match(/\{[a-zA-Z0-9_]+\}/g) || []).sort().join(',');
 const tags = s => (String(s).match(/<\/?[a-z]+/gi) || []).map(x => x.toLowerCase()).sort().join(',');
 const short = k => String(EN[k]).trim().split(/\s+/).length <= 3 && !/[{<]/.test(EN[k]) && /[a-z]/i.test(EN[k]) && !/^[A-Z0-9 &–-]+$/.test(EN[k]) && !/IELTS|TOEIC|TOEFL|Part|Task/.test(EN[k]); // tên riêng/thuật ngữ thi giữ nguyên tiếng Anh
+const legacy = JSON.parse(fs.readFileSync(new URL('./i18n-register-legacy.json', import.meta.url), 'utf8'));
 let errors = 0; const report = [];
 for (const l of langs) {
   let D;
@@ -31,20 +32,21 @@ for (const l of langs) {
       if (fs.existsSync(new URL(gf, src))) Object.assign(D, load(gf, src)[l] || {});
     }
   } catch (e) { report.push(`✗ ${l}: không đọc được (${e.message})`); errors++; continue; }
-  const miss = [], mix = [], bad = [], ph = [], eng = [];
+  const miss = [], mix = [], bad = [], ph = [], eng = [], reg = [];
   for (const k of Object.keys(EN)) {
     const v = D[k];
     if (v == null) { miss.push(k); continue; }
     if (vars(v) !== vars(EN[k]) || tags(v) !== tags(EN[k])) ph.push(k);
     if (VI.test(v) && !VI.test(EN[k])) mix.push(k);
     if (BAD.test(v)) bad.push(k);
+    if (INFORMAL[l] && INFORMAL[l].test(v) && !(legacy[l] || []).includes(k)) reg.push(k); // giọng lẫn: xưng thân mật giữa app dùng Sie/vous
     const lost = missingSegments(k, EN[k], v); if (lost.length) eng.push(`${k} ⇢ ${lost.join(' | ')}`);
   }
   const shortMissing = Object.keys(EN).filter(k => short(k) && !(fixed[k] && fixed[k][l]));
-  const line = `${l}: thiếu ${miss.length} · sai biến/thẻ ${ph.length} · lẫn tiếng Việt ${mix.length} · dịch sai đã biết ${bad.length} · mất tiếng Anh mẫu ${eng.length} · nhãn ngắn chưa dịch tay ${shortMissing.length}`;
-  report.push((miss.length + ph.length + mix.length + bad.length + eng.length ? '✗ ' : '✓ ') + line);
-  for (const [name, arr] of [['thiếu', miss], ['sai biến/thẻ', ph], ['lẫn tiếng', mix], ['dịch sai', bad], ['mất tiếng Anh mẫu', eng]]) if (arr.length) report.push(`   ${name}: ${arr.slice(0, 5).map(k => JSON.stringify(k)).join(', ')}${arr.length > 5 ? ' …' : ''}`);
-  errors += miss.length + ph.length + mix.length + bad.length + eng.length;
+  const line = `${l}: thiếu ${miss.length} · sai biến/thẻ ${ph.length} · lẫn tiếng Việt ${mix.length} · dịch sai đã biết ${bad.length} · mất tiếng Anh mẫu ${eng.length} · lẫn xưng hô ${reg.length} · nhãn ngắn chưa dịch tay ${shortMissing.length}`;
+  report.push((miss.length + ph.length + mix.length + bad.length + eng.length + reg.length ? '✗ ' : '✓ ') + line);
+  for (const [name, arr] of [['thiếu', miss], ['sai biến/thẻ', ph], ['lẫn tiếng', mix], ['dịch sai', bad], ['mất tiếng Anh mẫu', eng], ['lẫn xưng hô', reg]]) if (arr.length) report.push(`   ${name}: ${arr.slice(0, 5).map(k => JSON.stringify(k)).join(', ')}${arr.length > 5 ? ' …' : ''}`);
+  errors += miss.length + ph.length + mix.length + bad.length + eng.length + reg.length;
 }
 if (process.argv.includes('--short')) {
   const ks = Object.keys(EN).filter(short).filter(k => langs.some(l => !(fixed[k] && fixed[k][l])));
