@@ -7506,12 +7506,16 @@
   },
   "banner ad#n": {
    "ex": "The banner ad appears at the top of the news website.",
-   "sc": "Person A sits at a desk using a laptop; on the screen a large rectangular graphic occupies the upper part while a news article scrolls below, drawing the viewer's eye.",
-   "cap": "a person looking at a rectangular graphic on a laptop",
+   "ps": "a woman looks up at a large rectangular picture of a smiling soda can floating above her",
+   "sc": "a woman looks up at a large rectangular picture of a smiling soda can floating above her",
+   "check": "Is there a big rectangular image of a product shown in the air?",
+   "cap": "a woman watching a floating rectangular product picture",
+   "key": "a large rectangular picture of a product; a woman looking up at the picture",
    "who": 1,
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 6,
-   "badAt": "2026-11-12T02:04:20.945Z"
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "banquet#n": {
    "ex": "The closing banquet will be held in the hotel ballroom.",
@@ -9139,8 +9143,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 6,
-   "badAt": "2026-11-12T02:04:20.945Z"
+   "e4bad": 7,
+   "badAt": "2026-11-15T07:13:30.918Z"
   },
   "boardroom#n": {
    "ex": "The directors are meeting in the boardroom to discuss the budget.",
@@ -10396,17 +10400,17 @@
   },
   "bullet#n": {
    "ex": "The museum exhibition shows how bullet-proof glass was first developed.",
-   "ps": "a single metallic bullet, shiny and cylindrical, rests on a plain white surface",
-   "sc": "a single metallic bullet, shiny and cylindrical, rests on a plain white surface",
-   "check": "Is there a small metal projectile with a pointed tip used in firearms?",
-   "cap": "a shiny metal cylinder lying on a plain surface",
-   "key": "metallic bullet shape with pointed tip; shiny cylindrical metal object",
+   "ps": "a single brass-colored bullet lying on a plain white background, shown large and whole",
+   "sc": "a single brass-colored bullet lying on a plain white background, shown large and whole",
+   "check": "Is there a small metal projectile that is fired from a gun?",
+   "cap": "a brass-colored projectile displayed alone on a plain surface",
+   "key": "a brass-colored bullet shape; the plain white background",
    "who": 0,
    "draw": 5,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "bulletin#n": {
    "ex": "Check the staff bulletin for the holiday schedule.",
@@ -10627,8 +10631,8 @@
    "draw": 5,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 6,
-   "badAt": "2026-11-12T01:58:18.757Z"
+   "e4bad": 7,
+   "badAt": "2026-11-15T07:50:21.303Z"
   },
   "bush#n": {
    "ex": "How do you like my rose bushes?",
@@ -20619,8 +20623,17 @@
    "tries": 2
   },
   "crusher#n": {
-   "e4bad": 5,
-   "badAt": "2026-11-13T00:51:17.015Z"
+   "ex": "Larger chunks may go through the crusher again.",
+   "ps": "a large metal machine with a big rotating jaw crushing gray rocks",
+   "sc": "a large metal machine with a big rotating jaw crushing gray rocks",
+   "check": "Is there a large machine that squeezes rocks into smaller pieces?",
+   "cap": "a massive metal machine squeezing rocks into smaller pieces",
+   "key": "a large metal machine with a rotating jaw; rocks being squeezed into smaller pieces",
+   "who": 0,
+   "draw": 5,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "crust#n": {
    "skip": "draw 3: a globe shows a blue ocean area with a very thin gray outer ",
@@ -24017,8 +24030,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "desktop#n": {
-   "e4bad": 5,
-   "badAt": "2026-11-12T01:58:18.758Z"
+   "e4bad": 6,
+   "badAt": "2026-11-15T07:07:07.636Z"
   },
   "desolate#adj": {
    "ex": "Some of the routes go through more desolate landscapes.",
@@ -25646,8 +25659,17 @@
    "by": "openai/gpt-oss-120b"
   },
   "disenfranchise#v": {
-   "e4bad": 5,
-   "badAt": "2026-11-13T00:52:00.286Z"
+   "ex": "As a result, the borough constituency was disenfranchised for corruption.",
+   "ps": "a man holds a blank sheet with a big red cross while a stern official turns away",
+   "sc": "a man holds a blank sheet with a big red cross while a stern official turns away",
+   "check": "Is the person being prevented from voting?",
+   "cap": "a voter denied by an official with a crossed paper",
+   "key": "big red cross on a blank sheet; the official turning away the person",
+   "who": 2,
+   "draw": 4,
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 2
   },
   "disguise#n": {
    "ex": "The price increase was a cut in quality in disguise.",
@@ -26131,8 +26153,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 6,
-   "badAt": "2026-11-12T02:04:08.160Z"
+   "e4bad": 7,
+   "badAt": "2026-11-15T07:13:30.918Z"
   },
   "distance#n": {
    "skip": "sentence refers to specific places; cannot depict without text or symbols",
@@ -26251,8 +26273,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 6,
-   "badAt": "2026-11-12T01:58:18.758Z"
+   "e4bad": 7,
+   "badAt": "2026-11-15T07:07:07.635Z"
   },
   "distractor#n": {
    "ex": "Read carefully because one option is a distractor.",
@@ -27876,8 +27898,8 @@
    "cap": "employees learning on computers in a meeting",
    "who": 2,
    "by": "openai/gpt-oss-120b",
-   "e4bad": 6,
-   "badAt": "2026-11-12T02:04:20.945Z"
+   "e4bad": 7,
+   "badAt": "2026-11-15T08:05:21.641Z"
   },
   "eager#adj": {
    "ex": "The new staff members are eager to learn about our products.",
@@ -29150,12 +29172,12 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 6,
-   "badAt": "2026-11-12T02:04:20.944Z"
+   "e4bad": 7,
+   "badAt": "2026-11-15T08:05:21.640Z"
   },
   "email#v": {
-   "e4bad": 5,
-   "badAt": "2026-11-13T00:52:00.285Z"
+   "e4bad": 6,
+   "badAt": "2026-11-15T08:05:21.640Z"
   },
   "embankment#n": {
    "ex": "The station and line are on an embankment.",
@@ -34665,17 +34687,17 @@
   },
   "firehouse#n": {
    "ex": "There are three separate firehouses.",
-   "ps": "a red brick firehouse with a large garage door open and a red fire engine parked inside",
-   "sc": "a red brick firehouse with a large garage door open and a red fire engine parked inside",
-   "check": "Is there a building that stores a red fire engine for firefighters?",
+   "ps": "a red brick firehouse with a large red fire engine parked inside, doors wide open",
+   "sc": "a red brick firehouse with a large red fire engine parked inside, doors wide open",
+   "check": "Is there a building that holds a red fire engine?",
    "cap": "a red brick building with a fire engine inside",
-   "key": "a red brick building with an open garage door; a red fire engine inside the garage",
+   "key": "a red brick building with open doors; a large red fire engine parked inside",
    "who": 0,
    "draw": 5,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
    "tries": 3,
-   "refix": 1
+   "refix": 2
   },
   "fireplace#n": {
    "ex": "Don't go near the fireplace, it's risky.",
@@ -47854,16 +47876,17 @@
   },
   "jawbone#n": {
    "ex": "In the fossil record, isolated teeth and bits of jawbones are found.",
-   "ps": "a skull with its lower jaw bone clearly visible, the jaw open as if chewing",
-   "sc": "a skull with its lower jaw bone clearly visible, the jaw open as if chewing",
-   "check": "Is the lower bone of the mouth shown?",
-   "cap": "a skull displaying an open lower jaw",
-   "key": "the lower jaw bone of a skull; the jaw open",
+   "ps": "a large white curved bone resembling a lower jaw, shown alone on a plain surface",
+   "sc": "a large white curved bone resembling a lower jaw, shown alone on a plain surface",
+   "check": "Is there a lower facial bone that moves to open the mouth?",
+   "cap": "a single curved bone resembling a human lower jaw",
+   "key": "a large curved bone shaped like a lower jaw; the bone's hinge joint at the back",
    "who": 0,
    "draw": 5,
    "v": "e6",
    "by": "openai/gpt-oss-120b",
-   "tries": 2
+   "tries": 3,
+   "refix": 1
   },
   "jazz#n": {
    "ex": "A jazz band will play at the company dinner.",
@@ -63419,8 +63442,8 @@
    "by": "openai/gpt-oss-120b"
   },
   "peripheral#n": {
-   "e4bad": 5,
-   "badAt": "2026-11-12T02:04:08.160Z"
+   "e4bad": 6,
+   "badAt": "2026-11-15T08:05:21.641Z"
   },
   "perishable goods#n": {
    "ex": "Perishable goods receive priority handling at the airport.",
@@ -70945,8 +70968,8 @@
    "draw": 4,
    "v": "e4",
    "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 6,
-   "badAt": "2026-11-12T02:04:20.945Z"
+   "e4bad": 7,
+   "badAt": "2026-11-15T08:05:21.641Z"
   },
   "readjustment#n": {
    "ex": "A difficult period of economic readjustment started.",
@@ -77176,16 +77199,17 @@
   },
   "scheduling conflict#n": {
    "ex": "I have a scheduling conflict: two of my required classes meet on Tuesday mornings.",
-   "ps": "a girl holds two class schedules showing the same time, looking confused in a school hallway",
-   "sc": "a girl holds two class schedules showing the same time, looking confused in a school hallway",
-   "check": "Is the girl holding two schedules that show the same time?",
-   "cap": "a student confused by two overlapping class times",
+   "ps": "a frustrated person holds two blank sheets, each marked with a big red circle at the same spot",
+   "sc": "a frustrated person holds two blank sheets, each marked with a big red circle at the same spot",
+   "check": "Is there a situation where two activities are scheduled for the same time?",
+   "cap": "a frustrated person holding two marked sheets side by side",
+   "key": "two blank sheets with big red circles at the same spot; the person's frustrated face",
    "who": 1,
    "draw": 4,
-   "v": "e4",
-   "by": "@cf/openai/gpt-oss-120b",
-   "e4bad": 6,
-   "badAt": "2026-11-12T02:08:51.331Z"
+   "v": "e6",
+   "by": "openai/gpt-oss-120b",
+   "tries": 3,
+   "refix": 1
   },
   "scheme#n": {
    "ex": "The council started a recycling scheme.",
@@ -88792,8 +88816,8 @@
    "cap": "a truck raising a parked car from the street",
    "who": 1,
    "by": "openai/gpt-oss-120b",
-   "e4bad": 6,
-   "badAt": "2026-11-12T02:04:20.945Z"
+   "e4bad": 7,
+   "badAt": "2026-11-15T08:05:21.640Z"
   },
   "town#n": {
    "ex": "I grew up in a small town by the sea.",
