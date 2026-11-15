@@ -30,7 +30,7 @@ assert.equal(app.slice(app.indexOf('const ROUTE_BUNDLE'), app.indexOf('};', app.
 
 // 2. Người mới (chưa học gì): bài đầu = bài nên học tiếp, chương 1 mở sẵn, đủ 10 chương + hàng "Kiểm tra chương", tab Tất cả
 { const { routes, log } = mk(); routes.grammar(); const d = log.mount[0];
-  assert.equal(d.pct, 0); assert.match(d.prog, /^0\/\d+ bài đã đạt$/); assert.ok(d.nx && /^#\/grammar\/[\w-]+$/.test(d.nx.href)); assert.ok(d.nx.h.length > 2); assert.match(d.nx.sub, /^Bài tiếp theo · Chương 1/);
+  assert.equal(d.pct, 0); assert.match(d.prog, /^0\/\d+ bài đã đạt$/); assert.ok(d.nx && /^#\/grammar\/[\w-]+$/.test(d.nx.href)); assert.ok(d.nx.h.length > 2); assert.match(d.nx.sub, /^Bài tiếp theo · \d+ bài học trực quan · Chương 1/); assert.ok(!('blurb' in d), 'một dòng phụ duy nhất ở thẻ tiến độ');
   assert.deepEqual(d.chips.map(x => x.k + (x.on ? '*' : '')), ['all*', 'ielts', 'toeic']);
   assert.equal(d.ch.length, 10); assert.deepEqual(d.ch.map(c => c.id), Array.from({ length: 10 }, (_, i) => 'chap' + (i + 1)));
   assert.deepEqual(d.ch.map(c => c.open), [true, ...Array(9).fill(false)]);
@@ -38,12 +38,12 @@ assert.equal(app.slice(app.indexOf('const ROUTE_BUNDLE'), app.indexOf('};', app.
   const all = d.ch.flatMap(ids); assert.equal(new Set(all).size, all.length, 'không bài nào hiện 2 lần'); assert.ok(all.length >= 80, 'đủ bài'); assert.match(d.sub, new RegExp(`^${all.length} bài học trực quan$`));
   assert.ok(d.ch[0].rows.every(r => r.test || r.pct == null), 'chưa học: mọi hàng = plain (không chip %)');
   assert.deepEqual(d.cards.map(c => c.href), ['#/grammar/mix', '#/grammar/mix?n=40', '#/verb', '#/fix'], 'đủ đề 20 + 40 câu + 2 công cụ ngữ pháp');
-  assert.match(d.cards[0].t, /20/); assert.match(d.cards[1].t, /40/); assert.ok(d.blurb.includes(String(all.length)), 'đoạn mô tả hub vẫn còn'); }
+  assert.match(d.cards[0].t, /20/); assert.match(d.cards[1].t, /40/); }
 
 // 3. Đang học dở: bài < 80% là bài nên học tiếp (nhãn "Làm lại cho chắc"), chương của nó mở; ≥ 80% = đã đạt, đếm tiến độ
 { const probe = mk(); probe.routes.grammar(); const d0 = probe.log.mount[0], a = d0.ch[2].rows[0].id, b = d0.ch[2].rows[1].id, z = d0.ch[0].rows[0].id;
   const { routes, log } = mk({ done: { [z]: 90, [a]: 60, [b]: 80 } }); routes.grammar(); const d = log.mount[0];
-  assert.equal(d.nx.href, '#/grammar/' + a); assert.match(d.nx.sub, /^Bài tiếp theo · Làm lại cho chắc · lần trước 60%/); assert.match(d.nx.sub, /Chương 3/);
+  assert.equal(d.nx.href, '#/grammar/' + a); assert.match(d.nx.sub, /Làm lại cho chắc · lần trước 60%/); assert.match(d.nx.sub, /Chương 3/);
   assert.deepEqual(d.ch.map(c => c.open), d.ch.map((_, i) => i === 2), 'chỉ chương của bài kế tiếp mở sẵn');
   assert.equal(d.ch[0].dn, 1); assert.equal(d.ch[2].dn, 1); assert.match(d.prog, /^2\/\d+ bài đã đạt$/); assert.ok(d.pct > 0);
   const r = x => d.ch.flatMap(c => c.rows).find(y => y.id === x); assert.equal(r(z).pct, 90); assert.equal(r(a).pct, 60); assert.equal(r(b).pct, 80);

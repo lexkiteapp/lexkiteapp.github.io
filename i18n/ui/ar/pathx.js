@@ -1,5 +1,6 @@
 /* UI ar – pathx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ar"] = Object.assign(D["ar"] || {}, {
+"+{n} XP":"+{n} XP",
 "+{xp} XP hôm nay":"+{xp} XP اليوم",
 "Bài mới đã mở: {name}":"تم فتح درس جديد: {name}",
 "Bài ngữ pháp hôm nay":"قواعد اليوم",
@@ -14,7 +15,9 @@
 "Chọn nghĩa đúng của từ vừa học":"اختر المعنى الصحيح للكلمات الجديدة",
 "Collocation & cấu trúc học thuật":"المتلازمات والتراكيب الأكاديمية",
 "Cuộc gọi luyện nói":"مكالمة تدريب على المحادثة",
+"Các hoạt động của ngày":"أنشطة اليوم",
 "Câu hỏi kiểu đề thi, có giải thích ngay":"أسئلة على نمط الامتحان مع شرح فوري",
+"Cô Ama":"المعلمة Ama",
 "Dùng từ trong câu":"استخدم الكلمات في جمل",
 "Dùng từ vừa học trong tình huống thật":"استخدم كلماتك الجديدة في موقف واقعي",
 "Dễ trước, khó sau: nhận diện → ghép → nghe → dùng trong câu → nói.":"السهل أولًا ثم الأصعب: تعرّف ← طابق ← استمع ← استخدم في جملة ← تحدّث.",
@@ -50,6 +53,7 @@
 "Theo dõi thêm":"إضافة المسار",
 "Thi thử định kỳ":"اختبار تجريبي دوري",
 "Tiến độ bài":"تقدّم الدرس",
+"Tiến độ trong ngày":"تقدّم اليوم",
 "Tiếng Anh công sở":"الإنجليزية للعمل",
 "Tiếp theo học gì?":"ماذا بعد؟",
 "Tiếp theo học gì? Chọn một hướng:":"ماذا بعد؟ اختر اتجاهًا:",
@@ -77,5 +81,6 @@
 "Đặt mục tiêu rõ ràng giúp mình chọn đúng độ khó.":"الهدف الواضح يساعدني على اختيار مستوى الصعوبة المناسب.",
 "Đề nghị lịch sự":"طلبات مهذبة",
 "Đều đặn mỗi ngày là bí quyết nhớ lâu!":"القليل كل يوم هو سرّ التذكّر لفترة أطول!",
+"≈ {m} phút":"≈ {m} د",
 });
 })(typeof self !== 'undefined' ? self : this);
