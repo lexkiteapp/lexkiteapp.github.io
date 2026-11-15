@@ -44,7 +44,7 @@ const configured = env => { const c = client(env); return { client: !!c.id, secr
 const ready = env => Object.values(configured(env)).every(Boolean);
 const CLIP = /^[a-z0-9-]{3,120}$/, CHID = /^[A-Za-z0-9_-]{8,64}$/;
 
-const SETUP_DONE = new WeakSet(); // one DDL batch per D1 binding per isolate (it ran on EVERY request before)
+const SETUP_DONE = new WeakSet(); // one DDL batch per D1 binding per isolate (it used to run on EVERY request)
 export async function setup(db) {
   if (SETUP_DONE.has(db)) return;
   await db.batch([
@@ -322,8 +322,8 @@ export async function unqueueClip(db, id) {
 }
 
 // ---------- distribution hooks (config lives in yt_chan_cfg; engine in _distribution.js, ops in distribution.js) ----------
-/** All channel configs in ONE query (the admin list used to do 1 D1 round trip per channel: ~400 ms each → 16 s for 32 channels). Map id → { cfg, paused_reason }. */
-export async function chanCfgs(db) { const m = new Map(); for (const r of await all(db, 'SELECT channel_id, cfg, paused_reason FROM yt_chan_cfg')) { let c = {}; try { c = JSON.parse(r.cfg || '{}'); } catch (e) { /* default */ } m.set(r.channel_id, { cfg: normCfg(c), paused_reason: r.paused_reason || '' }); } return m; }
+/** All channel configs in ONE query (the admin list did 1 D1 round trip per channel: ~400 ms each → 16 s for 32 channels). Map id → same shape as chanCfg(). */
+export async function chanCfgs(db) { const m = new Map(); for (const r of await all(db, 'SELECT channel_id, cfg, paused_reason FROM yt_chan_cfg')) { let c = {}; try { c = JSON.parse(r.cfg || '{}'); } catch (e) { /* default */ } m.set(r.channel_id, { cfg: normCfg(c), explicit_lang: !!(c && typeof c.lang === 'string' && c.lang.trim()), paused_reason: r.paused_reason || '' }); } return m; }
 export async function chanCfg(db, id) { const r = await one(db, 'SELECT cfg, paused_reason FROM yt_chan_cfg WHERE channel_id = ?', id); let c = {}; try { c = JSON.parse((r && r.cfg) || '{}'); } catch (e) { /* default */ } return { cfg: normCfg(c), explicit_lang: !!(c && typeof c.lang === 'string' && c.lang.trim()), paused_reason: (r && r.paused_reason) || '' }; } // explicit_lang: chủ đã chọn ngôn ngữ kênh → không đoán theo tên
 /** Pause a channel (cfg.active = 0) and raise an admin alert (yt_meta 'alerts', newest first, ≤ 20). */
 export async function pauseChannel(db, id, reason) {
