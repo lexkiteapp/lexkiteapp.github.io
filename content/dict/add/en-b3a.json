@@ -217,9 +217,9 @@
         "why": "Downsize usually takes a group like 'workforce', not individual people."
       },
       {
-        "w": "They plan to downsize to the smaller premises.",
-        "r": "They plan to downsize to smaller premises.",
-        "why": "Do not add 'the' before an indefinite plural 'smaller premises'."
+        "w": "They downsized the company by cut fifty jobs.",
+        "r": "They downsized the company by cutting fifty jobs.",
+        "why": "After 'by', use the -ing form: cutting."
       }
     ],
     "u": "Downsize means to make an organization smaller, mainly by cutting jobs, and it can also mean moving to a smaller home or office. It is a business euphemism, so employees may find it cold; layoffs is blunter, while restructure sounds even softer. Typical objects are the workforce, operations or the company: downsize the workforce. Do not say downsize someone; use lay off or let go. The noun is downsizing."
@@ -282,7 +282,7 @@
         "why": "Use the adverb 'deeply' and the participle 'embedded'."
       }
     ],
-    "u": "Embed means to fix something firmly inside a surrounding mass or system: a nail embedded in wood, a journalist embedded with troops. In technology it means to place a video, link or piece of code inside a page, as in embed a video in a website. It also describes ideas that become part of a culture: deeply embedded values. Past forms are embedded, with a double d. Spelling in older British English was imbed, now rare."
+    "u": "Embed means to fix something firmly inside a surrounding mass or system: a nail embedded in wood, a journalist embedded with troops. In technology it means to place a video, link or piece of code inside a page, as in embed a video in a website. It also describes ideas that become part of a culture: deeply embedded values. Past forms are embedded, with a double d. A variant spelling imbed exists but is rare."
   },
   "engagement": {
     "mis": [
@@ -462,7 +462,7 @@
         "why": "Fundraise takes 'for' to name the cause."
       }
     ],
-    "u": "Fundraise is a verb meaning to collect money for a cause, charity or project, often through events, campaigns and donations. It is intransitive and usually followed by for: fundraise for the school. Often written as raise funds, which is more natural in formal speech. The noun is fundraising or fundraiser, which can mean either the event or the person organizing it. Do not say fundraise money; you raise money or fundraise for a cause."
+    "u": "Fundraise is a verb meaning to collect money for a cause, charity or project, often through events, campaigns and donations. It is intransitive and usually followed by for: fundraise for the school. Raise funds is a more natural alternative in formal speech. The noun is fundraising or fundraiser, which can mean either the event or the person organizing it. Do not say fundraise money; you raise money or fundraise for a cause."
   },
   "graphic": {
     "mis": [
@@ -597,7 +597,7 @@
         "why": "Inclusive takes 'of', not 'with'."
       }
     ],
-    "u": "Inclusive means including everything, or welcoming all people. For price and range, use inclusive of: the fee is inclusive of tax; Monday to Friday inclusive (both days count). For people, an inclusive workplace gives everyone equal access. All-inclusive is a hyphenated adjective for packages that include meals and activities. The opposite is exclusive. Be careful with inclusive of in formal writing; including is more common in casual use."
+    "u": "Inclusive means including everything, or welcoming all people. For price and range, use inclusive of: the fee is inclusive of tax; Monday to Friday inclusive (both days count). For people, an inclusive workplace gives everyone equal access. All-inclusive is a hyphenated adjective for packages that include meals and activities. The opposite is exclusive. In everyday speech, including is more common than inclusive of."
   },
   "indeed": {
     "mis": [
@@ -707,9 +707,9 @@
   "interactive": {
     "mis": [
       {
-        "w": "The class is interactive with students.",
-        "r": "The class is interactive for students.",
-        "why": "Use 'for' to show who an interactive feature serves."
+        "w": "This lesson is very interact and fun.",
+        "r": "This lesson is very interactive and fun.",
+        "why": "After 'very', use the adjective interactive, not the verb interact."
       },
       {
         "w": "Students can interactive with the website.",
@@ -747,6 +747,6 @@
         "why": "'Introductory' is an adjective and needs a noun."
       }
     ],
-    "u": "Introductory is an adjective meaning first or serving as an introduction: an introductory course, introductory remarks, an introductory paragraph. In marketing, an introductory offer or price is a special low rate for new customers. It describes level too: an introductory textbook is for beginners. It does not take a direct noun use. The noun is introduction and the verb introduce. Preliminary is for something that comes before the main part, while beginner is for people."
+    "u": "Introductory is an adjective meaning first or serving as an introduction: an introductory course, introductory remarks, an introductory paragraph. In marketing, an introductory offer or price is a special low rate for new customers. It describes level too: an introductory textbook is for beginners. It is not used as a noun. The noun is introduction and the verb introduce. Preliminary is for something that comes before the main part, while beginner is for people."
   }
 }

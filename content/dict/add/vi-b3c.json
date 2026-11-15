@@ -7,9 +7,9 @@
         "why": "Sau remove dùng 'from' để chỉ nơi bị lấy đi, không dùng 'out of'."
       },
       {
-        "w": "The staff removed the guests to the garden.",
-        "r": "The staff moved the guests to the garden.",
-        "why": "Remove nghĩa là lấy đi, bỏ ra; muốn nói chuyển người đến chỗ mới thì dùng move."
+        "w": "Please remove off your shoes.",
+        "r": "Please remove your shoes.",
+        "why": "Remove đã có nghĩa là cởi, lấy ra nên thêm 'off' là thừa."
       }
     ],
     "u": "Remove là động từ chung chỉ việc lấy đi khỏi một nơi, một bề mặt hay một danh sách: remove a stain (tẩy vết bẩn), remove your shoes (cởi giày), remove a name from a list. Trong văn bản trang trọng hoặc kỹ thuật, từ này còn là cách chức ai đó hoặc xoá dữ liệu. Sau remove thường là giới từ 'from'. Từ này trung tính và chính thức hơn take off hay get rid of trong lời nói. Đừng dùng khi chỉ là dời đồ sang chỗ khác."
@@ -32,9 +32,9 @@
   "repeatedly": {
     "mis": [
       {
-        "w": "I repeatedly to call him but he never answered.",
-        "r": "I repeatedly called him but he never answered.",
-        "why": "Repeatedly là trạng từ, cần động từ chia đúng, không đặt 'to' ngay sau nó."
+        "w": "I called him repeatly but he never answered.",
+        "r": "I called him repeatedly but he never answered.",
+        "why": "Trạng từ viết là repeatedly, có -ed, không phải repeatly."
       },
       {
         "w": "She repeatedly said me to wait.",
@@ -63,7 +63,7 @@
     "mis": [
       {
         "w": "He has residence in Hanoi since 2020.",
-        "r": "He has been resident in Hanoi since 2020.",
+        "r": "He has been a resident of Hanoi since 2020.",
         "why": "Residence là danh từ; muốn nói ai sống ở đâu, dùng động từ reside hoặc tính từ resident."
       },
       {
@@ -142,9 +142,9 @@
         "why": "Dùng 'of' cho đối tượng của bức vẽ; 'on' là sai."
       },
       {
-        "w": "The architect sketched me a plan quickly.",
-        "r": "The architect sketched a plan for me quickly.",
-        "why": "Sketch không nhận tân ngữ gián tiếp; dùng 'for me' sau tân ngữ."
+        "w": "He is good at sketch.",
+        "r": "He is good at sketching.",
+        "why": "Sau giới từ 'at' dùng dạng -ing: sketching."
       }
     ],
     "u": "Sketch là danh từ đếm được chỉ bản vẽ nhanh, phác, thường là ý tưởng đầu tiên cho thiết kế: a pencil sketch, a rough sketch of the building. Từ này còn chỉ tiểu phẩm hài ngắn trên truyền hình, hoặc bản phác thảo sơ lược một kế hoạch, báo cáo. Làm động từ, sketch out nghĩa là mô tả đại khái: sketch out the main ideas. Sketch tự do hơn drawing và chưa hoàn chỉnh bằng một bản kế hoạch."
@@ -172,9 +172,9 @@
         "why": "Seafood là danh từ không đếm được, không thêm -s."
       },
       {
-        "w": "Her specialty is in pediatrics.",
-        "r": "Her specialty is pediatrics.",
-        "why": "Sau be nêu thẳng lĩnh vực; 'in' thuộc cấu trúc specialize in."
+        "w": "The doctor specialties in children's diseases.",
+        "r": "The doctor specializes in children's diseases.",
+        "why": "Động từ là specialize; specialty là danh từ."
       }
     ],
     "u": "Specialty là cách viết Mỹ chỉ thứ mà một người, địa điểm hay doanh nghiệp đặc biệt nổi tiếng: the house specialty (món đặc trưng của quán), a regional specialty (đặc sản vùng). Trong y học, nó chỉ một chuyên khoa như tim mạch. Anh-Anh thường viết speciality. Đây là danh từ đếm được. Cấu trúc: specialize in a field, nhưng 'a specialty of' một nơi. Specialty shop là cửa hàng chuyên một loại hàng. Strength hay forte chung hơn, chỉ kỹ năng giỏi nhất của người."
@@ -257,9 +257,9 @@
   "statistics": {
     "mis": [
       {
-        "w": "The statistics show that a statistic is growing.",
-        "r": "The statistics show that sales are growing.",
-        "why": "Statistic là một con số riêng lẻ; cần viết lại để danh từ rõ nghĩa và đúng số."
+        "w": "The latest statistic show a rise in prices.",
+        "r": "The latest statistics show a rise in prices.",
+        "why": "Dùng số nhiều statistics cho nhiều con số; một con số riêng là a statistic."
       },
       {
         "w": "Statistics are a difficult subject.",
@@ -307,9 +307,9 @@
         "why": "Phải dùng trạng từ strictly để bổ nghĩa cho phân từ enforced."
       },
       {
-        "w": "Strictly, smoking is forbidden here.",
-        "r": "Smoking is strictly forbidden here.",
-        "why": "Kết hợp cố định là strictly forbidden; trạng từ đứng trước tính từ."
+        "w": "The documents are strictly confidentially.",
+        "r": "The documents are strictly confidential.",
+        "why": "Sau trạng từ strictly dùng tính từ confidential, không dùng trạng từ."
       }
     ],
     "u": "Strictly là trạng từ nghĩa là một cách bắt buộc phải tuân theo, hoặc chính xác và không có ngoại lệ. Nó làm mạnh các từ về quy định: strictly forbidden (nghiêm cấm), strictly confidential (tuyệt mật), strictly enforced. Strictly speaking mở đầu câu để nói điều đúng về mặt kỹ thuật dù người ta thường dùng nghĩa lỏng hơn. Nó còn nghĩa là chỉ: the offer is strictly for members. Đừng nhầm trạng từ strictly với tính từ strict."
@@ -382,9 +382,9 @@
         "why": "Suspicious đi với 'of' khi bạn nghi ngờ ai hay điều gì."
       },
       {
-        "w": "The police found a suspect package.",
-        "r": "The police found a suspicious package.",
-        "why": "Suspect làm tính từ hiếm và trang trọng; ở đây dùng suspicious."
+        "w": "The suspicion man ran away.",
+        "r": "The suspicious man ran away.",
+        "why": "Trước danh từ dùng tính từ suspicious; suspicion là danh từ."
       }
     ],
     "u": "Suspicious có hai chiều nghĩa. Vật hay việc suspicious là thứ khiến bạn nghĩ có điều không ổn hoặc nguy hiểm: a suspicious package (gói hàng khả nghi), suspicious behavior. Người suspicious of someone or something là người nghi ngờ, không tin: suspicious of strangers. Cả hai cách dùng đều phổ biến trong tin tức và thông báo an ninh. Danh từ là suspicion, trạng từ là suspiciously. Đừng nhầm với suspect, danh từ chỉ nghi phạm mà cảnh sát cho là có tội."
@@ -437,9 +437,9 @@
   "terrific": {
     "mis": [
       {
-        "w": "The film was terrific scary.",
-        "r": "The film was terrifyingly scary.",
-        "why": "Cần trạng từ để bổ nghĩa cho tính từ scary; terrific là tính từ."
+        "w": "We had a terrifically time at the beach.",
+        "r": "We had a terrific time at the beach.",
+        "why": "Trước danh từ dùng tính từ terrific, không dùng trạng từ."
       },
       {
         "w": "The party was terrified last night.",
@@ -467,9 +467,9 @@
   "theft": {
     "mis": [
       {
-        "w": "Two thefts of cars happened last night.",
-        "r": "Two car thefts happened last night.",
-        "why": "Đặt car trước theft làm bổ ngữ danh từ; 'thefts of cars' nghe vụng."
+        "w": "Someone did a theft in my shop.",
+        "r": "Someone committed theft in my shop.",
+        "why": "Động từ đi với theft là commit, không dùng do."
       },
       {
         "w": "He was arrested for theft the bike.",
@@ -542,9 +542,9 @@
   "unreliable": {
     "mis": [
       {
-        "w": "He is unreliable on his promises.",
-        "r": "He is unreliable with his promises.",
-        "why": "Dùng 'with' hoặc diễn đạt lại; 'on' không phải giới từ thông thường."
+        "w": "The bus service is unreliably.",
+        "r": "The bus service is unreliable.",
+        "why": "Sau be dùng tính từ unreliable, không dùng trạng từ."
       },
       {
         "w": "The data is not unreliability.",
@@ -662,9 +662,9 @@
   "withdrawal": {
     "mis": [
       {
-        "w": "I made a withdrawal of money at the ATM yesterday.",
-        "r": "I made a cash withdrawal at the ATM yesterday.",
-        "why": "'Withdrawal of money' dài dòng; cách nói tự nhiên là cash withdrawal."
+        "w": "I want to make a withdraw of 2 million.",
+        "r": "I want to make a withdrawal of 2 million.",
+        "why": "Danh từ là withdrawal; withdraw là động từ."
       },
       {
         "w": "The withdrawl limit is 5 million.",

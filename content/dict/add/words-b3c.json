@@ -24,7 +24,7 @@
       "gain renown",
       "a chef of renown",
       "win renown",
-      "world renown"
+      "renown as"
     ],
     "syn": [
       "fame",
@@ -197,7 +197,7 @@
       "chef's specialty"
     ],
     "syn": [
-      "speciality",
+      "specialism",
       "forte",
       "strength",
       "specialization"
@@ -398,7 +398,7 @@
       "heavily subsidized",
       "subsidize the cost",
       "subsidize public transport",
-      "government subsidize"
+      "government subsidizes"
     ],
     "syn": [
       "fund",
@@ -447,7 +447,7 @@
       "delaying tactic",
       "sales tactic",
       "change tactics",
-      "tactic to",
+      "effective tactic",
       "aggressive tactics",
       "scare tactics"
     ],
@@ -795,7 +795,7 @@
       "on board",
       "on",
       "embarked",
-      "inside"
+      "onto"
     ]
   },
   "advertisement": {

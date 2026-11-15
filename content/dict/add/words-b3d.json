@@ -179,7 +179,7 @@
    "return a caller's call"
   ],
   "syn": [
-   "phoner",
+   "person ringing",
    "person calling"
   ]
  },
@@ -713,7 +713,7 @@
    "extinguisher sign"
   ],
   "syn": [
-   "fire fighter device",
+   "fire-fighting device",
    "suppressor"
   ]
  },
@@ -756,12 +756,12 @@
  "firstly": {
   "ipaUS": "/ˈfɜːrstli/",
   "col": [
-   "firstly and foremost",
+   "firstly, the cost",
    "firstly ... secondly",
    "firstly, let me explain",
    "firstly, we need",
    "firstly because",
-   "not only firstly"
+   "firstly, we should"
   ],
   "syn": [
    "first of all",

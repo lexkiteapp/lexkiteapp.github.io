@@ -292,12 +292,12 @@
     "why": "After 'keep' with an object, use an adjective, not an adverb."
    },
    {
-    "w": "He drank a neat water from the bottle.",
-    "r": "He drank some plain water from the bottle.",
-    "why": "Neat describes a drink without ice or mixer, usually alcohol, not plain water."
+    "w": "My room is neat and tidily.",
+    "r": "My room is neat and tidy.",
+    "why": "After 'is', use the adjective tidy, not the adverb tidily."
    }
   ],
-  "u": "Neat means tidy, organised and pleasant to look at: neat handwriting, a neat desk. It can also describe a clever idea or solution (a neat trick), and in American speech it can simply mean 'great'. In British English, a neat drink is alcohol served without ice, water or a mixer. Neat is usually positive and slightly informal; tidy is more common for rooms, and orderly sounds formal."
+  "u": "Neat means tidy, organised and pleasant to look at: neat handwriting, a neat desk. It can also describe a clever idea or solution (a neat trick), and in American speech it can simply mean 'great'. A neat drink is alcohol served without ice, water or a mixer. Neat is usually positive and slightly informal; tidy is more common for rooms, and orderly sounds formal."
  },
  "needy": {
   "mis": [
@@ -327,7 +327,7 @@
     "why": "Noon already means 12 p.m., so adding p.m. is redundant."
    }
   ],
-  "u": "Noon is twelve o'clock in the middle of the day. It takes at: at noon, and also by noon for a deadline or before noon for the morning. Noon is more common in American English, while British English often uses midday. Do not add p.m. or a.m. to noon, and avoid 'twelve noon' in formal writing unless you need to prevent confusion with midnight. High noon figuratively means a moment of decisive confrontation. Noon is a time point, not a period, so you cannot say 'in noon'."
+  "u": "Noon is twelve o'clock in the middle of the day. It takes at: at noon, and also by noon for a deadline or before noon for the morning. Midday is an equally common alternative, especially in British English. Do not add p.m. or a.m. to noon, and avoid 'twelve noon' in formal writing unless you need to prevent confusion with midnight. High noon figuratively means a moment of decisive confrontation. Noon is a time point, not a period, so you cannot say 'in noon'."
  },
  "oblige": {
   "mis": [
@@ -352,9 +352,9 @@
     "why": "To modify a verb you need the adverb officially, not the adjective official."
    },
    {
-    "w": "He officially is the new manager.",
-    "r": "He is officially the new manager.",
-    "why": "With the verb 'be', the adverb goes after it."
+    "w": "She was official appointed as head of the department.",
+    "r": "She was officially appointed as head of the department.",
+    "why": "Use the adverb officially to modify the participle appointed."
    }
   ],
   "u": "Officially means in a formal, public or authorised way: officially announced, officially opened. It also contrasts what is said with what is true: Officially he is on holiday, but he is actually working. The adverb usually sits before the main verb but after be, as in He is officially retired. It is often used in news about governments and companies. Formally is similar but stresses polite or structured behavior; publicly stresses that people can see it. Remember the adjective is official."
@@ -372,7 +372,7 @@
     "why": "Clothes is plural and has no 'a'; use outfit for a complete set."
    }
   ],
-  "u": "Outfit is a countable noun for a set of clothes worn together for a particular occasion, so you buy an outfit, not a clothes: a casual outfit, a wedding outfit. Clothes is plural and uncountable in count terms, and clothing is uncountable. Outfit is common in fashion talk. It can also mean a group or organisation, informally: a small software outfit. As a verb, to outfit means to supply with equipment, as in outfit a team with uniforms."
+  "u": "Outfit is a countable noun for a set of clothes worn together for a particular occasion, so you buy an outfit, not a clothes: a casual outfit, a wedding outfit. Clothes is always plural and cannot take a number, while clothing is uncountable. Outfit is common in fashion talk. It can also mean a group or organisation, informally: a small software outfit. As a verb, to outfit means to supply with equipment, as in outfit a team with uniforms."
  },
  "outlet": {
   "mis": [
@@ -447,7 +447,7 @@
     "why": "Use 'a day', not 'for day', to show frequency."
    }
   ],
-  "u": "Pill is a countable noun for a small round piece of medicine that you swallow. The natural verb is take, not eat or drink: take a pill, take two pills a day. A pill is smaller and rounder than a tablet in everyday speech, while capsule describes a pill with a soft or hard shell. Fixed phrases include sleeping pill, the pill (the contraceptive) and a bitter pill to swallow, which is a hard truth to accept. In British usage tablet is more common."
+  "u": "Pill is a countable noun for a small round piece of medicine that you swallow. The natural verb is take, not eat or drink: take a pill, take two pills a day. Pill is the everyday word, tablet sounds more medical, and capsule describes a pill with a soft or hard shell. Fixed phrases include sleeping pill, the pill (the contraceptive) and a bitter pill to swallow, which is a hard truth to accept. In British usage tablet is more common."
  },
  "placement": {
   "mis": [
@@ -537,7 +537,7 @@
     "why": "The adjective goes directly before its noun; 'for me' comes after."
    }
   ],
-  "u": "Prestigious describes something respected and admired, usually because of a high reputation or status: a prestigious university, a prestigious award. The noun is prestige and the opposite is unremarkable. It is often positive but can be used critically of status symbols. Common collocations are highly prestigious and a prestigious post. It is stronger than famous: something can be famous without being prestigious. It is typical in education, business and the arts."
+  "u": "Prestigious describes something respected and admired, usually because of a high reputation or status: a prestigious university, a prestigious award. The noun is prestige. It is often positive but can be used critically of status symbols. Common collocations are highly prestigious and a prestigious post. It is stronger than famous: something can be famous without being prestigious. It is typical in education, business and the arts."
  },
  "preview": {
   "mis": [

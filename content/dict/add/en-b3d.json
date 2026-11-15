@@ -72,7 +72,7 @@
     "why": "A banker is a person; the institution is a bank."
    }
   ],
-  "u": "A banker is a person who owns or holds a fairly senior position in a bank, often in lending or investment. It does not mean any bank employee: a cashier or teller is a clerk, not a banker. Common types are investment banker and central banker. The word for the place is bank, and Learners from some languages mix the two because one word often covers both. In informal English a personal banker is a bank's named adviser for one customer."
+  "u": "A banker is a person who owns or holds a fairly senior position in a bank, often in lending or investment. It does not mean any bank employee: a cashier or teller is a clerk, not a banker. Common types are investment banker and central banker. The word for the place is bank, and learners from some languages mix the two because one word often covers both. In informal English a personal banker is a bank's named adviser for one customer."
  },
  "beforehand": {
   "mis": [
@@ -82,9 +82,9 @@
     "why": "Beforehand is an adverb and cannot take an object; use the preposition before."
    },
    {
-    "w": "We prepared beforehandly for the exam.",
-    "r": "We prepared beforehand for the exam.",
-    "why": "Beforehand is already an adverb; it never takes -ly."
+    "w": "Please tell me before hand if you cannot come.",
+    "r": "Please tell me beforehand if you cannot come.",
+    "why": "Beforehand is one word, not two."
    }
   ],
   "u": "Beforehand is an adverb meaning earlier than a particular time or event, and it usually stands at the end of a clause: Please call beforehand. It sounds a little more formal than in advance. It does not take an object, so you cannot say beforehand the meeting; say before the meeting or in advance of the meeting. A related pattern is to be sure to do something beforehand, common in instructions and notices."
@@ -267,7 +267,7 @@
     "why": "A word modifying the verb sat must be an adverb."
    }
   ],
-  "u": "Comfortably is an adverb with three main uses: in a relaxed physical way (sit comfortably), with enough money to live without worry (live comfortably, comfortably off), and by a clear margin (win comfortably). The first syllable is usually reduced, so it sounds like three syllables, /ˈkʌmftərbli/. The adjective is comfortable, which is used after be. Do not say the hotel is comfortably; say the hotel is comfortable."
+  "u": "Comfortably is an adverb with three main uses: in a relaxed physical way (sit comfortably), with enough money to live without worry (live comfortably, comfortably off), and by a clear margin (win comfortably). The middle syllable is usually reduced, so it sounds like three syllables, /ˈkʌmftərbli/. The adjective is comfortable, which is used after be. Do not say the hotel is comfortably; say the hotel is comfortable."
  },
  "conditioner": {
   "mis": [
@@ -377,9 +377,9 @@
  "cordless": {
   "mis": [
    {
-    "w": "This vacuum is cordlessly.",
-    "r": "This vacuum is cordless.",
-    "why": "After 'be', a describing word must be an adjective, not an adverb."
+    "w": "I bought a cord less phone yesterday.",
+    "r": "I bought a cordless phone yesterday.",
+    "why": "Cordless is written as one word."
    },
    {
     "w": "This drill is cordless, so you can use it anywhere without plug.",
@@ -477,7 +477,7 @@
     "why": "Dislike is already a verb and needs no 'be'."
    }
   ],
-  "u": "Dislike is a verb for not liking, and it is also a noun: a strong dislike of noise. As a verb it takes an object or a gerund: dislike spicy food, dislike waiting. In casual speech I don't like is more natural in conversation, whereas dislike sounds formal and is common in surveys. Stronger words are hate and detest. Take a dislike to means start disliking someone."
+  "u": "Dislike is a verb for not liking, and it is also a noun: a strong dislike of noise. As a verb it takes an object or a gerund: dislike spicy food, dislike waiting. In casual speech I don't like is more natural, whereas dislike sounds formal and is common in surveys. Stronger words are hate and detest. Take a dislike to means start disliking someone."
  },
  "documentary": {
   "mis": [
@@ -747,6 +747,6 @@
     "why": "British English says petrol; gasoline is American."
    }
   ],
-  "u": "Gasoline is the fuel used in most cars. It is uncountable: gasoline prices, a gallon of gasoline. In American English people often shorten it to gas, which can confuse learners because gas also means a natural gas. British English says petrol, and diesel is a different fuel. The stress is on the first syllable, /ˈɡæsəliːn/. Related words are unleaded and fuel station, which Americans call a gas station."
+  "u": "Gasoline is the fuel used in most cars. It is uncountable: gasoline prices, a gallon of gasoline. In American English people often shorten it to gas, which can confuse learners because gas also means natural gas. British English says petrol, and diesel is a different fuel. The stress is on the first syllable, /ˈɡæsəliːn/. Related words are unleaded and petrol station, which Americans call a gas station."
  }
 }

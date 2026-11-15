@@ -12,7 +12,7 @@
     "syn": [
       "reliance",
       "need",
-      "reliability"
+      "dependency"
     ]
   },
   "descriptive": {
@@ -398,7 +398,7 @@
     ],
     "syn": [
       "extreme",
-      "overmuch",
+      "undue",
       "unreasonable",
       "exorbitant"
     ]
@@ -484,7 +484,7 @@
       "convoy",
       "flotilla",
       "armada",
-      "vehicles"
+      "squadron"
     ]
   },
   "freight": {
@@ -509,7 +509,7 @@
     "col": [
       "fundraise for charity",
       "fundraise online",
-      "fundraise money",
+      "fundraise for research",
       "event to fundraise",
       "fundraise for a cause",
       "fundraise at school"
@@ -676,10 +676,10 @@
     "ipaUS": "/ɪnˈdiːd/",
     "col": [
       "very much indeed",
-      "thank you indeed",
+      "does indeed",
       "indeed it is",
       "yes, indeed",
-      "indeed, the report",
+      "indeed true",
       "if indeed"
     ],
     "syn": [
