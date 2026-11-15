@@ -21,6 +21,7 @@
 "Chạm loa để nghe lại câu.":"Ketuk speaker untuk mendengar kalimat lagi.",
 "Chỉ 5 phút mỗi ngày là giữ được chuỗi ngày.":"Cukup 5 menit sehari untuk menjaga rentetanmu.",
 "Chọn ngôn ngữ giao diện":"Pilih bahasa",
+"Chọn ngôn ngữ giải nghĩa":"Pilih bahasa tujuan",
 "Chọn ngôn ngữ học":"Pilih bahasa",
 "Chọn ngôn ngữ mục tiêu để cá nhân hóa lộ trình học của bạn.":"Pilih bahasa target untuk mempersonalisasi jalur belajarmu.",
 "Các bài học":"Pelajaran",

@@ -23,7 +23,9 @@ export const SEED_STREAK_V5 = async () => { const k = d => { const x = new Date(
 // Thư viện phát âm: đã học vài âm như mẫu (tick ở /iː/ /ɪ/ /e/ /ɑː/ /p/ /b/); âm kế tiếp chưa học = ô hổ phách
 export const SEED_PRON = () => { App.state.game = App.state.game || {}; App.state.game.pronDone = { 'iː': 100, 'ɪ': 92, e: 88, 'ɑː': 100, p: 95, b: 90, 'final-consonants': 80 }; };
 export const SEED_GRAMMAR = () => { App.state.game = App.state.game || {}; App.state.game.grammarDone = { 'be-am-is-are': 95, 'present-simple': 90, 'present-continuous': 60, 'past-simple': 85, 'articles': 88, 'passive-voice': 82, 'conditionals-0-1': 70 }; }; // hub Ngữ pháp có tiến độ như mẫu (xanh ≥ 80, đỏ < 80, bài kế dở)
-export const SEED_SCREEN = async (page, k) => { if (k === 'grammar') { await page.evaluate(SEED_GRAMMAR); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k === 'pron-hub') { await page.evaluate(SEED_PRON); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k !== 'streak') return; await page.clock.setFixedTime(new Date(STREAK_V5_NOW)); await page.evaluate(SEED_STREAK_V5); await page.evaluate(() => App.route()); await page.waitForTimeout(600); };
+// Từ điển: lịch sử tra như mẫu (8 từ ở "Recent searches")
+export const SEED_DICT = async () => { await Core.Store.set('recent', ['ambiguous', 'feasible', 'mitigate', 'diligent', 'concur', 'went', 'coherent', 'pinnacle']); };
+export const SEED_SCREEN = async (page, k) => { if (k === 'dict') { await page.evaluate(SEED_DICT); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k === 'grammar') { await page.evaluate(SEED_GRAMMAR); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k === 'pron-hub') { await page.evaluate(SEED_PRON); await page.evaluate(() => App.route()); await page.waitForTimeout(600); return; } if (k !== 'streak') return; await page.clock.setFixedTime(new Date(STREAK_V5_NOW)); await page.evaluate(SEED_STREAK_V5); await page.evaluate(() => App.route()); await page.waitForTimeout(600); };
 export const SEED_LEAGUE = () => {
   const names = ['An Nguyen', 'Linh Khanh', 'Marcus Roy', 'Tariq Chen', 'You Lexkite', 'Sara Hansen', 'Daiki Kato'], xps = [1420, 1280, 1150, 980, 820, 760, 690]; // bảng giải đấu mẫu giống Stitch (hạng 5 = mình)
   window.Sync = window.Sync || {}; Sync.user = { uid: 'u1', displayName: 'You Lexkite' }; Sync.authed = async () => Sync.user;
@@ -45,6 +47,7 @@ export const SCREENS = {
   'onb-ready': 'welcome/setup?s=ready',
   'onb-target': 'welcome/setup?s=target',
   practice: 'train',
+  dict: 'dict',
   'pron-hub': 'pron',
   readiness: 'goal',
   review: 'review?hub=1',
@@ -75,6 +78,7 @@ export const V2REF = {
   'onb-ready': 'onb-ready',
   'onb-target': 'onb-target',
   practice: 'practice',
+  dict: 'dict',
   'pron-hub': 'pron-hub',
   readiness: 'exam-readiness',
   review: 'review',

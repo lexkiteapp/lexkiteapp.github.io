@@ -331,7 +331,7 @@
     streak: ['js/streak-ui.js'],
     ret: ['js/i18n/en/ret.js', 'js/retention.js'],
     // 📖 trang Từ điển #/dict (tách khỏi app.js 01/11)
-    dictp: ['js/dict-page.js'],
+    dictp: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/dict.js', 'js/dict-page.js'],
     statsp: ['js/stats-page.js'],
     // 🔤 Chia động từ · ✍️ Sửa ngữ pháp
     vcore: ['js/verbs-core.js'],
@@ -499,6 +499,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     mock: 'css/exam.css',
     onb: ['css/st-v2-onb-pre.css', 'css/st-v2-onb-goal.css', 'css/st-v2-onb-lang.css', 'css/st-v2-onb-level.css', 'css/st-v2-onb-target.css', 'css/st-v2-onb-pace.css', 'css/st-v2-onb-ready.css'],
     outcome: 'css/outcomes.css',
+    dictp: 'css/st-v2-dict.css',
     pas: ['css/st-v2-speak-pre.css', 'css/st-v2-pas-sit.css', 'css/st-v2-pas-drill.css'],
     pron: 'css/st-v2-pron-hub.css',
     psheet: ['css/st-v2-path-sheet.css', 'css/path-sheet.css'],

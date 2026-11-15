@@ -21,6 +21,7 @@
 "Chạm loa để nghe lại câu.":"Cümleyi tekrar dinlemek için hoparlöre dokun.",
 "Chỉ 5 phút mỗi ngày là giữ được chuỗi ngày.":"Günde sadece 5 dakika serini canlı tutar.",
 "Chọn ngôn ngữ giao diện":"Dil seç",
+"Chọn ngôn ngữ giải nghĩa":"Hedef dilleri seç",
 "Chọn ngôn ngữ học":"Dil seç",
 "Chọn ngôn ngữ mục tiêu để cá nhân hóa lộ trình học của bạn.":"Öğrenme yolunu kişiselleştirmek için hedef dilini seç.",
 "Các bài học":"Dersler",

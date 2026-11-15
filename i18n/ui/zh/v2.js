@@ -21,6 +21,7 @@
 "Chạm loa để nghe lại câu.":"点按喇叭再听一遍句子。",
 "Chỉ 5 phút mỗi ngày là giữ được chuỗi ngày.":"每天只需 5 分钟，就能保住连续学习天数。",
 "Chọn ngôn ngữ giao diện":"选择语言",
+"Chọn ngôn ngữ giải nghĩa":"选择目标语言",
 "Chọn ngôn ngữ học":"选择学习语言",
 "Chọn ngôn ngữ mục tiêu để cá nhân hóa lộ trình học của bạn.":"选择你的目标语言，定制专属学习路径。",
 "Các bài học":"课程",

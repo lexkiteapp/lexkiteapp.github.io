@@ -21,6 +21,7 @@
 "Chạm loa để nghe lại câu.":"스피커를 눌러 문장을 다시 들어 보세요.",
 "Chỉ 5 phút mỗi ngày là giữ được chuỗi ngày.":"하루 5분만 해도 연속 학습 기록을 이어갈 수 있어요.",
 "Chọn ngôn ngữ giao diện":"언어 선택",
+"Chọn ngôn ngữ giải nghĩa":"대상 언어 선택",
 "Chọn ngôn ngữ học":"학습 언어 선택",
 "Chọn ngôn ngữ mục tiêu để cá nhân hóa lộ trình học của bạn.":"목표 언어를 선택해 나만의 학습 경로를 만드세요.",
 "Các bài học":"레슨",

@@ -41353,5 +41353,20 @@
     "ar": "اجتزت {done}/{n} دروس",
     "ru": "пройдено уроков: {done}/{n}",
     "tr": "{done}/{n} ders geçildi"
+  },
+  "Chọn ngôn ngữ giải nghĩa": {
+    "es": "Elegir idiomas de traducción",
+    "pt": "Escolher idiomas de tradução",
+    "fr": "Choisir les langues cibles",
+    "de": "Zielsprachen wählen",
+    "id": "Pilih bahasa tujuan",
+    "th": "เลือกภาษาปลายทาง",
+    "zh": "选择目标语言",
+    "ja": "対象言語を選択",
+    "ko": "대상 언어 선택",
+    "ru": "Выбрать языки перевода",
+    "ar": "اختيار اللغات المستهدفة",
+    "hi": "लक्ष्य भाषाएँ चुनें",
+    "tr": "Hedef dilleri seç"
   }
 }

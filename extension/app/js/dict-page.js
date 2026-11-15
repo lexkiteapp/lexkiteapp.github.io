@@ -13,22 +13,28 @@
   routes.dict = App.guard(async function (q) {
     const fastP = q ? Dict.quick(q) : null, vimgP = App.vimgReady(q ? [q] : null); // tra song song với đọc 'recent' (từ trong kho: vài ms) + chỉ mục ảnh (cờ bật)
     const w = App.W, recent = await w(Store.get('recent', []));
-    view.innerHTML = `
-      <div class="page-head"><div><h1>${t('Từ điển Anh – Việt')}</h1><p class="muted">${t('Định nghĩa Oxford Languages · phiên âm UK/US · câu song ngữ · collocation · từ liên quan')}</p></div></div>
-      <form class="search" id="searchForm" autocomplete="off">
-        <input class="input" id="q" placeholder="${t('Nhập từ tiếng Anh, ví dụ: sustainable')}" value="${esc(q)}" spellcheck="false" autocapitalize="off" autocorrect="off">
-        <button class="btn primary lg">${t('Tra từ')}</button>
-      </form>
-      ${recent.length ? `<div class="row small" style="margin-top:.7rem"><span class="muted">${t('Gần đây:')}</span>${recent.map(r => `<a class="chip" href="#/dict/${encodeURIComponent(r)}">${esc(r)}</a>`).join('')}</div>` : ''}
-      <div id="result"${q ? ' class="dict-res"' : ''} style="margin-top:1.25rem"></div>
-      <div class="ext-card" data-ext-cta="app" hidden><div><b>🧩 ${t('Tra từ ngay trên mọi trang web')}</b><p class="small muted">${t('Bấm đúp vào bất kỳ từ nào khi đọc để xem nghĩa, phiên âm và lưu vào flashcard – với add-on Lexkite cho Chrome.')}</p></div><a class="btn sm primary" data-ext-cta="app" hidden>${t('Thêm vào Chrome')}</a></div>`;
+    const sample = ['resilient', 'mitigate', 'phenomenon', 'detrimental', 'ubiquitous', 'paradigm'], href = x => '#/dict/' + encodeURIComponent(x);
+    // Khung Stitch v2 dict (brand/stitch/v2/bind/dict.json): đầu trang + ô tìm + Gần đây + Khám phá nhanh; #result (thẻ kết quả/khung chờ/không thấy) và thẻ add-on nằm ngay dưới – còn khung cũ
+    ST2.mount(view, 'dict', {
+      title: t('Từ điển Anh – Việt'), back: '#/vocab', backL: t('Quay lại'), langChip: 'EN ⇄ ' + String((I18N.meanLang && I18N.meanLang()) || 'vi').toUpperCase(), langHref: '#/settings',
+      sub: `<p class="pb-1 text-[13px] [color:var(--muted)]">${esc(t('Định nghĩa Oxford Languages · phiên âm UK/US · câu song ngữ · collocation · từ liên quan'))}</p>`,
+      ph: t('Nhập từ tiếng Anh, ví dụ: sustainable'), q, goL: t('Tra từ'), clearL: t('Xóa'),
+      recentL: t('Gần đây:').replace(/\s*[:：]\s*$/, ''), recentBlk: recent.length ? [{ items: recent.map(w => ({ w, href: href(w) })) }] : [],
+      browseBlk: q ? [] : [{ title: t('Tra bất kỳ từ tiếng Anh nào'), items: sample.map(w => ({ w, href: href(w) })) }],
+      res: `<div id="result" class="mt-5${q ? ' dict-res' : ''}"></div>
+        <div class="ext-card" data-ext-cta="app" hidden><div><b>🧩 ${t('Tra từ ngay trên mọi trang web')}</b><p class="small muted">${t('Bấm đúp vào bất kỳ từ nào khi đọc để xem nghĩa, phiên âm và lưu vào flashcard – với add-on Lexkite cho Chrome.')}</p></div><a class="btn sm primary" data-ext-cta="app" hidden>${t('Thêm vào Chrome')}</a></div>`,
+    }, null);
+    const dc = typeof document !== 'undefined' && document.body; if (dc) dc.classList.remove('st', 'v2on'); // khung chung inner: giữ thanh trên + thanh 5 tab + lề #view của app (như pron-hub)
     extCta();
-    $('#searchForm').onsubmit = e => { e.preventDefault(); const v = $('#q').value.trim(); if (v) location.hash = `#/dict/${encodeURIComponent(v)}`; };
+    const qi = $('#q'), go = () => { const v = qi.value.trim(); if (v) location.hash = href(v); }, clr = $('#qClear');
+    qi.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); go(); } };
+    $('#qGo').onclick = go; $('#qGo').onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } };
+    clr.hidden = !qi.value; qi.oninput = () => { clr.hidden = !qi.value; };
+    clr.onclick = () => { qi.value = ''; clr.hidden = true; qi.focus(); };
+    if ($('#recClear')) $('#recClear').onclick = async () => { await w(Store.set('recent', [])); routes.dict(q); };
     if (!q) {
-      $('#q').focus();
-      const sample = ['resilient', 'mitigate', 'phenomenon', 'detrimental', 'ubiquitous', 'paradigm'];
+      qi.focus();
       $('#result').innerHTML = `<div class="card empty"><div class="em">📖</div><h3>${t('Tra bất kỳ từ tiếng Anh nào')}</h3><p>${t('Phiên âm UK/US, nghĩa tiếng Việt theo từ loại, định nghĩa Oxford Languages, câu ví dụ song ngữ, hình minh họa — rồi lưu vào flashcard kèm câu ngữ cảnh của riêng bạn.')}</p>
-        <div class="row center" style="margin-top:1rem">${sample.map(s => `<a class="chip" href="#/dict/${s}">${s}</a>`).join('')}</div>
         <p class="small" style="margin-top:1rem">💡 ${t('Cài <b>add-on Chrome</b> để bấm đúp vào từ hoặc bôi đen câu trên bất kỳ trang web nào.')}</p></div>`;
       return;
     }

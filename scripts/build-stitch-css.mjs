@@ -33,6 +33,7 @@ const V2DATA = {
   'pas-sit': ['web/js/speak/app.js'],
   path: ['web/js/ux1.js'],
   practice: ['web/js/ux1.js'],
+  dict: ['web/js/dict-page.js'],
   'pron-hub': ['web/js/pron.js'],
   review: ['web/js/ux1.js'],
   'say-back': ['web/js/say.js'],

@@ -21,6 +21,7 @@
 "Chạm loa để nghe lại câu.":"スピーカーをタップしてもう一度文を聞こう。",
 "Chỉ 5 phút mỗi ngày là giữ được chuỗi ngày.":"1日たった5分で連続記録を守れます。",
 "Chọn ngôn ngữ giao diện":"言語を選択",
+"Chọn ngôn ngữ giải nghĩa":"対象言語を選択",
 "Chọn ngôn ngữ học":"学習言語を選ぶ",
 "Chọn ngôn ngữ mục tiêu để cá nhân hóa lộ trình học của bạn.":"目標言語を選んで、学習プランをあなた向けにカスタマイズしましょう。",
 "Các bài học":"レッスン",
