@@ -3,6 +3,7 @@
 bash "$(dirname "$0")/build-i18n.sh"
 set -euo pipefail
 cd "$(dirname "$0")/.."
+node scripts/i18n-pack.mjs >/dev/null  # gói dịch sinh từ nguồn i18n/ui NGAY lúc build: site đúng dù bot gen-sync chưa kịp commit sau khi gộp (PR không commit bản sinh)
 node scripts/build-notes.mjs
 [ -d node_modules/terser ] || npm ci --no-audit --no-fund --ignore-scripts >/dev/null  # build-landing cần terser (devDep gốc, bản khóa 938821c2e) – workflow mobile/iOS chỉ cài mobile/ → android.yml đỏ từ 27/10
 node scripts/build-landing.mjs  # trang giới thiệu tĩnh / + /<lang>/ (app học ở /app/)
