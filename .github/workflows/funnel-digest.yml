@@ -14,7 +14,10 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-        with: { sparse-checkout: 'scripts/growth scripts/ci' }
+        with:
+          sparse-checkout: |
+            scripts/growth
+            scripts/ci
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Lấy số + đăng
