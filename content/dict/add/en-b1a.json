@@ -92,9 +92,9 @@
   "negate": {
     "mis": [
       {
-        "w": "He negated to answer the question.",
-        "r": "He refused to answer the question.",
-        "why": "Negate does not mean refuse; it means to cancel the effect of something."
+        "w": "He negated that he took the money.",
+        "r": "He denied taking the money.",
+        "why": "Negate means to cancel the effect of something; to say something is untrue, use deny."
       },
       {
         "w": "Bad weather negated from our plans.",
@@ -122,9 +122,9 @@
   "reliable": {
     "mis": [
       {
-        "w": "He is a reliable on person.",
-        "r": "He is a reliable person.",
-        "why": "Reliable is an adjective placed before the noun; do not add 'on' after it."
+        "w": "Our supplier is reliability and always on time.",
+        "r": "Our supplier is reliable and always on time.",
+        "why": "Reliability is a noun; after be use the adjective reliable."
       },
       {
         "w": "You can reliable on her.",
@@ -142,9 +142,9 @@
         "why": "Use 'at' for a junction, or 'on' when you are driving around it."
       },
       {
-        "w": "Take the third exit from the roundabout then you will see it.",
-        "r": "Take the third exit off the roundabout, then you will see it.",
-        "why": "Use 'off' with exit from a roundabout, and separate the two instructions clearly."
+        "w": "Take the third exit of the roundabout.",
+        "r": "Take the third exit off the roundabout.",
+        "why": "Use off (or from) after exit with a roundabout; of is not used."
       }
     ],
     "u": "In British English a roundabout is a circular junction where traffic moves around a central island, and drivers give way to traffic already on it. Americans say traffic circle or rotary, and in New England rotary is standard. Directions often use exits: take the second exit at the roundabout. The same word also means a children's playground ride that spins, and, as an adjective, an indirect route or way of speaking."
@@ -157,9 +157,9 @@
         "why": "Take away as a verb means remove; for buying food, use get or order a takeaway."
       },
       {
-        "w": "I eat takeaway every days.",
-        "r": "I eat takeaway food every day.",
-        "why": "Takeaway is a noun meaning the meal; it needs 'food' or an article, and 'day' is singular here."
+        "w": "I ordered a take away yesterday.",
+        "r": "I ordered a takeaway yesterday.",
+        "why": "The noun is one word, takeaway; two-word take away is a verb phrase meaning remove."
       }
     ],
     "u": "A takeaway is hot food you buy at a restaurant and eat at home. It is the British and Australian word; Americans say takeout, and some regions say carryout. The word names both the meal (We had a Thai takeaway) and the shop (the Indian takeaway on the corner). The verb phrase is order or get a takeaway. A different meaning, a key takeaway, is a main point to remember from a talk."
@@ -167,9 +167,9 @@
   "trendy": {
     "mis": [
       {
-        "w": "She is a very trendy of girl.",
-        "r": "She is a very trendy girl.",
-        "why": "Trendy is an adjective; place it directly before the noun without 'of'."
+        "w": "Bubble tea is very trendy in young people.",
+        "r": "Bubble tea is very trendy among young people.",
+        "why": "Use among, not in, for the group that follows a trend."
       },
       {
         "w": "This style is trend now.",
@@ -202,9 +202,9 @@
         "why": "Accordingly is an adverb; the preposition meaning 'as stated by' is according to."
       },
       {
-        "w": "The rules changed, accordingly we must be act.",
-        "r": "The rules changed, so we must act accordingly.",
-        "why": "Accordingly modifies a verb or links ideas; do not combine it with 'be' plus a base verb."
+        "w": "The rules have changed, and we must act according.",
+        "r": "The rules have changed, and we must act accordingly.",
+        "why": "Accordingly is the adverb meaning in a suitable way; according needs to plus a noun."
       }
     ],
     "u": "Accordingly is a formal adverb with two uses. First, it means in a way that suits the situation: Read the instructions and act accordingly. Second, it works like therefore, joining two sentences: Demand is rising; accordingly, prices will go up. It usually sits at the end of a clause or after a semicolon. Do not confuse it with according to, a preposition phrase that introduces a source or opinion."
@@ -232,9 +232,9 @@
         "why": "Corroborate is transitive and takes no preposition after it."
       },
       {
-        "w": "Police corroborated the witness to be honest.",
-        "r": "Police corroborated the witness's account.",
-        "why": "You corroborate a statement or evidence, not a person."
+        "w": "The evidence corroborated him.",
+        "r": "The evidence corroborated his story.",
+        "why": "You corroborate a statement or account, not the person who made it."
       }
     ],
     "u": "Corroborate means to add independent evidence that supports a statement, story or finding, so that it looks more likely to be true. It is common in law, journalism and research: a second witness corroborated her account. The thing supported is the object, never a person. It is stronger than support because it implies a separate source. The noun is corroboration, often in the phrase without corroboration."
@@ -247,9 +247,9 @@
         "why": "Curtail is transitive; it takes a direct object without a preposition."
       },
       {
-        "w": "The law will curtail to smoke.",
-        "r": "The law will curtail smoking.",
-        "why": "After curtail use a noun or -ing form, not a to-infinitive."
+        "w": "They curtailed the speech short.",
+        "r": "They curtailed the speech.",
+        "why": "Curtail already means cut short, so adding short repeats it."
       }
     ],
     "u": "Curtail is a formal verb meaning to cut short or reduce something, especially a freedom, activity or length of time: the injury curtailed his career. It often has a slightly negative feel because something is stopped before its natural end. Curtail is not for physical objects in daily speech; say cut or shorten there. Common objects are spending, rights, powers and visits. The noun is curtailment."
@@ -277,9 +277,9 @@
         "why": "For species found only in one place, endemic takes 'to'."
       },
       {
-        "w": "The flu is an endemic in winter.",
-        "r": "The flu is endemic in winter.",
-        "why": "Endemic is an adjective, so no article before it."
+        "w": "Malaria is endemic at many parts of Africa.",
+        "r": "Malaria is endemic in many parts of Africa.",
+        "why": "A disease is endemic in a region; a species found only there is endemic to it."
       }
     ],
     "u": "Endemic has two main meanings. In biology it describes plants or animals found naturally in only one region: endemic to Australia. In medicine and social science it describes a disease or problem that is always present in a particular place or group, such as endemic corruption. It differs from epidemic, a sudden outbreak, and pandemic, a worldwide one. Native only says where something comes from, not that it exists nowhere else."
@@ -292,9 +292,9 @@
         "why": "Exacerbate is transitive and needs no preposition."
       },
       {
-        "w": "This will exacerbate the situation better.",
-        "r": "This will exacerbate the situation.",
-        "why": "Exacerbate already means make worse; adding better contradicts it."
+        "w": "His constant lateness exacerbated me.",
+        "r": "His constant lateness exasperated me.",
+        "why": "Exacerbate makes a problem worse; exasperate means to annoy a person greatly."
       }
     ],
     "u": "Exacerbate is a formal verb that means to make something bad even worse: pain, a problem, a conflict or an illness. It is only used for negative things, so you cannot exacerbate happiness. It often appears in the passive with by: tensions were exacerbated by the lack of water. Worsen is simpler and neutral in tone; aggravate is similar but also means to annoy in everyday speech."
@@ -307,9 +307,9 @@
         "why": "Hitherto refers to the past up to now, so it needs a past or perfect tense, not present continuous."
       },
       {
-        "w": "We will meet hitherto next week.",
-        "r": "We will meet again next week.",
-        "why": "Hitherto never refers to the future; it only looks back to the present."
+        "w": "We will discuss it hitherto.",
+        "r": "We will discuss it hereafter.",
+        "why": "Hitherto looks back to now; for later in the future use hereafter."
       }
     ],
     "u": "Hitherto is a very formal, slightly old-fashioned adverb meaning up to this point in time. It appears in academic writing, law and descriptions of discoveries: a hitherto unknown species. It is placed before an adjective or past participle, or before the verb. It looks back from the present, never forward, and is not used in speech, where so far or until now sounds natural. Thitherto is the rare past version."
@@ -332,9 +332,9 @@
   "ostensibly": {
     "mis": [
       {
-        "w": "He ostensibly is rich, and I confirmed it.",
-        "r": "He is ostensibly rich, but I doubt it.",
-        "why": "Ostensibly implies the appearance may be false, so it cannot go with a confirmed fact."
+        "w": "Ostensibly, the car is faster than the others.",
+        "r": "Obviously, the car is faster than the others.",
+        "why": "Ostensibly means apparently but perhaps not truly; use obviously for something clearly true."
       },
       {
         "w": "The trip was ostensible for business.",
@@ -352,9 +352,9 @@
         "why": "Otherwise starts a clause that still needs a subject."
       },
       {
-        "w": "Study hard, otherwise than you fail.",
-        "r": "Study hard; otherwise, you will fail.",
-        "why": "Otherwise alone means 'if not'; do not add 'than' after it."
+        "w": "You must study hard, otherwise if you will fail.",
+        "r": "You must study hard; otherwise, you will fail.",
+        "why": "Otherwise already means if not, so do not add if."
       }
     ],
     "u": "Otherwise has several uses. As a linker it means if not: Leave now; otherwise you will be late. As a manner adverb it means differently: Unless told otherwise, assume the answer is yes. It also means in other respects: an otherwise perfect day. A fixed phrase is or otherwise, meaning or the opposite. Placed after a comma it works well in writing; in speech or else is more natural."
@@ -377,9 +377,9 @@
   "posit": {
     "mis": [
       {
-        "w": "She posited to explain the results.",
-        "r": "She posited a theory to explain the results.",
-        "why": "Posit needs a direct object or a that-clause; it is not followed by to-infinitive."
+        "w": "He posited the new method in the meeting.",
+        "r": "He proposed the new method in the meeting.",
+        "why": "Posit means to assume something as a starting point; to offer a plan, use propose or suggest."
       },
       {
         "w": "He posited about the origin of language.",
@@ -397,9 +397,9 @@
         "why": "Postulate is transitive; do not add 'on'."
       },
       {
-        "w": "The postulate was explaining the results.",
-        "r": "The theory postulates a simple explanation.",
-        "why": "As a verb postulate needs a subject doing it; the noun postulate means a basic assumption."
+        "w": "The union postulated a pay rise.",
+        "r": "The union demanded a pay rise.",
+        "why": "Postulate means to assume as a basis for reasoning; use demand or request for asking."
       }
     ],
     "u": "Postulate means to suggest or assume that something exists or is true, as a basis for reasoning or a theory, often before there is proof. It is used in physics, mathematics and philosophy: Einstein postulated that light speed is constant. It is stronger than posit because it treats the idea as a foundation. As a noun, a postulate is a basic assumption. Pronunciation differs: the verb ends in -late like 'plate', the noun in -lət."
@@ -412,9 +412,9 @@
         "why": "Use the adverb purportedly before the participle; the verb purport has a different pattern."
       },
       {
-        "w": "The crime was purportedly, proved in court.",
+        "w": "The crime was purportedly proved in court.",
         "r": "The crime was proved in court.",
-        "why": "Purportedly signals doubt, so it contradicts a proven fact."
+        "why": "Purportedly signals doubt, so it contradicts a fact already proved."
       }
     ],
     "u": "Purportedly is a formal adverb used to report a claim without confirming it; the writer is signalling that the claim might be untrue. It is typical in news and legal prose: a letter purportedly signed by the director. It is close to allegedly, which suggests an accusation, and to supposedly, which is more informal. It sits before a participle or adjective. Because it casts doubt, never use it for facts you know are true."
@@ -427,9 +427,9 @@
         "why": "Replicate is transitive and takes no 'with'."
       },
       {
-        "w": "The experiment was replicated again and again for a test.",
-        "r": "The experiment was replicated several times.",
-        "why": "Replicate already means repeat; 'again' adds nothing, and 'for a test' is unclear."
+        "w": "The experiment was replicated again by another lab.",
+        "r": "The experiment was replicated by another lab.",
+        "why": "Replicate already means repeat, so again is redundant."
       }
     ],
     "u": "Replicate means to repeat a study or experiment and obtain the same result, or more generally to make an exact copy. In science, replication is the test of reliability: a finding that cannot be replicated is doubtful. It also appears in biology, where cells and viruses replicate themselves, and in computing for copying data. Copy is the everyday word. Replicate sounds technical and often takes results, findings or a study as its object."
@@ -442,9 +442,9 @@
         "why": "Splurge takes 'on' before what you buy."
       },
       {
-        "w": "I will splurge my money to save for a house.",
-        "r": "I will not splurge, because I am saving for a house.",
-        "why": "Splurge means spending a lot on something not necessary, so it contradicts saving."
+        "w": "He splurged on cheap snacks.",
+        "r": "He bought some cheap snacks.",
+        "why": "Splurge means spending a lot on a luxury, so it does not fit cheap items."
       }
     ],
     "u": "Splurge is an informal verb meaning to spend more money than you need to on something enjoyable, usually as a one-off treat: We splurged on a hotel with a sea view. The pattern is splurge on something, and British speakers often say splurge out. It can be a noun too: a shopping splurge. It is lighter than squander, which means to waste, so splurging is often presented as guilty pleasure rather than a real mistake."
@@ -452,9 +452,9 @@
   "subsequently": {
     "mis": [
       {
-        "w": "The factory closed in 2010 and subsequently of that became a museum.",
+        "w": "The factory closed in 2010 and subsequent became a museum.",
         "r": "The factory closed in 2010 and subsequently became a museum.",
-        "why": "Subsequently is an adverb placed before the verb; it takes no 'of'."
+        "why": "A verb is modified by the adverb subsequently, not the adjective subsequent."
       },
       {
         "w": "Subsequently of the war, prices rose.",
@@ -487,9 +487,9 @@
         "why": "Ultimately is a single adverb; do not combine it with 'of all'."
       },
       {
-        "w": "He ultimately to win the race.",
-        "r": "He ultimately won the race.",
-        "why": "Ultimately goes before the main verb and the verb must be conjugated."
+        "w": "Ultimately, he won the race finally.",
+        "r": "Ultimately, he won the race.",
+        "why": "Ultimately already means in the end, so finally repeats it."
       }
     ],
     "u": "Ultimately has two senses. It can mean after a long process: After many delays, the bridge was ultimately finished. It can also mean at the most basic level: Ultimately, a language is a way of communicating. In essays it often introduces a final judgement, a good conclusion starter. Compared with finally, it is more reflective; eventually stresses a long wait; fundamentally focuses on the core idea."
@@ -587,9 +587,9 @@
   "bandwidth": {
     "mis": [
       {
-        "w": "I have not enough bandwidth for this task.",
+        "w": "I have no enough bandwidth for this task.",
         "r": "I do not have enough bandwidth for this task.",
-        "why": "Use the normal verb pattern have with a negative auxiliary."
+        "why": "Say do not have enough; no enough is not correct English."
       },
       {
         "w": "My bandwidths are full this week.",
@@ -602,9 +602,9 @@
   "bug": {
     "mis": [
       {
-        "w": "The app has a bug on the payment page.",
-        "r": "The app has a bug in the payment page.",
-        "why": "A bug is inside code or a system, so 'in' is more natural than 'on'."
+        "w": "The app has many bug on the payment page.",
+        "r": "The app has many bugs on the payment page.",
+        "why": "Bug is countable, so several need the plural -s."
       },
       {
         "w": "I solved the bugs of this code.",
@@ -637,9 +637,9 @@
         "why": "Deploy is transitive; the thing deployed is the object, and to introduces the destination."
       },
       {
-        "w": "The software was deployed by to the server.",
-        "r": "The software was deployed to the server.",
-        "why": "Use a single preposition, to, for the target."
+        "w": "We deployed the update in production.",
+        "r": "We deployed the update to production.",
+        "why": "Deploy takes to for the environment you release into."
       }
     ],
     "u": "In technology, deploy means to put software, an update or a service into a live environment so users can use it: deploy to production, to the cloud, to staging. Teams talk about a deployment and automated pipelines. Outside IT, it has a military meaning, to send soldiers or equipment into position, and a general business one, to use resources in an effective way. Release is a close synonym but focuses on making the version available."
@@ -712,9 +712,9 @@
         "why": "Hence is an adverb, not a conjunction, so it cannot join clauses like because."
       },
       {
-        "w": "The shop is small, hence the shop has high prices.",
-        "r": "The shop is small, hence the high prices.",
-        "why": "After hence, a short noun phrase sounds natural; repeating a full clause is clumsy."
+        "w": "The road is closed, hence that we are late.",
+        "r": "The road is closed, hence we are late.",
+        "why": "Hence is followed directly by a clause or noun phrase, never by that."
       }
     ],
     "u": "Hence is a formal adverb meaning for this reason, and it very often comes before a noun phrase rather than a full clause: The shop is small, hence the high prices. Fixed phrases include hence the name and hence the need for. It can also mean from now, as in a year hence, but this is old-fashioned. Hence is more formal and compact than so or therefore, which can be followed by a full clause. The informal hence why is common in speech."
@@ -737,9 +737,9 @@
   "likewise": {
     "mis": [
       {
-        "w": "Likewise to you, I enjoy music.",
-        "r": "I enjoy music; likewise, my brother does.",
-        "why": "Likewise links similar facts; 'to you' is only used in a reply, not inside a sentence."
+        "w": "She enjoys hiking. Likewise, I enjoy it too.",
+        "r": "She enjoys hiking. Likewise, I enjoy it.",
+        "why": "Likewise already means also, so too is redundant."
       },
       {
         "w": "I'm happy to meet you. - Me likewise.",

@@ -1,752 +1,752 @@
 {
- "exemption": {
-  "mis": [
-   {
-    "w": "She got an exemption to the entry fee.",
-    "r": "She got an exemption from the entry fee.",
-    "why": "Exemption đi với from để chỉ thứ được miễn, không dùng to."
-   },
-   {
-    "w": "Children are exemption from the entry fee.",
-    "r": "Children are exempt from the entry fee.",
-    "why": "Exemption là danh từ; sau động từ be phải dùng tính từ exempt."
-   }
-  ],
-  "u": "Exemption là danh từ trang trọng, hay gặp trong luật và tài chính: tax exemption (miễn thuế), exemption from military service. Ta apply for, claim hoặc grant một exemption, và thứ được miễn đi sau giới từ from. Từ này mạnh hơn exception: exception chỉ là trường hợp ngoại lệ, còn exemption là sự cho phép chính thức. Tính từ và động từ là exempt. Người Việt hay nhầm dùng exemption như tính từ hoặc dùng giới từ to. Ít gặp trong hội thoại đời thường."
- },
- "exit": {
-  "mis": [
-   {
-    "w": "Please exit from the room quietly.",
-    "r": "Please exit the room quietly.",
-    "why": "Khi là động từ, exit đi thẳng với tân ngữ, không cần giới từ from."
-   },
-   {
-    "w": "Where is the exit of this building?",
-    "r": "Where is the exit in this building?",
-    "why": "Dùng exit in cho lối thoát nằm trong tòa nhà; of thường nghe lạ trong câu hỏi này."
-   }
-  ],
-  "u": "Exit vừa là danh từ vừa là động từ. Danh từ chỉ cửa hoặc lối ra: emergency exit (cửa thoát hiểm), highway exit (Mỹ) hay motorway exit (Anh). Động từ mang sắc thái trung tính đến trang trọng và đi thẳng với tân ngữ: exit the building, exit the program. Trong tin học, exit là lệnh thoát chuẩn; trong kinh doanh, exit strategy là kế hoạch rút lui. Người Việt hay thêm from sau động từ exit, đó là lỗi. Nói hằng ngày thì leave hoặc go out phổ biến hơn."
- },
- "expedite": {
-  "mis": [
-   {
-    "w": "Please expedite to the shipment.",
-    "r": "Please expedite the shipment.",
-    "why": "Expedite là ngoại động từ, đi thẳng với tân ngữ, không có giới từ to."
-   },
-   {
-    "w": "We expedited to finish the report.",
-    "r": "We rushed to finish the report.",
-    "why": "Expedite phải có tân ngữ, không đi với to + động từ; dùng rush hoặc hurry."
-   }
-  ],
-  "u": "Expedite là động từ trang trọng trong kinh doanh, nhất là logistics, hải quan và hành chính: expedite an order (đẩy nhanh đơn hàng), expedite the visa process. Tân ngữ thường là quy trình hay món hàng, không phải người. Nghe cứng hơn speed up và hay xuất hiện trong email nhờ vả: Could you expedite this? Đừng nhầm với expedition (chuyến thám hiểm). Người Việt hay quên tân ngữ hoặc chen giới từ sau expedite. Tính từ liên quan là expeditious, còn trang trọng hơn."
- },
- "expertise": {
-  "mis": [
-   {
-    "w": "She has many expertises in finance.",
-    "r": "She has a lot of expertise in finance.",
-    "why": "Expertise là danh từ không đếm được, không thêm s, dùng a lot of."
-   },
-   {
-    "w": "He is an expertise in marketing.",
-    "r": "He is an expert in marketing.",
-    "why": "Expertise là kỹ năng; người có kỹ năng là expert."
-   }
-  ],
-  "u": "Expertise là danh từ không đếm được chỉ kiến thức hoặc kỹ năng chuyên sâu, nên nói a lot of expertise, không bao giờ expertises. Mẫu hay dùng là expertise in hoặc area of expertise: We lack expertise in cybersecurity. Đừng dùng cho người, người là expert. Từ mang giọng chuyên nghiệp, hay thấy trong tin tuyển dụng, báo cáo và CV, mạnh hơn experience vì ngụ ý đã thành thạo. Người Việt hay nhầm expertise và expert vì gốc từ giống nhau."
- },
- "expire": {
-  "mis": [
-   {
-    "w": "My passport will expire in next month.",
-    "r": "My passport will expire next month.",
-    "why": "Với next month không dùng giới từ in."
-   },
-   {
-    "w": "The offer is expired.",
-    "r": "The offer has expired.",
-    "why": "Expire là nội động từ; dùng thì hoàn thành has expired thay vì is expired."
-   }
-  ],
-  "u": "Expire dùng cho thứ có hạn cố định như hộ chiếu, vé, phiếu giảm giá, hợp đồng hay bảo hành, khi hết hiệu lực. Đây là nội động từ, nên không nói expire a document. Mẫu thường gặp: expire on 5 May, expire in two weeks, expire at midnight. Tính từ expired đứng trước danh từ: an expired visa. Người Việt hay nói is expired thay cho has expired. Dùng expire với nghĩa qua đời chỉ có trong văn cổ hoặc văn chương, tránh trong giao tiếp."
- },
- "explanatory": {
-  "mis": [
-   {
-    "w": "The instructions are very explanatory.",
-    "r": "The instructions are very clear.",
-    "why": "Explanatory nghĩa là có kèm lời giải thích, không phải dễ hiểu; dùng clear hoặc self-explanatory."
-   },
-   {
-    "w": "I read the explanation notes at the bottom.",
-    "r": "I read the explanatory notes at the bottom.",
-    "why": "Trước danh từ dùng tính từ explanatory, không dùng explanation."
-   }
-  ],
-  "u": "Explanatory là tính từ trang trọng, thường đứng trước danh từ: explanatory notes (chú thích), explanatory leaflet, explanatory power. Nó mô tả tài liệu có chức năng giải thích điều khác. Không dùng cho người. Từ liên quan rất phổ biến là self-explanatory, nghĩa là quá rõ ràng nên không cần giải thích: The buttons are self-explanatory. Người Việt hay dùng explanation làm tính từ hoặc nhầm explanatory với dễ hiểu. Trong học thuật còn gặp explanatory variable và explanatory power."
- },
- "faculty": {
-  "mis": [
-   {
-    "w": "The faculty are located in building B.",
-    "r": "The faculty is located in building B.",
-    "why": "Khi chỉ một khoa trong đại học, faculty thường dùng số ít."
-   },
-   {
-    "w": "She is a faculty at the university.",
-    "r": "She is a faculty member at the university.",
-    "why": "Faculty là danh từ tập thể, một người phải nói faculty member."
-   }
-  ],
-  "u": "Faculty có hai nghĩa chính. Trong tiếng Anh Mỹ, đó là toàn bộ giảng viên và nhà nghiên cứu của trường đại học: a faculty member (một giảng viên). Ở Anh và nhiều nước khác, faculty còn là một khoa lớn, như Faculty of Law, tương đương school hay college ở Mỹ. Nghĩa thứ ba là năng lực tự nhiên: mental faculties. Người Việt hay nói she is a faculty, thiếu member. Tiếng Anh Anh có thể dùng động từ số nhiều với faculty chỉ tập thể."
- },
- "familiarity": {
-  "mis": [
-   {
-    "w": "I have a familiarity about this software.",
-    "r": "I have a familiarity with this software.",
-    "why": "Mẫu cố định là familiarity with khi bạn biết rõ cái gì."
-   },
-   {
-    "w": "She is a familiarity with the city.",
-    "r": "She is familiar with the city.",
-    "why": "Familiarity là danh từ; sau be dùng tính từ familiar."
-   }
-  ],
-  "u": "Familiarity là danh từ không đếm được, nghĩa là sự quen thuộc hoặc hiểu biết khá rõ về điều gì, cũng như cảm giác thân quen. Tin tuyển dụng ghi familiarity with Excel is required, tức là biết dùng được chứ chưa cần thành thạo. Cũng có thể mô tả cảm giác quen thuộc với một nơi: a strange sense of familiarity. Thành ngữ familiarity breeds contempt nghĩa là quá thân thì dễ mất tôn trọng. Người Việt hay dùng familiarity thay familiar hoặc quên giới từ with."
- },
- "familiarize": {
-  "mis": [
-   {
-    "w": "Please familiarize with the rules.",
-    "r": "Please familiarize yourself with the rules.",
-    "why": "Familiarize cần tân ngữ; khi tự làm thì thêm yourself."
-   },
-   {
-    "w": "I need to familiarize to the new system.",
-    "r": "I need to familiarize myself with the new system.",
-    "why": "Mẫu đúng là familiarize someone with something, không dùng to."
-   }
-  ],
-  "u": "Familiarize là ngoại động từ: bạn familiarize bản thân hoặc người khác with một điều gì đó. Mẫu familiarize yourself with xuất hiện nhiều trong hướng dẫn, email nhận việc và thông báo an toàn: Please familiarize yourself with the evacuation plan. Từ hơi trang trọng, lời nói thường dùng get to know hoặc get used to. Tiếng Anh Anh viết familiarise. Người Việt hay quên yourself hoặc dùng to thay with. Đừng nhầm với tính từ familiar, chỉ trạng thái đã quen."
- },
- "fare": {
-  "mis": [
-   {
-    "w": "The fare of the train is expensive.",
-    "r": "The train fare is expensive.",
-    "why": "Dùng train fare, không dùng the fare of the train."
-   },
-   {
-    "w": "I paid a high fee for the bus.",
-    "r": "I paid a high fare for the bus.",
-    "why": "Fare là tiền đi lại; fee là phí dịch vụ."
-   }
-  ],
-  "u": "Fare là số tiền bạn trả để đi xe buýt, tàu, taxi, máy bay hay phà: a bus fare, an air fare, trẻ em được half fare. Khác với fee là phí dịch vụ, và ticket là tấm vé. Ở Anh hay thấy single fare (một chiều) và return fare (khứ hồi). Fare còn chỉ món ăn được phục vụ, như simple pub fare, nghĩa này hơi văn chương. Fare dodging là đi không trả tiền. Người Việt hay nhầm fare với fee hoặc price."
- },
- "feature": {
-  "mis": [
-   {
-    "w": "The phone has many featurs.",
-    "r": "The phone has many features.",
-    "why": "Chính tả: feature kết thúc -ure, số nhiều là features."
-   },
-   {
-    "w": "This feature of the app makes it difficult to use it.",
-    "r": "This feature of the app makes it difficult to use.",
-    "why": "Không lặp tân ngữ it sau tính từ."
-   }
-  ],
-  "u": "Feature là danh từ đếm được chỉ một bộ phận hay đặc điểm dễ nhận thấy: the new camera features, a feature of the landscape. Trong công nghệ, nó là tính năng, nên nói add a feature. Trong truyền thông, feature là bài dài hoặc phim chính: a feature article, a feature-length film. Làm động từ, feature là có một thứ quan trọng: The show features two new singers. Số nhiều features còn chỉ nét mặt. Người Việt hay quên thêm s khi nói nhiều tính năng."
- },
- "firefighter": {
-  "mis": [
-   {
-    "w": "The fireman rescued three women.",
-    "r": "The firefighter rescued three women.",
-    "why": "Firefighter trung lập về giới và được ưa dùng hơn fireman."
-   },
-   {
-    "w": "Firefighters are arrived at the scene.",
-    "r": "Firefighters arrived at the scene.",
-    "why": "Arrive là nội động từ, không dùng bị động."
-   }
-  ],
-  "u": "Firefighter là từ chuẩn và trung lập về giới chỉ người dập lửa và cứu hộ, thay cho fireman trong tin tức, tin tuyển dụng và chức danh chính thức. Tổ chức gọi là fire brigade hay fire service ở Anh, fire department ở Mỹ. Khi cần giúp, người ta nói call the fire department thay vì call the firefighters. Volunteer firefighter là lính cứu hỏa tình nguyện, ít hoặc không lương. Người Việt hay dùng fireman và nhầm bị động với arrive."
- },
- "firework": {
-  "mis": [
-   {
-    "w": "We watched a firework in the sky.",
-    "r": "We watched fireworks in the sky.",
-    "why": "Khi nói về màn bắn pháo hoa, thường dùng số nhiều fireworks."
-   },
-   {
-    "w": "They made a fireworks show yesterday.",
-    "r": "They put on a fireworks show yesterday.",
-    "why": "Show đi với put on, không dùng make."
-   }
-  ],
-  "u": "Firework, thường dùng số nhiều, là thiết bị nổ tạo ánh sáng màu và tiếng nổ trong lễ hội. Nói a fireworks display hoặc fireworks show; dạng số nhiều dùng ngay cả trước display. Động từ hay gặp: set off, let off (Anh), light, watch. Ở Anh, đêm 5 tháng 11 (Bonfire Night) nổi tiếng với pháo hoa, còn ở Mỹ là ngày 4 tháng 7. Một quả pháo là one firework, nhưng hội thoại gần như luôn dùng số nhiều. Người Việt hay nói a firework hoặc make a show."
- },
- "fixture": {
-  "mis": [
-   {
-    "w": "The tenant took the light fixtures with him.",
-    "r": "The tenant left the light fixtures in the flat.",
-    "why": "Fixture là phần gắn cố định vào tòa nhà, thường ở lại khi chuyển đi."
-   },
-   {
-    "w": "He is a fixture in the office but doesn't know much.",
-    "r": "He has become a fixture in the office.",
-    "why": "Fixture chỉ người hay vật luôn có mặt; câu đúng nói người đó quen thuộc ở văn phòng."
-   }
-  ],
-  "u": "Fixture là thứ gắn cố định vào tòa nhà, như đèn gắn trần, bồn rửa hay kệ âm tường, và khi mua bán nhà nó quyết định thứ gì ở lại. Fixtures and fittings là cụm hay gặp trong môi giới nhà ở Anh, trong đó fittings là đồ dễ tháo rời. Trong thể thao ở Anh, fixture là trận đấu đã lên lịch: the fixture list. Nghĩa bóng, a fixture là người luôn có mặt ở một chỗ: He is a fixture at the bar. Người Việt hay nhầm fixture với furniture."
- },
- "flexibility": {
-  "mis": [
-   {
-    "w": "I need a flexibility in my schedule.",
-    "r": "I need flexibility in my schedule.",
-    "why": "Flexibility là danh từ không đếm được, không dùng a."
-   },
-   {
-    "w": "She has a good flexible to change plans.",
-    "r": "She has good flexibility to change plans.",
-    "why": "Flexible là tính từ; sau has dùng danh từ flexibility."
-   }
-  ],
-  "u": "Flexibility là danh từ không đếm được, chỉ khả năng hoặc sự sẵn lòng thay đổi. Trong công việc, đây là điểm hấp dẫn: flexibility in working hours (giờ giấc linh hoạt), làm từ xa, linh hoạt về hạn chót. Trong thể thao, nó là độ dẻo của cơ thể. Thường mang nghĩa tốt; lack of flexibility là lời chê quy định cứng nhắc. Đi với in hoặc with: flexibility in the contract. Người Việt hay thêm a trước flexibility hoặc dùng flexible sau has."
- },
- "flextime": {
-  "mis": [
-   {
-    "w": "I am working on a flextime.",
-    "r": "I am on flextime.",
-    "why": "Flextime là tên một chế độ, không có mạo từ a."
-   },
-   {
-    "w": "She works flextimes.",
-    "r": "She works flextime.",
-    "why": "Flextime không có số nhiều khi chỉ chế độ làm việc."
-   }
-  ],
-  "u": "Flextime là cách nói của Mỹ về chế độ cho nhân viên tự chọn giờ bắt đầu và kết thúc, miễn đủ số giờ quy định hoặc có mặt trong khung giờ cốt lõi. Bản Anh là flexitime. Đây là danh từ nơi làm việc, thường không đếm được: be on flextime, a flextime policy. Khác với remote work (nơi làm việc) và part-time (tổng số giờ). Công ty quảng cáo như một phúc lợi, ví dụ giờ cốt lõi từ 10 đến 3, phần còn lại tự chọn. Người Việt hay thêm a hoặc s."
- },
- "focus": {
-  "mis": [
-   {
-    "w": "I focus to my homework.",
-    "r": "I focus on my homework.",
-    "why": "Focus đi với on, không dùng to hay at."
-   },
-   {
-    "w": "She is very focus.",
-    "r": "She is very focused.",
-    "why": "Dùng tính từ focused sau be; focus là động từ hoặc danh từ."
-   }
-  ],
-  "u": "Khi là động từ, focus đi với on: focus on the main problem. Cũng có thể dùng ngoại động từ: focus your attention on one task. Tính từ là focused, và stay focused rất phổ biến trong học tập và công việc. Là danh từ, the focus of a lecture là chủ đề chính, còn out of focus là hình bị mờ. Focus group là nhóm nhỏ dùng trong nghiên cứu thị trường. Chính tả Mỹ: focused, focusing; Anh đôi khi viết focussed. Người Việt hay nói focus to hoặc very focus."
- },
- "footwear": {
-  "mis": [
-   {
-    "w": "I bought two footwears yesterday.",
-    "r": "I bought two pairs of shoes yesterday.",
-    "why": "Footwear không đếm được; đếm bằng pairs of shoes."
-   },
-   {
-    "w": "Please wear a proper footwear.",
-    "r": "Please wear proper footwear.",
-    "why": "Không dùng a trước danh từ không đếm được."
-   }
-  ],
-  "u": "Footwear là danh từ tập hợp không đếm được chỉ mọi thứ mang ở chân: giày, ủng, dép quai hậu, giày thể thao. Từ nghe trang trọng hoặc thương mại, hay thấy ở khu bán hàng, nội quy an toàn và quy định trang phục: appropriate footwear must be worn. Trong lời nói hằng ngày, người ta gọi tên món đồ cụ thể. Không nói a footwear hay two footwears; thay bằng a pair of boots. Các cụm thường gặp: sports footwear, protective footwear. Người Việt hay thêm s."
- },
- "forbid": {
-  "mis": [
-   {
-    "w": "The law forbids to smoke here.",
-    "r": "The law forbids smoking here.",
-    "why": "Forbid đi với V-ing hoặc someone + to V, không đi thẳng với to V."
-   },
-   {
-    "w": "He forbade me from entering.",
-    "r": "He forbade me to enter.",
-    "why": "Forbid someone to do, còn from đi với prevent hoặc prohibit."
-   }
-  ],
-  "u": "Forbid là động từ bất quy tắc: forbid, forbade, forbidden. Hai mẫu chính là forbid someone to do something và forbid something/doing: Parents forbid their children to stay out late; the rules forbid smoking. Từ mạnh và mang tính cá nhân hơn not allow, thường có người có quyền như cha mẹ, sếp hay luật pháp. Trên biển báo thường dùng prohibited. Cụm God forbid diễn tả hy vọng điều xấu không xảy ra. Người Việt hay dùng forbid from, đó là lỗi vì from đi với prohibit."
- },
- "foreman": {
-  "mis": [
-   {
-    "w": "She is the foreman of our team.",
-    "r": "She is the supervisor of our team.",
-    "why": "Foreman mang giới tính nam; dùng supervisor để trung lập."
-   },
-   {
-    "w": "The foreman said us to wear helmets.",
-    "r": "The foreman told us to wear helmets.",
-    "why": "Say không có tân ngữ gián tiếp; dùng tell someone to."
-   }
-  ],
-  "u": "Foreman là thợ lành nghề giám sát một tổ làm việc chân tay: a site foreman, a factory foreman. Người này thường làm ngay tại xưởng cùng nhóm, khác với manager ngồi văn phòng. Từ truyền thống chỉ nam; lựa chọn trung lập hiện đại là supervisor, crew leader hay team leader. Trong tòa án, the foreman of a jury là người đọc phán quyết, một số tòa nay dùng foreperson. Số nhiều là foremen. Người Việt hay dùng foreman như một chức quản lý văn phòng, hoặc nói said us."
- },
- "formally": {
-  "mis": [
-   {
-    "w": "Formally, I think it is a good plan.",
-    "r": "Personally, I think it is a good plan.",
-    "why": "Formally nghĩa là chính thức, không phải theo ý tôi."
-   },
-   {
-    "w": "He dressed formal for the interview.",
-    "r": "He dressed formally for the interview.",
-    "why": "Dùng trạng từ formally để bổ nghĩa cho động từ."
-   }
-  ],
-  "u": "Formally là trạng từ có hai nghĩa chính. Thứ nhất, chính thức, đúng thủ tục: The company formally announced the merger, formally approved, formally charged. Thứ hai, theo phong cách nghiêm túc, lịch sự: dress formally, address someone formally. Đừng nhầm với formerly (trước đây), hai từ chỉ khác một chữ. Formally và officially hay trùng nhau, nhưng formally nhấn vào làm đúng các bước, còn officially nhấn vào thẩm quyền. Trái nghĩa là informally. Người Việt hay nhầm với formerly."
- },
- "foster": {
-  "mis": [
-   {
-    "w": "Schools should foster students to be creative.",
-    "r": "Schools should foster creativity in students.",
-    "why": "Foster đi với danh từ trừu tượng; muốn dùng người + to V thì dùng encourage."
-   },
-   {
-    "w": "She fostered with a family.",
-    "r": "She was fostered by a family.",
-    "why": "Foster là ngoại động từ; đứa trẻ được fostered by gia đình."
-   }
-  ],
-  "u": "Foster có hai cách dùng. Làm động từ, nó nghĩa là giúp một điều tốt phát triển, nhất là phẩm chất hay mối quan hệ: foster trust, foster innovation, foster a sense of community. Tân ngữ thường là ý tưởng, không phải người. Trong gia đình, foster a child là chăm sóc trẻ trong một thời gian mà không trở thành cha mẹ hợp pháp: foster care, foster parents. Từ trang trọng hơn encourage, hay xuất hiện trong báo cáo và tuyên bố sứ mệnh. Người Việt hay dùng foster someone to do."
- },
- "founder": {
-  "mis": [
-   {
-    "w": "He is the founder from the company.",
-    "r": "He is the founder of the company.",
-    "why": "Founder đi với of trước tên tổ chức."
-   },
-   {
-    "w": "She founded the company in 2010 and she is the found.",
-    "r": "She founded the company in 2010 and she is the founder.",
-    "why": "Người sáng lập là founder; found là động từ."
-   }
-  ],
-  "u": "Founder là người lập ra một tổ chức như công ty, trường học hay phong trào. Cách dùng thường gặp: founder of the company, co-founder (đồng sáng lập), founder and CEO. Trong giới khởi nghiệp, founders chỉ những người cùng bắt đầu. Động từ found - founded - founded dễ nhầm với find - found - found. Founding member là một trong những thành viên đầu tiên; ở Anh còn dùng founder member. Không dùng founder cho người chỉ phát minh ra một thứ. Người Việt hay nhầm giới từ from thay vì of."
- },
- "freelance": {
-  "mis": [
-   {
-    "w": "She works as a freelancer for three years.",
-    "r": "She has worked as a freelancer for three years.",
-    "why": "Dùng hiện tại hoàn thành cho việc bắt đầu trong quá khứ và còn tiếp diễn."
-   },
-   {
-    "w": "He is freelancing in a company.",
-    "r": "He is freelancing for several companies.",
-    "why": "Freelance làm cho nhiều khách; in a company gợi ý nhân viên chính thức."
-   }
-  ],
-  "u": "Freelance có thể là tính từ (a freelance designer), trạng từ (she works freelance) hoặc động từ (to freelance). Nó chỉ người bán dịch vụ cho nhiều khách hàng, không thuộc biên chế một công ty, thường tự lo thuế và hóa đơn. Người đó là a freelancer. Không hoàn toàn giống self-employed, vì self-employed gồm cả chủ cửa hàng. Cụm go freelance là bắt đầu làm tự do. Công việc linh hoạt nhưng thu nhập không đều. Người Việt hay dùng in a company hoặc quên thì hiện tại hoàn thành."
- },
- "freighter": {
-  "mis": [
-   {
-    "w": "The freighter carries many passengers.",
-    "r": "The freighter carries cargo, not passengers.",
-    "why": "Freighter chở hàng; tàu khách là liner hoặc ferry."
-   },
-   {
-    "w": "The freight arrived by the freighter's.",
-    "r": "The freight arrived on the freighter.",
-    "why": "Dùng arrive on a ship; không cần sở hữu cách."
-   }
-  ],
-  "u": "Freighter là tàu hoặc máy bay thiết kế chủ yếu để chở hàng hóa, không chở khách: an ocean freighter, a cargo freighter. Từ gốc là freight, hàng vận chuyển. Trong văn viết hàng hải thường ngày dùng cargo ship, còn freighter hay gặp trong tin tức và truyện. Air freighter là máy bay chở bưu kiện. Đừng nhầm với ferry (chở người và xe) hay tanker (chở chất lỏng). Freight là danh từ không đếm được. Người Việt hay nghĩ freighter chở khách hoặc thêm s cho freight."
- },
- "frustrate": {
-  "mis": [
-   {
-    "w": "I am very frustrating about the delay.",
-    "r": "I am very frustrated about the delay.",
-    "why": "Dùng -ed cho cảm xúc của bạn, -ing cho thứ gây ra cảm xúc."
-   },
-   {
-    "w": "The delay is frustrated.",
-    "r": "The delay is frustrating.",
-    "why": "Thứ gây ra cảm xúc dùng -ing."
-   }
-  ],
-  "u": "Frustrate có hai nghĩa. Một là làm ai đó bực bội và bất lực vì không làm được hay không thay đổi được điều gì: Slow internet frustrates me. Hai là ngăn cản một kế hoạch thành công: bad weather frustrated our efforts. Người học hay nhầm hai dạng phân từ: frustrated mô tả người, frustrating mô tả nguyên nhân. Frustrated with hoặc by someone; at hoặc about a situation. Mạnh hơn annoyed nhưng nhẹ hơn furious. Người Việt thường nhầm -ing và -ed."
- },
- "furnish": {
-  "mis": [
-   {
-    "w": "The apartment is furnish.",
-    "r": "The apartment is furnished.",
-    "why": "Dùng quá khứ phân từ furnished để mô tả trạng thái."
-   },
-   {
-    "w": "Please furnish us your details.",
-    "r": "Please furnish us with your details.",
-    "why": "Furnish someone with something cần with."
-   }
-  ],
-  "u": "Furnish có hai nghĩa chính. Nghĩa thường ngày là bày đồ đạc vào một nơi: a furnished flat, fully furnished. Trên thị trường cho thuê, furnished là chủ nhà cung cấp nội thất, unfurnished là nhà trống. Nghĩa trang trọng là cung cấp: furnish evidence, furnish details, furnish someone with facts, đi với with. Nghĩa này nghe chính thức, hay gặp trong hợp đồng và thư từ. Furniture là danh từ không đếm được, không nói furnitures. Người Việt hay quên with hoặc dùng sai thì."
- },
- "garment": {
-  "mis": [
-   {
-    "w": "She bought a lot of garments clothing.",
-    "r": "She bought a lot of clothing.",
-    "why": "Garment đã là một món quần áo; không ghép với clothing."
-   },
-   {
-    "w": "This garment are made of silk.",
-    "r": "This garment is made of silk.",
-    "why": "Garment ở số ít, dùng is."
-   }
-  ],
-  "u": "Garment là một món quần áo đơn lẻ: áo sơ mi, váy, áo khoác. Từ mang tính kỹ thuật và trang trọng hơn clothes, hay gặp trong thương mại, luật và nhãn giặt: garment industry, garment workers, wash the garment inside out. Trong lời nói, người ta gọi tên món cụ thể. Garment đếm được, còn clothing không đếm được. Có các từ ghép undergarment, outer garment. Nhiều nước có xưởng may xuất khẩu sang châu Âu và Mỹ nên từ hay xuất hiện trong tin sản xuất. Người Việt hay nhầm garment với clothing."
- },
- "generalization": {
-  "mis": [
-   {
-    "w": "It is a generalization of men.",
-    "r": "It is a generalization about men.",
-    "why": "Generalization đi với about cho chủ đề."
-   },
-   {
-    "w": "He generalization the data.",
-    "r": "He generalized the data.",
-    "why": "Generalization là danh từ; động từ là generalize."
-   }
-  ],
-  "u": "Generalization là phát biểu đưa ra kết luận cho cả một nhóm từ vài trường hợp, như All teenagers are lazy. Thường mang nghĩa phê bình: sweeping generalization (khái quát hóa tràn lan), hasty generalization (vội vàng). Một khái quát hợp lý có thể kèm in general hoặc tend to. Trong khoa học, nó là nguyên lý rút ra từ quan sát, nghĩa trung tính. Dùng generalization about + nhóm người. Động từ là generalize. Tiếng Anh Anh viết generalisation. Người Việt hay nhầm danh từ và động từ."
- },
- "generic": {
-  "mis": [
-   {
-    "w": "I prefer generic than brand medicine.",
-    "r": "I prefer generic medicine to brand-name medicine.",
-    "why": "Prefer đi với to, không phải than."
-   },
-   {
-    "w": "Her answer was too generic with no details.",
-    "r": "Her answer was too generic, with no details.",
-    "why": "Dấu phẩy ngăn cách thông tin bổ sung."
-   }
-  ],
-  "u": "Generic có hai cách dùng chính. Trong mua sắm và y tế, hàng generic không có thương hiệu nhưng cùng hoạt chất, như thuốc generic, thường rẻ hơn. Trong lời nói, nó nghĩa là chung chung, không cụ thể hay đặc biệt: a generic cover letter, a generic email. Nghĩa này hơi chê vì ngụ ý thiếu công sức hoặc cá tính. Làm danh từ, a generic là thuốc bán theo tên hóa học. Trong sinh học, generic liên quan đến chi. Người Việt hay nhầm than với to sau prefer."
- },
- "goal": {
-  "mis": [
-   {
-    "w": "My goal is to improving my English.",
-    "r": "My goal is to improve my English.",
-    "why": "Sau to trong động từ nguyên mẫu dùng dạng gốc."
-   },
-   {
-    "w": "She made a goal in the last minute.",
-    "r": "She scored a goal in the last minute.",
-    "why": "Kết hợp từ đúng là score a goal."
-   }
-  ],
-  "u": "Goal có hai nghĩa chính. Trong thể thao, đó là bàn thắng hoặc khung thành: score a goal, goal difference. Trong cuộc sống, là điều muốn đạt được: set a goal, reach a goal, mục tiêu ngắn hạn và dài hạn. Các cụm động từ: set a goal, achieve a goal, work towards a goal. Goal mang tính cá nhân hơn objective (giọng kinh doanh) và target (thường là con số). Sau my goal is dùng to + động từ gốc. Người Việt hay dùng make a goal thay vì score a goal."
- },
- "grocery": {
-  "mis": [
-   {
-    "w": "I went to buy a grocery.",
-    "r": "I went to buy groceries.",
-    "why": "Groceries là số nhiều thường dùng cho đồ mua."
-   },
-   {
-    "w": "The grocery are expensive today.",
-    "r": "Groceries are expensive today.",
-    "why": "Dùng groceries với động từ số nhiều."
-   }
-  ],
-  "u": "Grocery có hai dạng dùng. Làm bổ ngữ danh từ, nó mô tả cửa hàng hoặc chuyến đi: grocery store, grocery shopping, grocery delivery. Dạng số nhiều groceries chỉ thực phẩm và đồ gia dụng bạn mua: do the groceries, a bag of groceries, the grocery bill. Grocery store nhỏ hơn supermarket. Tiếng Anh Anh thường nói greengrocer hoặc grocer's, còn Mỹ nói grocery store. Người Việt hay nói buy a grocery hoặc dùng động từ số ít với groceries."
- },
- "harmful": {
-  "mis": [
-   {
-    "w": "Smoking is harmful for your health.",
-    "r": "Smoking is harmful to your health.",
-    "why": "Harmful đi với to trước đối tượng bị ảnh hưởng."
-   },
-   {
-    "w": "It is a harm habit.",
-    "r": "It is a harmful habit.",
-    "why": "Harm là danh từ; tính từ là harmful."
-   }
-  ],
-  "u": "Harmful mô tả thứ có thể gây hại cho sức khỏe, thiên nhiên hay đời sống một người: harmful chemicals, harmful effects, a harmful habit. Đi với to: harmful to children, harmful to the environment. Rộng hơn toxic (chủ yếu về chất độc) và nhẹ hơn deadly. Trái nghĩa là harmless. Potentially harmful dùng cho thứ có thể gây hại nhưng chưa chứng minh. Harmful còn dùng cho tác hại xã hội, như harmful stereotypes, không có thương tích thể chất. Người Việt hay nhầm giới từ for và dùng harm làm tính từ."
- },
- "hazard": {
-  "mis": [
-   {
-    "w": "It is a hazard for the people.",
-    "r": "It is a hazard to the people.",
-    "why": "Hazard to someone là mẫu thường dùng."
-   },
-   {
-    "w": "Wet floors are hazard.",
-    "r": "Wet floors are a hazard.",
-    "why": "Hazard đếm được, cần a hoặc the."
-   }
-  ],
-  "u": "Hazard là thứ có thể gây hại, nhất là ở nơi làm việc, trên đường hay trong nhà: a fire hazard (nguy cơ cháy), a health hazard, a trip hazard (vật dễ vấp). Trong tài liệu an toàn, hazard là nguồn gây nguy hiểm, còn risk là khả năng nguy hiểm đó thật sự làm hại ai. Mẫu pose a hazard to someone rất phổ biến. Hazard lights (Anh) là đèn nháy cảnh báo trên xe, người Mỹ gọi là emergency flashers. Tính từ là hazardous. Người Việt hay bỏ a hoặc dùng for."
- },
- "hazardous": {
-  "mis": [
-   {
-    "w": "It is hazardous for the health.",
-    "r": "It is hazardous to health.",
-    "why": "Hazardous to health là cụm cố định, không có the."
-   },
-   {
-    "w": "The hazard waste is stored here.",
-    "r": "The hazardous waste is stored here.",
-    "why": "Trước danh từ dùng tính từ hazardous."
-   }
-  ],
-  "u": "Hazardous là tính từ trang trọng chỉ thứ có thể gây nguy hiểm nghiêm trọng: hazardous waste, hazardous materials, hazardous conditions. Rất phổ biến trong quy định, nhãn mác và đào tạo an toàn, đôi khi mang nghĩa pháp lý: công ty phải để chất nguy hại trong thùng có đánh dấu. Mạnh và chính thức hơn risky, vốn có thể nói về quyết định kinh doanh. Hay dùng hazardous to health. Danh từ là hazard. Người Việt hay dùng danh từ hazard thay cho tính từ trước danh từ."
- },
- "headquarter": {
-  "mis": [
-   {
-    "w": "Our headquarter is in Tokyo.",
-    "r": "Our headquarters is in Tokyo.",
-    "why": "Danh từ luôn có s ở cuối dù chỉ một tòa nhà."
-   },
-   {
-    "w": "The company headquartered at Tokyo.",
-    "r": "The company is headquartered in Tokyo.",
-    "why": "Dùng be headquartered in + thành phố."
-   }
-  ],
-  "u": "Headquarters là trụ sở chính hoặc trung tâm điều hành của một tổ chức, gồm công ty, cảnh sát hay quân đội. Từ luôn có s, ngay cả khi chỉ một nơi, và có thể đi với động từ số ít hoặc số nhiều: The headquarters is in Tokyo. Mẫu động từ thường gặp là be headquartered in. Nói tắt là HQ. Tiếng Anh Anh trong kinh doanh hay dùng head office, còn headquarters cho tổ chức lớn hoặc quốc tế. Dạng headquarter không s hiếm dùng trừ khi là động từ. Người Việt hay bỏ s."
- },
- "healthcare": {
-  "mis": [
-   {
-    "w": "She works in healthcares.",
-    "r": "She works in healthcare.",
-    "why": "Healthcare không đếm được, không có số nhiều."
-   },
-   {
-    "w": "The healthcare are very expensive.",
-    "r": "Healthcare is very expensive.",
-    "why": "Danh từ không đếm được đi với động từ số ít."
-   }
-  ],
-  "u": "Healthcare là danh từ không đếm được chỉ dịch vụ và hệ thống chăm sóc sức khỏe thể chất và tinh thần: access to healthcare, healthcare costs, the healthcare system. Bao gồm bệnh viện, phòng khám, bảo hiểm và chính sách, nên rộng hơn medicine (bản thân việc điều trị). Tiếng Anh Anh đôi khi viết health care, và NHS cung cấp phần lớn. Hay làm bổ ngữ: healthcare workers, healthcare providers. Trong tranh luận ở Mỹ, từ này thiên về bảo hiểm. Người Việt hay thêm s hoặc dùng động từ số nhiều."
- },
- "healthful": {
-  "mis": [
-   {
-    "w": "He is a healthful person.",
-    "r": "He is a healthy person.",
-    "why": "Healthful mô tả thứ giúp có sức khỏe; healthy mô tả người có sức khỏe."
-   },
-   {
-    "w": "The air here is very healthy.",
-    "r": "The air here is very healthful.",
-    "why": "Với đồ vật cả hai đều được chấp nhận, nhưng healthful chính xác hơn."
-   }
-  ],
-  "u": "Healthful nghĩa là tốt cho sức khỏe, chủ yếu dùng cho thức ăn, thói quen và môi trường: a healthful diet, healthful habits. Người viết cẩn thận tách nó với healthy, mô tả người hoặc vật đang khỏe: a healthy child. Thực tế nhiều người dùng healthy cho cả hai nên healthful nghe hơi trang trọng, gặp trong bài dinh dưỡng, sách văn phong Mỹ và thông báo y tế công cộng. Tiếng Anh Anh gần như luôn dùng healthy. Phủ định là unhealthful hoặc unhealthy. Người Việt hay dùng healthful cho người."
- },
- "helmet": {
-  "mis": [
-   {
-    "w": "He wore a helmet in his head.",
-    "r": "He wore a helmet on his head.",
-    "why": "Mũ đội trên đầu dùng on, không dùng in."
-   },
-   {
-    "w": "The helmet protects the head of the rider and it is hard hat.",
-    "r": "Builders wear a hard hat; cyclists wear a helmet.",
-    "why": "Hard hat là mũ công trường; helmet hợp với người đi xe."
-   }
-  ],
-  "u": "Helmet là mũ cứng bảo vệ đầu, dành cho người đi xe đạp, xe máy, công nhân xây dựng, lính và vận động viên: a bike helmet, a safety helmet, a football helmet. Trên công trường, hard hat là tên thường dùng cho loại nhẹ hơn, và nhiều nơi có helmet law bắt buộc đội mũ khi đi xe máy. Động từ thường dùng: wear, put on, take off, fasten. Helmet đếm được; mũ đội on head, không phải in head. Người Việt hay dùng giới từ in và thêm từ thừa."
- },
- "hereby": {
-  "mis": [
-   {
-    "w": "Hereby I resign from my position.",
-    "r": "I hereby resign from my position.",
-    "why": "Hereby thường đứng ngay trước động từ chính."
-   },
-   {
-    "w": "Please hereby send me the form.",
-    "r": "Please send me the form.",
-    "why": "Hereby dùng trong tuyên bố trang trọng; lạ khi dùng trong lời nhờ thông thường."
-   }
-  ],
-  "u": "Hereby là trạng từ rất trang trọng dùng trong văn bản pháp lý, thông báo chính thức và nghi lễ, nơi chính lời nói thực hiện hành động: I hereby declare the meeting open, We hereby certify that the copy is true. Nghĩa là bằng chính văn bản này và thường đứng ngay trước động từ. Trong email hay hội thoại thường nghe cứng hoặc đùa kiểu long trọng. Đừng nhầm với thereby (do đó). Động từ hay đi kèm: declare, confirm, certify, resign, agree. Người Việt hay đặt hereby sai vị trí."
- },
- "hesitation": {
-  "mis": [
-   {
-    "w": "Please call me without any hesitate.",
-    "r": "Please call me without hesitation.",
-    "why": "Sau giới từ dùng danh từ hesitation, không dùng động từ."
-   },
-   {
-    "w": "He had a hesitation to speak.",
-    "r": "He had some hesitation about speaking.",
-    "why": "Hesitation about + V-ing là mẫu tự nhiên."
-   }
-  ],
-  "u": "Hesitation là sự ngập ngừng hoặc miễn cưỡng trước khi làm gì vì chưa chắc. Mẫu thường gặp: without hesitation (không do dự, ngay lập tức), after some hesitation, hesitation about doing something. Câu kết email please do not hesitate to contact us dùng động từ, còn danh từ xuất hiện trong without hesitation. Cũng có thể là khoảng dừng ngắn trong lời nói hay cử động. Trung tính đến trang trọng, nhẹ hơn nhiều so với từ chối. Tính từ là hesitant. Người Việt hay dùng động từ hesitate sau giới từ."
- },
- "homeless": {
-  "mis": [
-   {
-    "w": "There are many homeless in my city.",
-    "r": "There are many homeless people in my city.",
-    "why": "Khi đếm dùng homeless people."
-   },
-   {
-    "w": "He became a homeless.",
-    "r": "He became homeless.",
-    "why": "Homeless là tính từ, không có mạo từ."
-   }
-  ],
-  "u": "Homeless là tính từ chỉ người không có chỗ ở cố định: homeless people, a homeless shelter, to become homeless. The homeless (có the) chỉ cả nhóm, nhưng nhiều người viết thích people experiencing homelessness vì tôn trọng hơn. Danh từ là homelessness. Khác với refugee (tư cách pháp lý sau khi chạy trốn), homeless chỉ nói về nhà ở. Có thể bị made homeless bởi hỏa hoạn hay lũ. Người Việt hay thêm a trước homeless hoặc dùng homeless như danh từ số nhiều."
- },
- "housekeep": {
-  "mis": [
-   {
-    "w": "Our team housekeeps two hundred rooms.",
-    "r": "Our housekeeping team cleans two hundred rooms.",
-    "why": "Housekeep không phải động từ thông dụng; dùng clean hoặc look after."
-   },
-   {
-    "w": "She works in a housekeep department.",
-    "r": "She works in the housekeeping department.",
-    "why": "Trước danh từ khác dùng danh từ housekeeping."
-   }
-  ],
-  "u": "Housekeeping là danh từ không đếm được, chỉ việc dọn dẹp và chăm sóc nhà hoặc khách sạn: housekeeping staff, the housekeeping department. Ở khách sạn, nó là dọn phòng và thay ga. Housekeeper là người làm việc đó, còn keep house là cụm động từ cũ nghĩa là quán xuyến nhà cửa. Không có động từ housekeep thông dụng; dùng clean hoặc look after. Ở văn phòng và máy tính, housekeeping còn là việc dọn dẹp định kỳ, như housekeeping routines xóa tệp cũ. Người Việt hay biến nó thành động từ."
- },
- "ideally": {
-  "mis": [
-   {
-    "w": "Ideal, I want a quiet room.",
-    "r": "Ideally, I want a quiet room.",
-    "why": "Dùng trạng từ ideally để mở câu."
-   },
-   {
-    "w": "The hotel is ideally for families.",
-    "r": "The hotel is ideally suited to families.",
-    "why": "Ideally cần phân từ như suited hoặc located."
-   }
-  ],
-  "u": "Ideally có hai cách dùng. Đầu câu, nó giới thiệu tình huống tốt nhất có thể, mà có thể không xảy ra: Ideally, we would finish by Friday. Trước phân từ hoặc tính từ, nó nghĩa là hoàn hảo: ideally located, ideally suited. Cách dùng thứ hai phổ biến trong quảng cáo khách sạn và tin tuyển dụng. Nó thường báo hiệu một sự nhượng bộ, nên mẫu ideally, but rất hay gặp. Ý ngược lại là realistically. Trước danh từ dùng tính từ ideal: an ideal candidate. Người Việt hay dùng ideal thay cho ideally."
- },
- "identify": {
-  "mis": [
-   {
-    "w": "She identified herself with a teacher.",
-    "r": "She identified herself as a teacher.",
-    "why": "Identify oneself as là nói mình là ai; identify with là cảm thấy đồng cảm."
-   },
-   {
-    "w": "Please identify to me the problem.",
-    "r": "Please identify the problem for me.",
-    "why": "Identify cần tân ngữ trực tiếp; người nhận đi sau for."
-   }
-  ],
-  "u": "Identify nghĩa là nhận ra hoặc xác định cái gì, ai là gì: identify the cause, identify a suspect. Tân ngữ đứng ngay sau động từ. Ba mẫu khác nhau: identify someone as (nói họ là ai); identify with (cảm thấy đồng cảm, như readers identify with the hero); identify oneself (nêu mình là ai, ví dụ trình giấy tờ). Danh từ là identification, viết tắt ID. Trong kinh doanh, nó là động từ lịch sự trong báo cáo. Người Việt hay nhầm identify as và identify with, hoặc đặt người nhận ngay sau identify."
- },
- "illogical": {
-  "mis": [
-   {
-    "w": "It is unlogical to cut the budget.",
-    "r": "It is illogical to cut the budget.",
-    "why": "Phủ định của logical là illogical, dùng tiền tố il-."
-   },
-   {
-    "w": "His idea is illogic.",
-    "r": "His idea is illogical.",
-    "why": "Dùng tính từ illogical."
-   }
-  ],
-  "u": "Illogical nghĩa là không theo lập luận rõ ràng: an illogical argument, an illogical decision. Hay dùng để phê bình một kế hoạch hay niềm tin: It seems illogical to cut the marketing budget now. Nhẹ hơn và tập trung vào lập luận hơn irrational (có thể ngụ ý cảm xúc hay điên rồ) và absurd. Nỗi sợ có thể illogical mà không nguy hiểm. Danh từ illogicality ít gặp trong lời nói. Mẫu: it is illogical to + động từ, hoặc illogical that + mệnh đề. Người Việt hay tạo từ sai như unlogical."
- },
- "inappropriate": {
-  "mis": [
-   {
-    "w": "This movie is inappropriate to children.",
-    "r": "This movie is inappropriate for children.",
-    "why": "Inappropriate đi với for trước đối tượng."
-   },
-   {
-    "w": "It is not appropriated to wear jeans.",
-    "r": "It is not appropriate to wear jeans.",
-    "why": "Tính từ là appropriate, không phải appropriated."
-   }
-  ],
-  "u": "Inappropriate nghĩa là không phù hợp với tình huống, thường vì vi phạm quy tắc hoặc kỳ vọng xã hội: inappropriate language, inappropriate behavior (Anh: behaviour), inappropriate clothing for the office. Đi với for + người hoặc dịp. Đây là cách phê bình lịch sự mà không xúc phạm, nên email nhân sự thường nói bình luận đó inappropriate thay vì rude. Nhẹ hơn offensive và không nhất thiết là phạm pháp. Trái nghĩa là appropriate. Người Việt hay nhầm giới từ to và dạng từ appropriated."
- },
- "incoming": {
-  "mis": [
-   {
-    "w": "I answered the coming call.",
-    "r": "I answered the incoming call.",
-    "why": "Incoming là cái đang đến; coming chỉ thời gian sắp tới."
-   },
-   {
-    "w": "Incoming mails are checked daily.",
-    "r": "Incoming mail is checked daily.",
-    "why": "Mail không đếm được, không có s."
-   }
-  ],
-  "u": "Incoming là tính từ đứng trước danh từ, mô tả thứ đang đến hoặc người sắp nhận vai trò: incoming calls, incoming mail, the incoming manager. Trái nghĩa là outgoing. Có hai nghĩa: vật thể hoặc dữ liệu đang đến với bạn, như incoming messages, và người mới sắp bắt đầu, như the incoming president. Không đứng sau danh từ trong văn viết chuẩn. Inbound gần nghĩa trong logistics. Mail không đếm được nên không thêm s. Người Việt hay nhầm incoming với coming hoặc đặt tính từ sau danh từ."
- },
- "incur": {
-  "mis": [
-   {
-    "w": "I incurred to a fee.",
-    "r": "I incurred a fee.",
-    "why": "Incur là ngoại động từ, đi thẳng với tân ngữ."
-   },
-   {
-    "w": "The company was incurred a loss.",
-    "r": "The company incurred a loss.",
-    "why": "Incur ở thể chủ động; công ty là chủ thể."
-   }
-  ],
-  "u": "Incur nghĩa là phải chịu trách nhiệm về điều khó chịu, thường là chi phí, nợ, tiền phạt hay hình phạt, do chính hành động của bạn: incur expenses, incur a late fee, incur debt. Từ trang trọng, phổ biến trong tài chính và pháp lý. Chủ ngữ là người hoặc công ty phải trả, và thứ bị incur thường tiêu cực: không nói incur a profit. Cũng có thể chỉ cảm xúc: to incur someone's anger. Quá khứ là incurred. Người Việt hay dùng bị động hoặc chen giới từ to."
- },
- "indicator": {
-  "mis": [
-   {
-    "w": "Sales is a good indicator for success.",
-    "r": "Sales are a good indicator of success.",
-    "why": "Indicator of là mẫu thường dùng."
-   },
-   {
-    "w": "Use the turn indicator before changing lanes.",
-    "r": "Use the turn signal before changing lanes.",
-    "why": "Mỹ dùng turn signal; indicator là từ của Anh."
-   }
-  ],
-  "u": "Indicator là thứ cho thấy trạng thái hoặc mức độ của điều khác: an economic indicator, a key performance indicator (KPI), an indicator of quality. Đây là danh từ đếm được, thường đi với of. Trong tiếng Anh Anh, indicator còn là đèn xi-nhan trên xe, người Mỹ gọi là turn signal. Trong khoa học, chất chỉ thị như giấy quỳ đổi màu. So với sign, indicator gợi ý bằng chứng đo lường được nên báo cáo hay dùng. Người Việt hay dùng giới từ for thay vì of."
- }
+  "exemption": {
+    "mis": [
+      {
+        "w": "She got an exemption to the entry fee.",
+        "r": "She got an exemption from the entry fee.",
+        "why": "Exemption đi với from để chỉ thứ được miễn, không dùng to."
+      },
+      {
+        "w": "Children are exemption from the entry fee.",
+        "r": "Children are exempt from the entry fee.",
+        "why": "Exemption là danh từ; sau động từ be phải dùng tính từ exempt."
+      }
+    ],
+    "u": "Exemption là danh từ trang trọng, hay gặp trong luật và tài chính: tax exemption (miễn thuế), exemption from military service. Ta apply for, claim hoặc grant một exemption, và thứ được miễn đi sau giới từ from. Từ này mạnh hơn exception: exception chỉ là trường hợp ngoại lệ, còn exemption là sự cho phép chính thức. Tính từ và động từ là exempt. Người Việt hay nhầm dùng exemption như tính từ hoặc dùng giới từ to. Ít gặp trong hội thoại đời thường."
+  },
+  "exit": {
+    "mis": [
+      {
+        "w": "Please exit from the room quietly.",
+        "r": "Please exit the room quietly.",
+        "why": "Khi là động từ, exit đi thẳng với tân ngữ, không cần giới từ from."
+      },
+      {
+        "w": "Follow the exits signs.",
+        "r": "Follow the exit signs.",
+        "why": "Danh từ đứng trước danh từ khác giữ số ít: exit signs."
+      }
+    ],
+    "u": "Exit vừa là danh từ vừa là động từ. Danh từ chỉ cửa hoặc lối ra: emergency exit (cửa thoát hiểm), highway exit (Mỹ) hay motorway exit (Anh). Động từ mang sắc thái trung tính đến trang trọng và đi thẳng với tân ngữ: exit the building, exit the program. Trong tin học, exit là lệnh thoát chuẩn; trong kinh doanh, exit strategy là kế hoạch rút lui. Người Việt hay thêm from sau động từ exit, đó là lỗi. Nói hằng ngày thì leave hoặc go out phổ biến hơn."
+  },
+  "expedite": {
+    "mis": [
+      {
+        "w": "Please expedite to the shipment.",
+        "r": "Please expedite the shipment.",
+        "why": "Expedite là ngoại động từ, đi thẳng với tân ngữ, không có giới từ to."
+      },
+      {
+        "w": "Please expediate the shipment.",
+        "r": "Please expedite the shipment.",
+        "why": "Viết là expedite; expediate là lỗi chính tả thường gặp."
+      }
+    ],
+    "u": "Expedite là động từ trang trọng trong kinh doanh, nhất là logistics, hải quan và hành chính: expedite an order (đẩy nhanh đơn hàng), expedite the visa process. Tân ngữ thường là quy trình hay món hàng, không phải người. Nghe cứng hơn speed up và hay xuất hiện trong email nhờ vả: Could you expedite this? Đừng nhầm với expedition (chuyến thám hiểm). Người Việt hay quên tân ngữ hoặc chen giới từ sau expedite. Tính từ liên quan là expeditious, còn trang trọng hơn."
+  },
+  "expertise": {
+    "mis": [
+      {
+        "w": "She has many expertises in finance.",
+        "r": "She has a lot of expertise in finance.",
+        "why": "Expertise là danh từ không đếm được, không thêm s, dùng a lot of."
+      },
+      {
+        "w": "He is an expertise in marketing.",
+        "r": "He is an expert in marketing.",
+        "why": "Expertise là kỹ năng; người có kỹ năng là expert."
+      }
+    ],
+    "u": "Expertise là danh từ không đếm được chỉ kiến thức hoặc kỹ năng chuyên sâu, nên nói a lot of expertise, không bao giờ expertises. Mẫu hay dùng là expertise in hoặc area of expertise: We lack expertise in cybersecurity. Đừng dùng cho người, người là expert. Từ mang giọng chuyên nghiệp, hay thấy trong tin tuyển dụng, báo cáo và CV, mạnh hơn experience vì ngụ ý đã thành thạo. Người Việt hay nhầm expertise và expert vì gốc từ giống nhau."
+  },
+  "expire": {
+    "mis": [
+      {
+        "w": "My passport will expire in next month.",
+        "r": "My passport will expire next month.",
+        "why": "Với next month không dùng giới từ in."
+      },
+      {
+        "w": "The offer was expired yesterday.",
+        "r": "The offer expired yesterday.",
+        "why": "Expire là nội động từ, không có bị động; dùng expired hoặc has expired."
+      }
+    ],
+    "u": "Expire dùng cho thứ có hạn cố định như hộ chiếu, vé, phiếu giảm giá, hợp đồng hay bảo hành, khi hết hiệu lực. Đây là nội động từ, nên không nói expire a document. Mẫu thường gặp: expire on 5 May, expire in two weeks, expire at midnight. Tính từ expired đứng trước danh từ: an expired visa. Người Việt hay nói is expired thay cho has expired. Dùng expire với nghĩa qua đời chỉ có trong văn cổ hoặc văn chương, tránh trong giao tiếp."
+  },
+  "explanatory": {
+    "mis": [
+      {
+        "w": "The instructions are very explanatory.",
+        "r": "The instructions are very clear.",
+        "why": "Explanatory nghĩa là có kèm lời giải thích, không phải dễ hiểu; dùng clear hoặc self-explanatory."
+      },
+      {
+        "w": "I read the explanation notes at the bottom.",
+        "r": "I read the explanatory notes at the bottom.",
+        "why": "Trước danh từ dùng tính từ explanatory, không dùng explanation."
+      }
+    ],
+    "u": "Explanatory là tính từ trang trọng, thường đứng trước danh từ: explanatory notes (chú thích), explanatory leaflet, explanatory power. Nó mô tả tài liệu có chức năng giải thích điều khác. Không dùng cho người. Từ liên quan rất phổ biến là self-explanatory, nghĩa là quá rõ ràng nên không cần giải thích: The buttons are self-explanatory. Người Việt hay dùng explanation làm tính từ hoặc nhầm explanatory với dễ hiểu. Trong học thuật còn gặp explanatory variable và explanatory power."
+  },
+  "faculty": {
+    "mis": [
+      {
+        "w": "I study in the faculty of arts.",
+        "r": "I study in the Faculty of Arts.",
+        "why": "Khoa có tên riêng thì dùng the và viết hoa: the Faculty of Arts."
+      },
+      {
+        "w": "She is a faculty at the university.",
+        "r": "She is a faculty member at the university.",
+        "why": "Faculty là danh từ tập thể, một người phải nói faculty member."
+      }
+    ],
+    "u": "Faculty có hai nghĩa chính. Trong tiếng Anh Mỹ, đó là toàn bộ giảng viên và nhà nghiên cứu của trường đại học: a faculty member (một giảng viên). Ở Anh và nhiều nước khác, faculty còn là một khoa lớn, như Faculty of Law, tương đương school hay college ở Mỹ. Nghĩa thứ ba là năng lực tự nhiên: mental faculties. Người Việt hay nói she is a faculty, thiếu member. Tiếng Anh Anh có thể dùng động từ số nhiều với faculty chỉ tập thể."
+  },
+  "familiarity": {
+    "mis": [
+      {
+        "w": "I have a familiarity about this software.",
+        "r": "I have a familiarity with this software.",
+        "why": "Mẫu cố định là familiarity with khi bạn biết rõ cái gì."
+      },
+      {
+        "w": "She is a familiarity with the city.",
+        "r": "She is familiar with the city.",
+        "why": "Familiarity là danh từ; sau be dùng tính từ familiar."
+      }
+    ],
+    "u": "Familiarity là danh từ không đếm được, nghĩa là sự quen thuộc hoặc hiểu biết khá rõ về điều gì, cũng như cảm giác thân quen. Tin tuyển dụng ghi familiarity with Excel is required, tức là biết dùng được chứ chưa cần thành thạo. Cũng có thể mô tả cảm giác quen thuộc với một nơi: a strange sense of familiarity. Thành ngữ familiarity breeds contempt nghĩa là quá thân thì dễ mất tôn trọng. Người Việt hay dùng familiarity thay familiar hoặc quên giới từ with."
+  },
+  "familiarize": {
+    "mis": [
+      {
+        "w": "Please familiarize with the rules.",
+        "r": "Please familiarize yourself with the rules.",
+        "why": "Familiarize cần tân ngữ; khi tự làm thì thêm yourself."
+      },
+      {
+        "w": "I need to familiarize to the new system.",
+        "r": "I need to familiarize myself with the new system.",
+        "why": "Mẫu đúng là familiarize someone with something, không dùng to."
+      }
+    ],
+    "u": "Familiarize là ngoại động từ: bạn familiarize bản thân hoặc người khác with một điều gì đó. Mẫu familiarize yourself with xuất hiện nhiều trong hướng dẫn, email nhận việc và thông báo an toàn: Please familiarize yourself with the evacuation plan. Từ hơi trang trọng, lời nói thường dùng get to know hoặc get used to. Tiếng Anh Anh viết familiarise. Người Việt hay quên yourself hoặc dùng to thay with. Đừng nhầm với tính từ familiar, chỉ trạng thái đã quen."
+  },
+  "fare": {
+    "mis": [
+      {
+        "w": "The fare of the train is expensive.",
+        "r": "The train fare is expensive.",
+        "why": "Dùng train fare, không dùng the fare of the train."
+      },
+      {
+        "w": "I paid a high fee for the bus.",
+        "r": "I paid a high fare for the bus.",
+        "why": "Fare là tiền đi lại; fee là phí dịch vụ."
+      }
+    ],
+    "u": "Fare là số tiền bạn trả để đi xe buýt, tàu, taxi, máy bay hay phà: a bus fare, an air fare, trẻ em được half fare. Khác với fee là phí dịch vụ, và ticket là tấm vé. Ở Anh hay thấy single fare (một chiều) và return fare (khứ hồi). Fare còn chỉ món ăn được phục vụ, như simple pub fare, nghĩa này hơi văn chương. Fare dodging là đi không trả tiền. Người Việt hay nhầm fare với fee hoặc price."
+  },
+  "feature": {
+    "mis": [
+      {
+        "w": "The phone has many feature.",
+        "r": "The phone has many features.",
+        "why": "Feature đếm được nên nhiều tính năng thì cần -s."
+      },
+      {
+        "w": "This feature of the app makes it difficult to use it.",
+        "r": "This feature of the app makes it difficult to use.",
+        "why": "Không lặp tân ngữ it sau tính từ."
+      }
+    ],
+    "u": "Feature là danh từ đếm được chỉ một bộ phận hay đặc điểm dễ nhận thấy: the new camera features, a feature of the landscape. Trong công nghệ, nó là tính năng, nên nói add a feature. Trong truyền thông, feature là bài dài hoặc phim chính: a feature article, a feature-length film. Làm động từ, feature là có một thứ quan trọng: The show features two new singers. Số nhiều features còn chỉ nét mặt. Người Việt hay quên thêm s khi nói nhiều tính năng."
+  },
+  "firefighter": {
+    "mis": [
+      {
+        "w": "The fireman rescued three women.",
+        "r": "The firefighter rescued three women.",
+        "why": "Firefighter trung lập về giới và được ưa dùng hơn fireman."
+      },
+      {
+        "w": "Firefighters are arrived at the scene.",
+        "r": "Firefighters arrived at the scene.",
+        "why": "Arrive là nội động từ, không dùng bị động."
+      }
+    ],
+    "u": "Firefighter là từ chuẩn và trung lập về giới chỉ người dập lửa và cứu hộ, thay cho fireman trong tin tức, tin tuyển dụng và chức danh chính thức. Tổ chức gọi là fire brigade hay fire service ở Anh, fire department ở Mỹ. Khi cần giúp, người ta nói call the fire department thay vì call the firefighters. Volunteer firefighter là lính cứu hỏa tình nguyện, ít hoặc không lương. Người Việt hay dùng fireman và nhầm bị động với arrive."
+  },
+  "firework": {
+    "mis": [
+      {
+        "w": "We watched a firework in the sky.",
+        "r": "We watched fireworks in the sky.",
+        "why": "Khi nói về màn bắn pháo hoa, thường dùng số nhiều fireworks."
+      },
+      {
+        "w": "They made a fireworks show yesterday.",
+        "r": "They put on a fireworks show yesterday.",
+        "why": "Show đi với put on, không dùng make."
+      }
+    ],
+    "u": "Firework, thường dùng số nhiều, là thiết bị nổ tạo ánh sáng màu và tiếng nổ trong lễ hội. Nói a fireworks display hoặc fireworks show; dạng số nhiều dùng ngay cả trước display. Động từ hay gặp: set off, let off (Anh), light, watch. Ở Anh, đêm 5 tháng 11 (Bonfire Night) nổi tiếng với pháo hoa, còn ở Mỹ là ngày 4 tháng 7. Một quả pháo là one firework, nhưng hội thoại gần như luôn dùng số nhiều. Người Việt hay nói a firework hoặc make a show."
+  },
+  "fixture": {
+    "mis": [
+      {
+        "w": "The flat comes with fixtures such as sofas and a bed.",
+        "r": "The flat comes with furniture such as sofas and a bed.",
+        "why": "Fixtures là đồ gắn cố định như bồn rửa; sofa và giường là furniture."
+      },
+      {
+        "w": "She has been a fixture on this school for years.",
+        "r": "She has been a fixture at this school for years.",
+        "why": "Dùng a fixture at hoặc in một nơi, không dùng on."
+      }
+    ],
+    "u": "Fixture là thứ gắn cố định vào tòa nhà, như đèn gắn trần, bồn rửa hay kệ âm tường, và khi mua bán nhà nó quyết định thứ gì ở lại. Fixtures and fittings là cụm hay gặp trong môi giới nhà ở Anh, trong đó fittings là đồ dễ tháo rời. Trong thể thao ở Anh, fixture là trận đấu đã lên lịch: the fixture list. Nghĩa bóng, a fixture là người luôn có mặt ở một chỗ: He is a fixture at the bar. Người Việt hay nhầm fixture với furniture."
+  },
+  "flexibility": {
+    "mis": [
+      {
+        "w": "I need a flexibility in my schedule.",
+        "r": "I need flexibility in my schedule.",
+        "why": "Flexibility là danh từ không đếm được, không dùng a."
+      },
+      {
+        "w": "She has a good flexible to change plans.",
+        "r": "She has good flexibility to change plans.",
+        "why": "Flexible là tính từ; sau has dùng danh từ flexibility."
+      }
+    ],
+    "u": "Flexibility là danh từ không đếm được, chỉ khả năng hoặc sự sẵn lòng thay đổi. Trong công việc, đây là điểm hấp dẫn: flexibility in working hours (giờ giấc linh hoạt), làm từ xa, linh hoạt về hạn chót. Trong thể thao, nó là độ dẻo của cơ thể. Thường mang nghĩa tốt; lack of flexibility là lời chê quy định cứng nhắc. Đi với in hoặc with: flexibility in the contract. Người Việt hay thêm a trước flexibility hoặc dùng flexible sau has."
+  },
+  "flextime": {
+    "mis": [
+      {
+        "w": "I am working on a flextime.",
+        "r": "I am on flextime.",
+        "why": "Flextime là tên một chế độ, không có mạo từ a."
+      },
+      {
+        "w": "She works flextimes.",
+        "r": "She works flextime.",
+        "why": "Flextime không có số nhiều khi chỉ chế độ làm việc."
+      }
+    ],
+    "u": "Flextime là cách nói của Mỹ về chế độ cho nhân viên tự chọn giờ bắt đầu và kết thúc, miễn đủ số giờ quy định hoặc có mặt trong khung giờ cốt lõi. Bản Anh là flexitime. Đây là danh từ nơi làm việc, thường không đếm được: be on flextime, a flextime policy. Khác với remote work (nơi làm việc) và part-time (tổng số giờ). Công ty quảng cáo như một phúc lợi, ví dụ giờ cốt lõi từ 10 đến 3, phần còn lại tự chọn. Người Việt hay thêm a hoặc s."
+  },
+  "focus": {
+    "mis": [
+      {
+        "w": "I focus to my homework.",
+        "r": "I focus on my homework.",
+        "why": "Focus đi với on, không dùng to hay at."
+      },
+      {
+        "w": "She is very focus.",
+        "r": "She is very focused.",
+        "why": "Dùng tính từ focused sau be; focus là động từ hoặc danh từ."
+      }
+    ],
+    "u": "Khi là động từ, focus đi với on: focus on the main problem. Cũng có thể dùng ngoại động từ: focus your attention on one task. Tính từ là focused, và stay focused rất phổ biến trong học tập và công việc. Là danh từ, the focus of a lecture là chủ đề chính, còn out of focus là hình bị mờ. Focus group là nhóm nhỏ dùng trong nghiên cứu thị trường. Chính tả Mỹ: focused, focusing; Anh đôi khi viết focussed. Người Việt hay nói focus to hoặc very focus."
+  },
+  "footwear": {
+    "mis": [
+      {
+        "w": "I bought two footwears yesterday.",
+        "r": "I bought two pairs of shoes yesterday.",
+        "why": "Footwear không đếm được; đếm bằng pairs of shoes."
+      },
+      {
+        "w": "Please wear a proper footwear.",
+        "r": "Please wear proper footwear.",
+        "why": "Không dùng a trước danh từ không đếm được."
+      }
+    ],
+    "u": "Footwear là danh từ tập hợp không đếm được chỉ mọi thứ mang ở chân: giày, ủng, dép quai hậu, giày thể thao. Từ nghe trang trọng hoặc thương mại, hay thấy ở khu bán hàng, nội quy an toàn và quy định trang phục: appropriate footwear must be worn. Trong lời nói hằng ngày, người ta gọi tên món đồ cụ thể. Không nói a footwear hay two footwears; thay bằng a pair of boots. Các cụm thường gặp: sports footwear, protective footwear. Người Việt hay thêm s."
+  },
+  "forbid": {
+    "mis": [
+      {
+        "w": "The law forbids to smoke here.",
+        "r": "The law forbids smoking here.",
+        "why": "Forbid đi với V-ing hoặc someone + to V, không đi thẳng với to V."
+      },
+      {
+        "w": "He forbade me from entering.",
+        "r": "He forbade me to enter.",
+        "why": "Forbid someone to do, còn from đi với prevent hoặc prohibit."
+      }
+    ],
+    "u": "Forbid là động từ bất quy tắc: forbid, forbade, forbidden. Hai mẫu chính là forbid someone to do something và forbid something/doing: Parents forbid their children to stay out late; the rules forbid smoking. Từ mạnh và mang tính cá nhân hơn not allow, thường có người có quyền như cha mẹ, sếp hay luật pháp. Trên biển báo thường dùng prohibited. Cụm God forbid diễn tả hy vọng điều xấu không xảy ra. Người Việt hay dùng forbid from, đó là lỗi vì from đi với prohibit."
+  },
+  "foreman": {
+    "mis": [
+      {
+        "w": "She is the foreman of our team.",
+        "r": "She is the supervisor of our team.",
+        "why": "Foreman mang giới tính nam; dùng supervisor để trung lập."
+      },
+      {
+        "w": "The foreman said us to wear helmets.",
+        "r": "The foreman told us to wear helmets.",
+        "why": "Say không có tân ngữ gián tiếp; dùng tell someone to."
+      }
+    ],
+    "u": "Foreman là thợ lành nghề giám sát một tổ làm việc chân tay: a site foreman, a factory foreman. Người này thường làm ngay tại xưởng cùng nhóm, khác với manager ngồi văn phòng. Từ truyền thống chỉ nam; lựa chọn trung lập hiện đại là supervisor, crew leader hay team leader. Trong tòa án, the foreman of a jury là người đọc phán quyết, một số tòa nay dùng foreperson. Số nhiều là foremen. Người Việt hay dùng foreman như một chức quản lý văn phòng, hoặc nói said us."
+  },
+  "formally": {
+    "mis": [
+      {
+        "w": "Formally, I think it is a good plan.",
+        "r": "Personally, I think it is a good plan.",
+        "why": "Formally nghĩa là chính thức, không phải theo ý tôi."
+      },
+      {
+        "w": "He dressed formal for the interview.",
+        "r": "He dressed formally for the interview.",
+        "why": "Dùng trạng từ formally để bổ nghĩa cho động từ."
+      }
+    ],
+    "u": "Formally là trạng từ có hai nghĩa chính. Thứ nhất, chính thức, đúng thủ tục: The company formally announced the merger, formally approved, formally charged. Thứ hai, theo phong cách nghiêm túc, lịch sự: dress formally, address someone formally. Đừng nhầm với formerly (trước đây), hai từ chỉ khác một chữ. Formally và officially hay trùng nhau, nhưng formally nhấn vào làm đúng các bước, còn officially nhấn vào thẩm quyền. Trái nghĩa là informally. Người Việt hay nhầm với formerly."
+  },
+  "foster": {
+    "mis": [
+      {
+        "w": "Schools should foster students to be creative.",
+        "r": "Schools should foster creativity in students.",
+        "why": "Foster đi với danh từ trừu tượng; muốn dùng người + to V thì dùng encourage."
+      },
+      {
+        "w": "She fostered with a family.",
+        "r": "She was fostered by a family.",
+        "why": "Foster là ngoại động từ; đứa trẻ được fostered by gia đình."
+      }
+    ],
+    "u": "Foster có hai cách dùng. Làm động từ, nó nghĩa là giúp một điều tốt phát triển, nhất là phẩm chất hay mối quan hệ: foster trust, foster innovation, foster a sense of community. Tân ngữ thường là ý tưởng, không phải người. Trong gia đình, foster a child là chăm sóc trẻ trong một thời gian mà không trở thành cha mẹ hợp pháp: foster care, foster parents. Từ trang trọng hơn encourage, hay xuất hiện trong báo cáo và tuyên bố sứ mệnh. Người Việt hay dùng foster someone to do."
+  },
+  "founder": {
+    "mis": [
+      {
+        "w": "He is the founder from the company.",
+        "r": "He is the founder of the company.",
+        "why": "Founder đi với of trước tên tổ chức."
+      },
+      {
+        "w": "She founded the company in 2010 and she is the found.",
+        "r": "She founded the company in 2010 and she is the founder.",
+        "why": "Người sáng lập là founder; found là động từ."
+      }
+    ],
+    "u": "Founder là người lập ra một tổ chức như công ty, trường học hay phong trào. Cách dùng thường gặp: founder of the company, co-founder (đồng sáng lập), founder and CEO. Trong giới khởi nghiệp, founders chỉ những người cùng bắt đầu. Động từ found - founded - founded dễ nhầm với find - found - found. Founding member là một trong những thành viên đầu tiên; ở Anh còn dùng founder member. Không dùng founder cho người chỉ phát minh ra một thứ. Người Việt hay nhầm giới từ from thay vì of."
+  },
+  "freelance": {
+    "mis": [
+      {
+        "w": "She works as a freelancer for three years.",
+        "r": "She has worked as a freelancer for three years.",
+        "why": "Dùng hiện tại hoàn thành cho việc bắt đầu trong quá khứ và còn tiếp diễn."
+      },
+      {
+        "w": "He is freelancing in a company.",
+        "r": "He is freelancing for several companies.",
+        "why": "Freelance làm cho nhiều khách; in a company gợi ý nhân viên chính thức."
+      }
+    ],
+    "u": "Freelance có thể là tính từ (a freelance designer), trạng từ (she works freelance) hoặc động từ (to freelance). Nó chỉ người bán dịch vụ cho nhiều khách hàng, không thuộc biên chế một công ty, thường tự lo thuế và hóa đơn. Người đó là a freelancer. Không hoàn toàn giống self-employed, vì self-employed gồm cả chủ cửa hàng. Cụm go freelance là bắt đầu làm tự do. Công việc linh hoạt nhưng thu nhập không đều. Người Việt hay dùng in a company hoặc quên thì hiện tại hoàn thành."
+  },
+  "freighter": {
+    "mis": [
+      {
+        "w": "The freighter carries many passengers.",
+        "r": "The freighter carries cargo, not passengers.",
+        "why": "Freighter chở hàng; tàu khách là liner hoặc ferry."
+      },
+      {
+        "w": "The freighter delivered the freights.",
+        "r": "The freighter delivered the freight.",
+        "why": "Freight không đếm được nên không có số nhiều."
+      }
+    ],
+    "u": "Freighter là tàu hoặc máy bay thiết kế chủ yếu để chở hàng hóa, không chở khách: an ocean freighter, a cargo freighter. Từ gốc là freight, hàng vận chuyển. Trong văn viết hàng hải thường ngày dùng cargo ship, còn freighter hay gặp trong tin tức và truyện. Air freighter là máy bay chở bưu kiện. Đừng nhầm với ferry (chở người và xe) hay tanker (chở chất lỏng). Freight là danh từ không đếm được. Người Việt hay nghĩ freighter chở khách hoặc thêm s cho freight."
+  },
+  "frustrate": {
+    "mis": [
+      {
+        "w": "I am very frustrating about the delay.",
+        "r": "I am very frustrated about the delay.",
+        "why": "Dùng -ed cho cảm xúc của bạn, -ing cho thứ gây ra cảm xúc."
+      },
+      {
+        "w": "The delay is frustrated.",
+        "r": "The delay is frustrating.",
+        "why": "Thứ gây ra cảm xúc dùng -ing."
+      }
+    ],
+    "u": "Frustrate có hai nghĩa. Một là làm ai đó bực bội và bất lực vì không làm được hay không thay đổi được điều gì: Slow internet frustrates me. Hai là ngăn cản một kế hoạch thành công: bad weather frustrated our efforts. Người học hay nhầm hai dạng phân từ: frustrated mô tả người, frustrating mô tả nguyên nhân. Frustrated with hoặc by someone; at hoặc about a situation. Mạnh hơn annoyed nhưng nhẹ hơn furious. Người Việt thường nhầm -ing và -ed."
+  },
+  "furnish": {
+    "mis": [
+      {
+        "w": "The apartment is furnish.",
+        "r": "The apartment is furnished.",
+        "why": "Dùng quá khứ phân từ furnished để mô tả trạng thái."
+      },
+      {
+        "w": "Please furnish us your details.",
+        "r": "Please furnish us with your details.",
+        "why": "Furnish someone with something cần with."
+      }
+    ],
+    "u": "Furnish có hai nghĩa chính. Nghĩa thường ngày là bày đồ đạc vào một nơi: a furnished flat, fully furnished. Trên thị trường cho thuê, furnished là chủ nhà cung cấp nội thất, unfurnished là nhà trống. Nghĩa trang trọng là cung cấp: furnish evidence, furnish details, furnish someone with facts, đi với with. Nghĩa này nghe chính thức, hay gặp trong hợp đồng và thư từ. Furniture là danh từ không đếm được, không nói furnitures. Người Việt hay quên with hoặc dùng sai thì."
+  },
+  "garment": {
+    "mis": [
+      {
+        "w": "She bought a lot of garments clothing.",
+        "r": "She bought a lot of clothing.",
+        "why": "Garment đã là một món quần áo; không ghép với clothing."
+      },
+      {
+        "w": "This garment are made of silk.",
+        "r": "This garment is made of silk.",
+        "why": "Garment ở số ít, dùng is."
+      }
+    ],
+    "u": "Garment là một món quần áo đơn lẻ: áo sơ mi, váy, áo khoác. Từ mang tính kỹ thuật và trang trọng hơn clothes, hay gặp trong thương mại, luật và nhãn giặt: garment industry, garment workers, wash the garment inside out. Trong lời nói, người ta gọi tên món cụ thể. Garment đếm được, còn clothing không đếm được. Có các từ ghép undergarment, outer garment. Nhiều nước có xưởng may xuất khẩu sang châu Âu và Mỹ nên từ hay xuất hiện trong tin sản xuất. Người Việt hay nhầm garment với clothing."
+  },
+  "generalization": {
+    "mis": [
+      {
+        "w": "It is a generalization of men.",
+        "r": "It is a generalization about men.",
+        "why": "Generalization đi với about cho chủ đề."
+      },
+      {
+        "w": "He generalization the data.",
+        "r": "He generalized the data.",
+        "why": "Generalization là danh từ; động từ là generalize."
+      }
+    ],
+    "u": "Generalization là phát biểu đưa ra kết luận cho cả một nhóm từ vài trường hợp, như All teenagers are lazy. Thường mang nghĩa phê bình: sweeping generalization (khái quát hóa tràn lan), hasty generalization (vội vàng). Một khái quát hợp lý có thể kèm in general hoặc tend to. Trong khoa học, nó là nguyên lý rút ra từ quan sát, nghĩa trung tính. Dùng generalization about + nhóm người. Động từ là generalize. Tiếng Anh Anh viết generalisation. Người Việt hay nhầm danh từ và động từ."
+  },
+  "generic": {
+    "mis": [
+      {
+        "w": "I prefer generic than brand medicine.",
+        "r": "I prefer generic medicine to brand-name medicine.",
+        "why": "Prefer đi với to, không phải than."
+      },
+      {
+        "w": "The email was generical and boring.",
+        "r": "The email was generic and boring.",
+        "why": "Tính từ là generic; generical không được dùng."
+      }
+    ],
+    "u": "Generic có hai cách dùng chính. Trong mua sắm và y tế, hàng generic không có thương hiệu nhưng cùng hoạt chất, như thuốc generic, thường rẻ hơn. Trong lời nói, nó nghĩa là chung chung, không cụ thể hay đặc biệt: a generic cover letter, a generic email. Nghĩa này hơi chê vì ngụ ý thiếu công sức hoặc cá tính. Làm danh từ, a generic là thuốc bán theo tên hóa học. Trong sinh học, generic liên quan đến chi. Người Việt hay nhầm than với to sau prefer."
+  },
+  "goal": {
+    "mis": [
+      {
+        "w": "My goal is to improving my English.",
+        "r": "My goal is to improve my English.",
+        "why": "Sau to trong động từ nguyên mẫu dùng dạng gốc."
+      },
+      {
+        "w": "She made a goal in the last minute.",
+        "r": "She scored a goal in the last minute.",
+        "why": "Kết hợp từ đúng là score a goal."
+      }
+    ],
+    "u": "Goal có hai nghĩa chính. Trong thể thao, đó là bàn thắng hoặc khung thành: score a goal, goal difference. Trong cuộc sống, là điều muốn đạt được: set a goal, reach a goal, mục tiêu ngắn hạn và dài hạn. Các cụm động từ: set a goal, achieve a goal, work towards a goal. Goal mang tính cá nhân hơn objective (giọng kinh doanh) và target (thường là con số). Sau my goal is dùng to + động từ gốc. Người Việt hay dùng make a goal thay vì score a goal."
+  },
+  "grocery": {
+    "mis": [
+      {
+        "w": "I went to buy a grocery.",
+        "r": "I went to buy groceries.",
+        "why": "Groceries là số nhiều thường dùng cho đồ mua."
+      },
+      {
+        "w": "The grocery are expensive today.",
+        "r": "Groceries are expensive today.",
+        "why": "Dùng groceries với động từ số nhiều."
+      }
+    ],
+    "u": "Grocery có hai dạng dùng. Làm bổ ngữ danh từ, nó mô tả cửa hàng hoặc chuyến đi: grocery store, grocery shopping, grocery delivery. Dạng số nhiều groceries chỉ thực phẩm và đồ gia dụng bạn mua: do the groceries, a bag of groceries, the grocery bill. Grocery store nhỏ hơn supermarket. Tiếng Anh Anh thường nói greengrocer hoặc grocer's, còn Mỹ nói grocery store. Người Việt hay nói buy a grocery hoặc dùng động từ số ít với groceries."
+  },
+  "harmful": {
+    "mis": [
+      {
+        "w": "Smoking is harmful for your health.",
+        "r": "Smoking is harmful to your health.",
+        "why": "Harmful đi với to trước đối tượng bị ảnh hưởng."
+      },
+      {
+        "w": "It is a harm habit.",
+        "r": "It is a harmful habit.",
+        "why": "Harm là danh từ; tính từ là harmful."
+      }
+    ],
+    "u": "Harmful mô tả thứ có thể gây hại cho sức khỏe, thiên nhiên hay đời sống một người: harmful chemicals, harmful effects, a harmful habit. Đi với to: harmful to children, harmful to the environment. Rộng hơn toxic (chủ yếu về chất độc) và nhẹ hơn deadly. Trái nghĩa là harmless. Potentially harmful dùng cho thứ có thể gây hại nhưng chưa chứng minh. Harmful còn dùng cho tác hại xã hội, như harmful stereotypes, không có thương tích thể chất. Người Việt hay nhầm giới từ for và dùng harm làm tính từ."
+  },
+  "hazard": {
+    "mis": [
+      {
+        "w": "It is a hazard for the people.",
+        "r": "It is a hazard to the people.",
+        "why": "Hazard to someone là mẫu thường dùng."
+      },
+      {
+        "w": "Wet floors are hazard.",
+        "r": "Wet floors are a hazard.",
+        "why": "Hazard đếm được, cần a hoặc the."
+      }
+    ],
+    "u": "Hazard là thứ có thể gây hại, nhất là ở nơi làm việc, trên đường hay trong nhà: a fire hazard (nguy cơ cháy), a health hazard, a trip hazard (vật dễ vấp). Trong tài liệu an toàn, hazard là nguồn gây nguy hiểm, còn risk là khả năng nguy hiểm đó thật sự làm hại ai. Mẫu pose a hazard to someone rất phổ biến. Hazard lights (Anh) là đèn nháy cảnh báo trên xe, người Mỹ gọi là emergency flashers. Tính từ là hazardous. Người Việt hay bỏ a hoặc dùng for."
+  },
+  "hazardous": {
+    "mis": [
+      {
+        "w": "It is hazardous for the health.",
+        "r": "It is hazardous to health.",
+        "why": "Hazardous to health là cụm cố định, không có the."
+      },
+      {
+        "w": "The hazard waste is stored here.",
+        "r": "The hazardous waste is stored here.",
+        "why": "Trước danh từ dùng tính từ hazardous."
+      }
+    ],
+    "u": "Hazardous là tính từ trang trọng chỉ thứ có thể gây nguy hiểm nghiêm trọng: hazardous waste, hazardous materials, hazardous conditions. Rất phổ biến trong quy định, nhãn mác và đào tạo an toàn, đôi khi mang nghĩa pháp lý: công ty phải để chất nguy hại trong thùng có đánh dấu. Mạnh và chính thức hơn risky, vốn có thể nói về quyết định kinh doanh. Hay dùng hazardous to health. Danh từ là hazard. Người Việt hay dùng danh từ hazard thay cho tính từ trước danh từ."
+  },
+  "headquarter": {
+    "mis": [
+      {
+        "w": "Our headquarter are in Tokyo.",
+        "r": "Our headquarters are in Tokyo.",
+        "why": "Headquarters luôn có s cuối dù chỉ một tòa nhà và có thể đi với động từ số nhiều."
+      },
+      {
+        "w": "The company headquartered at Tokyo.",
+        "r": "The company is headquartered in Tokyo.",
+        "why": "Dùng be headquartered in + thành phố."
+      }
+    ],
+    "u": "Headquarters là trụ sở chính hoặc trung tâm điều hành của một tổ chức, gồm công ty, cảnh sát hay quân đội. Từ luôn có s, ngay cả khi chỉ một nơi, và có thể đi với động từ số ít hoặc số nhiều: The headquarters is in Tokyo. Mẫu động từ thường gặp là be headquartered in. Nói tắt là HQ. Tiếng Anh Anh trong kinh doanh hay dùng head office, còn headquarters cho tổ chức lớn hoặc quốc tế. Dạng headquarter không s hiếm dùng trừ khi là động từ. Người Việt hay bỏ s."
+  },
+  "healthcare": {
+    "mis": [
+      {
+        "w": "She works in healthcares.",
+        "r": "She works in healthcare.",
+        "why": "Healthcare không đếm được, không có số nhiều."
+      },
+      {
+        "w": "The healthcare are very expensive.",
+        "r": "Healthcare is very expensive.",
+        "why": "Danh từ không đếm được đi với động từ số ít."
+      }
+    ],
+    "u": "Healthcare là danh từ không đếm được chỉ dịch vụ và hệ thống chăm sóc sức khỏe thể chất và tinh thần: access to healthcare, healthcare costs, the healthcare system. Bao gồm bệnh viện, phòng khám, bảo hiểm và chính sách, nên rộng hơn medicine (bản thân việc điều trị). Tiếng Anh Anh đôi khi viết health care, và NHS cung cấp phần lớn. Hay làm bổ ngữ: healthcare workers, healthcare providers. Trong tranh luận ở Mỹ, từ này thiên về bảo hiểm. Người Việt hay thêm s hoặc dùng động từ số nhiều."
+  },
+  "healthful": {
+    "mis": [
+      {
+        "w": "She ate healthfully food all week.",
+        "r": "She ate healthful food all week.",
+        "why": "Trước danh từ dùng tính từ healthful; healthfully là trạng từ."
+      },
+      {
+        "w": "I am feeling very healthful today.",
+        "r": "I am feeling very healthy today.",
+        "why": "Healthful mô tả thứ tốt cho sức khỏe; người thì khỏe là healthy."
+      }
+    ],
+    "u": "Healthful nghĩa là tốt cho sức khỏe, chủ yếu dùng cho thức ăn, thói quen và môi trường: a healthful diet, healthful habits. Người viết cẩn thận tách nó với healthy, mô tả người hoặc vật đang khỏe: a healthy child. Thực tế nhiều người dùng healthy cho cả hai nên healthful nghe hơi trang trọng, gặp trong bài dinh dưỡng, sách văn phong Mỹ và thông báo y tế công cộng. Tiếng Anh Anh gần như luôn dùng healthy. Phủ định là unhealthful hoặc unhealthy. Người Việt hay dùng healthful cho người."
+  },
+  "helmet": {
+    "mis": [
+      {
+        "w": "He wore a helmet in his head.",
+        "r": "He wore a helmet on his head.",
+        "why": "Mũ đội trên đầu dùng on, không dùng in."
+      },
+      {
+        "w": "He wears helmet when cycling.",
+        "r": "He wears a helmet when cycling.",
+        "why": "Helmet đếm được nên cần a, the hoặc dạng số nhiều."
+      }
+    ],
+    "u": "Helmet là mũ cứng bảo vệ đầu, dành cho người đi xe đạp, xe máy, công nhân xây dựng, lính và vận động viên: a bike helmet, a safety helmet, a football helmet. Trên công trường, hard hat là tên thường dùng cho loại nhẹ hơn, và nhiều nơi có helmet law bắt buộc đội mũ khi đi xe máy. Động từ thường dùng: wear, put on, take off, fasten. Helmet đếm được; mũ đội on head, không phải in head. Người Việt hay dùng giới từ in và thêm từ thừa."
+  },
+  "hereby": {
+    "mis": [
+      {
+        "w": "Hereby I resign from my position.",
+        "r": "I hereby resign from my position.",
+        "why": "Hereby thường đứng ngay trước động từ chính."
+      },
+      {
+        "w": "I am hereby writing to ask about the job.",
+        "r": "I am writing to ask about the job.",
+        "why": "Hereby hợp với câu tự thực hiện một hành động, như I hereby declare; mở đầu thư thường không cần."
+      }
+    ],
+    "u": "Hereby là trạng từ rất trang trọng dùng trong văn bản pháp lý, thông báo chính thức và nghi lễ, nơi chính lời nói thực hiện hành động: I hereby declare the meeting open, We hereby certify that the copy is true. Nghĩa là bằng chính văn bản này và thường đứng ngay trước động từ. Trong email hay hội thoại thường nghe cứng hoặc đùa kiểu long trọng. Đừng nhầm với thereby (do đó). Động từ hay đi kèm: declare, confirm, certify, resign, agree. Người Việt hay đặt hereby sai vị trí."
+  },
+  "hesitation": {
+    "mis": [
+      {
+        "w": "Please call me without any hesitate.",
+        "r": "Please call me without hesitation.",
+        "why": "Sau giới từ dùng danh từ hesitation, không dùng động từ."
+      },
+      {
+        "w": "He had a hesitation to speak.",
+        "r": "He had some hesitation about speaking.",
+        "why": "Hesitation about + V-ing là mẫu tự nhiên."
+      }
+    ],
+    "u": "Hesitation là sự ngập ngừng hoặc miễn cưỡng trước khi làm gì vì chưa chắc. Mẫu thường gặp: without hesitation (không do dự, ngay lập tức), after some hesitation, hesitation about doing something. Câu kết email please do not hesitate to contact us dùng động từ, còn danh từ xuất hiện trong without hesitation. Cũng có thể là khoảng dừng ngắn trong lời nói hay cử động. Trung tính đến trang trọng, nhẹ hơn nhiều so với từ chối. Tính từ là hesitant. Người Việt hay dùng động từ hesitate sau giới từ."
+  },
+  "homeless": {
+    "mis": [
+      {
+        "w": "There are many homeless in my city.",
+        "r": "There are many homeless people in my city.",
+        "why": "Khi đếm dùng homeless people."
+      },
+      {
+        "w": "He became a homeless.",
+        "r": "He became homeless.",
+        "why": "Homeless là tính từ, không có mạo từ."
+      }
+    ],
+    "u": "Homeless là tính từ chỉ người không có chỗ ở cố định: homeless people, a homeless shelter, to become homeless. The homeless (có the) chỉ cả nhóm, nhưng nhiều người viết thích people experiencing homelessness vì tôn trọng hơn. Danh từ là homelessness. Khác với refugee (tư cách pháp lý sau khi chạy trốn), homeless chỉ nói về nhà ở. Có thể bị made homeless bởi hỏa hoạn hay lũ. Người Việt hay thêm a trước homeless hoặc dùng homeless như danh từ số nhiều."
+  },
+  "housekeep": {
+    "mis": [
+      {
+        "w": "She is a housekeep at the hotel.",
+        "r": "She is a housekeeper at the hotel.",
+        "why": "Người làm là housekeeper; công việc là housekeeping; housekeep không phải từ thông dụng."
+      },
+      {
+        "w": "She works in a housekeep department.",
+        "r": "She works in the housekeeping department.",
+        "why": "Trước danh từ khác dùng danh từ housekeeping."
+      }
+    ],
+    "u": "Housekeeping là danh từ không đếm được, chỉ việc dọn dẹp và chăm sóc nhà hoặc khách sạn: housekeeping staff, the housekeeping department. Ở khách sạn, nó là dọn phòng và thay ga. Housekeeper là người làm việc đó, còn keep house là cụm động từ cũ nghĩa là quán xuyến nhà cửa. Không có động từ housekeep thông dụng; dùng clean hoặc look after. Ở văn phòng và máy tính, housekeeping còn là việc dọn dẹp định kỳ, như housekeeping routines xóa tệp cũ. Người Việt hay biến nó thành động từ."
+  },
+  "ideally": {
+    "mis": [
+      {
+        "w": "Ideal, I want a quiet room.",
+        "r": "Ideally, I want a quiet room.",
+        "why": "Dùng trạng từ ideally để mở câu."
+      },
+      {
+        "w": "The hotel is ideally for families.",
+        "r": "The hotel is ideally suited to families.",
+        "why": "Ideally cần phân từ như suited hoặc located."
+      }
+    ],
+    "u": "Ideally có hai cách dùng. Đầu câu, nó giới thiệu tình huống tốt nhất có thể, mà có thể không xảy ra: Ideally, we would finish by Friday. Trước phân từ hoặc tính từ, nó nghĩa là hoàn hảo: ideally located, ideally suited. Cách dùng thứ hai phổ biến trong quảng cáo khách sạn và tin tuyển dụng. Nó thường báo hiệu một sự nhượng bộ, nên mẫu ideally, but rất hay gặp. Ý ngược lại là realistically. Trước danh từ dùng tính từ ideal: an ideal candidate. Người Việt hay dùng ideal thay cho ideally."
+  },
+  "identify": {
+    "mis": [
+      {
+        "w": "She identified herself with a teacher.",
+        "r": "She identified herself as a teacher.",
+        "why": "Identify oneself as là nói mình là ai; identify with là cảm thấy đồng cảm."
+      },
+      {
+        "w": "Please identify to me the problem.",
+        "r": "Please identify the problem for me.",
+        "why": "Identify cần tân ngữ trực tiếp; người nhận đi sau for."
+      }
+    ],
+    "u": "Identify nghĩa là nhận ra hoặc xác định cái gì, ai là gì: identify the cause, identify a suspect. Tân ngữ đứng ngay sau động từ. Ba mẫu khác nhau: identify someone as (nói họ là ai); identify with (cảm thấy đồng cảm, như readers identify with the hero); identify oneself (nêu mình là ai, ví dụ trình giấy tờ). Danh từ là identification, viết tắt ID. Trong kinh doanh, nó là động từ lịch sự trong báo cáo. Người Việt hay nhầm identify as và identify with, hoặc đặt người nhận ngay sau identify."
+  },
+  "illogical": {
+    "mis": [
+      {
+        "w": "It is unlogical to cut the budget.",
+        "r": "It is illogical to cut the budget.",
+        "why": "Phủ định của logical là illogical, dùng tiền tố il-."
+      },
+      {
+        "w": "His idea is illogic.",
+        "r": "His idea is illogical.",
+        "why": "Dùng tính từ illogical."
+      }
+    ],
+    "u": "Illogical nghĩa là không theo lập luận rõ ràng: an illogical argument, an illogical decision. Hay dùng để phê bình một kế hoạch hay niềm tin: It seems illogical to cut the marketing budget now. Nhẹ hơn và tập trung vào lập luận hơn irrational (có thể ngụ ý cảm xúc hay điên rồ) và absurd. Nỗi sợ có thể illogical mà không nguy hiểm. Danh từ illogicality ít gặp trong lời nói. Mẫu: it is illogical to + động từ, hoặc illogical that + mệnh đề. Người Việt hay tạo từ sai như unlogical."
+  },
+  "inappropriate": {
+    "mis": [
+      {
+        "w": "This movie is inappropriate to children.",
+        "r": "This movie is inappropriate for children.",
+        "why": "Inappropriate đi với for trước đối tượng."
+      },
+      {
+        "w": "It is not appropriated to wear jeans.",
+        "r": "It is not appropriate to wear jeans.",
+        "why": "Tính từ là appropriate, không phải appropriated."
+      }
+    ],
+    "u": "Inappropriate nghĩa là không phù hợp với tình huống, thường vì vi phạm quy tắc hoặc kỳ vọng xã hội: inappropriate language, inappropriate behavior (Anh: behaviour), inappropriate clothing for the office. Đi với for + người hoặc dịp. Đây là cách phê bình lịch sự mà không xúc phạm, nên email nhân sự thường nói bình luận đó inappropriate thay vì rude. Nhẹ hơn offensive và không nhất thiết là phạm pháp. Trái nghĩa là appropriate. Người Việt hay nhầm giới từ to và dạng từ appropriated."
+  },
+  "incoming": {
+    "mis": [
+      {
+        "w": "I answered the coming call.",
+        "r": "I answered the incoming call.",
+        "why": "Incoming là cái đang đến; coming chỉ thời gian sắp tới."
+      },
+      {
+        "w": "Incoming mails are checked daily.",
+        "r": "Incoming mail is checked daily.",
+        "why": "Mail không đếm được, không có s."
+      }
+    ],
+    "u": "Incoming là tính từ đứng trước danh từ, mô tả thứ đang đến hoặc người sắp nhận vai trò: incoming calls, incoming mail, the incoming manager. Trái nghĩa là outgoing. Có hai nghĩa: vật thể hoặc dữ liệu đang đến với bạn, như incoming messages, và người mới sắp bắt đầu, như the incoming president. Không đứng sau danh từ trong văn viết chuẩn. Inbound gần nghĩa trong logistics. Mail không đếm được nên không thêm s. Người Việt hay nhầm incoming với coming hoặc đặt tính từ sau danh từ."
+  },
+  "incur": {
+    "mis": [
+      {
+        "w": "I incurred to a fee.",
+        "r": "I incurred a fee.",
+        "why": "Incur là ngoại động từ, đi thẳng với tân ngữ."
+      },
+      {
+        "w": "The company was incurred a loss.",
+        "r": "The company incurred a loss.",
+        "why": "Incur ở thể chủ động; công ty là chủ thể."
+      }
+    ],
+    "u": "Incur nghĩa là phải chịu trách nhiệm về điều khó chịu, thường là chi phí, nợ, tiền phạt hay hình phạt, do chính hành động của bạn: incur expenses, incur a late fee, incur debt. Từ trang trọng, phổ biến trong tài chính và pháp lý. Chủ ngữ là người hoặc công ty phải trả, và thứ bị incur thường tiêu cực: không nói incur a profit. Cũng có thể chỉ cảm xúc: to incur someone's anger. Quá khứ là incurred. Người Việt hay dùng bị động hoặc chen giới từ to."
+  },
+  "indicator": {
+    "mis": [
+      {
+        "w": "Sales is a good indicator for success.",
+        "r": "Sales are a good indicator of success.",
+        "why": "Indicator of là mẫu thường dùng."
+      },
+      {
+        "w": "The indicators shows that the economy is growing.",
+        "r": "The indicators show that the economy is growing.",
+        "why": "Chủ ngữ số nhiều cần động từ số nhiều: indicators show."
+      }
+    ],
+    "u": "Indicator là thứ cho thấy trạng thái hoặc mức độ của điều khác: an economic indicator, a key performance indicator (KPI), an indicator of quality. Đây là danh từ đếm được, thường đi với of. Trong tiếng Anh Anh, indicator còn là đèn xi-nhan trên xe, người Mỹ gọi là turn signal. Trong khoa học, chất chỉ thị như giấy quỳ đổi màu. So với sign, indicator gợi ý bằng chứng đo lường được nên báo cáo hay dùng. Người Việt hay dùng giới từ for thay vì of."
+  }
 }

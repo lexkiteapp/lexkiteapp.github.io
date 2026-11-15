@@ -1,752 +1,752 @@
 {
- "nonetheless": {
-  "mis": [
-   {
-    "w": "The road was closed. Nonetheless of that, we arrived on time.",
-    "r": "The road was closed. Nonetheless, we arrived on time.",
-    "why": "Nonetheless stands alone as a linking adverb; it is not followed by of."
-   },
-   {
-    "w": "He was tired, nonetheless that he kept working.",
-    "r": "He was tired, but he kept working nonetheless.",
-    "why": "Nonetheless is an adverb, not a conjunction, so it cannot join a clause directly the way that does."
-   }
-  ],
-  "u": "Nonetheless is a formal linking adverb for a contrast with what was just said. It usually opens a sentence after a comma or sits after a semicolon, and it can also close a clause: \"It was risky, but we went ahead nonetheless.\" It is slightly more formal than still or even so, and about equal to nevertheless. Writers also split it as none the less, which is less common. Avoid it in casual chat, where but or anyway sounds more natural."
- },
- "precipitate": {
-  "mis": [
-   {
-    "w": "The news precipitated to a panic.",
-    "r": "The news precipitated a panic.",
-    "why": "As a verb, precipitate takes a direct object and needs no preposition."
-   },
-   {
-    "w": "She made a precipitate to quit her job.",
-    "r": "She made a precipitate decision to quit her job.",
-    "why": "As an adjective precipitate means hasty and must modify a noun; it is not a noun for a decision."
-   }
-  ],
-  "u": "Precipitate is a formal verb meaning to make something, usually unpleasant, happen suddenly or earlier than expected. Its subject is typically an event: a scandal, a shortage, a remark. It is stronger and more abrupt than cause, and close to trigger, which is more common and informal. As an adjective, precipitate /prɪˈsɪpɪtət/ means rash: a precipitate decision. In chemistry it is also a solid that forms in a liquid. Pronunciation changes with the part of speech."
- },
- "respectively": {
-  "mis": [
-   {
-    "w": "Respectively, Anna and Ben are 20 and 22.",
-    "r": "Anna and Ben are 20 and 22 respectively.",
-    "why": "Respectively normally comes after the paired items it matches, not at the start."
-   },
-   {
-    "w": "Tom and Mia won the first and second prize respective.",
-    "r": "Tom and Mia won first and second prize respectively.",
-    "why": "Use the adverb respectively; respective is an adjective and cannot end the sentence."
-   }
-  ],
-  "u": "Respectively matches two or more items in a list with another list in the same order, so it only makes sense when both lists have equal length: \"Cats and dogs have 4 and 4 legs.\" It usually appears at the end of the clause or in commas inside it. It is typical of reports, tables and exam essays, and rare in speech, where people say \"in that order\" or repeat each pair. Do not confuse it with the adjective respective, as in \"their respective jobs\"."
- },
- "thus": {
-  "mis": [
-   {
-    "w": "The price fell, thus we bought more.",
-    "r": "The price fell, so we bought more.",
-    "why": "Thus is an adverb and cannot join two clauses with only a comma; use so or a semicolon."
-   },
-   {
-    "w": "The test was easy, thus that everyone passed.",
-    "r": "The test was easy, and thus everyone passed.",
-    "why": "Thus is never followed by that; use so that only for purpose or such that after an adjective."
-   }
-  ],
-  "u": "Thus is a formal adverb that introduces a result or conclusion (\"Thus, the hypothesis was rejected\") or a method (\"hold it thus\"). It is common in academic writing, often followed by an -ing phrase: \"costs fell, thus making the product affordable\". It is more formal than so and about the same as therefore or hence. Thus far means up to now. In ordinary conversation people say so or that's why, and thus can sound stiff or old-fashioned."
- },
- "ubiquitous": {
-  "mis": [
-   {
-    "w": "Smartphones are ubiquitous in everywhere.",
-    "r": "Smartphones are ubiquitous in modern life.",
-    "why": "Ubiquitous already means everywhere; do not add another place word like in everywhere."
-   },
-   {
-    "w": "Coffee shops are very ubiquitously in this city.",
-    "r": "Coffee shops are ubiquitous in this city.",
-    "why": "Ubiquitous is an adjective and follows be; the adverb form ubiquitously is not used here."
-   }
-  ],
-  "u": "Ubiquitous describes something that seems to be present everywhere at once, usually a thing people notice or even tire of: ubiquitous smartphones, a ubiquitous logo. It is formal and mostly written, popular in articles about technology and culture. It is stronger than common or widespread and does not take a degree like very easily, though virtually ubiquitous is fine. The noun is ubiquity. Because of its initial sound, use \"a ubiquitous\" with a, not an."
- },
- "whilst": {
-  "mis": [
-   {
-    "w": "Whilst I was walking home, it started to rain, whilst the rain was heavy.",
-    "r": "While I was walking home, it started to rain heavily.",
-    "why": "Whilst is a variant of while and should not be repeated or stacked in one sentence."
-   },
-   {
-    "w": "I'll wait whilst of you finish.",
-    "r": "I'll wait while you finish.",
-    "why": "Whilst, like while, is a conjunction and is not followed by of."
-   }
-  ],
-  "u": "Whilst is a formal, mainly British variant of while, used in both senses: at the same time as (\"whilst driving\") and in contrast (\"whilst some agree, others do not\"). It is common in UK writing, law and reports, but sounds dated or pretentious in American English, where while is standard. Whilst never has an extra meaning that while lacks, so choose it only for style. Often the subject and be are dropped: \"whilst abroad\". Used in everyday speech, it may sound stiff."
- },
- "absorb": {
-  "mis": [
-   {
-    "w": "The sponge absorbs the water into itself.",
-    "r": "The sponge absorbs the water.",
-    "why": "Absorb takes a direct object; no extra preposition is needed."
-   },
-   {
-    "w": "She was absorbing by the movie.",
-    "r": "She was absorbed in the movie.",
-    "why": "Use the passive absorbed in for being deeply interested, not an -ing form with by."
-   }
-  ],
-  "u": "Absorb has three common uses: a material taking in liquid or energy (a towel absorbs water), a person taking in information (absorb new ideas), and a business or person handling a cost or shock (absorb the extra expense). Absorbed in means completely focused: absorbed in a novel. Compared with soak up, it is more neutral and slightly more formal. The noun absorption names the process. Note the spelling with b and the /z/ sound in the middle of the US pronunciation."
- },
- "acceptance": {
-  "mis": [
-   {
-    "w": "Thank you for your acceptance for the invitation.",
-    "r": "Thank you for your acceptance of the invitation.",
-    "why": "The noun acceptance is followed by of, not for."
-   },
-   {
-    "w": "There are many acceptances of this idea in society.",
-    "r": "There is widespread acceptance of this idea in society.",
-    "why": "In this sense acceptance is uncountable and does not take a plural."
-   }
-  ],
-  "u": "Acceptance has several uses: saying yes to an offer (acceptance of the job), a university admitting a student (an acceptance letter), and general approval or tolerance of something (acceptance of new technology). In the last sense it is uncountable. Acceptance of a thing stands against rejection; acceptance of a fact means coming to terms with it, as in \"acceptance of the diagnosis\". It is a general-purpose noun in business and daily life and is not especially formal."
- },
- "accessory": {
-  "mis": [
-   {
-    "w": "She bought a lot of accessory for her phone.",
-    "r": "She bought a lot of accessories for her phone.",
-    "why": "Accessory is countable; talk about several items with the plural accessories."
-   },
-   {
-    "w": "The shop sells phone accessory.",
-    "r": "The shop sells phone accessories.",
-    "why": "Use the plural when naming the product category."
-   }
-  ],
-  "u": "An accessory is an extra item that goes with a main one: a belt or scarf with an outfit, a charger or case with a phone. It is a countable noun, usually plural when naming the category: fashion accessories, kitchen accessories. In law, an accessory to a crime is someone who helps without committing it directly. In British English the stress may be on the first syllable. Accessory is not the same as accessories as a collective idea, which still takes a plural verb."
- },
- "accomplishment": {
-  "mis": [
-   {
-    "w": "She is a very accomplishment pianist.",
-    "r": "She is a very accomplished pianist.",
-    "why": "Accomplishment is a noun; before a noun use the adjective accomplished."
-   },
-   {
-    "w": "She is proud of her accomplishment in the last years.",
-    "r": "She is proud of her accomplishments over the last few years.",
-    "why": "Several achievements are expressed with the plural accomplishments."
-   }
-  ],
-  "u": "An accomplishment is something successfully done, often after effort: finishing a marathon, earning a degree. It can be countable (list your accomplishments on a job application) or uncountable when it means the act of completing (the accomplishment of the mission). It is close to achievement; accomplishment often stresses skill or completing a task, while achievement often suggests a measurable result. Sense of accomplishment is a very common phrase. The adjective accomplished describes a skilled person."
- },
- "accuracy": {
-  "mis": [
-   {
-    "w": "Please check the accuracies of the figures.",
-    "r": "Please check the accuracy of the figures.",
-    "why": "Accuracy is uncountable in this sense and has no plural."
-   },
-   {
-    "w": "The machine works with a high accuracy.",
-    "r": "The machine works with high accuracy.",
-    "why": "Do not put an article before uncountable accuracy when it is a general quality."
-   }
-  ],
-  "u": "Accuracy is the quality of being correct or exact, either in facts (the accuracy of a report) or in aim and measurement (the accuracy of a scale). It is normally uncountable and is followed by of. Accuracy is about being close to the truth, while precision is about being consistent and detailed, and scientists keep the two apart. The adjective is accurate, with a stress on the first syllable; the opposite noun is inaccuracy, which can be countable when it means a particular error."
- },
- "accurately": {
-  "mis": [
-   {
-    "w": "The report accurate describes the problem.",
-    "r": "The report accurately describes the problem.",
-    "why": "A verb needs the adverb accurately, not the adjective accurate."
-   },
-   {
-    "w": "He can accurately to predict the weather.",
-    "r": "He can accurately predict the weather.",
-    "why": "The adverb goes before the bare verb or after it, not before to."
-   }
-  ],
-  "u": "Accurately is the adverb of accurate: doing something in a way that is correct in detail. It usually sits before the main verb (accurately predict, accurately reflect) or after the object (measured it accurately). Compared with correctly, accurately suggests closeness to a real value or fact, so we say a thermometer reads accurately, while an answer is correct. In formal writing it often appears with reflect, represent and report. Avoid placing it between to and the verb."
- },
- "activate": {
-  "mis": [
-   {
-    "w": "Please activate for your new card online.",
-    "r": "Please activate your new card online.",
-    "why": "Activate takes a direct object and no preposition."
-   },
-   {
-    "w": "I activated my account but it still does not active.",
-    "r": "I activated my account, but it is still not active.",
-    "why": "Activate is a verb; use the adjective active after be."
-   }
-  ],
-  "u": "Activate means to make something start working or become available: you activate a card, an account, an alarm, a feature. It often refers to a one-time step that turns on something already supplied. It is more technical than turn on, and often contrasts with deactivate. In science, to activate can mean to cause a chemical or biological process to begin. The noun is activation. Companies usually write \"activate\" in instructions and apps, so you will see it on screens and letters."
- },
- "additionally": {
-  "mis": [
-   {
-    "w": "Additionally of the fee, you pay tax.",
-    "r": "In addition to the fee, you pay tax.",
-    "why": "Additionally is an adverb and is not followed by of or to; use in addition to."
-   },
-   {
-    "w": "The hotel is cheap. Additionally that it is clean.",
-    "r": "The hotel is cheap. Additionally, it is clean.",
-    "why": "Additionally starts a full clause; do not use that after it."
-   }
-  ],
-  "u": "Additionally is an adverb used to add another point, usually at the start of a sentence with a comma: \"Additionally, all staff must attend.\" It is common in reports and emails and neutral in formality, though many teachers discourage overusing it in essays; try also, moreover or what is more for variety. It is a sentence adverb, so it cannot be followed by a noun directly. For that, use in addition to or besides."
- },
- "adhere": {
-  "mis": [
-   {
-    "w": "All drivers must adhere the speed limit.",
-    "r": "All drivers must adhere to the speed limit.",
-    "why": "Adhere takes the preposition to before the rule or surface."
-   },
-   {
-    "w": "The staff adhered with the policy.",
-    "r": "The staff adhered to the policy.",
-    "why": "The correct preposition is to; with does not collocate."
-   }
-  ],
-  "u": "Adhere has two meanings. In the physical sense it means to stick to a surface (tape adheres to glass). In the common abstract sense, it means to follow a rule, belief or plan closely: adhere to guidelines, adhere to a schedule. Both always take to. It is formal and typical in contracts, safety notices and policies; in speech, people say stick to or follow. The related noun is adherence, and a person who supports an idea is an adherent."
- },
- "administer": {
-  "mis": [
-   {
-    "w": "The nurse administered to the patient a pill.",
-    "r": "The nurse administered a pill to the patient.",
-    "why": "Administer is transitive: the object comes directly after it."
-   },
-   {
-    "w": "Who administrate the exam?",
-    "r": "Who administers the exam?",
-    "why": "The verb is administer, not administrate, and takes -s in the present."
-   }
-  ],
-  "u": "Administer is a formal verb with three main senses. It can mean to manage an organisation or system (administer a fund), to give something officially (administer a test, administer medicine to a patient), or to carry out something like justice or punishment. It is more formal and bureaucratic than manage or run. The noun administration refers to the process or to the management body; a person doing this is an administrator. Do not shorten the verb into administrate."
- },
- "administrative": {
-  "mis": [
-   {
-    "w": "She works as an administration assistant.",
-    "r": "She works as an administrative assistant.",
-    "why": "Before a noun, use the adjective administrative, not the noun administration."
-   },
-   {
-    "w": "The administrative is very busy.",
-    "r": "The administration is very busy.",
-    "why": "Administrative is an adjective and needs a noun; the noun for the department is administration."
-   }
-  ],
-  "u": "Administrative describes the work of running an organisation: scheduling, filing, paperwork, budgets. It appears in job titles (administrative assistant) and phrases such as administrative costs, administrative staff and administrative error. Its tone is neutral and a bit dry; clerical points to routine office tasks, while managerial points to decision-making. In law, administrative law concerns government bodies. Be careful to use it before a noun, while administration names the activity or the managing group itself."
- },
- "advancement": {
-  "mis": [
-   {
-    "w": "There are many advancements in this company for staff.",
-    "r": "There are many opportunities for advancement in this company.",
-    "why": "In the sense of promotion, advancement is uncountable and takes for, not a plural."
-   },
-   {
-    "w": "He wants advancement his career.",
-    "r": "He wants career advancement.",
-    "why": "Advancement is a noun; do not use it as a verb with an object."
-   }
-  ],
-  "u": "Advancement means progress, either in a person's job (career advancement, promotion) or in a field (advancement of medicine). In the job sense it is uncountable: \"limited opportunities for advancement\". In the field sense, it can be countable as advancements, often for technology: recent advancements in AI. It is a little more formal than progress, and advance can also be a verb or a noun. The phrase advancement of knowledge is common in academic writing."
- },
- "advisable": {
-  "mis": [
-   {
-    "w": "It is advisable you to book early.",
-    "r": "It is advisable to book early.",
-    "why": "After advisable, use to + verb or that, never a person plus infinitive."
-   },
-   {
-    "w": "We advisable you to arrive early.",
-    "r": "We advise you to arrive early.",
-    "why": "Advisable is an adjective; the verb is advise."
-   }
-  ],
-  "u": "Advisable is an adjective meaning that something is sensible or recommended, nearly always used in the structure it is advisable to + verb, or it is advisable that + subject + verb. It is a polite, slightly formal way to suggest action without giving orders, found in notices and travel advice. The stronger phrase it is highly advisable shows a clearer push, while not advisable warns against something. The verb is advise and the noun is advice (uncountable), so do not mix the forms."
- },
- "advisor": {
-  "mis": [
-   {
-    "w": "My advisor gave me many advices.",
-    "r": "My advisor gave me a lot of advice.",
-    "why": "Advice is uncountable; the person is an advisor."
-   },
-   {
-    "w": "She is my advice at the university.",
-    "r": "She is my advisor at the university.",
-    "why": "Advisor names the person; advice is the thing given."
-   }
-  ],
-  "u": "An advisor (also spelled adviser, especially in British English) is a person who gives expert guidance in a field: a financial advisor, an academic advisor, a legal advisor. In American universities, an academic advisor helps students choose courses. Advisor often has a slightly formal sense and suggests a defined role; mentor implies a closer long-term relationship. Both spellings are correct. The related noun advice is uncountable and never takes a plural, which is a common source of mistakes."
- },
- "advisory": {
-  "mis": [
-   {
-    "w": "The committee has an advisory of the decision.",
-    "r": "The committee plays an advisory role in the decision.",
-    "why": "Advisory is mainly an adjective; the noun form means an official warning."
-   },
-   {
-    "w": "He is an advisory of the company.",
-    "r": "He is an advisor to the company.",
-    "why": "A person is an advisor; advisory describes a role or body."
-   }
-  ],
-  "u": "Advisory is an adjective for something whose job is to give advice rather than make decisions: an advisory board, an advisory role. As a noun, an advisory is an official warning or notice, most often a travel advisory or a weather advisory, which is typical American usage. An advisory board can recommend but usually cannot force action. The related person noun is advisor; do not use advisory for people. In news, a health advisory tells the public to take care."
- },
- "affirmative": {
-  "mis": [
-   {
-    "w": "She answered affirmatively with yes.",
-    "r": "She gave an affirmative answer.",
-    "why": "Use the adjective affirmative before a noun; affirmatively is an adverb."
-   },
-   {
-    "w": "The answer was affirmation.",
-    "r": "The answer was affirmative.",
-    "why": "Affirmation is a noun for a statement of support; use affirmative as the adjective."
-   }
-  ],
-  "u": "Affirmative is a formal adjective meaning saying yes or agreeing: an affirmative answer, an affirmative vote. In the phrase in the affirmative, it works like a noun: \"The board replied in the affirmative.\" It is the opposite of negative. In grammar, an affirmative sentence is a positive statement, not a question or negation. Affirmative action, a policy that helps groups that have faced discrimination, is a well-known phrase, especially in American English."
- },
- "airfare": {
-  "mis": [
-   {
-    "w": "How much is the airfare of the plane?",
-    "r": "How much is the airfare to Hanoi?",
-    "why": "Airfare already means the cost of a flight; use to with a destination."
-   },
-   {
-    "w": "I bought two airfares.",
-    "r": "I bought two plane tickets.",
-    "why": "Airfare is uncountable; the item you buy is a ticket."
-   }
-  ],
-  "u": "Airfare is the price you pay for a plane journey, not the ticket itself. It is mostly an American word, used in travel and business expenses (the company reimburses airfare). Airfare is uncountable, so you say airfares only when comparing different prices. People usually buy a ticket, and the ticket costs the airfare. British speakers more often say air fare or just fare, and flight cost. Phrases: round-trip airfare, one-way airfare, airfare to Tokyo."
- },
- "alert": {
-  "mis": [
-   {
-    "w": "The doctor alerted that the patient was weak.",
-    "r": "The doctor warned that the patient was weak.",
-    "why": "Alert takes a person object: alert someone to or of a danger."
-   },
-   {
-    "w": "Stay alerting during the night shift.",
-    "r": "Stay alert during the night shift.",
-    "why": "The adjective alert has no -ing form here; use stay alert."
-   }
-  ],
-  "u": "Alert works as an adjective (a watchful guard), a noun (a weather alert, a notification on your phone), and a verb (alert the police). As a verb it needs an object: alert someone to a risk. As an adjective it follows be, stay or remain, and also modifies nouns: an alert student. Alert suggests readiness and attention, a bit stronger than awake. In technology, an alert is an automatic message. The idiom on alert means ready for possible danger."
- },
- "alternate": {
-  "mis": [
-   {
-    "w": "We meet on alternative Mondays.",
-    "r": "We meet on alternate Mondays.",
-    "why": "Alternate means every other one; alternative means a different option."
-   },
-   {
-    "w": "He alternates with working and resting.",
-    "r": "He alternates between working and resting.",
-    "why": "The verb alternate takes between … and … or with, not with an -ing form."
-   }
-  ],
-  "u": "Alternate has two pronunciations. As an adjective /ˈɔːltərnət/ it means happening every other time (\"alternate weeks\") and, in American English, also another choice, such as an alternate route. As a verb /ˈɔːltərneɪt/ it means to take turns: alternate between hot and cold. British speakers prefer alternative for the second meaning, so alternate route may sound American. Do not mix alternate with alternative when you mean different option in careful UK writing."
- },
- "alternatively": {
-  "mis": [
-   {
-    "w": "Alternatively of taking the bus, walk.",
-    "r": "Instead of taking the bus, walk.",
-    "why": "Alternatively does not take of; use instead of for substitutions."
-   },
-   {
-    "w": "You can pay by card, alternatively, you can pay cash.",
-    "r": "You can pay by card; alternatively, you can pay cash.",
-    "why": "Alternatively is not a conjunction, so a comma alone is not enough."
-   }
-  ],
-  "u": "Alternatively introduces another possibility or option, usually at the start of a sentence: \"You can pay online; alternatively, call the office.\" It is neutral to formal, common in instructions and emails, and often follows or: \"or, alternatively,\". It does not mean \"on the other hand\" as a contrast of facts, but an offered choice. Unlike instead, it presents an equal option rather than a replacement. It cannot be followed by a noun, so use instead of for that."
- },
- "ambassador": {
-  "mis": [
-   {
-    "w": "He is the ambassador in Japan of Vietnam.",
-    "r": "He is the Vietnamese ambassador to Japan.",
-    "why": "An ambassador represents a country to another country, using to."
-   },
-   {
-    "w": "She is an ambassador of the company's sales.",
-    "r": "She is a brand ambassador for the company.",
-    "why": "Use brand ambassador for or of a brand for promotion work."
-   }
-  ],
-  "u": "An ambassador is the highest-ranking diplomat sent by one country to represent it in another: the US ambassador to France. The place of work is an embassy. In marketing, a brand ambassador is a person who promotes a company, often a celebrity or a loyal customer. By extension, a goodwill ambassador (for example for the UN) supports a cause. The pattern is ambassador to a country, and ambassador for a cause or brand. The feminine ambassadress is old-fashioned; ambassador is used for everyone."
- },
- "anew": {
-  "mis": [
-   {
-    "w": "She decided to begin a new anew.",
-    "r": "She decided to begin anew.",
-    "why": "Anew already means again in a fresh way; do not add new."
-   },
-   {
-    "w": "I want to anew start my life.",
-    "r": "I want to start my life anew.",
-    "why": "Anew normally follows the verb or object rather than coming before it."
-   }
-  ],
-  "u": "Anew is a literary adverb meaning again, in a new or different way: start anew, begin anew. It is common in poetry, speeches and reflective writing, and rare in everyday conversation, where people say again, over, from scratch or from the beginning. It usually comes at the end of the clause: \"We rebuilt the city anew.\" The prefix a- here is old; it works like afresh. Anew often suggests renewal and optimism, not just repetition."
- },
- "anniversary": {
-  "mis": [
-   {
-    "w": "Today is my birthday anniversary.",
-    "r": "Today is my birthday.",
-    "why": "Anniversary is for events, not personal birthdays; use birthday."
-   },
-   {
-    "w": "We celebrate our wedding anniversary in 2015.",
-    "r": "We celebrated our tenth wedding anniversary in 2025.",
-    "why": "Anniversary is the yearly date, not the original year of an event."
-   }
-  ],
-  "u": "An anniversary is the yearly return of the date on which something happened: a wedding anniversary, the company's twentieth anniversary, the anniversary of a disaster. It is not used for a person's own birth, which is a birthday, though the anniversary of someone's death is normal. Use the ordinal number before it: first, tenth, fiftieth. Special names exist for long milestones: silver (25th), golden (50th), diamond (60th). The preposition after it is of: the anniversary of the revolution."
- },
- "annually": {
-  "mis": [
-   {
-    "w": "The festival is held every annually.",
-    "r": "The festival is held annually.",
-    "why": "Annually already means every year; do not add every."
-   },
-   {
-    "w": "We pay annual for the insurance.",
-    "r": "We pay for the insurance annually.",
-    "why": "A verb is modified by the adverb annually, not the adjective annual."
-   }
-  ],
-  "u": "Annually is an adverb meaning once a year: reviewed annually, increases of 3% annually. It is a little more formal than yearly and common in business writing, contracts and finance (paid annually, per annum in Latin form). The adjective annual means happening each year (an annual report). Annually does not need every or each. Compare biannually (twice a year, but often confused with biennially, every two years), so use twice annually for clarity."
- },
- "apology": {
-  "mis": [
-   {
-    "w": "I want to apology for being late.",
-    "r": "I want to apologize for being late.",
-    "why": "Apology is a noun; the verb is apologize."
-   },
-   {
-    "w": "Please accept my apology of the mistake.",
-    "r": "Please accept my apology for the mistake.",
-    "why": "Use for after apology to name the reason."
-   }
-  ],
-  "u": "An apology is a statement that you are sorry for something. It is countable: make an apology, offer an apology, owe someone an apology. The usual structure is apology for + noun or -ing, and apology to + person: an apology to the customers for the delay. The verb is apologize (British also apologise), followed by to a person and for a reason. A sincere, public or formal apology adds weight. Do not confuse the noun with the verb. Also note that apologies is common when saying \"my apologies\"."
- },
- "applicable": {
-  "mis": [
-   {
-    "w": "This rule is applicable for all employees.",
-    "r": "This rule is applicable to all employees.",
-    "why": "Applicable is followed by to, not for."
-   },
-   {
-    "w": "Please fill all sections applicable.",
-    "r": "Please fill in all applicable sections.",
-    "why": "Applicable normally comes before the noun, or after be, except in fixed phrases."
-   }
-  ],
-  "u": "Applicable means relevant or able to be used in a particular case: applicable laws, a fee applicable to all orders. It is followed by to. Official forms often use where applicable, if applicable or not applicable (N/A) to tell people to skip sections. Applicable is more formal than relevant, and is typical of rules, taxes, contracts and instructions. The verb is apply and the noun is application. In British English, stress may fall on the second syllable /əˈplɪkəbl/ or first, with both heard."
- },
- "appraisal": {
-  "mis": [
-   {
-    "w": "I have an appraisal of my boss every year.",
-    "r": "My boss gives me a performance appraisal every year.",
-    "why": "In HR, the manager gives the appraisal to the employee."
-   },
-   {
-    "w": "The appraisement of the house was high.",
-    "r": "The appraisal of the house was high.",
-    "why": "The noun is appraisal; appraisement is rare and old."
-   }
-  ],
-  "u": "An appraisal is a formal assessment of the value, quality or performance of something. In companies, a performance appraisal is a regular review where a manager judges an employee's work (British English: staff appraisal). In property, an appraisal estimates the market value of a house, a word often used in American English; valuation is the British word. It can also be a general judgment: a realistic appraisal of the risks. The verb is appraise, not to be mixed up with apprise, meaning to inform."
- },
- "appreciation": {
-  "mis": [
-   {
-    "w": "I want to show my appreciation to your help.",
-    "r": "I want to show my appreciation for your help.",
-    "why": "Use for after appreciation, not to."
-   },
-   {
-    "w": "Thank you for your appreciations.",
-    "r": "Thank you for your appreciation.",
-    "why": "Appreciation is uncountable when it means gratitude."
-   }
-  ],
-  "u": "Appreciation has three main senses: gratitude (we sent flowers in appreciation of her help), understanding of the value of something (an appreciation of music), and a rise in value (the appreciation of the dollar or property). In the first two, it is mostly uncountable and takes for or of. A written note of appreciation sounds warm and a bit formal. Compared with thanks, appreciation suggests more thought. The verb appreciate is common in polite requests: I would appreciate it if you could..."
- },
- "apprentice": {
-  "mis": [
-   {
-    "w": "He is an apprentice in learning carpentry.",
-    "r": "He is a carpentry apprentice.",
-    "why": "Apprentice already means someone learning a trade; keep the phrase short."
-   },
-   {
-    "w": "She apprentices at the electrician.",
-    "r": "She is an apprentice to an electrician.",
-    "why": "As a noun, apprentice goes with to + the master or with + a company."
-   }
-  ],
-  "u": "An apprentice is someone who learns a skilled trade while working for an expert, often with a mix of paid work and classroom study: an apprentice electrician, plumber or chef. The system is an apprenticeship, with the pattern apprentice to a master, or at a company. Compared with an intern, who often learns office skills for a short time, an apprentice usually works toward a recognised qualification over years. The verb exists (to apprentice someone) but sounds old-fashioned."
- },
- "archive": {
-  "mis": [
-   {
-    "w": "Old files are saved in an archives.",
-    "r": "Old files are kept in the archive.",
-    "why": "Use archive for one collection, archives for a group of collections."
-   },
-   {
-    "w": "I archive the mail to delete it.",
-    "r": "I archived the mail to clear my inbox.",
-    "why": "In email, archive means store out of sight, not delete."
-   }
-  ],
-  "u": "An archive is a collection of historical or important records, or the place where they are kept: a company archive, the national archives. As a verb, it means to store such records, and in computing it means to move files you no longer need to a separate place without deleting them, as when you archive an email. The plural archives often names an institution (the State Archives). Archive footage means old film. Stress is on the first syllable, and the noun and verb sound the same."
- },
- "assembly": {
-  "mis": [
-   {
-    "w": "The assembly of the machine is take two days.",
-    "r": "Assembly of the machine takes two days.",
-    "why": "Assembly is a noun; use a verb like takes for the action."
-   },
-   {
-    "w": "The students assembly in the hall every Monday.",
-    "r": "The students assemble in the hall every Monday.",
-    "why": "Assembly is the noun; the verb meaning to gather is assemble."
-   }
-  ],
-  "u": "Assembly has two main meanings. It can be the putting together of parts (the assembly of a car, assembly instructions, an assembly line in a factory) or a group of people gathered for a purpose (a school assembly, the General Assembly of the UN, a legislative assembly). The verb is assemble, with the same sense for both: to fit parts or to gather people. Unlike meeting, assembly suggests a larger, more formal or regular gathering, often in a hall."
- },
- "attendee": {
-  "mis": [
-   {
-    "w": "Each attendant will get a badge.",
-    "r": "Each attendee will get a badge.",
-    "why": "An attendant serves people, while an attendee goes to an event."
-   },
-   {
-    "w": "The attendees of the meeting was 50.",
-    "r": "There were 50 attendees at the meeting.",
-    "why": "Attendee is countable; use a plural verb with attendees."
-   }
-  ],
-  "u": "An attendee is a person who goes to an event such as a conference, meeting or concert. It is a neutral business word with the suffix -ee, which marks the one who receives or does something. Typical uses are conference attendees, a list of attendees and attendee registration. Compared with participant, attendee suggests simply being present, while participant suggests taking part. Do not confuse it with attendant, who works at a place, such as a flight attendant. Use at with the event: attendees at the meeting."
- },
- "attire": {
-  "mis": [
-   {
-    "w": "I bought three attires for the party.",
-    "r": "I bought new attire for the party.",
-    "why": "Attire is uncountable, so it has no plural or a/an."
-   },
-   {
-    "w": "Please wear attire formal.",
-    "r": "Please wear formal attire.",
-    "why": "Adjectives come before attire."
-   }
-  ],
-  "u": "Attire is a formal word for clothes, especially those suited to an occasion: business attire, evening attire, appropriate attire. It is uncountable. You will see it in invitations and dress-code rules (smart casual attire). In everyday speech, people say clothes or what to wear, and attire sounds careful or even humorous. The verb attire is rare and appears in the passive in writing: attired in a dark suit. Compare outfit, which is a particular set of clothes and countable."
- },
- "attorney": {
-  "mis": [
-   {
-    "w": "He is a lawyer attorney.",
-    "r": "He is an attorney.",
-    "why": "Attorney and lawyer are alternatives; do not stack them."
-   },
-   {
-    "w": "The attorney of me said I should not talk.",
-    "r": "My attorney told me not to talk.",
-    "why": "Use a possessive before attorney, not of me."
-   }
-  ],
-  "u": "Attorney is the usual American word for a lawyer who is licensed to represent clients in court and give legal advice. It is more formal than lawyer in everyday talk but used equally in the US. In the UK, solicitor and barrister are used instead. Common phrases: defense attorney, district attorney (a prosecutor), attorney general (a top government legal officer) and power of attorney, which is permission to act for another person. It is not used for notaries, which differ in many countries."
- },
- "auction": {
-  "mis": [
-   {
-    "w": "The painting was sold in auction.",
-    "r": "The painting was sold at auction.",
-    "why": "The fixed phrase is at auction, not in auction."
-   },
-   {
-    "w": "They auction the house to a stranger.",
-    "r": "They auctioned the house off.",
-    "why": "As a verb, auction usually takes off when stressing the sale: auction off."
-   }
-  ],
-  "u": "An auction is a public sale in which people offer prices, or bids, and the highest bidder buys the item. The usual preposition is at: sold at auction, put up for auction. Types include online auctions (like eBay), silent auctions in charity events, and Dutch auctions with falling prices. As a verb, auction off means to sell something this way: they auctioned off the old furniture. An auction house, such as Sotheby's, holds sales of art and antiques. The person running it is an auctioneer."
- },
- "author": {
-  "mis": [
-   {
-    "w": "The author of the novel is wrote by Tolstoy.",
-    "r": "The novel was written by Tolstoy, its author.",
-    "why": "Author names the person; written by is used with the passive."
-   },
-   {
-    "w": "She authored a article.",
-    "r": "She authored an article.",
-    "why": "Use an before article; a before the vowel sound is wrong."
-   }
-  ],
-  "u": "An author is the writer of a book, article or report, and by extension the originator of an idea or plan: \"the author of the plan\". It is slightly more formal than writer, which can describe a profession; an author usually has a specific work. In academic writing the author's name is cited, and the lead author is the main contributor. The verb to author appears in business: authored a report. Pronunciation has /θ/ as in think, not a /t/ or /d/ sound."
- },
- "authorization": {
-  "mis": [
-   {
-    "w": "I need authorization to access to the file.",
-    "r": "I need authorization to access the file.",
-    "why": "Access is a verb here and takes a direct object, so no preposition."
-   },
-   {
-    "w": "You must have an authorize from the manager.",
-    "r": "You must have authorization from the manager.",
-    "why": "Authorize is a verb; the noun is authorization."
-   }
-  ],
-  "u": "Authorization is official permission to do something or the act of giving it: written authorization, prior authorization from an insurer. It is uncountable in general use but countable when it means a specific approval or code (an authorization from the bank). In computing, authorization decides what a logged-in user may do, different from authentication, which proves identity. The British spelling is authorisation. The verb authorize takes a person and to: authorize staff to sign. It is formal and typical of business and legal texts."
- },
- "automotive": {
-  "mis": [
-   {
-    "w": "He works in the automotive of cars.",
-    "r": "He works in the automotive industry.",
-    "why": "Automotive is an adjective and must go before a noun like industry."
-   },
-   {
-    "w": "I bought an automotive for my family.",
-    "r": "I bought a car for my family.",
-    "why": "Automotive does not name a vehicle; use car."
-   }
-  ],
-  "u": "Automotive is an adjective that relates to motor vehicles, their design, manufacture and sale: the automotive industry, automotive parts, automotive technology. It appears in business, news and job titles. It is not a noun for a vehicle; use car, vehicle or automobile. In US shops, automotive is also a department name. Compared with auto, which is informal (auto repair), automotive sounds more official and technical. The word is built from auto- (self) and motive (moving)."
- },
- "availability": {
-  "mis": [
-   {
-    "w": "What is your availabilities next week?",
-    "r": "What is your availability next week?",
-    "why": "Availability is uncountable and has no plural."
-   },
-   {
-    "w": "The availability for rooms is low.",
-    "r": "The availability of rooms is low.",
-    "why": "Use of after availability with the thing that is available."
-   }
-  ],
-  "u": "Availability means being free to meet or work (my availability next week) or being able to be obtained, such as a product, room or service (check availability, subject to availability). It is an uncountable noun and normally takes of: the availability of seats. In emails, \"please let me know your availability\" asks for free times. A hotel or ticket site may say \"limited availability\" or \"no availability\". The adjective is available, and the opposite is unavailability. It is neutral and everywhere in business English."
- },
- "bacteria": {
-  "mis": [
-   {
-    "w": "A bacteria can cause infection.",
-    "r": "A bacterium can cause infection.",
-    "why": "Bacteria is the plural; the singular form is bacterium."
-   },
-   {
-    "w": "The bacteria is dangerous.",
-    "r": "The bacteria are dangerous.",
-    "why": "In careful writing, bacteria takes a plural verb."
-   }
-  ],
-  "u": "Bacteria are microscopic single-celled organisms; some cause disease, while others help digestion or make cheese and yogurt. Strictly, bacteria is plural and the singular is bacterium, though many people use bacteria as a singular, especially in speech. It is uncountable-like in common use (killing bacteria) and with numbers we say types of bacteria. Germs is the everyday word, and microbe a general scientific term. The adjective is bacterial, as in a bacterial infection."
- },
- "bankruptcy": {
-  "mis": [
-   {
-    "w": "The company went bankruptcy last year.",
-    "r": "The company went bankrupt last year.",
-    "why": "After go, use the adjective bankrupt; bankruptcy is a noun."
-   },
-   {
-    "w": "He filed bankruptcy.",
-    "r": "He filed for bankruptcy.",
-    "why": "The verb file takes for before bankruptcy."
-   }
-  ],
-  "u": "Bankruptcy is the legal state of a person or company that cannot pay its debts, usually declared by a court. It is mostly uncountable: file for bankruptcy, declare bankruptcy, go into bankruptcy. The adjective is bankrupt: go bankrupt, be declared bankrupt. A company can go bankrupt, but you cannot say it goes bankruptcy. In everyday talk, going broke is informal; insolvency is a more technical term for being unable to pay, and may not involve a court."
- },
- "basket": {
-  "mis": [
-   {
-    "w": "She put the clothes in the laundry baskets.",
-    "r": "She put the clothes in the laundry basket.",
-    "why": "Use the singular for one container."
-   },
-   {
-    "w": "I added the shoes into my shopping bag online.",
-    "r": "I added the shoes to my basket online.",
-    "why": "On shopping sites, use basket (UK) or cart (US) with add to."
-   }
-  ],
-  "u": "A basket is a container with an open top made of woven strips, plastic or wire, used for carrying or storing: a laundry basket, a picnic basket. In shops, a basket is smaller than a trolley or cart. On shopping sites, British English uses basket and American English uses cart: add to basket. A gift basket holds food or presents. A basket of means a group of items measured together, as in economics. In basketball, the basket is the hoop."
- },
- "beneficial": {
-  "mis": [
-   {
-    "w": "Exercise is beneficial of your health.",
-    "r": "Exercise is beneficial to your health.",
-    "why": "Beneficial is followed by to or for, not of."
-   },
-   {
-    "w": "It is a beneficial for all.",
-    "r": "It is beneficial to all.",
-    "why": "Do not add an article before beneficial when it follows be."
-   }
-  ],
-  "u": "Beneficial describes something that has a good effect or gives an advantage: a beneficial effect, a mutually beneficial deal. It takes to or for: beneficial to health, beneficial for children. It is more formal than helpful or good and common in science, business and policy. Mutually beneficial means both sides gain. The noun is benefit and the person who receives it is a beneficiary. Prove beneficial, find it beneficial and be beneficial are natural patterns, whereas \"a beneficial for\" is not."
- },
- "benefit": {
-  "mis": [
-   {
-    "w": "Students benefit of this program.",
-    "r": "Students benefit from this program.",
-    "why": "The verb benefit takes from for the source of the advantage."
-   },
-   {
-    "w": "It brings many benefit.",
-    "r": "It brings many benefits.",
-    "why": "Benefit is countable in this sense and needs a plural for several advantages."
-   }
-  ],
-  "u": "Benefit is a noun for an advantage or helpful effect (the health benefits of walking) and for extras that come with a job, called employee benefits, such as insurance and paid leave. It is also a verb: benefit from something, or benefit someone. The past form benefited or benefitted are both seen, with benefited more common. Idioms include for the benefit of and give someone the benefit of the doubt. In the US, benefit also means money paid by the state: unemployment benefit."
- }
+  "nonetheless": {
+    "mis": [
+      {
+        "w": "The road was closed. Nonetheless of that, we arrived on time.",
+        "r": "The road was closed. Nonetheless, we arrived on time.",
+        "why": "Nonetheless stands alone as a linking adverb; it is not followed by of."
+      },
+      {
+        "w": "He was tired, nonetheless that he kept working.",
+        "r": "He was tired, but he kept working nonetheless.",
+        "why": "Nonetheless is an adverb, not a conjunction, so it cannot join a clause directly the way that does."
+      }
+    ],
+    "u": "Nonetheless is a formal linking adverb for a contrast with what was just said. It usually opens a sentence after a comma or sits after a semicolon, and it can also close a clause: \"It was risky, but we went ahead nonetheless.\" It is slightly more formal than still or even so, and about equal to nevertheless. Writers also split it as none the less, which is less common. Avoid it in casual chat, where but or anyway sounds more natural."
+  },
+  "precipitate": {
+    "mis": [
+      {
+        "w": "The news precipitated to a panic.",
+        "r": "The news precipitated a panic.",
+        "why": "As a verb, precipitate takes a direct object and needs no preposition."
+      },
+      {
+        "w": "She made a precipitate to quit her job.",
+        "r": "She made a precipitate decision to quit her job.",
+        "why": "As an adjective precipitate means hasty and must modify a noun; it is not a noun for a decision."
+      }
+    ],
+    "u": "Precipitate is a formal verb meaning to make something, usually unpleasant, happen suddenly or earlier than expected. Its subject is typically an event: a scandal, a shortage, a remark. It is stronger and more abrupt than cause, and close to trigger, which is more common and informal. As an adjective, precipitate /prɪˈsɪpɪtət/ means rash: a precipitate decision. In chemistry it is also a solid that forms in a liquid. Pronunciation changes with the part of speech."
+  },
+  "respectively": {
+    "mis": [
+      {
+        "w": "Respectively, Anna and Ben are 20 and 22.",
+        "r": "Anna and Ben are 20 and 22 respectively.",
+        "why": "Respectively normally comes after the paired items it matches, not at the start."
+      },
+      {
+        "w": "Tom and Mia won the first and second prize respective.",
+        "r": "Tom and Mia won first and second prize respectively.",
+        "why": "Use the adverb respectively; respective is an adjective and cannot end the sentence."
+      }
+    ],
+    "u": "Respectively matches two or more items in a list with another list in the same order, so it only makes sense when both lists have equal length: \"Cats and dogs have 4 and 4 legs.\" It usually appears at the end of the clause or in commas inside it. It is typical of reports, tables and exam essays, and rare in speech, where people say \"in that order\" or repeat each pair. Do not confuse it with the adjective respective, as in \"their respective jobs\"."
+  },
+  "thus": {
+    "mis": [
+      {
+        "w": "The price fell, thus we bought more.",
+        "r": "The price fell, so we bought more.",
+        "why": "Thus is an adverb and cannot join two clauses with only a comma; use so or a semicolon."
+      },
+      {
+        "w": "The test was easy, thus that everyone passed.",
+        "r": "The test was easy, and thus everyone passed.",
+        "why": "Thus is never followed by that; use so that only for purpose or such that after an adjective."
+      }
+    ],
+    "u": "Thus is a formal adverb that introduces a result or conclusion (\"Thus, the hypothesis was rejected\") or a method (\"hold it thus\"). It is common in academic writing, often followed by an -ing phrase: \"costs fell, thus making the product affordable\". It is more formal than so and about the same as therefore or hence. Thus far means up to now. In ordinary conversation people say so or that's why, and thus can sound stiff or old-fashioned."
+  },
+  "ubiquitous": {
+    "mis": [
+      {
+        "w": "Smartphones are ubiquitous in everywhere.",
+        "r": "Smartphones are ubiquitous in modern life.",
+        "why": "Ubiquitous already means everywhere; do not add another place word like in everywhere."
+      },
+      {
+        "w": "Coffee shops are very ubiquitously in this city.",
+        "r": "Coffee shops are ubiquitous in this city.",
+        "why": "Ubiquitous is an adjective and follows be; the adverb form ubiquitously is not used here."
+      }
+    ],
+    "u": "Ubiquitous describes something that seems to be present everywhere at once, usually a thing people notice or even tire of: ubiquitous smartphones, a ubiquitous logo. It is formal and mostly written, popular in articles about technology and culture. It is stronger than common or widespread and does not take a degree like very easily, though virtually ubiquitous is fine. The noun is ubiquity. Because of its initial sound, use \"a ubiquitous\" with a, not an."
+  },
+  "whilst": {
+    "mis": [
+      {
+        "w": "Whilst I like the design, but it is too expensive.",
+        "r": "Whilst I like the design, it is too expensive.",
+        "why": "Whilst already marks the contrast, so do not add but."
+      },
+      {
+        "w": "I'll wait whilst of you finish.",
+        "r": "I'll wait while you finish.",
+        "why": "Whilst, like while, is a conjunction and is not followed by of."
+      }
+    ],
+    "u": "Whilst is a formal, mainly British variant of while, used in both senses: at the same time as (\"whilst driving\") and in contrast (\"whilst some agree, others do not\"). It is common in UK writing, law and reports, but sounds dated or pretentious in American English, where while is standard. Whilst never has an extra meaning that while lacks, so choose it only for style. Often the subject and be are dropped: \"whilst abroad\". Used in everyday speech, it may sound stiff."
+  },
+  "absorb": {
+    "mis": [
+      {
+        "w": "The sponge absorbs the water into itself.",
+        "r": "The sponge absorbs the water.",
+        "why": "Absorb takes a direct object; no extra preposition is needed."
+      },
+      {
+        "w": "She was absorbing by the movie.",
+        "r": "She was absorbed in the movie.",
+        "why": "Use the passive absorbed in for being deeply interested, not an -ing form with by."
+      }
+    ],
+    "u": "Absorb has three common uses: a material taking in liquid or energy (a towel absorbs water), a person taking in information (absorb new ideas), and a business or person handling a cost or shock (absorb the extra expense). Absorbed in means completely focused: absorbed in a novel. Compared with soak up, it is more neutral and slightly more formal. The noun absorption names the process. Note the spelling with b and the /z/ sound in the middle of the US pronunciation."
+  },
+  "acceptance": {
+    "mis": [
+      {
+        "w": "Thank you for your acceptance for the invitation.",
+        "r": "Thank you for your acceptance of the invitation.",
+        "why": "The noun acceptance is followed by of, not for."
+      },
+      {
+        "w": "There are many acceptances of this idea in society.",
+        "r": "There is widespread acceptance of this idea in society.",
+        "why": "In this sense acceptance is uncountable and does not take a plural."
+      }
+    ],
+    "u": "Acceptance has several uses: saying yes to an offer (acceptance of the job), a university admitting a student (an acceptance letter), and general approval or tolerance of something (acceptance of new technology). In the last sense it is uncountable. Acceptance of a thing stands against rejection; acceptance of a fact means coming to terms with it, as in \"acceptance of the diagnosis\". It is a general-purpose noun in business and daily life and is not especially formal."
+  },
+  "accessory": {
+    "mis": [
+      {
+        "w": "She bought a lot of accessory for her phone.",
+        "r": "She bought a lot of accessories for her phone.",
+        "why": "Accessory is countable; talk about several items with the plural accessories."
+      },
+      {
+        "w": "The shop sells phone accessory.",
+        "r": "The shop sells phone accessories.",
+        "why": "Use the plural when naming the product category."
+      }
+    ],
+    "u": "An accessory is an extra item that goes with a main one: a belt or scarf with an outfit, a charger or case with a phone. It is a countable noun, usually plural when naming the category: fashion accessories, kitchen accessories. In law, an accessory to a crime is someone who helps without committing it directly. In British English the stress may be on the first syllable. Accessory is not the same as accessories as a collective idea, which still takes a plural verb."
+  },
+  "accomplishment": {
+    "mis": [
+      {
+        "w": "She is a very accomplishment pianist.",
+        "r": "She is a very accomplished pianist.",
+        "why": "Accomplishment is a noun; before a noun use the adjective accomplished."
+      },
+      {
+        "w": "She is proud of her accomplishment in the last years.",
+        "r": "She is proud of her accomplishments over the last few years.",
+        "why": "Several achievements are expressed with the plural accomplishments."
+      }
+    ],
+    "u": "An accomplishment is something successfully done, often after effort: finishing a marathon, earning a degree. It can be countable (list your accomplishments on a job application) or uncountable when it means the act of completing (the accomplishment of the mission). It is close to achievement; accomplishment often stresses skill or completing a task, while achievement often suggests a measurable result. Sense of accomplishment is a very common phrase. The adjective accomplished describes a skilled person."
+  },
+  "accuracy": {
+    "mis": [
+      {
+        "w": "Please check the accuracies of the figures.",
+        "r": "Please check the accuracy of the figures.",
+        "why": "Accuracy is uncountable in this sense and has no plural."
+      },
+      {
+        "w": "The machine works with a high accuracy.",
+        "r": "The machine works with high accuracy.",
+        "why": "Do not put an article before uncountable accuracy when it is a general quality."
+      }
+    ],
+    "u": "Accuracy is the quality of being correct or exact, either in facts (the accuracy of a report) or in aim and measurement (the accuracy of a scale). It is normally uncountable and is followed by of. Accuracy is about being close to the truth, while precision is about being consistent and detailed, and scientists keep the two apart. The adjective is accurate, with a stress on the first syllable; the opposite noun is inaccuracy, which can be countable when it means a particular error."
+  },
+  "accurately": {
+    "mis": [
+      {
+        "w": "The report accurate describes the problem.",
+        "r": "The report accurately describes the problem.",
+        "why": "A verb needs the adverb accurately, not the adjective accurate."
+      },
+      {
+        "w": "He can accurately to predict the weather.",
+        "r": "He can accurately predict the weather.",
+        "why": "The adverb goes before the bare verb or after it, not before to."
+      }
+    ],
+    "u": "Accurately is the adverb of accurate: doing something in a way that is correct in detail. It usually sits before the main verb (accurately predict, accurately reflect) or after the object (measured it accurately). Compared with correctly, accurately suggests closeness to a real value or fact, so we say a thermometer reads accurately, while an answer is correct. In formal writing it often appears with reflect, represent and report. Avoid placing it between to and the verb."
+  },
+  "activate": {
+    "mis": [
+      {
+        "w": "Please activate for your new card online.",
+        "r": "Please activate your new card online.",
+        "why": "Activate takes a direct object and no preposition."
+      },
+      {
+        "w": "I activated my account but it still does not active.",
+        "r": "I activated my account, but it is still not active.",
+        "why": "Activate is a verb; use the adjective active after be."
+      }
+    ],
+    "u": "Activate means to make something start working or become available: you activate a card, an account, an alarm, a feature. It often refers to a one-time step that turns on something already supplied. It is more technical than turn on, and often contrasts with deactivate. In science, to activate can mean to cause a chemical or biological process to begin. The noun is activation. Companies usually write \"activate\" in instructions and apps, so you will see it on screens and letters."
+  },
+  "additionally": {
+    "mis": [
+      {
+        "w": "Additionally of the fee, you pay tax.",
+        "r": "In addition to the fee, you pay tax.",
+        "why": "Additionally is an adverb and is not followed by of or to; use in addition to."
+      },
+      {
+        "w": "The hotel is cheap. Additionally that it is clean.",
+        "r": "The hotel is cheap. Additionally, it is clean.",
+        "why": "Additionally starts a full clause; do not use that after it."
+      }
+    ],
+    "u": "Additionally is an adverb used to add another point, usually at the start of a sentence with a comma: \"Additionally, all staff must attend.\" It is common in reports and emails and neutral in formality, though many teachers discourage overusing it in essays; try also, moreover or what is more for variety. It is a sentence adverb, so it cannot be followed by a noun directly. For that, use in addition to or besides."
+  },
+  "adhere": {
+    "mis": [
+      {
+        "w": "All drivers must adhere the speed limit.",
+        "r": "All drivers must adhere to the speed limit.",
+        "why": "Adhere takes the preposition to before the rule or surface."
+      },
+      {
+        "w": "The staff adhered with the policy.",
+        "r": "The staff adhered to the policy.",
+        "why": "The correct preposition is to; with does not collocate."
+      }
+    ],
+    "u": "Adhere has two meanings. In the physical sense it means to stick to a surface (tape adheres to glass). In the common abstract sense, it means to follow a rule, belief or plan closely: adhere to guidelines, adhere to a schedule. Both always take to. It is formal and typical in contracts, safety notices and policies; in speech, people say stick to or follow. The related noun is adherence, and a person who supports an idea is an adherent."
+  },
+  "administer": {
+    "mis": [
+      {
+        "w": "The nurse administered to the patient a pill.",
+        "r": "The nurse administered a pill to the patient.",
+        "why": "Administer is transitive: the object comes directly after it."
+      },
+      {
+        "w": "Who administrate the exam?",
+        "r": "Who administers the exam?",
+        "why": "The verb is administer, not administrate, and takes -s in the present."
+      }
+    ],
+    "u": "Administer is a formal verb with three main senses. It can mean to manage an organisation or system (administer a fund), to give something officially (administer a test, administer medicine to a patient), or to carry out something like justice or punishment. It is more formal and bureaucratic than manage or run. The noun administration refers to the process or to the management body; a person doing this is an administrator. Do not shorten the verb into administrate."
+  },
+  "administrative": {
+    "mis": [
+      {
+        "w": "She works as an administration assistant.",
+        "r": "She works as an administrative assistant.",
+        "why": "Before a noun, use the adjective administrative, not the noun administration."
+      },
+      {
+        "w": "The administrative is very busy.",
+        "r": "The administration is very busy.",
+        "why": "Administrative is an adjective and needs a noun; the noun for the department is administration."
+      }
+    ],
+    "u": "Administrative describes the work of running an organisation: scheduling, filing, paperwork, budgets. It appears in job titles (administrative assistant) and phrases such as administrative costs, administrative staff and administrative error. Its tone is neutral and a bit dry; clerical points to routine office tasks, while managerial points to decision-making. In law, administrative law concerns government bodies. Be careful to use it before a noun, while administration names the activity or the managing group itself."
+  },
+  "advancement": {
+    "mis": [
+      {
+        "w": "There are many advancements in this company for staff.",
+        "r": "There are many opportunities for advancement in this company.",
+        "why": "In the sense of promotion, advancement is uncountable and takes for, not a plural."
+      },
+      {
+        "w": "He wants advancement his career.",
+        "r": "He wants career advancement.",
+        "why": "Advancement is a noun; do not use it as a verb with an object."
+      }
+    ],
+    "u": "Advancement means progress, either in a person's job (career advancement, promotion) or in a field (advancement of medicine). In the job sense it is uncountable: \"limited opportunities for advancement\". In the field sense, it can be countable as advancements, often for technology: recent advancements in AI. It is a little more formal than progress, and advance can also be a verb or a noun. The phrase advancement of knowledge is common in academic writing."
+  },
+  "advisable": {
+    "mis": [
+      {
+        "w": "It is advisable you to book early.",
+        "r": "It is advisable to book early.",
+        "why": "After advisable, use to + verb or that, never a person plus infinitive."
+      },
+      {
+        "w": "We advisable you to arrive early.",
+        "r": "We advise you to arrive early.",
+        "why": "Advisable is an adjective; the verb is advise."
+      }
+    ],
+    "u": "Advisable is an adjective meaning that something is sensible or recommended, nearly always used in the structure it is advisable to + verb, or it is advisable that + subject + verb. It is a polite, slightly formal way to suggest action without giving orders, found in notices and travel advice. The stronger phrase it is highly advisable shows a clearer push, while not advisable warns against something. The verb is advise and the noun is advice (uncountable), so do not mix the forms."
+  },
+  "advisor": {
+    "mis": [
+      {
+        "w": "My advisor gave me many advices.",
+        "r": "My advisor gave me a lot of advice.",
+        "why": "Advice is uncountable; the person is an advisor."
+      },
+      {
+        "w": "She is my advice at the university.",
+        "r": "She is my advisor at the university.",
+        "why": "Advisor names the person; advice is the thing given."
+      }
+    ],
+    "u": "An advisor (also spelled adviser, especially in British English) is a person who gives expert guidance in a field: a financial advisor, an academic advisor, a legal advisor. In American universities, an academic advisor helps students choose courses. Advisor often has a slightly formal sense and suggests a defined role; mentor implies a closer long-term relationship. Both spellings are correct. The related noun advice is uncountable and never takes a plural, which is a common source of mistakes."
+  },
+  "advisory": {
+    "mis": [
+      {
+        "w": "He gave me a good advisory.",
+        "r": "He gave me good advice.",
+        "why": "An advisory is an official warning; for personal guidance use advice."
+      },
+      {
+        "w": "He is an advisory of the company.",
+        "r": "He is an advisor to the company.",
+        "why": "A person is an advisor; advisory describes a role or body."
+      }
+    ],
+    "u": "Advisory is an adjective for something whose job is to give advice rather than make decisions: an advisory board, an advisory role. As a noun, an advisory is an official warning or notice, most often a travel advisory or a weather advisory, which is typical American usage. An advisory board can recommend but usually cannot force action. The related person noun is advisor; do not use advisory for people. In news, a health advisory tells the public to take care."
+  },
+  "affirmative": {
+    "mis": [
+      {
+        "w": "She answered affirmatively with yes.",
+        "r": "She gave an affirmative answer.",
+        "why": "Use the adjective affirmative before a noun; affirmatively is an adverb."
+      },
+      {
+        "w": "The answer was affirmation.",
+        "r": "The answer was affirmative.",
+        "why": "Affirmation is a noun for a statement of support; use affirmative as the adjective."
+      }
+    ],
+    "u": "Affirmative is a formal adjective meaning saying yes or agreeing: an affirmative answer, an affirmative vote. In the phrase in the affirmative, it works like a noun: \"The board replied in the affirmative.\" It is the opposite of negative. In grammar, an affirmative sentence is a positive statement, not a question or negation. Affirmative action, a policy that helps groups that have faced discrimination, is a well-known phrase, especially in American English."
+  },
+  "airfare": {
+    "mis": [
+      {
+        "w": "I lost my airfare.",
+        "r": "I lost my plane ticket.",
+        "why": "Airfare is the price, not the document; the document is a ticket."
+      },
+      {
+        "w": "I bought two airfares.",
+        "r": "I bought two plane tickets.",
+        "why": "Airfare is uncountable; the item you buy is a ticket."
+      }
+    ],
+    "u": "Airfare is the price you pay for a plane journey, not the ticket itself. It is mostly an American word, used in travel and business expenses (the company reimburses airfare). Airfare is uncountable, so you say airfares only when comparing different prices. You buy a ticket, and the ticket costs the airfare. British speakers more often say air fare, fare or flight cost. Phrases: round-trip airfare, one-way airfare, airfare to Tokyo."
+  },
+  "alert": {
+    "mis": [
+      {
+        "w": "The doctor alerted that the patient was weak.",
+        "r": "The doctor alerted the nurse that the patient was weak.",
+        "why": "Alert needs a person object: alert someone that something is wrong."
+      },
+      {
+        "w": "Stay alerting during the night shift.",
+        "r": "Stay alert during the night shift.",
+        "why": "The adjective alert has no -ing form here; use stay alert."
+      }
+    ],
+    "u": "Alert works as an adjective (a watchful guard), a noun (a weather alert, a notification on your phone), and a verb (alert the police). As a verb it needs an object: alert someone to a risk. As an adjective it follows be, stay or remain, and also modifies nouns: an alert student. Alert suggests readiness and attention, a bit stronger than awake. In technology, an alert is an automatic message. The idiom on alert means ready for possible danger."
+  },
+  "alternate": {
+    "mis": [
+      {
+        "w": "We meet on alternative Mondays.",
+        "r": "We meet on alternate Mondays.",
+        "why": "Alternate means every other one; alternative means a different option."
+      },
+      {
+        "w": "He alternates with working and resting.",
+        "r": "He alternates between working and resting.",
+        "why": "The verb alternate takes between … and … or with, not with an -ing form."
+      }
+    ],
+    "u": "Alternate has two pronunciations. As an adjective /ˈɔːltərnət/ it means happening every other time (\"alternate weeks\") and, in American English, also another choice, such as an alternate route. As a verb /ˈɔːltərneɪt/ it means to take turns: alternate between hot and cold. British speakers prefer alternative for the second meaning, so alternate route may sound American. Do not mix alternate with alternative when you mean different option in careful UK writing."
+  },
+  "alternatively": {
+    "mis": [
+      {
+        "w": "Alternatively of taking the bus, walk.",
+        "r": "Instead of taking the bus, walk.",
+        "why": "Alternatively does not take of; use instead of for substitutions."
+      },
+      {
+        "w": "You can pay by card, alternatively, you can pay cash.",
+        "r": "You can pay by card; alternatively, you can pay cash.",
+        "why": "Alternatively is not a conjunction, so a comma alone is not enough."
+      }
+    ],
+    "u": "Alternatively introduces another possibility or option, usually at the start of a sentence: \"You can pay online; alternatively, call the office.\" It is neutral to formal, common in instructions and emails, and often follows or: \"or, alternatively,\". It does not mean \"on the other hand\" as a contrast of facts, but an offered choice. Unlike instead, it presents an equal option rather than a replacement. It cannot be followed by a noun, so use instead of for that."
+  },
+  "ambassador": {
+    "mis": [
+      {
+        "w": "He is the ambassador in Japan of Vietnam.",
+        "r": "He is the Vietnamese ambassador to Japan.",
+        "why": "An ambassador represents a country to another country, using to."
+      },
+      {
+        "w": "He works at the ambassador in Hanoi.",
+        "r": "He works at the embassy in Hanoi.",
+        "why": "An ambassador is a person; the building is an embassy."
+      }
+    ],
+    "u": "An ambassador is the highest-ranking diplomat sent by one country to represent it in another: the US ambassador to France. The place of work is an embassy. In marketing, a brand ambassador is a person who promotes a company, often a celebrity or a loyal customer. By extension, a goodwill ambassador (for example for the UN) supports a cause. The pattern is ambassador to a country, and ambassador for a cause or brand. The feminine ambassadress is old-fashioned; ambassador is used for everyone."
+  },
+  "anew": {
+    "mis": [
+      {
+        "w": "She decided to begin a new anew.",
+        "r": "She decided to begin anew.",
+        "why": "Anew already means again in a fresh way; do not add new."
+      },
+      {
+        "w": "I want to anew start my life.",
+        "r": "I want to start my life anew.",
+        "why": "Anew normally follows the verb or object rather than coming before it."
+      }
+    ],
+    "u": "Anew is a literary adverb meaning again, in a new or different way: start anew, begin anew. It is common in poetry, speeches and reflective writing, and rare in everyday conversation, where people say again, over, from scratch or from the beginning. It usually comes at the end of the clause: \"We rebuilt the city anew.\" The prefix a- here is old; it works like afresh. Anew often suggests renewal and optimism, not just repetition."
+  },
+  "anniversary": {
+    "mis": [
+      {
+        "w": "Today is my birthday anniversary.",
+        "r": "Today is my birthday.",
+        "why": "Anniversary is for events, not personal birthdays; use birthday."
+      },
+      {
+        "w": "We celebrate our wedding anniversary in 2015.",
+        "r": "We celebrated our tenth wedding anniversary in 2025.",
+        "why": "Anniversary is the yearly date, not the original year of an event."
+      }
+    ],
+    "u": "An anniversary is the yearly return of the date on which something happened: a wedding anniversary, the company's twentieth anniversary, the anniversary of a disaster. It is not used for a person's own birth, which is a birthday, though the anniversary of someone's death is normal. Use the ordinal number before it: first, tenth, fiftieth. Special names exist for long milestones: silver (25th), golden (50th), diamond (60th). The preposition after it is of: the anniversary of the revolution."
+  },
+  "annually": {
+    "mis": [
+      {
+        "w": "The festival is held every annually.",
+        "r": "The festival is held annually.",
+        "why": "Annually already means every year; do not add every."
+      },
+      {
+        "w": "We pay annual for the insurance.",
+        "r": "We pay for the insurance annually.",
+        "why": "A verb is modified by the adverb annually, not the adjective annual."
+      }
+    ],
+    "u": "Annually is an adverb meaning once a year: reviewed annually, increases of 3% annually. It is a little more formal than yearly and common in business writing, contracts and finance (paid annually, per annum in Latin form). The adjective annual means happening each year (an annual report). Annually does not need every or each. Compare biannually (twice a year, but often confused with biennially, every two years), so use twice annually for clarity."
+  },
+  "apology": {
+    "mis": [
+      {
+        "w": "I want to apology for being late.",
+        "r": "I want to apologize for being late.",
+        "why": "Apology is a noun; the verb is apologize."
+      },
+      {
+        "w": "Please accept my apology of the mistake.",
+        "r": "Please accept my apology for the mistake.",
+        "why": "Use for after apology to name the reason."
+      }
+    ],
+    "u": "An apology is a statement that you are sorry for something. It is countable: make an apology, offer an apology, owe someone an apology. The usual structure is apology for + noun or -ing, and apology to + person: an apology to the customers for the delay. The verb is apologize (British also apologise), followed by to a person and for a reason. A sincere, public or formal apology adds weight. Do not confuse the noun with the verb. Also note that apologies is common when saying \"my apologies\"."
+  },
+  "applicable": {
+    "mis": [
+      {
+        "w": "This rule is applicable for all employees.",
+        "r": "This rule is applicable to all employees.",
+        "why": "Applicable is followed by to, not for."
+      },
+      {
+        "w": "Please fill all sections applicable.",
+        "r": "Please fill in all applicable sections.",
+        "why": "Applicable normally comes before the noun, or after be, except in fixed phrases."
+      }
+    ],
+    "u": "Applicable means relevant or able to be used in a particular case: applicable laws, a fee applicable to all orders. It is followed by to. Official forms often use where applicable, if applicable or not applicable (N/A) to tell people to skip sections. Applicable is more formal than relevant, and is typical of rules, taxes, contracts and instructions. The verb is apply and the noun is application. In British English, stress may fall on the second syllable /əˈplɪkəbl/ or first, with both heard."
+  },
+  "appraisal": {
+    "mis": [
+      {
+        "w": "I have an appraisal of my boss every year.",
+        "r": "My boss gives me a performance appraisal every year.",
+        "why": "In HR, the manager gives the appraisal to the employee."
+      },
+      {
+        "w": "The appraisement of the house was high.",
+        "r": "The appraisal of the house was high.",
+        "why": "The noun is appraisal; appraisement is rare and old."
+      }
+    ],
+    "u": "An appraisal is a formal assessment of the value, quality or performance of something. In companies, a performance appraisal is a regular review where a manager judges an employee's work (British English: staff appraisal). In property, an appraisal estimates the market value of a house, a word often used in American English; valuation is the British word. It can also be a general judgment: a realistic appraisal of the risks. The verb is appraise, not to be mixed up with apprise, meaning to inform."
+  },
+  "appreciation": {
+    "mis": [
+      {
+        "w": "I want to show my appreciation to your help.",
+        "r": "I want to show my appreciation for your help.",
+        "why": "Use for after appreciation, not to."
+      },
+      {
+        "w": "Thank you for your appreciations.",
+        "r": "Thank you for your appreciation.",
+        "why": "Appreciation is uncountable when it means gratitude."
+      }
+    ],
+    "u": "Appreciation has three main senses: gratitude (we sent flowers in appreciation of her help), understanding of the value of something (an appreciation of music), and a rise in value (the appreciation of the dollar or property). In the first two, it is mostly uncountable and takes for or of. A written note of appreciation sounds warm and a bit formal. Compared with thanks, appreciation suggests more thought. The verb appreciate is common in polite requests: I would appreciate it if you could..."
+  },
+  "apprentice": {
+    "mis": [
+      {
+        "w": "He did an apprentice at a garage.",
+        "r": "He did an apprenticeship at a garage.",
+        "why": "Apprentice is the person; the training period is an apprenticeship."
+      },
+      {
+        "w": "She is an apprentice at an electrician.",
+        "r": "She is an apprentice to an electrician.",
+        "why": "Use to with the person you learn from; at suits a company or workshop."
+      }
+    ],
+    "u": "An apprentice is someone who learns a skilled trade while working for an expert, often with a mix of paid work and classroom study: an apprentice electrician, plumber or chef. The system is an apprenticeship, with the pattern apprentice to a master, or at a company. Compared with an intern, who often learns office skills for a short time, an apprentice usually works toward a recognised qualification over years. The verb exists (to apprentice someone) but sounds old-fashioned."
+  },
+  "archive": {
+    "mis": [
+      {
+        "w": "Old files are saved in an archives.",
+        "r": "Old files are kept in the archive.",
+        "why": "Use archive for one collection, archives for a group of collections."
+      },
+      {
+        "w": "I put the old reports in archive.",
+        "r": "I put the old reports in the archive.",
+        "why": "Archive is a countable noun and needs an article."
+      }
+    ],
+    "u": "An archive is a collection of historical or important records, or the place where they are kept: a company archive, the national archives. As a verb, it means to store such records, and in computing it means to move files you no longer need to a separate place without deleting them, as when you archive an email. The plural archives often names an institution (the State Archives). Archive footage means old film. Stress is on the first syllable, and the noun and verb sound the same."
+  },
+  "assembly": {
+    "mis": [
+      {
+        "w": "The machine's assemble takes two days.",
+        "r": "The machine's assembly takes two days.",
+        "why": "After a possessive use the noun assembly; assemble is a verb."
+      },
+      {
+        "w": "The students assembly in the hall every Monday.",
+        "r": "The students assemble in the hall every Monday.",
+        "why": "Assembly is the noun; the verb meaning to gather is assemble."
+      }
+    ],
+    "u": "Assembly has two main meanings. It can be the putting together of parts (the assembly of a car, assembly instructions, an assembly line in a factory) or a group of people gathered for a purpose (a school assembly, the General Assembly of the UN, a legislative assembly). The verb is assemble, with the same sense for both: to fit parts or to gather people. Unlike meeting, assembly suggests a larger, more formal or regular gathering, often in a hall."
+  },
+  "attendee": {
+    "mis": [
+      {
+        "w": "Each attendant will get a badge.",
+        "r": "Each attendee will get a badge.",
+        "why": "An attendant serves people, while an attendee goes to an event."
+      },
+      {
+        "w": "The attendees of the meeting was 50.",
+        "r": "There were 50 attendees at the meeting.",
+        "why": "Attendee is countable; use a plural verb with attendees."
+      }
+    ],
+    "u": "An attendee is a person who goes to an event such as a conference, meeting or concert. It is a neutral business word with the suffix -ee, which marks the one who receives or does something. Typical uses are conference attendees, a list of attendees and attendee registration. Compared with participant, attendee suggests simply being present, while participant suggests taking part. Do not confuse it with attendant, who works at a place, such as a flight attendant. Use at with the event: attendees at the meeting."
+  },
+  "attire": {
+    "mis": [
+      {
+        "w": "I bought three attires for the party.",
+        "r": "I bought new attire for the party.",
+        "why": "Attire is uncountable, so it has no plural or a/an."
+      },
+      {
+        "w": "Please wear attire formal.",
+        "r": "Please wear formal attire.",
+        "why": "Adjectives come before attire."
+      }
+    ],
+    "u": "Attire is a formal word for clothes, especially those suited to an occasion: business attire, evening attire, appropriate attire. It is uncountable. You will see it in invitations and dress-code rules (smart casual attire). In everyday speech, people say clothes or what to wear, and attire sounds careful or even humorous. The verb attire is rare and appears in the passive in writing: attired in a dark suit. Compare outfit, which is a particular set of clothes and countable."
+  },
+  "attorney": {
+    "mis": [
+      {
+        "w": "In Britain, my attorney explained the contract.",
+        "r": "In Britain, my solicitor explained the contract.",
+        "why": "Attorney is mainly American; in Britain a lawyer is a solicitor or barrister."
+      },
+      {
+        "w": "My attorney advised to me not to speak.",
+        "r": "My attorney advised me not to speak.",
+        "why": "Advise takes the person directly, with no to."
+      }
+    ],
+    "u": "Attorney is the usual American word for a lawyer who is licensed to represent clients in court and give legal advice. It is slightly more formal than lawyer in everyday talk, though both are common in the US. In the UK, solicitor and barrister are used instead. Common phrases: defense attorney, district attorney (a prosecutor), attorney general (a top government legal officer) and power of attorney, which is permission to act for another person. It does not mean a notary, a different role in many countries."
+  },
+  "auction": {
+    "mis": [
+      {
+        "w": "The painting was sold in auction.",
+        "r": "The painting was sold at auction.",
+        "why": "The fixed phrase is at auction, not in auction."
+      },
+      {
+        "w": "They auctioned the house to the highest bid.",
+        "r": "They auctioned the house to the highest bidder.",
+        "why": "A bid is the offer; the person who offers is the bidder."
+      }
+    ],
+    "u": "An auction is a public sale in which people offer prices, or bids, and the highest bidder buys the item. The usual preposition is at: sold at auction, put up for auction. Types include online auctions (like eBay), silent auctions in charity events, and Dutch auctions with falling prices. As a verb, auction off means to sell something this way: they auctioned off the old furniture. An auction house, such as Sotheby's, holds sales of art and antiques. The person running it is an auctioneer."
+  },
+  "author": {
+    "mis": [
+      {
+        "w": "The author of this novel, he was born in Russia.",
+        "r": "The author of this novel was born in Russia.",
+        "why": "Do not repeat the subject with a pronoun."
+      },
+      {
+        "w": "She authored a article.",
+        "r": "She authored an article.",
+        "why": "Use an before article; a before the vowel sound is wrong."
+      }
+    ],
+    "u": "An author is the writer of a book, article or report, and by extension the originator of an idea or plan: \"the author of the plan\". It is slightly more formal than writer, which can describe a profession; an author usually has a specific work. In academic writing the author's name is cited, and the lead author is the main contributor. The verb to author appears in business: authored a report. Pronunciation has /θ/ as in think, not a /t/ or /d/ sound."
+  },
+  "authorization": {
+    "mis": [
+      {
+        "w": "I need authorization to access to the file.",
+        "r": "I need authorization to access the file.",
+        "why": "Access is a verb here and takes a direct object, so no preposition."
+      },
+      {
+        "w": "You must have an authorize from the manager.",
+        "r": "You must have authorization from the manager.",
+        "why": "Authorize is a verb; the noun is authorization."
+      }
+    ],
+    "u": "Authorization is official permission to do something or the act of giving it: written authorization, prior authorization from an insurer. It is uncountable in general use but countable when it means a specific approval or code (an authorization from the bank). In computing, authorization decides what a logged-in user may do, different from authentication, which proves identity. The British spelling is authorisation. The verb authorize takes a person and to: authorize staff to sign. It is formal and typical of business and legal texts."
+  },
+  "automotive": {
+    "mis": [
+      {
+        "w": "He works in the automotive of cars.",
+        "r": "He works in the automotive industry.",
+        "why": "Automotive is an adjective and must go before a noun like industry."
+      },
+      {
+        "w": "I bought an automotive for my family.",
+        "r": "I bought a car for my family.",
+        "why": "Automotive does not name a vehicle; use car."
+      }
+    ],
+    "u": "Automotive is an adjective that relates to motor vehicles, their design, manufacture and sale: the automotive industry, automotive parts, automotive technology. It appears in business, news and job titles. It is not a noun for a vehicle; use car, vehicle or automobile. In US shops, automotive is also a department name. Compared with auto, which is informal (auto repair), automotive sounds more official and technical. The word is built from auto- (self) and motive (moving)."
+  },
+  "availability": {
+    "mis": [
+      {
+        "w": "What is your availabilities next week?",
+        "r": "What is your availability next week?",
+        "why": "Availability is uncountable and has no plural."
+      },
+      {
+        "w": "The availability for rooms is low.",
+        "r": "The availability of rooms is low.",
+        "why": "Use of after availability with the thing that is available."
+      }
+    ],
+    "u": "Availability means being free to meet or work (my availability next week) or being able to be obtained, such as a product, room or service (check availability, subject to availability). It is an uncountable noun and normally takes of: the availability of seats. In emails, \"please let me know your availability\" asks for free times. A hotel or ticket site may say \"limited availability\" or \"no availability\". The adjective is available, and the opposite is unavailability. It is neutral and everywhere in business English."
+  },
+  "bacteria": {
+    "mis": [
+      {
+        "w": "A bacteria can cause infection.",
+        "r": "A bacterium can cause infection.",
+        "why": "Bacteria is the plural; the singular form is bacterium."
+      },
+      {
+        "w": "The bacteria is dangerous.",
+        "r": "The bacteria are dangerous.",
+        "why": "In careful writing, bacteria takes a plural verb."
+      }
+    ],
+    "u": "Bacteria are microscopic single-celled organisms; some cause disease, while others help digestion or make cheese and yogurt. Strictly, bacteria is plural and the singular is bacterium, though many people use bacteria as a singular, especially in speech. It is uncountable-like in common use (killing bacteria) and with numbers we say types of bacteria. Germs is the everyday word, and microbe a general scientific term. The adjective is bacterial, as in a bacterial infection."
+  },
+  "bankruptcy": {
+    "mis": [
+      {
+        "w": "The company went bankruptcy last year.",
+        "r": "The company went bankrupt last year.",
+        "why": "After go, use the adjective bankrupt; bankruptcy is a noun."
+      },
+      {
+        "w": "He filed bankruptcy.",
+        "r": "He filed for bankruptcy.",
+        "why": "The verb file takes for before bankruptcy."
+      }
+    ],
+    "u": "Bankruptcy is the legal state of a person or company that cannot pay its debts, usually declared by a court. It is mostly uncountable: file for bankruptcy, declare bankruptcy, go into bankruptcy. The adjective is bankrupt: go bankrupt, be declared bankrupt. A company can go bankrupt, but you cannot say it goes bankruptcy. In everyday talk, going broke is informal; insolvency is a more technical term for being unable to pay, and may not involve a court."
+  },
+  "basket": {
+    "mis": [
+      {
+        "w": "She put the clothes in the laundry baskets.",
+        "r": "She put the clothes in the laundry basket.",
+        "why": "Use the singular for one container."
+      },
+      {
+        "w": "I added the shoes into my shopping bag online.",
+        "r": "I added the shoes to my basket online.",
+        "why": "On shopping sites, use basket (UK) or cart (US) with add to."
+      }
+    ],
+    "u": "A basket is a container with an open top made of woven strips, plastic or wire, used for carrying or storing: a laundry basket, a picnic basket. In shops, a basket is smaller than a trolley or cart. On shopping sites, British English uses basket and American English uses cart: add to basket. A gift basket holds food or presents. A basket of means a group of items measured together, as in economics. In basketball, the basket is the hoop."
+  },
+  "beneficial": {
+    "mis": [
+      {
+        "w": "Exercise is beneficial of your health.",
+        "r": "Exercise is beneficial to your health.",
+        "why": "Beneficial is followed by to or for, not of."
+      },
+      {
+        "w": "Learning English is beneficial in your career.",
+        "r": "Learning English is beneficial for your career.",
+        "why": "Beneficial takes to or for, not in."
+      }
+    ],
+    "u": "Beneficial describes something that has a good effect or gives an advantage: a beneficial effect, a mutually beneficial deal. It takes to or for: beneficial to health, beneficial for children. It is more formal than helpful or good and common in science, business and policy. Mutually beneficial means both sides gain. The noun is benefit and the person who receives it is a beneficiary. Prove beneficial, find it beneficial and be beneficial are natural patterns, whereas \"a beneficial for\" is not."
+  },
+  "benefit": {
+    "mis": [
+      {
+        "w": "Students benefit of this program.",
+        "r": "Students benefit from this program.",
+        "why": "The verb benefit takes from for the source of the advantage."
+      },
+      {
+        "w": "It brings many benefit.",
+        "r": "It brings many benefits.",
+        "why": "Benefit is countable in this sense and needs a plural for several advantages."
+      }
+    ],
+    "u": "Benefit is a noun for an advantage or helpful effect (the health benefits of walking) and for extras that come with a job, called employee benefits, such as insurance and paid leave. It is also a verb: benefit from something, or benefit someone. The past form benefited or benefitted are both seen, with benefited more common. Idioms include for the benefit of and give someone the benefit of the doubt. In the US, benefit also means money paid by the state: unemployment benefit."
+  }
 }

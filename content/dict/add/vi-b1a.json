@@ -92,9 +92,9 @@
   "negate": {
     "mis": [
       {
-        "w": "He negated to answer the question.",
-        "r": "He refused to answer the question.",
-        "why": "Negate không có nghĩa là từ chối mà là làm mất tác dụng của điều gì đó."
+        "w": "He negated that he took the money.",
+        "r": "He denied taking the money.",
+        "why": "Negate nghĩa là vô hiệu hóa tác dụng của điều gì; muốn nói điều gì không đúng thì dùng deny."
       },
       {
         "w": "Bad weather negated from our plans.",
@@ -122,9 +122,9 @@
   "reliable": {
     "mis": [
       {
-        "w": "He is a reliable on person.",
-        "r": "He is a reliable person.",
-        "why": "Reliable là tính từ đứng trước danh từ; không thêm 'on' sau nó."
+        "w": "Our supplier is reliability and always on time.",
+        "r": "Our supplier is reliable and always on time.",
+        "why": "Reliability là danh từ; sau be phải dùng tính từ reliable."
       },
       {
         "w": "You can reliable on her.",
@@ -142,9 +142,9 @@
         "why": "Dùng 'at' khi nói về giao lộ, hoặc 'on' khi đang chạy vòng quanh."
       },
       {
-        "w": "Take the third exit from the roundabout then you will see it.",
-        "r": "Take the third exit off the roundabout, then you will see it.",
-        "why": "Dùng 'off' khi rời vòng xuyên và tách hai chỉ dẫn rõ ràng."
+        "w": "Take the third exit of the roundabout.",
+        "r": "Take the third exit off the roundabout.",
+        "why": "Sau exit với vòng xuyến dùng off (hoặc from), không dùng of."
       }
     ],
     "u": "Ở Anh, roundabout là vòng xuyến, xe chạy quanh đảo giữa và phải nhường xe đã ở trong vòng. Người Mỹ nói traffic circle hoặc rotary. Chỉ đường thường dùng 'exit': take the second exit at the roundabout. Từ này còn chỉ trò đu quay trẻ em, và là tính từ nghĩa vòng vo (a roundabout way). Người Việt hay nói 'in the roundabout' vì nghĩ vòng xuyến là một vùng, nhưng đúng là 'at' hoặc 'on'."
@@ -157,9 +157,9 @@
         "why": "Take away là động từ nghĩa 'mang đi/lấy đi'; mua đồ ăn mang về dùng get hoặc order a takeaway."
       },
       {
-        "w": "I eat takeaway every days.",
-        "r": "I eat takeaway food every day.",
-        "why": "Takeaway là danh từ chỉ bữa ăn nên cần 'food' hoặc mạo từ, và 'day' ở dạng số ít."
+        "w": "I ordered a take away yesterday.",
+        "r": "I ordered a takeaway yesterday.",
+        "why": "Danh từ viết liền takeaway; take away viết rời là cụm động từ nghĩa là lấy đi."
       }
     ],
     "u": "Takeaway là món ăn nóng mua ở nhà hàng rồi mang về ăn. Đây là từ Anh và Úc; người Mỹ nói takeout, một số vùng nói carryout. Từ chỉ cả bữa ăn (We had a Thai takeaway) lẫn quán bán đồ mang đi (the Indian takeaway on the corner). Cụm động từ: order hoặc get a takeaway. Nghĩa khác: a key takeaway là điểm chính cần nhớ sau buổi nói chuyện. Đừng nhầm với động từ take away, nghĩa là lấy đi."
@@ -167,9 +167,9 @@
   "trendy": {
     "mis": [
       {
-        "w": "She is a very trendy of girl.",
-        "r": "She is a very trendy girl.",
-        "why": "Trendy là tính từ, đặt thẳng trước danh từ, không thêm 'of'."
+        "w": "Bubble tea is very trendy in young people.",
+        "r": "Bubble tea is very trendy among young people.",
+        "why": "Dùng among, không dùng in, cho nhóm người chạy theo xu hướng."
       },
       {
         "w": "This style is trend now.",
@@ -202,9 +202,9 @@
         "why": "Accordingly là trạng từ; giới từ mang nghĩa 'theo như' là according to."
       },
       {
-        "w": "The rules changed, accordingly we must be act.",
-        "r": "The rules changed, so we must act accordingly.",
-        "why": "Accordingly bổ nghĩa cho động từ hoặc nối ý; không kết hợp với 'be' cộng động từ nguyên mẫu."
+        "w": "The rules have changed, and we must act according.",
+        "r": "The rules have changed, and we must act accordingly.",
+        "why": "Accordingly là trạng từ nghĩa là một cách phù hợp; according phải đi với to và danh từ."
       }
     ],
     "u": "Accordingly là trạng từ trang trọng có hai cách dùng. Một là 'một cách phù hợp với tình huống': Read the instructions and act accordingly. Hai là nối hai câu như therefore: Demand is rising; accordingly, prices will go up. Thường đứng cuối mệnh đề hoặc sau dấu chấm phẩy. Đừng nhầm với according to, cụm giới từ dùng để nêu nguồn hay quan điểm. Người Việt rất hay viết 'accordingly to' do nhầm hai cấu trúc này."
@@ -232,9 +232,9 @@
         "why": "Corroborate là ngoại động từ, không cần giới từ theo sau."
       },
       {
-        "w": "Police corroborated the witness to be honest.",
-        "r": "Police corroborated the witness's account.",
-        "why": "Ta corroborate một lời khai hoặc bằng chứng, không corroborate một người."
+        "w": "The evidence corroborated him.",
+        "r": "The evidence corroborated his story.",
+        "why": "Corroborate dùng cho lời khai hay câu chuyện, không dùng cho chính người nói."
       }
     ],
     "u": "Corroborate nghĩa là bổ sung bằng chứng độc lập để củng cố một lời khai, câu chuyện hay kết quả, khiến nó đáng tin hơn. Từ phổ biến trong pháp luật, báo chí và nghiên cứu: a second witness corroborated her account. Tân ngữ là điều được củng cố, không bao giờ là con người. Mạnh hơn support vì hàm ý có nguồn riêng biệt. Danh từ là corroboration. Người Việt hay thêm 'with' sau động từ này, nhưng đây là ngoại động từ."
@@ -247,9 +247,9 @@
         "why": "Curtail là ngoại động từ, đi thẳng với tân ngữ, không có giới từ."
       },
       {
-        "w": "The law will curtail to smoke.",
-        "r": "The law will curtail smoking.",
-        "why": "Sau curtail dùng danh từ hoặc dạng -ing, không dùng to + động từ."
+        "w": "They curtailed the speech short.",
+        "r": "They curtailed the speech.",
+        "why": "Curtail đã có nghĩa là cắt ngắn nên thêm short là thừa."
       }
     ],
     "u": "Curtail là động từ trang trọng, nghĩa là cắt ngắn hoặc hạn chế điều gì, nhất là quyền tự do, hoạt động hay thời gian: the injury curtailed his career. Từ thường mang sắc thái hơi tiêu cực vì sự việc bị dừng trước khi kết thúc tự nhiên. Trong nói hàng ngày với vật thể, dùng cut hoặc shorten. Tân ngữ hay gặp: spending, rights, powers, visits. Danh từ là curtailment. Sau curtail không dùng to + động từ."
@@ -277,9 +277,9 @@
         "why": "Với loài chỉ có ở một nơi, endemic đi với 'to'."
       },
       {
-        "w": "The flu is an endemic in winter.",
-        "r": "The flu is endemic in winter.",
-        "why": "Endemic là tính từ nên không có mạo từ đứng trước."
+        "w": "Malaria is endemic at many parts of Africa.",
+        "r": "Malaria is endemic in many parts of Africa.",
+        "why": "Bệnh thì endemic in một vùng; loài chỉ có ở đó thì endemic to."
       }
     ],
     "u": "Endemic có hai nghĩa chính. Trong sinh học, nó chỉ loài cây, con vật chỉ có tự nhiên ở một vùng: endemic to Australia. Trong y học và xã hội, nó chỉ bệnh hay vấn đề luôn hiện diện ở một nơi hay nhóm người, như endemic corruption (tham nhũng tràn lan). Khác với epidemic (bùng phát đột ngột) và pandemic (toàn cầu). Native chỉ nói nguồn gốc, không có nghĩa là không nơi nào khác có. Giới từ đi kèm là 'to'."
@@ -292,9 +292,9 @@
         "why": "Exacerbate là ngoại động từ, không cần giới từ."
       },
       {
-        "w": "This will exacerbate the situation better.",
-        "r": "This will exacerbate the situation.",
-        "why": "Exacerbate đã có nghĩa làm xấu đi, thêm 'better' là mâu thuẫn."
+        "w": "His constant lateness exacerbated me.",
+        "r": "His constant lateness exasperated me.",
+        "why": "Exacerbate là làm vấn đề tệ hơn; exasperate là làm ai đó rất bực mình."
       }
     ],
     "u": "Exacerbate là động từ trang trọng, nghĩa là làm điều vốn xấu trở nên tệ hơn: cơn đau, vấn đề, xung đột hay bệnh. Chỉ dùng cho điều tiêu cực, không thể exacerbate hạnh phúc. Thường xuất hiện ở bị động với by: tensions were exacerbated by the lack of water. Worsen đơn giản và trung tính hơn; aggravate gần nghĩa nhưng trong đời thường còn có nghĩa làm bực mình. Người Việt hay thêm giới từ sau exacerbate, thực ra không cần."
@@ -307,9 +307,9 @@
         "why": "Hitherto chỉ quá khứ đến hiện tại nên cần thì quá khứ hoặc hoàn thành, không dùng hiện tại tiếp diễn."
       },
       {
-        "w": "We will meet hitherto next week.",
-        "r": "We will meet again next week.",
-        "why": "Hitherto không bao giờ chỉ tương lai; nó chỉ nhìn lại đến hiện tại."
+        "w": "We will discuss it hitherto.",
+        "r": "We will discuss it hereafter.",
+        "why": "Hitherto nhìn về quá khứ tới hiện tại; muốn nói về sau này thì dùng hereafter."
       }
     ],
     "u": "Hitherto là trạng từ rất trang trọng, hơi cổ, nghĩa là cho đến thời điểm này. Dùng trong văn học thuật, luật và khi mô tả phát hiện mới: a hitherto unknown species. Thường đặt trước tính từ, phân từ quá khứ hoặc trước động từ. Nó nhìn lại từ hiện tại, không bao giờ chỉ tương lai, và không dùng trong nói, nơi so far hoặc until now tự nhiên hơn. Người học hay đặt sai thì hoặc dùng nó như trạng từ chỉ tương lai."
@@ -332,9 +332,9 @@
   "ostensibly": {
     "mis": [
       {
-        "w": "He ostensibly is rich, and I confirmed it.",
-        "r": "He is ostensibly rich, but I doubt it.",
-        "why": "Ostensibly hàm ý bề ngoài có thể sai nên không đi với sự thật đã xác nhận."
+        "w": "Ostensibly, the car is faster than the others.",
+        "r": "Obviously, the car is faster than the others.",
+        "why": "Ostensibly nghĩa là bề ngoài thì vậy nhưng có thể không thật; điều hiển nhiên thì dùng obviously."
       },
       {
         "w": "The trip was ostensible for business.",
@@ -352,9 +352,9 @@
         "why": "Otherwise mở đầu một mệnh đề nên vẫn cần chủ ngữ."
       },
       {
-        "w": "Study hard, otherwise than you fail.",
-        "r": "Study hard; otherwise, you will fail.",
-        "why": "Otherwise tự nó có nghĩa 'nếu không'; không thêm 'than' sau nó."
+        "w": "You must study hard, otherwise if you will fail.",
+        "r": "You must study hard; otherwise, you will fail.",
+        "why": "Otherwise đã có nghĩa là nếu không nên không thêm if."
       }
     ],
     "u": "Otherwise có nhiều cách dùng. Làm từ nối, nó có nghĩa 'nếu không thì': Leave now; otherwise you will be late. Làm trạng từ chỉ cách thức, nó nghĩa là khác đi: Unless told otherwise, assume the answer is yes. Còn có nghĩa 'về các mặt khác': an otherwise perfect day. Cụm cố định: or otherwise (hoặc ngược lại). Trong văn viết đặt sau dấu phẩy rất ổn; khi nói thì or else tự nhiên hơn. Người học hay quên chủ ngữ sau otherwise."
@@ -377,9 +377,9 @@
   "posit": {
     "mis": [
       {
-        "w": "She posited to explain the results.",
-        "r": "She posited a theory to explain the results.",
-        "why": "Posit cần tân ngữ hoặc mệnh đề that; không đi với to + động từ."
+        "w": "He posited the new method in the meeting.",
+        "r": "He proposed the new method in the meeting.",
+        "why": "Posit là giả định điều gì làm điểm xuất phát; muốn đề xuất kế hoạch thì dùng propose hoặc suggest."
       },
       {
         "w": "He posited about the origin of language.",
@@ -397,9 +397,9 @@
         "why": "Postulate là ngoại động từ; không thêm 'on'."
       },
       {
-        "w": "The postulate was explaining the results.",
-        "r": "The theory postulates a simple explanation.",
-        "why": "Động từ postulate cần chủ ngữ thực hiện hành động; danh từ postulate là giả định cơ bản."
+        "w": "The union postulated a pay rise.",
+        "r": "The union demanded a pay rise.",
+        "why": "Postulate là giả định làm cơ sở lập luận; muốn đòi hỏi thì dùng demand hoặc request."
       }
     ],
     "u": "Postulate nghĩa là đề xuất hoặc giả định điều gì tồn tại hay đúng, làm nền cho lập luận hay lý thuyết, thường khi chưa có bằng chứng. Dùng trong vật lý, toán, triết học: Einstein postulated that light speed is constant. Mạnh hơn posit vì coi ý tưởng như nền móng. Danh từ postulate là một tiên đề, giả định cơ bản. Phát âm khác: động từ kết thúc bằng -late như 'plate', danh từ là -lət. Người Việt hay thêm 'on' sau động từ này."
@@ -412,9 +412,9 @@
         "why": "Dùng trạng từ purportedly trước phân từ; động từ purport có cấu trúc khác."
       },
       {
-        "w": "The crime was purportedly, proved in court.",
+        "w": "The crime was purportedly proved in court.",
         "r": "The crime was proved in court.",
-        "why": "Purportedly mang ý nghi ngờ nên mâu thuẫn với sự thật đã được chứng minh."
+        "why": "Purportedly báo hiệu sự nghi ngờ nên mâu thuẫn với điều đã được chứng minh."
       }
     ],
     "u": "Purportedly là trạng từ trang trọng dùng để thuật lại một tuyên bố mà không xác nhận; người viết ngầm cho thấy điều đó có thể sai. Đặc trưng của tin tức và văn bản pháp lý: a letter purportedly signed by the director. Gần với allegedly (thường dính đến cáo buộc) và supposedly (thân mật hơn). Đứng trước phân từ hoặc tính từ. Vì mang ý nghi ngờ nên không dùng cho sự thật đã biết chắc. Người học hay nhầm với động từ purport."
@@ -427,9 +427,9 @@
         "why": "Replicate là ngoại động từ và không đi với 'with'."
       },
       {
-        "w": "The experiment was replicated again and again for a test.",
-        "r": "The experiment was replicated several times.",
-        "why": "Replicate đã có nghĩa lặp lại nên 'again' là thừa, và 'for a test' không rõ nghĩa."
+        "w": "The experiment was replicated again by another lab.",
+        "r": "The experiment was replicated by another lab.",
+        "why": "Replicate đã có nghĩa là lặp lại nên again là thừa."
       }
     ],
     "u": "Replicate nghĩa là lặp lại một nghiên cứu hay thí nghiệm và thu được cùng kết quả, hoặc nói chung là tạo bản sao chính xác. Trong khoa học, tái lập (replication) là phép thử độ tin cậy: kết quả không tái lập được thì đáng ngờ. Trong sinh học, tế bào và virus tự nhân bản (replicate); trong tin học là sao chép dữ liệu. Copy là từ thường ngày. Replicate mang giọng kỹ thuật, tân ngữ hay gặp: results, findings, a study."
@@ -442,9 +442,9 @@
         "why": "Splurge dùng 'on' trước thứ bạn mua."
       },
       {
-        "w": "I will splurge my money to save for a house.",
-        "r": "I will not splurge, because I am saving for a house.",
-        "why": "Splurge là chi nhiều cho thứ không cần thiết nên mâu thuẫn với việc tiết kiệm."
+        "w": "He splurged on cheap snacks.",
+        "r": "He bought some cheap snacks.",
+        "why": "Splurge nghĩa là chi nhiều cho món xa xỉ nên không hợp với đồ rẻ tiền."
       }
     ],
     "u": "Splurge là động từ thân mật, nghĩa là chi nhiều tiền hơn mức cần thiết cho thứ mình thích, thường chỉ một lần: We splurged on a hotel with a sea view. Cấu trúc: splurge on something; người Anh hay nói splurge out. Cũng là danh từ: a shopping splurge. Nhẹ hơn squander (phung phí), nên splurge thường là cái thú 'tự thưởng' hơn là sai lầm thật. Người Việt dễ dịch thành 'vung tiền' và quên giới từ 'on'."
@@ -452,9 +452,9 @@
   "subsequently": {
     "mis": [
       {
-        "w": "The factory closed in 2010 and subsequently of that became a museum.",
+        "w": "The factory closed in 2010 and subsequent became a museum.",
         "r": "The factory closed in 2010 and subsequently became a museum.",
-        "why": "Subsequently là trạng từ đứng trước động từ; không đi với 'of'."
+        "why": "Động từ được bổ nghĩa bằng trạng từ subsequently, không phải tính từ subsequent."
       },
       {
         "w": "Subsequently of the war, prices rose.",
@@ -487,9 +487,9 @@
         "why": "Ultimately là một trạng từ đơn; không ghép với 'of all'."
       },
       {
-        "w": "He ultimately to win the race.",
-        "r": "He ultimately won the race.",
-        "why": "Ultimately đứng trước động từ chính và động từ phải chia đúng."
+        "w": "Ultimately, he won the race finally.",
+        "r": "Ultimately, he won the race.",
+        "why": "Ultimately đã có nghĩa là rốt cuộc nên finally là thừa."
       }
     ],
     "u": "Ultimately có hai nghĩa. Một là 'sau cả quá trình dài': After many delays, the bridge was ultimately finished. Hai là 'xét đến cùng, về bản chất': Ultimately, a language is a way of communicating. Trong bài luận, nó hay mở đầu phán đoán cuối cùng, rất hợp cho đoạn kết. So với finally, ultimately mang tính suy xét hơn; eventually nhấn vào việc phải chờ lâu; fundamentally tập trung vào cốt lõi. Người Việt hay thêm 'of all' sau từ này."
@@ -587,9 +587,9 @@
   "bandwidth": {
     "mis": [
       {
-        "w": "I have not enough bandwidth for this task.",
+        "w": "I have no enough bandwidth for this task.",
         "r": "I do not have enough bandwidth for this task.",
-        "why": "Dùng cấu trúc phủ định bình thường với trợ động từ do."
+        "why": "Phải nói do not have enough; no enough không đúng ngữ pháp."
       },
       {
         "w": "My bandwidths are full this week.",
@@ -602,9 +602,9 @@
   "bug": {
     "mis": [
       {
-        "w": "The app has a bug on the payment page.",
-        "r": "The app has a bug in the payment page.",
-        "why": "Bug nằm bên trong mã hoặc hệ thống nên 'in' tự nhiên hơn 'on'."
+        "w": "The app has many bug on the payment page.",
+        "r": "The app has many bugs on the payment page.",
+        "why": "Bug đếm được nên nhiều lỗi thì cần -s."
       },
       {
         "w": "I solved the bugs of this code.",
@@ -637,9 +637,9 @@
         "why": "Deploy là ngoại động từ; thứ được triển khai là tân ngữ, còn to chỉ đích đến."
       },
       {
-        "w": "The software was deployed by to the server.",
-        "r": "The software was deployed to the server.",
-        "why": "Chỉ dùng một giới từ to để chỉ nơi triển khai."
+        "w": "We deployed the update in production.",
+        "r": "We deployed the update to production.",
+        "why": "Deploy đi với to cho môi trường mà bạn phát hành vào."
       }
     ],
     "u": "Trong công nghệ, deploy nghĩa là đưa phần mềm, bản cập nhật hay dịch vụ vào môi trường thật để người dùng sử dụng: deploy to production, to the cloud, to staging. Nhóm kỹ thuật nói về deployment và pipeline tự động. Ngoài IT, nó có nghĩa quân sự là điều binh lính, thiết bị vào vị trí, và nghĩa kinh doanh là sử dụng nguồn lực hiệu quả. Release gần nghĩa nhưng nhấn vào việc công bố phiên bản. Người Việt hay thêm 'to' trước tân ngữ."
@@ -712,9 +712,9 @@
         "why": "Hence là trạng từ, không phải liên từ như because nên không nối mệnh đề được."
       },
       {
-        "w": "The shop is small, hence the shop has high prices.",
-        "r": "The shop is small, hence the high prices.",
-        "why": "Sau hence, cụm danh từ ngắn nghe tự nhiên; lặp lại cả mệnh đề thì vụng."
+        "w": "The road is closed, hence that we are late.",
+        "r": "The road is closed, hence we are late.",
+        "why": "Hence đi trực tiếp với mệnh đề hoặc cụm danh từ, không có that."
       }
     ],
     "u": "Hence là trạng từ trang trọng nghĩa là vì lý do này, và rất hay đứng trước cụm danh từ hơn là một mệnh đề đầy đủ: The shop is small, hence the high prices. Cụm cố định: hence the name, hence the need for. Cũng có nghĩa 'từ nay' như a year hence, nhưng hơi cổ. Hence trang trọng và gọn hơn so hoặc therefore, vốn đi được với cả mệnh đề. Dạng thân mật hence why khá phổ biến trong lời nói. Người Việt hay đặt một mệnh đề đầy đủ sau hence."
@@ -737,9 +737,9 @@
   "likewise": {
     "mis": [
       {
-        "w": "Likewise to you, I enjoy music.",
-        "r": "I enjoy music; likewise, my brother does.",
-        "why": "Likewise nối hai ý tương tự; 'to you' chỉ dùng trong câu đáp, không chèn trong câu."
+        "w": "She enjoys hiking. Likewise, I enjoy it too.",
+        "r": "She enjoys hiking. Likewise, I enjoy it.",
+        "why": "Likewise đã có nghĩa là cũng vậy nên too là thừa."
       },
       {
         "w": "I'm happy to meet you. - Me likewise.",

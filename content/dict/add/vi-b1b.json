@@ -1,752 +1,752 @@
 {
- "nonetheless": {
-  "mis": [
-   {
-    "w": "The road was closed. Nonetheless of that, we arrived on time.",
-    "r": "The road was closed. Nonetheless, we arrived on time.",
-    "why": "Nonetheless không đi với of hoặc that; nó đứng độc lập như trạng từ."
-   },
-   {
-    "w": "He was tired, nonetheless that he kept working.",
-    "r": "He was tired, but he kept working nonetheless.",
-    "why": "Nonetheless là trạng từ nên không nối trực tiếp hai mệnh đề; cần \"but\" hoặc đặt nó ở cuối câu."
-   }
-  ],
-  "u": "Nonetheless là trạng từ nối trang trọng, dùng để nêu sự tương phản với điều vừa nói. Thường đứng đầu câu sau dấu phẩy, sau dấu chấm phẩy, hoặc cuối mệnh đề: \"It was risky, but we went ahead nonetheless.\" Nghĩa gần như nevertheless, trang trọng hơn still hay even so. Người Việt hay dùng nó như liên từ nên viết sai như \"nonetheless that\". Trong nói chuyện thường ngày, hãy dùng but hoặc anyway cho tự nhiên."
- },
- "precipitate": {
-  "mis": [
-   {
-    "w": "The news precipitated to a panic.",
-    "r": "The news precipitated a panic.",
-    "why": "Động từ precipitate nhận tân ngữ trực tiếp, không cần giới từ \"to\"."
-   },
-   {
-    "w": "She made a precipitate to quit her job.",
-    "r": "She made a precipitate decision to quit her job.",
-    "why": "Precipitate làm tính từ (hấp tấp) phải đứng trước danh từ như decision, không dùng như danh từ."
-   }
-  ],
-  "u": "Precipitate là động từ trang trọng, nghĩa là làm cho điều gì đó, thường là xấu, xảy ra đột ngột hoặc sớm hơn dự kiến. Chủ ngữ thường là một sự kiện: một vụ bê bối, một lời nói. Nó mạnh và đột ngột hơn cause, gần với trigger nhưng trang trọng hơn. Làm tính từ, precipitate /prɪˈsɪpɪtət/ nghĩa là hấp tấp: a precipitate decision. Trong hóa học còn là chất kết tủa. Cách phát âm cuối từ khác nhau theo từ loại, người học dễ nhầm."
- },
- "respectively": {
-  "mis": [
-   {
-    "w": "Respectively, Anna and Ben are 20 and 22.",
-    "r": "Anna and Ben are 20 and 22 respectively.",
-    "why": "Respectively thường đặt sau các cặp được ghép, không đặt đầu câu."
-   },
-   {
-    "w": "Tom and Mia won the first and second prize respective.",
-    "r": "Tom and Mia won first and second prize respectively.",
-    "why": "Respectively là trạng từ; respective là tính từ và không đứng cuối câu."
-   }
-  ],
-  "u": "Respectively ghép từng mục trong danh sách này với mục tương ứng của danh sách kia theo đúng thứ tự, nên hai danh sách phải cùng số lượng: \"Anna and Ben are 20 and 22 respectively.\" Từ này thường đứng cuối mệnh đề, phổ biến trong báo cáo, bảng số liệu và bài viết học thuật, hiếm khi dùng khi nói. Người Việt hay đặt nó đầu câu hoặc nhầm với tính từ respective (\"their respective jobs\") nên viết sai dạng từ."
- },
- "thus": {
-  "mis": [
-   {
-    "w": "The price fell, thus we bought more.",
-    "r": "The price fell, so we bought more.",
-    "why": "Thus là trạng từ, không nối được hai mệnh đề chỉ bằng dấu phẩy; dùng so hoặc dấu chấm phẩy."
-   },
-   {
-    "w": "The test was easy, thus that everyone passed.",
-    "r": "The test was easy, and thus everyone passed.",
-    "why": "Sau thus không dùng that; hãy dùng and thus hoặc so."
-   }
-  ],
-  "u": "Thus là trạng từ trang trọng, giới thiệu kết quả hoặc kết luận: \"Thus, the hypothesis was rejected\". Rất hay gặp trong văn viết học thuật, thường kèm cụm V-ing: \"costs fell, thus making the product affordable\". Trang trọng hơn so, gần với therefore và hence. Thus far nghĩa là cho đến nay. Khi nói chuyện hằng ngày, dùng so hoặc that's why cho tự nhiên. Lỗi hay gặp của người Việt là dùng thus như liên từ nối hai mệnh đề chỉ bằng dấu phẩy."
- },
- "ubiquitous": {
-  "mis": [
-   {
-    "w": "Smartphones are ubiquitous in everywhere.",
-    "r": "Smartphones are ubiquitous in modern life.",
-    "why": "Ubiquitous đã mang nghĩa \"ở khắp nơi\", không thêm in everywhere."
-   },
-   {
-    "w": "Coffee shops are very ubiquitously in this city.",
-    "r": "Coffee shops are ubiquitous in this city.",
-    "why": "Dùng tính từ ubiquitous sau be, đừng thêm -ly kiểu \"very ubiquitously\"."
-   }
-  ],
-  "u": "Ubiquitous mô tả thứ gì đó xuất hiện ở khắp mọi nơi, thường là thứ người ta để ý hoặc thấy quá nhiều: ubiquitous smartphones, a ubiquitous logo. Từ trang trọng, chủ yếu trong văn viết, phổ biến ở bài về công nghệ và văn hóa. Mạnh hơn common hay widespread. Danh từ là ubiquity. Vì bắt đầu bằng âm /j/ nên dùng \"a ubiquitous\", không dùng \"an\". Người học hay thêm \"everywhere\" thừa sau từ này vì nghĩa đã bao gồm rồi."
- },
- "whilst": {
-  "mis": [
-   {
-    "w": "Whilst I was walking home, it started to rain, whilst the rain was heavy.",
-    "r": "While I was walking home, it started to rain heavily.",
-    "why": "Không lặp whilst trong cùng câu; một liên từ là đủ, thường dùng while."
-   },
-   {
-    "w": "I'll wait whilst of you finish.",
-    "r": "I'll wait while you finish.",
-    "why": "Whilst là liên từ như while, không đi với of."
-   }
-  ],
-  "u": "Whilst là biến thể trang trọng của while, chủ yếu trong tiếng Anh Anh, dùng cho cả nghĩa \"trong lúc\" (\"whilst driving\") và nghĩa tương phản (\"whilst some agree, others do not\"). Hay gặp trong văn bản pháp lý, báo cáo kiểu Anh, còn tiếng Anh Mỹ chuẩn dùng while và thấy whilst khá cổ. Nó không có nghĩa nào mà while không có, nên chọn chỉ vì văn phong. Khi nói thường ngày nên dùng while cho tự nhiên."
- },
- "absorb": {
-  "mis": [
-   {
-    "w": "The sponge absorbs the water into itself.",
-    "r": "The sponge absorbs the water.",
-    "why": "Absorb là ngoại động từ, không cần giới từ sau nó."
-   },
-   {
-    "w": "She was absorbing by the movie.",
-    "r": "She was absorbed in the movie.",
-    "why": "Mải mê dùng bị động absorbed in, không dùng absorbing by."
-   }
-  ],
-  "u": "Absorb có ba cách dùng chính: vật liệu hút chất lỏng hoặc năng lượng (a towel absorbs water), người tiếp thu thông tin (absorb new ideas), và công ty hoặc cá nhân gánh chi phí hay cú sốc (absorb the extra cost). Cụm absorbed in nghĩa là mải mê: absorbed in a novel. So với soak up, từ này trung tính và hơi trang trọng hơn. Danh từ là absorption. Người Việt hay nhầm thêm giới từ sau động từ này hoặc dùng sai dạng bị động."
- },
- "acceptance": {
-  "mis": [
-   {
-    "w": "Thank you for your acceptance for the invitation.",
-    "r": "Thank you for your acceptance of the invitation.",
-    "why": "Sau acceptance dùng of, không dùng for."
-   },
-   {
-    "w": "There are many acceptances of this idea in society.",
-    "r": "There is widespread acceptance of this idea in society.",
-    "why": "Ở nghĩa sự chấp nhận chung, acceptance không đếm được, không thêm -s."
-   }
-  ],
-  "u": "Acceptance có nhiều nghĩa: đồng ý với một lời đề nghị (acceptance of the job), trường nhận học sinh (an acceptance letter), và sự chấp nhận hoặc dung nạp nói chung (acceptance of new technology). Nghĩa cuối là danh từ không đếm được. Acceptance of nghĩa là chấp nhận, đối lập với rejection. Người Việt hay dùng giới từ for thay vì of sau danh từ này, hoặc thêm -s ở nghĩa chung chung. Từ dùng được cả trong công việc lẫn đời sống."
- },
- "accessory": {
-  "mis": [
-   {
-    "w": "She bought a lot of accessory for her phone.",
-    "r": "She bought a lot of accessories for her phone.",
-    "why": "Accessory đếm được; nhiều món thì dùng accessories."
-   },
-   {
-    "w": "The shop sells phone accessory.",
-    "r": "The shop sells phone accessories.",
-    "why": "Khi nói tên nhóm hàng, dùng số nhiều accessories."
-   }
-  ],
-  "u": "Accessory là món đồ phụ đi kèm vật chính: thắt lưng hoặc khăn đi với trang phục, sạc và ốp lưng đi với điện thoại. Đây là danh từ đếm được, thường dùng số nhiều khi nói về nhóm hàng: fashion accessories, kitchen accessories. Trong luật, accessory to a crime là kẻ tiếp tay cho tội phạm mà không trực tiếp gây ra. Lỗi phổ biến của người Việt là bỏ -s vì tiếng Việt không chia số nhiều, nên viết \"phone accessory\" cho nhiều món."
- },
- "accomplishment": {
-  "mis": [
-   {
-    "w": "She is a very accomplishment pianist.",
-    "r": "She is a very accomplished pianist.",
-    "why": "Trước danh từ dùng tính từ accomplished, không dùng accomplishment."
-   },
-   {
-    "w": "She is proud of her accomplishment in the last years.",
-    "r": "She is proud of her accomplishments over the last few years.",
-    "why": "Nói nhiều thành tựu thì dùng số nhiều accomplishments."
-   }
-  ],
-  "u": "Accomplishment là việc đã hoàn thành thành công, thường sau nhiều nỗ lực: chạy xong marathon, lấy được bằng. Có thể đếm được (liệt kê accomplishments trong CV) hoặc không đếm được khi nói về hành động hoàn tất (the accomplishment of the mission). Gần với achievement; accomplishment thường nhấn vào kỹ năng hoặc việc hoàn thành, còn achievement thiên về kết quả đo được. Cụm sense of accomplishment rất phổ biến. Tính từ accomplished nghĩa là có tài, thành thạo."
- },
- "accuracy": {
-  "mis": [
-   {
-    "w": "Please check the accuracies of the figures.",
-    "r": "Please check the accuracy of the figures.",
-    "why": "Accuracy không đếm được, không thêm -s."
-   },
-   {
-    "w": "The machine works with a high accuracy.",
-    "r": "The machine works with high accuracy.",
-    "why": "Không dùng a trước accuracy khi nói chất lượng chung."
-   }
-  ],
-  "u": "Accuracy là mức độ đúng và chính xác, về thông tin (the accuracy of a report) hoặc về đo đạc, ngắm bắn (the accuracy of a scale). Thường là danh từ không đếm được và đi với of. Accuracy là gần với sự thật, còn precision là tính nhất quán và chi tiết; các nhà khoa học tách biệt hai từ này. Tính từ là accurate. Danh từ trái nghĩa inaccuracy có thể đếm được khi chỉ một lỗi cụ thể. Người Việt hay thêm -s hoặc \"a\" trước accuracy vì nghĩ là đếm được."
- },
- "accurately": {
-  "mis": [
-   {
-    "w": "The report accurate describes the problem.",
-    "r": "The report accurately describes the problem.",
-    "why": "Bổ nghĩa cho động từ phải dùng trạng từ accurately."
-   },
-   {
-    "w": "He can accurately to predict the weather.",
-    "r": "He can accurately predict the weather.",
-    "why": "Không đặt trạng từ giữa to và động từ; viết accurately predict."
-   }
-  ],
-  "u": "Accurately là trạng từ của accurate: làm việc gì đó đúng đến từng chi tiết. Thường đứng trước động từ chính (accurately predict, accurately reflect) hoặc sau tân ngữ (measured it accurately). So với correctly, accurately nhấn vào việc sát với giá trị hoặc sự thật thực tế: nhiệt kế đo accurately, còn đáp án thì correct. Trong văn viết trang trọng hay đi với reflect, represent, report. Người Việt thường dùng nhầm tính từ accurate bổ nghĩa cho động từ."
- },
- "activate": {
-  "mis": [
-   {
-    "w": "Please activate for your new card online.",
-    "r": "Please activate your new card online.",
-    "why": "Activate là ngoại động từ, không cần giới từ."
-   },
-   {
-    "w": "I activated my account but it still does not active.",
-    "r": "I activated my account, but it is still not active.",
-    "why": "Phân biệt động từ activate và tính từ active."
-   }
-  ],
-  "u": "Activate nghĩa là làm cho cái gì đó bắt đầu hoạt động hoặc dùng được: kích hoạt thẻ, tài khoản, báo động, tính năng. Thường là bước một lần để bật thứ đã được cung cấp sẵn. Mang tính kỹ thuật hơn turn on, hay đối lập với deactivate. Trong khoa học, activate còn là khởi động một quá trình hóa học hoặc sinh học. Danh từ là activation. Người Việt hay thêm giới từ không cần thiết hoặc nhầm động từ activate với tính từ active."
- },
- "additionally": {
-  "mis": [
-   {
-    "w": "Additionally of the fee, you pay tax.",
-    "r": "In addition to the fee, you pay tax.",
-    "why": "Dùng in addition to trước danh từ; additionally là trạng từ."
-   },
-   {
-    "w": "The hotel is cheap. Additionally that it is clean.",
-    "r": "The hotel is cheap. Additionally, it is clean.",
-    "why": "Sau additionally là một mệnh đề đầy đủ, không có that."
-   }
-  ],
-  "u": "Additionally là trạng từ dùng để thêm một ý nữa, thường đứng đầu câu kèm dấu phẩy: \"Additionally, all staff must attend.\" Phổ biến trong báo cáo và email, mức độ trang trọng trung tính, nhưng giáo viên hay khuyên không lạm dụng trong bài viết; có thể thay bằng moreover hoặc what is more. Là trạng từ cả câu nên không theo trực tiếp bởi danh từ; dùng in addition to hoặc besides trong trường hợp đó. Người Việt hay thêm of hoặc that sau từ này."
- },
- "adhere": {
-  "mis": [
-   {
-    "w": "All drivers must adhere the speed limit.",
-    "r": "All drivers must adhere to the speed limit.",
-    "why": "Adhere luôn đi với giới từ to."
-   },
-   {
-    "w": "The staff adhered with the policy.",
-    "r": "The staff adhered to the policy.",
-    "why": "Không dùng with sau adhere; dùng to."
-   }
-  ],
-  "u": "Adhere có hai nghĩa. Nghĩa vật lý là dính chặt vào bề mặt (tape adheres to glass). Nghĩa trừu tượng phổ biến hơn là tuân thủ quy tắc, niềm tin hoặc kế hoạch: adhere to guidelines, adhere to a schedule. Cả hai đều đi với giới từ to. Từ trang trọng, hay gặp trong hợp đồng, thông báo an toàn; khi nói thường dùng stick to hoặc follow. Danh từ là adherence, người ủng hộ một ý tưởng gọi là adherent. Người Việt hay quên to hoặc dùng with."
- },
- "administer": {
-  "mis": [
-   {
-    "w": "The nurse administered to the patient a pill.",
-    "r": "The nurse administered a pill to the patient.",
-    "why": "Administer là ngoại động từ; tân ngữ đứng ngay sau."
-   },
-   {
-    "w": "Who administrate the exam?",
-    "r": "Who administers the exam?",
-    "why": "Động từ đúng là administer, không dùng administrate."
-   }
-  ],
-  "u": "Administer là động từ trang trọng với ba nghĩa chính: quản lý một tổ chức hay hệ thống (administer a fund), cho hoặc thực hiện chính thức (administer a test, administer medicine), và thi hành công lý hay hình phạt. Trang trọng và mang tính hành chính hơn manage hay run. Danh từ administration chỉ quá trình hoặc ban quản lý; người làm là administrator. Một số người học viết nhầm động từ thành administrate hoặc đặt tân ngữ sau giới từ không cần."
- },
- "administrative": {
-  "mis": [
-   {
-    "w": "She works as an administration assistant.",
-    "r": "She works as an administrative assistant.",
-    "why": "Trước danh từ dùng tính từ administrative, không dùng administration."
-   },
-   {
-    "w": "The administrative is very busy.",
-    "r": "The administration is very busy.",
-    "why": "Administrative là tính từ, cần có danh từ đi kèm."
-   }
-  ],
-  "u": "Administrative mô tả công việc điều hành một tổ chức: lập lịch, lưu hồ sơ, giấy tờ, ngân sách. Có trong chức danh (administrative assistant) và các cụm như administrative costs, administrative staff, administrative error. Giọng trung tính và hơi khô khan; clerical chỉ việc văn phòng thường ngày, managerial thiên về ra quyết định. Trong luật, administrative law là luật về cơ quan nhà nước. Người Việt hay dùng nhầm danh từ administration trước danh từ khác, hoặc dùng tính từ làm danh từ."
- },
- "advancement": {
-  "mis": [
-   {
-    "w": "There are many advancements in this company for staff.",
-    "r": "There are many opportunities for advancement in this company.",
-    "why": "Nghĩa thăng tiến là danh từ không đếm được, đi với for."
-   },
-   {
-    "w": "He wants advancement his career.",
-    "r": "He wants career advancement.",
-    "why": "Advancement là danh từ, không phải động từ có tân ngữ."
-   }
-  ],
-  "u": "Advancement nghĩa là sự tiến bộ, hoặc trong công việc (career advancement, thăng tiến) hoặc trong một lĩnh vực (advancement of medicine). Nghĩa thăng tiến là danh từ không đếm được: \"limited opportunities for advancement\". Nghĩa tiến bộ công nghệ có thể đếm được: recent advancements in AI. Trang trọng hơn một chút so với progress. Advance vừa là động từ vừa là danh từ. Người Việt thường nhầm advancement với động từ có tân ngữ, hoặc dùng số nhiều sai ngữ cảnh."
- },
- "advisable": {
-  "mis": [
-   {
-    "w": "It is advisable you to book early.",
-    "r": "It is advisable to book early.",
-    "why": "Sau advisable dùng to + động từ, không đặt tân ngữ người trước."
-   },
-   {
-    "w": "We advisable you to arrive early.",
-    "r": "We advise you to arrive early.",
-    "why": "Advisable là tính từ; động từ là advise."
-   }
-  ],
-  "u": "Advisable là tính từ nghĩa là nên làm, được khuyên làm, hầu như luôn dùng trong cấu trúc it is advisable to + động từ, hoặc it is advisable that + mệnh đề. Đây là cách nhẹ nhàng, hơi trang trọng để khuyên mà không ra lệnh, hay gặp trong thông báo và lời khuyên du lịch. Highly advisable mạnh hơn; not advisable là cảnh báo. Động từ là advise, danh từ advice không đếm được. Người Việt hay dùng nhầm advisable như động từ hoặc thêm tân ngữ người."
- },
- "advisor": {
-  "mis": [
-   {
-    "w": "My advisor gave me many advices.",
-    "r": "My advisor gave me a lot of advice.",
-    "why": "Advice không đếm được; người là advisor."
-   },
-   {
-    "w": "She is my advice at the university.",
-    "r": "She is my advisor at the university.",
-    "why": "Advisor là người, advice là lời khuyên; đừng nhầm."
-   }
-  ],
-  "u": "Advisor (cũng viết adviser, nhất là trong tiếng Anh Anh) là người đưa ra lời khuyên chuyên môn trong một lĩnh vực: financial advisor, academic advisor, legal advisor. Ở đại học Mỹ, academic advisor là người giúp sinh viên chọn môn học. Từ mang nghĩa khá trang trọng và chỉ một vai trò rõ ràng; mentor thân thiết và lâu dài hơn. Cả hai cách viết đều đúng. Advice là danh từ không đếm được, không thêm -s; người Việt hay mắc lỗi này."
- },
- "advisory": {
-  "mis": [
-   {
-    "w": "The committee has an advisory of the decision.",
-    "r": "The committee plays an advisory role in the decision.",
-    "why": "Advisory chủ yếu là tính từ, thường đi trước role hoặc board."
-   },
-   {
-    "w": "He is an advisory of the company.",
-    "r": "He is an advisor to the company.",
-    "why": "Chỉ người dùng advisor; advisory mô tả vai trò hoặc cơ quan."
-   }
-  ],
-  "u": "Advisory là tính từ chỉ thứ có nhiệm vụ đưa lời khuyên chứ không ra quyết định: an advisory board, an advisory role. Làm danh từ, an advisory là thông báo hoặc cảnh báo chính thức, thường là travel advisory hoặc weather advisory, đặc biệt trong tiếng Anh Mỹ. Một advisory board có thể đề xuất nhưng thường không ép buộc. Danh từ chỉ người là advisor; không dùng advisory cho người. Người Việt hay nhầm hai dạng này vì nghĩa gần nhau."
- },
- "affirmative": {
-  "mis": [
-   {
-    "w": "She answered affirmatively with yes.",
-    "r": "She gave an affirmative answer.",
-    "why": "Trước danh từ dùng tính từ affirmative, không dùng affirmatively."
-   },
-   {
-    "w": "The answer was affirmation.",
-    "r": "The answer was affirmative.",
-    "why": "Affirmation là danh từ; tính từ là affirmative."
-   }
-  ],
-  "u": "Affirmative là tính từ trang trọng nghĩa là \"đồng ý, nói có\": an affirmative answer, an affirmative vote. Trong cụm in the affirmative, nó hoạt động như danh từ: \"The board replied in the affirmative.\" Trái nghĩa với negative. Trong ngữ pháp, câu khẳng định là affirmative sentence. Affirmative action là chính sách hỗ trợ các nhóm từng bị phân biệt đối xử, rất quen thuộc trong tiếng Anh Mỹ. Người Việt hay nhầm với danh từ affirmation hoặc trạng từ affirmatively."
- },
- "airfare": {
-  "mis": [
-   {
-    "w": "How much is the airfare of the plane?",
-    "r": "How much is the airfare to Hanoi?",
-    "why": "Airfare là giá vé, đi với to + điểm đến."
-   },
-   {
-    "w": "I bought two airfares.",
-    "r": "I bought two plane tickets.",
-    "why": "Airfare không đếm được; thứ mua là ticket."
-   }
-  ],
-  "u": "Airfare là số tiền phải trả cho chuyến bay, chứ không phải bản thân tấm vé. Chủ yếu là từ của tiếng Anh Mỹ, dùng trong du lịch và chi phí công tác (the company reimburses airfare). Airfare là danh từ không đếm được; chỉ dùng airfares khi so sánh nhiều mức giá. Người ta mua ticket, và ticket có giá là airfare. Người Anh thường nói fare hoặc flight cost. Cụm hay gặp: round-trip airfare, one-way airfare, airfare to Tokyo. Người Việt hay đếm airfare như vé."
- },
- "alert": {
-  "mis": [
-   {
-    "w": "The doctor alerted that the patient was weak.",
-    "r": "The doctor warned that the patient was weak.",
-    "why": "Alert dùng với tân ngữ người; nói cảnh báo ai đó thì alert someone."
-   },
-   {
-    "w": "Stay alerting during the night shift.",
-    "r": "Stay alert during the night shift.",
-    "why": "Giữ tính từ alert sau stay, không thêm -ing."
-   }
-  ],
-  "u": "Alert vừa là tính từ (cảnh giác), danh từ (a weather alert, thông báo trên điện thoại), vừa là động từ (alert the police). Làm động từ, nó cần tân ngữ: alert someone to a risk. Làm tính từ, đi sau be, stay, remain, hoặc đứng trước danh từ: an alert student. Nghĩa mạnh hơn awake, hàm ý sẵn sàng và tập trung. Trong công nghệ, alert là thông báo tự động. Cụm on alert là sẵn sàng đề phòng nguy hiểm. Người Việt hay dùng dạng -ing sai."
- },
- "alternate": {
-  "mis": [
-   {
-    "w": "We meet on alternative Mondays.",
-    "r": "We meet on alternate Mondays.",
-    "why": "Alternate là cách nhau một lần; alternative là phương án khác."
-   },
-   {
-    "w": "He alternates with working and resting.",
-    "r": "He alternates between working and resting.",
-    "why": "Dùng between ... and ... sau động từ alternate."
-   }
-  ],
-  "u": "Alternate đọc khác nhau theo từ loại. Tính từ /ˈɔːltərnət/ nghĩa là cách một lần (\"alternate weeks\"), và trong tiếng Anh Mỹ còn nghĩa là phương án khác, như an alternate route. Động từ /ˈɔːltərneɪt/ nghĩa là luân phiên: alternate between hot and cold. Người Anh thích dùng alternative cho nghĩa phương án khác, nên alternate route nghe kiểu Mỹ. Trong văn viết chuẩn kiểu Anh, đừng nhầm alternate với alternative. Người Việt hay nhầm hai từ này vì chúng rất giống nhau."
- },
- "alternatively": {
-  "mis": [
-   {
-    "w": "Alternatively of taking the bus, walk.",
-    "r": "Instead of taking the bus, walk.",
-    "why": "Alternatively không đi với of; dùng instead of trước danh từ."
-   },
-   {
-    "w": "You can pay by card, alternatively, you can pay cash.",
-    "r": "You can pay by card; alternatively, you can pay cash.",
-    "why": "Nối hai mệnh đề cần dấu chấm phẩy hoặc dấu chấm trước alternatively."
-   }
-  ],
-  "u": "Alternatively giới thiệu một khả năng hoặc lựa chọn khác, thường đứng đầu câu: \"You can pay online; alternatively, call the office.\" Mức độ trung tính đến trang trọng, phổ biến trong hướng dẫn và email, hay xuất hiện sau or: \"or, alternatively,\". Nó đưa ra một lựa chọn ngang hàng, khác với instead là thay thế. Alternatively không thể nối trực tiếp hai mệnh đề bằng dấu phẩy và không đi với of; trước danh từ dùng instead of. Đây là lỗi người Việt hay mắc."
- },
- "ambassador": {
-  "mis": [
-   {
-    "w": "He is the ambassador in Japan of Vietnam.",
-    "r": "He is the Vietnamese ambassador to Japan.",
-    "why": "Đại sứ ở một nước dùng ambassador to + nước."
-   },
-   {
-    "w": "She is an ambassador of the company's sales.",
-    "r": "She is a brand ambassador for the company.",
-    "why": "Đại sứ thương hiệu dùng brand ambassador for."
-   }
-  ],
-  "u": "Ambassador là nhà ngoại giao cấp cao nhất được một nước cử sang nước khác: the US ambassador to France. Nơi làm việc là embassy (đại sứ quán). Trong tiếp thị, brand ambassador là người quảng bá thương hiệu, thường là người nổi tiếng hoặc khách hàng trung thành. Mở rộng ra, goodwill ambassador (ví dụ của Liên Hợp Quốc) ủng hộ một mục tiêu. Mẫu câu: ambassador to một nước, ambassador for một thương hiệu hay mục tiêu. Từ ambassadress đã cũ; dùng ambassador cho mọi người."
- },
- "anew": {
-  "mis": [
-   {
-    "w": "She decided to begin a new anew.",
-    "r": "She decided to begin anew.",
-    "why": "Anew đã có nghĩa \"lại một cách mới\"; không thêm new."
-   },
-   {
-    "w": "I want to anew start my life.",
-    "r": "I want to start my life anew.",
-    "why": "Đặt anew sau động từ hoặc tân ngữ, không đặt trước động từ."
-   }
-  ],
-  "u": "Anew là trạng từ mang tính văn chương nghĩa là làm lại, theo cách mới hoặc khác: start anew, begin anew. Phổ biến trong thơ, diễn văn và văn phản tư, hiếm khi dùng khi nói chuyện thường ngày, nơi người ta nói again, over hoặc from scratch. Thường đứng cuối mệnh đề: \"We rebuilt the city anew.\" Nó gần với afresh và thường gợi cảm giác đổi mới, lạc quan chứ không chỉ lặp lại. Người Việt hay thêm new thừa hoặc đặt anew trước động từ."
- },
- "anniversary": {
-  "mis": [
-   {
-    "w": "Today is my birthday anniversary.",
-    "r": "Today is my birthday.",
-    "why": "Sinh nhật là birthday, không phải birthday anniversary."
-   },
-   {
-    "w": "We celebrate our wedding anniversary in 2015.",
-    "r": "We celebrated our tenth wedding anniversary in 2025.",
-    "why": "Anniversary là dịp kỷ niệm hằng năm, không phải năm xảy ra sự kiện."
-   }
-  ],
-  "u": "Anniversary là ngày kỷ niệm hằng năm của một sự kiện: wedding anniversary, công ty 20 năm thành lập, ngày tưởng niệm một thảm họa. Không dùng cho ngày sinh của một người, đó là birthday, nhưng ngày giỗ vẫn là anniversary of death. Dùng số thứ tự trước nó: first, tenth, fiftieth. Các mốc dài có tên riêng: silver (25), golden (50), diamond (60). Giới từ theo sau là of: the anniversary of the revolution. Người Việt hay nhầm với \"birthday anniversary\"."
- },
- "annually": {
-  "mis": [
-   {
-    "w": "The festival is held every annually.",
-    "r": "The festival is held annually.",
-    "why": "Annually đã có nghĩa mỗi năm; không thêm every."
-   },
-   {
-    "w": "We pay annual for the insurance.",
-    "r": "We pay for the insurance annually.",
-    "why": "Bổ nghĩa cho động từ dùng trạng từ annually, không dùng annual."
-   }
-  ],
-  "u": "Annually là trạng từ nghĩa là mỗi năm một lần: reviewed annually, increases of 3% annually. Trang trọng hơn yearly một chút, phổ biến trong văn bản kinh doanh, hợp đồng và tài chính. Tính từ annual nghĩa là diễn ra mỗi năm (an annual report). Annually không cần every hay each đi kèm. Biannually (hai lần một năm) rất dễ bị nhầm với biennially (hai năm một lần), nên khi cần rõ ràng, hãy viết twice annually. Người Việt hay thêm every thừa hoặc dùng tính từ annual làm trạng từ."
- },
- "apology": {
-  "mis": [
-   {
-    "w": "I want to apology for being late.",
-    "r": "I want to apologize for being late.",
-    "why": "Apology là danh từ; động từ xin lỗi là apologize."
-   },
-   {
-    "w": "Please accept my apology of the mistake.",
-    "r": "Please accept my apology for the mistake.",
-    "why": "Sau apology dùng for để nêu lý do, không dùng of."
-   }
-  ],
-  "u": "Apology là lời xin lỗi, nói rằng bạn hối tiếc về điều gì đó. Danh từ đếm được: make an apology, offer an apology, owe someone an apology. Cấu trúc thường dùng: apology for + danh từ hoặc V-ing, và apology to + người: an apology to the customers for the delay. Động từ là apologize (Anh: apologise), đi với to + người và for + lý do. Các tính từ sincere, public, formal làm lời xin lỗi nặng hơn. Người Việt hay nhầm danh từ với động từ, hoặc dùng giới từ of thay for."
- },
- "applicable": {
-  "mis": [
-   {
-    "w": "This rule is applicable for all employees.",
-    "r": "This rule is applicable to all employees.",
-    "why": "Sau applicable dùng giới từ to."
-   },
-   {
-    "w": "Please fill all sections applicable.",
-    "r": "Please fill in all applicable sections.",
-    "why": "Applicable thường đứng trước danh từ; chỉ đứng sau trong cụm cố định."
-   }
-  ],
-  "u": "Applicable nghĩa là có liên quan hoặc có thể áp dụng cho một trường hợp cụ thể: applicable laws, a fee applicable to all orders. Đi với giới từ to. Các biểu mẫu chính thức hay dùng where applicable, if applicable hoặc not applicable (N/A) để bảo người đọc bỏ qua phần không liên quan. Trang trọng hơn relevant, thường dùng cho quy định, thuế, hợp đồng, hướng dẫn. Động từ là apply, danh từ là application. Người Việt hay dùng for thay to sau từ này."
- },
- "appraisal": {
-  "mis": [
-   {
-    "w": "I have an appraisal of my boss every year.",
-    "r": "My boss gives me a performance appraisal every year.",
-    "why": "Quản lý đưa appraisal cho nhân viên; không đảo vai."
-   },
-   {
-    "w": "The appraisement of the house was high.",
-    "r": "The appraisal of the house was high.",
-    "why": "Danh từ đúng là appraisal, appraisement rất hiếm."
-   }
-  ],
-  "u": "Appraisal là sự đánh giá chính thức về giá trị, chất lượng hoặc hiệu suất của một thứ. Trong công ty, performance appraisal là buổi đánh giá định kỳ khi quản lý nhận xét công việc của nhân viên. Trong bất động sản, appraisal ước tính giá thị trường của ngôi nhà, từ phổ biến trong tiếng Anh Mỹ; người Anh dùng valuation. Cũng dùng chung: a realistic appraisal of the risks. Động từ là appraise, đừng nhầm với apprise (thông báo). Người Việt hay nhầm vai trò người đánh giá và người được đánh giá."
- },
- "appreciation": {
-  "mis": [
-   {
-    "w": "I want to show my appreciation to your help.",
-    "r": "I want to show my appreciation for your help.",
-    "why": "Sau appreciation dùng for để nêu điều mình biết ơn."
-   },
-   {
-    "w": "Thank you for your appreciations.",
-    "r": "Thank you for your appreciation.",
-    "why": "Appreciation chỉ lòng biết ơn thì không đếm được."
-   }
-  ],
-  "u": "Appreciation có ba nghĩa chính: lòng biết ơn (flowers in appreciation of her help), sự hiểu giá trị của điều gì (an appreciation of music), và sự tăng giá (the appreciation of the dollar or property). Ở hai nghĩa đầu hầu như không đếm được và đi với for hoặc of. Một lời cảm ơn viết tay bằng appreciation nghe ấm áp và hơi trang trọng. So với thanks, nó gợi sự cân nhắc hơn. Động từ appreciate hay dùng trong lời nhờ lịch sự: I would appreciate it if you could..."
- },
- "apprentice": {
-  "mis": [
-   {
-    "w": "He is an apprentice in learning carpentry.",
-    "r": "He is a carpentry apprentice.",
-    "why": "Apprentice là danh từ chỉ người; viết ngắn như carpentry apprentice."
-   },
-   {
-    "w": "She apprentices at the electrician.",
-    "r": "She is an apprentice to an electrician.",
-    "why": "Apprentice to + thầy, không dùng như động từ thông dụng."
-   }
-  ],
-  "u": "Apprentice là người học nghề, vừa làm vừa học cùng một thợ lành nghề, thường kết hợp lương và học lý thuyết: an apprentice electrician, plumber hoặc chef. Hệ thống đào tạo gọi là apprenticeship; mẫu câu: apprentice to một thợ cả, hoặc apprentice at một công ty. So với intern, người thường học kỹ năng văn phòng ngắn hạn, apprentice thường theo đuổi một chứng chỉ chính thức trong nhiều năm. Động từ apprentice ít dùng và hơi cổ. Người Việt hay dùng sai giới từ."
- },
- "archive": {
-  "mis": [
-   {
-    "w": "Old files are saved in an archives.",
-    "r": "Old files are kept in the archive.",
-    "why": "Archive số ít cho một bộ lưu trữ; archives cho cơ quan hoặc nhiều bộ."
-   },
-   {
-    "w": "I archive the mail to delete it.",
-    "r": "I archived the mail to clear my inbox.",
-    "why": "Trong email, archive là cất đi, không phải xóa."
-   }
-  ],
-  "u": "Archive là bộ sưu tập các tài liệu lịch sử hoặc quan trọng, hoặc nơi lưu trữ chúng: company archive, the national archives. Làm động từ, nó nghĩa là lưu trữ, và trong tin học là chuyển các tệp không cần dùng sang nơi riêng mà không xóa, ví dụ archive một email. Số nhiều archives thường chỉ một cơ quan (the State Archives). Archive footage nghĩa là phim tư liệu cũ. Trọng âm ở âm đầu và danh từ, động từ phát âm giống nhau. Người Việt hay nhầm archive với delete."
- },
- "assembly": {
-  "mis": [
-   {
-    "w": "The assembly of the machine is take two days.",
-    "r": "Assembly of the machine takes two days.",
-    "why": "Assembly là danh từ; cần thêm động từ như takes."
-   },
-   {
-    "w": "The students assembly in the hall every Monday.",
-    "r": "The students assemble in the hall every Monday.",
-    "why": "Assembly là danh từ; động từ tập hợp là assemble."
-   }
-  ],
-  "u": "Assembly có hai nghĩa chính. Là việc lắp ráp các bộ phận (the assembly of a car, assembly instructions, assembly line trong nhà máy) hoặc nhóm người tập trung vì một mục đích (school assembly, the General Assembly của Liên Hợp Quốc, legislative assembly, tức cơ quan lập pháp). Động từ assemble dùng cho cả hai nghĩa: lắp ráp hoặc tập hợp. So với meeting, assembly gợi một buổi họp lớn hơn, trang trọng hoặc định kỳ, thường trong hội trường. Người Việt hay nhầm danh từ và động từ."
- },
- "attendee": {
-  "mis": [
-   {
-    "w": "Each attendant will get a badge.",
-    "r": "Each attendee will get a badge.",
-    "why": "Attendant phục vụ, attendee là người tham dự sự kiện."
-   },
-   {
-    "w": "The attendees of the meeting was 50.",
-    "r": "There were 50 attendees at the meeting.",
-    "why": "Attendee đếm được; dùng động từ số nhiều với attendees."
-   }
-  ],
-  "u": "Attendee là người tham dự một sự kiện như hội nghị, cuộc họp hoặc buổi hòa nhạc. Đây là từ thương mại trung tính với hậu tố -ee, chỉ người nhận hoặc thực hiện hành động. Cách dùng thường gặp: conference attendees, a list of attendees, attendee registration. So với participant, attendee chỉ việc có mặt, còn participant nhấn việc tham gia thực sự. Đừng nhầm với attendant, người phục vụ tại một nơi, như flight attendant. Giới từ đi với sự kiện là at: attendees at the meeting."
- },
- "attire": {
-  "mis": [
-   {
-    "w": "I bought three attires for the party.",
-    "r": "I bought new attire for the party.",
-    "why": "Attire không đếm được; không thêm -s hay a."
-   },
-   {
-    "w": "Please wear attire formal.",
-    "r": "Please wear formal attire.",
-    "why": "Tính từ đứng trước attire, như formal attire."
-   }
-  ],
-  "u": "Attire là từ trang trọng chỉ quần áo, đặc biệt là trang phục phù hợp với dịp nào đó: business attire, evening attire, appropriate attire. Danh từ không đếm được. Hay thấy trên thiệp mời và quy định trang phục (smart casual attire). Khi nói chuyện thường ngày, người ta nói clothes hay what to wear; attire nghe trang trọng hoặc đôi khi hài hước. Động từ attire hiếm, thường dùng bị động trong văn viết: attired in a dark suit. Outfit là một bộ cụ thể và đếm được. Người Việt hay thêm -s."
- },
- "attorney": {
-  "mis": [
-   {
-    "w": "He is a lawyer attorney.",
-    "r": "He is an attorney.",
-    "why": "Attorney và lawyer là từ thay thế nhau; chọn một từ."
-   },
-   {
-    "w": "The attorney of me said I should not talk.",
-    "r": "My attorney told me not to talk.",
-    "why": "Dùng sở hữu cách my attorney, không viết attorney of me."
-   }
-  ],
-  "u": "Attorney là từ thông dụng trong tiếng Anh Mỹ để chỉ luật sư có giấy phép đại diện khách hàng trước tòa và tư vấn pháp lý. Ở Mỹ dùng ngang với lawyer, hơi trang trọng hơn; ở Anh thì dùng solicitor và barrister. Cụm thông dụng: defense attorney (luật sư bào chữa), district attorney (công tố viên), attorney general (tổng chưởng lý) và power of attorney (giấy ủy quyền). Không dùng attorney cho công chứng viên, vì chức năng khác nhau ở nhiều nước. Người Việt hay ghép hai từ chồng lên nhau."
- },
- "auction": {
-  "mis": [
-   {
-    "w": "The painting was sold in auction.",
-    "r": "The painting was sold at auction.",
-    "why": "Cụm cố định là at auction, không dùng in auction."
-   },
-   {
-    "w": "They auction the house to a stranger.",
-    "r": "They auctioned the house off.",
-    "why": "Động từ auction thường đi với off khi nói bán đấu giá."
-   }
-  ],
-  "u": "Auction là hình thức bán công khai trong đó mọi người đưa ra giá (bid) và người trả giá cao nhất mua món đồ. Giới từ thường dùng là at: sold at auction, put up for auction. Các loại gồm online auction (như eBay), silent auction ở sự kiện từ thiện, và Dutch auction giá giảm dần. Làm động từ, auction off nghĩa là bán đấu giá: they auctioned off the old furniture. Auction house như Sotheby's tổ chức bán nghệ thuật và đồ cổ. Người điều hành là auctioneer. Người Việt hay nhầm in auction."
- },
- "author": {
-  "mis": [
-   {
-    "w": "The author of the novel is wrote by Tolstoy.",
-    "r": "The novel was written by Tolstoy, its author.",
-    "why": "Author chỉ người; dùng written by trong câu bị động."
-   },
-   {
-    "w": "She authored a article.",
-    "r": "She authored an article.",
-    "why": "Dùng an trước article, không dùng a."
-   }
-  ],
-  "u": "Author là người viết sách, bài báo hoặc báo cáo, mở rộng ra là người khởi xướng một ý tưởng hay kế hoạch: \"the author of the plan\". Trang trọng hơn writer, từ có thể chỉ một nghề; author thường gắn với một tác phẩm cụ thể. Trong văn bản học thuật, tên author được trích dẫn, và lead author là người đóng góp chính. Động từ to author hay xuất hiện trong kinh doanh: authored a report. Âm /θ/ như trong think, người Việt hay phát âm thành /t/. Đừng nhầm author với actor."
- },
- "authorization": {
-  "mis": [
-   {
-    "w": "I need authorization to access to the file.",
-    "r": "I need authorization to access the file.",
-    "why": "Access là động từ, theo sau là tân ngữ, không thêm to."
-   },
-   {
-    "w": "You must have an authorize from the manager.",
-    "r": "You must have authorization from the manager.",
-    "why": "Danh từ là authorization, động từ là authorize."
-   }
-  ],
-  "u": "Authorization là sự cho phép chính thức làm việc gì đó, hoặc hành động cấp phép: written authorization, prior authorization từ công ty bảo hiểm. Nói chung là danh từ không đếm được, nhưng đếm được khi chỉ một sự phê duyệt hoặc mã cụ thể. Trong tin học, authorization quyết định người dùng đã đăng nhập được làm gì, khác authentication là xác minh danh tính. Chính tả Anh là authorisation. Động từ authorize đi với người và to. Từ trang trọng, hay dùng trong kinh doanh và pháp lý. Người Việt hay nhầm động từ và danh từ."
- },
- "automotive": {
-  "mis": [
-   {
-    "w": "He works in the automotive of cars.",
-    "r": "He works in the automotive industry.",
-    "why": "Automotive là tính từ, cần danh từ phía sau như industry."
-   },
-   {
-    "w": "I bought an automotive for my family.",
-    "r": "I bought a car for my family.",
-    "why": "Automotive không chỉ chiếc xe; dùng car."
-   }
-  ],
-  "u": "Automotive là tính từ liên quan đến xe cơ giới, thiết kế, sản xuất và bán xe: the automotive industry, automotive parts, automotive technology. Gặp nhiều trong kinh doanh, tin tức và chức danh công việc. Nó không phải danh từ chỉ chiếc xe; dùng car, vehicle hay automobile. Trong các cửa hàng Mỹ, automotive còn là tên khu vực hàng hóa. So với auto, từ thân mật (auto repair), automotive nghe chính thức và kỹ thuật hơn. Người Việt hay dùng nó như danh từ chỉ xe hơi."
- },
- "availability": {
-  "mis": [
-   {
-    "w": "What is your availabilities next week?",
-    "r": "What is your availability next week?",
-    "why": "Availability không đếm được, không thêm -s."
-   },
-   {
-    "w": "The availability for rooms is low.",
-    "r": "The availability of rooms is low.",
-    "why": "Sau availability dùng of với thứ có sẵn."
-   }
-  ],
-  "u": "Availability nghĩa là sự rảnh rỗi để gặp hoặc làm việc (my availability next week) hoặc khả năng có sẵn của sản phẩm, phòng, dịch vụ (check availability, subject to availability). Là danh từ không đếm được, thường đi với of: the availability of seats. Trong email, \"please let me know your availability\" là hỏi giờ rảnh. Trang đặt phòng có thể ghi \"limited availability\" hoặc \"no availability\". Tính từ là available, trái nghĩa là unavailability. Người Việt hay thêm -s hoặc dùng for thay of."
- },
- "bacteria": {
-  "mis": [
-   {
-    "w": "A bacteria can cause infection.",
-    "r": "A bacterium can cause infection.",
-    "why": "Số ít là bacterium; bacteria là số nhiều."
-   },
-   {
-    "w": "The bacteria is dangerous.",
-    "r": "The bacteria are dangerous.",
-    "why": "Trong văn viết chuẩn, bacteria đi với động từ số nhiều."
-   }
-  ],
-  "u": "Bacteria là các sinh vật đơn bào cực nhỏ; một số gây bệnh, số khác giúp tiêu hóa hoặc làm phô mai và sữa chua. Về mặt ngữ pháp, bacteria là số nhiều, số ít là bacterium, dù nhiều người nói bacteria như số ít, nhất là khi nói. Trong cách dùng thông thường nó gần như không đếm được (killing bacteria), còn khi đếm thì nói types of bacteria. Germs là từ đời thường, microbe là thuật ngữ khoa học chung. Tính từ là bacterial. Người Việt hay viết a bacteria."
- },
- "bankruptcy": {
-  "mis": [
-   {
-    "w": "The company went bankruptcy last year.",
-    "r": "The company went bankrupt last year.",
-    "why": "Sau go dùng tính từ bankrupt, không dùng bankruptcy."
-   },
-   {
-    "w": "He filed bankruptcy.",
-    "r": "He filed for bankruptcy.",
-    "why": "File đi với for: file for bankruptcy."
-   }
-  ],
-  "u": "Bankruptcy là tình trạng pháp lý của cá nhân hoặc công ty không thể trả nợ, thường do tòa án tuyên bố. Hầu như không đếm được: file for bankruptcy, declare bankruptcy, go into bankruptcy. Tính từ là bankrupt: go bankrupt, be declared bankrupt. Công ty có thể go bankrupt, nhưng không nói goes bankruptcy. Trong khẩu ngữ, go broke là cách nói thân mật; insolvency là thuật ngữ kỹ thuật hơn, chỉ việc mất khả năng thanh toán và có thể không cần tòa. Người Việt hay quên for hoặc nhầm từ loại."
- },
- "basket": {
-  "mis": [
-   {
-    "w": "She put the clothes in the laundry baskets.",
-    "r": "She put the clothes in the laundry basket.",
-    "why": "Một vật chứa dùng số ít basket."
-   },
-   {
-    "w": "I added the shoes into my shopping bag online.",
-    "r": "I added the shoes to my basket online.",
-    "why": "Trang mua sắm dùng basket (Anh) hoặc cart (Mỹ), đi với add to."
-   }
-  ],
-  "u": "Basket là vật chứa miệng mở làm từ sợi đan, nhựa hoặc dây thép, dùng để mang hoặc đựng đồ: laundry basket, picnic basket. Trong cửa hàng, basket nhỏ hơn xe đẩy (trolley hoặc cart). Trên trang mua sắm, tiếng Anh Anh dùng basket còn tiếng Anh Mỹ dùng cart: add to basket. Gift basket là giỏ quà. Basket of dùng trong kinh tế nghĩa là một nhóm hàng hóa tính chung. Trong bóng rổ, the basket là vòng rổ. Người Việt hay nhầm với bag khi mua online."
- },
- "beneficial": {
-  "mis": [
-   {
-    "w": "Exercise is beneficial of your health.",
-    "r": "Exercise is beneficial to your health.",
-    "why": "Sau beneficial dùng to hoặc for, không dùng of."
-   },
-   {
-    "w": "It is a beneficial for all.",
-    "r": "It is beneficial to all.",
-    "why": "Không thêm a trước beneficial khi nó đứng sau be."
-   }
-  ],
-  "u": "Beneficial mô tả điều gì có tác dụng tốt hoặc mang lại lợi thế: a beneficial effect, a mutually beneficial deal. Đi với to hoặc for: beneficial to health, beneficial for children. Trang trọng hơn helpful hay good, thường gặp trong khoa học, kinh doanh và chính sách. Mutually beneficial nghĩa là cả hai bên đều có lợi. Danh từ là benefit, người nhận lợi ích là beneficiary. Các mẫu tự nhiên: prove beneficial, find it beneficial, be beneficial. Người Việt hay dùng giới từ of hoặc thêm mạo từ sai."
- },
- "benefit": {
-  "mis": [
-   {
-    "w": "Students benefit of this program.",
-    "r": "Students benefit from this program.",
-    "why": "Động từ benefit đi với from."
-   },
-   {
-    "w": "It brings many benefit.",
-    "r": "It brings many benefits.",
-    "why": "Nhiều lợi ích thì dùng số nhiều benefits."
-   }
-  ],
-  "u": "Benefit là danh từ chỉ lợi ích hoặc tác dụng tốt (the health benefits of walking) và các khoản phúc lợi đi kèm công việc, gọi là employee benefits, như bảo hiểm và nghỉ phép có lương. Cũng là động từ: benefit from, hoặc benefit ai đó. Quá khứ benefited và benefitted đều có, benefited phổ biến hơn. Thành ngữ: for the benefit of, give someone the benefit of the doubt. Ở Mỹ, benefit còn là khoản tiền nhà nước chi trả: unemployment benefit. Người Việt hay dùng of sau động từ benefit."
- }
+  "nonetheless": {
+    "mis": [
+      {
+        "w": "The road was closed. Nonetheless of that, we arrived on time.",
+        "r": "The road was closed. Nonetheless, we arrived on time.",
+        "why": "Nonetheless không đi với of hoặc that; nó đứng độc lập như trạng từ."
+      },
+      {
+        "w": "He was tired, nonetheless that he kept working.",
+        "r": "He was tired, but he kept working nonetheless.",
+        "why": "Nonetheless là trạng từ nên không nối trực tiếp hai mệnh đề; cần \"but\" hoặc đặt nó ở cuối câu."
+      }
+    ],
+    "u": "Nonetheless là trạng từ nối trang trọng, dùng để nêu sự tương phản với điều vừa nói. Thường đứng đầu câu sau dấu phẩy, sau dấu chấm phẩy, hoặc cuối mệnh đề: \"It was risky, but we went ahead nonetheless.\" Nghĩa gần như nevertheless, trang trọng hơn still hay even so. Người Việt hay dùng nó như liên từ nên viết sai như \"nonetheless that\". Trong nói chuyện thường ngày, hãy dùng but hoặc anyway cho tự nhiên."
+  },
+  "precipitate": {
+    "mis": [
+      {
+        "w": "The news precipitated to a panic.",
+        "r": "The news precipitated a panic.",
+        "why": "Động từ precipitate nhận tân ngữ trực tiếp, không cần giới từ \"to\"."
+      },
+      {
+        "w": "She made a precipitate to quit her job.",
+        "r": "She made a precipitate decision to quit her job.",
+        "why": "Precipitate làm tính từ (hấp tấp) phải đứng trước danh từ như decision, không dùng như danh từ."
+      }
+    ],
+    "u": "Precipitate là động từ trang trọng, nghĩa là làm cho điều gì đó, thường là xấu, xảy ra đột ngột hoặc sớm hơn dự kiến. Chủ ngữ thường là một sự kiện: một vụ bê bối, một lời nói. Nó mạnh và đột ngột hơn cause, gần với trigger nhưng trang trọng hơn. Làm tính từ, precipitate /prɪˈsɪpɪtət/ nghĩa là hấp tấp: a precipitate decision. Trong hóa học còn là chất kết tủa. Cách phát âm cuối từ khác nhau theo từ loại, người học dễ nhầm."
+  },
+  "respectively": {
+    "mis": [
+      {
+        "w": "Respectively, Anna and Ben are 20 and 22.",
+        "r": "Anna and Ben are 20 and 22 respectively.",
+        "why": "Respectively thường đặt sau các cặp được ghép, không đặt đầu câu."
+      },
+      {
+        "w": "Tom and Mia won the first and second prize respective.",
+        "r": "Tom and Mia won first and second prize respectively.",
+        "why": "Respectively là trạng từ; respective là tính từ và không đứng cuối câu."
+      }
+    ],
+    "u": "Respectively ghép từng mục trong danh sách này với mục tương ứng của danh sách kia theo đúng thứ tự, nên hai danh sách phải cùng số lượng: \"Anna and Ben are 20 and 22 respectively.\" Từ này thường đứng cuối mệnh đề, phổ biến trong báo cáo, bảng số liệu và bài viết học thuật, hiếm khi dùng khi nói. Người Việt hay đặt nó đầu câu hoặc nhầm với tính từ respective (\"their respective jobs\") nên viết sai dạng từ."
+  },
+  "thus": {
+    "mis": [
+      {
+        "w": "The price fell, thus we bought more.",
+        "r": "The price fell, so we bought more.",
+        "why": "Thus là trạng từ, không nối được hai mệnh đề chỉ bằng dấu phẩy; dùng so hoặc dấu chấm phẩy."
+      },
+      {
+        "w": "The test was easy, thus that everyone passed.",
+        "r": "The test was easy, and thus everyone passed.",
+        "why": "Sau thus không dùng that; hãy dùng and thus hoặc so."
+      }
+    ],
+    "u": "Thus là trạng từ trang trọng, giới thiệu kết quả hoặc kết luận: \"Thus, the hypothesis was rejected\". Rất hay gặp trong văn viết học thuật, thường kèm cụm V-ing: \"costs fell, thus making the product affordable\". Trang trọng hơn so, gần với therefore và hence. Thus far nghĩa là cho đến nay. Khi nói chuyện hằng ngày, dùng so hoặc that's why cho tự nhiên. Lỗi hay gặp của người Việt là dùng thus như liên từ nối hai mệnh đề chỉ bằng dấu phẩy."
+  },
+  "ubiquitous": {
+    "mis": [
+      {
+        "w": "Smartphones are ubiquitous in everywhere.",
+        "r": "Smartphones are ubiquitous in modern life.",
+        "why": "Ubiquitous đã mang nghĩa \"ở khắp nơi\", không thêm in everywhere."
+      },
+      {
+        "w": "Coffee shops are very ubiquitously in this city.",
+        "r": "Coffee shops are ubiquitous in this city.",
+        "why": "Dùng tính từ ubiquitous sau be, đừng thêm -ly kiểu \"very ubiquitously\"."
+      }
+    ],
+    "u": "Ubiquitous mô tả thứ gì đó xuất hiện ở khắp mọi nơi, thường là thứ người ta để ý hoặc thấy quá nhiều: ubiquitous smartphones, a ubiquitous logo. Từ trang trọng, chủ yếu trong văn viết, phổ biến ở bài về công nghệ và văn hóa. Mạnh hơn common hay widespread. Danh từ là ubiquity. Vì bắt đầu bằng âm /j/ nên dùng \"a ubiquitous\", không dùng \"an\". Người học hay thêm \"everywhere\" thừa sau từ này vì nghĩa đã bao gồm rồi."
+  },
+  "whilst": {
+    "mis": [
+      {
+        "w": "Whilst I like the design, but it is too expensive.",
+        "r": "Whilst I like the design, it is too expensive.",
+        "why": "Whilst đã thể hiện sự tương phản nên không thêm but."
+      },
+      {
+        "w": "I'll wait whilst of you finish.",
+        "r": "I'll wait while you finish.",
+        "why": "Whilst là liên từ như while, không đi với of."
+      }
+    ],
+    "u": "Whilst là biến thể trang trọng của while, chủ yếu trong tiếng Anh Anh, dùng cho cả nghĩa \"trong lúc\" (\"whilst driving\") và nghĩa tương phản (\"whilst some agree, others do not\"). Hay gặp trong văn bản pháp lý, báo cáo kiểu Anh, còn tiếng Anh Mỹ chuẩn dùng while và thấy whilst khá cổ. Nó không có nghĩa nào mà while không có, nên chọn chỉ vì văn phong. Khi nói thường ngày nên dùng while cho tự nhiên."
+  },
+  "absorb": {
+    "mis": [
+      {
+        "w": "The sponge absorbs the water into itself.",
+        "r": "The sponge absorbs the water.",
+        "why": "Absorb là ngoại động từ, không cần giới từ sau nó."
+      },
+      {
+        "w": "She was absorbing by the movie.",
+        "r": "She was absorbed in the movie.",
+        "why": "Mải mê dùng bị động absorbed in, không dùng absorbing by."
+      }
+    ],
+    "u": "Absorb có ba cách dùng chính: vật liệu hút chất lỏng hoặc năng lượng (a towel absorbs water), người tiếp thu thông tin (absorb new ideas), và công ty hoặc cá nhân gánh chi phí hay cú sốc (absorb the extra cost). Cụm absorbed in nghĩa là mải mê: absorbed in a novel. So với soak up, từ này trung tính và hơi trang trọng hơn. Danh từ là absorption. Người Việt hay nhầm thêm giới từ sau động từ này hoặc dùng sai dạng bị động."
+  },
+  "acceptance": {
+    "mis": [
+      {
+        "w": "Thank you for your acceptance for the invitation.",
+        "r": "Thank you for your acceptance of the invitation.",
+        "why": "Sau acceptance dùng of, không dùng for."
+      },
+      {
+        "w": "There are many acceptances of this idea in society.",
+        "r": "There is widespread acceptance of this idea in society.",
+        "why": "Ở nghĩa sự chấp nhận chung, acceptance không đếm được, không thêm -s."
+      }
+    ],
+    "u": "Acceptance có nhiều nghĩa: đồng ý với một lời đề nghị (acceptance of the job), trường nhận học sinh (an acceptance letter), và sự chấp nhận hoặc dung nạp nói chung (acceptance of new technology). Nghĩa cuối là danh từ không đếm được. Acceptance of nghĩa là chấp nhận, đối lập với rejection. Người Việt hay dùng giới từ for thay vì of sau danh từ này, hoặc thêm -s ở nghĩa chung chung. Từ dùng được cả trong công việc lẫn đời sống."
+  },
+  "accessory": {
+    "mis": [
+      {
+        "w": "She bought a lot of accessory for her phone.",
+        "r": "She bought a lot of accessories for her phone.",
+        "why": "Accessory đếm được; nhiều món thì dùng accessories."
+      },
+      {
+        "w": "The shop sells phone accessory.",
+        "r": "The shop sells phone accessories.",
+        "why": "Khi nói tên nhóm hàng, dùng số nhiều accessories."
+      }
+    ],
+    "u": "Accessory là món đồ phụ đi kèm vật chính: thắt lưng hoặc khăn đi với trang phục, sạc và ốp lưng đi với điện thoại. Đây là danh từ đếm được, thường dùng số nhiều khi nói về nhóm hàng: fashion accessories, kitchen accessories. Trong luật, accessory to a crime là kẻ tiếp tay cho tội phạm mà không trực tiếp gây ra. Lỗi phổ biến của người Việt là bỏ -s vì tiếng Việt không chia số nhiều, nên viết \"phone accessory\" cho nhiều món."
+  },
+  "accomplishment": {
+    "mis": [
+      {
+        "w": "She is a very accomplishment pianist.",
+        "r": "She is a very accomplished pianist.",
+        "why": "Trước danh từ dùng tính từ accomplished, không dùng accomplishment."
+      },
+      {
+        "w": "She is proud of her accomplishment in the last years.",
+        "r": "She is proud of her accomplishments over the last few years.",
+        "why": "Nói nhiều thành tựu thì dùng số nhiều accomplishments."
+      }
+    ],
+    "u": "Accomplishment là việc đã hoàn thành thành công, thường sau nhiều nỗ lực: chạy xong marathon, lấy được bằng. Có thể đếm được (liệt kê accomplishments trong CV) hoặc không đếm được khi nói về hành động hoàn tất (the accomplishment of the mission). Gần với achievement; accomplishment thường nhấn vào kỹ năng hoặc việc hoàn thành, còn achievement thiên về kết quả đo được. Cụm sense of accomplishment rất phổ biến. Tính từ accomplished nghĩa là có tài, thành thạo."
+  },
+  "accuracy": {
+    "mis": [
+      {
+        "w": "Please check the accuracies of the figures.",
+        "r": "Please check the accuracy of the figures.",
+        "why": "Accuracy không đếm được, không thêm -s."
+      },
+      {
+        "w": "The machine works with a high accuracy.",
+        "r": "The machine works with high accuracy.",
+        "why": "Không dùng a trước accuracy khi nói chất lượng chung."
+      }
+    ],
+    "u": "Accuracy là mức độ đúng và chính xác, về thông tin (the accuracy of a report) hoặc về đo đạc, ngắm bắn (the accuracy of a scale). Thường là danh từ không đếm được và đi với of. Accuracy là gần với sự thật, còn precision là tính nhất quán và chi tiết; các nhà khoa học tách biệt hai từ này. Tính từ là accurate. Danh từ trái nghĩa inaccuracy có thể đếm được khi chỉ một lỗi cụ thể. Người Việt hay thêm -s hoặc \"a\" trước accuracy vì nghĩ là đếm được."
+  },
+  "accurately": {
+    "mis": [
+      {
+        "w": "The report accurate describes the problem.",
+        "r": "The report accurately describes the problem.",
+        "why": "Bổ nghĩa cho động từ phải dùng trạng từ accurately."
+      },
+      {
+        "w": "He can accurately to predict the weather.",
+        "r": "He can accurately predict the weather.",
+        "why": "Không đặt trạng từ giữa to và động từ; viết accurately predict."
+      }
+    ],
+    "u": "Accurately là trạng từ của accurate: làm việc gì đó đúng đến từng chi tiết. Thường đứng trước động từ chính (accurately predict, accurately reflect) hoặc sau tân ngữ (measured it accurately). So với correctly, accurately nhấn vào việc sát với giá trị hoặc sự thật thực tế: nhiệt kế đo accurately, còn đáp án thì correct. Trong văn viết trang trọng hay đi với reflect, represent, report. Người Việt thường dùng nhầm tính từ accurate bổ nghĩa cho động từ."
+  },
+  "activate": {
+    "mis": [
+      {
+        "w": "Please activate for your new card online.",
+        "r": "Please activate your new card online.",
+        "why": "Activate là ngoại động từ, không cần giới từ."
+      },
+      {
+        "w": "I activated my account but it still does not active.",
+        "r": "I activated my account, but it is still not active.",
+        "why": "Phân biệt động từ activate và tính từ active."
+      }
+    ],
+    "u": "Activate nghĩa là làm cho cái gì đó bắt đầu hoạt động hoặc dùng được: kích hoạt thẻ, tài khoản, báo động, tính năng. Thường là bước một lần để bật thứ đã được cung cấp sẵn. Mang tính kỹ thuật hơn turn on, hay đối lập với deactivate. Trong khoa học, activate còn là khởi động một quá trình hóa học hoặc sinh học. Danh từ là activation. Người Việt hay thêm giới từ không cần thiết hoặc nhầm động từ activate với tính từ active."
+  },
+  "additionally": {
+    "mis": [
+      {
+        "w": "Additionally of the fee, you pay tax.",
+        "r": "In addition to the fee, you pay tax.",
+        "why": "Dùng in addition to trước danh từ; additionally là trạng từ."
+      },
+      {
+        "w": "The hotel is cheap. Additionally that it is clean.",
+        "r": "The hotel is cheap. Additionally, it is clean.",
+        "why": "Sau additionally là một mệnh đề đầy đủ, không có that."
+      }
+    ],
+    "u": "Additionally là trạng từ dùng để thêm một ý nữa, thường đứng đầu câu kèm dấu phẩy: \"Additionally, all staff must attend.\" Phổ biến trong báo cáo và email, mức độ trang trọng trung tính, nhưng giáo viên hay khuyên không lạm dụng trong bài viết; có thể thay bằng moreover hoặc what is more. Là trạng từ cả câu nên không theo trực tiếp bởi danh từ; dùng in addition to hoặc besides trong trường hợp đó. Người Việt hay thêm of hoặc that sau từ này."
+  },
+  "adhere": {
+    "mis": [
+      {
+        "w": "All drivers must adhere the speed limit.",
+        "r": "All drivers must adhere to the speed limit.",
+        "why": "Adhere luôn đi với giới từ to."
+      },
+      {
+        "w": "The staff adhered with the policy.",
+        "r": "The staff adhered to the policy.",
+        "why": "Không dùng with sau adhere; dùng to."
+      }
+    ],
+    "u": "Adhere có hai nghĩa. Nghĩa vật lý là dính chặt vào bề mặt (tape adheres to glass). Nghĩa trừu tượng phổ biến hơn là tuân thủ quy tắc, niềm tin hoặc kế hoạch: adhere to guidelines, adhere to a schedule. Cả hai đều đi với giới từ to. Từ trang trọng, hay gặp trong hợp đồng, thông báo an toàn; khi nói thường dùng stick to hoặc follow. Danh từ là adherence, người ủng hộ một ý tưởng gọi là adherent. Người Việt hay quên to hoặc dùng with."
+  },
+  "administer": {
+    "mis": [
+      {
+        "w": "The nurse administered to the patient a pill.",
+        "r": "The nurse administered a pill to the patient.",
+        "why": "Administer là ngoại động từ; tân ngữ đứng ngay sau."
+      },
+      {
+        "w": "Who administrate the exam?",
+        "r": "Who administers the exam?",
+        "why": "Động từ đúng là administer, không dùng administrate."
+      }
+    ],
+    "u": "Administer là động từ trang trọng với ba nghĩa chính: quản lý một tổ chức hay hệ thống (administer a fund), cho hoặc thực hiện chính thức (administer a test, administer medicine), và thi hành công lý hay hình phạt. Trang trọng và mang tính hành chính hơn manage hay run. Danh từ administration chỉ quá trình hoặc ban quản lý; người làm là administrator. Một số người học viết nhầm động từ thành administrate hoặc đặt tân ngữ sau giới từ không cần."
+  },
+  "administrative": {
+    "mis": [
+      {
+        "w": "She works as an administration assistant.",
+        "r": "She works as an administrative assistant.",
+        "why": "Trước danh từ dùng tính từ administrative, không dùng administration."
+      },
+      {
+        "w": "The administrative is very busy.",
+        "r": "The administration is very busy.",
+        "why": "Administrative là tính từ, cần có danh từ đi kèm."
+      }
+    ],
+    "u": "Administrative mô tả công việc điều hành một tổ chức: lập lịch, lưu hồ sơ, giấy tờ, ngân sách. Có trong chức danh (administrative assistant) và các cụm như administrative costs, administrative staff, administrative error. Giọng trung tính và hơi khô khan; clerical chỉ việc văn phòng thường ngày, managerial thiên về ra quyết định. Trong luật, administrative law là luật về cơ quan nhà nước. Người Việt hay dùng nhầm danh từ administration trước danh từ khác, hoặc dùng tính từ làm danh từ."
+  },
+  "advancement": {
+    "mis": [
+      {
+        "w": "There are many advancements in this company for staff.",
+        "r": "There are many opportunities for advancement in this company.",
+        "why": "Nghĩa thăng tiến là danh từ không đếm được, đi với for."
+      },
+      {
+        "w": "He wants advancement his career.",
+        "r": "He wants career advancement.",
+        "why": "Advancement là danh từ, không phải động từ có tân ngữ."
+      }
+    ],
+    "u": "Advancement nghĩa là sự tiến bộ, hoặc trong công việc (career advancement, thăng tiến) hoặc trong một lĩnh vực (advancement of medicine). Nghĩa thăng tiến là danh từ không đếm được: \"limited opportunities for advancement\". Nghĩa tiến bộ công nghệ có thể đếm được: recent advancements in AI. Trang trọng hơn một chút so với progress. Advance vừa là động từ vừa là danh từ. Người Việt thường nhầm advancement với động từ có tân ngữ, hoặc dùng số nhiều sai ngữ cảnh."
+  },
+  "advisable": {
+    "mis": [
+      {
+        "w": "It is advisable you to book early.",
+        "r": "It is advisable to book early.",
+        "why": "Sau advisable dùng to + động từ, không đặt tân ngữ người trước."
+      },
+      {
+        "w": "We advisable you to arrive early.",
+        "r": "We advise you to arrive early.",
+        "why": "Advisable là tính từ; động từ là advise."
+      }
+    ],
+    "u": "Advisable là tính từ nghĩa là nên làm, được khuyên làm, hầu như luôn dùng trong cấu trúc it is advisable to + động từ, hoặc it is advisable that + mệnh đề. Đây là cách nhẹ nhàng, hơi trang trọng để khuyên mà không ra lệnh, hay gặp trong thông báo và lời khuyên du lịch. Highly advisable mạnh hơn; not advisable là cảnh báo. Động từ là advise, danh từ advice không đếm được. Người Việt hay dùng nhầm advisable như động từ hoặc thêm tân ngữ người."
+  },
+  "advisor": {
+    "mis": [
+      {
+        "w": "My advisor gave me many advices.",
+        "r": "My advisor gave me a lot of advice.",
+        "why": "Advice không đếm được; người là advisor."
+      },
+      {
+        "w": "She is my advice at the university.",
+        "r": "She is my advisor at the university.",
+        "why": "Advisor là người, advice là lời khuyên; đừng nhầm."
+      }
+    ],
+    "u": "Advisor (cũng viết adviser, nhất là trong tiếng Anh Anh) là người đưa ra lời khuyên chuyên môn trong một lĩnh vực: financial advisor, academic advisor, legal advisor. Ở đại học Mỹ, academic advisor là người giúp sinh viên chọn môn học. Từ mang nghĩa khá trang trọng và chỉ một vai trò rõ ràng; mentor thân thiết và lâu dài hơn. Cả hai cách viết đều đúng. Advice là danh từ không đếm được, không thêm -s; người Việt hay mắc lỗi này."
+  },
+  "advisory": {
+    "mis": [
+      {
+        "w": "He gave me a good advisory.",
+        "r": "He gave me good advice.",
+        "why": "Advisory là thông báo cảnh báo chính thức; lời khuyên cá nhân dùng advice."
+      },
+      {
+        "w": "He is an advisory of the company.",
+        "r": "He is an advisor to the company.",
+        "why": "Chỉ người dùng advisor; advisory mô tả vai trò hoặc cơ quan."
+      }
+    ],
+    "u": "Advisory là tính từ chỉ thứ có nhiệm vụ đưa lời khuyên chứ không ra quyết định: an advisory board, an advisory role. Làm danh từ, an advisory là thông báo hoặc cảnh báo chính thức, thường là travel advisory hoặc weather advisory, đặc biệt trong tiếng Anh Mỹ. Một advisory board có thể đề xuất nhưng thường không ép buộc. Danh từ chỉ người là advisor; không dùng advisory cho người. Người Việt hay nhầm hai dạng này vì nghĩa gần nhau."
+  },
+  "affirmative": {
+    "mis": [
+      {
+        "w": "She answered affirmatively with yes.",
+        "r": "She gave an affirmative answer.",
+        "why": "Trước danh từ dùng tính từ affirmative, không dùng affirmatively."
+      },
+      {
+        "w": "The answer was affirmation.",
+        "r": "The answer was affirmative.",
+        "why": "Affirmation là danh từ; tính từ là affirmative."
+      }
+    ],
+    "u": "Affirmative là tính từ trang trọng nghĩa là \"đồng ý, nói có\": an affirmative answer, an affirmative vote. Trong cụm in the affirmative, nó hoạt động như danh từ: \"The board replied in the affirmative.\" Trái nghĩa với negative. Trong ngữ pháp, câu khẳng định là affirmative sentence. Affirmative action là chính sách hỗ trợ các nhóm từng bị phân biệt đối xử, rất quen thuộc trong tiếng Anh Mỹ. Người Việt hay nhầm với danh từ affirmation hoặc trạng từ affirmatively."
+  },
+  "airfare": {
+    "mis": [
+      {
+        "w": "I lost my airfare.",
+        "r": "I lost my plane ticket.",
+        "why": "Airfare là giá tiền, không phải giấy tờ; giấy tờ là ticket."
+      },
+      {
+        "w": "I bought two airfares.",
+        "r": "I bought two plane tickets.",
+        "why": "Airfare không đếm được; thứ mua là ticket."
+      }
+    ],
+    "u": "Airfare là số tiền bạn trả cho chuyến bay, không phải tấm vé. Đây chủ yếu là từ Mỹ, dùng trong du lịch và chi phí công tác (công ty hoàn lại tiền airfare). Airfare không đếm được; chỉ nói airfares khi so sánh các mức giá khác nhau. Bạn mua một ticket, và ticket đó có giá là airfare. Người Anh hay nói air fare, fare hoặc flight cost hơn. Cụm từ: round-trip airfare (vé khứ hồi), one-way airfare (một chiều), airfare to Tokyo."
+  },
+  "alert": {
+    "mis": [
+      {
+        "w": "The doctor alerted that the patient was weak.",
+        "r": "The doctor alerted the nurse that the patient was weak.",
+        "why": "Alert cần tân ngữ chỉ người: alert someone that có điều không ổn."
+      },
+      {
+        "w": "Stay alerting during the night shift.",
+        "r": "Stay alert during the night shift.",
+        "why": "Giữ tính từ alert sau stay, không thêm -ing."
+      }
+    ],
+    "u": "Alert vừa là tính từ (cảnh giác), danh từ (a weather alert, thông báo trên điện thoại), vừa là động từ (alert the police). Làm động từ, nó cần tân ngữ: alert someone to a risk. Làm tính từ, đi sau be, stay, remain, hoặc đứng trước danh từ: an alert student. Nghĩa mạnh hơn awake, hàm ý sẵn sàng và tập trung. Trong công nghệ, alert là thông báo tự động. Cụm on alert là sẵn sàng đề phòng nguy hiểm. Người Việt hay dùng dạng -ing sai."
+  },
+  "alternate": {
+    "mis": [
+      {
+        "w": "We meet on alternative Mondays.",
+        "r": "We meet on alternate Mondays.",
+        "why": "Alternate là cách nhau một lần; alternative là phương án khác."
+      },
+      {
+        "w": "He alternates with working and resting.",
+        "r": "He alternates between working and resting.",
+        "why": "Dùng between ... and ... sau động từ alternate."
+      }
+    ],
+    "u": "Alternate đọc khác nhau theo từ loại. Tính từ /ˈɔːltərnət/ nghĩa là cách một lần (\"alternate weeks\"), và trong tiếng Anh Mỹ còn nghĩa là phương án khác, như an alternate route. Động từ /ˈɔːltərneɪt/ nghĩa là luân phiên: alternate between hot and cold. Người Anh thích dùng alternative cho nghĩa phương án khác, nên alternate route nghe kiểu Mỹ. Trong văn viết chuẩn kiểu Anh, đừng nhầm alternate với alternative. Người Việt hay nhầm hai từ này vì chúng rất giống nhau."
+  },
+  "alternatively": {
+    "mis": [
+      {
+        "w": "Alternatively of taking the bus, walk.",
+        "r": "Instead of taking the bus, walk.",
+        "why": "Alternatively không đi với of; dùng instead of trước danh từ."
+      },
+      {
+        "w": "You can pay by card, alternatively, you can pay cash.",
+        "r": "You can pay by card; alternatively, you can pay cash.",
+        "why": "Nối hai mệnh đề cần dấu chấm phẩy hoặc dấu chấm trước alternatively."
+      }
+    ],
+    "u": "Alternatively giới thiệu một khả năng hoặc lựa chọn khác, thường đứng đầu câu: \"You can pay online; alternatively, call the office.\" Mức độ trung tính đến trang trọng, phổ biến trong hướng dẫn và email, hay xuất hiện sau or: \"or, alternatively,\". Nó đưa ra một lựa chọn ngang hàng, khác với instead là thay thế. Alternatively không thể nối trực tiếp hai mệnh đề bằng dấu phẩy và không đi với of; trước danh từ dùng instead of. Đây là lỗi người Việt hay mắc."
+  },
+  "ambassador": {
+    "mis": [
+      {
+        "w": "He is the ambassador in Japan of Vietnam.",
+        "r": "He is the Vietnamese ambassador to Japan.",
+        "why": "Đại sứ ở một nước dùng ambassador to + nước."
+      },
+      {
+        "w": "He works at the ambassador in Hanoi.",
+        "r": "He works at the embassy in Hanoi.",
+        "why": "Ambassador là người; tòa nhà là embassy."
+      }
+    ],
+    "u": "Ambassador là nhà ngoại giao cấp cao nhất được một nước cử sang nước khác: the US ambassador to France. Nơi làm việc là embassy (đại sứ quán). Trong tiếp thị, brand ambassador là người quảng bá thương hiệu, thường là người nổi tiếng hoặc khách hàng trung thành. Mở rộng ra, goodwill ambassador (ví dụ của Liên Hợp Quốc) ủng hộ một mục tiêu. Mẫu câu: ambassador to một nước, ambassador for một thương hiệu hay mục tiêu. Từ ambassadress đã cũ; dùng ambassador cho mọi người."
+  },
+  "anew": {
+    "mis": [
+      {
+        "w": "She decided to begin a new anew.",
+        "r": "She decided to begin anew.",
+        "why": "Anew đã có nghĩa \"lại một cách mới\"; không thêm new."
+      },
+      {
+        "w": "I want to anew start my life.",
+        "r": "I want to start my life anew.",
+        "why": "Đặt anew sau động từ hoặc tân ngữ, không đặt trước động từ."
+      }
+    ],
+    "u": "Anew là trạng từ mang tính văn chương nghĩa là làm lại, theo cách mới hoặc khác: start anew, begin anew. Phổ biến trong thơ, diễn văn và văn phản tư, hiếm khi dùng khi nói chuyện thường ngày, nơi người ta nói again, over hoặc from scratch. Thường đứng cuối mệnh đề: \"We rebuilt the city anew.\" Nó gần với afresh và thường gợi cảm giác đổi mới, lạc quan chứ không chỉ lặp lại. Người Việt hay thêm new thừa hoặc đặt anew trước động từ."
+  },
+  "anniversary": {
+    "mis": [
+      {
+        "w": "Today is my birthday anniversary.",
+        "r": "Today is my birthday.",
+        "why": "Sinh nhật là birthday, không phải birthday anniversary."
+      },
+      {
+        "w": "We celebrate our wedding anniversary in 2015.",
+        "r": "We celebrated our tenth wedding anniversary in 2025.",
+        "why": "Anniversary là dịp kỷ niệm hằng năm, không phải năm xảy ra sự kiện."
+      }
+    ],
+    "u": "Anniversary là ngày kỷ niệm hằng năm của một sự kiện: wedding anniversary, công ty 20 năm thành lập, ngày tưởng niệm một thảm họa. Không dùng cho ngày sinh của một người, đó là birthday, nhưng ngày giỗ vẫn là anniversary of death. Dùng số thứ tự trước nó: first, tenth, fiftieth. Các mốc dài có tên riêng: silver (25), golden (50), diamond (60). Giới từ theo sau là of: the anniversary of the revolution. Người Việt hay nhầm với \"birthday anniversary\"."
+  },
+  "annually": {
+    "mis": [
+      {
+        "w": "The festival is held every annually.",
+        "r": "The festival is held annually.",
+        "why": "Annually đã có nghĩa mỗi năm; không thêm every."
+      },
+      {
+        "w": "We pay annual for the insurance.",
+        "r": "We pay for the insurance annually.",
+        "why": "Bổ nghĩa cho động từ dùng trạng từ annually, không dùng annual."
+      }
+    ],
+    "u": "Annually là trạng từ nghĩa là mỗi năm một lần: reviewed annually, increases of 3% annually. Trang trọng hơn yearly một chút, phổ biến trong văn bản kinh doanh, hợp đồng và tài chính. Tính từ annual nghĩa là diễn ra mỗi năm (an annual report). Annually không cần every hay each đi kèm. Biannually (hai lần một năm) rất dễ bị nhầm với biennially (hai năm một lần), nên khi cần rõ ràng, hãy viết twice annually. Người Việt hay thêm every thừa hoặc dùng tính từ annual làm trạng từ."
+  },
+  "apology": {
+    "mis": [
+      {
+        "w": "I want to apology for being late.",
+        "r": "I want to apologize for being late.",
+        "why": "Apology là danh từ; động từ xin lỗi là apologize."
+      },
+      {
+        "w": "Please accept my apology of the mistake.",
+        "r": "Please accept my apology for the mistake.",
+        "why": "Sau apology dùng for để nêu lý do, không dùng of."
+      }
+    ],
+    "u": "Apology là lời xin lỗi, nói rằng bạn hối tiếc về điều gì đó. Danh từ đếm được: make an apology, offer an apology, owe someone an apology. Cấu trúc thường dùng: apology for + danh từ hoặc V-ing, và apology to + người: an apology to the customers for the delay. Động từ là apologize (Anh: apologise), đi với to + người và for + lý do. Các tính từ sincere, public, formal làm lời xin lỗi nặng hơn. Người Việt hay nhầm danh từ với động từ, hoặc dùng giới từ of thay for."
+  },
+  "applicable": {
+    "mis": [
+      {
+        "w": "This rule is applicable for all employees.",
+        "r": "This rule is applicable to all employees.",
+        "why": "Sau applicable dùng giới từ to."
+      },
+      {
+        "w": "Please fill all sections applicable.",
+        "r": "Please fill in all applicable sections.",
+        "why": "Applicable thường đứng trước danh từ; chỉ đứng sau trong cụm cố định."
+      }
+    ],
+    "u": "Applicable nghĩa là có liên quan hoặc có thể áp dụng cho một trường hợp cụ thể: applicable laws, a fee applicable to all orders. Đi với giới từ to. Các biểu mẫu chính thức hay dùng where applicable, if applicable hoặc not applicable (N/A) để bảo người đọc bỏ qua phần không liên quan. Trang trọng hơn relevant, thường dùng cho quy định, thuế, hợp đồng, hướng dẫn. Động từ là apply, danh từ là application. Người Việt hay dùng for thay to sau từ này."
+  },
+  "appraisal": {
+    "mis": [
+      {
+        "w": "I have an appraisal of my boss every year.",
+        "r": "My boss gives me a performance appraisal every year.",
+        "why": "Quản lý đưa appraisal cho nhân viên; không đảo vai."
+      },
+      {
+        "w": "The appraisement of the house was high.",
+        "r": "The appraisal of the house was high.",
+        "why": "Danh từ đúng là appraisal, appraisement rất hiếm."
+      }
+    ],
+    "u": "Appraisal là sự đánh giá chính thức về giá trị, chất lượng hoặc hiệu suất của một thứ. Trong công ty, performance appraisal là buổi đánh giá định kỳ khi quản lý nhận xét công việc của nhân viên. Trong bất động sản, appraisal ước tính giá thị trường của ngôi nhà, từ phổ biến trong tiếng Anh Mỹ; người Anh dùng valuation. Cũng dùng chung: a realistic appraisal of the risks. Động từ là appraise, đừng nhầm với apprise (thông báo). Người Việt hay nhầm vai trò người đánh giá và người được đánh giá."
+  },
+  "appreciation": {
+    "mis": [
+      {
+        "w": "I want to show my appreciation to your help.",
+        "r": "I want to show my appreciation for your help.",
+        "why": "Sau appreciation dùng for để nêu điều mình biết ơn."
+      },
+      {
+        "w": "Thank you for your appreciations.",
+        "r": "Thank you for your appreciation.",
+        "why": "Appreciation chỉ lòng biết ơn thì không đếm được."
+      }
+    ],
+    "u": "Appreciation có ba nghĩa chính: lòng biết ơn (flowers in appreciation of her help), sự hiểu giá trị của điều gì (an appreciation of music), và sự tăng giá (the appreciation of the dollar or property). Ở hai nghĩa đầu hầu như không đếm được và đi với for hoặc of. Một lời cảm ơn viết tay bằng appreciation nghe ấm áp và hơi trang trọng. So với thanks, nó gợi sự cân nhắc hơn. Động từ appreciate hay dùng trong lời nhờ lịch sự: I would appreciate it if you could..."
+  },
+  "apprentice": {
+    "mis": [
+      {
+        "w": "He did an apprentice at a garage.",
+        "r": "He did an apprenticeship at a garage.",
+        "why": "Apprentice là người học việc; thời gian đào tạo là apprenticeship."
+      },
+      {
+        "w": "She is an apprentice at an electrician.",
+        "r": "She is an apprentice to an electrician.",
+        "why": "Dùng to với người bạn học nghề; at dùng cho công ty hoặc xưởng."
+      }
+    ],
+    "u": "Apprentice là người học nghề, vừa làm vừa học cùng một thợ lành nghề, thường kết hợp lương và học lý thuyết: an apprentice electrician, plumber hoặc chef. Hệ thống đào tạo gọi là apprenticeship; mẫu câu: apprentice to một thợ cả, hoặc apprentice at một công ty. So với intern, người thường học kỹ năng văn phòng ngắn hạn, apprentice thường theo đuổi một chứng chỉ chính thức trong nhiều năm. Động từ apprentice ít dùng và hơi cổ. Người Việt hay dùng sai giới từ."
+  },
+  "archive": {
+    "mis": [
+      {
+        "w": "Old files are saved in an archives.",
+        "r": "Old files are kept in the archive.",
+        "why": "Archive số ít cho một bộ lưu trữ; archives cho cơ quan hoặc nhiều bộ."
+      },
+      {
+        "w": "I put the old reports in archive.",
+        "r": "I put the old reports in the archive.",
+        "why": "Archive là danh từ đếm được nên cần mạo từ."
+      }
+    ],
+    "u": "Archive là bộ sưu tập các tài liệu lịch sử hoặc quan trọng, hoặc nơi lưu trữ chúng: company archive, the national archives. Làm động từ, nó nghĩa là lưu trữ, và trong tin học là chuyển các tệp không cần dùng sang nơi riêng mà không xóa, ví dụ archive một email. Số nhiều archives thường chỉ một cơ quan (the State Archives). Archive footage nghĩa là phim tư liệu cũ. Trọng âm ở âm đầu và danh từ, động từ phát âm giống nhau. Người Việt hay nhầm archive với delete."
+  },
+  "assembly": {
+    "mis": [
+      {
+        "w": "The machine's assemble takes two days.",
+        "r": "The machine's assembly takes two days.",
+        "why": "Sau sở hữu cách dùng danh từ assembly; assemble là động từ."
+      },
+      {
+        "w": "The students assembly in the hall every Monday.",
+        "r": "The students assemble in the hall every Monday.",
+        "why": "Assembly là danh từ; động từ tập hợp là assemble."
+      }
+    ],
+    "u": "Assembly có hai nghĩa chính. Là việc lắp ráp các bộ phận (the assembly of a car, assembly instructions, assembly line trong nhà máy) hoặc nhóm người tập trung vì một mục đích (school assembly, the General Assembly của Liên Hợp Quốc, legislative assembly, tức cơ quan lập pháp). Động từ assemble dùng cho cả hai nghĩa: lắp ráp hoặc tập hợp. So với meeting, assembly gợi một buổi họp lớn hơn, trang trọng hoặc định kỳ, thường trong hội trường. Người Việt hay nhầm danh từ và động từ."
+  },
+  "attendee": {
+    "mis": [
+      {
+        "w": "Each attendant will get a badge.",
+        "r": "Each attendee will get a badge.",
+        "why": "Attendant phục vụ, attendee là người tham dự sự kiện."
+      },
+      {
+        "w": "The attendees of the meeting was 50.",
+        "r": "There were 50 attendees at the meeting.",
+        "why": "Attendee đếm được; dùng động từ số nhiều với attendees."
+      }
+    ],
+    "u": "Attendee là người tham dự một sự kiện như hội nghị, cuộc họp hoặc buổi hòa nhạc. Đây là từ thương mại trung tính với hậu tố -ee, chỉ người nhận hoặc thực hiện hành động. Cách dùng thường gặp: conference attendees, a list of attendees, attendee registration. So với participant, attendee chỉ việc có mặt, còn participant nhấn việc tham gia thực sự. Đừng nhầm với attendant, người phục vụ tại một nơi, như flight attendant. Giới từ đi với sự kiện là at: attendees at the meeting."
+  },
+  "attire": {
+    "mis": [
+      {
+        "w": "I bought three attires for the party.",
+        "r": "I bought new attire for the party.",
+        "why": "Attire không đếm được; không thêm -s hay a."
+      },
+      {
+        "w": "Please wear attire formal.",
+        "r": "Please wear formal attire.",
+        "why": "Tính từ đứng trước attire, như formal attire."
+      }
+    ],
+    "u": "Attire là từ trang trọng chỉ quần áo, đặc biệt là trang phục phù hợp với dịp nào đó: business attire, evening attire, appropriate attire. Danh từ không đếm được. Hay thấy trên thiệp mời và quy định trang phục (smart casual attire). Khi nói chuyện thường ngày, người ta nói clothes hay what to wear; attire nghe trang trọng hoặc đôi khi hài hước. Động từ attire hiếm, thường dùng bị động trong văn viết: attired in a dark suit. Outfit là một bộ cụ thể và đếm được. Người Việt hay thêm -s."
+  },
+  "attorney": {
+    "mis": [
+      {
+        "w": "In Britain, my attorney explained the contract.",
+        "r": "In Britain, my solicitor explained the contract.",
+        "why": "Attorney chủ yếu dùng ở Mỹ; ở Anh luật sư là solicitor hoặc barrister."
+      },
+      {
+        "w": "My attorney advised to me not to speak.",
+        "r": "My attorney advised me not to speak.",
+        "why": "Advise đi trực tiếp với người, không có to."
+      }
+    ],
+    "u": "Attorney là từ thông dụng trong tiếng Anh Mỹ chỉ luật sư có giấy phép đại diện thân chủ trước tòa và tư vấn pháp lý. Từ này trang trọng hơn lawyer đôi chút trong đời thường, nhưng cả hai đều phổ biến ở Mỹ. Ở Anh người ta dùng solicitor và barrister. Cụm hay gặp: defense attorney (luật sư bào chữa), district attorney (công tố viên), attorney general (tổng chưởng lý) và power of attorney (giấy ủy quyền). Attorney không có nghĩa là công chứng viên, một vai trò khác ở nhiều nước."
+  },
+  "auction": {
+    "mis": [
+      {
+        "w": "The painting was sold in auction.",
+        "r": "The painting was sold at auction.",
+        "why": "Cụm cố định là at auction, không dùng in auction."
+      },
+      {
+        "w": "They auctioned the house to the highest bid.",
+        "r": "They auctioned the house to the highest bidder.",
+        "why": "Bid là mức giá đưa ra; người đưa giá là bidder."
+      }
+    ],
+    "u": "Auction là hình thức bán công khai trong đó mọi người đưa ra giá (bid) và người trả giá cao nhất mua món đồ. Giới từ thường dùng là at: sold at auction, put up for auction. Các loại gồm online auction (như eBay), silent auction ở sự kiện từ thiện, và Dutch auction giá giảm dần. Làm động từ, auction off nghĩa là bán đấu giá: they auctioned off the old furniture. Auction house như Sotheby's tổ chức bán nghệ thuật và đồ cổ. Người điều hành là auctioneer. Người Việt hay nhầm in auction."
+  },
+  "author": {
+    "mis": [
+      {
+        "w": "The author of this novel, he was born in Russia.",
+        "r": "The author of this novel was born in Russia.",
+        "why": "Không nhắc lại chủ ngữ bằng đại từ."
+      },
+      {
+        "w": "She authored a article.",
+        "r": "She authored an article.",
+        "why": "Dùng an trước article, không dùng a."
+      }
+    ],
+    "u": "Author là người viết sách, bài báo hoặc báo cáo, mở rộng ra là người khởi xướng một ý tưởng hay kế hoạch: \"the author of the plan\". Trang trọng hơn writer, từ có thể chỉ một nghề; author thường gắn với một tác phẩm cụ thể. Trong văn bản học thuật, tên author được trích dẫn, và lead author là người đóng góp chính. Động từ to author hay xuất hiện trong kinh doanh: authored a report. Âm /θ/ như trong think, người Việt hay phát âm thành /t/. Đừng nhầm author với actor."
+  },
+  "authorization": {
+    "mis": [
+      {
+        "w": "I need authorization to access to the file.",
+        "r": "I need authorization to access the file.",
+        "why": "Access là động từ, theo sau là tân ngữ, không thêm to."
+      },
+      {
+        "w": "You must have an authorize from the manager.",
+        "r": "You must have authorization from the manager.",
+        "why": "Danh từ là authorization, động từ là authorize."
+      }
+    ],
+    "u": "Authorization là sự cho phép chính thức làm việc gì đó, hoặc hành động cấp phép: written authorization, prior authorization từ công ty bảo hiểm. Nói chung là danh từ không đếm được, nhưng đếm được khi chỉ một sự phê duyệt hoặc mã cụ thể. Trong tin học, authorization quyết định người dùng đã đăng nhập được làm gì, khác authentication là xác minh danh tính. Chính tả Anh là authorisation. Động từ authorize đi với người và to. Từ trang trọng, hay dùng trong kinh doanh và pháp lý. Người Việt hay nhầm động từ và danh từ."
+  },
+  "automotive": {
+    "mis": [
+      {
+        "w": "He works in the automotive of cars.",
+        "r": "He works in the automotive industry.",
+        "why": "Automotive là tính từ, cần danh từ phía sau như industry."
+      },
+      {
+        "w": "I bought an automotive for my family.",
+        "r": "I bought a car for my family.",
+        "why": "Automotive không chỉ chiếc xe; dùng car."
+      }
+    ],
+    "u": "Automotive là tính từ liên quan đến xe cơ giới, thiết kế, sản xuất và bán xe: the automotive industry, automotive parts, automotive technology. Gặp nhiều trong kinh doanh, tin tức và chức danh công việc. Nó không phải danh từ chỉ chiếc xe; dùng car, vehicle hay automobile. Trong các cửa hàng Mỹ, automotive còn là tên khu vực hàng hóa. So với auto, từ thân mật (auto repair), automotive nghe chính thức và kỹ thuật hơn. Người Việt hay dùng nó như danh từ chỉ xe hơi."
+  },
+  "availability": {
+    "mis": [
+      {
+        "w": "What is your availabilities next week?",
+        "r": "What is your availability next week?",
+        "why": "Availability không đếm được, không thêm -s."
+      },
+      {
+        "w": "The availability for rooms is low.",
+        "r": "The availability of rooms is low.",
+        "why": "Sau availability dùng of với thứ có sẵn."
+      }
+    ],
+    "u": "Availability nghĩa là sự rảnh rỗi để gặp hoặc làm việc (my availability next week) hoặc khả năng có sẵn của sản phẩm, phòng, dịch vụ (check availability, subject to availability). Là danh từ không đếm được, thường đi với of: the availability of seats. Trong email, \"please let me know your availability\" là hỏi giờ rảnh. Trang đặt phòng có thể ghi \"limited availability\" hoặc \"no availability\". Tính từ là available, trái nghĩa là unavailability. Người Việt hay thêm -s hoặc dùng for thay of."
+  },
+  "bacteria": {
+    "mis": [
+      {
+        "w": "A bacteria can cause infection.",
+        "r": "A bacterium can cause infection.",
+        "why": "Số ít là bacterium; bacteria là số nhiều."
+      },
+      {
+        "w": "The bacteria is dangerous.",
+        "r": "The bacteria are dangerous.",
+        "why": "Trong văn viết chuẩn, bacteria đi với động từ số nhiều."
+      }
+    ],
+    "u": "Bacteria là các sinh vật đơn bào cực nhỏ; một số gây bệnh, số khác giúp tiêu hóa hoặc làm phô mai và sữa chua. Về mặt ngữ pháp, bacteria là số nhiều, số ít là bacterium, dù nhiều người nói bacteria như số ít, nhất là khi nói. Trong cách dùng thông thường nó gần như không đếm được (killing bacteria), còn khi đếm thì nói types of bacteria. Germs là từ đời thường, microbe là thuật ngữ khoa học chung. Tính từ là bacterial. Người Việt hay viết a bacteria."
+  },
+  "bankruptcy": {
+    "mis": [
+      {
+        "w": "The company went bankruptcy last year.",
+        "r": "The company went bankrupt last year.",
+        "why": "Sau go dùng tính từ bankrupt, không dùng bankruptcy."
+      },
+      {
+        "w": "He filed bankruptcy.",
+        "r": "He filed for bankruptcy.",
+        "why": "File đi với for: file for bankruptcy."
+      }
+    ],
+    "u": "Bankruptcy là tình trạng pháp lý của cá nhân hoặc công ty không thể trả nợ, thường do tòa án tuyên bố. Hầu như không đếm được: file for bankruptcy, declare bankruptcy, go into bankruptcy. Tính từ là bankrupt: go bankrupt, be declared bankrupt. Công ty có thể go bankrupt, nhưng không nói goes bankruptcy. Trong khẩu ngữ, go broke là cách nói thân mật; insolvency là thuật ngữ kỹ thuật hơn, chỉ việc mất khả năng thanh toán và có thể không cần tòa. Người Việt hay quên for hoặc nhầm từ loại."
+  },
+  "basket": {
+    "mis": [
+      {
+        "w": "She put the clothes in the laundry baskets.",
+        "r": "She put the clothes in the laundry basket.",
+        "why": "Một vật chứa dùng số ít basket."
+      },
+      {
+        "w": "I added the shoes into my shopping bag online.",
+        "r": "I added the shoes to my basket online.",
+        "why": "Trang mua sắm dùng basket (Anh) hoặc cart (Mỹ), đi với add to."
+      }
+    ],
+    "u": "Basket là vật chứa miệng mở làm từ sợi đan, nhựa hoặc dây thép, dùng để mang hoặc đựng đồ: laundry basket, picnic basket. Trong cửa hàng, basket nhỏ hơn xe đẩy (trolley hoặc cart). Trên trang mua sắm, tiếng Anh Anh dùng basket còn tiếng Anh Mỹ dùng cart: add to basket. Gift basket là giỏ quà. Basket of dùng trong kinh tế nghĩa là một nhóm hàng hóa tính chung. Trong bóng rổ, the basket là vòng rổ. Người Việt hay nhầm với bag khi mua online."
+  },
+  "beneficial": {
+    "mis": [
+      {
+        "w": "Exercise is beneficial of your health.",
+        "r": "Exercise is beneficial to your health.",
+        "why": "Sau beneficial dùng to hoặc for, không dùng of."
+      },
+      {
+        "w": "Learning English is beneficial in your career.",
+        "r": "Learning English is beneficial for your career.",
+        "why": "Beneficial đi với to hoặc for, không phải in."
+      }
+    ],
+    "u": "Beneficial mô tả điều gì có tác dụng tốt hoặc mang lại lợi thế: a beneficial effect, a mutually beneficial deal. Đi với to hoặc for: beneficial to health, beneficial for children. Trang trọng hơn helpful hay good, thường gặp trong khoa học, kinh doanh và chính sách. Mutually beneficial nghĩa là cả hai bên đều có lợi. Danh từ là benefit, người nhận lợi ích là beneficiary. Các mẫu tự nhiên: prove beneficial, find it beneficial, be beneficial. Người Việt hay dùng giới từ of hoặc thêm mạo từ sai."
+  },
+  "benefit": {
+    "mis": [
+      {
+        "w": "Students benefit of this program.",
+        "r": "Students benefit from this program.",
+        "why": "Động từ benefit đi với from."
+      },
+      {
+        "w": "It brings many benefit.",
+        "r": "It brings many benefits.",
+        "why": "Nhiều lợi ích thì dùng số nhiều benefits."
+      }
+    ],
+    "u": "Benefit là danh từ chỉ lợi ích hoặc tác dụng tốt (the health benefits of walking) và các khoản phúc lợi đi kèm công việc, gọi là employee benefits, như bảo hiểm và nghỉ phép có lương. Cũng là động từ: benefit from, hoặc benefit ai đó. Quá khứ benefited và benefitted đều có, benefited phổ biến hơn. Thành ngữ: for the benefit of, give someone the benefit of the doubt. Ở Mỹ, benefit còn là khoản tiền nhà nước chi trả: unemployment benefit. Người Việt hay dùng of sau động từ benefit."
+  }
 }
