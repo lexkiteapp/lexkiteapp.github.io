@@ -27,7 +27,7 @@ jobs:
     if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    strategy: { fail-fast: false, matrix: { tl: [pt, es] } }
+    strategy: { fail-fast: false, matrix: { tl: [pt, es, fr] } }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -36,11 +36,11 @@ jobs:
         with: { python-version: '3.11' }
       - run: node scripts/target/build.mjs ${{ matrix.tl }} --check
       - run: node scripts/target/gen.mjs --tl ${{ matrix.tl }} --n 300 --dry
-      - name: IPA espeak-ng tự kiểm trên seed (es)
-        if: ${{ matrix.tl == 'es' }}
+      - name: IPA espeak-ng tự kiểm trên seed (es, fr)
+        if: ${{ matrix.tl == 'es' || matrix.tl == 'fr' }}
         run: pip install -q "phonemizer-fork==3.3.2" "espeakng-loader==0.2.4" && TL=es python3 scripts/target/tl_ipa_fill.py --self
-      - name: Wiktionary trên seed (es)
-        if: ${{ matrix.tl == 'es' }}
+      - name: Wiktionary trên seed (es, fr)
+        if: ${{ matrix.tl == 'es' || matrix.tl == 'fr' }}
         run: node scripts/target/wikt-check.mjs --tl es --self
       - name: Chia động từ ↔ Wiktionary (es, khớp 100 %)
         if: ${{ matrix.tl == 'es' }}

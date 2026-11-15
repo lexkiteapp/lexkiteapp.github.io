@@ -164,6 +164,8 @@ Next, open the [Writing room](/#/write), choose a Task 2 question and write two 
 
 {{youtube: | Video idea: editing an over-confident IELTS Task 2 paragraph into a balanced one}}
 
+Cause-and-effect verbs need the same care as hedges; our [affect vs effect guide](/en/blog/confusing-words-affect-effect-meaning/) covers the most confused pair.
+
 ## Frequently asked questions
 
 ### Does hedging make my writing weaker?

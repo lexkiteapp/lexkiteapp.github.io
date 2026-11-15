@@ -11,6 +11,8 @@ on:
       sha: { type: string, required: false, default: '' }
 # ci-policy: matrix – 8 shard song song cân theo thời gian đo (38 phút tuần tự → ~6 phút); mỗi shard setup ~40 s (npm ci 1 s, cache), tổng runner-phút tăng ~10 %, đổi lấy vòng CI ngắn hơn 6 lần
 permissions: { contents: read }
+# bản sinh (gói dịch + extension/app) KHÔNG commit trong PR: `npm ci` chạy scripts/ci/regen-generated.mjs (postinstall) dựng lại từ nguồn; bot gen-sync commit sau khi gộp
+env: { GEN_REGEN: '1' }
 concurrency:
   group: npm-test-${{ github.event.pull_request.number || inputs.sha || github.sha }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
