@@ -254,7 +254,8 @@ object LessonEngine {
             val it = if (q.isEmpty()) return null else q.removeAt(0)
             if (it.free == true) { solved++; return AnswerRes(true, combo, free = true) }
             n++
-            val k = norm(it.word); log.add(LogEntry(it.id, it.type, it.word, ok, it.retry))
+            val k = if (it.card != null) norm(it.word) else "#" + norm(it.word) // câu không thuộc từ nào (#match/#story): khóa '#…' như web/js/lesson/engine.js
+            log.add(LogEntry(it.id, it.type, it.word, ok, it.retry))
             miss = if (ok) 0 else miss + 1
             if (!ok && ease && miss >= 2 && q.size > 1 && q[0].hard) { val j = q.indexOfFirst { !it.hard && it.free != true }; if (j > 0) q.add(0, q.removeAt(j)) }
             if (ok) { solved++; combo++; best = max(best, combo); if (it.retry == 0) { ok1++; if (!wrong.containsKey(k)) firstOk.add(k) }; return AnswerRes(true, combo) }

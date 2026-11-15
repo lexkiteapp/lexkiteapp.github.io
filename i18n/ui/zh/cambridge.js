@@ -1,3 +1,21 @@
-/* UI zh – cambridge (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["zh"] = Object.assign(D["zh"] || {}, {"Đề tự biên soạn đúng định dạng Cambridge từ A2 Key đến C2 Proficiency: Đọc & Viết, Nghe, Nói – có lời giải, bài mẫu và tiêu chí chấm.":"按剑桥考试格式自编的练习题，涵盖 A2 Key 到 C2 Proficiency：Reading & Writing、Listening 和 Speaking，附解析、范文和评分标准。","Đang soạn đề cho cấp này.":"该级别的试题正在编写中。","Điểm trong ứng dụng là tỉ lệ câu đúng để tự theo dõi, không phải điểm Cambridge English Scale chính thức.":"应用内的分数是答对题目的百分比，用于跟踪你的进度，并非官方的 Cambridge English Scale 分数。","Viết {n} từ trở lên.":"请写 {n} 个词或更多。","Đã nghe 2 lần (như thi thật)":"已听 2 遍（与真实考试一致）","Nghe lần 2":"再听一遍","Kết quả: {a}/{b} câu đúng ({p}%)":"结果：答对 {a}/{b} 题（{p}%）","Xem lời giải dưới từng câu. Phần viết có nhận xét riêng ngay dưới bài.":"解析显示在每道题下方。写作部分在文章正下方有单独的点评。","{n} từ (tối thiểu {m})":"{n} 词（至少 {m} 词）","Từ nối đã dùng: {w}":"已使用的连接词：{w}","Tiêu chí chấm (0–5 mỗi tiêu chí)":"评分标准（每项 0–5 分）","Trả lời":"回答","Bạn cùng thi nói:":"你的考试搭档说：","Mẫu câu hữu ích:":"常用表达：","{n} từ – nên nói khoảng {m} từ trở lên":"{n} 词 – 建议说到约 {m} 词或更多","Thêm lý do hoặc ví dụ (because, so, for example…)":"补充一个理由或例子（because, so, for example…）","Câu trả lời mẫu":"参考答案"});
+/* UI zh – cambridge (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["zh"] = Object.assign(D["zh"] || {}, {
+"Bạn cùng thi nói:":"你的考试搭档说：",
+"Câu trả lời mẫu":"参考答案",
+"Kết quả: {a}/{b} câu đúng ({p}%)":"结果：答对 {a}/{b} 题（{p}%）",
+"Mẫu câu hữu ích:":"常用表达：",
+"Nghe lần 2":"再听一遍",
+"Thêm lý do hoặc ví dụ (because, so, for example…)":"补充一个理由或例子（because, so, for example…）",
+"Tiêu chí chấm (0–5 mỗi tiêu chí)":"评分标准（每项 0–5 分）",
+"Trả lời":"回答",
+"Từ nối đã dùng: {w}":"已使用的连接词：{w}",
+"Viết {n} từ trở lên.":"请写 {n} 个词或更多。",
+"Xem lời giải dưới từng câu. Phần viết có nhận xét riêng ngay dưới bài.":"解析显示在每道题下方。写作部分在文章正下方有单独的点评。",
+"{n} từ (tối thiểu {m})":"{n} 词（至少 {m} 词）",
+"{n} từ – nên nói khoảng {m} từ trở lên":"{n} 词 – 建议说到约 {m} 词或更多",
+"Đang soạn đề cho cấp này.":"该级别的试题正在编写中。",
+"Điểm trong ứng dụng là tỉ lệ câu đúng để tự theo dõi, không phải điểm Cambridge English Scale chính thức.":"应用内的分数是答对题目的百分比，用于跟踪你的进度，并非官方的 Cambridge English Scale 分数。",
+"Đã nghe 2 lần (như thi thật)":"已听 2 遍（与真实考试一致）",
+"Đề tự biên soạn đúng định dạng Cambridge từ A2 Key đến C2 Proficiency: Đọc & Viết, Nghe, Nói – có lời giải, bài mẫu và tiêu chí chấm.":"按剑桥考试格式自编的练习题，涵盖 A2 Key 到 C2 Proficiency：Reading & Writing、Listening 和 Speaking，附解析、范文和评分标准。",
+});
 })(typeof self !== 'undefined' ? self : this);

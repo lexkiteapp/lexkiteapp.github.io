@@ -225,7 +225,7 @@ ok(S.key && S.webhook && S.cfg.daily_calls === 10 && S.budget_left === 2 && S.up
   const D = await import(new URL('../../functions/api/_distribution.js', import.meta.url));
   const cfgs = { 'gc-tiktok-9': D.normCfg({}), 'gc-tiktok-1': D.normCfg({}), 'gc-facebook_page-2': D.normCfg({}), UCabc: D.normCfg({}) };
   const imp = D.implicitSocialRules([], cfgs);
-  ok(imp.map(r => r.channel_id).join() === 'gc-facebook_page-2,gc-tiktok-1', 'nối kênh mà chưa có luật → luật ngầm 1 kênh/nền tảng, không đụng YouTube');
+  ok(imp.map(r => r.channel_id).join() === 'gc-facebook_page-2,gc-tiktok-1,gc-tiktok-9' && imp.filter(r => r.cond && r.cond.shard).map(r => r.cond.shard).join() === '0/2,1/2', 'nối kênh mà chưa có luật → luật ngầm: 1 page EN/nền tảng đi thẳng, nhiều page EN cùng nền tảng chia clip theo băm id (shard i/n), không đụng YouTube');
   ok(D.routeAll(imp, cfgs, { id: 'x' }, null).length === 2, 'luật ngầm khớp mọi clip');
   ok(D.implicitSocialRules([{ channel_id: 'gc-tiktok-9', cond: {}, active: 0 }], cfgs).every(r => !/tiktok/.test(r.channel_id)), 'luật đã TẮT = chủ ý dừng → không có luật ngầm cho nền tảng đó');
 

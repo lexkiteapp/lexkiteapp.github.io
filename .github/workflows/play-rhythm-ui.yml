@@ -1,0 +1,34 @@
+# ci-policy: fast-lane – chỉ chạy khi PR đổi đúng play-rhythm.js hoặc script ảnh của nó (đường dẫn hẹp, không phải bộ giao diện nặng)
+# 🥁 Nhịp điệu – ảnh dựng thật 375 px (sáng/tối/RTL × mở đầu, đang chơi, kết quả) + chặn tràn ngang, chữ đè, lỗi JS. Ảnh: artifact play-rhythm-shots.
+name: Nhịp điệu – giao diện
+on:
+  pull_request:
+    paths: ['web/cpack/play-app/play-rhythm.js', 'scripts/test/play-rhythm-shots.mjs', '.github/workflows/play-rhythm-ui.yml']
+  push:
+    branches: [main]
+    paths: ['web/cpack/play-app/play-rhythm.js', 'scripts/test/play-rhythm-shots.mjs', '.github/workflows/play-rhythm-ui.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  ui:
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - name: Playwright
+        timeout-minutes: 10
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium
+      - name: Ảnh + kiểm bố cục (chặn lỗi)
+        timeout-minutes: 5
+        run: node scripts/test/play-rhythm-shots.mjs out/play-rhythm web
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with: { name: play-rhythm-shots, path: out/play-rhythm, retention-days: 14 }

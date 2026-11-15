@@ -1,4 +1,4 @@
-# Tự gỡ xung đột ở tệp TỰ SINH (docs/CODEMAP.md, docs/codemap.json, scripts/test/suite.txt) cho PR dirty đang hoạt động (cập nhật ≤ 24h, ≤ 4 PR/lượt).
+# Tự gỡ xung đột ở tệp TỰ SINH (CODEMAP, suite.txt, gói dịch, extension/app, st-*.css – lấy main rồi dựng lại) + nguồn dịch/registry mỗi mục một dòng (giữ mục cả hai phía) cho PR dirty đang hoạt động (cập nhật ≤ 24h, ≤ 4 PR/lượt).
 # Gốc 06/11: bot codemap đẩy main sau mỗi lần gộp → PR có sửa tệp tự sinh thành dirty, không check nào chạy, phiên gỡ tay. Xung đột ở tệp người viết: không đụng.
 # Đẩy bằng khoá deploy (như codemap) để CI của PR chạy lại; không force-push. Script + test: scripts/pr-unconflict.mjs, scripts/test/pr-unconflict.mjs.
 name: pr-unconflict
@@ -9,6 +9,10 @@ on:
       - 'scripts/test/suite.txt'
       - 'docs/CODEMAP.md'
       - 'docs/codemap.json'
+      - 'i18n/ui/**'
+      - 'web/js/app.js'
+      - 'scripts/build-stitch-css.mjs'
+      - 'scripts/test/stitch-screens.mjs'
   workflow_run:
     workflows: [codemap]
     types: [completed]
@@ -25,12 +29,13 @@ jobs:
   unconflict:
     if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20   # npm ci + dựng lại (add-on, CSS Stitch) cho tối đa MAX PR
     steps:
       - uses: actions/checkout@v4
         with: { ssh-key: '${{ secrets.BOT_DEPLOY_KEY }}', fetch-depth: 0 }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - run: npm ci --no-audit --no-fund   # dựng lại CSS Stitch (tailwind) sau khi gộp – scripts/pr-unconflict.mjs regen
       - name: Gỡ xung đột tệp tự sinh
         env:
           GITHUB_TOKEN: ${{ github.token }}

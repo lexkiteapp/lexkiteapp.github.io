@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_article_job",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do not forget the little word!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am teacher.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am a teacher.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "With a job, use a before it.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "A! She is a doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am teacher.",
+  "right": "I am a teacher.",
+  "strike": "teacher",
+  "why": "With a job, use a before it.",
+  "memory": "I am a teacher.",
+  "quiz": {
+   "stem": "She is ___ doctor.",
+   "options": [
+    "a",
+    "the"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Sagst du auch „I am teacher“?",
+   "tip": "Im Deutschen sagst du „Ich bin Lehrer“. Im Englischen brauchst du „a“ oder „an“.",
+   "caption": "Sagst du auch „I am teacher“? 🙈 Falsch: “I am teacher.” Richtig: “I am a teacher.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “a”. Richtig heißt es: “I am a teacher.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you also say “I am teacher”?",
+   "tip": "In German you say “Ich bin Lehrer”. In English you need “a” or “an”.",
+   "caption": "Do you also say “I am teacher”? Wrong: “I am teacher.” Right: “I am a teacher.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Sagst du auch „I am teacher“?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Sagst du auch „I am teacher“?",
+  "keyword": "I am a teacher.",
+  "value": "Im Deutschen sagst du „Ich bin Lehrer“. Im Englischen brauchst du „a“ oder „an“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Sagst du auch „I am teacher“?",
+    "description": "Sagst du auch „I am teacher“? 🙈 Falsch: “I am teacher.” Richtig: “I am a teacher.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I am a teacher.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Sagst du auch „I am teacher“? 🙈 Falsch: “I am teacher.” Richtig: “I am a teacher.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Sagst du auch „I am teacher“? 🙈 Falsch: “I am teacher.” Richtig: “I am a teacher.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Sagst du auch „I am teacher“? #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “a”. Richtig heißt es: “I am a teacher.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

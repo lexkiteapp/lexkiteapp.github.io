@@ -40,13 +40,11 @@
     p3: { name: 'Part 3 · Thảo luận', target: [40, 70], desc: 'Câu hỏi trừu tượng – nêu quan điểm, lý do, ví dụ (~40–70 giây)' },
   };
 
-  let rec = null, media = null, chunks = [], stream = null, tick = null, prepT = null;
+  let sess = null, tick = null, prepT = null;
   const stopAll = () => {
     clearInterval(tick); clearInterval(prepT);
-    try { rec && rec.abort(); } catch (e) { /* đã dừng */ }
-    try { media && media.state !== 'inactive' && media.stop(); } catch (e) { /* đã dừng */ }
-    if (stream) stream.getTracks().forEach(t => t.stop());
-    rec = null; media = null; stream = null; UI.stopSpeak();
+    if (sess) sess.cancel();
+    sess = null; UI.stopSpeak();
   };
 
   // Chủ đề bổ sung (js/speak/*.js nạp trước): window.SPEAK_MORE = [{ topic, title, p1: [...], p2: { q, points }, p3: [...] }]
@@ -150,28 +148,16 @@
     setTimeout(() => tts(askText(), state.settings.accent, 0.95), 400);
 
     // Ghi âm + nhận dạng giọng nói
-    let recording = false, t0 = 0, finalText = '', interim = '';
+    let recording = false, t0 = 0;
+    const canSR = !!(window.SpeechRecognition || window.webkitSpeechRecognition);
     const clock = s => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
     const startRec = async () => {
       UI.stopSpeak();
-      try { stream = await navigator.mediaDevices.getUserMedia({ audio: { autoGainControl: true, noiseSuppression: true, echoCancellation: true } }); }
-      catch (e) { return toast('⚠️ ' + t('Cần cho phép dùng micro (biểu tượng 🎙️ trên thanh địa chỉ)')); }
-      chunks = []; finalText = ''; interim = '';
-      try { media = new MediaRecorder(stream); media.ondataavailable = e => e.data.size && chunks.push(e.data); media.start(); } catch (e) { media = null; }
-      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (SR) {
-        rec = new SR(); rec.lang = state.settings.accent; rec.continuous = true; rec.interimResults = true;
-        rec.onresult = e => {
-          interim = '';
-          for (let i = e.resultIndex; i < e.results.length; i++) { const r = e.results[i]; if (r.isFinal) finalText += r[0].transcript + ' '; else interim += r[0].transcript; }
-          const l = $('#live'); if (l) l.textContent = (finalText + interim).slice(-160);
-        };
-        rec.onend = () => { if (recording && rec) try { rec.start(); } catch (e) { /* đang chạy */ } }; // Chrome tự dừng sau ~1 phút im lặng
-        try { rec.start(); } catch (e) { /* đã chạy */ }
-      }
+      sess = await UI.speechSession({ lang: state.settings.accent, slot: 'speak', onText: x => { const l = $('#live'); if (l) l.textContent = x.slice(-160); }, onError: c => toast(c === 'not-allowed' ? '⚠️ ' + t('Cần cho phép dùng micro (biểu tượng 🎙️ trên thanh địa chỉ)') : UI.recErrorText(c)) });
+      if (!sess) return;
       recording = true; t0 = Date.now();
       $('#recBtn').classList.add('rec'); $('#recBtn').textContent = '⏹';
-      $('#recHint').textContent = '🔴 ' + (SR ? t('Đang ghi âm và chuyển thành chữ… bấm để dừng') : t('Đang ghi âm… (trình duyệt không hỗ trợ chuyển giọng nói thành chữ)'));
+      $('#recHint').textContent = '🔴 ' + (canSR ? t('Đang ghi âm và chuyển thành chữ… bấm để dừng') : t('Đang ghi âm… (trình duyệt không hỗ trợ chuyển giọng nói thành chữ)'));
       tick = setInterval(() => {
         const s = (Date.now() - t0) / 1000, el = $('#clock'); if (!el) return;
         el.textContent = clock(s);
@@ -185,11 +171,8 @@
       const secs = (Date.now() - t0) / 1000;
       $('#recBtn').classList.remove('rec'); $('#recBtn').textContent = '🎙️';
       $('#recHint').textContent = t('Bấm micro để trả lời lại');
-      const done = () => analyse((finalText + ' ' + interim).trim(), secs, chunks.length ? UI.recUrl(new Blob(chunks, { type: (media && media.mimeType) || 'audio/webm' }), 'speak') : '');
-      try { rec && rec.stop(); } catch (e) { /* đã dừng */ }
-      rec = null;
-      if (media && media.state !== 'inactive') { media.onstop = () => { setTimeout(done, 300); if (stream) stream.getTracks().forEach(x => x.stop()); }; media.stop(); }
-      else { if (stream) stream.getTracks().forEach(x => x.stop()); setTimeout(done, 300); }
+      const cur = sess; sess = null;
+      if (cur) cur.stop().then(o => analyse(o.text, secs, o.audio));
     };
     $('#recBtn').onclick = () => {
       if (recording) return stopRec();

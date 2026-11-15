@@ -79,8 +79,8 @@ const leak = where => { const m = visible().match(new RegExp(`[^\\s]*${VI.source
 // ---------- 1) Khung + thanh bên ----------
 ok(d.body.classList.contains('adm-in') && !$('#side').hidden, 'đăng nhập → hiện thanh bên');
 // IA 05/11 (docs/specs/admin-audit.md §2): 16 mục thanh bên + 7 trang con trong 2 hub (Sức khỏe hệ thống, Tài khoản & khóa) = vẫn đủ 21 trang cũ + 2 mới
-ok($$('#tabs .side-g').length === 6 && $$('#tabs a[data-tab]').length === 16, 'thanh bên: 6 nhóm, 16 mục: ' + $$('#tabs a[data-tab]').map(a => a.dataset.tab).join(','));
-ok($$('#tabs .side-h').map(x => x.textContent).join('|') === 'Learner|Operations|Content & Video|Revenue', 'tên nhóm EN: ' + $$('#tabs .side-h').map(x => x.textContent).join('|'));
+ok($$('#tabs .side-g').length === 7 && $$('#tabs a[data-tab]').length === 16, 'thanh bên: 6 nhóm, 16 mục: ' + $$('#tabs a[data-tab]').map(a => a.dataset.tab).join(','));
+ok($$('#tabs .side-h').map(x => x.textContent).join('|') === 'Learner|Content & Video|Distribution|Revenue|System', 'tên nhóm EN: ' + $$('#tabs .side-h').map(x => x.textContent).join('|'));
 ok($('#tabs a[data-tab="health"] .nav-l').textContent === 'System health' && $('#tabs a[data-tab="vault"] .nav-l').textContent === 'Accounts & keys', 'hub dịch EN');
 ok($('#tabs a[aria-current="page"]').dataset.tab === 'settings' && h1() === 'Settings', 'mở thẳng #settings → mục Cài đặt đang chọn');
 await tick(30);

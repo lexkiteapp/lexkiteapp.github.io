@@ -79,6 +79,13 @@ assert.equal(rewards.length, 1); assert.equal(rewards[0].blitz, 1); assert.ok(re
 assert.ok(view.textContent.includes('happy'), 'từ sai phải được liệt kê để ôn');
 assert.ok(view.querySelector('#bzCh'), 'phải có nút Thách đấu bạn bè');
 assert.equal(timers.length, 0, 'phải dọn bộ đếm giờ');
+// 👻 bóng ma (docs/specs/play-community-1211.md #1): bóng ma lần trước hiện chip, hết giờ thua → báo thiếu điểm, điểm 0 không ghi đè bóng ma
+w.localStorage.setItem('lk.blitz.ghost', JSON.stringify({ score: 60, trace: [[300, 1], [1300, 1], [2300, 1], [3300, 1]] }));
+w.PlayBlitz.run(H, 'deck', Q);
+assert.ok(!view.querySelector('#bzG').hidden && view.querySelector('#bzG').textContent.includes('👻'), 'phải hiện chip bóng ma');
+now += 61000; timers.forEach(f => f()); await new Promise(r => setImmediate(r));
+assert.ok(view.textContent.includes('60'), 'thua bóng ma phải báo còn thiếu điểm');
+assert.equal(JSON.parse(w.localStorage.getItem('lk.blitz.ghost')).score, 60, 'lượt 0 điểm không ghi đè bóng ma');
 // link thách đấu → đúng bộ từ của bạn, tiêu đề có điểm cần vượt
 w.PlayBlitz.run(H, 'deck', new w.URLSearchParams('ch=' + core.encodeCh(['apple', 'run', 'happy', 'river'], 70)));
 assert.ok(view.textContent.includes('70'), 'tiêu đề thách đấu phải có điểm cần vượt');

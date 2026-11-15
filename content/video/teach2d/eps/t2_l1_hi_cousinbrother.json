@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_cousinbrother",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Cousin is enough!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have a cousin brother.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have a cousin.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Cousin is already brother or sister.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Cousin! I met my cousin today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have a cousin brother.",
+  "right": "I have a cousin.",
+  "strike": "cousin brother",
+  "why": "Cousin is already brother or sister.",
+  "memory": "Just cousin.",
+  "quiz": {
+   "stem": "I met my ___ today.",
+   "options": [
+    "cousin brother",
+    "cousin"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“cousin brother” नहीं, “cousin”",
+   "tip": "हिंदी में “चचेरा भाई” कहते हैं, पर अंग्रेज़ी में सिर्फ़ cousin काफ़ी है।",
+   "caption": "क्या आप भी कहते हैं “I have a cousin brother”? 🤔 अंग्रेज़ी में “I have a cousin” सही है, क्योंकि cousin में भाई या बहन दोनों आ जाते हैं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “cousin”। brother हटाकर सिर्फ़ “cousin” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “cousin brother”, but “cousin”",
+   "tip": "Hindi says “chachera bhai”, but English just says cousin.",
+   "caption": "Do you say “I have a cousin brother”? 🤔 In English “I have a cousin” is right, because cousin already covers brother or sister. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“cousin brother” नहीं, “cousin”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“cousin brother” नहीं, “cousin”",
+  "keyword": "I have a cousin.",
+  "value": "हिंदी में “चचेरा भाई” कहते हैं, पर अंग्रेज़ी में सिर्फ़ cousin काफ़ी है।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“cousin brother” नहीं, “cousin”",
+    "description": "क्या आप भी कहते हैं “I have a cousin brother”? 🤔 अंग्रेज़ी में “I have a cousin” सही है, क्योंकि cousin में भाई या बहन दोनों आ जाते हैं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I have a cousin.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “I have a cousin brother”? 🤔 अंग्रेज़ी में “I have a cousin” सही है, क्योंकि cousin में भाई या बहन दोनों आ जाते हैं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “I have a cousin brother”? 🤔 अंग्रेज़ी में “I have a cousin” सही है, क्योंकि cousin में भाई या बहन दोनों आ जाते हैं। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“cousin brother” नहीं, “cousin” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “cousin”। brother हटाकर सिर्फ़ “cousin” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

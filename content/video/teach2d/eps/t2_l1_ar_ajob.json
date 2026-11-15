@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_ajob",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Jobs need a!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is teacher.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is a teacher.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use a before a job.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "An! My brother is an engineer.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is teacher.",
+  "right": "She is a teacher.",
+  "strike": "teacher",
+  "why": "Use a before a job.",
+  "memory": "She is a teacher.",
+  "quiz": {
+   "stem": "My brother is ___ engineer.",
+   "options": [
+    "an",
+    "a"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "هل تنسى a قبل المهنة؟",
+   "tip": "قبل المهنة نضع a أو an: “She is a teacher.” وليس “She is teacher.”.",
+   "caption": "هل تقول أحيانًا “She is teacher.” 😅 قبل المهنة نضع a أو an، فالجملة الصحيحة “She is a teacher.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “an”. قبل المهنة نضع a أو an. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “She is teacher”?",
+   "tip": "Before a job we put a or an: “She is a teacher.” not “She is teacher.”.",
+   "caption": "Do you sometimes say “She is teacher.” 😅 Before a job we put a or an, so the right sentence is “She is a teacher.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تنسى a قبل المهنة؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "هل تنسى a قبل المهنة؟",
+  "keyword": "She is a teacher.",
+  "value": "قبل المهنة نضع a أو an: “She is a teacher.” وليس “She is teacher.”.",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "هل تنسى a قبل المهنة؟",
+    "description": "هل تقول أحيانًا “She is teacher.” 😅 قبل المهنة نضع a أو an، فالجملة الصحيحة “She is a teacher.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "She is a teacher.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “She is teacher.” 😅 قبل المهنة نضع a أو an، فالجملة الصحيحة “She is a teacher.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “She is teacher.” 😅 قبل المهنة نضع a أو an، فالجملة الصحيحة “She is a teacher.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تنسى a قبل المهنة؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “an”. قبل المهنة نضع a أو an. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

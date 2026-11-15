@@ -47,6 +47,23 @@ ok(/card\.appendChild\(sec\)/.test(rd('web/js/path-reward.js')), '.path-reward n
 const pf = (app.match(/App\.prefetchAll = [^\n]+/) || [''])[0];
 ok(/App\.painted\.then\(\(\) => setTimeout\(go, \d+\)\)/.test(pf), 'tải sẵn mọi gói chờ lần vẽ đầu');
 ok(/App\.painted\.then\(\(\) => idle\(\(\) => App\.need\('remind'\)/.test(app), "gói nhắc học (kéo theo ~70 KB i18nx/i18nl) chờ lần vẽ đầu");
+// ---- LCP home dao động 14/11: JS khung chỉ nạp sau khi FCP ĐÃ HIỆN (Paint Timing), không theo rAF (khung chưa chắc đã hiện)
+{
+  const boot = (/const boot = `<script id="lk-boot">([\s\S]*?)<\/script>/.exec(loader.replace(/\$\{JSON\.stringify\(order\)\}/, '["a.js"]').replace(/\$\{JSON\.stringify\(font\)\}/, '[]')) || [])[1] || '';
+  const run = async paint => {
+    const dom = new JSDOM('<!doctype html><head></head><body></body>', { url: 'http://localhost/app/', runScripts: 'outside-only' }), w = dom.window; let cb = null;
+    w.requestAnimationFrame = f => { f(); return 1; };
+    w.PerformanceObserver = paint ? Object.assign(function (f) { cb = f; this.observe = () => {}; this.disconnect = () => {}; }, { supportedEntryTypes: ['paint', 'largest-contentful-paint'] }) : undefined;
+    w.eval(boot); await new Promise(r => setTimeout(r, 20));
+    const before = w.document.querySelectorAll('body script[src]').length;
+    if (cb) { cb({ getEntriesByName: n => n === 'first-contentful-paint' ? [{}] : [] }, { disconnect() {} }); await new Promise(r => setTimeout(r, 5)); }
+    const after = w.document.querySelectorAll('body script[src]').length; w.close(); return [before, after];
+  };
+  const [b1, a1] = await run(true), [b0] = await run(false);
+  ok(boot && b1 === 0 && a1 === 1, `có Paint Timing: JS chưa nạp trước FCP (${b1}), nạp ngay sau FCP (${a1})`);
+  ok(b0 === 1, 'không có Paint Timing: giữ đường cũ rAF → setTimeout (nạp ngay)');
+  ok(/setTimeout\(go,fcp\?3000:300\)/.test(loader), 'dự phòng: 3 s khi chờ FCP (tab nền), 300 ms đường cũ');
+}
 ok(/dispatchEvent\(new Event\('lk:drawn'\)\)/.test(app) && /addEventListener\('lk:drawn',fonts\)/.test(loader) && !/if\(F\)\{var l=/.test(loader), 'font web của bản dist nạp sau trang đầu (lk:drawn), có dự phòng hẹn giờ');
 ok(/--font: "Be Vietnam Pro", "Be Vietnam Pro Fallback"/.test(rd('web/css/style.css')), 'cả app dùng font dự phòng khớp số đo → font về muộn gần như không xô chữ');
 

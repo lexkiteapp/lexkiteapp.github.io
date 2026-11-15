@@ -1,2 +1,2 @@
 /* SINH từ i18n/ui/ja/lvideo.js – đừng sửa tay (scripts/i18n-pack.mjs) */
-(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ja=Object.assign(D.ja||{},{_nmea:"20秒で見る",_46hz:"今日の動画",_qfll:"レッスン動画",_djl:"動画を再生：{t}",_5ws0:"動画を閉じる",_ifv9:"動画を再生できませんでした。後でもう一度お試しください。",_vbgs:"クイック問題",_k07p:"正解！復習カードに追加しました。",_39cs:"惜しい！答え：{a}。復習カードに追加しました。",_yrgg:"次の動画",_kj2p:"動画のチャプター"});})(typeof self!=='undefined'?self:this);
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.ja=Object.assign(D.ja||{},{_39cs:"惜しい！答え：{a}。復習カードに追加しました。",_kj2p:"動画のチャプター",_vbgs:"クイック問題",_ifv9:"動画を再生できませんでした。後でもう一度お試しください。",_djl:"動画を再生：{t}",_qfll:"レッスン動画",_46hz:"今日の動画",_yrgg:"次の動画",_nmea:"20秒で見る",_5ws0:"動画を閉じる",_k07p:"正解！復習カードに追加しました。"});})(typeof self!=='undefined'?self:this);

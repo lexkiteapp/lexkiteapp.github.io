@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_muchmany",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Many for people!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: There are much people here.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: There are many people here.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use many with people.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Many! How many books do you have?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "There are much people here.",
+  "right": "There are many people here.",
+  "strike": "much",
+  "why": "Use many with people.",
+  "memory": "Many people.",
+  "quiz": {
+   "stem": "How ___ books do you have?",
+   "options": [
+    "much",
+    "many"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “much people”؟",
+   "tip": "مع المعدود نستخدم many: “There are many people here.” وليس “There are much people here.”.",
+   "caption": "هل تقول أحيانًا “There are much people here.” 😅 مع المعدود نستخدم many، فالجملة الصحيحة “There are many people here.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “many”. مع المعدود نستخدم many. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “There are much people here”?",
+   "tip": "With countable things we use many: “There are many people here.” not “There are much people here.”.",
+   "caption": "Do you sometimes say “There are much people here.” 😅 With countable things we use many, so the right sentence is “There are many people here.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “much people”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "هل تقول “much people”؟",
+  "keyword": "There are many people here.",
+  "value": "مع المعدود نستخدم many: “There are many people here.” وليس “There are much people here.”.",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “much people”؟",
+    "description": "هل تقول أحيانًا “There are much people here.” 😅 مع المعدود نستخدم many، فالجملة الصحيحة “There are many people here.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "There are many people here.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “There are much people here.” 😅 مع المعدود نستخدم many، فالجملة الصحيحة “There are many people here.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “There are much people here.” 😅 مع المعدود نستخدم many، فالجملة الصحيحة “There are many people here.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “much people”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “many”. مع المعدود نستخدم many. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

@@ -1,3 +1,35 @@
-/* UI tr – speakt (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {"Người lớn tuổi mà bạn ngưỡng mộ":"Hayran olduğunuz yaşlı bir kişi","Giúp đỡ người khác":"Başkalarına yardım etmek","Học kỹ năng qua mạng":"Çevrimiçi yeni bir beceri öğrenmek","Quà tặng":"Hediyeler","Giấc ngủ & Nghỉ ngơi":"Uyku ve dinlenme","Tiếng ồn":"Gürültü","Đúng giờ & Quản lý thời gian":"Dakiklik ve zaman yönetimi","Hàng xóm & Láng giềng":"Komşular","Công trình lịch sử":"Tarihi binalar","Trang web & Ứng dụng":"Web siteleri ve uygulamalar","Tranh ảnh & Nhiếp ảnh":"Resimler ve fotoğrafçılık","Sông, hồ & Biển":"Nehirler, göller ve deniz","Phương tiện công cộng":"Toplu taşıma","Quy định & Luật lệ":"Kurallar ve yasalar","Ngày lễ truyền thống":"Geleneksel tatiller","Tái chế & Rác thải":"Geri dönüşüm ve atık","Quê hương & Nơi ở":"Memleket ve ev","Nghề nghiệp & Nơi làm việc":"İşler ve işyeri","Thời gian rảnh & Sở thích":"Boş zaman ve hobiler","Âm nhạc":"Müzik","Thể thao":"Spor","Ẩm thực & Nấu ăn":"Yemek ve yemek pişirme","Thời tiết & Các mùa":"Hava durumu ve mevsimler","Giao thông & Đi lại":"Ulaşım ve seyahat","Bạn bè & Các mối quan hệ":"Arkadaşlar ve ilişkiler","Nghệ thuật & Bảo tàng":"Sanat ve müzeler","Đọc sách":"Kitap okumak","Thói quen sống xanh":"Yeşil yaşam alışkanlıkları","Lễ hội & Dịp kỷ niệm":"Festivaller ve kutlamalar","Rèn luyện thể chất":"Fiziksel uygunluk","Khoa học & Công nghệ trong nhà":"Evde bilim ve teknoloji"});
+/* UI tr – speakt (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {
+"Bạn bè & Các mối quan hệ":"Arkadaşlar ve ilişkiler",
+"Công trình lịch sử":"Tarihi binalar",
+"Giao thông & Đi lại":"Ulaşım ve seyahat",
+"Giúp đỡ người khác":"Başkalarına yardım etmek",
+"Giấc ngủ & Nghỉ ngơi":"Uyku ve dinlenme",
+"Hàng xóm & Láng giềng":"Komşular",
+"Học kỹ năng qua mạng":"Çevrimiçi yeni bir beceri öğrenmek",
+"Khoa học & Công nghệ trong nhà":"Evde bilim ve teknoloji",
+"Lễ hội & Dịp kỷ niệm":"Festivaller ve kutlamalar",
+"Nghề nghiệp & Nơi làm việc":"İşler ve işyeri",
+"Nghệ thuật & Bảo tàng":"Sanat ve müzeler",
+"Ngày lễ truyền thống":"Geleneksel tatiller",
+"Người lớn tuổi mà bạn ngưỡng mộ":"Hayran olduğunuz yaşlı bir kişi",
+"Phương tiện công cộng":"Toplu taşıma",
+"Quy định & Luật lệ":"Kurallar ve yasalar",
+"Quà tặng":"Hediyeler",
+"Quê hương & Nơi ở":"Memleket ve ev",
+"Rèn luyện thể chất":"Fiziksel uygunluk",
+"Sông, hồ & Biển":"Nehirler, göller ve deniz",
+"Thói quen sống xanh":"Yeşil yaşam alışkanlıkları",
+"Thể thao":"Spor",
+"Thời gian rảnh & Sở thích":"Boş zaman ve hobiler",
+"Thời tiết & Các mùa":"Hava durumu ve mevsimler",
+"Tiếng ồn":"Gürültü",
+"Trang web & Ứng dụng":"Web siteleri ve uygulamalar",
+"Tranh ảnh & Nhiếp ảnh":"Resimler ve fotoğrafçılık",
+"Tái chế & Rác thải":"Geri dönüşüm ve atık",
+"Âm nhạc":"Müzik",
+"Đúng giờ & Quản lý thời gian":"Dakiklik ve zaman yönetimi",
+"Đọc sách":"Kitap okumak",
+"Ẩm thực & Nấu ăn":"Yemek ve yemek pişirme",
+});
 })(typeof self !== 'undefined' ? self : this);

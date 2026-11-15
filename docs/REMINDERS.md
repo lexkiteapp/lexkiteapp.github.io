@@ -51,3 +51,11 @@ Repo đã sẵn (2/11): `aps-environment` trong `App.entitlements`, `remote-noti
 ## 6. Test
 Chuẩn giọng/toast chung: [specs/notifications.md](specs/notifications.md) – `scripts/test/notify-ux.mjs` chặn lời dọa/trách ở 15 ngôn ngữ + câu FCM, độ dài, biến, hành vi toast.
 `scripts/test/reminders.mjs` (npm test): lập lịch ở 4 múi giờ thật (Asia/Ho_Chi_Minh, America/New_York qua mốc DST 01/11, Asia/Kolkata +5:30, Pacific/Auckland) – đúng giờ địa phương, ≤ 1/ngày, giờ yên lặng, giãn cách, lời cuối ngày 14, không lặp mẫu 7 ngày, lọc loại, FCM chỉ ngày ≥ 3; máy chủ `slotFor`/`pickDue` cùng 4 múi + DST; chống SSRF; SW push/click; câu FCM 15 ngôn ngữ (`scripts/push-copy.mjs --check`). Cùng các cổng chung: i18n-missing/qa/leak/switch, size-budget, axe, d1-scan, jobs-check, infra-check.
+
+## 7. Email nhắc học + tổng kết tuần (opt-in, 12/11/2026)
+Chỉ người **đã đăng nhập, email đã xác minh, tự bật** ở Cài đặt › Nhắc học (`emailRemind` nhắc học · `emailDigest` tổng kết tuần; mặc định TẮT). Mã: `functions/api/mail.js` (+ `_mail_copy.js` 15 ngôn ngữ), cron = Worker `lexkite-push` gọi `{op:'tick'}` mỗi 10 phút, test `scripts/test/mail-digest.mjs`.
+- Bảng `mail_subs` ở D1 nội bộ: chỉ uid + giờ/múi giờ/ngôn ngữ/tuỳ chọn, **không lưu email** (đọc từ `users` lúc gửi → xóa tài khoản = hết gửi; dòng mồ côi tự xóa).
+- Luật không phiền: nhắc chỉ khi nghỉ ≥ 2 ngày, bậc 2·5·10·21 ngày rồi DỪNG tới khi quay lại; tổng kết tuần sáng Thứ 2 (máy khách gửi số 1 lần/tuần: từ mới, phút ước tính, ngày học); ≤ 1 email/ngày; cửa sổ 40 phút quanh giờ hay học; ngoài giờ yên lặng; trần `MAIL_DAY_CAP` (mặc định 80 < Resend 100/ngày).
+- Hủy một chạm: liên kết HMAC trong email + `List-Unsubscribe-Post` (không cần đăng nhập); tắt công tắc = xóa dòng.
+- Nhà cung cấp: Resend (khóa ở Quản trị › Khóa hoặc `RESEND_API_KEY`) → Brevo (`BREVO_API_KEY`); người gửi `MAIL_FROM` (mặc định `Lexkite <hello@lexkite.com>`) cần **miền đã xác minh SPF/DKIM** (chủ làm ở Resend/Cloudflare DNS). Chưa có khóa → tick trả `skip:'no-key'`, không gửi, không đánh dấu đã gửi (an toàn để merge trước).
+- Tắt khẩn: xóa khóa nhà cung cấp hoặc `MAIL_DAY_CAP=0`.

@@ -73,20 +73,6 @@
    "review-card@768d",
    "review-type@768d"
   ],
-  "tap|div#leagueHomeCard>div.card.league-home-card>a.btn.sm": [
-   "home@768l",
-   "home@768d",
-   "home@1440l",
-   "home@1440d"
-  ],
-  "tap|div#ux1League>div.card.league-home-card>a.btn.sm": [
-   "ux1-home@1440l",
-   "ux1-train@1440l",
-   "ux1-me@1440l",
-   "ux1-home@1440d",
-   "ux1-train@1440d",
-   "ux1-me@1440d"
-  ],
   "tap|div.main>header.topbar>a.brand": [
    "home@768l",
    "vocab@768l",

@@ -69,4 +69,11 @@ const src = fs.readFileSync('web/js/admin-flow.js', 'utf8'), used = [...src.matc
 const missing = [...new Set(used)].filter(k => !(k in P.EN)); ok(!missing.length, 'mọi chuỗi có bản EN: ' + missing.join(' | '));
 for (const s of P.STEPS) ok(s.t in P.EN && s.k in P.EN, 'nhãn bước có EN: ' + s.t);
 
+// IA v2 (docs/specs/admin-ia-v2.md): dải video KHÔNG hiện ở Kho Drive (thuộc Hệ thống); thân trang Drive không lặp cảnh báo CI; nút Kết nối chỉ nổi bật khi chưa có Drive
+const adm = fs.readFileSync('web/js/admin.js', 'utf8'), drv = fs.readFileSync('web/js/admin-drive.js', 'utf8');
+ok(!/FLOW_TABS = new Set\([^)]*'drive'/.test(adm), 'dải luồng video không hiện ở tab Kho Drive');
+ok(/NOT_DRIVE = new Set\(\[[^\]]*'ci'/.test(drv) && /filter\(a => !NOT_DRIVE\.has\(a\.t\)\)/.test(drv), 'thân trang Drive lọc cảnh báo ngoài Drive (không lặp banner CI)');
+ok(/btn\$\{d\.drives\.length \? '' : ' primary'\}/.test(drv), 'nút Kết nối Google Drive chỉ primary khi chưa có Drive');
+ok(!/FROM drives WHERE status IN/.test(fs.readFileSync('functions/api/admin-clips.js', 'utf8')), 'tổng Drive ở dải luồng cùng tập hàng với tab Kho Drive');
+
 console.log(fails ? `✗ admin-flow ${fails}/${n} FAIL` : `✓ admin-flow ${n} OK`); process.exit(fails ? 1 : 0);

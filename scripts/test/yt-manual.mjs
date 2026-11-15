@@ -240,5 +240,14 @@ ok(bad.status === 403, 'unsigned sync refused');
   ok(mn.querySelector('[data-off="UCy"]') && !mn.open, 'channel ⋯ menu holds disconnect and closes on an outside click');
 }
 
+
+{ // daily reels: staggered publish slots per channel language (docs/specs/daily-reels.md)
+  const Y = await import(new URL('../../functions/api/youtube.js', import.meta.url)), now = Date.UTC(2026, 10, 12, 0, 0);
+  const a = [0, 1, 2, 3, 4, 5].map(i => Y.slotAt(i, 3, 'vi', now)), t = a.map(x => Date.parse(x));
+  ok(t.every(x => x > now) && t.every((x, i) => !i || x !== t[i - 1]), 'slotAt: always future, no two clips on the same minute');
+  ok(new Set(a.slice(0, 3).map(x => x.slice(0, 10))).size === 1 && a[3].slice(0, 10) > a[2].slice(0, 10), 'slotAt: 3 clips a day, then the next day');
+  ok(Y.slotAt(0, 3, 'ja', now) !== Y.slotAt(0, 3, 'en', now) && Y.slotAt(0, 3, 'en', now, 1) !== Y.slotAt(0, 3, 'en', now), 'slotAt: language timezone and per-channel rotation differ');
+}
+
 console.log(`yt-manual: ${n - fails}/${n} ok`);
 process.exit(fails ? 1 : 0);
