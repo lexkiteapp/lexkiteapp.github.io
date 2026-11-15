@@ -35,12 +35,16 @@ async function open(vp, scheme, lang = 'vi') {
   page.on('pageerror', e => errs.push(String(e.message).slice(0, 160)));
   page.on('console', m => { if (m.type() === 'error' || m.type() === 'warning') console.log(`  [console ${m.type()}] ${m.text().slice(0, 200)}`); });
   await ctx.addInitScript(() => { window.__errs = []; addEventListener('unhandledrejection', e => window.__errs.push('UR ' + String(e.reason && (e.reason.stack || e.reason.message) || e.reason).slice(0, 300))); });
-  await page.goto(`${BASE}/app/?sandbox=1&hl=${lang}#/welcome/setup`, { waitUntil: 'networkidle' }).catch(() => {});
-  await page.waitForSelector('#obNext, #go', { timeout: 8000 }).catch(() => {});
-  for (let i = 0; i < 8 && !(await page.$('#go')) && (await page.$('#obNext')); i++) { await page.click('#obNext').catch(() => {}); await page.waitForTimeout(150); }
-  const go = await page.$('#go'); if (go) { await go.click().catch(() => {}); await page.waitForTimeout(1200); }
-  await page.evaluate(() => { try { localStorage.setItem('vb.learnLang', 'vi'); } catch (e) { /* */ } location.hash = '#/dict/promotion'; });
-  await page.waitForSelector('.example-box.entry-ex', { timeout: 20000 }).catch(() => {});
+  // Như dict-entry-layout.mjs: vào thẳng #/dict (sandbox=1 bỏ qua giới thiệu), chờ App + Dict sẵn sàng rồi mới đổi hash sang từ;
+  // trước đây đi qua #/welcome/setup → sau khi bấm "Bắt đầu" app tự chuyển về Hôm nay và đè mất trang từ (ảnh CI: trang Hôm nay + bảng dịch nổi).
+  await page.addInitScript(() => { try { localStorage.setItem('vb.learnLang', 'vi'); } catch (e) { /* */ } });
+  await page.goto(`${BASE}/app/?sandbox=1&hl=${lang}#/dict`, { waitUntil: 'load' }).catch(() => {});
+  await page.waitForFunction(() => window.Dict && window.App && App.state, null, { timeout: 30000 }).catch(() => {});
+  await page.waitForSelector('#searchForm', { timeout: 30000 }).catch(() => {});
+  for (let i = 0; i < 3 && !(await page.$('.example-box.entry-ex')); i++) { // hash bị đè → đặt lại (tối đa 3 lần)
+    await page.evaluate(() => { location.hash = '#/dict/promotion'; });
+    await page.waitForSelector('.example-box.entry-ex', { timeout: 12000 }).catch(() => {});
+  }
   await page.addStyleTag({ content: STILL });
   return { ctx, page, errs };
 }
