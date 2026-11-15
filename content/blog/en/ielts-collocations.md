@@ -149,6 +149,8 @@ The verbs *make* and *do* cause more collocation errors than almost any others; 
 
 To put collocations into well-organised paragraphs, pair this guide with [linking words for IELTS Writing](/en/blog/linking-words-for-ielts-writing/) and the overview of [IELTS Writing Task 2 structure](/en/blog/ielts-writing-task-2-structure/).
 
+A classic collocation trap is *have an effect on* versus *affect*; see [affect vs effect meaning](/en/blog/confusing-words-affect-effect-meaning/).
+
 ## Frequently asked questions
 
 ### How is learning collocations different from learning vocabulary?

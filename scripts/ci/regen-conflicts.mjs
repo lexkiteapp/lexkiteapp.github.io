@@ -6,11 +6,12 @@
 //
 //   node scripts/ci/regen-conflicts.mjs                     gộp real/main vào nhánh hiện tại (hoặc tiếp cuộc gộp đang dở), gỡ, commit
 //   node scripts/ci/regen-conflicts.mjs --base=origin/main  gộp nhánh khác
+//   node scripts/ci/regen-conflicts.mjs --strip             KHÔNG gộp: chỉ đưa tệp sinh (gói dịch, extension/app) về bản của base + commit – PR không được commit chúng (cổng gen-pr-clean)
 //   node scripts/ci/regen-conflicts.mjs --dry               chỉ báo sẽ gỡ gì (huỷ cuộc gộp)
 //   node scripts/ci/regen-conflicts.mjs --measure 1 2 3     ĐO không đổi cây làm việc: PR N (refs/pull/N/head đã fetch) xung đột tệp nào với base; kèm đếm theo tệp
 // Không push – push là việc của phiên (prepush + prwatch như thường lệ). Thoát 0 = đã gỡ hết/không xung đột; 2 = còn xung đột người viết; 1 = lỗi.
 import { execFileSync } from 'node:child_process';
-import { plan, applySteps, regen } from '../pr-unconflict.mjs';
+import { plan, applySteps, regen, stripGenerated } from '../pr-unconflict.mjs';
 
 const arg = k => (process.argv.find(a => a.startsWith(`--${k}=`)) || '').split('=')[1];
 const flag = k => process.argv.includes(`--${k}`);
@@ -40,18 +41,27 @@ function measure(nums) {
   for (const [f, k] of [...files].sort((a, b) => b[1] - a[1])) console.log(String(k).padStart(4), f);
 }
 
+/** Gộp sạch (hoặc chỉ --strip): đưa tệp sinh về bản của base rồi commit. */
+function strip() {
+  const n = stripGenerated(base);
+  if (!n) { console.log('✓ PR không đụng tệp sinh'); return 0; }
+  if (flag('dry')) { git('reset', '-q', '--hard', 'HEAD'); console.log(`[dry] sẽ đưa ${n} tệp sinh về bản ${base}`); return 0; }
+  git('commit', '-q', '-m', `Bỏ bản sinh khỏi PR (${n} tệp): CI dựng lại, bot gen-sync commit sau gộp`); console.log(`✓ đưa ${n} tệp sinh về bản ${base} + commit`); return 0;
+}
+
 function resolve() {
   const dry = flag('dry');
   if (!tryGit('rev-parse', '-q', '--verify', 'MERGE_HEAD').ok) {
     if (git('status', '--porcelain', '--untracked-files=no')) { console.error('✗ cây làm việc đang có thay đổi chưa commit – commit/stash trước.'); process.exit(1); }
     const m = tryGit('merge', '--no-edit', '-m', `Gộp ${base} (regen-conflicts: tự gỡ tệp sinh)`, base);
-    if (m.ok) { console.log(`✓ gộp ${base} sạch, không xung đột`); return 0; }
+    if (m.ok) { console.log(`✓ gộp ${base} sạch, không xung đột`); return strip(); }
   }
   const conflicted = unmerged(), steps = plan(conflicted);
   const manual = steps ? [] : conflicted.filter(f => !plan([f]));
   if (!steps) { console.log(`✗ ${manual.length} tệp xung đột do người viết – gỡ tay rồi chạy lại để dựng phần sinh:\n  ${manual.join('\n  ')}`); return 2; }
   const bad = applySteps(steps);
   if (bad) { console.log(`✗ ${bad} – gỡ tay (cuộc gộp còn dở)`); return 2; }
+  const n = stripGenerated(base); if (n) console.log(`✓ đưa ${n} tệp sinh về bản ${base} (PR không commit bản sinh)`);
   const rg = regen(tryGit('diff', '--name-only', 'HEAD').out.split('\n').filter(Boolean).map(f => ({ f })));
   if (rg) { console.log(`✗ dựng lại lỗi: ${rg}`); return 1; }
   console.log(`✓ đã gỡ: ${steps.map(s => `${s.f}=${s.how}`).join(', ')}`);
@@ -60,5 +70,6 @@ function resolve() {
   return 0;
 }
 
-if (flag('measure')) measure(process.argv.slice(2).filter(a => /^\d+$/.test(a)));
+if (flag('strip')) process.exit(strip());
+else if (flag('measure')) measure(process.argv.slice(2).filter(a => /^\d+$/.test(a)));
 else process.exit(resolve());
