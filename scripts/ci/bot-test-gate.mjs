@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Máy gác bot đẩy main (15/11: bot lexicon-expand commit [skip ci] 9c4e52d158 làm lex.mjs đỏ, không cổng nào chặn → mọi PR kẹt shard 4).
-// Commit [skip ci] KHÔNG qua CI → ngay trước `git push` bot chạy các lệnh test (infra/bot-push-tests.json) khớp đường dẫn tệp nó đổi.
+// Commit [skip ci] KHÔNG qua CI → ngay trước lệnh đẩy bot chạy các lệnh test (infra/bot-push-tests.json) khớp đường dẫn tệp nó đổi.
 // Đỏ MÀ bản gốc (--base) xanh → mã 1, KHÔNG đẩy (lỗi do bản bot). Đỏ cả ở gốc → mã 0 + cảnh báo (main đã đỏ từ trước, bot không được kẹt thêm).
 //   node scripts/ci/bot-test-gate.mjs --base <ref>   thay đổi = cây làm việc (gồm đã add/commit) so với <ref>; chạy từ gốc repo, cây = bản sẽ đẩy
 // Test thuần: scripts/test/bot-test-gate.mjs. Luật chặn workflow [skip ci] không có máy gác: scripts/test/ci-policy.mjs (luật 17).
@@ -27,7 +27,7 @@ export function ungated(src) {
   const code = src.split('\n').filter(l => !/^\s*#/.test(l));
   if (!code.some(l => /\[skip ci\]/.test(l))) return [];
   if (GATED_HELPERS.some(h => src.includes(h)) || /#\s*ci-policy:\s*bot-test[ \t]*–[ \t]*\S/.test(src)) return [];
-  return ['commit [skip ci] không qua máy gác (gọi scripts/ci/bot-test-gate.mjs trước git push, hoặc dùng push-main.sh; sổ chỉ-ghi: `# ci-policy: bot-test – <lý do>`)'];
+  return ['commit [skip ci] không qua máy gác (gọi scripts/ci/bot-test-gate.mjs trước lệnh đẩy, hoặc dùng push-main.sh; sổ chỉ-ghi: `# ci-policy: bot-test – <lý do>`)'];
 }
 
 const sh = (cmd, cwd) => spawnSync('bash', ['-c', cmd], { cwd, encoding: 'utf8', timeout: TEST_TIMEOUT_MS, maxBuffer: 1 << 26 });
