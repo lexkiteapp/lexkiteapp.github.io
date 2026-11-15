@@ -69,6 +69,8 @@ jobs:
       - uses: ./.github/actions/no-prod
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - name: Dựng bản sinh từ nguồn PR (gói dịch + extension/app không commit trong PR – build-lexicon so bản chép add-on)
+        run: node scripts/ci/regen-generated.mjs --if-ci
       - name: Dễ học – dễ nhớ (P0-H, docs/specs/learnability.md) – test bộ chấm
         run: node scripts/test/learnability.mjs
       - name: Bảng điểm nội dung (chỉ tăng)
