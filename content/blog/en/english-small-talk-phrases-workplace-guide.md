@@ -112,5 +112,7 @@ Rote memorization of canned phrasebooks often falters under real-time social pre
 
 By incorporating these natural conversational tools into your daily professional repertoire, you will navigate informal corporate environments with poise, foster authentic professional friendships, and project unmistakable executive presence worldwide.
 
+Team lunches need language too: [restaurant English for ordering and paying](/en/blog/restaurant-english-ordering-food-and-paying/).
+
 Waiting rooms and bank queues also use small talk; see [English phrases at the doctor](/en/blog/english-for-newcomers-doctor/) and [at the bank](/en/blog/english-for-newcomers-bank/).
 
