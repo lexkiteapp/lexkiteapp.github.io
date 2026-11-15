@@ -301,6 +301,7 @@ node scripts/test/explain-let.mjs
 node scripts/content-qa/sense-check.mjs
 node scripts/test/sense-check.mjs
 node scripts/test/bot-push-key.mjs
+node scripts/test/bot-test-gate.mjs
 node scripts/test/no-pr-branch-push.mjs
 node scripts/test/shell-lazy.mjs
 node scripts/test/css-lazy.mjs
