@@ -133,6 +133,8 @@ After each exercise, review the transcript. For every missed answer, ask: was it
 
 Reading uses many of the same skills, especially recognising paraphrase and resisting tempting wrong options. See [True False Not Given](/en/blog/ielts-reading-true-false-not-given/) for the Reading equivalent.
 
+If you are choosing between tests, compare [PTE vs IELTS for Australia](/en/blog/pte-vs-ielts-australia/) and [CELPIP vs IELTS for Canada](/en/blog/celpip-vs-ielts-canada/).
+
 ## Frequently asked questions
 
 ### Can I hear the IELTS Listening recording twice?
