@@ -100,11 +100,13 @@ async function journey(id, name, lang, dev, fn, opts = {}) {
     async go(hash) { await page.evaluate(x => { location.hash = x; }, hash); await sleep(900); },
     /** Hộp "Lên cấp N!" (app.js → modal) bật trễ sau khi cộng XP → che nút đang bấm (J2 en: #cfGo timeout). Người dùng thật bấm "Tuyệt vời!" rồi đi tiếp. */
     async dismissLevelUp() { const b = page.locator('#modal:not([hidden]) #modalBox > .celebrate:has(> .em:text-is("🎖️")) > button[data-close]').first(); if (!(await b.isVisible().catch(() => false))) return false; notes.push('đóng hộp "Lên cấp"'); await b.click({ timeout: 5000 }).catch(() => {}); await page.locator('#modal').waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {}); return true; },
+    /** Tờ mời cài app (js/install-sheet.js) hiện ~6 s sau bài đầu tiên trên điện thoại Android/iPhone → che nút đang bấm. Người dùng thật bấm "Để sau" rồi đi tiếp (docs/INSTALL-GROWTH.md). */
+    async dismissInstall() { const b = page.locator('#modal:not([hidden]) #isNo').first(); if (!(await b.isVisible().catch(() => false))) return false; notes.push('đóng tờ mời cài app'); await b.click({ timeout: 5000 }).catch(() => {}); await page.locator('#modal').waitFor({ state: 'hidden', timeout: 5000 }).catch(() => {}); return true; },
     async click(sel, o = {}) {
       const l = page.locator(sel).first(); await l.waitFor({ state: 'visible', timeout: o.timeout || 10000 }); await l.scrollIntoViewIfNeeded().catch(() => {});
       const end = Date.now() + 20000, inModal = /#modal/.test(sel);
       for (;;) { // chờ tới khi bấm được (tối đa 20 s), mỗi vòng gỡ hộp "Lên cấp" nếu nó vừa bật đè lên
-        if (!inModal) await h.dismissLevelUp();
+        if (!inModal) { await h.dismissLevelUp(); await h.dismissInstall(); }
         try { await l.click({ timeout: 5000 }); break; } catch (e) { if (Date.now() > end) throw new Error(`click ${sel}: ${String(e.message).split('\n')[0]}`); }
       }
       await sleep(o.wait ?? 400);

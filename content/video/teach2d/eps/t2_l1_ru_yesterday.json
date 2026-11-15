@@ -66,7 +66,7 @@
    "answer": 1
   },
   "native": {
-   "hook": "“Yesterday I go” — ошибка",
+   "hook": "“Go” или “went”?",
    "tip": "Вчера — прошедшее время: “Yesterday I went to the shop”.",
    "caption": "Ты тоже говоришь “Yesterday I go to the shop.”? 😅 Со словом yesterday нужно прошедшее время: “went”, а не “go”. Правильно: “Yesterday I went to the shop.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
    "comment": "Ответ: “went”. Вчера — это went. Бесплатный тест для практики здесь: {link}",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "“Yesterday I go” — ошибка"
+  "text": "“Go” или “went”?"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 98
  },
  "publish": {
-  "title": "“Yesterday I go” — ошибка",
+  "title": "“Go” или “went”?",
   "keyword": "Yesterday I went to the shop.",
   "value": "Вчера — прошедшее время: “Yesterday I went to the shop”.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 39,
   "platforms": {
    "youtube": {
-    "title": "“Yesterday I go” — ошибка",
+    "title": "“Go” или “went”?",
     "description": "Ты тоже говоришь “Yesterday I go to the shop.”? 😅 Со словом yesterday нужно прошедшее время: “went”, а не “go”. Правильно: “Yesterday I went to the shop.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
     "tags": [
      "Yesterday I went to the shop.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "“Yesterday I go” — ошибка #английскийязык #учуанглийский #английскийдляначинающих"
+    "caption": "“Go” или “went”? #английскийязык #учуанглийский #английскийдляначинающих"
    }
   },
   "first_comment": "Ответ: “went”. Вчера — это went. Бесплатный тест для практики здесь: {link}",

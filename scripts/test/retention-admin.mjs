@@ -4,6 +4,7 @@ import { DatabaseSync } from 'node:sqlite';
 import { retentionData, shape } from '../../functions/api/_retention.js';
 let fails = 0; const ok = (c, m) => { if (!c) { fails++; console.log('✗', m); } };
 const sql = new DatabaseSync(':memory:');
+sql.exec('CREATE TABLE ext_events (day TEXT, kind TEXT, n INTEGER)'); sql.exec("INSERT INTO ext_events VALUES ('" + new Date(Date.UTC(2026, 10, 12, 5) + 7 * 36e5).toISOString().slice(0, 10) + "', 'hab:plan_seen', 7), ('2026-01-01', 'hab:plan_seen', 99)");
 sql.exec('CREATE TABLE sessions (sid TEXT PRIMARY KEY, vid TEXT, day TEXT NOT NULL, at INTEGER, country TEXT, plat TEXT, dur INTEGER, pages INTEGER, ret INTEGER, bot TEXT)');
 const DB = { prepare(q) { return { bind: (...a) => ({ async all() { return { results: sql.prepare(q).all(...a) }; } }) }; } };
 const NOW = Date.UTC(2026, 10, 12, 5), VN = k => new Date(NOW + 7 * 36e5 - k * 864e5).toISOString().slice(0, 10);
@@ -22,6 +23,7 @@ ok(ios.eng === 0 && web.eng === 10, 'tỉ lệ chạm thật ngày đầu: iOS 0
 ok(!r.plats.some(x => x.k === 'ua') && r.total.n === 15, 'bot + admin bị loại: tổng 15 – ' + r.total.n);
 const us = r.countries.find(x => x.k === 'US'), vn = r.countries.find(x => x.k === 'VN');
 ok(us && us.n === 5 && vn && vn.n === 10, 'tách theo quốc gia (admin Mỹ không tính)');
+ok(r.hab.plan_seen === 7, 'đếm vòng thói quen 7 ngày (loại cũ) – ' + JSON.stringify(r.hab));
 ok(r.spw > 0, 'phiên/người/tuần có số');
 ok(!/vid|uid|email/i.test(Object.keys(r).join()), 'không trả định danh');
 const sh = shape([{ plat: 'web', country: 'AA', n: 1, eng: 0, n1: 1, r1: 0, n7: 0, r7: 0, n30: 0, r30: 0 }, { plat: 'web', country: 'BB', n: 2, eng: 0, n1: 2, r1: 1, n7: 0, r7: 0, n30: 0, r30: 0 }], []);

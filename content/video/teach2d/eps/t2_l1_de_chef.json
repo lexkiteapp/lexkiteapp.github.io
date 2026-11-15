@@ -66,7 +66,7 @@
    "answer": 1
   },
   "native": {
-   "hook": "Dein „Chef“ ist kein „chef“!",
+   "hook": "Sprichst du vom Chef im Büro?",
    "tip": "Ein „chef“ ist ein Koch. Dein Vorgesetzter ist dein „boss“.",
    "caption": "Redest du von deinem Chef im Büro? 😅 Falsch: “My chef is very kind.” Richtig: “My boss is very kind.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.",
    "comment": "Lösung: “boss”. Richtig heißt es: “My boss is very kind.” Übe mehr mit einem kostenlosen Quiz: {link}",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Dein „Chef“ ist kein „chef“!"
+  "text": "Sprichst du vom Chef im Büro?"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 98
  },
  "publish": {
-  "title": "Dein „Chef“ ist kein „chef“!",
+  "title": "Sprichst du vom Chef im Büro?",
   "keyword": "My boss is very kind.",
   "value": "Ein „chef“ ist ein Koch. Dein Vorgesetzter ist dein „boss“.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 39,
   "platforms": {
    "youtube": {
-    "title": "Dein „Chef“ ist kein „chef“!",
+    "title": "Sprichst du vom Chef im Büro?",
     "description": "Redest du von deinem Chef im Büro? 😅 Falsch: “My chef is very kind.” Richtig: “My boss is very kind.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "My boss is very kind.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "Dein „Chef“ ist kein „chef“! #englischlernen #englischtipps #sprachenlernen"
+    "caption": "Sprichst du vom Chef im Büro? #englischlernen #englischtipps #sprachenlernen"
    }
   },
   "first_comment": "Lösung: “boss”. Richtig heißt es: “My boss is very kind.” Übe mehr mit einem kostenlosen Quiz: {link}",

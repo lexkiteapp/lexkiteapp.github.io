@@ -27,25 +27,25 @@
   "mcq:dependent-prepositions#0": 1,
   "mcq:idioms-style#0": 2,
   "mcq:imperatives-suggestions#0": 1,
-  "mcq:noun-plurals#0": 1,
-  "mcq:present-perfect-continuous#0": 1,
-  "mcq:ellipsis-substitution-c2#0": 1,
-  "mcq:parallel-structure#0": 1,
-  "mcq:parts-of-speech-patterns#0": 1,
-  "mcq:preference-advice#0": 1,
-  "mcq:purpose-result#0": 1,
-  "mcq:questions#0": 1,
-  "mcq:stance-irony-c2#0": 1,
-  "mcq:can-a1#0": 1,
-  "mcq:now-and-next-a1#0": 1,
-  "mcq:past-basics-a1#0": 1,
-  "mcq:present-continuous#0": 1,
-  "mcq:present-simple-a1#0": 1,
-  "mcq:pronouns-a1#0": 1,
-  "mcq:so-such-too-enough#0": 1,
-  "mcq:subject-verb-agreement#0": 1,
-  "mcq:the-some-any-a1#0": 1,
-  "mcq:there-is-empty-it#0": 1,
+  "mcq:noun-plurals#0": 2,
+  "mcq:present-perfect-continuous#0": 2,
+  "mcq:ellipsis-substitution-c2#0": 2,
+  "mcq:parallel-structure#0": 2,
+  "mcq:parts-of-speech-patterns#0": 2,
+  "mcq:preference-advice#0": 2,
+  "mcq:purpose-result#0": 2,
+  "mcq:questions#0": 2,
+  "mcq:stance-irony-c2#0": 2,
+  "mcq:can-a1#0": 2,
+  "mcq:now-and-next-a1#0": 2,
+  "mcq:past-basics-a1#0": 2,
+  "mcq:present-continuous#0": 2,
+  "mcq:present-simple-a1#0": 2,
+  "mcq:pronouns-a1#0": 2,
+  "mcq:so-such-too-enough#0": 2,
+  "mcq:subject-verb-agreement#0": 2,
+  "mcq:the-some-any-a1#0": 2,
+  "mcq:there-is-empty-it#0": 2,
   "mcq:subjunctive-formal-c2#0": 1,
   "mcq:adjectives-special#1": 1,
   "mcq:modal-aspect-c2#0": 1,
@@ -62,7 +62,13 @@
   "mcq:prepositions#0": 1,
   "mcq:prepositions-time-place-basic#0": 1,
   "mcq:pronouns#0": 1,
-  "mcq:comparatives-superlatives#1": 1
+  "mcq:comparatives-superlatives#1": 1,
+  "mcq:a-an-plurals#1": 1,
+  "mcq:adjectives-adverbs#1": 1,
+  "mcq:complex-sentences#1": 1,
+  "mcq:this-that-possessive-a1#0": 1,
+  "mcq:nominalisation#0": 1,
+  "mcq:adverbs-position#1": 1
  },
  "done": {
   "functions:greeting-hello": 1,
@@ -99,6 +105,12 @@
   },
   {
    "at": "2026-11-12",
+   "accepted": {
+    "grammar/mcq": 0
+   }
+  },
+  {
+   "at": "2026-11-13",
    "accepted": {
     "grammar/mcq": 0
    }

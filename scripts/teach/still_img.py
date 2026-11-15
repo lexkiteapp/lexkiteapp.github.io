@@ -17,6 +17,7 @@ OUT = sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith('--') else
 SRC = sys.argv[sys.argv.index('--src') + 1] if '--src' in sys.argv else None
 MEDIA = 'https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/'
 REG = f'{OUT}/characters.json'; R = json.load(open(REG)); F = R['frame']; W, H = F['w'], F['h']
+STILL_CAP = 48 * 1024   # = CAP.still trong scripts/test/teacher-quality.mjs
 FW = 1080   # bề ngang footage Kling 1080p (khung đầu khoá = khung 0 của clip) – toạ độ people.<who>.eye theo hệ này
 errs = []
 
@@ -81,8 +82,12 @@ for who, P in R['people'].items():
         o = frame_of(who, im)
         if o is None: continue
         qc(name, o, P.get('eye_ref'))
-        Image.fromarray(o, 'RGBA').save(f'{OUT}/{name}', 'WEBP', quality=88, method=6)
-        d = open(f'{OUT}/{name}', 'rb').read(); R['files'][name] = {'sha256': hashlib.sha256(d).hexdigest(), 'bytes': len(d)}
+        for q in range(88, 69, -3):   # trần ảnh tĩnh 48 KB = scripts/test/teacher-quality.mjs CAP.still (12/11: carlos count 51 KB ở q88) → hạ dần, dưới q70 thì báo lỗi
+            Image.fromarray(o, 'RGBA').save(f'{OUT}/{name}', 'WEBP', quality=q, method=6)
+            d = open(f'{OUT}/{name}', 'rb').read()
+            if len(d) <= STILL_CAP: break
+        else: errs.append(f'{name}: {len(d) // 1024} KB > {STILL_CAP // 1024} KB ngay cả ở q70')
+        R['files'][name] = {'sha256': hashlib.sha256(d).hexdigest(), 'bytes': len(d)}
         print(f'{name}: {len(d) // 1024} KB ← {c["src"]}')
 R['files'] = dict(sorted(R['files'].items()))
 json.dump(R, open(REG, 'w'), ensure_ascii=False, indent=2); open(REG, 'a').write('\n')

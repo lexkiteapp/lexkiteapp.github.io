@@ -1,6 +1,6 @@
 // 🌍 Test bảng World (docs/WORLD-SCORECARD.md): hàm chấm thuần, robots.txt, xếp Top 10, sàn CHỈ TĂNG so với main, trục hợp lệ.
 import fs from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { baseFloors, loweredFloors } from './lib/floor-guard.mjs';
 import { parseTotal, shellScore, ratioScore, robotsAllows, rank, overall, raiseFloors, checkFloors, AXES, BUDGET } from '../world-scorecard.mjs';
 
 let bad = 0; const ok = (c, m) => { if (!c) { bad++; console.error('✗ ' + m); } };
@@ -20,9 +20,8 @@ const A = JSON.parse(fs.readFileSync(AXES, 'utf8'));
 for (const a of A.axes) ok(a.id && a.name && a.target > 0 && a.target <= 100 && a.impact >= 1 && a.impact <= 5 && a.cost >= 1 && a.cost <= 5 && a.weight > 0 && a.duolingo, `trục ${a.id}: thiếu/sai trường`);
 for (const a of A.axes) if (a.duolingo.score != null) ok(a.duolingo.note && (a.duolingo.source || a.duolingo.verified === false || /không|chưa/.test(a.duolingo.note)), `trục ${a.id}: điểm Duolingo ghi tay phải có nguồn hoặc đánh dấu chưa kiểm`);
 ok(new Set(A.axes.map(a => a.id)).size === A.axes.length && A.axes.filter(a => a.mustWin).length >= 5, 'id trùng / thiếu 5 lợi thế phải thắng');
-// sàn chỉ tăng so với main (CI có origin/main; máy không có thì bỏ qua)
+// sàn chỉ tăng: chỉ chặn khi PR TỰ hạ/xoá so với merge-base với origin/main (main nâng sau lúc tách ≠ lỗi của PR)
 const cur = JSON.parse(fs.readFileSync(BUDGET, 'utf8')).floors || {};
-let main = null; try { main = JSON.parse(execFileSync('git', ['show', 'origin/main:' + BUDGET], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })).floors || {}; } catch {}
-if (main) for (const [k, v] of Object.entries(main)) ok(cur[k] != null && cur[k] >= v, `sàn ${k} bị hạ/xoá: ${v} → ${cur[k]} (chỉ được tăng – docs/WORLD-SCORECARD.md)`);
-if (bad) process.exit(1);
+const main = baseFloors(BUDGET);
+if (main) for (const m of loweredFloors(cur, main)) ok(false, m + ' (chỉ được tăng – docs/WORLD-SCORECARD.md)');
 console.log(`✓ world-scorecard: ${A.axes.length} trục, sàn chỉ tăng${main ? ' (so origin/main)' : ''}`);

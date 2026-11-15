@@ -66,7 +66,7 @@
    "answer": 1
   },
   "native": {
-   "hook": "„Groß“ ist nicht immer „big“!",
+   "hook": "Willst du sagen, jemand ist groß?",
    "tip": "Für Körpergröße sagst du „tall“. „Big“ meint eher dick oder umfangreich.",
    "caption": "Willst du sagen, dass jemand groß ist? 📏 Falsch: “I am very big.” Richtig: “I am very tall.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.",
    "comment": "Lösung: “tall”. Richtig heißt es: “I am very tall.” Übe mehr mit einem kostenlosen Quiz: {link}",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "„Groß“ ist nicht immer „big“!"
+  "text": "Willst du sagen, jemand ist groß?"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 96
  },
  "publish": {
-  "title": "„Groß“ ist nicht immer „big“!",
+  "title": "Willst du sagen, jemand ist groß?",
   "keyword": "I am very tall.",
   "value": "Für Körpergröße sagst du „tall“. „Big“ meint eher dick oder umfangreich.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 35,
   "platforms": {
    "youtube": {
-    "title": "„Groß“ ist nicht immer „big“!",
+    "title": "Willst du sagen, jemand ist groß?",
     "description": "Willst du sagen, dass jemand groß ist? 📏 Falsch: “I am very big.” Richtig: “I am very tall.” Hör Carlos zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
     "tags": [
      "I am very tall.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "„Groß“ ist nicht immer „big“! #englischlernen #englischtipps #sprachenlernen"
+    "caption": "Willst du sagen, jemand ist groß? #englischlernen #englischtipps #sprachenlernen"
    }
   },
   "first_comment": "Lösung: “tall”. Richtig heißt es: “I am very tall.” Übe mehr mit einem kostenlosen Quiz: {link}",

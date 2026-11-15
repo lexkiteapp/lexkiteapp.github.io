@@ -107,11 +107,16 @@ export function pick(prs, now = Date.now(), repo = '') {
 const git = (...a) => execFileSync('git', a, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
 const tryGit = (...a) => { try { return { ok: true, out: git(...a) }; } catch (e) { return { ok: false, out: String(e.stdout || '') + String(e.stderr || '') }; } };
 
-async function gh(path) {
-  const r = await fetch(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}${path}`, {
-    headers: { authorization: `Bearer ${process.env.GITHUB_TOKEN}`, accept: 'application/vnd.github+json' } });
-  if (!r.ok) throw new Error(`GitHub ${path} → HTTP ${r.status}`);
-  return r.json();
+/** Lỗi tạm của GitHub (5xx/429) → thử lại có giãn cách; lỗi khác ném ngay. */
+export const retryable = s => s === 429 || s >= 500;
+async function gh(path, tries = 4) {
+  for (let i = 0; ; i++) {
+    const r = await fetch(`https://api.github.com/repos/${process.env.GITHUB_REPOSITORY}${path}`, {
+      headers: { authorization: `Bearer ${process.env.GITHUB_TOKEN}`, accept: 'application/vnd.github+json' } });
+    if (r.ok) return r.json();
+    if (i + 1 >= tries || !retryable(r.status)) throw new Error(`GitHub ${path} → HTTP ${r.status}`);
+    await new Promise(res => setTimeout(res, 3000 * 2 ** i));
+  }
 }
 
 /** Lấy trạng thái mergeable (GitHub tính lười: lần đầu có thể null → hỏi lại tối đa 3 lần). */
@@ -195,7 +200,8 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
   else {
     const open = (await gh('/pulls?state=open&per_page=100')).filter(p => !p.draft && Date.now() - Date.parse(p.updated_at) <= ACTIVE_H * 3600e3);
     const withState = [];
-    for (const p of open) withState.push(await full(p.number));
+    // Một PR lỗi API không được làm chết cả lượt: bỏ qua PR đó, xử lý các PR còn lại.
+    for (const p of open) { try { withState.push(await full(p.number)); } catch (e) { console.warn(`bỏ qua #${p.number}: ${e.message}`); } }
     list = pick(withState, Date.now(), process.env.GITHUB_REPOSITORY);
   }
   const res = {};

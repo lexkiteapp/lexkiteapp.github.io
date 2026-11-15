@@ -96,7 +96,7 @@ class EssayVectorsTest {
 
     @Test fun qstats() {
         val order = pack.skills.map { it[0] }
-        assertEquals(listOf("il", "ir", "tl", "tr", "fr", "fl", "fw"), order)
+        assertEquals(listOf("il", "ir", "tl", "tr", "fr", "fl", "fw", "cb"), order)
         val names = v.o("qstats").o("names").entries.associate { it.key to it.value.s() }
         val table = pack.skillTable
         for (cs in v.o("qstats").a("cases")) {

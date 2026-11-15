@@ -114,7 +114,7 @@
     if (gr.type === 'multi') return `<div class="lq-group">${head}<div class="lq-item" data-item="${gr.n.join(',')}"><div><span class="qn">${gr.n.join('–')}</span> ${esc(gr.q)}</div>
       <div class="lq-opts">${gr.options.map(o => `<label><input type="checkbox" data-multi="${gi}" value="${esc(code(o))}"> <b>${esc(code(o))}</b> ${esc(label(o))}</label>`).join('')}</div><div class="lq-fb" hidden></div></div></div>`;
     const cls = gr.type === 'table' ? 'lq-table' : 'lq-notes';
-    return `<div class="lq-group">${head}<div class="${cls}">${gr.items.map(it => `<div class="lq-item lq-gap" data-item="${it.n}">${esc(it.text).replace('___', `<span class="qn">${it.n}</span><input class="gap" data-qn="${it.n}" autocomplete="off" spellcheck="false" size="12">`)}<div class="lq-fb" hidden></div></div>`).join('')}</div></div>`;
+    return `<div class="lq-group">${head}<div class="${cls}">${gr.items.map(it => `<div class="lq-item lq-gap" data-item="${it.n}">${esc(it.text).replace(/\n/g, '<br>').replace('___', `<span class="qn">${it.n}</span><input class="gap" data-qn="${it.n}" autocomplete="off" spellcheck="false" size="12">`)}<div class="lq-fb" hidden></div></div>`).join('')}</div></div>`;
   }
   const questionsHtml = p => `<div class="lq">${p.groups.map((gr, gi) => groupHtml(gr, gi, p.tips)).join('')}</div>`; // p.tips: hiện ô mẹo theo dạng câu (chế độ luyện)
 

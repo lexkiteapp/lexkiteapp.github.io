@@ -122,7 +122,7 @@ class VocabVectorsTest {
     private val writing: WritingData by lazy {
         fun t(p: String) = File(web, p).readText()
         WritingData.fromScripts(t("cpack/write/ideas.js"), t("js/lib/paraphrase-data.js"),
-            listOf("js/models.js", "cpack/write/models2.js", "cpack/write/models3.js", "cpack/write/models4.js", "cpack/write/models5.js", "js/write/gt-letters.js", "cpack/write/task2-more.js", "cpack/write/task1-more.js", "js/write/task1-more2.js").map { t(it) },
+            listOf("cpack/write/models.js", "cpack/write/models2.js", "cpack/write/models3.js", "cpack/write/models4.js", "cpack/write/models5.js", "js/write/gt-letters.js", "cpack/write/task2-more.js", "cpack/write/task1-more.js", "js/write/task1-more2.js").map { t(it) },
             t("js/write.js"), listOf(t("cpack/write/task2-more.js")), t("js/task1.js"), listOf(t("cpack/write/task1-more.js"), t("js/write/task1-more2.js")))
     }
     private fun lex() = Lex(IndexLexSource(words.index, verbs.irregularList()))

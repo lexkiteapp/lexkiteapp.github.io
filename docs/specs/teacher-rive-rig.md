@@ -17,7 +17,7 @@
 API: `TeacherRig.mount(el, who)` → `speak(audio, visemes, {text})`, `setEmotion(name)`, `gesture(name)`, `listen(on)`, `destroy()`.
 - **Biểu cảm (9):** neutral, happy, praise, encourage, thinking, surprise, listen, sad (buồn nhẹ), explain. Trộn dần, có trần tốc độ mỗi khung.
 - **Cử chỉ (16):** nod, shake, blink, bob (thủ tục) · wave, point, explain, cheer, think, surprised, laugh, empathy (ảnh đã duyệt) · thumbs_up, clap, count, hold_card.
-- Bốn cử chỉ cuối `pending`: tạm dùng tư thế gần nhất, chờ gesture bank.
+- Bốn cử chỉ cuối: ảnh chuẩn riêng cho cả 2 người (gesture bank 05/11 + 12/11; `count` = 1 dáng giữ yên ngón trỏ "số một"). `alt` chỉ còn là lưới an toàn khi thiếu ảnh.
 - **Giảm chuyển động:** khớp cổ và thở đứng yên; vẫn giữ miệng, chớp mắt và mờ chéo.
 - **Máy yếu:** hạ về dpr 1. Thiếu tài sản: hiện ảnh poster 2D.
 - 0 thay đổi DOM mỗi khung. Tải lười, khung app không đổi.
@@ -38,7 +38,7 @@ Ngưỡng chỉ được siết, không nới.
 - [x] Lõi + lớp DOM + 2 cổng + workflow (PR này).
 - [ ] Gắn vào Call (`call.js` → thay `LessonTeacher.mount(..., {lip:true})`) và câu hỏi bài học. Chờ các PR đang giữ file gộp xong: #311 call.js, #581 lesson/teacher.js, #377/#360 face.js. Sau đó `teacher.js face()` dùng chung lõi này, không còn 2 bản.
 - [ ] Thân/tay sống của #594 (`LipRig`, uốn WebGL): khi gộp, cắm làm lớp thân. Cổng khớp xương ở đây áp cho cả lớp đó.
-- [ ] Gesture bank (cần anh duyệt credit, mục dưới).
+- [x] Gesture bank ảnh tĩnh: đủ 4 cử chỉ × 2 người (12/11, Nano Banana Pro qua Kling, 100 cr; ledger `brand/library/cine/teachers/tools/ledger.txt`). Clip phông xanh cho video: lô sau.
 
 ## Gesture bank – KẾ HOẠCH CHỜ DUYỆT (chưa tiêu credit: 0 / 200 pilot)
 **Đã tận dụng (0 credit):** 13 tư thế × 2 người trong registry, gồm clip + ảnh tĩnh của trang phục 3 đã khoá.

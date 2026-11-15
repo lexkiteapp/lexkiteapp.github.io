@@ -78,7 +78,7 @@ Thiếu secret này thì `native-release.yml` vẫn build + ký .aab (artifact `
 4. **Play Console** → *Users and permissions → Invite new users* → dán email service account (`…@….iam.gserviceaccount.com`) → *App permissions → Add app → Lexkite* → tick **Release to production, exclude devices, and use Play App Signing**, **Release apps to testing tracks**, **View app information (read-only)**, **Reply to reviews** → *Invite user*.
 5. **GitHub** repo lexkiteapp.github.io → *Settings → Secrets and variables → Actions → New repository secret* → tên `PLAY_SERVICE_ACCOUNT_JSON`, giá trị = toàn bộ nội dung file JSON → *Add secret*. Xoá file JSON khỏi máy.
 
-Sau đó dev chạy *Actions → Native → TestFlight + Play* với `track=production`, `rollout=0.1` (10 % người dùng, tăng dần trong Play Console hoặc chạy lại). Ghi chú "What's new" 15 ngôn ngữ = trường `whatsNew` trong `store/metadata/<locale>.json` (≤500 ký tự, sửa mỗi lần đổi version; `node scripts/store-metadata.mjs --check`).
+Sau đó dev chạy *Actions → Native → TestFlight + Play* với `track=production`, `rollout=0.1` (10 % người dùng, tăng dần trong Play Console hoặc chạy lại). Ghi chú "What's new" 15 ngôn ngữ = trường `whatsNew` (Capacitor 1.x; bản native 2.0 dùng `whatsNewNative`, workflow truyền `--field whatsNewNative`) trong `store/metadata/<locale>.json` (≤500 ký tự, sửa mỗi lần đổi version; `node scripts/store-metadata.mjs --check`).
 
 ## B. Apple App Store
 

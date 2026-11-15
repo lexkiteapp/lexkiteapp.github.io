@@ -67,7 +67,7 @@
   },
   "native": {
    "hook": "「到着する」に to を使ってない？",
-   "tip": "arrive の後ろは at（建物・駅）か in（都市）。to は使いません。",
+   "tip": "arrive の後は場所なら at、都市なら in を使います。to は使いません。",
    "caption": "“I arrived to the station.”と言っていませんか？😅 日本語の「に」につられて to を使いがち。arrive の後は at を使います。 “I arrived at the station.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
    "comment": "答え：“at”。arrive のあとは at か in。無料クイズで練習：{link}",
    "hashtags": [
@@ -105,7 +105,7 @@
  "publish": {
   "title": "「到着する」に to を使ってない？",
   "keyword": "I arrived at the station.",
-  "value": "arrive の後ろは at（建物・駅）か in（都市）。to は使いません。",
+  "value": "arrive の後は場所なら at、都市なら in を使います。to は使いません。",
   "hashtags": [
    "#英語学習",
    "#英会話",

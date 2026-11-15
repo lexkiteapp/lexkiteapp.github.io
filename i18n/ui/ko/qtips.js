@@ -1,13 +1,16 @@
 /* UI ko – qtips (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ko"] = Object.assign(D["ko"] || {}, {
+"Bắt đầu ôn 10 phút":"10분 복습 시작",
 "Chưa có dữ liệu. Làm một bài luyện Listening/Reading (IELTS, TOEIC hoặc TOEFL) để bắt đầu theo dõi.":"아직 데이터가 없습니다. 추적을 시작하려면 듣기 또는 읽기 연습 시험(IELTS, TOEIC 또는 TOEFL)을 수행하십시오.",
 "Chọn đủ 2 đáp án (thứ tự không quan trọng, mỗi đáp án đúng được 1 điểm). Đọc kỹ cả 5 phương án; loại phương án được nhắc tới nhưng bị phủ định hoặc thuộc về người/đối tượng khác.":"정확히 2개의 답을 선택하십시오(순서는 중요하지 않습니다. 각 정답은 1점을 얻습니다). 5가지 옵션을 모두 주의 깊게 읽고 언급되었으나 거부된 옵션이나 다른 사람이나 사물에 속한 옵션을 제외하세요.",
 "Câu hỏi về quan điểm của tác giả, không phải sự thật chung. YES: tác giả đồng ý; NO: tác giả phản đối; NOT GIVEN: tác giả không nêu ý kiến về điều đó. Để ý từ thể hiện thái độ (argue, claim, unfortunately…). Đáp án theo thứ tự trong bài.":"이러한 질문은 일반적인 사실이 아닌 작가의 견해에 대해 묻는 것입니다. 예: 작가도 동의합니다. 아니오: 작가는 동의하지 않습니다. NOT GIVEN: 작가는 이에 대해 아무런 의견도 제시하지 않습니다. 태도 단어(argue, claim, unfortunately…)를 찾으세요. 답변은 지문 순서를 따릅니다.",
 "Còn {n} phút":"{n}분 남음",
 "Dùng thời gian trước khi nghe để đọc câu hỏi và đoán loại thông tin cần điền (tên, số, ngày, giá…). Người nói hay tự sửa (“…no, sorry, it’s 15”) – ghi thông tin cuối cùng. Viết đúng chính tả và không vượt giới hạn số từ; đáp án theo thứ tự bài nghe.":"녹음 전 시간을 활용하여 질문을 읽고 필요한 정보 유형(이름, 번호, 날짜, 가격…)을 예측하세요. 화자는 종종 스스로 교정합니다(“…no, sorry, it’s 15”) – 최종 정보를 작성합니다. 철자를 정확하게 입력하고 단어 제한을 준수하세요. 답변은 녹음 순서를 따릅니다.",
+"Dừng đếm giờ":"타이머를 중지하세요",
 "Ghi chú theo cấu trúc: chủ đề chính → các ý phụ → ví dụ. Câu hỏi thường về ý chính, chi tiết quan trọng và vì sao giảng viên nhắc tới một ví dụ.":"구조에 메모를 하세요: 주요 주제 → 지원 포인트 → 예시. 질문은 일반적으로 주요 아이디어, 주요 세부 사항 및 강사가 예를 언급하는 이유에 대해 묻습니다.",
 "Giống Part 5 nhưng phải đọc câu trước và sau chỗ trống, nhất là với từ nối, thì của động từ và đại từ. Câu điền cả câu: chọn câu nối mạch ý với cả câu đứng trước và câu đứng sau.":"Part 5와 같지만, 특히 연결 단어, 동사 시제, 대명사에 대해서는 간격 전후의 문장을 읽어야 합니다. 문장-삽입 공백의 경우 앞 문장과 뒤 문장 모두와 연결되는 문장을 선택하세요.",
 "Gạch chân từ khóa trong câu hỏi trước khi đọc/nghe. Phương án lặp đúng từ trong bài thường là bẫy; đáp án đúng thường được diễn đạt lại. Trong Listening, người nói hay nhắc nhiều phương án – chọn ý cuối cùng được khẳng định.":"읽거나 듣기 전에 질문의 핵심 단어에 밑줄을 긋습니다. 텍스트의 정확한 단어를 반복하는 옵션은 종종 함정입니다. 정답은 일반적으로 다른 말로 표현됩니다. 듣기에서 화자는 종종 여러 옵션을 언급합니다. 최종적으로 확인된 옵션을 선택하십시오.",
+"Hết 10 phút! Xem tiến bộ của bạn":"10분이 끝났어요! 내 진행 상황 보기",
 "Mẹo làm bài":"풀이 전략",
 "Nghe thật kỹ từ để hỏi ở đầu câu (Who, When, Where, Why, How…). Loại câu trả lời lặp từ hoặc dùng từ phát âm giống câu hỏi. Câu trả lời gián tiếp (“Let me check”, “Ask Mr. Kim”) thường là đáp án đúng; câu hỏi Wh- không trả lời bằng Yes/No.":"시작 부분의 질문 단어(누가, 언제, 어디서, 왜, 어떻게…)를 주의 깊게 들어보세요. 단어를 반복하거나 질문과 비슷한 단어를 사용하는 답변은 제외하세요. 간접 답변(“Let me check”, “Ask Mr. Kim”)이 올바른 경우가 많습니다. Wh- 질문은 Yes/No로 답변되지 않습니다.",
 "Nghe trọn câu và nhớ theo cụm ý, không nhớ từng từ. Nhắc lại đúng thứ tự, giữ trọng âm và ngữ điệu; nói rõ ràng quan trọng hơn nói nhanh.":"전체 문장을 듣고 단어 단위가 아닌 의미 덩어리로 기억하세요. 강세와 억양을 유지하면서 같은 순서로 반복하세요. 빠르게 말하는 것보다 명확하게 말하는 것이 더 중요합니다.",
@@ -25,6 +28,7 @@
 "Trả lời thẳng câu hỏi trong 1–2 câu đầu, rồi thêm lý do và ví dụ của bản thân. Nói tự nhiên, không học thuộc; nếu vấp thì tự sửa và nói tiếp.":"처음 1~2개의 문장으로 질문에 직접 답한 다음 이유와 개인적인 예를 추가하세요. 암송하기보다는 자연스럽게 말하세요. 넘어졌다면 자신을 바로잡고 계속 나아가십시오.",
 "Trả lời đủ mọi ý đề yêu cầu, giọng văn hợp với người nhận; có mở – thân – kết rõ ràng. Dành 1–2 phút cuối soát ngữ pháp và chính tả.":"작업이 요구하는 모든 항목에 대해 독자에게 적합한 어조로 명확한 서두, 본문, 마무리로 답변합니다. 문법과 철자를 확인하는 데 마지막 1~2분을 투자하세요.",
 "Tìm và đánh dấu các tên (người, tổ chức, mốc thời gian) trong bài trước, rồi đọc kỹ quanh mỗi tên và so với nhận định đã được diễn đạt lại. Đáp án không theo thứ tự bài; một lựa chọn có thể dùng nhiều lần hoặc không dùng.":"먼저 구절에서 이름(사람, 조직, 날짜)을 찾아서 표시한 다음, 각 이름 주위를 자세히 읽고 의역된 진술과 비교하십시오. 답변은 통과 순서가 아닙니다. 옵션은 두 번 이상 사용되거나 전혀 사용되지 않을 수 있습니다.",
+"Tỉ lệ đúng 8 tuần gần nhất":"지난 8주 동안의 정확도",
 "Tổng hợp từ các bài luyện và thi thử của bạn trên Lexkite. Đây là tỉ lệ đúng trong bài luyện của bạn – <b>không phải điểm thi chính thức</b>. Thời gian mỗi câu là ước tính: thời gian trên trang chia cho số câu.":"Lexkite의 연습 테스트 및 모의 테스트 요약입니다. 이는 실제 정확도입니다. <b>공식 시험 점수가 아닙니다</b>. 질문당 시간은 추정치입니다. 페이지에 머문 시간을 질문 수로 나눈 값입니다.",
 "Xem tiến bộ theo kỹ năng và dạng câu hỏi":"기술 및 질문 유형별 진행 상황 보기",
 "Xác định chủ ngữ và động từ chính trước, rồi đặt trợ động từ/từ để hỏi, sau đó các cụm còn lại. Câu hỏi gián tiếp giữ trật tự câu khẳng định (…where the library is).":"주어와 본동사를 먼저 찾은 다음 보조 또는 질문 단어를 배치하고 나머지 덩어리를 배치합니다. 간접 질문은 진술 단어 순서(…where the library is)를 유지합니다.",
@@ -33,6 +37,7 @@
 "mỗi câu (ước tính)":"문항당 (추정)",
 "tỉ lệ đúng":"정답률",
 "{s} giây":"{s}초",
+"Ôn 10 phút: dạng yếu nhất của bạn":"10분 복습: 가장 취약한 질문 유형",
 "Đáp án không theo thứ tự trong bài và một đoạn có thể dùng nhiều lần. Xác định loại thông tin cần tìm (ví dụ, lý do, số liệu, so sánh…) rồi quét. Nên làm sau các dạng khác của cùng bài, khi bạn đã quen nội dung.":"답변은 통과 순서가 아니며 한 단락이 두 번 이상 사용될 수 있습니다. 어떤 종류의 정보(예, 이유, 수치, 비교 등)가 필요한지 결정한 다음 스캔하세요. 내용을 이미 알고 있을 때 같은 구절의 다른 작업 다음에 이 작업을 수행하세요.",
 "Đọc câu chủ đề mỗi đoạn để nắm ý chính, rồi tìm chi tiết theo câu hỏi. Câu suy luận: chọn ý bài ngụ ý, không phải ý chỉ lặp từ. Câu từ vựng: thay phương án vào câu xem có giữ đúng nghĩa không.":"각 단락의 주제 문장을 읽고 주요 아이디어를 얻은 다음 각 질문에 대한 세부 사항을 찾으십시오. 추론 질문: 단지 단어를 반복하는 옵션이 아니라 구절이 의미하는 바를 선택하세요. 어휘 질문: 각 옵션을 문장에 넣고 의미가 동일하게 유지되는지 확인하세요.",
 "Đọc câu hỏi trước rồi quét bài tìm từ khóa. Với nhóm nhiều văn bản, có câu phải ghép thông tin từ 2 văn bản. Câu “NOT true” và câu chèn câu tốn thời gian – có thể làm sau. Mục tiêu khoảng 1 phút mỗi câu.":"먼저 질문을 읽은 다음 텍스트에서 핵심 단어를 찾아보세요. 여러 구절로 구성된 세트의 경우 일부 질문에는 두 텍스트의 정보를 결합해야 합니다. “NOT true” 질문과 문장 삽입 질문은 시간이 더 오래 걸립니다. 나중에 남겨두어도 됩니다. 한 문제당 약 1분을 목표로 하세요.",
@@ -44,5 +49,7 @@
 "Đọc phần đầu câu và đoán phần còn thiếu cần gì (về nghĩa và ngữ pháp). Phần kết đúng phải khớp cả ngữ pháp lẫn nội dung bài. Câu hỏi theo thứ tự trong bài; luôn có nhiều phần kết hơn số câu.":"문장 시작 부분을 읽고 빠진 부분에 필요한 것이 무엇인지 예측해 보세요(의미와 문법 측면에서). 올바른 결말은 문법과 글의 내용 모두에 맞아야 합니다. 질문은 지문 순서를 따릅니다. 항상 질문보다 결말이 더 많습니다.",
 "Đọc trước 3 câu hỏi (và biểu đồ nếu có) trong lúc nghe hướng dẫn. Câu hỏi thường theo thứ tự hội thoại: chủ đề/nơi chốn → chi tiết → việc sẽ làm tiếp theo. Đáp án thường là cách diễn đạt khác của lời nói.":"지침을 읽는 동안 3가지 질문(및 그래픽)을 읽으십시오. 질문은 대개 대화 뒤에 나옵니다: 주제/장소 → 세부사항 → 다음에 일어날 일. 정답은 일반적으로 말한 내용을 의역한 것입니다.",
 "Đọc trước câu hỏi. Câu đầu thường hỏi mục đích hoặc người nghe là ai – đáp án nằm ở vài câu mở đầu. Chú ý lời yêu cầu, đề nghị, thay đổi lịch ở cuối bài nói.":"먼저 질문을 읽어보세요. 첫 번째 질문은 종종 목적이나 청중에 대해 묻습니다. 대답은 첫 문장에서 나옵니다. 강연이 끝날 무렵 요청, 제안 및 일정 변경에 귀를 기울이십시오.",
+"đúng {p}% ({n} câu). Dành 10 phút luyện riêng dạng này.":"{p}% 정답입니다({n}개의 질문). 이 유형을 연습하는 데 10분을 투자하세요.",
+"Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)":"이번 주 예상 밴드 ≒ {b} (공식 시험 점수 아님)",
 });
 })(typeof self !== 'undefined' ? self : this);

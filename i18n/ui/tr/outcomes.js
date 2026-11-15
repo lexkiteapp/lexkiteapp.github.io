@@ -43,7 +43,7 @@
 "Viết một đoạn (10 phút)":"Bir paragraf yaz (10 dakika)",
 "Viết trong 10 phút":"10 dakika yaz",
 "Vốn từ":"Kelime dağarcığı",
-"Xem tiến bộ":"İlerlemeni gör",
+"Xem tiến bộ":"İlerlemeyi gör",
 "Xóa ghi âm trên máy":"Bu cihazdaki kayıtları sil",
 "Xóa mọi ghi âm bài đo trên máy này? Chỉ số và bài viết vẫn giữ.":"Bu cihazdaki tüm test kayıtları silinsin mi? Puanların ve yazıların korunur.",
 "theo số từ bạn đã nói và viết":"konuştuğun ve yazdığın kelimelere göre",

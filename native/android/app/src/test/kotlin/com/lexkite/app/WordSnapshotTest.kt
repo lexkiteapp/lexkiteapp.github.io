@@ -78,7 +78,7 @@ class WordSnapshotTest {
     }
     private val writing: WritingData by lazy {
         WritingData.fromScripts(text("cpack/write/ideas.js"), text("js/lib/paraphrase-data.js"),
-            listOf("js/models.js", "cpack/write/models2.js", "cpack/write/models3.js", "cpack/write/models4.js", "cpack/write/models5.js", "js/write/gt-letters.js", "cpack/write/task2-more.js", "cpack/write/task1-more.js", "js/write/task1-more2.js").map { text(it) },
+            listOf("cpack/write/models.js", "cpack/write/models2.js", "cpack/write/models3.js", "cpack/write/models4.js", "cpack/write/models5.js", "js/write/gt-letters.js", "cpack/write/task2-more.js", "cpack/write/task1-more.js", "js/write/task1-more2.js").map { text(it) },
             text("js/write.js"), listOf(text("cpack/write/task2-more.js")), text("js/task1.js"), listOf(text("cpack/write/task1-more.js"), text("js/write/task1-more2.js")))
     }
 

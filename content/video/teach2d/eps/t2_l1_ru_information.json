@@ -66,7 +66,7 @@
    "answer": 0
   },
   "native": {
-   "hook": "Информация — без “s”!",
+   "hook": "Одно или много?",
    "tip": "У слова information нет множественного числа: не “informations”.",
    "caption": "Ты тоже говоришь “Thanks for the informations.”? 😅 По-русски «сведения» бывают во множественном числе, но “information” — нет. Правильно: “Thanks for the information.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.",
    "comment": "Ответ: “information”. Information — без множественного числа. Бесплатный тест для практики здесь: {link}",
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Информация — без “s”!"
+  "text": "Одно или много?"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 96
  },
  "publish": {
-  "title": "Информация — без “s”!",
+  "title": "Одно или много?",
   "keyword": "Thanks for the information.",
   "value": "У слова information нет множественного числа: не “informations”.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 36,
   "platforms": {
    "youtube": {
-    "title": "Информация — без “s”!",
+    "title": "Одно или много?",
     "description": "Ты тоже говоришь “Thanks for the informations.”? 😅 По-русски «сведения» бывают во множественном числе, но “information” — нет. Правильно: “Thanks for the information.”. Послушай Ама и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
     "tags": [
      "Thanks for the information.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "Информация — без “s”! #английский #грамматика #английскийонлайн"
+    "caption": "Одно или много? #английский #грамматика #английскийонлайн"
    }
   },
   "first_comment": "Ответ: “information”. Information — без множественного числа. Бесплатный тест для практики здесь: {link}",

@@ -2,6 +2,18 @@
 //   (a) vocab-img-free đỏ 24/10→9/11 mà không ai báo riêng cho ảnh; (b) vocab-img-scene "xanh" cả ngày nhưng mọi job bị bỏ qua (plan: hết nghĩa vẽ được) → xanh giả.
 // Báo khi: (1) workflow ảnh đỏ ≥ 2 lượt liền; (2) 48 giờ img.json không có commit ảnh mới mà lượt fill CÓ chạy thật (job fill/fillpub xanh) = đầu ra không tới chỉ mục.
 // Không báo khi chỉ vì hết nghĩa để vẽ (lượt bị bỏ qua) – chỉ ghi vào bản tin kèm tốc độ ảnh/ngày. Một issue nhãn ci-failure (marker ci-triage:vimg), tự đóng khi hết. Test: scripts/test/vimg-watch.mjs.
+import fs from 'node:fs';
+import path from 'node:path';
+export const IMG_GOAL = 300;   // đích ảnh/ngày bền vững (13/11)
+/** Tốc độ kho từ (13/11, sau khi hàng duyệt 15k mục + ảnh 16/ngày không ai thấy): từ xuất/ngày theo tên lô, cỡ hàng duyệt lexicon-expand. Đọc tệp trong checkout (thuần theo `root`). */
+export function wordSpeed(root, now = Date.now()) {
+  const dir = path.join(root, 'content/lexicon/expand'), day = ms => new Date(ms).toISOString().slice(0, 10).replace(/-/g, '');
+  const byDay = {}; let queue = null;
+  try { for (const f of fs.readdirSync(dir)) { const m = f.match(/^(\d{8})(?:-r\d+)?\.json$/); if (!m) continue; const n = (JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')) || {}).n; byDay[m[1]] = (byDay[m[1]] || 0) + (+n || 0); } } catch {}
+  try { queue = JSON.parse(fs.readFileSync(path.join(root, 'content/qa/review-queue.json'), 'utf8')).items.filter(x => x.src === 'lexicon-expand').length; } catch {}
+  const sum = d => { let t = 0; for (let i = 0; i < d; i++) t += byDay[day(now - i * 864e5)] || 0; return t; };
+  return { w1: sum(1), w7: sum(7), queue };
+}
 export const MARK = '<!-- ci-triage:vimg -->', TITLE = 'Đường ảnh từ vựng: đỏ liền hoặc đứng';
 export const WORKFLOWS = ['vocab-img-scene.yml', 'vocab-img-free.yml', 'vocab-img-publish.yml'], STREAK_MIN = 2, STALL_HOURS = 48, IMG = 'content/lexicon/img.json';
 const DONE = r => r && r.status === 'completed' && !['cancelled', 'skipped'].includes(r.conclusion) && !/^pull_request/.test(r.event || '');
@@ -10,7 +22,7 @@ export function streak(runs) { let n = 0; for (const r of [...(runs || [])].filt
 /** Số ảnh một commit bot ghi trong thông điệp "… (N ảnh)" / "+N icon, +M Wikimedia" (thuần). */
 export function addedOf(msg) { const m = String(msg || '').match(/\((\d+) ảnh\)/); if (m) return +m[1]; const a = [...String(msg || '').matchAll(/\+(\d+) (?:icon|Wikimedia)/g)]; return a.reduce((s, x) => s + +x[1], 0); }
 /** Phán quyết (thuần). in = { runs: {file→lượt}, commits: [{at, msg}], realScene: số lượt fill chạy thật 48 h, now } */
-export function verdict({ runs, commits, realScene, now = Date.now() }) {
+export function verdict({ runs, commits, realScene, now = Date.now(), speed = null }) {
   const bad = [], info = [];
   for (const f of WORKFLOWS) { const n = streak((runs || {})[f]); if (n >= STREAK_MIN) bad.push(`🔴 ${f}: đỏ ${n} lượt liền`); }
   const day = (commits || []).filter(c => now - Date.parse(c.at) < 864e5).reduce((s, c) => s + addedOf(c.msg), 0);
@@ -18,10 +30,12 @@ export function verdict({ runs, commits, realScene, now = Date.now() }) {
   if (stall && realScene > 0) bad.push(`🔴 img.json không có ảnh mới ${STALL_HOURS} giờ dù ${realScene} lượt fill chạy thật xanh → đầu ra không tới chỉ mục (kiểm bước fillpub / kho m4)`);
   else if (stall) info.push(`ℹ️ ${STALL_HOURS} giờ không ảnh mới và mọi lượt fill bị bỏ qua = hết nghĩa vẽ được; muốn tăng nữa cần thêm nghĩa vào kho từ vựng (lexicon-expand) hoặc mở hàng chờ`);
   info.push(`Ảnh mới 24 giờ qua: ${day}`);
+  const week = (commits || []).filter(c => now - Date.parse(c.at) < 7 * 864e5).reduce((s, c) => s + addedOf(c.msg), 0);
+  if (speed) info.push(`Tốc độ: từ xuất ${speed.w1}/ngày (7 ngày ${Math.round(speed.w7 / 7)}/ngày) · ảnh ${day}/ngày (7 ngày ${Math.round(week / 7)}/ngày, đích ≥ ${IMG_GOAL}${week / 7 < IMG_GOAL ? ' – CHƯA ĐẠT' : ''}) · hàng duyệt lexicon-expand ${speed.queue == null ? '?' : speed.queue} mục`);
   return { bad, info, perDay: day, md: `## 🖼 Đường ảnh từ vựng\n${[...bad, ...info].map(x => '- ' + x).join('\n')}\n` };
 }
 export async function collect(gh, now = Date.now()) {
-  const runs = {}, since = new Date(now - STALL_HOURS * 36e5).toISOString();
+  const runs = {}, since = new Date(now - 7 * 864e5).toISOString();   // 7 ngày: tốc độ tuần; chỉ số đứng 48 giờ lọc lại trong verdict
   for (const f of WORKFLOWS) runs[f] = ((await gh(`/actions/workflows/${f}/runs?status=completed&per_page=10`)) || {}).workflow_runs || [];
   const commits = (((await gh(`/commits?path=${IMG}&since=${since}&per_page=100`)) || [])).map(c => ({ at: c.commit.committer.date, msg: c.commit.message }));
   // lượt fill "chạy thật" = có job fill/fillpub xanh (lượt bị plan bỏ qua vẫn "success" nhưng mọi job skipped)
@@ -39,4 +53,4 @@ export async function syncIssue(gh, { bad, md }, label = 'ci-failure') {
   if (open) await gh(`/issues/${open.number}`, { method: 'PATCH', body: { title: TITLE, body } }); else await gh('/issues', { method: 'POST', body: { title: TITLE, body, labels: [label] } });
   return open ? 'updated' : 'opened';
 }
-export async function vimgWatch(gh, { now = Date.now() } = {}) { return verdict(await collect(gh, now)); }
+export async function vimgWatch(gh, { now = Date.now(), root = process.cwd() } = {}) { return verdict({ ...(await collect(gh, now)), speed: wordSpeed(root, now) }); }

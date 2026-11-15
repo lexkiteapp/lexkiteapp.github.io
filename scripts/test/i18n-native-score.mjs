@@ -21,10 +21,10 @@ ok(!markBad.length, 'en giữ đúng (A)–(D), {biến}, thẻ, mũi tên như 
 ok(keys.every(k => EN[k].length <= Math.max(60, k.length * 2.2)), 'en không phình quá 2,2× bản gốc (không thêm ý)');
 // khóa phải là chuỗi có thật trong bài ngữ pháp (khóa lạ = không bao giờ hiện)
 const gram = grammarFiles().map(f => fs.readFileSync(f, 'utf8')).join('\n').replace(/\\'/g, "'").replace(/\s+/g, ' ');
-// sổ mẫu câu (#/phrases) cũng dùng en-src (functions.json) – chuỗi nằm ở gói lười web/cpack/framework
-const fw = ['web/cpack/framework/functions.js'].filter(f => fs.existsSync(f)).map(f => fs.readFileSync(f, 'utf8')).join('\n').replace(/\\'/g, "'").replace(/\s+/g, ' ');
-const ghost = keys.filter(k => !gram.includes(k) && !fw.includes(k));
-ok(!ghost.length, 'mọi khóa en-src có trong bài ngữ pháp (web/js/grammar + web/cpack/grammar) hoặc web/cpack/framework/functions.js' + (ghost.length ? ': ' + ghost.slice(0, 3).join(' | ') : ''));
+// sổ mẫu câu (#/phrases) cũng dùng en-src (functions.json) – chuỗi nằm ở gói lười web/cpack/framework; trang #/pron dùng en-src (pron.json) – tiêu đề + mô tả (cắt 110 ký tự + «…» ở thẻ bài) nằm ở web/cpack/pron/skills.js
+const fw = ['web/cpack/framework/functions.js', 'web/cpack/pron/skills.js'].filter(f => fs.existsSync(f)).map(f => fs.readFileSync(f, 'utf8')).join('\n').replace(/\\'/g, "'").replace(/\s+/g, ' ');
+const ghost = keys.filter(k => { const q = k.replace(/…$/, ''); return !gram.includes(q) && !fw.includes(q); }); // khóa thẻ bài phát âm bị cắt «…»
+ok(!ghost.length, 'mọi khóa en-src có trong bài ngữ pháp (web/js/grammar + web/cpack/grammar) hoặc web/cpack/framework/functions.js hoặc web/cpack/pron/skills.js' + (ghost.length ? ': ' + ghost.slice(0, 3).join(' | ') : ''));
 
 const gold = await lessonKeys(['be-am-is-are', 'question-tags-short-answers', 'hedging']);
 const gap = Object.values(gold).flatMap(l => (l || ['(thiếu bài)']).filter(k => !EN[k]));

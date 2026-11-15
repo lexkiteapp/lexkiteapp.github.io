@@ -16,4 +16,10 @@
 "Chia sẻ": "Share",
 "Tải ảnh": "Save image",
 "Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé": "Image saved – link copied, paste it into your post",
+  'Mời bạn học cùng': 'Invite a friend',
+  'Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu': 'You and your friend both get +{xp} XP and 1 streak freeze when they finish their first lesson',
+  'Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}': 'I\'m learning English for free with Lexkite. Try a 1-minute lesson – we both get a gift! {url}',
+  'Link mời đã được chép – dán gửi bạn nhé': 'Invite link copied – paste it to a friend',
+  '🎁 Bạn được bạn bè mời! Nhận +{xp} XP và 1 lượt đóng băng chuỗi': '🎁 A friend invited you! Get +{xp} XP and 1 streak freeze',
+  '🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi': '🎉 {n} of your invited friends finished their first lesson – you get +{xp} XP and 1 streak freeze',
 }); })(typeof self !== 'undefined' ? self : this);

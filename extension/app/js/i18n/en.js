@@ -567,6 +567,9 @@
 // ⏱️ Thử thách 60 giây – ô chế độ (app.js modeTiles, khung app)
 "Thử thách 60 giây": "60-second challenge",
 "Ôn từ đến hạn, combo, thách đấu bạn bè": "Review due words, build combos, challenge friends",
+// 🥁 Nhịp điệu – ô chế độ (app.js modeTiles + study.js MODES, khung app)
+"Nhịp điệu": "Rhythm",
+"Chạm đúng nhịp nhấn của câu tiếng Anh": "Tap to the stress beat of English sentences",
 'Luyện tiếng Tây Ban Nha': 'Spanish practice', 'Luyện định dạng DELE/SIELE': 'DELE/SIELE format practice', 'Đọc, nghe, viết, nói theo cấu trúc đề thi': 'Reading, listening, writing and speaking in the exam format', 'Chia động từ và ngữ pháp, giải thích bằng ngôn ngữ của bạn': 'Verb conjugation and grammar, explained in your language',
 'Mini-test biến thể': 'Variant mini-test',
 }); })(typeof self !== 'undefined' ? self : this);
@@ -989,6 +992,8 @@
 'Nhập từ Anki': 'Import from Anki',
 'Từ Anki': 'From Anki',
 'Nhập từ bộ thẻ Anki': 'Imported from your Anki decks',
+'Từ tài liệu': 'From a document',
+'Nhập từ văn bản, PDF, ePub, phụ đề': 'Imported from text, PDF, ePub and subtitles',
 'Tìm từ hoặc nghĩa…': 'Search words or meanings…',
 'Tất cả bộ từ': 'All sets',
 'Từ tự thêm': 'Added by me',

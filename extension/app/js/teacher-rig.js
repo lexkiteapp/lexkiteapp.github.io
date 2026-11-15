@@ -25,7 +25,7 @@
     laugh: { kind: 'pose', pose: 'laugh', hold: 1.2, emo: 'praise' }, empathy: { kind: 'pose', pose: 'empathy', hold: 1.4, emo: 'sad' },
     // ảnh chuẩn riêng (gesture bank 05/11): alt = tư thế đã duyệt cho người CHƯA có ảnh này (Chars.has)
     thumbs_up: { kind: 'pose', pose: 'thumbs_up', alt: 'encourage', hold: 1.2, emo: 'encourage' }, clap: { kind: 'pose', pose: 'clap', alt: 'cheer', hold: 1.2, emo: 'praise' },
-    count: { kind: 'pose', pose: 'explain', hold: 1.6, emo: 'explain', pending: 1 }, hold_card: { kind: 'pose', pose: 'hold_card', alt: 'explain', hold: 2, emo: 'explain' },
+    count: { kind: 'pose', pose: 'count', alt: 'explain', hold: 1.6, emo: 'explain' }, hold_card: { kind: 'pose', pose: 'hold_card', alt: 'explain', hold: 2, emo: 'explain' },
   };
   const KEYS = ['brow', 'knit', 'smile', 'o', 'lx', 'ly', 'tilt'];
   const vec = name => { const e = EMOTIONS[name] || {}; return { brow: e.brow || 0, knit: e.knit || 0, smile: e.smile || 0, o: e.o || 0, lx: (e.look || [0, 0])[0], ly: (e.look || [0, 0])[1], tilt: e.tilt || 0, nodHz: e.nodHz || 0, nodPx: e.nodPx || 0 }; };

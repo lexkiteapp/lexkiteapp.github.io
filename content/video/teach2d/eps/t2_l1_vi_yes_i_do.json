@@ -66,7 +66,7 @@
    "answer": 0
   },
   "native": {
-   "hook": "Trả lời ngắn: “Yes, I like”?",
+   "hook": "Trả lời ngắn thiếu “do”!",
    "tip": "Trả lời ngắn cần trợ động từ: “Yes, I do.” Tiếng Việt chỉ lặp lại động từ.",
    "caption": "Bạn có hay nói “Do you like tea? Yes, I like.” không? 😅 Trả lời ngắn dùng “do”: “Do you like tea? Yes, I do.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
    "comment": "Đáp án: “do”. Trả lời bạn bè bằng “Yes, I do” hoặc “No, I don't”. Luyện thêm miễn phí tại đây: {link}",
@@ -78,7 +78,7 @@
    ]
   },
   "en": {
-   "hook": "Trả lời ngắn thiếu “do”!",
+   "hook": "Short answers are missing “do”!",
    "tip": "Short answers need “do”. Vietnamese just repeats the verb.",
    "caption": "Do you often say “Do you like tea? Yes, I like.”? Short answers use “do”: “Do you like tea? Yes, I do.” Listen to Ama read it, then repeat! Practice more in the Lexkite app."
   }
@@ -91,7 +91,7 @@
  },
  "hook": {
   "line": "h",
-  "text": "Trả lời ngắn: “Yes, I like”?"
+  "text": "Trả lời ngắn thiếu “do”!"
  },
  "src": {
   "l1": true
@@ -103,7 +103,7 @@
   "wpm": 98
  },
  "publish": {
-  "title": "Trả lời ngắn: “Yes, I like”?",
+  "title": "Trả lời ngắn thiếu “do”!",
   "keyword": "Do you like tea? Yes, I do.",
   "value": "Trả lời ngắn cần trợ động từ: “Yes, I do.” Tiếng Việt chỉ lặp lại động từ.",
   "hashtags": [
@@ -116,7 +116,7 @@
   "script_words": 39,
   "platforms": {
    "youtube": {
-    "title": "Trả lời ngắn: “Yes, I like”?",
+    "title": "Trả lời ngắn thiếu “do”!",
     "description": "Bạn có hay nói “Do you like tea? Yes, I like.” không? 😅 Trả lời ngắn dùng “do”: “Do you like tea? Yes, I do.” Nghe cô Ama đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tienganhgiaotiep #lexkite",
     "tags": [
      "Do you like tea? Yes, I do.",
@@ -137,7 +137,7 @@
     ]
    },
    "tiktok": {
-    "caption": "Trả lời ngắn: “Yes, I like”? #hoctienganh #nguphaptienganh #tienganhgiaotiep"
+    "caption": "Trả lời ngắn thiếu “do”! #hoctienganh #nguphaptienganh #tienganhgiaotiep"
    }
   },
   "first_comment": "Đáp án: “do”. Trả lời bạn bè bằng “Yes, I do” hoặc “No, I don't”. Luyện thêm miễn phí tại đây: {link}",
