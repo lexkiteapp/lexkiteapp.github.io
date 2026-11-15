@@ -10,7 +10,7 @@
 //       node scripts/i18n-qa.mjs --short    → liệt kê nhãn ngắn chưa có bản dịch tay
 import fs from 'fs';
 import { missingSegments } from './i18n-english.mjs';
-import { VI, BAD } from './lib/i18n-rules.mjs';
+import { VI, BAD, BAD_ES } from './lib/i18n-rules.mjs';
 const root = new URL('../web/js/i18n/', import.meta.url), src = new URL('../i18n/ui/', import.meta.url); // en: web/js/i18n · 13 ngôn ngữ: NGUỒN i18n/ui (gói chạy khóa băm kiểm riêng ở dưới)
 const langs = fs.readFileSync(new URL('./i18n-langs.txt', import.meta.url), 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'));
 const fixed = JSON.parse(fs.readFileSync(new URL('./i18n-fixed.json', import.meta.url), 'utf8'));
@@ -37,7 +37,7 @@ for (const l of langs) {
     if (v == null) { miss.push(k); continue; }
     if (vars(v) !== vars(EN[k]) || tags(v) !== tags(EN[k])) ph.push(k);
     if (VI.test(v) && !VI.test(EN[k])) mix.push(k);
-    if (BAD.test(v)) bad.push(k);
+    if (BAD.test(v) || (l === 'es' && BAD_ES.test(v))) bad.push(k);
     const lost = missingSegments(k, EN[k], v); if (lost.length) eng.push(`${k} ⇢ ${lost.join(' | ')}`);
   }
   const shortMissing = Object.keys(EN).filter(k => short(k) && !(fixed[k] && fixed[k][l]));
