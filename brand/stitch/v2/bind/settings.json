@@ -54,34 +54,67 @@
         "n1": {
          "html": {
           ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon",
-          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "'<a href=\"' + e(w.href) + '\" data-go=\"' + e(w.k) + '\" class=\"set-go text-start block after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</a>'",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "e(w.label)",
           ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "e(w.value)",
           ":scope > span": "w.chev"
          },
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "w.href",
+           "data-go": "w.k"
+          }
+         },
          "addClass": {
-          ":scope": "relative"
+          ":scope": "set-go"
          }
         },
         "n2": {
          "html": {
           ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon",
-          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "'<a href=\"' + e(w.href) + '\" data-go=\"' + e(w.k) + '\" class=\"set-go text-start block after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</a>'",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "e(w.label)",
           ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "e(w.value)",
           ":scope > span": "w.chev"
          },
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "w.href",
+           "data-go": "w.k"
+          }
+         },
          "addClass": {
-          ":scope": "relative"
+          ":scope": "set-go"
          }
         },
         "n3": {
          "html": {
           ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon",
-          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "'<a href=\"' + e(w.href) + '\" data-go=\"' + e(w.k) + '\" class=\"set-go text-start block after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</a>'",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "e(w.label)",
           ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "e(w.value)",
           ":scope > span": "w.chev"
          },
+         "tag": {
+          ":scope": {
+           "to": "a"
+          }
+         },
+         "attr": {
+          ":scope": {
+           "href": "w.href",
+           "data-go": "w.k"
+          }
+         },
          "addClass": {
-          ":scope": "relative"
+          ":scope": "set-go"
          }
         }
        }
