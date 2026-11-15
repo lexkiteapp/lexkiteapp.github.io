@@ -46,7 +46,17 @@
       return w.length >= 4 ? { w, s: o.s } : null;
     } catch (e) { return null; }
   }
-  const core = { DUR, FAST, order, gradeOf, mult, xpOf, kindOf, options, encodeCh, decodeCh, isDue };
+  // 👻 Đấu bóng ma (docs/specs/play-community-1211.md #1): dấu vết = [[ms, 1|0], …]; điểm bóng ma tại thời điểm ms (cùng luật combo)
+  const GKEY = 'lk.blitz.ghost';
+  function ghostAt(trace, ms) { let combo = 0, sc = 0; for (const e of trace || []) { if (e[0] > ms) break; if (e[1]) { combo++; sc += 10 * mult(combo); } else combo = 0; } return sc; }
+  const goodTrace = tr => Array.isArray(tr) && tr.length > 0 && tr.length <= 100 && tr.every(e => Array.isArray(e) && e.length === 2 && Number.isInteger(e[0]) && e[0] >= 0 && e[0] <= DUR + 500);
+  const core = { ghostAt, goodTrace, DUR, FAST, order, gradeOf, mult, xpOf, kindOf, options, encodeCh, decodeCh, isDue };
+
+  const DUEL = /(^|\.)lexkite\.(com|pages\.dev)$/.test((g.location && g.location.hostname) || '') ? '/api/duel' : 'https://lexkite.com/api/duel';
+  async function duelApi(user, body) {
+    const r = await fetch(DUEL, { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await user.getIdToken() }, body: JSON.stringify(body) });
+    if (!r.ok) throw new Error('duel'); return r.json();
+  }
 
   /* ---------- Vòng chơi (DOM) ---------- */
   function run(H, src, query) {
@@ -67,14 +77,28 @@
     const cands = items.length >= 12 ? items : [...items, ...lib()];
     const title = ch ? `👥 ${t('Thách đấu: vượt {n} điểm', { n: ch.s })}` : `⚡ ${t('Thử thách 60 giây')}`;
     const S = { i: 0, q: items.slice(), score: 0, combo: 0, best: 0, right: 0, n: 0, graded: new Set(), missed: [], used: 0, at: performance.now(), paused: false, over: false, busy: false };
+    Object.assign(S, { trace: [], lastT: -250, passed: false }); // dấu vết cho đấu bóng ma
+    if (!document.getElementById('bzCss')) { const st = document.createElement('style'); st.id = 'bzCss'; st.textContent = '#bzG{transition:background .2s,color .2s}#bzG.ahead{background:var(--good-soft);color:var(--good-text)}@media(prefers-reduced-motion:reduce){#bzG{transition:none}}'; document.head.appendChild(st); }
     view.innerHTML = `<div class="study-wrap bz">${head(title, 0, 1, `<span id="bzT" dir="ltr">60s</span>`)}
-      <div class="row between nowrap" style="margin-bottom:.6rem"><b id="bzS" aria-live="off">0</b><span class="chip" id="bzC" hidden></span></div>
+      <div class="row between nowrap" style="margin-bottom:.6rem"><b id="bzS" aria-live="off">0</b><span class="chip" id="bzG" hidden dir="auto"></span><span class="chip" id="bzC" hidden></span></div>
       <div id="bzQ"></div></div>`;
     const x = view.querySelector('.study-top .icon-btn'); if (x) { x.style.width = x.style.height = '44px'; x.setAttribute('aria-label', t('Thoát')); }
     const left = () => Math.max(0, DUR - S.used - (S.paused ? 0 : performance.now() - S.at));
+    let G = null; // { score, trace, mine } – bóng ma: người chơi khác cùng trình (đã đăng nhập) hoặc chính bạn lần tốt nhất
+    if (!ch) {
+      try { const l = JSON.parse(localStorage.getItem(GKEY) || 'null'); if (l && goodTrace(l.trace)) G = { score: l.score | 0, trace: l.trace, mine: true }; } catch (e) { /* bỏ qua */ }
+      const me = g.Sync && g.Sync.user;
+      if (me) duelApi(me, { op: 'ghost', mine: (state.game.best && state.game.best.blitz) || 0 }).then(j => { if (!S.over && j && j.ghost && goodTrace(j.ghost.trace)) G = { score: j.ghost.score | 0, trace: j.ghost.trace, mine: false }; }).catch(() => {});
+    }
     const tick = () => {
       const ms = left(), bar = view.querySelector('.study-top .progress i'), tm = $('#bzT');
       if (bar) bar.style.width = (ms / DUR) * 100 + '%'; if (tm) tm.textContent = Math.ceil(ms / 1000) + 's';
+      const gc = $('#bzG');
+      if (G && gc) {
+        const gs = ghostAt(G.trace, DUR - ms);
+        gc.hidden = false; gc.textContent = '👻 ' + (G.mine ? t('Bạn lần trước: {n}', { n: gs }) : t('Bóng ma: {n}', { n: gs })); gc.classList.toggle('ahead', S.score > gs);
+        if (S.score > gs && !S.passed && S.n) { S.passed = true; if (g.Sfx && g.Sfx.haptic) g.Sfx.haptic('correct'); }
+      }
       if (!ms && !S.over) end();
     };
     const vis = () => { if (document.hidden && !S.paused) { S.used += performance.now() - S.at; S.paused = true; } else if (!document.hidden && S.paused) { S.at = performance.now(); S.paused = false; } };
@@ -108,7 +132,7 @@
       $('#bzQ').querySelectorAll('.option').forEach(b => b.onclick = () => {
         if (S.busy || S.over) return; S.busy = true;
         const ok = op[+b.dataset.i] === right, ms = performance.now() - t0;
-        S.n++; grade(w, ok, ms);
+        S.n++; grade(w, ok, ms); { const el = Math.min(DUR + 500, Math.max(S.lastT + 250, Math.round(DUR - left()))); S.lastT = el; S.trace.push([el, ok ? 1 : 0]); }
         if (ok) { S.right++; S.combo++; S.best = Math.max(S.best, S.combo); S.score += 10 * mult(S.combo); b.classList.add('right'); }
         else { S.combo = 0; b.classList.add('wrong'); const r = [...$('#bzQ').querySelectorAll('.option')].find(e => op[+e.dataset.i] === right); if (r) r.classList.add('right'); S.missed.push(w); S.q.splice(Math.min(3, S.q.length), 0, w); if (kind !== 'listen') say(); }
         Sfx.answer(ok, { el: b, answer: right, badge: false });
@@ -121,7 +145,8 @@
       const prev = (state.game.best && state.game.best.blitz) || 0, xp = xpOf(S.right, S.n), pct = S.n ? Math.round((S.right / S.n) * 100) : 0;
       await App.reward({ quizzes: 1, blitz: 1, blitzScore: S.score, xp });
       const missed = [...new Map(S.missed.map(w => [key(w.word), w])).values()].slice(0, 8);
-      const beat = ch ? (S.score > ch.s ? t('Bạn đã thắng thách đấu! 🎉') : S.score === ch.s ? t('Hòa! Thử lại để vượt lên') : t('Còn thiếu {n} điểm – thử lại nhé', { n: ch.s - S.score })) : '';
+      const gf = G ? G.score : 0, gbeat = G ? (S.score > gf ? t('Bạn đã thắng bóng ma! 🎉') : S.score === gf ? t('Hòa! Thử lại để vượt lên') : t('Còn thiếu {n} điểm – thử lại nhé', { n: gf - S.score })) : '';
+      const beat = gbeat || (ch ? (S.score > ch.s ? t('Bạn đã thắng thách đấu! 🎉') : S.score === ch.s ? t('Hòa! Thử lại để vượt lên') : t('Còn thiếu {n} điểm – thử lại nhé', { n: ch.s - S.score })) : '');
       view.innerHTML = `<div class="study-wrap"><div class="card empty celebrate">
         <div class="em">⚡</div><h2 dir="ltr">${S.score}</h2>
         <p>${beat ? esc(beat) + ' · ' : ''}${S.score > prev ? '🏅 ' + t('Kỷ lục mới!') : t('Kỷ lục của bạn: {best}', { best: prev })} · ${t('{a}/{b} đúng', { a: S.right, b: S.n })} · ${t('Combo cao nhất {n}', { n: S.best })} · +${xp} XP</p>
@@ -136,6 +161,10 @@
       };
       Sfx.finish({ pct, xp, good: 80, el: $('.celebrate', view) });
       practiceDone({ mode: 'blitz', src, pct });
+      if (!ch && goodTrace(S.trace) && S.score > 0) { // lưu bóng ma của mình + nộp lên (ẩn danh) cho người khác đua
+        try { const l = JSON.parse(localStorage.getItem(GKEY) || 'null'); if (!l || S.score > (l.score | 0)) localStorage.setItem(GKEY, JSON.stringify({ score: S.score, trace: S.trace })); } catch (e) { /* bỏ qua */ }
+        const me = g.Sync && g.Sync.user; if (me) duelApi(me, { op: 'submit', score: S.score, trace: S.trace }).catch(() => {});
+      }
     }
     tick(); next();
   }

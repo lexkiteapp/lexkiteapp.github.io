@@ -1,3 +1,21 @@
-/* UI ko – cambridge (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ko"] = Object.assign(D["ko"] || {}, {"Đề tự biên soạn đúng định dạng Cambridge từ A2 Key đến C2 Proficiency: Đọc & Viết, Nghe, Nói – có lời giải, bài mẫu và tiêu chí chấm.":"A2 Key부터 C2 Proficiency까지 케임브리지 형식에 맞춰 직접 만든 연습 시험(Reading & Writing, Listening, Speaking)입니다. 해설, 모범 답안, 채점 기준이 함께 제공됩니다.","Đang soạn đề cho cấp này.":"이 레벨의 시험을 준비하고 있어요.","Điểm trong ứng dụng là tỉ lệ câu đúng để tự theo dõi, không phải điểm Cambridge English Scale chính thức.":"앱 속 점수는 학습 진행 상황을 확인하기 위한 정답률이며, 공식 Cambridge English Scale 점수가 아닙니다.","Viết {n} từ trở lên.":"{n}단어 이상 쓰세요.","Đã nghe 2 lần (như thi thật)":"2번 들었어요 (실제 시험처럼)","Nghe lần 2":"다시 듣기","Kết quả: {a}/{b} câu đúng ({p}%)":"결과: {a}/{b} 정답 ({p}%)","Xem lời giải dưới từng câu. Phần viết có nhận xét riêng ngay dưới bài.":"해설은 각 문제 아래에 있습니다. 쓰기는 바로 아래에 별도의 피드백이 있어요.","{n} từ (tối thiểu {m})":"{n}단어 (최소 {m}단어)","Từ nối đã dùng: {w}":"사용한 연결어: {w}","Tiêu chí chấm (0–5 mỗi tiêu chí)":"채점 기준 (항목별 0–5점)","Trả lời":"답","Bạn cùng thi nói:":"시험 파트너가 말합니다:","Mẫu câu hữu ích:":"유용한 표현:","{n} từ – nên nói khoảng {m} từ trở lên":"{n}단어 – {m}단어 이상 말해 보세요","Thêm lý do hoặc ví dụ (because, so, for example…)":"이유나 예시를 덧붙이세요 (because, so, for example…)","Câu trả lời mẫu":"모범 답안"});
+/* UI ko – cambridge (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ko"] = Object.assign(D["ko"] || {}, {
+"Bạn cùng thi nói:":"시험 파트너가 말합니다:",
+"Câu trả lời mẫu":"모범 답안",
+"Kết quả: {a}/{b} câu đúng ({p}%)":"결과: {a}/{b} 정답 ({p}%)",
+"Mẫu câu hữu ích:":"유용한 표현:",
+"Nghe lần 2":"다시 듣기",
+"Thêm lý do hoặc ví dụ (because, so, for example…)":"이유나 예시를 덧붙이세요 (because, so, for example…)",
+"Tiêu chí chấm (0–5 mỗi tiêu chí)":"채점 기준 (항목별 0–5점)",
+"Trả lời":"답",
+"Từ nối đã dùng: {w}":"사용한 연결어: {w}",
+"Viết {n} từ trở lên.":"{n}단어 이상 쓰세요.",
+"Xem lời giải dưới từng câu. Phần viết có nhận xét riêng ngay dưới bài.":"해설은 각 문제 아래에 있습니다. 쓰기는 바로 아래에 별도의 피드백이 있어요.",
+"{n} từ (tối thiểu {m})":"{n}단어 (최소 {m}단어)",
+"{n} từ – nên nói khoảng {m} từ trở lên":"{n}단어 – {m}단어 이상 말해 보세요",
+"Đang soạn đề cho cấp này.":"이 레벨의 시험을 준비하고 있어요.",
+"Điểm trong ứng dụng là tỉ lệ câu đúng để tự theo dõi, không phải điểm Cambridge English Scale chính thức.":"앱 속 점수는 학습 진행 상황을 확인하기 위한 정답률이며, 공식 Cambridge English Scale 점수가 아닙니다.",
+"Đã nghe 2 lần (như thi thật)":"2번 들었어요 (실제 시험처럼)",
+"Đề tự biên soạn đúng định dạng Cambridge từ A2 Key đến C2 Proficiency: Đọc & Viết, Nghe, Nói – có lời giải, bài mẫu và tiêu chí chấm.":"A2 Key부터 C2 Proficiency까지 케임브리지 형식에 맞춰 직접 만든 연습 시험(Reading & Writing, Listening, Speaking)입니다. 해설, 모범 답안, 채점 기준이 함께 제공됩니다.",
+});
 })(typeof self !== 'undefined' ? self : this);

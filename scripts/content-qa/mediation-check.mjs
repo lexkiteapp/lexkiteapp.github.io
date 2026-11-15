@@ -5,32 +5,19 @@
 // checks không quá rộng (một từ khóa ≥ 3 ký tự, không phải từ chức năng), chữ tiếng Anh (không còn tiếng Việt).
 // Dùng: node scripts/content-qa/mediation-check.mjs [thư mục]   → mã 1 khi có lỗi. Hàm thuần xuất ra để test.
 import fs from 'fs';
+import vm from 'vm';
 import { pathToFileURL } from 'url';
 
 export const LEVELS = ['A2', 'B1', 'B2', 'C1', 'C2'];
 export const ACTIVITIES = ['relay', 'summarise', 'explain-data', 'simplify', 'notes', 'facilitate'];
 export const SOURCE_KINDS = ['announcement', 'text', 'email', 'notice', 'dialogue', 'chart', 'talk'];
 export const SOURCE_MAX = { A2: 120, B1: 220, B2: 350, C1: 500, C2: 650 };
-export const COPY_RUN = 8;
 const VI = /[ăâđêôơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i;
 const STOP = new Set(['the', 'and', 'but', 'for', 'you', 'are', 'was', 'not', 'his', 'her', 'its', 'our', 'can', 'has', 'had', 'this', 'that', 'with', 'from', 'they', 'them', 'then', 'than', 'have', 'will', 'what', 'when']);
 
-export const words = s => (String(s || '').match(/[A-Za-z0-9][A-Za-z0-9'’:%.-]*/g) || []).map(w => w.replace(/[.]+$/, '')).filter(Boolean);
-export const norm = s => ' ' + String(s || '').toLowerCase().replace(/[’‘]/g, "'").replace(/[–—]/g, '-').replace(/\s+/g, ' ') + ' ';
-/** ý đạt khi MỌI nhóm checks có ít nhất một cụm xuất hiện (không phân biệt hoa thường) */
-export const hit = (text, checks) => { const t = norm(text); return (checks || []).length > 0 && checks.every(g => (g || []).some(k => t.includes(String(k).toLowerCase()))); };
-export function sourceText(src) {
-  if (!src) return '';
-  if (src.kind === 'chart') return [src.caption, ...(src.cols || []), ...(src.rows || []).flat(), src.note].filter(x => x != null).join(' ');
-  if (src.kind === 'dialogue') return (src.lines || []).map(l => (l && l.t) || '').join(' ');
-  return Array.isArray(src.text) ? src.text.join(' ') : String(src.text || '');
-}
-/** cụm ≥ COPY_RUN từ liền nhau của bài mẫu có nguyên văn trong nguồn */
-export function copied(model, source, n = COPY_RUN) {
-  const m = words(model).map(w => w.toLowerCase()), s = ' ' + words(source).map(w => w.toLowerCase()).join(' ') + ' ';
-  for (let i = 0; i + n <= m.length; i++) { const run = m.slice(i, i + n).join(' '); if (s.includes(' ' + run + ' ')) return run; }
-  return '';
-}
+// words/norm/hit/sourceText/copied: MỘT nguồn với màn #/mediate (web/js/mediate-core.js)
+const MC = (() => { const c = {}; vm.runInNewContext(fs.readFileSync(new URL('../../web/js/mediate-core.js', import.meta.url), 'utf8'), { globalThis: c, self: c }); return c.MediateCore; })();
+export const { COPY_RUN, words, norm, hit, sourceText, copied } = MC;
 const lvl = l => LEVELS.indexOf(l) + 1; // A2=1 … (A1 không có bài trung gian)
 const base = l => String(l || '').slice(0, 2);
 

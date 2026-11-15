@@ -117,7 +117,7 @@ if (found) {
   ok(!$('#fb .sheet'), 'chạm ngay khi vừa hiện câu (chạm đúp từ màn trước) bị bỏ qua');
   await tick(300); click(opts[0]); await tick(40);
   ok($('#fb .sheet'), 'chạm sau đó → hiện bảng phản hồi');
-  ok($('.study-wrap').style.getPropertyValue('--sheet-h') && /\.study-wrap:has\(\.sheet\) \{ padding-bottom: calc\(var\(--sheet-h/.test(css), 'chừa đáy bằng đúng chiều cao bảng phản hồi');
+  ok($('.study-wrap').style.getPropertyValue('--sheet-h') && /\.study-wrap:has\(\.sheet-up\) \{ padding-bottom: calc\(var\(--sheet-h/.test(css) && $('#fb .sheet').classList.contains('sheet-up'), 'chừa đáy bằng đúng chiều cao bảng phản hồi (gắn .sheet-up sau lần vẽ – INP)');
   // ✕ giữa chừng → hỏi lại
   await tick(300); const x = $('.study-top a.icon-btn'), before = w.location.hash; click($('#nextQ')); await tick(400);
   click($('.study-top a.icon-btn')); await tick(40);
@@ -203,8 +203,8 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   await go('#/home', 400);
   ok(/Ngày 1|Day 1/.test(($('.today-cta') || {}).textContent || ''), 'nút chính trang chủ: ' + (($('.today-cta') || {}).textContent || '').trim());
   await go('#/day/1', 400);
-  ok($$('.day-steps li').length === 6 && $('.day-hero') && $('[role=progressbar]'), 'trang #/day/1: 6 hoạt động + thanh tiến độ');
-  click($('.day-steps a')); await tick(50);
+  ok($$('.dayv2-steps a').length === 6 && $('.v2s-day h1') && $('[role=progressbar]'), 'trang #/day/1: 6 hoạt động + thanh tiến độ');
+  click($('.dayv2-steps a')); await tick(50);
   ok(w.localStorage.getItem('vb.daySess') === 'ngsl1.1~1', 'bấm hoạt động → giữ phiên Ngày 1');
   w.dispatchEvent(new w.CustomEvent('lexkite:practice-done', { detail: { mode: 'match', src: 'topic:ngsl1.1~1', pct: 100 } })); await tick(200);
   const rec = await w.Core.Store.get('pathDays', {});
@@ -222,8 +222,8 @@ ok((await w.App.todayPlan()).some(x => x.href === '#/placement') && w.App.pathCu
   // Nội dung đích của mọi bước (đọc thẳng file dữ liệu – không cần nạp từng gói)
   const src = (...fs) => fs.map(f => fs0(f)).join('\n'), fs0 = f => { try { return fs.readFileSync(path.join(WEB, 'js', f), 'utf8'); } catch (e) { return ''; } };
   const dir = d => fs.readdirSync(path.join(WEB, 'js', d)).map(f => d + '/' + f);
-  const C = { roleplay: src(...dir('roleplay')), call: src('call/calls.js', 'call/calls-exam.js'), listen: src(...dir('listen'), ...dir('../cpack/listen'), ...dir('toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
-    rtype: src('rtype.js'), toefl: src('toefl.js'), toeic: src('toeic.js'), treading: src(...dir('toeic')), grammar: src(...dir('grammar')) };
+  const C = { roleplay: src(...dir('roleplay'), ...dir('../cpack/roleplay')), call: src('call/calls.js', 'call/calls-exam.js'), listen: src(...dir('listen'), ...dir('../cpack/listen'), ...dir('toeic')), task1: src('task1.js'), write: src('write.js'), letters: src('write/gt-letters.js'),
+    rtype: src('rtype.js'), toefl: src('toefl.js'), toeic: src('toeic.js'), treading: src(...dir('toeic')), grammar: src(...dir('grammar'), ...dir('../cpack/grammar')) };
   const has = (txt, id) => new RegExp(`id: '${id}'|T\\('${id}'`).test(txt);
   const exists = h => { const [, r, a = '', q = ''] = /^#\/([a-z0-9-]+)\/?([^?]*)\??(.*)$/.exec(h) || [];
     if (r === 'practice') { const id = decodeURIComponent(new URLSearchParams(q).get('src') || '').replace(/^topic:/, ''); return id === 'due' || (w.App.topicOf(id) || { words: [] }).words.length >= 3; }

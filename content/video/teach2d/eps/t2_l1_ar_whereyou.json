@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_whereyou",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Question order matters!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Where you are going?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Where are you going?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "In a question, put are before you.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Are you! Where are you from?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Where you are going?",
+  "right": "Where are you going?",
+  "strike": "you",
+  "why": "In a question, put are before you.",
+  "memory": "Where are you going?",
+  "quiz": {
+   "stem": "Where ___ from?",
+   "options": [
+    "you are",
+    "are you"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "ترتيب السؤال بالإنجليزية!",
+   "tip": "في السؤال نضع الفعل قبل الفاعل: “Where are you going?” وليس “Where you are going?”",
+   "caption": "هل تسأل “Where you are going?” 🙈 في الإنجليزية يأتي الفعل are قبل you في السؤال: “Where are you going?” استمع إلى Carlos وكرّر معه! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “are you”. تذكّر: الفعل قبل الفاعل في السؤال. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "English question order!",
+   "tip": "In a question, the verb comes before the subject: “Where are you going?” not “Where you are going?”",
+   "caption": "Do you ask “Where you are going?” 🙈 In English, are comes before you in a question: “Where are you going?” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "ترتيب السؤال بالإنجليزية!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "ترتيب السؤال بالإنجليزية!",
+  "keyword": "Where are you going?",
+  "value": "في السؤال نضع الفعل قبل الفاعل: “Where are you going?” وليس “Where you are going?”",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "ترتيب السؤال بالإنجليزية!",
+    "description": "هل تسأل “Where you are going?” 🙈 في الإنجليزية يأتي الفعل are قبل you في السؤال: “Where are you going?” استمع إلى Carlos وكرّر معه! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "Where are you going?",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تسأل “Where you are going?” 🙈 في الإنجليزية يأتي الفعل are قبل you في السؤال: “Where are you going?” استمع إلى Carlos وكرّر معه! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تسأل “Where you are going?” 🙈 في الإنجليزية يأتي الفعل are قبل you في السؤال: “Where are you going?” استمع إلى Carlos وكرّر معه! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "ترتيب السؤال بالإنجليزية! #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “are you”. تذكّر: الفعل قبل الفاعل في السؤال. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

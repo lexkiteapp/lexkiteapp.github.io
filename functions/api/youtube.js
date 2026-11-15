@@ -24,6 +24,7 @@ import { adminGate, adminAudit, adminCors } from './admin.js';
 import { limit } from './sync.js';
 import { signState, verifyState, encryptToken, decryptToken, cliVerify, driveMedia } from './drive.js';
 import { manifest, signedPack } from './admin-shorts.js';
+import { setupMgr, ingestYouTube, analyticsAlerts, saveAlerts } from './_social_mgr.js';
 
 export const REDIRECT = 'https://lexkite.com/api/youtube/callback';
 export const SCOPE_UP = 'https://www.googleapis.com/auth/youtube.upload', SCOPE_RO = 'https://www.googleapis.com/auth/youtube.readonly';
@@ -422,6 +423,20 @@ const ADMIN_OPS = {
   },
 };
 
+/** Local publish slots per day (stagger, 09–21 h local like the social schedule); UTC offsets are fixed means (no DST drift needed for a daily slot). */
+export const YT_TZ = { en: -5, vi: 7, pt: -3, es: -5, de: 1, fr: 1, ja: 9, ko: 9, zh: 8, hi: 5.5, ar: 3, tr: 3, ru: 3 };
+export const YT_SLOTS = [[10, 0], [14, 20], [18, 40], [12, 10], [16, 30], [20, 0]];
+/** i-th clip of a channel → ISO publishAt: perDay clips a day, day d = 1.. (never in the past), slot offset rotates per channel so channels do not post at the same minute. */
+export function slotAt(i, perDay, lang, now = Date.now(), rot = 0) {
+  const n = Math.max(1, Math.min(YT_SLOTS.length, perDay | 0)), d = Math.floor(i / n) + 1, [h, m] = YT_SLOTS[(i % n + rot) % YT_SLOTS.length], off = YT_TZ[lang] ?? 0;
+  const base = new Date(now + d * 864e5); return new Date(Date.UTC(base.getUTCFullYear(), base.getUTCMonth(), base.getUTCDate(), h, m) - off * 36e5).toISOString();
+}
+/** The connected channel for a clip language: the channel whose yt_chan_cfg.cfg.lang matches; English falls back to the default channel; other languages without a channel → null (never post a clip on a channel of another language). */
+export async function chanForLang(db, lang) {
+  const l = await channelsOk(db);
+  for (const c of l) { const x = await chanCfg(db, c.channel_id); if (x.explicit_lang && x.cfg.lang === lang) return c; }
+  return lang === 'en' ? l.find(c => true) || null : null;
+}
 const CLI_OPS = {
   /** approved/uploaded ids (shorts-archive.mjs keeps 2 copies of these; web-rendition.mjs adds youtube_id when the video is watchable). */
   async ids(db) {
@@ -433,7 +448,65 @@ const CLI_OPS = {
     const purge = (await all(db, 'SELECT clip FROM clip_review WHERE deleted = 2')).map(r => r.clip); // "Xóa hẳn" → shorts-archive.mjs trashes Drive files + drops the recipe, then op purged
     return { purge, approved: rows.map(r => r.clip), uploaded: Object.fromEntries(rows.filter(r => r.video_id).map(r => [r.clip, r.video_id])), web };
   },
+  /** Daily-reels auto queue (docs/specs/daily-reels.md): clips that already passed QC (manifest qa 'pass') are queued as private + publishAt, spread perDay a day per channel, on the channel of their language. b = { items: [{id, lang}], per_day }. No admin click; the quota log is yt_quota. */
+  async autoq(db, b, who, env) {
+    if ((await modeOf(db, env)) !== 'api') return { status: 409, error: 'mode-manual' };
+    const items = (Array.isArray(b.items) ? b.items : []).filter(x => x && CLIP.test(String(x.id))).slice(0, 100), perDay = Math.min(6, Math.max(1, +b.per_day || 3)), now = Date.now(), out = { queued: [], skipped: [] };
+    const used_ = new Map(); let rot = 0;
+    for (const it of items) {
+      const lang = String(it.lang || 'en').toLowerCase(), ch = await chanForLang(db, lang);
+      if (!ch) { out.skipped.push({ id: it.id, why: 'no-channel-' + lang }); continue; }
+      const r = await approveClips(db, { ids: [it.id], privacy: 'private' }, { email: 'autopub@lexkite.com' }, env);
+      if (!(r.queued || []).length) { out.skipped.push(...(r.skipped || [])); continue; }
+      const last = await one(db, "SELECT COUNT(*) AS n FROM yt_queue WHERE channel_id = ? AND status IN ('queued','uploading') AND publish_at > ?", ch.channel_id, new Date(now).toISOString());
+      const k = used_.get(ch.channel_id) ?? (last ? +last.n : 0); used_.set(ch.channel_id, k + 1); rot = (ch.id || 0) % YT_SLOTS.length;
+      const pa = slotAt(k, perDay, lang, now, rot);
+      await run(db, 'UPDATE yt_queue SET channel_id = ?, publish_at = ? WHERE clip = ?', ch.channel_id, pa, it.id);
+      out.queued.push({ id: it.id, channel_id: ch.channel_id, publish_at: pa });
+    }
+    return { ok: true, ...out, quota: await quotaInfo(db) };
+  },
   async quota(db) { return { quota: await quotaInfo(db) }; },
+  /** Analytics (read-only, youtube.readonly): statistics of every channel + every uploaded video, snapshot per day in yt_stats (growth 7/30 d = diff of snapshots).
+   *  Cost: channels.list 1 + videos.list 1 per 50 ids; stops when the default bucket is ≥ 80 % used (breaker). b = { snapshot: bool (default true) } */
+  async stats(db, b, who, env) {
+    const q = await quotaInfo(db); if (q.used >= QUOTA.day * 0.8) return { status: 429, error: 'quota-breaker', quota: q };
+    await db.prepare('CREATE TABLE IF NOT EXISTS yt_stats (day TEXT, video_id TEXT, channel_id TEXT, views INTEGER, likes INTEGER, comments INTEGER, PRIMARY KEY (day, video_id))').run();
+    const day = new Date().toISOString().slice(0, 10), channels = [], videos = [], errors = [];
+    const rows = await all(db, "SELECT clip, video_id, channel_id, privacy, publish_at, title FROM yt_queue WHERE video_id IS NOT NULL AND video_id != ''");
+    for (const ch of await channelsOk(db)) {
+      let at; try { at = await accessToken(env, db, ch); } catch (e) { errors.push({ channel_id: ch.channel_id, error: e.code || 'token' }); continue; }
+      const h = { headers: { Authorization: 'Bearer ' + at } };
+      const cr = await gfetch('https://www.googleapis.com/youtube/v3/channels?part=statistics&id=' + encodeURIComponent(ch.channel_id), h); await spend(db, QUOTA.list);
+      const cj = cr.ok ? await cr.json().catch(() => ({})) : {}, st = ((cj.items || [])[0] || {}).statistics || {};
+      channels.push({ channel_id: ch.channel_id, title: ch.title, subs: st.hiddenSubscriberCount ? null : +st.subscriberCount || 0, views: +st.viewCount || 0, videos: +st.videoCount || 0 });
+      const mine = rows.filter(r => r.channel_id === ch.channel_id), ids = mine.map(r => r.video_id);
+      for (let i = 0; i < ids.length; i += 50) {
+        const part = ids.slice(i, i + 50);
+        const r = await gfetch('https://www.googleapis.com/youtube/v3/videos?part=statistics,status,contentDetails&maxResults=50&id=' + part.map(encodeURIComponent).join(','), h); await spend(db, QUOTA.list);
+        if (!r.ok) { errors.push({ channel_id: ch.channel_id, error: 'videos-' + r.status }); continue; }
+        const seen = new Set();
+        for (const v of (await r.json().catch(() => ({}))).items || []) {
+          seen.add(v.id); const m = mine.find(x => x.video_id === v.id) || {}, s = v.statistics || {};
+          videos.push({ video_id: v.id, clip: m.clip, channel_id: ch.channel_id, privacy: (v.status || {}).privacyStatus, publish_at: m.publish_at || null, secs: isoSecs((v.contentDetails || {}).duration), views: +s.viewCount || 0, likes: +s.likeCount || 0, comments: +s.commentCount || 0 });
+        }
+        for (const id of part) if (!seen.has(id)) videos.push({ video_id: id, clip: (mine.find(x => x.video_id === id) || {}).clip, channel_id: ch.channel_id, missing: true, views: 0, likes: 0, comments: 0 }); // removed / blocked → alert
+      }
+    }
+    if (b.snapshot !== false) for (const v of videos) if (!v.missing) await run(db, 'INSERT INTO yt_stats (day, video_id, channel_id, views, likes, comments) VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT(day, video_id) DO UPDATE SET views = excluded.views, likes = excluded.likes, comments = excluded.comments', day, v.video_id, v.channel_id, v.views, v.likes, v.comments);
+    if (b.snapshot !== false) { try { await setupMgr(db); await ingestYouTube(db, videos); } catch (e) { errors.push({ error: 'ingest' }); } } // vào bảng Phân tích + trọng số tuần sau
+    const prev = {}; for (const [d, n] of [[7, 'w'], [30, 'm']]) for (const r of await all(db, 'SELECT video_id, views FROM yt_stats WHERE day = (SELECT MAX(day) FROM yt_stats WHERE day <= date(?, ?))', day, `-${d} day`)) (prev[r.video_id] = prev[r.video_id] || {})[n] = r.views;
+    for (const v of videos) { const p = prev[v.video_id] || {}; v.d7 = p.w == null ? null : v.views - p.w; v.d30 = p.m == null ? null : v.views - p.m; }
+    const zero3 = []; // kênh có video nhưng 0 view mới trong ≥ 3 ngày (cần snapshot cũ ≥ 3 ngày – không đoán)
+    for (const c of channels) {
+      const now_ = videos.filter(v => v.channel_id === c.channel_id && !v.missing).reduce((a, v) => a + v.views, 0);
+      const old = await one(db, "SELECT SUM(views) AS v, COUNT(*) AS n FROM yt_stats WHERE channel_id = ? AND day = (SELECT MAX(day) FROM yt_stats WHERE channel_id = ? AND day <= date(?, '-3 day'))", c.channel_id, c.channel_id, day);
+      if (old && old.n > 0 && now_ - (+old.v || 0) === 0 && videos.some(v => v.channel_id === c.channel_id && !v.missing)) zero3.push(c.channel_id);
+    }
+    const qi = await quotaInfo(db), alerts = analyticsAlerts({ channels, videos, zero3, quota: qi });
+    if (b.snapshot !== false) { try { await saveAlerts(db, alerts); } catch (e) { errors.push({ error: 'alerts' }); } }
+    return { ok: true, day, zero3, alerts, scope: await getMeta(db, 'scope'), analytics: /yt-analytics/.test((await getMeta(db, 'scope')) || ''), channels, videos, errors, quota: qi };
+  },
   /** shorts-archive.mjs: Drive files of these hard-deleted clips are in the trash and the recipe is gone → deleted = 3 (purged, kept as a tombstone). */
   async purged(db, b) { const ids = (Array.isArray(b.ids) ? b.ids : []).map(String).filter(x => CLIP.test(x)).slice(0, 200); for (const id of ids) await run(db, 'UPDATE clip_review SET deleted = 3, updated = ? WHERE clip = ? AND deleted = 2', Date.now(), id); return { ok: true, count: ids.length }; },
   async next(db, b, who, env) {
@@ -450,7 +523,7 @@ const CLI_OPS = {
     if (row.upload_url && Date.now() - row.session_at < SESSION_TTL) return { upload_url: row.upload_url, resumed: true };
     if (uploadsLeft(await used(db), await used(db, INS)) < 1) return { status: 429, error: 'quota', quota: await quotaInfo(db) };
     const size = Math.floor(+((b.meta || {}).size) || 0); if (!(size > 0 && size < 256 * 1048576)) return { status: 400, error: 'bad-size' };
-    const ch = await channelRow(db); if (!ch) return { status: 412, error: 'not-connected' };
+    const ch = await channelRow(db, row.channel_id || undefined); if (!ch) return { status: 412, error: 'not-connected' };
     const at = await accessToken(env, db, ch), res = videoResource(row, b.meta || {});
     const r = await gfetch('https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status', { method: 'POST', headers: { Authorization: 'Bearer ' + at, 'Content-Type': 'application/json; charset=UTF-8', 'X-Upload-Content-Length': String(size), 'X-Upload-Content-Type': 'video/mp4' }, body: JSON.stringify(res) });
     await spend(db, QUOTA.insert, INS);
@@ -467,7 +540,7 @@ const CLI_OPS = {
   async done(db, b, who, env) {
     const row = await one(db, 'SELECT * FROM yt_queue WHERE clip = ?', String(b.id || '')), vid = String(b.video_id || '');
     if (!row || !/^[A-Za-z0-9_-]{6,20}$/.test(vid)) return { status: 400, error: 'bad-input' };
-    const ch = await channelRow(db); if (!ch) return { status: 412, error: 'not-connected' };
+    const ch = await channelRow(db, row.channel_id || undefined); if (!ch) return { status: 412, error: 'not-connected' };
     const at = await accessToken(env, db, ch);
     const v = await gfetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,status&id=${encodeURIComponent(vid)}`, { headers: { Authorization: 'Bearer ' + at } }); await spend(db, QUOTA.list);
     const it = ((await v.json().catch(() => ({}))).items || [])[0];

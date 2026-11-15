@@ -105,6 +105,14 @@
         "clap": {
           "src": "cine/teachers/green/ga11_clap_still.png",
           "note": "05/11"
+        },
+        "hold_card": {
+          "src": "cine/teachers/green/ga11_hold_card_still.png",
+          "note": "Nano Banana Pro i2i 2K từ ảnh khoá o3 (+ ảnh dáng tham chiếu), qc_green + soát mắt (12/11)"
+        },
+        "count": {
+          "src": "cine/teachers/green/ga11_count_still.png",
+          "note": "Nano Banana Pro i2i 2K từ ảnh khoá o3 (+ ảnh dáng tham chiếu), qc_green + soát mắt (12/11) – count = 1 dáng giữ yên: ngón trỏ \"số một\""
         }
       }
     },
@@ -190,6 +198,14 @@
         "hold_card": {
           "src": "cine/teachers/green/gc11_hold_card_still.png",
           "note": "thẻ trắng trơn (05/11)"
+        },
+        "clap": {
+          "src": "cine/teachers/green/gc11_clap_still.png",
+          "note": "Nano Banana Pro i2i 2K từ ảnh khoá o3 (+ ảnh dáng tham chiếu), qc_green + soát mắt (12/11)"
+        },
+        "count": {
+          "src": "cine/teachers/green/gc11_count_still.png",
+          "note": "Nano Banana Pro i2i 2K từ ảnh khoá o3 (+ ảnh dáng tham chiếu), qc_green + soát mắt (12/11) – count = 1 dáng giữ yên: ngón trỏ \"số một\""
         }
       }
     }
@@ -287,6 +303,10 @@
       "sha256": "ef3eac59f58a4712fc71bbbd5b48abd1120402c59f3a8c437b83552fd8cf57d1",
       "bytes": 30714
     },
+    "ama/still-count.webp": {
+      "sha256": "b4640cdd2c642d006713290b1cbf99674fb30aa91f7bc3dc017fd4ab977cd04d",
+      "bytes": 45088
+    },
     "ama/still-empathy.webp": {
       "sha256": "f60f4a09447a8dcc00c770368f26d64e2ca52a3b0a1461b696783e63d5c016ca",
       "bytes": 33026
@@ -302,6 +322,10 @@
     "ama/still-happy.webp": {
       "sha256": "4c62dd7d6bed7189f00e757bb86b1f1ac82f3c720851dad6dbe93e3d05c263ad",
       "bytes": 31542
+    },
+    "ama/still-hold_card.webp": {
+      "sha256": "9cc3c0e56494143d0aaee9a893e6409313bd7d222828730ac2903476f8041918",
+      "bytes": 42240
     },
     "ama/still-laugh.webp": {
       "sha256": "17e4e29b9ed3c54604ed04df9b38721de60fedc7e6434a2755a8e0be05be00e4",
@@ -439,9 +463,17 @@
       "sha256": "0780dbb1522f1cca85ce3ef7eaceec1a2e7f087dbb3b7a4f664d531cf09766f1",
       "bytes": 43366
     },
+    "carlos/still-clap.webp": {
+      "sha256": "d17558f0fa280c4d848e04adbf68d683b78ab00ab333a61ffcd13a9eac234c24",
+      "bytes": 45902
+    },
     "carlos/still-concern.webp": {
       "sha256": "7b44aa4d881175f22410f34ed14248a1bab7294f4597ee32d97673305d149ec9",
       "bytes": 42336
+    },
+    "carlos/still-count.webp": {
+      "sha256": "50cfce32cca36c865aeb372bd87395f4c4642e0fed65ea4fb479275cc93229d8",
+      "bytes": 47840
     },
     "carlos/still-empathy.webp": {
       "sha256": "7b44aa4d881175f22410f34ed14248a1bab7294f4597ee32d97673305d149ec9",
@@ -594,6 +626,7 @@
   "still_poses": [
     "thumbs_up",
     "clap",
-    "hold_card"
+    "hold_card",
+    "count"
   ]
 }

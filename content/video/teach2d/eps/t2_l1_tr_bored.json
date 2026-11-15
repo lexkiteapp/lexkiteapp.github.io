@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_bored",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Bored, not boring!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am boring in class.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am bored in class.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "I feel bored. It is boring.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Bored! I am bored at home today.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am boring in class.",
+  "right": "I am bored in class.",
+  "strike": "boring",
+  "why": "I feel bored. It is boring.",
+  "memory": "I am bored.",
+  "quiz": {
+   "stem": "I am ___ at home today.",
+   "options": [
+    "boring",
+    "bored"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Boring” değil, “bored”!",
+   "tip": "“Sıkıldım” demek için “I am bored” de. “Boring” sıkıcı şeyi anlatır.",
+   "caption": "“I am boring in class.” mi diyorsun? 😅 Sıkılan kişi “bored” olur, sıkıcı şey “boring” olur. Doğrusu “I am bored in class.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “bored”. Sıkılan sensin: bored. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “boring”, but “bored”!",
+   "tip": "Say “I am bored” when you feel bored. “Boring” describes the thing.",
+   "caption": "Do you say “I am boring in class.”? 😅 A person who is bored says “bored”. The thing is “boring”. The right sentence is “I am bored in class.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Boring” değil, “bored”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Boring” değil, “bored”!",
+  "keyword": "I am bored in class.",
+  "value": "“Sıkıldım” demek için “I am bored” de. “Boring” sıkıcı şeyi anlatır.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“Boring” değil, “bored”!",
+    "description": "“I am boring in class.” mi diyorsun? 😅 Sıkılan kişi “bored” olur, sıkıcı şey “boring” olur. Doğrusu “I am bored in class.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I am bored in class.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I am boring in class.” mi diyorsun? 😅 Sıkılan kişi “bored” olur, sıkıcı şey “boring” olur. Doğrusu “I am bored in class.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I am boring in class.” mi diyorsun? 😅 Sıkılan kişi “bored” olur, sıkıcı şey “boring” olur. Doğrusu “I am bored in class.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Boring” değil, “bored”! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “bored”. Sıkılan sensin: bored. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}

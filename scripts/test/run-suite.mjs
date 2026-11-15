@@ -1,12 +1,23 @@
 // `npm test`: chạy lần lượt từng lệnh trong scripts/test/suite.txt (mỗi dòng một lệnh, qua sh), dừng ở lệnh đỏ đầu tiên – y như chuỗi `a && b && …` cũ.
 // Danh sách nằm ở file riêng (merge=union trong .gitattributes) để hai PR cùng thêm test không xung đột ở một dòng package.json dài.
+// Chia shard (CI chạy song song, scripts/test/suite-shards.mjs canh hợp = đủ bộ): --fast = làn nhanh (lint/chính sách, FAST_RE), --shard=i/n (i từ 1) = phần i của phần còn lại, cân theo thời gian đo (suite-weights.json).
 // Tùy chọn: --list in danh sách rồi thoát; --from=N bắt đầu từ lệnh thứ N (chạy lại sau lỗi, chỉ dùng cục bộ).
 import fs from 'node:fs'; import path from 'node:path'; import { spawnSync } from 'node:child_process'; import { fileURLToPath } from 'node:url';
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const SUITE = path.join(ROOT, 'scripts/test/suite.txt');
 export const readSuite = (file = SUITE) => fs.readFileSync(file, 'utf8').split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
+export const FAST_RE = /^node scripts\/(vi-lint|ext-syntax|i18n-missing|test\/(ci-policy|ci-triage|syntax-check|comment-code|unit|suite-shards))\.m?js\b/;
+export const split = (cmds, n, weights = {}) => {   // LPT: lệnh nặng trước vào shard nhẹ nhất; thứ tự gốc giữ trong shard; tất định
+  const W = c => weights[c] ?? 3, bins = Array.from({ length: n }, () => ({ t: 0, idx: [] }));
+  cmds.map((c, i) => [c, i]).sort((a, b) => W(b[0]) - W(a[0]) || a[1] - b[1]).forEach(([c, i]) => { const b = bins.reduce((m, x) => x.t < m.t ? x : m); b.t += W(c); b.idx.push(i); });
+  return bins.map(b => ({ t: b.t, cmds: b.idx.sort((x, y) => x - y).map(i => cmds[i]) }));
+};
+export const readWeights = () => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/test/suite-weights.json'), 'utf8')); } catch { return {}; } };
+export const lanes = (all, n, weights = {}) => ({ fast: all.filter(c => FAST_RE.test(c)), shards: split(all.filter(c => !FAST_RE.test(c)), n, weights) });
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const cmds = readSuite(), arg = k => (process.argv.find(a => a.startsWith(`--${k}=`)) || '').split('=')[1];
+  let cmds = readSuite(); const arg = k => (process.argv.find(a => a.startsWith(`--${k}=`)) || '').split('=')[1];
+  if (process.argv.includes('--fast')) cmds = cmds.filter(c => FAST_RE.test(c));
+  else if (arg('shard')) { const [i, n] = arg('shard').split('/').map(Number); cmds = lanes(cmds, n, readWeights()).shards[i - 1].cmds; console.log(`shard ${i}/${n}: ${cmds.length} lệnh`); }
   if (process.argv.includes('--list')) { cmds.forEach((c, i) => console.log(`${i + 1}\t${c}`)); process.exit(0); }
   const from = Math.max(1, Number(arg('from')) || 1), t0 = Date.now(), times = [];
   for (let i = from - 1; i < cmds.length; i++) {

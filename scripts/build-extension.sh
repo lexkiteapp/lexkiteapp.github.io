@@ -18,7 +18,7 @@ perl -0pi -e 's#<!--base-->.*?<!--/base-->##s; s#\s*<script data-lkf>.*?</script
 # Quảng cáo: add-on KHÔNG BAO GIỜ có quảng cáo (CWS + docs/ADS.md) – js/ads/ (AdSense/AdMob) và chuỗi nhóm 'ads' bị loại khỏi gói; js/ads.js chỉ là vỏ tự tắt trên chrome-extension:.
 # Chrome Web Store cấm mã tải từ xa: xóa URL thư viện ngoài (Firebase SDK, AdSense, Turnstile, transformers.js) khỏi bản add-on.
 # Các nhánh này vốn đã bị tắt trong add-on (Store.isExtension / CSP), nhưng để nguyên URL thì bản duyệt tự động vẫn gắn cờ.
-perl -pi -e 's#https://(?:www\.gstatic\.com/firebasejs/[\d.]+/|pagead2\.googlesyndication\.com/pagead/js/adsbygoogle\.js|challenges\.cloudflare\.com/turnstile/v0/api\.js\?render=explicit|cdn\.jsdelivr\.net/npm/\@huggingface/transformers\@[\d.]+/dist/transformers\.min\.js|www\.youtube\.com/iframe_api)##g' "$APP"/js/*.js
+perl -pi -e 's#https://(?:www\.gstatic\.com/firebasejs/[\d.]+/|pagead2\.googlesyndication\.com/pagead/js/adsbygoogle\.js|challenges\.cloudflare\.com/turnstile/v0/api\.js\?render=explicit|cdn\.jsdelivr\.net/npm/\@huggingface/transformers\@[\d.]+/dist/transformers\.min\.js|cdn\.jsdelivr\.net/npm/pdfjs-dist\@[\d.]+/build/|www\.youtube\.com/iframe_api)##g' "$APP"/js/*.js
 if grep -nE "(import\(|\.src *=|importScripts\().{0,4}['\"\`]https?://" "$ROOT"/extension/*.js "$APP"/js/*.js; then echo "✗ Còn mã tải từ xa trong add-on (xem dòng trên)" >&2; exit 1; fi
 if [[ "${1:-}" == "--check" ]]; then
   # So danh sách file + sha (bỏ qua thư mục rỗng: git không lưu chúng, CI checkout không có – vd css/vendor sau khi loại jsvectormap)

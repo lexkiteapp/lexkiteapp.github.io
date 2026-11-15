@@ -61,6 +61,14 @@ export function coreHealth(runsByKey, now = Date.now()) {
   return { rows, bad, lines: bad.map(r => (r.state === 'red' ? `- 🔴 ${r.key}: đỏ ${r.n} lượt liền, ${r.days} ngày (từ ${String(r.since).slice(0, 10)})` : `- ⚪ ${r.key}: chưa có lượt nào trên main – cổng đang không canh main`)) };
 }
 /** Issue ci-failure của workflow đã xóa khỏi repo: không bao giờ xanh lại nên không bao giờ tự đóng → rác che tín hiệu thật. Trả file nếu issue thuộc loại đó (thuần). */
+/** 12/11: workflow chạy-tay (chỉ workflow_dispatch) mà lượt cuối > STALE_MANUAL_DAYS ngày trước vẫn đỏ = thí nghiệm/pilot bỏ ngang: issue không bao giờ "xanh lại" nên cứ treo + bị stale-ci réo p0. Đóng not_planned; chạy tay đỏ lại thì ci-triage mở issue mới. Trả số ngày hoặc null. */
+export const STALE_MANUAL_DAYS = 10;
+export function staleManualDays(wfText, lastRunAt, now) {
+  const on = String(wfText || '').match(/^on:\s*\n((?:[ \t]+.*\n|\n)+)/m); if (!on || !lastRunAt) return null;
+  const trig = [...on[1].matchAll(/^ {2}([\w_]+):/gm)].map(x => x[1]);
+  if (!trig.length || trig.some(t => t !== 'workflow_dispatch')) return null;
+  const d = (now - new Date(lastRunAt)) / 864e5; return d > STALE_MANUAL_DAYS ? Math.floor(d) : null;
+}
 export function orphanIssueFile(body, wfExists) { const m = String(body || '').match(/ci-triage:wf=([\w.-]+)/); return m && !wfExists(m[1]) ? m[1] : null; }
 export function issueBody({ name, file, run, cls, log, streak }) {
   return `${marker(file)}\nWorkflow **${name}** (\`${file}\`) đỏ – ci-triage xếp loại **${cls.kind}** (${cls.why}).\n\n` +
@@ -244,16 +252,27 @@ async function sweep() {
     await gh(`/issues/${i.number}`, { method: 'PATCH', body: { state: 'closed', state_reason: 'not_planned', body: (i.body || '') + `\n\n🗑 Workflow ${f} không còn trong repo (ci-triage tự đóng ${now.toISOString().slice(0, 16)}Z)` } }).catch(e => console.log(e.message));
     summary(`- Đóng #${i.number} (${f} đã xóa)`);
   }
+  // 1a2) workflow chạy-tay bỏ ngang > 10 ngày vẫn đỏ: đóng (xem staleManualDays)
+  if (fs.existsSync('.github/workflows')) for (const i of issues) {
+    const f = (String(i.body || '').match(/ci-triage:wf=([\w.-]+)/) || [])[1]; if (!f || !fs.existsSync(`.github/workflows/${f}`)) continue;
+    const last = (((await gh(`/actions/workflows/${f}/runs?status=completed&per_page=1`)) || {}).workflow_runs || [])[0];
+    const d = last && staleManualDays(fs.readFileSync(`.github/workflows/${f}`, 'utf8'), last.updated_at, +now); if (d == null) continue;
+    await gh(`/issues/${i.number}`, { method: 'PATCH', body: { state: 'closed', state_reason: 'not_planned', body: (i.body || '') + `\n\n💤 ${f} chỉ chạy tay, lượt cuối ${d} ngày trước vẫn đỏ – bỏ ngang (ci-triage tự đóng ${now.toISOString().slice(0, 16)}Z; đỏ lại thì mở issue mới)` } }).catch(e => console.log(e.message));
+    summary(`- Đóng #${i.number} (${f} chạy tay, bỏ ngang ${d} ngày)`);
+  }
   // 1b) lịch cron không chạy / workflow bị tắt ngoài ý muốn (scripts/ci/cron-watch.mjs) – mỗi giờ
   try { const cw = await import('./cron-watch.mjs'), r = await cw.cronWatch(gh, { now: +now }); summary(r.md); summary(`- Issue lịch cron: ${await cw.syncIssue(gh, r, LABEL)}`); if (r.bad.length) console.log(`::error::${r.bad.length} workflow lịch không chạy: ${r.bad.map(b => b.file).join(', ')}`); }
   catch (e) { console.log('::warning::cron-watch: ' + e.message); }
+  // 1b') đường ảnh từ vựng (scripts/ci/vimg-watch.mjs) – 6 giờ/lần: workflow ảnh đỏ ≥ 2 lượt liền, hoặc 48 giờ không ảnh mới dù lượt fill chạy thật (xanh giả); kèm ảnh/ngày
+  if (now.getUTCHours() % 6 === 0 || force) try { const vw = await import('./vimg-watch.mjs'), r = await vw.vimgWatch(gh, { now: +now }); summary(r.md); summary(`- Issue ảnh từ vựng: ${await vw.syncIssue(gh, r, LABEL)}`); if (r.bad.length) console.log(`::error::đường ảnh từ vựng: ${r.bad.join(' | ')}`); }
+  catch (e) { console.log('::warning::vimg-watch: ' + e.message); }
   // 1c) cùng 1 check đỏ trên ≥ 3 PR mở = gốc chung ở main/workflow (scripts/ci/pr-common-red.mjs) – 3 giờ/lần (~50 lượt API) + bản tin ngày
   let common = null;
   if (now.getUTCHours() % 3 === 0 || force) try { const pc = await import('./pr-common-red.mjs'); common = pc.commonRed(await pc.scanPrs(gh)); summary(common.md); summary(`- Issue check đỏ chung: ${await pc.syncIssue(gh, common, LABEL)}`); if (common.groups.length) console.log(`::error::${common.groups.length} check đỏ chung trên PR mở: ${common.groups.map(g => `${g.check} (${g.prs.length})`).join(', ')}`); }
   catch (e) { console.log('::warning::pr-common-red: ' + e.message); }
   // 1c) workflow tốn runner bất thường (scripts/ci/ci-hog.mjs) – mỗi 3 giờ: ~12–40 lệnh API (hạn mức GITHUB_TOKEN dùng chung với required-gate)
   if (now.getUTCHours() % 3 === 0 || force) try {
-    const h = await import('./ci-hog.mjs'), r = h.hogReport(await h.fetchRuns(gh, +now));
+    const h = await import('./ci-hog.mjs'), r = h.hogReport(await h.fetchRuns(gh, +now), h.shardedNames());
     summary(r.md); summary(`- Issue runner: ${await h.syncIssue(gh, r, LABEL)}`);
     if (r.bad.length) console.log(`::error::${r.bad.length} workflow tốn runner bất thường: ${r.bad.map(b => b.name).join(', ')}`);
     if (process.env.LEXKITE_DRIVE_CLI_KEY) { const { driveApi } = await import('../video/library.mjs'); await driveApi('ext_alert', { kind: 'ci_hog', ok: !r.bad.length, n: Math.max(1, r.bad.length), msg: r.bad.map(b => `${b.name}: ${b.why}`).join(' · ').slice(0, 300), repo: REPO }); }

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_plural_s",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Two brothers, not two brother!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have two brother.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have two brothers.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After two, add s.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Cats! I have three cats.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have two brother.",
+  "right": "I have two brothers.",
+  "strike": "brother",
+  "why": "After two, add s.",
+  "memory": "Two or more: add s.",
+  "quiz": {
+   "stem": "I have three ___.",
+   "options": [
+    "cat",
+    "cats"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Hai anh em mà thiếu “s”?",
+   "tip": "Tiếng Việt không chia số nhiều, nhưng tiếng Anh thêm -s sau số từ lớn hơn một.",
+   "caption": "Bạn có hay nói “I have two brother.” không? 😅 Từ hai trở lên phải thêm -s: “I have two brothers.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “cats”. Đếm đồ vật quanh bạn bằng tiếng Anh, nhớ thêm -s nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#nguphaptienganh",
+    "#tuvungtienganh",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Two brothers but no “s”?",
+   "tip": "Vietnamese has no plural form, but English adds -s after a number above one.",
+   "caption": "Do you often say “I have two brother.”? With two or more, add -s: “I have two brothers.” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Hai anh em mà thiếu “s”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Hai anh em mà thiếu “s”?",
+  "keyword": "I have two brothers.",
+  "value": "Tiếng Việt không chia số nhiều, nhưng tiếng Anh thêm -s sau số từ lớn hơn một.",
+  "hashtags": [
+   "#hoctienganh",
+   "#nguphaptienganh",
+   "#tuvungtienganh",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "Hai anh em mà thiếu “s”?",
+    "description": "Bạn có hay nói “I have two brother.” không? 😅 Từ hai trở lên phải thêm -s: “I have two brothers.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #nguphaptienganh #tuvungtienganh #lexkite",
+    "tags": [
+     "I have two brothers.",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “I have two brother.” không? 😅 Từ hai trở lên phải thêm -s: “I have two brothers.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Bạn có hay nói “I have two brother.” không? 😅 Từ hai trở lên phải thêm -s: “I have two brothers.” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#nguphaptienganh",
+     "#tuvungtienganh",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Hai anh em mà thiếu “s”? #hoctienganh #nguphaptienganh #tuvungtienganh"
+   }
+  },
+  "first_comment": "Đáp án: “cats”. Đếm đồ vật quanh bạn bằng tiếng Anh, nhớ thêm -s nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

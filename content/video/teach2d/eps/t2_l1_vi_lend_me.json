@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_vi_lend_me",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Borrow or lend?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can you borrow me a pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you lend me a pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "You lend to others.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Borrow! Can I borrow your pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can you borrow me a pen?",
+  "right": "Can you lend me a pen?",
+  "strike": "borrow",
+  "why": "You lend to others.",
+  "memory": "Lend to, borrow from.",
+  "quiz": {
+   "stem": "Can I ___ your pen?",
+   "options": [
+    "borrow",
+    "lend"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Cho mượn: borrow hay lend?",
+   "tip": "Tiếng Việt đều nói “mượn”. Tiếng Anh: “lend” là cho ai mượn, “borrow” là đi mượn.",
+   "caption": "Bạn có hay nói “Can you borrow me a pen?” không? 😅 Cho mượn là “lend”, đi mượn là “borrow”: “Can you lend me a pen?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.",
+   "comment": "Đáp án: “borrow”. Thử xin mượn đồ bằng “Can I borrow…?” nhé. Luyện thêm miễn phí tại đây: {link}",
+   "hashtags": [
+    "#hoctienganh",
+    "#tuvungtienganh",
+    "#tienganhgiaotiep",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“borrow” và “lend” lẫn lộn?",
+   "tip": "Vietnamese uses “mượn” for both. “Lend” is to give, “borrow” is to take.",
+   "caption": "Do you often say “Can you borrow me a pen?”? You lend to others, borrow for yourself: “Can you lend me a pen?” Listen to Carlos read it, then repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Cho mượn: borrow hay lend?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "vi",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Cho mượn: borrow hay lend?",
+  "keyword": "Can you lend me a pen?",
+  "value": "Tiếng Việt đều nói “mượn”. Tiếng Anh: “lend” là cho ai mượn, “borrow” là đi mượn.",
+  "hashtags": [
+   "#hoctienganh",
+   "#tuvungtienganh",
+   "#tienganhgiaotiep",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Cho mượn: borrow hay lend?",
+    "description": "Bạn có hay nói “Can you borrow me a pen?” không? 😅 Cho mượn là “lend”, đi mượn là “borrow”: “Can you lend me a pen?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#hoctienganh #tuvungtienganh #tienganhgiaotiep #lexkite",
+    "tags": [
+     "Can you lend me a pen?",
+     "learn english",
+     "vi"
+    ]
+   },
+   "facebook": {
+    "text": "Bạn có hay nói “Can you borrow me a pen?” không? 😅 Cho mượn là “lend”, đi mượn là “borrow”: “Can you lend me a pen?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Bạn có hay nói “Can you borrow me a pen?” không? 😅 Cho mượn là “lend”, đi mượn là “borrow”: “Can you lend me a pen?” Nghe thầy Carlos đọc rồi lặp lại nhé! Luyện thêm trong app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#hoctienganh",
+     "#tuvungtienganh",
+     "#tienganhgiaotiep",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Cho mượn: borrow hay lend? #hoctienganh #tuvungtienganh #tienganhgiaotiep"
+   }
+  },
+  "first_comment": "Đáp án: “borrow”. Thử xin mượn đồ bằng “Can I borrow…?” nhé. Luyện thêm miễn phí tại đây: {link}",
+  "lang": "vi"
+ }
+}

@@ -13,12 +13,17 @@ const rd = f => fs.readFileSync(f, 'utf8');
 
 // ---- 1. tĩnh: tách khung, canh khởi động, lưu không dấu + ----
 const app = rd('web/js/app.js'), onb = rd('web/js/onboard.js'), wl = rd('web/js/welcome.js') + rd('web/js/st/v2/welcome.js') + rd('web/js/st/v2/welcome-desk.js'), pl = rd('web/js/placement.js'), frames = ['goal', 'level', 'target', 'pace', 'ready'].map(k => rd(`web/js/st/v2/onb-${k}.js`));
-ok(!firstLoadFiles().includes('/js/welcome.js') && /welcome: \[[^\]]*'js\/welcome\.js'\]/.test(app) && /ROUTE_BUNDLE = \{ welcome: 'welcome'/.test(app), 'welcome.js là gói lười, route nạp đúng gói');
+ok(!firstLoadFiles().includes('/js/welcome.js') && /welcome: \[[^\]]*'js\/welcome\.js'\]/.test(app) && /ROUTE_BUNDLE = \{[^}]*\bwelcome: 'welcome',/.test(app), 'welcome.js là gói lười, route nạp đúng gói');
 ok(!/id="wCard"|id="wFeats"|data-wg=/.test(app) && /wCard/.test(wl) && /wFeats/.test(wl) && /#loginH/.test(wl) && /data-wjump/.test(wl), 'markup trang giới thiệu chỉ còn ở welcome.js');
 ok(/!document\.getElementById\('lkHero'\)\) skel = setTimeout/.test(app), 'khung chờ không thay khung chào #lkHero');
 ok(/const bootDog = setTimeout\([\s\S]{0,200}errState\(true, true\); \}, 8000\)/.test(app) && /clearTimeout\(bootDog\)/.test(app) && /reload === true \? location\.reload\(\)/.test(app), 'canh khởi động 8 s: thẻ lỗi, Thử lại = tải lại, boot chạy thì hủy');
 ok(/App\.blogLive && !\(window\.Capacitor && Capacitor\.isNativePlatform && Capacitor\.isNativePlatform\(\)\)\) App\.blogLive\(\)/.test(wl), 'app iOS/Android: Welcome lần mở đầu KHÔNG hiện lối vào blog (chặn hồi quy "mở app ra trang chủ blog", chủ 5/11)');
 ok(!/blog/.test(rd('web/js/onboard.js')) && !/\/blog\//.test(rd('scripts/gen-hero.mjs')), 'thiết lập + khung chào dựng sẵn không có link blog');
+{ // khung chào dựng sẵn (gen-hero): mọi ngôn ngữ ≠ vi phải có chữ KHÁC bản Việt ở cả mục (không rơi về khóa tiếng Việt). Từng hỏng khi khóa kicker chuyển sang en/lazyui.js (4a141cbf) → hero non-vi tiếng Việt + app gọi dịch máy /api/dictlookup, e2e đỏ (503 mock CI)
+  const hm = /var T=(\{.*?\}),S=/.exec(rd('web/app/index.html').split('<!--hero-->')[1] || ''); const HT = hm ? JSON.parse(hm[1]) : {};
+  ok(Object.keys(HT).length === 15, 'hero dựng sẵn đủ 15 ngôn ngữ');
+  for (const l of Object.keys(HT).filter(x => x !== 'vi')) ok(HT[l].every((x, i) => x !== HT.vi[i]), `hero ${l}: không còn chữ tiếng Việt chưa dịch (gen-hero gộp lõi + nhóm lazy)`);
+}
 ok(/const fresh = !hasData\(\);/.test(app) && /App\.replaceHash\('#\/welcome'\)/.test(app), 'boot dùng chung phép "có dữ liệu", chuyển bằng replace');
 ok(/location\.replace\(location\.pathname \+ location\.search \+ h\)/.test(app), 'replace giữ /app/ (app có <base href="/">)');
 ok(/const bare = v => String\(v \|\| ''\)\.replace\(\/\\\+\$\/, ''\)/.test(onb) && /examTarget: tg/.test(onb) && /targetBand = tg/.test(onb) && /IELTS 0–9, TOEIC 10–990, TOEFL 1–6, General A1–C2/.test(onb), 'examTarget/targetBand lưu không dấu +, có ghi chú thang');
@@ -149,6 +154,28 @@ ok($('[data-lv=s2][aria-checked=true]') && !$('[data-lv=s0][aria-checked=true]')
 ok(/bài kiểm tra/.test($('#onbSay').textContent), 'Ama nói rõ lấy từ bài kiểm tra');
 click($('[data-lv=s0]')); await tick(); ok($('[data-lv=s0][aria-checked=true]') && pickOf().lv === 's0', 'vẫn đổi được');
 S.settings.onboarded = true; delete S.settings.placement; w.sessionStorage.removeItem('lk.onbPick');
+
+// ---- bước chọn ngôn ngữ học (W7): chỉ khi cờ TBN bật; chọn chỉ ghi vào pick, Target.set khi Tiếp tục; TBN → thẳng lộ trình ngày ----
+asNew(); await go('#/home', 300); await go('#/welcome/setup', 900); await until(() => $('#obNext'));
+ok(!$('[role=radio][data-lang]') && $('[data-track]'), 'cờ TBN tắt: không có bước chọn ngôn ngữ (bước đầu = mục tiêu): ' + hash() + ' ' + !!$('[role=radio][data-lang]'));
+w.localStorage.setItem('lk.es', '1'); asNew(); await go('#/home', 300); await go('#/welcome/setup', 900); await until(() => $('[data-lang]'));
+ok(/s=lang/.test(hash()) && $('[data-lang=en][aria-checked=true]') && $('[data-lang=es][aria-checked=false]') && $('[role=radiogroup] [data-lang=es] [lang], [data-lang=es][lang=es]'), 'cờ bật: bước đầu = chọn ngôn ngữ, English chọn sẵn: ' + hash());
+ok($('[data-lang=en][tabindex="0"]') && $('[data-lang=es][tabindex="-1"]') && pickOf().sn === 'lang' && pickOf().step === 0, 'roving tabindex; lk.onbPick giữ cả chỉ số step lẫn tên bước');
+click($('[data-lang=es]')); await tick(); ok($('[data-lang=es][aria-checked=true]') && w.Target.cur() === 'en' && pickOf().tl === 'es', 'chọn TBN chỉ ghi vào pick, chưa đổi ngôn ngữ đang học');
+$('[data-lang=es]').dispatchEvent(new w.KeyboardEvent('keydown', { key: 'ArrowUp', bubbles: true, cancelable: true })); await tick();
+ok($('[data-lang=en][aria-checked=true]') && $('[data-lang=en][tabindex="0"]') && pickOf().tl === 'en', 'mũi tên chọn thẻ kế, roving tabindex theo thẻ chọn');
+w.sessionStorage.setItem('lk.onbPick', JSON.stringify({ sn: 'khong-co', step: 0 })); await go('#/home', 200); await go('#/welcome/setup', 900); await until(() => $('[data-lang]'));
+ok(/s=lang/.test(hash()) && $('[data-lang=en][aria-checked=true]'), 'tên bước cũ không còn trong STEPS: không lỗi, mở bước đầu (có bước ngôn ngữ thì bỏ qua chỉ số cũ)');
+click($('[data-lang=es]')); await tick();
+{ // lưu cài đặt lỗi lúc Tiếp tục: trả ngôn ngữ cũ + cờ onboarded, mở lại nút, ở lại bước (không kẹt)
+  const St = w.Core.Store, set0 = St.set; let thrown = 0; St.set = async () => { thrown++; throw new Error('lưu lỗi giả'); };
+  const was = S.settings.onboarded, pace0 = [S.settings.pace, S.settings.dailyGoal, S.settings.dailyNew].join(); click($('#obNext')); click($('#obBack')); click($('[data-lang=en]')); await tick(500); St.set = set0; // lúc đang lưu: Lùi và đổi thẻ bị chặn (busy)
+  ok(thrown > 0 && w.Target.cur() === 'en' && S.settings.onboarded === was && !$('#obNext').disabled && /s=lang/.test(hash()), 'lưu lỗi: ngôn ngữ cũ, onboarded cũ, nút mở lại, còn ở bước chọn: ' + [thrown, w.Target.cur(), S.settings.onboarded, hash()]);
+  ok([S.settings.pace, S.settings.dailyGoal, S.settings.dailyNew].join() === pace0 && pickOf().tl === 'es', 'lưu lỗi: pace/dailyGoal/dailyNew trả lại, lựa chọn ngôn ngữ vẫn được giữ cho lần tải lại');
+}
+click($('#obNext')); await until(() => S.settings.onboarded && /practice\/esd/.test(hash()), 15000); await tick(300);
+ok(w.Target.cur() === 'es' && /practice\/esd/.test(hash()) && !w.sessionStorage.getItem('lk.onbPick'), 'Tiếp tục: Target.set(es) rồi vào lộ trình ngày TBN: ' + hash());
+w.Target.set('en'); w.localStorage.removeItem('lk.es'); S.settings.onboarded = true; w.sessionStorage.removeItem('lk.onbPick');
 
 await tick(200);
 const real = errors.filter(e => !/Not implemented/.test(e));

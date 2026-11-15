@@ -1,19 +1,23 @@
 {
  "_doc": "Sàn bảng World – CHỈ TĂNG (docs/WORLD-SCORECARD.md). world-scorecard.yml --raise trên main; scripts/test/world-scorecard.mjs chặn PR hạ/xoá sàn so với origin/main.",
  "floors": {
-  "content": 47.3,
+  "content": 66,
   "habit": 100,
   "personal": 53.3,
   "offline": 100,
   "shell": 10.7,
   "perf": 97,
   "a11y": 99,
-  "stitch": 22.1,
+  "stitch": 24.6,
   "i18n": 100,
   "whyL1": 6.7,
-  "exam": 52.5,
+  "exam": 55,
   "addon": 100,
   "aiLocal": 100,
-  "noLimit": 100
+  "noLimit": 100,
+  "learn": 91.6,
+  "firstRun": 72.8,
+  "todayTaps": 50,
+  "gates": 68.9
  }
 }

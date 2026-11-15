@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_bybus",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say by bus!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will travel with the bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will travel by bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say by bus.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "By! We go to school by car.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will travel with the bus.",
+  "right": "I will travel by bus.",
+  "strike": "with the",
+  "why": "Say by bus.",
+  "memory": "By bus.",
+  "quiz": {
+   "stem": "We go to school ___ car.",
+   "options": [
+    "by",
+    "with"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "هل تقول “with the bus”؟",
+   "tip": "لوسيلة النقل نقول by: “I will travel by bus.” وليس “I will travel with the bus.”.",
+   "caption": "هل تقول أحيانًا “I will travel with the bus.” 😅 لوسيلة النقل نقول by، فالجملة الصحيحة “I will travel by bus.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “by”. لوسيلة النقل نقول by. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I will travel with the bus”?",
+   "tip": "For transport we say by: “I will travel by bus.” not “I will travel with the bus.”.",
+   "caption": "Do you sometimes say “I will travel with the bus.” 😅 For transport we say by, so the right sentence is “I will travel by bus.” Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “with the bus”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "هل تقول “with the bus”؟",
+  "keyword": "I will travel by bus.",
+  "value": "لوسيلة النقل نقول by: “I will travel by bus.” وليس “I will travel with the bus.”.",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “with the bus”؟",
+    "description": "هل تقول أحيانًا “I will travel with the bus.” 😅 لوسيلة النقل نقول by، فالجملة الصحيحة “I will travel by bus.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I will travel by bus.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “I will travel with the bus.” 😅 لوسيلة النقل نقول by، فالجملة الصحيحة “I will travel by bus.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “I will travel with the bus.” 😅 لوسيلة النقل نقول by، فالجملة الصحيحة “I will travel by bus.” استمع إلى Carlos وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “with the bus”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “by”. لوسيلة النقل نقول by. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

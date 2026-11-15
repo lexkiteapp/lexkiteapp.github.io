@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_informations",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Information, no s!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I need more informations.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I need more information.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Information has no plural.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Information! I need more information.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I need more informations.",
+  "right": "I need more information.",
+  "strike": "informations",
+  "why": "Information has no plural.",
+  "memory": "More information.",
+  "quiz": {
+   "stem": "I need more ___.",
+   "options": [
+    "informations",
+    "information"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“informations” जैसा शब्द नहीं!",
+   "tip": "information का बहुवचन नहीं होता; “more information” बोलें।",
+   "caption": "क्या आप भी कहते हैं “I need more informations”? 🤔 अंग्रेज़ी में “I need more information” सही है, क्योंकि information गिना नहीं जाता, इसलिए s नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “information”। s हटाकर “information” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“informations” is not a word!",
+   "tip": "Information has no plural; say “more information”.",
+   "caption": "Do you say “I need more informations”? 🤔 In English “I need more information” is right, because information is not counted, so it takes no s. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“informations” जैसा शब्द नहीं!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 40,
+  "seconds": 25.1,
+  "wpm": 95
+ },
+ "publish": {
+  "title": "“informations” जैसा शब्द नहीं!",
+  "keyword": "I need more information.",
+  "value": "information का बहुवचन नहीं होता; “more information” बोलें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "“informations” जैसा शब्द नहीं!",
+    "description": "क्या आप भी कहते हैं “I need more informations”? 🤔 अंग्रेज़ी में “I need more information” सही है, क्योंकि information गिना नहीं जाता, इसलिए s नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I need more information.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “I need more informations”? 🤔 अंग्रेज़ी में “I need more information” सही है, क्योंकि information गिना नहीं जाता, इसलिए s नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “I need more informations”? 🤔 अंग्रेज़ी में “I need more information” सही है, क्योंकि information गिना नहीं जाता, इसलिए s नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“informations” जैसा शब्द नहीं! #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “information”। s हटाकर “information” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

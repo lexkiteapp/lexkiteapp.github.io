@@ -21,6 +21,14 @@ Avatar/watermark không có chữ nên dùng chung bản trên. Cổng riêng ch
 
 `contact-sheet.jpg`: xem trước crop tròn (300/96/40 px), điện thoại/máy tính bảng/máy tính/TV. `manifest.json`: số đo QC (tương phản, cỡ chữ, dung lượng).
 
+## Page theo ngôn ngữ (es · pt · de · fr · ru · tr · ar · hi + vi) – 11/11
+**Trang tải cho chủ: [`download.html`](download.html)** (mở từ thư mục này; mỗi ngôn ngữ: xem bìa, tải bìa/@2x/ảnh đại diện/banner, nút "Chép" cho tên page, bio, Giới thiệu, CTA, link web + link tải).
+Văn bản từng ngôn ngữ: `<lang>/page-info.md` (bio ≤ 100 ký tự, Giới thiệu, hạng mục, nút CTA, link web `lexkite.com/<lang>/` + UTM `utm_source=facebook&utm_medium=page&utm_campaign=<lang>`, link add-on/Google Play/App Store lấy từ `web/js/ext-config.js` – nguồn duy nhất, dịch ngược để soát nghĩa).
+- **Ảnh**: cùng bố cục với bản vi, hậu tố `-<lang>`: bìa FB 1640×624 (+`@2x` 3280×1248), banner YouTube, mẫu thumbnail. Ảnh đại diện = logo nguyên bản, dùng chung (đổi logo phải hỏi chủ). Ả Rập dựng RTL (`dir=rtl`, bỏ giãn chữ); phông Noto Sans (Cyrillic) / Noto Sans Arabic / Noto Sans Devanagari; cổng QC: tràn chữ, vùng an toàn, tương phản, phông không rơi về hệ thống, đúng hệ chữ, không lẫn chữ Việt.
+- **Chữ**: `scripts/social/channel-copy.mjs` (một nguồn cho ảnh + văn bản). Sửa → `node scripts/social/build-page-info.mjs` (sinh lại `page-info.md` + `download.html`, nhẹ) và PR kích hoạt workflow dựng ảnh trên CI → `bash scripts/ci/bot-output.sh channel-kit` → commit PNG + `manifest.json` + `contact-sheet.jpg`.
+- **Không tự đăng**: chủ tự tải lên Facebook; phiên làm bộ này không đăng nhập Facebook.
+- **Bài đăng của page** (`functions/api/_first_comment.js`, `_role_meta.js`, `scripts/video/publish-grabcast.mjs`): caption luôn có link web + UTM (`utm_term` = ngôn ngữ clip); FB/YouTube/Threads/X thêm bình luận đầu qua `targets[].options.first_comment` khi kênh có quyền. Ghim: không có API ghim ở GrabCast/nền tảng → không ghim được.
+
 ## Dựng lại (chỉ trên CI)
 Sửa `scripts/social/build-channel-kit.mjs` (chữ ở `COPY`, tư thế giáo viên ở `POSES`) → mở PR: workflow **Social channel kit** dựng + QC
 (kích thước, vùng an toàn, tương phản ≥ 4.5:1, cỡ chữ đọc được trên điện thoại, chữ không đè giáo viên, không tiếng Việt, dung lượng, logo nguyên bản)

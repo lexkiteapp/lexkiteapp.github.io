@@ -107,7 +107,7 @@ final class WriteVectorTests: XCTestCase {
         let V = try vec(), p = try pack()
         var r = R()
         let order = p.skills.map { $0.id }
-        r.eq(order, ["il", "ir", "tl", "tr", "fr", "fl", "fw"], "skill order")
+        r.eq(order, ["il", "ir", "tl", "tr", "fr", "fl", "fw", "cb"], "skill order")
         let names = (V["qstats"]?["names"]?.object ?? [:]).compactMapValues(\.string)
         for c in V["qstats"]?.list("cases") ?? [] {
             let id = c.s("id"), o = c["out"] ?? .null

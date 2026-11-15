@@ -1,4 +1,4 @@
-// 📐 Cổng bố cục hình đề: vẽ MỌI đề Writing Task 1 (map/process/bar/line/pie/table – task1.js + write/task1-more*.js,
+// 📐 Cổng bố cục hình đề: vẽ MỌI đề Writing Task 1 (map/process/bar/line/pie/table – task1.js + write/task1-more*.js (task1-more.js nằm ở cpack/write),
 // cũng là hình dùng ở #/model và phòng thi #/mock) bằng Chromium thật ở 360 px & 1280 px × sáng/tối × font thật/font dự phòng,
 // rồi dò chữ đè chữ, chữ vắt mép khối, phần tử tràn khung (bị cắt), khối chồng khối, chữ < 9 px, tương phản < 4,5:1.
 // Baseline = 0 lỗi: có lỗi → thoát 1. Chỉ chạy trên CI (figure-layout.yml); báo cáo + ảnh ở figure-layout-report/.

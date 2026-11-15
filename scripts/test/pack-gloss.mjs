@@ -61,6 +61,9 @@ for (const l of LANGS) for (const w of ['pregnant', 'currently']) ok(packs[l][w]
 const legacy = Object.fromEntries(LANGS.map(l => [l, Object.values(packs[l]).filter(v => v[1] === FLAG.LEGACY).length]));
 console.log(`✓ pack-gloss: ${n} kiểm · ${applied} nghĩa tay đã áp · còn chờ tinh chỉnh kiểm ngược (cờ 1): ${JSON.stringify(legacy)}`);
 
-// hồi quy 06/11 (a6bf18c13): bot lexicon-i18n phải ÁP LẠI bảng tay sau rebase + chạy pack-gloss trước khi đẩy main
-{ const y = (await import('node:fs')).readFileSync('.github/workflows/lexicon-i18n.yml', 'utf8'); const i = y.indexOf('rebase');
-  if (!(/gen-word-packs\.mjs "\$L" --gloss-only/.test(y) && /pack-gloss\.mjs \|\|[^\n]*KHÔNG đẩy/.test(y) && /PUSH_MAIN_REGEN=[^\n]*--gloss-only[^\n]*pack-gloss\.mjs/.test(y) && y.indexOf('--gloss-only') < y.indexOf('scripts/ci/push-main.sh'))) { console.error('✗ lexicon-i18n.yml: sau rebase phải áp lại bảng tay (--gloss-only) và chạy pack-gloss trước khi push'); process.exit(1); } }
+// hồi quy 06/11 (a6bf18c13) + 14/11 (word-packs đè bảng tay): MỌI bot đẩy web/packs phải qua scripts/ci/push-packs.sh
+// (áp lại bảng tay --gloss-only trên main mới nhất + pack-gloss làm cổng, đỏ → không đẩy).
+{ const fs = await import('node:fs'); const sh = fs.readFileSync('scripts/ci/push-packs.sh', 'utf8');
+  if (!(/gen-word-packs\.mjs "\$L" --gloss-only/.test(sh) && /pack-gloss\.mjs \|\|[^\n]*KHÔNG đẩy/.test(sh) && /PUSH_MAIN_REGEN=[^\n]*--gloss-only[^\n]*pack-gloss\.mjs/.test(sh))) { console.error('✗ push-packs.sh: phải áp lại bảng tay (--gloss-only) và chạy pack-gloss trước khi push'); process.exit(1); }
+  for (const f of fs.readdirSync('.github/workflows')) { const y = fs.readFileSync('.github/workflows/' + f, 'utf8');
+    if (/push-main\.sh[^\n]*web\/packs\/?(?=\s|$)/m.test(y)) { console.error(`✗ ${f}: đẩy web/packs phải dùng scripts/ci/push-packs.sh, không gọi push-main.sh trực tiếp`); process.exit(1); } } }

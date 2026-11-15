@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_married",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Married to or married with?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is married with a doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is married to a doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Married goes with to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! He is married to my sister.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is married with a doctor.",
+  "right": "She is married to a doctor.",
+  "strike": "with",
+  "why": "Married goes with to.",
+  "memory": "Married to.",
+  "quiz": {
+   "stem": "He is married ___ my sister.",
+   "options": [
+    "with",
+    "to"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Married with” — ошибка!",
+   "tip": "Замужем или женат — всегда “married to”, а не “with”.",
+   "caption": "Ты тоже говоришь “She is married with a doctor.”? 😅 По-русски «замужем за», а по-английски “married to”, не “with”. Правильно: “She is married to a doctor.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “to”. После married ставим to. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английский",
+    "#грамматика",
+    "#английскийонлайн",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Married to or married with?",
+   "tip": "Married always goes with “to”, never “with”.",
+   "caption": "Do you also say “She is married with a doctor.”? 😅 In Russian it is “zamuzhem za”, but in English it is “married to”, not “with”. Correct: “She is married to a doctor.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Married with” — ошибка!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Married with” — ошибка!",
+  "keyword": "She is married to a doctor.",
+  "value": "Замужем или женат — всегда “married to”, а не “with”.",
+  "hashtags": [
+   "#английский",
+   "#грамматика",
+   "#английскийонлайн",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“Married with” — ошибка!",
+    "description": "Ты тоже говоришь “She is married with a doctor.”? 😅 По-русски «замужем за», а по-английски “married to”, не “with”. Правильно: “She is married to a doctor.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английский #грамматика #английскийонлайн #lexkite",
+    "tags": [
+     "She is married to a doctor.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “She is married with a doctor.”? 😅 По-русски «замужем за», а по-английски “married to”, не “with”. Правильно: “She is married to a doctor.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Ты тоже говоришь “She is married with a doctor.”? 😅 По-русски «замужем за», а по-английски “married to”, не “with”. Правильно: “She is married to a doctor.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#английский",
+     "#грамматика",
+     "#английскийонлайн",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Married with” — ошибка! #английский #грамматика #английскийонлайн"
+   }
+  },
+  "first_comment": "Ответ: “to”. После married ставим to. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

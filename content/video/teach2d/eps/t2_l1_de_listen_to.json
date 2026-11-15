@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_de_listen_to",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Listen needs to!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I listen music every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I listen to music every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say listen to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! I listen to music every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I listen music every day.",
+  "right": "I listen to music every day.",
+  "strike": "listen",
+  "why": "Say listen to.",
+  "memory": "Listen to music.",
+  "quiz": {
+   "stem": "I like to listen ___ music.",
+   "options": [
+    "to",
+    "at"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Ein Wörtchen fehlt beim Hören!",
+   "tip": "Im Deutschen „hörst“ du Musik. Im Englischen sagst du „listen to music“.",
+   "caption": "Dir fehlt ein kleines Wort beim Musikhören! 🎧 Falsch: “I listen music every day.” Richtig: “I listen to music every day.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.",
+   "comment": "Lösung: “to”. Richtig heißt es: “I listen to music every day.” Übe mehr mit einem kostenlosen Quiz: {link}",
+   "hashtags": [
+    "#englischlernen",
+    "#englischtipps",
+    "#sprachenlernen",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "A little word is missing when you listen to music!",
+   "tip": "In German there is no extra word. In English you say “listen to music”.",
+   "caption": "A little word is missing when you listen to music! Wrong: “I listen music every day.” Right: “I listen to music every day.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Ein Wörtchen fehlt beim Hören!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "de",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Ein Wörtchen fehlt beim Hören!",
+  "keyword": "I listen to music every day.",
+  "value": "Im Deutschen „hörst“ du Musik. Im Englischen sagst du „listen to music“.",
+  "hashtags": [
+   "#englischlernen",
+   "#englischtipps",
+   "#sprachenlernen",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Ein Wörtchen fehlt beim Hören!",
+    "description": "Dir fehlt ein kleines Wort beim Musikhören! 🎧 Falsch: “I listen music every day.” Richtig: “I listen to music every day.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix\n\n#englischlernen #englischtipps #sprachenlernen #lexkite",
+    "tags": [
+     "I listen to music every day.",
+     "learn english",
+     "de"
+    ]
+   },
+   "facebook": {
+    "text": "Dir fehlt ein kleines Wort beim Musikhören! 🎧 Falsch: “I listen music every day.” Richtig: “I listen to music every day.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Dir fehlt ein kleines Wort beim Musikhören! 🎧 Falsch: “I listen music every day.” Richtig: “I listen to music every day.” Hör Ama zu und sprich nach! Mehr üben in der Lexkite-App.\n\nlexkite.com",
+    "hashtags": [
+     "#englischlernen",
+     "#englischtipps",
+     "#sprachenlernen",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Ein Wörtchen fehlt beim Hören! #englischlernen #englischtipps #sprachenlernen"
+   }
+  },
+  "first_comment": "Lösung: “to”. Richtig heißt es: “I listen to music every day.” Übe mehr mit einem kostenlosen Quiz: {link}",
+  "lang": "de"
+ }
+}

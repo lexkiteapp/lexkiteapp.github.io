@@ -1,3 +1,4 @@
+# ci-policy: queue – chung hàng đợi google-translate với word-packs/sent-packs: huỷ giữa chừng làm lượt dịch dở, không gọi Google Translate song song
 name: Kho dịch sẵn câu ví dụ + định nghĩa (14 ngôn ngữ)
 # Sinh web/packs/tr/<lang>/<mảnh>.json (scripts/gen-tr-packs.mjs) – bảng bôi đen "Dịch" hiện tức thì cho câu có sẵn, không gọi mạng (web/js/tr-fast.js).
 # Chạy lại = chỉ dịch câu mới/đổi. Đẩy kết quả về đúng nhánh đã chạy (PR đổi bộ sinh → commit vào nhánh PR). Cổng chất lượng: scripts/test/tr-packs.mjs.
@@ -36,7 +37,7 @@ jobs:
             git add -A web/packs/tr
             git diff --cached --quiet && continue
             git commit -q -m "Kho dịch sẵn câu: $l [CF-Pages-Skip] [skip ci]"
-            for i in 1 2 3 4 5; do git pull -q --rebase -X theirs origin "$BR" && git push -q origin "HEAD:$BR" && break; sleep $((i * 7)); done
+            for i in 1 2 3 4 5; do git pull -q --rebase --autostash -X theirs origin "$BR" && git push -q origin "HEAD:$BR" && break; sleep $((i * 7)); done
           done
       - name: Cổng chất lượng + độ phủ
         run: node scripts/test/tr-packs.mjs

@@ -1,6 +1,14 @@
 // busyJobs phải đếm cả job đang chạy trong lượt mang trạng thái "queued" (4/11: đo 28 khi thực tế 40/40), không đếm job xếp hàng.
 import assert from 'node:assert/strict';
-import { busyJobs, shardCount, TOTAL, RESERVE } from '../ci/shards.mjs';
+import { busyJobs, shardCount, videoCount, VIDEO_MAX, TOTAL, RESERVE } from '../ci/shards.mjs';
+
+// 13/11 (chủ): video ≤ 3 máy khi CI còn việc khác; CI rảnh → lấy hết máy rảnh.
+assert.equal(videoCount({ left: 48, busy: 10, video: 0 }), 3, 'còn việc khác → tối đa 3');
+assert.equal(videoCount({ left: 48, busy: 12, video: 2 }), 1, 'video đã chiếm 2 → còn 1');
+assert.equal(videoCount({ left: 48, busy: 13, video: 3 }), 1, 'đủ 3 rồi vẫn ≥1 để ma trận chạy được');
+assert.equal(videoCount({ left: 48, busy: 0, video: 0 }), Math.min(24, TOTAL - RESERVE), 'CI rảnh → dùng hết máy rảnh');
+assert.equal(videoCount({ left: 48, busy: 5, video: 5 }), Math.min(24, TOTAL - 5 - RESERVE), 'chỉ có video chạy = CI rảnh');
+assert.equal(VIDEO_MAX, 3);
 
 const run = (id, jobs) => ({ id, jobs });
 const fake = (lists) => {
