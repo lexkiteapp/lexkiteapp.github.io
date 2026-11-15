@@ -52,7 +52,7 @@ for (eng of ['chromium', 'webkit']) {
 for (const b of Object.values(ENGINES)) await b.close();
 
 for (const [k, v] of Object.entries(CONTROL)) log.push(`đối chứng ${k}: ${v ? 'nghe được' : 'MÙ – không thấy vi phạm cố ý'}`);
-const rows = [...found.values()].filter(e => !e.where.every(w => /đối chứng/.test(w))).map(e => ({ ...e, where: [...e.where] }));
+const rows = [...found.values()].map(e => ({ ...e, where: [...e.where] })).filter(e => !e.where.every(w => /đối chứng/.test(w)));
 fs.writeFileSync(`${OUT}/violations.json`, JSON.stringify(rows, null, 1));
 const md = ['# Vi phạm CSP trên ' + BASE, '', `Tổng ${rows.length} nguồn khác nhau.`, '', '| directive | blocked | nguồn:dòng | lần | nơi | mẫu |', '|---|---|---|---|---|---|', ...rows.map(e => `| ${e.directive} | ${e.blocked} | ${e.file}:${e.line} | ${e.n} | ${e.where.join(', ')} | ${(e.sample || '').replace(/\|/g, '/').slice(0, 100)} |`), '', '## Nhật ký', ...log.map(l => '- ' + l)].join('\n');
 fs.writeFileSync(`${OUT}/report.md`, md + '\n'); console.log(md);
