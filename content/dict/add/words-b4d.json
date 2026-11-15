@@ -1,0 +1,829 @@
+{
+  "wholesale": {
+    "ipaUS": "/ˈhoʊlseɪl/",
+    "col": [
+      "wholesale price",
+      "wholesale market",
+      "wholesale distributor",
+      "buy wholesale",
+      "wholesale and retail",
+      "wholesale clothing"
+    ],
+    "syn": [
+      "bulk",
+      "trade",
+      "large-scale"
+    ]
+  },
+  "wiring": {
+    "ipaUS": "/ˈwaɪrɪŋ/",
+    "col": [
+      "electrical wiring",
+      "faulty wiring",
+      "old wiring",
+      "rewire the building",
+      "wiring diagram",
+      "check the wiring"
+    ],
+    "syn": [
+      "cabling",
+      "electrics",
+      "wires"
+    ]
+  },
+  "aisle": {
+    "ipaUS": "/aɪl/",
+    "col": [
+      "aisle seat",
+      "in aisle seven",
+      "down the aisle",
+      "supermarket aisle",
+      "wide aisle",
+      "walk up the aisle"
+    ],
+    "syn": [
+      "passage",
+      "walkway",
+      "corridor"
+    ]
+  },
+  "amuse": {
+    "ipaUS": "/əˈmjuːz/",
+    "col": [
+      "amuse the children",
+      "amuse yourself",
+      "be amused by",
+      "amuse guests",
+      "greatly amused",
+      "keep someone amused"
+    ],
+    "syn": [
+      "entertain",
+      "delight",
+      "divert"
+    ]
+  },
+  "annoy": {
+    "ipaUS": "/əˈnɔɪ/",
+    "col": [
+      "annoy customers",
+      "get annoyed",
+      "deeply annoyed",
+      "annoy someone intentionally",
+      "annoyed by the noise",
+      "annoyed with a colleague"
+    ],
+    "syn": [
+      "irritate",
+      "bother",
+      "irk",
+      "aggravate"
+    ]
+  },
+  "anyhow": {
+    "ipaUS": "/ˈeniˌhaʊ/",
+    "col": [
+      "anyhow, as I was saying",
+      "but anyhow",
+      "anyhow, let's move on",
+      "do it anyhow",
+      "not anyhow",
+      "wasn't sure, but tried anyhow"
+    ],
+    "syn": [
+      "anyway",
+      "in any case",
+      "regardless"
+    ]
+  },
+  "assignment": {
+    "ipaUS": "/əˈsaɪnmənt/",
+    "col": [
+      "complete an assignment",
+      "do an assignment",
+      "hand in an assignment",
+      "homework assignment",
+      "work assignment",
+      "overseas assignment"
+    ],
+    "syn": [
+      "task",
+      "job",
+      "duty",
+      "project"
+    ]
+  },
+  "athletic": {
+    "ipaUS": "/æθˈletɪk/",
+    "col": [
+      "athletic shoes",
+      "athletic ability",
+      "athletic build",
+      "athletic club",
+      "athletic scholarship",
+      "athletic event"
+    ],
+    "syn": [
+      "sporty",
+      "fit",
+      "muscular"
+    ]
+  },
+  "attendant": {
+    "ipaUS": "/əˈtendənt/",
+    "col": [
+      "flight attendant",
+      "parking attendant",
+      "gas station attendant",
+      "museum attendant",
+      "car park attendant",
+      "attendant on duty"
+    ],
+    "syn": [
+      "assistant",
+      "steward",
+      "server"
+    ]
+  },
+  "bake": {
+    "ipaUS": "/beɪk/",
+    "col": [
+      "bake bread",
+      "bake a cake",
+      "freshly baked",
+      "bake for an hour",
+      "bake until golden",
+      "baked goods"
+    ],
+    "syn": [
+      "roast",
+      "cook",
+      "oven-cook"
+    ]
+  },
+  "ballroom": {
+    "ipaUS": "/ˈbɔːlruːm/",
+    "col": [
+      "hotel ballroom",
+      "grand ballroom",
+      "ballroom dancing",
+      "ballroom dance",
+      "rent a ballroom",
+      "in the ballroom"
+    ],
+    "syn": [
+      "function room",
+      "banquet hall",
+      "dance hall"
+    ]
+  },
+  "battery": {
+    "ipaUS": "/ˈbætəri/",
+    "col": [
+      "charge a battery",
+      "battery life",
+      "dead battery",
+      "flat battery",
+      "replace the battery",
+      "low battery"
+    ],
+    "syn": [
+      "power pack",
+      "cell",
+      "accumulator"
+    ]
+  },
+  "beverage": {
+    "ipaUS": "/ˈbevərɪdʒ/",
+    "col": [
+      "hot beverage",
+      "cold beverage",
+      "alcoholic beverage",
+      "food and beverage",
+      "beverage menu",
+      "beverage service"
+    ],
+    "syn": [
+      "drink",
+      "refreshment",
+      "liquid refreshment"
+    ]
+  },
+  "browse": {
+    "ipaUS": "/braʊz/",
+    "col": [
+      "browse the web",
+      "browse the shelves",
+      "browse through a catalogue",
+      "browse online",
+      "window browsing",
+      "just browsing"
+    ],
+    "syn": [
+      "scan",
+      "skim",
+      "look through",
+      "surf"
+    ]
+  },
+  "ceiling": {
+    "ipaUS": "/ˈsiːlɪŋ/",
+    "col": [
+      "high ceiling",
+      "low ceiling",
+      "price ceiling",
+      "ceiling fan",
+      "set a ceiling on",
+      "glass ceiling"
+    ],
+    "syn": [
+      "roof",
+      "upper limit",
+      "cap",
+      "maximum"
+    ]
+  },
+  "checkup": {
+    "ipaUS": "/ˈtʃekʌp/",
+    "col": [
+      "annual checkup",
+      "routine checkup",
+      "health checkup",
+      "dental checkup",
+      "have a checkup",
+      "go for a checkup"
+    ],
+    "syn": [
+      "medical exam",
+      "physical",
+      "examination"
+    ]
+  },
+  "chilly": {
+    "ipaUS": "/ˈtʃɪli/",
+    "col": [
+      "chilly weather",
+      "chilly morning",
+      "chilly wind",
+      "feel chilly",
+      "a bit chilly",
+      "chilly reception"
+    ],
+    "syn": [
+      "cool",
+      "nippy",
+      "cold",
+      "brisk"
+    ]
+  },
+  "clue": {
+    "ipaUS": "/kluː/",
+    "col": [
+      "give a clue",
+      "have no clue",
+      "a clue to",
+      "crossword clue",
+      "vital clue",
+      "follow the clues"
+    ],
+    "syn": [
+      "hint",
+      "lead",
+      "indication",
+      "pointer"
+    ]
+  },
+  "community": {
+    "ipaUS": "/kəˈmjuːnəti/",
+    "col": [
+      "local community",
+      "community center",
+      "sense of community",
+      "member of the community",
+      "business community",
+      "community service"
+    ],
+    "syn": [
+      "neighbourhood",
+      "society",
+      "population"
+    ]
+  },
+  "contestant": {
+    "ipaUS": "/kənˈtestənt/",
+    "col": [
+      "contestant on a show",
+      "quiz show contestant",
+      "final contestant",
+      "contestant number",
+      "beauty pageant contestant",
+      "select a contestant"
+    ],
+    "syn": [
+      "competitor",
+      "participant",
+      "entrant",
+      "candidate"
+    ]
+  },
+  "crane": {
+    "ipaUS": "/kreɪn/",
+    "col": [
+      "tower crane",
+      "crane operator",
+      "crane driver",
+      "lift with a crane",
+      "mobile crane",
+      "a crane lifts"
+    ],
+    "syn": [
+      "hoist",
+      "derrick",
+      "lifting machine"
+    ]
+  },
+  "daytime": {
+    "ipaUS": "/ˈdeɪtaɪm/",
+    "col": [
+      "during the daytime",
+      "daytime temperatures",
+      "daytime television",
+      "daytime flight",
+      "daytime job",
+      "in the daytime"
+    ],
+    "syn": [
+      "day",
+      "daylight hours",
+      "working hours"
+    ]
+  },
+  "decorate": {
+    "ipaUS": "/ˈdekəreɪt/",
+    "col": [
+      "decorate a room",
+      "decorate with flowers",
+      "decorate the tree",
+      "decorate a cake",
+      "decorate for the holidays",
+      "freshly decorated"
+    ],
+    "syn": [
+      "adorn",
+      "furnish",
+      "ornament",
+      "beautify"
+    ]
+  },
+  "deluxe": {
+    "ipaUS": "/dɪˈlʌks/",
+    "col": [
+      "deluxe room",
+      "deluxe edition",
+      "deluxe suite",
+      "deluxe model",
+      "deluxe package",
+      "deluxe version"
+    ],
+    "syn": [
+      "luxury",
+      "premium",
+      "upmarket",
+      "superior"
+    ]
+  },
+  "device": {
+    "ipaUS": "/dɪˈvaɪs/",
+    "col": [
+      "electronic device",
+      "mobile device",
+      "safety device",
+      "storage device",
+      "a device for",
+      "install a device"
+    ],
+    "syn": [
+      "gadget",
+      "appliance",
+      "tool",
+      "instrument"
+    ]
+  },
+  "disconnect": {
+    "ipaUS": "/ˌdɪskəˈnekt/",
+    "col": [
+      "disconnect from",
+      "disconnect the power",
+      "get disconnected",
+      "disconnect the cable",
+      "disconnect a call",
+      "disconnect the service"
+    ],
+    "syn": [
+      "unplug",
+      "detach",
+      "cut off",
+      "unhook"
+    ]
+  },
+  "discovery": {
+    "ipaUS": "/dɪˈskʌvəri/",
+    "col": [
+      "make a discovery",
+      "scientific discovery",
+      "discovery of",
+      "discovery of gold",
+      "accidental discovery",
+      "a major discovery"
+    ],
+    "syn": [
+      "finding",
+      "revelation",
+      "breakthrough",
+      "find"
+    ]
+  },
+  "drill": {
+    "ipaUS": "/drɪl/",
+    "col": [
+      "power drill",
+      "fire drill",
+      "drill a hole",
+      "electric drill",
+      "emergency drill",
+      "grammar drill"
+    ],
+    "syn": [
+      "borer",
+      "exercise",
+      "practice",
+      "bore"
+    ]
+  },
+  "ferry": {
+    "ipaUS": "/ˈferi/",
+    "col": [
+      "car ferry",
+      "take a ferry",
+      "by ferry",
+      "ferry terminal",
+      "ferry service",
+      "cross by ferry"
+    ],
+    "syn": [
+      "boat",
+      "water shuttle",
+      "passenger boat"
+    ]
+  },
+  "fry": {
+    "ipaUS": "/fraɪ/",
+    "col": [
+      "fry an egg",
+      "fry in oil",
+      "deep fry",
+      "stir-fry",
+      "fried rice",
+      "fry until golden"
+    ],
+    "syn": [
+      "sauté",
+      "pan-fry",
+      "sear",
+      "cook in oil"
+    ]
+  },
+  "glove": {
+    "ipaUS": "/ɡlʌv/",
+    "col": [
+      "pair of gloves",
+      "rubber gloves",
+      "leather gloves",
+      "wear gloves",
+      "oven glove",
+      "boxing glove"
+    ],
+    "syn": [
+      "mitten",
+      "gauntlet",
+      "hand covering"
+    ]
+  },
+  "goods": {
+    "ipaUS": "/ɡʊdz/",
+    "col": [
+      "consumer goods",
+      "goods and services",
+      "deliver the goods",
+      "damaged goods",
+      "luxury goods",
+      "goods train"
+    ],
+    "syn": [
+      "merchandise",
+      "products",
+      "wares",
+      "commodities"
+    ]
+  },
+  "gymnasium": {
+    "ipaUS": "/dʒɪmˈneɪziəm/",
+    "col": [
+      "school gymnasium",
+      "gymnasium floor",
+      "gymnasium equipment",
+      "enter the gymnasium",
+      "basketball in the gymnasium",
+      "large gymnasium"
+    ],
+    "syn": [
+      "gym",
+      "sports hall",
+      "fitness center"
+    ]
+  },
+  "icy": {
+    "ipaUS": "/ˈaɪsi/",
+    "col": [
+      "icy road",
+      "icy wind",
+      "icy water",
+      "icy stare",
+      "icy conditions",
+      "icy pavement"
+    ],
+    "syn": [
+      "frozen",
+      "freezing",
+      "frosty",
+      "glacial"
+    ]
+  },
+  "incomplete": {
+    "ipaUS": "/ˌɪnkəmˈpliːt/",
+    "col": [
+      "incomplete form",
+      "incomplete application",
+      "incomplete information",
+      "incomplete work",
+      "remain incomplete",
+      "left incomplete"
+    ],
+    "syn": [
+      "unfinished",
+      "partial",
+      "lacking",
+      "deficient"
+    ]
+  },
+  "inexpensive": {
+    "ipaUS": "/ˌɪnɪkˈspensɪv/",
+    "col": [
+      "inexpensive hotel",
+      "inexpensive gift",
+      "relatively inexpensive",
+      "inexpensive way to",
+      "fairly inexpensive",
+      "inexpensive option"
+    ],
+    "syn": [
+      "cheap",
+      "affordable",
+      "budget",
+      "economical"
+    ]
+  },
+  "ingredient": {
+    "ipaUS": "/ɪnˈɡriːdiənt/",
+    "col": [
+      "main ingredient",
+      "key ingredient",
+      "list of ingredients",
+      "fresh ingredients",
+      "secret ingredient",
+      "ingredient in"
+    ],
+    "syn": [
+      "component",
+      "element",
+      "constituent"
+    ]
+  },
+  "invoice": {
+    "ipaUS": "/ˈɪnvɔɪs/",
+    "col": [
+      "send an invoice",
+      "pay an invoice",
+      "invoice for",
+      "unpaid invoice",
+      "invoice number",
+      "issue an invoice"
+    ],
+    "syn": [
+      "bill",
+      "statement of charges",
+      "account"
+    ]
+  },
+  "junk": {
+    "ipaUS": "/dʒʌŋk/",
+    "col": [
+      "junk food",
+      "junk mail",
+      "junk shop",
+      "a lot of junk",
+      "full of junk",
+      "throw out junk"
+    ],
+    "syn": [
+      "rubbish",
+      "trash",
+      "clutter",
+      "scrap"
+    ]
+  },
+  "laundry": {
+    "ipaUS": "/ˈlɔːndri/",
+    "col": [
+      "do the laundry",
+      "dirty laundry",
+      "laundry basket",
+      "laundry service",
+      "laundry room",
+      "fold the laundry"
+    ],
+    "syn": [
+      "washing",
+      "dirty clothes",
+      "wash"
+    ]
+  },
+  "lightweight": {
+    "ipaUS": "/ˈlaɪtweɪt/",
+    "col": [
+      "lightweight jacket",
+      "lightweight laptop",
+      "lightweight material",
+      "lightweight design",
+      "lightweight and portable",
+      "lightweight champion"
+    ],
+    "syn": [
+      "light",
+      "portable",
+      "featherweight",
+      "flimsy"
+    ]
+  },
+  "lounge": {
+    "ipaUS": "/laʊndʒ/",
+    "col": [
+      "airport lounge",
+      "hotel lounge",
+      "staff lounge",
+      "lounge area",
+      "lounge chair",
+      "wait in the lounge"
+    ],
+    "syn": [
+      "waiting room",
+      "common room",
+      "sitting room"
+    ]
+  },
+  "mild": {
+    "ipaUS": "/maɪld/",
+    "col": [
+      "mild weather",
+      "mild winter",
+      "mild flavour",
+      "mild infection",
+      "mild sauce",
+      "mildly surprised"
+    ],
+    "syn": [
+      "gentle",
+      "moderate",
+      "soft",
+      "temperate"
+    ]
+  },
+  "nail": {
+    "ipaUS": "/neɪl/",
+    "col": [
+      "hammer a nail",
+      "fingernail",
+      "nail polish",
+      "bite your nails",
+      "nail salon",
+      "rusty nail"
+    ],
+    "syn": [
+      "tack",
+      "pin",
+      "spike",
+      "fingernail"
+    ]
+  },
+  "nap": {
+    "ipaUS": "/næp/",
+    "col": [
+      "take a nap",
+      "afternoon nap",
+      "quick nap",
+      "power nap",
+      "nap time",
+      "have a nap"
+    ],
+    "syn": [
+      "doze",
+      "siesta",
+      "catnap",
+      "rest"
+    ]
+  },
+  "pan": {
+    "ipaUS": "/pæn/",
+    "col": [
+      "frying pan",
+      "saucepan",
+      "non-stick pan",
+      "heat the pan",
+      "in a pan",
+      "baking pan"
+    ],
+    "syn": [
+      "skillet",
+      "pot",
+      "saucepan"
+    ]
+  },
+  "pastry": {
+    "ipaUS": "/ˈpeɪstri/",
+    "col": [
+      "sweet pastry",
+      "puff pastry",
+      "bakery pastry",
+      "fresh pastry",
+      "pastry chef",
+      "a pastry"
+    ],
+    "syn": [
+      "baked goods",
+      "tart",
+      "cake",
+      "bun"
+    ]
+  },
+  "paycheck": {
+    "ipaUS": "/ˈpeɪtʃek/",
+    "col": [
+      "monthly paycheck",
+      "get a paycheck",
+      "first paycheck",
+      "live paycheck to paycheck",
+      "paycheck stub",
+      "spend on rent"
+    ],
+    "syn": [
+      "salary",
+      "wages",
+      "pay",
+      "earnings"
+    ]
+  },
+  "pollute": {
+    "ipaUS": "/pəˈluːt/",
+    "col": [
+      "pollute the air",
+      "pollute rivers",
+      "heavily polluted",
+      "pollute the environment",
+      "polluted water",
+      "pollute the ocean"
+    ],
+    "syn": [
+      "contaminate",
+      "poison",
+      "foul",
+      "dirty"
+    ]
+  },
+  "quit": {
+    "ipaUS": "/kwɪt/",
+    "col": [
+      "quit a job",
+      "quit smoking",
+      "quit school",
+      "quit the team",
+      "threaten to quit",
+      "quit your job"
+    ],
+    "syn": [
+      "resign",
+      "give up",
+      "leave",
+      "stop"
+    ]
+  }
+}

@@ -1,0 +1,752 @@
+{
+  "reopen": {
+    "mis": [
+      {
+        "w": "The shop will reopen again next week.",
+        "r": "The shop will reopen next week.",
+        "why": "Tiền tố re- đã có nghĩa là lại, nên thêm 'again' là thừa."
+      },
+      {
+        "w": "The store will be reopen on Monday.",
+        "r": "The store will reopen on Monday.",
+        "why": "Sau 'will be' phải là quá khứ phân từ; dùng 'will reopen' hoặc 'will be reopened'."
+      }
+    ],
+    "u": "Reopen dùng cho nơi chốn, vụ việc hoặc cuộc tranh luận bắt đầu lại sau thời gian tạm dừng. Cửa hàng hay biên giới mở cửa trở lại (reopen to the public, for business); tòa án hoặc cảnh sát mở lại một vụ án (reopen a case); người ta cũng khơi lại một cuộc tranh cãi. Động từ này dùng được có hoặc không có tân ngữ. Resume rộng hơn, dùng cho mọi hoạt động; reopen cần thứ gì đó từng bị đóng."
+  },
+  "repairperson": {
+    "mis": [
+      {
+        "w": "Please call repairperson to fix the sink.",
+        "r": "Please call a repairperson to fix the sink.",
+        "why": "Danh từ đếm được số ít cần có mạo từ hoặc từ hạn định như a, the, your."
+      },
+      {
+        "w": "I asked the repairperson fix the heater.",
+        "r": "I asked the repairperson to fix the heater.",
+        "why": "Sau 'ask someone' phải dùng 'to' cộng động từ nguyên mẫu, không dùng động từ trần."
+      }
+    ],
+    "u": "Repairperson là danh từ trung tính về giới, chỉ người sửa chữa đồ gia dụng hoặc thiết bị văn phòng, thay cho repairman trong văn bản kinh doanh và dịch vụ khách hàng. Từ này chủ yếu dùng ở Mỹ và hơi trang trọng; khi nói, người ta hay gọi thẳng tên nghề như plumber hay electrician. Người này thường đến tận nhà hoặc văn phòng, nên hay gặp các cụm call, book, send, wait for a repairperson."
+  },
+  "reschedule": {
+    "mis": [
+      {
+        "w": "We rescheduled the meeting at Friday.",
+        "r": "We rescheduled the meeting to Friday.",
+        "why": "Dùng 'to' hoặc 'for' với ngày mới; 'at' chỉ dùng cho giờ giấc hoặc điểm."
+      },
+      {
+        "w": "I need to reschedule with you the appointment.",
+        "r": "I need to reschedule the appointment with you.",
+        "why": "Tân ngữ phải đứng ngay sau động từ; đặt 'with you' sau nó."
+      }
+    ],
+    "u": "Reschedule nghĩa là đổi giờ của một sự kiện đã lên kế hoạch, sang sớm hơn hoặc muộn hơn. Từ này trung tính và rất hay gặp trong email công việc: Can we reschedule? Khác với postpone, nó không nói giờ mới là muộn hơn; khác với cancel, sự kiện vẫn được giữ lại. Thời điểm mới đi sau to hoặc for. Trong tiếng Anh Mỹ, âm đầu đọc là sk."
+  },
+  "reservation": {
+    "mis": [
+      {
+        "w": "I did a reservation for dinner.",
+        "r": "I made a reservation for dinner.",
+        "why": "Cụm cố định là make a reservation, không dùng do a reservation."
+      },
+      {
+        "w": "I want to reservation a table.",
+        "r": "I want to reserve a table.",
+        "why": "Sau 'to' cần động từ reserve; reservation là danh từ."
+      }
+    ],
+    "u": "Reservation là cách nói của người Mỹ cho việc đặt trước bàn ăn, phòng hoặc chỗ ngồi: bạn có thể make, confirm, change hoặc cancel nó. Người Anh hay nói booking hơn, dù reservation vẫn được hiểu. Từ này còn một nghĩa khác: have reservations about a plan là còn nghi ngại về kế hoạch. Reserve là động từ, reservation là danh từ, nên đừng lẫn hai dạng."
+  },
+  "resume": {
+    "mis": [
+      {
+        "w": "Please read this resume of the meeting.",
+        "r": "Please read this summary of the meeting.",
+        "why": "Trong tiếng Anh resume là hồ sơ xin việc; bản tóm tắt nội dung là summary."
+      },
+      {
+        "w": "Please submit your resume in the HR department.",
+        "r": "Please submit your resume to the HR department.",
+        "why": "Submit cái gì đó cho (to) một người hoặc phòng ban, không dùng 'in'."
+      }
+    ],
+    "u": "Khi là danh từ, resume (nhấn âm đầu) là cách người Mỹ gọi bản liệt kê học vấn, công việc và kỹ năng; tiếng Anh Anh thường dùng CV. Động từ resume, nghĩa là bắt đầu lại, nhấn âm thứ hai và đọc khác hẳn. Đừng dùng danh từ này để chỉ bản tóm tắt như tiếng Pháp résumé; trong tiếng Anh nghĩa đó là summary."
+  },
+  "reunion": {
+    "mis": [
+      {
+        "w": "I will go to the reunion of high school.",
+        "r": "I will go to my high school reunion.",
+        "why": "Đặt tên nhóm trước 'reunion' như bổ ngữ danh từ, thay vì dùng 'of'."
+      },
+      {
+        "w": "The two friends were reunion after ten years.",
+        "r": "The two friends were reunited after ten years.",
+        "why": "Reunion là danh từ; động từ mang nghĩa gặp lại là reunite."
+      }
+    ],
+    "u": "Reunion là buổi gặp được lên kế hoạch của những người đã xa nhau lâu, như bạn học cũ, họ hàng hay đồng nghiệp cũ. Từ bổ nghĩa đứng trước: a family reunion, a ten-year class reunion. Nó cũng chỉ khoảnh khắc xúc động, ví dụ thú cưng lạc được đoàn tụ với chủ (be reunited with). Từ này ấm áp hơn meeting và gợi một quá khứ chung."
+  },
+  "rider": {
+    "mis": [
+      {
+        "w": "The rider of the car stopped at the light.",
+        "r": "The driver of the car stopped at the light.",
+        "why": "Rider là người ngồi hoặc đi trên phương tiện; người điều khiển ô tô là driver."
+      },
+      {
+        "w": "All motorbike riders must wear helmet.",
+        "r": "All motorbike riders must wear a helmet.",
+        "why": "Helmet đếm được nên cần 'a' hoặc dùng số nhiều."
+      }
+    ],
+    "u": "Rider là người cưỡi hoặc đi một phương tiện như xe đạp, xe máy hay ngựa. Trong tiếng Anh Mỹ, từ này còn chỉ hành khách đi phương tiện công cộng: bus riders, subway riders, trong khi tiếng Anh Anh nói passengers. Người điều khiển ô tô, taxi hay xe tải là driver chứ không phải rider."
+  },
+  "salespeople": {
+    "mis": [
+      {
+        "w": "Our salespeoples work hard.",
+        "r": "Our salespeople work hard.",
+        "why": "Salespeople đã là số nhiều; không thêm -s nữa."
+      },
+      {
+        "w": "Each salespeople must submit a report.",
+        "r": "Each salesperson must submit a report.",
+        "why": "Sau each phải dùng số ít salesperson."
+      }
+    ],
+    "u": "Salespeople là số nhiều của salesperson, từ trung tính về giới thay cho salesman và saleswoman. Nó đi với động từ số nhiều và không thêm s: the salespeople are meeting today. Salesperson dùng cho một người. Nhiều công ty thích sales staff hoặc sales team khi nói về cả nhóm, còn salespeople nhấn vào từng nhân viên bán hàng."
+  },
+  "salesperson": {
+    "mis": [
+      {
+        "w": "She works as salesperson at a bookstore.",
+        "r": "She works as a salesperson at a bookstore.",
+        "why": "Chức danh nghề nghiệp là danh từ đếm được số ít nên cần a hoặc an."
+      },
+      {
+        "w": "The salesperson explained me the warranty.",
+        "r": "The salesperson explained the warranty to me.",
+        "why": "Explain nhận trực tiếp điều được giải thích, người nghe đi sau 'to'."
+      }
+    ],
+    "u": "Salesperson là người có nghề bán hàng hoặc dịch vụ, ở cửa hàng hoặc đi gặp khách. Từ này thay salesman trong văn bản kinh doanh hiện đại vì phù hợp với mọi giới. Với nhân viên cửa hàng, tiếng Anh Anh hay dùng sales assistant, còn tiếng Anh Mỹ dùng sales clerk. Thu nhập thường gắn với hoa hồng nên tin tuyển dụng có thể ghi salesperson on commission."
+  },
+  "sender": {
+    "mis": [
+      {
+        "w": "I don't know who is the sender of this package.",
+        "r": "I don't know who the sender of this package is.",
+        "why": "Trong câu hỏi lồng, giữ trật tự câu khẳng định: chủ ngữ trước động từ."
+      },
+      {
+        "w": "Please write the name of sender on the envelope.",
+        "r": "Please write the name of the sender on the envelope.",
+        "why": "Người cụ thể cần mạo từ xác định 'the'."
+      }
+    ],
+    "u": "Sender là người hoặc tổ chức gửi thư, bưu kiện hay tin nhắn, đối lập với recipient là người nhận. Thư có địa chỉ người gửi (the sender's address), email hiển thị tên người gửi; dòng return to sender được ghi trên thư bị trả lại. Với email, lời khuyên bảo mật thường cảnh báo về unknown senders. Từ này trung tính, dùng được cả đời thường lẫn công việc."
+  },
+  "shopper": {
+    "mis": [
+      {
+        "w": "She is a shopper in a clothing store.",
+        "r": "She is a sales assistant in a clothing store.",
+        "why": "Shopper là người mua hàng; người bán trong cửa hàng là sales assistant."
+      },
+      {
+        "w": "Online shoppers often compare price before buying.",
+        "r": "Online shoppers often compare prices before buying.",
+        "why": "Compare nhiều thứ nên cần danh từ số nhiều prices."
+      }
+    ],
+    "u": "Shopper là người đang mua sắm hoặc thường đi mua sắm, ở cửa hàng hay trực tuyến. Khác với customer, nó không cần gắn với một người bán: người đi trung tâm thương mại có thể mua ở nhiều cửa hàng. Từ này hay có từ mô tả đi kèm: bargain shopper, online shopper. Shopper đứng ở phía người mua nên không bao giờ chỉ nhân viên làm trong cửa hàng."
+  },
+  "shorten": {
+    "mis": [
+      {
+        "w": "Please shorter the report to two pages.",
+        "r": "Please shorten the report to two pages.",
+        "why": "Shorter là tính từ; động từ là shorten."
+      },
+      {
+        "w": "We shortened the meeting for thirty minutes.",
+        "r": "We shortened the meeting by thirty minutes.",
+        "why": "Dùng 'by' cho mức thay đổi và 'to' cho độ dài mới."
+      }
+    ],
+    "u": "Shorten là ngoại động từ nghĩa là làm cho ngắn hơn về độ dài hoặc thời gian: shorten a report, a visit, a skirt. Dùng by cho lượng bị bớt và to cho độ dài mới, nên shorten the talk by ten minutes và shorten it to fifteen minutes đều đúng. Abbreviate dành cho từ và tên; cut và trim ít trang trọng hơn."
+  },
+  "shuttle": {
+    "mis": [
+      {
+        "w": "Take shuttle to the hotel.",
+        "r": "Take the shuttle to the hotel.",
+        "why": "Dịch vụ cụ thể mà cả hai bên đều biết cần mạo từ 'the'."
+      },
+      {
+        "w": "The shuttle departs in every twenty minutes.",
+        "r": "The shuttle departs every twenty minutes.",
+        "why": "Không dùng giới từ trước every trong cụm chỉ tần suất."
+      }
+    ],
+    "u": "Shuttle là xe buýt, xe van hoặc tàu chạy đi lại trên một tuyến ngắn cố định, chẳng hạn giữa sân bay và khách sạn. Khách sạn hay quảng cáo free shuttle. Nó cũng là động từ: shuttle between two places là đi qua đi lại giữa hai nơi. So với xe buýt thường, shuttle thường chỉ phục vụ một điểm đến, và từ này gốc từ nghề dệt vải."
+  },
+  "sightsee": {
+    "mis": [
+      {
+        "w": "We sightseed in Hue last summer.",
+        "r": "We went sightseeing in Hue last summer.",
+        "why": "Sightsee ít dùng chia thì; thường nói go sightseeing."
+      },
+      {
+        "w": "We visited many sightseeings in Rome.",
+        "r": "We visited many sights in Rome.",
+        "why": "Sightseeing không đếm được; các địa điểm cần xem gọi là sights."
+      }
+    ],
+    "u": "Sightsee là động từ, nhưng hầu như luôn xuất hiện trong mẫu go sightseeing, trong đó dạng -ing đóng vai trò danh từ chỉ hoạt động tham quan các địa điểm nổi tiếng như khách du lịch. Sightseeing không đếm được, nên không nói a sightseeing; bản thân các địa điểm gọi là sights hoặc attractions. Các cụm quen thuộc là a sightseeing tour và a day of sightseeing."
+  },
+  "similarity": {
+    "mis": [
+      {
+        "w": "There are many similarity between the two plans.",
+        "r": "There are many similarities between the two plans.",
+        "why": "Many cần danh từ số nhiều; số nhiều của similarity là similarities."
+      },
+      {
+        "w": "There is a similarity of these two designs.",
+        "r": "There is a similarity between these two designs.",
+        "why": "So sánh hai vật dùng 'between' (hoặc 'to' với một vật), không dùng 'of'."
+      }
+    ],
+    "u": "Similarity là danh từ chỉ điểm giống nhau giữa hai hay nhiều thứ; tính từ tương ứng là similar. Khi liệt kê điểm so sánh, nó thường ở số nhiều: the similarities and differences. Giới từ rất quan trọng: a similarity between A and B, hoặc A bears a similarity to B. Resemblance gần nghĩa nhưng thường nói về hình dáng, còn similarity rộng hơn."
+  },
+  "sincerely": {
+    "mis": [
+      {
+        "w": "I sincerely thank to you for your help.",
+        "r": "I sincerely thank you for your help.",
+        "why": "Thank là ngoại động từ; người được cảm ơn đi trực tiếp, không có 'to'."
+      },
+      {
+        "w": "I am sincere sorry for the mistake.",
+        "r": "I am sincerely sorry for the mistake.",
+        "why": "Cần trạng từ để bổ nghĩa cho tính từ sorry."
+      }
+    ],
+    "u": "Sincerely là trạng từ nghĩa là chân thành, không giả vờ. Nó làm mạnh cảm xúc và động từ: sincerely apologize, sincerely hope. Nó cũng dùng để kết thư trang trọng: tiếng Anh Mỹ viết Sincerely hoặc Sincerely yours, còn tiếng Anh Anh viết Yours sincerely khi biết tên người nhận (Yours faithfully khi không biết). Sincere chỉ dùng như tính từ đứng trước danh từ."
+  },
+  "stationery": {
+    "mis": [
+      {
+        "w": "I bought some stationary for the office.",
+        "r": "I bought some stationery for the office.",
+        "why": "Stationary có a nghĩa là đứng yên; đồ dùng viết là stationery có e."
+      },
+      {
+        "w": "We ordered two stationeries.",
+        "r": "We ordered some stationery.",
+        "why": "Stationery không đếm được và không có dạng số nhiều."
+      }
+    ],
+    "u": "Stationery nghĩa là giấy, bút, phong bì và các đồ dùng viết khác, thường bán chung như văn phòng phẩm. Danh từ này không đếm được và đi với động từ số ít: the stationery is in the cupboard. Đừng nhầm với stationary, tính từ nghĩa là đứng yên. Mẹo nhớ: stationEry có E như envelope. Stationery shop là cách nói của Anh để chỉ cửa hàng bán những mặt hàng này."
+  },
+  "storeroom": {
+    "mis": [
+      {
+        "w": "Put the boxes to the storeroom.",
+        "r": "Put the boxes in the storeroom.",
+        "why": "Dùng 'in' hoặc 'into' khi đặt vật vào bên trong; 'to' chỉ hướng."
+      },
+      {
+        "w": "The cleaning supplies are kept at storeroom.",
+        "r": "The cleaning supplies are kept in the storeroom.",
+        "why": "Căn phòng cụ thể cần mạo từ 'the' và dùng 'in' cho bên trong."
+      }
+    ],
+    "u": "Storeroom là phòng cất hàng hóa, dụng cụ hoặc vật tư cho đến khi cần dùng, ở cửa hàng, văn phòng, khách sạn hay trường học. Nhân viên thường cần chìa khóa nên hay gặp cụm locked storeroom. Stockroom và storage room gần nghĩa; stockroom hay dùng ở sau cửa hàng, còn storage room rộng hơn. Từ này viết liền hoặc rời nhưng viết liền chuẩn hơn."
+  },
+  "surname": {
+    "mis": [
+      {
+        "w": "Please write your sur name on the form.",
+        "r": "Please write your surname on the form.",
+        "why": "Surname là một từ liền, không tách thành hai từ."
+      },
+      {
+        "w": "Could you spell your surname with me?",
+        "r": "Could you spell your surname for me?",
+        "why": "Dùng 'for' để chỉ người được làm việc đó cho."
+      }
+    ],
+    "u": "Surname là tên chung của cả gia đình bạn. Tiếng Anh Anh ưa dùng từ này, tiếng Anh Mỹ hay nói last name; family name trung tính và dùng quốc tế. Trong biểu mẫu tiếng Anh, họ thường đứng sau tên riêng, dù một số nền văn hóa, trong đó có Việt Nam, đặt họ trước, nên hỏi Is that your surname? giúp tránh nhầm. Người ta cũng hay đánh vần họ qua điện thoại."
+  },
+  "technician": {
+    "mis": [
+      {
+        "w": "She works as a technology at the lab.",
+        "r": "She works as a technician at the lab.",
+        "why": "Người làm việc là technician; technology là lĩnh vực."
+      },
+      {
+        "w": "The technician fixed me the printer.",
+        "r": "The technician fixed the printer for me.",
+        "why": "Fix không nhận người hưởng lợi trực tiếp; dùng 'for me' sau tân ngữ."
+      }
+    ],
+    "u": "Technician là thợ lành nghề lắp đặt, bảo trì hoặc sửa thiết bị, hoặc thực hiện xét nghiệm trong phòng thí nghiệm. Từ này cụ thể hơn engineer: kỹ sư thường thiết kế hệ thống, còn technician giữ cho hệ thống chạy tốt. Nó hay xuất hiện trong từ ghép như lab technician, computer technician. Công ty dịch vụ thường báo với khách rằng a technician will call để hẹn lịch đến."
+  },
+  "teller": {
+    "mis": [
+      {
+        "w": "She works as a teller in bank.",
+        "r": "She works as a teller in a bank.",
+        "why": "Bank là danh từ đếm được số ít nên cần mạo từ a."
+      },
+      {
+        "w": "The teller said me the balance.",
+        "r": "The teller told me the balance.",
+        "why": "Say cần 'to' trước người nghe; tell nhận người nghe trực tiếp."
+      }
+    ],
+    "u": "Teller là nhân viên ngân hàng làm việc với khách tại quầy, nhận tiền gửi và đưa tiền mặt. Từ này thường nghe trong bank teller, và tiếng Anh Mỹ gọi quầy giao dịch là teller window. Nó cũng là vế sau của từ ghép như fortune teller và storyteller, nghĩa là người kể. Cashier làm việc ở cửa hàng chứ không phải ngân hàng."
+  },
+  "tow": {
+    "mis": [
+      {
+        "w": "Illegally parked cars will tow.",
+        "r": "Illegally parked cars will be towed.",
+        "why": "Xe là đối tượng chịu tác động nên dùng bị động 'will be towed'."
+      },
+      {
+        "w": "They towed the car until the garage.",
+        "r": "They towed the car to the garage.",
+        "why": "Dùng 'to' cho nơi đến; 'until' dùng cho thời gian."
+      }
+    ],
+    "u": "Tow là động từ nghĩa là kéo một phương tiện bằng phương tiện khác, thường vì xe hỏng hoặc đỗ trái phép. Xe cứu hộ (tow truck) làm việc này, và tài xế nói xe mình bị kéo đi (towed away). Biển báo ghi xe sẽ bị kéo đi và chủ xe chịu phí. Khi là danh từ, a tow là chính hành động kéo; động từ này vần với go chứ không vần với now."
+  },
+  "translator": {
+    "mis": [
+      {
+        "w": "She works as translator for a law firm.",
+        "r": "She works as a translator for a law firm.",
+        "why": "Chức danh nghề nghiệp là danh từ đếm được số ít nên cần a hoặc an."
+      },
+      {
+        "w": "The translator translated me the contract.",
+        "r": "The translator translated the contract for me.",
+        "why": "Translate không nhận người trực tiếp; thêm 'for me' sau tân ngữ."
+      }
+    ],
+    "u": "Translator là người chuyển văn bản viết từ ngôn ngữ này sang ngôn ngữ khác, như hợp đồng, sách hay trang web. Lời nói do interpreter (phiên dịch viên) xử lý, nên hai nghề này khác nhau dù người ta hay lẫn lộn. Dịch giả thường dịch sang tiếng mẹ đẻ và hay chuyên môn hóa: pháp lý, y tế hoặc kỹ thuật. Cụm translator from Japanese into English nêu rõ cả hai ngôn ngữ."
+  },
+  "troubleshoot": {
+    "mis": [
+      {
+        "w": "Can you troubleshoot for the printer?",
+        "r": "Can you troubleshoot the printer?",
+        "why": "Troubleshoot là ngoại động từ, nhận tân ngữ trực tiếp, không cần giới từ."
+      },
+      {
+        "w": "I troubleshooted the router yesterday.",
+        "r": "I troubleshot the router yesterday.",
+        "why": "Troubleshoot bất quy tắc như shoot: quá khứ là troubleshot."
+      }
+    ],
+    "u": "Troubleshoot nghĩa là tìm nguyên nhân của lỗi rồi sửa, đặc biệt ở máy tính, mạng và máy móc. Đây là động từ kỹ thuật và công việc, đi với vật bị lỗi làm tân ngữ: troubleshoot the network. Nó ghép từ trouble và shoot, nên quá khứ theo shoot: troubleshot. Troubleshooter là người làm việc đó, còn troubleshooting guide là tài liệu liệt kê các bước xử lý."
+  },
+  "unavailable": {
+    "mis": [
+      {
+        "w": "He is unavailable to attend the meeting.",
+        "r": "He is unable to attend the meeting.",
+        "why": "Unavailable nói về việc không rảnh; khả năng làm gì là unable."
+      },
+      {
+        "w": "The manager is unavailable on this moment.",
+        "r": "The manager is unavailable at the moment.",
+        "why": "Cụm cố định chỉ hiện tại là 'at the moment'."
+      }
+    ],
+    "u": "Unavailable mô tả thứ bạn không thể có được hoặc người bạn không thể liên lạc, nên hợp với hàng hóa, phòng, sản phẩm và nhân viên bận: the manager is unavailable until Friday. Từ này lịch sự và phổ biến trong email và tin nhắn điện thoại. Khi lý do là thiếu khả năng thì dùng unable. Trang web có thể báo temporarily unavailable, và một người có thể unavailable for comment."
+  },
+  "uncomfortable": {
+    "mis": [
+      {
+        "w": "I feel uncomfortably in this chair.",
+        "r": "I feel uncomfortable in this chair.",
+        "why": "Sau feel dùng tính từ, không dùng trạng từ."
+      },
+      {
+        "w": "This sofa is uncomfortable to sit.",
+        "r": "This sofa is uncomfortable to sit on.",
+        "why": "Động từ nguyên mẫu cần giới từ của nó: sit on the sofa."
+      }
+    ],
+    "u": "Uncomfortable có hai cách dùng. Về thể chất, nó mô tả đồ vật hoặc tư thế gây đau hoặc khó chịu: an uncomfortable chair. Về xã hội, nó chỉ sự ngượng ngùng hoặc bất an: an uncomfortable silence, hay feel uncomfortable with a question. Tính từ này hay đi với with hoặc in. Danh từ là discomfort, và từ trái nghĩa comfortable khi nói thường chỉ đọc ba âm tiết."
+  },
+  "underline": {
+    "mis": [
+      {
+        "w": "Please underline on the key words.",
+        "r": "Please underline the key words.",
+        "why": "Underline là ngoại động từ; không thêm 'on' trước tân ngữ."
+      },
+      {
+        "w": "Underline the important word with red pen.",
+        "r": "Underline the important word with a red pen.",
+        "why": "Danh từ đếm được số ít như pen cần mạo từ."
+      }
+    ],
+    "u": "Underline có nghĩa đen là kẻ một đường dưới từ hoặc câu, và nghĩa bóng là nhấn mạnh điều gì đó quan trọng. Báo cáo và bài phát biểu hay underline một nhu cầu, rủi ro hay ý chính: The study underlines the need for training. Nghĩa bóng trang trọng hơn và gần với emphasize. Khi là danh từ, an underline là chính đường kẻ đó."
+  },
+  "unemployed": {
+    "mis": [
+      {
+        "w": "The unemployeds need support.",
+        "r": "The unemployed need support.",
+        "why": "The unemployed là cách nói chỉ nhóm số nhiều và không thêm -s."
+      },
+      {
+        "w": "He has been unemployed since three months.",
+        "r": "He has been unemployed for three months.",
+        "why": "Dùng 'for' với khoảng thời gian và 'since' với mốc bắt đầu."
+      }
+    ],
+    "u": "Unemployed mô tả người không có việc làm nhưng có khả năng và sẵn sàng làm việc, thường đang tìm việc. Nó khác với người đã nghỉ hưu hay học sinh, sinh viên. Với the, nó chỉ cả nhóm: the unemployed. Đây là từ trung tính dùng trong thống kê và tin tức, còn out of work và jobless thân mật hơn. Danh từ là unemployment."
+  },
+  "unload": {
+    "mis": [
+      {
+        "w": "They unloaded the truck from boxes.",
+        "r": "They unloaded the boxes from the truck.",
+        "why": "Hàng được dỡ từ xe xuống; còn xe là thứ được dỡ sạch."
+      },
+      {
+        "w": "Please unload down the boxes.",
+        "r": "Please unload the boxes.",
+        "why": "Unload nhận tân ngữ trực tiếp, không cần thêm tiểu từ."
+      }
+    ],
+    "u": "Unload là trái nghĩa của load: lấy hàng ra khỏi xe, tàu hay máy. Tân ngữ có thể là hàng hóa hoặc nơi chứa: unload the boxes hoặc unload the truck. Nó cũng dùng cho máy trong nhà: unload the dishwasher. Thân mật, unload on someone nghĩa là trút bầu tâm sự lên ai đó. Trong ngành vận chuyển, công nhân unload cargo ở bến."
+  },
+  "unnecessary": {
+    "mis": [
+      {
+        "w": "It is unnecessary to you to wait.",
+        "r": "It is unnecessary for you to wait.",
+        "why": "Dùng 'for' để giới thiệu người trong mẫu tính từ + động từ nguyên mẫu."
+      },
+      {
+        "w": "Don't spend unnecessary money for decorations.",
+        "r": "Don't spend unnecessary money on decorations.",
+        "why": "Spend money on cái gì, không dùng for."
+      }
+    ],
+    "u": "Unnecessary nghĩa là không cần thiết, và thường hàm ý chê nhẹ: unnecessary expenses, unnecessary delay. Trong kinh doanh nó xuất hiện khi khuyên tránh lãng phí. Mẫu hay gặp là it is unnecessary for someone to do something. Từ này mạnh và trang trọng hơn not needed, trong khi needless gần như văn chương, còn superfluous nghĩa là nhiều hơn mức cần."
+  },
+  "unpaid": {
+    "mis": [
+      {
+        "w": "Unpaid invoices must be settled until Friday.",
+        "r": "Unpaid invoices must be settled by Friday.",
+        "why": "'By' chỉ hạn chót; 'until' nghĩa là kéo dài đến một thời điểm."
+      },
+      {
+        "w": "I did an unpaid work at the shelter.",
+        "r": "I did some unpaid work at the shelter.",
+        "why": "Work theo nghĩa công việc là không đếm được nên không dùng 'an'."
+      }
+    ],
+    "u": "Unpaid có hai nghĩa chính. Với tiền, nó là chưa trả: unpaid bills, an unpaid invoice. Với công việc, nó là làm không lương: unpaid leave, an unpaid internship, unpaid overtime. Ngữ cảnh cho biết nghĩa nào. Overdue và outstanding gần nghĩa thứ nhất và trang trọng hơn trong kế toán, còn voluntary mô tả nghĩa thứ hai khi người ta tự nguyện làm không công."
+  },
+  "unpleasant": {
+    "mis": [
+      {
+        "w": "The room smells unpleasantly.",
+        "r": "The room smells unpleasant.",
+        "why": "Sau động từ giác quan như smell dùng tính từ, không dùng trạng từ."
+      },
+      {
+        "w": "I felt unpleasant when he shouted.",
+        "r": "I felt uncomfortable when he shouted.",
+        "why": "Unpleasant mô tả vật hoặc người, không mô tả cảm giác của mình; dùng uncomfortable hoặc upset."
+      }
+    ],
+    "u": "Unpleasant mô tả điều gì đó hoặc ai đó gây cảm giác khó chịu: an unpleasant smell, an unpleasant surprise, an unpleasant person. Nó nhẹ hơn disgusting và trang trọng hơn nasty. Từ này nói về nguyên nhân gây ra cảm giác chứ không phải cảm giác, nên không nói I feel unpleasant. Lời phàn nàn của khách hàng thường nhắc đến an unpleasant experience."
+  },
+  "unplug": {
+    "mis": [
+      {
+        "w": "I unplugged the lights before leaving.",
+        "r": "I turned off the lights before leaving.",
+        "why": "Unplug là rút phích cắm; đèn thì tắt bằng turn off hoặc switch off."
+      },
+      {
+        "w": "Unplug off the heater before cleaning it.",
+        "r": "Unplug the heater before cleaning it.",
+        "why": "Unplug đã mang nghĩa rút ra; không thêm 'off'."
+      }
+    ],
+    "u": "Unplug nghĩa là ngắt thiết bị khỏi nguồn điện bằng cách rút phích cắm: unplug the kettle before cleaning. Nó trái nghĩa với plug in. Đây không phải từ chung cho việc tắt, vì turn off dùng cho đèn và máy không có phích cắm. Thân mật hơn, unplug còn nghĩa là ngừng dùng màn hình, như trong digital detox."
+  },
+  "unsure": {
+    "mis": [
+      {
+        "w": "I am unsure to attend.",
+        "r": "I am unsure whether to attend.",
+        "why": "Unsure cần từ để hỏi như whether trước động từ nguyên mẫu."
+      },
+      {
+        "w": "She is unsure with the answer.",
+        "r": "She is unsure about the answer.",
+        "why": "Giới từ thường gặp sau unsure là 'about' (hoặc 'of')."
+      }
+    ],
+    "u": "Unsure nghĩa là không chắc, nói về cảm giác hoặc hiểu biết của chính người nói: I am unsure about the date. Sau nó là about, of, whether hoặc từ để hỏi: unsure what to do. Nó ít trang trọng hơn uncertain; uncertain còn mô tả tình huống (an uncertain future), còn unsure chủ yếu dùng cho người. Unsure of yourself nghĩa là thiếu tự tin."
+  },
+  "unused": {
+    "mis": [
+      {
+        "w": "He is unused of the cold weather.",
+        "r": "He is unused to the cold weather.",
+        "why": "Giới từ sau unused to là 'to', nghĩa là chưa quen."
+      },
+      {
+        "w": "I am unused to wake up early.",
+        "r": "I am unused to waking up early.",
+        "why": "Sau unused to, 'to' là giới từ nên dùng dạng -ing."
+      }
+    ],
+    "u": "Unused có hai cách đọc. Đọc với z, nghĩa là chưa dùng hoặc không được dùng: unused tickets, unused vacation days, unused space. Đọc với s, nghĩa là chưa quen: I am unused to the cold, thường theo sau là danh từ hoặc dạng -ing. Nghĩa thứ hai gần với not used to và hơi trang trọng hơn, và cần giới từ to."
+  },
+  "walkway": {
+    "mis": [
+      {
+        "w": "Don't park your bikes on walkway.",
+        "r": "Don't park your bikes on the walkway.",
+        "why": "Nơi cụ thể mà cả hai bên đều biết cần mạo từ 'the'."
+      },
+      {
+        "w": "The walkway of the two buildings is covered.",
+        "r": "The walkway between the two buildings is covered.",
+        "why": "'Between' nối hai nơi; 'of' không diễn tả sự nối liền."
+      }
+    ],
+    "u": "Walkway là lối đi dành cho người đi bộ, thường nằm trong hoặc giữa các tòa nhà, bắc qua đường hoặc trong nhà xưởng. Biển an toàn ghi keep the walkway clear. A covered walkway che mưa. Nó khác sidewalk hoặc pavement vốn chạy dọc bên đường, và khác corridor vốn nằm bên trong tòa nhà."
+  },
+  "wheelchair": {
+    "mis": [
+      {
+        "w": "He is on a wheelchair.",
+        "r": "He is in a wheelchair.",
+        "why": "Dùng 'in' cho người ngồi trong xe lăn."
+      },
+      {
+        "w": "The elevator is wheelchair accessibility.",
+        "r": "The elevator is wheelchair accessible.",
+        "why": "Ở đây cần tính từ accessible, không phải danh từ accessibility."
+      }
+    ],
+    "u": "Wheelchair là chiếc ghế có bánh xe dành cho người không đi được hoặc đi khó khăn. Đây là từ trung tính; người ta nói wheelchair user hoặc a person who uses a wheelchair, được nhiều người xem là tôn trọng hơn wheelchair-bound. Tính từ wheelchair accessible mô tả tòa nhà có đường dốc hoặc thang máy. Giới từ là in: she is in a wheelchair."
+  },
+  "wireless": {
+    "mis": [
+      {
+        "w": "The hotel has a free wirelessly internet connection.",
+        "r": "The hotel has a free wireless internet connection.",
+        "why": "Trước danh từ dùng tính từ wireless; wirelessly là trạng từ."
+      },
+      {
+        "w": "Connect to the wireless network by the password.",
+        "r": "Connect to the wireless network with the password.",
+        "why": "Dùng 'with' hoặc 'using' cho công cụ hoặc chìa khóa được dùng."
+      }
+    ],
+    "u": "Wireless mô tả công nghệ hoạt động không cần dây cáp: wireless internet, a wireless mouse, wireless headphones. Đây là từ thường thấy trên biển khách sạn cho Wi-Fi, vốn là tên thông dụng của chính mạng không dây. Thiết bị cordless là loại không cần dây nguồn, ví dụ điện thoại, còn wireless nhấn mạnh việc truyền dữ liệu. Trạng từ là wirelessly, như trong connect wirelessly."
+  },
+  "worldwide": {
+    "mis": [
+      {
+        "w": "The company sells its products in worldwide.",
+        "r": "The company sells its products worldwide.",
+        "why": "Ở đây worldwide là trạng từ; không dùng giới từ."
+      },
+      {
+        "w": "The singer is worldwide famous.",
+        "r": "The singer is world-famous.",
+        "why": "Tính từ ghép đúng là world-famous; worldwide chỉ phạm vi lan rộng."
+      }
+    ],
+    "u": "Worldwide có thể là tính từ đứng trước danh từ (a worldwide trend) hoặc trạng từ sau động từ (sold worldwide). Nó nghĩa là trên toàn thế giới và thường nói về phạm vi: worldwide shipping, worldwide sales. Từ này gần với global, vốn trang trọng và mang sắc thái kinh doanh hơn. Với sự nổi tiếng, tiếng Anh dùng từ ghép world-famous chứ không nói worldwide famous."
+  },
+  "yearly": {
+    "mis": [
+      {
+        "w": "The fee is paid by yearly.",
+        "r": "The fee is paid yearly.",
+        "why": "Ở đây yearly là trạng từ, không cần 'by'."
+      },
+      {
+        "w": "The contract is renewed yearly basis.",
+        "r": "The contract is renewed on a yearly basis.",
+        "why": "Cụm cố định là 'on a yearly basis'."
+      }
+    ],
+    "u": "Yearly nghĩa là xảy ra mỗi năm một lần và là tính từ hoặc trạng từ: a yearly review, paid yearly. Từ này đơn giản, hay dùng hằng ngày, còn annual trang trọng hơn và phổ biến trong báo cáo và luật: annual report. Yearly cũng dùng cho số tiền tính theo năm như a yearly salary. So sánh với monthly và weekly, vốn theo cùng mẫu."
+  },
+  "agile": {
+    "mis": [
+      {
+        "w": "The agile of the team is impressive.",
+        "r": "The agility of the team is impressive.",
+        "why": "Dạng danh từ là agility; agile chỉ là tính từ."
+      },
+      {
+        "w": "Our team is working in an agile.",
+        "r": "Our team is working in an agile way.",
+        "why": "Agile là tính từ và cần danh từ theo sau."
+      }
+    ],
+    "u": "Trong phần mềm, agile mô tả cách làm việc theo các chu kỳ ngắn gọi là sprint, có phản hồi thường xuyên và kế hoạch thay đổi được, trái với một kế hoạch dài duy nhất. Nó dùng như tính từ: an agile team, agile methods. Trong tiếng Anh thường ngày, agile còn nghĩa là di chuyển hoặc suy nghĩ nhanh nhẹn. Từ này thường chỉ viết hoa trong Agile Manifesto."
+  },
+  "anesthesia": {
+    "mis": [
+      {
+        "w": "He was under an anesthesia for two hours.",
+        "r": "He was under anesthesia for two hours.",
+        "why": "Anesthesia ở đây không đếm được nên không có mạo từ sau 'under'."
+      },
+      {
+        "w": "The patient was anesthesia for the operation.",
+        "r": "The patient was under anesthesia for the operation.",
+        "why": "Anesthesia là danh từ; dùng 'under' hoặc động từ anesthetized."
+      }
+    ],
+    "u": "Anesthesia là trạng thái hoặc quá trình y khoa khiến người bệnh không cảm thấy đau, thường dùng khi phẫu thuật. Danh từ này không đếm được và xuất hiện trong under anesthesia, general anesthesia (ngủ hoàn toàn) và local anesthesia (chỉ tê một vùng). Tiếng Anh Mỹ viết anesthesia, tiếng Anh Anh viết anaesthesia. Bác sĩ gây mê là anesthesiologist, còn thuốc là anesthetic."
+  },
+  "antibiotic": {
+    "mis": [
+      {
+        "w": "I drank antibiotics for the infection.",
+        "r": "I took antibiotics for the infection.",
+        "why": "Thuốc đi với động từ take, kể cả thuốc dạng nước."
+      },
+      {
+        "w": "I took antibiotic for a week.",
+        "r": "I took antibiotics for a week.",
+        "why": "Liệu trình thuốc nói chung thường dùng số nhiều: antibiotics."
+      }
+    ],
+    "u": "Antibiotic là thuốc diệt hoặc ngăn vi khuẩn phát triển. Bác sĩ kê antibiotics cho nhiễm khuẩn, và a course of antibiotics là liệu trình đầy đủ bạn phải uống hết. Chúng không có tác dụng với virus như cảm lạnh. Dạng số nhiều thông dụng hơn số ít. Cách dùng như tính từ xuất hiện trong antibiotic resistance, mối lo ngại sức khỏe cộng đồng đang tăng."
+  },
+  "antibody": {
+    "mis": [
+      {
+        "w": "The body produces antibodys.",
+        "r": "The body produces antibodies.",
+        "why": "Danh từ tận cùng phụ âm + y đổi y thành ies ở số nhiều."
+      },
+      {
+        "w": "The vaccine makes antibodies against to the virus.",
+        "r": "The vaccine makes antibodies against the virus.",
+        "why": "Against đã là giới từ; không thêm 'to' phía sau."
+      }
+    ],
+    "u": "Antibody là protein do hệ miễn dịch tạo ra, bám vào vi khuẩn hoặc chất lạ và giúp tiêu diệt chúng. Vắc-xin dạy cơ thể tạo antibodies, và xét nghiệm kháng thể kiểm tra mẫu máu xem có chúng không. Từ này đếm được: số nhiều là antibodies. Đừng nhầm với antibiotic là thuốc, còn kháng thể được tạo ra bên trong cơ thể."
+  },
+  "arbitration": {
+    "mis": [
+      {
+        "w": "The dispute was resolved by arbitrator.",
+        "r": "The dispute was resolved by arbitration.",
+        "why": "Arbitration là quá trình; arbitrator là người đưa ra quyết định."
+      },
+      {
+        "w": "The two firms went to the arbitration.",
+        "r": "The two firms went to arbitration.",
+        "why": "Arbitration ở nghĩa này không đếm được nên không cần mạo từ sau 'to'."
+      }
+    ],
+    "u": "Arbitration là cách giải quyết tranh chấp ngoài tòa: một người hoặc hội đồng độc lập, gọi là arbitrator, nghe cả hai bên rồi quyết định. Hợp đồng thường có arbitration clause, và binding arbitration nghĩa là quyết định bắt buộc phải chấp nhận. Nó khác mediation, nơi hòa giải viên chỉ giúp các bên tự thỏa thuận. Ở nghĩa này danh từ không đếm được: go to arbitration."
+  },
+  "authentication": {
+    "mis": [
+      {
+        "w": "Two-factor authenticate protects your account.",
+        "r": "Two-factor authentication protects your account.",
+        "why": "Chủ ngữ cần danh từ; authenticate là động từ."
+      },
+      {
+        "w": "The authentication of users are required.",
+        "r": "The authentication of users is required.",
+        "why": "Chủ ngữ là authentication chứ không phải users nên động từ ở số ít."
+      }
+    ],
+    "u": "Authentication là quá trình kiểm tra người dùng hoặc thiết bị đúng là người hoặc thứ mà nó tuyên bố, bằng mật khẩu, mã hay vân tay. Two-factor authentication dùng hai bằng chứng khác nhau. Đây là danh từ kỹ thuật không đếm được; động từ là authenticate. Authentication xác nhận danh tính, còn authorization quyết định người dùng đó được truy cập những gì."
+  },
+  "backlog": {
+    "mis": [
+      {
+        "w": "We have a large backlog about unanswered emails.",
+        "r": "We have a large backlog of unanswered emails.",
+        "why": "Backlog đi với 'of' trước thứ bị tồn đọng."
+      },
+      {
+        "w": "I have a backlog of works to finish.",
+        "r": "I have a backlog of work to finish.",
+        "why": "Work nghĩa là công việc không đếm được và không có số nhiều."
+      }
+    ],
+    "u": "Backlog là lượng công việc hoặc đơn hàng tồn đọng chờ xử lý, như a backlog of emails. Trong kinh doanh nói chung, nó gợi sự chậm trễ và áp lực; bạn clear hoặc giảm nó. Trong nhóm phần mềm agile, nó có nghĩa riêng: danh sách việc đã sắp ưu tiên, gọi là product backlog, mà nhóm dự định làm. Cả hai nghĩa đều dùng mẫu backlog of."
+  },
+  "bearing": {
+    "mis": [
+      {
+        "w": "That has no bearing to the case.",
+        "r": "That has no bearing on the case.",
+        "why": "Thành ngữ là have a bearing on something."
+      },
+      {
+        "w": "The bearings in this machine is worn.",
+        "r": "The bearings in this machine are worn.",
+        "why": "Chủ ngữ là bearings số nhiều nên động từ phải số nhiều."
+      }
+    ],
+    "u": "Trong kỹ thuật, bearing (ổ trục, vòng bi) là bộ phận đỡ trục quay và giảm ma sát, như ball bearing trong bánh xe hoặc động cơ. Bearing mòn gây tiếng ồn và nóng. Từ này còn các nghĩa khác: trong thành ngữ have a bearing on something nó nghĩa là ảnh hưởng hoặc liên quan, và bearing của con tàu là hướng đi. Ngữ cảnh cho biết nghĩa nào."
+  },
+  "benchmark": {
+    "mis": [
+      {
+        "w": "We benchmark our results with competitors.",
+        "r": "We benchmark our results against competitors.",
+        "why": "Benchmark đi với 'against' khi so sánh với một chuẩn."
+      },
+      {
+        "w": "We set a new benchmark on customer service.",
+        "r": "We set a new benchmark for customer service.",
+        "why": "Dùng 'for' để nói chuẩn đó áp dụng cho cái gì."
+      }
+    ],
+    "u": "Benchmark là chuẩn hoặc điểm tham chiếu để đem ra so sánh. Công ty so chi phí hay tốc độ với an industry benchmark, và một doanh nghiệp xuất sắc có thể set a new benchmark. Nó cũng là động từ: benchmark against competitors. Trong tin học, benchmark test đo tốc độ chạy của hệ thống. Nó đo lường được hơn goal và cụ thể hơn standard."
+  },
+  "binary": {
+    "mis": [
+      {
+        "w": "A computer stores data in binaries.",
+        "r": "A computer stores data in binary.",
+        "why": "Binary dùng như danh từ không đếm được hoặc tính từ, không chia số nhiều ở đây."
+      },
+      {
+        "w": "Computers use binary system to store data.",
+        "r": "Computers use the binary system to store data.",
+        "why": "Hệ thống cụ thể cần mạo từ 'the'."
+      }
+    ],
+    "u": "Binary nghĩa là gồm hai phần hoặc hai trạng thái. Trong tin học, nó mô tả hệ cơ số hai chỉ dùng 0 và 1, cách thiết bị số lưu văn bản, hình ảnh và chương trình: binary code, binary numbers. Khi là danh từ, nó có trong cụm in binary. Ngoài tin học, a binary choice chỉ có hai lựa chọn, như có hoặc không."
+  }
+}

@@ -1,0 +1,752 @@
+{
+  "biopsy": {
+    "mis": [
+      {
+        "w": "The doctor did a biopsy on my liver.",
+        "r": "The doctor did a biopsy of my liver.",
+        "why": "Dùng 'of' để nêu cơ quan được lấy mẫu: a biopsy of the liver."
+      },
+      {
+        "w": "The biopsies is negative, so you can relax.",
+        "r": "The biopsy is negative, so you can relax.",
+        "why": "Chủ ngữ số ít nên động từ cũng số ít: one biopsy is negative."
+      }
+    ],
+    "u": "Biopsy là thủ thuật y khoa lấy một mẩu mô nhỏ để soi dưới kính hiển vi, thường nhằm kiểm tra ung thư. Ta nói take hoặc perform a biopsy, sau đó phòng xét nghiệm báo kết quả. Giới từ đi kèm là of: a biopsy of the breast. Đây là danh từ đếm được, số nhiều là biopsies. Đừng nhầm với autopsy, tức khám nghiệm tử thi, là việc thực hiện trên người đã chết."
+  },
+  "boiler": {
+    "mis": [
+      {
+        "w": "The boiler makes the water to be hot.",
+        "r": "The boiler makes the water hot.",
+        "why": "Sau make dùng tính từ trực tiếp: make something hot, không thêm to be."
+      },
+      {
+        "w": "The boiler is not working, so I called to a plumber.",
+        "r": "The boiler is not working, so I called a plumber.",
+        "why": "Call là ngoại động từ: call someone, không có 'to' trước người đó."
+      }
+    ],
+    "u": "Ở nhà người Anh, boiler là thiết bị đun nước cho vòi và lò sưởi, thường chạy bằng gas. Trong công nghiệp, từ này chỉ nồi hơi cỡ lớn tạo hơi nước cho phát điện hoặc quy trình sản xuất, như steam boiler. Ta nói the boiler is on, breaks down hoặc needs servicing. Tiếng Anh Mỹ thường gọi thiết bị gia đình là furnace hoặc water heater. Boiler room là phòng đặt nồi hơi."
+  },
+  "bolt": {
+    "mis": [
+      {
+        "w": "Please tighten the bolt by a wrench.",
+        "r": "Please tighten the bolt with a wrench.",
+        "why": "Dùng 'with' cho dụng cụ dùng để thực hiện việc gì."
+      },
+      {
+        "w": "The bolt are loose on the left wheel.",
+        "r": "The bolts are loose on the left wheel.",
+        "why": "Danh từ số ít không đi với 'are'; chủ ngữ phải ở số nhiều: the bolts are."
+      }
+    ],
+    "u": "Bolt là thanh kim loại có ren, thường siết bằng đai ốc và vặn bằng cờ lê. Khác với screw, loại tự tạo ren trong vật liệu. Trong kỹ thuật ta nói tighten, loosen hoặc torque a bolt. Làm động từ, bolt nghĩa là cài chốt cửa hoặc chạy vụt đi đột ngột: the horse bolted. Cụm a bolt of lightning chỉ một tia sét lóe lên."
+  },
+  "bookkeeping": {
+    "mis": [
+      {
+        "w": "The company needs a bookkeeping to track expenses.",
+        "r": "The company needs bookkeeping to track expenses.",
+        "why": "Bookkeeping là danh từ không đếm được nên không dùng 'a'."
+      },
+      {
+        "w": "She is studying bookkeeper at night.",
+        "r": "She is studying bookkeeping at night.",
+        "why": "Tên môn học hay hoạt động là bookkeeping; bookkeeper là người làm công việc đó."
+      }
+    ],
+    "u": "Bookkeeping là việc ghi chép hằng ngày các giao dịch tài chính của doanh nghiệp: bán hàng, mua hàng, thu và chi. Đây là danh từ không đếm được, đi với động từ số ít. Người làm việc này là bookkeeper. Bookkeeping cung cấp dữ liệu cho accounting, tức kế toán phân tích và lập báo cáo, nên hai khái niệm liên quan nhưng không giống nhau. Doanh nghiệp nhỏ hay thuê bookkeeper bán thời gian hoặc dùng phần mềm."
+  },
+  "brokerage": {
+    "mis": [
+      {
+        "w": "He opened an account in an online brokerage.",
+        "r": "He opened an account with an online brokerage.",
+        "why": "Ta mở tài khoản with một công ty, không phải in."
+      },
+      {
+        "w": "The brokerage charges a high commission to our trades.",
+        "r": "The brokerage charges a high commission on our trades.",
+        "why": "Hoa hồng được tính trên giao dịch: commission on trades, không dùng 'to'."
+      }
+    ],
+    "u": "Brokerage là công ty mua bán cổ phiếu, trái phiếu, bất động sản hay bảo hiểm thay cho khách và hưởng phí hoặc hoa hồng. Từ này cũng có thể chỉ chính khoản phí đó, như brokerage charges. Brokerage account là tài khoản đầu tư mở tại công ty như vậy. Người làm nghề là broker. Các brokerage trực tuyến thường thu phí thấp hơn những công ty truyền thống có tư vấn riêng."
+  },
+  "calibration": {
+    "mis": [
+      {
+        "w": "The scale needs a calibration of every month.",
+        "r": "The scale needs calibration every month.",
+        "why": "Ở nghĩa này calibration không đếm được, và tần suất không cần giới từ 'of'."
+      },
+      {
+        "w": "We calibration the sensors before each test.",
+        "r": "We calibrate the sensors before each test.",
+        "why": "Động từ là calibrate; calibration là danh từ."
+      }
+    ],
+    "u": "Calibration là quá trình điều chỉnh hoặc kiểm tra một thiết bị để số đo khớp với chuẩn đã biết. Phòng thí nghiệm và nhà máy lưu hồ sơ và cấp calibration certificate. Động từ là calibrate, tính từ là calibrated. Calibration thường không đếm được, nhưng calibrations có thể chỉ các lần kiểm riêng lẻ. Ngoài thiết bị, calibrate còn dùng nghĩa bóng: calibrate your response to the situation."
+  },
+  "cardiology": {
+    "mis": [
+      {
+        "w": "She is a cardiology and works at the hospital.",
+        "r": "She is a cardiologist and works at the hospital.",
+        "why": "Cardiology là chuyên ngành; bác sĩ là cardiologist."
+      },
+      {
+        "w": "He was sent to the cardiology for tests.",
+        "r": "He was sent to cardiology for tests.",
+        "why": "Tên chuyên khoa dùng chung chung không có mạo từ sau 'to'."
+      }
+    ],
+    "u": "Cardiology là ngành y học nghiên cứu tim và mạch máu. Bác sĩ hành nghề này là cardiologist, tính từ là cardiac hoặc cardiovascular. Trong bệnh viện người ta nói be referred to cardiology hay be admitted to the cardiology ward, không dùng mạo từ. Cardiology điều trị các bệnh như rối loạn nhịp tim và suy tim, còn phẫu thuật tim do bác sĩ phẫu thuật tim (cardiac surgeon) thực hiện."
+  },
+  "casting": {
+    "mis": [
+      {
+        "w": "The factory specializes on metal casting.",
+        "r": "The factory specializes in metal casting.",
+        "why": "Động từ specialize đi với giới từ 'in'."
+      },
+      {
+        "w": "The casting are cooled slowly in the mold.",
+        "r": "The castings are cooled slowly in the mold.",
+        "why": "Chủ ngữ số nhiều cần danh từ số nhiều khi nói nhiều chi tiết: castings."
+      }
+    ],
+    "u": "Trong sản xuất, casting là tạo vật thể bằng cách rót kim loại nóng chảy vào khuôn rồi để nguội đông đặc. Sản phẩm hoàn thiện cũng gọi là casting và khi đó đếm được: the castings were inspected. Các phương pháp phổ biến là sand casting và die casting. Trong điện ảnh, sân khấu casting là chọn diễn viên cho vai, còn khi câu cá nó nghĩa là quăng dây. Động từ cast giữ nguyên dạng ở thì quá khứ."
+  },
+  "chemotherapy": {
+    "mis": [
+      {
+        "w": "She is under a chemotherapy now.",
+        "r": "She is undergoing chemotherapy now.",
+        "why": "Chemotherapy không đếm được nên bỏ 'a'; động từ tự nhiên là undergo."
+      },
+      {
+        "w": "The chemotherapies made him very tired.",
+        "r": "The chemotherapy made him very tired.",
+        "why": "Liệu trình điều trị nói chung là không đếm được nên không dùng số nhiều."
+      }
+    ],
+    "u": "Chemotherapy là phương pháp điều trị ung thư dùng thuốc mạnh để tiêu diệt hoặc làm chậm sự phát triển của tế bào ung thư. Từ này không đếm được: bệnh nhân undergo hoặc receive chemotherapy, thường theo chu kỳ gọi là session hay course. Trong hội thoại thường rút gọn thành chemo. Tác dụng phụ gồm rụng tóc, buồn nôn và mệt mỏi. Khác với radiotherapy, vốn dùng tia xạ chứ không dùng thuốc."
+  },
+  "cholesterol": {
+    "mis": [
+      {
+        "w": "His cholesterol are too high.",
+        "r": "His cholesterol is too high.",
+        "why": "Cholesterol không đếm được và là số ít nên dùng 'is'."
+      },
+      {
+        "w": "The doctor told me to reduce my cholesterols.",
+        "r": "The doctor told me to reduce my cholesterol.",
+        "why": "Không thêm -s số nhiều vào danh từ không đếm được."
+      }
+    ],
+    "u": "Cholesterol là chất béo dạng sáp có trong máu và mọi tế bào của cơ thể. Cơ thể cần một lượng nhất định, nhưng quá nhiều, nhất là LDL hay cholesterol xấu, làm tăng nguy cơ bệnh tim. HDL là loại tốt. Từ này không đếm được và là số ít, nên nói have high cholesterol và check your cholesterol level. Bác sĩ chỉ định cholesterol test và có thể khuyên đổi chế độ ăn hoặc dùng thuốc."
+  },
+  "collateral": {
+    "mis": [
+      {
+        "w": "The bank wants a collateral for this loan.",
+        "r": "The bank wants collateral for this loan.",
+        "why": "Trong tài chính, collateral không đếm được nên không dùng 'a'."
+      },
+      {
+        "w": "He used his house like collateral.",
+        "r": "He used his house as collateral.",
+        "why": "Dùng 'as' để nêu vai trò hoặc chức năng của vật."
+      }
+    ],
+    "u": "Collateral là tài sản như nhà, xe hay thiết bị mà người vay thế chấp cho bên cho vay để bảo đảm khoản vay. Nếu người vay không trả được, bên cho vay có thể thu giữ tài sản. Từ này không đếm được: put up, offer hoặc provide collateral, hoặc use something as collateral. Làm tính từ, nó còn xuất hiện trong collateral damage, tức thiệt hại ngoài ý muốn cho người vô can."
+  },
+  "commissioning": {
+    "mis": [
+      {
+        "w": "The line is in commissioning since May.",
+        "r": "The line has been in commissioning since May.",
+        "why": "Dùng thì hiện tại hoàn thành với since: has been, không dùng is."
+      },
+      {
+        "w": "The commissioning of the machine are almost done.",
+        "r": "The commissioning of the machine is almost done.",
+        "why": "Chủ ngữ là 'commissioning' (số ít); 'machine' chỉ đứng sau 'of'."
+      }
+    ],
+    "u": "Trong kỹ thuật, commissioning là giai đoạn chạy thử và hiệu chỉnh thiết bị, hệ thống toà nhà hay nhà máy mới để chứng minh chúng hoạt động đúng thiết kế trước khi bàn giao cho chủ sở hữu. Từ này không đếm được, thường diễn ra sau xây dựng và trước vận hành. Commissioning engineer thực hiện các bài thử và ký báo cáo. Động từ là commission. Ở ngữ cảnh khác, nó còn nghĩa là đặt làm một tác phẩm như tranh."
+  },
+  "compiler": {
+    "mis": [
+      {
+        "w": "The compiler translates the source code to machine code.",
+        "r": "The compiler translates the source code into machine code.",
+        "why": "Dùng 'into' khi một thứ được chuyển từ dạng này sang dạng khác."
+      },
+      {
+        "w": "The compiler gives an error in my program.",
+        "r": "The compiler reports an error in my program.",
+        "why": "Với thông báo lỗi, động từ tự nhiên là report, show hoặc throw; 'give' nghe không tự nhiên."
+      }
+    ],
+    "u": "Compiler là chương trình dịch mã nguồn viết bằng ngôn ngữ bậc cao như C sang mã máy để máy tính chạy được. Nó kiểm tra cú pháp và báo lỗi, cảnh báo trước khi chương trình bắt đầu chạy. Điều này khác với interpreter, loại thực thi mã từng dòng. Lập trình viên nói run hoặc invoke the compiler, và một compiler error sẽ làm dừng quá trình build."
+  },
+  "constitution": {
+    "mis": [
+      {
+        "w": "The rights are guaranteed in the constitution of Vietnam.",
+        "r": "The rights are guaranteed by the constitution of Vietnam.",
+        "why": "Dùng 'by' cho chủ thể bảo đảm; 'in' chỉ nói quyền được ghi ở đâu."
+      },
+      {
+        "w": "Vietnam's constitution have been amended several times.",
+        "r": "Vietnam's constitution has been amended several times.",
+        "why": "Chủ ngữ 'constitution' là số ít nên dùng 'has'."
+      }
+    ],
+    "u": "Constitution là tập hợp các nguyên tắc và luật cơ bản để điều hành một quốc gia, thường giới hạn quyền lực nhà nước và nêu quyền công dân. Người ta amend, draft hoặc violate a constitution, và hành vi có thể constitutional hay unconstitutional. Với chữ c thường, từ này còn chỉ thể trạng sức khoẻ: a strong constitution. Trong văn bản pháp lý, từ được viết hoa khi chỉ một bản hiến pháp cụ thể."
+  },
+  "convict": {
+    "mis": [
+      {
+        "w": "He was convicted for murder last year.",
+        "r": "He was convicted of murder last year.",
+        "why": "Convict đi với 'of' trước tội danh; 'for' dùng khi nói về hình phạt."
+      },
+      {
+        "w": "The court convicted him to ten years in prison.",
+        "r": "The court sentenced him to ten years in prison.",
+        "why": "Convict nghĩa là tuyên có tội; động từ cho việc tuyên hình phạt là sentence."
+      }
+    ],
+    "u": "Làm động từ, convict nghĩa là toà án chính thức tuyên một người có tội, luôn đi với of: convicted of fraud. Khác với sentence, tức tuyên hình phạt sau đó. Danh từ convict nhấn âm ở âm tiết đầu và chỉ người đang thi hành án tù, còn động từ nhấn ở âm tiết thứ hai. Conviction là kết quả bản án có tội, và từ trái nghĩa là acquit."
+  },
+  "cybersecurity": {
+    "mis": [
+      {
+        "w": "The firm hired a cybersecurity to protect its data.",
+        "r": "The firm hired a cybersecurity expert to protect its data.",
+        "why": "Cybersecurity là lĩnh vực, không phải người; cần thêm expert hoặc specialist."
+      },
+      {
+        "w": "Cybersecurities are very important now.",
+        "r": "Cybersecurity is very important now.",
+        "why": "Danh từ không đếm được, số ít, nên không dùng số nhiều và dùng 'is'."
+      }
+    ],
+    "u": "Cybersecurity là việc bảo vệ máy tính, mạng, phần mềm và dữ liệu khỏi các cuộc tấn công số như hack, mã độc và lừa đảo. Từ này không đếm được và ngày nay viết liền một từ. Người ta strengthen hoặc invest in cybersecurity và nhắc đến a cybersecurity breach hay team. Phạm vi rộng hơn phần mềm diệt virus vì gồm cả chính sách, đào tạo và giám sát. Thuật ngữ cũ IT security tương tự nhưng hẹp hơn."
+  },
+  "damages": {
+    "mis": [
+      {
+        "w": "The court ordered him to pay a damage of two million.",
+        "r": "The court ordered him to pay damages of two million.",
+        "why": "Trong luật, khoản tiền bồi thường là 'damages' số nhiều; 'damage' số ít là thiệt hại."
+      },
+      {
+        "w": "The storm caused serious damages to the roof.",
+        "r": "The storm caused serious damage to the roof.",
+        "why": "Thiệt hại vật chất là 'damage' không đếm được; 'damages' là tiền toà án buộc bồi thường."
+      }
+    ],
+    "u": "Trong luật, damages là khoản tiền toà án buộc một bên trả cho bên kia để bồi thường tổn thất hoặc thương tích. Dạng số nhiều là bắt buộc: damages khác damage, vốn là thiệt hại vật chất và không đếm được. Ta nói claim, seek hoặc be awarded damages, hay sue for damages. Punitive damages nhằm trừng phạt người gây hại. Compensation là từ đồng nghĩa rộng hơn trong đời thường."
+  },
+  "debug": {
+    "mis": [
+      {
+        "w": "I need to debug the bugs in my code.",
+        "r": "I need to debug my code.",
+        "why": "Debug đã có nghĩa là loại bỏ lỗi, nên 'debug the bugs' bị thừa."
+      },
+      {
+        "w": "She debugged for the login page all afternoon.",
+        "r": "She debugged the login page all afternoon.",
+        "why": "Debug là ngoại động từ, nhận tân ngữ trực tiếp, không cần 'for'."
+      }
+    ],
+    "u": "Debug là tìm và loại bỏ lỗi, gọi là bug, khỏi phần mềm hoặc phần cứng. Đây là ngoại động từ: debug a program, không nói debug for it. Danh từ là debugging, còn debugger là công cụ giúp chạy từng bước qua mã. Lập trình viên nói code is hard to debug khi logic không rõ ràng. Debug cụ thể hơn fix vì bao gồm cả việc tìm ra nguyên nhân."
+  },
+  "default": {
+    "mis": [
+      {
+        "w": "He defaulted to pay the loan.",
+        "r": "He defaulted on the loan.",
+        "why": "Là động từ trong tài chính, default đi với 'on' và khoản nợ, không đi với to + động từ."
+      },
+      {
+        "w": "The program uses this setting by the default.",
+        "r": "The program uses this setting by default.",
+        "why": "Cụm cố định 'by default' không có mạo từ."
+      }
+    ],
+    "u": "Default có hai nghĩa chính. Trong tài chính, nó là không trả được nợ đúng hạn: người vay default on a loan, còn danh từ default là chính sự vỡ nợ đó. Trong tin học, nó chỉ thiết lập được áp dụng tự động nếu không đổi, như the default language, và cụm by default nghĩa là khi chưa thay đổi gì. Động từ nghĩa tài chính đi với 'on', không bao giờ đi với động từ nguyên mẫu."
+  },
+  "dehydration": {
+    "mis": [
+      {
+        "w": "He felt weak because of the dehydrate.",
+        "r": "He felt weak because of dehydration.",
+        "why": "Sau 'because of' cần danh từ; dehydrate là động từ."
+      },
+      {
+        "w": "Drinking water prevents from dehydration.",
+        "r": "Drinking water prevents dehydration.",
+        "why": "Prevent là ngoại động từ, không dùng 'from' trước tân ngữ."
+      }
+    ],
+    "u": "Dehydration là tình trạng cơ thể mất nước và muối gây hại, do nóng, bệnh hoặc uống không đủ. Triệu chứng gồm khát, nước tiểu sẫm màu, đau đầu và chóng mặt, ca nặng cần điều trị tại bệnh viện. Từ này không đếm được: suffer from dehydration, signs of dehydration. Động từ là dehydrate, tính từ là dehydrated. Dehydrated food như trái cây sấy cũng là thực phẩm đã bị rút nước."
+  },
+  "depreciation": {
+    "mis": [
+      {
+        "w": "The depreciation of the machine is 10% on a year.",
+        "r": "The depreciation of the machine is 10% a year.",
+        "why": "Tỉ lệ theo kỳ dùng 'a' hoặc 'per', không dùng 'on'."
+      },
+      {
+        "w": "Cars depreciation quickly after purchase.",
+        "r": "Cars depreciate quickly after purchase.",
+        "why": "Ở đây cần động từ depreciate; depreciation là danh từ."
+      }
+    ],
+    "u": "Depreciation là sự giảm dần giá trị của tài sản như xe hoặc máy móc do tuổi và quá trình sử dụng. Trong kế toán, doanh nghiệp phân bổ nguyên giá tài sản qua thời gian sử dụng hữu ích, ví dụ theo phương pháp đường thẳng, và ghi nhận là chi phí. Động từ là depreciate, từ trái nghĩa là appreciation. Các nhà kinh tế cũng dùng depreciation khi một đồng tiền mất giá so với đồng khác."
+  },
+  "dermatology": {
+    "mis": [
+      {
+        "w": "I have an appointment with the dermatology tomorrow.",
+        "r": "I have an appointment with a dermatologist tomorrow.",
+        "why": "Bạn gặp một người là dermatologist; dermatology là lĩnh vực."
+      },
+      {
+        "w": "Dermatology are my favorite subject.",
+        "r": "Dermatology is my favorite subject.",
+        "why": "Tên các ngành học kết thúc bằng -y hay -s dùng như danh từ số ít."
+      }
+    ],
+    "u": "Dermatology là ngành y học về da, tóc và móng, bao gồm các vấn đề như mụn, chàm và ung thư da. Bác sĩ chuyên khoa là dermatologist, tính từ liên quan là dermatological. Bệnh viện có dermatology department hoặc clinic, và bệnh nhân được referred to dermatology. Cosmetic dermatology tập trung vào vẻ ngoài, chẳng hạn điều trị sẹo hoặc lão hoá."
+  },
+  "diabetes": {
+    "mis": [
+      {
+        "w": "Diabetes are common among older adults.",
+        "r": "Diabetes is common among older adults.",
+        "why": "Diabetes tuy có -s nhưng là tên bệnh số ít, không đếm được."
+      },
+      {
+        "w": "He has a diabetes.",
+        "r": "He has diabetes.",
+        "why": "Tên bệnh như diabetes không dùng mạo từ."
+      }
+    ],
+    "u": "Diabetes là bệnh mạn tính khiến cơ thể không kiểm soát được đường huyết. Ở type 1 cơ thể tạo quá ít insulin; ở type 2 cơ thể không dùng tốt insulin. Từ này kết thúc bằng -s nhưng là số ít, không đếm được, nên không có mạo từ và đi với động từ số ít. Ta nói have diabetes hoặc be diagnosed with diabetes. Người mắc bệnh là a diabetic, và tính từ cũng là diabetic."
+  },
+  "diagnosis": {
+    "mis": [
+      {
+        "w": "The doctor diagnosed me for flu.",
+        "r": "The doctor diagnosed me with flu.",
+        "why": "Diagnose ai đó with một bệnh; 'for' là sai ở đây."
+      },
+      {
+        "w": "Many diagnosis were wrong in the study.",
+        "r": "Many diagnoses were wrong in the study.",
+        "why": "Số nhiều của diagnosis là diagnoses, phát âm /-siːz/."
+      }
+    ],
+    "u": "Diagnosis là việc xác định bệnh từ triệu chứng và kết quả xét nghiệm. Ta make hoặc confirm a diagnosis, còn bệnh nhân receive a diagnosis. Từ có số nhiều bất quy tắc gốc Hy Lạp là diagnoses, động từ là diagnose, dùng với tên bệnh hoặc ở bị động: he was diagnosed with asthma. Chẩn đoán sớm thường cải thiện kết quả điều trị. Prognosis thì ngược lại, là dự báo diễn tiến của bệnh."
+  },
+  "dialysis": {
+    "mis": [
+      {
+        "w": "He needs a dialysis three times a week.",
+        "r": "He needs dialysis three times a week.",
+        "why": "Dialysis là tên liệu pháp không đếm được nên không dùng 'a'."
+      },
+      {
+        "w": "Dialysis helps patients whose kidney do not work.",
+        "r": "Dialysis helps patients whose kidneys do not work.",
+        "why": "Kidney là danh từ đếm được; động từ số nhiều cần danh từ số nhiều kidneys."
+      }
+    ],
+    "u": "Dialysis là liệu pháp y khoa lọc chất thải và dịch thừa khỏi máu khi thận không còn hoạt động bình thường. Ở chạy thận nhân tạo, máy làm sạch máu bên ngoài cơ thể; ở lọc màng bụng, người ta dùng màng bụng. Danh từ không đếm được và không có mạo từ: bệnh nhân be on hoặc undergo dialysis. Dạng số nhiều dialyses có tồn tại nhưng hiếm gặp."
+  },
+  "discharge": {
+    "mis": [
+      {
+        "w": "The patient was discharged the hospital yesterday.",
+        "r": "The patient was discharged from the hospital yesterday.",
+        "why": "Discharge cần 'from' trước nơi mà người đó rời đi."
+      },
+      {
+        "w": "She was discharged to home after surgery.",
+        "r": "She was discharged home after surgery.",
+        "why": "Home ở đây là trạng từ nên không cần 'to'."
+      }
+    ],
+    "u": "Discharge làm động từ nghĩa là cho phép bệnh nhân rời bệnh viện, cho ai xuất ngũ, hoặc thải ra chất như nước hay khí. Bệnh nhân được discharged from bệnh viện, thường là về nhà, và trước home không dùng giới từ. Danh từ nhấn ở âm tiết đầu: a discharge from the wound là dịch chảy ra, còn hospital discharge là cho phép ra viện chính thức. Discharge summary là bản tóm tắt cuối cùng của bác sĩ."
+  },
+  "donor": {
+    "mis": [
+      {
+        "w": "She donor her kidney to her sister.",
+        "r": "She donated her kidney to her sister.",
+        "why": "Donor là danh từ chỉ người; động từ là donate."
+      },
+      {
+        "w": "He is a blood donator.",
+        "r": "He is a blood donor.",
+        "why": "Danh từ chuẩn là donor; 'donator' hiếm và nghe sai."
+      }
+    ],
+    "u": "Donor là người hoặc tổ chức cho đi một thứ, đặc biệt là máu, nội tạng hay tiền, để người khác dùng. Các từ ghép phổ biến là blood donor, organ donor và charity donor. Động từ là donate, hành động là donation. Người nhận là recipient. Donor countries là các nước giàu viện trợ. Trong y học sự tương thích rất quan trọng: người hiến phải có nhóm máu hoặc mô phù hợp."
+  },
+  "dosage": {
+    "mis": [
+      {
+        "w": "Never take more than the recommend dosage.",
+        "r": "Never take more than the recommended dosage.",
+        "why": "Trước danh từ dùng tính từ quá khứ phân từ 'recommended', không dùng động từ nguyên mẫu."
+      },
+      {
+        "w": "The doctor increased my dosages of the medicine.",
+        "r": "The doctor increased my dosage of the medicine.",
+        "why": "Dosage chỉ lượng và tần suất dùng thuốc, thường không đếm được; 'dose' mới là một liều đơn lẻ."
+      }
+    ],
+    "u": "Dosage là lượng thuốc cần dùng và tần suất dùng, ví dụ hai viên mỗi lần, ba lần một ngày. Thường là danh từ không đếm được, còn dose là một liều đơn lẻ: bạn take a dose nhưng follow the dosage. Bác sĩ adjust hoặc increase the dosage, và nhãn thuốc ghi dosage instructions. Dùng quá liều khuyến cáo có thể nguy hiểm, nhất là với trẻ em."
+  },
+  "encryption": {
+    "mis": [
+      {
+        "w": "The messages are protected by encrypt.",
+        "r": "The messages are protected by encryption.",
+        "why": "Sau giới từ cần danh từ; encrypt là động từ."
+      },
+      {
+        "w": "We need an encryption to protect the files.",
+        "r": "We need encryption to protect the files.",
+        "why": "Encryption nói chung là công nghệ không đếm được nên không dùng 'a'."
+      }
+    ],
+    "u": "Encryption là quá trình chuyển dữ liệu đọc được thành dạng mã để chỉ người có khoá phù hợp mới đọc được. Nó bảo vệ email, thanh toán và tin nhắn. Động từ là encrypt, quá trình ngược lại là decryption, và dữ liệu trước khi mã hoá gọi là plaintext. Từ này không đếm được: use strong encryption. Encryption chỉ là một công cụ trong an ninh mạng, không thay được mật khẩu tốt."
+  },
+  "endpoint": {
+    "mis": [
+      {
+        "w": "The app sends a request at the endpoint.",
+        "r": "The app sends a request to the endpoint.",
+        "why": "Yêu cầu được gửi đến một đích nên dùng 'to'."
+      },
+      {
+        "w": "Each end point must require authentication.",
+        "r": "Each endpoint must require authentication.",
+        "why": "Trong văn bản kỹ thuật đây là một từ viết liền, không tách đôi."
+      }
+    ],
+    "u": "Trong phần mềm, endpoint là một URL hay địa chỉ cụ thể mà API nhận yêu cầu và trả phản hồi, ví dụ /users. Máy khách gửi đến hoặc call một endpoint, và lập trình viên bảo vệ nó bằng xác thực. Trong an ninh CNTT, endpoint còn chỉ thiết bị như laptop hay điện thoại nối vào mạng, như endpoint protection. Từ viết liền, và đôi khi dùng chung chung cho điểm kết thúc của một quá trình."
+  },
+  "equity": {
+    "mis": [
+      {
+        "w": "He owns a lot of equities in the company.",
+        "r": "He owns a lot of equity in the company.",
+        "why": "Equity nghĩa là giá trị sở hữu thì không đếm được; 'equities' chỉ nhóm cổ phiếu."
+      },
+      {
+        "w": "The company raised equity from the debt.",
+        "r": "The company raised equity instead of debt.",
+        "why": "Equity và debt là hai lựa chọn thay thế nhau; 'from the debt' lại nói nợ là nguồn vốn."
+      }
+    ],
+    "u": "Trong tài chính, equity là giá trị quyền sở hữu một công ty, bằng tài sản trừ nợ phải trả, nên shareholder equity là phần còn lại cho chủ sở hữu. Doanh nghiệp raise equity bằng cách bán cổ phần, thay vì vay nợ. Các quỹ private equity mua lại công ty. Home equity là phần giá trị căn nhà bạn thực sự sở hữu. Equity còn nghĩa là sự công bằng, như gender equity."
+  },
+  "fastener": {
+    "mis": [
+      {
+        "w": "The fastener is made of stainless steel for resist rust.",
+        "r": "The fastener is made of stainless steel to resist rust.",
+        "why": "Mục đích trước động từ dùng 'to' + nguyên mẫu, không dùng 'for' + động từ gốc."
+      },
+      {
+        "w": "Each fasteners must be tightened.",
+        "r": "Each fastener must be tightened.",
+        "why": "'Each' đi với danh từ số ít và động từ số ít."
+      }
+    ],
+    "u": "Fastener là bất kỳ chi tiết nào nối hoặc giữ hai bộ phận trở lên với nhau, như bu lông, ốc vít, đai ốc, đinh tán hay kẹp. Từ hay gặp trong catalog kỹ thuật và công việc lắp ráp: threaded fastener có ren, còn rivet thì không ren. Fastener có thể bằng thép không gỉ hoặc mạ kẽm. Động từ là fasten, còn fastening là danh từ chung hơn cho hành động hoặc hệ thống gắn kết."
+  },
+  "forging": {
+    "mis": [
+      {
+        "w": "The factory makes the crankshaft by forge.",
+        "r": "The factory makes the crankshaft by forging.",
+        "why": "Sau 'by' dùng danh động từ hoặc danh từ forging, không dùng động từ gốc."
+      },
+      {
+        "w": "Forging are stronger than casting.",
+        "r": "Forging is stronger than casting.",
+        "why": "Tên quy trình forging không đếm được nên đi với 'is'."
+      }
+    ],
+    "u": "Forging là tạo hình kim loại nóng hoặc nguội bằng cách đập, ép hoặc cán, giúp định hướng thớ kim loại và làm chi tiết như trục khuỷu rất bền. Sản phẩm cũng gọi là a forging và đếm được. Khác với casting, tức rót kim loại nóng chảy vào khuôn. Thợ rèn forge bằng tay, còn nhà máy dùng máy ép. Forging còn có nghĩa là làm giả giấy tờ."
+  },
+  "friction": {
+    "mis": [
+      {
+        "w": "There was a friction between the two managers.",
+        "r": "There was friction between the two managers.",
+        "why": "Friction không đếm được ở cả nghĩa vật lý lẫn nghĩa bóng."
+      },
+      {
+        "w": "Friction on the two surfaces creates heat.",
+        "r": "Friction between the two surfaces creates heat.",
+        "why": "Ma sát xảy ra giữa hai vật nên dùng 'between'."
+      }
+    ],
+    "u": "Friction là lực cản chuyển động khi hai bề mặt tiếp xúc, và sinh ra nhiệt. Kỹ sư giảm friction bằng bôi trơn, hoặc tận dụng nó, ví dụ trong phanh. Danh từ không đếm được và đi với 'between': friction between the tyre and the road. Nghĩa bóng, friction là bất đồng hay căng thẳng giữa người với người, như friction in the team. Tính từ frictional ít dùng ngoài vật lý."
+  },
+  "furnace": {
+    "mis": [
+      {
+        "w": "Steel is melted at a furnace.",
+        "r": "Steel is melted in a furnace.",
+        "why": "Lò là không gian kín nên dùng 'in'."
+      },
+      {
+        "w": "The furnace is hot like an oven, so wear a helmet.",
+        "r": "The furnace is hotter than an oven, so wear a helmet.",
+        "why": "Dùng so sánh hơn 'hotter than' để nói vật này vượt vật kia."
+      }
+    ],
+    "u": "Furnace là buồng kín trong đó vật liệu được nung đến nhiệt độ rất cao, ví dụ nấu chảy kim loại trong blast furnace hay electric arc furnace. Trong tiếng Anh Mỹ, từ này còn chỉ thiết bị sưởi gia đình làm nóng không khí, mà người Anh gọi là boiler hay central heating. Kiln là lò nung đồ gốm. Nghĩa bóng, nó mô tả một nơi cực kỳ nóng."
+  },
+  "hearing": {
+    "mis": [
+      {
+        "w": "The hearing will be hold on Monday.",
+        "r": "The hearing will be held on Monday.",
+        "why": "Bị động cần quá khứ phân từ held, không dùng dạng gốc hold."
+      },
+      {
+        "w": "The judge listened the witness during the hearing.",
+        "r": "The judge listened to the witness during the hearing.",
+        "why": "Listen đi với 'to' trước người hoặc vật được nghe."
+      }
+    ],
+    "u": "Hearing là phiên họp chính thức của toà án hoặc cơ quan có thẩm quyền để nghe chứng cứ và lập luận, thường ngắn hơn một phiên xét xử đầy đủ. Có thể là preliminary hearing, public hearing hay disciplinary hearing, và phiên họp được scheduled, held hoặc adjourned. Cùng từ này còn chỉ thính giác, như hearing loss, nên ngữ cảnh quyết định nghĩa. A fair hearing là quyền được lắng nghe."
+  },
+  "hydraulic": {
+    "mis": [
+      {
+        "w": "The press is operated by hydraulic.",
+        "r": "The press is operated hydraulically.",
+        "why": "Để bổ nghĩa cho động từ 'operated' cần trạng từ hydraulically."
+      },
+      {
+        "w": "The machine uses a hydraulics cylinder.",
+        "r": "The machine uses a hydraulic cylinder.",
+        "why": "Tính từ đứng trước danh từ là hydraulic; hydraulics là ngành khoa học."
+      }
+    ],
+    "u": "Hydraulic là tính từ mô tả máy hoặc hệ thống hoạt động nhờ áp suất chất lỏng, thường là dầu, như hydraulic press, brake hay jack. Chất lỏng có áp suất truyền lực qua ống đến xi lanh. Danh từ hydraulics (số ít) là ngành khoa học, kỹ thuật về chất lỏng chuyển động, và trạng từ là hydraulically. Hydraulic khác pneumatic, loại dùng khí nén."
+  },
+  "incision": {
+    "mis": [
+      {
+        "w": "The surgeon made an incision at the abdomen.",
+        "r": "The surgeon made an incision in the abdomen.",
+        "why": "Dùng 'in' cho vết rạch trên bộ phận cơ thể."
+      },
+      {
+        "w": "The doctor did an incision of the skin.",
+        "r": "The doctor made an incision in the skin.",
+        "why": "Cụm cố định là make an incision, không dùng do."
+      }
+    ],
+    "u": "Incision là vết rạch gọn được thực hiện vào cơ thể trong phẫu thuật, thường bằng dao mổ. Cụm chuẩn là make an incision, theo sau là in và bộ phận cơ thể: an incision in the abdomen. Sau đó bác sĩ khâu lại, và vị trí đó gọi là incision site. Động từ incise ít gặp ngoài y khoa. Incision là vết cắt sạch và có chủ đích, khác với vết thương hay vết cắt do tai nạn."
+  },
+  "inheritance": {
+    "mis": [
+      {
+        "w": "He inherited an inheritance from his uncle.",
+        "r": "He received an inheritance from his uncle.",
+        "why": "Inherit đã có nghĩa là nhận thừa kế nên 'inherited an inheritance' bị thừa."
+      },
+      {
+        "w": "She inherited from her father a lot of money.",
+        "r": "She inherited a lot of money from her father.",
+        "why": "Inherit đi với vật ngay sau nó; người để lại đứng sau 'from'."
+      }
+    ],
+    "u": "Inheritance là tiền, tài sản hay đặc điểm nhận từ người đã mất hoặc từ cha mẹ. Người ta receive hoặc leave an inheritance, và có thể phải trả inheritance tax. Động từ là inherit: inherit a house from your grandmother. Trong sinh học, genetic inheritance là đặc điểm truyền qua gen. Trong lập trình, inheritance là khi một lớp nhận các thuộc tính của lớp khác, nghĩa này không liên quan đến cái chết hay tiền bạc."
+  },
+  "inpatient": {
+    "mis": [
+      {
+        "w": "He was treated like an inpatient for a week.",
+        "r": "He was treated as an inpatient for a week.",
+        "why": "Dùng 'as' để nêu vai trò hay tình trạng, 'like' để so sánh."
+      },
+      {
+        "w": "The inpatients was moved to another ward.",
+        "r": "The inpatients were moved to another ward.",
+        "why": "Chủ ngữ số nhiều cần động từ số nhiều: were."
+      }
+    ],
+    "u": "Inpatient là bệnh nhân ở lại bệnh viện qua đêm hoặc lâu hơn trong lúc điều trị, khác với outpatient, người đến khám rồi về trong ngày. Từ này hay dùng như tính từ: inpatient care, an inpatient ward, an inpatient stay. Bệnh nhân được admitted as an inpatient rồi sau đó discharged. Bảo hiểm thường chi trả dịch vụ nội trú và ngoại trú theo cách khác nhau."
+  },
+  "integer": {
+    "mis": [
+      {
+        "w": "The age field must be integer.",
+        "r": "The age field must be an integer.",
+        "why": "Danh từ đếm được số ít cần mạo từ: an integer."
+      },
+      {
+        "w": "Enter a integer between 1 and 10.",
+        "r": "Enter an integer between 1 and 10.",
+        "why": "Dùng 'an' trước âm nguyên âm: an integer."
+      }
+    ],
+    "u": "Integer là số nguyên không có phần thập phân, dương, âm hoặc bằng không, như -4, 0 hay 25. Trong lập trình, integer là kiểu dữ liệu, thường viết tắt int, và integer overflow xảy ra khi giá trị vượt giới hạn. Integer khác với số dấu phẩy động như 3.5. Từ là danh từ và cũng có tính từ integral, nhưng tính từ đó dùng theo nghĩa khác."
+  },
+  "integration": {
+    "mis": [
+      {
+        "w": "We need integration of the app on the CRM.",
+        "r": "We need integration of the app with the CRM.",
+        "why": "Integrate và integration dùng 'with' cho hệ thống được kết nối."
+      },
+      {
+        "w": "The integrations of the two systems is easy.",
+        "r": "The integration of the two systems is easy.",
+        "why": "Ở đây integration là số ít; số nhiều cần động từ số nhiều và nghĩa khác."
+      }
+    ],
+    "u": "Integration là hành động kết hợp các bộ phận hoặc hệ thống riêng lẻ thành một thể thống nhất. Trong CNTT, nghĩa là kết nối phần mềm để trao đổi dữ liệu, ví dụ integration with payment services. Danh từ đi với with hoặc of: the integration of two systems. Trong ngữ cảnh xã hội, nghĩa là đưa các nhóm người hoà nhập, như the integration of immigrants. Động từ là integrate, tính từ là integrated."
+  },
+  "intravenous": {
+    "mis": [
+      {
+        "w": "The patient was given intravenous through a drip.",
+        "r": "The patient was given intravenous fluids through a drip.",
+        "why": "Intravenous là tính từ nên cần danh từ theo sau."
+      },
+      {
+        "w": "The drug is given by intravenously.",
+        "r": "The drug is given intravenously.",
+        "why": "Intravenously là trạng từ nên không cần giới từ 'by'."
+      }
+    ],
+    "u": "Intravenous nghĩa là được đưa trực tiếp vào tĩnh mạch, thường bằng kim hoặc truyền nhỏ giọt, để thuốc hoặc dịch vào máu nhanh. Đây là tính từ; trạng từ là intravenously, và trong bệnh viện thường viết tắt IV. Cụm hay gặp là intravenous fluids và intravenous injection. Trái nghĩa là oral. Tiền tố intra- nghĩa là bên trong, như intramuscular là vào cơ."
+  },
+  "jurisdiction": {
+    "mis": [
+      {
+        "w": "The case is not in our jurisdiction on this matter.",
+        "r": "The case is not within our jurisdiction.",
+        "why": "'Within' hoặc 'under' là giới từ tự nhiên cho phạm vi thẩm quyền."
+      },
+      {
+        "w": "The court has jurisdiction on the dispute.",
+        "r": "The court has jurisdiction over the dispute.",
+        "why": "Jurisdiction đi với 'over' khi nêu đối tượng thuộc quyền."
+      }
+    ],
+    "u": "Jurisdiction là quyền hạn chính thức của toà án hay cơ quan có thẩm quyền ra quyết định pháp lý, và cũng có thể chỉ vùng lãnh thổ nơi quyền đó có hiệu lực. Một vụ án fall within thẩm quyền của toà, và toà has jurisdiction over a dispute. Toà nước ngoài không có thẩm quyền. Từ không đếm được khi nói về quyền hạn, nhưng đếm được khi chỉ các vùng pháp lý khác nhau: different jurisdictions have different laws."
+  },
+  "lawsuit": {
+    "mis": [
+      {
+        "w": "They did a lawsuit against the developer.",
+        "r": "They filed a lawsuit against the developer.",
+        "why": "Cụm cố định là file hoặc bring a lawsuit, không dùng do."
+      },
+      {
+        "w": "He lawsuit the company for fraud.",
+        "r": "He sued the company for fraud.",
+        "why": "Lawsuit là danh từ; động từ là sue."
+      }
+    ],
+    "u": "Lawsuit là vụ kiện do một bên đưa ra toà chống lại bên kia, thường là dân sự nhằm đòi tiền hoặc một lệnh toà. Ta file, bring hoặc settle a lawsuit, và toà có thể dismiss nó. Động từ là sue, người khởi kiện là plaintiff. Lawsuit against a company khác với vụ án hình sự, nơi nhà nước truy tố. Class action lawsuit có nhiều nguyên đơn cùng khởi kiện."
+  },
+  "liquidity": {
+    "mis": [
+      {
+        "w": "The firm has liquid problems this month.",
+        "r": "The firm has liquidity problems this month.",
+        "why": "Dùng danh từ liquidity làm bổ ngữ, không dùng tính từ liquid."
+      },
+      {
+        "w": "Banks must keep enough of liquidity.",
+        "r": "Banks must keep enough liquidity.",
+        "why": "'Enough' đi thẳng với danh từ, không có 'of'."
+      }
+    ],
+    "u": "Liquidity cho biết một tài sản được đổi thành tiền mặt nhanh đến mức nào mà không mất giá. Tiền mặt có tính thanh khoản cao nhất; bất động sản thì không. Doanh nghiệp và ngân hàng cần đủ liquidity để trả nợ ngắn hạn. Từ không đếm được, tính từ là liquid, trái nghĩa là illiquid. Liquidity crisis xảy ra khi công ty không đáp ứng nghĩa vụ dù có thể vẫn có lãi. Khác với solvency, tức khả năng trả nợ dài hạn."
+  },
+  "litigation": {
+    "mis": [
+      {
+        "w": "The company is in a litigation with its supplier.",
+        "r": "The company is in litigation with its supplier.",
+        "why": "Litigation không đếm được nên không dùng mạo từ."
+      },
+      {
+        "w": "They want to avoid litigate over the contract.",
+        "r": "They want to avoid litigation over the contract.",
+        "why": "Sau 'avoid' dùng danh từ hoặc danh động từ; litigate là động từ gốc."
+      }
+    ],
+    "u": "Litigation là quá trình kiện tụng tại toà, từ lúc nộp đơn đến phán quyết cuối cùng. Từ không đếm được và thường xuất hiện trong be involved in litigation, avoid litigation hay pending litigation. Trang trọng hơn lawsuit, vốn chỉ một vụ kiện cụ thể. Động từ là litigate và luật sư xử lý các vụ ra toà là litigator. Nhiều công ty thử hoà giải để tránh litigation tốn kém."
+  },
+  "lubrication": {
+    "mis": [
+      {
+        "w": "The machine needs a lubrication every week.",
+        "r": "The machine needs lubrication every week.",
+        "why": "Lubrication không đếm được nên không dùng 'a'."
+      },
+      {
+        "w": "Lubrication the chain every month.",
+        "r": "Lubricate the chain every month.",
+        "why": "Câu mệnh lệnh cần động từ: lubricate."
+      }
+    ],
+    "u": "Lubrication là việc bôi dầu, mỡ hoặc chất khác giữa các bộ phận chuyển động để giảm ma sát, mài mòn và nhiệt. Nói chung là không đếm được: regular lubrication kéo dài tuổi thọ máy. Động từ là lubricate và chất bôi trơn là lubricant. Lubrication system bơm dầu đến các bộ phận động cơ một cách tự động. Trong lời nói thường ngày, người ta hay nói oil hoặc grease a machine, ít kỹ thuật hơn."
+  },
+  "machining": {
+    "mis": [
+      {
+        "w": "The parts are made by machining of CNC.",
+        "r": "The parts are made by CNC machining.",
+        "why": "Đặt bổ ngữ CNC trước danh từ; 'machining of CNC' không tự nhiên."
+      },
+      {
+        "w": "The factory machining the cast parts.",
+        "r": "The factory machines the cast parts.",
+        "why": "Machining là danh từ hoặc danh động từ; động từ chia là machines."
+      }
+    ],
+    "u": "Machining là quá trình cắt, khoan hay tiện một khối vật liệu, thường là kim loại, đến hình dạng và kích thước chính xác bằng máy công cụ như máy tiện và máy phay. CNC machining do máy tính điều khiển. Từ không đếm được và bóc tách vật liệu, khác với casting hay forging là tạo hình. Động từ là machine, và chi tiết cần machining allowance, tức lượng dư để gia công. Precision machining đạt dung sai rất chặt."
+  },
+  "manufacturing": {
+    "mis": [
+      {
+        "w": "The country has a strong manufacture sector.",
+        "r": "The country has a strong manufacturing sector.",
+        "why": "Dùng danh từ manufacturing trước 'sector'; manufacture là động từ hoặc danh từ khác nghĩa."
+      },
+      {
+        "w": "Many manufacturings are moving to Vietnam.",
+        "r": "Many manufacturers are moving to Vietnam.",
+        "why": "Manufacturing không đếm được; công ty là manufacturers."
+      }
+    ],
+    "u": "Manufacturing là việc sản xuất hàng hoá với số lượng lớn bằng máy móc và nhân công, như manufacturing industry hay sector. Từ không đếm được. Các công ty thực hiện là manufacturers, và động từ là manufacture. Thuật ngữ này bao gồm nhà máy sản xuất mọi thứ từ quần áo đến ô tô. Rộng hơn production, vốn còn có thể chỉ nông nghiệp hay phim, và khác với assembly, chỉ là lắp ráp các chi tiết."
+  }
+}

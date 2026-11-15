@@ -1,0 +1,788 @@
+{
+  "reopen": {
+    "ipaUS": "/riˈoʊpən/",
+    "col": [
+      "reopen for business",
+      "reopen the case",
+      "reopen the debate",
+      "reopen to the public",
+      "reopen next month",
+      "reopen an investigation"
+    ],
+    "syn": [
+      "resume",
+      "restart",
+      "relaunch"
+    ]
+  },
+  "repairperson": {
+    "ipaUS": "/rɪˈperpɜːrsn/",
+    "col": [
+      "call a repairperson",
+      "hire a repairperson",
+      "a qualified repairperson",
+      "appliance repairperson",
+      "send a repairperson",
+      "wait for the repairperson"
+    ],
+    "syn": [
+      "repairer",
+      "fixer",
+      "technician"
+    ]
+  },
+  "reschedule": {
+    "ipaUS": "/riˈskedʒuːl/",
+    "col": [
+      "reschedule a meeting",
+      "reschedule an appointment",
+      "reschedule for next week",
+      "reschedule the flight",
+      "reschedule to Friday",
+      "need to reschedule"
+    ],
+    "syn": [
+      "rearrange",
+      "move",
+      "postpone"
+    ]
+  },
+  "reservation": {
+    "ipaUS": "/ˌrezərˈveɪʃn/",
+    "col": [
+      "make a reservation",
+      "confirm a reservation",
+      "cancel a reservation",
+      "a hotel reservation",
+      "reservation for two",
+      "have reservations about"
+    ],
+    "syn": [
+      "booking",
+      "advance booking"
+    ]
+  },
+  "resume": {
+    "ipaUS": "/ˈrezəmeɪ/",
+    "col": [
+      "submit a resume",
+      "update your resume",
+      "attach a resume",
+      "send a resume",
+      "a one-page resume",
+      "resume and cover letter"
+    ],
+    "syn": [
+      "CV",
+      "curriculum vitae"
+    ]
+  },
+  "reunion": {
+    "ipaUS": "/riˈuːnjən/",
+    "col": [
+      "family reunion",
+      "class reunion",
+      "school reunion",
+      "hold a reunion",
+      "attend a reunion",
+      "an emotional reunion"
+    ],
+    "syn": [
+      "get-together",
+      "gathering",
+      "homecoming"
+    ]
+  },
+  "rider": {
+    "ipaUS": "/ˈraɪdər/",
+    "col": [
+      "bike rider",
+      "bus rider",
+      "horse rider",
+      "motorcycle rider",
+      "experienced rider",
+      "train riders"
+    ],
+    "syn": [
+      "cyclist",
+      "passenger",
+      "commuter"
+    ]
+  },
+  "salespeople": {
+    "ipaUS": "/ˈseɪlzpiːpl/",
+    "col": [
+      "experienced salespeople",
+      "train salespeople",
+      "hire salespeople",
+      "retail salespeople",
+      "top salespeople",
+      "salespeople and customers"
+    ],
+    "syn": [
+      "sales staff",
+      "sales team",
+      "sales representatives"
+    ]
+  },
+  "salesperson": {
+    "ipaUS": "/ˈseɪlzpɜːrsn/",
+    "col": [
+      "a friendly salesperson",
+      "ask a salesperson",
+      "an experienced salesperson",
+      "salesperson on commission",
+      "speak to a salesperson",
+      "a car salesperson"
+    ],
+    "syn": [
+      "sales representative",
+      "sales assistant",
+      "sales clerk"
+    ]
+  },
+  "sender": {
+    "ipaUS": "/ˈsendər/",
+    "col": [
+      "return to sender",
+      "the sender's address",
+      "email sender",
+      "unknown sender",
+      "name of the sender",
+      "reply to the sender"
+    ],
+    "syn": [
+      "dispatcher",
+      "mailer"
+    ]
+  },
+  "shopper": {
+    "ipaUS": "/ˈʃɑːpər/",
+    "col": [
+      "online shopper",
+      "holiday shoppers",
+      "bargain shoppers",
+      "busy shoppers",
+      "shopper loyalty card",
+      "regular shoppers"
+    ],
+    "syn": [
+      "customer",
+      "buyer",
+      "consumer"
+    ]
+  },
+  "shorten": {
+    "ipaUS": "/ˈʃɔːrtn/",
+    "col": [
+      "shorten the list",
+      "shorten your stay",
+      "shorten the process",
+      "shorten a skirt",
+      "shorten the delay",
+      "shorten the name"
+    ],
+    "syn": [
+      "cut",
+      "reduce",
+      "trim",
+      "abbreviate"
+    ]
+  },
+  "shuttle": {
+    "ipaUS": "/ˈʃʌtl/",
+    "col": [
+      "airport shuttle",
+      "shuttle bus",
+      "free shuttle",
+      "shuttle service",
+      "take the shuttle",
+      "shuttle between"
+    ],
+    "syn": [
+      "shuttle bus",
+      "transfer",
+      "minibus"
+    ]
+  },
+  "sightsee": {
+    "ipaUS": "/ˈsaɪtsiː/",
+    "col": [
+      "go sightseeing",
+      "sightsee in Rome",
+      "sightseeing tour",
+      "sightseeing trip",
+      "spend a day sightseeing",
+      "sightsee downtown"
+    ],
+    "syn": [
+      "tour",
+      "explore"
+    ]
+  },
+  "similarity": {
+    "ipaUS": "/ˌsɪməˈlerəti/",
+    "col": [
+      "a striking similarity",
+      "similarities and differences",
+      "bear a similarity to",
+      "similarity between",
+      "share similarities",
+      "a superficial similarity"
+    ],
+    "syn": [
+      "resemblance",
+      "likeness"
+    ]
+  },
+  "sincerely": {
+    "ipaUS": "/sɪnˈsɪrli/",
+    "col": [
+      "sincerely apologize",
+      "sincerely hope",
+      "sincerely thank you",
+      "sincerely yours",
+      "sincerely grateful",
+      "Yours sincerely"
+    ],
+    "syn": [
+      "honestly",
+      "genuinely",
+      "truly"
+    ]
+  },
+  "stationery": {
+    "ipaUS": "/ˈsteɪʃəneri/",
+    "col": [
+      "office stationery",
+      "buy stationery",
+      "stationery supplies",
+      "a stationery shop",
+      "order stationery",
+      "pens and stationery"
+    ],
+    "syn": [
+      "office supplies",
+      "writing materials"
+    ]
+  },
+  "storeroom": {
+    "ipaUS": "/ˈstɔːrruːm/",
+    "col": [
+      "locked storeroom",
+      "storeroom key",
+      "supply storeroom",
+      "clean out the storeroom",
+      "in the storeroom",
+      "storeroom shelves"
+    ],
+    "syn": [
+      "stockroom",
+      "storage room",
+      "supply room"
+    ]
+  },
+  "surname": {
+    "ipaUS": "/ˈsɜːrneɪm/",
+    "col": [
+      "family surname",
+      "spell your surname",
+      "maiden surname",
+      "first name and surname",
+      "common surname",
+      "surname first"
+    ],
+    "syn": [
+      "family name",
+      "last name"
+    ]
+  },
+  "technician": {
+    "ipaUS": "/tekˈnɪʃn/",
+    "col": [
+      "lab technician",
+      "computer technician",
+      "qualified technician",
+      "a technician will call",
+      "service technician",
+      "dental technician"
+    ],
+    "syn": [
+      "engineer",
+      "mechanic",
+      "repairer"
+    ]
+  },
+  "teller": {
+    "ipaUS": "/ˈtelər/",
+    "col": [
+      "bank teller",
+      "teller window",
+      "head teller",
+      "speak to a teller",
+      "fortune teller",
+      "storyteller"
+    ],
+    "syn": [
+      "cashier",
+      "bank clerk",
+      "counter clerk"
+    ]
+  },
+  "tow": {
+    "ipaUS": "/toʊ/",
+    "col": [
+      "tow a car",
+      "tow away",
+      "tow truck",
+      "tow a trailer",
+      "towed at the owner's expense",
+      "get towed"
+    ],
+    "syn": [
+      "haul",
+      "drag",
+      "pull"
+    ]
+  },
+  "translator": {
+    "ipaUS": "/trænˈsleɪtər/",
+    "col": [
+      "a professional translator",
+      "hire a translator",
+      "translator and interpreter",
+      "legal translator",
+      "translator from Japanese",
+      "machine translator"
+    ],
+    "syn": [
+      "interpreter",
+      "linguist"
+    ]
+  },
+  "troubleshoot": {
+    "ipaUS": "/ˈtrʌbəlʃuːt/",
+    "col": [
+      "troubleshoot a problem",
+      "troubleshoot the network",
+      "troubleshoot an error",
+      "troubleshoot step by step",
+      "troubleshoot the printer",
+      "troubleshoot and repair"
+    ],
+    "syn": [
+      "diagnose",
+      "debug",
+      "fix"
+    ]
+  },
+  "unavailable": {
+    "ipaUS": "/ˌʌnəˈveɪləbl/",
+    "col": [
+      "currently unavailable",
+      "unavailable for comment",
+      "unavailable until Friday",
+      "temporarily unavailable",
+      "unavailable at the moment",
+      "the product is unavailable"
+    ],
+    "syn": [
+      "unobtainable",
+      "out of stock",
+      "busy"
+    ]
+  },
+  "uncomfortable": {
+    "ipaUS": "/ʌnˈkʌmfərtəbl/",
+    "col": [
+      "uncomfortable chair",
+      "feel uncomfortable",
+      "uncomfortable silence",
+      "an uncomfortable position",
+      "uncomfortable with",
+      "slightly uncomfortable"
+    ],
+    "syn": [
+      "awkward",
+      "uneasy",
+      "painful"
+    ]
+  },
+  "underline": {
+    "ipaUS": "/ˈʌndərlaɪn/",
+    "col": [
+      "underline a word",
+      "underline the key points",
+      "underline in red",
+      "underline the importance",
+      "underline the need for",
+      "double underline"
+    ],
+    "syn": [
+      "emphasize",
+      "stress",
+      "highlight"
+    ]
+  },
+  "unemployed": {
+    "ipaUS": "/ˌʌnɪmˈplɔɪd/",
+    "col": [
+      "the unemployed",
+      "unemployed workers",
+      "long-term unemployed",
+      "become unemployed",
+      "unemployed graduates",
+      "unemployed since"
+    ],
+    "syn": [
+      "jobless",
+      "out of work"
+    ]
+  },
+  "unload": {
+    "ipaUS": "/ʌnˈloʊd/",
+    "col": [
+      "unload a truck",
+      "unload the boxes",
+      "unload cargo",
+      "unload the dishwasher",
+      "unload from the ship",
+      "unload passengers"
+    ],
+    "syn": [
+      "empty",
+      "discharge",
+      "offload"
+    ]
+  },
+  "unnecessary": {
+    "ipaUS": "/ʌnˈnesəseri/",
+    "col": [
+      "unnecessary expenses",
+      "unnecessary delay",
+      "completely unnecessary",
+      "avoid unnecessary risk",
+      "unnecessary for",
+      "unnecessary to mention"
+    ],
+    "syn": [
+      "needless",
+      "superfluous",
+      "redundant"
+    ]
+  },
+  "unpaid": {
+    "ipaUS": "/ʌnˈpeɪd/",
+    "col": [
+      "unpaid leave",
+      "unpaid bills",
+      "unpaid work",
+      "unpaid internship",
+      "unpaid overtime",
+      "unpaid invoice"
+    ],
+    "syn": [
+      "outstanding",
+      "overdue",
+      "voluntary"
+    ]
+  },
+  "unpleasant": {
+    "ipaUS": "/ʌnˈplezənt/",
+    "col": [
+      "unpleasant experience",
+      "unpleasant smell",
+      "unpleasant surprise",
+      "unpleasant task",
+      "unpleasant weather",
+      "unpleasant to deal with"
+    ],
+    "syn": [
+      "disagreeable",
+      "nasty",
+      "distasteful"
+    ]
+  },
+  "unplug": {
+    "ipaUS": "/ʌnˈplʌɡ/",
+    "col": [
+      "unplug the cable",
+      "unplug the charger",
+      "unplug the machine",
+      "unplug from the wall",
+      "unplug before cleaning",
+      "unplug the TV"
+    ],
+    "syn": [
+      "disconnect",
+      "switch off at the wall"
+    ]
+  },
+  "unsure": {
+    "ipaUS": "/ˌʌnˈʃʊr/",
+    "col": [
+      "unsure about",
+      "unsure whether",
+      "unsure of yourself",
+      "feel unsure",
+      "unsure what to do",
+      "still unsure"
+    ],
+    "syn": [
+      "uncertain",
+      "doubtful",
+      "hesitant"
+    ]
+  },
+  "unused": {
+    "ipaUS": "/ʌnˈjuːzd/",
+    "col": [
+      "unused vacation days",
+      "unused tickets",
+      "remain unused",
+      "unused space",
+      "unused to",
+      "largely unused"
+    ],
+    "syn": [
+      "spare",
+      "idle",
+      "untouched"
+    ]
+  },
+  "walkway": {
+    "ipaUS": "/ˈwɔːkweɪ/",
+    "col": [
+      "covered walkway",
+      "pedestrian walkway",
+      "keep the walkway clear",
+      "narrow walkway",
+      "block the walkway",
+      "walkway between buildings"
+    ],
+    "syn": [
+      "footpath",
+      "pathway",
+      "passage"
+    ]
+  },
+  "wheelchair": {
+    "ipaUS": "/ˈwiːltʃer/",
+    "col": [
+      "in a wheelchair",
+      "wheelchair user",
+      "wheelchair accessible",
+      "wheelchair ramp",
+      "electric wheelchair",
+      "push a wheelchair"
+    ],
+    "syn": [
+      "mobility chair",
+      "wheeled chair"
+    ]
+  },
+  "wireless": {
+    "ipaUS": "/ˈwaɪrləs/",
+    "col": [
+      "wireless internet",
+      "wireless network",
+      "wireless connection",
+      "wireless headphones",
+      "wireless mouse",
+      "go wireless"
+    ],
+    "syn": [
+      "cordless",
+      "Wi-Fi",
+      "remote"
+    ]
+  },
+  "worldwide": {
+    "ipaUS": "/ˈwɜːrldwaɪd/",
+    "col": [
+      "worldwide shipping",
+      "worldwide fame",
+      "sell worldwide",
+      "worldwide web",
+      "a worldwide trend",
+      "available worldwide"
+    ],
+    "syn": [
+      "global",
+      "international",
+      "universal"
+    ]
+  },
+  "yearly": {
+    "ipaUS": "/ˈjɪrli/",
+    "col": [
+      "yearly review",
+      "yearly salary",
+      "yearly fee",
+      "yearly meeting",
+      "pay yearly",
+      "yearly checkup"
+    ],
+    "syn": [
+      "annual",
+      "once a year",
+      "every year"
+    ]
+  },
+  "agile": {
+    "ipaUS": "/ˈædʒl/",
+    "col": [
+      "agile development",
+      "agile team",
+      "agile methodology",
+      "agile framework",
+      "agile project management",
+      "agile approach"
+    ],
+    "syn": [
+      "flexible",
+      "adaptive",
+      "iterative"
+    ]
+  },
+  "anesthesia": {
+    "ipaUS": "/ˌænəsˈθiːʒə/",
+    "col": [
+      "general anesthesia",
+      "local anesthesia",
+      "under anesthesia",
+      "administer anesthesia",
+      "epidural anesthesia",
+      "recover from anesthesia"
+    ],
+    "syn": [
+      "sedation",
+      "anaesthesia"
+    ]
+  },
+  "antibiotic": {
+    "ipaUS": "/ˌæntibaɪˈɑːtɪk/",
+    "col": [
+      "take antibiotics",
+      "a course of antibiotics",
+      "prescribe antibiotics",
+      "antibiotic resistance",
+      "broad-spectrum antibiotic",
+      "antibiotic treatment"
+    ],
+    "syn": [
+      "antibacterial",
+      "medication"
+    ]
+  },
+  "antibody": {
+    "ipaUS": "/ˈæntɪbɑːdi/",
+    "col": [
+      "produce antibodies",
+      "antibody test",
+      "detect antibodies",
+      "antibody response",
+      "antibodies against",
+      "develop antibodies"
+    ],
+    "syn": [
+      "immunoglobulin",
+      "immune protein"
+    ]
+  },
+  "arbitration": {
+    "ipaUS": "/ˌɑːrbɪˈtreɪʃn/",
+    "col": [
+      "go to arbitration",
+      "binding arbitration",
+      "settle by arbitration",
+      "arbitration clause",
+      "arbitration panel",
+      "submit to arbitration"
+    ],
+    "syn": [
+      "mediation",
+      "adjudication",
+      "settlement"
+    ]
+  },
+  "authentication": {
+    "ipaUS": "/ɔːˌθentɪˈkeɪʃn/",
+    "col": [
+      "two-factor authentication",
+      "user authentication",
+      "authentication code",
+      "require authentication",
+      "authentication failed",
+      "multi-factor authentication"
+    ],
+    "syn": [
+      "verification",
+      "identity check",
+      "validation"
+    ]
+  },
+  "backlog": {
+    "ipaUS": "/ˈbæklɑːɡ/",
+    "col": [
+      "a backlog of work",
+      "clear the backlog",
+      "product backlog",
+      "sprint backlog",
+      "build up a backlog",
+      "backlog of orders"
+    ],
+    "syn": [
+      "pile-up",
+      "accumulation",
+      "queue"
+    ]
+  },
+  "bearing": {
+    "ipaUS": "/ˈberɪŋ/",
+    "col": [
+      "ball bearing",
+      "wheel bearing",
+      "worn bearing",
+      "bearing on",
+      "lubricate the bearing",
+      "bearing failure"
+    ],
+    "syn": [
+      "bush",
+      "support part"
+    ]
+  },
+  "benchmark": {
+    "ipaUS": "/ˈbentʃmɑːrk/",
+    "col": [
+      "industry benchmark",
+      "set a benchmark",
+      "benchmark against",
+      "performance benchmark",
+      "exceed the benchmark",
+      "benchmark for quality"
+    ],
+    "syn": [
+      "standard",
+      "yardstick",
+      "reference point"
+    ]
+  },
+  "binary": {
+    "ipaUS": "/ˈbaɪnəri/",
+    "col": [
+      "binary code",
+      "binary system",
+      "in binary",
+      "binary number",
+      "binary file",
+      "binary choice"
+    ],
+    "syn": [
+      "two-part",
+      "dual",
+      "base-two"
+    ]
+  }
+}

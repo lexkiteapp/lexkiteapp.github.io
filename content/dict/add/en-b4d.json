@@ -1,0 +1,752 @@
+{
+  "wholesale": {
+    "mis": [
+      {
+        "w": "They sell goods in wholesale to small shops.",
+        "r": "They sell goods wholesale to small shops.",
+        "why": "Here wholesale is an adverb meaning in large quantities, so it takes no preposition."
+      },
+      {
+        "w": "She works for a wholesales company.",
+        "r": "She works for a wholesale company.",
+        "why": "Wholesale is an adjective and never takes an -s before a noun."
+      }
+    ],
+    "u": "Wholesale describes selling goods in large amounts, usually to shops rather than to the public; the opposite is retail. It works as an adjective (wholesale price), an adverb (buy wholesale) and, less often, a noun. Wholesalers get lower unit prices because they buy in bulk. In news writing it also means sweeping or total: a wholesale reform means a complete overhaul, often with a critical tone."
+  },
+  "wiring": {
+    "mis": [
+      {
+        "w": "The building has very old wirings.",
+        "r": "The building has very old wiring.",
+        "why": "Wiring is an uncountable noun, so it has no plural form."
+      },
+      {
+        "w": "The wiring in the kitchen are faulty.",
+        "r": "The wiring in the kitchen is faulty.",
+        "why": "The subject is the singular uncountable noun wiring, so the verb must be is, not are."
+      }
+    ],
+    "u": "Wiring means the whole system of electrical wires inside a building, vehicle or machine. It is uncountable, so you say faulty wiring, not a wiring or wirings. Electricians talk about rewiring a house when they replace old cables, and fires are often blamed on bad wiring. A single piece is a wire. The word is practical and technical, common in building, safety and insurance contexts."
+  },
+  "aisle": {
+    "mis": [
+      {
+        "w": "Cleaning products are in isle five.",
+        "r": "Cleaning products are in aisle five.",
+        "why": "Isle means a small island; the passage between shelves or seats is spelled aisle, with a silent s."
+      },
+      {
+        "w": "The shampoo is at aisle seven.",
+        "r": "The shampoo is in aisle seven.",
+        "why": "An aisle is a narrow space you stand inside, so it takes in, not at."
+      }
+    ],
+    "u": "An aisle is a passage between rows of shelves in a shop or seats in a plane, church or theatre. The spelling is tricky because it sounds exactly like isle (island) and I'll. Supermarkets number their aisles, and on planes you choose between an aisle seat and a window seat. Walk down the aisle also means to get married, since brides walk along the church aisle."
+  },
+  "amuse": {
+    "mis": [
+      {
+        "w": "I am amusing by his jokes.",
+        "r": "I am amused by his jokes.",
+        "why": "Use the -ed adjective for the person who feels the emotion, and the -ing form for the thing causing it."
+      },
+      {
+        "w": "The film was very amused.",
+        "r": "The film was very amusing.",
+        "why": "A film causes the feeling, so it needs the -ing adjective amusing, not amused."
+      }
+    ],
+    "u": "Amuse means to make someone smile, laugh or stay entertained. It is gentler than entertain and often suggests light, harmless fun. The pair amused and amusing follows the usual rule: you are amused by a joke, and the joke is amusing. Be amused at or by something is common. Amuse yourself means find ways to pass time, for example while waiting. Amusing is lighter than hilarious."
+  },
+  "annoy": {
+    "mis": [
+      {
+        "w": "I was annoyed for the noise.",
+        "r": "I was annoyed by the noise.",
+        "why": "After annoyed, use by or at for a thing and with for a person; for is not used."
+      },
+      {
+        "w": "The long delay was very annoyed.",
+        "r": "The long delay was very annoying.",
+        "why": "The delay causes the feeling, so use the -ing adjective annoying, not annoyed."
+      }
+    ],
+    "u": "Annoy means to make someone slightly angry or impatient. It is milder than anger or infuriate and used for everyday irritations such as noise or delays. The adjectives differ: a person is annoyed, a thing is annoying. Prepositions matter too: annoyed with a person, annoyed at or by an event. Irritate and bother are close; annoy is the most common in speech and fits both informal and polite writing."
+  },
+  "anyhow": {
+    "mis": [
+      {
+        "w": "I'm not sure, but I will try any how.",
+        "r": "I'm not sure, but I will try anyhow.",
+        "why": "The adverb is written as one word, anyhow, not as two separate words."
+      },
+      {
+        "w": "The meeting was cancelled, but we anyhow went.",
+        "r": "The meeting was cancelled, but we went anyhow.",
+        "why": "Anyhow usually goes at the end or start of a clause, not between the subject and the verb."
+      }
+    ],
+    "u": "Anyhow is an informal adverb close to anyway. It changes the subject back or shows that something happens despite difficulty: Anyhow, let's start. In British English it can also mean carelessly, as in the books were thrown down anyhow. In formal writing choose nevertheless or in any case instead. Both anyhow and anyway are fine in speech; anyway is the safer, more widely used form."
+  },
+  "assignment": {
+    "mis": [
+      {
+        "w": "I must make my assignment before Friday.",
+        "r": "I must do my assignment before Friday.",
+        "why": "The collocation is do or complete an assignment; make is not used for tasks given by teachers."
+      },
+      {
+        "w": "The teacher gave us many assignment.",
+        "r": "The teacher gave us many assignments.",
+        "why": "Here assignment is countable, so after many it needs the plural -s."
+      }
+    ],
+    "u": "An assignment is a task given to someone, usually by a teacher or a manager. At school it is work you hand in, like an essay; at work it can be a project or a posting, such as an overseas assignment. It is countable. Typical verbs are complete, submit and hand in, while do is used for homework. Task is broader, and homework is uncountable."
+  },
+  "athletic": {
+    "mis": [
+      {
+        "w": "He is an athletic who trains every day.",
+        "r": "He is an athlete who trains every day.",
+        "why": "Athletic is an adjective; the person who competes in sports is an athlete."
+      },
+      {
+        "w": "She bought new athletics shoes.",
+        "r": "She bought new athletic shoes.",
+        "why": "Before a noun use the adjective athletic; athletics is a noun for track and field."
+      }
+    ],
+    "u": "Athletic describes things connected with sports or people who are strong, fit and good at physical activity. It often appears before a noun: athletic shoes, athletic build. Do not confuse the forms: an athlete is the person, and athletics means track-and-field in British English, or sports generally in American use. Sporty is more casual, while athletic can suggest natural ability or a lean, muscular body."
+  },
+  "attendant": {
+    "mis": [
+      {
+        "w": "Over three hundred attendants joined the seminar.",
+        "r": "Over three hundred attendees joined the seminar.",
+        "why": "An attendant is a staff member who serves; people who attend an event are attendees."
+      },
+      {
+        "w": "Please sign the attendant sheet at the door.",
+        "r": "Please sign the attendance sheet at the door.",
+        "why": "Attendance is the noun for being present; attendant refers to a person."
+      }
+    ],
+    "u": "An attendant is a person whose job is to help or serve the public in a particular place: a flight attendant, a parking attendant, a museum attendant. Do not mix it up with attendee (someone who attends a meeting) or attendance (being present, or the number present). The word is neutral and common in job titles. Steward is used for aircraft or ships, and server for restaurants."
+  },
+  "bake": {
+    "mis": [
+      {
+        "w": "My mother is baking bread in the stove.",
+        "r": "My mother is baking bread in the oven.",
+        "why": "Baking happens in an oven; a stove is the hob where pots and pans are heated."
+      },
+      {
+        "w": "The bread is baken fresh every morning.",
+        "r": "The bread is baked fresh every morning.",
+        "why": "Bake is a regular verb, so its past participle is baked, not baken."
+      }
+    ],
+    "u": "Bake means to cook food with dry heat in an oven, mainly bread, cakes and pastry. Roast is used for meat and vegetables and stresses browning, while fry uses oil in a pan. The verb is regular: baked, baked. Words like baker, bakery and baked goods come from it. Bake can also describe very hot weather: it is baking outside, an informal exaggeration."
+  },
+  "ballroom": {
+    "mis": [
+      {
+        "w": "She teaches ball dancing at a studio.",
+        "r": "She teaches ballroom dancing at a studio.",
+        "why": "The fixed name of this dance style is ballroom dancing; translating word for word gives a wrong phrase."
+      },
+      {
+        "w": "The reception is on the hotel ballroom.",
+        "r": "The reception is in the hotel ballroom.",
+        "why": "A ballroom is a room you are inside, so use in, not on."
+      }
+    ],
+    "u": "A ballroom is a very large room in a hotel or big house, used for dances, banquets, weddings and conferences. It gives its name to ballroom dancing, the formal partner dances such as waltz and tango. In business English, hotels advertise a grand ballroom for events. Banquet hall is similar but stresses meals, while function room is the usual British term for a smaller event space."
+  },
+  "battery": {
+    "mis": [
+      {
+        "w": "My laptop's battery is finished.",
+        "r": "My laptop's battery has run out.",
+        "why": "In English a battery runs out or goes dead; finished is a word-for-word translation of the idea of being used up."
+      },
+      {
+        "w": "Please buy two battery for the remote.",
+        "r": "Please buy two batteries for the remote.",
+        "why": "Battery is countable, and nouns ending in consonant plus y change to -ies in the plural."
+      }
+    ],
+    "u": "A battery is a device that stores chemical energy and supplies electricity to phones, cars, toys and remote controls. It is countable: two batteries. Typical problems are described with dead battery, flat battery (British) or low battery. A battery lasts, drains or runs out, and you charge a rechargeable one. Battery life is how long a device works on one charge. In law, battery also means a physical attack."
+  },
+  "beverage": {
+    "mis": [
+      {
+        "w": "She drank a beverage of orange juice.",
+        "r": "She drank a glass of orange juice.",
+        "why": "Beverage names a whole category of drinks, so it cannot be a measure like glass or cup."
+      },
+      {
+        "w": "Hot and cold beverage are available in the lobby.",
+        "r": "Hot and cold beverages are available in the lobby.",
+        "why": "When listing different kinds of drinks, beverage is countable and needs the plural -s."
+      }
+    ],
+    "u": "Beverage is a formal word for any drink and appears on menus, labels and in business: the food and beverage industry, a beverage service. In everyday speech people simply say drink. It is countable when you mean kinds of drinks (hot beverages) and usually refers to liquids other than water. Airlines and hotels use it for tea, coffee and soft drinks offered to guests."
+  },
+  "browse": {
+    "mis": [
+      {
+        "w": "Customers can browse about our catalogue online.",
+        "r": "Customers can browse through our catalogue online.",
+        "why": "Browse takes through (or no preposition), not about, when you look over items casually."
+      },
+      {
+        "w": "You can browsing our website at any time.",
+        "r": "You can browse our website at any time.",
+        "why": "After a modal verb such as can, use the base form of the verb."
+      }
+    ],
+    "u": "Browse means to look through things in a relaxed way, without a clear aim to buy or find one item. In shops it is what customers do before choosing: I'm just browsing. Online, you browse a website or the web. Typical pattern: browse through a catalogue or browse the shelves. It differs from search, which has a specific target, and from read, which is deeper and slower."
+  },
+  "ceiling": {
+    "mis": [
+      {
+        "w": "There is a lamp on the roof of the living room.",
+        "r": "There is a lamp on the ceiling of the living room.",
+        "why": "The roof is the outside covering of a building; the inside top surface of a room is the ceiling."
+      },
+      {
+        "w": "The government set a ceiling to rent prices.",
+        "r": "The government set a ceiling on rent prices.",
+        "why": "The collocation is a ceiling on something, meaning an upper limit placed on it."
+      }
+    ],
+    "u": "The ceiling is the flat surface above you inside a room, so people hang lights and fans from it. Do not confuse it with roof, which is the outer covering of a building. Ceiling also means an upper limit, such as a price ceiling or a debt ceiling, often with set a ceiling on something. The glass ceiling is an invisible barrier that stops some groups, often women, from reaching top jobs."
+  },
+  "checkup": {
+    "mis": [
+      {
+        "w": "I did a health checkup yesterday.",
+        "r": "I had a health checkup yesterday.",
+        "why": "The natural verb with checkup is have, get or go for, not do."
+      },
+      {
+        "w": "I have a checkup on the hospital tomorrow.",
+        "r": "I have a checkup at the hospital tomorrow.",
+        "why": "Use at for a place seen as a point of service, such as at the hospital."
+      }
+    ],
+    "u": "A checkup is a general medical or dental examination done to make sure you are healthy, not because you feel ill. It is a countable noun written as one word; the verb phrase is check up (on someone). In American English a checkup is also called a physical. Common patterns: have an annual checkup, go for a checkup, get a checkup. Employers often pay for staff health checkups."
+  },
+  "chilly": {
+    "mis": [
+      {
+        "w": "It was a chilly morning, so I felt chill.",
+        "r": "It was a chilly morning, so I felt chilly.",
+        "why": "Feel is followed by an adjective, and the adjective meaning slightly cold is chilly, not chill."
+      },
+      {
+        "w": "I added a spoon of chilly to the soup.",
+        "r": "I added a spoon of chilli to the soup.",
+        "why": "Chilly means cold; the spicy pepper is spelled chilli (UK) or chili (US)."
+      }
+    ],
+    "u": "Chilly describes weather or places that are uncomfortably cool but not freezing: a chilly morning, a chilly wind. It sits between cool and cold, and people also use it for how they feel: I feel chilly. Figuratively, a chilly reception means an unfriendly welcome. Do not mix it up with chilli or chili, the hot pepper, or with the verb chill, meaning to relax or cool down."
+  },
+  "clue": {
+    "mis": [
+      {
+        "w": "The police found a clue of the murderer.",
+        "r": "The police found a clue to the murderer.",
+        "why": "The usual pattern is a clue to something, meaning information that helps explain it."
+      },
+      {
+        "w": "I have no clue what is the answer.",
+        "r": "I have no clue what the answer is.",
+        "why": "Inside an embedded question use statement word order: what the answer is, not what is the answer."
+      }
+    ],
+    "u": "A clue is a piece of information that helps you find an answer or solve a mystery, used by detectives, crossword solvers and teachers. The pattern is a clue to something, or a clue as to why. In speech, I have no clue is a very common informal way to say I don't know. A hint is gentler and given on purpose, while a lead is a clue worth following."
+  },
+  "community": {
+    "mis": [
+      {
+        "w": "He is a member in the local community.",
+        "r": "He is a member of the local community.",
+        "why": "The correct preposition after member is of, not in."
+      },
+      {
+        "w": "Technology is changing the community very fast.",
+        "r": "Technology is changing society very fast.",
+        "why": "Community means a specific group or area; society is the whole of people in a country or the world."
+      }
+    ],
+    "u": "Community means the people living in one area, or a group sharing an interest, religion or job: the local community, the business community. It is countable and can take a singular or plural verb in British English. The idea of belonging is expressed as a sense of community. Community is smaller and more personal than society, which means people in general. Community service is unpaid work for the public good."
+  },
+  "contestant": {
+    "mis": [
+      {
+        "w": "Three contestants participated at the show.",
+        "r": "Three contestants participated in the show.",
+        "why": "The verb participate takes in, not at, before the event."
+      },
+      {
+        "w": "The contester answered every question correctly.",
+        "r": "The contestant answered every question correctly.",
+        "why": "The person who takes part in a contest is a contestant, not a contester."
+      }
+    ],
+    "u": "A contestant is a person who takes part in a competition, especially a game show, talent show or beauty pageant. The word is used for organised contests with judges or rules and a prize. Competitor is broader and common in sport and business, while entrant stresses that someone entered. Contest as a noun is the competition itself, and as a verb it means to dispute a result."
+  },
+  "crane": {
+    "mis": [
+      {
+        "w": "They used a crane for lift the heavy container.",
+        "r": "They used a crane to lift the heavy container.",
+        "why": "Use to plus the base verb to express purpose, not for plus a bare verb."
+      },
+      {
+        "w": "Two crane stood by the river, looking for fish.",
+        "r": "Two cranes stood by the river, looking for fish.",
+        "why": "Two requires a plural countable noun, so the bird noun needs -s."
+      }
+    ],
+    "u": "Crane has two unrelated meanings. It is a tall machine with a long arm used on building sites and at ports to lift heavy loads, driven by a crane operator. It is also a large bird with long legs and a long neck, linked with wetlands and, in Asian cultures, with long life. The verb to crane your neck means to stretch forward to see something."
+  },
+  "daytime": {
+    "mis": [
+      {
+        "w": "She works at daytime and studies at night.",
+        "r": "She works during the daytime and studies at night.",
+        "why": "Use during or in the daytime; at is used only for fixed points like at night."
+      },
+      {
+        "w": "Daytimes temperatures can reach thirty-five degrees.",
+        "r": "Daytime temperatures can reach thirty-five degrees.",
+        "why": "A noun used before another noun stays singular, so daytime has no -s here."
+      }
+    ],
+    "u": "Daytime is the period when it is light, between sunrise and sunset. It contrasts with nighttime. It usually appears before a noun as daytime temperatures, a daytime job or daytime television, or after in or during. Note the prepositions: during the daytime, but at night. Day on its own can mean 24 hours, but daytime refers only to the light hours."
+  },
+  "decorate": {
+    "mis": [
+      {
+        "w": "We decorated the hall by balloons and flowers.",
+        "r": "We decorated the hall with balloons and flowers.",
+        "why": "Use with, not by, for the materials used to decorate something."
+      },
+      {
+        "w": "They are decorating for the hall for the party.",
+        "r": "They are decorating the hall for the party.",
+        "why": "Decorate is transitive and takes a direct object without for."
+      }
+    ],
+    "u": "Decorate means to make a place or object look more attractive by adding things like paint, flowers or lights: decorate a room, decorate a cake. It takes with for the materials: decorate the hall with balloons. In British English, decorate also means to paint or wallpaper a house. A decorator is the person who does this, and a decoration is the item added. It can also mean to award a medal to someone."
+  },
+  "deluxe": {
+    "mis": [
+      {
+        "w": "The suite was very deluxe.",
+        "r": "The suite was very luxurious.",
+        "why": "Deluxe labels a product grade and is not used as a gradable adjective with very; luxurious is the descriptive word."
+      },
+      {
+        "w": "We stayed in a delux room.",
+        "r": "We stayed in a deluxe room.",
+        "why": "The word is spelled deluxe, ending in -xe."
+      }
+    ],
+    "u": "Deluxe means of higher quality or more luxurious than the standard version. It appears mainly in marketing: a deluxe room, a deluxe edition, a deluxe package. It labels a product category rather than describing a feeling, so luxurious is the better word in normal description. The spelling comes from French, de luxe. Premium is similar, while upmarket describes shops or products aimed at wealthy buyers."
+  },
+  "device": {
+    "mis": [
+      {
+        "w": "A smartphone is a useful device for communicate.",
+        "r": "A smartphone is a useful device for communicating.",
+        "why": "After the preposition for, the verb takes the -ing form."
+      },
+      {
+        "w": "The new devise saves a lot of energy.",
+        "r": "The new device saves a lot of energy.",
+        "why": "The noun is spelled device with c; devise with s is the verb meaning to invent."
+      }
+    ],
+    "u": "A device is an object made for a particular job, usually small and often electronic: a mobile device, a safety device, a storage device. It is a countable noun, and the verb form is spelled devise: to devise a plan. Gadget is informal and suggests a clever little machine, while appliance is used for household machines like fridges. Device is the common neutral choice in technical writing."
+  },
+  "disconnect": {
+    "mis": [
+      {
+        "w": "The line was disconnect, so I called again.",
+        "r": "The line was disconnected, so I called again.",
+        "why": "After was, use the past participle disconnected to describe the state."
+      },
+      {
+        "w": "Disconnect the printer to the computer first.",
+        "r": "Disconnect the printer from the computer first.",
+        "why": "Disconnect takes from, not to, for the thing you separate something from."
+      }
+    ],
+    "u": "Disconnect means to break the link between two things, such as a device and a power supply, or between you and a service. The usual pattern is disconnect A from B. A call can be disconnected when the line drops, and a customer is disconnected if the company cuts the service. Unplug is the everyday word for electrical plugs, while disconnect is also used for networks, calls and utilities."
+  },
+  "discovery": {
+    "mis": [
+      {
+        "w": "He made an important discovering last year.",
+        "r": "He made an important discovery last year.",
+        "why": "The noun is discovery; discovering is the -ing form of the verb."
+      },
+      {
+        "w": "The discovery of the tomb was made on 1922.",
+        "r": "The discovery of the tomb was made in 1922.",
+        "why": "Use in before a year, not on."
+      }
+    ],
+    "u": "A discovery is the act of finding something that was not known before, or the thing found: the discovery of penicillin. It is countable and often follows make: make a discovery. Invention is different, because it creates something new rather than finding something that already existed. Scientists announce a discovery, explorers make one, and in everyday life you can have a pleasant discovery such as a new cafe."
+  },
+  "drill": {
+    "mis": [
+      {
+        "w": "Please drill a hole on the wall.",
+        "r": "Please drill a hole in the wall.",
+        "why": "A hole goes into the wall, so use in; on would mean the surface only."
+      },
+      {
+        "w": "We made a fire drill every month.",
+        "r": "We held a fire drill every month.",
+        "why": "The natural verbs with drill are hold or carry out; make is not used for planned exercises."
+      }
+    ],
+    "u": "Drill has two main uses. As a noun it is a tool for making holes, often a power drill, and as a verb you drill a hole in a wall. It also means a practice exercise: a fire drill trains people to leave a building safely, and language classes use grammar drills for repetition. Schools and companies hold or carry out drills. The sense of repeating until automatic links both meanings."
+  },
+  "ferry": {
+    "mis": [
+      {
+        "w": "We went to the island by a ferry.",
+        "r": "We went to the island by ferry.",
+        "why": "In by + means of transport, the noun has no article."
+      },
+      {
+        "w": "The ferrys leave every hour.",
+        "r": "The ferries leave every hour.",
+        "why": "Nouns ending in consonant plus y change y to ies in the plural."
+      }
+    ],
+    "u": "A ferry is a boat or ship that regularly carries passengers, and often cars, across a river, a bay or a short stretch of sea. You travel by ferry, but take a ferry or catch the ferry for a specific trip. The plural is ferries. A car ferry carries vehicles, and a ferry terminal is the port building. As a verb, to ferry means to carry people repeatedly from place to place."
+  },
+  "fry": {
+    "mis": [
+      {
+        "w": "She fryed the eggs in a little oil.",
+        "r": "She fried the eggs in a little oil.",
+        "why": "Verbs ending in consonant plus y change y to ied in the past tense."
+      },
+      {
+        "w": "Do not fry the food in too much oils.",
+        "r": "Do not fry the food in too much oil.",
+        "why": "Oil is uncountable when it means cooking fat, so much oil, not oils."
+      }
+    ],
+    "u": "Fry means to cook food in hot oil or fat in a pan. Deep fry uses a lot of oil so that the food is covered, while stir-fry means cooking small pieces quickly while moving them. Sear and pan-fry use little oil and are more technical. Fry is regular: fries, fried. Remember that fry is dry-heat cooking in fat, whereas boil uses water and bake uses an oven. Fried rice and french fries come from it."
+  },
+  "glove": {
+    "mis": [
+      {
+        "w": "She bought a new glove for the winter.",
+        "r": "She bought a new pair of gloves for the winter.",
+        "why": "Gloves come in pairs, so use a pair of gloves or the plural."
+      },
+      {
+        "w": "These gloves is too small for me.",
+        "r": "These gloves are too small for me.",
+        "why": "Gloves is plural, so the verb must be are."
+      }
+    ],
+    "u": "A glove is a covering for the hand with separate parts for each finger, worn for warmth, protection or sport. Gloves are almost always spoken about in pairs: a pair of gloves. Common types are leather gloves, rubber gloves for cleaning, an oven glove and boxing gloves. A mitten has one space for four fingers, so it is warmer. The idiom fits like a glove means fits perfectly."
+  },
+  "goods": {
+    "mis": [
+      {
+        "w": "The goods is delivered to the customer today.",
+        "r": "The goods are delivered to the customer today.",
+        "why": "In this meaning goods is always plural and takes a plural verb."
+      },
+      {
+        "w": "We ship the good by sea every week.",
+        "r": "We ship the goods by sea every week.",
+        "why": "Items for sale are called goods, which has no singular form in this meaning."
+      }
+    ],
+    "u": "Goods means things that are made to be sold, such as clothes, tools or food. It is always plural in this meaning and takes a plural verb: the goods are ready. There is no singular, so use item or product for one thing. Goods contrasts with services, and the pair goods and services is standard in economics. Deliver the goods is also an idiom for doing what was promised."
+  },
+  "gymnasium": {
+    "mis": [
+      {
+        "w": "She practices gymnasium every day after school.",
+        "r": "She practices gymnastics every day after school.",
+        "why": "Gymnasium is a place; the sport is called gymnastics."
+      },
+      {
+        "w": "Please wear sports shoes when you enter in the gymnasium.",
+        "r": "Please wear sports shoes when you enter the gymnasium.",
+        "why": "Enter is transitive in this meaning and takes no preposition."
+      }
+    ],
+    "u": "A gymnasium is a large room or building equipped for sports and exercise. In everyday speech it is shortened to gym. In American schools it is the hall used for basketball and assemblies; in British English it is more often a sports hall. Do not confuse it with gymnastics, the sport. In some European countries, gymnasium is a type of secondary school, which is a different meaning entirely."
+  },
+  "icy": {
+    "mis": [
+      {
+        "w": "The roads were ice this morning, so drive slowly.",
+        "r": "The roads were icy this morning, so drive slowly.",
+        "why": "After were, use the adjective icy; ice is a noun."
+      },
+      {
+        "w": "The lake was covered by ices.",
+        "r": "The lake was covered by ice.",
+        "why": "Ice as frozen water is uncountable and has no plural."
+      }
+    ],
+    "u": "Icy describes something covered with ice or extremely cold. Roads can be icy, which is dangerous for drivers, and an icy wind feels bitterly cold. It is also used figuratively: an icy stare or an icy reply is unfriendly and cold in manner. Frosty is similar and slightly lighter, while freezing stresses temperature. The adjective icy comes from the noun ice, which is uncountable."
+  },
+  "incomplete": {
+    "mis": [
+      {
+        "w": "The form is uncomplete, so please fill it in again.",
+        "r": "The form is incomplete, so please fill it in again.",
+        "why": "The opposite of complete is incomplete, made with the prefix in-."
+      },
+      {
+        "w": "Your application is incomplete of two documents.",
+        "r": "Your application is incomplete: it is missing two documents.",
+        "why": "Incomplete cannot be followed by of; use missing or lacking to name what is absent."
+      }
+    ],
+    "u": "Incomplete means not finished or missing some parts. It appears constantly in forms and administration: an incomplete application will not be processed. It describes a thing as a whole, and the missing part is named with missing or lacking, not with of. Unfinished is more casual and used for work in progress, such as an unfinished painting, while incomplete suggests something required is absent."
+  },
+  "inexpensive": {
+    "mis": [
+      {
+        "w": "This restaurant is unexpensive but good.",
+        "r": "This restaurant is inexpensive but good.",
+        "why": "The negative of expensive is inexpensive, not unexpensive."
+      },
+      {
+        "w": "I want an inexpensive price for this laptop.",
+        "r": "I want a low price for this laptop.",
+        "why": "Prices are high or low; inexpensive describes the goods, not the price."
+      }
+    ],
+    "u": "Inexpensive means not costing much, and it sounds more positive than cheap, which can suggest poor quality. Use it for goods, hotels and meals: an inexpensive hotel. It describes the item, not the price itself, so say a low price. The negative prefix is in-, not un-. Affordable stresses that ordinary people can pay for it, and budget is common in travel offers."
+  },
+  "ingredient": {
+    "mis": [
+      {
+        "w": "Butter is the main ingredient on this cake.",
+        "r": "Butter is the main ingredient in this cake.",
+        "why": "The preposition after ingredient is in (or of), not on."
+      },
+      {
+        "w": "The recipe needs five ingredient.",
+        "r": "The recipe needs five ingredients.",
+        "why": "Ingredient is countable, so a number needs the plural form."
+      }
+    ],
+    "u": "An ingredient is one of the foods or substances you combine to make a dish or product. Recipes begin with a list of ingredients, and labels on packets list them too. The noun is countable. Common patterns: the main ingredient in a cake, or the key ingredient of success when it is used figuratively. Component is a general technical word, while ingredient is nearly always used for food, cosmetics and abstract recipes for success."
+  },
+  "invoice": {
+    "mis": [
+      {
+        "w": "Please send me the invoice of the order.",
+        "r": "Please send me the invoice for the order.",
+        "why": "An invoice is for goods or services; the usual preposition is for, not of."
+      },
+      {
+        "w": "Please pay this invoice until June 30.",
+        "r": "Please pay this invoice by June 30.",
+        "why": "Use by for a deadline; until describes how long something continues."
+      }
+    ],
+    "u": "An invoice is a document sent by a seller asking a customer to pay for goods or services, showing items, prices and a due date. Companies issue an invoice and customers settle it. It is also a verb: we will invoice you for the work. An invoice is more formal than a bill and is used mostly between businesses; a receipt proves that payment has already been made."
+  },
+  "junk": {
+    "mis": [
+      {
+        "w": "He sold many junks at the market.",
+        "r": "He sold a lot of junk at the market.",
+        "why": "Junk is uncountable, so it needs a lot of or much, not many, and no -s."
+      },
+      {
+        "w": "My garage is full with junk.",
+        "r": "My garage is full of junk.",
+        "why": "The adjective full takes of, not with."
+      }
+    ],
+    "u": "Junk means things that are old, broken or worthless, and it is uncountable: a lot of junk. The word is informal. It appears in compounds such as junk food (unhealthy snacks), junk mail (unwanted advertising) and a junk shop (selling cheap secondhand items). As a verb in American English, to junk something means to throw it away. Rubbish is the general British word for waste."
+  },
+  "laundry": {
+    "mis": [
+      {
+        "w": "I have to make the laundry this weekend.",
+        "r": "I have to do the laundry this weekend.",
+        "why": "The verb collocating with laundry is do, not make."
+      },
+      {
+        "w": "She hung her wet laundries on the line.",
+        "r": "She hung her wet laundry on the line.",
+        "why": "Laundry is uncountable and has no plural."
+      }
+    ],
+    "u": "Laundry means clothes and sheets that need washing or have just been washed, and it also names the place or service that washes them. It is uncountable: do the laundry, a pile of laundry, a laundry basket. In British English washing is also used for the same idea. Use dry cleaning for items that cannot be washed in water. Dirty laundry figuratively means private shameful matters."
+  },
+  "lightweight": {
+    "mis": [
+      {
+        "w": "This lightweight laptop is weight only one kilo.",
+        "r": "This lightweight laptop weighs only one kilo.",
+        "why": "Weight is a noun; the verb meaning to have a weight is weigh."
+      },
+      {
+        "w": "She bought a light weighted jacket.",
+        "r": "She bought a lightweight jacket.",
+        "why": "The compound adjective is lightweight, one word, not light weighted."
+      }
+    ],
+    "u": "Lightweight describes things that weigh little, such as a jacket, a laptop or a frame, and is usually a positive word in product descriptions: lightweight and portable. The opposite is heavy or heavyweight. Figuratively, calling a person or an idea lightweight is negative and means unimportant or not serious. In boxing, a lightweight is a fighter in a particular weight class."
+  },
+  "lounge": {
+    "mis": [
+      {
+        "w": "Passengers wait in lounge before boarding.",
+        "r": "Passengers wait in the lounge before boarding.",
+        "why": "A singular countable noun needs an article, here the."
+      },
+      {
+        "w": "The hotel has a lounge for relax.",
+        "r": "The hotel has a lounge for relaxing.",
+        "why": "After the preposition for, use the -ing form, or use to relax."
+      }
+    ],
+    "u": "A lounge is a comfortable room where people sit and relax or wait: an airport lounge, a hotel lounge, a staff lounge. In British English, lounge can also mean the living room at home. As a verb, to lounge means to sit or lie lazily. Airport business lounges offer seats, snacks and Wi-Fi to premium passengers. A waiting room is plainer, used in clinics or offices."
+  },
+  "mild": {
+    "mis": [
+      {
+        "w": "The cheese tastes very mildly.",
+        "r": "The cheese tastes very mild.",
+        "why": "After taste used as a linking verb, use an adjective, not an adverb."
+      },
+      {
+        "w": "I like mild spicy food.",
+        "r": "I like mildly spicy food.",
+        "why": "To modify the adjective spicy you need the adverb mildly, not the adjective mild."
+      }
+    ],
+    "u": "Mild describes things that are not strong, severe or extreme: mild weather, a mild flavour, a mild infection. For climate it means pleasantly warm, not harsh, and for people it means gentle: a mild manner. The adverb is mildly, as in mildly surprised, and to put it mildly is a polite way to introduce a blunt statement. Moderate is close but suggests a medium amount, whereas mild is the lower end."
+  },
+  "nail": {
+    "mis": [
+      {
+        "w": "He hit the nail by a hammer.",
+        "r": "He hit the nail with a hammer.",
+        "why": "The tool used to do something is introduced by with, not by."
+      },
+      {
+        "w": "I am going to a nails shop after work.",
+        "r": "I am going to a nail salon after work.",
+        "why": "The noun adjunct stays singular: nail salon, not nails shop."
+      }
+    ],
+    "u": "Nail has two common meanings. It is a thin pointed metal piece hammered into wood to join or hang things, and it is the hard covering at the end of a finger or toe. Use hammer a nail for the first, and cut or bite your nails for the second. Nail polish and a nail salon belong to beauty. As a verb, to nail something informally means to do it perfectly."
+  },
+  "nap": {
+    "mis": [
+      {
+        "w": "I did a nap after lunch.",
+        "r": "I took a nap after lunch.",
+        "why": "The collocation is take or have a nap, not do a nap."
+      },
+      {
+        "w": "She is napping since two o'clock.",
+        "r": "She has been napping since two o'clock.",
+        "why": "With since, use the present perfect continuous, not the present continuous."
+      }
+    ],
+    "u": "A nap is a short sleep, usually during the day and often after lunch. It is countable and goes with take or have: take a nap. A power nap is a very short sleep to restore energy at work. As a verb, nap means to sleep lightly for a short time, and doze means to sleep lightly without meaning to. Siesta is a Spanish-origin word for the afternoon rest in hot climates."
+  },
+  "pan": {
+    "mis": [
+      {
+        "w": "Fry the eggs in a pot.",
+        "r": "Fry the eggs in a pan.",
+        "why": "A pan is wide and shallow for frying; a pot is deep for boiling and stewing."
+      },
+      {
+        "w": "Put the pan in the stove and turn on the heat.",
+        "r": "Put the pan on the stove and turn on the heat.",
+        "why": "A pan rests on top of the stove, so use on, not in."
+      }
+    ],
+    "u": "A pan is a metal container with a flat base and a long handle, used for frying and cooking on a stove. A frying pan is wide and shallow, a saucepan has a lid and deep sides, and a pot is larger and deeper for soup or boiling. In American English a baking pan is used in the oven. As a verb, to pan can mean to criticise something harshly, or to move a camera sideways."
+  },
+  "pastry": {
+    "mis": [
+      {
+        "w": "I ate three pastry for breakfast.",
+        "r": "I ate three pastries for breakfast.",
+        "why": "For individual cakes, pastry is countable and takes the plural pastries."
+      },
+      {
+        "w": "The bakery sells pastries and breads.",
+        "r": "The bakery sells pastries and bread.",
+        "why": "Bread is uncountable and does not take a plural -s."
+      }
+    ],
+    "u": "Pastry has two senses. As an uncountable noun it is the dough of flour, butter and water used to make pies and tarts: puff pastry, shortcrust pastry. As a countable noun, a pastry is a small sweet baked item such as a croissant or a Danish. Hence pastry chef, the cook who specialises in desserts. Unlike bread, pastry is rich in fat and sweet or filled."
+  },
+  "paycheck": {
+    "mis": [
+      {
+        "w": "My paycheck arrive every Friday.",
+        "r": "My paycheck arrives every Friday.",
+        "why": "A singular subject in the present simple needs a verb with -s."
+      },
+      {
+        "w": "She spends all of her paycheck for rent.",
+        "r": "She spends all of her paycheck on rent.",
+        "why": "Spend money on something, not for something."
+      }
+    ],
+    "u": "Paycheck is the money you receive for work, or the cheque or payment that carries it. It is mainly American; British English uses pay cheque, wage or salary. It is countable: a monthly paycheck, a bigger paycheck. Live paycheck to paycheck means having no savings and spending each payment before the next arrives. Salary is a fixed yearly amount, wages usually hourly, and paycheck focuses on the actual payment received."
+  },
+  "pollute": {
+    "mis": [
+      {
+        "w": "Factories pollute to the river.",
+        "r": "Factories pollute the river.",
+        "why": "Pollute is transitive and takes a direct object with no preposition."
+      },
+      {
+        "w": "Pollute is a serious problem in big cities.",
+        "r": "Pollution is a serious problem in big cities.",
+        "why": "The noun for the problem is pollution; pollute is a verb."
+      }
+    ],
+    "u": "Pollute means to make air, water or land dirty or harmful, usually by adding chemicals, waste or smoke. It is a transitive verb: factories pollute rivers. The noun is pollution, the adjective is polluted, and the substance is a pollutant. Contaminate is close but often refers to a specific harmful substance, for example food contaminated with bacteria, while pollute describes the wider environment."
+  },
+  "quit": {
+    "mis": [
+      {
+        "w": "She quit from her job last month.",
+        "r": "She quit her job last month.",
+        "why": "Quit takes the job directly as its object, with no preposition."
+      },
+      {
+        "w": "He quit to smoke last year.",
+        "r": "He quit smoking last year.",
+        "why": "Quit is followed by the -ing form, not an infinitive with to."
+      }
+    ],
+    "u": "Quit means to leave a job or stop doing something. The main patterns are quit a job and quit plus -ing: quit smoking. It is irregular in form: quit, quit, quit, though quitted is rare. In offices resign is the formal word for leaving a job, while quit is plainer and often sudden. In computers, quit means to close a program. Give up is wider and means to stop trying."
+  }
+}
