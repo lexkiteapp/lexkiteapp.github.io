@@ -56,7 +56,7 @@
 "Xem video bài học":"Regarde la vidéo de la leçon",
 "Xếp thành câu":"Construisez la phrase",
 "Ôn lỗi":"Corriger ses erreurs",
-"Ôn lỗi trước bài mới":"Revoir vos erreurs",
+"Ôn lỗi trước bài mới":"Revoir d’abord les mots fragiles",
 "Đang nghe bạn nói…":"Je vous écoute…",
 "Đáp án của bạn":"Ta réponse",
 "Đây là gì?":"Qu'est-ce que c'est ?",

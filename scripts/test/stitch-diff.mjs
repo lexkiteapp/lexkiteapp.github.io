@@ -111,7 +111,7 @@ for (const scheme of ['dark', 'light']) {
     // ảnh trọn màn như mẫu: khung cao bằng nội dung → thanh dưới/chân cố định nằm đúng đáy, không lọt giữa ảnh; cuộn về đầu, bỏ focus
     const fullH = await page.evaluate(() => { if (document.activeElement) document.activeElement.blur(); scrollTo(0, 0); const v = document.getElementById('view'); return Math.max(document.documentElement.scrollHeight, v ? v.scrollHeight + v.getBoundingClientRect().top : 0); });
     await page.setViewportSize({ width: W, height: Math.min(2600, Math.max(844, Math.ceil(fullH))) }); await page.waitForTimeout(300);
-    const buf = await page.screenshot(); await auditContrast(page, buf, `${k}-${scheme}-390`); ph[`${k}-${scheme}`] = await page.evaluate(PHSCAN).catch(() => []); await page.setViewportSize({ width: W, height: 844 }); fs.writeFileSync(path.join(OUT, `app-${k}-${scheme}.png`), buf);
+    const buf = await page.screenshot(); await auditContrast(page, buf, `${k}-${scheme}-390`); ph[`${k}-${scheme}`] = await page.evaluate(PHSCAN).catch(() => []); await page.setViewportSize({ width: W, height: 844 }); fs.writeFileSync(path.join(OUT, `app-${k}-${scheme}.png`), buf); try { fs.writeFileSync(path.join(OUT, `a11y-${k}-${scheme}.yml`), await page.locator('#view').ariaSnapshot()); } catch (e) { /* bản Playwright cũ: bỏ qua */ } // cây truy cập (a11y) của #view cho giám khảo độc lập
     if (k === 'home') await shotPath(page, scheme); // Lộ trình: thêm ảnh mở rộng + tấm chi tiết (nút đang học, nút khoá)
     await page.addScriptTag({ path: AXE }).catch(() => {});
     a11y[`${k}-${scheme}`] = await page.evaluate(async () => { if (!window.axe || !document.querySelector('.st')) return { skipped: true };

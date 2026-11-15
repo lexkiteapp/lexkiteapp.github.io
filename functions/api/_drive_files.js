@@ -1,18 +1,19 @@
-/* Kho Drive – trình duyệt file + dọn dẹp thông minh (docs/ASSET-LIBRARY.md §8.6.1). Gắn vào OPS của functions/api/drive.js (chỉ quản trị).
- *   browse · thumb · preview · rename · move · trash · restore · delete · empty_trash · storage_report · cleanup_scan · cleanup_apply
+/* Kho Drive – trình duyệt file + dọn dẹp thông minh (docs/ASSET-LIBRARY.md §8.6.1, §8.6.5). Gắn vào OPS của functions/api/drive.js (chỉ quản trị).
+ *   browse · thumb · preview · rename · move · trash · restore · delete · empty_trash · storage_report · cleanup_scan · cleanup_apply · inventory · tidy_cfg · tidy_run
  * Scope drive.file: Google chỉ trả file do app tạo → mọi thao tác chỉ chạm file của Lexkite. Thêm hàng rào:
  *   - thư mục hệ thống (drive_folders: "Lexkite Library/…") không được đổi tên/chuyển/vứt/xoá;
  *   - xoá vĩnh viễn chỉ file ĐÃ ở thùng rác + confirm:'DELETE' + đăng nhập lại ≤ 15 phút (DANGER ở drive.js) + nhật ký;
  *   - cleanup_scan chỉ đọc (dry-run); cleanup_apply chỉ chuyển vào thùng rác (khôi phục được 30 ngày, có Undo = restore);
  *   - ảnh thu nhỏ đi qua /api/drive/thumb (link ký, proxy, cache) – thumbnailLink/token Google không bao giờ tới trình duyệt.
  * D1 drive_files luôn khớp: trash → 'trashed', restore → 'ok', delete → xoá dòng, rename/move → name/folder; quét toàn bộ (report/scan) đối chiếu lại. */
+import { loadSignals, fileStates, dropLocked, autoPlan, tidyTripped, cleanTidy } from './_drive_state.js';
 const API = 'https://www.googleapis.com/drive/v3/files';
 const FOLDER = 'application/vnd.google-apps.folder';
 const ROOT_FOLDER = 'Lexkite Library';
 const ID = /^[A-Za-z0-9_-]{10,120}$/;
 const LIST_F = 'id,name,mimeType,size,modifiedTime,createdTime,md5Checksum,parents,trashed,appProperties';
 const BROWSE_F = LIST_F + ',thumbnailLink,webViewLink';
-const DAY = 864e5, THUMB_TTL = 6 * 3600, MAX_IDS = 200, SCAN_PAGES = 20;
+const DAY = 864e5, THUMB_TTL = 6 * 3600, MAX_IDS = 200, SCAN_PAGES = 20, TIDY_BATCH = 10, INV_MAX = 5000, INV_ACTIVE = 200;
 const ORDER = { name: 'folder,name', name_desc: 'folder,name desc', size: 'folder,quotaBytesUsed desc', size_asc: 'folder,quotaBytesUsed', date: 'folder,modifiedTime desc', date_asc: 'folder,modifiedTime' };
 export const CATS = ['trashed', 'partial', 'duplicate', 'temp', 'old_reject', 'orphan'];
 const TEMP_DIR = /^(tmp|temp|_tmp|cache|out|renders?|render-out|scratch)$/i, TEMP_NAME = /(\.tmp|\.part|\.crdownload|\.partial|~)$|^(tmp|temp)[_.-]/i;
@@ -41,27 +42,28 @@ const pathOf = (paths, f) => { for (const p of f.parents || []) if (paths.has(p)
 
 /**
  * Phân loại ứng viên dọn dẹp (thuần, không gọi mạng). Mỗi file thuộc tối đa 1 nhóm theo thứ tự CATS.
- * files: kết quả files.list (cả thư mục, cả thùng rác) · db: drive_files của Drive này · refs: drive_refs (library.json + manifest dựng)
+ * files: kết quả files.list (cả thư mục, cả thùng rác) · db: drive_files của Drive này · refs: drive_refs (library.json + manifest dựng) · links: tham chiếu thêm từ manifest shorts (không tính là "đã đồng bộ refs")
  * opt: reject_days (30) · reserve_days (90) · temp_days (7) · partial_hours (24) · now · root (id "Lexkite Library") · system (Set id thư mục hệ thống)
  */
-export function classify(files, { db = [], refs = [], root = null, system = new Set(), now = Date.now(), reject_days = 30, reserve_days = 90, temp_days = 7, partial_hours = 24 } = {}) {
+export function classify(files, { db = [], refs = [], links = [], root = null, system = new Set(), now = Date.now(), reject_days = 30, reserve_days = 90, temp_days = 7, partial_hours = 24 } = {}) {
   const paths = folderPaths(files, root);
   const dbBy = new Map(), okSha = new Set(), pendSha = new Map();
   for (const r of db) { if (r.file_id) dbBy.set(r.file_id, r); if (r.status === 'ok') okSha.add(r.sha256); if (r.status === 'pending') pendSha.set(r.sha256, r); }
   const refFile = new Set(), refSha = new Map(), refName = new Set();
-  for (const r of refs) { if (r.file_id) refFile.add(r.file_id); if (r.sha) refSha.set(r.sha, refSha.get(r.sha) === 'approved' ? 'approved' : r.status || 'ref'); if (r.name) refName.add(r.name); }
+  for (const r of [...refs, ...links]) { if (r.file_id) refFile.add(r.file_id); if (r.sha) refSha.set(r.sha, refSha.get(r.sha) === 'approved' ? 'approved' : r.status || 'ref'); if (r.name) refName.add(r.name); }
   const synced = refs.length > 0;
   const shaOf = f => ((f.appProperties || {}).sha256 || (dbBy.get(f.id) || {}).sha256 || null);
   const refBy = f => (refFile.has(f.id) ? 2 : (shaOf(f) && refSha.has(shaOf(f))) || refName.has(f.name) ? 1 : 0);
   const groups = Object.fromEntries(CATS.map(c => [c, []]));
   const taken = new Set();
-  const add = (cat, f, reason, extra = {}) => { taken.add(f.id); groups[cat].push({ id: f.id, name: f.name, path: pathOf(paths, f), size: sz(f), mime: f.mimeType, modified: f.modifiedTime || null, created: f.createdTime || null, reason, ...extra }); };
+  const add = (cat, f, reason, extra = {}) => { taken.add(f.id); groups[cat].push({ id: f.id, name: f.name, path: pathOf(paths, f), size: sz(f), mime: f.mimeType, modified: f.modifiedTime || null, created: f.createdTime || null, reason, ref: refBy(f), ...extra }); };
   const ours = f => !isDoc(f.mimeType) && f.mimeType !== FOLDER && (pathOf(paths, f) != null || (f.appProperties || {}).lexkite || dbBy.has(f.id));
-  const live = [];
+  const live = [], seen = [];
   for (const f of files) {
     if (f.mimeType === FOLDER) { if (f.trashed && !system.has(f.id)) add('trashed', f, 'in-trash'); continue; }
     if (!ours(f)) continue;
     if (f.trashed) { add('trashed', f, 'in-trash'); continue; }
+    seen.push({ f, path: pathOf(paths, f), sha: shaOf(f), row: dbBy.get(f.id) || null });
     const ageH = (now - (Date.parse(f.createdTime || f.modifiedTime || '') || now)) / 36e5, row = dbBy.get(f.id), sha = shaOf(f);
     if (sz(f) === 0) { add('partial', f, 'zero-byte'); continue; }
     if (row && row.size != null && +row.size !== sz(f)) { add('partial', f, 'size-mismatch', { expected: +row.size }); continue; }
@@ -92,7 +94,7 @@ export function classify(files, { db = [], refs = [], root = null, system = new 
   }
   const by = {}; let total = 0, count = 0;
   for (const c of CATS) { const b = groups[c].reduce((s, x) => s + x.size, 0); by[c] = { files: groups[c].length, bytes: b }; total += b; count += groups[c].length; }
-  return { groups, by, total, count, refs_synced: synced };
+  return { groups, by, total, count, refs_synced: synced, seen }; // seen: file sống của kho – chỉ cho fileStates, không trả về trình duyệt
 }
 
 /** Tổng hợp báo cáo dung lượng (thuần). */
@@ -187,13 +189,13 @@ export function makeFileOps(h) {
   const folderRows = (db, driveId, p, status, where) => run(db, `UPDATE drive_files SET status = ? WHERE drive_id = ? AND status = ? AND (folder = ? OR folder LIKE ? ESCAPE '\\')`, status, driveId, where, p, p.replace(/[\\%_]/g, m => '\\' + m) + '/%');
   /** Chuyển/khôi phục thùng rác 1 lô. */
   const log = (db, who, act, d, x, extra = {}) => (h.audit ? h.audit(db, { who: who && who.email, act, d, file_id: x.id, name: x.name, size: x.size, ...extra }) : null);
-  async function setTrash(db, env, b, on, who, act = on ? 'trash' : 'restore') {
+  async function setTrash(db, env, b, on, who, act = on ? 'trash' : 'restore', known = null) {
     const list = ids(b); if (!list) return { status: 400, error: 'bad-input' };
     const { d, at } = await ctx(db, b, env), sys = await systemIds(db, d);
     const res = await pool(list, 6, async id => {
       if (sys.has(id)) return { id, error: 'system-folder' };
       try {
-        const f = await g(at, `${API}/${encodeURIComponent(id)}?fields=id,name,mimeType,size,trashed`);
+        const f = (known && known.get(id)) || await g(at, `${API}/${encodeURIComponent(id)}?fields=id,name,mimeType,size,trashed`); // known = đã có từ lượt quét → 1 lượt gọi Google/file (trần subrequest của Pages)
         let p = null; if (f.mimeType === FOLDER) p = await libPath(db, at, d, id).catch(() => null);
         await g(at, `${API}/${encodeURIComponent(id)}?fields=id,trashed`, { method: 'PATCH', body: JSON.stringify({ trashed: on }) });
         await run(db, 'UPDATE drive_files SET status = ? WHERE drive_id = ? AND file_id = ? AND status = ?', on ? 'trashed' : 'ok', d.id, id, on ? 'ok' : 'trashed');
@@ -224,6 +226,17 @@ export function makeFileOps(h) {
   const heavy = async who => (h.limit ? await h.limit('drvscan:' + who.email, 20, 60) : 0);
   const refsOf = db => all(db, 'SELECT src, sha, file_id, name, status FROM drive_refs');
   const opt = (v, def, max) => { const n = Math.round(+v); return Number.isFinite(n) && n >= 0 && n <= max ? n : def; };
+  const scanOpt = b => ({ reject_days: opt(b.reject_days, 30, 3650), reserve_days: opt(b.reserve_days, 90, 3650), temp_days: opt(b.temp_days, 7, 3650), partial_hours: opt(b.partial_hours, 24, 24 * 365) });
+  const readCfg = async db => { const r = await one(db, "SELECT v FROM drive_meta WHERE k = 'tidy_cfg'"); try { return cleanTidy(r ? JSON.parse(r.v) : null); } catch (e) { return cleanTidy(null); } };
+  const readLast = async (db, id) => { const r = await one(db, 'SELECT v FROM drive_meta WHERE k = ?', 'tidy_last:' + id); try { return r ? JSON.parse(r.v) : {}; } catch (e) { return {}; } };
+  const writeMeta = (db, k, v) => run(db, 'INSERT OR REPLACE INTO drive_meta (k, v) VALUES (?, ?)', k, JSON.stringify(v));
+  /** MỘT lượt khảo sát cho mọi nơi (trang Kho, cleanup_scan/apply, cron): Google + sổ + refs + tín hiệu đăng bài → classify + fileStates. */
+  async function survey(db, env, d, at, o, staleDays) {
+    const [{ files, truncated }, root, sys, dbRows, refs, sig] = await Promise.all([listAll(at), rootId(db, at, d), systemIds(db, d), all(db, 'SELECT file_id, sha256, status, size, created, folder FROM drive_files WHERE drive_id = ?', d.id), refsOf(db), loadSignals(env, h.manifest)]);
+    const synced = await reconcile(db, d, files, truncated), scan = classify(files, { db: dbRows, refs, links: sig.links, root, system: sys, ...o });
+    return { scan, sig, truncated, synced, st: fileStates(scan, sig, { reject_days: o.reject_days, stale_days: staleDays }) };
+  }
+  const tidyAlert = (db, d, t, p) => run(db, "INSERT INTO drive_alerts (kind, level, drive_id, msg, since, seen, mailed) VALUES ('tidy', 'warn', ?, ?, ?, ?, NULL) ON CONFLICT(kind) DO UPDATE SET drive_id = excluded.drive_id, msg = excluded.msg, since = excluded.since, seen = excluded.seen", d.id, JSON.stringify({ t, p }), Date.now(), Date.now());
 
   return {
     async browse(db, b, who, env) {
@@ -331,15 +344,54 @@ export function makeFileOps(h) {
     async cleanup_scan(db, b, who, env) {
       if (await heavy(who)) return { status: 429, error: 'too-fast' };
       const { d, at } = await ctx(db, b, env);
-      const o = { reject_days: opt(b.reject_days, 30, 3650), reserve_days: opt(b.reserve_days, 90, 3650), temp_days: opt(b.temp_days, 7, 3650), partial_hours: opt(b.partial_hours, 24, 24 * 365) };
-      const [{ files, truncated }, root, sys, dbRows, refs] = await Promise.all([listAll(at), rootId(db, at, d), systemIds(db, d), all(db, 'SELECT file_id, sha256, status, size, created FROM drive_files WHERE drive_id = ?', d.id), refsOf(db)]);
-      const synced = await reconcile(db, d, files, truncated);
-      const out = classify(files, { db: dbRows, refs, root, system: sys, ...o });
-      return { dry_run: true, drive_id: d.id, options: o, truncated, synced, ...out }; // CHỈ ĐỌC – không xoá/không vứt gì
+      const o = scanOpt(b), cfg = await readCfg(db), sv = await survey(db, env, d, at, o, cfg.stale_days);
+      return { dry_run: true, drive_id: d.id, options: o, truncated: sv.truncated, synced: sv.synced, signals_ok: sv.sig.ok, ...dropLocked(sv.scan, sv.st.items) }; // CHỈ ĐỌC – không xoá/không vứt gì
     },
+    /** Kiểm lại ở MÁY CHỦ ngay lúc áp dụng (không tin danh sách từ trình duyệt): file bị khoá hoặc ngoài lượt quét → blocked, không chạm. Undo = restore {file_ids: undo}. */
     async cleanup_apply(db, b, who, env) {
-      const r = await setTrash(db, env, b, true, who, 'cleanup'); // chỉ chuyển vào thùng rác (30 ngày) – Undo = restore {file_ids: undo}
-      return r.status ? r : { ...r, undo: r.done };
+      const list = ids(b); if (!list) return { status: 400, error: 'bad-input' };
+      if (h.limit && await h.limit('drvapply:' + who.email, 120, 60)) return { status: 429, error: 'too-fast' }; // lô nhỏ (trần subrequest) – trần riêng, không dùng chung 20 lượt quét/phút
+      const { d, at } = await ctx(db, b, env), cfg = await readCfg(db), sv = await survey(db, env, d, at, scanOpt(b), cfg.stale_days), by = new Map(sv.st.items.map(x => [x.id, x]));
+      const allow = list.filter(id => by.has(id) && !by.get(id).lock), blocked = list.filter(id => !allow.includes(id)).map(id => ({ id, error: by.has(id) ? 'locked:' + by.get(id).lock : 'not-scanned' }));
+      if (!allow.length) return { ok: true, done: [], bytes: 0, failed: [], blocked, undo: [] };
+      const r = await setTrash(db, env, { ...b, file_ids: allow }, true, who, 'cleanup', new Map(allow.map(id => [id, { name: by.get(id).name, size: by.get(id).size, mimeType: by.get(id).mime }])));
+      return r.status ? r : { ...r, blocked, undo: r.done };
+    },
+    /** Trang Kho: mọi file theo trạng thái thật + nhóm + kế hoạch dọn (dry-run). CHỈ ĐỌC. Danh sách "Đang dùng" cắt bớt (footage rất nhiều) – số liệu vẫn đủ. */
+    async inventory(db, b, who, env) {
+      if (await heavy(who)) return { status: 429, error: 'too-fast' };
+      const { d, at } = await ctx(db, b, env), cfg = await readCfg(db), sv = await survey(db, env, d, at, scanOpt(b), cfg.stale_days), { items, summary, scheduled, plan } = sv.st;
+      const active = items.filter(x => x.state === 'active').sort((p, q) => q.size - p.size), shown = [...items.filter(x => x.state !== 'active'), ...active.slice(0, INV_ACTIVE)].slice(0, INV_MAX);
+      const tr = (sv.scan.by.trashed || { files: 0, bytes: 0 });
+      return { drive_id: d.id, checked: Date.now(), summary, scheduled, plan, trash: tr, items: shown, more: items.length - shown.length, truncated: sv.truncated, signals_ok: sv.sig.ok, refs_synced: sv.scan.refs_synced, cfg, last: await readLast(db, d.id) };
+    },
+    /** Công tắc tự dọn: đọc / ghi ({set}) – ghi nhật ký admin ở cổng DANGER chung. */
+    async tidy_cfg(db, b, who) {
+      if (b.set && typeof b.set === 'object') { const v = cleanTidy({ ...(await readCfg(db)), ...b.set }); await writeMeta(db, 'tidy_cfg', v); await h.audit(db, { who: who.email, act: 'tidy_cfg', note: JSON.stringify(v).slice(0, 120) }); return { ok: true, cfg: v }; }
+      return { cfg: await readCfg(db) };
+    },
+    /** Cron/CI (drive-tidy.yml) + nút Chạy ngay. Không có drive_id → danh sách Drive tới hạn (≥ WARN_PCT, tới lịch, hoặc lượt trước chưa xong). Có drive_id → dọn ≤ TIDY_BATCH file vào THÙNG RÁC, trả remaining để gọi tiếp. */
+    async tidy_run(db, b, who, env) {
+      const cfg = await readCfg(db); if (!cfg.on) return { off: true, due: [] };
+      const now = Date.now();
+      if (!b.drive_id) {
+        const due = [];
+        for (const r of await all(db, "SELECT id, quota_used, quota_total FROM drives WHERE status = 'ok'")) { const last = await readLast(db, r.id), pct = r.quota_total ? (+r.quota_used || 0) / +r.quota_total : 0; if (pct >= h.warnPct || now - (last.at || 0) >= cfg.every_days * DAY || last.remaining > 0) due.push(r.id); }
+        return { due };
+      }
+      const { d, at } = await ctx(db, b, env), sv = await survey(db, env, d, at, scanOpt(b), cfg.stale_days), prev = await readLast(db, d.id);
+      const stop = why => tidyAlert(db, d, 'tidy_stop', { e: d.email, why }).then(() => writeMeta(db, 'tidy_last:' + d.id, { ...prev, at: now, stopped: why, remaining: 0 })).then(() => ({ ok: true, stopped: why, trashed: 0, remaining: 0 }));
+      if (!sv.sig.ok) return stop('signals'); // không biết clip nào đã đăng/lên lịch thì không dọn gì
+      if (sv.truncated) return stop('truncated');
+      const plan = autoPlan(sv.st.items, cfg);
+      if (tidyTripped(plan, sv.st.items)) return stop('breaker');
+      const part = plan.slice(0, TIDY_BATCH), remaining = plan.length - part.length;
+      const r = part.length ? await setTrash(db, env, { drive_id: d.id, file_ids: part.map(x => x.id) }, true, { email: who.email === 'cli' ? 'auto-tidy' : who.email }, 'auto_tidy', new Map(part.map(x => [x.id, { name: x.name, size: x.size, mimeType: x.mime }]))) : { done: [], bytes: 0, failed: [] };
+      const fresh = prev.at && now - prev.at < 3600e3 && prev.remaining > 0, last = { at: now, trashed: (fresh ? prev.trashed || 0 : 0) + r.done.length, bytes: (fresh ? prev.bytes || 0 : 0) + r.bytes, remaining, undo: [...(fresh ? prev.undo || [] : []), ...r.done].slice(-MAX_IDS) };
+      await writeMeta(db, 'tidy_last:' + d.id, last);
+      if (last.trashed) await tidyAlert(db, d, 'tidy', { e: d.email, n: last.trashed, g: (last.bytes / 1073741824).toFixed(1) });
+      else await run(db, "DELETE FROM drive_alerts WHERE kind = 'tidy' AND since < ?", now - 3 * DAY);
+      return { ok: true, trashed: r.done.length, bytes: r.bytes, failed: r.failed.length, remaining };
     },
   };
 }
