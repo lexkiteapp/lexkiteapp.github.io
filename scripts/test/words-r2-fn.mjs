@@ -29,4 +29,10 @@ ok(keyOf('ko', ['x']) === 'ko/words/x.html' && keyOf('ko', []) === 'ko/words/ind
 ok(R2_LANGS.length === 13 && !R2_LANGS.includes('en') && !R2_LANGS.includes('vi'), '13 ngôn ngữ, không en/vi');
 const routes = JSON.parse(fs.readFileSync('web/_routes.json', 'utf8')).include.filter(x => /\/words\/\*$/.test(x)).map(x => x.split('/')[1]);
 ok(routes.every(l => R2_LANGS.includes(l)), `_routes.json chỉ bật ngôn ngữ trong danh sách (${routes.join(',') || 'chưa bật'})`);
+const cfgL = JSON.parse(fs.readFileSync('content/seo/words-r2.json', 'utf8')).langs;
+ok([...routes].sort().join() === [...cfgL].sort().join(), `content/seo/words-r2.json (${cfgL.join(',')}) khớp _routes.json – ngôn ngữ ra khỏi dist mà không có route = 404`);
+ok(/r2_buckets[\s\S]*binding = "WORDS"[\s\S]*lexkite-words/.test(fs.readFileSync('wrangler.toml', 'utf8')), 'wrangler.toml có binding WORDS → lexkite-words');
+{ const { plan } = await import('../seo/words-r2-sync.mjs'); const os = await import('node:os'), pth = await import('node:path'); const d = fs.mkdtempSync(pth.join(os.tmpdir(), 'wr2-')); fs.mkdirSync(pth.join(d, 'ko/words'), { recursive: true }); fs.writeFileSync(pth.join(d, 'ko/words/a.html'), 'A'); fs.writeFileSync(pth.join(d, 'ko/words/b.html'), 'B');
+  const p1 = plan(d, {}); ok(p1.all.length === 2 && p1.todo.length === 2 && p1.all[0].key.startsWith('ko/words/'), 'sync: lần đầu đẩy hết, khoá = ko/words/<slug>.html');
+  const man = Object.fromEntries(p1.all.map(x => [x.key, x.h])); fs.writeFileSync(pth.join(d, 'ko/words/b.html'), 'B2'); const p2 = plan(d, man); ok(p2.todo.length === 1 && p2.todo[0].key === 'ko/words/b.html', 'sync: chỉ đẩy file đổi băm'); }
 if (bad) process.exit(1); console.log('✓ words-r2-fn');

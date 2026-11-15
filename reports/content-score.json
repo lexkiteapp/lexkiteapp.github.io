@@ -1,5 +1,5 @@
 {
- "total": 68.8,
+ "total": 70.8,
  "areas": {
   "vocab": {
    "name": "Kho từ",
@@ -147,8 +147,8 @@
   },
   "comm": {
    "name": "Giao tiếp",
-   "score": 68.3,
-   "coverage": 68.3,
+   "score": 81.3,
+   "coverage": 81.3,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -161,7 +161,7 @@
     },
     {
      "k": "roleplay",
-     "have": 33,
+     "have": 60,
      "std": 60,
      "w": 20,
      "future": false
@@ -175,7 +175,7 @@
     },
     {
      "k": "mục gold (giải thích cách dùng)",
-     "have": 284,
+     "have": 484,
      "std": 1000,
      "w": 20,
      "future": false
@@ -284,8 +284,8 @@
   },
   "exam": {
    "name": "Đề thi",
-   "score": 45.1,
-   "coverage": 45.1,
+   "score": 47.8,
+   "coverage": 47.8,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -375,7 +375,7 @@
     },
     {
      "k": "Cambridge A2",
-     "have": 1,
+     "have": 3,
      "std": 6,
      "w": 8,
      "future": true
@@ -433,8 +433,8 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 11158,
-     "std": 11158,
+     "have": 11185,
+     "std": 11185,
      "w": 35,
      "future": false
     },
@@ -470,7 +470,7 @@
     },
     {
      "k": "Bộ từ",
-     "have": 74.1,
+     "have": 74.2,
      "std": 100,
      "w": 25,
      "future": false
