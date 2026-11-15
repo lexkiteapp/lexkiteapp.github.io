@@ -187,7 +187,7 @@
       if (isCancelled()) break;
       const b = hit.slice(i, i + AI_BATCH);
       try {
-        const out = await call(aiSys(lang), 'Give a short meaning for each word.\n' + JSON.stringify(b.map(c => ({ w: c.word, s: String(c.sentence || '').slice(0, 200) }))), b.length, lang), m = out && typeof out.m === 'object' && out.m ? out.m : {};
+        const out = await call(aiSys(lang), 'Give a short meaning for each word.\n' + JSON.stringify(b.map(c => ({ w: c.word, s: String(c.sentence || '').slice(0, 200) }))), b.length), m = out && typeof out.m === 'object' && out.m ? out.m : {};
         for (const c of b) { const v = cleanGloss(m[c.word]); if (v) { c.meaning = v; c.ai = 1; cache[c.word + '|' + lang] = v; filled++; } }
       } catch (e) { stop = e && e.code === 'quota' ? 'quota' : 'fail'; }
       if (onProgress) onProgress(Math.min(1, (i + AI_BATCH) / hit.length));
@@ -276,8 +276,8 @@
   const MEAN_KEY = 'lk.impmean';
   const meanCache = () => { try { return JSON.parse(localStorage.getItem(MEAN_KEY) || '{}') || {}; } catch (e) { return {}; } };
   const saveMeanCache = c => { try { const k = Object.keys(c); if (k.length > 400) for (const x of k.slice(0, k.length - 400)) delete c[x]; localStorage.setItem(MEAN_KEY, JSON.stringify(c)); } catch (e) { /* bỏ qua */ } };
-  const aiCall = async (sys, prompt, n, lang) => { // → /api/ai task 'import' (AI miễn phí, quota `import`; prompt hệ thống do máy chủ dựng từ lang – không gửi sys); 429 → { code:'quota' }
-    let r; try { r = await fetch(apiBase() + '/api/ai', { method: 'POST', headers: { 'Content-Type': 'application/json', ...(await apiHeaders()) }, body: JSON.stringify({ kind: 'import', task: 'import', lang, n, prompt }), signal: AbortSignal.timeout(60000) }); } catch (e) { throw err('net'); }
+  const aiCall = async (sys, prompt, n) => { // → /api/ai kind 'import' (AI miễn phí, quota `import`); 429 → { code:'quota' }
+    let r; try { r = await fetch(apiBase() + '/api/ai', { method: 'POST', headers: { 'Content-Type': 'application/json', ...(await apiHeaders()) }, body: JSON.stringify({ kind: 'import', n, sys, prompt }), signal: AbortSignal.timeout(60000) }); } catch (e) { throw err('net'); }
     const j = await r.json().catch(() => ({}));
     if (r.status === 429) throw Object.assign(err('quota'), { q: j });
     if (!r.ok || !j.out) throw err('fail');
