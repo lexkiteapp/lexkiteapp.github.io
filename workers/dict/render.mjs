@@ -39,7 +39,7 @@ export const T = {
     desc: '{W} means {m}. UK and US pronunciation with audio, example sentences, collocations, commonly confused words and a short quiz.',
     mean: 'What does “{w}” mean?', def: 'Definition', pron: 'Pronunciation', uk: 'UK', us: 'US', play: 'Play pronunciation',
     ex: 'Examples', col: 'Collocations and common phrases', pat: 'Patterns', syn: 'Similar words', conf: 'Words often confused with “{w}”', mis: 'Common mistakes',
-    wrong: 'Wrong', right: 'Right', note: '', nm: '', ne: '', nu: '', nf: '',
+    wrong: 'Wrong', right: 'Right', note: '', nm: 'Memory tip', ne: 'Common mistake', nu: 'Usage note', nf: 'Word family',
     quiz: 'Quick check', ans: 'Show answer', faq: 'FAQ', blog: 'Related articles', rel: 'Related words',
     qMean: 'What does “{w}” mean?', qGap: 'Choose the word that fits the gap:', qRight: 'Which sentence is correct?',
     fMean: 'What does {w} mean?', aMean: '“{w}” ({p}) means {d}.', fPron: 'How do you pronounce “{w}”?', fDiff: 'What is the difference between “{a}” and “{b}”?',

@@ -64,6 +64,10 @@ jobs:
           git fetch -q --unshallow --filter=blob:none origin main 2>/dev/null || true
           npm ci --no-audit --no-fund
           bash scripts/build-web.sh
+      - name: Đồng bộ trang từ → R2 (TRƯỚC deploy; lỗi = đỏ, không deploy bản thiếu)
+        if: steps.plan.outputs.act == 'direct'
+        env: { CLOUDFLARE_API_TOKEN: '${{ secrets.CLOUDFLARE_API_TOKEN }}', CI: 'true' }
+        run: node scripts/cdn/creds.mjs && node scripts/seo/words-r2-sync.mjs
       - name: wrangler pages deploy
         if: steps.plan.outputs.act == 'direct'
         env:
