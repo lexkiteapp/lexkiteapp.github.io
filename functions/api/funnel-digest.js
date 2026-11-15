@@ -19,7 +19,7 @@ export async function digest(db, now = Date.now()) {
   return {
     day: s.day, views: s.views, prevViews: s.prevViews, ctas: s.ctas, prevCtas: s.prevCtas,
     app: Math.max(0, s.app - b1), prevApp: Math.max(0, s.prevApp - b2), fl: s.fl, prevFl: s.prevFl,
-    install: c.install, top: c.rows.slice(0, 5).map(r => ({ src: r.src, camp: r.camp, code: r.code, views: r.go_view, app: r.app, fl: r.fl })),
+    install: c.install, share: c.share, top: c.rows.slice(0, 5).map(r => ({ src: r.src, camp: r.camp, code: r.code, views: r.go_view, app: r.app, fl: r.fl })),
   };
 }
 export async function onRequestGet({ request, env }) {
