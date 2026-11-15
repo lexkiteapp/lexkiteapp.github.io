@@ -147,6 +147,8 @@
 "vòm miệng":"palatal",
 "vô thanh (không rung)":"tak bersuara (tanpa getaran)",
 "xem sau khi đã tự trả lời":"melihatnya setelah menjawab sendiri",
+"{done}/{n} bài đã đạt":"{done}/{n} pelajaran lulus",
+"{n} bài học trực quan":"{n} pelajaran visual",
 "{n} bài học trực quan: dòng thời gian, công thức tô màu, sơ đồ biến đổi câu, lỗi người Việt hay mắc và bài tập chấm điểm ngay.":"{n} pelajaran visual: garis waktu, rumus berkode warna, diagram transformasi kalimat, kesalahan umum pelajar, dan latihan yang dinilai secara instan.",
 "{right}/{total} câu đúng ({pct}%)":"{right}/{total} benar ({pct}%)",
 "{score}% giống mẫu":"{score}% cocok",

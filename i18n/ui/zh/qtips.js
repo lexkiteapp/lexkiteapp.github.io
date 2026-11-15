@@ -1,13 +1,16 @@
 /* UI zh – qtips (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["zh"] = Object.assign(D["zh"] || {}, {
+"Bắt đầu ôn 10 phút":"开始 10 分钟复习",
 "Chưa có dữ liệu. Làm một bài luyện Listening/Reading (IELTS, TOEIC hoặc TOEFL) để bắt đầu theo dõi.":"还没有数据。进行听力或阅读练习测试（雅思、托业或托福）以开始跟踪。",
 "Chọn đủ 2 đáp án (thứ tự không quan trọng, mỗi đáp án đúng được 1 điểm). Đọc kỹ cả 5 phương án; loại phương án được nhắc tới nhưng bị phủ định hoặc thuộc về người/đối tượng khác.":"准确选择 2 个答案（顺序无关紧要；每个正确答案得 1 分）。仔细阅读所有 5 个选项，并排除任何提到但被否认的选项，或者属于不同的人或事物的选项。",
 "Câu hỏi về quan điểm của tác giả, không phải sự thật chung. YES: tác giả đồng ý; NO: tác giả phản đối; NOT GIVEN: tác giả không nêu ý kiến về điều đó. Để ý từ thể hiện thái độ (argue, claim, unfortunately…). Đáp án theo thứ tự trong bài.":"这些问题询问的是作者的观点，而不是一般事实。是：作者同意； NO：作者不同意； NOT GIVEN：作者对此不发表任何意见。寻找态度词（argue, claim, unfortunately…）。答案按照文章的顺序进行。",
 "Còn {n} phút":"还剩 {n} 分钟",
 "Dùng thời gian trước khi nghe để đọc câu hỏi và đoán loại thông tin cần điền (tên, số, ngày, giá…). Người nói hay tự sửa (“…no, sorry, it’s 15”) – ghi thông tin cuối cùng. Viết đúng chính tả và không vượt giới hạn số từ; đáp án theo thứ tự bài nghe.":"利用录音前的时间阅读问题并预测所需信息的类型（名称、号码、日期、价格……）。演讲者经常自我纠正（“…no, sorry, it’s 15”）——写下最终信息。拼写正确并保持在字数限制内；答案按照录音顺序排列。",
+"Dừng đếm giờ":"停止计时器",
 "Ghi chú theo cấu trúc: chủ đề chính → các ý phụ → ví dụ. Câu hỏi thường về ý chính, chi tiết quan trọng và vì sao giảng viên nhắc tới một ví dụ.":"笔记结构为：主题→支持点→示例。问题通常询问主要思想、关键细节以及讲师为什么提到一个例子。",
 "Giống Part 5 nhưng phải đọc câu trước và sau chỗ trống, nhất là với từ nối, thì của động từ và đại từ. Câu điền cả câu: chọn câu nối mạch ý với cả câu đứng trước và câu đứng sau.":"和第五部分一样，但是你必须阅读间隙之前和之后的句子，尤其是连接单词、动词时态和代词。对于句子插入间隙，选择与之前的句子和之后的句子都连接的句子。",
 "Gạch chân từ khóa trong câu hỏi trước khi đọc/nghe. Phương án lặp đúng từ trong bài thường là bẫy; đáp án đúng thường được diễn đạt lại. Trong Listening, người nói hay nhắc nhiều phương án – chọn ý cuối cùng được khẳng định.":"在阅读或聆听之前，请在问题中的关键词下划线。重复文本中完全相同的单词的选项通常是一个陷阱；正确答案通常会被解释。在听力中，演讲者经常会提到几个选项——选择最终确定的一个。",
+"Hết 10 phút! Xem tiến bộ của bạn":"10分钟到了！查看您的进步",
 "Mẹo làm bài":"答题技巧",
 "Nghe thật kỹ từ để hỏi ở đầu câu (Who, When, Where, Why, How…). Loại câu trả lời lặp từ hoặc dùng từ phát âm giống câu hỏi. Câu trả lời gián tiếp (“Let me check”, “Ask Mr. Kim”) thường là đáp án đúng; câu hỏi Wh- không trả lời bằng Yes/No.":"仔细听开头的疑问词（谁、何时、何地、为什么、如何……）。排除重复单词或使用听起来像问题的单词的答案。间接答案（“Let me check”、“Ask Mr. Kim”）通常是正确的； Wh- 问题没有用 Yes/No 来回答。",
 "Nghe trọn câu và nhớ theo cụm ý, không nhớ từng từ. Nhắc lại đúng thứ tự, giữ trọng âm và ngữ điệu; nói rõ ràng quan trọng hơn nói nhanh.":"听整个句子并记住它的意思块，而不是逐字逐句地记住。以相同的顺序重复，保持重音和语调；说得清楚比说得快更重要。",
@@ -25,6 +28,7 @@
 "Trả lời thẳng câu hỏi trong 1–2 câu đầu, rồi thêm lý do và ví dụ của bản thân. Nói tự nhiên, không học thuộc; nếu vấp thì tự sửa và nói tiếp.":"直接用前 1-2 句话回答问题，然后添加原因和个人示例。自然地说话而不是背诵；如果你绊倒了，纠正自己并继续前进。",
 "Trả lời đủ mọi ý đề yêu cầu, giọng văn hợp với người nhận; có mở – thân – kết rõ ràng. Dành 1–2 phút cuối soát ngữ pháp và chính tả.":"以适合读者的语气，清晰的开头、正文和结尾，回答任务要求的每一点。留出最后 1-2 分钟检查语法和拼写。",
 "Tìm và đánh dấu các tên (người, tổ chức, mốc thời gian) trong bài trước, rồi đọc kỹ quanh mỗi tên và so với nhận định đã được diễn đạt lại. Đáp án không theo thứ tự bài; một lựa chọn có thể dùng nhiều lần hoặc không dùng.":"首先找到并标记文章中的名称（人物、组织、日期），然后仔细阅读每个名称并将其与释义的陈述进行比较。答案不按段落顺序；一个选项可以多次使用或根本不使用。",
+"Tỉ lệ đúng 8 tuần gần nhất":"过去 8 周的准确度",
 "Tổng hợp từ các bài luyện và thi thử của bạn trên Lexkite. Đây là tỉ lệ đúng trong bài luyện của bạn – <b>không phải điểm thi chính thức</b>. Thời gian mỗi câu là ước tính: thời gian trên trang chia cho số câu.":"Lexkite 上的练习测试和模拟测试摘要。这是您在练习中的准确性 - <b>而不是官方考试成绩</b>。每个问题的时间是估计值：页面上的时间除以问题数。",
 "Xem tiến bộ theo kỹ năng và dạng câu hỏi":"按技能和问题类型查看进度",
 "Xác định chủ ngữ và động từ chính trước, rồi đặt trợ động từ/từ để hỏi, sau đó các cụm còn lại. Câu hỏi gián tiếp giữ trật tự câu khẳng định (…where the library is).":"首先找到主语和主要动词，然后放置助词或疑问词，然后是其余的词块。间接疑问句保持陈述语序（…其中 the library is）。",
@@ -33,6 +37,7 @@
 "mỗi câu (ước tính)":"每题（估计）",
 "tỉ lệ đúng":"正确率",
 "{s} giây":"{s} 秒",
+"Ôn 10 phút: dạng yếu nhất của bạn":"10 分钟复习：你最薄弱的问题类型",
 "Đáp án không theo thứ tự trong bài và một đoạn có thể dùng nhiều lần. Xác định loại thông tin cần tìm (ví dụ, lý do, số liệu, so sánh…) rồi quét. Nên làm sau các dạng khác của cùng bài, khi bạn đã quen nội dung.":"答案不按段落顺序排列，一个段落可以多次使用。确定您需要什么类型的信息（示例、原因、数字、比较……），然后扫描。当您已经了解内容时，请在同一段落的其他任务之后执行此任务。",
 "Đọc câu chủ đề mỗi đoạn để nắm ý chính, rồi tìm chi tiết theo câu hỏi. Câu suy luận: chọn ý bài ngụ ý, không phải ý chỉ lặp từ. Câu từ vựng: thay phương án vào câu xem có giữ đúng nghĩa không.":"阅读每个段落的主题句以了解主要思想，然后找到每个问题的详细信息。推理题：选择文章暗示的内容，而不是仅仅重复单词的选项。词汇问题：将每个选项放入句子中，检查含义是否相同。",
 "Đọc câu hỏi trước rồi quét bài tìm từ khóa. Với nhóm nhiều văn bản, có câu phải ghép thông tin từ 2 văn bản. Câu “NOT true” và câu chèn câu tốn thời gian – có thể làm sau. Mục tiêu khoảng 1 phút mỗi câu.":"先阅读问题，然后浏览文本中的关键词。在多篇文章集中，有些问题需要结合两篇文章的信息。 “NOT true”问题和句子插入问题需要更长的时间 - 您可以稍后再处理。每个问题的时间约为 1 分钟。",
@@ -44,5 +49,7 @@
 "Đọc phần đầu câu và đoán phần còn thiếu cần gì (về nghĩa và ngữ pháp). Phần kết đúng phải khớp cả ngữ pháp lẫn nội dung bài. Câu hỏi theo thứ tự trong bài; luôn có nhiều phần kết hơn số câu.":"阅读句子开头并预测缺失部分需要什么（含义和语法）。正确的结尾必须符合语法和文章内容。问题遵循文章的顺序；结局总是比问题多。",
 "Đọc trước 3 câu hỏi (và biểu đồ nếu có) trong lúc nghe hướng dẫn. Câu hỏi thường theo thứ tự hội thoại: chủ đề/nơi chốn → chi tiết → việc sẽ làm tiếp theo. Đáp án thường là cách diễn đạt khác của lời nói.":"在阅读说明的同时阅读 3 个问题（以及任何图形）。问题通常跟随对话：主题/地点 → 细节 → 接下来会发生什么。正确答案通常是对所说内容的解释。",
 "Đọc trước câu hỏi. Câu đầu thường hỏi mục đích hoặc người nghe là ai – đáp án nằm ở vài câu mở đầu. Chú ý lời yêu cầu, đề nghị, thay đổi lịch ở cuối bài nói.":"首先阅读问题。第一个问题通常询问目的或受众——答案就在开头的句子中。在演讲即将结束时倾听请求、建议和日程安排的变化。",
+"đúng {p}% ({n} câu). Dành 10 phút luyện riêng dạng này.":"{p}% 正确（{n} 个问题）。花 10 分钟练习这种类型。",
+"Ước tính band tuần này ≈ {b} (không phải điểm thi chính thức)":"本周预计分数 ≈ {b}（不是官方考试分数）",
 });
 })(typeof self !== 'undefined' ? self : this);
