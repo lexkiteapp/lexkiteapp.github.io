@@ -2,7 +2,7 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 68.3 / 100**
+**Tổng: 68.8 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
@@ -10,7 +10,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
 | Giao tiếp | **72.3** | 68.3 | 72.3% | 100% | 0 |
 | 4 kỹ năng | **62.9** | 62.9 | 62.9% | 100% | 0 |
-| Đề thi | **43.8** | 31.7 | 43.8% | 100% | 0 |
+| Đề thi | **47.8** | 31.7 | 47.8% | 100% | 0 |
 | Khung Can-do | **81.3** | 81.3 | 81.3% | 100% | 0 |
 | Dễ học – dễ nhớ | **91.7** | 91.7 | 91.7% | 100% | 0 |
 | i18n | **62.7** | 62.7 | 62.7% | 100% | 0 |
@@ -86,11 +86,11 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | TOEFL Listening | 282 / 400 | 71% | 5 |
 | TOEFL Writing | 104 / 200 | 52% | 5 |
 | TOEFL Speaking | 183 / 300 | 61% | 5 |
-| Cambridge A2 (chưa làm) | 1 / 6 | 17% | 8 |
+| Cambridge A2 (chưa làm) | 3 / 6 | 50% | 8 |
 | Cambridge B1 (chưa làm) | 3 / 6 | 50% | 8 |
 | Cambridge B2 (chưa làm) | 3 / 6 | 50% | 8 |
 | Cambridge C1 (chưa làm) | 1 / 6 | 17% | 8 |
-| Cambridge C2 (chưa làm) | 0 / 6 | 0% | 8 |
+| Cambridge C2 (chưa làm) | 1 / 6 | 17% | 8 |
 
 ## Khung Can-do
 
