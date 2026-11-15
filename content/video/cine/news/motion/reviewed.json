@@ -1,6 +1,522 @@
 {
- "_note": "machine-built verdicts for news2motion specs (qc hook_truth: script == rendered script, hook == on-screen hook)",
+ "_note": "machine-built verdicts for news2motion / bank2motion specs (qc hook_truth: script == rendered script, hook == on-screen hook)",
  "verdicts": {
+  "mo_bm_tf_sb_040ec72a": {
+   "template": "tf",
+   "hook": "True or false?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "True or false?",
+    "q": "Is this correct? I apologize you for the delay.",
+    "o": "True, or false?",
+    "a": "False! Say: I apologize to you for the delay. Apologize to a person, for a reason.",
+    "w": "Most people just say: sorry for the delay!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_tf_sb_52fcf41b": {
+   "template": "tf",
+   "hook": "True or false?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "True or false?",
+    "q": "Is this correct? The flood caused a lot of damage.",
+    "o": "True, or false?",
+    "a": "True! Damage, meaning harm, has no plural.",
+    "w": "Damages with -s means money a court orders!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_tf_sb_136af047": {
+   "template": "tf",
+   "hook": "True or false?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "True or false?",
+    "q": "Is this correct? He said me that he was busy.",
+    "o": "True, or false?",
+    "a": "False! Say: He told me that he was busy. Tell needs a person. Say doesn't.",
+    "w": "You can say it TO me, but tell ME!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_tf_sb_4e852243": {
+   "template": "tf",
+   "hook": "True or false?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "True or false?",
+    "q": "Is this correct? I feel like to sleep.",
+    "o": "True, or false?",
+    "a": "False! Say: I feel like sleeping. Feel like plus -ing.",
+    "w": "Here like works like a preposition!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_gap_sb_3181a77b": {
+   "template": "gap",
+   "hook": "Fill the blank.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Fill the blank.",
+    "q": "I wonder blank.",
+    "o": "where she lives, or where does she live?",
+    "a": "where she lives! Use normal order after I wonder.",
+    "w": "Same with I don't know where it is!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_gap_sb_07301877": {
+   "template": "gap",
+   "hook": "Fill the blank.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Fill the blank.",
+    "q": "Please concentrate blank the lesson.",
+    "o": "on, or in?",
+    "a": "on! Concentrate takes on.",
+    "w": "Focus on works the same way!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_gap_sb_44c4f197": {
+   "template": "gap",
+   "hook": "Fill the blank.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Fill the blank.",
+    "q": "After lunch, we blank to work.",
+    "o": "returned back, or went back?",
+    "a": "went back! Return back repeats the idea.",
+    "w": "Return back says back two times!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_gap_sb_0ad85c2e": {
+   "template": "gap",
+   "hook": "Fill the blank.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Fill the blank.",
+    "q": "I live blank, but I'm not lonely.",
+    "o": "alone, or lonely?",
+    "a": "alone! Alone means without people.",
+    "w": "You can be alone and happy!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_pair_sb_e2289c4f": {
+   "template": "pair",
+   "hook": "Stop mixing up quality and quantity",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Stop mixing up quality and quantity",
+    "w": "Quantity is how many or how much. Quality is how good something is.",
+    "e0": "The quality of the food was excellent.",
+    "e1": "We bought a large quantity of rice.",
+    "m": "So remember: quaNtity = Number, quaLity = how good.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_pair_sb_93a2ff88": {
+   "template": "pair",
+   "hook": "Which is correct?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Which is correct?",
+    "w": "Use percent with a number. Percentage without.",
+    "e0": "Fifty percent of us voted.",
+    "e1": "What percentage of students passed?",
+    "m": "So remember: number + PERCENT, no number = PERCENTAGE.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_pair_sb_3aca1292": {
+   "template": "pair",
+   "hook": "Which is correct?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Which is correct?",
+    "w": "You're means you are.",
+    "e0": "You're very kind.",
+    "e1": "Is this your phone?",
+    "m": "So remember: YOU'RE = you are.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_pair_sb_1798babe": {
+   "template": "pair",
+   "hook": "Which is correct?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Which is correct?",
+    "w": "Things get damaged. People get harmed.",
+    "e0": "The car was damaged.",
+    "e1": "Smoking harms your health.",
+    "m": "So remember: things = DAMAGE, people = HARM.",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_phrasal_sb_22459a38": {
+   "template": "phrasal",
+   "hook": "Say this instead",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Say this instead",
+    "m": "stem from means: to be caused by something.",
+    "e0": "Her fear stems from a car crash.",
+    "e1": "Many errors stem from stress.",
+    "w": "Stem from means is caused by.",
+    "a": "Like a plant growing from a stem!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_phrasal_sb_93e59268": {
+   "template": "phrasal",
+   "hook": "Stop saying 'more or not?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Stop saying 'more or not?",
+    "m": "Salary negotiation means: \"Is there any flexibility on the base salary?\".",
+    "e0": "Is there any flexibility on price?",
+    "e1": "Is there any flexibility on the date?",
+    "w": "Start with is there. Or not sounds rude.",
+    "a": "It opens a real talk!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_phrasal_sb_2408f7fd": {
+   "template": "phrasal",
+   "hook": "Natives never say 'play together",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Natives never say 'play together",
+    "m": "hang out means: informal; to spend relaxed time somewhere or with someone.",
+    "e0": "We hung out at the beach.",
+    "e1": "Let's hang out after work.",
+    "w": "Adults say hang out, not play.",
+    "a": "Kids play. Adults hang out!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_phrasal_sb_0994b0f5": {
+   "template": "phrasal",
+   "hook": "Say this instead",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Say this instead",
+    "m": "contribute to means: to be one of the causes of something.",
+    "e0": "Stress can contribute to illness.",
+    "e1": "Everyone contributed to the project.",
+    "w": "Contribute to means be one of the causes.",
+    "a": "It also means give, like money to a charity!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_pattern_sb_00b3d3f4": {
+   "template": "pattern",
+   "hook": "Which is correct?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Which is correct?",
+    "x": "Not: I can't cope stress.",
+    "b": "Say: I can't cope with stress.",
+    "w": "Cope needs with before the problem.",
+    "m": "Remember: cope / deal WITH.",
+    "a": "Deal with works the same way!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_pattern_sb_16c56ea4": {
+   "template": "pattern",
+   "hook": "Which is correct?",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Which is correct?",
+    "x": "Not: I don't dare to saying it.",
+    "b": "Say: I don't dare say it.",
+    "w": "Dare plus base verb, or dare to plus verb.",
+    "m": "Remember: dare + VERB.",
+    "a": "How dare you! is a strong, angry phrase!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_pattern_sb_05671f6f": {
+   "template": "pattern",
+   "hook": "Guess before I tell you",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Guess before I tell you",
+    "x": "Not: This room is not fit to a party.",
+    "b": "Say: This room is not fit for a party.",
+    "w": "Fit for means good enough for.",
+    "m": "Remember: fit FOR = good enough for.",
+    "a": "Fit for a king means very, very good!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_pattern_sb_03f6978d": {
+   "template": "pattern",
+   "hook": "Stop saying 'lead for",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Stop saying 'lead for",
+    "x": "Not: Stress can lead for health problems.",
+    "b": "Say: Stress can lead to health problems.",
+    "w": "Lead to means cause.",
+    "m": "Remember: lead TO = cause.",
+    "a": "Like a road, it leads to the result!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_native_sb_00ac2cbe": {
+   "template": "native",
+   "hook": "90% get this wrong",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "90% get this wrong",
+    "x": "Textbook: I travel to my office by bus.",
+    "b": "Natural: I go to work by bus.",
+    "w": "For short daily trips, go sounds more natural.",
+    "a": "Commute is the word for daily work trips!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_native_sb_0031f98c": {
+   "template": "native",
+   "hook": "Guess before I tell you",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Guess before I tell you",
+    "x": "Textbook: The law time is over, so no case.",
+    "b": "Natural: The statute of limitations has run out.",
+    "w": "It's the legal time limit to start a case.",
+    "a": "Some crimes have no time limit at all!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_native_sb_001209da": {
+   "template": "native",
+   "hook": "Natives never say 'finished tickets",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Natives never say 'finished tickets",
+    "x": "Textbook: The tickets are finished.",
+    "b": "Natural: The tickets are sold out.",
+    "w": "Sold out means none are left to buy.",
+    "a": "A sold-out show is a big success!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_native_sb_033d190d": {
+   "template": "native",
+   "hook": "Natives never say 'follow number",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Natives never say 'follow number",
+    "x": "Textbook: What is my follow number?",
+    "b": "Natural: What is my tracking number?",
+    "w": "You track a package with a tracking number.",
+    "a": "Track means follow the path of something!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_recall_sb_9f45e757": {
+   "template": "recall",
+   "hook": "Say it before I do.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Say it before I do.",
+    "q": "How do you say this correctly? Many learners say: I am interesting in this job.",
+    "a": "I'm interested in this job. Interested is how you feel. Interesting is the thing.",
+    "w": "Say I'm interesting and you praise yourself!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_recall_sb_d11da4f4": {
+   "template": "recall",
+   "hook": "Say it before I do.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Say it before I do.",
+    "q": "How do you say this correctly? Many learners say: How I can send money other account?",
+    "a": "How do I transfer money to another account? In questions, put do before I.",
+    "w": "Banks say transfer money!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_recall_sb_18d9514a": {
+   "template": "recall",
+   "hook": "Say it before I do.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Say it before I do.",
+    "q": "How do you say this correctly? Many learners say: The number of student are increasing.",
+    "a": "The number of students is increasing. The number takes is. A number takes are.",
+    "w": "A number of students are here. Both rules work!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_recall_sb_52fcf41b": {
+   "template": "recall",
+   "hook": "Say it before I do.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Say it before I do.",
+    "q": "How do you say this correctly? Many learners say: The flood caused many damages.",
+    "a": "The flood caused a lot of damage. Damage, meaning harm, has no plural.",
+    "w": "Damages with -s means money a court orders!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_spot_sb_ff26f6aa": {
+   "template": "spot",
+   "hook": "Water is a luxury. I need it.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "90% get this wrong",
+    "q": "Spot the mistake. Water is a luxury. I need it.",
+    "a": "The mistake! A luxury is nice and costly but not needed.",
+    "b": "Say: A sports car is a luxury.",
+    "w": "A hot bath can feel like a luxury!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_spot_sb_1740b6df": {
+   "template": "spot",
+   "hook": "Remember me to call her.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Stop saying 'remember me to",
+    "q": "Spot the mistake. Remember me to call her.",
+    "a": "The mistake! Remind means help someone remember.",
+    "b": "Say: Remind me to call her.",
+    "w": "Your phone reminds you. You remember!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_spot_sb_0d55586c": {
+   "template": "spot",
+   "hook": "I eat diet to lose weight.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "90% get this wrong",
+    "q": "Spot the mistake. I eat diet to lose weight.",
+    "a": "The mistake! On a diet means eating less.",
+    "b": "Say: I'm on a diet to lose weight.",
+    "w": "Everyone has a diet, even pizza lovers!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
+  "mo_bm_spot_sb_d7a49df5": {
+   "template": "spot",
+   "hook": "I work here since three years.",
+   "hook_true": true,
+   "script_reviewed": true,
+   "reviewer": "gold bank row (reviewed) via bank2motion.py 15/11/2026",
+   "script": {
+    "h": "Say this instead",
+    "q": "Spot the mistake. I work here since three years.",
+    "a": "The mistake! Started in the past, still true now: I've worked… for.",
+    "b": "Say: I've worked here for three years.",
+    "w": "Since needs a start point. For needs a length of time!",
+    "sh": "Send this to a friend who's learning English!",
+    "c": "Save this, and practice free on lexkite.com."
+   }
+  },
   "mo_news_airplane_cabin_three_b5dc88": {
    "template": "tip",
    "hook": "FLYING SOON?",

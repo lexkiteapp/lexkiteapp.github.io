@@ -89,7 +89,8 @@ def build():
     return specs, rev
 def dump(o): return json.dumps(o, indent=1, ensure_ascii=False) + '\n'
 if __name__ == '__main__':
-    specs, rev = build(); os.makedirs(OUT, exist_ok=True); files = {f'{OUT}/{k}.json': dump(v) for k, v in specs.items()}; files[f'{OUT}/reviewed.json'] = dump(dict(_note='machine-built verdicts for news2motion specs (qc hook_truth: script == rendered script, hook == on-screen hook)', verdicts=rev))
+    specs, rev = build(); os.makedirs(OUT, exist_ok=True); files = {f'{OUT}/{k}.json': dump(v) for k, v in specs.items()}; rp = f'{OUT}/reviewed.json'; old = json.load(open(rp))['verdicts'] if os.path.exists(rp) else {}; keep = {k: v for k, v in old.items() if not k.startswith('mo_news_')}   # bank2motion verdicts live in the same file
+    files[rp] = dump(dict(_note='machine-built verdicts for news2motion / bank2motion specs (qc hook_truth: script == rendered script, hook == on-screen hook)', verdicts={**keep, **rev}))
     if '--check' in sys.argv:
         bad = [os.path.basename(p) for p, t in files.items() if not os.path.exists(p) or open(p).read() != t]; print('stale:', bad[:10]) if bad else print(f'news2motion: {len(specs)} specs up to date'); sys.exit(1 if bad else 0)
     for p, t in files.items(): open(p, 'w').write(t)
