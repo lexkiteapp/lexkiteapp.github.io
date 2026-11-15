@@ -18,6 +18,9 @@ export const SELF_JOB = 'required-gate-eval';      // tên job của chính work
 export const SELF_PATH = '.github/workflows/required-gate.yml';
 const OK = new Set(['success', 'skipped', 'neutral']);
 const BAD = new Set(['failure', 'timed_out', 'cancelled', 'startup_failure', 'stale', 'error']);
+// 15/11: 'cancelled' KHÔNG phải lỗi thật – concurrency (cancel-in-progress) / runner mất huỷ lượt chạy mà không có lượt mới hơn cùng sha. Trước đây gate đỏ oan (#1340, #1324…).
+// Lượt workflow mới nhất của sha bị huỷ → CHỜ + bộ canh tự chạy lại (≤ MAX_AUTO_RERUN lần); quá số lần đó mới tính đỏ. Lỗi thật (failure/timed_out…) vẫn đỏ ngay.
+export const MAX_AUTO_RERUN = 2;
 
 /** Hàm thuần: { checkRuns, statuses, workflowRuns } (dạng REST API) → { state, description, failed, pending, total }. */
 export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = {}) {
@@ -37,7 +40,7 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
     const k = r.workflow_id ?? r.name, prev = wr.get(k);
     if (!prev || (r.run_number || 0) > (prev.run_number || 0) || ((r.run_number || 0) === (prev.run_number || 0) && (r.id || 0) > (prev.id || 0))) wr.set(k, r);
   }
-  for (const r of wr.values()) items.push({ name: 'workflow: ' + r.name, status: r.status, conclusion: r.conclusion });
+  for (const r of wr.values()) items.push({ name: 'workflow: ' + r.name, status: r.status, conclusion: r.conclusion, runId: r.id, attempt: r.run_attempt });
   // commit status: mới nhất theo context, bỏ chính mình
   const st = new Map();
   for (const s of statuses) {
@@ -47,10 +50,13 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
   }
   for (const s of st.values()) items.push(s.state === 'pending' ? { name: s.context, status: 'in_progress' } : { name: s.context, status: 'completed', conclusion: s.state });
 
-  const failed = [], pending = [];
+  const failed = [], pending = [], cancelled = [];
+  const retry = items.some(i => i.runId && i.conclusion === 'cancelled' && i.status === 'completed' && (i.attempt || 1) <= MAX_AUTO_RERUN);   // có lượt workflow bị huỷ còn được chạy lại
   for (const i of items) {
     if (i.status !== 'completed') pending.push(i.name);
     else if (OK.has(i.conclusion)) continue;
+    else if (i.conclusion === 'cancelled' && i.runId && (i.attempt || 1) <= MAX_AUTO_RERUN) { cancelled.push({ runId: i.runId, attempt: i.attempt || 1, name: i.name }); pending.push(`${i.name} (huỷ – chạy lại)`); }
+    else if (i.conclusion === 'cancelled' && !i.runId && retry) pending.push(`${i.name} (huỷ – chờ lượt chạy lại)`);   // job/check của lượt workflow đang được chạy lại
     else if (BAD.has(i.conclusion)) failed.push(`${i.name} (${i.conclusion})`);
     else pending.push(`${i.name} (${i.conclusion || 'chưa rõ'})`);   // action_required (PR fork chờ duyệt chạy) … → chờ, không đỏ
   }
@@ -71,7 +77,7 @@ export function evaluate({ checkRuns = [], statuses = [], workflowRuns = [] } = 
   // Trước đây trường hợp này báo xanh → #584 gộp vào main khi chưa có CI nào chạy trên head.
   else if (!items.some((i) => i.status === 'completed' && i.conclusion === 'success')) { state = 'pending'; description = total ? `Chưa có check thật nào đạt (${total} bỏ qua) – đẩy commit thường để chạy CI` : 'Chưa có check nào chạy trên commit này – đẩy commit thường để chạy CI'; }
   else { state = 'success'; description = `Xanh: ${total} check đều đạt`; }
-  return { state, description, failed, pending, total };
+  return { state, description, failed, pending, total, cancelled };
 }
 
 // ---------- bộ canh (3/11): thay ~20 lượt workflow_run/commit bằng 1 runner canh liên tục ----------
@@ -178,6 +184,7 @@ export function api(token, repo, fetchImpl = globalThis.fetch) {
       workflowRuns: await pages(`/actions/runs?head_sha=${sha}`, 'workflow_runs', 3),
     }),
     post: (sha, { state, description }, targetUrl) => call(`/statuses/${sha}`, { method: 'POST', body: JSON.stringify({ state, description, context: CONTEXT, ...(targetUrl ? { target_url: targetUrl } : {}) }) }),
+    rerun: id => call(`/actions/runs/${id}/rerun`, { method: 'POST', body: '{}' }),
     pr: n => call(`/pulls/${n}`),
     openPrs: () => pages('/pulls?state=open&sort=updated&direction=desc', null, 2),
     // tự nối (3/11): cron GitHub có lúc bỏ lượt hàng giờ (02/11: ci-triage + free-tier-guard 13 giờ) → bộ canh tự xếp lượt kế tiếp
@@ -199,14 +206,22 @@ export const chainAlive = (runs, since) => runs.some(r => Date.parse(r.created_a
 export const PACED = { 'ci-filler.yml': 10, 'd1-usage-watch.yml': 20 };
 /** Tới nhịp chưa (thuần): không có lượt đang chờ/chạy thật và lượt cuối đã quá khoảng lịch. */
 export const paceDue = (last, gapMin, now) => !last || (last.status === 'completed' || isZombie(last, now)) && now - Date.parse(last.created_at) >= gapMin * 6e4;
+/** Chạy lại các lượt workflow bị huỷ (res.cancelled); mỗi runId:attempt chỉ 1 lần mỗi lượt canh. */
+export async function rerunCancelled(A, res, done, log = console.log) {
+  for (const c of res.cancelled || []) {
+    const k = c.runId + ':' + c.attempt; if (done.has(k)) continue; done.add(k);
+    try { await A.rerun(c.runId); log(`↻ chạy lại ${c.name} (lượt huỷ #${c.runId}, lần ${c.attempt})`); } catch (e) { log(`::warning::không chạy lại được ${c.name}: ${e.message}`); }
+  }
+}
 export async function run(argv, env = process.env, A = null, log = console.log, clock = { now: () => Date.now(), sleep: ms => new Promise(r => setTimeout(r, ms)) }) {
   const arg = k => { const i = argv.indexOf(k); return i >= 0 ? argv[i + 1] : undefined; };
   const dry = argv.includes('--dry'), url = env.RUN_URL || '';
   A = A || api(env.GITHUB_TOKEN, env.GITHUB_REPOSITORY);
+  const reran = new Set();
   const one = async sha => {
     const res = evaluate(await A.gather(sha));
     log(`${sha.slice(0, 8)} → ${res.state}: ${res.description}`);
-    if (!dry) await A.post(sha, res, url);
+    if (!dry) { await A.post(sha, res, url); await rerunCancelled(A, res, reran, log); }
     return res;
   };
   if (arg('--sha')) return [await one(arg('--sha'))];
@@ -271,6 +286,7 @@ export async function run(argv, env = process.env, A = null, log = console.log, 
           if (!dry) await A.post(sha, res, url);
           out.push({ sha, ...res });
         }
+        if (!dry) await rerunCancelled(A, res, reran, log);
         const attempts = {}; for (const r of runs) if (r.head_sha === sha) attempts[r.id] = r.run_attempt || 1;
         let sig = null; if (A.probe && (res.state === 'pending' || res.state === 'failure')) try { sig = (probes.get(sha) || await A.probe(sha)).sig; } catch { /* lần sau */ }
         seen.set(sha, { at: at - 5e3, state: res.state, desc: res.description, recheckAt, attempts, sig });   // lùi 5 s: lượt xong sát lúc đọc vẫn được thấy ở vòng sau
