@@ -70,13 +70,15 @@ const en = JSON.parse(fs.readFileSync('content/landing/en.json', 'utf8')).instal
 for (const l of LANGS) {
   const html = fs.readFileSync(fileOf(l), 'utf8'), doc = new JSDOM(html.replace(/<script[\s\S]*?<\/script>/g, '')).window.document, sec = doc.querySelector('#install');
   ok(!!sec && doc.querySelector('#install h2').textContent.includes('Lexkite'), `${l}: có khu #install`);
-  ok(sec && ['ios', 'play', 'cws'].every(k => sec.querySelector(`a[data-ch="${k}"]`)?.href.startsWith(D.channels[k].url)), `${l}: khu Cài đủ App Store, Google Play, Chrome`);
+  ok(sec && ['ios', 'play'].every(k => sec.querySelector(`a[data-ch="${k}"]`)?.href.startsWith(D.channels[k].url)), `${l}: khu Cài đủ App Store, Google Play`);
+  // Chrome Web Store không lặp trong khu Cài (giữ landing ≤ 16 KB gz) → nút CWS đã có sẵn ở hero/khu tiện ích phải còn, link đúng, ngoài #install
+  ok([...doc.querySelectorAll('a[href]')].some(a => !sec.contains(a) && a.href.startsWith(D.channels.cws.url)), `${l}: nút Chrome Web Store còn trên landing (ngoài khu Cài)`);
   ok(sec && !sec.querySelector('[data-ch="edge"],[data-ch="firefox"]'), `${l}: không nút Edge/Firefox khi chưa có listing`);
   ok(sec && sec.querySelector('a[data-ch="play"]').href.includes('referrer=utm_source') && sec.querySelector('a[data-ch="ios"]').href.includes('ct=get_app_inst'), `${l}: link khu Cài có nguồn đo`);
   ok(doc.querySelector('header nav a[href="#install"]') && doc.querySelector('section a[href="#install"]'), `${l}: đầu trang + hero có lối tới khu Cài`);
   ok(doc.querySelector('[data-get-app="head"]'), `${l}: hero giữ nút "Tải app"`);
   const foot = doc.querySelector('footer');
-  ok(foot && ['ios', 'play', 'cws'].every(k => foot.querySelector(`a[data-ch="${k}"]`)), `${l}: chân trang đủ link`);
+  ok(foot && foot.querySelector('[data-get-app="foot"]'), `${l}: chân trang giữ nút "Tải app" (đủ cửa hàng ở khu Cài cùng trang, không lặp lại để landing ≤ ngân sách gz)`);
   const c = JSON.parse(fs.readFileSync(`content/landing/${l}.json`, 'utf8')).install;
   ok(c && c.h && c.p && c.hero && c.phone?.includes('{url}'), `${l}: thiếu chữ install`);
   if (l !== 'en') ok(c && c.p !== en.p && c.phone !== en.phone && c.hero !== en.hero, `${l}: chữ install còn tiếng Anh`);
@@ -97,13 +99,13 @@ function run(ua, { standalone = false, ext = null, apps = null } = {}) {
 }
 const ch = (w, k) => w.document.querySelector(`#install a[data-ch="${k}"]`);
 { const w = run(UA.firefox);
-  ok(['ios', 'play', 'cws'].every(k => !ch(w, k).hidden) && !w.document.querySelector('#install').hidden, 'Firefox máy tính: đủ link điện thoại + Chrome');
-  ok(ch(w, 'ios').href === storeHref({ id: 'ios', url: D.channels.ios.url }, 'inst') && ch(w, 'play').href === storeHref({ id: 'play', url: D.channels.play.url }, 'inst') && ch(w, 'cws').href === storeHref({ id: 'cws', url: D.channels.cws.url }, 'inst'), 'href của get-app.js trùng khuôn với HTML dựng sẵn');
+  ok(['ios', 'play'].every(k => !ch(w, k).hidden) && !w.document.querySelector('#install').hidden && !ch(w, 'cws'), 'Firefox máy tính: đủ link điện thoại (nút Chrome nằm ngoài khu Cài, xem kiểm tra từng ngôn ngữ)');
+  ok(ch(w, 'ios').href === storeHref({ id: 'ios', url: D.channels.ios.url }, 'inst') && ch(w, 'play').href === storeHref({ id: 'play', url: D.channels.play.url }, 'inst'), 'href của get-app.js trùng khuôn với HTML dựng sẵn');
   ch(w, 'play').dispatchEvent(new w.MouseEvent('click', { bubbles: true, cancelable: true }));
   ok(w.beacons.some(b => b.ev === 'app_inst_play'), 'bấm kênh → /api/hit app_inst_play'); }
 { const w = run(UA.chrome, { ext: { eligible: true, installed: true } });
   await new Promise(res => { w.dispatchEvent(new w.Event('load')); setTimeout(res, 1100); });
-  ok(ch(w, 'cws').hidden && !ch(w, 'ios').hidden && !ch(w, 'play').hidden, 'Chrome đã cài add-on: ẩn kênh add-on, vẫn còn link điện thoại'); }
+  ok(!ch(w, 'ios').hidden && !ch(w, 'play').hidden, 'Chrome đã cài add-on: vẫn còn link điện thoại'); }
 { const w = run(UA.android, { standalone: true });
   ok(w.document.querySelector('#install').hidden && ch(w, 'play').hidden && w.document.querySelector('a[href="#install"]').hidden, 'chạy như app: ẩn cả khu Cài và lối tới khu Cài'); }
 { const w = run(UA.android); ok(ch(w, 'play').style.order === '-1' && ch(w, 'ios').style.order === '', 'Android: Google Play lên đầu'); }
@@ -161,7 +163,7 @@ for (const l of LANGS) { const f = FOOT_DOM(l); twoStores(f, `chân trang ${l}`)
   ok(!footGroups(l).product.some(([u]) => /play\.google|apps\.apple/.test(u)), `${l}: nhóm Sản phẩm còn mục chung trỏ một cửa hàng`);
   ok(![...f.querySelectorAll('a')].some(a => a.textContent.trim() === FOOT[l][22]), `${l}: còn mục "${FOOT[l][22]}"`); }
 // Landing: khu Cài + chân trang đều có đủ hai đích
-for (const l of LANGS) { const doc = new JSDOM(fs.readFileSync(fileOf(l), 'utf8').replace(/<script[\s\S]*?<\/script>/g, '')).window.document; twoStores(doc.querySelector('#install'), `khu Cài ${l}`); twoStores(doc.querySelector('footer'), `chân trang landing ${l}`);
+for (const l of LANGS) { const doc = new JSDOM(fs.readFileSync(fileOf(l), 'utf8').replace(/<script[\s\S]*?<\/script>/g, '')).window.document; twoStores(doc.querySelector('#install'), `khu Cài ${l}`); 
   ok(![...doc.querySelectorAll('footer a')].some(a => a.textContent.trim() === FOOT[l][22]), `landing ${l}: còn mục chung`); }
 // /get: đủ hai đích trong HTML (không JS vẫn dùng được); về lại trang trên điện thoại không bị chuyển lần nữa, cửa hàng đúng máy đứng đầu
 { const html = getPage(D), doc = new JSDOM(html.replace(/<script[\s\S]*?<\/script>/g, '')).window.document; twoStores(doc.body, '/get');

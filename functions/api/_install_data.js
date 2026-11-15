@@ -33,5 +33,5 @@ export const INSTALL = {
       "url": ""
     }
   },
-  "trademarks": "App Store is a service mark of Apple Inc. Google Play is a trademark of Google LLC. Chrome is a trademark of Google LLC."
+  "trademarks": "App Store is a service mark of Apple Inc. Google Play and Chrome are trademarks of Google LLC."
 };
