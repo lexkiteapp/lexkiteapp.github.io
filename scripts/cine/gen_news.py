@@ -32,7 +32,7 @@ def card(t, i, c, n):
     """bank card [text, sub|LABEL] -> card_one args (kind, text, sub, label) + width check at 52 px (news.py card_one geometry)."""
     text, x = c; sub = None
     if t == 'three': kind, label, sub = 'p', f'#{n}', x
-    elif x in LABELS: kind, label = 'p', {'?': 'COMMENT'}.get(x, x)
+    elif x in LABELS: kind, label = 'p', {'?': 'GUESS'}.get(x, x)
     elif x is None: kind, label = 'x', None
     else: kind, label, sub = 'v', None, x
     tx = 46 + dr.textlength(label, font=FL) + 32 if kind == 'p' else 112

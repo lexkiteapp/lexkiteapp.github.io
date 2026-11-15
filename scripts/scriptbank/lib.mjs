@@ -236,7 +236,7 @@ export function expandLines(s) {
     ['carlos', H && H.id === 'which' ? `Correct: ${s.right}` : `${SAY[k % SAY.length]} ${s.right}`],
     ['ama', s.why],
     ['carlos', s.aha],
-    ['ama', `Comment below: ${((s.quiz || {}).options || []).slice(0, 3).join(' or ')}?`],
+    ['ama', `Pick your answer first. ${((s.quiz || {}).options || []).slice(0, 3).join(' or ')}?`],
     ['carlos', `${s.save} ${H ? H.loop : ''}`.trim()]
   ];
   return L.map(([who, say]) => ({ who, say: String(say || '').trim() }));
