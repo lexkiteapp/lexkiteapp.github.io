@@ -1,0 +1,752 @@
+{
+  "inexperience": {
+    "mis": [
+      {
+        "w": "He failed because of his inexperience on managing teams.",
+        "r": "He failed because of his inexperience in managing teams.",
+        "why": "Inexperience takes 'in' (or 'with') before the area, not 'on'."
+      },
+      {
+        "w": "She is very inexperience for this role.",
+        "r": "She is very inexperienced for this role.",
+        "why": "Inexperience is a noun; the adjective that describes a person is inexperienced."
+      }
+    ],
+    "u": "Inexperience is an uncountable noun meaning the state of not having practised something enough. It often explains mistakes without blaming character: the error came from inexperience, not carelessness. Common frames are 'inexperience in/with something' and 'through/due to inexperience'. It is slightly formal; in speech people often say 'lack of experience'. The adjective inexperienced describes the person, while the opposite noun is experience or expertise."
+  },
+  "influential": {
+    "mis": [
+      {
+        "w": "He is very influential on young voters.",
+        "r": "He is very influential with young voters.",
+        "why": "Influential takes 'with' for the group of people and 'in' for the area; 'on' is for the noun influence."
+      },
+      {
+        "w": "She is an influence person in the fashion industry.",
+        "r": "She is an influential person in the fashion industry.",
+        "why": "Use the adjective influential before a noun; influence is a noun."
+      }
+    ],
+    "u": "Influential describes a person, book, idea or group that changes what others think or do. It carries respect and is common in news, business and academic writing: an influential economist, an influential report. Typical patterns are 'influential in + -ing' and 'influential with + group'. It does not mean rich or famous by itself. Powerful stresses control or authority, while influential stresses effect on opinions and decisions."
+  },
+  "informative": {
+    "mis": [
+      {
+        "w": "The website is informed and easy to use.",
+        "r": "The website is informative and easy to use.",
+        "why": "Informed describes a person who has the facts; informative describes a source that gives facts."
+      },
+      {
+        "w": "The talk was informative about the new law.",
+        "r": "The talk was informative on the new law.",
+        "why": "With informative, 'on' (or 'about') is possible but the tested pairing is 'informative on a topic'; avoid 'informative of'."
+      }
+    ],
+    "u": "Informative describes something that gives you a lot of useful facts, such as a talk, article, website or sign. It is positive and fairly neutral in register, so it suits reviews and feedback: 'The guide was clear and informative.' Do not confuse it with informed, which describes a person who has the facts, or informational, which is a rare label for content type. A good pair is 'informative and easy to follow'."
+  },
+  "innovative": {
+    "mis": [
+      {
+        "w": "The innovative of this phone is its camera.",
+        "r": "The innovation of this phone is its camera.",
+        "why": "Innovative is an adjective; the noun for the new idea is innovation."
+      },
+      {
+        "w": "She is an innovative of the company.",
+        "r": "She is an innovator at the company.",
+        "why": "The person who creates new ideas is an innovator; innovative only describes things or people's ideas."
+      }
+    ],
+    "u": "Innovative describes ideas, products or methods that are new and clever, not just different. It is a favourite word in advertising and business writing, so it can sound like empty praise unless you give detail: an innovative way of recycling batteries. Related words: innovation is the noun, innovate is the verb, and innovator is the person. Original focuses on being first, while innovative suggests it also works well in practice."
+  },
+  "inquire": {
+    "mis": [
+      {
+        "w": "I wrote to inquire the price of the room.",
+        "r": "I wrote to inquire about the price of the room.",
+        "why": "Inquire is intransitive here and needs 'about' before the thing you ask about."
+      },
+      {
+        "w": "He inquired me about the schedule.",
+        "r": "He inquired about the schedule.",
+        "why": "Inquire cannot take a person as direct object; use 'ask him' or inquire with 'of'."
+      }
+    ],
+    "u": "Inquire is a formal verb for asking for information, common in business emails and customer service: 'I am writing to inquire about your rates.' It takes 'about' for the topic and 'into' for an official investigation, as in 'inquire into the cause of the fire'. American English prefers inquire and inquiry; British English also uses enquire and enquiry. In casual speech, simply say ask."
+  },
+  "insufficient": {
+    "mis": [
+      {
+        "w": "We have insufficient of time to finish.",
+        "r": "We have insufficient time to finish.",
+        "why": "Insufficient is an adjective placed directly before the noun; it does not take 'of' like 'enough of'."
+      },
+      {
+        "w": "The budget is insufficient to cover for all costs.",
+        "r": "The budget is insufficient to cover all costs.",
+        "why": "'Cover' already means pay for, so it takes a direct object without 'for'."
+      }
+    ],
+    "u": "Insufficient is a formal way to say not enough. It appears in banking, law and reports: insufficient funds, insufficient evidence. It is used with uncountable and plural nouns and often followed by 'for' or 'to + verb': insufficient for our needs, insufficient to pay the bill. The opposite is sufficient. In everyday talk people say 'not enough', which sounds more natural and warmer."
+  },
+  "interfere": {
+    "mis": [
+      {
+        "w": "Noise interfered my sleep last night.",
+        "r": "Noise interfered with my sleep last night.",
+        "why": "Interfere is intransitive and needs 'with' before the thing that is disturbed."
+      },
+      {
+        "w": "Parents should not interfere with their adult children's marriage choices.",
+        "r": "Parents should not interfere in their adult children's marriage choices.",
+        "why": "'Interfere in' means meddle in someone's affairs; 'interfere with' means obstruct something."
+      }
+    ],
+    "u": "Interfere has two patterns that learners mix up. 'Interfere with' means to obstruct or disturb: bad weather interfered with the flight. 'Interfere in' means to get involved in other people's business, often unwanted: one country interfering in another's elections. The noun is interference. It usually sounds negative, so describe helpful involvement with help or support instead."
+  },
+  "intern": {
+    "mis": [
+      {
+        "w": "She is an intern in a bank.",
+        "r": "She is an intern at a bank.",
+        "why": "A workplace takes 'at' (or 'with'), not 'in'."
+      },
+      {
+        "w": "I will intern to a law firm.",
+        "r": "I will intern at a law firm.",
+        "why": "Use 'at' for the workplace; 'to' shows movement, not where you work."
+      }
+    ],
+    "u": "Intern is mostly a noun for a student or recent graduate who works at a company for a short period to gain experience, sometimes unpaid. It can also be a verb: she interned at a hospital. The workplace follows 'at' or 'with'. Internship is the period itself, so do not say 'an intern of three months'. In British English, trainee and work-experience student are also common."
+  },
+  "internationally": {
+    "mis": [
+      {
+        "w": "The firm has an internationally office in Tokyo.",
+        "r": "The firm has an international office in Tokyo.",
+        "why": "Before a noun use the adjective international; internationally is an adverb."
+      },
+      {
+        "w": "They sell their products international.",
+        "r": "They sell their products internationally.",
+        "why": "A verb needs an adverb; international is an adjective."
+      }
+    ],
+    "u": "Internationally is an adverb meaning in or across many countries. It often comes before a participle (internationally recognized) or after a verb (sell internationally). It is more precise than globally when you mean several countries rather than the whole world. Do not confuse it with the adjective international, as in an international airport. In business writing it often describes expansion, reputation and trade."
+  },
+  "internship": {
+    "mis": [
+      {
+        "w": "I am doing an internship in a hospital.",
+        "r": "I am doing an internship at a hospital.",
+        "why": "A workplace takes 'at' (or 'with'), not 'in'."
+      },
+      {
+        "w": "She gave an internship at the bank.",
+        "r": "She did an internship at the bank.",
+        "why": "The student does or completes an internship; the company offers it."
+      }
+    ],
+    "u": "An internship is a fixed period of work experience, usually for students or recent graduates, lasting from a few weeks to several months. It can be paid or unpaid. Typical verbs: do, complete, apply for or land an internship; companies offer or advertise internships. Use 'at' for the organization and 'in' for the field: an internship at Google in marketing. It differs from an apprenticeship, which is longer and trains for a skilled trade."
+  },
+  "invaluable": {
+    "mis": [
+      {
+        "w": "Her advice was very invaluable to me.",
+        "r": "Her advice was invaluable to me.",
+        "why": "Invaluable already means extremely valuable, so 'very' is redundant."
+      },
+      {
+        "w": "Old books are invaluable because nobody wants them.",
+        "r": "Old books are worthless because nobody wants them.",
+        "why": "Invaluable means priceless and very useful, not 'without value'; the opposite meaning is worthless."
+      }
+    ],
+    "u": "Invaluable is a trap word: although it begins with in-, it means extremely valuable, not valueless. For no value, use worthless. It is a strong positive adjective for help, advice, experience or resources: an invaluable source of information. It is gradable only rarely, so avoid 'very invaluable'; use 'truly' or 'absolutely' if needed. The usual pattern is 'invaluable to someone' or 'invaluable in doing something'."
+  },
+  "inventory": {
+    "mis": [
+      {
+        "w": "We count our inventories every week.",
+        "r": "We count our inventory every week.",
+        "why": "Stock meaning goods is uncountable."
+      },
+      {
+        "w": "The inventory are low this month.",
+        "r": "The inventory is low this month.",
+        "why": "Inventory in this sense is singular and takes is."
+      }
+    ],
+    "u": "Inventory has two main meanings in business. It can mean the goods a company holds for sale (stock in British English) or the detailed list of those goods or of a home's contents. Verbs: take, check, update, reduce inventory. It is usually uncountable when it means stock: 'high inventory levels'. In the US, inventory is the normal everyday word; in the UK, stock is more common in shops."
+  },
+  "involve": {
+    "mis": [
+      {
+        "w": "The job involves to travel a lot.",
+        "r": "The job involves traveling a lot.",
+        "why": "Involve is followed by a noun or a gerund, not a to-infinitive."
+      },
+      {
+        "w": "He was involved to the accident.",
+        "r": "He was involved in the accident.",
+        "why": "Be involved takes 'in' for an event or activity and 'with' for people."
+      }
+    ],
+    "u": "Involve means to include something as a necessary part: the project involves a lot of paperwork. It also describes taking part: be involved in a campaign, get involved with a charity. A gerund follows it, never an infinitive. Be careful, 'be involved with someone' can suggest a romantic relationship. Entail is more formal and focuses on what must follow, while include simply lists parts."
+  },
+  "journalism": {
+    "mis": [
+      {
+        "w": "She wants to be a journalism.",
+        "r": "She wants to be a journalist.",
+        "why": "Journalism is the field; the person is a journalist."
+      },
+      {
+        "w": "He studies a journalism at university.",
+        "r": "He studies journalism at university.",
+        "why": "Journalism is uncountable, so it takes no article."
+      }
+    ],
+    "u": "Journalism is the uncountable noun for the work of gathering, writing and publishing news, whether in print, on TV or online. It is also the name of a university subject. Use it with fields and kinds: investigative journalism, sports journalism, a degree in journalism. The person is a journalist or reporter. Do not mix it up with journal, which is a magazine or a diary."
+  },
+  "junior": {
+    "mis": [
+      {
+        "w": "He is junior than me in the company.",
+        "r": "He is junior to me in the company.",
+        "why": "Junior takes 'to', not 'than', for comparison of rank."
+      },
+      {
+        "w": "She is a junior of the team.",
+        "r": "She is a junior member of the team.",
+        "why": "Junior is an adjective for rank and is normally followed by a noun like member or staff."
+      }
+    ],
+    "u": "Junior describes a lower rank or less experience, not necessarily younger age: a junior accountant. It is followed by 'to' when comparing with a senior: he is junior to her. It has no 'than' form. In the US, junior also means a third-year student in high school or college, and Jr. after a name means the son with the same name. The opposite is senior."
+  },
+  "ladder": {
+    "mis": [
+      {
+        "w": "He quickly climbed up on the career ladder.",
+        "r": "He quickly climbed the career ladder.",
+        "why": "In this idiom climb takes the ladder directly."
+      },
+      {
+        "w": "He fell down on the ladder and hurt his back.",
+        "r": "He fell off the ladder and hurt his back.",
+        "why": "Use 'fall off' a ladder; 'fall down' needs a surface or direction, not a thing you stand on."
+      }
+    ],
+    "u": "A ladder is a tool with rungs for climbing, but it also appears in set phrases about progress: the career ladder, the property ladder, climb the corporate ladder. Use 'on the ladder' for position and 'up the ladder' for progress. A stepladder stands by itself; an extension ladder is longer. In British English, a ladder is also a run in tights. Ladder is a countable noun."
+  },
+  "layoff": {
+    "mis": [
+      {
+        "w": "The company laid off ten workers last week, and there were many layoff.",
+        "r": "The company laid off ten workers last week, and there were many layoffs.",
+        "why": "The noun layoff is countable, so 'many' needs the plural."
+      },
+      {
+        "w": "He layoff many staff to save money.",
+        "r": "He laid off many staff to save money.",
+        "why": "The verb is two words 'lay off' with the past 'laid off'; layoff is the noun."
+      }
+    ],
+    "u": "Layoff is a noun for ending workers' jobs, usually because the company has too little work or money, not because of poor performance. The verb is two words: lay off, laid off. In the UK, redundancy is the usual term. Layoffs can be temporary or permanent. It sounds neutral in news and HR writing, while fire means dismissal for a fault."
+  },
+  "lecture": {
+    "mis": [
+      {
+        "w": "The professor made a lecture about economics.",
+        "r": "The professor gave a lecture on economics.",
+        "why": "Lecture collocates with give or deliver, not make; and 'on' is typical for the subject."
+      },
+      {
+        "w": "I will go to the lecture of physics.",
+        "r": "I will go to the physics lecture.",
+        "why": "A noun modifier is used before lecture; 'of physics' sounds unnatural."
+      }
+    ],
+    "u": "A lecture is a formal talk, usually at a university, where one person teaches many. You give or deliver a lecture and attend or sit through one. The subject is introduced with 'on': a lecture on climate change. As a verb it can also mean to scold someone at length: she lectured him about being late. A lecture is longer and more academic than a talk."
+  },
+  "lengthy": {
+    "mis": [
+      {
+        "w": "He explained the rules lengthy.",
+        "r": "He explained the rules at length.",
+        "why": "Lengthy is an adjective; the adverbial idea is 'at length'."
+      },
+      {
+        "w": "His lengthy of speech bored everyone.",
+        "r": "His lengthy speech bored everyone.",
+        "why": "Lengthy is an adjective and cannot be followed by 'of'."
+      }
+    ],
+    "u": "Lengthy means long in time or in words, and it often suggests too long or tiring: a lengthy delay, a lengthy contract. It is used for things like processes, reports and discussions, rarely for physical objects such as a rope. Long is neutral; lengthy usually carries mild criticism. Protracted is more formal and fits disputes and illnesses."
+  },
+  "letterhead": {
+    "mis": [
+      {
+        "w": "Please write the letter in company letterhead.",
+        "r": "Please write the letter on company letterhead.",
+        "why": "Use 'on' for the paper a text is printed or written on."
+      },
+      {
+        "w": "The company needs a new letterheads paper.",
+        "r": "The company needs new letterhead paper.",
+        "why": "As a modifier a noun stays singular."
+      }
+    ],
+    "u": "Letterhead is the printed top part of a sheet showing a company's name, logo and address, and also the paper that carries it. Business letters and official statements are usually printed 'on letterhead' to look authentic. In British English the term is headed paper. It is uncountable when meaning the paper: 'Do we have any letterhead left?' It is formal stationery and not used for informal notes."
+  },
+  "locally": {
+    "mis": [
+      {
+        "w": "The vegetables are produced local.",
+        "r": "The vegetables are produced locally.",
+        "why": "A past participle is modified by an adverb, not an adjective."
+      },
+      {
+        "w": "We buy locally products at the market.",
+        "r": "We buy local products at the market.",
+        "why": "Before a noun use the adjective local; locally is an adverb."
+      }
+    ],
+    "u": "Locally is an adverb meaning in or near the place you are talking about, as in 'locally grown', 'shop locally' or 'locally known as'. It is popular in food and community contexts because it supports nearby farms and businesses. Do not use it before a noun: say local news, not locally news. It is smaller in scale than nationally or internationally."
+  },
+  "logical": {
+    "mis": [
+      {
+        "w": "It is logic to leave early to avoid traffic.",
+        "r": "It is logical to leave early to avoid traffic.",
+        "why": "After 'be' an adjective is needed; logic is a noun."
+      },
+      {
+        "w": "Her argument sounds logically.",
+        "r": "Her argument sounds logical.",
+        "why": "After sound, seem and look, use an adjective, not an adverb."
+      }
+    ],
+    "u": "Logical describes thinking or steps that follow clear reasoning, so the conclusion makes sense: the logical next step. It is more neutral than rational, which often refers to a person who thinks clearly, and stronger than reasonable. The noun is logic and the adverb is logically. Opposites are illogical and irrational. A fair, calm adjective in debates and problem solving."
+  },
+  "luncheon": {
+    "mis": [
+      {
+        "w": "We are going to have a luncheon with a friend at home.",
+        "r": "We are going to have lunch with a friend at home.",
+        "why": "Luncheon is formal and for organized events; everyday meals are lunch."
+      },
+      {
+        "w": "She invited me to a luncheon of the company.",
+        "r": "She invited me to the company luncheon.",
+        "why": "Use a noun modifier before luncheon rather than 'of the company'."
+      }
+    ],
+    "u": "Luncheon is a formal word for a midday meal, usually organized for a group: a business luncheon, an awards luncheon. It is common on invitations and event schedules but sounds old-fashioned in conversation, where people say lunch. A luncheon often includes speeches or a program. Do not use it for a quick sandwich at your desk."
+  },
+  "major": {
+    "mis": [
+      {
+        "w": "This is the most major problem we face.",
+        "r": "This is the biggest problem we face.",
+        "why": "Major is not usually graded with most; use biggest or main."
+      },
+      {
+        "w": "She majors on biology at university.",
+        "r": "She majors in biology at university.",
+        "why": "The verb major takes 'in' for the subject of study."
+      }
+    ],
+    "u": "Major as an adjective means very large or important: a major problem, a major city. It rarely has comparative forms. It is also an American verb and noun for a student's main subject: she majors in biology; his major is law. British English says 'study' or 'read'. In music, major is the key opposite minor. Main and chief identify the most important item, while major only says it is large."
+  },
+  "managerial": {
+    "mis": [
+      {
+        "w": "He has a good managerial of experience.",
+        "r": "He has good managerial experience.",
+        "why": "Managerial is an adjective and needs a noun directly after it."
+      },
+      {
+        "w": "She was promoted to a manager position.",
+        "r": "She was promoted to a managerial position.",
+        "why": "Use the adjective managerial for the type of job; manager is the person."
+      }
+    ],
+    "u": "Managerial is a formal adjective for the work, skills or level of a manager: managerial responsibilities, managerial staff. It is common in job adverts and business writing. A managerial position is a role above regular staff. Compare it with management, which is the group or process, and with manager, the person. It rarely follows 'be': we say a managerial post rather than 'the post is managerial'."
+  },
+  "mandatory": {
+    "mis": [
+      {
+        "w": "Attendance is mandatory to all employees.",
+        "r": "Attendance is mandatory for all employees.",
+        "why": "Mandatory takes 'for' with the people it applies to."
+      },
+      {
+        "w": "It is mandatory to wearing a helmet.",
+        "r": "It is mandatory to wear a helmet.",
+        "why": "After mandatory use the to-infinitive (or 'that + verb')."
+      }
+    ],
+    "u": "Mandatory means required by a rule or law, with no choice: mandatory safety training, mandatory military service. It is stronger than recommended or advisable. Compulsory is the common British equivalent, especially for school. The opposite is optional or voluntary. A typical pattern is 'It is mandatory for staff to...' or 'mandatory for all visitors'."
+  },
+  "mask": {
+    "mis": [
+      {
+        "w": "He put off his mask at home.",
+        "r": "He took off his mask at home.",
+        "why": "Put off means postpone; to remove a mask, use take off."
+      },
+      {
+        "w": "He wears a mask for avoiding dust.",
+        "r": "He wears a mask to avoid dust.",
+        "why": "A purpose with a verb takes to + infinitive, not for + -ing."
+      }
+    ],
+    "u": "A mask is something worn over the face to protect, hide or decorate: a surgical mask, a Halloween mask, an oxygen mask. You put on, wear, take off or remove one. It is also a verb, to hide a smell or feeling: the sauce masked the bitter taste. Mask is countable. After the pandemic it often means a medical face mask."
+  },
+  "mechanic": {
+    "mis": [
+      {
+        "w": "He works as a mechanical in a garage.",
+        "r": "He works as a mechanic in a garage.",
+        "why": "The person is a mechanic; mechanical is an adjective."
+      },
+      {
+        "w": "I need a mechanic to repair for my car.",
+        "r": "I need a mechanic to repair my car.",
+        "why": "Repair is transitive; no 'for' before the object."
+      }
+    ],
+    "u": "A mechanic is a person who repairs and maintains engines and machines, most often cars. You take your car to a mechanic and the mechanic fixes it. The word is neutral and common, and often prefixed with the type: aircraft mechanic, bike mechanic. It is stressed on the second syllable. Do not confuse it with mechanical (adjective) or mechanics (the science and the way something works)."
+  },
+  "mechanical": {
+    "mis": [
+      {
+        "w": "The plane had a mechanic failure.",
+        "r": "The plane had a mechanical failure.",
+        "why": "Use the adjective mechanical before a noun; mechanic is a person."
+      },
+      {
+        "w": "The car was repaired by a mechanical.",
+        "r": "The car was repaired by a mechanic.",
+        "why": "A person is a mechanic; mechanical cannot be a noun."
+      }
+    ],
+    "u": "Mechanical relates to machines or to their parts and movement: a mechanical failure, a mechanical clock. It differs from electrical or digital because it relies on physical parts. Used about behaviour it can mean done without thought, like a mechanical answer. The adverb is mechanically. Mechanical engineering is the field; a mechanical engineer designs machines, unlike a mechanic who repairs them."
+  },
+  "medical": {
+    "mis": [
+      {
+        "w": "She studies medical at university.",
+        "r": "She studies medicine at university.",
+        "why": "Medical is an adjective; the subject is medicine."
+      },
+      {
+        "w": "He needs a medicine treatment.",
+        "r": "He needs medical treatment.",
+        "why": "The adjective medical describes types of care; medicine is a noun for drugs or the field."
+      }
+    ],
+    "u": "Medical is an adjective for anything connected with treating illness and injury: medical care, a medical examination, medical insurance. It is also a noun in British and American English for a health check: she had a medical before the job. Medicine is the field or the drug. Do not say 'medical doctor' unless you must be exact; doctor is enough."
+  },
+  "medication": {
+    "mis": [
+      {
+        "w": "The doctor gave me many medications to my cough.",
+        "r": "The doctor gave me medication for my cough.",
+        "why": "Medication is usually uncountable and goes with 'for' the illness."
+      },
+      {
+        "w": "I drank medication this morning.",
+        "r": "I took medication this morning.",
+        "why": "The verb with medication is take, not drink."
+      }
+    ],
+    "u": "Medication is the formal word for drugs used to treat or prevent illness. It is mostly uncountable: take medication, be on medication, prescription medication. You take it, not eat or drink it. Medicine is more everyday and can also mean the field. Medication appears in doctors' advice, labels and insurance forms, usually with 'for' the condition: medication for high blood pressure."
+  },
+  "merchandise": {
+    "mis": [
+      {
+        "w": "The store has many merchandises on sale.",
+        "r": "The store has a lot of merchandise on sale.",
+        "why": "Merchandise is uncountable and has no plural."
+      },
+      {
+        "w": "We bought a merchandise at the gift shop.",
+        "r": "We bought an item of merchandise at the gift shop.",
+        "why": "Because it is uncountable, use 'an item of' for one thing."
+      }
+    ],
+    "u": "Merchandise means goods that are bought and sold, especially in shops. It is uncountable: 'The merchandise arrived damaged.' Use 'item' or 'piece' to count: three items of merchandise. It is also used for branded products linked to a film, band or team, often shortened to merch. As a verb it means to promote goods in a store. Goods and products are more general; merchandise sounds commercial."
+  },
+  "merchant": {
+    "mis": [
+      {
+        "w": "He is a merchandise of cloth.",
+        "r": "He is a cloth merchant.",
+        "why": "The person is a merchant; merchandise is the goods."
+      },
+      {
+        "w": "She works as a merchant at a clothing store.",
+        "r": "She works as a salesperson at a clothing store.",
+        "why": "A merchant owns or runs a trade; a shop employee is a salesperson."
+      }
+    ],
+    "u": "A merchant buys and sells goods in large amounts, especially for trade between places. It is common in history and in fixed phrases: wine merchant, merchant ship, merchant bank. In modern business, merchant can also mean a business that accepts card payments. It is more formal than seller or trader and not used for a normal shop assistant. A merchant runs the trade; he is not just an employee."
+  },
+  "merge": {
+    "mis": [
+      {
+        "w": "The two firms merged together last year.",
+        "r": "The two firms merged last year.",
+        "why": "Merge already means come together, so 'together' is redundant."
+      },
+      {
+        "w": "Our company will merge to a larger group.",
+        "r": "Our company will merge with a larger group.",
+        "why": "Merge takes 'with' for the partner and 'into' for the result."
+      }
+    ],
+    "u": "Merge means to combine into one, whether companies, files or traffic lanes. It can be intransitive (the firms merged) or transitive (merge two files). Prepositions matter: merge with another company, merge into a single group. When two things mix and lose their separate identity it suits better than combine. The noun is merger, used for companies; in driving, you merge onto a highway."
+  },
+  "merger": {
+    "mis": [
+      {
+        "w": "The merger of the two companies were approved.",
+        "r": "The merger of the two companies was approved.",
+        "why": "The subject is merger, which is singular."
+      },
+      {
+        "w": "The company will merger next month.",
+        "r": "The company will merge next month.",
+        "why": "Merge is the verb; merger is the noun."
+      }
+    ],
+    "u": "A merger is the joining of two or more companies into one, often a deal between equals. It is a countable noun: a proposed merger, a merger between two banks. You announce, approve, complete or block a merger. Acquisition differs because one company buys another. Patterns: 'merger of A and B', 'merger between A and B', and 'A's merger with B'."
+  },
+  "merit": {
+    "mis": [
+      {
+        "w": "She got the job by her merits.",
+        "r": "She got the job on merit.",
+        "why": "The fixed phrase is 'on merit', with no plural and no 'by'."
+      },
+      {
+        "w": "The idea has many merit.",
+        "r": "The idea has many merits.",
+        "why": "In the sense of good points, merit is countable and takes a plural with many."
+      }
+    ],
+    "u": "Merit is the quality of deserving praise or reward. It is uncountable in 'judged on merit' and 'a case of merit', and countable when talking about good points: the merits of the plan. Verbs: have merit, weigh the merits. It is formal and common in discussions of hiring, grades and policies. Merit-based systems reward performance rather than connections or seniority."
+  },
+  "minimize": {
+    "mis": [
+      {
+        "w": "We should minimize as much as possible the risk.",
+        "r": "We should minimize the risk as much as possible.",
+        "why": "The object comes directly after the verb before the adverbial phrase."
+      },
+      {
+        "w": "The new method minimizes the cost to the lowest.",
+        "r": "The new method minimizes the cost.",
+        "why": "Minimize already means reduce to the smallest, so 'to the lowest' is redundant."
+      }
+    ],
+    "u": "Minimize means to reduce something to the smallest possible amount: minimize risk, costs or damage. It is formal and strong, whereas reduce just means make smaller. Another meaning is to treat something as less important than it is: do not minimize her achievements. On computers it means to shrink a window. British English also spells it minimise."
+  },
+  "misidentify": {
+    "mis": [
+      {
+        "w": "The witness misidentify the suspect.",
+        "r": "The witness misidentified the suspect.",
+        "why": "Past events need the past tense -ed."
+      },
+      {
+        "w": "The bird was misidentified for a hawk.",
+        "r": "The bird was misidentified as a hawk.",
+        "why": "The pattern is 'identify/misidentify X as Y', not 'for'."
+      }
+    ],
+    "u": "Misidentify means to identify someone or something wrongly: misidentify a suspect, a species, a symptom. It is formal and appears in police reports, science and medicine. The pattern is 'misidentify X as Y'. Do not say 'wrongly misidentify', which is redundant, because the prefix mis- already means wrongly. Mistake X for Y is a close alternative."
+  },
+  "misplace": {
+    "mis": [
+      {
+        "w": "I misplace my keys yesterday.",
+        "r": "I misplaced my keys yesterday.",
+        "why": "Yesterday needs the past tense misplaced."
+      },
+      {
+        "w": "She misplaced her trust on a dishonest partner.",
+        "r": "She misplaced her trust in a dishonest partner.",
+        "why": "Trust takes 'in' before the person or thing."
+      }
+    ],
+    "u": "Misplace means to put something in the wrong place and be unable to find it for a while: you misplaced your keys or a document. It is milder than lose, which can mean gone for good. In writing it also describes feelings that are not deserved: misplaced loyalty, misplaced trust. The adjective misplaced is often used in the second sense. Mislay is the British synonym."
+  },
+  "morale": {
+    "mis": [
+      {
+        "w": "The workers morale is low.",
+        "r": "The workers' morale is low.",
+        "why": "The possessive of a plural noun needs an apostrophe after the s."
+      },
+      {
+        "w": "Moral of the team is high.",
+        "r": "Morale of the team is high.",
+        "why": "Morale (confidence) is different from moral (about right and wrong)."
+      }
+    ],
+    "u": "Morale is the confidence, enthusiasm and discipline of a group at a particular time: staff morale, team morale. It is uncountable and almost always paired with high or low, boost, improve or damage. Do not confuse it with moral, which relates to right and wrong. Stress is on the second syllable. A manager can raise morale with praise, fair pay or clear goals."
+  },
+  "network": {
+    "mis": [
+      {
+        "w": "She has a good network on contacts.",
+        "r": "She has a good network of contacts.",
+        "why": "A network takes 'of' for what it consists of."
+      },
+      {
+        "w": "I networked to many people at the event.",
+        "r": "I networked with many people at the event.",
+        "why": "The verb network is intransitive and takes 'with'."
+      }
+    ],
+    "u": "Network is a noun for a connected system of people, computers or lines: a rail network, a TV network, a business network. As a verb it means to meet people for professional benefit: you network with colleagues at events. It is countable. Use 'of' for what it contains, as in a network of friends. It is more strategic than simply meeting people."
+  },
+  "newsletter": {
+    "mis": [
+      {
+        "w": "Please subscribe our newsletter.",
+        "r": "Please subscribe to our newsletter.",
+        "why": "Subscribe needs 'to'."
+      },
+      {
+        "w": "The newsletter are sent every month.",
+        "r": "The newsletter is sent every month.",
+        "why": "Newsletter is singular and takes is."
+      }
+    ],
+    "u": "A newsletter is a regular report sent to members, customers or staff, now mostly by email. People subscribe to it, and organizations send out or publish it. It is shorter and less formal than a magazine and usually has a narrow focus: a monthly newsletter from a charity. Marketing teams use newsletters to keep customers informed. Opt in to receive; unsubscribe to stop."
+  },
+  "nominate": {
+    "mis": [
+      {
+        "w": "They nominated her to the best actress award.",
+        "r": "They nominated her for the best actress award.",
+        "why": "Nominate takes 'for' with the prize or position."
+      },
+      {
+        "w": "He was nominated the chairman by the board.",
+        "r": "He was nominated as chairman by the board.",
+        "why": "Use 'as' for the role after nominate."
+      }
+    ],
+    "u": "Nominate means to officially suggest someone for a job, award or election. Typical patterns are 'nominate someone for an award' and 'nominate someone as chairman'. A nominee is the person chosen. It does not mean the person has won; it is only the first step. Do not mix it with appoint, which means to give the job."
+  },
+  "notify": {
+    "mis": [
+      {
+        "w": "Please notify to us when the goods arrive.",
+        "r": "Please notify us when the goods arrive.",
+        "why": "Notify takes a direct object (the person) with no 'to'."
+      },
+      {
+        "w": "He notified the manager the delay.",
+        "r": "He notified the manager of the delay.",
+        "why": "Notify someone of something needs 'of'."
+      }
+    ],
+    "u": "Notify means to officially tell someone about something, usually in writing or through a formal channel: notify the police of the theft, notify staff in advance. The person is the direct object and the information follows 'of': notify you of the delay. It is more formal than tell and is common in business, law and apps. A notification is the message itself."
+  },
+  "obligate": {
+    "mis": [
+      {
+        "w": "I obligate to pay the fine.",
+        "r": "I am obligated to pay the fine.",
+        "why": "Obligate is normally passive: be obligated to do something."
+      },
+      {
+        "w": "She felt obligated for helping him.",
+        "r": "She felt obligated to help him.",
+        "why": "Obligated is followed by to + verb."
+      }
+    ],
+    "u": "Obligate means to make someone legally or morally have to do something; it is mostly used in the passive: we are obligated to pay taxes; he felt obligated to reply. It is the standard American form, while British English prefers oblige. Obligation is the noun. Feeling obligated sounds like pressure, not choice; obliged can also mean grateful. Required is the plain alternative."
+  },
+  "occupancy": {
+    "mis": [
+      {
+        "w": "The hotel has high occupation this month.",
+        "r": "The hotel has high occupancy this month.",
+        "why": "Occupancy is the rate rooms are filled; occupation means a job or military control."
+      },
+      {
+        "w": "The hotel's occupancy rate was 80 percents.",
+        "r": "The hotel's occupancy rate was 80 percent.",
+        "why": "Percent stays singular after a number."
+      }
+    ],
+    "u": "Occupancy is the state or rate of a room or building being used. In hotels, the occupancy rate shows the percentage of rooms filled. Signs say 'maximum occupancy 50 people', and 'single occupancy' means one person per room. It is uncountable and mostly a business term. Occupant is the person using the space, and occupation is more often a job."
+  },
+  "occupation": {
+    "mis": [
+      {
+        "w": "Please write your occupation at the form.",
+        "r": "Please write your occupation on the form.",
+        "why": "Use 'on' for a form or paper."
+      },
+      {
+        "w": "What is your occupancy?",
+        "r": "What is your occupation?",
+        "why": "Occupancy is use of a room; occupation is a job."
+      }
+    ],
+    "u": "Occupation is the formal word for a person's job or profession, used on forms and in statistics: name, age, occupation. In casual conversation say job or work. It can also mean the act of taking control of a place by force: the occupation of the city, or the time someone lives in a building. Do not mix it with occupancy. The verb is occupy."
+  },
+  "occurrence": {
+    "mis": [
+      {
+        "w": "Accidents are common occurrence here.",
+        "r": "Accidents are a common occurrence here.",
+        "why": "Occurrence is countable and needs an article in the singular."
+      },
+      {
+        "w": "The accident was occurred last night.",
+        "r": "The accident occurred last night.",
+        "why": "Occur is intransitive and has no passive form."
+      }
+    ],
+    "u": "Occurrence is a formal noun for something that happens or the fact of it happening: a rare occurrence, the occurrence of errors. It is common in science, business and news and is countable. The verb is occur, which is spelled with double r in occurred and occurring. Event is more general; incident usually suggests something unpleasant. It also measures frequency: a low rate of occurrence."
+  },
+  "omit": {
+    "mis": [
+      {
+        "w": "She omitted the name in the list.",
+        "r": "She omitted the name from the list.",
+        "why": "Omit takes 'from' for the place something is left out of."
+      },
+      {
+        "w": "Please do not omit out any details.",
+        "r": "Please do not omit any details.",
+        "why": "Omit already means leave out, so 'out' is redundant."
+      }
+    ],
+    "u": "Omit means to leave something out, either by accident or on purpose: omit a word, omit a name from the list. The pattern is 'omit X from Y'. It is formal, so in speech say leave out. Spelling: omit has one t, but omitted and omitting double it. The noun is omission. In reports you may omit unnecessary details to keep the text short."
+  },
+  "operational": {
+    "mis": [
+      {
+        "w": "The new factory will be operation next month.",
+        "r": "The new factory will be operational next month.",
+        "why": "After 'be' an adjective is needed; operation is a noun."
+      },
+      {
+        "w": "The machine is operating fully now.",
+        "r": "The machine is fully operational now.",
+        "why": "Operating is a verb form; operational states that it works."
+      }
+    ],
+    "u": "Operational has two uses. It means working and ready to be used: the system is fully operational. It also means connected to the daily running of a business: operational costs, operational plans. Do not confuse it with operative or with operating room. The opposite meaning is out of service. It is formal and common in business, engineering and military writing."
+  }
+}

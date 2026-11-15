@@ -1,0 +1,831 @@
+{
+  "inexperience": {
+    "ipaUS": "/ˌɪnɪkˈspɪriəns/",
+    "col": [
+      "lack of experience",
+      "due to inexperience",
+      "relative inexperience",
+      "youth and inexperience",
+      "inexperience in management",
+      "admit your inexperience"
+    ],
+    "syn": [
+      "lack of experience",
+      "greenness",
+      "unfamiliarity"
+    ]
+  },
+  "influential": {
+    "ipaUS": "/ˌɪnfluˈenʃl/",
+    "col": [
+      "highly influential",
+      "influential figure",
+      "influential in shaping",
+      "most influential",
+      "politically influential",
+      "influential voice"
+    ],
+    "syn": [
+      "powerful",
+      "important",
+      "significant",
+      "persuasive"
+    ]
+  },
+  "informative": {
+    "ipaUS": "/ɪnˈfɔːrmətɪv/",
+    "col": [
+      "highly informative",
+      "informative article",
+      "informative session",
+      "informative and entertaining",
+      "informative website",
+      "informative leaflet"
+    ],
+    "syn": [
+      "instructive",
+      "enlightening",
+      "educational",
+      "revealing"
+    ]
+  },
+  "innovative": {
+    "ipaUS": "/ˈɪnəveɪtɪv/",
+    "col": [
+      "innovative product",
+      "innovative approach",
+      "innovative design",
+      "highly innovative",
+      "innovative solution",
+      "innovative company"
+    ],
+    "syn": [
+      "original",
+      "pioneering",
+      "inventive",
+      "cutting-edge"
+    ]
+  },
+  "inquire": {
+    "ipaUS": "/ɪnˈkwaɪr/",
+    "col": [
+      "inquire about",
+      "inquire into",
+      "inquire after",
+      "inquire whether",
+      "formally inquire",
+      "inquire at the desk"
+    ],
+    "syn": [
+      "enquire",
+      "ask",
+      "look into"
+    ]
+  },
+  "insufficient": {
+    "ipaUS": "/ˌɪnsəˈfɪʃənt/",
+    "col": [
+      "insufficient funds",
+      "insufficient evidence",
+      "insufficient information",
+      "insufficient time",
+      "insufficient for",
+      "prove insufficient"
+    ],
+    "syn": [
+      "inadequate",
+      "lacking",
+      "scant",
+      "deficient"
+    ]
+  },
+  "interfere": {
+    "ipaUS": "/ˌɪntərˈfɪr/",
+    "col": [
+      "interfere with",
+      "interfere in",
+      "interfere with your work",
+      "interfere with the signal",
+      "refuse to interfere",
+      "constantly interfere"
+    ],
+    "syn": [
+      "meddle",
+      "intrude",
+      "get in the way",
+      "disrupt"
+    ]
+  },
+  "intern": {
+    "ipaUS": "/ˈɪntɜːrn/",
+    "col": [
+      "summer intern",
+      "unpaid intern",
+      "marketing intern",
+      "hire an intern",
+      "work as an intern",
+      "intern at a firm"
+    ],
+    "syn": [
+      "trainee",
+      "apprentice",
+      "work-experience student"
+    ]
+  },
+  "internationally": {
+    "ipaUS": "/ˌɪntərˈnæʃnəli/",
+    "col": [
+      "internationally known",
+      "internationally recognized",
+      "sell internationally",
+      "internationally acclaimed",
+      "travel internationally",
+      "operate internationally"
+    ],
+    "syn": [
+      "globally",
+      "worldwide",
+      "abroad"
+    ]
+  },
+  "internship": {
+    "ipaUS": "/ˈɪntɜːrnʃɪp/",
+    "col": [
+      "summer internship",
+      "paid internship",
+      "unpaid internship",
+      "do an internship",
+      "internship at",
+      "apply for an internship"
+    ],
+    "syn": [
+      "work placement",
+      "traineeship",
+      "apprenticeship"
+    ]
+  },
+  "invaluable": {
+    "ipaUS": "/ɪnˈvæljuəbl/",
+    "col": [
+      "invaluable help",
+      "invaluable experience",
+      "invaluable resource",
+      "invaluable advice",
+      "prove invaluable",
+      "invaluable to us"
+    ],
+    "syn": [
+      "priceless",
+      "indispensable",
+      "vital",
+      "extremely useful"
+    ]
+  },
+  "inventory": {
+    "ipaUS": "/ˈɪnvəntɔːri/",
+    "col": [
+      "take inventory",
+      "inventory control",
+      "inventory management",
+      "low inventory",
+      "check the inventory",
+      "inventory of goods"
+    ],
+    "syn": [
+      "stock",
+      "stockpile",
+      "supplies",
+      "list of goods"
+    ]
+  },
+  "involve": {
+    "ipaUS": "/ɪnˈvɑːlv/",
+    "col": [
+      "involve risk",
+      "involve a lot of work",
+      "be involved in",
+      "get involved with",
+      "what does it involve",
+      "involve children"
+    ],
+    "syn": [
+      "include",
+      "entail",
+      "require",
+      "engage"
+    ]
+  },
+  "journalism": {
+    "ipaUS": "/ˈdʒɜːrnəlɪzəm/",
+    "col": [
+      "investigative journalism",
+      "study journalism",
+      "career in journalism",
+      "quality journalism",
+      "online journalism",
+      "journalism degree"
+    ],
+    "syn": [
+      "reporting",
+      "news writing",
+      "the press"
+    ]
+  },
+  "junior": {
+    "ipaUS": "/ˈdʒuːnjər/",
+    "col": [
+      "junior staff",
+      "junior doctor",
+      "junior role",
+      "junior to",
+      "junior partner",
+      "junior high school"
+    ],
+    "syn": [
+      "lower-ranking",
+      "subordinate",
+      "entry-level",
+      "younger"
+    ]
+  },
+  "ladder": {
+    "ipaUS": "/ˈlædər/",
+    "col": [
+      "climb a ladder",
+      "career ladder",
+      "step ladder",
+      "rope ladder",
+      "climb the ladder",
+      "top of the ladder"
+    ],
+    "syn": [
+      "steps",
+      "stepladder"
+    ]
+  },
+  "layoff": {
+    "ipaUS": "/ˈleɪɔːf/",
+    "col": [
+      "mass layoff",
+      "announce layoffs",
+      "avoid layoffs",
+      "layoff notice",
+      "face a layoff",
+      "temporary layoff"
+    ],
+    "syn": [
+      "redundancy",
+      "job cut",
+      "dismissal",
+      "downsizing"
+    ]
+  },
+  "lecture": {
+    "ipaUS": "/ˈlektʃər/",
+    "col": [
+      "give a lecture",
+      "attend a lecture",
+      "lecture on",
+      "guest lecture",
+      "lecture hall",
+      "lecture notes"
+    ],
+    "syn": [
+      "talk",
+      "presentation",
+      "address",
+      "speech"
+    ]
+  },
+  "lengthy": {
+    "ipaUS": "/ˈleŋθi/",
+    "col": [
+      "lengthy process",
+      "lengthy delay",
+      "lengthy discussion",
+      "lengthy report",
+      "lengthy negotiations",
+      "lengthy explanation"
+    ],
+    "syn": [
+      "long",
+      "drawn-out",
+      "protracted",
+      "long-winded"
+    ]
+  },
+  "letterhead": {
+    "ipaUS": "/ˈletərhed/",
+    "col": [
+      "company letterhead",
+      "official letterhead",
+      "on letterhead",
+      "printed letterhead",
+      "letterhead paper",
+      "use letterhead"
+    ],
+    "syn": [
+      "headed paper",
+      "stationery"
+    ]
+  },
+  "locally": {
+    "ipaUS": "/ˈloʊkəli/",
+    "col": [
+      "locally grown",
+      "locally produced",
+      "buy locally",
+      "locally sourced",
+      "shop locally",
+      "locally owned"
+    ],
+    "syn": [
+      "nearby",
+      "in the area",
+      "regionally"
+    ]
+  },
+  "logical": {
+    "ipaUS": "/ˈlɑːdʒɪkl/",
+    "col": [
+      "logical conclusion",
+      "logical explanation",
+      "logical step",
+      "logical reasoning",
+      "perfectly logical",
+      "seem logical"
+    ],
+    "syn": [
+      "rational",
+      "reasonable",
+      "sensible",
+      "coherent"
+    ]
+  },
+  "luncheon": {
+    "ipaUS": "/ˈlʌntʃən/",
+    "col": [
+      "business luncheon",
+      "luncheon meeting",
+      "annual luncheon",
+      "awards luncheon",
+      "host a luncheon",
+      "attend a luncheon"
+    ],
+    "syn": [
+      "lunch",
+      "midday meal",
+      "banquet"
+    ]
+  },
+  "major": {
+    "ipaUS": "/ˈmeɪdʒər/",
+    "col": [
+      "major problem",
+      "major role",
+      "major issue",
+      "major city",
+      "major change",
+      "major in"
+    ],
+    "syn": [
+      "main",
+      "significant",
+      "principal",
+      "key"
+    ]
+  },
+  "managerial": {
+    "ipaUS": "/ˌmænəˈdʒɪriəl/",
+    "col": [
+      "managerial skills",
+      "managerial role",
+      "managerial position",
+      "managerial experience",
+      "managerial staff",
+      "managerial level"
+    ],
+    "syn": [
+      "administrative",
+      "executive",
+      "supervisory"
+    ]
+  },
+  "mandatory": {
+    "ipaUS": "/ˈmændətɔːri/",
+    "col": [
+      "mandatory training",
+      "mandatory requirement",
+      "mandatory attendance",
+      "mandatory for all staff",
+      "mandatory retirement",
+      "made mandatory"
+    ],
+    "syn": [
+      "compulsory",
+      "obligatory",
+      "required",
+      "binding"
+    ]
+  },
+  "mask": {
+    "ipaUS": "/mæsk/",
+    "col": [
+      "wear a mask",
+      "face mask",
+      "surgical mask",
+      "remove a mask",
+      "oxygen mask",
+      "put on a mask"
+    ],
+    "syn": [
+      "face covering",
+      "visor",
+      "disguise"
+    ]
+  },
+  "mechanic": {
+    "ipaUS": "/məˈkænɪk/",
+    "col": [
+      "car mechanic",
+      "auto mechanic",
+      "skilled mechanic",
+      "take the car to a mechanic",
+      "mechanic's garage",
+      "aircraft mechanic"
+    ],
+    "syn": [
+      "repairer",
+      "technician",
+      "engineer"
+    ]
+  },
+  "mechanical": {
+    "ipaUS": "/məˈkænɪkl/",
+    "col": [
+      "mechanical engineer",
+      "mechanical failure",
+      "mechanical problem",
+      "mechanical device",
+      "mechanical engineering",
+      "mechanical movement"
+    ],
+    "syn": [
+      "machine-driven",
+      "automatic",
+      "robotic"
+    ]
+  },
+  "medical": {
+    "ipaUS": "/ˈmedɪkl/",
+    "col": [
+      "medical care",
+      "medical treatment",
+      "medical records",
+      "medical insurance",
+      "medical emergency",
+      "medical examination"
+    ],
+    "syn": [
+      "health",
+      "clinical",
+      "therapeutic"
+    ]
+  },
+  "medication": {
+    "ipaUS": "/ˌmedɪˈkeɪʃn/",
+    "col": [
+      "take medication",
+      "prescription medication",
+      "pain medication",
+      "medication for",
+      "be on medication",
+      "over-the-counter medication"
+    ],
+    "syn": [
+      "medicine",
+      "drug",
+      "pills",
+      "treatment"
+    ]
+  },
+  "merchandise": {
+    "ipaUS": "/ˈmɜːrtʃəndaɪz/",
+    "col": [
+      "sell merchandise",
+      "official merchandise",
+      "retail merchandise",
+      "merchandise display",
+      "damaged merchandise",
+      "return merchandise"
+    ],
+    "syn": [
+      "goods",
+      "wares",
+      "products",
+      "stock"
+    ]
+  },
+  "merchant": {
+    "ipaUS": "/ˈmɜːrtʃənt/",
+    "col": [
+      "wine merchant",
+      "timber merchant",
+      "merchant bank",
+      "merchant navy",
+      "local merchant",
+      "merchant ship"
+    ],
+    "syn": [
+      "trader",
+      "dealer",
+      "seller",
+      "vendor"
+    ]
+  },
+  "merge": {
+    "ipaUS": "/mɜːrdʒ/",
+    "col": [
+      "merge with",
+      "merge into",
+      "merge two companies",
+      "merge files",
+      "merge lanes",
+      "plan to merge"
+    ],
+    "syn": [
+      "combine",
+      "unite",
+      "join",
+      "blend"
+    ]
+  },
+  "merger": {
+    "ipaUS": "/ˈmɜːrdʒər/",
+    "col": [
+      "announce a merger",
+      "merger between",
+      "merger with",
+      "proposed merger",
+      "bank merger",
+      "merger agreement"
+    ],
+    "syn": [
+      "amalgamation",
+      "combination",
+      "consolidation",
+      "union"
+    ]
+  },
+  "merit": {
+    "ipaUS": "/ˈmerɪt/",
+    "col": [
+      "on merit",
+      "merit of",
+      "merits and demerits",
+      "promoted on merit",
+      "considerable merit",
+      "merit pay"
+    ],
+    "syn": [
+      "worth",
+      "value",
+      "advantage",
+      "virtue"
+    ]
+  },
+  "minimize": {
+    "ipaUS": "/ˈmɪnɪmaɪz/",
+    "col": [
+      "minimize risk",
+      "minimize costs",
+      "minimize damage",
+      "minimize the impact",
+      "minimize waste",
+      "minimize a window"
+    ],
+    "syn": [
+      "reduce",
+      "lessen",
+      "cut down",
+      "decrease"
+    ]
+  },
+  "misidentify": {
+    "ipaUS": "/ˌmɪsaɪˈdentɪfaɪ/",
+    "col": [
+      "misidentify a suspect",
+      "misidentify a plant",
+      "wrongly misidentified",
+      "misidentify as",
+      "be misidentified",
+      "misidentify the cause"
+    ],
+    "syn": [
+      "mistake",
+      "confuse",
+      "mislabel"
+    ]
+  },
+  "misplace": {
+    "ipaUS": "/mɪsˈpleɪs/",
+    "col": [
+      "misplace your keys",
+      "misplace a document",
+      "misplace trust",
+      "misplace the file",
+      "accidentally misplace",
+      "misplaced confidence"
+    ],
+    "syn": [
+      "lose",
+      "mislay",
+      "forget where you put"
+    ]
+  },
+  "morale": {
+    "ipaUS": "/məˈræl/",
+    "col": [
+      "boost morale",
+      "low morale",
+      "staff morale",
+      "improve morale",
+      "morale booster",
+      "team morale"
+    ],
+    "syn": [
+      "spirit",
+      "confidence",
+      "motivation",
+      "mood"
+    ]
+  },
+  "network": {
+    "ipaUS": "/ˈnetwɜːrk/",
+    "col": [
+      "social network",
+      "computer network",
+      "build a network",
+      "network of contacts",
+      "wireless network",
+      "professional network"
+    ],
+    "syn": [
+      "web",
+      "system",
+      "grid",
+      "contacts"
+    ]
+  },
+  "newsletter": {
+    "ipaUS": "/ˈnuːzletər/",
+    "col": [
+      "monthly newsletter",
+      "email newsletter",
+      "subscribe to a newsletter",
+      "send out a newsletter",
+      "company newsletter",
+      "newsletter sign-up"
+    ],
+    "syn": [
+      "bulletin",
+      "circular",
+      "mailing"
+    ]
+  },
+  "nominate": {
+    "ipaUS": "/ˈnɑːmɪneɪt/",
+    "col": [
+      "nominate for",
+      "nominate someone as",
+      "nominate a candidate",
+      "nominated for an award",
+      "formally nominate",
+      "nominate to a post"
+    ],
+    "syn": [
+      "propose",
+      "put forward",
+      "name",
+      "select"
+    ]
+  },
+  "notify": {
+    "ipaUS": "/ˈnoʊtɪfaɪ/",
+    "col": [
+      "notify someone of",
+      "notify in advance",
+      "notify the police",
+      "be notified",
+      "notify by email",
+      "promptly notify"
+    ],
+    "syn": [
+      "inform",
+      "alert",
+      "advise",
+      "let know"
+    ]
+  },
+  "obligate": {
+    "ipaUS": "/ˈɑːblɪɡeɪt/",
+    "col": [
+      "be obligated to",
+      "feel obligated",
+      "legally obligated",
+      "obligate someone to",
+      "morally obligated",
+      "obligated by law"
+    ],
+    "syn": [
+      "oblige",
+      "compel",
+      "bind",
+      "require"
+    ]
+  },
+  "occupancy": {
+    "ipaUS": "/ˈɑːkjəpənsi/",
+    "col": [
+      "hotel occupancy",
+      "occupancy rate",
+      "full occupancy",
+      "maximum occupancy",
+      "single occupancy",
+      "occupancy permit"
+    ],
+    "syn": [
+      "tenancy",
+      "residency",
+      "use of space"
+    ]
+  },
+  "occupation": {
+    "ipaUS": "/ˌɑːkjəˈpeɪʃn/",
+    "col": [
+      "occupation and age",
+      "choose an occupation",
+      "by occupation",
+      "skilled occupation",
+      "enemy occupation",
+      "occupation of"
+    ],
+    "syn": [
+      "job",
+      "profession",
+      "career",
+      "trade"
+    ]
+  },
+  "occurrence": {
+    "ipaUS": "/əˈkɜːrəns/",
+    "col": [
+      "common occurrence",
+      "rare occurrence",
+      "everyday occurrence",
+      "occurrence of",
+      "frequent occurrence",
+      "occurrence rate"
+    ],
+    "syn": [
+      "event",
+      "incident",
+      "happening",
+      "instance"
+    ]
+  },
+  "omit": {
+    "ipaUS": "/oʊˈmɪt/",
+    "col": [
+      "omit details",
+      "omit a word",
+      "omit from",
+      "accidentally omit",
+      "omit mention of",
+      "omit the name"
+    ],
+    "syn": [
+      "leave out",
+      "exclude",
+      "skip",
+      "miss out"
+    ]
+  },
+  "operational": {
+    "ipaUS": "/ˌɑːpəˈreɪʃənl/",
+    "col": [
+      "fully operational",
+      "operational costs",
+      "operational efficiency",
+      "operational procedures",
+      "become operational",
+      "operational staff"
+    ],
+    "syn": [
+      "working",
+      "functioning",
+      "running",
+      "active"
+    ]
+  }
+}

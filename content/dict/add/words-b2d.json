@@ -1,0 +1,841 @@
+{
+  "similarly": {
+    "ipaUS": "/ˈsɪmələrli/",
+    "col": [
+      "similarly to",
+      "similarly, we can say",
+      "similarly important",
+      "similarly priced",
+      "behave similarly",
+      "treated similarly"
+    ],
+    "syn": [
+      "likewise",
+      "in the same way",
+      "equally"
+    ]
+  },
+  "simplify": {
+    "ipaUS": "/ˈsɪmpləfaɪ/",
+    "col": [
+      "simplify a process",
+      "simplify the procedure",
+      "greatly simplify",
+      "simplify the rules",
+      "simplify matters",
+      "simplify the design"
+    ],
+    "syn": [
+      "streamline",
+      "make easier",
+      "clarify",
+      "reduce"
+    ]
+  },
+  "slot": {
+    "ipaUS": "/slɑːt/",
+    "col": [
+      "time slot",
+      "free slot",
+      "book a slot",
+      "coin slot",
+      "fill a slot",
+      "slot machine",
+      "a slot in the schedule"
+    ],
+    "syn": [
+      "opening",
+      "space",
+      "window",
+      "gap"
+    ]
+  },
+  "soar": {
+    "ipaUS": "/sɔːr/",
+    "col": [
+      "prices soar",
+      "soaring costs",
+      "soar to record highs",
+      "soar by 20 percent",
+      "profits soar",
+      "temperatures soar"
+    ],
+    "syn": [
+      "skyrocket",
+      "surge",
+      "rocket",
+      "climb sharply"
+    ]
+  },
+  "sometime": {
+    "ipaUS": "/ˈsʌmtaɪm/",
+    "col": [
+      "sometime next week",
+      "sometime soon",
+      "sometime in May",
+      "sometime later",
+      "sometime this year",
+      "sometime before noon"
+    ],
+    "syn": [
+      "at some point",
+      "one day",
+      "eventually"
+    ]
+  },
+  "specification": {
+    "ipaUS": "/ˌspesəfɪˈkeɪʃn/",
+    "col": [
+      "technical specification",
+      "meet the specifications",
+      "detailed specifications",
+      "product specification",
+      "to the client's specifications",
+      "job specification"
+    ],
+    "syn": [
+      "requirement",
+      "detailed description",
+      "standard"
+    ]
+  },
+  "spokesperson": {
+    "ipaUS": "/ˈspoʊkspɜːrsn/",
+    "col": [
+      "company spokesperson",
+      "official spokesperson",
+      "spokesperson for the government",
+      "a spokesperson said",
+      "press spokesperson",
+      "chief spokesperson"
+    ],
+    "syn": [
+      "representative",
+      "press officer",
+      "speaker"
+    ]
+  },
+  "steadily": {
+    "ipaUS": "/ˈstedəli/",
+    "col": [
+      "grow steadily",
+      "rise steadily",
+      "steadily improve",
+      "steadily increasing",
+      "work steadily",
+      "steadily decline"
+    ],
+    "syn": [
+      "gradually",
+      "consistently",
+      "at a regular pace"
+    ]
+  },
+  "steer": {
+    "ipaUS": "/stɪr/",
+    "col": [
+      "steer a car",
+      "steer the conversation",
+      "steer clear of",
+      "steer the company through",
+      "steer a course",
+      "steer someone towards"
+    ],
+    "syn": [
+      "guide",
+      "direct",
+      "navigate",
+      "pilot"
+    ]
+  },
+  "stockbroker": {
+    "ipaUS": "/ˈstɑːkbroʊkər/",
+    "col": [
+      "consult a stockbroker",
+      "work as a stockbroker",
+      "hire a stockbroker",
+      "stockbroker firm",
+      "online stockbroker",
+      "a licensed stockbroker"
+    ],
+    "syn": [
+      "broker",
+      "securities dealer",
+      "share dealer"
+    ]
+  },
+  "stockholder": {
+    "ipaUS": "/ˈstɑːkhoʊldər/",
+    "col": [
+      "major stockholder",
+      "stockholders' meeting",
+      "stockholder value",
+      "a minority stockholder",
+      "vote of the stockholders",
+      "largest stockholder"
+    ],
+    "syn": [
+      "shareholder",
+      "investor",
+      "equity holder"
+    ]
+  },
+  "strategic": {
+    "ipaUS": "/strəˈtiːdʒɪk/",
+    "col": [
+      "strategic plan",
+      "strategic partnership",
+      "strategic goal",
+      "strategic decision",
+      "strategic location",
+      "strategic planning"
+    ],
+    "syn": [
+      "long-term",
+      "planned",
+      "tactical",
+      "calculated"
+    ]
+  },
+  "submission": {
+    "ipaUS": "/səbˈmɪʃn/",
+    "col": [
+      "submission deadline",
+      "online submission",
+      "late submission",
+      "submission of documents",
+      "submission form",
+      "upon submission"
+    ],
+    "syn": [
+      "filing",
+      "handing in",
+      "entry",
+      "presentation"
+    ]
+  },
+  "subscriber": {
+    "ipaUS": "/səbˈskraɪbər/",
+    "col": [
+      "new subscriber",
+      "email subscriber",
+      "paying subscriber",
+      "subscriber to a magazine",
+      "cancel as a subscriber",
+      "subscriber base"
+    ],
+    "syn": [
+      "member",
+      "regular reader",
+      "account holder"
+    ]
+  },
+  "substantially": {
+    "ipaUS": "/səbˈstænʃəli/",
+    "col": [
+      "substantially higher",
+      "substantially reduce",
+      "substantially increase",
+      "differ substantially",
+      "substantially improved",
+      "substantially lower"
+    ],
+    "syn": [
+      "considerably",
+      "significantly",
+      "greatly",
+      "markedly"
+    ]
+  },
+  "superb": {
+    "ipaUS": "/suːˈpɜːrb/",
+    "col": [
+      "superb quality",
+      "superb service",
+      "superb view",
+      "a superb performance",
+      "absolutely superb",
+      "simply superb"
+    ],
+    "syn": [
+      "excellent",
+      "outstanding",
+      "magnificent",
+      "first-class"
+    ]
+  },
+  "supervise": {
+    "ipaUS": "/ˈsuːpərvaɪz/",
+    "col": [
+      "supervise staff",
+      "closely supervise",
+      "supervise a project",
+      "supervise children",
+      "directly supervise",
+      "supervise the work"
+    ],
+    "syn": [
+      "oversee",
+      "manage",
+      "monitor",
+      "be in charge of"
+    ]
+  },
+  "survey": {
+    "ipaUS": "/ˈsɜːrveɪ/",
+    "col": [
+      "conduct a survey",
+      "customer survey",
+      "survey results",
+      "a recent survey",
+      "carry out a survey",
+      "survey respondents",
+      "a survey of 500 people"
+    ],
+    "syn": [
+      "poll",
+      "questionnaire",
+      "study",
+      "opinion poll"
+    ]
+  },
+  "tailor": {
+    "ipaUS": "/ˈteɪlər/",
+    "col": [
+      "tailor to needs",
+      "tailor a program",
+      "tailored approach",
+      "tailor-made",
+      "tailor your CV",
+      "tailor services"
+    ],
+    "syn": [
+      "customize",
+      "adapt",
+      "adjust",
+      "fit"
+    ]
+  },
+  "takeover": {
+    "ipaUS": "/ˈteɪkoʊvər/",
+    "col": [
+      "hostile takeover",
+      "takeover bid",
+      "takeover of the company",
+      "announce a takeover",
+      "takeover talks",
+      "a friendly takeover"
+    ],
+    "syn": [
+      "acquisition",
+      "buyout",
+      "merger"
+    ]
+  },
+  "taker": {
+    "ipaUS": "/ˈteɪkər/",
+    "col": [
+      "test taker",
+      "no takers",
+      "takers of the offer",
+      "risk taker",
+      "decision taker",
+      "a taker for the job"
+    ],
+    "syn": [
+      "participant",
+      "candidate",
+      "buyer",
+      "recipient"
+    ]
+  },
+  "task": {
+    "ipaUS": "/tæsk/",
+    "col": [
+      "complete a task",
+      "daily tasks",
+      "a difficult task",
+      "assign a task",
+      "task force",
+      "routine task"
+    ],
+    "syn": [
+      "job",
+      "assignment",
+      "duty",
+      "chore"
+    ]
+  },
+  "technology": {
+    "ipaUS": "/tekˈnɑːlədʒi/",
+    "col": [
+      "information technology",
+      "modern technology",
+      "advances in technology",
+      "new technology",
+      "technology company",
+      "cutting-edge technology"
+    ],
+    "syn": [
+      "tech",
+      "engineering",
+      "innovation",
+      "know-how"
+    ]
+  },
+  "telecommunication": {
+    "ipaUS": "/ˌteləkəˌmjuːnɪˈkeɪʃn/",
+    "col": [
+      "telecommunications industry",
+      "telecommunications company",
+      "telecommunications network",
+      "telecommunication engineering",
+      "telecommunications services",
+      "telecommunications equipment"
+    ],
+    "syn": [
+      "telecom",
+      "telephony",
+      "networking"
+    ]
+  },
+  "temporarily": {
+    "ipaUS": "/ˌtempəˈrerəli/",
+    "col": [
+      "temporarily closed",
+      "temporarily out of service",
+      "temporarily unavailable",
+      "temporarily suspended",
+      "temporarily replace",
+      "temporarily banned"
+    ],
+    "syn": [
+      "for now",
+      "briefly",
+      "for the time being",
+      "provisionally"
+    ]
+  },
+  "termination": {
+    "ipaUS": "/ˌtɜːrmɪˈneɪʃn/",
+    "col": [
+      "termination of the contract",
+      "termination notice",
+      "early termination",
+      "employment termination",
+      "termination clause",
+      "termination fee"
+    ],
+    "syn": [
+      "ending",
+      "cancellation",
+      "dismissal",
+      "expiry"
+    ]
+  },
+  "therefore": {
+    "ipaUS": "/ˈðerfɔːr/",
+    "col": [
+      "therefore, we can conclude",
+      "and therefore",
+      "therefore necessary",
+      "therefore important",
+      "logically, therefore",
+      "I think, therefore I am"
+    ],
+    "syn": [
+      "thus",
+      "hence",
+      "consequently",
+      "so"
+    ]
+  },
+  "thorough": {
+    "ipaUS": "/ˈθɜːroʊ/",
+    "col": [
+      "thorough investigation",
+      "thorough review",
+      "thorough check",
+      "thorough knowledge",
+      "a thorough job",
+      "thorough understanding"
+    ],
+    "syn": [
+      "complete",
+      "careful",
+      "detailed",
+      "exhaustive"
+    ]
+  },
+  "thoroughly": {
+    "ipaUS": "/ˈθɜːroʊli/",
+    "col": [
+      "thoroughly clean",
+      "thoroughly enjoy",
+      "thoroughly check",
+      "thoroughly review",
+      "thoroughly mixed",
+      "thoroughly recommend"
+    ],
+    "syn": [
+      "completely",
+      "carefully",
+      "fully",
+      "in detail"
+    ]
+  },
+  "timeline": {
+    "ipaUS": "/ˈtaɪmlaɪn/",
+    "col": [
+      "project timeline",
+      "set a timeline",
+      "tight timeline",
+      "timeline for delivery",
+      "realistic timeline",
+      "extend the timeline"
+    ],
+    "syn": [
+      "schedule",
+      "time frame",
+      "chronology",
+      "programme"
+    ]
+  },
+  "toiletry": {
+    "ipaUS": "/ˈtɔɪlətri/",
+    "col": [
+      "pack toiletries",
+      "toiletry bag",
+      "free toiletries",
+      "basic toiletries",
+      "travel-size toiletries",
+      "buy toiletries"
+    ],
+    "syn": [
+      "bathroom products",
+      "hygiene products",
+      "personal-care items"
+    ]
+  },
+  "toll": {
+    "ipaUS": "/toʊl/",
+    "col": [
+      "pay a toll",
+      "toll road",
+      "toll booth",
+      "toll-free number",
+      "road toll",
+      "bridge toll"
+    ],
+    "syn": [
+      "fee",
+      "charge",
+      "levy"
+    ]
+  },
+  "trademark": {
+    "ipaUS": "/ˈtreɪdmɑːrk/",
+    "col": [
+      "registered trademark",
+      "trademark infringement",
+      "protect a trademark",
+      "own a trademark",
+      "trademark law",
+      "apply for a trademark"
+    ],
+    "syn": [
+      "brand name",
+      "logo",
+      "emblem"
+    ]
+  },
+  "transaction": {
+    "ipaUS": "/trænˈzækʃn/",
+    "col": [
+      "complete a transaction",
+      "financial transaction",
+      "online transaction",
+      "credit card transaction",
+      "transaction fee",
+      "process a transaction"
+    ],
+    "syn": [
+      "deal",
+      "payment",
+      "exchange",
+      "operation"
+    ]
+  },
+  "tremendous": {
+    "ipaUS": "/trəˈmendəs/",
+    "col": [
+      "tremendous success",
+      "tremendous pressure",
+      "tremendous effort",
+      "tremendous amount",
+      "tremendous support",
+      "tremendous growth"
+    ],
+    "syn": [
+      "enormous",
+      "huge",
+      "immense",
+      "remarkable"
+    ]
+  },
+  "turnover": {
+    "ipaUS": "/ˈtɜːrnoʊvər/",
+    "col": [
+      "staff turnover",
+      "annual turnover",
+      "high turnover",
+      "turnover rate",
+      "reduce turnover",
+      "turnover of employees"
+    ],
+    "syn": [
+      "revenue",
+      "sales",
+      "staff loss",
+      "churn"
+    ]
+  },
+  "unattended": {
+    "ipaUS": "/ˌʌnəˈtendɪd/",
+    "col": [
+      "leave unattended",
+      "unattended luggage",
+      "unattended bag",
+      "unattended children",
+      "left unattended",
+      "unattended vehicle"
+    ],
+    "syn": [
+      "unwatched",
+      "unsupervised",
+      "abandoned",
+      "left alone"
+    ]
+  },
+  "unauthorized": {
+    "ipaUS": "/ʌnˈɔːθəraɪzd/",
+    "col": [
+      "unauthorized access",
+      "unauthorized use",
+      "unauthorized person",
+      "unauthorized copy",
+      "unauthorized charges",
+      "unauthorized disclosure"
+    ],
+    "syn": [
+      "unapproved",
+      "unlicensed",
+      "illegal",
+      "forbidden"
+    ]
+  },
+  "underway": {
+    "ipaUS": "/ˌʌndərˈweɪ/",
+    "col": [
+      "already underway",
+      "get underway",
+      "well underway",
+      "underway since",
+      "preparations are underway",
+      "investigation is underway"
+    ],
+    "syn": [
+      "in progress",
+      "ongoing",
+      "started",
+      "in motion"
+    ]
+  },
+  "unexpected": {
+    "ipaUS": "/ˌʌnɪkˈspektɪd/",
+    "col": [
+      "unexpected delay",
+      "unexpected result",
+      "unexpected visitor",
+      "unexpected expense",
+      "an unexpected twist",
+      "unexpected news"
+    ],
+    "syn": [
+      "surprising",
+      "sudden",
+      "unforeseen",
+      "unanticipated"
+    ]
+  },
+  "unfamiliar": {
+    "ipaUS": "/ˌʌnfəˈmɪljər/",
+    "col": [
+      "unfamiliar with",
+      "unfamiliar territory",
+      "unfamiliar face",
+      "unfamiliar surroundings",
+      "unfamiliar to me",
+      "an unfamiliar word"
+    ],
+    "syn": [
+      "unknown",
+      "strange",
+      "new",
+      "foreign"
+    ]
+  },
+  "unlimited": {
+    "ipaUS": "/ʌnˈlɪmɪtɪd/",
+    "col": [
+      "unlimited access",
+      "unlimited data",
+      "unlimited calls",
+      "unlimited supply",
+      "virtually unlimited",
+      "unlimited number of"
+    ],
+    "syn": [
+      "boundless",
+      "limitless",
+      "infinite",
+      "endless"
+    ]
+  },
+  "unreal": {
+    "ipaUS": "/ʌnˈriːəl/",
+    "col": [
+      "feel unreal",
+      "almost unreal",
+      "an unreal experience",
+      "unreal beauty",
+      "seem unreal",
+      "completely unreal"
+    ],
+    "syn": [
+      "unbelievable",
+      "surreal",
+      "incredible",
+      "dreamlike"
+    ]
+  },
+  "unspecified": {
+    "ipaUS": "/ʌnˈspesəfaɪd/",
+    "col": [
+      "unspecified reasons",
+      "unspecified amount",
+      "unspecified date",
+      "unspecified location",
+      "for unspecified purposes",
+      "unspecified injuries"
+    ],
+    "syn": [
+      "unstated",
+      "undisclosed",
+      "vague",
+      "unnamed"
+    ]
+  },
+  "unusually": {
+    "ipaUS": "/ʌnˈjuːʒuəli/",
+    "col": [
+      "unusually quiet",
+      "unusually high",
+      "unusually warm",
+      "unusually large",
+      "unusually good",
+      "unusually cold"
+    ],
+    "syn": [
+      "uncommonly",
+      "remarkably",
+      "exceptionally",
+      "strikingly"
+    ]
+  },
+  "upcoming": {
+    "ipaUS": "/ˈʌpkʌmɪŋ/",
+    "col": [
+      "upcoming event",
+      "upcoming election",
+      "upcoming meeting",
+      "the upcoming season",
+      "upcoming release",
+      "upcoming deadline"
+    ],
+    "syn": [
+      "forthcoming",
+      "approaching",
+      "imminent",
+      "future"
+    ]
+  },
+  "urgently": {
+    "ipaUS": "/ˈɜːrdʒəntli/",
+    "col": [
+      "urgently need",
+      "urgently required",
+      "act urgently",
+      "urgently request",
+      "urgently seeking",
+      "respond urgently"
+    ],
+    "syn": [
+      "immediately",
+      "desperately",
+      "as a priority",
+      "without delay"
+    ]
+  },
+  "utility": {
+    "ipaUS": "/juːˈtɪləti/",
+    "col": [
+      "utility bill",
+      "utility company",
+      "public utilities",
+      "utility costs",
+      "utility room",
+      "utility services"
+    ],
+    "syn": [
+      "public service",
+      "usefulness",
+      "service",
+      "amenity"
+    ]
+  },
+  "vacate": {
+    "ipaUS": "/ˈveɪkeɪt/",
+    "col": [
+      "vacate the premises",
+      "vacate a room",
+      "vacate a seat",
+      "vacate the building",
+      "vacate a post",
+      "must vacate by"
+    ],
+    "syn": [
+      "leave",
+      "move out of",
+      "empty",
+      "abandon"
+    ]
+  },
+  "validate": {
+    "ipaUS": "/ˈvælədeɪt/",
+    "col": [
+      "validate a ticket",
+      "validate a claim",
+      "validate the results",
+      "validate your account",
+      "validate data",
+      "validate a theory"
+    ],
+    "syn": [
+      "confirm",
+      "verify",
+      "prove",
+      "authorize"
+    ]
+  }
+}

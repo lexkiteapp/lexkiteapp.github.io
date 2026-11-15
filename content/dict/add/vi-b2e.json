@@ -1,0 +1,752 @@
+{
+ "vehicle": {
+  "mis": [
+   {
+    "w": "The vehicles is parked outside the building.",
+    "r": "The vehicle is parked outside the building.",
+    "why": "Vehicle đếm được; một chiếc xe thì dùng động từ số ít, nhiều xe mới dùng 'vehicles' với 'are'."
+   },
+   {
+    "w": "I go to work by my own vehicle.",
+    "r": "I go to work in my own vehicle.",
+    "why": "Với xe riêng nói 'in my own vehicle'; 'by' chỉ dùng không có sở hữu, như 'by car'."
+   }
+  ],
+  "u": "Vehicle là từ trang trọng, chung cho mọi phương tiện chở người hoặc hàng trên đường: ô tô, xe tải, xe buýt. Biên bản công an, giấy tờ bảo hiểm và biển báo thường dùng vehicle thay cho car. Từ này còn có nghĩa bóng: một bộ phim có thể là phương tiện để tôn vinh diễn viên. Nói 'by car' khi chỉ cách đi, nhưng 'in a vehicle' khi nói về chiếc xe; số nhiều là vehicles."
+ },
+ "vendor": {
+  "mis": [
+   {
+    "w": "He is a vendor of the street.",
+    "r": "He is a street vendor.",
+    "why": "Danh từ ghép đặt nơi chốn trước: 'street vendor', không viết 'vendor of the street'."
+   },
+   {
+    "w": "We chose a vendor, who offer the lowest price.",
+    "r": "We chose a vendor who offers the lowest price.",
+    "why": "Động từ phải hợp với chủ ngữ số ít vendor nên cần -s: offers."
+   }
+  ],
+  "u": "Vendor là người hoặc công ty bán hàng hay dịch vụ, và nghĩa rất rộng: người bán hàng rong ngoài phố hoặc hãng phần mềm bán giấy phép cho doanh nghiệp. Trong tiếng Anh kinh doanh, vendor là nhà cung cấp nằm trong danh sách được duyệt, nên có 'vendor payment' và 'vendor contract'. Từ này trung tính hơn merchant. Người Anh hay dùng supplier hoặc stallholder, còn người Mỹ dùng vendor khá thoải mái."
+ },
+ "videoconference": {
+  "mis": [
+   {
+    "w": "We discussed the plan by a videoconference.",
+    "r": "We discussed the plan by videoconference.",
+    "why": "Sau 'by' chỉ phương tiện giao tiếp thì không dùng mạo từ: by videoconference, by email."
+   },
+   {
+    "w": "I will join to the videoconference at ten.",
+    "r": "I will join the videoconference at ten.",
+    "why": "Join là ngoại động từ, đi thẳng với tân ngữ, không cần 'to'."
+   }
+  ],
+  "u": "Videoconference là cuộc họp mà những người ở nơi khác nhau nhìn thấy và nghe nhau qua internet. Từ này phổ biến trong kinh doanh, trường đại học và bài đọc TOEIC. Sau 'by' không dùng mạo từ: 'by videoconference'. Các động từ hay đi kèm là hold, join, attend, schedule. Từ này trang trọng hơn video call, vốn nghe thân mật; tiếng Anh Anh thường viết tách thành video conference."
+ },
+ "voucher": {
+  "mis": [
+   {
+    "w": "I used a voucher for pay the meal.",
+    "r": "I used a voucher to pay for the meal.",
+    "why": "Chỉ mục đích dùng 'to' + động từ nguyên mẫu, không dùng 'for' + động từ; và 'pay for' bữa ăn."
+   },
+   {
+    "w": "The voucher is valid until three months.",
+    "r": "The voucher is valid for three months.",
+    "why": "Dùng 'for' với khoảng thời gian, 'until' với mốc thời gian."
+   }
+  ],
+  "u": "Voucher là phiếu in hoặc điện tử mà bạn đổi lấy hàng hóa, dịch vụ hoặc được giảm giá. Phiếu quà tặng mua để làm quà, phiếu ăn do công ty phát, còn mã voucher thì nhập khi mua hàng trực tuyến. Với phiếu giảm giá, tiếng Anh Mỹ hay dùng coupon hơn, còn tiếng Anh Anh dùng voucher nhiều trong cửa hàng. Động từ thường gặp: redeem, use, receive. Voucher thường ghi giá trị và ngày hết hạn."
+ },
+ "ward": {
+  "mis": [
+   {
+    "w": "She works on the children ward.",
+    "r": "She works on the children's ward.",
+    "why": "Khoa này dành cho trẻ em nên cần sở hữu cách: children's ward."
+   },
+   {
+    "w": "She was taken in the ward last night.",
+    "r": "She was taken to the ward last night.",
+    "why": "Chuyển động đến một nơi dùng 'to', không dùng 'in'."
+   }
+  ],
+  "u": "Ward là một khu trong bệnh viện có giường cho bệnh nhân cần chăm sóc tương tự, như khoa sản hoặc khoa phẫu thuật. Ở một số nước, ward còn là đơn vị hành chính của thành phố, và trong luật là trẻ được người giám hộ bảo vệ. Trong bệnh viện ta nói 'on the ward' hoặc 'in a ward'. Ward lớn hơn một phòng bệnh nhưng nhỏ hơn cả một khoa lớn."
+ },
+ "warehouse": {
+  "mis": [
+   {
+    "w": "We stored the boxes on the warehouse.",
+    "r": "We stored the boxes in the warehouse.",
+    "why": "Dùng 'in' cho thứ nằm bên trong tòa nhà, không dùng 'on'."
+   },
+   {
+    "w": "We have many warehouse in Hanoi.",
+    "r": "We have many warehouses in Hanoi.",
+    "why": "'Many' đi với danh từ số nhiều; thêm -s vào warehouse."
+   }
+  ],
+  "u": "Warehouse là tòa nhà lớn dùng để chứa hàng trước khi bán hoặc vận chuyển, là từ quan trọng trong ngành logistics và bài TOEIC. Người ta nói warehouse manager, warehouse space, hoặc hàng để trong kho ngoại quan cho đến khi nộp thuế. Nó lớn và mang tính thương mại hơn storeroom. Trọng âm rơi vào âm tiết đầu, và phần sau đọc giống từ house."
+ },
+ "whoever": {
+  "mis": [
+   {
+    "w": "Whoever want to join can sign up.",
+    "r": "Whoever wants to join can sign up.",
+    "why": "Whoever là chủ ngữ của mệnh đề và đi với động từ số ít."
+   },
+   {
+    "w": "Whoever finishes first, he can leave early.",
+    "r": "Whoever finishes first can leave early.",
+    "why": "Whoever đã là chủ ngữ nên không nhắc lại bằng 'he'."
+   }
+  ],
+  "u": "Whoever nghĩa là bất cứ ai, hoặc 'ai cũng được'. Nó mở đầu một mệnh đề và đồng thời là chủ ngữ của mệnh đề đó, nên đi với động từ số ít: whoever wins gets a prize. Nó cũng có thể thể hiện sự ngạc nhiên: whoever told you that was wrong. Whoever viết liền một từ; 'who ever' tách ra chỉ gặp trong câu hỏi ngạc nhiên mạnh. Nó hơi trang trọng hơn 'anyone who'."
+ },
+ "workplace": {
+  "mis": [
+   {
+    "w": "She feels stressed at workplace.",
+    "r": "She feels stressed at the workplace.",
+    "why": "Workplace là danh từ đếm được nên cần mạo từ: at the workplace."
+   },
+   {
+    "w": "Safety on workplace is important.",
+    "r": "Safety in the workplace is important.",
+    "why": "Cụm cố định là 'in the workplace', không phải 'on workplace'."
+   }
+  ],
+  "u": "Workplace là nơi hoặc môi trường chung mà mọi người làm việc. Đây là từ ưa dùng của nhà tuyển dụng và báo chí: an toàn nơi làm việc, văn hóa công sở, phân biệt đối xử ở nơi làm việc. Khác với work là danh từ không đếm được, workplace đếm được và thường cần mạo từ. Nói 'at work' khi đang có mặt tại chỗ làm, còn 'in the workplace' khi nói về thế giới công việc nói chung."
+ },
+ "workshop": {
+  "mis": [
+   {
+    "w": "I will make a workshop about marketing.",
+    "r": "I will run a workshop on marketing.",
+    "why": "Dùng 'run', 'hold' hay 'give' cho sự kiện và 'on' cho chủ đề; 'make' là dịch từng chữ."
+   },
+   {
+    "w": "The workshop begin at nine.",
+    "r": "The workshop begins at nine.",
+    "why": "Chủ ngữ số ít ở thì hiện tại đơn thì động từ cần thêm -s."
+   }
+  ],
+  "u": "Workshop có hai nghĩa chính. Trong giáo dục và kinh doanh, đó là buổi đào tạo thực hành ngắn mà người tham gia chủ động làm, khác với bài giảng chỉ ngồi nghe: workshop viết văn, workshop an toàn lao động. Nó cũng chỉ xưởng nơi chế tạo hoặc sửa chữa đồ, như xưởng sửa xe. Động từ hay dùng là attend, run, hold, give, và chủ đề đứng sau 'on' hoặc 'about'."
+ },
+ "worthwhile": {
+  "mis": [
+   {
+    "w": "The trip is worthwhile of the money.",
+    "r": "The trip is worth the money.",
+    "why": "Worthwhile không đi với 'of'; dùng 'worth' trực tiếp trước danh từ."
+   },
+   {
+    "w": "It is worthwhile to visiting the museum.",
+    "r": "It is worthwhile to visit the museum.",
+    "why": "Sau 'worthwhile to' dùng động từ nguyên mẫu; dạng -ing đi với 'worth': worth visiting."
+   }
+  ],
+  "u": "Worthwhile mô tả điều xứng đáng với thời gian, tiền bạc hay công sức bỏ ra. Nó đứng trước danh từ (a worthwhile cause) hoặc sau be (chuyến đi rất xứng đáng). Cấu trúc hay gặp: 'it is worthwhile to do'. Đừng nhầm với worth, vốn theo sau là danh từ hoặc V-ing và không đứng trước danh từ: nói 'worth visiting' chứ không nói 'a worth visit'."
+ },
+ "abide": {
+  "mis": [
+   {
+    "w": "All staff must abide the rules.",
+    "r": "All staff must abide by the rules.",
+    "why": "Khi mang nghĩa tuân thủ, động từ đi với 'by': abide by."
+   },
+   {
+    "w": "We abide with the contract terms.",
+    "r": "We abide by the contract terms.",
+    "why": "Abide đi với 'by', không phải 'with'; 'comply with' là cấu trúc khác."
+   }
+  ],
+  "u": "Abide by nghĩa là chấp nhận và tuân theo quy tắc, luật, thỏa thuận hay quyết định. Cụm này trang trọng, hay gặp trong hợp đồng, thông báo trường học và văn bản pháp lý: khách phải abide by các quy định. Giới từ by là bắt buộc, trong khi comply đi với with. Nghĩa thứ hai, 'cannot abide', là cực kỳ ghét: I can't abide noise. Ở nghĩa này quá khứ là abided."
+ },
+ "acclaim": {
+  "mis": [
+   {
+    "w": "The film received many acclaims.",
+    "r": "The film received great acclaim.",
+    "why": "Acclaim theo nghĩa lời khen là danh từ không đếm được, không có số nhiều."
+   },
+   {
+    "w": "The book was acclaim by critics.",
+    "r": "The book was acclaimed by critics.",
+    "why": "Câu bị động cần quá khứ phân từ acclaimed, không dùng dạng danh từ."
+   }
+  ],
+  "u": "Acclaim là lời khen ngợi công khai, thường dành cho phim, sách, buổi biểu diễn hay thành tựu. Từ này chủ yếu không đếm được và trang trọng, hay thấy trong bài phê bình: critical acclaim, widespread acclaim. Động từ đi kèm là win, receive, earn. Động từ acclaim thường dùng bị động (cuốn tiểu thuyết được ca ngợi là kiệt tác), tính từ là acclaimed hoặc highly acclaimed. Nó mạnh hơn approval, gợi phản ứng nhiệt tình của công chúng."
+ },
+ "accountant": {
+  "mis": [
+   {
+    "w": "My mother is a accountant.",
+    "r": "My mother is an accountant.",
+    "why": "Dùng 'an' trước âm nguyên âm: an accountant."
+   },
+   {
+    "w": "He studied to become an account.",
+    "r": "He studied to become an accountant.",
+    "why": "Account là tài khoản hay bản kê; người làm nghề là accountant."
+   }
+  ],
+  "u": "Accountant là chuyên viên ghi chép, kiểm tra và báo cáo sổ sách tài chính cho cá nhân hoặc công ty. Từ này gồm account cộng hậu tố -ant, nên đừng nhầm với accounting (môn kế toán) hay account (tài khoản ngân hàng). Các loại hay gặp: kế toán thuế, kế toán trưởng, CPA ở Mỹ, chartered accountant ở Anh. Accountant có chuyên môn cao hơn bookkeeper, người chỉ ghi chép sổ sách hằng ngày."
+ },
+ "accustom": {
+  "mis": [
+   {
+    "w": "She is accustomed to work late.",
+    "r": "She is accustomed to working late.",
+    "why": "Trong 'accustomed to', 'to' là giới từ nên động từ sau nó thêm -ing."
+   },
+   {
+    "w": "He is accustomed with the noise.",
+    "r": "He is accustomed to the noise.",
+    "why": "Giới từ sau accustomed là 'to', không phải 'with'."
+   }
+  ],
+  "u": "Accustom chủ yếu xuất hiện trong cụm tính từ be accustomed to, nghĩa là đã quen với điều gì vì làm thường xuyên. Vì to là giới từ nên động từ theo sau thêm -ing: accustomed to working nights. Become hoặc grow accustomed to diễn tả sự quen dần. Cấu trúc accustom yourself to trang trọng hơn. Nó gần với used to nhưng trang trọng và ít gặp trong văn nói."
+ },
+ "achieve": {
+  "mis": [
+   {
+    "w": "She achieved to pass the exam.",
+    "r": "She managed to pass the exam.",
+    "why": "Achieve đi với danh từ (achieve a goal), không với 'to' + động từ; dùng 'manage to'."
+   },
+   {
+    "w": "They achieved to their target.",
+    "r": "They achieved their target.",
+    "why": "Achieve là ngoại động từ: không cần giới từ trước tân ngữ."
+   }
+  ],
+  "u": "Achieve nghĩa là đạt được mục tiêu, thường sau nỗ lực hoặc một thời gian dài. Động từ này cần tân ngữ như goal, aim, result, success và không đi với to + động từ; trường hợp đó dùng manage to. Achieve gợi kết quả bền vững; get thân mật hơn, còn accomplish nhấn mạnh việc hoàn tất nhiệm vụ. Dạng liên quan: achievement là thành tựu, achiever là người thường xuyên đạt kết quả."
+ },
+ "actively": {
+  "mis": [
+   {
+    "w": "We are active looking for a new manager.",
+    "r": "We are actively looking for a new manager.",
+    "why": "Trạng từ bổ nghĩa cho động từ; dùng actively, không dùng tính từ active."
+   },
+   {
+    "w": "She participates actively to the discussion.",
+    "r": "She participates actively in the discussion.",
+    "why": "Động từ participate đi với 'in', không phải 'to'."
+   }
+  ],
+  "u": "Actively là trạng từ, nghĩa là một cách tích cực, có bỏ công sức, đối lập với chờ đợi thụ động. Từ này phổ biến trong tin tuyển dụng và báo cáo: actively seeking, actively involved, actively promote. Nó thường đứng trước động từ chính hoặc sau be. Nó cũng nhấn mạnh: cảnh sát đang tích cực điều tra. Đừng dùng tính từ active ở chỗ động từ cần trạng từ."
+ },
+ "affect": {
+  "mis": [
+   {
+    "w": "The weather affected on our plans.",
+    "r": "The weather affected our plans.",
+    "why": "Affect là ngoại động từ, không đi với giới từ."
+   },
+   {
+    "w": "The new law has a big affect.",
+    "r": "The new law has a big effect.",
+    "why": "Danh từ là effect; affect thường là động từ."
+   }
+  ],
+  "u": "Affect là động từ nghĩa là tác động lên điều gì, như 'Smoking affects your health'. Người học hay nhầm với effect, thường là danh từ chỉ kết quả: the effect of smoking. Quy tắc đơn giản: affect là hành động, effect là kết quả. Affect có tân ngữ trực tiếp, không cần giới từ. Affected by nói ai chịu ảnh hưởng, và tính từ affected còn có nghĩa giả tạo, như một giọng nói điệu đà."
+ },
+ "alike": {
+  "mis": [
+   {
+    "w": "The two brothers are very alike to each other.",
+    "r": "The two brothers are very alike.",
+    "why": "Alike đã có nghĩa giống nhau nên không thêm 'to each other'."
+   },
+   {
+    "w": "They are alike twins.",
+    "r": "They are like twins.",
+    "why": "Trước danh từ dùng giới từ 'like'; 'alike' không đi với danh từ."
+   }
+  ],
+  "u": "Alike nghĩa là giống nhau hoặc theo cùng một cách. Nó là tính từ sau be (hai chị em giống nhau) hoặc trạng từ sau động từ (họ nghĩ giống nhau). Alike không đứng trước danh từ, nên nói 'similar ideas', không nói 'alike ideas'. Cụm hay gặp là 'A and B alike', nghĩa là cả hai nhóm như nhau: giáo viên và học sinh đều vậy. So với like là giới từ, theo sau là danh từ."
+ },
+ "appendix": {
+  "mis": [
+   {
+    "w": "Please read the appendixs at the end.",
+    "r": "Please read the appendices at the end.",
+    "why": "Số nhiều của appendix là appendices (hoặc appendixes), không phải 'appendixs'."
+   },
+   {
+    "w": "The data is in appendix of the report.",
+    "r": "The data is in the appendix of the report.",
+    "why": "Appendix đếm được, cần mạo từ hoặc chữ cái: the appendix, appendix A."
+   }
+  ],
+  "u": "Appendix có hai nghĩa rất khác nhau. Trong sách hay báo cáo, đó là phần phụ ở cuối chứa thông tin bổ sung như bảng biểu, danh sách; số nhiều là appendices. Trong cơ thể, đó là ruột thừa, có thể bị cắt trong phẫu thuật gọi là appendectomy. Tài liệu thường đánh số: xem Appendix B. Nó không quan trọng bằng một chương và người đọc thường có thể bỏ qua."
+ },
+ "appliance": {
+  "mis": [
+   {
+    "w": "We bought some new appliance.",
+    "r": "We bought some new appliances.",
+    "why": "Appliance đếm được; khi mua nhiều món với 'some' phải dùng số nhiều."
+   },
+   {
+    "w": "Kitchen appliances is expensive here.",
+    "r": "Kitchen appliances are expensive here.",
+    "why": "Chủ ngữ số nhiều cần động từ số nhiều 'are'."
+   }
+  ],
+  "u": "Appliance là máy móc làm một việc cụ thể trong nhà, như máy giặt, tủ lạnh hay máy nướng bánh. Đây là danh từ đếm được, thường đi với household, kitchen, electrical. Nó gợi những món lớn, quen thuộc hơn gadget, vốn có thể nhỏ và mới lạ, và hẹp hơn equipment, danh từ không đếm được chỉ mọi dụng cụ. Trong tiếng Anh Mỹ, cửa hàng appliance bán tủ lạnh và lò nướng."
+ },
+ "applicant": {
+  "mis": [
+   {
+    "w": "He is an applicant of the manager position.",
+    "r": "He is an applicant for the manager position.",
+    "why": "Giới từ sau applicant là 'for': applicant for a job."
+   },
+   {
+    "w": "Each applicants must attach a photo.",
+    "r": "Each applicant must attach a photo.",
+    "why": "'Each' đi với danh từ số ít."
+   }
+  ],
+  "u": "Applicant là người chính thức nộp đơn xin việc, vào đại học, xin visa hay vay vốn. Động từ liên quan là apply (for), danh từ application là đơn hoặc quy trình xin. Nhà tuyển dụng dùng candidate cho người đã vào danh sách rút gọn, còn applicant là bất kỳ ai đã nộp đơn. Successful applicant là người được nhận. Cấu trúc đúng là applicant for, không phải applicant of."
+ },
+ "apprehensive": {
+  "mis": [
+   {
+    "w": "She was apprehensive for the interview.",
+    "r": "She was apprehensive about the interview.",
+    "why": "Apprehensive đi với 'about' (hoặc 'of'), không đi với 'for'."
+   },
+   {
+    "w": "I am apprehension about the result.",
+    "r": "I am apprehensive about the result.",
+    "why": "Sau 'be' cần tính từ apprehensive; apprehension là danh từ."
+   }
+  ],
+  "u": "Apprehensive là tính từ khá trang trọng, nghĩa là lo lắng rằng điều khó chịu có thể xảy ra. Mức độ nhẹ hơn terrified và mạnh hơn curious. Cấu trúc hay gặp: apprehensive about the exam, apprehensive of danger, apprehensive that something might go wrong. Danh từ là apprehension. Trong nói hằng ngày dùng nervous hoặc worried tự nhiên hơn; apprehensive hợp với văn viết, tin tức và cách miêu tả lịch sự cảm xúc trước một sự kiện sắp tới."
+ },
+ "authorize": {
+  "mis": [
+   {
+    "w": "The manager authorized me use the car.",
+    "r": "The manager authorized me to use the car.",
+    "why": "Authorize + người + to + động từ nguyên mẫu."
+   },
+   {
+    "w": "Only authorized person may enter.",
+    "r": "Only authorized persons may enter.",
+    "why": "Với nhóm người nói chung dùng số nhiều 'persons' hoặc 'people'."
+   }
+  ],
+  "u": "Authorize nghĩa là chính thức cho phép điều gì hoặc trao quyền cho ai làm việc đó. Từ này trang trọng: ngân hàng cho phép chuyển khoản, chỉ nhân viên được ủy quyền mới được vào. Cấu trúc thường dùng: authorize someone to do something. Chính tả: authorize trong tiếng Anh Mỹ và thường cả Anh, authorise là cách viết Anh. Danh từ là authorization. Nó mạnh hơn allow vì liên quan đến quyền hạn hoặc chữ ký chính thức."
+ },
+ "automatic": {
+  "mis": [
+   {
+    "w": "The door opens automatic.",
+    "r": "The door opens automatically.",
+    "why": "Động từ cần trạng từ: automatically, không dùng tính từ automatic."
+   },
+   {
+    "w": "I have an automatically car.",
+    "r": "I have an automatic car.",
+    "why": "Trước danh từ dùng tính từ, không dùng trạng từ."
+   }
+  ],
+  "u": "Automatic mô tả thứ tự vận hành mà không cần người điều khiển: cửa tự động, thanh toán tự động. Nó cũng nghĩa là làm không cần nghĩ, như phản ứng tự động. Trong tiếng Anh Anh, automatic car là xe số tự động, còn người Mỹ hay nói automatic transmission. Trạng từ là automatically, danh từ là automation. Trong văn viết trang trọng không dùng 'auto'; đó là cách nói thân mật."
+ },
+ "available": {
+  "mis": [
+   {
+    "w": "Is this room available in tonight?",
+    "r": "Is this room available tonight?",
+    "why": "Các từ chỉ thời gian như tonight không cần giới từ ở đây."
+   },
+   {
+    "w": "The manager is not available to the phone.",
+    "r": "The manager is not available by phone.",
+    "why": "Dùng 'by phone' hoặc 'on the phone' chỉ cách liên lạc; 'available to' đi với người."
+   }
+  ],
+  "u": "Available nghĩa là có thể lấy, dùng hay tiếp cận được, hoặc một người đang rảnh để nói chuyện, làm việc. Rất phổ biến trên biển báo, trang web và văn phòng: vé có bán trực tuyến, thứ Hai bạn có rảnh không? Giới từ: available to ai đó, available for mục đích, available at nơi chốn. Đừng nhầm với free, vốn còn có nghĩa miễn phí."
+ },
+ "await": {
+  "mis": [
+   {
+    "w": "We await for your reply.",
+    "r": "We await your reply.",
+    "why": "Await là ngoại động từ, không có 'for'; 'wait for' mới là cụm động từ."
+   },
+   {
+    "w": "The results are awaiting for confirmation.",
+    "r": "The results are awaiting confirmation.",
+    "why": "Sau await, đặt tân ngữ trực tiếp, không giới từ."
+   }
+  ],
+  "u": "Await là động từ trang trọng, nghĩa là chờ điều đã được dự kiến hoặc sắp xảy ra. Nó thường gặp trong văn viết hơn văn nói: chúng tôi đang chờ phản hồi của bạn, phán quyết đang được chờ đợi. Await có tân ngữ trực tiếp nên không nói await for. Chủ ngữ thường là người, nhưng sự vật cũng có thể chờ một người: một bất ngờ đang chờ bạn. Trong hội thoại hằng ngày dùng wait for."
+ },
+ "badge": {
+  "mis": [
+   {
+    "w": "Please wear your badge on the office.",
+    "r": "Please wear your badge in the office.",
+    "why": "Dùng 'in' với nơi khép kín như văn phòng."
+   },
+   {
+    "w": "She has two badge.",
+    "r": "She has two badges.",
+    "why": "Số hai cần danh từ số nhiều; thêm -s."
+   }
+  ],
+  "u": "Badge là miếng kim loại, nhựa hoặc vải nhỏ có hình hoặc chữ, đeo để chứng tỏ danh tính, tư cách thành viên hay thành tích: huy hiệu cảnh sát, thẻ tên ở hội nghị, huy hiệu hướng đạo. Trong văn phòng, security badge là thẻ mở cửa. Tiếng Anh Anh cũng dùng badge cho biểu tượng trên xe hay quần áo. Nó chính thức hơn pin và lớn hơn button."
+ },
+ "balloon": {
+  "mis": [
+   {
+    "w": "She blowed up the balloon.",
+    "r": "She blew up the balloon.",
+    "why": "Blow là động từ bất quy tắc: quá khứ là blew, không phải 'blowed'."
+   },
+   {
+    "w": "The balloon flew away to the sky.",
+    "r": "The balloon flew away into the sky.",
+    "why": "Chuyển động vào một khoảng không dùng 'into', không dùng 'to'."
+   }
+  ],
+  "u": "Balloon là túi mềm chứa khí hoặc không khí, dùng cho tiệc, trang trí hoặc bay: bóng heli, khinh khí cầu. Động từ: blow up, inflate, pop, burst. Nó cũng là động từ nghĩa là phình ra nhanh, như chi phí tăng vọt. Trong tài chính, balloon payment là khoản trả cuối kỳ rất lớn. Trọng âm rơi vào âm tiết thứ hai, đọc dài /uː/."
+ },
+ "bankrupt": {
+  "mis": [
+   {
+    "w": "The company was bankrupt last year.",
+    "r": "The company went bankrupt last year.",
+    "why": "Dùng 'go bankrupt' cho sự kiện phá sản; 'was bankrupt' chỉ trạng thái."
+   },
+   {
+    "w": "The company is going to bankrupt.",
+    "r": "The company is going to go bankrupt.",
+    "why": "Bankrupt là tính từ; cần 'go' hoặc 'become' làm động từ."
+   }
+  ],
+  "u": "Bankrupt là tính từ chỉ cá nhân hay công ty đã tuyên bố hợp pháp rằng không thể trả nợ. Dùng với go, be declared hoặc be made: công ty đã phá sản. Đây là tình trạng pháp lý chính thức, không chỉ là rất nghèo; nghĩa đó dùng broke trong văn nói. Danh từ là bankruptcy, và dạng động từ nghĩa là làm ai phá sản. Công ty thì file for bankruptcy."
+ },
+ "basement": {
+  "mis": [
+   {
+    "w": "The storage room is at the basement.",
+    "r": "The storage room is in the basement.",
+    "why": "Dùng 'in' khi ở bên trong tầng hầm."
+   },
+   {
+    "w": "He lives on basement of the building.",
+    "r": "He lives in the basement of the building.",
+    "why": "Vị trí bên trong một phần tòa nhà dùng 'in the'."
+   }
+  ],
+  "u": "Basement là tầng thấp nhất của tòa nhà, nằm một phần hoặc hoàn toàn dưới mặt đất. Người ta dùng làm kho, bãi đậu xe hoặc căn hộ. Nhà ở Mỹ thường có basement hoàn thiện làm phòng sinh hoạt; người Anh cũng dùng cellar, thường tối và dùng chứa đồ. Trong cửa hàng, basement có thể là tầng kho. Nói 'in the basement', và tầng này thường ghi B1 trong thang máy."
+ },
+ "bench": {
+  "mis": [
+   {
+    "w": "She sat in the bench.",
+    "r": "She sat on the bench.",
+    "why": "Dùng 'on' khi ngồi trên ghế dài; 'in' dành cho ghế bành hoặc chỗ khép kín."
+   },
+   {
+    "w": "The two bench are old.",
+    "r": "The two benches are old.",
+    "why": "Từ tận cùng bằng -ch thêm -es ở số nhiều."
+   }
+  ],
+  "u": "Bench là ghế dài cho hai người trở lên, thường bằng gỗ hoặc đá, thấy ở công viên và nhà ga. Nó cũng là bàn làm việc chắc chắn trong xưởng, và trong thể thao là chỗ cầu thủ dự bị ngồi: anh ấy ngồi ghế dự bị. Trong pháp luật, the bench là các thẩm phán nói chung. Làm động từ trong thể thao, bench ai nghĩa là cho họ ngồi ngoài, không ra sân."
+ },
+ "bound": {
+  "mis": [
+   {
+    "w": "She is bound to winning the prize.",
+    "r": "She is bound to win the prize.",
+    "why": "'Bound to' nghĩa là chắc chắn đi với động từ nguyên mẫu."
+   },
+   {
+    "w": "The train is bound to Hanoi.",
+    "r": "The train is bound for Hanoi.",
+    "why": "Điểm đến sau 'bound' dùng 'for'."
+   }
+  ],
+  "u": "Bound có nhiều cách dùng mà người học hay nhầm. Bound to + động từ nghĩa là rất có khả năng xảy ra: trời chắc chắn sẽ mưa. Bound for + nơi chốn nghĩa là đang đi về hướng đó: con tàu đi Nhật. Bound by nghĩa là bị ràng buộc bởi quy định hay hợp đồng. Nó cũng là quá khứ phân từ của bind, như cuốn sách đóng bìa. Ngữ cảnh quyết định nghĩa, nên hãy chú ý giới từ theo sau."
+ },
+ "brake": {
+  "mis": [
+   {
+    "w": "He pressed the break and stopped.",
+    "r": "He pressed the brake and stopped.",
+    "why": "Brake (phanh) và break (làm vỡ) phát âm giống nhau nhưng viết khác nhau."
+   },
+   {
+    "w": "The car brake suddenly.",
+    "r": "The car braked suddenly.",
+    "why": "Là động từ, brake cần đuôi -ed ở quá khứ."
+   }
+  ],
+  "u": "Brake là bộ phận của xe giúp xe chậm lại hoặc dừng. Ta nói bàn đạp phanh, phanh tay, dầu phanh, và đạp mạnh phanh khi khẩn cấp. Brake cũng là động từ: tài xế phanh gấp. Đừng nhầm với break, phát âm giống hệt nhưng nghĩa là làm hỏng hoặc nghỉ. Trong tiếng Anh Anh, phanh đỗ xe là handbrake."
+ },
+ "cancellation": {
+  "mis": [
+   {
+    "w": "The cancel of the flight upset us.",
+    "r": "The cancellation of the flight upset us.",
+    "why": "Sau 'the' cần danh từ cancellation, không dùng động từ cancel."
+   },
+   {
+    "w": "The cancellation for the meeting surprised us.",
+    "r": "The cancellation of the meeting surprised us.",
+    "why": "Dùng 'of' sau cancellation để chỉ điều bị hủy."
+   }
+  ],
+  "u": "Cancellation là việc quyết định rằng điều đã lên kế hoạch sẽ không diễn ra: hủy chuyến bay, phí hủy. Đây là danh từ từ động từ cancel; tiếng Anh Anh viết cancelled, còn tiếng Anh Mỹ thường viết canceled. Khách sạn và hãng bay đưa ra chính sách hủy, nêu rõ bạn phải trả bao nhiêu nếu đổi ý. Từ này thường đếm được: có nhiều lần hủy."
+ },
+ "cautious": {
+  "mis": [
+   {
+    "w": "He is cautious on spending money.",
+    "r": "He is cautious about spending money.",
+    "why": "Cautious đi với 'about' (hoặc 'of'), không đi với 'on'."
+   },
+   {
+    "w": "She drove cautious on the ice.",
+    "r": "She drove cautiously on the ice.",
+    "why": "Dùng trạng từ cautiously để mô tả cách cô ấy lái xe."
+   }
+  ],
+  "u": "Cautious mô tả người hay hành động tránh rủi ro bằng cách suy nghĩ cẩn thận trước khi làm: nhà đầu tư thận trọng, cách tiếp cận thận trọng. Cấu trúc hay gặp: be cautious about doing something và cautious of danger. Nó thường mang nghĩa tích cực, khác timid gợi sự sợ hãi. Cautious optimism là hy vọng nhưng vẫn dè dặt. Trạng từ là cautiously, danh từ caution, cũng là từ trên biển cảnh báo."
+ },
+ "cleanliness": {
+  "mis": [
+   {
+    "w": "Guests complained about the cleaning of the rooms.",
+    "r": "Guests complained about the cleanliness of the rooms.",
+    "why": "Tình trạng sạch là cleanliness; cleaning là hoạt động dọn dẹp."
+   },
+   {
+    "w": "The hotel is famous for its clean.",
+    "r": "The hotel is famous for its cleanliness.",
+    "why": "Sau sở hữu cách cần danh từ cleanliness, không dùng tính từ clean."
+   }
+  ],
+  "u": "Cleanliness là trạng thái sạch sẽ và thói quen giữ mọi thứ sạch. Đây là danh từ không đếm được, xuất hiện trong đánh giá khách sạn, quy định vệ sinh và thông báo y tế: độ sạch của nhà bếp. Nó khác cleaning, tức hành động làm sạch. Câu tục ngữ 'Cleanliness is next to godliness' nghĩa là sạch sẽ gần như là một đức tính. Nó mạnh hơn tidiness, vốn chỉ sự gọn gàng."
+ },
+ "clinic": {
+  "mis": [
+   {
+    "w": "I go to the clinic for check-up every month.",
+    "r": "I go to the clinic for a check-up every month.",
+    "why": "Check-up đếm được nên cần mạo từ 'a'."
+   },
+   {
+    "w": "I stayed in clinic for three days.",
+    "r": "I stayed in a clinic for three days.",
+    "why": "Clinic đếm được và cần mạo từ."
+   }
+  ],
+  "u": "Clinic là nơi nhỏ hơn bệnh viện, nơi người ta được tư vấn hoặc điều trị y tế nhưng thường không ở lại qua đêm: phòng khám nha khoa, phòng khám không cần hẹn. Ở Anh, khái niệm này có thể gọi là surgery hoặc health centre. Một số clinic chuyên khoa, như phòng khám hiếm muộn. Nó còn chỉ buổi huấn luyện ngắn, như clinic đánh golf. Bạn go to a clinic, không nói 'go into the clinic'."
+ },
+ "clip": {
+  "mis": [
+   {
+    "w": "Please clip the papers together by a clip.",
+    "r": "Please clip the papers together with a clip.",
+    "why": "Dùng 'with' cho công cụ được dùng."
+   },
+   {
+    "w": "The video clips lasts two minutes.",
+    "r": "The video clips last two minutes.",
+    "why": "Chủ ngữ số nhiều cần động từ số nhiều, không thêm -s."
+   }
+  ],
+  "u": "Clip có hai nghĩa danh từ chính. Đó là vật nhỏ kẹp giữ đồ lại, như kẹp giấy, kẹp tóc, kẹp bướm; và đoạn ngắn của phim, video hay bản ghi: đoạn trích từ buổi phỏng vấn. Làm động từ, nó nghĩa là kẹp bằng clip hoặc cắt tỉa, như tỉa hàng rào. Clip còn có nghĩa là cú đánh nhẹ bằng tay."
+ },
+ "compliance": {
+  "mis": [
+   {
+    "w": "The factory is in compliance to the law.",
+    "r": "The factory is in compliance with the law.",
+    "why": "Cụm cố định là 'in compliance with'."
+   },
+   {
+    "w": "The company must ensure compliance of the law.",
+    "r": "The company must ensure compliance with the law.",
+    "why": "Danh từ compliance đi với 'with', không phải 'of'."
+   }
+  ],
+  "u": "Compliance nghĩa là tuân thủ quy tắc, luật hay tiêu chuẩn, và trong kinh doanh còn chỉ bộ phận kiểm tra công ty có theo đúng quy định. Từ này chủ yếu không đếm được: ensure compliance, không tuân thủ. Cụm chủ chốt là in compliance with, trái nghĩa là non-compliance. Compliance officer là người phụ trách quy định. Đây là từ trang trọng, gần với adherence và mạnh hơn agreement."
+ },
+ "comply": {
+  "mis": [
+   {
+    "w": "All cars must comply the new rule.",
+    "r": "All cars must comply with the new rule.",
+    "why": "Comply cần 'with' trước quy tắc."
+   },
+   {
+    "w": "He complied to the request.",
+    "r": "He complied with the request.",
+    "why": "Giới từ sau comply là 'with', không bao giờ là 'to'."
+   }
+  ],
+  "u": "Comply nghĩa là làm đúng điều mà quy tắc, luật hay yêu cầu đòi hỏi. Nó luôn đi với with trước thứ bạn tuân theo: comply with safety standards. Khi không nêu tân ngữ, nó có thể đứng một mình: họ từ chối tuân thủ. Đây là từ trang trọng, phổ biến trong văn bản pháp lý và kinh doanh. Comply gần với abide by nhưng abide đi với by. Danh từ là compliance, tính từ là compliant."
+ },
+ "considerably": {
+  "mis": [
+   {
+    "w": "The new model is considerably more cheaper.",
+    "r": "The new model is considerably cheaper.",
+    "why": "Không dùng 'more' với dạng so sánh như cheaper vì sẽ bị lặp."
+   },
+   {
+    "w": "Sales increased considerable last year.",
+    "r": "Sales increased considerably last year.",
+    "why": "Sau động từ increased cần trạng từ."
+   }
+  ],
+  "u": "Considerably là trạng từ nghĩa là với mức lớn. Nó dùng với dạng so sánh hơn và động từ chỉ thay đổi: considerably cheaper, tăng đáng kể. Từ này trang trọng và phổ biến trong báo cáo. Nó mạnh hơn slightly và trang trọng hơn a lot. Không dùng với tính từ nguyên dạng: nói very expensive, không nói considerably expensive. Tính từ là considerable, động từ là consider."
+ },
+ "consignment": {
+  "mis": [
+   {
+    "w": "A consignment of tea were delayed.",
+    "r": "A consignment of tea was delayed.",
+    "why": "Chủ ngữ là 'a consignment', số ít."
+   },
+   {
+    "w": "The shop sells the goods in consignment.",
+    "r": "The shop sells the goods on consignment.",
+    "why": "Cụm cố định là 'on consignment'."
+   }
+  ],
+  "u": "Consignment là lô hàng được gửi hoặc giao cùng nhau, đặc biệt để bán: một lô trái cây. Trong thương mại, bán ký gửi (on consignment) nghĩa là người bán chỉ trả tiền sau khi hàng bán được, và consignment note là phiếu liệt kê hàng nhà vận chuyển chở. Từ này trang trọng hơn shipment trong tiếng Anh Anh, hay gặp trong logistics, nhập khẩu và bài TOEIC. Đừng nhầm với động từ consign."
+ },
+ "consistently": {
+  "mis": [
+   {
+    "w": "She consistent performs well.",
+    "r": "She performs consistently well.",
+    "why": "Trạng từ consistently bổ nghĩa cho performs; tính từ không đúng."
+   },
+   {
+    "w": "Our results are consistently with last year's.",
+    "r": "Our results are consistent with last year's.",
+    "why": "Sau 'be' dùng tính từ consistent, đi với 'with'."
+   }
+  ],
+  "u": "Consistently nghĩa là luôn theo cùng một cách, không thay đổi. Dùng được với cả điều tốt lẫn xấu: chất lượng luôn cao, luôn trễ. Nó thường đứng trước động từ hoặc tính từ. Nó cũng gợi sự phù hợp giữa hành động và niềm tin. Đừng nhầm với constantly, nghĩa là liên tục không ngừng. Danh từ là consistency, tính từ là consistent."
+ },
+ "cruise": {
+  "mis": [
+   {
+    "w": "We made a cruise to Greece.",
+    "r": "We went on a cruise to Greece.",
+    "why": "Mẫu động từ thông thường là 'go on a cruise'."
+   },
+   {
+    "w": "Use the cruise control for keep your speed.",
+    "r": "Use cruise control to keep your speed.",
+    "why": "Chỉ mục đích dùng 'to' + động từ nguyên mẫu, không dùng 'for' + động từ."
+   }
+  ],
+  "u": "Cruise là kỳ nghỉ trên tàu lớn ghé qua nhiều nơi: du thuyền Caribe, du thuyền trên sông. Người ta go on a cruise và đi trên cruise ship hoặc liner. Làm động từ, cruise nghĩa là đi êm ở tốc độ ổn định, nên xe có thể cruise trên đường, và cruise control giữ xe ở tốc độ đều. Thân mật, cruise through nghĩa là vượt qua dễ dàng."
+ },
+ "customize": {
+  "mis": [
+   {
+    "w": "You can customize the layout by your own taste.",
+    "r": "You can customize the layout to your own taste.",
+    "why": "Customize cái gì 'to' sở thích của ai, không dùng 'by'."
+   },
+   {
+    "w": "We offer customize products.",
+    "r": "We offer customized products.",
+    "why": "Dùng quá khứ phân từ làm tính từ trước danh từ."
+   }
+  ],
+  "u": "Customize nghĩa là thay đổi cái gì để hợp với một người hoặc mục đích cụ thể: tùy chỉnh điện thoại, bộ vest may theo yêu cầu. Từ phổ biến với phần mềm, sản phẩm và dịch vụ, nơi người dùng tự chọn tính năng. Tiếng Anh Anh thường viết customise. Tính từ là customized hoặc customizable, danh từ là customization. Nó giống personalize, nhưng personalize thường thêm tên hay chi tiết cá nhân."
+ },
+ "debit": {
+  "mis": [
+   {
+    "w": "I paid with a debt card.",
+    "r": "I paid with a debit card.",
+    "why": "Debit (ngân hàng) và debt (khoản nợ) là hai từ khác nhau."
+   },
+   {
+    "w": "The money was debited to my account.",
+    "r": "The money was debited from my account.",
+    "why": "Tiền bị trừ from tài khoản và được cộng to tài khoản."
+   }
+  ],
+  "u": "Debit là khoản tiền bị trừ khỏi tài khoản ngân hàng, hoặc bút toán ghi tiền chi ra. Nó đối lập với credit. Thẻ ghi nợ (debit card) trừ tiền ngay từ tài khoản của bạn, còn thẻ tín dụng thì vay trước. Direct debit là khoản thanh toán tự động định kỳ. Làm động từ, ngân hàng debits một tài khoản. Chữ b trong debit được đọc, khác với debt."
+ },
+ "deduct": {
+  "mis": [
+   {
+    "w": "They deduct tax of my salary.",
+    "r": "They deduct tax from my salary.",
+    "why": "Deduct dùng 'from' cho nguồn bị trừ."
+   },
+   {
+    "w": "Ten dollars was deducted to my pay.",
+    "r": "Ten dollars was deducted from my pay.",
+    "why": "Ta dùng deduct from, không phải to; khoản tiền bị lấy đi."
+   }
+  ],
+  "u": "Deduct nghĩa là trừ một khoản khỏi tổng, đặc biệt là tiền khỏi lương hay hóa đơn: thuế bị trừ khỏi lương. Giới từ thường dùng là from. Danh từ là deduction, và khoản chi có thể trừ trước thuế gọi là deductible. Trong logic, deduct hiếm dùng; động từ liên quan deduce nghĩa là suy ra kết luận từ bằng chứng, nên đừng nhầm hai từ."
+ },
+ "defect": {
+  "mis": [
+   {
+    "w": "The machine has a defect on its motor.",
+    "r": "The machine has a defect in its motor.",
+    "why": "Lỗi nằm 'in' một bộ phận của vật."
+   },
+   {
+    "w": "The product has many defect.",
+    "r": "The product has many defects.",
+    "why": "'Many' đi với danh từ số nhiều."
+   }
+  ],
+  "u": "Defect là lỗi hay khiếm khuyết khiến vật không hoàn hảo hoặc hoạt động không tốt: lỗi sản xuất, dị tật bẩm sinh. Đây là danh từ đếm được, luật tiêu dùng hay dùng: hàng có lỗi có thể trả lại. Làm động từ, defect /dɪˈfekt/ nghĩa là rời đất nước hoặc nhóm để theo phe đối lập. Danh từ nhấn âm đầu, còn động từ nhấn âm hai."
+ },
+ "defective": {
+  "mis": [
+   {
+    "w": "The item is defect.",
+    "r": "The item is defective.",
+    "why": "Sau 'be' dùng tính từ defective, không dùng danh từ defect."
+   },
+   {
+    "w": "We returned the defected phone.",
+    "r": "We returned the defective phone.",
+    "why": "Tính từ là defective; 'defected' là quá khứ của động từ defect."
+   }
+  ],
+  "u": "Defective nghĩa là có lỗi khiến vật không hoạt động đúng: sạc bị lỗi, hàng lỗi. Từ trang trọng, hay gặp trong phiếu bảo hành và khiếu nại. Faulty thân mật hơn và phổ biến trong tiếng Anh Anh, còn broken là hỏng hẳn. Sản phẩm defective có thể được trả hoặc đổi. Danh từ là defect. Đừng dùng từ này để mô tả người vì có thể gây xúc phạm."
+ },
+ "delete": {
+  "mis": [
+   {
+    "w": "Please delete the file out of the folder.",
+    "r": "Please delete the file from the folder.",
+    "why": "Giới từ sau delete là 'from'."
+   },
+   {
+    "w": "I deleted by mistake the file.",
+    "r": "I deleted the file by mistake.",
+    "why": "Tân ngữ đứng sau động từ; cụm trạng ngữ đứng sau đó."
+   }
+  ],
+  "u": "Delete nghĩa là xóa thứ gì khỏi máy tính, điện thoại hay tài liệu, ví dụ tệp, email hay một từ. Đây là từ chuẩn trên bàn phím và ứng dụng. Ban đầu thường có thể khôi phục vì mục bị xóa vào thùng rác; permanently delete là xóa vĩnh viễn. Danh từ là deletion. Erase gợi hành động xóa vật lý như tẩy bằng tay."
+ }
+}
