@@ -74,15 +74,15 @@
  "fr": {
   "back": [
    "C'est l'heure d'étudier avec Kit !",
-   "Ouvre Lexkite et révise quelques mots."
+   "Ouvrez Lexkite et révisez quelques mots."
   ],
   "miss": [
    "Kit met les rappels en pause 🐦",
-   "Pour ne pas te déranger. Reviens quand tu veux : tout ce que tu as appris est toujours là."
+   "Pour ne pas vous déranger. Revenez quand vous voulez : tout ce que vous avez appris est toujours là."
   ],
   "week": [
    "Progrès de la semaine",
-   "Regarde tes progrès de la semaine."
+   "Découvrez vos progrès de la semaine."
   ],
   "fixed": [
    "Le problème {id} a été corrigé",
