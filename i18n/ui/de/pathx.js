@@ -1,5 +1,6 @@
 /* UI de – pathx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {
+"+{n} XP":"+{n} XP",
 "+{xp} XP hôm nay":"+{xp} XP heute",
 "Bài mới đã mở: {name}":"Neue Lektion freigeschaltet: {name}",
 "Bài ngữ pháp hôm nay":"Grammatik von heute",
@@ -14,7 +15,9 @@
 "Chọn nghĩa đúng của từ vừa học":"Wähle die richtige Bedeutung der neuen Wörter",
 "Collocation & cấu trúc học thuật":"Akademische Kollokationen & Strukturen",
 "Cuộc gọi luyện nói":"Sprechübung am Telefon",
+"Các hoạt động của ngày":"Aktivitäten heute",
 "Câu hỏi kiểu đề thi, có giải thích ngay":"Prüfungsnahe Fragen mit sofortiger Erklärung",
+"Cô Ama":"Lehrerin Ama",
 "Dùng từ trong câu":"Wörter im Satz verwenden",
 "Dùng từ vừa học trong tình huống thật":"Nutze die neuen Wörter in einer echten Situation",
 "Dễ trước, khó sau: nhận diện → ghép → nghe → dùng trong câu → nói.":"Erst leicht, dann schwerer: erkennen → zuordnen → hören → im Satz verwenden → sprechen.",
@@ -50,6 +53,7 @@
 "Theo dõi thêm":"Hinzufügen",
 "Thi thử định kỳ":"Zwischentest",
 "Tiến độ bài":"Lektionsfortschritt",
+"Tiến độ trong ngày":"Heutiger Fortschritt",
 "Tiếng Anh công sở":"Englisch für den Beruf",
 "Tiếp theo học gì?":"Wie geht es weiter?",
 "Tiếp theo học gì? Chọn một hướng:":"Wie geht es weiter? Wähle eine Richtung:",
@@ -77,5 +81,6 @@
 "Đặt mục tiêu rõ ràng giúp mình chọn đúng độ khó.":"Ein klares Ziel hilft mir, den passenden Schwierigkeitsgrad zu wählen.",
 "Đề nghị lịch sự":"Höfliche Bitten",
 "Đều đặn mỗi ngày là bí quyết nhớ lâu!":"Jeden Tag ein bisschen ist das Geheimnis für langes Behalten!",
+"≈ {m} phút":"≈ {m} Min.",
 });
 })(typeof self !== 'undefined' ? self : this);
