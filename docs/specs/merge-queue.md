@@ -48,3 +48,8 @@ Chưa tự gỡ (xung đột hiếm, cần người): `content/pipeline/score.bu
 ## Rủi ro
 - Hàng đợi dừng nếu `npm test` chập chờn → lỗi chập chờn phải sửa gốc (ci-triage), không tắt queue.
 - Status `required-gate` trên sha hàng đợi do `GITHUB_TOKEN` của workflow ghi: ruleset không giới hạn nguồn status (đúng như hiện nay), nên được chấp nhận.
+
+## Công cụ gỡ cục bộ: `scripts/ci/regen-conflicts.mjs` (15/11)
+- `node scripts/ci/regen-conflicts.mjs [--base=real/main] [--dry]`: gộp base vào nhánh hiện tại (hoặc tiếp cuộc gộp dở), gỡ theo bảng trên bằng `plan/applySteps/regen` của `pr-unconflict.mjs` (một bộ luật cho bot và người), commit. Không push → sau đó `npm run prepush`, đẩy, `prwatch.py N@<sha>`. Thoát 2 = còn tệp người viết (in danh sách, cuộc gộp để dở); cần `npm ci` nếu có `st-*.css`.
+- `--measure N…` (PR đã fetch `refs/remotes/pr/N`): thống kê tệp xung đột nhiều nhất, không đụng cây làm việc.
+- `scripts/i18n-fixed.json`: khóa sắp, MỖI KHÓA MỘT DÒNG (`scripts/lib/fixed-json.mjs`, gác bởi `fmt-stable.mjs`). Gốc cũ: khóa mới nối cuối tệp → 7/16 PR dirty cùng một chỗ (đo 15/11; phần còn lại chủ yếu `extension/app` + `web/js/i18n` – tệp sinh, bot/công cụ gỡ).
