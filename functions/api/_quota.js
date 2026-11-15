@@ -20,9 +20,9 @@ import { once } from './_schema.js';
 const DAY = 86400e3;
 // [mỗi phút, mỗi ngày] · ipx = trần theo IP = ipx × mức cao nhất của các bậc · providers = cầu dao cần đọc · cost = đơn vị tính cho provider 'ai' (neuron/lượt)
 export const DEFAULTS = {
-  ai:        { anon: [5, 10],    free: [5, 30],    ipx: 3,  store: 'd1',   providers: ['ai', 'gemini'], cost: 50 }, // chấm Writing/Speaking
-  chat:      { anon: [10, 20],   free: [20, 60],   ipx: 3,  store: 'd1',   providers: ['ai', 'gemini'], cost: 8 },  // Roleplay for Work (lượt thoại)
-  import:    { anon: [0, 0],     free: [20, 120],  ipx: 3,  store: 'd1',   providers: ['ai', 'gemini'], cost: 40 }, // Nhập tài liệu: AI điền nghĩa (cần đăng nhập; đếm THEO TỪ, ≤ 20 từ/lời gọi) – docs/specs/import-to-deck.md
+  ai:        { anon: [5, 10],    free: [5, 30],    ipx: 3,  store: 'd1',   providers: ['ai', 'gemini', 'groq'], cost: 50 }, // chấm Writing/Speaking
+  chat:      { anon: [10, 20],   free: [20, 60],   ipx: 3,  store: 'd1',   providers: ['ai', 'gemini', 'groq'], cost: 8 },  // Roleplay for Work (lượt thoại)
+  import:    { anon: [0, 0],     free: [20, 120],  ipx: 3,  store: 'd1',   providers: ['ai', 'gemini', 'groq'], cost: 40 }, // Nhập tài liệu: AI điền nghĩa (cần đăng nhập; đếm THEO TỪ, ≤ 20 từ/lời gọi) – docs/specs/import-to-deck.md
   readable:  { anon: [3, 20],    free: [6, 60],    ipx: 3,  store: 'edge' },                                        // /api/readable: đọc bài từ liên kết (Nhập tài liệu)
   handoff:   { anon: [3, 10],    free: [3, 10],    ipx: 3,  store: 'd1' },                                          // chuyển máy bằng QR (lượt tạo mã)
   contact:   { anon: [2, 5],     free: [2, 5],     ipx: 2,  store: 'd1',   providers: ['mail'] },                   // form liên hệ → thư
@@ -38,6 +38,7 @@ export const DEFAULTS = {
 export const PROVIDERS = {
   ai: { infra: 'ai', day: 10000, unit: 'neuron' },
   gemini: { infra: 'gemini', day: 20, unit: 'call/key', perKey: true },
+  groq: { infra: 'groq', day: 1000, unit: 'call/key', perKey: true }, // chuỗi người dùng tuyến 2 (_aichain.js)
   mail: { infra: 'mail', day: 100, unit: 'mail' },
 };
 export const BREAKER = 0.8;

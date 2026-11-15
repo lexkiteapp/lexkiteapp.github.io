@@ -688,8 +688,8 @@ final class SkillsVectorTests: XCTestCase {
         XCTAssertEqual(Set(by.keys), ["listening", "listen", "listen-test", "dictation", "reading", "read"], "the six P06 routes")
         // what the native screens write: listenT/readLv (device), game.*, settings.*, mistakes
         XCTAssertEqual(strs(by["listening"]), ["localStorage:vb.listenT"]); XCTAssertEqual(strs(by["reading"]), ["localStorage:vb.readLv"])
-        XCTAssertEqual(strs(by["listen"]), ["game:listenDone", "game:qstat", "store:mistakes"])
-        XCTAssertEqual(strs(by["listen-test"]), ["game:listenBest", "game:listenTests", "game:qstat", "store:mistakes"])
+        XCTAssertEqual(strs(by["listen"]), ["game:listenDone", "game:qstat", "game:qwk", "store:mistakes"])
+        XCTAssertEqual(strs(by["listen-test"]), ["game:listenBest", "game:listenTests", "game:qstat", "game:qwk", "store:mistakes"])
         XCTAssertEqual(strs(by["dictation"]), ["game:dictDone", "settings:dictAuto", "settings:dictMode"])
         XCTAssertEqual(strs(by["read"]), ["game:readDone", "settings:hl", "store:mistakes"])
     }
