@@ -131,7 +131,10 @@ export function collect() {
     // Ngân hàng ý tưởng Task 2 (ideas.js: câu ví dụ, nút data-saysent → theo accent người học)
     { const x = ctx(); L(x, 'web/cpack/write/ideas.js'); for (const tp of x.IDEAS || []) for (const iss of tp.issues || []) for (const it of [...(iss.for || []), ...(iss.against || [])]) for (const t of strs(it.ex)) bothSplit(t, 'ideas'); }
     // Ngữ pháp: mọi câu ví dụ (trường ex) trong web/js/grammar + web/cpack/grammar (bài tải lười); bỏ mục lục lazy-*.js
-    { const x = ctx(); for (const d of ['web/js/grammar', 'web/cpack/grammar']) if (fs.existsSync(d)) for (const f of fs.readdirSync(d).filter(f => f.endsWith('.js') && !/^lazy-/.test(f)).sort()) L(x, `${d}/${f}`);
+    { const x = ctx(), ls = d => fs.existsSync(d) ? fs.readdirSync(d).filter(f => f.endsWith('.js') && !/^lazy-/.test(f)).sort().map(f => `${d}/${f}`) : [];
+      // thứ tự nạp như app: web/js/grammar rồi web/cpack/grammar, riêng drills-c (dời cpack) vẫn nạp ngay sau drills-b như khi còn ở web/js
+      const gj = ls('web/js/grammar'), gc = ls('web/cpack/grammar'), dc = gc.filter(f => /\/drills-c\.js$/.test(f)), at = gj.findIndex(f => /\/drills-b\.js$/.test(f)) + 1;
+      for (const f of [...gj.slice(0, at), ...dc, ...gj.slice(at), ...gc.filter(f => !dc.includes(f))]) L(x, f);
       const seen = new Set(), walk = o => { if (!o || typeof o !== 'object' || seen.has(o)) return; seen.add(o); for (const [k, v] of Object.entries(o)) { if (k === 'ex') for (const t of strs(v)) bothSplit(t, 'grammar'); else walk(v); } };
       walk(x.GRAMMAR); walk(x.GRAMMAR_CHECK); }
   }
