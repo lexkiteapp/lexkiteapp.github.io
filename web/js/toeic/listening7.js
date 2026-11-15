@@ -28,19 +28,15 @@ explain: 'Ảnh: đường hầm ga tàu điện ngầm với hai thang cuốn d
 const p1script = [
 { say: g.TQL[0] }, { pause: 3 },
 ];
-P1.forEach(it => {
-p1script.push({ say: 'Number ' + it.n + '. Look at the photograph for number ' + it.n + '.' }); p1script.push({ pause: 1 });
-it.s.forEach((txt, i) => p1script.push({ s: 'N', t: '(' + 'ABCD'[i] + ') ' + txt }));
-p1script.push({ pause: 3 });
-});
+g.TQH.p1(P1, p1script);
 
 T.listening.push({
 id: 'tl7p1', test: 7, part: 1, title: 'Photographs', titleVi: 'Mô tả tranh',
-speakers: { N: { name: 'Narrator', accent: 'en-US', gender: 'm' } },
+speakers: g.TQH.sp,
 script: p1script,
 groups: [
 { type: 'mcq', photo: true, instr: g.TQL[4],
-items: P1.map(it => ({ n: it.n, img: it.img, q: '', options: it.s, a: it.a, cue: it.s[it.a], explain: it.explain })) },
+items: g.TQH.p1i(P1) },
 ],
 vocab: [
 { w: 'pour', vi: 'rót' },
@@ -136,7 +132,7 @@ const p2script = [
 P2.forEach(it => {
 p2script.push({ say: 'Number ' + it.n + '.' });
 p2script.push({ s: it.qs, t: it.q });
-it.r.forEach((txt, i) => p2script.push({ s: it.rs, t: 'ABC'[i] + '. ' + txt }));
+g.TQH.p2s(it, p2script);
 p2script.push({ pause: 2 });
 });
 
@@ -151,7 +147,7 @@ D: { name: 'Philippa', accent: 'en-GB', gender: 'f' },
 script: p2script,
 groups: [
 { type: 'mcq', instr: g.TQL[41],
-items: P2.map(it => ({ n: it.n, q: 'Mark your answer.', options: ['A', 'B', 'C'], a: it.a, cue: it.r[it.a], explain: it.explain })) },
+items: g.TQH.p2(P2) },
 ],
 vocab: [
 { w: 'loading dock', vi: 'khu bốc dỡ hàng' },

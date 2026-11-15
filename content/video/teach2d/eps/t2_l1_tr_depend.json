@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_depend",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Depends, not is depend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It is depend on you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It depends on you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say depends. No is.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Depends! It depends on the weather.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It is depend on you.",
+  "right": "It depends on you.",
+  "strike": "is depend",
+  "why": "Say depends. No is.",
+  "memory": "It depends on you.",
+  "quiz": {
+   "stem": "It ___ on the weather.",
+   "options": [
+    "depend",
+    "depends"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Is depend” değil, “depends”!",
+   "tip": "“Bağlı” diye “is depend” denmez; fiil tek başına kullanılır: “It depends on you.”",
+   "caption": "“It is depend on you.” mi diyorsun? 😅 İngilizcede “depend” fiilinin önüne “is” gelmez. Doğrusu “It depends on you.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “depends”. Fiilin kendisi yeter: depends. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “is depend”, but “depends”!",
+   "tip": "Do not put “is” before “depend”: “It depends on you.”",
+   "caption": "Do you say “It is depend on you.”? 😅 In English “is” does not go before “depend”. The right sentence is “It depends on you.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Is depend” değil, “depends”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“Is depend” değil, “depends”!",
+  "keyword": "It depends on you.",
+  "value": "“Bağlı” diye “is depend” denmez; fiil tek başına kullanılır: “It depends on you.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“Is depend” değil, “depends”!",
+    "description": "“It is depend on you.” mi diyorsun? 😅 İngilizcede “depend” fiilinin önüne “is” gelmez. Doğrusu “It depends on you.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "It depends on you.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“It is depend on you.” mi diyorsun? 😅 İngilizcede “depend” fiilinin önüne “is” gelmez. Doğrusu “It depends on you.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“It is depend on you.” mi diyorsun? 😅 İngilizcede “depend” fiilinin önüne “is” gelmez. Doğrusu “It depends on you.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Is depend” değil, “depends”! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “depends”. Fiilin kendisi yeter: depends. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}

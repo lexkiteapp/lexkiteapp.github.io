@@ -17,7 +17,7 @@ const VI = /[ăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễ�
 const VI0 = VI, VIS = /[âêôăđơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]/i; // es/ja/ar…: â ê ô cũng là dấu hiệu tiếng Việt (“câu”, “nên”)
 const ROUTES = ['#/home', '#/me', '#/vocab', '#/library', '#/review', '#/practice', '#/path', '#/plan', '#/stats', '#/settings', '#/league', '#/goal',
   '#/skills', '#/tests', '#/mistakes', '#/grammar', '#/pron', '#/listening', '#/reading', '#/speaking', '#/write', '#/task1', '#/letters', '#/rtype',
-  '#/mock', '#/toeic', '#/toefl', '#/cambridge', '#/cambridge/a2-t1', '#/cambridge/a2-t1?p=speaking', '#/dict/sustainable', '#/topic/education', '#/topic/ngsl1', '#/resources', '#/placement', '#/usage', '#/usage/interested', '#/usage?c=pair', '#/home'];
+  '#/mock', '#/toeic', '#/toefl', '#/cambridge', '#/mediate', '#/mediate/m01', '#/cambridge/a2-t1', '#/cambridge/a2-t1?p=speaking', '#/dict/sustainable', '#/topic/education', '#/topic/ngsl1', '#/resources', '#/placement', '#/usage', '#/usage/interested', '#/usage?c=pair', '#/home'];
 const html = fs.readFileSync(path.join(WEB, 'app', 'index.html'), 'utf8').replace(/<!--hero-->[\s\S]*?<!--\/hero-->/, '');
 const scripts = [...html.matchAll(/<script(?: defer)? src="([^"]+)"><\/script>/g)].map(m => m[1]);
 const tick = (ms = 40) => new Promise(r => setTimeout(r, ms));

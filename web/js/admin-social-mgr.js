@@ -138,7 +138,7 @@
     'Trọng số tuần sau (đưa về thư viện)': 'Next week’s weights (fed back to the library)', 'Chưa có số liệu.': 'No metrics yet.', 'Nguồn': 'Source',
     'Khóa API GrabCast chưa được đọc số liệu (insights) – Lexkite lấy lượt xem web + số anh nhập; khi GrabCast mở quyền, nút Đồng bộ tự lấy.': 'The GrabCast API key cannot read insights yet – Lexkite uses web views + numbers you import; once GrabCast opens it, Sync pulls them automatically.',
     'Dán CSV: post_id,platform,views,likes,comments,saves,shares,watch_s': 'Paste CSV: post_id,platform,views,likes,comments,saves,shares,watch_s', 'Nhập': 'Import', '✓ Đã nhập {n} dòng': '✓ Imported {n} rows',
-    '✓ Đồng bộ: {n} số liệu GrabCast, {w} clip web': '✓ Synced: {n} GrabCast metrics, {w} web clips', 'Trọng số': 'Weight', 'Nhóm/khóa': 'Key',
+    '✓ Đồng bộ: {n} số liệu GrabCast, {w} clip web': '✓ Synced: {n} GrabCast metrics, {w} web clips', 'Trọng số': 'Weight', 'Nhóm/khóa': 'Key', 'Cảnh báo phân tích': 'Analytics alerts', 'Theo độ dài': 'By length', 'Theo giờ đăng': 'By post hour', '7 ngày': '7 days', 'Top 5': 'Top 5', 'Thấp nhất 5': 'Bottom 5', 'Bị gỡ/hạn chế': 'Removed/restricted',
     // Bình luận
     '💬 Bình luận': '💬 Comments', 'API GrabCast (khóa API) chưa cho đọc/trả lời bình luận – hộp thư chỉ dùng được khi đăng nhập grabcast.click. Lexkite liệt kê bài đã đăng để mở thẳng trên nền tảng.': 'The GrabCast API (API key) does not allow reading/replying to comments yet – the inbox only works signed in on grabcast.click. Lexkite lists published posts so you can open them on the platform.',
     'Mở hộp thư GrabCast ↗': 'Open the GrabCast inbox ↗', 'Chưa có bài đã đăng.': 'No published posts yet.',
@@ -195,7 +195,7 @@
   const parseCsv = t => { const ls = String(t || '').trim().split(/\r?\n/).filter(Boolean); if (!ls.length) return []; const h = ls[0].toLowerCase().split(',').map(x => x.trim()); const hasH = h.includes('post_id'); const cols = hasH ? h : ['post_id', 'platform', 'views', 'likes', 'comments', 'saves', 'shares', 'watch_s']; return (hasH ? ls.slice(1) : ls).map(l => { const v = l.split(','); return Object.fromEntries(cols.map((c, i) => [c, (v[i] || '').trim()])); }).filter(r => r.post_id); };
   const parseQueueCsv = t => String(t || '').split(/\r?\n/).map(l => l.split(/[,\t]/).map(x => x.trim())).filter(c => /^[a-z0-9-]{3,120}$/.test(c[0] || '') && c[1] && c[2]).map(c => ({ clip: c[0], account_ids: c[1].split(/[;|\s]+/).filter(x => /^[A-Za-z0-9_-]{1,40}$/.test(x)), at: +new Date(c[2]) })).filter(x => x.account_ids.length && x.at > Date.now());
   const rate = r => (r.views ? ((r.saves || 0) * 3 + (r.shares || 0) * 4 + (r.comments || 0) * 2 + (r.likes || 0)) / r.views : 0);
-  const sumBy = (rows, key) => { const m = new Map(); for (const r of rows) { const k = key(r) || '–'; const o = m.get(k) || m.set(k, { k, views: 0, likes: 0, comments: 0, saves: 0, shares: 0, watch_s: 0, n: 0 }).get(k); for (const f of ['views', 'likes', 'comments', 'saves', 'shares', 'watch_s']) o[f] += +r[f] || 0; o.n++; } return [...m.values()].sort((a, b) => b.views - a.views); };
+  const sumBy = (rows, key) => { const m = new Map(); for (const r of rows) { const k = key(r) || '–'; const o = m.get(k) || m.set(k, { k, views: 0, likes: 0, comments: 0, saves: 0, shares: 0, watch_s: 0, n: 0, d7: null }).get(k); for (const f of ['views', 'likes', 'comments', 'saves', 'shares', 'watch_s']) o[f] += +r[f] || 0; if (r.d7 != null) o.d7 = (o.d7 || 0) + r.d7; o.n++; } return [...m.values()].sort((a, b) => b.views - a.views); };
   // Bảng điều khiển Autopilot: thứ tự nền tảng, tên ngôn ngữ (bộ 16 fanpage), lý do bỏ qua, loại lỗi nhật ký, vấn đề khi xem trước
   const PAUSE_Q = 'Tạm dừng TOÀN BỘ autopilot?\n\n• Tắt autopilot: không tạo, không lên lịch bài mới.\n• Gỡ lịch các bài autopilot ĐÃ lên lịch trên GrabCast (tối đa 20 bài mỗi lần bấm) – bài về cột Chờ duyệt, KHÔNG bị xóa.\n• Bài anh tự soạn tay không bị đụng tới.\n\nBật lại bất cứ lúc nào bằng nút Chạy lại.'; // hỏi trước khi Tạm dừng toàn bộ (EN: cùng khóa trong EN)
   const CH_PLATS = ['facebook_page', 'instagram', 'tiktok', 'threads', 'youtube'];
@@ -646,19 +646,32 @@
   async function stats(el, ctx) {
     const { M, esc, err } = mk(ctx); let D = null, by = ctx.LS.get('sby', 'template');
     el.innerHTML = `<section class="card"><h3 style="margin-top:0">${M('📈 Phân tích')}</h3><p class="small muted">${M('Khóa API GrabCast chưa được đọc số liệu (insights) – Lexkite lấy lượt xem web + số anh nhập; khi GrabCast mở quyền, nút Đồng bộ tự lấy.')}</p>
-      <div class="smg-flt"><select id="sBy">${[['post', 'Theo bài'], ['account', 'Theo kênh'], ['template', 'Theo template'], ['hook', 'Theo hook'], ['cefr', 'Theo độ khó']].map(([k, t]) => `<option value="${k}" ${by === k ? 'selected' : ''}>${M(t)}</option>`).join('')}</select>
+      <div class="smg-flt"><select id="sBy">${[['post', 'Theo bài'], ['account', 'Theo kênh'], ['template', 'Theo template'], ['hook', 'Theo hook'], ['cefr', 'Theo độ khó'], ['len', 'Theo độ dài'], ['hour', 'Theo giờ đăng']].map(([k, t]) => `<option value="${k}" ${by === k ? 'selected' : ''}>${M(t)}</option>`).join('')}</select>
       <button type="button" class="btn sm" id="sSync">${M('🔄 Đồng bộ số liệu')}</button><button type="button" class="btn sm ghost" id="sCsv">${M('⬆️ Nhập CSV')}</button><button type="button" class="btn sm ghost" id="sExp">${M('⬇️ Xuất báo cáo CSV')}</button></div><p class="small" id="sMsg" role="status" aria-live="polite"></p><div id="sOut"><p class="small muted">${M('Đang tải…')}</p></div></section>`;
     const $ = s => el.querySelector(s), msg = (t, c) => { const m = $('#sMsg'); if (m) { m.textContent = t; m.className = 'small ' + (c === true ? 'ok-t' : c === false ? 'bad-t' : 'muted'); } };
     const load = async () => { try { D = await ctx.sapi('GET', 'lk/metrics'); paint(); } catch (e) { msg(err(e), false); } };
     const n = x => (+x || 0).toLocaleString();
+    function al() { // cảnh báo phân tích (kênh 0 view, video bị gỡ, quota) – nằm trong Quản trị, không cần mở issue
+      const xs = D.alerts || []; return xs.length ? `<div class="card" role="alert" style="border-color:var(--a-warn)"><b>⚠️ ${M('Cảnh báo phân tích')}</b><ul class="small" style="margin:.3rem 0 0;padding-left:1rem">${xs.map(a => `<li>${esc(a.text)}</li>`).join('')}</ul></div>` : '';
+    }
+    function tb() { // top/bottom 5 bài (video có số liệu) + video bị gỡ
+      const vs = sumBy((D.rows || []).filter(r => r.platform !== 'web' && r.post_id), r => r.post_id).filter(x => x.k !== '–'), gone = (D.vmeta || []).filter(v => v.missing);
+      const list = (xs) => xs.map(x => `<li>${esc(x.k)} · <b>${n(x.views)}</b></li>`).join('');
+      return vs.length ? `<div class="smg-kpi"><div><span class="tiny muted">${M('Top 5')}</span><ul class="small" style="margin:0;padding-left:1rem">${list(vs.slice(0, 5))}</ul></div><div><span class="tiny muted">${M('Thấp nhất 5')}</span><ul class="small" style="margin:0;padding-left:1rem">${list(vs.slice(-5).reverse())}</ul></div>${gone.length ? `<div><span class="tiny muted">${M('Bị gỡ/hạn chế')}</span><b class="bad-t">${gone.length}</b></div>` : ''}</div>` : '';
+    }
     function paint() {
       const rows = (D.rows || []).filter(r => r.platform !== 'web' || by === 'template' || by === 'hook' || by === 'cefr');
-      if (!rows.length) { $('#sOut').innerHTML = `<p class="small muted">${M('Chưa có số liệu.')}</p>`; return; }
-      const t = sumBy(rows, () => 'all')[0], key = { post: r => r.post_id || r.clip, account: r => (r.platform === 'web' ? 'web' : (PI[r.platform] || '') + ' ' + r.account_id), template: r => r.template, hook: r => r.hook, cefr: r => r.cefr }[by];
+      if (!rows.length) { $('#sOut').innerHTML = al() + `<p class="small muted">${M('Chưa có số liệu.')}</p>`; return; }
+      const t = sumBy(rows, () => 'all')[0], VM = new Map((D.vmeta || []).map(v => [v.video_id, v])), GR = new Map((D.growth || []).map(g => [g.video_id, g])), CH = new Map((D.channels || []).map(c => [c.channel_id, c.title])),
+        key = { post: r => r.post_id || r.clip, account: r => (r.platform === 'web' ? 'web' : (PI[r.platform] || r.platform || '') + ' ' + (CH.get(r.account_id) || r.account_id)), template: r => r.template, hook: r => r.hook, cefr: r => r.cefr,
+          len: r => { const v = VM.get(r.post_id); return v && v.secs ? (v.secs < 20 ? '<20s' : v.secs < 40 ? '20–40s' : v.secs <= 60 ? '40–60s' : '>60s') : ''; },
+          hour: r => { const v = VM.get(r.post_id), t = v && Date.parse(v.publish_at); return t ? String(new Date(t).getHours()).padStart(2, '0') + ':00' : ''; } }[by];
+      for (const r of rows) { const x = GR.get(r.post_id); r.d7 = x ? +x.d7 || 0 : null; r.d30 = x ? +x.d30 || 0 : null; }
       const g = sumBy(rows, key).slice(0, 300), W = D.weights && D.weights.by && D.weights.by[by];
-      $('#sOut').innerHTML = `<div class="smg-kpi">${[['Lượt xem', n(t.views)], ['Thích', n(t.likes)], ['Bình luận', n(t.comments)], ['Lưu lại', n(t.saves)], ['Chia sẻ', n(t.shares)], ['Thời gian xem', Math.round(t.watch_s / 60) + ' min'], ['Tỉ lệ tương tác', (rate(t) * 100).toFixed(1) + '%']].map(([k, v]) => `<div><span class="tiny muted">${M(k)}</span><b>${esc(v)}</b></div>`).join('')}</div>
-        <div class="smg-scroll"><table class="soc-tbl" style="margin-top:.6rem"><thead><tr><th>${M('Nhóm/khóa')}</th><th>${M('Lượt xem')}</th><th>${M('Thích')}</th><th>${M('Bình luận')}</th><th>${M('Lưu lại')}</th><th>${M('Chia sẻ')}</th><th>${M('Tỉ lệ tương tác')}</th>${W ? `<th>${M('Trọng số')}</th>` : ''}</tr></thead>
-        <tbody>${g.map(r => `<tr><td>${esc(r.k)}</td><td>${n(r.views)}</td><td>${n(r.likes)}</td><td>${n(r.comments)}</td><td>${n(r.saves)}</td><td>${n(r.shares)}</td><td>${(rate(r) * 100).toFixed(1)}%</td>${W ? `<td>${W[r.k] ? W[r.k].w : '–'}</td>` : ''}</tr>`).join('')}</tbody></table></div>
+      $('#sOut').innerHTML = al() + `<div class="smg-kpi">${[['Lượt xem', n(t.views)], ['Thích', n(t.likes)], ['Bình luận', n(t.comments)], ['Lưu lại', n(t.saves)], ['Chia sẻ', n(t.shares)], ['Thời gian xem', Math.round(t.watch_s / 60) + ' min'], ['Tỉ lệ tương tác', (rate(t) * 100).toFixed(1) + '%']].map(([k, v]) => `<div><span class="tiny muted">${M(k)}</span><b>${esc(v)}</b></div>`).join('')}</div>
+        ${tb()}
+        <div class="smg-scroll"><table class="soc-tbl" style="margin-top:.6rem"><thead><tr><th>${M('Nhóm/khóa')}</th><th>${M('Lượt xem')}</th><th>${M('Thích')}</th><th>${M('Bình luận')}</th><th>${M('Lưu lại')}</th><th>${M('Chia sẻ')}</th><th>${M('Tỉ lệ tương tác')}</th><th>${M('7 ngày')}</th>${W ? `<th>${M('Trọng số')}</th>` : ''}</tr></thead>
+        <tbody>${g.map(r => `<tr><td>${esc(r.k)}</td><td>${n(r.views)}</td><td>${n(r.likes)}</td><td>${n(r.comments)}</td><td>${n(r.saves)}</td><td>${n(r.shares)}</td><td>${(rate(r) * 100).toFixed(1)}%</td><td>${r.d7 == null ? '–' : '+' + n(r.d7)}</td>${W ? `<td>${W[r.k] ? W[r.k].w : '–'}</td>` : ''}</tr>`).join('')}</tbody></table></div>
         ${D.weights ? `<p class="tiny muted">${M('Trọng số tuần sau (đưa về thư viện)')}: mean ${esc(String(D.weights.mean))}</p>` : ''}`;
     }
     $('#sExp').onclick = () => { if (!D) return; const key = { post: r => r.post_id || r.clip, account: r => r.platform + ':' + r.account_id, template: r => r.template, hook: r => r.hook, cefr: r => r.cefr }[by]; const g = sumBy(D.rows || [], key);

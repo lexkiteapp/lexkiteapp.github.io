@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_listen",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Do you listen or listen to?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I listen music every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I listen to music every day.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Listen needs to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! Listen to me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I listen music every day.",
+  "right": "I listen to music every day.",
+  "strike": "listen music",
+  "why": "Listen needs to.",
+  "memory": "Listen to music.",
+  "quiz": {
+   "stem": "Listen ___ me.",
+   "options": [
+    "to",
+    "at"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Listen без “to” — ошибка",
+   "tip": "Слушать — “listen to”. Без “to” фраза звучит неправильно.",
+   "caption": "Ты тоже говоришь “I listen music every day.”? 😅 По-русски «слушаю музыку» — без предлога, а по-английски нужен “to”. Правильно: “I listen to music every day.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “to”. Слушаем что-то — listen to. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#английский",
+    "#изучениеанглийского",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you listen or listen to?",
+   "tip": "Listen needs “to”. Without it, the phrase sounds wrong.",
+   "caption": "Do you also say “I listen music every day.”? 😅 In Russian “slushayu muzyku” has no preposition, but English needs “to”. Correct: “I listen to music every day.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Listen без “to” — ошибка"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Listen без “to” — ошибка",
+  "keyword": "I listen to music every day.",
+  "value": "Слушать — “listen to”. Без “to” фраза звучит неправильно.",
+  "hashtags": [
+   "#английскийязык",
+   "#английский",
+   "#изучениеанглийского",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Listen без “to” — ошибка",
+    "description": "Ты тоже говоришь “I listen music every day.”? 😅 По-русски «слушаю музыку» — без предлога, а по-английски нужен “to”. Правильно: “I listen to music every day.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #английский #изучениеанглийского #lexkite",
+    "tags": [
+     "I listen to music every day.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I listen music every day.”? 😅 По-русски «слушаю музыку» — без предлога, а по-английски нужен “to”. Правильно: “I listen to music every day.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Ты тоже говоришь “I listen music every day.”? 😅 По-русски «слушаю музыку» — без предлога, а по-английски нужен “to”. Правильно: “I listen to music every day.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#английский",
+     "#изучениеанглийского",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Listen без “to” — ошибка #английскийязык #английский #изучениеанглийского"
+   }
+  },
+  "first_comment": "Ответ: “to”. Слушаем что-то — listen to. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

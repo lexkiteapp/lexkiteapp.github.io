@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_gohome",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Home is special!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I go to home after work.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I go home after work.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Home does not need to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Go! I want to go home.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I go to home after work.",
+  "right": "I go home after work.",
+  "strike": "to home",
+  "why": "Home does not need to.",
+  "memory": "Go home. No to.",
+  "quiz": {
+   "stem": "I want to ___ home.",
+   "options": [
+    "go",
+    "go to"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “go to home”?",
+   "tip": "Com “home”, não usamos “to”: “go home”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I go to home after work.”. O certo é “I go home after work.”. Home é uma exceção que vale decorar. Ouça o Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “go”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#inglesonline",
+    "#dicasdeingles",
+    "#aprenderingles",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “go to home”?",
+   "tip": "With “home”, we do not use “to”: “go home”.",
+   "caption": "Watch out for this common mistake! Many people say “I go to home after work.”. The right way is “I go home after work.”. Home is an exception worth remembering. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “go to home”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Você diz “go to home”?",
+  "keyword": "I go home after work.",
+  "value": "Com “home”, não usamos “to”: “go home”.",
+  "hashtags": [
+   "#inglesonline",
+   "#dicasdeingles",
+   "#aprenderingles",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “go to home”?",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “I go to home after work.”. O certo é “I go home after work.”. Home é uma exceção que vale decorar. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesonline #dicasdeingles #aprenderingles #lexkite",
+    "tags": [
+     "I go home after work.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I go to home after work.”. O certo é “I go home after work.”. Home é uma exceção que vale decorar. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I go to home after work.”. O certo é “I go home after work.”. Home é uma exceção que vale decorar. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#inglesonline",
+     "#dicasdeingles",
+     "#aprenderingles",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “go to home”? #inglesonline #dicasdeingles #aprenderingles"
+   }
+  },
+  "first_comment": "Resposta: “go”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

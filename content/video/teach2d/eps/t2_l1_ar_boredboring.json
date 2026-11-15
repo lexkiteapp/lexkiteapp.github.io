@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_boredboring",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Bored or boring?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am boring in class.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I am bored in class.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use bored for your feeling.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Boring! The film is boring.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am boring in class.",
+  "right": "I am bored in class.",
+  "strike": "boring",
+  "why": "Use bored for your feeling.",
+  "memory": "I am bored.",
+  "quiz": {
+   "stem": "The film is ___, so I am sleepy.",
+   "options": [
+    "boring",
+    "bored"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "bored أم boring؟",
+   "tip": "للشعور نقول bored وللشيء boring: “I am bored in class.” وليس “I am boring in class.”.",
+   "caption": "هل تقول أحيانًا “I am boring in class.” 😅 للشعور نقول bored وللشيء boring، فالجملة الصحيحة “I am bored in class.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “boring”. للشعور نقول bored وللشيء boring. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I am boring in class”?",
+   "tip": "For a feeling say bored; for a thing say boring: “I am bored in class.” not “I am boring in class.”.",
+   "caption": "Do you sometimes say “I am boring in class.” 😅 For a feeling say bored; for a thing say boring, so the right sentence is “I am bored in class.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "bored أم boring؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "bored أم boring؟",
+  "keyword": "I am bored in class.",
+  "value": "للشعور نقول bored وللشيء boring: “I am bored in class.” وليس “I am boring in class.”.",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "bored أم boring؟",
+    "description": "هل تقول أحيانًا “I am boring in class.” 😅 للشعور نقول bored وللشيء boring، فالجملة الصحيحة “I am bored in class.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I am bored in class.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “I am boring in class.” 😅 للشعور نقول bored وللشيء boring، فالجملة الصحيحة “I am bored in class.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “I am boring in class.” 😅 للشعور نقول bored وللشيء boring، فالجملة الصحيحة “I am bored in class.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "bored أم boring؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “boring”. للشعور نقول bored وللشيء boring. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

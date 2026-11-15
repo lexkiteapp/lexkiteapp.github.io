@@ -183,6 +183,8 @@ internal fun FinishView(f: Finish, who: String, pose: String?, a: LessonActions,
     val c = LocalLKColors.current; val t = LocalL10n.current; val reduce = LocalReduceMotion.current
     var go by remember { mutableStateOf(reduce) }
     LaunchedEffect(Unit) { go = true }
+    val ctx = androidx.compose.ui.platform.LocalContext.current
+    LaunchedEffect(Unit) { ReviewPrompt.consider(ctx, f.accuracy) } // happy moment → Play in-app review (policy: ReviewPolicy)
     val k by animateFloatAsState(if (go) 1f else 0f, tween(if (reduce) 0 else 900), label = "rings")
     val xpShown = Math.round(f.xp * k)
     Column(Modifier.fillMaxWidth().verticalScroll(rememberScrollState()).padding(horizontal = LKSpacing.gutter), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(LKSpacing.spaceSm)) {

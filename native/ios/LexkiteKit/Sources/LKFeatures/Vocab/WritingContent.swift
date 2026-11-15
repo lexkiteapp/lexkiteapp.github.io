@@ -40,8 +40,8 @@ public actor WritingRemoteContent: WritingContentSource {
         return v
     }
     /// every script that defines or extends MODELS / GT_LETTERS, in the order the web loads them
-    private static let modelFiles = ["js/models.js", "cpack/write/models2.js", "cpack/write/models3.js", "cpack/write/models4.js", "cpack/write/models5.js",
-                                     "js/write/gt-letters.js", "cpack/write/task2-more.js", "js/write/task1-more.js", "js/write/task1-more2.js"]
+    private static let modelFiles = ["cpack/write/models.js", "cpack/write/models2.js", "cpack/write/models3.js", "cpack/write/models4.js", "cpack/write/models5.js",
+                                     "js/write/gt-letters.js", "cpack/write/task2-more.js", "cpack/write/task1-more.js", "js/write/task1-more2.js"]
     private func concat(_ name: String) async -> [JSON] {
         var out: [JSON] = []
         for t in await scripts(Self.modelFiles) { out = WritingData.concatInto(name, cur: out, text: t) }
@@ -56,7 +56,7 @@ public actor WritingRemoteContent: WritingContentSource {
         await cached("prompts") { WritingData.prompts(writeJs: await text("js/write.js"), more: await scripts(["cpack/write/task2-more.js"])) }
     }
     public func task1() async -> [JSON] {
-        await cached("task1") { WritingData.task1(task1Js: await text("js/task1.js"), more: await scripts(["js/write/task1-more.js", "js/write/task1-more2.js"])) }
+        await cached("task1") { WritingData.task1(task1Js: await text("js/task1.js"), more: await scripts(["cpack/write/task1-more.js", "js/write/task1-more2.js"])) }
     }
     public func usage() async -> UsageStore? {
         if let u = usageMemo { return u }

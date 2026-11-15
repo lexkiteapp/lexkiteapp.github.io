@@ -22,6 +22,8 @@ export function neuronReport(D) {
     vision_per_image: imgs ? +(calls / imgs).toFixed(2) : null, second_model_calls: sum('second_model_calls'), size_fail_local: sum('size_fail_local'), acct_dead: sum('acct_dead'),
     vision_tok_missing: sum('vision_tok_missing'), audit: { calls: sum('audit_calls'), neurons: Math.round(sum('audit_neurons')), disagree: sum('audit_disagree') }, total: Math.round(draw + vis) };
 }
+/** ảnh đạt trên 1.000 neuron (hiệu suất kho CF; 11/11 lượt 1 ảnh ≈ 6,4) */
+export const accPerKneuron = (accepted, neurons) => neurons > 0 ? +(accepted * 1000 / neurons).toFixed(2) : null;
 /** tỷ lệ đạt theo ẢNH (ảnh cảnh vẽ ra → ảnh nhận sau nén ≤ 6 KB) + theo loại từ – result.json của scene_final.py */
 export function passReport(D) {
   const R = rd(path.join(D, 'result.json')).items || {}, J = {};

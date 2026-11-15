@@ -47,7 +47,7 @@
 
   function hub(D) {
     const cur = firstOpen(), done = D.filter((d, n) => full(n, d)).length, pct = Math.round(done / D.length * 100);
-    view.innerHTML = `<div class="page-head"><div><h1>${esc(u('ti'))}</h1><p class="muted">${esc(u('sub'))}</p></div></div>
+    view.innerHTML = `${window.Target ? Target.chip('es') : ''}<div class="page-head"><div><h1>${esc(u('ti'))}</h1><p class="muted">${esc(u('sub'))}</p></div></div>
       <section class="card"><div class="row between"><b>${esc(u('td'))} · ${esc(fmt(u('dy'), { n: cur + 1 }))}</b><span class="chip">${D[cur][3]}</span></div>
         <div class="bar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100"><i style="width:${pct}%"></i></div>
         <p class="small muted">${esc(fmt(u('pr'), { d: cur + 1, t: D.length, p: doneOf(cur, D[cur]).length }))}</p>
@@ -61,7 +61,7 @@
     const row = (s, title, body, href) => `<section class="card" id="ds-${s}"><div class="row between"><h3 style="margin:0">${have.includes(s) ? '✓ ' : ''}${esc(title)}</h3>${href ? `<a class="btn ${have.includes(s) ? '' : 'primary'}" href="${href}" data-s="${s}">${esc(u('go'))}</a>` : ''}</div>${body}</section>`;
     const words = W.map((w, k) => `<div class="row" style="align-items:flex-start;gap:.6rem;padding:.35rem 0"><button type="button" class="icon-btn sm" data-sp="${esc(w[0])}" aria-label="${esc(w[0])}">🔊</button>
       <div><b lang="es">${esc(w[0])}</b> <span class="ipa">/${esc(w[2])}/</span> <span class="muted small">${esc(w[1])}</span><div dir="auto">${esc(G[k])}</div><div class="small muted" lang="es">${esc(w[3])} <button type="button" class="icon-btn sm" data-sp="${esc(w[3])}" aria-label="${esc(w[3])}">🔊</button></div></div></div>`).join('');
-    view.innerHTML = `<div class="page-head"><div><h1>${esc(fmt(u('dy'), { n: n + 1 }))}</h1><p class="muted"><span class="chip">${lv}</span> ${esc(fmt(u('pr'), { d: n + 1, t: DAYS.length, p: doneOf(n, d).length }))}</p></div><a class="btn ghost" href="#/practice/esd">${esc(u('ti'))}</a></div>
+    view.innerHTML = `${window.Target ? Target.chip('es') : ''}<div class="page-head"><div><h1>${esc(fmt(u('dy'), { n: n + 1 }))}</h1><p class="muted"><span class="chip">${lv}</span> ${esc(fmt(u('pr'), { d: n + 1, t: DAYS.length, p: doneOf(n, d).length }))}</p></div><a class="btn ghost" href="#/practice/esd">${esc(u('ti'))}</a></div>
       ${row('w', u('w'), words + `<button type="button" class="btn ${have.includes('w') ? '' : 'primary'}" id="dsMk">${esc(u('mk'))}</button>`)}
       ${row('g', u('g') + ' · ' + gxOf(gid), '', `#/practice/es?lv=${lv}&p=${encodeURIComponent(gid)}`)}
       ${row('p', u('p') + ' · ' + pxOf(tp), '', `#/practice/esp?tp=${tp}&m=${m}`)}

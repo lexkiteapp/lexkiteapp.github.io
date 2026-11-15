@@ -28,7 +28,7 @@
     return !((g.days || {})[k] || {}).xp && (g.frozen || {})[yk] ? 'frozen' : 'active'; };
   // CSS màn tải theo màn (3/11): gói ux1 chỉ nạp sẵn Lộ trình + Hôm nay (Home lần đầu nhẹ hơn main); màn khác nạp khi mở, khung ẩn tới khi CSS về
   //   (≤ 1,5 s – loadCss tự nhả) → không nháy khung chưa có kiểu; Home xong thì nạp nốt lúc rảnh (trừ chế độ tiết kiệm dữ liệu) → chuyển tab tức thì.
-  const LZ = ['review', 'practice', 'leagues', 'me', 'streak', 'exam-readiness', 'today-new', 'today-desk', 'today-rail'], cssOk = {};
+  const LZ = ['review', 'practice', 'skills', 'leagues', 'me', 'streak', 'exam-readiness', 'today-new', 'today-desk', 'today-rail'], cssOk = {};
   const css = (k, w) => { if (!LZ.includes(k) || cssOk[k] || !window.App || !App.loadCss) return; if (w) w.style.visibility = 'hidden';
     App.loadCss('css/st-v2-' + k + '.css').then(() => { cssOk[k] = 1; if (w) w.style.visibility = ''; }); };
   let idle = false; const rest = () => { if (idle || (App.lean && App.lean())) return; idle = true; (self.requestIdleCallback || (f => setTimeout(f, 1200)))(() => LZ.forEach(x => css(x)), { timeout: 8000 }); };

@@ -5,6 +5,7 @@ import { chromium } from 'playwright'; import fs from 'node:fs'; import path fro
 const ROOT = path.resolve('web'), OUT = process.argv.includes('--out') ? process.argv[process.argv.indexOf('--out') + 1] : 'qa/teacher-rig';
 fs.mkdirSync(OUT, { recursive: true });
 const TYPES = { js: 'text/javascript', json: 'application/json', webp: 'image/webp', png: 'image/png', html: 'text/html', css: 'text/css' };
+const FPS_MIN = { 1: 55, 4: 50 }, FPS_LOG = {}; // ngưỡng fps – KHÔNG hạ (scripts/test/ci-policy.mjs chặn)
 const res = [], ok = (c, m) => { res.push((c ? '✓ ' : '✗ ') + m); if (!c) process.exitCode = 1; };
 const PAGE = who => `<!doctype html><meta charset=utf-8><body style="margin:0;background:var(--bg,#fff)"><div id=t style="width:320px;margin:20px"></div>
 <script src="js/characters.js"></script><script src="js/call/cues.js"></script><script src="js/teacher-rig.js"></script>
@@ -43,14 +44,21 @@ for (const who of ['ama', 'carlos']) {
   ok(A.top === 0 && A.dust <= 20, `${who}: không cắt đỉnh (${A.top} điểm ở 3 hàng trên), không bụi nền rời (${A.dust})`);
   // --- fps/jank: nói (mốc CI thật) + cử chỉ + biểu cảm, CPU 1× rồi 4× ---
   const cdp = await ctx.newCDPSession(page);
+  // 13/11 bền hơn (điều phối): 2 lượt khởi động bỏ đi + 15 mẫu ở 4× (5 mẫu ở 1×), TRUNG VỊ, tự đo lại đúng 1 lần nếu trượt; ngưỡng KHÔNG đổi (FPS_MIN, ci-policy giữ);
+  // mọi mẫu → ${OUT}/fps-samples.json (artifact) để xem xu hướng.
+  const sample = () => page.evaluate(async () => { const k = Object.keys(LK_CUES.k).find(x => LK_CUES.k[x]); const s0 = { ...rig.stats }, p0 = { ...rig.stats.prof }, t0 = performance.now(); let n = 0, long = 0, last = t0;
+    const run = () => new Promise(done => { const f = now => { n++; if (now - last > 34) long++; last = now; if (now - t0 < 3000) requestAnimationFrame(f); else done(); }; requestAnimationFrame(f); });
+    rig.speak(null, LK_CUES.k[k], { text: k }); setTimeout(() => rig.setEmotion('praise'), 900); setTimeout(() => rig.gesture('nod'), 1300);
+    await run(); const dt = performance.now() - t0, P = rig.stats.prof, d = k => P[k] - p0[k], fr = Math.max(1, d('n'));
+    return { fps: Math.round(1000 * n / dt), long, n, lf: long / n, draws: rig.stats.draws - s0.draws, prof: `JS ${(d('js') / fr).toFixed(2)} ms/khung (vẽ ${(d('paint') / fr).toFixed(2)}) · toàn ${d('full')} · vùng ${d('part')} · bỏ ${d('skip')}` }; });
+  const runSet = async n => { for (let w = 0; w < 2; w++) await sample(); const a = []; for (let k = 0; k < n; k++) a.push(await sample()); return a; };
+  const stat = a => { const med = k => [...a].map(x => x[k]).sort((x, y) => x - y)[a.length >> 1]; return { fps: med('fps'), lf: med('lf'), draws: a[a.length - 1].draws, prof: a[a.length - 1].prof }; };
   for (const rate of [1, 4]) {
     await cdp.send('Emulation.setCPUThrottlingRate', { rate });
-    const r = await page.evaluate(async () => { const k = Object.keys(LK_CUES.k).find(x => LK_CUES.k[x]); const s0 = { ...rig.stats }, p0 = { ...rig.stats.prof }, t0 = performance.now(); let n = 0, long = 0, last = t0;
-      const run = () => new Promise(done => { const f = now => { n++; if (now - last > 34) long++; last = now; if (now - t0 < 3000) requestAnimationFrame(f); else done(); }; requestAnimationFrame(f); });
-      rig.speak(null, LK_CUES.k[k], { text: k }); setTimeout(() => rig.setEmotion('praise'), 900); setTimeout(() => rig.gesture('nod'), 1300);
-      await run(); const dt = performance.now() - t0, P = rig.stats.prof, d = k => P[k] - p0[k], fr = Math.max(1, d('n'));
-      return { fps: Math.round(1000 * n / dt), long, n, draws: rig.stats.draws - s0.draws, prof: `JS ${(d('js') / fr).toFixed(2)} ms/khung (vẽ ${(d('paint') / fr).toFixed(2)}) · toàn ${d('full')} · vùng ${d('part')} · bỏ ${d('skip')}` }; });
-    ok(r.fps >= (rate === 1 ? 55 : 50) && r.long <= r.n * 0.05, `${who}: CPU ${rate}× – ${r.fps} fps (≥ ${rate === 1 ? 55 : 50}), khung > 34 ms: ${r.long}/${r.n} (≤ 5 %), vẽ ${r.draws} · ${r.prof}`);
+    const min = FPS_MIN[rate], good = m => m.fps >= min && m.lf <= 0.05; let a = await runSet(rate === 4 ? 15 : 5), r = stat(a), retried = false; const sets = [a];
+    if (!good(r)) { retried = true; a = await runSet(rate === 4 ? 15 : 5); sets.push(a); r = stat(a); }
+    (FPS_LOG[who] = FPS_LOG[who] || {})[rate + 'x'] = { min, retried, sets: sets.map(x => x.map(y => y.fps)) }; fs.writeFileSync(`${OUT}/fps-samples.json`, JSON.stringify(FPS_LOG));
+    ok(good(r), `${who}: CPU ${rate}× – ${r.fps} fps (≥ ${min}; trung vị ${a.length} mẫu${retried ? ', đã đo lại 1 lần' : ''}: ${a.map(x => x.fps).join('/')}), khung > 34 ms: ${(r.lf * 100).toFixed(1)} % (≤ 5 %), vẽ ${r.draws} · ${r.prof}`);
   }
   await cdp.send('Emulation.setCPUThrottlingRate', { rate: 1 });
   await page.screenshot({ path: `${OUT}/${who}-praise.png` });

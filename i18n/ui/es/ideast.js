@@ -1,3 +1,10 @@
-/* UI es – ideast (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["es"] = Object.assign(D["es"] || {}, {"Đô thị":"Ciudades","Xã hội":"Sociedad","Tội phạm":"Delincuencia","Văn hóa":"Dato cultural","Kinh tế":"Economía","Gia đình & Trẻ em":"Familia e hijos"});
+/* UI es – ideast (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["es"] = Object.assign(D["es"] || {}, {
+"Gia đình & Trẻ em":"Familia e hijos",
+"Kinh tế":"Economía",
+"Tội phạm":"Delincuencia",
+"Văn hóa":"Dato cultural",
+"Xã hội":"Sociedad",
+"Đô thị":"Ciudades",
+});
 })(typeof self !== 'undefined' ? self : this);

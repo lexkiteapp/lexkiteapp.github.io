@@ -11,6 +11,9 @@ const bad = [], errs = []; let nShot = 0, ran = 0;
 // Canh chừng (CI 26/10: emulator chết giữa chừng → "device not found", harness lặp kết nối lại ~40' tới khi bị huỷ): thoát đỏ ngay khi máy ảo mất hoặc quá hạn tổng.
 try { const lg = fs.openSync(path.join(OUT, 'logcat.txt'), 'w'); spawn('adb', ['logcat', '-v', 'time'], { stdio: ['ignore', lg, 'ignore'], detached: false }).unref(); } catch (e) { /* */ } // logcat tới lúc máy ảo chết
 const DEADLINE = Date.now() + (+process.env.JE_ANDROID_MAX_MIN || 25) * 60000; let offline = 0;
+// Máy ảo CI KHÔNG có Play Store (com.android.vending): plugin AppUpdate.getAppUpdateInfo từ chối "Failed to bind to the service" → Capacitor ghi console.error(Object) (13/11: gốc 'console: Object' ở j1a/j2s, có cả trước bản 1.1).
+// Chỉ bỏ qua dạng lỗi đó KHI logcat xác nhận đúng nguyên nhân; Error thật có chữ ('exception:', 'console: TypeError…') vẫn làm đỏ.
+let _noStore; const noStore = () => _noStore ??= /Sending plugin error:.*"pluginId":"AppUpdate".*Failed to bind to the service/.test(adb('logcat', '-d', '-v', 'brief'));
 const abort = why => { bad.push(why); try { fs.writeFileSync(path.join(OUT, 'host-diag.txt'), execFileSync('sh', ['-c', 'free -m; dmesg 2>/dev/null | tail -30; ps aux --sort=-rss | head -8'], { encoding: 'utf8', timeout: 10000 })); } catch (e) { /* */ } console.log('✗ ' + why); try { fs.writeFileSync(path.join(OUT, 'results.json'), JSON.stringify({ bad, errs, ran }, null, 1)); } catch (e) { /* */ } process.exit(3); };
 setInterval(() => { let st = ''; try { st = execFileSync('adb', ['get-state'], { encoding: 'utf8', timeout: 15000 }).trim(); } catch (e) { st = 'ERR'; } offline = st === 'device' ? 0 : offline + 1; if (offline >= 3) abort('emulator mất kết nối (adb get-state=' + st + ') – máy ảo chết giữa chừng'); if (Date.now() > DEADLINE) abort('quá hạn tổng ' + (+process.env.JE_ANDROID_MAX_MIN || 25) + ' phút'); }, 20000).unref?.();
 const shot = n => { try { fs.writeFileSync(path.join(OUT, `${String(++nShot).padStart(2, '0')}-${n}.png`), execFileSync('adb', ['exec-out', 'screencap', '-p'], { maxBuffer: 64 << 20, timeout: 30000 })); } catch (e) { /* bỏ qua */ } };
@@ -46,8 +49,13 @@ const clearAnr = async () => {
   for (let k = 0; k < 3; k++) {
     adb('shell', 'uiautomator', 'dump', '/sdcard/anr.xml'); const x = adb('shell', 'cat', '/sdcard/anr.xml');
     if (!/isn.t responding|không phản hồi/i.test(x)) return;
-    const b = /text="(?:Wait|Đợi|Chờ)"[^>]*bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/.exec(x);
-    console.log('ANR hệ thống → bấm Wait'); if (b) adb('shell', 'input', 'tap', String((+b[1] + +b[3]) >> 1), String((+b[2] + +b[4]) >> 1)); await sleep(1500);
+    // Hộp thoại ANR của CHÍNH app (Lexkite) = lỗi thật → ghi đỏ rồi bấm Wait; ANR của ứng dụng máy ảo (Pixel Launcher, Google app…: 13/11 'Pixel Launcher isn't responding' che WebView
+    // mãi dù bấm Wait, swiftshader chậm) không phải của app → bấm "Close app" để hộp thoại biến mất thật sự.
+    const who = (/text="([^"]*?)(?: isn.t responding| không phản hồi)[^"]*"/i.exec(x) || [])[1] || '?', ours = /lexkite/i.test(who);
+    const b = (ours ? /text="(?:Wait|Đợi|Chờ)"/ : /text="(?:Close app|Đóng ứng dụng)"/);
+    const m = new RegExp(b.source + '[^>]*bounds="\\[(\\d+),(\\d+)\\]\\[(\\d+),(\\d+)\\]"', 'i').exec(x);
+    if (ours && !bad.some(v => v.startsWith('ANR của app'))) bad.push('ANR của app: ' + who + ' không phản hồi');
+    console.log(`ANR hệ thống (${who}${ours ? ' = APP' : ''}) → bấm ${ours ? 'Wait' : 'Close app'}`); if (m) adb('shell', 'input', 'tap', String((+m[1] + +m[3]) >> 1), String((+m[2] + +m[4]) >> 1)); await sleep(1500);
   }
 };
 // App ĐÃ khởi động = bộ định tuyến đã vẽ ≥ 1 lượt (App.routeToken() > 0). KHÔNG dựa vào "#view có con": index.html vẽ sẵn trang chào (#lkHero) trước khi app chạy
@@ -57,16 +65,20 @@ const booted = async () => { const t0 = Date.now(); const r = await ev(`for (let
 const reload = async () => { await clearAnr(); await cdp('Page.reload', {}); await sleep(3000); await booted(); };
 await clearAnr(); await booted();
 const LANGS = (process.env.JE_LANGS || 'en,vi,ar').split(',');
+const ALL_STEPS = ['j1a', 'R', 'j1b', 'reset', 'R', 'j2s', 'R', 'j2a', 'R', 'j2b', 'j3a', 'R', 'j3b'];
+// JE_STEPS: chạy một phần hành trình (leg ar-1/ar-2 của workflow: mỗi leg một emulator mới – leg ar đủ 13 bước bị emulator chết, 13/11). JE_MIN_RAN: số bước tối thiểu của leg.
+const STEPS = process.env.JE_STEPS ? process.env.JE_STEPS.split(',') : ALL_STEPS, MIN_RAN = +(process.env.JE_MIN_RAN || 6 * 1);
+const ONLY_KBD = process.env.JE_ONLY_KBD === '1'; // chỉ đo bàn phím thật cho ngôn ngữ này (không chạy hành trình): leg 'ar-kbd' – leg ar đủ hành trình bị emulator chết sau j1a (13/11)
 for (const l of LANGS) {
   await ev(`localStorage.setItem('vb.uiLang', ${JSON.stringify(l)}); return 1`);
   await ev('await LKJN.reset(); return 1'); await reload();
-  for (const f of ['j1a', 'R', 'j1b', 'reset', 'R', 'j2s', 'R', 'j2a', 'R', 'j2b', 'j3a', 'R', 'j3b']) {
+  for (const f of ONLY_KBD ? [] : STEPS) {
     if (f === 'R') { await reload(); continue; }
     await clearAnr();
     const e0 = errs.length, r = await ev(`return await LKJN.${f}()`);
     if (!Array.isArray(r) && !(r && r.__err)) { bad.push(`[${l}] ${f}: kịch bản không trả kết quả (trang tải lại/rời app giữa chừng?)`); console.log(`${l} ${f}: ✗ không có kết quả`); await reload(); continue; }
     if (r && r.__err) bad.push(`[${l}] ${f}: kịch bản dừng ${r.__err}`); else for (const m of r || []) bad.push(`[${l}] ${m}`);
-    for (const e of errs.slice(e0)) if (!/ResizeObserver|net::ERR|Failed to load resource/.test(e)) bad.push(`[${l}] ${f} ${e}`);
+    for (const e of errs.slice(e0)) if (!/ResizeObserver|net::ERR|Failed to load resource/.test(e) && !(e === 'console: Object' && noStore())) bad.push(`[${l}] ${f} ${e}`);
     ran++; shot(`${l}-${f}`); console.log(`${l} ${f}: ${r && !r.__err && !r.length ? '✓' : '✗ ' + JSON.stringify(r).slice(0, 300)}`);
   }
 }
@@ -77,7 +89,23 @@ const imeTop = () => { // mép trên bàn phím (px màn hình): nguồn inset I
   const d = adb('shell', 'dumpsys', 'window');
   for (const m of d.matchAll(/InsetsSource[^\n]*?type=ime[^\n]*?frame=\[(\d+),(\d+)\]\[(\d+),(\d+)\][^\n]*?visible=true/g)) if (+m[2] > 0) return +m[2];
   const w = /Window\{[^}]*InputMethod\}[\s\S]{0,4000}?(?:mFrame|frame)=\[(\d+),(\d+)\]\[(\d+),(\d+)\]/.exec(d); return w && +w[2] > +w[4] / 3 ? +w[2] : 0; };
-const webBox = () => { adb('shell', 'uiautomator', 'dump', '/sdcard/kb.xml'); const m = /class="android\.webkit\.WebView"[^>]*bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/.exec(adb('shell', 'cat', '/sdcard/kb.xml')); return m ? m.slice(1).map(Number) : null; };
+// uiautomator dump đôi khi trả cây KHÔNG có WebView (cửa sổ khác đang trước: hộp thoại ANR/hệ thống) → xoá hộp thoại, chờ, thử lại 5 lần.
+// KHÔNG đoán toạ độ từ kích thước màn (13/11: gốc WebView ≠ 0 → chạm trượt, bàn phím không mở = đo sai). Hết cách → đỏ kèm lớp/cửa sổ thấy được + lưu kb.xml làm bằng chứng.
+const WV = /class="android\.webkit\.WebView"[^>]*bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"/;
+const webBox = async () => {
+  let x = '';
+  for (let t = 0; t < 8; t++) {
+    adb('shell', 'rm', '-f', '/sdcard/kb.xml'); const o = adb('shell', 'uiautomator', 'dump', '/sdcard/kb.xml'); x = adb('shell', 'cat', '/sdcard/kb.xml');
+    const m = WV.exec(x); if (m) return m.slice(1).map(Number);
+    const pk = [...new Set([...x.matchAll(/package="([^"]+)"/g)].map(m => m[1]))].join(','), cl = [...new Set([...x.matchAll(/class="([^"]+)"/g)].map(m => m[1].split('.').pop()))].slice(0, 8).join(',');
+    const tx = [...x.matchAll(/ text="([^"]+)"/g)].map(m => m[1]).join(' | ').slice(0, 200);
+    console.log(`uiautomator dump lần ${t + 1}: không có WebView · package=${pk || '–'} · lớp=${cl || '–'} · chữ: ${tx || '–'} · ${String(o).trim().slice(0, 60)}`);
+    if (t === 0) { try { shot('kbd-khong-thay-webview'); fs.writeFileSync(path.join(OUT, 'kb-no-webview-0.xml'), x); } catch (e) { /* */ } } // ảnh + cây UI ngay lần đầu: hộp thoại gì đang che?
+    await clearAnr(); await sleep(3000);
+  }
+  try { fs.writeFileSync(path.join(OUT, 'kb-no-webview.xml'), x); } catch (e) { /* */ }
+  return null;
+};
 let kbRan = 0;
 for (const [route, css] of [['write', '#essay'], ['dict', '#q'], ['home', '#gq']]) {
   await clearAnr();
@@ -87,7 +115,7 @@ for (const [route, css] of [['write', '#essay'], ['dict', '#q'], ['home', '#gq']
     return { x, y, dpr: devicePixelRatio, ih: innerHeight, hit: !!h && (h === el || el.contains(h) || h.contains(el)) }`);
   if (!pos || pos.__err) { bad.push(`[bàn phím] #/${route}: không thấy ô ${css}`); continue; }
   if (!pos.hit) { console.log(`bàn phím #/${route}: ${css} không chạm tới được khi chưa có bàn phím (ẩn/che) – bỏ qua`); continue; }
-  const wb = webBox(); if (!wb) { bad.push('[bàn phím] không đọc được khung WebView (uiautomator)'); break; }
+  const wb = await webBox(); if (!wb) { bad.push('[bàn phím] không đọc được khung WebView (uiautomator)'); break; }
   const sx = wb[0] + pos.x * pos.dpr, sy = wb[1] + pos.y * pos.dpr;
   adb('shell', 'input', 'tap', String(Math.round(sx)), String(Math.round(sy)));
   let shown = false; for (let k = 0; k < 16 && !(shown = imeShown()); k++) await sleep(500);
@@ -110,8 +138,9 @@ for (const [route, css] of [['write', '#essay'], ['dict', '#q'], ['home', '#gq']
   await ev('document.activeElement && document.activeElement.blur(); return 1');
 }
 if (kbRan < 2) bad.push(`[bàn phím] chỉ đo được ${kbRan}/3 ô trên bàn phím thật (cần ≥ 2: Phòng viết + tra từ)`);
-if (ran < 6 * LANGS.length) bad.push(`chỉ chạy ${ran} bước (cần ≥ ${6 * LANGS.length} = ${LANGS.length} ngôn ngữ × ≥ 6 bước) – 0 bài chạy không được tính là xanh`);
-const fatal = adb('logcat', '-d', '-v', 'brief').split('\n').filter(x => /FATAL EXCEPTION/.test(x));
+if (!ONLY_KBD && ran < MIN_RAN * LANGS.length) bad.push(`chỉ chạy ${ran} bước (cần ≥ ${MIN_RAN * LANGS.length} = ${LANGS.length} ngôn ngữ × ≥ ${MIN_RAN} bước) – 0 bài chạy không được tính là xanh`);
+// 'FATAL EXCEPTION: UiAutomation' = tiến trình `uiautomator dump` của CHÍNH bài đo (AccessibilityCache, binder 'Bad file descriptor') chết, không phải app (13/11 en) – chỉ loại luồng đó; mọi crash khác (main, …) vẫn làm đỏ.
+const fatal = adb('logcat', '-d', '-v', 'brief').split('\n').filter(x => /FATAL EXCEPTION/.test(x) && !/FATAL EXCEPTION: UiAutomation\b/.test(x));
 if (fatal.length) bad.push('Crash: ' + fatal.slice(0, 2).join(' / '));
 fs.writeFileSync(path.join(OUT, 'results.json'), JSON.stringify({ bad, errs, ran }, null, 1));
 console.log(bad.length ? '✗ FAIL Android journey: ' + bad.length + '\n' + bad.join('\n') : '✓ PASS Android journey 1–3 × ' + LANGS.join('/'));

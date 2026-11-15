@@ -55,7 +55,9 @@ final class SpeakSpeakingVectorTests: XCTestCase {
     func testParityP07() throws {
         let V = try vec(), P = try pack()
         // pack: the real content has 40 topics, 3 parts with targets from the pack, fillers pattern present
-        XCTAssertEqual(Speaking.bank(P).count, 40)
+        // expected count comes from the generated vectors ("counts", gen-speak.mjs); the floor of 40 only ever goes up
+        XCTAssertEqual(Speaking.bank(P).count, Int(V["counts"]?["bank"]?.double ?? -1))
+        XCTAssertGreaterThanOrEqual(Speaking.bank(P).count, 40)
         XCTAssertEqual(Speaking.parts(P).map(\.target), [[20, 40], [90, 120], [40, 70]])
         XCTAssertEqual(Speaking.part("p2", P).prep, 60)
         // the starter that ships in the app opens #/speaking offline

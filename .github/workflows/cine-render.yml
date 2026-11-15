@@ -56,7 +56,7 @@ concurrency:
 jobs:
   render:
     if: inputs.scene != 'news'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 120
     env:
       CINE_THREADS: '0'            # CI: dùng hết nhân
@@ -325,7 +325,7 @@ jobs:
         with: { path: sr, key: 'host-sr-v2-${{ matrix.clip }}' }
   news:
     needs: [news-plan, news-depth, host-sr]
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 150
     strategy:
       max-parallel: 6   # ngân sách runner nền (docs/METHODS.md §CI)

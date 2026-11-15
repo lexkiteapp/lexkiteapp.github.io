@@ -79,7 +79,11 @@
     "planTop": "Cách tiếp tục tiến bộ",
     "you": "Kết quả bài test của bạn: {lv}",
     "takeTest": "Kiểm tra trình độ – bài test miễn phí 15 phút",
-    "otherLevels": "Tất cả cấp độ CEFR"
+    "otherLevels": "Tất cả cấp độ CEFR",
+    "wordsH": "Từ vựng nên học ở trình độ {lv}",
+    "wordsLead": "Các từ trong từ điển Lexkite được xếp ở trình độ {lv}, kèm nghĩa và câu ví dụ. Mở từng từ để xem phát âm, cụm từ đi kèm và lỗi hay gặp.",
+    "sampleH": "Câu hỏi mẫu trình độ {lv}",
+    "answer": "Xem đáp án"
   },
   "toeic": {
     "title": "Luyện TOEIC Part 5 online miễn phí, có giải thích đáp án",

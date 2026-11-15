@@ -1,3 +1,35 @@
-/* UI ru – speakt (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ru"] = Object.assign(D["ru"] || {}, {"Người lớn tuổi mà bạn ngưỡng mộ":"Пожилой человек, которым вы восхищаетесь","Giúp đỡ người khác":"Помощь другим","Học kỹ năng qua mạng":"Обучение новому навыку онлайн","Quà tặng":"Подарки","Giấc ngủ & Nghỉ ngơi":"Сон и отдых","Tiếng ồn":"Шум","Đúng giờ & Quản lý thời gian":"Пунктуальность и тайм-менеджмент","Hàng xóm & Láng giềng":"Соседи","Công trình lịch sử":"Исторические здания","Trang web & Ứng dụng":"Веб-сайты и приложения","Tranh ảnh & Nhiếp ảnh":"Картинки и фотографии","Sông, hồ & Biển":"Реки, озера и море","Phương tiện công cộng":"Общественный транспорт","Quy định & Luật lệ":"Правила и законы","Ngày lễ truyền thống":"Традиционные праздники","Tái chế & Rác thải":"Переработка и отходы","Quê hương & Nơi ở":"Родной город и дом","Nghề nghiệp & Nơi làm việc":"Работа и рабочее место","Thời gian rảnh & Sở thích":"Свободное время и хобби","Âm nhạc":"Музыка","Thể thao":"Спорт","Ẩm thực & Nấu ăn":"Еда и кулинария","Thời tiết & Các mùa":"Погода и времена года","Giao thông & Đi lại":"Транспорт и путешествия","Bạn bè & Các mối quan hệ":"Друзья и отношения","Nghệ thuật & Bảo tàng":"Искусство и музеи","Đọc sách":"Чтение книг","Thói quen sống xanh":"Зеленые жизненные привычки","Lễ hội & Dịp kỷ niệm":"Фестивали и праздники","Rèn luyện thể chất":"Физическая подготовка","Khoa học & Công nghệ trong nhà":"Наука и технологии дома"});
+/* UI ru – speakt (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["ru"] = Object.assign(D["ru"] || {}, {
+"Bạn bè & Các mối quan hệ":"Друзья и отношения",
+"Công trình lịch sử":"Исторические здания",
+"Giao thông & Đi lại":"Транспорт и путешествия",
+"Giúp đỡ người khác":"Помощь другим",
+"Giấc ngủ & Nghỉ ngơi":"Сон и отдых",
+"Hàng xóm & Láng giềng":"Соседи",
+"Học kỹ năng qua mạng":"Обучение новому навыку онлайн",
+"Khoa học & Công nghệ trong nhà":"Наука и технологии дома",
+"Lễ hội & Dịp kỷ niệm":"Фестивали и праздники",
+"Nghề nghiệp & Nơi làm việc":"Работа и рабочее место",
+"Nghệ thuật & Bảo tàng":"Искусство и музеи",
+"Ngày lễ truyền thống":"Традиционные праздники",
+"Người lớn tuổi mà bạn ngưỡng mộ":"Пожилой человек, которым вы восхищаетесь",
+"Phương tiện công cộng":"Общественный транспорт",
+"Quy định & Luật lệ":"Правила и законы",
+"Quà tặng":"Подарки",
+"Quê hương & Nơi ở":"Родной город и дом",
+"Rèn luyện thể chất":"Физическая подготовка",
+"Sông, hồ & Biển":"Реки, озера и море",
+"Thói quen sống xanh":"Зеленые жизненные привычки",
+"Thể thao":"Спорт",
+"Thời gian rảnh & Sở thích":"Свободное время и хобби",
+"Thời tiết & Các mùa":"Погода и времена года",
+"Tiếng ồn":"Шум",
+"Trang web & Ứng dụng":"Веб-сайты и приложения",
+"Tranh ảnh & Nhiếp ảnh":"Картинки и фотографии",
+"Tái chế & Rác thải":"Переработка и отходы",
+"Âm nhạc":"Музыка",
+"Đúng giờ & Quản lý thời gian":"Пунктуальность и тайм-менеджмент",
+"Đọc sách":"Чтение книг",
+"Ẩm thực & Nấu ăn":"Еда и кулинария",
+});
 })(typeof self !== 'undefined' ? self : this);

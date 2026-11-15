@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_doesnt",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Third person trap!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She don't like coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She doesn't like coffee.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "She and he need doesn't.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Doesn't! He doesn't like tea.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She don't like coffee.",
+  "right": "She doesn't like coffee.",
+  "strike": "don't",
+  "why": "She and he need doesn't.",
+  "memory": "She, he, it: doesn't.",
+  "quiz": {
+   "stem": "He ___ like tea.",
+   "options": [
+    "doesn't",
+    "don't"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “she don't”?",
+   "tip": "Com “he”, “she” e “it” usamos “doesn't”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She don't like coffee.”. O certo é “She doesn't like coffee.”. É um erro muito comum, até para quem já estuda há anos. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “doesn't”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#inglesfacil",
+    "#falaringles",
+    "#inglesdodia",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “she don't”?",
+   "tip": "With “he”, “she” and “it” we use “doesn't”.",
+   "caption": "Watch out for this common mistake! Many people say “She don't like coffee.”. The right way is “She doesn't like coffee.”. A very common mistake, even after years of study. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “she don't”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 41,
+  "seconds": 25.6,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "Você diz “she don't”?",
+  "keyword": "She doesn't like coffee.",
+  "value": "Com “he”, “she” e “it” usamos “doesn't”.",
+  "hashtags": [
+   "#inglesfacil",
+   "#falaringles",
+   "#inglesdodia",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “she don't”?",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “She don't like coffee.”. O certo é “She doesn't like coffee.”. É um erro muito comum, até para quem já estuda há anos. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesfacil #falaringles #inglesdodia #lexkite",
+    "tags": [
+     "She doesn't like coffee.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “She don't like coffee.”. O certo é “She doesn't like coffee.”. É um erro muito comum, até para quem já estuda há anos. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “She don't like coffee.”. O certo é “She doesn't like coffee.”. É um erro muito comum, até para quem já estuda há anos. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#inglesfacil",
+     "#falaringles",
+     "#inglesdodia",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “she don't”? #inglesfacil #falaringles #inglesdodia"
+   }
+  },
+  "first_comment": "Resposta: “doesn't”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

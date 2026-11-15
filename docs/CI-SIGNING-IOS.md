@@ -35,7 +35,7 @@ Các thao tác dưới đây đụng tới tài khoản Apple nên chủ tài kh
    - Vào Actions → **Apple signing** → Run workflow, chọn mode `create-dist` và dán CSR vào ô `csr`.
    - Khi lượt chạy xong, tải artifact `ios-signing-public` về rồi giải nén. Artifact chỉ có .cer và .mobileprovision, đều là dữ liệu công khai.
 3. **Đặt secret:** `bash scripts/native/ios-signing-secrets.sh <thư mục artifact>`. Script tự kiểm khoá riêng khớp chứng chỉ, đóng gói .p12 với mật khẩu ngẫu nhiên, rồi gọi `gh secret set` cho cả 4 secret.
-4. **Chạy lại bản build:** Actions → *Native → TestFlight + Play Internal*, hoặc *iOS → TestFlight*.
+4. **Chạy lại bản build:** Actions → *Native → TestFlight + Play*, hoặc *iOS → TestFlight*.
 
 ## Capability của App ID
 

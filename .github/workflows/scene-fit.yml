@@ -1,0 +1,50 @@
+# Thầy cô ghép lên plate cảnh không lơ lửng/lệch (chủ 12/11) – 0 credit, CPU. scripts/video/scene_fit.py
+# test: cổng scene_fit với ảnh tư thế thật (nhẹ, mỗi PR đụng tới).  zones: bg_zones.py (Mask2Former + Depth-Anything) cho plate CHƯA có "fit" -> artifact
+# scene-zones (zones/*.zones.json + bank.json đã điền fit) – tự bỏ qua khi mọi plate đã có fit.
+name: scene-fit
+on:
+  pull_request:
+    paths: ['scripts/video/scene_fit.py', 'scripts/video/bg_zones.py', 'scripts/test/scene-fit.py', 'brand/library/cine/scenes/bank.json', 'web/teach/characters.json', '.github/workflows/scene-fit.yml']
+  workflow_dispatch:
+concurrency: { group: 'scene-fit-${{ github.ref }}', cancel-in-progress: true }
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install -q numpy==2.1.3 pillow==11.0.0 && python3 scripts/test/scene-fit.py
+  zones:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Plate nào chưa có fit?
+        id: todo
+        run: |
+          python3 -c "
+          import json;b=json.load(open('brand/library/cine/scenes/bank.json'))
+          t=[p['src'] for s in b['situations'].values() for p in s.get('plates',[]) if 'fit' not in p]
+          open('todo.txt','w').write('\n'.join(t));print(len(t),'plates without fit')"
+          echo "n=$(grep -c . todo.txt || true)" >> $GITHUB_OUTPUT
+      - uses: actions/setup-python@v5
+        if: steps.todo.outputs.n != '0'
+        with: { python-version: '3.12' }
+      - uses: actions/cache@v4
+        if: steps.todo.outputs.n != '0'
+        with: { path: "~/.cache/pip\n~/.cache/huggingface", key: scene-zones-v1 }
+      - name: Zones (bg_zones.py) + fit
+        if: steps.todo.outputs.n != '0'
+        run: |
+          pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.5.1 torchvision==0.20.1
+          pip install -q transformers==4.46.3 opencv-python-headless==4.10.0.84 pillow==11.0.0 numpy==2.1.3 scipy==1.14.1
+          mkdir -p plates zones
+          while read s; do curl -sfL -o "plates/$(basename "$s")" "https://raw.githubusercontent.com/lexkiteapp/lexkite-media/main/cine/scenes/$s" || echo "::warning::thiếu $s"; done < todo.txt
+          python3 scripts/video/bg_zones.py plates zones
+          python3 scripts/video/scene_fit.py slots zones brand/library/cine/scenes/bank.json
+          cp brand/library/cine/scenes/bank.json zones/bank.json
+      - uses: actions/upload-artifact@v4
+        if: steps.todo.outputs.n != '0'
+        with: { name: scene-zones, path: zones/, retention-days: 7 }

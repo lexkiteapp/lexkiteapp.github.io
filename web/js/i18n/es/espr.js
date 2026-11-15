@@ -1,2 +1,2 @@
 /* SINH từ i18n/ui/es/espr.js – đừng sửa tay (scripts/i18n-pack.mjs) */
-(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.es=Object.assign(D.es||{},{_7h91:"Nivel {l}",_fec8:"Completa la palabra que falta",_v848:"Cuidado con la tilde: {a}",_c2v2:"No se pudo cargar la lección. Revisa tu conexión e inténtalo de nuevo.",_qm64:"Todavía no hay ejercicios para este tema."});})(typeof self!=='undefined'?self:this);
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.es=Object.assign(D.es||{},{_qm64:"Todavía no hay ejercicios para este tema.",_7h91:"Nivel {l}",_v848:"Cuidado con la tilde: {a}",_c2v2:"No se pudo cargar la lección. Revisa tu conexión e inténtalo de nuevo.",_fec8:"Completa la palabra que falta"});})(typeof self!=='undefined'?self:this);

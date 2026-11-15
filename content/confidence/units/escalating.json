@@ -165,6 +165,10 @@
           [
             "twice|still|contacted|called|week|not fixed",
             "I'm sorry to hear that."
+          ],
+          [
+            "wi-?fi|router|connection|working from home|work from home|business|slow|disconnect|offline",
+            "I understand, that sounds frustrating."
           ]
         ]
       },
@@ -175,6 +179,10 @@
           [
             "afraid|doesn't work|sooner|what can you do|earlier",
             "I can't change the schedule myself."
+          ],
+          [
+            "unacceptable|too long|ridiculous|urgent|emergency|waiting",
+            "I do understand your frustration."
           ]
         ]
       },
@@ -185,6 +193,10 @@
           [
             "decision|manager|supervisor|someone|speak to",
             "One moment… Okay, we can come on Thursday."
+          ],
+          [
+            "escalate|senior|manager",
+            "One moment. I found a Thursday slot."
           ]
         ]
       },
@@ -195,6 +207,10 @@
           [
             "reference|number|thank|thursday|okay",
             "Sure, it's R-5-8-1."
+          ],
+          [
+            "email|confirm|writing|written",
+            "Of course, I'll email you a confirmation."
           ]
         ]
       }

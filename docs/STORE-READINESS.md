@@ -70,6 +70,16 @@ Khi bật đăng nhập/AdMob: cập nhật bảng này + nhãn Apple trước k
 
 ---
 
+### A3. 👤 Secret `PLAY_SERVICE_ACCOUNT_JSON` (CI tự đẩy .aab lên Play – 5 bước, ~10 phút)
+Thiếu secret này thì `native-release.yml` vẫn build + ký .aab (artifact `lexkite-native-aab`) nhưng không tự đẩy lên Play. Dùng chung cho `store-reviews.yml` (đọc/trả lời đánh giá).
+1. **Google Cloud Console** (tài khoản vintagezulilyjewelry) → chọn/tạo project → *APIs & Services → Library* → bật **Google Play Android Developer API**.
+2. *IAM & Admin → Service accounts → Create service account*, tên `lexkite-play-ci`, **không** gán vai trò → Done.
+3. Mở service account vừa tạo → *Keys → Add key → Create new key → JSON* → tải file về (nếu báo chặn tạo khoá: tắt policy `iam.disableServiceAccountKeyCreation` ở *Organization policies* của project).
+4. **Play Console** → *Users and permissions → Invite new users* → dán email service account (`…@….iam.gserviceaccount.com`) → *App permissions → Add app → Lexkite* → tick **Release to production, exclude devices, and use Play App Signing**, **Release apps to testing tracks**, **View app information (read-only)**, **Reply to reviews** → *Invite user*.
+5. **GitHub** repo lexkiteapp.github.io → *Settings → Secrets and variables → Actions → New repository secret* → tên `PLAY_SERVICE_ACCOUNT_JSON`, giá trị = toàn bộ nội dung file JSON → *Add secret*. Xoá file JSON khỏi máy.
+
+Sau đó dev chạy *Actions → Native → TestFlight + Play* với `track=production`, `rollout=0.1` (10 % người dùng, tăng dần trong Play Console hoặc chạy lại). Ghi chú "What's new" 15 ngôn ngữ = trường `whatsNew` (Capacitor 1.x; bản native 2.0 dùng `whatsNewNative`, workflow truyền `--field whatsNewNative`) trong `store/metadata/<locale>.json` (≤500 ký tự, sửa mỗi lần đổi version; `node scripts/store-metadata.mjs --check`).
+
 ## B. Apple App Store
 
 | | Hạng mục | Trạng thái | Ghi chú / việc cần làm |
@@ -161,5 +171,5 @@ Làm CÙNG LÚC, trước khi gửi duyệt bản build có `ADS_NATIVE=1`:
 
 ### F. Đánh giá cửa hàng (chỉ đọc)
 - Actions → **Store reviews** (`store-reviews.yml`, thứ Hai 08:20 VN + chạy tay): `scripts/store/reviews.mjs` kéo đánh giá App Store (App Store Connect API, khoá ASC_* sẵn có) + Google Play (Android Publisher API) → artifact `store-reviews` + tóm tắt (≤ 2 sao lên đầu, không ghi tên người đánh giá). Test: `scripts/test/store-reviews.mjs`.
-- 👤 Google Play: Play Console → Setup → API access → liên kết Google Cloud project → Create new service account (Google Cloud → IAM → Service accounts → Create → Keys → Add key → JSON) → quay lại Play Console → Users and permissions → Invite new users (email service account) → quyền app Lexkite: **View app information (read-only)** + **Reply to reviews** → GitHub repo → Settings → Secrets → Actions → New secret `PLAY_SERVICE_ACCOUNT_JSON` = nội dung file JSON. Chưa có secret → phần Play bỏ qua, không đỏ.
+- 👤 Google Play: secret `PLAY_SERVICE_ACCOUNT_JSON` theo 5 bước ở **§ A3** (cùng một secret cho đẩy bản và đọc đánh giá). Chưa có secret → phần Play bỏ qua, không đỏ.
 

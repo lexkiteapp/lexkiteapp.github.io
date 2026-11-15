@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_marriedwith",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Married to, not with!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is married with a doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is married to a doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Married takes to, not with.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To! He is married to my sister.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is married with a doctor.",
+  "right": "She is married to a doctor.",
+  "strike": "with",
+  "why": "Married takes to, not with.",
+  "memory": "Married to.",
+  "quiz": {
+   "stem": "He is married ___ my sister.",
+   "options": [
+    "to",
+    "with"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“married with” नहीं, “married to”",
+   "tip": "हिंदी में “से शादी” सुनकर with बोल देते हैं; अंग्रेज़ी में “married to” कहें।",
+   "caption": "क्या आप भी कहते हैं “She is married with a doctor”? 😉 अंग्रेज़ी में “She is married to a doctor” सही है, क्योंकि married के बाद to आता है, with नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “to”। with की जगह to बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “married with”, but “married to”",
+   "tip": "From the Hindi “se shaadi” people say with; in English say “married to”.",
+   "caption": "Do you say “She is married with a doctor”? 😉 In English “She is married to a doctor” is right, because married takes to, not with. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“married with” नहीं, “married to”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“married with” नहीं, “married to”",
+  "keyword": "She is married to a doctor.",
+  "value": "हिंदी में “से शादी” सुनकर with बोल देते हैं; अंग्रेज़ी में “married to” कहें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“married with” नहीं, “married to”",
+    "description": "क्या आप भी कहते हैं “She is married with a doctor”? 😉 अंग्रेज़ी में “She is married to a doctor” सही है, क्योंकि married के बाद to आता है, with नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "She is married to a doctor.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “She is married with a doctor”? 😉 अंग्रेज़ी में “She is married to a doctor” सही है, क्योंकि married के बाद to आता है, with नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “She is married with a doctor”? 😉 अंग्रेज़ी में “She is married to a doctor” सही है, क्योंकि married के बाद to आता है, with नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“married with” नहीं, “married to” #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “to”। with की जगह to बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

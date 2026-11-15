@@ -2,20 +2,20 @@
 // Nguồn câu = Tatoeba có id + tác giả; spec chỉ chứa số ĐÃ xác minh (cấm số đoán: chỗ chưa biết = null); nhãn 15 ngôn ngữ; consigna qua LanguageTool khi --lt (CI).
 import fs from 'node:fs';
 import { readJSON, TL_RULES, ltErrors } from './lib.mjs';
-import { EX_LV, EX_N, EX_CLOZE, EX_LISTEN, EX_UI, SRC, buildExam } from './exam-es-lib.mjs';
+import { EX_LV, MAXLEN, EX_N, EX_CLOZE, EX_LISTEN, EX_UI, SRC, buildExam } from './exam-es-lib.mjs';
 
 const errs = [], E = m => errs.push(m), D = 'content/exams/es/', LT = process.argv.includes('--lt'), lint = TL_RULES.es.lint;
 const VN = /[ơưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹđă]/i, ph = s => (s.match(/\{[a-z]\}/g) || []).sort().join();
 const { spec, tasks, ui, levels, UI_LANGS } = buildExam();
 
 // 1) spec: đúng bảng đã đối chiếu trang chính thức; null = chưa xác minh
-const V = { A1: [45, 4, 25, 2, 20, 4, 15, null], A2: [60, 5, 50, 2, 35, 5, 15, null], B1: [70, 5, 60, 2, 40, 5, 15, null] };
+const V = { A1: [45, 4, 25, 2, 20, 4, 15, null], A2: [60, 5, 50, 2, 35, 5, 15, null], B1: [70, 5, 60, 2, 40, 5, 15, null], B2: [70, 4, 80, 2, 40, 5, 20, null], C1: [90, 5, null, 2, 50, 5, 20, null], C2: [105, 6, 150, 3, null, null, 20, null] };
 for (const [lv, [rm, rt, wm, wt, lm, lt, sm, st]] of Object.entries(V)) {
   const s = spec.dele[lv]; if (!s) { E(`spec dele.${lv} thiếu`); continue; }
   const got = [s.read.min, s.read.tareas, s.write.min, s.write.tareas, s.listen.min, s.listen.tareas, s.speak.min, s.speak.tareas];
   if (got.join() !== [rm, rt, wm, wt, lm, lt, sm, st].join()) E(`spec dele.${lv} lệch bảng §1: ${got}`);
   if (s.items !== null) E(`spec dele.${lv}.items phải null (số câu mỗi tarea chưa xác minh)`);
-  if (s.groupMinPct !== (lv === 'B1' ? 60 : null)) E(`spec dele.${lv}.groupMinPct: chỉ B1 (60) đã xác minh`);
+  if (s.groupMinPct !== (lv === 'B1' || lv === 'B2' ? 60 : null)) E(`spec dele.${lv}.groupMinPct: chỉ B1/B2 (60) đã xác minh`);
 }
 const sg = spec.siele.global; if (sg.read.items !== 38 || sg.listen.items !== 38 || sg.write.items !== null || sg.speak.items !== null || sg.totalBands !== null) E('spec siele.global lệch bảng §1 (số chưa xác minh phải null)');
 if (JSON.stringify(spec.siele.bands.read) !== '{"A1":33,"A2":66,"B1":118,"B2":178,"C1":217}') E('spec siele.bands.read lệch');
@@ -35,7 +35,7 @@ for (const lv of EX_LV) {
       if ((it.s.match(/___/g) || []).length !== 1) E(`${w}: cần đúng một ___`);
       if (!it.o.includes(it.a) || new Set(it.o).size !== 3) E(`${w}: 3 phương án khác nhau, gồm đáp án`);
       if (it.o.some(o => o !== it.a && it.s.replace('___', o) === full)) E(`${w}: bẫy trùng đáp án`);
-    } else if (it.s.length < 12 || it.s.length > 140) E(`${w}: độ dài câu nghe lạ`);
+    } else if (it.s.length < 12 || it.s.length > MAXLEN[lv]) E(`${w}: độ dài câu nghe lạ`);
   }
 }
 for (const lv of EX_LV) { const l = levels[lv]; if (l.e.length !== EX_N) E(`${lv}: cần ${EX_N} đề`); }

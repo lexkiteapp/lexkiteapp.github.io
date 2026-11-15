@@ -189,8 +189,8 @@ T('task2', () => t('Writing Task 2 – Học thuật'), '📝', () => t('Từ h�
 const GROUPS = [
 { id: 'core', get name() { return t('Từ vựng cốt lõi (NGSL)'); }, emoji: '🧱', get desc() { return t('2.809 từ thông dụng nhất theo tần suất – NGSL © Browne, Culligan & Phillips, CC BY-SA 4.0'); } },
 { id: 'topics', get name() { return t('IELTS theo chủ đề'); }, emoji: '🗂️', get desc() { return t('Từ vựng theo các chủ đề hay gặp trong Speaking & Writing'); } },
-{ id: 'writing', name: 'Writing', emoji: '✍️', get desc() { return t('Từ mô tả biểu đồ, từ nối, collocation học thuật'); } },
-{ id: 'speaking', name: 'Speaking', emoji: '🗣️', get desc() { return t('Phrasal verb, thành ngữ, cách diễn đạt tự nhiên'); } },
+{ id: 'writing', get name() { return t('Viết'); }, emoji: '✍️', get desc() { return t('Từ mô tả biểu đồ, từ nối, collocation học thuật'); } },
+{ id: 'speaking', get name() { return t('Nói'); }, emoji: '🗣️', get desc() { return t('Phrasal verb, thành ngữ, cách diễn đạt tự nhiên'); } },
 { id: 'toeic', name: 'TOEIC (TSL)', emoji: '💼', get desc() { return t('1.250 từ TOEIC công sở – kinh doanh · TSL 1.2 © Browne & Culligan, CC BY-SA 4.0'); } },
 { id: 'domain', get name() { return t('Từ vựng chuyên ngành'); }, emoji: '🏢', get desc() { return t('1.500 thuật ngữ thông dụng của 10 ngành: CNTT, kinh doanh, y khoa, kỹ thuật, luật, marketing, môi trường, du lịch, giáo dục, logistics'); } },
 { id: 'exam', get name() { return t('Từ vựng theo kỳ thi'); }, emoji: '🎯', get desc() { return t('1.459 từ & cụm hay gặp theo từng kỳ thi: IELTS Listening · Reading · Writing · Speaking, TOEFL iBT, TOEIC Listening & Reading'); } },

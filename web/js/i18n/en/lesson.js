@@ -37,6 +37,8 @@ D.en = Object.assign(D.en || {}, {
 'Có cặp ghép nhầm': 'Some pairs were wrong',
 'Bản đồ bài học': "Lesson map",
 'Chặng học {n}': "Unit {n}",
+'Ôn lỗi trước bài mới': "Fix weak words first",
+'Những từ bạn hay quên': "Words you often forget",
 'Vì sao?': "Why?",
 'Tuyệt!': "Great!",
 'Kiểm tra đáp án': "Check answer",

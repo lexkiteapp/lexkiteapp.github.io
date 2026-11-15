@@ -1,0 +1,19 @@
+{
+  "_doc": "In-app rating prompt policy shared by iOS (StoreKit requestReview) + Android (Play In-App Review). One source: scripts/test/rate-prompt.mjs checks the constants in ReviewPrompt.swift / ReviewPrompt.kt equal these and runs the vectors. Happy moment = lesson-complete screen with accuracy >= minAccuracy. Never on first days, never after a bad lesson, never more than maxAsks, always >= gapDays apart (Apple itself caps at 3 per 365 days; Play has its own quota). The system decides whether the dialog really shows; we never show our own 'rate us' gate and never reward ratings.",
+  "minAccuracy": 80,
+  "minLessons": 5,
+  "minDaysSinceInstall": 3,
+  "gapDays": 90,
+  "maxAsks": 3,
+  "vectors": [
+    { "name": "happy moment", "accuracy": 90, "lessons": 5, "daysSinceInstall": 4, "daysSinceLastAsk": null, "asks": 0, "ask": true },
+    { "name": "too few lessons", "accuracy": 95, "lessons": 4, "daysSinceInstall": 10, "daysSinceLastAsk": null, "asks": 0, "ask": false },
+    { "name": "installed < 3 days ago", "accuracy": 95, "lessons": 9, "daysSinceInstall": 2.9, "daysSinceLastAsk": null, "asks": 0, "ask": false },
+    { "name": "lesson not happy (79%)", "accuracy": 79, "lessons": 9, "daysSinceInstall": 10, "daysSinceLastAsk": null, "asks": 0, "ask": false },
+    { "name": "exactly 80% is happy", "accuracy": 80, "lessons": 9, "daysSinceInstall": 10, "daysSinceLastAsk": null, "asks": 0, "ask": true },
+    { "name": "asked 30 days ago", "accuracy": 100, "lessons": 20, "daysSinceInstall": 60, "daysSinceLastAsk": 30, "asks": 1, "ask": false },
+    { "name": "asked exactly 90 days ago", "accuracy": 100, "lessons": 20, "daysSinceInstall": 120, "daysSinceLastAsk": 90, "asks": 1, "ask": true },
+    { "name": "third ask allowed", "accuracy": 100, "lessons": 60, "daysSinceInstall": 300, "daysSinceLastAsk": 120, "asks": 2, "ask": true },
+    { "name": "never a fourth ask", "accuracy": 100, "lessons": 90, "daysSinceInstall": 500, "daysSinceLastAsk": 200, "asks": 3, "ask": false }
+  ]
+}

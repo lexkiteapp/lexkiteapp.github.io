@@ -12,8 +12,14 @@
 - `model`: bài mẫu đúng số từ, đạt mọi `points`, không chứa `leave_out`, không chép nguyên ≥ 8 từ liền của nguồn.
 - Nội dung viết gốc tiếng Anh, tự soạn, trung tính văn hoá; giải thích L1 sinh từ en trên CI (docs/I18N-PIPELINE.md › O5), không viết tiếng Việt trong file.
 
-## 2. Màn luyện (bước sau, cần duyệt hình)
-Dùng lại khung bài viết/nói có sẵn (đếm từ, UI.recognize, khung ExamKit), không CSS riêng: nguồn (đoạn/biểu đồ/nghe Kokoro dựng sẵn) → nhiệm vụ + người nhận → viết/nói → kiểm ý đạt/thiếu + ý thừa + bài mẫu + tips. Vào từ thẻ "Trung gian" ở Luyện › 4 kỹ năng. Spec màn + ảnh Stitch trình duyệt trước khi code.
+## 2. Màn luyện `#/mediate` (mẫu Stitch 390 sáng/tối – project 17380622463903601788, điều phối duyệt 10/11)
+- Dữ liệu: `node scripts/mediation/build.mjs` → `web/cpack/mediation/index.js` (danh sách) + `<id>.js` (tải khi mở bài); prepush ghi lại, `test/mediation.mjs` đỏ khi lệch.
+- Chấm: `web/js/mediate-core.js` – MỘT nguồn cho màn và cổng `mediation-check` (words, hit, copied, check, voices).
+- Màn (`web/js/mediate.js`, gói lười `mediate`): khung FOCUS (X + thanh tiến độ, ExitGuard WITH_ARG) · chip cấp + hoạt động · tình huống + giáo viên 2D (`Chars.slot`) · nguồn nguyên văn (đoạn / hội thoại / bảng biểu đồ) + nút nghe 44 px · thẻ nhiệm vụ (người nhận, đề, ô viết, đếm từ, Nói) · `learn-bar` "Kiểm tra bài".
+- Nghe trước từ B2 (trừ biểu đồ): chữ ẩn tới khi nghe xong hoặc bấm Hiện chữ. Giọng Kokoro dựng sẵn nhóm `mediation-source` (`MediateCore.voices`: người dẫn bf_emma, hội thoại mỗi người một giọng Anh-Anh).
+- Nút Kiểm tra tắt kèm gợi ý tới khi đủ `min_words`; bộ đếm xanh trong khoảng, đỏ khi quá `max_words`. Bài nói: ghi âm `UI.recognize` vào ô (sửa được) rồi kiểm như bài viết.
+- Kết quả: ý đạt/thiếu, ý nên bỏ đã viết, cảnh báo chép nguyên văn ≥ 8 từ, giải thích, bài mẫu, cụm từ hữu ích, mẹo; nháp lưu trên máy (`lk.medDraft.<id>`), điểm tốt nhất `state.game.medBest`.
+- Vào từ thẻ "Trung gian" ở Kỹ năng (`#/skills`) và ô Luyện (`#/train`). Chữ giao diện 15 ngôn ngữ (`en/mediate.js`, nhãn ngắn dịch tay trong `scripts/i18n-fixed.json`); nội dung bài tiếng Anh.
 
 ## 3. Cổng (phải xanh, không hạ ngưỡng)
 `node scripts/content-qa/mediation-check.mjs` (khuôn, lo M.* có thật và lệch cấp ≤ 1, nguồn theo cấp, ý ≥ 3 + ý nên bỏ, checks không quá rộng, bài mẫu đủ ý/không thừa/không chép nguồn, không còn tiếng Việt) · `node scripts/test/mediation.mjs` (cổng bắt đủ 16 kiểu hỏng) · `node scripts/content-qa/gate.mjs` (nguồn `mediation` trong content/qa/sources.json) · `node scripts/content-score.mjs` (đếm file, đích 30).
