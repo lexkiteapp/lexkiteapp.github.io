@@ -9,6 +9,7 @@ export function format(d) {
     `- Xem trang /go: **${d.views}** ${arrow(d.views, d.prevViews)} · bấm tải: **${d.ctas}** ${arrow(d.ctas, d.prevCtas)} (${pct(d.ctas, d.views)})`,
     `- Mở app từ link kênh: **${d.app}** ${arrow(d.app, d.prevApp)} · xong bài đầu: **${d.fl}** ${arrow(d.fl, d.prevFl)} (${pct(d.fl, d.app)})`];
   if (d.install && d.install.length) L.push('', '| Cài app | xem lời mời | bấm | tỷ lệ | nút Tải |', '|---|--:|--:|--:|--:|', ...d.install.map(r => `| ${r.plat} | ${r.seen} | ${r.click} | ${r.clickPct == null ? '–' : r.clickPct + '%'} | ${r.btn} |`));
+  if (d.share && d.share.open) L.push('', `Chia sẻ (7 ngày): mở thẻ **${d.share.open}** → gửi **${d.share.send}** (${d.share.sendPct == null ? '–' : d.share.sendPct + '%'}) · tải ảnh ${d.share.dl} · mời ${d.share.inv} · về /go từ share/QR/mời **${d.share.views}** → app ${d.share.app} → xong bài đầu ${d.share.fl}`);
   if (d.top && d.top.length) L.push('', 'Kênh/mã đứng đầu (7 ngày): ' + d.top.map(r => `${r.src || '?'}/${r.code || r.camp || '-'} (${r.views}→${r.app}→${r.fl})`).join(' · '));
   L.push('', '_Lượt cài thật xem ở App Store Connect / Play Console. Chi tiết: Admin › Kênh._', `<!-- fd:${d.day} -->`);
   return L.join('\n');
