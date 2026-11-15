@@ -126,6 +126,8 @@ export function collect() {
     // Say it like a native (say.js: 🔊 = giọng giáo viên của loạt, UI.tts 'en-US' giọng nhân vật – cả câu như UI.tts tra trước)
     if (fs.existsSync('web/data/say.json')) { const V = { ama: 'af_heart', carlos: 'am_michael' };
       for (const s of JSON.parse(fs.readFileSync('web/data/say.json', 'utf8')).series || []) for (const it of s.items || []) oneSplit(V[s.teacher] || V.ama, it.say, 'say-native'); }
+    // Bảng động từ bất quy tắc (#/irregular): chuỗi 3 dạng + 2 câu ví dụ, theo accent người học (cpack/irregular/table.js, UI.tts)
+    if (fs.existsSync('web/js/irv/core.json')) for (const r of JSON.parse(fs.readFileSync('web/js/irv/core.json', 'utf8')).rows) for (const t of [r[10], r[5], r[6]]) bothSplit(t, 'irregular');
     // Ngân hàng ý tưởng Task 2 (ideas.js: câu ví dụ, nút data-saysent → theo accent người học)
     { const x = ctx(); L(x, 'web/cpack/write/ideas.js'); for (const tp of x.IDEAS || []) for (const iss of tp.issues || []) for (const it of [...(iss.for || []), ...(iss.against || [])]) for (const t of strs(it.ex)) bothSplit(t, 'ideas'); }
     // Ngữ pháp: mọi câu ví dụ (trường ex) trong web/js/grammar + web/cpack/grammar (bài tải lười); bỏ mục lục lazy-*.js
