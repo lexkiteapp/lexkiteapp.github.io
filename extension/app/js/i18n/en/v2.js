@@ -97,7 +97,6 @@
   "XP": "XP",
   "Xem thư viện": "View library",
   "Xem từ vựng của ngày": "See word list",
-  "Xóa chữ đã nhập": "Clear search",
   "nhận diện → ghép → nghe → dùng trong câu → nói.": "recognise → match → listen → use → speak",
   "Ôn ngắt quãng đang bật": "Spaced Repetition Active",
   "Ôn tập hằng ngày": "Daily Review",

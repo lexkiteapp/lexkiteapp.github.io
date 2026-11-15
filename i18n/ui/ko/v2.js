@@ -97,7 +97,6 @@
 "XP nhận được":"획득 XP",
 "Xem thư viện":"라이브러리 보기",
 "Xem từ vựng của ngày":"단어 목록 보기",
-"Xóa chữ đã nhập":"검색어 지우기",
 "nhận diện → ghép → nghe → dùng trong câu → nói.":"알아보기 → 짝 맞추기 → 듣기 → 활용 → 말하기",
 "Ôn ngắt quãng đang bật":"간격 반복 켜짐",
 "Ôn tập hằng ngày":"일일 복습",

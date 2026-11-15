@@ -18,7 +18,7 @@
     ST2.mount(view, 'dict', {
       title: I18N.meanLang && I18N.meanLang() === 'vi' ? t('Từ điển Anh – Việt') : t('Từ điển'), back: '#/vocab', backL: t('Quay lại'), langChip: 'EN ⇄ ' + String((I18N.meanLang && I18N.meanLang()) || 'vi').toUpperCase(), langHref: '#/settings',
       sub: `<p class="px-4 pb-1 text-[13px] [color:var(--muted)]">${esc(t('Định nghĩa Oxford Languages · phiên âm UK/US · câu song ngữ · collocation · từ liên quan'))}</p>`,
-      ph: t('Nhập từ tiếng Anh, ví dụ: sustainable'), q, goL: t('Tra từ'), clearL: t('Xóa chữ đã nhập'), recClearL: t('Xóa'),
+      ph: t('Nhập từ tiếng Anh, ví dụ: sustainable'), q, goL: t('Tra từ'), clearL: t('Xóa'), recClearL: t('Xóa'),
       recentL: t('Gần đây:').replace(/\s*[:：]\s*$/, ''), recentBlk: recent.length ? [{ items: recent.map(w => ({ w, href: href(w) })) }] : [],
       browseBlk: q ? [] : [{ title: t('Khám phá'), items: sample.map(w => ({ w, href: href(w) })) }],
       res: `<div id="result" class="mt-5${q ? ' dict-res' : ''}"></div>

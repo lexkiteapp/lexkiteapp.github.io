@@ -230,8 +230,5 @@
   }
  },
  "styles": true,
- "rootClass": "![font-family:inherit]",
- "keys": {
-  "Xóa chữ đã nhập": "Clear search"
- }
+ "rootClass": "![font-family:inherit]"
 }

@@ -97,7 +97,6 @@
 "XP nhận được":"XP gagnés",
 "Xem thư viện":"Voir la bibliothèque",
 "Xem từ vựng của ngày":"Voir la liste de mots",
-"Xóa chữ đã nhập":"Effacer la recherche",
 "nhận diện → ghép → nghe → dùng trong câu → nói.":"reconnaître → associer → écouter → utiliser → parler",
 "Ôn ngắt quãng đang bật":"Répétition espacée active",
 "Ôn tập hằng ngày":"Révision quotidienne",

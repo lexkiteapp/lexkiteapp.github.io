@@ -97,7 +97,6 @@
 "XP nhận được":"獲得XP",
 "Xem thư viện":"ライブラリを見る",
 "Xem từ vựng của ngày":"単語リストを見る",
-"Xóa chữ đã nhập":"検索をクリア",
 "nhận diện → ghép → nghe → dùng trong câu → nói.":"認識 → マッチ → 聞く → 使う → 話す",
 "Ôn ngắt quãng đang bật":"間隔反復オン",
 "Ôn tập hằng ngày":"毎日の復習",

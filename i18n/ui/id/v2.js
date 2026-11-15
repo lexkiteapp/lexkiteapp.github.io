@@ -97,7 +97,6 @@
 "XP nhận được":"XP diperoleh",
 "Xem thư viện":"Lihat pustaka",
 "Xem từ vựng của ngày":"Lihat daftar kata",
-"Xóa chữ đã nhập":"Hapus pencarian",
 "nhận diện → ghép → nghe → dùng trong câu → nói.":"kenali → cocokkan → dengar → gunakan → bicara",
 "Ôn ngắt quãng đang bật":"Pengulangan berjarak aktif",
 "Ôn tập hằng ngày":"Ulasan harian",

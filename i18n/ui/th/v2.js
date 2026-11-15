@@ -97,7 +97,6 @@
 "XP nhận được":"XP ที่ได้รับ",
 "Xem thư viện":"ดูคลัง",
 "Xem từ vựng của ngày":"ดูรายการคำ",
-"Xóa chữ đã nhập":"ล้างการค้นหา",
 "nhận diện → ghép → nghe → dùng trong câu → nói.":"จดจำ → จับคู่ → ฟัง → ใช้ → พูด",
 "Ôn ngắt quãng đang bật":"ทวนซ้ำเว้นช่วงทำงานอยู่",
 "Ôn tập hằng ngày":"ทบทวนรายวัน",

@@ -97,7 +97,6 @@
 "XP nhận được":"获得经验值",
 "Xem thư viện":"查看资料库",
 "Xem từ vựng của ngày":"查看单词列表",
-"Xóa chữ đã nhập":"清除搜索",
 "nhận diện → ghép → nghe → dùng trong câu → nói.":"认词 → 配对 → 听 → 运用 → 说",
 "Ôn ngắt quãng đang bật":"间隔重复已开启",
 "Ôn tập hằng ngày":"每日复习",
