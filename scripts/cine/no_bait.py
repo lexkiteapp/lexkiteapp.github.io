@@ -30,7 +30,7 @@ def fix_text(t):
     for a, b in FIX: t = re.sub(a, b, t)
     return t
 def main(argv):
-    mode = '--fix' if '--fix' in argv else '--check'; paths = [a for a in argv if not a.startswith('--')] or ['content/video', 'scripts/cine', 'scripts/scriptbank', 'scripts/video', 'scripts/test/no-bait.py']
+    mode = '--fix' if '--fix' in argv else '--check'; paths = [a for a in argv if not a.startswith('--')] or ['content/video', 'scripts/cine', 'scripts/scriptbank', 'scripts/video']
     bad = []; n = 0
     for f in files(paths):
         try: t = open(f, encoding='utf-8').read()

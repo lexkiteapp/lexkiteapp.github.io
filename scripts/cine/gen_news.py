@@ -93,7 +93,7 @@ def teacherize(spec, lines, h6):
     phrase; the self-intro 'I'm Ama, your American English teacher.' in ~1 of 4 clips (hash-rotated)."""
     spec['recap']['title'] = "TEACHER'S TIP"; bs = spec['beats']
     if not any(b.get('repeat') for b in bs):
-        cs = [b['card'] for b in bs if b.get('card') and b['card']['kind'] == 'v'] + [b['card'] for b in bs if b.get('card') and b['card']['kind'] == 'p' and b['card'].get('label') not in ('COMMENT', 'A', 'B')]
+        cs = [b['card'] for b in bs if b.get('card') and b['card']['kind'] == 'v'] + [b['card'] for b in bs if b.get('card') and b['card']['kind'] == 'p' and b['card'].get('label') not in ('GUESS', 'A', 'B')]
         ph = next((c['text'] for c in cs if '?' not in c['text'] and 2 <= NW(c['text']) <= 8 and not re.search(r'[/=]|\.\.\.|…|\b(but|for|to|a|the)\W*$', c['text'])), None)
         if ph:
             who = 'carlos' if bs[-1]['who'] == 'ama' else 'ama'; ph = ph[0].upper() + ph[1:].rstrip('.!') + '.'

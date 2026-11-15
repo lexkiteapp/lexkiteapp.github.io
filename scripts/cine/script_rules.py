@@ -44,7 +44,7 @@ def check(sp, L):
     if sp.get('hook_type') not in HOOKS: iss.append(f"hook type {sp.get('hook_type')} not in the library")
     if len(toks(T(sp['hook']['line']))) > 5: iss.append('hook > 5 spoken words')
     if not sp.get('share'): iss.append('share trigger missing')
-    if '?' not in T(sp['end_line']): iss.append('end must be a quiz question (no "comment below" bait - platform policy)')
+    if '?' not in T(sp['end_line']): iss.append('end must be a quiz question (no engagement-bait CTA - platform policy)')
     if not 3 <= len(sp['recap']['rows']) <= 5 or sp['recap'].get('title', '').upper() != "TEACHER'S TIP": iss.append("Teacher's tip card needs 3-5 ready-to-use lines")
     return iss
 if __name__ == '__main__':
