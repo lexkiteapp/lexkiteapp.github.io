@@ -240,6 +240,7 @@ node scripts/test/home-logic.mjs
 node scripts/test/vocab-hub.mjs
 node scripts/test/grammar-hub.mjs
 node scripts/test/pron-hub.mjs
+node scripts/test/dict-hub.mjs
 node scripts/test/inline-box.mjs
 node scripts/test/st2-href.mjs
 node scripts/test/card-actions.mjs
@@ -383,6 +384,7 @@ node scripts/test/apt-install.mjs
 node scripts/test/perf-median.mjs
 node scripts/test/pr-unconflict.mjs
 node scripts/test/regen-conflicts.mjs
+node scripts/test/gen-pr-clean.mjs
 node scripts/test/main-red-sweep.mjs
 node scripts/test/ci-queue-gate.mjs
 node scripts/test/android-xml-comments.mjs

@@ -7,7 +7,7 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs'; import os from 'node:os'; import path from 'node:path';
-import { plan, dedupeLines, pick, MAX, mergeEntries, regenCmds, merge3, retryable } from '../pr-unconflict.mjs';
+import { holdForQueue, QUEUE_PAUSE, plan, dedupeLines, pick, MAX, mergeEntries, regenCmds, merge3, retryable } from '../pr-unconflict.mjs';
 // 12/11: một lần GitHub 503 từng làm chết cả lượt (không PR nào được gỡ) → 5xx/429 thử lại, 4xx ném ngay.
 assert.ok(retryable(503) && retryable(502) && retryable(429), '5xx/429 phải thử lại');
 assert.ok(!retryable(404) && !retryable(422) && !retryable(401), '4xx không thử lại');
@@ -28,7 +28,7 @@ assert.deepEqual(regenCmds([{ f: 'docs/CODEMAP.md' }]), []);
 assert.deepEqual(plan(['content/pipeline/LEARN.md', 'content/pipeline/SCORE.md', 'docs/JOBS.md']).map(s => s.how), ['main', 'main', 'main'], '#985: báo cáo sinh lấy main');
 assert.deepEqual(regenCmds([{ f: 'docs/JOBS.md' }]).map(c => c.join(' ')), ['node scripts/jobs/gen.mjs --write'], 'tệp có cổng khớp nguồn → sinh lại');
 assert.deepEqual(regenCmds([{ f: 'content/pipeline/LEARN.md' }]), [], 'báo cáo do bot main sinh → chỉ lấy main');
-assert.deepEqual(regenCmds([{ f: 'i18n/ui/de/ux1.js' }]).map(c => c.join(' ')), ['node scripts/fmt-stable.mjs', 'node scripts/i18n-pack.mjs', 'bash scripts/build-extension.sh']);
+assert.deepEqual(regenCmds([{ f: 'i18n/ui/de/ux1.js' }]).map(c => c.join(' ')), ['node scripts/fmt-stable.mjs'], 'gói dịch + extension/app không dựng/commit trong PR');
 assert.ok(regenCmds([{ f: 'web/css/st-v2-today.css' }]).some(c => c.includes('scripts/build-stitch-css.mjs')));
 assert.equal(plan([]), null);
 
@@ -78,5 +78,11 @@ fs.writeFileSync(path.join(d, 'drv2.mjs'), `const m = await import(${JSON.string
 const out3 = run(process.execPath, [path.join(d, 'drv2.mjs')], { cwd: d, encoding: 'utf8' });
 const s3 = fs.readFileSync(path.join(d, 'scripts/test/suite.txt'), 'utf8').split('\n');
 assert.equal(s3.filter(l => l === 'node dup').length, 1, 'union sạch vẫn phải khử trùng: ' + out3);
+// 15/11: hàng đợi > QUEUE_PAUSE → chỉ PR dirty ĐÃ xanh mới được đẩy nhánh; hàng đợi ngắn → giữ nguyên danh sách
+{ const L = [{ number: 1 }, { number: 2 }, { number: 3 }], gate = p => ({ 1: 'success', 2: 'pending', 3: 'failure' })[p.number];
+  assert.equal(QUEUE_PAUSE, 60);
+  assert.deepEqual(holdForQueue(L, 61, gate).map(p => p.number), [1], 'hàng đợi 61 > 60: chỉ PR xanh');
+  assert.deepEqual(holdForQueue(L, 60, gate).map(p => p.number), [1, 2, 3], 'hàng đợi 60: như thường');
+  assert.deepEqual(holdForQueue(L, 332, () => undefined), [], 'hàng đợi 332, không PR nào xanh: hoãn hết'); }
 fs.rmSync(d, { recursive: true, force: true });
 console.log('✓ pr-unconflict: chỉ tự gỡ tệp tự sinh, CODEMAP lấy main, suite.txt union không trùng, tệp người viết để nguyên');
