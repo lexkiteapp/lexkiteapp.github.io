@@ -1,4 +1,4 @@
-# Tóm tắt phễu tăng trưởng 1 tin/ngày (08:05 giờ VN – ngoài giờ yên lặng) → comment issue "Phễu tăng trưởng – hằng ngày" (nhãn growth-funnel). scripts/growth/funnel-digest.mjs, test: scripts/test/funnel-digest.mjs
+# Tóm tắt phễu tăng trưởng 1 tin/ngày (08:05 giờ VN – ngoài giờ yên lặng) → comment issue "Phễu tăng trưởng – hằng ngày" (nhãn growth-funnel). scripts/growth/funnel-digest.mjs (test chạy trong npm test: scripts/test/funnel-digest.mjs)
 name: Funnel digest
 on:
   schedule:
@@ -14,10 +14,9 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
-        with: { sparse-checkout: 'scripts/growth scripts/ci scripts/test' }
+        with: { sparse-checkout: 'scripts/growth scripts/ci' }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - run: node scripts/test/funnel-digest.mjs
       - name: Lấy số + đăng
         env:
           STUDIO_CALLBACK_SECRET: ${{ secrets.STUDIO_CALLBACK_SECRET }}
