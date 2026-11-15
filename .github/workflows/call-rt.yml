@@ -41,12 +41,13 @@ jobs:
         uses: ./.github/actions/fast-lane   # làn nhanh: npm test đỏ → huỷ lượt nặng
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Playwright + espeak-ng
         timeout-minutes: 15
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           bash scripts/ci/pw-install.sh --with-deps chromium
-          bash scripts/ci/apt-install.sh espeak-ng ffmpeg
+          bash scripts/ci/apt-install.sh espeak-ng
       - name: Logic (node)
         run: node scripts/test/call-rt.mjs
       - name: Mẫu giọng người học (espeak-ng, 16 kHz mono, lặng 0,3 s trước / 0,2 s sau)
