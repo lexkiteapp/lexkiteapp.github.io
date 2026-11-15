@@ -1,3 +1,4 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
 # 🎞️ Cổng chuyển động giáo viên trên WebKit (Safari) – clip WebGL chỗ giáo viên mượt + viền nét (live 3/11: tay Ama giật, viền méo trên iPhone).
 # macOS vì WebKit trên Linux không giải mã H.264. PR tự chụp thêm ảnh TRƯỚC từ nhánh base (không chặn); chạy tay với before=<ref>.
 name: teacher-motion
@@ -11,12 +12,32 @@ permissions:
   contents: read
 concurrency: { group: 'teacher-motion-${{ github.ref }}', cancel-in-progress: true }   # ci-policy: lượt cũ cùng nhánh bị huỷ
 jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha (hoặc nhãn ready) → go=$go"
   clips:   # khung vung tay méo đo trên chính file clip (không cần trình duyệt)
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - name: Cài công cụ
+        timeout-minutes: 10
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
           pip install -q numpy opencv-python-headless
@@ -29,6 +50,8 @@ jobs:
       - name: Chạy cổng
         run: python3 scripts/teach/motion_smear.py web/teach
   webkit:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     runs-on: macos-latest
     timeout-minutes: 20
     steps:
@@ -36,9 +59,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Cài playwright webkit
+        timeout-minutes: 14
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
-          npx playwright install webkit >/dev/null
+          bash scripts/ci/pw-install.sh webkit
       - if: inputs.before != '' || github.event_name == 'pull_request'   # PR: ảnh trước = nhánh base (workflow chỉ chạy khi file giáo viên đổi)
         uses: actions/checkout@v4
         with: { ref: "${{ inputs.before || github.base_ref }}", path: before-src, sparse-checkout: web }
