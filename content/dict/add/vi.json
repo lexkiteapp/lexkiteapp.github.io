@@ -1,0 +1,363 @@
+{
+ "_note": "Lỗi hay gặp + ghi chú cách dùng bằng tiếng Việt (vi.json) – cùng cặp sai/đúng với en.json, chữ giải thích bằng tiếng Việt. Tự viết.",
+ "badly": {
+  "mis": [
+   {
+    "w": "She sings bad.",
+    "r": "She sings badly.",
+    "why": "Bổ nghĩa cho động từ phải dùng trạng từ badly, không dùng tính từ bad."
+   },
+   {
+    "w": "I feel badly about the news.",
+    "r": "I feel bad about the news.",
+    "why": "Sau feel dùng tính từ bad khi nói về cảm xúc."
+   }
+  ],
+  "u": "Badly là trạng từ của bad, đi với động từ hành động: play badly (chơi tệ), behave badly (cư xử tệ), badly damaged (hư hại nặng). Badly còn có nghĩa là rất nhiều trong badly need và badly want. Sau các động từ nối như feel, look, seem, hãy giữ tính từ bad: feel bad about it. Người Việt hay dịch 'tệ' thành bad ở mọi vị trí, nên dễ nhầm."
+ },
+ "carefully": {
+  "mis": [
+   {
+    "w": "Drive careful!",
+    "r": "Drive carefully!",
+    "why": "Cần trạng từ carefully để mô tả cách lái xe."
+   },
+   {
+    "w": "Carefully, I read the whole question.",
+    "r": "I read the whole question carefully.",
+    "why": "Trạng từ chỉ cách thức thường đứng sau động từ hoặc tân ngữ, không đứng đầu câu."
+   }
+  ],
+  "u": "Carefully là trạng từ của careful (cẩn thận): listen carefully, choose carefully, think carefully. Nó thường đứng sau động từ hoặc tân ngữ: She wrapped the glass carefully. Đặt trước động từ để nhấn mạnh: He carefully avoided the question. Đừng nhầm với cautiously, vốn hàm ý sợ rủi ro; carefully nghĩa là chú ý kỹ."
+ },
+ "certainly": {
+  "mis": [
+   {
+    "w": "She is right certainly.",
+    "r": "She is certainly right.",
+    "why": "Certainly đứng sau be hoặc trước động từ chính, không đứng cuối câu."
+   },
+   {
+    "w": "He certainly will to come.",
+    "r": "He will certainly come.",
+    "why": "Đặt certainly sau trợ động từ will và trước động từ."
+   }
+  ],
+  "u": "Certainly diễn tả sự chắc chắn hoặc đồng ý lịch sự. Dùng một mình như câu trả lời trang trọng: Can I sit here? Certainly. Trong câu, đứng sau be hoặc động từ khuyết thiếu: It is certainly true, She will certainly pass. Trả lời phủ định dùng certainly not hoặc of course not. Không dùng với very vì bản thân certainly đã mạnh."
+ },
+ "clearly": {
+  "mis": [
+   {
+    "w": "Speak clear, please.",
+    "r": "Speak clearly, please.",
+    "why": "Cần trạng từ clearly để bổ nghĩa cho động từ speak."
+   },
+   {
+    "w": "I can see clear the board.",
+    "r": "I can see the board clearly.",
+    "why": "Clearly đứng sau tân ngữ, hoặc sau động từ nếu không có tân ngữ."
+   }
+  ],
+  "u": "Clearly có hai cách dùng. Một là chỉ cách làm: speak clearly (nói rõ), think clearly, see clearly. Hai là trạng từ nêu nhận định nghĩa là hiển nhiên: Clearly, the plan has failed. Trong bài viết, nó dẫn đến kết luận rút ra từ bằng chứng. Đừng lạm dụng để nghe có vẻ mạnh; khi chưa chắc dùng evidently hoặc apparently."
+ },
+ "completely": {
+  "mis": [
+   {
+    "w": "I am completely agree.",
+    "r": "I completely agree.",
+    "why": "Completely bổ nghĩa cho động từ hoặc tính từ, không thêm be trước động từ."
+   },
+   {
+    "w": "She is completely good at maths.",
+    "r": "She is very good at maths.",
+    "why": "Completely hợp với ý tuyệt đối, không đi với tính từ có mức độ như good."
+   }
+  ],
+  "u": "Completely nghĩa là hoàn toàn, đi với ý tuyệt đối hoặc cực đoan: completely different, completely forgotten, completely wrong. Thường không đi với tính từ có mức độ như good hay tall nên tránh completely tall. Trong câu phủ định nghĩa đổi: I'm not completely sure nghĩa là vẫn còn nghi ngờ. Fully, entirely, totally là các từ thay thế gần nghĩa."
+ },
+ "daily": {
+  "mis": [
+   {
+    "w": "I read the news every daily.",
+    "r": "I read the news daily.",
+    "why": "Daily đã có nghĩa mỗi ngày, không thêm every."
+   },
+   {
+    "w": "I use the app everyday.",
+    "r": "I use the app every day.",
+    "why": "Everyday là tính từ; khi chỉ thời gian hãy viết every day thành hai từ."
+   }
+  ],
+  "u": "Daily là tính từ (a daily routine, a daily newspaper) và trạng từ (The shop opens daily), nghĩa là hằng ngày. Đừng nhầm với everyday viết liền, nghĩa là thông thường: everyday English, everyday objects. Cụm on a daily basis hay gặp trong văn viết trang trọng. Twice daily là cách ghi trên nhãn thuốc, nghĩa là hai lần mỗi ngày."
+ },
+ "deep": {
+  "mis": [
+   {
+    "w": "The river is deep of three metres.",
+    "r": "The river is three metres deep.",
+    "why": "Đặt số đo trước deep: three metres deep, hoặc dùng danh từ depth."
+   },
+   {
+    "w": "She took a deeply breath.",
+    "r": "She took a deep breath.",
+    "why": "Trước danh từ dùng tính từ deep, không dùng trạng từ deeply."
+   }
+  ],
+  "u": "Deep chỉ khoảng cách từ bề mặt hoặc mép: deep water, a deep cut, deep in the forest. Nó cũng nói về cảm xúc và suy nghĩ sâu sắc: a deep voice, deep sleep, deep thoughts. Làm trạng từ, deep giữ nguyên hình thức khi nói nghĩa vật lý: dig deep. Trạng từ deeply dùng cho cảm xúc: deeply moved (xúc động sâu sắc), deeply sorry."
+ },
+ "definitely": {
+  "mis": [
+   {
+    "w": "I will go definitely.",
+    "r": "I will definitely go.",
+    "why": "Definitely thường đứng trước động từ chính hoặc sau be."
+   },
+   {
+    "w": "Definately, I agree.",
+    "r": "Definitely, I agree.",
+    "why": "Chính tả đúng là definitely, có chữ i ở giữa; người học hay viết nhầm thành a."
+   }
+  ],
+  "u": "Definitely là một trong những từ hay bị viết sai nhất: nhớ có chữ finite bên trong, de-finite-ly. Nó diễn tả sự chắc chắn và đứng sau be hoặc động từ khuyết thiếu: It is definitely worth seeing, She will definitely come. Dùng một mình để trả lời thì thân mật và nhiệt tình: Are you coming? Definitely! Khi phủ định, đặt trước từ phủ định: I definitely don't want that."
+ },
+ "early": {
+  "mis": [
+   {
+    "w": "I wake up earlily.",
+    "r": "I wake up early.",
+    "why": "Early vừa là tính từ vừa là trạng từ, không có dạng earlily."
+   },
+   {
+    "w": "I arrived at the airport too much early.",
+    "r": "I arrived at the airport too early.",
+    "why": "Dùng too + tính từ/trạng từ, không dùng too much."
+   }
+  ],
+  "u": "Early có thể là tính từ (an early flight) hoặc trạng từ (arrive early) mà không đổi dạng. Nó nghĩa là sớm hơn dự kiến hoặc gần đầu một giai đoạn: early May, in the early 1990s. Từ trái nghĩa là late. Muốn nói đúng giờ dùng on time hoặc punctual; early bird chỉ người dậy hoặc bắt đầu sớm."
+ },
+ "easily": {
+  "mis": [
+   {
+    "w": "It is easily to learn.",
+    "r": "It is easy to learn.",
+    "why": "Sau be dùng tính từ easy; easily bổ nghĩa cho động từ."
+   },
+   {
+    "w": "She won easy.",
+    "r": "She won easily.",
+    "why": "Dùng trạng từ easily sau động từ win."
+   }
+  ],
+  "u": "Easily là trạng từ của easy, thường đứng sau động từ: learn easily, win easily, breaks easily. Nó cũng nhấn mạnh so sánh nhất: easily the best film of the year (rõ ràng là phim hay nhất). Đi với could để nói khả năng: This could easily go wrong. Đừng dùng với tính từ: viết very easy, không viết easily easy."
+ },
+ "even": {
+  "mis": [
+   {
+    "w": "Even I was tired, I went out.",
+    "r": "Even though I was tired, I went out.",
+    "why": "Even không nối được hai mệnh đề; dùng even though hoặc although."
+   },
+   {
+    "w": "I even don't like pizza.",
+    "r": "I don't even like pizza.",
+    "why": "Trong câu phủ định even đứng sau don't và trước động từ chính."
+   }
+  ],
+  "u": "Even cho thấy điều gì đó bất ngờ hoặc cực đoan: Even a child can do it. Có ba kiểu đi cùng hay gặp: even if nói về tình huống có thể xảy ra; even though nêu một sự thật trái với mệnh đề chính; even so nghĩa là tuy vậy. Với so sánh hơn, nó nhấn mạnh: even better, even more. Đặt even ngay trước từ cần nhấn, vì đổi chỗ sẽ đổi nghĩa."
+ },
+ "ever": {
+  "mis": [
+   {
+    "w": "I have ever been to Japan.",
+    "r": "I have never been to Japan.",
+    "why": "Ever dùng trong câu hỏi, phủ định, so sánh; câu khẳng định dùng never."
+   },
+   {
+    "w": "Did you go ever to London?",
+    "r": "Have you ever been to London?",
+    "why": "Ever đứng trước phân từ quá khứ trong câu hỏi hiện tại hoàn thành."
+   }
+  ],
+  "u": "Ever nghĩa là từng, bao giờ. Xuất hiện trong câu hỏi (Have you ever tried sushi?), câu phủ định (nobody ever called) và với so sánh nhất (the best meal I have ever eaten). Trong câu khẳng định thông thường là sai: hãy dùng always hoặc sometimes. Cụm cố định gồm ever since, hardly ever, forever."
+ },
+ "extremely": {
+  "mis": [
+   {
+    "w": "The test was extremely very hard.",
+    "r": "The test was extremely hard.",
+    "why": "Extremely đã rất mạnh, không thêm very."
+   },
+   {
+    "w": "I am extremely agree.",
+    "r": "I completely agree.",
+    "why": "Extremely bổ nghĩa cho tính từ và trạng từ, không đi với động từ agree."
+   }
+  ],
+  "u": "Extremely là từ nhấn mạnh mạnh hơn very, dùng với tính từ có mức độ: extremely important, extremely rare, extremely cold. Hợp cả văn trang trọng và thân mật. Không đi với tính từ tuyệt đối như perfect hay dead; với chúng dùng absolutely. Trong IELTS, extremely hay dùng khi mô tả biểu đồ: extremely high levels of pollution."
+ },
+ "finally": {
+  "mis": [
+   {
+    "w": "Finally of all, I would like to thank you.",
+    "r": "Finally, I would like to thank you.",
+    "why": "Finally đứng riêng và có dấu phẩy; không có finally of all."
+   },
+   {
+    "w": "In finally, we agreed.",
+    "r": "In the end, we agreed.",
+    "why": "Finally là trạng từ đứng riêng; cụm chỉ kết quả là in the end."
+   }
+  ],
+  "u": "Finally có hai nhiệm vụ. Một là đánh dấu mục cuối trong chuỗi (First, Next, Finally). Hai là cho biết điều gì xảy ra sau thời gian dài chờ đợi: The bus finally arrived. Nó đứng trước động từ chính hoặc sau be. At last mang cảm xúc nhẹ nhõm hơn, còn in the end nói về kết quả. Eventually gần nghĩa nhưng không dùng cho liệt kê."
+ },
+ "imagine": {
+  "mis": [
+   {
+    "w": "I can't imagine to live without music.",
+    "r": "I can't imagine living without music.",
+    "why": "Sau imagine dùng dạng -ing."
+   },
+   {
+    "w": "Imagine you to be rich.",
+    "r": "Imagine being rich.",
+    "why": "Dùng -ing hoặc imagine that + mệnh đề, không dùng to + động từ."
+   }
+  ],
+  "u": "Imagine nghĩa là hình dung trong đầu: imagine a world without cars. Nó đi với -ing hoặc mệnh đề that, không đi với to + động từ. Trong hội thoại, I imagine so nghĩa là chắc vậy, và Imagine that! thể hiện sự ngạc nhiên. Danh từ là imagination; imaginary nghĩa là không có thật, còn imaginative nghĩa là giàu trí tưởng tượng."
+ },
+ "instead": {
+  "mis": [
+   {
+    "w": "I drank tea instead coffee.",
+    "r": "I drank tea instead of coffee.",
+    "why": "Trước danh từ dùng instead of; instead đứng riêng đầu hoặc cuối mệnh đề."
+   },
+   {
+    "w": "Instead of to go, we stayed.",
+    "r": "Instead of going, we stayed.",
+    "why": "Sau instead of dùng -ing hoặc danh từ."
+   }
+  ],
+  "u": "Instead đứng một mình ở cuối hoặc đầu câu để nêu thứ thay thế: I didn't call; I wrote instead. Instead of cần danh từ hoặc dạng -ing theo sau: Instead of calling, I wrote. Không dùng cả hai cùng lúc. Trong văn viết, rather than và in place of trang trọng hơn. Lỗi thường gặp trong bài thi là bỏ mất chữ of."
+ },
+ "loud": {
+  "mis": [
+   {
+    "w": "He speaks very loud.",
+    "r": "He speaks very loudly.",
+    "why": "Trong văn trang trọng dùng trạng từ loudly với speak."
+   },
+   {
+    "w": "Read it loudly in class.",
+    "r": "Read it out loud in class.",
+    "why": "Out loud là cụm cố định để đọc hoặc nói cho người khác nghe."
+   }
+  ],
+  "u": "Loud chỉ âm lượng lớn: a loud noise, loud music. Trạng từ là loudly trong văn trang trọng, nhưng loud cũng được dùng như trạng từ trong lời nói và trong cụm loud and clear, out loud. Với màu sắc hay quần áo, loud nghĩa là quá sặc sỡ, gây chú ý. Noisy mô tả nơi chốn hoặc người gây ồn."
+ },
+ "marry": {
+  "mis": [
+   {
+    "w": "She married with a doctor.",
+    "r": "She married a doctor.",
+    "why": "Marry là ngoại động từ; không dùng giới từ."
+   },
+   {
+    "w": "They are married since 2010.",
+    "r": "They have been married since 2010.",
+    "why": "Dùng hiện tại hoàn thành với since."
+   }
+  ],
+  "u": "Marry là ngoại động từ nên bạn marry someone, không có giới từ: She married her classmate. Với get married có thể dùng to: She got married to a doctor, hoặc đơn giản They got married in June. Be married to mô tả trạng thái. Trong văn trang trọng, wed là từ văn chương đồng nghĩa; engaged nghĩa là đã đính hôn."
+ },
+ "mostly": {
+  "mis": [
+   {
+    "w": "Mostly of the students came.",
+    "r": "Most of the students came.",
+    "why": "Dùng most of + từ hạn định + danh từ; mostly là trạng từ nghĩa là chủ yếu."
+   },
+   {
+    "w": "Mostly students like it.",
+    "r": "Most students like it.",
+    "why": "Trước danh từ dùng most; mostly là trạng từ."
+   }
+  ],
+  "u": "Mostly là trạng từ nghĩa là chủ yếu hoặc trong đa số trường hợp: The audience was mostly women. Nó không đứng ngay trước danh từ trơn, nên viết most students, không viết mostly students. Đặt gần phần nó mô tả: mostly because, mostly in summer. Mainly và largely là từ thay thế gần nghĩa, hợp văn trang trọng."
+ },
+ "near": {
+  "mis": [
+   {
+    "w": "I live near to the school.",
+    "r": "I live near the school.",
+    "why": "Near không cần to; near to chỉ dùng trong so sánh."
+   },
+   {
+    "w": "The shop is nearly the station.",
+    "r": "The shop is near the station.",
+    "why": "Nearly là trạng từ nghĩa là gần như; near là giới từ chỉ nơi chốn."
+   }
+  ],
+  "u": "Near là giới từ (near the station), tính từ (the near future) và động từ (the end is nearing). Theo sau trực tiếp là danh từ, không có to. Đừng nhầm với nearly nghĩa là gần như. So sánh hơn và nhất là nearer, nearest. Nearby là trạng từ một chữ: There is a cafe nearby."
+ },
+ "nearly": {
+  "mis": [
+   {
+    "w": "I nearly always am late.",
+    "r": "I am nearly always late.",
+    "why": "Sau be, trạng từ đứng sau động từ."
+   },
+   {
+    "w": "It was nearly the station.",
+    "r": "It was near the station.",
+    "why": "Nearly không phải giới từ chỉ nơi chốn."
+   }
+  ],
+  "u": "Nearly nghĩa là gần như nhưng chưa hoàn toàn: nearly finished, nearly every day. Nó cũng mô tả suýt xảy ra: I nearly fell nghĩa là tôi không bị ngã. Trong câu phủ định, not nearly nghĩa là kém xa: It's not nearly enough. Đừng nhầm với near và nearby, vốn nói về khoảng cách."
+ },
+ "neither": {
+  "mis": [
+   {
+    "w": "Neither of them are here.",
+    "r": "Neither of them is here.",
+    "why": "Neither là số ít trong ngữ pháp trang trọng, dù số nhiều vẫn nghe thấy khi nói."
+   },
+   {
+    "w": "Neither I don't like it.",
+    "r": "Neither do I.",
+    "why": "Neither đã mang nghĩa phủ định, không thêm not."
+   }
+  ],
+  "u": "Neither nghĩa là không cái này cũng không cái kia trong hai thứ. Trong cặp, dùng neither … nor …: Neither Tom nor Anna knows. Khi đồng tình với câu phủ định, đảo ngữ: I don't like it. Neither do I. Neither tự mang phủ định nên không thêm not. Với hơn hai người dùng none. Me neither là cách đáp thân mật."
+ },
+ "normally": {
+  "mis": [
+   {
+    "w": "I go normally to school by bus.",
+    "r": "I normally go to school by bus.",
+    "why": "Trạng từ chỉ tần suất đứng trước động từ chính."
+   },
+   {
+    "w": "Normal, I wake up at six.",
+    "r": "Normally, I wake up at six.",
+    "why": "Dùng trạng từ normally, không dùng tính từ normal."
+   }
+  ],
+  "u": "Normally nghĩa là thường, trong đa số trường hợp, hoặc theo cách bình thường. Nó có thể đứng trước động từ hoặc đầu câu: Normally I walk to work. Cũng có nghĩa là theo cách chuẩn: the machine works normally. Typically, usually, generally là các từ gần nghĩa. Trong IELTS Task 1 có thể viết: Sales normally peak in December."
+ },
+ "offer": {
+  "mis": [
+   {
+    "w": "She offered me to help.",
+    "r": "She offered to help me.",
+    "why": "Offer + to + động từ có chủ ngữ là người cho."
+   },
+   {
+    "w": "They offered me for a job.",
+    "r": "They offered me a job.",
+    "why": "Offer có hai tân ngữ, không cần giới từ."
+   }
+  ],
+  "u": "Offer vừa là động từ vừa là danh từ. Động từ: offer help, offer someone a drink, offer to do something. Danh từ: a job offer, a special offer, on offer (đang giảm giá). Khi ai đó offer điều gì, bạn có thể accept hoặc turn it down. Đừng nhầm với propose là đề xuất ý tưởng hay present là trao tặng trang trọng."
+ }
+}
