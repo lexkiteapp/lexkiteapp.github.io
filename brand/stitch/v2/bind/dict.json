@@ -63,7 +63,7 @@
   }
  },
  "addClass": {
-  ":scope > main > header > h1": "min-w-0 flex-1 [font-family:var(--font-display)] text-[18px] leading-[24px] sm:text-[20px] [text-wrap:balance]",
+  ":scope > main > header > h1": "min-w-0 flex-1 [font-family:var(--font-display)] [text-wrap:balance]",
   ":scope > main > header > button:nth-child(3)": "shrink-0",
   ":scope > main > header": "gap-2 px-0",
   ":scope > main > div > div:nth-child(1) > div:nth-child(1) > span": "min-w-[44px] min-h-[44px] justify-center left-0 cursor-pointer",
@@ -225,8 +225,7 @@
    "font-[600]": "'font-bold'"
   },
   ":scope > main > div > div:nth-child(1) > div:nth-child(1) > span": {
-   "left-3.5": "''",
-   "pointer-events-none": "''"
+   "left-3.5": "''"
   }
  },
  "styles": true,

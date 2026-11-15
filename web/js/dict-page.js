@@ -27,6 +27,7 @@
     const dc = typeof document !== 'undefined' && document.body; if (dc) dc.classList.remove('st', 'v2on'); // khung chung inner: giữ thanh trên + thanh 5 tab + lề #view của app (như pron-hub)
     extCta();
     const qi = $('#q'), go = () => { const v = qi.value.trim(); if (v) location.hash = href(v); }, clr = $('#qClear');
+    qi.onclick = e => { if (e.offsetX < 44 && qi.value.trim()) go(); }; // kính lúp nằm đè ô (pointer-events-none): bấm vùng 44 px bên trái = gửi
     qi.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); go(); } };
     $('#qGo').onclick = go; $('#qGo').onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } };
     clr.hidden = !qi.value; qi.oninput = () => { clr.hidden = !qi.value; };
