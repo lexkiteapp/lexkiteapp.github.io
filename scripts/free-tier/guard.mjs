@@ -165,6 +165,8 @@ export async function intradayMain({ dry = false, now = Date.now(), env = proces
   if (d.level === 'alert' && !ev.alerts.length) ev.alerts.push(ev.rows[0]); // giữ mức trong ngày (không hạ)
   const md = markdown(ev, { date: d.day }) + `\nMức trong ngày: **${d.level}** (${(d.pct * 100).toFixed(1)} %) · chế độ **${d.mode}**${d.pause ? ' · dừng: ' + PAUSE_NOTE : ''}\n`;
   console.log(md);
+  const pf = scripts['pages-functions'] || 0; // Pages Functions riêng (trang từ R2 thêm lượt) – cảnh báo sớm > 50 % trần ngày (docs/specs/words-off-pages.md)
+  if (pf > 50000) console.log(`::warning::Pages Functions hôm nay ${pf} lượt > 50 % trần 100.000 (trang từ R2 + /api): kiểm functions/[lang]/words, cân nhắc WORDS_R2=0`);
   if (d.level !== 'ok') console.log(`::warning::Workers + Functions hôm nay ${(d.pct * 100).toFixed(0)} % (thực tế ${p.total}, ngoại suy ${p.projected})`);
   if (env.GITHUB_STEP_SUMMARY) fs.appendFileSync(env.GITHUB_STEP_SUMMARY, md);
   // Chốt $0 R2: ≥ 80 % hạn mức Free tháng → issue; ≥ 90 % → tên miền về Worker (nguồn GitHub) + đóng băng ghi R2 (state r2 = frozen)
