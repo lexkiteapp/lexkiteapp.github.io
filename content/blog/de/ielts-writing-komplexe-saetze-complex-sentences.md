@@ -35,7 +35,7 @@ quiz: [
 ]
 publishAt: 2026-11-28T09:33:00+01:00
 ---
-Wer die offiziellen IELTS Band Descriptors für das Schreibkriterium **Grammatical Range and Accuracy** liest, stößt bei Band 7 auf eine klare Vorgabe: *„Uses a variety of complex structures with good flexibility and control; frequently produces error-free sentences.“*
+Wer die offiziellen IELTS Band Descriptors für das Schreibkriterium **Grammatical Range and Accuracy** liest, stößt bei Band 7 auf eine klare Vorgabe: *„Uses a variety of complex structures with good flexibility and control; frequently produces error-free sentences.“* Wie sich Satzvariation in einem Bericht über einen Ablauf auszahlt, zeigt der Artikel [IELTS Process Diagramm beschreiben](/de/blog/ielts-process-diagramm-beschreiben/).
 
 Viele Prüfungskandidaten missverstehen diese Vorgabe jedoch fundamental: Sie glauben, komplexe Sätze bedeuteten endlose, 50 Wörter lange Satzungeheuer mit verstaubten Konjunktionen. Das Ergebnis sind oft unleserliche, fehlerhafte Konstruktionen, die den Lesefluss zerstören und zu Abzügen bei der Kohärenz führen.
 
@@ -122,6 +122,8 @@ Trainieren Sie Ihr syntaktisches Gespür mit diesen praxisnahen Übungen zur Sat
 - **Band-8-Transformation**: *It is widely recognized that banning diesel vehicles from metropolitan centers, although politically contentious among commuter groups, has demonstrably enhanced respiratory public health across several European pilot municipalities.*
 
 ## Die 4 fatalen Fehler bei komplexen Sätzen im IELTS Essay
+
+Weitere typische Stolpersteine, etwa Artikel und Komma vor *that*, fasst der Artikel zu den [häufigsten IELTS Writing Fehlern](/de/blog/ielts-writing-fehler-vermeiden/) zusammen.
 
 1. **Comma Splice (Kommafehler bei Hauptsätzen)**: Zwei unabhängige Hauptsätze dürfen im Englischen niemals nur durch ein Komma getrennt werden (Falsch: ~~Air pollution is worsening, governments must act.~~ ➜ Richtig: *Because air pollution is worsening, governments must act.*).
 2. **Dangling Modifier (Bezugsloses Partizip)**: Wenn das logische Subjekt des Partizips nicht mit dem Hauptsatzsubjekt übereinstimmt (Falsch: ~~Having completed the test, the results were announced.~~ ➜ Wer hat den Test abgeschlossen? Nicht die Ergebnisse!).
