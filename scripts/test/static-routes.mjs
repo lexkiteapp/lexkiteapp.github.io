@@ -24,6 +24,8 @@ ok(fns.every(f => f.startsWith('api' + path.sep) || f === 'index.js' || f === WO
 ok(!fns.some(f => /(^|\/)_middleware\.(m?js|ts)$/.test(f) && !f.startsWith('api/')), 'không có _middleware chạy trên mọi đường dẫn');
 const routed = fns.filter(f => !path.basename(f).startsWith('_') && f !== WORDS_FN).map(f => '/' + f.replace(/\.(m?js|ts)$/, '').replace(/(^|\/)index$/, '').replace(/\[\[?[^\]]+\]\]?/g, 'x'));
 ok(routed.every(hit), `mọi endpoint /api/* vẫn được phục vụ (${routed.filter(p => !hit(p)).join(', ') || routed.length + ' endpoint'})`);
+// 404.html không căn giữa theo 100vh: đổi cỡ khung nhìn (thanh địa chỉ mobile, quét giao diện) làm cả cột nhảy → CLS 0,124 (web-sweep 15/11)
+{ const h = fs.readFileSync(path.join(R, 'web/404.html'), 'utf8'); ok(!/body\{[^}]*(min-height:100vh|justify-content:center)/.test(h), '404.html: body không căn giữa theo chiều cao khung nhìn (không CLS khi đổi cỡ)'); }
 // Fail open phía app: 5xx tạm thời của CDN → thử lại, không ghi nhớ kết quả sai
 const twin = fs.readFileSync(path.join(R, 'web/js/seo-twin.js'), 'utf8'), hubs = fs.readFileSync(path.join(R, 'web/js/hubs.js'), 'utf8');
 ok(/status >= 500[\s\S]{0,120}get\(n - 1\)/.test(twin), 'seo-twin.js thử lại seo-twins.json khi 5xx');
