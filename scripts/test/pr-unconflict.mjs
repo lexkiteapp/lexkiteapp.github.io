@@ -28,7 +28,7 @@ assert.deepEqual(regenCmds([{ f: 'docs/CODEMAP.md' }]), []);
 assert.deepEqual(plan(['content/pipeline/LEARN.md', 'content/pipeline/SCORE.md', 'docs/JOBS.md']).map(s => s.how), ['main', 'main', 'main'], '#985: báo cáo sinh lấy main');
 assert.deepEqual(regenCmds([{ f: 'docs/JOBS.md' }]).map(c => c.join(' ')), ['node scripts/jobs/gen.mjs --write'], 'tệp có cổng khớp nguồn → sinh lại');
 assert.deepEqual(regenCmds([{ f: 'content/pipeline/LEARN.md' }]), [], 'báo cáo do bot main sinh → chỉ lấy main');
-assert.deepEqual(regenCmds([{ f: 'i18n/ui/de/ux1.js' }]).map(c => c.join(' ')), ['node scripts/fmt-stable.mjs', 'node scripts/i18n-pack.mjs', 'bash scripts/build-extension.sh']);
+assert.deepEqual(regenCmds([{ f: 'i18n/ui/de/ux1.js' }]).map(c => c.join(' ')), ['node scripts/fmt-stable.mjs'], 'gói dịch + extension/app không dựng/commit trong PR');
 assert.ok(regenCmds([{ f: 'web/css/st-v2-today.css' }]).some(c => c.includes('scripts/build-stitch-css.mjs')));
 assert.equal(plan([]), null);
 

@@ -22,6 +22,7 @@ import { pathToFileURL } from 'node:url';
 import { REGISTRIES } from './lib/fmt-registry.mjs';
 import { loadDictFile, writeSrc } from './lib/i18n-pack.mjs';
 import { writeFixed } from './lib/fixed-json.mjs';
+import { GEN_DIRS, isGenerated } from './lib/generated.mjs';
 
 const REGISTRY_FILES = [...new Set(REGISTRIES.map(r => r.file))];
 
@@ -186,6 +187,17 @@ export function applySteps(steps) {
   return '';
 }
 
+/** Đưa mọi tệp sinh không-commit-trong-PR (scripts/lib/generated.mjs) về đúng bản của `ref`: PR chỉ giữ NGUỒN, hết xung đột ở đó mãi mãi. Trả số tệp đã đưa về. */
+export function stripGenerated(ref) {
+  const inRef = new Set(git('ls-tree', '-r', '--name-only', ref, '--', ...GEN_DIRS).split('\n').filter(isGenerated));
+  const cur = git('ls-files', '--', ...GEN_DIRS).split('\n').filter(isGenerated);
+  const changed = git('diff', '--name-only', '--no-renames', ref, '--', ...GEN_DIRS).split('\n').filter(isGenerated);
+  const put = changed.filter(f => inRef.has(f)), del = [...new Set([...cur, ...changed])].filter(f => !inRef.has(f) && fs.existsSync(f));
+  for (let i = 0; i < put.length; i += 200) git('checkout', ref, '--', ...put.slice(i, i + 200));
+  for (let i = 0; i < del.length; i += 200) git('rm', '-qf', '--', ...del.slice(i, i + 200));
+  return put.length + del.length;
+}
+
 /** Tệp xung đột của lần fix() gần nhất (ci-autopilot dùng để báo tên tệp). */
 export let lastConflicts = [];
 export function fix(p, dry) {
@@ -202,6 +214,7 @@ export function fix(p, dry) {
   // merge=union (.gitattributes) có thể gộp "sạch" mà nhân đôi dòng (06/11: #757 trùng voice-source.mjs) → luôn khử trùng tệp UNION
   for (const f of UNION) if (fs.existsSync(f)) { const a = fs.readFileSync(f, 'utf8'), b = dedupeLines(a); if (a !== b) { fs.writeFileSync(f, b); git('add', '--', f); } }
   // Dựng lại tệp sinh từ nguồn ĐÃ GỘP (định dạng + gói dịch + add-on + CSS Stitch); lỗi (vd. hai phía cùng sửa một khóa → fmt-stable báo trùng) → để người gỡ
+  stripGenerated('origin/main'); // PR không giữ bản sinh (gói dịch + extension/app): CI dựng lại, bot gen-sync commit sau gộp
   const rg = regen(git('diff', '--name-only', `origin/${br}`).split('\n').filter(Boolean).map(f => ({ f }))); // mọi tệp main mang vào, kể cả phần gộp sạch
   if (rg) { tryGit('merge', '--abort'); tryGit('reset', '-q', '--hard', `origin/${br}`); console.log(`#${p.number}: dựng lại lỗi (${rg}) – để phiên phụ trách`); return 'manual'; }
   if (!m.ok) git('commit', '-q', '--no-edit');
@@ -215,13 +228,12 @@ export function fix(p, dry) {
 /** Lệnh dựng lại sau khi gộp (thuần, để test): theo loại tệp đã gỡ. */
 export function regenCmds(steps) { // steps: [{ f }] tệp đổi so với nhánh PR
   const fs_ = steps.map(s => s.f), any = re => fs_.some(f => re.test(f)), cmds = [];
-  if (any(/^(i18n\/ui\/|web\/js\/i18n\/|web\/cpack\/lesson\/pn-|extension\/app\/)/) || fs_.some(f => REGISTRY_FILES.includes(f))) cmds.push(['node', 'scripts/fmt-stable.mjs'], ['node', 'scripts/i18n-pack.mjs']);
+  if (any(/^(i18n\/ui\/|web\/js\/i18n\/|web\/cpack\/lesson\/pn-|extension\/app\/)/) || fs_.some(f => REGISTRY_FILES.includes(f))) cmds.push(['node', 'scripts/fmt-stable.mjs']); // gói dịch + extension/app KHÔNG dựng/commit trong PR (scripts/lib/generated.mjs)
   for (const r of REGEN) if (any(r.re)) cmds.push(r.cmd);
   if (any(/^web\/css\/st-/) || fs_.includes('scripts/build-stitch-css.mjs')) cmds.push(['node', 'scripts/build-stitch-css.mjs']);
-  if (any(/^(extension\/app\/|web\/)/) || fs_.some(f => REGISTRY_FILES.includes(f)) || any(/^i18n\/ui\//)) cmds.push(['bash', 'scripts/build-extension.sh']);
   return cmds;
 }
-const REGEN_PATHS = ['docs/JOBS.md', 'infra/jobs.json', 'infra/lexicon-consumers.json', 'docs/DESIGN-SYSTEM.md', 'i18n/ui', 'web/js/i18n', 'web/cpack/lesson', 'web/css', 'extension/app', ...REGISTRY_FILES];
+const REGEN_PATHS = ['docs/JOBS.md', 'infra/jobs.json', 'infra/lexicon-consumers.json', 'docs/DESIGN-SYSTEM.md', 'i18n/ui', 'web/css', ...REGISTRY_FILES];
 export function regen(steps) {
   if (!steps.length) return '';
   for (const c of regenCmds(steps)) { try { execFileSync(c[0], c.slice(1), { stdio: ['ignore', 'ignore', 'pipe'], encoding: 'utf8' }); } catch (e) { return `${c.join(' ')}: ${String(e.stderr || e.message).trim().split('\n').pop()}`; } }
