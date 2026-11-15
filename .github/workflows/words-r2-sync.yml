@@ -7,7 +7,7 @@ on:
   schedule:
     - cron: '35 4 * * *'
   push:
-    branches: [main]
+    branches: [main, 'words-r2-**']   # nhánh PR bật ngôn ngữ mới: đẩy nhánh = đồng bộ R2 trước khi merge (workflow mới chưa dispatch được trước khi vào main)
     paths: ['content/dict/**', 'content/seo/**', 'content/confidence/**', 'web/packs/**', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-*.mjs', 'scripts/lib/site-layout.mjs', 'scripts/lib/word-depth.mjs', 'scripts/lib/words-r2.mjs', 'scripts/seo/words-r2-sync.mjs', '.github/workflows/words-r2-sync.yml']
 permissions:
   contents: read
