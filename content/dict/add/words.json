@@ -1,0 +1,551 @@
+{
+ "_note": "Bổ sung dữ liệu TRUNG TÍNH ngôn ngữ cho trang từ điển + trang /<lang>/words/ của các từ chưa đạt ngưỡng (collocation, đồng nghĩa, IPA Mỹ). Tự viết, không chép từ điển nào. Đọc bởi scripts/dict/build.mjs (loadSources). Chữ giải thích theo ngôn ngữ nằm ở en.json / vi.json cùng thư mục.",
+ "afraid": {
+  "ipaUS": "/əˈfreɪd/",
+  "col": [
+   "afraid of the dark",
+   "afraid to speak",
+   "afraid that it might rain",
+   "be afraid for someone",
+   "I'm afraid not"
+  ],
+  "syn": [
+   "scared",
+   "frightened"
+  ]
+ },
+ "alive": {
+  "col": [
+   "stay alive",
+   "still alive",
+   "alive and well",
+   "keep a tradition alive",
+   "come alive"
+  ]
+ },
+ "also": {
+  "col": [
+   "not only … but also",
+   "also known as",
+   "can also be",
+   "is also true",
+   "and also"
+  ]
+ },
+ "always": {
+  "col": [
+   "always on time",
+   "almost always",
+   "not always",
+   "as always",
+   "always been"
+  ]
+ },
+ "badly": {
+  "ipaUS": "/ˈbædli/",
+  "col": [
+   "badly hurt",
+   "badly needed",
+   "badly damaged",
+   "behave badly",
+   "badly wrong"
+  ]
+ },
+ "both": {
+  "col": [
+   "both of us",
+   "both … and …",
+   "both sides",
+   "both of them",
+   "both ways"
+  ]
+ },
+ "carefully": {
+  "col": [
+   "listen carefully",
+   "drive carefully",
+   "carefully chosen",
+   "think carefully",
+   "plan carefully"
+  ]
+ },
+ "certainly": {
+  "col": [
+   "certainly not",
+   "most certainly",
+   "will certainly",
+   "certainly possible",
+   "Certainly, sir"
+  ]
+ },
+ "clearly": {
+  "col": [
+   "clearly visible",
+   "speak clearly",
+   "clearly state",
+   "think clearly",
+   "quite clearly"
+  ]
+ },
+ "completely": {
+  "ipaUS": "/kəmˈpliːtli/",
+  "col": [
+   "completely different",
+   "completely agree",
+   "completely forgotten",
+   "completely free",
+   "not completely"
+  ]
+ },
+ "crazy": {
+  "ipaUS": "/ˈkreɪzi/",
+  "col": [
+   "go crazy",
+   "drive someone crazy",
+   "crazy about",
+   "crazy idea",
+   "crazy amount of"
+  ]
+ },
+ "daily": {
+  "ipaUS": "/ˈdeɪli/",
+  "col": [
+   "daily routine",
+   "daily newspaper",
+   "daily basis",
+   "daily life",
+   "twice daily"
+  ]
+ },
+ "deep": {
+  "ipaUS": "/diːp/",
+  "col": [
+   "deep breath",
+   "deep water",
+   "deep sleep",
+   "deep voice",
+   "deep in thought"
+  ],
+  "syn": [
+   "profound",
+   "bottomless"
+  ]
+ },
+ "definitely": {
+  "col": [
+   "definitely not",
+   "definitely worth",
+   "definitely going to",
+   "will definitely",
+   "Definitely!"
+  ]
+ },
+ "direct": {
+  "col": [
+   "direct flight",
+   "direct answer",
+   "direct contact",
+   "direct sunlight",
+   "direct someone to"
+  ]
+ },
+ "discover": {
+  "col": [
+   "discover a cure",
+   "discover the truth",
+   "discover by accident",
+   "discover that",
+   "newly discovered"
+  ]
+ },
+ "early": {
+  "col": [
+   "early morning",
+   "early in the day",
+   "too early",
+   "get up early",
+   "early stage"
+  ],
+  "syn": [
+   "premature",
+   "initial"
+  ]
+ },
+ "easily": {
+  "col": [
+   "easily done",
+   "easily understood",
+   "can easily",
+   "win easily",
+   "easily the best"
+  ]
+ },
+ "enjoy": {
+  "ipaUS": "/ɪnˈdʒɔɪ/",
+  "col": [
+   "enjoy doing",
+   "enjoy yourself",
+   "enjoy the view",
+   "enjoy a meal",
+   "Enjoy!"
+  ]
+ },
+ "even": {
+  "col": [
+   "even if",
+   "even though",
+   "even so",
+   "not even",
+   "even more"
+  ]
+ },
+ "ever": {
+  "col": [
+   "ever since",
+   "have you ever",
+   "the best ever",
+   "hardly ever",
+   "forever and ever"
+  ]
+ },
+ "except": {
+  "ipaUS": "/ɪkˈsɛpt/",
+  "col": [
+   "except for",
+   "except that",
+   "everyone except",
+   "nothing except",
+   "all except"
+  ],
+  "syn": [
+   "apart from",
+   "other than"
+  ]
+ },
+ "extremely": {
+  "col": [
+   "extremely important",
+   "extremely difficult",
+   "extremely happy",
+   "extremely rare",
+   "extremely cold"
+  ]
+ },
+ "fail": {
+  "ipaUS": "/feɪl/",
+  "col": [
+   "fail an exam",
+   "fail to",
+   "fail miserably",
+   "never fail to",
+   "without fail"
+  ]
+ },
+ "fair": {
+  "col": [
+   "fair price",
+   "fair play",
+   "fair enough",
+   "not fair",
+   "fair chance"
+  ]
+ },
+ "famous": {
+  "ipaUS": "/ˈfeɪməs/",
+  "col": [
+   "famous for",
+   "world famous",
+   "famous actor",
+   "famous last words",
+   "become famous"
+  ]
+ },
+ "fast": {
+  "col": [
+   "fast food",
+   "fast asleep",
+   "fast train",
+   "fast learner",
+   "fast-growing"
+  ],
+  "syn": [
+   "quick",
+   "rapid"
+  ]
+ },
+ "feel": {
+  "ipaUS": "/fiːl/",
+  "col": [
+   "feel like",
+   "feel better",
+   "feel free to",
+   "feel sorry for",
+   "feel at home"
+  ]
+ },
+ "finally": {
+  "col": [
+   "finally arrive",
+   "finally decided",
+   "finally got there",
+   "and finally",
+   "finally came to an end"
+  ]
+ },
+ "find": {
+  "ipaUS": "/faɪnd/",
+  "col": [
+   "find out",
+   "find a job",
+   "find it difficult",
+   "find the time",
+   "find fault with"
+  ]
+ },
+ "forget": {
+  "col": [
+   "forget to",
+   "forget about",
+   "never forget",
+   "forget it",
+   "forget your keys"
+  ]
+ },
+ "give": {
+  "ipaUS": "/ɡɪv/",
+  "col": [
+   "give advice",
+   "give a presentation",
+   "give someone a hand",
+   "give permission",
+   "give way"
+  ]
+ },
+ "high": {
+  "ipaUS": "/haɪ/",
+  "col": [
+   "high school",
+   "high speed",
+   "high price",
+   "high quality",
+   "high risk"
+  ],
+  "syn": [
+   "tall",
+   "elevated"
+  ]
+ },
+ "imagine": {
+  "col": [
+   "imagine doing",
+   "imagine that",
+   "just imagine",
+   "hard to imagine",
+   "imagine a world"
+  ]
+ },
+ "impossible": {
+  "col": [
+   "almost impossible",
+   "virtually impossible",
+   "impossible to",
+   "mission impossible",
+   "make it impossible"
+  ]
+ },
+ "increase": {
+  "ipaUS": "/ɪnˈkriːs/",
+  "col": [
+   "increase in",
+   "increase by",
+   "increase rapidly",
+   "price increase",
+   "on the increase"
+  ],
+  "syn": [
+   "rise",
+   "grow"
+  ]
+ },
+ "instead": {
+  "ipaUS": "/ɪnˈstɛd/",
+  "col": [
+   "instead of",
+   "do this instead",
+   "go instead",
+   "use X instead of Y",
+   "instead of doing"
+  ]
+ },
+ "invent": {
+  "ipaUS": "/ɪnˈvɛnt/",
+  "col": [
+   "invent a machine",
+   "invent a story",
+   "invent an excuse",
+   "invent a new way",
+   "was invented in"
+  ]
+ },
+ "invite": {
+  "ipaUS": "/ɪnˈvaɪt/",
+  "col": [
+   "invite someone to",
+   "invite someone for dinner",
+   "invite guests",
+   "invite trouble",
+   "invite comments"
+  ]
+ },
+ "joke": {
+  "col": [
+   "tell a joke",
+   "make a joke",
+   "crack a joke",
+   "play a joke on",
+   "no joke"
+  ]
+ },
+ "just": {
+  "ipaUS": "/dʒʌst/",
+  "col": [
+   "just in time",
+   "just now",
+   "just like",
+   "just a moment",
+   "just as"
+  ]
+ },
+ "kind": {
+  "ipaUS": "/kaɪnd/",
+  "col": [
+   "kind of",
+   "a kind person",
+   "all kinds of",
+   "kind to",
+   "kind regards"
+  ]
+ },
+ "loud": {
+  "ipaUS": "/laʊd/",
+  "col": [
+   "loud noise",
+   "out loud",
+   "loud and clear",
+   "loud music",
+   "too loud"
+  ]
+ },
+ "manage": {
+  "col": [
+   "manage to",
+   "manage a team",
+   "manage time",
+   "manage money",
+   "manage without"
+  ]
+ },
+ "marry": {
+  "col": [
+   "marry someone",
+   "get married to",
+   "marry young",
+   "marry for money",
+   "will you marry me"
+  ]
+ },
+ "mostly": {
+  "col": [
+   "mostly because",
+   "mostly harmless",
+   "mostly true",
+   "mostly in the evening",
+   "mostly done"
+  ]
+ },
+ "near": {
+  "col": [
+   "near the station",
+   "in the near future",
+   "nowhere near",
+   "near here",
+   "near the end"
+  ],
+  "syn": [
+   "close",
+   "nearby"
+  ]
+ },
+ "nearly": {
+  "col": [
+   "nearly always",
+   "nearly every day",
+   "nearly there",
+   "nearly missed",
+   "not nearly"
+  ]
+ },
+ "neither": {
+  "col": [
+   "neither … nor …",
+   "neither of them",
+   "neither do I",
+   "neither side",
+   "me neither"
+  ]
+ },
+ "never": {
+  "col": [
+   "never mind",
+   "never again",
+   "never ever",
+   "never before",
+   "almost never"
+  ]
+ },
+ "normally": {
+  "col": [
+   "act normally",
+   "breathe normally",
+   "work normally",
+   "normally closed",
+   "not normally"
+  ]
+ },
+ "notice": {
+  "col": [
+   "notice a change",
+   "notice that",
+   "take notice of",
+   "short notice",
+   "until further notice"
+  ]
+ },
+ "offer": {
+  "col": [
+   "offer help",
+   "job offer",
+   "special offer",
+   "offer to",
+   "on offer"
+  ]
+ },
+ "often": {
+  "col": [
+   "how often",
+   "very often",
+   "more often than not",
+   "not often",
+   "so often"
+  ]
+ },
+ "only": {
+  "col": [
+   "only child",
+   "the only one",
+   "not only … but also",
+   "only just",
+   "if only"
+  ]
+ }
+}
