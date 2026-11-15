@@ -76,7 +76,7 @@
   pop.className = 'sel-pop card'; pop.hidden = true;
   document.body.appendChild(pop);
   let selInfo = null, popSeq = 0;
-  // Khung tạm (skeleton) thay đồng hồ cát: người đọc thấy ngay chỗ bản dịch sẽ hiện, trình đọc màn hình nghe "Đang dịch…"
+  // Khung tạm thay đồng hồ cát; trình đọc màn hình nghe "Đang dịch…"
   const skel = () => `<span role="status" aria-label="${esc(t('Đang dịch…'))}" style="display:block"><span class="skel skel-l" style="display:block;height:.85rem;margin:.2rem 0 .4rem"></span><span class="skel skel-l" style="display:block;height:.85rem;width:62%"></span></span>`;
   // Khung nghĩa khi bấm vào cụm từ/từ nối trong bài mẫu: nghĩa + nghe + lưu (điền sẵn) – không mở form trống
   function phrasePop(el, info) {
@@ -92,9 +92,7 @@
   }
   App.phrasePop = phrasePop; // dùng chung: chip cụm từ trên thẻ từ (app.js) – tra nghĩa tại chỗ, không rời phiên học
   const NO_LOOKUP = 'input, textarea, select, .cbt, .mk-read, .mk-write, .mk-qs, .sel-pop, .sel-bar, .pop';
-  // Đặt bảng cạnh vùng chọn mà KHÔNG che chữ: ưu tiên phía DƯỚI vùng chọn (phần phía trên – định nghĩa, dòng đang đọc – luôn thấy; ảnh chủ 01/11:
-  // bảng "Đang dịch" đè mất ĐỊNH NGHĨA), thiếu chỗ → lật lên trên; cả hai thiếu → bên rộng hơn và thu chiều cao (cuộn trong bảng) để không bao giờ đè lên câu đang chọn.
-  // Bảng lớn lên khi có bản dịch → gọi lại place() để lật/thu đúng. Không bao giờ tràn ngang (khổ 390 px: lề 8 px mỗi bên).
+  // Bảng đặt DƯỚI vùng chọn (không che định nghĩa phía trên; thiếu chỗ → lật lên, rồi thu chiều cao), không tràn ngang ở 390 px; gọi lại khi bảng lớn lên.
   const place = (el, r, gap = 8) => {
     const M = 8, vw = document.documentElement.clientWidth || innerWidth, vh = innerHeight;
     el.style.maxHeight = ''; el.style.maxWidth = `calc(100vw - ${2 * M}px)`;
@@ -108,13 +106,11 @@
     el.style.top = Math.max(M, top) + 'px';
   };
   App.placeNear = place;
-  // MỘT đường dịch câu cho mọi điểm dịch (js/tr-fast.js, tải lười): kho dịch sẵn trên CI → bộ đệm IndexedDB → các nguồn mạng chạy SONG SONG.
-  // Không bao giờ treo: tr() trả trong ngân sách (2,5 s) – hết giờ → { text: '', late } để bảng hiện nghĩa từng từ + "Thử lại" và tự thay khi bản dịch đến muộn.
+  // MỘT đường dịch câu (js/tr-fast.js, tải lười): kho dịch sẵn → IndexedDB → mạng song song. Quá 2,5 s → { text:'', late }: hiện nghĩa từng từ + Thử lại, bản muộn tự thay.
   const sleep = ms => new Promise(r => setTimeout(r, ms));
   const timed = (p, ms) => Promise.race([Promise.resolve(p), sleep(ms).then(() => { throw new Error('timeout'); })]);
   let trP = null, trCtrl = new AbortController();
-  // Nạp lười 1 tệp script (mỗi tệp 1 lần, lỗi → thử lại lần sau). Không dùng App.need('struct'): mục 'struct' trong bảng gói của app.js
-  // nằm lẫn trong dòng chú thích → App.need ném lỗi đồng bộ → bảng "Dịch" kẹt mãi ở trạng thái chờ (lỗi gốc chủ báo 01/11).
+  // Nạp lười 1 script (1 lần/tệp, lỗi → thử lại sau). Không dùng App.need('struct'): mục đó nằm trong dòng chú thích của app.js → ném lỗi, bảng kẹt chờ.
   const JS = {};
   const loadJs = (src, ok) => (ok() ? Promise.resolve(true) : JS[src] || (JS[src] = new Promise(res => {
     const sc = document.createElement('script'); sc.src = src; sc.async = true;
@@ -126,17 +122,17 @@
   async function trFast(text, L = I18N.learnLang(), o = {}) {
     const F = await timed(trLib(), 1500).catch(() => null);
     if (F) return F.get(text, L, { budget: App.trBudgetMs || 2500, ...o });
-    const v = await timed((L === 'vi' ? Dict.translateVi(text, o) : Dict.translateTo(text, L, 'en', o)), App.trBudgetMs || 2500).catch(() => ''); // tr-fast.js không nạp được (mất mạng lần đầu)
+    const v = await timed(Dict.translateTo(text, L, 'en', o), App.trBudgetMs || 2500).catch(() => ''); // tr-fast.js không nạp được (mất mạng lần đầu)
     return { text: String(v || '').trim(), src: v ? 'net' : 'timeout' };
   }
-  // Bản chỉ cần chuỗi cuối (lưu ngữ cảnh, phrasePop): chờ cả bản đến muộn, tối đa ~12 s, rồi '' – không bao giờ treo
+  // Chỉ cần chuỗi cuối: chờ cả bản đến muộn (≤ ~12 s), rồi ''
   async function translateSafe(text, L = I18N.learnLang(), o = {}) {
     const r = await trFast(text, L, o);
     return r.text || (r.late ? await timed(r.late, 10000).catch(() => '') : '') || '';
   }
   App.translateSafe = translateSafe;
   App.trFast = trFast;
-  // Dự phòng khi cả câu không dịch được: nghĩa từng từ có sẵn trên máy (thư viện từ), không cần mạng
+  // Dự phòng: nghĩa từng từ có sẵn trên máy, không cần mạng
   const STOPW = new Set('the a an and or but of to in on at for with by from as is are was were be been it its this that i me my you your he she his her we our they them not no do does did have has had can will would so hi'.split(' '));
   function wordGloss(text) {
     const lem = w0 => (App.lemma && App.lemma(w0)) || w0, IX = (window.IELTS_DATA && IELTS_DATA.INDEX) || {};
@@ -145,7 +141,7 @@
     for (const w0 of ws) { const loc = IX[lem(w0)] || IX[w0]; const vi = loc && (App.meanOf ? App.meanOf(loc) : loc.vi); if (vi) out.push({ w: loc.word || w0, vi }); if (out.length >= 8) break; }
     return out;
   }
-  // Khối kết quả dịch: bản dịch · đang dịch (khung tạm + nghĩa từng từ làm bản tạm) · hoặc nghĩa từng từ + Thử lại · hoặc lỗi rõ ràng + Thử lại
+  // Khối kết quả dịch: bản dịch · đang dịch · nghĩa từng từ + Thử lại · lỗi + Thử lại
   const glossHtml = g0 => g0.map(x => `<div class="small"><b lang="en">${esc(x.w)}</b> – ${esc(x.vi)}</div>`).join('');
   const trHtml = (vi, text, busy) => {
     if (vi) return `<div data-tr style="margin:.4rem 0;line-height:1.6">${esc(vi)}</div>`;
@@ -204,7 +200,7 @@
     $('[data-x]', pop).onclick = closePop;
     if (k === 'tr') {
       const L = I18N.learnLang();
-      // Cấu trúc trong đoạn (structures.js, tải lười) KHÔNG chặn bản dịch: nạp song song, có thì chèn vào sau
+      // structures.js tải lười, không chặn bản dịch
       const stP = loadJs('js/structures.js', () => window.VBStruct);
       const r0 = await trFast(info.text, L, { signal: sig });
       if (stale()) return;
@@ -215,7 +211,7 @@
         <div data-st>${stHtml()}</div>
         <div data-aiout></div>
         <div class="row" style="margin-top:.5rem"><button class="btn sm" data-sp>🔊 ${t('Nghe')}</button><button class="btn sm" data-sps>🐢</button><button class="btn sm primary" data-deep>🤖 ${t('Giải thích sâu')}</button></div>`;
-      // Chỉ thay phần bản dịch, giữ nguyên phần còn lại của bảng; bản dịch đến muộn (sau ngân sách) tự thay nghĩa từng từ
+      // chỉ thay phần bản dịch; bản đến muộn tự thay nghĩa từng từ
       const paintTr = (v, busy) => { const box0 = $('[data-tr]', pop); if (!box0) return; box0.outerHTML = trHtml(v, info.text, busy); const r2 = $('[data-retry]', pop); if (r2) r2.onclick = retry; place(pop, info.rect); };
       const lateFill = r => r.late && r.late.then(v => { if (v && !stale()) paintTr(v); });
       const retry = async ev => {
@@ -228,39 +224,10 @@
       if (!window.VBStruct) stP.then(() => { const box = $('[data-st]', pop); if (box && !stale() && window.VBStruct) { box.innerHTML = stHtml(); place(pop, info.rect); } });
       $('[data-sp]', pop).onclick = () => UI.tts(info.text, state.settings.accent);
       $('[data-sps]', pop).onclick = () => UI.tts(info.text, state.settings.accent, 0.65);
-      $('[data-deep]', pop).onclick = async ev => {
-        const out = $('[data-aiout]', pop), btn = ev.currentTarget; btn.disabled = true;
-        // 1) Phân tích từ vựng tức thì, miễn phí (từ điển sẵn có) – luôn có kết quả, không phụ thuộc AI
-        const STOP = new Set('the a an and or but of to in on at for with by from as is are was were be been being it its this that these those which who whom whose what when where why how than then there their they them we our you your he she his her i me my not no do does did have has had can could will would should may might must shall also very more most such into over under about after before between through during without within upon'.split(' '));
-        const ws = [...new Set((info.text.match(/[A-Za-z][A-Za-z'-]{3,}/g) || []).map(x => x.toLowerCase()).filter(x => !STOP.has(x)))].slice(0, 8);
-        out.innerHTML = `<div class="small muted">${UI.icon('hourglass')} ${t('Đang phân tích từ vựng…')}</div>`;
-        // Nhanh & tiết kiệm: từ có trong thư viện → lấy ngay trên máy; từ còn lại → 1 lượt dịch gộp duy nhất (không gọi từng từ)
-        const lem = w0 => (App.lemma && App.lemma(w0)) || w0;
-        const local = ws.map(w0 => IELTS_DATA.INDEX[lem(w0)] || IELTS_DATA.INDEX[w0] || null);
-        const miss = ws.filter((w0, i) => !local[i]);
-        const tr = miss.length ? (await (L === 'vi' ? Dict.translateVi(miss.map(lem).join('\n')) : Dict.translateTo(miss.map(lem).join('\n'), L)).catch(() => '')).split('\n') : [];
-        const looks = ws.map((w0, i) => { const loc = local[i]; if (loc) return { w: loc.word, vi: App.meanOf ? App.meanOf(loc) : loc.vi, ipa: loc.ipa || '', pos: loc.pos || '' }; const k = miss.indexOf(w0), vi = (tr[k] || '').trim(); return vi && vi.toLowerCase() !== lem(w0) ? { w: lem(w0), vi: L === 'vi' ? Dict.fixVi(vi) : vi, ipa: '', pos: '' } : null; });
-        const vocab = looks.filter(Boolean);
-        out.innerHTML = `${vocab.length ? `<div class="st-box"><b class="small">${UI.icon('library')} ${t('Từ vựng quan trọng')}</b>${vocab.map(v => `<div class="st-row"><b>${esc(v.w)}</b> <span class="muted small">${esc(v.ipa)} ${esc(v.pos)}</span><div class="small">${esc(v.vi)}</div></div>`).join('')}</div>` : ''}<div data-ai2></div>`;
-        place(pop, info.rect);
-        // 2) Giải thích sâu bằng AI miễn phí (không đòi khóa); mất mạng → báo rõ + đề nghị tải AI của Chrome
-        const box = $('[data-ai2]', out);
-        const run = async () => {
-          box.innerHTML = `<div class="small muted">${UI.icon('hourglass')} ${t('AI đang phân tích…')}</div>`;
-          try { box.innerHTML = AI.renderExplain(await AI.explain(info.text, info.sentence)); } catch (e) { box.innerHTML = `<div class="small">⚠️ ${esc(AI.errText(e))}</div>`; }
-          place(pop, info.rect);
-        };
-        if (!window.AI) { btn.disabled = false; return; }
-        const key = await AI.getKey(), st = key ? 'key' : await AI.nanoStatus();
-        if (key || st === 'available' || navigator.onLine !== false) await run();
-        else box.innerHTML = `<div class="tip small" style="margin-top:.5rem">${t('AI không dùng được khi ngoại tuyến – kết nối mạng rồi thử lại.')}
-          ${st === 'downloadable' || st === 'downloading' ? `<div class="row" style="gap:.4rem;margin-top:.4rem"><button class="btn sm" data-dl>⬇️ ${t('Tải AI của Chrome (~2GB, 1 lần)')}</button></div>` : ''}</div>`;
-        const dl = $('[data-dl]', box); if (dl) dl.onclick = () => { dl.disabled = true; AI.onNanoProgress && AI.onNanoProgress(p => { dl.textContent = `⬇️ ${Math.round(p * 100)}%`; }); run(); };
-        btn.disabled = false;
-      };
+      $('[data-deep]', pop).onclick = async ev => { const btn = ev.currentTarget; btn.disabled = true; const ok = await loadJs('js/phrases-deep.js', () => window.PhDeep); btn.disabled = false; if (ok) PhDeep(btn, { pop, info, L, place }); };
     } else {
       const w = info.text.toLowerCase();
-      // Kho trên máy (quick) và tra mạng chạy song song – trước đây nối tiếp 8 s + 15 s; không thấy → dịch nhanh (cùng đường TrFast)
+      // quick (trên máy) ∥ lookup (mạng), không nối tiếp; không thấy → dịch nhanh (TrFast)
       const L = I18N.learnLang(), full = timed(Dict.lookup(w, { examples: false, image: false }), 6000).catch(() => null);
       const q = await timed(Dict.quick(w), 2500).catch(() => null);
       const d = q && q.found ? q : (await full) || q;
