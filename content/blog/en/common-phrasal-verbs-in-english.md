@@ -126,3 +126,6 @@ To integrate multi-word expressions into your spontaneous productive vocabulary,
 {{youtube: | Mastering English phrasal verbs through particle logic and spoken dialogues}}
 
 {{cta: /#/practice/learn | Start learning high-frequency phrasal verbs with Smart Learn}}
+
+If you need them for your job, our list of [phrasal verbs for work](/en/blog/phrasal-verbs-for-work-meanings/) groups 30 verbs by meetings, deadlines, teamwork and email.
+

@@ -129,3 +129,6 @@ Address the interruption calmly without showing irritation: *"Thank you, Tom. If
 
 ### Should I use informal idioms during cross-border business meetings?
 Avoid culturally localized idioms or slang whenever possible. International teams communicate most effectively through precise, universally understood phrasing. Prioritize clarity, concise sentences, and diplomatic tone over colloquial metaphors.
+
+Many meeting phrases rely on phrasal verbs such as *bring up* and *wrap up*; see [phrasal verbs for work](/en/blog/phrasal-verbs-for-work-meanings/) for meanings and examples.
+
