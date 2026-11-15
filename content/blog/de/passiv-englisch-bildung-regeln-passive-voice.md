@@ -52,7 +52,7 @@ quiz: [
 ]
 ---
 
-Das Passiv (*Passive Voice*) ist eines der elegantesten und wirkungsvollsten Stilmittel der englischen Sprache. Während im informellen Alltagsenglisch meist das Aktiv (*Active Voice*) bevorzugt wird, fordern wissenschaftliche Abhandlungen, Geschäftsberichte und internationale Sprachzertifikate wie IELTS, TOEFL und Cambridge C1 den gezielten Einsatz des Passivs. Wer die wichtigsten **passiv englisch regeln** beherrscht, verleiht seinen Texten die geforderte Objektivität und Sachlichkeit.
+Das Passiv (*Passive Voice*) ist eines der elegantesten und wirkungsvollsten Stilmittel der englischen Sprache. Während im informellen Alltagsenglisch meist das Aktiv (*Active Voice*) bevorzugt wird, fordern wissenschaftliche Abhandlungen, Geschäftsberichte und internationale Sprachzertifikate wie IELTS, TOEFL und Cambridge C1 den gezielten Einsatz des Passivs. Wer die wichtigsten **passiv englisch regeln** beherrscht, verleiht seinen Texten die geforderte Objektivität und Sachlichkeit. Eine typische Prüfungsanwendung des Passivs ist die Beschreibung von Abläufen, etwa im [IELTS Process Diagramm](/de/blog/ielts-process-diagramm-beschreiben/).
 
 Viele Lernende empfinden das englische Passiv anfangs als kompliziert, weil im Deutschen häufig die Hilfsverben „werden“ oder unpersönliche Konstruktionen mit „man“ verwendet werden. Im Englischen ist das System jedoch erfreulich klar und modular aufgebaut: Eine Form des Hilfsverbs *to be* kombiniert mit dem Partizip der Vergangenheit (*Past Participle*). Wer Passivsätze mit *must, can* oder *should* bildet, sollte zuerst die [Modalverben im Englischen](/de/blog/modalverben-englisch-can-could-should-must/) sicher beherrschen.
 
