@@ -1,0 +1,852 @@
+{
+ "nonetheless": {
+  "ipaUS": "/ˌnʌnðəˈles/",
+  "col": [
+   "nonetheless, it is",
+   "but nonetheless",
+   "important nonetheless",
+   "nevertheless and nonetheless",
+   "remains nonetheless",
+   "nonetheless true"
+  ],
+  "syn": [
+   "nevertheless",
+   "even so",
+   "all the same",
+   "however"
+  ]
+ },
+ "precipitate": {
+  "ipaUS": "/prɪˈsɪpɪteɪt/",
+  "col": [
+   "precipitate a crisis",
+   "precipitate a decline",
+   "precipitate a change",
+   "precipitate an attack",
+   "precipitate the collapse of",
+   "precipitate a reaction"
+  ],
+  "syn": [
+   "trigger",
+   "bring about",
+   "spark",
+   "provoke"
+  ]
+ },
+ "respectively": {
+  "ipaUS": "/rɪˈspektɪvli/",
+  "col": [
+   "respectively, in that order",
+   "and … respectively",
+   "scored 3 and 5 respectively",
+   "aged 10 and 12 respectively",
+   "at … and … respectively",
+   "are, respectively,"
+  ],
+  "syn": [
+   "in that order",
+   "each in turn",
+   "separately",
+   "correspondingly"
+  ]
+ },
+ "thus": {
+  "ipaUS": "/ðʌs/",
+  "col": [
+   "and thus",
+   "thus far",
+   "thus, we can see",
+   "thus reducing",
+   "thus allowing",
+   "thus making it"
+  ],
+  "syn": [
+   "therefore",
+   "hence",
+   "consequently",
+   "so"
+  ]
+ },
+ "ubiquitous": {
+  "ipaUS": "/juˈbɪkwɪtəs/",
+  "col": [
+   "ubiquitous presence",
+   "become ubiquitous",
+   "virtually ubiquitous",
+   "ubiquitous in modern life",
+   "ubiquitous smartphones",
+   "ubiquitous technology"
+  ],
+  "syn": [
+   "omnipresent",
+   "everywhere",
+   "universal",
+   "pervasive"
+  ]
+ },
+ "whilst": {
+  "ipaUS": "/waɪlst/",
+  "col": [
+   "whilst on holiday",
+   "whilst working",
+   "whilst others argue",
+   "whilst it is true that",
+   "whilst I agree",
+   "whilst in the UK"
+  ],
+  "syn": [
+   "while",
+   "whereas",
+   "although",
+   "at the same time as"
+  ]
+ },
+ "absorb": {
+  "ipaUS": "/əbˈzɔːrb/",
+  "col": [
+   "absorb information",
+   "absorb costs",
+   "absorb water",
+   "absorb the shock",
+   "absorb a loss",
+   "absorbed in a book"
+  ],
+  "syn": [
+   "soak up",
+   "take in",
+   "assimilate",
+   "digest"
+  ]
+ },
+ "acceptance": {
+  "ipaUS": "/əkˈseptəns/",
+  "col": [
+   "letter of acceptance",
+   "gain acceptance",
+   "acceptance speech",
+   "widespread acceptance",
+   "acceptance of the offer",
+   "acceptance rate"
+  ],
+  "syn": [
+   "approval",
+   "agreement",
+   "admission",
+   "consent"
+  ]
+ },
+ "accessory": {
+  "ipaUS": "/ækˈsesəri/",
+  "col": [
+   "fashion accessory",
+   "phone accessories",
+   "car accessory",
+   "accessory to a crime",
+   "accessories store",
+   "optional accessories"
+  ],
+  "syn": [
+   "add-on",
+   "extra",
+   "attachment",
+   "fitting"
+  ]
+ },
+ "accomplishment": {
+  "ipaUS": "/əˈkɑːmplɪʃmənt/",
+  "col": [
+   "major accomplishment",
+   "sense of accomplishment",
+   "impressive accomplishment",
+   "career accomplishments",
+   "accomplishment of the goal",
+   "list accomplishments"
+  ],
+  "syn": [
+   "achievement",
+   "success",
+   "feat",
+   "attainment"
+  ]
+ },
+ "accuracy": {
+  "ipaUS": "/ˈækjərəsi/",
+  "col": [
+   "high accuracy",
+   "with accuracy",
+   "accuracy of the data",
+   "check the accuracy",
+   "pinpoint accuracy",
+   "improve accuracy"
+  ],
+  "syn": [
+   "precision",
+   "correctness",
+   "exactness",
+   "reliability"
+  ]
+ },
+ "accurately": {
+  "ipaUS": "/ˈækjərətli/",
+  "col": [
+   "describe accurately",
+   "accurately predict",
+   "accurately reflect",
+   "record accurately",
+   "measure accurately",
+   "accurately reported"
+  ],
+  "syn": [
+   "precisely",
+   "correctly",
+   "exactly",
+   "faithfully"
+  ]
+ },
+ "activate": {
+  "ipaUS": "/ˈæktɪveɪt/",
+  "col": [
+   "activate an account",
+   "activate a card",
+   "activate a feature",
+   "activate the alarm",
+   "activate your phone",
+   "automatically activated"
+  ],
+  "syn": [
+   "switch on",
+   "enable",
+   "trigger",
+   "start"
+  ]
+ },
+ "additionally": {
+  "ipaUS": "/əˈdɪʃənəli/",
+  "col": [
+   "additionally, we",
+   "and additionally",
+   "additionally required",
+   "additionally, the",
+   "additionally charged",
+   "additionally important"
+  ],
+  "syn": [
+   "also",
+   "in addition",
+   "moreover",
+   "furthermore"
+  ]
+ },
+ "adhere": {
+  "ipaUS": "/ədˈhɪr/",
+  "col": [
+   "adhere to rules",
+   "strictly adhere",
+   "adhere to the plan",
+   "adhere to a policy",
+   "adhere to the surface",
+   "adhere closely"
+  ],
+  "syn": [
+   "stick",
+   "follow",
+   "abide by",
+   "comply with"
+  ]
+ },
+ "administer": {
+  "ipaUS": "/ədˈmɪnɪstər/",
+  "col": [
+   "administer a program",
+   "administer a test",
+   "administer medicine",
+   "administer justice",
+   "administer a fund",
+   "administered by"
+  ],
+  "syn": [
+   "manage",
+   "run",
+   "give out",
+   "oversee"
+  ]
+ },
+ "administrative": {
+  "ipaUS": "/ədˈmɪnɪstreɪtɪv/",
+  "col": [
+   "administrative staff",
+   "administrative assistant",
+   "administrative costs",
+   "administrative work",
+   "administrative support",
+   "administrative error"
+  ],
+  "syn": [
+   "managerial",
+   "clerical",
+   "bureaucratic",
+   "executive"
+  ]
+ },
+ "advancement": {
+  "ipaUS": "/ədˈvænsmənt/",
+  "col": [
+   "career advancement",
+   "opportunities for advancement",
+   "technological advancement",
+   "scientific advancement",
+   "advancement of knowledge",
+   "chances of advancement"
+  ],
+  "syn": [
+   "progress",
+   "promotion",
+   "development",
+   "improvement"
+  ]
+ },
+ "advisable": {
+  "ipaUS": "/ədˈvaɪzəbl/",
+  "col": [
+   "it is advisable to",
+   "highly advisable",
+   "not advisable",
+   "strongly advisable",
+   "advisable to check",
+   "advisable course of action"
+  ],
+  "syn": [
+   "recommended",
+   "sensible",
+   "wise",
+   "prudent"
+  ]
+ },
+ "advisor": {
+  "ipaUS": "/ədˈvaɪzər/",
+  "col": [
+   "financial advisor",
+   "academic advisor",
+   "legal advisor",
+   "advisor to the president",
+   "hire an advisor",
+   "career advisor"
+  ],
+  "syn": [
+   "counselor",
+   "consultant",
+   "mentor",
+   "guide"
+  ]
+ },
+ "advisory": {
+  "ipaUS": "/ədˈvaɪzəri/",
+  "col": [
+   "advisory board",
+   "advisory committee",
+   "travel advisory",
+   "advisory role",
+   "weather advisory",
+   "advisory service"
+  ],
+  "syn": [
+   "consultative",
+   "recommending",
+   "counseling",
+   "guiding"
+  ]
+ },
+ "affirmative": {
+  "ipaUS": "/əˈfɜːrmətɪv/",
+  "col": [
+   "affirmative answer",
+   "in the affirmative",
+   "affirmative action",
+   "affirmative response",
+   "affirmative vote",
+   "answer in the affirmative"
+  ],
+  "syn": [
+   "positive",
+   "yes",
+   "favorable",
+   "agreeing"
+  ]
+ },
+ "airfare": {
+  "ipaUS": "/ˈerfer/",
+  "col": [
+   "round-trip airfare",
+   "cheap airfare",
+   "airfare to",
+   "airfare and hotel",
+   "one-way airfare",
+   "airfare deals"
+  ],
+  "syn": [
+   "plane ticket",
+   "flight cost",
+   "ticket price",
+   "fare"
+  ]
+ },
+ "alert": {
+  "ipaUS": "/əˈlɜːrt/",
+  "col": [
+   "email alert",
+   "stay alert",
+   "alert level",
+   "send an alert",
+   "fully alert",
+   "alert someone to"
+  ],
+  "syn": [
+   "warning",
+   "notification",
+   "wide awake",
+   "vigilant"
+  ]
+ },
+ "alternate": {
+  "ipaUS": "/ˈɔːltərnət/",
+  "col": [
+   "alternate days",
+   "alternate route",
+   "alternate between",
+   "alternate weeks",
+   "alternate plan",
+   "alternate Fridays"
+  ],
+  "syn": [
+   "every other",
+   "substitute",
+   "backup",
+   "rotate"
+  ]
+ },
+ "alternatively": {
+  "ipaUS": "/ɔːlˈtɜːrnətɪvli/",
+  "col": [
+   "or alternatively",
+   "alternatively, you can",
+   "alternatively, we could",
+   "alternatively, call us",
+   "alternatively, use",
+   "alternatively, try"
+  ],
+  "syn": [
+   "or else",
+   "otherwise",
+   "instead",
+   "on the other hand"
+  ]
+ },
+ "ambassador": {
+  "ipaUS": "/æmˈbæsədər/",
+  "col": [
+   "brand ambassador",
+   "goodwill ambassador",
+   "ambassador to",
+   "ambassador of peace",
+   "appoint an ambassador",
+   "US ambassador"
+  ],
+  "syn": [
+   "envoy",
+   "representative",
+   "emissary",
+   "diplomat"
+  ]
+ },
+ "anew": {
+  "ipaUS": "/əˈnuː/",
+  "col": [
+   "start anew",
+   "begin anew",
+   "build anew",
+   "look at anew",
+   "create anew",
+   "try anew"
+  ],
+  "syn": [
+   "afresh",
+   "again",
+   "over again",
+   "from scratch"
+  ]
+ },
+ "anniversary": {
+  "ipaUS": "/ˌænɪˈvɜːrsəri/",
+  "col": [
+   "wedding anniversary",
+   "tenth anniversary",
+   "anniversary party",
+   "celebrate an anniversary",
+   "anniversary of the event",
+   "anniversary sale"
+  ],
+  "syn": [
+   "jubilee",
+   "commemoration",
+   "yearly celebration",
+   "milestone"
+  ]
+ },
+ "annually": {
+  "ipaUS": "/ˈænjuəli/",
+  "col": [
+   "held annually",
+   "reviewed annually",
+   "paid annually",
+   "increase annually",
+   "renewed annually",
+   "twice annually"
+  ],
+  "syn": [
+   "yearly",
+   "once a year",
+   "every year",
+   "per annum"
+  ]
+ },
+ "apology": {
+  "ipaUS": "/əˈpɑːlədʒi/",
+  "col": [
+   "offer an apology",
+   "sincere apology",
+   "make an apology",
+   "public apology",
+   "accept an apology",
+   "apology for the delay"
+  ],
+  "syn": [
+   "regret",
+   "expression of sorrow",
+   "statement of regret",
+   "excuse"
+  ]
+ },
+ "applicable": {
+  "ipaUS": "/əˈplɪkəbl/",
+  "col": [
+   "where applicable",
+   "applicable to",
+   "if applicable",
+   "legally applicable",
+   "not applicable",
+   "applicable rules"
+  ],
+  "syn": [
+   "relevant",
+   "appropriate",
+   "suitable",
+   "pertinent"
+  ]
+ },
+ "appraisal": {
+  "ipaUS": "/əˈpreɪzl/",
+  "col": [
+   "performance appraisal",
+   "property appraisal",
+   "annual appraisal",
+   "appraisal of the situation",
+   "job appraisal",
+   "independent appraisal"
+  ],
+  "syn": [
+   "assessment",
+   "evaluation",
+   "review",
+   "valuation"
+  ]
+ },
+ "appreciation": {
+  "ipaUS": "/əˌpriːʃiˈeɪʃn/",
+  "col": [
+   "show appreciation",
+   "in appreciation of",
+   "express appreciation",
+   "deep appreciation",
+   "appreciation for",
+   "appreciation of art"
+  ],
+  "syn": [
+   "gratitude",
+   "thanks",
+   "understanding",
+   "recognition"
+  ]
+ },
+ "apprentice": {
+  "ipaUS": "/əˈprentɪs/",
+  "col": [
+   "apprentice electrician",
+   "hire an apprentice",
+   "apprentice chef",
+   "serve as an apprentice",
+   "apprentice to",
+   "apprentice plumber"
+  ],
+  "syn": [
+   "trainee",
+   "learner",
+   "novice",
+   "beginner"
+  ]
+ },
+ "archive": {
+  "ipaUS": "/ˈɑːrkaɪv/",
+  "col": [
+   "company archive",
+   "digital archive",
+   "archive a file",
+   "archive footage",
+   "national archives",
+   "search the archive"
+  ],
+  "syn": [
+   "records",
+   "repository",
+   "collection",
+   "library"
+  ]
+ },
+ "assembly": {
+  "ipaUS": "/əˈsembli/",
+  "col": [
+   "assembly line",
+   "general assembly",
+   "assembly hall",
+   "assembly instructions",
+   "school assembly",
+   "legislative assembly"
+  ],
+  "syn": [
+   "gathering",
+   "construction",
+   "meeting",
+   "congregation"
+  ]
+ },
+ "attendee": {
+  "ipaUS": "/ˌætenˈdiː/",
+  "col": [
+   "conference attendee",
+   "list of attendees",
+   "event attendee",
+   "registered attendee",
+   "attendee badge",
+   "number of attendees"
+  ],
+  "syn": [
+   "participant",
+   "guest",
+   "delegate",
+   "visitor"
+  ]
+ },
+ "attire": {
+  "ipaUS": "/əˈtaɪər/",
+  "col": [
+   "business attire",
+   "formal attire",
+   "casual attire",
+   "appropriate attire",
+   "evening attire",
+   "dressed in attire"
+  ],
+  "syn": [
+   "clothing",
+   "dress",
+   "outfit",
+   "garments"
+  ]
+ },
+ "attorney": {
+  "ipaUS": "/əˈtɜːrni/",
+  "col": [
+   "hire an attorney",
+   "defense attorney",
+   "district attorney",
+   "attorney general",
+   "power of attorney",
+   "personal injury attorney"
+  ],
+  "syn": [
+   "lawyer",
+   "counsel",
+   "solicitor",
+   "barrister"
+  ]
+ },
+ "auction": {
+  "ipaUS": "/ˈɔːkʃn/",
+  "col": [
+   "sell at auction",
+   "online auction",
+   "auction house",
+   "go to auction",
+   "auction off",
+   "silent auction"
+  ],
+  "syn": [
+   "public sale",
+   "bidding",
+   "sale",
+   "bid"
+  ]
+ },
+ "author": {
+  "ipaUS": "/ˈɔːθər/",
+  "col": [
+   "best-selling author",
+   "lead author",
+   "author of the book",
+   "the author argues",
+   "author a report",
+   "guest author"
+  ],
+  "syn": [
+   "writer",
+   "novelist",
+   "creator",
+   "originator"
+  ]
+ },
+ "authorization": {
+  "ipaUS": "/ˌɔːθərəˈzeɪʃn/",
+  "col": [
+   "written authorization",
+   "obtain authorization",
+   "prior authorization",
+   "authorization code",
+   "require authorization",
+   "unauthorized access"
+  ],
+  "syn": [
+   "permission",
+   "approval",
+   "consent",
+   "clearance"
+  ]
+ },
+ "automotive": {
+  "ipaUS": "/ˌɔːtəˈmoʊtɪv/",
+  "col": [
+   "automotive industry",
+   "automotive parts",
+   "automotive engineer",
+   "automotive technology",
+   "automotive repair",
+   "automotive sector"
+  ],
+  "syn": [
+   "car",
+   "motor",
+   "vehicle",
+   "auto"
+  ]
+ },
+ "availability": {
+  "ipaUS": "/əˌveɪləˈbɪləti/",
+  "col": [
+   "check availability",
+   "subject to availability",
+   "room availability",
+   "limited availability",
+   "availability of",
+   "depending on availability"
+  ],
+  "syn": [
+   "accessibility",
+   "free time",
+   "stock",
+   "supply"
+  ]
+ },
+ "bacteria": {
+  "ipaUS": "/bækˈtɪriə/",
+  "col": [
+   "harmful bacteria",
+   "kill bacteria",
+   "bacteria grow",
+   "good bacteria",
+   "spread of bacteria",
+   "bacteria in food"
+  ],
+  "syn": [
+   "germs",
+   "microbes",
+   "microorganisms",
+   "bugs"
+  ]
+ },
+ "bankruptcy": {
+  "ipaUS": "/ˈbæŋkrʌptsi/",
+  "col": [
+   "file for bankruptcy",
+   "declare bankruptcy",
+   "go into bankruptcy",
+   "personal bankruptcy",
+   "bankruptcy court",
+   "face bankruptcy"
+  ],
+  "syn": [
+   "insolvency",
+   "ruin",
+   "financial collapse",
+   "failure"
+  ]
+ },
+ "basket": {
+  "ipaUS": "/ˈbæskɪt/",
+  "col": [
+   "shopping basket",
+   "gift basket",
+   "laundry basket",
+   "basket of fruit",
+   "add to basket",
+   "picnic basket"
+  ],
+  "syn": [
+   "hamper",
+   "container",
+   "crate",
+   "bin"
+  ]
+ },
+ "beneficial": {
+  "ipaUS": "/ˌbenɪˈfɪʃl/",
+  "col": [
+   "beneficial effect",
+   "mutually beneficial",
+   "beneficial to",
+   "highly beneficial",
+   "beneficial for health",
+   "prove beneficial"
+  ],
+  "syn": [
+   "helpful",
+   "advantageous",
+   "useful",
+   "favorable"
+  ]
+ },
+ "benefit": {
+  "ipaUS": "/ˈbenɪfɪt/",
+  "col": [
+   "health benefits",
+   "benefit from",
+   "reap the benefits",
+   "employee benefits",
+   "for the benefit of",
+   "benefit of the doubt"
+  ],
+  "syn": [
+   "advantage",
+   "gain",
+   "perk",
+   "profit"
+  ]
+ }
+}
