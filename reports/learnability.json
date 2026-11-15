@@ -42,7 +42,7 @@
   "vocab": {
    "name": "Bộ từ",
    "units": 117,
-   "score": 74.1,
+   "score": 74.2,
    "crit": {
     "a": null,
     "b": null,
@@ -54,7 +54,7 @@
     "h": null,
     "i": 99.3,
     "j": null,
-    "k": 4.1,
+    "k": 5.2,
     "l": null
    }
   },
@@ -2691,7 +2691,7 @@
    "id": "ngsl1",
    "title": "ngsl1",
    "level": "A1",
-   "score": 58.3,
+   "score": 59.6,
    "crit": {
     "a": null,
     "b": null,
@@ -2703,11 +2703,11 @@
     "h": null,
     "i": 0.99,
     "j": null,
-    "k": 0.21,
+    "k": 0.33,
     "l": null
    },
    "fix": [
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 21%",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 33%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -2716,7 +2716,7 @@
    "id": "ngsl2",
    "title": "ngsl2",
    "level": "A2",
-   "score": 60.2,
+   "score": 61,
    "crit": {
     "a": null,
     "b": null,
@@ -2728,11 +2728,11 @@
     "h": null,
     "i": 0.99,
     "j": null,
-    "k": 0.19,
+    "k": 0.27,
     "l": null
    },
    "fix": [
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 19%",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 27%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -2741,7 +2741,7 @@
    "id": "ngsl3",
    "title": "ngsl3",
    "level": "A2",
-   "score": 60,
+   "score": 60.7,
    "crit": {
     "a": null,
     "b": null,
@@ -2753,11 +2753,11 @@
     "h": null,
     "i": 0.98,
     "j": null,
-    "k": 0.12,
+    "k": 0.18,
     "l": null
    },
    "fix": [
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 12%",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 18%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -2766,7 +2766,7 @@
    "id": "ngsl4",
    "title": "ngsl4",
    "level": "A2",
-   "score": 60.9,
+   "score": 61.2,
    "crit": {
     "a": null,
     "b": null,
@@ -2778,11 +2778,11 @@
     "h": null,
     "i": 0.98,
     "j": null,
-    "k": 0.13,
+    "k": 0.16,
     "l": null
    },
    "fix": [
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 13%",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 16%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -2791,7 +2791,7 @@
    "id": "ngsl5",
    "title": "ngsl5",
    "level": "B1",
-   "score": 60.5,
+   "score": 60.8,
    "crit": {
     "a": null,
     "b": null,
@@ -2803,11 +2803,11 @@
     "h": null,
     "i": 0.99,
     "j": null,
-    "k": 0.07,
+    "k": 0.11,
     "l": null
    },
    "fix": [
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 7%",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 11%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -2816,7 +2816,7 @@
    "id": "ngsl6",
    "title": "ngsl6",
    "level": "B1",
-   "score": 61.2,
+   "score": 61.4,
    "crit": {
     "a": null,
     "b": null,
@@ -2828,11 +2828,11 @@
     "h": null,
     "i": 0.99,
     "j": null,
-    "k": 0.06,
+    "k": 0.08,
     "l": null
    },
    "fix": [
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 6%",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 8%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -2841,7 +2841,7 @@
    "id": "ngsl7",
    "title": "ngsl7",
    "level": "B1",
-   "score": 60.9,
+   "score": 61,
    "crit": {
     "a": null,
     "b": null,
@@ -2853,11 +2853,11 @@
     "h": null,
     "i": 0.98,
     "j": null,
-    "k": 0.01,
+    "k": 0.03,
     "l": null
    },
    "fix": [
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 1%",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 3%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -2866,7 +2866,7 @@
    "id": "ngsl8",
    "title": "ngsl8",
    "level": "B1",
-   "score": 61,
+   "score": 61.1,
    "crit": {
     "a": null,
     "b": null,
@@ -2878,11 +2878,11 @@
     "h": null,
     "i": 0.99,
     "j": null,
-    "k": 0.05,
+    "k": 0.06,
     "l": null
    },
    "fix": [
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 5%",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 6%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -2916,7 +2916,7 @@
    "id": "ngsl10",
    "title": "ngsl10",
    "level": "B2",
-   "score": 61,
+   "score": 61.1,
    "crit": {
     "a": null,
     "b": null,
@@ -2928,11 +2928,11 @@
     "h": null,
     "i": 0.99,
     "j": null,
-    "k": 0.03,
+    "k": 0.04,
     "l": null
    },
    "fix": [
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 3%",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 4%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -3490,7 +3490,7 @@
    "id": "language",
    "title": "language",
    "level": "B2",
-   "score": 72.2,
+   "score": 73,
    "crit": {
     "a": null,
     "b": null,
@@ -3502,12 +3502,12 @@
     "h": null,
     "i": 1,
     "j": null,
-    "k": 0.08,
+    "k": 0.17,
     "l": null
    },
    "fix": [
     "mã hoá kép 66% (ảnh/audio từ/audio câu)",
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 8%",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 17%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -4028,7 +4028,7 @@
    "id": "awl1",
    "title": "awl1",
    "level": "B1",
-   "score": 83.9,
+   "score": 84.5,
    "crit": {
     "a": null,
     "b": null,
@@ -4040,12 +4040,12 @@
     "h": null,
     "i": 1,
     "j": null,
-    "k": 0.19,
+    "k": 0.25,
     "l": null
    },
    "fix": [
     "i+1: câu ví dụ dùng từ khó hơn từ đang học > 1 bậc",
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 19%"
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 25%"
    ]
   },
   {
@@ -4053,7 +4053,7 @@
    "id": "awl2",
    "title": "awl2",
    "level": "B1",
-   "score": 82.6,
+   "score": 83.2,
    "crit": {
     "a": null,
     "b": null,
@@ -4065,12 +4065,12 @@
     "h": null,
     "i": 1,
     "j": null,
-    "k": 0,
+    "k": 0.06,
     "l": null
    },
    "fix": [
     "i+1: câu ví dụ dùng từ khó hơn từ đang học > 1 bậc",
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%"
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 6%"
    ]
   },
   {
@@ -4126,7 +4126,7 @@
    "id": "awl5",
    "title": "awl5",
    "level": "B2",
-   "score": 86.1,
+   "score": 86.6,
    "crit": {
     "a": null,
     "b": null,
@@ -4138,11 +4138,11 @@
     "h": null,
     "i": 1,
     "j": null,
-    "k": 0,
+    "k": 0.05,
     "l": null
    },
    "fix": [
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%"
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 5%"
    ]
   },
   {
@@ -4420,7 +4420,7 @@
    "id": "toeic2",
    "title": "toeic2",
    "level": "B1",
-   "score": 72.7,
+   "score": 73.1,
    "crit": {
     "a": null,
     "b": null,
@@ -4432,11 +4432,11 @@
     "h": null,
     "i": 1,
     "j": null,
-    "k": 0,
+    "k": 0.03,
     "l": null
    },
    "fix": [
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 3%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -4445,7 +4445,7 @@
    "id": "toeic3",
    "title": "toeic3",
    "level": "B2",
-   "score": 72.8,
+   "score": 73.3,
    "crit": {
     "a": null,
     "b": null,
@@ -4457,11 +4457,11 @@
     "h": null,
     "i": 1,
     "j": null,
-    "k": 0,
+    "k": 0.05,
     "l": null
    },
    "fix": [
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 5%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -5139,7 +5139,7 @@
    "id": "dom-mkt",
    "title": "dom-mkt",
    "level": "B2",
-   "score": 72.2,
+   "score": 73.5,
    "crit": {
     "a": null,
     "b": null,
@@ -5151,11 +5151,11 @@
     "h": null,
     "i": 1,
     "j": null,
-    "k": 0,
+    "k": 0.13,
     "l": null
    },
    "fix": [
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 13%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
@@ -5550,7 +5550,7 @@
    "id": "bộ lẻ (< 10 từ)",
    "title": "bộ lẻ (< 10 từ)",
    "level": "C1",
-   "score": 63.8,
+   "score": 66.5,
    "crit": {
     "a": null,
     "b": null,
@@ -5562,12 +5562,12 @@
     "h": null,
     "i": 0.96,
     "j": null,
-    "k": 0,
+    "k": 0.25,
     "l": null
    },
    "fix": [
     "mã hoá kép 63% (ảnh/audio từ/audio câu)",
-    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 0%",
+    "mẹo nhớ cho từ dễ nhầm (gold \"why\"): 25%",
     "ví dụ: thiếu collocation/đồng nghĩa"
    ]
   },
