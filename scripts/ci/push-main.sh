@@ -47,7 +47,11 @@ for i in $(seq 1 "$TRIES"); do
     fi
     for p in "$@"; do git add -A -- "$p" 2>/dev/null; done
     if git diff --cached --quiet; then echo "push-main: không có thay đổi so với $RM/$BR"; exit 0; fi
-    git commit -qm "$MSG" && git push -q "$RM" "HEAD:$BR" && { echo "push-main: đã đẩy lên $BR (lần $i)"; exit 0; }
+    if git commit -qm "$MSG"; then
+      # máy gác (15/11): commit [skip ci] không qua CI → chạy test theo tệp đổi trước khi đẩy; bản bot làm đỏ → KHÔNG đẩy (scripts/ci/bot-test-gate.mjs)
+      if [ -f scripts/ci/bot-test-gate.mjs ]; then node scripts/ci/bot-test-gate.mjs --base "$RM/$BR" || { echo "::error::push-main: máy gác test đỏ – không đẩy"; exit 1; }; fi
+      git push -q "$RM" "HEAD:$BR" && { echo "push-main: đã đẩy lên $BR (lần $i)"; exit 0; }
+    fi
   fi
   [ "$i" -lt "$TRIES" ] || break
   w=$((i * BASE + RANDOM % (BASE + 1)))
