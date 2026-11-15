@@ -32,8 +32,8 @@ a = Truy hồi chủ động · b = Lặp lại giãn cách · c = Tải nhận 
 | 13 | Bộ từ | ngsl9 | B2 | 61.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 3% · ví dụ: thiếu collocation/đồng nghĩa |
 | 14 | Bộ từ | ngsl6 | B1 | 61.4 | mẹo nhớ cho từ dễ nhầm (gold "why"): 8% · ví dụ: thiếu collocation/đồng nghĩa |
 | 15 | Bộ từ | bsl5 | B2 | 61.4 | mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
-| 16 | Bộ từ | nawl5 | C1 | 61.6 | mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
-| 17 | Bộ từ | bsl4 | B2 | 61.8 | mẹo nhớ cho từ dễ nhầm (gold "why"): 4% · ví dụ: thiếu collocation/đồng nghĩa |
+| 16 | Bộ từ | nawl5 | C1 | 61.7 | mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
+| 17 | Bộ từ | bsl4 | B2 | 61.9 | mẹo nhớ cho từ dễ nhầm (gold "why"): 4% · ví dụ: thiếu collocation/đồng nghĩa |
 | 18 | Bộ từ | nawl1 | C1 | 62.2 | mẹo nhớ cho từ dễ nhầm (gold "why"): 4% · ví dụ: thiếu collocation/đồng nghĩa |
 | 19 | Bộ từ | office-meeting | B2 | 62.2 | mã hoá kép 56% (ảnh/audio từ/audio câu) · mẹo nhớ cho từ dễ nhầm (gold "why"): 0% · ví dụ: thiếu collocation/đồng nghĩa |
 | 20 | Bộ từ | nawl3 | C1 | 62.3 | mẹo nhớ cho từ dễ nhầm (gold "why"): 5% · ví dụ: thiếu collocation/đồng nghĩa |

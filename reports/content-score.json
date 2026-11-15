@@ -1,10 +1,10 @@
 {
- "total": 70.8,
+ "total": 71.9,
  "areas": {
   "vocab": {
    "name": "Kho từ",
-   "score": 58.6,
-   "coverage": 58.6,
+   "score": 58.7,
+   "coverage": 58.7,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -45,7 +45,7 @@
     },
     {
      "k": "ảnh theo nghĩa",
-     "have": 7920,
+     "have": 7931,
      "std": 20000,
      "w": 15,
      "future": false
@@ -147,8 +147,8 @@
   },
   "comm": {
    "name": "Giao tiếp",
-   "score": 72.3,
-   "coverage": 72.3,
+   "score": 81.3,
+   "coverage": 81.3,
    "pass": 100,
    "errors": 0,
    "parts": [
@@ -161,7 +161,7 @@
     },
     {
      "k": "roleplay",
-     "have": 33,
+     "have": 60,
      "std": 60,
      "w": 20,
      "future": false
@@ -433,8 +433,8 @@
     },
     {
      "k": "nội dung có lo hợp lệ",
-     "have": 11186,
-     "std": 11186,
+     "have": 11213,
+     "std": 11213,
      "w": 35,
      "future": false
     },

@@ -2338,5 +2338,330 @@
     "音量を少し下げてもらえますか。"
    ]
   ]
+ },
+ "voluntary": {
+  "n": "「ボランティアの」と訳されがちですが、voluntary は「強制でなく自分の意思で行う」が核心で、有給かどうかは問いません。voluntary redundancy は希望退職、voluntary contribution は任意の寄付です。名詞のボランティアは volunteer で、アクセントが違う点にも注意しましょう。voluntary は第一音節に強勢があり「ヴァランテリ」、volunteer は最後の -teer に強勢が来ます。反対語は compulsory や mandatory です。",
+  "x": [
+   [
+    "Attendance at the evening workshop is voluntary, so nobody will be marked absent.",
+    "夜のワークショップへの出席は任意なので、欠席扱いになる人はいません。"
+   ],
+   [
+    "Several employees took voluntary redundancy when the company moved abroad.",
+    "会社が海外へ移転した際、数人の従業員が希望退職に応じました。"
+   ]
+  ]
+ },
+ "abstract": {
+  "n": "日本語の「抽象的」と同じく、abstract は具体的な物ではなく概念や考え方を指します。abstract noun（抽象名詞）の例は freedom や honesty です。形容詞では第一音節に強勢がありますが、「論文の要旨」を表す名詞も同じ形で、動詞 abstract（要約する）は第二音節に強勢が移ります。abstract art は抽象芸術です。「ぼんやりして分かりにくい」という悪い意味で使うときは too abstract と言い、vague とは少し違います。",
+  "x": [
+   [
+    "Love and justice are abstract ideas that are hard to define in a single sentence.",
+    "愛や正義は、一文で定義するのが難しい抽象的な概念です。"
+   ],
+   [
+    "Her paintings became more abstract as she grew older.",
+    "彼女の絵は、年を重ねるにつれて抽象的になっていきました。"
+   ]
+  ]
+ },
+ "academy": {
+  "n": "academy は日本語の「アカデミー」より範囲が広く、専門的な訓練を行う学校を指します。a police academy は警察学校、a military academy は士官学校です。イギリスでは国から独立して運営される公立校も academy と呼びます。また、the Academy で映画のアカデミー賞を指すこともあります。アクセントは第二音節で「アキャデミー」と読み、日本語のように頭を強く言うと通じにくくなります。形容詞は academic で、こちらは「学問的な」という意味です。",
+  "x": [
+   [
+    "He enrolled at a cooking academy in Lyon to train as a pastry chef.",
+    "彼はパティシエになるため、リヨンの料理学校に入学しました。"
+   ],
+   [
+    "The Royal Academy holds an open exhibition every summer.",
+    "王立美術院は毎年夏に公募展を開きます。"
+   ]
+  ]
+ },
+ "accompany": {
+  "n": "accompany は go with の硬い言い方で、日常会話では go with や come with のほうが自然です。accompany her to the airport のように人を直接目的語に取り、行き先は前置詞 to で示します。accompany with とは言わないので注意しましょう。受け身の be accompanied by は「～を伴う」で、症状や現象の説明によく出ます。音楽では「伴奏する」の意味もあり、accompany a singer on the piano と言います。",
+  "x": [
+   [
+    "A nurse will accompany you to the examination room.",
+    "看護師が検査室までお供します。"
+   ],
+   [
+    "The famous pianist agreed to accompany the young singer at her debut concert.",
+    "有名なピアニストが、若い歌手のデビューコンサートで伴奏を引き受けました。"
+   ]
+  ]
+ },
+ "accumulate": {
+  "n": "accumulate は少しずつ時間をかけて増えていく場合に使い、一度に集めるなら collect や gather のほうが自然です。目的語には wealth、debt、evidence、experience などが来ます。dust accumulates のように自動詞でも使えます。名詞は accumulation です。日本語の「貯める」は貯金にも使いますが、お金を口座に入れる意味なら save を使い、accumulate は結果として積み重なったニュアンスです。アクセントは第二音節の cu にあります。",
+  "x": [
+   [
+    "Dust had accumulated on the shelves during the months the shop was closed.",
+    "店が閉まっていた数か月の間に、棚にほこりが積もっていました。"
+   ],
+   [
+    "Over the years she accumulated a large collection of vintage maps.",
+    "彼女は長年かけて、古い地図の大きなコレクションを集めました。"
+   ]
+  ]
+ },
+ "accurate": {
+  "n": "accurate は「情報や測定が間違いなく正確」という意味で、人の性格には通常使いません。時間に正確な人は punctual と言います。accurate と precise は似ていますが、precise は細部まで細かいことを強調し、accurate は事実と合っていることを重視します。副詞は accurately、名詞は accuracy で、accuracy rate は正答率です。反対語は inaccurate で、否定の接頭辞は in- です。アクセントは最初の ac です。",
+  "x": [
+   [
+    "The weather forecast for the weekend turned out to be surprisingly accurate.",
+    "週末の天気予報は、驚くほど正確でした。"
+   ],
+   [
+    "Please check that your address is accurate before you submit the form.",
+    "フォームを送信する前に、住所が正しいか確認してください。"
+   ]
+  ]
+ },
+ "aid": {
+  "n": "aid は「援助」の意味では不可算名詞で、an aid や aids とは言いません。humanitarian aid（人道支援）、foreign aid（対外援助）、first aid（応急手当）が代表的な形です。一方、道具や補助手段を表すときは可算名詞で、a hearing aid は補聴器、a teaching aid は教材を指します。動詞の aid は help の硬い言い方で、aid in the recovery のように前置詞 in が続くこともあります。",
+  "x": [
+   [
+    "The charity sent emergency aid to the villages affected by the flood.",
+    "その慈善団体は、洪水の被害を受けた村々へ緊急支援を送りました。"
+   ],
+   [
+    "Grandfather finally agreed to wear a hearing aid.",
+    "祖父はついに補聴器をつけることに同意しました。"
+   ]
+  ]
+ },
+ "allocate": {
+  "n": "allocate は限られた資金・時間・資源を目的ごとに割り振る場面で使い、allocate A to B（AをBに割り当てる）が基本の型です。allocate funds to schools のように、前置詞は to を使います。「分配する」を意味する distribute は多くの人に配る感じですが、allocate は計画的に決める点が違います。動詞は第一音節に強勢があり「アラケイト」に近い音で、名詞 allocation は第三音節に強勢が来ます。",
+  "x": [
+   [
+    "The council decided to allocate extra money to repairing the old bridge.",
+    "市議会は、古い橋の修繕に追加の予算を充てることを決めました。"
+   ],
+   [
+    "Each team is allocated two hours of laboratory time per week.",
+    "各チームには、週に二時間の実験室使用時間が割り当てられます。"
+   ]
+  ]
+ },
+ "ambiguous": {
+  "n": "ambiguous は「二通り以上に解釈できて、どれか決められない」という意味で、日本語の「曖昧」より解釈の分かれる点に焦点があります。単に内容がぼやけているなら vague が合います。名詞は ambiguity で、an ambiguous answer（どちらとも取れる返事）のように使います。ambiguous は否定的な評価になりやすく、褒め言葉ではありません。アクセントは第二音節の big で、「アンビギュアス」と読みます。反対語は clear や unambiguous です。",
+  "x": [
+   [
+    "His ambiguous reply left us unsure whether he had accepted the offer.",
+    "彼の返事はどちらとも取れるもので、申し出を受けたのか私たちには分かりませんでした。"
+   ],
+   [
+    "The sign was ambiguous, so many drivers took the wrong exit.",
+    "その標識は紛らわしく、多くの運転手が出口を間違えました。"
+   ]
+  ]
+ },
+ "amend": {
+  "n": "amend は法律・契約・文書の一部を正式に改める場合に使う硬い語で、日常の「直す」には fix や change が普通です。amend the constitution（憲法を改正する）や amend the contract が典型です。名詞は amendment で、the First Amendment は米国憲法修正第一条を指します。複数形の amends は make amends for ～（～の償いをする）という別の定型句になるので、混同しないでください。アクセントは第二音節で、「アメンド」と読みます。",
+  "x": [
+   [
+    "The committee voted to amend the rules so that members can vote online.",
+    "委員会は、会員がオンラインで投票できるよう規則を改正することを決めました。"
+   ],
+   [
+    "You may amend your application at any time before the deadline.",
+    "締め切り前なら、いつでも申請内容を修正できます。"
+   ]
+  ]
+ },
+ "analogy": {
+  "n": "analogy は異なる二つの物事の類似点を示して説明する方法で、draw an analogy between A and B が基本の型です。by analogy は「類推によって」という意味の定型句です。a false analogy は「誤った類推」を表し、議論で相手を批判するときにもよく出ます。日本語の「たとえ」に近いですが、metaphor（隠喩）と違い、analogy は論理的な対応関係を説明に使います。アクセントは第二音節の nal で、「アナロジー」とは強勢が違います。",
+  "x": [
+   [
+    "The teacher used an analogy with water pipes to explain how electric current works.",
+    "先生は電流の仕組みを説明するために、水道管のたとえを使いました。"
+   ],
+   [
+    "It is a false analogy to compare running a country with running a household.",
+    "国を運営することを家計のやりくりと比べるのは、誤った類推です。"
+   ]
+  ]
+ },
+ "annual": {
+  "n": "annual は「年に一度の」「一年間の」という意味で、annual meeting（年次総会）や annual income（年収）のように使います。形容詞だけで副詞にはならないので、「毎年」は annually か every year と言います。日本語の「年一回」の意味が強く、複数回なら twice-yearly のように分けて言います。植物では「一年草」の意味もあります。同じ意味の yearly はやや口語的で、annual のほうが公的な文書に向いています。アクセントは第一音節で、「アニュアル」と読みます。",
+  "x": [
+   [
+    "Our annual summer festival attracts thousands of visitors from nearby towns.",
+    "毎年恒例の夏祭りには、近隣の町から何千人もの人が訪れます。"
+   ],
+   [
+    "Members must pay an annual fee of fifty dollars.",
+    "会員は年会費として五十ドルを払う必要があります。"
+   ]
+  ]
+ },
+ "aspect": {
+  "n": "aspect は問題や状況を構成する一つの面や側面を指し、every aspect of life（生活のあらゆる面）のように使います。前置詞は aspect of ～で、aspect on ～とは言いません。日本語で「アスペクト」というと文法用語を思い浮かべますが、日常英語では「側面」の意味が圧倒的に多いです。同じ意味の side は口語的で、aspect はやや書き言葉です。the legal aspects of the case のように複数形もよく使います。アクセントは第一音節で、「アスペクト」と読みます。",
+  "x": [
+   [
+    "Cost is only one aspect of the decision, and not the most important one.",
+    "費用はその決定の一側面にすぎず、最も重要な点でもありません。"
+   ],
+   [
+    "She studied the legal aspects of online privacy at university.",
+    "彼女は大学で、オンラインのプライバシーの法的側面を学びました。"
+   ]
+  ]
+ },
+ "assemble": {
+  "n": "assemble には二つの意味があり、「部品を組み立てる」と「人が集まる、人を集める」です。assemble furniture は家具を組み立てる、assemble a team はチームを編成する、students assemble in the hall は生徒が体育館に集合する、のように使います。名詞は assembly で、school assembly は全校集会、assembly line は組み立てラインです。日本語の「アセンブル」はIT用語の印象が強いですが、英語ではもっと広く使います。アクセントは第二音節です。",
+  "x": [
+   [
+    "It took us two hours to assemble the bookcase without any help.",
+    "私たちは誰の手も借りずに、本棚を組み立てるのに二時間かかりました。"
+   ],
+   [
+    "Hundreds of protesters began to assemble outside the town hall.",
+    "何百人もの抗議者が市庁舎の外に集まり始めました。"
+   ]
+  ]
+ },
+ "assess": {
+  "n": "assess は状況や価値を調べて評価する語で、assess the damage（被害を査定する）や assess students' progress が典型です。目的語に人を取ると「能力を評価する」の意味になり、evaluate とほぼ同じですが、assess は数値や基準に基づく判断を連想させます。名詞は assessment で、risk assessment（リスク評価）という表現が多いです。綴りの -ss- が二つ連続する点を間違えやすく、発音は「アセス」で、第二音節に強勢があります。",
+  "x": [
+   [
+    "Engineers were sent to assess the damage to the bridge after the storm.",
+    "嵐の後、技術者が橋の被害を調べるために派遣されました。"
+   ],
+   [
+    "It is difficult to assess a child's reading ability from one test alone.",
+    "一回のテストだけで、子どもの読む力を評価するのは難しいです。"
+   ]
+  ]
+ },
+ "assign": {
+  "n": "assign は仕事・課題・役割を人に割り当てる動詞で、assign A to B の形が基本です。assign homework は宿題を出す、be assigned to a new office は新しい事務所へ配属される、という意味です。人に「任命する」意味では appoint が硬く、assign は上司が仕事を割り振る日常的な語です。名詞は assignment で、学校の課題やレポートを指す場合が多く、アクセントは第二音節にあり、「アサイン」と読みます。",
+  "x": [
+   [
+    "The manager assigned the new project to our smallest team.",
+    "部長は、その新しいプロジェクトを私たちの一番小さなチームに任せました。"
+   ],
+   [
+    "Students are assigned a different topic each week.",
+    "学生には毎週、異なるテーマが割り当てられます。"
+   ]
+  ]
+ },
+ "attain": {
+  "n": "attain は努力して目標・地位・水準に到達する意味の硬い語で、日常会話では reach や get が普通です。attain a goal、attain independence、attain a high level of skill のように、目的語は抽象的なものが中心です。名詞は attainment で、educational attainment は学歴を指します。「たどり着く」でも場所には使わず、reach the summit を attain the summit とは普通言いません。attainable は「達成可能な」で、attainable goals という形でよく見かけます。",
+  "x": [
+   [
+    "She worked nights for five years to attain her dream of becoming a doctor.",
+    "彼女は医者になる夢を叶えるために、五年間夜も働きました。"
+   ],
+   [
+    "The country attained independence in 1960.",
+    "その国は1960年に独立を達成しました。"
+   ]
+  ]
+ },
+ "attribute": {
+  "n": "attribute には動詞と名詞があり、アクセントが違います。動詞は第二音節に強勢があり、attribute A to B（AをBのせいにする、Bの作とみなす）の形で使います。名詞は第一音節に強勢があり、「特性」の意味です。日本語の「アトリビュート」は属性の意味だけですが、英語では動詞の用法もよく出ます。受け身の be attributed to ～は「～によるものとされる」で、原因や作者を示します。",
+  "x": [
+   [
+    "Scientists attribute the rise in sea level mainly to melting ice.",
+    "科学者たちは、海面上昇の主な原因は氷が溶けることだと考えています。"
+   ],
+   [
+    "Patience is an important attribute for anyone who works with young children.",
+    "忍耐力は、幼い子どもと関わる人にとって大切な資質です。"
+   ]
+  ]
+ },
+ "bias": {
+  "n": "bias は不公平な偏りや先入観で、a bias against ～は「～への偏見」、a bias towards ～は「～を贔屓する傾向」です。前置詞を使い分けましょう。bias は可算名詞としても不可算名詞としても使えます。形容詞は biased で、a biased opinion は偏った意見です。日本語の「バイアス」と同じ意味で使えますが、日常ではより強い prejudice のほうが、人への差別を表すときに使われます。発音は「バイアス」で、第一音節に強勢があります。",
+  "x": [
+   [
+    "Studies show that hiring managers can have an unconscious bias against older applicants.",
+    "採用担当者が、年配の応募者に対して無意識の偏見を持つことがあると、研究は示しています。"
+   ],
+   [
+    "The newspaper was accused of political bias in its election coverage.",
+    "その新聞は、選挙報道で政治的に偏っていると非難されました。"
+   ]
+  ]
+ },
+ "brief": {
+  "n": "brief は形容詞で「短い」ですが、時間や文章の短さを表し、物の長さには short を使います。a brief meeting は短い会議、a brief summary は簡潔な要約です。動詞の用法も重要で、to brief someone on ～は「～について簡単に説明して状況を伝える」、名詞の a briefing は説明会や報告です。in brief は「要するに」という意味の定型句です。発音は「ブリーフ」で長い母音ですから、短く「ブリフ」と言わないようにしましょう。",
+  "x": [
+   [
+    "Could you give the board a brief update on the project before lunch?",
+    "昼食の前に、役員会へプロジェクトの簡単な最新状況を報告していただけますか。"
+   ],
+   [
+    "The minister will brief reporters on the new law tomorrow morning.",
+    "大臣は明朝、記者団に新しい法律について説明します。"
+   ]
+  ]
+ },
+ "bulk": {
+  "n": "bulk は全体の大部分を表し、the bulk of ～は「～の大半」で、後ろに複数名詞も不可算名詞も置けます。the bulk of the work、the bulk of students のように使います。buy in bulk は「まとめ買いする」という定番の表現で、前置詞は in です。形容詞 bulky は「かさばる」で、荷物や家具に使います。日本語の「バルク」は専門用語の印象ですが、英語では日常的で、スーパーの bulk section もよく見かけます。",
+  "x": [
+   [
+    "The bulk of our customers live within ten miles of the shop.",
+    "お客さんの大半は、店から十マイル以内に住んでいます。"
+   ],
+   [
+    "It is much cheaper to buy rice in bulk than in small bags.",
+    "お米は小袋より、まとめて買うほうがずっと安く済みます。"
+   ]
+  ]
+ },
+ "capacity": {
+  "n": "capacity は二つの意味を区別して使います。まず容器や会場が入れられる量で、a stadium with a capacity of 50,000 は収容人数五万人のスタジアムです。次に、能力や可能性の意味で、capacity for ～ や capacity to do の形を取ります。ability と違い、capacity は潜在的な上限を連想させます。at full capacity は「満員で、フル稼働で」です。「in my capacity as ～」は「～の立場として」という定型句です。アクセントは第二音節の pa です。",
+  "x": [
+   [
+    "The concert hall has a capacity of two thousand people.",
+    "そのコンサートホールの収容人数は二千人です。"
+   ],
+   [
+    "Children have an amazing capacity to learn new languages.",
+    "子どもには、新しい言語を学ぶ驚くべき能力があります。"
+   ]
+  ]
+ },
+ "cease": {
+  "n": "cease は stop の硬い言い方で、ニュースや公式文書によく出ます。cease production や cease to exist のように、後ろに名詞か to 不定詞を置きます。ceasefire（停戦）は一語として覚えましょう。名詞の用法は without cease（絶え間なく）という古い表現ぐらいです。発音は「シース」で、語頭の c は s と同じ音です。綴りが似た seize（つかむ）とは別の語なので、混同しないように注意してください。",
+  "x": [
+   [
+    "The company will cease trading at the end of the month.",
+    "その会社は月末で営業を停止します。"
+   ],
+   [
+    "Both sides agreed to cease fire at midnight.",
+    "両陣営は、真夜中に停戦することで合意しました。"
+   ]
+  ]
+ },
+ "cite": {
+  "n": "cite は論文や議論で出典・例・規則を挙げる語で、cite a study（研究を引用する）や cite an example が基本です。cite A as B（AをBとして挙げる）の形も覚えましょう。quote が言葉をそのまま引くのに対し、cite は出典を示す点が違います。名詞は citation で、交通違反の「違反切符」の意味もあります。同じ発音の site（場所）や sight（視界）と綴りを混同しやすいので注意してください。発音は「サイト」で、cite は動詞だけです。",
+  "x": [
+   [
+    "The article cites several studies to support its main argument.",
+    "その記事は、主張を裏付けるためにいくつかの研究を引用しています。"
+   ],
+   [
+    "Many residents cite noise as the main reason for moving away.",
+    "多くの住民が、引っ越しの主な理由として騒音を挙げています。"
+   ]
+  ]
+ },
+ "civil": {
+  "n": "civil は「市民の」という意味で、civil rights は公民権、civil servant は公務員、civil engineer は土木技師です。また、「礼儀正しい」の意味もあり、He was civil but cold. は礼儀正しいが冷たい、という意味です。polite より堅く、最低限の礼儀を示すニュアンスです。civil war は内戦、civil law は民法という意味です。civilian（民間人）や civilized（文明化された）と混同しないよう注意しましょう。アクセントは第一音節で、「シヴィル」と読みます。",
+  "x": [
+   [
+    "She stayed civil even when the customer began to shout at her.",
+    "客が怒鳴り始めても、彼女は礼儀正しい態度を崩しませんでした。"
+   ],
+   [
+    "The civil service employs thousands of people across the country.",
+    "公務員制度のもと、全国で何千人もの人が働いています。"
+   ]
+  ]
  }
 }

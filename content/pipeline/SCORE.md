@@ -2,13 +2,13 @@
 
 Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipeline/score.budget.json` · kế hoạch `docs/CONTENT-WORLD-PLAN.md` §3.5. Điểm = độ phủ so với chuẩn × tỉ lệ qua cổng.
 
-**Tổng: 70.8 / 100**
+**Tổng: 71.9 / 100**
 
 | Mảng | Điểm | Sàn | Độ phủ | Qua cổng | Lỗi |
 |---|---|---|---|---|---|
-| Kho từ | **58.6** | 58.5 | 58.6% | 100% | 0 |
+| Kho từ | **58.7** | 58.5 | 58.7% | 100% | 0 |
 | Ngữ pháp | **72.8** | 72.8 | 72.8% | 100% | 0 |
-| Giao tiếp | **72.3** | 68.3 | 72.3% | 100% | 0 |
+| Giao tiếp | **81.3** | 68.3 | 81.3% | 100% | 0 |
 | 4 kỹ năng | **78.3** | 62.9 | 78.3% | 100% | 0 |
 | Đề thi | **47.8** | 31.7 | 47.8% | 100% | 0 |
 | Khung Can-do | **81.7** | 81.3 | 81.7% | 100% | 0 |
@@ -24,7 +24,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | collocation | 4979 / 20000 | 25% | 12 |
 | đồng nghĩa | 3081 / 20000 | 15% | 8 |
 | IPA Mỹ | 6822 / 20000 | 34% | 5 |
-| ảnh theo nghĩa | 7920 / 20000 | 40% | 15 |
+| ảnh theo nghĩa | 7931 / 20000 | 40% | 15 |
 | C2 | 969 / 1000 | 97% | 10 |
 | A1 | 868 / 1000 | 87% | 5 |
 
@@ -48,7 +48,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 | Thành phần | Có / chuẩn | % | Trọng số |
 |---|---|---|---|
 | cuộc gọi Ama/Carlos | 35 / 60 | 58% | 20 |
-| roleplay | 33 / 60 | 55% | 20 |
+| roleplay | 60 / 60 | 100% | 20 |
 | tình huống Play & Speak | 40 / 40 | 100% | 20 |
 | mục gold (giải thích cách dùng) | 484 / 1000 | 48% | 20 |
 | sổ mẫu câu theo chức năng (chưa làm) | 100 / 100 | 100% | 20 |
@@ -98,7 +98,7 @@ Cách tính, chuẩn đích, sàn: `scripts/content-score.mjs` · `content/pipel
 |---|---|---|---|
 | mục tiêu LKF tự soạn | 585 / 600 | 98% | 25 |
 | ô kỹ năng × cấp đủ ≥ 15 | 36 / 36 | 100% | 15 |
-| nội dung có lo hợp lệ | 11186 / 11186 | 100% | 35 |
+| nội dung có lo hợp lệ | 11213 / 11213 | 100% | 35 |
 | mục tiêu đã có nội dung luyện | 176 / 600 | 29% | 25 |
 
 ## Dễ học – dễ nhớ
