@@ -485,7 +485,7 @@ script: [
 { s: 'B', t: 'Hello, Mr. Tanaka. This is Imelda Cross from Cross and Bell Legal Services.' },
 { s: 'B', t: "I'm calling about the lease agreement for your new restaurant. Our review is almost complete, but we found a cleaning fee that is unusually high." },
 { s: 'B', t: 'I recommend that we ask the landlord to reduce it before you sign. I e-mailed you a marked-up copy, so please read it tonight.' },
-{ s: 'B', t: "The landlord's agent would like the signed document by Friday, so could you call me back by Wednesday noon at five five five, zero one four two?" },
+{ s: 'B', t: "The landlord's agent would like the signed document by Friday, so could you call me back by Wednesday noon at five-five-five, zero one four two?" },
 { s: 'B', t: 'Thank you.' },
 { pause: 6 },
 

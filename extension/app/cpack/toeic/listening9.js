@@ -486,7 +486,7 @@ script: [
 { say: g.TQL[15] }, { pause: 1 },
 { s: "B", t: "Hello, this message is for Mr. Okoro. It's Fiona from Saltwater Catering, returning your call about the retirement dinner on the twenty-eighth." },
 { s: "B", t: "Unfortunately, the lamb dish you asked for is no longer available because our supplier has stopped selling it. We can offer a roasted duck instead, which is a similar price." },
-{ s: "B", t: "I'd also like to remind you that the final guest number is due a week before the event. Could you call me back at five five five, zero one four two by Tuesday so I can update the order?" },
+{ s: "B", t: "I'd also like to remind you that the final guest number is due a week before the event. Could you call me back at five-five-five, zero one four two by Tuesday so I can update the order?" },
 { s: "B", t: "If I don't hear from you, I'll go ahead with the duck. Thanks very much." },
 { pause: 6 },
 
@@ -556,7 +556,7 @@ items: [
 explain: "Fiona nói \"the lamb dish you asked for is no longer available\" (món cừu anh yêu cầu không còn nữa) vì nhà cung cấp ngừng bán → báo một món không có sẵn. Bà không nói đến thanh toán hay ngày tổ chức." },
 { n: 75, lv: "B2", q: "What does the speaker suggest?", options: ["Postponing the dinner", "Choosing a different dish", "Using another caterer", "Lowering the price"], a: 1, cue: "We can offer a roasted duck instead",
 explain: "Bà đề nghị \"We can offer a roasted duck instead\" (chúng tôi có thể thay bằng vịt quay) với giá tương tự → gợi ý chọn món khác." },
-{ n: 76, lv: "C1", q: "What does the speaker ask the listener to do by Tuesday?", options: ["Submit a guest list", "Pay a deposit", "Return a call", "Visit a kitchen"], a: 2, cue: "call me back at five five five, zero one four two by Tuesday",
+{ n: 76, lv: "C1", q: "What does the speaker ask the listener to do by Tuesday?", options: ["Submit a guest list", "Pay a deposit", "Return a call", "Visit a kitchen"], a: 2, cue: "call me back at five-five-five, zero one four two by Tuesday",
 explain: "Bà nhờ \"call me back … by Tuesday\" (gọi lại trước thứ Ba) để cập nhật đơn. Số lượng khách cuối cùng hạn là một tuần trước sự kiện, không phải thứ Ba." },
 ] },
 { type: 'mcq', instr: g.TQL[31],

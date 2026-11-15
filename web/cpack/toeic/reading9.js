@@ -318,14 +318,14 @@ I would buy from this company again, but I hope they will improve their packagin
 `INVOICE
 Calder Medical Supply, 1180 Ferris Road, Ashbury
 
-Invoice No.: 40871        Date: March 4        Terms: payment due within 30 days
+Invoice No.: 40871 | Date: March 4 | Terms: payment due within 30 days
 Bill to: Meadowlane Family Clinic, Attn: Patricia Whitcomb
 
-Item                                            Qty    Unit price    Amount
-Disposable exam gloves (box of 100, medium)      20      $9.50       $190.00
-Digital thermometers                              6     $14.00        $84.00
-Adhesive bandages (box of 200)                   10      $6.25        $62.50
-Blood pressure cuffs, adult                       3     $38.00       $114.00
+Item | Qty | Unit price | Amount
+Disposable exam gloves (box of 100, medium) | 20 | $9.50 | $190.00
+Digital thermometers | 6 | $14.00 | $84.00
+Adhesive bandages (box of 200) | 10 | $6.25 | $62.50
+Blood pressure cuffs, adult | 3 | $38.00 | $114.00
 
 Subtotal: $450.50
 Shipping: $12.00 (free on orders over $500)
@@ -373,16 +373,16 @@ Marisol Fenn, Bayleaf Catering
 * * *
 
 BAYLEAF CATERING – INVOICE #2208
-Client: Linden Hall Events          Event date: April 18
+Client: Linden Hall Events | Event date: April 18
 
-Description                                  Amount
-Dinner service, 55 guests at $42             $2,310.00
-Additional guests, 7 at $42                    $294.00
-Vegetarian tasting menu (supplement)           $180.00
-Second chef                                    $250.00
-Serving staff (4)                              $360.00
-Subtotal                                     $3,394.00
-Less: deposit received                        -$500.00
+Description | Amount
+Dinner service, 55 guests at $42 | $2,310.00
+Additional guests, 7 at $42 | $294.00
+Vegetarian tasting menu (supplement) | $180.00
+Second chef | $250.00
+Serving staff (4) | $360.00
+Subtotal | $3,394.00
+Less: deposit received | -$500.00
 Balance due: $2,894.00`,
           groups: [ { type: 'mcq', instr: 'Questions 176-180 refer to the following e-mail and invoice.', items: [
             { n: 176, lv: 'B1', q: 'Why did Ms. Fenn write to Mr. Perea?', options: ['To confirm a booking for a future event', 'To explain charges on an invoice', 'To request a deposit', 'To apologize for a late delivery'], a: 1, cue: 'I want to explain two items',
@@ -527,10 +527,10 @@ Lighting replacement: date to be confirmed`,
 March 3
 
 Mr. Elias Varga
-Varga Structural
+Tallis Structural
 Dear Mr. Varga,
 
-On behalf of the Alumni Relations office, I am writing to invite you to be the keynote speaker at our Scholarship Benefit Dinner on Saturday, May 17, at the Marlowe Hotel. This annual event raises money for first-generation students, and last year's dinner brought in $85,000. As a 2009 graduate who now leads the successful engineering firm Varga Structural, you would be an inspiration to our students. Speakers receive a complimentary hotel room for the night of the event, and we would cover your travel expenses up to $500. The keynote would last about twenty minutes. Please let me know by April 1 if you can join us.
+On behalf of the Alumni Relations office, I am writing to invite you to be the keynote speaker at our Scholarship Benefit Dinner on Saturday, May 17, at the Marlowe Hotel. This annual event raises money for first-generation students, and last year's dinner brought in $85,000. As a 2009 graduate who now leads the successful engineering firm Tallis Structural, you would be an inspiration to our students. Speakers receive a complimentary hotel room for the night of the event, and we would cover your travel expenses up to $500. The keynote would last about twenty minutes. Please let me know by April 1 if you can join us.
 
 Sincerely,
 Paloma Reyes, Director of Alumni Relations
@@ -563,7 +563,7 @@ Please send me the details for the hotel reservation.
 Best regards,
 Elias Varga`,
           groups: [ { type: 'mcq', instr: 'Questions 196-200 refer to the following letter, program, and e-mail.', items: [
-            { n: 196, lv: 'B2', q: 'Why was Mr. Varga invited to the event?', options: ['He is a trustee of the university.', 'He donated to the fund last year.', 'He teaches an engineering course.', 'He is a successful graduate of the university.'], a: 3, cue: 'As a 2009 graduate who now leads the successful engineering firm Varga Structural',
+            { n: 196, lv: 'B2', q: 'Why was Mr. Varga invited to the event?', options: ['He is a trustee of the university.', 'He donated to the fund last year.', 'He teaches an engineering course.', 'He is a successful graduate of the university.'], a: 3, cue: 'As a 2009 graduate who now leads the successful engineering firm Tallis Structural',
               explain: 'Thư mời viết "As a 2009 graduate who now leads the successful engineering firm" → ông là cựu sinh viên thành đạt, sẽ truyền cảm hứng cho sinh viên. Thư không nói ông là ủy viên hội đồng, từng quyên góp năm ngoái hay giảng dạy.' },
             { n: 197, lv: 'B2', q: 'What does Ms. Reyes offer Mr. Varga?', options: ['Reimbursement of some travel expenses', 'Payment for his speech', 'A seat on the university board', 'Tickets for his employees'], a: 0, cue: 'we would cover your travel expenses up to $500',
               explain: 'Bà Reyes viết "we would cover your travel expenses up to $500" (chi trả chi phí đi lại tối đa 500 đô la) → hoàn một phần chi phí đi lại. Thư còn cho phòng khách sạn miễn phí nhưng không nhắc thù lao diễn thuyết, ghế hội đồng hay vé cho nhân viên.' },

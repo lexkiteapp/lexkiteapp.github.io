@@ -37,24 +37,24 @@
   "picture-sentence": 8
  },
  "TOEFL Reading": {
-  "Complete the Words": 120,
-  "daily": 60,
-  "academic": 120
+  "Complete the Words": 200,
+  "daily": 100,
+  "academic": 200
  },
  "TOEFL Listening": {
-  "response": 48,
-  "conversation": 80,
-  "announcement": 59,
-  "talk": 95
+  "response": 81,
+  "conversation": 122,
+  "announcement": 91,
+  "talk": 147
  },
  "TOEFL Writing": {
-  "sentence": 60,
-  "email": 22,
-  "discussion": 22
+  "sentence": 100,
+  "email": 30,
+  "discussion": 30
  },
  "TOEFL Speaking": {
-  "repeat": 119,
-  "interview": 64
+  "repeat": 175,
+  "interview": 96
  },
  "Ngữ pháp – trắc nghiệm": {
   "A2": 168,

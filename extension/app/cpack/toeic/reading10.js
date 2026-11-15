@@ -232,15 +232,15 @@ Ibrahim Okonkwo`,
           ] } ] },
         { title: 'Invoice', text:
 `Ledgerline Office Supply
-Invoice No. 70418          Date: November 3          Terms: Net 30
+Invoice No. 70418 | Date: November 3 | Terms: Net 30
 Bill to: Fenwick & Aldous Architects, 88 Garrick Lane, Suite 400
 Delivery date: November 5
 
-Item                                         Qty    Unit price    Amount
-Ergonomic desk chair, model C20               6      $149.00      $894.00
-Whiteboard, 4 x 6 ft                          2       $85.00      $170.00
-Laser printer toner, black                    8       $62.50      $500.00
-Recycled copy paper (case of 10 reams)        5       $38.00      $190.00
+Item | Qty | Unit price | Amount
+Ergonomic desk chair, model C20 | 6 | $149.00 | $894.00
+Whiteboard, 4 x 6 ft | 2 | $85.00 | $170.00
+Laser printer toner, black | 8 | $62.50 | $500.00
+Recycled copy paper (case of 10 reams) | 5 | $38.00 | $190.00
 
 Subtotal: $1,754.00
 Loyalty discount (5%): -$87.70
@@ -372,10 +372,10 @@ Henrietta Sato, Partner`,
 
 Protect your belongings, your liability, and your peace of mind.
 
-Plan        Personal property    Liability     Monthly premium
-Basic       $15,000              $100,000      $12
-Standard    $30,000              $200,000      $19
-Plus        $50,000              $300,000      $27
+Plan | Personal property | Liability | Monthly premium
+Basic | $15,000 | $100,000 | $12
+Standard | $30,000 | $200,000 | $19
+Plus | $50,000 | $300,000 | $27
 
 All plans include coverage for fire, theft, and water damage from burst pipes. Flood damage is covered only under the Plus plan. Customers who bundle renters insurance with a Teldane auto policy save 10 percent on both. Claims can be filed online or by phone, and most are settled within 10 business days. Policyholders can change plans at any time; the new premium applies from the next billing date.
 
@@ -503,12 +503,12 @@ Soledad Park`,
         { title: 'Schedule and E-mails', text:
 `Lakeshore Wellness Studio – Fall Class Schedule (September–November)
 
-Monday        6:30 A.M.    Sunrise Yoga (Studio A, 60 min)
-Monday        6:00 P.M.    Core Strength (Studio B, 45 min)
-Tuesday      12:15 P.M.    Lunchtime Cycling (Cycle Room, 45 min)
-Wednesday     6:30 A.M.    Sunrise Yoga (Studio A, 60 min)
-Thursday      6:00 P.M.    Gentle Stretch (Studio A, 60 min)
-Saturday      9:00 A.M.    Family Fitness (Studio B, 60 min; children 8 and over)
+Monday | 6:30 A.M. | Sunrise Yoga (Studio A, 60 min)
+Monday | 6:00 P.M. | Core Strength (Studio B, 45 min)
+Tuesday | 12:15 P.M. | Lunchtime Cycling (Cycle Room, 45 min)
+Wednesday | 6:30 A.M. | Sunrise Yoga (Studio A, 60 min)
+Thursday | 6:00 P.M. | Gentle Stretch (Studio A, 60 min)
+Saturday | 9:00 A.M. | Family Fitness (Studio B, 60 min; children 8 and over)
 
 Drop-in price: $18. Class pass (10 classes): $140, valid for three months. Registration is required for Cycle Room classes because space is limited to 12 riders.
 
@@ -548,11 +548,11 @@ Welcome to the neighborhood! Two of our yoga classes fit your hours. Cycling is 
         { title: 'Web page and E-mails', text:
 `Gantry Car & Van Rental – Weekend Specials
 
-Vehicle                      Daily rate    Mileage per day
-Compact (seats 4)            $39           150 miles
-Midsize SUV (seats 5)        $62           200 miles
-Passenger van (seats 12)     $95           250 miles
-Cargo van                    $88           250 miles
+Vehicle | Daily rate | Mileage per day
+Compact (seats 4) | $39 | 150 miles
+Midsize SUV (seats 5) | $62 | 200 miles
+Passenger van (seats 12) | $95 | 250 miles
+Cargo van | $88 | 250 miles
 
 Weekend special: Rent from Friday after 3:00 P.M. and return by Monday at 10:00 A.M. and pay for only two days. The mileage allowance is based on the number of days charged. Additional miles cost $0.40 each. A refundable security deposit of $200 is charged at pickup. Drivers must be at least 23 years old and present a valid license. Child seats are available for $8 per day. Reservations can be changed free of charge up to 24 hours before pickup.
 

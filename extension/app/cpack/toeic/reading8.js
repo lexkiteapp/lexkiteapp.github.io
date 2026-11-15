@@ -245,17 +245,17 @@ Ironwell plans to extend the program to its two other plants by the end of next 
           ] } ] },
         { title: 'Invoice', lv: 'B2', text:
 `MARLOWE FREIGHT SERVICES
-Invoice no. 20917                     Date: August 14
+Invoice no. 20917 | Date: August 14
 Bill to: Calloway Bicycle Works, 88 Tanner Row, Ellisburg
 Payment due: September 13
 
-Description                                           Amount
-Pallet shipment, Ellisburg to Port Tolliver (6 pallets at $85.00)     $510.00
-Fuel surcharge (6 percent of shipment charge)          $30.60
-Customs documentation                                  $45.00
-Temporary storage (6 pallets x 2 days x $4.00)         $48.00
+Description | Amount
+Pallet shipment, Ellisburg to Port Tolliver (6 pallets at $85.00) | $510.00
+Fuel surcharge (6 percent of shipment charge) | $30.60
+Customs documentation | $45.00
+Temporary storage (6 pallets x 2 days x $4.00) | $48.00
 
-Total due                                             $633.60
+Total due | $633.60
 
 Pay by August 24 and deduct $20.00 from the total.
 A late fee of 1.5 percent per month applies to balances unpaid after the due date. To dispute any charge, contact our billing department within seven days of the invoice date.`,
