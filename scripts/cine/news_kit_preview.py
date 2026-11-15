@@ -21,24 +21,36 @@ def make(kit):
     return g
 def bg(kit):
     im = Image.new('RGB', (1080, 1920), (222, 178, 120) if not kit else (21, 67, 74)); d = ImageDraw.Draw(im)   # placeholder scene; the real clip keeps Ama on top
-    d.ellipse([340, 960, 740, 1400], fill=(60, 40, 30)); d.rectangle([250, 1400, 830, 1920], fill=(24, 40, 70)); return im
+    d.ellipse([400, 560, 680, 940], fill=(60, 40, 30)); d.rectangle([250, 940, 830, 1920], fill=(24, 40, 70)); return im   # head box HEAD = [400,560,680,940] (real chin <= 945, news.py CARD_Y comment)
+HEAD = (400, 560, 680, 940); SAFE_BOX = (48, 232, 924, 1497)   # news.py SAFE: top 12 %, bottom 22 %, right 14 % clear of all text
+BOXES = {}
 def frame(kit, shot):
-    g = make(kit); im = bg(kit).convert('RGBA'); L = g['layer']
+    g = make(kit); im = bg(kit).convert('RGBA'); BOXES.clear()
+    def put(k, r):
+        im.alpha_composite(r[0]); BOXES[k] = tuple(r[1][:4])
     if shot == 'wordcheck':
-        im.alpha_composite(g['series_bar']('WORD CHECK', 'make vs do', y0=240)[0])
-        im.alpha_composite(g['hook_card']('MAKE OR DO?', '', y0=336)[0]); c, _ = g['card_one']('p', "I'll make dinner.", num='B', y0=1016); im.alpha_composite(c)
-        cp, _ = g['cap_img']([['Which', 'one', 'is', 'right?']], 0); im.alpha_composite(cp)
-        if kit: im.alpha_composite(g['cta_pill']('Free practice on lexkite.com', y0=1330)[0])
+        put('series', g['series_bar']('WORD CHECK', 'make vs do', y0=240)); put('hook', g['hook_card']('MAKE OR DO?', '', y0=336)[:2]); put('card', g['card_one']('p', "I'll make dinner.", num='B', y0=g['CARD_Y']))
+        put('cap', g['cap_img']([['Which', 'one', 'is', 'right?']], 0))
+        if kit: put('cta', g['cta_pill']('Free practice on lexkite.com', y0=1330)[:2])
         else:
             d = ImageDraw.Draw(im); d.rounded_rectangle([200, 1330, 880, 1426], 48, fill=(229, 80, 47)); d.text((540, 1378), 'Com' 'ment below', font=g['font'](g['FH'], 50), fill='white', anchor='mm')
     elif shot == 'fix':
-        im.alpha_composite(g['series_bar']('FIX IT', 'agree', y0=240, level='easy')[0]); c, _ = g['card_one']('x', 'I am agree.', num='NOT', y0=700); im.alpha_composite(c)
-        c, _ = g['card_one']('v', 'I agree.', num='SAY', y0=880); im.alpha_composite(c)
+        put('series', g['series_bar']('FIX IT', 'agree', y0=240, level='easy')); put('card', g['card_one']('x', 'I am agree.', num='NOT', y0=g['CARD_Y'])); put('cap', g['cap_img']([['Stop', 'saying', 'this.']], 0))
     else:
-        c, _ = g['card_recap']("TEACHER'S TIP", ['make dinner', 'make coffee'], y0=700); im.alpha_composite(c)
-        im.alpha_composite(g['ring_card']('Save this', 0.6, y0=1010)[0])
+        put('card', g['card_recap']("TEACHER'S TIP", ['make dinner', 'make coffee'], y0=g['CARD_Y'])); put('cap', g['cap_img']([['Save', 'this', 'tip.']], 0))
     return im.convert('RGB')
+def violations():
+    """Kit overlay geometry gate: every box inside SAFE (top 12 %, bottom 22 %, right 14 %) and clear of the head box (24 px gap, news_layout.py rule)."""
+    out = []
+    for shot in ('wordcheck', 'fix', 'tip'):
+        frame(True, shot)
+        for k, b in BOXES.items():
+            if b[0] < SAFE_BOX[0] or b[2] > SAFE_BOX[2] or b[1] < SAFE_BOX[1] or b[3] > SAFE_BOX[3]: out.append(f'{shot}/{k} {b} outside SAFE {SAFE_BOX}')
+            if b[0] < HEAD[2] + 24 and b[2] > HEAD[0] - 24 and b[1] < HEAD[3] + 24 and b[3] > HEAD[1] - 24: out.append(f'{shot}/{k} {b} touches the head {HEAD}')
+    return out
 if __name__ == '__main__':
+    v = violations()
+    if v: print('\n'.join('GEOM ' + x for x in v)); sys.exit(1)
     for shot in ('wordcheck', 'fix', 'tip'):
         a, b = frame(False, shot), frame(True, shot); s = Image.new('RGB', (2200, 1920), (40, 40, 40)); s.paste(a, (0, 0)); s.paste(b, (1120, 0)); s.resize((1100, 960)).save(f'{OUT}/{shot}-before-after.png'); b.save(f'{OUT}/{shot}-new.png')
     print('ok')
