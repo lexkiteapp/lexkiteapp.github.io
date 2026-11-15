@@ -10,7 +10,9 @@
   "pb-10": "pb-4",
   "text-[22px]": "",
   "leading-[30px]": "",
-  "tracking-[0em]": ""
+  "tracking-[0em]": "",
+  "text-headline-sm": "",
+  "font-headline-sm": ""
  },
  "text": {
   "Settings": "d.title"

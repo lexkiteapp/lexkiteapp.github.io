@@ -4,7 +4,7 @@
   const { Store, SRS, todayKey } = Core;
   // 🎨 CSS riêng trang Cài đặt (mục lục + trang con) – nạp cùng gói lười, không vào khung app (DESIGN-SYSTEM §6)
   try { if (!document.getElementById('setCss')) { const st = document.createElement('style'); st.id = 'setCss'; st.textContent = `.set-wrap.idx{display:none}
-.v2s-settings>.v2{font-family:inherit}.v2s-settings [data-go]{color:inherit;text-decoration:none}
+.v2s-settings>.v2{font-family:inherit}.v2s-settings [data-go]{color:inherit;text-decoration:none}.v2s-settings [data-grp] .w-8{background:var(--surface-2)!important;color:var(--heading)!important}
 .set-wrap.idx>.set-sec{display:none}
 .set-wrap.one>.set-sec:not([data-on]){display:none}
 .set-wrap.one>.set-sec>.set-h{display:none}
