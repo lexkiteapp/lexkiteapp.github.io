@@ -1,0 +1,850 @@
+{
+  "intrinsic": {
+    "ipaUS": "/ɪnˈtrɪnzɪk/",
+    "col": [
+      "intrinsic motivation",
+      "intrinsic value",
+      "intrinsic worth",
+      "intrinsic to the job",
+      "intrinsic property",
+      "intrinsic reward"
+    ],
+    "syn": [
+      "inherent",
+      "innate",
+      "built-in",
+      "essential"
+    ]
+  },
+  "investment": {
+    "ipaUS": "/ɪnˈvestmənt/",
+    "col": [
+      "foreign investment",
+      "long-term investment",
+      "make an investment",
+      "a good investment",
+      "investment in education",
+      "return on investment"
+    ],
+    "syn": [
+      "funding",
+      "backing",
+      "stake",
+      "capital"
+    ]
+  },
+  "landline": {
+    "ipaUS": "/ˈlændlaɪn/",
+    "col": [
+      "landline number",
+      "call a landline",
+      "landline phone",
+      "have a landline",
+      "landline and mobile",
+      "landline rental"
+    ],
+    "syn": [
+      "home phone",
+      "fixed line",
+      "fixed-line phone"
+    ]
+  },
+  "leaflet": {
+    "ipaUS": "/ˈliːflət/",
+    "col": [
+      "hand out leaflets",
+      "information leaflet",
+      "tourist leaflet",
+      "pick up a leaflet",
+      "distribute leaflets",
+      "leaflet about"
+    ],
+    "syn": [
+      "flyer",
+      "pamphlet",
+      "handout",
+      "brochure"
+    ]
+  },
+  "legislate": {
+    "ipaUS": "/ˈledʒɪsleɪt/",
+    "col": [
+      "legislate against",
+      "legislate for",
+      "legislate on",
+      "legislate to protect",
+      "power to legislate",
+      "legislate a ban"
+    ],
+    "syn": [
+      "enact laws",
+      "pass laws",
+      "make laws",
+      "regulate"
+    ]
+  },
+  "mediate": {
+    "ipaUS": "/ˈmiːdieɪt/",
+    "col": [
+      "mediate a dispute",
+      "mediate between",
+      "mediate in a conflict",
+      "mediate peace talks",
+      "mediate a settlement",
+      "help to mediate"
+    ],
+    "syn": [
+      "arbitrate",
+      "intervene",
+      "negotiate",
+      "broker"
+    ]
+  },
+  "negate": {
+    "ipaUS": "/nɪˈɡeɪt/",
+    "col": [
+      "negate the effect",
+      "negate the benefits",
+      "negate a claim",
+      "completely negate",
+      "effectively negate",
+      "negate the need for"
+    ],
+    "syn": [
+      "cancel out",
+      "nullify",
+      "undo",
+      "invalidate"
+    ]
+  },
+  "packed": {
+    "ipaUS": "/pækt/",
+    "col": [
+      "packed with tourists",
+      "absolutely packed",
+      "packed lunch",
+      "packed out",
+      "packed schedule",
+      "jam-packed"
+    ],
+    "syn": [
+      "crowded",
+      "jam-packed",
+      "full",
+      "overcrowded"
+    ]
+  },
+  "reliable": {
+    "ipaUS": "/rɪˈlaɪəbəl/",
+    "col": [
+      "reliable friend",
+      "reliable source",
+      "reliable information",
+      "reliable car",
+      "highly reliable",
+      "reliable service"
+    ],
+    "syn": [
+      "dependable",
+      "trustworthy",
+      "consistent",
+      "steady"
+    ]
+  },
+  "roundabout": {
+    "ipaUS": "/ˈraʊndəbaʊt/",
+    "col": [
+      "at the roundabout",
+      "mini roundabout",
+      "take the second exit",
+      "go round a roundabout",
+      "traffic roundabout",
+      "approach a roundabout"
+    ],
+    "syn": [
+      "traffic circle",
+      "rotary",
+      "circle"
+    ]
+  },
+  "takeaway": {
+    "ipaUS": "/ˈteɪkəweɪ/",
+    "col": [
+      "order a takeaway",
+      "Chinese takeaway",
+      "takeaway menu",
+      "pizza takeaway",
+      "get a takeaway",
+      "takeaway coffee"
+    ],
+    "syn": [
+      "takeout",
+      "carryout",
+      "food to go"
+    ]
+  },
+  "trendy": {
+    "ipaUS": "/ˈtrendi/",
+    "col": [
+      "trendy café",
+      "trendy clothes",
+      "trendy neighbourhood",
+      "a trendy crowd",
+      "look trendy",
+      "trendy restaurant"
+    ],
+    "syn": [
+      "fashionable",
+      "stylish",
+      "hip",
+      "up-to-date"
+    ]
+  },
+  "unemployment": {
+    "ipaUS": "/ˌʌnɪmˈplɔɪmənt/",
+    "col": [
+      "unemployment rate",
+      "youth unemployment",
+      "unemployment benefit",
+      "high unemployment",
+      "rising unemployment",
+      "long-term unemployment"
+    ],
+    "syn": [
+      "joblessness",
+      "lack of work",
+      "redundancy"
+    ]
+  },
+  "accordingly": {
+    "ipaUS": "/əˈkɔːrdɪŋli/",
+    "col": [
+      "act accordingly",
+      "adjust accordingly",
+      "plan accordingly",
+      "and accordingly",
+      "prices will rise accordingly",
+      "behave accordingly"
+    ],
+    "syn": [
+      "therefore",
+      "consequently",
+      "appropriately",
+      "as a result"
+    ]
+  },
+  "consequently": {
+    "ipaUS": "/ˈkɑːnsəkwentli/",
+    "col": [
+      "consequently, the",
+      "and consequently",
+      "consequently increased",
+      "consequently lost",
+      "consequently failed",
+      "consequently decided"
+    ],
+    "syn": [
+      "therefore",
+      "as a result",
+      "hence",
+      "thus"
+    ]
+  },
+  "corroborate": {
+    "ipaUS": "/kəˈrɑːbəreɪt/",
+    "col": [
+      "corroborate evidence",
+      "corroborate a claim",
+      "corroborate a story",
+      "corroborate the findings",
+      "independently corroborated",
+      "corroborate his account"
+    ],
+    "syn": [
+      "confirm",
+      "back up",
+      "verify",
+      "bear out"
+    ]
+  },
+  "curtail": {
+    "ipaUS": "/kɜːrˈteɪl/",
+    "col": [
+      "curtail spending",
+      "severely curtail",
+      "curtail freedom",
+      "curtail activities",
+      "curtail his visit",
+      "curtail the right to"
+    ],
+    "syn": [
+      "restrict",
+      "cut back",
+      "reduce",
+      "limit"
+    ]
+  },
+  "decarbonise": {
+    "ipaUS": "/diːˈkɑːrbənaɪz/",
+    "col": [
+      "decarbonise the economy",
+      "decarbonise transport",
+      "decarbonise energy",
+      "decarbonise industry",
+      "decarbonise heating",
+      "fully decarbonise"
+    ],
+    "syn": [
+      "cut emissions",
+      "go green",
+      "reduce carbon",
+      "clean up"
+    ]
+  },
+  "endemic": {
+    "ipaUS": "/enˈdemɪk/",
+    "col": [
+      "endemic species",
+      "endemic to",
+      "endemic disease",
+      "endemic corruption",
+      "endemic in the region",
+      "become endemic"
+    ],
+    "syn": [
+      "native",
+      "indigenous",
+      "widespread",
+      "prevalent"
+    ]
+  },
+  "exacerbate": {
+    "ipaUS": "/ɪɡˈzæsərbeɪt/",
+    "col": [
+      "exacerbate the problem",
+      "further exacerbate",
+      "exacerbate tensions",
+      "exacerbate the situation",
+      "exacerbate symptoms",
+      "exacerbated by"
+    ],
+    "syn": [
+      "worsen",
+      "aggravate",
+      "intensify",
+      "compound"
+    ]
+  },
+  "hitherto": {
+    "ipaUS": "/ˌhɪðərˈtuː/",
+    "col": [
+      "hitherto unknown",
+      "hitherto unexplored",
+      "hitherto untouched",
+      "hitherto unseen",
+      "hitherto considered",
+      "hitherto regarded as"
+    ],
+    "syn": [
+      "until now",
+      "so far",
+      "previously",
+      "up to this point"
+    ]
+  },
+  "nevertheless": {
+    "ipaUS": "/ˌnevərðəˈles/",
+    "col": [
+      "nevertheless, the",
+      "but nevertheless",
+      "it is nevertheless true",
+      "nevertheless remains",
+      "and yet nevertheless",
+      "nevertheless continued"
+    ],
+    "syn": [
+      "nonetheless",
+      "however",
+      "even so",
+      "still"
+    ]
+  },
+  "ostensibly": {
+    "ipaUS": "/ɑːˈstensəbli/",
+    "col": [
+      "ostensibly designed",
+      "ostensibly for",
+      "ostensibly designed to",
+      "ostensibly about",
+      "ostensibly to",
+      "ostensibly independent",
+      "ostensibly in order to"
+    ],
+    "syn": [
+      "apparently",
+      "seemingly",
+      "supposedly",
+      "on the surface"
+    ]
+  },
+  "otherwise": {
+    "ipaUS": "/ˈʌðərwaɪz/",
+    "col": [
+      "or otherwise",
+      "otherwise known as",
+      "unless otherwise stated",
+      "think otherwise",
+      "say otherwise",
+      "otherwise perfect"
+    ],
+    "syn": [
+      "or else",
+      "if not",
+      "differently",
+      "in other respects"
+    ]
+  },
+  "overall": {
+    "ipaUS": "/ˌoʊvərˈɔːl/",
+    "col": [
+      "overall, the",
+      "overall winner",
+      "overall cost",
+      "overall performance",
+      "overall picture",
+      "overall trend"
+    ],
+    "syn": [
+      "in general",
+      "on the whole",
+      "all in all",
+      "by and large"
+    ]
+  },
+  "posit": {
+    "ipaUS": "/ˈpɑːzɪt/",
+    "col": [
+      "posit that",
+      "posit a link",
+      "posit a theory",
+      "posit the existence of",
+      "posit an idea",
+      "posit a hypothesis"
+    ],
+    "syn": [
+      "propose",
+      "put forward",
+      "assume",
+      "suggest"
+    ]
+  },
+  "postulate": {
+    "ipaUS": "/ˈpɑːstʃəleɪt/",
+    "col": [
+      "postulate a theory",
+      "postulate that",
+      "postulate the existence of",
+      "postulate a cause",
+      "first postulated",
+      "postulate a link"
+    ],
+    "syn": [
+      "propose",
+      "hypothesise",
+      "assume",
+      "theorise"
+    ]
+  },
+  "purportedly": {
+    "ipaUS": "/pərˈpɔːrtɪdli/",
+    "col": [
+      "purportedly written",
+      "purportedly showing",
+      "purportedly from",
+      "purportedly stolen",
+      "purportedly caused by",
+      "purportedly authentic"
+    ],
+    "syn": [
+      "allegedly",
+      "supposedly",
+      "reportedly",
+      "ostensibly"
+    ]
+  },
+  "replicate": {
+    "ipaUS": "/ˈrepləkeɪt/",
+    "col": [
+      "replicate results",
+      "replicate a study",
+      "replicate an experiment",
+      "replicate the effect",
+      "successfully replicate",
+      "replicate the conditions"
+    ],
+    "syn": [
+      "reproduce",
+      "repeat",
+      "copy",
+      "duplicate"
+    ]
+  },
+  "splurge": {
+    "ipaUS": "/splɜːrdʒ/",
+    "col": [
+      "splurge on",
+      "splurge money",
+      "splurge on a treat",
+      "splurge out",
+      "a splurge",
+      "a shopping splurge"
+    ],
+    "syn": [
+      "overspend",
+      "indulge",
+      "treat yourself",
+      "blow money"
+    ]
+  },
+  "subsequently": {
+    "ipaUS": "/ˈsʌbsɪkwentli/",
+    "col": [
+      "subsequently became",
+      "subsequently moved",
+      "subsequently discovered",
+      "was subsequently",
+      "and subsequently",
+      "subsequently released"
+    ],
+    "syn": [
+      "later",
+      "afterwards",
+      "then",
+      "thereafter"
+    ]
+  },
+  "substantiate": {
+    "ipaUS": "/səbˈstænʃieɪt/",
+    "col": [
+      "substantiate a claim",
+      "substantiate allegations",
+      "substantiate the evidence",
+      "unable to substantiate",
+      "fail to substantiate",
+      "substantiate an argument"
+    ],
+    "syn": [
+      "prove",
+      "back up",
+      "verify",
+      "validate"
+    ]
+  },
+  "ultimately": {
+    "ipaUS": "/ˈʌltəmətli/",
+    "col": [
+      "ultimately responsible",
+      "ultimately depends on",
+      "ultimately decide",
+      "ultimately fail",
+      "ultimately successful",
+      "ultimately lead to"
+    ],
+    "syn": [
+      "in the end",
+      "eventually",
+      "fundamentally",
+      "at the end of the day"
+    ]
+  },
+  "underpin": {
+    "ipaUS": "/ˌʌndərˈpɪn/",
+    "col": [
+      "underpin the theory",
+      "underpinned by",
+      "underpin the economy",
+      "underpin success",
+      "underpin the system",
+      "firmly underpinned"
+    ],
+    "syn": [
+      "support",
+      "form the basis of",
+      "strengthen",
+      "sustain"
+    ]
+  },
+  "whereas": {
+    "ipaUS": "/werˈæz/",
+    "col": [
+      "whereas the other",
+      "whereas in contrast",
+      "whereas others",
+      "whereas most",
+      "whereas some",
+      "whereas previously"
+    ],
+    "syn": [
+      "while",
+      "whilst",
+      "but",
+      "on the other hand"
+    ]
+  },
+  "analogous": {
+    "ipaUS": "/əˈnæləɡəs/",
+    "col": [
+      "analogous to",
+      "roughly analogous",
+      "analogous with",
+      "analogous situation",
+      "analogous case",
+      "closely analogous"
+    ],
+    "syn": [
+      "comparable",
+      "similar",
+      "parallel",
+      "equivalent"
+    ]
+  },
+  "ascribe": {
+    "ipaUS": "/əˈskraɪb/",
+    "col": [
+      "ascribe something to",
+      "commonly ascribed",
+      "ascribe to",
+      "ascribe the cause to",
+      "ascribe importance to",
+      "ascribe a meaning",
+      "wrongly ascribed"
+    ],
+    "syn": [
+      "attribute",
+      "credit",
+      "assign",
+      "put down to"
+    ]
+  },
+  "assimilate": {
+    "ipaUS": "/əˈsɪməleɪt/",
+    "col": [
+      "assimilate into society",
+      "fully assimilate",
+      "assimilate into",
+      "assimilate information",
+      "assimilate new ideas",
+      "assimilate with"
+    ],
+    "syn": [
+      "integrate",
+      "absorb",
+      "adapt",
+      "blend in"
+    ]
+  },
+  "backup": {
+    "ipaUS": "/ˈbækʌp/",
+    "col": [
+      "make a backup",
+      "restore from a backup",
+      "backup copy",
+      "backup plan",
+      "backup file",
+      "back up your files"
+    ],
+    "syn": [
+      "copy",
+      "spare",
+      "duplicate",
+      "reserve"
+    ]
+  },
+  "bandwidth": {
+    "ipaUS": "/ˈbændwɪdθ/",
+    "col": [
+      "have the bandwidth",
+      "limited bandwidth",
+      "free up bandwidth",
+      "bandwidth to take on",
+      "internet bandwidth",
+      "lack bandwidth"
+    ],
+    "syn": [
+      "capacity",
+      "time and energy",
+      "headspace",
+      "availability"
+    ]
+  },
+  "bug": {
+    "ipaUS": "/bʌɡ/",
+    "col": [
+      "fix a bug",
+      "report a bug",
+      "find a bug",
+      "a software bug",
+      "critical bug",
+      "bug in the code"
+    ],
+    "syn": [
+      "glitch",
+      "defect",
+      "error",
+      "fault"
+    ]
+  },
+  "deadline": {
+    "ipaUS": "/ˈdedlaɪn/",
+    "col": [
+      "meet a deadline",
+      "miss a deadline",
+      "tight deadline",
+      "extend the deadline",
+      "set a deadline",
+      "deadline for"
+    ],
+    "syn": [
+      "due date",
+      "cut-off",
+      "time limit",
+      "target date"
+    ]
+  },
+  "deploy": {
+    "ipaUS": "/dɪˈplɔɪ/",
+    "col": [
+      "deploy to production",
+      "deploy an update",
+      "deploy troops",
+      "deploy a new version",
+      "deploy resources",
+      "deploy automatically"
+    ],
+    "syn": [
+      "release",
+      "roll out",
+      "launch",
+      "install"
+    ]
+  },
+  "downtime": {
+    "ipaUS": "/ˈdaʊntaɪm/",
+    "col": [
+      "scheduled downtime",
+      "minimise downtime",
+      "unplanned downtime",
+      "system downtime",
+      "avoid downtime",
+      "zero downtime"
+    ],
+    "syn": [
+      "outage",
+      "time offline",
+      "stoppage",
+      "break"
+    ]
+  },
+  "dwelling": {
+    "ipaUS": "/ˈdwelɪŋ/",
+    "col": [
+      "private dwelling",
+      "traditional dwelling",
+      "cave dwelling",
+      "dwelling house",
+      "new dwellings",
+      "residential dwelling"
+    ],
+    "syn": [
+      "residence",
+      "home",
+      "housing unit",
+      "abode"
+    ]
+  },
+  "extraterrestrial": {
+    "ipaUS": "/ˌekstrətəˈrestriəl/",
+    "col": [
+      "extraterrestrial life",
+      "extraterrestrial intelligence",
+      "extraterrestrial origin",
+      "extraterrestrial being",
+      "extraterrestrial signal",
+      "search for extraterrestrial"
+    ],
+    "syn": [
+      "alien",
+      "otherworldly",
+      "from outer space",
+      "non-earthly"
+    ]
+  },
+  "feedback": {
+    "ipaUS": "/ˈfiːdbæk/",
+    "col": [
+      "give feedback",
+      "positive feedback",
+      "constructive feedback",
+      "receive feedback",
+      "feedback on",
+      "customer feedback"
+    ],
+    "syn": [
+      "comments",
+      "response",
+      "input",
+      "evaluation"
+    ]
+  },
+  "hence": {
+    "ipaUS": "/hens/",
+    "col": [
+      "hence the name",
+      "hence the need for",
+      "and hence",
+      "hence why",
+      "two years hence",
+      "hence the term"
+    ],
+    "syn": [
+      "therefore",
+      "thus",
+      "for this reason",
+      "so"
+    ]
+  },
+  "inception": {
+    "ipaUS": "/ɪnˈsepʃən/",
+    "col": [
+      "since its inception",
+      "from inception",
+      "at its inception",
+      "inception of the project",
+      "date of inception",
+      "since inception"
+    ],
+    "syn": [
+      "beginning",
+      "start",
+      "origin",
+      "founding"
+    ]
+  },
+  "likewise": {
+    "ipaUS": "/ˈlaɪkwaɪz/",
+    "col": [
+      "and likewise",
+      "do likewise",
+      "likewise, the",
+      "likewise for",
+      "treat others likewise",
+      "and likewise with"
+    ],
+    "syn": [
+      "similarly",
+      "equally",
+      "in the same way",
+      "also"
+    ]
+  }
+}

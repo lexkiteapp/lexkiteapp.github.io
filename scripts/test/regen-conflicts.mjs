@@ -57,4 +57,24 @@ g('checkout', '-q', '-b', 'pr2', 'main~1'); w('scripts/i18n-fixed.json', fixedTe
 g('merge', '--no-edit', 'main');
 assert.deepEqual(Object.keys(JSON.parse(r('scripts/i18n-fixed.json'))), ['k1', 'k2', 'k3', 'k4', 'k5', 'k9']);
 fs.rmSync(tmp, { recursive: true, force: true });
+
+// tệp > 1 MiB (i18n-fixed.json thật ~1,8 MB): execFileSync mặc định 1 MiB làm công cụ đọc thành {} và GHI ĐÈ {} (15/11) – tệp lớn vẫn phải giữ đủ khóa
+{
+  const tmp2 = fs.mkdtempSync(path.join(os.tmpdir(), 'rcbig-'));
+  const g2 = (...a) => execFileSync('git', a, { cwd: tmp2, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+  const w2 = (f, s2) => { fs.mkdirSync(path.dirname(path.join(tmp2, f)), { recursive: true }); fs.writeFileSync(path.join(tmp2, f), s2); };
+  g2('init', '-q', '-b', 'main'); g2('config', 'user.email', 't@t'); g2('config', 'user.name', 't'); g2('config', 'commit.gpgsign', 'false');
+  const big = {}; for (let i = 0; i < 2600; i++) big['big' + i] = { es: 'x'.repeat(450) };
+  assert.ok(fixedText(big).length > (1 << 20), 'tệp thử phải > 1 MiB');
+  w2('scripts/i18n-fixed.json', fixedText({ ...big, k1: { es: '1' } })); g2('add', '-A'); g2('commit', '-qm', 'base');
+  g2('checkout', '-qb', 'pr'); w2('scripts/i18n-fixed.json', fixedText({ ...big, k1: { es: '1' }, k9: { es: 'pr' } })); g2('commit', '-qam', 'pr');
+  g2('checkout', '-q', 'main'); w2('scripts/i18n-fixed.json', fixedText({ ...big, k1: { es: '1' }, k9: { es: 'pr', de: 'main' } })); g2('commit', '-qam', 'main');
+  g2('checkout', '-q', 'pr');
+  const o2 = execFileSync('node', [path.join(ROOT, 'scripts/ci/regen-conflicts.mjs'), '--base=main'], { cwd: tmp2, encoding: 'utf8' });
+  assert.match(o2, /đã gỡ/, o2);
+  const m2 = JSON.parse(fs.readFileSync(path.join(tmp2, 'scripts/i18n-fixed.json'), 'utf8'));
+  assert.equal(Object.keys(m2).length, 2602, 'tệp > 1 MiB không được mất khóa');
+  assert.deepEqual(m2.k9, { es: 'pr', de: 'main' });
+  fs.rmSync(tmp2, { recursive: true, force: true });
+}
 console.log('✓ regen-conflicts: i18n-fixed sắp/một dòng, gộp theo khóa, gỡ trên git thật');
