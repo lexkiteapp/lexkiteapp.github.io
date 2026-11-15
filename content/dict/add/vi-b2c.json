@@ -1,0 +1,752 @@
+{
+ "realistic": {
+  "mis": [
+   {
+    "w": "It is not realistic to expecting a pay rise.",
+    "r": "It is not realistic to expect a pay rise.",
+    "why": "Sau 'realistic to' dùng động từ nguyên mẫu, không dùng V-ing."
+   },
+   {
+    "w": "We should be realist and cut the budget.",
+    "r": "We should be realistic and cut the budget.",
+    "why": "Tính từ là realistic; realist là danh từ chỉ người thực tế."
+   }
+  ],
+  "u": "Realistic chỉ kế hoạch, mục tiêu hay ý tưởng có thể thực hiện được trong hoàn cảnh thực tế. Trong công việc, bạn hay gặp set realistic goals, a realistic timeline, realistic expectations. Từ này còn có nghĩa giống thật, như tranh hay phim realistic. Trái nghĩa là unrealistic, cách nói nhẹ nhàng khi chê kế hoạch quá lạc quan. Practical nhấn vào tính hữu dụng, còn realistic nhấn vào việc chấp nhận sự thật; nói hạn chót không realistic nghe lịch sự hơn nói là không thể."
+ },
+ "realtor": {
+  "mis": [
+   {
+    "w": "The realtor sold to us a small apartment.",
+    "r": "The realtor sold us a small apartment.",
+    "why": "Sell + người + vật: sold us a flat; không chen 'to us' trước tân ngữ."
+   },
+   {
+    "w": "I met a realtor to buy a house in the city.",
+    "r": "I met a realtor to look for a house in the city.",
+    "why": "Realtor giúp bạn tìm hoặc bán nhà; không phải người bán nhà để mua trực tiếp."
+   }
+  ],
+  "u": "Realtor chủ yếu dùng trong tiếng Anh Mỹ và đúng nghĩa là nhân viên bất động sản thuộc hiệp hội Realtors, dù nhiều người dùng cho mọi môi giới. Tiếng Anh Anh thường nói estate agent. Realtor đại diện cho người mua hoặc người bán và hưởng hoa hồng khi giao dịch hoàn tất. Trong công việc, bạn có thể nói hire a realtor to find office space. Ở Mỹ từ này hay viết hoa vì là nhãn hiệu đã đăng ký."
+ },
+ "reassure": {
+  "mis": [
+   {
+    "w": "The manager reassured to the staff that jobs were safe.",
+    "r": "The manager reassured the staff that jobs were safe.",
+    "why": "Reassure là ngoại động từ, tân ngữ đi liền, không cần 'to'."
+   },
+   {
+    "w": "I was reassuring when I heard the news.",
+    "r": "I was reassured when I heard the news.",
+    "why": "Dùng -ed cho cảm xúc của người; -ing mô tả điều gây ra cảm giác."
+   }
+  ],
+  "u": "Reassure nghĩa là nói hoặc làm điều gì để người khác bớt lo. Theo sau là người, rồi thường là that hoặc about: she reassured customers that their data was safe. Tính từ reassuring mô tả nguyên nhân (một nụ cười trấn an), còn reassured mô tả người đã yên tâm. Comfort ấm áp hơn và dùng khi buồn; reassure dùng khi nghi ngại hay sợ hãi. Trong văn bản kinh doanh, từ này hay xuất hiện trong thông báo trấn an khách hàng, nhân viên, nhà đầu tư."
+ },
+ "reconsider": {
+  "mis": [
+   {
+    "w": "Please reconsider about our offer.",
+    "r": "Please reconsider our offer.",
+    "why": "Reconsider là ngoại động từ, không thêm 'about' như think about."
+   },
+   {
+    "w": "He reconsidered to accept the job.",
+    "r": "He reconsidered accepting the job.",
+    "why": "Sau reconsider dùng danh từ hoặc V-ing, không dùng to-V."
+   }
+  ],
+  "u": "Reconsider nghĩa là nghĩ lại về một quyết định hay ý kiến, thường là có khả năng thay đổi. Từ này trang trọng và lịch sự nên hay gặp trong thư từ, đàm phán, như we urge you to reconsider. Theo sau là tân ngữ, V-ing hoặc mệnh đề whether. Rethink thân mật hơn; review gợi sự kiểm tra cẩn thận, chính thức. Reconsider không đảm bảo sẽ đổi ý, chỉ có nghĩa là vấn đề được mở lại để xem xét."
+ },
+ "recreational": {
+  "mis": [
+   {
+    "w": "The camp organises recreational activity for children every day.",
+    "r": "The camp organises recreational activities for children every day.",
+    "why": "Nhiều hoạt động khác nhau cần dạng số nhiều activities."
+   },
+   {
+    "w": "He plays tennis in a recreational at weekends.",
+    "r": "He plays recreational tennis at weekends.",
+    "why": "Recreational là tính từ, phải đứng trước danh từ, không dùng một mình."
+   }
+  ],
+  "u": "Recreational là tính từ chỉ việc làm để giải trí, thư giãn chứ không vì công việc hay tiền bạc. Từ hay đi với activities, facilities, use, vehicle. Recreational drug use là dùng chất kích thích để vui; recreational player là người chơi nghiệp dư, không chuyên. Danh từ liên quan là recreation, nên brochure khách sạn có thể ghi recreation facilities gồm hồ bơi. Leisure rộng và chung hơn, còn recreational thường nghe có tổ chức hoặc vận động hơn."
+ },
+ "recruiter": {
+  "mis": [
+   {
+    "w": "The recruiter is looking for new employee.",
+    "r": "The recruiter is looking for new employees.",
+    "why": "Employee đếm được; cần dạng số nhiều khi nói chung."
+   },
+   {
+    "w": "The recruiter told that she would call me back.",
+    "r": "The recruiter told me that she would call me back.",
+    "why": "Tell cần tân ngữ chỉ người trước mệnh đề that."
+   }
+  ],
+  "u": "Recruiter là người có nhiệm vụ tìm và thu hút ứng viên cho vị trí tuyển dụng. Có người làm trong bộ phận nhân sự của công ty, người khác làm cho công ty môi giới và được trả khi vị trí được lấp đầy. Cụm hay gặp: a recruiter contacted me, the recruiter will schedule an interview. Headhunter là recruiter chuyên tiếp cận người đang đi làm cho vị trí cao cấp. Recruiter mang tính trung lập, phổ biến trên mạng nghề nghiệp, còn headhunter nghe thân mật hoặc hơi thúc ép."
+ },
+ "recruitment": {
+  "mis": [
+   {
+    "w": "We have many recruitments this year.",
+    "r": "We have a lot of recruitment this year.",
+    "why": "Recruitment nghĩa tuyển dụng là danh từ không đếm được, không thêm -s."
+   },
+   {
+    "w": "The company is responsible of recruitment.",
+    "r": "The company is responsible for recruitment.",
+    "why": "Responsible đi với 'for', không dùng 'of'."
+   }
+  ],
+  "u": "Recruitment là quá trình tìm, chọn và thuê người làm cho một công việc hoặc một tổ chức như quân đội. Nghĩa này là danh từ không đếm được: the recruitment of new graduates, không nói a recruitment. Các cụm hay gặp là recruitment process, recruitment agency, recruitment drive (đợt tuyển nhiều người trong thời gian ngắn). Hiring là từ đời thường; recruitment trang trọng hơn và bao gồm cả chu trình từ đăng tin đến chọn người, nên bộ phận nhân sự thích dùng trong báo cáo."
+ },
+ "recur": {
+  "mis": [
+   {
+    "w": "The error recurred again yesterday.",
+    "r": "The error recurred yesterday.",
+    "why": "Recur đã có nghĩa 'xảy ra lại', thêm 'again' là thừa."
+   },
+   {
+    "w": "The problem was recurred many times.",
+    "r": "The problem recurred many times.",
+    "why": "Recur là nội động từ, không dùng ở thể bị động."
+   }
+  ],
+  "u": "Recur là nội động từ nghĩa là xảy ra lại, thường nhiều lần, như một căn bệnh, lỗi hay ý nghĩ. Chú ý chính tả: recurred và recurring gấp đôi chữ r. Tính từ recurring rất hay dùng trong kinh doanh, như a recurring payment (thanh toán định kỳ) hay a recurring meeting. Recur gợi sự quay lại của cùng một việc; repeat thường là việc ai đó cố ý làm lại. Nói the problem recurs again bị lặp ý và nghe thừa với người bản xứ."
+ },
+ "referral": {
+  "mis": [
+   {
+    "w": "I got this job by a referral of my friend.",
+    "r": "I got this job through a referral from my friend.",
+    "why": "Referral đến 'from' một người; dùng 'by' và 'of' nghe sai."
+   },
+   {
+    "w": "Many referral help our business grow.",
+    "r": "Many referrals help our business grow.",
+    "why": "Referral đếm được, sau 'many' phải dùng số nhiều."
+   }
+  ],
+  "u": "Referral là việc giới thiệu ai đó đến người hoặc dịch vụ khác, hoặc chính người được giới thiệu. Trong y tế, bác sĩ gia đình cho bạn giấy referral để gặp bác sĩ chuyên khoa. Trong kinh doanh, referral program thưởng cho khách mang khách mới đến, referral bonus thưởng nhân viên giới thiệu ứng viên. Đây là danh từ đếm được: we received three referrals. Referral nhấn vào việc chuyển hướng người; recommendation là lời khuyên hoặc lời khen rộng hơn rằng điều gì đó tốt."
+ },
+ "refinery": {
+  "mis": [
+   {
+    "w": "The refinery produces a lot of oils.",
+    "r": "The refinery produces a lot of oil.",
+    "why": "Oil chỉ chất liệu là danh từ không đếm được, không thêm -s."
+   },
+   {
+    "w": "He works in the oil refinery factory.",
+    "r": "He works in the oil refinery.",
+    "why": "Refinery đã là một loại nhà máy nên thêm 'factory' là thừa."
+   }
+  ],
+  "u": "Refinery là nhà máy công nghiệp làm tinh khiết nguyên liệu thô để dùng hoặc bán. Loại phổ biến nhất là oil refinery, biến dầu thô thành xăng, dầu diesel và nhiên liệu khác. Cũng có nhà máy tinh luyện đường, kim loại, muối. Từ này gốc từ refine, làm cho tinh khiết, và nhà máy thường được gọi theo sản phẩm: a sugar refinery. Tin tức hay nói refinery capacity hoặc refinery fire. Đây là danh từ đếm được, ít dùng ngoài chủ đề công nghiệp và năng lượng."
+ },
+ "reflexive": {
+  "mis": [
+   {
+    "w": "He cut him with a knife.",
+    "r": "He cut himself with a knife.",
+    "why": "Khi chủ ngữ và tân ngữ cùng là một người, phải dùng đại từ phản thân."
+   },
+   {
+    "w": "They enjoyed theirselves at the party.",
+    "r": "They enjoyed themselves at the party.",
+    "why": "Đại từ phản thân của they là themselves; 'theirselves' không chuẩn."
+   }
+  ],
+  "u": "Trong ngữ pháp, reflexive chỉ đại từ có đuôi -self hoặc -selves, như myself, themselves, quay lại chỉ chủ ngữ của động từ. Động từ phản thân đi với đại từ này, như she taught herself to swim. Ngoài ngữ pháp, reflexive nghĩa là tự động, làm mà không suy nghĩ, như phản ứng giật mình. Người học hay dùng đại từ thường (he hurt him) hoặc tự tạo ra dạng sai như hisself. Reflexive mô tả hành động quay về người làm; reflex là danh từ chỉ phản xạ tự nhiên của cơ thể."
+ },
+ "refreshment": {
+  "mis": [
+   {
+    "w": "The refreshments is free for all guests.",
+    "r": "The refreshments are free for all guests.",
+    "why": "Refreshments theo nghĩa này là số nhiều, đi với động từ số nhiều."
+   },
+   {
+    "w": "We offered some light refreshment to the guests.",
+    "r": "We offered some light refreshments to the guests.",
+    "why": "Với đồ ăn thức uống ở sự kiện, từ này thường ở số nhiều."
+   }
+  ],
+  "u": "Refreshments nghĩa là đồ ăn nhẹ và thức uống phục vụ tại sự kiện, như cà phê, trà, nước trái cây, bánh quy. Với nghĩa này từ gần như luôn ở số nhiều: refreshments are available in the lobby. Số ít refreshment hiếm, chỉ việc được làm tươi tỉnh hoặc một món trong văn trang trọng. Thư mời và thông báo hay ghi light refreshments will be served after the talk. Từ trang trọng hơn snacks and drinks, gợi một phần nhỏ, miễn phí chứ không phải bữa chính."
+ },
+ "refundable": {
+  "mis": [
+   {
+    "w": "The fee is refundable if you will cancel early.",
+    "r": "The fee is refundable if you cancel early.",
+    "why": "Sau 'if' trong câu điều kiện thực dùng hiện tại đơn, không dùng 'will'."
+   },
+   {
+    "w": "The deposit is refundable in 30 days.",
+    "r": "The deposit is refundable within 30 days.",
+    "why": "Dùng 'within' cho giới hạn thời gian, không dùng 'in'."
+   }
+  ],
+  "u": "Refundable mô tả khoản tiền có thể được hoàn lại, như tiền đặt cọc hay giá vé. Trái nghĩa là non-refundable, bạn hay thấy khi đặt phòng, vé máy bay. Cụm hay gặp: fully refundable, refundable within 30 days, a refundable deposit. Động từ là refund, danh từ (a refund) nhấn âm đầu, động từ nhấn âm hai. Refundable phổ biến trong hợp đồng và chăm sóc khách hàng; returnable dùng cho hàng hóa có thể gửi trả, không phải cho tiền."
+ },
+ "rehearsal": {
+  "mis": [
+   {
+    "w": "We have a rehearsal on tomorrow.",
+    "r": "We have a rehearsal tomorrow.",
+    "why": "Không dùng giới từ trước tomorrow."
+   },
+   {
+    "w": "I rehearsal my speech every night.",
+    "r": "I rehearse my speech every night.",
+    "why": "Rehearsal là danh từ; động từ là rehearse."
+   }
+  ],
+  "u": "Rehearsal là buổi tập trước một buổi biểu diễn, bài phát biểu hay sự kiện để mọi người biết mình làm gì. Dress rehearsal là buổi tập cuối, đầy đủ, mặc trang phục. Trong công việc, từ này dùng cho thuyết trình: we have a rehearsal on Friday before the client pitch. Cấu trúc hay dùng: a rehearsal for the show. Đây là danh từ đếm được, động từ là rehearse. Rehearsal gợi một buổi có kế hoạch, tập cùng người khác; practice có thể tự làm và dùng cho mọi kỹ năng."
+ },
+ "rehearse": {
+  "mis": [
+   {
+    "w": "She rehearsed the speech for many times.",
+    "r": "She rehearsed the speech many times.",
+    "why": "Không dùng 'for' trước 'many times' khi đếm số lần."
+   },
+   {
+    "w": "She is rehearsal the speech now.",
+    "r": "She is rehearsing the speech now.",
+    "why": "Sau 'is' cần dạng V-ing của động từ, không dùng danh từ."
+   }
+  ],
+  "u": "Rehearse nghĩa là tập một vở kịch, bài phát biểu hay bài thuyết trình trước khi làm thật. Có thể đi với tân ngữ (rehearse a speech) hoặc với for (rehearse for the concert). Một câu trả lời rehearsed nghe như đã học thuộc, đôi khi gượng gạo. Chú ý chính tả: danh từ là rehearsal, còn động từ kết thúc bằng -se. Rehearse cụ thể hơn practise vì hàm ý có buổi diễn hoặc khán giả; bạn practise ngữ pháp nhưng rehearse buổi phỏng vấn hay bài chào hàng."
+ },
+ "reimburse": {
+  "mis": [
+   {
+    "w": "The company will reimburse me the travel costs.",
+    "r": "The company will reimburse me for the travel costs.",
+    "why": "Reimburse ai đó 'for' khoản chi; khoản chi không phải tân ngữ thứ hai."
+   },
+   {
+    "w": "We reimbursed to him immediately.",
+    "r": "We reimbursed him immediately.",
+    "why": "Reimburse nhận người trực tiếp, không có 'to'."
+   }
+  ],
+  "u": "Reimburse nghĩa là hoàn lại số tiền ai đó đã chi hoặc bị mất. Cấu trúc chuẩn là reimburse someone for something: the firm reimbursed her for the taxi fare. Cũng có thể reimburse chính khoản chi: reimburse travel costs. Từ này trang trọng, phổ biến trong tài liệu nhân sự và tài chính. Refund là trả lại tiền cho khách đã mua hàng; reimburse là hoàn tiền cho nhân viên hay người đã trả thay. Trọng âm rơi vào âm tiết thứ ba."
+ },
+ "reimbursement": {
+  "mis": [
+   {
+    "w": "The company gave me a reimbursement of the money I spent for the hotel.",
+    "r": "The company gave me a reimbursement of the money I spent on the hotel.",
+    "why": "Spend tiền 'on' một thứ, không dùng 'for'."
+   },
+   {
+    "w": "I am waiting reimbursement for my flight.",
+    "r": "I am waiting for reimbursement for my flight.",
+    "why": "Wait cần 'for' trước thứ mình chờ."
+   }
+  ],
+  "u": "Reimbursement là việc hoàn lại tiền mà nhân viên hay khách hàng đã tự chi. Bối cảnh điển hình là công tác, chi phí y tế, bồi thường bảo hiểm: bạn nộp hóa đơn để xin reimbursement. Cụm hay gặp: expense reimbursement, reimbursement policy, reimbursement within 30 days. Thường không đếm được, dù a reimbursement có thể là một lần chi trả. Động từ liên quan là reimburse, tính từ là reimbursable. So với refund, reimbursement nhấn vào việc hoàn lại khoản bạn đã trả thay cho tổ chức."
+ },
+ "reliability": {
+  "mis": [
+   {
+    "w": "We tested the reliable of the system.",
+    "r": "We tested the reliability of the system.",
+    "why": "Sau 'the' cần danh từ reliability, không dùng tính từ."
+   },
+   {
+    "w": "The reliability on this supplier is high.",
+    "r": "The reliability of this supplier is high.",
+    "why": "Reliability đi với 'of'; 'rely on' mới là mẫu của động từ."
+   }
+  ],
+  "u": "Reliability là phẩm chất đáng tin cậy và cho kết quả tốt ổn định mỗi lần. Đây là danh từ không đếm được, dùng cho máy móc, dữ liệu, nhà cung cấp, con người: the reliability of the service. Trong kỹ thuật và thống kê, nó còn có nghĩa chuyên môn là độ nhất quán của phép đo. Cấu trúc: the reliability of something. Tính từ liên quan là reliable, động từ là rely on. Reliability nói về sự ổn định theo thời gian; trustworthiness thiên về trung thực và nhân cách."
+ },
+ "relocate": {
+  "mis": [
+   {
+    "w": "The firm relocated its office at Da Nang.",
+    "r": "The firm relocated its office to Da Nang.",
+    "why": "Dùng 'to' cho nơi chuyển đến."
+   },
+   {
+    "w": "We are relocating to there next month.",
+    "r": "We are relocating there next month.",
+    "why": "'There' đã có nghĩa 'đến nơi đó' nên không cần 'to'."
+   }
+  ],
+  "u": "Relocate nghĩa là chuyển đến nơi mới, nhất là vì công việc, và có thể có hoặc không có tân ngữ. Bạn relocate to a city, relocate staff, hoặc relocate cả văn phòng. Tin tuyển dụng hay ghi must be willing to relocate. Nơi đến theo sau to: relocate to Singapore. Từ này trang trọng và có kế hoạch hơn move, phổ biến trong kinh doanh vì thường liên quan đến công ty hay việc làm. Danh từ là relocation, công ty thường cấp relocation package."
+ },
+ "relocation": {
+  "mis": [
+   {
+    "w": "The relocation of me to Hanoi was fast.",
+    "r": "My relocation to Hanoi was fast.",
+    "why": "Dùng sở hữu cách cho người chuyển đi, không dùng 'of me'."
+   },
+   {
+    "w": "The company paid for my relocate to Hue.",
+    "r": "The company paid for my relocation to Hue.",
+    "why": "Sau sở hữu từ cần danh từ relocation, không dùng động từ."
+   }
+  ],
+  "u": "Relocation là việc chuyển người hoặc doanh nghiệp đến nơi khác, nhất là vì công việc. Trong thư mời nhận việc, bạn có thể thấy relocation package, khoản tiền hoặc quyền lợi trang trải chi phí chuyển nhà. Cụm hay gặp: the relocation of the head office, relocation to Berlin. Thường không đếm được, dù số nhiều có thể xuất hiện trong thống kê. Động từ là relocate. Relocation trang trọng hơn move và bao gồm các chi tiết thực tế như nhà ở, vận chuyển đồ đạc, visa."
+ },
+ "remainder": {
+  "mis": [
+   {
+    "w": "The remainder of the money were spent on repairs.",
+    "r": "The remainder of the money was spent on repairs.",
+    "why": "Money không đếm được nên động từ chia số ít."
+   },
+   {
+    "w": "I will stay here for remainder of the week.",
+    "r": "I will stay here for the remainder of the week.",
+    "why": "Mẫu này cần 'the' trước remainder."
+   }
+  ],
+  "u": "The remainder là phần còn lại sau khi phần khác đã được dùng, lấy đi hay xử lý. Thường theo sau là of, như the remainder of the week. Trong toán học, đó là số dư sau phép chia. Cụm này dùng mạo từ the, và động từ hợp với danh từ phía sau: the remainder of the money was spent. Từ này trang trọng hơn the rest, vốn là lựa chọn thông thường. Balance dùng cho số tiền còn nợ."
+ },
+ "reminder": {
+  "mis": [
+   {
+    "w": "This is a remind that the meeting is at nine.",
+    "r": "This is a reminder that the meeting is at nine.",
+    "why": "Remind là động từ; danh từ là reminder."
+   },
+   {
+    "w": "This photo is a reminder about my childhood.",
+    "r": "This photo is a reminder of my childhood.",
+    "why": "Vật gợi lại kỷ niệm là reminder 'of' điều đó."
+   }
+  ],
+  "u": "Reminder là thứ giúp bạn nhớ, như email, thông báo hay ghi chú. Ở nơi làm việc, mở đầu bằng a gentle reminder hoặc a friendly reminder rằng hạn chót sắp đến là cách lịch sự. Cấu trúc a reminder of something còn chỉ vật gợi lại kỷ niệm: the photo was a reminder of home. Đây là danh từ đếm được. Remind là động từ, còn reminder là danh từ. Lưu ý nói a reminder about hoặc of something, không phải a reminder to it."
+ },
+ "remodel": {
+  "mis": [
+   {
+    "w": "We remodel our kitchen last month.",
+    "r": "We remodeled our kitchen last month.",
+    "why": "Dùng thì quá khứ cho hành động đã xong với 'last month'."
+   },
+   {
+    "w": "They remodeled the building for to open a cafe.",
+    "r": "They remodeled the building to open a cafe.",
+    "why": "Chỉ mục đích dùng 'to', không dùng 'for to'."
+   }
+  ],
+  "u": "Remodel nghĩa là thay đổi cấu trúc hoặc diện mạo của căn phòng hay tòa nhà, như đập tường hoặc lắp bếp mới. Từ này chủ yếu dùng trong tiếng Anh Mỹ; tiếng Anh Anh thích refurbish hoặc renovate. Remodel thường ngụ ý đổi bố cục, còn redecorate chỉ đổi sơn và đồ đạc. Chính tả khác nhau: remodeled, remodeling ở Mỹ; remodelled, remodelling ở Anh. Cửa hàng hay nhà hàng có thể đóng cửa để remodeling, và home remodel có thể làm tăng giá nhà."
+ },
+ "removal": {
+  "mis": [
+   {
+    "w": "The removal the old files took an hour.",
+    "r": "The removal of the old files took an hour.",
+    "why": "Removal cần 'of' trước vật bị loại bỏ."
+   },
+   {
+    "w": "He asked for a removing of the stain.",
+    "r": "He asked for the removal of the stain.",
+    "why": "Danh từ là removal; removing là V-ing, không đi với 'a ... of'."
+   }
+  ],
+  "u": "Removal là việc lấy đi một thứ, dù là đồ vật, vết bẩn hay một người khỏi chức vụ. Cấu trúc: removal of something: the removal of old files. Trong tiếng Anh Anh, removal company chuyển đồ đạc khi bạn đổi nhà, người Mỹ nói moving company. Hair removal và tree removal là các loại dịch vụ phổ biến. Trong chính trị, removal from office là bị buộc rời chức. Removal là danh từ, khác với động từ remove, và thường không đếm được."
+ },
+ "renew": {
+  "mis": [
+   {
+    "w": "I need to renew my passport before it will expire.",
+    "r": "I need to renew my passport before it expires.",
+    "why": "Sau 'before' chỉ tương lai, dùng hiện tại đơn, không dùng will."
+   },
+   {
+    "w": "Please renew your membership until next year.",
+    "r": "Please renew your membership for another year.",
+    "why": "Dùng 'for' cho khoảng thời gian gia hạn."
+   }
+  ],
+  "u": "Renew nghĩa là làm cho điều gì có hiệu lực thêm một thời gian, như hộ chiếu, giấy phép, hợp đồng thuê hay gói đăng ký. Nó còn có nghĩa là bắt đầu lại với năng lượng mới, như renewed efforts. Tân ngữ là giấy tờ hay thỏa thuận, thời gian thêm đi sau for: renew the contract for two years. Extend rộng hơn và dùng cả cho hạn chót, visa; renew thường là bắt đầu một kỳ mới của cùng thỏa thuận. Nhiều dịch vụ tự động renew nếu bạn không hủy kịp."
+ },
+ "renewal": {
+  "mis": [
+   {
+    "w": "The renewal of contract is due in May.",
+    "r": "The renewal of the contract is due in May.",
+    "why": "Dùng 'the' trước hợp đồng cụ thể."
+   },
+   {
+    "w": "Please make a renew of your license.",
+    "r": "Please make a renewal of your license.",
+    "why": "Renew là động từ; danh từ là renewal."
+   }
+  ],
+  "u": "Renewal là việc làm cho thỏa thuận, giấy phép hay gói đăng ký có hiệu lực thêm một kỳ. Từ này hay thấy trong thông báo: your renewal date is 1 June. Cụm quen thuộc: automatic renewal, renewal notice, renewal fee. Nghĩa khác là sự đổi mới, như urban renewal, tức tái thiết các khu đô thị xuống cấp. Renewal chủ yếu không đếm được, nhưng có thể nói a renewal khi chỉ một văn bản cụ thể. Đừng nhầm với động từ renew; động từ không thể thay cho danh từ."
+ },
+ "renovation": {
+  "mis": [
+   {
+    "w": "The hotel is closed for renovate.",
+    "r": "The hotel is closed for renovation.",
+    "why": "Sau giới từ dùng danh từ renovation, không dùng động từ."
+   },
+   {
+    "w": "The renovations work will finish in May.",
+    "r": "The renovation work will finish in May.",
+    "why": "Danh từ làm bổ nghĩa giữ số ít: renovation work."
+   }
+  ],
+  "u": "Renovation là công việc sửa chữa và cải thiện tòa nhà hay căn phòng cũ để chúng trở lại tình trạng tốt. Thông báo hay ghi closed for renovation, và dự án có thể gồm renovation work và renovation costs. Khi làm bổ nghĩa, nó giữ số ít, như renovation work. Renovate giữ kết cấu cũ và làm mới, remodel thay đổi bố cục, còn restoration đưa về diện mạo ban đầu. Danh từ có thể đếm được khi liệt kê các hạng mục: kitchen and bathroom renovations."
+ },
+ "rental": {
+  "mis": [
+   {
+    "w": "I want to rental a car for the weekend.",
+    "r": "I want to rent a car for the weekend.",
+    "why": "Rental là danh từ hoặc tính từ; động từ là rent."
+   },
+   {
+    "w": "The rental of this flat is 500 dollars a month.",
+    "r": "The rent for this flat is 500 dollars a month.",
+    "why": "Khoản trả định kỳ gọi là rent; rental là thỏa thuận hoặc vật được thuê."
+   }
+  ],
+  "u": "Rental là thỏa thuận trả tiền để dùng thứ gì đó, hoặc chính vật được thuê, như car rental, holiday rental. Khi làm tính từ, nó xuất hiện trong rental agreement, rental property, rental income. Đừng nhầm rental với rent: rent là khoản tiền trả định kỳ cho chủ nhà, đồng thời là động từ. Tiếng Anh Anh hay nói car hire, người Mỹ nói car rental. Dịch vụ rental hợp với nhu cầu ngắn hạn; lease thường kéo dài một năm hoặc hơn."
+ },
+ "repetition": {
+  "mis": [
+   {
+    "w": "The repeatition of words makes the essay boring.",
+    "r": "The repetition of words makes the essay boring.",
+    "why": "Chính tả: repetition không có 'a', khác với repeat."
+   },
+   {
+    "w": "Avoid the repetition to use the same word.",
+    "r": "Avoid the repetition of the same word.",
+    "why": "Danh từ này đi với 'of', không đi với to-V."
+   }
+  ],
+  "u": "Repetition là việc làm hoặc nói lại điều gì đó. Trong viết lách và dạy học, nó có thể tốt hoặc xấu: repetition không cần thiết làm bài viết chán, nhưng spaced repetition là cách học từ vựng hiệu quả. Cấu trúc: repetition of something. Chủ yếu không đếm được, dù repetitions có thể chỉ các lượt lặp trong tập luyện. Chú ý chính tả, bỏ chữ a của repeat. Recurrence là tự xảy ra lại, còn repetition thường do ai đó chọn làm lại."
+ },
+ "reproduce": {
+  "mis": [
+   {
+    "w": "They reproduced the picture without ask permission.",
+    "r": "They reproduced the picture without asking permission.",
+    "why": "Sau 'without' dùng dạng V-ing."
+   },
+   {
+    "w": "Scientists could not reproduce to the results.",
+    "r": "Scientists could not reproduce the results.",
+    "why": "Reproduce nhận tân ngữ trực tiếp, không có 'to'."
+   }
+  ],
+  "u": "Reproduce có hai nghĩa chính. Một là sao chép hoặc làm lại, như tái tạo một tài liệu hay kết quả thí nghiệm; nếu các nhà khoa học không reproduce được kết quả, nghiên cứu có thể sai. Hai là sinh sản trong sinh học, động vật reproduce hữu tính hoặc vô tính. Trong phần mềm, reproduce a bug là làm lỗi xuất hiện lại để sửa. Danh từ là reproduction. Replicate là từ ưa dùng khi lặp lại thí nghiệm, còn duplicate nhấn vào bản sao y hệt."
+ },
+ "research": {
+  "mis": [
+   {
+    "w": "They did many researches on climate change.",
+    "r": "They did a lot of research on climate change.",
+    "why": "Research nghĩa này không đếm được, không dùng 'many' hay số nhiều."
+   },
+   {
+    "w": "The research were published last year.",
+    "r": "The research was published last year.",
+    "why": "Research không đếm được, đi với động từ số ít."
+   }
+  ],
+  "u": "Research là việc nghiên cứu cẩn thận để tìm ra sự thật mới. Trong tiếng Anh thường ngày nó không đếm được: do research, không nói do a research hay many researches. Chủ đề đi với on hoặc into: research on diabetes. Một công trình cụ thể gọi là a study, a paper hay a project. Researches có tồn tại nhưng hiếm và trang trọng. Động từ research nhận tân ngữ trực tiếp (we researched the market), và researcher là người làm việc đó. Danh từ nhấn âm đầu, động từ có thể nhấn một trong hai âm."
+ },
+ "resemble": {
+  "mis": [
+   {
+    "w": "She resembles with her mother.",
+    "r": "She resembles her mother.",
+    "why": "Resemble là ngoại động từ, không cần giới từ."
+   },
+   {
+    "w": "He is resembling his father.",
+    "r": "He resembles his father.",
+    "why": "Resemble là động từ chỉ trạng thái, không dùng thì tiếp diễn."
+   }
+  ],
+  "u": "Resemble nghĩa là giống ai hoặc cái gì, và đi liền với tân ngữ: she resembles her mother. Đây là động từ trang trọng, hơi văn chương; khi nói người ta dùng look like, hoặc take after cho người trong gia đình. Nó là động từ trạng thái nên không dùng thì tiếp diễn như is resembling. Để chỉ sự giống nhau hai chiều dùng resemble each other, còn giống về mặt cụ thể dùng resemble in appearance. Danh từ là resemblance, đi với to hoặc between."
+ },
+ "resignation": {
+  "mis": [
+   {
+    "w": "He gave his resign to the manager yesterday.",
+    "r": "He gave his resignation to the manager yesterday.",
+    "why": "Resign là động từ; danh từ là resignation."
+   },
+   {
+    "w": "She resigned from her job to the company.",
+    "r": "She resigned from her job at the company.",
+    "why": "Dùng 'at' cho nơi làm việc, không dùng 'to'."
+   }
+  ],
+  "u": "Resignation là việc chính thức rời một công việc hay vị trí, hoặc là lá thư thông báo điều đó. Các động từ thường dùng: hand in, submit, tender hoặc accept a resignation. Thư resignation thường nêu thời gian báo trước và ngày làm việc cuối. Động từ resign đi với from hoặc tân ngữ trực tiếp: she resigned from the board. Resignation còn nghĩa là sự cam chịu bình thản trước điều xấu, như he nodded with resignation. Retirement là nghỉ vì tuổi tác, khác với resignation."
+ },
+ "respond": {
+  "mis": [
+   {
+    "w": "She responded my email within an hour.",
+    "r": "She responded to my email within an hour.",
+    "why": "Respond cần 'to' trước thứ bạn trả lời."
+   },
+   {
+    "w": "Please respond me as soon as possible.",
+    "r": "Please respond to me as soon as possible.",
+    "why": "Respond cũng cần 'to' khi theo sau là người."
+   }
+  ],
+  "u": "Respond nghĩa là nói hoặc làm gì đó để đáp lại hay phản ứng. Đây là nội động từ đi với to: respond to a complaint, respond to treatment. Có thể thêm cách thức với by: respond by email. Nó còn nghĩa là có phản ứng, như bệnh nhân respond well to the drug. Respond trang trọng hơn reply hay answer, hợp với thư từ và dịch vụ khách hàng. Reply tập trung vào lời nói, còn respond có thể là hành động. Answer là ngoại động từ: answer the phone."
+ },
+ "respondent": {
+  "mis": [
+   {
+    "w": "Most of respondent said they were satisfied.",
+    "r": "Most of the respondents said they were satisfied.",
+    "why": "Sau 'most of' dùng 'the' và danh từ số nhiều."
+   },
+   {
+    "w": "Thirty respondent answered the survey.",
+    "r": "Thirty respondents answered the survey.",
+    "why": "Số lượng lớn hơn một cần danh từ số nhiều."
+   }
+  ],
+  "u": "Respondent là người trả lời câu hỏi trong khảo sát, thăm dò hay nghiên cứu. Báo cáo hay nêu 60 percent of respondents agreed. Đây là từ trang trọng dùng trong nghiên cứu thị trường và học thuật. Trong luật, respondent là bên trả lời đơn kiện hay kháng cáo, một nghĩa khác. Động từ liên quan là respond. Respondent là cách gọi trung tính cho đối tượng nghiên cứu; interviewee dùng khi hỏi trực tiếp, còn participant gợi sự tham gia chủ động."
+ },
+ "restatement": {
+  "mis": [
+   {
+    "w": "His speech was a restatement for our goals.",
+    "r": "His speech was a restatement of our goals.",
+    "why": "Danh từ này dùng 'of' cho điều được nhắc lại."
+   },
+   {
+    "w": "The company published a restate of its accounts.",
+    "r": "The company published a restatement of its accounts.",
+    "why": "Restate là động từ; danh từ là restatement."
+   }
+  ],
+  "u": "Restatement nghĩa là nói lại điều gì bằng lời khác, hoặc một bản chính thức đã điều chỉnh của thông tin trước đó. Trong văn viết, nhắc lại luận điểm ở phần kết là bình thường. Trong tài chính, restatement of earnings là việc đính chính chính thức báo cáo đã công bố, thường khiến nhà đầu tư lo. Cấu trúc: restatement of something. Động từ là restate. Paraphrase đổi cách diễn đạt nhưng giữ nghĩa, còn restatement có thể đơn giản hóa, tóm tắt hoặc sửa lại điều đã nói."
+ },
+ "reviewer": {
+  "mis": [
+   {
+    "w": "The reviewer wrote that film is excellent.",
+    "r": "The reviewer wrote that the film is excellent.",
+    "why": "Dùng 'the' trước bộ phim cụ thể."
+   },
+   {
+    "w": "She is a reviewer of the technical team.",
+    "r": "She is a reviewer on the technical team.",
+    "why": "Dùng 'on' khi là thành viên của nhóm hoặc hội đồng."
+   }
+  ],
+  "u": "Reviewer là người viết hoặc đưa ra bài đánh giá, như nhà phê bình phim và sách, khách hàng chấm điểm sản phẩm trên mạng, hay chuyên gia kiểm tra bài nghiên cứu trước khi xuất bản, gọi là peer reviewer. Trong phần mềm, reviewer kiểm tra mã của lập trình viên khác. Cụm hay gặp: a reviewer for a magazine, reviewer comments. Critic gợi uy tín chuyên môn, còn reviewer trung tính và gồm cả người dùng bình thường. Động từ là review, còn danh từ review là chính bài viết."
+ },
+ "revision": {
+  "mis": [
+   {
+    "w": "She made some revisions of the report.",
+    "r": "She made some revisions to the report.",
+    "why": "Thay đổi được thực hiện 'to' một tài liệu."
+   },
+   {
+    "w": "The teacher told us to revision our notes.",
+    "r": "The teacher told us to revise our notes.",
+    "why": "Sau 'to' dùng động từ revise, không dùng danh từ."
+   }
+  ],
+  "u": "Revision là sự thay đổi nhằm cải thiện hoặc sửa một tài liệu, kế hoạch hay luật. Cấu trúc: make revisions to a draft; revision history liệt kê các phiên bản trước. Trong tiếng Anh Anh, revision còn là ôn lại để thi, nên revision notes và revision timetable rất thường gặp, còn người Mỹ nói review hoặc study. Đếm được khi chỉ một thay đổi cụ thể, không đếm được khi nói hoạt động chung. Amendment là thay đổi chính thức với luật hay hợp đồng, còn revision có thể chỉ là chỉnh sửa nhỏ."
+ },
+ "revolutionize": {
+  "mis": [
+   {
+    "w": "The internet has revolutionized to our lives.",
+    "r": "The internet has revolutionized our lives.",
+    "why": "Revolutionize là ngoại động từ, không cần giới từ."
+   },
+   {
+    "w": "This app will revolution the way we study.",
+    "r": "This app will revolutionize the way we study.",
+    "why": "Revolution là danh từ; động từ là revolutionize."
+   }
+  ],
+  "u": "Revolutionize nghĩa là thay đổi hoàn toàn và căn bản, thường theo hướng tốt hơn. Từ này tiêu biểu trong văn bản công nghệ và kinh doanh: the smartphone revolutionized communication. Cấu trúc: revolutionize the way people do something hoặc revolutionize an industry. Chính tả Mỹ kết thúc -ize; Anh cũng chấp nhận -ise. Vì là từ mạnh, dùng quá nhiều trong quảng cáo khiến lời quảng bá có vẻ phóng đại. Transform là lựa chọn nhẹ hơn, còn overhaul dùng cho hệ thống hay cấu trúc được tổ chức lại."
+ },
+ "role": {
+  "mis": [
+   {
+    "w": "She plays an important role on the project.",
+    "r": "She plays an important role in the project.",
+    "why": "Dùng 'in' với role và một dự án hoặc sự kiện."
+   },
+   {
+    "w": "What is your role at the team?",
+    "r": "What is your role on the team?",
+    "why": "Dùng 'on' với một nhóm."
+   }
+  ],
+  "u": "Role nghĩa là vai trò của ai đó trong một tình huống, hoặc nhân vật mà diễn viên đóng. Trong kinh doanh, job role là tập hợp nhiệm vụ của một vị trí; play a key role in a project nghĩa là đóng góp lớn. Cấu trúc thường gặp: play a role in something, the role of a manager, take on a new role. Role model là người để người khác noi theo. Role và position chồng nghĩa, nhưng position nói vị trí trong cấp bậc, còn role nhấn vào việc họ làm. Trong phim, lead role là vai chính."
+ },
+ "rubber": {
+  "mis": [
+   {
+    "w": "These gloves are made of a rubber.",
+    "r": "These gloves are made of rubber.",
+    "why": "Rubber là chất liệu không đếm được, không dùng 'a'."
+   },
+   {
+    "w": "Rubber are produced from tree sap.",
+    "r": "Rubber is produced from tree sap.",
+    "why": "Rubber không đếm được nên động từ chia số ít."
+   }
+  ],
+  "u": "Rubber là vật liệu đàn hồi làm từ nhựa cây hoặc hóa chất tổng hợp, dùng cho lốp xe, găng tay, dây thun, đế giày. Là chất liệu nó không đếm được: made of rubber. Rubber band là vòng dây thun để buộc đồ, còn to rubber-stamp something là phê duyệt mà không cân nhắc thật sự. Lưu ý vùng miền: tiếng Anh Anh gọi cục tẩy là rubber, nhưng trong tiếng Anh Mỹ từ này có thể nghĩa là bao cao su, nên hãy dùng eraser khi nói với người Mỹ. Latex là cao su tự nhiên."
+ },
+ "satisfactory": {
+  "mis": [
+   {
+    "w": "The hotel room was satisfied.",
+    "r": "The hotel room was satisfactory.",
+    "why": "Satisfied mô tả người; satisfactory mô tả thứ đạt tiêu chuẩn."
+   },
+   {
+    "w": "I am very satisfactory with the service.",
+    "r": "I am very satisfied with the service.",
+    "why": "Satisfied mô tả cảm giác của người; satisfactory mô tả sự vật."
+   }
+  ],
+  "u": "Satisfactory nghĩa là đủ tốt để đạt tiêu chuẩn, nhưng không xuất sắc. Một kết quả satisfactory là chấp nhận được, không phải tuyệt vời. Trên học bạ, đây là mức trung bình, và đánh giá less than satisfactory báo hiệu có vấn đề. So sánh satisfied, mô tả người cảm thấy hài lòng, và satisfying, mô tả thứ mang lại niềm vui. Khách hàng là satisfied; dịch vụ là satisfactory. Vì từ nghe khô khan và mang tính hành chính nên tránh dùng để khen; adequate tương tự, còn excellent mới thể hiện sự tán thưởng thật."
+ },
+ "schedule": {
+  "mis": [
+   {
+    "w": "The train arrived in time to the schedule.",
+    "r": "The train arrived on schedule.",
+    "why": "Cụm cố định là on schedule, không phải 'in time to'."
+   },
+   {
+    "w": "I am free in my schedule tomorrow.",
+    "r": "My schedule is free tomorrow.",
+    "why": "Không dùng 'in my schedule' để nói rảnh; để schedule làm chủ ngữ."
+   }
+  ],
+  "u": "Schedule là kế hoạch liệt kê khi nào việc gì xảy ra hoặc phải làm. Cụm cố định gồm on schedule, ahead of schedule, behind schedule, và người ta nói a busy hoặc tight schedule. Là động từ, nó nghĩa là sắp xếp vào một thời điểm: schedule a meeting for Monday. Tiếng Anh Mỹ đọc âm đầu như sked, tiếng Anh Anh thường đọc shed. Timetable là từ Anh cho lịch xe hay lịch học. Agenda là danh sách nội dung cuộc họp, không phải giờ giấc."
+ },
+ "seasonal": {
+  "mis": [
+   {
+    "w": "This job is season, so it ends in winter.",
+    "r": "This job is seasonal, so it ends in winter.",
+    "why": "Season là danh từ; tính từ là seasonal."
+   },
+   {
+    "w": "We hire seasonal workers on summer.",
+    "r": "We hire seasonal workers in summer.",
+    "why": "Dùng 'in' với mùa."
+   }
+  ],
+  "u": "Seasonal mô tả điều chỉ xảy ra hoặc có vào những thời điểm nhất định trong năm, hay thay đổi theo mùa. Cách dùng điển hình: seasonal work, seasonal demand, seasonal fruit, seasonal sales. Trong kinh doanh, seasonal workers được thuê cho thời điểm bận như mùa hè hay Giáng sinh. Seasonal còn nghĩa liên quan đến mùa, như seasonal greetings. Periodic là xảy ra đều đặn, không nhất thiết theo mùa. Dùng in với mùa: in summer, in winter."
+ },
+ "seeker": {
+  "mis": [
+   {
+    "w": "Many job seeker attended the fair.",
+    "r": "Many job seekers attended the fair.",
+    "why": "'Many' cần danh từ số nhiều."
+   },
+   {
+    "w": "Many job seekers is attending the fair.",
+    "r": "Many job seekers are attending the fair.",
+    "why": "Danh từ số nhiều cần động từ số nhiều."
+   }
+  ],
+  "u": "Seeker là người đang tìm kiếm điều gì, thường trong từ ghép như job seeker, asylum seeker, thrill seeker. Cũng có thể dùng với of, như a seeker of truth. Attention seeker mang sắc thái tiêu cực: người cư xử phô trương để được chú ý. Job seeker là cách gọi trung tính cho người đang tìm việc, dùng nhiều trong cơ quan nhà nước và tuyển dụng, còn applicant là người đã nộp đơn vào một công việc cụ thể."
+ },
+ "series": {
+  "mis": [
+   {
+    "w": "A series of problem has appeared.",
+    "r": "A series of problems has appeared.",
+    "why": "Sau 'series of' dùng danh từ số nhiều."
+   },
+   {
+    "w": "Three TV serieses are on tonight.",
+    "r": "Three TV series are on tonight.",
+    "why": "Series có dạng số nhiều giống số ít."
+   }
+  ],
+  "u": "Series nghĩa là một số thứ tương tự nối tiếp nhau, hoặc bộ chương trình có cùng nhân vật. Dạng số ít và số nhiều giống nhau: one series, two series. Sau a series of, danh từ ở số nhiều, còn động từ hợp với series: a series of meetings was held. Một TV series có thể gọi là show, và limited series có số tập cố định. Sequence nhấn vào một thứ tự nhất định, còn series nhấn vào tính lặp lại, tương tự của các mục."
+ },
+ "sewer": {
+  "mis": [
+   {
+    "w": "Waste water flows through the sewage to the plant.",
+    "r": "Waste water flows through the sewer to the plant.",
+    "why": "Sewer là ống; sewage là thứ chảy trong ống."
+   },
+   {
+    "w": "The sewer are blocked after the storm.",
+    "r": "The sewer is blocked after the storm.",
+    "why": "Sewer ở đây là số ít nên dùng 'is'."
+   }
+  ],
+  "u": "Sewer là ống hoặc kênh ngầm dẫn nước thải và chất thải từ các tòa nhà đến nhà máy xử lý. Sewer system phục vụ cả thành phố, và cống bị tắc có thể làm ngập đường. Đừng nhầm cách đọc: sewer chỉ cống là /ˈsuːər/, còn sewer nghĩa là người may, hiếm dùng, là /ˈsoʊər/. Hệ thống ống gọi là sewerage, chất thải bên trong là sewage. Drain thu nước mưa hoặc nước thải một hộ; sewer là ống chính lớn hơn."
+ },
+ "sharply": {
+  "mis": [
+   {
+    "w": "Prices rose sharp last month.",
+    "r": "Prices rose sharply last month.",
+    "why": "Động từ được bổ nghĩa bởi trạng từ sharply, không dùng tính từ sharp."
+   },
+   {
+    "w": "Sales increased sharply to 20 percent.",
+    "r": "Sales increased sharply by 20 percent.",
+    "why": "Dùng 'by' cho mức thay đổi; 'to' chỉ mức cuối."
+   }
+  ],
+  "u": "Sharply là trạng từ nghĩa là đột ngột và với mức lớn. Rất phổ biến trong tin tức và báo cáo kinh doanh: sales fell sharply, prices rose sharply. Dùng by cho mức thay đổi (rose by 20 percent) và to cho mức mới (rose to 200 dollars). Cũng có thể mô tả lời nói, như she spoke sharply, nghĩa là giọng giận dữ hoặc chê bai, hoặc hình ảnh sắc nét. Steeply và dramatically gần nghĩa; sharply nhấn vào cả tốc độ lẫn mức độ."
+ },
+ "shortly": {
+  "mis": [
+   {
+    "w": "I will call you shortly after.",
+    "r": "I will call you shortly.",
+    "why": "'Shortly after' cần một sự kiện; đứng một mình, 'shortly' nghĩa là soon."
+   },
+   {
+    "w": "He explained it shortly in two words.",
+    "r": "He explained it briefly in two words.",
+    "why": "Để nói 'ngắn gọn', dùng briefly; shortly nghĩa là sắp."
+   }
+  ],
+  "u": "Shortly nghĩa là sắp, hoặc một lúc ngắn sau hay trước một sự kiện. Thông báo nói the train will depart shortly, còn văn viết dùng shortly after the meeting. Nó không có nghĩa là ngắn gọn; muốn nói vậy dùng briefly. Người học hay dịch nhầm ngắn gọn thành shortly. Nghĩa khác, nay hiếm, là cộc lốc, như he answered shortly. Shortly trang trọng hơn soon và phổ biến trong chăm sóc khách hàng: a representative will be with you shortly."
+ },
+ "signify": {
+  "mis": [
+   {
+    "w": "The red light signifies to danger.",
+    "r": "The red light signifies danger.",
+    "why": "Signify là ngoại động từ, không cần 'to'."
+   },
+   {
+    "w": "A nod signify agreement.",
+    "r": "A nod signifies agreement.",
+    "why": "Ngôi thứ ba số ít cần -s."
+   }
+  ],
+  "u": "Signify nghĩa là một dấu hiệu của điều gì, hoặc cho thấy ý nghĩa hay ý định bằng lời nói hay hành động. Đây là từ trang trọng: cái gật đầu có thể signify sự đồng ý, đèn đỏ signifies nguy hiểm. Nó còn nghĩa là quan trọng, chủ yếu ở dạng phủ định: it does not signify. Signify mạnh hơn show vì gợi ý nghĩa tượng trưng. So với mean, vốn trung tính và đời thường, hay indicate, vốn gợi bằng chứng chỉ ra một sự thật, signify trang trọng và mang tính biểu tượng hơn. Danh từ liên quan là significance, tính từ là significant."
+ }
+}

@@ -56,6 +56,20 @@ assert.equal(g('status', '--porcelain', '--untracked-files=no').trim(), '', 'cu�
 g('checkout', '-q', '-b', 'pr2', 'main~1'); w('scripts/i18n-fixed.json', fixedText({ ...seed, k2: { es: '2' } })); g('commit', '-qam', 'pr2');
 g('merge', '--no-edit', 'main');
 assert.deepEqual(Object.keys(JSON.parse(r('scripts/i18n-fixed.json'))), ['k1', 'k2', 'k3', 'k4', 'k5', 'k9']);
+// dữ liệu một dòng (web/packs, web/i18n/content): hai phía thêm khóa khác nhau → gộp; cùng khóa khác giá trị → người gỡ
+assert.deepEqual(plan(['web/packs/de.json', 'web/i18n/content/vi.json']), [{ f: 'web/packs/de.json', how: 'data3' }, { f: 'web/i18n/content/vi.json', how: 'data3' }]);
+{ const J = o => JSON.stringify(o), P = 'web/packs/de.json', sd = { a: ['x', 3], b: ['y', 0] };
+  g('checkout', '-q', '-b', 'd0', 'main'); w(P, J(sd)); g('add', '-A'); g('commit', '-qm', 'd0');
+  g('checkout', '-q', '-b', 'd-pr'); w(P, J({ ...sd, c: ['pr', 1], a: ['x2', 3] })); g('commit', '-qam', 'pr');
+  g('checkout', '-q', 'd0'); g('checkout', '-q', '-b', 'd-main'); w(P, J({ ...sd, z: ['main', 2] })); g('commit', '-qam', 'main');
+  g('checkout', '-q', 'd-pr');
+  const o2 = execFileSync('node', [path.join(ROOT, 'scripts/ci/regen-conflicts.mjs'), '--base=d-main'], { cwd: tmp, encoding: 'utf8' });
+  assert.match(o2, /đã gỡ/, o2);
+  assert.deepEqual(JSON.parse(r(P)), { a: ['x2', 3], b: ['y', 0], z: ['main', 2], c: ['pr', 1] }, 'gộp theo khóa, mảng nguyên khối');
+  assert.equal(r(P), J(JSON.parse(r(P))), 'một dòng, không xuống dòng cuối');
+  g('checkout', '-q', 'd0'); g('checkout', '-q', '-b', 'd-main2'); w(P, J({ ...sd, a: ['main', 3] })); g('commit', '-qam', 'm2'); g('checkout', '-q', 'd-pr');
+  let st = 0; try { execFileSync('node', [path.join(ROOT, 'scripts/ci/regen-conflicts.mjs'), '--base=d-main2'], { cwd: tmp, encoding: 'utf8', stdio: 'pipe' }); } catch (e) { st = e.status; }
+  assert.equal(st, 2, 'cùng khóa khác giá trị → người gỡ (thoát 2)'); }
 fs.rmSync(tmp, { recursive: true, force: true });
 
 // tệp > 1 MiB (i18n-fixed.json thật ~1,8 MB): execFileSync mặc định 1 MiB làm công cụ đọc thành {} và GHI ĐÈ {} (15/11) – tệp lớn vẫn phải giữ đủ khóa

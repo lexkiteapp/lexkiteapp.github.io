@@ -21,6 +21,7 @@
 "Chạm loa để nghe lại câu.":"Tippen Sie auf den Lautsprecher, um den Satz erneut zu hören.",
 "Chỉ 5 phút mỗi ngày là giữ được chuỗi ngày.":"Nur 5 Minuten täglich halten Ihre Serie am Leben.",
 "Chọn ngôn ngữ giao diện":"Sprache wählen",
+"Chọn ngôn ngữ giải nghĩa":"Zielsprachen wählen",
 "Chọn ngôn ngữ học":"Lernsprache wählen",
 "Chọn ngôn ngữ mục tiêu để cá nhân hóa lộ trình học của bạn.":"Wählen Sie Ihre Zielsprache, um Ihren Lernpfad zu personalisieren.",
 "Các bài học":"Lektionen",
