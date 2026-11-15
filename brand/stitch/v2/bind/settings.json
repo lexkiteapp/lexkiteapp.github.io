@@ -54,58 +54,34 @@
         "n1": {
          "html": {
           ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon",
-          ":scope > div:nth-child(1) > span": "'<a href=\"' + e(w.href) + '\" data-go=\"' + e(w.k) + '\" class=\"set-go text-start inline-flex items-center min-h-[44px] after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</a>'",
-          ":scope > div:nth-child(2) > span:nth-child(1)": "e(w.value)",
-          ":scope > div:nth-child(2) > span:nth-child(2)": "w.chev"
-         },
-         "attr": {
-          ":scope > div:nth-child(2) > span:nth-child(1)": {
-           "title": "w.value"
-          }
+          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "'<a href=\"' + e(w.href) + '\" data-go=\"' + e(w.k) + '\" class=\"set-go text-start block after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</a>'",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "e(w.value)",
+          ":scope > span": "w.chev"
          },
          "addClass": {
-          ":scope": "relative",
-          ":scope > div:nth-child(1)": "min-w-0",
-          ":scope > div:nth-child(2)": "min-w-0 shrink-0 max-w-[48%]",
-          ":scope > div:nth-child(2) > span:nth-child(1)": "min-w-0 truncate"
+          ":scope": "relative"
          }
         },
         "n2": {
          "html": {
           ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon",
-          ":scope > div:nth-child(1) > span": "'<a href=\"' + e(w.href) + '\" data-go=\"' + e(w.k) + '\" class=\"set-go text-start inline-flex items-center min-h-[44px] after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</a>'",
-          ":scope > div:nth-child(2) > span:nth-child(1)": "e(w.value)",
-          ":scope > div:nth-child(2) > span:nth-child(2)": "w.chev"
-         },
-         "attr": {
-          ":scope > div:nth-child(2) > span:nth-child(1)": {
-           "title": "w.value"
-          }
+          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "'<a href=\"' + e(w.href) + '\" data-go=\"' + e(w.k) + '\" class=\"set-go text-start block after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</a>'",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "e(w.value)",
+          ":scope > span": "w.chev"
          },
          "addClass": {
-          ":scope": "relative",
-          ":scope > div:nth-child(1)": "min-w-0",
-          ":scope > div:nth-child(2)": "min-w-0 shrink-0 max-w-[48%]",
-          ":scope > div:nth-child(2) > span:nth-child(1)": "min-w-0 truncate"
+          ":scope": "relative"
          }
         },
         "n3": {
          "html": {
           ":scope > div:nth-child(1) > div:nth-child(1) > span": "w.icon",
-          ":scope > div:nth-child(1) > span": "'<a href=\"' + e(w.href) + '\" data-go=\"' + e(w.k) + '\" class=\"set-go text-start inline-flex items-center min-h-[44px] after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</a>'",
-          ":scope > div:nth-child(2) > span:nth-child(1)": "e(w.value)",
-          ":scope > div:nth-child(2) > span:nth-child(2)": "w.chev"
-         },
-         "attr": {
-          ":scope > div:nth-child(2) > span:nth-child(1)": {
-           "title": "w.value"
-          }
+          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(1)": "'<a href=\"' + e(w.href) + '\" data-go=\"' + e(w.k) + '\" class=\"set-go text-start block after:absolute after:inset-0 after:content-[\\'\\']\">' + e(w.label) + '</a>'",
+          ":scope > div:nth-child(1) > div:nth-child(2) > span:nth-child(2)": "e(w.value)",
+          ":scope > span": "w.chev"
          },
          "addClass": {
-          ":scope": "relative",
-          ":scope > div:nth-child(1)": "min-w-0",
-          ":scope > div:nth-child(2)": "min-w-0 shrink-0 max-w-[48%]",
-          ":scope > div:nth-child(2) > span:nth-child(1)": "min-w-0 truncate"
+          ":scope": "relative"
          }
         }
        }
