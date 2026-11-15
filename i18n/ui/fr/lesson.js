@@ -33,7 +33,7 @@
 "Kiểm tra đáp án":"Vérifier la réponse",
 "Làm tốt lắm, cứ tiếp tục nhé!":"Bon travail, continuez !",
 "Lỗi cũ":"Erreur passée",
-"Lỗi của bạn":"Tes erreurs",
+"Lỗi của bạn":"Vos erreurs",
 "Lựa chọn đúng":"Bon choix",
 "Miễn phí, không giới hạn":"Gratuit, sans limite",
 "Mình vừa hoàn thành một bài học Lexkite: {a}% đúng, +{x} XP":"Je viens de terminer une leçon Lexkite : {a}% correct, +{x} XP",
