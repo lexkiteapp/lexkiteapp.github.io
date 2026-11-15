@@ -6,7 +6,7 @@ import fs from 'node:fs'; import path from 'node:path'; import { spawnSync } fro
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const SUITE = path.join(ROOT, 'scripts/test/suite.txt');
 export const readSuite = (file = SUITE) => fs.readFileSync(file, 'utf8').split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
-export const FAST_RE = /^node scripts\/(vi-lint|ext-syntax|i18n-missing|test\/(ci-policy|ci-triage|syntax-check|comment-code|unit|suite-shards))\.m?js\b/;
+export const FAST_RE = /^node scripts\/(vi-lint|ext-syntax|i18n-missing|test\/(ci-policy|ci-triage|syntax-check|comment-code|unit|suite-shards|workflow-yaml))\.m?js\b/;
 export const split = (cmds, n, weights = {}) => {   // LPT: lệnh nặng trước vào shard nhẹ nhất; thứ tự gốc giữ trong shard; tất định
   const W = c => weights[c] ?? 3, bins = Array.from({ length: n }, () => ({ t: 0, idx: [] }));
   cmds.map((c, i) => [c, i]).sort((a, b) => W(b[0]) - W(a[0]) || a[1] - b[1]).forEach(([c, i]) => { const b = bins.reduce((m, x) => x.t < m.t ? x : m); b.t += W(c); b.idx.push(i); });
