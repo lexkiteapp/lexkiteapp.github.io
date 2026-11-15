@@ -142,7 +142,7 @@ const qNums = p => p.groups.flatMap(g => (g.type === 'multi' ? g.n : g.items.map
 let DATA = null;
 async function content() {
   if (DATA) return DATA;
-  const P = await mk({ files: [...LISTEN_FILES, ...LFILES, 'web/js/readings.js', 'web/cpack/readings/more.js'], late: ['web/js/listening.js'] }); // listening.js rotates the MCQ options at load → ship the rotated data
+  const P = await mk({ files: [...LISTEN_FILES, ...LFILES, 'web/js/readings.js', 'web/cpack/readings/more.js', 'web/cpack/readings/c2.js'], late: ['web/js/listening.js'] }); // listening.js rotates the MCQ options at load → ship the rotated data
   const all = clone(P.sb.LISTENING), R = clone(P.sb.READINGS), want = { ...KEEP_READ }, readings = [];
   for (const r of R) if (want[r.level] > 0) { want[r.level]--; readings.push(r); }
   const lex = vm.runInContext(`(function(g){ ${(() => { const s = rd('web/js/lexis.js'), a = s.indexOf('const AWL = new Set()'), b = s.indexOf('PHRASES.sort('); return `const { TOPICS, INDEX } = g.IELTS_DATA; ${s.slice(a, s.indexOf('\n', b))}`; })()}\n return { awl: [...AWL], link: [...LINK], phrases: PHRASES }; })(self)`, P.sb);

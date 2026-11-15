@@ -3,7 +3,7 @@
  "cells": 36,
  "cellsOk": 36,
  "minCell": 16,
- "objectivesUsed": 176,
+ "objectivesUsed": 186,
  "coverage": {
   "grammar": {
    "items": 102,
@@ -11,8 +11,8 @@
    "pct": 100
   },
   "reading": {
-   "items": 73,
-   "tagged": 73,
+   "items": 95,
+   "tagged": 95,
    "pct": 100
   },
   "ielts-reading": {
@@ -41,13 +41,13 @@
    "pct": 100
   },
   "toefl": {
-   "items": 194,
-   "tagged": 194,
+   "items": 214,
+   "tagged": 214,
    "pct": 100
   },
   "writing-model": {
-   "items": 142,
-   "tagged": 142,
+   "items": 176,
+   "tagged": 176,
    "pct": 100
   },
   "gt-letter": {
@@ -56,13 +56,13 @@
    "pct": 100
   },
   "task1": {
-   "items": 30,
-   "tagged": 30,
+   "items": 44,
+   "tagged": 44,
    "pct": 100
   },
   "writing-prompt": {
-   "items": 50,
-   "tagged": 50,
+   "items": 70,
+   "tagged": 70,
    "pct": 100
   },
   "speaking": {
@@ -102,8 +102,8 @@
   }
  },
  "total": {
-  "items": 11158,
-  "tagged": 11158,
+  "items": 11268,
+  "tagged": 11268,
   "pct": 100
  },
  "errors": 0
