@@ -229,13 +229,13 @@
     const cta = nx ? { t: (okN ? t('Tiếp tục Ngày {n}', { n: d.n }) : t('Bắt đầu Ngày {n}', { n: d.n })) + ': ' + nx.name, href: nx.href, k: nx.k }
       : { t: more ? t('Học tiếp Ngày {n}', { n: d.n + 1 }) : t('Lộ trình từ vựng'), href: more ? '#/day/' + (d.n + 1) : '#/path', k: null };
     const done = !nx ? `<div role="status" class="mt-3 rounded-[0.75rem] border p-4 text-center font-bold bg-[color:var(--surface)] border-[color:var(--line)]"><span aria-hidden="true">${UI.icon('party-popper')}</span> ${t('Hoàn thành Ngày {n}!', { n: d.n })}</div>${nextDay ? '' : nextBox(d.tr)}` : '';
-    const xpOf = i => Math.floor(15 / st.length) + (i < 15 % st.length ? 1 : 0); // thưởng ngày +15 XP chia đều theo bước (tổng đúng 15), hiện ở từng hàng
+    const xpAt = i => { let c = 0; for (let j = 0; j <= i; j++) c += Math.floor(15 / st.length) + (j < 15 % st.length ? 1 : 0); return c; }; // thanh +15 XP của ngày: xong bước i → đạt xpAt(i)/15 (chỉ là tiến tới thưởng; +15 trao 1 lần khi xong cả ngày)
     const root = ST2.mount(view, 'day', {
       title: t('Ngày {n}', { n: d.n }), sub: d.unit.topic.name, back: t('Quay lại'), lp: t('Tiến độ trong ngày'), la: t('Các hoạt động của ngày'), tn: t('Cô Ama'), teacher: Chars.slot('ama', { pose: 'point', size: 's', lazy: false }),
       n: String(d.n), chip: stage.name, h1: `${t('Ngày {n}', { n: d.n })}: ${d.unit.topic.name}`,
       words: t('{n} từ mới', { n: d.topic.words.length }), dur: t('≈ {m} phút', { m: minsOf(st) }) + (stage.band === '' || !stage.cefr ? '' : ' · CEFR ' + stage.cefr),
       pt: `${cnt} (${pct}%)`, cnt: `${okN}/${st.length} · ${t('+{n} XP', { n: 15 })}`, pct, okN, total: st.length, cta, extra: done,
-      steps: st.map((s, i) => ({ v: s.ok ? 'done' : s === nx ? 'next' : 'todo', k: s.k, href: s.href, t: `${i + 1}. ${s.name}`, s: s.sub || '', m: t('{m} phút', { m: s.mins }), tag: s.ok ? t('Đã xong') : t('Tiếp theo'), ico: stepIco(s), go: chev, xp: t('+{n} XP', { n: xpOf(i) }) })),
+      steps: st.map((s, i) => ({ v: s.ok ? 'done' : s === nx ? 'next' : 'todo', k: s.k, href: s.href, t: `${i + 1}. ${s.name}`, s: s.sub || '', m: t('{m} phút', { m: s.mins }), tag: s.ok ? t('Đã xong') : t('Tiếp theo'), ico: stepIco(s), go: chev, xp: xpAt(i) + '/15 XP' })),
       lv: `<section hidden data-lvwrap class="mt-4 rounded-[0.75rem] border p-3 bg-[color:var(--surface)] border-[color:var(--line)]"><div class="lv-slot" hidden data-lv="${esc(JSON.stringify({ mode: 'day', seed: d.n, words: d.topic.words.map(w => String(w.word || '').toLowerCase()).slice(0, 12), level: stage.cefr || '' }))}"></div></section>`,
       h: { path: '#/path', words: '#/topic/' + encodeURIComponent(d.unit.topic.id) } }, null);
     root.classList.add('day-v2'); document.body.classList.remove('st', 'v2on'); // trang con 'inner': thanh trên + #bnav + lề #view chung của app (như vocab-hub), khung Stitch chỉ là nội dung
