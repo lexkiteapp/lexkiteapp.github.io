@@ -31,7 +31,7 @@
   {"id":"library","area":"app","name":"Thư viện + chủ đề","routes":["library","topic"],"status":"ref","batch":"A2","stitch":["d8865208","7864dd4c"],"ref":"brand/stitch/v3/app/library"},
   {"id":"deck","area":"app","name":"Bộ thẻ của tôi (+Anki)","routes":["deck"],"status":"ref","batch":"A2","stitch":["76fb6f7f","9fce8c3d"],"ref":"brand/stitch/v3/app/deck"},
 
-  {"id":"dict","area":"app","name":"Từ điển + thẻ từ (sheet)","routes":["dict"],"status":"ref","batch":"A3","stitch":["17400aad","08d8fb36"],"ref":"brand/stitch/v3/app/dict"},
+  {"id":"dict","area":"app","name":"Từ điển: đầu trang + ô tìm + Gần đây + Khám phá nhanh (thẻ mục từ/lưu ngữ cảnh còn khung cũ)","routes":["dict"],"status":"stitch","stitch":["dict-light","dict-dark"],"gate":"diff:dict","batch":"-","note":"đợt 2 port thẻ mục từ + hình thái + không thấy theo dict-entry-layout"},
   {"id":"phrases","area":"app","name":"Cụm từ / mẫu câu","routes":["phrases","model","models"],"status":"ref","batch":"A3","refs":{"phrases":["34796f81","095cb931"]}},
   {"id":"verbs","area":"app","name":"Động từ + bảng chữ","routes":["verb","letters","irregular"],"status":"ref","batch":"A3","refs":{"verbs":["d6a466e8","0f824cc7"]}},
   {"id":"usage","area":"app","name":"Cách dùng / kết hợp từ","routes":["usage"],"status":"ref","batch":"A3","refs":{"usage":["2001a781","3e0fab84"]}},

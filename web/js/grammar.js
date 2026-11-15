@@ -112,7 +112,7 @@ ${dk(':root[data-theme="dark"]')}@media (prefers-color-scheme:dark){${dk(':root:
     const SUM = x => vi || t(x.summary) !== x.summary ? t(x.summary) : '';
     const nb = s => String(s).replace(/(^|[\s(,])-(?=\w)/g, '$1\u2011').replace(/, (?=\u2011)/g, ',\u00a0').replace(/(\S) ([/·&]) (?=\S)/g, '$1\u00a0$2\u00a0'); // chỉ dữ liệu hiển thị: "-ed, -ing", "am / is / are", "A & B", "Chương N · tên" không bị tách dòng (360 px)
     const row = x => ({ id: x.id, href: '#/grammar/' + x.id, t: nb(TTL(x)), s: SUB(x), lv: x.level || '', pct: d[x.id] != null ? d[x.id] : null });
-    const grp = (id, h, desc, ls, open, extra, eyebrow) => { const dn = ls.filter(x => d[x.id] >= 80).length; return { id, h, eyebrow: eyebrow || '', desc, dn, total: ls.length, pct: Math.round(dn / ls.length * 100), open, rows: ls.map(row).concat(extra || []) }; };
+    const grp = (id, h, desc, ls, open, extra, eyebrow) => { const dn = ls.filter(x => d[x.id] >= 80).length; return { id, h, eyebrow: eyebrow || '', desc, dn, total: ls.length, cnt: t('{done}/{n} bài đã đạt', { done: dn, n: ls.length }), pct: Math.round(dn / ls.length * 100), open, rows: ls.map(row).concat(extra || []) }; };
     const lbl = { all: t('Tất cả {n} bài', { n: all.length }), ielts: t('Trọng tâm IELTS 7.0+'), toeic: t('Bí kíp TOEIC Part 5 & 6') }, short = { all: lbl.all, ielts: 'IELTS 7.0+', toeic: 'TOEIC' }; // chip ngắn như mẫu (tên kỳ thi giữ nguyên mọi ngôn ngữ); tên đầy đủ ở tiêu đề thẻ nhóm
     let ch;
     if (gtab !== 'all') ch = [grp('gFocus', lbl[gtab], '', FOCUS[gtab].map(id => all.find(x => x.id === id)).filter(Boolean), true)];

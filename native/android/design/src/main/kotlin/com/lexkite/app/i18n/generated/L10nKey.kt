@@ -659,6 +659,8 @@ enum class L10nKey(val id: String) {
     vocabSeeInMyWords("vocab.seeInMyWords"),
     vocabStart("vocab.start"),
     dictEnglishVietnameseDictionary("dict.englishVietnameseDictionary"),
+    dictDictionary("dict.dictionary"),
+    dictExplore("dict.explore"),
     dictOxfordLanguagesDefinitionsUk("dict.oxfordLanguagesDefinitionsUk"),
     dictTypeAnEnglishWord("dict.typeAnEnglishWord"),
     dictRecent("dict.recent"),
