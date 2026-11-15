@@ -130,3 +130,5 @@ Never hesitate to say: *"I'm sorry, could you please speak a little slower? My E
 ### Should I rely solely on translation apps during my vacation?
 Translation apps are wonderful for reading street signs or multi-page menus. However, relying on your own voice for quick airport interactions, ordering food, and hailing taxis saves valuable time, ensures your personal safety, and creates genuine human connections during your trip. Having core phrases committed to memory guarantees seamless navigation even when your mobile phone battery dies or cellular network signals drop.
 
+If you stay longer or fall ill, our guide to [English phrases at the doctor](/en/blog/english-for-newcomers-doctor/) gives the key sentences, and the [bank phrases guide](/en/blog/english-for-newcomers-bank/) covers cards and cash.
+
