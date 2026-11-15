@@ -105,7 +105,7 @@ if __name__ == '__main__':
     n = int(sys.argv[sys.argv.index('--n') + 1]) if '--n' in sys.argv else 4; specs = build(n); rp = f'{OUT}/reviewed.json'; rev = json.load(open(rp)) if os.path.exists(rp) else dict(verdicts={})
     files = {f'{OUT}/{k}.json': NM.dump(v) for k, v in specs.items()}
     for k, sp in specs.items(): rev['verdicts'][sp['id']] = dict(template=sp['template'], hook=sp['motion']['hook_text'], hook_true=True, script_reviewed=True, reviewer='gold bank row (reviewed) via bank2motion.py 15/11/2026', script={l['id']: l['text'] for l in sp['lines'] if l.get('text')})
-    files[rp] = NM.dump(rev)
+    rev['verdicts'] = dict(sorted(rev['verdicts'].items())); files[rp] = NM.dump(rev)
     if '--check' in sys.argv:
         bad = [os.path.basename(p) for p, t in files.items() if not os.path.exists(p) or open(p).read() != t]; print('stale:', bad[:10]) if bad else print(f'bank2motion: {len(specs)} specs up to date'); sys.exit(1 if bad else 0)
     for p, t in files.items(): open(p, 'w').write(t)
