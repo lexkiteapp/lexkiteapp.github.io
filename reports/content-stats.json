@@ -16,15 +16,15 @@
   "Passage 3": 140
  },
  "TOEIC Reading": {
-  "Part 5": 210,
-  "Part 6": 112,
-  "Part 7": 378
+  "Part 5": 300,
+  "Part 6": 160,
+  "Part 7": 540
  },
  "TOEIC Listening": {
-  "Part 1": 42,
-  "Part 2": 175,
-  "Part 3": 273,
-  "Part 4": 210
+  "Part 1": 60,
+  "Part 2": 250,
+  "Part 3": 390,
+  "Part 4": 300
  },
  "TOEIC Speaking & Writing": {
   "read": 12,
