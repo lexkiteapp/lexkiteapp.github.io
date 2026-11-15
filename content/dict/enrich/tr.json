@@ -1558,5 +1558,330 @@
     "Artan fiyatlar, ücretlerdeki küçük bir artışla kısmen dengelendi."
    ]
   ]
+ },
+ "ongoing": {
+  "n": "Ongoing, henüz bitmemiş ve sürmekte olan şeyler için kullanılır: an ongoing investigation, an ongoing process. Türkçedeki \"devam eden\" ifadesinin yakın karşılığıdır ve genellikle isimden önce gelir; yüklem olarak da mümkündür: The talks are ongoing. Continuing ile yakındır, ancak ongoing hâlâ sürmekte olan ve henüz sonuçlanmamış bir durumu öne çıkarır. Resmi ve haber dilinde çok yaygındır; günlük konuşmada still going on demek daha rahat olur. Vurgu ilk hecededir: ON-going.",
+  "x": [
+   [
+    "The police say the investigation is still ongoing.",
+    "Polis, soruşturmanın hâlâ devam ettiğini söylüyor."
+   ],
+   [
+    "We have an ongoing problem with the printer on the second floor.",
+    "İkinci kattaki yazıcıyla ilgili süregelen bir sorunumuz var."
+   ]
+  ]
+ },
+ "overlap": {
+  "n": "Overlap, iki şeyin kısmen çakışması demektir; zaman, alan, görev ya da içerik için kullanılır. Geçişsiz kullanımda genellikle with ile gelir: My schedule overlaps with yours. Geçişli kullanım da doğrudur: The two courses overlap each other, ama günlük dilde daha çok The two courses overlap denir. Türkçedeki \"çakışmak\" gibi tam örtüşmeyi değil, kısmi örtüşmeyi anlatır. Vurguyu isim ve fiil ayırır: isim OH-ver-lap, fiil oh-ver-LAP. Sık kalıplar: overlapping responsibilities, a slight overlap.",
+  "x": [
+   [
+    "My lunch break overlaps with the weekly team meeting.",
+    "Öğle arama haftalık ekip toplantısıyla çakışıyor."
+   ],
+   [
+    "The two reports overlap in several places, so we can merge them.",
+    "İki rapor birkaç yerde örtüşüyor, bu yüzden onları birleştirebiliriz."
+   ]
+  ]
+ },
+ "overseas": {
+  "n": "Overseas hem sıfat hem zarf olarak kullanılır. Zarf olarak başına preposition almaz: She works overseas, yani \"to overseas\" ya da \"in overseas\" denmez. Sıfat olarak isimden önce gelir: overseas students, an overseas trip. Kelime \"denizaşırı\" anlamına gelir ama günlük İngilizcede yalnızca deniz yoluyla ulaşılan yerler için değil, uçakla gidilen her yabancı ülke için kullanılır. Abroad ile yakındır; ancak abroad sıfat olarak isimden önce kullanılmaz, overseas kullanılır.",
+  "x": [
+   [
+    "Many of our customers live overseas and order online.",
+    "Müşterilerimizin çoğu yurt dışında yaşıyor ve internetten sipariş veriyor."
+   ],
+   [
+    "He took an overseas job in Singapore last spring.",
+    "Geçen bahar Singapur'da yurt dışında bir işe girdi."
+   ]
+  ]
+ },
+ "parallel": {
+  "n": "Parallel sıfat olarak sıklıkla to ile kullanılır: The road runs parallel to the river. Türkçede \"paralel\" kelimesini aynen kullandığımız için anlam kolay anlaşılır, ama İngilizcede vurgu ilk hecededir ve okunuş PAR-uh-lel'dir; ortadaki çift l tek ses verir ve yazımda iki l yazılır. Mecazi anlamda da çok kullanılır: draw a parallel between two events, yani iki olay arasında benzerlik kurmak. İsim olarak da vardır: There are many parallels between the two cases. Bu durumda çoğunlukla çoğul kullanılır.",
+  "x": [
+   [
+    "The railway line runs parallel to the main road for miles.",
+    "Demiryolu hattı kilometrelerce ana yola paralel uzanıyor."
+   ],
+   [
+    "Critics drew a parallel between the two political crises.",
+    "Eleştirmenler iki siyasi kriz arasında bir paralellik kurdu."
+   ]
+  ]
+ },
+ "parameter": {
+  "n": "Parameter çoğunlukla çoğul biçimde ve within ifadesiyle kullanılır: within the parameters of the study. Bu kullanımda \"sınırlar, çerçeve\" anlamı taşır ve Türkçedeki \"parametre\"nin teknik havasından daha geneldir. Yazılımda ve matematikte \"değişken\" ya da \"girdi\" anlamıyla set a parameter denir. Okunuşta vurgu ikinci hecededir: puh-RAM-i-ter. Perimeter (çevre) ile karıştırılması sık görülen bir hatadır, çünkü ikisi de benzer sesler içerir ama anlamları tamamen farklıdır.",
+  "x": [
+   [
+    "The team must finish the project within the parameters set by the client.",
+    "Ekip, projeyi müşterinin belirlediği çerçeve içinde bitirmek zorunda."
+   ],
+   [
+    "You can change each parameter in the settings menu.",
+    "Her parametreyi ayarlar menüsünden değiştirebilirsiniz."
+   ]
+  ]
+ },
+ "perceive": {
+  "n": "Perceive, bir şeyi duyularla fark etmek ya da belirli bir biçimde algılamak demektir. En yaygın yapısı perceive something as: He was perceived as arrogant. Bunun yerine perceive to be da kullanılır ama biraz daha resmidir. Türkçede \"algılamak\" bazen \"anlamak\" anlamında gevşek kullanılır, İngilizcede ise perceive daha çok bir izlenim ya da yorumu anlatır. Yazı dilinde sık görülür; konuşmada see veya think of tercih edilir. İsim hâli perception, vurgu ikinci hecededir: per-CEIVE.",
+  "x": [
+   [
+    "Many people perceive the new tax as unfair.",
+    "Birçok kişi yeni vergiyi adaletsiz buluyor."
+   ],
+   [
+    "She was perceived as a natural leader by her colleagues.",
+    "İş arkadaşları onu doğal bir lider olarak görüyordu."
+   ]
+  ]
+ },
+ "persist": {
+  "n": "Persist hem \"sürmek\" hem de \"ısrar etmek\" anlamına gelir. Birinci anlamda cansız özne alır: If the pain persists, see a doctor. İkinci anlamda persist in ve ardından -ing gelir: She persisted in asking questions. Burada persist to V yapısı kullanılmaz, bu Türk öğrenciler için sık görülen bir hatadır. Persist with da mümkündür. Olumsuz çağrışımı olabilir: ısrarın inatçılık olarak algılanabileceğini unutmayın. Vurgu ikinci hecededir: per-SIST. İsim biçimi persistence, sıfat biçimi persistent'tir.",
+  "x": [
+   [
+    "If the symptoms persist, you should see a doctor.",
+    "Belirtiler devam ederse bir doktora görünmelisiniz."
+   ],
+   [
+    "He persisted in asking for a refund until the manager agreed.",
+    "Müdür kabul edene kadar para iadesi istemekte ısrar etti."
+   ]
+  ]
+ },
+ "philosophy": {
+  "n": "Philosophy sayılamayan bir isim olarak \"felsefe\" disiplinini anlatır: She studies philosophy. Sayılabilir kullanımda ise bir kişinin ya da kurumun yaşam ve çalışma ilkelerini anlatır: my philosophy of life, the company's philosophy. Türkçede \"felsefe\" bazen \"yaklaşım\" yerine kullanılır; İngilizcede de benzer, ama approach daha hafif bir tondur. Vurgu ikinci hecededir: fuh-LOS-uh-fee. Yazımda Türkçedeki f yerine ph yazmak ve sondaki -phy'yi unutmamak gerekir. Sıfat biçimi philosophical, kişi ise philosopher'dır.",
+  "x": [
+   [
+    "Her philosophy is simple: work hard and treat people fairly.",
+    "Onun felsefesi basit: sıkı çalış ve insanlara adil davran."
+   ],
+   [
+    "He took a course in moral philosophy at university.",
+    "Üniversitede ahlak felsefesi dersi aldı."
+   ]
+  ]
+ },
+ "portion": {
+  "n": "Portion, bir bütünün parçasını ya da yemekte bir kişilik servisi anlatır. Yapı: a portion of something. A large portion of the budget gibi kullanımlarda arkasından of gelir. Restoranda a large portion \"büyük porsiyon\" demektir. Part ile yakın anlamlıdır ancak portion biraz daha ölçülmüş ya da ayrılmış bir pay çağrıştırır. Fiil olarak portion out, \"paylara bölmek\" anlamına gelir. Vurgu ilk hecededir: POR-shuhn. Sondaki -tion sesi, Türkçedeki \"porsiyon\" kelimesindeki \"siyon\" gibi okunmaz.",
+  "x": [
+   [
+    "A large portion of her salary goes on rent.",
+    "Maaşının büyük bir kısmı kiraya gidiyor."
+   ],
+   [
+    "The portions at this restaurant are enough for two people.",
+    "Bu restoranın porsiyonları iki kişiye yetiyor."
+   ]
+  ]
+ },
+ "pose": {
+  "n": "Pose en sık pose a threat, pose a problem ve pose a question kalıplarında görülür; bu durumda \"oluşturmak, ortaya koymak\" anlamındadır ve say ya da ask kelimelerine göre daha resmidir. Fotoğraf için \"poz vermek\" anlamında pose for a photo kullanılır; arkasından for gelir. Pose as ifadesi \"gibi görünmek, taklit etmek\" demektir: He posed as a doctor. Türkçedeki \"poz vermek\" bazen gösteriş yapmak anlamına gelir; İngilizcede bu anlam show off ile verilir.",
+  "x": [
+   [
+    "Climate change poses a serious risk to coastal towns.",
+    "İklim değişikliği kıyı kasabaları için ciddi bir risk oluşturuyor."
+   ],
+   [
+    "The man posed as a police officer to enter the building.",
+    "Adam binaya girmek için polis memuru gibi davrandı."
+   ]
+  ]
+ },
+ "practitioner": {
+  "n": "Practitioner, bir mesleği fiilen yapan kişidir, özellikle sağlık ve hukukta: a legal practitioner, a medical practitioner. General practitioner, kısaca GP, İngiltere'de aile hekimidir. Teori ile uygulama arasındaki farkı vurgulamak için de kullanılır: academics and practitioners. Telaffuzda vurgu ikinci hecededir: prak-TISH-uh-ner. Bu kelimeyi practice (yapmak, uygulamak) ile aynı kökten gelen \"uygulayıcı\" olarak düşünmek faydalıdır. Günlük dilde doctor veya lawyer demek daha doğaldır; practitioner resmi ve mesleki metinlerde geçer.",
+  "x": [
+   [
+    "The conference brought together researchers and practitioners from many countries.",
+    "Konferans, birçok ülkeden araştırmacıları ve uygulayıcıları bir araya getirdi."
+   ],
+   [
+    "Your general practitioner can refer you to a specialist.",
+    "Aile hekiminiz sizi bir uzmana yönlendirebilir."
+   ]
+  ]
+ },
+ "preliminary": {
+  "n": "Preliminary sıfattır ve ana olaydan, kararlardan ya da sonuçlardan önce gelen aşamayı anlatır: preliminary results, a preliminary study, preliminary talks. Türkçede \"ön\" ön ekiyle karşılanır. Kesinleşmemiş olduğunu vurgular; bu yüzden haberlerde sık görülür. Zarf hâli yoktur, \"preliminarily\" nadirdir. İsim olarak çoğul preliminaries, \"ön hazırlıklar\" anlamına gelir. Vurgu ikinci hecededir: pri-LIM-i-nair-ee. Yazımda -ary sonunu -ery diye yazmamaya dikkat edin.",
+  "x": [
+   [
+    "Preliminary talks between the two companies begin next week.",
+    "İki şirket arasındaki ön görüşmeler gelecek hafta başlıyor."
+   ],
+   [
+    "The preliminary results look promising, but we need more data.",
+    "Ön sonuçlar umut verici görünüyor, ama daha fazla veriye ihtiyacımız var."
+   ]
+  ]
+ },
+ "presume": {
+  "n": "Presume, kanıt görmeden bir şeyin doğru olduğunu varsaymak demektir ve genellikle that cümlesi alır: I presume that you have read it. Assume ile yakındır ama presume, varsayımın makul bir temele dayandığını ima eder. Yaygın kalıp: presumed innocent, yani suçu kanıtlanana kadar masum sayılmak. Konuşmada kibar bir tahmin olarak I presume so, \"sanırım öyle\" şeklinde de geçer. Presumptuous (küstah) ile karıştırılmamalı. Vurgu ikinci hecededir: pri-ZOOM.",
+  "x": [
+   [
+    "I presume you have already read the contract.",
+    "Sözleşmeyi zaten okuduğunuzu varsayıyorum."
+   ],
+   [
+    "In court, everyone is presumed innocent until proven guilty.",
+    "Mahkemede herkes suçu kanıtlanana kadar masum sayılır."
+   ]
+  ]
+ },
+ "prior": {
+  "n": "Prior iki biçimde kullanılır. İsimden önce sıfat olarak \"önceki\" anlamı verir: prior experience, a prior engagement. Prior to ise bir edat kalıbıdır ve before ile aynı anlama gelir ama çok daha resmidir: Prior to the meeting, … Arkasından isim ya da -ing alır. Konuşmada before demek daha doğaldır. Yaygın hata: prior of yazmak. Ayrıca \"prior to\" içindeki to, fiil değil edattır, bu yüzden arkasından fiil değil -ing gelir.",
+  "x": [
+   [
+    "The job requires no prior experience, only a willingness to learn.",
+    "İş hiçbir önceki deneyim gerektirmiyor, yalnızca öğrenme isteği yeterli."
+   ],
+   [
+    "Please turn off your phone prior to entering the exam hall.",
+    "Lütfen sınav salonuna girmeden önce telefonunuzu kapatın."
+   ]
+  ]
+ },
+ "priority": {
+  "n": "Priority sayılabilir bir isimdir: a priority, two priorities. En sık top priority, high priority ve give priority to kalıplarında geçer. Önceliği olan şeyin üzerinde olduğunu take priority over something ile anlatırız: Safety takes priority over speed. Öncelik sırasını belirlemek için set priorities ya da prioritise (ABD'de prioritize) denir. Vurgu ikinci hecededir: prai-OR-i-tee. Çoğulunda y düşer ve ies eklenir: priorities. Prior ile ilişkilidir ama aynı kelime değildir.",
+  "x": [
+   [
+    "My top priority this month is finishing the thesis.",
+    "Bu ayki birinci önceliğim tezi bitirmek."
+   ],
+   [
+    "Hospitals must give priority to the most serious cases.",
+    "Hastaneler en ağır vakalara öncelik vermek zorundadır."
+   ]
+  ]
+ },
+ "prospect": {
+  "n": "Prospect, olası bir gelecek durumunu anlatır ve of ile kullanılır: the prospect of winning. Çoğul biçim prospects, özellikle iş ve kariyer bağlamında \"gelecek beklentileri\" anlamına gelir: good job prospects. Tekil kullanımda bir korku ya da heyecan taşıyabilir: the prospect of flying makes me nervous. Fiil olarak da var (prospect for gold, \"altın aramak\"), ama bu nadirdir. Vurgu ilk hecededir: PROS-pekt. Türkçedeki \"prospektüs\" ile ilgili ama aynı değildir.",
+  "x": [
+   [
+    "The prospect of speaking in public makes her very nervous.",
+    "Topluluk önünde konuşma ihtimali onu çok geriyor."
+   ],
+   [
+    "Graduates with language skills have excellent job prospects.",
+    "Dil becerisi olan mezunların iş beklentileri çok iyi."
+   ]
+  ]
+ },
+ "protocol": {
+  "n": "Protocol, bir durumda izlenmesi gereken resmi kurallar dizisidir: a medical protocol, security protocol. Sayılabilir ya da sayılamaz olabilir; follow protocol, \"kurallara uymak\" demektir, burada artikel yoktur. Bilişimde ağ iletişim kuralları için de kullanılır: HTTP protocol. Diplomaside \"protokol\", devlet törenlerindeki görgü kurallarını ifade eder; İngilizcede de aynı anlam geçerlidir. Telaffuz, Türkçeden farklıdır: vurgu ilk hecededir, PROH-tuh-kol.",
+  "x": [
+   [
+    "Doctors must follow the safety protocol when handling dangerous chemicals.",
+    "Doktorlar tehlikeli kimyasalları kullanırken güvenlik protokolüne uymak zorundadır."
+   ],
+   [
+    "The two computers communicate using a standard network protocol.",
+    "İki bilgisayar standart bir ağ protokolü kullanarak iletişim kuruyor."
+   ]
+  ]
+ },
+ "psychology": {
+  "n": "Psychology sayılamayan bir isimdir ve çoğul almaz; bilim dalının adıdır: She studies psychology. Bir kişinin düşünce biçimini anlatmak için de the psychology of ...: the psychology of fear. Burada the ve of gerekir. Başında p harfi okunmaz: sai-KOL-uh-jee. Bu, Türkçede \"psikoloji\" okunuşuna alışkın öğrenciler için tuzaktır. Sıfat biçimi psychological, uzman ise psychologist'tir. Psychiatrist (psikiyatrist) ile karıştırılmamalı; o tıp doktorudur.",
+  "x": [
+   [
+    "She is studying psychology at university.",
+    "Üniversitede psikoloji okuyor."
+   ],
+   [
+    "Advertisers use the psychology of colour to influence buyers.",
+    "Reklamcılar alıcıları etkilemek için renk psikolojisinden yararlanır."
+   ]
+  ]
+ },
+ "pursue": {
+  "n": "Pursue, uzun vadeli bir hedef ya da etkinliğin peşinden gitmek demektir: pursue a career, pursue a goal, pursue a degree. Doğrudan nesne alır ve arkasından preposition gelmez: pursue a dream, pursue for a dream değil. Kişiyi kovalamak için de geçer: The police pursued the car. Chase ile yakındır ama pursue daha resmi ve ciddi bir tondadır. Vurgu ikinci hecededir: per-SYOO ya da per-SOO. İsim biçimi pursuit'tir: in pursuit of success.",
+  "x": [
+   [
+    "She decided to pursue a career in medicine.",
+    "Tıp alanında kariyer yapmaya karar verdi."
+   ],
+   [
+    "The police pursued the stolen car through the city centre.",
+    "Polis çalınan arabayı şehir merkezinde kovaladı."
+   ]
+  ]
+ },
+ "radical": {
+  "n": "Radical, bağlama göre olumlu ya da olumsuz tonda olabilir. Değişim ve fikirler için \"köklü, esaslı\" anlamı verir: radical change, radical reform. Siyasi bağlamda ise \"aşırı\" çağrışımı taşıyabilir: radical views. Bu yüzden bağlama dikkat etmek gerekir. İsim olarak da vardır: a political radical. Kimyada free radical, \"serbest radikal\" demektir. Vurgu ilk hecededir: RAD-i-kul. Zarf hâli radically'dir: radically different.",
+  "x": [
+   [
+    "The company made a radical change to the way it sells products.",
+    "Şirket ürünlerini satma biçiminde köklü bir değişiklik yaptı."
+   ],
+   [
+    "His radical ideas shocked the conservative audience.",
+    "Onun radikal fikirleri muhafazakâr izleyicileri şaşırttı."
+   ]
+  ]
+ },
+ "ratio": {
+  "n": "Ratio, iki sayı ya da miktar arasındaki ilişkiyi gösterir. Yapı: the ratio of A to B. İngilizcede ratio genelde 3:1 gibi yazılır ve three to one okunur; tek bir yüzdeyi değil, iki miktarın birbirine oranını verir. Yüzde için percentage, parça için proportion daha uygundur. Çoğul biçimi ratios'tur. Telaffuz önemlidir: RAY-shee-oh ya da RAY-shoh; Türkçedeki \"rasyo\" gibi okunmaz. Yaygın kalıp: student-teacher ratio.",
+  "x": [
+   [
+    "The ratio of boys to girls in the class is three to two.",
+    "Sınıftaki erkek ve kız oranı üçe iki."
+   ],
+   [
+    "A high debt ratio can make banks nervous about lending money.",
+    "Yüksek borç oranı bankaları kredi vermekten çekindirebilir."
+   ]
+  ]
+ },
+ "rational": {
+  "n": "Rational, mantığa dayanan düşünce ve karar için kullanılır: a rational decision, a rational explanation. Zıt anlamlısı irrational'dır. Rational ile reasonable çoğu zaman karıştırılır: rational mantıkla uyumlu demektir, reasonable ise makul ve adil anlamı taşır. İnsan için de kullanılabilir: a rational person. Vurgu ilk hecededir: RASH-uh-nul. Türkçedeki \"rasyonel\" kelimesiyle çok benzer olsa da telaffuz farklıdır. İsim biçimi rationality, fiil biçimi rationalise'dır.",
+  "x": [
+   [
+    "There must be a rational explanation for the strange noise.",
+    "Garip sesin mantıklı bir açıklaması olmalı."
+   ],
+   [
+    "He stayed calm and made a rational decision under pressure.",
+    "Sakin kaldı ve baskı altında akılcı bir karar verdi."
+   ]
+  ]
+ },
+ "refine": {
+  "n": "Refine iki ana anlamda kullanılır: bir yöntem, fikir ya da beceriyi küçük değişikliklerle geliştirmek ve bir maddeyi arıtmak. Birinci anlamda: refine a technique, refine your English. İkinci anlamda genellikle edilgen: refined sugar, refined oil. Sıfat olarak refined, kişi için \"kibar, zarif\" demektir: refined manners. Improve ile aynı anlama gelmez; refine, hâlihazırda iyi olan bir şeyi inceltmeyi anlatır. Vurgu ikinci hecededir: ri-FAIN. İsim hâli refinement'tir.",
+  "x": [
+   [
+    "The team refined the design after testing the first model.",
+    "Ekip ilk modeli denedikten sonra tasarımı geliştirdi."
+   ],
+   [
+    "Most of the sugar in this shop is refined white sugar.",
+    "Bu dükkândaki şekerin çoğu rafine beyaz şekerdir."
+   ]
+  ]
+ },
+ "regime": {
+  "n": "Regime çoğunlukla bir hükümetin yönetim biçimini anlatır ve genellikle olumsuz bir çağrışım taşır: a military regime, an authoritarian regime. Demokratik hükümet için government demek daha doğaldır. Kural düzeni için de kullanılabilir: a tax regime, a strict exercise regime. Telaffuz Fransızca kökenlidir: ray-ZHEEM, ikinci hece vurgulu. Türkçedeki \"rejim\" ile benzerdir; diyet anlamında ise genellikle diet kullanılır, regime ya da regimen daha resmi ve tıbbi bir tondadır.",
+  "x": [
+   [
+    "The old regime fell after months of public protests.",
+    "Eski rejim aylarca süren halk protestolarından sonra çöktü."
+   ],
+   [
+    "The new tax regime will affect small businesses the most.",
+    "Yeni vergi düzeni en çok küçük işletmeleri etkileyecek."
+   ]
+  ]
+ },
+ "register": {
+  "n": "Register fiil olarak resmi bir listeye kaydolmak demektir. Yapı: register for a course, register with the police, register to vote. İsim olarak ise bir kayıt defteridir ya da bir dilin resmiyet düzeyidir: formal register. Enrol ise özellikle bir okula ya da programa yazılmayı anlatır. Türkçedeki \"kayıt yaptırmak\" için resmi kuruma kayıtta with, etkinliğe ya da derse katılım için for kullanılır. Vurgu ilk hecededir: REJ-i-ster. Yaygın hata: register in a course yazmak.",
+  "x": [
+   [
+    "You must register for the course before the end of the month.",
+    "Ayın sonundan önce derse kaydolmanız gerekiyor."
+   ],
+   [
+    "All drivers have to register their vehicles with the local authority.",
+    "Tüm sürücülerin araçlarını yerel yönetime kaydettirmesi gerekir."
+   ]
+  ]
  }
 }
