@@ -1,0 +1,15 @@
+{
+ "gym-membership": ["I.A2.03", "S.A2.06"],
+ "return-gift": ["I.A2.03", "I.A2p.04"],
+ "book-dentist": ["I.A2.09", "I.A2p.05"],
+ "bank-card-problem": ["I.B1.02", "I.B1.05"],
+ "rent-a-car": ["I.B1.02", "I.B1.06"],
+ "tech-support": ["I.B1.10", "I.B1.04"],
+ "lost-luggage": ["I.B1.02", "I.B1.05"],
+ "noisy-neighbour": ["I.B2.03", "I.B2.04"],
+ "teacher-meeting": ["I.B2.07", "I.B2.02"],
+ "negotiate-deadline": ["I.B2.03", "I.B2.08"],
+ "order-catering": ["I.B2.03", "I.B2.09"],
+ "reschedule-meeting": ["I.C1.06", "I.C1.07"],
+ "volunteer-signup": ["I.C1.01", "I.C1.10"]
+}
