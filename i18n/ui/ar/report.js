@@ -10,6 +10,7 @@
 "Bạn nhận thư này vì đã chọn nhận cập nhật khi gửi báo lỗi.":"تصلك هذه الرسالة لأنك طلبت تلقي التحديثات عند إرسال البلاغ.",
 "Bạn sẽ thấy cập nhật ngay trong app (mục Báo lỗi của tôi).":"سترى التحديثات داخل التطبيق (بلاغاتي).",
 "Chưa bật được thông báo – bạn vẫn thấy cập nhật trong app.":"تعذّر تشغيل الإشعارات – ستظل ترى التحديثات داخل التطبيق.",
+"Chưa xác minh được bạn là người thật – hãy thử lại sau ít phút.":"تعذّر التأكد من أنك شخص حقيقي. حاول مرة أخرى بعد بضع دقائق.",
 "Cảm ơn bạn đã báo – chạm để xem chi tiết.":"شكرًا لإبلاغك – اضغط لعرض التفاصيل.",
 "Cảm ơn bạn đã giúp Lexkite tốt hơn!":"شكرًا لمساعدتك في تحسين Lexkite!",
 "Cập nhật {d}":"تم التحديث {d}",
@@ -42,6 +43,7 @@
 "Trạng thái báo lỗi":"حالة البلاغ",
 "Vui lòng đợi {n} giây trước khi gửi tiếp.":"يرجى الانتظار {n} ثانية قبل إرسال بلاغ آخر.",
 "Xem trạng thái":"عرض الحالة",
+"Xác minh nhanh để tiếp tục":"تحقق سريع للمتابعة",
 "trong 1 tuần":"خلال أسبوع واحد",
 "trong {a}–{b} ngày":"خلال {a}–{b} أيام",
 "trong {n} giờ":"خلال {n} ساعة",
@@ -56,7 +58,5 @@
 "Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.":"سيراجع فريقنا اقتراحك – وسنُعلمك إذا تم تنفيذ الميزة.",
 "Ảnh chụp màn hình (không bắt buộc)":"لقطة شاشة (اختياري)",
 "Ảnh quá lớn hoặc không đọc được.":"الصورة كبيرة جدًا أو تعذّرت قراءتها.",
-"Chưa xác minh được bạn là người thật – hãy thử lại sau ít phút.":"تعذّر التأكد من أنك شخص حقيقي. حاول مرة أخرى بعد بضع دقائق.",
-"Xác minh nhanh để tiếp tục":"تحقق سريع للمتابعة",
 });
 })(typeof self !== 'undefined' ? self : this);

@@ -83,7 +83,7 @@ ok(LANGS.length === 15 && LANGS.includes('Chinese (Simplified)'), 'LANGS = 15 t�
   const rd = p => fs.readFileSync(new URL('../../' + p, import.meta.url), 'utf8');
   for (const p of ['web/js/ai.js', 'web/js/roleplay.js']) { const s = rd(p); ok(/UI\.humanHdr\(h, again\)/.test(s) && !/await H\.ticket\(/.test(s), `${p}: dùng UI.humanHdr (không await ticket ở lượt thường)`); }
   const ui = rd('web/js/ui.js'), hs = rd('web/js/human.js');
-  ok(/async function humanHdr\(h, again\) \{\n\s+if \(again\) \{ const H = await human\(\)/.test(ui) && /const H = window\.Human;/.test(ui), 'humanHdr: chỉ chờ khi again (403 human), lượt thường dùng vé sẵn + lấy nền');
+  ok(/async function humanHdr\(h, again\) \{\n\s+const H = window\.Human;\n\s+if \(again\) \{ const X = await human\(\)/.test(ui), 'humanHdr: chỉ chờ khi again (403 human), lượt thường dùng vé sẵn + lấy nền');
   ok(/setTimeout\(fin, 4000\)/.test(ui), 'UI.human(): tải js/human.js có hạn 4 s (không treo khi script không tải được)');
   ok(/failAt = Date\.now\(\)/.test(hs) && /Date\.now\(\) - failAt < 6e5/.test(hs), 'human.js: xác minh lỗi → 10 phút không thử lại (trừ force)');
 }

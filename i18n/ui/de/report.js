@@ -10,6 +10,7 @@
 "Bạn nhận thư này vì đã chọn nhận cập nhật khi gửi báo lỗi.":"Du erhältst diese E-Mail, weil du beim Senden der Meldung Updates angefordert hast.",
 "Bạn sẽ thấy cập nhật ngay trong app (mục Báo lỗi của tôi).":"Du siehst Neuigkeiten direkt in der App (Meine Meldungen).",
 "Chưa bật được thông báo – bạn vẫn thấy cập nhật trong app.":"Benachrichtigungen konnten nicht aktiviert werden – Updates siehst du trotzdem in der App.",
+"Chưa xác minh được bạn là người thật – hãy thử lại sau ít phút.":"Wir konnten nicht bestätigen, dass du ein Mensch bist. Versuche es in ein paar Minuten erneut.",
 "Cảm ơn bạn đã báo – chạm để xem chi tiết.":"Danke für deine Meldung – tippe für Details.",
 "Cảm ơn bạn đã giúp Lexkite tốt hơn!":"Danke, dass du Lexkite besser machst!",
 "Cập nhật {d}":"Aktualisiert {d}",
@@ -42,6 +43,7 @@
 "Trạng thái báo lỗi":"Status der Meldung",
 "Vui lòng đợi {n} giây trước khi gửi tiếp.":"Bitte warte {n} Sekunden, bevor du eine weitere Meldung sendest.",
 "Xem trạng thái":"Status ansehen",
+"Xác minh nhanh để tiếp tục":"Kurze Prüfung zum Fortfahren",
 "trong 1 tuần":"innerhalb von 1 Woche",
 "trong {a}–{b} ngày":"innerhalb von {a}–{b} Tagen",
 "trong {n} giờ":"innerhalb von {n} Stunden",
@@ -56,7 +58,5 @@
 "Đội ngũ sẽ xem xét đề xuất – bạn sẽ được báo nếu tính năng được làm.":"Unser Team prüft deinen Vorschlag – du wirst benachrichtigt, wenn die Funktion umgesetzt wird.",
 "Ảnh chụp màn hình (không bắt buộc)":"Screenshot (optional)",
 "Ảnh quá lớn hoặc không đọc được.":"Das Bild ist zu groß oder konnte nicht gelesen werden.",
-"Chưa xác minh được bạn là người thật – hãy thử lại sau ít phút.":"Wir konnten nicht bestätigen, dass du ein Mensch bist. Versuche es in ein paar Minuten erneut.",
-"Xác minh nhanh để tiếp tục":"Kurze Prüfung zum Fortfahren",
 });
 })(typeof self !== 'undefined' ? self : this);

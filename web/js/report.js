@@ -77,10 +77,10 @@
   async function post(body, auth, again) {
     const h = { 'Content-Type': 'application/json' }, dv = device(); if (dv) h['X-Lexkite-Device'] = dv;
     try { const u = auth && w.Sync && Sync.user; if (u && u.getIdToken) h.Authorization = 'Bearer ' + await u.getIdToken(); } catch (e) { /* khách */ }
-    if (body.op === 'create' && !h.Authorization && w.UI && UI.human) { const H = await UI.human(); if (H) { await H.ticket(!!again); H.headers(h); } } // khách: vé người thật (máy chủ bắt buộc – docs/HUMAN.md)
+    if (body.op === 'create' && !h.Authorization && w.UI && UI.human) { const H = await UI.human(); if (H) { await H.ticket(!!again); H.headers(h); } }
     const r = await fetch(API, { method: 'POST', headers: h, body: JSON.stringify(body) });
     const j = await r.json().catch(() => ({})); j._s = r.status;
-    if (r.status === 403 && j.error === 'human' && !again) return post(body, auth, true); // vé hết hạn/sai thiết bị → xác minh lại 1 lần
+    if (r.status === 403 && j.error === 'human' && !again) return post(body, auth, true);
     return j;
   }
 
