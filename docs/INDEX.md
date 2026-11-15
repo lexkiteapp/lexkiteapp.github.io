@@ -5,6 +5,7 @@
 
 ## Tài liệu hiện hành (docs/)
 - [ADMIN-SECURITY.md](ADMIN-SECURITY.md) — Các lớp bảo vệ trang /admin: adminGate ở API (Origin, rate-limit, Firebase token + email_verified + ADMIN_EMAILS), cổng whoami ở trình duyệt; đọc khi: sửa trang/API quản trị hoặc bật Cloudflare Access
+- [HUMAN.md](HUMAN.md) — Người thật (Turnstile, vé 12 h /api/human), prompt cố định /api/ai theo task, giới hạn body, ghim OIDC, cờ AI_HUMAN_ENFORCE; đọc khi sửa /api/ai, contact, report, lexai
 - [ADS.md](ADS.md) — Thiết kế quảng cáo một lần, mọi cờ TẮT: AdMob (app), AdSense (web), add-on Chrome không bao giờ; chỉ đặt ở điểm nghỉ của bài học; đọc khi: đụng tới quảng cáo, đồng ý, hoặc bật nền tảng quảng cáo mới
 - [ADSENSE-READY.md](ADSENSE-READY.md) — Checklist sẵn sàng duyệt AdSense/AdMob kèm bằng chứng và 3 cú bấm của chủ; đọc khi: gửi lại duyệt quảng cáo hoặc đổi trang bắt buộc/ads.txt
 - [API-KEYS.md](API-KEYS.md) — Bộ quản lý khóa API (Gemini, Groq, OpenRouter, Anthropic, OpenAI, Resend, Brevo, Cloudflare) trong một kho mã hóa, tự xoay vòng và báo sức khỏe; đọc khi: thêm/xoay khóa hoặc sửa _keys.js

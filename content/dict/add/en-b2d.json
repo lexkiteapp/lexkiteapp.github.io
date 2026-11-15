@@ -1,0 +1,752 @@
+{
+  "similarly": {
+    "mis": [
+      {
+        "w": "He dressed similarly with his brother.",
+        "r": "He dressed similarly to his brother.",
+        "why": "The adverb similarly takes 'to' before the thing compared, not 'with'."
+      },
+      {
+        "w": "Similar, many students prefer online lessons.",
+        "r": "Similarly, many students prefer online lessons.",
+        "why": "Similar is an adjective; to open a sentence and link ideas you need the adverb similarly."
+      }
+    ],
+    "u": "Similarly is a linking adverb used in essays to add a point that parallels the previous one: 'Cars pollute the air. Similarly, planes damage the climate.' It usually opens a sentence or clause and is followed by a comma. As a plain adverb it means in a like manner (treated similarly). Likewise is shorter and slightly more casual; in the same way is more explicit. Do not use it to contrast ideas."
+  },
+  "simplify": {
+    "mis": [
+      {
+        "w": "Please simplify me the instructions.",
+        "r": "Please simplify the instructions for me.",
+        "why": "Simplify takes the thing directly as its object; the person comes later with 'for'."
+      },
+      {
+        "w": "We need a simplify process.",
+        "r": "We need a simplified process.",
+        "why": "After 'a' you need an adjective; use the participle simplified, not the verb form."
+      }
+    ],
+    "u": "Simplify is a transitive verb meaning to make something less complicated: simplify a form, a rule or an explanation. It suits business and technical writing, where it often sits next to process, procedure or workflow. The noun is simplification, and the adjective is simplified or simple. Streamline stresses removing wasteful steps, while clarify stresses making something clearer. Oversimplify is negative: it means leaving out so much that the idea becomes misleading."
+  },
+  "slot": {
+    "mis": [
+      {
+        "w": "Do you have any free slot on Friday?",
+        "r": "Do you have any free slots on Friday?",
+        "why": "'Any' with a countable noun in a question needs the plural: slots."
+      },
+      {
+        "w": "I booked a slot at the doctor for Monday.",
+        "r": "I booked a slot with the doctor for Monday.",
+        "why": "For a person, use 'with' after slot or appointment, not 'at'."
+      }
+    ],
+    "u": "Slot has two everyday meanings. Physically, it is a narrow opening, such as a coin slot or a mail slot. In scheduling, it is a period set aside for something: a time slot, a TV slot, a slot in the programme. It is a countable noun and is often used with book, fill, secure or free. Compared with appointment, slot stresses the available time rather than the meeting itself. The phrasal verb slot in means to fit something into a space."
+  },
+  "soar": {
+    "mis": [
+      {
+        "w": "Prices soared up by 20 percent.",
+        "r": "Prices soared by 20 percent.",
+        "why": "Soar already includes the idea of rising, so 'up' is redundant."
+      },
+      {
+        "w": "Prices soar last year.",
+        "r": "Prices soared last year.",
+        "why": "A past time marker like 'last year' needs the past tense: soared."
+      }
+    ],
+    "u": "Soar means to rise very fast and high. It describes numbers such as prices, sales and temperatures, and also birds or hopes that rise in the air. Typical patterns are soar to a level (soar to record highs) and soar by an amount (soar by 20 percent). It is stronger than rise or increase and is usually positive or neutral in sound. Skyrocket is more informal; surge suggests a sudden wave rather than steady height."
+  },
+  "sometime": {
+    "mis": [
+      {
+        "w": "Let's meet sometimes next week.",
+        "r": "Let's meet sometime next week.",
+        "why": "Sometimes means 'now and then'; for one unknown moment use sometime."
+      },
+      {
+        "w": "The report took sometime to finish.",
+        "r": "The report took some time to finish.",
+        "why": "For a length of time write two words, some time; sometime is one unknown point."
+      }
+    ],
+    "u": "Sometime is an adverb for an unspecified point in time: 'Call me sometime next week.' It is vague on purpose, so avoid it where an exact date is needed. Do not mix it up with sometimes, meaning occasionally, or with some time, meaning an amount of time ('it will take some time'). In American English it can also be an adjective meaning former (a sometime teacher), but that use is now rare and literary."
+  },
+  "specification": {
+    "mis": [
+      {
+        "w": "The product meets all specification.",
+        "r": "The product meets all specifications.",
+        "why": "In the sense of technical requirements, specification is usually plural after 'all'."
+      },
+      {
+        "w": "Please send the full specific of the product.",
+        "r": "Please send the full specifications of the product.",
+        "why": "Specific is an adjective; the noun for the list of details is specification."
+      }
+    ],
+    "u": "Specification is a precise description of what something must be, do or contain. In industry the plural is the norm: product specifications, built to specifications, meet the specifications. A job specification lists the duties and skills of a role. The short form is spec, common in speech. Do not confuse it with specific (adjective) or specify (verb). Requirement is broader and less technical; standard refers to an agreed level, not the detail of one item."
+  },
+  "spokesperson": {
+    "mis": [
+      {
+        "w": "He is a spokesperson of the company.",
+        "r": "He is a spokesperson for the company.",
+        "why": "A spokesperson speaks 'for' a group, not 'of' it."
+      },
+      {
+        "w": "The spokesperson said us that the plan was cancelled.",
+        "r": "The spokesperson told us that the plan was cancelled.",
+        "why": "Say does not take a person object directly; use tell with an object."
+      }
+    ],
+    "u": "A spokesperson is someone chosen to speak officially for an organisation, government or famous person. It is gender-neutral and now preferred to spokesman or spokeswoman in business and news English. The pattern is spokesperson for X. Reporters usually write 'a spokesperson said', often with the name of the organisation first. A representative may act for a group in many ways, while a spokesperson mainly makes public statements."
+  },
+  "steadily": {
+    "mis": [
+      {
+        "w": "Sales grew steady last year.",
+        "r": "Sales grew steadily last year.",
+        "why": "A verb is modified by an adverb, so use steadily, not the adjective steady."
+      },
+      {
+        "w": "Prices have risen stably since January.",
+        "r": "Prices have risen steadily since January.",
+        "why": "Stably means without changing; steadily means at a regular pace."
+      }
+    ],
+    "u": "Steadily means at a regular, continuous pace without sudden jumps. It pairs mostly with verbs of change: grow, rise, improve, decline, increase. It is neutral in tone and appears in reports and news about trends. Rain can fall steadily; a person can work steadily. Gradually stresses slowness, while steadily stresses consistency. Do not use it for something that stays the same; for that, say remain stable or stay constant."
+  },
+  "steer": {
+    "mis": [
+      {
+        "w": "The manager steered the company on the crisis.",
+        "r": "The manager steered the company through the crisis.",
+        "why": "To guide something past a difficulty, use 'through', not 'on'."
+      },
+      {
+        "w": "I steer a car to work every day.",
+        "r": "I drive a car to work every day.",
+        "why": "Steer means to control direction only; the general verb for operating a car is drive."
+      }
+    ],
+    "u": "Steer means to control the direction of a vehicle, boat or bicycle, and also of a conversation, discussion or company. Common figurative uses: steer the conversation away from a topic, steer a business through a crisis, steer clear of trouble. It focuses on direction, not on operating the whole machine, which is why drive is the normal verb for cars. Guide is more neutral; navigate suggests finding a route through difficulty."
+  },
+  "stockbroker": {
+    "mis": [
+      {
+        "w": "My uncle is stockbroker.",
+        "r": "My uncle is a stockbroker.",
+        "why": "A singular countable job noun needs an article: a stockbroker."
+      },
+      {
+        "w": "I'm a stockbroker of this company, so I get part of the profits.",
+        "r": "I'm a stockholder of this company, so I get part of the profits.",
+        "why": "A stockbroker trades shares for others; someone who owns shares is a stockholder."
+      }
+    ],
+    "u": "A stockbroker is a licensed professional who buys and sells shares for clients and earns a fee or commission. Many now work for online platforms rather than in a trading room. Collocations include consult, hire and work as a stockbroker. The person who owns the shares is a stockholder (or shareholder), not the stockbroker. In general business English, broker alone can mean an agent in other fields too, such as insurance or property."
+  },
+  "stockholder": {
+    "mis": [
+      {
+        "w": "The stockholders will hold a meeting to vote the merger.",
+        "r": "The stockholders will hold a meeting to vote on the merger.",
+        "why": "Vote takes 'on' before the matter being decided."
+      },
+      {
+        "w": "Our stockholder buys and sells shares for us.",
+        "r": "Our stockbroker buys and sells shares for us.",
+        "why": "The person who trades shares for clients is a stockbroker; a stockholder owns them."
+      }
+    ],
+    "u": "A stockholder owns shares in a company and therefore has a part of it, with the right to vote and receive dividends. Stockholder is the usual American word, while shareholder is common in British English and is equally correct in the US. Both appear in phrases such as stockholders' meeting and stockholder value. Note the possessive after the plural: stockholders' rights. A stockholder is not the same as a stockbroker, who trades on behalf of others."
+  },
+  "strategic": {
+    "mis": [
+      {
+        "w": "We need a strategic for next year.",
+        "r": "We need a strategy for next year.",
+        "why": "Strategic is an adjective; the noun for the plan itself is strategy."
+      },
+      {
+        "w": "They signed a strategy partnership.",
+        "r": "They signed a strategic partnership.",
+        "why": "To describe a noun you need the adjective strategic, not the noun strategy."
+      }
+    ],
+    "u": "Strategic is an adjective meaning relating to a long-term plan to reach an important goal. It is common in business: strategic partnership, strategic planning, strategic alliance. It can also mean carefully placed, as in a strategic location. Tactical is its short-term counterpart, dealing with the actions that carry out a strategy. The noun is strategy and the adverb is strategically. Calling a decision strategic gives it weight and suggests careful thought."
+  },
+  "submission": {
+    "mis": [
+      {
+        "w": "The submission the form must be done online.",
+        "r": "The submission of the form must be done online.",
+        "why": "A noun needs 'of' before the thing that is submitted."
+      },
+      {
+        "w": "I will do submission my essay tomorrow.",
+        "r": "I will submit my essay tomorrow.",
+        "why": "Use the verb submit with an object; submission is a noun."
+      }
+    ],
+    "u": "Submission is the act of handing in a document, application or proposal for others to consider, and also the thing handed in. It appears in set phrases like submission deadline, late submission and online submission. Followed by of, it names what is sent: submission of the report. The verb is submit. In another sense, submission means yielding to authority or force, so context matters: to starve someone into submission. Filing is common for legal forms."
+  },
+  "subscriber": {
+    "mis": [
+      {
+        "w": "The channel has one million subscribes.",
+        "r": "The channel has one million subscribers.",
+        "why": "Subscribe is a verb; the person who subscribes is a subscriber."
+      },
+      {
+        "w": "I am a subscriber on this magazine.",
+        "r": "I am a subscriber to this magazine.",
+        "why": "Subscriber and subscribe take 'to' before the service."
+      }
+    ],
+    "u": "A subscriber is a person who pays or signs up to receive something regularly, such as a magazine, a newsletter, a phone line or a streaming service. The pattern is subscriber to X. In media and marketing, subscriber base and subscriber growth measure how many people have signed up. A subscriber is not always paying: an email subscriber may get free messages. A member usually has more rights and takes part in a group."
+  },
+  "substantially": {
+    "mis": [
+      {
+        "w": "Profits rose substantial last year.",
+        "r": "Profits rose substantially last year.",
+        "why": "An adverb is needed to modify the verb rose."
+      },
+      {
+        "w": "Prices dropped substantially of 10 percent.",
+        "r": "Prices dropped substantially by 10 percent.",
+        "why": "Use 'by' to give the size of a change."
+      }
+    ],
+    "u": "Substantially means by a large amount or to a great degree. It goes with verbs of change (increase, reduce, improve) and with comparatives (substantially higher). It is formal and common in reports, contracts and news. A second sense is 'for the most part': substantially complete. Significantly can suggest statistical or important change, while substantially stresses size. Do not mix it up with substantive (adjective), which means having real importance or being about essentials."
+  },
+  "superb": {
+    "mis": [
+      {
+        "w": "The food was very superb.",
+        "r": "The food was superb.",
+        "why": "Superb is already extreme, so 'very' is not used; say absolutely superb if needed."
+      },
+      {
+        "w": "She performed superb in the final.",
+        "r": "She performed superbly in the final.",
+        "why": "Use the adverb superbly to describe how a verb is done."
+      }
+    ],
+    "u": "Superb is a strong adjective meaning excellent or of the highest quality. It praises food, service, views, performances and results: a superb meal, superb views. Because it is an extreme adjective, it normally does not take very; use absolutely, quite or simply instead. The adverb is superbly. It is warm and positive, suitable for reviews and recommendations. Excellent is more neutral, while magnificent stresses grandeur and splendour."
+  },
+  "supervise": {
+    "mis": [
+      {
+        "w": "She supervises to twelve staff.",
+        "r": "She supervises twelve staff.",
+        "why": "Supervise is transitive and takes its object directly, with no 'to'."
+      },
+      {
+        "w": "He is supervise of the project.",
+        "r": "He is the supervisor of the project.",
+        "why": "After 'is the' you need the noun supervisor, not the verb supervise."
+      }
+    ],
+    "u": "Supervise means to watch over people or work to make sure things are done correctly. A manager supervises staff, a teacher supervises students, a parent supervises young children. It is transitive, with no preposition before the object. Related words are supervisor (person), supervision (noun) and supervisory (adjective). Oversee is a little broader and higher-level, while manage includes making decisions about resources as well as watching over."
+  },
+  "survey": {
+    "mis": [
+      {
+        "w": "We made a survey about customers.",
+        "r": "We conducted a survey about customers.",
+        "why": "The usual collocation is conduct or carry out a survey, not make."
+      },
+      {
+        "w": "A recent survey show that most workers prefer flexible hours.",
+        "r": "A recent survey shows that most workers prefer flexible hours.",
+        "why": "A singular subject needs a third-person -s verb: shows."
+      }
+    ],
+    "u": "A survey is a set of questions asked to many people to learn their opinions or habits, and also the report of the results. Natural verbs are conduct, carry out, complete and respond to. People who answer are respondents. As a verb, survey (stress on the second syllable) also means to look carefully at something, or to measure land. A poll is usually about voting or opinion and is shorter; a questionnaire is the list of questions itself."
+  },
+  "tailor": {
+    "mis": [
+      {
+        "w": "We offer tailor services to customers.",
+        "r": "We offer tailored services to customers.",
+        "why": "The adjective form before a noun is tailored (or tailor-made), not tailor."
+      },
+      {
+        "w": "We tailor our courses at each student's level.",
+        "r": "We tailor our courses to each student's level.",
+        "why": "Tailor something 'to' a need or person; 'at' is not used."
+      }
+    ],
+    "u": "As a verb, tailor means to make or change something so that it fits a particular person, need or purpose. The pattern is tailor X to Y: tailor a course to the students. The past participle tailored works as an adjective (tailored advice), and tailor-made means built specially for someone. As a noun, a tailor is a person who makes clothes. Customize is similar but often used for products; adapt is more general."
+  },
+  "takeover": {
+    "mis": [
+      {
+        "w": "The takeover on the firm was announced today.",
+        "r": "The takeover of the firm was announced today.",
+        "why": "Takeover is followed by 'of' plus the company bought."
+      },
+      {
+        "w": "The take over bid was rejected.",
+        "r": "The takeover bid was rejected.",
+        "why": "As a noun the word is written as one word, takeover; 'take over' is the verb phrase."
+      }
+    ],
+    "u": "A takeover happens when one company gains control of another, usually by buying most of its shares. It can be friendly, with the board agreeing, or hostile, against the board's wishes. Common words are takeover bid, takeover offer and takeover talks. The noun is one word, while the verb is two: 'They will take over the firm.' Acquisition is the neutral legal term; merger suggests two firms joining as equals."
+  },
+  "taker": {
+    "mis": [
+      {
+        "w": "Test takers should bring his ID card.",
+        "r": "Test takers should bring their ID cards.",
+        "why": "A plural subject needs a plural pronoun: their, not his."
+      },
+      {
+        "w": "The offer had no takes.",
+        "r": "The offer had no takers.",
+        "why": "The word for people who accept an offer is takers; 'takes' is not used this way."
+      }
+    ],
+    "u": "Taker is a person who takes something, and it is mostly seen in two settings. In exams, test takers are people sitting a test. In informal speech, a taker is someone who accepts an offer; 'no takers' means nobody wanted it. It also forms compounds like risk-taker and notetaker. It is not a very common word on its own, so check that a compound or fixed phrase fits. Participant is a more general choice."
+  },
+  "task": {
+    "mis": [
+      {
+        "w": "I have a lot of task to finish today.",
+        "r": "I have a lot of tasks to finish today.",
+        "why": "After 'a lot of' a countable noun must be plural: tasks."
+      },
+      {
+        "w": "The task is difficult to complete it.",
+        "r": "The task is difficult to complete.",
+        "why": "The subject is already the object of complete, so a pronoun 'it' is repeated."
+      }
+    ],
+    "u": "A task is a specific piece of work that has to be done, often as part of a larger job. It is countable: several tasks, a daily task. Frequent verbs are complete, assign, perform and carry out. Task is more formal and neutral than chore, which means a boring household duty. An assignment is a task given by someone in authority, such as a teacher. A task force is a group formed for one purpose."
+  },
+  "technology": {
+    "mis": [
+      {
+        "w": "Technology are changing our lives.",
+        "r": "Technology is changing our lives.",
+        "why": "In general use technology is uncountable and takes a singular verb."
+      },
+      {
+        "w": "He works in the technology of information.",
+        "r": "He works in information technology.",
+        "why": "The fixed term is information technology, with the modifier first."
+      }
+    ],
+    "u": "Technology means scientific knowledge applied to making machines, tools and systems that solve problems. In general talk it is uncountable: technology is advancing. It becomes countable only for particular kinds (new technologies in farming). Typical collocations include information technology, cutting-edge technology and advances in technology. The informal short form is tech. Technology is the tools and methods, while engineering is the work of designing and building them."
+  },
+  "telecommunication": {
+    "mis": [
+      {
+        "w": "She studied telecommunication engineer.",
+        "r": "She studied telecommunication engineering.",
+        "why": "The name of a field of study is the noun engineering, not the person engineer."
+      },
+      {
+        "w": "She has worked in telecommunications for 2015.",
+        "r": "She has worked in telecommunications since 2015.",
+        "why": "Use 'since' with a starting point and 'for' with a length of time."
+      }
+    ],
+    "u": "Telecommunication is communication over a distance by cable, phone, radio, satellite or the internet. The plural telecommunications is common when naming the whole sector: the telecommunications industry, a telecommunications company. It is often shortened to telecom or telecoms in news. It can be used as an adjective before a noun in the singular, as in telecommunication engineering. Telephony is narrower and covers voice calls only."
+  },
+  "temporarily": {
+    "mis": [
+      {
+        "w": "The shop is temporary closed.",
+        "r": "The shop is temporarily closed.",
+        "why": "An adverb is needed before the adjective closed: temporarily."
+      },
+      {
+        "w": "The bridge is closed temporally.",
+        "r": "The bridge is closed temporarily.",
+        "why": "Temporally relates to time order; temporarily means for a short time."
+      }
+    ],
+    "u": "Temporarily means for a limited period and not permanently. It is typical of notices and service updates: temporarily closed, temporarily out of service, temporarily suspended. It most often modifies a past participle or adjective. Watch the spelling: the American pronunciation has a clear fourth syllable, while British speakers often reduce it. The opposite is permanently. For now and for the time being are less formal ways to say the same thing."
+  },
+  "termination": {
+    "mis": [
+      {
+        "w": "We announced the terminate of the contract.",
+        "r": "We announced the termination of the contract.",
+        "why": "After 'the' you need the noun termination, not the verb terminate."
+      },
+      {
+        "w": "The termination from the contract was sudden.",
+        "r": "The termination of the contract was sudden.",
+        "why": "Termination is followed by 'of' plus the thing that ends."
+      }
+    ],
+    "u": "Termination is the formal end of something, especially a contract, agreement or job. In business and legal texts it is common: a termination clause, a termination notice, early termination fee. In employment, termination is a polite and formal word for being dismissed. The verb is terminate. Expiry means a contract ends because its time ran out, while termination can be ended early by one party. In medical use it can mean ending a pregnancy."
+  },
+  "therefore": {
+    "mis": [
+      {
+        "w": "The price is high, therefore people don't buy it.",
+        "r": "The price is high; therefore, people don't buy it.",
+        "why": "Therefore is an adverb, not a conjunction, so a comma alone cannot join two clauses."
+      },
+      {
+        "w": "Because the flight was cancelled, therefore we stayed home.",
+        "r": "Because the flight was cancelled, we stayed home.",
+        "why": "Because and therefore both give a reason, so using both in one sentence is redundant."
+      }
+    ],
+    "u": "Therefore means for that reason and shows a logical result: 'The roads were icy; therefore, the match was cancelled.' It is formal and typical of essays, reports and proofs. It is an adverb, so join clauses with a semicolon or start a new sentence, and follow it with a comma at the start. Never pair it with because or so in the same clause. So is the everyday version, while thus and hence are even more formal."
+  },
+  "thorough": {
+    "mis": [
+      {
+        "w": "She did a thoroughly review.",
+        "r": "She did a thorough review.",
+        "why": "A noun (review) is described by an adjective: thorough, not the adverb thoroughly."
+      },
+      {
+        "w": "He is thorough on checking the details.",
+        "r": "He is thorough in checking the details.",
+        "why": "The adjective thorough takes 'in' before the activity it describes."
+      }
+    ],
+    "u": "Thorough is an adjective meaning complete and careful, with nothing important left out. It describes work and people: a thorough investigation, a thorough teacher. It is positive and common in reviews, audits and reports. Pronunciation is tricky, because the ending sounds like 'uh-roh' in American English and the spelling has -ough. Detailed stresses the amount of detail, while exhaustive suggests covering absolutely everything. The adverb is thoroughly."
+  },
+  "thoroughly": {
+    "mis": [
+      {
+        "w": "Please check the files throughly.",
+        "r": "Please check the files thoroughly.",
+        "why": "The spelling is thoroughly, with -ough; 'throughly' is not standard."
+      },
+      {
+        "w": "Read it thorough before you sign.",
+        "r": "Read it thoroughly before you sign.",
+        "why": "Use the adverb thoroughly after a verb, not the adjective thorough."
+      }
+    ],
+    "u": "Thoroughly is an adverb meaning completely and with great care. It goes with verbs of checking and cleaning (check, wash, review) and with feelings (thoroughly enjoy, thoroughly recommend). It can also strengthen certain adjectives such as thoroughly modern or thoroughly ashamed. Position is usually after the object or before the main verb. It is slightly more careful than completely, which does not always include the idea of taking care."
+  },
+  "timeline": {
+    "mis": [
+      {
+        "w": "The timeline of the project is two weeks.",
+        "r": "The timeline for the project is two weeks.",
+        "why": "Use 'for' after timeline to name the project it plans."
+      },
+      {
+        "w": "Our timeline is tomorrow, so we must hurry.",
+        "r": "Our deadline is tomorrow, so we must hurry.",
+        "why": "A timeline is a whole schedule; the final due date is a deadline."
+      }
+    ],
+    "u": "A timeline is a schedule showing when events will happen or did happen, such as a project timeline or a company's history. In business it often lists stages and dates: set a timeline, stick to the timeline, extend the timeline. It is not the same as a deadline, which is the last allowed date. Time frame refers to the period available. In social media, the timeline is the feed of posts."
+  },
+  "toiletry": {
+    "mis": [
+      {
+        "w": "Pack some toiletry for the trip.",
+        "r": "Pack some toiletries for the trip.",
+        "why": "The word is normally plural, toiletries, for the items as a group."
+      },
+      {
+        "w": "I forgot my toiletries bag.",
+        "r": "I forgot my toiletry bag.",
+        "why": "As a modifier before another noun, it is singular: toiletry bag."
+      }
+    ],
+    "u": "Toiletries are the everyday items you use to wash and care for your body, such as soap, shampoo, toothpaste and deodorant. The plural is far more common than the singular. A toiletry bag (or wash bag in British English) holds them while travelling. Hotels often provide free toiletries. The word does not include make-up or medicine, which have their own names: cosmetics and medication."
+  },
+  "toll": {
+    "mis": [
+      {
+        "w": "You pay toll to enter the museum.",
+        "r": "You pay an entrance fee to enter the museum.",
+        "why": "Toll is money for using a road or bridge; for a building use entrance fee."
+      },
+      {
+        "w": "The driver paid the toll in the bridge.",
+        "r": "The driver paid the toll at the bridge.",
+        "why": "Use 'at' for a point where something is paid or done."
+      }
+    ],
+    "u": "A toll is money you pay to use a road, bridge or tunnel. Typical phrases are toll road, toll booth and toll-free (a phone number that costs the caller nothing). It is a countable noun in this sense and usually stays singular with 'the toll'. Toll has another meaning: the number of people killed or harmed, as in the death toll. Fee is the general word for any payment."
+  },
+  "trademark": {
+    "mis": [
+      {
+        "w": "Toyota is a famous trademark of cars.",
+        "r": "Toyota is a famous brand of cars.",
+        "why": "A brand is the product name; a trademark is its legal protection."
+      },
+      {
+        "w": "They registered trademark last year.",
+        "r": "They registered the trademark last year.",
+        "why": "A countable singular noun used for a specific item needs 'the' or 'a'."
+      }
+    ],
+    "u": "A trademark is a name, word, symbol or design that a company has legally registered so others cannot copy it. Used with verbs like register, protect, own, or infringe. The symbols ™ and ® show a trademark or registered one. A brand is the whole identity and reputation of a product, whereas a trademark is its legal protection. Trademark differs from copyright (for creative works) and patent (for inventions)."
+  },
+  "transaction": {
+    "mis": [
+      {
+        "w": "I made a transaction 100 dollars to my friend.",
+        "r": "I transferred 100 dollars to my friend.",
+        "why": "To send money to a person the verb is transfer; a transaction is the whole act."
+      },
+      {
+        "w": "The transaction between the companies were completed.",
+        "r": "The transaction between the companies was completed.",
+        "why": "The subject is singular 'transaction', so the verb must be 'was'."
+      }
+    ],
+    "u": "A transaction is an act of buying, selling or moving money or goods between people or organisations. It is a basic word in banking and shopping: a card transaction, an online transaction, a transaction fee. Common verbs are complete, process, record and cancel. It is countable. A deal sounds more informal and usually means an agreement, while a payment is only the money part of a transaction."
+  },
+  "tremendous": {
+    "mis": [
+      {
+        "w": "The event was very tremendous.",
+        "r": "The event was tremendous.",
+        "why": "Tremendous is already extreme, so it is not used with 'very'."
+      },
+      {
+        "w": "She felt tremendously pressure.",
+        "r": "She felt tremendous pressure.",
+        "why": "A noun needs an adjective, tremendous, not the adverb tremendously."
+      }
+    ],
+    "u": "Tremendous is an adjective meaning very great in size, amount or quality: a tremendous success, tremendous pressure. It is a strong word that is positive or neutral, so it fits both good and difficult things. Because it is extreme, avoid 'very'; use absolutely or quite instead. The adverb tremendously modifies verbs and adjectives: tremendously helpful. Huge talks about size, while remarkable suggests something worth noticing."
+  },
+  "turnover": {
+    "mis": [
+      {
+        "w": "The company has a high turnover of employee.",
+        "r": "The company has a high turnover of employees.",
+        "why": "After 'of' a group of people is plural: employees."
+      },
+      {
+        "w": "The company's annual turn over reached five million dollars.",
+        "r": "The company's annual turnover reached five million dollars.",
+        "why": "As a noun, it is one word: turnover; 'turn over' is a verb phrase."
+      }
+    ],
+    "u": "Turnover has two main business meanings. In British English it is the total money a business earns from sales in a period: an annual turnover of five million. In both British and American English, staff turnover is the rate at which employees leave and are replaced. High turnover means many people leave. Turnover is not profit, which is what remains after costs. American English usually says revenue or sales for the first meaning."
+  },
+  "unattended": {
+    "mis": [
+      {
+        "w": "Don't leave your bags unattend.",
+        "r": "Don't leave your bags unattended.",
+        "why": "The adjective ends in -ed: unattended."
+      },
+      {
+        "w": "She was unattended during the lecture, so she missed points.",
+        "r": "She was inattentive during the lecture, so she missed points.",
+        "why": "Unattended means not looked after; for a person not paying attention use inattentive."
+      }
+    ],
+    "u": "Unattended means not being watched, looked after or accompanied. It appears on safety signs and notices: unattended luggage will be removed; never leave children unattended near water. It is usually used after leave or be left. It describes things and people that nobody is watching, not a person who is not concentrating. Unsupervised is similar but about people being controlled by someone responsible."
+  },
+  "unauthorized": {
+    "mis": [
+      {
+        "w": "Unauthorized to enter is prohibited.",
+        "r": "Unauthorized entry is prohibited.",
+        "why": "The subject must be a noun, entry, not an infinitive after the adjective."
+      },
+      {
+        "w": "He was unauthorized to use the room.",
+        "r": "He was not authorized to use the room.",
+        "why": "For people, use 'not authorized to'; unauthorized describes actions or things."
+      }
+    ],
+    "u": "Unauthorized means done or used without official permission. It describes actions and objects: unauthorized access, an unauthorized copy, unauthorized charges on a card. For a person, say he is not authorized to do something. Notices often use it: unauthorized persons will be removed. British spelling is unauthorised. Unlicensed refers to lacking a formal licence, and illegal means against the law, which is a stronger claim."
+  },
+  "underway": {
+    "mis": [
+      {
+        "w": "We are visiting the underway project.",
+        "r": "We are visiting the ongoing project.",
+        "why": "Underway is used after a verb, not before a noun; use ongoing there."
+      },
+      {
+        "w": "The construction was underway since March.",
+        "r": "The construction has been underway since March.",
+        "why": "'Since' needs a present perfect form: has been underway."
+      }
+    ],
+    "u": "Underway means already started and continuing. It is used after be or get: the project is underway, the festival gets underway on Friday. It is normally not placed before a noun, where ongoing or current is used. A ship is also underway when it is moving. The spelling under way, two words, is also accepted, particularly in British English. In progress is a close synonym; in motion is more figurative."
+  },
+  "unexpected": {
+    "mis": [
+      {
+        "w": "I was unexpected when I saw him.",
+        "r": "I was surprised when I saw him.",
+        "why": "Unexpected describes things that happen, not a person's feeling; use surprised."
+      },
+      {
+        "w": "There was a unexpected delay.",
+        "r": "There was an unexpected delay.",
+        "why": "Use 'an' before a vowel sound: an unexpected delay."
+      }
+    ],
+    "u": "Unexpected describes something that was not expected, whether good or bad: an unexpected visitor, an unexpected expense. It describes the event, not the person who feels surprise, so say 'I was surprised', not 'I was unexpected'. It is neutral in register. Unforeseen is more formal and often means a problem that could not be predicted. The adverb is unexpectedly and the noun is the phrase 'the unexpected'."
+  },
+  "unfamiliar": {
+    "mis": [
+      {
+        "w": "I am unfamiliar about this software.",
+        "r": "I am unfamiliar with this software.",
+        "why": "Be unfamiliar WITH a thing you do not know well."
+      },
+      {
+        "w": "This area is unfamiliar for me.",
+        "r": "This area is unfamiliar to me.",
+        "why": "When the thing is the subject, unfamiliar goes with 'to' the person."
+      }
+    ],
+    "u": "Unfamiliar means not known or not experienced before. It has two patterns: I am unfamiliar with the system (person is subject, 'with'), and the system is unfamiliar to me (thing is subject, 'to'). It is slightly formal and polite, useful when you admit lack of knowledge without sounding rude. Strange suggests something odd, while unfamiliar only says you do not know it. The opposite is familiar."
+  },
+  "unlimited": {
+    "mis": [
+      {
+        "w": "The plan includes unlimited of calls.",
+        "r": "The plan includes unlimited calls.",
+        "why": "Unlimited is an adjective placed directly before the noun; no 'of'."
+      },
+      {
+        "w": "We provide the unlimit data plan.",
+        "r": "We provide the unlimited data plan.",
+        "why": "The adjective ends in -ed: unlimited."
+      }
+    ],
+    "u": "Unlimited means without any limit on number, amount or time. Advertising uses it a great deal: unlimited data, unlimited access, unlimited free trial. In everyday speech it is often exaggerated, so read terms carefully. It is placed before a noun or after be: access is unlimited. Limitless and boundless are more literary and describe imagination or energy. Infinite is mathematical or philosophical."
+  },
+  "unreal": {
+    "mis": [
+      {
+        "w": "Your goal of earning a million this month is unreal.",
+        "r": "Your goal of earning a million this month is unrealistic.",
+        "why": "Unrealistic means impossible to achieve; unreal means not real or hard to believe."
+      },
+      {
+        "w": "This website sells unreal Nike shoes.",
+        "r": "This website sells fake Nike shoes.",
+        "why": "For counterfeit goods use fake; unreal means not real or amazing."
+      }
+    ],
+    "u": "Unreal means not real, or so surprising that it feels like a dream. It often describes feelings and moments: winning the prize felt unreal. In casual speech, especially among young people, it can mean amazing: that goal was unreal. It does not mean fake (use fake or counterfeit) or impractical (use unrealistic). Surreal is stronger and suggests something strange like a dream."
+  },
+  "unspecified": {
+    "mis": [
+      {
+        "w": "The delay was caused by unspecify reasons.",
+        "r": "The delay was caused by unspecified reasons.",
+        "why": "The adjective is formed from the participle: unspecified."
+      },
+      {
+        "w": "The party will be held at a unspecified date.",
+        "r": "The party will be held at an unspecified date.",
+        "why": "Use 'an' before a vowel sound."
+      }
+    ],
+    "u": "Unspecified means not stated clearly or in detail. It is common in news, legal and technical texts: unspecified reasons, an unspecified amount. It signals that information exists or is withheld but not given. Undisclosed suggests it is deliberately kept secret, while unspecified may simply be missing. The verb is specify. In many forms the abbreviation 'unspecified' appears as a category when no choice was made."
+  },
+  "unusually": {
+    "mis": [
+      {
+        "w": "The room is unusual quiet.",
+        "r": "The room is unusually quiet.",
+        "why": "An adverb is needed to modify the adjective quiet."
+      },
+      {
+        "w": "It is unusually that he is late.",
+        "r": "It is unusual that he is late.",
+        "why": "After 'is' the adjective unusual is required, not the adverb."
+      }
+    ],
+    "u": "Unusually is an adverb that intensifies an adjective by saying it is more than normal: unusually quiet, unusually high. It often introduces a surprising degree of something. It can also start a sentence: 'Unusually, the train was on time.' The adjective is unusual. Remarkably and exceptionally are stronger and more positive. Avoid confusing it with usually, which is its opposite."
+  },
+  "upcoming": {
+    "mis": [
+      {
+        "w": "The concert will be upcoming next month.",
+        "r": "The concert is coming up next month.",
+        "why": "Upcoming is mainly used before a noun; as a verb phrase use 'coming up'."
+      },
+      {
+        "w": "I'm looking forward the upcoming meeting.",
+        "r": "I'm looking forward to the upcoming meeting.",
+        "why": "'Look forward' always takes 'to' before the thing awaited."
+      }
+    ],
+    "u": "Upcoming is an adjective meaning about to happen soon. It almost always comes before a noun: the upcoming election, an upcoming product release. It is neutral and typical in announcements and news. Forthcoming is more formal and can also mean about to be published. Approaching suggests something getting nearer in time or distance. For a predicate use phrases such as coming up or due soon."
+  },
+  "urgently": {
+    "mis": [
+      {
+        "w": "We need urgent more staff.",
+        "r": "We need more staff urgently.",
+        "why": "An adverb is needed to modify the verb need; urgent is an adjective."
+      },
+      {
+        "w": "The matter is urgently.",
+        "r": "The matter is urgent.",
+        "why": "After 'is' use the adjective urgent, not the adverb."
+      }
+    ],
+    "u": "Urgently means in a way that needs immediate action: urgently needed, urgently seeking. It is common in job ads, appeals and emails when something cannot wait. It modifies verbs and past participles, not nouns. The adjective is urgent. In an email, 'urgently' can sound pushy if overused. Immediately stresses no delay, while desperately adds a feeling of strong need."
+  },
+  "utility": {
+    "mis": [
+      {
+        "w": "The rent includes utility.",
+        "r": "The rent includes utilities.",
+        "why": "In the sense of water, gas and electricity the plural utilities is used."
+      },
+      {
+        "w": "The hotel has many utilities such as a pool and gym.",
+        "r": "The hotel has many facilities such as a pool and gym.",
+        "why": "Utilities means services like water and power; places for leisure are facilities."
+      }
+    ],
+    "u": "Utility has two common meanings. In daily life, utilities are basic services such as electricity, water, gas and internet: utilities are included in the rent; a utility bill. As a mass noun, utility means usefulness, as in a tool of great utility. In computing, a utility is a small program that does one job. For a pool or gym use facilities or amenities, not utilities."
+  },
+  "vacate": {
+    "mis": [
+      {
+        "w": "Guests must vacate from the room by noon.",
+        "r": "Guests must vacate the room by noon.",
+        "why": "Vacate is transitive; no 'from' before the object."
+      },
+      {
+        "w": "I will vacate in July.",
+        "r": "I will go on vacation in July.",
+        "why": "Vacate means to leave a place; for a holiday use go on vacation."
+      }
+    ],
+    "u": "Vacate is a formal verb meaning to leave a place, seat or position so that another person can use it. Typical objects are room, premises, seat and post: guests must vacate their rooms by noon. It appears in notices, leases and hotel rules. Do not confuse it with vacation, the American word for a holiday. Evacuate means to leave a place because of danger, which vacate does not suggest."
+  },
+  "validate": {
+    "mis": [
+      {
+        "w": "Please make sure the ticket is validate.",
+        "r": "Please make sure the ticket is valid.",
+        "why": "After 'is' the adjective valid is needed, not the verb validate."
+      },
+      {
+        "w": "The study validated about the theory.",
+        "r": "The study validated the theory.",
+        "why": "Validate is transitive; no preposition before its object."
+      }
+    ],
+    "u": "Validate means to prove that something is true, correct or acceptable, or to make it officially valid. You validate a theory, a result, an email address or a parking ticket. In computing, it checks that data is in the right form. It can also mean making someone feel their feelings are understood: validate her concerns. Verify is checking truth, while authorize means giving permission."
+  }
+}

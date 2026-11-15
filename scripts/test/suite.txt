@@ -240,6 +240,7 @@ node scripts/test/home-logic.mjs
 node scripts/test/vocab-hub.mjs
 node scripts/test/grammar-hub.mjs
 node scripts/test/pron-hub.mjs
+node scripts/test/dict-hub.mjs
 node scripts/test/inline-box.mjs
 node scripts/test/st2-href.mjs
 node scripts/test/card-actions.mjs
@@ -325,6 +326,7 @@ node scripts/test/codemap-budget.mjs
 node scripts/test/whisper-det.mjs
 node scripts/test/logic-invariants.mjs
 node scripts/test/top1-score.mjs
+node scripts/test/exam-clock.mjs
 node scripts/test/vocab-img-judge-budget.mjs
 node scripts/test/vocab-img-worth.mjs
 node scripts/test/lastmod.mjs
@@ -430,5 +432,11 @@ node scripts/test/l1-notes.mjs
 node scripts/test/qengine-flag.mjs
 node scripts/test/qwk.mjs
 node scripts/test/es-native-bundle.mjs
+node scripts/test/lexai-oidc.mjs
+node scripts/test/firestore-rules.mjs
+node scripts/test/ext-imgdata.mjs
+node scripts/test/league-xp.mjs
+node scripts/test/body-limit.mjs
+node scripts/test/ai-task.mjs
 node scripts/test/video-junk.mjs
 node scripts/test/dict-add.mjs

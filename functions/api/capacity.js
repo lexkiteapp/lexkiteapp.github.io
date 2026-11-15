@@ -11,6 +11,7 @@ import { evaluate, alertText, LIMITS, ALERT, fmtVN, sourcesOf, evaluateSources }
 import { adminGate, adminCors } from './admin.js';
 import { cliVerify } from './drive.js';
 import { once } from './_schema.js';
+import { readText, bodyFail } from './_body.js';
 import { watchD1 } from './_d1watch.js';
 import { resetD1Cache, planOf } from './_d1guard.js';
 
@@ -124,7 +125,8 @@ export const onRequestOptions = ({ request }) => new Response(null, { status: 20
 
 export async function onRequestPost({ request, env }) {
   if (!env.DB) return json(request, 500, { error: 'no-db' });
-  const text = await request.text(); let b; try { b = JSON.parse(text); } catch (e) { return json(request, 400, { error: 'json' }); }
+  let text; try { text = await readText(request, 262144); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); } // thân gốc cần cho HMAC (cliVerify)
+  let b; try { b = JSON.parse(text); } catch (e) { return json(request, 400, { error: 'json' }); }
   if (!b || typeof b !== 'object') return json(request, 400, { error: 'json' });
   try {
     if (request.headers.get('X-Drive-Sig')) { // đường CI: chỉ HMAC, chỉ op check

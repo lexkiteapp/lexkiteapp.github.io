@@ -659,6 +659,8 @@ public enum L10nKey: String, CaseIterable, Sendable {
     case vocabSeeInMyWords = "vocab.seeInMyWords"
     case vocabStart = "vocab.start"
     case dictEnglishVietnameseDictionary = "dict.englishVietnameseDictionary"
+    case dictDictionary = "dict.dictionary"
+    case dictExplore = "dict.explore"
     case dictOxfordLanguagesDefinitionsUk = "dict.oxfordLanguagesDefinitionsUk"
     case dictTypeAnEnglishWord = "dict.typeAnEnglishWord"
     case dictRecent = "dict.recent"
