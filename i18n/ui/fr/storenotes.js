@@ -5,7 +5,7 @@
 "Chuỗi ngày học, phần thưởng và lời nhắc nhẹ nhàng, dễ chịu hơn.":"Des séries, récompenses et rappels plus doux et plus agréables.",
 "Cùng nhiều sửa lỗi nhỏ giúp app ổn định hơn. Cảm ơn bạn đã học cùng Lexkite!":"Et de nombreuses petites corrections pour une app plus stable. Merci d’apprendre avec Lexkite !",
 "Giao diện gọn gàng, dễ nhìn và dễ thao tác hơn.":"Un design plus épuré, plus lisible et plus simple à utiliser.",
-"Giáo viên AI trò chuyện tự nhiên và giải thích dễ hiểu hơn.":"Ton professeur IA discute plus naturellement et explique plus clairement.",
+"Giáo viên AI trò chuyện tự nhiên và giải thích dễ hiểu hơn.":"Votre professeur IA discute plus naturellement et explique plus clairement.",
 "Luyện nói và phát âm tự nhiên hơn, phản hồi dễ hiểu hơn.":"L’entraînement à l’oral et à la prononciation est plus naturel, avec des retours plus faciles à comprendre.",
 "Luyện thi IELTS, TOEIC, TOEFL sát đề thật hơn.":"Entraînement IELTS, TOEIC et TOEFL plus proche des vrais examens.",
 "Luyện viết với gợi ý sửa câu chính xác và dễ hiểu hơn.":"Entraînement à l’écrit avec des suggestions de correction plus précises et plus faciles à suivre.",
