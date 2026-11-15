@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite — Streak Ended (Tactile Night)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#f4bf40",
+            "primary-container": "#2ba39a",
+            "surface": "#091518",
+            "primary": "#6bd8ce"
+          },
+          "fontFamily": {
+            "display": ["Plus Jakarta Sans"],
+            "title": ["Plus Jakarta Sans"],
+            "body": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .tactile-btn-primary {
+      box-shadow: 0 5px 0 #B53A22;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #B53A22;
+    }
+    .tactile-btn-icon {
+      box-shadow: 0 3px 0 #0E1A1E;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-icon:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #0E1A1E;
+    }
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-4px) rotate(1deg); }
+    }
+    .sleeping-flame {
+      animation: gentleFloat 4s ease-in-out infinite;
+    }
+    @keyframes floatZ {
+      0% { opacity: 0; transform: translate(0, 0) scale(0.7); }
+      50% { opacity: 0.9; }
+      100% { opacity: 0; transform: translate(12px, -22px) scale(1.1); }
+    }
+    .zzz-particle-1 { animation: floatZ 3s ease-out infinite 0.4s; }
+    .zzz-particle-2 { animation: floatZ 3.2s ease-out infinite 1.6s; }
+    .zzz-particle-3 { animation: floatZ 3.4s ease-out infinite 2.8s; }
+  </style>
+</head>
+<body class="bg-[#081518] text-[#EEF6F7] font-body min-h-screen antialiased flex flex-col justify-between selection:bg-primary-container selection:text-surface">
+<div class="fixed inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_40%,rgba(43,163,154,0.06)_0%,rgba(8,21,24,0)_70%)]"></div>
+<header class="relative z-10 w-full max-w-5xl mx-auto px-4 md:px-8 h-14 flex items-center justify-between">
+<button aria-label="Close" class="tactile-btn-icon w-10 h-10 rounded-full bg-[#1A2C33] border-2 border-[#36505A] text-[#EEF6F7] flex items-center justify-center hover:opacity-90">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+<div class="flex items-center gap-2.5">
+<div class="h-9 px-3.5 rounded-full bg-[#1A2C33] border border-[#36505A] flex items-center gap-1.5 shadow-[0_2px_0_#0E1A1E]">
+<span class="material-symbols-outlined text-[#FF9800] text-[19px]" data-icon="local_fire_department">local_fire_department</span>
+<span class="font-extrabold text-xs tracking-wider text-[#EEF6F7]">0 DAYS</span>
+</div>
+<div class="h-9 px-3.5 rounded-full bg-[#1A2C33] border border-[#36505A] flex items-center gap-1.5 shadow-[0_2px_0_#0E1A1E]">
+<span class="material-symbols-outlined text-[#2BA39A] text-[18px]" data-icon="bolt">bolt</span>
+<span class="font-extrabold text-xs tracking-wider text-[#EEF6F7]">820 XP</span>
+</div>
+</div>
+</header>
+<main class="relative z-10 flex-1 flex flex-col items-center justify-center px-4 py-3 sm:py-6">
+<section class="w-full max-w-[500px] bg-[#14242A] border-2 border-[#2E454D] rounded-3xl p-6 sm:p-7 shadow-[0_7px_0_#0A1518,0_20px_40px_rgba(0,0,0,0.5)] relative">
+<div class="absolute inset-x-6 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-[#456C77] to-transparent opacity-40"></div>
+<div class="flex flex-col items-center justify-center text-center relative pt-1">
+<div class="relative w-24 h-24 flex items-center justify-center">
+<div class="absolute -top-1 right-2 pointer-events-none flex flex-col font-extrabold text-tertiary select-none">
+<span class="zzz-particle-1 absolute text-[13px] font-display text-[#FFC94A]">z</span>
+<span class="zzz-particle-2 absolute -top-3 left-3 text-[16px] font-display text-[#FFB054]">Z</span>
+<span class="zzz-particle-3 absolute -top-6 left-6 text-[20px] font-display text-[#F4BF40]">Z</span>
+</div>
+<div class="sleeping-flame w-20 h-20 rounded-full flex items-center justify-center relative">
+<div class="absolute inset-2 rounded-full bg-[#F4BF40]/15 blur-md"></div>
+<svg class="w-16 h-16 drop-shadow-[0_4px_6px_rgba(0,0,0,0.35)]" fill="none" viewbox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<path d="M32 4C32 4 48 22 48 38C48 47.94 40.84 56 32 56C23.16 56 16 47.94 16 38C16 28 24 16 32 4Z" fill="url(#flame_grad)"></path>
+<path d="M32 20C32 20 40 30 40 39C40 43.4 36.4 47 32 47C27.6 47 24 43.4 24 39C24 33 28 26 32 20Z" fill="#FFA534"></path>
+<path d="M26 38C27 40 29 40 30 38" stroke="#421C00" stroke-linecap="round" stroke-width="2"></path>
+<path d="M34 38C35 40 37 40 38 38" stroke="#421C00" stroke-linecap="round" stroke-width="2"></path>
+<ellipse cx="25" cy="42" fill="#E65100" opacity="0.6" rx="2" ry="1.2"></ellipse>
+<ellipse cx="39" cy="42" fill="#E65100" opacity="0.6" rx="2" ry="1.2"></ellipse>
+<defs>
+<lineargradient gradientunits="userSpaceOnUse" id="flame_grad" x1="32" x2="32" y1="4" y2="56">
+<stop stop-color="#FFD166"></stop>
+<stop offset="0.6" stop-color="#FF9800"></stop>
+<stop offset="1" stop-color="#E65100"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+</div>
+<div class="mt-1 inline-flex items-center gap-1.5 px-3 py-1 bg-[#1A2E33] border border-[#36505A] rounded-full shadow-[0_2px_0_#0F1D22]">
+<span class="w-2 h-2 rounded-full bg-[#FFC94A] animate-pulse"></span>
+<span class="text-[#FFC94A] font-extrabold text-[11px] tracking-wider uppercase">DAY 0</span>
+</div>
+<h1 class="mt-3.5 text-[#EEF6F7] font-display text-[26px] sm:text-[30px] font-extrabold leading-tight tracking-tight">
+          Your streak ended
+        </h1>
+<div class="mt-2.5 inline-flex items-center gap-1.5 bg-[#2B2418] border border-[#664A1A] rounded-full px-4 py-1 shadow-[0_2px_0_#140F08]">
+<span class="material-symbols-outlined text-[#FFB054] text-[17px]" data-icon="emoji_events">emoji_events</span>
+<span class="text-[#FFB054] font-extrabold text-xs tracking-wider uppercase">BEST: 23 DAYS</span>
+</div>
+</div>
+<div class="mt-5 grid grid-cols-12 gap-3 items-stretch">
+<!-- Empty dashed teacher slot, no character drawn -->
+<div class="col-span-4 relative rounded-2xl border-2 border-dashed border-[#2E605D] bg-[#0F2326] flex flex-col items-center justify-center p-3 text-center min-h-[140px] select-none">
+<span class="absolute top-2 right-2 w-2.5 h-2.5 rounded-full bg-[#2BA39A] shadow-[0_0_8px_#2BA39A]"></span>
+<span class="material-symbols-outlined text-[#2BA39A] text-[34px] mb-2" data-icon="school">school</span>
+<div class="text-[#2BA39A] font-extrabold text-[10px] tracking-wider leading-tight uppercase">
+            TEACHER<br/><span class="opacity-80 text-[9px] font-semibold tracking-normal">140 × 170 Slot</span>
+</div>
+</div>
+<div class="col-span-8 bg-[#182F36] border border-[#2E454D] rounded-2xl p-3.5 sm:p-4 relative flex flex-col justify-between shadow-[0_3px_0_#0F1D22]">
+<div class="absolute -left-[7px] top-6 w-0 h-0 border-t-[7px] border-t-transparent border-b-[7px] border-b-transparent border-r-[7px] border-r-[#2E454D]"></div>
+<div class="absolute -left-[5px] top-6 w-0 h-0 border-t-[7px] border-t-transparent border-b-[7px] border-b-transparent border-r-[7px] border-r-[#182F36]"></div>
+<div>
+<div class="inline-flex items-center px-2 py-0.5 rounded bg-[#0E4240] text-[#4DE0D4] font-extrabold text-[10px] tracking-wider uppercase mb-1.5">
+              COACH NOTE
+            </div>
+<p class="text-[#EEF6F7] font-bold text-[13px] leading-snug">
+              “No stress at all! Life happens. The 23 days of vocabulary you built are still locked in your brain.”
+            </p>
+</div>
+<p class="text-[#A9BFC1] text-[11px] font-medium mt-2 leading-tight">
+            One 3–minute quiz gets your momentum right back.
+          </p>
+</div>
+</div>
+<div class="mt-6">
+<button class="tactile-btn-primary w-full h-[52px] rounded-2xl bg-gradient-to-r from-[#F2553B] to-[#FF8533] flex items-center justify-center gap-2 cursor-pointer transition-transform relative overflow-hidden group">
+<div class="absolute inset-x-0 top-0 h-[2px] bg-white/30"></div>
+<span class="material-symbols-outlined text-[#1A0702] text-[20px]" data-icon="bolt">bolt</span>
+<span class="text-[#1A0702] font-display text-[15px] font-extrabold tracking-wide">
+            Start a new streak →
+          </span>
+</button>
+</div>
+</section>
+</main>
+</body></html>
