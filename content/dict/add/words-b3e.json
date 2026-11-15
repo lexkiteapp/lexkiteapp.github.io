@@ -87,7 +87,7 @@
       "homeowner insurance",
       "local homeowners",
       "become a homeowner",
-      "homeowner association",
+      "homeowners association",
       "proud homeowner"
     ],
     "syn": [
@@ -137,7 +137,7 @@
       "24-hour hotline",
       "hotline number",
       "emergency hotline",
-      "help hotline"
+      "health hotline"
     ],
     "syn": [
       "helpline",
@@ -329,7 +329,7 @@
     "col": [
       "memorize a poem",
       "memorize vocabulary",
-      "memorize by heart",
+      "memorize word lists",
       "memorize a number",
       "memorize the rules",
       "difficult to memorize"
@@ -365,7 +365,7 @@
       "push a mower",
       "electric mower",
       "start the mower",
-      "hedge and mower"
+      "mower blade"
     ],
     "syn": [
       "lawnmower",
@@ -709,8 +709,8 @@
       "projector lamp"
     ],
     "syn": [
-      "beamer",
-      "slide viewer",
+      "LCD projector",
+      "slide projector",
       "display"
     ]
   },

@@ -821,6 +821,7 @@
 "Đã thêm {n} cụm vào sổ":"{n} フレーズを書籍に追加しました",
 "Đã thêm {n} từ hợp trình độ {cefr} vào bộ thẻ.":"あなたのレベル {cefr} の単語を {n} 語デッキに追加しました。",
 "Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ":"ポルトガル語の単語を{n}語、単語帳に追加しました",
+"Đã thêm {n} từ tiếng Pháp vào Sổ từ":"フランス語の単語を{n}個、単語帳に追加しました",
 "Đã thêm {n} từ tiếng Tây Ban Nha vào Sổ từ":"スペイン語の単語を{n}個、単語帳に追加しました",
 "Đã tạo bộ “{d}” với {n} thẻ":"{n} 枚のカードでデッキ「{d}」を作成しました",
 "Đã tải {done}/{total} · {mb} MB":"ダウンロード済み {done}/{total} · {mb} MB",

@@ -37,12 +37,12 @@
         "why": "Informed mô tả người đã nắm thông tin; informative mô tả nguồn cung cấp thông tin."
       },
       {
-        "w": "The talk was informative about the new law.",
-        "r": "The talk was informative on the new law.",
-        "why": "Sau informative nên dùng 'on' để nói chủ đề; tránh nói 'informative of'."
+        "w": "I found the museum tour very information.",
+        "r": "I found the museum tour very informative.",
+        "why": "Informative là tính từ cho thứ cung cấp nhiều thông tin; information là danh từ nên không dùng để miêu tả chuyến tham quan."
       }
     ],
-    "u": "Informative miêu tả thứ cung cấp nhiều thông tin hữu ích, như bài nói, bài báo, trang web hay biển báo. Từ mang nghĩa tích cực, trung tính về ngữ vực nên hợp với đánh giá và nhận xét: 'The guide was clear and informative.' Đừng nhầm với informed, dùng cho người đã nắm thông tin, hay informational, một nhãn hiếm chỉ loại nội dung. Cặp từ hay gặp là 'informative and easy to follow'."
+    "u": "Informative miêu tả thứ cung cấp nhiều thông tin hữu ích, như bài nói, bài báo, trang web hay biển báo. Từ mang nghĩa tích cực, trung tính về ngữ vực nên hợp với đánh giá và nhận xét: 'The guide was clear and informative.' Đừng nhầm với informed, dùng cho người đã nắm thông tin, hay informational, một từ ít gặp chỉ loại nội dung. Cặp từ hay gặp là 'informative and easy to follow'."
   },
   "innovative": {
     "mis": [
@@ -57,7 +57,7 @@
         "why": "Người tạo ra ý tưởng mới là innovator; innovative chỉ dùng để miêu tả."
       }
     ],
-    "u": "Innovative miêu tả ý tưởng, sản phẩm hay phương pháp mới và thông minh, không chỉ khác lạ. Từ này rất hay dùng trong quảng cáo và kinh doanh nên dễ thành lời khen sáo rỗng nếu không nêu chi tiết: an innovative way of recycling batteries. Từ liên quan: innovation là danh từ, innovate là động từ, innovator là người. Original nhấn vào việc đầu tiên, còn innovative gợi ý rằng nó cũng hiệu quả khi dùng thực tế."
+    "u": "Innovative miêu tả ý tưởng, sản phẩm hay phương pháp mới và thông minh, không chỉ khác lạ. Từ này rất hay dùng trong quảng cáo và kinh doanh nên dễ thành lời khen sáo rỗng nếu không nêu chi tiết: an innovative way of recycling batteries. Từ liên quan: innovation là danh từ, innovate là động từ, innovator là người. Original nhấn vào tính chưa từng có, còn innovative gợi ý ý tưởng đó cũng dùng được hiệu quả trong thực tế."
   },
   "inquire": {
     "mis": [
@@ -109,7 +109,7 @@
       {
         "w": "She is an intern in a bank.",
         "r": "She is an intern at a bank.",
-        "why": "Nơi làm việc đi với 'at' (hoặc 'with'), không dùng 'in'."
+        "why": "Lĩnh vực đi với 'in' (internship in marketing); không dùng 'of' ở đây."
       },
       {
         "w": "I will intern to a law firm.",
@@ -137,8 +137,8 @@
   "internship": {
     "mis": [
       {
-        "w": "I am doing an internship in a hospital.",
-        "r": "I am doing an internship at a hospital.",
+        "w": "I am looking for an internship of marketing.",
+        "r": "I am looking for an internship in marketing.",
         "why": "Nơi làm việc đi với 'at' (hoặc 'with'), không dùng 'in'."
       },
       {
@@ -162,7 +162,7 @@
         "why": "Invaluable nghĩa là vô giá, rất hữu ích, không phải 'không có giá trị'; nghĩa đó là worthless."
       }
     ],
-    "u": "Invaluable là từ dễ bẫy: dù bắt đầu bằng in-, nghĩa của nó là cực kỳ giá trị, không phải vô giá trị. Muốn nói không có giá trị, dùng worthless. Đây là tính từ khen mạnh cho sự giúp đỡ, lời khuyên, kinh nghiệm hay nguồn lực: an invaluable source of information. Từ ít khi được tăng mức độ, nên tránh 'very invaluable'; có thể dùng 'truly' hoặc 'absolutely'. Cấu trúc thường là 'invaluable to someone' hoặc 'invaluable in doing something'."
+    "u": "Invaluable là từ dễ bẫy: dù bắt đầu bằng in-, nghĩa của nó là cực kỳ giá trị, không phải vô giá trị. Muốn nói không có giá trị, dùng worthless. Đây là tính từ khen mạnh cho sự giúp đỡ, lời khuyên, kinh nghiệm hay nguồn lực: an invaluable source of information. Từ này vốn đã ở mức cao nhất nên ít khi được tăng thêm, vì vậy tránh 'very invaluable'; có thể dùng 'truly' hoặc 'absolutely'. Cấu trúc thường là 'invaluable to someone' hoặc 'invaluable in doing something'."
   },
   "inventory": {
     "mis": [
@@ -252,7 +252,7 @@
         "why": "Động từ là hai từ 'lay off', quá khứ 'laid off'; layoff là danh từ."
       }
     ],
-    "u": "Layoff là danh từ chỉ việc chấm dứt hợp đồng với người lao động, thường vì công ty thiếu việc hoặc thiếu tiền chứ không phải do làm kém. Động từ viết thành hai từ: lay off, laid off. Ở Anh, thuật ngữ thông dụng là redundancy. Sa thải có thể tạm thời hoặc vĩnh viễn. Từ này trung tính trong tin tức và nhân sự, còn fire nghĩa là đuổi việc vì lỗi."
+    "u": "Layoff là danh từ chỉ việc chấm dứt hợp đồng với người lao động, thường vì công ty thiếu việc hoặc thiếu tiền chứ không phải do làm kém. Động từ viết thành hai từ: lay off, laid off. Ở Anh, thuật ngữ thông dụng là redundancy. Việc cho nghỉ có thể chỉ tạm thời hoặc là vĩnh viễn. Từ này trung tính trong tin tức và nhân sự, còn fire nghĩa là đuổi việc vì lỗi."
   },
   "lecture": {
     "mis": [
@@ -282,7 +282,7 @@
         "why": "Lengthy là tính từ, không đi với 'of'."
       }
     ],
-    "u": "Lengthy nghĩa là dài về thời gian hoặc số chữ, và thường gợi ý quá dài hoặc mệt mỏi: a lengthy delay, a lengthy contract. Dùng cho quy trình, báo cáo, cuộc thảo luận, hiếm khi cho vật thể như sợi dây. Long trung tính; lengthy thường mang chút chê trách. Protracted trang trọng hơn và hợp với tranh chấp, bệnh kéo dài."
+    "u": "Lengthy nghĩa là dài về thời gian hoặc số chữ, và thường gợi ý là quá dài hoặc nhàm chán: a lengthy delay, a lengthy contract. Dùng cho quy trình, báo cáo, cuộc thảo luận, hiếm khi cho vật thể như sợi dây. Long trung tính; lengthy thường mang chút chê trách. Protracted trang trọng hơn và hợp với tranh chấp, bệnh kéo dài."
   },
   "letterhead": {
     "mis": [
@@ -327,7 +327,7 @@
         "why": "Sau sound, seem, look dùng tính từ, không dùng trạng từ."
       }
     ],
-    "u": "Logical miêu tả cách nghĩ hoặc các bước theo lập luận rõ ràng nên kết luận hợp lý: the logical next step. Từ trung tính hơn rational, vốn thường dùng cho người suy nghĩ sáng suốt, và mạnh hơn reasonable. Danh từ là logic và trạng từ là logically. Từ trái nghĩa là illogical và irrational. Đây là tính từ công bằng, bình tĩnh trong tranh luận và giải quyết vấn đề."
+    "u": "Logical miêu tả cách nghĩ hoặc các bước theo lập luận rõ ràng nên kết luận hợp lý: the logical next step. Từ trung tính hơn rational, vốn thường dùng cho người suy nghĩ sáng suốt, và mạnh hơn reasonable. Danh từ là logic và trạng từ là logically. Từ trái nghĩa là illogical và irrational. Đây là tính từ mang sắc thái bình tĩnh, khách quan khi tranh luận và giải quyết vấn đề."
   },
   "luncheon": {
     "mis": [
@@ -342,7 +342,7 @@
         "why": "Dùng danh từ bổ nghĩa trước luncheon thay vì 'of the company'."
       }
     ],
-    "u": "Luncheon là từ trang trọng chỉ bữa trưa, thường tổ chức cho một nhóm: a business luncheon, an awards luncheon. Từ này hay thấy trên thiệp mời và lịch sự kiện nhưng nghe hơi cổ khi nói chuyện, nơi người ta dùng lunch. Luncheon thường có phát biểu hoặc chương trình. Đừng dùng cho bữa bánh sandwich nhanh tại bàn làm việc."
+    "u": "Luncheon là từ trang trọng chỉ bữa trưa, thường tổ chức cho một nhóm: a business luncheon, an awards luncheon. Từ này hay thấy trên thiệp mời và lịch sự kiện nhưng nghe hơi cổ khi nói chuyện, nơi người ta dùng lunch. Luncheon thường có phát biểu hoặc chương trình. Đừng dùng cho bữa sandwich ăn vội tại bàn làm việc."
   },
   "major": {
     "mis": [
@@ -357,7 +357,7 @@
         "why": "Động từ major đi với 'in' để nêu môn học."
       }
     ],
-    "u": "Major là tính từ nghĩa rất lớn hoặc quan trọng: a major problem, a major city. Hiếm khi có dạng so sánh. Nó còn là động từ và danh từ trong tiếng Anh Mỹ chỉ chuyên ngành chính: she majors in biology; his major is law. Tiếng Anh Anh nói 'study' hoặc 'read'. Trong âm nhạc, major là âm giai trưởng, trái với minor. Main và chief chỉ thứ quan trọng nhất, còn major chỉ nói lớn."
+    "u": "Major là tính từ nghĩa rất lớn hoặc quan trọng: a major problem, a major city. Hiếm khi có dạng so sánh. Nó còn là động từ và danh từ trong tiếng Anh Mỹ chỉ chuyên ngành chính: she majors in biology; his major is law. Tiếng Anh Anh nói 'study' hoặc 'read'. Trong âm nhạc, major là âm giai trưởng, trái với minor. Main và chief chỉ thứ quan trọng nhất, còn major chỉ nói là lớn."
   },
   "managerial": {
     "mis": [
@@ -372,7 +372,7 @@
         "why": "Dùng tính từ managerial cho loại công việc; manager là người."
       }
     ],
-    "u": "Managerial là tính từ trang trọng chỉ công việc, kỹ năng hay cấp bậc của người quản lý: managerial responsibilities, managerial staff. Từ hay gặp trong tin tuyển dụng và văn bản kinh doanh. Managerial position là vị trí cao hơn nhân viên thường. So sánh với management là nhóm hoặc quá trình quản lý, và manager là người. Hiếm khi đứng sau 'be': người ta nói a managerial post chứ ít nói 'the post is managerial'."
+    "u": "Managerial là tính từ trang trọng chỉ công việc, kỹ năng hay cấp bậc của người quản lý: managerial responsibilities, managerial staff. Từ hay gặp trong tin tuyển dụng và văn bản kinh doanh. Managerial position là vị trí cao hơn nhân viên thường. Cần phân biệt với management là nhóm hoặc quá trình quản lý, và manager là người. Hiếm khi đứng sau 'be': người ta nói a managerial post chứ ít nói 'the post is managerial'."
   },
   "mandatory": {
     "mis": [
@@ -402,7 +402,7 @@
         "why": "Mục đích đi với động từ dùng to + nguyên mẫu, không dùng for + V-ing."
       }
     ],
-    "u": "Mask là vật đeo trên mặt để bảo vệ, che giấu hoặc trang trí: a surgical mask, a Halloween mask, an oxygen mask. Bạn put on, wear, take off hoặc remove nó. Nó còn là động từ, nghĩa là che giấu mùi hoặc cảm xúc: the sauce masked the bitter taste. Mask đếm được. Sau đại dịch, từ này thường mang nghĩa khẩu trang y tế."
+    "u": "Mask là vật đeo trên mặt để bảo vệ, che giấu hoặc trang trí: a surgical mask, a Halloween mask, an oxygen mask. Bạn put on, wear, take off hoặc remove nó. Nó còn là động từ, nghĩa là che giấu mùi hoặc cảm xúc: the sauce masked the bitter taste. Mask đếm được. Từ sau đại dịch, mask thường được hiểu là khẩu trang y tế."
   },
   "mechanic": {
     "mis": [
@@ -417,7 +417,7 @@
         "why": "Repair là ngoại động từ; không thêm 'for' trước tân ngữ."
       }
     ],
-    "u": "Mechanic là người sửa chữa và bảo dưỡng động cơ, máy móc, thường nhất là ô tô. Bạn mang xe đến thợ máy và họ sửa. Từ này trung tính, phổ biến và hay có thêm loại đứng trước: aircraft mechanic, bike mechanic. Trọng âm rơi vào âm tiết thứ hai. Đừng nhầm với mechanical (tính từ) hay mechanics (ngành cơ học và cách vận hành)."
+    "u": "Mechanic là người sửa chữa và bảo dưỡng động cơ, máy móc, thường nhất là ô tô. Bạn đưa xe đến thợ máy để họ sửa. Từ này trung tính, phổ biến và hay có thêm loại đứng trước: aircraft mechanic, bike mechanic. Trọng âm rơi vào âm tiết thứ hai. Đừng nhầm với mechanical (tính từ) hay mechanics (ngành cơ học và cách vận hành)."
   },
   "mechanical": {
     "mis": [
@@ -507,7 +507,7 @@
         "why": "Merge dùng 'with' cho đối tác và 'into' cho kết quả."
       }
     ],
-    "u": "Merge nghĩa là hợp thành một, dù là công ty, tập tin hay làn xe. Có thể là nội động từ (the firms merged) hoặc ngoại động từ (merge two files). Giới từ quan trọng: merge with another company, merge into a single group. Phù hợp hơn combine khi hai thứ hòa vào nhau và mất nét riêng. Danh từ là merger, dùng cho công ty; khi lái xe, bạn merge onto a highway."
+    "u": "Merge nghĩa là hợp thành một, dù là công ty, tập tin hay làn xe. Có thể là nội động từ (the firms merged) hoặc ngoại động từ (merge two files). Giới từ quan trọng: merge with another company, merge into a single group. Merge hợp hơn combine khi hai thứ hòa vào nhau và mất nét riêng. Danh từ là merger, dùng cho công ty; khi lái xe, bạn merge onto a highway."
   },
   "merger": {
     "mis": [
@@ -537,7 +537,7 @@
         "why": "Với nghĩa các điểm tốt, merit đếm được và sau many phải ở số nhiều."
       }
     ],
-    "u": "Merit là phẩm chất xứng đáng được khen hoặc thưởng. Không đếm được trong 'judged on merit' và 'a case of merit', và đếm được khi nói về các điểm tốt: the merits of the plan. Động từ: have merit, weigh the merits. Từ trang trọng, hay gặp khi bàn về tuyển dụng, điểm số và chính sách. Hệ thống dựa trên merit thưởng theo thành tích chứ không theo quan hệ hay thâm niên."
+    "u": "Merit là phẩm chất xứng đáng được khen hoặc thưởng. Không đếm được trong 'judged on merit', và đếm được khi nói về các điểm tốt: the merits of the plan. Động từ: have merit, weigh the merits. Từ trang trọng, hay gặp khi bàn về tuyển dụng, điểm số và chính sách. Hệ thống dựa trên merit thưởng theo thành tích chứ không theo quan hệ hay thâm niên."
   },
   "minimize": {
     "mis": [
@@ -612,7 +612,7 @@
         "why": "Động từ network là nội động từ và đi với 'with'."
       }
     ],
-    "u": "Network là danh từ chỉ hệ thống kết nối giữa người, máy tính hay tuyến: a rail network, a TV network, a business network. Là động từ, nó nghĩa là gặp gỡ để có lợi ích nghề nghiệp: bạn network với đồng nghiệp ở sự kiện. Đếm được. Dùng 'of' cho thành phần: a network of friends. Mang tính chiến lược hơn việc chỉ làm quen người khác."
+    "u": "Network là danh từ chỉ hệ thống kết nối giữa người, máy tính hay tuyến: a rail network, a TV network, a business network. Là động từ, nó nghĩa là gặp gỡ để có lợi ích nghề nghiệp: bạn network với đồng nghiệp ở sự kiện. Đếm được. Dùng 'of' cho thành phần: a network of friends. Networking có chủ đích hơn việc chỉ làm quen với người khác."
   },
   "newsletter": {
     "mis": [
@@ -627,7 +627,7 @@
         "why": "Newsletter là số ít nên dùng is."
       }
     ],
-    "u": "Newsletter là bản tin định kỳ gửi cho thành viên, khách hàng hoặc nhân viên, hiện nay chủ yếu qua email. Mọi người subscribe, còn tổ chức thì send out hoặc publish. Ngắn và ít trang trọng hơn tạp chí, thường tập trung hẹp: a monthly newsletter from a charity. Bộ phận marketing dùng newsletter để cập nhật cho khách hàng. Opt in để nhận; unsubscribe để ngừng."
+    "u": "Newsletter là bản tin định kỳ gửi cho thành viên, khách hàng hoặc nhân viên, hiện nay chủ yếu qua email. Mọi người subscribe, còn tổ chức thì send out hoặc publish. Ngắn và ít trang trọng hơn tạp chí, thường tập trung hẹp: a monthly newsletter from a charity. Bộ phận marketing dùng newsletter để cập nhật cho khách hàng. Opt in là đồng ý nhận; unsubscribe là hủy nhận."
   },
   "nominate": {
     "mis": [

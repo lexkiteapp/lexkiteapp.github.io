@@ -7,9 +7,9 @@
         "why": "Remove takes 'from' for the original place; 'out of' is not used after it."
       },
       {
-        "w": "The staff removed the guests to the garden.",
-        "r": "The staff moved the guests to the garden.",
-        "why": "Remove means take away or take off; to change place to somewhere new, use move."
+        "w": "Please remove off your shoes.",
+        "r": "Please remove your shoes.",
+        "why": "Remove already means take off, so 'off' is redundant."
       }
     ],
     "u": "Remove is a general verb for taking something away from a place, a surface or a list: remove a stain, remove your shoes, remove a name from a list. In formal or technical writing it also means to dismiss someone (remove a director) or delete data. Remove is followed by 'from'. It sounds more neutral and official than take off or get rid of, which are common in speech. Do not use it for simply moving something to a new place."
@@ -32,9 +32,9 @@
   "repeatedly": {
     "mis": [
       {
-        "w": "I repeatedly to call him but he never answered.",
-        "r": "I repeatedly called him but he never answered.",
-        "why": "Repeatedly is an adverb; it needs a conjugated verb, not 'to' plus a verb."
+        "w": "I called him repeatly but he never answered.",
+        "r": "I called him repeatedly but he never answered.",
+        "why": "The adverb is spelled repeatedly, with -ed, not repeatly."
       },
       {
         "w": "She repeatedly said me to wait.",
@@ -63,7 +63,7 @@
     "mis": [
       {
         "w": "He has residence in Hanoi since 2020.",
-        "r": "He has been resident in Hanoi since 2020.",
+        "r": "He has been a resident of Hanoi since 2020.",
         "why": "Residence is a noun; to say where someone lives, use the verb reside or the adjective resident."
       },
       {
@@ -142,9 +142,9 @@
         "why": "Use 'of' for the subject of a picture; 'on' is wrong."
       },
       {
-        "w": "The architect sketched me a plan quickly.",
-        "r": "The architect sketched a plan for me quickly.",
-        "why": "Sketch takes no indirect object; use 'for me' after the object."
+        "w": "He is good at sketch.",
+        "r": "He is good at sketching.",
+        "why": "After the preposition 'at', use the -ing form: sketching."
       }
     ],
     "u": "Sketch is a countable noun for a quick, rough drawing, often a first idea for a design: a pencil sketch, a rough sketch of the building. It can also be a short comedy scene on television, or a brief outline of a plan or report. As a verb, sketch out means to describe something in general terms: sketch out the main ideas. A sketch is looser than a drawing and less finished than a plan."
@@ -172,9 +172,9 @@
         "why": "Seafood is uncountable and has no plural -s."
       },
       {
-        "w": "Her specialty is in pediatrics.",
-        "r": "Her specialty is pediatrics.",
-        "why": "After be, name the field directly; 'in' belongs to specialize in."
+        "w": "The doctor specialties in children's diseases.",
+        "r": "The doctor specializes in children's diseases.",
+        "why": "The verb is specialize; specialty is a noun."
       }
     ],
     "u": "Specialty is the American spelling for something a person, place or business is especially known for: the house specialty, a regional specialty. In medicine it means a branch of practice such as cardiology. British English prefers speciality. It is countable. Pattern: specialize in a field, but 'a specialty of' a place. A specialty shop sells one type of product. Strength or forte is more general, referring to a person's best skill."
@@ -257,9 +257,9 @@
   "statistics": {
     "mis": [
       {
-        "w": "The statistics show that a statistic is growing.",
-        "r": "The statistics show that sales are growing.",
-        "why": "Statistic is a single figure; rewrite so the noun is clear and agrees in number."
+        "w": "The latest statistic show a rise in prices.",
+        "r": "The latest statistics show a rise in prices.",
+        "why": "Use the plural statistics for several figures; one figure is a statistic."
       },
       {
         "w": "Statistics are a difficult subject.",
@@ -307,9 +307,9 @@
         "why": "Modify the participle enforced with the adverb strictly."
       },
       {
-        "w": "Strictly, smoking is forbidden here.",
-        "r": "Smoking is strictly forbidden here.",
-        "why": "The fixed collocation is strictly forbidden; the adverb sits before the adjective."
+        "w": "The documents are strictly confidentially.",
+        "r": "The documents are strictly confidential.",
+        "why": "After the adverb strictly, use the adjective confidential, not an adverb."
       }
     ],
     "u": "Strictly is an adverb meaning in a way that must be obeyed, or exactly and without exceptions. It intensifies words about rules: strictly forbidden, strictly confidential, strictly enforced. Strictly speaking opens a statement to say what is technically true even if people use a looser meaning. It also means only: the offer is strictly for members. Do not confuse the adverb strictly with the adjective strict."
@@ -382,9 +382,9 @@
         "why": "Suspicious takes 'of' when you distrust someone or something."
       },
       {
-        "w": "The police found a suspect package.",
-        "r": "The police found a suspicious package.",
-        "why": "Suspect as an adjective is rare and formal; suspicious is the normal word here."
+        "w": "The suspicion man ran away.",
+        "r": "The suspicious man ran away.",
+        "why": "Before a noun use the adjective suspicious; suspicion is a noun."
       }
     ],
     "u": "Suspicious has two directions. Something suspicious makes you think it is wrong or dangerous: a suspicious package, suspicious behavior. A person is suspicious of someone or something when they distrust it: suspicious of strangers. Both uses are common in news and security notices. The noun is suspicion and the adverb is suspiciously. Do not confuse it with suspect, which is a noun for a person police think guilty."
@@ -437,9 +437,9 @@
   "terrific": {
     "mis": [
       {
-        "w": "The film was terrific scary.",
-        "r": "The film was terrifyingly scary.",
-        "why": "An adverb is needed to modify the adjective scary; terrific is an adjective."
+        "w": "We had a terrifically time at the beach.",
+        "r": "We had a terrific time at the beach.",
+        "why": "Before a noun use the adjective terrific, not an adverb."
       },
       {
         "w": "The party was terrified last night.",
@@ -467,9 +467,9 @@
   "theft": {
     "mis": [
       {
-        "w": "Two thefts of cars happened last night.",
-        "r": "Two car thefts happened last night.",
-        "why": "Put car before theft as a noun modifier; 'thefts of cars' is awkward."
+        "w": "Someone did a theft in my shop.",
+        "r": "Someone committed theft in my shop.",
+        "why": "The verb that goes with theft is commit, not do."
       },
       {
         "w": "He was arrested for theft the bike.",
@@ -542,9 +542,9 @@
   "unreliable": {
     "mis": [
       {
-        "w": "He is unreliable on his promises.",
-        "r": "He is unreliable with his promises.",
-        "why": "Use 'with' or rephrase; 'on' is not the normal preposition."
+        "w": "The bus service is unreliably.",
+        "r": "The bus service is unreliable.",
+        "why": "After be, use the adjective unreliable, not an adverb."
       },
       {
         "w": "The data is not unreliability.",
@@ -662,9 +662,9 @@
   "withdrawal": {
     "mis": [
       {
-        "w": "I made a withdrawal of money at the ATM yesterday.",
-        "r": "I made a cash withdrawal at the ATM yesterday.",
-        "why": "'Withdrawal of money' is wordy; the natural phrase is cash withdrawal."
+        "w": "I want to make a withdraw of 2 million.",
+        "r": "I want to make a withdrawal of 2 million.",
+        "why": "The noun is withdrawal; withdraw is the verb."
       },
       {
         "w": "The withdrawl limit is 5 million.",
