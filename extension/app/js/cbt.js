@@ -127,13 +127,8 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
     let navFilter = 'all'; // 'all' | 'todo' | 'flag'
     let showPacingPop = false;
     const ans = {}, flag = {}, passHl = {};
-    // Đáp án + cờ được lưu từng thay đổi; đồng hồ = ExamClock (mốc thời gian) → tải lại trang/đổi tab vẫn đúng giờ, không mất bài
-    const RUN = 'lk.cbtRun.' + rs.map(r => r.id).join(','), CKEY = 'cbt.' + rs.map(r => r.id).join(',');
-    const persist = () => { try { localStorage.setItem(RUN, JSON.stringify({ ans, flag, at: Date.now() })); } catch (e) { /* bỏ qua */ } };
-    if (window.ExamClock && ExamClock.saved(CKEY) != null) { try { const x = JSON.parse(localStorage.getItem(RUN) || 'null'); if (x) { Object.assign(ans, x.ans || {}); Object.assign(flag, x.flag || {}); } } catch (e) { /* bỏ qua */ } }
-    else { try { localStorage.removeItem(RUN); } catch (e) { /* bỏ qua */ } }
     document.body.classList.add('bare', 'cbt-mode');
-    let tick = null, xc = null;
+    let tick = null;
 
     const onKey = e => {
       if (e.defaultPrevented || e.ctrlKey || e.metaKey || e.altKey) return;
@@ -142,7 +137,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
       if (/^(INPUT|TEXTAREA|SELECT)$/.test(tag) && e.target.type !== 'radio' && e.target.type !== 'checkbox') return;
       if (e.code === 'KeyF' || e.key === 'f' || e.key === 'F') {
         e.preventDefault();
-        flag[cur] = !flag[cur]; persist();
+        flag[cur] = !flag[cur];
         drawQs();
         drawNav();
       }
@@ -151,7 +146,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
     let onDocClick = null, onSelChange = null, selT = 0;
 
     App.cleanup = () => {
-      clearInterval(tick); clearTimeout(selT); if (xc) xc.stop();
+      clearInterval(tick); clearTimeout(selT);
       document.removeEventListener('keydown', onKey);
       if (onDocClick) document.removeEventListener('click', onDocClick);
       if (onSelChange) document.removeEventListener('selectionchange', onSelChange);
@@ -166,8 +161,8 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
           <div class="row nowrap"><img src="icons/icon.svg" alt="" style="width:28px;height:28px;border-radius:8px"><b>Lexkite</b><span class="tiny muted">IELTS Reading · ${t('Mô phỏng thi trên máy')}</span></div>
           <div class="row nowrap">
             <button class="cbt-pacing-chip on-track" id="pacingChip" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="pacingPop" title="${t('Ước tính nhịp độ làm bài (bấm để xem chi tiết)')}">${UI.icon('zap')} <span>${t('Đúng tiến độ (ước tính)')}</span></button>
-            ${window.ExamClock ? '<span id="xClock"></span>' : `<span class="cbt-clock" id="clock"></span>
-            <button class="btn sm" id="hideC" type="button">${t('Ẩn giờ')}</button>`}
+            <span class="cbt-clock" id="clock"></span>
+            <button class="btn sm" id="hideC" type="button">${t('Ẩn giờ')}</button>
             <button class="btn sm" id="fsDown" type="button" title="${t('Giảm cỡ chữ')}">A−</button>
             <button class="btn sm" id="fsUp" type="button" title="${t('Tăng cỡ chữ')}">A+</button>
             <button class="btn sm primary" id="submit" type="button">${t('Nộp bài')}</button>
@@ -226,7 +221,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
 
       $$('#qs input[type=radio]').forEach(inp => inp.onchange = () => {
         const i = +inp.name.slice(1);
-        ans[i] = inp.value; persist();
+        ans[i] = inp.value;
         cur = i;
         drawQs();
         drawNav();
@@ -235,7 +230,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
       $$('[data-flag]').forEach(b => b.onclick = (e) => {
         e.preventDefault();
         const i = +b.dataset.flag;
-        flag[i] = !flag[i]; persist();
+        flag[i] = !flag[i];
         drawQs();
         drawNav();
       });
@@ -359,18 +354,14 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
       updatePacing();
     };
 
-    drawPassage(); drawQs(); drawNav();
-    if (window.ExamClock) {
-      xc = ExamClock.mount($('#xClock'), { key: CKEY, secs: total, name: 'IELTS Reading', onTick: L => { left = L; updatePacing(); }, onEnd: () => { left = 0; submit(true); } });
-    } else {
-      clock();
-      tick = setInterval(() => {
-        left--; clock();
-        if (left === 300) toast('⏰ ' + t('Còn 5 phút!'));
-        if (left <= 0) { clearInterval(tick); submit(true); }
-      }, 1000);
-      $('#hideC').onclick = () => { hideClock = !hideClock; $('#hideC').textContent = hideClock ? t('Hiện giờ') : t('Ẩn giờ'); clock(); };
-    }
+    drawPassage(); drawQs(); drawNav(); clock();
+    tick = setInterval(() => {
+      left--; clock();
+      if (left === 300) toast('⏰ ' + t('Còn 5 phút!'));
+      if (left <= 0) { clearInterval(tick); submit(true); }
+    }, 1000);
+
+    $('#hideC').onclick = () => { hideClock = !hideClock; $('#hideC').textContent = hideClock ? t('Hiện giờ') : t('Ẩn giờ'); clock(); };
     $('#fsUp').onclick = () => { fs = Math.min(1.5, fs + .1); drawPassage(); drawQs(); };
     $('#fsDown').onclick = () => { fs = Math.max(.8, fs - .1); drawPassage(); drawQs(); };
 
@@ -509,7 +500,7 @@ mark.cbt-hl { background: #fde047; color: #111; cursor: pointer; border-radius: 
     async function submit(timeUp) {
       const missing = qs.length - Object.keys(ans).length;
       if (!timeUp && !confirm(missing ? t('Còn {n} câu chưa trả lời. Vẫn nộp bài?', { n: missing }) : t('Nộp bài và xem kết quả?'))) return;
-      clearInterval(tick); window.onbeforeunload = null; if (xc) xc.done(); try { localStorage.removeItem(RUN); } catch (e) { /* bỏ qua */ }
+      clearInterval(tick); window.onbeforeunload = null;
       let score = 0;
       const rows = qs.map((q, i) => {
         const right = String(q.answer), ok = ans[i] === right;
