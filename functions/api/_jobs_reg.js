@@ -166,6 +166,21 @@ export const REG = {
    "lease": false
   },
   {
+   "id": "video-junk",
+   "workflow": "video-junk.yml",
+   "cron": [
+    "37 5 * * 0"
+   ],
+   "priority": "reports",
+   "resources": [
+    "gh_minutes"
+   ],
+   "minutes": 15,
+   "est": {},
+   "lease": false,
+   "_note": "Dọn artifact Actions video rác (failed-run / superseded / gone-episode); lịch chỉ dry-run + manifest, xoá thật chỉ khi chạy tay apply=true (docs/VIDEO-STORAGE.md)"
+  },
+  {
    "id": "capacity-watch",
    "workflow": "capacity-watch.yml",
    "cron": [
@@ -451,6 +466,24 @@ export const REG = {
    "est": {
     "d1_internal_reads": 20000,
     "drive_calls": 1500
+   },
+   "lease": true
+  },
+  {
+   "id": "drive-tidy",
+   "workflow": "drive-tidy.yml",
+   "cron": [
+    "43 7,19 * * *"
+   ],
+   "priority": "archive",
+   "resources": [
+    "drive_pool",
+    "d1_internal"
+   ],
+   "minutes": 5,
+   "est": {
+    "d1_internal_reads": 4000,
+    "drive_calls": 300
    },
    "lease": true
   },
