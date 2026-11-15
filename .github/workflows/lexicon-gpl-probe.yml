@@ -1,0 +1,38 @@
+# ĐO THỬ nguồn vi GPL (11/11 – chủ duyệt nguyên văn "Đo thử, không vào app").
+# Nguồn: từ điển Anh–Việt Hồ Ngọc Đức (OVDP, StarDict AnhViet.zip) – GIẤY PHÉP GPL.
+# PHẠM VI: chỉ tải TRONG job vào $RUNNER_TEMP, xoá cuối job; KHÔNG commit, KHÔNG artifact, KHÔNG đưa chữ nào vào app/kho/dữ liệu xuất.
+# Kết quả = con số trong log + Step Summary (scripts/lexicon/expand/gpl-probe.mjs). Dùng thật cần xem giấy phép riêng và chủ quyết lại.
+name: Đo thử nguồn vi GPL (không vào app)
+on:
+  workflow_dispatch:
+  pull_request:
+    paths: ['scripts/lexicon/expand/gpl-probe.mjs', 'scripts/lexicon/expand/gpl_probe.py', '.github/workflows/lexicon-gpl-probe.yml']
+permissions:
+  contents: read
+concurrency:
+  group: lexicon-gpl-probe-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Mẫu cố định
+        run: node scripts/lexicon/expand/gpl-probe.mjs --sample "$RUNNER_TEMP/sample.json"
+      - name: Nguồn người viết sẵn có (Wiktionary tiếng Việt, CC BY-SA 4.0)
+        run: |
+          curl -sfL --retry 2 -o "$RUNNER_TEMP/viwk.jsonl.gz" https://kaikki.org/viwiktionary/raw-wiktextract-data.jsonl.gz \
+            && python3 -I scripts/lexicon/expand/viwikt.py --raw "$RUNNER_TEMP/viwk.jsonl.gz" --candidates "$RUNNER_TEMP/sample.json" --out "$RUNNER_TEMP/viwk.json" \
+            || echo "::warning::viwikt: không tải được Wiktionary tiếng Việt"
+      - name: Tải GPL (chỉ trong job) + đếm
+        run: |
+          mkdir -p "$RUNNER_TEMP/gpl"
+          curl -sfL --retry 3 -o "$RUNNER_TEMP/gpl/AnhViet.zip" https://downloads.sourceforge.net/project/ovdp/Stardict/English/AnhViet.zip
+          python3 -I scripts/lexicon/expand/gpl_probe.py --zip "$RUNNER_TEMP/gpl/AnhViet.zip" --sample "$RUNNER_TEMP/sample.json" --out "$RUNNER_TEMP/gpl/gpl.json"
+          node scripts/lexicon/expand/gpl-probe.mjs --count "$RUNNER_TEMP/sample.json" --gpl "$RUNNER_TEMP/gpl/gpl.json" --viwk "$RUNNER_TEMP/viwk.json"
+      - name: Xoá tệp GPL
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/gpl"

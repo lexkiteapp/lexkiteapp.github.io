@@ -1,2 +1,2 @@
 /* SINH từ i18n/ui/fr/arrange.js – đừng sửa tay (scripts/i18n-pack.mjs) */
-(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.fr=Object.assign(D.fr||{},{_qcv1:"{w} retiré",_p2yi:"{w} : position {n} sur {m}",_gty8:"Touchez une étiquette pour l’ajouter à la fin ou la retirer ; faites-la glisser au milieu pour l’insérer ; les flèches la déplacent, Suppr la retire, Ctrl+Z annule"});})(typeof self!=='undefined'?self:this);
+(function(g){const D=g.I18N_DICT=g.I18N_DICT||{};D.fr=Object.assign(D.fr||{},{_gty8:"Touchez une étiquette pour l’ajouter à la fin ou la retirer ; faites-la glisser au milieu pour l’insérer ; les flèches la déplacent, Suppr la retire, Ctrl+Z annule",_p2yi:"{w} : position {n} sur {m}",_qcv1:"{w} retiré"});})(typeof self!=='undefined'?self:this);

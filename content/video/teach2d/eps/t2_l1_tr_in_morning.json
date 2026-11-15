@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_in_morning",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "In the morning!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I wake up at the morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I wake up in the morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say in the morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "In! I eat lunch in the afternoon.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I wake up at the morning.",
+  "right": "I wake up in the morning.",
+  "strike": "at",
+  "why": "Say in the morning.",
+  "memory": "In the morning.",
+  "quiz": {
+   "stem": "I eat lunch ___ the afternoon.",
+   "options": [
+    "in",
+    "at"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“At the morning” değil, “in”!",
+   "tip": "Günün bölümlerinde “in” kullan: in the morning, in the evening.",
+   "caption": "“I wake up at the morning.” mi diyorsun? 😅 Sabah, öğleden sonra, akşam için “in” gelir. Doğrusu “I wake up in the morning.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “in”. Sabah için in kullan. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “at the morning”, but “in”!",
+   "tip": "Use “in” for parts of the day: in the morning, in the evening.",
+   "caption": "Do you say “I wake up at the morning.”? 😅 Use “in” for morning, afternoon and evening. The right sentence is “I wake up in the morning.”. Listen to Carlos and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“At the morning” değil, “in”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“At the morning” değil, “in”!",
+  "keyword": "I wake up in the morning.",
+  "value": "Günün bölümlerinde “in” kullan: in the morning, in the evening.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“At the morning” değil, “in”!",
+    "description": "“I wake up at the morning.” mi diyorsun? 😅 Sabah, öğleden sonra, akşam için “in” gelir. Doğrusu “I wake up in the morning.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "I wake up in the morning.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“I wake up at the morning.” mi diyorsun? 😅 Sabah, öğleden sonra, akşam için “in” gelir. Doğrusu “I wake up in the morning.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I wake up at the morning.” mi diyorsun? 😅 Sabah, öğleden sonra, akşam için “in” gelir. Doğrusu “I wake up in the morning.”. Carlos’u dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“At the morning” değil, “in”! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “in”. Sabah için in kullan. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}

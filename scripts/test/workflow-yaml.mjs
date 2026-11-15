@@ -4,11 +4,21 @@
 import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
 const DIR = '.github/workflows', files = fs.readdirSync(DIR).filter(f => /\.ya?ml$/.test(f)).sort();
+// Khóa trùng (vd. `env: { A: 1, A: 1 }` sau gộp nhánh, 11/11 vocab-img-scene trên claude/sec-448-v2): PyYAML nuốt âm thầm nhưng GitHub từ chối cả file → run push "failure" 0 job.
 const PY = `import sys,yaml
+class L(yaml.SafeLoader): pass
+def mp(l,n,deep=False):
+    seen=set()
+    for k,_ in n.value:
+        kk=l.construct_object(k,deep=True)
+        if kk in seen: raise ValueError('khóa trùng "%s" (dòng %d)' % (kk,k.start_mark.line+1))
+        seen.add(kk)
+    return yaml.SafeLoader.construct_mapping(l,n,deep)
+L.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG,mp)
 bad=0
 for f in sys.argv[1:]:
     try:
-        d=yaml.safe_load(open(f,encoding='utf-8'))
+        d=yaml.load(open(f,encoding='utf-8'),Loader=L)
         if not isinstance(d,dict): raise ValueError('không phải mapping')
         if True not in d and 'on' not in d: raise ValueError('thiếu khóa on')
         if not isinstance(d.get('jobs'),dict) or not d['jobs']: raise ValueError('thiếu jobs')

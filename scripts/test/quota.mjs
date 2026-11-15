@@ -27,10 +27,13 @@ const kp = await webcrypto.subtle.generateKey({ name: 'RSASSA-PKCS1-v1_5', modul
 const jwk = { ...(await webcrypto.subtle.exportKey('jwk', kp.publicKey)), kid: 'k1' };
 const b64u = b => Buffer.from(b).toString('base64url'), sec = Math.floor(Date.now() / 1000);
 const tok = async (sub, email) => { const h = b64u(JSON.stringify({ alg: 'RS256', kid: 'k1' })), p = b64u(JSON.stringify({ aud: 'lexkite-app', iss: 'https://securetoken.google.com/lexkite-app', exp: sec + 3600, iat: sec, auth_time: sec, sub, email, email_verified: true })); return h + '.' + p + '.' + b64u(await webcrypto.subtle.sign('RSASSA-PKCS1-v1_5', kp.privateKey, new TextEncoder().encode(h + '.' + p))); };
-let gemCalls = 0, waiCalls = 0, mails = 0;
-globalThis.fetch = async url => { if (String(url).includes('googleapis.com/service_accounts')) return { ok: true, json: async () => ({ keys: [jwk] }) }; throw new Error('mạng bị chặn trong test: ' + url); };
+let gemCalls = 0, waiCalls = 0, mails = 0, groqCalls = 0;
+globalThis.fetch = async url => { url = String(url); if (url.includes('googleapis.com/service_accounts')) return { ok: true, json: async () => ({ keys: [jwk] }) };
+  if (url === 'https://api.groq.com/openai/v1/models') return new Response(JSON.stringify({ data: [{ id: 'openai/gpt-oss-120b' }] }), { status: 200 });
+  if (url === 'https://api.groq.com/openai/v1/chat/completions') { groqCalls++; return new Response(JSON.stringify({ choices: [{ message: { content: '{"band":7}' } }] }), { status: 200 }); }
+  throw new Error('mạng bị chặn trong test: ' + url); };
 
-const log = console.log; console.log = (...a) => { if (!/^(gemini fallback|gemini |ai error)/.test(String(a[0]))) log(...a); };
+const log = console.log; console.log = (...a) => { if (!/^(gemini fallback|gemini |ai error|ai fallback|ai busy)/.test(String(a[0]))) log(...a); };
 sql.exec('CREATE TABLE users (uid TEXT PRIMARY KEY, email TEXT, name TEXT, created INTEGER NOT NULL, seen INTEGER NOT NULL, plat TEXT, n INTEGER DEFAULT 1)');
 sql.exec("INSERT INTO users (uid, email, created, seen) VALUES ('user1', 'learner@gmail.com', 0, 0)");
 const Q = await import(new URL('../../functions/api/_quota.js', import.meta.url));
@@ -42,7 +45,7 @@ const QA = await import(new URL('../../functions/api/quota.js', import.meta.url)
 const GEM = { fetch: async () => { gemCalls++; return new Response(JSON.stringify({ candidates: [{ content: { parts: [{ text: '{"band":6}' }] } }] }), { status: 200 }); } };
 const WAI = { run: async () => { waiCalls++; return { response: { band: 5 } }; } };
 const MAIL = { fetch: async () => { mails++; return new Response('ok'); } };
-const ENV = { DB, AI: WAI, GEM, MAIL, GEMINI_KEY: 'gk_test_SECRET_1', ADMIN_EMAILS: 'boss@lexkite.com', UNLIMITED_EMAILS: 'teacher@school.edu' };
+const ENV = { DB, AI: WAI, GEM, MAIL, GEMINI_KEY: 'gk_test_SECRET_1', GROQ_API_KEY: 'gsk_TESTquotaSECRET0123456789abcd', ADMIN_EMAILS: 'boss@lexkite.com', UNLIMITED_EMAILS: 'teacher@school.edu' };
 const ORIGIN = 'https://lexkite.com';
 let ipSeq = 1; const freshIp = () => `203.0.113.${ipSeq++}`;
 const req = (path, body, { tk, dev, ip = '198.51.100.7', origin = ORIGIN } = {}) => new Request('https://lexkite.com' + path, { method: 'POST', headers: { 'Content-Type': 'application/json', Origin: origin, 'CF-Connecting-IP': ip, ...(tk ? { Authorization: 'Bearer ' + tk } : {}), ...(dev ? { 'X-Lexkite-Device': dev } : {}) }, body: JSON.stringify(body) });
@@ -106,17 +109,20 @@ const shapeOk = j => JSON.stringify(Object.keys(j).sort()) === JSON.stringify([.
   let fine = 0; for (let i = 0; i < 12; i++) if ((await ai({ dev: d, ip })).s === 200) fine++;
   ok(fine === 12, 'quota_allow (d:<thiết bị>): không giới hạn');
 }
-// 6) Cầu dao nhà cung cấp: Gemini gần trần → hạ cấp Workers AI; cả hai gần trần → quota.busy (máy khách chấm nhanh tại máy)
+// 6) Cầu dao nhà cung cấp (chuỗi _aichain.js): Gemini gần trần → Groq; Gemini + Groq gần trần → quota.busy (máy khách chấm tại máy) –
+//    KHÔNG BAO GIỜ rơi về Llama 8B tài khoản chính cho người học (golden 03/11: WEAK_OK = false)
 {
   clearEdge(); const day = Q.dayKey(), ip = freshIp(); sql.exec("DELETE FROM quota_count WHERE k LIKE 'p:%'");
   sql.exec(`INSERT OR REPLACE INTO quota_count (k, day, n) VALUES ('p:gemini', '${day}', ${Math.ceil(Q.PROVIDERS.gemini.day * Q.BREAKER)})`);
-  const g0 = gemCalls, w0 = waiCalls, r = await ai({ dev: dev('brk1'), ip });
-  ok(r.s === 200 && gemCalls === g0 && waiCalls === w0 + 1 && /workers-ai/.test(r.j.model), 'Gemini ≥ 80% trần → tự dùng Workers AI');
-  const pai = sql.prepare("SELECT n FROM quota_count WHERE k = 'p:ai' AND day = ?").get(day);
-  ok(pai && pai.n === Q.DEFAULTS.ai.cost, 'tính neuron Workers AI theo cost (' + (pai && pai.n) + ')');
-  sql.exec(`INSERT OR REPLACE INTO quota_count (k, day, n) VALUES ('p:ai', '${day}', ${Q.PROVIDERS.ai.day * Q.BREAKER})`);
-  const b = await ai({ dev: dev('brk2'), ip });
-  ok(b.s === 429 && b.j.msg === 'quota.busy' && shapeOk(b.j), 'cả hai ≥ 80% → 429 quota.busy');
+  const g0 = gemCalls, w0 = waiCalls, q0 = groqCalls, r = await ai({ dev: dev('brk1'), ip });
+  ok(r.s === 200 && gemCalls === g0 && waiCalls === w0 && groqCalls === q0 + 1 && r.j.model === 'groq/openai/gpt-oss-120b' && r.j.tier === 'high', 'Gemini ≥ 80% trần → Groq gpt-oss-120b (' + r.j.model + ')');
+  const pg = sql.prepare("SELECT n FROM quota_count WHERE k = 'p:groq' AND day = ?").get(day);
+  ok(pg && pg.n === 1, 'tính lượt Groq vào cầu dao p:groq (' + (pg && pg.n) + ')');
+  sql.exec(`INSERT OR REPLACE INTO quota_count (k, day, n) VALUES ('p:groq', '${day}', ${Math.ceil(Q.PROVIDERS.groq.day * Q.BREAKER)})`);
+  const w1 = waiCalls, b = await ai({ dev: dev('brk2'), ip });
+  ok(b.s === 429 && b.j.msg === 'quota.busy' && shapeOk(b.j) && waiCalls === w1, 'Gemini + Groq ≥ 80% → 429 quota.busy, không gọi Llama 8B');
+  const mb = sql.prepare("SELECT SUM(n) AS n FROM ai_quota WHERE id = 'm:busy'").get();
+  ok(mb && mb.n >= 1, 'lượt báo bận được đếm cho giám sát (m:busy)');
   sql.exec("DELETE FROM quota_count WHERE k LIKE 'p:%'");
   // Thư: gần trần → vẫn lưu tin nhắn nhưng không gửi
   sql.exec(`INSERT OR REPLACE INTO quota_count (k, day, n) VALUES ('p:mail', '${day}', ${Q.PROVIDERS.mail.day * Q.BREAKER})`);
@@ -147,7 +153,7 @@ const shapeOk = j => JSON.stringify(Object.keys(j).sort()) === JSON.stringify([.
   ok(a1.s === 200 && a2.s === 429, 'hạn mức mới có hiệu lực ngay');
   const st = await qa(A, { op: 'state' });
   ok(st.s === 200 && st.j.top.ai && st.j.top.ai.some(x => x.id === 'u:user1' && x.email === 'learner@gmail.com' && x.n >= 30), 'state: top dùng nhiều hôm nay kèm email');
-  ok(st.j.providers.length === 3 && st.j.providers.every(p => p.cap > 0 && p.breaker < p.cap), 'state: nhà cung cấp so với trần');
+  ok(st.j.providers.length === 4 && st.j.providers.every(p => p.cap > 0 && p.breaker < p.cap) && st.j.mix && st.j.mix.h24.total > 0, 'state: nhà cung cấp so với trần + tỉ lệ model phục vụ');
   ok(st.j.features.find(f => f.feature === 'ai').custom && !JSON.stringify(st.j).includes('SECRET'), 'state: cấu hình tùy chỉnh, không lộ khóa');
   // Khóa / mở khóa thiết bị
   const bd = dev('blk'), bl = await qa(A, { op: 'blockSet', target: 'd:' + bd, minutes: 0, reason: 'spam' });
@@ -196,6 +202,24 @@ const shapeOk = j => JSON.stringify(Object.keys(j).sort()) === JSON.stringify([.
   const broken = { DB: { prepare() { throw new Error('d1 down'); }, batch() { throw new Error('d1 down'); } } }; Q.resetState();
   const g = await Q.gate(req('/api/ai', {}, { dev: dev('down'), ip: freshIp() }), broken, 'ai'); await g.take();
   ok(!g.res, 'D1 hỏng → cho qua (không chặn nhầm người học)');
+}
+
+// Nhập tài liệu (docs/specs/import-to-deck.md #5): `import` = AI điền nghĩa (kind 'import' của /api/ai, đếm THEO TỪ, khách 0) · `readable` = đọc bài từ liên kết (biên, khách có hạn)
+{
+  const imp = (o = {}, n = 5) => AI.onRequestPost({ request: req('/api/ai', { prompt: 'Give a short meaning for each word.\n' + JSON.stringify([{ w: 'ab' + (++pn), s: 'x' }]), sys: 'glosser', kind: 'import', n }, o), env: ENV }).then(parse);
+  clearEdge(); const ip = freshIp(), d = dev('imp1');
+  const g = await imp({ dev: d, ip });
+  ok(g.s === 429 && g.j.feature === 'import' && g.j.msg === 'quota.daily' && g.j.signIn === true && shapeOk(g.j), 'import: khách (0 lượt) → 429 quota.daily, gợi ý đăng nhập');
+  const U = await tok('impuser', 'imp@x.co'), ip2 = freshIp(); let r;
+  for (let i = 0; i < 6; i++) { clearEdge(); r = await imp({ tk: U, ip: ip2 }, 20); }
+  ok(r.s === 200 && r.j.left === 0, 'import: đăng nhập 120 từ/ngày = 6 lô × 20 từ (đếm theo từ, left về 0)');
+  clearEdge(); r = await imp({ tk: U, ip: ip2 }, 1);
+  ok(r.s === 429 && r.j.feature === 'import' && r.j.tier === 'free', 'import: hết 120 từ → 429 (máy khách im lặng giữ "chưa có nghĩa")');
+  const used = sql.prepare('SELECT n FROM quota_count WHERE k = ?').get('import|u:impuser'); ok(used && used.n === 121, 'import: bộ đếm D1 theo từ (120 đã dùng + 1 lượt bị từ chối): ' + (used && used.n));
+  ok(Q.DEFAULTS.import.anon[1] === 0 && Q.DEFAULTS.import.free[0] === 20 && Q.DEFAULTS.import.free[1] === 120 && Q.DEFAULTS.import.store === 'd1' && Q.DEFAULTS.readable.store === 'edge', 'DEFAULTS.import 0 / 20 mỗi phút · 120 mỗi ngày (spec); readable ở biên (0 lượt ghi D1)');
+  clearEdge(); const ai0 = await ai({ tk: U, ip: freshIp() }); ok(ai0.s === 200, 'import dùng bộ đếm riêng: chấm bài (`ai`) không bị ảnh hưởng');
+  const w0 = writes, ipr = freshIp(); let last; for (let i = 0; i < 20; i++) { if (i % 3 === 0) clearEdge(); last = await Q.gate(req('/api/readable', {}, { ip: ipr }), ENV, 'readable'); }
+  ok(!last.res && writes === w0, 'readable: 0 lượt ghi D1');
 }
 
 console.log(fails ? `✗ quota: ${fails}/${n} kiểm tra lỗi` : `✓ quota: ${n} kiểm tra – bậc, danh sách không giới hạn, burst/ngày, chặn theo IP, cầu dao, dạng 429, quản trị, khóa tự động`);

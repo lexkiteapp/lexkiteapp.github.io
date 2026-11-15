@@ -1,3 +1,35 @@
-/* UI de – speakt (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {"Người lớn tuổi mà bạn ngưỡng mộ":"Eine ältere Person, die Sie bewundern","Giúp đỡ người khác":"Anderen helfen","Học kỹ năng qua mạng":"Online eine neue Fähigkeit erlernen","Quà tặng":"Geschenke","Giấc ngủ & Nghỉ ngơi":"Schlafen und ausruhen","Tiếng ồn":"Lärm","Đúng giờ & Quản lý thời gian":"Pünktlichkeit und Zeitmanagement","Hàng xóm & Láng giềng":"Nachbarn","Công trình lịch sử":"Historische Gebäude","Trang web & Ứng dụng":"Websites und Apps","Tranh ảnh & Nhiếp ảnh":"Bilder & Fotografie","Sông, hồ & Biển":"Flüsse, Seen und das Meer","Phương tiện công cộng":"Öffentliche Verkehrsmittel","Quy định & Luật lệ":"Regeln und Gesetze","Ngày lễ truyền thống":"Traditionelle Feiertage","Tái chế & Rác thải":"Recycling & Abfall","Quê hương & Nơi ở":"Heimatstadt & Zuhause","Nghề nghiệp & Nơi làm việc":"Jobs & Arbeitsplatz","Thời gian rảnh & Sở thích":"Freizeit und Hobbys","Âm nhạc":"Musik","Thể thao":"Sport","Ẩm thực & Nấu ăn":"Essen & Kochen","Thời tiết & Các mùa":"Wetter & Jahreszeiten","Giao thông & Đi lại":"Transport & Reisen","Bạn bè & Các mối quan hệ":"Freunde und Beziehungen","Nghệ thuật & Bảo tàng":"Kunst & Museen","Đọc sách":"Bücher lesen","Thói quen sống xanh":"Grüne Lebensgewohnheiten","Lễ hội & Dịp kỷ niệm":"Feste und Feiern","Rèn luyện thể chất":"Körperliche Fitness","Khoa học & Công nghệ trong nhà":"Wissenschaft und Technik zu Hause"});
+/* UI de – speakt (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["de"] = Object.assign(D["de"] || {}, {
+"Bạn bè & Các mối quan hệ":"Freunde und Beziehungen",
+"Công trình lịch sử":"Historische Gebäude",
+"Giao thông & Đi lại":"Transport & Reisen",
+"Giúp đỡ người khác":"Anderen helfen",
+"Giấc ngủ & Nghỉ ngơi":"Schlafen und ausruhen",
+"Hàng xóm & Láng giềng":"Nachbarn",
+"Học kỹ năng qua mạng":"Online eine neue Fähigkeit erlernen",
+"Khoa học & Công nghệ trong nhà":"Wissenschaft und Technik zu Hause",
+"Lễ hội & Dịp kỷ niệm":"Feste und Feiern",
+"Nghề nghiệp & Nơi làm việc":"Jobs & Arbeitsplatz",
+"Nghệ thuật & Bảo tàng":"Kunst & Museen",
+"Ngày lễ truyền thống":"Traditionelle Feiertage",
+"Người lớn tuổi mà bạn ngưỡng mộ":"Eine ältere Person, die Sie bewundern",
+"Phương tiện công cộng":"Öffentliche Verkehrsmittel",
+"Quy định & Luật lệ":"Regeln und Gesetze",
+"Quà tặng":"Geschenke",
+"Quê hương & Nơi ở":"Heimatstadt & Zuhause",
+"Rèn luyện thể chất":"Körperliche Fitness",
+"Sông, hồ & Biển":"Flüsse, Seen und das Meer",
+"Thói quen sống xanh":"Grüne Lebensgewohnheiten",
+"Thể thao":"Sport",
+"Thời gian rảnh & Sở thích":"Freizeit und Hobbys",
+"Thời tiết & Các mùa":"Wetter & Jahreszeiten",
+"Tiếng ồn":"Lärm",
+"Trang web & Ứng dụng":"Websites und Apps",
+"Tranh ảnh & Nhiếp ảnh":"Bilder & Fotografie",
+"Tái chế & Rác thải":"Recycling & Abfall",
+"Âm nhạc":"Musik",
+"Đúng giờ & Quản lý thời gian":"Pünktlichkeit und Zeitmanagement",
+"Đọc sách":"Bücher lesen",
+"Ẩm thực & Nấu ăn":"Essen & Kochen",
+});
 })(typeof self !== 'undefined' ? self : this);

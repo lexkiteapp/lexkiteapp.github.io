@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_toldtome",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Told me, no to!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She told to me a story.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She told me a story.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say told me. No to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Told me! She told me a story.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She told to me a story.",
+  "right": "She told me a story.",
+  "strike": "told to me",
+  "why": "Say told me. No to.",
+  "memory": "Told me.",
+  "quiz": {
+   "stem": "She ___ a story.",
+   "options": [
+    "told me",
+    "told to me"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“told to me” गलत है!",
+   "tip": "हिंदी के “मुझसे कहा” की तरह to न जोड़ें; अंग्रेज़ी में सीधे “told me” बोलें।",
+   "caption": "क्या आप भी कहते हैं “She told to me a story”? 😉 अंग्रेज़ी में “She told me a story” सही है, क्योंकि told के बाद सीधे व्यक्ति आता है, to नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “told me”। to हटाकर “told me” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“told to me” is wrong!",
+   "tip": "Do not add to like the Hindi “mujhse kaha”; in English say “told me”.",
+   "caption": "Do you say “She told to me a story”? 😉 In English “She told me a story” is right, because told is followed straight by the person, no to. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“told to me” गलत है!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“told to me” गलत है!",
+  "keyword": "She told me a story.",
+  "value": "हिंदी के “मुझसे कहा” की तरह to न जोड़ें; अंग्रेज़ी में सीधे “told me” बोलें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“told to me” गलत है!",
+    "description": "क्या आप भी कहते हैं “She told to me a story”? 😉 अंग्रेज़ी में “She told me a story” सही है, क्योंकि told के बाद सीधे व्यक्ति आता है, to नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "She told me a story.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “She told to me a story”? 😉 अंग्रेज़ी में “She told me a story” सही है, क्योंकि told के बाद सीधे व्यक्ति आता है, to नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “She told to me a story”? 😉 अंग्रेज़ी में “She told me a story” सही है, क्योंकि told के बाद सीधे व्यक्ति आता है, to नहीं। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“told to me” गलत है! #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “told me”। to हटाकर “told me” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

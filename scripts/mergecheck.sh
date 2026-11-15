@@ -10,9 +10,9 @@ if [ ! -f "$MH" ]; then
   [ -f "$MH" ] || { git merge-base --is-ancestor "$1" HEAD && { echo "đã gộp sẵn"; exit 0; }; echo "ABORT: git merge không chạy"; exit 1; }
 fi
 U=$(git diff --name-only --diff-filter=U)
-# Từ điển: nguồn i18n/ui (13 ngôn ngữ) + web/js/i18n (en; gói khóa băm <lang> bị đè lại bằng i18n-pack ngay sau)
+# Từ điển: nguồn i18n/ui (13 ngôn ngữ, mỗi khóa một dòng → giữ cả hai phía, fmt-stable sắp lại + bỏ khóa trùng) + web/js/i18n (en; gói khóa băm <lang> bị đè lại bằng i18n-pack ngay sau)
 for f in $U; do case "$f" in web/js/i18n/*.js|i18n/ui/*.js) sed -i '' '/^<<<<<<< /d;/^=======$/d;/^>>>>>>> /d' "$f"; git add "$f";; esac; done
-node scripts/i18n-dedupe.cjs >/dev/null; node scripts/i18n-pack.mjs >/dev/null; git add web/js/i18n i18n/ui
+node scripts/fmt-stable.mjs >/dev/null; node scripts/i18n-pack.mjs >/dev/null; git add web/js/i18n i18n/ui
 U=$(git diff --name-only --diff-filter=U); [ -n "$U" ] && { echo "CONFLICT: $U"; exit 1; }
 R=$(NODE_PATH=$(npm root -g):$S/node_modules node scripts/test/smoke.js "$PWD/web" 2>&1 | tail -1); echo "smoke $R"
 F=0; [ "$R" = "ERRORS none" ] || F=1

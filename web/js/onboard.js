@@ -6,12 +6,12 @@
  * Lựa chọn + bước ở sessionStorage lk.onbPick (qua được tải lại + I18N.set), xóa khi xong (finishOnboarding). Luật: docs/specs/welcome.md */
 (function (g) {
   const App = g.App, { state } = App, { esc } = UI;
-  const STEPS = ['goal', 'level', 'target', 'pace', 'ready'], KEY = 'lk.onbPick';
+  const BASE = ['goal', 'level', 'target', 'pace', 'ready'], KEY = 'lk.onbPick'; // + 'lang' ở đầu khi có ≥ 2 ngôn ngữ chọn được (Target.avail, cờ W7)
   const readPick = () => { try { const p = JSON.parse(sessionStorage.getItem(KEY) || 'null'); return p && typeof p === 'object' ? p : null; } catch (e) { return null; } };
-  const savePick = p => { try { sessionStorage.setItem(KEY, JSON.stringify({ exam: p.exam, target: p.target, pace: p.pace, topics: [...p.topics], v: p.v, lv: p.lv, track: p.track, step: p.step, said: p.said, w: p.w })); } catch (e) { /* riêng tư/đầy: vẫn học bình thường */ } };
+  const savePick = p => { try { sessionStorage.setItem(KEY, JSON.stringify({ exam: p.exam, target: p.target, pace: p.pace, topics: [...p.topics], v: p.v, lv: p.lv, track: p.track, step: p.step, sn: STEPS[p.step], tl: p.tl, said: p.said, w: p.w })); } catch (e) { /* riêng tư/đầy: vẫn học bình thường */ } };
   const hashOf = i => '#/welcome/setup?s=' + STEPS[i];
   const urlOf = i => location.pathname + location.search + hashOf(i); // <base href="/">: đường dẫn tương đối sẽ ra khỏi /app/
-  let live = null, runs = 0;
+  let live = null, runs = 0, STEPS = BASE, busy = false; // STEPS gán 1 lần mỗi run; busy = đang await lưu → Lùi/Esc không chen
   function css() {
     if (document.getElementById('onbCss')) return;
     const s = document.createElement('style'); s.id = 'onbCss';
@@ -23,6 +23,7 @@
   // D = phần dùng chung từ app.js: { view, TOPICS, topicOf, inDeck, addWord, saveSettings, finish, login }
   function run(s, D) {
     css();
+    STEPS = g.Target && Target.avail().length > 1 ? ['lang', ...BASE] : BASE; busy = false;
     const me = ++runs, fromW = /^#\/welcome(\/login)?\/?(\?|$)/.test(App.prevHash || ''), view = D.view, $ = s => view.querySelector(s), $$ = s => [...view.querySelectorAll(s)];
     const TARGETS = { ielts: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], ieltsgt: ['5.5', '6.0', '6.5', '7.0', '7.5', '8.0+'], toeic: ['450', '550', '650', '750', '850', '900+'], toefl: ['3.5', '4.0', '4.5', '5.0', '5.5+'], general: ['A2', 'B1', 'B2', 'C1'] };
     const DEF_T = { ielts: '7.0', ieltsgt: '6.5', toeic: '650', toefl: '4.5', general: 'B1' };
@@ -33,7 +34,7 @@
     const was = ex => (ex === state.settings.exam && fits(ex, state.settings.examTarget)) || ''; // đã có mục tiêu hợp thang → chọn sẵn, không hỏi lại
     const pick = { exam: (App.exam && state.settings.exam) || 'ielts', target: '', pace: 20, topics: new Set(), v: {}, lv: '', step: 0, said: '' };
     pick.target = was(pick.exam);
-    { const p = readPick(); if (p) { if (TARGETS[p.exam]) { pick.exam = p.exam; pick.target = fits(p.exam, p.target); } if (NEW_OF[p.pace]) pick.pace = p.pace; if (Array.isArray(p.topics)) pick.topics = new Set(p.topics); if (p.v && typeof p.v === 'object') pick.v = p.v; if (typeof p.lv === 'string') pick.lv = p.lv; if (typeof p.track === 'string') pick.track = p.track; if (typeof p.said === 'string') pick.said = p.said; if (STEPS[p.step]) pick.step = p.step; if (p.w) pick.w = 1; } }
+    { const p = readPick(); if (p) { if (TARGETS[p.exam]) { pick.exam = p.exam; pick.target = fits(p.exam, p.target); } if (NEW_OF[p.pace]) pick.pace = p.pace; if (Array.isArray(p.topics)) pick.topics = new Set(p.topics); if (p.v && typeof p.v === 'object') pick.v = p.v; if (typeof p.lv === 'string') pick.lv = p.lv; if (typeof p.track === 'string') pick.track = p.track; if (typeof p.said === 'string') pick.said = p.said; if (STEPS.includes(p.sn)) pick.step = STEPS.indexOf(p.sn); else if (STEPS[p.step] && !STEPS.includes('lang')) pick.step = p.step; if (typeof p.tl === 'string' && g.Target && Target.avail().includes(p.tl)) pick.tl = p.tl; if (p.w) pick.w = 1; } }
     if (fromW) pick.w = 1; // có mục Welcome ngay trước bước đầu trong lịch sử (finishOnboarding gỡ cùng các bước, app.js)
     if (STEPS.includes(s)) pick.step = STEPS.indexOf(s); // hash thắng bước đã lưu (tải lại, Tiến/Lùi); vào không có ?s= → tiếp bước đang dở
     if (location.hash !== hashOf(pick.step)) try { history.replaceState(null, '', urlOf(pick.step)); } catch (e) { /* bỏ qua */ }
@@ -58,7 +59,9 @@
     // Ama phản hồi theo bước + lựa chọn vừa chạm (pick.said = bước vừa có lựa chọn mới)
     const kitLine = () => {
       const k = STEPS[pick.step], fresh = pick.said === k;
-      if (k === 'goal') return fresh ? ['cheer', t('Tuyệt! Mình sẽ chọn bài hợp với mục tiêu {name}.', { name: trName() })] : ['happy', t('Chào bạn, mình là Ama! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')];
+      const hello = ['happy', t('Chào bạn, mình là Ama! Vài câu hỏi nhanh để mình lên lộ trình riêng cho bạn nhé.')];
+      if (k === 'lang') return hello;
+      if (k === 'goal') return fresh ? ['cheer', t('Tuyệt! Mình sẽ chọn bài hợp với mục tiêu {name}.', { name: trName() })] : hello;
       if (k === 'level') return !fresh ? (state.settings.placement && lvName() ? ['happy', t('Theo bài kiểm tra, bạn bắt đầu từ {lv}. Muốn đổi thì chọn lại nhé.', { lv: lvName() })] : ['think', t('Chưa chắc trình độ? Làm bài kiểm tra 5 phút để mình xếp đúng chặng.')])
         : pick.lv === 'test' ? ['cheer', t('Lựa chọn thông minh! Bài kiểm tra chỉ mất khoảng 5 phút.')] : ['happy', t('Được rồi, mình bắt đầu từ {lv} nhé.', { lv: lvName() })];
       if (k === 'target') return fresh ? ['cheer', t('Mục tiêu {t} – mình sẽ cùng bạn chinh phục!', { t: pick.target })] : ['think', t('Đặt mục tiêu rõ ràng giúp mình chọn đúng độ khó.')];
@@ -76,6 +79,8 @@
       const d = { step: n + 1, steps: STEPS.length, stepTxt: `${n + 1} / ${STEPS.length}`, pct: Math.round((n + 1) / STEPS.length * 100), progAria: t('Tiến độ'), meta, say, foot: t('Miễn phí · Dữ liệu học thuộc về bạn'),
         kicker: g.Chars ? Chars.name('ama') : '', teacher: g.Chars ? Chars.slot('ama', { pose: pick.said === k ? 'cheer' : 'point', size: k === 'target' ? 'xs' : k === 'goal' ? 'm' : 'l' }) : '' };
       const tr = K && K.TR[pick.track], P = paces().find(x => x[0] === pick.pace) || paces()[1];
+      if (k === 'lang') { const SUB = { en: t('IELTS, TOEIC và giao tiếp hằng ngày'), pt: t('Tiếng Bồ Đào Nha Brazil'), es: t('Tiếng TBN Mỹ Latinh · DELE/SIELE A1–C2') }, cur = pick.tl || Target.cur();
+        Object.assign(d, { foot: t('Chọn 1 ngôn ngữ – đổi được bất cứ lúc nào ở Cài đặt.'), langs: Target.avail().map(id => ({ id, on: id === cur, flag: Target.table(id).em, name: Target.table(id).name, badge: id === 'en' ? t('Phổ biến') : t('Beta'), sub: SUB[id] || '' })) }); }
       if (k === 'goal') { if (K) K.setupGoal(pick); // nạp CSS .trk-vs (chip biến thể) của tracks.js
         Object.assign(d, { q: t('Mục tiêu của bạn là gì?'), foot: t('Chọn 1 gói – có thể học thêm gói khác sau.'),
           tracks: (K ? K.IDS : []).map(id => { const x = K.TR[id], on = id === pick.track; return { id, on, tpl: TPL[id] || 'c4', name: x.name, sub: x.benefit, badge: x.em, vs: vsOf(x, on) }; }) }); }
@@ -94,6 +99,7 @@
     const focusQ = () => { const q = $('#onbQ'); if (q) { q.tabIndex = -1; q.focus({ preventScroll: true }); } };
     // Lùi đúng 1 bước: mục lịch sử do mình đẩy → history.back (như Back hệ thống); vào thẳng (tải lại, link) → thay bằng bước trước. Bước đầu về Welcome.
     const back = () => {
+      if (busy) return;
       if (!pick.step) { if (fromW && !history.state) history.back(); else App.replaceHash('#/welcome'); return; }
       if (history.state && history.state.onb === pick.step) history.back(); else App.replaceHash(hashOf(pick.step - 1));
     };
@@ -105,6 +111,22 @@
       $('#onbBack').onclick = back;
       document.onkeydown = e => { if (e.key !== 'Escape' || (e.target && e.target.tagName === 'SELECT') || !document.getElementById('modal').hidden) return; e.preventDefault(); back(); }; // route() tự gỡ khi rời trang
       const nx = $('#obNext'); if (nx) nx.onclick = () => { pick.step++; pick.said = ''; try { history.pushState({ onb: pick.step, n: ((history.state && history.state.n) || 0) + 1 }, '', urlOf(pick.step)); } catch (e) { /* vẫn đi tiếp được */ } draw(); focusQ(); };
+      // 🌍 bước chọn ngôn ngữ học (W7): chạm thẻ chỉ ghi vào pick.tl; Target.set chạy khi bấm Tiếp tục (Lùi/bỏ dở không đổi ngôn ngữ đang học).
+      // Ngôn ngữ có `home` (không có gói thi tiếng Anh, vd TBN) → Tiếp tục kết thúc thiết lập, vào lộ trình riêng
+      // radiogroup đúng chuẩn: chỉ thẻ đang chọn nằm trong thứ tự Tab (roving tabindex), mũi tên/Enter/Space chọn, vẽ lại xong trả tiêu điểm về thẻ đang chọn
+      const radios = $$('[data-lang]'), pickLang = id => { pick.tl = id; pick.said = 'lang'; draw(); const r = view.querySelector('[data-lang][aria-checked=true]'); if (r) r.focus(); };
+      radios.forEach((c, i) => { c.tabIndex = c.getAttribute('aria-checked') === 'true' ? 0 : -1;
+        c.onclick = () => { if (!busy && c.dataset.lang !== (pick.tl || Target.cur())) pickLang(c.dataset.lang); };
+        c.onkeydown = ev => { const d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[ev.key]; if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); c.click(); }
+          else if (d && !busy) { ev.preventDefault(); const o = radios[(i + d + radios.length) % radios.length]; if (o !== c) pickLang(o.dataset.lang); } }; });
+      if (STEPS[n] === 'lang' && nx) {
+        const next = nx.onclick;
+        nx.onclick = async () => { const was = Target.cur(), done = state.settings.onboarded, tl = pick.tl && Target.avail().includes(pick.tl) ? pick.tl : was, home = Target.table(tl).home; // cờ tắt giữa chừng → ở ngôn ngữ cũ
+          if (!home) { Target.set(tl); return next(); } nx.disabled = true;
+          const S = state.settings, old = { pace: S.pace, dailyGoal: S.dailyGoal, dailyNew: S.dailyNew }; busy = true;
+          try { S.pace = S.pace || 20; S.dailyGoal = S.dailyGoal || S.pace; S.dailyNew = S.dailyNew || NEW_OF[S.pace] || NEW_OF[20]; // chỉ điền mặc định khi thiếu
+            Target.set(tl); await D.finish(true, home); } catch (e) { Target.set(was); Object.assign(S, old); S.onboarded = done; if (me === runs && view.querySelector('#onbBack')) { nx.disabled = false; savePick(pick); try { history.replaceState(history.state, '', urlOf(pick.step)); } catch (e2) { /* Back hệ thống lúc đang lưu: đồng bộ lại URL */ } g.UI && UI.toast(t('Không lưu được – thử lại sau')); } } finally { busy = false; } }; // lỗi → trả ngôn ngữ + mặc định cũ, ở lại bước
+      }
       const acct = $('#setupIn'); if (acct) acct.onclick = e => { e.stopPropagation(); D.login(draw); }; // tài khoản trống: ở lại đúng bước, vẽ lại để ẩn liên kết đăng nhập
       if (TK()) TK().bindSetup(view, pick, id => { TR_ID = id; pick.said = 'goal'; setExam(pick.exam); }, () => { pick.said = 'level'; draw(); });
       $$('#bandT button').forEach(b => b.onclick = () => { pick.target = b.dataset.v; pick.said = 'target'; draw(); });
@@ -121,10 +143,10 @@
         await D.finish(true, to); // Ngày 1 hoặc lời mời – chưa cần tài khoản
       };
     };
-    live = i => { if (!view.querySelector('#onbBack')) return false; if (STEPS[i] && i !== pick.step) { pick.step = i; pick.said = ''; } draw(); focusQ(); return true; };
+    live = i => { if (busy) return true; if (!view.querySelector('#onbBack')) return false; if (STEPS[i] && i !== pick.step) { pick.step = i; pick.said = ''; } draw(); focusQ(); return true; };
     setExam(pick.exam);
   }
   // Back/Tiến/Esc khi đang trong thiết lập: vẽ lại đúng bước. false = màn thiết lập không còn trên trang → app.js chạy lại từ đầu
   const go = s => !!live && live(STEPS.indexOf(s));
-  g.Onboard = { run, go, STEPS };
+  g.Onboard = { run, go, get STEPS() { return STEPS; } };
 })(self);

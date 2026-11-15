@@ -1,6 +1,7 @@
 // Chữ niêm yết Google Play + App Store: NGUỒN DUY NHẤT là store/metadata/<locale>.json (15 file, một file một ngôn ngữ).
 // scripts/asc-upload.mjs đọc khối "apple" từ đây; store/play/LISTING.md (phần ngôn ngữ) sinh từ khối "play".
 //   node scripts/store-metadata.mjs --check [--write-md]   kiểm giới hạn ký tự, từ cấm, từ khoá chính, URL; --write-md sinh lại LISTING.md
+//   node scripts/store-metadata.mjs --whatsnew <dir> [--field whatsNewNative]      ghi <dir>/whatsnew-<mã Play> từ trường whatsNew (ghi chú phát hành, Play ≤500 ký tự) cho native-release.yml
 //   node scripts/store-metadata.mjs --table                in bảng từ khoá (để duyệt)
 // Luật: Google Play Metadata policy (không xếp hạng/giá/emoji trong tên, không nhồi từ khoá, không tên app khác)
 // và App Store Review Guideline 2.3 (2.3.7: không giá/thương hiệu người khác trong tên, phụ đề, từ khoá).
@@ -69,6 +70,16 @@ export function check(all = load()) {
       for (const re of RANKING) if (re.test(v)) E(`${store}.${k}: từ xếp hạng/quảng cáo ${re}`);
       const c = COMPETITORS.exec(v); if (c) E(`${store}.${k}: tên app khác "${c[0]}"`);
     }
+    // Ghi chú phát hành (Play "What's new" ≤500, Apple ≤4000): một trường dùng chung, sửa mỗi lần bump version
+    // whatsNew = app Capacitor đang live (1.x); whatsNewNative = bản native 2.0 (native-release.yml, --field whatsNewNative)
+    for (const f of ['whatsNew', 'whatsNewNative']) {
+      const wn = d[f];
+      if (typeof wn !== 'string' || !wn.trim()) { E(`${f}: trống`); continue; }
+      if (chars(wn) > 500) E(`${f}: ${chars(wn)} > 500 ký tự (Play)`);
+      if (EMOJI.test(wn)) E(`${f}: có emoji`);
+      for (const re of RANKING) if (re.test(wn)) E(`${f}: từ xếp hạng/quảng cáo ${re}`);
+      const c = COMPETITORS.exec(wn); if (c) E(`${f}: tên app khác "${c[0]}"`);
+    }
     const P = d.play || {}, A = d.apple || {};
     if (!P.title || !A.name || !A.description || !P.fullDescription) continue;
     // Tên / mô tả ngắn / phụ đề / từ khoá
@@ -135,7 +146,15 @@ function mdSync(all, write) {
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2), all = load();
-  if (args.includes('--table')) {
+  const wi = args.indexOf('--whatsnew');
+  if (wi >= 0) {
+    const dir = args[wi + 1]; if (!dir) { console.error('--whatsnew cần thư mục'); process.exit(1); }
+    fs.mkdirSync(dir, { recursive: true });
+    const fi = args.indexOf('--field'), field = fi >= 0 ? args[fi + 1] : 'whatsNew';
+    if (!['whatsNew', 'whatsNewNative'].includes(field)) { console.error('--field: whatsNew | whatsNewNative'); process.exit(1); }
+    for (const d of Object.values(all)) fs.writeFileSync(`${dir}/whatsnew-${d.playLocale}`, d[field]);
+    console.log(`✓ whatsnew: ${Object.keys(all).length} ngôn ngữ → ${dir}`);
+  } else if (args.includes('--table')) {
     console.log('| Locale | Primary | Secondary | Play short |\n|---|---|---|---|');
     for (const [loc, d] of Object.entries(all)) console.log(`| ${loc} | ${d.keywords.primary} | ${d.keywords.secondary.join(', ')} | ${d.play.shortDescription} |`);
   } else {

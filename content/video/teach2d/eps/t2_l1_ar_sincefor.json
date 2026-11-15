@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_sincefor",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Time length needs for!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I live here since two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have lived here for two years.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use for with a time length.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "For! I have worked here for five years.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I live here since two years.",
+  "right": "I have lived here for two years.",
+  "strike": "since",
+  "why": "Use for with a time length.",
+  "memory": "For two years.",
+  "quiz": {
+   "stem": "I have worked here ___ five years.",
+   "options": [
+    "since",
+    "for"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "هل تقول “since two years”؟",
+   "tip": "مع المدة نستخدم for لا since: “I have lived here for two years.” وليس “I live here since two years.”.",
+   "caption": "هل تقول أحيانًا “I live here since two years.” 😅 مع المدة نستخدم for لا since، فالجملة الصحيحة “I have lived here for two years.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “for”. مع المدة نستخدم for لا since. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I live here since two years”?",
+   "tip": "With a length of time we use for, not since: “I have lived here for two years.” not “I live here since two years.”.",
+   "caption": "Do you sometimes say “I live here since two years.” 😅 With a length of time we use for, not since, so the right sentence is “I have lived here for two years.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “since two years”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 51,
+  "seconds": 30.5,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "هل تقول “since two years”؟",
+  "keyword": "I have lived here for two years.",
+  "value": "مع المدة نستخدم for لا since: “I have lived here for two years.” وليس “I live here since two years.”.",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 45,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “since two years”؟",
+    "description": "هل تقول أحيانًا “I live here since two years.” 😅 مع المدة نستخدم for لا since، فالجملة الصحيحة “I have lived here for two years.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I have lived here for two years.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “I live here since two years.” 😅 مع المدة نستخدم for لا since، فالجملة الصحيحة “I have lived here for two years.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “I live here since two years.” 😅 مع المدة نستخدم for لا since، فالجملة الصحيحة “I have lived here for two years.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “since two years”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “for”. مع المدة نستخدم for لا since. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

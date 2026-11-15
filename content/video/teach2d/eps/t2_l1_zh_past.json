@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_past",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Yesterday means the past!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Yesterday I go to school.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Yesterday I went to school.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Yesterday means the past. Use went.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Went! Yesterday she went to work.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Yesterday I go to school.",
+  "right": "Yesterday I went to school.",
+  "strike": "go",
+  "why": "Yesterday means the past. Use went.",
+  "memory": "Yesterday: went, not go.",
+  "quiz": {
+   "stem": "Yesterday she ___ to work.",
+   "options": [
+    "go",
+    "went"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "说“昨天”，动词要变形！",
+   "tip": "英语动词要随时间变化：昨天用 “went”，不是 “go”。",
+   "caption": "你是不是也会说 “Yesterday I go to school”？😅 英语里说过去的事，动词要变成过去式：“Yesterday I went to school”。跟着 Ama 老师读一读吧！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“went”。说昨天的事要用过去式！用免费测验继续练习：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Yesterday” changes the verb!",
+   "tip": "English verbs change with time: after yesterday use “went”, not “go”.",
+   "caption": "Do you say “Yesterday I go to school”? 😅 In English, past events need a past verb: “Yesterday I went to school”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "说“昨天”，动词要变形！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "说“昨天”，动词要变形！",
+  "keyword": "Yesterday I went to school.",
+  "value": "英语动词要随时间变化：昨天用 “went”，不是 “go”。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "说“昨天”，动词要变形！",
+    "description": "你是不是也会说 “Yesterday I go to school”？😅 英语里说过去的事，动词要变成过去式：“Yesterday I went to school”。跟着 Ama 老师读一读吧！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "Yesterday I went to school.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “Yesterday I go to school”？😅 英语里说过去的事，动词要变成过去式：“Yesterday I went to school”。跟着 Ama 老师读一读吧！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "你是不是也会说 “Yesterday I go to school”？😅 英语里说过去的事，动词要变成过去式：“Yesterday I went to school”。跟着 Ama 老师读一读吧！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "说“昨天”，动词要变形！ #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“went”。说昨天的事要用过去式！用免费测验继续练习：{link}",
+  "lang": "zh"
+ }
+}

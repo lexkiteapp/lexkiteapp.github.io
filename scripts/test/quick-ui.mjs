@@ -83,6 +83,7 @@ const view = window.App.view;
 
 // 2. Chơi nhanh: render, CSS nạp khi mở, đáp án đúng duy nhất, phương án nhiễu khác nghĩa
 window.App.routes.quick();
+await sleep(60); // câu 1 chuẩn bị theo lát (không tác vụ dài) rồi mới vẽ
 assert(document.getElementById('qk-css'), 'CSS #qk-css nạp khi mở route');
 assert(document.querySelector('.qk-timer-pill'), 'Có đồng hồ 15s');
 for (let i = 0; i < 4; i++) {
@@ -107,6 +108,7 @@ console.log('✓ routes.quick: 4 câu, 1 đáp án đúng, phản hồi, kết q
 // 3. Hết giờ giữa lúc đang xem phản hồi → không vẽ lại câu hỏi đè lên màn kết quả
 const realNow = Date.now;
 window.App.routes.quick();
+await sleep(60);
 document.querySelector('#qkOpts .qk-btn').click();
 Date.now = () => realNow() + 16000;
 await sleep(1000);

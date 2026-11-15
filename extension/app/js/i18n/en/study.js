@@ -142,6 +142,7 @@
 
 /* ---------- plan.js: today's plan ---------- */
 'Để Lexkite cá nhân hóa lộ trình cho bạn': 'So Lexkite can personalize your path',
+'Làm bài kiểm tra đầu vào': 'Take the placement test', // Hôm nay (plan.js, khung app) cần ngay – không để ở pathx (gói lười) kẻo ngôn ngữ khác hiện tiếng Việt
 'Ôn tập thẻ đến hạn': 'Review due cards',
 'Lặp lại ngắt quãng – ưu tiên số 1': 'Spaced repetition – top priority',
 'đã học {pct}%': '{pct}% learned',
@@ -211,9 +212,7 @@
 '1 bài ngữ pháp': '1 grammar lesson',
 'Nghe 1 phần': 'Listen to 1 part',
 'Luyện Speaking': 'Practice Speaking',
-'Ghép thẻ tính giờ': 'Timed matching',
 '{n} từ đang sắp quên': '{n} words fading',
-'Đọc bài': 'Read',
 
 'Luyện phát âm từ': 'Practice word pronunciation',
 'Thư viện phát âm': 'Pronunciation library',

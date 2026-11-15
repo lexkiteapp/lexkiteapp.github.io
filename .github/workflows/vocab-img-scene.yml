@@ -33,6 +33,10 @@ permissions:
   id-token: write   # ai-pool /api/lexai (OIDC) – thẻ cảnh dùng GrabCast trước
 concurrency: { group: "vocab-img-scene-${{ github.event.inputs.model || 'default' }}", cancel-in-progress: false }   # A/B: mỗi mô hình một nhóm → chạy song song
 env:
+  # 11/11 (25 lượt fill liền 22:00–22:24 ngày 10/11: mỗi lượt vẽ 1 ảnh, ~4 phút, ~156 neuron/ảnh đạt – hết nghĩa đủ điều kiện): lượt (plan) chỉ chạy khi còn ≥ VIMG_MIN_GAPS nghĩa vẽ được,
+  # chuỗi tự nối chỉ nối khi lượt vừa rồi nhận ≥ VIMG_MIN_ACC ảnh. Ngưỡng chỉ quyết CÓ chạy hay không – cổng giám khảo/ngưỡng chất lượng không đổi.
+  VIMG_MIN_GAPS: '20'
+  VIMG_MIN_ACC: '5'
   MODE: ${{ github.event.inputs.mode || (github.event_name == 'schedule' && 'fill') || 'pilot' }}
   # 02/11 giữ chỗ kho cho pilot (scripts/lib/cf-pool.mjs poolHold): biến repo CF_POOL_HOLD "<n>@<hết hạn>" – fill/giám khảo fill không dùng n tài khoản cuối; pilot dùng
   CF_POOL_HOLD: ${{ vars.CF_POOL_HOLD }}
@@ -77,7 +81,7 @@ jobs:
             { node scripts/build-lexicon.mjs --write >/dev/null || [ -s dist/lexicon.json ]; }
             G=$(node scripts/vocab-img/scene.mjs --gaps 1000000 --shard 0/1 | node -p "JSON.parse(require('fs').readFileSync(0,'utf8')).items.length")
             echo "nghĩa cảnh thiếu ảnh có thể vẽ (không trong hàng chờ / thẻ đang nghỉ): $G"
-            [ "$G" -gt 0 ] || { echo "✓ không còn nghĩa để vẽ – bỏ lượt"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; }
+            [ "$G" -ge "$VIMG_MIN_GAPS" ] || { echo "✓ chỉ còn $G (< $VIMG_MIN_GAPS) nghĩa để vẽ – bỏ lượt"; echo "skip=1" >> $GITHUB_OUTPUT; echo 'shards=[0]' >> $GITHUB_OUTPUT; exit 0; }
             m=$(( (G + 39) / 40 )); [ "$n" -gt "$m" ] && n=$m
           fi
           echo "shards=$(node -e "console.log(JSON.stringify([...Array($n).keys()]))")" >> $GITHUB_OUTPUT
@@ -490,8 +494,10 @@ jobs:
           H=$(date -u +%H); [ "$H" -lt 2 ] && { echo "00–02 UTC: nhường kho từ (lexicon-expand 00:12) – cron 02:40 nối tiếp"; exit 0; }   # so trong bash: biểu thức GitHub coi '' == '0' → bước bị bỏ (26/10)
           if ls parts/*/out/vimg-fill/EXHAUSTED >/dev/null 2>&1; then echo "⏹ kho CF hết neuron ngày – chờ cron sau 00:00 UTC"; exit 0; fi
           { node scripts/build-lexicon.mjs --write >/dev/null || { [ -s dist/lexicon.json ] && echo "::warning::cổng kho từ (dict-consistency) đỏ – ảnh vẫn dùng dist/lexicon.json đã ghi"; }; }
-          G=$(node scripts/vocab-img/scene.mjs --gaps 1 --shard 0/1 | node -p "JSON.parse(require('fs').readFileSync(0,'utf8')).items.length")
-          [ "$G" -gt 0 ] || { echo "✓ không còn nghĩa thiếu ảnh (trừ hàng chờ) – dừng chuỗi"; exit 0; }
+          G=$(node scripts/vocab-img/scene.mjs --gaps 1000000 --shard 0/1 | node -p "JSON.parse(require('fs').readFileSync(0,'utf8')).items.length")
+          ACC=$(node -p "require('./m/fill-report.json').accepted" 2>/dev/null || echo 0)
+          echo "chuỗi: còn $G nghĩa vẽ được (cần ≥ $VIMG_MIN_GAPS) · lượt vừa nhận $ACC ảnh (cần ≥ $VIMG_MIN_ACC)"
+          [ "$G" -ge "$VIMG_MIN_GAPS" ] && [ "$ACC" -ge "$VIMG_MIN_ACC" ] || { echo "⏹ dừng chuỗi: hết việc thật (cron kế tiếp)"; exit 0; }
           bash scripts/ci/gh-retry.sh gh workflow run vocab-img-scene.yml -R ${{ github.repository }} --ref main -f mode=fill -f shards=10 -f max_gc=6000 -f variants=6 -f provider=cf
           echo "↻ đã gọi lượt fill kế tiếp"
   labfeat:

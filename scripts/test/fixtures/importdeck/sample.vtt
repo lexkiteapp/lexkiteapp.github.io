@@ -1,0 +1,17 @@
+WEBVTT
+Kind: captions
+
+NOTE this is a comment
+that spans two lines
+
+STYLE
+::cue { color: red }
+
+00:00:01.000 --> 00:00:03.500 align:start position:0%
+The <c.colorE5E5E5>ambiguous</c> results left the
+
+00:00:03.500 --> 00:00:05.000
+committee deeply skeptical.
+
+00:00:05.000 --> 00:00:06.000
+committee deeply skeptical.

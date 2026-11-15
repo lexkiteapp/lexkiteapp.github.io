@@ -1,0 +1,130 @@
+{
+ "_doc": "Manifest thay đổi CÓ CHỦ ĐÍCH cho cổng samples-seo-parity (scripts/test/samples-seo-parity.mjs). Mỗi mục: page + reason (bắt buộc) + words (chữ được phép bỏ) + replace [[từ,thành]] (title/meta/ld đổi đúng cặp) + itemList (mục lục chỉ được thêm). Link nội bộ mất / canonical / hreflang / trang biến mất không bao giờ được khai ở đây. Giữ mục chỉ trong PR gây thay đổi; PR sau so với base đã gộp nên mục cũ vô hại.",
+ "entries": [
+  {
+   "page": "phat-am/chunking-thought-groups.html",
+   "reason": "Sửa IPA \"In my opinion\": /ɪn ˈmaɪ əˈpɪnjən/ nhấn sai \"my\" → /ɪn maɪ əˈpɪnjən/ (nhấn \"pin\").",
+   "words": [
+    "ˈmaɪ"
+   ]
+  },
+  {
+   "page": "phat-am/final-consonants.html",
+   "reason": "Âm cuối /t k p/ không bắt buộc bật hơi (thường không bật): \"chặn lại rồi bật nhẹ hơi\" → \"phát âm rõ, có thể bật nhẹ hơi\".",
+   "words": [
+    "rồi"
+   ]
+  },
+  {
+   "page": "phat-am/index.html",
+   "reason": "Thêm 6 bài phát âm nâng cao B2–C1 (CQ4): tiêu đề/mô tả/mục lục tăng 56 → 62 bài.",
+   "words": [
+    "56"
+   ],
+   "replace": [
+    [
+     "56 bài",
+     "62 bài"
+    ]
+   ]
+  },
+  {
+   "page": "phat-am/sentence-stress-weak-forms.html",
+   "reason": "Nhịp \"gần như đều nhau\" → \"có xu hướng khá đều\"; \"can't\" nêu cả giọng Mỹ /kænt/; bỏ khẳng định tuyệt đối dạng mạnh/phủ định.",
+   "words": [
+    "gần"
+   ]
+  },
+  {
+   "page": "phat-am/sh-ch-j-zh-sounds.html",
+   "reason": "Sửa -sion/-ssion (/ʒ/ sau nguyên âm, /ʃ/ sau phụ âm hoặc -ssion), -stion /tʃ/, lẫn s/x chủ yếu miền Bắc; /s/ khác /ʃ/ ở vị trí lưỡi chứ không chỉ môi.",
+   "words": [
+    "miền",
+    "nam/miền",
+    "nếu",
+    "đang",
+    "cười",
+    "đó"
+   ]
+  },
+  {
+   "page": "phat-am/stress-shift.html",
+   "reason": "Bỏ -ism khỏi nhóm \"lùi về âm thứ 3\" (-ism không dời trọng âm); -ian → -cian; thêm rào chắn xu hướng.",
+   "words": [
+    "ian",
+    "ic/-ian/-tion"
+   ]
+  },
+  {
+   "page": "phat-am/word-stress.html",
+   "reason": "Ví dụ -ee/-ese nhất quán với danh sách từ (refugee, Japanese thay employee, Vietnamese); thêm \"thường\" + ngoại lệ (Arabic, Catholic).",
+   "words": [
+    "emploˈyee",
+    "vietnaˈmese",
+    "thì"
+   ]
+  },
+  {
+   "page": "en/pronunciation/chunking-thought-groups.html",
+   "reason": "Sửa IPA \"In my opinion\": /ɪn ˈmaɪ əˈpɪnjən/ nhấn sai \"my\" → /ɪn maɪ əˈpɪnjən/ (nhấn \"pin\").",
+   "words": [
+    "ˈmaɪ"
+   ]
+  },
+  {
+   "page": "en/pronunciation/final-consonants.html",
+   "reason": "Âm cuối /t k p/ không bắt buộc bật hơi (thường không bật): \"chặn lại rồi bật nhẹ hơi\" → \"phát âm rõ, có thể bật nhẹ hơi\".",
+   "words": [
+    "puff",
+    "air",
+    "close"
+   ]
+  },
+  {
+   "page": "en/pronunciation/index.html",
+   "reason": "Thêm 6 bài phát âm nâng cao B2–C1 (CQ4): tiêu đề/mô tả/mục lục tăng 56 → 62 bài.",
+   "words": [
+    "56"
+   ],
+   "itemList": true
+  },
+  {
+   "page": "en/pronunciation/sentence-stress-weak-forms.html",
+   "reason": "Nhịp \"gần như đều nhau\" → \"có xu hướng khá đều\"; \"can't\" nêu cả giọng Mỹ /kænt/; bỏ khẳng định tuyệt đối dạng mạnh/phủ định.",
+   "words": [
+    "roughly",
+    "long"
+   ]
+  },
+  {
+   "page": "en/pronunciation/sh-ch-j-zh-sounds.html",
+   "reason": "Sửa -sion/-ssion (/ʒ/ sau nguyên âm, /ʃ/ sau phụ âm hoặc -ssion), -stion /tʃ/, lẫn s/x chủ yếu miền Bắc; /s/ khác /ʃ/ ở vị trí lưỡi chứ không chỉ môi.",
+   "words": [
+    "smile"
+   ]
+  },
+  {
+   "page": "en/pronunciation/stress-shift.html",
+   "reason": "Bỏ -ism khỏi nhóm \"lùi về âm thứ 3\" (-ism không dời trọng âm); -ian → -cian; thêm rào chắn xu hướng.",
+   "words": [
+    "ian",
+    "ic/-ian/-tion"
+   ]
+  },
+  {
+   "page": "en/pronunciation/th-sounds-theta-eth.html",
+   "reason": "Sửa quy tắc /ð/ \"giữa hai nguyên âm\" → \"giữa các nguyên âm\" (although có /ð/ sau /l/).",
+   "words": [
+    "two"
+   ]
+  },
+  {
+   "page": "en/pronunciation/word-stress.html",
+   "reason": "Ví dụ -ee/-ese nhất quán với danh sách từ (refugee, Japanese thay employee, Vietnamese); thêm \"thường\" + ngoại lệ (Arabic, Catholic).",
+   "words": [
+    "emploˈyee",
+    "vietnaˈmese"
+   ]
+  }
+ ]
+}

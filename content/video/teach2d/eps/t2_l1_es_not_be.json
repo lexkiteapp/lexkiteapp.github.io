@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_not_be",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Don't say he no is!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: He no is here.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: He is not here.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Put not after am, is, or are.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Is not! She is not here.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "He no is here.",
+  "right": "He is not here.",
+  "strike": "no",
+  "why": "Put not after am, is, or are.",
+  "memory": "Is not.",
+  "quiz": {
+   "stem": "She ___ here.",
+   "options": [
+    "no is",
+    "is not"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿Dices “he no is”? Cuidado",
+   "tip": "En inglés el “not” va después de “is”, “am” o “are”, no antes.",
+   "caption": "¿Has dicho “He no is here.”? 😅 En español “no” va antes del verbo, pero en inglés: “He is not here.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “is not”. El “not” va después de “to be”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “he no is”? Careful",
+   "tip": "In English “not” goes after “is”, “am” or “are”, not before.",
+   "caption": "Have you said “He no is here.”? In Spanish “no” goes before the verb, but in English: “He is not here.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿Dices “he no is”? Cuidado"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "¿Dices “he no is”? Cuidado",
+  "keyword": "He is not here.",
+  "value": "En inglés el “not” va después de “is”, “am” o “are”, no antes.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "¿Dices “he no is”? Cuidado",
+    "description": "¿Has dicho “He no is here.”? 😅 En español “no” va antes del verbo, pero en inglés: “He is not here.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "He is not here.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¿Has dicho “He no is here.”? 😅 En español “no” va antes del verbo, pero en inglés: “He is not here.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¿Has dicho “He no is here.”? 😅 En español “no” va antes del verbo, pero en inglés: “He is not here.”. ¡Escucha a Carlos y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿Dices “he no is”? Cuidado #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “is not”. El “not” va después de “to be”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

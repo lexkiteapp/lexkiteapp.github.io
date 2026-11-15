@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_moretaller",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Taller has no more!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She is more taller than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She is taller than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Taller already means more tall.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Taller! My brother is taller than me.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She is more taller than me.",
+  "right": "She is taller than me.",
+  "strike": "more",
+  "why": "Taller already means more tall.",
+  "memory": "Taller than me.",
+  "quiz": {
+   "stem": "My brother is ___ than me.",
+   "options": [
+    "more tall",
+    "taller"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“more taller” 틀렸어요!",
+   "tip": "taller에는 이미 비교의 뜻이 있어요. “She is taller than me”예요.",
+   "caption": "“She is more taller than me”라고 말하고 있나요? 😅 짧은 형용사는 -er만 붙이고 more는 함께 쓰지 않아요. “She is taller than me”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “taller”. more 빼고 taller! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“More taller” is wrong!",
+   "tip": "Taller already shows comparison. No more. Say “She is taller than me”.",
+   "caption": "Do you say “She is more taller than me”? 😅 Short adjectives take -er, so you do not add “more”. “She is taller than me” is right. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“more taller” 틀렸어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“more taller” 틀렸어요!",
+  "keyword": "She is taller than me.",
+  "value": "taller에는 이미 비교의 뜻이 있어요. “She is taller than me”예요.",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“more taller” 틀렸어요!",
+    "description": "“She is more taller than me”라고 말하고 있나요? 😅 짧은 형용사는 -er만 붙이고 more는 함께 쓰지 않아요. “She is taller than me”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "She is taller than me.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“She is more taller than me”라고 말하고 있나요? 😅 짧은 형용사는 -er만 붙이고 more는 함께 쓰지 않아요. “She is taller than me”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“She is more taller than me”라고 말하고 있나요? 😅 짧은 형용사는 -er만 붙이고 more는 함께 쓰지 않아요. “She is taller than me”가 맞아요. Ama 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“more taller” 틀렸어요! #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “taller”. more 빼고 taller! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "lang": "ko"
+ }
+}

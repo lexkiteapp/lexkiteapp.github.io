@@ -165,6 +165,7 @@ enum StudySourceName {
         case "reading": return t(.revFromReadings)
         case "dict": return t(.revFromDictionaryLookups)
         case "anki": return t(.revFromAnki)
+        case "doc": return t(.revFromADocument)
         default: return t(.revFromTheLibrary)
         }
     }
@@ -176,6 +177,7 @@ enum StudySourceName {
         case "reading": return t(.revSavedWhileReadingInLexkite)
         case "dict": return t(.revWordsYouLookedUpAnd)
         case "anki": return t(.revImportedFromYourAnkiDecks)
+        case "doc": return t(.revImportedFromTextPdfEpubSubtitles)
         default: return t(.revAddedFromIeltsWordSets)
         }
     }

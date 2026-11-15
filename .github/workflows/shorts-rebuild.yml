@@ -11,7 +11,7 @@ on:
 permissions: { contents: read }
 jobs:
   rebuild:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 120
     env:
       CINE_LIB: ${{ github.workspace }}/footage
