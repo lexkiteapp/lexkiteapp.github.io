@@ -490,6 +490,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
   const BCSS = {
     call: ['css/st-v2-teacher-call.css'],
     cambridge: 'css/exam.css',
+    dictp: 'css/st-v2-dict.css',
     espr: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css'],
     ghub: 'css/st-v2-grammar.css',
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
@@ -499,7 +500,6 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     mock: 'css/exam.css',
     onb: ['css/st-v2-onb-pre.css', 'css/st-v2-onb-goal.css', 'css/st-v2-onb-lang.css', 'css/st-v2-onb-level.css', 'css/st-v2-onb-target.css', 'css/st-v2-onb-pace.css', 'css/st-v2-onb-ready.css'],
     outcome: 'css/outcomes.css',
-    dictp: 'css/st-v2-dict.css',
     pas: ['css/st-v2-speak-pre.css', 'css/st-v2-pas-sit.css', 'css/st-v2-pas-drill.css'],
     pron: 'css/st-v2-pron-hub.css',
     psheet: ['css/st-v2-path-sheet.css', 'css/path-sheet.css'],

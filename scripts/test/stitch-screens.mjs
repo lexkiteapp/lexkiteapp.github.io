@@ -34,6 +34,7 @@ export const SEED_LEAGUE = () => {
 export const SCREENS = {
   call: 'call/coffee',
   complete: 'lesson/go?demo=1',
+  dict: 'dict',
   feedback: 'lesson/go?demo=1',
   'feedback-wrong': 'lesson/go?demo=1',
   grammar: 'grammar',
@@ -47,7 +48,6 @@ export const SCREENS = {
   'onb-ready': 'welcome/setup?s=ready',
   'onb-target': 'welcome/setup?s=target',
   practice: 'train',
-  dict: 'dict',
   'pron-hub': 'pron',
   readiness: 'goal',
   review: 'review?hub=1',
@@ -65,6 +65,7 @@ export const SCREENS = {
 export const V2REF = {
   call: 'teacher-call',
   complete: 'lesson-complete',
+  dict: 'dict',
   feedback: 'feedback-correct',
   'feedback-wrong': 'feedback-wrong',
   grammar: 'grammar',
@@ -78,7 +79,6 @@ export const V2REF = {
   'onb-ready': 'onb-ready',
   'onb-target': 'onb-target',
   practice: 'practice',
-  dict: 'dict',
   'pron-hub': 'pron-hub',
   readiness: 'exam-readiness',
   review: 'review',
