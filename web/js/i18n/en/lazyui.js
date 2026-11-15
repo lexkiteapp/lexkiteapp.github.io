@@ -913,7 +913,4 @@ Khóa khung app cần ngay → để ở nhóm gốc hoặc en/xcore.js; scripts
   'Không lưu được – thử lại sau': 'Couldn’t save – please try again later',
   // ← en/core.js
   '{a}/{b} bài': '{a}/{b} lessons',
-  // ← en/xcore.js
-  'Mức sẵn sàng thi': 'Exam readiness',
-  'Mục tiêu hôm nay': "Today's goal",
 }); })(typeof self !== 'undefined' ? self : this);

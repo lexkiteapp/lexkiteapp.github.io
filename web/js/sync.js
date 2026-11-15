@@ -66,7 +66,7 @@
       if (!window.firebase) { await loadScript(SDK + 'firebase-app-compat.js'); await loadScript(SDK + 'firebase-auth-compat.js'); } // chỉ cần đăng nhập – không tải Firestore SDK (nhẹ hơn ~100 KB)
       fb = firebase.initializeApp(FIREBASE_CONFIG);
       onAuth = cb => firebase.auth().onAuthStateChanged(cb);
-      // Đăng nhập kiểu chuyển hướng (popup bị chặn): token Drive nằm trong kết quả chuyển hướng
+      // Đăng nhập chuyển hướng (popup bị chặn): token Drive nằm trong kết quả
       if (firebase.auth().getRedirectResult) firebase.auth().getRedirectResult().then(async r => { if (driveOn() && await takeTok(r)) start(); }).catch(() => {});
     }
     db = true;
@@ -235,7 +235,7 @@
     netT = setTimeout(() => { netT = null; if (needPull) pullMerge({ quiet: true }); else push(); }, Math.min(600000, 30000 * 2 ** netN++));
   }
   const netFail = e => { retryLater(); if (offline()) return setStatus('ok', t('Đồng bộ tạm nghỉ – dữ liệu vẫn trên máy.')); console.warn('sync', e); setStatus('error', e.message); };
-  // kho máy vừa xóa/đổi: kéo lại đủ, không đẩy gói rỗng
+  // kho máy vừa xóa/đổi: kéo lại đủ
   async function setPulled(hs) { const all = await Store.get('pulledHashes', {}); if (hs) all[Sync.user.uid] = hs; else delete all[Sync.user.uid]; await Store.set('pulledHashes', all); }
   const forgetPulled = () => { sentHashes = {}; return setPulled(); };
   let shrinkForce = false;
@@ -441,7 +441,7 @@
     } catch (e) {
       // Hết hạn mức trong ngày → tạm dừng đến hôm sau; dữ liệu vẫn trên máy
       if (e && (e.code === 'resource-exhausted' || /quota/i.test(e.message || ''))) { await Store.set('syncPausedUntil', Date.now() + pauseMs(e.retry)); setStatus('ok', t('Đồng bộ tạm nghỉ vài giờ (máy chủ miễn phí đã đủ lượt hôm nay) – dữ liệu vẫn lưu trên máy và sẽ tự đồng bộ sau.')); return; }
-      // 409 shrink: kéo đủ, gộp, rồi gửi lại kèm force (còn nhỏ = dấu xóa thật)
+      // 409 shrink: kéo đủ, gộp, gửi lại kèm force
       if (e && e.code === 'shrink' && !shrinkForce) { await forgetPulled(); shrinkForce = true; needPull = true; pullMerge({ quiet: true }); return; }
       netFail(e);
     }
