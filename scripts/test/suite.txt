@@ -429,3 +429,4 @@ node scripts/test/ext-imgdata.mjs
 node scripts/test/league-xp.mjs
 node scripts/test/body-limit.mjs
 node scripts/test/ai-task.mjs
+node scripts/test/video-junk.mjs
