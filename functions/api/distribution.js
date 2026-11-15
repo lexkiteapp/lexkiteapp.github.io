@@ -8,7 +8,7 @@ import { adminGate, adminAudit, adminCors } from './admin.js';
 import { guardBg } from './_d1guard.js';
 import { limit } from './sync.js';
 import { manifest } from './admin-shorts.js';
-import { setup, chanCfg, pauseChannel } from './youtube.js';
+import { setup, chanCfg, chanCfgs, pauseChannel } from './youtube.js';
 import { langOfChannel, foreignAccount, pausedAccount, extAccount, normCfg, route, routeAll, implicitSocialRules, pickEmbed, explain, platformOf, planAll, localDate, localHM, PLAN_DAYS } from './_distribution.js';
 import { embedMeta, socialMeta, PLATFORMS } from './_role_meta.js';
 import { viewOf, typeOf } from './_clip_logic.js';
@@ -22,49 +22,12 @@ const meta = async (db, k) => ((await db.prepare('SELECT v FROM yt_meta WHERE k 
 const setMeta = (db, k, v) => run(db, 'INSERT INTO yt_meta (k, v) VALUES (?, ?) ON CONFLICT(k) DO UPDATE SET v = excluded.v', k, v);
 const rules = async db => (await all(db, 'SELECT * FROM yt_rules ORDER BY pos, id')).map(r => { let cond = {}; try { cond = JSON.parse(r.cond || '{}'); } catch (e) { /* empty */ } return { id: r.id, name: r.name, cond, channel_id: r.channel_id, active: r.active }; });
 async function channels(db) {
-  const out = []; for (const c of await all(db, 'SELECT channel_id, title, thumb, status, email FROM yt_channel ORDER BY id')) { const x = await chanCfg(db, c.channel_id); out.push({ channel_id: c.channel_id, title: c.title, thumb: c.thumb, status: c.status, cfg: x.cfg, paused_reason: x.paused_reason }); }
-  for (const c of await all(db, 'SELECT channel_id, platform, account_id, title, thumb, status, info, updated FROM dist_ext ORDER BY platform, title')) { const x = await chanCfg(db, c.channel_id), info = parseInfo(c.info); delete c.info;
-    out.push({ ...c, thumb: avatarUrl(info) || c.thumb, thumb_src: c.thumb, info, lang_src: x.explicit_lang ? 'cfg' : langOfChannel(c.title) ? 'name' : 'default', cfg: { ...x.cfg, role: 'social', lang: x.explicit_lang ? x.cfg.lang : (langOfChannel(c.title) || x.cfg.lang) }, paused_reason: x.paused_reason, ext: 1 }); }
+  // 3 reads in ONE round trip (db.batch) + one config query: the old per-channel chanCfg loop made /api/distribution take ~16 s
+  const [yt, ext] = (await db.batch([db.prepare('SELECT channel_id, title, thumb, status, email FROM yt_channel ORDER BY id'), db.prepare('SELECT channel_id, platform, title, thumb, status FROM dist_ext ORDER BY platform, title')])).map(r => r.results || []);
+  const cf = await chanCfgs(db), get = id => cf.get(id) || { cfg: normCfg({}), paused_reason: '' }, out = [];
+  for (const c of yt) { const x = get(c.channel_id); out.push({ channel_id: c.channel_id, title: c.title, thumb: c.thumb, status: c.status, cfg: x.cfg, paused_reason: x.paused_reason }); }
+  for (const c of ext) { const x = get(c.channel_id); out.push({ ...c, cfg: { ...x.cfg, role: 'social' }, paused_reason: x.paused_reason, ext: 1 }); }
   return out.map(c => ({ ...c, platform: c.platform || platformOf(c.channel_id) }));
-}
-const parseInfo = v => { try { const o = JSON.parse(v || '{}'); return o && typeof o === 'object' && !Array.isArray(o) ? o : {}; } catch (e) { return {}; } };
-/** Avatar cùng origin (băm nội dung → URL bất biến, không đoán được). Không có bản cache → null (client dùng URL gốc, onerror → avatar dự phòng). */
-export const avatarUrl = info => (info && /^[a-f0-9]{32}$/.test(String(info.av || '')) ? '/api/distribution?av=' + info.av : null);
-// Chỉ tải avatar từ CDN ảnh của nền tảng (không SSRF), ≤ 256 KB, ảnh thật
-export const AV_HOST = /(^|\.)(fbcdn\.net|cdninstagram\.com|tiktokcdn(-us|-eu)?\.com|ggpht\.com|googleusercontent\.com|ytimg\.com|threads\.net)$/i;
-const AV_MAX = 262144, AV_TTL = 864e5;
-const hex = buf => [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, '0')).join('');
-const b64 = u8 => { let s = ''; for (let i = 0; i < u8.length; i += 32768) s += String.fromCharCode.apply(null, u8.subarray(i, i + 32768)); return btoa(s); };
-/** Tải 1 avatar → { h, ct, b64 } | null (lỗi/hết hạn/không phải ảnh → null, giữ bản cũ). */
-export async function fetchAvatar(url, fetcher = globalThis.fetch) {
-  let u; try { u = new URL(String(url || '')); } catch (e) { return null; }
-  if (u.protocol !== 'https:' || !AV_HOST.test(u.hostname) || typeof fetcher !== 'function') return null;
-  const ctl = new AbortController(), t = setTimeout(() => ctl.abort(), 4000);
-  try {
-    const r = await fetcher(u.toString(), { redirect: 'follow', signal: ctl.signal, headers: { Accept: 'image/avif,image/webp,image/jpeg,image/png,image/*' } });
-    const ct = String((r.headers && r.headers.get && r.headers.get('content-type')) || '').split(';')[0].trim().toLowerCase();
-    if (!r.ok || !/^image\/(jpeg|png|webp|gif|avif)$/.test(ct)) return null;
-    const buf = new Uint8Array(await r.arrayBuffer()); if (!buf.length || buf.length > AV_MAX) return null;
-    return { h: hex(await crypto.subtle.digest('SHA-256', buf)).slice(0, 32), ct, b64: b64(buf) };
-  } catch (e) { return null; } finally { clearTimeout(t); }
-}
-/** Làm mới avatar mỗi lần sync: URL đổi hoặc bản cache > 24 giờ → tải lại; lỗi → giữ bản cũ (không bao giờ xóa avatar đang dùng). */
-async function refreshAvatars(db, rows, info, fetcher, now) {
-  const need = rows.filter(r => r.avatar && (!info[r.key].av || info[r.key].av_src !== r.avatar || now - (+info[r.key].av_at || 0) > AV_TTL)).slice(0, 40);
-  const got = await Promise.all(need.map(r => fetchAvatar(r.avatar, fetcher)));
-  for (let i = 0; i < need.length; i++) {
-    const g = got[i], I = info[need[i].key]; if (!g) { I.av_err = now; continue; }
-    await run(db, 'INSERT INTO dist_avatar (h, ct, b64, updated) VALUES (?, ?, ?, ?) ON CONFLICT(h) DO UPDATE SET updated = excluded.updated', g.h, g.ct, g.b64, now);
-    Object.assign(I, { av: g.h, av_src: need[i].avatar, av_at: now }); delete I.av_err;
-  }
-  await run(db, 'DELETE FROM dist_avatar WHERE updated < ?', now - 30 * 864e5); // bảng nhỏ (≤ vài chục ảnh): dọn bản không còn kênh nào làm mới
-}
-/** Số bài theo kênh (chỉ mục dist_social_ch): hôm nay (theo múi giờ kênh) · 7 ngày · tổng · bài gần nhất · lịch kế tiếp. */
-async function chanStats(db, id, tz, now) {
-  const agg = (await db.prepare("SELECT SUM(CASE WHEN state = 'published' THEN 1 ELSE 0 END) AS total, MAX(CASE WHEN state = 'published' THEN slot_ms END) AS last, MIN(CASE WHEN state IN ('planned', 'pushed') AND slot_ms > ? THEN slot_ms END) AS next, SUM(CASE WHEN state = 'failed' THEN 1 ELSE 0 END) AS failed FROM dist_social WHERE channel_id = ?").bind(now, id).first()) || {};
-  const today = localDate(now, tz); let d1 = 0, d7 = 0;
-  for (const r of await all(db, "SELECT slot_ms FROM dist_social WHERE channel_id = ? AND slot_ms BETWEEN ? AND ? AND state = 'published'", id, now - 7 * 864e5, now)) { d7++; if (localDate(r.slot_ms, tz) === today) d1++; }
-  return { today: d1, d7, total: +agg.total || 0, last: agg.last || null, next: agg.next || null, failed: +agg.failed || 0 };
 }
 let DS = false;
 export async function setupDist(db) {
@@ -271,6 +234,16 @@ const OPS = {
 /** Hợp đồng §3 cho autopilot máy chủ (functions/api/_social_auto.js) – gọi thẳng, cùng hàm với op qua HTTP. */
 export const DIST = { ext_sync: (db, b, env) => OPS.ext_sync(db, b, null, env), social_due: (db, b, env) => OPS.social_due(db, b, null, env), social_ack: (db, b) => OPS.social_ack(db, b), plan_run: (db, b, env) => OPS.plan_run(db, b, null, env) };
 export const OPS_FOR_TEST = OPS; // test máy chủ (scripts/test/dist-channels.mjs) gọi op thẳng, không qua adminGate
+// Monitor: a slow op (the 16 s `get` of 15/11 left the admin page on "Loading…") raises an admin alert instead of staying invisible; one per op per hour.
+const SLOW_MS = 6000;
+async function slowAlert(db, op, ms) {
+  if (ms < SLOW_MS) return;
+  try {
+    let al = []; try { al = JSON.parse((await meta(db, 'alerts')) || '[]'); } catch (e) { /* reset */ }
+    const reason = `slow-op:${op}`; if (al.some(a => a.reason && a.reason.startsWith(reason) && Date.now() - a.at < 36e5)) return;
+    await setMeta(db, 'alerts', JSON.stringify([{ at: Date.now(), channel_id: '-', title: '/api/distribution', reason: `${reason} ${Math.round(ms / 1000)}s` }, ...al].slice(0, 20)));
+  } catch (e) { /* monitor never breaks the op */ }
+}
 const WRITE = new Set(['cfg_set', 'rules_set', 'plan_run', 'plan_set', 'resume', 'alerts_clear', 'ext_sync', 'social_ack']);
 /** GET /api/distribution?av=<băm 32 hex> → avatar kênh đã tải về phía máy chủ (cùng origin, bất biến theo nội dung). Không cần đăng nhập: chỉ là ảnh đại diện công khai của Page/kênh,
  *  khóa là băm SHA-256 nội dung (không đoán/liệt kê được). Bộ đệm trình duyệt + edge 1 năm → gần như 0 lượt đọc D1. */
@@ -298,7 +271,8 @@ export async function onRequestPost({ request, env }) {
   if (!env.DB) return json(request, 412, { error: 'not-configured' });
   { const gb = await guardBg(request, env, json); if (gb) return gb; } // cầu dao D1 (_d1guard.js): việc nền/quản trị dừng khi tài khoản đã đọc ≥ 50 % hạn mức
   try {
-    await setup(env.DB); await setupDist(env.DB); const out = await OPS[b.op](env.DB, b, g.who, env), status = out.status || 200; delete out.status;
+    const t0 = Date.now(); await setup(env.DB); await setupDist(env.DB); const out = await OPS[b.op](env.DB, b, g.who, env), status = out.status || 200; delete out.status;
+    await slowAlert(env.DB, b.op, Date.now() - t0);
     if (WRITE.has(b.op)) await adminAudit(env, request, g.who.email, 'dist.' + b.op, status < 400);
     return json(request, status, out);
   } catch (e) { if (WRITE.has(b.op)) await adminAudit(env, request, g.who.email, 'dist.' + b.op, false); return json(request, e.status || 500, { error: e.code || 'error' }); }
