@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"dishwasher\" mean?",
+  "keyword": "dishwasher",
+  "value": "Dishwasher means a machine that washes dishes.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=dishwasher",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"dishwasher\" mean?",
+    "description": "Dishwasher means a machine that washes dishes.\n\nReview your words, free: https://lexkite.com/app/#/review?w=dishwasher\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "dishwasher",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"dishwasher\" mean?\n\nDishwasher means a machine that washes dishes.\n\nReview your words, free: https://lexkite.com/app/#/review?w=dishwasher"
+   },
+   "instagram": {
+    "caption": "What does \"dishwasher\" mean?\n\nDishwasher means a machine that washes dishes.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"dishwasher\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a machine that washes dishes. Dishwasher means a machine that washes dishes. More practice like this (free): {link}"
  }
 }

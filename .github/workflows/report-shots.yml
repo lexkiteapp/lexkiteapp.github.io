@@ -1,3 +1,4 @@
+# ci-policy: fast-lane – chỉ chạy khi PR đổi đúng web/js/report.js hoặc script đo (đường dẫn hẹp, bench OCR không phải bộ giao diện nặng)
 # Ảnh chụp báo lỗi trên R2 (docs/REPORTS.md § Ảnh chụp).
 #  · bench (PR đổi web/js/report.js / script đo; hoặc chạy tay): đo trần nén bằng OCR – scripts/report-shot-bench.mjs (150 KB/1280 px so với 300 KB/1600 px).
 #  · setup (chạy tay): tạo bucket RIÊNG TƯ lexkite-report-shots (idempotent) – sau đó bỏ dấu # khối [[r2_buckets]] REPORT_SHOTS trong wrangler.toml.
@@ -19,7 +20,7 @@ concurrency:
 jobs:
   bench:
     if: github.event_name == 'pull_request' || inputs.action == 'bench'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
@@ -28,7 +29,8 @@ jobs:
         with: { node-version: 22 }
       - run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2 tesseract.js@5.1.1
-          npx playwright install --with-deps chromium
+          bash scripts/ci/pw-install.sh --with-deps chromium
+        timeout-minutes: 12
       - run: node scripts/report-shot-bench.mjs
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}

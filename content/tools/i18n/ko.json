@@ -79,7 +79,11 @@
     "planTop": "계속 실력을 키우는 방법",
     "you": "내 테스트 결과: {lv}",
     "takeTest": "내 레벨 확인하기 – 15분 무료 테스트",
-    "otherLevels": "모든 CEFR 레벨"
+    "otherLevels": "모든 CEFR 레벨",
+    "wordsH": "{lv} 레벨에서 익힐 단어",
+    "wordsLead": "Lexkite 사전에서 {lv} 레벨로 분류된 단어를 뜻과 예문과 함께 소개합니다. 단어를 열면 발음, 연어(콜로케이션), 자주 하는 실수를 볼 수 있습니다.",
+    "sampleH": "{lv} 레벨 예시 문제",
+    "answer": "정답 보기"
   },
   "toeic": {
     "title": "TOEIC Part 5 온라인 연습 문제 – 무료, 해설 포함",

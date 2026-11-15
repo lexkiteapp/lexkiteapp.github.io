@@ -72,5 +72,46 @@
   "words": 40,
   "seconds": 24.7,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"heater\" mean?",
+  "keyword": "heater",
+  "value": "Heater means a device that makes heat.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=heater",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"heater\" mean?",
+    "description": "Heater means a device that makes heat.\n\nReview your words, free: https://lexkite.com/app/#/review?w=heater\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "heater",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"heater\" mean?\n\nHeater means a device that makes heat.\n\nReview your words, free: https://lexkite.com/app/#/review?w=heater"
+   },
+   "instagram": {
+    "caption": "What does \"heater\" mean?\n\nHeater means a device that makes heat.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"heater\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a device that makes heat. Heater means a device that makes heat. More practice like this (free): {link}"
  }
 }

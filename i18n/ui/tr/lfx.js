@@ -1,3 +1,32 @@
-/* UI tr – lfx (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {"{n} đúng liền":"Üst üste {n}","Tỉ lệ đúng":"Doğruluk","{n} câu đúng liền!":"Üst üste {n} doğru!","Câu khó · +{n} XP":"Zor soru · +{n} XP","Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"Bu sana fazla kolay görünüyor. Ekstra XP için daha zor sorular (seçmek yerine yazarak) denemek ister misin?","Thử mức khó":"Daha zor","Giữ mức này":"Seviyeyi koru","Đúng rồi – chỉ sai chính tả nhỏ":"Doğru – sadece küçük bir yazım hatası","Viết đúng là: {a}":"Doğru yazılışı: {a}","Ẩn giải thích":"Açıklamayı gizle","Không trượt câu nào – Kit phải ngả mũ!":"Tek bir hata bile yok – Kit sana şapka çıkarıyor!","Tuyệt đối 100%! Bộ não bạn đang chạy hết công suất.":"Tam %100! Beynin tam güçle çalışıyor.","Phong độ rất cao hôm nay!":"Bugün formunun zirvesindesin!","Gần như hoàn hảo – chỉ còn chút xíu nữa!":"Neredeyse kusursuz – az kaldı!","Đang lên tay rồi đấy!":"Gittikçe ısınıyorsun!","Câu sai hôm nay là điểm cộng ngày mai.":"Bugünkü hatalar yarının kazançları.","Kết quả lượt học":"Oturum sonuçları","Chuỗi dài nhất":"En uzun seri","Khoe kết quả":"Sonucu paylaş","Tắt âm thanh 15 phút":"15 dk sessiz","Tắt micro 15 phút":"15 dk mikrofonsuz","Đã tạm tắt bài nghe 15 phút – câu nghe đổi sang dạng gõ nghĩa.":"Dinleme 15 dk duraklatıldı – sesli sorular yazmaya dönüşüyor.","Đã tạm tắt bài nói 15 phút – làm trắc nghiệm nghĩa thay thế.":"Konuşma 15 dk duraklatıldı – yerine anlam testi yapılıyor.","Bật lại":"Yeniden aç","Cần gợi ý?":"İpucu ister misin?","Thêm gợi ý":"Bir ipucu daha","Hiện bản dịch":"Çeviriyi göster","Ẩn bản dịch":"Çeviriyi gizle"});
+/* UI tr – lfx (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["tr"] = Object.assign(D["tr"] || {}, {
+"Bài này có vẻ quá dễ với bạn. Thử câu khó hơn (gõ thay vì chọn) để nhận thêm XP nhé?":"Bu sana fazla kolay görünüyor. Ekstra XP için daha zor sorular (seçmek yerine yazarak) denemek ister misin?",
+"Bật lại":"Yeniden aç",
+"Chuỗi dài nhất":"En uzun seri",
+"Câu khó · +{n} XP":"Zor soru · +{n} XP",
+"Câu sai hôm nay là điểm cộng ngày mai.":"Bugünkü hatalar yarının kazançları.",
+"Cần gợi ý?":"İpucu ister misin?",
+"Giữ mức này":"Seviyeyi koru",
+"Gần như hoàn hảo – chỉ còn chút xíu nữa!":"Neredeyse kusursuz – az kaldı!",
+"Hiện bản dịch":"Çeviriyi göster",
+"Khoe kết quả":"Sonucu paylaş",
+"Không trượt câu nào – Kit phải ngả mũ!":"Tek bir hata bile yok – Kit sana şapka çıkarıyor!",
+"Kết quả lượt học":"Oturum sonuçları",
+"Phong độ rất cao hôm nay!":"Bugün formunun zirvesindesin!",
+"Thêm gợi ý":"Bir ipucu daha",
+"Thử mức khó":"Daha zor",
+"Tuyệt đối 100%! Bộ não bạn đang chạy hết công suất.":"Tam %100! Beynin tam güçle çalışıyor.",
+"Tắt micro 15 phút":"15 dk mikrofonsuz",
+"Tắt âm thanh 15 phút":"15 dk sessiz",
+"Tỉ lệ đúng":"Doğruluk",
+"Viết đúng là: {a}":"Doğru yazılışı: {a}",
+"{n} câu đúng liền!":"Üst üste {n} doğru!",
+"{n} đúng liền":"Üst üste {n}",
+"Đang lên tay rồi đấy!":"Gittikçe ısınıyorsun!",
+"Đã tạm tắt bài nghe 15 phút – câu nghe đổi sang dạng gõ nghĩa.":"Dinleme 15 dk duraklatıldı – sesli sorular yazmaya dönüşüyor.",
+"Đã tạm tắt bài nói 15 phút – làm trắc nghiệm nghĩa thay thế.":"Konuşma 15 dk duraklatıldı – yerine anlam testi yapılıyor.",
+"Đúng rồi – chỉ sai chính tả nhỏ":"Doğru – sadece küçük bir yazım hatası",
+"Ẩn bản dịch":"Çeviriyi gizle",
+"Ẩn giải thích":"Açıklamayı gizle",
+});
 })(typeof self !== 'undefined' ? self : this);

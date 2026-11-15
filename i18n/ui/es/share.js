@@ -1,3 +1,25 @@
-/* UI es – share (nhóm tải lười). Sinh tự động từ scripts/build-i18n.sh. */
-(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["es"] = Object.assign(D["es"] || {}, {"Trí nhớ siêu đỉnh!":"¡Memoria increíble!","Xong mục tiêu hôm nay!":"¡Meta de hoy cumplida!","Hôm nay mình đã học bài!":"¡Hoy estudié!","Từng bước nhỏ mỗi ngày, tiến bộ lớn mỗi tháng.":"Pequeños pasos cada día, gran progreso cada mes.","Thẻ ôn hôm nay":"Tarjetas repasadas hoy","Học từ vựng & luyện thi miễn phí":"Vocabulario y preparación de exámenes gratis","Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"Estoy aprendiendo inglés cada día con Lexkite 🔥 Aprende gratis en {url}","Não bạn đang ở chế độ nghỉ dưỡng":"Tu cerebro está en modo vacaciones","Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.":"Tómate un café y repasa unas tarjetas ☕ – y tendrás algo que presumir.","Story 9:16":"Historia 9:16","Bài đăng 1:1":"Publicación 1:1","Thẻ thành tích":"Tarjeta de logros","Chia sẻ":"Compartir","Tải ảnh":"Guardar imagen","Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé":"Imagen guardada – enlace copiado, pégalo en tu publicación"});
+/* UI es – share (nhóm tải lười). Nguồn dễ đọc: sửa ở đây rồi chạy node scripts/i18n-pack.mjs. */
+(function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D["es"] = Object.assign(D["es"] || {}, {
+"Bài đăng 1:1":"Publicación 1:1",
+"Bạn và bạn bè cùng nhận +{xp} XP và 1 lượt đóng băng chuỗi khi bạn ấy học xong bài đầu":"Tú y tu amigo reciben +{xp} XP y 1 protector de racha cuando termine su primera lección",
+"Chia sẻ":"Compartir",
+"Hôm nay mình đã học bài!":"¡Hoy estudié!",
+"Học từ vựng & luyện thi miễn phí":"Vocabulario y preparación de exámenes gratis",
+"Link mời đã được chép – dán gửi bạn nhé":"Enlace de invitación copiado: pégalo y envíaselo a un amigo",
+"Làm ly cà phê rồi ôn vài thẻ nhé ☕ – xong là có thành tích để khoe ngay.":"Tómate un café y repasa unas tarjetas ☕ – y tendrás algo que presumir.",
+"Mình đang học tiếng Anh miễn phí với Lexkite. Vào học thử 1 phút, hai đứa cùng nhận quà nhé! {url}":"Estoy aprendiendo inglés gratis con Lexkite. Prueba una lección de 1 minuto: ¡los dos recibimos un regalo! {url}",
+"Mình đang học tiếng Anh mỗi ngày cùng Lexkite 🔥 Học miễn phí tại {url}":"Estoy aprendiendo inglés cada día con Lexkite 🔥 Aprende gratis en {url}",
+"Mời bạn học cùng":"Invitar a un amigo",
+"Não bạn đang ở chế độ nghỉ dưỡng":"Tu cerebro está en modo vacaciones",
+"Story 9:16":"Historia 9:16",
+"Thẻ thành tích":"Tarjeta de logros",
+"Thẻ ôn hôm nay":"Tarjetas repasadas hoy",
+"Trí nhớ siêu đỉnh!":"¡Memoria increíble!",
+"Tải ảnh":"Guardar imagen",
+"Từng bước nhỏ mỗi ngày, tiến bộ lớn mỗi tháng.":"Pequeños pasos cada día, gran progreso cada mes.",
+"Xong mục tiêu hôm nay!":"¡Meta de hoy cumplida!",
+"Đã tải ảnh – link đã được chép, dán kèm khi đăng nhé":"Imagen guardada – enlace copiado, pégalo en tu publicación",
+"🎁 Bạn được bạn bè mời! Nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎁 ¡Un amigo te ha invitado! Recibes +{xp} XP y 1 protector de racha",
+"🎉 {n} bạn bè bạn mời đã học xong bài đầu – bạn nhận +{xp} XP và 1 lượt đóng băng chuỗi":"🎉 {n} de tus amigos invitados terminaron su primera lección: recibes +{xp} XP y 1 protector de racha",
+});
 })(typeof self !== 'undefined' ? self : this);

@@ -1,0 +1,31 @@
+// workflow-yaml: MỌI .github/workflows/*.yml phải đọc được (YAML hợp lệ, có `on` + `jobs`).
+// Lý do: workflow lỗi cú pháp thì run của pull_request không hề sinh ra (PR vẫn xanh) còn run push thành "failure" không job → required-gate đỏ sau khi đã vào nhánh
+// (vd teacher-rig.yml 05/11: `run: { echo …; } >> …` là flow-mapping sai). Chạy: node scripts/test/workflow-yaml.mjs
+import fs from 'node:fs';
+import { spawnSync } from 'node:child_process';
+const DIR = '.github/workflows', files = fs.readdirSync(DIR).filter(f => /\.ya?ml$/.test(f)).sort();
+// Khóa trùng (vd. `env: { A: 1, A: 1 }` sau gộp nhánh, 11/11 vocab-img-scene trên claude/sec-448-v2): PyYAML nuốt âm thầm nhưng GitHub từ chối cả file → run push "failure" 0 job.
+const PY = `import sys,yaml
+class L(yaml.SafeLoader): pass
+def mp(l,n,deep=False):
+    seen=set()
+    for k,_ in n.value:
+        kk=l.construct_object(k,deep=True)
+        if kk in seen: raise ValueError('khóa trùng "%s" (dòng %d)' % (kk,k.start_mark.line+1))
+        seen.add(kk)
+    return yaml.SafeLoader.construct_mapping(l,n,deep)
+L.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG,mp)
+bad=0
+for f in sys.argv[1:]:
+    try:
+        d=yaml.load(open(f,encoding='utf-8'),Loader=L)
+        if not isinstance(d,dict): raise ValueError('không phải mapping')
+        if True not in d and 'on' not in d: raise ValueError('thiếu khóa on')
+        if not isinstance(d.get('jobs'),dict) or not d['jobs']: raise ValueError('thiếu jobs')
+    except Exception as e:
+        bad+=1; print('✗ %s: %s' % (f, str(e).replace(chr(10),' | ')[:300]))
+sys.exit(1 if bad else 0)`;
+const r = spawnSync('python3', ['-c', PY, ...files.map(f => `${DIR}/${f}`)], { encoding: 'utf8' });
+if (r.error || /No module named/.test(r.stderr || '')) { console.error('✗ workflow-yaml: cần python3 + PyYAML', r.stderr || r.error); process.exit(2); }
+if (r.status !== 0) { console.error(r.stdout + `workflow-yaml: ${files.length} file, có file YAML không đọc được`); process.exit(1); }
+console.log(`✓ workflow-yaml: ${files.length} workflow đều đọc được`);

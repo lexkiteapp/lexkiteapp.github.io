@@ -80,5 +80,17 @@
  "cta": "Save useful phrases on lexkite.com",
  "est": 24.6,
  "no_intro": true,
- "end_alt": "n_0ea920_e2"
+ "end_alt": "n_0ea920_e2",
+ "publish": {
+  "title": "3 ways to ask for help in English",
+  "keyword": "asking for help",
+  "value": "From polite to casual, for any situation.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a2english"
+  ],
+  "first_comment": "Which one do you use most? \"Could you help me?\" is the safe choice almost everywhere. Practice all three with a short quiz: {link}"
+ }
 }

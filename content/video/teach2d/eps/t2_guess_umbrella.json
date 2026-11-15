@@ -73,5 +73,46 @@
   "words": 50,
   "seconds": 30.0,
   "wpm": 100
+ },
+ "publish": {
+  "title": "\"It protects you from rain.\" Guess the word!",
+  "keyword": "umbrella",
+  "value": "The answer: umbrella /əmˈbrelə/. Don't forget your umbrella; it might rain later.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/umbrella",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "\"It protects you from rain.\" Guess the word!",
+    "description": "The answer: umbrella /əmˈbrelə/. Don't forget your umbrella; it might rain later.\n\nLook up any word, free: https://lexkite.com/app/#/dict/umbrella\n\nSeries: Guess the Word · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "umbrella",
+     "Guess the Word",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "\"It protects you from rain.\" Guess the word!\n\nThe answer: umbrella /əmˈbrelə/. Don't forget your umbrella; it might rain later.\n\nLook up any word, free: https://lexkite.com/app/#/dict/umbrella"
+   },
+   "instagram": {
+    "caption": "\"It protects you from rain.\" Guess the word!\n\nThe answer: umbrella /əmˈbrelə/. Don't forget your umbrella; it might rain later.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "\"It protects you from rain.\" Guess the word! #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Umbrella! Don't forget your umbrella; it might rain later. More practice like this (free): {link}"
  }
 }

@@ -1,0 +1,55 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
+name: story-stage
+# Cổng sân khấu Truyện + khung bài tập (docs/specs/story-stage.md): tĩnh (token, tương phản, tải lười, bản sao add-on) + trình duyệt thật
+# (WebKit iPhone 13 + Chromium CPU 4×: nhân vật đứng trên sàn, người nói sáng, âm chỉ phát sau chạm, chip không bị che, tác vụ dài/fps/CLS). Ảnh trước/sau → artifact.
+on:
+  pull_request:
+    paths: ['web/js/lesson/**', 'web/css/story-stage.css', 'web/js/word-arrange.js', 'web/js/characters.js', 'web/js/teacher-slot.js', 'web/teach/**', 'scripts/test/story-stage.mjs', '.github/workflows/story-stage.yml']
+  workflow_dispatch:
+permissions: { contents: read }
+concurrency:
+  group: story-stage-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha (hoặc nhãn ready) → go=$go"
+  stage:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Tĩnh
+        run: node scripts/test/story-stage.mjs --out out/story-stage
+      - name: Playwright
+        timeout-minutes: 15
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          bash scripts/ci/pw-install.sh --with-deps chromium webkit
+      - name: Trình duyệt – sân khấu, bài tập, hiệu năng
+        run: node scripts/test/story-stage.mjs --browser --out out/story-stage
+      - name: Tóm tắt
+        if: always()
+        run: |
+          { echo "### story-stage"; echo '```'; cat out/story-stage/result.txt 2>/dev/null; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: story-stage, path: out/story-stage, retention-days: 14 }

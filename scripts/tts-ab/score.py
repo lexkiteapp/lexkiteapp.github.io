@@ -94,7 +94,7 @@ S = {c: {'all': agg([r for r in rows if r['cfg'] == c]), **{k: agg(v) for k in c
 common = set.intersection(*[{r['id'] for r in rows if r['cfg'] == c} for c in cfgs]) if cfgs else set()
 SC = {c: agg([r for r in rows if r['cfg'] == c and r['id'] in common]) for c in cfgs} if common else {}
 META = {c: json.load(open(os.path.join(a.audio, c, 'meta.json'))) for c in cfgs if os.path.exists(os.path.join(a.audio, c, 'meta.json'))}   # tải model, khởi động lạnh
-json.dump(dict(wer_max=WER_MAX, wpm_max=WPM_MAX, rows=rows, by_cfg=S, common_ids=sorted(common), common=SC, engine_meta=META), open(a.out, 'w'), indent=1)
+json.dump(dict(wer_max=WER_MAX, wpm_max=WPM_MAX, rows=rows, by_cfg=S, common_ids=sorted(common), common=SC, engine_meta=META), open(a.out, "w"), indent=1, default=lambda o: o.item() if hasattr(o, "item") else str(o))   # numpy int64/float32 (01/11 run 41302966542)
 L = [f'## Chấm A/B ({len(rows)} file) – WER ≤ {WER_MAX:.0%} (cổng ASR câu), nhịp ≤ {WPM_MAX} wpm',
      f'### Trên {len(common)} mục chung (so công bằng)', '| cấu hình | ASR đạt | WER tb | wpm tb / max / >150 | LUFS tb ± sd | true peak max | file clip | Rhubarb ok / khớp | ra tiếng (trung vị, ấm) / tổng ms | RTF | giống giọng GV |', '|---|---|---|---|---|---|---|---|---|---|---|']
 for c, s in (SC or {c: S[c]['all'] for c in cfgs}).items():

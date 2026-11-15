@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"argument\" mean?",
+  "keyword": "argument",
+  "value": "Argument means a discussion in which you disagree with another's opinion.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=argument",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"argument\" mean?",
+    "description": "Argument means a discussion in which you disagree with another's opinion.\n\nReview your words, free: https://lexkite.com/app/#/review?w=argument\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "argument",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"argument\" mean?\n\nArgument means a discussion in which you disagree with another's opinion.\n\nReview your words, free: https://lexkite.com/app/#/review?w=argument"
+   },
+   "instagram": {
+    "caption": "What does \"argument\" mean?\n\nArgument means a discussion in which you disagree with another's opinion.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"argument\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a discussion in which you disagree with another's opinion. Argument means a discussion in which you disagree with another's opinion. More practice like this (free): {link}"
  }
 }

@@ -137,4 +137,4 @@ Behavioral psychology shows that losing a 40-day streak due to an unavoidable em
 
 ### Should I study early in the morning or late at night?
 
-Study when your working memory is freshest. For roughly 80% of working professionals, morning sessions (before work emails and notifications begin) yield the highest cognitive return. If you study late at night when exhausted, your retention rates drop significantly.
+Study when your working memory is freshest. For roughly 80% of working professionals, morning sessions (before work emails and notifications begin) yield the highest cognitive return. If you study late at night when exhausted, your retention rates drop significantly. If you are preparing for a visa application, [IELTS for immigration](/en/blog/ielts-for-immigration-guide/) explains which test version and score your plan should aim at.

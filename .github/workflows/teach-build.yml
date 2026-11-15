@@ -43,10 +43,12 @@ jobs:
       - if: inputs.matte_run2 != ''
         uses: actions/download-artifact@v4
         with: { run-id: '${{ inputs.matte_run2 }}', pattern: 'matte-*', merge-multiple: true, path: footage/anchor/green, github-token: '${{ github.token }}' }
+      - uses: ./.github/actions/setup-ffmpeg
       - name: Dựng
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null; pip install -q pillow numpy
+          pip install -q pillow numpy
           python3 scripts/teach/build.py footage/anchor/green web/teach
+          python3 scripts/teach/still_img.py web/teach   # tư thế chỉ-ảnh (ảnh chuẩn trong lexkite-media) – cùng khung build.py, sha vào characters.json
           python3 scripts/teach/idle.py web/teach   # vòng nghỉ 1–3 s dựng lại từ clip vừa dựng (sha nguồn đổi → cổng --check đỏ nếu quên)
           python3 scripts/teach/sheet.py web/teach out/teach-sheet.jpg
       - name: Commit main

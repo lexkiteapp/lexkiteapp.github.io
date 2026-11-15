@@ -87,5 +87,46 @@
   "words": 50,
   "seconds": 30.0,
   "wpm": 100
+ },
+ "publish": {
+  "title": "Decide going, or decide to go?",
+  "keyword": "decide",
+  "value": "Say \"I decided to go home\", not \"I decided going home\". After decide, use to plus verb.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/verb/decide",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "Decide going, or decide to go?",
+    "description": "Say \"I decided to go home\", not \"I decided going home\". After decide, use to plus verb.\n\nPractice verb patterns, free: https://lexkite.com/app/#/verb/decide\n\nSeries: Verb Patterns · Teacher: Carlos\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "decide",
+     "Verb Patterns",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Decide going, or decide to go?\n\nSay \"I decided to go home\", not \"I decided going home\". After decide, use to plus verb.\n\nPractice verb patterns, free: https://lexkite.com/app/#/verb/decide"
+   },
+   "instagram": {
+    "caption": "Decide going, or decide to go?\n\nSay \"I decided to go home\", not \"I decided going home\". After decide, use to plus verb.\n\nPractice verb patterns: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Decide going, or decide to go? #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Quiz answer: To buy! They decided to buy a new car. Say \"I decided to go home\", not \"I decided going home\". After decide, use to plus verb. Practice it with a free quiz: {link}"
  }
 }

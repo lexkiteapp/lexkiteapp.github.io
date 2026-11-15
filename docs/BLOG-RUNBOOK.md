@@ -16,7 +16,7 @@ Cập nhật 15/10/2026. Không chứa mật khẩu/khóa bí mật. Chi tiết 
 | Ảnh RIÊNG từng bài | Cloudflare R2 `lexkite-blog-media` → https://media.lexkite.com/blog/p/… (Worker `lexkite-media`, binding `BLOG_MEDIA`); dự phòng repo `lexkite-media/blog/p/` | Ảnh bìa + ảnh chụp app theo từng bài – xem § Ảnh riêng từng bài |
 | Google Search Console | Thuộc tính miền `lexkite.com` (tài khoản vintagezulilyjewelry@gmail.com), xác minh TXT qua Cloudflare | Đã gửi https://lexkite.com/sitemap.xml |
 | IndexNow (Bing, Yandex…) | Khóa công khai `web/24d0ecfb2b8806b6577efab517b6b28d.txt` + `content/blog/config.json` | `scripts/indexnow.mjs`, tự chạy sau mỗi lần đăng |
-| Video | Kênh YouTube Lexkite (chưa có) | Điền ID vào `{{youtube: ID | …}}` trong bài |
+| Video | Kênh YouTube Lexkite (chưa có) | Điền ID vào `{{youtube: ID | …}}` – chỉ ID trong `content/blog/youtube.json` (thêm bằng `node scripts/blog-youtube.mjs add <ID>`: oEmbed có thật + cho nhúng; tự xem đúng chủ đề). Không có video phù hợp → để trống ID |
 | Lịch viết bài | Claude desktop → Scheduled → "Lexkite: viết lô bài blog hằng tuần" (thứ Hai 9h) | ~15 bài/tuần, hỏi anh trước khi gộp/đẩy |
 
 
@@ -36,7 +36,7 @@ Cập nhật 15/10/2026. Không chứa mật khẩu/khóa bí mật. Chi tiết 
 - `/blog/*` → 301 `/vi/blog/*` (`web/_redirects`). Sitemap index `/sitemap.xml` → `sitemap-pages.xml` + `sitemap-blog-<lang>.xml`.
 
 ## Tự động (GitHub Actions, miễn phí)
-- `blog-publish.yml` – mỗi giờ: có bài đến giờ → gọi deploy hook → IndexNow.
+- `blog-publish.yml` – mỗi giờ: có bài đến giờ → gọi deploy hook → IndexNow. **Đo 13/11/2026:** lịch đăng đủ 1 bài/ngôn ngữ/ngày (375 bài live, 825 đã xếp lịch; live khớp sitemap) nhưng cron GitHub chỉ chạy ~3–4/8 lượt mỗi ngày → cửa sổ "bài đến hạn" nay tính từ lần chạy xanh trước (190–1.440 phút), không còn rơi IndexNow/WebSub của lượt bị bỏ.
 - `blog-daily.yml` – 06:30 VN: xếp lịch bài `status: ready` chưa có giờ (2–3 bài/ngày/ngôn ngữ) + commit; mở issue `blog-health` khi < 7 ngày bài chờ hoặc bài kiểm chứng > 12 tháng.
 - `seo-gsc.yml` – thứ Hai 07:00 VN (trước lượt viết 9h): `scripts/seo/gsc.mjs` kéo Search Console 28 ngày → `reports/seo/gsc-<ngày>.{json,md}` + `content/blog/plan/gsc-priority.json` (commit `[CF-Pages-Skip]`) + issue `seo-weekly`. Xem § Vòng dữ liệu GSC.
 - Build Cloudflare tự chạy `blog-check` → bài lỗi làm build dừng (site giữ bản cũ).

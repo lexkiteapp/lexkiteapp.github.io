@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"art\" mean?",
+  "keyword": "art",
+  "value": "Art means a creative skill using the imagination (e.g., painting).",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=art",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"art\" mean?",
+    "description": "Art means a creative skill using the imagination (e.g., painting).\n\nReview your words, free: https://lexkite.com/app/#/review?w=art\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "art",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"art\" mean?\n\nArt means a creative skill using the imagination (e.g., painting).\n\nReview your words, free: https://lexkite.com/app/#/review?w=art"
+   },
+   "instagram": {
+    "caption": "What does \"art\" mean?\n\nArt means a creative skill using the imagination (e.g., painting).\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"art\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a creative skill using the imagination (e.g., painting). Art means a creative skill using the imagination (e.g., painting). More practice like this (free): {link}"
  }
 }

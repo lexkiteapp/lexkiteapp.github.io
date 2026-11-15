@@ -1,7 +1,7 @@
 /* Roleplay for Work (#/roleplay) – tiếng Anh giao diện */
 (function (g) { Object.assign(g.I18N_DICT.en, {
 'Roleplay công sở': 'Workplace roleplay',
-'Đóng vai hội thoại công sở với AI: nói bằng micro hoặc gõ phím, nhận điểm và câu viết lại hay hơn.': 'Act out workplace conversations with AI: speak into the mic or type, then get scores and sharper rewrites.',
+
 'Đóng vai họp, phỏng vấn, đàm phán với AI': 'Role-play meetings, interviews and negotiations with AI',
 '{n} lượt': '{n} turns',
 'Từ vựng chủ đề': 'Topic vocabulary',

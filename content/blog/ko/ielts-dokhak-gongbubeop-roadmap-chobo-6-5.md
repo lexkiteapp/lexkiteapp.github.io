@@ -108,6 +108,8 @@ Band 6.5 이상을 안정적으로 확보하기 위해서는 학습 과정을 4�
 
 매일의 학습 진행 상황은 앱 내 [IELTS 학습 경로](/#/path)에서 실시간으로 확인할 수 있습니다.
 
+
+이민이나 워킹홀리데이 때문에 시험을 준비한다면 나라별 [이민 IELTS 점수 기준](/ko/blog/ielts-imin-jeomsu-kaenada-hoju-yeongguk/)부터 확인하고 목표 밴드를 정하세요.
 {{youtube: | IELTS dokhak gongbubeop roadmap chobo 6.5}}
 
 ## 자주 묻는 질문 (FAQ)

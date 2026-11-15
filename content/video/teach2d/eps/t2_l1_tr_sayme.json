@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_sayme",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Tell me, not say me!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Please say me the way.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Please tell me the way.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use tell before a person.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Tell! Can you tell me the time?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Please say me the way.",
+  "right": "Please tell me the way.",
+  "strike": "say",
+  "why": "Use tell before a person.",
+  "memory": "Tell me, not say me.",
+  "quiz": {
+   "stem": "Can you ___ me the time?",
+   "options": [
+    "say",
+    "tell"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Say me” değil, “tell me”!",
+   "tip": "Bir kişiye bir şey söylerken “tell” kullanılır: “Please tell me the way.”",
+   "caption": "“Please say me the way” mi diyorsun? 😅 İngilizcede kişiden önce “tell” gelir, doğrusu “Please tell me the way”. Ama’yı dinle ve tekrar et! Lexkite uygulamasında daha çok pratik yap.",
+   "comment": "Cevap: “tell”. Bir kişiye bir şey söylerken tell kullan. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “say me”, but “tell me”!",
+   "tip": "Use “tell” before a person: “Please tell me the way.”",
+   "caption": "Do you say “Please say me the way”? 😅 In English “tell” goes before the person, so it is “Please tell me the way”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Say me” değil, “tell me”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“Say me” değil, “tell me”!",
+  "keyword": "Please tell me the way.",
+  "value": "Bir kişiye bir şey söylerken “tell” kullanılır: “Please tell me the way.”",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“Say me” değil, “tell me”!",
+    "description": "“Please say me the way” mi diyorsun? 😅 İngilizcede kişiden önce “tell” gelir, doğrusu “Please tell me the way”. Ama’yı dinle ve tekrar et! Lexkite uygulamasında daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "Please tell me the way.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“Please say me the way” mi diyorsun? 😅 İngilizcede kişiden önce “tell” gelir, doğrusu “Please tell me the way”. Ama’yı dinle ve tekrar et! Lexkite uygulamasında daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Please say me the way” mi diyorsun? 😅 İngilizcede kişiden önce “tell” gelir, doğrusu “Please tell me the way”. Ama’yı dinle ve tekrar et! Lexkite uygulamasında daha çok pratik yap.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Say me” değil, “tell me”! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “tell”. Bir kişiye bir şey söylerken tell kullan. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}

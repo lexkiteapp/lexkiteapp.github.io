@@ -79,5 +79,46 @@
   "words": 46,
   "seconds": 28.1,
   "wpm": 98
+ },
+ "publish": {
+  "title": "Purse or handbag? US vs UK English",
+  "keyword": "purse vs handbag",
+  "value": "Americans say purse. British people say handbag.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/purse",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "Purse or handbag? US vs UK English",
+    "description": "Americans say purse. British people say handbag.\n\nLook up any word, free: https://lexkite.com/app/#/dict/purse\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "purse vs handbag",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Purse or handbag? US vs UK English\n\nAmericans say purse. British people say handbag.\n\nLook up any word, free: https://lexkite.com/app/#/dict/purse"
+   },
+   "instagram": {
+    "caption": "Purse or handbag? US vs UK English\n\nAmericans say purse. British people say handbag.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Purse or handbag? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Handbag! Americans say purse. British people say handbag. More practice like this (free): {link}"
  }
 }

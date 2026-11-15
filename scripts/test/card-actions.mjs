@@ -1,7 +1,8 @@
 // 🃏 Thẻ cùng hàng: nút ghim đáy, thẳng hàng, cùng bề rộng khi xuống dòng. Đo trên trang thật: qa-bot/detect.js (card-actions).
 import fs from 'node:fs';
 let fails = 0; const ok = (c, m) => { if (c) return console.log('✓ ' + m); fails++; console.error('✗ ' + m); };
-const css = fs.readFileSync('web/css/style.css', 'utf8'), det = fs.readFileSync('scripts/test/qa-bot/detect.js', 'utf8');
+const css = fs.readFileSync('web/css/style.css', 'utf8') + fs.readFileSync('web/css/lazy-ui.css', 'utf8'), // + luật trang lười (css-lazy.mjs)
+  det = fs.readFileSync('scripts/test/qa-bot/detect.js', 'utf8');
 ok(/\.grid > \.card:has\([^{]*\{ display: flex; flex-direction: column; \}/.test(css), 'thẻ có hàng nút là cột flex');
 ok(/margin-top: auto !important/.test(css), 'hàng nút ghim đáy, thắng margin-top nội tuyến');
 ok(/\.card-acts > \.btn[^{]*\{ width: 100%; min-height: 44px; \}/.test(css), 'nút trong .card-acts cùng rộng, cao ≥ 44 px');

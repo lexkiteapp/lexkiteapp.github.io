@@ -84,5 +84,46 @@
   "words": 49,
   "seconds": 29.6,
   "wpm": 99
+ },
+ "publish": {
+  "title": "Stop saying discuss about!",
+  "keyword": "We will discuss the budget.",
+  "value": "Say \"We will discuss the budget\", not \"We will discuss about the budget\". Discuss needs no about. Discuss the plan.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#englishgrammar",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "Stop saying discuss about!",
+    "description": "Say \"We will discuss the budget\", not \"We will discuss about the budget\". Discuss needs no about. Discuss the plan.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix\n\nSeries: Stop Saying This · Teacher: Ama\n\n#learnenglish #englishtips #englishgrammar #englishteacher",
+    "tags": [
+     "We will discuss the budget.",
+     "Stop Saying This",
+     "learn english",
+     "english lesson"
+    ]
+   },
+   "facebook": {
+    "text": "Stop saying discuss about!\n\nSay \"We will discuss the budget\", not \"We will discuss about the budget\". Discuss needs no about. Discuss the plan.\n\nCheck your grammar, free: https://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Stop saying discuss about!\n\nSay \"We will discuss the budget\", not \"We will discuss about the budget\". Discuss needs no about. Discuss the plan.\n\nCheck your grammar: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#englishgrammar",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Stop saying discuss about! #learnenglish #englishtips #englishgrammar"
+   }
+  },
+  "first_comment": "Quiz answer: Discuss! We need to discuss the budget. Say \"We will discuss the budget\", not \"We will discuss about the budget\". Discuss needs no about. Discuss the plan. Practice it with a free quiz: {link}"
  }
 }

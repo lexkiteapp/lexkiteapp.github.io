@@ -61,6 +61,8 @@ En esta guía definitiva, analizaremos paso a paso cómo exprimir al máximo tu 
 
 Para construir respuestas que satisfagan a los examinadores, debes conocer con exactitud la rúbrica oficial de calificación. Tu puntuación final es la media aritmética de cuatro bandas:
 
+Te puede interesar además: [la guía de IELTS Speaking Part 1](/es/blog/ielts-speaking-part-1-guia-respuestas-naturales/).
+
 1. **Fluency and Coherence (Fluidez y coherencia):** Capacidad de hablar de manera continua sin pausas largas de búsqueda léxica, utilizando conectores discursivos naturales.
 2. **Lexical Resource (Recurso léxico):** Variedad de vocabulario, uso preciso de colocaciones avanzadas, modismos (*idiomatic language*) y habilidad de parafrasear.
 3. **Grammatical Range and Accuracy (Rango y precisión gramatical):** Combinación equilibrada de oraciones simples y complejas (condicionales, voz pasiva, cláusulas relativas) con pocos errores recurrentes.

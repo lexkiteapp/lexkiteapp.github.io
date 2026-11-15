@@ -21,9 +21,9 @@ function walk(dir, out) {
   return out;
 }
 
-/** Hash nội dung khung app: js/ css/ i18n/ app/index.html + chính sw.js (dòng CACHE chuẩn hoá). Thứ tự theo mã ký tự – không phụ thuộc locale của `sort`. */
+/** Hash nội dung khung app: js/ css/ i18n/ cpack/ app/index.html + chính sw.js (dòng CACHE chuẩn hoá). Thứ tự theo mã ký tự – không phụ thuộc locale của `sort`. */
 export function shellHash(root = 'web') {
-  const files = [...walk(path.join(root, 'js'), []), ...walk(path.join(root, 'css'), []), ...walk(path.join(root, 'i18n'), [])];
+  const files = [...walk(path.join(root, 'js'), []), ...walk(path.join(root, 'css'), []), ...walk(path.join(root, 'i18n'), []), ...walk(path.join(root, 'cpack'), [])];
   for (const f of ['app/index.html', 'sw.js']) if (fs.existsSync(path.join(root, f))) files.push(path.join(root, f));
   const rel = files.map(f => path.relative(root, f).split(path.sep).join('/')).sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
   const h = crypto.createHash('sha1');

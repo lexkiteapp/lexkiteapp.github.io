@@ -228,6 +228,24 @@
   /** Ngược của unpack cho phần mốc → dạng gọn nhất không mất: "*" (delta bước 5 ms, base36) khi mọi mốc chia hết cho 5; còn lại giữ ms tuyệt đối. Idempotent. */
   const packCues = s => { if (s[0] === '*') return s; const q = unpack([0, s]).cues.map(x => [x.value, Math.round(x.start * 1000)]); if (q.some(([, ms]) => ms % 5)) return s[0] === '+' ? q.map(([v, ms]) => v + ms).join(' ') : s;
     let p = 0; return '*' + q.map(([v, ms]) => { const r = v + ((ms - p) / 5).toString(36); p = ms; return r; }).join(''); };
-  const api = { unpack, packCues, packDict, parseDict, VIS, SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, fromEnv, envOf, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
+  /** Đồng hồ HIỂN THỊ bám tiếng thật (lệch ≤ ±33 ms, cổng scripts/test/lip-clock.mjs). Gốc lệch cũ: đọc thẳng audio.currentTime mỗi rAF =
+   * (1) currentTime là vị trí GIẢI MÃ, tiếng tới tai trễ outputLatency (loa 10–40 ms, Bluetooth 100–250 ms) → miệng đi TRƯỚC tiếng;
+   * (2) currentTime cập nhật thành bậc (Safari/Firefox 15–250 ms) → miệng đứng rồi nhảy; (3) khung vẽ hiện ra ~1 vsync SAU rAF → miệng trễ 1 khung.
+   * → nội suy giữa 2 mẫu bằng đồng hồ màn × playbackRate, không lùi, + 1 khung trình chiếu − trễ đầu ra. read() → {t, playing, rate}; lat() → giây. */
+  const clock = (read, lat = () => 0) => {
+    let st = NaN, sw = 0, out = 0, pw = 0, fr = 1000 / 60, gap = 0;
+    return now => {
+      const s = read(), r = s.rate || 1;
+      if (pw) fr += (Math.min(100, Math.max(4, now - pw)) - fr) * 0.1; pw = now; // chu kỳ khung thật (60/120 Hz, máy yếu 30 Hz)
+      if (s.t !== st) { if (sw && s.playing) gap += (Math.min(500, now - sw) - gap) * 0.2; st = s.t; sw = now; } // mẫu mới = vị trí lúc trình duyệt làm mới (không trôi)
+      // mẫu thưa hơn khung (Safari/Firefox) → trung bình mẫu đã cũ ½ khung lúc ta thấy nó; mẫu dày (Chrome) → 0
+      const age = s.playing && gap > fr * 0.8 ? fr / 2 : 0;
+      const base = s.playing ? st + Math.min(0.5, (now - sw + age) / 1000) * r : st;
+      const t = Math.max(0, base + (s.playing ? (fr / 1000 - Math.min(0.3, Math.max(0, lat() || 0))) * r : 0)); // + 1 khung trình chiếu − trễ loa (giây tường → giây tiếng × rate)
+      out = s.playing && t < out && out - t < 0.25 ? out : t; // không lùi khi đang phát (lùi = miệng giật ngược)
+      return out;
+    };
+  };
+  const api = { clock, unpack, packCues, packDict, parseDict, VIS, SHAPES, BLEND, MIN_HOLD, LEAD, LEADS, P2V, IPA, units, fromText, fromEnv, envOf, phoneSpans, fromPhones, lead, gain, smooth, align, stateAt, live, vad, g2p, setDict: txt => { DICT = typeof txt === 'string' ? parseDict(txt) : txt; } };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else g.LipSync = api;
 })(typeof window !== 'undefined' ? window : globalThis);

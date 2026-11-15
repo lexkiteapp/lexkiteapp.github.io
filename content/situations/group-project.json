@@ -1,0 +1,893 @@
+{
+ "id": "group-project",
+ "group": "study",
+ "cefr": "B2",
+ "title": {
+  "en": "Group project meeting",
+  "vi": "Họp nhóm làm dự án",
+  "es": "Reunión de proyecto en grupo",
+  "pt": "Reunião de trabalho em grupo",
+  "fr": "Réunion de projet de groupe",
+  "de": "Gruppenarbeit besprechen",
+  "id": "Rapat proyek kelompok",
+  "th": "ประชุมงานกลุ่ม",
+  "zh": "小组项目讨论",
+  "ja": "グループ課題の打ち合わせ",
+  "ko": "조별 과제 회의",
+  "hi": "ग्रुप प्रोजेक्ट मीटिंग",
+  "ar": "اجتماع المشروع الجماعي",
+  "ru": "Обсуждение группового проекта",
+  "tr": "Grup projesi toplantısı"
+ },
+ "goal": {
+  "en": "Agree a plan with your team!",
+  "vi": "Cùng nhóm chốt kế hoạch!",
+  "es": "¡Acuerda un plan con tu equipo!",
+  "pt": "Combine um plano com a equipe!",
+  "fr": "Mettez-vous d'accord sur un plan avec l'équipe !",
+  "de": "Einigt euch im Team auf einen Plan!",
+  "id": "Sepakati rencana bersama timmu!",
+  "th": "ตกลงแผนงานกับทีมของคุณ!",
+  "zh": "和团队商定计划！",
+  "ja": "チームで計画をまとめよう！",
+  "ko": "팀과 함께 계획을 정해요!",
+  "hi": "अपनी टीम के साथ योजना तय करें!",
+  "ar": "اتفق مع فريقك على خطة!",
+  "ru": "Договорись с командой о плане!",
+  "tr": "Ekibinle bir plan üzerinde anlaş!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "plan",
+   "title": {
+    "en": "Plan the work",
+    "vi": "Lên kế hoạch",
+    "es": "Planificar el trabajo",
+    "pt": "Planejar o trabalho",
+    "fr": "Planifier le travail",
+    "de": "Arbeit planen",
+    "id": "Merencanakan kerja",
+    "th": "วางแผนงาน",
+    "zh": "制定计划",
+    "ja": "作業を計画する",
+    "ko": "계획 세우기",
+    "hi": "काम की योजना",
+    "ar": "تخطيط العمل",
+    "ru": "План работы",
+    "tr": "İşi planla"
+   },
+   "lines": [
+    "g1",
+    "g2",
+    "g3",
+    "g4"
+   ]
+  },
+  {
+   "id": "share",
+   "title": {
+    "en": "Share ideas",
+    "vi": "Trao đổi ý kiến",
+    "es": "Compartir ideas",
+    "pt": "Trocar ideias",
+    "fr": "Échanger des idées",
+    "de": "Ideen austauschen",
+    "id": "Bertukar gagasan",
+    "th": "แลกเปลี่ยนความคิด",
+    "zh": "交流想法",
+    "ja": "意見を出し合う",
+    "ko": "의견 나누기",
+    "hi": "विचार साझा करें",
+    "ar": "تبادل الأفكار",
+    "ru": "Обмен идеями",
+    "tr": "Fikir paylaş"
+   },
+   "lines": [
+    "g5",
+    "g6",
+    "g7",
+    "g8"
+   ]
+  },
+  {
+   "id": "wrap",
+   "title": {
+    "en": "Wrap up",
+    "vi": "Chốt lại",
+    "es": "Cerrar la reunión",
+    "pt": "Encerrar",
+    "fr": "Conclure",
+    "de": "Abschließen",
+    "id": "Menutup",
+    "th": "สรุปผล",
+    "zh": "总结",
+    "ja": "まとめる",
+    "ko": "마무리",
+    "hi": "समापन",
+    "ar": "الختام",
+    "ru": "Подведение итогов",
+    "tr": "Toparla"
+   },
+   "lines": [
+    "g9",
+    "g10",
+    "g11",
+    "g12"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "g1",
+   "who": "customer",
+   "en": "Before we split the tasks, shall we agree on what the final report needs to cover?",
+   "variants": {
+    "polite": "Before we divide the tasks, could we agree on what the final report needs to cover?",
+    "casual": "Let's agree on what the report covers before we split things up."
+   },
+   "gloss": {
+    "en": "Suggesting that the team agree what the report must cover before dividing the work.",
+    "vi": "Mình thống nhất báo cáo cuối cần có những phần nào trước khi chia việc nhé?",
+    "es": "Antes de repartir las tareas, ¿acordamos qué debe cubrir el informe final?",
+    "pt": "Antes de dividir as tarefas, vamos combinar o que o relatório final precisa cobrir?",
+    "fr": "Avant de répartir les tâches, si on se mettait d'accord sur le contenu du rapport final ?",
+    "de": "Sollen wir uns einigen, was der Abschlussbericht abdecken muss, bevor wir die Aufgaben verteilen?",
+    "id": "Sebelum membagi tugas, bagaimana kalau kita sepakati dulu isi laporan akhirnya?",
+    "th": "ก่อนแบ่งงาน เรามาตกลงกันก่อนดีไหมว่ารายงานฉบับสุดท้ายต้องครอบคลุมอะไรบ้าง",
+    "zh": "分工之前，我们先说好最终报告要涵盖哪些内容，好吗？",
+    "ja": "担当を分ける前に、最終レポートに何を盛り込むか決めませんか？",
+    "ko": "역할을 나누기 전에 최종 보고서에 무엇을 담을지 먼저 정할까요?",
+    "hi": "काम बाँटने से पहले क्यों न तय कर लें कि अंतिम रिपोर्ट में क्या-क्या होना चाहिए?",
+    "ar": "قبل أن نوزّع المهام، هل نتفق على ما يجب أن يغطيه التقرير النهائي؟",
+    "ru": "Прежде чем делить задачи, давайте договоримся, что должен охватывать итоговый отчёт.",
+    "tr": "Görevleri bölüşmeden önce, final raporunun neleri kapsayacağı konusunda anlaşalım mı?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "g2",
+   "who": "barista",
+   "en": "Good idea. I can take the research section if someone else handles the survey.",
+   "variants": {
+    "polite": "That sounds sensible. I'd be happy to take the research section, provided someone else handles the survey.",
+    "casual": "Sure, I'll do the research if someone does the survey."
+   },
+   "gloss": {
+    "en": "A teammate offers to do the research if someone else takes the survey.",
+    "vi": "Hay đấy. Mình nhận phần nghiên cứu nếu có người lo phần khảo sát.",
+    "es": "Buena idea. Yo me encargo de la investigación si otra persona hace la encuesta.",
+    "pt": "Boa ideia. Eu pego a parte de pesquisa se alguém cuidar do questionário.",
+    "fr": "Bonne idée. Je peux prendre la recherche si quelqu'un s'occupe du sondage.",
+    "de": "Gute Idee. Ich übernehme die Recherche, wenn jemand anderes die Umfrage macht.",
+    "id": "Ide bagus. Saya ambil bagian riset kalau ada yang mengurus surveinya.",
+    "th": "ความคิดดี ฉันรับส่วนค้นคว้าเอง ถ้ามีใครดูแลแบบสำรวจ",
+    "zh": "好主意。如果有人负责问卷调查，我就来做资料研究部分。",
+    "ja": "いい考えですね。アンケートを誰かが担当してくれるなら、調査の部分は私が引き受けます。",
+    "ko": "좋은 생각이에요. 누가 설문을 맡아 주면 제가 자료 조사를 맡을게요.",
+    "hi": "अच्छा सुझाव है। अगर कोई सर्वे संभाल ले तो शोध वाला हिस्सा मैं ले लूँगा।",
+    "ar": "فكرة جيدة. يمكنني تولّي قسم البحث إذا تولّى شخص آخر الاستبيان.",
+    "ru": "Хорошая мысль. Я возьму исследование, если кто-то займётся опросом.",
+    "tr": "İyi fikir. Biri anketi üstlenirse araştırma bölümünü ben alabilirim."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "g3",
+   "who": "customer",
+   "en": "I'll do the survey, and then we can combine our findings by Tuesday.",
+   "variants": {
+    "polite": "I'd be glad to do the survey, and then we could combine our findings by Tuesday.",
+    "casual": "I'll do the survey. Let's merge our findings by Tuesday."
+   },
+   "gloss": {
+    "en": "Taking the survey and proposing a day to put the results together.",
+    "vi": "Mình làm phần khảo sát, rồi thứ Ba mình gộp kết quả lại nhé.",
+    "es": "Yo hago la encuesta y el martes juntamos los resultados.",
+    "pt": "Eu faço o questionário e na terça juntamos os resultados.",
+    "fr": "Je m'occupe du sondage, puis on met nos résultats en commun d'ici mardi.",
+    "de": "Ich mache die Umfrage, und bis Dienstag führen wir unsere Ergebnisse zusammen.",
+    "id": "Saya yang buat survei, lalu hasilnya kita gabungkan paling lambat Selasa.",
+    "th": "ฉันทำแบบสำรวจเอง แล้วเรารวมผลกันภายในวันอังคาร",
+    "zh": "问卷我来做，然后周二前把我们的成果合在一起。",
+    "ja": "アンケートは私がやるので、火曜までに結果をまとめましょう。",
+    "ko": "설문은 제가 할게요. 그다음 화요일까지 결과를 합치면 되겠어요.",
+    "hi": "सर्वे मैं कर लूँगा, फिर मंगलवार तक हम अपने नतीजे एक साथ जोड़ सकते हैं।",
+    "ar": "سأتولى الاستبيان، ثم يمكننا دمج نتائجنا بحلول يوم الثلاثاء.",
+    "ru": "Опрос беру на себя, а к вторнику мы сможем объединить результаты.",
+    "tr": "Anketi ben yaparım, sonra bulgularımızı salıya kadar birleştirebiliriz."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "survey",
+     "ipa": "/ˈsɜː.veɪ/",
+     "hi": "SUR",
+     "note": {
+      "en": "Stress the first syllable in the noun: SUR-vay.",
+      "vi": "Danh từ nhấn âm đầu: SƠ-vây.",
+      "es": "Como sustantivo, acentúa la primera sílaba: SER-vei.",
+      "pt": "Como substantivo, acentue a primeira sílaba: SÉR-vei.",
+      "fr": "Pour le nom, accentuez la première syllabe : SEUR-vè.",
+      "de": "Beim Nomen die erste Silbe betonen: SÖR-wei.",
+      "id": "Untuk kata benda, tekankan suku kata pertama: SER-vei.",
+      "th": "คำนามเน้นพยางค์แรก: เซอร์-เวย์",
+      "zh": "作名词时重音在第一个音节：SUR-vay。",
+      "ja": "名詞では最初の音節を強く：サー・ヴェイ。",
+      "ko": "명사로 쓸 때는 첫 음절에 강세: 서-베이.",
+      "hi": "संज्ञा के रूप में पहले अक्षर पर ज़ोर: सर-वे।",
+      "ar": "كاسم، شدّد على المقطع الأول: سَر-فاي.",
+      "ru": "У существительного ударение на первом слоге: СЁР-вэй.",
+      "tr": "İsim olarak ilk hece vurgulanır: SÖR-vey."
+     }
+    }
+   ]
+  },
+  {
+   "id": "g4",
+   "who": "barista",
+   "en": "Tuesday is tight for me because of another deadline. Could we make it Wednesday?",
+   "variants": {
+    "polite": "Tuesday is a little tight for me because of another deadline. Would Wednesday be possible?",
+    "casual": "Tuesday's tough, I've got another deadline. Wednesday instead?"
+   },
+   "gloss": {
+    "en": "Explaining that the date is too tight and asking for a day later.",
+    "vi": "Thứ Ba hơi gấp với mình vì còn một hạn nộp khác. Dời sang thứ Tư được không?",
+    "es": "El martes me viene justo por otra entrega. ¿Podría ser el miércoles?",
+    "pt": "Terça fica apertado para mim por causa de outro prazo. Podemos passar para quarta?",
+    "fr": "Mardi est serré pour moi à cause d'une autre échéance. On pourrait dire mercredi ?",
+    "de": "Dienstag ist für mich knapp wegen einer anderen Abgabe. Könnten wir es auf Mittwoch legen?",
+    "id": "Selasa terlalu mepet buat saya karena ada tenggat lain. Bisa diundur ke Rabu?",
+    "th": "วันอังคารกระชั้นเกินไปสำหรับฉัน เพราะมีงานอื่นต้องส่งด้วย เลื่อนเป็นวันพุธได้ไหม",
+    "zh": "周二对我来说太紧了，我还有别的截止日期。能改到周三吗？",
+    "ja": "火曜は別の締め切りがあって厳しいです。水曜にできませんか？",
+    "ko": "화요일은 다른 마감이 있어서 빠듯해요. 수요일로 할 수 있을까요?",
+    "hi": "मंगलवार मेरे लिए तंग है क्योंकि एक और समय-सीमा है। क्या हम इसे बुधवार कर सकते हैं?",
+    "ar": "يوم الثلاثاء ضيّق عليّ بسبب موعد تسليم آخر. هل يمكن أن يكون الأربعاء؟",
+    "ru": "Вторник для меня тесноват из-за другого срока. Может, сделаем среду?",
+    "tr": "Salı benim için sıkışık, başka bir teslim tarihim var. Çarşamba olabilir mi?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "deadline",
+     "ipa": "/ˈded.laɪn/",
+     "hi": "DED",
+     "note": {
+      "en": "Stress the first syllable: DED-line, with a short e.",
+      "vi": "Nhấn âm đầu: ĐÉT-lai, nguyên âm e ngắn.",
+      "es": "Acentúa la primera sílaba: DED-lain, con e corta.",
+      "pt": "Acentue a primeira sílaba: DÉD-lain, com e curto.",
+      "fr": "Accentuez la première syllabe : DÈD-laïne, avec un e bref.",
+      "de": "Erste Silbe betonen: DED-lain, kurzes e.",
+      "id": "Tekankan suku pertama: DED-lain, e pendek.",
+      "th": "เน้นพยางค์แรก: เด็ด-ไลน์ สระเอะสั้น",
+      "zh": "重音在第一音节：DED-line，e 要读短。",
+      "ja": "最初を強く：デッドライン。「デ」は短く。",
+      "ko": "첫 음절 강세: 데드-라인, ‘e’는 짧게.",
+      "hi": "पहले अक्षर पर ज़ोर: डेड-लाइन, छोटा ‘ए’।",
+      "ar": "شدّد على المقطع الأول: دِد-لاين، بكسرة قصيرة.",
+      "ru": "Ударение на первый слог: ДЕД-лайн, е краткое.",
+      "tr": "İlk hece vurgulu: DED-layn, kısa e."
+     }
+    }
+   ]
+  },
+  {
+   "id": "g5",
+   "who": "customer",
+   "en": "I see your point, but I'm not convinced the survey should be that long.",
+   "variants": {
+    "polite": "I see your point, although I'm not entirely convinced the survey needs to be that long.",
+    "casual": "Fair point, but I don't think the survey needs to be that long."
+   },
+   "gloss": {
+    "en": "Disagreeing politely: you accept the point but doubt the survey should be so long.",
+    "vi": "Mình hiểu ý bạn, nhưng mình chưa chắc bản khảo sát cần dài đến vậy.",
+    "es": "Entiendo tu punto, pero no estoy convencido de que la encuesta deba ser tan larga.",
+    "pt": "Entendo seu ponto, mas não estou convencido de que o questionário precise ser tão longo.",
+    "fr": "Je vois ce que vous voulez dire, mais je ne suis pas convaincu que le sondage doive être aussi long.",
+    "de": "Ich verstehe deinen Punkt, bin aber nicht überzeugt, dass die Umfrage so lang sein muss.",
+    "id": "Saya mengerti maksudmu, tapi saya belum yakin survei ini perlu sepanjang itu.",
+    "th": "ฉันเข้าใจที่คุณพูด แต่ยังไม่แน่ใจว่าแบบสำรวจต้องยาวขนาดนั้น",
+    "zh": "我明白你的意思，但我不太确定问卷需要这么长。",
+    "ja": "おっしゃることは分かりますが、アンケートがそこまで長い必要があるかは疑問です。",
+    "ko": "무슨 말인지는 알겠는데, 설문이 그렇게까지 길어야 하는지는 잘 모르겠어요.",
+    "hi": "मैं आपकी बात समझता हूँ, पर मुझे यकीन नहीं कि सर्वे इतना लंबा होना चाहिए।",
+    "ar": "أفهم وجهة نظرك، لكنني لست مقتنعًا بأن الاستبيان يجب أن يكون بهذا الطول.",
+    "ru": "Я понимаю вашу мысль, но не уверен, что опрос должен быть таким длинным.",
+    "tr": "Söylediğini anlıyorum ama anketin bu kadar uzun olması gerektiğine ikna olmadım."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "convinced",
+     "ipa": "/kənˈvɪnst/",
+     "hi": "VINST",
+     "note": {
+      "en": "Stress the second syllable and end with a clear t: kuhn-VINST.",
+      "vi": "Nhấn âm thứ hai và đọc rõ âm t cuối: kần-VINST.",
+      "es": "Acentúa la segunda sílaba y pronuncia la t final: ken-VINST.",
+      "pt": "Acentue a segunda sílaba e pronuncie o t final: kən-VINST.",
+      "fr": "Accentuez la deuxième syllabe et faites sentir le t final : keun-VINST.",
+      "de": "Zweite Silbe betonen, am Ende ein deutliches t: kən-WINST.",
+      "id": "Tekankan suku kedua dan ucapkan t di akhir: kən-VINST.",
+      "th": "เน้นพยางค์ที่สอง และออกเสียง t ท้ายคำให้ชัด: คึน-วินสท์",
+      "zh": "重音在第二音节，结尾的 t 要读清楚：kən-VINST。",
+      "ja": "2番目の音節を強く、語末のtもはっきり：カン・ヴィンスト。",
+      "ko": "두 번째 음절에 강세, 끝의 t를 분명히: 컨-빈스트.",
+      "hi": "दूसरे अक्षर पर ज़ोर और अंत में साफ़ ‘ट’: कन-विन्स्ट।",
+      "ar": "شدّد على المقطع الثاني وانطق التاء الأخيرة: كَن-فِنست.",
+      "ru": "Ударение на втором слоге, на конце чёткое т: кэн-ВИНСТ.",
+      "tr": "İkinci hece vurgulu, sonda net bir t: kın-VİNST."
+     }
+    }
+   ]
+  },
+  {
+   "id": "g6",
+   "who": "barista",
+   "en": "Fair enough. What if we cut it down to ten questions and focus on the key themes?",
+   "variants": {
+    "polite": "That's fair. Would it help if we reduced it to ten questions and focused on the key themes?",
+    "casual": "OK. How about ten questions on the main themes?"
+   },
+   "gloss": {
+    "en": "Accepting the objection and suggesting a shorter survey with ten questions.",
+    "vi": "Cũng có lý. Hay mình rút còn mười câu và tập trung vào các chủ đề chính?",
+    "es": "Tienes razón. ¿Y si la dejamos en diez preguntas centradas en los temas clave?",
+    "pt": "Justo. Que tal reduzir para dez perguntas e focar nos temas principais?",
+    "fr": "Pas faux. Et si on la ramenait à dix questions centrées sur les thèmes clés ?",
+    "de": "Stimmt auch. Wie wäre es, wenn wir sie auf zehn Fragen kürzen und uns auf die Kernthemen konzentrieren?",
+    "id": "Boleh juga. Bagaimana kalau dipangkas jadi sepuluh pertanyaan yang fokus pada tema utama?",
+    "th": "ก็จริง ถ้าตัดเหลือสิบข้อและเน้นหัวข้อหลักล่ะ",
+    "zh": "有道理。要不我们删到十个问题，只围绕核心主题？",
+    "ja": "それもそうですね。10問に絞って、主なテーマに集中するのはどうでしょう。",
+    "ko": "그렇네요. 열 문항으로 줄이고 핵심 주제에 집중하면 어떨까요?",
+    "hi": "ठीक है। अगर हम इसे दस सवालों तक घटाकर मुख्य विषयों पर ध्यान दें तो कैसा रहेगा?",
+    "ar": "معك حق. ماذا لو اختصرناه إلى عشرة أسئلة وركّزنا على المحاور الأساسية؟",
+    "ru": "Справедливо. А если сократить до десяти вопросов и сосредоточиться на ключевых темах?",
+    "tr": "Haklısın. On soruya indirip ana temalara odaklansak nasıl olur?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "g7",
+   "who": "customer",
+   "en": "Sam, you haven't said much yet. What do you think about the structure?",
+   "variants": {
+    "polite": "Sam, I'd really like to hear your view too. What do you think about the structure?",
+    "casual": "Sam, what do you think? Any thoughts on the structure?"
+   },
+   "gloss": {
+    "en": "Inviting a quieter teammate to share an opinion on the report structure.",
+    "vi": "Sam, bạn chưa nói nhiều. Bạn thấy bố cục thế nào?",
+    "es": "Sam, aún no has dicho mucho. ¿Qué opinas de la estructura?",
+    "pt": "Sam, você ainda falou pouco. O que acha da estrutura?",
+    "fr": "Sam, tu n'as pas encore beaucoup parlé. Que penses-tu de la structure ?",
+    "de": "Sam, du hast noch nicht viel gesagt. Was denkst du über den Aufbau?",
+    "id": "Sam, kamu belum banyak bicara. Bagaimana menurutmu soal strukturnya?",
+    "th": "แซม คุณยังไม่ค่อยได้พูดเลย คุณคิดยังไงกับโครงสร้างรายงาน",
+    "zh": "Sam，你还没怎么发言。你觉得整体结构怎么样？",
+    "ja": "サムさん、まだあまり話していませんね。構成についてはどう思いますか？",
+    "ko": "샘, 아직 말을 많이 안 했네요. 구성은 어떻게 생각해요?",
+    "hi": "सैम, आपने अभी तक ज़्यादा कुछ नहीं कहा। ढाँचे के बारे में आप क्या सोचते हैं?",
+    "ar": "سام، لم تقل الكثير بعد. ما رأيك في هيكل التقرير؟",
+    "ru": "Сэм, вы пока мало говорили. Что вы думаете о структуре?",
+    "tr": "Sam, henüz pek konuşmadın. Yapı hakkında ne düşünüyorsun?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "structure",
+     "ipa": "/ˈstrʌk.tʃər/",
+     "hi": "STRUK",
+     "note": {
+      "en": "Say STRUK-cher, with the stress on the first syllable.",
+      "vi": "Đọc STRẤC-chờ, nhấn âm đầu; không đọc “strúc-tua”.",
+      "es": "Di STRAK-cher con acento en la primera sílaba, no es-truc-tu-ra.",
+      "pt": "Diga STRÂK-tcher com acento na primeira sílaba, não es-tru-tu-ra.",
+      "fr": "Dites STRAK-tcheur, accent sur la première syllabe, pas « structure ».",
+      "de": "Sprich STRAK-tscher mit Betonung auf der ersten Silbe, nicht „Struktur“.",
+      "id": "Ucapkan STRAK-cer dengan tekanan di suku pertama, bukan struk-tur.",
+      "th": "ออกเสียงว่า สตรัค-เชอร์ เน้นพยางค์แรก",
+      "zh": "读作 STRUK-chər，重音在第一个音节。",
+      "ja": "最初の音節を強く、「ストラクチャー」のように。",
+      "ko": "스트럭-처로 읽고 첫 음절을 강하게 말해요.",
+      "hi": "‘स्ट्रक-चर’ बोलें, पहले अक्षर पर ज़ोर दें।",
+      "ar": "انطقها ستراك-تشر مع التشديد على المقطع الأول.",
+      "ru": "Читается СТРАК-чер, ударение на первом слоге.",
+      "tr": "STRAK-çır diye okunur, vurgu ilk hecededir."
+     }
+    }
+   ]
+  },
+  {
+   "id": "g8",
+   "who": "barista",
+   "en": "Honestly, I think the introduction should explain our aim more clearly.",
+   "variants": {
+    "polite": "If I may, I think the introduction should explain our aim a little more clearly.",
+    "casual": "I think the intro needs a clearer aim."
+   },
+   "gloss": {
+    "en": "A teammate gives an honest opinion about the introduction.",
+    "vi": "Nói thật, mình nghĩ phần mở đầu nên nêu mục tiêu rõ hơn.",
+    "es": "Sinceramente, creo que la introducción debería explicar nuestro objetivo con más claridad.",
+    "pt": "Sinceramente, acho que a introdução deveria explicar nosso objetivo com mais clareza.",
+    "fr": "Franchement, je pense que l'introduction devrait expliquer notre objectif plus clairement.",
+    "de": "Ehrlich gesagt sollte die Einleitung unser Ziel klarer erklären.",
+    "id": "Jujur, menurut saya pendahuluan perlu menjelaskan tujuan kita dengan lebih jelas.",
+    "th": "พูดตามตรง ฉันคิดว่าบทนำควรอธิบายจุดมุ่งหมายของเราให้ชัดกว่านี้",
+    "zh": "说实话，我觉得引言应该把我们的目标讲得更清楚。",
+    "ja": "正直に言うと、序論では私たちの目的をもっとはっきり説明した方がいいと思います。",
+    "ko": "솔직히 서론에서 우리 목표를 더 분명하게 설명해야 할 것 같아요.",
+    "hi": "सच कहूँ तो मुझे लगता है कि भूमिका में हमारा उद्देश्य और साफ़ ढंग से समझाया जाना चाहिए।",
+    "ar": "بصراحة، أرى أن المقدمة يجب أن تشرح هدفنا بوضوح أكبر.",
+    "ru": "Честно говоря, мне кажется, во введении стоит яснее объяснить нашу цель.",
+    "tr": "Açıkçası giriş bölümünün amacımızı daha net anlatması gerektiğini düşünüyorum."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "g9",
+   "who": "customer",
+   "en": "Let me sum up: Sam does the research, I run the survey, and Lee writes the draft.",
+   "variants": {
+    "polite": "Let me just sum up: Sam will do the research, I'll run the survey, and Lee will write the draft.",
+    "casual": "So: Sam researches, I do the survey, Lee writes the draft."
+   },
+   "gloss": {
+    "en": "Summing up who is doing which part of the project.",
+    "vi": "Mình tóm tắt nhé: Sam lo nghiên cứu, mình làm khảo sát, còn Lee viết bản nháp.",
+    "es": "Resumo: Sam hace la investigación, yo la encuesta y Lee escribe el borrador.",
+    "pt": "Resumindo: Sam faz a pesquisa, eu aplico o questionário e Lee escreve o rascunho.",
+    "fr": "Je résume : Sam fait la recherche, je gère le sondage et Lee rédige le brouillon.",
+    "de": "Ich fasse zusammen: Sam recherchiert, ich führe die Umfrage durch und Lee schreibt den Entwurf.",
+    "id": "Saya rangkum ya: Sam riset, saya survei, dan Lee menulis draf.",
+    "th": "ขอสรุปนะ แซมทำส่วนค้นคว้า ฉันทำแบบสำรวจ และลีเขียนฉบับร่าง",
+    "zh": "我来总结一下：Sam 做资料研究，我做问卷，Lee 写初稿。",
+    "ja": "まとめます。サムさんが調査、私がアンケート、リーさんが草稿の執筆です。",
+    "ko": "정리해 볼게요. 샘은 자료 조사, 저는 설문, 리는 초안 작성이에요.",
+    "hi": "मैं सार बता दूँ: सैम शोध करेगा, मैं सर्वे चलाऊँगा और ली मसौदा लिखेगा।",
+    "ar": "دعوني ألخّص: سام يتولى البحث، وأنا أُجري الاستبيان، وLee يكتب المسودة.",
+    "ru": "Подведу итог: Сэм занимается исследованием, я провожу опрос, а Ли пишет черновик.",
+    "tr": "Özetleyeyim: Sam araştırmayı yapacak, ben anketi yürüteceğim, Lee de taslağı yazacak."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "g10",
+   "who": "barista",
+   "en": "That works for me. Should we set up a shared document so we can all edit it?",
+   "variants": {
+    "polite": "That works well for me. Would it be useful to set up a shared document that we can all edit?",
+    "casual": "Works for me. Shall we make a shared doc?"
+   },
+   "gloss": {
+    "en": "Agreeing and suggesting a shared document everyone can edit.",
+    "vi": "Mình thấy ổn. Mình lập một tài liệu chung để ai cũng sửa được nhé?",
+    "es": "Me parece bien. ¿Creamos un documento compartido que todos podamos editar?",
+    "pt": "Por mim, tudo bem. Vamos criar um documento compartilhado que todos possam editar?",
+    "fr": "Ça me convient. On crée un document partagé que tout le monde peut modifier ?",
+    "de": "Das passt für mich. Sollen wir ein gemeinsames Dokument anlegen, das alle bearbeiten können?",
+    "id": "Saya setuju. Bagaimana kalau kita buat dokumen bersama yang bisa diedit semua orang?",
+    "th": "ฉันโอเคเลย เราสร้างเอกสารที่ใช้ร่วมกันให้ทุกคนแก้ไขได้ดีไหม",
+    "zh": "我没问题。要不要建一个大家都能编辑的共享文档？",
+    "ja": "それで大丈夫です。全員で編集できる共有ドキュメントを作りましょうか？",
+    "ko": "저는 좋아요. 모두가 수정할 수 있는 공유 문서를 만들까요?",
+    "hi": "मुझे यह ठीक लगता है। क्या हम एक साझा दस्तावेज़ बना लें जिसे सब संपादित कर सकें?",
+    "ar": "هذا مناسب لي. هل ننشئ مستندًا مشتركًا يستطيع الجميع تعديله؟",
+    "ru": "Меня это устраивает. Заведём общий документ, который смогут редактировать все?",
+    "tr": "Bana uyar. Hepimizin düzenleyebileceği ortak bir belge açalım mı?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "g11",
+   "who": "customer",
+   "en": "Could everyone add their comments by Friday evening so I can send the draft off?",
+   "variants": {
+    "polite": "Would everyone mind adding their comments by Friday evening, so that I can send the draft off?",
+    "casual": "Can everyone add comments by Friday evening? Then I'll send it."
+   },
+   "gloss": {
+    "en": "Asking the whole group for comments by a clear time.",
+    "vi": "Mọi người ghi nhận xét vào trước tối thứ Sáu để mình gửi bản nháp đi được không?",
+    "es": "¿Podéis añadir todos vuestros comentarios antes del viernes por la noche para que pueda enviar el borrador?",
+    "pt": "Todo mundo pode colocar os comentários até sexta à noite para eu enviar o rascunho?",
+    "fr": "Pourriez-vous tous ajouter vos commentaires d'ici vendredi soir pour que j'envoie le brouillon ?",
+    "de": "Könnten alle bis Freitagabend ihre Kommentare ergänzen, damit ich den Entwurf abschicken kann?",
+    "id": "Bisakah semuanya menambahkan komentar paling lambat Jumat malam supaya saya bisa mengirim drafnya?",
+    "th": "ทุกคนช่วยเพิ่มความเห็นภายในเย็นวันศุกร์ได้ไหม ฉันจะได้ส่งฉบับร่างไป",
+    "zh": "大家能在周五晚上前把意见加进去吗？这样我就能把初稿发出去了。",
+    "ja": "金曜の夜までに全員コメントを書き込んでもらえますか？そうすれば草稿を提出できます。",
+    "ko": "금요일 저녁까지 모두 의견을 달아 주실 수 있을까요? 그래야 초안을 보낼 수 있어요.",
+    "hi": "क्या सब लोग शुक्रवार शाम तक अपनी टिप्पणियाँ जोड़ सकते हैं ताकि मैं मसौदा भेज सकूँ?",
+    "ar": "هل يمكن لكل واحد منكم إضافة تعليقاته قبل مساء الجمعة حتى أرسل المسودة؟",
+    "ru": "Могли бы все добавить свои комментарии до вечера пятницы, чтобы я отправил черновик?",
+    "tr": "Taslağı gönderebilmem için herkes cuma akşamına kadar yorumlarını ekleyebilir mi?"
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "g12",
+   "who": "barista",
+   "en": "Sorry, I'll be a day late with my part. Is it all right if I send it on Monday morning?",
+   "variants": {
+    "polite": "I'm sorry, my part will be a day late. Would it be all right if I sent it on Monday morning?",
+    "casual": "Sorry, I'll be a day late. Can I send it Monday morning?"
+   },
+   "gloss": {
+    "en": "Warning the team early that your part will be late and offering a new time.",
+    "vi": "Xin lỗi, phần của mình sẽ trễ một ngày. Sáng thứ Hai mình gửi được không?",
+    "es": "Lo siento, entregaré mi parte con un día de retraso. ¿Te parece bien si la envío el lunes por la mañana?",
+    "pt": "Desculpe, vou atrasar um dia com a minha parte. Posso enviar na segunda de manhã?",
+    "fr": "Désolé, ma partie aura un jour de retard. Je peux l'envoyer lundi matin ?",
+    "de": "Tut mir leid, mein Teil kommt einen Tag später. Ist es in Ordnung, wenn ich ihn am Montagmorgen schicke?",
+    "id": "Maaf, bagian saya terlambat sehari. Boleh saya kirim Senin pagi?",
+    "th": "ขอโทษนะ ส่วนของฉันจะช้าไปหนึ่งวัน ขอส่งเช้าวันจันทร์ได้ไหม",
+    "zh": "抱歉，我这部分会晚一天。周一上午发给大家可以吗？",
+    "ja": "すみません、私の担当分は1日遅れます。月曜の朝に送っても大丈夫ですか？",
+    "ko": "죄송해요, 제 파트가 하루 늦어질 것 같아요. 월요일 아침에 보내도 될까요?",
+    "hi": "माफ़ कीजिए, मेरा हिस्सा एक दिन देर से होगा। क्या मैं उसे सोमवार सुबह भेज सकता हूँ?",
+    "ar": "آسف، سيتأخر قسمي يومًا واحدًا. هل لا بأس إن أرسلته صباح الاثنين؟",
+    "ru": "Простите, моя часть будет готова на день позже. Ничего, если я отправлю её в понедельник утром?",
+    "tr": "Üzgünüm, benim bölümüm bir gün gecikecek. Pazartesi sabahı göndersem olur mu?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "Which part of the project would you like to take on?",
+   "keywords": [
+    "research",
+    "survey",
+    "writing",
+    "draft",
+    "introduction",
+    "slides",
+    "editing",
+    "data",
+    "analysis",
+    "presentation",
+    "references",
+    "design"
+   ],
+   "variants": {
+    "polite": "Which part of the project would you prefer to take on?",
+    "casual": "What do you want to do?"
+   },
+   "gloss": {
+    "en": "Asking which part of the project you want to take.",
+    "vi": "Bạn muốn nhận phần nào của dự án?",
+    "es": "¿Qué parte del proyecto te gustaría asumir?",
+    "pt": "Que parte do projeto você gostaria de assumir?",
+    "fr": "Quelle partie du projet aimeriez-vous prendre en charge ?",
+    "de": "Welchen Teil des Projekts möchtest du übernehmen?",
+    "id": "Bagian proyek mana yang ingin kamu ambil?",
+    "th": "คุณอยากรับผิดชอบส่วนไหนของโครงการ",
+    "zh": "你想负责项目的哪一部分？",
+    "ja": "プロジェクトのどの部分を担当したいですか？",
+    "ko": "프로젝트의 어느 부분을 맡고 싶으세요?",
+    "hi": "आप प्रोजेक्ट का कौन-सा हिस्सा लेना चाहेंगे?",
+    "ar": "أي جزء من المشروع تود أن تتولاه؟",
+    "ru": "Какую часть проекта вы хотели бы взять на себя?",
+    "tr": "Projenin hangi bölümünü üstlenmek istersin?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "What could we do if we fall behind schedule?",
+   "keywords": [
+    "extra meeting",
+    "deadline",
+    "share",
+    "help",
+    "split",
+    "ask",
+    "tutor",
+    "extension",
+    "email",
+    "reorganise",
+    "schedule",
+    "time"
+   ],
+   "variants": {
+    "polite": "What would you suggest if we start to fall behind schedule?",
+    "casual": "What if we fall behind?"
+   },
+   "gloss": {
+    "en": "Asking what the team should do if the work runs late.",
+    "vi": "Nếu cả nhóm bị chậm tiến độ thì mình nên làm gì?",
+    "es": "¿Qué podríamos hacer si nos retrasamos con el calendario?",
+    "pt": "O que poderíamos fazer se ficarmos atrasados no cronograma?",
+    "fr": "Que pourrions-nous faire si nous prenions du retard ?",
+    "de": "Was könnten wir tun, wenn wir mit dem Zeitplan in Verzug geraten?",
+    "id": "Apa yang bisa kita lakukan kalau jadwal kita tertinggal?",
+    "th": "ถ้างานของเราไม่ทันตามกำหนด เราควรทำอย่างไร",
+    "zh": "如果我们进度落后了，可以怎么办？",
+    "ja": "スケジュールが遅れたら、どうしましょうか？",
+    "ko": "일정이 늦어지면 우리는 어떻게 할 수 있을까요?",
+    "hi": "अगर हम समय-सारणी से पीछे रह जाएँ तो हम क्या कर सकते हैं?",
+    "ar": "ماذا يمكننا أن نفعل إذا تأخرنا عن الجدول الزمني؟",
+    "ru": "Что мы можем сделать, если отстанем от графика?",
+    "tr": "Programın gerisine düşersek ne yapabiliriz?"
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Okay, everyone's here. Where should we start?"
+  },
+  {
+   "who": "customer",
+   "en": "Shall we agree on what the final report needs to cover before we split the tasks?"
+  },
+  {
+   "who": "barista",
+   "en": "Good idea. I can take the research section if someone handles the survey."
+  },
+  {
+   "who": "customer",
+   "en": "I'll do the survey. Can we combine our findings by Tuesday?"
+  },
+  {
+   "who": "barista",
+   "en": "Tuesday is tight for me. Could we make it Wednesday?"
+  },
+  {
+   "who": "customer",
+   "en": "Wednesday works. Let me sum up: you do the research, I run the survey, and Lee writes the draft."
+  },
+  {
+   "who": "barista",
+   "en": "That works for me. Should we set up a shared document?"
+  },
+  {
+   "who": "customer",
+   "en": "Yes, please. Could everyone add their comments by Friday evening?"
+  },
+  {
+   "who": "barista",
+   "en": "Of course. I'll send the link after class."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Has anyone started on the introduction yet?"
+    },
+    {
+     "who": "customer",
+     "en": "Not yet. I was waiting for the survey results."
+    },
+    {
+     "who": "barista",
+     "en": "We can't wait too long. Could you draft it by Monday?"
+    },
+    {
+     "who": "customer",
+     "en": "Yes, I'll send you a first version on Monday afternoon."
+    }
+   ],
+   "q": {
+    "en": "When will the first version be sent?",
+    "vi": "Khi nào bản đầu tiên được gửi?",
+    "es": "¿Cuándo se enviará la primera versión?",
+    "pt": "Quando a primeira versão será enviada?",
+    "fr": "Quand la première version sera-t-elle envoyée ?",
+    "de": "Wann wird die erste Fassung geschickt?",
+    "id": "Kapan versi pertama akan dikirim?",
+    "th": "จะส่งฉบับแรกเมื่อไร",
+    "zh": "初稿什么时候发出？",
+    "ja": "最初の版はいつ送られますか？",
+    "ko": "첫 번째 버전은 언제 보내나요?",
+    "hi": "पहला संस्करण कब भेजा जाएगा?",
+    "ar": "متى سيُرسل الإصدار الأول؟",
+    "ru": "Когда будет отправлена первая версия?",
+    "tr": "İlk sürüm ne zaman gönderilecek?"
+   },
+   "answer": "Monday afternoon"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Sam, you've been quiet. Do you agree with the plan?"
+    },
+    {
+     "who": "barista",
+     "en": "Mostly, but I think ten questions is too many for the survey."
+    },
+    {
+     "who": "customer",
+     "en": "Okay, what number would you suggest?"
+    },
+    {
+     "who": "barista",
+     "en": "I'd say six, so people actually finish it."
+    }
+   ],
+   "q": {
+    "en": "How many questions does Sam suggest?",
+    "vi": "Sam đề nghị bao nhiêu câu hỏi?",
+    "es": "¿Cuántas preguntas sugiere Sam?",
+    "pt": "Quantas perguntas Sam sugere?",
+    "fr": "Combien de questions Sam propose-t-il ?",
+    "de": "Wie viele Fragen schlägt Sam vor?",
+    "id": "Berapa pertanyaan yang diusulkan Sam?",
+    "th": "แซมเสนอให้มีกี่ข้อ",
+    "zh": "Sam 建议问几个问题？",
+    "ja": "サムさんは何問を提案していますか？",
+    "ko": "샘은 몇 문항을 제안하나요?",
+    "hi": "सैम कितने सवाल सुझाता है?",
+    "ar": "كم سؤالًا يقترح سام؟",
+    "ru": "Сколько вопросов предлагает Сэм?",
+    "tr": "Sam kaç soru öneriyor?"
+   },
+   "answer": "six"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "plan",
+    "title": {
+     "en": "Suggest a plan",
+     "vi": "Đề xuất kế hoạch",
+     "es": "Propón un plan",
+     "pt": "Sugira um plano",
+     "fr": "Proposer un plan",
+     "de": "Einen Plan vorschlagen",
+     "id": "Usulkan rencana",
+     "th": "เสนอแผนงาน",
+     "zh": "提出计划",
+     "ja": "計画を提案する",
+     "ko": "계획 제안하기",
+     "hi": "योजना सुझाएँ",
+     "ar": "اقترح خطة",
+     "ru": "Предложи план",
+     "tr": "Plan öner"
+    },
+    "intents": [
+     "g1"
+    ]
+   },
+   {
+    "id": "disagree",
+    "title": {
+     "en": "Disagree politely",
+     "vi": "Phản đối lịch sự",
+     "es": "Discrepa con educación",
+     "pt": "Discorde com educação",
+     "fr": "Exprimer un désaccord poli",
+     "de": "Höflich widersprechen",
+     "id": "Tidak setuju dengan sopan",
+     "th": "แย้งอย่างสุภาพ",
+     "zh": "礼貌地表示异议",
+     "ja": "丁寧に反対する",
+     "ko": "공손하게 반대하기",
+     "hi": "विनम्रता से असहमति जताएँ",
+     "ar": "اعترض بلباقة",
+     "ru": "Вежливо возрази",
+     "tr": "Nazikçe karşı çık"
+    },
+    "intents": [
+     "g5"
+    ]
+   },
+   {
+    "id": "sumup",
+    "title": {
+     "en": "Sum up who does what",
+     "vi": "Tóm tắt ai làm gì",
+     "es": "Resume quién hace qué",
+     "pt": "Resuma quem faz o quê",
+     "fr": "Résumer qui fait quoi",
+     "de": "Zusammenfassen, wer was tut",
+     "id": "Rangkum siapa mengerjakan apa",
+     "th": "สรุปว่าใครทำอะไร",
+     "zh": "总结谁负责什么",
+     "ja": "誰が何をするかまとめる",
+     "ko": "누가 무엇을 하는지 정리하기",
+     "hi": "कौन क्या करेगा, इसका सार बताएँ",
+     "ar": "لخّص من يفعل ماذا",
+     "ru": "Подведи итог: кто что делает",
+     "tr": "Kimin ne yapacağını özetle"
+    },
+    "intents": [
+     "g9"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "In many universities, group work is graded partly on teamwork. It is polite to invite quieter members to speak and to raise a problem early instead of silently missing a deadline.",
+  "vi": "Ở nhiều trường đại học, làm việc nhóm được chấm một phần theo tinh thần hợp tác. Lịch sự là mời bạn ít nói phát biểu, và báo sớm khi gặp vướng mắc thay vì lặng lẽ trễ hạn.",
+  "es": "En muchas universidades el trabajo en grupo se evalúa en parte por la colaboración. Es de buena educación invitar a hablar a quien está más callado y avisar pronto de un problema en vez de incumplir el plazo en silencio.",
+  "pt": "Em muitas universidades, o trabalho em grupo é avaliado em parte pela colaboração. É educado convidar os mais quietos a falar e avisar cedo sobre um problema, em vez de estourar o prazo em silêncio.",
+  "fr": "Dans beaucoup d'universités, le travail de groupe est en partie noté sur la collaboration. Il est poli d'inviter les plus discrets à s'exprimer et de signaler un problème tôt plutôt que de dépasser l'échéance en silence.",
+  "de": "An vielen Hochschulen fließt die Teamarbeit in die Note ein. Es gilt als höflich, ruhigere Mitglieder zum Sprechen einzuladen und Probleme früh anzusprechen, statt stillschweigend die Frist zu verpassen.",
+  "id": "Di banyak universitas, kerja kelompok dinilai sebagian dari kerja samanya. Sopan mengajak anggota yang pendiam berbicara dan menyampaikan masalah lebih awal, bukan diam-diam melewatkan tenggat.",
+  "th": "หลายมหาวิทยาลัยให้คะแนนงานกลุ่มส่วนหนึ่งจากการทำงานร่วมกัน การเชิญเพื่อนที่เงียบให้แสดงความเห็นและบอกปัญหาตั้งแต่เนิ่นๆ แทนที่จะเงียบแล้วส่งงานไม่ทันถือเป็นมารยาทที่ดี",
+  "zh": "在许多大学，小组作业的成绩部分取决于团队合作。邀请安静的组员发言，并且尽早说出困难，而不是默默错过截止日期，是有礼貌的做法。",
+  "ja": "多くの大学では、グループ課題の評価の一部にチームワークが含まれます。口数の少ないメンバーに発言を促し、問題は黙って期限を過ぎる前に早めに伝えるのが礼儀です。",
+  "ko": "많은 대학에서 조별 과제는 협업 태도도 일부 평가해요. 말수가 적은 조원에게 의견을 물어보고, 문제가 생기면 말없이 기한을 넘기지 말고 일찍 알리는 것이 예의예요.",
+  "hi": "कई विश्वविद्यालयों में ग्रुप वर्क के अंक कुछ हद तक टीमवर्क पर भी मिलते हैं। कम बोलने वाले साथियों को बोलने का मौका देना और समस्या होने पर चुपचाप समय-सीमा चूकने के बजाय पहले से बता देना शिष्टाचार है।",
+  "ar": "في كثير من الجامعات تُقيَّم الأعمال الجماعية جزئيًا بحسب روح التعاون. من اللباقة دعوة الأعضاء الهادئين إلى الكلام، والإبلاغ المبكر عن أي مشكلة بدل تفويت الموعد النهائي بصمت.",
+  "ru": "Во многих университетах оценка за групповую работу отчасти зависит от командного взаимодействия. Вежливо дать слово тем, кто молчит, и заранее сообщать о проблемах, а не молча срывать срок.",
+  "tr": "Birçok üniversitede grup çalışması notunun bir kısmı ekip çalışmasına göre verilir. Sessiz kalan arkadaşları konuşmaya davet etmek ve sorunu sessizce son tarihi kaçırmak yerine erkenden dile getirmek nezaket sayılır."
+ }
+}

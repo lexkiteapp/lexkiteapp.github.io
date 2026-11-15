@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_livingsince",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Since needs have!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am living here since 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have lived here since 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Since needs have, not am.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Have lived! I have lived here since May.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am living here since 2020.",
+  "right": "I have lived here since 2020.",
+  "strike": "am living",
+  "why": "Since needs have, not am.",
+  "memory": "Have lived since.",
+  "quiz": {
+   "stem": "I ___ here since May.",
+   "options": [
+    "am living",
+    "have lived"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“since” के साथ “am living” नहीं",
+   "tip": "हिंदी में “2020 से रह रहा हूँ” कहते हैं, पर अंग्रेज़ी में since के साथ “have lived” आता है।",
+   "caption": "क्या आप भी कहते हैं “I am living here since 2020”? 😉 अंग्रेज़ी में “I have lived here since 2020” सही है, क्योंकि since के साथ have + क्रिया का तीसरा रूप चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “have lived”। “am living” की जगह “have lived” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Not “am living” with “since”",
+   "tip": "Hindi says “2020 se reh raha hoon”, but English uses “have lived” with since.",
+   "caption": "Do you say “I am living here since 2020”? 😉 In English “I have lived here since 2020” is right, because since goes with have plus the past form. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“since” के साथ “am living” नहीं"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“since” के साथ “am living” नहीं",
+  "keyword": "I have lived here since 2020.",
+  "value": "हिंदी में “2020 से रह रहा हूँ” कहते हैं, पर अंग्रेज़ी में since के साथ “have lived” आता है।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "“since” के साथ “am living” नहीं",
+    "description": "क्या आप भी कहते हैं “I am living here since 2020”? 😉 अंग्रेज़ी में “I have lived here since 2020” सही है, क्योंकि since के साथ have + क्रिया का तीसरा रूप चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I have lived here since 2020.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “I am living here since 2020”? 😉 अंग्रेज़ी में “I have lived here since 2020” सही है, क्योंकि since के साथ have + क्रिया का तीसरा रूप चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “I am living here since 2020”? 😉 अंग्रेज़ी में “I have lived here since 2020” सही है, क्योंकि since के साथ have + क्रिया का तीसरा रूप चलता है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“since” के साथ “am living” नहीं #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “have lived”। “am living” की जगह “have lived” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

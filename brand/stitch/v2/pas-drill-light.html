@@ -112,9 +112,9 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex justify-center items-start p-0 m-0 bg-[#FFF8F0]">
+<body class="min-h-screen flex justify-center items-start p-0 m-0 bg-[#FBF7F1]">
 <!-- Phone container: strict 390px, one column, 16px padding, no device frame -->
-<main class="w-[390px] min-h-screen flex flex-col justify-between px-4 pb-28 pt-0 bg-[#FFF8F0] relative select-none">
+<main class="w-[390px] min-h-screen flex flex-col justify-between px-4 pb-28 pt-0 bg-[#FBF7F1] relative select-none">
 <!-- Top section (Top bar + Drill header + Content) -->
 <div class="w-full flex flex-col">
 <!-- ==============================================
@@ -132,7 +132,7 @@
 </svg>
 </button>
 <!-- Thick rounded progress bar: 7 of 12 (~58.3%) -->
-<div class="flex-1 h-3.5 bg-[#EFE3D5] rounded-full p-[2px] overflow-hidden flex items-center shadow-inner">
+<div class="flex-1 h-3.5 bg-[#ECE4D7] rounded-full p-[2px] overflow-hidden flex items-center shadow-inner">
 <div class="h-full bg-gradient-to-r from-[#19867F] to-[#22A39B] rounded-full w-[58.3%] shadow-[0_1px_0_rgba(255,255,255,0.4)]"></div>
 </div>
 <!-- Status chip 'Café' with subtle coffee icon -->
@@ -144,7 +144,7 @@
 <line x1="10" x2="10" y1="1" y2="4"></line>
 <line x1="14" x2="14" y1="1" y2="4"></line>
 </svg>
-<span class="text-xs font-black tracking-wide text-[#1A1816]">Café</span>
+<span class="text-xs font-black tracking-wide text-[#162124]">Café</span>
 </div>
 </header>
 <!-- Activity Title & Subhead -->
@@ -153,7 +153,7 @@
 <span class="text-[11px] font-black uppercase tracking-wider text-[#136B66] bg-[#E3F4F1] px-2 py-0.5 rounded-md">Speaking drill</span>
 <span class="text-[11px] font-bold text-[#6B5B4E]">• Practice 7/12</span>
 </div>
-<h1 class="text-[20px] font-extrabold text-[#1A1816] tracking-tight mt-0.5">Say it in 3 beats</h1>
+<h1 class="text-[20px] font-extrabold text-[#162124] tracking-tight mt-0.5">Say it in 3 beats</h1>
 </div>
 <!-- ==============================================
            2. TEACHER SLOT & ENCOURAGING SPEECH BUBBLE
@@ -163,7 +163,7 @@
            ============================================== -->
 <section class="w-full flex items-center gap-3 mt-1 mb-3">
 <!-- Strictly empty dashed teacher slot: 120px wide, ~132px height fitted cleanly -->
-<div class="w-[116px] h-[132px] rounded-[20px] border-2 border-dashed border-[#136B66] bg-[#F7F2EB] flex flex-col items-center justify-center p-2.5 text-center flex-shrink-0 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
+<div class="w-[116px] h-[132px] rounded-[20px] border-2 border-dashed border-[#136B66] bg-[#FBF7F1] flex flex-col items-center justify-center p-2.5 text-center flex-shrink-0 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
 <div class="w-10 h-10 rounded-full bg-[#E5F5F3] border border-[#136B66]/30 flex items-center justify-center mb-1.5 shadow-[0_2px_0_#CADEDC]">
 <svg class="w-5 h-5 text-[#136B66]" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
 <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
@@ -182,7 +182,7 @@
 <span class="inline-block w-2 h-2 rounded-full bg-[#F59E0B]"></span>
 <span class="text-[10px] font-extrabold uppercase tracking-wider text-[#136B66]">Coach Ama</span>
 </div>
-<p class="text-[15px] font-extrabold text-[#1A1816] leading-snug tracking-tight">
+<p class="text-[15px] font-extrabold text-[#162124] leading-snug tracking-tight">
             “Nice! Now say it from memory.”
           </p>
 <p class="text-[11px] font-semibold text-[#6E5D4E] mt-1">
@@ -229,19 +229,19 @@
 <!-- Audio buttons row (top-right of the card) -->
 <div class="flex items-center justify-between mb-2">
 <div class="flex items-center gap-1.5">
-<span class="text-[11px] font-black uppercase tracking-wider text-[#6B5B4E] bg-[#F7EEE3] px-2 py-0.5 rounded-md">Sentence Model</span>
+<span class="text-[11px] font-black uppercase tracking-wider text-[#6B5B4E] bg-[#FBF7F1] px-2 py-0.5 rounded-md">Sentence Model</span>
 <span class="text-[10px] font-bold text-[#15803D] bg-[#ECFDF5] px-1.5 py-0.5 rounded-md border border-[#A7E4C4]">Accent: UK</span>
 </div>
 <!-- Audio play triggers -->
 <div class="flex items-center gap-2">
 <!-- Normal play button -->
-<button class="tactile-circle-btn w-9 h-9 rounded-full flex items-center justify-center text-[#136B66] hover:bg-[#F2FAF9]" title="Play audio (normal speed)">
+<button class="tactile-circle-btn w-9 h-9 rounded-full flex items-center justify-center text-[#136B66] hover:bg-[#FBF7F1]" title="Play audio (normal speed)">
 <svg class="w-4 h-4 fill-current ml-0.5" viewbox="0 0 24 24">
 <polygon points="5 3 19 12 5 21 5 3"></polygon>
 </svg>
 </button>
 <!-- Turtle slow play button -->
-<button class="tactile-circle-btn w-9 h-9 rounded-full flex items-center justify-center text-[#B45309] hover:bg-[#FFF8E6]" title="Play slowly (turtle speed)">
+<button class="tactile-circle-btn w-9 h-9 rounded-full flex items-center justify-center text-[#B45309] hover:bg-[#FBF7F1]" title="Play slowly (turtle speed)">
 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" viewbox="0 0 24 24">
 <!-- Friendly turtle icon shape -->
 <path d="M12 9a6 6 0 0 1 6 6v1H6v-1a6 6 0 0 1 6-6z"></path>
@@ -254,7 +254,7 @@
 </div>
 </div>
 <!-- Feedback-colored Target Sentence -->
-<div class="text-[21px] leading-[1.4] font-extrabold tracking-tight my-1 text-[#1A1816]">
+<div class="text-[21px] leading-[1.4] font-extrabold tracking-tight my-1 text-[#162124]">
 <span class="text-[#15803D] inline-block px-1 py-0.5 rounded bg-[#ECFDF5]">Could</span>
 <span class="text-[#15803D] inline-block px-1 py-0.5 rounded bg-[#ECFDF5]">I</span>
 <span class="text-[#15803D] inline-block px-1 py-0.5 rounded bg-[#ECFDF5]">get</span>
@@ -326,18 +326,18 @@
 <circle cx="22" cy="22" fill="none" r="18" stroke="#136B66" stroke-dasharray="113.1" stroke-dashoffset="15.8" stroke-linecap="round" stroke-width="4.5"></circle>
 </svg>
 <div class="absolute inset-0 flex flex-col items-center justify-center">
-<span class="text-[17px] font-black text-[#1A1816] tracking-tight leading-none">86</span>
+<span class="text-[17px] font-black text-[#162124] tracking-tight leading-none">86</span>
 <span class="text-[8px] font-extrabold text-[#136B66] uppercase leading-none mt-0.5">SCORE</span>
 </div>
 </div>
 <!-- Score description -->
 <div>
-<div class="text-[14px] font-extrabold text-[#1A1816] leading-tight">Great delivery!</div>
+<div class="text-[14px] font-extrabold text-[#162124] leading-tight">Great delivery!</div>
 <div class="text-[11px] font-semibold text-[#667085]">Pacing &amp; intonation spot on</div>
 </div>
 </div>
 <!-- Right: Two of three stars filled -->
-<div class="flex items-center gap-1.5 flex-shrink-0 bg-[#FFF8EE] border border-[#F4DEC4] px-2.5 py-1.5 rounded-xl shadow-[0_2px_0_#EAD7C0]">
+<div class="flex items-center gap-1.5 flex-shrink-0 bg-[#FBF7F1] border border-[#F4DEC4] px-2.5 py-1.5 rounded-xl shadow-[0_2px_0_#EAD7C0]">
 <!-- Star 1: Filled -->
 <svg class="w-5 h-5 text-[#F59E0B] drop-shadow-[0_1px_1px_rgba(180,83,9,0.3)]" fill="currentColor" viewbox="0 0 24 24">
 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
@@ -358,7 +358,7 @@
          - Fixed primary button 'Continue' with deep brown-black label (#1C1003)
          - Quiet text button 'Try again'
          ============================================== -->
-<footer class="w-[358px] fixed bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 bg-[#FFF8F0]/95 backdrop-blur-sm pt-2 pb-1 z-30">
+<footer class="w-[358px] fixed bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 bg-[#FBF7F1]/95 backdrop-blur-sm pt-2 pb-1 z-30">
 <!-- Full-width candy-orange primary button -->
 <button class="tactile-btn-primary w-full h-[52px] font-black text-[17px] tracking-wide flex items-center justify-center gap-2 cursor-pointer shadow-[0_6px_0_#B45309]">
 <span>Continue</span>
@@ -368,7 +368,7 @@
 </svg>
 </button>
 <!-- Quiet text button 'Try again' -->
-<button class="h-9 px-4 text-[13px] font-extrabold text-[#7A6A5C] hover:text-[#1A1816] tracking-wide active:translate-y-[1px] transition-colors">
+<button class="h-9 px-4 text-[13px] font-extrabold text-[#7A6A5C] hover:text-[#162124] tracking-wide active:translate-y-[1px] transition-colors">
         Try again
       </button>
 </footer>

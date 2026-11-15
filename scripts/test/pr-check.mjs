@@ -223,6 +223,12 @@ const noLeak = (r, m) => ok(![SECRET, GHT].some(k => r.text.includes(k)), 'khôn
   ok((await call(ADM, { op: 'checkNow' }, { env: { ...ENV, GH_DISPATCH_TOKEN: '' } })).j.need === 'GH_DISPATCH_TOKEN', 'Kiểm ngay khi thiếu GH_DISPATCH_TOKEN → not-configured');
   r = await call(ADM, { op: 'checkNow' }); const d = gcalls.find(c => c.url.includes('/actions/workflows/pr-check.yml/dispatches'));
   ok(r.s === 200 && d && d.init.headers.Authorization === 'Bearer ' + GHT, 'Kiểm ngay → workflow_dispatch pr-check.yml'); noLeak(r, 'checkNow');
+  { const n0 = gcalls.filter(c => c.url.includes('/dispatches')).length, r2 = await call(ADM, { op: 'checkNow' });
+    ok(r2.s === 429 && r2.j.error === 'too-fast' && r2.j.retryAfter > 0 && gcalls.filter(c => c.url.includes('/dispatches')).length === n0, 'Kiểm ngay bấm lại < 2 phút → 429, không gọi GitHub lần nữa');
+    sql.prepare("UPDATE config SET v = ? WHERE k = 'bw_dispatch'").run(JSON.stringify({ at: Date.now() - 130e3 }));
+    ok((await call(ADM, { op: 'checkNow' })).s === 200 && gcalls.filter(c => c.url.includes('/dispatches')).length === n0 + 1, 'Kiểm ngay sau 2 phút → chạy lại'); }
+  { const css = fs.readFileSync(new URL('../../web/css/admin.css', import.meta.url), 'utf8'); ok(/#bwFs, #bwFt, #bwFl \{ width: auto;/.test(css), 'Backlinks: 3 ô lọc không giãn toàn chiều rộng (xếp 1 hàng ngang)'); }
+  ok(sql.prepare("SELECT name FROM sqlite_master WHERE type = 'index' AND name = 'bw_checks_at'").get(), 'bw_checks có chỉ mục theo thời gian (list/dọn không quét cả bảng)');
   // CI
   ok((await ci({ op: 'ciSync' }, { env: { ...ENV, STUDIO_CALLBACK_SECRET: '' } })).s === 503, 'máy chủ chưa có secret → 503');
   ok((await ci({ op: 'ciSync' }, { secret: 'wrong_secret_wrong_secret' })).s === 403, 'chữ ký sai → 403');

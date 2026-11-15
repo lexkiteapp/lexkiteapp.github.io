@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_want_you",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Say want you to!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want that you help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I want you to help me.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use want + person + to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "To help! She wants me to help her.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want that you help me.",
+  "right": "I want you to help me.",
+  "strike": "that you",
+  "why": "Use want + person + to.",
+  "memory": "Want you to.",
+  "quiz": {
+   "stem": "She wants me ___ her.",
+   "options": [
+    "help",
+    "to help"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“I want that you”? No existe",
+   "tip": "En español “quiero que me ayudes”, pero en inglés: “want + persona + to + verbo”.",
+   "caption": "El subjuntivo no existe aquí 😅 No digas “I want that you help me.”, sino “I want you to help me.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “to help”. Estructura: want + persona + to + verbo. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#gramatica",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“I want that you”? It does not exist",
+   "tip": "In Spanish “quiero que me ayudes”, but in English: want + person + to + verb.",
+   "caption": "There is no subjunctive here. Do not say “I want that you help me.”, say “I want you to help me.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“I want that you”? No existe"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "¿“I want that you”? No existe",
+  "keyword": "I want you to help me.",
+  "value": "En español “quiero que me ayudes”, pero en inglés: “want + persona + to + verbo”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#gramatica",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "¿“I want that you”? No existe",
+    "description": "El subjuntivo no existe aquí 😅 No digas “I want that you help me.”, sino “I want you to help me.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #gramatica #lexkite",
+    "tags": [
+     "I want you to help me.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "El subjuntivo no existe aquí 😅 No digas “I want that you help me.”, sino “I want you to help me.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "El subjuntivo no existe aquí 😅 No digas “I want that you help me.”, sino “I want you to help me.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#gramatica",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“I want that you”? No existe #aprenderingles #inglesfacil #gramatica"
+   }
+  },
+  "first_comment": "Respuesta: “to help”. Estructura: want + persona + to + verbo. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

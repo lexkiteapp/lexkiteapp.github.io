@@ -15,7 +15,7 @@
 | Ảnh theo nghĩa `từ#loại` | `VImg.has/get` (`vocab-img.js`, cờ `vocab_img`) | dạng nhìn ảnh nói từ – chỉ khi có đúng `từ#loại` |
 | Đọc + nhận giọng | `UI.tts` (Kokoro nếu có, rồi máy), `UI.recognize` (Web Speech → Whisper trên máy) | nghe/nói |
 | Giải thích đáp án | `explain-card.js` (lược đồ `{why, wrong, ex, hook}`) | khung HTML giải thích |
-| Gold bank | `content/video/scripts/bank/*.jsonl` (`why`, `wrong`, `right`, `ex`) | dựng `web/js/lesson/gold.js` (theo từ) |
+| Gold bank | `content/video/scripts/bank/*.jsonl` (`why`, `wrong`, `right`, `ex`) | dựng `web/cpack/lesson/gold.js` (theo từ) |
 | Nhịp buổi học (combo, tạm tắt nghe/nói) | `confidence.js` | cùng tinh thần; bài học có máy trạng thái riêng nhỏ hơn |
 | Tiến trình ngày | `path-day.js` (dùng `dueList`) | sau duyệt: thêm bước "Bài học trộn" |
 
@@ -36,7 +36,7 @@
 - Mỗi câu: âm + rung (`Sfx`, theo Cài đặt › Hiệu ứng âm thanh), giáo viên gật/lắc + nói ("Nice!"/"Almost!") + emoji; ô chữ nảy, thanh tiến độ sáng, COMBO 🔥; màn kết pháo giấy + XP · % · thời gian, **1 chạm** sang bài tiếp. Chỉ transform/opacity (60 fps), tắt khi giảm chuyển động.
 
 ## 2c. Truyện + Radio (nút trên bản đồ) · trang chủ = bản đồ
-- Nội dung `content/lesson/stories.json` (tự soạn A1–A2, Ama ↔ Carlos) → `scripts/lesson/build-stories.mjs` (kiểm lược đồ, cặp ghép đủ 15 ngôn ngữ) → `web/js/lesson/stories.js` (~5 KB gz, trong bundle `lesson`).
+- Nội dung `content/lesson/stories.json` (tự soạn A1–A2, Ama ↔ Carlos) → `scripts/lesson/build-stories.mjs` (kiểm lược đồ, cặp ghép đủ 15 ngôn ngữ) → `web/cpack/lesson/stories.js` (~5 KB gz, trong bundle `lesson`).
 - **Truyện**: từng câu thoại (người nói sáng lên, chữ hiện dạng chat) + bài kiểm xen giữa: xếp lại câu vừa nghe · câu hỏi hiểu · ghép cụm ↔ nghĩa (ngôn ngữ người học). **Radio**: chỉ nghe (không chữ, "ON AIR") rồi 3 câu hỏi.
 - Giọng: Kokoro **sinh sẵn trên CI** (`scripts/gen-audio.mjs`, `audio.yml` hằng đêm; Ama = af_heart, Carlos = am_michael) → `audio.lexkite.com/audio/l/<KVoice.lineKey>.mp3`; vòng nói chạy đúng độ dài file; chưa có file → giọng máy. Khớp âm vị: §4.
 - Câu thoại không tính điểm (chỉ tiến độ); hết bài → bài kế tiếp xoay vòng. Cờ `lesson_mix` bật → `#/home` = bản đồ (trang chủ đầy đủ ở `#/home?all=1`).
@@ -152,3 +152,12 @@ Xem artifact `lipsync-lab` của run CI mới nhất (report.md, metrics.json, v
 - **Cờ:** `lk.lipsync` mặc định BẬT; `localStorage lk.lipsync=0` hoặc cfg `lipsync:false` = tắt (vòng clip).
 - **CI không gọi kho media:** call-e2e dựng WAV giả từ độ lớn tiếng đã lưu trong cues.js (đúng độ dài → chế độ pre).
 - **Lab:** workflow lipsync-lab.yml + trang web/lab/{face,lipsync}.html (dùng bởi scripts/lipsync/lab.mjs, drawn_frames.mjs) để ở nhánh `wip/lipsync-lab` – thêm lại khi ci-triage.yml rảnh (PR #429/#172); cổng sản xuất từng câu vẫn chạy trong audio.yml (call_cues.mjs).
+
+## Ghi chú web/js/lesson/teacher.js (chuyển từ đầu tệp, 07/11)
+
+- 👩‍🏫 Ama / Carlos đọc lời nhắc trong bài học – clip PHÔNG XANH đã tách nền PRO (scripts/teach/build.py, CI teach-build.yml), nền trong suốt, đủ đầu.
+- Đang nói → vòng "talk" (miệng thật của clip, khớp nhịp), im/nghe → vòng "listen"; trộn 160 ms trong CÙNG 1 canvas (không 2 lớp chồng nhau).
+- Video H.264 "xếp chồng" (nửa trên màu đã nhân alpha, nửa dưới alpha) → WebGL ghép thành nền trong suốt: mọi trình duyệt, giải mã phần cứng.
+- Hạ cấp: saveData / giảm chuyển động / không WebGL / thiếu tài sản → poster.webp (alpha) tĩnh. Tài sản: chỉ qua Chars (poster, clip talk/listen, đầu trơn).
+- 🙂 Mặt VẼ khớp miệng (cờ lk.lipsync, chỉ Call: mount(el, who, { lip: true }), docs/LESSON-ENGINE.md §Khớp miệng): đầu trơn + mắt/mi/mày/ria/miệng vector (LipFace) vẽ lại mỗi khung theo
+- audio.currentTime. Có mốc CI (web/js/call/cues.js + <khóa>-ls.mp3) → "pre"; không có → LipSync.live() theo năng lượng tiếng. Thiếu gì → vòng clip như cũ → poster.

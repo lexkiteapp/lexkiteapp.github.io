@@ -48,8 +48,11 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Bản xấu / mất dữ liệu: `docs/ROLLBACK.md` mục 0 (`bash scripts/ops/rollback-pages.sh` → `git revert`; D1 Time Travel; bản mã hoá trên Kho Drive). Mỗi push `main` được gắn tag `prod-…` + smoke tự động (prod-release.yml); KHÔNG tự rollback – cần chủ OK.
 - **Trước MỖI lần push: `npm run prepush`** (tự dựng lại required-gate, path-mix, confidence, extension/app + kiểm vi-lint, docs-budget, infra, ext-sync) rồi commit file được dựng lại. 26/10 Prod release đỏ 5 lần vì quên đúng các bước này.
 - Sau ship: kiểm LIVE (lexkite.com, API 403 với người lạ…). Báo anh ngắn gọn bằng tiếng Việt.
-- `i18n-leak` chập chờn khi chạy cả bộ → chạy riêng.
 - Add-on `extension/app` PHẢI đồng bộ nguyên khối (`bash scripts/build-extension.sh`), không chép lẻ từng file. `node scripts/test/ext-dict-i18n.mjs all` vẽ #/dict/<từ> bằng add-on thật ở 14 ngôn ngữ (Google trả tiếng Việt + bộ nhớ đệm cũ) và chặn mọi chữ Việt; nghĩa từ điển cho người dùng không-vi luôn theo chuỗi giao diện → en (dictionary.js: `wantVi`/`forLang`, bộ nhớ đệm `_ml`).
+
+## 2b. Chống xung đột PR (chi tiết: `docs/specs/merge-queue.md`)
+- Nguồn dịch `i18n/ui` + registry (`REGISTRIES` ở `scripts/lib/fmt-registry.mjs`): mỗi mục một dòng, sắp xếp – `node scripts/fmt-stable.mjs` (prepush chạy).
+- Không sửa tay tệp sinh (`web/js/i18n/<lang>`, `extension/app`, `st-*.css`, CODEMAP); PR dirty ở đó → bot `pr-unconflict` gỡ + dựng lại. Gác: `fmt-stable.mjs`, `gen-guard.mjs`.
 
 ## 3. Ngân sách dung lượng
 - Khung app (SHELL ∪ file nạp ngay của /app/) ≤ 374 KB gz chuẩn (`scripts/lib/gz-canon.mjs`, máy = CI; không nâng) → tính năng mới tải lười; khóa: `shell-lazy.mjs`. Từng module + Δ so với main: `node scripts/test/shell-size.mjs` (tóm tắt CI npm test); khóa i18n chỉ trang lười dùng → `--move` sang `en/lazyui.js` (gói i18nl). `web/js` ≤ `totalJs` trong `scripts/test/budget.json` (không tính `admin-*.js` và nguồn dựng en.js – `scripts/lib/js-budget.mjs`).
@@ -72,7 +75,7 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 - Không gọi `t()` lúc nạp module, dữ liệu lưu KHÓA (`I18N-PIPELINE.md` §2.8); chờ `I18N.whenReady()` trước khi vẽ (`i18n-switch.mjs --scan`).
 - Chuỗi dữ liệu qua `t(biến)` không bị `i18n-missing` bắt → tự kiểm khóa tiếng Anh. Chữ quản trị soạn: luôn `esc()` + lọc URL.
 - Khoá cụm tiếng Anh mẫu (cấu trúc, câu ví dụ) trước khi dịch máy.
-- Xung đột dịch: sửa nguồn `i18n/ui/`, chạy `i18n-dedupe.cjs` + `i18n-pack.mjs` (I18N-PIPELINE §1b).
+- Xung đột dịch: sửa nguồn `i18n/ui/`, chạy `fmt-stable.mjs` + `i18n-pack.mjs` (I18N-PIPELINE §1b).
 - Sau commit bot "i18n: cập nhật…" xem `--stat`: hàng trăm dòng bị xoá = mất bản dịch (harvest hết lượt).
 
 ## 6. Nội dung & blog
@@ -94,15 +97,12 @@ Mục lục mọi tài liệu: `docs/README.md`. Lịch sử/chi tiết cũ: `do
 
 ## 8. Lỗi đã mắc (một dòng mỗi lỗi)
 - Gộp nguyên nhánh Antigravity cũ → ghi đè bản sửa mới (alt ảnh, iPhone hover); nhánh làm trên khung cũ (`web/index.html` nay là landing, app ở `web/app/index.html`).
-- Lỗi Kling/footage (script, cả lô, nhiều lượt) → `docs/archive/METHODS-HISTORY.md` § Lỗi Kling; dry-run, thử 1 trước.
 - CDN media.lexkite.com đệm bản cũ, bỏ qua `?v=` → fetch theo `gitSha`.
 - Không đăng nhập tài khoản thật để test; dùng `?sandbox=1`, fixture CI.
 - Không in/lưu token/khóa/mật khẩu; secret đổ thẳng từ file (`wrangler pages secret put`, GitHub API libsodium). Repo công khai.
 - Add-on: Chrome của anh nạp bản giải nén từ **thư mục dự án chính** `addon dictionary/extension` (ID lgjmm…), KHÔNG phải `~/lexkite-ext-live` → sau mỗi lần đẩy add-on: `git merge --ff-only` bản checkout chính rồi báo anh bấm ↻. Lỗi "Errors" cũ đến từ tab mở trước khi cập nhật (code mồ côi) → đóng tab cũ + Clear all.
 - Credit: 20/10 phí ~1.100 cr do làm cả lô trước khi duyệt định dạng → chỉ chi khi anh ghi rõ số cho đúng việc; trần từng hạng mục.
 - Worktree agent có thể bắt đầu từ lịch sử CŨ (origin cũ) → brief luôn ghi "làm trên main mới nhất của lexkiteapp".
-- Clone tạm luôn tên riêng (`$TMPDIR/lk-<việc>-$$`), lưu bản vá vào scratchpad → archive § Lỗi Kling.
-- Video IPA lấy theo từ gốc (waiting /weɪt/) + whisper có prompt kịch bản che lỗi phát âm → IPA chỉ từ kho theo đúng token (`pron.mjs`), ASR không prompt (28/10).
 
 ## 9. Tài khoản & hạ tầng (chi tiết `docs/INFRA-RULES.md`, `docs/API-KEYS.md`)
 - Email chính thức: vintagezulilyjewelry@gmail.com (không dùng khieudinhthong cho Google). Domain lexkite.com; Firebase `lexkite-app` chỉ auth; dữ liệu đồng bộ ở D1 `lexkite-sync`.

@@ -52,7 +52,7 @@ publishAt: 2026-12-06T12:20:00+08:00
 2. **汉语无严格词形曲折变化的负迁移（Verb vs. Noun）**: 汉语中“影响”、“建议”、“练习”既可以做动词也可以做名词，词形完全不变。而英语中的 *affect*（动词）与 *effect*（名词）、*advise*（动词）与 *advice*（名词）必须通过词缀或字母变化来区分词性。
 3. **动作方向性相反的成对动词（Directionality）**: 比如 *borrow*（向内借入）与 *lend*（向外借出），动作的方向完全相反，汉语母语者若仅依赖单个汉字“借”来理解，极易混淆宾语结构。
 
-为了将混淆词记得牢、用得准，建议在句子和真实语境中进行对比记忆。你可以在 [Lexkite词汇深度查询](/#/dict/resilient) 与 [智能语法练习室](/#/grammar) 中实时检测自己的掌握程度。此外，推荐阅读我们的 [背单词核心记忆方法](/zh/blog/bei-dan-ci-de-fang-fa/) 以及 [雅思搭配词与核心词组提分指南](/zh/blog/ya-si-da-pei-collocations-ti-fen-zhi-nan/)。想要系统查阅单词库，可随时进入 [全量词汇中心](/tu-vung/)。
+为了将混淆词记得牢、用得准，建议在句子和真实语境中进行对比记忆。你可以在 [Lexkite词汇深度查询](/#/dict/resilient) 与 [智能语法练习室](/#/grammar) 中实时检测自己的掌握程度。此外，推荐阅读我们的 [背单词核心记忆方法](/zh/blog/bei-dan-ci-de-fang-fa/) 以及 [雅思搭配词与核心词组提分指南](/zh/blog/ya-si-da-pei-collocations-ti-fen-zhi-nan/)。想要系统查阅单词库，可随时进入 [全量词汇中心](/en/vocabulary/)。
 
 ## 1. 动词与名词高频易混词组（Verb vs. Noun）
 

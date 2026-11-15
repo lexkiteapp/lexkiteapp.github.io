@@ -169,6 +169,8 @@ v. Rest as the best treatment for injuries
 
 {{youtube: | 视频创意：雅思段落标题配对——三个段落演示“先概括再看标题”}}
 
+段落标题配对题很耗时，建议同时看看[雅思阅读时间分配技巧](/zh/blog/ya-si-yue-du-shi-jian-fen-pei-ji-qiao/)。
+
 ## 常见问题
 
 ### 段落标题配对题应该先看标题还是先看段落？

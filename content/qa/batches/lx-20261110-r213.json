@@ -1,0 +1,210 @@
+{
+ "id": "20261110-r213",
+ "source": "lexicon-expand",
+ "n": 87,
+ "checked": [
+  {
+   "id": "saboteur#n",
+   "ok": true
+  },
+  {
+   "id": "satiric#adj",
+   "ok": true
+  },
+  {
+   "id": "agronomy#n",
+   "ok": true
+  },
+  {
+   "id": "bombard#v",
+   "ok": true
+  },
+  {
+   "id": "corrode#v",
+   "ok": true
+  },
+  {
+   "id": "inoculation#n",
+   "ok": true
+  },
+  {
+   "id": "psychoanalyst#n",
+   "ok": true
+  },
+  {
+   "id": "defibrillator#n",
+   "ok": true
+  },
+  {
+   "id": "tactician#n",
+   "ok": true
+  },
+  {
+   "id": "hypertext#n",
+   "ok": true
+  },
+  {
+   "id": "maltreatment#n",
+   "ok": true
+  },
+  {
+   "id": "rhizome#n",
+   "ok": true
+  },
+  {
+   "id": "finicky#adj",
+   "ok": true
+  },
+  {
+   "id": "macrophage#n",
+   "ok": true
+  },
+  {
+   "id": "subroutine#n",
+   "ok": true
+  },
+  {
+   "id": "overwrite#v",
+   "ok": true
+  },
+  {
+   "id": "opportunism#n",
+   "ok": true
+  },
+  {
+   "id": "lamina#n",
+   "ok": true
+  },
+  {
+   "id": "reverie#n",
+   "ok": true
+  },
+  {
+   "id": "numerology#n",
+   "ok": true
+  },
+  {
+   "id": "otherness#n",
+   "ok": true
+  },
+  {
+   "id": "massif#n",
+   "ok": true
+  },
+  {
+   "id": "scrupulously#adv",
+   "ok": true
+  },
+  {
+   "id": "coherently#adv",
+   "ok": true
+  },
+  {
+   "id": "physiologic#adj",
+   "ok": true
+  },
+  {
+   "id": "oscilloscope#n",
+   "ok": true
+  },
+  {
+   "id": "mutate#v",
+   "ok": true
+  },
+  {
+   "id": "unhindered#adj",
+   "ok": true
+  },
+  {
+   "id": "acrid#adj",
+   "ok": true
+  },
+  {
+   "id": "embryology#n",
+   "ok": true
+  },
+  {
+   "id": "isothermal#adj",
+   "ok": true
+  },
+  {
+   "id": "nullification#n",
+   "ok": true
+  },
+  {
+   "id": "helmsman#n",
+   "ok": true
+  },
+  {
+   "id": "sharpshooter#n",
+   "ok": true
+  },
+  {
+   "id": "oceanographer#n",
+   "ok": true
+  },
+  {
+   "id": "lymphocyte#n",
+   "ok": true
+  },
+  {
+   "id": "astrophysicist#n",
+   "ok": true
+  },
+  {
+   "id": "antitank#adj",
+   "ok": true
+  },
+  {
+   "id": "frankness#n",
+   "ok": true
+  },
+  {
+   "id": "architecturally#adv",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): ex: unnatural phrasing"
+  },
+  {
+   "id": "oration#n",
+   "ok": true
+  },
+  {
+   "id": "garish#adj",
+   "ok": true
+  },
+  {
+   "id": "unreliability#n",
+   "ok": true
+  },
+  {
+   "id": "circumspect#adj",
+   "ok": true
+  },
+  {
+   "id": "theocracy#n",
+   "ok": true
+  },
+  {
+   "id": "passivity#n",
+   "ok": true
+  },
+  {
+   "id": "patrimony#n",
+   "ok": true
+  },
+  {
+   "id": "criminologist#n",
+   "ok": true
+  },
+  {
+   "id": "phylum#n",
+   "ok": true
+  },
+  {
+   "id": "electromechanical#adj",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-10",
+ "status": "published"
+}

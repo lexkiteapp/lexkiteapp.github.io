@@ -26,6 +26,8 @@ Melanjutkan materi dari panduan [cara belajar vocabulary ielts](/id/blog/cara-be
 
 Dalam tes Reading berdurasi 75 menit, Part 7 dimulai tepat setelah Anda menyelesaikan Part 5 (30 kalimat rumpang) dan Part 6 (16 pertanyaan pengisian teks wacana). Teks yang disajikan meniru dokumen nyata dalam komunikasi bisnis global: email resmi, memo internal, siaran pers, iklan lowongan pekerjaan, faktur tagihan, formulir pemesanan barang, dan riwayat obrolan pesan instan multikaryawan.
 
+Artikel terkait: [rencana belajar mandiri TOEIC](/id/blog/rencana-belajar-mandiri-toeic-panduan/).
+
 Ke-54 soal dibagi ke dalam tiga arsitektur teks yang sistematis:
 
 | Kategori Teks | Format Dokumen | Jumlah Soal | Tantangan Analisis Utama |

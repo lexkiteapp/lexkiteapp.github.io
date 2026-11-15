@@ -54,7 +54,7 @@
       <a href="${back}" class="small">← ${t('Về đề bài')}</a>
       <div class="md-head card">
         <div class="row between" style="align-items:flex-start">
-          <div><div class="row" style="gap:.35rem"><span class="md-badge">${gl ? 'General · Task 1' : 'Writing Task ' + m.task}</span><span class="md-badge soft">${esc(kind)}</span><span class="md-badge band">Band ${esc(m.band)}</span></div>
+          <div><div class="row" style="gap:.35rem"><span class="md-badge" lang="en" translate="no">${gl ? 'General · Task 1' : 'Writing Task ' + m.task}</span><span class="md-badge soft">${esc(kind)}</span><span class="md-badge band">Band ${esc(m.band)}</span></div>
             <h1 class="md-title">${t('Bài mẫu có phân tích')}</h1></div>
           <div class="row"><span class="chip">${t('{n} từ', { n: m.words })}</span><button class="btn sm" id="readM">🔊 ${t('Nghe bài')}</button><a class="btn sm ghost" href="${back}">${UI.icon('pen-line')} ${t('Tự viết đề này')}</a></div>
         </div>
@@ -80,14 +80,18 @@
           ${links.length ? `<div class="card" style="margin-top:1rem"><h3 style="margin:0 0 .5rem">🔗 ${t('Từ nối & liên kết')}</h3><div class="row">${links.map(l => `<span class="md-lchip">${esc(l)}</span>`).join('')}</div></div>` : ''}
         </aside>
       </div>
-      ${m.band6 || m.outline || m.vocab || m.pitfalls ? `<div id="mExtra" class="grid g2" style="align-items:start;margin-top:1rem">
+      ${m.band6 || m.band7 || m.outline || m.vocab || m.pitfalls ? `<div id="mExtra" class="grid g2" style="align-items:start;margin-top:1rem">
         ${m.outline ? `<div class="card" style="margin:0"><h3 style="margin-top:0">${UI.icon('compass')} ${t('Dàn ý')}</h3><ol class="small" style="margin:0;padding-left:1.3rem;line-height:1.7">${m.outline.map(o => `<li>${esc(o)}</li>`).join('')}</ol></div>` : ''}
         ${m.vocab ? `<div class="card" style="margin:0"><h3 style="margin-top:0">${UI.icon('a-large-small')} ${t('Từ vựng chủ đề')}</h3><div class="md-list">${m.vocab.map(([en, vi]) => `<div class="md-item"><div><b>${esc(en)}</b><div class="small muted">${esc(vi)}</div></div></div>`).join('')}</div></div>` : ''}
         ${m.pitfalls ? `<div class="card" style="margin:0"><h3 style="margin-top:0">⚠️ ${t('Lỗi hay gặp')}</h3><ul class="small" style="margin:0;padding-left:1.2rem;line-height:1.7">${m.pitfalls.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}
+        ${m.band7 ? `<details class="card" style="margin:0;grid-column:1/-1"><summary style="cursor:pointer;font-weight:700">📈 ${t('Bài band 7 để so sánh')} <span class="md-badge band">Band 7.0</span></summary>
+          <div style="white-space:pre-wrap;line-height:1.7;margin-top:.8rem">${esc(m.band7.text)}</div>
+          <h4 style="margin:1rem 0 .4rem">${UI.icon('search')} ${t('Vì sao chưa lên band trên')}</h4>
+          ${[['TA', 'Task Achievement'], ['TR', 'Task Response'], ['CC', 'Coherence & Cohesion'], ['LR', 'Lexical Resource'], ['GRA', 'Grammatical Range & Accuracy']].filter(([k]) => m.band7.notes && m.band7.notes[k]).map(([k, n]) => `<div class="tip small" style="margin:.4rem 0"><b>${k} · ${n}:</b> ${App.viHtml(m.band7.notes[k])}</div>`).join('')}</details>` : ''}
         ${m.band6 ? `<details class="card" style="margin:0;grid-column:1/-1"><summary style="cursor:pointer;font-weight:700">📉 ${t('Bài band 6 để so sánh')} <span class="md-badge band">Band 6.0</span></summary>
           <div style="white-space:pre-wrap;line-height:1.7;margin-top:.8rem">${esc(m.band6.text)}</div>
           <h4 style="margin:1rem 0 .4rem">${UI.icon('search')} ${t('Vì sao chỉ đạt band 6')}</h4>
-          ${[['TR', 'Task Response'], ['CC', 'Coherence & Cohesion'], ['LR', 'Lexical Resource'], ['GRA', 'Grammatical Range & Accuracy']].filter(([k]) => m.band6.notes && m.band6.notes[k]).map(([k, n]) => `<div class="tip small" style="margin:.4rem 0"><b>${k} · ${n}:</b> ${esc(m.band6.notes[k])}</div>`).join('')}</details>` : ''}
+          ${[['TA', 'Task Achievement'], ['TR', 'Task Response'], ['CC', 'Coherence & Cohesion'], ['LR', 'Lexical Resource'], ['GRA', 'Grammatical Range & Accuracy']].filter(([k]) => m.band6.notes && m.band6.notes[k]).map(([k, n]) => `<div class="tip small" style="margin:.4rem 0"><b>${k} · ${n}:</b> ${App.viHtml(m.band6.notes[k])}</div>`).join('')}</details>` : ''}
       </div>` : ''}`;
     $$('[data-sv]').forEach(b => b.onclick = async () => {
       const c = chunks[+b.dataset.sv]; if (App.inDeck(c.en)) return;
@@ -364,6 +368,7 @@
       <div class="page-head"><div><h1>${UI.icon('puzzle')} ${t('Sổ cụm từ & cấu trúc')}</h1><p class="muted">${t('Học theo <b>cụm</b> (chunk) giúp nói và viết tự nhiên hơn học từng từ rời. Lưu cụm từ, cấu trúc câu kèm nghĩa theo cụm, cách dùng và câu ví dụ – ôn đúng thời điểm vàng như từ vựng.')}</p></div>
         <div class="row"><button class="btn primary" id="addP">＋ ${t('Thêm cụm / cấu trúc')}</button>${list.length >= 4 ? `<a class="btn" href="#/practice/learn?src=phrases">🧠 ${t('Học các cụm')}</a>` : ''}</div></div>
       <a class="card hover hub-card" href="#/models" style="margin-bottom:1rem"><span class="hub-ic" aria-hidden="true">${UI.icon('file-text')}</span><span class="hub-tx"><b>${t('Bài mẫu band 8 có đánh dấu cụm từ')}</b><small>${t('Đọc bài mẫu, bấm vào cụm hay để lưu vào sổ này')}</small></span><span class="hub-meta">${models.length ? t('{n} bài', { n: models.length }) : ''} ›</span></a>
+      <details class="card" id="pbook" style="margin-top:1rem"><summary><b>🗣️ ${t('Sổ mẫu câu theo chức năng')}</b><div class="muted small">${t('Biết nói gì khi gọi điện, nhờ giúp, xin lỗi… – 3 mức trang trọng, câu đáp, hội thoại mẫu.')}</div></summary><div id="pbHost" style="margin-top:.8rem"></div></details>
       <div class="card" style="margin-top:1rem" id="pList">${list.length ? list.map(c => `<div class="deck-row" style="grid-template-columns:minmax(0,1.2fr) minmax(0,1.6fr) auto">
           <div style="min-width:0"><b>${esc(c.word)}</b><div class="small" style="color:var(--accent-text);font-weight:700">${esc(App.meanOf(c))}</div>${c.note ? `<div class="tiny muted">${UI.icon('ruler')} ${esc(c.note)}</div>` : ''}</div>
           <div class="small muted hide-sm">${c.contexts[0] ? `“${UI.highlight(c.contexts[0].text.slice(0, 140), c.word)}”` : esc(c.ex || '')}</div>
@@ -371,6 +376,8 @@
         : `<div class="empty"><div class="em">🧩</div>${t('Chưa có cụm từ nào. Bôi đen một cụm trong bài đọc, bài mẫu hay ví dụ từ điển rồi bấm “🧩 Lưu cụm này”, hoặc thêm thủ công.')}${models.length ? `<div style="margin-top:1rem"><button class="btn primary" id="starter">✨ ${t('Thêm nhanh 20 cụm hay từ bài mẫu')}</button></div>` : ''}</div>`}</div>`;
     App.bindCommon();
     $('#addP').onclick = () => savePhraseDialog({ phrase: '' });
+    // Sổ mẫu câu theo chức năng: dữ liệu + mã vẽ ở gói lười 'pbook', chỉ nạp khi mở mục lần đầu
+    $('#pbook').addEventListener('toggle', async e => { const d = e.target; if (!d.open || d.dataset.ready) return; d.dataset.ready = '1'; await App.need('pbook'); if (!(await App.phraseBook($('#pbHost')))) delete d.dataset.ready; });
     // Gói khởi đầu: 20 cụm học thuật hay gặp nhất trong các bài mẫu (kèm câu gốc làm ngữ cảnh) → sổ không bao giờ trống
     const st = $('#starter'); if (st) st.onclick = async () => {
       st.disabled = true;

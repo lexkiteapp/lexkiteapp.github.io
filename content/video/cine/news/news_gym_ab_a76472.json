@@ -90,5 +90,17 @@
  "link": "https://lexkite.com/app/#/usage?c=pair",
  "cta": "Compare tricky words on lexkite.com",
  "est": 25.0,
- "end_alt": "n_a76472_e2"
+ "end_alt": "n_a76472_e2",
+ "publish": {
+  "title": "Do yoga or make yoga?",
+  "keyword": "make vs do",
+  "value": "You do yoga. You don't make it.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#a2english"
+  ],
+  "first_comment": "Same rule: do yoga, do exercise, do homework. But you make a plan. Quick do/make quiz here: {link}"
+ }
 }

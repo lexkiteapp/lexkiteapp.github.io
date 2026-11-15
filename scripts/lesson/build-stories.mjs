@@ -1,7 +1,7 @@
-// Truyện + Radio (content/lesson/stories.json) → web/js/lesson/stories.js, có kiểm lược đồ (đủ 15 ngôn ngữ cho cặp ghép, đáp án hợp lệ…).
+// Truyện + Radio (content/lesson/stories.json) → web/cpack/lesson/stories.js, có kiểm lược đồ (đủ 15 ngôn ngữ cho cặp ghép, đáp án hợp lệ…).
 // Dùng: node scripts/lesson/build-stories.mjs [--check]  (--check: đỏ khi lỗi lược đồ hoặc file sinh ra cũ – chạy trong test/lesson.mjs)
 import fs from 'node:fs';
-const SRC = 'content/lesson/stories.json', OUT = 'web/js/lesson/stories.js';
+const SRC = 'content/lesson/stories.json', OUT = 'web/cpack/lesson/stories.js';
 const LANGS = ['en', 'vi', ...fs.readFileSync('scripts/i18n-langs.txt', 'utf8').split('\n').map(s => s.trim()).filter(s => s && !s.startsWith('#'))];
 const J = JSON.parse(fs.readFileSync(SRC, 'utf8')), err = [], ids = new Set();
 for (const s of J.items) {

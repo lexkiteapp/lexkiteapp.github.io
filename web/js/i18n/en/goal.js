@@ -1,7 +1,6 @@
 /* English UI – goal (#/goal Mục tiêu & kế hoạch: khối Sẵn sàng thi – Tactile/Stitch; lazy group, LAZY in scripts/build-i18n.sh) */
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
 "Điểm ước tính": "Estimated score",
-"Mức sẵn sàng thi": "Exam readiness",
 "{p}% sẵn sàng": "{p}% ready",
 "Chưa có điểm ước tính": "No estimated score yet",
 "Làm một bài thi thử để Lexkite ước tính điểm hiện tại, mức sẵn sàng và kỹ năng cần luyện.": "Take a mock test so Lexkite can estimate your current score, your readiness and the skills to practice.",

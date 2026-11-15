@@ -54,6 +54,8 @@ En esta guía verás cómo funciona la parte 3, un método de cuatro pasos para 
 
 El examen de Speaking dura entre 11 y 14 minutos y tiene tres partes. En la parte 1 respondes preguntas sobre ti; en la parte 2 hablas de 1 a 2 minutos sobre una tarjeta, tras 1 minuto de preparación; y en la parte 3 conversas con el examinador. Si quieres repasar cómo enlazar la parte 2 con la 3, lee nuestra guía de [estructura de IELTS Speaking partes 2 y 3](/es/blog/ielts-speaking-parte-2-y-3-estructura/).
 
+Si quieres profundizar, lee también [la guía de IELTS Speaking Part 1](/es/blog/ielts-speaking-part-1-guia-respuestas-naturales/).
+
 La diferencia está en el enfoque. En la parte 1 te preguntan *Do you enjoy celebrations?*; en la parte 3, *Why do you think some traditions disappear over time?* Dejas de hablar de ti para hablar de la sociedad: comparar, explicar causas, especular sobre el futuro y valorar ventajas e inconvenientes.
 
 La nota se basa en cuatro criterios para todo el examen: Fluency and Coherence, Lexical Resource, Grammatical Range and Accuracy y Pronunciation. En la parte 3 el examinador confirma si puedes sostener ideas complejas con un inglés preciso, así que es donde se decide si llegas al 7 o te quedas en el 6.

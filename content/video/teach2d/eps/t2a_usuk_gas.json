@@ -79,5 +79,46 @@
   "words": 45,
   "seconds": 27.6,
   "wpm": 98
+ },
+ "publish": {
+  "title": "Gas or petrol? US vs UK English",
+  "keyword": "gas vs petrol",
+  "value": "Americans say gas. British people say petrol.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/gas",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Gas or petrol? US vs UK English",
+    "description": "Americans say gas. British people say petrol.\n\nLook up any word, free: https://lexkite.com/app/#/dict/gas\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "gas vs petrol",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Gas or petrol? US vs UK English\n\nAmericans say gas. British people say petrol.\n\nLook up any word, free: https://lexkite.com/app/#/dict/gas"
+   },
+   "instagram": {
+    "caption": "Gas or petrol? US vs UK English\n\nAmericans say gas. British people say petrol.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Gas or petrol? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: Petrol! Americans say gas. British people say petrol. Practice it with a free quiz: {link}"
  }
 }

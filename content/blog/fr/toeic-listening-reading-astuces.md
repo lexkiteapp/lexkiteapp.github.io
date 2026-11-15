@@ -24,6 +24,8 @@ Dans ce guide stratégique, découvrez comment optimiser vos 2 heures d'épreuve
 
 Le test se compose de deux sections de 100 questions chacune, notées sur 495 points (score total sur 990) :
 
+Pour aller plus loin, lisez aussi [notre programme de révision TOEIC](/fr/blog/plan-entrainement-toeic-guide-autonomie/). Pour comparer avec un autre test d'anglais, découvrez aussi le [nouveau format du TOEFL iBT 2026](/fr/blog/nouveau-format-toefl-ibt-2026/), qui compte désormais 12 épreuves.
+
 1. **Listening Comprehension (45 minutes, 100 questions) :**
    - Partie 1 : Photographies (6 questions)
    - Partie 2 : Questions / Réponses (25 questions)

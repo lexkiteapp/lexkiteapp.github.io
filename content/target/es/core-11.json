@@ -1,0 +1,697 @@
+{
+ "v": 1,
+ "tl": "es",
+ "variant": "es-419",
+ "status": "reviewed",
+ "source": {
+  "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
+  "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
+  "license": "CC BY-SA 4.0 (dữ liệu) – chỉ dùng thứ hạng để chọn từ; ghi công trong spec"
+ },
+ "words": [
+  {
+   "word": "para",
+   "pos": "prep",
+   "ipa": "ˈpaɾa",
+   "gl": {
+    "en": "for",
+    "es": "para",
+    "pt": "para",
+    "fr": "pour",
+    "de": "für",
+    "vi": "cho",
+    "id": "untuk",
+    "th": "เพื่อ",
+    "zh": "为了",
+    "ja": "ために",
+    "ko": "위해",
+    "hi": "के लिये",
+    "ar": "لـ",
+    "ru": "для",
+    "tr": "için"
+   },
+   "ex": {
+    "es": "Este regalo es para ti.",
+    "en": "This gift is for you."
+   },
+   "rank": 20,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "yo",
+   "pos": "pron",
+   "ipa": "ˈʝo",
+   "gl": {
+    "en": "I",
+    "es": "yo",
+    "pt": "eu",
+    "fr": "je",
+    "de": "ich",
+    "vi": "tôi",
+    "id": "saya",
+    "th": "ฉัน",
+    "zh": "我",
+    "ja": "私",
+    "ko": "나",
+    "hi": "मैं",
+    "ar": "أنا",
+    "ru": "я",
+    "tr": "ben"
+   },
+   "ex": {
+    "es": "Yo estudio español.",
+    "en": "I study Spanish."
+   },
+   "rank": 30,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "ya",
+   "pos": "adv",
+   "ipa": "ˈʝa",
+   "gl": {
+    "en": "already",
+    "es": "ya",
+    "pt": "já",
+    "fr": "déjà",
+    "de": "schon",
+    "vi": "đã, rồi",
+    "id": "sudah",
+    "th": "แล้ว",
+    "zh": "已经",
+    "ja": "すでに",
+    "ko": "이미",
+    "hi": "पहले ही",
+    "ar": "بالفعل",
+    "ru": "уже",
+    "tr": "zaten"
+   },
+   "ex": {
+    "es": "Ya comí.",
+    "en": "I already ate."
+   },
+   "rank": 40,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "este",
+   "pos": "det",
+   "ipa": "ˈeste",
+   "gl": {
+    "en": "this",
+    "es": "este",
+    "pt": "este",
+    "fr": "ce",
+    "de": "dieser",
+    "vi": "này",
+    "id": "ini",
+    "th": "นี้",
+    "zh": "这个",
+    "ja": "この",
+    "ko": "이",
+    "hi": "यह",
+    "ar": "هذا",
+    "ru": "этот",
+    "tr": "bu"
+   },
+   "ex": {
+    "es": "Este libro es mío.",
+    "en": "This book is mine."
+   },
+   "rank": 60,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "ni",
+   "pos": "conj",
+   "ipa": "ˈni",
+   "gl": {
+    "en": "neither, nor",
+    "es": "ni",
+    "pt": "nem",
+    "fr": "ni",
+    "de": "weder",
+    "vi": "cũng không; không … cũng không",
+    "id": "tidak … maupun",
+    "th": "ก็ไม่",
+    "zh": "也不",
+    "ja": "も…ない",
+    "ko": "도 아니다",
+    "hi": "न ... न",
+    "ar": "ولا",
+    "ru": "ни",
+    "tr": "ne ... ne"
+   },
+   "ex": {
+    "es": "No tengo ni tiempo ni dinero.",
+    "en": "I have neither time nor money."
+   },
+   "rank": 132,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "nosotros",
+   "pos": "pron",
+   "ipa": "noˈsotɾos",
+   "gl": {
+    "en": "we",
+    "es": "nosotros",
+    "pt": "nós",
+    "fr": "nous",
+    "de": "wir",
+    "vi": "chúng tôi",
+    "id": "kami",
+    "th": "พวกเรา",
+    "zh": "我们",
+    "ja": "私たち",
+    "ko": "우리",
+    "hi": "हम",
+    "ar": "نحن",
+    "ru": "мы",
+    "tr": "biz"
+   },
+   "ex": {
+    "es": "Nosotros vamos al cine.",
+    "en": "We go to the cinema."
+   },
+   "rank": 143,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "mundo",
+   "pos": "n",
+   "gender": "m",
+   "plural": "mundos",
+   "ipa": "ˈmundo",
+   "gl": {
+    "en": "world",
+    "es": "mundo",
+    "pt": "mundo",
+    "fr": "monde",
+    "de": "Welt",
+    "vi": "thế giới",
+    "id": "dunia",
+    "th": "โลก",
+    "zh": "世界",
+    "ja": "世界",
+    "ko": "세계",
+    "hi": "दुनिया",
+    "ar": "العالم",
+    "ru": "мир",
+    "tr": "dünya"
+   },
+   "ex": {
+    "es": "El mundo es grande.",
+    "en": "The world is big."
+   },
+   "rank": 165,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "madre",
+   "pos": "n",
+   "gender": "f",
+   "plural": "madres",
+   "ipa": "ˈmaðɾe",
+   "gl": {
+    "en": "mother",
+    "es": "madre",
+    "pt": "mãe",
+    "fr": "mère",
+    "de": "Mutter",
+    "vi": "mẹ",
+    "id": "ibu",
+    "th": "แม่",
+    "zh": "母亲",
+    "ja": "母",
+    "ko": "어머니",
+    "hi": "माँ",
+    "ar": "أم",
+    "ru": "мать",
+    "tr": "anne"
+   },
+   "ex": {
+    "es": "Mi madre cocina bien.",
+    "en": "My mother cooks well."
+   },
+   "rank": 175,
+   "qa": {
+    "gen": "openai/gpt-oss-120b",
+    "judges": [
+     "qwen/qwen3.8-27b",
+     "gemini-3.8-flash"
+    ],
+    "bt": "qwen/qwen3.8-27b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "nuevo",
+   "pos": "adj",
+   "ipa": "ˈnweβo",
+   "gl": {
+    "vi": "mới",
+    "en": "new",
+    "es": "nuevo",
+    "pt": "novo",
+    "fr": "nouveau",
+    "de": "neu",
+    "id": "baru",
+    "th": "ใหม่",
+    "zh": "新的",
+    "ja": "新しい",
+    "ko": "새로운",
+    "hi": "नया",
+    "ar": "جديد",
+    "ru": "новый",
+    "tr": "yeni"
+   },
+   "ex": {
+    "es": "Compré un carro nuevo ayer.",
+    "en": "I bought a new car yesterday."
+   },
+   "rank": 185,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "luego",
+   "pos": "adv",
+   "ipa": "ˈlweɣo",
+   "gl": {
+    "vi": "sau đó",
+    "en": "then, later",
+    "es": "luego",
+    "pt": "depois",
+    "fr": "ensuite",
+    "de": "später",
+    "id": "nanti",
+    "th": "หลังจากนั้น",
+    "zh": "后来",
+    "ja": "後で",
+    "ko": "나중에",
+    "hi": "बाद में",
+    "ar": "لاحقاً",
+    "ru": "потом",
+    "tr": "sonra"
+   },
+   "ex": {
+    "es": "Primero comemos y luego salimos.",
+    "en": "First we eat and then we go out."
+   },
+   "rank": 197,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "ˈlweɣo"
+   }
+  },
+  {
+   "word": "ustedes",
+   "pos": "pron",
+   "ipa": "usˈteðes",
+   "gl": {
+    "vi": "các bạn",
+    "en": "you (plural)",
+    "es": "ustedes",
+    "pt": "vocês",
+    "fr": "vous",
+    "de": "Sie",
+    "id": "kalian",
+    "th": "พวกคุณ",
+    "zh": "你们",
+    "ja": "あなたがた",
+    "ko": "당신들",
+    "hi": "आप लोग",
+    "ar": "أنتم",
+    "ru": "вы",
+    "tr": "sizler"
+   },
+   "ex": {
+    "es": "¿Ustedes van a la fiesta hoy?",
+    "en": "Are you all going to the party today?"
+   },
+   "rank": 258,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "mucho",
+   "pos": "det",
+   "ipa": "ˈmutʃo",
+   "gl": {
+    "vi": "nhiều",
+    "en": "much, a lot of; many",
+    "es": "mucho",
+    "pt": "muito",
+    "fr": "beaucoup de",
+    "de": "viele",
+    "id": "banyak",
+    "th": "มาก",
+    "zh": "许多",
+    "ja": "多くの",
+    "ko": "많은",
+    "hi": "बहुत",
+    "ar": "كثير",
+    "ru": "многие",
+    "tr": "birçok"
+   },
+   "ex": {
+    "es": "Muchas personas vinieron a la fiesta.",
+    "en": "Many people came to the party."
+   },
+   "exForm": "muchas",
+   "rank": 298,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "manera",
+   "pos": "n",
+   "gender": "f",
+   "plural": "maneras",
+   "ipa": "maˈneɾa",
+   "gl": {
+    "vi": "cách",
+    "en": "way",
+    "es": "manera",
+    "pt": "maneira",
+    "fr": "manière",
+    "de": "Art und Weise",
+    "id": "cara",
+    "th": "วิธี",
+    "zh": "方式",
+    "ja": "方法",
+    "ko": "방식",
+    "hi": "तरीका",
+    "ar": "طريقة",
+    "ru": "способ",
+    "tr": "yol"
+   },
+   "ex": {
+    "es": "Hay una manera fácil de hacerlo.",
+    "en": "There is an easy way to do it."
+   },
+   "rank": 308,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "entender",
+   "pos": "v",
+   "ipa": "entenˈdeɾ",
+   "gl": {
+    "vi": "hiểu",
+    "en": "to understand",
+    "es": "entender",
+    "pt": "entender",
+    "fr": "comprendre",
+    "de": "verstehen",
+    "id": "mengerti",
+    "th": "เข้าใจ",
+    "zh": "理解",
+    "ja": "理解する",
+    "ko": "이해하다",
+    "hi": "समझना",
+    "ar": "فهم",
+    "ru": "понимать",
+    "tr": "anlamak"
+   },
+   "ex": {
+    "es": "No entiendo la pregunta.",
+    "en": "I do not understand the question."
+   },
+   "exForm": "entiendo",
+   "rank": 318,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  },
+  {
+   "word": "esperar",
+   "pos": "v",
+   "ipa": "espeˈɾaɾ",
+   "gl": {
+    "vi": "chờ; hy vọng",
+    "en": "to wait; to hope",
+    "es": "esperar",
+    "pt": "esperar",
+    "fr": "attendre",
+    "de": "warten",
+    "id": "menunggu",
+    "th": "รอ",
+    "zh": "等待",
+    "ja": "待つ",
+    "ko": "기다리다",
+    "hi": "इंतज़ार करना",
+    "ar": "انتظر",
+    "ru": "ждать",
+    "tr": "beklemek"
+   },
+   "ex": {
+    "es": "Te espero aquí afuera.",
+    "en": "I'll wait for you out here."
+   },
+   "exForm": "espero",
+   "rank": 329,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "spot": true
+   }
+  },
+  {
+   "word": "cinco",
+   "pos": "num",
+   "ipa": "ˈsinko",
+   "gl": {
+    "vi": "năm",
+    "en": "five",
+    "es": "cinco",
+    "pt": "cinco",
+    "fr": "cinq",
+    "de": "fünf",
+    "id": "lima",
+    "th": "ห้า",
+    "zh": "五",
+    "ja": "五",
+    "ko": "다섯",
+    "hi": "पाँच",
+    "ar": "خمسة",
+    "ru": "пять",
+    "tr": "beş"
+   },
+   "ex": {
+    "es": "Tengo cinco hermanos.",
+    "en": "I have five siblings."
+   },
+   "rank": 374,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ],
+    "ipaAi": "ˈsiŋ.ko"
+   }
+  },
+  {
+   "word": "bastante",
+   "pos": "adv",
+   "ipa": "basˈtante",
+   "gl": {
+    "vi": "khá",
+    "en": "quite",
+    "es": "bastante",
+    "pt": "bastante",
+    "fr": "assez",
+    "de": "ziemlich",
+    "id": "cukup",
+    "th": "ค่อนข้าง",
+    "zh": "相当",
+    "ja": "かなり",
+    "ko": "꽤",
+    "hi": "काफ़ी",
+    "ar": "إلى حد كبير",
+    "ru": "довольно",
+    "tr": "oldukça"
+   },
+   "ex": {
+    "es": "El examen fue bastante difícil.",
+    "en": "The exam was quite difficult."
+   },
+   "rank": 385,
+   "qa": {
+    "gen": "gemini-3.8-flash",
+    "judges": [
+     "openai/gpt-oss-120b",
+     "qwen/qwen3.8-27b"
+    ],
+    "bt": "openai/gpt-oss-120b",
+    "scores": [
+     5,
+     5
+    ]
+   }
+  }
+ ],
+ "review": {
+  "by": "sonnet-review-A",
+  "at": "2026-11-09",
+  "checked": 17,
+  "fixed": 5,
+  "dropped": 0,
+  "sample": 17
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_missed",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Lost or missed?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I lost the bus this morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I missed the bus this morning.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Miss a bus. Lose things.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Miss! You will miss the train.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I lost the bus this morning.",
+  "right": "I missed the bus this morning.",
+  "strike": "lost",
+  "why": "Miss a bus. Lose things.",
+  "memory": "Miss the bus.",
+  "quiz": {
+   "stem": "Hurry or you will ___ the train.",
+   "options": [
+    "miss",
+    "lose"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “I lost the bus”?",
+   "tip": "Quando “perde” o ônibus, use “miss”. “Lose” é para objetos.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I lost the bus this morning.”. O certo é “I missed the bus this morning.”. Em português “perder” serve para os dois casos. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “miss”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I lost the bus”?",
+   "tip": "When you “perder” a bus, use “miss”. “Lose” is for objects.",
+   "caption": "Watch out for this common mistake! Many people say “I lost the bus this morning.”. The right way is “I missed the bus this morning.”. Portuguese “perder” covers both cases. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “I lost the bus”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "Você diz “I lost the bus”?",
+  "keyword": "I missed the bus this morning.",
+  "value": "Quando “perde” o ônibus, use “miss”. “Lose” é para objetos.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “I lost the bus”?",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “I lost the bus this morning.”. O certo é “I missed the bus this morning.”. Em português “perder” serve para os dois casos. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "I missed the bus this morning.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I lost the bus this morning.”. O certo é “I missed the bus this morning.”. Em português “perder” serve para os dois casos. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I lost the bus this morning.”. O certo é “I missed the bus this morning.”. Em português “perder” serve para os dois casos. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “I lost the bus”? #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “miss”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

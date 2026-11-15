@@ -29,7 +29,8 @@ ok(run({ ux1_pct: '10' }, 3).A.ux1Arm() === 'on' && run({ ux1_pct: '10' }, 55).A
 ok(run({ ux1: '1', ux1_pct: '10' }, 3).A.ux1Arm() === '' && run({ ux1: '0', ux1_pct: '10' }, 3).A.ux1Arm() === '' && run({ ux1_pct: '60' }, 3).A.ux1Arm() === '', 'bật hết / tắt khẩn / pct > 50 → hết đo');
 { const r = run({ ux1_pct: '10' }, 55); r.A.ux1Track(1); r.A.ux1Track(2); r.A.ux1Track(3); r.A.ux1Track(7); r.A.ux1Track(9);
   ok(r.sent.join() === 'ux1_off_seen,ux1_off_d1,ux1_off_d7', 'seen/d1/d7 mỗi loại gửi 1 lần/máy: ' + r.sent.join());
-  const r2 = run({ ux1_pct: '10' }, 3, { marks: { 'lk.noTrack': '1' } }); r2.A.ux1Track(9); ok(!r2.sent.length, 'máy quản trị không gửi'); }
+  const r2 = run({ ux1_pct: '10' }, 3, { marks: { 'lk.noTrack': '1' } }); r2.A.ux1Track(9); ok(!r2.sent.length, 'máy quản trị không gửi');
+  const r3 = run({ ux1_pct: '10' }, 55, { q: '?demo=1&hl=vi' }); r3.A.ux1Track(9); ok(!r3.sent.length, 'demo/sandbox không gửi beacon (ext-e2e 503)'); }
 // máy chủ: khóa công khai + quản trị + sự kiện được nhận
 ok(/'ux1', 'ux1_pct'/.test(rd('functions/api/config.js')) && /'ux1', 'ux1_pct'/.test(rd('functions/api/admin.js')), 'ux1/ux1_pct có trong PUBLIC_KEYS + CONFIG_KEYS');
 { const h = rd('functions/api/hit.js'); ok(/UX1_EV\.includes\(b\.ev\)\)\)/.test(h) && /UX1_EV\.includes\(b\.ev\) \? 'ux1:'/.test(h), 'hit.js nhận ux1_* → kind ux1:'); }

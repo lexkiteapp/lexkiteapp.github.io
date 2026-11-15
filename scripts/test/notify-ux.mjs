@@ -21,8 +21,8 @@ const LANGS = fs.readFileSync('scripts/i18n-langs.txt', 'utf8').split('\n').map(
 const dict = l => { const g = { I18N_DICT: {} }; g.self = g; const f = l === 'en' ? 'web/js/i18n/en/remind.js' : `i18n/ui/${l}/remind.js`; vm.runInNewContext(rd(f), g); return g.I18N_DICT[l] || {}; };
 // Từ/cụm dọa mất, trách móc, gấp gáp (Duolingo-kiểu "streak at risk") – chuẩn Headspace/Apple: khích lệ, cho quyền chủ động
 const BAD = {
-  vi: /gặp nguy|đừng để|sắp mất|mất chuỗi|sắp quên|quên mất|thất vọng|buồn lắm|nhanh lên|kẻo|cơ hội cuối/i,
-  en: /at risk|don'?t let|lose|losing|lost|slip away|forget|disappoint|sad\b|hurry|last chance|before it'?s too late|or else/i,
+  vi: /gặp nguy|đừng để|sắp mất|mất chuỗi|sắp quên|quên mất|thất vọng|buồn lắm|nhanh lên|kẻo|cơ hội cuối|lời nhắc cuối|nhớ bạn lắm/i,
+  en: /at risk|don'?t let|lose|losing|lost|slip away|forget|disappoint|sad\b|hurry|last chance|before it'?s too late|or else|last reminder|misses you/i, // 05/11: lời cuối ngày 14 "Kit nhớ bạn… lời nhắc cuối cùng" (trách nhẹ) → "Kit tạm ngừng nhắc"
   es: /peligro|perder|olvid/i, pt: /risco|perder|esquec/i, fr: /danger|perdre|oubli/i, de: /gefahr|verlier|vergess/i,
   id: /bahaya|hilang|lupa/i, ru: /угроз|потеря|забуд/i, tr: /tehlike|kaybet|unut/i,
 };

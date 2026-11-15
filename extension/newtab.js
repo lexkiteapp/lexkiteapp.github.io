@@ -175,9 +175,12 @@
   const show = async () => {
     await vimgP;
     const item = qi < queue.length ? queue[qi] : { w: await randomWord(), tag: 'lex' }; qi++;
+    lastItem = item;
     if (window.VImg && VImg.need) await VImg.need([item.w]);   // mảnh chỉ mục ảnh của từ này (vocab-img v3)
     render(build(item.w, await info(item.w), cards[keyOf(item.w)]), item.tag);
   };
+  let lastItem = null;
+  const reshow = async () => { if (lastItem) render(build(lastItem.w, await info(lastItem.w), cards[keyOf(lastItem.w)]), lastItem.tag); else await show(); };
   const next = () => show();
   const grade = async g => {
     if (!cur || !cur.saved) return;
@@ -248,7 +251,8 @@
     });
   };
   ring();
-  try { await runQuiz(); } catch (e) { /* câu đố lỗi → vào thẳng hàng thẻ */ }
+  // Thẻ đầu vẽ NGAY (không chờ câu đố); câu đố (nếu đến hạn) phủ lên sau, xong thì vẽ lại đúng thẻ đó.
   await show();
   document.body.dataset.ntMs = Math.round(performance.now() - T0); // đo thời gian vẽ (ext-e2e kiểm < 100 ms)
+  try { if (await runQuiz()) await reshow(); } catch (e) { await reshow().catch(() => {}); /* câu đố lỗi → về hàng thẻ */ }
 })();

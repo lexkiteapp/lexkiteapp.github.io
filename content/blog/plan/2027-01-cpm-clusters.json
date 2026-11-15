@@ -36,7 +36,25 @@
     "gov.uk (approved English language tests)",
     "immigration.govt.nz"
    ],
-   "status": "planned"
+   "status": "writing",
+   "locales": {
+    "de": {
+     "slug": "ielts-fuer-auswanderung-kanada-australien-uk",
+     "keyword": "ielts auswandern"
+    },
+    "fr": {
+     "slug": "ielts-pour-immigrer-canada-australie-royaume-uni",
+     "keyword": "ielts immigration canada"
+    },
+    "ja": {
+     "slug": "ielts-ijuu-kanada-goshuu-eikoku-guide",
+     "keyword": "ielts 移住"
+    },
+    "ko": {
+     "slug": "ielts-imin-jeomsu-kaenada-hoju-yeongguk",
+     "keyword": "이민 ielts 점수"
+    }
+   }
   },
   {
    "id": "ielts-general-vs-academic-immigration",
@@ -87,7 +105,7 @@
    "factCheck": [
     "canada.ca (IRCC language test equivalency)"
    ],
-   "status": "planned"
+   "status": "writing"
   },
   {
    "id": "ielts-score-australia-pr",
@@ -318,7 +336,7 @@
    "factCheck": [
     "app lesson content"
    ],
-   "status": "planned"
+   "status": "writing"
   },
   {
    "id": "english-for-newcomers-doctor",

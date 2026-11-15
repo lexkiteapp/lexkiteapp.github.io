@@ -3,16 +3,6 @@
  "issues": [
   "feedback-wrong: [dark] 1 chữ thiếu tương phản WCAG: \"A\" 3.10<4.5",
   "story-duo: [dark] 1 chữ thiếu tương phản WCAG: \"A\" 2.78<4.5",
-  "leagues: [dark] 3 chữ thiếu tương phản WCAG: \"AN\" 3.87<4.5; \"5\" 4.33<4.5; \"YO\" 4.33<4.5",
-  "streak: [dark] 1 chữ thiếu tương phản WCAG: \"ACTIVE\" 2.78<4.5",
-  "today: [dark] 5 chữ thiếu tương phản WCAG: \"T\" 2.58<4.5; \"F\" 2.58<4.5; \"S\" 2.58<4.5; \"S\" 2.58<4.5; \"8\" 3.83<4.5",
-  "today: [light] 6 chữ thiếu tương phản WCAG: \"Promotion zone ↑\" 3.67<4.5; \"T\" 1.80<4.5; \"F\" 1.80<4.5; \"S\" 1.80<4.5; \"S\" 1.80<4.5; \"8\" 3.83<4.5",
-  "today-new: [dark] 1 chữ thiếu tương phản WCAG: \"3\" 3.72<4.5",
-  "today-new: [light] 2 chữ thiếu tương phản WCAG: \"Stands grounded\" 3.25<4.5; \"3\" 3.72<4.5",
-  "today-desk: [dark] 1 nút chỉ-icon không có tên (aria-label): w-16.h-16@1356",
-  "today-desk: [dark] 5 chữ thiếu tương phản WCAG: \"▶\" 3.04<4.5; \"T\" 4.10<4.5; \"F\" 4.10<4.5; \"S\" 4.10<4.5; \"S\" 4.10<4.5",
-  "today-desk: [light] 1 nút chỉ-icon không có tên (aria-label): w-16.h-16@1352",
-  "today-desk: [light] 8 chữ thiếu tương phản WCAG: \"5 to fix\" 3.88<4.5; \"Spaced\" 3.99<4.5; \"Sprint\" 3.99<4.5; \"W\" 2.09<4.5; \"T\" 4.00<4.5; \"F\" 4.00<4.5"
- ],
- "_today": "3/11 (#284): lỗi tương phản trong MẪU Stitch Hôm nay (chuỗi 7 ngày, nhãn nhỏ) – app tự sửa qua bind (today/today-rail.json cls: bỏ opacity-40 trên chữ, #92400E, #76665A), cổng tương phản app (final-qc/qa-bot) xanh. today-desk: nút ▶ w-16 thuộc khối lộ trình GIẢ của mẫu – app thay bằng lộ trình thật (Chars/ux1), không có trong st/v2/today-desk.js; chữ nhỏ cột phải sửa qua bind (#76665A/#92400E)."
+  "leagues: [dark] 3 chữ thiếu tương phản WCAG: \"AN\" 3.87<4.5; \"5\" 4.33<4.5; \"YO\" 4.33<4.5"
+ ]
 }

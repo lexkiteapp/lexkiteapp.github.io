@@ -72,5 +72,46 @@
   "words": 49,
   "seconds": 29.1,
   "wpm": 101
+ },
+ "publish": {
+  "title": "What does \"bath\" mean?",
+  "keyword": "bath",
+  "value": "Bath means the cleaning of a body by putting it completely into water.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=bath",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"bath\" mean?",
+    "description": "Bath means the cleaning of a body by putting it completely into water.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bath\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "bath",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"bath\" mean?\n\nBath means the cleaning of a body by putting it completely into water.\n\nReview your words, free: https://lexkite.com/app/#/review?w=bath"
+   },
+   "instagram": {
+    "caption": "What does \"bath\" mean?\n\nBath means the cleaning of a body by putting it completely into water.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"bath\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means the cleaning of a body by putting it completely into water. Bath means the cleaning of a body by putting it completely into water. Try the full lesson and quiz here: {link}"
  }
 }

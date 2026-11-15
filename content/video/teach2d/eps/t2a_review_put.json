@@ -72,5 +72,46 @@
   "words": 46,
   "seconds": 27.7,
   "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"put\" mean?",
+  "keyword": "put",
+  "value": "Put means to move or place a thing in a particular position.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=put",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"put\" mean?",
+    "description": "Put means to move or place a thing in a particular position.\n\nReview your words, free: https://lexkite.com/app/#/review?w=put\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "put",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"put\" mean?\n\nPut means to move or place a thing in a particular position.\n\nReview your words, free: https://lexkite.com/app/#/review?w=put"
+   },
+   "instagram": {
+    "caption": "What does \"put\" mean?\n\nPut means to move or place a thing in a particular position.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"put\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to move or place a thing in a particular position. Put means to move or place a thing in a particular position. More practice like this (free): {link}"
  }
 }

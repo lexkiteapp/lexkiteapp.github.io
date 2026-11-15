@@ -12,15 +12,17 @@ node scripts/lexicon/shards.mjs --out dist  # mảnh kho từ + mục lục (doc
 rm -rf dist/audio  # âm thanh phục vụ từ CDN riêng lexkiteapp.github.io (workflow pages.yml) → gói Cloudflare nhẹ, trả chỗ cho blog
 # Dùng cache npm riêng (tránh lỗi quyền của ~/.npm)
 export npm_config_cache="${TMPDIR:-/tmp}/lexkite-npm-cache"
-FILES=$(cd web && find js css sw.js -type f \( -name '*.js' -o -name '*.css' \) | sort)
+FILES=$(cd web && find js css cpack sw.js -type f \( -name '*.js' -o -name '*.css' \) | sort)
 before=$(cd web && cat $FILES | wc -c)
 (cd web && npx -y esbuild@0.24.0 $FILES --minify --charset=utf8 --log-level=warning --outdir=../dist --outbase=. --allow-overwrite)
 # Phiên bản bộ nhớ đệm (service worker) theo NỘI DUNG: ai đẩy code (phiên chính, phiên phụ, bot dịch) cũng tự làm mới cache người dùng
-H=$(node scripts/lib/sw-version.mjs web --stamp dist/sw.js)  # hash nội dung khung app (nguồn duy nhất, các bộ canh deploy dùng chung); web/sw.js giữ CACHE cố định – không bump tay
-grep -q "lexkite-[0-9]*-$H" dist/sw.js && echo "✓ sw cache: …-$H" || { echo "✗ không gắn được phiên bản cache vào dist/sw.js"; exit 1; }
 after=$(cd dist && cat $FILES | wc -c)
 gz=$(cd dist && cat $FILES | gzip -9 | wc -c)
 echo "✓ dist/: JS+CSS $((before/1024))KB → $((after/1024))KB (gzip ~$((gz/1024))KB tổng; trang đầu chỉ tải phần lõi)"
+node scripts/build-cpack.mjs dist  # gói nội dung /cpack: đặt tên theo mã băm + sửa tham chiếu trong js (sau minify, TRƯỚC mã băm khung app)
+node scripts/build-hash.mjs dist  # JS/CSS: bản sao /h/<tên>.<băm>.<đuôi> (immutable 1 năm, web/_headers) + trỏ tham chiếu; file gốc giữ nguyên – docs/PERF-SCROLL.md › Tải trang
+H=$(node scripts/lib/sw-version.mjs web --stamp dist/sw.js)  # hash nội dung khung app (nguồn duy nhất, các bộ canh deploy dùng chung); web/sw.js giữ CACHE cố định – không bump tay
+grep -q "lexkite-[0-9]*-$H" dist/sw.js && echo "✓ sw cache: …-$H" || { echo "✗ không gắn được phiên bản cache vào dist/sw.js"; exit 1; }
 
 node scripts/build-seo.mjs && node scripts/build-samples.mjs && node scripts/build-samples-en.mjs && node scripts/build-ads.mjs && node scripts/build-blog.mjs && node scripts/build-video-pages.mjs && node scripts/build-seo-pages.mjs && node scripts/build-tools.mjs && node scripts/build-authority.mjs && node scripts/build-sitemap-index.mjs || { echo "✗ bước sinh trang tĩnh lỗi"; exit 1; }
 node scripts/test/theme-switch.mjs dist  # mọi trang tĩnh đã dựng: chống nháy + luật tối/sáng data-theme + nút giao diện (không có → không deploy)

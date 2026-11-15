@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ja_yesno",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Yes or no? Be careful!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Yes, I don't like fish.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: No, I don't like fish.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "If you don't, say no.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "No! No, I don't.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Yes, I don't like fish.",
+  "right": "No, I don't like fish.",
+  "strike": "Yes",
+  "why": "If you don't, say no.",
+  "memory": "No, I don't like fish.",
+  "quiz": {
+   "stem": "You don't like fish? ___, I don't.",
+   "options": [
+    "Yes",
+    "No"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "Yes か No か？日本人の癖の罠！",
+   "tip": "英語では事実で答えます。否定なら No と言います。",
+   "caption": "“Yes, I don't like fish.”と言っていませんか？😅 日本語は相手の言葉に同意するかで「はい」と答えますが、英語は答えの内容が否定なら No です。 “No, I don't like fish.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。",
+   "comment": "答え：“No”。否定の答えは No。無料クイズで練習：{link}",
+   "hashtags": [
+    "#英語学習",
+    "#英会話",
+    "#英語勉強",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Yes or No? Japanese habit trap!",
+   "tip": "In English, answer by the fact. If it is negative, say No.",
+   "caption": "Do you say “Yes, I don't like fish.”? 😅 Japanese says hai to agree with the question. English says No if your answer is negative. The natural way is “No, I don't like fish.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Yes か No か？日本人の癖の罠！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ja",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Yes か No か？日本人の癖の罠！",
+  "keyword": "No, I don't like fish.",
+  "value": "英語では事実で答えます。否定なら No と言います。",
+  "hashtags": [
+   "#英語学習",
+   "#英会話",
+   "#英語勉強",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Yes か No か？日本人の癖の罠！",
+    "description": "“Yes, I don't like fish.”と言っていませんか？😅 日本語は相手の言葉に同意するかで「はい」と答えますが、英語は答えの内容が否定なら No です。 “No, I don't like fish.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix\n\n#英語学習 #英会話 #英語勉強 #lexkite",
+    "tags": [
+     "No, I don't like fish.",
+     "learn english",
+     "ja"
+    ]
+   },
+   "facebook": {
+    "text": "“Yes, I don't like fish.”と言っていませんか？😅 日本語は相手の言葉に同意するかで「はい」と答えますが、英語は答えの内容が否定なら No です。 “No, I don't like fish.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Yes, I don't like fish.”と言っていませんか？😅 日本語は相手の言葉に同意するかで「はい」と答えますが、英語は答えの内容が否定なら No です。 “No, I don't like fish.” が自然な言い方です。Carlosの声をまねして練習しよう！Lexkiteアプリでもっと練習できます。\n\nlexkite.com",
+    "hashtags": [
+     "#英語学習",
+     "#英会話",
+     "#英語勉強",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Yes か No か？日本人の癖の罠！ #英語学習 #英会話 #英語勉強"
+   }
+  },
+  "first_comment": "答え：“No”。否定の答えは No。無料クイズで練習：{link}",
+  "lang": "ja"
+ }
+}

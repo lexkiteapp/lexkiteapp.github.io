@@ -126,6 +126,8 @@ qualityScore: 95
 
 ---
 
+想把阅读练习排进每周计划，可以参考[TOEIC自学备考规划](/zh/blog/toeic-zi-xue-bei-kao-gui-hua/)。
+
 ## 携手 Lexkite 稳步斩获托业阅读高分
 
 在托业考试中冲击高分，既需要敏锐的眼力，更需要深厚的词汇积淀：

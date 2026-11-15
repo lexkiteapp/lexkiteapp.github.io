@@ -72,5 +72,46 @@
   "words": 40,
   "seconds": 24.7,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"want\" mean?",
+  "keyword": "want",
+  "value": "Want means to desire or wish for something.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=want",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"want\" mean?",
+    "description": "Want means to desire or wish for something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=want\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "want",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"want\" mean?\n\nWant means to desire or wish for something.\n\nReview your words, free: https://lexkite.com/app/#/review?w=want"
+   },
+   "instagram": {
+    "caption": "What does \"want\" mean?\n\nWant means to desire or wish for something.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"want\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to desire or wish for something. Want means to desire or wish for something. Try the full lesson and quiz here: {link}"
  }
 }

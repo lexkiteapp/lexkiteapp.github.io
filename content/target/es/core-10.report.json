@@ -1,0 +1,208 @@
+{
+ "at": "2026-11-05T02:54:52.244Z",
+ "accepted": 6,
+ "rejected": [
+  {
+   "form": "voy",
+   "word": "ir",
+   "why": [
+    "trùng lemma"
+   ]
+  },
+  {
+   "form": "las",
+   "word": "la",
+   "why": [
+    "dịch ngược lệch: id,ko,tr"
+   ]
+  },
+  {
+   "form": "dinero",
+   "word": "dinero",
+   "why": [
+    "giám khảo B: The plural of 'dinero' should be 'dineros', not 'dinero'."
+   ]
+  },
+  {
+   "form": "tenía",
+   "word": "tener",
+   "why": [
+    "dịch ngược lệch: pt,fr,de,id,th,hi"
+   ]
+  },
+  {
+   "form": "mierda",
+   "why": "skip: vulgar"
+  },
+  {
+   "form": "hizo",
+   "word": "hacer",
+   "why": [
+    "trùng lemma"
+   ]
+  }
+ ],
+ "tried": [
+  "estoy",
+  "ahora",
+  "muy",
+  "ha",
+  "esta",
+  "así",
+  "vamos",
+  "algo",
+  "hay",
+  "bueno",
+  "o",
+  "he",
+  "ser",
+  "tiene",
+  "puedo",
+  "ella",
+  "quiero",
+  "fue",
+  "gracias",
+  "sólo",
+  "tan",
+  "quién",
+  "sus",
+  "tiempo",
+  "dos",
+  "esa",
+  "nunca",
+  "dónde",
+  "va",
+  "oh",
+  "favor",
+  "mucho",
+  "mí",
+  "quieres",
+  "siento",
+  "señor",
+  "mejor",
+  "hace",
+  "has",
+  "decir",
+  "también",
+  "sobre",
+  "dios",
+  "sin",
+  "tenemos",
+  "están",
+  "ti",
+  "puedes",
+  "ver",
+  "hombre",
+  "vida",
+  "alguien",
+  "cosas",
+  "siempre",
+  "hasta",
+  "ahí",
+  "ir",
+  "años",
+  "antes",
+  "estar",
+  "estamos",
+  "quiere",
+  "podría",
+  "vas",
+  "ellos",
+  "tal",
+  "pasa",
+  "fuera",
+  "después",
+  "han",
+  "desde",
+  "en",
+  "con",
+  "las",
+  "todo",
+  "cómo",
+  "voy",
+  "verdad",
+  "trabajo",
+  "dinero",
+  "tenía",
+  "espera",
+  "mamá",
+  "gusta",
+  "mierda",
+  "cada",
+  "hizo",
+  "dicho",
+  "debería",
+  "vaya",
+  "digo"
+ ],
+ "spot": [
+  "trabajo"
+ ],
+ "stats": {
+  "used": {
+   "lexai": 0,
+   "gc": 0,
+   "cf2": 0,
+   "cfLeak": 0,
+   "cf2Dead": [],
+   "gem": 1,
+   "groq": 5
+  },
+  "budget": {
+   "lexai": 0,
+   "gc": 10000,
+   "cf2": 0
+  },
+  "by": {
+   "gem|gemini-3.8-flash": {
+    "ok": 0,
+    "fail": 13,
+    "bad": 0
+   },
+   "groq|openai/gpt-oss-120b": {
+    "ok": 2,
+    "fail": 0,
+    "bad": 0
+   },
+   "groq|qwen/qwen3.8-27b": {
+    "ok": 3,
+    "fail": 0,
+    "bad": 0
+   },
+   "lexai|gemini-3.5-flash": {
+    "ok": 0,
+    "fail": 12,
+    "bad": 0
+   },
+   "gem|gemini-3.7-flash": {
+    "ok": 0,
+    "fail": 1,
+    "bad": 0
+   },
+   "gem|gemini-3.6-flash": {
+    "ok": 1,
+    "fail": 0,
+    "bad": 0
+   }
+  },
+  "keys": {
+   "gem": {
+    "size": 85,
+    "live": 38,
+    "parked": {
+     "day": 29,
+     "minute": 16,
+     "auth": 2
+    }
+   },
+   "groq": {
+    "size": 109,
+    "live": 109,
+    "parked": {}
+   }
+  }
+ },
+ "wiktFlags": [
+  "todo: từ loại adj ↔ det/pron"
+ ]
+}

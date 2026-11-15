@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_saw_yesterday",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Yesterday? Use the past!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Yesterday I have seen Ana.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Yesterday I saw Ana.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "With yesterday, use the past.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Saw! Last night I saw a movie.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Yesterday I have seen Ana.",
+  "right": "Yesterday I saw Ana.",
+  "strike": "have seen",
+  "why": "With yesterday, use the past.",
+  "memory": "Yesterday: saw.",
+  "quiz": {
+   "stem": "Last night I ___ a movie.",
+   "options": [
+    "have seen",
+    "saw"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Yesterday I have seen”? No",
+   "tip": "Con ayer, la semana pasada, etc., usa pasado simple: “I saw”, no “have seen”.",
+   "caption": "En español “ayer he visto” suena normal, ¡en inglés no! 🎬 Di “Yesterday I saw Ana.”, no “Yesterday I have seen Ana.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “saw”. Tiempo terminado, pasado simple. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#tiempos",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Yesterday I have seen”? No",
+   "tip": "With yesterday, last week, etc., use the simple past: “I saw”, not “have seen”.",
+   "caption": "In Spanish “ayer he visto” sounds fine, but not in English! Say “Yesterday I saw Ana.”, not “Yesterday I have seen Ana.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Yesterday I have seen”? No"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "¿“Yesterday I have seen”? No",
+  "keyword": "Yesterday I saw Ana.",
+  "value": "Con ayer, la semana pasada, etc., usa pasado simple: “I saw”, no “have seen”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#tiempos",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Yesterday I have seen”? No",
+    "description": "En español “ayer he visto” suena normal, ¡en inglés no! 🎬 Di “Yesterday I saw Ana.”, no “Yesterday I have seen Ana.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #tiempos #lexkite",
+    "tags": [
+     "Yesterday I saw Ana.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "En español “ayer he visto” suena normal, ¡en inglés no! 🎬 Di “Yesterday I saw Ana.”, no “Yesterday I have seen Ana.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "En español “ayer he visto” suena normal, ¡en inglés no! 🎬 Di “Yesterday I saw Ana.”, no “Yesterday I have seen Ana.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#tiempos",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Yesterday I have seen”? No #aprenderingles #inglesfacil #tiempos"
+   }
+  },
+  "first_comment": "Respuesta: “saw”. Tiempo terminado, pasado simple. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

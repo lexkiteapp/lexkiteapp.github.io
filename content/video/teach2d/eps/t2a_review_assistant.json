@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"assistant\" mean?",
+  "keyword": "assistant",
+  "value": "Assistant means a person who helps another, usually as a job.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=assistant",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"assistant\" mean?",
+    "description": "Assistant means a person who helps another, usually as a job.\n\nReview your words, free: https://lexkite.com/app/#/review?w=assistant\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "assistant",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"assistant\" mean?\n\nAssistant means a person who helps another, usually as a job.\n\nReview your words, free: https://lexkite.com/app/#/review?w=assistant"
+   },
+   "instagram": {
+    "caption": "What does \"assistant\" mean?\n\nAssistant means a person who helps another, usually as a job.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"assistant\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a person who helps another, usually as a job. Assistant means a person who helps another, usually as a job. Practice it with a free quiz: {link}"
  }
 }

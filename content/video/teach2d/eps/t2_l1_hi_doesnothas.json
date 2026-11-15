@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_doesnothas",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Does not have!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She does not has a car.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She does not have a car.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After does not, use have.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Have! He does not have a bike.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She does not has a car.",
+  "right": "She does not have a car.",
+  "strike": "has",
+  "why": "After does not, use have.",
+  "memory": "Does not have.",
+  "quiz": {
+   "stem": "He does not ___ a bike.",
+   "options": [
+    "has",
+    "have"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“does not has” में गलती कहाँ?",
+   "tip": "does not के बाद क्रिया का मूल रूप आता है, इसलिए has नहीं, have बोलें।",
+   "caption": "क्या आप भी कहते हैं “She does not has a car”? 🙈 अंग्रेज़ी में “She does not have a car” सही है, क्योंकि does not के बाद क्रिया बिना s वाले रूप में रहती है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “have”। has की जगह have बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "What is wrong in “does not has”?",
+   "tip": "After does not the base verb stays, so say have, not has.",
+   "caption": "Do you say “She does not has a car”? 🙈 In English “She does not have a car” is right, because after does not the verb keeps its base form. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“does not has” में गलती कहाँ?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 47,
+  "seconds": 28.6,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "“does not has” में गलती कहाँ?",
+  "keyword": "She does not have a car.",
+  "value": "does not के बाद क्रिया का मूल रूप आता है, इसलिए has नहीं, have बोलें।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "“does not has” में गलती कहाँ?",
+    "description": "क्या आप भी कहते हैं “She does not has a car”? 🙈 अंग्रेज़ी में “She does not have a car” सही है, क्योंकि does not के बाद क्रिया बिना s वाले रूप में रहती है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "She does not have a car.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “She does not has a car”? 🙈 अंग्रेज़ी में “She does not have a car” सही है, क्योंकि does not के बाद क्रिया बिना s वाले रूप में रहती है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “She does not has a car”? 🙈 अंग्रेज़ी में “She does not have a car” सही है, क्योंकि does not के बाद क्रिया बिना s वाले रूप में रहती है। Carlos की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“does not has” में गलती कहाँ? #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “have”। has की जगह have बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

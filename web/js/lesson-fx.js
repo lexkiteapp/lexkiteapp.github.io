@@ -43,7 +43,7 @@
   }
   const typoHtml = marks => marks.map(m => m.fix ? `<u class="lfx-fix">${esc(m.w)}</u>` : esc(m.w)).join(' ');
   // Dòng đầu bảng phản hồi khi nhận đáp án có lỗi chính tả nhỏ (vẫn tính đúng, không mất chuỗi)
-  const typoHead = marks => { css(); return `✅ ${esc(T('Đúng rồi – chỉ sai chính tả nhỏ'))}<div class="lfx-sub small">${T('Viết đúng là: {a}', { a: typoHtml(marks) })}</div>`; };
+  const typoHead = marks => { css(); return `${g.UI && g.UI.icon ? g.UI.icon('circle-check') : '✅'} ${esc(T('Đúng rồi – chỉ sai chính tả nhỏ'))}<div class="lfx-sub small">${T('Viết đúng là: {a}', { a: typoHtml(marks) })}</div>`; };
 
   // ---------- CSS (nạp 1 lần) ----------
   function css() {

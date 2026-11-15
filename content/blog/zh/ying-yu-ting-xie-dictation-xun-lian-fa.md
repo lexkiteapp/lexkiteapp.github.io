@@ -142,6 +142,8 @@ publishAt: 2026-11-24T19:25:00+08:00
 
 {{cta: /#/listening | 立即进入 Lexkite 听力精听室，开启你的每日听写提分之旅}}
 
+想把听写训练用到TOEIC考试上，可参考[TOEIC听力Part 2解题技巧](/zh/blog/toeic-ting-li-part-2-jie-ti-ji-qiao/)。
+
 ## 英语听写训练常见疑问解答（FAQ）
 
 ### 每天练习听写多长时间最合适？

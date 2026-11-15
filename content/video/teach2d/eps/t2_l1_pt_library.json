@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_library",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Library is a false friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I bought a book in the library.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I bought a book in the bookstore.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "A library lends books. It does not sell.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Bookstore! I buy books at the bookstore.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I bought a book in the library.",
+  "right": "I bought a book in the bookstore.",
+  "strike": "library",
+  "why": "A library lends books. It does not sell.",
+  "memory": "Buy at a bookstore.",
+  "quiz": {
+   "stem": "I want to buy a book at the ___.",
+   "options": [
+    "library",
+    "bookstore"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Library” não é “livraria”!",
+   "tip": "“Library” é biblioteca. Livraria é “bookstore”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I bought a book in the library.”. O certo é “I bought a book in the bookstore.”. Esse falso cognato confunde muita gente. Ouça o Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “bookstore”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#inglesonline",
+    "#dicasdeingles",
+    "#aprenderingles",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Library” is not “livraria”!",
+   "tip": "“Library” means a place to borrow books. A shop is a “bookstore”.",
+   "caption": "Watch out for this common mistake! Many people say “I bought a book in the library.”. The right way is “I bought a book in the bookstore.”. This false friend confuses many people. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Library” não é “livraria”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 54,
+  "seconds": 32.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“Library” não é “livraria”!",
+  "keyword": "I bought a book in the bookstore.",
+  "value": "“Library” é biblioteca. Livraria é “bookstore”.",
+  "hashtags": [
+   "#inglesonline",
+   "#dicasdeingles",
+   "#aprenderingles",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 48,
+  "platforms": {
+   "youtube": {
+    "title": "“Library” não é “livraria”!",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “I bought a book in the library.”. O certo é “I bought a book in the bookstore.”. Esse falso cognato confunde muita gente. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesonline #dicasdeingles #aprenderingles #lexkite",
+    "tags": [
+     "I bought a book in the bookstore.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I bought a book in the library.”. O certo é “I bought a book in the bookstore.”. Esse falso cognato confunde muita gente. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I bought a book in the library.”. O certo é “I bought a book in the bookstore.”. Esse falso cognato confunde muita gente. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#inglesonline",
+     "#dicasdeingles",
+     "#aprenderingles",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Library” não é “livraria”! #inglesonline #dicasdeingles #aprenderingles"
+   }
+  },
+  "first_comment": "Resposta: “bookstore”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

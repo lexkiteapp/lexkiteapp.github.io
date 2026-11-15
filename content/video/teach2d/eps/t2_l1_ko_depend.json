@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_depend",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Depend on, not of!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I depend of my parents.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I depend on my parents.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "We say depend on.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! It depends on the weather.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I depend of my parents.",
+  "right": "I depend on my parents.",
+  "strike": "of",
+  "why": "We say depend on.",
+  "memory": "Depend on.",
+  "quiz": {
+   "stem": "It depends ___ the weather.",
+   "options": [
+    "on",
+    "of"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“depend of” 틀렸어요!",
+   "tip": "depend 뒤에는 of가 아니라 on! “I depend on my parents”예요.",
+   "caption": "“I depend of my parents”라고 말하고 있나요? 😅 depend 뒤에는 of가 아니라 on을 써요. “I depend on my parents”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “on”. depend on으로 외워요! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Depend of” is wrong!",
+   "tip": "After depend, use on, not of. Say “I depend on my parents”.",
+   "caption": "Do you say “I depend of my parents”? 😅 After depend you use “on”, not “of”. “I depend on my parents” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“depend of” 틀렸어요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“depend of” 틀렸어요!",
+  "keyword": "I depend on my parents.",
+  "value": "depend 뒤에는 of가 아니라 on! “I depend on my parents”예요.",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "“depend of” 틀렸어요!",
+    "description": "“I depend of my parents”라고 말하고 있나요? 😅 depend 뒤에는 of가 아니라 on을 써요. “I depend on my parents”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "I depend on my parents.",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“I depend of my parents”라고 말하고 있나요? 😅 depend 뒤에는 of가 아니라 on을 써요. “I depend on my parents”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“I depend of my parents”라고 말하고 있나요? 😅 depend 뒤에는 of가 아니라 on을 써요. “I depend on my parents”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“depend of” 틀렸어요! #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “on”. depend on으로 외워요! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "lang": "ko"
+ }
+}

@@ -42,7 +42,7 @@ for (const env of [{ ADMIN_EMAILS: 'boss@lexkite.com' }, { ...ENV, GRABCAST_API_
 ok(calls.length === 0, 'chưa cấu hình → không gọi GrabCast');
 
 // 3) Whitelist
-const ALLOW = [['GET', 'accounts'], ['GET', 'posts'], ['GET', 'posts/p_123'], ['GET', 'media/m_1'], ['POST', 'media/upload-url'], ['POST', 'media/m_1/complete'], ['POST', 'posts/validate'], ['POST', 'posts'], ['PATCH', 'posts/p_1'],
+const ALLOW = [['GET', 'accounts'], ['GET', 'posts'], ['GET', 'posts/p_123'], ['GET', 'media/m_1'], ['POST', 'media/upload-url'], ['POST', 'media/m_1/complete'], ['POST', 'posts'], ['PATCH', 'posts/p_1'],
   ['POST', 'posts/p_1/unschedule'], ['POST', 'posts/p_1/cancel'], ['POST', 'storage/objects/o_1/use'],
   ['GET', 'storage/stores'], ['GET', 'storage/objects'], ['POST', 'storage/objects'], ['POST', 'validate'], ['GET', 'posts/p_1/insights'], ['GET', 'tiktok/creator-info/12'], ['POST', 'storage/objects/o_1/complete'], ['POST', 'storage/objects/o_1/abort'], ['GET', '/api/social/accounts']];
 // Cổng duyệt: không D1 → 412 needs-approval-db (fail closed); tạo bài kèm giờ đăng → 403 (chi tiết: scripts/test/social-mgr.mjs)

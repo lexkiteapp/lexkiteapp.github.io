@@ -25,17 +25,11 @@
   "enter",
   "end"
  ],
- "task1": [
-  "end"
- ],
  "speaking": [
   "end",
   "skip"
  ],
  "lesson": [
-  "end"
- ],
- "practice": [
   "end"
  ],
  "listen": [
@@ -82,5 +76,10 @@
  ],
  "letters": [
   "end"
- ]
+ ],
+ "_flaky": {
+  "practice": [
+   "end"
+  ]
+ }
 }

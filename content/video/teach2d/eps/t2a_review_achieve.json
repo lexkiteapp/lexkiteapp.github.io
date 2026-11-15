@@ -72,5 +72,46 @@
   "words": 46,
   "seconds": 27.7,
   "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"achieve\" mean?",
+  "keyword": "achieve",
+  "value": "Achieve means to succeed in doing something good, usually by working hard.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=achieve",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"achieve\" mean?",
+    "description": "Achieve means to succeed in doing something good, usually by working hard.\n\nReview your words, free: https://lexkite.com/app/#/review?w=achieve\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "achieve",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"achieve\" mean?\n\nAchieve means to succeed in doing something good, usually by working hard.\n\nReview your words, free: https://lexkite.com/app/#/review?w=achieve"
+   },
+   "instagram": {
+    "caption": "What does \"achieve\" mean?\n\nAchieve means to succeed in doing something good, usually by working hard.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"achieve\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to succeed in doing something good, usually by working hard. Achieve means to succeed in doing something good, usually by working hard. Practice it with a free quiz: {link}"
  }
 }

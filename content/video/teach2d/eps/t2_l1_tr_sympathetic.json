@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_tr_sympathetic",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Sympathetic is not nice!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: My teacher is very sympathetic.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: My teacher is very nice.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Sympathetic means feel sorry.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Nice! My teacher is very nice and friendly.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "My teacher is very sympathetic.",
+  "right": "My teacher is very nice.",
+  "strike": "sympathetic",
+  "why": "Sympathetic means feel sorry.",
+  "memory": "Nice is sempatik.",
+  "quiz": {
+   "stem": "My teacher is very ___ and friendly.",
+   "options": [
+    "sympathetic",
+    "nice"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Sympathetic” sempatik değil!",
+   "tip": "Türkçedeki “sempatik” İngilizcede “nice” veya “friendly” demektir.",
+   "caption": "“My teacher is very sympathetic.” mi diyorsun? 😅 “Sympathetic” üzüntüyü anlayan kişidir, sempatik değil. Doğrusu “My teacher is very nice.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.",
+   "comment": "Cevap: “nice”. Sempatik: nice. Ücretsiz testle pratik yap: {link}",
+   "hashtags": [
+    "#ingilizceöğren",
+    "#ingilizcekonuşma",
+    "#ingilizce",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Sympathetic” is not “sempatik”!",
+   "tip": "Turkish “sempatik” is “nice” or “friendly” in English.",
+   "caption": "Do you say “My teacher is very sympathetic.”? 😅 “Sympathetic” means feeling sorry for someone, not likeable. The right sentence is “My teacher is very nice.”. Listen to Ama and repeat! Open the Lexkite app and practice more."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Sympathetic” sempatik değil!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "tr",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“Sympathetic” sempatik değil!",
+  "keyword": "My teacher is very nice.",
+  "value": "Türkçedeki “sempatik” İngilizcede “nice” veya “friendly” demektir.",
+  "hashtags": [
+   "#ingilizceöğren",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "“Sympathetic” sempatik değil!",
+    "description": "“My teacher is very sympathetic.” mi diyorsun? 😅 “Sympathetic” üzüntüyü anlayan kişidir, sempatik değil. Doğrusu “My teacher is very nice.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix\n\n#ingilizceöğren #ingilizcekonuşma #ingilizce #lexkite",
+    "tags": [
+     "My teacher is very nice.",
+     "learn english",
+     "tr"
+    ]
+   },
+   "facebook": {
+    "text": "“My teacher is very sympathetic.” mi diyorsun? 😅 “Sympathetic” üzüntüyü anlayan kişidir, sempatik değil. Doğrusu “My teacher is very nice.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“My teacher is very sympathetic.” mi diyorsun? 😅 “Sympathetic” üzüntüyü anlayan kişidir, sempatik değil. Doğrusu “My teacher is very nice.”. Ama’yı dinle ve tekrar et! Lexkite uygulamasını aç, daha çok pratik yap.\n\nlexkite.com",
+    "hashtags": [
+     "#ingilizceöğren",
+     "#ingilizcekonuşma",
+     "#ingilizce",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Sympathetic” sempatik değil! #ingilizceöğren #ingilizcekonuşma #ingilizce"
+   }
+  },
+  "first_comment": "Cevap: “nice”. Sempatik: nice. Ücretsiz testle pratik yap: {link}",
+  "lang": "tr"
+ }
+}

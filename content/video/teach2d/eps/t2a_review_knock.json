@@ -72,5 +72,46 @@
   "words": 39,
   "seconds": 24.2,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"knock\" mean?",
+  "keyword": "knock",
+  "value": "Knock means to hit something to get people's attention.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=knock",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"knock\" mean?",
+    "description": "Knock means to hit something to get people's attention.\n\nReview your words, free: https://lexkite.com/app/#/review?w=knock\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "knock",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"knock\" mean?\n\nKnock means to hit something to get people's attention.\n\nReview your words, free: https://lexkite.com/app/#/review?w=knock"
+   },
+   "instagram": {
+    "caption": "What does \"knock\" mean?\n\nKnock means to hit something to get people's attention.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"knock\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to hit something to get people's attention. Knock means to hit something to get people's attention. More practice like this (free): {link}"
  }
 }

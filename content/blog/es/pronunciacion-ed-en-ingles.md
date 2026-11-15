@@ -23,6 +23,8 @@ El problema para los hispanohablantes no es entender la regla, sino aplicarla al
 
 Piensa en *-ed* como una terminación camaleón: se adapta al sonido que tiene delante. La lógica es física, no caprichosa. Pasar de una consonante sorda a una sonora (o al revés) dentro de la misma sílaba cuesta esfuerzo, así que el inglés iguala la terminación al sonido anterior.
 
+Si quieres profundizar, lee también [la guía para mejorar la pronunciación en inglés](/es/blog/como-mejorar-la-pronunciacion-en-ingles-guia/).
+
 | Último sonido del verbo | Se pronuncia | Ejemplos |
 |---|---|---|
 | /t/ o /d/ | /ɪd/ (sílaba extra) | *wanted* /ˈwɒntɪd/, *needed* /ˈniːdɪd/, *visited* /ˈvɪzɪtɪd/, *decided* /dɪˈsaɪdɪd/ |

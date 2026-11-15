@@ -1,0 +1,921 @@
+{
+ "id": "bank",
+ "group": "money",
+ "cefr": "B1",
+ "title": {
+  "en": "Bank",
+  "vi": "Ngân hàng",
+  "es": "Banco",
+  "pt": "Banco",
+  "fr": "Banque",
+  "de": "Bank",
+  "id": "Bank",
+  "th": "ธนาคาร",
+  "zh": "银行",
+  "ja": "銀行",
+  "ko": "은행",
+  "hi": "बैंक",
+  "ar": "البنك",
+  "ru": "Банк",
+  "tr": "Banka"
+ },
+ "goal": {
+  "en": "Open an account!",
+  "vi": "Mở tài khoản!",
+  "es": "¡Abre una cuenta!",
+  "pt": "Abra uma conta!",
+  "fr": "Ouvrez un compte !",
+  "de": "Eröffne ein Konto!",
+  "id": "Buka rekening!",
+  "th": "เปิดบัญชี!",
+  "zh": "开一个账户！",
+  "ja": "口座を開こう！",
+  "ko": "계좌를 개설해요!",
+  "hi": "खाता खोलें!",
+  "ar": "افتح حسابًا!",
+  "ru": "Открой счёт!",
+  "tr": "Hesap aç!"
+ },
+ "roles": [
+  "customer",
+  "barista"
+ ],
+ "stages": [
+  {
+   "id": "open",
+   "title": {
+    "en": "Open an account",
+    "vi": "Mở tài khoản",
+    "es": "Abrir una cuenta",
+    "pt": "Abrir uma conta",
+    "fr": "Ouvrir un compte",
+    "de": "Konto eröffnen",
+    "id": "Membuka rekening",
+    "th": "เปิดบัญชี",
+    "zh": "开户",
+    "ja": "口座を開く",
+    "ko": "계좌 개설",
+    "hi": "खाता खोलना",
+    "ar": "فتح حساب",
+    "ru": "Открыть счёт",
+    "tr": "Hesap açma"
+   },
+   "lines": [
+    "o1",
+    "o2",
+    "o3",
+    "o4"
+   ]
+  },
+  {
+   "id": "services",
+   "title": {
+    "en": "Cards and money",
+    "vi": "Thẻ và tiền",
+    "es": "Tarjetas y dinero",
+    "pt": "Cartões e dinheiro",
+    "fr": "Cartes et argent",
+    "de": "Karten und Geld",
+    "id": "Kartu dan uang",
+    "th": "บัตรและเงิน",
+    "zh": "银行卡与取款",
+    "ja": "カードとお金",
+    "ko": "카드와 돈",
+    "hi": "कार्ड और पैसा",
+    "ar": "البطاقات والمال",
+    "ru": "Карты и деньги",
+    "tr": "Kart ve para"
+   },
+   "lines": [
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ]
+  },
+  {
+   "id": "problem",
+   "title": {
+    "en": "Fix a problem",
+    "vi": "Giải quyết sự cố",
+    "es": "Resolver un problema",
+    "pt": "Resolver um problema",
+    "fr": "Régler un problème",
+    "de": "Ein Problem lösen",
+    "id": "Mengatasi masalah",
+    "th": "แก้ปัญหา",
+    "zh": "解决问题",
+    "ja": "問題を解決する",
+    "ko": "문제 해결",
+    "hi": "समस्या सुलझाना",
+    "ar": "حل مشكلة",
+    "ru": "Решить проблему",
+    "tr": "Sorun çözme"
+   },
+   "lines": [
+    "p1",
+    "p2",
+    "p3",
+    "p4"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "id": "o1",
+   "who": "customer",
+   "en": "Hello, I'd like to open a current account, please.",
+   "variants": {
+    "polite": "Good morning. I'd like to open a current account, if possible.",
+    "casual": "I want to open an account."
+   },
+   "gloss": {
+    "en": "Saying why you came to the bank.",
+    "vi": "Nói lý do bạn đến ngân hàng.",
+    "es": "Explica por qué vienes al banco.",
+    "pt": "Explica por que veio ao banco.",
+    "fr": "Dire pourquoi on vient à la banque.",
+    "de": "Sagen, warum man zur Bank kommt.",
+    "id": "Menyampaikan tujuan ke bank.",
+    "th": "บอกว่ามาธนาคารเพื่ออะไร",
+    "zh": "说明来银行的目的。",
+    "ja": "来店の目的を伝えます。",
+    "ko": "은행에 온 이유를 말해요.",
+    "hi": "बताना कि बैंक क्यों आए हैं।",
+    "ar": "ذكر سبب الزيارة للبنك.",
+    "ru": "Сказать, зачем пришли в банк.",
+    "tr": "Bankaya geliş nedenini söyleme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "account",
+     "ipa": "/əˈkaʊnt/",
+     "hi": "COUNT",
+     "note": {
+      "en": "Stress the second syllable: a-COUNT. The first sound is a weak \"uh\".",
+      "vi": "Nhấn âm tiết thứ hai: ờ-COUNT. Âm đầu là \"ờ\" nhẹ.",
+      "es": "Acentúa la segunda sílaba: a-COUNT. El primer sonido es una \"a\" débil.",
+      "pt": "Acentue a segunda sílaba: a-COUNT. O primeiro som é um \"a\" fraco.",
+      "fr": "Accentuez la deuxième syllabe : a-COUNT. Le premier son est un « a » faible.",
+      "de": "Betone die zweite Silbe: a-COUNT. Der erste Laut ist ein schwaches „a“.",
+      "id": "Tekankan suku kata kedua: a-COUNT. Bunyi pertama \"a\" lemah.",
+      "th": "เน้นพยางค์ที่สอง: อะ-COUNT เสียงแรกเป็น \"อะ\" เบา ๆ",
+      "zh": "重音在第二音节：a-COUNT，第一个音很弱。",
+      "ja": "2番目の音節を強く：ア・COUNT。最初は弱い「ア」です。",
+      "ko": "두 번째 음절에 강세: 어-COUNT. 첫 소리는 약한 \"어\"예요.",
+      "hi": "दूसरे अक्षर पर ज़ोर: अ-COUNT। पहली ध्वनि हल्की \"अ\" है।",
+      "ar": "النبر على المقطع الثاني: a-COUNT، والصوت الأول \"ا\" خفيف.",
+      "ru": "Ударение на второй слог: а-КАУНТ. Первый звук слабый.",
+      "tr": "Vurgu ikinci hecede: ı-COUNT. İlk ses zayıf bir \"ı\" sesidir."
+     }
+    }
+   ]
+  },
+  {
+   "id": "o2",
+   "who": "barista",
+   "en": "Certainly. Do you have photo ID and proof of address?",
+   "variants": {
+    "polite": "Certainly. May I see some photo ID and proof of address, please?",
+    "casual": "Sure. ID and proof of address?"
+   },
+   "gloss": {
+    "en": "The clerk asks for documents.",
+    "vi": "Nhân viên hỏi giấy tờ.",
+    "es": "El empleado pide documentos.",
+    "pt": "O atendente pede documentos.",
+    "fr": "L'employé demande des documents.",
+    "de": "Der Mitarbeiter fragt nach Dokumenten.",
+    "id": "Petugas meminta dokumen.",
+    "th": "พนักงานขอเอกสาร",
+    "zh": "职员要求出示证件。",
+    "ja": "行員が書類を求めます。",
+    "ko": "직원이 서류를 요청해요.",
+    "hi": "कर्मचारी दस्तावेज़ माँगता है।",
+    "ar": "الموظف يطلب المستندات.",
+    "ru": "Сотрудник просит документы.",
+    "tr": "Görevli belge ister."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "o3",
+   "who": "customer",
+   "en": "Yes, here's my passport and a recent electricity bill.",
+   "variants": {
+    "polite": "Yes, of course. Here's my passport and a recent electricity bill.",
+    "casual": "Here's my passport and an electricity bill."
+   },
+   "gloss": {
+    "en": "Handing over documents.",
+    "vi": "Đưa giấy tờ cho nhân viên.",
+    "es": "Entrega los documentos.",
+    "pt": "Entrega os documentos.",
+    "fr": "Remettre ses documents.",
+    "de": "Dokumente übergeben.",
+    "id": "Menyerahkan dokumen.",
+    "th": "ยื่นเอกสาร",
+    "zh": "递交证件。",
+    "ja": "書類を渡します。",
+    "ko": "서류를 건네요.",
+    "hi": "दस्तावेज़ देना।",
+    "ar": "تسليم المستندات.",
+    "ru": "Передать документы.",
+    "tr": "Belgeleri uzatma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "passport",
+     "ipa": "/ˈpæs.pɔːrt/",
+     "hi": "PASS",
+     "note": {
+      "en": "Stress the first syllable: PASS-port. Say \"pass\" with a short \"a\", not \"pars\".",
+      "vi": "Nhấn âm tiết đầu: PÁT-pót. Đọc \"pass\" với \"a\" ngắn, không phải \"pars\".",
+      "es": "Acentúa la primera sílaba: PASS-port. La \"a\" es corta, no \"pars\".",
+      "pt": "Acentue a primeira sílaba: PASS-port. O \"a\" é curto, não \"pars\".",
+      "fr": "Accentuez la première syllabe : PASS-port. Le « a » est bref, pas « pars ».",
+      "de": "Betone die erste Silbe: PASS-port. Kurzes „a“, nicht „pars“.",
+      "id": "Tekankan suku kata pertama: PASS-port. \"a\" pendek, bukan \"pars\".",
+      "th": "เน้นพยางค์แรก: PASS-พอร์ต เสียง \"a\" สั้น ไม่ใช่ \"pars\"",
+      "zh": "重音在第一音节：PASS-port，a 读短音，不是 pars。",
+      "ja": "最初を強く：PASS・ポート。a は短く、「パース」にしません。",
+      "ko": "첫 음절에 강세: PASS-포트. a는 짧게, \"파스\"가 아니에요.",
+      "hi": "पहले अक्षर पर ज़ोर: PASS-पोर्ट। a छोटा है, \"पार्स\" नहीं।",
+      "ar": "النبر على المقطع الأول: PASS-port، وحرف a قصير وليس \"parس\".",
+      "ru": "Ударение на первый слог: ПАСС-порт. «a» короткий, не «парс».",
+      "tr": "Vurgu ilk hecede: PASS-port. \"a\" kısa, \"pars\" değil."
+     }
+    }
+   ]
+  },
+  {
+   "id": "o4",
+   "who": "barista",
+   "en": "Thanks. Your card will arrive in about five working days.",
+   "variants": {
+    "polite": "Thank you. Your debit card should arrive within five working days.",
+    "casual": "Card in five working days."
+   },
+   "gloss": {
+    "en": "The clerk says when the card arrives.",
+    "vi": "Nhân viên báo khi nào có thẻ.",
+    "es": "El empleado dice cuándo llega la tarjeta.",
+    "pt": "O atendente diz quando o cartão chega.",
+    "fr": "L'employé indique quand la carte arrive.",
+    "de": "Der Mitarbeiter sagt, wann die Karte kommt.",
+    "id": "Petugas menyebut kapan kartu tiba.",
+    "th": "พนักงานบอกว่าบัตรจะมาเมื่อไร",
+    "zh": "职员告知银行卡何时到。",
+    "ja": "カードの到着時期を伝えます。",
+    "ko": "카드가 언제 오는지 알려 줘요.",
+    "hi": "कर्मचारी बताता है कि कार्ड कब आएगा।",
+    "ar": "الموظف يقول متى تصل البطاقة.",
+    "ru": "Сотрудник говорит, когда придёт карта.",
+    "tr": "Görevli kartın ne zaman geleceğini söyler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "m1",
+   "who": "customer",
+   "en": "I'd like to withdraw two hundred pounds, please.",
+   "variants": {
+    "polite": "Could I withdraw two hundred pounds from my account, please?",
+    "casual": "Two hundred pounds, please."
+   },
+   "gloss": {
+    "en": "Asking to take money out.",
+    "vi": "Xin rút tiền.",
+    "es": "Pide retirar dinero.",
+    "pt": "Pede para sacar dinheiro.",
+    "fr": "Demander un retrait.",
+    "de": "Geld abheben wollen.",
+    "id": "Meminta penarikan tunai.",
+    "th": "ขอถอนเงิน",
+    "zh": "要求取款。",
+    "ja": "現金の引き出しを依頼します。",
+    "ko": "돈을 인출해 달라고 해요.",
+    "hi": "पैसे निकालने को कहना।",
+    "ar": "طلب سحب نقود.",
+    "ru": "Попросить снять деньги.",
+    "tr": "Para çekmek isteme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "withdraw",
+     "ipa": "/wɪðˈdrɔː/",
+     "hi": "DRAW",
+     "note": {
+      "en": "Stress the second syllable: with-DRAW. The \"th\" is voiced, with your tongue between your teeth.",
+      "vi": "Nhấn âm tiết thứ hai: with-DRÔ. Âm \"th\" rung, lưỡi giữa hai hàm răng.",
+      "es": "Acentúa la segunda sílaba: with-DRAW. La \"th\" es sonora, con la lengua entre los dientes.",
+      "pt": "Acentue a segunda sílaba: with-DRÓ. O \"th\" é sonoro, com a língua entre os dentes.",
+      "fr": "Accentuez la deuxième syllabe : with-DRAW. Le « th » est voisé, langue entre les dents.",
+      "de": "Betone die zweite Silbe: with-DRAW. Das „th“ ist stimmhaft, Zunge zwischen den Zähnen.",
+      "id": "Tekankan suku kata kedua: with-DRAW. \"th\" bersuara, lidah di antara gigi.",
+      "th": "เน้นพยางค์ที่สอง: วิธ-DRAW เสียง \"th\" มีเสียง ลิ้นอยู่ระหว่างฟัน",
+      "zh": "重音在第二音节：with-DRAW，th 是浊音，舌尖放在齿间。",
+      "ja": "2番目を強く：ウィズ・DRAW。th は有声音で、舌を歯の間に。",
+      "ko": "두 번째 음절에 강세: 위드-DRAW. th는 유성음으로 혀를 이 사이에 둬요.",
+      "hi": "दूसरे अक्षर पर ज़ोर: विद-DRAW। th सघोष है, जीभ दाँतों के बीच।",
+      "ar": "النبر على المقطع الثاني: with-DRAW، وحرف th مجهور واللسان بين الأسنان.",
+      "ru": "Ударение на второй слог: уид-ДРО. «th» звонкий, язык между зубами.",
+      "tr": "Vurgu ikinci hecede: with-DRAW. \"th\" sesli, dil dişlerin arasında."
+     }
+    }
+   ]
+  },
+  {
+   "id": "m2",
+   "who": "barista",
+   "en": "Of course. Could you enter your PIN, please?",
+   "variants": {
+    "polite": "Certainly. Would you mind entering your PIN number, please?",
+    "casual": "Sure. Enter your PIN."
+   },
+   "gloss": {
+    "en": "The clerk asks for the PIN.",
+    "vi": "Nhân viên yêu cầu nhập mã PIN.",
+    "es": "El empleado pide el PIN.",
+    "pt": "O atendente pede o PIN.",
+    "fr": "L'employé demande le code PIN.",
+    "de": "Der Mitarbeiter bittet um die PIN.",
+    "id": "Petugas meminta PIN.",
+    "th": "พนักงานขอให้ใส่ PIN",
+    "zh": "职员请你输入 PIN。",
+    "ja": "暗証番号の入力を求めます。",
+    "ko": "직원이 PIN 입력을 요청해요.",
+    "hi": "कर्मचारी PIN डालने को कहता है।",
+    "ar": "الموظف يطلب إدخال الرقم السري.",
+    "ru": "Сотрудник просит ввести PIN.",
+    "tr": "Görevli PIN girmenizi ister."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "m3",
+   "who": "customer",
+   "en": "Could I also deposit this cheque into my savings account?",
+   "variants": {
+    "polite": "Would it be possible to deposit this cheque into my savings account?",
+    "casual": "Can I deposit this cheque?"
+   },
+   "gloss": {
+    "en": "Asking to pay a cheque in.",
+    "vi": "Xin nộp séc vào tài khoản.",
+    "es": "Pide ingresar un cheque.",
+    "pt": "Pede para depositar um cheque.",
+    "fr": "Demander à déposer un chèque.",
+    "de": "Einen Scheck einzahlen wollen.",
+    "id": "Meminta menyetor cek.",
+    "th": "ขอฝากเช็ค",
+    "zh": "要求存入支票。",
+    "ja": "小切手の入金を頼みます。",
+    "ko": "수표를 입금해 달라고 해요.",
+    "hi": "चेक जमा करने को कहना।",
+    "ar": "طلب إيداع شيك.",
+    "ru": "Попросить внести чек на счёт.",
+    "tr": "Çek yatırmak isteme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "cheque",
+     "ipa": "/tʃek/",
+     "hi": "CHEK",
+     "note": {
+      "en": "Say CHEK, like \"check\". The \"que\" at the end is silent.",
+      "vi": "Đọc CHEK như \"check\". Phần \"que\" ở cuối câm.",
+      "es": "Di CHEK, como \"check\". La terminación \"que\" es muda.",
+      "pt": "Diga CHEK, como \"check\". O \"que\" final é mudo.",
+      "fr": "Dites CHEK, comme « check ». Le « que » final est muet.",
+      "de": "Sprich CHEK wie „check“. Das „que“ am Ende ist stumm.",
+      "id": "Ucapkan CHEK, seperti \"check\". \"que\" di akhir tidak dibaca.",
+      "th": "ออกเสียง CHEK เหมือน \"check\" ตัว \"que\" ท้ายคำไม่ออกเสียง",
+      "zh": "读作 CHEK，和 check 一样，结尾的 que 不发音。",
+      "ja": "CHEK と読みます（check と同じ）。語末の que は発音しません。",
+      "ko": "CHEK로 읽어요(check와 같아요). 끝의 que는 소리 나지 않아요.",
+      "hi": "CHEK बोलें, check की तरह। अंत का que मौन है।",
+      "ar": "تُنطق CHEK مثل check، والمقطع الأخير que صامت.",
+      "ru": "Читается CHEK, как «check». Конечное «que» не читается.",
+      "tr": "CHEK diye okunur (check gibi). Sondaki \"que\" okunmaz."
+     }
+    }
+   ]
+  },
+  {
+   "id": "m4",
+   "who": "barista",
+   "en": "Yes. Please sign the back, and I'll process it today.",
+   "variants": {
+    "polite": "Yes. If you could sign the back, I'll process it today.",
+    "casual": "Sign the back, please."
+   },
+   "gloss": {
+    "en": "The clerk explains what to do.",
+    "vi": "Nhân viên hướng dẫn bước tiếp theo.",
+    "es": "El empleado explica qué hacer.",
+    "pt": "O atendente explica o que fazer.",
+    "fr": "L'employé explique la marche à suivre.",
+    "de": "Der Mitarbeiter erklärt den nächsten Schritt.",
+    "id": "Petugas menjelaskan langkah berikutnya.",
+    "th": "พนักงานอธิบายขั้นตอนต่อไป",
+    "zh": "职员说明下一步。",
+    "ja": "次の手順を説明します。",
+    "ko": "다음 절차를 안내해요.",
+    "hi": "कर्मचारी अगला कदम समझाता है।",
+    "ar": "الموظف يشرح الخطوة التالية.",
+    "ru": "Сотрудник объясняет следующий шаг.",
+    "tr": "Görevli bir sonraki adımı açıklar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p1",
+   "who": "customer",
+   "en": "I think someone used my card. I didn't make this payment.",
+   "variants": {
+    "polite": "I'm afraid there's a payment on my statement that I didn't make.",
+    "casual": "I didn't make this payment."
+   },
+   "gloss": {
+    "en": "Reporting a payment you did not make.",
+    "vi": "Báo khoản thanh toán không phải của bạn.",
+    "es": "Informa de un pago que no hiciste.",
+    "pt": "Informa um pagamento que não fez.",
+    "fr": "Signaler un paiement non effectué.",
+    "de": "Eine nicht getätigte Zahlung melden.",
+    "id": "Melaporkan pembayaran yang bukan Anda lakukan.",
+    "th": "แจ้งรายการชำระเงินที่ไม่ได้ทำ",
+    "zh": "报告一笔不是你做的付款。",
+    "ja": "身に覚えのない支払いを報告します。",
+    "ko": "내가 하지 않은 결제를 알려요.",
+    "hi": "ऐसे भुगतान की शिकायत जो आपने नहीं किया।",
+    "ar": "الإبلاغ عن دفعة لم تقم بها.",
+    "ru": "Сообщить о платеже, который вы не совершали.",
+    "tr": "Yapmadığınız bir ödemeyi bildirme."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p2",
+   "who": "barista",
+   "en": "I'm sorry to hear that. Let me block your card immediately.",
+   "variants": {
+    "polite": "I'm sorry about that. I'll block your card immediately to keep your money safe.",
+    "casual": "I'll block your card now."
+   },
+   "gloss": {
+    "en": "The clerk acts to protect the account.",
+    "vi": "Nhân viên khóa thẻ để bảo vệ tài khoản.",
+    "es": "El empleado bloquea la tarjeta.",
+    "pt": "O atendente bloqueia o cartão.",
+    "fr": "L'employé bloque la carte.",
+    "de": "Der Mitarbeiter sperrt die Karte.",
+    "id": "Petugas memblokir kartu.",
+    "th": "พนักงานระงับบัตรเพื่อความปลอดภัย",
+    "zh": "职员立即冻结银行卡。",
+    "ja": "行員がカードを止めます。",
+    "ko": "직원이 카드를 바로 정지해요.",
+    "hi": "कर्मचारी कार्ड तुरंत ब्लॉक करता है।",
+    "ar": "الموظف يوقف البطاقة فورًا.",
+    "ru": "Сотрудник сразу блокирует карту.",
+    "tr": "Görevli kartı hemen bloke eder."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": [
+    {
+     "l1": "*",
+     "w": "immediately",
+     "ipa": "/ɪˈmiː.di.ət.li/",
+     "hi": "MEE",
+     "note": {
+      "en": "Stress the second syllable: i-MEE-dee-ut-lee. Keep the \"i\" at the start short.",
+      "vi": "Nhấn âm tiết thứ hai: i-MI-đi-ợt-li. Âm \"i\" đầu đọc ngắn.",
+      "es": "Acentúa la segunda sílaba: i-MI-di-et-li. La \"i\" inicial es corta.",
+      "pt": "Acentue a segunda sílaba: i-MI-di-et-li. O \"i\" inicial é curto.",
+      "fr": "Accentuez la deuxième syllabe : i-MI-di-eut-li. Le « i » initial est bref.",
+      "de": "Betone die zweite Silbe: i-MIE-di-ət-li. Das erste „i“ ist kurz.",
+      "id": "Tekankan suku kata kedua: i-MI-di-et-li. \"i\" awal pendek.",
+      "th": "เน้นพยางค์ที่สอง: อิ-MEE-เดียท-ลี เสียง \"อิ\" ต้นคำสั้น",
+      "zh": "重音在第二音节：i-MEE-dee-ut-lee，开头的 i 读短音。",
+      "ja": "2番目を強く：イ・MEE・ディ・アット・リー。最初の i は短く。",
+      "ko": "두 번째 음절에 강세: 이-MEE-디-엇-리. 첫 i는 짧게 읽어요.",
+      "hi": "दूसरे अक्षर पर ज़ोर: इ-MEE-डि-अट-ली। शुरुआती i छोटा है।",
+      "ar": "النبر على المقطع الثاني: i-MEE-dee-ut-lee، وحرف i الأول قصير.",
+      "ru": "Ударение на второй слог: и-МИ-ди-ет-ли. Первый «и» краткий.",
+      "tr": "Vurgu ikinci hecede: i-MİY-di-ıt-li. Baştaki \"i\" kısadır."
+     }
+    }
+   ]
+  },
+  {
+   "id": "p3",
+   "who": "customer",
+   "en": "Thank you. How long will a replacement take?",
+   "variants": {
+    "polite": "Thank you. Could you tell me how long a replacement will take?",
+    "casual": "How long for a new card?"
+   },
+   "gloss": {
+    "en": "Asking about a replacement card.",
+    "vi": "Hỏi bao lâu có thẻ thay thế.",
+    "es": "Pregunta cuánto tarda la tarjeta nueva.",
+    "pt": "Pergunta quanto demora o cartão novo.",
+    "fr": "Demander le délai de la nouvelle carte.",
+    "de": "Fragen, wie lange die Ersatzkarte braucht.",
+    "id": "Menanyakan berapa lama kartu pengganti.",
+    "th": "ถามว่าบัตรใหม่ใช้เวลานานแค่ไหน",
+    "zh": "问补发新卡需要多久。",
+    "ja": "再発行にかかる時間を尋ねます。",
+    "ko": "재발급에 얼마나 걸리는지 물어봐요.",
+    "hi": "पूछना कि नया कार्ड कितने दिन में मिलेगा।",
+    "ar": "السؤال عن مدة إصدار بطاقة بديلة.",
+    "ru": "Спросить, сколько ждать новую карту.",
+    "tr": "Yeni kartın ne kadar süreceğini sorma."
+   },
+   "audio": {
+    "voice": "ama",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "p4",
+   "who": "barista",
+   "en": "About three working days. We can also issue a temporary one.",
+   "variants": {
+    "polite": "It usually takes three working days, but we can give you a temporary card today.",
+    "casual": "Three days. Or take a temporary one."
+   },
+   "gloss": {
+    "en": "The clerk gives the timeline.",
+    "vi": "Nhân viên nêu thời gian xử lý.",
+    "es": "El empleado indica el plazo.",
+    "pt": "O atendente informa o prazo.",
+    "fr": "L'employé donne le délai.",
+    "de": "Der Mitarbeiter nennt den Zeitplan.",
+    "id": "Petugas menyebut jangka waktunya.",
+    "th": "พนักงานบอกระยะเวลา",
+    "zh": "职员说明时间安排。",
+    "ja": "所要日数を伝えます。",
+    "ko": "소요 기간을 알려 줘요.",
+    "hi": "कर्मचारी समय-सीमा बताता है।",
+    "ar": "الموظف يذكر المدة.",
+    "ru": "Сотрудник называет срок.",
+    "tr": "Görevli süreyi söyler."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q1",
+   "who": "barista",
+   "open": true,
+   "en": "What would you like to do at the bank today?",
+   "keywords": [
+    "open",
+    "account",
+    "withdraw",
+    "deposit",
+    "cash",
+    "card",
+    "money",
+    "transfer",
+    "exchange",
+    "loan",
+    "cheque",
+    "statement",
+    "balance"
+   ],
+   "variants": {
+    "polite": "How can I help you at the bank today?",
+    "casual": "What can I do for you?"
+   },
+   "gloss": {
+    "en": "The clerk asks what you need.",
+    "vi": "Nhân viên hỏi bạn cần gì.",
+    "es": "El empleado pregunta qué necesitas.",
+    "pt": "O atendente pergunta do que precisa.",
+    "fr": "L'employé demande ce dont vous avez besoin.",
+    "de": "Der Mitarbeiter fragt nach deinem Anliegen.",
+    "id": "Petugas menanyakan keperluan Anda.",
+    "th": "พนักงานถามว่าต้องการทำอะไร",
+    "zh": "职员问你要办什么业务。",
+    "ja": "行員が用件を尋ねます。",
+    "ko": "직원이 용건을 물어봐요.",
+    "hi": "कर्मचारी पूछता है कि आपको क्या करना है।",
+    "ar": "الموظف يسأل ماذا تريد أن تفعل.",
+    "ru": "Сотрудник спрашивает, что вам нужно.",
+    "tr": "Görevli ne yapmak istediğinizi sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  },
+  {
+   "id": "q2",
+   "who": "barista",
+   "open": true,
+   "en": "Which type of account are you interested in?",
+   "keywords": [
+    "savings",
+    "current",
+    "checking",
+    "student",
+    "joint",
+    "business",
+    "basic",
+    "everyday",
+    "fee",
+    "free",
+    "interest",
+    "online"
+   ],
+   "variants": {
+    "polite": "Which kind of account would suit you best?",
+    "casual": "Savings or current?"
+   },
+   "gloss": {
+    "en": "The clerk asks which account type.",
+    "vi": "Nhân viên hỏi bạn muốn loại tài khoản nào.",
+    "es": "El empleado pregunta qué tipo de cuenta.",
+    "pt": "O atendente pergunta o tipo de conta.",
+    "fr": "L'employé demande le type de compte.",
+    "de": "Der Mitarbeiter fragt nach der Kontoart.",
+    "id": "Petugas menanyakan jenis rekening.",
+    "th": "พนักงานถามว่าสนใจบัญชีประเภทไหน",
+    "zh": "职员问你想开哪种账户。",
+    "ja": "口座の種類を尋ねます。",
+    "ko": "어떤 종류의 계좌인지 물어봐요.",
+    "hi": "कर्मचारी पूछता है कि कौन-सा खाता चाहिए।",
+    "ar": "الموظف يسأل عن نوع الحساب.",
+    "ru": "Сотрудник спрашивает тип счёта.",
+    "tr": "Görevli hangi hesap türünü istediğinizi sorar."
+   },
+   "audio": {
+    "voice": "carlos",
+    "slow": true
+   },
+   "pitfalls": []
+  }
+ ],
+ "dialogue": [
+  {
+   "who": "barista",
+   "en": "Good afternoon. How can I help?"
+  },
+  {
+   "who": "customer",
+   "en": "Hi. I'd like to open a savings account."
+  },
+  {
+   "who": "barista",
+   "en": "Of course. Are you a student, or do you work?"
+  },
+  {
+   "who": "customer",
+   "en": "I'm a student. Is there any monthly fee?"
+  },
+  {
+   "who": "barista",
+   "en": "No, student accounts are free. May I see your ID?"
+  },
+  {
+   "who": "customer",
+   "en": "Yes, here's my passport and my university letter."
+  },
+  {
+   "who": "barista",
+   "en": "Thank you. Your card will arrive in five working days."
+  },
+  {
+   "who": "customer",
+   "en": "Perfect. Can I also use the mobile app?"
+  },
+  {
+   "who": "barista",
+   "en": "Yes. We'll send you a code to set it up."
+  }
+ ],
+ "listening": [
+  {
+   "id": "l1",
+   "turns": [
+    {
+     "who": "barista",
+     "en": "Hello. What can I do for you?"
+    },
+    {
+     "who": "customer",
+     "en": "I'd like to send two hundred euros to my brother abroad."
+    },
+    {
+     "who": "barista",
+     "en": "Do you have his bank details?"
+    },
+    {
+     "who": "customer",
+     "en": "Yes, I have his account number and the bank code here."
+    }
+   ],
+   "q": {
+    "en": "Who does the customer want to send money to?",
+    "vi": "Khách muốn chuyển tiền cho ai?",
+    "es": "¿A quién quiere enviar dinero el cliente?",
+    "pt": "Para quem o cliente quer enviar dinheiro?",
+    "fr": "À qui le client veut-il envoyer de l'argent ?",
+    "de": "An wen will der Kunde Geld senden?",
+    "id": "Kepada siapa pelanggan ingin mengirim uang?",
+    "th": "ลูกค้าต้องการโอนเงินให้ใคร",
+    "zh": "顾客想把钱汇给谁？",
+    "ja": "お客さんは誰にお金を送りたいですか？",
+    "ko": "손님은 누구에게 송금하려고 하나요?",
+    "hi": "ग्राहक किसे पैसे भेजना चाहता है?",
+    "ar": "لمن يريد الزبون إرسال المال؟",
+    "ru": "Кому клиент хочет отправить деньги?",
+    "tr": "Müşteri kime para göndermek istiyor?"
+   },
+   "answer": "my brother abroad"
+  },
+  {
+   "id": "l2",
+   "turns": [
+    {
+     "who": "customer",
+     "en": "Excuse me, my card was declined at the shop."
+    },
+    {
+     "who": "barista",
+     "en": "Let me check. It looks like it has expired."
+    },
+    {
+     "who": "customer",
+     "en": "Oh no. When did it expire?"
+    },
+    {
+     "who": "barista",
+     "en": "At the end of last month. I'll order a new one for you."
+    }
+   ],
+   "q": {
+    "en": "Why was the card declined?",
+    "vi": "Vì sao thẻ bị từ chối?",
+    "es": "¿Por qué rechazaron la tarjeta?",
+    "pt": "Por que o cartão foi recusado?",
+    "fr": "Pourquoi la carte a-t-elle été refusée ?",
+    "de": "Warum wurde die Karte abgelehnt?",
+    "id": "Mengapa kartu ditolak?",
+    "th": "ทำไมบัตรถึงถูกปฏิเสธ",
+    "zh": "银行卡为什么被拒？",
+    "ja": "なぜカードが拒否されましたか？",
+    "ko": "카드가 왜 거절됐나요?",
+    "hi": "कार्ड क्यों अस्वीकार हुआ?",
+    "ar": "لماذا رُفضت البطاقة؟",
+    "ru": "Почему карту отклонили?",
+    "tr": "Kart neden reddedildi?"
+   },
+   "answer": "expired"
+  }
+ ],
+ "mission": {
+  "tasks": [
+   {
+    "id": "new-account",
+    "title": {
+     "en": "Open an account",
+     "vi": "Mở tài khoản",
+     "es": "Abre una cuenta",
+     "pt": "Abra uma conta",
+     "fr": "Ouvrir un compte",
+     "de": "Konto eröffnen",
+     "id": "Buka rekening",
+     "th": "เปิดบัญชี",
+     "zh": "开户",
+     "ja": "口座を開く",
+     "ko": "계좌 개설하기",
+     "hi": "खाता खोलें",
+     "ar": "افتح حسابًا",
+     "ru": "Открыть счёт",
+     "tr": "Hesap aç"
+    },
+    "intents": [
+     "o1",
+     "o3"
+    ]
+   },
+   {
+    "id": "take-money",
+    "title": {
+     "en": "Withdraw cash",
+     "vi": "Rút tiền mặt",
+     "es": "Retira efectivo",
+     "pt": "Saque dinheiro",
+     "fr": "Retirer de l'argent",
+     "de": "Bargeld abheben",
+     "id": "Tarik tunai",
+     "th": "ถอนเงินสด",
+     "zh": "取现金",
+     "ja": "現金を引き出す",
+     "ko": "현금 인출하기",
+     "hi": "नकद निकालें",
+     "ar": "اسحب نقدًا",
+     "ru": "Снять наличные",
+     "tr": "Nakit çek"
+    },
+    "intents": [
+     "m1",
+     "m2"
+    ]
+   },
+   {
+    "id": "report-card",
+    "title": {
+     "en": "Report a bad payment",
+     "vi": "Báo khoản thanh toán lạ",
+     "es": "Informa un pago extraño",
+     "pt": "Informe um pagamento estranho",
+     "fr": "Signaler un paiement suspect",
+     "de": "Eine fremde Zahlung melden",
+     "id": "Laporkan pembayaran aneh",
+     "th": "แจ้งรายการแปลก ๆ",
+     "zh": "报告可疑付款",
+     "ja": "不審な支払いを報告する",
+     "ko": "이상한 결제 신고하기",
+     "hi": "संदिग्ध भुगतान की रिपोर्ट करें",
+     "ar": "أبلغ عن دفعة مشبوهة",
+     "ru": "Сообщить о странном платеже",
+     "tr": "Şüpheli ödemeyi bildir"
+    },
+    "intents": [
+     "p1",
+     "p3"
+    ]
+   }
+  ]
+ },
+ "culture": {
+  "en": "Banks in English-speaking countries often ask you to book an appointment to open an account, and you usually need photo ID and proof of address, such as a utility bill. Staff will never ask for your full PIN or password, so keep those private. Many branches are quiet places: wait for your turn and speak in a calm, polite voice.",
+  "vi": "Ngân hàng ở các nước nói tiếng Anh thường yêu cầu đặt lịch hẹn để mở tài khoản, và bạn thường cần giấy tờ tùy thân có ảnh cùng giấy tờ chứng minh địa chỉ, như hóa đơn điện nước. Nhân viên không bao giờ hỏi mã PIN hay mật khẩu đầy đủ của bạn, hãy giữ kín. Chi nhánh thường khá yên tĩnh: hãy chờ đến lượt và nói nhẹ nhàng, lịch sự.",
+  "es": "Los bancos de los países de habla inglesa suelen pedir cita para abrir una cuenta y normalmente necesitas un documento con foto y un comprobante de domicilio, como una factura de servicios. El personal nunca te pedirá el PIN ni la contraseña completos, así que mantenlos en privado. Muchas sucursales son tranquilas: espera tu turno y habla con voz calmada y educada.",
+  "pt": "Os bancos em países de língua inglesa costumam pedir hora marcada para abrir conta, e normalmente você precisa de documento com foto e comprovante de residência, como uma conta de luz. Os funcionários nunca pedem o PIN ou a senha completa, então mantenha-os em sigilo. Muitas agências são tranquilas: aguarde sua vez e fale em tom calmo e educado.",
+  "fr": "Dans les pays anglophones, les banques demandent souvent un rendez-vous pour ouvrir un compte, et il faut en général une pièce d'identité avec photo et un justificatif de domicile (facture, par exemple). Le personnel ne vous demandera jamais votre code PIN ou mot de passe complet : gardez-les secrets. Les agences sont souvent calmes : attendez votre tour et parlez posément et poliment.",
+  "de": "Banken in englischsprachigen Ländern verlangen oft einen Termin für die Kontoeröffnung, und du brauchst meist einen Ausweis mit Foto und einen Adressnachweis, etwa eine Nebenkostenrechnung. Mitarbeiter fragen nie nach deiner vollständigen PIN oder deinem Passwort, halte beides geheim. Viele Filialen sind ruhig: warte, bis du dran bist, und sprich ruhig und höflich.",
+  "id": "Bank di negara berbahasa Inggris sering meminta janji temu untuk membuka rekening, dan biasanya Anda perlu kartu identitas berfoto serta bukti alamat, misalnya tagihan listrik atau air. Petugas tidak pernah meminta PIN atau kata sandi lengkap Anda, jadi jaga kerahasiaannya. Banyak cabang cukup tenang: tunggu giliran dan bicaralah dengan sopan.",
+  "th": "ธนาคารในประเทศที่พูดภาษาอังกฤษมักให้นัดล่วงหน้าเพื่อเปิดบัญชี และมักต้องใช้บัตรประจำตัวที่มีรูปถ่ายกับหลักฐานที่อยู่ เช่น บิลค่าน้ำค่าไฟ พนักงานจะไม่ขอ PIN หรือรหัสผ่านเต็มของคุณ ดังนั้นต้องเก็บเป็นความลับ สาขาส่วนใหญ่เงียบสงบ ให้รอคิวและพูดอย่างสุภาพ",
+  "zh": "英语国家的银行开户通常需要预约，一般要带带照片的身份证件和地址证明，比如水电费账单。工作人员不会向你索要完整的 PIN 或密码，请务必保密。很多网点很安静：请等候叫号，并礼貌、平静地说话。",
+  "ja": "英語圏の銀行では、口座開設に予約が必要なことが多く、写真付きの身分証明書と、公共料金の請求書などの住所証明が通常必要です。行員が暗証番号やパスワードの全体を尋ねることはありませんので、他人に教えないでください。店内は静かなことが多いので、順番を待ち、落ち着いて丁寧に話しましょう。",
+  "ko": "영어권 나라의 은행은 계좌 개설에 예약을 요구하는 경우가 많고, 보통 사진이 있는 신분증과 공과금 고지서 같은 주소 증빙이 필요해요. 직원은 PIN이나 비밀번호 전체를 절대 묻지 않으니 비밀로 하세요. 지점은 조용한 편이니 차례를 기다리며 차분하고 공손하게 말하세요.",
+  "hi": "अंग्रेज़ी-भाषी देशों में खाता खोलने के लिए अक्सर अपॉइंटमेंट लेना पड़ता है, और आमतौर पर फ़ोटो वाला पहचान-पत्र और पते का सबूत, जैसे बिजली का बिल, चाहिए होता है। स्टाफ़ आपका पूरा PIN या पासवर्ड कभी नहीं माँगता, इन्हें गोपनीय रखें। शाखाएँ अक्सर शांत होती हैं: अपनी बारी का इंतज़ार करें और शांत, विनम्र स्वर में बोलें।",
+  "ar": "غالبًا تطلب البنوك في الدول الناطقة بالإنجليزية حجز موعد لفتح حساب، وتحتاج عادةً إلى هوية بصورة وإثبات عنوان مثل فاتورة خدمات. لا يطلب الموظفون رقمك السري أو كلمة المرور كاملة أبدًا، فاحتفظ بهما سرًا. الفروع هادئة غالبًا: انتظر دورك وتكلم بهدوء وأدب.",
+  "ru": "В англоязычных странах для открытия счёта банки часто просят записаться заранее, и обычно нужны документ с фото и подтверждение адреса, например счёт за коммунальные услуги. Сотрудники никогда не спросят ваш PIN-код или пароль целиком, держите их в секрете. В отделениях обычно тихо: дождитесь очереди и говорите спокойно и вежливо.",
+  "tr": "İngilizce konuşulan ülkelerde bankalar hesap açmak için genellikle randevu ister ve genelde fotoğraflı kimlik ile fatura gibi bir adres belgesi gerekir. Personel PIN'inizi ya da şifrenizin tamamını asla sormaz; bunları gizli tutun. Şubeler çoğunlukla sakindir: sıranızı bekleyin ve sakin, kibar bir sesle konuşun."
+ }
+}

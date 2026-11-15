@@ -1,0 +1,149 @@
+{
+ "id": "20261106",
+ "source": "lexicon-expand",
+ "n": 30,
+ "checked": [
+  {
+   "id": "kidnapper#n",
+   "ok": true
+  },
+  {
+   "id": "quash#v",
+   "ok": true
+  },
+  {
+   "id": "fanaticism#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): def: definition does not match sense"
+  },
+  {
+   "id": "forthright#adj",
+   "ok": true
+  },
+  {
+   "id": "flywheel#n",
+   "ok": true
+  },
+  {
+   "id": "assuredly#adv",
+   "ok": true
+  },
+  {
+   "id": "affluence#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): m.zh: translation is adjective not noun for this sense"
+  },
+  {
+   "id": "incinerator#n",
+   "ok": true
+  },
+  {
+   "id": "feudalism#n",
+   "ok": true
+  },
+  {
+   "id": "deservedly#adv",
+   "ok": true
+  },
+  {
+   "id": "supercomputer#n",
+   "ok": true
+  },
+  {
+   "id": "ergonomics#n",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): def: definition does not match the given sense (biotechnology) · vi: Vietnamese translation does not correspond to the sense · ex: examples illustrate ergonomics, not biotechnology"
+  },
+  {
+   "id": "peruse#v",
+   "ok": true
+  },
+  {
+   "id": "correspondingly#adv",
+   "ok": true,
+   "note": "1/3 nêu lỗi (về hàng duyệt): ex: 'And correspondingly for positions with B to move.' is a fragment and unnatural as a standalone dictionary example"
+  },
+  {
+   "id": "flue#n",
+   "ok": true
+  },
+  {
+   "id": "sate#v",
+   "ok": true
+  },
+  {
+   "id": "democratization#n",
+   "ok": true
+  },
+  {
+   "id": "termite#n",
+   "ok": true
+  },
+  {
+   "id": "incisive#adj",
+   "ok": true
+  },
+  {
+   "id": "capitulate#v",
+   "ok": true
+  },
+  {
+   "id": "authenticate#v",
+   "ok": true
+  },
+  {
+   "id": "empathize#v",
+   "ok": true
+  },
+  {
+   "id": "decontamination#n",
+   "ok": true
+  },
+  {
+   "id": "fulcrum#n",
+   "ok": true
+  },
+  {
+   "id": "emirate#n",
+   "ok": true
+  },
+  {
+   "id": "reciprocate#v",
+   "ok": true
+  },
+  {
+   "id": "transcontinental#adj",
+   "ok": true
+  },
+  {
+   "id": "vertebra#n",
+   "ok": true
+  },
+  {
+   "id": "embolism#n",
+   "ok": true
+  },
+  {
+   "id": "redistribute#v",
+   "ok": true
+  },
+  {
+   "id": "appellation#n",
+   "ok": true
+  },
+  {
+   "id": "preservative#n",
+   "ok": true
+  },
+  {
+   "id": "laity#n",
+   "ok": true
+  },
+  {
+   "id": "odious#adj",
+   "ok": true
+  }
+ ],
+ "at": "2026-11-07",
+ "status": "published"
+}

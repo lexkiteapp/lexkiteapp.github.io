@@ -53,15 +53,10 @@ jobs:
           node scripts/ots.mjs stamp || echo "::warning::ots stamp lỗi – lần chạy sau thử lại"
           node scripts/ots.mjs upgrade || echo "::warning::ots upgrade lỗi – lần chạy sau thử lại"
           node scripts/ots.mjs status
-      - name: Commit sổ đăng ký + bằng chứng OTS
+      - name: Commit sổ đăng ký + bằng chứng OTS (SINH LẠI trên main mới nhất nếu workflow khác vừa ghi sổ – registry.jsonl là chuỗi băm nối thêm nên rebase luôn xung đột – xem scripts/ci/commit-regen.sh)
+        env: { COMMIT_REGEN_NO_EXT: '1', EVENT: '${{ github.event_name }}' }
         run: |
-          node scripts/content-registry.mjs verify
-          git add content/protection/registry.jsonl content/protection/ots 2>/dev/null || true
-          git diff --cached --quiet && { echo "· sổ không đổi"; exit 0; }
-          git config user.name "lexkite-bot"; git config user.email "lexkiteapp@users.noreply.github.com"
-          git commit -qm "Registry: ảnh chụp băm / mốc phát hành / OpenTimestamps $(date -u +%F) [CF-Pages-Skip] [skip ci]"
-          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep 5; done
-          exit 1
+          bash scripts/ci/commit-regen.sh "Registry: ảnh chụp băm / mốc phát hành / OpenTimestamps $(date -u +%F)" '[ "$EVENT" = push ] || node scripts/content-registry.mjs snapshot; node scripts/content-registry.mjs release addon; node scripts/content-registry.mjs release landing; node scripts/ots.mjs stamp || true; node scripts/ots.mjs upgrade || true; node scripts/content-registry.mjs verify' content/protection/registry.jsonl content/protection/ots
       - name: WAF chống cào hoạt động (request thử thật)
         if: github.event_name != 'push'
         continue-on-error: true

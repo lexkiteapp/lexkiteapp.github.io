@@ -146,6 +146,8 @@ Part 3で論理的かつ説得力のある回答を構築するための武器�
 
 {{youtube: | IELTS Speaking Part 2 Template & Strategy}}
 
+移住やワーホリのためにスピーキングを伸ばしたい方は、[IELTS 移住ガイド（カナダ・豪・英・NZの英語要件）](/ja/blog/ielts-ijuu-kanada-goshuu-eikoku-guide/)で国別の英語要件も確認しておくと、目標スコアを決めやすくなります。
+
 ## よくある質問（FAQ）
 
 ### Q1. トピックカードの質問項目をすべて答えきれなかったら減点されますか？

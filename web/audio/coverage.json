@@ -5,11 +5,23 @@
    "pct": 100,
    "missing": 0
   },
+  "cambridge-listening": {
+   "pct": 100,
+   "missing": 0
+  },
   "lesson-stories": {
    "pct": 100,
    "missing": 0
   },
   "calls": {
+   "pct": 100,
+   "missing": 0
+  },
+  "cambridge-speaking": {
+   "pct": 100,
+   "missing": 0
+  },
+  "mediation-source": {
    "pct": 100,
    "missing": 0
   },

@@ -1,0 +1,28 @@
+# Tự dọn Kho Drive (docs/ASSET-LIBRARY.md §8.6.5): Drive chạm 80 % hoặc tới lịch → chỉ chuyển nhóm Rác an toàn vào thùng rác, có nhật ký + cảnh báo admin. Không bao giờ xoá vĩnh viễn.
+name: drive-tidy
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '43 7,19 * * *'
+concurrency: { group: drive-tidy, cancel-in-progress: false }
+permissions: { contents: read }
+jobs:
+  tidy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Thuê tài nguyên (điều phối việc nền, docs/JOBS.md)
+        id: lease
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs acquire drive-tidy
+      - name: Tự dọn
+        if: ${{ steps.lease.outputs.skip != '1' }}
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/ops/drive-tidy.mjs
+      - name: Trả thuê
+        if: ${{ always() && steps.lease.outputs.skip != '1' }}
+        env: { LEXKITE_DRIVE_CLI_KEY: '${{ secrets.LEXKITE_DRIVE_CLI_KEY }}' }
+        run: node scripts/jobs/lease.mjs release drive-tidy --status "${{ job.status }}"

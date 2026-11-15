@@ -2,6 +2,11 @@
 (function (g) { const D = g.I18N_DICT = g.I18N_DICT || {}; D.en = Object.assign(D.en || {}, {
 // ---- shared ----
 'Đáp án: <b>{a}</b>': 'Answer: <b>{a}</b>',
+'Xem lại sau': 'Review later',
+'Câu cần xem lại': 'Questions to review',
+'Đi tới câu {n}': 'Go to question {n}',
+'Đánh dấu câu {n} để xem lại': 'Flag question {n} for review',
+'Bỏ đánh dấu câu {n}': 'Remove flag from question {n}',
 'vượt quá số từ cho phép': 'over the word limit',
 '(bạn: {a})': '(you: {a})',
 '{a}/{b} câu đúng': '{a}/{b} correct',
@@ -15,12 +20,14 @@
 'Kéo để đổi độ rộng cột': 'Drag to resize the columns',
 'Lời dẫn': 'Narrator',
 'Đang phát – chỉ nghe 1 lần': 'Playing – you will hear this only once',
+'Chạm ▶ để nghe': 'Tap ▶ to listen',
+'Âm thanh chưa phát được – chạm để nghe (chưa tính lượt nghe)': 'The audio didn’t start – tap to listen (this doesn’t use up your one listen)',
 'Sang phần tiếp': 'Next section',
 'Phần nghe chưa phát xong. Vẫn chuyển tiếp?': 'The recording hasn’t finished. Move on anyway?',
 'Nộp bài Reading?': 'Submit Reading?',
 'Đang cập nhật': 'Coming soon',
 'Đang cập nhật.': 'Coming soon.',
-'Luyện tập': 'Practice',
+
 'Nghe 1 lần': 'Listen once',
 'Chép chính tả': 'Dictation',
 'Hỏi – đáp': 'Question–Response',
@@ -62,6 +69,7 @@
 'Nghe ngay': 'Play now',
 'Kết thúc Listening': 'Finish Listening',
 'Hết phần nghe – kiểm tra đáp án': 'Recording finished – check your answers',
+'Nghe hết phần này để mở nút tiếp': 'Listen to the whole part to continue',
 '3 bài đọc · 40 câu · <b>60 phút</b>. Chuyển qua lại giữa các bài bằng thanh phía dưới. Bôi đen chữ rồi bấm “Tô sáng” để đánh dấu.': '3 passages · 40 questions · <b>60 minutes</b>. Switch between passages with the bar at the bottom. Select text and tap “Highlight” to mark it.',
 'Nộp bài Reading': 'Submit Reading',
 'Bôi đen chữ trong bài đọc trước': 'Select some text in the passage first',
@@ -123,7 +131,7 @@
 'Hiện lời thoại khi nghe': 'Show transcript while listening',
 'Nộp bài & xem đáp án': 'Submit & see answers',
 'Bấm dòng để nghe từ đó · chạm từ để tra': 'Tap a line to play from there · tap a word to look it up',
-'Tạm dừng': 'Pause',
+
 'Nghe tiếp': 'Keep listening',
 'Đã nghe xong': 'Finished',
 'Nghe lại từ đầu': 'Replay from start',
@@ -276,6 +284,7 @@
 'Đáp án & giải thích': 'Answers & explanations',
 'Bạn chọn:': 'Your answer:',
 'Làm đề khác': 'Try another test',
+'Khoe kết quả': 'Share result',
 'Học từ vựng bài “{title}”': 'Learn vocabulary from “{title}”',
 }); })(typeof self !== 'undefined' ? self : this);
 (function (g) { Object.assign(g.I18N_DICT.en, {
@@ -305,5 +314,14 @@
 "Tốc độ: {w} từ/phút": "Pace: {w} words per minute",
 "Ngắt quãng dài: {n} lần": "Long pauses: {n}",
 "Từ bị bỏ sót hoặc đọc chưa rõ:": "Words missed or unclear:",
-'Đề thật của ETS: Speaking 11 câu (khoảng 20 phút), Writing 8 câu (khoảng 60 phút), mỗi phần thang điểm 0–200. Ứng dụng chưa có dạng bài mô tả tranh (Speaking câu 3–4, Writing câu 1–5).': 'The real ETS test: Speaking has 11 questions (about 20 minutes) and Writing has 8 questions (about 60 minutes), each scored 0–200. The app does not yet include the picture-description tasks (Speaking questions 3–4, Writing questions 1–5).',
+'Đề thật của ETS: Speaking 11 câu (khoảng 20 phút), Writing 8 câu (khoảng 60 phút), mỗi phần thang điểm 0–200.': 'The real ETS test: Speaking has 11 questions (about 20 minutes) and Writing has 8 questions (about 60 minutes), each scored 0–200.',
+'Mô tả một bức ảnh: 45 giây chuẩn bị, 30 giây nói (2 ảnh mỗi đề).': 'Describe a photo: 45 seconds to prepare, 30 seconds to speak (2 photos per set).',
+'Viết một câu cho mỗi ảnh (5 ảnh) với hai từ cho sẵn, trong 8 phút.': 'Write one sentence for each photo (5 photos) using the two given words, in 8 minutes.',
+'Đồng hồ ({m} phút) chạy khi bạn bắt đầu gõ.': 'The timer ({m} minutes) starts when you begin typing.',
+'Câu của bạn': 'Your sentence',
+'Nộp & kiểm tra': 'Submit and check',
+'Có đủ 2 từ cho sẵn': 'Uses both given words',
+'Một câu hoàn chỉnh (≥ 5 từ)': 'One complete sentence (5+ words)',
+'{a}/{n} câu đạt cả hai kiểm tra tự động': '{a}/{n} sentences passed both automatic checks',
+'Chỉ là ước tính để tự luyện, không phải điểm chính thức của ETS. Máy không chấm được ngữ pháp và độ khớp với ảnh – hãy so với bài mẫu.': 'This is only an estimate for self-practice, not an official ETS score. The checker cannot judge grammar or how well a sentence matches the photo – compare with the model answers.',
 }); })(typeof self !== 'undefined' ? self : this);

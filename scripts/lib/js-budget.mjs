@@ -56,3 +56,21 @@ export function jsTotal(root = '.') {
   walk('web/js');
   return { total, skipped, admin };
 }
+
+// ---- 5/11: thước "người học thật tải" = nền + MỘT gói ngôn ngữ (chủ duyệt: "Đồng ý đổi"). Mỗi người học chỉ tải en (nền) + gói ngôn ngữ của mình
+// (web/js/i18n/<lang>.js + i18n/<lang>/**.js), không tải 12 gói còn lại → đếm cả 13 gói là đếm byte không ai tải cùng lúc.
+/** { en, packs: {lang: byte}} – gói ngôn ngữ ≠ en; en nằm trong nền. Nguồn dựng en.js (đã bỏ khỏi total) không vào đây. */
+export function langPacks(root = '.') {
+  const I = path.join(root, 'web/js/i18n'), packs = {}, sizeOf = d => { let n = 0; for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); n += e.isDirectory() ? sizeOf(p) : p.endsWith('.js') ? fs.statSync(p).size : 0; } return n; };
+  for (const e of fs.readdirSync(I, { withFileTypes: true })) { const m = e.name.match(/^([a-z]{2})(\.js)?$/); if (!m || m[1] === 'en') continue; const p = path.join(I, e.name); packs[m[1]] = (packs[m[1]] || 0) + (e.isDirectory() ? sizeOf(p) : fs.statSync(p).size); }
+  // 5/11: bản dịch tình huống Play & Speak (web/js/speak/s/<id>.<lang>.js) tải lười theo id + ngôn ngữ đang dùng (speak/app.js `sit`): mỗi người học chỉ tải
+  // gốc <id>.js (en) + các <id>.<lang>.js của MÌNH → thuộc gói ngôn ngữ đó, không phải nền. Đếm cả 14 ngôn ngữ như nền là tính 13 bản dịch không ai tải.
+  const S = path.join(root, 'web/js/speak/s');
+  if (fs.existsSync(S)) for (const e of fs.readdirSync(S)) { const m = e.match(/^[\w-]+\.([a-z]{2})\.js$/); if (m && m[1] !== 'en') packs[m[1]] = (packs[m[1]] || 0) + fs.statSync(path.join(S, e)).size; }
+  return packs;
+}
+/** Thước mới: total (đã trừ admin + nguồn dựng) − Σ gói ngôn ngữ + gói LỚN NHẤT (người học xấu nhất, không phải trung bình). */
+export function learnerBytes(root = '.') {
+  const { total } = jsTotal(root), packs = langPacks(root), sum = Object.values(packs).reduce((a, b) => a + b, 0), top = Object.entries(packs).sort((a, b) => b[1] - a[1])[0] || ['', 0];
+  return { learner: total - sum + top[1], total, packs, sum, topLang: top[0], topSize: top[1] };
+}

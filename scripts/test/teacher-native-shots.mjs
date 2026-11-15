@@ -1,5 +1,5 @@
 // 🧍 Cổng teacher-native (runtime): mở app thật (Playwright, máy chủ tĩnh cho web/) ở 5 màn × 2 theme, 390x844, kiểm mọi ảnh/video giáo viên (teach/…):
-//  · trong .tslot: có bệ .tslot-ledge che đáy khung · .tslot không đè chữ/nút khác · không bị tổ tiên overflow xén đỉnh, không tràn ngang 0..390 · cao ∈ {72,112,152,208}±1
+//  · trong .tslot: có bệ .tslot-ledge che đáy khung, mép trên bệ đúng 72 % ảnh (không che thân hơn mẫu) · .tslot không đè chữ/nút khác · không bị tổ tiên overflow xén đỉnh, không tràn ngang 0..390 · cao ∈ {72,112,152,208}±1
 //  · đặt trần (ngoài .tslot): cảnh báo, đỏ nếu lộ "vệt cắt" ở đáy (>25 % cột đáy khác màu nền ngay dưới) – danh sách chỗ cũ: teacher-native.known.json (tĩnh, kiểm ở teacher-native.mjs)
 //  · 0 phần tử giáo viên trên toàn bộ màn = đỏ (cổng không im lặng). Màn không mở được = skip + lý do (không đỏ).
 // Dùng: node scripts/test/teacher-native-shots.mjs [web=web] [out=out/teacher-native]   (CI: .github/workflows/teacher-native.yml)
@@ -30,7 +30,11 @@ function measure(SZ) {
       const sr = R(slot), led = slot.querySelector('.tslot-ledge'), mr = R(m);
       if (!led) it.errs.push('thiếu .tslot-ledge');
       else { const lr = R(led), fg = slot.querySelector('.tslot-fig'), vb = Math.min(mr.b, fg ? R(fg).b : mr.b); // đáy NHÌN THẤY (khung .tslot-fig cắt phần mờ dưới bệ)
-        if (!(lr.w > 0 && lr.h > 0) || lr.b < vb - 1.5 || lr.t > vb - 1) it.errs.push(`bệ không che đáy khung (bệ ${Math.round(lr.t)}..${Math.round(lr.b)} · ảnh đáy ${Math.round(vb)})`); }
+        if (!(lr.w > 0 && lr.h > 0) || lr.b < vb - 1.5 || lr.t > vb - 1) it.errs.push(`bệ không che đáy khung (bệ ${Math.round(lr.t)}..${Math.round(lr.b)} · ảnh đáy ${Math.round(vb)})`);
+        // bệ không che thân hơn mẫu: mép trên bệ ở hàng 688/960 của ảnh ± 1,5 px (lỗi 06/11: rig tụt → bệ che tới vai)
+        const mi = slot.querySelector('img.tslot-img'); if (mi) { const ir = R(mi);
+          if (slot.classList.contains('tslot-hip')) { const hy = ir.t + ir.h * TeacherSlot.HIP / 960; if (Math.abs(lr.t - hy) > 1.5) it.errs.push(`bệ lệch hông (mép bệ ${Math.round(lr.t)} ≠ hông ${Math.round(hy)})`); } // hip:true: lộ tới hông, bệ che dải đáy
+          else { const wy = ir.t + ir.h * 688 / 960; if (Math.abs(lr.t - wy) > 1.5) it.errs.push(`bệ lệch mẫu (mép bệ ${Math.round(lr.t)} ≠ ${Math.round(wy)} = 72 % ảnh)`); } } }
       const fr = { l: sr.l + sr.w * 0.15, r: sr.r - sr.w * 0.15, t: sr.t + sr.h * 0.07, b: sr.b }; fr.w = fr.r - fr.l; fr.h = fr.b - fr.t; // vùng người + bệ (bỏ khoảng trong suốt trên đầu/hai bên)
       for (const e of all) { // đè chữ / nút khác
         if (e.contains(slot) || slot.contains(e) || e === document.body) continue;

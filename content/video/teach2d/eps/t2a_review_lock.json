@@ -72,5 +72,46 @@
   "words": 47,
   "seconds": 28.2,
   "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"lock\" mean?",
+  "keyword": "lock",
+  "value": "Lock means to close something with a device so others can't open it.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=lock",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"lock\" mean?",
+    "description": "Lock means to close something with a device so others can't open it.\n\nReview your words, free: https://lexkite.com/app/#/review?w=lock\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "lock",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"lock\" mean?\n\nLock means to close something with a device so others can't open it.\n\nReview your words, free: https://lexkite.com/app/#/review?w=lock"
+   },
+   "instagram": {
+    "caption": "What does \"lock\" mean?\n\nLock means to close something with a device so others can't open it.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"lock\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means to close something with a device so others can't open it. Lock means to close something with a device so others can't open it. Practice it with a free quiz: {link}"
  }
 }

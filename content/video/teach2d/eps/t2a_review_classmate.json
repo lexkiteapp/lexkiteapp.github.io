@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"classmate\" mean?",
+  "keyword": "classmate",
+  "value": "Classmate means a person in the same class.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=classmate",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"classmate\" mean?",
+    "description": "Classmate means a person in the same class.\n\nReview your words, free: https://lexkite.com/app/#/review?w=classmate\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "classmate",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"classmate\" mean?\n\nClassmate means a person in the same class.\n\nReview your words, free: https://lexkite.com/app/#/review?w=classmate"
+   },
+   "instagram": {
+    "caption": "What does \"classmate\" mean?\n\nClassmate means a person in the same class.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"classmate\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a person in the same class. Classmate means a person in the same class. More practice like this (free): {link}"
  }
 }

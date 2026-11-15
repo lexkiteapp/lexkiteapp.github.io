@@ -3,7 +3,8 @@
  "i18n": {
   "Close session": "Thoát bài học",
   "User Profile": "Hồ sơ người học",
-  "Answer options": "Các đáp án"
+  "Answer options": "Các đáp án",
+  "Toggle theme": "Đổi giao diện sáng/tối"
  },
  "text": {
   "Active Drill Session": "d.title",
@@ -15,7 +16,7 @@
   "What did the new timetable do to Carlos?": "d.qt"
  },
  "attr": {
-  ":scope > header > div > button": {
+  ":scope > header > div > button:nth-child(1)": {
    "href": "d.close",
    "id": "'lsnX'",
    "aria-label": "t('Thoát bài học')"
@@ -35,109 +36,128 @@
    "style": "'width:0%'",
    "id": "'lsnFill'"
   },
-  ":scope > header > div > div:nth-child(3)": {
+  ":scope > header > div > div:nth-child(4)": {
    "data-href": "'#/me'",
    "type": "'button'"
   },
-  ":scope > main > div > div:nth-child(2)": {
+  ":scope > main > div > div:nth-child(3)": {
    "id": "'lsnChat'",
    "aria-live": "'polite'"
   },
-  ":scope > main > div > div:nth-child(5) > button": {
+  ":scope > main > div > div:nth-child(6) > button": {
    "id": "'lsnGo'",
    "type": "'button'"
   },
   ":scope .material-symbols-outlined": {
    "aria-hidden": "'true'"
   },
-  ":scope > main > div > div:nth-child(3) > h2": {
+  ":scope > main > div > div:nth-child(4) > h2": {
    "id": "'lsnBub'"
   },
-  ":scope > main > div > div:nth-child(4)": {
+  ":scope > main > div > div:nth-child(5)": {
    "id": "'lsnBody'"
+  },
+  ":scope > main > div > div:nth-child(2)": {
+   "data-speaker": "''"
+  },
+  ":scope > header > div > button:nth-child(3)": {
+   "id": "'lkTheme'",
+   "aria-label": "t('Đổi giao diện sáng/tối')"
   }
  },
  "cls": {
   ":scope > header > div > div:nth-child(2) > div:nth-child(2) > div": {
    "w-[70%]": "''"
   },
-  ":scope > main > div > div:nth-child(2)": {
+  ":scope > main > div > div:nth-child(3)": {
    "pt-[0.25rem]": "'pt-[0.75rem]'"
   }
  },
  "tag": {
-  ":scope > header > div > button": {
+  ":scope > header > div > button:nth-child(1)": {
    "to": "a"
   },
-  ":scope > header > div > div:nth-child(3)": {
+  ":scope > header > div > div:nth-child(4)": {
    "to": "button"
   }
  },
  "addClass": {
-  ":scope > header > div > div:nth-child(3)": "relative after:absolute after:-inset-1.5 after:content-['']",
+  ":scope > header > div > div:nth-child(4)": "relative after:absolute after:-inset-1.5 after:content-['']",
   ":scope > main > div > div:nth-child(1) > div:nth-child(2)": "lsn-mid",
-  ":scope > main > div > div:nth-child(2)": "relative z-10 lsn-chatp mt-[-3.5rem] rounded-t-[20px] lt:bg-[#F0F4F3] dk:bg-[#091518] px-[0.5rem] pb-[0.75rem]",
-  ":scope > main > div > div:nth-child(5) > button": "lsn-gonext",
+  ":scope > main > div > div:nth-child(3)": "lsn-chatp",
+  ":scope > main > div > div:nth-child(6) > button": "lsn-gonext",
   ":scope > header > div > div:nth-child(2) > div:nth-child(2)": "lsn-bar",
-  ":scope > header > div > button": "lsn-x",
-  ":scope > main > div > div:nth-child(4)": "lsn-opts",
-  ":scope > main > div > div:nth-child(3)": "lsn-qblk",
-  ":scope > main > div > div:nth-child(5)": "lsn-qfoot"
- },
- "after": {
-  ":scope > main > div > div:nth-child(1)": "d.duo"
+  ":scope > header > div > button:nth-child(1)": "lsn-x",
+  ":scope > main > div > div:nth-child(5)": "lsn-opts",
+  ":scope > main > div > div:nth-child(4)": "lsn-qblk",
+  ":scope > main > div > div:nth-child(6)": "lsn-qfoot",
+  ":scope > main > div > div:nth-child(2)": "lsn-duo2 ss-stage"
  },
  "repeat": [
   {
    "list": "d.log",
    "as": "r",
-   "samples": ":scope > main > div > div:nth-child(2) > div",
+   "samples": ":scope > main > div > div:nth-child(3) > div",
    "pick": "r.v",
    "variants": {
-    "ama": ":scope > main > div > div:nth-child(2) > div:nth-child(1)",
-    "carlos": ":scope > main > div > div:nth-child(2) > div:nth-child(2)"
+    "ama": ":scope > main > div > div:nth-child(3) > div:nth-child(1)",
+    "carlos": ":scope > main > div > div:nth-child(3) > div:nth-child(2)"
    },
    "bind": {
     "ama": {
      "addClass": {
       ":scope": "lsn-ln ama lsn-lnA",
-      ":scope > div:nth-child(2) > button": "relative after:absolute after:-inset-1.5 after:content-['']"
+      ":scope > div:nth-child(2) > div > div > button:nth-child(1)": "relative after:absolute after:-inset-1.5 after:content-['']",
+      ":scope > div:nth-child(2) > div > div": "ss-act",
+      ":scope > div:nth-child(2) > div": "ss-col",
+      ":scope > div:nth-child(2) > div > div > button:nth-child(2)": "ss-slow"
      },
      "attr": {
       ":scope": {
        "data-who": "'ama'",
        "lang": "'en'"
       },
-      ":scope > div:nth-child(2) > button": {
+      ":scope > div:nth-child(2) > div > div > button:nth-child(1)": {
        "type": "'button'",
        "aria-label": "r.play",
        "data-i": "i"
+      },
+      ":scope > div:nth-child(2) > div > div > button:nth-child(2)": {
+       "type": "'button'"
       }
      },
      "html": {
       ":scope > div:nth-child(1) > span": "e(r.name)",
-      ":scope > div:nth-child(2) > p": "e(r.en)"
+      ":scope > div:nth-child(2) > div > p": "e(r.en)",
+      ":scope > div:nth-child(2) > div > div > button:nth-child(2)": "'<span aria-hidden=\"true\">🐢</span>'"
      }
     },
     "carlos": {
      "addClass": {
       ":scope": "lsn-ln carlos lsn-lnC",
-      ":scope > div:nth-child(2) > button:nth-child(2)": "relative after:absolute after:-inset-1.5 after:content-['']"
+      ":scope > div:nth-child(2) > div > div > button:nth-child(1)": "relative after:absolute after:-inset-1.5 after:content-['']",
+      ":scope > div:nth-child(2) > div > div": "ss-act",
+      ":scope > div:nth-child(2) > div": "ss-col",
+      ":scope > div:nth-child(2) > div > div > button:nth-child(2)": "ss-slow"
      },
      "attr": {
       ":scope": {
        "data-who": "'carlos'",
        "lang": "'en'"
       },
-      ":scope > div:nth-child(2) > button": {
+      ":scope > div:nth-child(2) > div > div > button:nth-child(1)": {
        "type": "'button'",
        "aria-label": "r.play",
        "data-i": "i"
+      },
+      ":scope > div:nth-child(2) > div > div > button:nth-child(2)": {
+       "type": "'button'"
       }
      },
      "html": {
       ":scope > div:nth-child(1) > span": "e(r.name)",
-      ":scope > div:nth-child(2) > p": "e(r.en)"
+      ":scope > div:nth-child(2) > div > p": "e(r.en)",
+      ":scope > div:nth-child(2) > div > div > button:nth-child(2)": "'<span aria-hidden=\"true\">🐢</span>'"
      }
     }
    }
@@ -145,11 +165,11 @@
   {
    "list": "d.opts",
    "as": "r",
-   "samples": ":scope > main > div > div:nth-child(4) > div",
+   "samples": ":scope > main > div > div:nth-child(5) > div",
    "pick": "r.v",
    "variants": {
-    "off": ":scope > main > div > div:nth-child(4) > div:nth-child(2)",
-    "on": ":scope > main > div > div:nth-child(4) > div:nth-child(1)"
+    "off": ":scope > main > div > div:nth-child(5) > div:nth-child(2)",
+    "on": ":scope > main > div > div:nth-child(5) > div:nth-child(1)"
    },
    "bind": {
     "off": {
@@ -183,5 +203,8 @@
     }
    }
   }
- ]
+ ],
+ "html": {
+  ":scope > main > div > div:nth-child(2)": "d.duo"
+ }
 }

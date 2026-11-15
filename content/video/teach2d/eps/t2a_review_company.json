@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"company\" mean?",
+  "keyword": "company",
+  "value": "Company means a business that sells things or provides services.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=company",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"company\" mean?",
+    "description": "Company means a business that sells things or provides services.\n\nReview your words, free: https://lexkite.com/app/#/review?w=company\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "company",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"company\" mean?\n\nCompany means a business that sells things or provides services.\n\nReview your words, free: https://lexkite.com/app/#/review?w=company"
+   },
+   "instagram": {
+    "caption": "What does \"company\" mean?\n\nCompany means a business that sells things or provides services.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"company\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a business that sells things or provides services. Company means a business that sells things or provides services. More practice like this (free): {link}"
  }
 }

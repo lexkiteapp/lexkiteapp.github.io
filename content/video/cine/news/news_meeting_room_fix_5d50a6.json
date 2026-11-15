@@ -90,5 +90,17 @@
  "link": "https://lexkite.com/app/#/fix",
  "cta": "Check your grammar on lexkite.com",
  "est": 23.1,
- "end_alt": "n_5d50a6_e2"
+ "end_alt": "n_5d50a6_e2",
+ "publish": {
+  "title": "Stop saying \"discuss about\"",
+  "keyword": "discuss",
+  "value": "Discuss takes a direct object, with no \"about\".",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#speakenglish",
+   "#b1english"
+  ],
+  "first_comment": "You discuss something, but you talk about something. Try a quick quiz before your next meeting: {link}"
+ }
 }

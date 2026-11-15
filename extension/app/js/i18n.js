@@ -51,10 +51,14 @@
   // Dịch các phần tử tĩnh trong HTML: <span data-i18n>Ôn tập</span>, data-i18n-title, data-i18n-placeholder
   function apply(root) {
     if (lang === 'vi' || !g.document) return;
-    (root || document).querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n') || el.textContent.trim(); el.textContent = t(k); });
-    (root || document).querySelectorAll('[data-i18n-title]').forEach(el => { el.title = t(el.getAttribute('data-i18n-title')); });
-    (root || document).querySelectorAll('[data-i18n-placeholder]').forEach(el => { el.placeholder = t(el.getAttribute('data-i18n-placeholder')); });
-    (root || document).querySelectorAll('[data-i18n-aria-label]').forEach(el => { el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria-label'))); });
+    // MỘT lượt quét DOM (trước: 4 lượt) và chỉ ghi khi chữ đổi (ghi lại đúng chữ cũ vẫn kích hoạt MutationObserver/vẽ lại)
+    (root || document).querySelectorAll('[data-i18n],[data-i18n-title],[data-i18n-placeholder],[data-i18n-aria-label]').forEach(el => {
+      let k = el.getAttribute('data-i18n'), v;
+      if (k !== null) { v = t(k || el.textContent.trim()); if (el.textContent !== v) el.textContent = v; }
+      k = el.getAttribute('data-i18n-title'); if (k !== null && el.title !== (v = t(k))) el.title = v;
+      k = el.getAttribute('data-i18n-placeholder'); if (k !== null && el.placeholder !== (v = t(k))) el.placeholder = v;
+      k = el.getAttribute('data-i18n-aria-label'); if (k !== null) el.setAttribute('aria-label', t(k));
+    });
   }
   // Lưu rồi tải lại, bỏ ?hl (ưu tiên hơn lựa chọn đã lưu → đổi ngược)
   // auto = đoán theo nước (không phải người dùng chọn) → không ghi cookie lk_lang mà "/" đọc (functions/api/_rootlang.js)
@@ -73,10 +77,10 @@
     document.documentElement.lang = lang;
     if (RTL.has(lang)) document.documentElement.dir = 'rtl';
     // Nạp file ngôn ngữ trước khi các module khác chạy (dùng createElement thay vì document.write để tối ưu Lighthouse)
+    let coreDone = false;   // file ngôn ngữ đã về (boot() dưới đây chỉ dịch khi đã về – trước đó apply() chạy vô ích: từ điển chưa có → ghi lại đúng chữ cũ)
     if (lang !== 'vi' && g.document) {
-      let coreDone = false;
-      const addScript = src => new Promise(r => { const s = document.createElement('script'); s.src = src; s.async = false; s.onload = () => { if (g.I18N.apply) g.I18N.apply(); if (g.I18N.meta) g.I18N.meta(); r(); }; s.onerror = () => r(); document.head.appendChild(s); });
-      const loaded = Promise.all([addScript('js/i18n/en.js'), lang !== 'en' && addScript(`js/i18n/${lang}.js`)]).then(() => { coreDone = true; });
+      const addScript = src => new Promise(r => { const s = document.createElement('script'); s.src = src; s.async = false; s.onload = () => r(); s.onerror = () => r(); document.head.appendChild(s); });
+      const loaded = Promise.all([addScript('js/i18n/en.js'), lang !== 'en' && addScript(`js/i18n/${lang}.js`)]).then(() => { coreDone = true; if (g.I18N.apply) g.I18N.apply(); if (g.I18N.meta) g.I18N.meta(); });   // dịch MỘT lần khi đủ en + ngôn ngữ (trước: mỗi file một lần + boot → 3 lượt quét DOM ~77 ms CPU 4×, và nháy tiếng Anh trước khi sang ngôn ngữ đích)
       // Từ điển nạp bất đồng bộ, có thể SAU các module & DOMContentLoaded → app chờ whenReady() trước lần vẽ đầu (tối đa 6 s),
       // để không chữ nào bị vẽ/đóng băng bằng khóa tiếng Việt
       g.I18N.whenReady = () => (coreDone ? Promise.resolve() : Promise.race([loaded, new Promise(r => setTimeout(r, 6000))]));
@@ -85,10 +89,10 @@
     const TITLE = 'Lexkite – Học từ vựng IELTS & TOEIC miễn phí: flashcard FSRS, từ điển, thi thử';
     const DESC = 'Học từ vựng IELTS, TOEIC & TOEFL miễn phí: flashcard FSRS, từ điển song ngữ có phát âm, luyện 4 kỹ năng và thi thử có giải thích chi tiết.';
     const boot = () => {
-      apply();
+      if (coreDone || D.en) apply();   // từ điển đã có (nạp trước/đồng bộ) → dịch ngay; chưa có → chờ lượt dịch sau khi file về
       // Trang ?hl=xx là phiên bản riêng của ngôn ngữ đó (không phải bản trùng của trang gốc)
       try { if (new URLSearchParams(location.search).get('hl') === lang) { const c = /** @type {HTMLLinkElement|null} */ (document.querySelector('link[rel="canonical"]')); if (c) c.href = c.href.split('?')[0] + '?hl=' + lang; } } catch (e) { /* bỏ qua */ }
-      meta();
+      if (coreDone || D.en) meta();
     };
     // Gọi lại khi file từ điển nạp xong (script nạp động không chặn DOMContentLoaded)
     const meta = g.I18N.meta = () => { if (lang === 'vi') return; document.title = t(TITLE); const m = document.querySelector('meta[name="description"]'); if (m) m.setAttribute('content', t(DESC)); };

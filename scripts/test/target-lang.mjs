@@ -4,7 +4,8 @@
 import fs from 'node:fs';
 import vm from 'node:vm';
 import { execFileSync } from 'node:child_process';
-import { validate, readJSON, seedPath, imgKeys, MEAN_LANGS, TL_RULES } from '../target/lib.mjs';
+import path from 'node:path';
+import { validate, readJSON, seedPath, imgKeys, MEAN_LANGS, TL_RULES, coreFiles, nextCoreFile } from '../target/lib.mjs';
 
 let n = 0, fails = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 const rd = f => fs.readFileSync(f, 'utf8');
@@ -45,8 +46,46 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ls.delete('lk.es'); ls.delete('lk.pt'); ls.set('lk.cfg', JSON.stringify({ v: { es_course: true } })); ok(T.enabled() && T.enabled('es') && !T.enabled('pt') && T.cur() === 'es', 'cờ máy chủ es_course → es');
   ls.set('lk.cfg', JSON.stringify({ v: { es_course: '0', pt_pilot: '1' } })); ok(T.cur() === 'en' && T.enabled() && !T.enabled('es'), 'es_course=0 → es tắt (pt vẫn bật)');
   ok(/'es_course'/.test(rd('functions/api/config.js')) && /'es_course'/.test(rd('functions/api/admin.js')), 'es_course có trong PUBLIC_KEYS + CONFIG_KEYS');
+  // bật theo bậc: es_course_pct theo nhóm thiết bị lk.esb · es_kill tắt mọi đường · cờ 0 rõ ràng thắng %
+  const cfg = v => ls.set('lk.cfg', JSON.stringify({ v }));
+  [...ls.keys()].forEach(k => ls.delete(k));
+  ls.set('lk.esb', '9'); cfg({ es_course_pct: '10' }); ok(T.enabled('es'), 'pct=10, nhóm 9 → bật');
+  ls.set('lk.esb', '10'); ok(!T.enabled('es'), 'pct=10, nhóm 10 → tắt (ranh giới)');
+  ls.set('lk.esb', '0'); cfg({ es_course_pct: '0' }); ok(!T.enabled('es'), 'pct=0 → tắt cả nhóm 0');
+  cfg({}); ok(!T.enabled('es'), 'không có pct → tắt');
+  ls.set('lk.esb', '99'); cfg({ es_course_pct: '100' }); ok(T.enabled('es'), 'pct=100 → bật mọi nhóm');
+  cfg({ es_course_pct: '100', es_kill: '1' }); ok(!T.enabled('es') && T.cur() === 'en', 'es_kill=1 thắng pct');
+  ls.set('lk.es', '1'); ok(!T.enabled('es'), 'es_kill=1 thắng cả lk.es=1');
+  ls.delete('lk.es'); cfg({ es_course: true, es_kill: 'true' }); ok(!T.enabled('es'), 'es_kill thắng cờ es_course=true');
+  cfg({ es_course: '0', es_course_pct: '100' }); ok(!T.enabled('es'), 'es_course=0 rõ ràng thắng pct');
+  ls.delete('lk.esb'); cfg({ es_course_pct: '50' }); T.enabled('es'); ok(/^\d{1,2}$/.test(ls.get('lk.esb')), 'nhóm lk.esb được tạo 1 lần (0–99)');
+  ls.set('lk.tb', '1'); ls.set('lk.esb', '50'); cfg({ es_course_pct: '10' }); ok(!T.enabled('es'), 'lk.tb (cổng bot teacher-bubble) không ảnh hưởng nhóm lk.esb');
+  ls.set('lk.esb', ''); cfg({ es_course_pct: '1' }); ok(!T.enabled('es') || /^\d{1,2}$/.test(ls.get('lk.esb')), 'lk.esb rỗng/hỏng → chọn lại nhóm hợp lệ');
+  ls.set('lk.esb', '150'); T.enabled('es'); ok(/^\d{1,2}$/.test(ls.get('lk.esb')), 'lk.esb ngoài 0–99 → chọn lại');
+  ls.set('lk.esb', '5'); for (const bad of ['abc', true, null, '', {}]) { cfg({ es_course_pct: bad }); ok(!T.enabled('es'), 'pct rác ' + JSON.stringify(bad) + ' → tắt'); }
+  cfg({ es_course_pct: 100 }); ok(T.enabled('es'), 'pct số 100 → bật');
+  ok(/'es_course_pct'/.test(rd('functions/api/config.js')) && /'es_course_pct'/.test(rd('functions/api/admin.js')) && /'es_kill'/.test(rd('functions/api/config.js')) && /'es_kill'/.test(rd('functions/api/admin.js')), 'es_course_pct + es_kill có trong PUBLIC_KEYS + CONFIG_KEYS');
   // một bảng, không nhánh code: không còn so sánh trực tiếp với 'pt'/'es' trong target.js + settings.js
   for (const f of ['web/js/target.js', 'web/js/settings.js']) ok(!/[!=]==?\s*'(pt|es)'|'(pt|es)'\s*[!=]==?|lk\.pt'|pt_pilot\b(?!',)/.test(rd(f).replace(/^\s*(\/\/|\*|\/\*).*$/gm, '').replace(/const TABLE = \{[\s\S]*?\n {2}\};/, '') /* dữ liệu bảng được phép */), f + ': không còn nhánh if (pt) – tra bảng');
+}
+
+// ---------- 1d) W7b chống rò tiếng Anh: tl≠en thì Hôm nay chuyển sang lộ trình của ngôn ngữ đó; mỗi dòng bảng có home ----------
+{
+  const ux = rd('web/js/ux1.js'), { sb } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
+  ok(/Target\.cur\(\) !== 'en'[^;]*Target\.homeOf\(Target\.cur\(\)\)/.test(ux) && /location\.replace\(tlHome\)/.test(ux), 'ux1.map: tl≠en → vào lộ trình của ngôn ngữ đích, không vẽ lộ trình IELTS');
+  ok(T.LANGS.filter(k => k !== 'en').every(k => k === 'pt' || /^#\/practice\//.test(T.table(k).home || '')), 'mọi ngôn ngữ đích có trang chủ riêng (trừ pt thử nghiệm)');
+}
+
+// ---------- 1c) nhãn ngôn ngữ đích (W7a): en = rỗng; es = huy hiệu cờ+tên → Cài đặt; mark chèn đúng 1 lần ----------
+{
+  const { sb, ls } = env(); load(sb, 'web/js/target.js'); const T = sb.Target;
+  ok(T.chip() === '' && T.chip('en') === '', 'chip: en = chuỗi rỗng, không chèn gì (từng byte như cũ)');
+  const h = T.chip('es'); ok(/class="chip tl-chip"/.test(h) && /href="#\/settings"/.test(h) && /translate="no"/.test(h) && /lang="es"/.test(h) && !/<a [^>]*lang=/.test(h) && !/style=/.test(h) && /Español/.test(h) && /aria-label=/.test(h), 'chip es: cờ + tên, bấm → Cài đặt, không dịch, có nhãn đọc màn hình');
+  const st = T.chip('es', true); ok(/^<span class="chip tl-chip"/.test(st) && !/href=/.test(st), 'chip tĩnh (trong phiên học) không là liên kết');
+  sb.t = x => '<' + x; ok(/aria-label="&lt;Ngôn ngữ đang học: Español"/.test(T.chip('es')), 'chip dùng g.t và escape nhãn');
+  ok(T.chip('<img onerror=1>') === '' && !/<img/.test(T.chip('es')), 'chip: tl lạ → rỗng, không chèn HTML thô');
+  ok(/window\.Target \? Target\.chip\('es'\)/.test(rd('web/cpack/es-app/day-ui.js')), 'day-ui: Target chưa nạp không làm vỡ trang');
+  for (const f of ['web/js/study.js', 'web/cpack/es-app/day-ui.js']) ok(/Target\.chip\(/.test(rd(f)), `${f}: gắn nhãn ngôn ngữ đích`);
 }
 
 // ---------- 2) bảng giọng/lang: 'en' tái tạo đúng hành vi cũ ----------
@@ -143,6 +182,19 @@ const load = (sb, f) => vm.runInContext(rd(f), sb, { filename: f });
   ok(e2.length >= 5 && e2.some(e => /plural/.test(e)) && e2.some(e => /θ/.test(e)), 'cổng es bắt đủ 5 lỗi cài sẵn: ' + e2.length);
   const sch = readJSON('content/target/es/schema.json'); ok(sch.properties.words.items.properties.plural && sch.properties.words.items.properties.ex.required.join() === 'es,en', 'schema es có plural + ex.es');
   try { execFileSync(process.execPath, ['scripts/target/build.mjs', 'es', '--check'], { stdio: 'pipe' }); ok(true); } catch (e) { ok(false, 'web/js/target-es-seed.json lệch seed.json: ' + String(e.stdout || e.stderr)); }
+  // W1: lint chuẩn Mỹ Latinh trung tính (§8) – bắt vosotros/os/-áis/-éis/coger/từ chỉ TBN, KHÔNG bắt ustedes/país
+  const lintE = sent => validate({ v: 1, tl: 'es', words: [{ ...deck.words[0], ex: { es: sent, en: 'x' } }] }).filter(e => /lệch chuẩn/.test(e)).length;
+  ok(['¿Vosotros tenéis una casa?', 'Os doy la casa.', 'Habláis en casa.', 'Voy a coger la casa.', 'Mi casa tiene un ordenador.'].every(x => lintE(x) === 1), 'lint es bắt vosotros/os/-áis/coger/ordenador');
+  ok(['Ustedes tienen una casa.', 'La casa del país.', 'Tomo el carro a casa.'].every(x => lintE(x) === 0), 'lint es không bắt nhầm ustedes/país/carro');
+  // W1: sinh theo bảng TL_GEN (không nhánh/chuỗi pt cứng trong gen.mjs), lô core-NN, cổng LanguageTool + IPA espeak + Wiktionary nối trong workflow
+  const { TL_GEN } = await import('../target/tl-gen.mjs');
+  ok(TL_GEN.es.variant === 'es-419' && TL_GEN.pt.variant === readJSON(seedPath('pt')).variant && TL_GEN.es.lt === 'es' && TL_GEN.es.kaikki === 'Spanish' && /es_50k/.test(TL_GEN.es.source.url), 'tl-gen.mjs: dòng es (es-419, LanguageTool, kaikki, FrequencyWords es)');
+  const gsrc = rd('scripts/target/gen.mjs'); ok(!/Brazilian|pt-BR'|pt_br/.test(gsrc) && /TL_GEN\[TL\]/.test(gsrc) && /LT_URL/.test(gsrc) && /nextCoreFile/.test(gsrc), 'gen.mjs: chỉ đọc bảng TL_GEN, cổng LanguageTool bắt buộc, ghi lô core-NN');
+  ok(/^core-01\.json$/.test(path.basename(nextCoreFile('es'))) || coreFiles('es').length > 0, 'nextCoreFile es');
+  const sc = structuredClone(deck); sc.words[0].gl.ja = 'casa'; sc.words[1].gl.vi = sc.words[1].word; const e3 = validate(sc);
+  ok(e3.some(e => /ja sai chữ viết/.test(e)) && e3.some(e => /nghĩa vi = nguyên từ/.test(e)), 'cổng bắt nghĩa sai chữ viết + vi = nguyên từ');
+  ok(/lexai: 0/.test(gsrc), 'gen.mjs không đi tuyến /api/lexai (chế độ cùng tên = lời nhắc tiếng Anh)');
+  const tc = rd('.github/workflows/target-content.yml'); ok(!/git push/.test(tc) && ['tl_ipa_fill.py', 'wikt-check.mjs', 'conj-check.mjs', 'lt-up.sh', 'actions/bot-output', 'timeout-minutes', 'concurrency'].every(k => tc.includes(k)) && rd('scripts/ci/lt-up.sh').includes('languagetool'), 'target-content.yml: LT (lt-up.sh) + IPA espeak + Wiktionary + chia động từ + lô ra bot-output, không git push');
   // bảng giọng lượt mẫu: es = ef_dora/em_alex, espeak es-419, Whisper small, seseo; workflow chung có nhãn word-audio-es
   const V = readJSON('scripts/word-audio/tl-voices.json');
   ok(V.es.voices.join() === 'ef_dora,em_alex' && V.es.espeak === 'es-419' && V.es.asrModel === 'small' && V.es.seseo && /^es_MX-/.test(V.es.piper.name) && V.pt.voices.join() === 'pf_dora,pm_alex', 'tl-voices.json: es + pt');

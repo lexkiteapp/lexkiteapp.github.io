@@ -90,11 +90,18 @@
   }
 
   // ---------- Hiển thị ----------
+  // Ảnh Part 1: <picture> AVIF (it.avif = có bản .avif cùng tên) → .jpg dự phòng; width/height thật (it.w/it.h) giữ chỗ → CLS 0
+  const photoHtml = it => {
+    const src = (/^https?:/.test(location.protocol) ? '' : 'https://lexkite.com/') + it.img;
+    const wh = it.w && it.h ? ` width="${+it.w}" height="${+it.h}"` : '';
+    const img = `<img class="lq-photo" src="${esc(src)}"${wh} alt="${esc(t('Ảnh câu {n}', { n: it.n }))}" loading="lazy" decoding="async" style="display:block;max-width:100%;height:auto;border-radius:12px;margin:.4rem 0">`;
+    return it.avif ? `<picture><source type="image/avif" srcset="${esc(src.replace(/\.jpe?g$/i, '.avif'))}">${img}</picture>` : img;
+  };
   function groupHtml(gr, gi, tips) {
     const head = `<div class="lq-instr">${gr.title ? `<b>${esc(gr.title)}</b><br>` : ''}<i>${esc(gr.instr)}</i></div>${tips && g.QT ? g.QT.box(g.QT.kindOf(gr)) : ''}`;
     // TOEIC Part 1 (photo): ảnh + chỉ chữ (A)–(D); 4 câu mô tả chỉ nghe, hiện lại sau khi nộp (mark)
     if (gr.type === 'mcq' && gr.photo) return `<div class="lq-group">${head}${gr.items.map(it => `<div class="lq-item" data-item="${it.n}"><div><span class="qn">${it.n}</span> ${esc(it.q)}</div>
-      <img class="lq-photo" src="${esc((/^https?:/.test(location.protocol) ? "" : "https://lexkite.com/") + it.img)}" alt="${esc(t('Ảnh câu {n}', { n: it.n }))}" loading="lazy" style="display:block;max-width:100%;height:auto;border-radius:12px;margin:.4rem 0">
+      ${photoHtml(it)}
       <div class="lq-opts">${it.options.map((o, k) => `<label><input type="radio" name="q${it.n}" value="${k}"> <b>(${L[k]})</b></label>`).join('')}</div><div class="lq-fb" hidden></div></div>`).join('')}</div>`;
     if (gr.type === 'mcq') return `<div class="lq-group">${head}${gr.items.map(it => `<div class="lq-item" data-item="${it.n}"><div><span class="qn">${it.n}</span> ${esc(it.q)}</div>
       <div class="lq-opts">${it.options.map((o, k) => `<label><input type="radio" name="q${it.n}" value="${k}"> <b>${L[k]}</b>${o === L[k] ? '' : ' ' + esc(o)}</label>`).join('')}</div><div class="lq-fb" hidden></div></div>`).join('')}</div>`;
@@ -107,7 +114,7 @@
     if (gr.type === 'multi') return `<div class="lq-group">${head}<div class="lq-item" data-item="${gr.n.join(',')}"><div><span class="qn">${gr.n.join('–')}</span> ${esc(gr.q)}</div>
       <div class="lq-opts">${gr.options.map(o => `<label><input type="checkbox" data-multi="${gi}" value="${esc(code(o))}"> <b>${esc(code(o))}</b> ${esc(label(o))}</label>`).join('')}</div><div class="lq-fb" hidden></div></div></div>`;
     const cls = gr.type === 'table' ? 'lq-table' : 'lq-notes';
-    return `<div class="lq-group">${head}<div class="${cls}">${gr.items.map(it => `<div class="lq-item lq-gap" data-item="${it.n}">${esc(it.text).replace('___', `<span class="qn">${it.n}</span><input class="gap" data-qn="${it.n}" autocomplete="off" spellcheck="false" size="12">`)}<div class="lq-fb" hidden></div></div>`).join('')}</div></div>`;
+    return `<div class="lq-group">${head}<div class="${cls}">${gr.items.map(it => `<div class="lq-item lq-gap" data-item="${it.n}">${esc(it.text).replace(/\n/g, '<br>').replace('___', `<span class="qn">${it.n}</span><input class="gap" data-qn="${it.n}" autocomplete="off" spellcheck="false" size="12">`)}<div class="lq-fb" hidden></div></div>`).join('')}</div></div>`;
   }
   const questionsHtml = p => `<div class="lq">${p.groups.map((gr, gi) => groupHtml(gr, gi, p.tips)).join('')}</div>`; // p.tips: hiện ô mẹo theo dạng câu (chế độ luyện)
 
@@ -117,10 +124,48 @@
     if (g.ChoiceKit && root) g.ChoiceKit.attach(root); // phím A–D/1–4 + gạch đáp án (choice-kit.js)
     $$('input[data-multi]', root).forEach(c => c.addEventListener('change', () => { const same = $$(`input[data-multi="${c.dataset.multi}"]:checked`, root); if (same.length > 2) c.checked = false; }));
     $$('input.gap', root).forEach((inp, k, arr) => inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); if (arr[k + 1]) arr[k + 1].focus(); } }));
+    reviewBind(root);
+  }
+
+  // 🚩 "Xem lại sau" như phòng thi thật: cờ trên từng câu + thanh liệt kê câu đã cờ / chưa làm trước khi nộp (mark() gỡ thanh này)
+  const qLabel = item => { const a = item.dataset.item.split(','); return a.length > 1 ? a[0] + '–' + a[a.length - 1] : a[0]; };
+  const flagged = root => $$('.lq-item.qe-flagged', root).map(qLabel);
+  function reviewBar(root) {
+    let bar = $('.qe-rv', root);
+    const items = $$('.lq-item', root).filter(i => !i.hidden);
+    const unans = items.filter(i => !answered(root, i.dataset.item.split(',')[0])).map(qLabel), fl = flagged(root);
+    $$('[data-q]', root.ownerDocument || document).forEach(b => b.classList.toggle('qe-fl', fl.includes(b.dataset.q))); // bảng số câu (mock) tô cờ
+    if (!unans.length && !fl.length) { if (bar) bar.remove(); return; }
+    if (!bar) { root.insertAdjacentHTML('afterbegin', '<div class="qe-rv" role="region" aria-live="polite"></div>'); bar = $('.qe-rv', root); }
+    const chips = (arr, cls) => arr.map(n => `<button type="button" class="qe-n ${cls}" data-rvq="${n.split('–')[0]}" aria-label="${esc(t('Đi tới câu {n}', { n }))}">${n}</button>`).join('');
+    bar.setAttribute('aria-label', t('Câu cần xem lại'));
+    bar.innerHTML = `<span class="qe-rv-g"><b>🚩 ${t('Xem lại sau')}</b> ${fl.length ? chips(fl, 'fl') : '<span class="muted">–</span>'}</span><span class="qe-rv-g"><b>${t('Chưa làm')}</b> ${unans.length ? chips(unans, '') : '<span class="muted">0</span>'}</span>`;
+  }
+  function reviewBind(root) {
+    if (!root || !root.querySelectorAll || root._qeRv) return; root._qeRv = 1;
+    $$('.lq-item', root).forEach(item => {
+      const n = qLabel(item), b = document.createElement('button');
+      b.type = 'button'; b.className = 'qe-flag'; b.textContent = '🚩';
+      const sync = () => { const on = item.classList.contains('qe-flagged'); b.setAttribute('aria-pressed', on); b.setAttribute('aria-label', t(on ? 'Bỏ đánh dấu câu {n}' : 'Đánh dấu câu {n} để xem lại', { n })); b.title = t('Xem lại sau'); };
+      b.onclick = () => { item.classList.toggle('qe-flagged'); sync(); reviewBar(root); };
+      sync(); if (!item.style.position) item.style.position = 'relative'; item.appendChild(b); // cờ đặt tuyệt đối trong câu (không thêm luật .lq-item vào CSS lười)
+    });
+    const upd = () => reviewBar(root);
+    root.addEventListener('change', upd); root.addEventListener('input', upd);
+    root.addEventListener('click', e => {
+      const c = e.target.closest && e.target.closest('[data-rvq]'); if (!c) return;
+      let el = itemOf(root, c.dataset.rvq);
+      if (el && !el.offsetParent) { const m = $(`[data-q="${c.dataset.rvq}"]`, root.ownerDocument || document); if (m) m.click(); el = itemOf(root, c.dataset.rvq); } // câu ở bài đọc đang ẩn → dùng bảng số câu để chuyển
+      if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.classList.add('qe-flash'); setTimeout(() => el.classList.remove('qe-flash'), 1200); const f = $('input, select', el); if (f) f.focus({ preventScroll: true }); }
+    });
+    reviewBar(root);
   }
 
   // Đánh dấu kết quả; onEvidence(n) khi bấm nút xem chỗ có đáp án
   function mark(root, res, evLabel, onEvidence) {
+    const rv = $('.qe-rv', root); if (rv) rv.remove();
+    $$('.qe-flag', root).forEach(b => { b.disabled = true; });
+    $$('.qe-fl').forEach(b => b.classList.remove('qe-fl'));
     $$('.lq-item', root).forEach(item => {
       const ns = item.dataset.item.split(',').map(Number), r = res[ns[0]]; if (!r) return;
       const ok = ns.every(n => res[n].ok), part = ns.some(n => res[n].ok);
@@ -190,5 +235,5 @@
   const answered = (root, q) => { const el = itemOf(root, q); return !!el && [...el.querySelectorAll('input, select')].some(i => i.type === 'radio' || i.type === 'checkbox' ? i.checked : i.value.trim()); };
   // Lời giải 3 phần chuẩn chữa đề: 📍 đoạn chứa đáp án · 🔁 từ khóa câu hỏi ↔ paraphrase trong bài · 💡 vì sao
   const explainHtml = e => !e ? '' : `<div class="qx">${e.para ? `<div class="qx-r"><span class="qx-l">📍 ${t('Vị trí')}</span><span>${t('Đoạn {p}', { p: esc(e.para) })}</span></div>` : ''}${(e.keys || []).length ? `<div class="qx-r"><span class="qx-l">🔁 ${t('Từ khóa ↔ Paraphrase')}</span><span>${e.keys.map(k2 => `<i>${esc(k2[0])}</i> ≈ <b>${esc(k2[1])}</b>`).join('<br>')}</span></div>` : ''}${e.why ? `<div class="qx-r"><span class="qx-l">💡 ${t('Vì sao')}</span><span translate="${XL === 'vi' || (XT && XT[fnv(e.why)]) ? 'no' : 'yes'}"${XL !== 'vi' && !(XT && XT[fnv(e.why)]) ? ' class="tr-wait"' : ''}>${esc(exT(e.why))}</span></div>` : ''}</div>`;
-  g.QE = { exT, explainHtml, itemOf, answered, norm, words, gradeGap, collect, groupHtml, questionsHtml, bind, mark, numsOf, bandOf, overall, code, label };
+  g.QE = { exT, explainHtml, itemOf, answered, norm, words, gradeGap, collect, groupHtml, questionsHtml, bind, flagged, mark, numsOf, bandOf, overall, code, label };
 })(typeof self !== 'undefined' ? self : this);

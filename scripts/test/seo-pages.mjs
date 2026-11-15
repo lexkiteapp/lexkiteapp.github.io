@@ -7,6 +7,7 @@
 //  6) chuỗi trang tĩnh đủ 15 ngôn ngữ (scripts/lib/seo-pages-i18n.mjs)
 //  7) độ dày trang từ /<lang>/words/<slug> index được ≥ DEPTH_MIN (scripts/lib/word-depth.mjs – docs/specs/seo-words-depth.md); FAQPage = đúng chữ <details> trên trang
 //  8) hộp "từ trong bài" của blog (scripts/lib/blog-words.mjs, 13 ngôn ngữ): mọi link → /<lang>/words/<slug> tới trang CÓ THẬT, KHÔNG noindex; blog 13 ngôn ngữ có ≥ 1 bài có hộp (chống mất tính năng)
+//  9) BreadcrumbList không trỏ `/` (302 theo nước/ngôn ngữ – SEO-ARCH §10): trang chủ của crumb = /<lang>/ của chính trang
 // Dùng: node scripts/test/seo-pages.mjs [dist]
 import fs from 'node:fs'; import path from 'node:path';
 import { LANGS, S, POS, YOU } from '../lib/seo-pages-i18n.mjs';
@@ -38,6 +39,9 @@ for (const f of files) {
   const lang = (h.match(/<html[^>]*\slang=["']([^"']+)/i) || [])[1] || '';
   const redirect = /http-equiv=["']refresh["']/i.test(head);
   pages.set(u, { f: rel, lang, noindex, canon, title, desc, alts, redirect });
+  // 9) crumb trỏ / (chuyển hướng) thay vì trang chủ ngôn ngữ
+  if (!noindex) for (const m of head.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) { let j; try { j = JSON.parse(m[1]); } catch { continue; }
+    if (j['@type'] === 'BreadcrumbList') for (const it of j.itemListElement || []) if (it.item === O + '/' || it.item === O) B(`${rel}: BreadcrumbList "${it.name}" trỏ / (302) – dùng /${lang || '<lang>'}/`); }
   // 7) độ dày + FAQPage khớp chữ hiển thị (trang từ index được)
   if (!noindex && /^\/[a-z]{2}\/words\/(?!index\.html)[^/]+\.html$/.test(rel)) {
     const d = measure(h); if (!deep(d)) B(`${rel}: dưới ngưỡng độ dày (${d.blocks} khối/${d.words} chữ < ${DEPTH_MIN.blocks}/${DEPTH_MIN.words}) mà vẫn index`);

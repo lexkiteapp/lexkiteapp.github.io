@@ -59,6 +59,8 @@ quiz: [
 ## Business English Meeting Phrases in Hindi: मुख्य चरण
 
 किसी भी कॉर्पोरेट मीटिंग को आमतौर पर 5 प्रमुख चरणों में विभाजित किया जा सकता है:
+
+इसके बारे में और जानने के लिए [ऑफिस में टाइम मैनेजमेंट के इंग्लिश वाक्यांश](/hi/blog/office-me-time-management-english-phrases-guide/) भी पढ़ें।
 1. **मीटिंग की शुरुआत और एजेंडा साझा करना (Opening & Setting the Agenda)**
 2. **राय मांगना और अपनी राय व्यक्त करना (Giving & Asking for Opinions)**
 3. **विनम्रता से बीच में टोकना या स्पष्टीकरण मांगना (Interrupting & Clarifying)**

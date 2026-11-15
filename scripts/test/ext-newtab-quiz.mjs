@@ -23,6 +23,10 @@ ok(Q.SECONDS === 10, '≤ 10 s');
 const html = fs.readFileSync('extension/newtab.html', 'utf8'), js = fs.readFileSync('extension/newtab.js', 'utf8');
 ok(html.indexOf('nt-quiz.js') > 0 && html.indexOf('nt-quiz.js') < html.indexOf('newtab.js'), 'nt-quiz.js nạp trước newtab.js');
 ok(/SRS\.review\(card\.srs, graded\)/.test(js) && /ntQz/.test(js) && /ntQzSkip/.test(js), 'có chấm FSRS + Bỏ qua + giới hạn tần suất');
+// hồi quy 06/11 (ext-e2e đỏ '0 ms'): thẻ đầu phải vẽ + đặt ntMs TRƯỚC câu đố, không bị câu đố (đến 10 s) chặn
+const iShow = js.lastIndexOf('await show();'), iMs = js.indexOf('dataset.ntMs ='), iQz = js.indexOf('await runQuiz()');
+ok(iShow > 0 && iMs > iShow && iQz > iMs, 'thẻ đầu vẽ + ntMs trước khi chạy câu đố');
+ok(/reshow/.test(js.slice(iQz)), 'sau câu đố vẽ lại thẻ đang xem');
 ok(!/fetch\(|XMLHttpRequest/.test(fs.readFileSync('extension/nt-quiz.js', 'utf8')), 'nt-quiz.js không mạng');
 // 15 ngôn ngữ đủ khóa, giữ {s}
 const keys = ['ntQzTag', 'ntQzQ', 'ntQzTime', 'ntQzRight', 'ntQzWrong', 'ntQzTimeout', 'ntQzSkip'];

@@ -85,7 +85,7 @@ jobs:
           python scripts/pron/export.py "${{ matrix.cand.repo }}" "models/${{ matrix.cand.id }}"
       - uses: actions/setup-node@v4
         with: { node-version: '22' }
-      - run: npm install --no-save --no-package-lock --ignore-scripts=false onnxruntime-node@1.20.1
+      - run: bash scripts/ci/npm-retry.sh install --no-save --no-package-lock --ignore-scripts=false onnxruntime-node@1.20.1
       - run: node scripts/pron/eval.mjs --cand "${{ matrix.cand.id }}" --dir "models/${{ matrix.cand.id }}" --data pron-data --quant "${{ inputs.quant }}" --out "reports/pron-eval-${{ matrix.cand.id }}.json"
       - uses: actions/upload-artifact@v4
         if: always()
