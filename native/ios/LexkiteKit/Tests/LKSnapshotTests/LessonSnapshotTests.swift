@@ -40,6 +40,7 @@ final class LessonSnapshotTests: XCTestCase {
         let picks = LessonEngine.pickWords(Self.cards, .init(n: 4, now: Self.now), calendar: Self.cal)
         var o = LessonEngine.BuildOptions(seed: 11, pool: Self.cards, only: only, calm: true, match: only.contains("match"))
         o.mean = { c in lang == "vi" ? c.vi : "" }
+        o.viOk = true   // fixture cards carry vi sentence pairs; keep the reference screens unchanged
         var items = LessonEngine.build(picks, o)
         if matchFirst, let i = items.firstIndex(where: { $0.type == "match" }) { items.swapAt(0, i) }
         m.begin(items, kind: "lesson")
