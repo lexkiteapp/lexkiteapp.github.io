@@ -14,6 +14,8 @@ jobs:
   # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
   # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
   gate:
+    # lượt 1 của PR: npm test chưa thể xanh → gate bỏ qua KHÔNG tốn máy (skipped); heavy-rerun chạy lại (run_attempt ≥ 2) khi npm test xanh; nhãn ready = chạy ngay
+    if: ${{ github.event_name != 'pull_request' || github.run_attempt > 1 || contains(github.event.pull_request.labels.*.name, 'ready') }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     permissions: { contents: read, checks: read }
