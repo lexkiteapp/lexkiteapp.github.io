@@ -125,7 +125,7 @@ export function pick(prs, now = Date.now(), repo = '') {
     .slice(0, MAX);
 }
 
-const git = (...a) => execFileSync('git', a, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
+const git = (...a) => execFileSync('git', a, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 1 << 28 }).trim(); // maxBuffer: mặc định 1 MiB, i18n-fixed.json > 1 MiB → ENOBUFS → đọc thành {} → ghi đè {} (15/11)
 const tryGit = (...a) => { try { return { ok: true, out: git(...a) }; } catch (e) { return { ok: false, out: String(e.stdout || '') + String(e.stderr || '') }; } };
 
 /** Lỗi tạm của GitHub (5xx/429) → thử lại có giãn cách; lỗi khác ném ngay. */
@@ -161,9 +161,11 @@ export function applySteps(steps) {
       if (!d || !m3) return `${f} hai phía cùng sửa một khóa dịch`;
       writeSrc(m3[1], m3[2] || '', d);
     } else if (how === 'json3') { // i18n-fixed.json: gộp 3 bên THEO KHÓA (cả khóa con theo ngôn ngữ), ghi lại đúng định dạng chuẩn
-      const side = k => { const o = tryGit('show', `:${k}:${f}`); try { return o.ok ? JSON.parse(o.out) : {}; } catch { return null; } };
+      const side = k => { const o = tryGit('show', `:${k}:${f}`); if (!o.ok && !/exist|not in|not at stage/i.test(o.out)) return null; /* lỗi đọc thật (không phải 'phía này không có tệp') → người gỡ, KHÔNG coi là {} */ try { return o.ok ? JSON.parse(o.out) : {}; } catch { return null; } };
       const [b, o, t] = [side(1), side(2), side(3)], d = b && o && t ? merge3Fixed(b, o, t) : null;
       if (!d) return `${f} hai phía cùng sửa một khóa/ngôn ngữ`;
+      const nk = x => Object.keys(x).length; // chặn ghi: kết quả gộp không được ít khóa hơn rõ rệt so với phía lớn hơn (đọc lỗi/rỗng bất thường → ghi đè mất bản dịch, 15/11)
+      if (nk(d) < 0.9 * Math.max(nk(o), nk(t))) return `${f} kết quả gộp mất khóa bất thường (${nk(d)} < 90% của ${Math.max(nk(o), nk(t))}) – người gỡ`;
       writeFixed(f, d);
     } else if (how === 'entries') {
       const t = mergeEntries(fs.readFileSync(f, 'utf8'));
