@@ -188,7 +188,8 @@
   "lt:#006a64": "color:var(--accent-text)",
   "dk:#006a64": "color:var(--accent-text)",
   "lt:#1c1c18": "color:var(--text)",
-  "lt:#f1ede7": "color:var(--surface-2)"
+  "lt:#f1ede7": "color:var(--surface-2)",
+  "#0f3d3e": "color:var(--text)"
  },
  "cls": {
   ":scope > main": {
@@ -202,7 +203,10 @@
   },
   ":scope > main > header > h1": {
    "text-[20px]": "''",
-   "leading-[28px]": "''"
+   "leading-[28px]": "''",
+   "font-[600]": "'font-bold'"
   }
- }
+ },
+ "styles": true,
+ "rootClass": "![font-family:inherit]"
 }

@@ -36,7 +36,7 @@ Ngưỡng chỉ được siết, không nới.
 
 ## Task
 - [x] Lõi + lớp DOM + 2 cổng + workflow (PR này).
-- [ ] Gắn vào Call (`call.js` → thay `LessonTeacher.mount(..., {lip:true})`) và câu hỏi bài học. Chờ các PR đang giữ file gộp xong: #311 call.js, #581 lesson/teacher.js, #377/#360 face.js. Sau đó `teacher.js face()` dùng chung lõi này, không còn 2 bản.
+- [x] Gắn vào Call và câu hỏi bài học (14/11): `lesson/teacher.js face()` chỉ còn là bộ chuyển sang `TeacherRig.mount` (một lõi, không còn 2 bản); Call + bài học đi qua `LessonTeacher` nên cùng chạy rig. Rig nhận thêm đường tiếng của face() cũ: đồng hồ có bù trễ loa, đo năng lượng tiếng (VAD), căn lại theo mp3 (`fromEnv`), mốc CI/Kokoro (`pre`). Call: khen/sửa nhẹ → `react` + `gesture` (nod/thumbs_up). Cổng: `call-e2e.mjs` + `lip-shots.mjs` kiểm `canvas.tch-face.trig-cv`.
 - [ ] Thân/tay sống của #594 (`LipRig`, uốn WebGL): khi gộp, cắm làm lớp thân. Cổng khớp xương ở đây áp cho cả lớp đó.
 - [x] Gesture bank ảnh tĩnh: đủ 4 cử chỉ × 2 người (12/11, Nano Banana Pro qua Kling, 100 cr; ledger `brand/library/cine/teachers/tools/ledger.txt`). Clip phông xanh cho video: lô sau.
 
