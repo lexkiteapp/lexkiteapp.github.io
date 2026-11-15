@@ -1492,6 +1492,6 @@ body:has(.learn-bar,.grade-bar,.sheet-up,.sel-bar,.install-nudge,#modal:not([hid
 /* icon-flash: chữ ligature chưa có phông → trong suốt, rộng 1em (lớp do iconGuard trong js/app.js gắn/gỡ theo họ phông) */
 html.ic-wait-o .material-symbols-outlined,html.ic-wait-r .material-symbols-rounded{color:transparent!important;display:inline-block;max-width:1em;overflow:hidden;white-space:nowrap}
 
-:is(.material-symbols-rounded,.material-symbols-outlined)[data-ms]{font-family:system-ui,sans-serif!important;-webkit-text-fill-color:transparent;text-shadow:none}
-:is(.material-symbols-rounded,.material-symbols-outlined)[data-ms]:not(.absolute,.fixed,.sticky){position:relative}
+[class*=material-symbols][data-ms]{font-family:system-ui,sans-serif!important;-webkit-text-fill-color:transparent;text-shadow:none}
+[class*=material-symbols][data-ms]:not(.absolute,.fixed,.sticky){position:relative}
 .msv{position:absolute;inset:0;width:100%;height:100%;fill:currentColor;pointer-events:none}
