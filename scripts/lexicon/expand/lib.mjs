@@ -1,7 +1,7 @@
 // Mở rộng kho từ – cổng + nạp mục đã xuất (một nguồn: content/lexicon/expand/<lô>.json). docs/LEXICON.md §Mở rộng 20k.
 // Mọi giao diện/việc hạ nguồn đọc mục mở rộng QUA ĐÂY (loadExpand / expandRows) – test scripts/test/lexicon-consumers.mjs chặn việc bỏ sót.
 import fs from 'fs';
-import { ROOT, rd } from '../lib.mjs';
+import { ROOT, rd, loadAll } from '../lib.mjs';
 import { badChars, ukStyleBad } from '../ipa.mjs';
 import { agree, trIssues, VI, CE, SCRIPT } from '../../content-qa/lib.mjs';
 export const LANGS = ['es', 'pt', 'fr', 'de', 'id', 'th', 'zh', 'ja', 'ko', 'hi', 'ar', 'ru', 'tr'];
@@ -232,12 +232,16 @@ export function doneWords({ queue = true } = {}) {
   return s;
 }
 // Mục ĐÃ XUẤT: lô ở content/lexicon/expand/<lô>.json có tệp kiểm mẫu content/qa/batches/lx-<lô>.json đạt (status published)
+// Từ KHÔNG dấu trùng dạng gấp dấu của một từ gốc CÓ dấu (cafe ↔ café) là bản trùng: mục đứng riêng chặn lối tra "không dấu → có dấu" (lex.mjs) → không xuất
+const foldW = w => String(w).normalize('NFD').replace(/[\u0300-\u036f]/g, '').normalize('NFC').toLowerCase();
+let accentedFolds;
+const accentDup = w => (accentedFolds ||= new Set(loadAll().map(r => String(r.row[0]).normalize('NFC').toLowerCase()).filter(w2 => foldW(w2) !== w2).map(foldW))).has(String(w).normalize('NFC').toLowerCase());
 export function loadExpand() {
   const out = [];
   for (const f of files('')) {
     const b = J(f), bf = `content/qa/batches/lx-${b.id}.json`;
     if (!ex(bf) || J(bf).status !== 'published') continue;
-    for (const [k, e] of Object.entries(b.items)) out.push({ k, e, batch: b.id, file: f });
+    for (const [k, e] of Object.entries(b.items)) { if (accentDup(e.w)) continue; out.push({ k, e, batch: b.id, file: f }); }
   }
   return out;
 }
