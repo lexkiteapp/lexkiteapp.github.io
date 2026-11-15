@@ -164,6 +164,8 @@ export function applySteps(steps) {
       const side = k => { const o = tryGit('show', `:${k}:${f}`); if (!o.ok && !/exist|not in|not at stage/i.test(o.out)) return null; /* lỗi đọc thật (không phải 'phía này không có tệp') → người gỡ, KHÔNG coi là {} */ try { return o.ok ? JSON.parse(o.out) : {}; } catch { return null; } };
       const [b, o, t] = [side(1), side(2), side(3)], d = b && o && t ? merge3Fixed(b, o, t) : null;
       if (!d) return `${f} hai phía cùng sửa một khóa/ngôn ngữ`;
+      const nk = x => Object.keys(x).length; // chặn ghi: kết quả gộp không được ít khóa hơn rõ rệt so với phía lớn hơn (đọc lỗi/rỗng bất thường → ghi đè mất bản dịch, 15/11)
+      if (nk(d) < 0.9 * Math.max(nk(o), nk(t))) return `${f} kết quả gộp mất khóa bất thường (${nk(d)} < 90% của ${Math.max(nk(o), nk(t))}) – người gỡ`;
       writeFixed(f, d);
     } else if (how === 'entries') {
       const t = mergeEntries(fs.readFileSync(f, 'utf8'));
