@@ -111,3 +111,5 @@ Rote memorization of canned phrasebooks often falters under real-time social pre
 3. **Audio Shadowing for Muscle Memory**: Listen to native speaker audio files and mirror their intonation instantly. For broader conversational mastery, explore our foundational roadmap on [daily English conversation sentences](/en/blog/daily-english-conversation-sentences-guide/). You can also expand your colloquial range through our curated guide on [common phrasal verbs in English](/en/blog/common-phrasal-verbs-in-english/).
 
 By incorporating these natural conversational tools into your daily professional repertoire, you will navigate informal corporate environments with poise, foster authentic professional friendships, and project unmistakable executive presence worldwide.
+
+Team lunches need language too: [restaurant English for ordering and paying](/en/blog/restaurant-english-ordering-food-and-paying/).

@@ -166,6 +166,8 @@ For Canada, the [IELTS to CLB conversion](/en/blog/ielts-clb-score-canada/) guid
 4. **No.** The lowest component sets the level, so Speaking 6.5 holds the profile at competent (6) even though three skills are at 8.0.
 5. **Until about 3 March 2027,** and a test valid at lodging time is what matters, so plan your date from the end.
 
+After the test, daily life starts; see [English for opening a bank account abroad](/en/blog/english-for-opening-a-bank-account-abroad/).
+
 ## Frequently asked questions
 
 ### Is IELTS General Training easier than Academic?
