@@ -42,3 +42,4 @@
 | Sao lưu & khôi phục | `ROLLBACK.md` |
 | Audit / nghiên cứu (tham khảo) | `AUDIT-2026-10.md` · `CONTENT-AUDIT-2026-10-25.md` · `audits/` · `research/` · `legal/DMCA-KIT.md` · `agents/DUO-GAP.md` |
 | Lưu trữ (chỉ tra cứu) | `archive/` – METHODS-HISTORY, PLAYBOOK, STORE-READINESS-HISTORY, video cũ. Stub 1 dòng → `VIDEO.md`: VIDEO-PIPELINE, VIDEO-SYSTEM-PLAN, CINE-SCENE-STANDARD, KLING-PLAN, LISTENING-CHANNEL-PLAN, VIDEO-CONTENT-PLAN |
+| Soát hình màn mới (bài học, chuỗi, giáo viên, video) – CI + contact sheet | `NEW-UI-QA.md` |
