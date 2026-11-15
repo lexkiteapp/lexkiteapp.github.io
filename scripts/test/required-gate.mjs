@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { evaluate, prCapable, checkWorkflow, dirtyShas, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
+import { evaluate, rerunCancelled, MAX_AUTO_RERUN, prCapable, checkWorkflow, dirtyShas, run, paceDue, PACED, chainAlive, CHAIN_CHECK_MS, CHAIN_RETRIES, CONTEXT, SELF_JOB, SELF_PATH } from '../ci/required-gate.mjs';
 let fails = 0, n = 0; const ok = (c, m) => { n++; if (!c) { fails++; console.log('✗', m); } };
 
 const cr = (name, status, conclusion, id = 1) => ({ name, status, conclusion, id });
@@ -22,6 +22,25 @@ ok(evaluate({ checkRuns: [cr('lint', 'completed', 'neutral')] }).state === 'pend
 for (const c of ['failure', 'timed_out', 'cancelled', 'startup_failure', 'stale']) {
   const r = evaluate({ checkRuns: [cr('npm test', 'completed', 'success'), cr('perf', 'completed', c)] });
   ok(r.state === 'failure' && r.failed[0] === `perf (${c})`, `${c} → đỏ`);
+}
+
+// ---------- 1b) lượt workflow bị huỷ (15/11): chờ + tự chạy lại, không đỏ oan; quá số lần cho phép / lỗi thật vẫn đỏ ----------
+{
+  const c1 = wr('teach-video', 'completed', 'cancelled', 5, { id: 777, run_attempt: 1 });
+  const r = evaluate({ checkRuns: [cr('npm test', 'completed', 'success'), cr('preqc', 'completed', 'cancelled', 2)], workflowRuns: [c1, wr('npm-test', 'completed', 'success', 3)] });
+  ok(r.state === 'pending' && r.failed.length === 0 && r.cancelled.length === 1 && r.cancelled[0].runId === 777, 'lượt workflow mới nhất bị huỷ → CHỜ + yêu cầu chạy lại ' + JSON.stringify(r));
+  ok(/huỷ/.test(r.description), 'mô tả nói rõ đang chờ chạy lại: ' + r.description);
+  const r2 = evaluate({ checkRuns: [cr('preqc', 'completed', 'cancelled', 2)], workflowRuns: [wr('teach-video', 'completed', 'cancelled', 5, { id: 777, run_attempt: MAX_AUTO_RERUN + 1 }), wr('npm-test', 'completed', 'success', 3)] });
+  ok(r2.state === 'failure' && r2.cancelled.length === 0, 'huỷ quá ' + MAX_AUTO_RERUN + ' lần chạy lại → đỏ');
+  const r3 = evaluate({ workflowRuns: [wr('teach-video', 'completed', 'cancelled', 5, { id: 777, run_attempt: 1 }), wr('npm-test', 'completed', 'failure', 3, { id: 9 })] });
+  ok(r3.state === 'failure' && r3.failed.some(x => x.startsWith('workflow: npm-test')), 'lỗi thật cùng sha vẫn đỏ dù có lượt huỷ chờ chạy lại');
+  const r4 = evaluate({ workflowRuns: [wr('teach-video', 'completed', 'cancelled', 5, { id: 777, run_attempt: 1 }), wr('teach-video', 'completed', 'success', 6, { id: 778 }), wr('npm-test', 'completed', 'success', 3)] });
+  ok(r4.state === 'success' && r4.cancelled.length === 0, 'có lượt mới hơn cùng workflow → lượt huỷ cũ bị bỏ qua, không chạy lại');
+  const calls = [], A = { rerun: async id => { calls.push(id); } }, done = new Set();
+  await rerunCancelled(A, r, done, () => {}); await rerunCancelled(A, r, done, () => {});
+  ok(calls.length === 1 && calls[0] === 777, 'chạy lại đúng 1 lần mỗi (lượt, lần) – không dội API: ' + calls);
+  await rerunCancelled({ rerun: async () => { throw new Error('403'); } }, { cancelled: [{ runId: 5, attempt: 1, name: 'x' }] }, new Set(), () => {});
+  ok(true, 'lỗi API khi chạy lại không làm sập bộ canh');
 }
 ok(evaluate({ statuses: [st('ci/ext', 'failure')] }).state === 'failure', 'status failure → đỏ');
 ok(evaluate({ statuses: [st('ci/ext', 'error')] }).state === 'failure', 'status error → đỏ');
@@ -192,6 +211,14 @@ ok(!prCapable('name: a\non:\n  workflow_run:\n    workflows: [b]\njobs: {}\n'), 
   t = 0; const sl = []; const A2 = { ...A, rate: { remaining: 10, reset: 600e3 } };
   await run(['--watch', '30', '--dry'], {}, A2, () => {}, { now: () => t, sleep: async ms => { sl.push(ms); t += ms; } });
   ok(sl[0] >= 600e3 - 1, 'hạn mức < 150 → chờ tới lúc đặt lại: ' + sl[0]);
+}
+
+// ---------- 1c) preqc của teach-video: trần ≥ 8 phút (đo 15/11: 87–300 s, 5 phút cắt → 'cancelled' đỏ oan) + các kiểm độc lập vẫn đủ 4 nhóm, chạy song song ----------
+{
+  const y = fs.readFileSync(new URL('../../.github/workflows/teach-video.yml', import.meta.url), 'utf8'), pre = y.slice(y.indexOf('\n  preqc:'), y.indexOf('\n  voice:'));
+  ok(/timeout-minutes: (8|9|10)\b/.test(pre), 'preqc timeout-minutes >= 8');
+  for (const need of ['teach2d-gen.py', 'teach2d-autopub.py', 'teach2d-store.py', 'mix.py --check', 'teach2d-mix.py', 'native-qa.mjs --online', 'publish.py --check']) ok(pre.includes(need), 'preqc vẫn chạy ' + need);
+  ok(/wait "\$\{pids\[\$i\]\}"/.test(pre) && /\[ "\$bad" = 0 \] \|\| exit 1/.test(pre), 'preqc đợi mọi nhóm song song và đỏ nếu bất kỳ nhóm nào đỏ');
 }
 
 console.log(fails ? `✗ required-gate: ${fails}/${n} lỗi` : `✓ required-gate: ${n} kiểm tra đạt`);
