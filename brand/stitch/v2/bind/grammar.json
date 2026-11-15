@@ -62,8 +62,7 @@
   "Start now": "d.cta"
  },
  "after": {
-  ":scope > main > div > div:nth-child(1) > h2": "d.nx && d.nx.sub ? '<p class=\"text-[13px] font-semibold leading-snug lg:col-start-1 lt:text-[#45555A] dk:text-[#A3B9B7]\">' + e(d.nx.sub) + '</p>' : ''",
-  ":scope > main > div > div:nth-child(1) > button": "'<p class=\"text-[12px] font-semibold leading-snug lg:col-span-2 lt:text-[#45555A] dk:text-[#A3B9B7]\">' + e(d.blurb) + '</p>'"
+  ":scope > main > div > div:nth-child(1) > h2": "d.nx && d.nx.sub ? '<p class=\"text-[14px] font-semibold leading-snug lg:col-start-1 lt:text-[#0F3D3E] dk:text-[#A3B9B7]\">' + e(d.nx.sub) + '</p>' : ''"
  },
  "repeat": [
   {
