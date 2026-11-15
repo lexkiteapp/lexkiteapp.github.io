@@ -7,7 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
   <script>
     tailwind.config = {
@@ -16,11 +16,11 @@
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            display: ['"Space Grotesk"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
           },
           colors: {
             night: {
-              base: '#081518',
+              base: '#091416',
               surface: '#0d1f23',
               card: '#112529',
               elevated: '#172f34',
@@ -48,7 +48,7 @@
             },
             ink: '#100604',
             light: {
-              primary: '#f0fbfc',
+              primary: '#EAF2F2',
               secondary: '#b8d6d8',
               muted: '#7a9ea1',
               disabled: '#48686b'
@@ -58,7 +58,7 @@
             'tactile-btn': '0 4px 0 #8e2816',
             'tactile-card': '0 3px 0 #050e10',
             'tactile-teal': '0 3px 0 #0d3835',
-            'tactile-dark': '0 3px 0 #081518'
+            'tactile-dark': '0 3px 0 #091416'
           }
         }
       }
@@ -66,8 +66,8 @@
   </script>
   <style>
     body {
-      background-color: #081518;
-      color: #f0fbfc;
+      background-color: #091416;
+      color: #EAF2F2;
       font-family: 'Plus Jakarta Sans', sans-serif;
       -webkit-font-smoothing: antialiased;
       width: 390px;
@@ -101,10 +101,10 @@
     }
   </style>
 </head>
-<body class="bg-[#081518] text-[#f0fbfc] pb-24 selection:bg-teal-dim selection:text-teal-soft">
+<body class="bg-[#091416] text-[#EAF2F2] pb-24 selection:bg-teal-dim selection:text-teal-soft">
 
   <!-- Top App Bar (Mobile Sticky) -->
-  <header class="sticky top-0 z-50 bg-[#081518]/95 backdrop-blur-md border-b-2 border-night-border px-4 py-3 flex items-center justify-between">
+  <header class="sticky top-0 z-50 bg-[#091416]/95 backdrop-blur-md border-b-2 border-night-border px-4 py-3 flex items-center justify-between">
     <div class="flex items-center gap-3">
       <button type="button" aria-label="Menu điều hướng" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl bg-night-card border-2 border-night-border text-teal-vivid hover:border-teal-glow tactile-active transition-colors">
         <span class="material-symbols-rounded text-xl">menu</span>
@@ -407,7 +407,7 @@
   </main>
 
   <!-- Bottom Navigation Bar (Fixed Native 5-Tab Bar) -->
-  <nav aria-label="Điều hướng chính" class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto z-50 bg-[#081518]/95 backdrop-blur-lg border-t-2 border-night-border px-2 py-1.5 flex justify-around items-center">
+  <nav aria-label="Điều hướng chính" class="fixed bottom-0 left-0 right-0 max-w-[390px] mx-auto z-50 bg-[#091416]/95 backdrop-blur-lg border-t-2 border-night-border px-2 py-1.5 flex justify-around items-center">
     <!-- Tab 1: Tổng quan -->
     <a href="#" class="min-h-[44px] min-w-[56px] flex flex-col items-center justify-center text-light-muted hover:text-white group tactile-active">
       <span class="material-symbols-rounded text-xl group-hover:scale-110 transition-transform">dashboard</span>
