@@ -16,7 +16,7 @@ export const MARKER = '<!-- stitch-shots -->', BUCKET = 'lexkite-report-shots', 
 // cột → [thư mục, mẫu tên tệp (nhóm 1 = tên màn), nhãn]. Bản nhỏ (sm-*) trước: nhẹ, đủ đọc.
 export const KINDS = [
   ['sheet', 'out/final-qc', /^sm-sheet-(.+)\.jpg$/, 'Tờ QC: Stitch · app sáng/tối 390 · 360 · RTL'],
-  ['side', 'out/stitch-diff', /^sm-side-(.+)\.jpg$/, 'Stitch | app (sáng/tối)'],
+  ['side', 'out/stitch-diff', /^sm-side-(.+)\.jpg$/, 'Stitch · app (sáng/tối)'],
   ['wide', 'out/stitch-diff', /^sm-w-(.+)\.jpg$/, '360 · 390 · 412'],
   ['desk', 'out/stitch-diff', /^sm-desk-(.+)\.jpg$/, 'Máy tính 1366'],
   ['rtl', 'out/final-qc', /^ar-(.+)\.png$/, 'RTL (ar)'],

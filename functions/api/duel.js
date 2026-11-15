@@ -8,6 +8,7 @@
 import { claims, limit } from './sync.js';
 import { gate } from './_quota.js';
 import { once } from './_schema.js';
+import { readJSON, bodyFail } from './_body.js';
 
 const ORIGINS = /^(https:\/\/((www\.)?lexkite\.com|([a-z0-9-]+\.)?lexkite\.pages\.dev)|https?:\/\/localhost(:\d+)?|capacitor:\/\/localhost|chrome-extension:\/\/[a-z]{32})$/;
 const DUR = 60000, SLACK = 500, MAXN = 100, MIN_GAP = 250, KEEP = 7 * 864e5;
@@ -48,7 +49,7 @@ export async function onRequestPost({ request, env }) {
   const who = await claims((request.headers.get('Authorization') || '').replace(/^Bearer\s+/i, '')).catch(() => null);
   const uid = who && who.sub;
   if (!uid) return json(request, 401, { error: 'auth' });
-  let req; try { req = await request.json(); } catch (e) { return json(request, 400, { error: 'json' }); }
+  let req; try { req = await readJSON(request, 16384); } catch (e) { const f = bodyFail(e); return json(request, f.status, { error: f.error }); } // dấu vết ≤ 100 mục
   { const wait = await limit(`duel:${uid}`, 10, 60); if (wait) return json(request, 429, { error: 'too-fast', wait }); }
   { const q = await gate(request, env, 'league', { who, json }); if (q.res) return q.res; } // dùng chung hạn mức ngày của giải tuần (docs/QUOTAS.md)
   const db = env.DB, now = Date.now();

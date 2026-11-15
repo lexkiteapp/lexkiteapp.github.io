@@ -61,4 +61,6 @@
 "Đội ngũ đang xử lý vấn đề này và sẽ báo bạn ngay khi xong.": "Our team is working on this and will let you know as soon as it's done.",
 "Vấn đề này đã được sửa. Cảm ơn bạn đã báo! Hãy tải lại app để dùng bản mới.": "This has been fixed. Thanks for reporting! Reload the app to get the new version.",
 "Đội ngũ cần thêm chút thông tin: bạn đang làm gì khi lỗi xảy ra, và lỗi có lặp lại không? Hãy gửi một báo lỗi mới kèm ảnh chụp nếu được.": "Our team needs a little more information: what were you doing when it happened, and does it happen again? Please send a new report, with a screenshot if you can.",
+"Xác minh nhanh để tiếp tục": "Quick check to continue",
+"Chưa xác minh được bạn là người thật – hãy thử lại sau ít phút.": "We couldn't confirm you're a real person. Please try again in a few minutes.",
 }); })(typeof self !== 'undefined' ? self : this);

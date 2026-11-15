@@ -1,0 +1,752 @@
+{
+  "opt": {
+    "mis": [
+      {
+        "w": "She opted the cheaper plan.",
+        "r": "She opted for the cheaper plan.",
+        "why": "Opt cần giới từ 'for' trước danh từ; chỉ động từ nguyên mẫu có 'to' mới theo trực tiếp."
+      },
+      {
+        "w": "You can opt out the mailing list at any time.",
+        "r": "You can opt out of the mailing list at any time.",
+        "why": "Opt out đi với 'of' trước thứ mà bạn rút khỏi."
+      }
+    ],
+    "u": "Opt là động từ khá trang trọng, nghĩa là đưa ra lựa chọn, thường giữa vài phương án rõ ràng. Từ này hay gặp trong văn bản kinh doanh và dịch vụ khách hàng: opt for một gói, opt to do việc gì, hoặc opt out of một dịch vụ. Opt in và opt out nghĩa là đồng ý hoặc từ chối tham gia một chương trình. Nghe dứt khoát hơn choose và thường hàm ý đã cân nhắc giữa các phương án."
+  },
+  "optimistic": {
+    "mis": [
+      {
+        "w": "We are optimistic for next year's sales.",
+        "r": "We are optimistic about next year's sales.",
+        "why": "Optimistic đi với 'about' (hoặc 'that' + mệnh đề), không dùng 'for'."
+      },
+      {
+        "w": "He is very optimist about the project.",
+        "r": "He is very optimistic about the project.",
+        "why": "Optimist là danh từ; sau 'is very' cần tính từ optimistic."
+      }
+    ],
+    "u": "Optimistic mô tả người kỳ vọng kết quả tốt, hoặc một nhận định mang tinh thần đó. Đi kèm about với chủ đề, hoặc that cộng mệnh đề. Cautiously optimistic là cách nói giữ ý quen thuộc trong báo cáo kinh doanh khi kết quả khả quan nhưng chưa chắc chắn. Danh từ chỉ người là optimist, chỉ thái độ là optimism. Từ trái nghĩa là pessimistic, còn hopeful và upbeat nhẹ nhàng, thân mật hơn."
+  },
+  "orchestra": {
+    "mis": [
+      {
+        "w": "She plays the violin on the city orchestra.",
+        "r": "She plays the violin in the city orchestra.",
+        "why": "Dùng 'in' để chỉ là thành viên của một nhóm như dàn nhạc hay ban nhạc."
+      },
+      {
+        "w": "The orchestra are tuning its instruments.",
+        "r": "The orchestra is tuning its instruments.",
+        "why": "Trong tiếng Anh Mỹ danh từ tập thể đi với động từ số ít, khớp với 'its'."
+      }
+    ],
+    "u": "Orchestra là nhóm nhạc công lớn chơi cùng nhau dưới sự chỉ huy của nhạc trưởng, thường gồm bộ dây, hơi, đồng và gõ. Trong tiếng Anh Mỹ từ này đi với động từ số ít; người Anh đôi khi dùng số nhiều. Ở rạp hát, orchestra seats là hàng ghế tầng trệt gần sân khấu nhất, nghĩa này quan trọng khi đặt vé. Band hoặc ensemble nhỏ hơn và ít trang trọng hơn."
+  },
+  "organizational": {
+    "mis": [
+      {
+        "w": "She has good organization skills.",
+        "r": "She has good organizational skills.",
+        "why": "Trước 'skills' dùng tính từ organizational; danh từ organization không dùng theo cách này."
+      },
+      {
+        "w": "He is an organizational person who keeps his desk tidy.",
+        "r": "He is an organized person who keeps his desk tidy.",
+        "why": "Organizational liên quan đến tổ chức; người ngăn nắp thì dùng organized."
+      }
+    ],
+    "u": "Organizational là tính từ trang trọng liên quan đến cách một tổ chức được sắp xếp và vận hành, hoặc khả năng lập kế hoạch và sắp xếp của một người. Từ này rất hay gặp trong tin tuyển dụng: strong organizational skills nghĩa là bạn quản lý tốt thời gian, công việc và hồ sơ. Trong văn quản trị nó bổ nghĩa cho culture, structure, change và chart. Anh Anh viết organisational. Đừng nhầm với organized, từ tả người ngăn nắp."
+  },
+  "outage": {
+    "mis": [
+      {
+        "w": "We experienced a lot of outage last week.",
+        "r": "We experienced several outages last week.",
+        "why": "Outage là danh từ đếm được: mỗi sự cố là một outage, nên dùng 'several outages'."
+      },
+      {
+        "w": "The server was outage for two hours.",
+        "r": "The server had an outage for two hours.",
+        "why": "Outage là danh từ, không phải tính từ, nên cần động từ như 'had'."
+      }
+    ],
+    "u": "Outage là khoảng thời gian một dịch vụ như điện, internet hay website ngừng hoạt động. Đây là danh từ, thường đứng sau power, network hoặc service. Công ty thường đăng thông báo hoặc báo cáo outage để giải thích sự cố. Blackout thường chỉ cúp điện, còn downtime là thời gian hệ thống không dùng được. Outage gợi ý một sự cố, chứ không phải bảo trì theo kế hoạch, loại này thường gọi là scheduled maintenance."
+  },
+  "outdated": {
+    "mis": [
+      {
+        "w": "This software is out-dated and slow.",
+        "r": "This software is outdated and slow.",
+        "why": "Outdated viết liền một từ; thêm gạch nối là sai."
+      },
+      {
+        "w": "The information in this file is outdate.",
+        "r": "The information in this file is outdated.",
+        "why": "Tính từ kết thúc bằng -ed; 'outdate' không dùng như vậy."
+      }
+    ],
+    "u": "Outdated mô tả những thứ không còn mới hoặc hữu ích vì đã có phiên bản mới hơn: thiết bị, phần mềm, thông tin hay ý tưởng. Sắc thái trung tính đến hơi tiêu cực. Cụm out of date cùng nghĩa nhưng viết ba từ khi đứng sau động từ, như 'the map is out of date'. Obsolete mạnh hơn, nghĩa là hoàn toàn không còn được dùng; old-fashioned nói về phong cách chứ không phải chức năng."
+  },
+  "outlook": {
+    "mis": [
+      {
+        "w": "The outlook of the economy is good.",
+        "r": "The outlook for the economy is good.",
+        "why": "Outlook theo nghĩa triển vọng tương lai đi với 'for', không dùng 'of'."
+      },
+      {
+        "w": "She has a very positive outlooks.",
+        "r": "She has a very positive outlook.",
+        "why": "Nghĩa này outlook ở số ít; 'a ... outlooks' vừa có mạo từ vừa số nhiều là sai."
+      }
+    ],
+    "u": "Outlook có hai nghĩa chính. Trong kinh doanh và tin tức, nó là triển vọng tương lai của một điều gì, như the economic outlook for next year. Nó cũng chỉ thái độ sống chung của một người, như a positive outlook. Nghĩa thứ nhất đi với for, nghĩa thứ hai đi với on: an outlook on life. Từ này trang trọng hơn prospects. Outlook cũng là tên một chương trình thư điện tử."
+  },
+  "overcharge": {
+    "mis": [
+      {
+        "w": "The hotel overcharged me with the breakfast.",
+        "r": "The hotel overcharged me for the breakfast.",
+        "why": "Dùng 'for' trước khoản bị tính quá giá, không dùng 'with'."
+      },
+      {
+        "w": "The shop overcharged to me twenty dollars.",
+        "r": "The shop overcharged me twenty dollars.",
+        "why": "Overcharge nhận người làm tân ngữ trực tiếp, không có 'to'."
+      }
+    ],
+    "u": "Overcharge nghĩa là đòi khách trả nhiều hơn mức giá đúng hoặc hợp lý. Người bị tính là tân ngữ, còn khoản bị tính thừa dùng for: the restaurant overcharged us for drinks. Từ này hay dùng ở dạng bị động khi bạn phát hiện hóa đơn sai. Trái nghĩa là undercharge. Overcharge có thể chỉ lỗi vô tình, còn rip off là khẩu ngữ và hàm ý cố tình lừa."
+  },
+  "overcrowd": {
+    "mis": [
+      {
+        "w": "The train was overcrowd this morning.",
+        "r": "The train was overcrowded this morning.",
+        "why": "Khi tả trạng thái phải dùng quá khứ phân từ overcrowded, không dùng động từ gốc."
+      },
+      {
+        "w": "The bus was overcrowded by passengers.",
+        "r": "The bus was overcrowded with passengers.",
+        "why": "Dùng 'with' cho thứ lấp đầy nơi chốn; 'by' gợi ý một tác nhân thực hiện hành động."
+      }
+    ],
+    "u": "Overcrowd là động từ nghĩa là làm một nơi chứa quá nhiều người hoặc vật, nhưng bạn gần như luôn gặp nó ở dạng tính từ overcrowded. Từ này tả tàu xe, trường học, nhà tù, thành phố và nhà ở. Mẫu hay gặp: overcrowded with tourists. Danh từ là overcrowding, không đếm được. Crowded trung tính và có thể tích cực, như khu chợ sôi động; overcrowded luôn hàm ý có vấn đề."
+  },
+  "overdue": {
+    "mis": [
+      {
+        "w": "My payment is overdued by two weeks.",
+        "r": "My payment is two weeks overdue.",
+        "why": "Overdue đã là tính từ, không có dạng -ed; khoảng thời gian đứng trước nó."
+      },
+      {
+        "w": "The report is overdue since Monday.",
+        "r": "The report has been overdue since Monday.",
+        "why": "Với 'since' phải dùng thì hoàn thành: has been overdue."
+      }
+    ],
+    "u": "Overdue mô tả việc lẽ ra phải trả, trả lại hoặc làm xong vào một thời điểm nhưng chưa thực hiện. Từ này hay đi với hóa đơn, tiền thuê, sách thư viện và thông báo: khoản thanh toán overdue có thể bị tính phí trễ. Đặt thời gian trễ trước từ này, như ten days overdue. Cụm long overdue nghĩa là lẽ ra phải xảy ra từ lâu. Late đơn giản hơn; past due là cách nói thanh toán phổ biến ở Mỹ."
+  },
+  "overhead": {
+    "mis": [
+      {
+        "w": "The company wants to reduce its overheads cost.",
+        "r": "The company wants to reduce its overhead costs.",
+        "why": "Khi bổ nghĩa, overhead giữ số ít: overhead costs."
+      },
+      {
+        "w": "Our overhead are very high this year.",
+        "r": "Our overhead is very high this year.",
+        "why": "Trong tiếng Anh Mỹ overhead là danh từ không đếm được nên động từ ở số ít."
+      }
+    ],
+    "u": "Overhead có hai cách dùng. Là danh từ, thường không đếm được trong tiếng Anh Mỹ, nó chỉ các chi phí vận hành thường xuyên của doanh nghiệp như tiền thuê, điện nước, hành chính, tách khỏi chi phí sản xuất. Là tính từ hoặc phó từ, nó nghĩa là phía trên đầu: đèn overhead, máy bay bay overhead. Trong kế toán bạn sẽ thấy overhead costs và overhead rate. Tiếng Anh Anh thường dùng số nhiều overheads cho nghĩa chi phí."
+  },
+  "overlook": {
+    "mis": [
+      {
+        "w": "He overlooked about the mistake in the report.",
+        "r": "He overlooked the mistake in the report.",
+        "why": "Overlook là ngoại động từ nên không có 'about' trước tân ngữ."
+      },
+      {
+        "w": "The hotel room overlooks to the sea.",
+        "r": "The hotel room overlooks the sea.",
+        "why": "Overlook là ngoại động từ, không cần giới từ trước tân ngữ."
+      }
+    ],
+    "u": "Overlook có hai nghĩa không liên quan. Thứ nhất là không để ý thấy điều gì, như lỗi hay chi tiết, hoặc cố tình bỏ qua một lỗi: I will overlook it this time. Thứ hai là có tầm nhìn ra một nơi: our room overlooks the harbor. Cả hai đều là ngoại động từ nên không có giới từ theo sau. Đừng nhầm overlook với oversee: oversee nghĩa là giám sát, còn overlook thường nghĩa là bỏ sót."
+  },
+  "overnight": {
+    "mis": [
+      {
+        "w": "We stayed overnight at in a small hotel.",
+        "r": "We stayed overnight in a small hotel.",
+        "why": "Overnight ở đây là phó từ; không thêm 'at' trước nơi chốn."
+      },
+      {
+        "w": "I will send the parcel by overnight.",
+        "r": "I will send the parcel overnight.",
+        "why": "Overnight là phó từ chỉ cách thức giao hàng; không đi với 'by'."
+      }
+    ],
+    "u": "Overnight là phó từ và cũng là tính từ. Làm phó từ, nó nghĩa là trong đêm (stay overnight) hoặc theo dịch vụ giao hôm sau (ship it overnight). Làm tính từ, nó đứng trước danh từ: an overnight bag, overnight delivery, an overnight flight. Nó còn nghĩa là rất đột ngột, như become famous overnight. Thường viết liền, không có gạch nối. Overnight delivery hứa hẹn hàng đến vào sáng hôm sau."
+  },
+  "overpay": {
+    "mis": [
+      {
+        "w": "He overpayed the bill by mistake.",
+        "r": "He overpaid the bill by mistake.",
+        "why": "Pay là động từ bất quy tắc: quá khứ của overpay là overpaid."
+      },
+      {
+        "w": "He overpaid the bill with ten dollars.",
+        "r": "He overpaid the bill by ten dollars.",
+        "why": "Số tiền trả thừa được dẫn bằng 'by', không dùng 'with'."
+      }
+    ],
+    "u": "Overpay nghĩa là trả nhiều hơn mức cần thiết hoặc còn nợ, dù là hóa đơn, thuế hay lương nhân viên. Từ này theo mẫu bất quy tắc của pay: overpay, overpaid, overpaid. Bạn overpay for một sản phẩm, hoặc overpay by một số tiền: I overpaid by ten dollars. Overpaid cũng tả người lao động bị cho là lương cao hơn công sức. Công ty thường hoàn tiền hoặc ghi có khi khách trả thừa."
+  },
+  "oversee": {
+    "mis": [
+      {
+        "w": "The auditor oversaw a small error in the report.",
+        "r": "The auditor overlooked a small error in the report.",
+        "why": "Oversee nghĩa là giám sát; muốn nói bỏ sót điều gì thì dùng overlook."
+      },
+      {
+        "w": "She has overseen the factory since 2020, and she oversee 200 workers now.",
+        "r": "She has overseen the factory since 2020, and she oversees 200 workers now.",
+        "why": "Hiện tại đơn ngôi thứ ba số ít cần -s: oversees."
+      }
+    ],
+    "u": "Oversee là động từ trang trọng nghĩa là trông coi và chịu trách nhiệm về công việc do người khác làm. Quản lý oversee một dự án, thanh tra oversee an toàn, hội đồng quản trị oversee công ty. Động từ bất quy tắc: oversee, oversaw, overseen. Supervise gần như đồng nghĩa nhưng trực tiếp, hằng ngày hơn; oversee gợi vai trò rộng và cấp cao hơn. Đừng nhầm với overlook, nghĩa là bỏ sót."
+  },
+  "overview": {
+    "mis": [
+      {
+        "w": "Here is a short overview about our services.",
+        "r": "Here is a short overview of our services.",
+        "why": "Overview đi với 'of', không dùng 'about'."
+      },
+      {
+        "w": "Here is some overview of the plan.",
+        "r": "Here is an overview of the plan.",
+        "why": "Overview là danh từ đếm được nên dùng 'an', không dùng 'some'."
+      }
+    ],
+    "u": "Overview là bản mô tả ngắn gọn, chung, nêu các ý chính của một chủ đề mà không đi vào chi tiết. Đây là danh từ đếm được, thường dùng với give, provide hoặc offer và theo sau là of: an overview of the budget. Bài thuyết trình thường mở đầu bằng một slide overview. Từ này trang trọng hơn summary. Summary cô đọng điều đã nói, còn overview giới thiệu bức tranh tổng thể trước khi vào chi tiết."
+  },
+  "packet": {
+    "mis": [
+      {
+        "w": "Please buy a packet of rice at the shop.",
+        "r": "Please buy a bag of rice at the shop.",
+        "why": "Gạo bán theo túi hoặc bao; packet hợp với món nhỏ như bánh quy."
+      },
+      {
+        "w": "Each guest receives a welcome packet of informations.",
+        "r": "Each guest receives a welcome packet of information.",
+        "why": "Information là danh từ không đếm được, không thêm -s."
+      }
+    ],
+    "u": "Packet là hộp nhỏ hoặc gói giấy đựng một sản phẩm, như packet of crisps hay đường, hoặc một bộ giấy tờ phát cùng nhau, như welcome packet ở hội nghị. Tiếng Anh Anh dùng packet cho đồ ăn vặt, thuốc lá, bánh quy, nơi người Mỹ hay nói package hoặc pack. Trong công nghệ, packet là đơn vị dữ liệu. Packet nhỏ hơn parcel, vốn là thứ gửi qua bưu điện."
+  },
+  "pamphlet": {
+    "mis": [
+      {
+        "w": "The clinic gave me a pamphlet in healthy eating.",
+        "r": "The clinic gave me a pamphlet on healthy eating.",
+        "why": "Pamphlet về một chủ đề đi với 'on' hoặc 'about', không dùng 'in'."
+      },
+      {
+        "w": "He wrote a political pamphlets last year.",
+        "r": "He wrote a political pamphlet last year.",
+        "why": "Mạo từ 'a' cần danh từ số ít, nên pamphlets phải thành pamphlet."
+      }
+    ],
+    "u": "Pamphlet là quyển sách mỏng vài trang, thường đóng ghim, cung cấp thông tin hoặc trình bày một quan điểm. Phòng khám, hội đồng địa phương và tổ chức từ thiện hay phát loại này. Trong lịch sử, pamphlet thường mang các luận điểm chính trị. Nó dày dặn hơn leaflet, thường chỉ một tờ, và ít bóng bẩy hơn brochure, vốn quảng bá sản phẩm. Mẫu thường gặp: a pamphlet on hoặc about một chủ đề."
+  },
+  "paraphrase": {
+    "mis": [
+      {
+        "w": "Please paraphrase me the second paragraph.",
+        "r": "Please paraphrase the second paragraph.",
+        "why": "Paraphrase chỉ nhận tân ngữ trực tiếp; không có tân ngữ gián tiếp như 'me'."
+      },
+      {
+        "w": "Students must paraphrase the text with their own words.",
+        "r": "Students must paraphrase the text in their own words.",
+        "why": "Cụm cố định là 'in your own words', không dùng 'with'."
+      }
+    ],
+    "u": "Paraphrase nghĩa là diễn đạt ý của một văn bản hay lời nói bằng từ ngữ khác, thường để đơn giản hơn hoặc tránh sao chép. Đây là kỹ năng học thuật quan trọng: bạn paraphrase một nguồn rồi ghi trích dẫn. Paraphrase vừa là động từ vừa là danh từ, danh từ chỉ bản diễn đạt lại. Độ dài và chi tiết gần như giữ nguyên, khác với summarize là rút gọn. Chép lại và chỉ đổi vài từ không phải paraphrase thật sự."
+  },
+  "partial": {
+    "mis": [
+      {
+        "w": "We received a partially payment from the client.",
+        "r": "We received a partial payment from the client.",
+        "why": "Trước danh từ dùng tính từ partial; partially là phó từ."
+      },
+      {
+        "w": "He is partial for chocolate cake.",
+        "r": "He is partial to chocolate cake.",
+        "why": "Partial theo nghĩa 'thích' đi với giới từ 'to'."
+      }
+    ],
+    "u": "Partial là tính từ có hai nghĩa. Nghĩa thường gặp là không đầy đủ: a partial refund, partial payment, hoặc a partial view of the stage. Nghĩa thứ hai, thân mật hơn, là ưa thích điều gì và đi với to: I am partial to tea. Nó cũng có thể nghĩa là thiên vị, dù ít gặp hơn. Từ trái nghĩa là full và complete. Phó từ liên quan là partially."
+  },
+  "partially": {
+    "mis": [
+      {
+        "w": "The road is partial closed for repairs.",
+        "r": "The road is partially closed for repairs.",
+        "why": "Tính từ closed được bổ nghĩa bằng phó từ, nên dùng partially."
+      },
+      {
+        "w": "The report is partially of my work.",
+        "r": "The report is partly my work.",
+        "why": "Partially bổ nghĩa cho tính từ và động từ; trước cụm danh từ nên dùng partly."
+      }
+    ],
+    "u": "Partially là phó từ nghĩa là không hoàn toàn, thường bổ nghĩa cho tính từ hoặc quá khứ phân từ: partially closed, partially covered, partially responsible. Partly rất giống và được ưa dùng trước cụm danh từ hoặc khi nêu lý do: partly because of the weather. Đừng dùng partially trước danh từ; khi đó hãy dùng partial. Từ này trung tính và phổ biến trong tin tức, báo cáo."
+  },
+  "password": {
+    "mis": [
+      {
+        "w": "Please type your password in the box, then press the Enter.",
+        "r": "Please type your password in the box, then press Enter.",
+        "why": "Tên phím như Enter dùng không có 'the'."
+      },
+      {
+        "w": "I forgot my pass word, so I cannot log in.",
+        "r": "I forgot my password, so I cannot log in.",
+        "why": "Password viết liền thành một từ."
+      }
+    ],
+    "u": "Password là từ hoặc chuỗi ký tự bí mật dùng để chứng minh danh tính trên máy tính, website hay ứng dụng. Từ này viết liền một từ và đếm được: hãy dùng password khác nhau cho từng tài khoản. Các động từ hay đi kèm là enter, reset, change và forget. Passcode thường chỉ gồm số trên điện thoại. Vì an ninh, nên tránh password ngắn hoặc dễ đoán. Đừng nhầm với username, tên công khai bạn dùng để đăng nhập."
+  },
+  "payroll": {
+    "mis": [
+      {
+        "w": "He has been in the payroll since 2019.",
+        "r": "He has been on the payroll since 2019.",
+        "why": "Cụm cố định là 'on the payroll'."
+      },
+      {
+        "w": "The payroll are processed on the last Friday.",
+        "r": "The payroll is processed on the last Friday.",
+        "why": "Payroll là danh từ số ít, không đếm được nên đi với 'is'."
+      }
+    ],
+    "u": "Payroll là hệ thống và danh sách nhân viên của công ty cùng tiền lương công ty trả cho họ. Be on the payroll nghĩa là chính thức được thuê, còn bộ phận hoặc phần mềm payroll lo việc tính lương và thuế. Từ này thường không đếm được và đi với động từ số ít. Run payroll nghĩa là xử lý việc trả lương cho một kỳ. Payroll nói về cả quỹ lương của công ty, còn salary là khoản một người nhận được."
+  },
+  "penalize": {
+    "mis": [
+      {
+        "w": "Employees are penalized to arrive late.",
+        "r": "Employees are penalized for arriving late.",
+        "why": "Penalize đi với 'for' cộng danh từ hoặc V-ing, không đi với to-infinitive."
+      },
+      {
+        "w": "The company penalized me by a late report.",
+        "r": "The company penalized me for a late report.",
+        "why": "Penalize nêu lý do bằng 'for', không dùng 'by'."
+      }
+    ],
+    "u": "Penalize nghĩa là phạt ai hoặc đặt họ vào thế bất lợi vì vi phạm quy tắc hay mắc lỗi. Lý do theo sau for: students were penalized for plagiarism. Từ này hay ở dạng bị động, và hình phạt có thể là tiền phạt, mất điểm hoặc mất quyền lợi. Anh Anh viết penalise. Punish rộng và nặng hơn; penalize thường gợi hậu quả cụ thể, chính thức, như khoản phí trong hợp đồng."
+  },
+  "periodical": {
+    "mis": [
+      {
+        "w": "She subscribes on several periodicals.",
+        "r": "She subscribes to several periodicals.",
+        "why": "Subscribe đi với 'to', không dùng 'on'."
+      },
+      {
+        "w": "The library has many periodical.",
+        "r": "The library has many periodicals.",
+        "why": "Sau 'many' danh từ đếm được cần số nhiều -s."
+      }
+    ],
+    "u": "Periodical là tạp chí hoặc tập san xuất bản đều đặn, chẳng hạn hằng tuần, hằng tháng hay hằng quý. Từ này trang trọng và hay gặp trong thư viện, văn bản học thuật, nơi khu periodicals chứa các số mới nhất. Nó bao gồm cả tạp chí đại chúng lẫn tạp chí khoa học. Làm tính từ, periodical nghĩa là xảy ra định kỳ, nhưng periodic phổ biến hơn. Báo hằng ngày thường gọi là newspaper, không gọi periodical."
+  },
+  "periodically": {
+    "mis": [
+      {
+        "w": "The machines are inspected periodic.",
+        "r": "The machines are inspected periodically.",
+        "why": "Bổ nghĩa cho động từ cần phó từ periodically, không phải tính từ periodic."
+      },
+      {
+        "w": "We periodically are checking the system.",
+        "r": "We periodically check the system.",
+        "why": "Periodically chỉ hành động lặp lại nên dùng hiện tại đơn, không dùng tiếp diễn."
+      }
+    ],
+    "u": "Periodically là phó từ nghĩa là vào những lúc đều đặn hoặc lặp lại, dù không nhất thiết theo lịch cứng nhắc. Từ này phổ biến trong hướng dẫn và chính sách: back up your files periodically, hoặc review the policy periodically. Nó gợi tần suất thấp hơn often và đều đặn hơn occasionally. Thường đứng trước động từ chính hoặc cuối câu. Regularly nhấn mạnh quy luật cố định; from time to time thân mật hơn."
+  },
+  "permanently": {
+    "mis": [
+      {
+        "w": "The shop is closed permanent.",
+        "r": "The shop is closed permanently.",
+        "why": "Phó từ permanently bổ nghĩa cho tính từ closed."
+      },
+      {
+        "w": "She lives permanent in Hanoi.",
+        "r": "She lives permanently in Hanoi.",
+        "why": "Động từ được bổ nghĩa bằng phó từ, không dùng tính từ permanent."
+      }
+    ],
+    "u": "Permanently là phó từ nghĩa là theo cách kéo dài mãi mãi hoặc rất lâu. Từ này hay đi với closed, deleted, damaged hay employed: the file was permanently deleted. Trái nghĩa với temporarily. Lưu ý permanently trang trọng hơn for good, vốn là cách nói thân mật. Trong tin tuyển dụng, hợp đồng permanent là không thời hạn, còn hợp đồng fixed-term có ngày kết thúc."
+  },
+  "personalize": {
+    "mis": [
+      {
+        "w": "You can personalize to your phone with a photo.",
+        "r": "You can personalize your phone with a photo.",
+        "why": "Personalize là ngoại động từ; vật được tùy chỉnh là tân ngữ trực tiếp, không có 'to'."
+      },
+      {
+        "w": "We offer a personalize service for every client.",
+        "r": "We offer a personalized service for every client.",
+        "why": "Trước danh từ dùng quá khứ phân từ personalized, không dùng động từ gốc."
+      }
+    ],
+    "u": "Personalize nghĩa là thay đổi điều gì để hợp với nhu cầu của một người cụ thể hoặc mang tên họ, như personalized gift hay personalized email. Trong tiếp thị, personalized recommendations là gợi ý dựa trên hành vi của người dùng. Customize gần nghĩa nhưng nhấn vào việc chỉnh cài đặt; personalize nhấn vào việc làm cho mang tính cá nhân. Anh Anh viết personalise. Danh từ là personalization."
+  },
+  "pharmaceutical": {
+    "mis": [
+      {
+        "w": "He works in the pharmacy company.",
+        "r": "He works in the pharmaceutical company.",
+        "why": "Pharmacy là cửa hàng; tính từ đứng trước company là pharmaceutical."
+      },
+      {
+        "w": "Pharmaceutical are expensive to develop.",
+        "r": "Pharmaceuticals are expensive to develop.",
+        "why": "Khi là danh từ nghĩa là thuốc, dùng số nhiều pharmaceuticals."
+      }
+    ],
+    "u": "Pharmaceutical chủ yếu là tính từ nghĩa là liên quan đến sản xuất và bán thuốc: a pharmaceutical company, the pharmaceutical industry. Là danh từ, pharmaceuticals nghĩa là thuốc men, thường ở số nhiều. Từ này trang trọng và mang tính chuyên môn, nên nói thường ngày hay dùng medicine hoặc drugs. Đừng lẫn với pharmacy, tức cửa hàng thuốc hoặc ngành dược, hay pharmacist, người làm việc ở đó."
+  },
+  "pharmacy": {
+    "mis": [
+      {
+        "w": "I bought some medicine in pharmacist.",
+        "r": "I bought some medicine at the pharmacy.",
+        "why": "Pharmacist là người; cửa hàng là pharmacy, và 'at' hợp với cửa hàng."
+      },
+      {
+        "w": "I asked the pharmacy about the dosage.",
+        "r": "I asked the pharmacist about the dosage.",
+        "why": "Hỏi người, tức pharmacist; pharmacy là cửa hàng."
+      }
+    ],
+    "u": "Pharmacy là cửa hàng hoặc bộ phận trong bệnh viện nơi thuốc được bào chế và bán. Tiếng Anh Mỹ còn nói drugstore cho cửa hàng bán thêm đồ ăn vặt, mỹ phẩm; Anh Anh dùng chemist's. Người làm việc ở đó là pharmacist. Pharmacy cũng chỉ ngành dược: she studies pharmacy at university. Bạn thường go to the pharmacy để mua thuốc hoặc lấy thuốc theo đơn."
+  },
+  "physician": {
+    "mis": [
+      {
+        "w": "I need to physician about my cough.",
+        "r": "I need to see a physician about my cough.",
+        "why": "Physician là danh từ chỉ người; bạn 'see' hoặc 'consult' họ."
+      },
+      {
+        "w": "She is a physic at the city hospital.",
+        "r": "She is a physician at the city hospital.",
+        "why": "Physic không phải từ chỉ bác sĩ; danh từ đúng là physician."
+      }
+    ],
+    "u": "Physician là bác sĩ y khoa, nhất là người chữa bệnh bằng thuốc chứ không phải phẫu thuật. Từ này trang trọng, hay gặp trong văn bản, bối cảnh chính thức, như consult your physician hay a licensed physician. Trong lời nói hằng ngày ở Mỹ người ta nói doctor. Trong tiếng Anh Anh, physician là bác sĩ chuyên khoa nội, còn bác sĩ đa khoa là GP. Đừng nhầm với physicist, nhà khoa học nghiên cứu vật lý."
+  },
+  "pole": {
+    "mis": [
+      {
+        "w": "The cat climbed up the pool.",
+        "r": "The cat climbed up the pole.",
+        "why": "Pole và pool nghe gần nhau nhưng khác từ; pole là cây gậy dài."
+      },
+      {
+        "w": "She has a ski poles.",
+        "r": "She has a pair of ski poles.",
+        "why": "Gậy dùng theo cặp nên nói 'a pair of ski poles'; 'a' không đi với danh từ số nhiều."
+      }
+    ],
+    "u": "Pole là thanh gỗ hoặc kim loại dài, mảnh, thường tròn, đứng thẳng hoặc cầm tay: flagpole, telephone pole, fishing pole hay ski pole. Nó cũng là một trong hai cực của Trái Đất, North Pole và South Pole, và một trong hai cực của nam châm. Post thường ngắn và dày hơn. Pole phát âm giống poll, nghĩa là cuộc khảo sát, nên cẩn thận chính tả."
+  },
+  "polish": {
+    "mis": [
+      {
+        "w": "I need to polish my English skill.",
+        "r": "I need to polish my English skills.",
+        "why": "Skills dùng chung chung sau sở hữu cách thường ở số nhiều."
+      },
+      {
+        "w": "She polished her shoes by a cloth.",
+        "r": "She polished her shoes with a cloth.",
+        "why": "Dùng 'with' cho dụng cụ dùng để làm việc gì."
+      }
+    ],
+    "u": "Polish làm động từ nghĩa là chà một bề mặt cho nhẵn bóng, như giày hay đồ bạc, hoặc cải thiện điều gì bằng những chỉnh sửa nhỏ cuối cùng, như bài nói hay kỹ năng. Polish up là dạng cụm động từ hay gặp: I need to polish up my English. Làm danh từ, nó là chất đánh bóng, như shoe polish. Viết hoa chữ P và phát âm khác, Polish nghĩa là thuộc Ba Lan."
+  },
+  "popularity": {
+    "mis": [
+      {
+        "w": "The popularity of this song is increase.",
+        "r": "The popularity of this song is increasing.",
+        "why": "Sau 'is' dùng dạng -ing: is increasing."
+      },
+      {
+        "w": "The game has great popularity between teenagers.",
+        "r": "The game has great popularity among teenagers.",
+        "why": "Among dùng cho một nhóm người chung, không dùng 'between'."
+      }
+    ],
+    "u": "Popularity là trạng thái được nhiều người yêu thích, ngưỡng mộ hoặc sử dụng. Đây là danh từ không đếm được và đi với gain, enjoy, lose hay grow: the app gained popularity quickly. Dùng of cho đối tượng và among cho nhóm người: its popularity among young users. Tính từ là popular, động từ là popularize. Fame là sự nổi tiếng rộng khắp, còn popularity là việc được yêu mến."
+  },
+  "portfolio": {
+    "mis": [
+      {
+        "w": "She showed her portfolios to the interviewer.",
+        "r": "She showed her portfolio to the interviewer.",
+        "why": "Một người có một portfolio tác phẩm; số nhiều không tự nhiên ở đây."
+      },
+      {
+        "w": "His investment portfolio contains of five stocks.",
+        "r": "His investment portfolio contains five stocks.",
+        "why": "Contain là ngoại động từ, không có 'of'; 'consist of' mới đi với 'of'."
+      }
+    ],
+    "u": "Portfolio có hai nghĩa chính. Với nghệ sĩ, nhà thiết kế, nhà văn và sinh viên, đó là bộ sưu tập sản phẩm mẫu đưa cho nhà tuyển dụng hoặc khách hàng. Trong tài chính, đó là nhóm các khoản đầu tư của một người hoặc quỹ, có thể cân bằng, đa dạng hoặc rủi ro. Số nhiều là portfolios. Portfolio manager là người quản lý các khoản đầu tư. Nó cũng có thể chỉ dải sản phẩm công ty bán."
+  },
+  "postage": {
+    "mis": [
+      {
+        "w": "We charge a postage of five dollars.",
+        "r": "We charge five dollars for postage.",
+        "why": "Postage không đếm được nên không dùng với 'a'."
+      },
+      {
+        "w": "The postages are included in the price.",
+        "r": "The postage is included in the price.",
+        "why": "Postage không đếm được và không có số nhiều."
+      }
+    ],
+    "u": "Postage là số tiền bạn trả để gửi thư hoặc bưu kiện qua bưu điện, hoặc những con tem chứng tỏ bạn đã trả. Từ này không đếm được và đi với động từ số ít: postage is extra. Ở Mỹ bạn thường thấy postage and handling trên đơn đặt hàng. Postage paid nghĩa là người gửi đã trả. Shipping rộng hơn và gồm mọi công ty vận chuyển, còn postage chỉ về dịch vụ bưu chính."
+  },
+  "postpone": {
+    "mis": [
+      {
+        "w": "The launch was postponed since next month.",
+        "r": "The launch was postponed until next month.",
+        "why": "Sau postpone, mốc thời gian mới ở tương lai được dẫn bằng 'until', không dùng 'since'."
+      },
+      {
+        "w": "We postponed to hold the event.",
+        "r": "We postponed holding the event.",
+        "why": "Postpone theo sau là tân ngữ hoặc V-ing, không phải to-infinitive."
+      }
+    ],
+    "u": "Postpone nghĩa là dời một sự kiện hay hành động sang thời điểm muộn hơn. Theo sau là danh từ hoặc V-ing: postpone the meeting, postpone signing the contract. Thời điểm mới được dẫn bằng until hoặc to. Postponed hàm ý sự kiện vẫn sẽ diễn ra, còn cancelled nghĩa là hủy hẳn. Put off là cụm động từ thân mật, còn reschedule nghĩa là đặt lại lịch."
+  },
+  "premium": {
+    "mis": [
+      {
+        "w": "He pays the premium of insurance every month.",
+        "r": "He pays the insurance premium every month.",
+        "why": "Trong tiếng Anh loại đứng trước: insurance premium, không nói premium of insurance."
+      },
+      {
+        "w": "This is a very premium product.",
+        "r": "This is a premium product.",
+        "why": "Premium đã mang nghĩa chất lượng cao nên thường không đi với 'very'."
+      }
+    ],
+    "u": "Premium có ba cách dùng phổ biến. Là danh từ, nó là khoản tiền bạn trả đều đặn cho một hợp đồng bảo hiểm. Là tính từ, nó nghĩa là chất lượng cao hơn, thường giá cũng cao hơn: premium coffee, a premium subscription. Cụm pay a premium nghĩa là trả thêm tiền cho thứ đặc biệt. At a premium nghĩa là khan hiếm nên đắt. Đây là từ rất hay gặp trong kinh doanh và tiếp thị."
+  },
+  "prescription": {
+    "mis": [
+      {
+        "w": "You need a prescription for to buy this medicine.",
+        "r": "You need a prescription to buy this medicine.",
+        "why": "Mục đích sau 'need a prescription' chỉ dùng 'to'; 'for to' không đúng tiếng Anh."
+      },
+      {
+        "w": "The doctor prescripted me some antibiotics.",
+        "r": "The doctor prescribed me some antibiotics.",
+        "why": "Động từ là prescribe; danh từ của nó là prescription."
+      }
+    ],
+    "u": "Prescription là đơn do bác sĩ viết cho phép bệnh nhân nhận một loại thuốc nhất định. Bạn fill a prescription tại hiệu thuốc, và prescription drugs chỉ mua được khi có đơn. Động từ là prescribe, còn thuốc bán tự do (over-the-counter) không cần đơn. Anh Anh nói on prescription cho thuốc phải có đơn mới mua được. Prescription đếm được: the doctor wrote two prescriptions."
+  },
+  "process": {
+    "mis": [
+      {
+        "w": "The process of to learn a language takes time.",
+        "r": "The process of learning a language takes time.",
+        "why": "Sau giới từ 'of' dùng V-ing, không dùng to-infinitive."
+      },
+      {
+        "w": "We are in process to update the website.",
+        "r": "We are in the process of updating the website.",
+        "why": "Cụm cố định là 'in the process of' cộng V-ing."
+      }
+    ],
+    "u": "Process làm danh từ là chuỗi các bước để đạt một kết quả, như quy trình tuyển dụng hay quy trình sản xuất. Từ này đếm được và hay đi với the: the process of learning. In the process of nghĩa là đang ở giữa việc làm gì. Làm động từ, nó nghĩa là xử lý dữ liệu hoặc yêu cầu: we process payments. Trong tiếng Anh Mỹ, danh từ này nhấn trọng âm ở âm tiết đầu."
+  },
+  "professionally": {
+    "mis": [
+      {
+        "w": "Please dress professional for the meeting.",
+        "r": "Please dress professionally for the meeting.",
+        "why": "Động từ cần phó từ, nên dùng professionally, không dùng tính từ professional."
+      },
+      {
+        "w": "He plays football professional.",
+        "r": "He plays football professionally.",
+        "why": "Professionally là phó từ nghĩa là chơi như một nghề có lương."
+      }
+    ],
+    "u": "Professionally là phó từ có hai nét nghĩa. Nó có thể chỉ cách làm thể hiện kỹ năng và phép lịch sự ở nơi làm việc: she handled the complaint professionally. Nó cũng có thể nghĩa là làm như một nghề có lương, không phải sở thích: he plays tennis professionally. Nó còn bổ nghĩa cho tính từ, như professionally trained hoặc professionally done. Trái nghĩa của nét nghĩa đầu là unprofessionally; của nét nghĩa sau là as an amateur."
+  },
+  "promotional": {
+    "mis": [
+      {
+        "w": "The shop has a promotion price this week.",
+        "r": "The shop has a promotional price this week.",
+        "why": "Trước 'price' dùng tính từ promotional, không dùng danh từ promotion."
+      },
+      {
+        "w": "She got a promotional at work.",
+        "r": "She got a promotion at work.",
+        "why": "Promotion là danh từ chỉ việc lên chức; promotional là tính từ."
+      }
+    ],
+    "u": "Promotional là tính từ liên quan đến quảng cáo hoặc làm cho sản phẩm được biết đến hơn: a promotional offer, promotional materials hay a promotional price. Nó mô tả hoạt động và vật phẩm tạm thời hơn là cố định. Đừng dùng cho việc thăng chức; đó là a promotion, danh từ. Promotional gifts là quà tặng miễn phí để thu hút khách, như bút hay túi in logo."
+  },
+  "promptly": {
+    "mis": [
+      {
+        "w": "Please answer promptly to my email.",
+        "r": "Please answer my email promptly.",
+        "why": "Answer nhận tân ngữ trực tiếp, không có 'to'; promptly đặt sau tân ngữ."
+      },
+      {
+        "w": "The meeting begins prompt at nine.",
+        "r": "The meeting begins promptly at nine.",
+        "why": "Phó từ promptly bổ nghĩa cho động từ begins."
+      }
+    ],
+    "u": "Promptly là phó từ có hai cách dùng. Nó nghĩa là nhanh chóng, không chậm trễ: respond promptly, pay promptly. Nó cũng nghĩa là đúng giờ đã định: the class starts promptly at eight. Tính từ prompt mô tả hành động nhanh, như a prompt reply. Promptly phổ biến trong email và thông báo công việc. Immediately mạnh hơn, nghĩa là ngay lập tức, còn promptly cho phép chờ một chút hợp lý."
+  },
+  "proofread": {
+    "mis": [
+      {
+        "w": "I proofreaded the report twice.",
+        "r": "I proofread the report twice.",
+        "why": "Proofread là động từ bất quy tắc: quá khứ là proofread, đọc như 'red'."
+      },
+      {
+        "w": "Please proofread for the typos in this letter.",
+        "r": "Please proofread this letter for typos.",
+        "why": "Proofread nhận văn bản làm tân ngữ; lỗi cần tìm đi sau 'for'."
+      }
+    ],
+    "u": "Proofread nghĩa là đọc kỹ một bài viết và sửa lỗi chính tả, ngữ pháp, dấu câu trước khi xuất bản hoặc gửi đi. Động từ có dạng bất quy tắc: proofread, proofread, proofread. Anh Anh đôi khi viết proof-read. Proofreading là bước kiểm tra cuối, còn editing xử lý thay đổi sâu hơn về nội dung, cấu trúc và văn phong. Nhiều người nhờ đồng nghiệp proofread một email quan trọng."
+  },
+  "provider": {
+    "mis": [
+      {
+        "w": "They are the main provider for internet services.",
+        "r": "They are the main provider of internet services.",
+        "why": "Provider đi với 'of' cho thứ được cung cấp."
+      },
+      {
+        "w": "I changed my internet providor last month.",
+        "r": "I changed my internet provider last month.",
+        "why": "Danh từ kết thúc bằng -er: provider."
+      }
+    ],
+    "u": "Provider là người hoặc công ty cung cấp thứ gì đó, nhất là dịch vụ như internet, điện hay chăm sóc sức khỏe. Mẫu thường gặp: service provider, healthcare provider và a provider of training. Từ này cũng có thể chỉ thành viên gia đình kiếm tiền nuôi người khác. Supplier phổ biến hơn với hàng hóa, còn provider phổ biến hơn với dịch vụ. Động từ là provide, đi với to hoặc with."
+  },
+  "publicize": {
+    "mis": [
+      {
+        "w": "We publicize about the sale on social media.",
+        "r": "We publicize the sale on social media.",
+        "why": "Publicize là ngoại động từ, không cần 'about'."
+      },
+      {
+        "w": "The event was well publicity.",
+        "r": "The event was well publicized.",
+        "why": "Sau 'was well' dùng quá khứ phân từ publicized, không dùng danh từ publicity."
+      }
+    ],
+    "u": "Publicize nghĩa là làm cho công chúng biết đến điều gì, thường để thu hút sự chú ý hay khách hàng: publicize một sự kiện, sản phẩm hoặc kết quả. Danh từ liên quan là publicity (không đếm được); trong cụm như a widely publicized case thì dùng dạng publicized. Publicize có thể trung tính hoặc tiêu cực, như a publicized scandal. Advertise thường tốn tiền, còn publicize có thể dùng tin tức hay mạng xã hội miễn phí."
+  },
+  "purchaser": {
+    "mis": [
+      {
+        "w": "The purchaser must to sign the form.",
+        "r": "The purchaser must sign the form.",
+        "why": "Sau động từ khuyết thiếu dùng động từ nguyên mẫu không 'to'."
+      },
+      {
+        "w": "He is a purchaser from this book.",
+        "r": "He is a purchaser of this book.",
+        "why": "Purchaser đi với 'of' cho món hàng được mua."
+      }
+    ],
+    "u": "Purchaser là người hoặc tổ chức mua thứ gì, nhất là trong bối cảnh trang trọng hoặc pháp lý, như hợp đồng mua bán hay giao dịch bất động sản. Buyer là từ dùng hằng ngày. Trong công ty, purchaser còn có thể chỉ nhân viên đặt mua vật tư. Động từ liên quan là purchase, và danh từ purchase là món đã mua hoặc hành động mua. Purchaser chỉ người mua, không chỉ cửa hàng."
+  },
+  "purser": {
+    "mis": [
+      {
+        "w": "The purser works in the airplane.",
+        "r": "The purser works on the airplane.",
+        "why": "Thành viên phi hành đoàn làm việc 'on' máy bay hoặc tàu, không dùng 'in'."
+      },
+      {
+        "w": "Please ask to the purser for help.",
+        "r": "Please ask the purser for help.",
+        "why": "Ask nhận người trực tiếp, không có 'to'."
+      }
+    ],
+    "u": "Purser là sĩ quan trên tàu hoặc máy bay chịu trách nhiệm về sự thoải mái của hành khách, công việc hành chính và đội tiếp viên. Trên máy bay, purser là thành viên cấp cao của đội tiếp viên, dưới cơ trưởng nhưng trên các tiếp viên. Trên tàu, purser theo truyền thống lo tiền bạc và giấy tờ. Từ này trang trọng và chủ yếu xuất hiện trong du lịch và hàng không. Đây là danh từ đếm được, viết thường chữ p."
+  },
+  "quarterly": {
+    "mis": [
+      {
+        "w": "We hold a meeting on quarterly basis.",
+        "r": "We hold a meeting on a quarterly basis.",
+        "why": "Cụm cố định cần mạo từ: on a quarterly basis."
+      },
+      {
+        "w": "The report is published every quarterly.",
+        "r": "The report is published quarterly.",
+        "why": "Quarterly ở đây đã là phó từ nên không cần 'every'."
+      }
+    ],
+    "u": "Quarterly nghĩa là xảy ra hoặc xuất bản mỗi ba tháng một lần, bốn lần một năm. Làm tính từ, nó đứng trước danh từ: quarterly report, quarterly meeting. Làm phó từ, nó đứng sau động từ: the magazine is published quarterly. Quarter là khoảng ba tháng của năm tài chính, và danh từ quarterly còn là tạp chí ra bốn kỳ mỗi năm. Công ty công bố quarterly earnings. Đừng thêm every trước quarterly."
+  },
+  "query": {
+    "mis": [
+      {
+        "w": "I have a query for your service.",
+        "r": "I have a query about your service.",
+        "why": "Query về một vấn đề đi với 'about' hoặc 'regarding', không dùng 'for'."
+      },
+      {
+        "w": "Please query to me if you have questions.",
+        "r": "Please send me your query if you have questions.",
+        "why": "Query làm động từ nghĩa là đặt nghi vấn; muốn nhờ giúp thì dùng danh từ với 'send'."
+      }
+    ],
+    "u": "Query là câu hỏi, nhất là câu hỏi xin thông tin hoặc bày tỏ nghi ngờ, thường gửi cho công ty hay bộ phận hỗ trợ: a customer query, a billing query. Trong tin học, nó là yêu cầu lấy dữ liệu từ cơ sở dữ liệu hoặc công cụ tìm kiếm. Làm động từ, query nghĩa là đặt câu hỏi xem điều gì có đúng không: the accountant queried the invoice. Query trang trọng hơn question và phổ biến trong bối cảnh dịch vụ và kỹ thuật."
+  }
+}
