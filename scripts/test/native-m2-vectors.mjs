@@ -222,6 +222,14 @@ const RV = T1.vectorJson, RD = T1.rigJson;
   for (const f of ['web/js/listening.js', 'web/js/reading.js', 'web/js/qengine.js', 'web/js/qtips.js', 'web/js/choice-kit.js', 'web/js/lexis.js']) for (const ln of rd(f).split('\n')) for (const m of ln.matchAll(/\bt\('((?:[^'\\]|\\.)*)'/g)) keys8.add(m[1].replace(/\\(['\\])/g, '$1'));
   const miss8 = [...keys8].filter(k => !have8.has(k));
   ok(miss8.length === 0, `M4 strings: ${keys8.size} t() keys of the P06 screens are mapped in native/shared/strings.json${miss8.length ? ' – missing: ' + miss8.slice(0, 3).join(' | ') : ''}`);
+  { // Kotlin L10nKey: KHÔNG enum (JVM 64 KB/method: <clinit> của enum 1 hằng/chuỗi vỡ ở ~3450 chuỗi) → lớp chia khúc, mỗi lớp ≤ 700 hằng (≈ 9 KB constructor), tổng khớp strings.json
+    const kt = fs.readFileSync(R('native/android/design/src/main/kotlin/com/lexkite/app/i18n/generated/L10nKey.kt'), 'utf8'), ids = Object.keys(JSON.parse(fs.readFileSync(R('native/shared/strings.json'), 'utf8'))).filter(k => !k.startsWith('_')), bk = [];
+    if (/enum\s+class\s+L10nKey/.test(kt)) bk.push('L10nKey lại là enum (vượt 64 KB <clinit> khi nhiều chuỗi)');
+    const per = kt.split(/^open class /m).slice(1).map(b => (b.match(/^    val \w+ = L10nKey\(/gm) || []).length);
+    if (per.some(n => n > 700)) bk.push('có lớp L10nKeys > 700 hằng: ' + per.join(','));
+    if (per.reduce((a, b) => a + b, 0) !== ids.length) bk.push(`số hằng ${per.reduce((a, b) => a + b, 0)} ≠ số chuỗi ${ids.length}`);
+    ok(bk.length === 0, `L10nKey.kt: ${ids.length} chuỗi chia ${per.length} lớp (≤ 700 hằng/lớp), không enum – dưới giới hạn method 64 KB${bk.length ? ' – ' + bk.join('; ') : ''}`);
+  }
 }
 
 // ---- 9) M4 speak vectors (P07 speaking & pronunciation: #/speak #/speaking #/pron #/say #/reflex #/rtype #/roleplay #/handsfree) ----
