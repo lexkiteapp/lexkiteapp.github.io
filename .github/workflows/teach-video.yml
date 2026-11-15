@@ -37,7 +37,7 @@ jobs:
     needs: gate
     if: needs.gate.outputs.go == 'true'
     runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
-    timeout-minutes: 5
+    timeout-minutes: 8   # 15/11: đo 10 lượt – bước 'Specs regenerate' 87–300 s tuỳ runner; 5 phút bị cắt (conclusion = cancelled → gate đỏ oan). Nay các kiểm độc lập chạy song song + trần 8 phút
     outputs: { list: '${{ steps.m.outputs.list }}', par: '${{ steps.p.outputs.par }}' }
     steps:
       - uses: actions/checkout@v4
@@ -46,11 +46,15 @@ jobs:
         run: |
           python3 scripts/video/teach2d/gen.py -q
           git status --porcelain content/video/teach2d/eps | grep . && { echo "::error::eps/*.json differ from gen.py output (pilots.json + auto.json) – regenerate and review"; exit 1; }
-          python3 scripts/test/teach2d-gen.py && python3 scripts/test/teach2d-autopub.py && python3 scripts/test/teach2d-store.py   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
-          python3 scripts/video/teach2d/mix.py --check   # 0-credit build bank: mix.json regenerates identically, 0 repeats in the window, diversity >= 70
-          python3 scripts/test/teach2d-mix.py
-          node scripts/video/teach2d/native-qa.mjs --online   # clip L1 (docs/VIDEO-TEACH2D.md): chữ bản địa theo i18n-qa + dịch ngược; đỏ = không render
-          python3 scripts/video/teach2d/publish.py --check   # publish block of every episode (title / platforms) valid – docs/specs/video-production-v2.md §2
+          # 15/11: các kiểm dưới đây độc lập nhau → chạy song song (mỗi nhóm giữ nguyên lệnh), đợi hết rồi đỏ nếu BẤT KỲ nhóm nào đỏ (không bỏ kiểm nào)
+          pids=(); names=()
+          run() { n="$1"; shift; ( "$@" ) >"/tmp/pq-$n.log" 2>&1 & pids+=($!); names+=("$n"); }
+          run gen   bash -c 'python3 scripts/test/teach2d-gen.py && python3 scripts/test/teach2d-autopub.py && python3 scripts/test/teach2d-store.py'   # batch generator gates (data / level / hook / dup) + spelling syllables, regression cases
+          run mix   bash -c 'python3 scripts/video/teach2d/mix.py --check && python3 scripts/test/teach2d-mix.py'   # 0-credit build bank: mix.json regenerates identically, 0 repeats in the window, diversity >= 70
+          run qa    node scripts/video/teach2d/native-qa.mjs --online   # clip L1 (docs/VIDEO-TEACH2D.md): chữ bản địa theo i18n-qa + dịch ngược; đỏ = không render
+          run pub   python3 scripts/video/teach2d/publish.py --check   # publish block of every episode (title / platforms) valid – docs/specs/video-production-v2.md §2
+          bad=0; for i in "${!pids[@]}"; do if wait "${pids[$i]}"; then echo "✓ ${names[$i]}"; else echo "::error::✗ ${names[$i]}"; bad=1; fi; echo "::group::log ${names[$i]}"; cat "/tmp/pq-${names[$i]}.log"; echo "::endgroup::"; done
+          [ "$bad" = 0 ] || exit 1
           python3 - <<'PY'
           import json, glob, sys
           R = json.load(open('content/video/teach2d/reviewed.json'))['verdicts']; bad = []

@@ -36,6 +36,7 @@ jobs:
     timeout-minutes: 30
     strategy:
       fail-fast: false
+      max-parallel: 3   # 15/11: luật chủ 13/11 – video ≤ 3 máy khi còn việc khác (10 job video-motion chiếm 10/40 máy, PR xếp hàng 260 job)
       matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}' }
     env: { SPEC: 'content/video/cine/news/${{ github.event.inputs.dir || ''templates-v1'' }}/${{ matrix.t }}.json' }
     steps:
@@ -76,6 +77,7 @@ jobs:
     timeout-minutes: 60
     strategy:
       fail-fast: false
+      max-parallel: 3   # 15/11: luật chủ 13/11 – video ≤ 3 máy khi còn việc khác (10 job video-motion chiếm 10/40 máy, PR xếp hàng 260 job)
       matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}', i: '${{ fromJSON(needs.setup.outputs.shards) }}' }
     env:
       SPEC: content/video/cine/news/${{ github.event.inputs.dir || 'templates-v1' }}/${{ matrix.t }}.json
@@ -122,6 +124,7 @@ jobs:
     timeout-minutes: 40
     strategy:
       fail-fast: false
+      max-parallel: 3   # 15/11: luật chủ 13/11 – video ≤ 3 máy khi còn việc khác (10 job video-motion chiếm 10/40 máy, PR xếp hàng 260 job)
       matrix: { t: '${{ fromJSON(needs.setup.outputs.list) }}' }
     env:
       SPEC: content/video/cine/news/${{ github.event.inputs.dir || 'templates-v1' }}/${{ matrix.t }}.json

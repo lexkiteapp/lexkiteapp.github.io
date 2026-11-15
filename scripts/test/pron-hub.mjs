@@ -20,6 +20,7 @@ assert.deepEqual(d.groups.flatMap(g => g.items.map(x => x.id)).sort(), [...ids].
 for (const x of d.groups.flatMap(g => g.items)) assert.equal(x.href, '#/pron/' + encodeURIComponent(x.id));
 // e: 0 vẫn là "có bản ghi" (chip + vòng đếm mọi bài đã chấm, như bản cũ); tick/hàng ✓ chỉ khi điểm > 0
 assert.equal(d.count, '4/62'); assert.ok(Math.abs(d.pct - 4 / 62 * 100) < 1e-9);
+assert.match(html, /role="progressbar"[^>]*aria-valuenow="6"[^>]*aria-label="4\/62 · Đã xong"/, 'thanh tiến độ tổng (4/62 ≈ 6%) có role + nhãn đọc được'); assert.match(html, /style="width:6\.5%"/);
 assert.equal(d.back, '#/skills'); assert.match(html, /data-href="#\/skills"/); assert.deepEqual(d.groups.map(g => g.count), ['1/12', '0/8', '1/24', '1/6', '0/12']); // e:0 không tính là xong
 // âm kế tiếp = bài đầu chưa có bản ghi: /ɪ/ (iː đã có, ɪ chưa)
 const nx = PRON.find(x => !['iː', 'p', 'final-consonants', 'e'].includes(x.id));
