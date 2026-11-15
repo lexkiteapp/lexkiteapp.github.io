@@ -68,6 +68,7 @@ const INIT = cfg => {
     stop() { if (this._text == null) { this._done = true; setTimeout(() => this.onend && this.onend({}), 0); return; } this._t.push(setTimeout(() => this._final(), window.__FIN)); }
     abort() { this._done = true; this._t.forEach(t => { clearTimeout(t); clearInterval(t); }); }
   }
+  MockSR.prototype.processLocally = false; // call.js (probe) chỉ coi là "nhận dạng trên máy" khi prototype có processLocally; thiếu → chế độ 'ask' (hỏi cách nhận dạng) và phase không bao giờ sang 'listen'
   window.__EP = cfg.ep; window.__FIN = cfg.fin;
   window.SpeechRecognition = window.webkitSpeechRecognition = MockSR;
   try { const ss = window.speechSynthesis; ss.speak = u => setTimeout(() => { if (u.onstart) u.onstart({}); if (u.onend) u.onend({}); }, 40); ss.getVoices = () => []; } catch (e) { /* */ }
