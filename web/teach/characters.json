@@ -1,4 +1,12 @@
 {
+  "hd": [
+    "talk",
+    "listen",
+    "point",
+    "cheer",
+    "encourage"
+  ],
+  "_hd": "Tư thế có thêm <pose>-hd.mp4 (2×): Call + chỗ giáo viên Chars.slot cỡ l/xl khi devicePixelRatio ≥ 2. Đổi danh sách = sửa regex Chars.clip (cổng characters-gate so khớp) rồi chạy teach-build.",
   "_note": "NGUỒN DUY NHẤT nhân vật Lexkite (chủ 28/10): đúng 2 giáo viên 2D phông xanh, trang phục 1 – Ama (cô) + Carlos (thầy). Mọi màn hình/add-on/video lấy ảnh-clip qua đây (web/js/characters.js · Python: scripts/teach/registry.py). Cổng CI: scripts/test/characters-gate.mjs. Dựng: scripts/teach/build.py trên CI teach-build.yml. docs/CHARACTERS.md.",
   "version": 2,
   "frame": {
@@ -88,7 +96,10 @@
         },
         "point": {
           "src": "ga11_point",
-          "still_frame": 55
+          "note": "chỉ dùng khung 0–53: từ khung 55 Kling vẽ thêm tay thứ hai đè tay áo, lỗ xanh 64–79, tay áo rách 80–92 (đứng yên, nhoè không cứu được)",
+          "to": 53,
+          "still": 53,
+          "still_frame": 53
         },
         "empathy": {
           "src": "ga11_empathy",
@@ -219,6 +230,10 @@
       "sha256": "c19499dcc88fc705901f87b67c116c4e2350dbd79cf8bccd28d9ded5a4fe7c16",
       "bytes": 6928
     },
+    "ama/cheer-hd.mp4": {
+      "sha256": "3d4d4223aa97ca4765a1611e25528143178b4a99d2fa8410261b1411d802f625",
+      "bytes": 479191
+    },
     "ama/cheer.mp4": {
       "sha256": "bf15b71e9c813bbaf34a46ad147ad28ec0ae799bb0eb3f888882f97094fea7ab",
       "bytes": 210311
@@ -230,6 +245,10 @@
     "ama/empathy.mp4": {
       "sha256": "ed0b8fbbe53c547c2104ff6bc0d650d804244287510b5896a5ecb12b58953c42",
       "bytes": 100653
+    },
+    "ama/encourage-hd.mp4": {
+      "sha256": "07b14fdba9bb992915791770c38475de17eb39862dc2365e576a149285a5d5d2",
+      "bytes": 358216
     },
     "ama/encourage.mp4": {
       "sha256": "f5629b49198e0565960ca33ec715eb253244e79c852481ab6bd13baa55db64da",
@@ -278,6 +297,10 @@
     "ama/listen.mp4": {
       "sha256": "3364fb5bc8aca87dd1f27b11383c15a7d6df159c903ff6be3fab7845fed421d5",
       "bytes": 107766
+    },
+    "ama/point-hd.mp4": {
+      "sha256": "5f9fc01945c8c8c8104caeca1fb92d092d1ea7dab4a5a33cd7cf176960cd62af",
+      "bytes": 455061
     },
     "ama/point.mp4": {
       "sha256": "518c6eefee30967df7631861112ede73411400e05005c4215a4c7d59f6127cdc",
@@ -387,6 +410,10 @@
       "sha256": "406497abae397c473f0304c8ec8be19e41315c4b31bd53ed6bfbb6cc26dd204b",
       "bytes": 6200
     },
+    "carlos/cheer-hd.mp4": {
+      "sha256": "716f1e3e937def7fa8ebdfbf647d19dfe16a8d8e4474694a8685fbff28259ca0",
+      "bytes": 638443
+    },
     "carlos/cheer.mp4": {
       "sha256": "b09ba189f73535d4d262d07b0063502478b026fd8608a64e955c7c5fbfa34c8c",
       "bytes": 240912
@@ -398,6 +425,10 @@
     "carlos/empathy.mp4": {
       "sha256": "53498d8abd67fe4a7979947c267d5744b7c3c25c31064732831a187237108f73",
       "bytes": 123790
+    },
+    "carlos/encourage-hd.mp4": {
+      "sha256": "55b0be8ed1ba781d3659f5a9769c5f3609bd788313de6c9e70e3b93bfb685525",
+      "bytes": 344175
     },
     "carlos/encourage.mp4": {
       "sha256": "70b408a5c91527d59ce94a837eb49945708b55a859679e4759f28c33a849b4b1",
@@ -446,6 +477,10 @@
     "carlos/listen.mp4": {
       "sha256": "df977f7634696a3c7d9e2d450066cba147a6b546e2b724855a8758d91fcf475d",
       "bytes": 49253
+    },
+    "carlos/point-hd.mp4": {
+      "sha256": "a669d61c9f3fa7f4ffa2c632eefeecfb5681b2e6ff8f0dcba5396bdd898aedb1",
+      "bytes": 418769
     },
     "carlos/point.mp4": {
       "sha256": "85950cbd2795aff750d391394a6252465a659156e34d6d55b9ead2af244d5f00",

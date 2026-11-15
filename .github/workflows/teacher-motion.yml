@@ -1,0 +1,53 @@
+# 🎞️ Cổng chuyển động giáo viên trên WebKit (Safari) – clip WebGL chỗ giáo viên mượt + viền nét (live 3/11: tay Ama giật, viền méo trên iPhone).
+# macOS vì WebKit trên Linux không giải mã H.264. PR tự chụp thêm ảnh TRƯỚC từ nhánh base (không chặn); chạy tay với before=<ref>.
+name: teacher-motion
+on:
+  pull_request:
+    paths: ['web/js/teacher-slot.js', 'web/js/teacher-live.js', 'web/js/characters.js', 'scripts/teach/motion_smear.py', 'web/teach/**', 'scripts/test/teacher-motion-webkit.mjs', '.github/workflows/teacher-motion.yml']
+  workflow_dispatch:
+    inputs:
+      before: { description: 'ref để chụp ảnh trước (vd. main), trống = bỏ qua', required: false, default: '' }
+permissions:
+  contents: read
+concurrency: { group: 'teacher-motion-${{ github.ref }}', cancel-in-progress: true }   # ci-policy: lượt cũ cùng nhánh bị huỷ
+jobs:
+  clips:   # khung vung tay méo đo trên chính file clip (không cần trình duyệt)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cài công cụ
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip install -q numpy opencv-python-headless
+      - if: github.event_name == 'pull_request'   # số đo TRƯỚC = clip ở nhánh base (không chặn)
+        uses: actions/checkout@v4
+        with: { ref: "${{ github.base_ref }}", path: before-src, sparse-checkout: web/teach }
+      - name: Số đo trước (không chặn)
+        if: github.event_name == 'pull_request'
+        run: python3 scripts/teach/motion_smear.py before-src/web/teach --report
+      - name: Chạy cổng
+        run: python3 scripts/teach/motion_smear.py web/teach
+  webkit:
+    runs-on: macos-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Cài playwright webkit
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.48.2
+          npx playwright install webkit >/dev/null
+      - if: inputs.before != '' || github.event_name == 'pull_request'   # PR: ảnh trước = nhánh base (workflow chỉ chạy khi file giáo viên đổi)
+        uses: actions/checkout@v4
+        with: { ref: "${{ inputs.before || github.base_ref }}", path: before-src, sparse-checkout: web }
+      - name: Ảnh trước (không chặn)
+        if: inputs.before != '' || github.event_name == 'pull_request'
+        continue-on-error: true
+        run: node scripts/test/teacher-motion-webkit.mjs before-src/web out/teacher-motion/before --report
+      - name: Chạy cổng
+        run: node scripts/test/teacher-motion-webkit.mjs web out/teacher-motion
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with: { name: teacher-motion, path: out/teacher-motion, retention-days: 7 }

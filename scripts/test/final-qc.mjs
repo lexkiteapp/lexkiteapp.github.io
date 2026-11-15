@@ -65,7 +65,8 @@ const TEACH = async () => {
     // vòng tròn / hào quang / khung: chính nó hoặc 3 tổ tiên gần bo tròn ≥ 40 % cạnh ngắn có nền/viền/bóng, hoặc cắt tràn
     for (let q = e, i = 0; q && i < 4 && q.id !== 'view'; q = q.parentElement, i++) { const cs = getComputedStyle(q), qr = q.getBoundingClientRect(), br = parseFloat(cs.borderTopLeftRadius) || 0;
       if (br >= 0.4 * Math.min(qr.width, qr.height) && (cs.overflow !== 'visible' || cs.backgroundColor !== 'rgba(0, 0, 0, 0)' || cs.backgroundImage !== 'none' || cs.borderTopWidth !== '0px' || cs.boxShadow !== 'none')) bad.push('vòng tròn/hào quang');
-      if (cs.maskImage && cs.maskImage !== 'none' || cs.webkitMaskImage && cs.webkitMaskImage !== 'none' || cs.clipPath && cs.clipPath !== 'none') bad.push('mặt nạ/clip-path');
+      const fadeFig = slot && slot.dataset.ground === 'fade' && q.classList.contains('tslot-fig') && q.parentElement === slot; // mặt nạ mờ của Chars.slot ground:'fade' (tuỳ chọn, teacher-slot.js) = tiếp đất có chủ đích
+      if (!fadeFig && (cs.maskImage && cs.maskImage !== 'none' || cs.webkitMaskImage && cs.webkitMaskImage !== 'none') || cs.clipPath && cs.clipPath !== 'none') bad.push('mặt nạ/clip-path');
       if (i && cs.overflow !== 'visible') { if (r.top < qr.top - 1 || r.left < qr.left - 1 || r.right > qr.right + 1) bad.push(`đường cắt (khung cắt đầu/tay: ${String(q.className).split(' ')[0] || q.tagName} lố trên ${Math.round(qr.top - r.top)} trái ${Math.round(qr.left - r.left)} phải ${Math.round(r.right - qr.right)} px, ảnh ${Math.round(r.width)}×${Math.round(r.height)}, khung ${Math.round(qr.width)}×${Math.round(qr.height)})`); if (r.bottom > qr.bottom + 1) { cut.push('đường cắt ngang thân'); visBottom = Math.min(visBottom, qr.bottom); } } }
     if (kind === 'avatar') bad.push('ảnh avatar (chỉ đầu – không phải người đứng)'); if (kind === 'poster') cut.push('ảnh nửa người');
     // toàn thân: ảnh gốc không chạm mép dưới & không mờ dần ở đáy (đo kênh alpha)
