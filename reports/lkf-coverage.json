@@ -3,7 +3,7 @@
  "cells": 36,
  "cellsOk": 36,
  "minCell": 16,
- "objectivesUsed": 186,
+ "objectivesUsed": 176,
  "coverage": {
   "grammar": {
    "items": 102,
@@ -11,8 +11,8 @@
    "pct": 100
   },
   "reading": {
-   "items": 95,
-   "tagged": 95,
+   "items": 73,
+   "tagged": 73,
    "pct": 100
   },
   "ielts-reading": {
@@ -41,13 +41,13 @@
    "pct": 100
   },
   "toefl": {
-   "items": 214,
-   "tagged": 214,
+   "items": 194,
+   "tagged": 194,
    "pct": 100
   },
   "writing-model": {
-   "items": 176,
-   "tagged": 176,
+   "items": 142,
+   "tagged": 142,
    "pct": 100
   },
   "gt-letter": {
@@ -56,13 +56,13 @@
    "pct": 100
   },
   "task1": {
-   "items": 44,
-   "tagged": 44,
+   "items": 30,
+   "tagged": 30,
    "pct": 100
   },
   "writing-prompt": {
-   "items": 70,
-   "tagged": 70,
+   "items": 50,
+   "tagged": 50,
    "pct": 100
   },
   "speaking": {
@@ -91,8 +91,8 @@
    "pct": 100
   },
   "roleplay": {
-   "items": 33,
-   "tagged": 33,
+   "items": 60,
+   "tagged": 60,
    "pct": 100
   },
   "vocab": {
@@ -102,8 +102,8 @@
   }
  },
  "total": {
-  "items": 11268,
-  "tagged": 11268,
+  "items": 11185,
+  "tagged": 11185,
   "pct": 100
  },
  "errors": 0
