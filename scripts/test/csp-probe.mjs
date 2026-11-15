@@ -46,7 +46,7 @@ const RIG = async page => { for (let i = 0; i < 40; i++) { if (await page.evalua
 for (eng of ['chromium', 'webkit']) {
   browser = ENGINES[eng];
   // ĐỐI CHỨNG: new Function() phải bị báo (không có 'unsafe-eval') – nếu không thì cách nghe bị mù, kết quả "0 vi phạm" vô nghĩa
-  await session('đối chứng new Function', async page => { await page.goto(APP, { waitUntil: 'load', timeout: 60000 }); await page.addScriptTag({ content: "try { new Function('return 1')(); } catch (e) {}" }); await page.waitForTimeout(3000); });
+  await session('đối chứng new Function', async page => { await page.goto(APP, { waitUntil: 'load', timeout: 60000 }); await page.addScriptTag({ content: "try { new Function('return 1')(); } catch (e) {} try { eval('1'); } catch (e) {} try { setTimeout('1', 0); } catch (e) {}" }); await page.waitForTimeout(3000); });
   CONTROL[eng] = [...found.values()].some(e => e.where.has(eng + ' đối chứng new Function'));
   for (const r of ROUTES) await session('route ' + (r || '/'), async page => { await page.goto(APP + r, { waitUntil: 'load', timeout: 60000 }); if (/lesson|call/.test(r)) await RIG(page); await page.waitForTimeout(r.includes('call') || r.includes('lesson') ? 6000 : 5000); });
   if (eng === 'chromium') for (const [name, code] of LAZY) await session('lazy ' + name, async page => { await page.goto(APP, { waitUntil: 'load', timeout: 60000 }); await page.waitForTimeout(2000); log.push(`lazy ${name}: ${JSON.stringify(await page.evaluate(code).catch(e => 'lỗi ' + String(e.message).slice(0, 120)))}`); await page.waitForTimeout(4000); });
