@@ -1,8 +1,7 @@
 /* Lexkite v2 – khung ứng dụng: router, trạng thái, trang chủ, thư viện, từ điển, sổ từ, tiến độ, cài đặt. */
 (function () {
   const { Store, SRS, Cards, Stats, Golden, DEFAULT_SETTINGS, todayKey, endOfToday, DAY } = Core;
-  // Chữ ligature phông icon không bao giờ lộ thành chữ thường (icon-flash, P1): phông Material Symbols khai báo trong CSS tải lười của từng màn → trên mạng chậm
-  // font-display:block hết 3 s rồi hiện chữ "dark_mode" tới khi phông về. Ẩn (trong suốt, rộng 1em) theo TỪNG họ phông cho tới khi FontFace của họ đó 'loaded'.
+  // Icon-flash (P1): phông Material Symbols khai báo trong CSS tải lười của từng màn; mạng chậm thì font-display:block hết 3 s rồi lộ chữ "dark_mode". Ẩn ligature theo TỪNG họ phông tới khi FontFace 'loaded'.
   (function iconGuard() {
     const F = document.fonts, h = document.documentElement; if (!F || !F.addEventListener) return;
     const fam = { o: 'Material Symbols Outlined', r: 'Material Symbols Rounded' }; h.classList.add('ic-wait-o', 'ic-wait-r');
