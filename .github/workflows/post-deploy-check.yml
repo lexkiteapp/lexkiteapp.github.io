@@ -40,7 +40,7 @@ jobs:
         timeout-minutes: 8
         env: { WAIT_SW: "${{ github.event_name == 'workflow_run' && '1' || '0' }}" }
         run: node scripts/test/post-deploy-check.mjs "$BASE" out/post-deploy
-      - name: Rig giáo viên trên bản live (rig-live.mjs: Call + câu hỏi bài học, Chromium + WebKit, 390/1280, sáng/tối, fps 1×/4×, khớp miệng ±33 ms, giảm chuyển động)
+      - name: Rig giáo viên trên bản live (rig-live.mjs, Call + câu hỏi bài học, Chromium + WebKit, 390/1280, sáng/tối, fps, khớp miệng, giảm chuyển động)
         id: rig
         if: ${{ !cancelled() }}
         timeout-minutes: 25
