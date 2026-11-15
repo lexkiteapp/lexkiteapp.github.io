@@ -425,7 +425,8 @@
   }
   // Kênh & phân phối qua /api/distribution (functions/api/distribution.js) – tab 🛰️ + làn nhúng/social ở tab Video (tên riêng: trước đây trùng tên dapi của Kho Drive → bị ghi đè)
   async function distapi(op, body = {}) {
-    const r = await fetch('/api/distribution', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) });
+    const ac = new AbortController(), to = setTimeout(() => ac.abort(), 30000); // never leave the tab on "Loading…" forever
+    const r = await fetch('/api/distribution', { method: 'POST', signal: ac.signal, headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + await token() }, body: JSON.stringify({ op, ...body }) }).catch(() => { throw Object.assign(new Error('timeout'), { code: 'timeout' }); }).finally(() => clearTimeout(to));
     const j = await r.json().catch(() => ({}));
     if (!r.ok) { const e = new Error(j.error || 'HTTP ' + r.status); e.code = j.error; e.status = r.status; e.data = j; throw e; }
     return j;
