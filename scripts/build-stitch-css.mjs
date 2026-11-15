@@ -18,6 +18,7 @@ const GROUPS = { home: ['web/js/st/common.js', 'web/js/st/home.js'], lesson: ['w
 const V2 = ['web/js/st/v2', 'web/cpack/st/v2'].filter(d => fs.existsSync(d)).flatMap(d => fs.readdirSync(d).filter(f => f.endsWith('.js') && !/^(shell|runtime)\.js$/.test(f)).map(f => f.slice(0, -3)));
 const V2F = k => (fs.existsSync(`web/cpack/st/v2/${k}.js`) ? `web/cpack/st/v2/${k}.js` : `web/js/st/v2/${k}.js`);
 const V2DATA = {
+  day: ['web/js/path-day.js'],
   'ex-frame': ['web/js/lesson/ui.js', 'web/cpack/lesson/ex.js'],
   'ex-match': ['web/cpack/lesson/ex.js'],
   'exam-readiness': ['web/js/goal.js'],
