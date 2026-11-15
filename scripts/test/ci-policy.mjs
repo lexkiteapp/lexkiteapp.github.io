@@ -318,7 +318,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     for (const [w, need] of Object.entries(SCOPED)) {
       const src = (srcs.find(([f]) => f === w + '.yml') || [])[1] || '', g = jobs(src).find(j => j.id === 'gate');
       ok(!!g, `luật 16: ${w}.yml thiếu job gate`); if (!g) continue;
-      ok(g.text.includes(`node scripts/ci/pr-scope.mjs --repo "$REPO" --pr "$PR" --workflow .github/workflows/${w}.yml --need ${need}\n`) && g.text.includes(`            .github/workflows/${w}.yml\n`), `luật 16: ${w}.yml gate phải chạy pr-scope.mjs --workflow … --need ${need} và checkout đúng file workflow (PR chỉ đổi nội dung không được chạy việc UI nặng)`);
+      ok(g.text.includes(`node scripts/ci/pr-scope.mjs --repo "$REPO" --pr "$PR" --workflow .github/workflows/${w}.yml --need ${need}\n`) && g.text.includes(`scripts/ci/pr-scope.mjs .github/workflows/${w}.yml; do gh api`) && !/actions\/checkout@/.test(g.text), `luật 16: ${w}.yml gate phải chạy pr-scope.mjs --workflow … --need ${need}, lấy file qua API (không checkout: no-prod-hosts/luật 14)`);
       ok(/outputs:\s*\{\s*go:[^\n]*steps\.g\.outputs\.go == ''true''[^\n]*steps\.s\.outputs\.ok != ''false''/.test(g.text), `luật 16: ${w}.yml output go phải gộp steps.s.outputs.ok != 'false' (lỗi API → mở cổng, không mất kiểm)`);
       ok(/id: s\n\s+if: github\.event_name == 'pull_request'\n\s+continue-on-error: true/.test(g.text), `luật 16: ${w}.yml bước scope chỉ chạy trên PR và continue-on-error (không làm đỏ gate)`);
       ok(/pull-requests: read/.test(g.text), `luật 16: ${w}.yml gate cần pull-requests: read để đọc danh sách file PR`);

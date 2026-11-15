@@ -26,18 +26,15 @@ jobs:
     outputs: { go: '${{ steps.g.outputs.go == ''true'' && steps.s.outputs.ok != ''false'' && ''true'' || ''false'' }}' }   # + phạm vi PR (scripts/ci/pr-scope.mjs, cần: ui)
     steps:
       # phạm vi PR (docs/CI-RUNNERS.md › Phạm vi PR): PR chỉ đổi nội dung/chữ dịch/backend → job nặng skipped (required-gate tính đạt); lỗi API → vẫn chạy
-      - if: github.event_name == 'pull_request'
-        uses: actions/checkout@v4
-        with:
-          sparse-checkout: |
-            scripts/ci/pr-scope.mjs
-            .github/workflows/stitch-diff.yml
-          sparse-checkout-cone-mode: false
       - id: s
         if: github.event_name == 'pull_request'
         continue-on-error: true
         env: { GH_TOKEN: '${{ github.token }}', REPO: '${{ github.repository }}', PR: '${{ github.event.pull_request.number }}' }
-        run: node scripts/ci/pr-scope.mjs --repo "$REPO" --pr "$PR" --workflow .github/workflows/stitch-diff.yml --need ui
+        run: |
+          # không checkout (job gate không chạy trình duyệt/mã PR): chỉ lấy 2 file qua API tại merge sha
+          mkdir -p scripts/ci .github/workflows
+          for f in scripts/ci/pr-scope.mjs .github/workflows/stitch-diff.yml; do gh api -H 'Accept: application/vnd.github.raw' "repos/$REPO/contents/$f?ref=$GITHUB_SHA" > "$f"; done
+          node scripts/ci/pr-scope.mjs --repo "$REPO" --pr "$PR" --workflow .github/workflows/stitch-diff.yml --need ui
       - id: g
         env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
         run: |
