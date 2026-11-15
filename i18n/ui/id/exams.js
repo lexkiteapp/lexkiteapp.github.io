@@ -120,6 +120,7 @@
 "Hết phần nghe – kiểm tra đáp án":"Perekaman selesai – periksa jawaban Anda",
 "Học từ vựng bài “{title}”":"Pelajari kosakata dari “{title}”",
 "Hỏi – đáp":"Tanya–jawab",
+"Khoe kết quả":"Bagikan hasil",
 "Không bị trừ điểm khi sai – <b>đừng bỏ trống</b> câu nào.":"Tidak ada penalti untuk jawaban yang salah – <b>jangan pernah membiarkan pertanyaan kosong</b>.",
 "Không nhận đủ lời nói để chấm – kiểm tra micro và dùng Chrome/Edge.":"Tidak cukup ucapan yang ditangkap untuk mencetak skor – periksa mikrofon Anda dan gunakan Chrome/Edge.",
 "Kéo để đổi độ rộng cột":"Seret untuk mengubah ukuran kolom",

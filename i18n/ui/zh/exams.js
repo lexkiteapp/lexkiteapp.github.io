@@ -120,6 +120,7 @@
 "Hết phần nghe – kiểm tra đáp án":"录音完成 - 检查您的答案",
 "Học từ vựng bài “{title}”":"从“{title}”学习词汇",
 "Hỏi – đáp":"应答问题",
+"Khoe kết quả":"分享成绩",
 "Không bị trừ điểm khi sai – <b>đừng bỏ trống</b> câu nào.":"错误答案不会受到惩罚 - <b>永远不要将问题留空</b>。",
 "Không nhận đủ lời nói để chấm – kiểm tra micro và dùng Chrome/Edge.":"未捕获足够的语音来评分 - 检查您的麦克风并使用 Chrome/Edge。",
 "Kéo để đổi độ rộng cột":"拖动以调整列的大小",

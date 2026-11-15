@@ -1,7 +1,7 @@
 // Kiểm ci-autopilot (scripts/ci/autopilot.mjs + .github/workflows/ci-autopilot.yml): ngân sách runner, phân loại hạ tầng, quyết định theo PR (KHÔNG bao giờ gộp khi đỏ), nhật ký 24 h,
 // và workflow giữ concurrency + timeout + không workflow_run (fan-out) + không bỏ qua check.
 import fs from 'node:fs';
-import { behindOf, budget, isInfraJob, shouldRerun, decide, tally, parseLog, renderIssue, BUSY_MAX, KEEP_FREE, TOTAL, MAX_RERUN_ATTEMPT } from '../ci/autopilot.mjs';
+import { behindOf, budget, isInfraJob, shouldRerun, decide, tally, parseLog, renderIssue, BUSY_MAX, KEEP_FREE, TOTAL, MAX_RERUN_ATTEMPT, isPriority, isRecent, MAX_UPDATES, QUEUE_MAX, UPDATE_GAP_H, updatedRecently } from '../ci/autopilot.mjs';
 let fail = 0; const ok = (c, m) => { if (!c) { fail++; console.error('✗ ' + m); } };
 
 // --- ngân sách: chừa ≥ 16 runner trống, chỉ nạp khi busy < 24
@@ -33,6 +33,20 @@ ok(behindOf({ ahead_by: 2, files: F('docs/CODEMAP.md', 'web/js/app.js') }) === 2
 ok(behindOf({ ahead_by: 4 }) === 4 && behindOf({ ahead_by: 4, files: F(...Array(300).fill('docs/CODEMAP.md')) }) === 4 && behindOf(null) === 0, 'thiếu files / API cắt 300 tệp → giữ ahead_by');
 ok(decide(P({ gate: 'PENDING', behind: behindOf({ ahead_by: 5, files: F('docs/codemap.json') }) })).act === 'wait', 'PR đang chạy check + main chỉ có commit codemap → chờ, không chạy lại CI');
 ok(decide(P({ gate: 'FAILURE' })).act === 'triage-red', 'đỏ → triage (chạy lại nếu hạ tầng)');
+// --- PR ưu tiên: chỉ PR sống (≤ 24 h) + xanh/hạ tầng được cập nhật nhánh; tối đa 6 PR/lượt (bão CI 12/11)
+{ const N = Date.parse('2026-11-12T12:00:00Z'), at = h => new Date(N - h * 3600e3).toISOString(), Q = o => ({ draft: false, updatedAt: at(1), gate: 'SUCCESS', ...o });
+  ok(MAX_UPDATES === 6 && budget(0) === 6, 'trần 6 PR mỗi lượt');
+  ok(isPriority(Q(), N) && isPriority(Q({ gate: 'FAILURE', infra: true }), N), 'sống + xanh / hỏng hạ tầng → ưu tiên');
+  ok(!isPriority(Q({ updatedAt: at(25) }), N) && !isPriority(Q({ draft: true }), N) && !isPriority(Q({ gate: 'PENDING' }), N) && !isPriority(Q({ gate: 'FAILURE' }), N), 'cũ > 24 h / draft / chưa xanh / đỏ thật → KHÔNG ưu tiên');
+  ok(isRecent(Q({ gate: 'PENDING' }), N) && !isRecent(Q({ updatedAt: at(48) }), N), 'isRecent: động tĩnh ≤ 24 h'); }
+// --- chống bão CI (12/11): hàng chờ > 30 → không đẩy nhánh; mỗi PR tối đa 1 lần đẩy / 3 giờ; chỉ đẩy khi xanh hết trừ phần cần main, hoặc xung đột thật
+ok(QUEUE_MAX === 30 && UPDATE_GAP_H === 3, 'luật: hàng chờ ≤ 30, mỗi PR 1 lần/3 giờ');
+ok(budget(0, 30) === 6 && budget(0, 31) === 0 && budget(5, 149) === 0 && budget(9, 40) === 0, 'hàng chờ > 30 → ngân sách 0 (tạm dừng đẩy nhánh)');
+{ const N = Date.parse('2026-11-12T12:00:00Z'), E = (k, n, h) => ({ k, n, t: new Date(N - h * 3600e3).toISOString() });
+  ok(updatedRecently([E('update', 5, 2.9)], 5, N) && !updatedRecently([E('update', 5, 3.1)], 5, N), 'vừa đẩy < 3 giờ → chặn; ≥ 3 giờ → được');
+  ok(!updatedRecently([E('update', 6, 1), E('merge', 5, 1), E('rerun', 5, 1)], 5, N), 'chỉ sự kiện update của đúng PR đó mới chặn'); }
+ok(/budget\(m\.busy, m\.queued\)/.test(src0()) && (src0().match(/updatedRecently\(\[\.\.\.prev, \.\.\.events\], n, now\)/g) || []).length === 2, 'autopilot áp luật hàng chờ + 3 giờ cho cả gỡ xung đột lẫn gộp main');
+function src0() { return fs.readFileSync(new URL('../ci/autopilot.mjs', import.meta.url), 'utf8'); }
 // --- nhật ký 24 h + issue
 const now = Date.parse('2026-11-12T12:00:00Z'), ev = (k, h) => ({ k, n: 1, t: new Date(now - h * 3600e3).toISOString() });
 const t = tally([ev('merge', 1), ev('merge', 30), ev('rerun', 5), ev('update', 23)], now);

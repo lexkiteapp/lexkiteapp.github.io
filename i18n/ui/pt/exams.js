@@ -120,6 +120,7 @@
 "Hết phần nghe – kiểm tra đáp án":"Gravação concluída – verifique suas respostas",
 "Học từ vựng bài “{title}”":"Aprenda vocabulário com “{title}”",
 "Hỏi – đáp":"Pergunta–resposta",
+"Khoe kết quả":"Compartilhar resultado",
 "Không bị trừ điểm khi sai – <b>đừng bỏ trống</b> câu nào.":"Não há penalidade para respostas erradas – <b>nunca deixe uma pergunta em branco</b>.",
 "Không nhận đủ lời nói để chấm – kiểm tra micro và dùng Chrome/Edge.":"Não foi capturada fala suficiente para pontuar – verifique seu microfone e use o Chrome/Edge.",
 "Kéo để đổi độ rộng cột":"Arraste para redimensionar as colunas",

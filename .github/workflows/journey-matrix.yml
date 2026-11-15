@@ -1,10 +1,11 @@
+# ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
 # 🧩 Ma trận hành trình trên thanh 5 tab: 390/1440 px × sáng/tối, Back/Esc/X, mạng chậm, ngoại tuyến, trạng thái rỗng, 15 ngôn ngữ – scripts/test/journey-matrix.mjs · docs/QUALITY-SWEEP.md § journey-matrix
 # Hermetic: dist cục bộ, /api/* giả lập trong tiến trình, host ngoài = rỗng, ?sandbox=1 hoặc tài khoản Firebase GIẢ → 0 lượt chạm prod, 0 tài khoản thật.
 # 3 shard (mỗi shard ~5–7 phút, tổng dưới ~20 phút runner). Đỏ khi có lỗi hoặc 0 bước được chạy. Ảnh lỗi + summary: artifact journey-matrix-<shard>.
 name: Journey matrix
 on:
   pull_request:
-    paths: ['web/**', 'scripts/build-web.sh', 'scripts/test/journey-matrix.mjs', 'scripts/test/journey-matrix/**', 'scripts/test/journey-e2e/checks.js', 'scripts/quality/serve.mjs', '.github/workflows/journey-matrix.yml']
+    paths: ['web/**', '!web/**/*.md', '!web/**/*.txt', 'scripts/build-web.sh', 'scripts/test/journey-matrix.mjs', 'scripts/test/journey-matrix/**', 'scripts/test/journey-e2e/checks.js', 'scripts/quality/serve.mjs', '.github/workflows/journey-matrix.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -12,7 +13,26 @@ concurrency:
   group: journey-matrix-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  # luật 11 (làn nhanh trước làn nặng, scripts/test/ci-policy.mjs): trên PR việc nặng chỉ chạy khi `npm test` đã XANH cùng sha (hoặc PR có nhãn `ready`) – đỏ/chưa xong thì mọi job dưới là skipped
+  # (không chiếm runner); npm-test.yml job `heavy` chạy lại lượt này ngay khi npm test xanh (scripts/ci/heavy-rerun.mjs). Lỗi API → mở cổng (không mất kiểm).
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions: { contents: read, checks: read }
+    outputs: { go: '${{ steps.g.outputs.go }}' }
+    steps:
+      - id: g
+        env: { GH_TOKEN: '${{ github.token }}', EV: '${{ github.event_name }}', SHA: '${{ github.event.pull_request.head.sha }}', REPO: '${{ github.repository }}', READY: '${{ contains(github.event.pull_request.labels.*.name, ''ready'') }}' }
+        run: |
+          go=true
+          if [ "$EV" = pull_request ] && [ "$READY" != true ]; then
+            n=$(gh api "repos/$REPO/commits/$SHA/check-runs?check_name=npm%20test&per_page=20" --jq '[.check_runs[] | select(.conclusion == "success")] | length' 2>/dev/null) || n=1
+            [ "${n:-1}" -ge 1 ] || go=false
+          fi
+          echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha (hoặc nhãn ready) → go=$go"
   matrix:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     name: ${{ matrix.shard }}
     runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 15
