@@ -31,3 +31,10 @@
 1. Function + test + `_routes.json` (chưa bật: đối tượng chưa có → `next()`, không đổi gì live).
 2. `dist-words/` + đồng bộ R2 trong pages-deploy + seo-pages quét 2 thư mục; bật cho 1 ngôn ngữ (ko) → đo 3 ngày live-audit + GSC crawl.
 3. Bật 13 ngôn ngữ; nâng `SEO_N_PRIORITY` 650 → 1.000 (DEPTH_MIN giữ nguyên – trang mỏng vẫn noindex).
+
+## 4. Trạng thái triển khai (15/11/2026)
+- PR 1 (#1322) đã merge: Function `functions/[lang]/words/[[path]].js` (fail-open), `_routes.json`, test `words-r2-fn`; đo CI 15/11: dist 16.483 file (còn 3.517), words 9.465 file, 13 ngôn ngữ ≈ 6.450 trang × 52 KB = 347 MB, blog ≈ 47 bài nguồn/ngày.
+- PR 2: bucket `lexkite-words` + binding `WORDS` (wrangler.toml); `content/seo/words-r2.json` (ngôn ngữ bật = `ko`) khớp `_routes.json`; `build-seo-pages` ghi các ngôn ngữ đó ra `dist-words/`; `scripts/seo/words-r2-sync.mjs` đồng bộ theo sổ băm; `words-r2-sync.yml` chạy độc lập (deploy hook không có khoá R2) + bước đồng bộ trong `pages-deploy.yml` (chế độ direct); `seo-pages` quét `dist` + `dist-words`.
+- **Thứ tự bật ngôn ngữ mới (bắt buộc):** thêm vào `words-r2.json` + `_routes.json` → dispatch `words-r2-sync.yml` từ nhánh PR (R2 đầy) → mới merge. Merge trước = 404 tới khi đồng bộ xong.
+- Cầu dao: `SEO_WORDS_R2=0` (build ghi lại vào `dist/`; cần N ≤ 650) hoặc revert `words-r2.json` + route; Function tắt riêng bằng biến `WORDS_R2=0` trên Pages.
+- `free-tier` (intraday) cảnh báo khi Pages Functions > 50 % trần ngày.

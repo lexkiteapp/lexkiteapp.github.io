@@ -157,7 +157,9 @@ if (has('app/index.html')) {
   await app.goto(APPB + '/app/', { waitUntil: 'load' }); await app.waitForSelector('#themeBtn', { state: 'attached', timeout: 20000 }).catch(() => bad.push('app→web: không thấy #themeBtn'));
   await app.waitForFunction(() => document.querySelector('#themeBtn') && document.querySelector('#themeBtn').onclick, null, { timeout: 15000 }).catch(() => {});
   const tap = () => app.evaluate(() => document.querySelector('#themeBtn').click()); // 390 px: nút nằm ở thanh ẩn → gọi đúng onclick của nút app
-  await tap(); await tap(); // tự động → sáng → tối (đúng thứ tự nút app)
+  // tự động → sáng → tối (đúng thứ tự nút app). Chờ từng bước ĐỔI THẬT (runner nghẽn: lúc app còn khởi động, lượt bấm có thể bị nuốt/ghi đè → trước đây trượt chập chờn); bấm lại tối đa 4 lần, mỗi bước ghi giá trị đọc được
+  const stepTo = async want => { let got; for (let i = 0; i < 4; i++) { await tap(); await app.waitForTimeout(250); got = await app.evaluate(() => document.documentElement.getAttribute('data-theme')); if (got === want) return; await app.waitForTimeout(500); } bad.push(`app→web: bấm nút giao diện của app mong data-theme=${want} nhưng sau 4 lượt vẫn ${got}`); };
+  await stepTo('light'); await stepTo('dark');
   const a = await st(app); if (a.th !== 'dark' || a.tc.some(c => c.toUpperCase() !== TC.dark)) bad.push(`app→web: app sau 2 lần bấm data-theme=${a.th}, theme-color=${a.tc}`);
   for (const p of ['/en/', '/', '/en/blog/'].filter(p => has(p + 'index.html'))) {
     const pg = await ctx.newPage(); await pg.goto(APPB + p, { waitUntil: 'load' }); const r = await st(pg); checks++;
