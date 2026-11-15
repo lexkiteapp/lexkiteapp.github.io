@@ -103,7 +103,7 @@
       "kind": "cdn",
       "free": "R2 Free 10 GB lưu trữ chung tài khoản · ảnh ≤ 300 KB/phiếu – thẻ Chất lượng admin hiện dung lượng + %",
       "upgrade": "Không cần: xóa 60 ngày sau khi đóng giữ dung lượng nhỏ",
-      "status": "Chưa bật (02/11/2026) – chạy report-shots.yml action=setup rồi bỏ # [[r2_buckets]] trong wrangler.toml"
+      "status": "Bucket đã tạo (15/11/2026, report-shots.yml setup); binding Pages REPORT_SHOTS vẫn tắt (# trong wrangler.toml). Dùng thêm cho ảnh QC PR: tiền tố ci-shots/ qua S3, dọn > 14 ngày (scripts/ci/stitch-shots.mjs)"
     },
     {
       "key": "audio-cdn-r2",
