@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite OPS CONSOLE - Social Manager</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed-variant": "#8b1a00",
+            "outline": "#8e7069",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#fff2e3",
+            "secondary-fixed": "#beebeb",
+            "outline-variant": "#e3beb6",
+            "on-secondary-fixed": "#002020",
+            "secondary-container": "#beebeb",
+            "on-surface": "#211a11",
+            "on-primary-fixed": "#3d0600",
+            "surface-container-high": "#f4e6d5",
+            "surface-container-highest": "#efe0d0",
+            "primary-container": "#ff5e3a",
+            "tertiary-fixed": "#88f5ea",
+            "on-surface-variant": "#5a413b",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#fff8f3",
+            "surface-container": "#faecdb",
+            "primary-fixed": "#ffdad2",
+            "secondary-fixed-dim": "#a3cfcf",
+            "tertiary-container": "#2da49b",
+            "tertiary": "#006a64",
+            "secondary": "#3b6566",
+            "primary": "#b42907",
+            "on-primary": "#ffffff",
+            "background": "#fff8f3"
+          },
+          "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+          "spacing": { "margin": "2rem", "gutter": "1.5rem", "space-xs": "0.375rem", "space-sm": "0.75rem", "space-lg": "2rem", "space-md": "1.25rem" },
+          "fontFamily": {
+            "body-md": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "fontWeight": "800" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .material-symbols-outlined { font-family: 'Material Symbols Outlined'; font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 24; display: inline-block; vertical-align: middle; line-height: 1; }
+    .tactile-plate { border: 2px solid #EADEC8; box-shadow: 0 5px 0 #D8CFBC; }
+    .tactile-plate-sm { border: 2px solid #EADEC8; box-shadow: 0 3px 0 #D8CFBC; }
+    .tactile-plate-selected { border: 2px solid #2BA39A; box-shadow: 0 4px 0 #1D7B74; }
+    .tactile-sunken { background-color: #FBF3E6; border: 2px solid #EADEC8; box-shadow: inset 0 2px 0 #E3D7C1; }
+    .tactile-button-primary { background: linear-gradient(135deg, #FF5E3A 0%, #FF993A 100%); color: #1E120A; border: 2px solid #B53A22; box-shadow: 0 5px 0 #B53A22; }
+    .tactile-button-primary:active { transform: translateY(4px); box-shadow: 0 1px 0 #B53A22; }
+    .tactile-button-secondary { background-color: #FFFFFF; border: 2px solid #EADEC8; box-shadow: 0 4px 0 #D8CFBC; }
+    .tactile-button-secondary:active { transform: translateY(4px); box-shadow: 0 0 0 #D8CFBC; }
+    .media-slot { border: 2px dashed #8e7069; background: #faecdb; }
+  </style>
+</head>
+<body class="bg-[#FFF7EA] text-on-surface antialiased min-h-screen flex flex-col font-body-md">
+<header class="bg-surface-container-lowest border-b-2 border-outline-variant px-margin py-3.5 shadow-[0_4px_0_#D8CFBC] z-30 sticky top-0">
+<div class="max-w-[1720px] mx-auto flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-xl bg-[#2BA39A] flex items-center justify-center text-[#0F3D3E] shadow-[0_3px_0_#12514D] border-2 border-[#12514D]">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">send</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-extrabold text-[#0F3D3E] tracking-tight">Lexkite</span>
+<span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant uppercase tracking-wider border border-outline-variant">OPS CONSOLE</span>
+</div>
+</div>
+<div class="h-6 w-[2px] bg-surface-container-highest"></div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-fixed border border-secondary-fixed-dim">
+<span class="material-symbols-outlined text-[16px]">campaign</span>
+<span class="font-label-md text-label-md">Social Manager</span>
+</div>
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-lg bg-surface-container-low border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold tracking-wide">Queue Active</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="tactile-button-primary font-label-lg text-label-lg px-5 py-2 rounded-xl flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] font-bold">add</span>
+<span>New Post</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-[1720px] w-full mx-auto px-margin py-6 flex flex-col gap-space-lg">
+<div class="grid grid-cols-12 gap-gutter items-start">
+<div class="col-span-12 xl:col-span-8 flex flex-col gap-space-sm">
+<div class="bg-surface-container-lowest rounded-xl p-4 tactile-plate flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface border border-outline-variant"><span class="material-symbols-outlined text-[18px]">calendar_month</span></div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Weekly Schedule</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Synchronized Multi-Platform Broadcast Queue</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center bg-surface-container-low rounded-xl border-2 border-outline-variant p-1 shadow-[0_2px_0_#D8CFBC]">
+<button class="w-7 h-7 flex items-center justify-center rounded-lg text-on-surface"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button>
+<div class="px-3 font-label-md text-label-md text-on-surface font-extrabold">Oct 27 – Nov 02, 2025</div>
+<button class="w-7 h-7 flex items-center justify-center rounded-lg text-on-surface"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+</div>
+<div class="px-3 py-1.5 rounded-xl bg-surface-container border border-outline-variant text-label-sm font-label-sm text-on-surface font-bold">UTC+0</div>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-3">
+<div class="flex flex-col gap-3 min-h-[620px]">
+<div class="bg-surface-container-lowest rounded-lg p-2 text-center border-2 border-outline-variant shadow-[0_2px_0_#D8CFBC]"><div class="text-[11px] font-extrabold text-on-surface-variant uppercase">Mon</div><div class="font-headline-sm text-headline-sm text-on-surface">27</div></div>
+<div class="space-y-3 flex-1">
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm cursor-pointer space-y-2">
+<div class="flex items-center justify-between"><span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#091416] text-white border border-black flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#88F5EA]"></span> TikTok</span><span class="text-[10px] font-bold text-on-surface-variant">09:30 UTC</span></div>
+<div class="media-slot h-20 w-full rounded-lg"></div>
+<div class="font-label-md text-label-md text-on-surface leading-tight">Affect vs Effect 30s</div>
+<div class="flex items-center gap-1 text-[10px] text-tertiary font-bold"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Scheduled</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm cursor-pointer space-y-2">
+<div class="flex items-center justify-between"><span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#F8F4EC] text-[#BA1A1A] border border-[#FFDAD6] flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#F2553B]"></span> Shorts</span><span class="text-[10px] font-bold text-on-surface-variant">17:00 UTC</span></div>
+<div class="font-label-md text-label-md text-on-surface leading-tight">Grammar Bite #12</div>
+<div class="flex items-center gap-1 text-[10px] text-on-surface-variant font-bold"><span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span> Queued</div>
+</div>
+<button class="w-full py-4 rounded-xl border-2 border-dashed border-outline-variant flex flex-col items-center justify-center gap-1 text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">add</span><span class="text-[10px] font-extrabold">Slot +</span></button>
+</div>
+</div>
+<div class="flex flex-col gap-3 min-h-[620px]">
+<div class="bg-surface-container-lowest rounded-lg p-2 text-center border-2 border-outline-variant shadow-[0_2px_0_#D8CFBC]"><div class="text-[11px] font-extrabold text-on-surface-variant uppercase">Tue</div><div class="font-headline-sm text-headline-sm text-on-surface">28</div></div>
+<div class="space-y-3 flex-1">
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm cursor-pointer space-y-2">
+<div class="flex items-center justify-between"><span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#F8F4EC] text-[#BA1A1A] border border-[#FFDAD6] flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#D1343A]"></span> Reels</span><span class="text-[10px] font-bold text-on-surface-variant">14:15 UTC</span></div>
+<div class="media-slot h-20 w-full rounded-lg"></div>
+<div class="font-label-md text-label-md text-on-surface leading-tight">Elevator vs Lift Drill</div>
+<div class="flex items-center gap-1 text-[10px] text-tertiary font-bold"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Scheduled</div>
+</div>
+<button class="w-full py-4 rounded-xl border-2 border-dashed border-outline-variant flex flex-col items-center justify-center gap-1 text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">add</span><span class="text-[10px] font-extrabold">Slot +</span></button>
+</div>
+</div>
+<div class="flex flex-col gap-3 min-h-[620px]">
+<div class="bg-surface-container-lowest rounded-lg p-2 text-center border-2 border-outline-variant shadow-[0_2px_0_#D8CFBC]"><div class="text-[11px] font-extrabold text-on-surface-variant uppercase">Wed</div><div class="font-headline-sm text-headline-sm text-on-surface">29</div></div>
+<div class="space-y-3 flex-1">
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm cursor-pointer space-y-2">
+<div class="flex items-center justify-between"><span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#0E191C] text-white border border-black flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-sky-400"></span> X / Post</span><span class="text-[10px] font-bold text-on-surface-variant">10:00 UTC</span></div>
+<div class="font-label-md text-label-md text-on-surface leading-tight">AWL Sublist 1 Trap</div>
+<div class="flex items-center gap-1 text-[10px] text-tertiary font-bold"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Scheduled</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm cursor-pointer space-y-2">
+<div class="flex items-center justify-between"><span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#F8F4EC] text-[#BA1A1A] border border-[#FFDAD6] flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#F2553B]"></span> Shorts</span><span class="text-[10px] font-bold text-on-surface-variant">19:00 UTC</span></div>
+<div class="font-label-md text-label-md text-on-surface leading-tight">Resilient Word of Day</div>
+<div class="flex items-center gap-1 text-[10px] text-on-surface-variant font-bold"><span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span> Draft</div>
+</div>
+<button class="w-full py-4 rounded-xl border-2 border-dashed border-outline-variant flex flex-col items-center justify-center gap-1 text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">add</span><span class="text-[10px] font-extrabold">Slot +</span></button>
+</div>
+</div>
+<div class="flex flex-col gap-3 min-h-[620px] bg-secondary-fixed/20 p-1.5 rounded-2xl border-2 border-dashed border-secondary-fixed-dim">
+<div class="bg-surface-container-lowest rounded-lg p-2 text-center border-2 border-secondary-container shadow-[0_2px_0_#beebeb]"><div class="text-[11px] font-extrabold text-tertiary uppercase">Thu</div><div class="font-headline-sm text-headline-sm text-tertiary">30</div></div>
+<div class="space-y-3 flex-1">
+<div class="bg-surface-container-lowest rounded-xl p-3 tactile-plate-selected ring-4 ring-tertiary-fixed/40 cursor-pointer space-y-2.5">
+<div class="flex items-center justify-between"><span class="px-2 py-0.5 rounded text-[10px] font-extrabold bg-[#F8F4EC] text-[#BA1A1A] border border-[#FFDAD6] flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#F2553B]"></span> Multi-Sync</span><span class="text-[10px] font-extrabold text-tertiary bg-secondary-fixed px-1.5 py-0.5 rounded">14:15 UTC</span></div>
+<div class="media-slot h-24 w-full rounded-lg relative flex items-center justify-center">
+<div class="w-7 h-7 rounded-full bg-white text-primary flex items-center justify-center shadow-md"><span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span></div>
+<span class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-[#261A00] text-white text-[9px] font-extrabold">0:38</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface font-extrabold leading-tight">Stop saying 'discuss about'!</div>
+<div class="text-[11px] text-on-surface-variant font-medium mt-0.5">IELTS &amp; TOEIC Collocations</div>
+</div>
+<div class="pt-1 border-t border-surface-container-high flex items-center justify-between">
+<div class="flex items-center gap-1 text-[11px] text-tertiary font-extrabold"><span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span> Selected Post</div>
+<span class="material-symbols-outlined text-[16px] text-tertiary font-bold">check_circle</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm cursor-pointer space-y-2">
+<div class="flex items-center justify-between"><span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#091416] text-white border border-black flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#F2553B]"></span> TikTok</span><span class="text-[10px] font-bold text-on-surface-variant">20:30 UTC</span></div>
+<div class="font-label-md text-label-md text-on-surface leading-tight">3 Silent Letters in English</div>
+<div class="flex items-center gap-1 text-[10px] text-on-surface-variant font-bold"><span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span> Queued</div>
+</div>
+<button class="w-full py-4 rounded-xl border-2 border-dashed border-outline-variant flex flex-col items-center justify-center gap-1 text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">add</span><span class="text-[10px] font-extrabold">Slot +</span></button>
+</div>
+</div>
+<div class="flex flex-col gap-3 min-h-[620px]">
+<div class="bg-surface-container-lowest rounded-lg p-2 text-center border-2 border-outline-variant shadow-[0_2px_0_#D8CFBC]"><div class="text-[11px] font-extrabold text-on-surface-variant uppercase">Fri</div><div class="font-headline-sm text-headline-sm text-on-surface">31</div></div>
+<div class="space-y-3 flex-1">
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm cursor-pointer space-y-2">
+<div class="flex items-center justify-between"><span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#F8F4EC] text-[#BA1A1A] border border-[#FFDAD6] flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#F2553B]"></span> Shorts</span><span class="text-[10px] font-bold text-on-surface-variant">11:00 UTC</span></div>
+<div class="media-slot h-20 w-full rounded-lg"></div>
+<div class="font-label-md text-label-md text-on-surface leading-tight">Preposition Quiz 60s</div>
+<div class="flex items-center gap-1 text-[10px] text-tertiary font-bold"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Scheduled</div>
+</div>
+<button class="w-full py-4 rounded-xl border-2 border-dashed border-outline-variant flex flex-col items-center justify-center gap-1 text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">add</span><span class="text-[10px] font-extrabold">Slot +</span></button>
+</div>
+</div>
+<div class="flex flex-col gap-3 min-h-[620px]">
+<div class="bg-surface-container-lowest rounded-lg p-2 text-center border-2 border-outline-variant shadow-[0_2px_0_#D8CFBC]"><div class="text-[11px] font-extrabold text-on-surface-variant uppercase">Sat</div><div class="font-headline-sm text-headline-sm text-on-surface">01</div></div>
+<div class="space-y-3 flex-1">
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm cursor-pointer space-y-2">
+<div class="flex items-center justify-between"><span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#F8F4EC] text-[#BA1A1A] border border-[#FFDAD6] flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#D1343A]"></span> Reels</span><span class="text-[10px] font-bold text-on-surface-variant">15:45 UTC</span></div>
+<div class="font-label-md text-label-md text-on-surface leading-tight">Saturday Idiom Spotlight</div>
+<div class="flex items-center gap-1 text-[10px] text-tertiary font-bold"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Scheduled</div>
+</div>
+<button class="w-full py-4 rounded-xl border-2 border-dashed border-outline-variant flex flex-col items-center justify-center gap-1 text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">add</span><span class="text-[10px] font-extrabold">Slot +</span></button>
+</div>
+</div>
+<div class="flex flex-col gap-3 min-h-[620px]">
+<div class="bg-surface-container-lowest rounded-lg p-2 text-center border-2 border-outline-variant shadow-[0_2px_0_#D8CFBC]"><div class="text-[11px] font-extrabold text-on-surface-variant uppercase">Sun</div><div class="font-headline-sm text-headline-sm text-on-surface">02</div></div>
+<div class="space-y-3 flex-1">
+<div class="bg-surface-container-lowest rounded-xl p-2.5 tactile-plate-sm cursor-pointer space-y-2">
+<div class="flex items-center justify-between"><span class="px-1.5 py-0.5 rounded text-[10px] font-extrabold bg-[#091416] text-white border border-black flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#88F5EA]"></span> TikTok</span><span class="text-[10px] font-bold text-on-surface-variant">18:00 UTC</span></div>
+<div class="font-label-md text-label-md text-on-surface leading-tight">Weekly Review Breakdown</div>
+<div class="flex items-center gap-1 text-[10px] text-on-surface-variant font-bold"><span class="w-1.5 h-1.5 rounded-full bg-on-surface-variant"></span> Draft</div>
+</div>
+<button class="w-full py-4 rounded-xl border-2 border-dashed border-outline-variant flex flex-col items-center justify-center gap-1 text-on-surface-variant"><span class="material-symbols-outlined text-[20px]">add</span><span class="text-[10px] font-extrabold">Slot +</span></button>
+</div>
+</div>
+</div>
+</div>
+<aside class="col-span-12 xl:col-span-4 bg-surface-container-lowest rounded-2xl p-6 tactile-plate space-y-5">
+<div class="flex items-center justify-between pb-4 border-b-2 border-outline-variant">
+<div>
+<div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-tertiary-container"></span><h3 class="font-headline-sm text-headline-sm text-on-surface">Selected Post Inspector</h3></div>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">ID: <strong class="text-on-surface font-extrabold">#SOC-842</strong></span>
+<span class="font-label-sm text-label-sm text-tertiary font-extrabold bg-secondary-fixed px-2 py-0.5 rounded">Thu 14:15 UTC</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg text-on-surface flex items-center justify-center border border-outline-variant"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</div>
+<div class="media-slot rounded-xl relative h-64 flex items-center justify-center">
+<div class="w-14 h-14 rounded-full bg-white text-primary flex items-center justify-center shadow-lg border-2 border-[#E6DCCB]"><span class="material-symbols-outlined text-[32px] ml-1" style="font-variation-settings: 'FILL' 1;">play_arrow</span></div>
+<div class="absolute top-3 left-3 flex items-center gap-1.5">
+<span class="px-2 py-1 rounded bg-[#261A00] text-white font-label-sm text-label-sm font-extrabold">9:16 VERTICAL</span>
+</div>
+<div class="absolute bottom-3 right-3"><span class="px-2 py-1 rounded bg-[#261A00] text-white font-label-sm text-label-sm font-bold">0:38</span></div>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Post Caption &amp; Keywords</label>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-bold">148 / 2,200 chars</span>
+</div>
+<div class="tactile-sunken rounded-xl p-3">
+<textarea class="w-full bg-transparent border-0 p-0 text-on-surface font-body-md focus:ring-0 resize-none font-medium leading-relaxed" readonly="" rows="4">Stop saying 'discuss about'! In English exams like IELTS and TOEIC, discuss already means 'talk about'. Save this for your morning drill! #IELTS #EnglishTips #Lexkite</textarea>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface uppercase tracking-wider">Syndication Targets</label>
+<div class="grid grid-cols-2 gap-2.5">
+<button class="flex items-center justify-between p-2.5 rounded-xl bg-[#F8F4EC] border-2 border-[#FFDAD6] text-[#BA1A1A] shadow-[0_3px_0_#FFB8B8]">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">play_circle</span><span class="font-label-md text-label-md">YouTube Shorts</span></div>
+<span class="w-5 h-5 rounded-md bg-[#BA1A1A] text-white flex items-center justify-center text-[12px] font-bold">✓</span>
+</button>
+<button class="flex items-center justify-between p-2.5 rounded-xl bg-[#091416] border-2 border-black text-white shadow-[0_3px_0_#000000]">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px]">music_note</span><span class="font-label-md text-label-md">TikTok</span></div>
+<span class="w-5 h-5 rounded-md bg-white text-black flex items-center justify-center text-[12px] font-bold">✓</span>
+</button>
+</div>
+</div>
+<div class="pt-3 space-y-3">
+<button class="w-full py-3.5 px-6 rounded-xl tactile-button-primary flex items-center justify-center gap-2 font-headline-sm text-headline-sm font-extrabold tracking-tight"><span>Post Now</span></button>
+<button class="w-full py-3 px-6 rounded-xl tactile-button-secondary border-2 border-tertiary-container flex items-center justify-center gap-2 text-on-surface font-headline-sm text-headline-sm font-bold shadow-[0_4px_0_#D8CFBC]"><span>Schedule</span></button>
+</div>
+</aside>
+</div>
+</main>
+</body></html>

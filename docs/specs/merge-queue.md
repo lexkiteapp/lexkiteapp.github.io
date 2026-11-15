@@ -53,3 +53,10 @@ Chưa tự gỡ (xung đột hiếm, cần người): `content/pipeline/score.bu
 - `node scripts/ci/regen-conflicts.mjs [--base=real/main] [--dry]`: gộp base vào nhánh hiện tại (hoặc tiếp cuộc gộp dở), gỡ theo bảng trên bằng `plan/applySteps/regen` của `pr-unconflict.mjs` (một bộ luật cho bot và người), commit. Không push → sau đó `npm run prepush`, đẩy, `prwatch.py N@<sha>`. Thoát 2 = còn tệp người viết (in danh sách, cuộc gộp để dở); cần `npm ci` nếu có `st-*.css`.
 - `--measure N…` (PR đã fetch `refs/remotes/pr/N`): thống kê tệp xung đột nhiều nhất, không đụng cây làm việc.
 - `scripts/i18n-fixed.json`: khóa sắp, MỖI KHÓA MỘT DÒNG (`scripts/lib/fixed-json.mjs`, gác bởi `fmt-stable.mjs`). Gốc cũ: khóa mới nối cuối tệp → 7/16 PR dirty cùng một chỗ (đo 15/11; phần còn lại chủ yếu `extension/app` + `web/js/i18n` – tệp sinh, bot/công cụ gỡ).
+
+## Bản sinh không commit trong PR (15/11) – gốc của xung đột `extension/app` + `web/js/i18n`
+- Tập: `scripts/lib/generated.mjs` (gói dịch `web/js/i18n/<lang≠en>`, `web/cpack/lesson/pn-*`, `extension/app`). PR chỉ giữ NGUỒN → không còn tệp nào để xung đột.
+- CI dựng lại: `npm ci` → postinstall `scripts/ci/regen-generated.mjs --if-ci` (khi `pull_request` hoặc `GEN_REGEN=1`; npm-test.yml đặt `GEN_REGEN` nên cả lượt Prod release gọi lại cũng dựng). Mọi workflow PR có `npm ci` đều thấy bản sinh khớp nguồn PR; workflow PR không `npm ci` mà phục vụ `web/` thì tự chạy `node scripts/ci/regen-generated.mjs`.
+- Sau gộp: `gen-sync.yml` (push main) → `commit-regen.sh` commit bản sinh `[skip ci]`, rồi cổng khớp nguồn (`ext-sync`, `i18n-pack`) kiểm bản ĐÃ commit. Giữa lúc gộp và lúc bot commit: site đúng vì `build-web.sh` tự chạy `i18n-pack`; add-on/app di động/cửa hàng dựng từ main (`build-extension.sh` tự chạy `i18n-pack`).
+- Cổng PR: `scripts/test/gen-pr-clean.mjs` (PR đụng tệp sinh → đỏ). Gỡ: `node scripts/ci/regen-conflicts.mjs --strip` hoặc cứ để bot `pr-unconflict`/`regen-conflicts` gộp main (chúng tự đưa tệp sinh về bản main).
+- `prepush` không còn dựng/kiểm `extension/app`: không commit chúng.

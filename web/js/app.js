@@ -331,7 +331,7 @@
     streak: ['js/streak-ui.js'],
     ret: ['js/i18n/en/ret.js', 'js/retention.js'],
     // 📖 trang Từ điển #/dict (tách khỏi app.js 01/11)
-    dictp: ['js/dict-page.js'],
+    dictp: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/dict.js', 'js/dict-page.js'],
     statsp: ['js/stats-page.js'],
     // 🔤 Chia động từ · ✍️ Sửa ngữ pháp
     vcore: ['js/verbs-core.js'],
@@ -493,6 +493,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     call: ['css/st-v2-teacher-call.css'],
     cambridge: 'css/exam.css',
     dayv2: 'css/st-v2-day.css',
+    dictp: 'css/st-v2-dict.css',
     espr: ['css/tactile-x.css', 'css/st-lesson.css', 'css/st-v2-lesson-question.css', 'css/st-v2-feedback-correct.css', 'css/st-v2-feedback-wrong.css', 'css/st-v2-lesson-complete.css'],
     ghub: 'css/st-v2-grammar.css',
     goal: ['css/tactile-x.css', 'css/st-goal.css'],
