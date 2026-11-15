@@ -12,14 +12,13 @@
   const cache = new Map();
 
   const fetchJSON = async (url, ms = 8000, signal) => {
-    const ctrl = new AbortController(), stop = () => ctrl.abort();
-    const t = setTimeout(stop, ms);
-    if (signal) { if (signal.aborted) return null; signal.addEventListener('abort', stop, { once: true }); }
+    const ctrl = new AbortController(), stop = () => ctrl.abort(), t = setTimeout(stop, ms);
+    if (signal) signal.aborted ? stop() : signal.addEventListener('abort', stop, { once: true });
     try {
       const r = await fetch(url, { signal: ctrl.signal });
       if (!r.ok) { ctrl.abort(); return null; } // hủy thân chưa đọc (thân treo giữ request)
       return await r.json();
-    } catch (e) { return null; } finally { clearTimeout(t); if (signal) signal.removeEventListener('abort', stop); }
+    } catch (e) { return null; } finally { clearTimeout(t); }
   };
   // Datamuse phản chiếu Origin vào Access-Control-Allow-Origin nhưng CDN đệm 24 h mà không Vary: Origin → origin khác (vd. máy dev localhost:8080) gọi trước thì MỌI trang khác cùng điểm CDN bị CORS.
   // `o=<origin>` tách khóa đệm theo origin (tham số lạ Datamuse bỏ qua). Hỏng 1 lần → nghỉ 5 phút, không bắn thêm lỗi console. → JSON | null. Test: scripts/test/datamuse-resilience.mjs
@@ -281,19 +280,19 @@
       return fixVi(await devTimed(localTr.translate(text)));
     } catch (e) { if (deviceHung) localTr = null; return ''; }
   }
-  // Các nguồn dịch chạy SONG SONG, lấy bản đầu không rỗng, ngân sách tổng; jobs = [[trễ ms, fn(signal)]…] (MyMemory có hạn mức ngày → chỉ chạy khi 2 nguồn kia chậm).
+  // Dịch song song, lấy bản đầu không rỗng; jobs = [[trễ ms, fn(signal)]…] (MyMemory có hạn mức ngày → trễ)
   const TR_MS = 8000, MM_DELAY = 900;
   const raceTr = (jobs, ms = TR_MS, signal) => new Promise(res => {
     const ctrl = new AbortController(), T = []; let left = jobs.length, done = 0;
-    const fin = v => { if (done) return; done = 1; T.forEach(clearTimeout); ctrl.abort(); if (signal) signal.removeEventListener('abort', onAbort); res(v); }, onAbort = () => fin('');
-    if (signal) { if (signal.aborted) return fin(''); signal.addEventListener('abort', onAbort, { once: true }); }
+    const fin = v => { if (!done) { done = 1; T.forEach(clearTimeout); ctrl.abort(); res(v); } };
+    if (signal) signal.aborted ? fin('') : signal.addEventListener('abort', () => fin(''), { once: true });
     T.push(setTimeout(fin, ms, ''));
     for (const [wait, fn] of jobs) T.push(setTimeout(() => done || Promise.resolve().then(() => fn(ctrl.signal)).catch(() => '').then(v => ((v = v && String(v).trim()) ? fin(v) : --left || fin(''))), wait));
   });
   const gtxTr = async (text, tl, sl, signal) => { const d = await fetchJSON((tl === 'vi' && sl === 'en' ? GTX : gtxURL(sl, tl, '&dj=1')) + `&dt=t&q=${encodeURIComponent(text)}`, 8000, signal); return (d && (d.sentences || []).map(x => x.trans || '').join('').trim()) || ''; };
-  const devReady = () => !!(localTr || onDevice.size) && !deviceHung; // gói Translator trên máy đã mở → cho nó 350 ms trước Google
+  const devReady = () => !!(localTr || onDevice.size) && !deviceHung;
   const trCache = new Map();
-  // Dịch sang ngôn ngữ bất kỳ (nghĩa cho người học quốc tế: es, ja, ar…) – có bộ nhớ đệm trong phiên (trCache ở trên, chung với translateVi)
+  // Dịch sang ngôn ngữ bất kỳ (nghĩa cho người học quốc tế: es, ja, ar…) – có bộ nhớ đệm trong phiên
   // Chrome Translator API (dịch TRÊN MÁY – nhanh, offline, không giới hạn lượt). Chỉ dùng khi gói ngôn ngữ đã có sẵn
   // ('available'), không tự kích hoạt tải mô hình. Không có → trả null để dùng đường dịch cũ.
   const onDevice = new Map();
@@ -307,7 +306,6 @@
       const out = await devTimed(tr.translate(text)); return out && out.trim() ? out.trim() : null;
     } catch (e) { if (deviceHung) onDevice.clear(); return null; }
   }
-  // opts: { ms (ngân sách, mặc định 8 s), signal (hủy khi đổi vùng chọn) }; en→vi dùng Translator/fixVi riêng
   async function translateTo(text, tl, sl = 'en', opts = {}) {
     if (!text || !tl || tl === sl) return '';
     const vi = tl === 'vi' && sl === 'en', k = sl + '|' + tl + '|' + text; if (trCache.has(k)) return trCache.get(k);
