@@ -49,7 +49,7 @@ export function loadSources(blogLangs = ENABLED) {
   for (const k of U.KINDS) for (const e of U.load(k)) for (const x of e.items || []) for (const q of x.ex || []) addS(U.example(q).text);
   for (const a of corpus.values()) a.sort((x, y) => x.length - y.length || x.localeCompare(y));
   const wn = fs.existsSync('content/dict/wordnet.json') ? J('content/dict/wordnet.json').words : {}; // Open English WordNet (CC BY 4.0) – scripts/dict/wordnet.mjs
-  const addF = n => (fs.existsSync(`content/dict/add/${n}.json`) ? J(`content/dict/add/${n}.json`) : {}), add = { w: addF('words'), en: addF('en'), vi: addF('vi') }; // bổ sung tự viết cho từ chưa đạt ngưỡng (docs §12)
+  const addF = n => Object.assign({}, ...fs.readdirSync('content/dict/add').filter(f => f === `${n}.json` || (f.startsWith(`${n}-b`) && f.endsWith('.json'))).sort().map(f => J(`content/dict/add/${f}`))), add = { w: addF('words'), en: addF('en'), vi: addF('vi') }; // bổ sung tự viết cho từ chưa đạt ngưỡng (docs §12)
   return { INDEX, audioKey, notes, U, usage, blog, corpus, wn, add };
 }
 

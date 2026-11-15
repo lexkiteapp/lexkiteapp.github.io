@@ -1,9 +1,9 @@
 # ci-policy: heavy-gate – việc nặng trên PR chờ npm test xanh (job `gate`, luật 11)
-# Giọng từ đơn ngôn ngữ đích (pt-BR, es-419 …) – lượt MẪU 20 từ (chạy tay hoặc gắn nhãn word-audio-<tl> vào PR). Không đẩy gì vào repo, không dựng cả bộ.
+# Giọng từ đơn ngôn ngữ đích (pt-BR, es-419, fr-FR …) – lượt MẪU 20 từ (chạy tay hoặc gắn nhãn word-audio-<tl> vào PR). Không đẩy gì vào repo, không dựng cả bộ.
 # Bảng giọng: scripts/word-audio/tl-voices.json (thêm ngôn ngữ = thêm dòng + nhãn ở đây). Spec: docs/specs/target-language.md §Giọng, docs/specs/spanish-course.md §3/§5.3.
 # Dò kokoro-js có tự đọc TL không → Kokoro-82M + âm vị espeak (misaki EspeakG2P, tl_g2p.py), giọng Ama/Carlos của bảng → −16 LUFS + Whisper đa ngôn ngữ nghe lại (+ seseo cho es) (tl_gate.py).
 name: word-audio-tl
-run-name: "word-audio-${{ github.event.inputs.tl || (github.event.label.name == 'word-audio-es' && 'es') || 'pt' }}"
+run-name: "word-audio-${{ github.event.inputs.tl || (github.event.label.name == 'word-audio-es' && 'es') || (github.event.label.name == 'word-audio-fr' && 'fr') || 'pt' }}"
 on:
   workflow_dispatch:
     inputs:
@@ -36,11 +36,11 @@ jobs:
           echo "go=$go" >> "$GITHUB_OUTPUT"; echo "npm test xanh cùng sha (hoặc nhãn ready) → go=$go"
   sample:
     needs: gate
-    if: needs.gate.outputs.go == 'true' && (github.event_name == 'workflow_dispatch' || github.event.label.name == 'word-audio-pt' || github.event.label.name == 'word-audio-es')
+    if: needs.gate.outputs.go == 'true' && (github.event_name == 'workflow_dispatch' || github.event.label.name == 'word-audio-pt' || github.event.label.name == 'word-audio-es' || github.event.label.name == 'word-audio-fr')
     runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 60
     env:
-      TL: "${{ github.event.inputs.tl || (github.event.label.name == 'word-audio-es' && 'es') || 'pt' }}"
+      TL: "${{ github.event.inputs.tl || (github.event.label.name == 'word-audio-es' && 'es') || (github.event.label.name == 'word-audio-fr' && 'fr') || 'pt' }}"
       TL_N: '${{ github.event.inputs.n || 20 }}'
       KOKORO_DTYPE: fp32
     steps:

@@ -4,12 +4,13 @@
 name: Stitch diff
 on:
   pull_request:
-    paths: ['web/**', '!web/**/*.md', '!web/**/*.txt', 'brand/stitch/**', 'scripts/test/stitch-diff.*', 'scripts/test/stitch-screens.mjs', 'scripts/test/final-qc.mjs', 'scripts/test/stitch-render.mjs', 'scripts/stitch-v2-convert.mjs', 'scripts/build-stitch-css.mjs', '.github/workflows/stitch-diff.yml']
+    paths: ['web/**', '!web/**/*.md', '!web/**/*.txt', 'brand/stitch/**', 'scripts/test/stitch-diff.*', 'scripts/test/stitch-screens.mjs', 'scripts/test/final-qc.mjs', 'scripts/test/stitch-render.mjs', 'scripts/stitch-v2-convert.mjs', 'scripts/build-stitch-css.mjs', 'scripts/ci/stitch-shots.mjs', '.github/workflows/stitch-diff.yml']
   workflow_dispatch:
 permissions:
   contents: read
   actions: write   # fast-lane: huỷ lượt nặng khi npm test cùng sha đã đỏ (docs/CI-RUNNERS.md › Máy gác)
   checks: read
+  pull-requests: write   # một bình luận PR (marker <!-- stitch-shots -->) chứa link ảnh QC
 concurrency:
   group: stitch-diff-${{ github.ref }}
   cancel-in-progress: true
@@ -89,3 +90,17 @@ jobs:
       - if: always()
         uses: actions/upload-artifact@v4
         with: { name: final-qc, path: out/final-qc, retention-days: 14 }
+      # Ảnh QC lên R2 riêng tư (bucket report-shots, link ký 7 ngày) + MỘT bình luận PR sửa tại chỗ – giám khảo UI đọc link, khỏi tải artifact (scripts/ci/stitch-shots.mjs).
+      # Chỉ PR cùng repo (fork không có secret → bước bỏ qua êm); không commit ảnh vào repo; lỗi chỉ cảnh báo, không đỏ.
+      - name: Ảnh QC → R2 + bình luận PR
+        if: ${{ always() && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository }}
+        timeout-minutes: 8
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+        run: node scripts/ci/stitch-shots.mjs

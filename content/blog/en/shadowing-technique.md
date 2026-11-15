@@ -143,6 +143,8 @@ True or false?
 
 To apply shadowing to real conversations, see [speak English with confidence in 12 everyday situations](/en/blog/speak-english-with-confidence/).
 
+A short daily routine that combines shadowing with recording is in [PTE read aloud pronunciation tips](/en/blog/pte-read-aloud-pronunciation/).
+
 ## Frequently asked questions
 
 ### Can beginners use the shadowing technique?
