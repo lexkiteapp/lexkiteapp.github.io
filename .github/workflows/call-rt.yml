@@ -46,7 +46,7 @@ jobs:
         run: |
           npm i --no-save --no-audit --no-fund playwright@1.48.2
           bash scripts/ci/pw-install.sh --with-deps chromium
-          timeout 600 sudo apt-get install -y -qq espeak-ng ffmpeg >/dev/null
+          bash scripts/ci/apt-install.sh espeak-ng ffmpeg
       - name: Logic (node)
         run: node scripts/test/call-rt.mjs
       - name: Mẫu giọng người học (espeak-ng, 16 kHz mono, lặng 0,3 s trước / 0,2 s sau)
