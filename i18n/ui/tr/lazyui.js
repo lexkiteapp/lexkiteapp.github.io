@@ -821,6 +821,7 @@
 "Đã thêm {n} cụm vào sổ":"Kitabınıza {n} kelime öbeği eklendi",
 "Đã thêm {n} từ hợp trình độ {cefr} vào bộ thẻ.":"Destene {cefr} seviyende {n} kelime eklendi.",
 "Đã thêm {n} từ tiếng Bồ Đào Nha vào Sổ từ":"Kelime listene {n} Portekizce kelime eklendi",
+"Đã thêm {n} từ tiếng Pháp vào Sổ từ":"{n} Fransızca kelime kelime listene eklendi",
 "Đã thêm {n} từ tiếng Tây Ban Nha vào Sổ từ":"{n} İspanyolca kelime kelime listene eklendi",
 "Đã tạo bộ “{d}” với {n} thẻ":"{n} kartlarla “{d}” destesi oluşturuldu",
 "Đã tải {done}/{total} · {mb} MB":"İndirildi {done}/{total} · {mb} MB",
