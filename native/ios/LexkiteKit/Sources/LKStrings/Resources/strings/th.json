@@ -247,6 +247,7 @@
   "lesson.story.lookup": "กำลังค้นหา \"{w}\"...",
   "lesson.story.notFound": "ไม่มีผลลัพธ์สำหรับ \"{w}\"",
   "lesson.hint": "คำใบ้",
+  "lesson.why.word": "คำ: {w}",
   "rev.noFlashcardsYet": "ยังไม่มีการ์ด",
   "rev.addWordsFromThe": "เพิ่มคำจากห้องสมุดหรือค้นหาในพจนานุกรมเพื่อเริ่มต้น",
   "rev.openLibrary": "เปิดคลังคำ",

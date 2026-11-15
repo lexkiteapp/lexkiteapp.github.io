@@ -247,6 +247,7 @@
   "lesson.story.lookup": "Ищем «{w}»…",
   "lesson.story.notFound": "Нет результатов по запросу «{w}».",
   "lesson.hint": "Подсказка",
+  "lesson.why.word": "Слово: {w}",
   "rev.noFlashcardsYet": "Пока нет карточек",
   "rev.addWordsFromThe": "Чтобы начать, добавьте слова из библиотеки или найдите их в словаре.",
   "rev.openLibrary": "Открыть библиотеку",

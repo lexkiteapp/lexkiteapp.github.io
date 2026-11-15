@@ -247,6 +247,7 @@
   "lesson.story.lookup": "Mencari “{w}”…",
   "lesson.story.notFound": "Tidak ada hasil untuk “{w}”.",
   "lesson.hint": "Petunjuk",
+  "lesson.why.word": "Kata: {w}",
   "rev.noFlashcardsYet": "Belum ada kartu",
   "rev.addWordsFromThe": "Tambahkan kata-kata dari perpustakaan atau cari di kamus untuk memulai.",
   "rev.openLibrary": "Buka pustaka",

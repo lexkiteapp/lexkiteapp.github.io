@@ -247,6 +247,7 @@
   "lesson.story.lookup": "Procurando “{w}”…",
   "lesson.story.notFound": "Nenhum resultado para “{w}”.",
   "lesson.hint": "Dica",
+  "lesson.why.word": "Palavra: {w}",
   "rev.noFlashcardsYet": "Ainda sem cartões",
   "rev.addWordsFromThe": "Adicione palavras da biblioteca ou procure-as no dicionário para começar.",
   "rev.openLibrary": "Abrir biblioteca",

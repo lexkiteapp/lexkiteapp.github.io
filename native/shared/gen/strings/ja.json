@@ -247,6 +247,7 @@
   "lesson.story.lookup": "「{w}」を検索中…",
   "lesson.story.notFound": "「{w}」に一致する結果はありません。",
   "lesson.hint": "ヒント",
+  "lesson.why.word": "単語：{w}",
   "rev.noFlashcardsYet": "カードはまだありません",
   "rev.addWordsFromThe": "まずはライブラリから単語を追加するか、辞書で調べてください。",
   "rev.openLibrary": "ライブラリを開く",
