@@ -82,6 +82,7 @@ Nguồn duy nhất: `infra/jobs.json`. Sinh lại: `node scripts/jobs/gen.mjs --
 | 03:53 | `video-auto` | `17 23 * * *`<br>`53 3,6 * * *` | render | gh_minutes | 90 | — | — |
 | 04:17 | `ads-demo` | `17 4 * * 1` | reports | gh_minutes | 30 | — | — |
 | 04:23 | `drive-shorts` | `23 4 * * *` | archive | drive_pool, d1_internal | 20 | d1_internal_reads≈20000, drive_calls≈1500 | ✓ |
+| 04:35 | `words-r2-sync` | `35 4 * * *` | reports | gh_minutes | 8 | — | — |
 | 04:40 | `capacity-sim` | `40 4 * * 1` | reports | gh_minutes | 10 | — | — |
 | 04:40 | `vocab-img-free` | `40 4 * * 1` | bulk | gh_minutes | 6 | images≈0 | — |
 | 04:41 | `report-shots` | `41 4 * * 1` | archive | gh_minutes | 2 | — | — |
