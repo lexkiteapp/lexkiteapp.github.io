@@ -19,5 +19,12 @@ export const TL_GEN = {
     // spanish-course.md §8: chuẩn trung tính Mỹ Latinh – vosotros/leísmo/từ chỉ Tây Ban Nha không có trong câu chính
     audit: 'IPA has θ or is not Latin American; plural wrong; example uses vosotros forms, leísmo, Spain-only vocabulary (ordenador, zumo, coche, móvil as phone) or a word vulgar in Latin America (coger); example is not neutral Latin American Spanish',
     rules: 'Use ONLY neutral Latin American Spanish: ustedes (never vosotros), lo/la as direct objects (no leísmo), pan-regional vocabulary (computadora, carro/auto, celular, jugo, tomar instead of coger). Return {"skip": "vulgar"} for vulgar, offensive or slur words.',
+  },  fr: {
+    variant: 'fr-FR', lang: 'standard metropolitan French (France, neutral register)', short: 'French', exLevel: 'A1–A2 (B1 only if the word itself is B1+)', level: 'A1–B2', source: FW('fr', 'fr_50k'), kaikki: 'French', one: /^[àyaeoué]$/, lt: 'fr',
+    ipa: 'standard French IPA without slashes (espeak-ng fr-fr conventions): uvular ʁ, nasal vowels ɑ̃ ɔ̃ ɛ̃ (œ̃ only if the speaker keeps it), ɥ in cuisine/huit, ø vs œ, no schwa where it is silent (petit = pəti, la/le = schwa kept)',
+    extra: ', "plural": plural form ONLY for nouns (same as word if invariable, e.g. "jus"; irregular -al→-aux, -eau→-eaux, ciel→cieux), "h": "muet" or "aspire" ONLY when the word starts with h (muet: l\'homme, aspire: le haricot)',
+    // french-course.md §8: chuẩn Pháp trung tính – không Québec/Bỉ/Thụy Sĩ, không thông tục nặng; một câu một xưng (tu hoặc vous)
+    audit: 'IPA not standard French or silent e mishandled; plural wrong (or missing for a noun); h flag missing/wrong on an h-word; example mixes tu and vous in one sentence, uses Québec/Belgian/Swiss forms (char, dépanneur, septante) or heavy slang (bagnole, boulot, bouffer) or is not natural spoken French',
+    rules: 'Use ONLY standard French of France, neutral register. One address form per example: vous for polite/formal sentences, tu only for clearly friendly ones, never both in one sentence. Return {"skip": "vulgar"} for vulgar, offensive or slur words.',
   },
 };

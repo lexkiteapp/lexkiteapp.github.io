@@ -1,0 +1,752 @@
+{
+  "similarly": {
+    "mis": [
+      {
+        "w": "He dressed similarly with his brother.",
+        "r": "He dressed similarly to his brother.",
+        "why": "Sau similarly dùng 'to' để nêu đối tượng so sánh, không dùng 'with'."
+      },
+      {
+        "w": "Similar, many students prefer online lessons.",
+        "r": "Similarly, many students prefer online lessons.",
+        "why": "Similar là tính từ; muốn mở câu để nối ý phải dùng trạng từ similarly."
+      }
+    ],
+    "u": "Similarly là trạng từ nối dùng nhiều trong bài viết để thêm một ý song song với ý trước: 'Cars pollute the air. Similarly, planes damage the climate.' Từ này thường đứng đầu câu và theo sau là dấu phẩy. Khi đứng riêng, nó nghĩa là theo cách tương tự (treated similarly). Likewise ngắn và thân mật hơn một chút; in the same way thì rõ ràng hơn. Không dùng similarly để diễn tả sự đối lập."
+  },
+  "simplify": {
+    "mis": [
+      {
+        "w": "Please simplify me the instructions.",
+        "r": "Please simplify the instructions for me.",
+        "why": "Simplify nhận trực tiếp tân ngữ là vật; người hưởng lợi đi sau với 'for'."
+      },
+      {
+        "w": "We need a simplify process.",
+        "r": "We need a simplified process.",
+        "why": "Sau 'a' cần một tính từ; dùng phân từ simplified chứ không phải động từ simplify."
+      }
+    ],
+    "u": "Simplify là ngoại động từ, nghĩa là làm cho bớt phức tạp: simplify a form, a rule hay an explanation. Từ hay xuất hiện trong văn phong kinh doanh, kỹ thuật, thường đi với process, procedure, workflow. Danh từ là simplification, tính từ là simplified hoặc simple. Streamline nhấn mạnh bỏ các bước thừa, còn clarify nhấn mạnh làm rõ hơn. Oversimplify mang nghĩa tiêu cực: lược quá nhiều nên ý bị sai lệch."
+  },
+  "slot": {
+    "mis": [
+      {
+        "w": "Do you have any free slot on Friday?",
+        "r": "Do you have any free slots on Friday?",
+        "why": "Sau 'any' trong câu hỏi, danh từ đếm được phải ở số nhiều: slots."
+      },
+      {
+        "w": "I booked a slot at the doctor for Monday.",
+        "r": "I booked a slot with the doctor for Monday.",
+        "why": "Với người (bác sĩ), dùng 'with' sau slot hay appointment, không dùng 'at'."
+      }
+    ],
+    "u": "Slot có hai nghĩa thường gặp. Nghĩa vật lý là khe hẹp, như coin slot hay mail slot. Trong lịch trình, nó là khoảng thời gian dành cho việc gì đó: time slot, TV slot, a slot in the programme. Đây là danh từ đếm được, hay đi với book, fill, secure hoặc free. So với appointment, slot nhấn vào khoảng thời gian còn trống hơn là cuộc hẹn. Cụm động từ slot in nghĩa là chèn vừa vào một chỗ."
+  },
+  "soar": {
+    "mis": [
+      {
+        "w": "Prices soared up by 20 percent.",
+        "r": "Prices soared by 20 percent.",
+        "why": "Soar đã có nghĩa tăng vọt nên thêm 'up' là thừa."
+      },
+      {
+        "w": "Prices soar last year.",
+        "r": "Prices soared last year.",
+        "why": "Mốc thời gian quá khứ 'last year' cần động từ ở quá khứ: soared."
+      }
+    ],
+    "u": "Soar nghĩa là tăng rất nhanh và rất cao. Từ này miêu tả số liệu như giá, doanh số, nhiệt độ, và cả chim bay hay hy vọng dâng cao. Các mẫu thường gặp: soar to một mức (soar to record highs) và soar by một lượng (soar by 20 percent). Nó mạnh hơn rise hay increase. Skyrocket mang tính thân mật hơn; surge gợi ý một đợt tăng đột ngột hơn là leo cao đều đặn."
+  },
+  "sometime": {
+    "mis": [
+      {
+        "w": "Let's meet sometimes next week.",
+        "r": "Let's meet sometime next week.",
+        "why": "Sometimes nghĩa là 'thỉnh thoảng'; cho một thời điểm chưa xác định thì dùng sometime."
+      },
+      {
+        "w": "The report took sometime to finish.",
+        "r": "The report took some time to finish.",
+        "why": "Với khoảng thời gian phải viết hai từ some time; sometime chỉ một thời điểm không rõ."
+      }
+    ],
+    "u": "Sometime là trạng từ chỉ một thời điểm không xác định: 'Call me sometime next week.' Nó cố ý mơ hồ nên tránh dùng khi cần ngày giờ chính xác. Đừng nhầm với sometimes (thỉnh thoảng) hay some time (một khoảng thời gian, như 'it will take some time'). Trong tiếng Anh Mỹ, sometime còn là tính từ nghĩa là trước đây (a sometime teacher), nhưng cách dùng này nay hiếm và mang tính văn chương."
+  },
+  "specification": {
+    "mis": [
+      {
+        "w": "The product meets all specification.",
+        "r": "The product meets all specifications.",
+        "why": "Với nghĩa yêu cầu kỹ thuật, specification thường ở số nhiều sau 'all'."
+      },
+      {
+        "w": "Please send the full specific of the product.",
+        "r": "Please send the full specifications of the product.",
+        "why": "Specific là tính từ; danh từ chỉ bảng thông số chi tiết là specification."
+      }
+    ],
+    "u": "Specification là bản mô tả chính xác một thứ phải như thế nào, làm gì hay gồm gì. Trong công nghiệp, dạng số nhiều là phổ biến: product specifications, built to specifications, meet the specifications. Job specification liệt kê nhiệm vụ và kỹ năng của một vị trí. Dạng rút gọn spec hay dùng khi nói. Đừng nhầm với specific (tính từ) hay specify (động từ). Requirement rộng và ít kỹ thuật hơn; standard chỉ mức chuẩn đã thống nhất, không phải chi tiết từng món."
+  },
+  "spokesperson": {
+    "mis": [
+      {
+        "w": "He is a spokesperson of the company.",
+        "r": "He is a spokesperson for the company.",
+        "why": "Người phát ngôn nói 'cho' một tổ chức nên dùng 'for', không dùng 'of'."
+      },
+      {
+        "w": "The spokesperson said us that the plan was cancelled.",
+        "r": "The spokesperson told us that the plan was cancelled.",
+        "why": "Say không nhận tân ngữ chỉ người trực tiếp; dùng tell khi có tân ngữ."
+      }
+    ],
+    "u": "Spokesperson là người được chọn để phát ngôn chính thức thay cho một tổ chức, chính phủ hay nhân vật nổi tiếng. Từ này trung tính về giới và nay được ưa hơn spokesman hay spokeswoman trong tiếng Anh kinh doanh và báo chí. Mẫu câu là spokesperson for X. Phóng viên hay viết 'a spokesperson said', thường kèm tên tổ chức trước. Representative có thể đại diện cho nhóm theo nhiều cách, còn spokesperson chủ yếu đưa ra tuyên bố công khai."
+  },
+  "steadily": {
+    "mis": [
+      {
+        "w": "Sales grew steady last year.",
+        "r": "Sales grew steadily last year.",
+        "why": "Động từ được bổ nghĩa bằng trạng từ nên dùng steadily, không dùng tính từ steady."
+      },
+      {
+        "w": "Prices have risen stably since January.",
+        "r": "Prices have risen steadily since January.",
+        "why": "Stably nghĩa là không thay đổi; steadily nghĩa là đều đặn từng bước."
+      }
+    ],
+    "u": "Steadily nghĩa là với nhịp đều đặn, liên tục, không có bước nhảy đột ngột. Từ này đi chủ yếu với động từ chỉ thay đổi: grow, rise, improve, decline, increase. Sắc thái trung tính, hay gặp trong báo cáo và tin tức về xu hướng. Mưa có thể rơi steadily; người có thể làm việc steadily. Gradually nhấn mạnh sự chậm rãi, còn steadily nhấn mạnh sự đều đặn. Không dùng cho thứ giữ nguyên; khi đó nói remain stable hoặc stay constant."
+  },
+  "steer": {
+    "mis": [
+      {
+        "w": "The manager steered the company on the crisis.",
+        "r": "The manager steered the company through the crisis.",
+        "why": "Dẫn dắt vượt qua khó khăn dùng 'through', không dùng 'on'."
+      },
+      {
+        "w": "I steer a car to work every day.",
+        "r": "I drive a car to work every day.",
+        "why": "Steer chỉ là điều khiển hướng; động từ chung cho việc lái xe là drive."
+      }
+    ],
+    "u": "Steer nghĩa là điều khiển hướng đi của xe, thuyền, xe đạp, và cả của cuộc trò chuyện, thảo luận hay công ty. Các nghĩa bóng hay gặp: steer the conversation away from a topic, steer a business through a crisis, steer clear of trouble. Từ này tập trung vào hướng đi chứ không phải vận hành cả cỗ máy, nên với ô tô động từ thông thường là drive. Guide trung tính hơn; navigate gợi ý việc tìm đường qua khó khăn."
+  },
+  "stockbroker": {
+    "mis": [
+      {
+        "w": "My uncle is stockbroker.",
+        "r": "My uncle is a stockbroker.",
+        "why": "Danh từ nghề nghiệp đếm được ở số ít cần mạo từ: a stockbroker."
+      },
+      {
+        "w": "I'm a stockbroker of this company, so I get part of the profits.",
+        "r": "I'm a stockholder of this company, so I get part of the profits.",
+        "why": "Stockbroker mua bán cổ phiếu cho người khác; người sở hữu cổ phiếu là stockholder."
+      }
+    ],
+    "u": "Stockbroker là chuyên viên có giấy phép, mua bán cổ phiếu cho khách hàng và nhận phí hoặc hoa hồng. Nhiều người nay làm cho nền tảng trực tuyến thay vì ở sàn giao dịch. Các kết hợp thường gặp: consult, hire, work as a stockbroker. Người sở hữu cổ phiếu là stockholder (hay shareholder), không phải stockbroker. Trong tiếng Anh kinh doanh nói chung, broker đứng một mình còn có thể chỉ người môi giới ở lĩnh vực khác như bảo hiểm, bất động sản."
+  },
+  "stockholder": {
+    "mis": [
+      {
+        "w": "The stockholders will hold a meeting to vote the merger.",
+        "r": "The stockholders will hold a meeting to vote on the merger.",
+        "why": "Vote đi với 'on' trước vấn đề được biểu quyết."
+      },
+      {
+        "w": "Our stockholder buys and sells shares for us.",
+        "r": "Our stockbroker buys and sells shares for us.",
+        "why": "Người mua bán cổ phiếu hộ khách là stockbroker; stockholder là người sở hữu."
+      }
+    ],
+    "u": "Stockholder là người sở hữu cổ phiếu của một công ty, nên có một phần công ty đó, với quyền biểu quyết và nhận cổ tức. Stockholder là từ thường dùng ở Mỹ, còn shareholder phổ biến trong tiếng Anh Anh và cũng được dùng ở Mỹ. Cả hai đều có trong cụm như stockholders' meeting và stockholder value. Chú ý dấu sở hữu sau số nhiều: stockholders' rights. Stockholder không giống stockbroker, người giao dịch thay cho người khác."
+  },
+  "strategic": {
+    "mis": [
+      {
+        "w": "We need a strategic for next year.",
+        "r": "We need a strategy for next year.",
+        "why": "Strategic là tính từ; danh từ chỉ kế hoạch là strategy."
+      },
+      {
+        "w": "They signed a strategy partnership.",
+        "r": "They signed a strategic partnership.",
+        "why": "Để bổ nghĩa cho danh từ cần tính từ strategic, không phải danh từ strategy."
+      }
+    ],
+    "u": "Strategic là tính từ, nghĩa là thuộc về kế hoạch dài hạn để đạt mục tiêu quan trọng. Từ này phổ biến trong kinh doanh: strategic partnership, strategic planning, strategic alliance. Nó cũng có nghĩa được đặt có tính toán, như strategic location. Tactical là từ đối lập ngắn hạn, nói về những hành động thực hiện chiến lược. Danh từ là strategy, trạng từ là strategically. Gọi một quyết định là strategic khiến nó nghe có trọng lượng và hàm ý đã được suy nghĩ kỹ."
+  },
+  "submission": {
+    "mis": [
+      {
+        "w": "The submission the form must be done online.",
+        "r": "The submission of the form must be done online.",
+        "why": "Danh từ submission cần 'of' trước thứ được nộp."
+      },
+      {
+        "w": "I will do submission my essay tomorrow.",
+        "r": "I will submit my essay tomorrow.",
+        "why": "Dùng động từ submit với tân ngữ; submission là danh từ."
+      }
+    ],
+    "u": "Submission là hành động nộp tài liệu, đơn hay đề xuất để người khác xem xét, và cũng là thứ được nộp. Nó có trong các cụm cố định như submission deadline, late submission, online submission. Theo sau bằng of, nó nêu thứ được gửi: submission of the report. Động từ là submit. Ở nghĩa khác, submission là sự khuất phục trước quyền lực hay sức mạnh, nên cần xét ngữ cảnh. Filing thường dùng cho các biểu mẫu pháp lý."
+  },
+  "subscriber": {
+    "mis": [
+      {
+        "w": "The channel has one million subscribes.",
+        "r": "The channel has one million subscribers.",
+        "why": "Subscribe là động từ; người đăng ký là subscriber."
+      },
+      {
+        "w": "I am a subscriber on this magazine.",
+        "r": "I am a subscriber to this magazine.",
+        "why": "Subscriber và subscribe đi với 'to' trước dịch vụ."
+      }
+    ],
+    "u": "Subscriber là người trả tiền hoặc đăng ký để nhận thứ gì đó đều đặn, như tạp chí, bản tin, đường dây điện thoại hay dịch vụ xem phim. Mẫu câu là subscriber to X. Trong truyền thông và tiếp thị, subscriber base và subscriber growth đo số người đã đăng ký. Subscriber không phải lúc nào cũng trả tiền: người đăng ký email có thể nhận thư miễn phí. Member thường có thêm quyền và tham gia vào một nhóm."
+  },
+  "substantially": {
+    "mis": [
+      {
+        "w": "Profits rose substantial last year.",
+        "r": "Profits rose substantially last year.",
+        "why": "Cần trạng từ để bổ nghĩa cho động từ rose."
+      },
+      {
+        "w": "Prices dropped substantially of 10 percent.",
+        "r": "Prices dropped substantially by 10 percent.",
+        "why": "Dùng 'by' để nêu mức độ của sự thay đổi."
+      }
+    ],
+    "u": "Substantially nghĩa là với một lượng lớn hay ở mức độ cao. Từ đi với động từ chỉ thay đổi (increase, reduce, improve) và với so sánh hơn (substantially higher). Nó trang trọng, hay gặp trong báo cáo, hợp đồng và tin tức. Nghĩa thứ hai là 'phần lớn': substantially complete. Significantly có thể gợi ý thay đổi quan trọng hay có ý nghĩa thống kê, còn substantially nhấn mạnh quy mô. Đừng nhầm với substantive (tính từ), nghĩa là có tầm quan trọng thực sự hay nói về cốt lõi."
+  },
+  "superb": {
+    "mis": [
+      {
+        "w": "The food was very superb.",
+        "r": "The food was superb.",
+        "why": "Superb đã là mức cực đoan nên không dùng 'very'; cần nhấn mạnh thì nói absolutely superb."
+      },
+      {
+        "w": "She performed superb in the final.",
+        "r": "She performed superbly in the final.",
+        "why": "Dùng trạng từ superbly để nói động từ được thực hiện ra sao."
+      }
+    ],
+    "u": "Superb là tính từ mạnh, nghĩa là tuyệt hảo hay chất lượng cao nhất. Nó dùng để khen món ăn, dịch vụ, khung cảnh, màn trình diễn và kết quả: a superb meal, superb views. Vì là tính từ cực đoan, thường không đi với very; thay vào đó dùng absolutely, quite hoặc simply. Trạng từ là superbly. Từ mang sắc thái ấm áp, tích cực, hợp với đánh giá và lời giới thiệu. Excellent trung tính hơn, còn magnificent nhấn mạnh vẻ hùng vĩ, lộng lẫy."
+  },
+  "supervise": {
+    "mis": [
+      {
+        "w": "She supervises to twelve staff.",
+        "r": "She supervises twelve staff.",
+        "why": "Supervise là ngoại động từ, nhận tân ngữ trực tiếp, không có 'to'."
+      },
+      {
+        "w": "He is supervise of the project.",
+        "r": "He is the supervisor of the project.",
+        "why": "Sau 'is the' cần danh từ supervisor, không phải động từ supervise."
+      }
+    ],
+    "u": "Supervise nghĩa là trông coi người hoặc công việc để chắc chắn mọi thứ được làm đúng. Quản lý supervise nhân viên, giáo viên supervise học sinh, cha mẹ supervise trẻ nhỏ. Đây là ngoại động từ, không có giới từ trước tân ngữ. Các từ liên quan là supervisor (người), supervision (danh từ) và supervisory (tính từ). Oversee rộng và ở tầm cao hơn một chút, còn manage bao gồm cả việc quyết định về nguồn lực chứ không chỉ giám sát."
+  },
+  "survey": {
+    "mis": [
+      {
+        "w": "We made a survey about customers.",
+        "r": "We conducted a survey about customers.",
+        "why": "Kết hợp thường dùng là conduct hay carry out a survey, không phải make."
+      },
+      {
+        "w": "A recent survey show that most workers prefer flexible hours.",
+        "r": "A recent survey shows that most workers prefer flexible hours.",
+        "why": "Chủ ngữ số ít cần động từ ngôi thứ ba thêm -s: shows."
+      }
+    ],
+    "u": "Survey là bộ câu hỏi dành cho nhiều người để tìm hiểu ý kiến hay thói quen, và cũng là bản báo cáo kết quả. Các động từ tự nhiên là conduct, carry out, complete và respond to. Người trả lời gọi là respondents. Khi là động từ, survey (nhấn âm thứ hai) còn nghĩa là quan sát kỹ hay đo đạc đất. Poll thường nói về bầu cử hay ý kiến và ngắn hơn; questionnaire là chính danh sách câu hỏi."
+  },
+  "tailor": {
+    "mis": [
+      {
+        "w": "We offer tailor services to customers.",
+        "r": "We offer tailored services to customers.",
+        "why": "Dạng tính từ đứng trước danh từ là tailored (hoặc tailor-made), không phải tailor."
+      },
+      {
+        "w": "We tailor our courses at each student's level.",
+        "r": "We tailor our courses to each student's level.",
+        "why": "Tailor cái gì 'to' nhu cầu hay đối tượng; không dùng 'at'."
+      }
+    ],
+    "u": "Là động từ, tailor nghĩa là làm hay chỉnh sửa cái gì cho phù hợp với một người, nhu cầu hay mục đích cụ thể. Mẫu câu là tailor X to Y: tailor a course to the students. Phân từ tailored dùng như tính từ (tailored advice), còn tailor-made nghĩa là làm riêng cho ai đó. Là danh từ, a tailor là thợ may. Customize tương tự nhưng thường dùng cho sản phẩm; adapt thì chung hơn."
+  },
+  "takeover": {
+    "mis": [
+      {
+        "w": "The takeover on the firm was announced today.",
+        "r": "The takeover of the firm was announced today.",
+        "why": "Takeover đi với 'of' và công ty bị mua lại."
+      },
+      {
+        "w": "The take over bid was rejected.",
+        "r": "The takeover bid was rejected.",
+        "why": "Khi là danh từ phải viết liền takeover; 'take over' là cụm động từ."
+      }
+    ],
+    "u": "Takeover xảy ra khi một công ty giành quyền kiểm soát công ty khác, thường bằng cách mua phần lớn cổ phiếu. Có thể là thân thiện, khi hội đồng quản trị đồng ý, hoặc thù địch, trái với ý muốn của họ. Các từ hay gặp là takeover bid, takeover offer và takeover talks. Danh từ viết liền, còn động từ viết rời: 'They will take over the firm.' Acquisition là thuật ngữ pháp lý trung tính; merger gợi ý hai công ty hợp nhất ngang hàng."
+  },
+  "taker": {
+    "mis": [
+      {
+        "w": "Test takers should bring his ID card.",
+        "r": "Test takers should bring their ID cards.",
+        "why": "Chủ ngữ số nhiều cần đại từ số nhiều: their, không phải his."
+      },
+      {
+        "w": "The offer had no takes.",
+        "r": "The offer had no takers.",
+        "why": "Từ chỉ những người nhận một lời đề nghị là takers; 'takes' không dùng như vậy."
+      }
+    ],
+    "u": "Taker là người lấy hay nhận một thứ gì, và chủ yếu gặp trong hai bối cảnh. Trong thi cử, test takers là những người đang dự thi. Trong lời nói thân mật, taker là người chấp nhận một lời đề nghị; 'no takers' nghĩa là không ai muốn. Nó còn tạo từ ghép như risk-taker và notetaker. Đứng một mình, từ này không phổ biến lắm nên thường gặp trong các cụm cố định. Participant là lựa chọn chung hơn."
+  },
+  "task": {
+    "mis": [
+      {
+        "w": "I have a lot of task to finish today.",
+        "r": "I have a lot of tasks to finish today.",
+        "why": "Sau 'a lot of' danh từ đếm được phải ở số nhiều: tasks."
+      },
+      {
+        "w": "The task is difficult to complete it.",
+        "r": "The task is difficult to complete.",
+        "why": "Chủ ngữ đã là tân ngữ của complete nên không lặp lại đại từ 'it'."
+      }
+    ],
+    "u": "Task là một phần việc cụ thể cần làm, thường nằm trong công việc lớn hơn. Đây là danh từ đếm được: several tasks, a daily task. Các động từ hay đi kèm là complete, assign, perform và carry out. Task trang trọng và trung tính hơn chore, vốn là việc nhà nhàm chán. Assignment là nhiệm vụ do người có thẩm quyền giao, như giáo viên. Task force là nhóm lập ra cho một mục đích duy nhất."
+  },
+  "technology": {
+    "mis": [
+      {
+        "w": "Technology are changing our lives.",
+        "r": "Technology is changing our lives.",
+        "why": "Technology khi nói chung là danh từ không đếm được, đi với động từ số ít."
+      },
+      {
+        "w": "He works in the technology of information.",
+        "r": "He works in information technology.",
+        "why": "Thuật ngữ cố định là information technology, từ bổ nghĩa đứng trước."
+      }
+    ],
+    "u": "Technology nghĩa là kiến thức khoa học được dùng để tạo máy móc, công cụ và hệ thống giải quyết vấn đề. Khi nói chung, nó không đếm được: technology is advancing. Chỉ đếm được khi nói về các loại cụ thể (new technologies in farming). Các kết hợp thường gặp gồm information technology, cutting-edge technology và advances in technology. Dạng rút gọn thân mật là tech. Technology là công cụ và phương pháp, còn engineering là việc thiết kế và xây dựng chúng."
+  },
+  "telecommunication": {
+    "mis": [
+      {
+        "w": "She studied telecommunication engineer.",
+        "r": "She studied telecommunication engineering.",
+        "why": "Tên một ngành học là danh từ engineering, không phải người engineer."
+      },
+      {
+        "w": "She has worked in telecommunications for 2015.",
+        "r": "She has worked in telecommunications since 2015.",
+        "why": "Dùng 'since' với điểm bắt đầu và 'for' với khoảng thời gian."
+      }
+    ],
+    "u": "Telecommunication là việc truyền thông tin từ xa bằng cáp, điện thoại, vô tuyến, vệ tinh hay internet. Dạng số nhiều telecommunications phổ biến khi gọi tên cả ngành: the telecommunications industry, a telecommunications company. Trên báo chí nó thường được rút gọn thành telecom hay telecoms. Nó có thể làm tính từ đứng trước danh từ ở dạng số ít, như telecommunication engineering. Telephony hẹp hơn và chỉ nói về gọi thoại."
+  },
+  "temporarily": {
+    "mis": [
+      {
+        "w": "The shop is temporary closed.",
+        "r": "The shop is temporarily closed.",
+        "why": "Cần trạng từ temporarily trước tính từ closed."
+      },
+      {
+        "w": "The bridge is closed temporally.",
+        "r": "The bridge is closed temporarily.",
+        "why": "Temporally liên quan đến thứ tự thời gian; temporarily nghĩa là trong thời gian ngắn."
+      }
+    ],
+    "u": "Temporarily nghĩa là trong một khoảng thời gian có giới hạn, không phải vĩnh viễn. Từ này đặc trưng cho thông báo và cập nhật dịch vụ: temporarily closed, temporarily out of service, temporarily suspended. Nó thường bổ nghĩa cho phân từ hoặc tính từ. Chú ý chính tả: giọng Mỹ phát âm rõ âm tiết thứ tư, còn người Anh hay nuốt bớt. Từ trái nghĩa là permanently. For now và for the time being là cách nói bớt trang trọng cho cùng ý."
+  },
+  "termination": {
+    "mis": [
+      {
+        "w": "We announced the terminate of the contract.",
+        "r": "We announced the termination of the contract.",
+        "why": "Sau 'the' cần danh từ termination, không phải động từ terminate."
+      },
+      {
+        "w": "The termination from the contract was sudden.",
+        "r": "The termination of the contract was sudden.",
+        "why": "Termination đi với 'of' và thứ bị chấm dứt."
+      }
+    ],
+    "u": "Termination là sự kết thúc chính thức của một thứ, nhất là hợp đồng, thỏa thuận hay công việc. Trong văn bản kinh doanh và pháp lý nó rất phổ biến: termination clause, termination notice, early termination fee. Trong lao động, termination là từ lịch sự, trang trọng cho việc bị sa thải. Động từ là terminate. Expiry nghĩa là hợp đồng hết vì hết hạn, còn termination có thể do một bên chấm dứt sớm. Trong y khoa, từ này còn có thể chỉ việc chấm dứt thai kỳ."
+  },
+  "therefore": {
+    "mis": [
+      {
+        "w": "The price is high, therefore people don't buy it.",
+        "r": "The price is high; therefore, people don't buy it.",
+        "why": "Therefore là trạng từ, không phải liên từ, nên chỉ dấu phẩy không nối được hai mệnh đề."
+      },
+      {
+        "w": "Because the flight was cancelled, therefore we stayed home.",
+        "r": "Because the flight was cancelled, we stayed home.",
+        "why": "Because và therefore đều chỉ lý do nên dùng cả hai trong một câu là thừa."
+      }
+    ],
+    "u": "Therefore nghĩa là vì lý do đó, và chỉ một kết quả logic: 'The roads were icy; therefore, the match was cancelled.' Từ này trang trọng, đặc trưng cho bài luận, báo cáo và chứng minh. Nó là trạng từ, nên muốn nối mệnh đề phải dùng dấu chấm phẩy hoặc bắt đầu câu mới, và có dấu phẩy sau nó khi đứng đầu. Không dùng chung với because hay so trong cùng một mệnh đề. So là dạng đời thường, còn thus và hence còn trang trọng hơn nữa."
+  },
+  "thorough": {
+    "mis": [
+      {
+        "w": "She did a thoroughly review.",
+        "r": "She did a thorough review.",
+        "why": "Danh từ review được bổ nghĩa bằng tính từ thorough, không phải trạng từ thoroughly."
+      },
+      {
+        "w": "He is thorough on checking the details.",
+        "r": "He is thorough in checking the details.",
+        "why": "Tính từ thorough đi với 'in' trước hoạt động được nói đến."
+      }
+    ],
+    "u": "Thorough là tính từ nghĩa là đầy đủ và cẩn thận, không bỏ sót điều quan trọng. Nó miêu tả công việc và con người: a thorough investigation, a thorough teacher. Từ mang nghĩa tích cực, phổ biến trong đánh giá, kiểm toán và báo cáo. Phát âm hơi khó vì chính tả có -ough, trong khi đuôi đọc gần như 'roh' trong tiếng Anh Mỹ. Detailed nhấn mạnh lượng chi tiết, còn exhaustive gợi ý bao quát tuyệt đối mọi thứ. Trạng từ là thoroughly."
+  },
+  "thoroughly": {
+    "mis": [
+      {
+        "w": "Please check the files throughly.",
+        "r": "Please check the files thoroughly.",
+        "why": "Chính tả đúng là thoroughly, có -ough; 'throughly' không chuẩn."
+      },
+      {
+        "w": "Read it thorough before you sign.",
+        "r": "Read it thoroughly before you sign.",
+        "why": "Sau động từ dùng trạng từ thoroughly, không dùng tính từ thorough."
+      }
+    ],
+    "u": "Thoroughly là trạng từ nghĩa là hoàn toàn và rất cẩn thận. Nó đi với động từ về kiểm tra và làm sạch (check, wash, review) và với cảm xúc (thoroughly enjoy, thoroughly recommend). Nó cũng có thể nhấn mạnh một số tính từ như thoroughly modern hay thoroughly ashamed. Vị trí thường là sau tân ngữ hoặc trước động từ chính. Nó hàm ý cẩn thận hơn completely, vì completely không phải lúc nào cũng mang ý chu đáo."
+  },
+  "timeline": {
+    "mis": [
+      {
+        "w": "The timeline of the project is two weeks.",
+        "r": "The timeline for the project is two weeks.",
+        "why": "Dùng 'for' sau timeline để nêu dự án mà lịch trình áp dụng."
+      },
+      {
+        "w": "Our timeline is tomorrow, so we must hurry.",
+        "r": "Our deadline is tomorrow, so we must hurry.",
+        "why": "Timeline là cả lịch trình; hạn chót cuối cùng là deadline."
+      }
+    ],
+    "u": "Timeline là lịch trình cho thấy khi nào các sự kiện sẽ hoặc đã xảy ra, như project timeline hay lịch sử của một công ty. Trong kinh doanh, nó thường liệt kê các giai đoạn và ngày: set a timeline, stick to the timeline, extend the timeline. Nó không giống deadline, vốn là ngày cuối cùng được phép. Time frame nói về khoảng thời gian có sẵn. Trên mạng xã hội, timeline là dòng bài đăng hiển thị."
+  },
+  "toiletry": {
+    "mis": [
+      {
+        "w": "Pack some toiletry for the trip.",
+        "r": "Pack some toiletries for the trip.",
+        "why": "Từ này thường ở số nhiều, toiletries, để chỉ nhóm đồ dùng."
+      },
+      {
+        "w": "I forgot my toiletries bag.",
+        "r": "I forgot my toiletry bag.",
+        "why": "Khi bổ nghĩa cho danh từ khác, nó ở số ít: toiletry bag."
+      }
+    ],
+    "u": "Toiletries là những đồ dùng hằng ngày để tắm rửa và chăm sóc cơ thể, như xà phòng, dầu gội, kem đánh răng, lăn khử mùi. Dạng số nhiều phổ biến hơn nhiều so với số ít. Toiletry bag (hay wash bag trong tiếng Anh Anh) dùng để đựng chúng khi đi xa. Khách sạn thường tặng toiletries miễn phí. Từ này không gồm đồ trang điểm hay thuốc, vốn có tên riêng: cosmetics và medication."
+  },
+  "toll": {
+    "mis": [
+      {
+        "w": "You pay toll to enter the museum.",
+        "r": "You pay an entrance fee to enter the museum.",
+        "why": "Toll là tiền dùng đường hay cầu; với một tòa nhà dùng entrance fee."
+      },
+      {
+        "w": "The driver paid the toll in the bridge.",
+        "r": "The driver paid the toll at the bridge.",
+        "why": "Dùng 'at' cho một điểm nơi việc gì được trả hay thực hiện."
+      }
+    ],
+    "u": "Toll là tiền bạn trả để đi trên đường, cầu hay hầm. Các cụm điển hình là toll road, toll booth và toll-free (số điện thoại không tốn phí cho người gọi). Ở nghĩa này, nó là danh từ đếm được và thường ở số ít với 'the toll'. Toll còn có nghĩa khác: số người thiệt mạng hay bị hại, như the death toll. Fee là từ chung chỉ mọi khoản thanh toán."
+  },
+  "trademark": {
+    "mis": [
+      {
+        "w": "Toyota is a famous trademark of cars.",
+        "r": "Toyota is a famous brand of cars.",
+        "why": "Brand là tên sản phẩm; trademark là sự bảo hộ pháp lý cho nó."
+      },
+      {
+        "w": "They registered trademark last year.",
+        "r": "They registered the trademark last year.",
+        "why": "Danh từ đếm được số ít chỉ vật cụ thể cần 'the' hoặc 'a'."
+      }
+    ],
+    "u": "Trademark là tên, từ, biểu tượng hay thiết kế mà công ty đã đăng ký hợp pháp để người khác không sao chép được. Từ đi với các động từ như register, protect, own hay infringe. Ký hiệu ™ chỉ nhãn hiệu, còn ® chỉ nhãn hiệu đã đăng ký. Brand là toàn bộ nhận diện và danh tiếng của sản phẩm, còn trademark là sự bảo hộ pháp lý. Trademark khác với copyright (cho tác phẩm sáng tạo) và patent (cho sáng chế)."
+  },
+  "transaction": {
+    "mis": [
+      {
+        "w": "I made a transaction 100 dollars to my friend.",
+        "r": "I transferred 100 dollars to my friend.",
+        "why": "Gửi tiền cho một người dùng động từ transfer; transaction là cả giao dịch."
+      },
+      {
+        "w": "The transaction between the companies were completed.",
+        "r": "The transaction between the companies was completed.",
+        "why": "Chủ ngữ là transaction số ít nên động từ phải là 'was'."
+      }
+    ],
+    "u": "Transaction là hành động mua, bán hay chuyển tiền hoặc hàng giữa người hoặc tổ chức. Đây là từ cơ bản trong ngân hàng và mua sắm: a card transaction, an online transaction, a transaction fee. Các động từ thường dùng là complete, process, record và cancel. Từ này đếm được. Deal nghe thân mật hơn và thường chỉ một thỏa thuận, còn payment chỉ là phần tiền của một transaction."
+  },
+  "tremendous": {
+    "mis": [
+      {
+        "w": "The event was very tremendous.",
+        "r": "The event was tremendous.",
+        "why": "Tremendous đã là mức cực đoan nên không dùng với 'very'."
+      },
+      {
+        "w": "She felt tremendously pressure.",
+        "r": "She felt tremendous pressure.",
+        "why": "Danh từ cần tính từ tremendous, không phải trạng từ tremendously."
+      }
+    ],
+    "u": "Tremendous là tính từ nghĩa là rất lớn về kích cỡ, lượng hay chất lượng: a tremendous success, tremendous pressure. Đây là từ mạnh, tích cực hoặc trung tính, nên hợp với cả điều tốt lẫn điều khó khăn. Vì là từ cực đoan, tránh 'very'; thay bằng absolutely hay quite. Trạng từ tremendously bổ nghĩa cho động từ và tính từ: tremendously helpful. Huge nói về kích cỡ, còn remarkable gợi ý điều đáng chú ý."
+  },
+  "turnover": {
+    "mis": [
+      {
+        "w": "The company has a high turnover of employee.",
+        "r": "The company has a high turnover of employees.",
+        "why": "Sau 'of' nhóm người ở số nhiều: employees."
+      },
+      {
+        "w": "The company's annual turn over reached five million dollars.",
+        "r": "The company's annual turnover reached five million dollars.",
+        "why": "Khi là danh từ phải viết liền turnover; 'turn over' là cụm động từ."
+      }
+    ],
+    "u": "Turnover có hai nghĩa chính trong kinh doanh. Trong tiếng Anh Anh, nó là tổng tiền doanh nghiệp thu từ bán hàng trong một kỳ: an annual turnover of five million. Ở cả Anh và Mỹ, staff turnover là tỷ lệ nhân viên nghỉ việc và được thay thế. High turnover nghĩa là nhiều người rời đi. Turnover không phải lợi nhuận, thứ còn lại sau chi phí. Tiếng Anh Mỹ thường nói revenue hay sales cho nghĩa đầu."
+  },
+  "unattended": {
+    "mis": [
+      {
+        "w": "Don't leave your bags unattend.",
+        "r": "Don't leave your bags unattended.",
+        "why": "Tính từ kết thúc bằng -ed: unattended."
+      },
+      {
+        "w": "She was unattended during the lecture, so she missed points.",
+        "r": "She was inattentive during the lecture, so she missed points.",
+        "why": "Unattended nghĩa là không được trông coi; người không chú ý dùng inattentive."
+      }
+    ],
+    "u": "Unattended nghĩa là không được trông chừng, chăm sóc hay có người đi cùng. Từ xuất hiện trên biển báo an toàn: unattended luggage will be removed; never leave children unattended near water. Thường dùng sau leave hoặc be left. Nó miêu tả vật hay người mà không ai canh chừng, chứ không phải người không tập trung. Unsupervised tương tự nhưng nói về việc người đó không có người có trách nhiệm giám sát."
+  },
+  "unauthorized": {
+    "mis": [
+      {
+        "w": "Unauthorized to enter is prohibited.",
+        "r": "Unauthorized entry is prohibited.",
+        "why": "Chủ ngữ phải là danh từ entry, không phải động từ nguyên mẫu sau tính từ."
+      },
+      {
+        "w": "He was unauthorized to use the room.",
+        "r": "He was not authorized to use the room.",
+        "why": "Với người dùng 'not authorized to'; unauthorized mô tả hành động hay vật."
+      }
+    ],
+    "u": "Unauthorized nghĩa là được làm hay dùng mà không có phép chính thức. Từ mô tả hành động và đồ vật: unauthorized access, an unauthorized copy, unauthorized charges on a card. Với người, nói he is not authorized to do something. Biển báo hay dùng: unauthorized persons will be removed. Chính tả Anh là unauthorised. Unlicensed chỉ việc thiếu giấy phép chính thức, còn illegal là trái luật, một khẳng định mạnh hơn."
+  },
+  "underway": {
+    "mis": [
+      {
+        "w": "We are visiting the underway project.",
+        "r": "We are visiting the ongoing project.",
+        "why": "Underway đứng sau động từ, không đứng trước danh từ; ở vị trí đó dùng ongoing."
+      },
+      {
+        "w": "The construction was underway since March.",
+        "r": "The construction has been underway since March.",
+        "why": "'Since' cần thì hiện tại hoàn thành: has been underway."
+      }
+    ],
+    "u": "Underway nghĩa là đã bắt đầu và đang tiếp diễn. Từ dùng sau be hoặc get: the project is underway, the festival gets underway on Friday. Thường không đặt trước danh từ; ở vị trí đó dùng ongoing hay current. Tàu thuyền cũng được gọi là underway khi đang di chuyển. Cách viết under way, hai từ, cũng được chấp nhận, nhất là trong tiếng Anh Anh. In progress là từ gần nghĩa; in motion mang tính bóng bẩy hơn."
+  },
+  "unexpected": {
+    "mis": [
+      {
+        "w": "I was unexpected when I saw him.",
+        "r": "I was surprised when I saw him.",
+        "why": "Unexpected mô tả sự việc xảy ra, không mô tả cảm xúc của người; dùng surprised."
+      },
+      {
+        "w": "There was a unexpected delay.",
+        "r": "There was an unexpected delay.",
+        "why": "Dùng 'an' trước âm nguyên âm: an unexpected delay."
+      }
+    ],
+    "u": "Unexpected miêu tả điều không được dự đoán, dù tốt hay xấu: an unexpected visitor, an unexpected expense. Nó miêu tả sự việc, không phải người cảm thấy ngạc nhiên, nên nói 'I was surprised', không nói 'I was unexpected'. Từ có văn phong trung tính. Unforeseen trang trọng hơn và thường chỉ vấn đề không thể đoán trước. Trạng từ là unexpectedly và danh từ là cụm 'the unexpected'."
+  },
+  "unfamiliar": {
+    "mis": [
+      {
+        "w": "I am unfamiliar about this software.",
+        "r": "I am unfamiliar with this software.",
+        "why": "Unfamiliar WITH dùng cho thứ mình chưa biết rõ."
+      },
+      {
+        "w": "This area is unfamiliar for me.",
+        "r": "This area is unfamiliar to me.",
+        "why": "Khi vật là chủ ngữ, unfamiliar đi với 'to' người."
+      }
+    ],
+    "u": "Unfamiliar nghĩa là không biết hay chưa từng trải qua. Có hai mẫu câu: I am unfamiliar with the system (người là chủ ngữ, dùng 'with') và the system is unfamiliar to me (vật là chủ ngữ, dùng 'to'). Từ hơi trang trọng và lịch sự, hữu ích khi thừa nhận thiếu hiểu biết mà không nghe thô. Strange gợi ý điều kỳ lạ, còn unfamiliar chỉ nói bạn chưa biết nó. Từ trái nghĩa là familiar."
+  },
+  "unlimited": {
+    "mis": [
+      {
+        "w": "The plan includes unlimited of calls.",
+        "r": "The plan includes unlimited calls.",
+        "why": "Unlimited là tính từ đứng ngay trước danh từ, không cần 'of'."
+      },
+      {
+        "w": "We provide the unlimit data plan.",
+        "r": "We provide the unlimited data plan.",
+        "why": "Tính từ kết thúc bằng -ed: unlimited."
+      }
+    ],
+    "u": "Unlimited nghĩa là không có giới hạn về số lượng, mức độ hay thời gian. Quảng cáo dùng rất nhiều: unlimited data, unlimited access, unlimited free trial. Trong quảng cáo, nó đôi khi bị phóng đại nên cần đọc kỹ điều khoản. Từ đặt trước danh từ hoặc sau be: access is unlimited. Limitless và boundless mang tính văn chương hơn, miêu tả trí tưởng tượng hay năng lượng. Infinite thiên về toán học hay triết học."
+  },
+  "unreal": {
+    "mis": [
+      {
+        "w": "Your goal of earning a million this month is unreal.",
+        "r": "Your goal of earning a million this month is unrealistic.",
+        "why": "Unrealistic nghĩa là không thể đạt được; unreal nghĩa là không thật hay khó tin."
+      },
+      {
+        "w": "This website sells unreal Nike shoes.",
+        "r": "This website sells fake Nike shoes.",
+        "why": "Hàng giả dùng fake; unreal nghĩa là không có thật hay đáng kinh ngạc."
+      }
+    ],
+    "u": "Unreal nghĩa là không thật, hoặc đáng ngạc nhiên đến mức như một giấc mơ. Nó thường miêu tả cảm xúc và khoảnh khắc: winning the prize felt unreal. Trong văn nói thân mật, nhất là giới trẻ, nó có thể nghĩa là tuyệt vời: that goal was unreal. Nó không có nghĩa là giả (dùng fake hay counterfeit) hay phi thực tế (dùng unrealistic). Surreal mạnh hơn và gợi ý điều kỳ lạ như trong mơ."
+  },
+  "unspecified": {
+    "mis": [
+      {
+        "w": "The delay was caused by unspecify reasons.",
+        "r": "The delay was caused by unspecified reasons.",
+        "why": "Tính từ được tạo từ phân từ: unspecified."
+      },
+      {
+        "w": "The party will be held at a unspecified date.",
+        "r": "The party will be held at an unspecified date.",
+        "why": "Dùng 'an' trước âm nguyên âm."
+      }
+    ],
+    "u": "Unspecified nghĩa là không được nêu rõ hay chi tiết. Từ phổ biến trong tin tức, văn bản pháp lý và kỹ thuật: unspecified reasons, an unspecified amount. Nó cho thấy thông tin có thể tồn tại hay bị giữ lại nhưng chưa được đưa ra. Undisclosed gợi ý cố tình giữ bí mật, còn unspecified có thể chỉ là thiếu. Động từ là specify. Trong nhiều biểu mẫu, 'unspecified' là mục khi chưa chọn gì."
+  },
+  "unusually": {
+    "mis": [
+      {
+        "w": "The room is unusual quiet.",
+        "r": "The room is unusually quiet.",
+        "why": "Cần trạng từ để bổ nghĩa cho tính từ quiet."
+      },
+      {
+        "w": "It is unusually that he is late.",
+        "r": "It is unusual that he is late.",
+        "why": "Sau 'is' cần tính từ unusual, không phải trạng từ."
+      }
+    ],
+    "u": "Unusually là trạng từ nhấn mạnh tính từ bằng cách nói nó vượt mức bình thường: unusually quiet, unusually high. Nó hay giới thiệu một mức độ gây ngạc nhiên. Nó cũng có thể đứng đầu câu: 'Unusually, the train was on time.' Tính từ là unusual. Remarkably và exceptionally mạnh hơn và tích cực hơn. Đừng nhầm với usually, từ có nghĩa gần như trái ngược."
+  },
+  "upcoming": {
+    "mis": [
+      {
+        "w": "The concert will be upcoming next month.",
+        "r": "The concert is coming up next month.",
+        "why": "Upcoming chủ yếu đứng trước danh từ; dạng động từ dùng 'coming up'."
+      },
+      {
+        "w": "I'm looking forward the upcoming meeting.",
+        "r": "I'm looking forward to the upcoming meeting.",
+        "why": "'Look forward' luôn đi với 'to' trước điều được mong đợi."
+      }
+    ],
+    "u": "Upcoming là tính từ nghĩa là sắp xảy ra. Nó hầu như luôn đứng trước danh từ: the upcoming election, an upcoming product release. Từ trung tính, hay gặp trong thông báo và tin tức. Forthcoming trang trọng hơn và còn có thể nghĩa là sắp được xuất bản. Approaching gợi ý điều gì đang gần lại về thời gian hay khoảng cách. Để làm vị ngữ, dùng các cụm như coming up hay due soon."
+  },
+  "urgently": {
+    "mis": [
+      {
+        "w": "We need urgent more staff.",
+        "r": "We need more staff urgently.",
+        "why": "Cần trạng từ để bổ nghĩa cho động từ need; urgent là tính từ."
+      },
+      {
+        "w": "The matter is urgently.",
+        "r": "The matter is urgent.",
+        "why": "Sau 'is' dùng tính từ urgent, không dùng trạng từ."
+      }
+    ],
+    "u": "Urgently nghĩa là theo cách cần hành động ngay: urgently needed, urgently seeking. Từ phổ biến trong tin tuyển dụng, lời kêu gọi và email khi việc không thể chờ. Nó bổ nghĩa cho động từ và phân từ, không bổ nghĩa cho danh từ. Tính từ là urgent. Trong email, dùng 'urgently' quá nhiều có thể nghe thúc ép. Immediately nhấn mạnh không chậm trễ, còn desperately thêm cảm giác cần rất mạnh."
+  },
+  "utility": {
+    "mis": [
+      {
+        "w": "The rent includes utility.",
+        "r": "The rent includes utilities.",
+        "why": "Với nghĩa nước, gas, điện thì dùng số nhiều utilities."
+      },
+      {
+        "w": "The hotel has many utilities such as a pool and gym.",
+        "r": "The hotel has many facilities such as a pool and gym.",
+        "why": "Utilities là dịch vụ như nước điện; nơi giải trí là facilities."
+      }
+    ],
+    "u": "Utility có hai nghĩa phổ biến. Trong đời sống, utilities là các dịch vụ cơ bản như điện, nước, gas và internet: utilities are included in the rent; a utility bill. Là danh từ không đếm được, utility nghĩa là tính hữu ích, như a tool of great utility. Trong máy tính, a utility là chương trình nhỏ làm một việc. Với bể bơi hay phòng gym dùng facilities hoặc amenities, không dùng utilities."
+  },
+  "vacate": {
+    "mis": [
+      {
+        "w": "Guests must vacate from the room by noon.",
+        "r": "Guests must vacate the room by noon.",
+        "why": "Vacate là ngoại động từ; không có 'from' trước tân ngữ."
+      },
+      {
+        "w": "I will vacate in July.",
+        "r": "I will go on vacation in July.",
+        "why": "Vacate nghĩa là rời khỏi một nơi; kỳ nghỉ dùng go on vacation."
+      }
+    ],
+    "u": "Vacate là động từ trang trọng nghĩa là rời khỏi một nơi, chỗ ngồi hay chức vụ để người khác dùng. Các tân ngữ thường gặp là room, premises, seat và post: guests must vacate their rooms by noon. Từ xuất hiện trong thông báo, hợp đồng thuê và nội quy khách sạn. Đừng nhầm với vacation, từ Mỹ chỉ kỳ nghỉ. Evacuate nghĩa là rời đi vì nguy hiểm, điều mà vacate không hàm ý."
+  },
+  "validate": {
+    "mis": [
+      {
+        "w": "Please make sure the ticket is validate.",
+        "r": "Please make sure the ticket is valid.",
+        "why": "Sau 'is' cần tính từ valid, không phải động từ validate."
+      },
+      {
+        "w": "The study validated about the theory.",
+        "r": "The study validated the theory.",
+        "why": "Validate là ngoại động từ; không có giới từ trước tân ngữ."
+      }
+    ],
+    "u": "Validate nghĩa là chứng minh điều gì đúng, chính xác hoặc chấp nhận được, hoặc làm cho nó có hiệu lực chính thức. Bạn validate một lý thuyết, kết quả, địa chỉ email hay vé đỗ xe. Trong máy tính, nó kiểm tra dữ liệu có đúng dạng không. Nó cũng có thể nghĩa là làm ai đó cảm thấy cảm xúc của họ được thấu hiểu: validate her concerns. Verify là kiểm tra sự thật, còn authorize là cấp phép."
+  }
+}

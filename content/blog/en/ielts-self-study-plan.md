@@ -130,3 +130,6 @@ Choose the delivery format that matches your personal working strengths. If you 
 
 ### What should I do if my Reading or Listening score plateaus at band 6.0?
 A persistent plateau at band 6.0 indicates that you are understanding general gist but missing specific lexical distractors and paraphrases. Stop doing complete tests temporarily. Instead, work through individual passages untimed: underline every keyword in the question, identify its exact matching paraphrase in the passage text, and write down any unfamiliar vocabulary in your personal review notebook.
+
+Choose your version first with [IELTS General vs Academic for immigration](/en/blog/ielts-general-vs-academic-immigration/), or compare tests with [PTE vs IELTS for Australia](/en/blog/pte-vs-ielts-australia/).
+
