@@ -42,13 +42,6 @@
 .fstep.if { background: #fef3c7; color: #78350f; } .fstep.note { background: var(--surface-2); color: var(--muted); font-weight: 600; }
 .fstep.arrow { background: transparent; color: var(--primary); font-weight: 800; } .srow { display: grid; grid-template-columns: 110px minmax(0,1fr) 44px; gap: .6rem; align-items: center; }
 .sortbox { background: var(--surface-2); border-radius: 14px; padding: .9rem; text-align: center; }
-.ipa-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: .6rem; }
-.ipa-tile { position: relative; display: flex; flex-direction: column; align-items: center; gap: .1rem; padding: .8rem .4rem; border-radius: 16px; background: var(--surface); border: 2px solid var(--line); border-bottom-width: 4px; color: var(--text); transition: transform .1s, border-color .1s; }
-.ipa-tile:hover { transform: translateY(-2px); border-color: var(--primary); }
-.ipa-tile b { font-family: var(--ipa); font-size: 1.6rem; color: var(--primary); }
-.ipa-tile span { font-size: .78rem; color: var(--muted); font-weight: 600; }
-.ipa-tile.unv { background: var(--surface-2); }
-.ipa-tile.ok { border-color: var(--good); } .ipa-tile i { position: absolute; top: 4px; right: 8px; color: var(--good-text); font-style: normal; font-weight: 800; }
 .ipa-big { font-family: var(--ipa); font-size: 3rem; font-weight: 800; background: rgba(255,255,255,.18); border-radius: 18px; padding: .2rem .9rem; margin-right: .6rem; }
 .prow { display: flex; align-items: center; gap: .4rem; padding: .55rem 0; border-bottom: 1px dashed var(--line); }
 .prow:last-child { border-bottom: 0; }
