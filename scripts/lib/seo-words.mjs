@@ -13,6 +13,7 @@ import { copyOf as goCopy } from '../build-go.mjs';
 import { loadSources, enrich } from '../dict/build.mjs';
 import { measure, deep } from './word-depth.mjs';
 import { PRIORITY_LANGS } from '../../functions/api/_cpm.js';
+import { r2Langs } from './words-r2.mjs';
 
 const N_MAIN = +(process.env.SEO_N_MAIN || 1500), N_OTHER = +(process.env.SEO_N_OTHER || 400), N_PRIORITY = +(process.env.SEO_N_PRIORITY || 650);
 
@@ -35,7 +36,9 @@ const vimgOf = (e, alt, label) => (VPIC ? seoPic(IMG, String(e.word).toLowerCase
 const notes = {}; for (const f of fs.readdirSync('web/js/notes').filter(f => f.endsWith('.json'))) Object.assign(notes, J('web/js/notes/' + f));
 // Ghi chú dùng từ + ví dụ có bản dịch do người/AI soạn rồi chấm độc lập (content/dict/enrich/<lang>.json = { từ: { n, x: [[câu EN, bản dịch]] } }; cổng scripts/test/dict-enrich.mjs).
 // Là NỘI DUNG THẬT làm trang đủ DEPTH_MIN (không hạ ngưỡng); chọn từ theo số đo GSC (scripts/dict/enrich-queue.mjs).
-export const ENR = Object.fromEntries(LANGS.map(l => [l, fs.existsSync(`content/dict/enrich/${l}.json`) ? J(`content/dict/enrich/${l}.json`) : {}]));
+// Lô mở rộng (§13) ghi ở enrich/<lang>-bN.json (cùng định dạng) → không đụng file của lô làm giàu khác; gộp ở đây và ở cổng dict-enrich.
+export const enrichFiles = l => fs.readdirSync('content/dict/enrich').filter(f => f === `${l}.json` || (f.startsWith(`${l}-b`) && f.endsWith('.json'))).sort();
+export const ENR = Object.fromEntries(LANGS.map(l => [l, Object.assign({}, ...enrichFiles(l).map(f => J(`content/dict/enrich/${f}`)))]));
 const gloss = (l, e) => { const p = packs[l], k = e.word.toLowerCase(); return (p && (p[k + '#' + gpos(e.pos)] || p[k])) || null; };
 
 // Điểm "giá trị tìm kiếm" (docs/SEO-ARCH.md §2): cấp CEFR + bộ thi + độ giàu nội dung; lọc cứng có định nghĩa + ví dụ
@@ -52,13 +55,23 @@ const score = e => {
 };
 const all = Object.values(INDEX).filter(e => e && e.word && e.def && e.ex && /^[A-Za-z][A-Za-z '’-]*$/.test(e.word) && slugOf(e.word));
 all.sort((a, b) => score(b) - score(a) || a.word.localeCompare(b.word, 'en'));
-const ranked = all.slice(0, N_MAIN);
+const mainRanked = all.slice(0, N_MAIN);
+// Mở rộng kho (docs/SEO-DICT-PAGES.md §13): từ ngoài top N_MAIN do content/dict/add/pool-ext.json chọn (theo GSC/tần suất/IELTS-TOEIC), mỗi từ có dữ liệu tự viết trong add/*-bN.json.
+// Thêm CUỐI danh sách, không đếm vào N_MAIN/N_PRIORITY/N_OTHER → các trang hiện có không đổi thứ tự, không đổi URL.
+const EXT_F = 'content/dict/add/pool-ext.json';
+const extWords = fs.existsSync(EXT_F) ? J(EXT_F).words || [] : [];
+const byWord = new Map(all.map(e => [e.word.toLowerCase(), e]));
+const mainSet = new Set(mainRanked);
+const extRanked = extWords.map(w => byWord.get(String(w).toLowerCase())).filter(e => e && !mainSet.has(e));
+const ranked = [...mainRanked, ...extRanked];
 const slug = new Map(); { const used = new Set(); for (const e of ranked) { let s = slugOf(e.word), i = 2; if (s === 'index') s = 'index-2'; while (used.has(s)) s = slugOf(e.word) + '-' + i++; used.add(s); slug.set(e, s); } }
 // Ngôn ngữ → danh sách mục; 13 ngôn ngữ: N_OTHER mục đầu bảng có nghĩa bản địa (không trùng chính từ)
+const R2_EXT = new Set(r2Langs()); // từ mở rộng chỉ vào ngôn ngữ ở R2 (không ăn trần 20k file của Pages); en/vi luôn có
 const setOf = {};
 for (const l of LANGS) {
   if (l === 'en' || l === 'vi') setOf[l] = ranked.filter(e => l === 'en' || e.vi);
-  else setOf[l] = ranked.filter(e => { const g = gloss(l, e); return g && g[0] && g[0].toLowerCase() !== e.word.toLowerCase(); }).slice(0, PRIORITY_LANGS.includes(l) ? N_PRIORITY : N_OTHER);
+  else { const okG = e => { const g = gloss(l, e); return g && g[0] && g[0].toLowerCase() !== e.word.toLowerCase(); };
+    setOf[l] = [...mainRanked.filter(okG).slice(0, PRIORITY_LANGS.includes(l) ? N_PRIORITY : N_OTHER), ...(R2_EXT.has(l) ? extRanked.filter(okG) : [])]; }
 }
 // Trang mỏng → noindex: nghĩa bản địa là dịch máy thô (cờ 0) hoặc không có collocation/đồng nghĩa/cụm (chỉ 1 ví dụ)
 const byTok = new Map(); for (const e of Object.values(INDEX)) if (e && /\s/.test(e.word)) for (const t of e.word.toLowerCase().split(/\s+/)) { const a = byTok.get(t) || byTok.set(t, []).get(t); if (a.length < 6) a.push(e); }
@@ -71,7 +84,7 @@ const idxW = {}; for (const l of LANGS) idxW[l] = new Set(setOf[l].filter(e => !
   if (st && st.index) { const { build: dictBuild } = await import('../dict/build.mjs'); const { isIndexable, parseOpen } = await import('../../workers/dict/render.mjs'); const o = parseOpen(st.index), { pages } = dictBuild({ n: st.n, index: st.index, write: false });
     for (const l of ['vi', 'en']) { const m = new Set(pages[l].filter(d => isIndexable(d, o)).map(d => d.word.toLowerCase())); for (const e of setOf[l]) if (m.has(e.word.toLowerCase())) idxW[l].delete(e); } } }
 const inSet = {}; for (const l of LANGS) inSet[l] = new Map(setOf[l].map(e => [e.word.toLowerCase(), e]));
-export { setOf, idxW, inSet, slug, gloss, topicOf };
+export { setOf, idxW, inSet, slug, gloss, topicOf, all, score, ranked, extRanked };
 
 export const en = s => `<span lang="en" dir="ltr">${esc(s)}</span>`;
 export const appLink = (lang, route) => `${appHref(lang)}#/${route}`;

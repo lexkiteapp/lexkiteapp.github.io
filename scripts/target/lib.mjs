@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { INFORMAL } from '../lib/i18n-rules.mjs'; // máy gác xưng hô dùng chung với #1324 (fr: tu/toi/ton… = thân mật)
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 // 15 ngôn ngữ NGHĨA (vi + en + scripts/i18n-langs.txt) – thứ tự cố định
@@ -27,6 +28,11 @@ export const inSentence = (form, sent) => new RegExp(`(^|[^\\p{L}])${esc(form)}(
 export const TL_RULES = { es: { plural: true, seseo: true, lint: [
   /(^|[^\p{L}])(vosotr[oa]s|vuestr[oa]s?|os|ordenador(es)?|zumos?|cog(er|e|es|en|emos|ió|í|iste|ido|iendo|ía|ían)|coj[oa]s?)(?=$|[^\p{L}])/iu,
   /\p{L}{2,}(áis|éis)(?=$|[^\p{L}])/iu,
+] },
+// fr (french-course.md §2, §5, §8): chuẩn Pháp trung tính; danh từ bắt buộc giống + số nhiều (cả bất quy tắc); từ bắt đầu bằng h bắt buộc cờ `h` (muet|aspire – quyết định liaison/elision);
+// lint = không dạng Québec/Bỉ/Thụy Sĩ hay thông tục nặng trong câu chính; mix = một câu một xưng (tu ⟂ vous) – cùng INFORMAL.fr với máy gác UI #1324
+fr: { plural: true, hFlag: true, mix: { informal: INFORMAL.fr, formal: /(?<!\p{L})(vous|votre|vos)(?!\p{L})/iu }, lint: [
+  /(?<!\p{L})(bagnole|boulot|fric|bouffer?|bouffe|gamin|flic|mec|nana|pote|taf|truc|machin|ouais|char|dépanneur|magasiner|chum|septante|huitante|nonante)(?!\p{L})/iu,
 ] } };
 
 /** Kiểm một bộ từ → mảng lỗi (rỗng = đạt). o.img = Set khóa ảnh tiếng Anh hợp lệ (content/lexicon/img.json). */
@@ -36,7 +42,7 @@ export function validate(deck, o = {}) {
   if (!deck || !/^[a-z]{2}$/.test(deck.tl || '')) err.push('tl sai');
   const words = (deck && deck.words) || [];
   if (!Array.isArray(words) || !words.length) err.push('words rỗng');
-  const ALLOWED = new Set(['word', 'pos', 'gender', 'plural', 'ipa', 'emoji', 'img', 'gl', 'ex', 'exForm', 'rank', 'qa']);
+  const ALLOWED = new Set(['word', 'pos', 'gender', 'plural', 'h', 'ipa', 'emoji', 'img', 'gl', 'ex', 'exForm', 'rank', 'qa']);
   for (const w of words) {
     const id = (w && w.word) || '?', bad = m => err.push(`${id}: ${m}`);
     for (const k of Object.keys(w || {})) if (!ALLOWED.has(k)) bad('trường lạ ' + k);
@@ -49,6 +55,9 @@ export function validate(deck, o = {}) {
     // số nhiều (bảng TL_RULES): bắt buộc cho danh từ, chỉ cho danh từ
     if (R.plural && w.pos === 'n' && !/^\p{L}[\p{L}' -]*$/u.test(w.plural || '')) bad('danh từ es thiếu số nhiều (plural)');
     if (w.pos !== 'n' && w.plural !== undefined) bad('plural chỉ cho danh từ');
+    // h muet / h aspiré (fr): từ mở đầu bằng h phải có cờ; từ khác không được có
+    if (w.h !== undefined && !['muet', 'aspire'].includes(w.h)) bad('h phải là muet|aspire');
+    if (R.hFlag) { const h = /^h/i.test(w.word || ''); if (h && w.h === undefined) bad('từ mở đầu bằng h thiếu cờ h (muet|aspire)'); if (!h && w.h !== undefined) bad('cờ h chỉ cho từ mở đầu bằng h'); } else if (w.h !== undefined) bad('cờ h chỉ cho ngôn ngữ có hFlag');
     // seseo (es-419, spanish-course.md §8): IPA không có /θ/
     if (R.seseo && /θ/.test(w.ipa || '')) bad('IPA có θ (ceceo) – chuẩn es-419 dùng seseo /s/');
     if (!IPA_OK.test(String(w.ipa || '').normalize('NFD')) || /[/[\]]/.test(w.ipa || '')) bad('IPA sai ký tự: ' + w.ipa);
@@ -65,6 +74,7 @@ export function validate(deck, o = {}) {
     else if (Object.keys(ex).some(k => k !== tl && k !== 'en')) bad('câu ví dụ có ngôn ngữ lạ');
     else if (!inSentence(w.exForm || w.word, ex[tl])) bad(`câu ví dụ không chứa "${w.exForm || w.word}"`);
     else if ((R.lint || []).some(re => re.test(ex[tl]))) bad('câu ví dụ lệch chuẩn ' + (deck.variant || tl) + ' (vosotros/leísmo/từ vùng): ' + ex[tl]);
+    if (R.mix && ex[tl] && R.mix.informal.test(ex[tl]) && R.mix.formal.test(ex[tl])) bad('trộn thân mật/trang trọng (tu + vous) trong một câu: ' + ex[tl]);
     if (w.exForm !== undefined && (!w.exForm || w.exForm.toLowerCase() === String(w.word).toLowerCase())) bad('exForm thừa');
     if (w.img !== undefined) { if (!/^[a-z][a-z' -]*#[a-z]+$/.test(w.img)) bad('img sai dạng'); else if (o.img && !o.img.has(w.img)) bad('img không có trong content/lexicon/img.json: ' + w.img); }
   }
@@ -72,7 +82,7 @@ export function validate(deck, o = {}) {
 }
 
 /** Bản sao cho app: chỉ trường app dùng (settings.js addTlSeed) – dựng bởi scripts/target/build.mjs, test so khớp. */
-export const webSeed = deck => ({ v: 1, tl: deck.tl, words: deck.words.map(w => ({ word: w.word, pos: w.pos, ...(w.gender ? { gender: w.gender } : {}), ...(w.plural ? { plural: w.plural } : {}), ipa: w.ipa, emoji: w.emoji, ...(w.img ? { img: w.img } : {}), gl: w.gl, ex: w.ex })) });
+export const webSeed = deck => ({ v: 1, tl: deck.tl, words: deck.words.map(w => ({ word: w.word, pos: w.pos, ...(w.gender ? { gender: w.gender } : {}), ...(w.plural ? { plural: w.plural } : {}), ...(w.h ? { h: w.h } : {}), ipa: w.ipa, emoji: w.emoji, ...(w.img ? { img: w.img } : {}), gl: w.gl, ex: w.ex })) });
 export const webSeedText = deck => JSON.stringify(webSeed(deck)) + '\n';
 
 // Mục Wiktionary (kaikki.org, CC BY-SA) của 1 từ – tệp nhỏ /meaning/… (không tải bản 1,1 GB). CHỈ dùng để kiểm chéo trên CI (wikt-check, conj-check),
