@@ -117,6 +117,10 @@ export function dedupeLines(text) {
   }).join('\n');
 }
 
+/** Hàng đợi CI dài (> QUEUE_PAUSE lượt): chỉ xử lý PR dirty ĐÃ xanh (thuần) – đẩy nhánh PR chưa xanh/đang chạy làm CI chạy lại từ đầu và kéo dài hàng đợi. */
+export const QUEUE_PAUSE = 60;
+export const holdForQueue = (list, queued, gateOf) => queued > QUEUE_PAUSE ? list.filter(p => gateOf(p) === 'success') : list;
+
 /** Chọn PR cần thử: dirty, không draft, cùng repo, còn hoạt động, mới nhất trước, tối đa MAX. */
 export function pick(prs, now = Date.now(), repo = '') {
   return prs
@@ -203,7 +207,7 @@ export function fix(p, dry) {
   const m = tryGit('merge', '--no-edit', '-m', `Gộp main vào ${br} (pr-unconflict: tự gỡ tệp tự sinh)`, 'origin/main');
   const conflicted = git('diff', '--name-only', '--diff-filter=U').split('\n').filter(Boolean);
   lastConflicts = conflicted;
-  const steps = m.ok ? [] : plan(conflicted);   // gộp sạch cục bộ (GitHub tính cũ) → vẫn đẩy bản gộp để PR hết dirty
+  const steps = m.ok ? [] : plan(conflicted);   // gộp sạch cục bộ (GitHub tính dirty vì không dùng merge=union) → vẫn đẩy bản gộp (đã khử trùng) để PR hết dirty. fix() chỉ được gọi cho PR GitHub báo dirty (pick / conflict)
   if (!steps) { tryGit('merge', '--abort'); console.log(`#${p.number}: xung đột ở tệp người viết (${conflicted.join(', ')}) – để phiên phụ trách`); return 'manual'; }
   const bad = applySteps(steps);
   if (bad) { tryGit('merge', '--abort'); console.log(`#${p.number}: ${bad} – để phiên phụ trách`); return 'manual'; }
@@ -252,6 +256,13 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
     for (const p of open) { try { withState.push(await full(p.number)); } catch (e) { console.warn(`bỏ qua #${p.number}: ${e.message}`); } }
     list = pick(withState, Date.now(), process.env.GITHUB_REPOSITORY);
   }
+  if (!arg('pr') && !dry) try {
+    const queued = (await gh('/actions/runs?status=queued&per_page=1')).total_count || 0, gates = new Map();
+    for (const p of list) { const st = (await gh(`/commits/${p.head.sha}/status?per_page=100`)).statuses || []; gates.set(p.number, st.find(x => x.context === 'required-gate')?.state); }
+    const kept = holdForQueue(list, queued, p => gates.get(p.number));
+    if (kept.length !== list.length) console.log(`pr-unconflict: hàng đợi ${queued} > ${QUEUE_PAUSE} → hoãn ${list.length - kept.length} PR chưa xanh`);
+    list = kept;
+  } catch (e) { console.warn('không đo được hàng đợi (xử lý như thường): ' + e.message); }
   const res = {};
   for (const p of list) { const r = fix(p, dry); res[r] = (res[r] || 0) + 1; }
   console.log(`pr-unconflict: ${list.length} PR dirty đang hoạt động →`, JSON.stringify(res));
