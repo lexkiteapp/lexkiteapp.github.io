@@ -4,7 +4,9 @@ import { digest } from '../../functions/api/funnel-digest.js';
 const d = { day: '2026-11-13', views: 120, prevViews: 100, ctas: 30, prevCtas: 30, app: 12, prevApp: 0, fl: 6, prevFl: 8,
   install: [{ plat: 'play', seen: 50, click: 10, later: 5, btn: 3, clickPct: 20 }, { plat: 'ext', seen: 0, click: 0, later: 0, btn: 2, clickPct: null }],
   top: [{ src: 'tiktok', camp: 'bio', code: '', views: 40, app: 5, fl: 2 }] };
+d.share = { open: 10, send: 4, dl: 1, inv: 1, views: 7, app: 3, fl: 1, sendPct: 60 };
 const md = format(d);
+assert.match(md, /mở thẻ \*\*10\*\* → gửi \*\*4\*\* \(60%\)/);
 assert.match(md, /▲ 20%/); assert.match(md, /▲ mới/); assert.match(md, /▼ 25%/); assert.match(md, /\| play \| 50 \| 10 \| 20% \| 3 \|/);
 assert.match(md, /tiktok\/bio \(40→5→2\)/); assert.match(md, /<!-- fd:2026-11-13 -->/); assert.doesNotMatch(md, /NaN|undefined/);
 // digest(): trừ máy tự động khỏi số app; lỗi bảng sessions → 0
