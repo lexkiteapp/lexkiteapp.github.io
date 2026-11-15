@@ -146,6 +146,7 @@ async function browser() {
       ok(m.lt <= 2, `4×: ${m.lt} tác vụ dài > 50 ms (tối đa 2)`); ok(m.cls === 0, `CLS ${m.cls} ≠ 0 ${JSON.stringify(await page.evaluate(() => window.__clsSrc || []))}`); ok(m.fps >= FPS_MIN, `fps ${m.fps.toFixed(0)} < ${FPS_MIN}`);
       // chẩn đoán (không phải cổng): fps khi tắt dần từng nguồn vẽ → biết chi phí nằm ở đâu
       const fpsNow = async () => page.evaluate(() => new Promise(r => { let n = 0; const t0 = performance.now(); (function f() { n++; if (performance.now() - t0 < 2000) requestAnimationFrame(f); else r(n / 2); })(); }));
+      for (const r of await page.evaluate(() => (window.__lkRigs || []).map(r => ({ who: r.who, n: r.stats.prof.n, js: +r.stats.prof.js.toFixed(0), paint: +r.stats.prof.paint.toFixed(0), full: r.stats.prof.full, part: r.stats.prof.part, skip: r.stats.prof.skip, rs: r.stats.rs, mode: r.stats.mode, fit: r.stats.fit })))) lines.push(`  rig ${JSON.stringify(r)}`);
       lines.push(`  chẩn đoán fps: nguyên trạng ${(await fpsNow()).toFixed(0)}`);
       await page.evaluate(() => document.querySelectorAll('video').forEach(v => v.pause())); lines.push(`  dừng mọi video: ${(await fpsNow()).toFixed(0)}`);
       await page.addStyleTag({ content: '.ss-fig canvas{display:none!important}' }); lines.push(`  ẩn canvas: ${(await fpsNow()).toFixed(0)}`);

@@ -22,7 +22,7 @@ if (!/requestVideoFrameCallback/.test(live) || !/visibilitychange/.test(live)) e
 for (const [f, s] of [['teacher-live.js', live], ['lesson/teacher.js', fs.readFileSync(path.join(WEB, 'js/lesson/teacher.js'), 'utf8')]]) {
   if (/precision mediump/.test(s) || !/a0>\.03\?255\.\/219\.:1\./.test(s) || !/\(a-\.06\)\/\.94/.test(s)) errs.push(`${f}: shader ghép alpha phải highp + tự đo mức đen + cắt nhiễu (vệt đen)`);
 }
-if (!/LS\.clock\(/.test(fs.readFileSync(path.join(WEB, 'js/lesson/teacher.js'), 'utf8'))) errs.push('lesson/teacher.js: mặt vẽ phải dùng LipSync.clock (đồng hồ = tiếng thật, ±33 ms)');
+if (!/LSy\.clock\(/.test(fs.readFileSync(path.join(WEB, 'js/teacher-rig.js'), 'utf8'))) errs.push('teacher-rig.js: mặt vẽ (teacher.js face() chạy trên rig) phải dùng LipSync.clock (đồng hồ = tiếng thật, ±33 ms)');
 if (errs.length) { console.error('✗ teacher-quality (tĩnh):\n  ' + errs.join('\n  ')); process.exit(1); }
 console.log('✓ teacher-quality tĩnh: dung lượng, QUIET, rVFC, shader, đồng hồ khớp miệng');
 if (process.argv.includes('--static')) process.exit(0);
