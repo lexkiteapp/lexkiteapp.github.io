@@ -229,7 +229,7 @@
     $('#sReset').onclick = async () => {
       if (!confirm(t('Xóa toàn bộ flashcard, tiến độ, XP và thống kê trên thiết bị này? Không thể hoàn tác.'))) return;
       await Store.set('cards', {}); await Store.set('stats', { days: {}, newToday: { day: '', n: 0 } }); await Store.set('game', null);
-      if (window.Sync && Sync.afterLocalReset) await Sync.afterLocalReset().catch(() => {}); // quên mốc đồng bộ: không đẩy gói rỗng đè cloud
+      if (window.Sync && Sync.afterLocalReset) await Sync.afterLocalReset().catch(() => {});
       await load(); toast(t('Đã xóa dữ liệu')); routes.settings();
     };
     if (window.Sync) Sync.renderBox($('#syncBox')); else $('#syncBox').hidden = true;
