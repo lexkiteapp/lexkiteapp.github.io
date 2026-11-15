@@ -38,7 +38,9 @@ const T0 = 1_000_000e3;
   const other = cr(9, 'completed', 'success', T0);
   const cancelled = [other, { ...cr(1, 'completed', 'cancelled', T0 + 10e3), name: 'e2e' }];
   const red = evaluate({ checkRuns: cancelled, workflowRuns: [e2e(100, 1, 'completed', 'cancelled', T0 + 10e3)] });
-  ok(red.state === 'failure', '(d) lượt e2e bị hủy → gate đỏ');
+  ok(red.state === 'pending' && red.cancelled.length === 1, '(d) lượt e2e bị hủy lần đầu → CHỜ + chạy lại (15/11: huỷ ≠ lỗi thật)');
+  const dead = evaluate({ checkRuns: cancelled, workflowRuns: [{ ...e2e(100, 1, 'completed', 'cancelled', T0 + 10e3), run_attempt: 3 }] });
+  ok(dead.state === 'failure', '(d) lượt e2e vẫn bị hủy sau 2 lần chạy lại → gate đỏ');
   // lượt mới bắt đầu: sha đã đánh giá "failure" nên phải được đánh giá lại ngay (không kẹt đỏ)
   const seen = new Map([['a', { at: T0 + 20e3, state: 'failure', attempts: { 100: 1 }, sig: probeOf(cancelled).sig }]]);
   const running = [e2e(100, 1, 'completed', 'cancelled', T0 + 10e3), e2e(101, 2, 'in_progress', null, T0 + 30e3)];

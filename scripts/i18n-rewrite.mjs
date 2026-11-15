@@ -8,6 +8,7 @@ import vm from 'vm';
 import { loadSrc, LAZY, writeSrc, ROOT } from './lib/i18n-pack.mjs';
 import { missingSegments } from './i18n-english.mjs';
 import { VI, BAD, INFORMAL } from './lib/i18n-rules.mjs';
+import { writeFixed } from './lib/fixed-json.mjs';
 const [, , cmd, lang, grp, ...rest] = process.argv;
 const FIX = path.join(ROOT, 'scripts/i18n-fixed.json'), fixed = JSON.parse(fs.readFileSync(FIX, 'utf8'));
 const loadEn = f => { const c = { self: {} }; c.self = c; vm.createContext(c); vm.runInContext(fs.readFileSync(path.join(ROOT, 'web/js/i18n', f), 'utf8'), c); return c.I18N_DICT.en; };
@@ -39,6 +40,6 @@ if (cmd === 'extract') {
     ok++;
   }
   for (const g of dirty) writeSrc(lang, g, SRCD[g]);
-  if (fx) fs.writeFileSync(FIX, JSON.stringify(fixed, null, 2).replace(/\n/g, '\n') + (fs.readFileSync(FIX, 'utf8').endsWith('\n') ? '\n' : ''));
+  if (fx) writeFixed(FIX, fixed);
   console.log(`áp ${ok} (fixed ${fx}), giữ nguyên ${same}, từ chối ${bad.length}`); if (bad.length) { fs.writeFileSync(grp + '.rejected.json', JSON.stringify(bad, null, 1)); console.log(bad.slice(0, 8).map(x => x.join(' ⇒ ')).join('\n')); }
 }
