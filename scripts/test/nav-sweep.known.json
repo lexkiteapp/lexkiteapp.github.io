@@ -34,7 +34,8 @@
  ],
  "listen": [
   "enter",
-  "end"
+  "end",
+  "skip"
  ],
  "listen-test": [
   "enter",
