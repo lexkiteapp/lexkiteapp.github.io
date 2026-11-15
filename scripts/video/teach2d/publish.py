@@ -50,6 +50,10 @@ def facts(ep):
         b, p, pp, ov = D['base'], D['past'], D['pp'], D.get('over')
         return (_fit(f'Past of {_q(b)}? Not {_q(ov)}' if ov else '', f'{b.capitalize()}, {p}, {pp}: verb forms'), f'{b} {p} {pp}',
                 f'{b.capitalize()} → {p} → {pp}.' + (f' Never "{ov}".' if ov else ''))
+    if t in ('mistake', 'phrasal') and D.get('right') and D.get('strike'):   # hand-written series (hand.json): the title names the fix, not the hook (the hook can end on a dangling "to")
+        w, r_ = re.sub(r'[.!?]+$', '', str(D['wrong'])), re.sub(r'[.!?]+$', '', str(D['right'])); why = next((str(D[k]) for k in ('why', 'aha') if len(str(D.get(k) or '')) >= 12), '')
+        if t == 'phrasal': return _fit(f'Say "{D["pv"]}" like a native', f'What does "{D["pv"]}" mean?'), D['pv'], f'{D["pv"].capitalize()} {D["mean"]}. Say "{r_}", not "{w}".'
+        return _fit(f'Say "{r_}", not "{w}"', f'Stop saying "{D["strike"]}"? Say this instead', f'Stop saying "{D["strike"]}"'), D['strike'], f'Say "{r_}", not "{w}". {why}'.strip()
     # other templates (pilots): the teacher's hook + the explanation line of the script
     expl = next((str(D[k]) for k in ('why', 'aha', 'mean', 'define') if len(str(D.get(k) or '')) >= 12), None) or \
         next((L[k] for k in ('b', 'm', 'x', 'r', 'f') if k in L and len(L[k]) >= 16), hook)

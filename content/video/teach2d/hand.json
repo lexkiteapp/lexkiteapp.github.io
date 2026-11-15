@@ -1,0 +1,744 @@
+{
+ "_note": "Hand-written Teach2D scripts for the Stop Saying This (mistake) and Phrasal Verb in 30s (phrasal) series. Every row points at ONE gold-bank row (content/video/scripts/bank/*.jsonl: wrong, right, why, quiz are the audited facts); we only write the hook, the strike (the wrong words shown struck through) and, for phrasal, the meaning line + card. `gen.py --hand` turns these into auto.json rows + reviewed.json verdicts (data / level / hook / dup gates). Metadata (title, description, hashtags, link in bio) is written by publish.py at production. Never edit auto.json by hand; edit here and re-run. Independent grade 15/11/2026 (fresh Opus reviewer, 74 rows): 24 rows scored >= 90 and stay in mistake/phrasal (score kept per row); 50 rows < 90 are parked in `held` (issues: fix is not minimal, hook overclaims, homophone cannot be taught by ear, or quiz tests another point) and need a rewrite before they can return.",
+ "mistake": [
+  {
+   "gold": "sb_1257a097",
+   "hook_say": "Stop saying for pass!",
+   "strike": "for pass",
+   "score": 94
+  },
+  {
+   "gold": "sb_1740b6df",
+   "hook_say": "Stop saying remember me to!",
+   "strike": "Remember me",
+   "score": 92
+  },
+  {
+   "gold": "sb_2bcb2bbd",
+   "hook_say": "Stop saying afraid with!",
+   "strike": "afraid with",
+   "score": 95
+  },
+  {
+   "gold": "sb_04105eed",
+   "hook_say": "Stop saying rely in!",
+   "strike": "rely in",
+   "score": 93
+  },
+  {
+   "gold": "sb_076acb56",
+   "hook_say": "Stop saying accused for!",
+   "strike": "accused for",
+   "score": 94
+  },
+  {
+   "gold": "sb_91e27418",
+   "hook_say": "Stop saying don't rarely!",
+   "strike": "don't rarely",
+   "score": 93
+  },
+  {
+   "gold": "sb_30c60846",
+   "hook_say": "Stop saying your listening!",
+   "strike": "your listening",
+   "score": 90
+  },
+  {
+   "gold": "sb_25206a92",
+   "hook_say": "Stop saying keep contact!",
+   "strike": "keep contact",
+   "score": 93
+  },
+  {
+   "gold": "sb_3100c569",
+   "hook_say": "Stop saying every of us!",
+   "strike": "Every of",
+   "score": 92
+  },
+  {
+   "gold": "sb_03f6978d",
+   "hook_say": "Stop saying lead for!",
+   "strike": "lead for",
+   "score": 94
+  },
+  {
+   "gold": "sb_0ce8ec98",
+   "hook_say": "Stop saying wide spoken!",
+   "strike": "wide spoken",
+   "score": 91
+  },
+  {
+   "gold": "sb_24aedfd4",
+   "hook_say": "Stop saying protects of!",
+   "strike": "protects of",
+   "score": 90
+  },
+  {
+   "gold": "sb_0ad85c2e",
+   "hook_say": "Stop saying live lonely!",
+   "strike": "live lonely",
+   "score": 94
+  },
+  {
+   "gold": "sb_00b3d3f4",
+   "hook_say": "Stop saying cope stress!",
+   "strike": "cope stress",
+   "score": 92
+  },
+  {
+   "gold": "sb_1798babe",
+   "hook_say": "Stop saying harmed the roof!",
+   "strike": "harmed the roof",
+   "score": 90
+  },
+  {
+   "gold": "sb_07301877",
+   "hook_say": "Stop saying concentrate in!",
+   "strike": "concentrate in",
+   "score": 92
+  },
+  {
+   "gold": "sb_47b3e9e9",
+   "hook_say": "Stop saying robbed my phone!",
+   "strike": "robbed my phone",
+   "score": 94
+  },
+  {
+   "gold": "sb_3181a77b",
+   "hook_say": "Stop saying wonder where is!",
+   "strike": "wonder where is",
+   "score": 90
+  },
+  {
+   "gold": "sb_01092ae1",
+   "hook_say": "Stop saying sleep bag!",
+   "strike": "sleep bag",
+   "score": 90
+  },
+  {
+   "gold": "sb_a79c3048",
+   "hook_say": "Stop saying car place!",
+   "strike": "car place",
+   "score": 92
+  },
+  {
+   "gold": "sb_001209da",
+   "hook_say": "Stop saying tickets are finished!",
+   "strike": "are finished",
+   "score": 92
+  },
+  {
+   "gold": "sb_ec31bdce",
+   "hook_say": "Stop saying look the numbers!",
+   "strike": "look the",
+   "score": 93
+  },
+  {
+   "gold": "sb_43b7bd40",
+   "hook_say": "Stop saying they lack of!",
+   "strike": "lack of",
+   "score": 92
+  }
+ ],
+ "phrasal": [
+  {
+   "gold": "sb_8580f675",
+   "pv": "fill out",
+   "hook_say": "Don't say write the form!",
+   "strike": "write the form",
+   "mean_say": "Fill out means write your details.",
+   "mean_card": "= write your details on a form",
+   "score": 92
+  }
+ ],
+ "held": [
+  {
+   "gold": "sb_14363e18",
+   "hook_say": "Stop saying effect to!",
+   "strike": "effect to",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_1445ca42",
+   "hook_say": "Stop saying solution for!",
+   "strike": "solution for",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_14cf6349",
+   "hook_say": "Stop saying I take thirty minutes!",
+   "strike": "I take",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_18d9514a",
+   "hook_say": "Number of students: is or are?",
+   "strike": "student are",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_42fa0282",
+   "hook_say": "Stop saying suggest you to!",
+   "strike": "suggest you to",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_1c747068",
+   "hook_say": "Stop saying responsible of!",
+   "strike": "responsible of",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_52fcf41b",
+   "hook_say": "Stop saying many damages!",
+   "strike": "many damages",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_7c1c35bd",
+   "hook_say": "Stop saying it is not work!",
+   "strike": "It is not work",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_24f9ee05",
+   "hook_say": "Stop saying according to me!",
+   "strike": "According to me",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_14cb88e7",
+   "hook_say": "Stop saying wait me!",
+   "strike": "Wait me",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_f940bc04",
+   "hook_say": "Stop saying very exciting!",
+   "strike": "exciting for",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_816745d7",
+   "hook_say": "Stop saying divided in!",
+   "strike": "divided in",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_8df64e9f",
+   "hook_say": "Stop saying like you see!",
+   "strike": "Like you see",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_1ec77f5c",
+   "hook_say": "Stop saying fix until Friday!",
+   "strike": "fix until",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_836058ef",
+   "hook_say": "Stop saying is include!",
+   "strike": "is include",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_939893fe",
+   "hook_say": "Stop saying has problem!",
+   "strike": "has problem",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_00b3865e",
+   "hook_say": "Although or but? Not both!",
+   "strike": "but we",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_347efc2c",
+   "hook_say": "Few or a few?",
+   "strike": "few friends",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_05671f6f",
+   "hook_say": "Stop saying fit to!",
+   "strike": "fit to",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_0ec1a128",
+   "hook_say": "Stop saying if I will!",
+   "strike": "If I will",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_05c6285e",
+   "hook_say": "Stop saying long to home!",
+   "strike": "long to",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_237d4691",
+   "hook_say": "Stop saying arranged meeting!",
+   "strike": "arranged meeting",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_23d1d6e3",
+   "hook_say": "Stop saying thought be!",
+   "strike": "thought be",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_24ac31f5",
+   "hook_say": "Stop saying swimming how!",
+   "strike": "swimming how",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_3040fca3",
+   "hook_say": "Stop saying near missed!",
+   "strike": "near missed",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_2b414c2b",
+   "hook_say": "Stop saying too hot to not!",
+   "strike": "to not",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_1b72f47e",
+   "hook_say": "Stop saying advertisement of!",
+   "strike": "advertisement of",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_05db3dfa",
+   "hook_say": "Stop saying compatible to!",
+   "strike": "compatible to",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_112e385b",
+   "hook_say": "Stop saying were made wait!",
+   "strike": "made wait",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_20315a8f",
+   "hook_say": "Its or it's?",
+   "strike": "it's",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_2ed92c40",
+   "hook_say": "Stop saying sit besides!",
+   "strike": "besides",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_01e335e7",
+   "hook_say": "Stop saying identical than!",
+   "strike": "identical than",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_17b6d916",
+   "hook_say": "Stop saying had him to!",
+   "strike": "had him to",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_03115b51",
+   "hook_say": "Stop saying skilled on!",
+   "strike": "skilled on",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_07346006",
+   "hook_say": "Stop saying propose leave!",
+   "strike": "propose leave",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_3aca1292",
+   "hook_say": "Your welcome or you're welcome?",
+   "strike": "Your",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_058ffb7f",
+   "hook_say": "Stop saying and furthermore!",
+   "strike": "And furthermore",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_0968a1c3",
+   "hook_say": "Stop saying suspicious about!",
+   "strike": "suspicious about",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_52a6bffb",
+   "hook_say": "Who's or whose?",
+   "strike": "Who's",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_4404e98f",
+   "hook_say": "Farther or further?",
+   "strike": "farther",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_29c61515",
+   "hook_say": "Stop saying hesitate contacting!",
+   "strike": "hesitate contacting",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_14617767",
+   "hook_say": "Stop saying congratulate you for!",
+   "strike": "congratulate you for",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_40706a40",
+   "hook_say": "There or their?",
+   "strike": "There",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_0d55586c",
+   "hook_say": "Stop saying eat diet!",
+   "strike": "eat diet",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_033d190d",
+   "hook_say": "Stop saying follow number!",
+   "strike": "follow number",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_01420199",
+   "hook_say": "Warmer or heater?",
+   "strike": "warmer",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_18fd1239",
+   "hook_say": "Stop saying two-bed room!",
+   "strike": "two-bed room",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_0ac5ff10",
+   "hook_say": "Stop saying call number!",
+   "strike": "call number",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_92b16d01",
+   "hook_say": "Stop saying self-service cashier!",
+   "strike": "self-service cashier",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_0edca2fc",
+   "hook_say": "Stop saying free test!",
+   "strike": "free test",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_1dc7abe0",
+   "hook_say": "Stop saying room card!",
+   "strike": "room card",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_01d0269f",
+   "hook_say": "Stop saying full hours!",
+   "strike": "full hours",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_07f39bdd",
+   "hook_say": "Stop saying no-rust iron!",
+   "strike": "no-rust iron",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_0acfd154",
+   "hook_say": "Stop saying problem talk!",
+   "strike": "problem talk",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_16c56ea4",
+   "hook_say": "Stop saying dare to saying!",
+   "strike": "dare to saying",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_2ac8da2b",
+   "hook_say": "Stop saying wish it doesn't!",
+   "strike": "wish",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_72620bd4",
+   "hook_say": "Stop saying sudden shopping!",
+   "strike": "sudden shopping",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_cc6fbe77",
+   "hook_say": "Stop saying the gate is change!",
+   "strike": "is change",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_3237e46f",
+   "hook_say": "Stop saying what I do!",
+   "strike": "What I do",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_7281e267",
+   "hook_say": "Stop saying from where you!",
+   "strike": "From where you",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_e34dea6c",
+   "hook_say": "Stop saying send you message!",
+   "strike": "send you message",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_8fea8dee",
+   "hook_say": "Stop saying contract of house!",
+   "strike": "contract of house",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_fc42e435",
+   "hook_say": "Stop saying that not work!",
+   "strike": "that not work",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_dfe2abf2",
+   "hook_say": "Stop saying there is any!",
+   "strike": "There is any",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_847a8b03",
+   "hook_say": "Stop saying prefer refund!",
+   "strike": "prefer refund",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_01bac66e",
+   "hook_say": "Major doesn't mean boss!",
+   "strike": "My major",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_645d6b51",
+   "hook_say": "Stop saying call because problem!",
+   "strike": "because problem",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_55270c0b",
+   "hook_say": "Stop saying what I must!",
+   "strike": "What I must",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_c03dbf46",
+   "hook_say": "Stop saying present you!",
+   "strike": "present you",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_57e42a5c",
+   "hook_say": "Stop saying for finish!",
+   "strike": "For finish",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_bf3fc815",
+   "hook_say": "Stop saying will out!",
+   "strike": "will out",
+   "template": "mistake"
+  },
+  {
+   "gold": "sb_0139ba3b",
+   "pv": "do not disturb",
+   "hook_say": "Don't say no disturbing!",
+   "strike": "no disturbing",
+   "mean_say": "Do not disturb means leave me alone.",
+   "mean_card": "= please do not interrupt me",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_02938065",
+   "pv": "late reply",
+   "hook_say": "Don't say answering late!",
+   "strike": "my answering late",
+   "mean_say": "A late reply is a slow answer.",
+   "mean_card": "= an answer that came late",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_08f69142",
+   "pv": "it depends",
+   "hook_say": "Don't say it's depend!",
+   "strike": "It's depend",
+   "mean_say": "It depends means it can change.",
+   "mean_card": "= it changes with the situation",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_0a35f2ef",
+   "pv": "split the bill",
+   "hook_say": "Say split the bill!",
+   "strike": "divide",
+   "mean_say": "Split means everyone pays a part.",
+   "mean_card": "= share the cost",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_151205ee",
+   "pv": "tidy up",
+   "hook_say": "Don't say make tidy!",
+   "strike": "make tidy",
+   "mean_say": "Tidy up means make it neat.",
+   "mean_card": "= make a place neat",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_44c4f197",
+   "pv": "go back",
+   "hook_say": "Don't say return back!",
+   "strike": "return back",
+   "mean_say": "Go back means return.",
+   "mean_card": "= return to a place",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_a80a371d",
+   "pv": "check in",
+   "hook_say": "Don't say register at the hotel!",
+   "strike": "register at",
+   "mean_say": "Check in means say you have arrived.",
+   "mean_card": "= tell them you have arrived",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_0d57e20a",
+   "pv": "I'm afraid",
+   "hook_say": "I'm afraid isn't always scared!",
+   "strike": "Sorry, no.",
+   "mean_say": "I'm afraid softens bad news.",
+   "mean_card": "= polite bad news",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_0c7fd825",
+   "pv": "invite you to",
+   "hook_say": "Don't say invite you come!",
+   "strike": "invite you come",
+   "mean_say": "Invite you to means please come.",
+   "mean_card": "= ask someone to come",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_02626364",
+   "pv": "push back",
+   "hook_say": "Don't say make it later!",
+   "strike": "make the meeting later",
+   "mean_say": "Push back means move later.",
+   "mean_card": "= move to a later time",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_0994b0f5",
+   "pv": "contribute to",
+   "hook_say": "Don't say helps to make!",
+   "strike": "helps to make",
+   "mean_say": "Contribute to means help cause.",
+   "mean_card": "= help cause",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_08e239a0",
+   "pv": "invaluable",
+   "hook_say": "Invaluable means very valuable!",
+   "strike": "not valuable at all",
+   "mean_say": "Invaluable means very valuable.",
+   "mean_card": "= extremely valuable",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_14b91513",
+   "pv": "head off",
+   "hook_say": "Don't say go off now!",
+   "strike": "go off",
+   "mean_say": "Head off means leave.",
+   "mean_card": "= leave to go somewhere",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_17a4e51a",
+   "pv": "make up for",
+   "hook_say": "Don't say repair the time!",
+   "strike": "repair the late time",
+   "mean_say": "Make up for means fix a mistake.",
+   "mean_card": "= do something to fix it",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_15dca7cf",
+   "pv": "through thick and thin",
+   "hook_say": "Don't say thin and thick!",
+   "strike": "in thin and thick",
+   "mean_say": "It means in good times and bad.",
+   "mean_card": "= in good times and bad",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_1f332c48",
+   "pv": "cover for",
+   "hook_say": "Don't say replace me!",
+   "strike": "replace me",
+   "mean_say": "Cover for means do their job.",
+   "mean_card": "= do their job for them",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_22459a38",
+   "pv": "stem from",
+   "hook_say": "Don't say comes out of!",
+   "strike": "comes out of",
+   "mean_say": "Stem from means come from.",
+   "mean_card": "= come from a cause",
+   "template": "phrasal"
+  },
+  {
+   "gold": "sb_23878717",
+   "pv": "save up",
+   "hook_say": "Don't say keeping money for!",
+   "strike": "keeping money",
+   "mean_say": "Save up means collect money.",
+   "mean_card": "= collect money for later",
+   "template": "phrasal"
+  }
+ ]
+}
