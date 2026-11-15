@@ -1,0 +1,752 @@
+{
+  "exemption": {
+    "mis": [
+      {
+        "w": "She got an exemption to the entry fee.",
+        "r": "She got an exemption from the entry fee.",
+        "why": "Exemption takes from to show what you are freed from, not to."
+      },
+      {
+        "w": "Children are exemption from the entry fee.",
+        "r": "Children are exempt from the entry fee.",
+        "why": "Exemption is a noun; after be you need the adjective exempt."
+      }
+    ],
+    "u": "Exemption is a formal, mostly legal or financial noun: tax exemption, an exemption from military service. You apply for, claim or grant one, and the thing you are freed from follows from. It is stronger than exception, which only means something that does not follow the rule; an exemption is an official permission. The verb and adjective are exempt: Charities are exempt from the tax. Common in news and official forms, rare in casual talk."
+  },
+  "exit": {
+    "mis": [
+      {
+        "w": "Please exit from the room quietly.",
+        "r": "Please exit the room quietly.",
+        "why": "As a verb, exit is transitive and takes its object directly, with no preposition."
+      },
+      {
+        "w": "Follow the exits signs.",
+        "r": "Follow the exit signs.",
+        "why": "A noun before another noun stays singular: exit signs."
+      }
+    ],
+    "u": "Exit works as both noun and verb. As a noun it is the door or road leading out: emergency exit, motorway exit (US: highway exit). As a verb it is neutral to formal and takes a direct object: exit the building, exit the program. In computing, exit is the standard command word. In business, exit strategy means how an investor leaves a deal, and in theatre exit is also a stage direction meaning a character leaves. For everyday speech, leave or go out is more common."
+  },
+  "expedite": {
+    "mis": [
+      {
+        "w": "Please expedite to the shipment.",
+        "r": "Please expedite the shipment.",
+        "why": "Expedite is a transitive verb and needs a direct object, not a preposition."
+      },
+      {
+        "w": "Please expediate the shipment.",
+        "r": "Please expedite the shipment.",
+        "why": "Spell it expedite; expediate is a common misspelling."
+      }
+    ],
+    "u": "Expedite is a formal business verb, common in logistics, customs and administration: expedite an order, expedite the visa process. The object is usually a process or item, not a person, so you do not expedite someone. It sounds stiffer than speed up and often appears in email requests, for example \"Could you expedite this?\" Do not confuse it with expedition, a long organized journey. The related adjective is expeditious, which means quick and efficient, and is even more formal."
+  },
+  "expertise": {
+    "mis": [
+      {
+        "w": "She has many expertises in finance.",
+        "r": "She has a lot of expertise in finance.",
+        "why": "Expertise is uncountable, so it has no plural and needs much or a lot of."
+      },
+      {
+        "w": "He is an expertise in marketing.",
+        "r": "He is an expert in marketing.",
+        "why": "Expertise is the skill; the person is an expert."
+      }
+    ],
+    "u": "Expertise is an uncountable noun for deep specialist knowledge or skill, so say a lot of expertise, never expertises. The usual pattern is expertise in or area of expertise: We lack expertise in cybersecurity. Do not use it for the person; that is an expert. It sounds professional and appears in job adverts, reports and CVs, where it is stronger than experience because it implies proven mastery. Combine it with technical, legal, medical or specialist to say what kind."
+  },
+  "expire": {
+    "mis": [
+      {
+        "w": "My passport will expire in next month.",
+        "r": "My passport will expire next month.",
+        "why": "Time words like next month take no preposition; use in only with a period, like in two weeks."
+      },
+      {
+        "w": "The offer was expired yesterday.",
+        "r": "The offer expired yesterday.",
+        "why": "Expire is intransitive and has no passive; use expired or has expired."
+      }
+    ],
+    "u": "Expire describes something with a fixed end date, such as a passport, ticket, coupon, contract or warranty, that stops being valid. It is intransitive, so you cannot expire a document. Typical frames: expire on 5 May, expire in two weeks, expire at midnight. The adjective expired comes before the noun: an expired visa. Expire is not used for people or for a process that gradually weakens; for dying, the formal verb is expire only in older or literary writing, so avoid it in daily speech."
+  },
+  "explanatory": {
+    "mis": [
+      {
+        "w": "The instructions are very explanatory.",
+        "r": "The instructions are very clear.",
+        "why": "Explanatory means giving an explanation; it does not mean easy to understand, which is clear or self-explanatory."
+      },
+      {
+        "w": "I read the explanation notes at the bottom.",
+        "r": "I read the explanatory notes at the bottom.",
+        "why": "Use the adjective explanatory before a noun; explanation cannot modify notes this way."
+      }
+    ],
+    "u": "Explanatory is a formal adjective that usually sits before a noun: explanatory notes, an explanatory leaflet, explanatory power. It describes material whose job is to explain something else. Do not use it for people; a person is not explanatory. Self-explanatory, a very common related word, means obvious enough to need no explanation: The buttons are self-explanatory. In academic writing you will also meet explanatory variable and explanatory power for how well a theory accounts for facts."
+  },
+  "faculty": {
+    "mis": [
+      {
+        "w": "I study in the faculty of arts.",
+        "r": "I study in the Faculty of Arts.",
+        "why": "A named faculty takes the and capital letters: the Faculty of Arts."
+      },
+      {
+        "w": "She is a faculty at the university.",
+        "r": "She is a faculty member at the university.",
+        "why": "In American English faculty is a collective noun for the whole staff, so one person is a faculty member."
+      }
+    ],
+    "u": "Faculty has two main senses. In US English it means all the teachers and researchers at a university: the faculty voted, a faculty member. In UK and many other countries it also means a large academic division, such as the Faculty of Law, similar to a US school or college. A different sense is a natural ability: mental faculties, the faculty of speech. Keep an eye on number: faculty as a group can take a plural verb in British English."
+  },
+  "familiarity": {
+    "mis": [
+      {
+        "w": "I have a familiarity about this software.",
+        "r": "I have a familiarity with this software.",
+        "why": "Familiarity with is the fixed pattern when you know something well."
+      },
+      {
+        "w": "She is a familiarity with the city.",
+        "r": "She is familiar with the city.",
+        "why": "Familiarity is a noun; the adjective familiar follows be."
+      }
+    ],
+    "u": "Familiarity is an uncountable noun meaning good knowledge of something or the comfortable feeling that comes from knowing it. Job adverts say familiarity with Excel is required, which asks for working knowledge rather than mastery. It can also describe the feeling of recognising a place: a strange sense of familiarity. The proverb familiarity breeds contempt warns that knowing someone too well may reduce respect. Avoid putting a or the before familiarity in the knowledge sense when no description follows."
+  },
+  "familiarize": {
+    "mis": [
+      {
+        "w": "Please familiarize with the rules.",
+        "r": "Please familiarize yourself with the rules.",
+        "why": "Familiarize needs an object; when you do it yourself, add yourself."
+      },
+      {
+        "w": "I need to familiarize to the new system.",
+        "r": "I need to familiarize myself with the new system.",
+        "why": "The pattern is familiarize someone with something, not to."
+      }
+    ],
+    "u": "Familiarize is a transitive verb: you familiarize yourself or someone else with something. The pattern familiarize yourself with is common in manuals, onboarding emails and safety notices: Please familiarize yourself with the evacuation plan. It sounds a bit formal, so in casual speech people say get to know or get used to. British English also spells it familiarise. Do not mix it with the adjective familiar, as in I am familiar with the tool, which describes a state rather than an action."
+  },
+  "fare": {
+    "mis": [
+      {
+        "w": "The fare of the train is expensive.",
+        "r": "The train fare is expensive.",
+        "why": "Use fare as a noun adjunct before the vehicle name rather than of."
+      },
+      {
+        "w": "I paid a high fee for the bus.",
+        "r": "I paid a high fare for the bus.",
+        "why": "Fare is the price of a trip; fee is a payment for a service."
+      }
+    ],
+    "u": "Fare means the money you pay to travel on a bus, train, taxi, plane or ferry: a bus fare, an air fare, half fare for children. It is different from fee, which is a charge for a service, and from ticket, which is the document itself. In the UK you will often see single fare and return fare. Fare can also mean the food on offer, as in simple pub fare, which is a slightly literary use. Fare dodging means travelling without paying."
+  },
+  "feature": {
+    "mis": [
+      {
+        "w": "The phone has many feature.",
+        "r": "The phone has many features.",
+        "why": "Feature is countable, so several need -s."
+      },
+      {
+        "w": "This feature of the app makes it difficult to use it.",
+        "r": "This feature of the app makes it difficult to use.",
+        "why": "Do not repeat the object it after the adjective; the object is already the app."
+      }
+    ],
+    "u": "Feature is a countable noun for a noticeable part or quality: the new camera features, a feature of the landscape. In technology it means a function, so teams talk about adding a feature. In media it can mean a long article or a main film: a feature article, a feature-length film. As a verb, feature means to include as an important part: The show features two new singers. A bug is not a feature unless said as a joke. Features also means the parts of a face."
+  },
+  "firefighter": {
+    "mis": [
+      {
+        "w": "The fireman rescued three women.",
+        "r": "The firefighter rescued three women.",
+        "why": "Firefighter is the gender-neutral modern term and is preferred over fireman."
+      },
+      {
+        "w": "Firefighters are arrived at the scene.",
+        "r": "Firefighters arrived at the scene.",
+        "why": "Arrive is intransitive and does not take the passive form."
+      }
+    ],
+    "u": "Firefighter is the standard, gender-neutral word for someone who puts out fires and carries out rescues, replacing fireman in news, job adverts and official titles. In the UK you may also hear fire brigade or fire service for the organization, and in the US fire department. People say call the fire department rather than call the firefighters when asking for help. A volunteer firefighter works for little or no pay. Wildland firefighter is the term for those fighting forest fires."
+  },
+  "firework": {
+    "mis": [
+      {
+        "w": "We watched a firework in the sky.",
+        "r": "We watched fireworks in the sky.",
+        "why": "Fireworks is almost always plural when talking about a display."
+      },
+      {
+        "w": "They made a fireworks show yesterday.",
+        "r": "They put on a fireworks show yesterday.",
+        "why": "Show and display collocate with put on, not make."
+      }
+    ],
+    "u": "Firework, usually plural, refers to explosive devices that make coloured lights and noise for celebrations. Say a fireworks display or fireworks show, with fireworks as a noun adjunct; the plural form is normal even before display. Typical verbs: set off, let off (UK), light, watch. In the UK, Bonfire Night on 5 November is famous for them, while Americans associate them with the Fourth of July. A single device is one firework, but real conversation almost always uses the plural."
+  },
+  "fixture": {
+    "mis": [
+      {
+        "w": "The flat comes with fixtures such as sofas and a bed.",
+        "r": "The flat comes with furniture such as sofas and a bed.",
+        "why": "Fixtures are permanently attached, like sinks; sofas and beds are furniture."
+      },
+      {
+        "w": "She has been a fixture on this school for years.",
+        "r": "She has been a fixture at this school for years.",
+        "why": "Use a fixture at or in a place, not on."
+      }
+    ],
+    "u": "Fixture means something permanently attached to a building, such as a light fixture, a sink or built-in shelves, and in property sales it determines what stays with the house. Fixtures and fittings is a common phrase in UK estate agent talk, where fittings are easily removed items. In British sport, a fixture is a scheduled match: the fixture list. Figuratively, a fixture is someone who is always in the same place: He is a fixture at the bar."
+  },
+  "flexibility": {
+    "mis": [
+      {
+        "w": "I need a flexibility in my schedule.",
+        "r": "I need flexibility in my schedule.",
+        "why": "Flexibility is uncountable, so no a before it."
+      },
+      {
+        "w": "She has a good flexible to change plans.",
+        "r": "She has good flexibility to change plans.",
+        "why": "Flexible is an adjective; after has use the noun flexibility."
+      }
+    ],
+    "u": "Flexibility is an uncountable noun for willingness or ability to change. At work it is a selling point: flexibility in working hours, remote options, flexibility with deadlines. In fitness it means how far your body can bend. It is usually positive, but a lack of flexibility is a common criticism of rigid rules. Pair it with in or with, depending on the thing: flexibility in the contract, flexibility with the schedule. The adjective is flexible, the adverb flexibly."
+  },
+  "flextime": {
+    "mis": [
+      {
+        "w": "I am working on a flextime.",
+        "r": "I am on flextime.",
+        "why": "Flextime is an uncountable system name, so no article before it."
+      },
+      {
+        "w": "She works flextimes.",
+        "r": "She works flextime.",
+        "why": "Flextime has no plural when it refers to the system."
+      }
+    ],
+    "u": "Flextime is the American term for a scheme in which employees choose when they start and finish, as long as they work agreed hours or a core period. The British version is flexitime. It is a workplace noun, mostly uncountable: be on flextime, a flextime policy. It differs from remote work, which concerns location, and from part-time, which concerns total hours. Employers advertise it as a benefit, for example core hours from ten to three with the rest flexible."
+  },
+  "focus": {
+    "mis": [
+      {
+        "w": "I focus to my homework.",
+        "r": "I focus on my homework.",
+        "why": "Focus takes on, not to or at, before the thing you give attention to."
+      },
+      {
+        "w": "She is very focus.",
+        "r": "She is very focused.",
+        "why": "Use the adjective focused after be; focus is a verb or noun."
+      }
+    ],
+    "u": "Focus as a verb is followed by on: focus on the main problem. It can also be transitive: focus your attention on one task. The adjective is focused, and phrases such as stay focused are very common in work and study. As a noun, the focus of a lecture is its main topic, and out of focus describes a blurry image. A focus group is a small panel used in market research. Spelling: focused and focusing in US, sometimes focussed in UK."
+  },
+  "footwear": {
+    "mis": [
+      {
+        "w": "I bought two footwears yesterday.",
+        "r": "I bought two pairs of shoes yesterday.",
+        "why": "Footwear is uncountable; count with pairs of shoes."
+      },
+      {
+        "w": "Please wear a proper footwear.",
+        "r": "Please wear proper footwear.",
+        "why": "No article before an uncountable noun used in general."
+      }
+    ],
+    "u": "Footwear is an uncountable collective noun for anything worn on the feet: shoes, boots, sandals, trainers. It sounds formal or commercial, so you see it in shop departments, safety rules and dress codes: appropriate footwear must be worn. In everyday speech people name the item itself. You cannot say a footwear or two footwears; use a pair of boots instead. Related compounds include sports footwear and protective footwear, and a footwear store sells shoes."
+  },
+  "forbid": {
+    "mis": [
+      {
+        "w": "The law forbids to smoke here.",
+        "r": "The law forbids smoking here.",
+        "why": "Forbid is followed by a gerund or by someone + to do, not directly by to + verb."
+      },
+      {
+        "w": "He forbade me from entering.",
+        "r": "He forbade me to enter.",
+        "why": "Forbid someone to do; from belongs to prevent or prohibit."
+      }
+    ],
+    "u": "Forbid is irregular: forbid, forbade (or forbad), forbidden. The main patterns are forbid someone to do something and forbid something/doing: Parents forbid their children to stay out late; the rules forbid smoking. It sounds stronger and more personal than not allow, and it often involves an authority such as a parent, a boss or a law. In signs, prohibited is more usual. God forbid expresses a hope that something does not happen."
+  },
+  "foreman": {
+    "mis": [
+      {
+        "w": "She is the foreman of our team.",
+        "r": "She is the supervisor of our team.",
+        "why": "Foreman is gendered; for a woman or in neutral use, choose supervisor or forewoman."
+      },
+      {
+        "w": "The foreman said us to wear helmets.",
+        "r": "The foreman told us to wear helmets.",
+        "why": "Say needs no indirect object; use tell someone to."
+      }
+    ],
+    "u": "A foreman is a skilled worker who supervises a crew in manual work: a site foreman, a factory foreman. He or she usually works on the floor with the team rather than in an office, unlike a manager. The word is traditionally male; the neutral modern alternatives are supervisor, crew leader or team leader. In law, the foreman of a jury is the person who announces the verdict, and some courts now say foreperson. The plural is foremen."
+  },
+  "formally": {
+    "mis": [
+      {
+        "w": "Formally, I think it is a good plan.",
+        "r": "Personally, I think it is a good plan.",
+        "why": "Formally means officially, not in my opinion; use personally for opinion."
+      },
+      {
+        "w": "He dressed formal for the interview.",
+        "r": "He dressed formally for the interview.",
+        "why": "Use the adverb formally to modify a verb."
+      }
+    ],
+    "u": "Formally is an adverb with two main senses. First, officially or by proper procedure: The company formally announced the merger, formally approved, formally charged. Second, in a serious and polite style: dress formally, address someone formally. Do not confuse it with formerly, which means in the past. Formally and officially often overlap, but formally stresses following the correct steps, while officially stresses authority. The opposite is informally."
+  },
+  "foster": {
+    "mis": [
+      {
+        "w": "Schools should foster students to be creative.",
+        "r": "Schools should foster creativity in students.",
+        "why": "Foster takes an abstract object, not a person plus to-infinitive; use encourage someone to."
+      },
+      {
+        "w": "She fostered with a family.",
+        "r": "She was fostered by a family.",
+        "why": "Foster a child is transitive; the child is fostered by the family."
+      }
+    ],
+    "u": "Foster has two uses. As a verb it means to help something develop, especially a good quality or relationship: foster trust, foster innovation, foster a sense of community. The object is usually an idea, not a person. In a family context, to foster a child means to look after them for a period without becoming the legal parent: foster care, foster parents, a foster child. It is more formal than encourage and often appears in reports and mission statements."
+  },
+  "founder": {
+    "mis": [
+      {
+        "w": "He is the founder from the company.",
+        "r": "He is the founder of the company.",
+        "why": "Founder is followed by of before the organization."
+      },
+      {
+        "w": "She founded the company in 2010 and she is the found.",
+        "r": "She founded the company in 2010 and she is the founder.",
+        "why": "The person is founder; found is a verb meaning to establish."
+      }
+    ],
+    "u": "A founder is the person who started an organization, such as a business, school or movement. Typical uses: founder of the company, co-founder, founder and CEO. Startup talk often says founders for the people who began it together. The verb is found, found, founded, which is different from find, found, found, a common point of confusion. A founding member is one of the first people to join. In the UK founder member is also common. Do not use founder for something a person only invented."
+  },
+  "freelance": {
+    "mis": [
+      {
+        "w": "She works as a freelancer for three years.",
+        "r": "She has worked as a freelancer for three years.",
+        "why": "Use the present perfect for a situation that began in the past and continues now."
+      },
+      {
+        "w": "He is freelancing in a company.",
+        "r": "He is freelancing for several companies.",
+        "why": "A freelancer works for different clients; for takes the clients, in a company suggests staff."
+      }
+    ],
+    "u": "Freelance can be an adjective (a freelance designer), an adverb (she works freelance) or a verb (to freelance). It describes someone who sells services to different clients rather than being on one company's payroll, and who usually handles their own tax and invoices. A person doing this is a freelancer or freelance. It is not exactly the same as self-employed, which also covers shop owners. The pattern go freelance means to start working this way. Freelance work can be flexible but irregular."
+  },
+  "freighter": {
+    "mis": [
+      {
+        "w": "The freighter carries many passengers.",
+        "r": "The freighter carries cargo, not passengers.",
+        "why": "A freighter is for goods; passenger vessels have other names such as liner or ferry."
+      },
+      {
+        "w": "The freighter delivered the freights.",
+        "r": "The freighter delivered the freight.",
+        "why": "Freight is uncountable, so it has no plural."
+      }
+    ],
+    "u": "A freighter is a ship or an aircraft designed mainly to carry cargo rather than passengers: an ocean freighter, a cargo freighter. The word comes from freight, goods being transported. In everyday maritime writing cargo ship is more common, while freighter is typical in news stories and fiction. An air freighter is a plane that carries parcels. Do not confuse it with a ferry, which carries people and vehicles, or a tanker, which carries liquids. Freight is uncountable."
+  },
+  "frustrate": {
+    "mis": [
+      {
+        "w": "I am very frustrating about the delay.",
+        "r": "I am very frustrated about the delay.",
+        "why": "Use -ed for how you feel and -ing for what causes it."
+      },
+      {
+        "w": "The delay is frustrated.",
+        "r": "The delay is frustrating.",
+        "why": "The thing that causes the feeling takes -ing."
+      }
+    ],
+    "u": "Frustrate has two senses. It means to make someone feel annoyed and helpless because they cannot do or change something: Slow internet frustrates me. It also means to prevent a plan from succeeding: bad weather frustrated our efforts. Learners often confuse the participles: frustrated describes the person, frustrating describes the cause. People are frustrated with or by someone, and at or about a situation. It is stronger than annoyed and weaker than furious."
+  },
+  "furnish": {
+    "mis": [
+      {
+        "w": "The apartment is furnish.",
+        "r": "The apartment is furnished.",
+        "why": "Use the past participle furnished to describe a state."
+      },
+      {
+        "w": "Please furnish us your details.",
+        "r": "Please furnish us with your details.",
+        "why": "Furnish someone with something needs with."
+      }
+    ],
+    "u": "Furnish has two main meanings. The everyday one is to put furniture in a place: a furnished flat, fully furnished. In the rental market, furnished means the owner provides furniture, and unfurnished means empty. The formal one is to provide: furnish evidence, furnish details, furnish someone with facts, a pattern with with. The formal sense sounds official and appears in contracts and letters. Furniture is an uncountable noun, so do not use furnitures."
+  },
+  "garment": {
+    "mis": [
+      {
+        "w": "She bought a lot of garments clothing.",
+        "r": "She bought a lot of clothing.",
+        "why": "Garment already means a piece of clothing; do not combine it with clothing."
+      },
+      {
+        "w": "This garment are made of silk.",
+        "r": "This garment is made of silk.",
+        "why": "Garment is singular, so use is."
+      }
+    ],
+    "u": "A garment is a single piece of clothing: a shirt, a dress, a coat. It is more technical and formal than clothes and is typical of the trade, laws and care labels: garment industry, garment workers, wash the garment inside out. In daily speech people name the item itself. Garment is countable, whereas clothing is uncountable. Compounds include undergarment and outer garment. Many countries have large garment factories that export to Europe and the US, so the word often appears in news about manufacturing and labour."
+  },
+  "generalization": {
+    "mis": [
+      {
+        "w": "It is a generalization of men.",
+        "r": "It is a generalization about men.",
+        "why": "Generalization takes about for the topic."
+      },
+      {
+        "w": "He generalization the data.",
+        "r": "He generalized the data.",
+        "why": "Generalization is a noun; the verb is generalize."
+      }
+    ],
+    "u": "A generalization is a statement that applies a conclusion to a whole group from a few cases, such as All teenagers are lazy. It is often critical: sweeping generalization, hasty generalization. A fair generalization may be marked with in general or tend to. In science it can mean a principle drawn from observations, which is a neutral use. Use generalization about plus the group. The verb is generalize, and the pattern generalizing from one example describes a common reasoning error. British spelling: generalisation."
+  },
+  "generic": {
+    "mis": [
+      {
+        "w": "I prefer generic than brand medicine.",
+        "r": "I prefer generic medicine to brand-name medicine.",
+        "why": "Prefer takes to, not than."
+      },
+      {
+        "w": "The email was generical and boring.",
+        "r": "The email was generic and boring.",
+        "why": "The adjective is generic; generical is not used."
+      }
+    ],
+    "u": "Generic has two main uses. In shopping and medicine, a generic product has no brand name but has the same active ingredient, as with generic drugs, usually cheaper. In general talk, it describes something general, not specific or special: a generic cover letter, a generic email. This second sense can be mildly critical because it suggests no effort or personality. As a noun, a generic is a drug sold under its chemical name. In biology, generic refers to a genus."
+  },
+  "goal": {
+    "mis": [
+      {
+        "w": "My goal is to improving my English.",
+        "r": "My goal is to improve my English.",
+        "why": "After to in an infinitive, use the base verb."
+      },
+      {
+        "w": "She made a goal in the last minute.",
+        "r": "She scored a goal in the last minute.",
+        "why": "The collocation is score a goal."
+      }
+    ],
+    "u": "Goal has two main meanings. In sport it is the point scored, or the net itself: score a goal, goal difference. In life it is something you want to achieve: set a goal, reach a goal, short-term and long-term goals. The verb patterns are set a goal, achieve a goal and work towards a goal. Goal is a bit more personal than objective, which sounds like a business term, and than target, which suggests a number. After my goal is, use to plus a base verb."
+  },
+  "grocery": {
+    "mis": [
+      {
+        "w": "I went to buy a grocery.",
+        "r": "I went to buy groceries.",
+        "why": "Groceries is the usual plural for the things you buy."
+      },
+      {
+        "w": "The grocery are expensive today.",
+        "r": "Groceries are expensive today.",
+        "why": "Use the plural noun groceries with the plural verb."
+      }
+    ],
+    "u": "Grocery has two forms. As a noun adjunct it describes a shop or trip: grocery store, grocery shopping, grocery delivery. In its plural form, groceries means the food and household items you buy: do the groceries, a bag of groceries, the grocery bill. A grocery store is smaller than a supermarket. In British English the shop is a greengrocer or a grocer's; Americans say grocery store. A single item can be called a grocery in older or specialized usage, which is rare today."
+  },
+  "harmful": {
+    "mis": [
+      {
+        "w": "Smoking is harmful for your health.",
+        "r": "Smoking is harmful to your health.",
+        "why": "Harmful takes to before the person or thing affected."
+      },
+      {
+        "w": "It is a harm habit.",
+        "r": "It is a harmful habit.",
+        "why": "Harm is a noun; the adjective is harmful."
+      }
+    ],
+    "u": "Harmful describes things that can damage health, nature or a person's wellbeing: harmful chemicals, harmful effects, a harmful habit. It is followed by to: harmful to children, harmful to the environment. It is wider than toxic, which applies mainly to poisons, and weaker than deadly. The opposite is harmless. Use potentially harmful for things that may cause damage but are not proven. Harmful also covers social harm, such as harmful stereotypes, where no physical injury happens."
+  },
+  "hazard": {
+    "mis": [
+      {
+        "w": "It is a hazard for the people.",
+        "r": "It is a hazard to the people.",
+        "why": "Hazard to someone is the usual pattern."
+      },
+      {
+        "w": "Wet floors are hazard.",
+        "r": "Wet floors are a hazard.",
+        "why": "Hazard is countable and needs a or the."
+      }
+    ],
+    "u": "A hazard is something that may cause harm, especially in a place of work, on a road or at home: a fire hazard, a health hazard, a trip hazard. In safety manuals hazard is the source of danger, while risk is how likely it is that the danger will actually hurt someone. The pattern pose a hazard to someone is common. Hazard lights in British English are the flashing warning lights on a car, called emergency flashers in the US. The adjective is hazardous."
+  },
+  "hazardous": {
+    "mis": [
+      {
+        "w": "It is hazardous for the health.",
+        "r": "It is hazardous to health.",
+        "why": "Hazardous to health is a fixed phrase without the."
+      },
+      {
+        "w": "The hazard waste is stored here.",
+        "r": "The hazardous waste is stored here.",
+        "why": "Use the adjective hazardous before a noun."
+      }
+    ],
+    "u": "Hazardous is a formal adjective for things that can cause serious harm or danger: hazardous waste, hazardous materials, hazardous conditions. It is very common in regulation, labelling and safety training, where it often has legal meaning; companies must store hazardous substances in marked containers. It is stronger and more official than risky, which can describe a business decision. Use hazardous to health or hazardous for people working in an area. The noun is hazard."
+  },
+  "headquarter": {
+    "mis": [
+      {
+        "w": "Our headquarter are in Tokyo.",
+        "r": "Our headquarters are in Tokyo.",
+        "why": "Headquarters keeps its final s even for one building and may take a plural verb."
+      },
+      {
+        "w": "The company headquartered at Tokyo.",
+        "r": "The company is headquartered in Tokyo.",
+        "why": "Use be headquartered in a city."
+      }
+    ],
+    "u": "Headquarters is the main office or control centre of an organization, including a company, police force or army. It ends in s even for one place, and it can take a singular or plural verb: The headquarters is in Tokyo; the headquarters are being moved. The usual verb pattern is be headquartered in. Shortened to HQ in speech and on slides. Use head office in British business English and headquarters for large or international bodies. The singular headquarter is rare except as a verb."
+  },
+  "healthcare": {
+    "mis": [
+      {
+        "w": "She works in healthcares.",
+        "r": "She works in healthcare.",
+        "why": "Healthcare is uncountable and has no plural."
+      },
+      {
+        "w": "The healthcare are very expensive.",
+        "r": "Healthcare is very expensive.",
+        "why": "Use a singular verb with an uncountable noun."
+      }
+    ],
+    "u": "Healthcare is an uncountable noun for the services and systems that look after people's physical and mental health: access to healthcare, healthcare costs, the healthcare system. It covers hospitals, clinics, insurance and policy, so it is broader than medicine, which is the treatment itself. In British English it is also written health care, and the NHS provides most of it. It is often used as a noun adjunct: healthcare workers, healthcare providers. In US debates, it refers heavily to insurance."
+  },
+  "healthful": {
+    "mis": [
+      {
+        "w": "She ate healthfully food all week.",
+        "r": "She ate healthful food all week.",
+        "why": "Before a noun use the adjective healthful; healthfully is an adverb."
+      },
+      {
+        "w": "I am feeling very healthful today.",
+        "r": "I am feeling very healthy today.",
+        "why": "Healthful describes things that promote health; people feel healthy."
+      }
+    ],
+    "u": "Healthful means good for your health, and is mainly used for food, habits and environments: a healthful diet, healthful habits. Careful writers keep it separate from healthy, which describes a person or thing that is in good health: a healthy child. In practice, many speakers use healthy for both, so healthful sounds slightly formal, found in nutrition articles, American style guides and public health notices. British English prefers healthy almost everywhere. The negative is unhealthful or unhealthy."
+  },
+  "helmet": {
+    "mis": [
+      {
+        "w": "He wore a helmet in his head.",
+        "r": "He wore a helmet on his head.",
+        "why": "The preposition is on, not in, for something worn on the head."
+      },
+      {
+        "w": "He wears helmet when cycling.",
+        "r": "He wears a helmet when cycling.",
+        "why": "Helmet is countable and needs a, the or a plural."
+      }
+    ],
+    "u": "A helmet is a hard protective covering for the head, worn by cyclists, motorcyclists, builders, soldiers and athletes: a bike helmet, a safety helmet, a football helmet. On building sites a hard hat is the common name for the lighter version, and in many places helmet law makes wearing one on a motorbike compulsory. The usual verbs are wear, put on, take off and fasten. A helmet is countable; the helmet is worn on, not in, your head."
+  },
+  "hereby": {
+    "mis": [
+      {
+        "w": "Hereby I resign from my position.",
+        "r": "I hereby resign from my position.",
+        "why": "Hereby normally sits right before the main verb."
+      },
+      {
+        "w": "I am hereby writing to ask about the job.",
+        "r": "I am writing to ask about the job.",
+        "why": "Hereby suits statements that perform an act, like I hereby declare; a normal letter opening does not need it."
+      }
+    ],
+    "u": "Hereby is a very formal adverb used in legal documents, official announcements and ceremonies, where the words themselves perform the act: I hereby declare the meeting open, We hereby certify that the copy is true. It means by means of this statement and usually sits just before the verb. In ordinary emails or conversation it sounds stiff or jokingly pompous. Do not mix it with thereby, which means as a result of that. Common verbs: declare, confirm, certify, resign, agree."
+  },
+  "hesitation": {
+    "mis": [
+      {
+        "w": "Please call me without any hesitate.",
+        "r": "Please call me without hesitation.",
+        "why": "After a preposition use the noun hesitation, not the verb."
+      },
+      {
+        "w": "He had a hesitation to speak.",
+        "r": "He had some hesitation about speaking.",
+        "why": "Hesitation about plus -ing is the usual pattern; a hesitation to is unnatural."
+      }
+    ],
+    "u": "Hesitation is the pause or reluctance you show before doing something because you are unsure. Usual patterns: without hesitation (immediately), after some hesitation, hesitation about doing something. Email closings like please do not hesitate to contact us use the verb, while the noun appears in without hesitation. A brief hesitation can be a physical pause in speech or movement. It is neutral to formal, and much less strong than refusal. The adjective is hesitant."
+  },
+  "homeless": {
+    "mis": [
+      {
+        "w": "There are many homeless in my city.",
+        "r": "There are many homeless people in my city.",
+        "why": "The homeless is a group term; for number use homeless people."
+      },
+      {
+        "w": "He became a homeless.",
+        "r": "He became homeless.",
+        "why": "Homeless is an adjective and takes no article."
+      }
+    ],
+    "u": "Homeless is an adjective for people without a regular place to live: homeless people, a homeless shelter, to become homeless. The homeless, with the, refers to the whole group, but many writers prefer people experiencing homelessness as more respectful. A noun form is homelessness. Unlike refugee, which describes legal status after fleeing, homeless only states the housing situation. You can also be made homeless by a fire or flood. Use charity or shelter for related organizations."
+  },
+  "housekeep": {
+    "mis": [
+      {
+        "w": "She is a housekeep at the hotel.",
+        "r": "She is a housekeeper at the hotel.",
+        "why": "The person is a housekeeper; housekeeping is the work; housekeep is not a word."
+      },
+      {
+        "w": "She works in a housekeep department.",
+        "r": "She works in the housekeeping department.",
+        "why": "Use the noun housekeeping before another noun."
+      }
+    ],
+    "u": "Housekeeping is an uncountable noun for cleaning and looking after a home or hotel: housekeeping staff, the housekeeping department. In hotels it means cleaning rooms and changing sheets. Housekeeper is the person doing the work, and keep house is the old verb phrase meaning manage a home. There is no common verb housekeep; use clean or look after. In offices and computing, housekeeping can also mean routine tidy-up tasks, such as housekeeping routines that delete old files."
+  },
+  "ideally": {
+    "mis": [
+      {
+        "w": "Ideal, I want a quiet room.",
+        "r": "Ideally, I want a quiet room.",
+        "why": "Use the adverb ideally to start a sentence about the best situation."
+      },
+      {
+        "w": "The hotel is ideally for families.",
+        "r": "The hotel is ideally suited to families.",
+        "why": "Ideally needs a participle such as suited or located."
+      }
+    ],
+    "u": "Ideally has two uses. At the start of a sentence it introduces the best possible situation, which may not happen: Ideally, we would finish by Friday. Before a participle or adjective, it means perfectly: ideally located, ideally suited. The second use is common in adverts for hotels and jobs. It often prepares the listener for a compromise, so ideally, but is a frequent pattern. The opposite idea is realistically. Use the adjective ideal before a noun: an ideal candidate."
+  },
+  "identify": {
+    "mis": [
+      {
+        "w": "She identified herself with a teacher.",
+        "r": "She identified herself as a teacher.",
+        "why": "Identify oneself as a role; identify with is for feeling connected."
+      },
+      {
+        "w": "Please identify to me the problem.",
+        "r": "Please identify the problem for me.",
+        "why": "Identify takes a direct object; do not place a person after it without a preposition."
+      }
+    ],
+    "u": "Identify means to recognize or work out what or who something is: identify the cause, identify a suspect. The object comes straight after the verb. Three common patterns differ: identify someone as, to say who they are; identify with, to feel you share their experience, as in readers identify with the hero; and identify oneself, to show who you are, for example by showing ID. The noun is identification and the abbreviation ID. In business it is a polite verb in reports."
+  },
+  "illogical": {
+    "mis": [
+      {
+        "w": "It is unlogical to cut the budget.",
+        "r": "It is illogical to cut the budget.",
+        "why": "The negative of logical is illogical, formed with il-."
+      },
+      {
+        "w": "His idea is illogic.",
+        "r": "His idea is illogical.",
+        "why": "Use the adjective illogical, not the noun form."
+      }
+    ],
+    "u": "Illogical means not following clear reasoning: an illogical argument, an illogical decision. It is often used to criticize a plan or a belief: It seems illogical to cut the marketing budget now. Illogical is milder and more focused on reasoning than irrational, which can suggest emotion or madness, and than absurd. Fears can be illogical without being dangerous. The noun is illogicality, rare in speech. Use it with it is illogical to plus a verb, or illogical that plus a clause."
+  },
+  "inappropriate": {
+    "mis": [
+      {
+        "w": "This movie is inappropriate to children.",
+        "r": "This movie is inappropriate for children.",
+        "why": "Inappropriate takes for before the audience or situation."
+      },
+      {
+        "w": "It is not appropriated to wear jeans.",
+        "r": "It is not appropriate to wear jeans.",
+        "why": "The adjective is appropriate, not appropriated."
+      }
+    ],
+    "u": "Inappropriate means not suitable for a situation, often because it breaks social rules or expectations: inappropriate language, inappropriate behavior (UK: behaviour), inappropriate clothing for the office. It is followed by for plus a person or occasion. It is a polite way to criticize without insulting, so HR emails say that a comment was inappropriate rather than rude. It is weaker than offensive and does not necessarily mean illegal. The opposite is appropriate."
+  },
+  "incoming": {
+    "mis": [
+      {
+        "w": "I answered the coming call.",
+        "r": "I answered the incoming call.",
+        "why": "Use incoming for something arriving toward you; coming means a future time."
+      },
+      {
+        "w": "Incoming mails are checked daily.",
+        "r": "Incoming mail is checked daily.",
+        "why": "Mail is uncountable, so no plural."
+      }
+    ],
+    "u": "Incoming is an adjective that goes before a noun and describes something arriving or about to take up a role: incoming calls, incoming mail, the incoming manager. Its opposite is outgoing. It has two senses. Physical or digital items coming toward you, such as incoming messages, and a new person about to start, such as the incoming president. It cannot follow a noun, so you do not say calls incoming in standard writing. Inbound is a near synonym in logistics."
+  },
+  "incur": {
+    "mis": [
+      {
+        "w": "I incurred to a fee.",
+        "r": "I incurred a fee.",
+        "why": "Incur is transitive and takes the object directly."
+      },
+      {
+        "w": "The company was incurred a loss.",
+        "r": "The company incurred a loss.",
+        "why": "Incur is an active verb; the company is the one that incurs."
+      }
+    ],
+    "u": "Incur means to become responsible for something unpleasant, usually a cost, debt, fine or penalty, because of your own actions: incur expenses, incur a late fee, incur debt. It is formal and common in finance and legal English. The subject is the person or company that pays, and what is incurred is normally negative: you do not incur a profit. It can also describe emotions: to incur someone's anger. The past tense is incurred, the noun incurrence is rare."
+  },
+  "indicator": {
+    "mis": [
+      {
+        "w": "Sales is a good indicator for success.",
+        "r": "Sales are a good indicator of success.",
+        "why": "Indicator of is the usual pattern."
+      },
+      {
+        "w": "The indicators shows that the economy is growing.",
+        "r": "The indicators show that the economy is growing.",
+        "why": "A plural subject needs a plural verb: indicators show."
+      }
+    ],
+    "u": "An indicator is something that shows the state or level of something else: an economic indicator, a key performance indicator (KPI), an indicator of quality. It is a countable noun often followed by of. In British English the indicator is also the flashing light on a car, which Americans call a turn signal. In science, a chemical indicator such as litmus changes colour. Compared to sign, an indicator suggests measurable evidence, so reports prefer it."
+  }
+}
