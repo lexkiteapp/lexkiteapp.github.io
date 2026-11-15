@@ -326,7 +326,7 @@
     remind: ['js/i18n/en/remind.js', 'js/remind.js'],
     mail: ['cpack/mail-app/mail.js'], // email nhắc học (remind.js mailSync)
     install: ['js/i18n/en/install.js', 'js/install-sheet.js'], // 📲 mời cài app ở khoảnh khắc giá trị (docs/INSTALL-GROWTH.md)
-    settings: ['js/settings.js'],
+    settings: ['js/i18n/en/v2.js', 'js/st/v2/runtime.js', 'js/st/v2/settings.js', 'js/settings.js'], // ⚙️ khung Stitch v2 (mục lục nhóm hàng) + trang Cài đặt
     // 🔥 lớp giữ thói quen – luôn nạp cùng gói 'streak' (mỗi file chỉ thuộc 1 gói) struct: ['js/structures.js'], // 🧩 nhận diện cấu trúc (tải lười, ra khỏi khung app 20/10)
     streak: ['js/streak-ui.js'],
     ret: ['js/i18n/en/ret.js', 'js/retention.js'],
@@ -504,7 +504,7 @@ App.esPx = { en: 'cpack/es/px-en.js', vi: 'cpack/es/px-vi.js', es: 'cpack/es/px-
     psheet: ['css/st-v2-path-sheet.css', 'css/path-sheet.css'],
     readings: 'css/exam.css',
     say: ['css/st-v2-say-front.css', 'css/st-v2-say-back.css'],
-    settings: 'css/adm.css',
+    settings: ['css/adm.css', 'css/st-v2-settings.css'],
     toefl: 'css/exam.css',
     toeic: 'css/exam.css',
     ux1: ['css/st-home.css', 'css/st-v2-ux1-pre.css', 'css/st-v2-path.css', 'css/st-v2-today.css'] /* Home lần đầu chỉ Lộ trình + Hôm nay; màn khác tải theo màn (st/v2/runtime.js LZ) */,

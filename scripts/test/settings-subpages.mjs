@@ -16,7 +16,8 @@ for (const id of (sub || '').match(/'[a-z]+'/g).map(x => x.slice(1, -1))) {
   if (!src.includes(`go('${id}',`)) fail(`trang con "${id}" không có hàng ở mục lục`);
 }
 // 4) ô giá trị mục lục cắt "…" (text-overflow:ellipsis) phải có title đủ chữ (visual-qa ellipsis-no-title, 06/11)
-if (!/<span class="set-go-v" title="\$\{esc\(val\)\}">/.test(src)) fail('mục lục: ô giá trị .set-go-v thiếu title (bị cắt … không đọc được)');
+const bind = JSON.parse(fs.readFileSync('brand/stitch/v2/bind/settings.json', 'utf8')), valSel = ':scope > div:nth-child(2) > span:nth-child(1)';
+for (const v of ['n1', 'n2', 'n3']) { const b = bind.repeat[0].bind.g.repeat[0].bind[v]; if (!(b.attr && b.attr[valSel] && b.attr[valSel].title === 'w.value') || !/truncate/.test((b.addClass || {})[valSel] || '')) fail(`mục lục (khung Stitch, hàng ${v}): ô giá trị cắt "…" phải có title = đủ chữ (bind/settings.json)`); }
 // 5) icon Material đổi bằng JS (ic.textContent = 'login') phải có trong font thu gọn, nếu không chữ tên icon hiện ra bị cắt (stitch-diff 06/11)
 const msym = JSON.parse(fs.readFileSync('web/fonts/msym.json', 'utf8'));
 for (const m of me.matchAll(/\bic\.textContent = '([a-z_0-9]+)'/g)) if (!msym.includes(m[1])) fail(`icon "${m[1]}" đổi trong ux1-me.js chưa có trong web/fonts/msym.woff2 → khai @icons rồi node scripts/build-stitch-css.mjs --fonts`);
