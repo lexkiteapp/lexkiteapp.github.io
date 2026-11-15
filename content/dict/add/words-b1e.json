@@ -1,0 +1,808 @@
+{
+ "exemption": {
+  "ipaUS": "/ɪɡˈzempʃən/",
+  "col": [
+   "tax exemption",
+   "apply for an exemption",
+   "grant an exemption",
+   "claim an exemption",
+   "exemption from military service",
+   "qualify for an exemption"
+  ],
+  "syn": [
+   "exception",
+   "immunity",
+   "waiver"
+  ]
+ },
+ "exit": {
+  "ipaUS": "/ˈeɡzɪt/",
+  "col": [
+   "emergency exit",
+   "fire exit",
+   "exit the building",
+   "exit strategy",
+   "exit poll",
+   "make a quick exit"
+  ],
+  "syn": [
+   "way out",
+   "departure",
+   "leave"
+  ]
+ },
+ "expedite": {
+  "ipaUS": "/ˈekspədaɪt/",
+  "col": [
+   "expedite delivery",
+   "expedite the process",
+   "expedite an order",
+   "expedite a request",
+   "expedite shipping",
+   "expedite approval"
+  ],
+  "syn": [
+   "speed up",
+   "accelerate",
+   "hasten"
+  ]
+ },
+ "expertise": {
+  "ipaUS": "/ˌekspɜːrˈtiːz/",
+  "col": [
+   "technical expertise",
+   "area of expertise",
+   "expertise in",
+   "share your expertise",
+   "legal expertise",
+   "years of expertise"
+  ],
+  "syn": [
+   "skill",
+   "know-how",
+   "proficiency"
+  ]
+ },
+ "expire": {
+  "ipaUS": "/ɪkˈspaɪr/",
+  "col": [
+   "expire soon",
+   "expire on",
+   "expire at midnight",
+   "passport expires",
+   "expired license",
+   "about to expire"
+  ],
+  "syn": [
+   "run out",
+   "lapse",
+   "end"
+  ]
+ },
+ "explanatory": {
+  "ipaUS": "/ɪkˈsplænətɔːri/",
+  "col": [
+   "explanatory note",
+   "self-explanatory",
+   "explanatory text",
+   "explanatory leaflet",
+   "explanatory memorandum",
+   "explanatory diagram"
+  ],
+  "syn": [
+   "clarifying",
+   "descriptive",
+   "illustrative"
+  ]
+ },
+ "faculty": {
+  "ipaUS": "/ˈfækəlti/",
+  "col": [
+   "faculty member",
+   "faculty of law",
+   "faculty meeting",
+   "teaching faculty",
+   "mental faculties",
+   "faculty lounge"
+  ],
+  "syn": [
+   "teaching staff",
+   "department",
+   "ability"
+  ]
+ },
+ "familiarity": {
+  "ipaUS": "/fəˌmɪliˈærəti/",
+  "col": [
+   "familiarity with",
+   "lack of familiarity",
+   "a sense of familiarity",
+   "breed familiarity",
+   "basic familiarity",
+   "growing familiarity"
+  ],
+  "syn": [
+   "knowledge",
+   "acquaintance",
+   "awareness"
+  ]
+ },
+ "familiarize": {
+  "ipaUS": "/fəˈmɪljəraɪz/",
+  "col": [
+   "familiarize yourself with",
+   "familiarize staff with",
+   "familiarize someone with the rules",
+   "become familiarized",
+   "familiarize new employees",
+   "fully familiarize"
+  ],
+  "syn": [
+   "acquaint",
+   "introduce",
+   "accustom"
+  ]
+ },
+ "fare": {
+  "ipaUS": "/fer/",
+  "col": [
+   "bus fare",
+   "taxi fare",
+   "pay the fare",
+   "air fare",
+   "fare increase",
+   "fare evasion"
+  ],
+  "syn": [
+   "ticket price",
+   "charge",
+   "cost"
+  ]
+ },
+ "feature": {
+  "ipaUS": "/ˈfiːtʃər/",
+  "col": [
+   "key feature",
+   "common feature",
+   "main feature",
+   "safety features",
+   "special feature",
+   "feature film"
+  ],
+  "syn": [
+   "characteristic",
+   "trait",
+   "aspect",
+   "attribute"
+  ]
+ },
+ "firefighter": {
+  "ipaUS": "/ˈfaɪərˌfaɪtər/",
+  "col": [
+   "volunteer firefighter",
+   "call the firefighters",
+   "firefighters rescued",
+   "firefighter training",
+   "brave firefighter",
+   "wildfire firefighter"
+  ],
+  "syn": [
+   "fireman",
+   "rescuer",
+   "fire crew"
+  ]
+ },
+ "firework": {
+  "ipaUS": "/ˈfaɪərˌwɜːrk/",
+  "col": [
+   "firework display",
+   "set off fireworks",
+   "fireworks go off",
+   "New Year fireworks",
+   "watch the fireworks",
+   "a burst of fireworks"
+  ],
+  "syn": [
+   "rocket",
+   "sparkler",
+   "pyrotechnics"
+  ]
+ },
+ "fixture": {
+  "ipaUS": "/ˈfɪkstʃər/",
+  "col": [
+   "light fixture",
+   "fixtures and fittings",
+   "bathroom fixture",
+   "permanent fixture",
+   "sports fixture",
+   "lighting fixture"
+  ],
+  "syn": [
+   "fitting",
+   "installation",
+   "match"
+  ]
+ },
+ "flexibility": {
+  "ipaUS": "/ˌfleksəˈbɪləti/",
+  "col": [
+   "flexibility in",
+   "greater flexibility",
+   "offer flexibility",
+   "flexibility of working hours",
+   "lack of flexibility",
+   "need flexibility"
+  ],
+  "syn": [
+   "adaptability",
+   "versatility",
+   "give"
+  ]
+ },
+ "flextime": {
+  "ipaUS": "/ˈflekstaɪm/",
+  "col": [
+   "work flextime",
+   "flextime schedule",
+   "flextime policy",
+   "on flextime",
+   "flextime arrangement",
+   "offer flextime"
+  ],
+  "syn": [
+   "flexitime",
+   "flexible hours",
+   "staggered hours"
+  ]
+ },
+ "focus": {
+  "ipaUS": "/ˈfoʊkəs/",
+  "col": [
+   "focus on",
+   "sharply focused",
+   "focus attention",
+   "focus group",
+   "stay focused",
+   "lose focus"
+  ],
+  "syn": [
+   "concentrate",
+   "centre",
+   "zero in"
+  ]
+ },
+ "footwear": {
+  "ipaUS": "/ˈfʊtˌwer/",
+  "col": [
+   "safety footwear",
+   "sports footwear",
+   "protective footwear",
+   "footwear store",
+   "comfortable footwear",
+   "appropriate footwear"
+  ],
+  "syn": [
+   "shoes",
+   "boots",
+   "sneakers"
+  ]
+ },
+ "forbid": {
+  "ipaUS": "/fərˈbɪd/",
+  "col": [
+   "strictly forbid",
+   "forbidden to",
+   "forbid someone to do",
+   "law forbids",
+   "forbidden fruit",
+   "forbidden area"
+  ],
+  "syn": [
+   "prohibit",
+   "ban",
+   "not allow"
+  ]
+ },
+ "foreman": {
+  "ipaUS": "/ˈfɔːrmən/",
+  "col": [
+   "site foreman",
+   "factory foreman",
+   "construction foreman",
+   "shift foreman",
+   "foreman of the jury",
+   "warehouse foreman"
+  ],
+  "syn": [
+   "supervisor",
+   "overseer",
+   "charge hand"
+  ]
+ },
+ "formally": {
+  "ipaUS": "/ˈfɔːrməli/",
+  "col": [
+   "formally announce",
+   "dress formally",
+   "formally opened",
+   "formally request",
+   "formally introduced",
+   "formally accepted"
+  ],
+  "syn": [
+   "officially",
+   "properly",
+   "ceremonially"
+  ]
+ },
+ "foster": {
+  "ipaUS": "/ˈfɑːstər/",
+  "col": [
+   "foster growth",
+   "foster cooperation",
+   "foster a sense of",
+   "foster child",
+   "foster innovation",
+   "foster care"
+  ],
+  "syn": [
+   "encourage",
+   "promote",
+   "nurture",
+   "cultivate"
+  ]
+ },
+ "founder": {
+  "ipaUS": "/ˈfaʊndər/",
+  "col": [
+   "co-founder",
+   "company founder",
+   "founder member",
+   "founder of the firm",
+   "found a company",
+   "founder and CEO"
+  ],
+  "syn": [
+   "creator",
+   "originator",
+   "establisher"
+  ]
+ },
+ "freelance": {
+  "ipaUS": "/ˈfriːlæns/",
+  "col": [
+   "freelance writer",
+   "freelance work",
+   "go freelance",
+   "freelance designer",
+   "freelance contract",
+   "work freelance"
+  ],
+  "syn": [
+   "self-employed",
+   "independent",
+   "contract"
+  ]
+ },
+ "freighter": {
+  "ipaUS": "/ˈfreɪtər/",
+  "col": [
+   "cargo freighter",
+   "ocean freighter",
+   "freighter ship",
+   "air freighter",
+   "charter a freighter",
+   "bulk freighter"
+  ],
+  "syn": [
+   "cargo ship",
+   "transporter",
+   "carrier"
+  ]
+ },
+ "frustrate": {
+  "ipaUS": "/ˈfrʌstreɪt/",
+  "col": [
+   "frustrated customer",
+   "frustrate plans",
+   "feel frustrated",
+   "deeply frustrating",
+   "frustrate efforts",
+   "frustrated with"
+  ],
+  "syn": [
+   "annoy",
+   "irritate",
+   "thwart",
+   "discourage"
+  ]
+ },
+ "furnish": {
+  "ipaUS": "/ˈfɜːrnɪʃ/",
+  "col": [
+   "fully furnished",
+   "furnish information",
+   "furnish a room",
+   "furnished apartment",
+   "furnish with",
+   "furnish evidence"
+  ],
+  "syn": [
+   "equip",
+   "supply",
+   "provide"
+  ]
+ },
+ "garment": {
+  "ipaUS": "/ˈɡɑːrmənt/",
+  "col": [
+   "garment industry",
+   "garment factory",
+   "garment worker",
+   "protective garment",
+   "outer garment",
+   "garment bag"
+  ],
+  "syn": [
+   "clothing item",
+   "piece of clothing",
+   "apparel"
+  ]
+ },
+ "generalization": {
+  "ipaUS": "/ˌdʒenrələˈzeɪʃən/",
+  "col": [
+   "broad generalization",
+   "make a generalization",
+   "sweeping generalization",
+   "hasty generalization",
+   "generalization about",
+   "avoid generalizations"
+  ],
+  "syn": [
+   "overstatement",
+   "blanket statement",
+   "stereotype"
+  ]
+ },
+ "generic": {
+  "ipaUS": "/dʒəˈnerɪk/",
+  "col": [
+   "generic drug",
+   "generic brand",
+   "generic term",
+   "generic version",
+   "generic name",
+   "generic email"
+  ],
+  "syn": [
+   "general",
+   "unbranded",
+   "non-specific"
+  ]
+ },
+ "goal": {
+  "ipaUS": "/ɡoʊl/",
+  "col": [
+   "achieve a goal",
+   "long-term goal",
+   "set a goal",
+   "score a goal",
+   "main goal",
+   "reach your goal"
+  ],
+  "syn": [
+   "aim",
+   "objective",
+   "target"
+  ]
+ },
+ "grocery": {
+  "ipaUS": "/ˈɡroʊsəri/",
+  "col": [
+   "grocery store",
+   "buy groceries",
+   "grocery shopping",
+   "grocery bill",
+   "grocery list",
+   "grocery delivery"
+  ],
+  "syn": [
+   "food shopping",
+   "supermarket",
+   "provisions"
+  ]
+ },
+ "harmful": {
+  "ipaUS": "/ˈhɑːrmfəl/",
+  "col": [
+   "harmful effects",
+   "harmful chemicals",
+   "harmful to health",
+   "potentially harmful",
+   "harmful bacteria",
+   "harmful habit"
+  ],
+  "syn": [
+   "damaging",
+   "dangerous",
+   "toxic",
+   "injurious"
+  ]
+ },
+ "hazard": {
+  "ipaUS": "/ˈhæzərd/",
+  "col": [
+   "safety hazard",
+   "fire hazard",
+   "health hazard",
+   "pose a hazard",
+   "potential hazard",
+   "hazard warning lights"
+  ],
+  "syn": [
+   "danger",
+   "risk",
+   "threat"
+  ]
+ },
+ "hazardous": {
+  "ipaUS": "/ˈhæzərdəs/",
+  "col": [
+   "hazardous waste",
+   "hazardous materials",
+   "hazardous conditions",
+   "hazardous to health",
+   "hazardous journey",
+   "hazardous chemicals"
+  ],
+  "syn": [
+   "dangerous",
+   "risky",
+   "unsafe"
+  ]
+ },
+ "headquarter": {
+  "ipaUS": "/ˈhedˌkwɔːrtərz/",
+  "col": [
+   "company headquarters",
+   "be headquartered in",
+   "corporate headquarters",
+   "regional headquarters",
+   "headquarters building",
+   "move headquarters to"
+  ],
+  "syn": [
+   "head office",
+   "main office",
+   "base"
+  ]
+ },
+ "healthcare": {
+  "ipaUS": "/ˈhelθker/",
+  "col": [
+   "healthcare provider",
+   "healthcare costs",
+   "access to healthcare",
+   "universal healthcare",
+   "healthcare system",
+   "healthcare worker"
+  ],
+  "syn": [
+   "medical care",
+   "health services",
+   "medicine"
+  ]
+ },
+ "healthful": {
+  "ipaUS": "/ˈhelθfəl/",
+  "col": [
+   "healthful diet",
+   "healthful food",
+   "healthful lifestyle",
+   "healthful habits",
+   "healthful choice",
+   "healthful environment"
+  ],
+  "syn": [
+   "wholesome",
+   "nutritious",
+   "beneficial"
+  ]
+ },
+ "helmet": {
+  "ipaUS": "/ˈhelmɪt/",
+  "col": [
+   "safety helmet",
+   "wear a helmet",
+   "bike helmet",
+   "hard hat",
+   "motorcycle helmet",
+   "helmet law"
+  ],
+  "syn": [
+   "hard hat",
+   "headgear",
+   "skull cap"
+  ]
+ },
+ "hereby": {
+  "ipaUS": "/hɪrˈbaɪ/",
+  "col": [
+   "hereby declare",
+   "hereby confirm",
+   "hereby certify",
+   "hereby resign",
+   "hereby agree",
+   "I hereby"
+  ],
+  "syn": [
+   "thereby",
+   "by this document",
+   "herewith"
+  ]
+ },
+ "hesitation": {
+  "ipaUS": "/ˌhezɪˈteɪʃən/",
+  "col": [
+   "without hesitation",
+   "slight hesitation",
+   "moment of hesitation",
+   "hesitation to",
+   "show hesitation",
+   "no hesitation"
+  ],
+  "syn": [
+   "reluctance",
+   "pause",
+   "doubt"
+  ]
+ },
+ "homeless": {
+  "ipaUS": "/ˈhoʊmləs/",
+  "col": [
+   "homeless people",
+   "homeless shelter",
+   "homeless charity",
+   "become homeless",
+   "homeless man",
+   "the homeless"
+  ],
+  "syn": [
+   "without shelter",
+   "displaced",
+   "destitute"
+  ]
+ },
+ "housekeep": {
+  "ipaUS": "/ˈhaʊsˌkiːpɪŋ/",
+  "col": [
+   "housekeeping staff",
+   "housekeeping service",
+   "hotel housekeeping",
+   "housekeeping duties",
+   "housekeeping department",
+   "do the housekeeping"
+  ],
+  "syn": [
+   "cleaning",
+   "maintenance",
+   "domestic work"
+  ]
+ },
+ "ideally": {
+  "ipaUS": "/aɪˈdiːəli/",
+  "col": [
+   "ideally located",
+   "ideally suited",
+   "ideally placed",
+   "ideally, we would",
+   "ideally positioned",
+   "ideally situated"
+  ],
+  "syn": [
+   "in the best case",
+   "preferably",
+   "perfectly"
+  ]
+ },
+ "identify": {
+  "ipaUS": "/aɪˈdentɪfaɪ/",
+  "col": [
+   "identify the cause",
+   "clearly identify",
+   "identify with",
+   "identify a problem",
+   "positively identify",
+   "identify a suspect"
+  ],
+  "syn": [
+   "recognize",
+   "pinpoint",
+   "spot",
+   "determine"
+  ]
+ },
+ "illogical": {
+  "ipaUS": "/ɪˈlɑːdʒɪkəl/",
+  "col": [
+   "illogical argument",
+   "completely illogical",
+   "illogical decision",
+   "illogical fear",
+   "seem illogical",
+   "illogical to"
+  ],
+  "syn": [
+   "irrational",
+   "senseless",
+   "absurd"
+  ]
+ },
+ "inappropriate": {
+  "ipaUS": "/ˌɪnəˈproʊpriət/",
+  "col": [
+   "inappropriate behavior",
+   "inappropriate for",
+   "highly inappropriate",
+   "inappropriate language",
+   "deem inappropriate",
+   "inappropriate clothing"
+  ],
+  "syn": [
+   "unsuitable",
+   "improper",
+   "unacceptable"
+  ]
+ },
+ "incoming": {
+  "ipaUS": "/ˈɪnˌkʌmɪŋ/",
+  "col": [
+   "incoming calls",
+   "incoming mail",
+   "incoming students",
+   "incoming president",
+   "incoming message",
+   "incoming flight"
+  ],
+  "syn": [
+   "arriving",
+   "new",
+   "inbound"
+  ]
+ },
+ "incur": {
+  "ipaUS": "/ɪnˈkɜːr/",
+  "col": [
+   "incur costs",
+   "incur expenses",
+   "incur a fine",
+   "incur a penalty",
+   "incur debt",
+   "incur the wrath of"
+  ],
+  "syn": [
+   "bring upon yourself",
+   "run up",
+   "sustain"
+  ]
+ },
+ "indicator": {
+  "ipaUS": "/ˈɪndɪkeɪtər/",
+  "col": [
+   "key indicator",
+   "economic indicator",
+   "performance indicator",
+   "indicator of success",
+   "reliable indicator",
+   "warning indicator"
+  ],
+  "syn": [
+   "sign",
+   "measure",
+   "signal",
+   "gauge"
+  ]
+ }
+}

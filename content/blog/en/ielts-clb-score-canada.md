@@ -158,6 +158,8 @@ Use only the table above.
 3. Listening is CLB 7. Reading, Writing and Speaking are CLB 9. The Listening score is the only one holding the candidate back.
 4. Because each skill is converted separately; one weak skill cannot be balanced by a strong one.
 
+If you are still choosing a test for Canada, compare [CELPIP vs IELTS for Canada](/en/blog/celpip-vs-ielts-canada/), and for the UK read [IELTS for UKVI explained](/en/blog/ielts-ukvi-explained/).
+
 ## Frequently asked questions
 
 ### Which IELTS test do I take for Canadian immigration?

@@ -335,6 +335,23 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
       const own = f => needed(relevantFiles(f.split(','), pp), 'ui');
       ok(!own('web/cpack/x.json,scripts/test/other.mjs') && own('web/css/a.css,web/cpack/x.json'), 'luật 16: chỉ file KÍCH workflow mới tính (file lạc đề như scripts/test/other.mjs không kéo workflow chạy)'); }
     ok(nd('', 'ui') && needed([], 'ui'), 'luật 16: không đọc được danh sách file → chạy (mở cổng)'); }
+  { // luật 16 (15/11): ảnh QC Stitch → R2 + MỘT bình luận PR (scripts/ci/stitch-shots.mjs) – giám khảo UI đọc link, không tải artifact; không nới luật CI
+    const sd = (srcs.find(([f]) => f === 'stitch-diff.yml') || [])[1] || '', st = (sd.match(/- name: Ảnh QC → R2 \+ bình luận PR\n[\s\S]*$/) || [''])[0];
+    ok(/stitch-shots\.mjs/.test(st) && /timeout-minutes:/.test(st) && /continue-on-error: true/.test(st), 'luật 16: stitch-diff.yml có bước stitch-shots (timeout + continue-on-error)');
+    ok(/head\.repo\.full_name == github\.repository/.test(st) && /github\.event_name == 'pull_request'/.test(st), 'luật 16: bước ảnh QC chỉ chạy PR cùng repo (fork không có secret)');
+    ok(/pull-requests: write/.test(sd) && /^concurrency:/m.test(sd) && !/workflow_run|check_suite|check_run/.test(sd.split('\njobs:')[0]), 'luật 16: stitch-diff.yml có quyền bình luận PR, vẫn concurrency, không nghe workflow_run/check_suite');
+    ok(!/upload-artifact[\s\S]{0,200}stitch-shots|git (add|commit|push)/.test(st) && !/echo[^\n]*(secrets\.|TOKEN|SECRET)/.test(st), 'luật 16: không commit ảnh vào repo, không in secret');
+    const sh = fs.readFileSync(path.join(ROOT, 'scripts/ci/stitch-shots.mjs'), 'utf8');
+    ok(/BUCKET = 'lexkite-report-shots'/.test(sh) && !/bucket create/.test(sh) && /MARKER = '<!-- stitch-shots -->'/.test(sh) && /'PATCH'/.test(sh), 'luật 16: dùng bucket report-shots có sẵn (không tạo bucket), marker ẩn + PATCH');
+    const M = await import('../ci/stitch-shots.mjs'), cfg = { host: 'a.r2.cloudflarestorage.com', bucket: 'b', keyId: 'KID', secret: 'S', region: 'auto' };
+    const u = M.presign(cfg, 'ci-shots/pr1/abc1234/sheet-x.jpg', 99999999, new Date('2026-11-15T01:02:03Z'));
+    ok(/^https:\/\/a\.r2\.cloudflarestorage\.com\/b\/ci-shots\/pr1\/abc1234\/sheet-x\.jpg\?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=KID%2F20261115%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261115T010203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=[0-9a-f]{64}$/.test(u) && !u.includes('S&') && !/Secret|=S$/.test(u), 'luật 16: link ký SigV4 đúng dạng, trần 7 ngày, không lộ secret');
+    const fl = [{ kind: 'sheet', screen: 'today', name: 'sheet-today.jpg' }, { kind: 'desk', screen: 'today', name: 'desk-today.jpg' }, { kind: 'v2', screen: 'tờ-stitch-v2-1', name: 'v2-1.jpg' }], md = M.renderComment({ files: fl, links: { 'sheet-today.jpg': 'https://x/1', 'desk-today.jpg': 'https://x/2', 'v2-1.jpg': 'https://x/3' }, sha: 'abcdef0123', a11y: { 'today-dark': { violations: [{ impact: 'serious' }] } } });
+    ok(md.startsWith(M.MARKER) && md.includes('[ảnh](https://x/1)') && md.includes('[ảnh](https://x/2)') && md.includes('(https://x/3)') && md.includes('– · 1/1') && md.includes('abcdef0'), 'luật 16: bình luận có marker ở đầu + bảng link theo màn + axe');
+    { const rows = md.split('\n').filter(l => l.startsWith('|')); ok(rows.length > 2 && rows.every(l => l.split('|').length === rows[0].split('|').length), 'luật 16: bảng bình luận không vỡ cột (nhãn cột không chứa |)'); }
+    const calls = [], mk = existing => async (m, p, b) => { calls.push(m); return m === 'GET' ? existing : { id: 7 }; };
+    await M.upsertComment(mk([{ id: 5, body: 'x' }, { id: 9, body: M.MARKER + ' cũ' }]), 'o/r', 1, 'b'); ok(calls.join() === 'GET,PATCH', 'luật 16: có bình luận cũ → PATCH (không đăng mới)');
+    calls.length = 0; await M.upsertComment(mk([{ id: 5, body: 'x' }]), 'o/r', 1, 'b'); ok(calls.join() === 'GET,POST', 'luật 16: chưa có → đăng đúng một bình luận'); }
   for (const c of chainCycles(srcs)) ok(false, `vòng workflow_run: ${c}`);
   for (const k of ciParity(fs.readFileSync(path.join(WF, 'ci.yml'), 'utf8'), fs.readFileSync(path.join(ROOT, 'scripts/test/suite.txt'), 'utf8'))) ok(false, `ci.yml chạy "${k}" nhưng suite.txt (cổng PR) không có → PR xanh vẫn làm main đỏ`);
   ok(ciParity('run: node scripts/a.mjs\n- run: npx tsc -p x.json', 'node scripts/a.mjs').join() === 'tsc -p', 'ciParity bắt lệnh thiếu');

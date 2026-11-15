@@ -5,6 +5,7 @@
 
 ## Tài liệu hiện hành (docs/)
 - [ADMIN-SECURITY.md](ADMIN-SECURITY.md) — Các lớp bảo vệ trang /admin: adminGate ở API (Origin, rate-limit, Firebase token + email_verified + ADMIN_EMAILS), cổng whoami ở trình duyệt; đọc khi: sửa trang/API quản trị hoặc bật Cloudflare Access
+- [HUMAN.md](HUMAN.md) — Người thật (Turnstile, vé 12 h /api/human), prompt cố định /api/ai theo task, giới hạn body, ghim OIDC, cờ AI_HUMAN_ENFORCE; đọc khi sửa /api/ai, contact, report, lexai
 - [ADS.md](ADS.md) — Thiết kế quảng cáo một lần, mọi cờ TẮT: AdMob (app), AdSense (web), add-on Chrome không bao giờ; chỉ đặt ở điểm nghỉ của bài học; đọc khi: đụng tới quảng cáo, đồng ý, hoặc bật nền tảng quảng cáo mới
 - [ADSENSE-READY.md](ADSENSE-READY.md) — Checklist sẵn sàng duyệt AdSense/AdMob kèm bằng chứng và 3 cú bấm của chủ; đọc khi: gửi lại duyệt quảng cáo hoặc đổi trang bắt buộc/ads.txt
 - [API-KEYS.md](API-KEYS.md) — Bộ quản lý khóa API (Gemini, Groq, OpenRouter, Anthropic, OpenAI, Resend, Brevo, Cloudflare) trong một kho mã hóa, tự xoay vòng và báo sức khỏe; đọc khi: thêm/xoay khóa hoặc sửa _keys.js
@@ -124,6 +125,7 @@
 - [specs/sense-v2.md](specs/sense-v2.md) — Mô hình nghĩa từ v2 (P0.2): nhiều nghĩa/từ#loại, CEFR theo nghĩa, ví dụ theo độ dài cấp, collocation, pattern, register, họ từ; cổng sense-check; đọc khi sửa/sinh content/lexicon/senses.json
 - [specs/mediation.md](specs/mediation.md) — Trung gian (O3): định dạng content/mediation/m<NN>.json gắn Can-do M.*, nguồn theo cấp, ý cần/ý bỏ, bài mẫu; cổng mediation-check; đọc khi viết/soát lô S-MED hoặc làm màn luyện trung gian
 - [specs/spanish-course.md](specs/spanish-course.md) — Khóa tiếng Tây Ban Nha (tl `es`) cho 14 ngôn ngữ: mở rộng Target, nguồn miễn phí + giấy phép, 8 đợt W0–W7, ước tính token/CI, 6 cổng QC, điểm chủ quyết.
+- [specs/french-course.md](specs/french-course.md) — Khóa tiếng Pháp (tl `fr`) cho 14 ngôn ngữ: cùng engine với es, nguồn miễn phí, 8 đợt W0–W7, h muet/aspiré + tu/vous, cổng QC; đọc khi thêm ngôn ngữ đích thứ ba hoặc đụng `content/target/fr/`.
 - [specs/spanish-exam-w5.md](specs/spanish-exam-w5.md) — W5 luyện định dạng DELE/SIELE (spec + trạng thái đợt 1); đọc khi làm thi thử TBN
 - [specs/report-scale.md](specs/report-scale.md) — Báo lỗi quy mô triệu người: cụm lỗi (chữ ký ngữ cảnh + embedding), trần AI riêng, Turnstile/hạn mức/chế độ bão/low-signal, repro Playwright + resolve/mở lại sau live; đọc khi: sửa gom trùng, AI phân loại, chống spam, workflow repro báo lỗi
 - [specs/content-private.md](specs/content-private.md) — Chuyển đề/lời giải/bài học/kho từ sang repo private lexkite-content ($0, runner public + deploy key, fixtures, cổng chống lộ); đọc khi: sửa dữ liệu nội dung, workflow sinh nội dung, build/deploy hoặc job đỏ content-leak
