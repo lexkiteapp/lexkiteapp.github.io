@@ -10,9 +10,11 @@
 |---|---|---|---|---|
 | Màn đầu (Welcome) hiện | 1,2 s | 0,5 s | 0,35 s | 0,34 s |
 | Mở → Ngày 1 (onboarding) | 5,4 s · 8 chạm | 4,6 s · 8 | 4,6 s · 8 | 4,6 s · 8 |
-| CLS cao nhất (Ôn tập → Phát âm) | 0,087 | 0,020 | **0,196** | **0,390** |
+| CLS cao nhất (Ôn tập → Phát âm)* | 0,087 | 0,020 | 0,196* | 0,390* |
 | TBT tích luỹ | 407 ms | 37 ms | 97 ms | 98 ms |
 | INP | 32 ms | 24 ms | 40 ms | 40 ms |
+
+\* CLS lượt này đổi màn bằng `location.hash` (không có thao tác người dùng) nên dịch chuyển do bật/tắt khung app (thanh bên biến mất khi vào chế độ học toàn màn) bị tính; người dùng thật bấm/chạm thì dịch chuyển trong 500 ms sau thao tác không tính vào CLS. Coi là **nghi vấn, chưa phải lỗi** tới khi đo lại bằng click thật (vòng 2).
 
 Thêm: lần đầu → câu đúng đầu tiên 5,7 s · 9 chạm (Pixel 7); Hôm nay → bài 2 chạm; LCP máy yếu 6,76 s; khung 371/374 KB gz; 17/69 màn đã Stitch. Phản hồi trả lời đúng/sai: bảng đáy "Well done!/Not quite" có từ, IPA, nghĩa, ví dụ, "Explanation", Continue (Enter) – ngang Duolingo, hơn Memrise.
 
@@ -21,7 +23,7 @@ Thêm: lần đầu → câu đúng đầu tiên 5,7 s · 9 chạm (Pixel 7); H�
 |---|---|---|---|---|---|
 | 1 | Lần đầu → giá trị đầu (số chạm) | 5 (8–9 chạm, 5,7 s) | 8 – Duolingo/Speak: vào bài thử trước, hỏi mục tiêu sau | **P0** | Bắt đầu → câu hỏi thật ngay (1–2 chạm), mục tiêu/trình độ hỏi sau chiến thắng đầu, mặc định chọn sẵn; không ép đăng ký |
 | 2 | Hôm nay → vào bài (người quay lại) | 6 (2 chạm, 2 màn lặp CTA "Start Day 1") | 9 – Duolingo: 1 chạm | **P0** | CTA Hôm nay vào thẳng bước kế (bỏ trang Day trung gian), chỉ báo "tiếp tục từ câu 3" |
-| 3 | Ổn định bố cục (CLS) | 6 (0,19–0,39 desktop Ôn tập/Phát âm) | 9 – app lớn CLS < 0,05 | **P0** | Giữ chỗ cho khối vẽ trễ (thanh CTA dưới, lưới âm, thẻ), kèm test CLS theo route trong CI |
+| 3 | Ổn định bố cục (CLS) | 7 (nghi vấn 0,19–0,39 desktop khi đổi sang/ra chế độ học toàn màn; mobile-qa 0,076) | 9 – app lớn CLS < 0,05 | P1 (lên P0 nếu click thật vẫn > 0,1) | Đo lại bằng click thật; nếu còn: giữ chỗ khung app khi đổi chế độ, test CLS theo route trong CI |
 | 4 | Tải cảm nhận máy yếu (LCP) | 4 (6,76 s mobile-qa; khung 371/374 KB) | 8 – Duolingo web ~2–3 s trên 4G | **P0** | Cắt phần nạp ngay khỏi khung (lazy), skeleton Stitch, ưu tiên font/ảnh LCP; không nới ngưỡng |
 | 5 | Màn xong bài: thưởng + chuỗi + bước kế | ? (chưa đo; thanh tiến độ "0/6 words" ít đổi trong lúc học) | 9 – Duolingo: thanh đầy, XP, chuỗi, ăn mừng | **P0 (chờ số đo vòng 2)** | Đo vòng 2, rồi: thanh tiến độ thật, ăn mừng nhẹ, 1 nút "bài kế", không tim/ép |
 | 6 | Phản hồi trả lời trong bài | 8 | 8 – Duolingo | P2 | Giữ; thêm "vì sao" cho 15 ngôn ngữ (hiện 25/100) |
@@ -34,7 +36,7 @@ Thêm: lần đầu → câu đúng đầu tiên 5,7 s · 9 chạm (Pixel 7); H�
 ## 5 P0 và thứ tự làm
 1. **P0-1 Lần đầu ngắn** (onboarding; mẫu Stitch qua stitch-cover nếu đổi màn chung).
 2. **P0-2 Hôm nay → bài 1 chạm** (không đụng màn Day của stitch-cover; chỉ đích của CTA Hôm nay, báo trước).
-3. **P0-3 CLS** (tìm gốc: sidebar/thanh đáy/lưới; test CLS theo route; phần Pron báo stitch-cover).
+3. **P0-3 CLS** – chỉ khi đo lại bằng click thật vẫn > 0,1 (xem chú thích bảng số đo); nếu là nhiễu do đổi hash thì thay bằng P1 "Chấm phát âm theo âm vị" hoặc P0-5.
 4. **P0-4 LCP máy yếu** (cắt khỏi khung nạp ngay; không nới ngưỡng).
 5. **P0-5 Màn xong bài + chuỗi** sau khi có số đo vòng 2 (script sửa selector bước bài học).
 
