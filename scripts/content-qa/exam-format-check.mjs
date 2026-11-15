@@ -126,8 +126,16 @@ for (const [i, s] of (K.SPEAK_MORE || []).entries()) {
 // Thi thử IELTS (mock.js): đồng hồ Reading/Writing đúng spec
 {
   const src = fs.readFileSync(P('web/js/mock.js'), 'utf8'), f = 'ielts-mock', u = unit(f, 'mock');
-  for (const s of ['reading', 'writing']) if (!src.includes(`countdown(${sec('ielts-ac', s).minutes * 60},`)) D(f, u, `${s}.minutes`, `không có đồng hồ ${sec('ielts-ac', s).minutes} phút cho ${s}`);
-  if ((src.match(new RegExp(`countdown\\(${sec('ielts-ac', 'reading').minutes * 60},`, 'g')) || []).length < 2) D(f, u, 'timers', 'cần 2 đồng hồ 60 phút (Reading + Writing)');
+  // đồng hồ = countdown(N*60, …) (dự phòng) hoặc ExamClock qua clockOf('<kỹ năng>', …) với STD.ielts.<kỹ năng> = đúng số phút spec (web/js/exam-clock.js)
+  const ec = fs.readFileSync(P('web/js/exam-clock.js'), 'utf8');
+  let n = 0;
+  for (const s of ['reading', 'writing']) {
+    const min = sec('ielts-ac', s).minutes;
+    const viaClock = src.includes(`clockOf('${s}', (window.ExamClock ? ExamClock.STD.ielts.${s}`) && new RegExp(`ielts:\\s*\\{[^}]*\\b${s}:\\s*${min}\\b`).test(ec);
+    if (!viaClock && !src.includes(`countdown(${min * 60},`)) D(f, u, `${s}.minutes`, `không có đồng hồ ${min} phút cho ${s}`);
+    if (viaClock || src.includes(`countdown(${min * 60},`)) n++;
+  }
+  if (n < 2) D(f, u, 'timers', 'cần 2 đồng hồ 60 phút (Reading + Writing)');
 }
 
 // TOEIC Listening & Reading

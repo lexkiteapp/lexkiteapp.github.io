@@ -1,0 +1,752 @@
+{
+ "realistic": {
+  "mis": [
+   {
+    "w": "It is not realistic to expecting a pay rise.",
+    "r": "It is not realistic to expect a pay rise.",
+    "why": "After 'realistic to' use the base verb, not the -ing form."
+   },
+   {
+    "w": "We should be realist and cut the budget.",
+    "r": "We should be realistic and cut the budget.",
+    "why": "The adjective is realistic; realist is a noun meaning a person who accepts things as they are."
+   }
+  ],
+  "u": "Realistic describes plans, targets or ideas that can actually be achieved given the situation. In business it often appears in set realistic goals, a realistic timeline and realistic expectations. It can also mean lifelike, as in a realistic painting or film. Its opposite is unrealistic, a mild way to criticise an overoptimistic plan. Practical stresses usefulness, while realistic stresses accepting facts; saying a deadline is not realistic sounds more polite than calling it impossible."
+ },
+ "realtor": {
+  "mis": [
+   {
+    "w": "The realtor sold to us a small apartment.",
+    "r": "The realtor sold us a small apartment.",
+    "why": "Sell takes the person directly: sold us, not 'sold to us' before the object."
+   },
+   {
+    "w": "I met a realtor to buy a house in the city.",
+    "r": "I met a realtor to look for a house in the city.",
+    "why": "A realtor helps you find or sell a home; you do not meet an agent 'to buy' as if buying from them."
+   }
+  ],
+  "u": "Realtor is mainly American English and strictly refers to a real estate agent who belongs to the National Association of Realtors, although many people use it for any agent. In British English the usual term is estate agent. A realtor represents buyers or sellers and usually earns a commission paid at closing. In a business context you would say hire a realtor to find office space. The word is often capitalised in the US because it is a registered trademark."
+ },
+ "reassure": {
+  "mis": [
+   {
+    "w": "The manager reassured to the staff that jobs were safe.",
+    "r": "The manager reassured the staff that jobs were safe.",
+    "why": "Reassure is transitive and takes its object directly, with no 'to'."
+   },
+   {
+    "w": "I was reassuring when I heard the news.",
+    "r": "I was reassured when I heard the news.",
+    "why": "Use the -ed form for how a person feels; -ing describes what causes the feeling."
+   }
+  ],
+  "u": "Reassure means to say or do something that makes a person stop worrying. It is followed directly by the person, then often that or about: she reassured customers that their data was safe. The adjective reassuring describes the cause (a reassuring smile), while reassured describes the person who feels better. Comfort is warmer and used for sadness; reassure is for doubt or fear. In business writing it appears in statements meant to calm clients, staff or investors."
+ },
+ "reconsider": {
+  "mis": [
+   {
+    "w": "Please reconsider about our offer.",
+    "r": "Please reconsider our offer.",
+    "why": "Reconsider is transitive; do not add 'about' like in think about."
+   },
+   {
+    "w": "He reconsidered to accept the job.",
+    "r": "He reconsidered accepting the job.",
+    "why": "Reconsider is followed by a noun or -ing form, not a to-infinitive."
+   }
+  ],
+  "u": "Reconsider means to think again about a decision or opinion, usually with the chance of changing it. It is formal and polite, which is why requests such as we urge you to reconsider are common in letters and negotiations. It takes a direct object or a gerund, and a clause with whether. Rethink is less formal; review suggests a careful, official check. Reconsidering does not guarantee a change of mind: it only says the matter is open again."
+ },
+ "recreational": {
+  "mis": [
+   {
+    "w": "The camp organises recreational activity for children every day.",
+    "r": "The camp organises recreational activities for children every day.",
+    "why": "A general plural is needed for several different activities; 'activity' here sounds wrong."
+   },
+   {
+    "w": "He plays tennis in a recreational at weekends.",
+    "r": "He plays recreational tennis at weekends.",
+    "why": "Recreational is an adjective and must come before a noun; it cannot stand alone."
+   }
+  ],
+  "u": "Recreational is an adjective for things done for enjoyment and relaxation rather than for work or money. It collocates with activities, facilities, use and vehicle. Recreational drug use refers to taking drugs for pleasure, and a recreational player is an amateur, not a professional. The related noun is recreation, and a hotel brochure may list recreation facilities including a pool. Leisure is a wider, more general word, while recreational often sounds a little more organised or physical."
+ },
+ "recruiter": {
+  "mis": [
+   {
+    "w": "The recruiter is looking for new employee.",
+    "r": "The recruiter is looking for new employees.",
+    "why": "Employee is countable here; use the plural after a general 'new'."
+   },
+   {
+    "w": "The recruiter told that she would call me back.",
+    "r": "The recruiter told me that she would call me back.",
+    "why": "Tell needs a person object before a that-clause."
+   }
+  ],
+  "u": "A recruiter is a person whose job is to find and attract candidates for jobs. Some work inside a company's HR team, others for an agency that is paid when a position is filled. Typical phrases are a recruiter contacted me and the recruiter will schedule an interview. A headhunter is a recruiter who approaches already-employed people for senior roles. Recruiter is neutral and common on professional networks, while headhunter can sound slightly informal or even pushy."
+ },
+ "recruitment": {
+  "mis": [
+   {
+    "w": "We have many recruitments this year.",
+    "r": "We have a lot of recruitment this year.",
+    "why": "Recruitment meaning hiring is uncountable and has no plural."
+   },
+   {
+    "w": "The company is responsible of recruitment.",
+    "r": "The company is responsible for recruitment.",
+    "why": "Responsible takes 'for' before the thing you are in charge of."
+   }
+  ],
+  "u": "Recruitment is the process of finding, selecting and hiring people for a job or for an organisation such as the army. It is an uncountable noun in this sense: the recruitment of new graduates, not a recruitment. Common collocations include recruitment process, recruitment agency and recruitment drive, a short campaign to hire many people. Hiring is the plain everyday word; recruitment sounds more formal and covers the whole cycle from advertising to selection, so HR teams prefer it in reports."
+ },
+ "recur": {
+  "mis": [
+   {
+    "w": "The error recurred again yesterday.",
+    "r": "The error recurred yesterday.",
+    "why": "Recur already means happen again, so 'again' is redundant."
+   },
+   {
+    "w": "The problem was recurred many times.",
+    "r": "The problem recurred many times.",
+    "why": "Recur is intransitive and cannot be used in the passive."
+   }
+  ],
+  "u": "Recur is an intransitive verb meaning to happen again, often more than once, such as an illness, a mistake or a thought. Note the spelling: recurred and recurring double the r. The adjective recurring is common in business, for example a recurring payment or a recurring meeting. Recur suggests repeated returns of the same thing; repeat is usually something a person does deliberately. Saying the problem recurs again repeats the idea and sounds clumsy to a native ear."
+ },
+ "referral": {
+  "mis": [
+   {
+    "w": "I got this job by a referral of my friend.",
+    "r": "I got this job through a referral from my friend.",
+    "why": "A referral comes 'from' a person; 'by' and 'of' sound wrong here."
+   },
+   {
+    "w": "Many referral help our business grow.",
+    "r": "Many referrals help our business grow.",
+    "why": "Referral is countable; use the plural after 'many'."
+   }
+  ],
+  "u": "A referral is the act of sending someone to another person or service, or the person sent. In medicine, a GP gives you a referral to see a specialist. In business, a referral program rewards customers who bring in new clients, and a referral bonus may reward staff who recommend a candidate. It is countable: we received three referrals. Referral is about directing someone onward; recommendation is a wider opinion that something is good. The verb is refer, with two r's doubling."
+ },
+ "refinery": {
+  "mis": [
+   {
+    "w": "The refinery produces a lot of oils.",
+    "r": "The refinery produces a lot of oil.",
+    "why": "Oil as a material is uncountable; no plural."
+   },
+   {
+    "w": "He works in the oil refinery factory.",
+    "r": "He works in the oil refinery.",
+    "why": "Refinery is already a kind of factory, so adding 'factory' is redundant."
+   }
+  ],
+  "u": "A refinery is an industrial plant that purifies a raw material so it can be used or sold. The most common kind is an oil refinery, which turns crude oil into petrol, diesel and other fuels. There are also sugar, metal and salt refineries. The word is built from refine, to make pure, and the plant is usually described by the product: a sugar refinery. News reports talk about refinery capacity or a refinery fire. It is a countable noun and rarely used outside industry and energy topics."
+ },
+ "reflexive": {
+  "mis": [
+   {
+    "w": "He cut him with a knife.",
+    "r": "He cut himself with a knife.",
+    "why": "When subject and object are the same person, use the reflexive pronoun."
+   },
+   {
+    "w": "They enjoyed theirselves at the party.",
+    "r": "They enjoyed themselves at the party.",
+    "why": "The reflexive form of they is themselves; 'theirselves' is not standard."
+   }
+  ],
+  "u": "In grammar, reflexive describes a pronoun ending in -self or -selves, such as myself or themselves, that refers back to the subject of the verb. A reflexive verb takes such a pronoun, as in she taught herself to swim. Outside grammar, reflexive means automatic and done without thinking, like a reflexive flinch. Learners often use a normal object pronoun instead (he hurt him) or invent forms like hisself. Reflexive describes an action turned back on the doer; reflex is the noun for the body's automatic response."
+ },
+ "refreshment": {
+  "mis": [
+   {
+    "w": "The refreshments is free for all guests.",
+    "r": "The refreshments are free for all guests.",
+    "why": "Refreshments, in this sense, is plural and takes a plural verb."
+   },
+   {
+    "w": "We offered some light refreshment to the guests.",
+    "r": "We offered some light refreshments to the guests.",
+    "why": "For food and drink at an event, the word is normally plural."
+   }
+  ],
+  "u": "Refreshments means light food and drink offered at an event, such as coffee, tea, juice and biscuits. In this meaning it is almost always plural: refreshments are available in the lobby. The singular refreshment is rare and means the act of feeling refreshed, or one item in formal writing. Invitations and notices often say light refreshments will be served after the talk. It is more formal than snacks and drinks, and signals something small and free rather than a full meal."
+ },
+ "refundable": {
+  "mis": [
+   {
+    "w": "The fee is refundable if you will cancel early.",
+    "r": "The fee is refundable if you cancel early.",
+    "why": "After 'if' in a real condition use present simple, not 'will'."
+   },
+   {
+    "w": "The deposit is refundable in 30 days.",
+    "r": "The deposit is refundable within 30 days.",
+    "why": "Use 'within' for a time limit, not 'in'."
+   }
+  ],
+  "u": "Refundable describes money that can be paid back to you, such as a deposit or a ticket price. Its opposite is non-refundable, a word you will see in hotel and flight bookings. Typical frames are fully refundable, refundable within 30 days and a refundable deposit. The verb is refund, stressed on the first syllable as a noun (a refund) and on the second as a verb. Refundable is common in contracts and customer service; returnable is used for goods you can send back, not for money."
+ },
+ "rehearsal": {
+  "mis": [
+   {
+    "w": "We have a rehearsal on tomorrow.",
+    "r": "We have a rehearsal tomorrow.",
+    "why": "Do not use a preposition before tomorrow."
+   },
+   {
+    "w": "I rehearsal my speech every night.",
+    "r": "I rehearse my speech every night.",
+    "why": "Rehearsal is a noun; the verb is rehearse."
+   }
+  ],
+  "u": "A rehearsal is a practice session before a performance, speech or event, so that everyone knows what to do. A dress rehearsal is the final full run in costume. In business it is used for presentations: we have a rehearsal on Friday before the client pitch. The common pattern is a rehearsal for the show. It is countable, and the verb is rehearse. Rehearsal suggests a planned, organised session with other people, whereas practice can be done alone and about any skill."
+ },
+ "rehearse": {
+  "mis": [
+   {
+    "w": "She rehearsed the speech for many times.",
+    "r": "She rehearsed the speech many times.",
+    "why": "No 'for' before 'many times' when counting repetitions."
+   },
+   {
+    "w": "She is rehearsal the speech now.",
+    "r": "She is rehearsing the speech now.",
+    "why": "After 'is' you need the -ing form of the verb, not the noun."
+   }
+  ],
+  "u": "Rehearse means to practise a play, speech or presentation before you do it for real. It can take a direct object (rehearse a speech) or be used with for (rehearse for the concert). A rehearsed answer sounds prepared, sometimes too prepared and unnatural. Note the spelling: the noun is rehearsal and the verb ends in -se. Rehearse is more specific than practise because it implies a performance or an audience; you practise grammar but rehearse an interview or a pitch."
+ },
+ "reimburse": {
+  "mis": [
+   {
+    "w": "The company will reimburse me the travel costs.",
+    "r": "The company will reimburse me for the travel costs.",
+    "why": "Reimburse a person 'for' the expense; the thing is not a direct second object."
+   },
+   {
+    "w": "We reimbursed to him immediately.",
+    "r": "We reimbursed him immediately.",
+    "why": "Reimburse takes the person directly, without 'to'."
+   }
+  ],
+  "u": "Reimburse means to pay back money that someone has spent or lost. The standard pattern is reimburse someone for something: the firm reimbursed her for the taxi fare. You can also reimburse the expense itself: reimburse travel costs. The word is formal and common in HR and finance documents. Refund is for money returned to a customer for a purchase, while reimburse is for repaying an employee or person who paid on your behalf. Pronounce the stress on the third syllable."
+ },
+ "reimbursement": {
+  "mis": [
+   {
+    "w": "The company gave me a reimbursement of the money I spent for the hotel.",
+    "r": "The company gave me a reimbursement of the money I spent on the hotel.",
+    "why": "Spend money 'on' something, not 'for'."
+   },
+   {
+    "w": "I am waiting reimbursement for my flight.",
+    "r": "I am waiting for reimbursement for my flight.",
+    "why": "Wait needs 'for' before what you expect."
+   }
+  ],
+  "u": "Reimbursement is the repayment of money that an employee or customer has paid out of their own pocket. Typical contexts are business trips, medical costs and insurance claims: you submit receipts to request reimbursement. Collocations include expense reimbursement, a reimbursement policy and reimbursement within 30 days. It is usually uncountable, though a reimbursement can mean one payment. The related verb is reimburse and the related adjective is reimbursable. Compared with refund, reimbursement points to repaying a cost you covered for the organisation."
+ },
+ "reliability": {
+  "mis": [
+   {
+    "w": "We tested the reliable of the system.",
+    "r": "We tested the reliability of the system.",
+    "why": "After 'the' you need the noun reliability, not the adjective."
+   },
+   {
+    "w": "The reliability on this supplier is high.",
+    "r": "The reliability of this supplier is high.",
+    "why": "Reliability takes 'of'; 'rely on' is the verb pattern."
+   }
+  ],
+  "u": "Reliability is the quality of being dependable and giving the same good results every time. It is an uncountable noun used for machines, data, suppliers and people: the reliability of the service. In engineering and statistics it also has a technical sense, meaning how consistent a measurement is. The pattern is the reliability of something. The related adjective is reliable and the verb is rely on. Reliability is about consistency over time; trustworthiness is more about honesty and character."
+ },
+ "relocate": {
+  "mis": [
+   {
+    "w": "The firm relocated its office at Da Nang.",
+    "r": "The firm relocated its office to Da Nang.",
+    "why": "Use 'to' for the destination of a move."
+   },
+   {
+    "w": "We are relocating to there next month.",
+    "r": "We are relocating there next month.",
+    "why": "'There' already means 'to that place', so 'to' is not needed."
+   }
+  ],
+  "u": "Relocate means to move to a new place, especially for work, and it can be used with or without an object. You relocate to a city, relocate staff, or relocate an entire office. Job adverts often say must be willing to relocate. The destination follows to: relocate to Singapore. It sounds more formal and planned than move, and is common in business, since it usually involves a company or a job. The noun is relocation, and companies often offer a relocation package."
+ },
+ "relocation": {
+  "mis": [
+   {
+    "w": "The relocation of me to Hanoi was fast.",
+    "r": "My relocation to Hanoi was fast.",
+    "why": "Use a possessive for the person who moves, not 'of me'."
+   },
+   {
+    "w": "The company paid for my relocate to Hue.",
+    "r": "The company paid for my relocation to Hue.",
+    "why": "After a possessive you need the noun relocation, not the verb."
+   }
+  ],
+  "u": "Relocation is the act of moving a person or business to a different place, especially for work. In job offers you may see a relocation package, a lump sum or set of benefits covering moving costs. Typical phrases are the relocation of the head office and relocation to Berlin. It is usually uncountable, though the plural appears in statistics. The verb is relocate. Relocation is more formal than move and covers practical details such as housing, shipping belongings and visas."
+ },
+ "remainder": {
+  "mis": [
+   {
+    "w": "The remainder of the money were spent on repairs.",
+    "r": "The remainder of the money was spent on repairs.",
+    "why": "Money is uncountable, so the verb agrees with it as singular."
+   },
+   {
+    "w": "I will stay here for remainder of the week.",
+    "r": "I will stay here for the remainder of the week.",
+    "why": "Remainder needs 'the' before it in this pattern."
+   }
+  ],
+  "u": "The remainder is the part that is left after the rest has been used, taken or dealt with. It is usually followed by of, as in the remainder of the week. In mathematics it is the number left after division. The phrase takes the definite article, and the verb agrees with the noun that follows: the remainder of the money was spent. It is more formal than the rest, which is the everyday choice. Balance is used for money still owed."
+ },
+ "reminder": {
+  "mis": [
+   {
+    "w": "This is a remind that the meeting is at nine.",
+    "r": "This is a reminder that the meeting is at nine.",
+    "why": "Remind is a verb; the noun is reminder."
+   },
+   {
+    "w": "This photo is a reminder about my childhood.",
+    "r": "This photo is a reminder of my childhood.",
+    "why": "An object that brings back a memory is a reminder 'of' it."
+   }
+  ],
+  "u": "A reminder is something that helps you remember, such as an email, alert or note. In the workplace it is polite to open with a gentle reminder or a friendly reminder that a deadline is near. The pattern a reminder of something can also mean an object that brings back a memory: the photo was a reminder of home. It is countable. Reminder is the noun and remind is the verb; do not mix them. Note that it is a reminder about or of something, not a reminder to it."
+ },
+ "remodel": {
+  "mis": [
+   {
+    "w": "We remodel our kitchen last month.",
+    "r": "We remodeled our kitchen last month.",
+    "why": "Use the past tense for a finished action with 'last month'."
+   },
+   {
+    "w": "They remodeled the building for to open a cafe.",
+    "r": "They remodeled the building to open a cafe.",
+    "why": "Use 'to' alone for purpose, not 'for to'."
+   }
+  ],
+  "u": "Remodel means to change the structure or appearance of a room or building, such as knocking down a wall or fitting a new kitchen. It is mainly American English; British English prefers refurbish or renovate. Remodel often implies changing the layout, while redecorate only changes paint and furniture. Spelling varies: remodeled and remodeling in the US, remodelled and remodelling in the UK. A shop or restaurant may close for remodeling, and a home remodel can raise the price of a house."
+ },
+ "removal": {
+  "mis": [
+   {
+    "w": "The removal the old files took an hour.",
+    "r": "The removal of the old files took an hour.",
+    "why": "Removal needs 'of' before the thing removed."
+   },
+   {
+    "w": "He asked for a removing of the stain.",
+    "r": "He asked for the removal of the stain.",
+    "why": "The noun is removal; removing is a gerund and does not take 'a ... of'."
+   }
+  ],
+  "u": "Removal is the act of taking something away, whether an object, a stain or a person from a position. The pattern is removal of something: the removal of old files. In British English a removal company moves furniture when you change house, while Americans say moving company. Hair removal and tree removal are common service types. In politics, removal from office means being forced to leave a job. Removal is a noun, unlike remove, and is uncountable in most uses."
+ },
+ "renew": {
+  "mis": [
+   {
+    "w": "I need to renew my passport before it will expire.",
+    "r": "I need to renew my passport before it expires.",
+    "why": "After 'before' with a future meaning, use present simple, not will."
+   },
+   {
+    "w": "Please renew your membership until next year.",
+    "r": "Please renew your membership for another year.",
+    "why": "Use 'for' with a period of time you are extending."
+   }
+  ],
+  "u": "Renew means to make something valid for a further period, such as a passport, licence, lease or subscription. It also means to begin again with fresh energy, as in renewed efforts. The object is the document or agreement, and the extra time follows with for: renew the contract for two years. Extend is broader and is also used for deadlines and visas, while renew often means starting a new term of the same agreement. Many services renew automatically unless you cancel in time."
+ },
+ "renewal": {
+  "mis": [
+   {
+    "w": "The renewal of contract is due in May.",
+    "r": "The renewal of the contract is due in May.",
+    "why": "Use 'the' before the specific contract."
+   },
+   {
+    "w": "Please make a renew of your license.",
+    "r": "Please make a renewal of your license.",
+    "why": "Renew is a verb; the noun is renewal."
+   }
+  ],
+  "u": "Renewal is the act of making an agreement, licence or subscription valid for another period. It is common in notices: your renewal date is 1 June. Phrases include automatic renewal, renewal notice and renewal fee. In another sense it means fresh growth, as in urban renewal, the rebuilding of run-down city areas. Renewal is mostly uncountable, but one can say a renewal when it means a specific document. Do not confuse it with the verb renew, which cannot replace the noun."
+ },
+ "renovation": {
+  "mis": [
+   {
+    "w": "The hotel is closed for renovate.",
+    "r": "The hotel is closed for renovation.",
+    "why": "After a preposition use the noun renovation, not the verb."
+   },
+   {
+    "w": "The renovations work will finish in May.",
+    "r": "The renovation work will finish in May.",
+    "why": "A noun used as a modifier stays singular: renovation work."
+   }
+  ],
+  "u": "Renovation is the work of repairing and improving an old building or room so that it is in good condition again. Notices often say closed for renovation, and a project may involve renovation work and renovation costs. As a modifier it stays singular, as in renovation work. Renovate keeps the old structure and updates it, while remodel changes the layout and restoration returns it to its original look. The noun can be countable when you list jobs: kitchen and bathroom renovations."
+ },
+ "rental": {
+  "mis": [
+   {
+    "w": "I want to rental a car for the weekend.",
+    "r": "I want to rent a car for the weekend.",
+    "why": "Rental is a noun or adjective; the verb is rent."
+   },
+   {
+    "w": "The rental of this flat is 500 dollars a month.",
+    "r": "The rent for this flat is 500 dollars a month.",
+    "why": "The money paid regularly is called rent; rental is the arrangement or the thing rented."
+   }
+  ],
+  "u": "A rental is an arrangement to pay to use something, or the thing rented, such as a car rental or holiday rental. As an adjective it appears in rental agreement, rental property and rental income. Do not confuse rental with rent: rent is the regular payment you make to a landlord, and also the verb. British English often says hire for cars (car hire), while Americans say car rental. A rental company serves short-term needs; a lease usually runs for a year or more."
+ },
+ "repetition": {
+  "mis": [
+   {
+    "w": "The repeatition of words makes the essay boring.",
+    "r": "The repetition of words makes the essay boring.",
+    "why": "Spelling: repetition has no 'a' (not repeatition), unlike repeat."
+   },
+   {
+    "w": "Avoid the repetition to use the same word.",
+    "r": "Avoid the repetition of the same word.",
+    "why": "The noun takes 'of', not a to-infinitive."
+   }
+  ],
+  "u": "Repetition is the act of doing or saying something again. In writing and teaching it has a mixed reputation: needless repetition makes a text dull, yet spaced repetition is a proven way to learn vocabulary. The pattern is repetition of something. It is mostly uncountable, though repetitions can mean separate reps in exercise. Note the spelling, which loses the second a of repeat. Recurrence means happening again by itself, while repetition often involves someone choosing to do it again."
+ },
+ "reproduce": {
+  "mis": [
+   {
+    "w": "They reproduced the picture without ask permission.",
+    "r": "They reproduced the picture without asking permission.",
+    "why": "After 'without' use the -ing form."
+   },
+   {
+    "w": "Scientists could not reproduce to the results.",
+    "r": "Scientists could not reproduce the results.",
+    "why": "Reproduce takes a direct object; no 'to'."
+   }
+  ],
+  "u": "Reproduce has two main meanings. It can mean to copy or make again, such as reproducing a document or a result in an experiment; if scientists cannot reproduce a result, the study may be wrong. In biology it means to have offspring, and animals reproduce sexually or asexually. In software, to reproduce a bug is to make it appear again so it can be fixed. The noun is reproduction. Replicate is the scientific favourite for repeating an experiment, while duplicate stresses making an exact copy."
+ },
+ "research": {
+  "mis": [
+   {
+    "w": "They did many researches on climate change.",
+    "r": "They did a lot of research on climate change.",
+    "why": "Research is uncountable in this sense; no plural or 'many'."
+   },
+   {
+    "w": "The research were published last year.",
+    "r": "The research was published last year.",
+    "why": "Research is uncountable and takes a singular verb."
+   }
+  ],
+  "u": "Research is careful study to discover new facts. In everyday English it is uncountable: do research, not do a research or many researches. Use on or into for the topic: research on diabetes. A piece of work is a study, a paper or a project. Researches exists but is rare and formal. The verb research takes a direct object (we researched the market), and a researcher is the person who does it. Stress is on the first syllable for the noun, though the verb may stress either."
+ },
+ "resemble": {
+  "mis": [
+   {
+    "w": "She resembles with her mother.",
+    "r": "She resembles her mother.",
+    "why": "Resemble is transitive and takes no preposition."
+   },
+   {
+    "w": "He is resembling his father.",
+    "r": "He resembles his father.",
+    "why": "Resemble is a stative verb and is not used in continuous tenses."
+   }
+  ],
+  "u": "Resemble means to look like or be similar to someone or something, and it is followed directly by its object: she resembles her mother. It is a formal, slightly literary verb; in speech people say look like or take after for family. It is a stative verb, so continuous forms such as is resembling are wrong. To show mutual likeness use resemble each other, and for similarity in specific areas resemble in appearance. The noun is resemblance, followed by to or between."
+ },
+ "resignation": {
+  "mis": [
+   {
+    "w": "He gave his resign to the manager yesterday.",
+    "r": "He gave his resignation to the manager yesterday.",
+    "why": "Resign is a verb; the noun is resignation."
+   },
+   {
+    "w": "She resigned from her job to the company.",
+    "r": "She resigned from her job at the company.",
+    "why": "Use 'at' for the workplace, not 'to'."
+   }
+  ],
+  "u": "Resignation is the act of formally leaving a job or position, or the letter that states it. Typical verbs are hand in, submit, tender or accept a resignation. A letter of resignation usually gives notice and a last working day. The related verb is resign, which takes from or the position directly: she resigned from the board. Resignation also means calm acceptance of something bad, as in he nodded with resignation. Retirement is leaving work due to age, which differs from resignation."
+ },
+ "respond": {
+  "mis": [
+   {
+    "w": "She responded my email within an hour.",
+    "r": "She responded to my email within an hour.",
+    "why": "Respond takes 'to' before what you answer."
+   },
+   {
+    "w": "Please respond me as soon as possible.",
+    "r": "Please respond to me as soon as possible.",
+    "why": "Respond must be followed by 'to' with a person, too."
+   }
+  ],
+  "u": "Respond means to say or do something as a reply or reaction. It is intransitive and takes to: respond to a complaint, respond to treatment. You can add the form of reply with by: respond by email. It also has the sense of reacting, as in the patient responded well to the drug. Respond is more formal than reply or answer, and fits letters and customer service. Reply focuses on words, while respond can also be an action. Answer is a transitive verb: answer the phone."
+ },
+ "respondent": {
+  "mis": [
+   {
+    "w": "Most of respondent said they were satisfied.",
+    "r": "Most of the respondents said they were satisfied.",
+    "why": "Use 'the' and the plural after 'most of'."
+   },
+   {
+    "w": "Thirty respondent answered the survey.",
+    "r": "Thirty respondents answered the survey.",
+    "why": "A number above one needs the plural noun."
+   }
+  ],
+  "u": "A respondent is a person who answers questions in a survey, poll or study. Reports often state that 60 percent of respondents agreed. It is a formal word used in market research and academic work. In law, a respondent is the party who answers a petition or appeal, which is a different meaning. The related verb is respond. Respondent is a neutral term for the research subject; interviewee is used when questions are asked face to face, and participant suggests active involvement."
+ },
+ "restatement": {
+  "mis": [
+   {
+    "w": "His speech was a restatement for our goals.",
+    "r": "His speech was a restatement of our goals.",
+    "why": "The noun takes 'of' for the thing restated."
+   },
+   {
+    "w": "The company published a restate of its accounts.",
+    "r": "The company published a restatement of its accounts.",
+    "why": "Restate is a verb; the noun is restatement."
+   }
+  ],
+  "u": "Restatement means saying something again in different words, or an official corrected version of earlier information. In writing, a restatement of the thesis in the conclusion is normal. In finance, a restatement of earnings is a formal correction of previously published accounts, and it usually worries investors. The pattern is restatement of something. The verb is restate. A paraphrase changes the wording but not the meaning, while a restatement may also simplify, summarise or correct what was said."
+ },
+ "reviewer": {
+  "mis": [
+   {
+    "w": "The reviewer wrote that film is excellent.",
+    "r": "The reviewer wrote that the film is excellent.",
+    "why": "Use 'the' before the specific film."
+   },
+   {
+    "w": "She is a reviewer of the technical team.",
+    "r": "She is a reviewer on the technical team.",
+    "why": "Use 'on' for being a member of a team or panel."
+   }
+  ],
+  "u": "A reviewer is a person who writes or gives a review, such as a critic of films and books, a customer who rates a product online, or an expert who checks a research paper before publication, called a peer reviewer. In software, a reviewer checks another developer's code. Common patterns are a reviewer for a magazine and reviewer comments. Critic suggests professional authority, while reviewer is neutral and also covers ordinary users. The verb is review and the noun review is the text itself."
+ },
+ "revision": {
+  "mis": [
+   {
+    "w": "She made some revisions of the report.",
+    "r": "She made some revisions to the report.",
+    "why": "Changes are made 'to' a document."
+   },
+   {
+    "w": "The teacher told us to revision our notes.",
+    "r": "The teacher told us to revise our notes.",
+    "why": "After 'to' use the verb revise, not the noun."
+   }
+  ],
+  "u": "Revision is a change made to improve or correct something, such as a document, plan or law. Pattern: make revisions to a draft; a revision history lists earlier versions. In British English revision also means studying again for an exam, so revision notes and revision timetable are everyday phrases, while Americans say review or study. It is countable for a specific change and uncountable for the general activity. Amendment is a formal change to a law or contract, whereas revision can be small edits."
+ },
+ "revolutionize": {
+  "mis": [
+   {
+    "w": "The internet has revolutionized to our lives.",
+    "r": "The internet has revolutionized our lives.",
+    "why": "Revolutionize is transitive and takes no preposition."
+   },
+   {
+    "w": "This app will revolution the way we study.",
+    "r": "This app will revolutionize the way we study.",
+    "why": "Revolution is a noun; the verb is revolutionize."
+   }
+  ],
+  "u": "Revolutionize means to change something completely and fundamentally, usually for the better. It is typical of technology and business writing: the smartphone revolutionized communication. The pattern is revolutionize the way people do something or revolutionize an industry. American spelling ends in -ize; British English also accepts -ise. Because it is a strong word, overuse in marketing makes claims sound exaggerated. Transform is a more moderate alternative, and overhaul is used for systems or structures that are reorganised."
+ },
+ "role": {
+  "mis": [
+   {
+    "w": "She plays an important role on the project.",
+    "r": "She plays an important role in the project.",
+    "why": "Use 'in' with role and a project or event."
+   },
+   {
+    "w": "What is your role at the team?",
+    "r": "What is your role on the team?",
+    "why": "Use 'on' with a team."
+   }
+  ],
+  "u": "Role means the part someone plays in a situation or the character an actor plays. In business, a job role is the set of duties of a position; play a key role in a project means to contribute greatly. Common patterns are play a role in something, the role of a manager and take on a new role. A role model is a person others copy. Role and position overlap, but position says where someone stands in a hierarchy, whereas role stresses what they do. In film, a lead role is the main part."
+ },
+ "rubber": {
+  "mis": [
+   {
+    "w": "These gloves are made of a rubber.",
+    "r": "These gloves are made of rubber.",
+    "why": "As a material, rubber is uncountable and takes no 'a'."
+   },
+   {
+    "w": "Rubber are produced from tree sap.",
+    "r": "Rubber is produced from tree sap.",
+    "why": "Rubber is uncountable, so the verb is singular."
+   }
+  ],
+  "u": "Rubber is an elastic material made from tree sap or synthetic chemicals, used for tyres, gloves, bands and shoe soles. As a material it is uncountable: made of rubber. A rubber band is a loop for holding things together, and to rubber-stamp something means to approve it without real thought. Warning about regional use: in British English a rubber is also an eraser, but in American English the word can mean a condom, so choose eraser when speaking to Americans. Latex is natural rubber."
+ },
+ "satisfactory": {
+  "mis": [
+   {
+    "w": "The hotel room was satisfied.",
+    "r": "The hotel room was satisfactory.",
+    "why": "Satisfied describes a person; satisfactory describes what meets the standard."
+   },
+   {
+    "w": "I am very satisfactory with the service.",
+    "r": "I am very satisfied with the service.",
+    "why": "Satisfied describes the person's feeling; satisfactory describes the thing."
+   }
+  ],
+  "u": "Satisfactory means good enough to meet a standard, but not outstanding. A satisfactory result is acceptable; it is not excellent. On school reports it is a mid-level mark, and a less than satisfactory review signals a problem. Compare satisfied, which describes a person who feels content, and satisfying, which describes something that gives pleasure. A customer is satisfied; the service is satisfactory. Because it sounds cool and bureaucratic, avoid it in praise; adequate is similar in meaning, while excellent shows real approval."
+ },
+ "schedule": {
+  "mis": [
+   {
+    "w": "The train arrived in time to the schedule.",
+    "r": "The train arrived on schedule.",
+    "why": "The fixed phrase is on schedule, not 'in time to'."
+   },
+   {
+    "w": "I am free in my schedule tomorrow.",
+    "r": "My schedule is free tomorrow.",
+    "why": "Do not use 'in my schedule' for being free; make schedule the subject."
+   }
+  ],
+  "u": "A schedule is a plan listing when things will happen or tasks must be done. Fixed phrases include on schedule, ahead of schedule and behind schedule, and people speak of a busy or tight schedule. As a verb it means to arrange for a particular time: schedule a meeting for Monday. American English pronounces the first syllable like sked, while British English often uses shed. Timetable is the British word for public transport or school lists. Agenda is the list of topics in a meeting, not the times."
+ },
+ "seasonal": {
+  "mis": [
+   {
+    "w": "This job is season, so it ends in winter.",
+    "r": "This job is seasonal, so it ends in winter.",
+    "why": "Season is a noun; the adjective is seasonal."
+   },
+   {
+    "w": "We hire seasonal workers on summer.",
+    "r": "We hire seasonal workers in summer.",
+    "why": "Use 'in' with a season."
+   }
+  ],
+  "u": "Seasonal describes something that happens or is available only at certain times of the year, or that varies with the season. Typical uses are seasonal work, seasonal demand, seasonal fruit and seasonal sales. In business, seasonal workers are hired for a busy period such as summer or Christmas. Seasonal also means related to a season, as in seasonal greetings. Periodic means happening at regular intervals, but not necessarily by season. Use in with a season: in summer, in winter."
+ },
+ "seeker": {
+  "mis": [
+   {
+    "w": "Many job seeker attended the fair.",
+    "r": "Many job seekers attended the fair.",
+    "why": "'Many' needs a plural noun."
+   },
+   {
+    "w": "Many job seekers is attending the fair.",
+    "r": "Many job seekers are attending the fair.",
+    "why": "A plural noun needs a plural verb."
+   }
+  ],
+  "u": "A seeker is a person who is looking for something, usually in a compound such as job seeker, asylum seeker or thrill seeker. It can also be used with of, as in a seeker of truth. Attention seeker has a negative tone: someone who behaves in a showy way to be noticed. A job seeker is a neutral term for someone looking for work, commonly used in government and recruitment, while applicant is someone who has already applied to a specific job."
+ },
+ "series": {
+  "mis": [
+   {
+    "w": "A series of problem has appeared.",
+    "r": "A series of problems has appeared.",
+    "why": "After 'series of' use a plural noun."
+   },
+   {
+    "w": "Three TV serieses are on tonight.",
+    "r": "Three TV series are on tonight.",
+    "why": "Series has the same form in the plural."
+   }
+  ],
+  "u": "Series means a number of similar things coming one after another, or a set of programmes with the same characters. It has the same form in singular and plural: one series, two series. After a series of the noun is plural, while the verb agrees with series: a series of meetings was held. A TV series can be called a show, and a limited series has a fixed number of episodes. Sequence stresses a particular order, while series stresses the repeated, similar nature of the items."
+ },
+ "sewer": {
+  "mis": [
+   {
+    "w": "Waste water flows through the sewage to the plant.",
+    "r": "Waste water flows through the sewer to the plant.",
+    "why": "A sewer is the pipe; sewage is what flows in it."
+   },
+   {
+    "w": "The sewer are blocked after the storm.",
+    "r": "The sewer is blocked after the storm.",
+    "why": "Sewer is singular here, so use 'is'."
+   }
+  ],
+  "u": "A sewer is an underground pipe or channel that carries waste water and sewage away from buildings to a treatment plant. A sewer system serves a whole city, and a blocked sewer can flood streets. Do not confuse the pronunciation: sewer for waste is /ˈsuːər/, while a sewer meaning someone who sews, rarely used, is /ˈsoʊər/. The system of pipes is called sewerage, and the waste inside it is sewage. A drain collects rainwater or a household's waste; a sewer is a main, larger pipe."
+ },
+ "sharply": {
+  "mis": [
+   {
+    "w": "Prices rose sharp last month.",
+    "r": "Prices rose sharply last month.",
+    "why": "A verb is modified by an adverb, sharply, not the adjective sharp."
+   },
+   {
+    "w": "Sales increased sharply to 20 percent.",
+    "r": "Sales increased sharply by 20 percent.",
+    "why": "Use 'by' for the size of a change; 'to' gives the final level."
+   }
+  ],
+  "u": "Sharply is an adverb meaning suddenly and by a large amount. It is very common in news and business reports: sales fell sharply, prices rose sharply. Use by for the size of the change (rose by 20 percent) and to for the new level (rose to 200 dollars). It can also describe speech, as in she spoke sharply, meaning in an angry or critical tone, or a sharply defined image. Steeply and dramatically are close in meaning; sharply stresses speed and size together."
+ },
+ "shortly": {
+  "mis": [
+   {
+    "w": "I will call you shortly after.",
+    "r": "I will call you shortly.",
+    "why": "'Shortly after' needs an event; alone, 'shortly' means soon."
+   },
+   {
+    "w": "He explained it shortly in two words.",
+    "r": "He explained it briefly in two words.",
+    "why": "To mean 'in few words', use briefly; shortly means soon."
+   }
+  ],
+  "u": "Shortly means soon, or a short time after or before an event. Announcements say the train will depart shortly, and writers say shortly after the meeting. It does not mean briefly or in few words; for that use briefly. Learners often translate the Vietnamese word for brief as shortly by mistake. Another meaning, rare today, is curtly, as in he answered shortly. Shortly is a bit more formal than soon and is common in customer service: a representative will be with you shortly."
+ },
+ "signify": {
+  "mis": [
+   {
+    "w": "The red light signifies to danger.",
+    "r": "The red light signifies danger.",
+    "why": "Signify is transitive and takes no 'to'."
+   },
+   {
+    "w": "A nod signify agreement.",
+    "r": "A nod signifies agreement.",
+    "why": "The third person singular needs -s."
+   }
+  ],
+  "u": "Signify means to be a sign of something, or to show a meaning or intention by words or actions. It is formal: a nod can signify agreement, and the red light signifies danger. It also means to matter, mostly in negatives: it does not signify. Signify is stronger than show in suggesting a symbolic meaning. Compare mean, which is neutral and everyday, and indicate, which suggests evidence that points to a fact. The related noun is significance, and the adjective is significant."
+ }
+}

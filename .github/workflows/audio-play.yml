@@ -39,7 +39,7 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/gen-if-needed   # luật 17
+      - uses: ./.github/actions/gen-if-needed   # luật 18
         with: { ext: true }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }

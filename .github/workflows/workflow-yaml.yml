@@ -1,4 +1,4 @@
-# ci-policy: no-gen – chỉ đọc YAML workflow (luật 17)
+# ci-policy: no-gen – chỉ đọc YAML workflow (luật 18)
 name: workflow-yaml
 # Bắt workflow lỗi cú pháp ngay ở PR (xem scripts/test/workflow-yaml.mjs). Nhẹ: 1 job vài giây; required-gate tự gom run này.
 on:

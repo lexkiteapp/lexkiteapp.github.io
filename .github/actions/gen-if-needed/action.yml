@@ -1,5 +1,5 @@
 name: gen-if-needed
-description: Workflow serve web/ mà không `npm ci` (postinstall đã sinh lại) – nếu PR đổi NGUỒN bản sinh (i18n/ui, bộ đóng gói, với ext=true thêm web/ + extension) thì dựng lại gói dịch (+ extension/app); không thì bỏ qua. Gọi ngay sau checkout. Luật ci-policy 17.
+description: Workflow serve web/ mà không `npm ci` (postinstall đã sinh lại) – nếu PR đổi NGUỒN bản sinh (i18n/ui, bộ đóng gói, với ext=true thêm web/ + extension) thì dựng lại gói dịch (+ extension/app); không thì bỏ qua. Gọi ngay sau checkout. Luật ci-policy 18.
 inputs:
   ext:
     description: 'true = cũng dựng lại extension/app (workflow đọc add-on)'

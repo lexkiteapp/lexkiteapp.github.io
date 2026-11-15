@@ -32,6 +32,7 @@
 //  13) (08/11 – native-m1 đỏ: ký Automatic + -allowProvisioningUpdates tạo 1 chứng chỉ Development mỗi máy CI → tài khoản Apple đầy hạn mức)
 //     cấm ký iOS Automatic trên CI (`-allowProvisioningUpdates`, `CODE_SIGN_STYLE=Automatic`, ExportOptions signingStyle automatic): ký Manual
 //     bằng chứng chỉ Distribution cố định – scripts/native/ios-sign.sh, docs/CI-SIGNING-IOS.md.
+//  17) (15/11 – bot lexicon-expand đẩy main [skip ci] làm lex.mjs đỏ) workflow commit [skip ci] vào main phải qua máy gác bot-test-gate.mjs (hoặc push-main.sh / commit-regen.sh), hoặc `# ci-policy: bot-test – <lý do>`.
 // Không có danh sách miễn trừ ngầm: ngoại lệ nằm ngay trong file workflow, kèm lý do. Chạy: node scripts/test/ci-policy.mjs
 import fs from 'node:fs';
 import path from 'node:path';
@@ -321,18 +322,22 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     ok(/^https:\/\/a\.r2\.cloudflarestorage\.com\/b\/ci-shots\/pr1\/abc1234\/sheet-x\.jpg\?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=KID%2F20261115%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261115T010203Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=[0-9a-f]{64}$/.test(u) && !u.includes('S&') && !/Secret|=S$/.test(u), 'luật 16: link ký SigV4 đúng dạng, trần 7 ngày, không lộ secret');
     const fl = [{ kind: 'sheet', screen: 'today', name: 'sheet-today.jpg' }, { kind: 'desk', screen: 'today', name: 'desk-today.jpg' }, { kind: 'v2', screen: 'tờ-stitch-v2-1', name: 'v2-1.jpg' }], md = M.renderComment({ files: fl, links: { 'sheet-today.jpg': 'https://x/1', 'desk-today.jpg': 'https://x/2', 'v2-1.jpg': 'https://x/3' }, sha: 'abcdef0123', a11y: { 'today-dark': { violations: [{ impact: 'serious' }] } } });
     ok(md.startsWith(M.MARKER) && md.includes('[ảnh](https://x/1)') && md.includes('[ảnh](https://x/2)') && md.includes('(https://x/3)') && md.includes('– · 1/1') && md.includes('abcdef0'), 'luật 16: bình luận có marker ở đầu + bảng link theo màn + axe');
+    { const rows = md.split('\n').filter(l => l.startsWith('|')); ok(rows.length > 2 && rows.every(l => l.split('|').length === rows[0].split('|').length), 'luật 16: bảng bình luận không vỡ cột (nhãn cột không chứa |)'); }
     const calls = [], mk = existing => async (m, p, b) => { calls.push(m); return m === 'GET' ? existing : { id: 7 }; };
     await M.upsertComment(mk([{ id: 5, body: 'x' }, { id: 9, body: M.MARKER + ' cũ' }]), 'o/r', 1, 'b'); ok(calls.join() === 'GET,PATCH', 'luật 16: có bình luận cũ → PATCH (không đăng mới)');
     calls.length = 0; await M.upsertComment(mk([{ id: 5, body: 'x' }]), 'o/r', 1, 'b'); ok(calls.join() === 'GET,POST', 'luật 16: chưa có → đăng đúng một bình luận'); }
-  { // luật 17 (15/11): bản sinh (gói dịch, pn-*, extension/app) không commit trong PR → job PR đọc/serve web/ phải có bước sinh TRƯỚC (npm ci|i, build-web, gen-if-needed), không thì chạy trên bản sinh cũ của main (xanh/đỏ giả, vd. teacher-bubble --static đứng trước npm i)
+  { // luật 18 (15/11): bản sinh (gói dịch, pn-*, extension/app) không commit trong PR → job PR đọc/serve web/ phải có bước sinh TRƯỚC (npm ci|i, build-web, gen-if-needed), không thì chạy trên bản sinh cũ của main (xanh/đỏ giả, vd. teacher-bubble --static đứng trước npm i)
     const G = await import('../lib/generated.mjs');
     const J = t => 'on:\n  pull_request:\njobs:\n  a:\n    steps:\n      - uses: actions/checkout@v4\n' + t;
     ok(G.genViolations(J('      - run: node scripts/test/x.mjs --static\n      - run: npm i --no-save p')).join() === 'a' && G.genViolations(J('      - run: npm ci\n      - run: node scripts/test/x.mjs')).length === 0
       && G.genViolations(J('      - uses: ./.github/actions/gen-if-needed\n      - run: python3 -m http.server')).length === 0 && G.genViolations(J('      - run: npm ci --ignore-scripts\n      - run: playwright test')).join() === 'a'
-      && G.genViolations('# ci-policy: no-gen – x\n' + J('      - run: node scripts/test/x.mjs')).length === 0 && G.genViolations('on:\n  push:\njobs:\n  a:\n    steps:\n      - run: node scripts/test/x.mjs\n').length === 0, 'luật 17: genViolations bắt job đọc trước khi sinh');
-    ok(G.needsRegen(['i18n/ui/vi/a.json']) && !G.needsRegen(['web/js/i18n/de.js', 'README.md']) && G.needsRegen(['web/app/x.js'], true) && !G.needsRegen(['web/app/x.js']) && !G.needsRegen(['extension/app/a.js'], true), 'luật 17: needsRegen chỉ theo NGUỒN bản sinh');
-    for (const [f, src] of srcs) for (const j of G.genViolations(src)) ok(false, `${f} job ${j}: đọc/serve web/ trước khi có bản sinh khớp nguồn PR (bản sinh không commit trong PR) → thêm "- uses: ./.github/actions/gen-if-needed" ngay sau checkout, hoặc "# ci-policy: no-gen – <lý do>" nếu không đọc bản sinh (luật 17)`);
-    ok(/--needed/.test(fs.readFileSync(path.join(ROOT, '.github/actions/gen-if-needed/action.yml'), 'utf8')), 'luật 17: action gen-if-needed gọi regen-generated --needed'); }
+      && G.genViolations('# ci-policy: no-gen – x\n' + J('      - run: node scripts/test/x.mjs')).length === 0 && G.genViolations('on:\n  push:\njobs:\n  a:\n    steps:\n      - run: node scripts/test/x.mjs\n').length === 0, 'luật 18: genViolations bắt job đọc trước khi sinh');
+    ok(G.needsRegen(['i18n/ui/vi/a.json']) && !G.needsRegen(['web/js/i18n/de.js', 'README.md']) && G.needsRegen(['web/app/x.js'], true) && !G.needsRegen(['web/app/x.js']) && !G.needsRegen(['extension/app/a.js'], true), 'luật 18: needsRegen chỉ theo NGUỒN bản sinh');
+    for (const [f, src] of srcs) for (const j of G.genViolations(src)) ok(false, `${f} job ${j}: đọc/serve web/ trước khi có bản sinh khớp nguồn PR (bản sinh không commit trong PR) → thêm "- uses: ./.github/actions/gen-if-needed" ngay sau checkout, hoặc "# ci-policy: no-gen – <lý do>" nếu không đọc bản sinh (luật 18)`);
+    ok(/--needed/.test(fs.readFileSync(path.join(ROOT, '.github/actions/gen-if-needed/action.yml'), 'utf8')), 'luật 18: action gen-if-needed gọi regen-generated --needed'); }
+  { // luật 17 (15/11): workflow bot commit [skip ci] vào main (không qua CI) phải qua máy gác test theo tệp đổi (scripts/ci/bot-test-gate.mjs) – 9c4e52d158 làm lex.mjs đỏ, mọi PR kẹt shard 4
+    const { ungated } = await import('../ci/bot-test-gate.mjs');
+    for (const [f, s] of srcs) for (const why of ungated(s)) ok(false, `luật 17: ${f}: ${why}`); }
   for (const c of chainCycles(srcs)) ok(false, `vòng workflow_run: ${c}`);
   for (const k of ciParity(fs.readFileSync(path.join(WF, 'ci.yml'), 'utf8'), fs.readFileSync(path.join(ROOT, 'scripts/test/suite.txt'), 'utf8'))) ok(false, `ci.yml chạy "${k}" nhưng suite.txt (cổng PR) không có → PR xanh vẫn làm main đỏ`);
   ok(ciParity('run: node scripts/a.mjs\n- run: npx tsc -p x.json', 'node scripts/a.mjs').join() === 'tsc -p', 'ciParity bắt lệnh thiếu');

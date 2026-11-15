@@ -46,6 +46,7 @@ export const GENERATED = /^(web\/js\/i18n\/(?!en[./])[a-z]{2,3}(\.js|\/)|web\/cp
 export const ENTRY_FILES = f => REGISTRY_FILES.includes(f);
 export const DICT_FILES = f => /^i18n\/ui\/.+\.js$/.test(f); // nguồn dịch: gộp 3 bên THEO KHÓA (không theo dòng) – đúng cả khi hai phía khác định dạng
 export const ENTRY_LINE = /^\s*(\/\/.*|("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|[A-Za-z_$][\w$]*)\s*:.*,(\s*\/\/.*)?)$/;
+export const DATA_JSON = /^web\/(?:i18n\/content|packs)\/[a-z]{2,3}\.json$/; // dữ liệu dịch/nghĩa từ một dòng/ngôn ngữ (bot dịch dần, không dựng lại tất định được) → gộp 3 bên theo khóa
 export const FIXED_JSON = 'scripts/i18n-fixed.json'; // bản dịch tay: gộp 3 bên theo khóa/ngôn ngữ (scripts/lib/fixed-json.mjs)
 export const ACTIVE_H = 24, MAX = 4;
 
@@ -58,6 +59,7 @@ export function plan(conflicted) {
     else if (UNION.includes(f)) out.push({ f, how: 'union' });
     else if (DICT_FILES(f)) out.push({ f, how: 'dict3' });
     else if (f === FIXED_JSON) out.push({ f, how: 'json3' });
+    else if (DATA_JSON.test(f)) out.push({ f, how: 'data3' });
     else if (ENTRY_FILES(f)) out.push({ f, how: 'entries' });
     else return null;
   }
@@ -84,7 +86,7 @@ export function merge3Fixed(base, ours, theirs) {
     if (same(o, t)) v = o;                      // hai phía giống nhau (kể cả cùng xoá)
     else if (same(b, o)) v = t;                 // PR không đổi → bản main
     else if (same(b, t)) v = o;                 // main không đổi → bản PR
-    else if (o && t && typeof o === 'object' && typeof t === 'object') { v = merge3(b && typeof b === 'object' ? b : {}, o, t); if (!v) return null; }
+    else if (o && t && typeof o === 'object' && typeof t === 'object' && !Array.isArray(o) && !Array.isArray(t)) { v = merge3(b && typeof b === 'object' ? b : {}, o, t); if (!v) return null; }
     else return null;
     if (v !== undefined) out[k] = v;
   }
@@ -116,6 +118,10 @@ export function dedupeLines(text) {
     seen.add(k); return true;
   }).join('\n');
 }
+
+/** Hàng đợi CI dài (> QUEUE_PAUSE lượt): chỉ xử lý PR dirty ĐÃ xanh (thuần) – đẩy nhánh PR chưa xanh/đang chạy làm CI chạy lại từ đầu và kéo dài hàng đợi. */
+export const QUEUE_PAUSE = 60;
+export const holdForQueue = (list, queued, gateOf) => queued > QUEUE_PAUSE ? list.filter(p => gateOf(p) === 'success') : list;
 
 /** Chọn PR cần thử: dirty, không draft, cùng repo, còn hoạt động, mới nhất trước, tối đa MAX. */
 export function pick(prs, now = Date.now(), repo = '') {
@@ -168,6 +174,13 @@ export function applySteps(steps) {
       const nk = x => Object.keys(x).length; // chặn ghi: kết quả gộp không được ít khóa hơn rõ rệt so với phía lớn hơn (đọc lỗi/rỗng bất thường → ghi đè mất bản dịch, 15/11)
       if (nk(d) < 0.9 * Math.max(nk(o), nk(t))) return `${f} kết quả gộp mất khóa bất thường (${nk(d)} < 90% của ${Math.max(nk(o), nk(t))}) – người gỡ`;
       writeFixed(f, d);
+    } else if (how === 'data3') { // web/i18n/content|packs/<lang>.json: gộp theo khóa, giữ thứ tự khóa của main rồi khóa mới của PR, ghi một dòng như bộ sinh
+      const side = k => { const o = tryGit('show', `:${k}:${f}`); if (!o.ok && !/exist|not in|not at stage/i.test(o.out)) return null; try { return o.ok ? JSON.parse(o.out) : {}; } catch { return null; } };
+      const [b, o, t] = [side(1), side(2), side(3)], d = b && o && t ? merge3Fixed(b, o, t) : null;
+      if (!d) return `${f} hai phía cùng sửa một khóa`;
+      const nk = x => Object.keys(x).length;
+      if (nk(d) < 0.9 * Math.max(nk(o), nk(t))) return `${f} kết quả gộp mất khóa bất thường – người gỡ`;
+      fs.writeFileSync(f, JSON.stringify(Object.fromEntries([...Object.keys(t), ...Object.keys(d)].filter((k, i, a) => k in d && a.indexOf(k) === i).map(k => [k, d[k]]))));
     } else if (how === 'entries') {
       const t = mergeEntries(fs.readFileSync(f, 'utf8'));
       if (t === null) return `${f} xung đột ngoài dòng mục (sửa cùng chỗ)`;
@@ -203,7 +216,7 @@ export function fix(p, dry) {
   const m = tryGit('merge', '--no-edit', '-m', `Gộp main vào ${br} (pr-unconflict: tự gỡ tệp tự sinh)`, 'origin/main');
   const conflicted = git('diff', '--name-only', '--diff-filter=U').split('\n').filter(Boolean);
   lastConflicts = conflicted;
-  const steps = m.ok ? [] : plan(conflicted);   // gộp sạch cục bộ (GitHub tính cũ) → vẫn đẩy bản gộp để PR hết dirty
+  const steps = m.ok ? [] : plan(conflicted);   // gộp sạch cục bộ (GitHub tính dirty vì không dùng merge=union) → vẫn đẩy bản gộp (đã khử trùng) để PR hết dirty. fix() chỉ được gọi cho PR GitHub báo dirty (pick / conflict)
   if (!steps) { tryGit('merge', '--abort'); console.log(`#${p.number}: xung đột ở tệp người viết (${conflicted.join(', ')}) – để phiên phụ trách`); return 'manual'; }
   const bad = applySteps(steps);
   if (bad) { tryGit('merge', '--abort'); console.log(`#${p.number}: ${bad} – để phiên phụ trách`); return 'manual'; }
@@ -252,6 +265,13 @@ if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.ar
     for (const p of open) { try { withState.push(await full(p.number)); } catch (e) { console.warn(`bỏ qua #${p.number}: ${e.message}`); } }
     list = pick(withState, Date.now(), process.env.GITHUB_REPOSITORY);
   }
+  if (!arg('pr') && !dry) try {
+    const queued = (await gh('/actions/runs?status=queued&per_page=1')).total_count || 0, gates = new Map();
+    for (const p of list) { const st = (await gh(`/commits/${p.head.sha}/status?per_page=100`)).statuses || []; gates.set(p.number, st.find(x => x.context === 'required-gate')?.state); }
+    const kept = holdForQueue(list, queued, p => gates.get(p.number));
+    if (kept.length !== list.length) console.log(`pr-unconflict: hàng đợi ${queued} > ${QUEUE_PAUSE} → hoãn ${list.length - kept.length} PR chưa xanh`);
+    list = kept;
+  } catch (e) { console.warn('không đo được hàng đợi (xử lý như thường): ' + e.message); }
   const res = {};
   for (const p of list) { const r = fix(p, dry); res[r] = (res[r] || 0) + 1; }
   console.log(`pr-unconflict: ${list.length} PR dirty đang hoạt động →`, JSON.stringify(res));
