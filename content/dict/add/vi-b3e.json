@@ -1,0 +1,752 @@
+{
+  "getaway": {
+    "mis": [
+      {
+        "w": "We are planning a weekend get away to Dalat.",
+        "r": "We are planning a weekend getaway to Dalat.",
+        "why": "Khi là danh từ, từ này viết liền 'getaway'; 'get away' là cụm động từ."
+      },
+      {
+        "w": "I need getaway from work.",
+        "r": "I need a getaway from work.",
+        "why": "Getaway là danh từ đếm được nên dạng số ít cần 'a' hoặc từ hạn định khác."
+      }
+    ],
+    "u": "Getaway là danh từ thân mật chỉ chuyến đi ngắn để thư giãn, thường ở nơi yên tĩnh hoặc lãng mạn: a weekend getaway, a romantic getaway. Từ này rất hay gặp trong quảng cáo du lịch và khách sạn. Nó còn một nghĩa trong truyện tội phạm: getaway car là xe dùng để tẩu thoát sau vụ cướp. Holiday dài và chung chung hơn, còn getaway nhấn mạnh việc rời cuộc sống thường ngày để nghỉ ngắn."
+  },
+  "gossip": {
+    "mis": [
+      {
+        "w": "She told me many gossips about our boss.",
+        "r": "She told me a lot of gossip about our boss.",
+        "why": "Gossip nghĩa là chuyện tầm phào là danh từ không đếm được, không có số nhiều."
+      },
+      {
+        "w": "They gossiped me during lunch.",
+        "r": "They gossiped about me during lunch.",
+        "why": "Khi là động từ, gossip không có tân ngữ trực tiếp, cần 'about' trước chủ đề."
+      }
+    ],
+    "u": "Gossip có thể là danh từ chỉ chuyện trò về đời tư người khác, hoặc động từ nghĩa là buôn chuyện. Là danh từ không đếm được nên không có số nhiều: some gossip, a piece of gossip. Người hay lan truyền chuyện đó cũng được gọi là a gossip, thường mang sắc thái chê. Rumor gần với tin chưa kiểm chứng nói chung, còn gossip chủ yếu về chuyện cá nhân, xã hội nên hiếm khi trung tính."
+  },
+  "graph": {
+    "mis": [
+      {
+        "w": "The graph describes about the sales in 2020.",
+        "r": "The graph describes the sales in 2020.",
+        "why": "Describe là ngoại động từ nên đi thẳng với tân ngữ, không thêm 'about'."
+      },
+      {
+        "w": "Look at the graph in the page 5.",
+        "r": "Look at the graph on page 5.",
+        "why": "Dùng 'on' với số trang, và không có mạo từ trước số trang."
+      }
+    ],
+    "u": "Graph là biểu đồ cho thấy mối quan hệ giữa các con số hoặc đại lượng, thường bằng đường hoặc cột trên hai trục. Trong IELTS Writing Task 1 bạn mô tả line graph và bar graph: the graph shows, the graph illustrates. Ta nói plot hoặc draw a graph, và một điểm nằm trên đồ thị. Chart rộng hơn, gồm cả biểu đồ tròn và bảng, còn graph gợi ý các giá trị thay đổi."
+  },
+  "handbook": {
+    "mis": [
+      {
+        "w": "Please read the handbook of employee.",
+        "r": "Please read the employee handbook.",
+        "why": "Tiếng Anh đặt danh từ bổ nghĩa trước: employee handbook, không nói 'handbook of employee'."
+      },
+      {
+        "w": "Check the handbook for informations about leave.",
+        "r": "Check the handbook for information about leave.",
+        "why": "Information là danh từ không đếm được, không thêm -s."
+      }
+    ],
+    "u": "Handbook là cuốn sách nhỏ gồm quy định, hướng dẫn hoặc kiến thức cơ bản về một chủ đề. Công ty phát cho nhân viên mới employee handbook về nghỉ phép, ứng xử, an toàn; trường học phát student handbook. Nó thiên về thực hành hơn là học thuật. Manual thường giải thích cách vận hành máy móc, còn handbook nói về quy trình và chính sách. Cuốn hướng dẫn cho người làm vườn cũng gọi là guide, nhưng handbook nghe chính thức hơn."
+  },
+  "hiker": {
+    "mis": [
+      {
+        "w": "I like hiker on weekends.",
+        "r": "I like hiking on weekends.",
+        "why": "Hiker là người đi bộ đường dài; hoạt động là 'hiking' hoặc 'go hiking'."
+      },
+      {
+        "w": "She is a hiker experienced.",
+        "r": "She is an experienced hiker.",
+        "why": "Trong tiếng Anh tính từ đứng trước danh từ, khác với tiếng Việt."
+      }
+    ],
+    "u": "Hiker là người đi bộ đường dài ở vùng quê hoặc núi để giải trí. Hoạt động gọi là hiking, còn động từ là hike hoặc go hiking. Tiếng Anh Anh hay dùng walker hoặc rambler, còn trekker gợi chuyến đi dài và vất vả hơn ở vùng hẻo lánh. Từ này thường gặp với đường mòn, cắm trại và tin cứu hộ: a lost hiker was found, hikers should carry water."
+  },
+  "homeowner": {
+    "mis": [
+      {
+        "w": "He is the homeowner of this apartment.",
+        "r": "He is the owner of this apartment.",
+        "why": "Homeowner chỉ vai trò nói chung; với một căn cụ thể dùng 'owner of'."
+      },
+      {
+        "w": "Homeowner must pay property tax every year.",
+        "r": "Homeowners must pay property tax every year.",
+        "why": "Câu nói chung về một nhóm người cần danh từ số nhiều."
+      }
+    ],
+    "u": "Homeowner là người sở hữu căn nhà mình đang ở, khác với người thuê nhà (renter). Từ này chủ yếu xuất hiện trong tài chính, bảo hiểm và tin bất động sản: homeowner insurance, a first-time homeowner, trả góp nhà. Tiếng Anh Mỹ thường viết liền. Nó chỉ tình trạng, không chỉ một tòa nhà cụ thể, nên nói về một bất động sản riêng ta dùng the owner of the house. Landlord là người cho thuê nhà."
+  },
+  "hometown": {
+    "mis": [
+      {
+        "w": "I grew up at my hometown.",
+        "r": "I grew up in my hometown.",
+        "why": "Dùng 'in' với thị trấn, thành phố khi nói nơi ai đó sống."
+      },
+      {
+        "w": "Vietnam is my hometown.",
+        "r": "Vietnam is my homeland.",
+        "why": "Hometown là thị trấn hoặc thành phố; cả đất nước thì dùng 'homeland' hoặc 'home country'."
+      }
+    ],
+    "u": "Hometown là thị trấn hoặc thành phố nơi bạn sinh ra hay lớn lên. Đây là chủ đề quen thuộc trong IELTS Speaking và khi trò chuyện xã giao: Where is your hometown? I'm from a small hometown near Hue. Nó nhỏ hơn một quốc gia, nên nói về cả nước hãy dùng homeland. Hometown gợi cảm xúc ấm áp về kỷ niệm, món ăn, gia đình và thường viết liền."
+  },
+  "honestly": {
+    "mis": [
+      {
+        "w": "He answered me honest.",
+        "r": "He answered me honestly.",
+        "why": "Từ mô tả cách thực hiện hành động phải là trạng từ: honestly."
+      },
+      {
+        "w": "She is honestly and hardworking.",
+        "r": "She is honest and hardworking.",
+        "why": "Sau 'be', mô tả con người cần tính từ 'honest', không dùng trạng từ."
+      }
+    ],
+    "u": "Honestly là trạng từ với hai việc. Nó có thể mô tả cách ai đó hành động, như answer honestly, nghĩa là không nói dối. Nó cũng có thể mở đầu câu để thể hiện sự thẳng thắn hoặc hơi bực: Honestly, I don't like it. Khi nói, từ này làm nhẹ hoặc nhấn mạnh ý kiến. Honest là tính từ cho người, nên nói an honest person. Frankly tương tự nhưng thẳng hơn; sincerely gợi cảm xúc chân thành."
+  },
+  "hotline": {
+    "mis": [
+      {
+        "w": "Please call to the hotline.",
+        "r": "Please call the hotline.",
+        "why": "Call ở đây là ngoại động từ; không thêm 'to' trước số điện thoại hay dịch vụ."
+      },
+      {
+        "w": "Call our hotline for advices.",
+        "r": "Call our hotline for advice.",
+        "why": "Advice là danh từ không đếm được, không có số nhiều."
+      }
+    ],
+    "u": "Hotline là số điện thoại lập ra để hỗ trợ hoặc cung cấp thông tin nhanh về một vấn đề cụ thể, thường miễn phí và mở cả ngày. Công ty có customer hotline, còn chính phủ có hotline khẩn cấp hoặc y tế. Ta nói call hoặc ring a hotline, và có tổng đài viên trực. Tiếng Anh Anh hay nói helpline cho dịch vụ hỗ trợ, còn hotline còn có thể là đường dây trực tiếp giữa hai nhà lãnh đạo."
+  },
+  "hourly": {
+    "mis": [
+      {
+        "w": "He is paid by hourly.",
+        "r": "He is paid hourly.",
+        "why": "Hourly ở đây đã là trạng từ nên không cần giới từ trước nó."
+      },
+      {
+        "w": "She earns an hourly of ten dollars.",
+        "r": "She earns an hourly wage of ten dollars.",
+        "why": "Hourly là tính từ nên cần danh từ đi sau, như wage hoặc rate."
+      }
+    ],
+    "u": "Hourly vừa là tính từ vừa là trạng từ. Làm tính từ, nó nghĩa là diễn ra mỗi giờ (an hourly bus) hoặc tính theo giờ (an hourly wage, hourly rate). Làm trạng từ, nó nghĩa là mỗi giờ một lần hoặc trả lương theo giờ: the staff are paid hourly. Trong tin tuyển dụng, nó đối lập với vị trí lương cố định (salaried). So với by the hour thì chỉ khác về văn phong; hourly ngắn gọn và mang tính kinh doanh hơn."
+  },
+  "housekeeper": {
+    "mis": [
+      {
+        "w": "She works as housekeeper in a hotel.",
+        "r": "She works as a housekeeper in a hotel.",
+        "why": "Chức danh nghề nghiệp đếm được ở số ít cần 'a' sau 'as'."
+      },
+      {
+        "w": "She works in the housekeeper department.",
+        "r": "She works in the housekeeping department.",
+        "why": "Bộ phận là 'housekeeping'; 'housekeeper' chỉ người làm."
+      }
+    ],
+    "u": "Housekeeper là người được thuê dọn dẹp và trông coi phòng ốc ở khách sạn hoặc nhà riêng, đôi khi còn nấu ăn và quản lý đồ dùng. Ở khách sạn, cả nhóm lập thành bộ phận housekeeping do head housekeeper đứng đầu. Chức danh này trung tính, lịch sự, còn maid có thể nghe cũ kỹ. Cleaner chung hơn và dùng cả cho văn phòng, trường học, cửa hàng."
+  },
+  "hurricane": {
+    "mis": [
+      {
+        "w": "A powerful hurricane hit central Vietnam last week.",
+        "r": "A powerful typhoon hit central Vietnam last week.",
+        "why": "Ở Tây Thái Bình Dương gọi là typhoon, còn Đại Tây Dương mới gọi là hurricane."
+      },
+      {
+        "w": "The hurricane caused serious damages to the coast.",
+        "r": "The hurricane caused serious damage to the coast.",
+        "why": "Damage nghĩa là thiệt hại là danh từ không đếm được; 'damages' số nhiều là tiền bồi thường."
+      }
+    ],
+    "u": "Hurricane là cơn bão nhiệt đới dữ dội với gió trên 74 dặm một giờ, hình thành trên Đại Tây Dương hoặc đông bắc Thái Bình Dương. Cùng loại bão đó gọi là typhoon ở tây bắc Thái Bình Dương, kể cả gần Việt Nam, và cyclone ở Ấn Độ Dương. Tin tức dùng hurricane season, hurricane warning, hurricane-force winds. Bão được xếp theo cấp từ một đến năm."
+  },
+  "inconvenience": {
+    "mis": [
+      {
+        "w": "We apologize for the inconvenient.",
+        "r": "We apologize for the inconvenience.",
+        "why": "Sau 'the' cần danh từ 'inconvenience', không dùng tính từ 'inconvenient'."
+      },
+      {
+        "w": "We apologize you for the delay.",
+        "r": "We apologize for the delay.",
+        "why": "Apologize dùng 'to' cho người và 'for' cho lý do; không có tân ngữ trực tiếp."
+      }
+    ],
+    "u": "Inconvenience là danh từ chỉ rắc rối nhỏ làm mọi việc khó khăn hoặc khó chịu. Từ này đặc trưng cho thông báo lịch sự: We apologize for any inconvenience. Nó có thể đếm được (a minor inconvenience) hoặc không đếm được (cause inconvenience). Tính từ là inconvenient, như an inconvenient time. Hassle và nuisance thân mật hơn, còn inconvenience nghe trang trọng và nhã nhặn."
+  },
+  "indoor": {
+    "mis": [
+      {
+        "w": "We should stay indoor when it rains.",
+        "r": "We should stay indoors when it rains.",
+        "why": "Sau động từ cần trạng từ 'indoors' có -s; 'indoor' là tính từ."
+      },
+      {
+        "w": "The hotel has an indoors pool.",
+        "r": "The hotel has an indoor pool.",
+        "why": "Trước danh từ dùng tính từ 'indoor', không có -s."
+      }
+    ],
+    "u": "Indoor là tính từ chỉ thứ được làm, dùng hoặc nằm bên trong tòa nhà: an indoor pool, indoor sports, indoor plants. Trạng từ tương ứng là indoors, có -s: stay indoors, go indoors. Từ trái nghĩa là outdoor và outdoors. Indoor thường dùng khi mô tả khách sạn và lời khuyên về thời tiết, và hay gợi sự thoải mái hoặc tránh thời tiết xấu."
+  },
+  "interpreter": {
+    "mis": [
+      {
+        "w": "A translator translated the speech simultaneously at the conference.",
+        "r": "An interpreter translated the speech simultaneously at the conference.",
+        "why": "Translator làm việc với văn bản viết; người dịch lời nói trực tiếp là interpreter."
+      },
+      {
+        "w": "She interpreted me what the guide said.",
+        "r": "She interpreted what the guide said for me.",
+        "why": "Interpret nhận nội dung được dịch làm tân ngữ; người nghe đi sau 'for'."
+      }
+    ],
+    "u": "Interpreter dịch lời nói từ ngôn ngữ này sang ngôn ngữ khác, hoặc cùng lúc (simultaneous) hoặc sau khi người nói dừng (consecutive). Translator thì làm việc với văn bản viết. Interpreter có mặt ở tòa án, hội nghị, du lịch, và ta nói through an interpreter. Động từ là interpret, cũng có thể nghĩa là giải thích ý nghĩa của dữ liệu hay hành vi, như interpret the results."
+  },
+  "irritate": {
+    "mis": [
+      {
+        "w": "The noise irritated with me.",
+        "r": "The noise irritated me.",
+        "why": "Irritate là ngoại động từ, nhận tân ngữ trực tiếp, không có giới từ."
+      },
+      {
+        "w": "I am irritating by the loud music.",
+        "r": "I am irritated by the loud music.",
+        "why": "Dùng dạng -ed cho cảm giác của người; dạng -ing mô tả nguyên nhân."
+      }
+    ],
+    "u": "Irritate nghĩa là làm ai khó chịu, nhất là bởi điều lặp đi lặp lại, hoặc làm một bộ phận cơ thể bị rát. Ta nói một thói quen irritates people, và ai đó irritated by noise hoặc irritated with a person. Dùng cho da và mắt thì mang nghĩa y học: smoke irritates the throat. Mức độ mạnh hơn bother nhưng nhẹ hơn infuriate. Các tính từ liên quan là irritating và irritated."
+  },
+  "jewelry": {
+    "mis": [
+      {
+        "w": "She bought three jewelries.",
+        "r": "She bought three pieces of jewelry.",
+        "why": "Jewelry là danh từ không đếm được; đếm bằng 'pieces of'."
+      },
+      {
+        "w": "Her jewelry were stolen.",
+        "r": "Her jewelry was stolen.",
+        "why": "Jewelry không đếm được nên đi với động từ số ít."
+      }
+    ],
+    "u": "Jewelry nghĩa là đồ trang sức như nhẫn, dây chuyền, vòng tay đeo trên người. Nó không đếm được, nên nói some jewelry hoặc a piece of jewelry, không nói jewelries. Tiếng Anh Anh viết jewellery. Costume jewelry rẻ, làm từ vật liệu không quý, còn fine jewelry dùng vàng, bạc, đá quý. Một món riêng lẻ gọi là a piece of jewelry hoặc, trong cửa hàng, a jewel."
+  },
+  "keyboard": {
+    "mis": [
+      {
+        "w": "I typed my name in the keyboard.",
+        "r": "I typed my name on the keyboard.",
+        "why": "Dùng 'on' cho thiết bị gõ phím; 'in' dành cho ô nhập chữ."
+      },
+      {
+        "w": "I bought a new keyboard computer.",
+        "r": "I bought a new computer keyboard.",
+        "why": "Trong cụm danh từ, danh từ chính đứng cuối: computer keyboard."
+      }
+    ],
+    "u": "Keyboard là bộ phím dùng để gõ trên máy tính hoặc chơi nhạc cụ. Ta type on a keyboard, press a key và dùng keyboard shortcut. Từ này cũng chỉ nhạc cụ kiểu đàn piano: she plays keyboards in a band. Trong cụm từ ghép, loại đứng trước, như computer keyboard, wireless keyboard, gaming keyboard. Keypad là bộ phím nhỏ hơn, như trên điện thoại hay máy tính bỏ túi."
+  },
+  "lecturer": {
+    "mis": [
+      {
+        "w": "She is a lecturer of English at Hanoi University.",
+        "r": "She is a lecturer in English at Hanoi University.",
+        "why": "Môn học sau lecturer đi với 'in': a lecturer in English."
+      },
+      {
+        "w": "The lecturer explained us the formula.",
+        "r": "The lecturer explained the formula to us.",
+        "why": "Explain nhận sự việc làm tân ngữ; người nghe cần 'to'."
+      }
+    ],
+    "u": "Lecturer là người dạy ở đại học hoặc cao đẳng, giảng bài cho nhóm đông và dẫn dắt các buổi thảo luận. Ở Anh đây là một chức danh chính thức, thấp hơn senior lecturer và professor, còn ở Mỹ từ này thường chỉ giảng viên bán thời gian hoặc chưa biên chế. Guest lecturer đến nói một buổi duy nhất. Teacher dùng cho trường phổ thông, không dùng cho đại học."
+  },
+  "lighter": {
+    "mis": [
+      {
+        "w": "He lit the candle by a lighter.",
+        "r": "He lit the candle with a lighter.",
+        "why": "Dùng 'with' cho dụng cụ dùng để làm việc gì, không dùng 'by'."
+      },
+      {
+        "w": "Lighters aren't allow on the plane.",
+        "r": "Lighters aren't allowed on the plane.",
+        "why": "Câu bị động cần quá khứ phân từ 'allowed', không dùng dạng gốc."
+      }
+    ],
+    "u": "Lighter là thiết bị nhỏ tạo ngọn lửa, dùng châm thuốc, nến hay bếp. Nó có thể dùng gas hoặc điện, và thường là loại dùng một lần. Đừng nhầm với dạng so sánh của light, như a lighter bag hay lighter colors; phát âm giống nhau nhưng nghĩa khác. Hãng bay và nhiều nơi thường hạn chế lighter. Trong tiếng Anh Anh, người ta có thể chỉ nói light, như Have you got a light?"
+  },
+  "memorize": {
+    "mis": [
+      {
+        "w": "I memorized by heart the whole poem.",
+        "r": "I memorized the whole poem.",
+        "why": "Memorize đã có nghĩa là học thuộc lòng nên thêm 'by heart' là thừa."
+      },
+      {
+        "w": "I memorized about the new vocabulary.",
+        "r": "I memorized the new vocabulary.",
+        "why": "Memorize là ngoại động từ, nhận tân ngữ trực tiếp, không có giới từ."
+      }
+    ],
+    "u": "Memorize nghĩa là học để nhớ chính xác điều gì, như bài thơ, số điện thoại hay danh sách từ. Việc này có chủ ý và thường lặp đi lặp lại, khác với việc chỉ nhớ thông thường. Chính tả Anh là memorise. Commit to memory là cách nói trang trọng, còn learn by heart là cụm phổ biến. Học thuộc mà không hiểu gọi là rote learning và thường bị phê bình trong giáo dục."
+  },
+  "messenger": {
+    "mis": [
+      {
+        "w": "He sent me a messenger on Zalo.",
+        "r": "He sent me a message on Zalo.",
+        "why": "Message là nội dung tin nhắn; messenger là người hoặc ứng dụng chuyển nó."
+      },
+      {
+        "w": "He worked as messenger for a law firm.",
+        "r": "He worked as a messenger for a law firm.",
+        "why": "Chức danh nghề số ít cần 'a' sau 'as'."
+      }
+    ],
+    "u": "Messenger là người có công việc chuyển tin hoặc gói hàng nhỏ, như bike messenger ở thành phố đông đúc. Trong lịch sử và văn học, từ này còn chỉ người mang tin: don't shoot the messenger. Ngày nay nó cũng là tên ứng dụng chat, như instant messenger. Thứ được gửi là message, không phải messenger. Courier là từ gần nghĩa nhưng gợi việc giao nhanh hơn, đi xa hơn."
+  },
+  "mower": {
+    "mis": [
+      {
+        "w": "I bought a grass cut machine.",
+        "r": "I bought a lawn mower.",
+        "why": "Tiếng Anh có từ riêng: lawn mower, không cần mô tả dài dòng."
+      },
+      {
+        "w": "My father is mow the lawn now.",
+        "r": "My father is mowing the lawn now.",
+        "why": "Thì hiện tại tiếp diễn cần 'be' cộng dạng -ing."
+      }
+    ],
+    "u": "Mower là máy cắt cỏ, thường gọi đầy đủ là lawn mower hoặc lawnmower. Có các loại đẩy tay, chạy điện và ride-on mower cho khu vườn lớn. Động từ là mow, quá khứ phân từ là mown hoặc mowed: he mowed the lawn. Từ này điển hình trong ngữ cảnh làm vườn và việc nhà. Trimmer hoặc strimmer là dụng cụ nhẹ hơn để cắt viền và cỏ dài."
+  },
+  "newsstand": {
+    "mis": [
+      {
+        "w": "He sells newspapers at a newsstand since 2010.",
+        "r": "He has sold newspapers at a newsstand since 2010.",
+        "why": "Dùng hiện tại hoàn thành với 'since' cho hành động kéo dài đến nay."
+      },
+      {
+        "w": "There are two newsstand near the station.",
+        "r": "There are two newsstands near the station.",
+        "why": "Danh từ đếm được sau 'two' cần -s số nhiều."
+      }
+    ],
+    "u": "Newsstand là quầy nhỏ hoặc ki-ốt, thường ở góc phố hay nhà ga, bán báo, tạp chí và đôi khi đồ ăn vặt. Đây là cách nói của người Mỹ. Tiếng Anh Anh dùng newsagent cho người hoặc cửa hàng, hoặc newspaper kiosk cho quầy bán. Nhà xuất bản tạp chí nói newsstand sales hay newsstand price, nghĩa là bán lẻ từng cuốn, không phải đặt dài hạn. Nhiều quầy ngày nay còn bán thẻ điện thoại và vé."
+  },
+  "optional": {
+    "mis": [
+      {
+        "w": "Attending the workshop is optional to students.",
+        "r": "Attending the workshop is optional for students.",
+        "why": "Optional đi với 'for' trước nhóm người áp dụng."
+      },
+      {
+        "w": "You can choose an optional to pay by card.",
+        "r": "You can choose an option to pay by card.",
+        "why": "Optional là tính từ; danh từ chỉ lựa chọn là 'option'."
+      }
+    ],
+    "u": "Optional là tính từ chỉ điều bạn có thể chọn có hoặc làm nhưng không bắt buộc. Nó trái nghĩa với compulsory hay mandatory. Bạn thấy nó trên biểu mẫu (optional field), ở trường (an optional course) và ở cửa hàng (optional extras như bảo hiểm). Danh từ là option, nên nói you have an option, không nói an optional. Trong văn phong trang trọng, voluntary nhấn mạnh sự tự nguyện, còn elective dùng cho môn học."
+  },
+  "organizer": {
+    "mis": [
+      {
+        "w": "She was the organizator of the festival.",
+        "r": "She was the organizer of the festival.",
+        "why": "'Organizator' không tồn tại trong tiếng Anh; danh từ đúng là 'organizer'."
+      },
+      {
+        "w": "He is a event organizer.",
+        "r": "He is an event organizer.",
+        "why": "Dùng 'an' trước âm nguyên âm: an event organizer."
+      }
+    ],
+    "u": "Organizer là người hoặc nhóm lên kế hoạch và sắp xếp sự kiện như hội nghị, lễ hội hay đám cưới. Ta nói the organizer of the festival, và event organizer là chức danh phổ biến. Từ này còn chỉ cuốn sổ hoặc ứng dụng lên lịch công việc hằng ngày, gọi là personal organizer. Chính tả Anh là organiser. Planner tương tự, còn coordinator gợi việc điều phối người và công việc hơn là ý tưởng chung."
+  },
+  "outdoor": {
+    "mis": [
+      {
+        "w": "I like outdoors activities.",
+        "r": "I like outdoor activities.",
+        "why": "Trước danh từ dùng tính từ 'outdoor', không có -s."
+      },
+      {
+        "w": "I love the outdoor.",
+        "r": "I love the outdoors.",
+        "why": "Khi là danh từ nghĩa thiên nhiên, từ có -s: the outdoors."
+      }
+    ],
+    "u": "Outdoor là tính từ chỉ thứ diễn ra hoặc được dùng bên ngoài tòa nhà: outdoor activities, an outdoor pool, outdoor clothing. Trạng từ là outdoors, như eat outdoors. The outdoors là danh từ chỉ ngoài trời và thiên nhiên, luôn có -s. Từ này xuất hiện trong thể thao, du lịch và dự báo thời tiết. Open-air thiên về mô tả sự kiện như hòa nhạc, còn alfresco chủ yếu dùng cho việc ăn uống."
+  },
+  "overtime": {
+    "mis": [
+      {
+        "w": "I worked three overtimes last week.",
+        "r": "I worked three hours of overtime last week.",
+        "why": "Overtime không đếm được; dùng đơn vị như 'hours of'."
+      },
+      {
+        "w": "I have to do overtime tonight.",
+        "r": "I have to work overtime tonight.",
+        "why": "Động từ thường dùng là 'work' overtime, không phải 'do'."
+      }
+    ],
+    "u": "Overtime là thời gian làm việc vượt giờ bình thường, hoặc khoản tiền thêm cho phần đó. Thường là danh từ không đếm được: work overtime, overtime pay, unpaid overtime. Ở nhiều nước, chủ lao động phải trả mức cao hơn cho nó. Làm trạng từ, ta nói work overtime. Trong thể thao Mỹ, nó còn nghĩa là hiệp phụ khi hòa, còn tiếng Anh Anh nói extra time. Extra hours là cách nói đơn giản trong hội thoại."
+  },
+  "paperback": {
+    "mis": [
+      {
+        "w": "I prefer paperback than hardcover.",
+        "r": "I prefer paperback to hardcover.",
+        "why": "Prefer đi với 'to', không dùng 'than'."
+      },
+      {
+        "w": "The novel was published in paperback cover.",
+        "r": "The novel was published in paperback.",
+        "why": "'In paperback' là cụm cố định; không cần thêm 'cover'."
+      }
+    ],
+    "u": "Paperback là sách bìa mềm bằng giấy, rẻ và nhẹ hơn bìa cứng (hardback). Nhà xuất bản thường phát hành tiểu thuyết bìa cứng trước, bìa mềm sau. Ta nói the book is available in paperback, hoặc a paperback edition. Nó cũng là danh từ: she read a paperback on the plane. Softcover là thuật ngữ trung tính, kỹ thuật hơn, còn pocket edition là bản bìa mềm khổ nhỏ."
+  },
+  "paperwork": {
+    "mis": [
+      {
+        "w": "I have many paperworks to finish.",
+        "r": "I have a lot of paperwork to finish.",
+        "why": "Paperwork không đếm được, dùng 'a lot of', không dùng số nhiều."
+      },
+      {
+        "w": "I need to fill the paperwork.",
+        "r": "I need to fill out the paperwork.",
+        "why": "Cụm động từ đúng là 'fill out' hoặc 'fill in' cho biểu mẫu."
+      }
+    ],
+    "u": "Paperwork là các giấy tờ, biểu mẫu và hồ sơ thường lệ phải hoàn thành cho công việc hành chính hay văn phòng. Nó không đếm được: some paperwork, a pile of paperwork. Các động từ hay đi kèm là do, fill out, complete và process. Nó thường gợi việc hành chính nhàm chán nhưng cần thiết, như giấy tờ visa hay bảo hiểm. Dù làm trên máy tính, người ta vẫn gọi là paperwork. Documentation mang tính kỹ thuật hơn."
+  },
+  "performer": {
+    "mis": [
+      {
+        "w": "The performer of the band was amazing.",
+        "r": "The performance of the band was amazing.",
+        "why": "Performer là người biểu diễn; buổi diễn là 'performance'."
+      },
+      {
+        "w": "She is one of the best performer in our team.",
+        "r": "She is one of the best performers in our team.",
+        "why": "Sau 'one of the', danh từ phải ở số nhiều."
+      }
+    ],
+    "u": "Performer là người biểu diễn cho khán giả, như diễn viên, ca sĩ, vũ công hay nhạc công. Trong kinh doanh, từ này còn chỉ mức độ làm việc tốt của ai đó: a top performer, a poor performer. Buổi diễn là performance, còn động từ là perform. Entertainer nghe nhẹ nhàng, đại chúng hơn, còn artist hàm ý chiều sâu sáng tạo. Street performer và circus performer là các cặp từ cố định phổ biến."
+  },
+  "pharmacist": {
+    "mis": [
+      {
+        "w": "She works as a pharmacy.",
+        "r": "She works as a pharmacist.",
+        "why": "Pharmacy là nơi bán thuốc; pharmacist là người được đào tạo."
+      },
+      {
+        "w": "I went to the pharmacist to buy some medicine.",
+        "r": "I went to the pharmacy to buy some medicine.",
+        "why": "Trong tiếng Anh Mỹ bạn đến một nơi là pharmacy, không phải đến một người."
+      }
+    ],
+    "u": "Pharmacist là chuyên gia được đào tạo, pha chế, bán thuốc và tư vấn cho bệnh nhân về thuốc. Họ làm ở pharmacy hoặc bệnh viện. Cửa hàng gọi là pharmacy trong tiếng Anh Mỹ, chemist's trong tiếng Anh Anh, nên pharmacist là từ chỉ người. Dược sĩ kiểm tra đơn thuốc, cảnh báo tác dụng phụ và trả lời câu hỏi sức khỏe đơn giản. Druggist là cách nói cũ."
+  },
+  "photocopier": {
+    "mis": [
+      {
+        "w": "Can you photocopier these pages?",
+        "r": "Can you photocopy these pages?",
+        "why": "Cái máy là photocopier; động từ chỉ hành động là 'photocopy'."
+      },
+      {
+        "w": "The photocopy is out of paper.",
+        "r": "The photocopier is out of paper.",
+        "why": "Photocopy là bản đã sao; cái máy là photocopier."
+      }
+    ],
+    "u": "Photocopier là máy sao chép tài liệu bằng cách quét và in. Nó phổ biến ở văn phòng, trường học, thư viện. Bản được tạo ra là photocopy, và động từ là photocopy: photocopy the form. Sự cố thường gặp là photocopier bị kẹt giấy hoặc hết mực. Copier và copy machine ngắn hơn và hay dùng trong tiếng Anh Mỹ."
+  },
+  "photographer": {
+    "mis": [
+      {
+        "w": "He works as a photograph.",
+        "r": "He works as a photographer.",
+        "why": "Người chụp là photographer; photograph là bức ảnh."
+      },
+      {
+        "w": "The photographer took a photography of us.",
+        "r": "The photographer took a photograph of us.",
+        "why": "Photography là nghệ thuật hay nghề chụp; một bức ảnh là photograph."
+      }
+    ],
+    "u": "Photographer là người chụp ảnh, chuyên nghiệp hoặc theo sở thích. Các loại phổ biến là wedding photographer, press photographer và freelance photographer. Trọng âm rơi vào âm tiết thứ hai: /fəˈtɑːɡrəfər/, khác với photograph. Photographer takes photos hoặc shoots a scene. Cameraman thường chỉ người quay phim hay truyền hình, còn snapper là tiếng lóng Anh thân mật chỉ phóng viên ảnh."
+  },
+  "photography": {
+    "mis": [
+      {
+        "w": "I'm interested to photography.",
+        "r": "I'm interested in photography.",
+        "why": "Interested đi với giới từ 'in'."
+      },
+      {
+        "w": "She has taken many photographies of the lake.",
+        "r": "She has taken many photographs of the lake.",
+        "why": "Photography không đếm được; từng bức ảnh là 'photographs'."
+      }
+    ],
+    "u": "Photography là nghệ thuật, nghề hoặc hoạt động chụp ảnh. Nó không đếm được và đi với các loại: digital photography, portrait photography, wildlife photography. Ta study photography, take up photography như sở thích, hoặc xem photography exhibition. Trọng âm ở âm tiết thứ hai: /fəˈtɑːɡrəfi/. Photography là lĩnh vực, người chụp là photographer, và mỗi bức ảnh là photograph."
+  },
+  "planner": {
+    "mis": [
+      {
+        "w": "I wrote the date at my planner.",
+        "r": "I wrote the date in my planner.",
+        "why": "Dùng 'in' cho ghi chú viết trong sổ tay hoặc planner."
+      },
+      {
+        "w": "A planner is a person plans events.",
+        "r": "A planner is a person who plans events.",
+        "why": "Cần đại từ quan hệ như 'who' để nối mệnh đề với danh từ."
+      }
+    ],
+    "u": "Planner là người lập kế hoạch chuyên nghiệp, như wedding planner hay town planner, hoặc cuốn sổ dùng để sắp xếp ngày, tuần, tháng. Ngữ cảnh quyết định: she is a financial planner, hay I wrote it in my planner. Planner là người lập kế hoạch; plan là ý tưởng hoặc sự sắp xếp. Organizer cũng có thể là người hoặc cuốn sổ, còn scheduler nhấn mạnh thời gian biểu."
+  },
+  "plumber": {
+    "mis": [
+      {
+        "w": "I need a plumber for fix the sink.",
+        "r": "I need a plumber to fix the sink.",
+        "why": "Dùng 'to' + động từ để nêu mục đích, không dùng 'for' + động từ."
+      },
+      {
+        "w": "Our house has a plumber problem.",
+        "r": "Our house has a plumbing problem.",
+        "why": "Nghề là 'plumbing'; 'plumber' chỉ người."
+      }
+    ],
+    "u": "Plumber là thợ lành nghề lắp đặt và sửa ống nước, bồn cầu, vòi nước và hệ thống sưởi. Chữ b không phát âm, nên từ đọc là /ˈplʌmər/. Công việc gọi là plumbing, và hệ thống ống nước cũng gọi là plumbing. Ta gọi plumber khi có rò rỉ hoặc cống bị tắc. Ở nhiều nước, thợ này cần giấy phép và tính tiền theo giờ."
+  },
+  "poorly": {
+    "mis": [
+      {
+        "w": "The team played poor in the final.",
+        "r": "The team played poorly in the final.",
+        "why": "Từ mô tả cách làm động từ phải là trạng từ."
+      },
+      {
+        "w": "My English is poorly.",
+        "r": "My English is poor.",
+        "why": "Sau 'be', dùng tính từ 'poor' để mô tả danh từ."
+      }
+    ],
+    "u": "Poorly chủ yếu là trạng từ nghĩa là tệ hoặc dưới chuẩn: poorly paid, poorly designed, perform poorly. Nó thường đi với quá khứ phân từ. Trong tiếng Anh Anh, poorly còn là tính từ nghĩa hơi ốm: she is feeling poorly. Đừng dùng nó để nói về thiếu tiền; hãy nói poor hoặc badly off. So sánh: a poor result (tính từ) và the results were poorly presented."
+  },
+  "portable": {
+    "mis": [
+      {
+        "w": "This laptop is portable to carry.",
+        "r": "This laptop is portable.",
+        "why": "Portable đã có nghĩa là dễ mang theo nên 'to carry' là thừa."
+      },
+      {
+        "w": "Is this printer small enough to be carry?",
+        "r": "Is this printer small enough to be carried?",
+        "why": "Sau 'to be', câu bị động cần quá khứ phân từ 'carried'."
+      }
+    ],
+    "u": "Portable là tính từ chỉ vật dễ mang theo hoặc di chuyển: a portable charger, a portable speaker, portable heaters. Nó gợi kích thước nhỏ và trọng lượng nhẹ. Trong máy tính, portable còn có thể nghĩa là phần mềm chạy trên nhiều hệ thống. Danh từ portability mang tính trang trọng. Mobile dùng cho điện thoại, còn portable thiên về vật lý, mô tả đồ bạn có thể cầm theo."
+  },
+  "postcode": {
+    "mis": [
+      {
+        "w": "Write your postcode in the end of the address.",
+        "r": "Write your postcode at the end of the address.",
+        "why": "Cụm cố định là 'at the end of'."
+      },
+      {
+        "w": "In the US, you write your postcode on the envelope.",
+        "r": "In the US, you write your zip code on the envelope.",
+        "why": "Người Mỹ nói 'zip code'; 'postcode' là cách nói của người Anh."
+      }
+    ],
+    "u": "Postcode là nhóm chữ và số ngắn thêm vào địa chỉ để phân loại thư. Đây là thuật ngữ của Anh; người Mỹ nói zip code, nhiều nước khác nói postal code. Postcode của Anh rất chính xác và có thể xác định chỉ vài ngôi nhà, ví dụ SW1A 1AA. Biểu mẫu trực tuyến thường yêu cầu nhập postcode để tìm cửa hàng gần đó hoặc tùy chọn giao hàng."
+  },
+  "pottery": {
+    "mis": [
+      {
+        "w": "She bought a pottery in Bat Trang.",
+        "r": "She bought a piece of pottery in Bat Trang.",
+        "why": "Pottery là chất liệu không đếm được; dùng 'a piece of'."
+      },
+      {
+        "w": "He works as a pottery in Bat Trang.",
+        "r": "He works as a potter in Bat Trang.",
+        "why": "Người làm nghề là potter; pottery là nghề hoặc các món đồ."
+      }
+    ],
+    "u": "Pottery nghĩa là đồ vật làm từ đất sét nung, như bát hay bình, và cả nghề làm chúng. Nó không đếm được: some pottery, a piece of pottery. Người làm là potter, và xưởng sản xuất cũng gọi là a pottery. Ví dụ nổi tiếng là gốm Bát Tràng ở Việt Nam. Ceramics là thuật ngữ rộng hơn, gồm cả gạch men và sản phẩm công nghiệp, còn earthenware là đất nung mềm, xốp."
+  },
+  "prediction": {
+    "mis": [
+      {
+        "w": "She did a prediction about next year's sales.",
+        "r": "She made a prediction about next year's sales.",
+        "why": "Kết hợp thông dụng là 'make a prediction', không phải 'do'."
+      },
+      {
+        "w": "It is hard to prediction the result.",
+        "r": "It is hard to predict the result.",
+        "why": "Sau 'to', dùng động từ 'predict', không dùng danh từ."
+      }
+    ],
+    "u": "Prediction là lời nói về điều bạn nghĩ sẽ xảy ra trong tương lai, dựa trên kiến thức, kinh nghiệm hay dữ liệu. Ta make a prediction, và nó có thể chính xác hoặc sai. Động từ là predict, tính từ là predictable. Forecast dùng cho thời tiết và kinh tế, dựa trên phân tích, còn prophecy mang sắc thái tôn giáo hay huyền bí. Projection là ước tính bằng số về các con số tương lai."
+  },
+  "presenter": {
+    "mis": [
+      {
+        "w": "She gave a presenter at the conference.",
+        "r": "She gave a presentation at the conference.",
+        "why": "Presenter là người trình bày; bài nói là 'presentation'."
+      },
+      {
+        "w": "The presenter introduced about the new product.",
+        "r": "The presenter introduced the new product.",
+        "why": "Introduce là ngoại động từ; không thêm 'about' trước tân ngữ."
+      }
+    ],
+    "u": "Presenter là người thuyết trình hoặc dẫn chương trình truyền hình, phát thanh. Trong tiếng Anh Anh, TV presenter là người dẫn chính; người Mỹ hay nói host hoặc anchor. Ở hội nghị, presenters là những diễn giả trên sân khấu. Hoạt động là presentation, và động từ là present. Người thuyết trình nên nói rõ ràng và nhìn khán giả."
+  },
+  "projector": {
+    "mis": [
+      {
+        "w": "I'll show the photos with the projection.",
+        "r": "I'll show the photos with the projector.",
+        "why": "Projector là cái máy; projection là hành động chiếu hoặc dự báo."
+      },
+      {
+        "w": "Turn on the projector for we can see slides.",
+        "r": "Turn on the projector so we can see the slides.",
+        "why": "Dùng 'so' để nêu mệnh đề kết quả; 'for' không dùng được trước chủ ngữ như vậy."
+      }
+    ],
+    "u": "Projector là máy chiếu hình ảnh hoặc video lên màn hình hay tường. Nó phổ biến trong lớp học, văn phòng và rạp phim. Bạn nối laptop với nó bằng cáp hoặc wifi, bật projector, và các slide hiện lên projector screen. Loại cũ overhead projector dùng tấm trong suốt. Đừng nhầm với projection, từ này cũng có thể nghĩa là dự báo. Beamer là cách nói kiểu Đức dùng trong tiếng Anh."
+  },
+  "punctual": {
+    "mis": [
+      {
+        "w": "He is always punctual in the meeting.",
+        "r": "He is always punctual for the meeting.",
+        "why": "Punctual đi với 'for' trước sự kiện."
+      },
+      {
+        "w": "Please punctual at eight.",
+        "r": "Please be punctual at eight.",
+        "why": "Tính từ cần động từ 'be' trong câu."
+      }
+    ],
+    "u": "Punctual mô tả người hoặc hành động đến hay xảy ra đúng thời gian đã hẹn. Đây là phẩm chất tốt ở nơi làm việc và trường học: be punctual for appointments. Nó khác early, nghĩa là sớm hơn giờ. Danh từ là punctuality, trạng từ là punctually. Prompt tương tự nhưng nhấn mạnh tốc độ phản hồi, còn on time là dạng nói thông dụng."
+  },
+  "purse": {
+    "mis": [
+      {
+        "w": "He took money from his purse and paid.",
+        "r": "He took money from his wallet and paid.",
+        "why": "Ví nhỏ của đàn ông gọi là wallet; 'purse' gợi túi xách của phụ nữ."
+      },
+      {
+        "w": "She bought a purse of leather.",
+        "r": "She bought a leather purse.",
+        "why": "Chất liệu đứng trước danh từ: a leather purse."
+      }
+    ],
+    "u": "Purse có nghĩa khác nhau tùy vùng. Ở Anh, nó là ví nhỏ đựng tiền xu và thẻ, thường do phụ nữ dùng. Ở Mỹ, nó nghĩa là túi xách. Nó cũng là động từ: pursed lips thể hiện sự không đồng tình hoặc tập trung. Wallet là từ thường dùng cho ví phẳng của đàn ông ở cả hai nước. Coin purse là túi nhỏ chỉ đựng tiền lẻ."
+  },
+  "redecorate": {
+    "mis": [
+      {
+        "w": "We need to re-decoration the kitchen.",
+        "r": "We need to redecorate the kitchen.",
+        "why": "Sau 'need to' dùng động từ 'redecorate', không dùng danh từ."
+      },
+      {
+        "w": "We redecorate the bedroom last month.",
+        "r": "We redecorated the bedroom last month.",
+        "why": "Hành động đã hoàn thành trong quá khứ cần thì quá khứ."
+      }
+    ],
+    "u": "Redecorate nghĩa là sơn, dán giấy tường hoặc thay đổi phong cách của căn phòng hay ngôi nhà. Nó tập trung vào vẻ ngoài, không phải kết cấu: we redecorated the living room in white. Renovate lớn hơn, có thể gồm sửa chữa hoặc xây dựng, còn refurbish gợi việc làm cho như mới. Trong tiếng Anh Anh, do up là cách nói thân mật. Nhiều người redecorate trước khi bán nhà."
+  },
+  "refresh": {
+    "mis": [
+      {
+        "w": "A cold drink is very refresh.",
+        "r": "A cold drink is very refreshing.",
+        "why": "Dùng tính từ 'refreshing' cho thứ gây ra cảm giác."
+      },
+      {
+        "w": "I feel refreshing after a nap.",
+        "r": "I feel refreshed after a nap.",
+        "why": "Dùng tính từ -ed cho cảm giác của người."
+      }
+    ],
+    "u": "Refresh nghĩa là làm cho tươi mới hoặc sống động trở lại, hoặc trong máy tính là tải lại trang web hay dữ liệu: press F5 to refresh the page. Người ta refresh bản thân bằng nghỉ ngơi hoặc đồ uống lạnh, và refresh their memory bằng cách xem lại thông tin. Tính từ refreshing mô tả thứ làm bạn tươi mới, còn refreshed mô tả cảm giác của bạn. Reload là cách nói thuần kỹ thuật."
+  },
+  "relaxation": {
+    "mis": [
+      {
+        "w": "I listen to music for relax.",
+        "r": "I listen to music for relaxation.",
+        "why": "Sau 'for', dùng danh từ 'relaxation', không dùng động từ."
+      },
+      {
+        "w": "He needs some relaxations after work.",
+        "r": "He needs some relaxation after work.",
+        "why": "Relaxation là danh từ không đếm được, không có -s."
+      }
+    ],
+    "u": "Relaxation là trạng thái nghỉ ngơi, bình tĩnh, hoặc các hoạt động giúp đạt được nó. Thường không đếm được: time for relaxation, relaxation techniques, muscle relaxation. Spa, yoga và nhạc nhẹ là các hình thức phổ biến. Động từ là relax, tính từ là relaxing hoặc relaxed. Leisure chỉ thời gian rảnh nói chung, còn relaxation tập trung vào giảm căng thẳng."
+  },
+  "renter": {
+    "mis": [
+      {
+        "w": "The renter collects the rent every month.",
+        "r": "The landlord collects the rent every month.",
+        "why": "Renter là người trả tiền thuê; chủ nhà thu tiền là landlord."
+      },
+      {
+        "w": "I want to renter a flat near the station.",
+        "r": "I want to rent a flat near the station.",
+        "why": "Động từ là 'rent'; 'renter' là người thuê."
+      }
+    ],
+    "u": "Renter là người thuê thứ gì đó, thường là nhà hoặc xe, và trả phí đều đặn. Trong tiếng Anh Mỹ, nó thường chỉ người thuê nhà đang ở căn hộ thuê, trái với homeowner. Người cho thuê là landlord. Tenant là từ pháp lý trang trọng và phổ biến hơn trong tiếng Anh Anh. Renter's insurance bảo vệ tài sản của người thuê nhà."
+  }
+}

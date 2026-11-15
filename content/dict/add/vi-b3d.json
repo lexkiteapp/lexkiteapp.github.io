@@ -1,0 +1,752 @@
+{
+ "allergy": {
+  "mis": [
+   {
+    "w": "I have an allergy with peanuts.",
+    "r": "I have an allergy to peanuts.",
+    "why": "Sau allergy phải dùng giới từ 'to' để chỉ thứ gây dị ứng, không dùng 'with'."
+   },
+   {
+    "w": "He is allergy to cats.",
+    "r": "He is allergic to cats.",
+    "why": "Allergy là danh từ; sau 'be' cần tính từ allergic."
+   }
+  ],
+  "u": "Allergy là danh từ đếm được, chỉ phản ứng quá mức của cơ thể với chất vốn vô hại như phấn hoa, bụi hay một số thực phẩm: a nut allergy. Tính từ tương ứng là allergic, và cả hai đều đi với giới từ to. Ở nhà hàng, khách sạn đây là từ an toàn quan trọng nên nhân viên hay hỏi về dị ứng thực phẩm. Đừng nhầm với intolerance, là chứng không dung nạp nhẹ hơn và không liên quan đến hệ miễn dịch."
+ },
+ "announcer": {
+  "mis": [
+   {
+    "w": "The announcer said us the gate had changed.",
+    "r": "The announcer told us the gate had changed.",
+    "why": "Say không nhận trực tiếp tân ngữ chỉ người; dùng tell, hoặc say to someone."
+   },
+   {
+    "w": "Please listen the announcer carefully.",
+    "r": "Please listen to the announcer carefully.",
+    "why": "Listen luôn cần 'to' trước người hoặc vật mà bạn nghe."
+   }
+  ],
+  "u": "Announcer là người có nhiệm vụ đọc thông báo hoặc giới thiệu chương trình trên đài, truyền hình, nhà ga, sân bay hay sự kiện thể thao. Trong bài nghe TOEIC, announcer thường báo đổi cổng, trễ chuyến hoặc khuyến mãi qua loa. Đây là từ trung tính; presenter phổ biến hơn trên truyền hình Anh cho người dẫn chương trình, còn newsreader là người đọc bản tin. Đừng nhầm người (announcer) với nội dung thông báo (announcement)."
+ },
+ "appetizer": {
+  "mis": [
+   {
+    "w": "I eat appetizer before the main dish.",
+    "r": "I eat an appetizer before the main dish.",
+    "why": "Appetizer là danh từ đếm được; số ít cần mạo từ a hoặc an."
+   },
+   {
+    "w": "We had soup like an appetizer.",
+    "r": "We had soup as an appetizer.",
+    "why": "Dùng 'as' để nêu vai trò của món; 'like' nghĩa là giống như, Việt hay dịch 'như' thành like."
+   }
+  ],
+  "u": "Appetizer là từ tiếng Anh Mỹ chỉ món nhỏ dọn trước món chính, thường được gọi chung khi ăn tối với đối tác. Tiếng Anh Anh hay dùng starter nên thực đơn ở Anh có thể không có chữ appetizer. Đây là danh từ đếm được, mẫu hay gặp là have hoặc order something as an appetizer. Đừng nhầm với aperitif là đồ uống trước bữa ăn, hay dessert là món tráng miệng ăn sau cùng."
+ },
+ "athlete": {
+  "mis": [
+   {
+    "w": "She is a famous athletic.",
+    "r": "She is a famous athlete.",
+    "why": "Athletic là tính từ; từ chỉ người là athlete."
+   },
+   {
+    "w": "He is a athlete from Vietnam.",
+    "r": "He is an athlete from Vietnam.",
+    "why": "Dùng 'an' trước âm nguyên âm; athlete bắt đầu bằng âm /æ/."
+   }
+  ],
+  "u": "Athlete chỉ người được luyện tập thi đấu thể thao, nhất là điền kinh; trong tiếng Anh Mỹ từ này bao gồm mọi vận động viên, từ cầu thủ đến người bơi. Trong tiếng Anh Anh nghĩa có thể nghiêng về các môn chạy nhảy. Chú ý phát âm: âm th ở giữa là /θ/ vô thanh và từ chỉ có hai âm tiết, không phải ba. Tính từ là athletic, còn có nghĩa khỏe, cân đối. So sánh với player, dùng cho các môn đồng đội như bóng đá."
+ },
+ "banker": {
+  "mis": [
+   {
+    "w": "My uncle works as banker in Hanoi.",
+    "r": "My uncle works as a banker in Hanoi.",
+    "why": "Chức danh số ít sau 'as' cần mạo từ a hoặc an."
+   },
+   {
+    "w": "I deposited my salary in the banker.",
+    "r": "I deposited my salary in the bank.",
+    "why": "Banker là người làm ngân hàng; nơi gửi tiền là bank."
+   }
+  ],
+  "u": "Banker là người sở hữu hoặc giữ chức vụ khá cao trong ngân hàng, thường về cho vay hoặc đầu tư. Từ này không chỉ mọi nhân viên: giao dịch viên là teller hay clerk chứ không phải banker. Các loại hay gặp là investment banker và central banker. Từ chỉ nơi chốn là bank, và người học Việt hay lẫn hai từ vì đều dịch là ngân hàng. Personal banker là chuyên viên ngân hàng phụ trách riêng một khách hàng."
+ },
+ "beforehand": {
+  "mis": [
+   {
+    "w": "Beforehand the meeting, we checked the slides.",
+    "r": "Before the meeting, we checked the slides.",
+    "why": "Beforehand là trạng từ, không đi trước tân ngữ; dùng giới từ before."
+   },
+   {
+    "w": "We prepared beforehandly for the exam.",
+    "r": "We prepared beforehand for the exam.",
+    "why": "Beforehand đã là trạng từ nên không thêm -ly."
+   }
+  ],
+  "u": "Beforehand là trạng từ nghĩa là trước một thời điểm hay sự kiện, thường đứng cuối mệnh đề: Please call beforehand. Từ này hơi trang trọng hơn in advance. Beforehand không có tân ngữ theo sau, nên không nói beforehand the meeting; hãy nói before the meeting hoặc in advance of the meeting. Từ thường xuất hiện trong hướng dẫn và thông báo, ví dụ yêu cầu đặt chỗ hay thanh toán trước."
+ },
+ "booklet": {
+  "mis": [
+   {
+    "w": "The booklet contains many useful informations.",
+    "r": "The booklet contains a lot of useful information.",
+    "why": "Information là danh từ không đếm được, không có số nhiều."
+   },
+   {
+    "w": "I looked on the booklet for the schedule.",
+    "r": "I looked in the booklet for the schedule.",
+    "why": "Dùng 'in' cho nội dung nằm bên trong cuốn sách nhỏ hay tài liệu."
+   }
+  ],
+  "u": "Booklet là cuốn sách mỏng, nhỏ, bìa giấy và thường đóng ghim, cung cấp thông tin như hướng dẫn, chương trình hay quy định. Trong TOEIC từ này hay xuất hiện ở môi trường văn phòng và đào tạo: employee booklet, safety booklet. Nó nhỏ hơn manual và dày hơn leaflet, thường chỉ là một tờ gấp. Brochure thiên về quảng cáo và bóng bẩy hơn. Nội dung nằm in the booklet chứ không phải on the booklet."
+ },
+ "booth": {
+  "mis": [
+   {
+    "w": "We have a booth in the trade fair.",
+    "r": "We have a booth at the trade fair.",
+    "why": "Dùng 'at' với sự kiện như hội chợ hay hội nghị."
+   },
+   {
+    "w": "There is a booth sells tickets near the gate.",
+    "r": "There is a booth that sells tickets near the gate.",
+    "why": "Mệnh đề bổ nghĩa cho danh từ cần đại từ quan hệ như that hay which."
+   }
+  ],
+  "u": "Booth là không gian nhỏ khép kín hoặc nửa kín, hay một quầy nhỏ. Nó dùng cho quầy bán vé, phòng bỏ phiếu, máy chụp ảnh hay gian hàng công ty ở hội chợ: Please visit our booth. Trong nhà hàng, booth còn là khu ngồi cố định có bàn giữa hai dãy ghế lưng cao. Âm cuối là /θ/ vô thanh, không phải /ð/ hay t cứng. Booth gọn và riêng tư hơn stand hoặc stall."
+ },
+ "briefcase": {
+  "mis": [
+   {
+    "w": "She took a document out her briefcase.",
+    "r": "She took a document out of her briefcase.",
+    "why": "Out cần 'of' trước danh từ chỉ vật chứa, nói out her briefcase là thiếu giới từ."
+   },
+   {
+    "w": "The briefcase is belonged to my boss.",
+    "r": "The briefcase belongs to my boss.",
+    "why": "Belong không dùng ở thể bị động."
+   }
+  ],
+  "u": "Briefcase là chiếc cặp dẹt hình chữ nhật có quai xách, dùng mang giấy tờ và laptop đi làm. Từ gợi môi trường văn phòng, kinh doanh truyền thống, và trong phim thường đựng tài liệu mật hoặc tiền mặt. Các động từ hay đi kèm là carry, pack, open và leave behind. Attaché case là loại cứng, trang trọng hơn, còn laptop bag mềm và giản dị hơn. Đừng dùng cho cặp học sinh, vốn là backpack hay schoolbag."
+ },
+ "businessperson": {
+  "mis": [
+   {
+    "w": "Three businesspersons attended the meeting.",
+    "r": "Three businesspeople attended the meeting.",
+    "why": "Số nhiều thông dụng của businessperson là businesspeople."
+   },
+   {
+    "w": "The businesspeople is waiting in the lobby.",
+    "r": "The businesspeople are waiting in the lobby.",
+    "why": "Businesspeople là danh từ số nhiều nên đi với động từ số nhiều."
+   }
+  ],
+  "u": "Businessperson là từ trung tính về giới chỉ người làm kinh doanh, nhất là chủ hoặc quản lý, phổ biến trong văn viết trang trọng hiện đại và đề TOEIC. Nó thay cho businessman và businesswoman khi không biết hoặc không cần nêu giới tính. Số nhiều là businesspeople, viết liền một từ. Từ này mạnh hơn office worker: gợi đến giao dịch, đầu tư hay điều hành công ty. Entrepreneur nhấn mạnh việc lập doanh nghiệp mới."
+ },
+ "caller": {
+  "mis": [
+   {
+    "w": "A caller is waiting you on line two.",
+    "r": "A caller is waiting for you on line two.",
+    "why": "Wait cần 'for' trước người hay vật được chờ."
+   },
+   {
+    "w": "Ask the caller to leave message.",
+    "r": "Ask the caller to leave a message.",
+    "why": "Message đếm được nên số ít cần mạo từ."
+   }
+  ],
+  "u": "Caller là người gọi điện thoại, hoặc trong tiếng Anh Anh còn chỉ người ghé thăm nhà chốc lát. Ở văn phòng, lễ tân hay nói: The caller asked to speak to the manager. Caller ID là màn hình hiển thị số của người đang gọi. Anonymous caller và nuisance caller thường gặp trong tin về lừa đảo. Ở trung tâm chăm sóc khách hàng, người gọi chờ trong hàng đợi cho đến khi nhân viên nghe máy."
+ },
+ "captain": {
+  "mis": [
+   {
+    "w": "The captain welcomed to the passengers on board.",
+    "r": "The captain welcomed the passengers on board.",
+    "why": "Welcome ở đây là ngoại động từ nên không thêm 'to' trước tân ngữ."
+   },
+   {
+    "w": "She was elected the captain in our team.",
+    "r": "She was elected captain of our team.",
+    "why": "Dùng 'of' để nối captain với nhóm mà người đó dẫn dắt."
+   }
+  ],
+  "u": "Captain có nhiều nghĩa: phi công chỉ huy máy bay, thuyền trưởng, đội trưởng đội thể thao, hoặc cấp bậc quân đội, công an. Khi chức danh đứng một mình sau elect, appoint hay become thì thường bỏ mạo từ: She became captain of the team. Nhóm được nối bằng of. Phát âm là /ˈkæptən/ với âm giữa yếu. Skipper là cách nói thân mật hơn cho thuyền trưởng hoặc đội trưởng."
+ },
+ "careless": {
+  "mis": [
+   {
+    "w": "She drives very careless.",
+    "r": "She drives very carelessly.",
+    "why": "Từ bổ nghĩa cho động từ phải là trạng từ."
+   },
+   {
+    "w": "The careless is dangerous on the road.",
+    "r": "Carelessness is dangerous on the road.",
+    "why": "Careless là tính từ; danh từ là carelessness."
+   }
+  ],
+  "u": "Careless nghĩa là không đủ chú ý hay cẩn thận nên dễ sai sót: a careless error in an invoice. Từ có thể đi với with hoặc about: careless with money, careless about safety. Trạng từ là carelessly, danh từ là carelessness. Careless nhẹ hơn reckless, vốn hàm ý biết rủi ro mà vẫn làm. Đừng nhầm với carefree nghĩa là thoải mái, không lo nghĩ, mang nghĩa tích cực."
+ },
+ "carpenter": {
+  "mis": [
+   {
+    "w": "The carpenter made the table by wood.",
+    "r": "The carpenter made the table from wood.",
+    "why": "Dùng 'from' hoặc 'out of' cho chất liệu làm ra vật; 'by' không đúng, nhầm từ 'bằng'."
+   },
+   {
+    "w": "My father is carpenter.",
+    "r": "My father is a carpenter.",
+    "why": "Nghề nghiệp số ít sau 'be' cần a hoặc an."
+   }
+  ],
+  "u": "Carpenter là thợ lành nghề xây dựng và sửa các thứ bằng gỗ như mái, sàn, cửa và đồ nội thất. Trong tiếng Anh Anh, joiner thường làm đồ gỗ lắp sẵn trong xưởng, còn carpenter làm tại công trình. Cabinetmaker chuyên hơn về tủ. Cụm hay gặp là hire a carpenter và carpenter's tools. Nghề nghiệp sau be cần a hoặc an, còn chất liệu đi sau made from hoặc made of."
+ },
+ "closet": {
+  "mis": [
+   {
+    "w": "I put my shoes on the closet.",
+    "r": "I put my shoes in the closet.",
+    "why": "Đồ cất bên trong tủ nói 'in', không phải 'on'."
+   },
+   {
+    "w": "There are many cloths in my closet.",
+    "r": "There are many clothes in my closet.",
+    "why": "Cloths là các mảnh vải; quần áo mặc là clothes."
+   }
+  ],
+  "u": "Trong tiếng Anh Mỹ, closet là tủ âm tường hoặc phòng nhỏ để cất quần áo, đồ lau dọn hay áo khoác: walk-in closet, hall closet. Tiếng Anh Anh dùng wardrobe cho tủ rời và cupboard cho tủ âm tường. Closet space là điểm bán hàng quen thuộc trong quảng cáo căn hộ. Đừng nhầm clothes trong closet với cloths là khăn lau. Từ water closet kiểu cũ của Anh có nghĩa là nhà vệ sinh."
+ },
+ "cloth": {
+  "mis": [
+   {
+    "w": "She needs two meters of cloths for a dress.",
+    "r": "She needs two meters of cloth for a dress.",
+    "why": "Cloth nghĩa vải là không đếm được nên sau đơn vị đo không thêm s."
+   },
+   {
+    "w": "I washed my cloth yesterday.",
+    "r": "I washed my clothes yesterday.",
+    "why": "Quần áo mặc trên người là clothes, danh từ số nhiều."
+   }
+  ],
+  "u": "Cloth có hai cách dùng. Là danh từ không đếm được, nó nghĩa là vải dệt: a metre of cotton cloth. Là danh từ đếm được, nó là mảnh vải dùng làm việc gì đó: a damp cloth, a dish cloth. Khác với clothes, danh từ chỉ có số nhiều chỉ quần áo, phát âm /kloʊz/. Fabric và material gần nghĩa, nhưng cloth nghe đơn giản và truyền thống hơn, còn textile mang tính kỹ thuật."
+ },
+ "colleague": {
+  "mis": [
+   {
+    "w": "She is my colleague at university.",
+    "r": "She is my classmate at university.",
+    "why": "Colleague chỉ người cùng nơi làm hay nghề; bạn học là classmate."
+   },
+   {
+    "w": "I discussed it with a colleague of me.",
+    "r": "I discussed it with a colleague of mine.",
+    "why": "Sau 'of' dùng đại từ sở hữu mine, không dùng me."
+   }
+  ],
+  "u": "Colleague là người bạn làm cùng trong một tổ chức hoặc nghề, như đồng nghiệp giáo viên hay bác sĩ. Từ hơi trang trọng hơn coworker, vốn hợp với lời nói thân mật và tiếng Anh Mỹ. Trọng âm rơi vào âm tiết đầu, và đuôi -gue đọc là /g/. Mẫu a colleague of mine rất thường gặp. Không dùng cho bạn cùng trường, vốn là classmate hoặc schoolmate."
+ },
+ "comfortably": {
+  "mis": [
+   {
+    "w": "The hotel is comfortably.",
+    "r": "The hotel is comfortable.",
+    "why": "Sau 'be' cần tính từ mô tả danh từ, không dùng trạng từ."
+   },
+   {
+    "w": "She sat comfortable in the armchair.",
+    "r": "She sat comfortably in the armchair.",
+    "why": "Từ bổ nghĩa cho động từ sat phải là trạng từ."
+   }
+  ],
+  "u": "Comfortably là trạng từ có ba cách dùng chính: một cách thoải mái về thể chất (sit comfortably), đủ tiền để sống không lo nghĩ (live comfortably, comfortably off), và với cách biệt rõ rệt (win comfortably). Âm tiết đầu thường đọc nhẹ nên nghe như ba âm tiết, /ˈkʌmftərbli/. Tính từ là comfortable, dùng sau be. Không nói the hotel is comfortably mà nói the hotel is comfortable."
+ },
+ "conditioner": {
+  "mis": [
+   {
+    "w": "Please turn on the conditioner.",
+    "r": "Please turn on the air conditioner.",
+    "why": "Conditioner đứng một mình thường chỉ dầu xả; máy lạnh là air conditioner."
+   },
+   {
+    "w": "I need a conditioner for hairs.",
+    "r": "I need a conditioner for hair.",
+    "why": "Hair chỉ toàn bộ tóc trên đầu là danh từ không đếm được."
+   }
+  ],
+  "u": "Conditioner thường chỉ sản phẩm dùng sau gội để tóc mềm, dễ chải, tức dầu xả. Ở dạng dài hơn nó chỉ các thứ khác: air conditioner (máy làm mát phòng) và fabric conditioner (nước xả vải). Vì air conditioner thường được rút gọn thành AC hoặc aircon, nên từ conditioner đơn lẻ được hiểu là dầu xả. Hair ở đây không đếm được: shampoo and conditioner for dry hair."
+ },
+ "container": {
+  "mis": [
+   {
+    "w": "We shipped the goods by a container.",
+    "r": "We shipped the goods in a container.",
+    "why": "Dùng 'in' cho vật chứa hàng hóa."
+   },
+   {
+    "w": "Put the leftovers in a container of plastic.",
+    "r": "Put the leftovers in a plastic container.",
+    "why": "Chất liệu dùng để mô tả đứng trước danh từ."
+   }
+  ],
+  "u": "Container là vật dùng để chứa hoặc chở đồ, từ hộp nhựa nhỏ đựng thức ăn đến thùng thép khổng lồ cho tàu, tàu hỏa và xe tải. Trong thương mại, shipping container là chuẩn, và container ship chở hàng nghìn thùng. Mẫu hay dùng là store food in an airtight container. Chất liệu thường đứng trước: a plastic container, a glass container. Box chung hơn và ít trang trọng hơn."
+ },
+ "convenient": {
+  "mis": [
+   {
+    "w": "Are you convenient on Friday?",
+    "r": "Is Friday convenient for you?",
+    "why": "Convenient mô tả thời gian, địa điểm, không mô tả người; người thì dùng free hoặc available."
+   },
+   {
+    "w": "It is convenient for me to meeting you at six.",
+    "r": "It is convenient for me to meet you at six.",
+    "why": "Sau 'to' dùng động từ nguyên mẫu."
+   }
+  ],
+  "u": "Convenient mô tả điều tiết kiệm thời gian, công sức hoặc hợp với kế hoạch: a convenient location, a convenient time. Từ dùng cho sự vật, thời gian, địa điểm, không dùng cho người nên Are you convenient là sai. Hãy nói Is Friday convenient for you? hoặc Are you free on Friday? Danh từ là convenience, và cụm lịch sự at your convenience nghĩa là khi nào bạn thấy tiện. Trái nghĩa là inconvenient."
+ },
+ "conveniently": {
+  "mis": [
+   {
+    "w": "Paying online is conveniently for most people.",
+    "r": "Paying online is convenient for most people.",
+    "why": "Sau 'be' cần tính từ; conveniently là trạng từ."
+   },
+   {
+    "w": "The office is convenient located near the station.",
+    "r": "The office is conveniently located near the station.",
+    "why": "Cần trạng từ để bổ nghĩa cho tính từ located."
+   }
+  ],
+  "u": "Conveniently là trạng từ nghĩa là một cách dễ dàng, thuận tiện. Từ thường gặp nhất trong văn bản bất động sản và du lịch: a conveniently located hotel, close to the airport. Nó còn có nghĩa mỉa mai: He conveniently forgot his wallet, tức là việc quên có lợi cho anh ta. Tính từ là convenient. Dùng trạng từ trước located, situated hay placed là mẫu quen thuộc trong quảng cáo và bài đọc TOEIC."
+ },
+ "cooler": {
+  "mis": [
+   {
+    "w": "Today is cooler that yesterday.",
+    "r": "Today is cooler than yesterday.",
+    "why": "So sánh hơn dùng 'than' để nêu vật được so sánh."
+   },
+   {
+    "w": "It will be more cooler tomorrow.",
+    "r": "It will be cooler tomorrow.",
+    "why": "Tính từ so sánh đã có -er thì không thêm 'more'."
+   }
+  ],
+  "u": "Cooler vừa là tính từ so sánh hơn, như cooler weather, vừa là danh từ. Là danh từ, nó chỉ thùng giữ lạnh đồ ăn, thức uống, gọi là cooler ở Mỹ và cool box ở Anh. Water cooler là máy lọc nước văn phòng, và water-cooler chat nghĩa là trò chuyện phiếm nơi công sở. Nhớ so sánh hơn của cool là cooler, không bao giờ là more cooler."
+ },
+ "copier": {
+  "mis": [
+   {
+    "w": "Please make a copier of this report.",
+    "r": "Please make a copy of this report.",
+    "why": "Máy là copier; bản in ra là copy."
+   },
+   {
+    "w": "Please put more paper to the tray.",
+    "r": "Please put more paper in the tray.",
+    "why": "Dùng 'in' cho vật đặt vào bên trong khay."
+   }
+  ],
+  "u": "Copier là máy tạo bản sao của tài liệu. Tiếng Anh Mỹ dùng nhiều ở văn phòng; tiếng Anh Anh thích photocopier hơn. Cảnh văn phòng trong TOEIC hay nhắc máy bị kẹt giấy, hết giấy hoặc hết mực. Các động từ đi kèm là use, fix và refill. Thứ tạo ra là copy, nên nói make a copy nhưng use the copier. Copy machine là một biến thể khác thường gặp ở Mỹ."
+ },
+ "cord": {
+  "mis": [
+   {
+    "w": "Don't trip over the electricity cord.",
+    "r": "Don't trip over the power cord.",
+    "why": "Cụm chuẩn là power cord hoặc electrical cord, không phải electricity cord."
+   },
+   {
+    "w": "Be careful with the cord, don't step it.",
+    "r": "Be careful with the cord, don't step on it.",
+    "why": "Động từ step cần 'on' trước vật bị giẫm."
+   }
+  ],
+  "u": "Cord là sợi dây dày hoặc dây điện mềm có phích cắm, như power cord và extension cord. Trong tiếng Anh Anh, loại dây điện hay gọi là lead hoặc flex. Dây sạc điện thoại thường gọi là cable hơn là cord. Cord còn nghĩa là dây thừng nhỏ để buộc, và a cord of wood là đơn vị đo củi. Biển an toàn thường cảnh báo dây điện bị sờn."
+ },
+ "cordless": {
+  "mis": [
+   {
+    "w": "This vacuum is cordlessly.",
+    "r": "This vacuum is cordless.",
+    "why": "Sau 'be' cần tính từ, không dùng trạng từ."
+   },
+   {
+    "w": "This drill is cordless, so you can use it anywhere without plug.",
+    "r": "This drill is cordless, so you can use it anywhere without a plug.",
+    "why": "Plug đếm được nên số ít cần mạo từ."
+   }
+  ],
+  "u": "Cordless là tính từ chỉ thiết bị chạy bằng pin thay vì dây điện: cordless drill, vacuum hay phone. Nó nhấn mạnh việc không có dây nguồn, còn wireless nhấn vào tín hiệu như Wi-Fi hay Bluetooth, nên chuột thường là wireless còn dụng cụ là cordless. Trái nghĩa là corded. Không thêm -ly vì dạng cordlessly hầu như không dùng trong tiếng Anh thường ngày."
+ },
+ "countryside": {
+  "mis": [
+   {
+    "w": "We went to the countrysides last weekend.",
+    "r": "We went to the countryside last weekend.",
+    "why": "Countryside thường là số ít và đi với the."
+   },
+   {
+    "w": "I love the quiet and fresh air of country.",
+    "r": "I love the quiet and fresh air of the countryside.",
+    "why": "Country là quốc gia; vùng quê là the countryside."
+   }
+  ],
+  "u": "The countryside là vùng đất ngoài thị trấn và thành phố, có nông trại, làng mạc và cánh đồng. Từ thường là số ít và đi với the: live in the countryside, a walk through the countryside. Không giống country vốn thường là quốc gia, nên I love the country có thể gây hiểu nhầm. Ở Anh, the countryside còn là nơi nghỉ ngơi và đi bộ. Rural là tính từ trang trọng tương ứng."
+ },
+ "coworker": {
+  "mis": [
+   {
+    "w": "My coworkers is very helpful.",
+    "r": "My coworkers are very helpful.",
+    "why": "Chủ ngữ số nhiều cần động từ số nhiều."
+   },
+   {
+    "w": "She is my co-work at the bank.",
+    "r": "She is my coworker at the bank.",
+    "why": "Người đồng nghiệp là coworker; work là hoạt động."
+   }
+  ],
+  "u": "Coworker là người làm việc cùng bạn, thường ở cùng cấp. Đây là từ phổ biến trong tiếng Anh Mỹ, văn bản cũ hay viết co-worker, còn tiếng Anh Anh dùng colleague hoặc workmate. Coworker ít trang trọng hơn colleague, hợp với giao tiếp hàng ngày, thư của bộ phận nhân sự và email TOEIC. Work tự nó không chỉ người: she is my coworker chứ không phải my co-work. Cụm fellow coworker là thừa."
+ },
+ "cushion": {
+  "mis": [
+   {
+    "w": "The sofa has many soft cushion.",
+    "r": "The sofa has many soft cushions.",
+    "why": "Many cần danh từ số nhiều."
+   },
+   {
+    "w": "He sat in the cushion.",
+    "r": "He sat on the cushion.",
+    "why": "Bạn ngồi on đệm vì đệm nằm bên dưới."
+   }
+  ],
+  "u": "Cushion là túi mềm nhồi mút hoặc lông vũ dùng để ngồi, tựa lưng hoặc trang trí ghế sofa. Âm u ở âm tiết đầu là /ʊ/ ngắn như trong put, phần cuối đọc là /ʃn/. Là động từ, nó còn nghĩa làm giảm cú va chạm, như cushion the impact. Pillow dùng cho đầu khi nằm giường, còn cushion dành cho ghế và sofa."
+ },
+ "departure": {
+  "mis": [
+   {
+    "w": "The train's departure is on 9 a.m.",
+    "r": "The train's departure is at 9 a.m.",
+    "why": "Dùng 'at' với giờ cụ thể."
+   },
+   {
+    "w": "What time does the bus departure?",
+    "r": "What time does the bus depart?",
+    "why": "Departure là danh từ; động từ là depart."
+   }
+  ],
+  "u": "Departure là danh từ chỉ hành động rời đi, nhất là cuộc hành trình. Ở sân bay bạn thấy Departures, departure gate và departure time, đối lập với arrival. Động từ là depart, và trọng âm rơi vào âm tiết thứ hai ở cả hai từ. Giờ cụ thể dùng at: departure at 9 a.m. A departure from còn nghĩa là sự khác với thông lệ, như a departure from the plan."
+ },
+ "diamond": {
+  "mis": [
+   {
+    "w": "The ring is made by diamond.",
+    "r": "The ring is made of diamond.",
+    "why": "Dùng 'of' cho chất liệu cấu thành nên vật."
+   },
+   {
+    "w": "He wore a ring with a big diamonds.",
+    "r": "He wore a ring with a big diamond.",
+    "why": "Mạo từ 'a' đòi hỏi danh từ số ít."
+   }
+  ],
+  "u": "Diamond là loại đá quý rất cứng, trong suốt dùng làm trang sức và dụng cụ cắt, đồng thời là tên một hình dạng và sân bóng chày. Cụm thường gặp là diamond ring và diamond mine. A rough diamond là viên chưa mài, cũng chỉ người có phẩm chất tốt nhưng thiếu tinh tế. Kim cương cấu tạo từ carbon. Từ thường đọc hai âm tiết, /ˈdaɪmənd/."
+ },
+ "dislike": {
+  "mis": [
+   {
+    "w": "I dislike to get up early.",
+    "r": "I dislike getting up early.",
+    "why": "Dislike đi với danh động từ, không dùng to-V."
+   },
+   {
+    "w": "I am dislike spicy food.",
+    "r": "I dislike spicy food.",
+    "why": "Dislike đã là động từ nên không cần 'be'."
+   }
+  ],
+  "u": "Dislike là động từ nghĩa là không thích, đồng thời là danh từ: a strong dislike of noise. Là động từ, nó đi với tân ngữ hoặc danh động từ: dislike spicy food, dislike waiting. Trong hội thoại I don't like tự nhiên hơn, còn dislike nghe trang trọng và hay gặp trong khảo sát. Mạnh hơn là hate và detest. Take a dislike to nghĩa là bắt đầu ghét ai đó."
+ },
+ "documentary": {
+  "mis": [
+   {
+    "w": "I watched a documentary about animals in the TV.",
+    "r": "I watched a documentary about animals on TV.",
+    "why": "Dùng 'on' cho chương trình truyền hình, radio và thường không có 'the'."
+   },
+   {
+    "w": "The documentary was very bored.",
+    "r": "The documentary was very boring.",
+    "why": "Tính từ đuôi -ing mô tả thứ gây ra cảm giác."
+   }
+  ],
+  "u": "Documentary là phim hoặc chương trình truyền hình cho thấy người và sự kiện thật nhằm cung cấp thông tin, như phim tài liệu thiên nhiên hay về chiến tranh. Trọng âm rơi vào âm tiết thứ ba, /ˌdɑːkjuˈmentri/. Documentary còn là tính từ nghĩa là dựa trên tài liệu: documentary evidence. So với feature film là phim hư cấu. Chương trình thì watched on TV và heard on the radio."
+ },
+ "donate": {
+  "mis": [
+   {
+    "w": "She donated the charity $100.",
+    "r": "She donated $100 to the charity.",
+    "why": "Donate cần 'to' trước người nhận; không dùng mẫu hai tân ngữ liền nhau."
+   },
+   {
+    "w": "People are donating to the poor children clothes.",
+    "r": "People are donating clothes to the poor children.",
+    "why": "Vật được tặng đứng ngay sau donate, rồi mới đến 'to' và người nhận."
+   }
+  ],
+  "u": "Donate nghĩa là tặng tiền, hàng hóa, máu hoặc thời gian cho tổ chức từ thiện hay mục đích tốt, thường không đòi đền đáp. Thứ tự từ là donate something to someone: donate clothes to a shelter. Khác với give, nó không nhận hai tân ngữ liền nhau. Danh từ là donation và người tặng là donor. Từ trang trọng hơn give, và trọng âm rơi vào âm tiết đầu, /ˈdoʊneɪt/."
+ },
+ "doorman": {
+  "mis": [
+   {
+    "w": "The doorman open the door for guests.",
+    "r": "The doorman opens the door for guests.",
+    "why": "Chủ ngữ ngôi thứ ba số ít cần động từ thêm -s ở hiện tại."
+   },
+   {
+    "w": "He works as doorman in a hotel.",
+    "r": "He works as a doorman in a hotel.",
+    "why": "Chức danh số ít cần mạo từ a hoặc an."
+   }
+  ],
+  "u": "Doorman là người được thuê đứng ở lối vào khách sạn hoặc chung cư, mở cửa, chào khách và đôi khi gọi taxi hay xách hành lý. Số nhiều là doormen. Từ chủ yếu dùng ở Mỹ; tiếng Anh Anh dùng porter hoặc commissionaire. Doorman building là chung cư có dịch vụ này và thường giá cao hơn. Concierge lo đặt chỗ và tư vấn, không chỉ lo cửa."
+ },
+ "earthquake": {
+  "mis": [
+   {
+    "w": "An earthquake was happened in Japan last night.",
+    "r": "An earthquake happened in Japan last night.",
+    "why": "Happen không có thể bị động."
+   },
+   {
+    "w": "Earthquake destroyed many houses.",
+    "r": "The earthquake destroyed many houses.",
+    "why": "Danh từ đếm được số ít cần từ hạn định, ở đây là 'the' cho sự kiện đã biết."
+   }
+  ],
+  "u": "Earthquake là sự rung chuyển mạnh đột ngột của mặt đất do đá dưới bề mặt dịch chuyển. Đây là danh từ đếm được: a strong earthquake, two earthquakes. Trong tin tức, từ thường đi với hit, strike hoặc occur và các thước đo như magnitude. Quake là từ ngắn dùng trong báo chí, còn tremor là chấn động nhẹ hơn. Diễn tập earthquake drill dạy mọi người ẩn nấp, phổ biến ở Nhật Bản."
+ },
+ "electrician": {
+  "mis": [
+   {
+    "w": "My brother works as an electric in a factory.",
+    "r": "My brother works as an electrician in a factory.",
+    "why": "Người làm nghề là electrician; electric là tính từ."
+   },
+   {
+    "w": "He is a electrician.",
+    "r": "He is an electrician.",
+    "why": "Dùng 'an' trước âm nguyên âm."
+   }
+  ],
+  "u": "Electrician là thợ có đào tạo chuyên lắp đặt, kiểm tra và sửa dây điện, thiết bị điện trong nhà, văn phòng, nhà máy. Licensed electrician là người đã qua kỳ thi chính thức, điều quan trọng với quy định an toàn. Trọng âm rơi vào -tri-, /ɪˌlekˈtrɪʃn/, đuôi -cian đọc là /ʃn/. Cụm hay gặp là call an electrician và hire an electrician. Electrical engineer thiết kế hệ thống chứ không trực tiếp lắp đặt."
+ },
+ "energetic": {
+  "mis": [
+   {
+    "w": "She is very energy.",
+    "r": "She is very energetic.",
+    "why": "Sau 'be' và 'very' cần tính từ."
+   },
+   {
+    "w": "She is an energetic person, always full with energy.",
+    "r": "She is an energetic person, always full of energy.",
+    "why": "Full đi với 'of', không phải 'with'."
+   }
+  ],
+  "u": "Energetic mô tả người, hoạt động hay phong cách sôi nổi, đầy năng lượng thể chất hoặc tinh thần. Trong tin tuyển dụng, từ xuất hiện ở cụm an energetic, enthusiastic team member. Danh từ là energy, trạng từ là energetically, và trọng âm rơi vào âm tiết thứ ba, /ˌenərˈdʒetɪk/. Từ mạnh hơn active và ấm áp hơn dynamic. Energy-efficient là ý khác, dùng cho máy tiết kiệm điện."
+ },
+ "erase": {
+  "mis": [
+   {
+    "w": "Please erase out the old files.",
+    "r": "Please erase the old files.",
+    "why": "Erase là ngoại động từ, không cần tiểu từ."
+   },
+   {
+    "w": "I need an erase to fix my mistake.",
+    "r": "I need an eraser to fix my mistake.",
+    "why": "Dụng cụ là eraser; erase là động từ."
+   }
+  ],
+  "u": "Erase nghĩa là xóa hẳn chữ viết, bản ghi hoặc dữ liệu đến mức không còn dấu vết: erase a file, erase the whiteboard. Mạnh hơn delete vốn thường có thể hoàn tác. Tân ngữ đứng ngay sau, không có tiểu từ: erase the data, không phải erase out. Dụng cụ là eraser trong tiếng Anh Mỹ và rubber trong tiếng Anh Anh. Nghĩa bóng, có thể erase a memory hoặc erase a difference."
+ },
+ "experiment": {
+  "mis": [
+   {
+    "w": "They made an experiment on the new drug.",
+    "r": "They carried out an experiment on the new drug.",
+    "why": "Thí nghiệm được conduct, carry out hoặc do chứ không dùng make."
+   },
+   {
+    "w": "Teachers experiment the new method in class.",
+    "r": "Teachers experiment with the new method in class.",
+    "why": "Động từ experiment cần 'with' trước thứ được thử."
+   }
+  ],
+  "u": "Experiment vừa là danh từ vừa là động từ. Là danh từ, nó nghĩa là phép thử, thường mang tính khoa học, để xem điều gì xảy ra: conduct hoặc carry out an experiment, kèm giới từ on cho đối tượng thử. Là động từ, nó là nội động từ cần with hoặc on: experiment with new ideas. Danh từ nhấn âm tiết thứ hai, /ɪkˈsperəmənt/, tính từ là experimental. Trial thường dùng hơn cho sản phẩm."
+ },
+ "explorer": {
+  "mis": [
+   {
+    "w": "He is a famous exploration.",
+    "r": "He is a famous explorer.",
+    "why": "Người đi khám phá là explorer; exploration là hành động."
+   },
+   {
+    "w": "Explorers are people who explore to unknown places.",
+    "r": "Explorers are people who explore unknown places.",
+    "why": "Explore là ngoại động từ nên không thêm 'to'."
+   }
+  ],
+  "u": "Explorer là người đi qua những vùng xa lạ để tìm hiểu, như nhà thám hiểm cực hay thám hiểm biển sâu. Động từ explore nhận tân ngữ trực tiếp: explore the jungle. Danh từ chỉ hoạt động là exploration, và tính từ là exploratory. Explorer hay gắn với lịch sử, như Columbus hay Magellan, nhưng cũng hợp với vũ trụ và khoa học. Adventurer thiên về cảm giác mạnh hơn là nghiên cứu."
+ },
+ "extinguisher": {
+  "mis": [
+   {
+    "w": "The fire extinguishing is next to the door.",
+    "r": "The fire extinguisher is next to the door.",
+    "why": "Thiết bị là extinguisher; extinguishing là dạng -ing của động từ."
+   },
+   {
+    "w": "He used an extinguisher to extinguisher the fire.",
+    "r": "He used an extinguisher to extinguish the fire.",
+    "why": "Sau 'to' dùng động từ nguyên mẫu extinguish."
+   }
+  ],
+  "u": "Extinguisher là thiết bị phun bọt, nước hoặc bột để dập lửa, hầu như luôn nằm trong cụm fire extinguisher. Động từ liên quan là extinguish, trọng âm ở âm tiết thứ hai. Đây là danh từ đếm được, xuất hiện trong thông báo an toàn, văn phòng và kiểm tra tòa nhà: Check the extinguisher every month. Âm -gu- đọc là /ɡw/. Đừng dùng cho báo khói, chỉ có tác dụng cảnh báo."
+ },
+ "farewell": {
+  "mis": [
+   {
+    "w": "We said farewell her at the airport.",
+    "r": "We said farewell to her at the airport.",
+    "why": "Farewell khi là danh từ cần 'to' trước người."
+   },
+   {
+    "w": "We had a farewell party to our manager.",
+    "r": "We had a farewell party for our manager.",
+    "why": "Dùng 'for' để chỉ người mà sự kiện dành cho."
+   }
+  ],
+  "u": "Farewell là từ trang trọng hoặc văn chương nghĩa là tạm biệt. Là danh từ, nó xuất hiện trong farewell party, farewell speech và say farewell to someone. Từ này nhấn âm tiết thứ hai ở nhiều từ điển, /ˌferˈwel/. Hằng ngày người ta nói goodbye hay see you, còn farewell hợp với lễ nghỉ hưu hoặc chia tay. Là thán từ nó khá cổ. Send-off là buổi chia tay ấm cúng, thân mật hơn."
+ },
+ "fasten": {
+  "mis": [
+   {
+    "w": "Passengers must fastened their seat belts.",
+    "r": "Passengers must fasten their seat belts.",
+    "why": "Sau động từ khuyết thiếu dùng động từ nguyên mẫu."
+   },
+   {
+    "w": "Please fasten securely your seat belt.",
+    "r": "Please fasten your seat belt securely.",
+    "why": "Trạng từ cách thức thường đứng sau tân ngữ."
+   }
+  ],
+  "u": "Fasten nghĩa là đóng hoặc gắn chặt để không bung ra: fasten a seat belt, fasten a button. Trong thông báo trên máy bay có câu Please fasten your seat belts. Âm t không đọc nên phát âm là /ˈfæsn/. Trạng từ cách thức thường đứng sau tân ngữ: fasten the lid tightly. Buckle và secure gần nghĩa, nhưng fasten chung hơn. Trái nghĩa là unfasten."
+ },
+ "firstly": {
+  "mis": [
+   {
+    "w": "Firstly of all, I want to thank you.",
+    "r": "First of all, I want to thank you.",
+    "why": "Cụm cố định là first of all; firstly không đứng trước 'of all'."
+   },
+   {
+    "w": "At firstly, I did not like him.",
+    "r": "At first, I did not like him.",
+    "why": "'At first' nghĩa là lúc đầu và dùng first, không phải firstly."
+   }
+  ],
+  "u": "Firstly là trạng từ nêu ý đầu tiên trong một danh sách có thứ tự: Firstly, the cost is low; secondly, the location is good. First hoặc first of all cũng phổ biến và nghe bớt cứng. Không dùng cho thời gian: at first nghĩa là lúc đầu, và for the first time là cụm khác. Firstly hay gặp trong bài luận, theo sau là secondly và finally. Thường có dấu phẩy sau từ này."
+ },
+ "flavor": {
+  "mis": [
+   {
+    "w": "The soup is very flavor.",
+    "r": "The soup is very flavorful.",
+    "why": "Sau 'very' cần tính từ; flavor là danh từ."
+   },
+   {
+    "w": "Add some herbs for flavor the soup.",
+    "r": "Add some herbs to flavor the soup.",
+    "why": "Mục đích đi trước động từ dùng 'to', không dùng 'for'."
+   }
+  ],
+  "u": "Flavor là vị của đồ ăn thức uống, gồm cả mùi: a rich flavor, a mild flavor. Đây là cách viết Mỹ; tiếng Anh Anh viết flavour. Nó cũng là động từ: flavor soup with herbs. Tính từ là flavorful, hoặc flavoursome ở Anh. Flavor of the month chỉ thứ chỉ phổ biến một thời gian ngắn. Taste chung hơn, còn flavor thường chỉ một loại cụ thể của kem hay snack."
+ },
+ "flour": {
+  "mis": [
+   {
+    "w": "She bought two flours at the market.",
+    "r": "She bought two bags of flour at the market.",
+    "why": "Flour không đếm được; muốn đếm cần đơn vị như bags."
+   },
+   {
+    "w": "The cake is made from wheat flower.",
+    "r": "The cake is made from wheat flour.",
+    "why": "Flower là hoa; flour là bột từ ngũ cốc."
+   }
+  ],
+  "u": "Flour là bột mịn xay từ lúa mì hoặc ngũ cốc khác, dùng làm bánh mì, bánh ngọt và mì ống. Đây là danh từ không đếm được nên đếm bằng đơn vị: a bag of flour, two cups of flour. Đừng nhầm với flower, từ đồng âm nghĩa là bông hoa. Loại thường gặp là plain flour và self-raising flour ở Anh, all-purpose flour ở Mỹ. Bột gạo cũng bán rộng rãi."
+ },
+ "flyer": {
+  "mis": [
+   {
+    "w": "They gave the flyers for people on the street.",
+    "r": "They gave flyers to people on the street.",
+    "why": "Give cần 'to' trước người nhận khi vật được trao đứng trước."
+   },
+   {
+    "w": "Please print one hundred flyer for the event.",
+    "r": "Please print one hundred flyers for the event.",
+    "why": "Số lớn hơn một cần danh từ số nhiều."
+   }
+  ],
+  "u": "Flyer là tờ giấy in đơn dùng quảng cáo sự kiện, cửa hàng hay dịch vụ, thường phát ngoài phố hoặc bỏ vào hộp thư: hand out flyers. Cũng viết là flier. Ít trang trọng hơn brochure, thường gấp và bóng. Flyer còn là người đi máy bay, như frequent flyer. Leaflet phổ biến trong tiếng Anh Anh."
+ },
+ "fountain": {
+  "mis": [
+   {
+    "w": "Let's meet at front of the fountain.",
+    "r": "Let's meet in front of the fountain.",
+    "why": "Cụm cố định là 'in front of', không phải 'at front of'."
+   },
+   {
+    "w": "The fountain shoots water to the air.",
+    "r": "The fountain shoots water into the air.",
+    "why": "Dùng 'into' cho chuyển động đi vào một không gian như không khí."
+   }
+  ],
+  "u": "Fountain là công trình phun nước lên không trung, thường đặt ở công viên hoặc quảng trường để trang trí. Trong tiếng Anh Mỹ, drinking fountain hay water fountain là vòi nước uống công cộng. Fountain pen là bút máy có ngăn mực nạp lại. Âm t ở cuối thường đọc nhẹ và phần cuối nghe như /ntn/. Fountain of youth là dòng suối huyền thoại giúp con người trẻ mãi."
+ },
+ "gasoline": {
+  "mis": [
+   {
+    "w": "The price of gasolines rose again.",
+    "r": "The price of gasoline rose again.",
+    "why": "Gasoline là danh từ không đếm được, không có số nhiều."
+   },
+   {
+    "w": "In the UK, people call it gasoline.",
+    "r": "In the UK, people call it petrol.",
+    "why": "Tiếng Anh Anh dùng petrol; gasoline là tiếng Anh Mỹ."
+   }
+  ],
+  "u": "Gasoline là nhiên liệu dùng cho hầu hết ô tô. Đây là danh từ không đếm được: gasoline prices, a gallon of gasoline. Trong tiếng Anh Mỹ người ta hay rút gọn thành gas, dễ gây nhầm vì gas còn là khí đốt. Tiếng Anh Anh nói petrol, còn diesel là nhiên liệu khác. Trọng âm rơi vào âm tiết đầu, /ˈɡæsəliːn/. Từ liên quan là unleaded và trạm xăng, người Mỹ gọi là gas station."
+ }
+}

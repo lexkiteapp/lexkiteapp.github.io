@@ -1,0 +1,752 @@
+{
+ "irrelevant": {
+  "mis": [
+   {
+    "w": "That comment is irrelevant with our discussion.",
+    "r": "That comment is irrelevant to our discussion.",
+    "why": "Irrelevant takes the preposition 'to', not 'with'."
+   },
+   {
+    "w": "Your age is irrelevance for this job.",
+    "r": "Your age is irrelevant for this job.",
+    "why": "After 'is' you need the adjective irrelevant; irrelevance is a noun."
+   }
+  ],
+  "u": "Irrelevant describes something that has no connection with the matter being discussed or decided. It is a standard word in meetings, reports and exams: delete irrelevant details, an irrelevant question. The usual pattern is irrelevant to something, never irrelevant with. It is stronger than unimportant, because an irrelevant fact may be true but simply does not help. The noun is irrelevance, and the opposite is relevant. In formal writing it often appears as 'largely irrelevant'."
+ },
+ "kit": {
+  "mis": [
+   {
+    "w": "The mechanic carried a kit of tool.",
+    "r": "The mechanic carried a kit of tools.",
+    "why": "After 'kit of' use a plural noun for the separate items."
+   },
+   {
+    "w": "Each new employee receives a kit safety.",
+    "r": "Each new employee receives a safety kit.",
+    "why": "In English the describing noun comes before the main noun: safety kit."
+   }
+  ],
+  "u": "Kit is a countable noun for a set of tools, parts or clothing that you need for a particular purpose: a first-aid kit, a repair kit, a model-building kit. In British English it also means a sports uniform, as in football kit, which Americans usually call a uniform. Kit is more specific than equipment, which is uncountable and covers any gear. Compare a set, which can be any group of matching things, with a kit, where the items are bundled for one job."
+ },
+ "lane": {
+  "mis": [
+   {
+    "w": "The truck is driving at the slow lane.",
+    "r": "The truck is driving in the slow lane.",
+    "why": "Use 'in' with lane when saying which lane a vehicle is using."
+   },
+   {
+    "w": "She won the race in the third line of the pool.",
+    "r": "She won the race in the third lane of the pool.",
+    "why": "The marked strip in a pool, track or road is a lane, not a line."
+   }
+  ],
+  "u": "Lane means a narrow strip for one line of traffic, whether on a road, in a swimming pool or on a running track. On roads you drive in a lane and change lanes. The fast lane is the one for overtaking, and the same phrase is used figuratively for a hectic life. In British English a lane can also be a small country road, while in American English that sense is rarer. Do not confuse it with line, which is any mark or row."
+ },
+ "lately": {
+  "mis": [
+   {
+    "w": "I am very busy lately.",
+    "r": "I have been very busy lately.",
+    "why": "Lately describes a period up to now, so use present perfect, not simple present."
+   },
+   {
+    "w": "I didn't see him lately.",
+    "r": "I haven't seen him lately.",
+    "why": "Lately is not used with simple past; use the present perfect."
+   }
+  ],
+  "u": "Lately means 'in the recent past, up to now' and is used for a period, not a single moment. It is normally found with the present perfect or present perfect continuous: I have been sleeping badly lately. It sounds natural in speech and informal writing, and is often used in questions and negatives (Have you seen Tom lately?). Do not mix it up with late, which can be an adjective or an adverb meaning after the expected time. Recently is more flexible, since it also works with the simple past."
+ },
+ "lawn": {
+  "mis": [
+   {
+    "w": "Please do not walk in the lawn.",
+    "r": "Please do not walk on the lawn.",
+    "why": "Use 'on' for a surface you walk or sit on, such as a lawn."
+   },
+   {
+    "w": "The lawn needs mow every week.",
+    "r": "The lawn needs mowing every week.",
+    "why": "After 'need' use the -ing form when the subject receives the action."
+   }
+  ],
+  "u": "A lawn is an area of grass that is kept short and tidy, usually beside a house or in a park or on a golf course. It is a countable noun: a large front lawn, two lawns. The standard verb is mow, with the machine called a lawn mower, and people sit or play on the lawn. Do not use grass as a countable word for this; grass is the plant itself. Lawn refers only to cultivated grass, never to a wild field."
+ },
+ "leak": {
+  "mis": [
+   {
+    "w": "There is a leak on the roof.",
+    "r": "There is a leak in the roof.",
+    "why": "Use 'in' for a hole or fault within a structure."
+   },
+   {
+    "w": "The pipe leaked out of water all night.",
+    "r": "The pipe leaked water all night.",
+    "why": "Leak can take the liquid as a direct object, so no 'out of' is needed."
+   }
+  ],
+  "u": "Leak works as both a noun and a verb. As a noun it is a hole or crack that lets liquid or gas escape: a gas leak, a leak in the ceiling. The verb can be intransitive (the roof leaks) or take the liquid as an object (the tank leaked oil). It also has a figurative sense in news and business: a leak of confidential documents, or someone leaking information to the press. Fix or repair a leak, and plug or seal one."
+ },
+ "lease": {
+  "mis": [
+   {
+    "w": "We signed a lease of the office for three years.",
+    "r": "We signed a lease for the office for three years.",
+    "why": "The preposition after lease is 'for' (or 'on'), not 'of'."
+   },
+   {
+    "w": "The company leased the building to a bank, so it pays rent every month.",
+    "r": "The company leased the building from a landlord, so it pays rent every month.",
+    "why": "Pay rent means you are the tenant, so use 'lease from', not 'lease to'."
+   }
+  ],
+  "u": "Lease is a written agreement to rent land, a building, a car or equipment for a fixed period, and the same word is a verb. The confusing point is direction: the owner leases something to a tenant, while the tenant leases it from the owner. Typical phrases are sign, renew, extend or terminate a lease. A lease is longer and more formal than a casual rental, and it sets the rent and the conditions. The verb let is a British synonym used mostly for property."
+ },
+ "lifetime": {
+  "mis": [
+   {
+    "w": "I have never seen such a thing on my lifetime.",
+    "r": "I have never seen such a thing in my lifetime.",
+    "why": "The fixed phrase is 'in my lifetime'."
+   },
+   {
+    "w": "This is a chance of once in lifetime.",
+    "r": "This is a once-in-a-lifetime chance.",
+    "why": "The phrase needs 'a', and as a modifier before a noun it is hyphenated."
+   }
+  ],
+  "u": "Lifetime means the whole period of a person's life, or the period during which a thing lasts or works. People say in my lifetime, the lifetime of a battery, or a lifetime guarantee. As an adjective it appears before a noun: lifetime membership, a lifetime achievement award. Once in a lifetime describes a rare chance, and as a modifier becomes once-in-a-lifetime. Lifespan is similar but is more scientific, used for how long a species or product normally lives, while lifetime is wider and more personal."
+ },
+ "loyal": {
+  "mis": [
+   {
+    "w": "She has always been loyal with her friends.",
+    "r": "She has always been loyal to her friends.",
+    "why": "Loyal takes the preposition 'to'."
+   },
+   {
+    "w": "The company thanks all its loyalty customers.",
+    "r": "The company thanks all its loyal customers.",
+    "why": "Before a noun use the adjective loyal; loyalty is a noun."
+   }
+  ],
+  "u": "Loyal is an adjective for someone who stays faithful and supportive to a person, group, company or cause, especially when things are difficult. The pattern is loyal to: loyal to the team, loyal to your principles. It is positive in business, where loyal customers keep buying from the same brand, and in personal life, where a loyal friend does not betray you. Faithful is close but often used for partners and pets; devoted suggests stronger affection, while committed stresses effort."
+ },
+ "loyalty": {
+  "mis": [
+   {
+    "w": "He showed great loyal to the team.",
+    "r": "He showed great loyalty to the team.",
+    "why": "After 'great' you need a noun; the noun is loyalty."
+   },
+   {
+    "w": "Many shops offer a loyalty card for loyalty customers.",
+    "r": "Many shops offer a loyalty card for loyal customers.",
+    "why": "Use the adjective loyal before 'customers'; loyalty card is a fixed noun phrase."
+   }
+  ],
+  "u": "Loyalty is an uncountable noun for the quality of staying faithful to someone or something. It is followed by to: loyalty to the brand, loyalty to your country. In business, customer loyalty and brand loyalty measure how often people return, and a loyalty program or loyalty card rewards them with points. In personal contexts it can suggest duty, so divided loyalties describes being torn between two sides. The adjective is loyal; do not use loyalty in its place."
+ },
+ "machinery": {
+  "mis": [
+   {
+    "w": "The factory bought three new machineries last year.",
+    "r": "The factory bought three new machines last year.",
+    "why": "Machinery is uncountable and has no plural; use machines for countable items."
+   },
+   {
+    "w": "This machinery are very expensive to repair.",
+    "r": "This machinery is very expensive to repair.",
+    "why": "Machinery is uncountable, so it takes a singular verb."
+   }
+  ],
+  "u": "Machinery is an uncountable noun meaning machines as a group, or the working parts inside a machine. It never takes -s and always has a singular verb: the machinery is old. To count, say a piece of machinery or use machine: three machines. Typical phrases are heavy machinery, farm machinery and operate machinery. It is used in factories, farming and construction. In a figurative sense, the machinery of government means the systems that make an institution work."
+ },
+ "malfunction": {
+  "mis": [
+   {
+    "w": "The printer malfunction yesterday and stopped working.",
+    "r": "The printer malfunctioned yesterday and stopped working.",
+    "why": "Past simple needs the -ed ending: malfunctioned."
+   },
+   {
+    "w": "The malfunction of the machine was caused from a loose wire.",
+    "r": "The malfunction of the machine was caused by a loose wire.",
+    "why": "In a passive sentence, the agent or cause is introduced by 'by'."
+   }
+  ],
+  "u": "Malfunction means a failure of a machine, device or system to work properly. It is both a noun (a malfunction in the engine) and a verb (the alarm malfunctioned). It is more formal and technical than breakdown or problem, and it suggests something went wrong inside, not that the device was misused. Typical contexts are aviation, medicine and computing: equipment malfunction, a system malfunction. People usually have or experience a malfunction. The famous phrase 'wardrobe malfunction' is a humorous exception."
+ },
+ "maximize": {
+  "mis": [
+   {
+    "w": "We must maximize the most profit.",
+    "r": "We must maximize profit.",
+    "why": "Maximize already means 'make as large as possible', so 'the most' is redundant."
+   },
+   {
+    "w": "This tool helps you to maximize of your time.",
+    "r": "This tool helps you to maximize your time.",
+    "why": "Maximize is a transitive verb and takes its object directly, with no 'of'."
+   }
+  ],
+  "u": "Maximize means to make something as great or as large as possible, and it is a transitive verb: maximize profits, maximize efficiency. American English spells it with z; British English accepts maximise. Because it already means 'as much as possible', do not combine it with 'most' or 'as much as possible'. It is common in business and technology, and its opposite is minimize. Maximize is stronger than increase, since it implies reaching the upper limit, while optimize means finding the best balance rather than the largest amount."
+ },
+ "meaningful": {
+  "mis": [
+   {
+    "w": "She wants a meaningless job where she can help others.",
+    "r": "She wants a meaningful job where she can help others.",
+    "why": "Meaningless means without value; meaningful is the word for something with purpose."
+   },
+   {
+    "w": "It was a meaningful for me day.",
+    "r": "It was a meaningful day for me.",
+    "why": "An adjective stays before its noun; 'for me' goes after the noun phrase."
+   }
+  ],
+  "u": "Meaningful describes something that has purpose, value or importance, often emotional: meaningful work, a meaningful conversation. It is also used in business and statistics for results that are significant enough to matter, as in a meaningful difference. Do not confuse it with meaningless, its opposite, or with meaning as a noun. Sometimes it sounds vague in formal writing, where significant or substantial may be more exact. In everyday speech it is popular for jobs, relationships and goals that feel worthwhile."
+ },
+ "meantime": {
+  "mis": [
+   {
+    "w": "In meantime, please take a seat.",
+    "r": "In the meantime, please take a seat.",
+    "why": "The fixed phrase needs the article: in the meantime."
+   },
+   {
+    "w": "The delay is long, but in the meantime of that we will serve snacks.",
+    "r": "The delay is long, but in the meantime we will serve snacks.",
+    "why": "Do not add 'of that'; 'in the meantime' stands alone as an adverbial."
+   }
+  ],
+  "u": "Meantime is a noun used almost only in the phrase in the meantime, meaning during the period between two events: The room is not ready; in the meantime, please wait in the lounge. It always takes 'the' and stands alone without a following 'of'. Meanwhile is close in meaning and can start a sentence, but it can also show contrast, while in the meantime stresses waiting for something to happen. For the meantime means for now and sounds more like a temporary solution."
+ },
+ "meanwhile": {
+  "mis": [
+   {
+    "w": "I'll cook dinner. In meanwhile, you can set the table.",
+    "r": "I'll cook dinner. Meanwhile, you can set the table.",
+    "why": "Meanwhile is an adverb used by itself; 'in meanwhile' is not used."
+   },
+   {
+    "w": "Meanwhile of the meeting, he checked his phone.",
+    "r": "During the meeting, he checked his phone.",
+    "why": "Meanwhile cannot be followed by 'of'; use 'during' with a noun."
+   }
+  ],
+  "u": "Meanwhile is an adverb that links two events happening at the same time, or two contrasting situations: The rich are getting richer; meanwhile, wages for the poor have stagnated. It usually stands at the start of a sentence or after a semicolon and cannot take a noun after it. In narrative, as in stories and news, it shifts attention to another place or character. In the meantime is similar but often refers to waiting. Do not use 'in meanwhile' or 'during meanwhile'."
+ },
+ "method": {
+  "mis": [
+   {
+    "w": "The method of teach children is changing.",
+    "r": "The method of teaching children is changing.",
+    "why": "After the preposition 'of' use the -ing form."
+   },
+   {
+    "w": "The company uses many methods of payments.",
+    "r": "The company uses many methods of payment.",
+    "why": "In the fixed phrase 'method of payment', payment stays singular."
+   }
+  ],
+  "u": "Method is a countable noun for a particular way of doing something, usually planned and systematic: a teaching method, the scientific method, a method of payment. The common patterns are method of or for + -ing, and method for + noun; an infinitive after it is rare. A method is more formal and more organised than a way, and a technique is narrower and about skill. Methods is also used in research writing, where the Methods section explains how a study was carried out."
+ },
+ "mileage": {
+  "mis": [
+   {
+    "w": "The car has a high mileages.",
+    "r": "The car has a high mileage.",
+    "why": "Mileage is uncountable here and has no plural -s."
+   },
+   {
+    "w": "I drove the long mileage to Hanoi.",
+    "r": "I drove a long distance to Hanoi.",
+    "why": "Mileage is a total count or a rate, not a single trip; use distance for a trip."
+   }
+  ],
+  "u": "Mileage is the number of miles a vehicle has traveled, or the number of miles it can go on a fixed amount of fuel. Used cars are described as having high or low mileage, and a company may pay a mileage allowance for business trips. In American English it also means fuel efficiency (good gas mileage), which Britons usually call fuel economy. It is not used for one journey, so use distance. Figuratively, get mileage out of something means to use it for as long as possible."
+ },
+ "nationwide": {
+  "mis": [
+   {
+    "w": "The shop delivers goods in nationwide.",
+    "r": "The shop delivers goods nationwide.",
+    "why": "Nationwide is an adverb here, so no preposition is needed before it."
+   },
+   {
+    "w": "We are launching a nationwide in September.",
+    "r": "We are launching a nationwide campaign in September.",
+    "why": "As an adjective, nationwide must come before a noun."
+   }
+  ],
+  "u": "Nationwide describes something that covers or happens across a whole country. It works as an adjective (a nationwide survey) and as an adverb (the store delivers nationwide). As an adverb it follows the verb without a preposition. It is common in news and marketing, where companies announce a nationwide launch, a nationwide recall or nationwide coverage. National is broader in meaning, since it can also mean belonging to a nation, whereas nationwide stresses geographical spread. The same pattern appears in worldwide and citywide."
+ },
+ "neat": {
+  "mis": [
+   {
+    "w": "She keeps her desk very neatly.",
+    "r": "She keeps her desk very neat.",
+    "why": "After 'keep' with an object, use an adjective, not an adverb."
+   },
+   {
+    "w": "He drank a neat water from the bottle.",
+    "r": "He drank some plain water from the bottle.",
+    "why": "Neat describes a drink without ice or mixer, usually alcohol, not plain water."
+   }
+  ],
+  "u": "Neat means tidy, organised and pleasant to look at: neat handwriting, a neat desk. It can also describe a clever idea or solution (a neat trick), and in American speech it can simply mean 'great'. In British English, a neat drink is alcohol served without ice, water or a mixer. Neat is usually positive and slightly informal; tidy is more common for rooms, and orderly sounds formal."
+ },
+ "needy": {
+  "mis": [
+   {
+    "w": "The charity helps the needies in our town.",
+    "r": "The charity helps the needy in our town.",
+    "why": "'The needy' is an adjective used as a plural noun and takes no -s."
+   },
+   {
+    "w": "He is very needy of help.",
+    "r": "He is very much in need of help.",
+    "why": "Needy does not take 'of'; use 'in need of' for this meaning."
+   }
+  ],
+  "u": "Needy is an adjective for people who do not have enough money, food or basic support: needy families, scholarships for needy students. With the, it works as a plural noun, the needy, and never takes -s. In informal English it can also describe someone who constantly asks for attention or reassurance, which is negative: a needy friend. Be careful, since needy is not a polite way to describe one person to their face. In need of is the phrase for requiring something specific."
+ },
+ "noon": {
+  "mis": [
+   {
+    "w": "The meeting starts on noon.",
+    "r": "The meeting starts at noon.",
+    "why": "Use 'at' with a point in time such as noon."
+   },
+   {
+    "w": "Please send it before 12 noon p.m.",
+    "r": "Please send it before 12 noon.",
+    "why": "Noon already means 12 p.m., so adding p.m. is redundant."
+   }
+  ],
+  "u": "Noon is twelve o'clock in the middle of the day. It takes at: at noon, and also by noon for a deadline or before noon for the morning. Noon is more common in American English, while British English often uses midday. Do not add p.m. or a.m. to noon, and avoid 'twelve noon' in formal writing unless you need to prevent confusion with midnight. High noon figuratively means a moment of decisive confrontation. Noon is a time point, not a period, so you cannot say 'in noon'."
+ },
+ "oblige": {
+  "mis": [
+   {
+    "w": "The law obliges to pay tax.",
+    "r": "The law obliges us to pay tax.",
+    "why": "Oblige needs an object before 'to'; it cannot jump straight to the infinitive."
+   },
+   {
+    "w": "I feel obligation to help her.",
+    "r": "I feel obliged to help her.",
+    "why": "After 'feel' use the adjective obliged; obligation is a noun and takes 'an'."
+   }
+  ],
+  "u": "Oblige is a formal verb meaning to make someone do something because of a rule, duty or favour. The pattern is oblige somebody to do something, usually in the passive: be obliged to leave. Feel obliged means feeling that you must act, often out of politeness, while required and forced are stronger. It also means to do a favour: I would be obliged if you could reply by Friday. Much obliged and happy to oblige are polite, old-fashioned phrases."
+ },
+ "officially": {
+  "mis": [
+   {
+    "w": "The mayor will official open the bridge on Monday.",
+    "r": "The mayor will officially open the bridge on Monday.",
+    "why": "To modify a verb you need the adverb officially, not the adjective official."
+   },
+   {
+    "w": "He officially is the new manager.",
+    "r": "He is officially the new manager.",
+    "why": "With the verb 'be', the adverb goes after it."
+   }
+  ],
+  "u": "Officially means in a formal, public or authorised way: officially announced, officially opened. It also contrasts what is said with what is true: Officially he is on holiday, but he is actually working. The adverb usually sits before the main verb but after be, as in He is officially retired. It is often used in news about governments and companies. Formally is similar but stresses polite or structured behavior; publicly stresses that people can see it. Remember the adjective is official."
+ },
+ "outfit": {
+  "mis": [
+   {
+    "w": "She bought a new outfit for the party and she looks well in it.",
+    "r": "She bought a new outfit for the party and she looks good in it.",
+    "why": "After 'look' use the adjective good; 'well' is for health or manner."
+   },
+   {
+    "w": "I need to buy a clothes for the wedding.",
+    "r": "I need to buy an outfit for the wedding.",
+    "why": "Clothes is plural and has no 'a'; use outfit for a complete set."
+   }
+  ],
+  "u": "Outfit is a countable noun for a set of clothes worn together for a particular occasion, so you buy an outfit, not a clothes: a casual outfit, a wedding outfit. Clothes is plural and uncountable in count terms, and clothing is uncountable. Outfit is common in fashion talk. It can also mean a group or organisation, informally: a small software outfit. As a verb, to outfit means to supply with equipment, as in outfit a team with uniforms."
+ },
+ "outlet": {
+  "mis": [
+   {
+    "w": "This outlet store sells clothes in half-price.",
+    "r": "This outlet store sells clothes at half price.",
+    "why": "Use 'at' with a price: at half price, at a discount."
+   },
+   {
+    "w": "Sport is a good outlet to stress.",
+    "r": "Sport is a good outlet for stress.",
+    "why": "Use 'for' after outlet when it means a way to release a feeling."
+   }
+  ],
+  "u": "Outlet has several meanings. In American English it is an electrical socket in the wall, the British word being socket. It can be a shop that sells a company's products (a retail outlet, an outlet store selling discounted goods) or a news organisation (a media outlet). It also means a way to release feelings or energy: an outlet for creativity, taking 'for'. Because the meanings differ, context matters. Do not confuse an outlet with a plug, which is the part you push into it."
+ },
+ "outstanding": {
+  "mis": [
+   {
+    "w": "She is outstanding student in our class.",
+    "r": "She is an outstanding student in our class.",
+    "why": "A singular countable noun needs an article: an outstanding student."
+   },
+   {
+    "w": "Please pay the outstanding of $200.",
+    "r": "Please pay the outstanding balance of $200.",
+    "why": "Outstanding is an adjective and needs a noun like balance after it."
+   }
+  ],
+  "u": "Outstanding has two main meanings. First, extremely good: an outstanding performance, an outstanding student. Second, in business and law, not yet paid, done or solved: an outstanding invoice, outstanding issues. Context tells you which sense is meant, so be careful with a phrase like outstanding balance, which is a debt, not praise. The word is stronger than good or very good, and similar to excellent. A common pattern is outstanding at doing something, or outstanding in his field."
+ },
+ "pad": {
+  "mis": [
+   {
+    "w": "I wrote the number on a pad paper.",
+    "r": "I wrote the number on a pad of paper.",
+    "why": "Use 'pad of' + noun for a block of sheets."
+   },
+   {
+    "w": "Football players must wear a shoulder pad.",
+    "r": "Football players must wear shoulder pads.",
+    "why": "Shoulder pads come as a pair, so the plural form is normally used."
+   }
+  ],
+  "u": "Pad is a countable noun with several uses. It can be a block of paper held together at one edge (a notepad, a pad of paper), a soft piece of material used for protection or comfort (shoulder pads, knee pads), or a flat surface such as a launch pad or mouse pad. In informal British and American English it can mean someone's home: my pad. The verb pad means to fill or protect with soft material, or to add unneeded words to make a text longer."
+ },
+ "physical": {
+  "mis": [
+   {
+    "w": "He is physical strong for his age.",
+    "r": "He is physically strong for his age.",
+    "why": "To modify the adjective 'strong' you need the adverb physically."
+   },
+   {
+    "w": "She needs a physical therapy for her back.",
+    "r": "She needs physical therapy for her back.",
+    "why": "Physical therapy is uncountable, so it takes no 'a'."
+   }
+  ],
+  "u": "Physical is an adjective meaning relating to the body or to material things, as opposed to the mind: physical health, physical exercise, a physical object. It contrasts with mental and emotional. In American English, a physical is also a noun for a medical check-up. Physically is the adverb: physically fit. The word can describe contact, strength, and also things you can touch rather than digital ones, such as a physical copy of a book."
+ },
+ "pill": {
+  "mis": [
+   {
+    "w": "I eat a pill for my headache every morning.",
+    "r": "I take a pill for my headache every morning.",
+    "why": "Pills are not eaten; the usual verb is take."
+   },
+   {
+    "w": "The doctor told me to take two pills for day.",
+    "r": "The doctor told me to take two pills a day.",
+    "why": "Use 'a day', not 'for day', to show frequency."
+   }
+  ],
+  "u": "Pill is a countable noun for a small round piece of medicine that you swallow. The natural verb is take, not eat or drink: take a pill, take two pills a day. A pill is smaller and rounder than a tablet in everyday speech, while capsule describes a pill with a soft or hard shell. Fixed phrases include sleeping pill, the pill (the contraceptive) and a bitter pill to swallow, which is a hard truth to accept. In British usage tablet is more common."
+ },
+ "placement": {
+  "mis": [
+   {
+    "w": "The placement of the new staff are decided by HR.",
+    "r": "The placement of the new staff is decided by HR.",
+    "why": "The subject is 'the placement', singular, so the verb is 'is'."
+   },
+   {
+    "w": "She did a placement of two months in a hospital.",
+    "r": "She did a two-month placement in a hospital.",
+    "why": "As a modifier before a noun, 'two-month' stays singular with a hyphen."
+   }
+  ],
+  "u": "Placement is a noun from the verb place and has several meanings. It can be the act of putting something in a position: the placement of furniture, product placement in films. In education and work, it is a temporary position to gain experience (a work placement, a student placement). A placement test checks a learner's level so they can join the right class. A placement agency finds jobs for candidates. It is not just a synonym of location."
+ },
+ "plow": {
+  "mis": [
+   {
+    "w": "The farmer plows his field with a tractor, then he plow it again.",
+    "r": "The farmer plows his field with a tractor, then he plows it again.",
+    "why": "With 'he' in the present simple, the verb takes -s."
+   },
+   {
+    "w": "The truck plowed through of the snow.",
+    "r": "The truck plowed through the snow.",
+    "why": "Plow through is followed directly by its object, without 'of'."
+   }
+  ],
+  "u": "Plow is the American spelling of plough. As a noun it is a farm tool pulled across soil to turn it before planting, and a snow plow clears roads. As a verb it means to turn soil or to push through something with force: plow through the snow. Figuratively, plow ahead means to continue with something despite problems, and plow money into means to invest. In British English the same word is spelled plough, but both are pronounced the same."
+ },
+ "plug": {
+  "mis": [
+   {
+    "w": "Please plug the computer to the socket.",
+    "r": "Please plug the computer into the socket.",
+    "why": "Plug takes 'into', not 'to', for the place where the cable goes."
+   },
+   {
+    "w": "The printer is not working, so plug it in the wall.",
+    "r": "The printer is not working, so plug it into the wall.",
+    "why": "'In' is an adverb; the object that follows needs 'into'."
+   }
+  ],
+  "u": "Plug works as a verb and a noun. The verb means to connect a device to power (plug in the kettle, plug it into the wall) or to fill a hole (plug a leak). The noun is the part with metal pins that goes into a socket, or a stopper in a sink. Pull the plug means to stop a project or switch off a machine. Informally, to plug a product means to promote it, as in an author plugging a book. The opposite verb is unplug."
+ },
+ "predict": {
+  "mis": [
+   {
+    "w": "He predicted that the team will win last week.",
+    "r": "He predicted that the team would win last week.",
+    "why": "After a past reporting verb, shift 'will' to 'would'."
+   },
+   {
+    "w": "Experts predict the economy to grow next year.",
+    "r": "Experts predict that the economy will grow next year.",
+    "why": "Predict is followed by a that-clause, not an object plus to-infinitive."
+   }
+  ],
+  "u": "Predict is a verb meaning to say what will happen in the future, based on knowledge, data or experience. It is followed by a noun or a that-clause: predict the winner, predict that prices will rise. It does not take an object plus to-infinitive, unlike expect, so say 'experts predict that the economy will grow'. It is more specific than guess, because there is some reason behind it. The noun is prediction and the adjective is predictable. Forecast is used mostly for weather and finance."
+ },
+ "prescribe": {
+  "mis": [
+   {
+    "w": "The doctor prescribed antibiotics to my infection.",
+    "r": "The doctor prescribed antibiotics for my infection.",
+    "why": "Use 'for' with the condition being treated."
+   },
+   {
+    "w": "You can buy this medicine without prescribing.",
+    "r": "You can buy this medicine without a prescription.",
+    "why": "Prescribing is the verb form; the thing a doctor writes is a prescription."
+   }
+  ],
+  "u": "Prescribe means that a doctor officially tells a patient to use a medicine or treatment: prescribe antibiotics, prescribe rest. The pattern is prescribe something for a condition, and the thing written is a prescription. Medicines you can buy freely are over-the-counter. In a wider sense, prescribe means to state what must be done by rule or authority: the prescribed procedure. It is different from describe, which is about telling what something is like. The word suggests authority and is formal."
+ },
+ "prestigious": {
+  "mis": [
+   {
+    "w": "He graduated from a prestige university.",
+    "r": "He graduated from a prestigious university.",
+    "why": "Use the adjective prestigious; prestige is a noun."
+   },
+   {
+    "w": "It is a very prestigious for me chance.",
+    "r": "It is a very prestigious chance for me.",
+    "why": "The adjective goes directly before its noun; 'for me' comes after."
+   }
+  ],
+  "u": "Prestigious describes something respected and admired, usually because of a high reputation or status: a prestigious university, a prestigious award. The noun is prestige and the opposite is unremarkable. It is often positive but can be used critically of status symbols. Common collocations are highly prestigious and a prestigious post. It is stronger than famous: something can be famous without being prestigious. It is typical in education, business and the arts."
+ },
+ "preview": {
+  "mis": [
+   {
+    "w": "We saw a preview about the new model.",
+    "r": "We saw a preview of the new model.",
+    "why": "Use 'of' after preview to say what is being previewed."
+   },
+   {
+    "w": "The company previewed us its new phone.",
+    "r": "The company previewed its new phone for us.",
+    "why": "Preview does not take an indirect object directly."
+   }
+  ],
+  "u": "Preview is both a noun and a verb. As a noun it is an opportunity to see something before the public, such as a film trailer or a press preview of an exhibition. As a verb it means to show or view something early: the software lets you preview a file before printing. Print preview is a computer feature. The preposition after the noun is of: a preview of the season. A sneak preview is informal and unofficial. Do not confuse it with review, which comes afterwards."
+ },
+ "productive": {
+  "mis": [
+   {
+    "w": "The meeting was very productivity.",
+    "r": "The meeting was very productive.",
+    "why": "After 'was very' you need an adjective; productivity is a noun."
+   },
+   {
+    "w": "She is productive in writing reports.",
+    "r": "She is productive at writing reports.",
+    "why": "Productive takes 'at' before an activity."
+   }
+  ],
+  "u": "Productive describes someone or something that achieves a lot, or produces a good result: a productive meeting, a productive day. Collocations include highly productive and productive use of time. The noun is productivity, which measures how much work is done for the time or cost. The opposite is unproductive. Productive can also describe land that yields a lot, and in grammar it describes a process that can form new words. It does not mean simply busy; you can be busy and not productive."
+ },
+ "professional": {
+  "mis": [
+   {
+    "w": "She is a professional of marketing.",
+    "r": "She is a marketing professional.",
+    "why": "As a noun, professional goes after the field word: marketing professional."
+   },
+   {
+    "w": "He behaved very professionally attitude.",
+    "r": "He behaved in a very professional manner.",
+    "why": "Use the adjective professional with 'manner'; professionally is an adverb."
+   }
+  ],
+  "u": "Professional is an adjective for work that requires special training, and for behavior that is skilled, polite and reliable: professional advice, a professional attitude. As a noun, it means someone who does a job for pay, as opposed to an amateur: a professional footballer. Healthcare professionals and legal professionals are typical phrases. The adverb is professionally. In business, saying someone is professional praises both their skills and their conduct. It does not simply mean serious."
+ },
+ "prospective": {
+  "mis": [
+   {
+    "w": "We are meeting a prospective of client tomorrow.",
+    "r": "We are meeting a prospective client tomorrow.",
+    "why": "Prospective is an adjective and goes directly before the noun."
+   },
+   {
+    "w": "The prospective is very good for our company.",
+    "r": "The prospects are very good for our company.",
+    "why": "Prospective is an adjective; the noun meaning chances is prospects."
+   }
+  ],
+  "u": "Prospective is a formal adjective meaning likely to become something in the future: a prospective client, a prospective buyer. It always comes before a noun and cannot stand alone. Often used in sales, education and recruitment, it describes people who may buy, join or apply, while potential is more general and can describe things as well (potential risks). The noun prospect means a chance or a person who might become a customer. Prospective is not the same as perspective."
+ },
+ "protective": {
+  "mis": [
+   {
+    "w": "She is very protective with her children.",
+    "r": "She is very protective of her children.",
+    "why": "Use 'of' after protective when talking about who is protected."
+   },
+   {
+    "w": "Workers must wear a protective clothes.",
+    "r": "Workers must wear protective clothing.",
+    "why": "Clothes is plural and takes no 'a'; use the uncountable clothing."
+   }
+  ],
+  "u": "Protective is an adjective with two common meanings. First, designed to keep someone or something safe: protective clothing, protective gear. Second, wanting to keep someone safe from harm: a protective parent, protective of his family. The preposition is of for the person or thing being protected. Overly protective can suggest control. Safety rules in factories and labs often list protective equipment, including goggles and gloves. The noun is protection and the verb is protect."
+ },
+ "publish": {
+  "mis": [
+   {
+    "w": "The book was publish last year.",
+    "r": "The book was published last year.",
+    "why": "The passive needs the past participle: published."
+   },
+   {
+    "w": "The report is publishing next week.",
+    "r": "The report will be published next week.",
+    "why": "The report receives the action, so use the passive: will be published."
+   }
+  ],
+  "u": "Publish means to prepare and issue a book, article, journal or online content for the public: publish a novel, publish research. It is usually used for the publisher or the author: The company published the report; She published three papers. It is often passive: The results were published in a journal. Publish online and published by are common. Release is broader, used for films and software, while issue sounds official. Note the noun for the act is publication."
+ },
+ "ray": {
+  "mis": [
+   {
+    "w": "The sun's ray are harmful to your skin.",
+    "r": "The sun's rays are harmful to your skin.",
+    "why": "Ray is countable; with a general statement, use the plural rays."
+   },
+   {
+    "w": "A ray of hopes appeared.",
+    "r": "A ray of hope appeared.",
+    "why": "In the phrase 'a ray of hope', hope stays uncountable and singular."
+   }
+  ],
+  "u": "Ray is a countable noun for a narrow line of light or energy: a ray of sunlight, ultraviolet rays, X-rays. Figuratively, a ray of hope is a small sign of improvement and the phrase keeps hope in the singular. In science rays also include gamma rays and cosmic rays. Beam is a similar word, but ray is typically thinner and often natural. Ray can also be a type of flat fish found in the sea, so the meaning depends on context."
+ },
+ "react": {
+  "mis": [
+   {
+    "w": "How did she react on the news?",
+    "r": "How did she react to the news?",
+    "why": "React takes 'to' for the thing that causes the response."
+   },
+   {
+    "w": "The customers reacted angry when the price went up.",
+    "r": "The customers reacted angrily when the price went up.",
+    "why": "Use an adverb to describe how someone reacts."
+   }
+  ],
+  "u": "React means to behave or feel in a particular way as a result of something that has happened. It takes to: react to criticism, react to the news. Use adverbs to describe the manner: react quickly, react calmly. React against means to oppose something, and in chemistry or medicine substances react with each other. The noun is reaction. It is wider than respond, which often suggests a deliberate answer; react can be automatic or emotional."
+ },
+ "rearrange": {
+  "mis": [
+   {
+    "w": "Let's rearrange the meeting at Friday.",
+    "r": "Let's rearrange the meeting for Friday.",
+    "why": "Use 'for' with the new date: rearrange something for a day."
+   },
+   {
+    "w": "She rearranged again the books on the shelf.",
+    "r": "She rearranged the books on the shelf again.",
+    "why": "'Again' goes after the object, not between the verb and the object."
+   }
+  ],
+  "u": "Rearrange means to change the order, position or time of things. It can refer to objects (rearrange the furniture) and to plans (rearrange a meeting for next week), where it means to fix a different time. Reschedule focuses only on time, while reorganize suggests changing a whole system. The re- prefix means again. Adverbs such as again or completely come after the object. The noun is rearrangement. In puzzles, rearrange the letters means to form a new word."
+ },
+ "rebate": {
+  "mis": [
+   {
+    "w": "I got a rebate from my tax.",
+    "r": "I got a rebate on my tax.",
+    "why": "Use 'on' for what the rebate applies to."
+   },
+   {
+    "w": "You must send the receipt to claim for the rebate.",
+    "r": "You must send the receipt to claim the rebate.",
+    "why": "Claim is transitive here, so it takes its object without 'for'."
+   }
+  ],
+  "u": "A rebate is a partial refund of money you have paid, given afterwards: a tax rebate, a mail-in rebate on a laptop. You usually buy the product at full price and then claim the rebate with a form or receipt. A discount, by contrast, reduces the price immediately at the time of purchase. A rebate from a company is often a promotion, and governments give tax rebates. The typical pattern is a rebate on something. Rebate is common in American shopping and business."
+ },
+ "recipient": {
+  "mis": [
+   {
+    "w": "She is the recipient from the prize.",
+    "r": "She is the recipient of the prize.",
+    "why": "Use 'of' after recipient."
+   },
+   {
+    "w": "Please check the email address of recipient.",
+    "r": "Please check the email address of the recipient.",
+    "why": "A singular countable noun needs an article: the recipient."
+   }
+  ],
+  "u": "A recipient is a person or organisation that receives something, such as an award, a letter, a payment or an organ: the recipient of the prize, an email recipient. It takes of. It is formal and focuses on the receiving side, often opposite to the sender or donor. In email, the recipient is the person you send to, and the intended recipient is who the message is meant for. Receiver is more common for equipment or sports, while beneficiary suggests someone who gains."
+ },
+ "redesign": {
+  "mis": [
+   {
+    "w": "They redesigned again the website.",
+    "r": "They redesigned the website again.",
+    "why": "'Again' goes after the object, not between verb and object."
+   },
+   {
+    "w": "The redesign of website will launch in May.",
+    "r": "The redesign of the website will launch in May.",
+    "why": "A singular countable noun needs an article: the website."
+   }
+  ],
+  "u": "Redesign is both a verb and a noun, meaning to design something again so that it works or looks better. You redesign a website, a logo, a product or a layout; a redesign is the result or the process. The re- prefix signals change to something that already exists, so a complete redesign is more than a small update. Revamp is informal and overhaul suggests a deeper change."
+ },
+ "relieve": {
+  "mis": [
+   {
+    "w": "This medicine relieves me from the headache.",
+    "r": "This medicine relieves my headache.",
+    "why": "Relieve takes the pain directly as its object; 'relieve from' is not used."
+   },
+   {
+    "w": "I was very relieve when the test ended.",
+    "r": "I was very relieved when the test ended.",
+    "why": "After 'was' use the adjective relieved."
+   }
+  ],
+  "u": "Relieve is a verb meaning to make pain, worry or pressure less severe: relieve stress, relieve pain. It takes the problem as a direct object. In work contexts, to relieve someone means to take over their duty, so a nurse can relieve another at the end of a shift. The adjective relieved describes the feeling after a worry ends (I am relieved), and the noun is relief. Relieve is more formal than ease and focuses on reducing rather than curing."
+ },
+ "reluctant": {
+  "mis": [
+   {
+    "w": "She was reluctant to going to the meeting.",
+    "r": "She was reluctant to go to the meeting.",
+    "why": "After 'reluctant to' use the base verb."
+   },
+   {
+    "w": "He is reluctant of sharing his opinion.",
+    "r": "He is reluctant to share his opinion.",
+    "why": "Reluctant is followed by a to-infinitive, not 'of'."
+   }
+  ],
+  "u": "Reluctant describes someone who is unwilling or hesitant to do something, often because of doubt or discomfort: reluctant to admit, a reluctant agreement. The usual pattern is reluctant + to-infinitive, and the adverb is reluctantly. Reluctant is milder than refuse; the person may still do it. It differs from unable, because the problem is willingness rather than ability. It is common in news and business, as in reluctant buyers. The noun is reluctance."
+ }
+}

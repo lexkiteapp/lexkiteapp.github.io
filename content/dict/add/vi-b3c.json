@@ -1,0 +1,752 @@
+{
+  "remove": {
+    "mis": [
+      {
+        "w": "Please remove the file out of the folder.",
+        "r": "Please remove the file from the folder.",
+        "why": "Sau remove dùng 'from' để chỉ nơi bị lấy đi, không dùng 'out of'."
+      },
+      {
+        "w": "The staff removed the guests to the garden.",
+        "r": "The staff moved the guests to the garden.",
+        "why": "Remove nghĩa là lấy đi, bỏ ra; muốn nói chuyển người đến chỗ mới thì dùng move."
+      }
+    ],
+    "u": "Remove là động từ chung chỉ việc lấy đi khỏi một nơi, một bề mặt hay một danh sách: remove a stain (tẩy vết bẩn), remove your shoes (cởi giày), remove a name from a list. Trong văn bản trang trọng hoặc kỹ thuật, từ này còn là cách chức ai đó hoặc xoá dữ liệu. Sau remove thường là giới từ 'from'. Từ này trung tính và chính thức hơn take off hay get rid of trong lời nói. Đừng dùng khi chỉ là dời đồ sang chỗ khác."
+  },
+  "renown": {
+    "mis": [
+      {
+        "w": "She is a scientist of renowned.",
+        "r": "She is a scientist of renown.",
+        "why": "Sau 'of' cần danh từ renown; renowned là tính từ nên không dùng ở đây."
+      },
+      {
+        "w": "He is renown for his cooking.",
+        "r": "He is renowned for his cooking.",
+        "why": "Trước 'for' phải dùng tính từ renowned có đuôi -ed; renown là danh từ."
+      }
+    ],
+    "u": "Renown là danh từ trang trọng, hơi văn chương, chỉ danh tiếng rộng rãi nhờ thành tựu thật sự, thiên về sự kính trọng hơn là nổi tiếng kiểu giải trí. Đây là danh từ không đếm được, hay gặp trong cụm 'a person of renown' hoặc 'gain/win renown'. Tính từ tương ứng là renowned, dùng trong be renowned for something. Fame là từ thường ngày; renown hợp với tiểu sử, giải thưởng và bài báo viết về nghệ sĩ, học giả, tổ chức."
+  },
+  "repeatedly": {
+    "mis": [
+      {
+        "w": "I repeatedly to call him but he never answered.",
+        "r": "I repeatedly called him but he never answered.",
+        "why": "Repeatedly là trạng từ, cần động từ chia đúng, không đặt 'to' ngay sau nó."
+      },
+      {
+        "w": "She repeatedly said me to wait.",
+        "r": "She repeatedly told me to wait.",
+        "why": "Say không đi với tân ngữ chỉ người rồi 'to + động từ'; phải dùng tell."
+      }
+    ],
+    "u": "Repeatedly là trạng từ nghĩa là nhiều lần, thường mang sắc thái bực bội hoặc nghiêm trọng: the system repeatedly crashed (hệ thống liên tục bị treo), he repeatedly denied the claim. Từ này thường đứng trước động từ chính hoặc cuối mệnh đề. Nó trang trọng hơn again and again, hợp với báo cáo, thư khiếu nại và tin tức. Khác với frequently, repeatedly nhấn mạnh cùng một việc lặp lại giống nhau, chứ không chỉ là xảy ra thường xuyên."
+  },
+  "replacement": {
+    "mis": [
+      {
+        "w": "We need a replacement of the broken screen.",
+        "r": "We need a replacement for the broken screen.",
+        "why": "Replacement đi với 'for' để chỉ vật bị thay thế, không dùng 'of'."
+      },
+      {
+        "w": "The company hired a replace for him.",
+        "r": "The company hired a replacement for him.",
+        "why": "Replace là động từ; danh từ chỉ người hoặc vật thay thế là replacement."
+      }
+    ],
+    "u": "Replacement là danh từ đếm được chỉ người hoặc vật thay thế cho cái khác, đồng thời chỉ hành động thay thế: the replacement of old pipes (việc thay đường ống cũ). Trong kinh doanh, từ này hay gặp ở bảo hành và nhân sự: a free replacement (đổi miễn phí), a replacement part, a replacement for the retiring manager. Substitute rộng hơn và thường tạm thời, như cầu thủ dự bị; successor dùng cho người kế nhiệm một chức vụ."
+  },
+  "residence": {
+    "mis": [
+      {
+        "w": "He has residence in Hanoi since 2020.",
+        "r": "He has been resident in Hanoi since 2020.",
+        "why": "Residence là danh từ; muốn nói ai sống ở đâu, dùng động từ reside hoặc tính từ resident."
+      },
+      {
+        "w": "My residence is at the Nguyen Hue street.",
+        "r": "My residence is on Nguyen Hue Street.",
+        "why": "Dùng 'on' với tên đường và không thêm 'the' trước tên đường riêng."
+      }
+    ],
+    "u": "Residence là danh từ trang trọng chỉ nơi ai đó sinh sống, chủ yếu xuất hiện trên biểu mẫu, trong luật và tin tức: place of residence (nơi cư trú), residence permit (giấy phép cư trú), the president's official residence (dinh thự chính thức). Trong lời nói hằng ngày người ta dùng home, house hoặc place. Từ này đếm được khi chỉ toà nhà (a luxury residence) và không đếm được trong 'take up residence' hay 'in residence'. Người cư trú là resident."
+  },
+  "retreat": {
+    "mis": [
+      {
+        "w": "Our team has a retreat in the next weekend.",
+        "r": "Our team has a retreat next weekend.",
+        "why": "Không dùng 'in the' trước next; cụm thời gian với next không cần giới từ."
+      },
+      {
+        "w": "The army retreated back from the border.",
+        "r": "The army retreated from the border.",
+        "why": "Retreat đã có nghĩa là lùi về nên thêm 'back' là thừa."
+      }
+    ],
+    "u": "Retreat vừa là danh từ vừa là động từ. Danh từ có thể là cuộc rút lui quân sự (a retreat from the front), nơi ẩn dật yên tĩnh (a mountain retreat), hoặc chuyến đi do công ty hay trung tâm sức khoẻ tổ chức (a company retreat, a yoga retreat), đây là nghĩa phổ biến trong công việc. Động từ nghĩa là lùi khỏi nguy hiểm hoặc áp lực: retreat from a position. Vì đã mang nghĩa quay lui, tránh nói retreat back."
+  },
+  "retrieve": {
+    "mis": [
+      {
+        "w": "I retrieved the information at the database.",
+        "r": "I retrieved the information from the database.",
+        "why": "Dùng 'from' để chỉ nguồn mà ta lấy dữ liệu ra."
+      },
+      {
+        "w": "Please retrieve me my bag.",
+        "r": "Please retrieve my bag for me.",
+        "why": "Retrieve không nhận hai tân ngữ liền nhau; phải thêm 'for me' sau vật cần lấy."
+      }
+    ],
+    "u": "Retrieve nghĩa là lấy lại thứ được cất giữ hoặc bị mất, rất hay dùng với máy tính và hồ sơ: retrieve data (truy xuất dữ liệu), retrieve a deleted file. Từ này cũng dùng cho chó nhặt vật được ném. Nó trang trọng hơn get back và hàm ý có nỗ lực hoặc một hệ thống, không chỉ đơn giản nhặt lên. Danh từ là retrieval. Recover gợi ý vật bị hỏng hoặc thất lạc, còn retrieve chỉ cần vật đang ở đâu đó."
+  },
+  "seldom": {
+    "mis": [
+      {
+        "w": "He doesn't seldom go to the cinema.",
+        "r": "He seldom goes to the cinema.",
+        "why": "Seldom đã mang nghĩa phủ định nên không thêm doesn't."
+      },
+      {
+        "w": "Seldom she eats meat.",
+        "r": "Seldom does she eat meat.",
+        "why": "Khi seldom đứng đầu câu, trợ động từ phải đảo lên trước chủ ngữ."
+      }
+    ],
+    "u": "Seldom là trạng từ chỉ tần suất nghĩa là hiếm khi, trang trọng và mang tính văn viết hơn rarely. Nó đứng trước động từ chính nhưng sau be: she seldom complains, he is seldom late. Từ này đã mang nghĩa phủ định nên không bao giờ dùng cùng not. Khi đứng đầu câu để nhấn mạnh, phải đảo ngữ: seldom have I seen such talent. Cụm cố định seldom if ever nhấn mạnh là gần như không bao giờ."
+  },
+  "separately": {
+    "mis": [
+      {
+        "w": "We came separate because of the traffic.",
+        "r": "We came separately because of the traffic.",
+        "why": "Bổ nghĩa cho động từ phải dùng trạng từ separately, không dùng tính từ separate."
+      },
+      {
+        "w": "The bill is separately for each person.",
+        "r": "The bill is separate for each person.",
+        "why": "Sau be dùng tính từ separate; separately là trạng từ nên không đặt ở đây."
+      }
+    ],
+    "u": "Separately là trạng từ nghĩa là tách riêng, từng cái một hoặc độc lập với nhau. Từ này rất phổ biến trong mua bán và dịch vụ: batteries sold separately (pin bán riêng), please pay separately (vui lòng thanh toán riêng). Trong văn phòng, nó hay chỉ việc tính tiền hoặc xử lý các mục ngoài nhóm chính. Tính từ là separate. Người học hay viết sai thành seperately; hãy nhớ giữa từ có 'par'."
+  },
+  "sketch": {
+    "mis": [
+      {
+        "w": "He drew a sketch on the building.",
+        "r": "He drew a sketch of the building.",
+        "why": "Dùng 'of' cho đối tượng của bức vẽ; 'on' là sai."
+      },
+      {
+        "w": "The architect sketched me a plan quickly.",
+        "r": "The architect sketched a plan for me quickly.",
+        "why": "Sketch không nhận tân ngữ gián tiếp; dùng 'for me' sau tân ngữ."
+      }
+    ],
+    "u": "Sketch là danh từ đếm được chỉ bản vẽ nhanh, phác, thường là ý tưởng đầu tiên cho thiết kế: a pencil sketch, a rough sketch of the building. Từ này còn chỉ tiểu phẩm hài ngắn trên truyền hình, hoặc bản phác thảo sơ lược một kế hoạch, báo cáo. Làm động từ, sketch out nghĩa là mô tả đại khái: sketch out the main ideas. Sketch tự do hơn drawing và chưa hoàn chỉnh bằng một bản kế hoạch."
+  },
+  "skim": {
+    "mis": [
+      {
+        "w": "I skimmed the article carefully.",
+        "r": "I read the article carefully.",
+        "why": "Skim nghĩa là đọc lướt nên không đi với carefully (cẩn thận)."
+      },
+      {
+        "w": "She skimmed over to the report.",
+        "r": "She skimmed through the report.",
+        "why": "Dùng 'through' hoặc không giới từ khi đọc lướt; 'over to' là sai."
+      }
+    ],
+    "u": "Skim nghĩa là đọc lướt để nắm ý chính mà không xem kỹ chi tiết. Đây là kỹ năng đọc quan trọng trong thi cử và công việc: skim the email trước, rồi mới đọc kỹ phần quan trọng. Skim và scan khác nhau: skim để hiểu ý chung, scan để tìm một thông tin cụ thể. Cấu trúc skim through a document rất phổ biến. Ngoài đọc, skim còn là lướt nhẹ trên bề mặt hoặc vớt lớp béo khỏi sữa."
+  },
+  "specialty": {
+    "mis": [
+      {
+        "w": "This restaurant's specialty is seafoods.",
+        "r": "This restaurant's specialty is seafood.",
+        "why": "Seafood là danh từ không đếm được, không thêm -s."
+      },
+      {
+        "w": "Her specialty is in pediatrics.",
+        "r": "Her specialty is pediatrics.",
+        "why": "Sau be nêu thẳng lĩnh vực; 'in' thuộc cấu trúc specialize in."
+      }
+    ],
+    "u": "Specialty là cách viết Mỹ chỉ thứ mà một người, địa điểm hay doanh nghiệp đặc biệt nổi tiếng: the house specialty (món đặc trưng của quán), a regional specialty (đặc sản vùng). Trong y học, nó chỉ một chuyên khoa như tim mạch. Anh-Anh thường viết speciality. Đây là danh từ đếm được. Cấu trúc: specialize in a field, nhưng 'a specialty of' một nơi. Specialty shop là cửa hàng chuyên một loại hàng. Strength hay forte chung hơn, chỉ kỹ năng giỏi nhất của người."
+  },
+  "specific": {
+    "mis": [
+      {
+        "w": "Can you be more specific in the price?",
+        "r": "Can you be more specific about the price?",
+        "why": "Be specific đi với 'about' để chỉ chủ đề, không dùng 'in'."
+      },
+      {
+        "w": "This rule is specified to Vietnam.",
+        "r": "This rule is specific to Vietnam.",
+        "why": "Dùng tính từ specific to, nghĩa là chỉ áp dụng cho; specified là phân từ quá khứ."
+      }
+    ],
+    "u": "Specific là tính từ nghĩa là rõ ràng, chính xác hoặc liên quan đến một điều cụ thể chứ không phải chung chung. Từ này rất hay dùng trong phỏng vấn và báo cáo: give a specific example (đưa ví dụ cụ thể), a specific goal. Cần nhớ hai giới từ: be specific about một chủ đề, và something is specific to một nơi hay nhóm người. Nó trái nghĩa với general và mạnh hơn particular một chút. Trạng từ là specifically."
+  },
+  "spill": {
+    "mis": [
+      {
+        "w": "I spilled the coffee at my shirt.",
+        "r": "I spilled the coffee on my shirt.",
+        "why": "Dùng 'on' cho bề mặt bị chất lỏng đổ lên."
+      },
+      {
+        "w": "The juice spilled the table when I hit it.",
+        "r": "The juice spilled onto the table when I hit it.",
+        "why": "Spill không có tân ngữ thì cần giới từ như 'onto' hoặc 'over' trước nơi chất lỏng đổ ra."
+      }
+    ],
+    "u": "Spill nghĩa là làm chất lỏng hoặc vật nhỏ rơi ra khỏi vật chứa một cách vô ý: spill coffee on the keyboard (làm đổ cà phê lên bàn phím). Quá khứ là spilled trong Anh-Mỹ, còn Anh-Anh dùng cả spilt lẫn spilled. Động từ này cũng dùng không có tân ngữ: the juice spilled over. Thành ngữ gồm spill the beans (tiết lộ bí mật) và spill over (lan sang lĩnh vực khác). Pour là cố ý rót, còn spill luôn là vô ý."
+  },
+  "spite": {
+    "mis": [
+      {
+        "w": "In spite the rain, we went out.",
+        "r": "In spite of the rain, we went out.",
+        "why": "Cụm cố định là 'in spite of', không được bỏ 'of'."
+      },
+      {
+        "w": "In spite of it was raining, we went out.",
+        "r": "In spite of the rain, we went out.",
+        "why": "In spite of cần danh từ hoặc dạng -ing, không đi với cả mệnh đề; mệnh đề thì dùng although."
+      }
+    ],
+    "u": "Spite có hai cách dùng. Trong cụm cố định in spite of, nó nghĩa là mặc dù và theo sau là danh từ hoặc dạng -ing: in spite of the delay, in spite of being tired. Nếu theo sau là cả mệnh đề thì dùng although hoặc even though. Đứng một mình, spite là danh từ chỉ ý muốn làm hại người khác vì tị hiềm, như 'He did it out of spite' (anh ta làm vậy vì ác ý). Despite trang trọng hơn một chút và không có 'of'."
+  },
+  "spouse": {
+    "mis": [
+      {
+        "w": "My spouse, she is a nurse.",
+        "r": "My spouse is a nurse.",
+        "why": "Không lặp chủ ngữ bằng đại từ; spouse đã là chủ ngữ rồi."
+      },
+      {
+        "w": "I will bring my spouse's to the party.",
+        "r": "I will bring my spouse to the party.",
+        "why": "Chỉ thêm 's khi chỉ sở hữu; tân ngữ ở đây không cần sở hữu cách."
+      }
+    ],
+    "u": "Spouse là danh từ trang trọng, trung lập về giới, chỉ chồng hoặc vợ, thường gặp trong biểu mẫu, luật, bảo hiểm và nhập cư: spouse visa, name of spouse (họ tên vợ/chồng). Đây là danh từ đếm được và dùng cho cả hôn nhân đồng giới lẫn khác giới. Trong lời nói, người ta thường nói my husband, my wife hoặc my partner. Spouse không dùng cho bạn trai hay bạn gái. Từ này cũng xuất hiện trong chính sách phúc lợi cho vợ hoặc chồng của nhân viên."
+  },
+  "spray": {
+    "mis": [
+      {
+        "w": "He sprayed the plants by water.",
+        "r": "He sprayed the plants with water.",
+        "why": "Dùng 'with' cho chất lỏng dùng để xịt."
+      },
+      {
+        "w": "She sprayed perfume to her neck.",
+        "r": "She sprayed perfume on her neck.",
+        "why": "Dùng 'on' cho bề mặt nhận chất xịt; 'to' là sai."
+      }
+    ],
+    "u": "Spray vừa là động từ vừa là danh từ, chỉ việc phun chất lỏng thành đám giọt nhỏ. Có hai cấu trúc: spray water on the plants và spray the plants with water; cấu trúc thứ hai đặt đối tượng lên trước. Làm danh từ, spray gọi tên bình xịt hoặc làn sương: insect spray, hair spray, sea spray (bụi nước biển). Nó khác pour là rót thành dòng liên tục, và khác sprinkle là rắc các giọt hay hạt lớn hơn, rời rạc."
+  },
+  "statistics": {
+    "mis": [
+      {
+        "w": "The statistics show that a statistic is growing.",
+        "r": "The statistics show that sales are growing.",
+        "why": "Statistic là một con số riêng lẻ; cần viết lại để danh từ rõ nghĩa và đúng số."
+      },
+      {
+        "w": "Statistics are a difficult subject.",
+        "r": "Statistics is a difficult subject.",
+        "why": "Khi là môn học, statistics đi với động từ số ít."
+      }
+    ],
+    "u": "Statistics có hai nghĩa. Là ngành học, nó dùng như số ít: Statistics is required for this degree (ngành này bắt buộc học thống kê). Là các con số mô tả điều gì đó, nó là số nhiều: the statistics show a rise in prices. Một con số riêng lẻ là a statistic. Các cụm hay gặp: official statistics, crime statistics. Nói 'according to the statistics' hoặc 'statistics show', không nói 'statistics say'. Trong văn nói, stats rất phổ biến. Data là dữ liệu thô; statistics là kết quả tính từ đó."
+  },
+  "strategy": {
+    "mis": [
+      {
+        "w": "We need a strategy to solve of this problem.",
+        "r": "We need a strategy to solve this problem.",
+        "why": "Solve là ngoại động từ, nhận tân ngữ trực tiếp, không thêm 'of'."
+      },
+      {
+        "w": "Their strategy is very strategy.",
+        "r": "Their strategy is very strategic.",
+        "why": "Dùng tính từ strategic thay vì lặp danh từ để miêu tả."
+      }
+    ],
+    "u": "Strategy nghĩa là kế hoạch được thiết kế để đạt mục tiêu dài hạn, thường trong kinh doanh, chính trị, thể thao hoặc quân sự. Đây là danh từ đếm được: a marketing strategy, an exit strategy (chiến lược rút lui). Nó lớn hơn tactic: strategy là kế hoạch tổng thể, tactics là các bước dùng để thực hiện. Các động từ hay đi kèm là develop, adopt, implement a strategy. Tính từ là strategic và trạng từ là strategically. Từ này mang sắc thái mạnh hơn plan."
+  },
+  "streamline": {
+    "mis": [
+      {
+        "w": "We streamlined the process to be more efficiently.",
+        "r": "We streamlined the process to make it more efficient.",
+        "why": "Sau 'make it' cần tính từ efficient, không dùng trạng từ."
+      },
+      {
+        "w": "The company streamlined for the process.",
+        "r": "The company streamlined the process.",
+        "why": "Streamline là ngoại động từ, cần tân ngữ trực tiếp, không có 'for'."
+      }
+    ],
+    "u": "Streamline là động từ dùng nhiều trong kinh doanh, nghĩa là làm cho hệ thống hoặc quy trình đơn giản và hiệu quả hơn bằng cách bỏ bớt bước thừa: streamline operations, streamline the approval process (tinh gọn quy trình duyệt). Nó là ngoại động từ, hay xuất hiện trong báo cáo cắt giảm chi phí hoặc chuyển đổi số. Gốc từ chỉ hình dáng thon của phương tiện chạy nhanh. Trong tin tức công ty, từ này đôi khi là cách nói giảm về việc cắt nhân sự. Simplify là từ đơn giản hằng ngày."
+  },
+  "strictly": {
+    "mis": [
+      {
+        "w": "The rules are strict enforced.",
+        "r": "The rules are strictly enforced.",
+        "why": "Phải dùng trạng từ strictly để bổ nghĩa cho phân từ enforced."
+      },
+      {
+        "w": "Strictly, smoking is forbidden here.",
+        "r": "Smoking is strictly forbidden here.",
+        "why": "Kết hợp cố định là strictly forbidden; trạng từ đứng trước tính từ."
+      }
+    ],
+    "u": "Strictly là trạng từ nghĩa là một cách bắt buộc phải tuân theo, hoặc chính xác và không có ngoại lệ. Nó làm mạnh các từ về quy định: strictly forbidden (nghiêm cấm), strictly confidential (tuyệt mật), strictly enforced. Strictly speaking mở đầu câu để nói điều đúng về mặt kỹ thuật dù người ta thường dùng nghĩa lỏng hơn. Nó còn nghĩa là chỉ: the offer is strictly for members. Đừng nhầm trạng từ strictly với tính từ strict."
+  },
+  "subscribe": {
+    "mis": [
+      {
+        "w": "Please subscribe our newsletter.",
+        "r": "Please subscribe to our newsletter.",
+        "why": "Subscribe cần 'to' trước thứ bạn đăng ký nhận."
+      },
+      {
+        "w": "I subscribed for the magazine since 2019.",
+        "r": "I have subscribed to the magazine since 2019.",
+        "why": "Dùng hiện tại hoàn thành với since và 'to' sau subscribe."
+      }
+    ],
+    "u": "Subscribe nghĩa là trả tiền hoặc đăng ký để nhận thứ gì đó đều đặn, như tạp chí, dịch vụ phát trực tuyến hay bản tin email. Giới từ đi kèm là 'to': subscribe to a channel (đăng ký kênh). Trong văn trang trọng, subscribe to an idea nghĩa là đồng tình với một ý kiến. Trái nghĩa là unsubscribe. Sign up là cách nói thân mật tương đương và có thể không mất phí. Danh từ là subscription, người đăng ký là subscriber."
+  },
+  "subscription": {
+    "mis": [
+      {
+        "w": "I pay a subscription of this app every month.",
+        "r": "I pay a subscription for this app every month.",
+        "why": "Dùng 'for' để chỉ dịch vụ mà gói đăng ký chi trả."
+      },
+      {
+        "w": "My subscription will expire at March.",
+        "r": "My subscription will expire in March.",
+        "why": "Dùng 'in' với tên tháng, không dùng 'at'."
+      }
+    ],
+    "u": "Subscription là danh từ đếm được chỉ khoản tiền trả định kỳ để nhận một dịch vụ hay ấn phẩm, hoặc chính thoả thuận đó: a monthly subscription, an annual subscription, a subscription to a journal. Các động từ thường đi kèm là take out, renew và cancel a subscription. Trong kinh doanh, nó là nền tảng của mô hình thuê bao mà các công ty phần mềm và truyền thông dùng. Trong Anh-Anh, từ này còn là phí hội viên đóng cho câu lạc bộ."
+  },
+  "subsidize": {
+    "mis": [
+      {
+        "w": "The government subsidizes to farmers.",
+        "r": "The government subsidizes farmers.",
+        "why": "Subsidize là ngoại động từ, nhận tân ngữ trực tiếp, không có 'to'."
+      },
+      {
+        "w": "The meals are subsidy by the school.",
+        "r": "The meals are subsidized by the school.",
+        "why": "Bị động cần phân từ quá khứ subsidized, không dùng danh từ subsidy."
+      }
+    ],
+    "u": "Subsidize nghĩa là trả một phần chi phí của việc gì đó để người dùng phải trả ít hơn: subsidize public transport (trợ giá giao thông công cộng), subsidize school meals. Anh-Anh viết là subsidise. Khoản tiền hỗ trợ gọi là subsidy, thường đến từ chính phủ hoặc tổ chức. Lưu ý subsidize chỉ trả một phần chi phí, còn fund có thể là trả toàn bộ. Từ này hay dùng ở dạng bị động: heavily subsidized housing (nhà ở được trợ giá nhiều)."
+  },
+  "sue": {
+    "mis": [
+      {
+        "w": "He sued to the company for damages.",
+        "r": "He sued the company for damages.",
+        "why": "Sue nhận tân ngữ trực tiếp; lý do được dẫn bằng 'for'."
+      },
+      {
+        "w": "She will sue him about the accident.",
+        "r": "She will sue him over the accident.",
+        "why": "Dùng 'over' (hoặc for + khoản bồi thường) để nêu lý do kiện; 'about' không tự nhiên."
+      }
+    ],
+    "u": "Sue nghĩa là khởi kiện dân sự một người hay một công ty, thường để đòi tiền: sue for damages (kiện đòi bồi thường thiệt hại), sue for compensation. Cấu trúc là sue someone for something. Đây là kiện dân sự, khác prosecute là việc nhà nước truy tố trong vụ án hình sự. Danh từ là suit hoặc lawsuit. Trong lời nói hằng ngày, threaten to sue (doạ kiện) hay xuất hiện trong khiếu nại của khách hàng. Từ ngắn nhưng mang ý nghĩa nghiêm trọng."
+  },
+  "suspicious": {
+    "mis": [
+      {
+        "w": "I am suspicious about my neighbor's story.",
+        "r": "I am suspicious of my neighbor's story.",
+        "why": "Suspicious đi với 'of' khi bạn nghi ngờ ai hay điều gì."
+      },
+      {
+        "w": "The police found a suspect package.",
+        "r": "The police found a suspicious package.",
+        "why": "Suspect làm tính từ hiếm và trang trọng; ở đây dùng suspicious."
+      }
+    ],
+    "u": "Suspicious có hai chiều nghĩa. Vật hay việc suspicious là thứ khiến bạn nghĩ có điều không ổn hoặc nguy hiểm: a suspicious package (gói hàng khả nghi), suspicious behavior. Người suspicious of someone or something là người nghi ngờ, không tin: suspicious of strangers. Cả hai cách dùng đều phổ biến trong tin tức và thông báo an ninh. Danh từ là suspicion, trạng từ là suspiciously. Đừng nhầm với suspect, danh từ chỉ nghi phạm mà cảnh sát cho là có tội."
+  },
+  "tactic": {
+    "mis": [
+      {
+        "w": "They used a new tactics.",
+        "r": "They used a new tactic.",
+        "why": "Tactic là số ít và đi với 'a'; chỉ dạng số nhiều tactics mới đứng không có mạo từ."
+      },
+      {
+        "w": "Their tactics is working well.",
+        "r": "Their tactics are working well.",
+        "why": "Tactics ở đây là số nhiều nên động từ phải số nhiều."
+      }
+    ],
+    "u": "Tactic là phương pháp có kế hoạch để đạt một mục tiêu cụ thể, thường là bước ngắn hạn nằm trong chiến lược lớn hơn: a sales tactic (chiêu bán hàng), a delaying tactic (chiêu kéo dài thời gian). Đây là danh từ đếm được và hay ở dạng số nhiều: the team changed its tactics. Từ này có thể gợi sự khôn khéo hoặc mánh khoé, như scare tactics (chiêu hù doạ). Bình luận thể thao dùng tactics để nói cách một đội chơi. Tính từ là tactical. So sánh với strategy, kế hoạch tổng thể dài hạn."
+  },
+  "tag": {
+    "mis": [
+      {
+        "w": "He tagged me in the photo of yesterday at Facebook.",
+        "r": "He tagged me in yesterday's photo on Facebook.",
+        "why": "Dùng 'on' với tên trang web hoặc ứng dụng, không dùng 'at'."
+      },
+      {
+        "w": "Please tag the label to the bag.",
+        "r": "Please attach the label to the bag.",
+        "why": "Tag làm động từ nghĩa là gắn nhãn, đánh dấu; gắn vật này vào vật khác dùng attach."
+      }
+    ],
+    "u": "Tag là nhãn nhỏ gắn vào vật gì đó để cung cấp thông tin: a price tag (nhãn giá), a luggage tag (thẻ hành lý), a name tag (thẻ tên). Trên mạng, nó còn là từ khoá hoặc liên kết tới một người: tag a friend in a post (gắn thẻ bạn bè). Làm động từ, tag là gắn nhãn như vậy. Cụm động từ tag along nghĩa là đi theo ai đó dù không được mời. Đừng nhầm tag với label hay sticker nói chung, vốn không nhất thiết được buộc bằng dây."
+  },
+  "tempt": {
+    "mis": [
+      {
+        "w": "I was tempted buy the shoes.",
+        "r": "I was tempted to buy the shoes.",
+        "why": "Be tempted đi với 'to' cộng động từ nguyên mẫu."
+      },
+      {
+        "w": "She was tempting by the cake.",
+        "r": "She was tempted by the cake.",
+        "why": "Dùng phân từ quá khứ tempted cho người cảm thấy bị cuốn hút."
+      }
+    ],
+    "u": "Tempt nghĩa là khiến ai đó muốn làm hay có điều gì, nhất là điều không nên: the sale tempted me to spend more (đợt giảm giá làm tôi muốn tiêu thêm). Cấu trúc thường dùng là tempt someone to do something, và dạng bị động be tempted by something rất phổ biến. Tính từ tempting miêu tả thứ được đưa ra, như a tempting offer. Tempted dùng cho người cảm thấy bị cám dỗ. Danh từ là temptation. Từ này thường gợi sự giằng co nhẹ về đạo đức, không phải tội nặng."
+  },
+  "terrific": {
+    "mis": [
+      {
+        "w": "The film was terrific scary.",
+        "r": "The film was terrifyingly scary.",
+        "why": "Cần trạng từ để bổ nghĩa cho tính từ scary; terrific là tính từ."
+      },
+      {
+        "w": "The party was terrified last night.",
+        "r": "The party was terrific last night.",
+        "why": "Terrified miêu tả người sợ hãi; sự kiện rất tuyệt thì dùng terrific."
+      }
+    ],
+    "u": "Terrific là tính từ thân mật nghĩa là rất tốt, tuyệt vời: a terrific idea, you look terrific (trông bạn tuyệt lắm). Xưa nó nghĩa là gây kinh hoàng; nghĩa cũ ấy còn ở từ họ hàng terrifying, nên ngày nay đừng dùng terrific cho điều đáng sợ. Từ này ấm áp, tích cực, hợp văn nói, email và lời khen ở nơi làm việc. Terrific đôi khi còn nghĩa là rất lớn: a terrific noise (tiếng ồn khủng khiếp). Great và wonderful gần nghĩa."
+  },
+  "textbook": {
+    "mis": [
+      {
+        "w": "Please open the textbook in page 20.",
+        "r": "Please open the textbook to page 20.",
+        "why": "Dùng 'to' trong open a book to a page; không dùng 'in'."
+      },
+      {
+        "w": "I bought a text book for physics.",
+        "r": "I bought a physics textbook.",
+        "why": "Textbook viết liền một từ và tên môn học đứng trước như danh từ bổ nghĩa."
+      }
+    ],
+    "u": "Textbook là danh từ đếm được chỉ cuốn sách dùng để học một môn ở trường hoặc đại học: a chemistry textbook (sách giáo khoa hoá). Từ này viết liền một chữ. Nó cũng làm tính từ đứng trước danh từ, nghĩa là mẫu mực, điển hình: a textbook case, a textbook landing (cú hạ cánh chuẩn mực). Textbook khác manual là sách hướng dẫn sử dụng máy móc, và khác workbook là sách chứa bài tập để làm."
+  },
+  "theft": {
+    "mis": [
+      {
+        "w": "Two thefts of cars happened last night.",
+        "r": "Two car thefts happened last night.",
+        "why": "Đặt car trước theft làm bổ ngữ danh từ; 'thefts of cars' nghe vụng."
+      },
+      {
+        "w": "He was arrested for theft the bike.",
+        "r": "He was arrested for the theft of the bike.",
+        "why": "Theft là danh từ nên cần 'of' trước vật bị lấy cắp."
+      }
+    ],
+    "u": "Theft là tội trộm cắp nói chung, tức lấy tài sản mà không có sự cho phép và không dùng bạo lực. Từ này đếm được khi nói một vụ riêng lẻ (three thefts this week) và không đếm được khi nói tội danh. Các từ ghép phổ biến là identity theft (đánh cắp danh tính) và car theft. Burglary là đột nhập vào toà nhà để trộm, còn robbery liên quan đến vũ lực hoặc đe doạ người, nên chúng không giống nhau. Động từ là steal, người phạm tội là thief."
+  },
+  "thrill": {
+    "mis": [
+      {
+        "w": "I was thrill when I saw the stage.",
+        "r": "I was thrilled when I saw the stage.",
+        "why": "Với cảm xúc của người dùng tính từ thrilled, không dùng danh từ thrill."
+      },
+      {
+        "w": "It gave me a thrilled.",
+        "r": "It gave me a thrill.",
+        "why": "Sau 'a' cần danh từ; thrilled là tính từ."
+      }
+    ],
+    "u": "Thrill là danh từ đếm được chỉ cảm giác phấn khích mạnh và đột ngột, thường lẫn chút sợ hãi: the thrill of the roller coaster (cảm giác mạnh khi đi tàu lượn). Các cấu trúc hay gặp là get a thrill from something và the thrill of doing something. Làm động từ, thrill nghĩa là làm ai đó rất phấn khích. Hai tính từ cần phân biệt: thrilled nói về người (I'm thrilled), còn thrilling nói về trải nghiệm. Excitement chung hơn; thrill ngắn và mãnh liệt hơn."
+  },
+  "timely": {
+    "mis": [
+      {
+        "w": "He answered timely to my email.",
+        "r": "He answered my email in a timely manner.",
+        "why": "Timely là tính từ, không phải trạng từ; dùng 'in a timely manner' hoặc promptly."
+      },
+      {
+        "w": "The bus arrived timely.",
+        "r": "The bus arrived on time.",
+        "why": "Timely không làm trạng từ; nói đúng giờ thì dùng on time."
+      }
+    ],
+    "u": "Timely là tính từ nghĩa là xảy ra đúng lúc, hoặc đủ nhanh để còn có ích: a timely warning (lời cảnh báo kịp thời), timely delivery. Lưu ý đuôi -ly không biến nó thành trạng từ, nên dùng in a timely manner hoặc promptly. Timely không giống punctual, vốn miêu tả người đến đúng giờ; timely miêu tả hành động hay sự kiện hợp với hoàn cảnh. Từ này thường gặp trong văn bản kinh doanh và tin tức."
+  },
+  "traditionally": {
+    "mis": [
+      {
+        "w": "Traditionally the Vietnamese people ate rice with chopsticks.",
+        "r": "Traditionally Vietnamese people eat rice with chopsticks.",
+        "why": "Dùng hiện tại đơn cho phong tục còn tồn tại; thì quá khứ ngụ ý đã chấm dứt."
+      },
+      {
+        "w": "The festival is traditional held in spring.",
+        "r": "The festival is traditionally held in spring.",
+        "why": "Dùng trạng từ traditionally để bổ nghĩa cho phân từ held."
+      }
+    ],
+    "u": "Traditionally là trạng từ nghĩa là theo phong tục lâu đời: the soup is traditionally served hot (món súp theo truyền thống ăn nóng). Người viết hay đặt nó ở đầu câu để tạo đối lập: traditionally men did this, but now things are changing. Từ này chỉ thói quen truyền qua nhiều thế hệ, không chỉ là điều cũ. Nó không đồng nghĩa hoàn toàn với historically, vốn chỉ sự việc trong quá khứ. Chú ý chính tả: traditional không có thêm chữ 'n'."
+  },
+  "unless": {
+    "mis": [
+      {
+        "w": "Unless you don't hurry, you will miss the train.",
+        "r": "Unless you hurry, you will miss the train.",
+        "why": "Unless đã có nghĩa if not nên không thêm phủ định nữa."
+      },
+      {
+        "w": "Unless it will rain, we will go.",
+        "r": "Unless it rains, we will go.",
+        "why": "Sau unless dùng hiện tại đơn cho nghĩa tương lai, không dùng will."
+      }
+    ],
+    "u": "Unless là liên từ nghĩa là trừ khi, nêu điều kiện duy nhất làm thay đổi mệnh đề chính: We will start at nine unless it rains (chúng tôi bắt đầu lúc chín giờ trừ khi trời mưa). Động từ sau unless thường ở thì hiện tại dù nói về tương lai, và không kết hợp thêm phủ định. Nó tương đương if not nhưng cấu trúc gọn hơn. Cụm unless otherwise stated xuất hiện trên hợp đồng và thông báo. Trong văn trang trọng, unless nêu ngoại lệ chứ không phải điều kiện thông thường."
+  },
+  "unreliable": {
+    "mis": [
+      {
+        "w": "He is unreliable on his promises.",
+        "r": "He is unreliable with his promises.",
+        "why": "Dùng 'with' hoặc diễn đạt lại; 'on' không phải giới từ thông thường."
+      },
+      {
+        "w": "The data is not unreliability.",
+        "r": "The data is unreliable.",
+        "why": "Sau be dùng tính từ unreliable; unreliability là danh từ."
+      }
+    ],
+    "u": "Unreliable là tính từ chỉ người hoặc vật không thể tin cậy là sẽ hoạt động, cư xử hay chính xác mọi lúc: an unreliable car (chiếc xe hay hỏng), an unreliable source of news. Đây là dạng phủ định của reliable và mạnh hơn inconsistent. Trong nghiên cứu, nhân chứng hoặc nguồn không đáng tin làm mất độ chắc chắn của kết luận. Danh từ là unreliability. Unreliable nói về việc thất bại lặp lại; untrustworthy gợi sự thiếu trung thực, là vấn đề khác."
+  },
+  "upgrade": {
+    "mis": [
+      {
+        "w": "I upgraded my phone for a newer.",
+        "r": "I upgraded my phone to a newer model.",
+        "why": "Dùng 'to' cho phiên bản tốt hơn mà bạn chuyển sang, và nêu rõ danh từ."
+      },
+      {
+        "w": "The airline upgraded to me to business class.",
+        "r": "The airline upgraded me to business class.",
+        "why": "Upgrade nhận người làm tân ngữ trực tiếp; không đặt 'to' trước đó."
+      }
+    ],
+    "u": "Upgrade nghĩa là cải thiện hoặc thay bằng phiên bản tốt hơn: upgrade the software, upgrade your plan (nâng cấp gói). Khi tân ngữ là người, thường nghĩa là chuyển lên hạng cao hơn: the airline upgraded me to business class. Cấu trúc là upgrade (something) to (a better version). Làm danh từ, an upgrade là chính sự nâng cấp, như a free upgrade. Update chỉ đưa lên bản mới nhất mà không nhất thiết tốt hơn."
+  },
+  "vacancy": {
+    "mis": [
+      {
+        "w": "We have a vacancy to a receptionist.",
+        "r": "We have a vacancy for a receptionist.",
+        "why": "Vacancy đi với 'for' để chỉ vị trí hay phòng trống."
+      },
+      {
+        "w": "There are many vacancy in this hotel.",
+        "r": "There are many vacancies in this hotel.",
+        "why": "Many cần danh từ số nhiều vacancies."
+      }
+    ],
+    "u": "Vacancy là danh từ đếm được chỉ vị trí việc làm hoặc phòng đang trống và sẵn sàng: a job vacancy (vị trí tuyển dụng), a vacancy for a chef. Ở khách sạn, biển no vacancy nghĩa là hết phòng, điều khiến người học bất ngờ. Công ty advertise a vacancy rồi fill it (tuyển người vào chỗ trống). Trong bất động sản, vacancy rate là tỷ lệ căn bỏ trống. Tính từ là vacant. Opening là cách nói thân mật hơn của Mỹ khi nói về một vị trí việc làm."
+  },
+  "vend": {
+    "mis": [
+      {
+        "w": "He vends at the street every day.",
+        "r": "He sells goods on the street every day.",
+        "why": "Vend hiếm và trang trọng; lời nói thường dùng sell với 'on' the street."
+      },
+      {
+        "w": "The machine vended me a drink.",
+        "r": "The machine gave me a drink.",
+        "why": "Vend không nhận tân ngữ chỉ người; dùng give hoặc dispense."
+      }
+    ],
+    "u": "Vend là động từ trang trọng và ít gặp, nghĩa là bán đồ nhỏ, thường tại quầy hàng hoặc bằng máy. Bạn sẽ gặp các từ họ hàng thường xuyên hơn: vendor chỉ người bán, và vending machine là máy bán đồ ăn nhẹ hay nước uống. Người bán hàng rong (street vendors) rất phổ biến ở các thành phố châu Á. Trong tiếng Anh hằng ngày, hãy dùng sell, không dùng vend. Vend còn xuất hiện trên giấy phép và văn bản pháp lý về việc ai được bán hàng nơi công cộng."
+  },
+  "venue": {
+    "mis": [
+      {
+        "w": "The venue of the meeting is a hotel.",
+        "r": "The venue for the meeting is a hotel.",
+        "why": "Venue đi với 'for' khi nói đến sự kiện."
+      },
+      {
+        "w": "We will hold the party at a big venue room.",
+        "r": "We will hold the party at a big venue.",
+        "why": "Venue là cả địa điểm nên không thêm room sau nó."
+      }
+    ],
+    "u": "Venue là danh từ đếm được chỉ nơi diễn ra một sự kiện như hòa nhạc, đám cưới, trận đấu hay hội nghị. Người tổ chức sự kiện dùng từ này hằng ngày: book a venue (đặt địa điểm), a conference venue. Nó trang trọng hơn place và cho biết nơi đó được bố trí cho sự kiện. Cấu trúc: the venue for the event. Từ này chỉ địa điểm chung, không phải căn phòng hay địa chỉ cụ thể. Trong luật, venue còn là nơi diễn ra phiên toà."
+  },
+  "waive": {
+    "mis": [
+      {
+        "w": "The bank waived me the late fee.",
+        "r": "The bank waived the late fee for me.",
+        "why": "Waive chỉ nhận một tân ngữ; người được hưởng thêm bằng 'for'."
+      },
+      {
+        "w": "He waved the late fee.",
+        "r": "He waived the late fee.",
+        "why": "Waive (miễn, từ bỏ quy định hay khoản phí) không phải wave (vẫy tay)."
+      }
+    ],
+    "u": "Waive nghĩa là quyết định không đòi hỏi điều gì đó như một khoản phí, quy định hay quyền lợi: the bank waived the late charge (ngân hàng miễn phí trả chậm), applicants may waive the interview. Từ này trang trọng, dùng trong tài chính, luật và hành chính. Danh từ là waiver, văn bản trong đó một người từ bỏ quyền. Waive phát âm giống wave, nên rất hay bị viết sai. Thứ được waive thường là yêu cầu hoặc khoản tiền, không phải con người."
+  },
+  "wildlife": {
+    "mis": [
+      {
+        "w": "There are many wildlifes in the park.",
+        "r": "There is a lot of wildlife in the park.",
+        "why": "Wildlife là danh từ không đếm được, không có dạng số nhiều."
+      },
+      {
+        "w": "Wildlife are protected here.",
+        "r": "Wildlife is protected here.",
+        "why": "Wildlife không đếm được nên đi với động từ số ít."
+      }
+    ],
+    "u": "Wildlife là danh từ không đếm được chỉ động vật và thực vật hoang dã sống trong môi trường tự nhiên: protect wildlife (bảo vệ động vật hoang dã), wildlife reserve (khu bảo tồn). Từ này đi với động từ số ít và các từ chỉ lượng như a lot of, không dùng many. Muốn nói một con vật, hãy dùng a wild animal. Nó hay xuất hiện trong du lịch thiên nhiên, khoa học học đường và tin bảo tồn. Fauna là từ chuyên môn chỉ riêng động vật; wildlife có thể gồm cả thực vật."
+  },
+  "willingness": {
+    "mis": [
+      {
+        "w": "She showed willingness for help us.",
+        "r": "She showed willingness to help us.",
+        "why": "Willingness đi với 'to' cộng động từ nguyên mẫu."
+      },
+      {
+        "w": "His willing to learn is impressive.",
+        "r": "His willingness to learn is impressive.",
+        "why": "Sau sở hữu cách cần danh từ willingness, không dùng tính từ willing."
+      }
+    ],
+    "u": "Willingness là danh từ không đếm được chỉ sự sẵn lòng làm điều gì khi được nhờ. Từ này rất phổ biến trong tin tuyển dụng và thư giới thiệu: willingness to learn (sẵn sàng học hỏi), willingness to travel. Cấu trúc là willingness to + động từ nguyên mẫu. Đây là danh từ của willing, trái nghĩa là unwillingness hoặc reluctance. Willingness gợi thái độ tích cực và hợp tác, ấm áp hơn việc chỉ nói về khả năng. Một từ gần nghĩa là readiness."
+  },
+  "withdrawal": {
+    "mis": [
+      {
+        "w": "I made a withdrawal of money at the ATM yesterday.",
+        "r": "I made a cash withdrawal at the ATM yesterday.",
+        "why": "'Withdrawal of money' dài dòng; cách nói tự nhiên là cash withdrawal."
+      },
+      {
+        "w": "The withdrawl limit is 5 million.",
+        "r": "The withdrawal limit is 5 million.",
+        "why": "Danh từ withdrawal viết với đuôi -al."
+      }
+    ],
+    "u": "Withdrawal là danh từ chỉ việc rút tiền khỏi tài khoản ngân hàng (a cash withdrawal), và cả việc rút khỏi một nơi, thoả thuận hay hoạt động: the withdrawal of troops (rút quân), withdrawal from the contract. Trong y học, withdrawal symptoms là triệu chứng khi ngừng dùng thuốc. Động từ là withdraw; trái nghĩa với việc rút tiền là deposit. Ngân hàng đặt hạn mức rút tiền mỗi ngày (daily withdrawal limit). Nhớ chính tả kết thúc bằng -al."
+  },
+  "wrinkle": {
+    "mis": [
+      {
+        "w": "My shirt is wrinkle after the trip.",
+        "r": "My shirt is wrinkled after the trip.",
+        "why": "Dùng tính từ wrinkled để miêu tả trạng thái; wrinkle là danh từ hoặc động từ."
+      },
+      {
+        "w": "She has many wrinkle on her face.",
+        "r": "She has many wrinkles on her face.",
+        "why": "Many cần danh từ số nhiều."
+      }
+    ],
+    "u": "Wrinkle là danh từ đếm được chỉ nếp nhăn nhỏ trên da hoặc nếp gấp trên vải: fine wrinkles (nếp nhăn nhỏ), wrinkles in a shirt. Làm động từ, nó nghĩa là làm hoặc tạo ra những nếp như vậy: wrinkle your nose (nhăn mũi). Tính từ là wrinkled, còn wrinkle-free miêu tả vải hay sản phẩm không bị nhăn. Với quần áo, crease cũng phổ biến trong Anh-Anh, còn với da chỉ dùng wrinkle và line. Kem chống nhăn là mặt hàng làm đẹp lớn."
+  },
+  "aboard": {
+    "mis": [
+      {
+        "w": "We went aboard to the ship.",
+        "r": "We went aboard the ship.",
+        "why": "Aboard đã có nghĩa là lên/trên nên không thêm 'to'."
+      },
+      {
+        "w": "Passengers must stay in aboard.",
+        "r": "Passengers must stay aboard.",
+        "why": "Aboard ở đây là trạng từ và không đi với 'in'."
+      }
+    ],
+    "u": "Aboard nghĩa là trên hoặc lên tàu, máy bay, tàu hoả hay xe buýt. Nó vừa là trạng từ (Welcome aboard) vừa là giới từ (aboard the flight) và không cần thêm từ như 'to'. Từ này trang trọng và hơi truyền thống hơn on, chủ yếu dùng trong thông báo của tổ lái hoặc nhân viên. Welcome aboard cũng thành lời chào thân thiện dành cho đồng nghiệp mới. On board là dạng hai chữ cùng nghĩa, cũng được dùng bóng như get on board with a plan (ủng hộ kế hoạch)."
+  },
+  "advertisement": {
+    "mis": [
+      {
+        "w": "I saw an advertisement of a new phone.",
+        "r": "I saw an advertisement for a new phone.",
+        "why": "Advertisement đi với 'for' cho sản phẩm được quảng cáo."
+      },
+      {
+        "w": "There are too many advertisement on TV.",
+        "r": "There are too many advertisements on TV.",
+        "why": "Advertisement đếm được nên dùng số nhiều sau many."
+      }
+    ],
+    "u": "Advertisement là danh từ đếm được chỉ thông báo, hình ảnh hay đoạn phim giới thiệu sản phẩm, dịch vụ hoặc việc làm. Trong lời nói và văn thân mật, người ta rút gọn thành ad, và trên TV, commercial là từ thường dùng trong Anh-Mỹ. Anh-Anh nhấn âm tiết thứ hai (ad-VER-tisement), còn Anh-Mỹ thường nhấn âm thứ ba. Đừng nhầm với advertising, từ không đếm được chỉ toàn bộ hoạt động quảng cáo."
+  },
+  "advertiser": {
+    "mis": [
+      {
+        "w": "Many advertiser pay for space on this site.",
+        "r": "Many advertisers pay for space on this site.",
+        "why": "Many cần danh từ số nhiều."
+      },
+      {
+        "w": "Advertisers is leaving the site.",
+        "r": "Advertisers are leaving the site.",
+        "why": "Danh từ số nhiều cần động từ số nhiều."
+      }
+    ],
+    "u": "Advertiser là danh từ đếm được chỉ người hoặc công ty trả tiền quảng cáo để giới thiệu hàng hoá hay dịch vụ của mình. Trang web, báo và kênh truyền hình bán chỗ cho advertisers, và khoản tiền này có thể nuôi nội dung miễn phí. Từ viết với đuôi -er, không phải -or, và nhấn âm đầu. Advertiser khác advertising agency, đơn vị thiết kế quảng cáo thay họ, và khác sponsor, bên tài trợ cho một sự kiện."
+  },
+  "afterward": {
+    "mis": [
+      {
+        "w": "Afterward the meeting, we had lunch.",
+        "r": "After the meeting, we had lunch.",
+        "why": "Afterward là trạng từ, không có tân ngữ; trước danh từ dùng after."
+      },
+      {
+        "w": "I will call you afterward of the class.",
+        "r": "I will call you after the class.",
+        "why": "Không thêm 'of' sau afterward; dùng giới từ after."
+      }
+    ],
+    "u": "Afterward là trạng từ nghĩa là sau đó, vào lúc muộn hơn thời điểm vừa nhắc: we ate and went for a walk afterward. Nó đứng riêng và không theo sau bằng danh từ. Anh-Mỹ ưa afterward, còn Anh-Anh thường dùng afterwards, cả hai đều đúng. Khi có danh từ theo sau thì chọn after, như after dinner. Trong văn viết, afterward thường mở đầu câu để nối hai sự kiện trong câu chuyện, giống then nhưng trang trọng hơn."
+  }
+}
