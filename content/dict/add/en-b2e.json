@@ -1,0 +1,752 @@
+{
+ "vehicle": {
+  "mis": [
+   {
+    "w": "The vehicles is parked outside the building.",
+    "r": "The vehicle is parked outside the building.",
+    "why": "Vehicle is a countable noun; use a singular verb with one vehicle and 'vehicles' with 'are'."
+   },
+   {
+    "w": "I go to work by my own vehicle.",
+    "r": "I go to work in my own vehicle.",
+    "why": "With a private vehicle we say 'in' (or 'by vehicle' without a possessive); 'by my own' is wrong."
+   }
+  ],
+  "u": "Vehicle is the formal, general word for anything that carries people or goods on land: cars, vans, buses and lorries. Police reports, insurance forms and road signs prefer it to car. It also has a figurative sense: a film can be a vehicle for a star, and poetry a vehicle for ideas. Say 'by car' for the transport mode but 'in a vehicle' for the thing itself; the plural is vehicles."
+ },
+ "vendor": {
+  "mis": [
+   {
+    "w": "He is a vendor of the street.",
+    "r": "He is a street vendor.",
+    "why": "Compound nouns put the place first: 'street vendor', not 'vendor of the street'."
+   },
+   {
+    "w": "We chose a vendor, who offer the lowest price.",
+    "r": "We chose a vendor who offers the lowest price.",
+    "why": "The verb agrees with a singular vendor, so it needs -s: offers."
+   }
+  ],
+  "u": "A vendor sells goods or services, and the word covers very different people: a street vendor with a food cart, or a software vendor selling licences to companies. In business English it means a supplier on an approved list, so you hear 'vendor payment' and 'vendor contract'. It is more neutral than merchant and less personal than seller. British speakers often prefer supplier or stallholder, while Americans use vendor freely."
+ },
+ "videoconference": {
+  "mis": [
+   {
+    "w": "We discussed the plan by a videoconference.",
+    "r": "We discussed the plan by videoconference.",
+    "why": "After 'by' with a means of communication, no article: by videoconference, by email."
+   },
+   {
+    "w": "I will join to the videoconference at ten.",
+    "r": "I will join the videoconference at ten.",
+    "why": "Join is transitive and takes its object directly, without 'to'."
+   }
+  ],
+  "u": "A videoconference is a meeting in which people in different places see and hear each other over the internet. The word is common in business, universities and TOEIC reading texts. After 'by' it takes no article: 'by videoconference'. Typical verbs are hold, join, attend and schedule. It is more formal than video call, which sounds personal, and it is often written as two words, video conference, in British English."
+ },
+ "voucher": {
+  "mis": [
+   {
+    "w": "I used a voucher for pay the meal.",
+    "r": "I used a voucher to pay for the meal.",
+    "why": "Purpose uses 'to' + base verb, not 'for' + verb; also 'pay for' a meal."
+   },
+   {
+    "w": "The voucher is valid until three months.",
+    "r": "The voucher is valid for three months.",
+    "why": "Use 'for' with a period of time and 'until' with a point in time."
+   }
+  ],
+  "u": "A voucher is a printed or digital document that you can exchange for goods or services, or that gives a discount. Gift vouchers are bought as presents, meal vouchers are given by employers, and a voucher code is typed in online. In American English coupon is more usual for discounts, while voucher is common in British shops. Typical verbs: redeem, use, receive. A voucher often has a value and an expiry date."
+ },
+ "ward": {
+  "mis": [
+   {
+    "w": "She works on the children ward.",
+    "r": "She works on the children's ward.",
+    "why": "The ward belongs to children, so it needs the possessive: children's ward."
+   },
+   {
+    "w": "She was taken in the ward last night.",
+    "r": "She was taken to the ward last night.",
+    "why": "Movement toward a place uses 'to', not 'in'."
+   }
+  ],
+  "u": "A ward is a section of a hospital with beds for patients who need a similar kind of care, such as a maternity ward or a surgical ward. It is also an administrative district of a city in some countries, and, in law, a child under the protection of a guardian. In hospitals you are 'on the ward' or 'in a ward'. A ward is bigger than a room but smaller than a department."
+ },
+ "warehouse": {
+  "mis": [
+   {
+    "w": "We stored the boxes on the warehouse.",
+    "r": "We stored the boxes in the warehouse.",
+    "why": "Use 'in' for something inside a building, not 'on'."
+   },
+   {
+    "w": "We have many warehouse in Hanoi.",
+    "r": "We have many warehouses in Hanoi.",
+    "why": "'Many' needs a plural noun; add -s to warehouse."
+   }
+  ],
+  "u": "A warehouse is a large building where goods are stored before they are sold or shipped, and it is a key word in logistics and TOEIC business texts. Workers talk about a warehouse manager, warehouse space or goods held in a bonded warehouse until duty is paid. It is bigger and more commercial than a storeroom. Stress falls on the first syllable, and the second part is said like the word house."
+ },
+ "whoever": {
+  "mis": [
+   {
+    "w": "Whoever want to join can sign up.",
+    "r": "Whoever wants to join can sign up.",
+    "why": "Whoever is the subject of its clause and takes a singular verb."
+   },
+   {
+    "w": "Whoever finishes first, he can leave early.",
+    "r": "Whoever finishes first can leave early.",
+    "why": "Whoever is already the subject; do not repeat it with 'he'."
+   }
+  ],
+  "u": "Whoever means any person who, or it does not matter who. It introduces a clause and is also the subject of that clause, so it takes a singular verb: whoever wins gets a prize. It can also show surprise or emphasis: whoever told you that was wrong. Whoever is written as one word; the two-word 'who ever' appears only in questions of strong surprise. It is a little formal compared with 'anyone who'."
+ },
+ "workplace": {
+  "mis": [
+   {
+    "w": "She feels stressed at workplace.",
+    "r": "She feels stressed at the workplace.",
+    "why": "Workplace is a countable noun and needs an article: at the workplace."
+   },
+   {
+    "w": "Safety on workplace is important.",
+    "r": "Safety in the workplace is important.",
+    "why": "The set phrase is 'in the workplace', not 'on workplace'."
+   }
+  ],
+  "u": "Workplace means the place, or the general environment, where people do their jobs. It is a favourite word of employers and journalists: workplace safety, workplace culture, discrimination in the workplace. Unlike work, which is uncountable and abstract, workplace is countable and normally takes an article. Say 'at work' for being present on the job, but 'in the workplace' when talking about the working world in general."
+ },
+ "workshop": {
+  "mis": [
+   {
+    "w": "I will make a workshop about marketing.",
+    "r": "I will run a workshop on marketing.",
+    "why": "Use 'run', 'hold' or 'give' for events, and 'on' for the topic; 'make' is a literal translation."
+   },
+   {
+    "w": "The workshop begin at nine.",
+    "r": "The workshop begins at nine.",
+    "why": "A singular subject in the present simple needs -s on the verb."
+   }
+  ],
+  "u": "A workshop has two main meanings. In education and business it is a short, practical training event where people actively take part, unlike a lecture in which they only listen: a writing workshop, a safety workshop. It is also a room or building where things are made or repaired, such as a car workshop. The usual verbs are attend, run, hold and give, and the topic follows 'on' or 'about'."
+ },
+ "worthwhile": {
+  "mis": [
+   {
+    "w": "The trip is worthwhile of the money.",
+    "r": "The trip is worth the money.",
+    "why": "Worthwhile never takes 'of'; use 'worth' directly before a noun."
+   },
+   {
+    "w": "It is worthwhile to visiting the museum.",
+    "r": "It is worthwhile to visit the museum.",
+    "why": "After 'worthwhile to' use the base verb; the -ing form needs 'worth', as in 'worth visiting'."
+   }
+  ],
+  "u": "Worthwhile describes something that is worth the time, money or effort you spend on it. It can stand before a noun (a worthwhile cause) or after be (the trip was worthwhile). A common pattern is 'it is worthwhile to do' or '-ing'. Do not confuse it with worth, which is followed by a noun or -ing form and not used before nouns: 'worth visiting', but not 'a worth visit'."
+ },
+ "abide": {
+  "mis": [
+   {
+    "w": "All staff must abide the rules.",
+    "r": "All staff must abide by the rules.",
+    "why": "The verb takes 'by' when it means obey: abide by."
+   },
+   {
+    "w": "We abide with the contract terms.",
+    "r": "We abide by the contract terms.",
+    "why": "Abide goes with 'by', not 'with'; 'comply with' is the other pattern."
+   }
+  ],
+  "u": "Abide by means to accept and follow a rule, law, agreement or decision. It is formal and common in contracts, school notices and legal writing: all visitors must abide by the regulations. The preposition by is essential, while comply takes with. A second meaning, 'cannot abide' someone or something, means to dislike it strongly: I can't abide noise. The past form abided is regular in this use."
+ },
+ "acclaim": {
+  "mis": [
+   {
+    "w": "The film received many acclaims.",
+    "r": "The film received great acclaim.",
+    "why": "Acclaim in the sense of praise is uncountable and has no plural."
+   },
+   {
+    "w": "The book was acclaim by critics.",
+    "r": "The book was acclaimed by critics.",
+    "why": "A passive verb needs the past participle acclaimed, not the noun form."
+   }
+  ],
+  "u": "Acclaim is public praise, usually for a film, book, performance or achievement. It is mostly uncountable and formal, often seen in reviews: critical acclaim, widespread acclaim. Typical verbs are win, receive and earn. The verb acclaim is mostly passive (the novel was acclaimed as a masterpiece), and the adjective is acclaimed or highly acclaimed. It is stronger than approval and suggests enthusiastic public response."
+ },
+ "accountant": {
+  "mis": [
+   {
+    "w": "My mother is a accountant.",
+    "r": "My mother is an accountant.",
+    "why": "Use 'an' before a vowel sound: an accountant."
+   },
+   {
+    "w": "He studied to become an account.",
+    "r": "He studied to become an accountant.",
+    "why": "An account is a record or bank account; the person is an accountant."
+   }
+  ],
+  "u": "An accountant is a professional who keeps, checks and reports financial records for a person or company. The job word comes from account plus the suffix -ant, so do not confuse it with accounting, the subject, or account, a bank record. Common types include a tax accountant, chief accountant and certified public accountant (CPA) in the US, chartered accountant in the UK. Accountants are more senior than bookkeepers."
+ },
+ "accustom": {
+  "mis": [
+   {
+    "w": "She is accustomed to work late.",
+    "r": "She is accustomed to working late.",
+    "why": "In 'accustomed to', 'to' is a preposition, so a verb after it takes -ing."
+   },
+   {
+    "w": "He is accustomed with the noise.",
+    "r": "He is accustomed to the noise.",
+    "why": "The preposition after accustomed is 'to', not 'with'."
+   }
+  ],
+  "u": "Accustom is mainly seen in the adjective phrase be accustomed to, which means familiar with something because you have done it often. Because to is a preposition, a following verb takes -ing: accustomed to working nights. Become or grow accustomed to describes a gradual change. The pattern accustom yourself to is more formal. It is close to used to, but more formal and less common in speech."
+ },
+ "achieve": {
+  "mis": [
+   {
+    "w": "She achieved to pass the exam.",
+    "r": "She managed to pass the exam.",
+    "why": "Achieve takes a noun object (achieve a goal), not 'to' + verb; use 'manage to'."
+   },
+   {
+    "w": "They achieved to their target.",
+    "r": "They achieved their target.",
+    "why": "Achieve is transitive: no preposition before the object."
+   }
+  ],
+  "u": "Achieve means to succeed in reaching a goal, usually after effort or over time. It takes an object such as a goal, aim, result or success, and it is not followed by to + verb. For that idea use manage to. Achieve suggests a lasting result; get is more casual, while accomplish stresses finishing a task. Related forms: achievement is a noun, and achiever is a person who regularly succeeds."
+ },
+ "actively": {
+  "mis": [
+   {
+    "w": "We are active looking for a new manager.",
+    "r": "We are actively looking for a new manager.",
+    "why": "An adverb modifies a verb; use actively, not the adjective active."
+   },
+   {
+    "w": "She participates actively to the discussion.",
+    "r": "She participates actively in the discussion.",
+    "why": "The verb participate takes 'in', not 'to'."
+   }
+  ],
+  "u": "Actively is an adverb meaning in a way that involves real effort or energy, as opposed to passively waiting. It is common in job ads and reports: actively seeking, actively involved, actively promote. It usually sits before the main verb or after be. It can add emphasis: the police are actively investigating. Do not use the adjective active where a verb needs an adverb."
+ },
+ "affect": {
+  "mis": [
+   {
+    "w": "The weather affected on our plans.",
+    "r": "The weather affected our plans.",
+    "why": "Affect is transitive and takes no preposition."
+   },
+   {
+    "w": "The new law has a big affect.",
+    "r": "The new law has a big effect.",
+    "why": "The noun is effect; affect is normally a verb."
+   }
+  ],
+  "u": "Affect is a verb meaning to have an influence on something, as in 'Smoking affects your health'. It is often confused with effect, which is usually a noun meaning the result: the effect of smoking. A simple rule: affect is the action, effect is the thing that results. Affect takes a direct object with no preposition. Affected by describes who is influenced, and the adjective affected can also mean unnatural, as in an affected accent."
+ },
+ "alike": {
+  "mis": [
+   {
+    "w": "The two brothers are very alike to each other.",
+    "r": "The two brothers are very alike.",
+    "why": "Alike already means similar to each other; do not add 'to each other'."
+   },
+   {
+    "w": "They are alike twins.",
+    "r": "They are like twins.",
+    "why": "Before a noun, 'like' is the preposition; 'alike' cannot be followed by a noun."
+   }
+  ],
+  "u": "Alike means similar or in the same way. It can be an adjective after be (the two sisters are alike) or an adverb after a verb (they think alike). It never stands before a noun, so we say 'similar ideas', not 'alike ideas'. A common phrase is 'A and B alike', meaning both groups equally: teachers and students alike. Compare with like, which is a preposition followed by a noun."
+ },
+ "appendix": {
+  "mis": [
+   {
+    "w": "Please read the appendixs at the end.",
+    "r": "Please read the appendices at the end.",
+    "why": "The plural of appendix is appendices (or appendixes), not 'appendixs'."
+   },
+   {
+    "w": "The data is in appendix of the report.",
+    "r": "The data is in the appendix of the report.",
+    "why": "Appendix is countable and needs an article or number: the appendix, appendix A."
+   }
+  ],
+  "u": "An appendix has two quite different meanings. In a book or report it is an extra section at the end with additional information such as tables or lists, and the plural is appendices. In the body it is a small organ attached to the intestine, which may be removed in an operation called an appendectomy. Documents number them: see Appendix B. It is less central than a chapter, and you can usually skip it."
+ },
+ "appliance": {
+  "mis": [
+   {
+    "w": "We bought some new appliance.",
+    "r": "We bought some new appliances.",
+    "why": "Appliance is countable; with 'some' for several items, use the plural."
+   },
+   {
+    "w": "Kitchen appliances is expensive here.",
+    "r": "Kitchen appliances are expensive here.",
+    "why": "A plural subject needs the plural verb 'are'."
+   }
+  ],
+  "u": "An appliance is a machine that does a particular job in the home, such as a washing machine, refrigerator or toaster. It is a countable noun, usually used with household, kitchen or electrical. It suggests larger or more established items than gadget, which can be small and novel, and it is narrower than equipment, which is uncountable and covers any tools. In American English, appliance stores sell fridges and ovens."
+ },
+ "applicant": {
+  "mis": [
+   {
+    "w": "He is an applicant of the manager position.",
+    "r": "He is an applicant for the manager position.",
+    "why": "The preposition after applicant is 'for': applicant for a job."
+   },
+   {
+    "w": "Each applicants must attach a photo.",
+    "r": "Each applicant must attach a photo.",
+    "why": "'Each' is followed by a singular noun."
+   }
+  ],
+  "u": "An applicant is a person who formally applies for a job, a place at a university, a visa or a loan. The related verb is apply (for), and the noun application is the form or process. Employers use candidate for someone who is already shortlisted, while applicant is anyone who has applied. A successful applicant gets the position. The pattern is applicant for, not applicant of."
+ },
+ "apprehensive": {
+  "mis": [
+   {
+    "w": "She was apprehensive for the interview.",
+    "r": "She was apprehensive about the interview.",
+    "why": "Apprehensive is followed by 'about' (or 'of'), not 'for'."
+   },
+   {
+    "w": "I am apprehension about the result.",
+    "r": "I am apprehensive about the result.",
+    "why": "After 'be' you need the adjective apprehensive; apprehension is a noun."
+   }
+  ],
+  "u": "Apprehensive is a fairly formal adjective meaning worried that something unpleasant may happen. It is milder than terrified and stronger than curious. Common patterns: apprehensive about the exam, apprehensive of danger, and apprehensive that something might go wrong. The noun is apprehension. In everyday speech nervous or worried is more usual; apprehensive fits writing, news and polite descriptions of someone's feelings before a future event."
+ },
+ "authorize": {
+  "mis": [
+   {
+    "w": "The manager authorized me use the car.",
+    "r": "The manager authorized me to use the car.",
+    "why": "Authorize + person + to + base verb."
+   },
+   {
+    "w": "Only authorized person may enter.",
+    "r": "Only authorized persons may enter.",
+    "why": "With a general group use the plural 'persons' or 'people'."
+   }
+  ],
+  "u": "Authorize means to give official permission for something or to give someone the power to do it. It is formal: the bank authorized the transfer, only authorized staff may enter. The usual pattern is authorize someone to do something. Spelling: authorize in American English and often in British, authorise in British. The noun is authorization. It is stronger than allow because it involves official power or a signature."
+ },
+ "automatic": {
+  "mis": [
+   {
+    "w": "The door opens automatic.",
+    "r": "The door opens automatically.",
+    "why": "A verb needs an adverb: automatically, not the adjective automatic."
+   },
+   {
+    "w": "I have an automatically car.",
+    "r": "I have an automatic car.",
+    "why": "An adjective, not an adverb, goes before a noun."
+   }
+  ],
+  "u": "Automatic describes something that works by itself without a person controlling it: an automatic door, automatic payments. It can also mean done without thinking, like an automatic reaction. In British English an automatic car has no manual gears, while Americans may say automatic transmission. The adverb is automatically and the noun is automation. Do not say 'auto' in formal writing; it is slang for car in some contexts."
+ },
+ "available": {
+  "mis": [
+   {
+    "w": "Is this room available in tonight?",
+    "r": "Is this room available tonight?",
+    "why": "Time words like tonight need no preposition here."
+   },
+   {
+    "w": "The manager is not available to the phone.",
+    "r": "The manager is not available by phone.",
+    "why": "Use 'by phone' or 'on the phone' for means of contact; 'available to' takes a person."
+   }
+  ],
+  "u": "Available means that something can be obtained, used or reached, or that a person is free to talk or work. It is very common on signs, websites and in offices: tickets are available online, are you available on Monday? Prepositions: available to someone, available for a purpose, available at a place. Do not confuse it with free, which can also mean without cost."
+ },
+ "await": {
+  "mis": [
+   {
+    "w": "We await for your reply.",
+    "r": "We await your reply.",
+    "why": "Await is transitive and takes no 'for'; 'wait for' is the phrasal form."
+   },
+   {
+    "w": "The results are awaiting for confirmation.",
+    "r": "The results are awaiting confirmation.",
+    "why": "After await, add the object directly with no preposition."
+   }
+  ],
+  "u": "Await is a formal verb meaning to wait for something that is expected or going to happen. It is more common in writing than speech: we await your reply, the verdict is awaited. It takes a direct object, so you cannot say await for. Its subject is often a person, but things can also await a person: a surprise awaits you. In daily conversation use wait for."
+ },
+ "badge": {
+  "mis": [
+   {
+    "w": "Please wear your badge on the office.",
+    "r": "Please wear your badge in the office.",
+    "why": "Use 'in' with an enclosed place like an office."
+   },
+   {
+    "w": "She has two badge.",
+    "r": "She has two badges.",
+    "why": "Two needs a plural noun; add -s."
+   }
+  ],
+  "u": "A badge is a small piece of metal, plastic or cloth with a design or words, worn to show identity, membership or achievement: a police badge, a name badge at a conference, a scout badge. In offices, a security badge is a card that opens doors. British English also uses badge for the symbol on a car or clothing. It is more official than a pin and larger than a button."
+ },
+ "balloon": {
+  "mis": [
+   {
+    "w": "She blowed up the balloon.",
+    "r": "She blew up the balloon.",
+    "why": "Blow is irregular: the past tense is blew, not 'blowed'."
+   },
+   {
+    "w": "The balloon flew away to the sky.",
+    "r": "The balloon flew away into the sky.",
+    "why": "Movement into a space uses 'into', not 'to'."
+   }
+  ],
+  "u": "A balloon is a flexible bag filled with air or gas, used for parties, decoration or flying: a helium balloon, a hot air balloon. Verbs: blow up, inflate, pop, burst. It is also a verb meaning to swell quickly, as in costs ballooned. In finance, a balloon payment is a large final payment. The stress is on the second syllable, which has a long oo sound."
+ },
+ "bankrupt": {
+  "mis": [
+   {
+    "w": "The company was gone bankrupt last year.",
+    "r": "The company went bankrupt last year.",
+    "why": "Use 'went bankrupt' for the event of failing; 'was gone bankrupt' is not a valid form."
+   },
+   {
+    "w": "The company is going to bankrupt.",
+    "r": "The company is going to go bankrupt.",
+    "why": "Bankrupt is an adjective; it needs 'go' or 'become' as a verb."
+   }
+  ],
+  "u": "Bankrupt is an adjective for a person or company that has legally declared it cannot pay its debts. It is used with go, be declared or be made: the firm went bankrupt. It is a formal legal state, not just being very poor; for that use broke in informal English. The noun is bankruptcy, and as a verb it means to ruin someone financially. Companies file for bankruptcy."
+ },
+ "basement": {
+  "mis": [
+   {
+    "w": "The storage room is at the basement.",
+    "r": "The storage room is in the basement.",
+    "why": "Use 'in' for being inside the basement."
+   },
+   {
+    "w": "He lives on basement of the building.",
+    "r": "He lives in the basement of the building.",
+    "why": "Place inside a part of a building uses 'in the'."
+   }
+  ],
+  "u": "A basement is the lowest floor of a building, partly or wholly below ground. People use it for storage, parking or as a flat. American houses often have a finished basement with a living room; British speakers also say cellar, usually darker and used for storage. In shops, the basement may be a store floor. Say 'in the basement', and the level is often written B1 on a lift."
+ },
+ "bench": {
+  "mis": [
+   {
+    "w": "She sat in the bench.",
+    "r": "She sat on the bench.",
+    "why": "Use 'on' for sitting on an open seat; 'in' is for armchairs and enclosed seats."
+   },
+   {
+    "w": "The two bench are old.",
+    "r": "The two benches are old.",
+    "why": "Words ending in -ch add -es for the plural."
+   }
+  ],
+  "u": "A bench is a long seat for two or more people, usually of wood or stone, found in parks and stations. It is also a strong work table in a workshop and, in sport, the place where reserve players sit: he was on the bench. In law, the bench means the judges as a group. As a verb in sports, to bench someone means to leave them out of the game."
+ },
+ "bound": {
+  "mis": [
+   {
+    "w": "She is bound to winning the prize.",
+    "r": "She is bound to win the prize.",
+    "why": "'Bound to' meaning certain is followed by the base verb."
+   },
+   {
+    "w": "The train is bound to Hanoi.",
+    "r": "The train is bound for Hanoi.",
+    "why": "A destination after 'bound' takes 'for'."
+   }
+  ],
+  "u": "Bound has several uses that learners confuse. Bound to + verb means very likely to happen: it is bound to rain. Bound for a place means travelling toward it: a ship bound for Japan. Bound by means obliged by a rule or contract. It is also the past participle of bind, as in a bound book. Context decides the meaning, so check the preposition that follows."
+ },
+ "brake": {
+  "mis": [
+   {
+    "w": "He pressed the break and stopped.",
+    "r": "He pressed the brake and stopped.",
+    "why": "Brake (stopping) and break (to damage) sound the same but are spelled differently."
+   },
+   {
+    "w": "The car brake suddenly.",
+    "r": "The car braked suddenly.",
+    "why": "As a verb, brake needs the past ending -ed."
+   }
+  ],
+  "u": "A brake is the part of a vehicle that makes it slow down or stop. We speak of the brake pedal, hand brake, and brake fluid, and we hit or slam on the brakes in an emergency. Brake is also a verb: the driver braked hard. Do not confuse it with break, which sounds identical but means to damage or rest. In British English, the parking brake is the handbrake."
+ },
+ "cancellation": {
+  "mis": [
+   {
+    "w": "The cancel of the flight upset us.",
+    "r": "The cancellation of the flight upset us.",
+    "why": "After 'the' you need the noun cancellation, not the verb cancel."
+   },
+   {
+    "w": "The cancellation for the meeting surprised us.",
+    "r": "The cancellation of the meeting surprised us.",
+    "why": "Use 'of' after cancellation to show what was cancelled."
+   }
+  ],
+  "u": "Cancellation is the act of deciding that something planned will not happen: a flight cancellation, a cancellation fee. It is a noun formed from cancel, and in British English the verb is spelled cancelled, while American English often writes canceled. Hotels and airlines publish a cancellation policy that says how much you pay if you change your mind. It is usually countable: there were several cancellations."
+ },
+ "cautious": {
+  "mis": [
+   {
+    "w": "He is cautious on spending money.",
+    "r": "He is cautious about spending money.",
+    "why": "Cautious takes 'about' (or 'of'), not 'on'."
+   },
+   {
+    "w": "She drove cautious on the ice.",
+    "r": "She drove cautiously on the ice.",
+    "why": "Use the adverb cautiously to describe how she drove."
+   }
+  ],
+  "u": "Cautious describes a person or action that avoids risk by thinking carefully before acting: a cautious investor, a cautious approach. Common patterns are be cautious about doing something and cautious of danger. It is often positive, unlike timid, which suggests fear. Cautious optimism means hoping while staying careful. The adverb is cautiously and the noun is caution, the same word used on warning signs."
+ },
+ "cleanliness": {
+  "mis": [
+   {
+    "w": "Guests complained about the cleaning of the rooms.",
+    "r": "Guests complained about the cleanliness of the rooms.",
+    "why": "The state of being clean is cleanliness; cleaning is the activity."
+   },
+   {
+    "w": "The hotel is famous for its clean.",
+    "r": "The hotel is famous for its cleanliness.",
+    "why": "After a possessive you need a noun: cleanliness, not the adjective clean."
+   }
+  ],
+  "u": "Cleanliness is the state of being clean and the habit of keeping things clean. It is uncountable and appears in hotel reviews, hygiene rules and health notices: the cleanliness of the kitchen. It is not the same as cleaning, which is the action of making something clean. The old saying 'Cleanliness is next to godliness' means being tidy is almost a virtue. It is a stronger word than tidiness."
+ },
+ "clinic": {
+  "mis": [
+   {
+    "w": "I go to the clinic for check-up every month.",
+    "r": "I go to the clinic for a check-up every month.",
+    "why": "Check-up is countable and needs the article 'a'."
+   },
+   {
+    "w": "I stayed in clinic for three days.",
+    "r": "I stayed in a clinic for three days.",
+    "why": "Clinic is countable and needs an article."
+   }
+  ],
+  "u": "A clinic is a place, smaller than a hospital, where people receive medical advice or treatment but usually do not stay overnight: a dental clinic, a walk-in clinic. In Britain, the same idea may be a surgery or health centre. Some clinics are specialized, like a fertility clinic. It can also mean a short training session, such as a golf clinic. You go to a clinic, not into the clinic."
+ },
+ "clip": {
+  "mis": [
+   {
+    "w": "Please clip the papers together by a clip.",
+    "r": "Please clip the papers together with a clip.",
+    "why": "Use 'with' for the tool or instrument used."
+   },
+   {
+    "w": "The video clips lasts two minutes.",
+    "r": "The video clips last two minutes.",
+    "why": "A plural subject needs a plural verb without -s."
+   }
+  ],
+  "u": "Clip has two main noun uses. It is a small device that holds things together, such as a paper clip, hair clip or bulldog clip, and a short section of a film, video or recording: a clip from the interview. As a verb it means to fasten something with a clip or to cut something short, as in clipping a hedge. Clip also means a quick hit with the hand."
+ },
+ "compliance": {
+  "mis": [
+   {
+    "w": "The factory is in compliance to the law.",
+    "r": "The factory is in compliance with the law.",
+    "why": "The fixed phrase is 'in compliance with'."
+   },
+   {
+    "w": "The company must ensure compliance of the law.",
+    "r": "The company must ensure compliance with the law.",
+    "why": "The noun compliance takes 'with', not 'of'."
+   }
+  ],
+  "u": "Compliance means obeying a rule, law or standard, and in business it also names a department that checks the company follows regulations. It is mostly uncountable: ensure compliance, a failure of compliance. The key phrase is in compliance with, and the opposite is non-compliance. A compliance officer is a person responsible for rules. It is formal, close to adherence and stronger than agreement."
+ },
+ "comply": {
+  "mis": [
+   {
+    "w": "All cars must comply the new rule.",
+    "r": "All cars must comply with the new rule.",
+    "why": "Comply needs 'with' before the rule."
+   },
+   {
+    "w": "He complied to the request.",
+    "r": "He complied with the request.",
+    "why": "The preposition after comply is 'with', never 'to'."
+   }
+  ],
+  "u": "Comply means to do what a rule, law or request requires. It always takes with before the thing you obey: comply with safety standards. If the object is missing, it can stand alone: they refused to comply. It is formal and common in legal and business writing. Comply is similar to abide by, but abide uses by. The noun is compliance and the adjective is compliant."
+ },
+ "considerably": {
+  "mis": [
+   {
+    "w": "The new model is considerably more cheaper.",
+    "r": "The new model is considerably cheaper.",
+    "why": "Never use 'more' with a comparative like cheaper: that doubles it."
+   },
+   {
+    "w": "Sales increased considerable last year.",
+    "r": "Sales increased considerably last year.",
+    "why": "An adverb is needed after the verb increased."
+   }
+  ],
+  "u": "Considerably is an adverb meaning by a large amount. It is used with comparatives and verbs of change: considerably cheaper, rose considerably. It is formal and common in reports. It is stronger than slightly and a bit more formal than a lot. It should not be used with plain adjectives: say very expensive, not considerably expensive. The adjective is considerable, and the verb is consider."
+ },
+ "consignment": {
+  "mis": [
+   {
+    "w": "A consignment of tea were delayed.",
+    "r": "A consignment of tea was delayed.",
+    "why": "The subject is 'a consignment', which is singular."
+   },
+   {
+    "w": "The shop sells the goods in consignment.",
+    "r": "The shop sells the goods on consignment.",
+    "why": "The fixed phrase is 'on consignment'."
+   }
+  ],
+  "u": "A consignment is a quantity of goods sent or delivered together, especially for sale: a consignment of fruit. In trade, selling on consignment means the seller pays you only after the goods are sold, and a consignment note lists what the carrier carries. It is more formal than shipment in British English and is common in logistics, import and TOEIC business texts. Do not confuse it with the verb consign."
+ },
+ "consistently": {
+  "mis": [
+   {
+    "w": "She consistent performs well.",
+    "r": "She performs consistently well.",
+    "why": "The adverb consistently modifies performs; the adjective is wrong."
+   },
+   {
+    "w": "Our results are consistently with last year's.",
+    "r": "Our results are consistent with last year's.",
+    "why": "After 'be' use the adjective consistent, which takes 'with'."
+   }
+  ],
+  "u": "Consistently means always in the same way, or in a way that does not change. It works with positive and negative things: consistently high quality, consistently late. It is often placed before the verb or adjective. It also suggests agreement between actions and beliefs. Do not mix it up with constantly, which means all the time. The noun is consistency and the adjective is consistent."
+ },
+ "cruise": {
+  "mis": [
+   {
+    "w": "We made a cruise to Greece.",
+    "r": "We went on a cruise to Greece.",
+    "why": "The usual verb pattern is 'go on a cruise'."
+   },
+   {
+    "w": "Use the cruise control for keep your speed.",
+    "r": "Use cruise control to keep your speed.",
+    "why": "Purpose uses 'to' + base verb, not 'for' + verb."
+   }
+  ],
+  "u": "A cruise is a holiday on a large ship that visits several places: a Caribbean cruise, a river cruise. People go on a cruise and sail on a cruise ship or liner. As a verb, cruise means to travel smoothly at a steady speed, so a car can cruise down a road, and cruise control keeps a car at a steady speed. Informally, cruise through means to succeed easily."
+ },
+ "customize": {
+  "mis": [
+   {
+    "w": "You can customize the layout by your own taste.",
+    "r": "You can customize the layout to your own taste.",
+    "why": "Customize something 'to' a person's taste, not 'by'."
+   },
+   {
+    "w": "We offer customize products.",
+    "r": "We offer customized products.",
+    "why": "Use the past participle as an adjective before the noun."
+   }
+  ],
+  "u": "Customize means to change something so that it suits a particular person or purpose: customize your phone, a customized suit. It is common with software, products and services, where users choose features themselves. British English often writes customise. The adjective is customized or customizable, and the noun is customization. It is similar to personalize, but personalize usually adds a name or personal detail."
+ },
+ "debit": {
+  "mis": [
+   {
+    "w": "I paid with a debt card.",
+    "r": "I paid with a debit card.",
+    "why": "Debit (bank) and debt (money owed) are different words."
+   },
+   {
+    "w": "The money was debited to my account.",
+    "r": "The money was debited from my account.",
+    "why": "Money is debited from an account and credited to one."
+   }
+  ],
+  "u": "A debit is an amount of money taken out of a bank account, or an entry in accounts showing money paid out. It is the opposite of credit. A debit card takes money directly from your account at once, while a credit card borrows it. A direct debit is an automatic regular payment. As a verb, a bank debits an account. The b in debit is pronounced, unlike in debt."
+ },
+ "deduct": {
+  "mis": [
+   {
+    "w": "They deduct tax of my salary.",
+    "r": "They deduct tax from my salary.",
+    "why": "Deduct takes 'from' for the source."
+   },
+   {
+    "w": "Ten dollars was deducted to my pay.",
+    "r": "Ten dollars was deducted from my pay.",
+    "why": "We deduct from, not to; the amount is taken away."
+   }
+  ],
+  "u": "Deduct means to take an amount away from a total, especially money from wages or a bill: tax is deducted from your salary. The usual preposition is from. The noun is deduction, and an expense that can be removed before tax is called deductible. In logic, deduct is rare; the related verb deduce means to reach a conclusion from evidence, so do not confuse the two."
+ },
+ "defect": {
+  "mis": [
+   {
+    "w": "The machine has a defect on its motor.",
+    "r": "The machine has a defect in its motor.",
+    "why": "A defect is 'in' a part of a thing."
+   },
+   {
+    "w": "The product has many defect.",
+    "r": "The product has many defects.",
+    "why": "'Many' takes a plural noun."
+   }
+  ],
+  "u": "A defect is a fault or imperfection that stops something from being perfect or working well: a manufacturing defect, a birth defect. It is countable, and consumer law often uses it: goods with defects can be returned. As a verb, defect /dɪˈfekt/ means to leave a country or group to join the opposing side. The noun is stressed on the first syllable and the verb on the second."
+ },
+ "defective": {
+  "mis": [
+   {
+    "w": "The item is defect.",
+    "r": "The item is defective.",
+    "why": "After 'be' use the adjective defective, not the noun defect."
+   },
+   {
+    "w": "We returned the defected phone.",
+    "r": "We returned the defective phone.",
+    "why": "The adjective is defective; 'defected' is the past form of the verb defect."
+   }
+  ],
+  "u": "Defective means having a fault that stops something from working correctly: a defective charger, defective goods. It is formal and common in warranties and complaints. Faulty is more informal and common in British English, while broken means it no longer works at all. A defective product can be returned or replaced. The noun is defect. Do not use it to describe people; it can be offensive."
+ },
+ "delete": {
+  "mis": [
+   {
+    "w": "Please delete the file out of the folder.",
+    "r": "Please delete the file from the folder.",
+    "why": "The preposition after delete is 'from'."
+   },
+   {
+    "w": "I deleted by mistake the file.",
+    "r": "I deleted the file by mistake.",
+    "why": "The object follows the verb; the adverbial phrase comes after."
+   }
+  ],
+  "u": "Delete means to remove something from a computer, phone or document, for example a file, an email or a word. It is the standard word on keyboards and apps. It is usually reversible at first, as deleted items go to a bin; permanently delete means for good. In writing, you delete a word and you can say 'strike out' for paper. The noun is deletion. Erase suggests physical rubbing."
+ }
+}
