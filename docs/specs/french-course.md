@@ -65,3 +65,4 @@ Như `spanish-course.md` §6 cho fr: mọi phần ở §1 đủ A1→C2, qua 6 c
 
 ## 10. Trạng thái
 - **W0 spec** (15/11/2026): file này. Chưa code; chờ duyệt §9 rồi mở PR W0 (dòng bảng + cờ + seed + lượt mẫu giọng).
+- **Duyệt** (15/11/2026): điều phối duyệt spec + §9 theo mặc định đề xuất (chuẩn Pháp; nhãn 'Luyện định dạng'; chấp nhận 'chỉ Ama' nếu W0 không có giọng nam đạt), theo ủy quyền của chủ 12/11. Cờ `fr_course` giữ 0 % tới khi #1340 live và W7 fr đạt QC.
