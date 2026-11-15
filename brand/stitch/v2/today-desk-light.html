@@ -211,10 +211,9 @@
         </button>
       </div>
 
-      <!-- Teacher Slot (120x140) + Speech Bubble -->
-      <div class="flex items-center gap-4">
-        <!-- Empty Dashed Rounded 120x140 Teacher Slot -->
-        <div class="w-[120px] h-[140px] flex-shrink-0 rounded-2xl border-2 border-dashed border-[#136B66] bg-[#E6F5F3]/40 flex flex-col items-center justify-center p-3 text-center">
+      <!-- Hero: as the 390 hero -->
+<div role="region" aria-label="Today's Focus" class="tactile-card p-6 border-2 border-[#E6DCCB] space-y-4">
+<div class="flex flex-row-reverse items-start gap-5"><div class="w-[150px] h-[190px] flex-shrink-0 rounded-2xl border-2 border-dashed border-[#136B66] bg-[#E6F5F3]/40 flex flex-col items-center justify-center p-3 text-center">
           <div class="w-10 h-10 rounded-xl bg-white border border-[#BFE4E0] shadow-sm flex items-center justify-center text-[#136B66] mb-2">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.45 13.47L12 18.12l8.55-4.65V17L12 21.65 3.45 17v-3.53z"/>
@@ -223,69 +222,39 @@
           <span class="text-[11px] font-black uppercase tracking-wider text-[#136B66]">Teacher Slot</span>
           <span class="text-[10px] font-bold text-[#45555A] leading-tight mt-0.5">Stands grounded</span>
         </div>
-
-        <!-- Speech Bubble -->
-        <div class="flex-1 tactile-card p-5 relative border-2 border-[#E6DCCB]">
-          <!-- Speech triangle pointer -->
-          <div class="absolute -left-2.5 top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-l-2 border-b-2 border-[#E6DCCB] rotate-45"></div>
-          <div class="flex items-center gap-2 mb-1.5">
-            <span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span>
-            <span class="text-[11px] font-black uppercase tracking-wider text-[#136B66]">Today's Focus</span>
-            <span class="ml-auto text-[11px] font-extrabold text-[#136B66] bg-[#E6F5F3] px-2 py-0.5 rounded-full border border-[#BFE4E0]">+25 XP ready</span>
-          </div>
-          <p class="text-base font-extrabold text-[#162124] leading-snug">
-            “Good morning! 2 lessons and 8 words to review today.”
-          </p>
-        </div>
-      </div>
-
-      <!-- CONTINUE Hero Card -->
-      <div class="tactile-card p-6 border-2 border-[#E6DCCB] space-y-4">
-        <div class="flex items-center justify-between">
-          <span class="text-[11px] font-black tracking-widest uppercase text-[#136B66] bg-[#E6F5F3] px-2.5 py-1 rounded-md border border-[#BFE4E0]">
-            UNIT 1 · EVERYDAY ENGLISH
-          </span>
-          <span class="text-xs font-extrabold text-[#45555A]">Lesson 1/6</span>
-        </div>
-
-        <div>
-          <h2 class="text-2xl font-black text-[#162124] tracking-tight">Fix common mistakes</h2>
-          <p class="text-sm font-semibold text-[#45555A] mt-1">
+<div class="flex-1 min-w-0">
+<span class="block text-[11px] leading-4 font-black tracking-widest uppercase text-[#136B66]">UNIT 1 · EVERYDAY ENGLISH</span>
+<h2 class="m-0 mt-1 text-[32px] leading-10 font-black tracking-tight text-[#162124]">Fix common mistakes</h2>
+<div class="mt-2 flex flex-wrap items-center gap-2">
+<span class="text-xs font-extrabold px-2.5 py-1 rounded-lg bg-[#FBF7F1] border border-[#E6DCCB] text-[#45555A]">⏱ 3 min</span>
+<span class="text-xs font-black text-[#1C1003] bg-[#F59E0B] px-2.5 py-1 rounded-lg shadow-sm">A2</span>
+<span class="text-xs font-extrabold px-2.5 py-1 rounded-lg bg-[#FBF7F1] border border-[#E6DCCB] text-[#45555A]">Lesson 1/6</span>
+</div>
+<div class="relative mt-4 rounded-2xl border-2 px-4 py-3 bg-[#E6F5F3] border-[#BFE4E0] text-[#162124]">
+<p class="m-0 text-base leading-snug font-extrabold">“Good morning! 2 lessons and 8 words to review today.”</p>
+<span class="mt-2 inline-block text-[11px] leading-4 font-black px-2 rounded-lg border bg-white border-[#BFE4E0] text-[#136B66]">+25 XP ready</span>
+<div class="absolute top-6 -right-[8px] w-3.5 h-3.5 rotate-45 border-t-2 border-r-2 bg-[#E6F5F3] border-[#BFE4E0]"></div>
+</div>
+</div>
+</div>
+<p class="text-sm font-semibold text-[#45555A] mt-1">
             You'll learn 4 words: 
             <span class="font-extrabold text-[#136B66] underline decoration-2 decoration-[#136B66]/30">borrow</span>, 
             <span class="font-extrabold text-[#136B66] underline decoration-2 decoration-[#136B66]/30">lend</span>, 
             <span class="font-extrabold text-[#136B66] underline decoration-2 decoration-[#136B66]/30">advice</span>, 
             <span class="font-extrabold text-[#136B66] underline decoration-2 decoration-[#136B66]/30">furniture</span>
           </p>
-        </div>
-
-        <!-- Chips & Progress Bar -->
-        <div class="flex items-center gap-2.5 pt-1">
-          <span class="text-xs font-extrabold text-[#45555A] bg-[#FBF7F1] border border-[#E6DCCB] px-2.5 py-1 rounded-lg">
-            ⏱ 3 min
-          </span>
-          <span class="text-xs font-extrabold text-[#45555A] bg-[#FBF7F1] border border-[#E6DCCB] px-2.5 py-1 rounded-lg">
-            ✍️ 6 exercises
-          </span>
-          <span class="text-xs font-black text-[#1C1003] bg-[#F59E0B] px-2.5 py-1 rounded-lg shadow-sm">
-            A2
-          </span>
-          
-          <div class="flex-1 ml-2">
-            <div class="w-full bg-[#ECE4D7] h-2.5 rounded-full overflow-hidden">
-              <div class="bg-[#136B66] h-full rounded-full" style="width: 65%;"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Inline Tactile Orange CTA -->
-        <button class="tactile-button-orange w-full py-3.5 px-6 flex items-center justify-center gap-2 text-base font-black tracking-wide uppercase">
-          <span>CONTINUE</span>
+<div class="flex items-center gap-3">
+<div class="flex-1"><div class="w-full h-2.5 rounded-full overflow-hidden bg-[#ECE4D7]"><div class="bg-[#136B66] h-full rounded-full" style="width: 65%;"></div></div></div>
+<span class="text-xs font-black tabular-nums text-[#136B66]">65%</span>
+</div>
+<button class="tactile-button-orange w-full py-3.5 px-6 flex items-center justify-center gap-2 text-base font-black tracking-wide ">
+          <span>Continue</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
           </svg>
         </button>
-      </div>
+</div>
 
       <!-- Review Banner: '8 words are fading' -->
       <div class="tactile-card p-4 border-2 border-[#E6DCCB] bg-[#FFFFFF] flex items-center justify-between gap-4">
@@ -323,7 +292,7 @@
               </svg>
             </div>
             <span class="text-xs font-black text-[#162124]">Mistakes</span>
-            <span class="text-[11px] font-extrabold text-[#E11D48] mt-1 bg-[#FFE4E6] px-2 py-0.5 rounded-md">5 to fix</span>
+            <span class="text-[11px] font-extrabold text-[#BE123C] mt-1 bg-[#FFE4E6] px-2 py-0.5 rounded-md">5 to fix</span>
           </div>
 
           <!-- Tile 2: Words 8 due -->
@@ -435,58 +404,17 @@
       </div>
 
       <!-- Your Path (Short winding path of 3 nodes) -->
-      <div class="tactile-card p-6 border-2 border-[#E6DCCB]">
-        <div class="flex items-center justify-between mb-4">
-          <div>
-            <h3 class="text-base font-black text-[#162124]">Your path</h3>
-            <p class="text-xs font-semibold text-[#45555A]">Everyday English journey</p>
-          </div>
-          <a href="#path" class="text-xs font-extrabold text-[#136B66] hover:underline flex items-center gap-1">
-            See full path →
-          </a>
-        </div>
-
-        <!-- Visual Winding Path Container -->
-        <div class="py-4 flex flex-col items-center relative">
-          <!-- Node 1: Glowing Orange START -->
-          <div class="flex flex-col items-center relative z-10">
-            <button class="w-16 h-16 rounded-full bg-[#F59E0B] border-4 border-white shadow-[0_6px_0_0_#B45309] flex items-center justify-center text-white active:translate-y-1 transition-transform">
-              <svg class="w-7 h-7 text-[#1C1003] fill-current ml-0.5" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-            </button>
-            <span class="mt-2 text-xs font-black text-[#1C1003] bg-[#FEF3C7] border border-[#FDE68A] px-2.5 py-0.5 rounded-full shadow-sm">
-              1. Vocabulary
-            </span>
-          </div>
-
-          <!-- Connector 1 to 2 -->
-          <div class="h-10 w-1 border-r-2 border-dashed border-[#D1C2B2] my-1"></div>
-
-          <!-- Node 2: Locked Collocations -->
-          <div class="flex flex-col items-center relative z-10 translate-x-6">
-            <div class="w-14 h-14 rounded-full bg-[#ECE4D7] border-4 border-white shadow-[0_4px_0_0_#D9C9B8] flex items-center justify-center text-[#8C7A6B]">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
-              </svg>
-            </div>
-            <span class="mt-1.5 text-[11px] font-bold text-[#45555A]">2. Collocations</span>
-          </div>
-
-          <!-- Connector 2 to 3 -->
-          <div class="h-10 w-1 border-r-2 border-dashed border-[#D1C2B2] my-1"></div>
-
-          <!-- Node 3: Locked Checkpoint -->
-          <div class="flex flex-col items-center relative z-10 -translate-x-4">
-            <div class="w-14 h-14 rounded-full bg-[#ECE4D7] border-4 border-white shadow-[0_4px_0_0_#D9C9B8] flex items-center justify-center text-[#8C7A6B]">
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-            </div>
-            <span class="mt-1.5 text-[11px] font-bold text-[#45555A]">3. Checkpoint</span>
-          </div>
-        </div>
-      </div>
+      <div class="tactile-card p-0 overflow-hidden flex flex-col border-2 border-[#E6DCCB]"><div class="w-full" >
+<div class="w-full px-4 pt-4 pb-3 bg-[#F8F4EC] border-b-2 border-[#E6DCC8]"><div class="flex items-center justify-between gap-2"><span class="text-[11px] font-black uppercase tracking-wider text-[#17595A]">Stage 1</span><button class="flex items-center min-h-[44px] min-w-[44px] bg-transparent border-0 p-0 text-[13px] font-black text-[#17595A]" type="button"><span>Guide</span></button></div><p class="m-0 text-[22px] leading-[26px] font-black text-[#0F3134]">Greetings and your day</p><p class="m-0 mt-1 text-sm leading-5 font-bold text-[#4A6469]">You can greet people and talk about your day</p><div class="mt-3 flex items-center gap-3"><div class="h-3 flex-1 rounded-full bg-[#E6DCC8] overflow-hidden"><div class="h-full rounded-full bg-[#17807A]" style="width:33%"></div></div><span class="shrink-0 text-[13px] font-black tabular-nums text-[#0F3134]">2/6 lessons</span></div></div>
+<div class="relative w-full" style="height:80px"><svg class="absolute start-0 top-0 rtl:-scale-x-100" fill="none" height="80" stroke-linecap="round" stroke-width="6" viewbox="0 0 88 80" width="88"><path class="stroke-[#17807A]" d="M38 0 C38 20 38 20 38 40"></path><path class="stroke-[#17807A]" d="M38 40 C38 60 41 60 41 80"></path></svg><button class="group absolute z-10 flex items-center justify-center bg-transparent border-0 p-0 w-14 h-14 cursor-pointer" style="inset-inline-start:10px;top:12px" type="button" aria-label="Greetings, introducing yourself"><div class="w-11 h-11 rounded-[14px] border-2 bg-[#1F7A75] border-[#17595A] shadow-[0_4px_0_0_#0F4A47] flex items-center justify-center group-active:translate-y-0.5 transition-transform duration-100 motion-reduce:transition-none"><svg class="stroke-[#FFFFFF]" fill="none" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="24"><polyline points="20 6 9 17 4 12"></polyline></svg></div></button><div class="absolute start-[88px] end-3 z-10 -translate-y-1/2 cursor-pointer" data-ptx="" style="top:40px"><span class="block text-[15px] leading-[18px] font-black line-clamp-2 text-[#162124]">Greetings, introducing yourself</span><span class="block truncate text-xs font-bold text-[#45555A]">Asking names</span></div></div>
+<div class="relative w-full" style="height:80px"><svg class="absolute start-0 top-0 rtl:-scale-x-100" fill="none" height="80" stroke-linecap="round" stroke-width="6" viewbox="0 0 88 80" width="88"><path class="stroke-[#17807A]" d="M41 0 C41 20 44 20 44 40"></path><path class="stroke-[#17807A]" d="M44 40 C44 60 41 60 41 80"></path></svg><button class="group absolute z-10 flex items-center justify-center bg-transparent border-0 p-0 w-14 h-14 cursor-pointer" style="inset-inline-start:16px;top:12px" type="button" aria-label="Listen: a friend’s morning"><div class="w-11 h-11 rounded-[14px] border-2 bg-[#1F7A75] border-[#17595A] shadow-[0_4px_0_0_#0F4A47] flex items-center justify-center group-active:translate-y-0.5 transition-transform duration-100 motion-reduce:transition-none"><svg class="stroke-[#FFFFFF]" fill="none" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="24"><polyline points="20 6 9 17 4 12"></polyline></svg></div></button><div class="absolute start-[88px] end-3 z-10 -translate-y-1/2 cursor-pointer" data-ptx="" style="top:40px"><span class="block text-[15px] leading-[18px] font-black line-clamp-2 text-[#162124]">Listen: a friend’s morning</span><span class="block truncate text-xs font-bold text-[#45555A]">Waking up, breakfast</span></div></div>
+<div class="relative w-full" style="height:220px"><svg class="absolute start-0 top-0 rtl:-scale-x-100" fill="none" height="220" stroke-linecap="round" stroke-width="6" viewbox="0 0 88 220" width="88"><path class="stroke-[#17807A]" d="M41 0 C41 22 38 22 38 44"></path><path class="stroke-[#CDBFA2]" d="M38 44 C38 132 35 132 35 220"></path></svg><button class="group absolute z-10 flex items-center justify-center bg-transparent border-0 p-0 w-[72px] h-[72px] cursor-pointer" style="inset-inline-start:2px;top:8px" type="button" aria-label="Speak: tell about your day"><span class="relative shrink-0 w-[72px] h-[72px] flex items-center justify-center"><svg class="absolute inset-0 -rotate-90" fill="none" height="72" viewbox="0 0 72 72" width="72"><circle class="stroke-[#F8DFAE]" cx="36" cy="36" r="33" stroke-width="4"></circle><circle class="stroke-[#F59E0B]" cx="36" cy="36" r="33" stroke-dasharray="207.35" stroke-dashoffset="110" stroke-linecap="round" stroke-width="4"></circle></svg><div class="w-12 h-12 rounded-[14px] border-2 bg-[#F59E0B] border-[#FDE68A] shadow-[0_4px_0_0_#B45309] flex items-center justify-center group-active:translate-y-0.5 transition-transform duration-100 motion-reduce:transition-none"><svg class="stroke-[#1C1003]" fill="none" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="24"><polygon class="fill-[#1C1003]" points="7 4 20 12 7 20 7 4"></polygon></svg></div></span></button><div class="absolute start-[88px] end-3 top-1 bottom-1.5 z-10 flex flex-col overflow-hidden rounded-2xl border bg-[#FFFFFF] border-[#E6DCCB] shadow-[0_6px_16px_rgba(22,33,36,0.08)] px-3.5 py-3.5 cursor-pointer [--bg:var(--surface)] motion-safe:animate-[tslot-in_.18s_ease-out_both]" data-pcard=""><span class="inline-flex items-center gap-1.5 self-start px-2 py-1 rounded-full border text-[11px] leading-[14px] font-black bg-[#FBF7F1] text-[#7A4A0C] border-[#F7D9A6]"><i class="block w-1.5 h-1.5 rounded-full bg-[#F59E0B]"></i>3 min</span><p class="m-0 mt-2 text-[16px] leading-5 font-black line-clamp-2 text-[#162124]">Speak: tell about your day</p><p class="mt-0.5 mb-0 me-[96px] text-[13px] leading-[18px] font-bold line-clamp-2 text-[#45555A]">Lunch, evening, bedtime</p><div class="mt-auto pt-3 me-[100px]"><button class="relative z-20 w-full min-h-[44px] px-3 inline-flex items-center justify-center gap-1.5 rounded-2xl bg-[#F59E0B] text-[#1C1003] text-sm font-black uppercase shadow-[0_4px_0_0_#B45309] active:translate-y-0.5 border-0" type="button">Start<svg class="rtl:-scale-x-100" fill="none" height="18" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="18" stroke="currentColor"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></button></div><div class="absolute end-1 bottom-0 z-0 w-[101px] h-[112px] pointer-events-none"></div></div></div>
+<div class="relative w-full" style="height:80px"><svg class="absolute start-0 top-0 rtl:-scale-x-100" fill="none" height="80" stroke-linecap="round" stroke-width="6" viewbox="0 0 88 80" width="88"><path class="stroke-[#CDBFA2]" d="M35 0 C35 20 32 20 32 40"></path><path class="stroke-[#CDBFA2]" d="M32 40 C32 60 35 60 35 80"></path></svg><button class="group absolute z-10 flex items-center justify-center bg-transparent border-0 p-0 w-14 h-14 cursor-pointer" style="inset-inline-start:4px;top:12px" type="button" aria-label="Story: the new neighbour"><div class="w-11 h-11 rounded-[14px] border-2 bg-[#ECE4D7] border-[#A39477] shadow-[0_4px_0_0_#CDBFA2] flex items-center justify-center group-active:translate-y-0.5 transition-transform duration-100 motion-reduce:transition-none"><svg class="stroke-[#33464A]" fill="none" height="22" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="22"><rect height="11" rx="2" width="18" x="3" y="11"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div></button><div class="absolute start-[88px] end-3 z-10 -translate-y-1/2 cursor-pointer" data-ptx="" style="top:40px"><span class="block text-[15px] leading-[18px] font-black line-clamp-2 text-[#162124]">Story: the new neighbour</span><span class="block truncate text-xs font-bold text-[#45555A]">Moving in</span></div></div>
+<div class="relative w-full" style="height:80px"><svg class="absolute start-0 top-0 rtl:-scale-x-100" fill="none" height="80" stroke-linecap="round" stroke-width="6" viewbox="0 0 88 80" width="88"><path class="stroke-[#CDBFA2]" d="M35 0 C35 20 38 20 38 40"></path><path class="stroke-[#CDBFA2]" d="M38 40 C38 60 41 60 41 80"></path></svg><button class="group absolute z-10 flex items-center justify-center bg-transparent border-0 p-0 w-14 h-14 cursor-pointer" style="inset-inline-start:10px;top:12px" type="button" aria-label="Review: greetings"><div class="w-11 h-11 rounded-[14px] border-2 bg-[#ECE4D7] border-[#A39477] shadow-[0_4px_0_0_#CDBFA2] flex items-center justify-center group-active:translate-y-0.5 transition-transform duration-100 motion-reduce:transition-none"><svg class="stroke-[#33464A]" fill="none" height="22" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 24 24" width="22"><rect height="11" rx="2" width="18" x="3" y="11"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div></button><div class="absolute start-[88px] end-3 z-10 -translate-y-1/2 cursor-pointer" data-ptx="" style="top:40px"><span class="block text-[15px] leading-[18px] font-black line-clamp-2 text-[#162124]">Review: greetings</span><span class="block truncate text-xs font-bold text-[#45555A]">Words you forget</span></div></div>
+<div class="relative w-full" style="height:80px"><svg class="absolute start-0 top-0 rtl:-scale-x-100" fill="none" height="80" stroke-linecap="round" stroke-width="6" viewbox="0 0 88 80" width="88"><path class="stroke-[#CDBFA2]" d="M41 0 C41 20 44 20 44 40"></path><path class="stroke-[#CDBFA2]" d="M44 40 C44 60 41 60 41 80"></path></svg><button class="group absolute z-10 flex items-center justify-center bg-transparent border-0 p-0 w-14 h-14 cursor-pointer" style="inset-inline-start:16px;top:12px" type="button" aria-label="Check: a day"><div class="w-12 h-12 rounded-[14px] border-2 bg-[#F4BF40] border-[#FDE68A] shadow-[0_4px_0_0_#B45309] flex items-center justify-center group-active:translate-y-0.5 transition-transform duration-100 motion-reduce:transition-none"><svg class="stroke-[#1C1003]" fill="none" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" viewbox="0 0 24 24" width="24"><path d="M4 22V4"></path><path d="M4 4h13l-2 4 2 4H4"></path></svg></div></button><div class="absolute start-[88px] end-3 z-10 -translate-y-1/2 cursor-pointer" data-ptx="" style="top:40px"><span class="block text-[15px] leading-[18px] font-black line-clamp-2 text-[#9A3412]">Check: a day</span><span class="block truncate text-xs font-bold text-[#45555A]">Short sentences</span></div></div>
+</div>
+<div class="w-full p-3"><button class="w-full min-h-[48px] rounded-2xl border-2 text-sm font-black bg-white text-[#0F3134] border-[#17807A] shadow-[0_4px_0_0_#0F5F5A] active:translate-y-0.5" type="button">See full path →</button></div>
+</div>
     </main>
 
     <!-- ==============================================
@@ -581,7 +509,7 @@
               <span class="w-5 h-5 rounded-md bg-[#ECE4D7] text-[#45555A] flex items-center justify-center text-[10px]">📖</span>
               <span>Review 8 words due</span>
             </div>
-            <span class="text-[11px] font-bold text-[#8C7A6B]">Spaced</span>
+            <span class="text-[11px] font-bold text-[#76665A]">Spaced</span>
           </div>
 
           <!-- Row 3: 1-minute listening drill -->
@@ -590,7 +518,7 @@
               <span class="w-5 h-5 rounded-md bg-[#ECE4D7] text-[#45555A] flex items-center justify-center text-[10px]">🎧</span>
               <span>1-min listening drill</span>
             </div>
-            <span class="text-[11px] font-bold text-[#8C7A6B]">Sprint</span>
+            <span class="text-[11px] font-bold text-[#76665A]">Sprint</span>
           </div>
         </div>
       </div>
@@ -669,7 +597,7 @@
 
           <!-- Wed: Lit (Today) -->
           <div class="flex flex-col items-center gap-1">
-            <span class="text-[10px] font-black text-[#F59E0B]">W</span>
+            <span class="text-[10px] font-black text-[#92400E]">W</span>
             <div class="w-8 h-8 rounded-full bg-[#F59E0B] border-2 border-[#B45309] flex items-center justify-center text-[#1C1003] shadow-sm animate-pulse">
               <svg class="w-4 h-4 text-[#1C1003]" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2c-3.3 0-6 2.7-6 6 0 2.2 1.2 4.2 3 5.2V15c0 1.7 1.3 3 3 3s3-1.3 3-3v-1.8c1.8-1 3-3 3-5.2 0-3.3-2.7-6-6-6z"/>
@@ -679,32 +607,32 @@
 
           <!-- Thu: Unlit -->
           <div class="flex flex-col items-center gap-1">
-            <span class="text-[10px] font-bold text-[#8C7A6B]">T</span>
-            <div class="w-8 h-8 rounded-full bg-[#ECE4D7] border border-[#E6DCCB] flex items-center justify-center text-[#8C7A6B]">
+            <span class="text-[10px] font-bold text-[#76665A]">T</span>
+            <div class="w-8 h-8 rounded-full bg-[#ECE4D7] border border-[#E6DCCB] flex items-center justify-center text-[#76665A]">
               <span class="w-1.5 h-1.5 rounded-full bg-[#C5B4A3]"></span>
             </div>
           </div>
 
           <!-- Fri: Unlit -->
           <div class="flex flex-col items-center gap-1">
-            <span class="text-[10px] font-bold text-[#8C7A6B]">F</span>
-            <div class="w-8 h-8 rounded-full bg-[#ECE4D7] border border-[#E6DCCB] flex items-center justify-center text-[#8C7A6B]">
+            <span class="text-[10px] font-bold text-[#76665A]">F</span>
+            <div class="w-8 h-8 rounded-full bg-[#ECE4D7] border border-[#E6DCCB] flex items-center justify-center text-[#76665A]">
               <span class="w-1.5 h-1.5 rounded-full bg-[#C5B4A3]"></span>
             </div>
           </div>
 
           <!-- Sat: Unlit -->
           <div class="flex flex-col items-center gap-1">
-            <span class="text-[10px] font-bold text-[#8C7A6B]">S</span>
-            <div class="w-8 h-8 rounded-full bg-[#ECE4D7] border border-[#E6DCCB] flex items-center justify-center text-[#8C7A6B]">
+            <span class="text-[10px] font-bold text-[#76665A]">S</span>
+            <div class="w-8 h-8 rounded-full bg-[#ECE4D7] border border-[#E6DCCB] flex items-center justify-center text-[#76665A]">
               <span class="w-1.5 h-1.5 rounded-full bg-[#C5B4A3]"></span>
             </div>
           </div>
 
           <!-- Sun: Unlit -->
           <div class="flex flex-col items-center gap-1">
-            <span class="text-[10px] font-bold text-[#8C7A6B]">S</span>
-            <div class="w-8 h-8 rounded-full bg-[#ECE4D7] border border-[#E6DCCB] flex items-center justify-center text-[#8C7A6B]">
+            <span class="text-[10px] font-bold text-[#76665A]">S</span>
+            <div class="w-8 h-8 rounded-full bg-[#ECE4D7] border border-[#E6DCCB] flex items-center justify-center text-[#76665A]">
               <span class="w-1.5 h-1.5 rounded-full bg-[#C5B4A3]"></span>
             </div>
           </div>

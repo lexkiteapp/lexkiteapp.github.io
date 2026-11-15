@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"headache\" mean?",
+  "keyword": "headache",
+  "value": "Headache means a pain in the head.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=headache",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"headache\" mean?",
+    "description": "Headache means a pain in the head.\n\nReview your words, free: https://lexkite.com/app/#/review?w=headache\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "headache",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"headache\" mean?\n\nHeadache means a pain in the head.\n\nReview your words, free: https://lexkite.com/app/#/review?w=headache"
+   },
+   "instagram": {
+    "caption": "What does \"headache\" mean?\n\nHeadache means a pain in the head.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"headache\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a pain in the head. Headache means a pain in the head. Practice it with a free quiz: {link}"
  }
 }

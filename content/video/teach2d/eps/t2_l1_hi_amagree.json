@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_amagree",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Agree, no am!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Agree is a verb. No am.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Agree! I agree with you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am agree with you.",
+  "right": "I agree with you.",
+  "strike": "am agree",
+  "why": "Agree is a verb. No am.",
+  "memory": "I agree.",
+  "quiz": {
+   "stem": "I ___ with you.",
+   "options": [
+    "am agree",
+    "agree"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“I am agree” गलत है!",
+   "tip": "हिंदी के “मैं सहमत हूँ” की नकल में am न लगाएँ; अंग्रेज़ी में बस “I agree”।",
+   "caption": "क्या आप भी कहते हैं “I am agree with you”? 🤔 अंग्रेज़ी में “I agree with you” सही है, क्योंकि agree खुद क्रिया है, इसके साथ am नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “agree”। am हटाकर सीधे “I agree” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“I am agree” is wrong!",
+   "tip": "Do not copy the Hindi “main sehmat hoon” with am; in English just say “I agree”.",
+   "caption": "Do you say “I am agree with you”? 🤔 In English “I agree with you” is right, because agree is a verb on its own, so no am. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“I am agree” गलत है!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "“I am agree” गलत है!",
+  "keyword": "I agree with you.",
+  "value": "हिंदी के “मैं सहमत हूँ” की नकल में am न लगाएँ; अंग्रेज़ी में बस “I agree”।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "“I am agree” गलत है!",
+    "description": "क्या आप भी कहते हैं “I am agree with you”? 🤔 अंग्रेज़ी में “I agree with you” सही है, क्योंकि agree खुद क्रिया है, इसके साथ am नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I agree with you.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “I am agree with you”? 🤔 अंग्रेज़ी में “I agree with you” सही है, क्योंकि agree खुद क्रिया है, इसके साथ am नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “I am agree with you”? 🤔 अंग्रेज़ी में “I agree with you” सही है, क्योंकि agree खुद क्रिया है, इसके साथ am नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“I am agree” गलत है! #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “agree”। am हटाकर सीधे “I agree” बोलें। मुफ़्त क्विज़ यहाँ: {link}",
+  "lang": "hi"
+ }
+}

@@ -52,4 +52,24 @@ const T0 = 1_000_000e3;
   const green = evaluate({ checkRuns: [...cancelled, { ...cr(2, 'completed', 'success', T0 + 90e3), name: 'e2e' }], workflowRuns: [e2e(100, 1, 'completed', 'cancelled', T0 + 10e3), e2e(101, 2, 'completed', 'success', T0 + 90e3)] });
   ok(green.state === 'success' && !green.failed.length, '(d) lượt mới xanh sau lượt bị hủy → gate xanh, không còn status đỏ cũ');
 }
+// (e) hồi quy 10/11 #1004/#1002: gate ĐỎ, job đỏ được rerun → xanh; lượt rerun giữ created_at cũ nên KHÔNG có trong runs (runs = []),
+//     sha đỏ trước đây không được thăm dò → đỏ hàng giờ. Nay: check-runs mới nhất hết đỏ + chữ ký khác lần đánh giá → đánh giá lại → xanh.
+{
+  const ux = (id, conclusion, at) => ({ ...cr(id, 'completed', conclusion, at), name: 'ux1 (0)' }), other = { ...cr(9, 'completed', 'success', T0), name: 'npm test' };
+  const redRuns = [other, ux(1, 'failure', T0)];
+  const seen = new Map([['a', { at: T0 + 10e3, state: 'failure', sig: probeOf(redRuns).sig }]]);
+  const w = new Map(), green = [other, ux(2, 'success', T0 + 30 * 60e3)];
+  ok(probeOf(redRuns).bad === 1 && probeOf(green).bad === 0, '(e) probe đếm check đỏ mới nhất');
+  ok(dirtyShas({ shas: ['a'], runs: [], seen, now: T0 + 31 * 60e3, probes: new Map([['a', probeOf(green)]]), why: w }).join() === 'a' && w.get('a') === 'rerun', '(e) rerun xanh, run không trong danh sách → đánh giá lại (gate-rerun)');
+  ok(evaluate({ checkRuns: green }).state === 'success', '(e) đánh giá lại → xanh');
+  ok(!dirtyShas({ shas: ['a'], runs: [], seen, now: T0 + 31 * 60e3, probes: new Map([['a', probeOf(redRuns)]]) }).length, '(e) vẫn đỏ, không đổi → không đánh giá thừa');
+  const rerunning = [other, { ...cr(3, 'in_progress', null), name: 'ux1 (0)' }];
+  ok(dirtyShas({ shas: ['a'], runs: [], seen, now: T0 + 31 * 60e3, probes: new Map([['a', probeOf(rerunning)]]) }).join() === 'a', '(e) rerun đang chạy (hết đỏ mới nhất) → đánh giá → chờ thay vì đỏ');
+  // bộ canh khởi động lại SAU khi rerun đã xanh: sha đỏ được mồi không có chữ ký → vẫn đánh giá 1 lần
+  const seeded = new Map([['a', { at: T0, state: 'failure', desc: 'Đỏ 1/2: ux1 (0)' }]]);
+  ok(dirtyShas({ shas: ['a'], runs: [], seen: seeded, now: T0 + 60e3, probes: new Map([['a', probeOf(green)]]) }).join() === 'a', '(e) mồi sau khởi động lại: đỏ cũ + check hết đỏ → đánh giá lại');
+  // đỏ do status/workflow ngoài check-runs: đã đánh giá với chữ ký này → không lặp lại mỗi vòng
+  const seen3 = new Map([['a', { at: T0, state: 'failure', sig: probeOf(green).sig }]]);
+  ok(!dirtyShas({ shas: ['a'], runs: [], seen: seen3, now: T0 + 60e3, probes: new Map([['a', probeOf(green)]]) }).length, '(e) đỏ ngoài check-runs, chữ ký không đổi → không đánh giá lặp');
+}
 process.exit(bad ? 1 : 0);

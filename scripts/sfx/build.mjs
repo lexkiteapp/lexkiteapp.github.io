@@ -1,12 +1,16 @@
 // 🔊 Gói âm thanh "game feel" của Lexkite – TỰ TỔNG HỢP bằng công thức trong file này (không lấy mẫu của ai → CC0 do chính mình làm, $0).
 // Chạy: node scripts/sfx/build.mjs [outDir=web/sfx] → <tên>.wav (tạm) → ffmpeg → <tên>.mp3 mono 44.1 kHz ~48 kb/s (vài KB mỗi file).
 // Thiết kế: tap gỗ mềm · correct chuông 2 nốt đi lên · wrong "bonk" trầm dịu (không gắt, không buzzer) · combo lấp lánh 3 nốt (app đổi cao độ theo n)
-// · complete fanfare 4 nốt chuông + nền ấm · streak vút lên + chuông. Tất cả đỉnh −3 dBFS, đuôi tắt mượt (không click). Chi tiết: docs/GAME-FEEL.md
+// · complete fanfare 4 nốt chuông + nền ấm · streak vút lên + chuông. Tất cả chuẩn −16 LUFS (BS.1770, loudness.mjs), đỉnh ≤ −1 dBFS, đuôi tắt mượt (không click).
+// Chi tiết: docs/GAME-FEEL.md · gate: scripts/test/sfx-loudness.mjs (dựng lại bằng import file này – không chạy ffmpeg khi import).
 import { writeFileSync, mkdirSync, rmSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { normalize } from './loudness.mjs';
 
-const SR = 44100, OUT = process.argv[2] || 'web/sfx';
+export const SR = 44100;
+const OUT = process.argv[2] || 'web/sfx';
 let seed = 7; const rnd = () => ((seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff) * 2 - 1; // nhiễu cố định → bản dựng lặp lại y hệt
 
 const buf = s => new Float32Array(Math.ceil(s * SR));
@@ -47,15 +51,14 @@ function room(o, mix = 0.18) {
   for (const d of taps) { const b = new Float32Array(o.length); for (let i = 0; i < o.length; i++) { b[i] = o[i] + (i >= d ? b[i - d] * fb : 0); w[i] += b[i] / taps.length; } }
   for (let i = 0; i < o.length; i++) o[i] = o[i] * (1 - mix) + w[i] * mix;
 }
-function finish(o) {
+export function finish(o) {
   const fade = Math.floor(0.03 * SR); for (let i = 0; i < fade; i++) o[o.length - 1 - i] *= i / fade; // đuôi về 0 – không tiếng click
-  let pk = 0; for (const v of o) pk = Math.max(pk, Math.abs(v));
-  const g = pk ? 0.708 / pk : 1; for (let i = 0; i < o.length; i++) o[i] *= g; // −3 dBFS
+  o.meter = normalize(o, SR); // −16 LUFS ±0 (đo lại sau chỉnh), ném lỗi nếu đỉnh > −1 dBFS
   return o;
 }
 
 const C6 = 1046.5, E6 = 1318.5, G6 = 1568, C7 = 2093, B5 = 987.8, E5 = 659.3, G5 = 784;
-const SOUNDS = {
+export const SOUNDS = {
   tap: () => { const o = buf(0.07); noise(o, 0, { dur: 0.05, vol: 0.5, from: 3200, to: 1400, d: 0.008 }); soft(o, 0, 1760, { dur: 0.05, vol: 0.25 }); return o; },
   correct: () => { const o = buf(0.45); bell(o, 0, B5, { dur: 0.3, vol: 0.45 }); bell(o, 0.075, E6 * 1.122, { dur: 0.38, vol: 0.5 }); room(o, 0.15); return o; }, // B5 → F#6 (quãng 5 đi lên: "đúng rồi!")
   wrong: () => { const o = buf(0.32); soft(o, 0, 233, { dur: 0.14, vol: 0.55, drop: 0.04 }); soft(o, 0.1, 196, { dur: 0.2, vol: 0.5, drop: 0.06 }); noise(o, 0, { dur: 0.03, vol: 0.08, from: 900, to: 500 }); room(o, 0.12); return o; },
@@ -76,11 +79,14 @@ function wav(o) {
   return b;
 }
 
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
 mkdirSync(OUT, { recursive: true });
 for (const [name, make] of Object.entries(SOUNDS)) {
   const w = join(OUT, name + '.wav'), m = join(OUT, name + '.mp3');
-  writeFileSync(w, wav(finish(make())));
+  const o = finish(make());
+  writeFileSync(w, wav(o));
   execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', w, '-ac', '1', '-ar', '44100', '-b:a', '48k', '-map_metadata', '-1', m]);
   rmSync(w);
-  console.log(name.padEnd(9), (statSync(m).size / 1024).toFixed(1), 'KB');
+  console.log(name.padEnd(9), (statSync(m).size / 1024).toFixed(1), 'KB', o.meter.lufs.toFixed(1), 'LUFS', o.meter.peak.toFixed(1), 'dBFS');
+}
 }

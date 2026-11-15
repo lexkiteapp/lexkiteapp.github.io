@@ -4,18 +4,18 @@
 // (6,000+ từ có IPA: web/js/data.js + web/js/lib/*; 15 ngôn ngữ: extension/_locales; đề luyện IELTS/TOEIC: web/js/listen, readtest, toeic).
 export const CAP = {
   en: [
-    ['On any website', 'Double-click any word.<br><em>Learn it for good.</em>', 'Pronunciation, meanings and examples right where you read.', ['British & American IPA + audio', 'Meanings by part of speech', 'Save with the original sentence'], 'dailyplanet.com/environment'],
+    ['On any website', 'Double-click any word.<br><em>Learn it for&nbsp;good.</em>', 'Pronunciation, meanings and examples right where you read.', ['British & American IPA + audio', 'Meanings by part of speech', 'Save with the original sentence'], 'dailyplanet.com/environment'],
     ['Translate & learn grammar', 'Select a sentence.<br><em>See how it works.</em>', 'Instant translation plus the grammar structures inside it.', ['Translate any selection', 'Grammar patterns explained', 'Listen at normal or slow speed'], 'dailyplanet.com/environment'],
     ['Toolbar popup', 'Your daily study,<br><em>one click away.</em>', 'Due cards, daily goal, quick lookup and a 1-minute review.', ['Cards due today at a glance', 'Quick review without leaving the page', 'Sync across devices (optional)'], ''],
     ['New tab', 'Learn a word<br><em>every new tab.</em>', 'A flashcard from your own deck each time you open a tab.', ['Words picked at the right moment', 'One tap: got it / review again', 'Turn off anytime'], 'New Tab'],
     ['Free · No ads in the extension', 'Free. Private.<br><em>Built for exams.</em>', 'No account needed – your words stay in your browser.', ['6,000+|words with IPA & audio', '15|interface languages', 'IELTS · TOEIC|practice tests with explanations', 'FSRS|spaced-repetition reviews'], 'Lexkite'],
   ],
   vi: [
-    ['Trên mọi trang web', 'Bấm đúp mọi từ.<br><em>Nhớ thật lâu.</em>', 'Phiên âm, phát âm, nghĩa và ví dụ ngay tại chỗ bạn đọc.', ['Phiên âm Anh–Anh & Anh–Mỹ', 'Nghĩa theo từ loại', 'Lưu kèm câu gốc'], 'dailyplanet.com/environment'],
+    ['Trên mọi trang web', 'Bấm đúp mọi&nbsp;từ.<br><em>Nhớ thật lâu.</em>', 'Phiên âm, phát âm, nghĩa và ví dụ ngay tại chỗ bạn đọc.', ['Phiên âm Anh–Anh & Anh–Mỹ', 'Nghĩa theo từ loại', 'Lưu kèm câu gốc'], 'dailyplanet.com/environment'],
     ['Dịch & học ngữ pháp', 'Bôi đen một câu.<br><em>Hiểu cả cấu trúc.</em>', 'Dịch tức thì, kèm giải thích các cấu trúc ngữ pháp trong câu.', ['Dịch mọi đoạn bôi đen', 'Giải thích cấu trúc ngữ pháp', 'Nghe tốc độ thường hoặc chậm'], 'dailyplanet.com/environment'],
     ['Cửa sổ tiện ích', 'Việc học mỗi ngày,<br><em>chỉ một cú bấm.</em>', 'Thẻ cần ôn, mục tiêu ngày, tra nhanh và ôn 1 phút.', ['Thấy ngay số thẻ cần ôn', 'Ôn nhanh không rời trang', 'Đồng bộ nhiều thiết bị (tùy chọn)'], ''],
     ['Tab mới', 'Mỗi tab mới,<br><em>thêm một từ.</em>', 'Một thẻ từ chính sổ của bạn mỗi lần mở tab.', ['Chọn từ đúng thời điểm vàng', 'Một chạm: đã nhớ / ôn lại', 'Tắt bất cứ lúc nào'], 'Tab mới'],
-    ['Miễn phí · Không quảng cáo trong tiện ích', 'Miễn phí. Riêng tư.<br><em>Dành cho kỳ thi.</em>', 'Không cần tài khoản – từ của bạn nằm trong trình duyệt.', ['6.000+|từ có phiên âm & phát âm', '15|ngôn ngữ giao diện', 'IELTS · TOEIC|đề luyện có giải thích', 'FSRS|ôn tập lặp lại ngắt quãng'], 'Lexkite'],
+    ['Miễn phí · Không quảng cáo', 'Miễn phí. Riêng&nbsp;tư.<br><em>Dành cho kỳ thi.</em>', 'Không cần tài khoản – từ của bạn nằm trong trình duyệt.', ['6.000+|từ có phiên âm & phát âm', '15|ngôn ngữ giao diện', 'IELTS · TOEIC|đề luyện có giải thích', 'FSRS|ôn tập lặp lại ngắt quãng'], 'Lexkite'],
   ],
   es: [
     ['En cualquier web', 'Doble clic en una palabra.<br><em>Recuérdala siempre.</em>', 'Pronunciación, significados y ejemplos justo donde lees.', ['IPA británico y americano + audio', 'Significados por categoría', 'Guarda la frase original'], 'dailyplanet.com/environment'],

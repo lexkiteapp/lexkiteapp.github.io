@@ -32,6 +32,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.ProgressBarRangeInfo
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.disabled
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.progressBarRangeInfo
 import androidx.compose.ui.semantics.semantics
@@ -73,15 +74,15 @@ fun LKCard(modifier: Modifier = Modifier, fill: Color = LocalLKColors.current.ca
     }
 }
 
-/** The ONE primary CTA: full width, ≥ 52 dp, label never truncated (wraps for de/ru +40 %). */
+/** The ONE primary CTA: full width, ≥ 52 dp, label never truncated (wraps for de/ru +40 %). Disabled (nothing to check yet) = flat sand pill, no lip, not clickable. */
 @Composable
-fun LKPrimaryButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifier, fill: Color = LocalLKColors.current.primary, ink: Color = LocalLKColors.current.onPrimary, trailing: (@Composable RowScope.() -> Unit)? = null) {
+fun LKPrimaryButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifier, fill: Color = LocalLKColors.current.primary, ink: Color = LocalLKColors.current.onPrimary, enabled: Boolean = true, trailing: (@Composable RowScope.() -> Unit)? = null) {
     val c = LocalLKColors.current
-    Box(modifier.fillMaxWidth().heightIn(min = 52.dp).tactile(onClick)) {
-        Box(Modifier.matchParentSize().offset(y = 4.dp).background(if (c.dark) c.primaryContainer else c.onPrimaryContainer.copy(alpha = 0.35f), PillShape))
-        Row(Modifier.fillMaxWidth().heightIn(min = 52.dp).background(fill, PillShape).padding(horizontal = LKSpacing.spaceLg, vertical = LKSpacing.spaceSm),
+    Box(modifier.fillMaxWidth().heightIn(min = 52.dp).tactile(if (enabled) onClick else null).semantics { if (!enabled) disabled() }) {
+        Box(Modifier.matchParentSize().offset(y = 4.dp).background(if (!enabled) c.lipLock else if (c.dark) c.primaryContainer else c.onPrimaryContainer.copy(alpha = 0.35f), PillShape))
+        Row(Modifier.fillMaxWidth().heightIn(min = 52.dp).background(if (enabled) fill else c.surfaceContainerHighest, PillShape).padding(horizontal = LKSpacing.spaceLg, vertical = LKSpacing.spaceSm),
             horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
-            Text(text.uppercase(LocalL10n.current.locale), style = LKType.titlePill.toCompose(), color = ink)
+            Text(text.uppercase(LocalL10n.current.locale), style = LKType.titlePill.toCompose(), color = if (enabled) ink else c.onSurfaceVariant)
             trailing?.invoke(this)
         }
     }
@@ -98,10 +99,10 @@ fun LKPillButton(text: String, onClick: () -> Unit, modifier: Modifier = Modifie
 
 /** Thin rounded progress bar with progressbar semantics. */
 @Composable
-fun LKProgress(fraction: Float, modifier: Modifier = Modifier, color: Color = LocalLKColors.current.primary, label: String? = null) {
+fun LKProgress(fraction: Float, modifier: Modifier = Modifier, color: Color = LocalLKColors.current.primary, label: String? = null, track: Color = LocalLKColors.current.cardHigh) {
     val c = LocalLKColors.current
     val f = fraction.coerceIn(0f, 1f)
-    Box(modifier.fillMaxWidth().height(8.dp).clip(PillShape).background(c.cardHigh).semantics { progressBarRangeInfo = ProgressBarRangeInfo(f, 0f..1f); if (label != null) contentDescription = label }) {
+    Box(modifier.fillMaxWidth().height(8.dp).clip(PillShape).background(track).semantics { progressBarRangeInfo = ProgressBarRangeInfo(f, 0f..1f); if (label != null) contentDescription = label }) {
         if (f > 0f) Box(Modifier.fillMaxHeight().fillMaxWidth(f).background(color, PillShape))
     }
 }

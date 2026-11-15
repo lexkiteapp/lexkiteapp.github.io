@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"believe\" mean?",
+  "keyword": "believe",
+  "value": "Believe means to think or accept that something is true.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=believe",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"believe\" mean?",
+    "description": "Believe means to think or accept that something is true.\n\nReview your words, free: https://lexkite.com/app/#/review?w=believe\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "believe",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"believe\" mean?\n\nBelieve means to think or accept that something is true.\n\nReview your words, free: https://lexkite.com/app/#/review?w=believe"
+   },
+   "instagram": {
+    "caption": "What does \"believe\" mean?\n\nBelieve means to think or accept that something is true.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"believe\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to think or accept that something is true. Believe means to think or accept that something is true. More practice like this (free): {link}"
  }
 }

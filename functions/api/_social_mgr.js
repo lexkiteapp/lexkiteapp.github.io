@@ -8,7 +8,7 @@
 import { manifest, signed } from './admin-shorts.js';
 import { field } from './_clip_logic.js';
 import { runModel } from './ai.js';
-import { normCfg, allowed, schedule } from './_distribution.js';
+import { normCfg, allowed, schedule, SOCIAL_DAY_MAX } from './_distribution.js';
 
 // ---------------- Hàm thuần (test: scripts/test/social-mgr.mjs) ----------------
 export const STATES = ['idea', 'draft', 'review', 'approved', 'scheduled', 'published', 'failed'];
@@ -17,7 +17,7 @@ export const PLAT = {
   facebook_page: { cap: 30, used: 'reels_24h', capKey: 'reels_cap', kind: 'reel' },
   instagram: { cap: 100, used: 'posts_24h', capKey: 'posts_cap', kind: 'reel', cap2200: true },
   tiktok: { cap: 15, kind: 'video' }, // Direct Post của app GrabCast được duyệt 03/11/2026 → hết giới hạn SELF_ONLY
-  youtube: { cap: 6, kind: 'short', privateOnly: 'google-review' },
+  youtube: { cap: 6, kind: 'short' }, // GrabCast qua audit YouTube API (chủ báo 10/11/2026) → hết giới hạn private; chủ 10/11: tự duyệt tự đăng (ownerPolicy)
   threads: { cap: 250, kind: 'post' },
 };
 export const platOf = a => { const p = String((a && (a.platform || a.provider)) || '').toLowerCase(); return p === 'facebook' ? 'facebook_page' : p; };
@@ -71,10 +71,10 @@ export function validateCompose(d, plats) {
   return out.map(x => ({ lv: 'error', ...x }));
 }
 
-export const DEFAULT_RULES = { perDay: { facebook_page: 2, instagram: 2, tiktok: 2, youtube: 1, threads: 3 }, minGapH: 3, hours: [8, 12, 19], tz: 'America/New_York', tzBy: {}, dupDays: 30, days: 7, skipWeekend: false };
+export const DEFAULT_RULES = { perDay: { facebook_page: 2, instagram: 2, tiktok: 2, youtube: 1, threads: 2 }, minGapH: 3, hours: [8, 12, 19], tz: 'America/New_York', tzBy: {}, dupDays: 30, days: 7, skipWeekend: false };
 export function cleanRules(r) {
   r = r && typeof r === 'object' ? r : {}; const d = DEFAULT_RULES, perDay = {};
-  for (const p of Object.keys(PLAT)) perDay[p] = Math.max(0, Math.min(PLAT[p].cap, Math.round(+((r.perDay || {})[p] ?? d.perDay[p]) || 0)));
+  for (const p of Object.keys(PLAT)) perDay[p] = Math.max(0, Math.min(PLAT[p].cap, SOCIAL_DAY_MAX, Math.round(+((r.perDay || {})[p] ?? d.perDay[p]) || 0)));
   const tzOk = z => { try { new Intl.DateTimeFormat('en', { timeZone: z }); return true; } catch (e) { return false; } };
   const tzBy = {}; for (const [k, v] of Object.entries(r.tzBy || {})) if (/^[A-Za-z0-9_-]{1,40}$/.test(k) && typeof v === 'string' && tzOk(v)) tzBy[k] = v;
   const hours = [...new Set((Array.isArray(r.hours) ? r.hours : d.hours).map(Math.round).filter(h => h >= 0 && h <= 23))].sort((a, b) => a - b).slice(0, 12);
@@ -184,7 +184,7 @@ async function approvedClips(env) {
 }
 export const bodyFor = (clip, mediaId, accs, per = {}, tz = 'America/New_York') => ({
   title: str(clip.title, 100), caption: str([clip.description || clip.title, (clip.hashtags || []).map(h => '#' + String(h).replace(/^#/, '')).join(' ')].filter(Boolean).join('\n\n'), 2200), media_ids: [mediaId], timezone: tz,
-  targets: accs.map(a => ({ account_id: a.id, kind: a.kind || (PLAT[a.p] || {}).kind || 'video', options: a.p === 'tiktok' ? { privacy_level: 'PUBLIC_TO_EVERYONE', allow_comment: true, allow_duet: false, allow_stitch: false, commercial_content: false, is_aigc: true } : a.p === 'youtube' ? { privacy_status: 'private', made_for_kids: false, contains_synthetic_media: true, category_id: '27' } : {}, ...(per[a.p] || {}) })),
+  targets: accs.map(a => ({ account_id: a.id, kind: a.kind || (PLAT[a.p] || {}).kind || 'video', options: a.p === 'tiktok' ? { privacy_level: 'PUBLIC_TO_EVERYONE', allow_comment: true, allow_duet: false, allow_stitch: false, commercial_content: false, is_aigc: true } : a.p === 'youtube' ? { privacy_status: 'public', made_for_kids: false, contains_synthetic_media: true, category_id: '27' } : {}, ...(per[a.p] || {}) })),
 });
 export async function pushClip(env, clip, gc, origin) {
   const cached = await getMeta(env.DB, 'media:' + clip.id, null);
@@ -373,7 +373,11 @@ export const OPS = {
   },
   'GET metrics': async ({ db }) => {
     const rows = await all(db, 'SELECT * FROM soc_metrics ORDER BY at DESC LIMIT 2000');
-    return { rows, weights: await getMeta(db, 'weights', null), sync: await getMeta(db, 'metrics_sync', null) };
+    let vmeta = [], growth = [];
+    try { vmeta = await all(db, 'SELECT video_id, channel_id, clip, secs, publish_at, missing FROM yt_vmeta LIMIT 5000'); } catch (e) { /* chưa có số liệu YouTube */ }
+    try { growth = await all(db, "SELECT c.video_id, c.views - COALESCE(w.views, 0) AS d7, c.views - COALESCE(m.views, 0) AS d30 FROM yt_stats c LEFT JOIN yt_stats w ON w.video_id = c.video_id AND w.day = (SELECT MAX(day) FROM yt_stats WHERE day <= date(c.day, '-7 day')) LEFT JOIN yt_stats m ON m.video_id = c.video_id AND m.day = (SELECT MAX(day) FROM yt_stats WHERE day <= date(c.day, '-30 day')) WHERE c.day = (SELECT MAX(day) FROM yt_stats) LIMIT 5000"); } catch (e) { /* chưa có yt_stats */ }
+    let channels = []; try { channels = await all(db, 'SELECT channel_id, title FROM yt_channel'); } catch (e) { /* chưa kết nối YouTube */ }
+    return { rows, vmeta, growth, channels, alerts: await getMeta(db, 'ana_alerts', []), weights: await getMeta(db, 'weights', null), sync: await getMeta(db, 'metrics_sync', null) };
   },
   'POST metrics/import': async ({ db, b }) => { // nhập tay / CSV (Meta Business Suite, TikTok Studio) khi API không cho đọc số liệu
     const rows = Array.isArray(b.rows) ? b.rows.slice(0, 500) : []; let n = 0;
@@ -425,6 +429,31 @@ async function upMetric(db, m) {
   await run(db, `INSERT INTO soc_metrics (k, post_id, platform, account_id, clip, template, hook, cefr, views, likes, comments, saves, shares, watch_s, src, at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ON CONFLICT(k) DO UPDATE SET views = excluded.views, likes = excluded.likes, comments = excluded.comments, saves = excluded.saves, shares = excluded.shares, watch_s = excluded.watch_s, template = excluded.template, hook = excluded.hook, cefr = excluded.cefr, src = excluded.src, at = excluded.at`,
   m.k, m.post_id, m.platform, m.account_id, m.clip, m.template, m.hook, m.cefr, m.views | 0, m.likes | 0, m.comments | 0, m.saves | 0, m.shares | 0, m.watch_s | 0, m.src, Date.now());
+}
+/** Cảnh báo phân tích (hàm thuần): kênh 0 view mới ≥ 3 ngày, video bị gỡ/hạn chế, quota ≥ 80 %. Hiện ở Quản trị › Phân tích; CI mở thêm issue cho coordinator. */
+export function analyticsAlerts({ channels = [], videos = [], zero3 = [], quota = null }, now = Date.now()) {
+  const A = [], name = id => (channels.find(c => c.channel_id === id) || {}).title || id;
+  for (const c of zero3) A.push({ k: 'yt-zero3:' + c, title: 'kênh 0 view mới 3 ngày', text: `Kênh ${name(c)} không có view mới trong ≥ 3 ngày dù có video đã đăng.`, at: now });
+  const gone = videos.filter(v => v.missing).map(v => v.video_id);
+  if (gone.length) A.push({ k: 'yt-gone', title: 'video bị gỡ/hạn chế', text: 'Video không còn đọc được trên YouTube (gỡ, riêng tư hoặc bị hạn chế): ' + gone.slice(0, 10).join(', '), at: now });
+  if (quota && quota.limit && quota.used >= quota.limit * 0.8) A.push({ k: 'yt-quota', title: 'quota sắp cạn', text: `Quota YouTube hôm nay ${quota.used}/${quota.limit} (≥ 80 %).`, at: now });
+  return A;
+}
+export async function saveAlerts(db, alerts) { await setMeta(db, 'ana_alerts', alerts.slice(0, 20)); return alerts; }
+/** YouTube (op stats): mỗi video → 1 dòng soc_metrics (platform youtube, account = kênh) + yt_vmeta (độ dài, giờ đăng, bị gỡ) cho bảng Phân tích; trọng số tính lại. */
+export async function ingestYouTube(db, videos, now = Date.now()) {
+  await run(db, 'CREATE TABLE IF NOT EXISTS yt_vmeta (video_id TEXT PRIMARY KEY, channel_id TEXT, clip TEXT, secs REAL, publish_at TEXT, missing INTEGER, seen INTEGER)');
+  let n = 0;
+  for (const v of videos || []) {
+    if (!v || !v.video_id) continue;
+    await run(db, 'INSERT INTO yt_vmeta (video_id, channel_id, clip, secs, publish_at, missing, seen) VALUES (?, ?, ?, ?, ?, ?, ?) ON CONFLICT(video_id) DO UPDATE SET channel_id = excluded.channel_id, clip = excluded.clip, secs = excluded.secs, publish_at = excluded.publish_at, missing = excluded.missing, seen = excluded.seen',
+      v.video_id, v.channel_id || '', v.clip || '', Number.isFinite(+v.secs) ? +v.secs : null, v.publish_at || null, v.missing ? 1 : 0, now);
+    if (v.missing) continue;
+    const bd = (v.clip && await one(db, 'SELECT template, hook, cefr FROM soc_board WHERE clip = ? LIMIT 1', v.clip)) || {};
+    await upMetric(db, { k: 'youtube:' + v.video_id, post_id: v.video_id, platform: 'youtube', account_id: v.channel_id || '', clip: v.clip || '', template: bd.template || '', hook: bd.hook || '', cefr: bd.cefr || '',
+      ...mapMetrics('youtube', { viewCount: v.views, likeCount: v.likes, commentCount: v.comments }), src: 'youtube' }); n++;
+  }
+  return { n, weights: await recompute(db) };
 }
 async function recompute(db) { const w = weightsFrom((await all(db, "SELECT * FROM soc_metrics WHERE platform != 'web'"))); w.at = Date.now(); await setMeta(db, 'weights', w); return w; }
 

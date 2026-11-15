@@ -2,6 +2,7 @@
 // dòng có `//` mà phía SAU vẫn là câu lệnh thật (gán / gọi hàm kết thúc bằng ";") → đỏ. Quét mọi web/js/**/*.js (trừ thư viện bên thứ ba web/js/vendor).
 // Cách sửa: đưa code ra TRƯỚC `//` (chú thích luôn ở cuối dòng). Test hồi quy: node scripts/test/comment-code.mjs --self
 import fs from 'node:fs'; import path from 'node:path';
+import { SCAN_ROOTS } from '../lib/scan-roots.mjs';
 // vị trí `//` mở chú thích thật trong 1 dòng (bỏ qua chuỗi '…' "…" `…`, regex /…/ đơn giản, URL "://")
 export function commentAt(line) {
   let q = null, re = false, prev = '';
@@ -31,7 +32,7 @@ if (process.argv.includes('--self')) {
 } else {
   const hits = [];
   const walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, e.name); if (e.isDirectory()) { if (e.name !== 'vendor') walk(p); } else if (p.endsWith('.js') && !p.endsWith('.min.js')) fs.readFileSync(p, 'utf8').split('\n').forEach((l, n) => { if (l.length > 2000) return; const t = swallowed(l); if (t) hits.push(`${p}:${n + 1}  // ${t.slice(0, 90)}`); }); } };
-  walk('web/js');
+  SCAN_ROOTS.filter(r => fs.existsSync(r)).forEach(walk);
   if (hits.length) { console.error(`✗ comment-code: ${hits.length} dòng có code thật nằm SAU \`//\` (bị chú thích nuốt – đưa code ra trước //):\n  ` + hits.join('\n  ')); process.exit(1); }
   console.log('✓ comment-code: không có code bị chú thích nuốt trong web/js');
 }

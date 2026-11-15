@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_sincelive",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Since needs have lived!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I live here since 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have lived here since 2020.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "With since, use have lived.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Have lived! I have lived here since 2019.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I live here since 2020.",
+  "right": "I have lived here since 2020.",
+  "strike": "live",
+  "why": "With since, use have lived.",
+  "memory": "Since: have lived.",
+  "quiz": {
+   "stem": "I ___ here since 2019.",
+   "options": [
+    "live",
+    "have lived"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "since 要搭配 “have lived”！",
+   "tip": "说“从某时起一直……”要用现在完成时：have lived。",
+   "caption": "你是不是也会说 “I live here since 2020.”？😅 “从某时起一直”要用现在完成时：“I have lived here since 2020.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“have lived”。since 用现在完成时！免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Since + “have lived”!",
+   "tip": "For something that started in the past and continues, use the present perfect.",
+   "caption": "Do you say “I live here since 2020.”? 😅 For something that started in the past and continues, use present perfect: “I have lived here since 2020.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "since 要搭配 “have lived”！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "since 要搭配 “have lived”！",
+  "keyword": "I have lived here since 2020.",
+  "value": "说“从某时起一直……”要用现在完成时：have lived。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "since 要搭配 “have lived”！",
+    "description": "你是不是也会说 “I live here since 2020.”？😅 “从某时起一直”要用现在完成时：“I have lived here since 2020.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I have lived here since 2020.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I live here since 2020.”？😅 “从某时起一直”要用现在完成时：“I have lived here since 2020.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "你是不是也会说 “I live here since 2020.”？😅 “从某时起一直”要用现在完成时：“I have lived here since 2020.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "since 要搭配 “have lived”！ #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“have lived”。since 用现在完成时！免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

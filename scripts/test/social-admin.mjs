@@ -40,6 +40,7 @@ const DATA = (await import('../../functions/api/_shorts_data.js')).default, CLIP
   ok(calls.join() === 'GET accounts' && r.n === 4, 'đồng bộ kênh: đúng 1 lượt GET accounts (API GrabCast có sẵn), không tạo/đăng bài');
   ok(by['gc-facebook_page-11'].lang === 'en' && by['gc-facebook_page-11'].lang_src === 'default' && by['gc-facebook_page-12'].lang === 'es' && by['gc-facebook_page-12'].lang_src === 'name' && by['gc-instagram-13'].lang === 'vi' && by['gc-tiktok-14'].lang === 'ja', 'ngôn ngữ trang nhận từ tên (bộ 16 fanpage), không nhận ra = trang chung EN');
   ok(by['gc-tiktok-14'].status === 'error' && by['gc-facebook_page-11'].status === 'ok', 'kênh cần kết nối lại → status error');
+  sql.exec("DELETE FROM soc_meta WHERE k = 'ch_sync'"); // hết khoảng giãn 5 phút của lượt đồng bộ trên: lượt này phải gọi GrabCast thật
   let e3 = null; try { await A.autoOpFor('POST', 'lk/auto/channels/sync')({ env: ENV, db: DB, b: {}, gc: async () => ({ status: 503, code: 'down' }) }); } catch (e) { e3 = e; }
   ok(e3 && e3.status === 503 && sql.prepare("SELECT COUNT(*) AS n FROM dist_ext WHERE status = 'gone'").get().n === 0, 'GrabCast lỗi → báo lỗi, KHÔNG đánh dấu mọi kênh đã gỡ');
   let e4 = null; try { await A.autoOpFor('POST', 'lk/auto/channels/sync')({ env: { DB }, db: DB, b: {}, gc }); } catch (e) { e4 = e; }

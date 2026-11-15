@@ -9,6 +9,8 @@ import xml.etree.ElementTree as ET
 ap = argparse.ArgumentParser()
 ap.add_argument('--dump', required=True); ap.add_argument('--out', required=True)
 ap.add_argument('--max', type=int, default=2_000_000)
+# 08/11: cùng bộ lọc cho các dump MediaWiki tiếng Anh khác (Wikivoyage/Wikinews/Wikibooks) – tiền tố id = nguồn (job.mjs EX_SRC)
+ap.add_argument('--prefix', default='sw', choices=['sw', 'wv', 'wnw', 'wb', 'wvs', 'ew'])
 a = ap.parse_args()
 
 def clean(t):
@@ -55,10 +57,10 @@ with bz2.open(a.dump, 'rb') as f, open(a.out, 'w', encoding='utf-8') as o:
                         h = hashlib.md5(s.lower().encode()).digest()[:8]
                         if h in seen: continue
                         seen.add(h); k += 1; n_out += 1
-                        o.write(f'sw{pid}.{k}\teng\t{s}\n')
+                        o.write(f'{a.prefix}{pid}.{k}\teng\t{s}\n')
                         if n_out >= a.max: break
                     if n_out >= a.max: break
             pid, ns, red, txt = None, None, False, None
             el.clear()
             if n_out >= a.max: break
-print(f'✓ simplewiki: {n_pages} trang → {n_out} câu', file=sys.stderr)
+print(f'✓ {a.prefix} (simplewiki.py): {n_pages} trang → {n_out} câu', file=sys.stderr)

@@ -74,7 +74,8 @@
       o.bank.querySelectorAll(sel).forEach(b => { const n = b.cloneNode(true); n.classList.remove('used'); n.disabled = false; n.removeAttribute('data-i'); c.appendChild(n); });
       o.ans.parentNode.appendChild(c); const h = c.offsetHeight; c.remove(); if (h) o.ans.style.minHeight = h + 'px';
     };
-    const ro = g.ResizeObserver ? new ResizeObserver(() => { if (o.ans.offsetWidth !== lastW && !d) reserve(); }) : null;
+    let roRaf = 0; // đo lại ở khung kế (ngoài lượt gọi của RO): đổi minHeight của chính phần tử đang quan sát ngay trong callback gây "ResizeObserver loop completed with undelivered notifications"
+    const ro = g.ResizeObserver ? new ResizeObserver(() => { if (o.ans.offsetWidth !== lastW && !d && !roRaf) roRaf = requestAnimationFrame(() => { roRaf = 0; if (o.ans.offsetWidth !== lastW && !d) reserve(); }); }) : null;
 
     let d = null, skip = false;
     const off = () => { document.removeEventListener('pointermove', move); document.removeEventListener('pointerup', up); document.removeEventListener('pointercancel', cancel); document.removeEventListener('contextmenu', noMenu); document.removeEventListener('keydown', esc, true); g.removeEventListener('blur', cancel); };
@@ -186,7 +187,7 @@
     syncBank(); reserve();
     if (ro) ro.observe(o.ans);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (!d) reserve(); });
-    function destroy() { end(); if (ro) ro.disconnect(); [o.ans, o.bank].forEach(c => { c.removeEventListener('pointerdown', down); c.removeEventListener('click', click, true); }); scope.removeEventListener('keydown', key); if (live) { live.remove(); live = null; } }
+    function destroy() { end(); if (roRaf) cancelAnimationFrame(roRaf); if (ro) ro.disconnect(); [o.ans, o.bank].forEach(c => { c.removeEventListener('pointerdown', down); c.removeEventListener('click', click, true); }); scope.removeEventListener('keydown', key); if (live) { live.remove(); live = null; } }
     return { place, remove, undo, destroy, reserve() { if (!d) reserve(); }, reset() { hist.length = 0; render(); } };
   }
   g.WordArrange = { bind, insertAt, slotIndex, rowsOf };

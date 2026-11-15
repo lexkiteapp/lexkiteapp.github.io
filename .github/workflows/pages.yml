@@ -28,4 +28,4 @@ jobs:
         run: |
           node scripts/audio-cdn-check.mjs --media
           node scripts/audio-cdn-check.mjs --base https://lexkiteapp.github.io/lexkite-media-2/audio/l/ --sample 300 --concurrency 12 --retries 6 --pages-repo lexkiteapp/lexkite-media-2
-          node scripts/audio-cdn-check.mjs --sample 150 --concurrency 6 --retries 4
+          node scripts/audio-cdn-check.mjs --sample 150 --concurrency 6 --retries 4 --origin https://lexkiteapp.github.io/lexkite-media-2/audio/l/

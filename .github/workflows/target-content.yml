@@ -51,6 +51,12 @@ jobs:
       - name: Kho điểm ngữ pháp (es) + LanguageTool 0 lỗi
         if: ${{ matrix.tl == 'es' }}
         run: node scripts/content-qa/grammar-map-check.mjs --tl es
+      - name: Gói luyện tập es (W2b) – khớp nguồn, giải thích đủ 15 ngôn ngữ, LanguageTool 0 lỗi trên câu điền từ
+        if: ${{ matrix.tl == 'es' }}
+        run: node scripts/target/drill-pack.mjs --check --lt
+      - name: Đề luyện định dạng DELE/SIELE (W5) – nguồn Tatoeba có ghi công, spec không đoán số, LanguageTool 0 lỗi trên consigna
+        if: ${{ matrix.tl == 'es' }}
+        run: node scripts/target/exam-es-check.mjs --lt
   plan:
     if: ${{ github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest

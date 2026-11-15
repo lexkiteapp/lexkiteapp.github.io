@@ -55,7 +55,9 @@ function classesOf(el, R) { let raw = (el.getAttribute('class') || '').split(/\s
   const has = re => raw.some(c => re.test(split(c).base)), out = [];
   for (const c of raw) { if (R.sty && R.sty[c]) { out.push(...R.sty[c]); continue; } out.push(...R(c, has)); }
   if (R.sty) for (const k of Object.keys(R.sty)) if (k.includes('.') && k.split('.').every(x => raw.includes(x))) for (const v of R.sty[k]) { const pf = v.slice(0, v.indexOf(':[') + 2 || v.indexOf('[') + 1), pr = v.slice(pf.length, v.indexOf(':', pf.length)), i = out.findIndex(x => x.startsWith(pf + pr + ':')); if (i >= 0) out[i] = v; else out.push(v); } // .a.b đè đúng thuộc tính của .a (cùng biến thể)
-  out.push(...styleCls(el.getAttribute('style'))); return out; }
+  out.push(...styleCls(el.getAttribute('style')));
+  // DESIGN-SYSTEM §0: không nhấp nháy. App: mẫu Stitch có animate-pulse → chấm đứng yên (kèm motion-reduce:animate-none của chính nó)
+  return !WEB && out.some(c => c.endsWith('animate-pulse')) ? out.filter(c => !c.endsWith('animate-pulse') && c !== 'motion-reduce:animate-none') : out; }
 
 // ---- ghép 2 cây ----
 const sig = n => n.nodeType === 1 ? n.tagName : n.nodeType === 3 ? (n.textContent.trim() ? '#t' : '') : '';
@@ -86,6 +88,10 @@ function merge(L, D, RL, RD, doc) {
 // ---- gắn dữ liệu + dịch → chuỗi template JS ----
 const isIcon = el => /material-symbols/.test(el.getAttribute('class') || '');
 const needT = s => /[A-Za-zÀ-ỹ]{2,}/.test(s);
+const colorMap = bind => { const M = bind.colors || {}; // khóa "lt:#hex" | "dk:#hex" | "#hex", thêm "/NN" để đổi riêng bản có độ mờ (giá trị không kèm /NN = bỏ độ mờ: viền đặc đúng token)
+  return c => !Object.keys(M).length ? c : c.replace(/((?:lt|dk):)?([\w!:.\-]*)\[([^\]\s`]*)\](\/\d+)?/g, (m, th, pre, val, op) => { let to = null; const h = (val.match(/#[0-9a-fA-F]{6}\b/) || [''])[0].toLowerCase(); if (!h) return m;
+    for (const k of [(th || '') + h + (op || ''), (th || '') + h, h + (op || ''), h]) if (M[k] != null) { to = M[k]; if (k.endsWith(op || '\0') && op) op = ''; break; }
+    return to == null ? m : (th || '') + pre + '[' + val.replace(/#[0-9a-fA-F]{6}\b/, to) + ']' + (op || ''); }); }; 
 function emit(root, bind, k) {
   const M = [], mark = expr => { M.push(expr); return `\u0001${M.length - 1}\u0002`; }, q = s => JSON.stringify(s);
   const tr = (s, where) => { const key = bind.i18n?.[s.trim()]; if (key == null) { errs.push(`${k}: thiếu khóa dịch ${where}: ${q(s.trim())}`); return mark(`e(${q(s.trim())})`); }
@@ -199,8 +205,8 @@ for (const k of SCREENS) { const bind = JSON.parse(fs.readFileSync(path.join(SRC
     const ch = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs --web (đầu trang + chân trang chung, nguồn: ${k}) – KHÔNG sửa tay. */\n(self.ST2 || (self.ST2 = {})).chrome = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ header: ${o.header},\n footer: ${o.footer} });\n`;
     const co = path.join(OUT, 'chrome.js'); if (CHECK) { if (!fs.existsSync(co) || fs.readFileSync(co, 'utf8') !== ch) errs.push(`${co} trôi`); } else { fs.mkdirSync(OUT, { recursive: true }); fs.writeFileSync(co, ch); }
     o.header = '``'; o.footer = '``'; }
-  const code = `(self.ST2 || (self.ST2 = {}))[${JSON.stringify(k)}] = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ root: ${JSON.stringify(o.root)},\n header: ${o.header},\n main: ${o.main},\n nav: ${o.nav}${WEB ? `,\n footer: ${o.footer}` : ''}${o.parts.map(([n, h]) => `,\n ${n}: ${h}`).join('')} });\n` +
-    (o.protos.length ? `(self.ST2.P || (self.ST2.P = {}))[${JSON.stringify(k)}] = (t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({\n${o.protos.map(([n, h]) => ` ${JSON.stringify(n)}: d => ${h}`).join(',\n')} });\n` : ''), sk = shrink(code);
+  const recolor = colorMap(bind), code = recolor(`(self.ST2 || (self.ST2 = {}))[${JSON.stringify(k)}] = (d, t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({ root: ${JSON.stringify(o.root)},\n header: ${o.header},\n main: ${o.main},\n nav: ${o.nav}${WEB ? `,\n footer: ${o.footer}` : ''}${o.parts.map(([n, h]) => `,\n ${n}: ${h}`).join('')} });\n` +
+    (o.protos.length ? `(self.ST2.P || (self.ST2.P = {}))[${JSON.stringify(k)}] = (t = self.t || (s => s), e = self.ST ? ST.esc : (s => String(s))) => ({\n${o.protos.map(([n, h]) => ` ${JSON.stringify(n)}: d => ${h}`).join(',\n')} });\n` : '')), sk = shrink(code);
   const js = `/* TỰ SINH bởi scripts/stitch-v2-convert.mjs từ ${SRC}/${k}-light|dark.html + bind/${k}.json – KHÔNG sửa tay (sửa bind map rồi chạy lại). */\n` + (sk.head ? `{ ${sk.head}\n${sk.body}}\n` : sk.body);
   const out = path.join(OUT, k + '.js');
   if (CHECK) { if (!fs.existsSync(out) || fs.readFileSync(out, 'utf8') !== js) errs.push(`${k}: ${out} trôi so với Stitch/bind (chạy lại bộ chuyển)`); }

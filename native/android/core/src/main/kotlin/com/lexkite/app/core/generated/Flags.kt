@@ -13,7 +13,9 @@ enum class FlagKey(val key: String) {
     SYNC_DRIVE_ENABLED("sync_drive_enabled"),
     SYNC_PUSH_EVERY_MS("sync_push_every_ms"),
     TEACHER_RIVE_ENABLED("teacher_rive_enabled"),
-    TODAY_BANNER_ENABLED("today_banner_enabled");
+    TODAY_BANNER_ENABLED("today_banner_enabled"),
+    VOCAB_IMG("vocab_img"),
+    VOCAB_IMG_PCT("vocab_img_pct");
 }
 
 object FlagDefaults {
@@ -39,8 +41,13 @@ object FlagDefaults {
     const val TEACHER_RIVE_ENABLED: Boolean = true
     /** Show signed banners/events on Today */
     const val TODAY_BANNER_ENABLED: Boolean = true
+    /** Vocabulary pictures (lesson pic exercise, word cards) – same tri-state as web config v.vocab_img: "on" = everyone, "off" = nobody, "" = staged rollout by vocab_img_pct over a fixed per-device bucket 0–99 (web/js/vocab-img.js mode(), vectors/vimg.json mode) */
+    const val VOCAB_IMG: String = ""
+    /** Staged rollout % for vocabulary pictures when vocab_img is "" (web vocab_img_pct, default PCT = 10); raise only after the web journey-e2e 'images on' gate (docs/LEXICON.md) */
+    const val VOCAB_IMG_PCT: Long = 10L
     val CONTENT_MAX_SCHEMA_RANGE = 1L..1000L
     val SYNC_PUSH_EVERY_MS_RANGE = 60000L..86400000L
+    val VOCAB_IMG_PCT_RANGE = 0L..100L
     /** Map for FirebaseRemoteConfig.setDefaultsAsync(). */
-    val ALL: Map<String, Any> = mapOf("ads_enabled" to ADS_ENABLED, "ai_enabled" to AI_ENABLED, "content_max_schema" to CONTENT_MAX_SCHEMA, "content_remote_enabled" to CONTENT_REMOTE_ENABLED, "migration_capacitor_enabled" to MIGRATION_CAPACITOR_ENABLED, "min_supported_app" to MIN_SUPPORTED_APP, "sync_d1_fallback" to SYNC_D1_FALLBACK, "sync_drive_enabled" to SYNC_DRIVE_ENABLED, "sync_push_every_ms" to SYNC_PUSH_EVERY_MS, "teacher_rive_enabled" to TEACHER_RIVE_ENABLED, "today_banner_enabled" to TODAY_BANNER_ENABLED)
+    val ALL: Map<String, Any> = mapOf("ads_enabled" to ADS_ENABLED, "ai_enabled" to AI_ENABLED, "content_max_schema" to CONTENT_MAX_SCHEMA, "content_remote_enabled" to CONTENT_REMOTE_ENABLED, "migration_capacitor_enabled" to MIGRATION_CAPACITOR_ENABLED, "min_supported_app" to MIN_SUPPORTED_APP, "sync_d1_fallback" to SYNC_D1_FALLBACK, "sync_drive_enabled" to SYNC_DRIVE_ENABLED, "sync_push_every_ms" to SYNC_PUSH_EVERY_MS, "teacher_rive_enabled" to TEACHER_RIVE_ENABLED, "today_banner_enabled" to TODAY_BANNER_ENABLED, "vocab_img" to VOCAB_IMG, "vocab_img_pct" to VOCAB_IMG_PCT)
 }

@@ -26,6 +26,7 @@ jobs:
       API: https://chromewebstore.googleapis.com
     steps:
       - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }   # đếm commit đụng extension/ để tự tăng số phiên bản (scripts/ext-version.mjs)
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Kiểm tra secrets
@@ -47,6 +48,7 @@ jobs:
           if [ "${{ inputs.mode }}" != check ] && echo "$ST" | jq -e '.submittedItemRevisionStatus.state == "PENDING_REVIEW"' >/dev/null 2>&1; then echo "::error::Đang có bản chờ duyệt – đợi duyệt xong hoặc hủy trên dashboard rồi chạy lại"; exit 1; fi
       - name: Build + kiểm tra quy tắc
         if: inputs.mode != 'check'
+        env: { EXT_AUTOVERSION: '1' }
         run: |
           bash scripts/build-extension.sh --zip
           node scripts/cws-check.mjs --zip store/lexkite-extension.zip ${STORE_VER:+--store-version "$STORE_VER"}

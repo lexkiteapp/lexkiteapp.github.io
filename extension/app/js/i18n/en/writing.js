@@ -6,7 +6,6 @@
 'Biểu đồ tròn': 'Pie chart',
 'Quy trình': 'Process',
 'Bản đồ': 'Map',
-'Bấm giờ': 'Start timer',
 'Tiếp tục': 'Resume',
 'Tạm dừng': 'Pause',
 'Số từ': 'Words',
@@ -17,7 +16,6 @@
 
 // ---- phrases.js: annotated model answers ----
 'Từ nối': 'Linking words',
-'Lưu tất cả': 'Save all',
 'Lưu vào Sổ cụm từ': 'Save to Phrasebook',
 'Bài mẫu Task {n}': 'Task {n} model answer',
 
@@ -69,8 +67,6 @@
 'Mở': 'Open',
 'Chưa có': 'None yet',
 'Độ đa dạng từ': 'Lexical variety',
-'Từ nối & cụm': 'Linkers & phrases',
-'Từ của tôi': 'My words',
 
 // write.js: trend stats (dynamic keys)
 'Bảng (table)': 'Table',

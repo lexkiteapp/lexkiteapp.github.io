@@ -36,17 +36,21 @@ data class LKColors(
     val background: Color, val surface: Color, val onSurface: Color, val onSurfaceVariant: Color,
     val card: Color, val cardLow: Color, val cardHigh: Color, val outline: Color, val outlineVariant: Color,
     val star: Color, val success: Color, val error: Color, val onError: Color, val trail: Color,
+    // roles the lesson (answer cards, feedback sheet, disabled CTA) needs on top of the common ones
+    val lipLock: Color, val lipOpt: Color, val lipOptSel: Color, val errorContainer: Color, val onErrorContainer: Color, val secondaryFixed: Color, val tertiaryFixed: Color, val surfaceContainerHighest: Color,
 ) {
     companion object {
         val light = LKColorLight.run {
             LKColors(false, primary, onPrimary, primaryContainer, onPrimaryContainer, secondary, onSecondary, secondaryContainer, onSecondaryContainer,
                 tertiary, onTertiary, tertiaryContainer, onTertiaryContainer, background, surface, onSurface, onSurfaceVariant,
-                surfaceContainerLowest, surfaceContainerLow, surfaceContainerHigh, outline, outlineVariant, star, success, error, onError, trail)
+                surfaceContainerLowest, surfaceContainerLow, surfaceContainerHigh, outline, outlineVariant, star, success, error, onError, trail,
+                lipLock, lipOpt, lipOptSel, errorContainer, onErrorContainer, secondaryFixed, tertiaryFixed, surfaceContainerHighest)
         }
         val dark = LKColorDark.run {
             LKColors(true, primary, onPrimary, primaryContainer, onPrimaryContainer, secondary, onSecondary, secondaryContainer, onSecondaryContainer,
                 tertiary, onTertiary, tertiaryContainer, onTertiaryContainer, background, surface, onSurface, onSurfaceVariant,
-                surfaceContainerLowest, surfaceContainerLow, surfaceContainerHigh, outline, outlineVariant, star, success, error, onError, trail)
+                surfaceContainerLowest, surfaceContainerLow, surfaceContainerHigh, outline, outlineVariant, star, success, error, onError, trail,
+                lipLock, lipOpt, lipOptSel, errorContainer, onErrorContainer, secondaryFixed, tertiaryFixed, surfaceContainerHighest)
         }
     }
 }

@@ -51,6 +51,7 @@ const TOOL_CSS = `.tool .lead{font-size:1.1rem;max-width:62ch}.facts{display:fle
 .qz .fb{margin:.7rem 0;padding:.7rem .9rem;border-radius:10px;background:var(--bg)}.qz .row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:.8rem}.qz .big{font-size:3rem;font-weight:800;line-height:1;color:var(--brand)}.qz .sk{display:grid;grid-template-columns:auto 1fr auto;gap:.3rem .7rem;align-items:center;max-width:28rem}.qz .sk meter{width:100%;height:10px}
 .lvls{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:.7rem;padding:0;list-style:none}.lvls a{display:block;padding:.8rem 1rem;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:inherit;background:var(--surface);min-height:44px}.lvls b{color:var(--brand);margin-inline-end:.4rem}.lvls a[aria-current]{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
 .ex{border-collapse:collapse;margin:.6rem 0}.ex th,.ex td{border:1px solid var(--line);padding:.45rem .8rem;text-align:start}.steps{display:grid;gap:.6rem;padding:0;list-style:none;counter-reset:s}.steps a{display:block;padding:.75rem 1rem;border:1px solid var(--line);border-radius:12px;text-decoration:none;color:inherit;background:var(--surface)}.steps a b{color:var(--link)}.steps small{display:block;color:var(--muted)}
+.lvw{padding-inline-start:1.2rem}.lvw li{margin:.5rem 0}.lvw i{color:var(--muted)}
 .sample{border:1px solid var(--line);border-radius:12px;padding:.8rem 1rem;margin:.6rem 0;background:var(--surface)}.sample ol{margin:.4rem 0}.sample summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:600}
 .qz .opts kbd{display:inline-flex;align-items:center;justify-content:center;min-width:1.6em;height:1.6em;margin-inline-end:.6rem;border:1px solid var(--line);border-radius:6px;font:600 .8rem/1 inherit;color:var(--muted)}@media (hover:none){.qz .opts kbd{display:none}}
 .qz .q,.qz .opts,.qz .psg,.qz .fb,.qz h2{animation:qzin .18s ease-out both}@keyframes qzin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}.qz .bar i{will-change:width}@media (prefers-reduced-motion:reduce){.qz *{animation:none!important;transition:none!important}}
@@ -75,6 +76,19 @@ const ORG = { '@type': 'Organization', name: 'Lexkite', url: SITE + '/' };
 const app = (lang, route) => `${appHref(lang)}#/${route}`;
 const steps = (lang, lv) => { const s = toolStrings(lang); return `<ol class="steps">${PLAN[lv].map(k => `<li><a href="${app(lang, k)}" data-hit="tool_plan_${k}"><b>${esc(s.steps[k][0])} →</b><small>${esc(s.steps[k][1])}</small></a></li>`).join('')}</ol>`; };
 const examTable = (lang, lv) => `<table class="ex"><tbody><tr><th scope="row">IELTS</th><td>${EXAMS[lv][0]}</td></tr><tr><th scope="row">TOEIC Listening &amp; Reading</th><td>${EXAMS[lv][1]}</td></tr></tbody></table>`;
+// Từ vựng đúng cấp (trang cấp độ): 16 mục thật của kho từ có level = cấp này – nghĩa theo ngôn ngữ trang + câu ví dụ tự soạn, link trang /<lang>/words/ (ưu tiên trang index được).
+// Một nguồn với trang từ (scripts/lib/seo-words.mjs). Nghĩa dịch máy (cờ 0) → chỉ hiện từ + ví dụ. SEO_PAGES=0 → không có trang từ → bỏ khối.
+const SW = process.env.SEO_PAGES === '0' ? null : await import('./lib/seo-words.mjs');
+const lvWords = (lang, lv, P, o) => {
+  if (!SW) return '';
+  const own = new Set(SW.setOf[lang]), pool = SW.setOf.en.filter(e => e.level === lv && e.ex).sort((a, b) => own.has(b) - own.has(a) || SW.indexable(lang, b) - SW.indexable(lang, a) || a.word.localeCompare(b.word)).slice(0, 16);
+  if (pool.length < 8) return '';
+  const li = e => { const g = lang === 'en' ? [e.def, 1] : lang === 'vi' ? [e.vi, 1] : SW.gloss(lang, e) || [], m = g[1] === 0 ? '' : g[0];
+    return `<li><a href="${SW.wPath(own.has(e) ? lang : 'en', e)}" lang="en" dir="ltr"><b>${esc(e.word)}</b></a>${m ? ` – ${esc(m)}` : ''}<br><i lang="en" dir="ltr">${esc(e.ex)}</i></li>`; };
+  return `<section><h2>${esc(fill(P.wordsH, o))}</h2><p>${esc(fill(P.wordsLead, o))}</p><ul class="lvw">${pool.map(li).join('')}</ul></section>\n`;
+};
+// Câu hỏi mẫu đúng cấp (mọi cấp, kể cả A1/A2 chưa có từ trong kho): 2 ngữ pháp + 2 từ vựng + 1 đọc hiểu của ngân hàng CEFR công khai (/data/tools/cefr-bank.json), đáp án trong <details>
+const lvSample = (bank, lv, P, o) => `<section><h2>${esc(fill(P.sampleH, o))}</h2>${['g', 'g', 'v', 'v', 'r'].map((sk, i, a) => bank.filter(q => q.lv === lv && q.sk === sk)[a.slice(0, i).filter(x => x === sk).length]).filter(Boolean).map((q, k) => `<div class="sample">${q.p ? `<blockquote lang="en" dir="ltr">${esc(q.p)}</blockquote>` : ''}<p lang="en" dir="ltr"><b>${k + 1}.</b> ${esc(q.q)}</p><ol type="A" lang="en" dir="ltr">${q.o.map(x => `<li>${esc(x)}</li>`).join('')}</ol><details><summary>${esc(P.answer)}</summary><p lang="en" dir="ltr"><b>${'ABCD'[q.a]}. ${esc(q.o[q.a])}</b></p></details></div>`).join('')}</section>\n`;
 const levelList = (lang, cur) => { const s = toolStrings(lang); return `<ul class="lvls">${LV.map(l => `<li><a href="${toolPath(lang, 'test', l)}"${l === cur ? ' aria-current="page"' : ''}><b>${l}</b>${esc(s.levels[l].name)}</a></li>`).join('')}</ul>`; };
 let lastmod = today;
 
@@ -111,7 +125,7 @@ export function build() {
         body: `<h1>${esc(fill(P.h1, o))}</h1><p class="lead">${esc(L.desc)}</p><p id="you" hidden data-t="${esc(P.you)}"></p>
 <section><h2>${esc(fill(P.canH, o))}</h2><ul>${L.can.map(c => `<li>${esc(c)}</li>`).join('')}</ul></section>
 <section><h2>${esc(T.examsH)}</h2>${examTable(lang, lv)}<p class="hint"><small>${esc(T.examsNote)}</small></p></section>
-<section><h2>${esc(nx ? fill(P.planH, o) : P.planTop)}</h2>${steps(lang, lv)}</section>
+${lvSample(bank, lv, P, o)}${lvWords(lang, lv, P, o)}<section><h2>${esc(nx ? fill(P.planH, o) : P.planTop)}</h2>${steps(lang, lv)}</section>
 <p><a class="btn" href="${pT}">${esc(P.takeTest)} →</a></p>
 <section><h2>${esc(P.otherLevels)}</h2>${levelList(lang, lv)}</section>`, script: '/js/tools/level-test.js' }));
       n++;

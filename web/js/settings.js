@@ -134,6 +134,7 @@
         + `<div id="goldOpts" ${s.goldenOn ? '' : 'hidden'}>`
         + `<label class="set-row col"><span class="set-top"><span>${t('Chỉ nhắc khi có ít nhất <b id="vGMin">{n}</b> từ cần ôn', { n: s.goldenMin })}</span></span><input type="range" min="1" max="50" id="sGMin" value="${s.goldenMin}"></label>`
         + '</div>'
+        + tog('sMailRem', s.emailRemind === true, t('Nhắc học qua email'), t('Chỉ khi bạn nghỉ vài ngày, đúng giờ bạn hay học, tối đa 1 email mỗi ngày, hủy một chạm (khi đã đăng nhập)'))
         + tog('sDigest', s.emailDigest === true, t('Báo cáo não bộ qua email'), t('Gửi tóm tắt trí nhớ FSRS và các từ sắp quên vào sáng Chủ nhật (khi đã đăng nhập)'))
         + (window.VBNative && VBNative.is ? '<div id="wwBox"></div>' : ''))}
       <section class="set-sec" id="set-ai"><div id="aiBox"></div></section>
@@ -182,7 +183,7 @@
     $('#sQ1').onchange = e => { s.quietStart = e.target.value || '22:00'; save(); };
     $('#sQ2').onchange = e => { s.quietEnd = e.target.value || '08:00'; save(); };
     $('#sCap').oninput = e => { s.sessionCap = +e.target.value; $('#vCap').textContent = s.sessionCap || t('Không giới hạn'); save(); };
-    $('#sDigest').onchange = e => { s.emailDigest = e.target.checked; save(); };
+    $('#sMailRem').onchange = $('#sDigest').onchange = async e => { const k = e.target.id === 'sDigest' ? 'emailDigest' : 'emailRemind'; s[k] = e.target.checked; save(); if (App.need) await App.need('remind').catch(() => {}); if (!(window.Remind && await Remind.mailSync(true)) && s[k]) { e.target.checked = s[k] = false; save(); toast(t('Cần đăng nhập để nhận email')); } };
     const fillVoices = () => {
       if (!$('#sVoice')) return; // đã rời trang Cài đặt
       const list = UI.voicesFor(s.accent);

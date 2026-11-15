@@ -6,6 +6,7 @@
 // Kiểm (npm test): 1) style.css KHÔNG còn luật lười (khung phình lại) → chạy --move; 2) mọi luật trong lazy-ui.css vẫn lười (khung bắt đầu
 // dùng lớp đó → phải trả luật về style.css, kẻo vẽ thiếu kiểu trước khi gói lười nạp); 3) lazy-ui.css không nạp ngay, need1 nạp nó.
 // Dùng: node scripts/test/css-lazy.mjs [--move]
+import { isMain } from '../lib/is-main.mjs';
 import fs from 'fs';
 import path from 'path';
 import { firstLoadFiles, gzSize } from '../lib/gz-canon.mjs';
@@ -67,7 +68,7 @@ export function split(items, isLazy) {
   return { keep, mv };
 }
 
-if (import.meta.url === `file://${path.resolve(process.argv[1] || '')}`) {
+if (isMain(import.meta.url)) {
   let fail = 0; const ok = (c, m) => { if (c) console.log('✓ css-lazy: ' + m); else { fail++; console.error('✗ css-lazy: ' + m); } };
   const { selLazy } = lazyModel();
   const src = rd(STYLE), items = parseCss(src);
@@ -93,7 +94,7 @@ if (import.meta.url === `file://${path.resolve(process.argv[1] || '')}`) {
   ok(!first.includes('/css/lazy-ui.css'), 'lazy-ui.css KHÔNG nằm trong file nạp ngay (SHELL ∪ web/app/index.html)');
   ok(/const LZCSS = n => \/\^\(ux1\|i18nx\|i18nl\)\$\/\.test\(n\) \? \[\] : \['css\/lazy-ui\.css'\]/.test(app) && /need1 = [^\n]*LZCSS\(n\)[^\n]*map\(loadCss\)/.test(app), 'need1 nạp + chờ lazy-ui.css cho mọi gói lười (trừ ux1/i18n)');
   ok(/App\.loadScript = src => Promise\.all\(\[loadScript\(src\), loadCss\('css\/lazy-ui\.css'\)\]\)/.test(app), 'App.loadScript (file lười lẻ) cũng chờ lazy-ui.css');
-  // thêm: App.loadScript (speak/app.js: js/speak/s/<id>.js) chỉ nạp tệp NGOÀI gói lười
+  // thêm: App.loadScript (speak/app.js: cpack/speak/s/<id>.js qua SPK_P) chỉ nạp tệp NGOÀI gói lười
   const lzFiles = [...lazyModel().lazy].map(f => f.slice(4)), lsPre = [];
   for (const f of fs.readdirSync('web/js', { recursive: true }).filter(f => /\.js$/.test(f) && f !== 'app.js')) { const t = rd('web/js/' + f); if (/App\.loadScript\b/.test(t)) for (const m of t.matchAll(/(?:App\.loadScript|\bld)\(\s*'([^']+)'/g)) lsPre.push(m[1]); }
   ok(lsPre.length > 0 && !lsPre.some(p => lzFiles.some(f => f.startsWith(p))), `App.loadScript chỉ nạp tệp ngoài gói lười (${[...new Set(lsPre)].join(', ')})`);

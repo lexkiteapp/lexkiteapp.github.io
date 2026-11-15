@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"collect\" mean?",
+  "keyword": "collect",
+  "value": "Collect means to gather things/people together in one place.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=collect",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"collect\" mean?",
+    "description": "Collect means to gather things/people together in one place.\n\nReview your words, free: https://lexkite.com/app/#/review?w=collect\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "collect",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"collect\" mean?\n\nCollect means to gather things/people together in one place.\n\nReview your words, free: https://lexkite.com/app/#/review?w=collect"
+   },
+   "instagram": {
+    "caption": "What does \"collect\" mean?\n\nCollect means to gather things/people together in one place.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"collect\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to gather things/people together in one place. Collect means to gather things/people together in one place. Try the full lesson and quiz here: {link}"
  }
 }

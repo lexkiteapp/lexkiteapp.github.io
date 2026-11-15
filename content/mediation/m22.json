@@ -1,0 +1,130 @@
+{
+ "id": "m22",
+ "level": "C1",
+ "lo": "M.C1.15",
+ "activity": "simplify",
+ "title": "Terms of a broadband contract",
+ "scenario": "Ms Duarte runs a small shop and is about to sign a broadband agreement. She asks you what the key conditions mean in practice. Explain them in plain language in an email.",
+ "source": {
+  "kind": "text",
+  "text": [
+   "4. Term and termination. 4.1 The Initial Term of this Agreement shall be twenty-four (24) months from the Service Start Date. 4.2 Should the Customer terminate this Agreement before the expiry of the Initial Term for any reason other than the Provider's material breach, the Customer shall pay an early termination charge equal to fifty per cent (50%) of the monthly charges remaining until the expiry of the Initial Term. 4.3 Upon expiry of the Initial Term, this Agreement shall continue on a rolling monthly basis unless terminated by either party on not less than thirty (30) days' written notice.",
+   "5. Charges. 5.1 The Provider may increase the monthly charges once in any twelve-month period by an amount not exceeding the annual rate of inflation published by the national statistics office plus two per cent (2%). 5.2 Invoices are payable within fourteen days of the invoice date.",
+   "6. Equipment. 6.1 All equipment supplied remains the property of the Provider and must be returned within fourteen (14) days of termination, failing which a charge of sixty (60) currency units shall apply.",
+   "9. Liability and governing law. 9.1 The Provider's aggregate liability under this Agreement shall not exceed the charges paid in the preceding twelve months. 9.2 This Agreement is governed by the laws of the Provider's country of registration."
+  ]
+ },
+ "task": {
+  "mode": "write",
+  "audience": "a small-business owner who must sign the contract",
+  "prompt": "Write an email to Ms Duarte (95–150 words) that explains what she is agreeing to, in plain English and without legal language.",
+  "min_words": 95,
+  "max_words": 150
+ },
+ "points": [
+  {
+   "id": "term",
+   "idea": "She is committed for 24 months.",
+   "checks": [
+    [
+     "24 months",
+     "two years"
+    ]
+   ]
+  },
+  {
+   "id": "exit",
+   "idea": "Leaving early costs half of the remaining monthly fees.",
+   "checks": [
+    [
+     "half",
+     "50%"
+    ],
+    [
+     "remaining",
+     "left",
+     "rest of"
+    ]
+   ]
+  },
+  {
+   "id": "rise",
+   "idea": "The price can rise once a year, by inflation plus 2%.",
+   "checks": [
+    [
+     "inflation"
+    ],
+    [
+     "once a year",
+     "once each year",
+     "every year",
+     "annual",
+     "yearly"
+    ],
+    [
+     "2%",
+     "two per cent",
+     "2 per cent",
+     "two percent"
+    ]
+   ]
+  },
+  {
+   "id": "after",
+   "idea": "After 24 months it continues monthly; ending it needs 30 days' written notice.",
+   "checks": [
+    [
+     "30 days",
+     "thirty days",
+     "one month"
+    ],
+    [
+     "notice"
+    ]
+   ]
+  },
+  {
+   "id": "kit",
+   "idea": "The equipment must be returned within 14 days or she pays 60.",
+   "checks": [
+    [
+     "equipment",
+     "router"
+    ],
+    [
+     "14 days",
+     "two weeks"
+    ],
+    [
+     "60",
+     "sixty"
+    ]
+   ]
+  }
+ ],
+ "leave_out": [
+  {
+   "idea": "The liability limit and the governing law.",
+   "checks": [
+    [
+     "liability",
+     "governing law",
+     "laws of"
+    ]
+   ]
+  }
+ ],
+ "model": "Dear Ms Duarte, here is what the contract means in plain words. You are committing to the service for 24 months. If you leave before then, you will pay half of the monthly fees that are left, so please be sure about the length. The company can raise the price once a year, by the inflation rate plus 2%. When the 24 months end, the contract simply carries on month by month, and you can stop it by giving 30 days' notice in writing. Finally, the router and other equipment belong to the company: if you do not send them back within 14 days of leaving, you will be charged 60. Please call me if you would like to go through any point together.",
+ "useful": [
+  "In plain words, this means …",
+  "You are committing to …",
+  "carries on month by month",
+  "belong to the company",
+  "Please be sure about …"
+ ],
+ "tips": [
+  "Replace each defined legal term with the real-life consequence (\"Initial Term\" becomes \"you are tied in for 24 months\").",
+  "For a client, flag the clause that can cost money (early exit, equipment) in words that show the risk, and leave out clauses that cannot change her decision."
+ ],
+ "explain": "Ms Duarte needs the length, the exit cost, the price-rise formula, the notice rule and the equipment return. The liability cap and the governing-law clause matter to lawyers, not to her signing decision."
+}

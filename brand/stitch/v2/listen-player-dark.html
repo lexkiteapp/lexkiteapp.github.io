@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lexkite · Listening Practice (dark – dark-from-light.mjs)</title>
+<!-- Plus Jakarta Sans font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined / Rounded equivalent -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "cream-bg": "#1E2F33",
+            "card-border": "#7A5A2A",
+            "card-shadow": "#0E1618",
+            "ink-dark": "#5EEAD4",
+            "ink-subtle": "#3D5A5C",
+            "coral-cta": "#FF6B52",
+            "coral-ledge": "#9E2F1A",
+            "teal-brand": "#5EEAD4",
+            "teal-active": "#2BA39A",
+            "teal-tint": "#E6F7F5",
+            "amber-accent": "#FFB054",
+            "amber-ledge": "#C78233",
+            
+            // Design Tokens
+            "outline-variant": "#7A5A2A",
+            "surface-container": "#172427",
+            "surface-dim": "#F5EAD4",
+            "primary": "#5EEAD4",
+            "primary-container": "#2BA39A",
+            "surface": "#1E2F33",
+            "background": "#1E2F33",
+            "on-surface": "#5EEAD4",
+            "on-surface-variant": "#3D5A5C",
+            "error": "#BA1A1A",
+            "error-container": "#FFDAD6"
+          },
+          fontFamily: {
+            "label-xs": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "title-sm": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "title-lg": ["Plus Jakarta Sans"],
+            "display": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "label-xs": ["10px", { lineHeight: "12px", letterSpacing: "0.04em", fontWeight: "800" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.05em", fontWeight: "800" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.06em", fontWeight: "800" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "500" }],
+            "title-sm": ["16px", { lineHeight: "22px", fontWeight: "700" }],
+            "title-md": ["20px", { lineHeight: "26px", fontWeight: "700" }],
+            "title-lg": ["22px", { lineHeight: "28px", fontWeight: "700" }],
+            "display": ["32px", { lineHeight: "38px", fontWeight: "800" }]
+          },
+          spacing: {
+            "margin": "16px",
+            "space-xs": "4px",
+            "space-sm": "8px",
+            "space-md": "16px",
+            "space-lg": "24px",
+            "space-xl": "32px"
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #1E2F33;
+      color: #5EEAD4;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Chunky Tactile Extrusions */
+    .tactile-card {
+      background: #172427;
+      border: 2px solid #7A5A2A;
+      box-shadow: 0 4px 0 0 #0E1618;
+      border-radius: 16px;
+    }
+    
+    .tactile-btn-coral {
+      background-color: #FF6B52;
+      box-shadow: 0 5px 0 0 #9E2F1A;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-coral:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 0 #9E2F1A;
+    }
+    
+    .tactile-btn-white {
+      background-color: #172427;
+      border: 2px solid #7A5A2A;
+      box-shadow: 0 4px 0 0 #0E1618;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-white:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 0 #0E1618;
+    }
+
+    .tactile-btn-pill {
+      border: 2px solid #7A5A2A;
+      box-shadow: 0 3px 0 0 #0E1618;
+      transition: all 0.1s ease;
+    }
+    .tactile-btn-pill:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 0 #0E1618;
+    }
+
+    .tactile-input {
+      border: 2px solid #7A5A2A;
+      box-shadow: inset 0 2px 3px rgba(15, 61, 62, 0.06);
+    }
+    .tactile-input:focus {
+      border-color: #2BA39A;
+      box-shadow: inset 0 2px 3px rgba(15, 61, 62, 0.06), 0 0 0 3px rgba(43, 163, 154, 0.2);
+    }
+
+    /* Waveform visualizer bars */
+    .wave-bar {
+      border-radius: 9999px;
+      transition: height 0.2s ease;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex justify-center items-start antialiased selection:bg-[#2BA39A]/30 selection:text-[#5EEAD4]">
+<!-- Mobile Shell (390px Width Container) -->
+<main class="w-full max-w-[390px] min-h-screen bg-[#1D2F33] flex flex-col pb-12 relative shadow-2xl overflow-x-hidden">
+<!-- Top App Bar (Inner Drill Shell per Lexkite §5d: NO bottom tab bar) -->
+<header class="sticky top-0 z-40 bg-[#1D2F33]/95 backdrop-blur-md">
+<div class="h-14 px-margin flex items-center justify-between border-b border-[#7A5A2A]/70">
+<!-- 44x44px Back Button -->
+<button aria-label="Go back" class="w-11 h-11 flex items-center justify-center rounded-xl tactile-btn-white text-[#5EEAD4] active:translate-y-[2px]" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<!-- Centered Title -->
+<h1 class="text-title-sm font-title-sm text-[#5EEAD4] tracking-tight text-center">
+          Listening practice
+        </h1>
+<!-- Ghost Button 'Exam mode' with Timer -->
+<button class="h-11 px-3 flex items-center gap-1.5 rounded-xl border border-[#7A5A2A] bg-[#1D2F33] text-[#5EEAD4] font-label-md text-label-md hover:bg-[#37525A] active:translate-y-[2px] transition-all" type="button">
+<span class="material-symbols-outlined text-[18px] text-[#5EEAD4]" data-icon="timer">timer</span>
+<span>Exam mode</span>
+</button>
+</div>
+<!-- Slim Progress Bar directly under Top Bar -->
+<div class="w-full h-1.5 bg-[#37525A] overflow-hidden">
+<div class="h-full bg-[#2BA39A] w-1/3 transition-all duration-300"></div>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="px-margin flex flex-col gap-4 pt-4">
+<!-- Header Section: Meta & Context -->
+<section class="flex flex-col gap-2.5">
+<!-- Top Meta Pill -->
+<div class="self-start inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#37525A] border border-[#7A5A2A] shadow-[0_2px_0_0_#D8CFBC]">
+<span class="w-2 h-2 rounded-full bg-[#FF6B52] inline-block animate-pulse"></span>
+<span class="text-label-xs font-label-xs text-[#5EEAD4] tracking-wider uppercase">
+            Test 1 · Part 1 · Everyday conversation · Q1–10
+          </span>
+</div>
+<!-- Section Title & Context Line -->
+<div class="flex flex-col gap-1">
+<h2 class="text-title-lg font-title-lg text-[#5EEAD4] leading-tight">
+            Joining a community sports centre
+          </h2>
+<p class="text-body-sm font-body-sm text-[#5EEAD4]">
+            A new resident calls the community sports centre regarding family memberships and facilities.
+          </p>
+</div>
+<!-- Speaker Chips -->
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<div class="h-[44px] inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#162528] border-2 border-[#7A5A2A] shadow-[0_3px_0_0_#D8CFBC]">
+<span class="material-symbols-outlined text-[18px] text-[#5EEAD4]" data-icon="support_agent">support_agent</span>
+<div class="flex flex-col text-left">
+<span class="text-label-xs font-label-xs text-[#5EEAD4] leading-none">Receptionist</span>
+<span class="text-label-md font-label-md text-[#5EEAD4] leading-tight">Sarah Jenkins</span>
+</div>
+</div>
+<div class="h-[44px] inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#162528] border-2 border-[#7A5A2A] shadow-[0_3px_0_0_#D8CFBC]">
+<span class="material-symbols-outlined text-[18px] text-[#FF8A80]" data-icon="person">person</span>
+<div class="flex flex-col text-left">
+<span class="text-label-xs font-label-xs text-[#5EEAD4] leading-none">Caller</span>
+<span class="text-label-md font-label-md text-[#5EEAD4] leading-tight">Daniel Brooks</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Audio Player Card -->
+<section class="tactile-card p-4 flex flex-col gap-4 bg-[#162528] relative overflow-hidden">
+<!-- Specular Shine Top Accent -->
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-transparent via-white/80 to-transparent"></div>
+<!-- Status Line & Track Badge -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2BA39A] opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-[#2BA39A]"></span>
+</span>
+<span class="text-label-sm font-label-sm text-[#5EEAD4] uppercase tracking-wider">
+              Now speaking: <span class="font-extrabold text-[#5EEAD4]">Daniel</span>
+</span>
+</div>
+<span class="px-2.5 py-1 rounded-lg bg-[#18353A] text-[#5EEAD4] text-label-xs font-label-xs border border-[#2BA39A]/30 font-bold">
+            Audio track · Part 1
+          </span>
+</div>
+<!-- Waveform Visualizer & Scrubber -->
+<div class="flex flex-col gap-1.5 bg-[#1D2F33] p-3 rounded-xl border border-[#7A5A2A]">
+<div class="h-10 flex items-center justify-between gap-[3px] px-1">
+<!-- Simulated Waveform Bars -->
+<div class="w-1.5 h-3 bg-[#2BA39A] wave-bar"></div>
+<div class="w-1.5 h-5 bg-[#2BA39A] wave-bar"></div>
+<div class="w-1.5 h-7 bg-[#2BA39A] wave-bar"></div>
+<div class="w-1.5 h-4 bg-[#2BA39A] wave-bar"></div>
+<div class="w-1.5 h-8 bg-[#2BA39A] wave-bar"></div>
+<div class="w-1.5 h-6 bg-[#2BA39A] wave-bar"></div>
+<div class="w-1.5 h-9 bg-[#2BA39A] wave-bar"></div>
+<div class="w-1.5 h-5 bg-[#2BA39A] wave-bar"></div>
+<div class="w-1.5 h-7 bg-[#2BA39A] wave-bar"></div>
+<div class="w-1.5 h-10 bg-[#2BA39A] wave-bar"></div>
+<!-- Scrubber playhead position -->
+<div class="w-2.5 h-10 bg-[#FF6B52] rounded-full shadow-[0_2px_0_0_#B53A22] relative flex items-center justify-center">
+<span class="w-1 h-3 bg-[#162528] rounded-full"></span>
+</div>
+<!-- Unplayed Wave Bars -->
+<div class="w-1.5 h-6 bg-[#37525A] wave-bar"></div>
+<div class="w-1.5 h-4 bg-[#37525A] wave-bar"></div>
+<div class="w-1.5 h-8 bg-[#37525A] wave-bar"></div>
+<div class="w-1.5 h-5 bg-[#37525A] wave-bar"></div>
+<div class="w-1.5 h-7 bg-[#37525A] wave-bar"></div>
+<div class="w-1.5 h-3 bg-[#37525A] wave-bar"></div>
+<div class="w-1.5 h-6 bg-[#37525A] wave-bar"></div>
+<div class="w-1.5 h-8 bg-[#37525A] wave-bar"></div>
+<div class="w-1.5 h-4 bg-[#37525A] wave-bar"></div>
+<div class="w-1.5 h-2 bg-[#37525A] wave-bar"></div>
+</div>
+<!-- Timestamps -->
+<div class="flex justify-between items-center text-label-xs font-label-xs text-[#5EEAD4] px-1">
+<span class="font-bold text-[#5EEAD4]">01:24</span>
+<span class="font-medium">04:15</span>
+</div>
+</div>
+<!-- Controls: Replay Sentence & 64x64 Play/Pause -->
+<div class="flex items-center justify-center gap-6 py-1">
+<!-- 44px Secondary Tactile Button -->
+<button aria-label="Replay previous sentence" class="h-11 px-3.5 flex items-center gap-1.5 rounded-xl tactile-btn-white text-[#5EEAD4] active:translate-y-[2px]" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="replay_10">replay_10</span>
+<span class="text-label-xs font-label-xs">Prev sentence</span>
+</button>
+<!-- Large Circular 64x64px Primary Play/Pause Button -->
+<div class="flex flex-col items-center gap-1">
+<button aria-label="Play or pause audio" class="w-16 h-16 rounded-full tactile-btn-coral flex items-center justify-center text-[#1B0B04] relative active:translate-y-[3px]" type="button">
+<!-- Specular top gloss -->
+<span class="absolute top-1.5 inset-x-3 h-2 rounded-full bg-[#162528]/40"></span>
+<span class="material-symbols-outlined text-[32px] translate-x-0.5" data-icon="pause" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<span class="text-label-xs font-label-xs text-[#5EEAD4] font-extrabold uppercase tracking-wide">Play audio</span>
+</div>
+<!-- Bookmark / Flag Tap Target (44px min touch) -->
+<button aria-label="Bookmark timestamp" class="h-11 w-11 flex items-center justify-center rounded-xl tactile-btn-white text-[#5EEAD4] active:translate-y-[2px]" type="button">
+<span class="material-symbols-outlined text-[20px] text-[#5EEAD4]" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<!-- Speed Selector Pills (All min 44px touch targets) -->
+<div class="flex items-center justify-between gap-1 pt-2 border-t border-[#7A5A2A]/60">
+<span class="text-label-xs font-label-xs text-[#5EEAD4] uppercase font-extrabold pr-1">Speed</span>
+<button class="h-11 min-w-[54px] px-2 rounded-xl tactile-btn-pill bg-[#162528] text-body-sm font-title-sm text-[#5EEAD4] flex items-center justify-center" type="button">
+            0.8x
+          </button>
+<button class="h-11 min-w-[54px] px-2 rounded-xl tactile-btn-pill bg-[#162528] text-body-sm font-title-sm text-[#5EEAD4] flex items-center justify-center" type="button">
+            0.9x
+          </button>
+<!-- 1.0x Selected: Bold Teal with Checkmark -->
+<button class="h-11 min-w-[62px] px-2.5 rounded-xl bg-[#5EEAD4] text-[#1B0B04] shadow-[0_3px_0_0_#051b1c] flex items-center justify-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px] text-[#5EEAD4] font-bold" data-icon="check">check</span>
+<span class="text-body-sm font-title-sm font-extrabold">1.0x</span>
+</button>
+<button class="h-11 min-w-[54px] px-2 rounded-xl tactile-btn-pill bg-[#162528] text-body-sm font-title-sm text-[#5EEAD4] flex items-center justify-center" type="button">
+            1.1x
+          </button>
+</div>
+<!-- Toggle Switch: Show transcript while listening -->
+<div class="flex items-center justify-between pt-2 border-t border-[#7A5A2A]/60">
+<label class="flex flex-col cursor-pointer" for="transcript-toggle">
+<span class="text-label-md font-label-md text-[#5EEAD4] font-bold">Show transcript while listening</span>
+<span class="text-label-xs font-label-xs text-[#5EEAD4]">Follow text synchronized with audio</span>
+</label>
+<!-- Tactile Toggled ON switch -->
+<button aria-checked="true" class="w-12 h-7 bg-[#2BA39A] rounded-full p-0.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2),0_2px_0_0_#1b6862] flex items-center justify-end pr-1 transition-all" id="transcript-toggle" role="switch" type="button">
+<span class="w-5 h-5 rounded-full bg-[#162528] shadow-md flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2BA39A]"></span>
+</span>
+</button>
+</div>
+</section>
+<!-- Transcript Card -->
+<section class="tactile-card p-4 flex flex-col gap-3 bg-[#162528]">
+<!-- Title & Interactive Badge -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h3 class="text-title-sm font-title-sm text-[#5EEAD4]">Transcript</h3>
+<span class="px-2 py-0.5 rounded-md bg-[#1D2F33] text-[#FFB054] border border-[#7A5A2A] text-label-xs font-label-xs font-extrabold tracking-wider">
+              INTERACTIVE
+            </span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-[#5EEAD4]" data-icon="subtitles">subtitles</span>
+</div>
+<p class="text-label-xs font-label-xs text-[#5EEAD4] bg-[#1D2F33]/70 p-2 rounded-lg border border-[#7A5A2A]">
+          💡 Tap a line to replay from there — tap a word to look it up
+        </p>
+<!-- 5 Dialogue Lines -->
+<div class="flex flex-col gap-2.5 pt-1">
+<!-- Line 1: Narrator -->
+<div class="p-2.5 rounded-xl bg-slate-50 border border-[#7A5A2A]/50 text-body-sm font-body-sm text-[#5EEAD4] italic flex flex-col gap-0.5">
+<span class="text-label-xs font-label-xs uppercase tracking-wider text-[#5EEAD4]/80 font-bold not-italic">NARRATOR</span>
+<p>Part 1. You will hear a woman phoning a sports centre to inquire about memberships.</p>
+</div>
+<!-- Line 2: Sarah (00:14) -->
+<button class="w-full text-left p-2.5 rounded-xl hover:bg-[#1D2F33]/60 border border-transparent hover:border-[#7A5A2A] transition-all flex flex-col gap-0.5 active:bg-[#1D2F33]" type="button">
+<div class="flex items-center justify-between">
+<span class="text-label-xs font-label-xs uppercase tracking-wider text-[#5EEAD4] font-extrabold">SARAH</span>
+<span class="text-label-xs font-label-xs text-[#5EEAD4]">00:14</span>
+</div>
+<p class="text-body-sm font-body-sm text-[#5EEAD4]">
+              Good morning, Kingscote Community Centre. How can I help you today?
+            </p>
+</button>
+<!-- Line 3: Daniel (Playing, 01:24) - Highlighted with warm soft-teal tint & 3px teal border -->
+<div class="p-3 rounded-xl bg-[#18353A] border-l-4 border-l-teal-active border-y border-r border-[#2BA39A]/30 shadow-[0_2px_0_0_#c3e8e4] flex flex-col gap-1 relative">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-[#5EEAD4] animate-pulse" data-icon="graphic_eq">graphic_eq</span>
+<span class="text-label-xs font-label-xs uppercase tracking-wider text-[#5EEAD4] font-extrabold">DANIEL (PLAYING)</span>
+</div>
+<span class="px-1.5 py-0.5 rounded bg-[#2BA39A] text-[#1B0B04] text-label-xs font-label-xs font-bold">01:24</span>
+</div>
+<p class="text-body-sm font-body-sm text-[#5EEAD4] font-semibold leading-relaxed">
+              "Hello, I've just moved to the area and I'd like to get some information about your leisure facilities."
+            </p>
+</div>
+<!-- Line 4: Sarah (01:38) -->
+<button class="w-full text-left p-2.5 rounded-xl hover:bg-[#1D2F33]/60 border border-transparent hover:border-[#7A5A2A] transition-all flex flex-col gap-0.5 active:bg-[#1D2F33]" type="button">
+<div class="flex items-center justify-between">
+<span class="text-label-xs font-label-xs uppercase tracking-wider text-[#5EEAD4] font-extrabold">SARAH</span>
+<span class="text-label-xs font-label-xs text-[#5EEAD4]">01:38</span>
+</div>
+<p class="text-body-sm font-body-sm text-[#5EEAD4]">
+              Of course. We have an Olympic-size pool, squash courts, and a brand-new gym on <span class="bg-amber-100 px-1 py-0.5 rounded border-b-2 border-amber-400 font-semibold">Caulfield Street</span>.
+            </p>
+</button>
+<!-- Line 5: Daniel (01:52) -->
+<button class="w-full text-left p-2.5 rounded-xl hover:bg-[#1D2F33]/60 border border-transparent hover:border-[#7A5A2A] transition-all flex flex-col gap-0.5 active:bg-[#1D2F33]" type="button">
+<div class="flex items-center justify-between">
+<span class="text-label-xs font-label-xs uppercase tracking-wider text-[#5EEAD4] font-extrabold">DANIEL</span>
+<span class="text-label-xs font-label-xs text-[#5EEAD4]">01:52</span>
+</div>
+<p class="text-body-sm font-body-sm text-[#5EEAD4]">
+              That sounds ideal. Does the family pass cover peak morning hours as well?
+            </p>
+</button>
+</div>
+</section>
+<!-- Section 1 Questions Card -->
+<section class="tactile-card p-4 flex flex-col gap-4 bg-[#162528]">
+<!-- Subtitle & Constraint Pill -->
+<div class="flex flex-col gap-1.5 pb-2 border-b border-[#7A5A2A]">
+<div class="flex items-center justify-between">
+<h3 class="text-title-sm font-title-sm text-[#5EEAD4]">Section 1 · Questions 1–4</h3>
+<span class="text-label-xs font-label-xs text-[#5EEAD4] font-extrabold">4 pts</span>
+</div>
+<div class="inline-flex self-start px-2.5 py-1 rounded-md bg-[#1D2F33] border border-[#7A5A2A] text-label-xs font-label-xs text-[#FFB054] font-extrabold tracking-wider">
+            WRITE NO MORE THAN TWO WORDS
+          </div>
+</div>
+<!-- Notes Form Container -->
+<div class="p-3.5 rounded-xl bg-[#0E191C] border-2 border-dashed border-[#7A5A2A] flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-[#5EEAD4]" data-icon="assignment">assignment</span>
+<h4 class="text-label-md font-label-md text-[#5EEAD4] font-extrabold tracking-wide uppercase">
+              FORM: KINGSCOTE SPORTS CENTRE REGISTRATION
+            </h4>
+</div>
+<!-- Question 1 (Example) -->
+<div class="flex flex-col gap-1.5 bg-[#162528] p-3 rounded-xl border border-[#7A5A2A]">
+<div class="flex items-center justify-between">
+<span class="text-label-xs font-label-xs text-[#5EEAD4] uppercase">Question 1 (Example)</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-label-xs font-label-xs font-bold">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                Example
+              </span>
+</div>
+<label class="text-body-sm font-body-sm text-[#5EEAD4] font-medium">Facility address:</label>
+<div class="flex items-center gap-2">
+<input class="h-11 flex-1 px-3 rounded-lg bg-emerald-50/50 border border-emerald-300 font-title-sm text-[#5EEAD4] font-bold cursor-not-allowed" disabled="" type="text" value="Caulfield"/>
+<span class="text-body-md font-body-md text-[#5EEAD4] font-semibold">Street</span>
+</div>
+</div>
+<!-- Question 2 (Blank Input) -->
+<div class="flex flex-col gap-1.5 bg-[#162528] p-3 rounded-xl border border-[#7A5A2A]">
+<div class="flex items-center justify-between">
+<span class="text-label-xs font-label-xs text-[#5EEAD4] font-extrabold uppercase">Question 2</span>
+<span class="text-label-xs font-label-xs text-[#5EEAD4]">Unanswered</span>
+</div>
+<label class="text-body-sm font-body-sm text-[#5EEAD4] font-semibold" for="q2-input">Preferred contact time:</label>
+<input class="h-11 w-full px-3 rounded-lg tactile-input bg-[#0E191C] text-body-md font-body-md text-[#5EEAD4] placeholder:text-[#5EEAD4]/50 outline-none" id="q2-input" placeholder="Type your answer here..." type="text"/>
+</div>
+<!-- Question 3 (Blank Input) -->
+<div class="flex flex-col gap-1.5 bg-[#162528] p-3 rounded-xl border border-[#7A5A2A]">
+<div class="flex items-center justify-between">
+<span class="text-label-xs font-label-xs text-[#5EEAD4] font-extrabold uppercase">Question 3</span>
+<span class="text-label-xs font-label-xs text-[#5EEAD4]">Unanswered</span>
+</div>
+<label class="text-body-sm font-body-sm text-[#5EEAD4] font-semibold" for="q3-input">Membership tier required:</label>
+<input class="h-11 w-full px-3 rounded-lg tactile-input bg-[#0E191C] text-body-md font-body-md text-[#5EEAD4] placeholder:text-[#5EEAD4]/50 outline-none" id="q3-input" placeholder="Type membership tier..." type="text"/>
+</div>
+</div>
+<!-- Question 4 (Multiple Choice) -->
+<div class="flex flex-col gap-3 pt-2">
+<div class="flex items-center justify-between">
+<span class="text-label-xs font-label-xs text-[#5EEAD4] font-extrabold uppercase">Question 4 · Multiple Choice</span>
+<span class="text-label-xs font-label-xs text-emerald-600 font-bold">Selected</span>
+</div>
+<p class="text-body-sm font-body-sm text-[#5EEAD4] font-bold leading-snug">
+            What is included in the standard family membership package?
+          </p>
+<!-- Radio Options -->
+<div class="flex flex-col gap-2.5">
+<!-- Option A (Unselected Radio Pill - Min 44px) -->
+<label class="min-h-[48px] px-3.5 py-2.5 rounded-xl border-2 border-[#7A5A2A] bg-[#162528] flex items-center gap-3 cursor-pointer hover:bg-[#1D2F33]/40 active:translate-y-[1px] transition-all">
+<input class="w-5 h-5 text-[#5EEAD4] focus:ring-[#2BA39A] border-[#7A5A2A]" name="q4_membership" type="radio"/>
+<span class="text-body-sm font-body-sm text-[#5EEAD4]">Unlimited squash court bookings only</span>
+</label>
+<!-- Option B (Selected: Teal border, Soft Teal tint, Checkmark glyph - Min 44px) -->
+<label class="min-h-[48px] px-3.5 py-2.5 rounded-xl border-2 border-[#2BA39A] bg-[#18353A] flex items-center justify-between gap-2 shadow-[0_3px_0_0_#98D2CD] cursor-pointer">
+<div class="flex items-center gap-3">
+<div class="w-5 h-5 rounded-full bg-[#2BA39A] flex items-center justify-center text-[#1B0B04]">
+<span class="material-symbols-outlined text-[14px] font-bold" data-icon="check">check</span>
+</div>
+<span class="text-body-sm font-body-sm text-[#5EEAD4] font-bold">All-inclusive access to the pool, gym, and squash</span>
+</div>
+<span class="text-label-xs font-label-xs text-[#5EEAD4] font-extrabold uppercase tracking-wider">Choice B</span>
+</label>
+<!-- Option C (Unselected Radio Pill - Min 44px) -->
+<label class="min-h-[48px] px-3.5 py-2.5 rounded-xl border-2 border-[#7A5A2A] bg-[#162528] flex items-center gap-3 cursor-pointer hover:bg-[#1D2F33]/40 active:translate-y-[1px] transition-all">
+<input class="w-5 h-5 text-[#5EEAD4] focus:ring-[#2BA39A] border-[#7A5A2A]" name="q4_membership" type="radio"/>
+<span class="text-body-sm font-body-sm text-[#5EEAD4]">Gym entry restricted strictly to afternoon hours</span>
+</label>
+</div>
+</div>
+</section>
+<!-- Primary CTA Area -->
+<section class="flex flex-col gap-2.5 pt-2">
+<!-- Full-Width Coral Button (56px Height, 6px bottom ledge, press sink) -->
+<button class="w-full h-14 rounded-2xl bg-[#FF6B52] text-[#1B0B04] font-title-sm text-title-sm font-extrabold flex items-center justify-center gap-2 shadow-[0_6px_0_0_#B53A22] active:translate-y-[4px] active:shadow-[0_2px_0_0_#B53A22] transition-all relative overflow-hidden group" type="button">
+<!-- Internal Specular Highlight -->
+<span class="absolute top-1 inset-x-4 h-1.5 rounded-full bg-[#162528]/30"></span>
+<span>Submit and see answers</span>
+<span class="material-symbols-outlined text-[22px] transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Auto-save Notice -->
+<div class="flex items-center justify-center gap-1.5 text-center text-[#5EEAD4]">
+<span class="material-symbols-outlined text-[16px] text-[#5EEAD4]" data-icon="cloud_done">cloud_done</span>
+<span class="text-label-xs font-label-xs">Your answers are auto-saved to Part 1 practice log</span>
+</div>
+</section>
+</div>
+</main>
+<!-- Interactive State Vanilla JS -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Toggle Switch interactive affordance
+      const toggleBtn = document.getElementById('transcript-toggle');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+          const isChecked = toggleBtn.getAttribute('aria-checked') === 'true';
+          toggleBtn.setAttribute('aria-checked', !isChecked);
+          if (isChecked) {
+            toggleBtn.classList.remove('bg-teal-active', 'justify-end', 'pr-1');
+            toggleBtn.classList.add('bg-[#D8CFBC]', 'justify-start', 'pl-1');
+          } else {
+            toggleBtn.classList.remove('bg-[#D8CFBC]', 'justify-start', 'pl-1');
+            toggleBtn.classList.add('bg-teal-active', 'justify-end', 'pr-1');
+          }
+        });
+      }
+    });
+  </script>
+</body></html>

@@ -89,6 +89,10 @@ Playwright 4G/CPU×4: FCP 3,0 → 1,1 s, LCP 3,6 → 1,15 s. Cổng: `app-loader
 
 Ảnh so sánh: `out/ux-public/compare-*.png` (máy chủ sở hữu, không commit).
 
+## LCP trang sâu máy yếu (04/11) – đo `mobile-qa.yml` (Lighthouse mobile, Lantern)
+Gốc: Lantern tính mọi request xong trước LCP quan sát, ≈ 9 ms/KB. Khung JS + en.js + CSS ≈ 250 KB nên trang sâu cold không thể ≤ 2,5 s nếu chưa tách khung; phần thừa là kho từ (280–730 KB), font (70–135 KB), i18nx/i18nl kéo theo gói nhắc học (~80 KB). Tải sẵn (ưu tiên VeryLow) bắt đầu SAU LCP, không phải gốc.
+Sửa: `App.painted` (lần vẽ đầu) → font (app-loader, `lk:drawn`), tải sẵn, nhắc học chờ mốc này; `softOf` (app.js): phiên ôn, luyện chủ đề lõi/sổ từ vẽ trước, kho từ nạp sau lần vẽ, `lk:soft` chuẩn hóa theo lát. Khóa: `scripts/test/late-insert.mjs`.
+
 ## Luật LCP (chuyển từ METHODS 27/10)
 - **LCP app (24/10):** màn đầu /app/ phải vẽ được chỉ bằng HTML + style.css; JS khung nạp sau khung hình đầu (dist, `scripts/app-loader.mjs`). Không thêm `<script>`/preload/hiệu ứng mờ dần cho màn đầu; đo bằng `app-lcp.yml` (đẩy nhánh `perf/app-lcp*`) trước/sau – docs/UX-PUBLIC.md §LCP.
 

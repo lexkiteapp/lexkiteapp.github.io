@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ru_watch",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Look or watch TV?",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I look TV at night.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I watch TV at night.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Watch is for TV.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Watch! We watch a film.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I look TV at night.",
+  "right": "I watch TV at night.",
+  "strike": "look",
+  "why": "Watch is for TV.",
+  "memory": "Watch TV.",
+  "quiz": {
+   "stem": "We ___ a film.",
+   "options": [
+    "watch",
+    "look"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Look TV — ошибка!",
+   "tip": "Телевизор и фильмы смотрим через watch, а не look.",
+   "caption": "Ты тоже говоришь “I look TV at night.”? 😅 По-русски «смотреть» — одно слово, а в английском TV и фильмы — “watch”. Правильно: “I watch TV at night.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.",
+   "comment": "Ответ: “watch”. Телевизор — watch, не look. Бесплатный тест для практики здесь: {link}",
+   "hashtags": [
+    "#английскийязык",
+    "#учуанглийский",
+    "#английскийдляначинающих",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Look or watch TV?",
+   "tip": "For TV and films, use watch, not look.",
+   "caption": "Do you also say “I look TV at night.”? 😅 Russian has one verb “smotret'”, but English uses “watch” for TV and films. Correct: “I watch TV at night.”. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Look TV — ошибка!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ru",
+ "est": {
+  "words": 43,
+  "seconds": 26.6,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Look TV — ошибка!",
+  "keyword": "I watch TV at night.",
+  "value": "Телевизор и фильмы смотрим через watch, а не look.",
+  "hashtags": [
+   "#английскийязык",
+   "#учуанглийский",
+   "#английскийдляначинающих",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "Look TV — ошибка!",
+    "description": "Ты тоже говоришь “I look TV at night.”? 😅 По-русски «смотреть» — одно слово, а в английском TV и фильмы — “watch”. Правильно: “I watch TV at night.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#английскийязык #учуанглийский #английскийдляначинающих #lexkite",
+    "tags": [
+     "I watch TV at night.",
+     "learn english",
+     "ru"
+    ]
+   },
+   "facebook": {
+    "text": "Ты тоже говоришь “I look TV at night.”? 😅 По-русски «смотреть» — одно слово, а в английском TV и фильмы — “watch”. Правильно: “I watch TV at night.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Ты тоже говоришь “I look TV at night.”? 😅 По-русски «смотреть» — одно слово, а в английском TV и фильмы — “watch”. Правильно: “I watch TV at night.”. Послушай Карлос и повтори! Больше практики — в приложении Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#английскийязык",
+     "#учуанглийский",
+     "#английскийдляначинающих",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Look TV — ошибка! #английскийязык #учуанглийский #английскийдляначинающих"
+   }
+  },
+  "first_comment": "Ответ: “watch”. Телевизор — watch, не look. Бесплатный тест для практики здесь: {link}",
+  "lang": "ru"
+ }
+}

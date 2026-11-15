@@ -73,5 +73,46 @@
   "words": 49,
   "seconds": 29.6,
   "wpm": 99
+ },
+ "publish": {
+  "title": "\"A female child of someone.\" Guess the word!",
+  "keyword": "daughter",
+  "value": "The answer: daughter /ˈdɔːtər/. Their daughter is starting university this year.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/daughter",
+  "script_words": 43,
+  "platforms": {
+   "youtube": {
+    "title": "\"A female child of someone.\" Guess the word!",
+    "description": "The answer: daughter /ˈdɔːtər/. Their daughter is starting university this year.\n\nLook up any word, free: https://lexkite.com/app/#/dict/daughter\n\nSeries: Guess the Word · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "daughter",
+     "Guess the Word",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "\"A female child of someone.\" Guess the word!\n\nThe answer: daughter /ˈdɔːtər/. Their daughter is starting university this year.\n\nLook up any word, free: https://lexkite.com/app/#/dict/daughter"
+   },
+   "instagram": {
+    "caption": "\"A female child of someone.\" Guess the word!\n\nThe answer: daughter /ˈdɔːtər/. Their daughter is starting university this year.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "\"A female child of someone.\" Guess the word! #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: Daughter! Their daughter is starting university this year. Try the full lesson and quiz here: {link}"
  }
 }

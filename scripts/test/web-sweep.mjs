@@ -14,24 +14,17 @@ import { noProd, warm } from './lib/no-prod.mjs';
 import { scan } from '../lib/layout-scan.mjs';
 import { selftest } from '../lib/layout-scan-selftest.mjs';
 import { extUnavailable, splitConsoleErrors, corsBlockedUrl } from '../lib/qa-classify.mjs';
+import { SKIP, typeOf } from '../lib/page-types.mjs';
 const require = createRequire(import.meta.url);
 const [BASE = 'http://localhost:8080', DIST = 'dist', OUT = 'web-sweep-out'] = process.argv.slice(2).filter(a => !a.startsWith('--'));
 const WRITE = process.argv.includes('--write-known');
 const KNOWN_F = new URL('./web-sweep.known.json', import.meta.url);
-const LANGS = ['ar', 'de', 'en', 'es', 'fr', 'hi', 'id', 'ja', 'ko', 'pt', 'ru', 'th', 'tr', 'vi', 'zh'];
-const SKIP = /^(app|admin|design|templates|js|css|img|fonts|icons|audio|data|i18n|packs|sfx|teach|screenshots)\//;
 const WEB_SEL = '.card, .btn, button, a.chip, .chip, input, select, textarea, h1, h2, h3, nav a, header a, footer a';
 fs.mkdirSync(OUT, { recursive: true });
 
 // 1) loại trang từ dist
 const files = [];
 (function walk(d, rel = '') { for (const e of fs.readdirSync(d, { withFileTypes: true })) { const r = rel + e.name; if (e.isDirectory()) { if (!SKIP.test(r + '/')) walk(path.join(d, e.name), r + '/'); } else if (e.name.endsWith('.html')) files.push(r); } })(DIST);
-const typeOf = f => {
-  const p = f.replace(/^assets\//, '').split('/'); let lang = '';
-  if (LANGS.includes(p[0]) && p.length > 1) { lang = p[0]; p[0] = 'L'; }
-  if (p.length >= 3 || (p.length === 2 && p[0] !== 'L')) p[p.length - (p.at(-1) === 'index.html' ? 2 : 1)] = '*';
-  return { type: '/' + p.join('/').replace(/index\.html$/, ''), lang };
-};
 const byType = new Map();
 for (const f of files.sort()) { const { type, lang } = typeOf(f); if (!byType.has(type)) byType.set(type, { all: [], pick: {} }); const t = byType.get(type); t.all.push(f); for (const l of [lang || 'x', 'any']) if (!t.pick[l]) t.pick[l] = f; }
 

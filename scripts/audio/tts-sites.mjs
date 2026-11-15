@@ -3,12 +3,13 @@
 //   node scripts/audio/tts-sites.mjs          → bảng chỗ gọi × % nhóm (GITHUB_STEP_SUMMARY nếu có)
 //   node scripts/audio/tts-sites.mjs --check  → thoát 1 khi có file đọc to chưa khai / khai thừa / nhóm không tồn tại (scripts/test/tts-sites.mjs)
 import fs from 'node:fs'; import path from 'node:path'; import { pathToFileURL } from 'node:url';
+import { SCAN_ROOTS } from '../lib/scan-roots.mjs';
 export const MANIFEST = 'scripts/audio/tts-sites.json';
 // Chỗ đọc to: hàm chung, nút loa khai qua data-*, giáo viên nói, và đường vòng speechSynthesis trực tiếp (bỏ qua Kokoro – phải khai)
 export const SITE_RE = /\b(?:g\.)?UI\.(?:tts|speak|sayBtn)\(|data-(?:saysent|speak-text)=|\b(?:tch|T|teacher|L\.teacher)\.say\(|speechSynthesis\.speak\(|new SpeechSynthesisUtterance\b|\bLessonTeacher\.mount\(/;
 const walk = d => fs.readdirSync(d, { withFileTypes: true }).flatMap(e => (e.isDirectory() ? (/^(i18n|vendor)$/.test(e.name) ? [] : walk(path.join(d, e.name))) : e.name.endsWith('.js') ? [path.join(d, e.name)] : []));
 export function scan() {
-  const files = [...walk('web/js'), ...fs.readdirSync('extension').filter(f => f.endsWith('.js')).map(f => 'extension/' + f)], out = new Map();
+  const files = [...SCAN_ROOTS.filter(r => fs.existsSync(r)).flatMap(walk), ...fs.readdirSync('extension').filter(f => f.endsWith('.js')).map(f => 'extension/' + f)], out = new Map();
   for (const f of files) { const n = fs.readFileSync(f, 'utf8').split('\n').filter(l => SITE_RE.test(l)).length; if (n) out.set(f.split(path.sep).join('/'), n); }
   return out;
 }

@@ -16,7 +16,7 @@ permissions:
 concurrency: { group: sentence-audio-asr, cancel-in-progress: false }
 jobs:
   plan:
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 10
     outputs:
       left: ${{ steps.c.outputs.left }}
@@ -34,7 +34,7 @@ jobs:
   check:
     needs: plan
     if: needs.plan.outputs.left != '0'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 170
     strategy: { max-parallel: 6, fail-fast: false, matrix: { shard: '${{ fromJSON(needs.plan.outputs.shards) }}' } }
     steps:
@@ -61,7 +61,7 @@ jobs:
       - name: Cài kokoro-js (chỉ khi có câu trượt)
         run: |
           [ "$(cat .sa/fail.json)" = "[]" ] && exit 0
-          npm i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
+          bash scripts/ci/npm-retry.sh i --no-save --no-audit --no-fund --prefix /tmp/kk kokoro-js@1
       - uses: actions/cache@v4
         with: { path: /tmp/kk/node_modules/@huggingface/transformers/.cache, key: kokoro-82m-v1-fp32 }
       - name: Render lại câu trượt (Kokoro fp32, cùng giọng)
@@ -80,7 +80,7 @@ jobs:
   publish:
     needs: [plan, check]
     if: always() && needs.plan.outputs.left != '0'
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.PW_RUNNER || 'ubuntu-24.04' }}
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4

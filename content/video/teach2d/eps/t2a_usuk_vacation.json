@@ -79,5 +79,46 @@
   "words": 45,
   "seconds": 27.6,
   "wpm": 98
+ },
+ "publish": {
+  "title": "Vacation or holiday? US vs UK English",
+  "keyword": "vacation vs holiday",
+  "value": "Americans say vacation. British people say holiday.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/dict/vacation",
+  "script_words": 32,
+  "platforms": {
+   "youtube": {
+    "title": "Vacation or holiday? US vs UK English",
+    "description": "Americans say vacation. British people say holiday.\n\nLook up any word, free: https://lexkite.com/app/#/dict/vacation\n\nSeries: US or UK? · Teacher: Ama\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "vacation vs holiday",
+     "US or UK?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "Vacation or holiday? US vs UK English\n\nAmericans say vacation. British people say holiday.\n\nLook up any word, free: https://lexkite.com/app/#/dict/vacation"
+   },
+   "instagram": {
+    "caption": "Vacation or holiday? US vs UK English\n\nAmericans say vacation. British people say holiday.\n\nLook up any word: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "Vacation or holiday? US vs UK English #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? Holiday! Americans say vacation. British people say holiday. More practice like this (free): {link}"
  }
 }

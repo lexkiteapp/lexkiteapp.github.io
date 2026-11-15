@@ -1,0 +1,220 @@
+/* Cambridge A2 Key · Test 3. Đề tự biên soạn theo định dạng content/exams/spec/cam-a2.json,
+ * không chép đề/sách. Định dạng: docs/specs/cambridge.md · cổng: scripts/content-qa/exam-format-check.mjs (họ cam-a2).
+ * Lời giải viết gốc tiếng Anh, câu ngắn ở mức A2 (dịch L1 theo pipeline explain). Nghe: script → audio Kokoro trên CI (scripts/sentence-audio/corpus.mjs). */
+(self.CAMBRIDGE = self.CAMBRIDGE || []).push({
+  id: "a2-t3", level: "a2", spec: "cam-a2", n: 3,
+  title: "A2 Key · Test 3",
+  rw: {
+    parts: [
+      {
+        n: 1, type: "mcq", instr: "For each question, choose the correct answer.",
+        items: [
+          { n: 1, kind: "notice", text: "BUS STATION CAFÉ\nStudents get a free drink with any meal.\nPlease show your student card at the till.", q: "What does the notice say?", options: ["Students can have a free drink with a meal.", "Students pay less for all the food.", "Only students can eat in the café."], a: 0, cue: "Students get a free drink with any meal", explain: "The drink is free when a student buys a meal. The notice does not say that the food is cheaper or that other people cannot eat there." },
+          { n: 2, kind: "message", text: "Dan – I can't come to football tonight. My throat hurts and Mum says I must stay in bed. Can you tell Coach? Josh", q: "Why can't Josh play football tonight?", options: ["He is ill.", "He has lost his boots.", "He has to do his homework."], a: 0, cue: "My throat hurts and Mum says I must stay in bed", explain: "A sore throat and staying in bed mean that Josh is ill. He does not talk about boots or homework." },
+          { n: 3, kind: "sign", text: "SHOE SHOP\nSALE – all boots half price until Saturday.\nTrainers are not in the sale.", q: "What can you buy at a lower price?", options: ["boots", "trainers", "all kinds of shoes"], a: 0, cue: "all boots half price until Saturday", explain: "Only boots are in the sale. The sign says that trainers are not, so 'all kinds of shoes' is wrong." },
+          { n: 4, kind: "email", text: "Hi Nina,\nThe school trip to the mountains is on Wednesday, not Tuesday. Please bring a coat because it will be cold. We will come back at five o'clock.\nMr Ford", q: "What does Mr Ford ask Nina to do?", options: ["bring warm clothes", "bring some food", "come to school on Tuesday"], a: 0, cue: "Please bring a coat because it will be cold", explain: "A coat is a warm piece of clothing. The trip is on Wednesday, so Nina does not come on Tuesday." },
+          { n: 5, kind: "notice", text: "FESTIVAL OF LIGHTS\nSaturday, 6 p.m., Market Square\nFree entry. Lanterns cost £2 – buy them from the stall by the fountain.", q: "What do you have to pay for?", options: ["a ticket for the festival", "a lantern", "a place in the square"], a: 1, cue: "Lanterns cost £2", explain: "The festival is free, but lanterns cost £2. The notice does not talk about paying for a place." },
+          { n: 6, kind: "message", text: "Anna – I've booked the hotel in Rome. Can you pay for the flights? Tell me when you've done it. Kate", q: "What is Anna going to do?", options: ["pay for the flights", "book the hotel", "meet Kate at the airport"], a: 0, cue: "Can you pay for the flights?", explain: "Kate has already booked the hotel. She asks Anna to pay for the flights." },
+        ],
+      },
+      {
+        n: 2, type: "matching", instr: "For each question, choose the correct answer. Three young people talk about a festival they love.",
+        texts: [
+          { code: "A", title: "Rosa – flower festival", text: "Every April my town has a flower festival. I help my grandmother make a flower carpet in the street with red and yellow petals. We start at five in the morning, and it takes six hours. Then hundreds of tourists come to take photos. Sometimes it rains, which is sad because the flowers get ruined. After the festival we have a big lunch with all my cousins." },
+          { code: "B", title: "Kenji – New Year", text: "My favourite festival is New Year. We clean the whole house before it, and on the night we stay up until midnight and eat noodles. My sister and I get small envelopes with money from our aunts and uncles. I always spend it on comics. The next day we visit the temple near our house, but I don't like it very much because it's very noisy and there are too many people." },
+          { code: "C", title: "Lena – music festival", text: "I go to a music festival every July with my best friend. We sleep in a tent for three nights. Tickets are expensive, so last year we sold ice cream there and got our tickets for free. It's always hot, so I wear a hat. My parents think it's dangerous, but I'm nearly eighteen. One day I want to play on the stage myself, although I can't play any instrument yet!" },
+        ],
+        items: [
+          { n: 7, text: "Who starts work before the sun comes up?", a: "A", cue: "We start at five in the morning", explain: "Rosa and her grandmother start at five in the morning. Kenji and Lena do not talk about early work." },
+          { n: 8, text: "Who receives money as a present?", a: "B", cue: "small envelopes with money from our aunts and uncles", explain: "Kenji gets envelopes with money. Lena has to work to get tickets, but nobody gives her money." },
+          { n: 9, text: "Who worked to get free tickets?", a: "C", cue: "we sold ice cream there and got our tickets for free", explain: "Lena sold ice cream, and that is how she got free tickets." },
+          { n: 10, text: "Who thinks that one place is too noisy?", a: "B", cue: "it's very noisy and there are too many people", explain: "Kenji does not like the temple because it is noisy. Rosa and Lena say nothing like this." },
+          { n: 11, text: "Who helps a family member at the festival?", a: "A", cue: "I help my grandmother make a flower carpet", explain: "Rosa helps her grandmother. Lena goes with a friend, and Kenji does not help anyone." },
+          { n: 12, text: "Who would like to perform one day?", a: "C", cue: "I want to play on the stage myself", explain: "Lena wants to play on the stage. The other two do not say this." },
+          { n: 13, text: "Who has a meal with cousins after the festival?", a: "A", cue: "a big lunch with all my cousins", explain: "Rosa has lunch with her cousins. Kenji only talks about aunts and uncles giving him money." },
+        ],
+      },
+      {
+        n: 3, type: "mcq", instr: "For each question, choose the correct answer.",
+        title: "My first weeks at a new school", by: "Omar, 13, writes about changing schools.",
+        text: [
+          "Last September my family moved to a new city, so I had to change schools. On the first morning I was very nervous. I got on the wrong bus and arrived ten minutes late. My teacher, Mrs Dalton, smiled and said it happens to many new students. She asked a girl called Priya to look after me for the week.",
+          "Priya showed me where everything was. The school is much bigger than my old one, and I got lost twice on the first day. At lunch I sat in the canteen, but I didn't know anybody, so I felt a bit lonely. Then a boy at my table asked if I liked basketball. That was the start of a new friendship.",
+          "I joined the school team on Thursday. We practise after lessons on Tuesdays and Thursdays. The coach says I'm quite tall, so I'm good in defence, although I've only played for one year. Last week we won our first match, 34 to 30, and I scored six points.",
+          "Now, after two months, I don't feel new any more. I still miss my old friends, but we talk online every Sunday. Next month my best friend from my old school is going to visit me, and I can't wait to show him around.",
+        ],
+        items: [
+          { n: 14, q: "Why was Omar late on the first morning?", options: ["He woke up late.", "He took the wrong bus.", "He could not find the school."], a: 1, cue: "I got on the wrong bus", explain: "Omar got on the wrong bus. He got lost inside the school later, not on the way there." },
+          { n: 15, q: "Why did Priya help Omar?", options: ["She is his cousin.", "She wanted to practise English.", "His teacher asked her to."], a: 2, cue: "She asked a girl called Priya to look after me", explain: "Mrs Dalton asked Priya to look after Omar. The text does not say Priya knew him before." },
+          { n: 16, q: "How did Omar feel at lunch on the first day?", options: ["lonely", "angry", "excited"], a: 0, cue: "I felt a bit lonely", explain: "He did not know anybody, so he felt lonely. He was nervous in the morning, but not angry." },
+          { n: 17, q: "How did Omar start to make friends?", options: ["A boy talked to him about sport.", "Priya took him to a club.", "He sat with the school team."], a: 0, cue: "asked if I liked basketball", explain: "A boy at his table asked about basketball. Omar joined the team only on Thursday, after that." },
+          { n: 18, q: "What is going to happen next month?", options: ["Omar will go to another school.", "A friend will come to see Omar.", "Omar's team will play a match."], a: 1, cue: "my best friend from my old school is going to visit me", explain: "His old friend will visit him. The team's first match was last week, not next month." },
+        ],
+      },
+      {
+        n: 4, type: "mcq-gap", instr: "For each question, choose the correct answer.",
+        title: "Staying healthy",
+        text: "Doctors say that we should do some exercise at (19) three times a week. You do not need to go to a gym. Walking to school or to the shops is a good way to (20) fit. It is also important to drink enough water, especially when the weather is hot. Many people forget to eat breakfast, but a good breakfast (21) you energy for the morning. Sleep is important, too. Most teenagers need about nine hours (22) night. If you (23) tired in the day, try to go to bed earlier and switch off your phone an hour (24) you sleep.",
+        items: [
+          { n: 19, options: ["least", "most", "last"], a: 0, cue: "at … three times a week", explain: "'At least' means 'not fewer than'. 'At most' would mean the opposite." },
+          { n: 20, options: ["keep", "hold", "take"], a: 0, cue: "a good way to … fit", explain: "'Keep fit' is a fixed phrase. We do not say 'hold fit' or 'take fit'." },
+          { n: 21, options: ["gives", "makes", "takes"], a: 0, cue: "a good breakfast … you energy", explain: "We 'give' someone energy. 'Makes you energy' is not correct English." },
+          { n: 22, options: ["a", "of", "in"], a: 0, cue: "about nine hours … night", explain: "'Nine hours a night' means every night. 'Of night' and 'in night' are not used here." },
+          { n: 23, options: ["feel", "do", "have"], a: 0, cue: "If you … tired in the day", explain: "We say 'feel tired'. 'Do tired' and 'have tired' are wrong." },
+          { n: 24, options: ["before", "after", "while"], a: 0, cue: "switch off your phone an hour … you sleep", explain: "You switch the phone off first, and then you sleep, so 'before' is right. 'After' would give the opposite order." },
+        ],
+      },
+      {
+        n: 5, type: "open-gap", instr: "For each question, write the correct answer. Write ONE word for each gap.",
+        title: "Email from Tom",
+        text: "Hi Grandma,\nWe're having a great time (25) Spain! Yesterday we went to the beach and swam in the sea. The water was warm, but there were (26) many people, so we left early. Today it is (27) hot to walk around, so we're sitting in a café. Dad (28) never been to this city before, and he loves it. Tomorrow we're going to visit a castle. (29) you like to come with us next year? See you (30) Sunday!\nTom",
+        items: [
+          { n: 25, a: ["in"], cue: "a great time … Spain", explain: "We use 'in' with the name of a country: in Spain." },
+          { n: 26, a: ["too", "so"], cue: "there were … many people", explain: "'Too many' or 'so many' shows that there were a lot of people. This is why they left early." },
+          { n: 27, a: ["too"], cue: "it is … hot to walk around", explain: "'Too hot to walk' means that it is so hot that walking is not possible." },
+          { n: 28, a: ["has"], cue: "Dad … never been to this city before", explain: "With 'been' and a singular subject (Dad), we use 'has': Dad has never been." },
+          { n: 29, a: ["would"], cue: "… you like to come with us next year?", explain: "'Would you like to…?' is a polite way to invite someone." },
+          { n: 30, a: ["on"], cue: "See you … Sunday", explain: "We use 'on' with days of the week: on Sunday." },
+        ],
+      },
+      {
+        n: 6, type: "email", min_words: 25, minutes_hint: 10,
+        prompt: "It is your mother's birthday soon. You want to buy her a present. Write an email to your English friend, Chris.",
+        points: ["say when your mother's birthday is", "say what you want to buy", "ask Chris to go to the shops with you"],
+        checks: [["birthday", "mum", "mother", "mom"], ["buy", "present", "gift", "flowers", "bag", "scarf", "book", "watch", "perfume", "chocolate"], ["come", "go with", "shops", "shopping", "centre", "would you like", "can you", "do you want"]],
+        model: "Hi Chris,\nMy mother's birthday is next Friday, and I want to buy her a present. I'd like to get her a blue scarf because she loves that colour. Would you like to come shopping with me on Saturday morning? We can go to the new shopping centre and then have lunch together.\nSee you soon,\nLi",
+        tips: ["Answer all three points – each one is part of your mark.", "Start and finish like an email (Hi Chris … See you soon).", "Use because and so to give a reason: I want a scarf because …"],
+      },
+      {
+        n: 7, type: "story", min_words: 35, minutes_hint: 12,
+        prompt: "Look at the three pictures. Write the story shown in the pictures.",
+        pictures: [
+          { ic: "🧺", alt: "A family is getting ready for a picnic. A girl is carrying a basket in a sunny garden." },
+          { ic: "🌧️", alt: "They are in the park. Dark clouds come and it starts to rain heavily." },
+          { ic: "☕", alt: "They run to a small café and have hot chocolate and cakes." },
+        ],
+        checks: [["picnic", "basket", "park", "sunny", "garden"], ["rain", "cloud", "wet", "storm"], ["café", "cafe", "chocolate", "cake", "warm", "dry"]],
+        model: "On Sunday, Zoe and her family wanted to have a picnic. The sun was shining, so they put sandwiches in a basket and went to the park. After an hour, dark clouds came and it started to rain. Everybody ran to a small café. They were wet and cold, but they had hot chocolate and cakes, and the day was still fun.",
+        tips: ["Write about all three pictures, in order.", "Use past tenses: wanted, went, started, ran.", "Use time words: on Sunday, after an hour, then, in the end."],
+      },
+    ],
+  },
+  listening: {
+    parts: [
+      {
+        n: 1, type: "mcq-picture", instr: "For each question, choose the correct answer. You will hear each conversation twice.",
+        units: [
+          { speakers: { W: { name: "Teacher", accent: "en-GB", gender: "f" }, B: { name: "Tom", accent: "en-GB", gender: "m" } },
+            script: [{ say: "One. What is wrong with Tom?" }, { s: "W", t: "You don't look well, Tom. Is it your head again?" }, { s: "B", t: "No, my head is fine today. It's my tooth. I can't eat anything." }, { s: "W", t: "Oh dear. And is your foot all right after the football match?" }, { s: "B", t: "Yes, that's fine now. I'll ask Mum to phone the dentist." }],
+            items: [{ n: 1, q: "What is wrong with Tom?", options: ["a headache", "a toothache", "a sore foot"], pics: ["🤕", "🦷", "🦶"], a: 1, cue: "It's my tooth", explain: "Tom says his head is fine and his foot is all right. His tooth hurts." }] },
+          { speakers: { M: { name: "Man", accent: "en-GB", gender: "m" }, W: { name: "Woman", accent: "en-GB", gender: "f" } },
+            script: [{ say: "Two. Where does the man want to go?" }, { s: "M", t: "Excuse me, I need to buy some tablets for my headache. Is there a pharmacy near here?" }, { s: "W", t: "Yes. There's a bank on the corner and a museum opposite it, but the pharmacy is next to the post office." }, { s: "M", t: "Thank you very much." }],
+            items: [{ n: 2, q: "Where does the man want to go?", options: ["to a museum", "to a bank", "to a pharmacy"], pics: ["🏛️", "🏦", "💊"], a: 2, cue: "Is there a pharmacy near here?", explain: "He needs tablets, so he asks for a pharmacy. The bank and museum are just places the woman mentions." }] },
+          { speakers: { M: { name: "Man", accent: "en-GB", gender: "m" }, W: { name: "Woman", accent: "en-GB", gender: "f" } },
+            script: [{ say: "Three. What did the woman buy?" }, { s: "M", t: "Did you find something in the sale?" }, { s: "W", t: "I wanted a jacket, but they were all too big. Bags were more expensive than I thought. So I just bought an umbrella. It has rained a lot recently." }],
+            items: [{ n: 3, q: "What did the woman buy?", options: ["an umbrella", "a jacket", "a bag"], pics: ["☂️", "🧥", "👜"], a: 0, cue: "So I just bought an umbrella", explain: "The jackets were too big and the bags were too expensive. She bought an umbrella." }] },
+          { speakers: { W: { name: "Girl", accent: "en-GB", gender: "f" }, M: { name: "Boy", accent: "en-GB", gender: "m" } },
+            script: [{ say: "Four. Which lesson does the girl like best?" }, { s: "M", t: "Do you like maths, Mia?" }, { s: "W", t: "No, it's too difficult for me. I used to love art, but now we only draw fruit, so it's boring." }, { s: "M", t: "What's your favourite lesson then?" }, { s: "W", t: "Science! We do experiments every week." }],
+            items: [{ n: 4, q: "Which lesson does the girl like best?", options: ["maths", "science", "art"], pics: ["🔢", "🔬", "🎨"], a: 1, cue: "Science! We do experiments every week", explain: "Maths is too difficult and art is now boring. Her favourite is science." }] },
+          { speakers: { M: { name: "Man", accent: "en-GB", gender: "m" }, W: { name: "Woman", accent: "en-GB", gender: "f" } },
+            script: [{ say: "Five. How will the woman travel to work tomorrow?" }, { s: "M", t: "Will you take the bus tomorrow? There's a bus strike." }, { s: "W", t: "I know. My sister's car is broken, so she can't help. I'll ride my bike. It's only fifteen minutes." }],
+            items: [{ n: 5, q: "How will the woman travel to work tomorrow?", options: ["by bike", "by bus", "by car"], pics: ["🚲", "🚌", "🚗"], a: 0, cue: "I'll ride my bike", explain: "There is no bus and her sister's car is broken. She will ride her bike." }] },
+        ],
+      },
+      {
+        n: 2, type: "gap", instr: "For each question, write the correct answer in the gap. Write one word or a number or a date or a time. You will hear a recorded message about a bike tour.",
+        units: [
+          { title: "Lakeside Bike Tour",
+            speakers: { T: { name: "Guide", accent: "en-GB", gender: "m" } },
+            script: [{ say: "Part Two. You will hear a recorded message about a bike tour." }, { s: "T", t: "Hello, and thank you for calling Lakeside Bike Tours. This message is about this weekend's tour of the park." }, { s: "T", t: "The tour is on Saturday, not Sunday, because the weather will be better." }, { s: "T", t: "Please meet at the old stone bridge, not at the café." }, { s: "T", t: "We start at ten fifteen, so please arrive by ten o'clock." }, { s: "T", t: "The tour costs fourteen pounds. We will give you a helmet, but please bring a water bottle." }, { s: "T", t: "To book your place, ask for Mr Hartley. That's H - A - R - T - L - E - Y." }],
+            items: [
+              { n: 6, text: "Tour day: ___", a: ["Saturday"], cue: "The tour is on Saturday", explain: "The guide says 'not Sunday'. The tour is on Saturday." },
+              { n: 7, text: "Meet at the old stone ___", a: ["bridge"], cue: "meet at the old stone bridge", explain: "The meeting place is the bridge, not the café." },
+              { n: 8, text: "Tour starts at: ___", a: ["10.15", "10:15", "ten fifteen", "quarter past ten"], cue: "We start at ten fifteen", explain: "10.00 is when people must arrive. The tour starts at 10.15." },
+              { n: 9, text: "Bring a ___ bottle", a: ["water"], cue: "please bring a water bottle", explain: "The company gives you a helmet, but you must bring a water bottle." },
+              { n: 10, text: "Book with: Mr ___", a: ["Hartley"], cue: "ask for Mr Hartley", explain: "The guide spells the name: H-A-R-T-L-E-Y." },
+            ] },
+        ],
+      },
+      {
+        n: 3, type: "mcq", instr: "For each question, choose the correct answer. You will hear Alex talking to his friend Ruby about her holiday.",
+        units: [
+          { speakers: { A: { name: "Alex", accent: "en-GB", gender: "m" }, R: { name: "Ruby", accent: "en-GB", gender: "f" } },
+            script: [{ say: "Part Three. You will hear Alex talking to his friend Ruby about her holiday." }, { s: "A", t: "Hi Ruby, how was your holiday?" }, { s: "R", t: "Wonderful! We stayed in my cousin's house in a village in the mountains. I thought we would camp, but my cousin has lots of space." }, { s: "A", t: "Did you go by car?" }, { s: "R", t: "No, my dad doesn't like driving on mountain roads, so we took the train and then a bus. It took seven hours." }, { s: "A", t: "Seven! What did you like best?" }, { s: "R", t: "The food was great, but I loved the lake most. The water was freezing, but we swam every morning." }, { s: "A", t: "Was the weather good?" }, { s: "R", t: "Mostly. The only problem was that my brother lost his camera on the second day. He was very sad." }, { s: "A", t: "Would you go back?" }, { s: "R", t: "Maybe. But next summer my parents want to try the seaside, because my mum loves the beach." }],
+            items: [
+              { n: 11, q: "Where did Ruby stay?", options: ["in a tent", "in a small hotel", "in her cousin's house"], a: 2, cue: "We stayed in my cousin's house", explain: "She thought they would camp, but they stayed in her cousin's house." },
+              { n: 12, q: "How did Ruby's family travel to the village?", options: ["by car", "by train and bus", "by plane"], a: 1, cue: "we took the train and then a bus", explain: "Her dad does not like driving on mountain roads, so they went by train and bus." },
+              { n: 13, q: "What did Ruby like best?", options: ["the food", "the lake", "the village shops"], a: 1, cue: "I loved the lake most", explain: "The food was great, but she loved the lake most." },
+              { n: 14, q: "What was the problem on the holiday?", options: ["The weather was bad.", "Her brother lost something.", "The journey was too long."], a: 1, cue: "my brother lost his camera", explain: "The weather was mostly good. Her brother lost his camera on the second day." },
+              { n: 15, q: "What will Ruby's family do next summer?", options: ["go to the mountains again", "visit her cousin again", "go to the seaside"], a: 2, cue: "next summer my parents want to try the seaside", explain: "She says 'maybe' about going back. Next summer her parents want to try the seaside." },
+            ] },
+        ],
+      },
+      {
+        n: 4, type: "mcq", instr: "For each question, choose the correct answer. You will hear each recording twice.",
+        units: [
+          { speakers: { M: { name: "Paul", accent: "en-GB", gender: "m" } },
+            script: [{ say: "Sixteen. You will hear a man leaving a message for a sports club. Why is he calling?" }, { s: "M", t: "Hello, it's Paul Green. I have a tennis lesson on Wednesday at four, but I have a meeting at school then. Can I come at six o'clock instead? Please call me back." }],
+            items: [{ n: 16, q: "Why is Paul calling?", options: ["to cancel his lessons", "to change a time", "to ask about the price"], a: 1, cue: "Can I come at six o'clock instead", explain: "He wants to come at six instead of four. He does not cancel the lesson or ask about money." }] },
+          { speakers: { T: { name: "Teacher", accent: "en-GB", gender: "f" } },
+            script: [{ say: "Seventeen. You will hear a teacher talking to her class. What must the students do for Monday?" }, { s: "T", t: "Please don't write the story yet. For Monday, read chapter four of the book. And bring a photo of your family to the lesson on Wednesday." }],
+            items: [{ n: 17, q: "What must the students do for Monday?", options: ["read a chapter", "write a story", "bring a photo"], a: 0, cue: "For Monday, read chapter four of the book", explain: "The students read a chapter for Monday. The story is not for now, and the photo is for Wednesday." }] },
+          { speakers: { G: { name: "Girl", accent: "en-GB", gender: "f" } },
+            script: [{ say: "Eighteen. You will hear a girl talking about a test. How does she feel?" }, { s: "G", t: "Everybody says the test tomorrow is easy, but I've studied for hours and I still can't sleep. My heart is going very fast. I just want it to finish." }],
+            items: [{ n: 18, q: "How does the girl feel about the test?", options: ["bored", "nervous", "happy"], a: 1, cue: "I still can't sleep", explain: "She cannot sleep and her heart is fast, so she is nervous. She is not bored or happy." }] },
+          { speakers: { M: { name: "Ella", accent: "en-GB", gender: "f" }, B: { name: "Ben", accent: "en-GB", gender: "m" } },
+            script: [{ say: "Nineteen. You will hear two friends talking on the phone. Where will they meet?" }, { s: "B", t: "Shall we meet in the café on Monday?" }, { s: "M", t: "It's closed on Mondays." }, { s: "B", t: "Then the bus stop?" }, { s: "M", t: "That's far from the shops. Let's meet outside the bookshop instead." }],
+            items: [{ n: 19, q: "Where will they meet?", options: ["in the café", "at the bus stop", "outside the bookshop"], a: 2, cue: "Let's meet outside the bookshop instead", explain: "The café is closed and the bus stop is too far from the shops. They choose the bookshop." }] },
+          { speakers: { W: { name: "Announcer", accent: "en-GB", gender: "f" } },
+            script: [{ say: "Twenty. You will hear an announcement at a station. Which platform does the train leave from?" }, { s: "W", t: "Attention, please. The train to Oxford will leave from platform five, not platform three as we said before. Please do not go to platform two." }],
+            items: [{ n: 20, q: "Which platform does the train to Oxford leave from?", options: ["platform 2", "platform 3", "platform 5"], a: 2, cue: "will leave from platform five", explain: "The new platform is five. Platform three was the old information, and platform two is wrong." }] },
+        ],
+      },
+      {
+        n: 5, type: "matching", instr: "For each question, choose the correct answer. You will hear Ben talking to his mum about the school clubs his friends do. What does each friend do?",
+        options: ["A cooking", "B photography", "C chess", "D dancing", "E skateboarding", "F painting", "G gardening", "H swimming"],
+        units: [
+          { speakers: { M: { name: "Mum", accent: "en-GB", gender: "f" }, P: { name: "Ben", accent: "en-GB", gender: "m" } },
+            script: [{ say: "Part Five. You will hear Ben talking to his mum about the school clubs his friends do. What does each friend do?" }, { s: "M", t: "Ben, what do your friends do at the school clubs?" }, { s: "P", t: "Maria wanted to join the swimming club, but it was full, so she does photography. She takes lots of pictures of birds." }, { s: "M", t: "Nice. And Jack?" }, { s: "P", t: "Jack plays chess. He's brilliant. Last week he beat the teacher!" }, { s: "M", t: "Wow. What about Ella?" }, { s: "P", t: "Ella's mum is a cook, but Ella thinks cooking is boring. She goes to the dancing club and she loves it." }, { s: "M", t: "And Sam?" }, { s: "P", t: "Sam goes skateboarding every day after school. He fell and hurt his arm last year, but he doesn't care." }, { s: "M", t: "Oh dear. And what about Leo?" }, { s: "P", t: "Leo paints. Some of his pictures are on the wall in the library. I'd like to try gardening, Mum, but there's no club for that." }],
+            items: [
+              { n: 21, text: "Maria", a: "B", cue: "she does photography", explain: "Maria wanted swimming, but the club was full. She does photography." },
+              { n: 22, text: "Jack", a: "C", cue: "Jack plays chess", explain: "Jack plays chess, and he is very good at it." },
+              { n: 23, text: "Ella", a: "D", cue: "She goes to the dancing club", explain: "Ella's mum is a cook, but Ella thinks cooking is boring. She does dancing." },
+              { n: 24, text: "Sam", a: "E", cue: "Sam goes skateboarding every day after school", explain: "Sam goes skateboarding every day." },
+              { n: 25, text: "Leo", a: "F", cue: "Leo paints", explain: "Leo paints, and his pictures are in the library. Gardening is Ben's idea, not Leo's." },
+            ] },
+        ],
+      },
+    ],
+  },
+  speaking: {
+    parts: [
+      {
+        n: 1, type: "interview", minutes: [3, 4],
+        phases: [
+          { q: ["What's your name?", "How old are you?", "Where are you from?", "Are you a student or do you work?"] },
+          { topic: "Daily life", q: ["What time do you usually get up?", "How do you get to school or work?", "What do you do in the evenings?"], extended: "Please tell me something about your best friend." },
+          { topic: "Holidays", q: ["Do you like going on holiday?", "Who do you usually go with?", "Do you prefer the sea or the mountains? Why?"], extended: "Please tell me something about a place you want to visit." },
+        ],
+        models: {
+          "What do you do in the evenings?": "I usually have dinner with my family, then I do my homework. After that I watch videos or talk to my friends online.",
+          "Please tell me something about your best friend.": "My best friend is called Linh. We met at primary school, and now we are in the same class. She is funny and kind, and we always laugh together. At the weekend we often go to the park.",
+          "Please tell me something about a place you want to visit.": "I want to visit London because I would like to see Big Ben and the river. I think it is a very big and interesting city. I want to go with my sister next summer.",
+        },
+        tips: ["Give a short reason: '… because …'.", "For 'Tell me something about…', say 3–4 sentences: who/what, where, why.", "If you don't understand, say 'Sorry, can you say that again, please?'"],
+      },
+      {
+        n: 2, type: "discussion", minutes: [5, 6],
+        prompt: "Here are some different presents. Do you like these different presents? Say why or why not. Talk together.",
+        options: [{ ic: "📚", label: "a book" }, { ic: "💐", label: "flowers" }, { ic: "⌚", label: "a watch" }, { ic: "🍫", label: "chocolates" }, { ic: "🎮", label: "a computer game" }],
+        partnerLines: ["I like getting books because I love reading. What about you?", "I think flowers are nice, but they die quickly. Do you agree?", "A watch is useful, but it can be expensive."],
+        follow: ["Do you think chocolates are a good present?", "Which of these presents do you like best?", "Do you often give presents to your friends?", "What was the best present you have ever had? Why?"],
+        models: {
+          "Which of these presents do you like best?": "I like the computer game best, because I play games with my friends every weekend. A book is good too, but I don't read very much.",
+          "What was the best present you have ever had? Why?": "The best present was a small guitar from my parents on my twelfth birthday. I wanted one for a long time, and now I play it every day.",
+        },
+        useful: ["I like … because …", "I don't like … very much – it's a bit …", "What do you think?", "I agree. / I'm not sure. I think …", "For me, … is better than …"],
+      },
+    ],
+  },
+});

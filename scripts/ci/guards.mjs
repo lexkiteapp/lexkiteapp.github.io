@@ -5,6 +5,8 @@
 //   budget    – size-budget báo ngân sách dư < 5 KB / < 2 % → issue `budget-low` (vàng, TRƯỚC khi đỏ); hết thấp → đóng
 //   wip       – PR mới mở khi > WIP_MAX PR đang mở → nhãn `frozen` + 1 comment (trừ `main-red` / `p0`)
 //   web-daily – số PR chạm web/ gộp trong 24 giờ = 0 mà còn PR chạm web/ đang mở → issue `web-stall`
+//   stale-ci  – issue `ci-failure` mở > 12 giờ mà chưa PR nào liên kết → nhãn `p0` + 1 comment, ghi vào bản tin ci-triage (10/11: issue đỏ
+//               nằm nhiều ngày không ai nhận). ci-triage sweep gọi mỗi giờ (staleCiRun); chạy tay: node scripts/ci/guards.mjs stale-ci
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -31,6 +33,26 @@ export function wipVerdict({ openCount, labels = [] }) {
 export const touchesWeb = files => (files || []).some(f => /^web\//.test(f));
 /** stall = không PR web nào gộp trong 24 giờ mà còn PR web đang mở. */
 export const webStall = ({ mergedWeb24h, openWeb }) => mergedWeb24h === 0 && openWeb > 0;
+/** stale-ci (thuần): issue ci-failure mở > hours giờ, chưa có p0, không PR mở nào nhắc tới (#số trong tiêu đề/thân/nhánh) → cần gắn p0. */
+export const STALE_CI_HOURS = 12;
+export function staleCi(issues, prs, now, hours = STALE_CI_HOURS) {
+  const refs = new Set();
+  for (const p of prs || []) for (const m of `${p.title || ''}\n${p.body || ''}\n${(p.head && p.head.ref) || ''}`.matchAll(/(?:#|issue[-/])(\d+)\b/gi)) refs.add(+m[1]);
+  return (issues || []).filter(i => !i.pull_request && (i.labels || []).some(l => (l.name || l) === 'ci-failure') && !(i.labels || []).some(l => (l.name || l) === 'p0')
+    && now - Date.parse(i.created_at) > hours * 3600e3 && !refs.has(i.number));
+}
+/** Phần mạng của stale-ci, nhận hàm gọi API kiểu gh(path, {method, body}) – ci-triage dùng chung client của nó. Trả { n, md }. */
+export async function staleCiRun(call, now = Date.now()) {
+  const issues = (await call('/issues?state=open&labels=ci-failure&per_page=100')) || [];
+  const prs = (await call('/pulls?state=open&per_page=100')) || [];
+  const stale = staleCi(issues, prs, now);
+  for (const i of stale) {
+    await call(`/issues/${i.number}/labels`, { method: 'POST', body: { labels: ['p0'] } });
+    await call(`/issues/${i.number}/comments`, { method: 'POST', body: { body: `🚨 **p0** – issue CI đỏ đã mở > ${STALE_CI_HOURS} giờ mà chưa có PR nào liên kết (nhắc #${i.number} trong PR). Máy gác stale-ci (scripts/ci/guards.mjs) – điều phối nhận ngay.` } });
+  }
+  const md = `### ⏰ Issue ci-failure > ${STALE_CI_HOURS} giờ chưa có PR\n${stale.map(i => `- #${i.number} ${i.title} → gắn p0`).join('\n') || '- (không có)'}\n`;
+  return { n: stale.length, md, text: stale.length ? `${stale.length} issue ci-failure > ${STALE_CI_HOURS} giờ chưa có PR → p0: ${stale.map(i => '#' + i.number).join(', ')}` : '' };
+}
 
 // ---------- phần mạng (chỉ khi chạy CLI)
 const REPO = process.env.GITHUB_REPOSITORY || 'lexkiteapp/lexkiteapp.github.io';
@@ -90,6 +112,8 @@ async function main() {
     for (const p of open) if (touchesWeb(await prFiles(p.number))) openWeb++;
     const needed = webStall({ mergedWeb24h: merged, openWeb });
     console.log(`web-daily: gộp web/ 24h = ${merged}, mở web/ = ${openWeb}`, await syncIssue({ label: 'web-stall', needed, title: `Không PR web/ nào gộp trong 24 giờ (còn ${openWeb} PR web/ mở)`, body: `Chỉ số hằng ngày: PR chạm \`web/\` gộp trong 24 giờ = **${merged}**, PR chạm \`web/\` đang mở = **${openWeb}**. Hàng gộp đang kẹt (CI đỏ chung? ngân sách? hàng chờ runner?) – kiểm main-red / budget-low / hàng chờ.` }));
-  } else { console.error('dùng: guards.mjs lane|main-red|budget|wip|web-daily'); process.exit(2); }
+  } else if (cmd === 'stale-ci') {
+    const r = await staleCiRun((p, o) => api(p, o)); console.log(r.md);
+  } else { console.error('dùng: guards.mjs lane|main-red|budget|wip|web-daily|stale-ci'); process.exit(2); }
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main().catch(e => { console.error('::error::guards: ' + e.message); process.exit(1); });

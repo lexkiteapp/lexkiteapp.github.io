@@ -8,7 +8,7 @@ const CACHE = 'lexkite-0'; // CỐ ĐỊNH – đừng bump tay: build (scripts/
 const APP = '/app/';
 const LEGACY = new URL(self.registration.scope).pathname === '/';
 // Chỉ phần lõi (các file trong app/index.html) – phần nặng tải khi cần từ CDN và được lưu lại lúc dùng
-const SHELL = ['/app/', '/css/style.css', '/js/heal.js', '/js/native.js', '/js/ads.js', '/js/kit.js', '/js/characters.js', '/js/teacher-slot.js', '/js/audio.js', '/js/i18n.js', '/js/data.js', '/js/lexis.js', '/js/target.js', '/js/core.js', '/js/dictionary.js', '/js/game.js', '/js/ui.js', '/js/exit-guard.js', '/js/app.js', '/js/study.js', '/js/reading.js', '/js/path.js', '/js/plan.js', '/js/hubs.js', '/js/phrases.js', '/js/ai.js', '/js/assist.js', '/js/firebase-config.js', '/js/sync.js', '/js/i18n/en.js', '/manifest.webmanifest', '/icons/icon.svg', '/icons/icon-192.png'];
+const SHELL = ['/app/', '/css/style.css', '/js/heal.js', '/js/native.js', '/js/ads.js', '/js/kit.js', '/js/characters.js', '/js/teacher-slot.js', '/js/audio.js', '/js/i18n.js', '/js/data.js', '/js/lexis.js', '/js/target.js', '/js/core.js', '/js/dictionary.js', '/js/game.js', '/js/ui.js', '/js/exit-guard.js', '/js/app.js', '/js/study.js', '/js/path.js', '/js/plan.js', '/js/hubs.js', '/js/phrases.js', '/js/ai.js', '/js/assist.js', '/js/firebase-config.js', '/js/sync.js', '/js/i18n/en.js', '/manifest.webmanifest', '/icons/icon.svg', '/icons/icon-192.png'];
 const KEEP = k => k === CACHE || k === 'lk-meta' || k === AUDIO || k === VIMG || k === OFFLINE; // dữ liệu người dùng & cache dùng chung – không bao giờ xóa khi dọn
 
 self.addEventListener('install', e => {
@@ -56,7 +56,7 @@ const RT_MAX = 400, SHELL_SET = new Set(SHELL.map(u => new URL(u, location.origi
 const trimRt = cap(CACHE, RT_MAX, k => SHELL_SET.has(k.url));
 const putRt = (e, res) => bg(e, caches.open(CACHE).then(x => x.put(e.request, res)).then(trimRt).catch(() => {}));
 const HASHED = /^\/h\/(.+)\.[0-9a-f]{10}(\.(?:js|css))$/; // bản băm của scripts/build-hash.mjs → đường dẫn gốc: '/$1$2'
-const STATIC = /\.(png|svg|jpg|jpeg|webp|ico|woff2?|mp3)$|^\/cpack\/.+\.[0-9a-f]{10}\.js$/; // + gói nội dung /cpack/ (tên theo mã băm → cache-first, offline chạy lại bài đã mở) // âm thanh đặt tên theo nội dung → không bao giờ đổi
+const STATIC = /\.(png|svg|jpg|jpeg|webp|avif|ico|woff2?|mp3)$|^\/cpack\/.+\.[0-9a-f]{10}\.js$/; // + gói nội dung /cpack/ (tên theo mã băm → cache-first, offline chạy lại bài đã mở) // âm thanh đặt tên theo nội dung → không bao giờ đổi
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
   if (LEGACY) { // phạm vi "/" (bản cài cũ): mọi thứ đi mạng như không có SW; riêng mở "/" khi mất mạng → app trong cache /app/
@@ -71,7 +71,7 @@ self.addEventListener('fetch', e => {
   if (url.pathname === '/api/dictlookup') return;
   // App/add-on gọi file từ lexkite.com (khác nguồn): lấy mạng trước, lưu lại để dùng khi offline
   if (e.request.method === 'GET' && url.origin !== location.origin && (url.hostname === 'lexkite.pages.dev' || url.hostname === 'lexkite.com')) {
-    e.respondWith(fetch(e.request).then(r => { if (r.ok || r.type === 'opaque') putRt(e, r.clone()); return r; }).catch(() => caches.match(e.request)));
+    e.respondWith(fetch(e.request).then(r => { if (r.ok || r.type === 'opaque') putRt(e, r.clone()); return r; }).catch(() => caches.match(e.request)).then(r => r || new Response('', { status: 503, statusText: 'offline' }))); // không có trong cache → phản hồi 503 hợp lệ (không để respondWith nhận undefined; Response.error() làm WebKit báo lỗi console)
     return;
   }
   // Âm thanh trên CDN riêng (tên file theo nội dung, không bao giờ đổi): có sẵn thì phát ngay, nghe được cả khi offline

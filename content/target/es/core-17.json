@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -331,7 +331,7 @@
    "pos": "n",
    "gender": "f",
    "plural": "cuentas",
-   "ipa": "ˈkwɛnta",
+   "ipa": "ˈkwenta",
    "gl": {
     "vi": "hóa đơn / tài khoản",
     "en": "bill / account",
@@ -368,5 +368,13 @@
     "ipaAi": "ˈkwenta"
    }
   }
- ]
+ ],
+ "review": {
+  "by": "sonnet-review-B",
+  "at": "2026-11-09",
+  "checked": 9,
+  "fixed": 1,
+  "dropped": 0,
+  "sample": 5
+ }
 }

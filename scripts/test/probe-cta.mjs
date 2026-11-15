@@ -22,5 +22,10 @@ for (const lang of ['en', 'de', 'ja']) {
   ok(hits.length >= 1, `${lang}: bộ chọn "${sel}" không trúng nút nào trên landing`);
   ok(hits.some(t => new RegExp(`href="/app/\\?hl=${lang}#/welcome/setup"`).test(t)), `${lang}: nút chính phải trỏ /app/?hl=${lang}#/welcome/setup`);
 }
+// bước đầu thiết lập: probe chọn mục tiêu bằng cùng bộ chọn với journey-e2e, và màn s=goal phải còn render bộ chọn đó
+const pick = (probe.match(/const PICK = '([^']+)'/) || [])[1];
+ok(pick && /c\.tap\(PICK\)/.test(probe) && !/button\.trk-opt/.test(probe.replace(/^\s*\/\/.*$/gm, '')), 'probe chọn mục tiêu bằng const PICK (không bộ chọn viết cứng)');
+ok(je.includes(`h.click('${pick}')`), `PICK của probe (${pick}) trùng journey-e2e`);
+ok(/data-track=/.test(fs.readFileSync('web/js/onboard.js', 'utf8') + fs.readFileSync('web/js/tracks.js', 'utf8')), 'onboard/tracks còn render [data-track]');
 if (fail) process.exit(1);
 console.log('✓ probe-cta: bộ chọn nút chính của probe trúng landing dựng thật');

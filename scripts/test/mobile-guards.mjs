@@ -45,5 +45,16 @@ ok(/notesMem\.get\(w\)/.test(app) && /await Promise\.race\(\[App\.notesReady\(fu
 { const sv = rd('web/css/st-v2-ux1-pre.css');
   ok(!/data-act="\$\{e\('lang'\)\}"/.test(rd('web/js/st/v2/today-desk.js')), 'today-desk không có nút ngôn ngữ riêng (thanh trên đã có #langBtn)');
   ok(/body\.ux1 \.topbar \.icon-btn,body\.ux1 \.topbar \.avatar\{width:var\(--tap,44px\);height:var\(--tap,44px\)/.test(sv) && !/\.topbar \.pill\.fire\{border-color/.test(sv), 'viên thanh trên cùng token --tap; viên chuỗi không viền riêng'); }
+// INP quiz (mqa: bấm đáp án sai ở practice/mcq 216 ms @4×): lượt bấm chỉ tô đáp án + vẽ bảng phản hồi; ghi lỗi, âm/rung, đọc to, 💡 giải thích chạy sau lần vẽ (later), không ép layout trong pick
+{ const st = rd('web/js/study.js'), fin = st.slice(st.indexOf('const finish = (ok, given, ty) => {'), st.indexOf("if (q.type === 'mcq-vi' || q.type === 'mcq-en')")), pk = st.slice(st.indexOf('const pick = b => {'), st.indexOf("$$('.option', box).forEach(b => b.onclick = () => pick(b))"));
+  ok(/const later = f => requestAnimationFrame\(\(\) => setTimeout\(f, 0\)\)/.test(st), 'study.js có later() = sau lần vẽ kế tiếp');
+  ok(/later\(\(\) => \{\s*if \(!ok && App\.logMistake\)[\s\S]*?Sfx\.answer\(ok, \{ badge: false \}\);[^\n]*\n\s*\}\);/.test(fin), 'finish: ghi lỗi + âm/rung chạy trong later');
+  ok(/later\(\(\) => FX\.explain\(/.test(fin) && /later\(\(\) => speak\(w\.word/.test(fin), 'finish: giải thích + đọc to chạy trong later');
+  ok(!/offsetWidth|offsetHeight|getBoundingClientRect/.test(pk) && !/const fit = [^\n]*\}; fit\(\);/.test(fin), 'pick/finish không ép layout đồng bộ (offsetWidth/fit) trong lượt bấm'); }
+// INP 14/11 (hồ sơ CI perf-profile TAP=1: lượt bấm đầu 200 ms = style 39 + layout 46 ms): :has(.sheet) khiến CHÈN tấm phản hồi tính lại style toàn body + layout cả trang trong lượt bấm
+{ const css = (rd('web/css/style.css') + rd('web/css/lazy-ui.css')).replace(/\/\*[\s\S]*?\*\//g, ''), st = rd('web/js/study.js'), fin = st.slice(st.indexOf('const finish = (ok, given, ty) => {'), st.indexOf("if (q.type === 'mcq-vi' || q.type === 'mcq-en')"));
+  ok(!/:has\([^)]*\.sheet(?![\w-])/.test(css), 'không luật CSS nào :has(.sheet) – chỉ :has(.sheet-up) (gắn sau lần vẽ)');
+  ok(/later\(\(\) => \{ const s0 = \$\('\.sheet', fb\); if \(s0\) s0\.classList\.add\('sheet-up'\); fit\(\); \$\('#nextQ'\) && \$\('#nextQ'\)\.focus/.test(fin) && !/requestAnimationFrame\(\(\) => \{ fit\(\)/.test(fin), 'finish: sheet-up + fit + focus + cuộn chạy trong later (không trong khung của lượt bấm)');
+  ok(!/^\s*\$\('#nextQ'\)\.focus/m.test(fin), 'finish: không focus() đồng bộ (ép style/layout trong lượt bấm)'); }
 if (fail) { console.error(`✗ mobile-guards: ${fail} lỗi`); process.exit(1); }
 console.log('✓ mobile-guards: đạt');

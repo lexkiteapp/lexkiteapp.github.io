@@ -72,5 +72,46 @@
   "words": 46,
   "seconds": 27.7,
   "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"cake\" mean?",
+  "keyword": "cake",
+  "value": "Cake means a sweet baked food made from flour, eggs, fat, and sugar.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=cake",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"cake\" mean?",
+    "description": "Cake means a sweet baked food made from flour, eggs, fat, and sugar.\n\nReview your words, free: https://lexkite.com/app/#/review?w=cake\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "cake",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"cake\" mean?\n\nCake means a sweet baked food made from flour, eggs, fat, and sugar.\n\nReview your words, free: https://lexkite.com/app/#/review?w=cake"
+   },
+   "instagram": {
+    "caption": "What does \"cake\" mean?\n\nCake means a sweet baked food made from flour, eggs, fat, and sugar.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"cake\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a sweet baked food made from flour, eggs, fat, and sugar. Cake means a sweet baked food made from flour, eggs, fat, and sugar. Practice it with a free quiz: {link}"
  }
 }

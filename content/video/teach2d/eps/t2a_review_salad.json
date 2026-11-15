@@ -72,5 +72,46 @@
   "words": 44,
   "seconds": 26.7,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"salad\" mean?",
+  "keyword": "salad",
+  "value": "Salad means a dish of mixed raw vegetables.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=salad",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"salad\" mean?",
+    "description": "Salad means a dish of mixed raw vegetables.\n\nReview your words, free: https://lexkite.com/app/#/review?w=salad\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "salad",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"salad\" mean?\n\nSalad means a dish of mixed raw vegetables.\n\nReview your words, free: https://lexkite.com/app/#/review?w=salad"
+   },
+   "instagram": {
+    "caption": "What does \"salad\" mean?\n\nSalad means a dish of mixed raw vegetables.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"salad\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a dish of mixed raw vegetables. Salad means a dish of mixed raw vegetables. Try the full lesson and quiz here: {link}"
  }
 }

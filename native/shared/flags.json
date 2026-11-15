@@ -1,16 +1,76 @@
 {
   "_doc": "Remote Config / feature-flag keys shared by iOS + Android (docs/specs/native-apps.md §4 'Cập nhật không cần duyệt lại store'). scripts/native/gen.mjs → Flags.swift (LKCore) + Flags.kt (:core). default = SAFE offline value (used when Remote Config never fetched or fails). type: bool | int | string. Add a key here, never in Swift/Kotlin.",
   "flags": {
-    "sync_drive_enabled": { "type": "bool", "default": false, "desc": "Use Google Drive appDataFolder as the primary sync store. OFF in M1: the live Capacitor app syncs over D1 (LK_SYNC.native=false), so native uses D1 too and the data never splits; Drive stays behind this flag" },
-    "sync_d1_fallback": { "type": "bool", "default": true, "desc": "Allow the D1 /api/sync fallback (Apple sign-in, Drive scope declined)" },
-    "sync_push_every_ms": { "type": "int", "default": 600000, "min": 60000, "max": 86400000, "desc": "Batch interval for background pushes (same cadence as web LK_SYNC)" },
-    "content_remote_enabled": { "type": "bool", "default": true, "desc": "Fetch signed server-driven content (Today config, module order, banners); off → bundled starter pack only" },
-    "content_max_schema": { "type": "int", "default": 2, "min": 1, "max": 1000, "desc": "Highest content schema this build renders fully; newer docs are read best-effort" },
-    "today_banner_enabled": { "type": "bool", "default": true, "desc": "Show signed banners/events on Today" },
-    "ai_enabled": { "type": "bool", "default": false, "desc": "Kill switch for on-device / free AI features (off until M6 ships them)" },
-    "ads_enabled": { "type": "bool", "default": false, "desc": "Kill switch for ads (off by default; never on in lessons)" },
-    "teacher_rive_enabled": { "type": "bool", "default": true, "desc": "Animated Rive teacher; off → static 2D pose" },
-    "migration_capacitor_enabled": { "type": "bool", "default": true, "desc": "Run the one-shot Capacitor → native data export on first launch (C03)" },
-    "min_supported_app": { "type": "string", "default": "2.0.0", "desc": "Below this version the app shows a soft 'please update' card (never blocks offline learning)" }
+    "sync_drive_enabled": {
+      "type": "bool",
+      "default": false,
+      "desc": "Use Google Drive appDataFolder as the primary sync store. OFF in M1: the live Capacitor app syncs over D1 (LK_SYNC.native=false), so native uses D1 too and the data never splits; Drive stays behind this flag"
+    },
+    "sync_d1_fallback": {
+      "type": "bool",
+      "default": true,
+      "desc": "Allow the D1 /api/sync fallback (Apple sign-in, Drive scope declined)"
+    },
+    "sync_push_every_ms": {
+      "type": "int",
+      "default": 600000,
+      "min": 60000,
+      "max": 86400000,
+      "desc": "Batch interval for background pushes (same cadence as web LK_SYNC)"
+    },
+    "content_remote_enabled": {
+      "type": "bool",
+      "default": true,
+      "desc": "Fetch signed server-driven content (Today config, module order, banners); off → bundled starter pack only"
+    },
+    "content_max_schema": {
+      "type": "int",
+      "default": 2,
+      "min": 1,
+      "max": 1000,
+      "desc": "Highest content schema this build renders fully; newer docs are read best-effort"
+    },
+    "today_banner_enabled": {
+      "type": "bool",
+      "default": true,
+      "desc": "Show signed banners/events on Today"
+    },
+    "ai_enabled": {
+      "type": "bool",
+      "default": false,
+      "desc": "Kill switch for on-device / free AI features (off until M6 ships them)"
+    },
+    "ads_enabled": {
+      "type": "bool",
+      "default": false,
+      "desc": "Kill switch for ads (off by default; never on in lessons)"
+    },
+    "teacher_rive_enabled": {
+      "type": "bool",
+      "default": true,
+      "desc": "Animated Rive teacher; off → static 2D pose"
+    },
+    "migration_capacitor_enabled": {
+      "type": "bool",
+      "default": true,
+      "desc": "Run the one-shot Capacitor → native data export on first launch (C03)"
+    },
+    "min_supported_app": {
+      "type": "string",
+      "default": "2.0.0",
+      "desc": "Below this version the app shows a soft 'please update' card (never blocks offline learning)"
+    },
+    "vocab_img": {
+      "type": "string",
+      "default": "",
+      "desc": "Vocabulary pictures (lesson pic exercise, word cards) – same tri-state as web config v.vocab_img: \"on\" = everyone, \"off\" = nobody, \"\" = staged rollout by vocab_img_pct over a fixed per-device bucket 0–99 (web/js/vocab-img.js mode(), vectors/vimg.json mode)"
+    },
+    "vocab_img_pct": {
+      "type": "int",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "desc": "Staged rollout % for vocabulary pictures when vocab_img is \"\" (web vocab_img_pct, default PCT = 10); raise only after the web journey-e2e 'images on' gate (docs/LEXICON.md)"
+    }
   }
 }

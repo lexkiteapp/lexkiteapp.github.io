@@ -9,6 +9,7 @@ import com.lexkite.app.feature.onboarding.BrandSplash
 import com.lexkite.app.feature.onboarding.OnbStep
 import com.lexkite.app.feature.onboarding.OnboardingFlow
 import com.lexkite.app.i18n.L10n
+import com.lexkite.app.ui.TeacherStill
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -29,7 +30,7 @@ class OnboardingSnapshotTest {
         rule.onRoot().captureRoboImage("src/test/snapshots/onb-$name-$lang-${if (dark) "dark" else "light"}.png")
     }
     private fun splash(lang: String, dark: Boolean) = shot("splash", lang, dark) { t -> BrandSplash(t) }
-    private fun step(s: OnbStep, lang: String, dark: Boolean) = shot(s.name.lowercase(), lang, dark) { t -> OnboardingFlow(t, lang, {}, { _, _ -> }, teacher = {}, initial = s) }
+    private fun step(s: OnbStep, lang: String, dark: Boolean) = shot(s.name.lowercase(), lang, dark) { t -> OnboardingFlow(t, lang, {}, { _, _ -> }, teacher = { pose -> TeacherStill(pose = pose) }, initial = s) }
 
     @Test fun splashEnLight() = splash("en", false)
     @Test fun splashEnDark() = splash("en", true)

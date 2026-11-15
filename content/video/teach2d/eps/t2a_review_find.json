@@ -72,5 +72,46 @@
   "words": 40,
   "seconds": 24.7,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"find\" mean?",
+  "keyword": "find",
+  "value": "Find means to discover something by looking for it.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=find",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"find\" mean?",
+    "description": "Find means to discover something by looking for it.\n\nReview your words, free: https://lexkite.com/app/#/review?w=find\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "find",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"find\" mean?\n\nFind means to discover something by looking for it.\n\nReview your words, free: https://lexkite.com/app/#/review?w=find"
+   },
+   "instagram": {
+    "caption": "What does \"find\" mean?\n\nFind means to discover something by looking for it.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"find\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to discover something by looking for it. Find means to discover something by looking for it. More practice like this (free): {link}"
  }
 }

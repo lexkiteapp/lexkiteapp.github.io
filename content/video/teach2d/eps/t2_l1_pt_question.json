@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_question",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Doubt is a false friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I have a doubt about this word.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have a question about this word.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Doubt means you are not sure.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Question! I have a question about the test.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I have a doubt about this word.",
+  "right": "I have a question about this word.",
+  "strike": "doubt",
+  "why": "Doubt means you are not sure.",
+  "memory": "Question, not doubt.",
+  "quiz": {
+   "stem": "I have a ___ about the test.",
+   "options": [
+    "question",
+    "doubt"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "“Doubt” não é “dúvida”!",
+   "tip": "“Doubt” é desconfiar. Para tirar dúvida, tenha uma “question”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I have a doubt about this word.”. O certo é “I have a question about this word.”. Na sala de aula, esse erro aparece o tempo todo. Ouça o Carlos e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “question”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#inglesonline",
+    "#dicasdeingles",
+    "#aprenderingles",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Doubt” is not “dúvida”!",
+   "tip": "“Doubt” means to distrust. To ask for help, you have a “question”.",
+   "caption": "Watch out for this common mistake! Many people say “I have a doubt about this word.”. The right way is “I have a question about this word.”. This mistake shows up in class all the time. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Doubt” não é “dúvida”!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 53,
+  "seconds": 31.5,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "“Doubt” não é “dúvida”!",
+  "keyword": "I have a question about this word.",
+  "value": "“Doubt” é desconfiar. Para tirar dúvida, tenha uma “question”.",
+  "hashtags": [
+   "#inglesonline",
+   "#dicasdeingles",
+   "#aprenderingles",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 47,
+  "platforms": {
+   "youtube": {
+    "title": "“Doubt” não é “dúvida”!",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “I have a doubt about this word.”. O certo é “I have a question about this word.”. Na sala de aula, esse erro aparece o tempo todo. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#inglesonline #dicasdeingles #aprenderingles #lexkite",
+    "tags": [
+     "I have a question about this word.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “I have a doubt about this word.”. O certo é “I have a question about this word.”. Na sala de aula, esse erro aparece o tempo todo. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “I have a doubt about this word.”. O certo é “I have a question about this word.”. Na sala de aula, esse erro aparece o tempo todo. Ouça o Carlos e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#inglesonline",
+     "#dicasdeingles",
+     "#aprenderingles",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Doubt” não é “dúvida”! #inglesonline #dicasdeingles #aprenderingles"
+   }
+  },
+  "first_comment": "Resposta: “question”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

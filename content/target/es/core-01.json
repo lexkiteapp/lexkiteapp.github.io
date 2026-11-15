@@ -2,7 +2,7 @@
  "v": 1,
  "tl": "es",
  "variant": "es-419",
- "status": "pending-review",
+ "status": "reviewed",
  "source": {
   "name": "FrequencyWords (hermitdave) – OpenSubtitles 2018 es_50k",
   "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/es/es_50k.txt",
@@ -90,7 +90,7 @@
   {
    "word": "ella",
    "pos": "pron",
-   "ipa": "ˈejja",
+   "ipa": "ˈeʝa",
    "gl": {
     "vi": "cô ấy",
     "en": "she",
@@ -531,21 +531,21 @@
    "plural": "dioses",
    "ipa": "ˈdjos",
    "gl": {
-    "vi": "chúa",
-    "en": "god",
+    "vi": "Chúa, Thượng đế",
+    "en": "God",
     "es": "dios",
     "pt": "deus",
-    "fr": "dieu",
+    "fr": "Dieu",
     "de": "Gott",
-    "id": "tuhan",
+    "id": "Tuhan",
     "th": "พระเจ้า",
     "zh": "神 / 上帝",
     "ja": "神",
     "ko": "신",
     "hi": "भगवान",
     "ar": "إله",
-    "ru": "бог",
-    "tr": "tanrı"
+    "ru": "Бог",
+    "tr": "Tanrı"
    },
    "ex": {
     "es": "Muchas personas creen en Dios.",
@@ -584,7 +584,7 @@
     "hi": "के बिना",
     "ar": "بدون",
     "ru": "без",
-    "tr": "sizmeksizin"
+    "tr": "-sız, olmadan"
    },
    "ex": {
     "es": "Prefiero el café sin azúcar.",
@@ -609,7 +609,7 @@
    "pos": "v",
    "ipa": "esˈtaɾ",
    "gl": {
-    "vi": "ở",
+    "vi": "thì, ở (vị trí, trạng thái)",
     "en": "to be (location/state)",
     "es": "estar",
     "pt": "estar",
@@ -650,7 +650,7 @@
    "pos": "pron",
    "ipa": "ˈti",
    "gl": {
-    "vi": "bạn",
+    "vi": "bạn (sau giới từ)",
     "en": "you (prepositional)",
     "es": "ti",
     "pt": "ti",
@@ -892,21 +892,21 @@
    "plural": "cosas",
    "ipa": "ˈkosa",
    "gl": {
-    "vi": "thứ",
-    "en": "things",
+    "vi": "thứ, việc",
+    "en": "thing",
     "es": "cosa",
-    "pt": "coisas",
-    "fr": "choses",
-    "de": "Dinge",
-    "id": "hal-hal",
-    "th": "สิ่งของ",
-    "zh": "事物",
-    "ja": "物",
-    "ko": "것들",
-    "hi": "चीज़ें",
-    "ar": "أشياء",
-    "ru": "вещи",
-    "tr": "şeyler"
+    "pt": "coisa",
+    "fr": "chose",
+    "de": "Ding",
+    "id": "hal, benda",
+    "th": "สิ่ง",
+    "zh": "东西，事情",
+    "ja": "物、事",
+    "ko": "것, 물건",
+    "hi": "चीज़",
+    "ar": "شيء",
+    "ru": "вещь",
+    "tr": "şey"
    },
    "ex": {
     "es": "Tengo muchas cosas que hacer hoy.",
@@ -1092,20 +1092,20 @@
    "ipa": "ˈaɲo",
    "gl": {
     "vi": "năm",
-    "en": "years",
+    "en": "year",
     "es": "año",
-    "pt": "anos",
-    "fr": "années",
-    "de": "Jahre",
-    "id": "tahun-tahun",
+    "pt": "ano",
+    "fr": "année",
+    "de": "Jahr",
+    "id": "tahun",
     "th": "ปี",
     "zh": "年",
     "ja": "年",
     "ko": "년",
     "hi": "साल",
-    "ar": "سنوات",
-    "ru": "годы",
-    "tr": "yıllar"
+    "ar": "سنة",
+    "ru": "год",
+    "tr": "yıl"
    },
    "ex": {
     "es": "Tengo veinte años.",
@@ -1169,7 +1169,7 @@
   {
    "word": "ellos",
    "pos": "pron",
-   "ipa": "ˈejjos",
+   "ipa": "ˈeʝos",
    "gl": {
     "vi": "họ",
     "en": "they",
@@ -1403,5 +1403,13 @@
     "ipaAi": "ˈdezðe"
    }
   }
- ]
+ ],
+ "review": {
+  "by": "sonnet-review-A",
+  "at": "2026-11-09",
+  "checked": 35,
+  "fixed": 8,
+  "dropped": 0,
+  "sample": 35
+ }
 }

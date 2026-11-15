@@ -70,6 +70,16 @@ Khi bật đăng nhập/AdMob: cập nhật bảng này + nhãn Apple trước k
 
 ---
 
+### A3. 👤 Secret `PLAY_SERVICE_ACCOUNT_JSON` (CI tự đẩy .aab lên Play – 5 bước, ~10 phút)
+Thiếu secret này thì `native-release.yml` vẫn build + ký .aab (artifact `lexkite-native-aab`) nhưng không tự đẩy lên Play. Dùng chung cho `store-reviews.yml` (đọc/trả lời đánh giá).
+1. **Google Cloud Console** (tài khoản vintagezulilyjewelry) → chọn/tạo project → *APIs & Services → Library* → bật **Google Play Android Developer API**.
+2. *IAM & Admin → Service accounts → Create service account*, tên `lexkite-play-ci`, **không** gán vai trò → Done.
+3. Mở service account vừa tạo → *Keys → Add key → Create new key → JSON* → tải file về (nếu báo chặn tạo khoá: tắt policy `iam.disableServiceAccountKeyCreation` ở *Organization policies* của project).
+4. **Play Console** → *Users and permissions → Invite new users* → dán email service account (`…@….iam.gserviceaccount.com`) → *App permissions → Add app → Lexkite* → tick **Release to production, exclude devices, and use Play App Signing**, **Release apps to testing tracks**, **View app information (read-only)**, **Reply to reviews** → *Invite user*.
+5. **GitHub** repo lexkiteapp.github.io → *Settings → Secrets and variables → Actions → New repository secret* → tên `PLAY_SERVICE_ACCOUNT_JSON`, giá trị = toàn bộ nội dung file JSON → *Add secret*. Xoá file JSON khỏi máy.
+
+Sau đó dev chạy *Actions → Native → TestFlight + Play* với `track=production`, `rollout=0.1` (10 % người dùng, tăng dần trong Play Console hoặc chạy lại). Ghi chú "What's new" 15 ngôn ngữ = trường `whatsNew` (Capacitor 1.x; bản native 2.0 dùng `whatsNewNative`, workflow truyền `--field whatsNewNative`) trong `store/metadata/<locale>.json` (≤500 ký tự, sửa mỗi lần đổi version; `node scripts/store-metadata.mjs --check`).
+
 ## B. Apple App Store
 
 | | Hạng mục | Trạng thái | Ghi chú / việc cần làm |
@@ -94,8 +104,8 @@ Khi bật đăng nhập/AdMob: cập nhật bảng này + nhãn Apple trước k
 ### B1. Nhãn quyền riêng tư App Store (App Privacy)
 Bảng đầy đủ, đối chiếu từng dòng chính sách mục 2: **`store/apple/LISTING.md` § App Privacy** (cập nhật 20/10/2026 – bản cũ thiếu Name, Photos, Device ID, Search History, Other Diagnostic Data so với Play Data safety). `PrivacyInfo.xcprivacy` đã sửa khớp (có hiệu lực từ build TestFlight kế tiếp).
 - Data Used to Track You: **None**.
-- Data Linked to You (App Functionality, đều tùy chọn): Name, Email Address, Customer Support, Photos or Videos (form liên hệ / báo lỗi).
-- Data Not Linked to You: Other User Content, Search History (App Functionality); Device ID (Analytics + App Functionality); Product Interaction, Coarse Location, Crash Data, Performance Data (Analytics); Other Diagnostic Data (Analytics + App Functionality).
+- Data Linked to You (App Functionality, đều tùy chọn): Name, Email Address, Customer Support, Photos or Videos (form liên hệ / báo lỗi). Từ bản 1.0.2: **Crash Data** (Analytics + App Functionality – Crashlytics gắn mã người dùng đã băm khi đăng nhập).
+- Data Not Linked to You: Other User Content, Search History (App Functionality); Device ID (Analytics + App Functionality); Product Interaction, Coarse Location, Performance Data (Analytics); Other Diagnostic Data (Analytics + App Functionality).
 - Khi bật đăng nhập trong app: thêm User ID (Linked) và chuyển dữ liệu học/tương tác sang Linked; sửa `PrivacyInfo.xcprivacy` + Play Data safety cùng lúc.
 
 > **22/10 – Đăng nhập gốc (B2):** ✅ Firebase đã có app iOS + Android (đủ 4 SHA Play/upload), 2 file cấu hình đã commit (c6eee5b4); ✅ provider Apple đã bật. 👤 Còn lại duy nhất: tạo khóa Sign in with Apple (.p8) trên Apple Developer → dán vào Firebase › Apple › OAuth code flow (Team ID B285J68262) – để thu hồi token khi xóa tài khoản. Khóa riêng tư → anh chủ tự dán.
@@ -151,6 +161,12 @@ Nguồn: `reviewNotes` trong `store/apple/listing.json` (chữ từng ngôn ng�
 - **Android:** `scripts/store/play-api.mjs` – production 1 % + ghi chú mọi ngôn ngữ listing; `store-rollout.yml` hằng ngày tăng 5 → 20 → 50 → 100 % (≥ 24 giờ/bậc, Play vitals crash ≤ 1,09 %, ANR ≤ 0,47 %; vitals không đọc được → theo lịch). Cần secret `PLAY_SERVICE_ACCOUNT_JSON` (Play Console → Users and permissions → tài khoản dịch vụ, quyền Release to production + View app information; bật Google Play Android Developer API + Play Developer Reporting API) – thiếu → bỏ qua Android kèm notice.
 - **Ghi chú phát hành:** `scripts/store/release-notes.mjs` – commit từ tag store gần nhất → vùng tính năng `store/release-notes/areas.json` → câu tiếng Việt (khóa i18n, nhóm `storenotes`) → 15 ngôn ngữ qua pipeline i18n (`web/js/i18n/en/storenotes.js` + `scripts/i18n-fixed.json`), ≤ 4000 (App Store) / ≤ 500 (Play). Câu mới: thêm vào areas.json + en/storenotes.js + i18n-fixed.json; `--check` trong `npm test`.
 
+### C2. Firebase Crashlytics (bản store 1.0.2+)
+- 🛠 `@capacitor-firebase/crashlytics` (cùng bản các plugin Firebase khác, SPM symlink) · Android: plugin Gradle `com.google.firebase.crashlytics` (build ID; minify đang tắt → chưa có mapping, bật minify thì plugin tự tải mapping) · iOS: `ios-testflight.yml` archive `dwarf-with-dsym` + `upload-symbols` dSYM.
+- Lỗi JS lớp web → non-fatal qua `web/js/crash.js` (native.js giữ hàng đợi lỗi sớm): lọc URL/email/token/số dài/trích dẫn, stack chỉ tên file + dòng, trang = đoạn đầu hash, uid = SHA-256 16 hex khi đăng nhập, ≤ 20 lỗi/phiên. Khoá: `scripts/test/crashlytics.mjs`. Chưa có cài đặt quyền riêng tư nào cho chẩn đoán (lỗi JS vốn đã gửi `/api/hit`) → Crashlytics bật mặc định.
+- Chính sách quyền riêng tư (en/vi + 13 bản dịch) đã thêm Crashlytics (bên xử lý, dữ liệu, 90 ngày).
+- 👤 Sau khi bản 1.0.2 lên: App Store Connect → App Privacy → Crash Data → Edit → chọn **Linked to the user** + thêm mục đích **App Functionality** → Publish. Play Console → App content → Data safety: Crash logs/Diagnostics đã khai (Collected, không Shared) – không đổi. Firebase Console → Crashlytics → bấm **Enable Crashlytics** cho 2 app (iOS + Android) nếu chưa bật.
+
 ## E. Khi bật AdMob (bản app đầu tiên có SDK quảng cáo – docs/ADS.md)
 Làm CÙNG LÚC, trước khi gửi duyệt bản build có `ADS_NATIVE=1`:
 1. **Play Console → App content → Ads: Yes.** Data safety thêm: *Device or other IDs* (Advertising ID) – Collected + **Shared** (Google AdMob) – mục đích Advertising or marketing, Analytics; *App activity → App interactions* – Shared (Advertising); *App info & performance → Diagnostics* – Shared. Không bán dữ liệu. Thêm quyền `com.google.android.gms.permission.AD_ID` (plugin tự khai) – khai "Advertising ID: Yes, Advertising or marketing".
@@ -160,3 +176,8 @@ Làm CÙNG LÚC, trước khi gửi duyệt bản build có `ADS_NATIVE=1`:
 5. **app-ads.txt:** đổi `pub-0000000000000000` (web/app-ads.txt, build ghi đè từ `web/js/ads/config.js`) → AdMob → Apps → app-ads.txt status "Verified". Điền trang web của nhà phát triển `https://lexkite.com` trong Play Console + App Store Connect (AdMob đọc app-ads.txt từ đó).
 6. **Niêm yết:** mô tả đã đổi sang "Không quảng cáo trong lúc học, làm quiz hay thi" (`store/apple/listing.json`, đẩy bằng `node scripts/asc-upload.mjs --only text`); Play: bật nhãn "Contains ads".
 7. Thay mã THỬ bằng mã thật trong `web/js/ads/config.js` (`native.testing: false`) CHỈ ở bản phát hành; bản dev/CI giữ mã thử.
+
+### F. Đánh giá cửa hàng (chỉ đọc)
+- Actions → **Store reviews** (`store-reviews.yml`, thứ Hai 08:20 VN + chạy tay): `scripts/store/reviews.mjs` kéo đánh giá App Store (App Store Connect API, khoá ASC_* sẵn có) + Google Play (Android Publisher API) → artifact `store-reviews` + tóm tắt (≤ 2 sao lên đầu, không ghi tên người đánh giá). Test: `scripts/test/store-reviews.mjs`.
+- 👤 Google Play: secret `PLAY_SERVICE_ACCOUNT_JSON` theo 5 bước ở **§ A3** (cùng một secret cho đẩy bản và đọc đánh giá). Chưa có secret → phần Play bỏ qua, không đỏ.
+

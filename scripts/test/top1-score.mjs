@@ -1,7 +1,7 @@
 // Test bảng Top-1 score (scripts/top1/score.mjs, docs/TOP1-SCORE.md): hàm thuần gom điểm, Top 10, sàn chỉ tăng (so origin/main), workflow gắn đúng.
+import { baseFloors, loweredFloors } from './lib/floor-guard.mjs';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { execFileSync } from 'node:child_process';
 import { AXES, BUDGET, penaltyScore, linScore, gateScore, webItems, compose, upgrades, raiseFloors, checkFloors, render, digestLine, NOISE, SEV_P } from '../top1/score.mjs';
 
 assert.equal(AXES.reduce((s, a) => s + a.weight, 0), 100, 'trọng số các trục cộng = 100');
@@ -44,16 +44,16 @@ assert.match(checkFloors({ total: 999 }, res)[0], /^total/);
 const md = render(res, top, fl, { bad: ['x'] });
 assert.match(md, /^<!-- top1-score -->/); assert.match(md, /Top-1 score: \*\*[\d.]+ \/ 100\*\*/); assert.match(md, /Top 10 nâng cấp/); assert.match(md, /Dưới sàn/);
 assert.match(digestLine(res, top, 'https://i'), /^• Top-1 score [\d.]+\/100 .*nâng cấp #1: .* – https:\/\/i$/);
-// sàn trong repo: hợp lệ + không thấp hơn origin/main
+// sàn trong repo: hợp lệ + PR không tự hạ so với merge-base
 const B = JSON.parse(fs.readFileSync(BUDGET, 'utf8'));
 for (const [k, v] of Object.entries(B.floors)) { assert.ok(k === 'total' || AXES.some(a => a.id === k), 'sàn lạ: ' + k); assert.ok(v >= 0 && v <= 100); }
-let main = null; try { main = JSON.parse(execFileSync('git', ['show', 'origin/main:' + BUDGET], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] })).floors || {}; } catch {}
-if (main) for (const [k, v] of Object.entries(main)) { assert.ok(k in B.floors, `xoá sàn ${k} (no-cuts)`); assert.ok(B.floors[k] >= v, `hạ sàn ${k}: ${B.floors[k]} < ${v} (no-cuts)`); }
+const main = baseFloors(BUDGET); // mốc = merge-base với origin/main: chỉ chặn khi PR TỰ hạ/xoá sàn (main nâng sau lúc tách ≠ lỗi của PR)
+if (main) assert.deepEqual(loweredFloors(B.floors, main), [], 'PR hạ/xoá sàn Top-1 (no-cuts)');
 // gắn lịch: đêm (quality-sweep) + tuần (world-scorecard nâng sàn); không chạy trên PR
 const qs = fs.readFileSync('.github/workflows/quality-sweep.yml', 'utf8'), ws = fs.readFileSync('.github/workflows/world-scorecard.yml', 'utf8');
 assert.match(qs, /scripts\/top1\/score\.mjs --qs qs-report[^\n]*--ci[^\n]*--check[^\n]*--issue/, 'quality-sweep chấm Top-1 mỗi đêm');
 assert.match(qs, /name: qs-report/, 'quality-sweep lưu artifact qs-report cho lượt tuần');
 assert.match(ws, /scripts\/top1\/score\.mjs --qs-latest[^\n]*--raise/, 'world-scorecard nâng sàn Top-1 hằng tuần');
-assert.match(ws, /git add [^\n]*content\/pipeline\/top1\.budget\.json/, 'world-scorecard commit sàn Top-1');
+assert.match(ws, /(git add|push-main\.sh "[^"]*") [^\n]*content\/pipeline\/top1\.budget\.json/, 'world-scorecard commit sàn Top-1');
 for (const [n, y] of [['quality-sweep', qs], ['world-scorecard', ws]]) assert.ok(!/^\s+pull_request/m.test(y), n + ' không chạy trên PR');
 console.log(`✓ top1-score: ${AXES.length} trục (tổng trọng số 100), Top 10 theo lợi ích/công sức, sàn chỉ tăng${main ? ' (so origin/main)' : ''}, gắn đêm + tuần`);

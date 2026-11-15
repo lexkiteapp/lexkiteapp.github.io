@@ -72,5 +72,46 @@
   "words": 43,
   "seconds": 26.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"actress\" mean?",
+  "keyword": "actress",
+  "value": "Actress means a woman who acts in plays or films.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=actress",
+  "script_words": 37,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"actress\" mean?",
+    "description": "Actress means a woman who acts in plays or films.\n\nReview your words, free: https://lexkite.com/app/#/review?w=actress\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "actress",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"actress\" mean?\n\nActress means a woman who acts in plays or films.\n\nReview your words, free: https://lexkite.com/app/#/review?w=actress"
+   },
+   "instagram": {
+    "caption": "What does \"actress\" mean?\n\nActress means a woman who acts in plays or films.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"actress\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means a woman who acts in plays or films. Actress means a woman who acts in plays or films. Try the full lesson and quiz here: {link}"
  }
 }

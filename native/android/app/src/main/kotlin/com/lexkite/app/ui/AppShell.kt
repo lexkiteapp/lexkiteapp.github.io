@@ -32,6 +32,9 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.Hyphens
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.testTag
@@ -67,6 +70,20 @@ fun l10nKey(id: String) = L10nKey.entries.first { it.id == id }
 class ShellSlots(
     val today: @Composable (open: (String) -> Unit) -> Unit,
     val me: @Composable () -> Unit,
+    /** P03 lesson player (`lexkite://lesson/go[?story=<id>]`); null → the M1 placeholder focus screen. */
+    val lesson: (@Composable (story: String?, onExit: () -> Unit) -> Unit)? = null,
+    /** M3 dictionary / verbs / usage / writing library screens: `route` = first segment of the web hash route, `open` takes a web route. */
+    val words: (@Composable (route: String, arg: String, query: String, onExit: () -> Unit, open: (String) -> Unit) -> Unit)? = null,
+    /** M3 vocabulary screens (review, practice, mistakes, deck, library, topic): same arguments as [words] plus `replace` (open a route instead of this screen). */
+    val vocab: (@Composable (route: String, arg: String, query: String, onExit: () -> Unit, open: (String) -> Unit, replace: (String) -> Unit) -> Unit)? = null,
+    /** Root of the Vocabulary tab. */
+    val vocabHub: (@Composable (open: (String) -> Unit) -> Unit)? = null,
+    /** M4 listening + reading screens (listening, listen, listen-test, dictation, reading, read): same arguments as [vocab]. */
+    val skills: (@Composable (route: String, arg: String, query: String, onExit: () -> Unit, open: (String) -> Unit, replace: (String) -> Unit) -> Unit)? = null,
+    /** M4 speaking + pronunciation screens (speak, speaking, pron, say, reflex, rtype, roleplay, handsfree): same arguments as [vocab]. */
+    val speak: (@Composable (route: String, arg: String, query: String, onExit: () -> Unit, open: (String) -> Unit, replace: (String) -> Unit) -> Unit)? = null,
+    /** Root of the Skills tab. */
+    val skillsHub: (@Composable (open: (String) -> Unit) -> Unit)? = null,
 )
 
 /** Focus destinations reachable in M1 (their players land in M2–M4; the frame, X and Back already work). */
@@ -79,8 +96,17 @@ object Routes {
     fun hub(tab: String) = "$tab/hub"
     const val WORD = "vocab/word/{w}"
     fun word(w: String) = "vocab/word/" + android.net.Uri.encode(w)
-    const val FOCUS_R = "focus/{kind}"
-    fun focus(kind: String) = "focus/$kind"
+    const val WORDS_R = "words/{route}?arg={arg}&q={q}"
+    fun words(route: String, arg: String = "", q: String = "") = "words/$route?arg=" + android.net.Uri.encode(arg) + "&q=" + android.net.Uri.encode(q)
+    const val VOCAB_R = "vocabgo/{route}?arg={arg}&q={q}"
+    fun vocab(route: String, arg: String = "", q: String = "") = "vocabgo/$route?arg=" + android.net.Uri.encode(arg) + "&q=" + android.net.Uri.encode(q)
+    const val SKILLS_R = "skillsgo/{route}?arg={arg}&q={q}"
+    fun skills(route: String, arg: String = "", q: String = "") = "skillsgo/$route?arg=" + android.net.Uri.encode(arg) + "&q=" + android.net.Uri.encode(q)
+    const val SPEAK_R = "speakgo/{route}?arg={arg}&q={q}"
+    fun speak(route: String, arg: String = "", q: String = "") = "speakgo/$route?arg=" + android.net.Uri.encode(arg) + "&q=" + android.net.Uri.encode(q)
+    const val FOCUS_R = "focus/{kind}?story={story}"
+    fun focus(kind: String, story: String? = null) = "focus/$kind" + (story?.let { "?story=" + android.net.Uri.encode(it) } ?: "")
+    fun storyOf(query: String): String? = Regex("(?:^|&)story=([^&]+)").find(query)?.groupValues?.get(1)?.let { android.net.Uri.decode(it) }
 }
 
 /** Opens a web-style route or a parsed deep link inside the frame (C08). */
@@ -88,7 +114,11 @@ fun NavHostController.open(link: DeepLink) {
     val route = link.route
     when {
         route == "word" && link.arg.isNotEmpty() -> { selectTab(link.tab); navigate(Routes.word(link.arg)) }
-        route in FOCUS -> navigate(Routes.focus(route)) { launchSingleTop = true }
+        route in com.lexkite.app.feature.vocab.WORD_ROUTES -> navigate(Routes.words(route, link.arg, link.query)) { launchSingleTop = true }
+        route in com.lexkite.app.feature.vocab.VOCAB_ROUTES -> navigate(Routes.vocab(route, link.arg, link.query))
+        route in com.lexkite.app.feature.skills.SKILLS_ROUTES -> navigate(Routes.skills(route, link.arg, link.query))
+        route in com.lexkite.app.feature.speak.SPEAK_ROUTES || route in com.lexkite.app.feature.speak.CALL_ROUTES -> navigate(Routes.speak(route, link.arg, link.query))
+        route in FOCUS -> navigate(Routes.focus(route, Routes.storyOf(link.query))) { launchSingleTop = true }
         else -> selectTab(link.tab)
     }
 }
@@ -120,7 +150,8 @@ fun AppShell(t: L10n, frame: LKFrame, slots: ShellSlots, initialTab: String = "h
                     NavigationBarItem(
                         selected = selected, onClick = { nav.selectTab(tb.k) },
                         icon = { Icon(ICONS.getValue(tb.compose), contentDescription = null) },
-                        label = { Text(t(l10nKey(tb.label)), style = LKType.labelBadge.toCompose()) },
+                        // long words (de "Fertigkeiten" in a 78 dp slot): no badge tracking + proper hyphenation, never a bare mid-word break or a shrunk label
+                        label = { Text(t(l10nKey(tb.label)), style = LKType.labelBadge.toCompose().copy(letterSpacing = 0.sp, hyphens = Hyphens.Auto, textAlign = TextAlign.Center)) },
                         modifier = Modifier.testTag("tab-${tb.k}"),
                         colors = NavigationBarItemDefaults.colors(
                             selectedIconColor = c.secondary, selectedTextColor = c.secondary, indicatorColor = c.secondaryContainer.copy(alpha = 0.22f),
@@ -142,16 +173,50 @@ fun AppShell(t: L10n, frame: LKFrame, slots: ShellSlots, initialTab: String = "h
                             when (tb.k) {
                                 "home" -> slots.today { r -> nav.open(DeepLink.parse("lexkite://$r") ?: DeepLink(DeepLink.HOME)) }
                                 "me" -> Column { TopBar(TopBarVariant.Hub, t(l10nKey(tb.label)), t); slots.me() }
+                                "vocab" -> slots.vocabHub?.invoke { r -> nav.open(DeepLink.parse("lexkite://$r") ?: DeepLink(DeepLink.HOME)) } ?: Hub(t, t(l10nKey(tb.label)))
+                                "skills" -> slots.skillsHub?.invoke { r -> nav.open(DeepLink.parse("lexkite://$r") ?: DeepLink(DeepLink.HOME)) } ?: Hub(t, t(l10nKey(tb.label)))
                                 else -> Hub(t, t(l10nKey(tb.label)))
                             }
                         }
                         if (tb.k == "vocab") composable(Routes.WORD, arguments = listOf(navArgument("w") { type = NavType.StringType })) { e ->
-                            LKScreen(TopBarVariant.Inner, e.arguments?.getString("w").orEmpty(), t, onExit = { nav.popBackStack() }) {}
+                            val w = e.arguments?.getString("w").orEmpty()
+                            val words = slots.words
+                            if (words != null) words("word", w, "", { nav.popBackStack() }) { r -> nav.open(DeepLink.parse("lexkite://$r") ?: DeepLink(DeepLink.HOME)) }
+                            else LKScreen(TopBarVariant.Inner, w, t, onExit = { nav.popBackStack() }) {}
                         }
                     }
-                    composable(Routes.FOCUS_R, arguments = listOf(navArgument("kind") { type = NavType.StringType })) { e ->
+                    composable(Routes.WORDS_R, arguments = listOf(navArgument("route") { type = NavType.StringType }, navArgument("arg") { type = NavType.StringType; defaultValue = "" }, navArgument("q") { type = NavType.StringType; defaultValue = "" })) { e ->
+                        val words = slots.words
+                        val route = e.arguments?.getString("route").orEmpty()
+                        if (words != null) words(route, e.arguments?.getString("arg").orEmpty(), e.arguments?.getString("q").orEmpty(), { nav.popBackStack() }) { r -> nav.open(DeepLink.parse("lexkite://$r") ?: DeepLink(DeepLink.HOME)) }
+                        else LKScreen(TopBarVariant.Inner, route, t, onExit = { nav.popBackStack() }) {}
+                    }
+                    composable(Routes.VOCAB_R, arguments = listOf(navArgument("route") { type = NavType.StringType }, navArgument("arg") { type = NavType.StringType; defaultValue = "" }, navArgument("q") { type = NavType.StringType; defaultValue = "" })) { e ->
+                        val vocab = slots.vocab
+                        val route = e.arguments?.getString("route").orEmpty()
+                        val go = { r: String -> nav.open(DeepLink.parse("lexkite://$r") ?: DeepLink(DeepLink.HOME)) }
+                        if (vocab != null) vocab(route, e.arguments?.getString("arg").orEmpty(), e.arguments?.getString("q").orEmpty(), { nav.popBackStack() }, go) { r -> nav.popBackStack(); go(r) }
+                        else LKScreen(TopBarVariant.Inner, route, t, onExit = { nav.popBackStack() }) {}
+                    }
+                    composable(Routes.SKILLS_R, arguments = listOf(navArgument("route") { type = NavType.StringType }, navArgument("arg") { type = NavType.StringType; defaultValue = "" }, navArgument("q") { type = NavType.StringType; defaultValue = "" })) { e ->
+                        val skills = slots.skills
+                        val route = e.arguments?.getString("route").orEmpty()
+                        val go = { r: String -> nav.open(DeepLink.parse("lexkite://$r") ?: DeepLink(DeepLink.HOME)) }
+                        if (skills != null) skills(route, e.arguments?.getString("arg").orEmpty(), e.arguments?.getString("q").orEmpty(), { nav.popBackStack() }, go) { r -> nav.popBackStack(); go(r) }
+                        else LKScreen(TopBarVariant.Inner, route, t, onExit = { nav.popBackStack() }) {}
+                    }
+                    composable(Routes.SPEAK_R, arguments = listOf(navArgument("route") { type = NavType.StringType }, navArgument("arg") { type = NavType.StringType; defaultValue = "" }, navArgument("q") { type = NavType.StringType; defaultValue = "" })) { e ->
+                        val speak = slots.speak
+                        val route = e.arguments?.getString("route").orEmpty()
+                        val go = { r: String -> nav.open(DeepLink.parse("lexkite://$r") ?: DeepLink(DeepLink.HOME)) }
+                        if (speak != null) speak(route, e.arguments?.getString("arg").orEmpty(), e.arguments?.getString("q").orEmpty(), { nav.popBackStack() }, go) { r -> nav.popBackStack(); go(r) }
+                        else LKScreen(TopBarVariant.Inner, route, t, onExit = { nav.popBackStack() }) {}
+                    }
+                    composable(Routes.FOCUS_R, arguments = listOf(navArgument("kind") { type = NavType.StringType }, navArgument("story") { type = NavType.StringType; nullable = true; defaultValue = null })) { e ->
                         val kind = e.arguments?.getString("kind").orEmpty()
-                        LKScreen(TopBarVariant.Focus(0f), t(focusTitle(kind)), t, onExit = { nav.popBackStack() }) {}
+                        val lesson = slots.lesson
+                        if (kind == "lesson" && lesson != null) lesson(e.arguments?.getString("story")) { nav.popBackStack() }
+                        else LKScreen(TopBarVariant.Focus(0f), t(focusTitle(kind)), t, onExit = { nav.popBackStack() }) {}
                     }
                 }
             }

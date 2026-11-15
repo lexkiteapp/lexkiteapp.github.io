@@ -1,6 +1,8 @@
 // Trần gói miễn phí + luật đánh giá cho free-tier-guard (docs/FREE-TIER.md). Thuần – không gọi mạng; test: scripts/test/free-tier.mjs
 // Mức: ok < 60 % ≤ warn < 80 % ≤ alert. alert → mở/cập nhật issue 'free-tier'. Chế độ "shed" (web/free-tier-state.json) khi lượt Worker+Functions ≥ 80 %.
 export const WARN = 0.6, ALERT = 0.8;
+// Cộng đồng: TURN vượt ngưỡng shed → tắt phòng nói (web/free-tier-state.json voice=off) trước khi chạm trần 1.000 GB
+export const voiceOff = rows => rows.some(r => r.key === 'turn_bytes' && r.pct >= (LIMITS.turn_bytes.shed || ALERT));
 
 // key → { label, limit, unit, period, action }. action = việc đề xuất KHÔNG cắt tính năng (chủ quyết nâng gói – guard không tự nâng).
 export const LIMITS = {
@@ -16,6 +18,10 @@ export const LIMITS = {
   r2_storage: { label: 'R2 – dung lượng', limit: 10 * 1024 ** 3, unit: 'byte', period: 'tháng', action: 'blog-images.mjs gc (liệt kê file mồ côi); ảnh AVIF cỡ nhỏ.' },
   r2_class_a: { label: 'R2 – Class A (ghi/list)', limit: 1e6, unit: 'thao tác', period: 'tháng', action: 'Đẩy ảnh theo mã băm (bỏ qua file đã có), không list toàn bucket.' },
   r2_class_b: { label: 'R2 – Class B (đọc)', limit: 10e6, unit: 'thao tác', period: 'tháng', action: 'Cache API ở Worker (đọc R2 chỉ khi trượt cache), s-maxage dài.' },
+  // Cộng đồng (docs/specs/community.md §4) – số kiểm 03/11/2026 trên trang giá Cloudflare; chưa dùng ở đợt 1 (giá trị 0)
+  do_requests: { label: 'Durable Objects – lượt (Workers Free)', limit: 100000, unit: 'lượt', period: 'ngày', action: 'RoomDO dùng WebSocket Hibernation (tin vào tính 20:1); gộp nhịp hiện diện; nếu ≥ 80 % 3 ngày: chủ quyết Workers Paid.' },
+  do_rows_written: { label: 'Durable Objects SQLite – dòng ghi', limit: 100000, unit: 'dòng', period: 'ngày', action: 'Gộp tin theo lô 2 s trong RoomDO; giảm giữ tin 30 → 14 ngày chỉ khi chủ duyệt.' },
+  turn_bytes: { label: 'Cloudflare Realtime TURN + SFU – dữ liệu (1.000 GB/tháng free, chung)', limit: 1000 * 1e9, unit: 'byte', period: 'tháng', shed: 0.7, action: 'Tự tắt phòng nói khi ≥ 70 % (chat vẫn chạy, mở lại đầu tháng); giảm Opus 24 → 16 kbps. KHÔNG sang trả phí.' },
   gh_cache: { label: 'GitHub Actions cache (repo web)', limit: 10 * 1024 ** 3, unit: 'byte', period: 'repo', soft: true, action: 'GitHub tự xoá cache cũ khi > 10 GB (không tính phí) – chỉ ảnh hưởng tốc độ CI; gom khoá cache theo hash lockfile.' },
   gh_repo: { label: 'Repo GitHub (khuyến nghị)', limit: 1024 ** 3, unit: 'byte', period: 'repo', action: 'Kho media đầy → mở kho shard mới (infra/media-repos.json state=open), không xoá tệp đã đặt.' },
 };
@@ -39,7 +45,7 @@ export function evaluate(usage) {
   const alerts = rows.filter(r => r.level === 'alert');
   const worst = rows.length ? rows[0].level : 'ok';
   const cf = rows.find(r => r.key === 'cf_requests');
-  return { rows, worst, alerts, mode: cf && cf.pct >= ALERT ? 'shed' : 'normal' };
+  return { rows, worst, alerts, mode: cf && cf.pct >= ALERT ? 'shed' : 'normal', voice: voiceOff(rows) ? 'off' : 'on' };
 }
 
 const fmtN = (v, unit) => unit === 'byte' ? (v >= 1e9 ? (v / 1024 ** 3).toFixed(2) + ' GB' : (v / 1024 ** 2).toFixed(0) + ' MB') : Math.round(v).toLocaleString('vi-VN');

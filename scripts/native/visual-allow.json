@@ -10,6 +10,36 @@
         58
       ],
       "reason": "Sign in with Apple: Apple HIG bắt buộc nút đen (sáng) / trắng (tối) của hệ thống (SignInWithAppleButton) – không được tô màu token"
+    },
+    {
+      "match": "ios-ama-*",
+      "rect": [
+        0,
+        0,
+        390,
+        338
+      ],
+      "reason": "Ảnh chụp riêng rig giáo viên (C05): vùng nhân vật = art 2D đã duyệt của web/teach (Ama/Carlos, characters.json), không phải UI nên không thuộc bảng token; nền quanh nhân vật vẫn được kiểm. Màn bài học/onboarding có giáo viên vẫn kiểm đầy đủ."
+    },
+    {
+      "match": "ios-carlos-*",
+      "rect": [
+        0,
+        0,
+        390,
+        338
+      ],
+      "reason": "Ảnh chụp riêng rig giáo viên (C05): vùng nhân vật = art 2D đã duyệt của web/teach (Ama/Carlos, characters.json), không phải UI nên không thuộc bảng token; nền quanh nhân vật vẫn được kiểm. Màn bài học/onboarding có giáo viên vẫn kiểm đầy đủ."
+    },
+    {
+      "match": "android-teacher-*",
+      "rect": [
+        30,
+        20,
+        350,
+        317
+      ],
+      "reason": "Ảnh chụp riêng rig giáo viên (C05): vùng nhân vật = art 2D đã duyệt của web/teach (Ama/Carlos, characters.json), không phải UI nên không thuộc bảng token; nền quanh nhân vật vẫn được kiểm. Màn bài học/onboarding có giáo viên vẫn kiểm đầy đủ."
     }
   ],
   "colors": []

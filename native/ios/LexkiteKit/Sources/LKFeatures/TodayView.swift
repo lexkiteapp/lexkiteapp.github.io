@@ -69,7 +69,8 @@ struct LKCard<Content: View>: View {
         self.fill = fill; self.padding = padding; self.content = content()
     }
     var body: some View {
-        content
+        // one card for the whole builder: modifiers on a multi-view builder would give every child its own card
+        VStack(alignment: .leading, spacing: LKSpacing.spaceSm) { content }
             .padding(padding)
             .frame(maxWidth: .infinity, alignment: .leading)
             .background {
@@ -139,7 +140,7 @@ struct TodayStatsRow: View {
             chip(icon: "target", tint: LKColor.secondary, value: s.target.isEmpty ? "–" : s.target, label: s.target.isEmpty ? t(.todaySetGoal) : t(.todayTarget)) { services.router.open(AppRoute("goal")) }
             chip(icon: "flame.fill", tint: LKColor.primaryContainer, value: Fmt.int(s.streak, t.lang), label: t(.todayStreakDays)) { services.router.open(AppRoute("streak")) }
             chip(icon: "bolt.fill", tint: LKColor.star, value: Fmt.int(s.xp, t.lang), label: t(.todayXp)) { services.router.open(AppRoute("stats")) }
-            GoalChip(done: min(s.reviewsToday, s.dailyGoal), goal: s.dailyGoal, progress: s.goalProgress, label: t(.todayGoalShort)) { services.router.open(AppRoute("review")) }
+            GoalChip(done: min(s.reviewsToday, s.dailyGoal), goal: s.dailyGoal, progress: s.goalProgress, label: t(.todayDailyGoal)) { services.router.open(AppRoute("review")) }
         }
     }
     func chip(icon: String, tint: LKDynamicColor, value: String, label: String, action: @escaping () -> Void) -> some View {

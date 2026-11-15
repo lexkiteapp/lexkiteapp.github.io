@@ -72,5 +72,46 @@
   "words": 47,
   "seconds": 28.2,
   "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"grade\" mean?",
+  "keyword": "grade",
+  "value": "Grade means a mark given for a piece of work or an exam.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=grade",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"grade\" mean?",
+    "description": "Grade means a mark given for a piece of work or an exam.\n\nReview your words, free: https://lexkite.com/app/#/review?w=grade\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "grade",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"grade\" mean?\n\nGrade means a mark given for a piece of work or an exam.\n\nReview your words, free: https://lexkite.com/app/#/review?w=grade"
+   },
+   "instagram": {
+    "caption": "What does \"grade\" mean?\n\nGrade means a mark given for a piece of work or an exam.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"grade\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a mark given for a piece of work or an exam. Grade means a mark given for a piece of work or an exam. Practice it with a free quiz: {link}"
  }
 }

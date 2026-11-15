@@ -59,7 +59,7 @@ for line in open(a.tatoeba, encoding='utf-8'):
         rest = [t for j, t in enumerate(low) if j != i and t not in STOP]
         if rest and min(z(t) for t in rest) < 3.3: continue  # câu dễ: mọi từ khác phổ biến
         caps = sum(1 for j, t in enumerate(words) if j and t[0].isupper() and t != 'I')
-        score = (sum(z(t) for t in rest) / max(1, len(rest))) - 0.08 * abs(len(words) - 9) - 0.5 * caps - (0.3 if sid.startswith(('sw', 'cv')) else 0)  # câu bản ngữ Tatoeba hơn chút khi điểm ngang
+        score = (sum(z(t) for t in rest) / max(1, len(rest))) - 0.08 * abs(len(words) - 9) - 0.5 * caps - (0.3 if sid.startswith(('sw', 'cv', 'wv', 'wnw', 'wb')) else 0)  # câu bản ngữ Tatoeba hơn chút khi điểm ngang
         hits[wp].append((score, sid, s, i))
 out = {}
 for x in W:

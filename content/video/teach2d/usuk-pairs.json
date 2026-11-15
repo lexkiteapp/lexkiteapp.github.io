@@ -5,7 +5,7 @@
   { "us": "vacation", "uk": "holiday", "example": "We're going on vacation next week." },
   { "us": "line", "uk": "queue", "example": "There's a long line at the bank." },
   { "us": "gas", "uk": "petrol", "example": "We need to stop for gas." },
-  { "us": "cookie", "uk": "biscuit", "example": "Can I have another cookie?" },
+  { "us": "cookie", "uk": "biscuit", "example": "Can I have another cookie, please?" },
   { "us": "mail", "uk": "post", "example": "Did the mail come today?" },
   { "us": "movie", "uk": "film", "example": "Let's watch a movie tonight." },
   { "us": "soccer", "uk": "football", "example": "My son plays soccer after school." },

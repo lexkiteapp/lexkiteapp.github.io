@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ar_wantthat",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Want you to!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I want that you come.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I want you to come.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Say want you to.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Me to! Mom wants me to study.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I want that you come.",
+  "right": "I want you to come.",
+  "strike": "that",
+  "why": "Say want you to.",
+  "memory": "Want you to.",
+  "quiz": {
+   "stem": "Mom wants ___ study.",
+   "options": [
+    "me to",
+    "that I"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "هل تقول “I want that you”؟",
+   "tip": "نقول want you to + فعل: “I want you to come.” وليس “I want that you come.”.",
+   "caption": "هل تقول أحيانًا “I want that you come.” 😅 نقول want you to + فعل، فالجملة الصحيحة “I want you to come.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.",
+   "comment": "الإجابة: “me to”. نقول want you to + فعل. اختبار مجاني هنا: {link}",
+   "hashtags": [
+    "#تعلم_الانجليزية",
+    "#اللغة_الانجليزية",
+    "#englishlearning",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “I want that you come”?",
+   "tip": "We say want you to plus a verb: “I want you to come.” not “I want that you come.”.",
+   "caption": "Do you sometimes say “I want that you come.” 😅 We say want you to plus a verb, so the right sentence is “I want you to come.” Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "هل تقول “I want that you”؟"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ar",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "هل تقول “I want that you”؟",
+  "keyword": "I want you to come.",
+  "value": "نقول want you to + فعل: “I want you to come.” وليس “I want that you come.”.",
+  "hashtags": [
+   "#تعلم_الانجليزية",
+   "#اللغة_الانجليزية",
+   "#englishlearning",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "هل تقول “I want that you”؟",
+    "description": "هل تقول أحيانًا “I want that you come.” 😅 نقول want you to + فعل، فالجملة الصحيحة “I want you to come.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#تعلم_الانجليزية #اللغة_الانجليزية #englishlearning #lexkite",
+    "tags": [
+     "I want you to come.",
+     "learn english",
+     "ar"
+    ]
+   },
+   "facebook": {
+    "text": "هل تقول أحيانًا “I want that you come.” 😅 نقول want you to + فعل، فالجملة الصحيحة “I want you to come.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "هل تقول أحيانًا “I want that you come.” 😅 نقول want you to + فعل، فالجملة الصحيحة “I want you to come.” استمع إلى Ama وكرّر! تدرّب أكثر في تطبيق Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#تعلم_الانجليزية",
+     "#اللغة_الانجليزية",
+     "#englishlearning",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "هل تقول “I want that you”؟ #تعلم_الانجليزية #اللغة_الانجليزية #englishlearning"
+   }
+  },
+  "first_comment": "الإجابة: “me to”. نقول want you to + فعل. اختبار مجاني هنا: {link}",
+  "lang": "ar"
+ }
+}

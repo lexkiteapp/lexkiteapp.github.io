@@ -9,7 +9,17 @@
  *            vectors/migration.json, migration-export.js;  content  scripts/native/content-pack.mjs → content-pack/ (Today + first lesson)
  *   starter  scripts/native/starter.mjs → content-pack/starter.json + vectors/starter-deck.json (onboarding starter deck, web parity)
  *   logo     scripts/native/logo.mjs: brand/lexkite-mark.svg → Android VectorDrawable + iOS imageset (the EXACT mark, never redrawn)
- *   teacher  web/teach/characters.json + web/teach/ama/still-<pose>.webp → bundled offline fallback stills (Android assets / iOS LKDesign resources)
+ *   teacher  scripts/native/gen-teach.mjs: web TeacherRig core + call/{face,mouths,lipsync,paint}.js + cues.js → teach/rig.json (rig definition) + vectors/rig.json (frames, lip sync ±33 ms, face paint ops, mood);
+ *            web/teach/<ama|carlos>/{head-bare-2x,still-<pose>}.webp → bundled offline art (Android assets / iOS LKDesign resources)
+ *   lesson   scripts/native/gen-lesson.mjs: web/js/lesson/engine.js (pickWords/build/adapt/check/Session/results/storyItems/plans…) → vectors/lesson.json
+ *   vimg     scripts/native/gen-vimg.mjs: web/js/vocab-img.js (VImg v3 head + shards) → vectors/vimg.json (lesson pic images)
+ *   audio    scripts/native/gen-audio.mjs: web/js/audio.js + CDN/word-key/ttsClean lines of web/js/ui.js + listen/kvoice.js → vectors/audio.json
+ *   skills   scripts/native/gen-skills.mjs: web/js/{listening,reading,qengine,qtips,lexis,listen/kvoice,plan}.js + listen/readings data → vectors/skills.json (M4: parity P06 listening & reading screens; P07/P09 extend)
+ *   skillspack scripts/native/gen-skills.mjs skillsPack(): complete LISTENING (10×4) + READINGS (57) + lexis + band/voice/stopword consts → web/data/skills-pack.json (https://lexkite.com/data/skills-pack.json)
+ *   speak    scripts/native/gen-speak.mjs: web/js/{speak/*,speaking,pron,pron/*,say,reflex,rtype,roleplay,handsfree}.js → vectors/speak.json (M4: parity P07 speaking & pronunciation) + web/data/speak-pack.json (https://lexkite.com/data/speak-pack.json) + content-pack/speak-starter.json
+ *   write    scripts/native/gen-write.mjs: web/js/{write,task1,lexis,qtips,criteria}.js → vectors/write.json (M4: parity P09 #/write #/task1 #/qstats #/criteria) + web/data/write-pack.json (https://lexkite.com/data/write-pack.json)
+ *   call     scripts/native/gen-call.mjs: web/js/{call,call/engine,call/calls*,pron/pairs}.js → vectors/call.json (M4: parity P08 Call Ama/Carlos #/call) + web/data/call-pack.json (https://lexkite.com/data/call-pack.json) + content-pack/call-starter.json
+ *   vocab    scripts/native/gen-vocab.mjs: web/js/{core,study,plan,app (deck/library/topic),dictionary,lex,dict-page,ideas,letters,paraphrase,phrases-model,usage-core,verbs-core}.js → vectors/vocab.json (M3: parity P04 + P05 screens)
  * Usage: node scripts/native/gen.mjs          (write)
  *        node scripts/native/gen.mjs --check  (CI drift gate: exit 1 if any generated file differs or a string is missing)
  *        --only=<path prefix>                  limit write/check to one tree (e.g. native/shared)
@@ -243,15 +253,52 @@ put(`${SHARED}/vectors/starter-deck.json`, ST.vector);
 const { logoFiles } = await import('./logo.mjs');
 for (const [rel, s] of logoFiles()) put(rel, s);
 
-// ---------- teacher (Ama) offline fallback stills: poses the onboarding shows, copied byte for byte from the web art ----------
-const TEACH_POSES = ['happy', 'cheer', 'point', 'thinking']; // web Chars poses (characters.json "poses"); keep in sync with the poses OnboardingScreens/OnboardingViews request
-const chars = JSON.parse(fs.readFileSync(R('web/teach/characters.json'), 'utf8'));
-for (const p of TEACH_POSES) {
-  if (!chars.poses.includes(p) || !chars.people.ama) throw new Error(`teacher pose "${p}" is not in web/teach/characters.json`);
-  const bytes = fs.readFileSync(R(`web/teach/ama/still-${p}.webp`));
-  if (bytes.length > 60 * 1024) throw new Error(`teacher still ${p} is ${bytes.length} B – too large to bundle`);
-  putBin(`${SHARED}/teach/ama/still-${p}.webp`, bytes);               // Android: assets srcDir = native/shared/gen → asset path teach/ama/still-<pose>.webp (same path as the CDN)
-  putBin(`${IOS}/Sources/LKDesign/Resources/teach/ama/still-${p}.webp`, bytes);
+// ---------- teacher rig (C05) + offline art (Ama + Carlos) + lesson (P03) and audio (C04) vectors – all from the REAL web JS ----------
+// Native port of the web TeacherRig (no .riv, docs/specs/teacher-rive-rig.md): rig definition → teach/rig.json (bundled with both apps), frame/lip-sync vectors → vectors/rig.json.
+const { teachGen, teachBundle, rigVectorText } = await import('./gen-teach.mjs');
+const TG = teachGen();
+const rigJson = JSON.stringify(TG.rigJson, null, 1) + '\n';
+put(`${SHARED}/teach/rig.json`, rigJson);                                    // Android: assets srcDir = native/shared/gen → asset path teach/rig.json
+put(`${IOS}/Sources/LKDesign/Resources/teach/rig.json`, rigJson);
+// Lip-sync cue table = web window.LK_CUES (web/js/call/cues.js, built on CI from Kokoro audio): k[lineKey(voice, text)] = packed [ms, cues, env]
+// (unpack: vectors/rig.json lipsync.unpack), dict = word → phonemes for fromText. Same lookup as web/js/lesson/teacher.js cue(key); miss → fromEnv/fromText.
+{
+  const sb = {}; sb.self = sb; sb.window = sb; sb.globalThis = sb; vm.createContext(sb);
+  vm.runInContext(fs.readFileSync(R('web/js/call/cues.js'), 'utf8'), sb, { filename: 'web/js/call/cues.js' });
+  const C = sb.LK_CUES; if (!C || !C.k || !C.dict) throw new Error('web/js/call/cues.js: LK_CUES {v,k,dict} not found');
+  const cuesJson = JSON.stringify({ _doc: 'GENERATED by scripts/native/gen.mjs from web/js/call/cues.js (window.LK_CUES) – do not edit by hand. Lookup: k[KVoice.lineKey(voice, text)] → packed cue (LipSync.unpack); dict → LipSync.fromText.', v: C.v, k: C.k, dict: C.dict }) + '\n';
+  put(`${SHARED}/teach/cues.json`, cuesJson);
+  put(`${IOS}/Sources/LKDesign/Resources/teach/cues.json`, cuesJson);
+}
+put(`${SHARED}/vectors/rig.json`, rigVectorText(TG.vectorJson));
+// Bundled offline art: head-bare-2x + the pose stills the lesson screen / feedback sheet / complete screen / rig use, byte for byte from web/teach (size-capped)
+for (const a of teachBundle()) {
+  putBin(`${SHARED}/teach/${a.who}/${a.name}`, a.bytes);                     // Android: asset path teach/<who>/<file> (same path as the CDN)
+  putBin(`${IOS}/Sources/LKDesign/Resources/teach/${a.who}/${a.name}`, a.bytes);
+}
+const { lessonVectors } = await import('./gen-lesson.mjs');
+put(`${SHARED}/vectors/lesson.json`, lessonVectors());
+const { audioVectors } = await import('./gen-audio.mjs');
+put(`${SHARED}/vectors/audio.json`, audioVectors());
+{ const { skillsPack, PACK_PATH } = await import('./gen-skills.mjs'); put(PACK_PATH, await skillsPack());
+  const st = await (await import('./gen-skills.mjs')).skillsStarter(); put((await import('./gen-skills.mjs')).STARTER_PATH, st); put(`${IOS}/Sources/LKStore/Resources/skills-content.json`, st); }   // M4: full listening+reading content, served as https://lexkite.com/data/skills-pack.json (not in the extension / app shell: only web/js,css,cpack… are copied)
+const { vocabVectors, verbsTables } = await import('./gen-vocab.mjs');
+for (const p of [SHARED, `${IOS}/Sources/LKDesign/Resources`]) put(`${p}/verbs.json`, verbsTables());   // M3 verb tables of verbs-core.js
+put(`${SHARED}/vectors/skills.json`, await (await import('./gen-skills.mjs')).skillsVectors());
+{ const SP = await import('./gen-speak.mjs'); put(`${SHARED}/vectors/speak.json`, await SP.speakVectors()); put(SP.SPEAK_PACK_PATH, await SP.speakPack());
+  const st = await SP.speakStarter(); put(SP.SPEAK_STARTER_PATH, st); put(`${IOS}/Sources/LKStore/Resources/speak-content.json`, st); }   // M4 P07 speaking & pronunciation: vectors (speak, speaking, pron, say, reflex, rtype, roleplay, handsfree) + full content pack https://lexkite.com/data/speak-pack.json + offline starter   // M4 listening & reading screens (listening/listen/listen-test/dictation/reading/read)
+{ const CL = await import('./gen-call.mjs'); put(`${SHARED}/vectors/call.json`, await CL.callVectors()); put(CL.CALL_PACK_PATH, await CL.callPack());
+  const st = await CL.callStarter(); put(CL.CALL_STARTER_PATH, st); put(`${IOS}/Sources/LKStore/Resources/call-content.json`, st); }   // M4 P08 Call Ama/Carlos: vectors (engine, list, ring, flow, rewards, progress, persist, data) + full content pack https://lexkite.com/data/call-pack.json + offline starter (Android assets content-pack/call-starter.json, iOS call-content.json)
+{ const WR = await import('./gen-write.mjs'); put(`${SHARED}/vectors/write.json`, await WR.writeVectors()); put(WR.WRITE_PACK_PATH, await WR.writePack()); }   // M4 P09 writing & grammar: vectors (write, task1, qstats, criteria) + download pack https://lexkite.com/data/write-pack.json (criteria data)
+{ const LN = await import('./gen-learn.mjs'); put(`${SHARED}/vectors/learn.json`, await LN.learnVectors()); const lc = await LN.learnContent(); put(LN.LEARN_CONTENT_PATH, lc); put(`${IOS}/Sources/LKStore/Resources/learn-content.json`, lc);
+  put(LN.GRAMMAR_PACK_PATH, await LN.grammarPack()); const gst = await LN.grammarStarter(); put(LN.GRAMMAR_STARTER_PATH, gst); put(`${IOS}/Sources/LKStore/Resources/grammar-content.json`, gst); }   // M4 P09 part 2: #/fix #/grammar #/method #/quick #/style #/confidence – vectors (learn.json), bundled content (rules, style quiz, confidence units, method texts), grammar download pack https://lexkite.com/data/grammar-pack.json + offline starter
+put(`${SHARED}/vectors/vocab.json`, await vocabVectors());   // M3 vocabulary screens (review/practice/mistakes/deck/dict/library/topic/letters/verb/phrases/model/models/usage/ideas/paraphrase)
+const { vimgVectors } = await import('./gen-vimg.mjs'); // lesson "pic" images: VImg v3 lookup (exact word#pos, shard by FNV) on the lesson + starter words
+{
+  const lp = JSON.parse(fs.readFileSync(R('native/shared/gen/content-pack/lesson-ngsl1.1.json'), 'utf8')), sp = JSON.parse(fs.readFileSync(R('native/shared/gen/content-pack/starter.json'), 'utf8'));
+  const ws = new Map(); for (const c of lp.words.concat(...Object.values(sp.topics))) if (c && c.word) ws.set(c.word + '#' + c.pos, [c.word, c.pos]);
+  ws.set('apple#n', ['apple', 'n']); ws.set('apple#v', ['apple', 'v']); ws.set(' Book #noun', [' Book ', 'noun']);
+  put(`${SHARED}/vectors/vimg.json`, JSON.stringify(await vimgVectors([...ws.values()])) + '\n');
 }
 
 // ---------- Remote Config flags (native/shared/flags.json → Flags.swift + Flags.kt, safe offline defaults) ----------
@@ -299,14 +346,29 @@ const COMPAT = compatVectors(fs.existsSync(compatFile) ? JSON.parse(fs.readFileS
 put(`${SHARED}/vectors/compat.json`, json(COMPAT));
 
 // ---------- write / check ----------
+// first differing JSON paths (committed → regenerated): turns a CI-only DRIFT into a readable cause (platform float/order differences)
+function jsonDiff(a, b, max = 8) {
+  const out = []; let A, B; try { A = JSON.parse(a); B = JSON.parse(b); } catch { return ['(not parseable JSON)']; }
+  const walk = (x, y, p) => {
+    if (out.length >= max) return;
+    if (typeof x !== typeof y || Array.isArray(x) !== Array.isArray(y) || (x === null) !== (y === null)) { out.push(`${p}: ${JSON.stringify(x)?.slice(0, 80)} → ${JSON.stringify(y)?.slice(0, 80)}`); return; }
+    if (x && typeof x === 'object') {
+      if (Array.isArray(x) && x.length !== y.length) out.push(`${p}: length ${x.length} → ${y.length}`);
+      for (const k of new Set([...Object.keys(x), ...Object.keys(y)])) walk(x[k], y[k], `${p}${Array.isArray(x) ? `[${k}]` : `.${k}`}`);
+    } else if (x !== y) out.push(`${p}: ${JSON.stringify(x)} → ${JSON.stringify(y)}`);
+  };
+  walk(A, B, '$');
+  if (!out.length) { let i = 0; while (i < a.length && a[i] === b[i]) i++; out.push(`same values, text differs at char ${i}/${a.length}→${b.length}: ${JSON.stringify(a.slice(Math.max(0, i - 60), i + 60))} → ${JSON.stringify(b.slice(Math.max(0, i - 60), i + 60))}`); }
+  return out;
+}
 let drift = 0;
 for (const [rel, s] of out) {
   if (ONLY && !rel.startsWith(ONLY)) continue;
   const f = R(rel), bin = Buffer.isBuffer(s), cur = fs.existsSync(f) ? fs.readFileSync(f, bin ? undefined : 'utf8') : null;
   if (bin ? cur && cur.equals(s) : cur === s) continue;
-  if (CHECK) { drift++; console.error(`DRIFT ${rel} (run: node scripts/native/gen.mjs)`); }
+  if (CHECK) { drift++; console.error(`DRIFT ${rel} (run: node scripts/native/gen.mjs)`); if (!bin && cur && rel.endsWith('.json')) jsonDiff(cur, s).forEach(d => console.error('  ' + d)); }
   else { fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, s); console.log('wrote', rel); }
 }
-if (missing.length) { console.error(`MISSING translations (${missing.length}): ${missing.slice(0, 20).join(', ')} – add them through the web i18n pipeline, never in native code`); process.exit(1); }
+if (missing.length) { console.error(`MISSING translations (${missing.length}): ${missing.slice(0, +(process.env.GEN_MISSING_MAX || 20)).join(', ')} – add them through the web i18n pipeline, never in native code`); process.exit(1); }
 if (drift) process.exit(1);
 console.log(`native gen ${CHECK ? 'check' : 'write'} OK: ${colors.length} colours, ${ids.length} strings × ${LANGS.length} langs, ${frame.tabs.length} tabs, ${fsrs.length} FSRS seqs, ${answer.norm.length + answer.check.length} answer vectors, ${G.sync.merge.length} merge + ${G.sync.scenarios.length} sync scenarios, ${G.migration.cases.length} migration cases, content pack ${CP.bytes} B, starter ${ST.bytes} B, ${flagIds.length} flags, ${COMPAT.cases.length} compat cases`);

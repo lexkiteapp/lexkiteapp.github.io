@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_hair",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Hair has no s!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: She has long hairs.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: She has long hair.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Hair has no plural s.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Hair! He has short hair.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "She has long hairs.",
+  "right": "She has long hair.",
+  "strike": "hairs",
+  "why": "Hair has no plural s.",
+  "memory": "Long hair.",
+  "quiz": {
+   "stem": "He has short ___.",
+   "options": [
+    "hair",
+    "hairs"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "头发不能加 s！",
+   "tip": "hair 指头发时是不可数名词，不加 s。",
+   "caption": "你是不是也会说 “She has long hairs.”？😅 hair 指整头头发时不可数，不加 s：“She has long hair.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“hair”。hair 不可数！免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Hair has no “s”!",
+   "tip": "Hair is uncountable, so do not add an s.",
+   "caption": "Do you say “She has long hairs.”? 😅 Hair is uncountable when it means all the hair on the head: “She has long hair.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "头发不能加 s！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 42,
+  "seconds": 26.1,
+  "wpm": 96
+ },
+ "publish": {
+  "title": "头发不能加 s！",
+  "keyword": "She has long hair.",
+  "value": "hair 指头发时是不可数名词，不加 s。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "头发不能加 s！",
+    "description": "你是不是也会说 “She has long hairs.”？😅 hair 指整头头发时不可数，不加 s：“She has long hair.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "She has long hair.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “She has long hairs.”？😅 hair 指整头头发时不可数，不加 s：“She has long hair.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "你是不是也会说 “She has long hairs.”？😅 hair 指整头头发时不可数，不加 s：“She has long hair.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "头发不能加 s！ #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“hair”。hair 不可数！免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

@@ -4,6 +4,7 @@
 //   --write: ghi content/pipeline/WORLD.md + khối Top 10 trong docs/UX-BENCHMARK.md   --check: thoát 1 nếu trục nào < sàn (content/pipeline/world.budget.json)
 //   --raise: nâng sàn lên điểm mới (chỉ tăng; trục dao động trừ "noise")
 import fs from 'node:fs';
+import { dataFiles } from './lib/scan-roots.mjs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -47,7 +48,10 @@ function whyLangs() { // ngôn ngữ có "why" trong content/explain/*.json + we
   const scan = o => { if (!o || typeof o !== 'object') return; for (const [k, v] of Object.entries(o)) { if (/^[a-z]{2}$/.test(k) && v && typeof v === 'object' && typeof v.why === 'string' && v.why.trim()) add(k); else scan(v); } };
   for (const f of ls('content/explain').filter(f => f.endsWith('.json'))) scan(json('content/explain/' + f));
   for (const d of ls('web/js/explain')) for (const f of ls('web/js/explain/' + d).filter(f => /^[a-z]{2}\.json$/.test(f))) { const o = json(`web/js/explain/${d}/${f}`); if (o) add(f.slice(0, 2), Object.values(o).filter(v => v && v.why).length); }
-  const g = read('web/js/lesson/gold.js'); if (g) add('en', (g.match(/"why":"[^"]+"/g) || []).length);
+  for (const f of ls('web/cpack/grammar-l1').filter(f => /^[a-z]{2}\.js$/.test(f))) { // ghi chú lỗi tiếng mẹ đẻ: notes[bài] = [[✗, ✓, vì sao]] (web/cpack/grammar-l1/<lang>.js)
+    try { const w = {}; new Function('window', read('web/cpack/grammar-l1/' + f))(w); const N = (w.GRAMMAR_L1 || {}).notes || {}; add(f.slice(0, 2), Object.values(N).flat().filter(n => Array.isArray(n) && n[0] && n[1] && String(n[2] || '').trim().length >= 12).length); } catch { /* bỏ qua */ }
+  }
+  const g = read('web/cpack/lesson/gold.js'); if (g) add('en', (g.match(/"why":"[^"]+"/g) || []).length);
   return cnt;
 }
 function measure(ax) {
@@ -69,9 +73,10 @@ function measure(ax) {
   // why/L1
   const W = whyLangs(), langs = Object.keys(W).filter(l => W[l] > 0), perLang = 200;
   m.whyL1 = r1(Object.values(W).reduce((s, n) => s + Math.min(1, n / perLang), 0) / 15 * 100);
-  note.whyL1 = `${langs.length}/15 ngôn ngữ có "vì sao" (${langs.map(l => l + ' ' + W[l]).join(', ') || '0'}; đích ${perLang}/ngôn ngữ)`;
+  note.whyL1 = `${Object.values(W).filter(n => n >= perLang).length}/15 ngôn ngữ đạt đích; có "vì sao" (${langs.map(l => l + ' ' + W[l]).join(', ') || '0'}; đích ${perLang}/ngôn ngữ)`;
   const fsrs = has('web/js/core.js', /FSRS/);
-  m.personal = r1((fsrs ? 50 : 0) + Math.min(1, langs.length / 15) * 50); note.personal = `${fsrs ? '✓' : '✗'} FSRS theo người · lỗi L1 ${langs.length}/15 ngôn ngữ`;
+  const l1n = Object.values(W).filter(n => n >= perLang / 2).length; // chỉ tính ngôn ngữ đã có ≥ nửa đích (không để ghi chú lẻ tẻ làm đẹp số)
+  m.personal = r1((fsrs ? 50 : 0) + Math.min(1, l1n / 15) * 50); note.personal = `${fsrs ? '✓' : '✗'} FSRS theo người · lỗi L1 ${l1n}/15 ngôn ngữ (≥${perLang / 2} mục)`;
   // offline
   const sw = read('web/sw.js') || '';
   const O = [['shell', /SHELL\s*=\s*\[/.test(sw) && /SHELL\.map\(|addAll\(\s*SHELL/.test(sw)], ['điều hướng dự phòng', /navigate/.test(sw) && /caches\.match\(\s*APP/.test(sw)], ['gói từ offline', /offline-pack/.test(sw)]];
@@ -96,7 +101,7 @@ function measure(ax) {
   else { m.gates = null; note.gates = 'chưa có reports/world/ci.json'; }
   // luyện thi thật
   const n = (d, re) => ls(d).filter(f => re.test(f)).length;
-  const E = { IELTS: Math.min(n('web/js/readtest', /^test\d+\.js$/), n('web/js/listen', /^test\d+\.js$/)), TOEIC: Math.min(n('web/js/toeic', /^reading\d+\.js$/), n('web/js/toeic', /^listening\d+\.js$/)), TOEFL: n('web/cpack/toefl', /^data\d+\.js$/), Cambridge: n('web/js/cambridge', /\.js$/) };
+  const E = { IELTS: Math.min(n('web/js/readtest', /^test\d+\.js$/), dataFiles('listen', /^test\d+\.js$/, ROOT).length), TOEIC: Math.min(n('web/js/toeic', /^reading\d+\.js$/), n('web/js/toeic', /^listening\d+\.js$/)), TOEFL: n('web/cpack/toefl', /^data\d+\.js$/), Cambridge: n('web/cpack/cambridge', /\.js$/) };
   const pe = g('exam').perExam; m.exam = r1(Object.values(E).reduce((s, x) => s + Math.min(1, x / pe), 0) / 4 * 100); note.exam = Object.entries(E).map(([k, v]) => `${k} ${v}`).join(' · ') + ` đề (đích ${pe}/kỳ)`;
   // add-on tra từ
   const sel = has('extension/content.js', /getSelection/) && has('extension/content.js', /(dblclick|mouseup)/), selT = fs.existsSync(P('scripts/test/ext-selection.mjs'));

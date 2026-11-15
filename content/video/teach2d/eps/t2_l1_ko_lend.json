@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_ko_lend",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "carlos",
+ "voice": "am_fenrir",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Lend, not borrow!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Can you borrow me a pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Can you lend me a pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Lend means give for a while.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Lend! Can you lend me a pen?",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Can you borrow me a pen?",
+  "right": "Can you lend me a pen?",
+  "strike": "borrow",
+  "why": "Lend means give for a while.",
+  "memory": "Lend me a pen.",
+  "quiz": {
+   "stem": "Can you ___ me a pen?",
+   "options": [
+    "borrow",
+    "lend"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "borrow와 lend 헷갈려요!",
+   "tip": "빌려줄 때는 lend! 빌릴 때는 borrow예요. “Can you lend me a pen?”",
+   "caption": "“Can you borrow me a pen?”라고 말하고 있나요? 😅 남에게 빌려 달라고 할 때 “lend me”를 써요. borrow는 내가 빌리는 거예요. “Can you lend me a pen?”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.",
+   "comment": "정답: “lend”. 빌려줘는 lend me! 무료 퀴즈로 더 연습해 보세요: {link}",
+   "hashtags": [
+    "#영어공부",
+    "#영어회화",
+    "#영어독학",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Borrow or lend?",
+   "tip": "Lend means give for a while. Borrow means take. Say “lend me a pen”.",
+   "caption": "Do you say “Can you borrow me a pen?”? 😅 Lend is giving, borrow is taking. Here you want them to give. “Can you lend me a pen?” is right. Listen to Carlos and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "borrow와 lend 헷갈려요!"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "ko",
+ "est": {
+  "words": 48,
+  "seconds": 29.1,
+  "wpm": 99
+ },
+ "publish": {
+  "title": "borrow와 lend 헷갈려요!",
+  "keyword": "Can you lend me a pen?",
+  "value": "빌려줄 때는 lend! 빌릴 때는 borrow예요. “Can you lend me a pen?”",
+  "hashtags": [
+   "#영어공부",
+   "#영어회화",
+   "#영어독학",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 42,
+  "platforms": {
+   "youtube": {
+    "title": "borrow와 lend 헷갈려요!",
+    "description": "“Can you borrow me a pen?”라고 말하고 있나요? 😅 남에게 빌려 달라고 할 때 “lend me”를 써요. borrow는 내가 빌리는 거예요. “Can you lend me a pen?”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix\n\n#영어공부 #영어회화 #영어독학 #lexkite",
+    "tags": [
+     "Can you lend me a pen?",
+     "learn english",
+     "ko"
+    ]
+   },
+   "facebook": {
+    "text": "“Can you borrow me a pen?”라고 말하고 있나요? 😅 남에게 빌려 달라고 할 때 “lend me”를 써요. borrow는 내가 빌리는 거예요. “Can you lend me a pen?”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "“Can you borrow me a pen?”라고 말하고 있나요? 😅 남에게 빌려 달라고 할 때 “lend me”를 써요. borrow는 내가 빌리는 거예요. “Can you lend me a pen?”가 맞아요. Carlos 선생님을 따라 말해 보세요! Lexkite 앱에서 더 연습해요.\n\nlexkite.com",
+    "hashtags": [
+     "#영어공부",
+     "#영어회화",
+     "#영어독학",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "borrow와 lend 헷갈려요! #영어공부 #영어회화 #영어독학"
+   }
+  },
+  "first_comment": "정답: “lend”. 빌려줘는 lend me! 무료 퀴즈로 더 연습해 보세요: {link}",
+  "lang": "ko"
+ }
+}

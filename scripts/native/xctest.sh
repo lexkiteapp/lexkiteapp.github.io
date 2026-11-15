@@ -4,7 +4,7 @@
 # Usage: xctest.sh <log-file> xcodebuild test …
 log=$1; shift
 "$@" > "$log" 2>&1; rc=$?
-grep -E "error: -\[|: error:|Test Case .* failed|Test Suite .* failed|Testing failed|encountered an error|unexpected exit|\*\* TEST" "$log" | sort -u | head -120 | sed 's/^.*error: /::error::/'
+grep -E "error: -\[|: error:|Test Case .* failed|Test Suite .* failed|Testing failed|encountered an error|unexpected exit|\*\* TEST" "$log" | sort -u | head -120 | sed -E 's#^.*/(native/[^ :]*\.swift:[0-9]+):[0-9]+: error: #::error::\1: #; s/^.*error: /::error::/'
 tail -25 "$log"
 if [ $rc -ne 0 ]; then
   res=$(grep -A1 "Test session results" "$log" | grep -o '/.*\.xcresult' | tail -1)

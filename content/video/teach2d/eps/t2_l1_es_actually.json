@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_actually",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Actually does not mean now!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: Actually, I am studying English now.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: Right now, I am studying English.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Actually means in fact, not now.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Right now! I am busy right now.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "Actually, I am studying English now.",
+  "right": "Right now, I am studying English.",
+  "strike": "Actually",
+  "why": "Actually means in fact, not now.",
+  "memory": "Actually = in fact.",
+  "quiz": {
+   "stem": "I am busy ___.",
+   "options": [
+    "actually",
+    "right now"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“Actually” no es “actualmente”",
+   "tip": "Falso amigo: “actually” significa “en realidad”. Para “ahora” usa “right now”.",
+   "caption": "¡Cuidado con este falso amigo! 😬 No digas “Actually, I am studying English now.”, mejor: “Right now, I am studying English.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “right now”. “Actually” es “en realidad”, no “actualmente”. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#falsosamigos",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Actually” does not mean “actualmente”",
+   "tip": "False friend: “actually” means “en realidad”. For “now”, use “right now”.",
+   "caption": "Careful with this false friend! Do not say “Actually, I am studying English now.”, say: “Right now, I am studying English.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“Actually” no es “actualmente”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 50,
+  "seconds": 30.0,
+  "wpm": 100
+ },
+ "publish": {
+  "title": "“Actually” no es “actualmente”",
+  "keyword": "Right now, I am studying English.",
+  "value": "Falso amigo: “actually” significa “en realidad”. Para “ahora” usa “right now”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#falsosamigos",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 44,
+  "platforms": {
+   "youtube": {
+    "title": "“Actually” no es “actualmente”",
+    "description": "¡Cuidado con este falso amigo! 😬 No digas “Actually, I am studying English now.”, mejor: “Right now, I am studying English.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #falsosamigos #lexkite",
+    "tags": [
+     "Right now, I am studying English.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "¡Cuidado con este falso amigo! 😬 No digas “Actually, I am studying English now.”, mejor: “Right now, I am studying English.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "¡Cuidado con este falso amigo! 😬 No digas “Actually, I am studying English now.”, mejor: “Right now, I am studying English.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#falsosamigos",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“Actually” no es “actualmente” #aprenderingles #inglesfacil #falsosamigos"
+   }
+  },
+  "first_comment": "Respuesta: “right now”. “Actually” es “en realidad”, no “actualmente”. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

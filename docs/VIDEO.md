@@ -109,3 +109,22 @@ Diễn cảnh (paused): `lesson5.py`, `qa5.py`, `gen_lessons.py`, … – `docs/
 - Nền: OCR (`bgqc.py`) + nhìn tay; không ghi "clock" trong prompt; mỗi nền phải có sàn đứng được; nhân vật mới = i2i TỪ ref cũ + cổng tay `ref_qc.py`.
 - Kling: 2 nhịp mặt phải ghi khe thời gian; khóa miệng khi im; dry-run phải chứa đoạn prompt vừa sửa; KHÔNG cộng nhẩm credit (dùng `CAP`/`CAPRE` từ ledger); "too many requests" (0 cr) = chờ gửi lại, không tính hỏng.
 - Kho nền rộng: cổng `bg_gates.py`; chi cho ĐỊA ĐIỂM MỚI, không biến thể thứ 4-5 của cùng địa điểm.
+
+## 9. Quản trị › Nội dung & Video – kiến trúc thông tin (05/11/2026)
+Kiểm kê live 05/11 (ảnh trước: ghi chú phiên `admin-cv-before/`). Vấn đề gốc: 5 mục làm song song cùng một việc, không theo luồng thật.
+- **Trùng**: chọn kênh YouTube/vai trò ở 3 chỗ (#dist Hệ thống, #video › Kênh & phân phối, bulk "Đổi kênh"); lịch ở 4 chỗ (#dist `plan_get`, #social Lịch GrabCast, Studio 7 ngày, hàng đợi social-mgr); duyệt ở 4 chỗ (hub To review, social-mgr board, Studio QA/script, auto-approve); bộ chọn clip ở 3 chỗ (hub thư viện ảo hoá, `lk/clips` ≤ 2000, GrabCast `storage/objects` ≤ 200); danh sách tài khoản GrabCast ở 4 chỗ.
+- **Không khớp số**: hub 125 clip (thẻ loại) nhưng "All 25" ở trạng thái (100 clip đã lưu trữ bị ẩn mà chip không nói); Drive có 153 master; #social Soạn bài "chưa có video" (đọc kho GrabCast, không phải kho Lexkite); Studio `video_jobs` không nối với khoá clip; hub QC "chưa có báo cáo" trong khi Studio có 1 job "Needs QA".
+- **Thiếu liên kết**: social/studio/dist/drive không trỏ về clip; từ một clip không thấy nó nằm Drive nào, embed bài nào, đã đăng kênh nào.
+- **Khoá nối** = `clip` (manifest `item.id`): `clip_review`, `yt_queue` (+`lesson`, `video_id`), `yt_plan`, `yt_pack` (+`file_id`, `drive_id`), `dist_social` (+`post_id`, `state`), `soc_board.clip`; Drive qua manifest `item.drive.{video,cover}.fileId`; lượt xem web `ext_events vid:<ev>:<clip>`.
+
+**Cấu trúc mới (theo luồng, mỗi việc một chỗ; tham chiếu YouTube Studio · Frame.io · Buffer):**
+| Bước | Mục (nav) | Sở hữu duy nhất |
+|---|---|---|
+| 1 | 🎞️ **Studio** (sản xuất) | job/kịch bản/dựng, QC dựng (chuyển từ hub "Sản xuất & QC" + "Kịch bản"), kho tài sản |
+| 2 | 🎬 **Trung tâm video** (hub) | tổng quan việc cần làm, duyệt, thư viện ảo hoá, lưu trữ, **ngăn Clip 360°** (Drive · bài học nhúng · kênh/bài đăng · hiệu quả) |
+| 3 | 🛰️ **Kênh & phân phối** | kết nối YouTube + vai trò kênh (chuyển từ hub "Kênh & phân phối"), luật định tuyến, lịch kế hoạch gộp, trạng thái nhúng bài học |
+| 4 | 📣 **Đăng & hiệu quả** (social) | soạn/duyệt bài, lịch GrabCast, hàng đợi, bài đăng, sức khoẻ tài khoản, số liệu, bình luận |
+| hạ tầng | 🗄️ Kho Drive (Hệ thống) | dung lượng, bản sao, duyệt file; nhận `?clip=` từ ngăn Clip 360° |
+- **Dải luồng** (`web/js/admin-flow.js`) đầu cả 4 mục: Studio → Thư viện → Phân phối → Đăng, mỗi bước 1 số thật (job đang làm/chờ QC · chờ duyệt · sẵn sàng cho bài học · đã lên lịch/đã đăng) + viên Drive (dùng/tổng, file 1 bản sao). Lỗi/đang tải/rỗng rõ ràng; bấm = sang mục.
+- Phần #dist › Social và panel kênh #social thuộc phiên social-channel-ui (PR base #704) – mục này chỉ thêm dải luồng + liên kết, không sửa khối đó.
+- PR: (1) tài liệu + dải luồng + thứ tự/tên nav + liên kết chéo; (2) Clip 360° (`admin-clips` op `detail`); (3) chuyển QC/Kịch bản → Studio, YouTube box → #dist Hệ thống (giữ đủ chức năng); (4) bỏ `prompt()/confirm()` ở Studio/Drive, ảnh visual-qa cho studio/social/drive; (5) `admin-clips` lọc phía máy chủ không nạp cả manifest mỗi truy vấn.

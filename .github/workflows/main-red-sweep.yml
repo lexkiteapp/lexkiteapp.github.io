@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   pull_request:
     paths: ['scripts/ci/main-red-sweep.mjs', '.github/workflows/main-red-sweep.yml']
-permissions: { contents: read, actions: read, issues: write }
+permissions: { contents: read, actions: write, issues: write }   # actions: write = gọi tay Prod release cho commit main chưa được đánh giá (blindHead)
 concurrency:
   group: main-red-sweep-${{ github.ref }}
   cancel-in-progress: true

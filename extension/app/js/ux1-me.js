@@ -30,8 +30,12 @@
     const masteredC = deck.filter(c => c.srs.interval >= 21).length, learningC = deck.filter(c => (c.srs.reps > 0 || c.srs.last) && !(c.srs.interval >= 21)).length;
     const dueC = totalC ? Core.Cards.dueCount(cards, se, state.stats).due : 0, forgettingC = (App.forgetting ? App.forgetting() : []).length;
     let openMistakes = 0; try { const list = window.Core && Core.Store ? await w(Core.Store.get('mistakes', [])) : []; openMistakes = (list || []).filter(x => !x.fixed).length; } catch (e) { openMistakes = 0; }
-    const cap = p => Promise.race([p, new Promise(r => setTimeout(() => r(false), 500))]);
-    const [isAdmin, blogOn] = await w(Promise.all([cap(App.isAdmin ? App.isAdmin().catch(() => false) : false), cap(App.blogLive ? App.blogLive().catch(() => false) : false)]));
+    // Vẽ NGAY (cùng thanh tab): chỉ lấy đáp án đã có sẵn trong bộ nhớ đệm (isAdmin/blogLive trả ngay khi đã nhớ); chưa có thì vẽ như "không" rồi vẽ lại khi mạng trả lời
+    //   (trước đây chờ mạng ≤ 500 ms trước khi vẽ gì → WebKit CI: thanh tab Tôi hiện muộn > 1 s). late = true khi đáp án thật khác bản đã vẽ.
+    const cap = p => Promise.race([p, new Promise(r => setTimeout(() => r(undefined), 0))]), ask = f => (f ? f().catch(() => false) : Promise.resolve(false));
+    const pa = ask(App.isAdmin), pb = ask(App.blogLive);
+    const [a0, b0] = await w(Promise.all([cap(pa), cap(pb)])), isAdmin = !!a0, blogOn = !!b0;
+    const late = Promise.all([pa, pb]).then(([x, y]) => !!x !== isAdmin || !!y !== blogOn);
     const sameSite = /(^|\.)lexkite\.(com|pages\.dev)$/.test(location.hostname), name = window.Sync && Sync.nice ? Sync.nice((u && u.displayName) || t('Bạn')) : (u && u.displayName) || t('Bạn');
     const goal = se.goal && se.goal.exam ? ex.short + ' ' + App.goalLabel(se.goal) : ex.short;
     const th = THEMES[se.theme] || THEMES.auto, lang = I18N.LANGS && I18N.LANGS[I18N.lang()] ? I18N.LANGS[I18N.lang()][1] : I18N.lang();
@@ -79,7 +83,7 @@
     const have = g.badges || {}, B = (Game.BADGES || []).slice().sort((a, b) => (have[b.id] ? 1 : 0) - (have[a.id] ? 1 : 0) || (have[b.id] || 0) - (have[a.id] || 0));
     const ach = B.slice(0, 3).map((b, i) => ({ icon: BADGE_IC[b.id] || ACH_IC.first, name: b.name, sub: have[b.id] ? t('Đã đạt') : t('Chưa đạt'), v: 'a' + (1 + i) }));
     const photo = u && u.photoURL ? u.photoURL : '';
-    return { ini: ini((u && (u.displayName || u.email)) || name), photo, name, target: goal, lEdit: t('Cài đặt'), lStreak: t('Chuỗi ngày'), lXp: t('Tổng XP'), lSaved: t('Đã lưu'), streak: num(streak || 0), xp: num(g.xp || 0), saved: num(totalC),
+    return { late, ini: ini((u && (u.displayName || u.email)) || name), photo, name, target: goal, lEdit: t('Cài đặt'), lStreak: t('Chuỗi ngày'), lXp: t('Tổng XP'), lSaved: t('Đã lưu'), streak: num(streak || 0), xp: num(g.xp || 0), saved: num(totalC),
       lAch: t('Huy hiệu'), lAll: t('Xem tất cả'), ach, secs, more, out: u ? t('Đăng xuất') : (window.Sync && Sync.can === false ? '' : t('Đăng nhập')), ver: 'Lexkite' + (L.title ? ' · ' + L.title : '') };
   }
 
@@ -105,6 +109,7 @@
   const me = render(async function () {
     const d = await build(); lastMore = d.more; const y = window.scrollY, ae = document.activeElement && document.activeElement.getAttribute && document.activeElement.getAttribute('data-act');
     const root = ST2.mount(view, 'me', d, 'me');
+    d.late.then(ch => { if (ch && /^#\/me(\?|$)/.test(location.hash) && view.querySelector('.v2s-me')) me(); }, () => {}); // đáp án mạng về sau: chỉ vẽ lại khi vẫn ở trang Tôi
     hubHead(root);
     if (App.getApp) App.getApp(view);
     // Chưa đăng nhập: icon logout → login (đổi trong JS nên phải khai @icons login để có trong msym.woff2, nếu không chữ "login" hiện ra bị cắt – stitch-diff 06/11)

@@ -11,7 +11,7 @@
     // Khung, thanh bên, đăng nhập
     'Bỏ qua tới nội dung': 'Skip to content', 'Mở menu': 'Open menu', 'Đóng menu': 'Close menu', 'Đi tới…': 'Go to…', 'Điều hướng quản trị': 'Admin navigation',
     'Tổng quan': 'Overview', 'Phân tích': 'Analytics', 'Quảng cáo': 'Ads', 'Cờ theo nền tảng, công tắc khẩn cấp, doanh thu ước tính, tần suất, cổng giữ chân và đồng ý theo vùng.': 'Per-platform flags, kill switch, estimated revenue, frequency caps, retention guard and consent by region.', 'Người dùng': 'Users', 'Hộp thư': 'Inbox', 'Thông báo': 'Notices', 'Cảnh báo': 'Alerts', 'Báo lỗi': 'Reports', 'Chất lượng': 'Quality', 'Nội dung & Video': 'Content & Video',
-    'Video & Social': 'Video & Social', 'Kênh & phân phối': 'Channels & distribution', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.': 'Lesson embed channels, social channels, routing rules and per-channel calendar.', 'Video Studio': 'Video Studio', 'Hệ thống': 'System', 'Hạn mức': 'Quotas', 'Kho Drive': 'Drive storage', 'Khóa API': 'API keys', 'Sổ tài khoản & khóa': 'Accounts & keys', 'Mỗi dịch vụ/khóa thuộc email nào, tài khoản nào, giữ ở đâu (tên biến), hạn và nhắc gia hạn.': 'Which email/account owns each service and key, where it is stored (names only), expiry and renewal reminders.', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings',
+    'Video & Social': 'Video & Social', 'Kênh & phân phối': 'Channels & distribution', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.': 'Lesson embed channels, social channels, routing rules and per-channel calendar.', 'Video Studio': 'Video Studio', 'Hệ thống': 'System', 'Phân phối': 'Distribution', 'Hạn mức': 'Quotas', 'Kho Drive': 'Drive storage', 'Khóa API': 'API keys', 'Sổ tài khoản & khóa': 'Accounts & keys', 'Mỗi dịch vụ/khóa thuộc email nào, tài khoản nào, giữ ở đâu (tên biến), hạn và nhắc gia hạn.': 'Which email/account owns each service and key, where it is stored (names only), expiry and renewal reminders.', 'Dịch vụ & API': 'Services & API', 'Cài đặt': 'Settings',
     'Sức khỏe hệ thống, người thật và tác vụ tự động trên một màn hình.': 'System health, real people and automated jobs on one screen.',
     'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.': 'Live traffic, sources, usage habits and growth.',
     'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.': 'Synced accounts: search, filter, inspect, export CSV, delete data on request.',
@@ -22,7 +22,7 @@
     'Điểm rà soát tự động hằng ngày và kiểm nghĩa bản dịch.': 'Daily automated review score and translation meaning checks.',
     'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).': 'Compose posts, schedule and manage social channels (GrabCast).',
     'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.': 'Automated video production pipeline from script to schedule.',
-    'Trung tâm video': 'Video hub', 'Việc cần làm, duyệt, thư viện, sản xuất & QC, kịch bản và kênh đăng cho mọi video ngắn.': 'To-dos, review, library, production & QC, scripts and posting channels for every short video.',
+    'Trung tâm video': 'Video hub', 'Đăng & hiệu quả': 'Publishing & results', 'Studio': 'Studio', 'Bước 1 – sản xuất: kịch bản, dựng, QC dựng và kho tài sản.': 'Step 1 – production: scripts, rendering, render QC and the asset library.', 'Bước 2 – duyệt, thư viện, lưu trữ; mỗi clip thấy Drive, bài học nhúng và kênh đã đăng.': 'Step 2 – review, library and archive; every clip shows its Drive copy, lesson embeds and posted channels.', 'Bước 3 – kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch theo kênh.': 'Step 3 – lesson embed channels, social channels, routing rules and per-channel calendar.', 'Bước 4 – soạn, duyệt, lịch đăng, bài đã đăng và số liệu mạng xã hội (GrabCast).': 'Step 4 – compose, approve, schedule, published posts and social analytics (GrabCast).', 'Việc cần làm, duyệt, thư viện, sản xuất & QC, kịch bản và kênh đăng cho mọi video ngắn.': 'To-dos, review, library, production & QC, scripts and posting channels for every short video.',
     'Thư viện video': 'Video library', 'Xem mọi short đã dựng (kho riêng lexkite-shorts), lọc, phát thử, chép nội dung đăng và thống kê độ phủ, QA, credit.': 'Browse every rendered short (private lexkite-shorts store): filter, play, copy post text, and coverage, QA and credit statistics.',
     'Backlink, PR & Thương hiệu': 'Backlinks, PR & Brand', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.': 'PR posts and profiles linking to lexkite.com, lookalike domains, social accounts, content copies – checked daily.',
     'Hạn mức theo tính năng, cầu dao nhà cung cấp, khóa và danh sách không giới hạn.': 'Per-feature quotas, provider breakers, blocks and the unlimited list.',
@@ -220,9 +220,10 @@
   const NAV = [
     ['', [['overview', '✅', 'Hôm nay', 'Việc cần anh xử lý hôm nay, xếp theo mức độ – mỗi dòng dẫn thẳng tới nơi xử lý; bên dưới là số liệu chính.', 'todayN']]],
     ['Người học', [['analytics', '📈', 'Phân tích', 'Lưu lượng trực tiếp, nguồn truy cập, thói quen sử dụng và tăng trưởng.'], ['users', '👥', 'Người dùng', 'Tài khoản đã đồng bộ: tìm, lọc, xem chi tiết, xuất CSV, xóa dữ liệu theo yêu cầu.'], ['inbox', '📬', 'Hộp thư', 'Tin nhắn từ form Liên hệ – trả lời và đánh dấu đã xử lý.', 'inboxN'], ['reports', '🐞', 'Báo lỗi', 'Báo lỗi từ người dùng: phân loại, giao việc, phản hồi.', 'repN'], ['notices', '📣', 'Gửi tới người học', 'Gửi thông báo tới chuông 🔔 của người học: soạn, hẹn giờ, chọn đối tượng, thu hồi, xem lượt đọc; nhắc học.', 'notN']]],
-    ['Vận hành', [['alerts', '🚨', 'Trung tâm cảnh báo', 'Mọi tín hiệu hệ thống một nơi, lọc theo mức độ: tác vụ CI, lỗi JavaScript, hạn mức, Kho Drive, chất lượng, nhật ký quản trị.', 'alertN'], ['health', '🩺', 'Sức khỏe hệ thống', 'Hạn mức, dung lượng, chất lượng, Kho Drive và tác vụ CI trên một màn – mỗi số có ngưỡng màu và link xử lý.', 'drvN'], ['vault', '🔐', 'Tài khoản & khóa', 'Sổ tài khoản, khóa API và dịch vụ đang dùng.']]],
-    ['Nội dung & Video', [['dist', '🛰️', 'Kênh & phân phối', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.'], ['social', '📣', 'Video & Social', 'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).'], ['studio', '🎞️', 'Video Studio', 'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.'], ['video', '🎬', 'Trung tâm video', 'Việc cần làm, duyệt, thư viện, sản xuất & QC, kịch bản và kênh đăng cho mọi video ngắn.'], ['backlinks', '🔗', 'Backlink, PR & Thương hiệu', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.']]],
+    ['Nội dung & Video', [['studio', '🎞️', 'Video Studio', 'Dây chuyền sản xuất video tự động từ kịch bản tới lên lịch.'], ['video', '🎬', 'Trung tâm video', 'Việc cần làm, duyệt, thư viện, sản xuất & QC, kịch bản và kênh đăng cho mọi video ngắn.']]],
+    ['Phân phối', [['dist', '🛰️', 'Kênh & phân phối', 'Kênh nhúng cho bài học, kênh mạng xã hội, luật định tuyến và lịch đăng theo kênh.'], ['social', '📣', 'Video & Social', 'Soạn bài, lịch đăng và kênh mạng xã hội (GrabCast).'], ['backlinks', '🔗', 'Backlink, PR & Thương hiệu', 'Bài PR, hồ sơ trỏ về lexkite.com, tên miền na ná, tài khoản mạng xã hội, bản sao chép – tự kiểm hằng ngày.']]],
     ['Doanh thu', [['ads', '💰', 'Quảng cáo', 'Cờ theo nền tảng, công tắc khẩn cấp, doanh thu ước tính, tần suất, cổng giữ chân và đồng ý theo vùng.']]],
+    ['Hệ thống', [['alerts', '🚨', 'Trung tâm cảnh báo', 'Mọi tín hiệu hệ thống một nơi, lọc theo mức độ: tác vụ CI, lỗi JavaScript, hạn mức, Kho Drive, chất lượng, nhật ký quản trị.', 'alertN'], ['health', '🩺', 'Sức khỏe hệ thống', 'Hạn mức, dung lượng, chất lượng, Kho Drive và tác vụ CI trên một màn – mỗi số có ngưỡng màu và link xử lý.', 'drvN'], ['vault', '🔐', 'Tài khoản & khóa', 'Sổ tài khoản, khóa API và dịch vụ đang dùng.']]],
     ['', [['settings', '⚙️', 'Cài đặt', 'Thông báo đầu trang, giới hạn AI, giám sát và lấy mẫu thống kê.']]],
   ];
   // Mục con của hub (không nằm trên thanh bên – hiện thành thanh tab con dưới tiêu đề; hash cũ #quota, #drive/…, #keys?… giữ nguyên, docs/specs/admin-audit.md §2)
@@ -509,6 +510,13 @@
     // tab con hub = nút Kit (btn; đang chọn = btn primary) trong .seg-f, ngay dưới tiêu đề (trên mô tả) – kiểu .hub-tabs ở admin.css (giao diện cuối = port Stitch, PR2)
     const hub = HUB_OF[t]; if (hub) { const nav = document.createElement('nav'); nav.className = 'hub-tabs seg-f'; nav.setAttribute('aria-label', L(ITEM[hub] ? ITEM[hub].label : '')); nav.innerHTML = HUBS[hub].map(k => `<a class="btn${k === t ? ' primary' : ''}" href="#${k}" data-go="${k}"${k === t ? ' aria-current="page"' : ''}>${esc(ITEM[k].icon)} ${esc(L(ITEM[k].label))}</a>`).join(''); $('#pgHead .pg-tx').insertBefore(nav, $('#pgHead .pg-d')); } // tab con ngay dưới tiêu đề: mô tả dài/ngắn khác nhau không làm hàng tab nhảy lên xuống
   };
+  // Dải luồng Studio → Thư viện → Phân phối → Đăng (+ Kho Drive) – js/admin-flow.js, tải lười chỉ ở 5 mục đó; lỗi tải không chặn mục
+  const FLOW_TABS = new Set(['studio', 'video', 'dist', 'social']); // KHÔNG hiện ở Kho Drive (thuộc Hệ thống) – số liệu Drive chỉ một nguồn: tab Kho Drive
+  const flowStrip = t => {
+    const el = $('#flowStrip'); if (!el) return;
+    if (!FLOW_TABS.has(t)) { el.hidden = true; el.innerHTML = ''; return; }
+    lazy('AdminFlow', 'js/admin-flow.js').then(() => AdminFlow.paint(el, t, { capi, go, L, esc, lang: () => LANG })).catch(() => { el.hidden = true; });
+  };
   const setActions = html => { const a = $('#pgAct'); if (a) a.innerHTML = html; return a; };
   // Ngăn kéo thanh bên (điện thoại)
   const side = $('#side'), scrim = $('#scrim'), navBtn = $('#navBtn');
@@ -619,7 +627,7 @@
     stopLive(); guard = null; tab = t; const my = ++seq;
     try { const cur = location.hash.slice(1); history.replaceState(null, '', '#' + t + (baseOf(cur) === t ? cur.slice(t.length) : '')); } catch (e) { /* bỏ qua */ }
     document.querySelectorAll('#tabs a[data-tab]').forEach(a => { if (a.dataset.tab === (HUB_OF[t] || t)) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
-    pageHead(t);
+    pageHead(t); flowStrip(t);
     // Mỗi lần vẽ 1 khung riêng: view đang chờ mạng của tab trước chỉ ghi vào khung cũ (đã tách khỏi trang) → không bao giờ đè tab mới (R1)
     // Chống nhảy khi chuyển tab: giữ chiều cao cũ của #main tới khi tab mới vẽ xong (khung xương/"Đang tải…" thấp hơn → trang co rồi giãn = giật)
     const keepH = !o.first && main.offsetHeight; if (keepH) main.style.minHeight = keepH + 'px';
@@ -1277,6 +1285,7 @@
         </div>
         <p class="small muted mt">${L('Thống kê ẩn danh tự xây: không cookie, không lưu IP; quốc gia do Cloudflare xác định. Chỉ tính người thật: loại bot, máy chủ đám mây (CI GitHub, máy ảo Android/iOS), header CI, chế độ sandbox và tài khoản quản trị. "Hôm nay" theo giờ Việt Nam (UTC+7).')}${a.excluded && a.excluded.s ? ' ' + L('Đã loại trong khoảng này: {n} phiên.', { n: num(a.excluded.s) }) : ''}</p>`;
       if (window.AdminGrowth) { const g = document.createElement('section'); main.appendChild(g); AdminGrowth.render(g, api, L, { esc, num, lang: () => LANG }); } // js/admin-growth.js
+      if (window.AdminChannels) { const g = document.createElement('section'); main.appendChild(g); AdminChannels.render(g, api, L, { esc, num, lang: () => LANG }); } // js/admin-channels.js (phễu kênh/mã bài)
       if (!l) return;
       drawMap(l.countries);
       // Tự cập nhật thẻ trực tiếp 30 giây/lần – chỉ khi đang mở tab Phân tích và trang đang hiển thị

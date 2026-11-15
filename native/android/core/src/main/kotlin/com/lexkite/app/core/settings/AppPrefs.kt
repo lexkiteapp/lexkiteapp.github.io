@@ -35,7 +35,15 @@ class AppPrefs(private val ds: DataStore<Preferences>) {
     suspend fun onboardingDone(): Boolean = ds.data.first()[ONB_DONE] ?: false
     suspend fun markOnboardingDone() { ds.edit { it[ONB_DONE] = true } }
 
+    /** Fixed per-device group 0–99 for staged rollouts (web lk.vb): drawn once, then kept. */
+    suspend fun rolloutBucket(): Int {
+        ds.data.first()[BUCKET]?.let { return it }
+        val b = java.security.SecureRandom().nextInt(100); ds.edit { if (it[BUCKET] == null) it[BUCKET] = b }
+        return ds.data.first()[BUCKET] ?: b
+    }
+
     companion object {
+        private val BUCKET = intPreferencesKey("rollout.bucket")
         private val LANG = stringPreferencesKey("lang")
         private val THEME = stringPreferencesKey("theme")
         private val HAPTICS = booleanPreferencesKey("haptics")

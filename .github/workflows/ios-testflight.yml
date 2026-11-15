@@ -1,8 +1,8 @@
 # Ký + tải bản iOS lên TestFlight (App Store Connect app 6824714708, Bundle ID com.lexkite.app, team B285J68262).
-# Ký tự động bằng App Store Connect API key (Admin) – Xcode tạo chứng chỉ phân phối/hồ sơ trên đám mây, không cần .p12/match.
+# Ký Manual CỐ ĐỊNH (scripts/native/ios-sign.sh, trong store-build-ios.yml): chứng chỉ Apple Distribution + hồ sơ App Store app + widget từ secret – không ký Automatic (ci-policy luật 13, docs/CI-SIGNING-IOS.md).
 # Bước build/ký/tải: workflow tái dùng store-build-ios.yml (chung với store-submit.yml). Số build = max(build trên App Store Connect) + 1
 # (scripts/store/asc-submit.mjs plan) – trước đây = run_number nên trùng/thấp hơn build do workflow khác tải lên.
-# Secret: ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8 (nội dung AuthKey_*.p8 – không bao giờ in ra log). Chạy tay: Actions → "iOS → TestFlight".
+# Secret: IOS_DIST_P12_BASE64, IOS_DIST_P12_PASSWORD, IOS_PROFILE_APP_BASE64, IOS_PROFILE_WIDGET_BASE64; ASC_KEY_ID/ASC_ISSUER_ID/ASC_KEY_P8 chỉ để tải lên (không in ra log). Chạy tay: Actions → "iOS → TestFlight".
 # Nộp duyệt App Store tự động: Actions → "Store submit" (store-submit.yml).
 name: iOS → TestFlight
 on:

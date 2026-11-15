@@ -7,7 +7,8 @@
   "Report": "Báo lỗi",
   "Skip question": "Bỏ qua câu hỏi",
   "Report question": "Báo lỗi câu hỏi",
-  "Play sentence audio in British Received Pronunciation": "Nghe câu mẫu"
+  "Play sentence audio in British Received Pronunciation": "Nghe câu mẫu",
+  "Toggle theme": "Đổi giao diện sáng/tối"
  },
  "text": {
   "Active Drill Session": "d.title",
@@ -23,7 +24,7 @@
   ":scope > main > div > div:nth-child(2)": "d.teacher"
  },
  "attr": {
-  ":scope > header > div > button": {
+  ":scope > header > div > button:nth-child(1)": {
    "href": "d.close",
    "id": "'lsnX'",
    "aria-label": "t('Thoát bài học')"
@@ -43,7 +44,7 @@
    "style": "'width:0%'",
    "id": "'lsnFill'"
   },
-  ":scope > header > div > div:nth-child(3)": {
+  ":scope > header > div > div:nth-child(4)": {
    "data-href": "'#/me'",
    "type": "'button'"
   },
@@ -82,6 +83,10 @@
   },
   ":scope > main > div > div:nth-child(2)": {
    "aria-hidden": "'true'"
+  },
+  ":scope > header > div > button:nth-child(3)": {
+   "id": "'lkTheme'",
+   "aria-label": "t('Đổi giao diện sáng/tối')"
   }
  },
  "cls": {
@@ -90,15 +95,15 @@
   }
  },
  "tag": {
-  ":scope > header > div > button": {
+  ":scope > header > div > button:nth-child(1)": {
    "to": "a"
   },
-  ":scope > header > div > div:nth-child(3)": {
+  ":scope > header > div > div:nth-child(4)": {
    "to": "button"
   }
  },
  "addClass": {
-  ":scope > header > div > button": "lsn-x",
+  ":scope > header > div > button:nth-child(1)": "lsn-x",
   ":scope > header > div > div:nth-child(2) > div:nth-child(2)": "lsn-bar",
   ":scope > main > div > div:nth-child(1) > div:nth-child(1)": "lsn-combo",
   ":scope > main > div > div:nth-child(3)": "isolate lsn-qcard",
@@ -107,7 +112,7 @@
   ":scope > main > div > div:nth-child(5)": "lsn-qfoot",
   ":scope > main > div > div:nth-child(5) > div:nth-child(1) > button:nth-child(1)": "lsn-skipb relative after:absolute after:-inset-y-1 after:inset-x-0 after:content-['']",
   ":scope > main > div > div:nth-child(5) > button": "disabled:opacity-50 disabled:shadow-none disabled:active:translate-y-0 motion-reduce:transition-none",
-  ":scope > header > div > div:nth-child(3)": "relative after:absolute after:-inset-1.5 after:content-['']",
+  ":scope > header > div > div:nth-child(4)": "relative after:absolute after:-inset-1.5 after:content-['']",
   ":scope > main > div > div:nth-child(3) > div > button": "relative after:absolute after:-inset-y-0.5 after:inset-x-0 after:content-['']",
   ":scope > main > div > div:nth-child(5) > div:nth-child(1) > button:nth-child(2)": "relative after:absolute after:-inset-y-1 after:inset-x-0 after:content-['']",
   ":scope > main > div > div:nth-child(2)": "lsn-tchw ex-seat"

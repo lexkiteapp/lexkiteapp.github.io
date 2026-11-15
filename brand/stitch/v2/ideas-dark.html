@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="vi" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite v2.1 Dark — Ideas</title>
+  <!-- Google Fonts: Plus Jakarta Sans & Nunito Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Material Symbols Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Nunito Sans"', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            canvas: '#0E191C',
+            canvasDim: '#122023',
+            tealDeep: '#0F3D3E',
+            tealMid: '#165052',
+            tealAccent: '#4FD1C5',
+            tealSoft: '#E6F6F4',
+            tealBorder: '#A9DAD5',
+            coral: '#F2553B',
+            coralSoft: '#FDF0ED',
+            coralBorder: '#F9C2B7',
+            cardBorder: '#EADEC8',
+            surfaceCard: '#162528',
+            amberInk: '#D97706',
+            amberSoft: '#FEF3C7',
+          },
+          boxShadow: {
+            'tactile-card': '0 3px 0 0 #E2D3B8',
+            'tactile-btn': '0 3px 0 0 #D06900',
+            'tactile-teal': '0 3px 0 0 #1B7871',
+            'tactile-coral': '0 3px 0 0 #B9331C',
+            'tactile-soft': '0 2px 0 0 #E2D3B8',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-rounded {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Hide scrollbar for horizontal chip row */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-[#1C2E30] font-sans antialiased min-h-full flex justify-center selection:bg-tealAccent/20">
+
+  <!-- Main Mobile Container (390px native width) -->
+  <main class="w-full max-w-[390px] min-h-screen bg-canvas flex flex-col relative pb-24 shadow-sm border-x border-cardBorder/50">
+
+    <!-- Top App Bar (Back control >= 44pt tall) -->
+    <header class="sticky top-0 z-40 bg-canvas/95 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-cardBorder">
+      <div class="flex items-center gap-2">
+        <button type="button" aria-label="Quay lại" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-xl bg-surfaceCard border border-cardBorder text-tealDeep hover:bg-canvasDim active:translate-y-0.5 transition-all shadow-tactile-soft">
+          <span class="material-symbols-rounded text-xl">arrow_back</span>
+        </button>
+        <div>
+          <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-tealSoft text-tealDeep text-[11px] font-bold tracking-wide uppercase font-display border border-tealBorder/60">
+            <span class="w-1.5 h-1.5 rounded-full bg-tealAccent animate-pulse"></span>
+            Task 2 Ideas Hub
+          </span>
+          <h1 class="text-base font-bold text-tealDeep font-display leading-tight">Ý tưởng Writing Task 2</h1>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-1">
+        <button type="button" aria-label="Sổ tay cụm từ" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-xl bg-surfaceCard border border-cardBorder text-tealDeep hover:bg-canvasDim active:translate-y-0.5 transition-all shadow-tactile-soft relative" title="Sổ tay từ vựng đã lưu">
+          <span class="material-symbols-rounded text-xl">bookmark</span>
+          <span class="absolute top-2 right-2 w-2.5 h-2.5 bg-coral rounded-full ring-2 ring-surfaceCard"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Brainstorming Notebook Intro Banner -->
+    <section class="px-4 pt-3.5 pb-2">
+      <div class="p-3.5 rounded-2xl bg-gradient-to-br from-surfaceCard to-[#F7F1E4] border border-cardBorder shadow-tactile-soft">
+        <div class="flex items-start gap-2.5">
+          <div class="w-8 h-8 rounded-xl bg-amberSoft flex items-center justify-center shrink-0 border border-amber-200 text-amber-800">
+            <span class="material-symbols-rounded text-lg text-amber-700">lightbulb</span>
+          </div>
+          <div>
+            <h2 class="text-xs font-bold text-tealDeep font-display uppercase tracking-wider">Brainstorming Notebook</h2>
+            <p class="text-[13px] text-[#334E50] leading-snug mt-0.5">
+              Khám phá hai chiều lập luận (Agree & Disagree) kèm dẫn chứng và cụm từ ăn điểm cho kỳ thi IELTS.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Horizontal Topic Chips (Education selected) -->
+    <nav class="pt-1.5 pb-2 px-4 overflow-x-auto no-scrollbar flex items-center gap-2 border-b border-cardBorder/60" aria-label="Chủ đề IELTS">
+      <!-- Education (Active) -->
+      <button type="button" class="shrink-0 min-h-[44px] px-3.5 py-2 rounded-xl bg-tealDeep text-white border-2 border-tealMid shadow-[0_2px_0_0_#092627] font-display text-xs font-bold flex items-center gap-1.5 active:translate-y-0.5 transition-all">
+        <span class="text-sm">🎓</span>
+        <span>Education</span>
+        <span class="ml-1 w-1.5 h-1.5 rounded-full bg-tealAccent"></span>
+      </button>
+
+      <!-- Technology -->
+      <button type="button" class="shrink-0 min-h-[44px] px-3.5 py-2 rounded-xl bg-surfaceCard text-tealDeep border border-cardBorder shadow-tactile-soft hover:bg-canvasDim active:translate-y-0.5 transition-all font-display text-xs font-semibold flex items-center gap-1.5">
+        <span class="text-sm">💻</span>
+        <span>Technology</span>
+      </button>
+
+      <!-- Environment -->
+      <button type="button" class="shrink-0 min-h-[44px] px-3.5 py-2 rounded-xl bg-surfaceCard text-tealDeep border border-cardBorder shadow-tactile-soft hover:bg-canvasDim active:translate-y-0.5 transition-all font-display text-xs font-semibold flex items-center gap-1.5">
+        <span class="text-sm">🌿</span>
+        <span>Environment</span>
+      </button>
+
+      <!-- Health -->
+      <button type="button" class="shrink-0 min-h-[44px] px-3.5 py-2 rounded-xl bg-surfaceCard text-tealDeep border border-cardBorder shadow-tactile-soft hover:bg-canvasDim active:translate-y-0.5 transition-all font-display text-xs font-semibold flex items-center gap-1.5">
+        <span class="text-sm">🏥</span>
+        <span>Health</span>
+      </button>
+
+      <!-- Work -->
+      <button type="button" class="shrink-0 min-h-[44px] px-3.5 py-2 rounded-xl bg-surfaceCard text-tealDeep border border-cardBorder shadow-tactile-soft hover:bg-canvasDim active:translate-y-0.5 transition-all font-display text-xs font-semibold flex items-center gap-1.5">
+        <span class="text-sm">💼</span>
+        <span>Work</span>
+      </button>
+
+      <!-- Crime -->
+      <button type="button" class="shrink-0 min-h-[44px] px-3.5 py-2 rounded-xl bg-surfaceCard text-tealDeep border border-cardBorder shadow-tactile-soft hover:bg-canvasDim active:translate-y-0.5 transition-all font-display text-xs font-semibold flex items-center gap-1.5">
+        <span class="text-sm">⚖️</span>
+        <span>Crime</span>
+      </button>
+    </nav>
+
+    <!-- Feed / Main Content Area -->
+    <div class="px-4 py-3 space-y-4">
+
+      <!-- Active Expanded Issue Card -->
+      <article class="bg-surfaceCard rounded-2xl border border-cardBorder shadow-tactile-card overflow-hidden">
+        <!-- Card Header / Title -->
+        <div class="p-4 bg-gradient-to-b from-white to-[#FDFBF7] border-b border-cardBorder/80">
+          <div class="flex items-center justify-between gap-2 mb-2">
+            <span class="inline-flex items-center gap-1 text-[11px] font-bold text-tealMid bg-tealSoft px-2.5 py-0.5 rounded-full border border-tealBorder/60">
+              <span class="material-symbols-rounded text-xs">auto_awesome</span>
+              Issue 01 • University Policy
+            </span>
+            <span class="text-[11px] font-bold text-[#6D7F80] bg-canvas px-2 py-0.5 rounded-md border border-cardBorder">
+              Agree / Disagree
+            </span>
+          </div>
+
+          <h3 class="text-[17px] font-extrabold text-tealDeep font-display leading-snug">
+            Should university education be free for everyone?
+          </h3>
+          <p class="text-[13px] text-[#556F71] mt-1 italic">
+            Liệu giáo dục đại học có nên hoàn toàn miễn phí cho tất cả mọi người?
+          </p>
+        </div>
+
+        <!-- Argument Overview Ribbon -->
+        <div class="px-4 py-2.5 bg-[#122023] border-b border-cardBorder/70 flex items-center justify-between text-xs">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-tealAccent ring-2 ring-tealAccent/20"></span>
+            <span class="font-bold text-tealDeep">2 quan điểm chính</span>
+          </div>
+          <span class="text-[11px] text-[#7A6B54]">Chạm cụm từ để lưu sổ tay</span>
+        </div>
+
+        <!-- Argument Blocks -->
+        <div class="p-3.5 space-y-3.5">
+
+          <!-- SIDE 1: FOR / AGREE BLOCK (Teal Theme) -->
+          <div class="rounded-xl border border-tealBorder bg-tealSoft/40 p-3.5 transition-all">
+            <div class="flex items-center justify-between pb-2 border-b border-tealBorder/50 mb-2.5">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-tealAccent text-white flex items-center justify-center font-bold text-xs shadow-sm">
+                  <span class="material-symbols-rounded text-sm">thumb_up</span>
+                </span>
+                <h4 class="font-display font-bold text-sm text-tealDeep uppercase tracking-wide">
+                  For (Đồng tình)
+                </h4>
+              </div>
+              <span class="text-[11px] font-bold text-tealMid bg-[#162528]/80 px-2 py-0.5 rounded-md border border-tealBorder/60">
+                Social Equity
+              </span>
+            </div>
+
+            <!-- Core Idea Text -->
+            <p class="text-[14px] font-semibold text-tealDeep leading-snug">
+              Higher education provides equal career opportunities regardless of socioeconomic background.
+            </p>
+            <p class="text-[12px] text-[#2F5E60] mt-0.5">
+              Đại học miễn phí tạo cơ hội nghề nghiệp bình đẳng bất kể hoàn cảnh kinh tế xã hội.
+            </p>
+
+            <!-- Example Sentence with Listen Button -->
+            <div class="mt-2.5 p-2.5 rounded-lg bg-[#162528] border border-tealBorder/70 flex items-start gap-2">
+              <button type="button" aria-label="Nghe câu ví dụ" class="min-w-[44px] min-h-[44px] w-11 h-11 shrink-0 rounded-lg bg-tealSoft text-tealDeep flex items-center justify-center hover:bg-tealBorder/40 active:translate-y-0.5 transition-all border border-tealBorder" title="Phát âm câu ví dụ">
+                <span class="material-symbols-rounded text-lg text-tealDeep">volume_up</span>
+              </button>
+              <div class="flex-1 min-w-0 pt-0.5">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-tealAccent font-display">Example in Essay:</span>
+                <p class="text-[12.5px] text-[#1C2E30] leading-snug italic mt-0.5">
+                  "Universal free tuition creates a level playing field so that talented students from low-income families are not hindered by financial constraints."
+                </p>
+              </div>
+            </div>
+
+            <!-- Tappable Phrase Chips (en | vi) -->
+            <div class="mt-3">
+              <span class="text-[11px] font-bold text-tealDeep uppercase font-display block mb-1.5">
+                Cụm từ ghi điểm (Tap để lưu):
+              </span>
+              <div class="flex flex-wrap gap-1.5">
+                <button type="button" class="group min-h-[44px] px-3 py-2 rounded-lg bg-[#162528] border border-tealAccent/70 hover:border-tealAccent hover:bg-tealSoft active:translate-y-0.5 transition-all flex items-center gap-1.5 text-xs text-left shadow-sm">
+                  <span class="font-bold text-tealDeep group-hover:text-tealAccent">a level playing field</span>
+                  <span class="text-tealBorder font-semibold">|</span>
+                  <span class="text-[#4B6B6D] text-[11px]">sân chơi bình đẳng</span>
+                  <span class="material-symbols-rounded text-sm text-tealAccent shrink-0 ml-0.5">bookmark_add</span>
+                </button>
+
+                <button type="button" class="group min-h-[44px] px-3 py-2 rounded-lg bg-[#162528] border border-tealAccent/70 hover:border-tealAccent hover:bg-tealSoft active:translate-y-0.5 transition-all flex items-center gap-1.5 text-xs text-left shadow-sm">
+                  <span class="font-bold text-tealDeep group-hover:text-tealAccent">socioeconomic mobility</span>
+                  <span class="text-tealBorder font-semibold">|</span>
+                  <span class="text-[#4B6B6D] text-[11px]">sự dịch chuyển xã hội</span>
+                  <span class="material-symbols-rounded text-sm text-tealAccent shrink-0 ml-0.5">bookmark_add</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SIDE 2: AGAINST / DISAGREE BLOCK (Coral Theme) -->
+          <div class="rounded-xl border border-coralBorder bg-coralSoft/50 p-3.5 transition-all">
+            <div class="flex items-center justify-between pb-2 border-b border-coralBorder/50 mb-2.5">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-lg bg-coral text-white flex items-center justify-center font-bold text-xs shadow-sm">
+                  <span class="material-symbols-rounded text-sm">thumb_down</span>
+                </span>
+                <h4 class="font-display font-bold text-sm text-coral uppercase tracking-wide">
+                  Against (Phản đối)
+                </h4>
+              </div>
+              <span class="text-[11px] font-bold text-coral bg-[#162528]/90 px-2 py-0.5 rounded-md border border-coralBorder/60">
+                Fiscal Burden
+              </span>
+            </div>
+
+            <!-- Core Idea Text -->
+            <p class="text-[14px] font-semibold text-[#661E14] leading-snug">
+              Subsidizing higher education imposes an immense burden on government budgets and taxpayers.
+            </p>
+            <p class="text-[12px] text-[#7C362B] mt-0.5">
+              Bao cấp hoàn toàn đại học tạo gánh nặng tài chính khổng lồ lên ngân sách quốc gia và người đóng thuế.
+            </p>
+
+            <!-- Example Sentence with Listen Button -->
+            <div class="mt-2.5 p-2.5 rounded-lg bg-[#162528] border border-coralBorder/80 flex items-start gap-2">
+              <button type="button" aria-label="Nghe câu ví dụ" class="min-w-[44px] min-h-[44px] w-11 h-11 shrink-0 rounded-lg bg-coralSoft text-coral flex items-center justify-center hover:bg-coralBorder/40 active:translate-y-0.5 transition-all border border-coralBorder" title="Phát âm câu ví dụ">
+                <span class="material-symbols-rounded text-lg text-coral">volume_up</span>
+              </button>
+              <div class="flex-1 min-w-0 pt-0.5">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-coral font-display">Example in Essay:</span>
+                <p class="text-[12.5px] text-[#1C2E30] leading-snug italic mt-0.5">
+                  "Allocating public funding unconditionally may exert immense strain on public coffers and lower university resource standards."
+                </p>
+              </div>
+            </div>
+
+            <!-- Tappable Phrase Chips (en | vi) -->
+            <div class="mt-3">
+              <span class="text-[11px] font-bold text-coral uppercase font-display block mb-1.5">
+                Cụm từ ghi điểm (Tap để lưu):
+              </span>
+              <div class="flex flex-wrap gap-1.5">
+                <button type="button" class="group min-h-[44px] px-3 py-2 rounded-lg bg-[#162528] border border-coralBorder hover:border-coral hover:bg-coralSoft active:translate-y-0.5 transition-all flex items-center gap-1.5 text-xs text-left shadow-sm">
+                  <span class="font-bold text-coral group-hover:text-[#B9331C]">financial burden</span>
+                  <span class="text-coralBorder font-semibold">|</span>
+                  <span class="text-[#7C362B] text-[11px]">gánh nặng tài chính</span>
+                  <span class="material-symbols-rounded text-sm text-coral shrink-0 ml-0.5">bookmark_add</span>
+                </button>
+
+                <button type="button" class="group min-h-[44px] px-3 py-2 rounded-lg bg-[#162528] border border-coralBorder hover:border-coral hover:bg-coralSoft active:translate-y-0.5 transition-all flex items-center gap-1.5 text-xs text-left shadow-sm">
+                  <span class="font-bold text-coral group-hover:text-[#B9331C]">strain on public coffers</span>
+                  <span class="text-coralBorder font-semibold">|</span>
+                  <span class="text-[#7C362B] text-[11px]">áp lực lên ngân khố</span>
+                  <span class="material-symbols-rounded text-sm text-coral shrink-0 ml-0.5">bookmark_add</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Topic Vocabulary Card (Word Pairs: English with Vietnamese) -->
+        <div class="mx-3.5 mb-3.5 p-3.5 rounded-xl bg-[#122023] border border-cardBorder">
+          <div class="flex items-center justify-between mb-2">
+            <h4 class="font-display font-bold text-xs uppercase tracking-wider text-tealDeep flex items-center gap-1.5">
+              <span class="material-symbols-rounded text-base text-amber-700">menu_book</span>
+              Từ vựng chủ đề (Topic Vocabulary)
+            </h4>
+            <span class="text-[11px] text-[#695C48] font-bold">5 từ cốt lõi</span>
+          </div>
+
+          <div class="divide-y divide-cardBorder/80 text-[13px]">
+            <div class="py-2 flex items-center justify-between">
+              <div>
+                <span class="font-bold text-tealDeep font-display">tertiary education</span>
+                <span class="text-[11px] text-[#556F71] block">giáo dục bậc đại học / cao đẳng</span>
+              </div>
+              <span class="text-[11px] font-semibold text-tealMid bg-[#162528] px-2 py-0.5 rounded border border-cardBorder">Noun</span>
+            </div>
+
+            <div class="py-2 flex items-center justify-between">
+              <div>
+                <span class="font-bold text-tealDeep font-display">merit-based scholarships</span>
+                <span class="text-[11px] text-[#556F71] block">học bổng dựa trên thành tích</span>
+              </div>
+              <span class="text-[11px] font-semibold text-tealMid bg-[#162528] px-2 py-0.5 rounded border border-cardBorder">Collocation</span>
+            </div>
+
+            <div class="py-2 flex items-center justify-between">
+              <div>
+                <span class="font-bold text-tealDeep font-display">state subsidies</span>
+                <span class="text-[11px] text-[#556F71] block">trợ cấp từ nhà nước</span>
+              </div>
+              <span class="text-[11px] font-semibold text-tealMid bg-[#162528] px-2 py-0.5 rounded border border-cardBorder">Noun</span>
+            </div>
+
+            <div class="py-2 flex items-center justify-between">
+              <div>
+                <span class="font-bold text-tealDeep font-display">graduate unemployment</span>
+                <span class="text-[11px] text-[#556F71] block">tình trạng thất nghiệp sau đại học</span>
+              </div>
+              <span class="text-[11px] font-semibold text-tealMid bg-[#162528] px-2 py-0.5 rounded border border-cardBorder">Collocation</span>
+            </div>
+
+            <div class="pt-2 flex items-center justify-between">
+              <div>
+                <span class="font-bold text-tealDeep font-display">taxpayer funds</span>
+                <span class="text-[11px] text-[#556F71] block">ngân quỹ người nộp thuế</span>
+              </div>
+              <span class="text-[11px] font-semibold text-tealMid bg-[#162528] px-2 py-0.5 rounded border border-cardBorder">Noun</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Writing Prompts (Links to Writing Practice) -->
+        <div class="mx-3.5 mb-4 p-3.5 rounded-xl bg-[#162528] border border-cardBorder shadow-sm">
+          <div class="flex items-center justify-between mb-2.5">
+            <h4 class="font-display font-bold text-xs uppercase tracking-wider text-tealDeep flex items-center gap-1.5">
+              <span class="material-symbols-rounded text-base text-tealAccent">edit_note</span>
+              Related Writing Prompts (Đề luyện tập)
+            </h4>
+            <span class="text-[11px] font-semibold text-tealAccent">IELTS Task 2</span>
+          </div>
+
+          <div class="space-y-2">
+            <!-- Prompt 1 -->
+            <a href="#/write/practice-edu-01" class="min-h-[44px] p-2.5 rounded-lg bg-canvas hover:bg-canvasDim active:translate-y-0.5 transition-all border border-cardBorder flex items-center justify-between group">
+              <div class="flex-1 pr-2">
+                <span class="text-[10px] font-bold text-tealAccent uppercase">Cambridge 17 • Test 2</span>
+                <p class="text-[12.5px] font-bold text-tealDeep group-hover:text-tealAccent leading-tight line-clamp-1">
+                  Some feel universities should prepare students for careers, while others think knowledge is the goal.
+                </p>
+              </div>
+              <span class="material-symbols-rounded text-lg text-tealDeep group-hover:translate-x-0.5 transition-transform shrink-0">arrow_forward</span>
+            </a>
+
+            <!-- Prompt 2 -->
+            <a href="#/write/practice-edu-02" class="min-h-[44px] p-2.5 rounded-lg bg-canvas hover:bg-canvasDim active:translate-y-0.5 transition-all border border-cardBorder flex items-center justify-between group">
+              <div class="flex-1 pr-2">
+                <span class="text-[10px] font-bold text-tealAccent uppercase">Cambridge 16 • Test 4</span>
+                <p class="text-[12.5px] font-bold text-tealDeep group-hover:text-tealAccent leading-tight line-clamp-1">
+                  Governments should spend money on primary schooling rather than higher education.
+                </p>
+              </div>
+              <span class="material-symbols-rounded text-lg text-tealDeep group-hover:translate-x-0.5 transition-transform shrink-0">arrow_forward</span>
+            </a>
+
+            <!-- Prompt 3 -->
+            <a href="#/write/practice-edu-03" class="min-h-[44px] p-2.5 rounded-lg bg-canvas hover:bg-canvasDim active:translate-y-0.5 transition-all border border-cardBorder flex items-center justify-between group">
+              <div class="flex-1 pr-2">
+                <span class="text-[10px] font-bold text-tealAccent uppercase">Recent Exam Prompt</span>
+                <p class="text-[12.5px] font-bold text-tealDeep group-hover:text-tealAccent leading-tight line-clamp-1">
+                  More people are choosing vocational training over university courses. Discuss advantages & disadvantages.
+                </p>
+              </div>
+              <span class="material-symbols-rounded text-lg text-tealDeep group-hover:translate-x-0.5 transition-transform shrink-0">arrow_forward</span>
+            </a>
+
+            <!-- Prompt 4 -->
+            <a href="#/write/practice-edu-04" class="min-h-[44px] p-2.5 rounded-lg bg-canvas hover:bg-canvasDim active:translate-y-0.5 transition-all border border-cardBorder flex items-center justify-between group">
+              <div class="flex-1 pr-2">
+                <span class="text-[10px] font-bold text-tealAccent uppercase">Cambridge 15 • Test 1</span>
+                <p class="text-[12.5px] font-bold text-tealDeep group-hover:text-tealAccent leading-tight line-clamp-1">
+                  Should private institutions provide schooling or is education solely the state's responsibility?
+                </p>
+              </div>
+              <span class="material-symbols-rounded text-lg text-tealDeep group-hover:translate-x-0.5 transition-transform shrink-0">arrow_forward</span>
+            </a>
+
+            <!-- Prompt 5 -->
+            <a href="#/write/practice-edu-05" class="min-h-[44px] p-2.5 rounded-lg bg-canvas hover:bg-canvasDim active:translate-y-0.5 transition-all border border-cardBorder flex items-center justify-between group">
+              <div class="flex-1 pr-2">
+                <span class="text-[10px] font-bold text-tealAccent uppercase">Official Rubric Drill</span>
+                <p class="text-[12.5px] font-bold text-tealDeep group-hover:text-tealAccent leading-tight line-clamp-1">
+                  Online degrees are replacing conventional lecture halls. To what extent do you agree?
+                </p>
+              </div>
+              <span class="material-symbols-rounded text-lg text-tealDeep group-hover:translate-x-0.5 transition-transform shrink-0">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Practice CTA within Card -->
+        <div class="px-4 pb-4">
+          <a href="#/write/practice-edu-01" class="min-h-[48px] w-full py-3 px-4 rounded-xl bg-tealDeep text-white font-display font-bold text-sm flex items-center justify-center gap-2 shadow-[0_3px_0_0_#062324] hover:bg-tealMid active:translate-y-0.5 transition-all text-center">
+            <span class="material-symbols-rounded text-base text-tealAccent">edit</span>
+            Luyện viết bài luận với đề này ngay
+          </a>
+        </div>
+      </article>
+
+      <!-- Collapsed Issues (Other issues shown collapsed beneath) -->
+      <section class="space-y-2.5" aria-label="Các vấn đề khác">
+        <h3 class="text-xs font-bold text-[#6D7F80] font-display uppercase tracking-wider px-1">
+          Các câu hỏi khác cùng chủ đề Education
+        </h3>
+
+        <!-- Collapsed Issue 2 -->
+        <div class="bg-surfaceCard rounded-xl border border-cardBorder shadow-tactile-soft p-3.5 flex items-center justify-between gap-3 hover:bg-canvasDim transition-colors cursor-pointer group">
+          <div class="flex items-start gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-canvasDim flex items-center justify-center text-tealDeep text-xs font-bold shrink-0 border border-cardBorder">
+              02
+            </div>
+            <div>
+              <h4 class="text-[13.5px] font-bold text-tealDeep font-display leading-tight group-hover:text-tealAccent transition-colors">
+                Should students be grouped by academic ability or mixed together?
+              </h4>
+              <p class="text-[11.5px] text-[#697E80] mt-0.5">
+                Streaming classes vs Mixed-ability classrooms • 4 ideas sẵn có
+              </p>
+            </div>
+          </div>
+          <button type="button" aria-label="Mở rộng vấn đề 2" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-lg text-tealDeep shrink-0 hover:bg-canvas">
+            <span class="material-symbols-rounded text-xl">expand_more</span>
+          </button>
+        </div>
+
+        <!-- Collapsed Issue 3 -->
+        <div class="bg-surfaceCard rounded-xl border border-cardBorder shadow-tactile-soft p-3.5 flex items-center justify-between gap-3 hover:bg-canvasDim transition-colors cursor-pointer group">
+          <div class="flex items-start gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-canvasDim flex items-center justify-center text-tealDeep text-xs font-bold shrink-0 border border-cardBorder">
+              03
+            </div>
+            <div>
+              <h4 class="text-[13.5px] font-bold text-tealDeep font-display leading-tight group-hover:text-tealAccent transition-colors">
+                Does technology in school classrooms hinder or enhance attention spans?
+              </h4>
+              <p class="text-[11.5px] text-[#697E80] mt-0.5">
+                Digital literacy vs Distraction & Cognitive load • 6 ideas sẵn có
+              </p>
+            </div>
+          </div>
+          <button type="button" aria-label="Mở rộng vấn đề 3" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-lg text-tealDeep shrink-0 hover:bg-canvas">
+            <span class="material-symbols-rounded text-xl">expand_more</span>
+          </button>
+        </div>
+
+        <!-- Collapsed Issue 4 -->
+        <div class="bg-surfaceCard rounded-xl border border-cardBorder shadow-tactile-soft p-3.5 flex items-center justify-between gap-3 hover:bg-canvasDim transition-colors cursor-pointer group">
+          <div class="flex items-start gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-canvasDim flex items-center justify-center text-tealDeep text-xs font-bold shrink-0 border border-cardBorder">
+              04
+            </div>
+            <div>
+              <h4 class="text-[13.5px] font-bold text-tealDeep font-display leading-tight group-hover:text-tealAccent transition-colors">
+                Is continuous assessment fairer than high-stakes final examinations?
+              </h4>
+              <p class="text-[11.5px] text-[#697E80] mt-0.5">
+                Portfolio grading vs Standardized test rigor • 4 ideas sẵn có
+              </p>
+            </div>
+          </div>
+          <button type="button" aria-label="Mở rộng vấn đề 4" class="min-w-[44px] min-h-[44px] w-11 h-11 flex items-center justify-center rounded-lg text-tealDeep shrink-0 hover:bg-canvas">
+            <span class="material-symbols-rounded text-xl">expand_more</span>
+          </button>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Bottom Navigation Bar (Canonical 5-tab Lexkite nav, Skills Active) -->
+    <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] h-16 bg-surfaceCard border-t border-cardBorder flex items-center justify-around px-2 z-50 shadow-[0_-2px_10px_rgba(15,61,62,0.05)]" aria-label="Điều hướng chính">
+      <!-- Tab 1: Today -->
+      <a href="#/today" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-[#697E80] hover:text-tealDeep transition-colors">
+        <span class="material-symbols-rounded text-[22px]">calendar_today</span>
+        <span class="text-[11px] font-semibold tracking-tight mt-0.5">Today</span>
+      </a>
+
+      <!-- Tab 2: Vocab -->
+      <a href="#/vocab" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-[#697E80] hover:text-tealDeep transition-colors">
+        <span class="material-symbols-rounded text-[22px]">menu_book</span>
+        <span class="text-[11px] font-semibold tracking-tight mt-0.5">Vocab</span>
+      </a>
+
+      <!-- Tab 3: Skills (ACTIVE) -->
+      <a href="#/skills" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-tealDeep font-bold relative" aria-current="page">
+        <span class="w-10 h-7 rounded-full bg-tealSoft flex items-center justify-center text-tealDeep">
+          <span class="material-symbols-rounded text-[20px]">psychology</span>
+        </span>
+        <span class="text-[11px] font-bold tracking-tight text-tealDeep mt-0.5">Skills</span>
+      </a>
+
+      <!-- Tab 4: Tests -->
+      <a href="#/tests" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-[#697E80] hover:text-tealDeep transition-colors">
+        <span class="material-symbols-rounded text-[22px]">assignment</span>
+        <span class="text-[11px] font-semibold tracking-tight mt-0.5">Tests</span>
+      </a>
+
+      <!-- Tab 5: Me -->
+      <a href="#/me" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] py-1 text-[#697E80] hover:text-tealDeep transition-colors">
+        <span class="material-symbols-rounded text-[22px]">person</span>
+        <span class="text-[11px] font-semibold tracking-tight mt-0.5">Me</span>
+      </a>
+    </nav>
+
+  </main>
+
+</body>
+</html>

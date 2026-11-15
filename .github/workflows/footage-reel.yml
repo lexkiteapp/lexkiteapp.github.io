@@ -13,11 +13,12 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
-        with: { sparse-checkout: .github/actions }   # setup-ffmpeg action only (the job needs no other repo file)
+        with: { sparse-checkout: "scripts/ci\n.github/actions" }   # setup-ffmpeg + apt actions (and scripts/ci/apt-install.sh) only (the job needs no other repo file)
       - uses: ./.github/actions/setup-ffmpeg
       - name: ffmpeg + font
         timeout-minutes: 12
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-dejavu-core >/dev/null
+        uses: ./.github/actions/apt
+        with: { packages: fonts-dejavu-core }
       - name: Footage (clip folders only, sparse)
         env: { KEY: '${{ secrets.FOOTAGE_DEPLOY_KEY }}' }
         run: |

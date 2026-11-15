@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_zh_whenarrive",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "No will after when!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I will call you when I will arrive.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I will call you when I arrive.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "After when, use arrive. No will.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Get! Call me when you get home.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I will call you when I will arrive.",
+  "right": "I will call you when I arrive.",
+  "strike": "will arrive",
+  "why": "After when, use arrive. No will.",
+  "memory": "When I arrive.",
+  "quiz": {
+   "stem": "Call me when you ___ home.",
+   "options": [
+    "will get",
+    "get"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "when 后面不用 will！",
+   "tip": "when 引导的时间从句，即使说将来的事，也用一般现在时。",
+   "caption": "你是不是也会说 “I will call you when I will arrive.”？😅 when 引导时间从句时，用现在时表示将来：“I will call you when I arrive.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。",
+   "comment": "答案：“when I arrive”。时间从句用现在时！免费测验在这里：{link}",
+   "hashtags": [
+    "#学英语",
+    "#英语口语",
+    "#英语学习",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "No “will” after when!",
+   "tip": "In a clause with when, use the present tense even for the future.",
+   "caption": "Do you say “I will call you when I will arrive.”? 😅 After when, use the present tense even for the future: “I will call you when I arrive.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "when 后面不用 will！"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "zh",
+ "est": {
+  "words": 52,
+  "seconds": 31.0,
+  "wpm": 101
+ },
+ "publish": {
+  "title": "when 后面不用 will！",
+  "keyword": "I will call you when I arrive.",
+  "value": "when 引导的时间从句，即使说将来的事，也用一般现在时。",
+  "hashtags": [
+   "#学英语",
+   "#英语口语",
+   "#英语学习",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 46,
+  "platforms": {
+   "youtube": {
+    "title": "when 后面不用 will！",
+    "description": "你是不是也会说 “I will call you when I will arrive.”？😅 when 引导时间从句时，用现在时表示将来：“I will call you when I arrive.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix\n\n#学英语 #英语口语 #英语学习 #lexkite",
+    "tags": [
+     "I will call you when I arrive.",
+     "learn english",
+     "zh"
+    ]
+   },
+   "facebook": {
+    "text": "你是不是也会说 “I will call you when I will arrive.”？😅 when 引导时间从句时，用现在时表示将来：“I will call you when I arrive.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "你是不是也会说 “I will call you when I will arrive.”？😅 when 引导时间从句时，用现在时表示将来：“I will call you when I arrive.”。跟着 Ama 老师读一读！在 Lexkite 应用里练习更多。\n\nlexkite.com",
+    "hashtags": [
+     "#学英语",
+     "#英语口语",
+     "#英语学习",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "when 后面不用 will！ #学英语 #英语口语 #英语学习"
+   }
+  },
+  "first_comment": "答案：“when I arrive”。时间从句用现在时！免费测验在这里：{link}",
+  "lang": "zh"
+ }
+}

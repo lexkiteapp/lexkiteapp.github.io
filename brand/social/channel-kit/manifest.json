@@ -5,16 +5,254 @@
   "brand/lexkite-logo-dark.svg": "bd82df8ecacd9888e5796523359617dc99f5d423a079e2eb3d6af4db19bb2c51"
  },
  "copy": {
-  "headline": "Learn English words that stick.",
-  "sub": "Free vocabulary for IELTS, TOEIC & everyday English",
-  "free": "100% free",
-  "url": "lexkite.com",
-  "weekly": "New lessons every week",
-  "thumb": {
-   "tag": "Band 7+",
-   "big": "10",
-   "l1": "IELTS WORDS",
-   "l2": "for travel"
+  "en": {
+   "h1": "Learn English words",
+   "h2a": "that ",
+   "stick": "stick",
+   "h2b": ".",
+   "hs": 84,
+   "hb": 96,
+   "sub": "Free vocabulary for IELTS, TOEIC & everyday English",
+   "badge": "Lexkite · 100% free · No paywalls",
+   "channel": "100% free channel",
+   "url": "lexkite.com",
+   "weekly": "New lessons every week",
+   "thumb": {
+    "tag": "Band 7+",
+    "big": "10",
+    "l1": "IELTS WORDS",
+    "l2": "for travel"
+   }
+  },
+  "vi": {
+   "h1": "Học từ vựng tiếng Anh",
+   "h2a": "",
+   "stick": "nhớ lâu",
+   "h2b": ".",
+   "hs": 76,
+   "hb": 84,
+   "sub": "Miễn phí – IELTS, TOEIC & tiếng Anh hằng ngày",
+   "badge": "Lexkite · Miễn phí 100% · Không tường phí",
+   "channel": "Kênh miễn phí 100%",
+   "url": "lexkite.com",
+   "weekly": "Bài học mới mỗi tuần",
+   "thumb": {
+    "tag": "Band 7+",
+    "big": "10",
+    "l1": "TỪ IELTS",
+    "l2": "đi du lịch"
+   }
+  },
+  "es": {
+   "h1": "Aprende vocabulario de inglés",
+   "h2a": "",
+   "stick": "que se queda",
+   "h2b": ".",
+   "hs": 60,
+   "hb": 58,
+   "sub": "Gratis para IELTS, TOEIC e inglés cotidiano",
+   "badge": "Lexkite · 100 % gratis · Sin paywall",
+   "channel": "Canal 100 % gratis",
+   "url": "lexkite.com",
+   "weekly": "Lecciones nuevas cada semana",
+   "thumb": {
+    "tag": "Band 7+",
+    "big": "10",
+    "l1": "PALABRAS",
+    "l2": "de viaje"
+   }
+  },
+  "pt": {
+   "h1": "Vocabulário de inglês",
+   "h2a": "",
+   "stick": "que fica na memória",
+   "h2b": ".",
+   "hs": 68,
+   "hb": 56,
+   "sub": "Grátis para IELTS, TOEIC e inglês do dia a dia",
+   "badge": "Lexkite · 100% grátis · Sem paywall",
+   "channel": "Canal 100% grátis",
+   "url": "lexkite.com",
+   "weekly": "Aulas novas toda semana",
+   "thumb": {
+    "tag": "Band 7+",
+    "big": "10",
+    "l1": "PALAVRAS",
+    "l2": "de viagem"
+   }
+  },
+  "de": {
+   "h1": "Englische Wörter lernen,",
+   "h2a": "",
+   "stick": "die hängen bleiben",
+   "h2b": ".",
+   "hs": 66,
+   "hb": 52,
+   "sub": "Kostenlos für IELTS, TOEIC & Alltagsenglisch",
+   "badge": "Lexkite · 100 % kostenlos · Ohne Paywall",
+   "channel": "100 % kostenloser Kanal",
+   "url": "lexkite.com",
+   "weekly": "Jede Woche neue Lektionen",
+   "thumb": {
+    "tag": "Band 7+",
+    "big": "10",
+    "l1": "WÖRTER",
+    "l2": "für Reisen"
+   }
+  },
+  "fr": {
+   "h1": "Apprends les mots anglais",
+   "h2a": "",
+   "stick": "qui restent",
+   "h2b": ".",
+   "hs": 64,
+   "hb": 60,
+   "sub": "Gratuit pour l’IELTS, le TOEIC et l’anglais du quotidien",
+   "badge": "Lexkite · 100 % gratuit · Sans paywall",
+   "channel": "Chaîne 100 % gratuite",
+   "url": "lexkite.com",
+   "weekly": "Nouvelles leçons chaque semaine",
+   "thumb": {
+    "tag": "Band 7+",
+    "big": "10",
+    "l1": "MOTS",
+    "l2": "en voyage"
+   }
+  },
+  "ru": {
+   "h1": "Английские слова,",
+   "h2a": "",
+   "stick": "которые запоминаются",
+   "h2b": ".",
+   "hs": 62,
+   "hb": 52,
+   "sub": "Бесплатно: IELTS, TOEIC и повседневный английский",
+   "badge": "Lexkite · 100% бесплатно · Без пейвола",
+   "channel": "100% бесплатный канал",
+   "url": "lexkite.com",
+   "weekly": "Новые уроки каждую неделю",
+   "thumb": {
+    "tag": "Band 7+",
+    "big": "10",
+    "l1": "СЛОВ",
+    "l2": "в поездку"
+   }
+  },
+  "tr": {
+   "h1": "İngilizce kelimeleri",
+   "h2a": "",
+   "stick": "kalıcı öğren",
+   "h2b": ".",
+   "hs": 72,
+   "hb": 70,
+   "sub": "IELTS, TOEIC ve günlük İngilizce için ücretsiz",
+   "badge": "Lexkite · %100 ücretsiz · Ödeme duvarı yok",
+   "channel": "%100 ücretsiz kanal",
+   "url": "lexkite.com",
+   "weekly": "Her hafta yeni dersler",
+   "thumb": {
+    "tag": "Band 7+",
+    "big": "10",
+    "l1": "KELİME",
+    "l2": "seyahatte"
+   }
+  },
+  "ar": {
+   "h1": "تعلّم كلمات الإنجليزية",
+   "h2a": "",
+   "stick": "التي لا تُنسى",
+   "h2b": ".",
+   "hs": 72,
+   "hb": 68,
+   "sub": "مجاني لـ IELTS وTOEIC والإنجليزية اليومية",
+   "badge": "Lexkite · مجاني 100% · بلا اشتراك",
+   "channel": "قناة مجانية 100%",
+   "url": "lexkite.com",
+   "weekly": "دروس جديدة كل أسبوع",
+   "thumb": {
+    "tag": "Band 7+",
+    "big": "10",
+    "l1": "كلمات",
+    "l2": "للسفر"
+   }
+  },
+  "hi": {
+   "h1": "अंग्रेज़ी शब्द सीखें",
+   "h2a": "",
+   "stick": "जो याद रहें",
+   "h2b": "।",
+   "hs": 72,
+   "hb": 68,
+   "sub": "IELTS, TOEIC और रोज़मर्रा की अंग्रेज़ी – मुफ़्त",
+   "badge": "Lexkite · 100% मुफ़्त · कोई पेवॉल नहीं",
+   "channel": "100% मुफ़्त चैनल",
+   "url": "lexkite.com",
+   "weekly": "हर हफ़्ते नए पाठ",
+   "thumb": {
+    "tag": "Band 7+",
+    "big": "10",
+    "l1": "शब्द",
+    "l2": "सफ़र में"
+   }
+  },
+  "ja": {
+   "h1": "忘れない英単語を",
+   "h2a": "",
+   "stick": "無料で学ぼう",
+   "h2b": "。",
+   "sp": "",
+   "hs": 84,
+   "hb": 88,
+   "sub": "IELTS・TOEIC・日常英会話の単語を無料で",
+   "badge": "Lexkite · 完全無料 · ペイウォールなし",
+   "channel": "100%無料チャンネル",
+   "url": "lexkite.com",
+   "weekly": "毎週新しいレッスン",
+   "thumb": {
+    "tag": "Band 7+",
+    "big": "10",
+    "l1": "英単語",
+    "l2": "旅行編"
+   }
+  },
+  "ko": {
+   "h1": "잊지 않는 영어 단어를",
+   "h2a": "",
+   "stick": "무료로 배우세요",
+   "h2b": ".",
+   "hs": 72,
+   "hb": 72,
+   "sub": "IELTS, TOEIC, 일상 영어 단어를 무료로",
+   "badge": "Lexkite · 100% 무료 · 결제 장벽 없음",
+   "channel": "100% 무료 채널",
+   "url": "lexkite.com",
+   "weekly": "매주 새로운 레슨",
+   "thumb": {
+    "tag": "Band 7+",
+    "big": "10",
+    "l1": "영어 단어",
+    "l2": "여행 편"
+   }
+  },
+  "zh": {
+   "h1": "轻松记住英语单词，",
+   "h2a": "",
+   "stick": "完全免费",
+   "h2b": "。",
+   "sp": "",
+   "hs": 80,
+   "hb": 88,
+   "sub": "IELTS、TOEIC 与日常英语词汇，免费学",
+   "badge": "Lexkite · 100% 免费 · 无付费墙",
+   "channel": "100% 免费频道",
+   "url": "lexkite.com",
+   "weekly": "每周更新新课程",
+   "thumb": {
+    "tag": "Band 7+",
+    "big": "10",
+    "l1": "英语单词",
+    "l2": "旅行篇"
+   }
   }
  },
  "assets": [
@@ -41,7 +279,7 @@
    "file": "facebook/lexkite-facebook-cover-1640x624.png",
    "w": 1640,
    "h": 624,
-   "kb": 146,
+   "kb": 147,
    "maxKB": 4096,
    "use": "Page cover photo (desktop 820×312, phone crops the centre to 16:9)",
    "zones": [
@@ -82,17 +320,17 @@
     {
      "text": "Lexkite · 100% free · No paywalls",
      "px": 28,
-     "contrast": 15.17
+     "contrast": 15.05
     },
     {
      "text": "Learn English words",
      "px": 84,
-     "contrast": 11.78
+     "contrast": 11.11
     },
     {
      "text": "that stick.",
      "px": 84,
-     "contrast": 11.92
+     "contrast": 11.25
     },
     {
      "text": "stick",
@@ -102,7 +340,7 @@
     {
      "text": "Free vocabulary for IELTS, TOEIC & everyday English",
      "px": 32,
-     "contrast": 12.5
+     "contrast": 12.52
     },
     {
      "text": "lexkite.com",
@@ -168,7 +406,7 @@
    "file": "youtube/lexkite-youtube-banner-2560x1440.png",
    "w": 2560,
    "h": 1440,
-   "kb": 445,
+   "kb": 448,
    "maxKB": 6144,
    "use": "Channel banner (≤ 6 MB). TV shows all; desktop 2560×423; tablet 1855×423; phone 1546×423",
    "zones": [
@@ -209,12 +447,12 @@
     {
      "text": "100% free channel",
      "px": 44,
-     "contrast": 15.17
+     "contrast": 15.05
     },
     {
      "text": "Learn English words that stick.",
      "px": 96,
-     "contrast": 11.78
+     "contrast": 11.11
     },
     {
      "text": "stick",
@@ -234,7 +472,7 @@
     {
      "text": "lexkite.com",
      "px": 44,
-     "contrast": 15.17
+     "contrast": 15.05
     }
    ]
   },
@@ -256,7 +494,7 @@
    "file": "youtube/lexkite-youtube-thumbnail-template-1280x720.png",
    "w": 1280,
    "h": 720,
-   "kb": 152,
+   "kb": 156,
    "maxKB": 2048,
    "use": "Video thumbnail template (≤ 2 MB; bottom-right is covered by the length badge)",
    "zones": [
@@ -286,7 +524,7 @@
     {
      "text": "IELTS",
      "px": 40,
-     "contrast": 15.17
+     "contrast": 15.05
     },
     {
      "text": "10",
@@ -296,17 +534,2638 @@
     {
      "text": "IELTS WORDS",
      "px": 92,
-     "contrast": 13.67
+     "contrast": 12.89
     },
     {
      "text": "for travel",
      "px": 84,
-     "contrast": 11.08
+     "contrast": 11.11
     }
+   ]
+  },
+  {
+   "id": "fb-cover-vi",
+   "platform": "Facebook",
+   "file": "facebook/lexkite-facebook-cover-1640x624-vi.png",
+   "w": 1640,
+   "h": 624,
+   "kb": 149,
+   "maxKB": 4096,
+   "use": "Page cover photo (desktop 820×312, phone crops the centre to 16:9)",
+   "zones": [
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 0,
+     "w": 1640,
+     "h": 624
+    },
+    {
+     "type": "view",
+     "label": "Phone 16:9",
+     "x": 265,
+     "y": 0,
+     "w": 1110,
+     "h": 624
+    },
+    {
+     "type": "safe",
+     "label": "Text safe (phone ∩ desktop)",
+     "x": 305,
+     "y": 60,
+     "w": 1030,
+     "h": 500
+    },
+    {
+     "type": "block",
+     "label": "Profile photo (desktop)",
+     "x": 0,
+     "y": 470,
+     "w": 300,
+     "h": 154
+    }
+   ],
+   "text": [
+    {
+     "text": "Lexkite · Miễn phí 100% · Không tường phí",
+     "px": 28,
+     "contrast": 15.05
+    },
+    {
+     "text": "Học từ vựng tiếng Anh",
+     "px": 76,
+     "contrast": 11.11
+    },
+    {
+     "text": "nhớ lâu.",
+     "px": 76,
+     "contrast": 11.11
+    },
+    {
+     "text": "nhớ lâu",
+     "px": 76,
+     "contrast": 4.84
+    },
+    {
+     "text": "Miễn phí – IELTS, TOEIC & tiếng Anh hằng ngày",
+     "px": 32,
+     "contrast": 12.25
+    },
+    {
+     "text": "lexkite.com",
+     "px": 34,
+     "contrast": 6.39
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-banner-vi",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-banner-2560x1440-vi.png",
+   "w": 2560,
+   "h": 1440,
+   "kb": 461,
+   "maxKB": 6144,
+   "use": "Channel banner (≤ 6 MB). TV shows all; desktop 2560×423; tablet 1855×423; phone 1546×423",
+   "zones": [
+    {
+     "type": "view",
+     "label": "TV",
+     "x": 0,
+     "y": 0,
+     "w": 2560,
+     "h": 1440
+    },
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 508,
+     "w": 2560,
+     "h": 423
+    },
+    {
+     "type": "view",
+     "label": "Tablet",
+     "x": 352,
+     "y": 508,
+     "w": 1855,
+     "h": 423
+    },
+    {
+     "type": "safe",
+     "label": "All devices 1546×423",
+     "x": 507,
+     "y": 508,
+     "w": 1546,
+     "h": 423
+    }
+   ],
+   "text": [
+    {
+     "text": "Kênh miễn phí 100%",
+     "px": 44,
+     "contrast": 15.05
+    },
+    {
+     "text": "Học từ vựng tiếng Anh nhớ lâu.",
+     "px": 84,
+     "contrast": 11.11
+    },
+    {
+     "text": "nhớ lâu",
+     "px": 84,
+     "contrast": 5.68
+    },
+    {
+     "text": "Miễn phí – IELTS, TOEIC & tiếng Anh hằng ngày",
+     "px": 44,
+     "contrast": 9.86
+    },
+    {
+     "text": "Bài học mới mỗi tuần",
+     "px": 44,
+     "contrast": 6.1
+    },
+    {
+     "text": "lexkite.com",
+     "px": 44,
+     "contrast": 15.05
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-thumb-vi",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-thumbnail-template-1280x720-vi.png",
+   "w": 1280,
+   "h": 720,
+   "kb": 154,
+   "maxKB": 2048,
+   "use": "Video thumbnail template (≤ 2 MB; bottom-right is covered by the length badge)",
+   "zones": [
+    {
+     "type": "safe",
+     "label": "Text safe",
+     "x": 48,
+     "y": 40,
+     "w": 1184,
+     "h": 640
+    },
+    {
+     "type": "block",
+     "label": "Duration badge",
+     "x": 1080,
+     "y": 630,
+     "w": 200,
+     "h": 90
+    }
+   ],
+   "text": [
+    {
+     "text": "Band 7+",
+     "px": 40,
+     "contrast": 6.03
+    },
+    {
+     "text": "IELTS",
+     "px": 40,
+     "contrast": 15.05
+    },
+    {
+     "text": "10",
+     "px": 250,
+     "contrast": 8.89
+    },
+    {
+     "text": "TỪ IELTS",
+     "px": 92,
+     "contrast": 12.76
+    },
+    {
+     "text": "đi du lịch",
+     "px": 84,
+     "contrast": 11.11
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "fb-cover-es",
+   "platform": "Facebook",
+   "file": "facebook/lexkite-facebook-cover-1640x624-es.png",
+   "w": 1640,
+   "h": 624,
+   "kb": 136,
+   "maxKB": 4096,
+   "use": "Page cover photo (desktop 820×312, phone crops the centre to 16:9)",
+   "zones": [
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 0,
+     "w": 1640,
+     "h": 624
+    },
+    {
+     "type": "view",
+     "label": "Phone 16:9",
+     "x": 265,
+     "y": 0,
+     "w": 1110,
+     "h": 624
+    },
+    {
+     "type": "safe",
+     "label": "Text safe (phone ∩ desktop)",
+     "x": 305,
+     "y": 60,
+     "w": 1030,
+     "h": 500
+    },
+    {
+     "type": "block",
+     "label": "Profile photo (desktop)",
+     "x": 0,
+     "y": 470,
+     "w": 300,
+     "h": 154
+    }
+   ],
+   "text": [
+    {
+     "text": "Lexkite · 100 % gratis · Sin paywall",
+     "px": 28,
+     "contrast": 15.05
+    },
+    {
+     "text": "Aprende vocabulario de inglés",
+     "px": 60,
+     "contrast": 11.1
+    },
+    {
+     "text": "que se queda.",
+     "px": 60,
+     "contrast": 10.68
+    },
+    {
+     "text": "que se queda",
+     "px": 60,
+     "contrast": 4.71
+    },
+    {
+     "text": "Gratis para IELTS, TOEIC e inglés cotidiano",
+     "px": 32,
+     "contrast": 11.31
+    },
+    {
+     "text": "lexkite.com",
+     "px": 34,
+     "contrast": 6.39
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-banner-es",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-banner-2560x1440-es.png",
+   "w": 2560,
+   "h": 1440,
+   "kb": 449,
+   "maxKB": 6144,
+   "use": "Channel banner (≤ 6 MB). TV shows all; desktop 2560×423; tablet 1855×423; phone 1546×423",
+   "zones": [
+    {
+     "type": "view",
+     "label": "TV",
+     "x": 0,
+     "y": 0,
+     "w": 2560,
+     "h": 1440
+    },
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 508,
+     "w": 2560,
+     "h": 423
+    },
+    {
+     "type": "view",
+     "label": "Tablet",
+     "x": 352,
+     "y": 508,
+     "w": 1855,
+     "h": 423
+    },
+    {
+     "type": "safe",
+     "label": "All devices 1546×423",
+     "x": 507,
+     "y": 508,
+     "w": 1546,
+     "h": 423
+    }
+   ],
+   "text": [
+    {
+     "text": "Canal 100 % gratis",
+     "px": 44,
+     "contrast": 15.05
+    },
+    {
+     "text": "Aprende vocabulario de inglés que se queda.",
+     "px": 58,
+     "contrast": 10.96
+    },
+    {
+     "text": "que se queda",
+     "px": 58,
+     "contrast": 5.47
+    },
+    {
+     "text": "Gratis para IELTS, TOEIC e inglés cotidiano",
+     "px": 44,
+     "contrast": 9.59
+    },
+    {
+     "text": "Lecciones nuevas cada semana",
+     "px": 44,
+     "contrast": 6.1
+    },
+    {
+     "text": "lexkite.com",
+     "px": 44,
+     "contrast": 15.05
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-thumb-es",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-thumbnail-template-1280x720-es.png",
+   "w": 1280,
+   "h": 720,
+   "kb": 149,
+   "maxKB": 2048,
+   "use": "Video thumbnail template (≤ 2 MB; bottom-right is covered by the length badge)",
+   "zones": [
+    {
+     "type": "safe",
+     "label": "Text safe",
+     "x": 48,
+     "y": 40,
+     "w": 1184,
+     "h": 640
+    },
+    {
+     "type": "block",
+     "label": "Duration badge",
+     "x": 1080,
+     "y": 630,
+     "w": 200,
+     "h": 90
+    }
+   ],
+   "text": [
+    {
+     "text": "Band 7+",
+     "px": 40,
+     "contrast": 6.03
+    },
+    {
+     "text": "IELTS",
+     "px": 40,
+     "contrast": 15.05
+    },
+    {
+     "text": "10",
+     "px": 250,
+     "contrast": 8.89
+    },
+    {
+     "text": "PALABRAS",
+     "px": 92,
+     "contrast": 12.88
+    },
+    {
+     "text": "de viaje",
+     "px": 84,
+     "contrast": 11.11
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "fb-cover-pt",
+   "platform": "Facebook",
+   "file": "facebook/lexkite-facebook-cover-1640x624-pt.png",
+   "w": 1640,
+   "h": 624,
+   "kb": 135,
+   "maxKB": 4096,
+   "use": "Page cover photo (desktop 820×312, phone crops the centre to 16:9)",
+   "zones": [
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 0,
+     "w": 1640,
+     "h": 624
+    },
+    {
+     "type": "view",
+     "label": "Phone 16:9",
+     "x": 265,
+     "y": 0,
+     "w": 1110,
+     "h": 624
+    },
+    {
+     "type": "safe",
+     "label": "Text safe (phone ∩ desktop)",
+     "x": 305,
+     "y": 60,
+     "w": 1030,
+     "h": 500
+    },
+    {
+     "type": "block",
+     "label": "Profile photo (desktop)",
+     "x": 0,
+     "y": 470,
+     "w": 300,
+     "h": 154
+    }
+   ],
+   "text": [
+    {
+     "text": "Lexkite · 100% grátis · Sem paywall",
+     "px": 28,
+     "contrast": 15.05
+    },
+    {
+     "text": "Vocabulário de inglês",
+     "px": 68,
+     "contrast": 10.95
+    },
+    {
+     "text": "que fica na memória.",
+     "px": 68,
+     "contrast": 11.1
+    },
+    {
+     "text": "que fica na memória",
+     "px": 68,
+     "contrast": 4.9
+    },
+    {
+     "text": "Grátis para IELTS, TOEIC e inglês do dia a dia",
+     "px": 32,
+     "contrast": 11.7
+    },
+    {
+     "text": "lexkite.com",
+     "px": 34,
+     "contrast": 6.35
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-banner-pt",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-banner-2560x1440-pt.png",
+   "w": 2560,
+   "h": 1440,
+   "kb": 449,
+   "maxKB": 6144,
+   "use": "Channel banner (≤ 6 MB). TV shows all; desktop 2560×423; tablet 1855×423; phone 1546×423",
+   "zones": [
+    {
+     "type": "view",
+     "label": "TV",
+     "x": 0,
+     "y": 0,
+     "w": 2560,
+     "h": 1440
+    },
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 508,
+     "w": 2560,
+     "h": 423
+    },
+    {
+     "type": "view",
+     "label": "Tablet",
+     "x": 352,
+     "y": 508,
+     "w": 1855,
+     "h": 423
+    },
+    {
+     "type": "safe",
+     "label": "All devices 1546×423",
+     "x": 507,
+     "y": 508,
+     "w": 1546,
+     "h": 423
+    }
+   ],
+   "text": [
+    {
+     "text": "Canal 100% grátis",
+     "px": 44,
+     "contrast": 15.05
+    },
+    {
+     "text": "Vocabulário de inglês que fica na memória.",
+     "px": 56,
+     "contrast": 10.96
+    },
+    {
+     "text": "que fica na memória",
+     "px": 56,
+     "contrast": 4.9
+    },
+    {
+     "text": "Grátis para IELTS, TOEIC e inglês do dia a dia",
+     "px": 44,
+     "contrast": 9.59
+    },
+    {
+     "text": "Aulas novas toda semana",
+     "px": 44,
+     "contrast": 6.1
+    },
+    {
+     "text": "lexkite.com",
+     "px": 44,
+     "contrast": 15.05
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-thumb-pt",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-thumbnail-template-1280x720-pt.png",
+   "w": 1280,
+   "h": 720,
+   "kb": 154,
+   "maxKB": 2048,
+   "use": "Video thumbnail template (≤ 2 MB; bottom-right is covered by the length badge)",
+   "zones": [
+    {
+     "type": "safe",
+     "label": "Text safe",
+     "x": 48,
+     "y": 40,
+     "w": 1184,
+     "h": 640
+    },
+    {
+     "type": "block",
+     "label": "Duration badge",
+     "x": 1080,
+     "y": 630,
+     "w": 200,
+     "h": 90
+    }
+   ],
+   "text": [
+    {
+     "text": "Band 7+",
+     "px": 40,
+     "contrast": 6.03
+    },
+    {
+     "text": "IELTS",
+     "px": 40,
+     "contrast": 15.05
+    },
+    {
+     "text": "10",
+     "px": 250,
+     "contrast": 8.89
+    },
+    {
+     "text": "PALAVRAS",
+     "px": 92,
+     "contrast": 12.88
+    },
+    {
+     "text": "de viagem",
+     "px": 84,
+     "contrast": 11.11
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "fb-cover-de",
+   "platform": "Facebook",
+   "file": "facebook/lexkite-facebook-cover-1640x624-de.png",
+   "w": 1640,
+   "h": 624,
+   "kb": 140,
+   "maxKB": 4096,
+   "use": "Page cover photo (desktop 820×312, phone crops the centre to 16:9)",
+   "zones": [
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 0,
+     "w": 1640,
+     "h": 624
+    },
+    {
+     "type": "view",
+     "label": "Phone 16:9",
+     "x": 265,
+     "y": 0,
+     "w": 1110,
+     "h": 624
+    },
+    {
+     "type": "safe",
+     "label": "Text safe (phone ∩ desktop)",
+     "x": 305,
+     "y": 60,
+     "w": 1030,
+     "h": 500
+    },
+    {
+     "type": "block",
+     "label": "Profile photo (desktop)",
+     "x": 0,
+     "y": 470,
+     "w": 300,
+     "h": 154
+    }
+   ],
+   "text": [
+    {
+     "text": "Lexkite · 100 % kostenlos · Ohne Paywall",
+     "px": 28,
+     "contrast": 15.05
+    },
+    {
+     "text": "Englische Wörter lernen,",
+     "px": 66,
+     "contrast": 10.97
+    },
+    {
+     "text": "die hängen bleiben.",
+     "px": 66,
+     "contrast": 11.11
+    },
+    {
+     "text": "die hängen bleiben",
+     "px": 66,
+     "contrast": 4.84
+    },
+    {
+     "text": "Kostenlos für IELTS, TOEIC & Alltagsenglisch",
+     "px": 32,
+     "contrast": 11.57
+    },
+    {
+     "text": "lexkite.com",
+     "px": 34,
+     "contrast": 6.43
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-banner-de",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-banner-2560x1440-de.png",
+   "w": 2560,
+   "h": 1440,
+   "kb": 450,
+   "maxKB": 6144,
+   "use": "Channel banner (≤ 6 MB). TV shows all; desktop 2560×423; tablet 1855×423; phone 1546×423",
+   "zones": [
+    {
+     "type": "view",
+     "label": "TV",
+     "x": 0,
+     "y": 0,
+     "w": 2560,
+     "h": 1440
+    },
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 508,
+     "w": 2560,
+     "h": 423
+    },
+    {
+     "type": "view",
+     "label": "Tablet",
+     "x": 352,
+     "y": 508,
+     "w": 1855,
+     "h": 423
+    },
+    {
+     "type": "safe",
+     "label": "All devices 1546×423",
+     "x": 507,
+     "y": 508,
+     "w": 1546,
+     "h": 423
+    }
+   ],
+   "text": [
+    {
+     "text": "100 % kostenloser Kanal",
+     "px": 44,
+     "contrast": 15.05
+    },
+    {
+     "text": "Englische Wörter lernen, die hängen bleiben.",
+     "px": 52,
+     "contrast": 11.11
+    },
+    {
+     "text": "die hängen bleiben",
+     "px": 52,
+     "contrast": 5.03
+    },
+    {
+     "text": "Kostenlos für IELTS, TOEIC & Alltagsenglisch",
+     "px": 44,
+     "contrast": 9.71
+    },
+    {
+     "text": "Jede Woche neue Lektionen",
+     "px": 44,
+     "contrast": 6.1
+    },
+    {
+     "text": "lexkite.com",
+     "px": 44,
+     "contrast": 15.05
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-thumb-de",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-thumbnail-template-1280x720-de.png",
+   "w": 1280,
+   "h": 720,
+   "kb": 153,
+   "maxKB": 2048,
+   "use": "Video thumbnail template (≤ 2 MB; bottom-right is covered by the length badge)",
+   "zones": [
+    {
+     "type": "safe",
+     "label": "Text safe",
+     "x": 48,
+     "y": 40,
+     "w": 1184,
+     "h": 640
+    },
+    {
+     "type": "block",
+     "label": "Duration badge",
+     "x": 1080,
+     "y": 630,
+     "w": 200,
+     "h": 90
+    }
+   ],
+   "text": [
+    {
+     "text": "Band 7+",
+     "px": 40,
+     "contrast": 6.03
+    },
+    {
+     "text": "IELTS",
+     "px": 40,
+     "contrast": 15.05
+    },
+    {
+     "text": "10",
+     "px": 250,
+     "contrast": 8.89
+    },
+    {
+     "text": "WÖRTER",
+     "px": 92,
+     "contrast": 12.76
+    },
+    {
+     "text": "für Reisen",
+     "px": 84,
+     "contrast": 11.11
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "fb-cover-fr",
+   "platform": "Facebook",
+   "file": "facebook/lexkite-facebook-cover-1640x624-fr.png",
+   "w": 1640,
+   "h": 624,
+   "kb": 135,
+   "maxKB": 4096,
+   "use": "Page cover photo (desktop 820×312, phone crops the centre to 16:9)",
+   "zones": [
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 0,
+     "w": 1640,
+     "h": 624
+    },
+    {
+     "type": "view",
+     "label": "Phone 16:9",
+     "x": 265,
+     "y": 0,
+     "w": 1110,
+     "h": 624
+    },
+    {
+     "type": "safe",
+     "label": "Text safe (phone ∩ desktop)",
+     "x": 305,
+     "y": 60,
+     "w": 1030,
+     "h": 500
+    },
+    {
+     "type": "block",
+     "label": "Profile photo (desktop)",
+     "x": 0,
+     "y": 470,
+     "w": 300,
+     "h": 154
+    }
+   ],
+   "text": [
+    {
+     "text": "Lexkite · 100 % gratuit · Sans paywall",
+     "px": 28,
+     "contrast": 15.05
+    },
+    {
+     "text": "Apprends les mots anglais",
+     "px": 64,
+     "contrast": 11.26
+    },
+    {
+     "text": "qui restent.",
+     "px": 64,
+     "contrast": 10.82
+    },
+    {
+     "text": "qui restent",
+     "px": 64,
+     "contrast": 4.7
+    },
+    {
+     "text": "Gratuit pour l’IELTS, le TOEIC et l’anglais du quotidien",
+     "px": 32,
+     "contrast": 11.57
+    },
+    {
+     "text": "lexkite.com",
+     "px": 34,
+     "contrast": 6.43
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-banner-fr",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-banner-2560x1440-fr.png",
+   "w": 2560,
+   "h": 1440,
+   "kb": 454,
+   "maxKB": 6144,
+   "use": "Channel banner (≤ 6 MB). TV shows all; desktop 2560×423; tablet 1855×423; phone 1546×423",
+   "zones": [
+    {
+     "type": "view",
+     "label": "TV",
+     "x": 0,
+     "y": 0,
+     "w": 2560,
+     "h": 1440
+    },
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 508,
+     "w": 2560,
+     "h": 423
+    },
+    {
+     "type": "view",
+     "label": "Tablet",
+     "x": 352,
+     "y": 508,
+     "w": 1855,
+     "h": 423
+    },
+    {
+     "type": "safe",
+     "label": "All devices 1546×423",
+     "x": 507,
+     "y": 508,
+     "w": 1546,
+     "h": 423
+    }
+   ],
+   "text": [
+    {
+     "text": "Chaîne 100 % gratuite",
+     "px": 44,
+     "contrast": 15.05
+    },
+    {
+     "text": "Apprends les mots anglais qui restent.",
+     "px": 60,
+     "contrast": 10.83
+    },
+    {
+     "text": "qui restent",
+     "px": 60,
+     "contrast": 5.41
+    },
+    {
+     "text": "Gratuit pour l’IELTS, le TOEIC et l’anglais du quotidien",
+     "px": 44,
+     "contrast": 9.71
+    },
+    {
+     "text": "Nouvelles leçons chaque semaine",
+     "px": 44,
+     "contrast": 6.13
+    },
+    {
+     "text": "lexkite.com",
+     "px": 44,
+     "contrast": 15.05
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-thumb-fr",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-thumbnail-template-1280x720-fr.png",
+   "w": 1280,
+   "h": 720,
+   "kb": 154,
+   "maxKB": 2048,
+   "use": "Video thumbnail template (≤ 2 MB; bottom-right is covered by the length badge)",
+   "zones": [
+    {
+     "type": "safe",
+     "label": "Text safe",
+     "x": 48,
+     "y": 40,
+     "w": 1184,
+     "h": 640
+    },
+    {
+     "type": "block",
+     "label": "Duration badge",
+     "x": 1080,
+     "y": 630,
+     "w": 200,
+     "h": 90
+    }
+   ],
+   "text": [
+    {
+     "text": "Band 7+",
+     "px": 40,
+     "contrast": 6.03
+    },
+    {
+     "text": "IELTS",
+     "px": 40,
+     "contrast": 15.05
+    },
+    {
+     "text": "10",
+     "px": 250,
+     "contrast": 8.89
+    },
+    {
+     "text": "MOTS",
+     "px": 92,
+     "contrast": 13.18
+    },
+    {
+     "text": "en voyage",
+     "px": 84,
+     "contrast": 11.11
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "fb-cover-ru",
+   "platform": "Facebook",
+   "file": "facebook/lexkite-facebook-cover-1640x624-ru.png",
+   "w": 1640,
+   "h": 624,
+   "kb": 144,
+   "maxKB": 4096,
+   "use": "Page cover photo (desktop 820×312, phone crops the centre to 16:9)",
+   "zones": [
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 0,
+     "w": 1640,
+     "h": 624
+    },
+    {
+     "type": "view",
+     "label": "Phone 16:9",
+     "x": 265,
+     "y": 0,
+     "w": 1110,
+     "h": 624
+    },
+    {
+     "type": "safe",
+     "label": "Text safe (phone ∩ desktop)",
+     "x": 305,
+     "y": 60,
+     "w": 1030,
+     "h": 500
+    },
+    {
+     "type": "block",
+     "label": "Profile photo (desktop)",
+     "x": 0,
+     "y": 470,
+     "w": 300,
+     "h": 154
+    }
+   ],
+   "text": [
+    {
+     "text": "Lexkite · 100% бесплатно · Без пейвола",
+     "px": 28,
+     "contrast": 15.05
+    },
+    {
+     "text": "Английские слова,",
+     "px": 62,
+     "contrast": 10.96
+    },
+    {
+     "text": "которые запоминаются.",
+     "px": 62,
+     "contrast": 11.09
+    },
+    {
+     "text": "которые запоминаются",
+     "px": 62,
+     "contrast": 4.9
+    },
+    {
+     "text": "Бесплатно: IELTS, TOEIC и повседневный английский",
+     "px": 32,
+     "contrast": 11.56
+    },
+    {
+     "text": "lexkite.com",
+     "px": 34,
+     "contrast": 6.35
+    }
+   ],
+   "fonts": [
+    "Noto Sans",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-banner-ru",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-banner-2560x1440-ru.png",
+   "w": 2560,
+   "h": 1440,
+   "kb": 443,
+   "maxKB": 6144,
+   "use": "Channel banner (≤ 6 MB). TV shows all; desktop 2560×423; tablet 1855×423; phone 1546×423",
+   "zones": [
+    {
+     "type": "view",
+     "label": "TV",
+     "x": 0,
+     "y": 0,
+     "w": 2560,
+     "h": 1440
+    },
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 508,
+     "w": 2560,
+     "h": 423
+    },
+    {
+     "type": "view",
+     "label": "Tablet",
+     "x": 352,
+     "y": 508,
+     "w": 1855,
+     "h": 423
+    },
+    {
+     "type": "safe",
+     "label": "All devices 1546×423",
+     "x": 507,
+     "y": 508,
+     "w": 1546,
+     "h": 423
+    }
+   ],
+   "text": [
+    {
+     "text": "100% бесплатный канал",
+     "px": 44,
+     "contrast": 15.05
+    },
+    {
+     "text": "Английские слова, которые запоминаются.",
+     "px": 52,
+     "contrast": 10.96
+    },
+    {
+     "text": "которые запоминаются",
+     "px": 52,
+     "contrast": 4.76
+    },
+    {
+     "text": "Бесплатно: IELTS, TOEIC и повседневный английский",
+     "px": 44,
+     "contrast": 9.72
+    },
+    {
+     "text": "Новые уроки каждую неделю",
+     "px": 44,
+     "contrast": 6.13
+    },
+    {
+     "text": "lexkite.com",
+     "px": 44,
+     "contrast": 15.05
+    }
+   ],
+   "fonts": [
+    "Noto Sans",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-thumb-ru",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-thumbnail-template-1280x720-ru.png",
+   "w": 1280,
+   "h": 720,
+   "kb": 153,
+   "maxKB": 2048,
+   "use": "Video thumbnail template (≤ 2 MB; bottom-right is covered by the length badge)",
+   "zones": [
+    {
+     "type": "safe",
+     "label": "Text safe",
+     "x": 48,
+     "y": 40,
+     "w": 1184,
+     "h": 640
+    },
+    {
+     "type": "block",
+     "label": "Duration badge",
+     "x": 1080,
+     "y": 630,
+     "w": 200,
+     "h": 90
+    }
+   ],
+   "text": [
+    {
+     "text": "Band 7+",
+     "px": 40,
+     "contrast": 6.03
+    },
+    {
+     "text": "IELTS",
+     "px": 40,
+     "contrast": 15.05
+    },
+    {
+     "text": "10",
+     "px": 250,
+     "contrast": 8.89
+    },
+    {
+     "text": "СЛОВ",
+     "px": 92,
+     "contrast": 13.2
+    },
+    {
+     "text": "в поездку",
+     "px": 84,
+     "contrast": 11.11
+    }
+   ],
+   "fonts": [
+    "Noto Sans",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "fb-cover-tr",
+   "platform": "Facebook",
+   "file": "facebook/lexkite-facebook-cover-1640x624-tr.png",
+   "w": 1640,
+   "h": 624,
+   "kb": 142,
+   "maxKB": 4096,
+   "use": "Page cover photo (desktop 820×312, phone crops the centre to 16:9)",
+   "zones": [
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 0,
+     "w": 1640,
+     "h": 624
+    },
+    {
+     "type": "view",
+     "label": "Phone 16:9",
+     "x": 265,
+     "y": 0,
+     "w": 1110,
+     "h": 624
+    },
+    {
+     "type": "safe",
+     "label": "Text safe (phone ∩ desktop)",
+     "x": 305,
+     "y": 60,
+     "w": 1030,
+     "h": 500
+    },
+    {
+     "type": "block",
+     "label": "Profile photo (desktop)",
+     "x": 0,
+     "y": 470,
+     "w": 300,
+     "h": 154
+    }
+   ],
+   "text": [
+    {
+     "text": "Lexkite · %100 ücretsiz · Ödeme duvarı yok",
+     "px": 28,
+     "contrast": 15.05
+    },
+    {
+     "text": "İngilizce kelimeleri",
+     "px": 72,
+     "contrast": 11.11
+    },
+    {
+     "text": "kalıcı öğren.",
+     "px": 72,
+     "contrast": 10.83
+    },
+    {
+     "text": "kalıcı öğren",
+     "px": 72,
+     "contrast": 4.76
+    },
+    {
+     "text": "IELTS, TOEIC ve günlük İngilizce için ücretsiz",
+     "px": 32,
+     "contrast": 11.85
+    },
+    {
+     "text": "lexkite.com",
+     "px": 34,
+     "contrast": 6.46
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-banner-tr",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-banner-2560x1440-tr.png",
+   "w": 2560,
+   "h": 1440,
+   "kb": 433,
+   "maxKB": 6144,
+   "use": "Channel banner (≤ 6 MB). TV shows all; desktop 2560×423; tablet 1855×423; phone 1546×423",
+   "zones": [
+    {
+     "type": "view",
+     "label": "TV",
+     "x": 0,
+     "y": 0,
+     "w": 2560,
+     "h": 1440
+    },
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 508,
+     "w": 2560,
+     "h": 423
+    },
+    {
+     "type": "view",
+     "label": "Tablet",
+     "x": 352,
+     "y": 508,
+     "w": 1855,
+     "h": 423
+    },
+    {
+     "type": "safe",
+     "label": "All devices 1546×423",
+     "x": 507,
+     "y": 508,
+     "w": 1546,
+     "h": 423
+    }
+   ],
+   "text": [
+    {
+     "text": "%100 ücretsiz kanal",
+     "px": 44,
+     "contrast": 15.05
+    },
+    {
+     "text": "İngilizce kelimeleri kalıcı öğren.",
+     "px": 70,
+     "contrast": 11.11
+    },
+    {
+     "text": "kalıcı öğren",
+     "px": 70,
+     "contrast": 5.02
+    },
+    {
+     "text": "IELTS, TOEIC ve günlük İngilizce için ücretsiz",
+     "px": 44,
+     "contrast": 9.58
+    },
+    {
+     "text": "Her hafta yeni dersler",
+     "px": 44,
+     "contrast": 6.1
+    },
+    {
+     "text": "lexkite.com",
+     "px": 44,
+     "contrast": 15.05
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-thumb-tr",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-thumbnail-template-1280x720-tr.png",
+   "w": 1280,
+   "h": 720,
+   "kb": 151,
+   "maxKB": 2048,
+   "use": "Video thumbnail template (≤ 2 MB; bottom-right is covered by the length badge)",
+   "zones": [
+    {
+     "type": "safe",
+     "label": "Text safe",
+     "x": 48,
+     "y": 40,
+     "w": 1184,
+     "h": 640
+    },
+    {
+     "type": "block",
+     "label": "Duration badge",
+     "x": 1080,
+     "y": 630,
+     "w": 200,
+     "h": 90
+    }
+   ],
+   "text": [
+    {
+     "text": "Band 7+",
+     "px": 40,
+     "contrast": 6.03
+    },
+    {
+     "text": "IELTS",
+     "px": 40,
+     "contrast": 15.05
+    },
+    {
+     "text": "10",
+     "px": 250,
+     "contrast": 8.89
+    },
+    {
+     "text": "KELİME",
+     "px": 92,
+     "contrast": 12.89
+    },
+    {
+     "text": "seyahatte",
+     "px": 84,
+     "contrast": 11.11
+    }
+   ],
+   "fonts": [
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "fb-cover-ar",
+   "platform": "Facebook",
+   "file": "facebook/lexkite-facebook-cover-1640x624-ar.png",
+   "w": 1640,
+   "h": 624,
+   "kb": 143,
+   "maxKB": 4096,
+   "use": "Page cover photo (desktop 820×312, phone crops the centre to 16:9)",
+   "zones": [
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 0,
+     "w": 1640,
+     "h": 624
+    },
+    {
+     "type": "view",
+     "label": "Phone 16:9",
+     "x": 265,
+     "y": 0,
+     "w": 1110,
+     "h": 624
+    },
+    {
+     "type": "safe",
+     "label": "Text safe (phone ∩ desktop)",
+     "x": 305,
+     "y": 60,
+     "w": 1030,
+     "h": 500
+    },
+    {
+     "type": "block",
+     "label": "Profile photo (desktop)",
+     "x": 0,
+     "y": 470,
+     "w": 300,
+     "h": 154
+    }
+   ],
+   "text": [
+    {
+     "text": "Lexkite · مجاني 100% · بلا اشتراك",
+     "px": 28,
+     "contrast": 15.05
+    },
+    {
+     "text": "تعلّم كلمات الإنجليزية",
+     "px": 72,
+     "contrast": 11.11
+    },
+    {
+     "text": "التي لا تُنسى.",
+     "px": 72,
+     "contrast": 11.39
+    },
+    {
+     "text": "التي لا تُنسى",
+     "px": 72,
+     "contrast": 4.89
+    },
+    {
+     "text": "مجاني لـ IELTS وTOEIC والإنجليزية اليومية",
+     "px": 32,
+     "contrast": 12.39
+    },
+    {
+     "text": "lexkite.com",
+     "px": 34,
+     "contrast": 6.39
+    }
+   ],
+   "fonts": [
+    "Noto Sans Arabic",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-banner-ar",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-banner-2560x1440-ar.png",
+   "w": 2560,
+   "h": 1440,
+   "kb": 476,
+   "maxKB": 6144,
+   "use": "Channel banner (≤ 6 MB). TV shows all; desktop 2560×423; tablet 1855×423; phone 1546×423",
+   "zones": [
+    {
+     "type": "view",
+     "label": "TV",
+     "x": 0,
+     "y": 0,
+     "w": 2560,
+     "h": 1440
+    },
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 508,
+     "w": 2560,
+     "h": 423
+    },
+    {
+     "type": "view",
+     "label": "Tablet",
+     "x": 352,
+     "y": 508,
+     "w": 1855,
+     "h": 423
+    },
+    {
+     "type": "safe",
+     "label": "All devices 1546×423",
+     "x": 507,
+     "y": 508,
+     "w": 1546,
+     "h": 423
+    }
+   ],
+   "text": [
+    {
+     "text": "قناة مجانية 100%",
+     "px": 44,
+     "contrast": 15.05
+    },
+    {
+     "text": "تعلّم كلمات الإنجليزية التي لا تُنسى.",
+     "px": 68,
+     "contrast": 10.81
+    },
+    {
+     "text": "التي لا تُنسى",
+     "px": 68,
+     "contrast": 5.16
+    },
+    {
+     "text": "مجاني لـ IELTS وTOEIC والإنجليزية اليومية",
+     "px": 44,
+     "contrast": 9.72
+    },
+    {
+     "text": "دروس جديدة كل أسبوع",
+     "px": 44,
+     "contrast": 6.24
+    },
+    {
+     "text": "lexkite.com",
+     "px": 44,
+     "contrast": 15.05
+    }
+   ],
+   "fonts": [
+    "Noto Sans Arabic",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-thumb-ar",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-thumbnail-template-1280x720-ar.png",
+   "w": 1280,
+   "h": 720,
+   "kb": 151,
+   "maxKB": 2048,
+   "use": "Video thumbnail template (≤ 2 MB; bottom-right is covered by the length badge)",
+   "zones": [
+    {
+     "type": "safe",
+     "label": "Text safe",
+     "x": 48,
+     "y": 40,
+     "w": 1184,
+     "h": 640
+    },
+    {
+     "type": "block",
+     "label": "Duration badge",
+     "x": 1080,
+     "y": 630,
+     "w": 200,
+     "h": 90
+    }
+   ],
+   "text": [
+    {
+     "text": "Band 7+",
+     "px": 40,
+     "contrast": 6.17
+    },
+    {
+     "text": "IELTS",
+     "px": 40,
+     "contrast": 15.05
+    },
+    {
+     "text": "10",
+     "px": 250,
+     "contrast": 8.68
+    },
+    {
+     "text": "كلمات",
+     "px": 92,
+     "contrast": 13.2
+    },
+    {
+     "text": "للسفر",
+     "px": 84,
+     "contrast": 11.19
+    }
+   ],
+   "fonts": [
+    "Noto Sans Arabic",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "fb-cover-hi",
+   "platform": "Facebook",
+   "file": "facebook/lexkite-facebook-cover-1640x624-hi.png",
+   "w": 1640,
+   "h": 624,
+   "kb": 140,
+   "maxKB": 4096,
+   "use": "Page cover photo (desktop 820×312, phone crops the centre to 16:9)",
+   "zones": [
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 0,
+     "w": 1640,
+     "h": 624
+    },
+    {
+     "type": "view",
+     "label": "Phone 16:9",
+     "x": 265,
+     "y": 0,
+     "w": 1110,
+     "h": 624
+    },
+    {
+     "type": "safe",
+     "label": "Text safe (phone ∩ desktop)",
+     "x": 305,
+     "y": 60,
+     "w": 1030,
+     "h": 500
+    },
+    {
+     "type": "block",
+     "label": "Profile photo (desktop)",
+     "x": 0,
+     "y": 470,
+     "w": 300,
+     "h": 154
+    }
+   ],
+   "text": [
+    {
+     "text": "Lexkite · 100% मुफ़्त · कोई पेवॉल नहीं",
+     "px": 28,
+     "contrast": 15.05
+    },
+    {
+     "text": "अंग्रेज़ी शब्द सीखें",
+     "px": 72,
+     "contrast": 10.98
+    },
+    {
+     "text": "जो याद रहें।",
+     "px": 72,
+     "contrast": 11.13
+    },
+    {
+     "text": "जो याद रहें",
+     "px": 72,
+     "contrast": 4.9
+    },
+    {
+     "text": "IELTS, TOEIC और रोज़मर्रा की अंग्रेज़ी – मुफ़्त",
+     "px": 32,
+     "contrast": 12.27
+    },
+    {
+     "text": "lexkite.com",
+     "px": 34,
+     "contrast": 6.39
+    }
+   ],
+   "fonts": [
+    "Noto Sans Devanagari",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-banner-hi",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-banner-2560x1440-hi.png",
+   "w": 2560,
+   "h": 1440,
+   "kb": 490,
+   "maxKB": 6144,
+   "use": "Channel banner (≤ 6 MB). TV shows all; desktop 2560×423; tablet 1855×423; phone 1546×423",
+   "zones": [
+    {
+     "type": "view",
+     "label": "TV",
+     "x": 0,
+     "y": 0,
+     "w": 2560,
+     "h": 1440
+    },
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 508,
+     "w": 2560,
+     "h": 423
+    },
+    {
+     "type": "view",
+     "label": "Tablet",
+     "x": 352,
+     "y": 508,
+     "w": 1855,
+     "h": 423
+    },
+    {
+     "type": "safe",
+     "label": "All devices 1546×423",
+     "x": 507,
+     "y": 508,
+     "w": 1546,
+     "h": 423
+    }
+   ],
+   "text": [
+    {
+     "text": "100% मुफ़्त चैनल",
+     "px": 44,
+     "contrast": 15.05
+    },
+    {
+     "text": "अंग्रेज़ी शब्द सीखें जो याद रहें।",
+     "px": 68,
+     "contrast": 10.98
+    },
+    {
+     "text": "जो याद रहें",
+     "px": 68,
+     "contrast": 5.02
+    },
+    {
+     "text": "IELTS, TOEIC और रोज़मर्रा की अंग्रेज़ी – मुफ़्त",
+     "px": 44,
+     "contrast": 9.72
+    },
+    {
+     "text": "हर हफ़्ते नए पाठ",
+     "px": 44,
+     "contrast": 6.24
+    },
+    {
+     "text": "lexkite.com",
+     "px": 44,
+     "contrast": 15.05
+    }
+   ],
+   "fonts": [
+    "Noto Sans Devanagari",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-thumb-hi",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-thumbnail-template-1280x720-hi.png",
+   "w": 1280,
+   "h": 720,
+   "kb": 161,
+   "maxKB": 2048,
+   "use": "Video thumbnail template (≤ 2 MB; bottom-right is covered by the length badge)",
+   "zones": [
+    {
+     "type": "safe",
+     "label": "Text safe",
+     "x": 48,
+     "y": 40,
+     "w": 1184,
+     "h": 640
+    },
+    {
+     "type": "block",
+     "label": "Duration badge",
+     "x": 1080,
+     "y": 630,
+     "w": 200,
+     "h": 90
+    }
+   ],
+   "text": [
+    {
+     "text": "Band 7+",
+     "px": 40,
+     "contrast": 6.1
+    },
+    {
+     "text": "IELTS",
+     "px": 40,
+     "contrast": 15.05
+    },
+    {
+     "text": "10",
+     "px": 250,
+     "contrast": 8.68
+    },
+    {
+     "text": "शब्द",
+     "px": 92,
+     "contrast": 14.23
+    },
+    {
+     "text": "सफ़र में",
+     "px": 84,
+     "contrast": 11.2
+    }
+   ],
+   "fonts": [
+    "Noto Sans Devanagari",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "fb-cover-ja",
+   "platform": "Facebook",
+   "file": "facebook/lexkite-facebook-cover-1640x624-ja.png",
+   "w": 1640,
+   "h": 624,
+   "kb": 148,
+   "maxKB": 4096,
+   "use": "Page cover photo (desktop 820×312, phone crops the centre to 16:9)",
+   "zones": [
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 0,
+     "w": 1640,
+     "h": 624
+    },
+    {
+     "type": "view",
+     "label": "Phone 16:9",
+     "x": 265,
+     "y": 0,
+     "w": 1110,
+     "h": 624
+    },
+    {
+     "type": "safe",
+     "label": "Text safe (phone ∩ desktop)",
+     "x": 305,
+     "y": 60,
+     "w": 1030,
+     "h": 500
+    },
+    {
+     "type": "block",
+     "label": "Profile photo (desktop)",
+     "x": 0,
+     "y": 470,
+     "w": 300,
+     "h": 154
+    }
+   ],
+   "text": [
+    {
+     "text": "Lexkite · 完全無料 · ペイウォールなし",
+     "px": 28,
+     "contrast": 15.05
+    },
+    {
+     "text": "忘れない英単語を",
+     "px": 84,
+     "contrast": 11.11
+    },
+    {
+     "text": "無料で学ぼう。",
+     "px": 84,
+     "contrast": 11.69
+    },
+    {
+     "text": "無料で学ぼう",
+     "px": 84,
+     "contrast": 5.09
+    },
+    {
+     "text": "IELTS・TOEIC・日常英会話の単語を無料で",
+     "px": 32,
+     "contrast": 13.18
+    },
+    {
+     "text": "lexkite.com",
+     "px": 34,
+     "contrast": 6.46
+    }
+   ],
+   "fonts": [
+    "Noto Sans CJK JP",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-banner-ja",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-banner-2560x1440-ja.png",
+   "w": 2560,
+   "h": 1440,
+   "kb": 503,
+   "maxKB": 6144,
+   "use": "Channel banner (≤ 6 MB). TV shows all; desktop 2560×423; tablet 1855×423; phone 1546×423",
+   "zones": [
+    {
+     "type": "view",
+     "label": "TV",
+     "x": 0,
+     "y": 0,
+     "w": 2560,
+     "h": 1440
+    },
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 508,
+     "w": 2560,
+     "h": 423
+    },
+    {
+     "type": "view",
+     "label": "Tablet",
+     "x": 352,
+     "y": 508,
+     "w": 1855,
+     "h": 423
+    },
+    {
+     "type": "safe",
+     "label": "All devices 1546×423",
+     "x": 507,
+     "y": 508,
+     "w": 1546,
+     "h": 423
+    }
+   ],
+   "text": [
+    {
+     "text": "100%無料チャンネル",
+     "px": 44,
+     "contrast": 15.05
+    },
+    {
+     "text": "忘れない英単語を無料で学ぼう。",
+     "px": 88,
+     "contrast": 10.8
+    },
+    {
+     "text": "無料で学ぼう",
+     "px": 88,
+     "contrast": 4.89
+    },
+    {
+     "text": "IELTS・TOEIC・日常英会話の単語を無料で",
+     "px": 44,
+     "contrast": 9.98
+    },
+    {
+     "text": "毎週新しいレッスン",
+     "px": 44,
+     "contrast": 6.2
+    },
+    {
+     "text": "lexkite.com",
+     "px": 44,
+     "contrast": 15.05
+    }
+   ],
+   "fonts": [
+    "Noto Sans CJK JP",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-thumb-ja",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-thumbnail-template-1280x720-ja.png",
+   "w": 1280,
+   "h": 720,
+   "kb": 149,
+   "maxKB": 2048,
+   "use": "Video thumbnail template (≤ 2 MB; bottom-right is covered by the length badge)",
+   "zones": [
+    {
+     "type": "safe",
+     "label": "Text safe",
+     "x": 48,
+     "y": 40,
+     "w": 1184,
+     "h": 640
+    },
+    {
+     "type": "block",
+     "label": "Duration badge",
+     "x": 1080,
+     "y": 630,
+     "w": 200,
+     "h": 90
+    }
+   ],
+   "text": [
+    {
+     "text": "Band 7+",
+     "px": 40,
+     "contrast": 6.1
+    },
+    {
+     "text": "IELTS",
+     "px": 40,
+     "contrast": 15.05
+    },
+    {
+     "text": "10",
+     "px": 250,
+     "contrast": 8.89
+    },
+    {
+     "text": "英単語",
+     "px": 92,
+     "contrast": 13.18
+    },
+    {
+     "text": "旅行編",
+     "px": 84,
+     "contrast": 11.2
+    }
+   ],
+   "fonts": [
+    "Noto Sans CJK JP",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "fb-cover-ko",
+   "platform": "Facebook",
+   "file": "facebook/lexkite-facebook-cover-1640x624-ko.png",
+   "w": 1640,
+   "h": 624,
+   "kb": 145,
+   "maxKB": 4096,
+   "use": "Page cover photo (desktop 820×312, phone crops the centre to 16:9)",
+   "zones": [
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 0,
+     "w": 1640,
+     "h": 624
+    },
+    {
+     "type": "view",
+     "label": "Phone 16:9",
+     "x": 265,
+     "y": 0,
+     "w": 1110,
+     "h": 624
+    },
+    {
+     "type": "safe",
+     "label": "Text safe (phone ∩ desktop)",
+     "x": 305,
+     "y": 60,
+     "w": 1030,
+     "h": 500
+    },
+    {
+     "type": "block",
+     "label": "Profile photo (desktop)",
+     "x": 0,
+     "y": 470,
+     "w": 300,
+     "h": 154
+    }
+   ],
+   "text": [
+    {
+     "text": "Lexkite · 100% 무료 · 결제 장벽 없음",
+     "px": 28,
+     "contrast": 15.05
+    },
+    {
+     "text": "잊지 않는 영어 단어를",
+     "px": 72,
+     "contrast": 10.8
+    },
+    {
+     "text": "무료로 배우세요.",
+     "px": 72,
+     "contrast": 11.1
+    },
+    {
+     "text": "무료로 배우세요",
+     "px": 72,
+     "contrast": 4.89
+    },
+    {
+     "text": "IELTS, TOEIC, 일상 영어 단어를 무료로",
+     "px": 32,
+     "contrast": 12.39
+    },
+    {
+     "text": "lexkite.com",
+     "px": 34,
+     "contrast": 6.39
+    }
+   ],
+   "fonts": [
+    "Noto Sans CJK KR",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-banner-ko",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-banner-2560x1440-ko.png",
+   "w": 2560,
+   "h": 1440,
+   "kb": 479,
+   "maxKB": 6144,
+   "use": "Channel banner (≤ 6 MB). TV shows all; desktop 2560×423; tablet 1855×423; phone 1546×423",
+   "zones": [
+    {
+     "type": "view",
+     "label": "TV",
+     "x": 0,
+     "y": 0,
+     "w": 2560,
+     "h": 1440
+    },
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 508,
+     "w": 2560,
+     "h": 423
+    },
+    {
+     "type": "view",
+     "label": "Tablet",
+     "x": 352,
+     "y": 508,
+     "w": 1855,
+     "h": 423
+    },
+    {
+     "type": "safe",
+     "label": "All devices 1546×423",
+     "x": 507,
+     "y": 508,
+     "w": 1546,
+     "h": 423
+    }
+   ],
+   "text": [
+    {
+     "text": "100% 무료 채널",
+     "px": 44,
+     "contrast": 15.05
+    },
+    {
+     "text": "잊지 않는 영어 단어를 무료로 배우세요.",
+     "px": 72,
+     "contrast": 11.11
+    },
+    {
+     "text": "무료로 배우세요",
+     "px": 72,
+     "contrast": 5.03
+    },
+    {
+     "text": "IELTS, TOEIC, 일상 영어 단어를 무료로",
+     "px": 44,
+     "contrast": 9.71
+    },
+    {
+     "text": "매주 새로운 레슨",
+     "px": 44,
+     "contrast": 6.17
+    },
+    {
+     "text": "lexkite.com",
+     "px": 44,
+     "contrast": 15.05
+    }
+   ],
+   "fonts": [
+    "Noto Sans CJK KR",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-thumb-ko",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-thumbnail-template-1280x720-ko.png",
+   "w": 1280,
+   "h": 720,
+   "kb": 150,
+   "maxKB": 2048,
+   "use": "Video thumbnail template (≤ 2 MB; bottom-right is covered by the length badge)",
+   "zones": [
+    {
+     "type": "safe",
+     "label": "Text safe",
+     "x": 48,
+     "y": 40,
+     "w": 1184,
+     "h": 640
+    },
+    {
+     "type": "block",
+     "label": "Duration badge",
+     "x": 1080,
+     "y": 630,
+     "w": 200,
+     "h": 90
+    }
+   ],
+   "text": [
+    {
+     "text": "Band 7+",
+     "px": 40,
+     "contrast": 6.1
+    },
+    {
+     "text": "IELTS",
+     "px": 40,
+     "contrast": 15.05
+    },
+    {
+     "text": "10",
+     "px": 250,
+     "contrast": 8.89
+    },
+    {
+     "text": "영어 단어",
+     "px": 92,
+     "contrast": 12.88
+    },
+    {
+     "text": "여행 편",
+     "px": 84,
+     "contrast": 11.2
+    }
+   ],
+   "fonts": [
+    "Noto Sans CJK KR",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "fb-cover-zh",
+   "platform": "Facebook",
+   "file": "facebook/lexkite-facebook-cover-1640x624-zh.png",
+   "w": 1640,
+   "h": 624,
+   "kb": 145,
+   "maxKB": 4096,
+   "use": "Page cover photo (desktop 820×312, phone crops the centre to 16:9)",
+   "zones": [
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 0,
+     "w": 1640,
+     "h": 624
+    },
+    {
+     "type": "view",
+     "label": "Phone 16:9",
+     "x": 265,
+     "y": 0,
+     "w": 1110,
+     "h": 624
+    },
+    {
+     "type": "safe",
+     "label": "Text safe (phone ∩ desktop)",
+     "x": 305,
+     "y": 60,
+     "w": 1030,
+     "h": 500
+    },
+    {
+     "type": "block",
+     "label": "Profile photo (desktop)",
+     "x": 0,
+     "y": 470,
+     "w": 300,
+     "h": 154
+    }
+   ],
+   "text": [
+    {
+     "text": "Lexkite · 100% 免费 · 无付费墙",
+     "px": 28,
+     "contrast": 15.05
+    },
+    {
+     "text": "轻松记住英语单词，",
+     "px": 80,
+     "contrast": 10.81
+    },
+    {
+     "text": "完全免费。",
+     "px": 80,
+     "contrast": 11.38
+    },
+    {
+     "text": "完全免费",
+     "px": 80,
+     "contrast": 4.9
+    },
+    {
+     "text": "IELTS、TOEIC 与日常英语词汇，免费学",
+     "px": 32,
+     "contrast": 12.65
+    },
+    {
+     "text": "lexkite.com",
+     "px": 34,
+     "contrast": 6.39
+    }
+   ],
+   "fonts": [
+    "Noto Sans CJK SC",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-banner-zh",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-banner-2560x1440-zh.png",
+   "w": 2560,
+   "h": 1440,
+   "kb": 445,
+   "maxKB": 6144,
+   "use": "Channel banner (≤ 6 MB). TV shows all; desktop 2560×423; tablet 1855×423; phone 1546×423",
+   "zones": [
+    {
+     "type": "view",
+     "label": "TV",
+     "x": 0,
+     "y": 0,
+     "w": 2560,
+     "h": 1440
+    },
+    {
+     "type": "view",
+     "label": "Desktop",
+     "x": 0,
+     "y": 508,
+     "w": 2560,
+     "h": 423
+    },
+    {
+     "type": "view",
+     "label": "Tablet",
+     "x": 352,
+     "y": 508,
+     "w": 1855,
+     "h": 423
+    },
+    {
+     "type": "safe",
+     "label": "All devices 1546×423",
+     "x": 507,
+     "y": 508,
+     "w": 1546,
+     "h": 423
+    }
+   ],
+   "text": [
+    {
+     "text": "100% 免费频道",
+     "px": 44,
+     "contrast": 15.05
+    },
+    {
+     "text": "轻松记住英语单词，完全免费。",
+     "px": 88,
+     "contrast": 11.11
+    },
+    {
+     "text": "完全免费",
+     "px": 88,
+     "contrast": 5.35
+    },
+    {
+     "text": "IELTS、TOEIC 与日常英语词汇，免费学",
+     "px": 44,
+     "contrast": 9.98
+    },
+    {
+     "text": "每周更新新课程",
+     "px": 44,
+     "contrast": 6.2
+    },
+    {
+     "text": "lexkite.com",
+     "px": 44,
+     "contrast": 15.05
+    }
+   ],
+   "fonts": [
+    "Noto Sans CJK SC",
+    "Plus Jakarta Sans"
+   ]
+  },
+  {
+   "id": "yt-thumb-zh",
+   "platform": "YouTube",
+   "file": "youtube/lexkite-youtube-thumbnail-template-1280x720-zh.png",
+   "w": 1280,
+   "h": 720,
+   "kb": 153,
+   "maxKB": 2048,
+   "use": "Video thumbnail template (≤ 2 MB; bottom-right is covered by the length badge)",
+   "zones": [
+    {
+     "type": "safe",
+     "label": "Text safe",
+     "x": 48,
+     "y": 40,
+     "w": 1184,
+     "h": 640
+    },
+    {
+     "type": "block",
+     "label": "Duration badge",
+     "x": 1080,
+     "y": 630,
+     "w": 200,
+     "h": 90
+    }
+   ],
+   "text": [
+    {
+     "text": "Band 7+",
+     "px": 40,
+     "contrast": 6.1
+    },
+    {
+     "text": "IELTS",
+     "px": 40,
+     "contrast": 15.05
+    },
+    {
+     "text": "10",
+     "px": 250,
+     "contrast": 8.89
+    },
+    {
+     "text": "英语单词",
+     "px": 92,
+     "contrast": 12.88
+    },
+    {
+     "text": "旅行篇",
+     "px": 84,
+     "contrast": 11.2
+    }
+   ],
+   "fonts": [
+    "Noto Sans CJK SC",
+    "Plus Jakarta Sans"
    ]
   }
  ],
  "retina": [
-  "facebook/lexkite-facebook-cover-1640x624@2x.png"
+  "facebook/lexkite-facebook-cover-1640x624@2x.png",
+  "facebook/lexkite-facebook-cover-1640x624-es@2x.png",
+  "facebook/lexkite-facebook-cover-1640x624-pt@2x.png",
+  "facebook/lexkite-facebook-cover-1640x624-de@2x.png",
+  "facebook/lexkite-facebook-cover-1640x624-fr@2x.png",
+  "facebook/lexkite-facebook-cover-1640x624-ru@2x.png",
+  "facebook/lexkite-facebook-cover-1640x624-tr@2x.png",
+  "facebook/lexkite-facebook-cover-1640x624-ar@2x.png",
+  "facebook/lexkite-facebook-cover-1640x624-hi@2x.png",
+  "facebook/lexkite-facebook-cover-1640x624-ja@2x.png",
+  "facebook/lexkite-facebook-cover-1640x624-ko@2x.png",
+  "facebook/lexkite-facebook-cover-1640x624-zh@2x.png"
  ]
 }

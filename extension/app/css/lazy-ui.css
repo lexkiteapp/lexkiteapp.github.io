@@ -42,13 +42,6 @@
 .fstep.if { background: #fef3c7; color: #78350f; } .fstep.note { background: var(--surface-2); color: var(--muted); font-weight: 600; }
 .fstep.arrow { background: transparent; color: var(--primary); font-weight: 800; } .srow { display: grid; grid-template-columns: 110px minmax(0,1fr) 44px; gap: .6rem; align-items: center; }
 .sortbox { background: var(--surface-2); border-radius: 14px; padding: .9rem; text-align: center; }
-.ipa-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: .6rem; }
-.ipa-tile { position: relative; display: flex; flex-direction: column; align-items: center; gap: .1rem; padding: .8rem .4rem; border-radius: 16px; background: var(--surface); border: 2px solid var(--line); border-bottom-width: 4px; color: var(--text); transition: transform .1s, border-color .1s; }
-.ipa-tile:hover { transform: translateY(-2px); border-color: var(--primary); }
-.ipa-tile b { font-family: var(--ipa); font-size: 1.6rem; color: var(--primary); }
-.ipa-tile span { font-size: .78rem; color: var(--muted); font-weight: 600; }
-.ipa-tile.unv { background: var(--surface-2); }
-.ipa-tile.ok { border-color: var(--good); } .ipa-tile i { position: absolute; top: 4px; right: 8px; color: var(--good-text); font-style: normal; font-weight: 800; }
 .ipa-big { font-family: var(--ipa); font-size: 3rem; font-weight: 800; background: rgba(255,255,255,.18); border-radius: 18px; padding: .2rem .9rem; margin-right: .6rem; }
 .prow { display: flex; align-items: center; gap: .4rem; padding: .55rem 0; border-bottom: 1px dashed var(--line); }
 .prow:last-child { border-bottom: 0; }
@@ -86,7 +79,7 @@ body.cbt-mode .view { max-width: none; padding: 0; }
 .bankw.used { opacity: .38; text-decoration: line-through; }
 .dr-part { background: none; border: 0; padding: .1rem .2rem; font: inherit; cursor: pointer; border-radius: 6px; color: inherit; }
 .dr-part:hover { background: var(--primary-soft); }
-.dr-part sub { font-size: .65rem; font-weight: 700; color: var(--brand, #E5502F); margin-left: 1px; }
+.dr-part sub { font-size: .65rem; font-weight: 700; color: var(--primary-text); margin-left: 1px; }
 .dr-part.right { background: rgba(22,163,74,.15); } .dr-part.wrong { background: rgba(229,72,77,.15); }
 .dr textarea.dr-in { width: 100%; border: 2px solid var(--line); border-radius: 10px; padding: .6rem .7rem; font: inherit; background: var(--surface); color: inherit; resize: vertical; }
 .dr .dr-in.ok { border-color: #16a34a; } .dr .dr-in.no { border-color: #e5484d; }
@@ -282,3 +275,19 @@ div.dp-unit > h3 { flex: 1 1 calc(100% - 2.6rem); }
 }
 html.native body.bare.v2on #view:has(.w-head) { padding-top: 0; }
 html.native .v2 .w-head { padding-top: env(safe-area-inset-top, 0px); height: auto; min-height: calc(64px + env(safe-area-inset-top, 0px)); }
+.next-why { flex-basis: 100%; margin: var(--sp-1) 0 0; font-size: var(--fs-sm); color: var(--muted); }
+.listen-back { display: inline-flex; align-items: center; gap: var(--sp-2); min-height: 44px; }
+.listen-head { margin: var(--sp-1) 0 var(--sp-4); }
+.hl-bar { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; margin-bottom: 1rem; padding: .5rem; border-radius: 14px; background: var(--surface-2); }
+.hl-chip { border: 2px solid transparent; background: var(--surface); border-radius: 999px; padding: .3rem .75rem; font-weight: 700; font-size: .8rem; cursor: pointer; color: var(--muted); }
+.hl-chip b { font-weight: 800; margin-left: .2rem; }
+.hl-chip.on.kw { border-color: #f59e0b; color: var(--gold-text); } .hl-chip.on.awl { border-color: #E5502F; color: var(--primary-text); }
+.hl-chip.on.link { border-color: #0ea5a4; color: var(--accent-text); } .hl-chip.on.mine { border-color: #16a34a; color: var(--good-text); }
+.passage.hl-awl .tw.awl { border-bottom: 2.5px solid #E5502F; }
+.passage.hl-link .tw.link { background: rgba(14,165,164,.16); color: #0f766e; font-weight: 700; border-radius: 4px; }
+.passage.hl-link .tw.col { background: rgba(14,165,164,.08); border-bottom: 2px dashed #0ea5a4; }
+.passage.hl-mine .tw.mine { background: rgba(22,163,74,.16); border-radius: 4px; }
+:root[data-theme="dark"] .passage.hl-link .tw.link { color: #5eead4; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .passage.hl-link .tw.link { color: #5eead4; }
+}
+.annot.hl-mode { cursor: text; outline: 2px dashed rgba(245, 158, 11, .5); outline-offset: 6px; }

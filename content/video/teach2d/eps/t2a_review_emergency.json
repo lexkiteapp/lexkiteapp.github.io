@@ -72,5 +72,46 @@
   "words": 40,
   "seconds": 24.7,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"emergency\" mean?",
+  "keyword": "emergency",
+  "value": "Emergency means a sudden serious event needing immediate action.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=emergency",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"emergency\" mean?",
+    "description": "Emergency means a sudden serious event needing immediate action.\n\nReview your words, free: https://lexkite.com/app/#/review?w=emergency\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "emergency",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"emergency\" mean?\n\nEmergency means a sudden serious event needing immediate action.\n\nReview your words, free: https://lexkite.com/app/#/review?w=emergency"
+   },
+   "instagram": {
+    "caption": "What does \"emergency\" mean?\n\nEmergency means a sudden serious event needing immediate action.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"emergency\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a sudden serious event needing immediate action. Emergency means a sudden serious event needing immediate action. Practice it with a free quiz: {link}"
  }
 }

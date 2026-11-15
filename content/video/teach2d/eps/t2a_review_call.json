@@ -72,5 +72,46 @@
   "words": 39,
   "seconds": 24.2,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"call\" mean?",
+  "keyword": "call",
+  "value": "Call means to phone someone.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=call",
+  "script_words": 33,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"call\" mean?",
+    "description": "Call means to phone someone.\n\nReview your words, free: https://lexkite.com/app/#/review?w=call\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "call",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"call\" mean?\n\nCall means to phone someone.\n\nReview your words, free: https://lexkite.com/app/#/review?w=call"
+   },
+   "instagram": {
+    "caption": "What does \"call\" mean?\n\nCall means to phone someone.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"call\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Answer: It means to phone someone. Call means to phone someone. Try the full lesson and quiz here: {link}"
  }
 }

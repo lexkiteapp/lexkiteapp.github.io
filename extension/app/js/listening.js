@@ -199,8 +199,9 @@
     const exam = query && query.get('mode') === 'exam';
     let submitted = false, plays = 0;
     view.innerHTML = `
-      <div class="row between"><a href="${/^tl/.test(p.id) ? '#/toeic' : '#/listening'}" class="small">← ${/^tl/.test(p.id) ? 'TOEIC' : t('Luyện nghe')}</a>${exam ? `<a class="btn sm ghost" href="#/listen/${p.id}">${UI.icon('target')} ${t('Chế độ luyện tập')}</a>` : `<a class="btn sm ghost" href="#/listen/${p.id}?mode=exam">${UI.icon('timer')} ${t('Chế độ thi thật')}</a>`}</div>
-      <div class="page-head" style="margin-top:.6rem"><div><div class="tiny muted">Test ${p.test} · Part ${p.part} · ${partName(p)} · ${t('Câu {a}–{b}', { a: qNums(p)[0], b: qNums(p).slice(-1)[0] })}</div><h1 style="margin:.2rem 0">${esc(p.title)}</h1><p class="muted" style="margin:0">${esc(p.context || '')}</p><div class="row" style="margin-top:.4rem">${speakersHtml(p)}</div></div></div>
+      <div class="row between listen-top"><a href="${/^tl/.test(p.id) ? '#/toeic' : '#/listening'}" class="small listen-back" data-exit>${UI.icon('arrow-left')}<span>${/^tl/.test(p.id) ? 'TOEIC' : t('Luyện nghe')}</span></a>${exam ? `<a class="btn sm ghost" href="#/listen/${p.id}">${UI.icon('target')} ${t('Chế độ luyện tập')}</a>` : `<a class="btn sm ghost" href="#/listen/${p.id}?mode=exam">${UI.icon('timer')} ${t('Chế độ thi thật')}</a>`}</div>
+      <div class="progress listen-prog" aria-hidden="true" style="margin:.4rem 0"><i id="lProg" style="width:0%"></i></div>
+      <div class="listen-head"><div><div class="tiny muted">Test ${p.test} · Part ${p.part} · ${partName(p)} · ${t('Câu {a}–{b}', { a: qNums(p)[0], b: qNums(p).slice(-1)[0] })}</div><h1 style="margin:.2rem 0">${esc(p.title)}</h1><p class="muted" style="margin:0">${esc(p.context || '')}</p><div class="row" style="margin-top:.4rem">${speakersHtml(p)}</div></div></div>
       <div class="card lplayer" id="lPlayer">
         <button class="btn primary lg" id="lPlay">▶ ${t('Nghe')}</button>
         ${exam ? `<span class="small muted" id="lNote">${t('Chế độ thi thật: chỉ nghe được 1 lần, không tua lại.')}</span>` : `<button class="btn" id="lBack" title="${t('Nghe lại câu trước')}">⏪ ${t('Câu trước')}</button>${rateSel()}<label class="small row nowrap" style="gap:.3rem"><input type="checkbox" id="lLive"> ${t('Hiện lời thoại khi nghe')}</label>`}
@@ -241,6 +242,8 @@
     let lastRes = {};
     const hear = n => { const r = lastRes[n]; if (!r || !r.cue) return; const i = p.script.findIndex(l => l.t && l.t.includes(r.cue)); if (i < 0) return; const el = $(`.tl[data-line="${i}"]`, trans); if (el) el.scrollIntoView({ block: 'center', behavior: 'smooth' }); let k = i; if (k > 0 && p.script[k - 1].t) k--; player.play(k); };
     QE.bind($('#lQs'));
+    const syncProg = () => { const its = $$('.lq-item', $('#lQs')); const done = its.filter(x => $$('input,select', x).some(i => i.type === 'radio' || i.type === 'checkbox' ? i.checked : !!(i.value || '').trim())).length; $('#lProg').style.width = (its.length ? Math.round(done / its.length * 100) : 0) + '%'; }; // thanh tiến độ: số câu đã trả lời / tổng
+    $('#lQs').addEventListener('input', syncProg); $('#lQs').addEventListener('change', syncProg);
     $('#lSubmit').onclick = async () => {
       if (submitted) return;
       if (player.playing && exam && !confirm(t('Bài nghe chưa phát xong. Vẫn nộp bài?'))) return;
@@ -300,7 +303,7 @@
         <div class="row between"><span class="chip">Test ${n} · Part ${p.part}/4 · ${t('Câu {a}–{b}', { a: qNums(p)[0], b: qNums(p).slice(-1)[0] })}</span><span class="small muted" id="tState"></span></div>
         <div class="progress" style="margin:.6rem 0"><i style="width:${k / parts.length * 100}%"></i></div>
         <div class="card lplayer"><b id="tCount">${UI.icon('hourglass')} ${t('{n} giây đọc câu hỏi', { n: 30 })}</b><button class="btn sm ghost" id="tSkip">${t('Bắt đầu nghe ngay')}</button><span class="lnow small muted" id="lNow"></span></div>
-        <div class="card" id="lQs">${questionsHtml(p)}<div class="row" style="margin-top:1rem"><button class="btn primary" id="tNext" disabled>${k < parts.length - 1 ? t('Sang phần tiếp') + ' →' : UI.icon('circle-check') + ' ' + t('Nộp bài')}</button></div></div>`;
+        <div class="card" id="lQs">${questionsHtml(p)}<div class="row" style="margin-top:1rem"><button class="btn primary" id="tNext" aria-describedby="tNextWhy" disabled>${k < parts.length - 1 ? t('Sang phần tiếp') + ' →' : UI.icon('circle-check') + ' ' + t('Nộp bài')}</button><p class="next-why" id="tNextWhy">${t('Nghe hết phần này để mở nút tiếp')}</p></div></div>`;
       let left = 30, started = false;
       const tick = setInterval(() => { if (started || !document.body.contains($('#tCount') || document.createElement('i'))) return clearInterval(tick); left--; $('#tCount').textContent = '⏳ ' + t('{n} giây đọc câu hỏi', { n: left }); if (left <= 0) start(); }, 1000);
       const start = () => {
@@ -311,10 +314,10 @@
           onSound: () => { if (c()) c().textContent = '🔊 ' + t('Đang phát – chỉ nghe 1 lần'); },
           onBlocked: () => { if (!c()) return; c().innerHTML = `<button class="btn primary" id="tTap">▶ ${t('Chạm ▶ để nghe')}</button> <span class="small muted">${t('Âm thanh chưa phát được – chạm để nghe (chưa tính lượt nghe)')}</span>`; $('#tTap').onclick = () => { c().textContent = '⏳ ' + t('Đang tải…'); player.play(); }; },
           onLine: i => { const l = p.script[i]; $('#lNow') && ($('#lNow').textContent = !l ? '' : l.say ? '🎙️ ' + t('Lời dẫn') : l.pause != null ? '' : '🗣️ ' + ((p.speakers[l.s] || {}).name || '')); },
-          onEnd: () => { if (!$('#tCount')) return; $('#tCount').textContent = '✓ ' + t('Hết phần nghe – kiểm tra lại đáp án'); $('#tNext').disabled = false; },
+          onEnd: () => { if (!$('#tCount')) return; $('#tCount').textContent = '✓ ' + t('Hết phần nghe – kiểm tra lại đáp án'); $('#tNext').disabled = false; $('#tNextWhy')?.remove(); },
         });
         player.play(0);
-        setTimeout(() => { const b = $('#tNext'); if (b) b.disabled = false; }, 20000); // cho phép đi tiếp nếu giọng đọc lỗi
+        setTimeout(() => { const b = $('#tNext'); if (b) { b.disabled = false; $('#tNextWhy')?.remove(); } }, 20000); // cho phép đi tiếp nếu giọng đọc lỗi
       };
       $('#tSkip').onclick = start;
       $('#tNext').onclick = () => {

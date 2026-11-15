@@ -16,6 +16,8 @@ def ok(c, msg):
 for w, want in dict(photographer='pho to gra pher', athlete='ath lete', athletic='ath le tic', familiar='fa mil iar', economic='e co no mic', activity='ac ti vi ty').items():
     ok(' '.join(G.ortho(w)) == want, f'ortho({w}) = {G.ortho(w)} != {want}')
 
+import labels as LB   # noqa: E402
+ok(LB.clamp_span(762, 400, 48, 960) == [560, 960] and LB.clamp_span(100, 400, 48, 960) == [48, 448] and LB.clamp_span(500, 400, 48, 960) == [300, 700], 'clamp_span: stress chip must stay inside SAFE (t2a_stress_attendee, 1 px over)')
 F = G.facts(); rows = G.load_auto()['rows']; R = json.load(open(G.REV_F))['verdicts']
 ok(len(rows) >= 100, f'auto.json has {len(rows)} rows (< 100)')
 ok(len({r['hash'] for r in rows}) == len(rows), 'duplicate point hash in auto.json')

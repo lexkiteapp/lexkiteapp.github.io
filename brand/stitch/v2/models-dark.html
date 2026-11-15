@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexkite v2.1 Dark — Model answers</title>
+  <!-- Google Fonts: Plus Jakarta Sans / Nunito Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Material Symbols Rounded -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,0,0" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#0E191C',
+            'canvas-dim': '#122023',
+            'teal-deep': '#0F3D3E',
+            'teal-accent': '#4FD1C5',
+            'teal-soft': '#E6F4F2',
+            'teal-border': '#98D6CF',
+            coral: '#F2553B',
+            'coral-soft': '#FEEDE9',
+            'coral-border': '#F9C2B8',
+            sand: '#EADEC8',
+            'sand-border': '#DECDB2',
+            'ink-primary': '#1A2928',
+            'ink-muted': '#5D6E6C',
+            'ink-subtle': '#879795',
+          },
+          fontFamily: {
+            sans: ['"Nunito Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', '"Nunito Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'tactile-sm': '0 2px 0 0 #DECDB2',
+            'tactile-md': '0 3px 0 0 #D8C4A7',
+            'tactile-active': '0 2px 0 0 #082626',
+            'pill-shadow': '0 2px 0 0 #E3D4BC',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #EDE4D3;
+      font-family: 'Nunito Sans', system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    /* Hide scrollbar for neat horizontal pills */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-0 sm:p-6 bg-[#263A3F]">
+
+  <!-- Mobile Container (390px native mobile frame) -->
+  <main class="w-full max-w-[390px] min-h-screen sm:min-h-[844px] bg-canvas flex flex-col relative text-ink-primary shadow-2xl sm:rounded-[36px] overflow-hidden border-0 sm:border sm:border-sand">
+
+    <!-- Top App Bar / Navigation -->
+    <header class="sticky top-0 z-30 bg-canvas/95 backdrop-blur-md border-b border-sand px-4 pt-3 pb-3">
+      <div class="flex items-center justify-between">
+        <!-- Back Button (at least 44pt hit area) -->
+        <button type="button" aria-label="Go back to study dashboard" class="min-w-[44px] min-h-[44px] w-11 h-11 -ml-1 rounded-2xl bg-[#162528] border border-sand hover:border-sand-border active:translate-y-0.5 shadow-tactile-sm flex items-center justify-center text-teal-deep transition-all duration-100">
+          <span class="material-symbols-rounded text-[22px]">arrow_back</span>
+        </button>
+
+        <!-- Centered Context / Library Badge -->
+        <div class="flex items-center gap-1.5 px-3 py-1 bg-[#162528]/80 border border-sand rounded-full">
+          <span class="w-2 h-2 rounded-full bg-teal-accent"></span>
+          <span class="text-xs font-bold tracking-wide uppercase text-teal-deep font-display">Band 8.0+ Archive</span>
+        </div>
+
+        <!-- Filter / Bookmark quick action (44x44pt) -->
+        <button type="button" aria-label="Filter essays" class="min-w-[44px] min-h-[44px] w-11 h-11 -mr-1 rounded-2xl bg-[#162528] border border-sand hover:border-sand-border active:translate-y-0.5 shadow-tactile-sm flex items-center justify-center text-teal-deep transition-all duration-100">
+          <span class="material-symbols-rounded text-[22px]">tune</span>
+        </button>
+      </div>
+
+      <!-- Screen Title & Quiet Shelf Intro -->
+      <div class="mt-3 px-1">
+        <div class="flex items-baseline justify-between">
+          <h1 class="text-2xl font-black text-teal-deep tracking-tight font-display">Model essays</h1>
+          <span class="text-xs font-bold text-ink-muted">48 curated</span>
+        </div>
+        <p class="text-xs text-ink-muted mt-0.5 leading-relaxed">
+          Examiner-reviewed high-band reference responses for IELTS Academic &amp; General.
+        </p>
+      </div>
+
+      <!-- Segmented Tab Row (Task 2 selected, Task 1, General Training) -->
+      <nav class="mt-3.5" aria-label="Essay task filter">
+        <div class="p-1 bg-canvas-dim border border-sand rounded-2xl flex items-center gap-1">
+          <!-- Tab 1: Task 2 (Selected) -->
+          <button type="button" class="flex-1 py-2 px-2.5 rounded-xl bg-teal-deep text-white font-display text-xs font-extrabold shadow-tactile-active flex items-center justify-center gap-1.5 transition-all">
+            <span>Task 2</span>
+            <span class="text-[10px] py-0.5 px-1.5 rounded-full bg-teal-accent/30 text-teal-soft font-bold">28</span>
+          </button>
+
+          <!-- Tab 2: Task 1 (Charts) -->
+          <button type="button" class="flex-1 py-2 px-2 rounded-xl text-ink-muted hover:text-teal-deep font-display text-xs font-bold flex items-center justify-center gap-1 transition-all">
+            <span>Task 1</span>
+            <span class="text-[10px] text-ink-subtle">(charts)</span>
+          </button>
+
+          <!-- Tab 3: General Training (Letters) -->
+          <button type="button" class="flex-1 py-2 px-2 rounded-xl text-ink-muted hover:text-teal-deep font-display text-xs font-bold flex items-center justify-center gap-1 transition-all">
+            <span>General</span>
+            <span class="text-[10px] text-ink-subtle">(letters)</span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Search field matching title, kind, topic -->
+      <div class="mt-3">
+        <div class="relative flex items-center">
+          <span class="material-symbols-rounded absolute left-3.5 text-teal-accent text-[20px] pointer-events-none">search</span>
+          <input
+            type="search"
+            placeholder="Search questions, essay type, or topic..."
+            value=""
+            class="w-full h-11 pl-10 pr-9 bg-[#162528] border border-sand rounded-xl text-xs font-semibold text-ink-primary placeholder:text-ink-subtle focus:outline-none focus:border-teal-accent focus:ring-2 focus:ring-teal-soft transition-all shadow-tactile-sm"
+          >
+          <button type="button" aria-label="Clear or voice search" class="absolute right-2.5 w-7 h-7 rounded-lg flex items-center justify-center text-ink-subtle hover:text-teal-deep">
+            <span class="material-symbols-rounded text-[18px]">mic</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Topic Chips Row (Scrollable Shelf Tags) -->
+      <div class="flex items-center gap-1.5 mt-2.5 overflow-x-auto no-scrollbar pb-0.5 pt-0.5">
+        <span class="text-[11px] font-bold text-ink-subtle uppercase tracking-wider pl-0.5 pr-1 font-display">Sort:</span>
+        <button type="button" class="h-7 px-2.5 rounded-lg bg-[#162528] border border-sand text-[11px] font-extrabold text-teal-deep flex items-center gap-1 shadow-tactile-sm whitespace-nowrap">
+          <span>Kind &rarr; Title</span>
+          <span class="material-symbols-rounded text-[14px]">arrow_drop_down</span>
+        </button>
+        <button type="button" class="h-7 px-2.5 rounded-lg bg-canvas-dim hover:bg-[#162528] border border-sand text-[11px] font-bold text-ink-muted hover:text-teal-deep whitespace-nowrap transition-colors">
+          All types
+        </button>
+        <button type="button" class="h-7 px-2.5 rounded-lg bg-canvas-dim hover:bg-[#162528] border border-sand text-[11px] font-bold text-ink-muted hover:text-teal-deep whitespace-nowrap transition-colors">
+          Education
+        </button>
+        <button type="button" class="h-7 px-2.5 rounded-lg bg-canvas-dim hover:bg-[#162528] border border-sand text-[11px] font-bold text-ink-muted hover:text-teal-deep whitespace-nowrap transition-colors">
+          Environment
+        </button>
+        <button type="button" class="h-7 px-2.5 rounded-lg bg-canvas-dim hover:bg-[#162528] border border-sand text-[11px] font-bold text-ink-muted hover:text-teal-deep whitespace-nowrap transition-colors">
+          Technology
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content: List of Model Essay Cards (Sorted by Kind, then Title) -->
+    <div class="flex-1 px-4 py-3.5 space-y-3 overflow-y-auto">
+
+      <!-- ================= SECTION 1: Advantages and disadvantages ================= -->
+      <div class="pt-1">
+        <div class="flex items-center justify-between mb-2 px-1">
+          <span class="text-[11px] font-black uppercase tracking-wider text-teal-deep font-display flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-coral"></span>
+            Advantages &amp; disadvantages
+          </span>
+          <span class="text-[11px] font-bold text-ink-subtle">2 models</span>
+        </div>
+
+        <!-- Card 1 (Early School Entry) -->
+        <article class="p-3.5 bg-[#162528] border border-sand rounded-2xl shadow-tactile-sm hover:border-sand-border active:translate-y-0.5 transition-all">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-teal-soft text-teal-deep border border-teal-border/40 font-display">
+                Advantages &amp; disadvantages
+              </span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold bg-canvas-dim text-ink-muted border border-sand">
+                Education
+              </span>
+            </div>
+            <!-- Band Badge -->
+            <span class="shrink-0 px-2 py-0.5 rounded-md text-[11px] font-black bg-teal-deep text-teal-soft font-display">
+              Band 8.5
+            </span>
+          </div>
+
+          <!-- Prompt Title -->
+          <h2 class="mt-2 text-sm font-bold text-ink-primary leading-snug tracking-tight">
+            &ldquo;Some people think children should start school at a very early age. Do the advantages outweigh the disadvantages?&rdquo;
+          </h2>
+
+          <!-- Metadata Footer -->
+          <div class="mt-3 pt-2.5 border-t border-sand/60 flex items-center justify-between text-xs text-ink-muted">
+            <div class="flex items-center gap-3">
+              <span class="flex items-center gap-1 font-semibold">
+                <span class="material-symbols-rounded text-[15px] text-teal-accent">menu_book</span>
+                285 words
+              </span>
+              <span class="flex items-center gap-1 text-[11px]">
+                <span class="material-symbols-rounded text-[14px] text-coral">record_voice_over</span>
+                RP audio
+              </span>
+            </div>
+            <span class="text-[11px] font-bold text-teal-accent flex items-center gap-0.5 font-display">
+              Read model &rarr;
+            </span>
+          </div>
+        </article>
+
+        <!-- Card 2 (Remote Work Across Borders) -->
+        <article class="mt-2.5 p-3.5 bg-[#162528] border border-sand rounded-2xl shadow-tactile-sm hover:border-sand-border active:translate-y-0.5 transition-all">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-teal-soft text-teal-deep border border-teal-border/40 font-display">
+                Advantages &amp; disadvantages
+              </span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold bg-canvas-dim text-ink-muted border border-sand">
+                Work &amp; Career
+              </span>
+            </div>
+            <span class="shrink-0 px-2 py-0.5 rounded-md text-[11px] font-black bg-teal-deep text-teal-soft font-display">
+              Band 8
+            </span>
+          </div>
+
+          <h2 class="mt-2 text-sm font-bold text-ink-primary leading-snug tracking-tight">
+            &ldquo;In many countries, an increasing number of employees work remotely from home for overseas companies. Is this a positive or negative development?&rdquo;
+          </h2>
+
+          <div class="mt-3 pt-2.5 border-t border-sand/60 flex items-center justify-between text-xs text-ink-muted">
+            <div class="flex items-center gap-3">
+              <span class="flex items-center gap-1 font-semibold">
+                <span class="material-symbols-rounded text-[15px] text-teal-accent">menu_book</span>
+                274 words
+              </span>
+              <span class="text-[11px] text-ink-subtle">4 cohesive linkers</span>
+            </div>
+            <span class="text-[11px] font-bold text-teal-accent flex items-center gap-0.5 font-display">
+              Read model &rarr;
+            </span>
+          </div>
+        </article>
+      </div>
+
+      <!-- ================= SECTION 2: Discussion ================= -->
+      <div class="pt-2">
+        <div class="flex items-center justify-between mb-2 px-1">
+          <span class="text-[11px] font-black uppercase tracking-wider text-teal-deep font-display flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-accent"></span>
+            Discussion (Both Views)
+          </span>
+          <span class="text-[11px] font-bold text-ink-subtle">2 models</span>
+        </div>
+
+        <!-- Card 3 (AI in Diagnostics) -->
+        <article class="p-3.5 bg-[#162528] border border-sand rounded-2xl shadow-tactile-sm hover:border-sand-border active:translate-y-0.5 transition-all">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-teal-soft text-teal-deep border border-teal-border/40 font-display">
+                Discussion
+              </span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold bg-canvas-dim text-ink-muted border border-sand">
+                Technology
+              </span>
+            </div>
+            <span class="shrink-0 px-2 py-0.5 rounded-md text-[11px] font-black bg-teal-deep text-teal-soft font-display">
+              Band 8.5
+            </span>
+          </div>
+
+          <h2 class="mt-2 text-sm font-bold text-ink-primary leading-snug tracking-tight">
+            &ldquo;Some feel artificial intelligence will replace medical doctors, while others believe human judgment remains irreplaceable. Discuss both views and give your opinion.&rdquo;
+          </h2>
+
+          <div class="mt-3 pt-2.5 border-t border-sand/60 flex items-center justify-between text-xs text-ink-muted">
+            <div class="flex items-center gap-3">
+              <span class="flex items-center gap-1 font-semibold">
+                <span class="material-symbols-rounded text-[15px] text-teal-accent">menu_book</span>
+                298 words
+              </span>
+              <span class="flex items-center gap-1 text-[11px] text-coral font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-coral"></span>
+                Examiner notes
+              </span>
+            </div>
+            <span class="text-[11px] font-bold text-teal-accent flex items-center gap-0.5 font-display">
+              Read model &rarr;
+            </span>
+          </div>
+        </article>
+
+        <!-- Card 4 (University Free Tuition) -->
+        <article class="mt-2.5 p-3.5 bg-[#162528] border border-sand rounded-2xl shadow-tactile-sm hover:border-sand-border active:translate-y-0.5 transition-all">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-teal-soft text-teal-deep border border-teal-border/40 font-display">
+                Discussion
+              </span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold bg-canvas-dim text-ink-muted border border-sand">
+                Society &amp; Law
+              </span>
+            </div>
+            <span class="shrink-0 px-2 py-0.5 rounded-md text-[11px] font-black bg-teal-deep text-teal-soft font-display">
+              Band 8
+            </span>
+          </div>
+
+          <h2 class="mt-2 text-sm font-bold text-ink-primary leading-snug tracking-tight">
+            &ldquo;Some argue university education should be completely free for all citizens, while others claim students must fund their own degrees. Discuss both views.&rdquo;
+          </h2>
+
+          <div class="mt-3 pt-2.5 border-t border-sand/60 flex items-center justify-between text-xs text-ink-muted">
+            <div class="flex items-center gap-3">
+              <span class="flex items-center gap-1 font-semibold">
+                <span class="material-symbols-rounded text-[15px] text-teal-accent">menu_book</span>
+                282 words
+              </span>
+              <span class="text-[11px] text-ink-subtle">Balanced stance</span>
+            </div>
+            <span class="text-[11px] font-bold text-teal-accent flex items-center gap-0.5 font-display">
+              Read model &rarr;
+            </span>
+          </div>
+        </article>
+      </div>
+
+      <!-- ================= SECTION 3: Opinion ================= -->
+      <div class="pt-2">
+        <div class="flex items-center justify-between mb-2 px-1">
+          <span class="text-[11px] font-black uppercase tracking-wider text-teal-deep font-display flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-sand-border"></span>
+            Opinion (Agree / Disagree)
+          </span>
+          <span class="text-[11px] font-bold text-ink-subtle">2 models</span>
+        </div>
+
+        <!-- Card 5 (Aviation Carbon Tax) -->
+        <article class="p-3.5 bg-[#162528] border border-sand rounded-2xl shadow-tactile-sm hover:border-sand-border active:translate-y-0.5 transition-all">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-teal-soft text-teal-deep border border-teal-border/40 font-display">
+                Opinion
+              </span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold bg-canvas-dim text-ink-muted border border-sand">
+                Environment
+              </span>
+            </div>
+            <span class="shrink-0 px-2 py-0.5 rounded-md text-[11px] font-black bg-teal-deep text-teal-soft font-display">
+              Band 8
+            </span>
+          </div>
+
+          <h2 class="mt-2 text-sm font-bold text-ink-primary leading-snug tracking-tight">
+            &ldquo;Governments should introduce a steep tax on air travel to combat greenhouse emissions, even if this curbs international tourism. To what extent do you agree?&rdquo;
+          </h2>
+
+          <div class="mt-3 pt-2.5 border-t border-sand/60 flex items-center justify-between text-xs text-ink-muted">
+            <div class="flex items-center gap-3">
+              <span class="flex items-center gap-1 font-semibold">
+                <span class="material-symbols-rounded text-[15px] text-teal-accent">menu_book</span>
+                268 words
+              </span>
+              <span class="text-[11px] text-ink-subtle">Nuanced stance</span>
+            </div>
+            <span class="text-[11px] font-bold text-teal-accent flex items-center gap-0.5 font-display">
+              Read model &rarr;
+            </span>
+          </div>
+        </article>
+
+        <!-- Card 6 (Preserving Endangered Languages) -->
+        <article class="mt-2.5 p-3.5 bg-[#162528] border border-sand rounded-2xl shadow-tactile-sm hover:border-sand-border active:translate-y-0.5 transition-all">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-teal-soft text-teal-deep border border-teal-border/40 font-display">
+                Opinion
+              </span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold bg-canvas-dim text-ink-muted border border-sand">
+                Culture &amp; Language
+              </span>
+            </div>
+            <span class="shrink-0 px-2 py-0.5 rounded-md text-[11px] font-black bg-teal-deep text-teal-soft font-display">
+              Band 8.5
+            </span>
+          </div>
+
+          <h2 class="mt-2 text-sm font-bold text-ink-primary leading-snug tracking-tight">
+            &ldquo;Every year several minority languages disappear forever. Some think this is unimportant as a single global language eases trade. Do you agree or disagree?&rdquo;
+          </h2>
+
+          <div class="mt-3 pt-2.5 border-t border-sand/60 flex items-center justify-between text-xs text-ink-muted">
+            <div class="flex items-center gap-3">
+              <span class="flex items-center gap-1 font-semibold">
+                <span class="material-symbols-rounded text-[15px] text-teal-accent">menu_book</span>
+                305 words
+              </span>
+              <span class="flex items-center gap-1 text-[11px]">
+                <span class="material-symbols-rounded text-[14px] text-teal-accent">check_circle</span>
+                C2 collocations
+              </span>
+            </div>
+            <span class="text-[11px] font-bold text-teal-accent flex items-center gap-0.5 font-display">
+              Read model &rarr;
+            </span>
+          </div>
+        </article>
+      </div>
+
+      <!-- ================= SECTION 4: Problem and solution ================= -->
+      <div class="pt-2">
+        <div class="flex items-center justify-between mb-2 px-1">
+          <span class="text-[11px] font-black uppercase tracking-wider text-teal-deep font-display flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-teal-deep"></span>
+            Problem &amp; solution
+          </span>
+          <span class="text-[11px] font-bold text-ink-subtle">2 models</span>
+        </div>
+
+        <!-- Card 7 (Urban Overcrowding & Mega-cities) -->
+        <article class="p-3.5 bg-[#162528] border border-sand rounded-2xl shadow-tactile-sm hover:border-sand-border active:translate-y-0.5 transition-all">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-teal-soft text-teal-deep border border-teal-border/40 font-display">
+                Problem &amp; solution
+              </span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold bg-canvas-dim text-ink-muted border border-sand">
+                Urbanization
+              </span>
+            </div>
+            <span class="shrink-0 px-2 py-0.5 rounded-md text-[11px] font-black bg-teal-deep text-teal-soft font-display">
+              Band 8
+            </span>
+          </div>
+
+          <h2 class="mt-2 text-sm font-bold text-ink-primary leading-snug tracking-tight">
+            &ldquo;Rapid rural-to-urban migration is straining municipal housing and healthcare in major cities. What problems does this cause, and what solutions can governments adopt?&rdquo;
+          </h2>
+
+          <div class="mt-3 pt-2.5 border-t border-sand/60 flex items-center justify-between text-xs text-ink-muted">
+            <div class="flex items-center gap-3">
+              <span class="flex items-center gap-1 font-semibold">
+                <span class="material-symbols-rounded text-[15px] text-teal-accent">menu_book</span>
+                290 words
+              </span>
+              <span class="text-[11px] text-ink-subtle">2-problem / 2-solution</span>
+            </div>
+            <span class="text-[11px] font-bold text-teal-accent flex items-center gap-0.5 font-display">
+              Read model &rarr;
+            </span>
+          </div>
+        </article>
+
+        <!-- Card 8 (Sedentary Lifestyles Among Children) -->
+        <article class="mt-2.5 p-3.5 bg-[#162528] border border-sand rounded-2xl shadow-tactile-sm hover:border-sand-border active:translate-y-0.5 transition-all">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-extrabold bg-teal-soft text-teal-deep border border-teal-border/40 font-display">
+                Problem &amp; solution
+              </span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold bg-canvas-dim text-ink-muted border border-sand">
+                Health &amp; Youth
+              </span>
+            </div>
+            <span class="shrink-0 px-2 py-0.5 rounded-md text-[11px] font-black bg-teal-deep text-teal-soft font-display">
+              Band 8
+            </span>
+          </div>
+
+          <h2 class="mt-2 text-sm font-bold text-ink-primary leading-snug tracking-tight">
+            &ldquo;Children and teenagers are spending far less time outdoors and more hours on mobile screens. Outline the main causes of this trend and propose realistic remedies.&rdquo;
+          </h2>
+
+          <div class="mt-3 pt-2.5 border-t border-sand/60 flex items-center justify-between text-xs text-ink-muted">
+            <div class="flex items-center gap-3">
+              <span class="flex items-center gap-1 font-semibold">
+                <span class="material-symbols-rounded text-[15px] text-teal-accent">menu_book</span>
+                278 words
+              </span>
+              <span class="text-[11px] text-ink-subtle">Parental &amp; policy cues</span>
+            </div>
+            <span class="text-[11px] font-bold text-teal-accent flex items-center gap-0.5 font-display">
+              Read model &rarr;
+            </span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Quiet Library Shelf Note / Practice Prompt Banner -->
+      <div class="pt-2 pb-6">
+        <div class="p-3.5 bg-canvas-dim border border-sand rounded-2xl flex items-center justify-between">
+          <div class="flex items-center gap-2.5">
+            <span class="w-8 h-8 rounded-xl bg-[#162528] border border-sand flex items-center justify-center text-teal-deep shadow-tactile-sm">
+              <span class="material-symbols-rounded text-[18px]">shelves</span>
+            </span>
+            <div>
+              <p class="text-xs font-bold text-teal-deep">Need a specific prompt?</p>
+              <p class="text-[11px] text-ink-muted">Tap tune to filter by Band 8.5, word count or topic.</p>
+            </div>
+          </div>
+          <button type="button" class="px-3 py-1.5 rounded-xl bg-[#162528] border border-sand text-xs font-extrabold text-teal-deep shadow-tactile-sm active:translate-y-0.5 font-display">
+            Filter
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Docked Tactile Bottom Navigation Bar (5 tabs, Skills/Vocab active) -->
+    <footer class="sticky bottom-0 z-30 bg-[#162528] border-t border-sand px-4 py-2 flex items-center justify-around shadow-[0_-3px_0_0_#EADEC8]">
+      <!-- 1. Today -->
+      <button type="button" class="flex flex-col items-center justify-center min-w-[52px] py-1 text-ink-muted hover:text-teal-deep transition-colors">
+        <span class="material-symbols-rounded text-[22px]">calendar_today</span>
+        <span class="text-[10px] font-bold mt-0.5">Today</span>
+      </button>
+
+      <!-- 2. Vocab -->
+      <button type="button" class="flex flex-col items-center justify-center min-w-[52px] py-1 text-ink-muted hover:text-teal-deep transition-colors">
+        <span class="material-symbols-rounded text-[22px]">menu_book</span>
+        <span class="text-[10px] font-bold mt-0.5">Vocab</span>
+      </button>
+
+      <!-- 3. Skills (Active - Models Live in Skills & Writing) -->
+      <button type="button" class="flex flex-col items-center justify-center min-w-[60px] px-3 py-1 rounded-xl bg-teal-soft text-teal-deep border border-teal-border/40 shadow-tactile-sm font-bold">
+        <span class="material-symbols-rounded text-[22px] text-teal-deep">psychology</span>
+        <span class="text-[10px] font-extrabold mt-0.5 font-display">Skills</span>
+      </button>
+
+      <!-- 4. Tests -->
+      <button type="button" class="flex flex-col items-center justify-center min-w-[52px] py-1 text-ink-muted hover:text-teal-deep transition-colors">
+        <span class="material-symbols-rounded text-[22px]">assignment</span>
+        <span class="text-[10px] font-bold mt-0.5">Tests</span>
+      </button>
+
+      <!-- 5. Me -->
+      <button type="button" class="flex flex-col items-center justify-center min-w-[52px] py-1 text-ink-muted hover:text-teal-deep transition-colors">
+        <span class="material-symbols-rounded text-[22px]">person</span>
+        <span class="text-[10px] font-bold mt-0.5">Me</span>
+      </button>
+    </footer>
+
+  </main>
+
+</body>
+</html>

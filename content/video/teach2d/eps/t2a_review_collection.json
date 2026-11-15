@@ -72,5 +72,46 @@
   "words": 45,
   "seconds": 27.2,
   "wpm": 99
+ },
+ "publish": {
+  "title": "What does \"collection\" mean?",
+  "keyword": "collection",
+  "value": "Collection means a group of similar things that someone has gathered together.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=collection",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"collection\" mean?",
+    "description": "Collection means a group of similar things that someone has gathered together.\n\nReview your words, free: https://lexkite.com/app/#/review?w=collection\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "collection",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"collection\" mean?\n\nCollection means a group of similar things that someone has gathered together.\n\nReview your words, free: https://lexkite.com/app/#/review?w=collection"
+   },
+   "instagram": {
+    "caption": "What does \"collection\" mean?\n\nCollection means a group of similar things that someone has gathered together.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"collection\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a group of similar things that someone has gathered together. Collection means a group of similar things that someone has gathered together. More practice like this (free): {link}"
  }
 }

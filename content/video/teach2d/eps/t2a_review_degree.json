@@ -72,5 +72,46 @@
   "words": 40,
   "seconds": 24.7,
   "wpm": 97
+ },
+ "publish": {
+  "title": "What does \"degree\" mean?",
+  "keyword": "degree",
+  "value": "Degree means a unit for measuring temperature or angles.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=degree",
+  "script_words": 34,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"degree\" mean?",
+    "description": "Degree means a unit for measuring temperature or angles.\n\nReview your words, free: https://lexkite.com/app/#/review?w=degree\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "degree",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"degree\" mean?\n\nDegree means a unit for measuring temperature or angles.\n\nReview your words, free: https://lexkite.com/app/#/review?w=degree"
+   },
+   "instagram": {
+    "caption": "What does \"degree\" mean?\n\nDegree means a unit for measuring temperature or angles.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"degree\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a unit for measuring temperature or angles. Degree means a unit for measuring temperature or angles. Practice it with a free quiz: {link}"
  }
 }

@@ -1,7 +1,7 @@
-# Workflow TÁI DÙNG: archive + ký (tự động qua App Store Connect API key) + tải bản iOS lên App Store Connect.
+# Workflow TÁI DÙNG: archive + ký Manual CỐ ĐỊNH (scripts/native/ios-sign.sh, ci-policy luật 13, docs/CI-SIGNING-IOS.md) + tải bản iOS lên App Store Connect.
 # Một nguồn cho mọi đường lên store: ios-testflight.yml (bản thử Capacitor), store-submit.yml (nộp duyệt tự động), native-release (app native).
 # app = capacitor → mobile/ios/App (App.xcodeproj, có widget + App Group) · app = native → native/ios (XcodeGen, Lexkite.xcodeproj).
-# Secret: ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8 (nội dung AuthKey_*.p8 – không bao giờ in ra log). Gọi với `secrets: inherit`.
+# Secret: IOS_DIST_P12_BASE64, IOS_DIST_P12_PASSWORD, IOS_PROFILE_APP_BASE64 (+ IOS_PROFILE_WIDGET_BASE64 cho capacitor); ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_P8 chỉ để tải lên (không in ra log). Gọi với `secrets: inherit`.
 name: Store build iOS (tái dùng)
 # ci-policy: no-concurrency – workflow tái dùng: concurrency nằm ở workflow gọi (mỗi lượt khác version/build, gộp nhóm sẽ huỷ mất bản build)
 on:
@@ -40,10 +40,15 @@ jobs:
           X=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
           [ -n "$X" ] || { echo "::error::Máy chủ chưa có Xcode 26 – App Store Connect sẽ từ chối bản build"; exit 1; }
           sudo xcode-select -s "$X/Contents/Developer"; xcodebuild -version
+      - uses: actions/cache@v4   # sharp (mobile/, Capacitor) tải libvips ~7 MB từ github.com/lovell/sharp-libvips: lưu để lượt sau không phụ thuộc mạng (09/11)
+        if: inputs.app == 'capacitor'
+        with:
+          path: ~/.npm/_libvips
+          key: sharp-libvips-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('mobile/package-lock.json') }}
       - name: Build web → mobile/www → cap sync
         if: inputs.app == 'capacitor'
         run: |
-          npm ci --prefix mobile --no-audit --no-fund
+          bash scripts/ci/npm-retry.sh ci --prefix mobile --no-audit --no-fund
           ./scripts/build-mobile.sh
       - name: Native – file sinh khớp nguồn web + XcodeGen
         if: inputs.app == 'native'
@@ -56,17 +61,29 @@ jobs:
         run: |
           [ -n "$ASC_KEY_P8" ] || { echo "::error::Thiếu secret ASC_KEY_P8"; exit 1; }
           printf '%s' "$ASC_KEY_P8" > "$RUNNER_TEMP/AuthKey.p8"; chmod 600 "$RUNNER_TEMP/AuthKey.p8"
-      - name: Archive (Release, ký tự động qua API key)
+      - name: Archive (Release, ký Manual bằng chứng chỉ Distribution cố định)
         working-directory: ${{ env.DIR }}
-        env: { KID: '${{ secrets.ASC_KEY_ID }}', ISS: '${{ secrets.ASC_ISSUER_ID }}' }
+        env: { IOS_DIST_P12_BASE64: '${{ secrets.IOS_DIST_P12_BASE64 }}', IOS_DIST_P12_PASSWORD: '${{ secrets.IOS_DIST_P12_PASSWORD }}', IOS_PROFILE_APP_BASE64: '${{ secrets.IOS_PROFILE_APP_BASE64 }}', IOS_PROFILE_WIDGET_BASE64: '${{ secrets.IOS_PROFILE_WIDGET_BASE64 }}' }
         run: |
+          if [ "${{ inputs.app }}" = capacitor ]; then
+            bash "$GITHUB_WORKSPACE/scripts/native/ios-sign.sh" "$PROJ/project.pbxproj" com.lexkite.app:IOS_PROFILE_APP_BASE64 com.lexkite.app.widget:IOS_PROFILE_WIDGET_BASE64
+          else
+            bash "$GITHUB_WORKSPACE/scripts/native/ios-sign.sh" "$PROJ/project.pbxproj" com.lexkite.app:IOS_PROFILE_APP_BASE64
+          fi
           set -o pipefail
           xcodebuild -project "$PROJ" -scheme "$SCHEME" -configuration Release -destination 'generic/platform=iOS' \
-            -archivePath "$RUNNER_TEMP/Lexkite.xcarchive" -allowProvisioningUpdates \
-            -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" \
-            DEVELOPMENT_TEAM="$TEAM" CODE_SIGN_STYLE=Automatic MARKETING_VERSION="$VER" CURRENT_PROJECT_VERSION="$BUILD" \
+            -archivePath "$RUNNER_TEMP/Lexkite.xcarchive" \
+            DEVELOPMENT_TEAM="$TEAM" MARKETING_VERSION="$VER" CURRENT_PROJECT_VERSION="$BUILD" DEBUG_INFORMATION_FORMAT=dwarf-with-dsym \
             archive 2>&1 | tail -60
           test -d "$RUNNER_TEMP/Lexkite.xcarchive"
+      - name: Máy gác dung lượng bản archive (không đóng trang SEO theo ngôn ngữ; ghi dung lượng www)
+        if: inputs.app == 'capacitor'
+        run: |
+          W=$(find "$RUNNER_TEMP/Lexkite.xcarchive/Products/Applications/App.app" -maxdepth 2 -name public -type d | head -1); [ -n "$W" ] || { echo "::error::Không thấy thư mục public (www) trong App.app"; exit 1; }
+          BAD=$(find "$W" -mindepth 2 -maxdepth 2 -type d \( -path "$W/ar/*" -o -path "$W/de/*" -o -path "$W/en/*" -o -path "$W/es/*" -o -path "$W/fr/*" -o -path "$W/hi/*" -o -path "$W/id/*" -o -path "$W/ja/*" -o -path "$W/ko/*" -o -path "$W/pt/*" -o -path "$W/ru/*" -o -path "$W/th/*" -o -path "$W/tr/*" -o -path "$W/vi/*" -o -path "$W/zh/*" \) | head -3)
+          [ -z "$BAD" ] || { echo "$BAD"; echo "::error::App.app chứa dist/<mã ngôn ngữ>/<thư mục> (trang SEO) – build-mobile.sh LANG_EX bị bỏ?"; exit 1; }
+          KB=$(du -sk "$W" | cut -f1); echo "public (www) = $((KB/1024)) MB (chưa nén)"; echo "✓ App.app/public = $((KB/1024)) MB chưa nén, không có trang SEO theo ngôn ngữ" >> "$GITHUB_STEP_SUMMARY"
+          [ "$KB" -le 307200 ] || { echo "::error::public $((KB/1024)) MB > 300 MB"; exit 1; }
       - name: Kiểm entitlements + khai mã hoá (Sign in with Apple, App Group, ITSAppUsesNonExemptEncryption=false)
         run: |
           APP="$RUNNER_TEMP/Lexkite.xcarchive/Products/Applications/$APPNAME.app"
@@ -92,23 +109,21 @@ jobs:
         if: inputs.upload
         env: { KID: '${{ secrets.ASC_KEY_ID }}', ISS: '${{ secrets.ASC_ISSUER_ID }}' }
         run: |
-          cat > "$RUNNER_TEMP/ExportOptions.plist" <<EOF
-          <?xml version="1.0" encoding="UTF-8"?>
-          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-          <plist version="1.0"><dict>
-            <key>method</key><string>app-store-connect</string>
-            <key>destination</key><string>upload</string>
-            <key>teamID</key><string>$TEAM</string>
-            <key>signingStyle</key><string>automatic</string>
-            <key>manageAppVersionAndBuildNumber</key><false/>
-            <key>uploadSymbols</key><true/>
-          </dict></plist>
-          EOF
+          # ExportOptions.plist (manual, app-store-connect, upload) do scripts/native/ios-sign.sh ghi ở bước Archive
           set -o pipefail
           xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/Lexkite.xcarchive" -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
-            -exportPath "$RUNNER_TEMP/export" -allowProvisioningUpdates \
+            -exportPath "$RUNNER_TEMP/export" \
             -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" 2>&1 | tail -40
           echo "✓ Đã tải ${{ inputs.app }} $VER ($BUILD) lên App Store Connect – Apple xử lý 5–30 phút rồi hiện ở TestFlight" >> "$GITHUB_STEP_SUMMARY"
+      # Crashlytics: dSYM của bản archive → Firebase (lexkite-app) để crash iOS đọc được tên hàm/dòng. Công cụ upload-symbols đi kèm firebase-ios-sdk (SPM, @capacitor-firebase/crashlytics).
+      - name: Tải dSYM lên Firebase Crashlytics
+        if: inputs.upload && inputs.app == 'capacitor'
+        run: |
+          D="$RUNNER_TEMP/Lexkite.xcarchive/dSYMs"; ls "$D"/*.dSYM >/dev/null 2>&1 || { echo "::error::Bản archive không có dSYM (DEBUG_INFORMATION_FORMAT=dwarf-with-dsym)"; exit 1; }
+          UP=$(find "$HOME/Library/Developer/Xcode/DerivedData" -path '*/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/upload-symbols' -type f 2>/dev/null | head -1)
+          [ -n "$UP" ] || { echo "::error::Không thấy firebase-ios-sdk/Crashlytics/upload-symbols trong SourcePackages – plugin @capacitor-firebase/crashlytics chưa vào bản build?"; exit 1; }
+          "$UP" -gsp mobile/ios/App/App/GoogleService-Info.plist -p ios "$D" 2>&1 | tail -15
+          echo "✓ Đã tải $(ls -d "$D"/*.dSYM | wc -l | tr -d ' ') dSYM lên Crashlytics" >> "$GITHUB_STEP_SUMMARY"
       - name: Xuất IPA đã ký để lưu trữ (release-archive → Kho Drive; lỗi bước này KHÔNG ảnh hưởng bản đã tải lên)
         if: inputs.upload && inputs.app == 'capacitor'
         continue-on-error: true
@@ -116,7 +131,7 @@ jobs:
         run: |
           sed -e 's#<string>upload</string>#<string>export</string>#' "$RUNNER_TEMP/ExportOptions.plist" > "$RUNNER_TEMP/ExportOptions-ipa.plist"
           xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/Lexkite.xcarchive" -exportOptionsPlist "$RUNNER_TEMP/ExportOptions-ipa.plist" \
-            -exportPath "$RUNNER_TEMP/ipa" -allowProvisioningUpdates \
+            -exportPath "$RUNNER_TEMP/ipa"\
             -authenticationKeyPath "$RUNNER_TEMP/AuthKey.p8" -authenticationKeyID "$KID" -authenticationKeyIssuerID "$ISS" | tail -20
           cp "$RUNNER_TEMP"/ipa/*.ipa "lexkite-$VER-$BUILD.ipa"
       - uses: actions/upload-artifact@v4
@@ -125,4 +140,4 @@ jobs:
         with: { name: lexkite-ios-ipa, path: 'lexkite-*.ipa', retention-days: 30, if-no-files-found: ignore }
       - name: Xoá khoá
         if: always()
-        run: rm -f "$RUNNER_TEMP/AuthKey.p8"
+        run: rm -f "$RUNNER_TEMP/AuthKey.p8"; security delete-keychain "$RUNNER_TEMP/lk-sign.keychain-db" 2>/dev/null || true

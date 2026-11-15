@@ -1,0 +1,35 @@
+# Báo đẩy app gốc FCM (docs/REMINDERS.md §2/§5): test chặn ≤ 1/ngày, giờ yên lặng, công tắc tắt, bản app thiếu plugin
+# + dry-run FCM HTTP v1 (validate_only: true – không gửi cho ai) mọi câu 15 ngôn ngữ bằng secret FCM_SA; thiếu secret → ::notice:: bỏ qua, không đỏ.
+name: push-fcm
+on:
+  push:
+    branches: [main]
+    paths: ['workers/push/**', 'functions/api/push.js', 'web/js/remind.js', 'scripts/ci/fcm-dryrun.mjs', 'scripts/test/fcm-push.mjs', '.github/workflows/push-fcm.yml']
+  pull_request:
+    paths: ['workers/push/**', 'functions/api/push.js', 'web/js/remind.js', 'scripts/ci/fcm-dryrun.mjs', 'scripts/test/fcm-push.mjs', '.github/workflows/push-fcm.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency: { group: 'push-fcm-${{ github.ref }}', cancel-in-progress: true }
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            functions
+            infra
+            workers/push
+            web/js/remind.js
+            scripts/ci/fcm-dryrun.mjs
+            scripts/test/fcm-push.mjs
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Test FCM (≤ 1/ngày, giờ yên lặng, công tắc tắt, bản app cũ)
+        run: node scripts/test/fcm-push.mjs
+      - name: Dry-run FCM HTTP v1 (validate_only, không gửi)
+        env: { FCM_SA: '${{ secrets.FCM_SA }}' }
+        run: node scripts/ci/fcm-dryrun.mjs

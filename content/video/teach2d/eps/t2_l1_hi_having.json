@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_hi_having",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Have, not am having!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I am having two brothers.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I have two brothers.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use have for things you own.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "Has! She has a big house.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I am having two brothers.",
+  "right": "I have two brothers.",
+  "strike": "having",
+  "why": "Use have for things you own.",
+  "memory": "I have, not I am having.",
+  "quiz": {
+   "stem": "She ___ a big house.",
+   "options": [
+    "is having",
+    "has"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "“I am having” कब गलत है?",
+   "tip": "अपने पास कुछ होने के लिए “I have” बोलें, “I am having” नहीं।",
+   "caption": "क्या आप भी कहते हैं “I am having two brothers”? 😅 अंग्रेज़ी में “I have two brothers” सही है, क्योंकि have के साथ -ing नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।",
+   "comment": "उत्तर: “has”। अपने पास कुछ होने या रिश्ते बताने के लिए have बोलें। मुफ़्त क्विज़ यहाँ करें: {link}",
+   "hashtags": [
+    "#अंग्रेजीसीखें",
+    "#englishspeaking",
+    "#learnenglish",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "When is “I am having” wrong?",
+   "tip": "To say you own something, say “I have”, not “I am having”.",
+   "caption": "Do you say “I am having two brothers”? 😅 In English “I have two brothers” is right, because have does not take -ing. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "“I am having” कब गलत है?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "hi",
+ "est": {
+  "words": 45,
+  "seconds": 27.6,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "“I am having” कब गलत है?",
+  "keyword": "I have two brothers.",
+  "value": "अपने पास कुछ होने के लिए “I have” बोलें, “I am having” नहीं।",
+  "hashtags": [
+   "#अंग्रेजीसीखें",
+   "#englishspeaking",
+   "#learnenglish",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 39,
+  "platforms": {
+   "youtube": {
+    "title": "“I am having” कब गलत है?",
+    "description": "क्या आप भी कहते हैं “I am having two brothers”? 😅 अंग्रेज़ी में “I have two brothers” सही है, क्योंकि have के साथ -ing नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix\n\n#अंग्रेजीसीखें #englishspeaking #learnenglish #lexkite",
+    "tags": [
+     "I have two brothers.",
+     "learn english",
+     "hi"
+    ]
+   },
+   "facebook": {
+    "text": "क्या आप भी कहते हैं “I am having two brothers”? 😅 अंग्रेज़ी में “I have two brothers” सही है, क्योंकि have के साथ -ing नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "क्या आप भी कहते हैं “I am having two brothers”? 😅 अंग्रेज़ी में “I have two brothers” सही है, क्योंकि have के साथ -ing नहीं लगता। Ama की आवाज़ सुनकर दोहराइए! Lexkite ऐप में और अभ्यास करें।\n\nlexkite.com",
+    "hashtags": [
+     "#अंग्रेजीसीखें",
+     "#englishspeaking",
+     "#learnenglish",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "“I am having” कब गलत है? #अंग्रेजीसीखें #englishspeaking #learnenglish"
+   }
+  },
+  "first_comment": "उत्तर: “has”। अपने पास कुछ होने या रिश्ते बताने के लिए have बोलें। मुफ़्त क्विज़ यहाँ करें: {link}",
+  "lang": "hi"
+ }
+}

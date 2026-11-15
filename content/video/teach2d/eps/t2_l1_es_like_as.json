@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_es_like_as",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Jobs take as, not like!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: I work like a teacher.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: I work as a teacher.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Use as for a job.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "As! He works as a doctor.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "I work like a teacher.",
+  "right": "I work as a teacher.",
+  "strike": "like",
+  "why": "Use as for a job.",
+  "memory": "As = job.",
+  "quiz": {
+   "stem": "He works ___ a doctor.",
+   "options": [
+    "like",
+    "as"
+   ],
+   "answer": 1
+  },
+  "native": {
+   "hook": "¿“Work like” profesor? Es “as”",
+   "tip": "Para profesión o función usa “as”. “Like” significa “parecido a”.",
+   "caption": "En español “como” sirve para todo 👩‍🏫 En inglés no digas “I work like a teacher.”, sino “I work as a teacher.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.",
+   "comment": "Respuesta: “as”. “As” = profesión; “like” = parecido. Practica más con un quiz gratis aquí: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#preposiciones",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "“Work like” a teacher? It is “as”",
+   "tip": "For a job or role use “as”. “Like” means “similar to”.",
+   "caption": "In Spanish “como” works for both. In English do not say “I work like a teacher.”, say “I work as a teacher.”. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "¿“Work like” profesor? Es “as”"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "es",
+ "est": {
+  "words": 46,
+  "seconds": 28.1,
+  "wpm": 98
+ },
+ "publish": {
+  "title": "¿“Work like” profesor? Es “as”",
+  "keyword": "I work as a teacher.",
+  "value": "Para profesión o función usa “as”. “Like” significa “parecido a”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#preposiciones",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 40,
+  "platforms": {
+   "youtube": {
+    "title": "¿“Work like” profesor? Es “as”",
+    "description": "En español “como” sirve para todo 👩‍🏫 En inglés no digas “I work like a teacher.”, sino “I work as a teacher.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #preposiciones #lexkite",
+    "tags": [
+     "I work as a teacher.",
+     "learn english",
+     "es"
+    ]
+   },
+   "facebook": {
+    "text": "En español “como” sirve para todo 👩‍🏫 En inglés no digas “I work like a teacher.”, sino “I work as a teacher.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "En español “como” sirve para todo 👩‍🏫 En inglés no digas “I work like a teacher.”, sino “I work as a teacher.”. ¡Escucha a Ama y repite! Practica más en la app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#preposiciones",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "¿“Work like” profesor? Es “as” #aprenderingles #inglesfacil #preposiciones"
+   }
+  },
+  "first_comment": "Respuesta: “as”. “As” = profesión; “like” = parecido. Practica más con un quiz gratis aquí: {link}",
+  "lang": "es"
+ }
+}

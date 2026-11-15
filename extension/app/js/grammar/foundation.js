@@ -411,7 +411,7 @@ quiz: [
 { q: 'Câu nào đúng?', options: ['She can speak French, can she?', 'She can speak French, doesn\'t she?', 'She can speak French, can\'t she?', 'She can speak French, isn\'t it?'], answer: 2, explain: 'Khẳng định với can → câu hỏi đuôi phủ định can\'t she? "can she" không đổi sang phủ định; doesn\'t và isn\'t sai trợ động từ.' },
 { q: 'Câu nào đúng?', options: ['"I hate waiting." – "Neither do I."', '"I hate waiting." – "So am I."', '"I hate waiting." – "So I do."', '"I hate waiting." – "So do I."'], answer: 3, explain: 'hate là động từ thường, câu khẳng định → So do I. Neither dùng cho câu phủ định; "So am I" sai trợ động từ; "So I do" sai trật tự.' },
 { q: 'Phần nào sai? "This (A) is your first IELTS test (B), isn\'t (C) this (D)?"', options: ['This', 'is your first IELTS test', 'isn\'t', 'this'], answer: 3, explain: 'Câu hỏi đuôi dùng đại từ it thay cho this → isn\'t it?, nên phần sai là (D). This, is your first IELTS test, isn\'t đều đúng.' },
-{ q: 'Phần nào sai? "He hardly (A) ever studies (B), doesn\'t (C) he (D)?"', options: ['He hardly', 'ever studies', 'doesn\'t', 'he'], answer: 2, explain: 'Hardly mang nghĩa phủ định → đuôi khẳng định: does he? He hardly, ever studies và he đều đúng.' },
+{ q: 'Phần nào sai? "He hardly (A) ever studies (B), doesn\'t (C) he (D)?"', options: ['He hardly', 'ever studies', 'doesn\'t', 'he'], answer: 2, explain: 'Hardly mang nghĩa phủ định → đuôi khẳng định: does he?, nên phần sai là (C). He hardly, ever studies và he đều đúng.' },
 { q: 'Phần nào sai? "I haven\'t (A) seen that film. – So (B) have (C) I (D)."', options: ['I haven\'t', 'So', 'have', 'I'], answer: 1, explain: 'Đồng ý với câu phủ định (haven\'t) → Neither have I, nên phần sai là (B) So. I haven\'t, have, I đều đúng.' }
 ]
 });

@@ -6,6 +6,7 @@
 //   mục trong hàng duyệt bị xuất · lô thiếu kiểm mẫu 5% / sai > 2% mà chưa "rejected" · dịch sinh tự động hỏng biến/ô/chữ viết · thẻ lời giải không lọc mục bị báo lỗi.
 // Lỗi CŨ (nội dung soạn tay trước cổng): đếm theo nguồn × loại kiểm → content/qa/baseline.json, chỉ được giảm (sửa theo LOẠI, METHODS "Làm đúng 1 lần").
 import fs from 'node:fs';
+import { SCAN_ROOTS } from '../lib/scan-roots.mjs';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
@@ -24,7 +25,7 @@ const LANGS = ['en', ...fs.readFileSync(P('scripts/i18n-langs.txt'), 'utf8').spl
 // ---------- 0) Sổ đăng ký nguồn: MỌI thư mục nội dung phải có chủ + cách kiểm (thư mục mới chưa đăng ký → đỏ) ----------
 const REG = J('content/qa/sources.json');
 const dirs = [...fs.readdirSync(P('content'), { withFileTypes: true }).filter(d => d.isDirectory()).map(d => 'content/' + d.name),
-  ...fs.readdirSync(P('web/js'), { withFileTypes: true }).filter(d => d.isDirectory() && !['vendor', 'i18n'].includes(d.name)).map(d => 'web/js/' + d.name)];
+  ...SCAN_ROOTS.filter(r => fs.existsSync(P(r))).flatMap(r => fs.readdirSync(P(r), { withFileTypes: true }).filter(d => d.isDirectory() && !['vendor', 'i18n'].includes(d.name)).map(d => r + '/' + d.name))]; // web/js + gói tải lười web/cpack
 for (const d of dirs) if (!REG.sources.some(s => (s.paths || []).some(p => p === d || p.startsWith(d + '/') || d.startsWith(p + '/'))) && !(REG.skip || {})[d]) H('đăng ký', `${d} chưa có trong content/qa/sources.json (thêm nguồn + cách kiểm, hoặc "skip" kèm lý do)`);
 const NPM_TEST = fs.readFileSync(P('package.json'), 'utf8') + (fs.existsSync(P('scripts/test/suite.txt')) ? fs.readFileSync(P('scripts/test/suite.txt'), 'utf8') : ''); // npm test = package.json "test" + danh sách scripts/test/suite.txt (run-suite)
 for (const s of REG.sources) { if (!s.owner || !s.checks || !s.checks.length) H('đăng ký', `${s.id}: thiếu owner/checks`); for (const t of s.delegate || []) if (!NPM_TEST.includes(t)) H('đăng ký', `${s.id}: test uỷ quyền "${t}" không có trong npm test`); }
@@ -65,7 +66,7 @@ for (const r of K.READINGS || []) {
   if (!lvOk(r.level)) C('reading', 'cefr', r.id);
   for (const [i, q] of (r.questions || []).entries()) if (q.answer == null || !q.explain) C('reading', 'schema', `${r.id}#${i}`);
 }
-{ const g = {}; g.self = g; g.window = g; vm.createContext(g); for (const f of ['sounds', 'skills']) vm.runInContext(fs.readFileSync(P('web/js/pron', f + '.js'), 'utf8'), g);
+{ const g = {}; g.self = g; g.window = g; vm.createContext(g); for (const f of ['web/cpack/pron/sounds.js', 'web/cpack/pron/skills.js']) vm.runInContext(fs.readFileSync(P(f), 'utf8'), g);
   for (const x of g.PRON || []) { if (!lvOk(x.level)) C('pron', 'cefr', x.id); for (const w of (x.words || []).map(v => v.w || v)) if (typeof w === 'string' && /^[a-z]+$/i.test(w) && !known(w)) C('pron', 'lexicon', `${x.id}:${w}`); } }
 
 // ---------- Cách dùng từ: cặp ✗/✓ + đối chiếu kho từ + độ phủ ghi chú ----------
@@ -152,7 +153,7 @@ if (!/op":"hidden"/.test(fs.readFileSync(P('web/js/explain-card.js'), 'utf8')) |
 // ---------- Lời giải đề thi dịch sẵn (web/i18n/explain/<lang>.json – bot dịch đêm): QA dịch, lỗi CŨ theo ngôn ngữ ----------
 { const en = J('web/i18n/explain/en.json');
   for (const l of LANGS.filter(l => l !== 'en')) { const f = `web/i18n/explain/${l}.json`; if (!ex(f)) continue; const d = J(f);
-    for (const [k, v] of Object.entries(d)) { const is = trIssues(en[k] || '', v, l); for (const i of is) C('explain-i18n', `${l}:${i}`, k); } } }
+    for (const [k, v] of Object.entries(d)) { if (!en[k]) continue; /* chưa có bản en (đang chờ dịch/viết tay) → không có gì để so, tránh báo số 'không khớp' giả (13/11) */ const is = trIssues(en[k], v, l); for (const i of is) C('explain-i18n', `${l}:${i}`, k); } } }
 
 // ---------- Lô nội dung (content/qa/batches/*.json): kiểm mẫu ≥ 5%, sai ≤ 2% – lỗi CỨNG ----------
 if (ex('content/qa/batches')) for (const f of fs.readdirSync(P('content/qa/batches')).filter(f => f.endsWith('.json'))) {

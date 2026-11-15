@@ -72,5 +72,46 @@
   "words": 47,
   "seconds": 28.2,
   "wpm": 100
+ },
+ "publish": {
+  "title": "What does \"doctor\" mean?",
+  "keyword": "doctor",
+  "value": "Doctor means a person trained to treat people who are ill or injured.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=doctor",
+  "script_words": 41,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"doctor\" mean?",
+    "description": "Doctor means a person trained to treat people who are ill or injured.\n\nReview your words, free: https://lexkite.com/app/#/review?w=doctor\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "doctor",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"doctor\" mean?\n\nDoctor means a person trained to treat people who are ill or injured.\n\nReview your words, free: https://lexkite.com/app/#/review?w=doctor"
+   },
+   "instagram": {
+    "caption": "What does \"doctor\" mean?\n\nDoctor means a person trained to treat people who are ill or injured.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"doctor\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means a person trained to treat people who are ill or injured. Doctor means a person trained to treat people who are ill or injured. More practice like this (free): {link}"
  }
 }

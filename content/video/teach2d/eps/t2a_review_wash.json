@@ -72,5 +72,46 @@
   "words": 41,
   "seconds": 25.2,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"wash\" mean?",
+  "keyword": "wash",
+  "value": "Wash means to clean someone or something with soap and water.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=wash",
+  "script_words": 35,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"wash\" mean?",
+    "description": "Wash means to clean someone or something with soap and water.\n\nReview your words, free: https://lexkite.com/app/#/review?w=wash\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "wash",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"wash\" mean?\n\nWash means to clean someone or something with soap and water.\n\nReview your words, free: https://lexkite.com/app/#/review?w=wash"
+   },
+   "instagram": {
+    "caption": "What does \"wash\" mean?\n\nWash means to clean someone or something with soap and water.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"wash\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Did you get it? It means to clean someone or something with soap and water. Wash means to clean someone or something with soap and water. More practice like this (free): {link}"
  }
 }

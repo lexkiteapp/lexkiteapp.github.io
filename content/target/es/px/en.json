@@ -1,0 +1,53 @@
+{
+ "ui": {
+  "ti": "Spanish pronunciation",
+  "pk": "Pick a sound to practice",
+  "ex": "Listen to examples",
+  "pp": "Minimal pairs",
+  "dc": "Dictation",
+  "sy": "Say it",
+  "qp": "Which word do you hear?",
+  "qd": "Type what you hear",
+  "qs": "Tap the mic and say the word",
+  "mic": "Tap to speak",
+  "hd": "I heard: “{h}”",
+  "rt": "Didn't catch that. Try again.",
+  "sk": "Skip",
+  "nm": "No microphone here. Practice with pairs or dictation instead.",
+  "tp": "Tip"
+ },
+ "tp": {
+  "vow": {
+   "t": "Five pure vowels",
+   "x": "Spanish has only five vowels, a, e, i, o, u, and each one always sounds the same: short, clear and steady, with no glide to a second sound (unlike English “go”). Say “casa” and “solo” keeping your mouth still from start to end."
+  },
+  "rr": {
+   "t": "Tapped r and rolled rr",
+   "x": "A single r between vowels is a quick tap of the tongue, like the “tt” in American “butter”: “pero”. At the start of a word, or when written rr, it is a roll: “rojo”, “perro”. One letter changes the meaning: “pero” (but) and “perro” (dog)."
+  },
+  "bv": {
+   "t": "b and v sound the same",
+   "x": "The letters b and v stand for one sound. At the start of a word or after m or n it is a firm /b/ (“vaca”, “bola”). Between vowels the lips barely touch (“uva”, “lobo”). Never put your teeth on your lip like the English v. Which letter to write is spelling, not sound."
+  },
+  "seseo": {
+   "t": "c, z and s: one sound",
+   "x": "In Latin American Spanish, c (before e or i), z and s are all the same /s/: “cielo”, “zapato”, “casa”. There is no English “th” sound. So “casa” and “caza” sound identical; context gives the meaning and spelling has to be learned."
+  },
+  "stress": {
+   "t": "Stress and the accent mark",
+   "x": "Stress falls on the second-to-last syllable if the word ends in a vowel, n or s; otherwise on the last one. An accent mark breaks the rule and shows the stressed vowel: “papa” (potato) and “papá” (dad), “canto” (I sing) and “cantó” (he sang). Stress can change the meaning."
+  },
+  "link": {
+   "t": "Linking words",
+   "x": "Spanish flows: a vowel at the end of a word joins the vowel that starts the next one with no pause. “la hora” sounds like “lahora” and “mi amigo” like “miamigo”. Do not stop between words."
+  },
+  "jg": {
+   "t": "j, g and gu",
+   "x": "j, and g before e or i, is a breathy /x/ made at the back of the throat, like a strong “h”: “jarra”, “gente”. g before a, o, u is a hard /g/: “gato”. To keep g hard before e or i, write gu and do not say the u: “guerra”."
+  },
+  "hq": {
+   "t": "ñ, ll, h, ch, qu",
+   "x": "ñ is like “ny” in “canyon”: “año”. ll and y sound like the English “y” or a soft “j”: “pollo”. h is always silent: “hola”, “hora”. qu is /k/ and the u is silent: “queso”. ch is as in “chico”."
+  }
+ }
+}

@@ -1,0 +1,146 @@
+{
+ "id": "t2_l1_pt_depends",
+ "template": "l1",
+ "series": "Stop Saying This",
+ "part": 1,
+ "theme": "dusk",
+ "teacher": "ama",
+ "voice": "af_bella",
+ "speed": 0.8,
+ "area": "grammar-check",
+ "lines": [
+  {
+   "id": "h",
+   "text": "Depends has a small partner!",
+   "pause": 0.42
+  },
+  {
+   "id": "w",
+   "text": "Many learners say: It depends of the weather.",
+   "pause": 0.42
+  },
+  {
+   "id": "r",
+   "text": "Better: It depends on the weather.",
+   "pause": 0.42
+  },
+  {
+   "id": "y",
+   "text": "Depend goes with on.",
+   "pause": 0.42
+  },
+  {
+   "id": "q",
+   "text": "Quick quiz! Which one fits?",
+   "pause": 2.6,
+   "quiz": true
+  },
+  {
+   "id": "a",
+   "text": "On! It depends on you.",
+   "pause": 0.42
+  },
+  {
+   "id": "sh",
+   "text": "Send this to a friend!",
+   "pause": 0.42
+  },
+  {
+   "id": "c",
+   "text": "Save this. Free on lexkite.com.",
+   "pause": 0.42
+  }
+ ],
+ "data": {
+  "wrong": "It depends of the weather.",
+  "right": "It depends on the weather.",
+  "strike": "of",
+  "why": "Depend goes with on.",
+  "memory": "Depend on.",
+  "quiz": {
+   "stem": "It depends ___ you.",
+   "options": [
+    "on",
+    "of"
+   ],
+   "answer": 0
+  },
+  "native": {
+   "hook": "Você diz “depends of”?",
+   "tip": "O verbo “depend” é sempre seguido de “on”, nunca de “of”.",
+   "caption": "Cuidado com este erro comum! 😬 Muita gente diz “It depends of the weather.”. O certo é “It depends on the weather.”. Aqui o “de” do português atrapalha. Ouça o Ama e repita! Treine mais no app Lexkite.",
+   "comment": "Resposta: “on”. Treine mais com um quiz grátis aqui: {link}",
+   "hashtags": [
+    "#aprenderingles",
+    "#inglesfacil",
+    "#inglesonline",
+    "#lexkite"
+   ]
+  },
+  "en": {
+   "hook": "Do you say “depends of”?",
+   "tip": "The verb “depend” always goes with “on”, never “of”.",
+   "caption": "Watch out for this common mistake! Many people say “It depends of the weather.”. The right way is “It depends on the weather.”. The Portuguese “de” gets in the way here. Listen to Ama and repeat! Practice more in the Lexkite app."
+  }
+ },
+ "cta": {
+  "area": "grammar-check",
+  "route": "#/fix",
+  "link": "https://lexkite.com/app/#/fix",
+  "say": "Check your grammar"
+ },
+ "hook": {
+  "line": "h",
+  "text": "Você diz “depends of”?"
+ },
+ "src": {
+  "l1": true
+ },
+ "lang": "pt",
+ "est": {
+  "words": 44,
+  "seconds": 27.1,
+  "wpm": 97
+ },
+ "publish": {
+  "title": "Você diz “depends of”?",
+  "keyword": "It depends on the weather.",
+  "value": "O verbo “depend” é sempre seguido de “on”, nunca de “of”.",
+  "hashtags": [
+   "#aprenderingles",
+   "#inglesfacil",
+   "#inglesonline",
+   "#lexkite"
+  ],
+  "link": "https://lexkite.com/app/#/fix",
+  "script_words": 38,
+  "platforms": {
+   "youtube": {
+    "title": "Você diz “depends of”?",
+    "description": "Cuidado com este erro comum! 😬 Muita gente diz “It depends of the weather.”. O certo é “It depends on the weather.”. Aqui o “de” do português atrapalha. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix\n\n#aprenderingles #inglesfacil #inglesonline #lexkite",
+    "tags": [
+     "It depends on the weather.",
+     "learn english",
+     "pt"
+    ]
+   },
+   "facebook": {
+    "text": "Cuidado com este erro comum! 😬 Muita gente diz “It depends of the weather.”. O certo é “It depends on the weather.”. Aqui o “de” do português atrapalha. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nhttps://lexkite.com/app/#/fix"
+   },
+   "instagram": {
+    "caption": "Cuidado com este erro comum! 😬 Muita gente diz “It depends of the weather.”. O certo é “It depends on the weather.”. Aqui o “de” do português atrapalha. Ouça o Ama e repita! Treine mais no app Lexkite.\n\nlexkite.com",
+    "hashtags": [
+     "#aprenderingles",
+     "#inglesfacil",
+     "#inglesonline",
+     "#lexkite"
+    ]
+   },
+   "tiktok": {
+    "caption": "Você diz “depends of”? #aprenderingles #inglesfacil #inglesonline"
+   }
+  },
+  "first_comment": "Resposta: “on”. Treine mais com um quiz grátis aqui: {link}",
+  "lang": "pt"
+ }
+}

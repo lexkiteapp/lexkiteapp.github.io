@@ -72,5 +72,46 @@
   "words": 42,
   "seconds": 25.7,
   "wpm": 98
+ },
+ "publish": {
+  "title": "What does \"file\" mean?",
+  "keyword": "file",
+  "value": "File means a set of information stored on a computer.",
+  "hashtags": [
+   "#learnenglish",
+   "#englishtips",
+   "#vocabulary",
+   "#englishteacher"
+  ],
+  "link": "https://lexkite.com/app/#/review?w=file",
+  "script_words": 36,
+  "platforms": {
+   "youtube": {
+    "title": "What does \"file\" mean?",
+    "description": "File means a set of information stored on a computer.\n\nReview your words, free: https://lexkite.com/app/#/review?w=file\n\nSeries: Remember This? · Teacher: Carlos\n\n#learnenglish #englishtips #vocabulary #englishteacher",
+    "tags": [
+     "file",
+     "Remember This?",
+     "learn english",
+     "english vocabulary"
+    ]
+   },
+   "facebook": {
+    "text": "What does \"file\" mean?\n\nFile means a set of information stored on a computer.\n\nReview your words, free: https://lexkite.com/app/#/review?w=file"
+   },
+   "instagram": {
+    "caption": "What does \"file\" mean?\n\nFile means a set of information stored on a computer.\n\nReview your words: link in bio.",
+    "hashtags": [
+     "#learnenglish",
+     "#englishtips",
+     "#vocabulary",
+     "#englishteacher"
+    ]
+   },
+   "tiktok": {
+    "caption": "What does \"file\" mean? #learnenglish #englishtips #vocabulary"
+   }
+  },
+  "first_comment": "Quiz answer: It means a set of information stored on a computer. File means a set of information stored on a computer. Practice it with a free quiz: {link}"
  }
 }

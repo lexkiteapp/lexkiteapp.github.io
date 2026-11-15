@@ -35,7 +35,7 @@ export async function zombieRuns(gh, { now = Date.now(), cancel = true, settleMs
     if (jobs.total_count !== 0) continue;
     const z = { id: r.id, file: String(r.path || '').split('/').pop() || r.name, min: Math.round((now - Date.parse(r.created_at)) / 6e4) };
     if (cancel && z.min >= DELETE_MIN) {
-      try { await gh(`/actions/runs/${r.id}`, { method: 'DELETE' }); z.deleted = true; z.cancel = 'xoá'; } catch (e) { z.deleted = why(e); z.cancel = 'không gỡ được qua API (cancel 409 / DELETE ' + why(e) + ') – cần GitHub Support'; }
+      try { await gh(`/actions/runs/${r.id}`, { method: 'DELETE' }); /* gh của required-gate nuốt lỗi → đọc lại: còn thì DELETE chưa có hiệu lực (05/11) */ { const back = await gh(`/actions/runs/${r.id}`).catch(() => null); if (back && back.id) throw new Error('DELETE không hiệu lực'); } z.deleted = true; z.cancel = 'xoá'; } catch (e) { z.deleted = why(e); z.cancel = 'không gỡ được qua API (cancel 409 / DELETE ' + why(e) + ') – cần GitHub Support'; }
     } else if (cancel) {
       const open = async () => { await sleep(settleMs); return stillOpen(await gh(`/actions/runs/${r.id}`).catch(() => null)); };   // 202 ≠ đã huỷ: đọc lại
       try { await gh(`/actions/runs/${r.id}/cancel`, { method: 'POST' }); z.cancel = 'ok'; } catch (e) { z.cancel = why(e); }
