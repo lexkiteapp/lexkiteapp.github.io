@@ -37,9 +37,9 @@
         "why": "Informed describes a person who has the facts; informative describes a source that gives facts."
       },
       {
-        "w": "The talk was informative about the new law.",
-        "r": "The talk was informative on the new law.",
-        "why": "With informative, 'on' (or 'about') is possible but the tested pairing is 'informative on a topic'; avoid 'informative of'."
+        "w": "I found the museum tour very information.",
+        "r": "I found the museum tour very informative.",
+        "why": "Informative is the adjective for something that gives useful information; 'information' is the noun and cannot describe a tour."
       }
     ],
     "u": "Informative describes something that gives you a lot of useful facts, such as a talk, article, website or sign. It is positive and fairly neutral in register, so it suits reviews and feedback: 'The guide was clear and informative.' Do not confuse it with informed, which describes a person who has the facts, or informational, which is a rare label for content type. A good pair is 'informative and easy to follow'."
@@ -109,7 +109,7 @@
       {
         "w": "She is an intern in a bank.",
         "r": "She is an intern at a bank.",
-        "why": "A workplace takes 'at' (or 'with'), not 'in'."
+        "why": "A field or subject takes 'in' (internship in marketing); 'of' is not used here."
       },
       {
         "w": "I will intern to a law firm.",
@@ -137,8 +137,8 @@
   "internship": {
     "mis": [
       {
-        "w": "I am doing an internship in a hospital.",
-        "r": "I am doing an internship at a hospital.",
+        "w": "I am looking for an internship of marketing.",
+        "r": "I am looking for an internship in marketing.",
         "why": "A workplace takes 'at' (or 'with'), not 'in'."
       },
       {

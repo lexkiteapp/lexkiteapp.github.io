@@ -422,9 +422,9 @@
  "bankrupt": {
   "mis": [
    {
-    "w": "The company was bankrupt last year.",
+    "w": "The company was gone bankrupt last year.",
     "r": "The company went bankrupt last year.",
-    "why": "Use 'go bankrupt' for the event of failing; 'was bankrupt' describes the state."
+    "why": "Use 'went bankrupt' for the event of failing; 'was gone bankrupt' is not a valid form."
    },
    {
     "w": "The company is going to bankrupt.",
