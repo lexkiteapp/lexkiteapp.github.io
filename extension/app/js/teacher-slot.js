@@ -36,7 +36,7 @@ img.tslot-img{aspect-ratio:1108/960}
   // HIP = hàng ảnh (/960) của hông, hip:true đặt mép bệ đúng hàng này (docs/CHARACTERS.md §Hình học)
   g.TeacherSlot = { SIZES, css, HIP: 780 };
   const C = g.Chars; if (!C) return;
-  // Chars.slot(who, {pose, size:'xs'|'s'|'m'|'l'|'xl', ground:'fade' = tuỳ chọn không bệ (thân mờ dần vào nền + bóng tiếp đất elip; chỗ đứng trên nền trống – port #546, mặc định vẫn là bệ), hip:true = lộ tới hông (bệ mỏng, xem HIP), cls, flip, lazy, alt, clip:true = clip tư thế phát 1 lần (ảnh tĩnh dưới đến khung đầu; giảm chuyển động/tiết kiệm dữ liệu → ảnh tĩnh), loop:true|ms = lặp cử chỉ, nghỉ 6 s, idle:true = vòng nghỉ mắt mở (Chars.idle, happy, lặp liền), ground:false = bệ cùng màu nền trang, style = CSS nội dòng (vd. lề), không đổi hình học})
+  // Chars.slot(who, {pose, size:'xs'|'s'|'m'|'l'|'xl', ground:'fade' = tùy chọn không bệ (thân mờ dần vào nền + bóng tiếp đất elip; chỗ đứng trên nền trống – port #546, mặc định vẫn là bệ), hip:true = lộ tới hông (bệ mỏng, xem HIP), cls, flip, lazy, alt, clip:true = clip tư thế phát 1 lần (ảnh tĩnh dưới đến khung đầu; giảm chuyển động/tiết kiệm dữ liệu → ảnh tĩnh), loop:true|ms = lặp cử chỉ, nghỉ 6 s, idle:true = vòng nghỉ mắt mở (Chars.idle, happy, lặp liền), ground:false = bệ cùng màu nền trang, style = CSS nội dòng (vd. lề), không đổi hình học})
   C.slot = (w, o = {}) => {
     css();
     const idle = !!(o.idle && C.idle), sz = SIZES[o.size] ? o.size : 'm', pose = C.poses.includes(o.pose) ? o.pose : idle ? 'happy' : 'talk';
