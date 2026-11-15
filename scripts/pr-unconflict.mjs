@@ -46,6 +46,7 @@ export const GENERATED = /^(web\/js\/i18n\/(?!en[./])[a-z]{2,3}(\.js|\/)|web\/cp
 export const ENTRY_FILES = f => REGISTRY_FILES.includes(f);
 export const DICT_FILES = f => /^i18n\/ui\/.+\.js$/.test(f); // nguồn dịch: gộp 3 bên THEO KHÓA (không theo dòng) – đúng cả khi hai phía khác định dạng
 export const ENTRY_LINE = /^\s*(\/\/.*|("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|[A-Za-z_$][\w$]*)\s*:.*,(\s*\/\/.*)?)$/;
+export const DATA_JSON = /^web\/(?:i18n\/content|packs)\/[a-z]{2,3}\.json$/; // dữ liệu dịch/nghĩa từ một dòng/ngôn ngữ (bot dịch dần, không dựng lại tất định được) → gộp 3 bên theo khóa
 export const FIXED_JSON = 'scripts/i18n-fixed.json'; // bản dịch tay: gộp 3 bên theo khóa/ngôn ngữ (scripts/lib/fixed-json.mjs)
 export const ACTIVE_H = 24, MAX = 4;
 
@@ -58,6 +59,7 @@ export function plan(conflicted) {
     else if (UNION.includes(f)) out.push({ f, how: 'union' });
     else if (DICT_FILES(f)) out.push({ f, how: 'dict3' });
     else if (f === FIXED_JSON) out.push({ f, how: 'json3' });
+    else if (DATA_JSON.test(f)) out.push({ f, how: 'data3' });
     else if (ENTRY_FILES(f)) out.push({ f, how: 'entries' });
     else return null;
   }
@@ -84,7 +86,7 @@ export function merge3Fixed(base, ours, theirs) {
     if (same(o, t)) v = o;                      // hai phía giống nhau (kể cả cùng xoá)
     else if (same(b, o)) v = t;                 // PR không đổi → bản main
     else if (same(b, t)) v = o;                 // main không đổi → bản PR
-    else if (o && t && typeof o === 'object' && typeof t === 'object') { v = merge3(b && typeof b === 'object' ? b : {}, o, t); if (!v) return null; }
+    else if (o && t && typeof o === 'object' && typeof t === 'object' && !Array.isArray(o) && !Array.isArray(t)) { v = merge3(b && typeof b === 'object' ? b : {}, o, t); if (!v) return null; }
     else return null;
     if (v !== undefined) out[k] = v;
   }
@@ -172,6 +174,13 @@ export function applySteps(steps) {
       const nk = x => Object.keys(x).length; // chặn ghi: kết quả gộp không được ít khóa hơn rõ rệt so với phía lớn hơn (đọc lỗi/rỗng bất thường → ghi đè mất bản dịch, 15/11)
       if (nk(d) < 0.9 * Math.max(nk(o), nk(t))) return `${f} kết quả gộp mất khóa bất thường (${nk(d)} < 90% của ${Math.max(nk(o), nk(t))}) – người gỡ`;
       writeFixed(f, d);
+    } else if (how === 'data3') { // web/i18n/content|packs/<lang>.json: gộp theo khóa, giữ thứ tự khóa của main rồi khóa mới của PR, ghi một dòng như bộ sinh
+      const side = k => { const o = tryGit('show', `:${k}:${f}`); if (!o.ok && !/exist|not in|not at stage/i.test(o.out)) return null; try { return o.ok ? JSON.parse(o.out) : {}; } catch { return null; } };
+      const [b, o, t] = [side(1), side(2), side(3)], d = b && o && t ? merge3Fixed(b, o, t) : null;
+      if (!d) return `${f} hai phía cùng sửa một khóa`;
+      const nk = x => Object.keys(x).length;
+      if (nk(d) < 0.9 * Math.max(nk(o), nk(t))) return `${f} kết quả gộp mất khóa bất thường – người gỡ`;
+      fs.writeFileSync(f, JSON.stringify(Object.fromEntries([...Object.keys(t), ...Object.keys(d)].filter((k, i, a) => k in d && a.indexOf(k) === i).map(k => [k, d[k]]))));
     } else if (how === 'entries') {
       const t = mergeEntries(fs.readFileSync(f, 'utf8'));
       if (t === null) return `${f} xung đột ngoài dòng mục (sửa cùng chỗ)`;
