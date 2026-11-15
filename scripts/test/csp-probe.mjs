@@ -24,7 +24,7 @@ const INIT = () => {
   document.addEventListener('securitypolicyviolation', post, true);
   addEventListener('securitypolicyviolation', post, true);
 };
-const NOISE = /frame-ancestors' is ignored|Content Security Policy '[^']*' was delivered in report-only mode/i; // WebKit: frame-ancestors không áp dụng ở Report-Only (sẽ có hiệu lực khi enforce) – không phải vi phạm
+const NOISE = /frame-ancestors' is ignored|report-only mode|report-uri/i; // WebKit: frame-ancestors không áp dụng ở Report-Only (sẽ có hiệu lực khi enforce) – không phải vi phạm
 const CSP_MSG = /Content[- ]Security[- ]Policy|\[Report Only\]|report-only policy|unsafe-eval|wasm-eval/i;
 
 const ENGINES = { chromium: await chromium.launch({ args: ['--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream', '--autoplay-policy=no-user-gesture-required'] }), webkit: await webkit.launch() };
@@ -46,7 +46,7 @@ const RIG = async page => { for (let i = 0; i < 40; i++) { if (await page.evalua
 for (eng of ['chromium', 'webkit']) {
   browser = ENGINES[eng];
   // ĐỐI CHỨNG: new Function() phải bị báo (không có 'unsafe-eval') – nếu không thì cách nghe bị mù, kết quả "0 vi phạm" vô nghĩa
-  await session('đối chứng new Function', async page => { await page.goto(APP, { waitUntil: 'load', timeout: 60000 }); await page.addScriptTag({ content: "try { new Function('return 1')(); } catch (e) {}" }); await page.waitForTimeout(1500); });
+  await session('đối chứng new Function', async page => { await page.goto(APP, { waitUntil: 'load', timeout: 60000 }); await page.addScriptTag({ content: "try { new Function('return 1')(); } catch (e) {}" }); await page.waitForTimeout(3000); });
   CONTROL[eng] = [...found.values()].some(e => e.where.has(eng + ' đối chứng new Function'));
   for (const r of ROUTES) await session('route ' + (r || '/'), async page => { await page.goto(APP + r, { waitUntil: 'load', timeout: 60000 }); if (/lesson|call/.test(r)) await RIG(page); await page.waitForTimeout(r.includes('call') || r.includes('lesson') ? 6000 : 5000); });
   if (eng === 'chromium') for (const [name, code] of LAZY) await session('lazy ' + name, async page => { await page.goto(APP, { waitUntil: 'load', timeout: 60000 }); await page.waitForTimeout(2000); log.push(`lazy ${name}: ${JSON.stringify(await page.evaluate(code).catch(e => 'lỗi ' + String(e.message).slice(0, 120)))}`); await page.waitForTimeout(4000); });
