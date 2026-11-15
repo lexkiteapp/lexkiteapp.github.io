@@ -14,7 +14,7 @@ và người trong danh sách cho phép được dùng không giới hạn.
 
 | Endpoint / Worker | Tốn gì | Trước đây | Bây giờ |
 |---|---|---|---|
-| `/api/ai` (chấm Writing/Speaking) | Gemini (≈20 lượt/ngày/khóa) → Workers AI (10k neuron/ngày) | 6/phút; 5/ngày (đăng nhập), 3/ngày (khách, theo IP); trần chung 400/ngày | tính năng `ai` + cầu dao `gemini`/`ai` |
+| `/api/ai` (chấm Writing/Speaking) | Gemini Flash (≈20 lượt/ngày/khóa) → Groq gpt-oss-120b (≈1.000/khóa) → báo bận (`docs/AI-CHAIN.md`) | 6/phút; 5/ngày (đăng nhập), 3/ngày (khách, theo IP); trần chung 400/ngày | tính năng `ai` + cầu dao `gemini`/`groq` |
 | `/api/ai` kind `rp` (Roleplay for Work) | như trên | 60/ngày, khách 16, trần 1.500 | tính năng `chat` + cầu dao |
 | `/api/handoff` put (chuyển máy QR) | D1 ghi blob ≤ 1,5 MB | 6 lượt/10 phút/IP | giữ + tính năng `handoff` (theo thiết bị + IP) |
 | `/api/handoff` get | D1 đọc | 20/10 phút/IP | giữ nguyên |
@@ -76,8 +76,9 @@ Không đi qua module: file tĩnh, dữ liệu từ điển, bài học, ôn t�
 
 | Provider | Trần/ngày | Gần trần (≥ 80%) thì |
 |---|---|---|
-| `gemini` | 20 lượt × số khóa | chỉ dùng Workers AI |
-| `ai` (Workers AI) | 10.000 neuron | chỉ dùng Gemini; cả hai gần trần → 429 `quota.busy` → máy khách chấm nhanh theo quy tắc / Roleplay chuyển kịch bản soạn sẵn |
+| `gemini` | 20 lượt × số khóa | bỏ Gemini, dùng Groq |
+| `groq` | 1.000 lượt × số khóa | bỏ Groq; cả Gemini lẫn Groq gần trần → 429 `quota.busy` (không rơi về Llama 8B – `AI-CHAIN.md`) |
+| `ai` (Workers AI) | 10.000 neuron | chỉ người gọi nội bộ Quản trị; người học: báo bận → máy khách chấm nhanh theo quy tắc / Roleplay chuyển kịch bản soạn sẵn |
 | `mail` | 100 thư | vẫn lưu tin nhắn (Quản trị → Hộp thư), chỉ không chuyển thư |
 
 Tính năng học cốt lõi không bao giờ phụ thuộc cầu dao.

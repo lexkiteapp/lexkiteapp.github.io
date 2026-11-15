@@ -54,7 +54,7 @@
       <a href="${back}" class="small">← ${t('Về đề bài')}</a>
       <div class="md-head card">
         <div class="row between" style="align-items:flex-start">
-          <div><div class="row" style="gap:.35rem"><span class="md-badge">${gl ? 'General · Task 1' : 'Writing Task ' + m.task}</span><span class="md-badge soft">${esc(kind)}</span><span class="md-badge band">Band ${esc(m.band)}</span></div>
+          <div><div class="row" style="gap:.35rem"><span class="md-badge" lang="en" translate="no">${gl ? 'General · Task 1' : 'Writing Task ' + m.task}</span><span class="md-badge soft">${esc(kind)}</span><span class="md-badge band">Band ${esc(m.band)}</span></div>
             <h1 class="md-title">${t('Bài mẫu có phân tích')}</h1></div>
           <div class="row"><span class="chip">${t('{n} từ', { n: m.words })}</span><button class="btn sm" id="readM">🔊 ${t('Nghe bài')}</button><a class="btn sm ghost" href="${back}">${UI.icon('pen-line')} ${t('Tự viết đề này')}</a></div>
         </div>
