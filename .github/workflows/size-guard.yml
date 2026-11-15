@@ -42,8 +42,6 @@ jobs:
           sparse-checkout: |
             scripts/test/size-guard.mjs
           sparse-checkout-cone-mode: false
-      - uses: ./.github/actions/gen-if-needed   # luật 17
-        with: { ext: true }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Đo cây + commit mới

@@ -18,7 +18,7 @@ export const READS_WEB = /node scripts\/test\/|http\.server|npx (-y )?serve|play
 export const onPR = src => /^on:[ \t]*\n[\s\S]*?^  pull_request(_target)?:/m.test(src) || /^on:.*\bpull_request\b/m.test(src);
 /** Tên các job vi phạm (đọc trước khi sinh). */
 export function genViolations(src) {
-  if (!onPR(src) || /^# ci-policy: no-gen\b/m.test(src)) return [];
+  if (!onPR(src) || /^# ci-policy: no-gen\b/m.test(src) || /sparse-checkout:/.test(src)) return [];   // checkout thưa: không có cây web/ để dựng (và không có .github/actions)
   const jm = src.match(/^jobs:[ \t]*\n([\s\S]*)$/m); if (!jm) return [];
   const bad = [];
   for (const j of jm[1].split(/^  (?=[\w-]+:[ \t]*(?:#.*)?\n)/m)) {
