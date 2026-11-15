@@ -1,0 +1,36 @@
+# Trang từ điển ở R2 (docs/specs/words-off-pages.md): dựng riêng trang /<lang>/words/** của các ngôn ngữ trong content/seo/words-r2.json → dist-words/ → R2 lexkite-words.
+# Chạy độc lập với đường deploy Pages (hook/direct đều dùng được): khi dữ liệu/mẫu trang từ đổi, và 1 lần/ngày bù. Sổ băm → chỉ ghi file đổi. Không bao giờ xoá.
+# Thứ tự an toàn: chạy lượt này XONG rồi mới để deploy Pages bỏ trang đó khỏi dist (PR bật ngôn ngữ mới phải dispatch workflow này từ nhánh trước khi merge).
+name: Words R2 sync
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '35 4 * * *'
+  push:
+    branches: [main]
+    paths: ['content/dict/**', 'content/seo/**', 'content/confidence/**', 'web/packs/**', 'scripts/build-seo-pages.mjs', 'scripts/lib/seo-*.mjs', 'scripts/lib/site-layout.mjs', 'scripts/lib/word-depth.mjs', 'scripts/lib/words-r2.mjs', 'scripts/seo/words-r2-sync.mjs', '.github/workflows/words-r2-sync.yml']
+permissions:
+  contents: read
+concurrency:
+  group: words-r2-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CI: 'true'
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 300, filter: 'blob:none' }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm ci --no-audit --no-fund
+      - name: Dựng trang từ (chỉ seo-pages, ra thư mục tạm + dist-words/)
+        run: mkdir -p out/d && SEO_DIST=out/d node scripts/build-seo-pages.mjs
+        timeout-minutes: 15
+      - name: Khoá S3 từ token
+        run: node scripts/cdn/creds.mjs
+      - name: Đồng bộ → R2
+        run: node scripts/seo/words-r2-sync.mjs
