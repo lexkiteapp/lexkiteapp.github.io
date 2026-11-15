@@ -2342,5 +2342,330 @@
     "교사들은 봉쇄 기간 한 달 내내 온라인 수업을 했다."
    ]
   ]
+ },
+ "visual": {
+  "n": "visual은 시각과 관련된 것을 가리키는 형용사로, 주로 명사 앞에 씁니다. visual aid(시각 자료), visual arts(시각 예술), visual impact처럼 짝을 이루는 표현이 많습니다. 한국어의 시각적이라는 말에 대응하지만, 사람의 눈 자체를 가리킬 때는 visual이 아니라 eye나 sight를 씁니다. 발음은 비주얼이 아니라 [ˈvɪʒuəl]에 가까워 s 부분이 지 소리가 난다는 점을 기억하세요. 명사로 쓰일 때는 보통 복수형 visuals로 영상이나 그림 자료를 뜻합니다.",
+  "x": [
+   [
+    "The teacher used visual aids to explain how the heart works.",
+    "선생님은 심장이 어떻게 작동하는지 설명하려고 시각 자료를 사용했다."
+   ],
+   [
+    "The film has a stunning visual style.",
+    "그 영화는 놀라운 영상미를 지니고 있다."
+   ]
+  ]
+ },
+ "volume": {
+  "n": "volume은 한국어 볼륨처럼 소리의 크기를 뜻하기도 하지만, 영어에서는 양이나 부피, 책의 권이라는 의미가 더 폭넓게 쓰입니다. 소리를 키우거나 줄일 때는 turn up the volume, turn down the volume처럼 말합니다. 양을 나타낼 때는 volume of traffic, sales volume처럼 of와 함께 쓰고, 뒤에는 불가산 명사나 복수 명사가 옵니다. 책의 권수를 셀 때는 Volume 2처럼 대문자로 씁니다. 발음은 [ˈvɑːljuːm]이며 강세는 첫 음절에 있습니다.",
+  "x": [
+   [
+    "Could you turn down the volume? I'm trying to study.",
+    "소리 좀 줄여 주시겠어요? 공부하려는 중이에요."
+   ],
+   [
+    "The volume of online orders rose sharply last year.",
+    "작년에 온라인 주문량이 급격히 늘었다."
+   ]
+  ]
+ },
+ "voluntary": {
+  "n": "voluntary는 누가 시켜서가 아니라 스스로 선택해서 하는 일을 뜻하는 형용사입니다. 보수 유무와는 상관이 없어서 voluntary redundancy(희망퇴직)처럼 돈을 받는 경우에도 씁니다. 주로 명사 앞에서 voluntary work, voluntary organization처럼 쓰고, 반대말은 compulsory나 mandatory입니다. 한국어의 자발적인과 비슷하지만 규정상 의무가 아니라는 뜻으로도 자주 쓰입니다. volunteer는 명사와 동사가 모두 가능하지만 voluntary는 형용사뿐입니다. 강세는 첫 음절이어서 [ˈvɑːlənteri]로 읽습니다.",
+  "x": [
+   [
+    "Attendance at the workshop is voluntary, but strongly encouraged.",
+    "워크숍 참석은 자율이지만 적극 권장됩니다."
+   ],
+   [
+    "She does voluntary work at an animal shelter every weekend.",
+    "그녀는 주말마다 동물 보호소에서 자원봉사를 한다."
+   ]
+  ]
+ },
+ "abstract": {
+  "n": "abstract는 형용사로 구체적인 실물이 아니라 생각이나 개념으로 존재하는 것을 가리킵니다. 반대말은 concrete이며, abstract noun(추상 명사)이나 abstract art(추상 미술)에서 자주 보입니다. 같은 철자의 명사 abstract는 논문의 초록을 뜻하고, 이때는 강세가 첫 음절에 있습니다. 동사 abstract는 강세가 두 번째 음절로 옮겨 가 의미도 달라집니다. 한국어로는 추상적이라는 말이 때로 막연하다는 부정적 뉘앙스를 띠지만, 영어 abstract는 중립적인 학술 용어로도 쓰입니다.",
+  "x": [
+   [
+    "Freedom and justice are abstract ideas that are hard to define.",
+    "자유와 정의는 정의하기 어려운 추상적 개념이다."
+   ],
+   [
+    "Please write an abstract of no more than 200 words.",
+    "200단어 이내로 초록을 작성해 주세요."
+   ]
+  ]
+ },
+ "academy": {
+  "n": "academy는 특정 분야를 전문적으로 가르치는 교육 기관이나 학술 단체를 가리킵니다. 한국어의 학원과 달리 입시나 보충 수업을 하는 곳은 보통 cram school나 private institute라고 부르며, academy는 military academy, police academy, art academy처럼 전문 훈련 기관에 더 잘 어울립니다. the Academy는 아카데미상을 주는 협회를 뜻하기도 합니다. 강세는 두 번째 음절에 있어 [əˈkædəmi]로 읽고, 형용사는 academic입니다.",
+  "x": [
+   [
+    "He graduated from the naval academy at the top of his class.",
+    "그는 해군사관학교를 수석으로 졸업했다."
+   ],
+   [
+    "The Academy of Sciences published a new report on climate change.",
+    "과학 아카데미는 기후 변화에 관한 새 보고서를 발표했다."
+   ]
+  ]
+ },
+ "accompany": {
+  "n": "accompany는 타동사라서 뒤에 전치사 없이 목적어가 바로 옵니다. 한국어의 ~와 함께 가다에 이끌려 accompany with라고 쓰는 실수가 흔한데, 올바른 표현은 accompany her입니다. 사람과 동행하는 경우뿐 아니라 사건이나 현상이 함께 나타난다는 뜻도 있어서, 수동태 be accompanied by가 매우 자주 쓰입니다. 음악에서는 반주를 한다는 뜻도 됩니다. 일상 대화에서는 go with나 come with가 더 자연스럽고, accompany는 다소 격식 있는 말입니다.",
+  "x": [
+   [
+    "A nurse will accompany you to the examination room.",
+    "간호사가 검사실까지 동행해 드릴 겁니다."
+   ],
+   [
+    "A small string quartet will accompany the singer tonight.",
+    "오늘 밤 소규모 현악 사중주단이 그 가수의 반주를 맡을 것이다."
+   ]
+  ]
+ },
+ "accumulate": {
+  "n": "accumulate는 오랜 시간에 걸쳐 조금씩 쌓이거나 모으는 것을 뜻하며, 타동사와 자동사로 모두 쓰입니다. accumulate wealth, accumulate evidence처럼 목적어를 취할 수도 있고, Dust accumulated on the shelf처럼 스스로 쌓이는 경우도 표현합니다. 한국어의 모으다보다 서서히 늘어난다는 느낌이 강하며, 단순히 한 번에 모으는 것은 collect나 gather가 낫습니다. 명사는 accumulation입니다. 강세는 두 번째 음절 [əˈkjuːmjəleɪt]입니다.",
+  "x": [
+   [
+    "Dust had accumulated on the old piano over the years.",
+    "오랜 세월 동안 낡은 피아노 위에 먼지가 쌓였다."
+   ],
+   [
+    "He accumulated a small fortune by investing carefully.",
+    "그는 신중한 투자로 적잖은 재산을 모았다."
+   ]
+  ]
+ },
+ "accurate": {
+  "n": "accurate는 사실이나 수치가 오차 없이 정확하다는 뜻의 형용사입니다. accurate information, accurate measurement처럼 쓰고, 부사형은 accurately입니다. 한국어의 정확한은 exact, precise, correct를 모두 포괄하지만, accurate는 실제 사실에 얼마나 가까운지를 말할 때 주로 씁니다. 반대말은 inaccurate이고 in-을 붙이는 점에 주의하세요. 사람을 칭찬할 때는 보통 쓰지 않으며, 대신 careful이나 precise를 씁니다. 발음은 [ˈækjərət]입니다.",
+  "x": [
+   [
+    "The weather forecast turned out to be remarkably accurate.",
+    "일기 예보는 놀라울 만큼 정확했다."
+   ],
+   [
+    "Make sure the figures in your report are accurate.",
+    "보고서의 수치가 정확한지 확인하세요."
+   ]
+  ]
+ },
+ "aid": {
+  "n": "aid는 도움을 뜻하지만 불가산 명사로 쓰이는 경우가 많아 an aid나 aids라고 하면 의미가 달라집니다. 국가나 단체 사이의 원조는 foreign aid, humanitarian aid, financial aid처럼 관사 없이 씁니다. 반면 보조 도구를 가리킬 때는 가산 명사가 되어 a hearing aid(보청기), visual aids(시각 자료)처럼 씁니다. 일상에서 사람을 돕는다고 할 때는 help가 더 자연스럽고, aid는 공식적이거나 구호 맥락에서 어울립니다. 동사로도 쓰이지만 격식체입니다.",
+  "x": [
+   [
+    "The charity sent emergency aid to the flooded region.",
+    "그 자선 단체는 홍수 피해 지역에 긴급 구호품을 보냈다."
+   ],
+   [
+    "My grandfather wears a hearing aid in his left ear.",
+    "할아버지는 왼쪽 귀에 보청기를 끼신다."
+   ]
+  ]
+ },
+ "allocate": {
+  "n": "allocate는 자금, 시간, 자원 같은 것을 목적에 맞게 나누어 배정한다는 뜻입니다. 구조는 allocate A to B 또는 allocate A for B이며, 수동태로 쓰일 때가 많습니다. 한국어의 할당하다와 거의 같고 공식적인 문서나 경제 맥락에서 자주 보입니다. assign과 비슷하지만 assign은 사람에게 일이나 역할을 맡길 때, allocate는 돈이나 자원을 나눌 때 더 흔합니다. 명사는 allocation이고, 강세는 첫 음절 [ˈæləkeɪt]입니다.",
+  "x": [
+   [
+    "The council allocated one million dollars to repair the bridge.",
+    "시의회는 다리 보수에 백만 달러를 배정했다."
+   ],
+   [
+    "We need to allocate more time for revision before the exam.",
+    "시험 전에 복습할 시간을 더 배정해야 한다."
+   ]
+  ]
+ },
+ "ambiguous": {
+  "n": "ambiguous는 해석이 두 가지 이상 가능해서 의미가 분명하지 않다는 뜻입니다. 한국어의 애매하다는 흐릿하고 불확실하다는 느낌까지 넓게 쓰이지만, ambiguous는 서로 다른 해석이 가능하다는 점에 초점이 있습니다. 단순히 불분명한 경우에는 vague나 unclear가 더 알맞습니다. ambiguous answer, ambiguous wording, ambiguous situation처럼 쓰고, 명사는 ambiguity, 반대말은 unambiguous입니다. 강세는 두 번째 음절 [æmˈbɪɡjuəs]입니다.",
+  "x": [
+   [
+    "Her ambiguous reply left us unsure whether she had agreed.",
+    "그녀의 애매한 대답 때문에 우리는 그녀가 동의했는지 알 수 없었다."
+   ],
+   [
+    "The contract contains several ambiguous clauses.",
+    "그 계약서에는 해석이 갈릴 수 있는 조항이 여럿 있다."
+   ]
+  ]
+ },
+ "amend": {
+  "n": "amend는 법이나 문서의 잘못된 부분을 고치거나 개선하기 위해 수정한다는 뜻의 격식 있는 동사입니다. amend a law, amend the constitution처럼 공식 문서와 어울리고, 일반 글이나 말에서 일상적인 수정은 change나 correct를 씁니다. 철자가 비슷한 emend는 텍스트의 오류를 바로잡는 전문 용어라서 혼동하지 마세요. 명사 amendment는 헌법 수정 조항을 가리켜 the First Amendment처럼 자주 보입니다. make amends(보상하다)는 amend와 다른 숙어입니다.",
+  "x": [
+   [
+    "Parliament voted to amend the law on data protection.",
+    "의회는 개인정보 보호법을 개정하기로 표결했다."
+   ],
+   [
+    "You may amend your application until Friday.",
+    "금요일까지는 신청서를 수정할 수 있습니다."
+   ]
+  ]
+ },
+ "analogy": {
+  "n": "analogy는 서로 다른 두 대상의 공통점을 들어 설명하는 비유나 유추를 뜻합니다. 구조는 draw an analogy between A and B 또는 an analogy with A입니다. 한국어의 비유는 은유까지 포함하는 넓은 말이지만, analogy는 논리적으로 비교하여 이해를 돕는 설명이라는 성격이 강합니다. by analogy(유추하여)라는 표현도 알아 두세요. 복수형은 analogies이고, 강세는 두 번째 음절로 [əˈnælədʒi]입니다. 형용사는 analogous로 with나 to와 함께 씁니다.",
+  "x": [
+   [
+    "The teacher drew an analogy between the heart and a water pump.",
+    "선생님은 심장을 물 펌프에 비유해 설명했다."
+   ],
+   [
+    "By analogy, we can assume the same rule applies here.",
+    "유추해 보면 여기에도 같은 규칙이 적용된다고 볼 수 있다."
+   ]
+  ]
+ },
+ "annual": {
+  "n": "annual은 일 년에 한 번 일어나거나 일 년 단위로 계산되는 것을 가리키는 형용사입니다. annual report, annual meeting, annual income처럼 명사 앞에 쓰며, 한국어의 연례, 연간에 해당합니다. yearly와 의미가 같지만 annual이 더 격식 있는 느낌입니다. 부사형은 annually이고, 서술 용도로는 보통 쓰지 않아 The meeting is annual보다 The meeting is held annually가 자연스럽습니다. 식물에서 한해살이를 뜻하는 명사로도 쓰이며, 발음은 [ˈænjuəl]입니다.",
+  "x": [
+   [
+    "The company holds its annual meeting every spring.",
+    "그 회사는 매년 봄에 정기 총회를 연다."
+   ],
+   [
+    "The average annual rainfall in this region is about 800 millimeters.",
+    "이 지역의 연평균 강수량은 약 800밀리미터이다."
+   ]
+  ]
+ },
+ "aspect": {
+  "n": "aspect는 하나의 상황이나 문제를 이루는 여러 측면 가운데 하나를 가리킵니다. 구조는 an aspect of A이며, every aspect, key aspect, positive aspect 같은 짝이 흔합니다. 한국어의 측면, 양상과 비슷하지만 단순히 관점을 뜻하는 point of view와는 다릅니다. 강세는 첫 음절 [ˈæspekt]입니다. 철자가 -ct로 끝나므로 마지막 t를 빠뜨리지 않도록 주의하세요. 문법에서는 동작의 진행이나 완료를 구분하는 상(相)을 뜻하는 용어이기도 합니다.",
+  "x": [
+   [
+    "Cost is only one aspect of the decision.",
+    "비용은 그 결정의 한 측면일 뿐이다."
+   ],
+   [
+    "She enjoys every aspect of her job, especially working with children.",
+    "그녀는 아이들과 일하는 것을 비롯해 업무의 모든 면을 즐긴다."
+   ]
+  ]
+ },
+ "assemble": {
+  "n": "assemble은 부품을 조립한다는 뜻과 사람들이 한곳에 모인다는 뜻을 모두 가진 동사입니다. 조립은 assemble furniture, assemble a model처럼 타동사로 쓰고, 모임은 The crowd assembled in the square처럼 자동사로 쓸 수 있습니다. assemble a team은 팀을 꾸린다는 의미입니다. 한국어의 조립하다와 모이다를 한 단어로 표현하는 셈입니다. 명사는 assembly이며 학교 조회나 국회 같은 의회를 뜻할 때도 쓰입니다. 강세는 두 번째 음절 [əˈsembl]입니다.",
+  "x": [
+   [
+    "It took us two hours to assemble the bookshelf.",
+    "책장을 조립하는 데 두 시간이 걸렸다."
+   ],
+   [
+    "Students assembled in the gym for the morning announcement.",
+    "학생들은 아침 공지를 듣기 위해 체육관에 모였다."
+   ]
+  ]
+ },
+ "assess": {
+  "n": "assess는 어떤 것의 질, 가치, 영향을 판단하고 평가한다는 뜻의 동사입니다. assess the impact, assess the risk처럼 목적어가 바로 오며, 시험이나 성과를 평가할 때도 씁니다. evaluate와 거의 비슷하지만, assess는 현재 상태를 살펴 판단한다는 느낌이 더 강합니다. 한국어에서 평가라는 말은 좋고 나쁨을 따지는 느낌이 있지만, assess는 중립적으로 측정하고 파악한다는 쪽에 가깝습니다. 명사는 assessment이며 s가 두 개씩 연속으로 나오니 철자에 유의하세요.",
+  "x": [
+   [
+    "Doctors will assess the patient's condition before deciding on treatment.",
+    "의사들은 치료를 결정하기 전에 환자의 상태를 평가할 것이다."
+   ],
+   [
+    "It is hard to assess the full impact of the policy so soon.",
+    "그렇게 빨리 정책의 전체 영향을 평가하기는 어렵다."
+   ]
+  ]
+ },
+ "assign": {
+  "n": "assign은 사람에게 일, 과제, 역할을 맡기거나 무엇인가를 배정할 때 쓰는 동사입니다. 구조는 assign A to B 또는 assign B A처럼 두 가지가 가능합니다. 선생님이 숙제를 내주는 경우 assign homework라고 하며, 한국어의 내주다, 배정하다에 해당합니다. 수동태 be assigned to는 부서나 장소에 배치되는 상황에서 자주 쓰입니다. 명사는 assignment로 과제나 임무를 뜻하며 가산 명사입니다. 철자에서 g 뒤에 n이 오는 것에 유의하고, 강세는 두 번째 음절입니다.",
+  "x": [
+   [
+    "The teacher assigned us a short essay for the weekend.",
+    "선생님은 주말 동안 쓸 짧은 에세이를 우리에게 내주셨다."
+   ],
+   [
+    "She was assigned to the marketing team last month.",
+    "그녀는 지난달 마케팅 팀에 배치되었다."
+   ]
+  ]
+ },
+ "attain": {
+  "n": "attain은 노력 끝에 목표나 수준에 이르렀다는 뜻으로, achieve나 reach보다 격식 있는 동사입니다. attain a goal, attain a high standard, attain independence처럼 추상적이고 중요한 성취와 어울립니다. 한국어의 달성하다, 이르다에 해당하며, 물리적인 장소에 도착한다는 뜻에는 잘 쓰지 않습니다. 목적어 앞에 to를 붙이지 않는 타동사라는 점이 중요합니다. 명사는 attainment이고, 형용사 attainable은 달성할 수 있다는 의미입니다. 발음은 [əˈteɪn]입니다.",
+  "x": [
+   [
+    "It took years of practice to attain that level of skill.",
+    "그 정도의 기량에 이르는 데에는 수년간의 연습이 필요했다."
+   ],
+   [
+    "The country attained independence in 1960.",
+    "그 나라는 1960년에 독립을 이루었다."
+   ]
+  ]
+ },
+ "attribute": {
+  "n": "attribute는 동사와 명사로 쓰이며 발음이 다릅니다. 동사는 [əˈtrɪbjuːt]로 두 번째 음절에 강세가 있고, 명사는 [ˈætrɪbjuːt]로 첫 음절에 강세가 있습니다. 동사는 attribute A to B 구조로, A의 원인이나 작자를 B라고 본다는 뜻이며 to를 꼭 붙여야 합니다. 명사는 특성이나 속성을 뜻하며 personal attributes처럼 씁니다. 한국어의 속성이라는 뜻만 알면 동사 용법에서 놓치기 쉽습니다. 수동태 be attributed to가 특히 흔합니다.",
+  "x": [
+   [
+    "Scientists attribute the rise in sea level to global warming.",
+    "과학자들은 해수면 상승이 지구 온난화 탓이라고 본다."
+   ],
+   [
+    "Patience is an attribute every good teacher needs.",
+    "인내심은 훌륭한 교사라면 갖추어야 할 자질이다."
+   ]
+  ]
+ },
+ "bias": {
+  "n": "bias는 특정 사람이나 집단에 대한 불공정한 선입견이나 편향을 뜻하는 명사입니다. 구조는 bias against A(A에 대한 편견), bias toward A(A에 치우침)처럼 전치사에 따라 방향이 달라집니다. gender bias, political bias, media bias가 대표적입니다. 형용사 biased는 be biased against A처럼 쓰고, 같은 형태의 동사 bias(편향되게 하다)도 있습니다. 한국어의 편견과 달리 연구에서 결과를 왜곡하는 체계적 오류를 말할 때도 쓰입니다. 발음은 [ˈbaɪəs]입니다.",
+  "x": [
+   [
+    "The study found a clear bias against older job applicants.",
+    "그 연구는 고령 구직자에 대한 뚜렷한 편견이 있음을 밝혀냈다."
+   ],
+   [
+    "A good journalist tries to report the news without bias.",
+    "좋은 기자는 편향 없이 뉴스를 전하려고 노력한다."
+   ]
+  ]
+ },
+ "brief": {
+  "n": "brief는 시간이 짧거나 말이나 글이 간결하다는 뜻의 형용사입니다. a brief meeting, a brief summary처럼 쓰며, 한국어의 짧은과 달리 길이보다는 시간이나 분량에 초점이 있습니다. 물건의 길이가 짧다고 할 때는 short를 쓰지 brief를 쓰지 않습니다. 동사로는 상황을 간단히 알려 준다는 뜻이고, in brief는 요약하자면이라는 관용 표현입니다. 복수 명사 briefs는 속옷을 뜻하기도 합니다. 철자에서 ie의 순서에 주의하세요. 발음은 [briːf]입니다.",
+  "x": [
+   [
+    "Could you give me a brief summary of the meeting?",
+    "회의 내용을 간단히 요약해 주시겠어요?"
+   ],
+   [
+    "We had a brief conversation before the class started.",
+    "수업이 시작되기 전에 우리는 짧게 이야기를 나눴다."
+   ]
+  ]
+ },
+ "bulk": {
+  "n": "bulk는 어떤 것의 대부분을 가리킬 때 the bulk of 형태로 자주 쓰입니다. 동사는 of 뒤의 명사에 맞추는 경우가 많아서, 복수 명사가 오면 복수 동사, 불가산 명사가 오면 단수 동사를 씁니다. 또 in bulk는 대량으로 사거나 판다는 뜻으로 buy in bulk(대량 구매하다)가 일상에서 흔합니다. 한국어의 벌크, 대용량과 비슷하지만 대부분이라는 뜻은 외래어 벌크에서는 잘 떠오르지 않으니 주의하세요. 형용사 bulky는 부피가 커서 다루기 불편하다는 의미입니다.",
+  "x": [
+   [
+    "The bulk of our customers are under thirty.",
+    "우리 고객의 대부분은 서른 살 미만이다."
+   ],
+   [
+    "It is cheaper to buy rice in bulk.",
+    "쌀은 대량으로 사는 것이 더 저렴하다."
+   ]
+  ]
+ },
+ "capacity": {
+  "n": "capacity는 그릇이나 공간이 담을 수 있는 최대량을 뜻하기도 하고, 무엇을 할 수 있는 능력을 뜻하기도 합니다. 장소에서는 seating capacity, at full capacity(꽉 찬 상태로)처럼 쓰고, 능력에서는 capacity to learn처럼 to부정사나 for를 씁니다. ability와 달리 잠재적 최대치라는 느낌이 있습니다. in my capacity as A는 A의 자격으로라는 뜻의 관용 표현으로, 직책이나 역할을 밝힐 때 씁니다. 강세는 두 번째 음절 [kəˈpæsəti]입니다.",
+  "x": [
+   [
+    "The stadium has a seating capacity of fifty thousand.",
+    "그 경기장의 좌석 수용 인원은 5만 명이다."
+   ],
+   [
+    "Children have a remarkable capacity to learn new languages.",
+    "아이들은 새로운 언어를 배우는 놀라운 능력이 있다."
+   ]
+  ]
+ },
+ "cease": {
+  "n": "cease는 계속되던 일이 멈추거나 끝난다는 뜻의 격식 있는 동사입니다. 자동사와 타동사로 모두 쓰이고, cease to exist, cease operations, cease fire처럼 공문이나 뉴스에서 자주 보입니다. 뒤에 to부정사나 동명사가 올 수 있지만, cease to be처럼 상태 변화를 말할 때는 to부정사가 더 자연스럽습니다. 일상 대화에서는 stop을 쓰는 편이 자연스럽습니다. 철자가 비슷한 seize와 발음이 다르니 주의하세요. cease는 [siːs]이며 명사 ceasefire는 휴전을 뜻합니다.",
+  "x": [
+   [
+    "The company ceased trading after thirty years in business.",
+    "그 회사는 30년간 영업한 뒤 거래를 중단했다."
+   ],
+   [
+    "The noise finally ceased around midnight.",
+    "소음은 마침내 자정 무렵에 멈췄다."
+   ]
+  ]
  }
 }
